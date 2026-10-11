@@ -429,6 +429,46 @@ def sorry_classify(*a):
     print(L[-1])
 
 
+BREACH_LINE = 13731      # ### OPEN_TRAILS: the breach line landed by record_lines
+C_HEAD = ('*Appended 2026-10-10 by b648 to the sorry breach (:%d), under `(R258)`(2) and the author’s answer -- A CORRECTION, BY THE '
+          'AUTHOR’S WORD: THE RULE UNENFORCED ON LEGACY CODE, NOT REFUTED; A NEW ARM:*')
+
+
+def _correction():
+    return ('\n%s the line above titles the 37 lines a refutation of the standing rule; all 37 entered their mains before the rule`s first line '
+            '(:%d, b559, 2026-09-29), so by the author`s word the rule is not refuted: it was not enforced on code older than itself. The repairs, '
+            'by the same word: QUARANTINED 33 -- the 32 SIDE-kernel legacy/ lines and SIDE-lv-conservation PinnedGoal.lean :23, each moved to a '
+            'branch sorry-quarantine-<kernel>, its name and statement recorded in the kernel`s ERRATA-form file with a line naming where the true '
+            'content is proved (SIDE-kernel Kernel/SchwarzDischarge.lean :42, Kernel/ProductFormula_Clean.lean :86); RESTATED 4 -- SIDE-effects '
+            'Milestones.lean :32, :49, :63 as the open conjectures they are and SIDE-lv-conservation T3_StepNineBridge.lean :108 with its '
+            'docstring naming the universal form`s refutation in the same file, each a Prop with "stated, not proved; open". From b648 the suite '
+            'carries G-NO-SORRY-MAIN, an arm that reads every kernel main for a `sorry` in code outside a quarantine branch and fails on any '
+            'hit. The two sentences citing the conjectures of the milestones as holding (ADDITIVE_MULTIPLICATIVE_CONSPIRACY :241 and its edition :243) '
+            'stay UNLICENSED until their documents are re-cut.\n' % (C_HEAD % BREACH_LINE, RULE_LINE))
+
+
+def correction(*a):
+    """OPEN_TRAILS: the correction beneath the breach line, by the author's answer at Component 2; through the ledger guards before it lands."""
+    import b641_record as R41
+    Q = R2._Q()
+    if C_HEAD.split('--')[0] in io.open(Q.OT, encoding='utf-8').read() and not DRY:
+        sys.exit('### THE CORRECTION IS WRITTEN ALREADY -- NOTHING WRITTEN')
+    t = R41._poss(_correction())
+    cells = R3.predict_cells(t, 'OPEN_TRAILS.md')
+    nd, _n = R3._nd(t)
+    p = os.path.join(SP if DRY else D, 'b648_scanfile_correction.md')
+    _write(p, t.encode('utf-8'))
+    clean = _clean(_scan(p))
+    ticks = [l[:60] for l in t.split(NL) if l.count('`') % 2]
+    print('  table cells: %s ; nd %s ; scanner %s ; odd backticks %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN', ticks or 'NONE'))
+    if DRY:
+        print(t)
+        return
+    if cells or any(nd.values()) or not clean or ticks:
+        sys.exit('### NOTHING WRITTEN')
+    R3._land(Q, [('OPEN_TRAILS.md', C_HEAD % BREACH_LINE, t)], 'b648_correction_line.json', BREACH_LINE)
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
