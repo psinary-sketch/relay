@@ -194,6 +194,118 @@ def commands(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R259)(1), (3), (4)
+B648_ENTRY = 8151        # ### FINDINGS: b648's entry
+B648_CORR = 13770        # ### OPEN_TRAILS: the correction beneath b648's sorry breach (the quarantines and the arm G-NO-SORRY-MAIN)
+B648_TRAIL = 13772       # ### OPEN_TRAILS: b648's trail record (the re-cut order's answer, W-ORD-LV-BUILD-HOST named in its note)
+W_HEAD = '*Appended 2026-10-11 by b649 to b648’s entry (:%d), under `(R259)`(1) -- b648 AT ITS WEIGHT, ITS FIGURES READ FROM ITS BANKS:*'
+LM_HEAD = ('*Appended 2026-10-11 by b649 to the correction beneath the sorry breach (:%d), under `(R259)`(3) -- W-ORD-LEGACY-MAP, ENTERED AND '
+           'ACTED BY THIS ACT:*')
+BH_HEAD = ('*Appended 2026-10-11 by b649 to b648’s record (:%d), under `(R259)`(4) -- W-ORD-LV-BUILD-HOST, OPENED, ITS TRIGGER THE h2 '
+           'DOCSTRING EDIT:*')
+
+
+def _need(pat, text, what):
+    m = re.search(pat, text, re.M)
+    if not m:
+        sys.exit('### %s NOT FOUND -- NOTHING WRITTEN' % what)
+    return m
+
+
+def _weight():
+    c = rd('b648_closing.txt')
+    h = _need(r'^b648 closed: relay (\w+), PLACE-papers (\w+); suite (\d+) of (\d+); root (\w+)…; (\d+) prompts? answered; (\d+) defects', c,
+              'b648`s closing head line')
+    cl = jl('b648_sorry_classification.json')
+    rows = cl.get('rows') or []
+    cc = collections.Counter(r.get('proposed') for r in rows)
+    before = sum(1 for r in rows if (r.get('entered') or '9999') < '2026-09-29')
+    unl = cl.get('unlicensed') or []
+    tp, ta = jl('b648_table_pages.json').get('rows') or [], jl('b648_table_pages_after.json').get('rows') or []
+    c0, c1 = collections.Counter(r['verdict'] for r in tp), collections.Counter(r['verdict'] for r in ta)
+    kc = jl('b648_kernel_cites.json').get('rows') or []
+    cmp_ = jl('b648_reader_compare.json')
+    ro = jl('b648_recut_order.json').get('rows') or []
+    sc = jl('b648_scores.json')
+    closing = g(RELAY, 'log', '--format=%h', '-1', '--grep=^b648 closing', PRE_RELAY).strip()[:8]
+    seal = g(RELAY, 'log', '--format=%h', '-1', '--grep=^b648 seal', PRE_RELAY).strip()[:8]
+    if (len(rows), cc.get('QUARANTINED'), cc.get('RESTATED'), len(tp), len(ta), len(kc), len(ro)) != (37, 33, 4, 1261, 1267, 20, 33):
+        sys.exit('### b648`S BANKS DO NOT READ AS EXPECTED -- NOTHING WRITTEN')
+    sco = ', '.join('%s %s' % (k, (sc.get(k) or ['?'])[0]) for k in ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3', 'S4', 'S5'))
+    return ('\n%s relay %s (act), %s (seal), %s (closing), PLACE-papers %s; the suite %s of %s, NOT CLEAN on G-EDIT-ROUTE and G-NO-SORRY-MAIN, '
+            'both declared on the face; the root %s…; %s prompts answered; %s defects, (a) to (i), and a note beside them. The 37 `sorry` lines '
+            'classified on the author`s word: QUARANTINED %d, RESTATED %d, PROVED %d, each with its entry date, %d of them before the rule`s '
+            'line at OPEN_TRAILS :11508; the quarantine branches sorry-quarantine-SIDE-kernel and sorry-quarantine-SIDE-lv-conservation pushed, '
+            'each kernel`s ERRATA.md naming the quarantined declarations; the four RESTATED Props on local branches, unmerged, their builds '
+            'beneath the hold; the citing sentences UNLICENSED, %d. The two pages through the table, %d rows before -- MATCHES %d, UNDERSTATES '
+            '%d, OVERREACHES %d, UNLICENSED %d -- and %d after three template repairs and re-emission at the new glossary -- MATCHES %d, '
+            'OVERREACHES %d, UNLICENSED %d. The census at v0.8 with cluster, phase and maturity over 77 rows; of the 20 kernels the rules leave '
+            'unplaced, %d placed by the keystones naming them, %d split, %d named by none; the second reader %s of 2 by hand. The h2 row banked. '
+            'The re-cut order raised over %d documents and the author`s answer banked. %s. Read at b649`s step zero: the two pages regenerate one '
+            'Placement row longer since the census at v0.8 (PLACE-papers f66d23d) names nodes of the chain, a commit made after the pages were '
+            're-emitted and their arms read; the arms test_chain_page.py (1), (14) and test_g_chain_page.py (1) fail on that row, and this act`s '
+            're-emission carries it. Nothing deposited; the draft held at v4.\n' % (
+                W_HEAD % B648_ENTRY, h.group(1), seal, closing, h.group(2), h.group(3), h.group(4), h.group(5)[:8], h.group(6), h.group(7),
+                cc.get('QUARANTINED', 0), cc.get('RESTATED', 0), cc.get('PROVED', 0), before, len(unl), len(tp), c0['MATCHES'], c0['UNDERSTATES'],
+                c0['OVERREACHES'], c0['UNLICENSED'], len(ta), c1['MATCHES'], c1['OVERREACHES'], c1['UNLICENSED'],
+                sum(1 for r in kc if r['cluster']), sum(1 for r in kc if r['how'].startswith('split')),
+                sum(1 for r in kc if r['how'] == 'named by no keystone'), cmp_.get('hand'), len(ro), sco))
+
+
+def _legacy_map_line():
+    q = collections.Counter(r['kernel'] for r in (jl('b648_sorry_classification.json').get('rows') or []) if r.get('proposed') == 'QUARANTINED')
+    return ('\n%s on each branch sorry-quarantine-<kernel> a README.md in the house form lists every declaration the quarantine took off main '
+            '-- its file and line at the quarantine commit, its statement, the date it entered main, and its successor, the declaration in the '
+            'built kernel proving the same content by file and line from b648`s classification bank (relay data/b648_sorry_classification.json), '
+            'or "no successor; superseded by" with the reason -- committed alone on the branch; its rows counted against the quarantined '
+            'declarations (%s), an arm of the suite reading the equality. Acted at this act`s Component 3, its bank relay data/b649_legacy_map.txt.\n'
+            % (LM_HEAD % B648_CORR, '; '.join('%s %d' % kv for kv in sorted(q.items()))))
+
+
+def _build_host_line():
+    return ('\n%s every module of SIDE-lv-conservation built one per call under the tree-aware watchdog (relay tools/build_watch.py), each '
+            'module`s tree peak and the host`s low banked (relay data/b649_lv_build.txt); the modules that cannot complete under the hold, 2560 MB, '
+            'listed with their peaks; the price written as the host memory each would need, or a split of GammaBounds.lean at :177 where the peak '
+            'is that module`s own. No hold change and no kernel edit. Trigger: the h2 docstring edit -- the row W-ORD-LV-H2-DOCSTRING of b648 '
+            '(relay data/b648_h2_row.txt), which `(R259)`(4) names W-ORD-H2-DOCSTRING -- waits on this bank. Opened at this act; its price written '
+            'from the bank at Component 4.\n' % (BH_HEAD % B648_TRAIL))
+
+
+def record_lines(*a):
+    """Component 1, (R259)(1), (3), (4): FINDINGS, b648 at its weight (to :8151); OPEN_TRAILS, W-ORD-LEGACY-MAP entered and acted (to :13770)
+    and W-ORD-LV-BUILD-HOST opened (to :13772)."""
+    import b641_record as R41
+    Q = R2._Q()
+    if not (Q.line_of(Q.FIND, '## The sorry lines on kernel mains: 37 classified') == B648_ENTRY):
+        sys.exit('### b648`S ENTRY MOVED -- NOTHING WRITTEN')
+    ot = lines_of(io.open(Q.OT, encoding='utf-8').read().replace(chr(13), ''))
+    if 'A CORRECTION, BY THE AUTHOR' not in ot[B648_CORR - 1] or not ot[B648_TRAIL - 1].startswith('### b648 —'):
+        sys.exit('### b648`S TRAIL LINES MOVED -- NOTHING WRITTEN')
+    items = [('FINDINGS.md', W_HEAD % B648_ENTRY, R41._poss(_weight())), ('OPEN_TRAILS.md', LM_HEAD % B648_CORR, R41._poss(_legacy_map_line())),
+             ('OPEN_TRAILS.md', BH_HEAD % B648_TRAIL, R41._poss(_build_host_line()))]
+    allt = ''.join(t for _f, _h, t in items)
+    cells = sum((R3.predict_cells(t, f) for f, _h, t in items), [])
+    nd, _n = R3._nd(allt)
+    p = os.path.join(SP if DRY else D, 'b649_scanfile_lines.md')
+    _write(p, allt.encode('utf-8'))
+    sc = _scan(p)
+    clean = _clean(sc)
+    ticks = [l[:60] for l in allt.split(NL) if l.count('`') % 2]
+    unread = [x for x in ('### NOT', 'None', ' ? ') if x in allt]
+    outside = [n for n in R41.OAI_NEEDLES if n in allt]
+    print('  table cells: %s ; no-disclosure hits: %s ; scanner %s ; odd backticks by line: %s ; unread figures: %s ; outside names: %s' % (
+        cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN', ticks or 'NONE', unread or 'NONE', outside or 'NONE'))
+    if DRY:
+        for _f, _h, t in items:
+            print(t)
+        if not clean:
+            print(sc[-1500:])
+        return
+    if cells or any(nd.values()) or not clean or ticks or unread or outside:
+        sys.exit('### A LINE WOULD MAKE A TABLE CELL, CARRY TECHNE TEXT, A STEM, ODD BACKTICKS, AN UNREAD FIGURE OR AN OUTSIDE NAME -- NOTHING WRITTEN')
+    R3._land(Q, items, 'b649_record_lines.json', B648_ENTRY)
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
