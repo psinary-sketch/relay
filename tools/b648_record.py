@@ -150,6 +150,8 @@ def answers(*a):
                 for j, op in enumerate(q.get('options', []), 1):
                     L.append('  OPTION %d%s: %s :: %s' % (j, ' [RECOMMENDED]' if '(Recommended)' in op.get('label', '') else '', op.get('label'),
                                                          op.get('description')))
+                    if op.get('preview'):   # ### b648: an option's preview is part of the option, banked verbatim beneath it
+                        L += ['    PREVIEW | ' + x for x in op['preview'].split(NL)]
             r = results.get(cid, (None, '### NO RESULT'))
             L += ['RESULT (transcript line %s): %s' % (r[0], r[1]), '']
     head = ['### b648 -- THE AUTHOR`S ANSWERS, %d prompt(s) put by the seat in this act (%s), banked verbatim with the options and the recommended '
@@ -974,6 +976,197 @@ def pages_table(pp_rev=None, bank='b648_table_pages', *a):
     put_txt(bank + '.txt', L)
     put_json(bank + '.json', dict(read_at=dict(READ_AT, pages=pp_rev), rows=allrows))
     print(L[-1])
+
+
+# ================================================================================ COMPONENT 4: THE CENSUS AT v0.8
+# ### (R258)(4) and the author's word at b648 (data/b648_author_answers.txt, the census prompts): a kernel the cluster rules leave unplaced
+# ### takes a cluster only as SERVED-KEYSTONE -- the roster keystones naming it at PLACE-papers agree on one cluster, each named -- or as
+# ### TERMINAL-HEADS -- its heads in a cluster's terminal set, listed; a split stays blank with its clusters beside it; a kernel no keystone
+# ### names, and whose heads name no cluster, stays blank. The census itself (p2-42) is not counted: it names every kernel by construction.
+CEN_SELF = ('p2-42',)
+REG_ID = re.compile(r'^(?:d1-|1\.5[a-h]-|p2-d?|m5-)\d+$')
+
+
+def _kid(r):
+    """a roster keystone's name: its REGISTRY id, else its file's name (b647's bank cuts an id that is a file name at 46 characters)."""
+    return r['id'] if REG_ID.match(r['id']) else os.path.basename(r['path'])
+
+
+def kernel_cites(*a):
+    """data/b648_kernel_cites.txt/.json: for each kernel b647's columns leave unplaced, the roster keystones naming it by repository name at
+    PLACE-papers (READ_AT), their clusters, its heads in the terminal sets, and the reading under the author's word."""
+    import licensed_table as LT
+    j = jl('b647_census_columns.json')['rows']
+    ros = [r for r in j if r['kind'] == 'roster']
+    ks = [r for r in j if r['kind'] == 'kernel' and not r['cluster']]
+    T = json.loads(_show(RELAY, READ_AT[_R], 'data/terminal_table.json'))['rows']
+    txt = dict((r['id'], _show(PP, READ_AT[_P], r['path'])) for r in ros)
+    unread = [r['path'] for r in ros if txt[r['id']] is None]
+    if unread:
+        sys.exit('### ROSTER PATHS UNREAD AT PLACE-papers %s: %s -- NOTHING WRITTEN' % (READ_AT[_P], unread))
+    rows = []
+    L = ['b648 -- COMPONENT 4, (R258)(4): THE UNPLACED KERNELS AND THE KEYSTONES THAT NAME THEM (%s)' % utc(),
+         'read at PLACE-papers %s (the 48 roster keystones of b647`s columns, relay data/b647_census_columns.json) and relay %s (the terminal '
+         'table); a keystone names a kernel when its text carries the repository name with no letter, digit, _ or - on either side; the census '
+         'itself (%s) is printed and not counted' % (READ_AT[_P], READ_AT[_R], ', '.join(CEN_SELF)), '']
+    for k in ks:
+        kn = k['id'].split()[0]
+        pat = re.compile(r'(?<![\w-])' + re.escape(kn) + r'(?![\w-])')
+        hits = [(_kid(r), r['cluster'], len(pat.findall(txt[r['id']]))) for r in ros if pat.search(txt[r['id']])]
+        counted = [h for h in hits if h[0] not in CEN_SELF]
+        cl = collections.Counter(h[1] for h in counted)
+        names = set(x['name'].split('.')[-1] for x in T if x['repo'] == kn)
+        heads = dict((c, sorted(s & names)) for c, s in LT.TERMINAL_SETS.items() if s & names)
+        if len(heads) == 1:
+            c, how = list(heads)[0], 'TERMINAL-HEADS: %s' % ', '.join(list(heads.values())[0])
+        elif len(cl) == 1:
+            c, how = list(cl)[0], 'SERVED-KEYSTONE: %s' % ', '.join(h[0] for h in counted)
+        elif cl:
+            c, how = '', 'split: %s' % ', '.join('%s %d' % kv for kv in sorted(cl.items(), key=lambda kv: (-kv[1], kv[0])))
+        else:
+            c, how = '', 'named by no keystone'
+        rows.append(dict(kernel=kn, id=k['id'], cluster=c, how=how, hits=hits, counted=len(counted), heads=heads))
+        L += ['  %-34s %-16s %s' % (kn, c or '### BLANK', how),
+              '      keystones naming it: %s' % ('; '.join('%s (%s) x%d%s' % (i, cc, n, ' NOT COUNTED' if i in CEN_SELF else '') for i, cc, n in hits) or 'none'),
+              '      heads in a cluster`s terminal set: %s' % (heads or 'none')]
+    placed = [r for r in rows if r['cluster']]
+    L += ['', '### ### **KERNELS %d: PLACED %d (%s) ; BLANK %d (split %d, named by no keystone %d).**' % (
+        len(rows), len(placed), ', '.join('%s %s' % (r['kernel'], r['cluster']) for r in placed), len(rows) - len(placed),
+        sum(r['how'].startswith('split') for r in rows), sum(r['how'] == 'named by no keystone' for r in rows))]
+    put_txt('b648_kernel_cites.txt', L)
+    put_json('b648_kernel_cites.json', dict(at=utc(), read_at=dict(READ_AT), rows=rows))
+    print(L[-1])
+
+
+V8_TAG = '## Back matter of the v0.8 edition — written 2026-10-10 by b648 under the author’s ruling `(R258)`(4), by the form of `(R187)`(5)'
+
+
+def _how(r):
+    h = r.get('how') or ''
+    if h.startswith('path: '):
+        return 'by path (%s)' % ', '.join(x.replace('\\', '') for x in h[len('path: '):].replace('(^|/)', '').split('|') if x)
+    if h.startswith('terminals: '):
+        return 'by the terminals it names (%s)' % h.split('terminals: ')[-1].replace('|', '/')
+    return h.replace('|', '/')
+
+
+def _v8_rows():
+    j = jl('b647_census_columns.json')['rows']
+    kc = dict((r['id'], r) for r in jl('b648_kernel_cites.json').get('rows') or [])
+    out = []
+    for r in j:
+        x = dict(r)
+        if r['kind'] == 'kernel' and r['id'] in kc:
+            x['cluster'], x['how'] = kc[r['id']]['cluster'], kc[r['id']]['how']
+        x['phase'] = '' if r.get('phase') in (None, '', '-') else r['phase']
+        out.append(x)
+    return out
+
+
+def _v8_backmatter(rows):
+    import licensed_table as LT
+    lab = lambda r: (('%s `%s`' % (r.get('row'), _kid(r))) if r['kind'] == 'roster' else ('`%s`' % r['id']))  # noqa: E731
+    bl_p = [r for r in rows if not r['phase']]
+    bl_c = [r for r in rows if not r['cluster']]
+    bl_m = [r for r in rows if not r['maturity']]
+    by_m = collections.Counter(r['maturity'] or 'blank' for r in rows)
+    kc = jl('b648_kernel_cites.json').get('rows') or []
+    L = ['', V8_TAG, '',
+         '### The readings v0.8 adds, each the seat’s and strikeable', '',
+         '- **Maturity.** How far a document’s claims are licensed by the kernels, read from its rows in the licensed-statement table (relay '
+         '`tools/licensed_table.py`), in the rule’s own words: “%s”' % LT.MATURITY_RULE,
+         '- **Phase and cluster.** The phase is REGISTRY’s, read from the document’s REGISTRY row or the section heading it sits under. The '
+         'cluster is one of eight -- %s -- read by the document’s path first, then by the terminals it names (relay `tools/licensed_table.py`, '
+         'PATH_RULES and TERMINAL_SETS); a document neither reading places is left blank.' % ', '.join(LT.CLUSTERS),
+         '- **The kernels the rules leave unplaced** (the author’s word at b648, relay `data/b648_author_answers.txt`): a kernel takes a cluster '
+         'as SERVED-KEYSTONE when the roster keystones naming it agree on one cluster, each keystone named, or as TERMINAL-HEADS when its heads '
+         'lie in one cluster’s terminal set, the heads listed; where the keystones naming it split, the cluster stays blank and the split is '
+         'printed beside it, a kernel that serves several subjects being a finding about the kernel; a kernel no keystone names stays blank. '
+         'The census itself is not counted among the keystones, since it names every kernel by construction (relay `data/b648_kernel_cites.txt`). '
+         'Placed: %s. No cluster is assigned by the resemblance of a name.' % (
+             ', '.join('%s (%s)' % (r['kernel'], r['cluster']) for r in kc if r['cluster']) or 'none'),
+         '- **The kernels’ rows** are read at the mains b647 read (relay `data/b647_census_columns.txt`). At b648 two mains moved by the sorry '
+         'quarantine under `(R258)`(2): SIDE-kernel and SIDE-lv-conservation, whose legacy `sorry` declarations left main for a branch '
+         'sorry-quarantine-<kernel>, named in each kernel’s ERRATA.md; their maturity is b647’s reading, not re-read here.',
+         '- **The numerals.** In this back matter every numeral is a count of the rows below or of a table’s rows.', '',
+         '### The phase, cluster and maturity of every keystone, companion and kernel', '',
+         '| # | kind | document or kernel | phase | cluster | how the cluster is read | maturity | why |', '|:--|:--|:--|:--|:--|:--|:--|:--|']
+    for i, r in enumerate(rows, 1):
+        L.append('| %d | %s | %s | %s | %s | %s | %s | %s |' % (
+            i, r['kind'], lab(r) + (' (%s)' % r['path'] if r['kind'] != 'kernel' else ''), r['phase'] or '—', r['cluster'] or '—', _how(r),
+            r['maturity'] or '—', (r.get('why') or '').replace('|', '/')))
+    L += ['', '*%d rows: %d keystones, %d Day 1 companions, %d kernels. Maturity: %s. Blank cells are listed below and none is counted as a '
+          'value.*' % (len(rows), sum(r['kind'] == 'roster' for r in rows), sum(r['kind'] == 'companion' for r in rows),
+                       sum(r['kind'] == 'kernel' for r in rows), ', '.join('%s %d' % (m, by_m[m]) for m in list(LT.MATURITY) + ['blank'] if by_m[m])),
+          '', '### The blank cells', '',
+          '- **Phase blank (%d)**: %s.' % (len(bl_p), ', '.join(lab(r) for r in bl_p) or 'none'),
+          '- **Cluster blank (%d)**: %s.' % (len(bl_c), '; '.join('%s -- %s' % (lab(r), _how(r)) for r in bl_c) or 'none'),
+          '- **Maturity blank, not yet in the table (%d)**: %s.' % (len(bl_m), ', '.join(lab(r) for r in bl_m) or 'none'),
+          '', '### Version history', '',
+          '- **v0.8, 2026-10-10 (b648, `(R258)`(4))**: the phase, cluster and maturity columns for every keystone, Day 1 companion and kernel, '
+          'from the banks of b645-b647; the kernels the rules leave unplaced placed by the author’s word where the keystones naming them agree, '
+          'the rest blank and listed; maturity blank where no table reaches, listed; the glossary block regenerated (the surround, priced).',
+          '- **v0.7.1, 2026-10-09 (b644)** and the editions before it: carried above.']
+    return L
+
+
+def edition8(*a):
+    """PLACE-papers phase2/method/THE_KEYSTONE_CENSUS_v0_8.md beside v0.7.1 (unedited), and data/b648_edition.json. `dry`: the scratchpad."""
+    import chain_page as CP
+    if not jl('b648_kernel_cites.json'):
+        sys.exit('### NO KERNEL CITES BANK -- NOTHING WRITTEN')
+    v71 = lines_of(_show(PP, 'HEAD', K.CEN71))
+    nb = CP.glossary_block()
+    ob = nb[:4] + ['- **%s** — %s *(%s)*' % e for e in CP.glossary_entries()[:-2]]
+    at = [i for i in range(len(v71)) if v71[i:i + len(ob)] == ob]
+    vl = [i for i, l in enumerate(v71) if l.startswith('*v0.7.1, 2026-10-09')]
+    if len(at) != 1 or len(vl) != 1:
+        sys.exit('### THE OLD GLOSSARY BLOCK (%s) OR THE v0.7.1 VERSION LINE (%s) NOT FOUND ONCE -- NOTHING WRITTEN' % (at, vl))
+    i, j = at[0], vl[0]
+    rows = _v8_rows()
+    ver = ('*v0.8, 2026-10-10 -- the phase, cluster and maturity columns for every keystone, Day 1 companion and kernel (%d rows), from the '
+           'banks of b645-b647; the kernels the cluster rules leave unplaced placed by the author’s word where the keystones naming them agree '
+           '(%d), the rest blank and listed; maturity blank where no table reaches, listed; the glossary block regenerated; v0.7.1 stands beside '
+           'it, unedited.*' % (len(rows), sum(1 for r in rows if r['kind'] == 'kernel' and r['cluster'] and r['how'].startswith(('SERVED', 'TERMINAL-HEADS')))))
+    out = v71[:i] + nb + v71[i + len(ob):j] + [ver, ''] + v71[j:] + _v8_backmatter(rows)
+    b = (NL.join(out) + NL).encode('utf-8')
+    dest = os.path.join(SP, 'b648_census_dry.md') if DRY else os.path.join(PP, *K.CEN8.split('/'))
+    if not DRY and os.path.exists(dest) and 'regen' not in a:
+        sys.exit('### v0.8 EXISTS -- NOTHING WRITTEN (`regen` regenerates this act`s own edition, on the author`s word before the seal)')
+    _write(dest, b)
+    put_json('b648_edition.json', dict(at=utc(), path=K.CEN8, sha256=sha(b), bytes=len(b), lines=len(out), glossary_at=i + 1,
+                                       glossary_lines=len(nb), backmatter=out.index(V8_TAG) + 1, v71_lines=len(v71),
+                                       v71_at=g(PP, 'rev-parse', '--short=7', 'HEAD').strip(), dry=DRY))
+    print('  %s : %d lines, %d bytes, sha256 %s ; the glossary block %d lines at :%d (was %d) ; the back matter at :%d' % (
+        ('DRY ' + dest) if DRY else K.CEN8, len(out), len(b), sha(b)[:16], len(nb), i + 1, len(ob), out.index(V8_TAG) + 1))
+
+
+def termscan8(*a):
+    """data/b648_census_termscan.txt: the scanner over the census at v0.8, its verdict printed."""
+    t = _scan(os.path.join(PP, *K.CEN8.split('/')))
+    put_txt('b648_census_termscan.txt', t.rstrip(NL).split(NL))
+    print('  ' + ' ; '.join(l.strip() for l in t.split(NL) if re.search(r'live uses|VERDICT', l)) + ' ; clean %s' % _clean(t))
+
+
+def edition_diff8(*a):
+    """data/b648_edition_diff.txt: v0.8 against v0.7.1, by section, every changed line printed with its kind."""
+    import difflib
+    v71 = lines_of(_show(PP, 'HEAD', K.CEN71))
+    v8 = lines_of(io.open(os.path.join(PP, *K.CEN8.split('/')), encoding='utf-8').read())
+    L = ['b648 -- COMPONENT 4: v0.8 AGAINST v0.7.1, BY SECTION (%s)' % utc(), '']
+    kinds, removed = collections.Counter(), 0
+    for tag, a1, a2, b1, b2 in difflib.SequenceMatcher(None, v71, v8, autojunk=False).get_opcodes():
+        if tag == 'equal':
+            continue
+        removed += a2 - a1
+        head = next((v8[k] for k in range(min(b1, len(v8) - 1), -1, -1) if v8[k].startswith('#')), '(the head)')
+        kinds[tag] += 1
+        L.append('### %s at v0.7.1 :%d-:%d -> v0.8 :%d-:%d ; section: %s ; removed %d, added %d' % (
+            tag.upper(), a1 + 1, a2, b1 + 1, b2, head[:90], a2 - a1, b2 - b1))
+        L += ['    - %s' % l[:200] for l in v71[a1:a2]][:6] + ['    + %s' % l[:200] for l in v8[b1:b2]][:8]
+    L += ['', '### ### **HUNKS %d (%s) ; v0.7.1 LINES REMOVED OR REPLACED : %d.**' % (sum(kinds.values()), dict(kinds), removed)]
+    put_txt('b648_edition_diff.txt', L)
+    print(NL.join(L[2:]))
 
 
 LIST_HEAD = ['# b648 -- (R258)(3), THE TABLE`S GRADE ON THE PAGE: b643`s list (relay data/%s), every line unchanged, with the one line',
