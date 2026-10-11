@@ -498,6 +498,39 @@ def lv_build(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENTS 5 AND 6: THE NAME AND THE DESCRIPTION AT v5
+# ### v5's composer: b647's compose_v4 (its edits a-d, over b646's sealed compose_v3) with (R259)'s edits applied after, each anchored once:
+# ###   (e) THE NAME, (R259)(5): the opening mention of the open statement in the glossary's words, "the positivity clause (h2_sign: ...)",
+# ###       every later mention "the positivity clause"; the bare phrase "the clause" leaves the text (v4's one, a premise's discharge clause,
+# ###       reads "this entry");
+# ###   (f) THE RESIDUE, (R259)(6): the glossary's entries "act" and "the constant 1" applied where v4 used the terms unexplained.
+V5_EDITS = ('e', 'f')
+BARE = re.compile(r'\bthe clause\b', re.I)
+E_ANCHORS = (('and the open clause being the sign statement h2_sign itself', 'and %s being the sign statement itself'),
+             ('is the open clause in its attribution face', 'is the positivity clause in its attribution face'),
+             ("h2, the programme's name for the open clause", "h2, the programme's name for the positivity clause"),
+             ('[the clause differs because', '[this entry differs because'))
+
+
+def compose_v5(edits=V5_EDITS):
+    """v5's HTML: b647's compose_v4 with (R259)'s edits named in `edits` applied in the order e, f."""
+    import b647_record as B7
+    import chain_page as CP
+    h = B7.compose_v4()
+    if 'e' in edits:
+        m = CP.positivity_mention()
+        for i, (o, n) in enumerate(E_ANCHORS):
+            h = B7._once(h, o, n % m if '%s' in n else n, 'e%d, the name' % (i + 1))
+    if 'f' in edits:
+        h = _residue(h)
+    return h
+
+
+def _residue(h):
+    """(f): filled at Component 6."""
+    return h
+
+
 BH_LINE = 13798          # ### OPEN_TRAILS: W-ORD-LV-BUILD-HOST opened by Component 1
 PR_HEAD = ('*Appended 2026-10-11 by b649 to W-ORD-LV-BUILD-HOST (:%d), under `(R259)`(4) -- ITS PRICE, WRITTEN FROM THE MEASUREMENT:*')
 
