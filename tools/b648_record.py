@@ -567,6 +567,68 @@ def quarantine(kernel, *a):
     print(L[-1])
 
 
+RESTATE = {'SIDE-effects': ('b648-restate-SIDE-effects', 'SIDEEffects/Milestones.lean', 'SIDEEffects.Milestones'),
+           'SIDE-lv-conservation': ('b648-restate-SIDE-lv-conservation', 'SIDELvConservation/T3_StepNineBridge.lean', 'SIDELvConservation.T3_StepNineBridge')}
+def code_sorries(k, rev='main'):
+    """every `sorry` in code at `rev` of kernel `k` -- b647's census rule (tools/b647_record.py `sorries`): git grep -n -w sorry over the
+    .lean files outside .lake/, a hit in code when the part of its line before `--` names it and the line lies outside every block comment
+    or doc string (the depth of `/-` against `-/` read from the file at `rev`): [(file, line, text)]."""
+    out, texts = [], {}
+    for l in g('D:/' + k, 'grep', '-n', '-w', 'sorry', rev, '--', '*.lean').split(NL):
+        m = re.match(r'^[^:]+:(.+?):(\d+):(.*)$', l)
+        if not m or m.group(1).startswith('.lake/'):
+            continue
+        f, ln, txt = m.group(1), int(m.group(2)), m.group(3)
+        if not re.search(r'\bsorry\b', txt.split('--', 1)[0]):
+            continue
+        if f not in texts:
+            texts[f] = (_show('D:/' + k, rev, f) or '').replace(chr(13), '').split(NL)
+        depth = 0
+        for i, x in enumerate(texts[f][:ln], 1):
+            pre = x if i < ln else x[:x.find('sorry') if 'sorry' in x else len(x)]
+            depth += pre.count('/-') - pre.count('-/')
+        if depth <= 0:
+            out.append((f, ln, txt.strip()))
+    return out
+
+
+CODE_SORRY = 'b647`s census rule (code_sorries)'
+
+
+def repairs(*a):
+    """data/b648_sorry_repairs.txt: every line's repair as it stands, read from the kernels -- the quarantines merged (main and branch read
+    locally and at the remote), the restatements on their branches with their diffs whole and the build`s watchdog row; the sorries in code
+    left on each kernel's main counted by git grep."""
+    W = jl('b648_build_watch.json').get('rows') or []
+    L = ['b648 -- COMPONENT 2, (R258)(2): THE REPAIRS BY THE AUTHOR`S WORD, AS THEY STAND (%s)' % utc(), '']
+    for k in ('SIDE-kernel', 'SIDE-lv-conservation'):
+        rp = 'D:/' + k
+        qb = 'sorry-quarantine-%s' % k
+        rem = dict((l.split('\t')[1], l.split('\t')[0]) for l in g(rp, 'ls-remote', 'origin', 'refs/heads/main', 'refs/heads/' + qb).split(NL) if '\t' in l)
+        L.append('### QUARANTINED, %s: main %s (remote %s) ; %s %s (remote %s) ; ERRATA.md on main: %s' % (
+            k, g(rp, 'rev-parse', '--short=7', 'main').strip(), rem.get('refs/heads/main', '?')[:7], qb, g(rp, 'rev-parse', '--short=7', qb).strip(),
+            rem.get('refs/heads/' + qb, '?')[:7], 'E-2026-10-10-1' in (_show(rp, 'main', 'ERRATA.md') or '')))
+    L.append('')
+    for k, (b, f, mod) in RESTATE.items():
+        rp = 'D:/' + k
+        w = [r for r in W if r.get('module') == mod]
+        L += ['### RESTATED, %s: branch %s %s, NOT MERGED ; its build: %s' % (
+            k, b, g(rp, 'rev-parse', '--short=7', b).strip(),
+            ('; '.join('%s exit %s, host low %s MB, the hold %s' % (r.get('module'), r.get('rc'), r.get('lows'), r.get('hold')) for r in w)
+             if w else 'NOT RUN -- RUN-BENEATH-HOLD territory ((R258)(5)), the smaller module of SIDE-effects stopped beneath the hold first')),
+              '### the diff, main..%s, whole:' % b] + ['    | ' + x for x in g(rp, 'diff', 'main', b, '--', f).replace(chr(13), '').rstrip(NL).split(NL)] + ['']
+    L.append('### `sorry` IN CODE ON EACH KERNEL`S MAIN NOW (git grep at main, %s):' % CODE_SORRY)
+    tot = 0
+    for k in ('SIDE-kernel', 'SIDE-effects', 'SIDE-lv-conservation'):
+        out = code_sorries(k)
+        tot += len(out)
+        L += ['  %s: %d' % (k, len(out))] + ['      %s:%d: %s' % (f, ln, t[:140]) for f, ln, t in out]
+    L += ['', '### ### **QUARANTINED 33, MERGED AND PUSHED ; RESTATED 4, ON BRANCHES, NOT MERGED, THEIR BUILDS BENEATH THE HOLD ; SORRY IN CODE ON THE '
+              'MAINS NOW %d.**' % tot]
+    put_txt('b648_sorry_repairs.txt', L)
+    print(L[-1])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):

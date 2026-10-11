@@ -1,0 +1,193 @@
+b648 -- COMPONENT 2, (R258)(2): THE REPAIRS BY THE AUTHOR`S WORD, AS THEY STAND (2026-10-11T00:26:15Z)
+
+### QUARANTINED, SIDE-kernel: main b0f2a3a (remote b0f2a3a) ; sorry-quarantine-SIDE-kernel 0256e9e (remote 0256e9e) ; ERRATA.md on main: True
+### QUARANTINED, SIDE-lv-conservation: main b2238d4 (remote b2238d4) ; sorry-quarantine-SIDE-lv-conservation 2f71068 (remote 2f71068) ; ERRATA.md on main: True
+
+### RESTATED, SIDE-effects: branch b648-restate-SIDE-effects 9a279ac, NOT MERGED ; its build: SIDEEffects.Milestones exit None, host low [2533, 2529] MB, the hold 2560
+### the diff, main..b648-restate-SIDE-effects, whole:
+    | diff --git a/SIDEEffects/Milestones.lean b/SIDEEffects/Milestones.lean
+    | index caf7517..3689d1b 100644
+    | --- a/SIDEEffects/Milestones.lean
+    | +++ b/SIDEEffects/Milestones.lean
+    | @@ -4,73 +4,56 @@ import SIDEEffects.Structural
+    |    SIDE-EFFECTS — MILESTONES
+    |    ==========================
+    |    Three analytic existence statements for the additive-multiplicative
+    | -  problems. The STRUCTURAL Type-D exclusion they rest on is the genuine
+    | -  `Phase15/Module1.lean : no_type_d_conspiracies` (CRT exhaustiveness);
+    | -  `Structural.lean` carries the generic `no_type_d` lemma. The EXISTENCE
+    | -  statements close via Mathlib infrastructure not yet bridged.
+    | -  Each theorem here:
+    | -    - states the real type (not a True placeholder)
+    | -    - is proved by sorry at the marked boundary
+    | -    - documents which Mathlib infrastructure closes it
+    | -  When a milestone closes, its sorry is discharged in place and the
+    | -  README/version tag updated. The migration history shows programme
+    | -  progress over time.
+    | +  problems, each an open conjecture stated as a `Prop`. The programme's
+    | +  structural Type-D exclusion is `Phase15/Module1.lean :
+    | +  no_type_d_conspiracies` (CRT exhaustiveness); `Structural.lean` carries
+    | +  the generic `no_type_d` lemma; no milestone uses either. The EXISTENCE
+    | +  statements would be proved through Mathlib infrastructure not yet bridged.
+    | +  Each milestone here (RESTATED at b648 under the author's ruling (R258)(2)):
+    | +    - states the real conjecture as a `Prop` (not a True placeholder)
+    | +    - is stated, not proved; open -- a `def`, with no proof and no `sorry`
+    | +    - documents which Mathlib infrastructure would prove it
+    | +  When a milestone is proved, a theorem concluding its `Prop` is added
+    | +  and the README/version tag updated. Until 2026-10-10 each stood as a
+    | +  `theorem` closed by `sorry`; that history is in this file's git log.
+    |    J. York Seale | ORCID: 0009-0008-7993-0310
+    |  -/
+    |  namespace AddMult
+    | -/-- MILESTONE M3: Infinitely many twin primes.
+    | -    The structural argument is the genuine `Module1.no_type_d_conspiracies`
+    | -    (CRT exhaustiveness): there is no TYPE D conspiracy that would
+    | -    forbid infinitely many twins.
+    | -    Closing this existence statement requires the Hardy-Littlewood
+    | -    asymptotic π₂(N) ~ 2C₂ N / (log N)², which forces
+    | -    π₂(N) → ∞, hence twin primes infinite.
+    | -    Mathlib status: PrimeCounting infrastructure exists; the
+    | +/-- MILESTONE M3: infinitely many twin primes -- stated, not proved; open.
+    | +    The twin-prime conjecture as a `Prop`. Proving it would need the
+    | +    Hardy-Littlewood asymptotic π₂(N) ~ 2C₂ N / (log N)², which forces
+    | +    π₂(N) → ∞. Mathlib status: PrimeCounting infrastructure exists; the
+    |      Hardy-Littlewood density theorem is not yet packaged. -/
+    | -theorem twin_primes_infinite :
+    | -    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (p + 2))) := by
+    | -  sorry  -- MILESTONE: Hardy-Littlewood asymptotic
+    | -/-- MILESTONE M4: Goldbach binary conjecture.
+    | -    Every even n ≥ 4 is the sum of two primes.
+    | +def twin_primes_infinite : Prop :=
+    | +    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (p + 2)))
+    | +/-- MILESTONE M4: the binary Goldbach conjecture -- stated, not proved; open.
+    | +    Every even n ≥ 4 is the sum of two primes, as a `Prop`.
+    |      Evenness expressed inline as `∃ k, n = 2 * k` to avoid
+    |      dependency on the Mathlib Even/Odd parity infrastructure
+    |      (whose location varies across Mathlib versions).
+    | -    The structural argument is the genuine `Module1.no_type_d_conspiracies`
+    | -    (CRT exhaustiveness): there is no TYPE D conspiracy that would
+    | -    forbid the Goldbach representation.
+    | -    Closing this existence statement requires the circle method
+    | -    formalization, giving r(n) ≫ 1 for even n ≥ 4 (where r(n) counts
+    | -    representations as p + q with p, q prime).
+    | -    Mathlib status: circle method not yet formalized.
+    | -    Helfgott's ternary Goldbach approach is one alternative path. -/
+    | -theorem goldbach :
+    | +    Proving it would need the circle method, giving r(n) ≫ 1 for even
+    | +    n ≥ 4 (where r(n) counts representations as p + q with p, q prime).
+    | +    Mathlib status: circle method not yet formalized. -/
+    | +def goldbach : Prop :=
+    |      ∀ n : ℕ, n ≥ 4 → (∃ k : ℕ, n = 2 * k) →
+    | -      ∃ p q : ℕ, Nat.Prime p ∧ Nat.Prime q ∧ p + q = n := by
+    | -  sorry  -- MILESTONE: circle method or Helfgott-style approach
+    | -/-- MILESTONE M5: Sophie Germain primes infinite.
+    | -    Infinitely many primes p such that 2p+1 is also prime.
+    | -    The structural argument is the genuine `Module1.no_type_d_conspiracies`
+    | -    (CRT exhaustiveness): there is no TYPE D conspiracy that would
+    | -    forbid infinitely many Sophie Germain primes.
+    | -    Closing this existence statement requires sieve bounds
+    | -    establishing positive density of Sophie Germain primes
+    | -    in the integers.
+    | -    Mathlib status: basic sieve infrastructure exists;
+    | -    the specific bounds for Sophie Germain density are not
+    | -    yet packaged. -/
+    | -theorem sophie_germain_infinite :
+    | -    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (2 * p + 1))) := by
+    | -  sorry  -- MILESTONE: sieve density bounds
+    | +      ∃ p q : ℕ, Nat.Prime p ∧ Nat.Prime q ∧ p + q = n
+    | +/-- MILESTONE M5: infinitely many Sophie Germain primes -- stated, not proved; open.
+    | +    Infinitely many primes p such that 2p+1 is also prime, as a `Prop`.
+    | +    Proving it would need sieve bounds establishing positive density of
+    | +    Sophie Germain primes. Mathlib status: basic sieve infrastructure
+    | +    exists; the specific bounds are not yet packaged. -/
+    | +def sophie_germain_infinite : Prop :=
+    | +    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (2 * p + 1)))
+    |  end AddMult
+    |  /-!
+    |    ## Status
+    | -  3 theorems, 3 sorrys, 0 axioms.
+    | -  Each sorry is at a clearly-marked analytic boundary with
+    | -  identified Mathlib infrastructure required for closure.
+    | -  The structural Type-D exclusion these milestones rest on is the
+    | -  genuine `Module1.no_type_d_conspiracies` (CRT exhaustiveness).
+    | -  ## How to close a milestone
+    | -  1. Identify the Mathlib lemma(s) that close the analytic boundary
+    | -  2. Replace `sorry` with the proof using those lemmas
+    | +  3 definitions, each a `Prop` stating an open conjecture; 0 sorry.
+    | +  Restated from `theorem ... := by sorry` at b648 under the author's
+    | +  ruling (R258)(2). `Module1.no_type_d_conspiracies` (CRT exhaustiveness)
+    | +  states `IsEmpty TypeD` over the programme's own couplings; no milestone
+    | +  uses it, and none of the three conjectures follows from it in Lean.
+    | +  ## How to prove a milestone
+    | +  1. Identify the Mathlib lemma(s) the conjecture needs
+    | +  2. Add a theorem concluding the milestone's `Prop`
+    |    3. Update README and version tag
+    |  -/
+
+### RESTATED, SIDE-lv-conservation: branch b648-restate-SIDE-lv-conservation c35a3a3, NOT MERGED ; its build: NOT RUN -- RUN-BENEATH-HOLD territory ((R258)(5)), the smaller module of SIDE-effects stopped beneath the hold first
+### the diff, main..b648-restate-SIDE-lv-conservation, whole:
+    | diff --git a/SIDELvConservation/T3_StepNineBridge.lean b/SIDELvConservation/T3_StepNineBridge.lean
+    | index 948498c..1f0e056 100644
+    | --- a/SIDELvConservation/T3_StepNineBridge.lean
+    | +++ b/SIDELvConservation/T3_StepNineBridge.lean
+    | @@ -74,38 +74,21 @@ theorem T3b_joint_witness_gives_combinations_exclude
+    |      CombinationsExclude 𝒞 s :=
+    |    ⟨Φ, hJoint, hNonzero⟩
+    |  
+    | -/-- **T3 main — step-(9) bridge.**  Per-class exclusion at `s`
+    | -⟹ combined exclusion at `s`.
+    | -
+    | -Manuscript reading: because the couplings contribute only to `Φ` and
+    | -`s` enters only through the kernel `t ^ (s / 2 - 1)` in `mellin Φ`,
+    | -combinations of couplings cannot manufacture an s-side effect (a forced
+    | -zero at `s`) that no single coupling can.
+    | +/-- **T3 main — step-(9) bridge, stated, not proved; open.**  For a family
+    | +`𝒞` and a point `s`: per-class exclusion at `s` ⟹ combined exclusion at `s`,
+    | +as a `Prop`.
+    |  
+    |  Formal reading: the hypothesis is
+    |  `∀ C ∈ 𝒞, ∃ Φ_C, C Φ_C ∧ mellin Φ_C (s / 2) ≠ 0`,
+    |  and the conclusion asks for a *single* `Φ` witnessing every `C ∈ 𝒞`
+    | -simultaneously with `mellin Φ (s / 2) ≠ 0`.  This is a `∀∃ ⟹ ∃∀`
+    | -commutation that has no free witness — the emergent-totality gap of
+    | -FINDINGS F.2026-07-09-b.
+    | --/
+    | -theorem T3_perClass_to_combinations
+    | -    (𝒞 : Set Coupling) (s : ℂ)
+    | -    (h : ∀ C ∈ 𝒞, PerClassExcludes C s) :
+    | -    CombinationsExclude 𝒞 s := by
+    | -  -- Unfold `CombinationsExclude` so the pinned goal is exact.
+    | -  show ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+    | -  -- The hypothesis `h` gives, for each `C ∈ 𝒞`, a witness `Φ_C` with
+    | -  -- `C Φ_C ∧ mellin Φ_C (s/2) ≠ 0`.  A choice function
+    | -  --   `f : {C // C ∈ 𝒞} → ℝ → ℂ`
+    | -  -- extracting these witnesses exists (classically), but there is in
+    | -  -- general no `Φ` satisfying every `C ∈ 𝒞` simultaneously; the
+    | -  -- family `{Φ_C}` need not have a common intersection point in
+    | -  -- `Φ`-space.  This is the ∀∃ ⟹ ∃∀ swap, and it is precisely the
+    | -  -- content of FINDINGS F.2026-07-09-b (emergent-totality question).
+    | -  -- STOP per work-order T3 rules — one `sorry`, no weakened statement,
+    | -  -- no `native_decide`, no new axiom.
+    | -  sorry -- F.2026-07-09-b: ∀∃ ⟹ ∃∀ needs a joint-witness / cofinality assumption
+    | +simultaneously with `mellin Φ (s / 2) ≠ 0` — a `∀∃ ⟹ ∃∀` commutation with
+    | +no free witness (FINDINGS F.2026-07-09-b).  Its universal form is refuted in
+    | +this file by `T3doubleprime_general_commutation_fails`; it holds under
+    | +Determination's shared witness by `T3prime_shared_witness`.  Restated at b648
+    | +under the author's ruling (R258)(2) from a `theorem` closed by `sorry`; that
+    | +history is in this file's git log. -/
+    | +def T3_perClass_to_combinations (𝒞 : Set Coupling) (s : ℂ) : Prop :=
+    | +  (∀ C ∈ 𝒞, PerClassExcludes C s) → CombinationsExclude 𝒞 s
+    |  
+    |  /-- **T3′ — the bridge closes under Determination's shared witness.**
+    |  If the programme's Determination condition is in force, every coupling
+
+### `sorry` IN CODE ON EACH KERNEL`S MAIN NOW (git grep at main, b647`s census rule (code_sorries)):
+  SIDE-kernel: 0
+  SIDE-effects: 3
+      SIDEEffects/Milestones.lean:32: sorry  -- MILESTONE: Hardy-Littlewood asymptotic
+      SIDEEffects/Milestones.lean:49: sorry  -- MILESTONE: circle method or Helfgott-style approach
+      SIDEEffects/Milestones.lean:63: sorry  -- MILESTONE: sieve density bounds
+  SIDE-lv-conservation: 1
+      SIDELvConservation/T3_StepNineBridge.lean:108: sorry -- F.2026-07-09-b: ∀∃ ⟹ ∃∀ needs a joint-witness / cofinality assumption
+
+### ### **QUARANTINED 33, MERGED AND PUSHED ; RESTATED 4, ON BRANCHES, NOT MERGED, THEIR BUILDS BENEATH THE HOLD ; SORRY IN CODE ON THE MAINS NOW 4.**

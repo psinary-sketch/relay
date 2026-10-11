@@ -1,0 +1,27 @@
+b648 -- COMPONENT 2, (R258)(2) AND THE AUTHOR`S ANSWER: THE QUARANTINE OF SIDE-lv-conservation (2026-10-11T00:11:42Z)
+
+### main 2f71068 ; the branch sorry-quarantine-SIDE-lv-conservation made at the main before any edit, holding every declaration as it stood ; the work branch b648-quarantine-SIDE-lv-conservation
+
+### PinnedGoal.lean :17-:23 removed ((example)), the block whole:
+    | example (𝒞 : Set Coupling) (s : ℂ)
+    |     (h : ∀ C ∈ 𝒞, PerClassExcludes C s) :
+    |     ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0 := by
+    |   -- Same goal shape as at T3_StepNineBridge.lean:107.  Reproduced only
+    |   -- to guarantee the transcript's quoted goal is convertible with the
+    |   -- actual pinned goal.  Left as `sorry` deliberately, mirroring T3.
+    |   sorry
+
+### ERRATA.md, written new at the kernel`s root:
+    | # Errata
+    | 
+    | This file records corrections to SIDE-lv-conservation`s main. Each entry lists the declaration, the affected file and line, the correction, and the date; entries are retained.
+    | 
+    | ## E-2026-10-10-1 — 1 `sorry`-closed declarations quarantined from main (b648, the author`s ruling (R258)(2))
+    | 
+    | Every declaration below closed by `sorry` on main at `2f71068`, in files outside every `lean_lib` of the lakefile; each entered main before the programme`s standing line "no `sorry` on any `main`" (its first ledger line, PLACE-papers OPEN_TRAILS.md :11508, 2026-09-29). Each is removed from main and kept whole on the branch `sorry-quarantine-SIDE-lv-conservation`, made at `2f71068`. Correction: removed from main, quarantined. Date: 2026-10-10.
+    | 
+    | - `(example)` (example), `PinnedGoal.lean` :17 (its `sorry` at :23), entered 2026-07-09 at `45c2759`: `example (𝒞 : Set Coupling) (s : ℂ) (h : ∀ C ∈ 𝒞, PerClassExcludes C s) : ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0 := by -- Same goal shape as at T3_StepNineBridge.lean:107. Reproduced only -- to guarantee the t`.
+
+### the work branch committed: b648-quarantine-SIDE-lv-conservation b2238d4 ; the files changed:  2 files changed, 10 insertions(+), 7 deletions(-)
+
+### ### **SIDE-lv-conservation: 1 DECLARATIONS QUARANTINED IN 1 FILES ; ERRATA.md WRITTEN ; BRANCHES sorry-quarantine-SIDE-lv-conservation AND b648-quarantine-SIDE-lv-conservation ; NOT YET MERGED.**
