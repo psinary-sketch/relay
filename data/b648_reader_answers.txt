@@ -1,0 +1,21 @@
+ANSWER 1:
+Maturity is a column added in edition v0.8. The definition is in the v0.8 back matter ("The readings v0.8 adds"), not in the glossary. It says how far a document's claims are licensed by the kernels, judged from that document's rows in the licensed-statement table (relay tools/licensed_table.py). The rule takes four values, tested in this order:
+- SUPERSEDED, if REGISTRY marks the keystone as superseded by a later edition;
+- otherwise ONGOING, if any of its rows is graded OVERREACHES or UNLICENSED (claims the kernels do not yet license);
+- otherwise CARRIED-OPENLY, if any row states a frontier as open (a claim stated as open, or a theorem at INTERFACES on a premise whose status is OPEN);
+- otherwise SETTLED (definitions and compiled statements).
+UNDERSTATES does not change the value, because it means the document says less than the corpus licenses. A document that no table reaches is left blank, marked "NOT YET IN THE TABLE", and is not counted as having a value. Maturity is therefore a reading of how far claims match the licensing table, not a judgement of quality. The rule is worded for "keystones", but the census applies it to Day 1 companions and kernels as well. The text does not define OVERREACHES, UNLICENSED or MATCHES beyond the brief gloss in parentheses.
+
+ANSWER 2:
+The v0.8 table marks 28 rows ONGOING, which matches its own total (SETTLED 1, CARRIED-OPENLY 1, ONGOING 28, blank 47):
+- one keystone: R01 d1-1, A_Place_to_Stand.md (OVERREACHES 154, UNLICENSED 63);
+- all seven Day 1 companions: Exhaustive_Enumeration, Which_Structure_Confines, Spectral_Inertness, Seven_Mechanism_Classes, Third_Identity_Element, Silence_of_Foundations and ONE_PAGE_PROOF;
+- 20 of the 22 kernels: SIDE-archimedean, -bijection, -carrier-spec, -class-number-anomaly, -cosmo, -effects, -global-section, -grh-transfer, -interfaces, -kernel, -li-map, -lv-conservation, -rcurve, -silence-principle, -simplicity, -spinor, -structural-error-correction, -substrate-cluster, -trivium and -window.
+The other two kernels are not ONGOING: SIDE-explicit-formula is CARRIED-OPENLY and SIDE-frobenius is SETTLED. Every other keystone is blank ("NOT YET IN THE TABLE"). The text adds one caveat: for SIDE-kernel and SIDE-lv-conservation, the value is b647's reading and was not re-read after b648's "sorry quarantine" moved their mains.
+
+UNCLEAR:
+- "The readings v0.8 adds, each the seat's and strikeable": I could not tell what "the seat" refers to.
+- The maturity rule speaks only of "a keystone", yet it is applied to companions and kernels, and the text does not say how the rule extends to them.
+- OVERREACHES, UNLICENSED, MATCHES and UNDERSTATES are used as grades in the "why" column but are not defined in the glossary, apart from the brief gloss in parentheses inside the maturity rule.
+- The glossary gives three entries for HINGE, and two of them each claim to supersede an earlier entry, with different dates (2026-10-08 and 2026-10-09). Which entry supersedes which is hard to follow.
+- "At b648 two mains moved by the sorry quarantine under (R258)(2) ... whose legacy sorry declarations left main for a branch": the term "sorry quarantine" is not explained.
