@@ -208,6 +208,40 @@ def c1(*a):
          dry=dry)
 
 
+# ================================================================================ COMPONENT 2: THE MARGIN, (R262)(3)
+HOLD = 2560
+# ### per module the three unmerged branches touch: (kernel, branch, module, the build command's target, tree peak MB, the bank and line)
+MODULES = [
+    ('SIDE-lv-conservation', 'b648-restate-SIDE-lv-conservation', 'SIDELvConservation/T3_StepNineBridge.lean', 'SIDELvConservation.T3_StepNineBridge',
+     1644, 'relay data/b649_lv_build.txt :16, :43 (attempt 2, tree peak 1644 MB)'),
+    ('SIDE-effects', 'b648-restate-SIDE-effects', 'SIDEEffects/Milestones.lean', 'SIDEEffects.Milestones',
+     1410, 'relay data/b648_build_peaks.json rows 3-4 (attempt 2, tree peak 1410 MB); data/b648_build_watch.json row 2'),
+    ('SIDE-kernel', 'docstrings-SIDE-kernel', 'Kernel/PerpendicularCrossing.lean', 'Kernel.PerpendicularCrossing',
+     692, 'relay data/b651_build_peaks.json rows 3-4 (attempt 2, tree peak 692 MB); data/b651_docstrings_SIDE-kernel.txt :17-:22'),
+]
+
+
+def free_mb():
+    import build_watch as BW
+    return BW.free_mb()
+
+
+def margin(*a):
+    """one reading per module at its slot's start: the margin needed (the tree peak, MB above the hold) beside the margin seen (free memory
+    less the hold); ALLOWS where seen >= needed. Appended to data/b652_build_margin.json under the reading's number (a[0], 1 or 2)."""
+    n = a[0] if a else '1'
+    j = jl('b652_build_margin.json') or {'hold': HOLD, 'readings': []}
+    for k, br, f, tgt, peak, src in MODULES:
+        fm = free_mb()
+        seen = fm - HOLD
+        row = dict(reading=int(n), at=utc(), kernel=k, branch=br, module=f, target=tgt, needed=peak, free=fm, seen=seen,
+                   allows=seen >= peak, source=src)
+        j['readings'].append(row)
+        print('  reading %s %s %-36s needed %4d MB ; seen %4d MB (free %d, hold %d) ; %s' % (n, row['at'], tgt, peak, seen, fm, HOLD,
+                                                                                         'ALLOWS' if row['allows'] else 'DOES NOT ALLOW'))
+    put_json('b652_build_margin.json', j)
+
+
 if __name__ == '__main__':
     fn = globals().get(sys.argv[1] if len(sys.argv) > 1 else '')
     if not callable(fn) or sys.argv[1].startswith('_'):

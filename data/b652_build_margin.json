@@ -1,0 +1,44 @@
+{
+ "hold": 2560,
+ "readings": [
+  {
+   "reading": 1,
+   "at": "2026-10-11T23:24:27Z",
+   "kernel": "SIDE-lv-conservation",
+   "branch": "b648-restate-SIDE-lv-conservation",
+   "module": "SIDELvConservation/T3_StepNineBridge.lean",
+   "target": "SIDELvConservation.T3_StepNineBridge",
+   "needed": 1644,
+   "free": 2744,
+   "seen": 184,
+   "allows": false,
+   "source": "relay data/b649_lv_build.txt :16, :43 (attempt 2, tree peak 1644 MB)"
+  },
+  {
+   "reading": 1,
+   "at": "2026-10-11T23:24:27Z",
+   "kernel": "SIDE-effects",
+   "branch": "b648-restate-SIDE-effects",
+   "module": "SIDEEffects/Milestones.lean",
+   "target": "SIDEEffects.Milestones",
+   "needed": 1410,
+   "free": 2744,
+   "seen": 184,
+   "allows": false,
+   "source": "relay data/b648_build_peaks.json rows 3-4 (attempt 2, tree peak 1410 MB); data/b648_build_watch.json row 2"
+  },
+  {
+   "reading": 1,
+   "at": "2026-10-11T23:24:27Z",
+   "kernel": "SIDE-kernel",
+   "branch": "docstrings-SIDE-kernel",
+   "module": "Kernel/PerpendicularCrossing.lean",
+   "target": "Kernel.PerpendicularCrossing",
+   "needed": 692,
+   "free": 2744,
+   "seen": 184,
+   "allows": false,
+   "source": "relay data/b651_build_peaks.json rows 3-4 (attempt 2, tree peak 692 MB); data/b651_docstrings_SIDE-kernel.txt :17-:22"
+  }
+ ]
+}
