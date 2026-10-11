@@ -846,7 +846,7 @@ ARMS = [
     ('G-RESOLVER-PLANTED', 'tools/test_axiom_claim_b651.py run: 7 of 7', lambda S: planted_ok(S, 'test_axiom_claim_b651.py', 7),
      lambda S: _planted(S, 'test_axiom_claim_b651.py')),
     ('G-RESOLVER-COUNTS', 'the after bank`s verdict counts against the live run; the before bank`s six', lambda S: counts_banked(S),
-     lambda S: _mut(S, 'ac_after', lambda d: d['rows'].pop())),
+     lambda S: _mut(S, 'ac_after', lambda d: next(r for r in d['rows'] if r['verdict'] == 'CONTRADICTED').update(verdict='VERIFIED'))),
     ('G-TRIGGER-LINE', 'OPEN_TRAILS at the trigger line`s bank: W-ORD-VERDICT-INSTRUMENT`s trigger fired, the verdict not added', lambda S: trigger_line(S),
      lambda S: _rl(S, 0, 1, key='inst_line')),
     ('G-CLUSTERS-SERVED', 'the clusters bank over the 22 kernels; the planted test 5 of 5', lambda S: clusters_ok(S),
