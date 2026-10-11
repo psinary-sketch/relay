@@ -316,6 +316,119 @@ def record_lines(*a):
     R3._land(Q, items, 'b648_record_lines.json', B647_ENTRY)
 
 
+# ================================================================================ COMPONENT 2: THE SORRY CLASSIFICATION, (R258)(2)
+# ### Each of the 37 lines read whole with the declaration it closes and the files of its kernel naming that declaration (git grep -w at the
+# ### main); the classification PROPOSED per line with one reason; raised as one prompt; no kernel edit before the author's word.
+BUILT_LIB_NOTE = {
+    'SIDE-kernel': 'outside every lean_lib (lakefile.lean: Kernel, Bridge, MetaKernel); a probe or a superseded build attempt',
+    'SIDE-effects': 'inside lean_lib SIDEEffects (Milestones imported by the root)',
+    'SIDE-lv-conservation': 'T3_StepNineBridge inside lean_lib SIDELvConservation; PinnedGoal.lean outside every lean_lib'}
+DECL = re.compile(r'^\s*(?:private\s+|protected\s+|noncomputable\s+)*(theorem|lemma|def|example|instance|abbrev)\b\s*([^\s:(\[{]*)')
+# ### the seat's reason per declaration, read from the source at the main and the kernel's built libraries
+REASONS = {
+    'twin_primes_infinite': ('RESTATED', 'its statement is the twin-prime conjecture itself; the corpus cites it as the open milestone M3 '
+                             '(ADDITIVE_MULTIPLICATIVE_CONSPIRACY :411, T4); kept as a Prop with no proof, read as a premise'),
+    'goldbach': ('RESTATED', 'its statement is the binary Goldbach conjecture; cited as the open milestone M4 (ADDITIVE_MULTIPLICATIVE_CONSPIRACY '
+                 ':412, T4); kept as a Prop with no proof'),
+    'sophie_germain_infinite': ('RESTATED', 'its statement is the Sophie Germain infinitude conjecture; cited as the open milestone M5 '
+                                '(ADDITIVE_MULTIPLICATIVE_CONSPIRACY :413, T4); kept as a Prop with no proof'),
+    'T3_perClass_to_combinations': ('RESTATED', 'the pinned step of the bracket the keystones cite (PATHS :293, SURROUND :177); its universal '
+                                    'form is refuted in the same file (T3doubleprime_general_commutation_fails) and it closes under the '
+                                    'shared witness (T3prime_shared_witness); kept as a Prop naming the per-instance step, its docstring '
+                                    'saying so; consumed by the two AxiomCheck files alone'),
+    'PinnedGoal': ('QUARANTINED', 'an example outside every lean_lib that only reproduces the goal at T3`s sorry; nothing consumes it'),
+    'focus_on_critical_line': ('QUARANTINED', 'a legacy probe outside every lean_lib; its content is proved in the kernel`s own file '
+                               'legacy/SchwarzReflection_PR.lean (completedRiemannZeta₀_im_eq_zero_on_half) and nothing consumes it'),
+    'zeros_in_strip': ('QUARANTINED', 'a legacy probe outside every lean_lib; nothing consumes it'),
+    'simple_zero_isolated': ('QUARANTINED', 'a legacy build attempt outside every lean_lib; nothing consumes it'),
+    'accumulation_kills_derivs': ('QUARANTINED', 'a legacy build attempt outside every lean_lib; nothing consumes it'),
+    'product_formula_prime_pow': ('QUARANTINED', 'a legacy copy outside every lean_lib; the built kernel proves its namesakes '
+                                  '(Kernel/ProductFormula_Clean.lean :86, Kernel/ProductFormula_v2.lean :24), which do not import it'),
+    'product_formula_nat': ('QUARANTINED', 'false as stated (n = 6 at p = 2 gives 3; the file`s own comment at :124), outside every lean_lib, '
+                            'nothing consumes it'),
+    'schwarz_discharge': ('QUARANTINED', 'one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the '
+                          'reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other '
+                          'attempts, none imported'),
+    'schwarz_v2': ('QUARANTINED', 'a legacy Schwarz attempt outside every lean_lib; superseded by Kernel/SchwarzDischarge.lean :42'),
+    'schwarz_v3': ('QUARANTINED', 'a legacy Schwarz attempt outside every lean_lib; superseded by Kernel/SchwarzDischarge.lean :42'),
+    'schwarz_v4': ('QUARANTINED', 'a legacy Schwarz attempt outside every lean_lib; superseded by Kernel/SchwarzDischarge.lean :42'),
+    'schwarz_v5': ('QUARANTINED', 'a legacy Schwarz attempt outside every lean_lib; superseded by Kernel/SchwarzDischarge.lean :42'),
+    '(example)': ('QUARANTINED', 'an unnamed legacy probe (example) outside every lean_lib; nothing can consume it'),
+}
+
+
+def _sorry_rows():
+    rows = []
+    for k, m, f, ln, built, s, d, subj, txt in sorry_lines():
+        src = _show('D:/' + k, m, f).replace(chr(13), '').split(NL)
+        i = ln - 1
+        while i >= 0 and not DECL.match(src[i]):
+            i -= 1
+        kind, name = DECL.match(src[i]).groups() if i >= 0 else ('?', '?')
+        users = []
+        if name and kind != 'example':
+            out = g('D:/' + k, 'grep', '-n', '-w', name.split('.')[-1], m, '--', '*.lean')
+            users = sorted(set(l.split(':')[1] for l in out.split(NL) if l.strip()) - {f})
+        key = 'PinnedGoal' if f == 'PinnedGoal.lean' else ('(example)' if kind == 'example' else name)
+        prop, why = REASONS.get(key, ('### UNCLASSIFIED', '### NO REASON'))
+        rows.append(dict(kernel=k, main=m, file=f, line=ln, built=built, text=src[ln - 1].strip(), decl_kind=kind, decl=name or '(example)',
+                         decl_line=i + 1, statement=' '.join(x.strip() for x in src[i:ln - 1] if x.strip())[:400], files_naming=users,
+                         entered=d, entered_sha=s, proposed=prop, reason=why))
+    return rows
+
+
+# ### the four built lines: the sentences across keystones, pages and ledgers at PLACE-papers HEAD that cite one of them as holding, each read
+# ### whole; a sentence naming a milestone as open, sorry-carrying or a target is not a citation as holding
+CITES_HOLDING = [
+    ('phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md', 241,
+     'the three conjectures the milestones state (twin primes, Goldbach, Sophie Germain) given as following -- "therefore the negation '
+     'fails" -- from a "kernel-verified" structural argument; no kernel line carries the conjectures, the milestones close by sorry'),
+    ('phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md', 243,
+     'the same sentence in the edition: "therefore the negation fails", the argument called kernel-verified; the milestones close by sorry'),
+]
+
+
+def sorry_classify(*a):
+    """data/b648_sorry_classification.txt and .json: every one of the 37 lines verbatim with its declaration, statement head, the files naming
+    it, its entry date and the classification proposed with one reason; the four built lines` citing sentences read and the ones citing a
+    milestone as holding printed as UNLICENSED rows; no kernel edited."""
+    rows = _sorry_rows()
+    bad = [r for r in rows if r['proposed'].startswith('###')]
+    if len(rows) != 37 or bad:
+        sys.exit('### %d ROWS, %d UNCLASSIFIED -- NOTHING WRITTEN' % (len(rows), len(bad)))
+    names = ('twin_primes_infinite', 'goldbach', 'sophie_germain_infinite', 'T3_perClass_to_combinations')
+    hits = []
+    for n in names:
+        out = g(PP, 'grep', '-n', '-w', n, 'HEAD', '--', '*.md')
+        hits += [l[len('HEAD:'):] for l in out.split(NL) if l.strip()]
+    hits = sorted(set(hits))
+    L = ['b648 -- COMPONENT 2, (R258)(2): THE 37 SORRY LINES ON KERNEL MAINS, EACH READ WHOLE, THE CLASSIFICATION PROPOSED FOR THE AUTHOR`S WORD; '
+         'NO KERNEL EDITED (%s)' % utc(), '',
+         '### the source: relay data/b647_sorry_census.json (every `sorry` in code at each kernel`s main); the declaration each closes read at the '
+         'main, the files of its kernel naming it by git grep -w, the commit that brought the line by git blame and git log',
+         '### the repairs of (R258)(2): PROVED -- a proof supplied on a branch and merged, graded by the gate; QUARANTINED -- moved to a branch '
+         'sorry-quarantine-<kernel> and removed from main by the house delete form, its name and statement recorded in the kernel`s ERRATA-form '
+         'file; RESTATED -- kept on main as a Prop or def with no proof and the docstring "stated, not proved; open", read as a premise', '',
+         '### THE LINES (kernel@main:file:line | BUILT or TRACKED ONLY | the line verbatim | the declaration | entered | PROPOSED -- reason):']
+    for r in rows:
+        L += ['  %s@%s:%s:%d | %s | %s' % (r['kernel'], r['main'], r['file'], r['line'], 'BUILT' if r['built'] else 'TRACKED ONLY', r['text']),
+              '      %s %s (:%d) -- %s' % (r['decl_kind'], r['decl'], r['decl_line'], r['statement'][:300]),
+              '      files of the kernel naming it: %s ; entered %s at %s' % (', '.join(r['files_naming']) or 'none', r['entered'], r['entered_sha']),
+              '      PROPOSED %s -- %s' % (r['proposed'], r['reason'])]
+    c = collections.Counter(r['proposed'] for r in rows)
+    L += ['', '### THE FOUR BUILT LINES` CITING SENTENCES (PLACE-papers %s, every *.md, git grep -w on the four names: %d lines, each read whole):' % (
+        PRE_PP, len(hits)),
+          '### a line naming a milestone open, sorry-carrying, a target or a T4 row is no citation as holding; the rows citing one as holding:']
+    for f, ln, why in CITES_HOLDING:
+        t = (_show(PP, 'HEAD', f) or '').replace(chr(13), '').split(NL)
+        L += ['  UNLICENSED  PLACE-papers@%s:%s:%d -- %s' % (PRE_PP, f, ln, why), '      STATED: ' + (t[ln - 1][:900] if len(t) >= ln else '### OUT')]
+    L += ['', '### ### **LINES 37 ; PROPOSED PROVED %d, QUARANTINED %d, RESTATED %d ; BUILT 4 ; CITING SENTENCES READ %d, UNLICENSED ROWS %d ; NO '
+              'KERNEL EDITED.**' % (c['PROVED'], c['QUARANTINED'], c['RESTATED'], len(hits), len(CITES_HOLDING))]
+    put_txt('b648_sorry_classification.txt', L)
+    put_json('b648_sorry_classification.json', dict(at=utc(), rows=rows, cites_read=hits, unlicensed=[dict(file=f, line=ln, why=w) for f, ln, w in CITES_HOLDING]))
+    print(L[-1])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):

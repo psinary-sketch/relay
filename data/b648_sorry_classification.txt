@@ -1,0 +1,163 @@
+b648 -- COMPONENT 2, (R258)(2): THE 37 SORRY LINES ON KERNEL MAINS, EACH READ WHOLE, THE CLASSIFICATION PROPOSED FOR THE AUTHOR`S WORD; NO KERNEL EDITED (2026-10-11T00:02:48Z)
+
+### the source: relay data/b647_sorry_census.json (every `sorry` in code at each kernel`s main); the declaration each closes read at the main, the files of its kernel naming it by git grep -w, the commit that brought the line by git blame and git log
+### the repairs of (R258)(2): PROVED -- a proof supplied on a branch and merged, graded by the gate; QUARANTINED -- moved to a branch sorry-quarantine-<kernel> and removed from main by the house delete form, its name and statement recorded in the kernel`s ERRATA-form file; RESTATED -- kept on main as a Prop or def with no proof and the docstring "stated, not proved; open", read as a premise
+
+### THE LINES (kernel@main:file:line | BUILT or TRACKED ONLY | the line verbatim | the declaration | entered | PROPOSED -- reason):
+  SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:32 | BUILT | sorry  -- MILESTONE: Hardy-Littlewood asymptotic
+      theorem twin_primes_infinite (:30) -- theorem twin_primes_infinite : ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (p + 2))) := by
+      files of the kernel naming it: none ; entered 2026-04-28 at afb196e
+      PROPOSED RESTATED -- its statement is the twin-prime conjecture itself; the corpus cites it as the open milestone M3 (ADDITIVE_MULTIPLICATIVE_CONSPIRACY :411, T4); kept as a Prop with no proof, read as a premise
+  SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:49 | BUILT | sorry  -- MILESTONE: circle method or Helfgott-style approach
+      theorem goldbach (:46) -- theorem goldbach : ∀ n : ℕ, n ≥ 4 → (∃ k : ℕ, n = 2 * k) → ∃ p q : ℕ, Nat.Prime p ∧ Nat.Prime q ∧ p + q = n := by
+      files of the kernel naming it: SIDEEffects/Structural.lean ; entered 2026-04-28 at afb196e
+      PROPOSED RESTATED -- its statement is the binary Goldbach conjecture; cited as the open milestone M4 (ADDITIVE_MULTIPLICATIVE_CONSPIRACY :412, T4); kept as a Prop with no proof
+  SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:63 | BUILT | sorry  -- MILESTONE: sieve density bounds
+      theorem sophie_germain_infinite (:61) -- theorem sophie_germain_infinite : ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (2 * p + 1))) := by
+      files of the kernel naming it: none ; entered 2026-04-28 at afb196e
+      PROPOSED RESTATED -- its statement is the Sophie Germain infinitude conjecture; cited as the open milestone M5 (ADDITIVE_MULTIPLICATIVE_CONSPIRACY :413, T4); kept as a Prop with no proof
+  SIDE-kernel@0256e9e:legacy/CodimProbe.lean:60 | TRACKED ONLY | sorry
+      theorem focus_on_critical_line (:50) -- theorem focus_on_critical_line (t : Real) : (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0 := by -- conj(1/2 + it) = 1/2 - it = 1 - (1/2 + it) have h_conj_eq_one_sub : (starRingEnd ℂ) (⟨1/2, t⟩ : ℂ) = 1 - ⟨1/2, t⟩ := by ext <;> simp [Complex.conj_re, Complex.conj_im] ring -- Schwarz: Λ₀(conj s) = conj(Λ₀(s
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- a legacy probe outside every lean_lib; its content is proved in the kernel`s own file legacy/SchwarzReflection_PR.lean (completedRiemannZeta₀_im_eq_zero_on_half) and nothing consumes it
+  SIDE-kernel@0256e9e:legacy/CodimProbe.lean:78 | TRACKED ONLY | sorry
+      theorem zeros_in_strip (:71) -- theorem zeros_in_strip (s : ℂ) (hs : riemannZeta s = 0) (h_not_trivial : ¬∃ n : Nat, s = -2 * (↑n + 1)) (h_ne_one : s ≠ 1) : 0 < s.re ∧ s.re < 1 := by constructor · -- Re(s) > 0: from FE + non-vanishing -- If Re(s) ≤ 0 and s is not trivial... this needs more work
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- a legacy probe outside every lean_lib; nothing consumes it
+  SIDE-kernel@0256e9e:legacy/FmodifProbe.lean:14 | TRACKED ONLY | sorry
+      example (example) (:11) -- example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = _ := by unfold WeakFEPair.f_modif -- See what it looks like
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-kernel@0256e9e:legacy/FmodifProbe.lean:32 | TRACKED ONLY | sorry
+      example (example) (:26) -- example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by simp only [WeakFEPair.f_modif, hurwitzEvenFEPair] simp [map_add, map_sub, conj_ofReal, map_smul, map_mul, map_one, map_indicator, starRingEnd_self_apply]
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-kernel@0256e9e:legacy/FmodifProbe.lean:41 | TRACKED ONLY | sorry
+      example (example) (:35) -- example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by simp only [WeakFEPair.f_modif] -- Try RCLike.conj_eq_iff or similar rw [show (starRingEnd ℂ) = Complex.conjCLE from rfl]
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-kernel@0256e9e:legacy/FmodifProbe.lean:49 | TRACKED ONLY | sorry
+      example (example) (:46) -- example (t : ℝ) : ((hurwitzEvenFEPair 0).f_modif t).im = 0 := by simp only [WeakFEPair.f_modif]
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-kernel@0256e9e:legacy/FmodifProbe2.lean:26 | TRACKED ONLY | sorry
+      example (example) (:15) -- example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by rw [eq_comm] rw [Complex.conj_eq_iff_im] simp only [WeakFEPair.f_modif, Pi.add_apply] -- After unfolding, try simp with im lemmas simp only [indicator_apply] split_ifs <;> simp [Complex.add_im, 
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-kernel@0256e9e:legacy/FmodifProbe2.lean:75 | TRACKED ONLY | sorry  -- see what remains
+      example (example) (:56) -- example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by simp only [WeakFEPair.f_modif, Pi.add_apply, indicator_apply] -- Now it's: (if t ∈ Ioi 1 then ... else 0) + (if t ∈ Ioo 0 1 then ... else 0) --         = conj(same) -- Push conj through rw [map_
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-kernel@0256e9e:legacy/IdentityBuild1.lean:156 | TRACKED ONLY | sorry -- need HasDerivAt → HasStrictDerivAt for analytic functions
+      lemma simple_zero_isolated (:147) -- lemma simple_zero_isolated (f : ℂ → ℂ) (z₀ : ℂ) (hf : Differentiable ℂ f) (hz : f z₀ = 0) (hd : deriv f z₀ ≠ 0) : ∀ᶠ z in nhdsWithin z₀ {z₀}ᶜ, f z ≠ 0 := by -- f'(z₀) ≠ 0 → locally injective → isolated zero -- Step 1: get HasStrictDerivAt have h_da : HasDerivAt f (deriv f z₀) z₀ := hf.differentiable
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- a legacy build attempt outside every lean_lib; nothing consumes it
+  SIDE-kernel@0256e9e:legacy/IdentityBuild1.lean:171 | TRACKED ONLY | sorry -- induction using simple_zero_isolated
+      lemma accumulation_kills_derivs (:165) -- lemma accumulation_kills_derivs (f : ℂ → ℂ) (z₀ : ℂ) (hf : Differentiable ℂ f) (hacc : ∃ (z : ℕ → ℂ), (∀ n, f (z n) = 0) ∧ (∀ n, z n ≠ z₀) ∧ Tendsto z atTop (nhds z₀)) : ∀ n : ℕ, iteratedDeriv n f z₀ = 0 := by
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- a legacy build attempt outside every lean_lib; nothing consumes it
+  SIDE-kernel@0256e9e:legacy/IdentityBuild1.lean:213 | TRACKED ONLY | sorry -- need to construct from deriv f z₀ ≠ 0
+      example (example) (:211) -- example (f : ℂ → ℂ) (z₀ : ℂ) (hf : Differentiable ℂ f) (hd : deriv f z₀ ≠ 0) : ∃ (e : ℂ ≃L[ℂ] ℂ), (e : ℂ →L[ℂ] ℂ) = fderiv ℂ f z₀ := by
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:96 | TRACKED ONLY | sorry -- bookkeeping: rearrange factors to use h_prod and hp_ne
+      theorem product_formula_prime_pow (:72) -- theorem product_formula_prime_pow (p : Nat) [hp : Fact p.Prime] (k : Nat) : normProduct p ((p : Rat) ^ k) = 1 := by unfold normProduct have hp_pos : (0 : Rat) < (p : Rat) := Nat.cast_pos.mpr (Nat.Prime.pos hp.out) have hp_ne : (p : Rat) ≠ 0 := ne_of_gt hp_pos rw [abs_of_pos (pow_pos hp_pos k)] induc
+      files of the kernel naming it: Kernel/ProductFormula_Clean.lean, Kernel/ProductFormula_v2.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- a legacy copy outside every lean_lib; the built kernel proves its namesakes (Kernel/ProductFormula_Clean.lean :86, Kernel/ProductFormula_v2.lean :24), which do not import it
+  SIDE-kernel@0256e9e:legacy/ProductFormula_Int.lean:130 | TRACKED ONLY | sorry
+      theorem product_formula_nat (:117) -- theorem product_formula_nat (p : Nat) [hp : Fact p.Prime] (n : Nat) (hn : n ≠ 0) : |(n : Rat)| * padicNorm p (n : Rat) = 1 := by -- Strategy: use padicNorm.eq_zpow_of_nonzero to express the p-adic norm, -- then use the factorization to evaluate the archimedean times p-adic product. rw [padicNorm_eq_
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- false as stated (n = 6 at p = 2 gives 3; the file`s own comment at :124), outside every lean_lib, nothing consumes it
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild10.lean:59 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:29) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) -- RHS: pu
+      files of the kernel naming it: legacy/SchwarzBuild11.lean, legacy/SchwarzBuild12.lean, legacy/SchwarzBuild13.lean, legacy/SchwarzBuild14.lean, legacy/SchwarzBuild2.lean, legacy/SchwarzBuild6.lean, legacy/SchwarzBuild7.lean, legacy/SchwarzBuild8.lean, legacy/SchwarzBuild9.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild11.lean:61 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:41) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) rw [map_div₀, conj_two] congr 1 simp only
+      files of the kernel naming it: legacy/SchwarzBuild10.lean, legacy/SchwarzBuild12.lean, legacy/SchwarzBuild13.lean, legacy/SchwarzBuild14.lean, legacy/SchwarzBuild2.lean, legacy/SchwarzBuild6.lean, legacy/SchwarzBuild7.lean, legacy/SchwarzBuild8.lean, legacy/SchwarzBuild9.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild12.lean:56 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:33) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) rw [map_div₀, conj_two] congr 1 simp only
+      files of the kernel naming it: legacy/SchwarzBuild10.lean, legacy/SchwarzBuild11.lean, legacy/SchwarzBuild13.lean, legacy/SchwarzBuild14.lean, legacy/SchwarzBuild2.lean, legacy/SchwarzBuild6.lean, legacy/SchwarzBuild7.lean, legacy/SchwarzBuild8.lean, legacy/SchwarzBuild9.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild13.lean:53 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:33) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) rw [map_div₀, conj_two] congr 1 simp only
+      files of the kernel naming it: legacy/SchwarzBuild10.lean, legacy/SchwarzBuild11.lean, legacy/SchwarzBuild12.lean, legacy/SchwarzBuild14.lean, legacy/SchwarzBuild2.lean, legacy/SchwarzBuild6.lean, legacy/SchwarzBuild7.lean, legacy/SchwarzBuild8.lean, legacy/SchwarzBuild9.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild14.lean:54 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:33) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) rw [map_div₀, conj_two] congr 1 simp only
+      files of the kernel naming it: legacy/SchwarzBuild10.lean, legacy/SchwarzBuild11.lean, legacy/SchwarzBuild12.lean, legacy/SchwarzBuild13.lean, legacy/SchwarzBuild2.lean, legacy/SchwarzBuild6.lean, legacy/SchwarzBuild7.lean, legacy/SchwarzBuild8.lean, legacy/SchwarzBuild9.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild2.lean:111 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:87) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold to mellin level show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) -- Push conj th
+      files of the kernel naming it: legacy/SchwarzBuild10.lean, legacy/SchwarzBuild11.lean, legacy/SchwarzBuild12.lean, legacy/SchwarzBuild13.lean, legacy/SchwarzBuild14.lean, legacy/SchwarzBuild6.lean, legacy/SchwarzBuild7.lean, legacy/SchwarzBuild8.lean, legacy/SchwarzBuild9.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild2.lean:113 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:87) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold to mellin level show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) -- Push conj th
+      files of the kernel naming it: legacy/SchwarzBuild10.lean, legacy/SchwarzBuild11.lean, legacy/SchwarzBuild12.lean, legacy/SchwarzBuild13.lean, legacy/SchwarzBuild14.lean, legacy/SchwarzBuild6.lean, legacy/SchwarzBuild7.lean, legacy/SchwarzBuild8.lean, legacy/SchwarzBuild9.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild3.lean:42 | TRACKED ONLY | sorry  -- will fill once we find the lemma name
+      example (example) (:37) -- example (t : ℝ) (ht : 0 < t) (w : ℂ) : (t : ℂ) ^ (starRingEnd ℂ w) = starRingEnd ℂ ((t : ℂ) ^ w) := by rw [cpow_conj] · simp [conj_ofReal] · -- need: arg(↑t) ≠ π
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild3.lean:77 | TRACKED ONLY | sorry
+      theorem schwarz_v2 (:59) -- theorem schwarz_v2 (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) -- Push conj thro
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- a legacy Schwarz attempt outside every lean_lib; superseded by Kernel/SchwarzDischarge.lean :42
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild4.lean:56 | TRACKED ONLY | sorry  -- PROBE: what does the goal look like after unfold?
+      example (example) (:54) -- example (t : ℝ) : starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) = (hurwitzEvenFEPair 0).f_modif t := by
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild4.lean:87 | TRACKED ONLY | sorry
+      theorem schwarz_v3 (:63) -- theorem schwarz_v3 (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) -- Handle outer structure rw
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- a legacy Schwarz attempt outside every lean_lib; superseded by Kernel/SchwarzDischarge.lean :42
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild4.lean:108 | TRACKED ONLY | sorry
+      theorem schwarz_v4 (:93) -- theorem schwarz_v4 (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) rw [map_div₀, conj_two] congr 1 rw [← conj_div_t
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- a legacy Schwarz attempt outside every lean_lib; superseded by Kernel/SchwarzDischarge.lean :42
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild5.lean:62 | TRACKED ONLY | sorry -- PROBE: see what remains
+      example (example) (:56) -- example (t : ℝ) : starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) = (hurwitzEvenFEPair 0).f_modif t := by -- Unfold f_modif simp only [WeakFEPair.f_modif] -- Try to show conj distributes over everything simp [map_add, map_sub, map_indicator, conj_ofReal, map_mul, map_one, smul_eq_mul]
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild5.lean:114 | TRACKED ONLY | sorry
+      theorem schwarz_v5 (:90) -- theorem schwarz_v5 (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) -- Push conj through /2 rw [
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- a legacy Schwarz attempt outside every lean_lib; superseded by Kernel/SchwarzDischarge.lean :42
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild6.lean:71 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:40) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) -- RHS: pu
+      files of the kernel naming it: legacy/SchwarzBuild10.lean, legacy/SchwarzBuild11.lean, legacy/SchwarzBuild12.lean, legacy/SchwarzBuild13.lean, legacy/SchwarzBuild14.lean, legacy/SchwarzBuild2.lean, legacy/SchwarzBuild7.lean, legacy/SchwarzBuild8.lean, legacy/SchwarzBuild9.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild7.lean:68 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:29) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) -- RHS: pu
+      files of the kernel naming it: legacy/SchwarzBuild10.lean, legacy/SchwarzBuild11.lean, legacy/SchwarzBuild12.lean, legacy/SchwarzBuild13.lean, legacy/SchwarzBuild14.lean, legacy/SchwarzBuild2.lean, legacy/SchwarzBuild6.lean, legacy/SchwarzBuild8.lean, legacy/SchwarzBuild9.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild8.lean:68 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:39) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) -- RHS: pu
+      files of the kernel naming it: legacy/SchwarzBuild10.lean, legacy/SchwarzBuild11.lean, legacy/SchwarzBuild12.lean, legacy/SchwarzBuild13.lean, legacy/SchwarzBuild14.lean, legacy/SchwarzBuild2.lean, legacy/SchwarzBuild6.lean, legacy/SchwarzBuild7.lean, legacy/SchwarzBuild9.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzBuild9.lean:58 | TRACKED ONLY | sorry
+      theorem schwarz_discharge (:29) -- theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2) -- RHS: pu
+      files of the kernel naming it: legacy/SchwarzBuild10.lean, legacy/SchwarzBuild11.lean, legacy/SchwarzBuild12.lean, legacy/SchwarzBuild13.lean, legacy/SchwarzBuild14.lean, legacy/SchwarzBuild2.lean, legacy/SchwarzBuild6.lean, legacy/SchwarzBuild7.lean, legacy/SchwarzBuild8.lean ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- one of the legacy Schwarz build attempts outside every lean_lib; the built kernel proves the reflection (Kernel/SchwarzDischarge.lean :42, schwarz_reflection_completedZeta₀); its namesakes are the other attempts, none imported
+  SIDE-kernel@0256e9e:legacy/SchwarzProbe2.lean:79 | TRACKED ONLY | sorry
+      example (example) (:76) -- example (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by unfold completedRiemannZeta₀
+      files of the kernel naming it: none ; entered 2026-04-02 at 96448f7
+      PROPOSED QUARANTINED -- an unnamed legacy probe (example) outside every lean_lib; nothing can consume it
+  SIDE-lv-conservation@2f71068:PinnedGoal.lean:23 | TRACKED ONLY | sorry
+      example (example) (:17) -- example (𝒞 : Set Coupling) (s : ℂ) (h : ∀ C ∈ 𝒞, PerClassExcludes C s) : ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0 := by -- Same goal shape as at T3_StepNineBridge.lean:107.  Reproduced only -- to guarantee the transcript's quoted goal is convertible with the -- actual pinned goal.  Left as
+      files of the kernel naming it: none ; entered 2026-07-09 at 45c2759
+      PROPOSED QUARANTINED -- an example outside every lean_lib that only reproduces the goal at T3`s sorry; nothing consumes it
+  SIDE-lv-conservation@2f71068:SIDELvConservation/T3_StepNineBridge.lean:108 | BUILT | sorry -- F.2026-07-09-b: ∀∃ ⟹ ∃∀ needs a joint-witness / cofinality assumption
+      theorem T3_perClass_to_combinations (:92) -- theorem T3_perClass_to_combinations (𝒞 : Set Coupling) (s : ℂ) (h : ∀ C ∈ 𝒞, PerClassExcludes C s) : CombinationsExclude 𝒞 s := by -- Unfold `CombinationsExclude` so the pinned goal is exact. show ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0 -- The hypothesis `h` gives, for each `C ∈ 𝒞`, a wit
+      files of the kernel naming it: AxiomCheck.lean, SIDELvConservation/AxiomCheck_v0_10_0.lean ; entered 2026-07-09 at 45c2759
+      PROPOSED RESTATED -- the pinned step of the bracket the keystones cite (PATHS :293, SURROUND :177); its universal form is refuted in the same file (T3doubleprime_general_commutation_fails) and it closes under the shared witness (T3prime_shared_witness); kept as a Prop naming the per-instance step, its docstring saying so; consumed by the two AxiomCheck files alone
+
+### THE FOUR BUILT LINES` CITING SENTENCES (PLACE-papers 4492e6e, every *.md, git grep -w on the four names: 70 lines, each read whole):
+### a line naming a milestone open, sorry-carrying, a target or a T4 row is no citation as holding; the rows citing one as holding:
+  UNLICENSED  PLACE-papers@4492e6e:phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md:241 -- the three conjectures the milestones state (twin primes, Goldbach, Sophie Germain) given as following -- "therefore the negation fails" -- from a "kernel-verified" structural argument; no kernel line carries the conjectures, the milestones close by sorry
+      STATED: - **Structural argument (kernel-verified):** the negation of any of the three conjectures requires a additive–multiplicative conspiracy; no additive–multiplicative conspiracy exists; therefore the negation fails. The genuine verification is `Module1.no_type_d_conspiracies` (CRT exhaustiveness); the `no_conspiracy_twins/goldbach/sg` instantiations are placeholder forms over uniformly-True predicates.
+  UNLICENSED  PLACE-papers@4492e6e:phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md:243 -- the same sentence in the edition: "therefore the negation fails", the argument called kernel-verified; the milestones close by sorry
+      STATED: - **Structural argument (kernel-verified):** the negation of any of the three conjectures requires a additive–multiplicative conspiracy; no additive–multiplicative conspiracy exists; therefore the negation fails. The verification is `Module1.no_type_d_conspiracies` (CRT exhaustiveness), which states `IsEmpty TypeD` over the programme’s own couplings, T2, so the arithmetic reading is carried by the programme’s definitions (relay `data/b558_cp1b.txt` :320); the `no_conspiracy_twins/goldbach/sg` instantiations are placeholder forms over uniformly-True predicates.
+
+### ### **LINES 37 ; PROPOSED PROVED 0, QUARANTINED 33, RESTATED 4 ; BUILT 4 ; CITING SENTENCES READ 70, UNLICENSED ROWS 2 ; NO KERNEL EDITED.**
