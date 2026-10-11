@@ -958,7 +958,8 @@ def kernels(*a):
 
 DEFECT_SHORT = ['(a) backticks in a double-quoted commit message', '(b) a measurement bank whose first reading overstated its data',
                 '(c) an arm that first read nothing', '(d) an arm that first matched a different declaration',
-                '(e) two planted expectations written wrong', '(f) pages re-emitted before the glossary they carry was complete']
+                '(e) two planted expectations written wrong', '(f) pages re-emitted before the glossary they carry was complete',
+                '(g) a composer edit that says its phrase twice']
 
 
 def defects(*a):
