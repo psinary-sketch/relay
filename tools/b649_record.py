@@ -958,7 +958,7 @@ def kernels(*a):
 
 DEFECT_SHORT = ['(a) backticks in a double-quoted commit message', '(b) a measurement bank whose first reading overstated its data',
                 '(c) an arm that first read nothing', '(d) an arm that first matched a different declaration',
-                '(e) two planted expectations written wrong']
+                '(e) two planted expectations written wrong', '(f) pages re-emitted before the glossary they carry was complete']
 
 
 def defects(*a):
@@ -1209,7 +1209,7 @@ def _finding_text():
     e = ['', _title(), '',
          '*Filed at b649 on the author’s ruling `(R259)` and the author’s answers (%d). Banks: relay `data/b649_no_sorry_main.txt`, '
          '`data/b649_axiom_claim.txt`, `data/b649_module_header.txt`, `data/b649_legacy_map_SIDE-kernel.txt`, '
-         '`data/b649_legacy_map_SIDE-lv-conservation.txt`, `data/b649_lv_build.txt`, `data/b649_page_arms_c1.txt`, `data/b649_deposit_description.txt`, '
+         '`data/b649_legacy_map_SIDE-lv-conservation.txt`, `data/b649_lv_build.txt`, `data/b649_page_arms_c2.txt`, `data/b649_deposit_description.txt`, '
          '`data/b649_reader_compare.txt`, `data/b649_zenodo_read.txt`, `data/b649_act_root.txt`.*' % n_ans, '',
          '**Three arms** (`(R259)`(2)), each a standalone tool with its planted test and an arm of every suite from this act. G-NO-SORRY-MAIN '
          'reads every lean_lib of every kernel`s main, its remote and its clone`s HEAD equal: %d hits over %d kernels, the four RESTATED lines '
@@ -1302,7 +1302,7 @@ def components(*a):
              S['N1'][0], S['N2'][0]),
          '### COMPONENT 3 : the legacy map (data/b649_legacy_map_SIDE-kernel.txt, data/b649_legacy_map_SIDE-lv-conservation.txt) ; N3 %s' % S['N3'][0],
          '### COMPONENT 4 : the lv build measured (data/b649_lv_build.txt)',
-         '### COMPONENT 5 : the name (data/glossary.txt, tools/chain_page.py, data/b649_page_arms_c1.txt)',
+         '### COMPONENT 5 : the name (data/glossary.txt, tools/chain_page.py, data/b649_page_arms_c1.txt, data/b649_page_arms_c2.txt)',
          '### COMPONENT 6 : the description at v5, the sixth reader, the draft held (data/b649_deposit_description.txt, data/b649_reader_compare.txt, '
          'data/b649_zenodo_read.txt) ; N4 %s' % S['N4'][0],
          '### COMPONENT 7 : the seal (data/b649_seal_hashes.json) ; S5 %s' % S['S5'][0],

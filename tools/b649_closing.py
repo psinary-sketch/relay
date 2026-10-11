@@ -201,7 +201,7 @@ def main():
     L += ['### THE LV-CONSERVATION BUILD MEASURED ((R259)(4); relay data/b649_lv_build.txt): ' + verdict(rd('b649_lv_build.txt'), r'MODULES 25 ;[^*]*'),
           '    ' + verdict(rd('b649_lv_build.txt'), r'### THE PRICE: [^\n]*'), '']
     L += ['### THE NAME ((R259)(5)): the glossary`s entry the positivity clause; the pages at PLACE-papers carrying it -- ' + verdict(
-        rd('b649_page_arms_c1.txt'), r'PAGE ARMS PASSING : \d of 2') + ' ; ' + verdict(rd('b649_page_arms_c1.txt'),
+        rd('b649_page_arms_c2.txt'), r'PAGE ARMS PASSING : \d of 2') + ' ; ' + verdict(rd('b649_page_arms_c2.txt'),
                                                                                          r'G-B592-LISTS-CONTROL-AT-12C15C80-BA5F0EA PASSING : \d of 2'), '']
     DJ, CP_, Z = jl('b649_deposit_description.json'), jl('b649_reader_compare.json'), jl('b649_zenodo.json')
     L += ['### THE DESCRIPTION AT v5 ((R259)(6)): %s bytes against v4`s %s, sha256 %s ; %s ; the sixth reader %s of 3 by the needles, %s of 3 by '
