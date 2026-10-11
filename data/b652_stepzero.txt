@@ -1,0 +1,36 @@
+b652 -- COMPONENT 0: STEP ZERO UNDER (R262) (2026-10-11)
+
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R262) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b652_ferry.txt; the ferry scan 0 hits, 0 flags (data/b652_ferry_scan.txt); relay dfccf67b.
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 2822 MB
+### orphans: NONE ; stopped by PID: none needed.
+
+### b651's closing push-out bank committed at the start: relay 1958b8e9 (data/b651_closing_push_out.txt, ASCII, LF).
+
+### the b651 push branches, listed by `git branch --merged main --list 'push-b651*' -v` and deleted by name with the lower-case flag in the
+### same command, read back:
+  relay        listed push-b651, push-b651-closing, push-b651-root ; deleted push-b651 (was 6b5cbcfa), push-b651-root (was 78f7cbe4),
+               push-b651-closing (was 1a4caf67) ; push-b651* now 0
+  PLACE-papers listed push-b651, push-b651-root ; deleted push-b651 (was a6e63c1), push-b651-root (was 4c88587) ; push-b651* now 0
+
+### the post-close restoration of data/b651_author_answers.txt entered as a dated line, the first of the defects bank's successor form
+### (data/b652_defects.txt): bytes f2cdc66a... equal to b651's root entry, write time 17:14:01 -0400 after the root's 20:59:54Z.
+
+### every test file under tools/ (data/b652_tests_stepzero.txt, .json), tools/b652_tests.py with the lists in force after b651
+### (data/b649_nodes_zeta.txt, data/b651_nodes_chi.txt), one test per call:
+  TEST FILES 51 ; RUN 50 ; WITHHELD 1 ; NOT CLEAN 2:
+    test_chain_page.py (9) -- carried as W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE's case (OPEN_TRAILS :13838).
+    test_chain_page_b638.py (1), (4)-(7) -- (4)-(7) as carried since b643; (1) NEW: it reads the glossary's entries (89) equal to its
+      lines that are no comment (90); b651's marked supersession (relay 1e073ac3, 5c644b0d) leaves entry 65 written and out of the block,
+      so the two counts differ by one. b651's edit, found by the act after it; a finding, the test unedited.
+    test_elab_reader_b634.py -- WITHHELD BY THE MARGIN RULE ((R262)(3)): margin needed 3807 MB (the hold 2560 + tree peak 1247 MB,
+      data/b651_build_peaks.json attempt 2), margin seen 3241 MB; not started (data/b652_tests_withheld.json).
+  the trees after the runs: relay tracked changes NONE (a stat-only entry for the scan, refreshed) ; PLACE-papers tracked changes NONE.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### free memory before any build: 2822 MB at the listing; 3231 MB at 21:46:55Z after the tests; the hold 2560 MB.

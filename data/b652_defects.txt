@@ -1,0 +1,7 @@
+b652 -- THE DEFECTS, WRITTEN AS THE ACT RAN (2026-10-11): THE SUCCESSOR OF data/b651_defects.txt; THE CARRIED LINE FIRST, THEN THE ACT'S
+
+### CARRIED FROM b651, ENTERED AT STEP ZERO UNDER (R262)(1):
+    2026-10-11 -- b651, AFTER ITS CLOSING: A ROOT-NAMED BANK RESTORED FROM GIT. After the closing commit (relay 1a4caf67, 17:13:46 -0400) the seat ran a pass that replaced every carriage return in the b651 banks; data/b651_author_answers.txt carried one lone carriage return inside the author's answer text, and the pass removed it. The file is named by b651's act root (data/b651_act_root.json, root 51df0cb6..., taken 2026-10-11T20:59:54Z, the file's sha256 f2cdc66a...). The seat restored it by git checkout from the committed blob; its sha256 reads f2cdc66a... again, equal to the root's entry, and the root's recompute holds. Its write time is now 2026-10-11 17:14:01 -0400, later than the root; a reader that compares write times against the root would flag it. No other bank was changed by the pass. Not in b651's closing, written before the pass.
+
+### THE ACT'S OWN:
+    (a) THE SEAT'S: A PROBE BY A FLAG THE TOOL DOES NOT READ, AGAIN. Before the ferry scan the seat called tools/ferry_scan.py with --help; the tool reads its first argument as the ferry's path (:623), failed opening a file of that name and wrote nothing. b651's defect (a) is the same kind on another tool.
