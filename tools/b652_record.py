@@ -208,6 +208,27 @@ def c1(*a):
          dry=dry)
 
 
+MH = ('*Appended 2026-10-11 by b652 beneath W-ORD-LV-BUILD-HOST (:13798), under `(R262)`(3) and the author’s word after the strike -- THE '
+      'MARGIN TERM CORRECTED, STANDING FROM b652:*')
+
+
+def _margin_rule():
+    return ('\n' + MH + ' the rule (R262)(3) acted -- a module builds under the hold when the free memory at its start less its measured tree '
+            'peak stays at or above the hold -- is refuted by b651’s run of Kernel.PerpendicularCrossing (relay '
+            'data/b651_docstrings_SIDE-kernel.txt :18-:19, data/b651_build_peaks.json rows 3-4): free 3365 MB at its start, above the 3252 the '
+            'rule needed, and the host fell 906 MB to 2459 beneath the hold while the tree’s peak was 683 MB. From this act the margin needed is '
+            'the host’s measured loss -- free memory at the start less the host’s low, as the watchdog prints them -- where a run has recorded '
+            'one, the largest of its attempts; the tree peak is not a substitute; a module with no recorded loss reads UNMEASURED and no build is '
+            'attempted on it. A loss from a run stopped at the hold is a lower bound. The hold stays 2560 MB. Measured at b652: '
+            'T3_StepNineBridge 1428 MB, Milestones 1255, PerpendicularCrossing 906; seen 184 and 651 MB above the hold at two readings; no '
+            'build started (relay data/b652_build_margin.txt). The navigator’s term, corrected on the author’s word.\n')
+
+
+def c2(*a):
+    land([('OPEN_TRAILS.md', MH, _margin_rule())], 'b652_margin_line.json', 'c2', entry=13798,
+         check=[('OPEN_TRAILS.md', 13798, 'W-ORD-LV-BUILD-HOST')], dry='dry' in a)
+
+
 # ================================================================================ COMPONENT 2: THE MARGIN, (R262)(3)
 HOLD = 2560
 # ### per module the three unmerged branches touch: (kernel, branch, module, the build command's target, tree peak MB, the bank and line)
