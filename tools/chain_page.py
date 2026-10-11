@@ -385,7 +385,16 @@ TIER_KEY = ('A node\'s tier cell is computed from three printed facts — E0 gra
             '[propext, Classical.choice, Quot.sound], no premise — and reads T0 when all three hold, the tier law\'s clause '
             '"compiled against a Mathlib statement" being witnessed by the consumes column (Mathlib\'s `RiemannHypothesis` or '
             '`riemannZeta` among the constants the anchor nodes consume) and not separately tested; the terminal table\'s '
-            'tier cell for the node, where one exists, is printed beside it as `table:`, and a disagreement refuses the page.')
+            'tier cell for the node, where one exists, is printed beside it as `table:`, and a disagreement refuses the page. '
+            'The terminal table\'s grade for the node, where it differs from the E0 grade, is printed beside the E0 grade the same way.')
+# ### b648, (R258)(3): the E0 cell carries the table's grade where the two differ (relay data/b648_table_pages.txt: h2_sign_upto E0 DEF,
+# ### the table DERIVES; h2_sign_chi_imp_grh_chi and h2_sign_chi_iff_grh_chi E0 DERIVES, the table INTERFACES by b626's cells). A node
+# ### whose E0 grade the table's row repeats, or which has no row, is written exactly as before.
+
+
+def e0_cell(c, key):
+    rg = c.get('record_grade')
+    return c['grade'] + ((' (table: %s)' % rg) if key and rg and rg != c['grade'] else '')
 
 
 def tier_of_node(kind, grade_e0, why, axioms, rec_row):
@@ -757,7 +766,7 @@ def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b5
         tier = c['tier'] + ((' (table: %s)' % (c.get('table_tier') or 'none')) if key else '')
         sh = (' — shape: %s' % c.get('shape')) if column else ''   # ### b622, (R232)(4): the shape cell, after the statement
         L.append('%d. `%s` — %s:%d — %s — `%s`%s — premises: %s — E0: %s — tier: %s — axioms: %s — consumes: %s'
-                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], sh, c['premises'], c['grade'], tier, ax, cons))
+                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], sh, c['premises'], e0_cell(c, key), tier, ax, cons))
     L += ['', OPEN_LINE, '', ceiling, '', '## Placement', '', '| object | path |', '|:--|:--|',
           '| this page | `%s` |' % PAGE_NAME]
     L += ['| ledger | `%s` |' % f for f in LEDGERS]
@@ -791,7 +800,7 @@ def emit_dirichlet(nodes, cells, order, corr_rows, keystone_files, ceiling, ceil
         tier = c['tier'] + ((' (table: %s)' % (c.get('table_tier') or 'none')) if key else '')
         sh = (' — shape: %s' % c.get('shape')) if column else ''   # ### b622, (R232)(4): the shape cell, after the statement
         L.append('%d. `%s` — %s:%d — %s — `%s`%s — premises: %s — E0: %s — tier: %s — axioms: %s — consumes: %s'
-                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], sh, c['premises'], c['grade'], tier, ax, cons))
+                 % (i, n, c['path'], c['line'], c['entry'], c['statement'], sh, c['premises'], e0_cell(c, key), tier, ax, cons))
     rl, gl = ceil_lines
     L += ['', DIR_OPEN_LINE, '', ceiling, '', '## Placement', '', '| object | path |', '|:--|:--|',
           '| this page | `%s` |' % DIR_PAGE_NAME]
