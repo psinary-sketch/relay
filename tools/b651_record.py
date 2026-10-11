@@ -259,6 +259,74 @@ def glossary_alike(*a):
     return ok
 
 
+# ================================================================================ COMPONENT 6: THE SENTENCE ROWS, (R261)(7) AND THE AUTHOR'S ANSWERS
+# ### b647's SIDE-kernel table grades blocks (relay data/b647_table_SIDE-kernel.txt :3); the author's answer before the seal: no docstring
+# ### edit this act; the 116 OVERREACHES and UNDERSTATES blocks read into sentence rows by the table's own machinery where it fits the
+# ### foreground -- b647's generator (_kdoc_rows) run at SIDE-kernel's main, each block's context (statement, grade, lookup) captured, each
+# ### parent block split into units by the table's unit rule (b647_record._MSPLIT) and each unit read by licensed_table.docstring_row with
+# ### its parent's context. A GENERATED reading per sentence, the parent's HAND verdict beside it; the HAND reading per sentence is b652's.
+def _bank_line(bank_lines, rid_tail):
+    for i, l in enumerate(bank_lines, 1):
+        if l.startswith('  SIDE-kernel@0256e9e:' + rid_tail + ' |'):
+            return i
+    return None
+
+
+def sentences(*a):
+    """data/b651_table_SIDE-kernel_sentences.txt and .json."""
+    import b647_record as B7
+    import licensed_table as LT
+    N = lambda s: ' '.join(s.split())   # noqa: E731
+    parents = [r for r in jl('b647_table_SIDE-kernel.json')['rows'] if r['verdict'] in ('OVERREACHES', 'UNDERSTATES')]
+    bl = rd('b647_table_SIDE-kernel.txt').split(NL)
+    ctx, orig = {}, LT.docstring_row
+
+    def cap(rid, source, doc, *args, **kw):
+        ctx.setdefault(N(doc), (source, args, kw))
+        return orig(rid, source, doc, *args, **kw)
+    LT.docstring_row = cap
+    try:
+        B7._kdoc_rows('SIDE-kernel')
+    finally:
+        LT.docstring_row = orig
+    rows, unread = [], []
+    for p in parents:
+        c = ctx.get(N(p['stated']))
+        if c is None:
+            unread.append(p)
+            continue
+        src, args, kw = c
+        units = [s for s in B7._MSPLIT.split(p['stated'].strip()) if s.strip()]
+        for j, u in enumerate(units, 1):
+            r = orig('%s.s%d' % (p['id'], j), p['source'], u, *args, **kw)
+            rows.append(dict(id=r['id'], parent=p['id'], parent_line=_bank_line(bl, p['source']), parent_verdict=p['verdict'], kind=p['kind'],
+                             n=j, of=len(units), sentence=N(u), generated=r['verdict'], findings=r.get('findings') or [],
+                             hand_needed=r.get('hand_needed')))
+    import collections
+    gc = collections.Counter(x['generated'] for x in rows)
+    L = ['b651 -- (R261)(7) AND THE AUTHOR`S ANSWERS: SIDE-kernel`S 116 OVERREACHES AND UNDERSTATES BLOCKS READ INTO SENTENCE ROWS (%s)' % utc(), '',
+         '### the parents: relay data/b647_table_SIDE-kernel.json, its OVERREACHES and UNDERSTATES rows (117), read at 0256e9e; the generator: '
+         'b647_record._kdoc_rows at SIDE-kernel main %s, each block`s context captured and each unit read by licensed_table.docstring_row; '
+         'the unit: b647_record._MSPLIT (a sentence split where . ! or ? meets whitespace). A GENERATED reading per sentence; the HAND reading '
+         'per sentence is b652`s, and no docstring is edited at this act.' % g('D:/SIDE-kernel', 'rev-parse', '--short=8', 'main').strip(),
+         '### parents read %d ; parents not found at main %d (%s)' % (len(parents) - len(unread), len(unread),
+                                                                       '; '.join('%s (%s)' % (u['source'], u['decl'] or u['kind']) for u in unread) or 'none'), '']
+    cur = None
+    for x in rows:
+        if x['parent'] != cur:
+            cur = x['parent']
+            L += ['', '== %s (%s ; b647`s bank line :%s ; HAND %s ; %d sentences)' % (x['parent'].split(':', 1)[1], x['kind'], x['parent_line'],
+                                                                                     x['parent_verdict'], x['of'])]
+        L.append('  s%d %-11s %s%s' % (x['n'], x['generated'], x['sentence'][:600],
+                                       ('  [%s]' % '; '.join(x['findings'])[:300]) if x['findings'] else ''))
+    L += ['', '### ### **PARENT BLOCKS %d ; SENTENCE ROWS %d ; GENERATED: %s ; HAND PER SENTENCE: b652`s.**' % (
+        len(parents) - len(unread), len(rows), ', '.join('%s %d' % kv for kv in sorted(gc.items())))]
+    L = [l.replace('\r', '') for l in L]
+    put_txt('b651_table_SIDE-kernel_sentences.txt', L)
+    put_json('b651_table_SIDE-kernel_sentences.json', dict(at=utc(), rows=rows, unread=[u['id'] for u in unread]))
+    print(NL.join(L[2:4] + L[-1:]))
+
+
 if __name__ == '__main__':
     fn = globals().get(sys.argv[1] if len(sys.argv) > 1 else '')
     if not callable(fn):
