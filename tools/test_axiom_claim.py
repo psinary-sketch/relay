@@ -7,7 +7,8 @@
 ### CONTRADICTED by the two declarations printed outside it (sorryAx; Lean.ofReduceBool); (5) a sentence naming an axiom with no profile is a MENTION, unscored; (6) "no axioms beyond the
 ### standard three" reads STD3, not EMPTY; (7) "without native_decide" over a print carrying Lean.ofReduceBool is CONTRADICTED; (8) a
 ### compiler print wrapped over two lines is read whole; (9) b642's `Name: [...]` line is read; (10) a different declaration sharing the
-### last component is not matched; (11) a `/-!` block after the head is out of scope.
+### last component is not matched; (11) a `/-!` block after the head is out of scope; (12) an AxiomCheck module's header covers the
+### declarations it prints.
 """
 import os
 import sys
@@ -77,6 +78,12 @@ def main():
     want('(10) P.other.leaf not matched to Q.leaf, a different declaration: UNVERIFIABLE %s' % v(16), v(16) == ['UNVERIFIABLE'])
     want('(11) a `/-!` block after the head: OUT OF SCOPE %s' % [r['verdict'] for r in by.get(('section', 18), [])],
          [r['verdict'] for r in by.get(('section', 18), [])] == ['OUT OF SCOPE'])
+    chk = '/-! Each is expected to reduce to the standard base (`propext`, `Classical.choice`, `Quot.sound`), with no `sorryAx`. -/\n' \
+          'import P\n#print axioms P.good\n#print axioms P.bad\n'
+    rc = A.classify_text('PLANTED', 'AxiomCheckP.lean', chk, IDX)
+    want('(12) a module declaring nothing covers what it prints: CONTRADICTED by P.bad %s' % [
+        (r['verdict'], r['covered'], [x['decl'] for x in r['contradicted']]) for r in rc],
+         [(r['verdict'], r['covered'], [x['decl'] for x in r['contradicted']]) for r in rc] == [('CONTRADICTED', 2, ['P.bad'])])
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1

@@ -11,7 +11,7 @@
 ###   REQUIRES   -- "depends on / carries / uses ... sorryAx": the print must carry sorryAx.
 ### A sentence carrying an axiom word and none of these is a MENTION: printed and not scored. The claim covers the declaration the docstring
 ### heads (a docstring heading no declaration covers none) and every declaration of the file for the module header, the `/-!` block at the
-### file's head; a `/-!` block after the head is neither and is out of scope, counted. Each covered declaration is looked up in the banked prints (`index()`): the compiler's lines
+### file's head -- for a module declaring nothing (an AxiomCheck module), the declarations its `#print axioms` lines name; a `/-!` block after the head is neither and is out of scope, counted. Each covered declaration is looked up in the banked prints (`index()`): the compiler's lines
 ### `'Name' depends on axioms: [...]` and `'Name' does not depend on any axioms` in relay's tracked data banks (text, wrapped prints joined,
 ### and JSON strings read as tools/terminal_table.py reads them), the `Name: [...]` lines of relay data/b642_declarations.txt, and any
 ### captured print a kernel's main carries; for a name printed more than once the latest act's bank stands (the act read from the bank's
@@ -260,6 +260,9 @@ def classify_text(kernel, path, text, idx, smap=None):
             blk = 'docstring'
         elif s < first_decl and bangs and bangs[0][1] == s:
             cov, blk = [d[2] for d in ds if d[2]], 'header'
+            if not cov:
+                # ### a module that declares nothing and prints (an AxiomCheck module): its header covers the declarations it prints
+                cov = re.findall(r"^[ \t]*#print[ \t]+axioms[ \t]+([^\s]+)", NSM.lean_code(text), re.M)
         else:
             # ### a `/-!` block after the file's head is neither a docstring nor the module header: out of the ruling's scope, counted
             rows.append(dict(kernel=kernel, file=path, line=text.count(NL, 0, s) + 1, block='section', sentence='', kind='OUT OF SCOPE',
