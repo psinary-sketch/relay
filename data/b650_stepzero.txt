@@ -1,0 +1,34 @@
+b650 -- COMPONENT 0: STEP ZERO UNDER (R260) (2026-10-11)
+
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R260) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b650_ferry.txt; the ferry scan 0 hits (data/b650_ferry_scan.txt). An earlier delivery of the same turn carried the
+### cover line and the navigator's same-season note without the ruling; it was not executed, and the seat asked for the ruling.
+
+### the process listing (Win32_Process, names tail, lean, lake, python, python3), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 3737 MB
+### orphans: NONE ; stopped by PID: none needed. Read again after the first test batch stopped at the 590 s line (test_chain_page.py
+### killed, rc 143): NONE.
+
+### b649's closing push-out bank committed at the start: relay fbe6bd3d (data/b649_closing_push_out.txt, 450 bytes, LF).
+
+### the b649 push branches, listed by `git branch --merged main --list 'push-b649*'` and deleted by name with the lower-case flag in the same
+### command, read back:
+  relay        listed push-b649, push-b649-closing, push-b649-root ; deleted push-b649 (was 37824e55), push-b649-root (was e51bd864),
+               push-b649-closing (was 4acd1304) ; push-b649* now 0
+  PLACE-papers listed push-b649, push-b649-root ; deleted push-b649 (was 58d1b1d), push-b649-root (was d208568) ; push-b649* now 0
+
+### every test file under tools/ (data/b650_tests_stepzero.txt, .json): tools/b649_tests.py`s run() unedited, driven from the scratchpad with
+### its bank pointed at b650`s name and the lists in force after b649 (data/b649_nodes_zeta.txt, data/b649_nodes_chi.txt, each marked
+### `# positivity clause`); test_elab_reader_b634.py WITHHELD under N1 (it starts lean).
+  TEST FILES 48 ; RUN 47 ; WITHHELD 1 ; NOT CLEAN 2:
+    test_chain_page.py (9), "the title is the variant`s" -- the chi list in force carries `# positivity clause`, so the page is titled by the
+      name (POSITIVITY_DIR_TITLE), and the test asks for DIR_TITLE; at b649 it passed because b649`s runner fed b648`s unmarked lists. A test
+      left behind by b649`s template edit, found by running it with the lists in force; no tool edited ((R260)(2)); to Component 4.
+    test_chain_page_b638.py (4)-(7) -- as carried at b648 and b649.
+  the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### tools/ at the act`s start: relay 4acd1304 (the diff of tools/ from it read again at the close, N1). No build; no lean call.
