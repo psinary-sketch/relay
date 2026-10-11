@@ -772,7 +772,9 @@ def emit(nodes, cells, order, corr_rows, keystone_files, ceiling, nodes_name='b5
     L += ['| ledger | `%s` |' % f for f in LEDGERS]
     L += ['| the ceiling sentence | `README.md:121`, `REGISTRY.md:956` |']
     L += ['| keystone naming a node | `%s` |' % f for f in keystone_files]
-    L += ['| the χ-leg | its own page when `EF_lit_chi`\'s proof lands (SIDE-explicit-formula `SIDEExplicitFormula/Chi/Statement.lean`) |']
+    # ### b648, (R258)(3): the χ-leg's page exists (generated under (R183)(5)); the row names it, the χ page's own form for the ζ-leg.
+    # ### It read "its own page when `EF_lit_chi`'s proof lands" (relay data/b648_table_pages.txt, UNDERSTATES).
+    L += ['| the χ-leg | `%s` |' % DIR_PAGE_NAME]
     L += ['', '## Correspondence', '', '| declaration | repository | grade | tier |', '|:--|:--|:--|:--|']
     for r in corr_rows:
         L.append('| `%s` | %s | %s | %s |' % (r['name'], r['repo'], r['grade'], r['tier']))
