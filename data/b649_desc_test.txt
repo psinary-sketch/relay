@@ -1,0 +1,36 @@
+b649 -- COMPONENT 6: THE DESCRIPTION`S FORBIDDEN-CONTENT TEST, RERUN BY PLANTED TEXT, AND THE COMPOSER`S TESTS (2026-10-11T05:12:46Z)
+
+  an act number                              hits ['an act number'] ; PASS
+  a bank path                                hits ['a bank path'] ; PASS
+  root arithmetic                            hits ['root arithmetic'] ; PASS
+  a provenance count                         hits ['a provenance count'] ; PASS
+  an outside collection                      hits ['an outside collection'] ; PASS
+  a banned stem                              hits ['a banned stem'] ; PASS
+  the unsupported sentence asserted          hits ['the unsupported sentence asserted'] ; PASS
+  the ceiling denied (no hit)                hits none ; PASS
+  v5 as banked (no hit)                      hits none ; PASS
+
+### THE FORBIDDEN-CONTENT TEST: 9 of 9 cases as wanted -- PASS
+
+### test_composer_b649.py, exit 0:
+    (e1) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS
+    (e2) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS
+    (e3) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS
+    (e4) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS
+    (f1) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS
+    (f2) anchor once in v4 True ; gone with the edit True ; kept without it True ; the replacement once in v5 True PASS
+    v5 with both edits holds no unread figure                                                            PASS
+    the edits commute: (e) then (f) equals (f) applied to the composer with (e)                          PASS
+    b647`s composer reproduces v4 as banked (relay data/b647_deposit_description.txt)                    PASS
+  ### ### **9 of 9 cases as wanted -- PASS**
+
+### test_name_b649.py, exit 0:
+    (1) the glossary`s entry read: the positivity clause (h2_sign: Weil positivity on classK — the explicit-formula PASS
+    (2) the zeta page with the line: exit 0, bare "the clause" 0, title True, opening mention in the glossary`s words True PASS
+    (3) the chi page with the line: exit 0, bare "the clause" 0, title True, opening mention in the glossary`s words True PASS
+    (4) b648`s lists without the line: the old titles, no mention of the name in the head line (exit 0, 0; the glossary block carries the entry) PASS
+    (5) v5`s composer with the name: bare "the clause" 0, unread False, opening mention in the glossary`s words True PASS
+    (6) the control: v4 holds the bare phrase and the grep finds it (1)                              PASS
+  ### ### **6 of 6 cases as wanted -- PASS**
+
+### ### **FORBIDDEN-CONTENT 9 of 9 ; test_composer_b649.py EXIT 0 ; test_name_b649.py EXIT 0.**
