@@ -1,0 +1,125 @@
+b651 -- COMPONENT 6, (R261)(7) AND THE AUTHOR`S ANSWERS BEFORE THE SEAL: SIDE-kernel`S DOCSTRINGS (2026-10-11)
+
+### the kernel: SIDE-kernel, the most OVERREACHES rows in b647`s table (relay data/b647_table_kernels.txt: 114 OVERREACHES, 3 UNDERSTATES,
+### read at 0256e9e; main now b0f2a3a after b648`s quarantine). 117 rows to re-cut; 116 located at main, the 117th
+### (legacy/ProductFormula_Int.lean :71, product_formula_prime_pow) gone from main with the quarantine.
+### THE AUTHOR`S ANSWERS (relay data/b651_author_answers.txt): the ACTION cells answer a row, and b647`s rows are blocks (its bank :3), so
+### no docstring edit at this act; the 116 blocks read into sentence rows by the table`s machinery (relay
+### data/b651_table_SIDE-kernel_sentences.txt: 396 rows; the generated rule reads 395 MATCHES and 1 OVERREACHES, so the cut needs the HAND
+### reading per sentence, b652`s); the two plain comments of Kernel/PerpendicularCrossing.lean re-cut now, each alone, on the branch.
+
+== THE BRANCH docstrings-SIDE-kernel, from main b0f2a3a, LOCAL ==
+  80a1f87 -- the plain comment at :64-:98, which ended "NO OFF-LINE ZERO EXISTS.", re-cut to what the file formalizes
+  45ef0d9 -- the plain comment at :114-:144, which ended "Therefore: all nontrivial zeros on sigma = 1/2.", re-cut the same way
+  the branch carries neither sentence; no statement edited (the diff below touches the two comment blocks alone).
+
+== THE BUILD, ONE MODULE, UNDER THE WATCHDOG (relay data/b651_build_watch.json, data/b651_build_peaks.json) ==
+  lake build Kernel.PerpendicularCrossing at the branch, detached (Start-Process), free 3356 MB before:
+    attempt 1 -- free 3365 MB at start, 616 s, stopped at step 3396 of 3397 (the module itself next), host low 2459 MB, tree peak 683 MB;
+    attempt 2 -- the watchdog`s one retry, free 3151 MB at start, 21 s, host low 2441 MB, tree peak 692 MB.
+  RUN-BENEATH-HOLD twice: the kernel is DEFERRED, the branch stays unmerged and untagged, no tag and no peeled SHA; the next kernel by count
+  is not begun. THE PRICE: about 2560 + 692 = 3252 MB free at the module`s start AND the host`s free memory kept above the hold through
+  the dependency replay that precedes it (3396 steps replayed before the module; the host fell from 3365 to 2459 MB across it).
+  The gate: no docstring and no statement moved on main; the terminal table`s grades for SIDE-kernel unmoved (data/terminal_table.json at
+  relay HEAD unchanged for the kernel); the docstring table`s rerun over the branch waits on the merge.
+
+== THE BRANCH`S DIFF AGAINST main, WHOLE ==
+  diff --git a/Kernel/PerpendicularCrossing.lean b/Kernel/PerpendicularCrossing.lean
+  index 21952e9..dd35eee 100644
+  --- a/Kernel/PerpendicularCrossing.lean
+  +++ b/Kernel/PerpendicularCrossing.lean
+  @@ -61,41 +61,12 @@ theorem simplicity_from_trace_structure
+   -- PART II: PERPENDICULAR CROSSING THEOREM
+   -- ================================================================
+   
+  -/- The perpendicular crossing theorem.
+  -
+  -    At a simple zero ρ = 1/2 + iγ on the critical line:
+  -
+  -    PROVED INGREDIENTS:
+  -    (a) FOCUS: ξ(1/2+it) ∈ ℝ, so Im(ξ) = 0 on critical line
+  -    (b) Spectral Cannon: Λ₀'(s) = -Λ₀'(1-s), and at ρ:
+  -        1-ρ = conj(ρ), so Λ₀'(ρ) = -conj(Λ₀'(ρ))
+  -        → Re(Λ₀'(ρ)) = 0
+  -    (c) Simplicity: Λ₀'(ρ) ≠ 0
+  -
+  -    CONSEQUENCE (Cauchy-Riemann):
+  -    Write Λ₀ = u + iv at ρ. The complex derivative f' = ∂u/∂σ + i·∂v/∂σ.
+  -    Since Re(f'(ρ)) = 0 and Im(f'(ρ)) = c₁ ≠ 0:
+  -      ∂u/∂σ = 0       (Re gradient has no σ-component)
+  -      ∂u/∂t = -c₁ ≠ 0 (Re gradient points in t-direction)
+  -      ∂v/∂σ = c₁ ≠ 0  (Im gradient points in σ-direction)
+  -      ∂v/∂t = 0        (Im gradient has no t-component)
+  -
+  -    The level curve {u = 0} (Re(ξ) = 0) is perpendicular to ∇u = (0, -c₁).
+  -    → {Re(ξ) = 0} departs in the σ-direction (HORIZONTAL)
+  -
+  -    The level curve {v = 0} (Im(ξ) = 0) is perpendicular to ∇v = (c₁, 0).
+  -    → {Im(ξ) = 0} departs in the t-direction (VERTICAL = critical line)
+  -
+  -    They cross at RIGHT ANGLES.
+  -
+  -    CONSEQUENCE FOR RH:
+  -    Along the horizontal {Re(ξ) = 0} curve:
+  -      d|Im(ξ)|/dσ = |∂v/∂σ| = |c₁| > 0  (at ρ)
+  -    So |Im(ξ)| is INCREASING as σ moves away from 1/2.
+  -    Since Im(ξ) = 0 at ρ (FOCUS) and grows monotonically:
+  -      Im(ξ) NEVER RETURNS TO ZERO along this curve.
+  -    Therefore {Re(ξ) = 0} never meets {Im(ξ) = 0} off the critical line.
+  -    NO OFF-LINE ZERO EXISTS. -/
+  +/- The perpendicular crossing, outlined and not formalized here. At a zero ρ = 1/2 + iγ on the critical line, with ξ real
+  +    on the line and Λ₀'(ρ) purely imaginary and nonzero, the Cauchy-Riemann equations make the gradients of Re ξ and Im ξ
+  +    perpendicular at ρ, so the level curves {Re ξ = 0} and {Im ξ = 0} cross at right angles there. Formalized below is only
+  +    the algebraic identity perpendicular_gradients, (0 : Real) * c₁ + (-c₁) * 0 = 0. That Λ₀'(ρ) ≠ 0 is not proved in this
+  +    file, the step from the crossing to the absence of off-line zeros is not formalized, and no declaration of this file
+  +    states where the zeros of ξ lie. -/
+   
+   -- We formalize the key algebraic content:
+   
+  @@ -111,37 +82,12 @@ theorem perpendicular_gradients
+   -- PART III: THE FULL CHAIN
+   -- ================================================================
+   
+  -/- The complete logical chain from Focus + SpectralCannon + Simplicity → RH.
+  -
+  -    We assemble the proved pieces into one theorem statement.
+  -
+  -    Hypotheses (all proved except simplicity):
+  -    H1: FOCUS — Im(Λ₀(1/2+it)) = 0
+  -    H2: FE derivative — Λ₀'(s) = -Λ₀'(1-s)
+  -    H3: Euler closing — ζ(s) ≠ 0 for Re(s) ≥ 1
+  -    H4: Antisymmetry — Im(Λ₀(σ+it)) = -Im(Λ₀((1-σ)+it))
+  -    H5 (axiom): Simplicity — Λ₀'(ρ) ≠ 0 at strip zeros
+  -
+  -    The chain:
+  -    H2 at ρ = 1/2+iγ: Λ₀'(ρ) = -Λ₀'(1/2-iγ)
+  -    Schwarz at conj(ρ) = 1/2-iγ: Λ₀'(conj ρ) = conj(Λ₀'(ρ))
+  -    Combined: Λ₀'(ρ) = -conj(Λ₀'(ρ)) → Re(Λ₀'(ρ)) = 0
+  -    H5: Λ₀'(ρ) ≠ 0, so Im(Λ₀'(ρ)) = c₁ ≠ 0
+  -
+  -    Cauchy-Riemann at ρ:
+  -      ∂(Re Λ₀)/∂σ = Re(Λ₀') = 0
+  -      ∂(Im Λ₀)/∂σ = Im(Λ₀') = c₁ ≠ 0
+  -
+  -    Along {Re(Λ₀) = 0} departing from ρ:
+  -      |Im(Λ₀)| starts at 0 (H1) with derivative |c₁| > 0
+  -      → |Im(Λ₀)| is strictly increasing
+  -      → Im(Λ₀) never returns to 0
+  -      → no off-line zero on this curve
+  -
+  -    H3: no zeros for Re(s) ≥ 1
+  -    H4: symmetry about σ = 1/2
+  -
+  -    Therefore: all nontrivial zeros on σ = 1/2. -/
+  +/- An outline, not formalized here, of an argument from four compiled facts and the simplicity of the zeros toward RH. The
+  +    theorem below, proved_infrastructure, compiles the four facts as one conjunction: completedRiemannZeta₀ is real on the
+  +    critical line; its derivative satisfies deriv Λ₀ s = -(deriv Λ₀ (1 - s)); riemannZeta s ≠ 0 for 1 ≤ Re s; and
+  +    Λ₀(1 - σ + it) is the conjugate of Λ₀(σ + it). The simplicity of the zeros is not among them and is not proved here, the
+  +    step from the crossing at a simple zero to the absence of off-line zeros is not formalized, and no declaration of this
+  +    file concludes RH. -/
+   
+   -- The assembly of all proved components:
+   theorem proved_infrastructure :
+
+### ### **KERNEL SIDE-kernel ; ROWS 117 (116 ON MAIN) ; DOCSTRINGS RE-CUT 0 (b652, AFTER THE SENTENCE READING) ; PLAIN COMMENTS RE-CUT 2 ON
+### THE BRANCH ; THE BUILD RUN-BENEATH-HOLD TWICE ; DEFERRED, UNMERGED ; GRADES UNMOVED.**
