@@ -1,0 +1,645 @@
+b648 -- COMPONENT 2, (R258)(2) AND THE AUTHOR`S ANSWER: THE QUARANTINE OF SIDE-kernel (2026-10-11T00:10:39Z)
+
+### main 0256e9e ; the branch sorry-quarantine-SIDE-kernel made at the main before any edit, holding every declaration as it stood ; the work branch b648-quarantine-SIDE-kernel
+
+### legacy/CodimProbe.lean :71-:82 removed (zeros_in_strip), the block whole:
+    | theorem zeros_in_strip (s : ℂ) (hs : riemannZeta s = 0)
+    |     (h_not_trivial : ¬∃ n : Nat, s = -2 * (↑n + 1))
+    |     (h_ne_one : s ≠ 1) :
+    |     0 < s.re ∧ s.re < 1 := by
+    |   constructor
+    |   · -- Re(s) > 0: from FE + non-vanishing
+    |     -- If Re(s) ≤ 0 and s is not trivial... this needs more work
+    |     sorry
+    |   · -- Re(s) < 1: from non-vanishing
+    |     by_contra h
+    |     push_neg at h
+    |     exact euler_closing s h hs
+
+### legacy/CodimProbe.lean :50-:60 removed (focus_on_critical_line), the block whole:
+    | theorem focus_on_critical_line (t : Real) :
+    |     (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0 := by
+    |   -- conj(1/2 + it) = 1/2 - it = 1 - (1/2 + it)
+    |   have h_conj_eq_one_sub : (starRingEnd ℂ) (⟨1/2, t⟩ : ℂ) = 1 - ⟨1/2, t⟩ := by
+    |     ext <;> simp [Complex.conj_re, Complex.conj_im]
+    |     ring
+    |   -- Schwarz: Λ₀(conj s) = conj(Λ₀(s))
+    |   -- FE: Λ₀(1-s) = Λ₀(s)
+    |   -- Combined: conj(Λ₀(s)) = Λ₀(conj s) = Λ₀(1-s) = Λ₀(s)
+    |   -- Therefore Im(Λ₀(s)) = 0
+    |   sorry
+
+### legacy/FmodifProbe.lean :46-:49 removed ((example)), the block whole:
+    | example (t : ℝ) :
+    |     ((hurwitzEvenFEPair 0).f_modif t).im = 0 := by
+    |   simp only [WeakFEPair.f_modif]
+    |   sorry
+
+### legacy/FmodifProbe.lean :35-:41 removed ((example)), the block whole:
+    | example (t : ℝ) :
+    |     (hurwitzEvenFEPair 0).f_modif t =
+    |     starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by
+    |   simp only [WeakFEPair.f_modif]
+    |   -- Try RCLike.conj_eq_iff or similar
+    |   rw [show (starRingEnd ℂ) = Complex.conjCLE from rfl]
+    |   sorry
+
+### legacy/FmodifProbe.lean :26-:32 removed ((example)), the block whole:
+    | example (t : ℝ) :
+    |     (hurwitzEvenFEPair 0).f_modif t =
+    |     starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by
+    |   simp only [WeakFEPair.f_modif, hurwitzEvenFEPair]
+    |   simp [map_add, map_sub, conj_ofReal, map_smul, map_mul, map_one,
+    |         map_indicator, starRingEnd_self_apply]
+    |   sorry
+
+### legacy/FmodifProbe.lean :11-:14 removed ((example)), the block whole:
+    | example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = _ := by
+    |   unfold WeakFEPair.f_modif
+    |   -- See what it looks like
+    |   sorry
+
+### legacy/FmodifProbe2.lean :56-:76 removed ((example)), the block whole:
+    | example (t : ℝ) :
+    |     (hurwitzEvenFEPair 0).f_modif t =
+    |     starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by
+    |   simp only [WeakFEPair.f_modif, Pi.add_apply, indicator_apply]
+    |   -- Now it's: (if t ∈ Ioi 1 then ... else 0) + (if t ∈ Ioo 0 1 then ... else 0)
+    |   --         = conj(same)
+    |   -- Push conj through
+    |   rw [map_add]
+    |   congr 1
+    |   · -- First indicator: if t ∈ Ioi 1 then f(t) - f₀ else 0
+    |     split_ifs with h
+    |     · -- t ∈ Ioi 1: conj(ofReal(evenKernel 0 t) - 1) = ofReal(...) - 1
+    |       simp [map_sub, conj_ofReal, map_one]
+    |     · -- t ∉ Ioi 1: conj(0) = 0
+    |       simp
+    |   · -- Second indicator
+    |     split_ifs with h
+    |     · -- t ∈ Ioo 0 1: conj(ofReal(evenKernel 0 t) - ε * ↑(t^(-k)) • g₀)
+    |       simp [map_sub, map_mul, map_smul, conj_ofReal, map_one]
+    |       sorry  -- see what remains
+    |     · simp
+
+### legacy/FmodifProbe2.lean :15-:26 removed ((example)), the block whole:
+    | example (t : ℝ) :
+    |     (hurwitzEvenFEPair 0).f_modif t =
+    |     starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by
+    |   rw [eq_comm]
+    |   rw [Complex.conj_eq_iff_im]
+    |   simp only [WeakFEPair.f_modif, Pi.add_apply]
+    |   -- After unfolding, try simp with im lemmas
+    |   simp only [indicator_apply]
+    |   split_ifs <;> simp [Complex.add_im, Complex.sub_im, Complex.ofReal_im,
+    |     Complex.smul_im, Complex.mul_im, Complex.one_im, Complex.zero_im,
+    |     hurwitzEvenFEPair]
+    |   sorry
+
+### legacy/IdentityBuild1.lean :211-:213 removed ((example)), the block whole:
+    | example (f : ℂ → ℂ) (z₀ : ℂ) (hf : Differentiable ℂ f) (hd : deriv f z₀ ≠ 0) :
+    |     ∃ (e : ℂ ≃L[ℂ] ℂ), (e : ℂ →L[ℂ] ℂ) = fderiv ℂ f z₀ := by
+    |   sorry -- need to construct from deriv f z₀ ≠ 0
+
+### legacy/IdentityBuild1.lean :165-:171 removed (accumulation_kills_derivs), the block whole:
+    | lemma accumulation_kills_derivs
+    |     (f : ℂ → ℂ) (z₀ : ℂ)
+    |     (hf : Differentiable ℂ f)
+    |     (hacc : ∃ (z : ℕ → ℂ), (∀ n, f (z n) = 0) ∧ (∀ n, z n ≠ z₀) ∧
+    |             Tendsto z atTop (nhds z₀)) :
+    |     ∀ n : ℕ, iteratedDeriv n f z₀ = 0 := by
+    |   sorry -- induction using simple_zero_isolated
+
+### legacy/IdentityBuild1.lean :147-:156 removed (simple_zero_isolated), the block whole:
+    | lemma simple_zero_isolated
+    |     (f : ℂ → ℂ) (z₀ : ℂ)
+    |     (hf : Differentiable ℂ f)
+    |     (hz : f z₀ = 0)
+    |     (hd : deriv f z₀ ≠ 0) :
+    |     ∀ᶠ z in nhdsWithin z₀ {z₀}ᶜ, f z ≠ 0 := by
+    |   -- f'(z₀) ≠ 0 → locally injective → isolated zero
+    |   -- Step 1: get HasStrictDerivAt
+    |   have h_da : HasDerivAt f (deriv f z₀) z₀ := hf.differentiableAt.hasDerivAt
+    |   sorry -- need HasDerivAt → HasStrictDerivAt for analytic functions
+
+### legacy/ProductFormula_Int.lean :115-:130 removed (product_formula_nat), the block whole:
+    | /-- The product formula holds for every positive integer at every prime.
+    |     This is the general case, reducing to prime powers via factorization. -/
+    | theorem product_formula_nat (p : Nat) [hp : Fact p.Prime] (n : Nat) (hn : n ≠ 0) :
+    |     |(n : Rat)| * padicNorm p (n : Rat) = 1 := by
+    |   -- Strategy: use padicNorm.eq_zpow_of_nonzero to express the p-adic norm,
+    |   -- then use the factorization to evaluate the archimedean times p-adic product.
+    |   rw [padicNorm_eq_zpow p (n : Rat) (Nat.cast_ne_zero.mpr hn)]
+    |   rw [abs_of_pos (Nat.cast_pos.mpr (Nat.pos_of_ne_zero hn))]
+    |   -- Goal: (n : Rat) * (p : Rat) ^ (-padicValRat p n) = 1
+    |   -- This says n · p^(-v_p(n)) = 1... which is only true when n is a power of p!
+    |   -- For general n, the product formula requires ALL primes simultaneously.
+    |   -- Single-prime statement: |n|_∞ · |n|_p = n · p^(-v_p(n))
+    |   -- This is NOT 1 in general — it's n/p^(v_p(n)).
+    |   -- The FULL product formula is: |n|_∞ · ∏_q |n|_q = 1
+    |   -- We need the product over ALL primes, not a single prime.
+    |   sorry
+
+### legacy/ProductFormula_Int.lean :71-:96 removed (product_formula_prime_pow), the block whole:
+    | /-- Reproved here for self-containment: |p^k|_∞ · |p^k|_p = 1 -/
+    | theorem product_formula_prime_pow (p : Nat) [hp : Fact p.Prime] (k : Nat) :
+    |     normProduct p ((p : Rat) ^ k) = 1 := by
+    |   unfold normProduct
+    |   have hp_pos : (0 : Rat) < (p : Rat) := Nat.cast_pos.mpr (Nat.Prime.pos hp.out)
+    |   have hp_ne : (p : Rat) ≠ 0 := ne_of_gt hp_pos
+    |   rw [abs_of_pos (pow_pos hp_pos k)]
+    |   induction k with
+    |   | zero => simp [padicNorm.one]
+    |   | succ n ih =>
+    |     rw [pow_succ, padicNorm.mul, pow_succ]
+    |     have : |(p : Rat) ^ n| * padicNorm p ((p : Rat) ^ n) = 1 := by
+    |       rw [abs_of_pos (pow_pos hp_pos n)]; exact ih
+    |     -- Factor: p · p^n has norms (p · p^n)_∞ · (p · p^n)_p
+    |     --       = p · p^n · p^(-1) · p^(-n) = 1
+    |     rw [padicNorm.padicNorm_p_of_prime]
+    |     rw [abs_of_pos (pow_pos hp_pos n)] at this
+    |     -- Now: (p^n * padicNorm p (p^n)) = 1 from ih rewritten
+    |     -- And: padicNorm p (p * p^n) = p^(-1) * padicNorm p (p^n)
+    |     -- Goal: p^(n+1) * (p^(-1) * padicNorm p (p^n)) = 1
+    |     -- = p^n * padicNorm p (p^n) * (p * p^(-1)) = 1 * 1 = 1
+    |     have h_prod : (p : Rat) ^ n * padicNorm p ((p : Rat) ^ n) = 1 := ih
+    |     field_simp
+    |     rw [mul_comm ((p : Rat)) ((p : Rat) ^ n), mul_assoc]
+    |     rw [← mul_assoc ((p : Rat) ^ n)]
+    |     sorry -- bookkeeping: rearrange factors to use h_prod and hp_ne
+
+### legacy/SchwarzBuild10.lean :29-:59 removed (schwarz_discharge), the block whole:
+    | theorem schwarz_discharge (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   -- Unfold both sides to mellin
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   -- RHS: push conj through /2
+    |   rw [map_div₀, conj_two]
+    |   -- Cancel /2
+    |   congr 1
+    |   -- Goal: mellin f_modif (conj(s)/2) = conj(mellin f_modif (s/2))
+    |   simp only [mellin]
+    |   -- Goal: ∫ t in Ioi 0, ↑t^(conj(s)/2-1) • f_modif(t)
+    |   --     = conj(∫ t in Ioi 0, ↑t^(s/2-1) • f_modif(t))
+    |   --
+    |   -- Step 1: prove pointwise equality of integrands
+    |   suffices hpt : ∀ t ∈ Ioi (0:ℝ),
+    |       (↑t : ℂ) ^ ((starRingEnd ℂ) s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t =
+    |       (starRingEnd ℂ) ((↑t : ℂ) ^ (s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t) by
+    |     -- After rewriting integrands, goal becomes integral_conj
+    |     rw [set_integral_congr measurableSet_Ioi hpt]
+    |     exact integral_conj
+    |   -- Step 2: prove the pointwise claim
+    |   intro t ht
+    |   simp only [smul_eq_mul, map_mul]
+    |   congr 1
+    |   · -- cpow part: ↑t^(conj(s)/2-1) = conj(↑t^(s/2-1))
+    |     rw [map_sub, conj_div_two, map_one]
+    |     exact (cpow_conj_pos_real t ht (s / 2 - 1)).symm
+    |   · -- f_modif real-valued: f_modif(t) = conj(f_modif(t))
+    |     sorry
+
+### legacy/SchwarzBuild11.lean :41-:61 removed (schwarz_discharge), the block whole:
+    | theorem schwarz_discharge (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   rw [map_div₀, conj_two]
+    |   congr 1
+    |   simp only [mellin]
+    |   suffices hpt : ∀ t ∈ Ioi (0:ℝ),
+    |       (↑t : ℂ) ^ ((starRingEnd ℂ) s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t =
+    |       (starRingEnd ℂ) ((↑t : ℂ) ^ (s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t) by
+    |     rw [setIntegral_congr measurableSet_Ioi hpt]
+    |     exact integral_conj
+    |   intro t ht
+    |   simp only [smul_eq_mul, map_mul]
+    |   congr 1
+    |   · -- Rewrite exponent: conj(s)/2 - 1 = conj(s/2 - 1)
+    |     rw [conj_half_sub_one]
+    |     exact (cpow_conj_pos_real t ht (s / 2 - 1)).symm
+    |   · -- f_modif real-valued
+    |     sorry
+
+### legacy/SchwarzBuild12.lean :33-:56 removed (schwarz_discharge), the block whole:
+    | theorem schwarz_discharge (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   rw [map_div₀, conj_two]
+    |   congr 1
+    |   simp only [mellin]
+    |   -- Goal: ∫ t in Ioi 0, ↑t^(conj(s)/2-1) • f_modif(t)
+    |   --     = conj(∫ t in Ioi 0, ↑t^(s/2-1) • f_modif(t))
+    |   suffices hpt : EqOn
+    |       (fun t => (↑t : ℂ) ^ ((starRingEnd ℂ) s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t)
+    |       (fun t => (starRingEnd ℂ) ((↑t : ℂ) ^ (s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t))
+    |       (Ioi 0) by
+    |     rw [setIntegral_congr_fun measurableSet_Ioi hpt]
+    |     exact integral_conj
+    |   intro t ht
+    |   simp only [smul_eq_mul, map_mul]
+    |   congr 1
+    |   · -- cpow part: rewrite exponent then apply cpow_conj
+    |     rw [conj_half_sub_one]
+    |     exact cpow_conj_pos_real t ht (s / 2 - 1)
+    |   · -- f_modif real-valued
+    |     sorry
+
+### legacy/SchwarzBuild13.lean :33-:53 removed (schwarz_discharge), the block whole:
+    | theorem schwarz_discharge (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   rw [map_div₀, conj_two]
+    |   congr 1
+    |   simp only [mellin]
+    |   suffices hpt : EqOn
+    |       (fun (t : ℝ) => (↑t : ℂ) ^ ((starRingEnd ℂ) s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t)
+    |       (fun (t : ℝ) => (starRingEnd ℂ) ((↑t : ℂ) ^ (s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t))
+    |       (Ioi 0) by
+    |     rw [setIntegral_congr_fun measurableSet_Ioi hpt]
+    |     exact integral_conj
+    |   intro t ht
+    |   simp only [smul_eq_mul, map_mul]
+    |   congr 1
+    |   · rw [conj_half_sub_one]
+    |     exact cpow_conj_pos_real t ht (s / 2 - 1)
+    |   · -- f_modif real-valued: (hurwitzEvenFEPair 0).f_modif t is real
+    |     sorry
+
+### legacy/SchwarzBuild14.lean :33-:63 removed (schwarz_discharge), the block whole:
+    | theorem schwarz_discharge (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   rw [map_div₀, conj_two]
+    |   congr 1
+    |   simp only [mellin]
+    |   -- Goal: ∫ t in Ioi 0, ↑t^(conj(s)/2-1) • f_modif(t)
+    |   --     = conj(∫ t in Ioi 0, ↑t^(s/2-1) • f_modif(t))
+    |   --
+    |   -- Step 1: pointwise, the LHS integrand = conj(RHS integrand)
+    |   have hpt : ∀ t ∈ Ioi (0:ℝ),
+    |       (↑t : ℂ) ^ ((starRingEnd ℂ) s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t =
+    |       (starRingEnd ℂ) ((↑t : ℂ) ^ (s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t) := by
+    |     intro t ht
+    |     simp only [smul_eq_mul, map_mul]
+    |     congr 1
+    |     · rw [conj_half_sub_one]
+    |       exact cpow_conj_pos_real t ht (s / 2 - 1)
+    |     · -- f_modif real-valued
+    |       sorry
+    |   -- Step 2: chain the two equalities
+    |   calc ∫ t in Ioi (0:ℝ), (↑t : ℂ) ^ ((starRingEnd ℂ) s / 2 - 1) •
+    |         (hurwitzEvenFEPair 0).f_modif t
+    |       = ∫ t in Ioi (0:ℝ), (starRingEnd ℂ) ((↑t : ℂ) ^ (s / 2 - 1) •
+    |         (hurwitzEvenFEPair 0).f_modif t) :=
+    |           setIntegral_congr_fun measurableSet_Ioi hpt
+    |     _ = (starRingEnd ℂ) (∫ t in Ioi (0:ℝ), (↑t : ℂ) ^ (s / 2 - 1) •
+    |         (hurwitzEvenFEPair 0).f_modif t) :=
+    |           integral_conj
+
+### legacy/SchwarzBuild2.lean :87-:113 removed (schwarz_discharge), the block whole:
+    | theorem schwarz_discharge (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   -- Unfold to mellin level
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   -- Push conj through division by 2
+    |   rw [map_div₀]
+    |   congr 1
+    |   -- Now need: mellin f_modif (conj(s)/2) = conj(mellin f_modif (s/2))
+    |   -- i.e.: mellin f_modif (conj(s/2)) = conj(mellin f_modif (s/2))
+    |   rw [← map_div₀ (starRingEnd ℂ) s 2]
+    |   -- Now: mellin f_modif (conj(s/2)) = conj(mellin f_modif (s/2))
+    |   -- Unfold mellin
+    |   simp only [mellin]
+    |   -- Target: ∫ t in Ioi 0, t^(conj(s/2)-1) • f_modif(t) =
+    |   --         conj(∫ t in Ioi 0, t^(s/2-1) • f_modif(t))
+    |   rw [← integral_conj]
+    |   congr 1
+    |   ext t
+    |   -- Need: ↑t^(conj(s/2)-1) • f_modif(t) = conj(↑t^(s/2-1) • f_modif(t))
+    |   simp only [smul_eq_mul, map_mul]
+    |   constructor
+    |   · -- conj of cpow part
+    |     sorry
+    |   · -- conj of f_modif part (real-valued → fixed by conj)
+    |     sorry
+
+### legacy/SchwarzBuild3.lean :59-:77 removed (schwarz_v2), the block whole:
+    | theorem schwarz_v2 (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   -- Unfold both sides to mellin
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   -- Push conj through outer /2
+    |   rw [map_div₀, show (starRingEnd ℂ) (2:ℂ) = 2 from by simp [conj_ofReal]]
+    |   congr 1
+    |   -- LHS has conj(s)/2, need to show = conj(s/2)
+    |   -- Actually LHS already has (starRingEnd ℂ s / 2) from the show
+    |   -- Need: mellin f_modif (conj(s)/2) = conj(mellin f_modif (s/2))
+    |   -- Unfold mellin on both sides
+    |   simp only [mellin]
+    |   rw [← integral_conj]
+    |   congr 1
+    |   ext t
+    |   -- Need: ↑t ^ (conj(s)/2 - 1) • f_modif(t) = conj(↑t ^ (s/2 - 1) • f_modif(t))
+    |   sorry
+
+### legacy/SchwarzBuild3.lean :37-:42 removed ((example)), the block whole:
+    | example (t : ℝ) (ht : 0 < t) (w : ℂ) :
+    |     (t : ℂ) ^ (starRingEnd ℂ w) = starRingEnd ℂ ((t : ℂ) ^ w) := by
+    |   rw [cpow_conj]
+    |   · simp [conj_ofReal]
+    |   · -- need: arg(↑t) ≠ π
+    |     sorry  -- will fill once we find the lemma name
+
+### legacy/SchwarzBuild4.lean :93-:108 removed (schwarz_v4), the block whole:
+    | theorem schwarz_v4 (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   rw [map_div₀, conj_two]
+    |   congr 1
+    |   rw [← conj_div_two]
+    |   simp only [mellin]
+    |   -- Try: rewrite conj of integral using integral_conj
+    |   -- integral_conj says: ∫ conj(f x) ∂μ = conj(∫ f x ∂μ)
+    |   -- So conj(∫ f x ∂μ) = ∫ conj(f x) ∂μ, i.e. ← integral_conj
+    |   -- But we need to match the restricted measure form
+    |   -- ∫ x in S, f x = ∫ x, f x ∂(μ.restrict S)
+    |   -- So it should work with the right μ
+    |   sorry
+
+### legacy/SchwarzBuild4.lean :63-:87 removed (schwarz_v3), the block whole:
+    | theorem schwarz_v3 (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   -- Unfold to mellin
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   -- Handle outer structure
+    |   rw [map_div₀, conj_two]
+    |   congr 1
+    |   -- Now: mellin f_modif (conj(s)/2) = conj(mellin f_modif (s/2))
+    |   -- The LHS has (starRingEnd ℂ s / 2), and we need it as conj(s/2)
+    |   -- Actually starRingEnd ℂ s / 2 = starRingEnd ℂ (s/2) by conj_div_two
+    |   rw [← conj_div_two]
+    |   -- Now: mellin f_modif (conj(s/2)) = conj(mellin f_modif (s/2))
+    |   -- Unfold mellin
+    |   simp only [mellin]
+    |   -- Goal: ∫ t in Ioi 0, ↑t^(conj(s/2)-1) • f_modif(t)
+    |   --     = conj(∫ t in Ioi 0, ↑t^(s/2-1) • f_modif(t))
+    |   --
+    |   -- Use integral_conj on RHS (with restricted measure)
+    |   conv_rhs => rw [← integral_conj (𝕜 := ℂ)]
+    |   -- Now both sides are integrals, compare integrands
+    |   congr 1
+    |   ext ⟨t, ht⟩
+    |   sorry
+
+### legacy/SchwarzBuild4.lean :54-:56 removed ((example)), the block whole:
+    | example (t : ℝ) : starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) =
+    |     (hurwitzEvenFEPair 0).f_modif t := by
+    |   sorry  -- PROBE: what does the goal look like after unfold?
+
+### legacy/SchwarzBuild5.lean :90-:114 removed (schwarz_v5), the block whole:
+    | theorem schwarz_v5 (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   -- Unfold to mellin
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   -- Push conj through /2
+    |   rw [map_div₀]
+    |   norm_num
+    |   -- Goal should now be about mellin
+    |   -- mellin f_modif (conj(s)/2) = conj(mellin f_modif (s/2))
+    |   -- Rewrite conj(s)/2 as conj(s/2)
+    |   rw [← conj_div_two]
+    |   -- Unfold mellin
+    |   simp only [mellin]
+    |   -- Use integral conjugation
+    |   rw [← integral_conj (𝕜 := ℂ)]
+    |   -- Now compare integrands
+    |   congr 1
+    |   ext t
+    |   -- Need: ↑t^(conj(s/2)-1) • f_modif(t) = conj(↑t^(s/2-1) • f_modif(t))
+    |   -- = conj(↑t^(s/2-1)) • conj(f_modif(t))
+    |   -- = ↑t^(conj(s/2-1)) • f_modif(t)  [using cpow_conj + f_modif real]
+    |   -- = ↑t^(conj(s/2)-1) • f_modif(t)  [using conj_sub distributes]
+    |   sorry
+
+### legacy/SchwarzBuild5.lean :56-:62 removed ((example)), the block whole:
+    | example (t : ℝ) : starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) =
+    |     (hurwitzEvenFEPair 0).f_modif t := by
+    |   -- Unfold f_modif
+    |   simp only [WeakFEPair.f_modif]
+    |   -- Try to show conj distributes over everything
+    |   simp [map_add, map_sub, map_indicator, conj_ofReal, map_mul, map_one, smul_eq_mul]
+    |   sorry -- PROBE: see what remains
+
+### legacy/SchwarzBuild6.lean :40-:71 removed (schwarz_discharge), the block whole:
+    | theorem schwarz_discharge (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   -- Unfold both sides to mellin
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   -- RHS: push conj through /2
+    |   rw [map_div₀, conj_two]
+    |   -- Now: mellin f_modif (conj(s)/2) / 2 = conj(mellin f_modif (s/2)) / 2
+    |   -- Cancel the /2
+    |   congr 1
+    |   -- LHS: rewrite conj(s)/2 = conj(s/2)
+    |   rw [← conj_div_two]
+    |   -- Now: mellin f_modif (conj(s/2)) = conj(mellin f_modif (s/2))
+    |   -- Unfold mellin on both sides
+    |   simp only [mellin]
+    |   -- Now: ∫ t in Ioi 0, ↑t^(conj(s/2)-1) • f_modif(t)
+    |   --    = conj(∫ t in Ioi 0, ↑t^(s/2-1) • f_modif(t))
+    |   -- Push conj inside the integral
+    |   rw [set_integral_conj']
+    |   -- Now both sides are set integrals, compare integrands on Ioi 0
+    |   apply set_integral_congr measurableSet_Ioi
+    |   intro t ht
+    |   -- ht : t ∈ Ioi 0, i.e. 0 < t
+    |   simp only [smul_eq_mul, map_mul]
+    |   have ht' : 0 < t := ht
+    |   congr 1
+    |   · -- Factor 1: ↑t^(conj(s/2)-1) = conj(↑t^(s/2-1))
+    |     rw [map_sub, conj_div_two, map_one]
+    |     exact (cpow_conj_pos_real t ht' (s / 2 - 1)).symm
+    |   · -- Factor 2: f_modif(t) = conj(f_modif(t)) [real-valued]
+    |     sorry
+
+### legacy/SchwarzBuild7.lean :29-:68 removed (schwarz_discharge), the block whole:
+    | theorem schwarz_discharge (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   -- Unfold both sides to mellin
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   -- RHS: push conj through /2
+    |   rw [map_div₀, conj_two]
+    |   -- Now: ... / 2 = conj(...) / 2
+    |   congr 1
+    |   -- LHS: rewrite conj(s)/2 as conj(s/2)
+    |   rw [← conj_div_two]
+    |   -- Now: mellin f_modif (conj(s/2)) = conj(mellin f_modif (s/2))
+    |   -- Unfold mellin
+    |   simp only [mellin]
+    |   -- Goal: ∫ t in Ioi 0, ↑t^(conj(s/2)-1) • f_modif(t)
+    |   --     = conj(∫ t in Ioi 0, ↑t^(s/2-1) • f_modif(t))
+    |   -- Convert RHS using integral_conj
+    |   have iconj : (starRingEnd ℂ)
+    |       (∫ t in Ioi (0:ℝ), ↑t ^ (s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t) =
+    |       ∫ t in Ioi (0:ℝ), (starRingEnd ℂ)
+    |         (↑t ^ (s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t) :=
+    |     (integral_conj (𝕜 := ℂ)).symm
+    |   rw [iconj]
+    |   -- Now both sides are ∫ t in Ioi 0, ...
+    |   -- Compare integrands pointwise on Ioi 0
+    |   apply set_integral_congr measurableSet_Ioi
+    |   intro t ht
+    |   -- ht : t ∈ Ioi 0, i.e. 0 < t
+    |   -- Goal: ↑t^(conj(s/2)-1) • f_modif(t) = conj(↑t^(s/2-1) • f_modif(t))
+    |   -- Push conj through smul/mul
+    |   simp only [smul_eq_mul, map_mul]
+    |   -- Goal: ↑t^(conj(s/2)-1) * f_modif(t) = conj(↑t^(s/2-1)) * conj(f_modif(t))
+    |   congr 1
+    |   · -- cpow part: ↑t^(conj(s/2)-1) = conj(↑t^(s/2-1))
+    |     rw [map_sub, conj_div_two, map_one]
+    |     exact (cpow_conj_pos_real t ht (s / 2 - 1)).symm
+    |   · -- f_modif part: f_modif(t) = conj(f_modif(t))
+    |     -- f_modif is real-valued (built from ofReal ∘ evenKernel with real corrections)
+    |     sorry
+
+### legacy/SchwarzBuild8.lean :39-:68 removed (schwarz_discharge), the block whole:
+    | theorem schwarz_discharge (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   -- Unfold both sides to mellin
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   -- RHS: push conj through /2
+    |   rw [map_div₀, conj_two]
+    |   -- Cancel /2
+    |   congr 1
+    |   -- Goal: mellin f_modif (conj(s)/2) = conj(mellin f_modif (s/2))
+    |   -- LHS has (starRingEnd ℂ s / 2), goal already has conj(s/2) form
+    |   -- Unfold mellin
+    |   simp only [mellin]
+    |   -- Goal: ∫ t in Ioi 0, ↑t^(conj(s/2)-1) • f_modif(t)
+    |   --     = conj(∫ t in Ioi 0, ↑t^(s/2-1) • f_modif(t))
+    |   -- Push conj inside the integral
+    |   rw [conj_set_integral]
+    |   -- Now both sides are ∫ t in Ioi 0, ...
+    |   apply set_integral_congr measurableSet_Ioi
+    |   intro t ht
+    |   -- ht : t ∈ Ioi 0, i.e. 0 < t
+    |   -- Goal: ↑t^(conj(s/2)-1) • f_modif(t) = conj(↑t^(s/2-1) • f_modif(t))
+    |   simp only [smul_eq_mul, map_mul]
+    |   congr 1
+    |   · -- cpow part: ↑t^(conj(s/2)-1) = conj(↑t^(s/2-1))
+    |     rw [map_sub, conj_div_two, map_one]
+    |     exact (cpow_conj_pos_real t ht (s / 2 - 1)).symm
+    |   · -- f_modif part: f_modif(t) = conj(f_modif(t))
+    |     sorry
+
+### legacy/SchwarzBuild9.lean :29-:60 removed (schwarz_discharge), the block whole:
+    | theorem schwarz_discharge (s : ℂ) :
+    |     completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   -- Unfold both sides to mellin
+    |   show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 =
+    |        starRingEnd ℂ (mellin (hurwitzEvenFEPair 0).f_modif (s / 2) / 2)
+    |   -- RHS: push conj through /2
+    |   rw [map_div₀, conj_two]
+    |   -- Cancel /2
+    |   congr 1
+    |   -- Goal: mellin f_modif (conj(s)/2) = conj(mellin f_modif (s/2))
+    |   simp only [mellin]
+    |   -- Goal: ∫ t in Ioi 0, ↑t^(conj(s)/2-1) • f_modif(t)
+    |   --     = conj(∫ t in Ioi 0, ↑t^(s/2-1) • f_modif(t))
+    |   --
+    |   -- Strategy: go through intermediate
+    |   --   ∫ t in Ioi 0, conj(↑t^(s/2-1) • f_modif(t))
+    |   -- which equals RHS by integral_conj, and equals LHS by integrand comparison
+    |   trans (∫ t in Ioi (0:ℝ),
+    |     (starRingEnd ℂ) (↑t ^ (s / 2 - 1) • (hurwitzEvenFEPair 0).f_modif t))
+    |   · -- LHS = middle: compare integrands on Ioi 0
+    |     apply set_integral_congr measurableSet_Ioi
+    |     intro t ht
+    |     simp only [smul_eq_mul, map_mul]
+    |     congr 1
+    |     · -- cpow part
+    |       rw [map_sub, conj_div_two, map_one]
+    |       exact (cpow_conj_pos_real t ht (s / 2 - 1)).symm
+    |     · -- f_modif real-valued: f_modif(t) = conj(f_modif(t))
+    |       sorry
+    |   · -- middle = RHS: integral_conj
+    |     exact (integral_conj (𝕜 := ℂ)).symm
+
+### legacy/SchwarzProbe2.lean :76-:79 removed ((example)), the block whole:
+    | example (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) =
+    |     starRingEnd ℂ (completedRiemannZeta₀ s) := by
+    |   unfold completedRiemannZeta₀
+    |   sorry
+
+### ERRATA.md, written new at the kernel`s root:
+    | # Errata
+    | 
+    | This file records corrections to SIDE-kernel`s main. Each entry lists the declaration, the affected file and line, the correction, and the date; entries are retained.
+    | 
+    | ## E-2026-10-10-1 — 32 `sorry`-closed declarations quarantined from main (b648, the author`s ruling (R258)(2))
+    | 
+    | Every declaration below closed by `sorry` on main at `0256e9e`, in files outside every `lean_lib` of the lakefile; each entered main before the programme`s standing line "no `sorry` on any `main`" (its first ledger line, PLACE-papers OPEN_TRAILS.md :11508, 2026-09-29). Each is removed from main and kept whole on the branch `sorry-quarantine-SIDE-kernel`, made at `0256e9e`. Correction: removed from main, quarantined. Date: 2026-10-10.
+    | 
+    | - `focus_on_critical_line` (theorem), `legacy/CodimProbe.lean` :50 (its `sorry` at :60), entered 2026-04-02 at `96448f7`: `theorem focus_on_critical_line (t : Real) : (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0 := by -- conj(1/2 + it) = 1/2 - it = 1 - (1/2 + it) have h_conj_eq_one_sub : (starRingEnd ℂ) (⟨1/2, t⟩ : ℂ) = 1 - ⟨1/2, t⟩ := by ext <;>`. True content proved at legacy/SchwarzReflection_PR.lean :129 (completedRiemannZeta₀_im_eq_zero_on_half).
+    | - `zeros_in_strip` (theorem), `legacy/CodimProbe.lean` :71 (its `sorry` at :78), entered 2026-04-02 at `96448f7`: `theorem zeros_in_strip (s : ℂ) (hs : riemannZeta s = 0) (h_not_trivial : ¬∃ n : Nat, s = -2 * (↑n + 1)) (h_ne_one : s ≠ 1) : 0 < s.re ∧ s.re < 1 := by constructor · -- Re(s) > 0: from FE + non-vanishing -- If Re(s) ≤ 0 a`.
+    | - `(example)` (example), `legacy/FmodifProbe.lean` :11 (its `sorry` at :14), entered 2026-04-02 at `96448f7`: `example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = _ := by unfold WeakFEPair.f_modif -- See what it looks like`.
+    | - `(example)` (example), `legacy/FmodifProbe.lean` :26 (its `sorry` at :32), entered 2026-04-02 at `96448f7`: `example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by simp only [WeakFEPair.f_modif, hurwitzEvenFEPair] simp [map_add, map_sub, conj_ofReal, map_smul, map_mul, map_one,`.
+    | - `(example)` (example), `legacy/FmodifProbe.lean` :35 (its `sorry` at :41), entered 2026-04-02 at `96448f7`: `example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by simp only [WeakFEPair.f_modif] -- Try RCLike.conj_eq_iff or similar rw [show (starRingEnd ℂ) = Complex.conjCLE fro`.
+    | - `(example)` (example), `legacy/FmodifProbe.lean` :46 (its `sorry` at :49), entered 2026-04-02 at `96448f7`: `example (t : ℝ) : ((hurwitzEvenFEPair 0).f_modif t).im = 0 := by simp only [WeakFEPair.f_modif]`.
+    | - `(example)` (example), `legacy/FmodifProbe2.lean` :15 (its `sorry` at :26), entered 2026-04-02 at `96448f7`: `example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by rw [eq_comm] rw [Complex.conj_eq_iff_im] simp only [WeakFEPair.f_modif, Pi.add_apply] -- After unfolding, try simp`.
+    | - `(example)` (example), `legacy/FmodifProbe2.lean` :56 (its `sorry` at :75), entered 2026-04-02 at `96448f7`: `example (t : ℝ) : (hurwitzEvenFEPair 0).f_modif t = starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) := by simp only [WeakFEPair.f_modif, Pi.add_apply, indicator_apply] -- Now it's: (if t ∈ Ioi 1 then ... else 0) + (if t `.
+    | - `simple_zero_isolated` (lemma), `legacy/IdentityBuild1.lean` :147 (its `sorry` at :156), entered 2026-04-02 at `96448f7`: `lemma simple_zero_isolated (f : ℂ → ℂ) (z₀ : ℂ) (hf : Differentiable ℂ f) (hz : f z₀ = 0) (hd : deriv f z₀ ≠ 0) : ∀ᶠ z in nhdsWithin z₀ {z₀}ᶜ, f z ≠ 0 := by -- f'(z₀) ≠ 0 → locally injective → isolated zero -- Step 1: ge`.
+    | - `accumulation_kills_derivs` (lemma), `legacy/IdentityBuild1.lean` :165 (its `sorry` at :171), entered 2026-04-02 at `96448f7`: `lemma accumulation_kills_derivs (f : ℂ → ℂ) (z₀ : ℂ) (hf : Differentiable ℂ f) (hacc : ∃ (z : ℕ → ℂ), (∀ n, f (z n) = 0) ∧ (∀ n, z n ≠ z₀) ∧ Tendsto z atTop (nhds z₀)) : ∀ n : ℕ, iteratedDeriv n f z₀ = 0 := by`.
+    | - `(example)` (example), `legacy/IdentityBuild1.lean` :211 (its `sorry` at :213), entered 2026-04-02 at `96448f7`: `example (f : ℂ → ℂ) (z₀ : ℂ) (hf : Differentiable ℂ f) (hd : deriv f z₀ ≠ 0) : ∃ (e : ℂ ≃L[ℂ] ℂ), (e : ℂ →L[ℂ] ℂ) = fderiv ℂ f z₀ := by`.
+    | - `product_formula_prime_pow` (theorem), `legacy/ProductFormula_Int.lean` :72 (its `sorry` at :96), entered 2026-04-02 at `96448f7`: `theorem product_formula_prime_pow (p : Nat) [hp : Fact p.Prime] (k : Nat) : normProduct p ((p : Rat) ^ k) = 1 := by unfold normProduct have hp_pos : (0 : Rat) < (p : Rat) := Nat.cast_pos.mpr (Nat.Prime.pos hp.out) have h`. True content proved at Kernel/ProductFormula_Clean.lean :86 (product_formula_prime_pow, its built namesake).
+    | - `product_formula_nat` (theorem), `legacy/ProductFormula_Int.lean` :117 (its `sorry` at :130), entered 2026-04-02 at `96448f7`: `theorem product_formula_nat (p : Nat) [hp : Fact p.Prime] (n : Nat) (hn : n ≠ 0) : |(n : Rat)| * padicNorm p (n : Rat) = 1 := by -- Strategy: use padicNorm.eq_zpow_of_nonzero to express the p-adic norm, -- then use the f`.
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild10.lean` :29 (its `sorry` at :59), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) /`. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild11.lean` :41 (its `sorry` at :61), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hur`. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild12.lean` :33 (its `sorry` at :56), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hur`. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild13.lean` :33 (its `sorry` at :53), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hur`. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild14.lean` :33 (its `sorry` at :54), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hur`. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild2.lean` :87 (its `sorry` at :111), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold to mellin level show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = `. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild2.lean` :87 (its `sorry` at :113), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold to mellin level show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = `. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `(example)` (example), `legacy/SchwarzBuild3.lean` :37 (its `sorry` at :42), entered 2026-04-02 at `96448f7`: `example (t : ℝ) (ht : 0 < t) (w : ℂ) : (t : ℂ) ^ (starRingEnd ℂ w) = starRingEnd ℂ ((t : ℂ) ^ w) := by rw [cpow_conj] · simp [conj_ofReal] · -- need: arg(↑t) ≠ π`.
+    | - `schwarz_v2` (theorem), `legacy/SchwarzBuild3.lean` :59 (its `sorry` at :77), entered 2026-04-02 at `96448f7`: `theorem schwarz_v2 (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = st`. True content proved at Kernel/SchwarzDischarge.lean :42.
+    | - `(example)` (example), `legacy/SchwarzBuild4.lean` :54 (its `sorry` at :56), entered 2026-04-02 at `96448f7`: `example (t : ℝ) : starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) = (hurwitzEvenFEPair 0).f_modif t := by`.
+    | - `schwarz_v3` (theorem), `legacy/SchwarzBuild4.lean` :63 (its `sorry` at :87), entered 2026-04-02 at `96448f7`: `theorem schwarz_v3 (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ`. True content proved at Kernel/SchwarzDischarge.lean :42.
+    | - `schwarz_v4` (theorem), `legacy/SchwarzBuild4.lean` :93 (its `sorry` at :108), entered 2026-04-02 at `96448f7`: `theorem schwarz_v4 (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ (mellin (hurwitzEve`. True content proved at Kernel/SchwarzDischarge.lean :42.
+    | - `(example)` (example), `legacy/SchwarzBuild5.lean` :56 (its `sorry` at :62), entered 2026-04-02 at `96448f7`: `example (t : ℝ) : starRingEnd ℂ ((hurwitzEvenFEPair 0).f_modif t) = (hurwitzEvenFEPair 0).f_modif t := by -- Unfold f_modif simp only [WeakFEPair.f_modif] -- Try to show conj distributes over everything simp [map_add, ma`.
+    | - `schwarz_v5` (theorem), `legacy/SchwarzBuild5.lean` :90 (its `sorry` at :114), entered 2026-04-02 at `96448f7`: `theorem schwarz_v5 (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) / 2 = starRingEnd ℂ`. True content proved at Kernel/SchwarzDischarge.lean :42.
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild6.lean` :40 (its `sorry` at :71), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) /`. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild7.lean` :29 (its `sorry` at :68), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) /`. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild8.lean` :39 (its `sorry` at :68), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) /`. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `schwarz_discharge` (theorem), `legacy/SchwarzBuild9.lean` :29 (its `sorry` at :58), entered 2026-04-02 at `96448f7`: `theorem schwarz_discharge (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by -- Unfold both sides to mellin show mellin (hurwitzEvenFEPair 0).f_modif (starRingEnd ℂ s / 2) /`. True content proved at Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀).
+    | - `(example)` (example), `legacy/SchwarzProbe2.lean` :76 (its `sorry` at :79), entered 2026-04-02 at `96448f7`: `example (s : ℂ) : completedRiemannZeta₀ (starRingEnd ℂ s) = starRingEnd ℂ (completedRiemannZeta₀ s) := by unfold completedRiemannZeta₀`.
+
+### the work branch committed: b648-quarantine-SIDE-kernel b0f2a3a ; the files changed:  20 files changed, 71 insertions(+), 534 deletions(-)
+
+### ### **SIDE-kernel: 32 DECLARATIONS QUARANTINED IN 19 FILES ; ERRATA.md WRITTEN ; BRANCHES sorry-quarantine-SIDE-kernel AND b648-quarantine-SIDE-kernel ; NOT YET MERGED.**

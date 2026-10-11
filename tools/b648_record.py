@@ -469,6 +469,104 @@ def correction(*a):
     R3._land(Q, [('OPEN_TRAILS.md', C_HEAD % BREACH_LINE, t)], 'b648_correction_line.json', BREACH_LINE)
 
 
+# ================================================================================ COMPONENT 2: THE REPAIRS BY THE AUTHOR'S WORD
+# ### QUARANTINED: on a work branch b648-quarantine-<kernel> from the main, each quarantined declaration's span -- its docstring directly above,
+# ### its head and every line to the next line at column 0 -- replaced by one comment line naming the branch; the branch
+# ### sorry-quarantine-<kernel> made at the main before any edit holds every declaration as it stood; the kernel's ERRATA.md (the house form
+# ### of PLACE-papers ERRATA.md: the declaration, the affected file and line, the correction, the date) written new, each entry with where the
+# ### true content is proved. The work branch is merged alone by fast-forward after its diff is read; nothing is built (the files lie outside
+# ### every lean_lib).
+TRUE_HOME = {'schwarz_discharge': 'Kernel/SchwarzDischarge.lean :42 (schwarz_reflection_completedZeta₀)',
+             'schwarz_v2': 'Kernel/SchwarzDischarge.lean :42', 'schwarz_v3': 'Kernel/SchwarzDischarge.lean :42',
+             'schwarz_v4': 'Kernel/SchwarzDischarge.lean :42', 'schwarz_v5': 'Kernel/SchwarzDischarge.lean :42',
+             'product_formula_prime_pow': 'Kernel/ProductFormula_Clean.lean :86 (product_formula_prime_pow, its built namesake)',
+             'focus_on_critical_line': 'legacy/SchwarzReflection_PR.lean :129 (completedRiemannZeta₀_im_eq_zero_on_half)'}
+
+
+def _span(src, decl_line):
+    """[a, b) 0-based: the docstring block directly above the declaration, the declaration, every line to the next non-empty line at column 0."""
+    a = decl_line - 1
+    if a > 0 and src[a - 1].rstrip().endswith('-/'):
+        j = a - 1
+        while j >= 0 and not src[j].lstrip().startswith('/-'):
+            j -= 1
+        if j >= 0:
+            a = j
+    b = decl_line
+    while b < len(src) and not (src[b].strip() and not src[b][0].isspace()):
+        b += 1
+    while b > decl_line and not src[b - 1].strip():
+        b -= 1
+    return a, b
+
+
+def quarantine(kernel, *a):
+    """the quarantine of the author's word for one kernel: the branches made, the spans removed and banked whole, ERRATA.md written, the work
+    branch committed; data/b648_quarantine_<kernel>.txt. Refuses unless the kernel is on main, its main the census's, its tracked tree clean."""
+    rp = 'D:/' + kernel
+    rows = [r for r in jl('b648_sorry_classification.json').get('rows') or [] if r['kernel'] == kernel and r['proposed'] == 'QUARANTINED']
+    if not rows:
+        sys.exit('### NO QUARANTINED LINE IN %s -- NOTHING DONE' % kernel)
+    main = rows[0]['main']
+    qb, wb = 'sorry-quarantine-%s' % kernel, 'b648-quarantine-%s' % kernel
+    if g(rp, 'rev-parse', '--abbrev-ref', 'HEAD').strip() != 'main' or not g(rp, 'rev-parse', 'main').strip().startswith(main) \
+            or g(rp, 'status', '--porcelain', '--untracked-files=no').strip():
+        sys.exit('### %s IS NOT ON A CLEAN main AT %s -- NOTHING DONE' % (kernel, main))
+    by_file = collections.defaultdict(list)
+    for r in rows:
+        by_file[r['file']].append(r)
+    L = ['b648 -- COMPONENT 2, (R258)(2) AND THE AUTHOR`S ANSWER: THE QUARANTINE OF %s (%s)' % (kernel, utc()), '',
+         '### main %s ; the branch %s made at the main before any edit, holding every declaration as it stood ; the work branch %s' % (main, qb, wb), '']
+    new_files, entries = {}, []
+    for f, rs in sorted(by_file.items()):
+        src = _show(rp, main, f).replace(chr(13), '').split(NL)
+        spans = sorted(set(_span(src, r['decl_line']) for r in rs), reverse=True)
+        out = list(src)
+        for x, y in spans:
+            names = sorted(set(r['decl'] for r in rs if x <= r['decl_line'] - 1 < y))
+            out[x:y] = ['-- [b648, (R258)(2)] %s closed by `sorry` -- quarantined to branch %s; recorded in ERRATA.md.' % (', '.join(names), qb)]
+            L += ['### %s :%d-:%d removed (%s), the block whole:' % (f, x + 1, y, ', '.join(names))] + ['    | ' + s for s in src[x:y]] + ['']
+        new_files[f] = NL.join(out)
+        for r in rs:
+            entries.append(r)
+    E = ['# Errata', '', 'This file records corrections to %s`s main. Each entry lists the declaration, the affected file and line, the correction, '
+         'and the date; entries are retained.' % kernel, '',
+         '## E-2026-10-10-1 — %d `sorry`-closed declarations quarantined from main (b648, the author`s ruling (R258)(2))' % len(entries), '',
+         'Every declaration below closed by `sorry` on main at `%s`, in files outside every `lean_lib` of the lakefile; each entered main before the '
+         'programme`s standing line "no `sorry` on any `main`" (its first ledger line, PLACE-papers OPEN_TRAILS.md :11508, 2026-09-29). Each is '
+         'removed from main and kept whole on the branch `%s`, made at `%s`. Correction: removed from main, quarantined. Date: 2026-10-10.' % (
+             main, qb, main), '']
+    for r in entries:
+        home = TRUE_HOME.get(r['decl'])
+        E.append('- `%s` (%s), `%s` :%d (its `sorry` at :%d), entered %s at `%s`: `%s`%s' % (
+            r['decl'], r['decl_kind'], r['file'], r['decl_line'], r['line'], r['entered'], r['entered_sha'],
+            re.sub(r'\s+', ' ', r['statement'])[:220].replace('`', "'"), ('. True content proved at ' + home + '.') if home else '.'))
+    etext = NL.join(E) + NL
+    L += ['### ERRATA.md, written new at the kernel`s root:'] + ['    | ' + s for s in etext.rstrip(NL).split(NL)]
+    if DRY:
+        put_txt('b648_quarantine_%s.txt' % kernel, L)
+        print('  DRY: %d declarations in %d files ; the bank in the scratchpad' % (len(entries), len(new_files)))
+        return
+    for b in (qb, wb):
+        if g(rp, 'rev-parse', '--verify', '-q', 'refs/heads/' + b).strip():
+            sys.exit('### THE BRANCH %s EXISTS -- NOTHING DONE' % b)
+    g(rp, 'branch', qb, 'main')
+    g(rp, 'checkout', '-q', '-b', wb, 'main')
+    for f, t in new_files.items():
+        open(os.path.join(rp, *f.split('/')), 'wb').write((t if t.endswith(NL) else t + NL).encode('utf-8'))
+    open(os.path.join(rp, 'ERRATA.md'), 'wb').write(etext.encode('utf-8'))
+    g(rp, 'add', '--', 'ERRATA.md', *new_files.keys())
+    msg = ('b648 under (R258)(2), the author`s word: %d sorry-closed declarations quarantined from main to branch %s (made at %s), each recorded in '
+           'ERRATA.md (E-2026-10-10-1) with where its true content is proved; legacy files outside every lean_lib, nothing built.' % (len(entries), qb, main))
+    g(rp, 'commit', '-q', '-m', msg)
+    L += ['', '### the work branch committed: %s %s ; the files changed: %s' % (wb, g(rp, 'rev-parse', '--short=7', 'HEAD').strip(),
+                                                                          g(rp, 'diff', '--stat', 'main', wb).strip().split(NL)[-1])]
+    L += ['', '### ### **%s: %d DECLARATIONS QUARANTINED IN %d FILES ; ERRATA.md WRITTEN ; BRANCHES %s AND %s ; NOT YET MERGED.**' % (
+        kernel, len(entries), len(new_files), qb, wb)]
+    put_txt('b648_quarantine_%s.txt' % kernel, L)
+    print(L[-1])
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
