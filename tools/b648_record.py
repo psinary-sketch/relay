@@ -963,6 +963,44 @@ def pages_table(pp_rev=None, bank='b648_table_pages', *a):
     print(L[-1])
 
 
+LIST_HEAD = ['# b648 -- (R258)(3), THE TABLE`S GRADE ON THE PAGE: b643`s list (relay data/%s), every line unchanged, with the one line',
+             '# `# table grade` appended, by which the generator prints the terminal table`s grade beside a node`s E0 grade where the two',
+             '# differ and, on the ζ page, names the χ page in the χ-leg`s Placement row (relay tools/chain_page.py, `node_table_grade`). A list',
+             '# without that line emits exactly as before.', '#']
+
+
+def lists(*a):
+    """data/b648_nodes_zeta.txt and data/b648_nodes_chi.txt: b643's lists, byte for byte, beneath a five-line head and above the one line."""
+    for k, old in (('zeta', 'b643_nodes_zeta.txt'), ('chi', 'b643_nodes_chi.txt')):
+        body = rd(old).rstrip(NL).split(NL)
+        L = [x % old if '%s' in x else x for x in LIST_HEAD] + body + ['#', '# table grade']
+        put_txt('b648_nodes_%s.txt' % k, L)
+        print('b648_nodes_%s.txt: %d lines, b643`s %d unchanged beneath the head' % (k, len(L), len(body)))
+
+
+def page_arms(*a):
+    """data/b648_page_arms.txt: the page arms (G-CHAIN-PAGE, G-CHAIN-PAGE-CHI) on the lists in force against PLACE-papers HEAD, and the frozen
+    control (tools/test_chain_page_b596.py control(): b592's lists against PLACE-papers ba5f0ea) -- b602's page_arms, carried."""
+    import g_chain_page as GCP
+    import test_chain_page_b596 as T
+    L = ['b648 -- COMPONENT 3: THE PAGE ARMS AND THE FROZEN CONTROL AT PLACE-papers %s, relay %s (%s)' % (
+        g(PP, 'rev-parse', '--short=7', 'HEAD').strip(), g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip(), utc())]
+    n = 0
+    for arm, k in (('G-CHAIN-PAGE', 'zeta'), ('G-CHAIN-PAGE-CHI', 'chi')):
+        r = GCP.arm(os.path.join(D, NODES[k]), os.path.join(SP, '_b648_gcp'), os.path.join(D, PROBE[k]))
+        n += r['ok'] is True
+        L.append('    %s : %s -- %s ; regeneration exit %d ; committed %d bytes ; regenerated %d bytes ; first differing line %s' % (
+            arm, 'PASS' if r['ok'] else 'FAIL', NODES[k], r['rc'], r['committed_bytes'], r['regenerated_bytes'], r['first_diff']))
+    L.append('### ### **PAGE ARMS PASSING : %d of 2.**' % n)
+    c = T.control()
+    for x in c:
+        L.append('    %s %s : %s -- exit %d ; committed %d bytes ; regenerated %d bytes ; first differing line %s' % (
+            T.ARM, x['list'], 'PASS' if x['ok'] else 'FAIL', x['rc'], x['committed_bytes'], x['regenerated_bytes'], x['first_diff']))
+    L.append('### ### **%s PASSING : %d of 2.**' % (T.ARM, sum(x['ok'] is True for x in c)))
+    put_txt('b648_page_arms.txt', L)
+    print(NL.join(l[:220] for l in L))
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):
