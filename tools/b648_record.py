@@ -1419,7 +1419,8 @@ def kernels(*a):
 DEFECT_SHORT = ['(a) a commit message naming the wrong ledger line', '(b) a recursive grep over a kernel tree',
                 '(c) two template repairs that reached unmarked lists', '(d) a scratch copy written outside the scratchpad',
                 '(e) a reader command that could not be pasted whole', '(f) a scratch script broken by a heredoc backslash',
-                '(g) two stream edits on a scratch script', '(h) a template repair not committed alone']
+                '(g) two stream edits on a scratch script', '(h) a template repair not committed alone',
+                '(i) a before-answer check that read nothing']
 
 
 def defects(*a):
@@ -1695,7 +1696,11 @@ def before_answer_ok():
     at = calendar.timegm(_t.strptime(t[:19], '%Y-%m-%dT%H:%M:%S'))
     face = jl('b647_kernels_face.json').get('kernels') or {}
     for k, v in face.items():
-        for l in g('D:/' + k, 'log', '--all', '--format=%ct', '%s..' % v[0] if isinstance(v, list) else 'HEAD..HEAD').split(NL):
+        # ### the commits of main and of every branch made since b647's face, none reachable from a ref the face read
+        old = [b for b in v[2] if b != 'main']   # ### main is read by its SHA at the face, v[0]; naming it here would hide its new commits
+        new = [b for b in g('D:/' + k, 'branch', '--format=%(refname:short)').split(NL) if b.strip() and b.strip() not in v[2]]
+        args = ['log', '--format=%ct', 'main'] + new + ['--not', v[0]] + old
+        for l in g('D:/' + k, *args).split(NL):
             if l.strip() and int(l) < at:
                 return False
     return True

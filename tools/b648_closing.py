@@ -219,8 +219,9 @@ def main():
                                        verdict(rd('b648_faces_census_closing.txt'), r'TOTAL MISSING : \d+')),
           '    pins : %s' % verdict(rd('b648_pins_closing.txt'), r'REPOS HARD-FAILING : \d+'),
           '    kernel source touched after the author`s answer alone, on branches, the quarantines merged by push_gated.sh ; no lean call after '
-          'the seal ; no worktree made or removed ; b628`s local intake bank and the navigator`s export untracked ; no identifier of the author '
-          'in any outbound request, the seat`s plain requests to github.com (its ls-remote reads and its pushes) within that rule ; the deposit '
+          'the seal ; no worktree made or removed ; b628`s local intake bank and the navigator`s export untracked ;'
+          ' no identifier of the author in any outbound request, the seat`s plain requests to github.com (its ls-remote reads and its pushes)'
+          ' within that rule ; the deposit '
           'route untouched, the draft held at v4, publish never called ; the two pages re-emitted, the census written at v0.8 beside v0.7.1, '
           'tools/chain_page.py`s templates repaired, two node lists written, one line appended to data/act_roots.txt as the act`s last bank '
           'step ; ERRATA, SPIRAL_MAP, README, REGISTRY, the glossary, the map, the monograph and the companions untouched', '']

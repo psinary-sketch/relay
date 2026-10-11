@@ -231,7 +231,7 @@ def sources():
         cmds=capture_now(), cls=jl('b648_sorry_classification.json'), repairs=rd('b648_sorry_repairs.txt'),
         quar={k: dict(main=gs('D:/' + k, 'rev-parse', 'main'), branch=gs('D:/' + k, 'rev-parse', 'refs/heads/sorry-quarantine-' + k),
                       errata=read_blob('D:/' + k, 'main:ERRATA.md'), remote=KC0.remote_refs('D:/' + k)) for k in QUARANTINE},
-        sorries={k: REC.code_sorries(k) for k in R41.KERNS_READ}, before_answer=REC.before_answer_ok(),
+        sorries={k: REC.code_sorries(k) for k in sorry_kernels(R41)}, before_answer=REC.before_answer_ok(),
         tp=jl('b648_table_pages.json'), ta=jl('b648_table_pages_after.json'), tpt=rd('b648_table_pages.txt'), tat=rd('b648_table_pages_after.txt'),
         arms_c2=rd('b648_page_arms_c2.txt'), arms_c1=rd('b648_page_arms.txt'),
         repair_files={h: files_of(ROOT, h) for h in REPAIRS},
@@ -319,6 +319,12 @@ def sources():
     except Exception as e:
         S['additive'] = [('raised', type(e).__name__, [('x', [])])]
     return S
+
+
+def sorry_kernels(R41):
+    """G-NO-SORRY-MAIN's kernels: every repository of the terminal table (b647's sorry census read these) and every kernel the face reads."""
+    t = jl('terminal_table.json').get('rows') or []
+    return sorted(set(x['repo'] for x in t if x.get('repo', '').startswith('SIDE-')) | set(R41.KERNS_READ))
 
 
 def read_blob(repo, spec):
