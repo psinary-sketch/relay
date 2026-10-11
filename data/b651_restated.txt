@@ -1,0 +1,27 @@
+b651 -- COMPONENT 5, (R261)(6): THE FOUR RESTATED LINES -- THE BUILD BANKS READ, THE MERGE OR THE PRICE PER MODULE (2026-10-11)
+
+### the ruling: data/b649_lv_build.txt read for whether SIDE-lv-conservation's T3_StepNineBridge module and SIDE-effects' Milestones module
+### build under the hold on the measured tree peak; where a module's peak is beneath the hold, its restatement branch merged alone under
+### (R254)(3), its gate reading printed; where it is not, the branch stays and the module's peak is printed in the closing as the price.
+### THE READING, the seat's and strikeable: a module builds under the hold when the free memory at its start, less its measured tree peak, stays
+### at or above the hold of 2560 MB -- the hold is the floor the host's free memory keeps while lean runs (tools/build_watch.py :4-:11), so
+### "the peak beneath the hold" is read as the run never falling beneath it, not the peak's megabytes against the hold's number.
+
+== SIDE-lv-conservation, T3_StepNineBridge (SIDELvConservation/T3_StepNineBridge.lean :108), branch b648-restate-SIDE-lv-conservation c35a3a3 ==
+  relay data/b649_lv_build.txt (main b2238d4, `lake env lean` under the watchdog, one per call): RUN-BENEATH-HOLD on both attempts, free at
+  start 3545 and 3532 MB, tree peak 1644 MB (data/b649_lv_build.json). It needs 2560 + 1644 = 4204 MB free at its start.
+  -> NOT MERGED; the branch stays, local; THE PRICE: a host offering about 4204 MB free at the module's start.
+
+== SIDE-effects, Milestones (SIDEEffects/Milestones.lean :32, :49, :63), branch b648-restate-SIDE-effects 9a279ac ==
+  Not in b649's bank, which measured SIDE-lv-conservation alone; read in b648's (data/b648_build_peaks.json, data/b648_build_watch.json):
+  `lake build SIDEEffects.Milestones` on the restatement branch, RUN-BENEATH-HOLD on both attempts, tree peaks 1368 and 1410 MB, host lows
+  2533 and 2529 MB. It needs about 2560 + 1410 = 3970 MB free at its start.
+  -> NOT MERGED; the branch stays, local; THE PRICE: a host offering about 3970 MB free at the module's start.
+
+== G-NO-SORRY-MAIN, RERUN (relay data/b651_no_sorry_main.txt) ==
+  KERNELS 44 ; FILES SCANNED 528 ; HITS 4 ; PAIRS UNEQUAL OR UNREAD 0 -- the four RESTATED lines, as at b649 and b650:
+    SIDE-effects SIDEEffects/Milestones.lean :32, :49, :63 ; SIDE-lv-conservation SIDELvConservation/T3_StepNineBridge.lean :108.
+  No kernel main moved by this component.
+
+### ### **RESTATED LINES MERGED 0 OF 4 ; THE BRANCHES STAY ; THE PRICES 4204 MB (T3_StepNineBridge) AND 3970 MB (Milestones) FREE AT A
+### MODULE'S START, THIS HOST OFFERING 3163-4384 MB ACROSS b649-b651 ; G-NO-SORRY-MAIN 4 HITS.**
