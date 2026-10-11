@@ -1,0 +1,9 @@
+b649 -- THE SIXTH READER`S PACKET, STAGED OFF D:\ (2026-10-11T05:16:20Z)
+
+### staged: C:/reader_b649 (packet/description.txt 12071 bytes, sha256 e101ceb2f88707c88ff4ae5e7624344259e2711032f8f1f7270fee204b7dc6c3 ; packet/questions.txt ; lead.txt ; full_prompt.txt) ; banked: relay data/b649_reader_packet/
+### the document: v5 (relay data/b649_deposit_description.txt) as text -- a part`s head as == HEAD ==, a list item as a line marked -
+### the questions, (R254)(8)`s three: What is claimed? / What is not claimed? / Which premise is refuted, and what replaced it?
+### the no-disclosure arm: {'method': 0, 'tree': 0, 'modules': 0} ; outside names: NONE
+
+### the command, run by the author on the author`s PowerShell, one line moving to C:/reader_b649, a directory with no project memory (banked alone at relay data/b649_reader_command.txt):
+    Set-Location C:\reader_b649; Get-Content C:\reader_b649\full_prompt.txt -Raw | claude -p --output-format json --allowedTools Read Glob Write --disallowedTools Bash PowerShell WebFetch WebSearch --permission-mode acceptEdits --setting-sources user --strict-mcp-config > C:\reader_b649\reader_run.log 2> C:\reader_b649\reader_run.err

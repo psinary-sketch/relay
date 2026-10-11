@@ -709,6 +709,109 @@ def desc_test5(*a):
     print(NL.join(L[-3:]))
 
 
+# ### THE SIXTH READER, (R259)(6): b647's form carried (b646's lead, task and command builders, the directory C:\reader_b649); v5 as text; the
+# ### three questions of (R254)(8); run by the author on the author's PowerShell from a directory with no project memory, by the one-line
+# ### command banked whole; scored by the hand reading first (data/b649_reader_handread.txt), then by b644's needles.
+READER9 = 'C:/reader_b649'
+
+
+def _b6r9():
+    import b646_record as B6
+    B6.READER = dict(B6.READER, dir=READER9)
+    return B6
+
+
+def reader_packet9(*a):
+    """data/b649_reader_packet.txt, data/b649_reader_command.txt (the one line) and data/b649_reader_packet/: v5 as text with the three
+    questions, staged at C:\\reader_b649 (refused if it exists and is not empty), the no-disclosure arm and the outside names checked."""
+    import b616_record as R6
+    B6 = _b6r9()
+    R4 = B6._R4()
+    r = B6.READER
+    doc = B6._v3_text(rd(V5))
+    if not doc.strip():
+        sys.exit('### v5 IS EMPTY -- NOTHING WRITTEN')
+    qs = NL.join('%d. %s' % (i + 1, q) for i, q in enumerate(r['questions']))
+    task = B6._reader_task()
+    nd = R6.nd_hits(doc + NL + qs + NL + task, R6.nd_sets())[0]
+    outside = [n for n in R4.OUTSIDE_NEEDLES if n in doc]
+    if any(nd.values()) or outside:
+        sys.exit('### THE PACKET WOULD CARRY TECHNE TEXT OR AN OUTSIDE NAME -- NOTHING WRITTEN')
+    pdir = os.path.join(SP if DRY else D, 'b649_reader_packet')
+    os.makedirs(pdir, exist_ok=True)
+    for n_, t_ in ((r['doc'], doc), ('questions.txt', qs)):
+        _write(os.path.join(pdir, n_), (t_.rstrip(NL) + NL).encode('utf-8'))
+    if not DRY:
+        if os.path.exists(r['dir']) and os.listdir(r['dir']):
+            sys.exit('### %s EXISTS AND IS NOT EMPTY -- NOT WRITTEN' % r['dir'])
+        os.makedirs(r['dir'] + '/packet', exist_ok=True)
+        for n_, t_ in (('packet/' + r['doc'], doc), ('packet/questions.txt', qs), ('lead.txt', B6._reader_lead()), ('full_prompt.txt', task)):
+            _write(os.path.join(r['dir'], n_), (t_.rstrip(NL) + NL).encode('utf-8'))
+    cmd = 'Set-Location %s; %s' % (r['dir'].replace('/', '\\'), B6._reader_cmd())
+    L = ['b649 -- THE SIXTH READER`S PACKET, STAGED OFF D:\\ (%s)' % utc(), '',
+         '### staged: %s (packet/%s %d bytes, sha256 %s ; packet/questions.txt ; lead.txt ; full_prompt.txt) ; banked: relay data/b649_reader_packet/' % (
+             r['dir'], r['doc'], len(doc.encode('utf-8')), sha(doc.encode('utf-8'))),
+         '### the document: v5 (relay data/%s) as text -- a part`s head as == HEAD ==, a list item as a line marked -' % V5,
+         '### the questions, (R254)(8)`s three: %s' % ' / '.join(r['questions']),
+         '### the no-disclosure arm: %s ; outside names: %s' % (dict(nd), outside or 'NONE'),
+         '', '### the command, run by the author on the author`s PowerShell, one line moving to %s, a directory with no project memory (banked alone '
+         'at relay data/b649_reader_command.txt):' % r['dir'], '    ' + cmd]
+    put_txt('b649_reader_packet.txt', L)
+    put_txt('b649_reader_command.txt', [cmd])
+    print(NL.join(L[2:]))
+
+
+def reader_score9(*a):
+    """data/b649_reader_answers.txt, data/b649_reader_compare.txt and .json: the sixth reader's answers copied from off D:\\, each scored by
+    b644's needles (imported) and beside it the seat's hand reading (data/b649_reader_handread.txt, written first); refuses without it."""
+    B6 = _b6r9()
+    R4 = B6._R4()
+    r = B6.READER
+    src = os.path.join(r['dir'], 'answers.txt')
+    if not os.path.exists(src):
+        sys.exit('### %s IS ABSENT -- NOTHING READ' % src)
+    hr = rd('b649_reader_handread.txt')
+    if not re.search(r'^HAND \d: (AGREE|DIFFER)', hr, re.M):
+        sys.exit('### THE HAND READING IS NOT BANKED -- THE NEEDLES ARE NOT READ BEFORE IT')
+    t = io.open(src, encoding='utf-8', errors='replace').read().replace(chr(13), '')
+    _write(os.path.join(SP if DRY else D, 'b649_reader_answers.txt'), t.encode('utf-8'))
+    ans = dict((int(m.group(1)), ' '.join(m.group(2).split())) for m in re.finditer(r'^ANSWER (\d):\s*(.*?)(?=^ANSWER \d:|^UNCLEAR:|\Z)', t, re.M | re.S))
+    N = R4._needles('d')
+    lg = os.path.join(r['dir'], 'reader_run.log')
+    lb = open(lg, 'rb').read() if os.path.exists(lg) else None
+    lt = lb.decode('utf-16') if lb and lb[:2] in (b'\xff\xfe', b'\xfe\xff') else (lb.decode('utf-8', 'replace') if lb else '')
+    ctl = bool(re.search(r'MEMORY\.md', 'x MEMORY.md y'.encode('utf-16').decode('utf-16')))
+    mem = ('memory named in the run log: %s (read as %s, %d chars; the planted control fires: %s)' % (
+        bool(re.search(r'MEMORY\.md|[\\/]memory[\\/]', lt)), 'UTF-16' if lb[:2] in (b'\xff\xfe', b'\xfe\xff') else 'UTF-8', len(lt), ctl)
+           if lb else 'the run log absent')
+    hand = dict((int(m.group(1)), m.group(2).strip()) for m in re.finditer(r'^HAND (\d): (AGREE|DIFFER)', hr, re.M))
+    L = ['b649 -- THE SIXTH READER: ANSWERS SCORED BY THE NEEDLES AND BY HAND (%s)' % utc(), '',
+         '### the answers: relay data/b649_reader_answers.txt, copied from %s ; the reader`s session: %s' % (src, mem),
+         '### the hand reading: relay data/b649_reader_handread.txt, banked before the needles were read', '']
+    res, n_ok = {}, 0
+    for q in sorted(N):
+        a_ = ans.get(q, '')
+        p1, l1, p2, l2, deny = N[q]
+        m1 = bool(re.search(p1, a_, re.I))
+        m2 = bool(re.search(p2, a_)) if p2 else True
+        asserted = deny(a_) if deny else []
+        ok = m1 and m2 and not asserted
+        n_ok += ok
+        why = ['%s %s' % (l1, m1)] + (['%s %s' % (l2, m2)] if p2 else []) + (['the unsupported sentence asserted %s' % (asserted or 'no')] if deny else [])
+        res[q] = dict(question=r['questions'][q - 1], answer=a_, needle=ok, why=why, hand=hand.get(q))
+        L += ['### QUESTION %d: %s' % (q, r['questions'][q - 1]), '    the reader: %s' % (a_ or '### NO ANSWER'),
+              '    the needles: %s ; ### %s' % ('; '.join(why), 'AGREE' if ok else 'DIFFER'), '    by hand: %s' % (hand.get(q) or '### NOT READ'), '']
+    kh = sum(1 for v in hand.values() if v == 'AGREE')
+    unclear = re.search(r'^UNCLEAR:\s*(.*)\Z', t, re.M | re.S)
+    L += ['### NOTE, beside the score: %s' % n_ for n_ in re.findall(r'^NOTE: (.*)$', hr, re.M)]
+    L += ['### UNCLEAR, the reader`s: %s' % (' '.join(unclear.group(1).split())[:1500] if unclear else '### NONE GIVEN'), '',
+          '### ### **BY THE NEEDLES %d OF %d ; BY HAND %d OF %d.**' % (n_ok, len(N), kh, len(N))]
+    put_txt('b649_reader_compare.txt', L)
+    put_json('b649_reader_compare.json', dict(at=utc(), answers=res, needles=n_ok, hand=kh, of=len(N),
+                                              unclear=(unclear.group(1).strip() if unclear else None)))
+    print(L[-1])
+
+
 BH_LINE = 13798          # ### OPEN_TRAILS: W-ORD-LV-BUILD-HOST opened by Component 1
 PR_HEAD = ('*Appended 2026-10-11 by b649 to W-ORD-LV-BUILD-HOST (:%d), under `(R259)`(4) -- ITS PRICE, WRITTEN FROM THE MEASUREMENT:*')
 
