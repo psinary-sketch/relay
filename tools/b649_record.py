@@ -428,6 +428,118 @@ def legacy_map(kernel, *a):
     print(L[-len(R) - 3])
 
 
+# ================================================================================ COMPONENT 4: THE LV BUILD MEASURED, (R259)(4)
+# ### W-ORD-LV-BUILD-HOST priced from a measurement: every module of SIDE-lv-conservation's lean_lib, one per call, under the tree-aware
+# ### watchdog (tools/build_watch.py, the hold 2560 MB, a stop beneath it tried once more). Every module had a built .olean at main, so a
+# ### `lake build` of it would compile nothing: each is measured by `lake env lean <its file>`, the elaboration a rebuild pays for that
+# ### module against its built imports. Read from relay data/b649_build_peaks.json (every attempt) and the watchdog's logs (the free memory
+# ### at each start). A module stopped beneath the hold has a lower bound for its need, never a value: its tree peak at the stop.
+LV_ORDER = ('Genus5', 'Genus5Confinement', 'TwoSidesIdentity', 'AxiomCheck_D2', 'FieldLayer', 'LeadLaw', 'SaltCheck_LeadLaw', 'AxiomCheck_LeadLaw',
+            'T1_MellinFactorization', 'T2_SDarkness', 'T3_StepNineBridge', 'GammaBounds', 'C7OrderBounds', 'CouplingsAtPhi', 'RegisterPentagon',
+            'ZeroCarrier', 'PartialPositivity', 'C7FiniteTypeFalse', 'AxiomCheck_v0_10_0', 'ZeroActingPairing', 'QWantedPoster',
+            'CompositionBarrier', 'DirichletC7Order', 'Smoke', 'ZeroActingPartial')
+
+
+def lv_build(*a):
+    """data/b649_lv_build.txt and .json: per module its attempts (start free, seconds, tree peak, host low, exit), its outcome and its price."""
+    pk = [r for r in (jl('b649_build_peaks.json').get('rows') or []) if (r.get('module') or '').startswith('SIDELvConservation.')]
+    p = 'D:/SIDE-lv-conservation'
+    main = g(p, 'rev-parse', '--short=7', 'main').strip()
+    rows = []
+    for m in LV_ORDER:
+        at = [r for r in pk if r['module'] == 'SIDELvConservation.' + m]
+        log = io.open(at[0]['log'], encoding='utf-8', errors='replace').read() if at else ''
+        starts = [int(x) for x in re.findall(r'^### START attempt \d+ \S+ free (\d+) MB', log, re.M)]
+        done = [r for r in at if r.get('rc') == 0 and not r.get('stopped')]
+        peak = max([r.get('tree_peak') or 0 for r in at] or [0])
+        imports = re.findall(r'^\s*import\s+(\S+)', _show(p, main, 'SIDELvConservation/%s.lean' % m) or '', re.M)
+        rows.append(dict(module=m, attempts=[dict(start_free=(starts[i] if i < len(starts) else None), seconds=r['seconds'], tree_peak=r['tree_peak'],
+                                                 host_low=r['host_low'], rc=r['rc'], stopped=r['stopped']) for i, r in enumerate(at)],
+                         outcome='COMPLETED' if done else 'RUN-BENEATH-HOLD', peak=peak, need=K.HOLD + peak, bound='=' if done else '>=',
+                         mathlib=[x for x in imports if x.startswith('Mathlib')], imports=len(imports)))
+    beneath = [r for r in rows if r['outcome'] == 'RUN-BENEATH-HOLD']
+    starts = [x['start_free'] for r in rows for x in r['attempts'] if x['start_free']]
+    smoke = next(r for r in rows if r['module'] == 'Smoke')
+    gamma = next(r for r in rows if r['module'] == 'GammaBounds')
+    L = ['b649 -- COMPONENT 4, (R259)(4): THE LV-CONSERVATION BUILD MEASURED, MODULE BY MODULE (%s)' % utc(), '',
+         '### SIDE-lv-conservation main %s ; its lean_lib SIDELvConservation, 25 modules in import order ; each by `lake env lean <file>` under '
+         'tools/build_watch.py (the hold %d MB; a stop beneath it tried once more), one per call, detached and watched from the foreground ; '
+         'every module had a built .olean, so `lake build` would have compiled nothing' % (main, K.HOLD), '',
+         '### module | outcome | attempts: free at start / seconds / tree peak / host low / exit | the free memory it needs at start (hold + tree peak)']
+    for r in rows:
+        L.append('  %-22s %-16s %s | needs %s %d MB' % (r['module'], r['outcome'], ' ; '.join(
+            '%s/%ds/%dMB/%dMB/%s' % (x['start_free'] or '?', x['seconds'], x['tree_peak'], x['host_low'], ('stopped' if x['stopped'] else 'exit %d' % x['rc']))
+            for x in r['attempts']), r['bound'], r['need']))
+    L += ['', '### THE MODULES THAT CANNOT COMPLETE UNDER THE HOLD (%d), each with its tree peak at the stop (a lower bound of its need):' % len(beneath)]
+    L += ['  %-22s tree peak >= %d MB ; needs >= %d MB free at start ; imports %d (Mathlib: %s)' % (
+        r['module'], r['peak'], r['need'], r['imports'], ', '.join(r['mathlib'][:3]) + (' ...' if len(r['mathlib']) > 3 else '')) for r in beneath]
+    allat = [x for r in rows for x in r['attempts'] if x['stopped']]
+    fast = [x for x in allat if x['seconds'] <= 45]
+    slow = ['%s %d s' % (r['module'], x['seconds']) for r in rows for x in r['attempts'] if x['stopped'] and x['seconds'] > 45]
+    zap = next(r for r in rows if r['module'] == 'ZeroActingPartial')
+    zdone = [x for x in zap['attempts'] if x['rc'] == 0 and not x['stopped']]
+    L += ['', '### THE READING, from the bank:',
+          '  - of %d stopped attempts, %d reached the hold within 45 s, while lean was still mapping its imports (the slower: %s): the peak at '
+          'the stop is the import`s cost, not a module`s own elaboration -- Smoke, %d lines importing two Mathlib modules and declaring nothing of '
+          'weight, reached %d MB, above GammaBounds` %d MB;' % (len(allat), len(fast), ', '.join(slow) or 'none',
+                                                               len((_show(p, main, 'SIDELvConservation/Smoke.lean') or '').split(NL)), smoke['peak'], gamma['peak']),
+          '  - the peaks climb from the first module to the last as the operating system`s file cache warms (%d MB at the first, %d MB at the '
+          'last stopped), so a later module`s peak is no larger a need than an earlier one`s;' % (rows[0]['peak'], beneath[-1]['peak'] if beneath else 0),
+          '  - ZeroActingPartial %s;' % (('completed on attempt %d, its elaboration ending before the first sample (exit 0, %d s, host low %d MB)'
+                                          % (zap['attempts'].index(zdone[0]) + 1, zdone[0]['seconds'], zdone[0]['host_low'])) if zdone else 'did not complete'),
+          '  - the free memory at a start ranged %d-%d MB ; the hold is %d MB.' % (min(starts), max(starts), K.HOLD), '',
+          '### THE PRICE: the host would need about %d MB free at a module`s start (the hold plus the largest tree peak measured, %d MB), against '
+          'the %d-%d MB this host offered; the peak is the Mathlib import`s and not GammaBounds` own, so a split of GammaBounds.lean at :177 does not '
+          'answer it. No hold changed, no kernel edited.' % (K.HOLD + max(r['peak'] for r in rows), max(r['peak'] for r in rows), min(starts), max(starts)),
+          '', '### ### **MODULES 25 ; COMPLETED %d ; BENEATH THE HOLD %d ; LARGEST TREE PEAK %d MB ; NEED ABOUT %d MB FREE AT START.**' % (
+              25 - len(beneath), len(beneath), max(r['peak'] for r in rows), K.HOLD + max(r['peak'] for r in rows))]
+    put_txt('b649_lv_build.txt', L)
+    put_json('b649_lv_build.json', dict(at=utc(), main=main, hold=K.HOLD, rows=rows))
+    print(L[-1])
+
+
+BH_LINE = 13798          # ### OPEN_TRAILS: W-ORD-LV-BUILD-HOST opened by Component 1
+PR_HEAD = ('*Appended 2026-10-11 by b649 to W-ORD-LV-BUILD-HOST (:%d), under `(R259)`(4) -- ITS PRICE, WRITTEN FROM THE MEASUREMENT:*')
+
+
+def lv_price(*a):
+    """Component 4: OPEN_TRAILS, the price of W-ORD-LV-BUILD-HOST from relay data/b649_lv_build.json, beneath its opening line."""
+    import b641_record as R41
+    Q = R2._Q()
+    if 'W-ORD-LV-BUILD-HOST, OPENED' not in lines_of(io.open(Q.OT, encoding='utf-8').read().replace(chr(13), ''))[BH_LINE - 1]:
+        sys.exit('### W-ORD-LV-BUILD-HOST`S LINE MOVED -- NOTHING WRITTEN')
+    j = jl('b649_lv_build.json')
+    rows = j.get('rows') or []
+    if len(rows) != 25:
+        sys.exit('### THE BUILD BANK DOES NOT READ 25 MODULES -- NOTHING WRITTEN')
+    ben = [r for r in rows if r['outcome'] == 'RUN-BENEATH-HOLD']
+    peak = max(r['peak'] for r in rows)
+    starts = [x['start_free'] for r in rows for x in r['attempts'] if x['start_free']]
+    smoke = next(r for r in rows if r['module'] == 'Smoke')
+    gamma = next(r for r in rows if r['module'] == 'GammaBounds')
+    t = ('\n%s the 25 modules of SIDE-lv-conservation`s lean_lib at main %s, each by `lake env lean` under the tree-aware watchdog, one per call '
+         '(relay data/b649_lv_build.txt): %d beneath the hold of %d MB on both attempts, %d completed; the largest tree peak %d MB; the free memory '
+         'at a start %d-%d MB. The peak is the Mathlib import`s -- Smoke, which declares nothing of weight, reached %d MB against the %d MB of '
+         'GammaBounds -- so a split of GammaBounds.lean at :177 does not answer it. THE PRICE: a host offering about %d MB free at a module`s start, the '
+         'hold plus the largest peak; this host offered %d-%d MB. No hold changed and no kernel edited; the h2 docstring edit waits on a host '
+         'at that price.\n' % (PR_HEAD % BH_LINE, j.get('main'), len(ben), j.get('hold'), 25 - len(ben), peak, min(starts), max(starts),
+                                smoke['peak'], gamma['peak'], j.get('hold') + peak, min(starts), max(starts)))
+    t = R41._poss(t)
+    nd, _n = R3._nd(t)
+    p = os.path.join(SP if DRY else D, 'b649_scanfile_price.md')
+    _write(p, t.encode('utf-8'))
+    sc = _scan(p)
+    ticks = [l[:60] for l in t.split(NL) if l.count('`') % 2]
+    print('  table cells %s ; nd %s ; scanner %s ; odd backticks %s' % (R3.predict_cells(t, 'OPEN_TRAILS.md') or 'NONE', nd,
+                                                                       'CLEAN' if _clean(sc) else 'NOT CLEAN', ticks or 'NONE'))
+    if DRY:
+        print(t)
+        return
+    if R3.predict_cells(t, 'OPEN_TRAILS.md') or any(nd.values()) or not _clean(sc) or ticks:
+        sys.exit('### NOTHING WRITTEN')
+    R3._land(Q, [('OPEN_TRAILS.md', PR_HEAD % BH_LINE, t)], 'b649_price_line.json', BH_LINE)
+
+
 if __name__ == '__main__':
     args = [x for x in sys.argv[1:] if x != 'dry']
     if not args or args[0] not in globals() or args[0].startswith('_'):

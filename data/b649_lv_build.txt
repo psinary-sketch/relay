@@ -1,0 +1,66 @@
+b649 -- COMPONENT 4, (R259)(4): THE LV-CONSERVATION BUILD MEASURED, MODULE BY MODULE (2026-10-11T04:53:03Z)
+
+### SIDE-lv-conservation main b2238d4 ; its lean_lib SIDELvConservation, 25 modules in import order ; each by `lake env lean <file>` under tools/build_watch.py (the hold 2560 MB; a stop beneath it tried once more), one per call, detached and watched from the foreground ; every module had a built .olean, so `lake build` would have compiled nothing
+
+### module | outcome | attempts: free at start / seconds / tree peak / host low / exit | the free memory it needs at start (hold + tree peak)
+  Genus5                 RUN-BENEATH-HOLD 3347/657s/662MB/2514MB/stopped ; 3256/247s/755MB/2470MB/stopped | needs >= 3315 MB
+  Genus5Confinement      RUN-BENEATH-HOLD 3264/21s/758MB/2497MB/stopped ; 3353/21s/762MB/2431MB/stopped | needs >= 3322 MB
+  TwoSidesIdentity       RUN-BENEATH-HOLD 3284/21s/765MB/2517MB/stopped ; 3381/21s/769MB/2477MB/stopped | needs >= 3329 MB
+  AxiomCheck_D2          RUN-BENEATH-HOLD 3281/21s/774MB/2417MB/stopped ; 3270/21s/778MB/2432MB/stopped | needs >= 3338 MB
+  FieldLayer             RUN-BENEATH-HOLD 3318/21s/781MB/2541MB/stopped ; 3420/21s/784MB/2550MB/stopped | needs >= 3344 MB
+  LeadLaw                RUN-BENEATH-HOLD 3445/21s/1079MB/2450MB/stopped ; 3430/21s/1133MB/2253MB/stopped | needs >= 3693 MB
+  SaltCheck_LeadLaw      RUN-BENEATH-HOLD 3331/21s/1193MB/2224MB/stopped ; 3314/21s/1238MB/2290MB/stopped | needs >= 3798 MB
+  AxiomCheck_LeadLaw     RUN-BENEATH-HOLD 3435/21s/1291MB/2244MB/stopped ; 3429/21s/1351MB/2184MB/stopped | needs >= 3911 MB
+  T1_MellinFactorization RUN-BENEATH-HOLD 3427/21s/1277MB/2334MB/stopped ; 3424/21s/1367MB/2234MB/stopped | needs >= 3927 MB
+  T2_SDarkness           RUN-BENEATH-HOLD 3413/21s/1456MB/2174MB/stopped ; 3438/21s/1540MB/2178MB/stopped | needs >= 4100 MB
+  T3_StepNineBridge      RUN-BENEATH-HOLD 3545/21s/1620MB/2135MB/stopped ; 3532/21s/1644MB/2104MB/stopped | needs >= 4204 MB
+  GammaBounds            RUN-BENEATH-HOLD 3163/21s/1650MB/1859MB/stopped ; 3335/21s/1672MB/1919MB/stopped | needs >= 4232 MB
+  C7OrderBounds          RUN-BENEATH-HOLD 3470/21s/1694MB/1987MB/stopped ; 3482/21s/1716MB/1986MB/stopped | needs >= 4276 MB
+  CouplingsAtPhi         RUN-BENEATH-HOLD 3493/21s/1757MB/1950MB/stopped ; 3501/21s/1785MB/1936MB/stopped | needs >= 4345 MB
+  RegisterPentagon       RUN-BENEATH-HOLD 3501/21s/1810MB/1964MB/stopped ; 3550/21s/1855MB/1851MB/stopped | needs >= 4415 MB
+  ZeroCarrier            RUN-BENEATH-HOLD 3951/21s/1883MB/2492MB/stopped ; 4177/21s/1921MB/2545MB/stopped | needs >= 4481 MB
+  PartialPositivity      RUN-BENEATH-HOLD 4295/21s/1949MB/2555MB/stopped ; 4275/21s/1980MB/2402MB/stopped | needs >= 4540 MB
+  C7FiniteTypeFalse      RUN-BENEATH-HOLD 4131/21s/1971MB/2413MB/stopped ; 4144/21s/1978MB/2519MB/stopped | needs >= 4538 MB
+  AxiomCheck_v0_10_0     RUN-BENEATH-HOLD 4266/21s/2009MB/2494MB/stopped ; 4252/21s/2039MB/2344MB/stopped | needs >= 4599 MB
+  ZeroActingPairing      RUN-BENEATH-HOLD 4165/21s/2053MB/2349MB/stopped ; 4173/21s/2075MB/2436MB/stopped | needs >= 4635 MB
+  QWantedPoster          RUN-BENEATH-HOLD 4275/21s/2092MB/2424MB/stopped ; 4259/21s/2105MB/2423MB/stopped | needs >= 4665 MB
+  CompositionBarrier     RUN-BENEATH-HOLD 4273/21s/2109MB/2421MB/stopped ; 4274/21s/2124MB/2389MB/stopped | needs >= 4684 MB
+  DirichletC7Order       RUN-BENEATH-HOLD 4283/41s/2116MB/2194MB/stopped ; 4076/21s/2242MB/2076MB/stopped | needs >= 4802 MB
+  Smoke                  RUN-BENEATH-HOLD 4231/21s/2104MB/2389MB/stopped ; 4235/21s/2109MB/2358MB/stopped | needs >= 4669 MB
+  ZeroActingPartial      COMPLETED        4230/21s/2153MB/2311MB/stopped ; 4229/20s/181MB/2935MB/exit 0 | needs = 4713 MB
+
+### THE MODULES THAT CANNOT COMPLETE UNDER THE HOLD (24), each with its tree peak at the stop (a lower bound of its need):
+  Genus5                 tree peak >= 755 MB ; needs >= 3315 MB free at start ; imports 1 (Mathlib: Mathlib)
+  Genus5Confinement      tree peak >= 762 MB ; needs >= 3322 MB free at start ; imports 1 (Mathlib: Mathlib)
+  TwoSidesIdentity       tree peak >= 769 MB ; needs >= 3329 MB free at start ; imports 1 (Mathlib: Mathlib)
+  AxiomCheck_D2          tree peak >= 778 MB ; needs >= 3338 MB free at start ; imports 3 (Mathlib: )
+  FieldLayer             tree peak >= 784 MB ; needs >= 3344 MB free at start ; imports 1 (Mathlib: Mathlib)
+  LeadLaw                tree peak >= 1133 MB ; needs >= 3693 MB free at start ; imports 1 (Mathlib: )
+  SaltCheck_LeadLaw      tree peak >= 1238 MB ; needs >= 3798 MB free at start ; imports 1 (Mathlib: )
+  AxiomCheck_LeadLaw     tree peak >= 1351 MB ; needs >= 3911 MB free at start ; imports 2 (Mathlib: )
+  T1_MellinFactorization tree peak >= 1367 MB ; needs >= 3927 MB free at start ; imports 3 (Mathlib: Mathlib.NumberTheory.LSeries.RiemannZeta, Mathlib.NumberTheory.LSeries.HurwitzZetaEven, Mathlib.Analysis.MellinTransform)
+  T2_SDarkness           tree peak >= 1540 MB ; needs >= 4100 MB free at start ; imports 2 (Mathlib: Mathlib.Analysis.MellinTransform)
+  T3_StepNineBridge      tree peak >= 1644 MB ; needs >= 4204 MB free at start ; imports 4 (Mathlib: Mathlib.Analysis.MellinTransform, Mathlib.NumberTheory.LSeries.Dirichlet)
+  GammaBounds            tree peak >= 1672 MB ; needs >= 4232 MB free at start ; imports 2 (Mathlib: Mathlib.Analysis.SpecialFunctions.Gamma.Basic, Mathlib.NumberTheory.LSeries.RiemannZeta)
+  C7OrderBounds          tree peak >= 1716 MB ; needs >= 4276 MB free at start ; imports 2 (Mathlib: )
+  CouplingsAtPhi         tree peak >= 1785 MB ; needs >= 4345 MB free at start ; imports 8 (Mathlib: Mathlib.NumberTheory.Harmonic.EulerMascheroni, Mathlib.Analysis.Complex.ExponentialBounds, Mathlib.Analysis.Real.Pi.Bounds ...)
+  RegisterPentagon       tree peak >= 1855 MB ; needs >= 4415 MB free at start ; imports 4 (Mathlib: Mathlib.NumberTheory.LSeries.RiemannZeta, Mathlib.Analysis.SpecialFunctions.Pow.Real, Mathlib.Data.Nat.Prime.Basic)
+  ZeroCarrier            tree peak >= 1921 MB ; needs >= 4481 MB free at start ; imports 5 (Mathlib: Mathlib.NumberTheory.LSeries.RiemannZeta, Mathlib.NumberTheory.LSeries.Dirichlet, Mathlib.Analysis.Analytic.Order ...)
+  PartialPositivity      tree peak >= 1980 MB ; needs >= 4540 MB free at start ; imports 3 (Mathlib: Mathlib.Topology.Algebra.InfiniteSum.Basic)
+  C7FiniteTypeFalse      tree peak >= 1978 MB ; needs >= 4538 MB free at start ; imports 1 (Mathlib: )
+  AxiomCheck_v0_10_0     tree peak >= 2039 MB ; needs >= 4599 MB free at start ; imports 6 (Mathlib: )
+  ZeroActingPairing      tree peak >= 2075 MB ; needs >= 4635 MB free at start ; imports 1 (Mathlib: )
+  QWantedPoster          tree peak >= 2105 MB ; needs >= 4665 MB free at start ; imports 1 (Mathlib: )
+  CompositionBarrier     tree peak >= 2124 MB ; needs >= 4684 MB free at start ; imports 1 (Mathlib: )
+  DirichletC7Order       tree peak >= 2242 MB ; needs >= 4802 MB free at start ; imports 2 (Mathlib: Mathlib.NumberTheory.LSeries.DirichletContinuation)
+  Smoke                  tree peak >= 2109 MB ; needs >= 4669 MB free at start ; imports 2 (Mathlib: Mathlib.NumberTheory.LSeries.RiemannZeta, Mathlib.Analysis.MellinTransform)
+
+### THE READING, from the bank:
+  - of 49 stopped attempts, 47 reached the hold within 45 s, while lean was still mapping its imports (the slower: Genus5 657 s, Genus5 247 s): the peak at the stop is the import`s cost, not a module`s own elaboration -- Smoke, 15 lines importing two Mathlib modules and declaring nothing of weight, reached 2109 MB, above GammaBounds` 1672 MB;
+  - the peaks climb from the first module to the last as the operating system`s file cache warms (755 MB at the first, 2109 MB at the last stopped), so a later module`s peak is no larger a need than an earlier one`s;
+  - ZeroActingPartial completed on attempt 2, its elaboration ending before the first sample (exit 0, 20 s, host low 2935 MB);
+  - the free memory at a start ranged 3163-4295 MB ; the hold is 2560 MB.
+
+### THE PRICE: the host would need about 4802 MB free at a module`s start (the hold plus the largest tree peak measured, 2242 MB), against the 3163-4295 MB this host offered; the peak is the Mathlib import`s and not GammaBounds` own, so a split of GammaBounds.lean at :177 does not answer it. No hold changed, no kernel edited.
+
+### ### **MODULES 25 ; COMPLETED 1 ; BENEATH THE HOLD 24 ; LARGEST TREE PEAK 2242 MB ; NEED ABOUT 4802 MB FREE AT START.**
