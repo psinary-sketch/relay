@@ -233,6 +233,32 @@ def edition81(*a):
         ('DRY ' + dest) if dry else CEN81, len(out), len(b), len(nb), i + 1, len(ob), j + 1 + len(nb) - len(ob), out.index(V81_TAG) + 1))
 
 
+GLOSS_DOCS = ('THE_CLAUSE_AND_ITS_COMPILED_FACES.md', 'THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md', CEN81)
+
+
+def glossary_alike(*a):
+    """data/b651_glossary_alike.txt: the shared glossary's block found once, byte for byte, in the two pages and the census at v0.8.1 at
+    PLACE-papers HEAD; its sha256 in each."""
+    import chain_page as CP
+    import hashlib
+    nb = CP.glossary_block()
+    L = ['b651 -- (R261)(5): THE GLOSSARY BLOCK ACROSS THE THREE DOCUMENTS AT PLACE-papers %s, the builder at relay %s (%s)' % (
+        g(PP, 'rev-parse', '--short=7', 'HEAD').strip(), g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip(), utc()), '',
+         '### the block: %d lines from relay data/glossary.txt (%d entries)' % (len(nb), len(CP.glossary_entries()))]
+    shas = []
+    for f in GLOSS_DOCS:
+        t = g(PP, 'show', 'HEAD:' + f).split(NL)
+        at = [i for i in range(len(t)) if t[i:i + len(nb)] == nb]
+        s = hashlib.sha256(NL.join(t[at[0]:at[0] + len(nb)]).encode('utf-8')).hexdigest() if len(at) == 1 else None
+        shas.append(s)
+        L.append('  %-48s found %d time(s)%s ; sha256 %s' % (f, len(at), (' at :%d' % (at[0] + 1)) if at else '', s or '-'))
+    ok = len(set(shas)) == 1 and shas[0] is not None
+    L += ['', '### ### **THE BLOCK BYTE FOR BYTE THE SAME IN ALL THREE: %s.**' % ok]
+    put_txt('b651_glossary_alike.txt', L)
+    print(NL.join(L[2:]))
+    return ok
+
+
 if __name__ == '__main__':
     fn = globals().get(sys.argv[1] if len(sys.argv) > 1 else '')
     if not callable(fn):
