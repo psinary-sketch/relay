@@ -1,0 +1,41 @@
+
+*Appended 2026-10-10 by b648 to b647’s entry (:8123), under `(R258)`(1) -- b647 AT ITS WEIGHT, ITS FIGURES READ FROM ITS BANKS:* relay 6972e068 (closing), 002f50f0 (act), 57ecddf8 (seal), PLACE-papers 4492e6e; the suite 70 of 71, NOT CLEAN on G-EDIT-ROUTE alone, declared on the face; the root 03d3d1b2…; 1 prompt answered; 16 defects, (a) to (p). Every kernel’s docstrings: 22 kernels, 3804 rows -- MATCHES 3516, UNDERSTATES 20, OVERREACHES 266, UNLICENSED 2 -- the textual kernels read whole by helper readers on the author’s answer and every non-MATCHES row read whole by the seat; the generated rule’s verdict kept beside each row, its misses 268 of the 2399 rows it read MATCHES; the three classes it cannot see counted, a sorry-closed theorem described as holding 3, an axiom-profile claim against a banked print 3, a module header claiming more than its file compiles 76; every sorry on every kernel’s main printed by file and line, 37 in code in three kernels, 4 inside a built library. The navigator’s memory at 163 rows -- MATCHES 124, UNDERSTATES 6, OVERREACHES 33, UNLICENSED 0 -- four row units redacted in the bank for a location or a label outside the corpus. The description at v4, 12129 bytes against v3’s 11678, the fifth reader 3 of 3 by the needles and 3 of 3 by hand, the residue six passages, the draft’s description replaced, read back and held. The watchdog on the process tree. The census columns over 77 rows. N1 HELD, N2 HELD, N3 HELD, N4 HELD, N5 REFUTED IN ONE CLAUSE, S1 HELD, S2 HELD, S3 HELD, S4 HELD, S5 HELD. `(R258)`(1) gives the navigator’s memory at 128 rows -- MATCHES 104, OVERREACHES 22, UNDERSTATES 2 -- and `(R258)`(8) its repairs at 24 rows, figures from a report the seat sent before the last of the seven readings landed; the banks print 163 rows and 39 non-MATCHES rows: the navigator’s, the banks’ figures standing. Nothing deposited; no edition touched.
+
+*Appended 2026-10-10 by b648 to the b559 record (:11508), under `(R258)`(2) -- THE STANDING RULE REFUTED AT THIRTY-SEVEN LINES ON KERNEL MAINS, EACH WITH THE DATE IT ENTERED:* the standing line "no `sorry` on any `main`" first stands in this ledger at :11508 (b559, 2026-09-29); the census of b647 (relay data/b647_sorry_census.txt) found 37 `sorry` lines in code on the mains of three kernels, 4 of them inside a built library. Each line below carries its kernel and main, its file and line, BUILT or TRACKED ONLY, and the commit that brought the line (git blame at the main, then git log): 37 of the 37 entered before the rule’s first line, 0 after. Each takes one repair by the author’s word under `(R258)`(2) -- PROVED, QUARANTINED or RESTATED -- raised as one prompt before any kernel edit.
+- SIDE-effects ef4cff7 `SIDEEffects/Milestones.lean` :32 -- BUILT; entered 2026-04-28 at `afb196e` -- **inside a built library**
+- SIDE-effects ef4cff7 `SIDEEffects/Milestones.lean` :49 -- BUILT; entered 2026-04-28 at `afb196e` -- **inside a built library**
+- SIDE-effects ef4cff7 `SIDEEffects/Milestones.lean` :63 -- BUILT; entered 2026-04-28 at `afb196e` -- **inside a built library**
+- SIDE-kernel 0256e9e `legacy/CodimProbe.lean` :60 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/CodimProbe.lean` :78 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/FmodifProbe.lean` :14 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/FmodifProbe.lean` :32 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/FmodifProbe.lean` :41 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/FmodifProbe.lean` :49 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/FmodifProbe2.lean` :26 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/FmodifProbe2.lean` :75 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/IdentityBuild1.lean` :156 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/IdentityBuild1.lean` :171 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/IdentityBuild1.lean` :213 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/ProductFormula_Int.lean` :96 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/ProductFormula_Int.lean` :130 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild10.lean` :59 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild11.lean` :61 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild12.lean` :56 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild13.lean` :53 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild14.lean` :54 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild2.lean` :111 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild2.lean` :113 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild3.lean` :42 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild3.lean` :77 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild4.lean` :56 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild4.lean` :87 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild4.lean` :108 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild5.lean` :62 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild5.lean` :114 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild6.lean` :71 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild7.lean` :68 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild8.lean` :68 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzBuild9.lean` :58 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-kernel 0256e9e `legacy/SchwarzProbe2.lean` :79 -- TRACKED ONLY; entered 2026-04-02 at `96448f7`
+- SIDE-lv-conservation 2f71068 `PinnedGoal.lean` :23 -- TRACKED ONLY; entered 2026-07-09 at `45c2759`
+- SIDE-lv-conservation 2f71068 `SIDELvConservation/T3_StepNineBridge.lean` :108 -- BUILT; entered 2026-07-09 at `45c2759` -- **inside a built library**
