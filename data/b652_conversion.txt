@@ -1,0 +1,26 @@
+b652 -- COMPONENT 1, (R262)(2): THE ONE CONVERSION OF A BACKTICK POSSESSIVE (2026-10-11)
+
+### the function: tools/b652_record.py `conv` (CONV, a backtick after a letter, a digit or `)` and before a lower-case letter written ’), the
+### union of the two it replaces -- tools/b641_record.py :255 `_poss` (the landing of b641-b651) and tools/b551_record.py :678 `poss` (the
+### look-ups and append_to of b551-b651, a straight apostrophe) -- written typographic. b652_record's append_to, guard_absent and line_of
+### convert by conv alone; the suite of this act (tools/b652_checks.py, Component 5) imports conv from the record tool and converts by nothing
+### else; relay 1af9626c.
+
+### the planted case (tools/test_conversion_b652.py, run at relay 1af9626c): 7 of 7 cases as wanted -- PASS
+  (1) conv writes a backtick possessive typographic (kernel`s -> kernel’s ; (R262)`s -> (R262)’s) -- PASS
+  (2) conv leaves a code span and a ruling citation alone and changes nothing applied twice -- PASS
+  (3) the planted head landed once, at :[5], its bytes appended to the ledger unchanged above (prefix True) -- PASS
+  (4) the look-up by conv finds the landed line (:5) -- PASS
+  (5) CONTROL: the straight conversion of b551_record (the look-up of b651's suite and trail route) misses it (:None) -- PASS
+  (6) the guard by conv refuses a second landing of the same head -- PASS
+  (7) a head with no backtick passes conv unchanged and is found (:7) -- PASS
+
+### b651's record read through conv (a scratch read; the sealed b651 suite and record tool unedited), PLACE-papers a6e63c1:
+  FINDINGS :8229 == conv(the entry's title, data/b651_findings.json)          True ; by the straight conversion False
+  OPEN_TRAILS :13874 starts with conv(b651_record.TRAIL_HEAD())               True ; by the straight conversion False
+  the title and the head each carry one backtick possessive (2 backticks each).
+### so the five arms of defect (n), whose predicates compare these lines, read them by conv; at this act they are carried in b652's suite
+### against b652's own record, through conv (N1 is read there at HEAD).
+
+### the record lines landed through conv (data/b652_record_lines.json): FINDINGS :8257 (b651 at its weight), OPEN_TRAILS :13896 (the
+### conversion rule beneath b651's trail record); PLACE-papers 8df3283.
