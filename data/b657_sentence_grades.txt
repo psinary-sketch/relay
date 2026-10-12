@@ -1,4 +1,4 @@
-b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY HAND, BOUND TO THE PARENT BLOCK`S HAND CELLS; BANKED FOR THE AUTHOR`S STRIKE BEFORE ANY EDIT (2026-10-12T20:22:34Z)
+b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY HAND, BOUND TO THE PARENT BLOCK`S HAND CELLS; BANKED FOR THE AUTHOR`S STRIKE BEFORE ANY EDIT (2026-10-12T20:33:05Z)
 
 ### the rule (b652`s, (R265)(2), as (R267)(3) carries it): a sentence row is graded OVERREACHES, UNDERSTATES or UNLICENSED where the parent
 ### block`s HAND LICENSED or CITED cell names, quotes or paraphrases that sentence`s claim, the grade citing the cell`s words beside it; a
@@ -17,21 +17,21 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
                     cell: "The header says the file reproduces the #print axioms output for every theorem in this kernel"
                     its ACTION: Run `lake env lean AxiomCheck.lean` to reproduce the `#print axioms` output for T1, T2, the T3 family and the W-8 C₇-order chain (not every theorem of the kernel).
   s2    MATCHES     T1 and T2 are expected to reduce to Mathlib's standard axiomatic base (`Classical.choice`, `Quot.sound`, `propext`).
-  s3    MATCHES     T3 is expected to additionally list `sorryAx` due to the pinned emergent-totality gap (FINDINGS F.2026-07-09-b) — this is the intended `sorry` and its presence is the compiler's verdict.
-   -> THE BLOCK AFTER THE CUT (4 sentences; repeats dropped 0):
+  s3    UNLICENSED  T3 is expected to additionally list `sorryAx` due to the pinned emergent-totality gap (FINDINGS F.2026-07-09-b) — this is the intended `sorry` and its presence is the compiler's verdict.
+                    cell: "SIDELvConservation.T3.T3_perClass_to_combinations                      DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']" (relay data/b653_runner_SIDE-lv-conservation.txt :125)
+   -> THE BLOCK AFTER THE CUT (3 sentences; repeats dropped 0):
         # Axiom audit
         Run `lake env lean AxiomCheck.lean` to reproduce the `#print axioms` output for T1, T2, the T3 family and the W-8 C₇-order chain (not every theorem of the kernel).
         T1 and T2 are expected to reduce to Mathlib's standard axiomatic base (`Classical.choice`, `Quot.sound`, `propext`).
-        T3 is expected to additionally list `sorryAx` due to the pinned emergent-totality gap (FINDINGS F.2026-07-09-b) — this is the intended `sorry` and its presence is the compiler's verdict.
 
 == #2 PinnedGoal.lean:4 (b647`s bank line :15 ; at main PinnedGoal.lean:4 ; module ; HAND OVERREACHES ; 2 sentence rows)
    LICENSED : The file has no `#check` line. Its `example` is a standalone statement closed by its own `sorry`, and nothing compares it with T3's goal, so it type-checks regardless of whether it is convertible with the goal at the T3 sorry. The cited line T3_StepNineBridge.lean:107 is a comment; the sorry is at :108.
    ACTION   : RE-CUT: Restates, as a standalone `example` closed by `sorry`, the proposition shown at T3_StepNineBridge.lean:97 and left open by the `sorry` at :108; it is a transcript copy and does not certify convertibility with the T3 goal.
   s1    MATCHES     Reproduces the pinned goal state at T3_StepNineBridge.lean:107 for inclusion in VERIFICATION_TRANSCRIPT.md.
-        ### REACHED BY THE CELL ("The cited line T3_StepNineBridge.lean:107 is a comment; the sorry is at :108."), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: the cells and the ACTION speak of the main b647 read (2f71068): an `example` closed by `sorry` and T3's `sorry` at :108, both taken off main by b648's quarantine and restatement (main b4c55b9)
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_classification.txt :150 ("an example outside every lean_lib that only reproduces the goal at T3`s sorry; nothing consumes it"): the module doc describes the example b648 quarantined off main (relay data/b648_sorry_repairs.txt :4); no bank sentence describes PinnedGoal.lean as it stands at main
   s2    MATCHES     The `#check` line prints the propositional shape without exiting the proof; the `example` gate guarantees the reproduced goal is *literally* the goal at the `sorry` site — it type-checks iff the two are convertible.
-        ### REACHED BY THE CELL ("The file has no `#check` line."), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: as for s1: the ACTION's text (a standalone `example` closed by `sorry`) is not the file at main b4c55b9
-   ### UNRESOLVED: every row the cells reach has no ACTION text usable at main (listed above), raised for the strike; not cut.
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_classification.txt :150 ("an example outside every lean_lib that only reproduces the goal at T3`s sorry; nothing consumes it"): as s1
+   ### UNRESOLVED: every row the cells reach is listed UNRESOLVED above, with its reason; not cut.
 
 == #3 SIDELvConservation/C7OrderBounds.lean:222 (b647`s bank line :20 ; at main SIDELvConservation/C7OrderBounds.lean:222 ; decl ; HAND OVERREACHES ; 5 sentence rows)
    LICENSED : The statement and the no-case-split route are as described, but the docstring's hygiene claim "No `nlinarith`" is false at the pin: the proof calls `by nlinarith` at :237, to discharge w + 2 ≤ (n+2)^2 inside Real.log_le_log.
@@ -58,7 +58,7 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
   s4    UNDERSTATES It is the h1 half of the obligation, in progress.
                     cell: "the file proves C4_modularity_at_Phi and h1_complete_at_Phi (all eight conjuncts, C₄ included)"
   s5    MATCHES     STATUS AT THIS COMMIT (honest; see the per-class comments): C₁ realness PROVED (`C1_realness_at_Phi`) C₂ half-plane Mellin nonvanishing PROVED (`C2_halfplane_nonvanishing_at_Phi`) C₃ theta transformation PROVED (`C3_theta_transformation_at_Phi`, via Mathlib's `evenKernel_functional_equation`) C₄ modularity STRENGTHENED (Fork B def, 2026-07-17: holomorphic ℍ-lift + S/T generator laws; the v0.5.1 under-strength C₃-in-a-wrapper form retired).
-        ### REACHED BY THE CELL ("the C₄ law is a τ ↦ τ+2 (T²) law, not the PSL₂(ℤ) T-law"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: the row is the status list of C₁-C₄; the ACTION re-cuts the count, and gives no text for this row's "S/T generator laws"
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :127 ("RESTATED, SIDE-lv-conservation"): the change banks speak of T3_perClass_to_combinations and PinnedGoal alone; no sentence of theirs reaches this status-list row
   s6    MATCHES     Discharge = Fork B B2.
   s7    MATCHES     C₅-INPUT heat trace of a real, non-negative spectrum PROVED (`C5_input_at_Phi`, μ n = n², via Mathlib's `hasSum_int_evenKernel`) C₅-OUTPUT the spectral realisation (Hilbert–Pólya) STATED, DISCLAIMED, NEVER CLAIMED.
   s8    UNDERSTATES The gap between C₅-input and C₅-output is the premise's FIFTH REGISTER — see `C5_output`.
@@ -95,7 +95,7 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
    LICENSED : The definition's translation clause is F(2 + τ) = F τ, which is covariance under T² (τ ↦ τ+2), not under the PSL₂(ℤ) generator T (τ ↦ τ+1). Together with the S-law it states covariance under the generators of the theta group Γ_θ, an index-3 subgroup, and jacobiTheta is not T-invariant. The docstring's "PSL₂(ℤ)-generator-covariant" therefore claims more than the definition states.
    ACTION   : RE-CUT: `Φ` is the real-ray restriction of a holomorphic function `F` on ℍ covariant under `S` (τ ↦ −1/τ, weight ½ in the library's branch) and `T²` (τ ↦ τ + 2), the generators of the theta group Γ_θ (not under PSL₂(ℤ)'s `T`).
   s1    MATCHES     **C₄ (modular / PSL₂(ℤ)) — STRENGTHENED** (2026-07-17, C₄ Fork B; W-7-style def change).
-        ### REACHED BY THE CELL ("not under the PSL₂(ℤ) generator T (τ ↦ τ+1)"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: the title row names PSL₂(ℤ); the ACTION gives no title
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :127 ("RESTATED, SIDE-lv-conservation"): a title row the change banks do not reach
   s2.1  OVERREACHES `Φ` is the real-ray restriction of a holomorphic function `F` on the upper half-plane that is covariant under the two generators of `PSL₂(ℤ) = ⟨S, T | S² = (ST)³ = I⟩`:
                     cell: "The definition's translation clause is F(2 + τ) = F τ, which is covariance under T² (τ ↦ τ+2), not under the PSL₂(ℤ) generator T (τ ↦ τ+1)"
   s2.2  MATCHES     (i) `F` holomorphic on `ℍ` (`0 < im τ`); (ii) ray restriction: `F (I·t) = 2·Φ t + 1` for `t > 0` — via `evenKernel_def`, `2Φ+1 = evenKernel 0`; (iii) **T-law**: `F (2 + τ) = F τ` — a GENUINELY NEW fact, *not* implied by C₃; C₃ is only the S-law's real-ray shadow, and the modular translation lives in the upper-half-plane variable τ (`jacobiTheta(2+τ) = jacobiTheta τ`), not as the real-`t` identity `Φ(t+2)=Φ(t)`; (iv) **S-law**, in the library's exact branch form: `F (-1/τ) = (-I·τ)^(1/2) · F τ` on `ℍ`.
@@ -290,7 +290,7 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
   s10   MATCHES     `C7_order` — the order ≤ 1 maximal-type growth bound.
   s11   MATCHES     Ledger note.
   s12   MATCHES     C₅-**OUTPUT** (the Hilbert–Pólya spectral realization) is DISCLAIMED and lies OUTSIDE this count — it is the cited fifth-register premise, not a coupling proven here.
-        ### REACHED BY THE CELL ("the ledger note's C₅-output-as-Hilbert–Pólya premise is not what C5_output as defined states"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: the ACTION re-cuts items 4 and 6 and gives no text for the ledger note
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :127 ("RESTATED, SIDE-lv-conservation"): the ledger note's C5-output premise; the change banks do not reach it
   s13   UNLICENSED  This theorem is the `h1` leg of the T3′ bracket; `h2` (nonvanishing of the Mellin transform at the operative point) remains the outstanding obligation.
                     cell: "no source the table reads states h2 as the nonvanishing of a Mellin transform" (relay data/b648_h2_row.txt (h2:CouplingsAtPhi:415))
                     its ACTION: RE-CUT: This theorem is the `h1` leg of the T3′ bracket; its `h2` leg -- nonvanishing of the Mellin transform at the operative point, this kernel’s register and not the Prop the programme’s glossary names h2, which is `h2_sign`, Weil positivity on classK (SIDE-explicit-formula `SIDEExplicitFormula/H2Sign.lean` :28-:29) -- remains outstanding.
@@ -397,7 +397,7 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
    ACTION   : RE-CUT: hence (v) that the certificate h has leading coefficient p 0, so the product of two copies of that leading coefficient is p 0 ^ 2 (the step to H = h * h-conjugate, whose conjugate fixes p 0, is argued, not compiled).
   s1    MATCHES     # LeadLaw — D-2a: the certificate's leading coefficient is the defect's square The programme's first OWNED supplier theorem, converted from a computed law to a certified terminal.
   s2    MATCHES     The setting is the fourth supplier row (self-dual codes; Duursma's zeta polynomial), and the compiled content is the identity that made the toy's selection anatomy legible: **the Galois-normalized certificate's leading coefficient is `p 0 ^ 2`** — where `p` is the zeta polynomial's coefficient sequence and `p 0` its constant term (which Duursma's `P(0)` formula identifies with `A_d / ((q-1) * C(n,d))`, the normalized minimum-weight count — the "defect" whose square appears).
-        ### REACHED BY THE CELL ("no declaration of the file defines the conjugate or H"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: the row names the Galois-normalized certificate's leading coefficient as the compiled content; the ACTION re-cuts clause (v) alone
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :127 ("RESTATED, SIDE-lv-conservation"): the Galois-normalized certificate row; the change banks do not reach it
   s3    MATCHES     ## What is stipulated at cite, and what is derived here **STIPULATED — ONE named premise (cited datum; not re-proven, per the Davenport–Heilbronn precedent).
   s4    MATCHES     Duursma's construction of the zeta polynomial `P` from a code's weight enumerator, his `P(0)` formula, and the self-dual functional equation `p (2g - i) = q ^ (g - i) * p i`.
   s5    MATCHES     The functional equation enters as the HYPOTHESIS `SelfDualFE`, so the theorem's content is what follows FROM it.
@@ -457,7 +457,7 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
   s19   MATCHES     BUILD-4 rides this pass: the Δn₄ row (three-arm probe Arm 1; Face-E two-witness rider (b)) — the count DERIVES; the cohomological reading carried as a named-premise slot, INTERFACES.
   s20   MATCHES     0 sorry, 0 native_decide.
   s21   MATCHES     HELD on the held branch; nothing deposits.
-        ### REACHED BY THE CELL ("and it records the file as HELD on the held branch while the file stands on main at 2f71068"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: the ACTION's words for it name the rev b647 read ("on main at 2f71068"); the file stands on main b4c55b9
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :127 ("RESTATED, SIDE-lv-conservation"): the file's HELD line; the change banks do not reach it
    -> THE BLOCK AFTER THE CUT (22 sentences; repeats dropped 0):
         # QWantedPoster — the forced-property constraint set, compiled, with a discriminating screen BUILD-1 of the h2 build slate (2026-08-01).
         **Warrant:** the residue analysis characterized the unbuilt center-object Q from its constraint set — "a wanted poster" (THE_RESIDUE_OF_RH v1.1 §6): the constraint set pins every property EXCEPT the positive polarization, which is precisely the disclaimed clause.
@@ -518,7 +518,7 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
    LICENSED : The header says every face states its register's CONTENT and none is a True stub, but the R5 output face Register5_output_HilbertPolya is true as stated (SIDE-explicit-formula register5_output_holds proves the verbatim def by enumerating the countable real parts on a diagonal) and the R1 face (every essential interface universal) is refuted at the cited pin by distinguishing_not_universal; it lists Register4_positivity <-> RiemannHypothesis as an edge where the compiled edge R4_positivity_to_RH is one direction; it says R1 restates silence_universal's hypothesis, which is per-interface I.is_universal; and it calls the edges STATEMENT-ONLY while the file compiles the P2 discharges (:205-287).
    ACTION   : RE-CUT: This module compiles five Prop-level faces around the one goal state (R5's output face is true as stated and so carries no Hilbert-Polya content; R1's face is refuted at SIDE-kernel v1.3 by distinguishing_not_universal), the P2 edges goal <= h1 and h2, R2 -> RH and R4 -> RH (one direction, Li's criterion as a named premise), R1 -> goal and R5-output -> RH as premise-carrying implications; it does not compile the equivalences between registers.
   s1    MATCHES     # The Register Pentagon — the one premise in five registers (§27.3) **Item (iii), sitting P1 — DEFINITIONS FROZEN, STATEMENT-ONLY.
-        ### REACHED BY THE CELL ("and it calls the edges STATEMENT-ONLY while the file compiles the P2 discharges (:205-287)"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: the title row; the ACTION's one sentence replaces the face row
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :127 ("RESTATED, SIDE-lv-conservation"): the title row; the change banks do not reach it
   s2    MATCHES     This module compiles the STRUCTURE of the monograph's §27.3 claim — "one premise in five registers … a reader who discharges any one of them discharges all five" — as five Prop-level *faces* arranged around the one goal state.
   s3    MATCHES     It does **not** compile the equivalences between registers (that would encode the RH-equivalence — the W-2 trap).
   s4    OVERREACHES Every face states its register's CONTENT; none is a `Bool`/`True` stub or a name that asserts a conclusion.
@@ -530,27 +530,29 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
   s9    MATCHES     - **R2** `Register2_conservationHypothesis` restates `ConservationBridge.ConservationHypothesis` from **SIDE-kernel v1.3 = 0bc21c0** (`Bridge/ConservationBridge.lean:26-29`), with its helper defs `is_xi_zero` (`Kernel/XiDef.lean:34-38`) and `prime_as_real` (`Kernel/Voice1.lean:8`) restated verbatim.
   s10   MATCHES     Definitional identity: eye-verifiable.
   s11   MATCHES     - **R1** `Register1_universalityHypothesis` restates the load-bearing hypothesis of `SilenceTheorem.silence_universal` from **SIDE-kernel v1.3 = 0bc21c0** (`Kernel/SilenceTheorem.lean`: `ConfigurationSpace` 26-28, `Interface` 33-37, `Interface.is_universal` 42-44).
-        ### REACHED BY THE CELL ("it says R1 restates silence_universal's hypothesis, which is per-interface I.is_universal"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: a list item; the ACTION gives no text for it
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :127 ("RESTATED, SIDE-lv-conservation"): a list item on R1; the change banks do not reach it
   s12   MATCHES     Definitional identity: eye-verifiable.
   s13   MATCHES     ## The edges — STATEMENT-ONLY this sitting (three explicit lists; P2+ discharges DERIVES) **DERIVES-planned** (compiled implications; discharged in P2 by reusing existing terminals): - `GoalState ⇐ h1 ∧ h2` — via `T3.T3prime_shared_witness` (h1 via `h1_complete_at_Phi`).
-        ### REACHED BY THE CELL ("and it calls the edges STATEMENT-ONLY while the file compiles the P2 discharges (:205-287)"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: a section heading with its first list item; the ACTION gives no text for it
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :127 ("RESTATED, SIDE-lv-conservation"): a section heading with its first list item; the change banks do not reach it
   s14   MATCHES     - `Register2_conservationHypothesis → RiemannHypothesis` — restated/attributed; the compiled witness is `ConservationBridge.riemann_hypothesis` (SIDE-kernel v1.3).
   s15   MATCHES     - `Register4` channel decomposition `λ_n = λ_A(n) + λ_Z(n)` — via SIDE-li-map `lam_add` (`73cee42`).
   s16   MATCHES     **Grade note: COMBINATORIAL stream-level only** (`lam : (ℕ→ℤ)→ℕ→ℤ`); the analytic identification of the stream with the Taylor coefficients of `log ξ` is **manuscript-resident**, not this edge.
   s17   MATCHES     - `Register5_input` certified — via `C5_input_at_Phi`.
   s18   MATCHES     **INTERFACES-planned** (each with its named premise as an explicit hypothesis argument, ξ-pattern): - `Register4_positivity ↔ RiemannHypothesis` — named premise: **Li's criterion** (Bombieri–Lagarias 1999, via the Guinand–Weil explicit formula; **not in Mathlib**).
-        ### REACHED BY THE CELL ("it lists Register4_positivity <-> RiemannHypothesis as an edge where the compiled edge R4_positivity_to_RH is one direction"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: a sub-heading with its list item; the ACTION gives no text for it
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :127 ("RESTATED, SIDE-lv-conservation"): a sub-heading with its list item on R4; the change banks do not reach it
   s19   MATCHES     - `Register1_universalityHypothesis → GoalState` — named premise: the universality hypothesis.
   s20   MATCHES     - `Register5_output_HilbertPolya` — named premise: the Hilbert–Pólya realization.
   s21   MATCHES     **DISCLAIMED**: this programme explicitly disclaims asserting it; it closes over 𝔽_q (Weil 1948, intersection-pairing positivity), is open over ℚ — cited, never claimed.
   s22   MATCHES     **NOT-COMPILED** (manuscript-resident — stated here so the absence is documented, not silent): - **R3** `Register3_totalityThroughPlaces` — the step-(8) reflection "place-level exclusion reflects to mechanism level"; its native shadow is the T3 pinned `∀∃⟹∃∀` (the open `sorry` at `T3_StepNineBridge.lean:108`).
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :178 ("def T3_perClass_to_combinations (𝒞 : Set Coupling) (s : ℂ) : Prop :="): a list item naming 'the open `sorry` at `T3_StepNineBridge.lean:108`'; the bank reaches it (the step restated as a def with no sorry, merged at b653), and no sentence of the banks fits the item
   s23   MATCHES     - **The cross-register equivalences themselves** ("discharge one → all five").
   s24   MATCHES     Compiling them would encode the RH-equivalence (the W-2 trap).
   s25   MATCHES     **The pentagon compiles STRUCTURE, never the equivalences.
   s26   MATCHES     ## Sorry census This module adds **no** `sorry`.
   s27   MATCHES     All faces are Prop definitions; all edges are documented above (statement-only).
-  s28   MATCHES     The repo census stays exactly two intended sites (`T3_StepNineBridge.lean:108`, `PinnedGoal.lean:23`).
-   -> THE BLOCK AFTER THE CUT (27 sentences; repeats dropped 1):
+  s28   UNLICENSED  The repo census stays exactly two intended sites (`T3_StepNineBridge.lean:108`, `PinnedGoal.lean:23`).
+                    cell: "def T3_perClass_to_combinations (𝒞 : Set Coupling) (s : ℂ) : Prop :=" (relay data/b648_sorry_repairs.txt :178)
+   -> THE BLOCK AFTER THE CUT (26 sentences; repeats dropped 1):
         # The Register Pentagon — the one premise in five registers (§27.3) **Item (iii), sitting P1 — DEFINITIONS FROZEN, STATEMENT-ONLY.
         This module compiles the STRUCTURE of the monograph's §27.3 claim — "one premise in five registers … a reader who discharges any one of them discharges all five" — as five Prop-level *faces* arranged around the one goal state.
         It does **not** compile the equivalences between registers (that would encode the RH-equivalence — the W-2 trap).
@@ -577,7 +579,6 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
         **The pentagon compiles STRUCTURE, never the equivalences.
         ## Sorry census This module adds **no** `sorry`.
         All faces are Prop definitions; all edges are documented above (statement-only).
-        The repo census stays exactly two intended sites (`T3_StepNineBridge.lean:108`, `PinnedGoal.lean:23`).
         ### DROPPED AS A REPEAT: Definitional identity: eye-verifiable.
 
 == #23 SIDELvConservation/RegisterPentagon.lean:103 (b647`s bank line :120 ; at main SIDELvConservation/RegisterPentagon.lean:103 ; decl ; HAND OVERREACHES ; 4 sentence rows)
@@ -602,7 +603,7 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
   s2    OVERREACHES Content: there is an OPERATOR (matrix form `T : ℕ → ℕ → ℝ`), self-adjoint with respect to a POSITIVE-DEFINITE symmetric pairing, whose diagonal spectrum realizes every nontrivial ζ-zero.
                     cell: "the def asks only that every xi-zero's real part occur as a diagonal value"
   s3    MATCHES     **DISCLAIMED** — this programme explicitly disclaims asserting it; it closes over 𝔽_q (Weil 1948, Castelnuovo / intersection-pairing positivity), is open over ℚ.
-        ### REACHED BY THE CELL ("and that it is open over Q"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: the disclaimer row; the ACTION's one sentence replaces the content row
+        ### UNRESOLVED, RE-GRADED AT MAIN b4c55b9 (the author`s word) against relay data/b648_sorry_repairs.txt :127 ("RESTATED, SIDE-lv-conservation"): the disclaimer row; the change banks do not reach it
   s4    MATCHES     Repaired from the P1 draft (reviewer screen): the earlier `0 ≤ pairing i i` + bare-spectrum form was classically trivially true (witness `pairing ≡ 0`, choice-enumerate the countably many zeros — no operator content).
   s5    OVERREACHES Now the pairing is **positive-definite** (`0 < pairing i i`, strict) so the zero-pairing witness dies, and an actual **operator** `T` self-adjoint w.r.t. the pairing (`pairing i i * T i j = pairing j j * T j i`) with the spectrum on its diagonal is required, so a bare spectrum-enumeration no longer witnesses.
                     cell: "that after the repair a bare spectrum-enumeration no longer witnesses it"
@@ -662,8 +663,9 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
   s9    OVERREACHES Joined with T1: constraints on the pre-image `Phi` of the Mellin factorization cannot select among values of `s`.
                     cell: "constraints on Phi cannot select among values of s"
                     its ACTION: T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c);
-  s10   MATCHES     T3 will use exactly this to reject the "combinations of classes could produce s-side effects" alternative.
-        ### REACHED BY THE CELL ("T3 uses this to reject the combinations alternative"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: the ACTION's words for it say T3's use is "open at its sorry"; at main b4c55b9 that step is the def T3_perClass_to_combinations : Prop, stated and open, no sorry (b648, b653)
+  s10   OVERREACHES T3 will use exactly this to reject the "combinations of classes could produce s-side effects" alternative.
+                    cell: "**T3 main — step-(9) bridge, stated, not proved; open.**" (relay data/b648_sorry_repairs.txt :144)
+                    its ACTION: RE-CUT: **T3 main — step-(9) bridge, stated, not proved; open.**
    -> THE BLOCK AFTER THE CUT (8 sentences; repeats dropped 2):
         # T2 — s-darkness extension (no-other-channel) The load-bearing content is not a new fact about `mellin`; it is a naming of Mathlib's `mellin` definition as an *exhaustion statement*: the value of `mellin Φ s` is a function of two inputs — the function `Φ` on `Ioi 0` and the kernel `t ^ (s - 1)`.
         No third input.
@@ -672,7 +674,7 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
         This is the trivial half.
         * **Exhaustion.
         T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c);
-        T3 will use exactly this to reject the "combinations of classes could produce s-side effects" alternative.
+        **T3 main — step-(9) bridge, stated, not proved; open.**
         ### DROPPED AS A REPEAT: T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c);
         ### DROPPED AS A REPEAT: T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c);
 
@@ -941,5 +943,5 @@ b657 -- COMPONENT 2, (R267)(3): SIDE-lv-conservation`S SENTENCE ROWS GRADED BY H
 ### PARENT BLOCKS NOT FOUND AT MAIN (listed, not graded): SIDE-lv-conservation@2f71068:SIDELvConservation/T3_StepNineBridge.lean:77
 ### PLAIN-COMMENT ROWS (relay data/b657_plain_comments.txt): NONE
 ### THE h2 ROW (b648`s, (R267)(3)): GRADED, ITS ACTION b648`S SENTENCE
-### ROWS REACHED BY A CELL WITH NO ACTION TEXT FOR THEM (not cut; raised for the strike): 13
-### ### **PARENT BLOCKS 39 ; SENTENCE ROWS 298 ; GRADED 75 (OVERREACHES 58, UNDERSTATES 16, UNLICENSED 1) ; MATCHES 223 ; UNRESOLVED BLOCKS 1 (#2) ; UNRESOLVED-CELL 1 ; NOT FOUND AT MAIN 1 ; BLOCKS TO CUT 38 IN 12 FILES ; REPEATS DROPPED BY THE RULE 54 ; PLAIN-COMMENT ROWS 0 ; THE h2 ROW GRADED.**
+### ROWS LISTED UNRESOLVED WITH THEIR REASONS (re-graded at main against the banks that record the change, the author`s word; not cut): 13
+### ### **PARENT BLOCKS 39 ; SENTENCE ROWS 298 ; GRADED 78 (OVERREACHES 59, UNDERSTATES 16, UNLICENSED 3) ; MATCHES 220 ; UNRESOLVED BLOCKS 1 (#2) ; UNRESOLVED-CELL 1 ; NOT FOUND AT MAIN 1 ; BLOCKS TO CUT 38 IN 12 FILES ; REPEATS DROPPED BY THE RULE 54 ; PLAIN-COMMENT ROWS 0 ; THE h2 ROW GRADED.**

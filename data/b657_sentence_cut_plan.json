@@ -1,5 +1,5 @@
 {
- "at": "2026-10-12T20:22:34Z",
+ "at": "2026-10-12T20:33:05Z",
  "blocks": [
   {
    "k": 1,
@@ -9,10 +9,12 @@
    "bank_line": 10,
    "verdict": "OVERREACHES",
    "graded": [
-    "1.2"
+    "1.2",
+    "3"
    ],
    "verdicts": {
-    "1.2": "OVERREACHES"
+    "1.2": "OVERREACHES",
+    "3": "UNLICENSED"
    },
    "row_actions": {
     "1.2": "Run `lake env lean AxiomCheck.lean` to reproduce the `#print axioms` output for T1, T2, the T3 family and the W-8 C₇-order chain (not every theorem of the kernel)."
@@ -22,8 +24,7 @@
    "kept": [
     "# Axiom audit",
     "Run `lake env lean AxiomCheck.lean` to reproduce the `#print axioms` output for T1, T2, the T3 family and the W-8 C₇-order chain (not every theorem of the kernel).",
-    "T1 and T2 are expected to reduce to Mathlib's standard axiomatic base (`Classical.choice`, `Quot.sound`, `propext`).",
-    "T3 is expected to additionally list `sorryAx` due to the pinned emergent-totality gap (FINDINGS F.2026-07-09-b) — this is the intended `sorry` and its presence is the compiler's verdict."
+    "T1 and T2 are expected to reduce to Mathlib's standard axiomatic base (`Classical.choice`, `Quot.sound`, `propext`)."
    ],
    "dropped": [],
    "sentences": [
@@ -895,10 +896,12 @@
    "bank_line": 115,
    "verdict": "OVERREACHES",
    "graded": [
+    "28",
     "4"
    ],
    "verdicts": {
-    "4": "OVERREACHES"
+    "4": "OVERREACHES",
+    "28": "UNLICENSED"
    },
    "row_actions": {},
    "action": "RE-CUT: This module compiles five Prop-level faces around the one goal state (R5's output face is true as stated and so carries no Hilbert-Polya content; R1's face is refuted at SIDE-kernel v1.3 by distinguishing_not_universal), the P2 edges goal <= h1 and h2, R2 -> RH and R4 -> RH (one direction, Li's criterion as a named premise), R1 -> goal and R5-output -> RH as premise-carrying implications; it does not compile the equivalences between registers.",
@@ -929,8 +932,7 @@
     "Compiling them would encode the RH-equivalence (the W-2 trap).",
     "**The pentagon compiles STRUCTURE, never the equivalences.",
     "## Sorry census This module adds **no** `sorry`.",
-    "All faces are Prop definitions; all edges are documented above (statement-only).",
-    "The repo census stays exactly two intended sites (`T3_StepNineBridge.lean:108`, `PinnedGoal.lean:23`)."
+    "All faces are Prop definitions; all edges are documented above (statement-only)."
    ],
    "dropped": [
     "Definitional identity: eye-verifiable."
@@ -1116,6 +1118,7 @@
    "bank_line": 140,
    "verdict": "OVERREACHES",
    "graded": [
+    "10",
     "7",
     "8",
     "9"
@@ -1123,12 +1126,14 @@
    "verdicts": {
     "7": "OVERREACHES",
     "8": "OVERREACHES",
-    "9": "OVERREACHES"
+    "9": "OVERREACHES",
+    "10": "OVERREACHES"
    },
    "row_actions": {
     "7": "T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c);",
     "8": "T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c);",
-    "9": "T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c);"
+    "9": "T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c);",
+    "10": "RE-CUT: **T3 main — step-(9) bridge, stated, not proved; open.**"
    },
    "action": "RE-CUT: T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c); that constraints on Phi cannot select among values of s is the reading, and T3's use of it (the step-(9) bridge) is open at its sorry.",
    "completed": false,
@@ -1140,7 +1145,7 @@
     "This is the trivial half.",
     "* **Exhaustion.",
     "T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c);",
-    "T3 will use exactly this to reject the \"combinations of classes could produce s-side effects\" alternative."
+    "**T3 main — step-(9) bridge, stated, not proved; open.**"
    ],
    "dropped": [
     "T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and equal integrands give equal transforms at every s (T2a, T2a', T2c);",

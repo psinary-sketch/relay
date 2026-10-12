@@ -509,6 +509,15 @@ def cut(rows, graded, action, bullets=False, premise=None, row_actions=None):
     return kept, dropped, note
 
 
+def _bank_line_text(bank, line):
+    """one line of a relay bank, as the bank has it (the author's word on the grades at b657: the cells of the re-graded rows are taken from
+    the banks that record the change at main -- data/b648_sorry_classification.txt, data/b648_sorry_repairs.txt, data/b653_runner_*)."""
+    t = rd(os.path.join(ROOT, *bank.split('/'))).split(NL)
+    if not (0 < line <= len(t)):
+        sys.exit('### %s HAS NO LINE %d -- NOTHING WRITTEN' % (bank, line))
+    return t[line - 1]
+
+
 def _row_cells(k, q):
     """per block k: {sentence number: (verdict, LICENSED cell, ACTION span or None, source)} for its graded rows, the row's own source where the
     grades name one (the h2 row: b648's), else the parent's."""
@@ -516,6 +525,10 @@ def _row_cells(k, q):
     rf = (G.get('rows_from') or {}).get(str(k)) or {}
     ra = (G.get('row_actions') or {}).get(str(k)) or {}
     out = {}
+    for n, e in ((G.get('regrade') or {}).get(str(k)) or {}).items():
+        if e['verdict'] != 'UNRESOLVED':
+            out[n] = (e['verdict'], _bank_line_text(e['bank'], e['line']), ('RE-CUT: ' + e['action']) if e.get('action') else None,
+                      'relay %s :%d' % (e['bank'], e['line']))
     h2 = h2_row() if rf else None
     for n in set(list(rf) + list(ra)):
         if rf.get(n) == 'h2':
@@ -559,6 +572,15 @@ def grades(*a):
         for n, (w, why) in un.items():
             if w not in q['licensed'] or n not in [r['n'] for r in rs]:
                 sys.exit('### BLOCK %d s%s: AN UNACTED ROW`S WORDS NOT IN THE CELL, OR NO SUCH ROW -- NOTHING WRITTEN' % (k, n))
+        rg = (G.get('regrade') or {}).get(str(k)) or {}
+        for n, e in rg.items():
+            bl = _bank_line_text(e['bank'], e['line'])
+            if e['words'] not in bl or n not in [r['n'] for r in rs]:
+                sys.exit('### BLOCK %d s%s: A RE-GRADED ROW`S WORDS NOT ON ITS BANK LINE, OR NO SUCH ROW -- NOTHING WRITTEN' % (k, n))
+            if e.get('action') and e['action'] not in rd(os.path.join(ROOT, *e['bank'].split('/'))):
+                sys.exit('### BLOCK %d s%s: A RE-GRADED ROW`S ACTION NOT VERBATIM IN ITS BANK -- NOTHING WRITTEN' % (k, n))
+            if e['verdict'] != 'UNRESOLVED' and n not in [str(x[0]) for x in gr.get(str(k), [])]:
+                sys.exit('### BLOCK %d s%s: A RE-GRADED ROW WITH A VERDICT BUT NO GRADE ROW -- NOTHING WRITTEN' % (k, n))
         mine = dict((n, w) for _k, n, w in (read_grade_row(k, x) for x in gr.get(str(k), [])))
         for n, w in mine.items():
             lic = cells[n][1] if n in cells else q['licensed']
@@ -608,8 +630,14 @@ def grades(*a):
                 L.append('        %-11s cell: "%s"%s' % ('', mine[r['n']], (' (%s)' % c[3]) if c and c[3] != 'the parent block' else ''))
                 if r['n'] in row_actions:
                     L.append('        %-11s its ACTION: %s' % ('', row_actions[r['n']]))
-                if c and c[3] != 'the parent block':
+                if c and c[3].startswith('relay data/b648_h2_row'):
                     h2_seen = True
+            elif r['n'] in rg and rg[r['n']]['verdict'] == 'UNRESOLVED':
+                n_unact += 1
+                e = rg[r['n']]
+                L.append('  s%-4s %-11s %s' % (r['n'], 'MATCHES', r['sentence']))
+                L.append('        ### UNRESOLVED, RE-GRADED AT MAIN %s (the author`s word) against relay %s :%d ("%s"): %s' % (
+                    K.K_MAIN, e['bank'], e['line'], e['words'], e['reason']))
             elif r['n'] in un:
                 n_unact += 1
                 L.append('  s%-4s %-11s %s' % (r['n'], 'MATCHES', r['sentence']))
@@ -621,8 +649,8 @@ def grades(*a):
         if not graded:
             n_unres += 1
             unres.append(k)
-            L.append('   ### UNRESOLVED: %s; not cut.' % ('every row the cells reach has no ACTION text usable at main (listed above), raised for '
-                                                        'the strike' if un else 'no sentence the cells reach'))
+            L.append('   ### UNRESOLVED: %s; not cut.' % ('every row the cells reach is listed UNRESOLVED above, with its reason' if (un or rg)
+                                                        else 'no sentence the cells reach'))
             J.append(dict(k=k, parent=p, file=q['file'], line=q['line'], unresolved=True))
             L.append('')
             continue
@@ -640,7 +668,8 @@ def grades(*a):
     L.append('### PARENT BLOCKS NOT FOUND AT MAIN (listed, not graded): %s' % ('; '.join(unread) or 'NONE'))
     L.append('### PLAIN-COMMENT ROWS (relay data/b657_plain_comments.txt): %s' % ('; '.join('%s:%d -- %s' % tuple(h) for h in pl.get('hits') or []) or 'NONE'))
     L.append('### THE h2 ROW (b648`s, (R267)(3)): %s' % ('GRADED, ITS ACTION b648`S SENTENCE' if h2_seen else '### NOT GRADED'))
-    L.append('### ROWS REACHED BY A CELL WITH NO ACTION TEXT FOR THEM (not cut; raised for the strike): %d' % n_unact)
+    L.append('### ROWS LISTED UNRESOLVED WITH THEIR REASONS (re-graded at main against the banks that record the change, the author`s word; '
+             'not cut): %d' % n_unact)
     n_cut = len([b for b in J if b.get('kept') is not None])
     files = sorted(set(b['file'] for b in J if b.get('kept') is not None))
     L.append('### ### **PARENT BLOCKS %d ; SENTENCE ROWS %d ; GRADED %d (%s) ; MATCHES %d ; UNRESOLVED BLOCKS %d (%s) ; UNRESOLVED-CELL %d ; '
