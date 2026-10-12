@@ -1,0 +1,38 @@
+b658 -- COMPONENT 0: STEP ZERO UNDER (R268) (2026-10-12)
+
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R268) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b658_ferry.txt (extracted from the pasted text in the session transcript, 10309 characters, no CR); the ferry scan 0 hits
+### (data/b658_ferry_scan.txt); relay c4a45cbb.
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 4414 MB
+### orphans: NONE ; stopped by PID: none needed.
+
+### b657's closing push-out bank committed at the start: relay c4a45cbb (data/b657_closing_push_out.txt, as b657's push wrote it), with the
+### ferry and its scan.
+
+### the b657 branches, listed by `git branch --merged main` and deleted by name with the lower-case flag in the same command, read back:
+  relay                 listed push-b657, push-b657-closing, push-b657-root ; deleted push-b657 (was e93ce54f), push-b657-root (was 4512980d),
+                        push-b657-closing (was 640df77a)
+  PLACE-papers          listed push-b657, push-b657-root ; deleted push-b657 (was 3f0e33f), push-b657-root (was 03d581f)
+  SIDE-lv-conservation  listed docstrings-cut-SIDE-lv-conservation, push-b657-merge ; deleted push-b657-merge (was 8e3bc76),
+                        docstrings-cut-SIDE-lv-conservation (was c230e6d) ; at the remote, `git branch -r --merged origin/main` listed
+                        origin/docstrings-cut-SIDE-lv-conservation, deleted alone in its command (`git push origin --delete
+                        docstrings-cut-SIDE-lv-conservation`: [deleted])
+  push-b657-runner      named by the ferry for SIDE-lv-conservation; it stands neither locally nor at the remote -- nothing deleted under
+                        that name (data/b658_defects.txt (b))
+
+### every test file under tools/ (data/b658_tests_stepzero.txt, .json), tools/b658_tests.py with the lists in force after b657, one test per call:
+  TEST FILES 54 ; RUN 53 ; WITHHELD 1 ; NOT CLEAN 3:
+    test_chain_page.py (9) -- carried as W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE's case (OPEN_TRAILS :13838).
+    test_chain_page_b638.py (4)-(7) -- as carried since b643; 3 of 7.
+    test_msplit_b658.py (1)-(4), (6) -- this act's new planted test, written before the run's end and run against the splitter before its
+      repair: the planted defect (b657's (a)) failing as planted, the positive control of (R268)(2); run again after the repair at Component 1.
+    test_elab_reader_b634.py -- WITHHELD: no lean run on this host in this act (data/b658_tests_withheld.json).
+  the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### no build on this host: no lean or lake process started by this act; the build of (R268)(4) goes to the hosted runner.
