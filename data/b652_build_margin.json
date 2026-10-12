@@ -123,6 +123,48 @@
    "seen": 456,
    "allows": false,
    "source": "relay data/b651_docstrings_SIDE-kernel.txt :18-:19: 3365-2459 = 906 ; 3151-2441 = 710"
+  },
+  {
+   "reading": "3-closed",
+   "at": "2026-10-12T00:04:23Z",
+   "kernel": "SIDE-lv-conservation",
+   "branch": "b648-restate-SIDE-lv-conservation",
+   "module": "SIDELvConservation/T3_StepNineBridge.lean",
+   "target": "SIDELvConservation.T3_StepNineBridge",
+   "term": "host loss",
+   "needed": 1428,
+   "free": 4094,
+   "seen": 1534,
+   "allows": true,
+   "source": "relay data/b649_lv_build.txt :16: 3545-2135 = 1410 ; 3532-2104 = 1428"
+  },
+  {
+   "reading": "3-closed",
+   "at": "2026-10-12T00:04:23Z",
+   "kernel": "SIDE-effects",
+   "branch": "b648-restate-SIDE-effects",
+   "module": "SIDEEffects/Milestones.lean",
+   "target": "SIDEEffects.Milestones",
+   "term": "host loss",
+   "needed": 1255,
+   "free": 4094,
+   "seen": 1534,
+   "allows": true,
+   "source": "b648`s log w_b648_milestones.log :1, :31, :34 (data/b648_build_peaks.json rows 3-4): 3788-2533 = 1255 ; 3616-2529 = 1087"
+  },
+  {
+   "reading": "3-closed",
+   "at": "2026-10-12T00:04:23Z",
+   "kernel": "SIDE-kernel",
+   "branch": "docstrings-SIDE-kernel",
+   "module": "Kernel/PerpendicularCrossing.lean",
+   "target": "Kernel.PerpendicularCrossing",
+   "term": "host loss",
+   "needed": 906,
+   "free": 4094,
+   "seen": 1534,
+   "allows": true,
+   "source": "relay data/b651_docstrings_SIDE-kernel.txt :18-:19: 3365-2459 = 906 ; 3151-2441 = 710"
   }
  ],
  "cut_branch": {
@@ -504,6 +546,113 @@
     ]
    ],
    "n": 259
+  },
+  "3-closed": {
+   "at": "2026-10-12T00:04:23Z",
+   "free": 4094,
+   "by_name": [
+    [
+     "chrome",
+     3451
+    ],
+    [
+     "svchost",
+     1056
+    ],
+    [
+     "Memory Compression",
+     766
+    ],
+    [
+     "claude",
+     735
+    ],
+    [
+     "explorer",
+     372
+    ],
+    [
+     "MsMpEng",
+     358
+    ],
+    [
+     "msedgewebview2",
+     205
+    ],
+    [
+     "powershell",
+     194
+    ],
+    [
+     "Dell.TechHub.Instrumentation.SubAgent",
+     164
+    ],
+    [
+     "SupportAssistAgent",
+     99
+    ],
+    [
+     "WindowsTerminal",
+     97
+    ],
+    [
+     "StartMenuExperienceHost",
+     90
+    ],
+    [
+     "dwm",
+     79
+    ],
+    [
+     "Dell.TechHub.DataManager.SubAgent",
+     68
+    ],
+    [
+     "RuntimeBroker",
+     67
+    ],
+    [
+     "Dell.TechHub.Diagnostics.SubAgent",
+     66
+    ],
+    [
+     "Dell.CoreServices.Client",
+     63
+    ],
+    [
+     "SearchHost",
+     62
+    ],
+    [
+     "Dell.TechHub.Analytics.SubAgent",
+     61
+    ],
+    [
+     "Dell.TechHub.Instrumentation.UserProcess",
+     52
+    ],
+    [
+     "NVDisplay.Container",
+     49
+    ],
+    [
+     "CrossDeviceService",
+     46
+    ],
+    [
+     "SmartByteNetworkService",
+     45
+    ],
+    [
+     "DeliveryService",
+     42
+    ],
+    [
+     "conhost",
+     42
+    ]
+   ],
+   "n": 256
   }
  }
 }
