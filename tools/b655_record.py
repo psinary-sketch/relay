@@ -377,19 +377,25 @@ def cut(rows, graded, action, bullets=False, premise=None):
             note = ('the conclusion row s%s drawn on the premise row s%s (%s); the premise survives as a MATCHES row, so the conclusion stands '
                     'after it, at s%s`s place; its other occurrence dropped as a repeat' % (c, p, out[pos_p][1][:120], out[keep_at[_ws(csent[0])]][0]))
     kept, dropped, seen = [], [], set()
+    slots = []
     for i, (_n, x) in enumerate(out):
         w = _ws(x)
         if w in keep_at:
             if i == keep_at[w]:
                 kept.append(x)
+                slots.append((_n, x, True))
             else:
                 dropped.append(x)
+                slots.append((_n, x, False))
             continue
         if w in seen:
             dropped.append(x)
+            slots.append((_n, x, False))
             continue
         seen.add(w)
         kept.append(x)
+        slots.append((_n, x, True))
+    cut.slots = slots
     return kept, dropped, note
 
 
@@ -485,6 +491,184 @@ def grades(*a):
     put_txt('b655_sentence_grades.txt', L)
     put_json('b655_sentence_cut_plan.json', dict(at=utc(), blocks=J))
     print(L[-1])
+
+
+# ================================================================================ COMPONENT 3: THE CUT PLANNED ON THE BLOBS, (R265)(3)
+def _norm_map(text):
+    """the text with every whitespace run collapsed to one space, and the raw index of each normalized character."""
+    out, idx, prev_ws = [], [], False
+    for i, ch in enumerate(text):
+        if ch.isspace():
+            if not prev_ws:
+                out.append(' ')
+                idx.append(i)
+            prev_ws = True
+        else:
+            out.append(ch)
+            idx.append(i)
+            prev_ws = False
+    return ''.join(out), idx
+
+
+def _wrap(text, indent, width=118):
+    import textwrap
+    return ('\n' + indent).join(textwrap.wrap(text, width - len(indent), break_long_words=False, break_on_hyphens=False)) or ''
+
+
+def _code_only(t):
+    out, i, depth, n = [], 0, 0, len(t)
+    while i < n:
+        if t.startswith('/-', i):
+            depth += 1
+            i += 2
+            continue
+        if depth and t.startswith('-/', i):
+            depth -= 1
+            i += 2
+            continue
+        if depth:
+            i += 1
+            continue
+        if t.startswith('--', i):
+            j = t.find(NL, i)
+            i = n if j < 0 else j
+            continue
+        if t[i] == '"':
+            j = i + 1
+            while j < n and t[j] != '"':
+                j += 2 if t[j] == chr(92) else 1
+            out.append(t[i:j + 1])
+            i = j + 1
+            continue
+        out.append(t[i])
+        i += 1
+    return ' '.join(''.join(out).split())
+
+
+def _plans():
+    """per graded block: (k, q, rows, slots) -- the rows read as the grade bank reads them, the cut's slot outputs."""
+    G = jl(K.GRADES)
+    gr, comp, SPLIT, PREM = G['grades'], G.get('completed') or {}, G.get('split') or {}, G.get('premise') or {}
+    out = []
+    for k, p, q, rs0 in blocks():
+        split = SPLIT.get(str(k)) or {}
+        rs = split_rows(rs0, split)
+        mine = dict((str(n), w) for _k, n, w in (read_grade_row(k, x) for x in gr.get(str(k), [])))
+        graded = dict((r['n'], q['verdict']) for r in rs if r['n'] in mine)
+        if not graded:
+            continue
+        action = comp.get(str(k)) if '...' in q['action'] else q['action']
+        cut(rs, graded, action, bullets=bool(split), premise=PREM.get(str(k)))
+        out.append((k, q, rs, cut.slots))
+    return out
+
+
+def plan_cut(*a):
+    """(R265)(3): the cut planned on the kernel's main blobs: every row of a graded block located in order in its file by its whitespace-collapsed
+    text; each changed row (graded, or dropped as a repeat) replaced in its span by its slot's kept output, wrapped at the line's indent; one
+    edit per block (the region from the first changed row to the last). The planned file checked: its comment-stripped code equal to main's.
+    Banked as data/b655_cut_edits.json (the edits, old and new regions) and data/b655_cut_plan.txt."""
+    files, edits, fails = {}, [], []
+    for k, q, rs, slots in _plans():
+        f = q['file']
+        if f not in files:
+            files[f] = (_show(K.KD, K.K_MAIN, f) or '').replace(chr(13), '')
+        text = files[f]
+        start_line_off = sum(len(l) + 1 for l in text.split(NL)[:q['line'] - 1])
+        norm, idx = _norm_map(text)
+        nstart = next(i for i, ri in enumerate(idx) if ri >= start_line_off)
+        spans, pos = {}, nstart
+        for r in rs:
+            s = _ws(r['sentence'])
+            j = norm.find(s, pos)
+            if j < 0:
+                fails.append('#%d s%s not found' % (k, r['n']))
+                break
+            spans[r['n']] = (idx[j], idx[j + len(s) - 1] + 1)
+            pos = j + len(s)
+        if len(spans) != len(rs):
+            continue
+        out_by = {}
+        for n, x, keep in slots:
+            out_by.setdefault(n, []).append((x, keep))
+        changed = [r['n'] for r in rs if [x for x, kp in out_by.get(r['n'], []) if kp] != [r['sentence']]]
+        if not changed:
+            continue
+        reg0 = min(spans[n][0] for n in changed)
+        reg1 = max(spans[n][1] for n in changed)
+        new = text[reg0:reg1]
+        for n in sorted(changed, key=lambda n_: -spans[n_][0]):
+            s0, s1 = spans[n]
+            line_start = text.rfind(NL, 0, s0) + 1
+            indent = re.match(r'[ \t]*', text[line_start:]).group(0)
+            repl = ' '.join(x for x, kp in out_by.get(n, []) if kp)
+            repl = _wrap(repl, indent) if repl else ''
+            a0, a1 = s0 - reg0, s1 - reg0
+            if not repl:
+                # ### a removed row takes the whitespace run before it (the line breaks and indent that led to it), or, where it opens the
+                # ### region, the run after it, so no line of a single space or an empty line stays where the row stood
+                if a0 > 0:
+                    while a0 > 0 and new[a0 - 1].isspace():
+                        a0 -= 1
+                else:
+                    while a1 < len(new) and new[a1].isspace():
+                        a1 += 1
+            new = new[:a0] + repl + new[a1:]
+        old = text[reg0:reg1]
+        if text.count(old) != 1:
+            fails.append('#%d region not unique in %s' % (k, f))
+        edits.append(dict(k=k, file=f, line=q['line'], old=old, new=new, changed=changed))
+    planned = {}
+    for f, t in files.items():
+        nt = t
+        for e in [x for x in edits if x['file'] == f]:
+            nt = nt.replace(e['old'], e['new'], 1)
+        planned[f] = nt
+    code_bad = [f for f in files if _code_only(files[f]) != _code_only(planned[f])]
+    L = ['b655 -- COMPONENT 3, (R265)(3): THE CUT PLANNED ON %s`S MAIN BLOBS AT %s (%s)' % (K.KERNEL, K.K_MAIN, utc()), '',
+         '### from relay data/b655_sentence_grades.txt (rows are sentences, parents are blocks) and its hand grades; each graded block`s rows located in',
+         '### order in its file; each changed row replaced in its span by its slot`s kept output, wrapped at the line`s indent; one edit per block.',
+         '### files %d ; edits %d ; rows located %s ; regions not unique %s ; files whose comment-stripped code differs from main`s %s' % (
+             len(files), len(edits), 'ALL' if not [x for x in fails if 'not found' in x] else fails,
+             [x for x in fails if 'unique' in x] or 'NONE', code_bad or 'NONE'), '']
+    for e in edits:
+        L += ['== #%d %s:%d (rows changed %s)' % (e['k'], e['file'], e['line'], ', '.join('s' + n for n in e['changed'])),
+              '   OLD: ' + e['old'].replace(NL, ' | ')[:900], '   NEW: ' + e['new'].replace(NL, ' | ')[:900], '']
+    L += ['### ### **FILES %d ; EDITS %d ; LOCATION FAILURES %d ; CODE OUTSIDE COMMENTS CHANGED IN %d FILES.**' % (
+        len(files), len(edits), len(fails), len(code_bad))]
+    put_txt('b655_cut_plan.txt', L)
+    put_json('b655_cut_edits.json', dict(at=utc(), main=K.K_MAIN, edits=edits, planned_sha={f: __import__('hashlib').sha256(t.encode('utf-8')).hexdigest()
+                                                                                           for f, t in planned.items()}, fails=fails, code_bad=code_bad))
+    print(NL.join(L[4:5] + L[-1:]))
+
+
+def _planned(f):
+    j = jl('b655_cut_edits.json')
+    t = (_show(K.KD, j['main'], f) or '').replace(chr(13), '')
+    for e in [x for x in j['edits'] if x['file'] == f]:
+        t = t.replace(e['old'], e['new'], 1)
+    return t
+
+
+def check_file(*a):
+    """`check_file <file> [head]`: the working file (CR stripped) or the branch head's blob against the planned text, byte for byte, and its
+    comment-stripped code against main's. Prints one line; exits 1 on a difference."""
+    import hashlib
+    f = a[0]
+    want = _planned(f)
+    if len(a) > 1 and a[1] == 'head':
+        got = (_show(K.KD, K.CUT_BRANCH, f) or '')
+        where = 'blob at %s' % K.CUT_BRANCH
+    else:
+        got = io.open(os.path.join(K.KD, f), encoding='utf-8', newline='').read().replace(chr(13), '')
+        where = 'working file'
+    main = (_show(K.KD, K.K_MAIN, f) or '').replace(chr(13), '')
+    same, code = got == want, _code_only(got) == _code_only(main)
+    print('  %-48s %s %s planned (sha %s) ; code outside comments %s main`s' % (
+        f, where, 'EQUALS' if same else '### DIFFERS FROM', hashlib.sha256(got.encode('utf-8')).hexdigest()[:12],
+        'EQUAL TO' if code else '### DIFFERENT FROM'))
+    if not (same and code):
+        sys.exit(1)
 
 
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R265)(1), (4)

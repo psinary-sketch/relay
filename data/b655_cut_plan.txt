@@ -1,0 +1,211 @@
+b655 -- COMPONENT 3, (R265)(3): THE CUT PLANNED ON SIDE-global-section`S MAIN BLOBS AT 17ce9ff (2026-10-12T16:07:26Z)
+
+### from relay data/b655_sentence_grades.txt (rows are sentences, parents are blocks) and its hand grades; each graded block`s rows located in
+### order in its file; each changed row replaced in its span by its slot`s kept output, wrapped at the line`s indent; one edit per block.
+### files 33 ; edits 51 ; rows located ALL ; regions not unique NONE ; files whose comment-stripped code differs from main`s NONE
+
+== #1 Core/AlternationShadow.lean:1 (rows changed s4)
+   OLD: b207's verdict rests on two statements, and the ferry requires them SHOWN |   rather than asserted: |     (1) if every sign carries an unknown GLOBAL factor `e = ±1`, the sequence |         alternates exactly when the original does — because `e` is CONSTANT |         across the sequence; |     (2) an alternating sign sequence takes BOTH values.
+   NEW: (1) if every sign is flipped by one global sign, an alternating sequence's negation still alternates |   (alternates_neg; the converse direction is not stated in this file); (2) an alternating sign sequence with s 0 = 1 |   or s 0 = -1 takes both values.
+
+== #2 Core/BallAbsorptionShadow.lean:1 (rows changed s20)
+   OLD: (3) THE EMPTY-ORBIT LAW AT LEVEL 1, decided at the odd places b226's choice uses: |         no off-ball `m` has `p*m` off-ball, so the orbit relation of `V_inv` is empty |         there and the projection is multiplication by the off-ball indicator.
+   NEW: (3) THE EMPTY-ORBIT LAW AT LEVEL 1, decided at p = 3, 5, 7, 11 (four of the five odd places b226's choice uses; |     (13,1) is not decided here): no off-ball m has p*m off-ball, so the orbit relation of V_inv is empty there and the |     projection is multiplication by the off-ball indicator.
+
+== #3 Core/BallPairShadow.lean:1 (rows changed s2, s3)
+   OLD: WHAT THIS MODULE COMPILES — the ball-scale relation's finite instances (act 15's R4): |   at every finite place the Sonin dimension IS the inclusion–exclusion of the E+B pair |   structure — E (ball-supported) and B (transform-ball-supported) each of dimension |   p^n, meeting in the rank-ONE span of the ball indicator (b10's L-A, banked): |  |       dim Son_p = p^{2n} − dim(E + B) = p^{2n} − (p^n + p^n − 1) = (p^n − 1)². |  |   The finite places carry EXACTLY the pair-subtraction geometry that act 15 derived |   at ∞ (the Gram-λ_n block structure) — there it is exact and dimensional; at ∞ it is |   the resonance geometry (the ε-series' 1/(1−λ²) denominators, derived R2).
+   NEW: WHAT THIS MODULE COMPILES -- the arithmetic of the ball-scale relation at the banked cells (2,1), (2,2), (2,3), |   (3,1), (3,2), (5,1), (5,2): p^{2n} - 2*p^n + 1 = (p^n - 1)^2, and the values 2*p^n - 1. The dimension reading (dim |   Son_p = p^{2n} - dim(E + B), with E and B of dimension p^n meeting in rank one) is b10's L-A in relay's bank and is |   not compiled here.
+
+== #4 Core/BallPairShadow.lean:33 (rows changed s1)
+   OLD: the pair pieces at the cells: dim E = dim B = p^n and the intersection is rank 1 |     (the values behind the subtraction: 2·p^n − 1 constraint dimensions).
+   NEW: the values 2*p^n - 1 at the cells (2,1), (2,2), (2,3), (3,1), (3,2), (5,1) -- the constraint count that the reading | dim E = dim B = p^n with a rank-one intersection gives; those dimensions are not compiled here.
+
+== #5 Core/BoundaryValueShadow.lean:164 (rows changed s3)
+   OLD: Each of these is decided FALSE.
+   NEW: Three of these are decided FALSE (the object rejects the witness, the witness leaves the member at b = 1, the |     value is not 5); the fourth decides TRUE the reason for the rejection, that the witness has mass on the ball.
+
+== #6 Core/CeilingSweepShadow.lean:1 (rows changed s9)
+   OLD: The |         finite residue is that the cell label AND the top argument are THE SAME NUMBER — |         checked here on the actual sixteen cell labels of b255's ladder as `a * a = a²`.
+   NEW: checked here, as a * a = a², on the eight of b255's sixteen cell labels that are squares of integers (4, 9, |         16, 25, 36, 64, 81, 100).
+
+== #7 Core/CeilingSweepShadow.lean:104 (rows changed s2, s3)
+   OLD: The bracket excludes: the density is not two per period and |     not five, at either point. Without this the brackets above would be consistent with |     a ratio that moved between the two measurements.
+   NEW: POLARITY CONTROL on (4): at both points the density is at least two nodes per period and below five.
+
+== #8 Core/CrossPlaceShadow.lean:1 (rows changed s6)
+   OLD: WHAT IT DOES NOT COMPILE, DECLARED: the general character-sum identity over μ₄ (the |   ℤ[i]-valued four-term average) — bench-verified exactly at every registered roster |   (b51, with the trace products vanishing by flatness); its general statement is a |   NAMED OPEN STATEMENT in the correspondence.
+   NEW: WHAT IT DOES NOT COMPILE, DECLARED: the general character-sum identity over μ₄ (the ℤ[i]-valued four-term average) — |   not in this file; its general statement is compiled at the abstract level, under named ring-law hypotheses, as |   CharacterSumShadow.character_sum_general.
+
+== #9 Core/DependenceShadow.lean:1 (rows changed s7, s8)
+   OLD: · `shift_law_is_additive` — ### THE INVARIANT SIDE: composing two member shifts |     equals the single shift by their sum, exactly, at every cell. The family acts |     on the deviations as a one-parameter group; the affine structure is decided, |     not asserted.
+   NEW: `shift_law_is_additive` — one instance of the composition law, decided: the shift by dμ = 0.001234567 followed by |   the shift by −0.007654321 equals the single shift by their sum, exactly, at all six cells; the general law is the |   elementary linearity of the definition, not a decided terminal.
+
+== #10 Core/DependenceShadow.lean:63 (rows changed s1, s2)
+   OLD: ### THE INVARIANT SIDE, DECIDED: the member shifts COMPOSE EXACTLY. Shifting |     by `d₁` and then by `d₂` lands where shifting once by `d₁ + d₂` lands, at every |     cell — the one-parameter structure, decided rather than asserted.
+   NEW: One instance, decided in `shift_law_is_additive`: shifting by d₁ = 0.001234567 and then by d₂ = −0.007654321 lands | where shifting once by d₁ + d₂ lands, at every cell — an instance of the one-parameter structure, not the structure | itself decided.
+
+== #11 Core/DiagonalSection.lean:1 (rows changed s8)
+   OLD: With the coupling |       c₂c₃ = 2[0]+[1]+[2] (compiled in GroupRingGlue): |         · the character spectrum χ₀, χ₁, χ₂ of the coupling = (4, 1, 1), computed in |           ℤ[ω] with the imaginary parts landing EXACTLY zero, every value nonzero; |         · the Gram's class factor is the circulant C = [[2,1,1],[1,2,1],[1,1,2]]: |           symmetric, det C = 4 ≠ 0 (the class factor's radical is ZERO), and C IS the |           multiplication-by-coupling matrix, so its spectrum IS the character spectrum; |         · the trace identity: tr C = 6 = 4 + 1 + 1 = χ₀ + χ₁ + χ₂ — the coupling |           spectrum as the CLASS-CHARACTER TRACE (the τ-route; question grade at bench); |         · the label-norm enumeration: the four norm-6 ideal-label sums |           {[1]+[2], [1]+[1], [2]+[2], [2]+[1]} have class counts (2, 1, 1) — the |           coupling's coefficients: the gluing datum IS the c
+   NEW: the Gram's class factor is the circulant C = [[2,1,1],[1,2,1],[1,1,2]]: symmetric and det C = 4 ≠ 0, decided; that C |   is the multiplication-by-coupling matrix with spectrum the character spectrum is elementary and NOT compiled here — |   what is decided is tr C = 6 = χ₀ + χ₁ + χ₂ and the label-norm class counts (2, 1, 1), the coupling's coefficients.
+
+== #12 Core/E1UnitPurityDraft.lean:1 (rows changed s1, s2)
+   OLD: THE PURITY CHECK AT THE BANKED CELLS · E1UnitPurityDraft.lean — WORKING-LAYER DRAFT |   ==================================================================================== |  |   DRAFT ONLY — NOT KERNEL-PLACED. Kernel placement touches the currency question at |   the author's desk (ferry 2026-08-19, foot); this file exists so the ruling has a |   compiled object to rule on.
+   NEW: THE PURITY CHECK AT THE BANKED CELLS — placed in the kernel at federation residence (SIDE-global-section v0.1.0, the |   author's architecture ruling 2026-08-20; CORRESPONDENCE row 19, COMPILED); vanilla Lean 4, no imports, decide only, |   every terminal "does not depend on any axioms".
+
+== #13 Core/E2EvenMonotoneShadow.lean:1 (rows changed s7, s13)
+   OLD: What is here is the FINITE-DECIDABLE RESIDUE ONLY, and it is exactly three things: |  |     (1) THE KERNEL'S SHAPE — `εₑᵥₑₙ` scaled ×1e6, at the four points that decide the act: |         it is ZERO at ρ = 1, RISES to a peak near ρ ≈ 1.2, and FALLS afterwards. |         THE TURN IS THE WHOLE FINDING, and it is arithmetic here rather than prose. |  |     (2) THE REFUTATION — `E2even` ×1e9 at six probe cells BELOW the ladder, each STRICTLY |         SMALLER than at `a² = 2`, and RISING through them. This is the counterexample to |         "E2even decreases monotonically", stated as integer comparisons. |  |     (3) THE LADDER — the sixteen banked cells, fifteen STRICT decreases, as integer |         comparisons. WITH ITS POLARITY CONTROL: the same predicate applied to the PROBE |         cells FAILS, which is what makes (3) a statement about the ladder's range rather |         than about t
+   NEW: What is here is the FINITE-DECIDABLE RESIDUE ONLY, in four parts: (1) the kernel's shape, εₑᵥₑₙ ×1e6 at six points ρ |   = 1, 1.0198, 1.2046, 2, 10, 100 — zero at ρ = 1, rising to the peak near 1.2, falling afterwards; (2) the |   refutation; (3) the ladder; (4) the counts, 22 cells and 21 steps. Every numeral except εₑᵥₑₙ(1) = 0 and the counts |   is an evaluation, truncated toward zero. |         THE TURN IS THE WHOLE FINDING, and it is arithmetic here rather than prose. |  |     (2) THE REFUTATION — `E2even` ×1e9 at six probe cells BELOW the ladder, each STRICTLY |         SMALLER than at `a² = 2`, and RISING through them. This is the counterexample to |         "E2even decreases monotonically", stated as integer comparisons. |  |     (3) THE LADDER — the sixteen banked cells, fifteen STRICT decreases, as integer |         comparisons. WITH ITS POLARITY CONTROL: the same predicate app
+
+== #14 Core/E2EvenMonotoneShadow.lean:37 (rows changed s3)
+   OLD: The other three are evaluations.
+   NEW: the section's theorems use five evaluated values besides εₑᵥₑₙ(1) = 0 (272056, 1470398, 395736, 45464, 1559 at ρ = | 1.0198, 1.2046, 2, 10, 100).
+
+== #15 Core/H1Mechanism.lean:30 (rows changed s1)
+   OLD: the collapsed form is a sum of squares: at the banked sample vectors (integer |     coordinates on the {2:1,3:1}-cell shapes) B(v,v) = Σ vᵢ² > 0 for v ≠ 0 — |     the sign at h = 1 is the positivity of a sum of squares, at no axioms.
+   NEW: at the banked sample vectors [1,0], [0,1], [1,1], [2,-1], [3,2], [-1,4] the sum of squares sum v_i^2 is positive, | decided at no axioms; that the collapsed h = 1 form B(v,v) is this sum, and so the h = 1 sign is its positivity, is | the b31 mechanism's reading and is not compiled here.
+
+== #16 Core/InequalityShadow.lean:1 (rows changed s2)
+   OLD: WHAT THIS MODULE COMPILES — the finite shadow of the inequality's L3 link: |   the quotient coefficient sits STRICTLY BELOW the Weil coefficient at every banked |   cell — (p^n − p^k) < (p^n − 1) for 1 ≤ k < n (the act-9 THEOREM's ratio < 1) — |   so, term-by-term against nonnegative test data (the bump is nonnegative exactly, |   hence its autocorrelation is), Θ_q(g) ≤ Σ_p W_p(g) at finite level: the finite |   side's inequality direction, at no axioms where finite.
+   NEW: WHAT THIS MODULE COMPILES -- the coefficient comparison only: (p^n - p^k) < (p^n - 1) for 1 <= k < n at the listed |   cells (p = 2, n = 2..4; p = 3, n = 2, 3; p = 5, n = 2), decided at no axioms; the term-by-term step to Theta_q(g) <= |   Sum_p W_p(g) against nonnegative test data is the act-12 argument and is not compiled here.
+
+== #17 Core/InequalityShadow.lean:18 (rows changed s1)
+   OLD: (p^n − p^k) < (p^n − 1) at the banked and capped cells: p = 2, n = 2,3,4; |     p = 3, n = 2,3; p = 5, n = 2 — every k < n.
+   NEW: (p^n - p^k) < (p^n - 1) at the banked and capped cells p = 2, n = 2, 3, 4; p = 3, n = 2, 3; p = 5, n = 2 -- every k | with 1 <= k < n.
+
+== #18 Core/JunctionSignShadow.lean:1 (rows changed s8)
+   OLD: What is here is the FINITE-DECIDABLE RESIDUE ONLY, and it is exactly three things: |  |     (1) THE STAIRCASE, DECIDED — `n_p(a) = #{k ≥ 1 : p^k ≤ a²}` at the ladder's |         deepest cell, each place proved by BOTH halves (`p^n ≤ a²` AND `¬(p^{n+1} ≤ a²)`).
+   NEW: What is here is the FINITE-DECIDABLE RESIDUE ONLY, and it is four things: (1) the staircase, (2) the slack range |   cap, (3) the per-term ratio inequality, each with its polarity control, and (4) the quoted counts 119 and 43, |   decided.
+
+== #19 Core/KLSilence.lean:1 (rows changed s2)
+   OLD: Vanilla Lean 4 (v4.29.1 pinned), |   no imports, term mode and decide only; expected profile per terminal: "does not |   depend on any axioms".
+   NEW: Vanilla Lean 4 (v4.29.1 pinned), no imports, elementary tactics (intro, induction, rw, cases) and decide; expected |   profile per terminal: "does not depend on any axioms".
+
+== #20 Core/LefschetzShadow.lean:1 (rows changed s3, s5)
+   OLD: THE FAMILY (the b67 registration, decided at every banked cell by the instrument |   and here at the decidable endpoints): each power of the quarter-turn has its trace |   equal to its fixed-locus phase sum — M over {origin; center at p = 2} with phases |   1 and i; Π = M² over the 2-TORSION SQUARE at p = 2 (four points; phases 1, 1, 1, |   and −1 at the center — computed from Π's own action, the axis-reduction subtlety |   pre-empted in the registration) and the origin alone at odd q; M³ over M's locus |   with the conjugate phase; M⁰ over the whole grid. THE SWAPPED PAIR (q/2, 0) ↔ |   (0, q/2) is a σ-2-cycle inside the σ²-fixed square — it feeds Π's sum and not M's: |   the involution's geometry separated from the rotation's. THE ENDPOINT: the |   character-average law is a FIXED-POINT THEOREM IN FULL — all eight banked sector |   tuples from the center's phase data alone (4·d_i = (q−
+   NEW: THE ENDPOINT, here: the banked sector dimensions at all eight cells satisfy 4·d_i = (q−1)² + 3 and 4·d = (q−1)² − 1 |   at p = 2 and 4·d = (q−1)² at odd q, decided as numeral identities; the derivation of these from the center's phase |   data (the character-average law as a fixed-point theorem) is in the bank, relay data/b67_congruence.txt, not here. THE SWAPPED PAIR (q/2, 0) ↔ |   (0, q/2) is a σ-2-cycle inside the σ²-fixed square — it feeds Π's sum and not M's: |   the involution's geometry separated from the rotation's.
+
+== #21 Core/LefschetzShadow.lean:32 (rows changed s1)
+   OLD: THE Π-LOCUS AND THE SWAPPED PAIR, decided: the origin alone at odd q; the |     2-torsion square at q = 2ⁿ; and (q/2, 0) ↔ (0, q/2) is a σ-2-cycle — σ²-fixed, |     not σ-fixed — feeding Π's sum and not M's
+   NEW: THE Π-LOCUS AND THE SWAPPED PAIR, decided at instances: the origin alone at q = 3, 5, 9; the 2-torsion square at q = | 2, 4, 8; and (q/2, 0) ↔ (0, q/2) is a σ-2-cycle at q = 4, 8 — σ²-fixed, not σ-fixed.
+
+== #22 Core/LefschetzShadow.lean:49 (rows changed s1)
+   OLD: THE Π-PHASES, decided at (2,2): the center's Π-phase is ω^{−q/2} = ζ^{N/2} = −1 |     (the exponent q·(q/2) = N/2, and the monomial reduces to −1), the three other |     2-torsion points carry phase 1, and the sums are the banked traces — whole chart |     1 + 1 + 1 − 1 = 2, Sonin-restricted −1 (the center alone)
+   NEW: THE Π-PHASES at (2,2): the center's Π-phase exponent q·(q/2) = N/2 and ζ^{N/2} reduces to −1 (decided); with the three | other 2-torsion points at phase 1 (banked), the sums are the banked traces 1 + 1 + 1 − 1 = 2 and, Sonin-restricted, | −1.
+
+== #23 Core/LefschetzShadow.lean:57 (rows changed s1)
+   OLD: THE DIMS FROM THE CENTER, decided subtraction-free at all eight banked cells: |     4·d_i = (q−1)² + 3 and 4·d = (q−1)² − 1 at p = 2 (as (q−1)² = 4d + 1); flatness |     4·d = (q−1)² at odd q — the character-average law as a fixed-point theorem
+   NEW: THE BANKED DIMS AGAINST THE LAW, decided subtraction-free at all eight banked cells: 4·d_i = (q−1)² + 3 and (q−1)² = | 4d + 1 at p = 2; 4·d = (q−1)² at odd q.
+
+== #24 Core/LefschetzShadow.lean:68 (rows changed s1)
+   OLD: M³'S LOCUS AND PHASE, decided: fix(σ³) = fix(σ) at the banked sizes, and the |     center's M³-phase is the conjugate (i³ = −i in pairs)
+   NEW: M³'S LOCUS AND PHASE, decided: fix(σ³) = fix(σ) at q = 4, and the center's M³-phase is the conjugate (i³ = −i in | pairs).
+
+== #25 Core/LinkShadow.lean:1 (rows changed s5)
+   OLD: The block sum of the |     g-family's root-of-unity column over a full block is the full count exactly |     when the row is untwisted, and zero for every twisted row, at the banked |     place-2 cells.
+   NEW: `twisted_row_silence` — R annihilates the twisted rows at the cell (2,2): the block sum of the g-family's |   root-of-unity column over a full block is the full count exactly when the row is untwisted, and zero for every |   twisted row.
+
+== #26 Core/M4EnvelopeShadow.lean:66 (rows changed s4)
+   OLD: N = 11: `3.18448512e−36` ≤ `3.1837636e−36` + the evaluation's own error, ×1e45.
+   NEW: N = 11: `3.18448512e−36` ≤ `3.1837636e−36` + `7.2152e−41` (one tenth of the evaluation's own error `7.2152e−40`, |     and exactly the gap), ×1e45.
+
+== #27 Core/M4EnvelopeShadow.lean:85 (rows changed s4)
+   OLD: Scaled ×1e9 after taking a common exponent | per row; each conjunct compares `μ_N` against `T(N)` at the row's own scale.
+   NEW: The instances are enormously slack, and the slack is shown rather than trimmed; each conjunct compares `μ_N` against | `T(N)` at the row's own scale (×1e18 at N = 14, ×1e30 at N = 20).
+
+== #28 Core/M4EnvelopeShadow.lean:91 (rows changed s1)
+   OLD: N = 14: `μ = 3.85119078e−16` ≤ `T = 3.6271779e−2`, so ×1e18 the bound is ~1e16 times |     larger; compared here at ×1e18 with the bound truncated DOWNWARD to 36271779000000.
+   NEW: N = 14: `μ = 3.85119078e−16` ≤ `T = 3.6271779e−2`, the bound ~1e14 times larger; compared at ×1e18 with μ truncated to | 385 and the bound truncated DOWNWARD to 36271779000000. N = 20: `μ = 1.134386458e−28` ≤ `T = 6.5705942e−8`, at ×1e30, | likewise truncated.
+
+== #29 Core/MetaplecticRootShadow.lean:1 (rows changed s5, s6)
+   OLD: ONE witness decides it: the u-line |   (u = 1_{qℤ}, the b57 longhand) has S u = 4u (decided below in ℤ[ζ₁₆] coordinates, |   all 16 rows), so M u = u; parity fixes u and u ≠ −u (decided). The abstract |   obstruction lemma then closes BRANCH (b): NO such W exists on the chart — the |   spectral constraint that fails is the parity constraint, witnessed on the |   parity-even sector.
+   NEW: ONE witness decides it: the u-line has S u = 4u (decided below in ℤ[ζ₁₆] coordinates, all 16 rows), so M u = u; |   parity fixes u and u ≠ −u (decided); and the abstract obstruction lemma (no w with w²u = u and w⁴u = −u ≠ u) is |   compiled — instantiated at W, M on the chart in the b59 registration, it closes BRANCH (b): no such W exists on the |   chart.
+
+== #30 Core/OrbitDictionary.lean:54 (rows changed s1)
+   OLD: the two channels are distinct where it matters: the fiber weight (p, nonzero) at |     k = 1 sits exactly where the twisted trace is zero — the literal adjointness's |     refutation instance, both primes.
+   NEW: the primes 2 and 3 are nonzero, decided; that these are the fiber weights at k = 1 (fiber_two, fiber_three) and that | the twisted trace is zero there (twisted_silence) is carried by those theorems, so this terminal is the nonzero half | of the channels' comparison and not the comparison itself.
+
+== #31 Core/PairingShadow.lean:1 (rows changed s3, s4)
+   OLD: THE HONEST SPLIT (row 31/32, per the ferry's own clause): |   · PROVED GENERAL (this module): the k = 2 character-sum identity WHENEVER ONE FACTOR |     IS FLAT — the case every banked roster instantiates (every multi-place roster |     contains an odd place, and odd places are flat, banked b26/SectorArithmetic). At a |     flat factor the two twisted traces vanish (`flat_kills_twists`, general) and the |     four-power average collapses to the single product (`flat_collapse_int`, general |     Int dims; the Nat form is CrossPlaceShadow.flat_place_collapse).
+   NEW: COMPILED (this module, Nat, subtraction-free): at a flat factor c the four-term sum collapses, 4(c e1 + c em1 + c |   emi + c ei) = 4 c(e1 + em1 + ei + emi) (flat_kills_twists, by CrossPlaceShadow.flat_place_collapse); the twisted |   traces' vanishing is definitional and appears only as c = c and c + c = c + c; no Int-dims form (flat_collapse_int) |   exists at this commit, and the k = 2 character-sum identity at a flat factor is not stated as a theorem here.
+
+== #32 Core/RadializationShadow.lean:1 (rows changed s4)
+   OLD: P1: the shell partitions at the banked sizes |   (3, 5, 7, 9 cells at n = 1..4, both parities), the seed addresses |   gcd(2ⁿ⁻¹, 2ⁿ) = 2ⁿ⁻¹, and the boundary index re-derived from R's side (the |   doubling image misses the primitive shell; the zero cell is terminal).
+   NEW: P1: the shell partitions decided at (2,2) (Z/16: shells of sizes 8, 4, 2, 1 plus the zero cell) and (3,1) (Z/9: 6, 2 |   plus the zero cell); the sizes 3, 7, 9 at n = 1, 3, 4 are the b76 bench's, not compiled here; the seed addresses |   gcd(2^(n-1), 2^n) = 2^(n-1) at n = 1..4, and the boundary index from R's side (the doubling image misses the odd |   shell at N = 4, 16, 64; the zero cell is terminal).
+
+== #33 Core/RadializationShadow.lean:30 (rows changed s1)
+   OLD: P1: the shell partitions (sizes 3, 5, 7, 9 at n = 1..4; both parities at the |     smallest cells), the seed addresses, and the boundary index from R's side
+   NEW: P1: the shell partition at (2,2) (Z/16: 8, 4, 2, 1) and at (3,1) (Z/9: 6, 2), the seed addresses gcd(2^(n-1), 2^n) = | 2^(n-1) at n = 1..4, and the boundary index from R's side (no doubling lands on an odd residue at N = 4, 16, 64; 0 | doubles to 0).
+
+== #34 Core/RationalEnclosureShadow.lean:131 (rows changed s1)
+   OLD: THE COMPLEMENT ALSO SATISFIES THE CRITERION IN THE MIRRORED DIRECTION, decided |     rather than inferred: `den - hiNum` is the lower end and `den - loNum` the upper, |     and they are ordered and one unit apart, exactly as the originals are.
+   NEW: THE COMPLEMENT'S ENDS ARE ORDERED AND ONE UNIT APART, decided: `den - hiNum` is the lower end and `den - loNum` the | upper, and `den - loNum` = `den - hiNum` + 1 with `den - hiNum` < `den - loNum`, exactly as the originals are; that | the complement encloses 1 - 1/sqrt 2 follows from THE ENCLOSURE by the reader's arithmetic and is not decided here.
+
+== #35 Core/SectorArithmetic.lean:1 (rows changed s6)
+   OLD: The solver and its |       uniqueness (the four equations hold and pin the solution) are compiled per level.
+   NEW: The solver's output and the verification half of uniqueness (the four equations hold at that output) are |       compiled per level; that the equations pin the solution is linear algebra not compiled here.
+
+== #36 Core/SinglePrimeFactor.lean:205 (rows changed s2)
+   OLD: THIS IS THE EVIDENCE FOR |     THE OPEN STATEMENT AND IT IS NOT A PROOF OF IT — a finite check over a list |     decides nothing about the bases not in the list.
+   NEW: THIS IS FINITE EVIDENCE FOR THE GENERAL CLAUSE AND IS NOT ITSELF A PROOF OF IT (a finite check over a list decides |     nothing about the bases not in the list); THE GENERAL CLAUSE IS PROVED SEPARATELY, SmearGeneral.smear_general |     (b419).
+
+== #37 Core/SinglePrimeFactor.lean:219 (rows changed s1)
+   OLD: The same agreement at the two next bases, one a prime power and one prime.
+   NEW: The same agreement at the two next bases, both prime powers (8 = 2^3, 9 = 3^2) and neither of them prime.
+
+== #38 Core/StatedChoiceShadow.lean:71 (rows changed s1)
+   OLD: the C₀ deviation contributed by one place, `| ‖u‖ − 1 |`, on a scale where a |     norm-one unit contributes 0.
+   NEW: the C₀ deviation contributed by one place, as an indicator: 0 for a norm-one unit and 1 for any other norm (not the | magnitude | ‖u‖ − 1 |).
+
+== #39 Core/TensorSquareShadow.lean:1 (rows changed s5)
+   OLD: (2) THE SECTOR-PATTERN COUNT — the combinatorial core of the PROVED obstruction: |       over k places each carrying both ±1 sectors, the global E₁ (the ∏λ_v = +1 |       sector sum, act 1's banked finding) admits 2^{k−1} sign patterns, of which the |       tensor-square diagonal (⊗′E₁,v) sees exactly ONE (all-plus): the strict gap |       2^{k−1} > 1 for every k ≥ 2 — the mixed patterns ((−1)(−1) = +1, …) are the |       part of the constrained sector that NO placewise tensor structure carries.
+   NEW: (2) THE SECTOR-PATTERN COUNT, compiled at k = 2, 3, 4 only: the ∏λ_v = +1 patterns number 2, 4, 8 (= 2^{k−1}) and |   each count exceeds 1; that the tensor-square diagonal sees exactly the all-plus pattern, and the gap for every k ≥ |   2, are the leaves-question answer's argument and are not compiled here.
+
+== #40 Core/ThetaContinuationShadow.lean:1 (rows changed s3)
+   OLD: Decided here (the b70 registration): THE CENTER EXITS AT EVERY BANKED PLACE-2 |   LEVEL (every V-image position of the center's line is a ball position — the |   two-line index computation, per level), with the (2,2) exit-set EXACTLY the |   center and the deeper exit families counted as data (the radial-compression |   dictionary the named residue of N5's operator half); THE NON-STABILIZATION |   WITNESS (the level-1 scaling kills g₍₁,₁₎ while the level-2 scaling does not |   kill its embedded image — the SOT clause's sharpened form: the convergence |   question for a non-stabilizing level family); THE FINITE ORIENTATION BREAK |   (tr S = q(1+i) and tr S* = q(1−i) are distinct — the finite kernel convention |   breaks the F ↦ F³ symmetry that the recorded archimedean ground cannot break: |   the class bit is S1 content, the b70 derivation).
+   NEW: Decided here: THE CENTER EXITS AT EVERY BANKED PLACE-2 LEVEL (q = 4, 8, 16), with the (2,2) exit-set exactly the |   center; the ARITHMETIC of the non-stabilization witness only (1 + (−1) = 0 in ℤ[i] pairs, and the cited row-4 value |   2 is nonzero; the level scalings and the non-stabilization itself are b70's derivation and row 46's instance, not |   computed here); THE FINITE ORIENTATION BREAK (tr S = 4(1+i) and tr S* = 4(1−i) at (2,2) are distinct).
+
+== #41 Core/ThetaContinuationShadow.lean:41 (rows changed s1)
+   OLD: THE NON-STABILIZATION WITNESS, decided: at (2,1) the scaling kills the seed's |     line (the two preimages' coefficients 1 and ζ₄² = −1 cancel on the single image |     row), while at (2,2) the scaling of its embedded image is NONZERO (the row-4 |     value 2 — the full computation is row 46's decided instance, cited): the level |     family {V_n} does not stabilize on colimit classes
+   NEW: THE NON-STABILIZATION WITNESS's arithmetic, decided: the coefficients 1 and ζ₄² = −1 (entered as literals) cancel, 1 + | (−1) = 0 in ℤ[i] pairs, and the cited row-4 value 2 is nonzero; the scalings at (2,1) and (2,2) are not computed here | (row 46, cited), and that the level family {V_n} does not stabilize on colimit classes is the b70 derivation.
+
+== #42 Core/TowerMonotoneShadow.lean:1 (rows changed s8)
+   OLD: Together: ι(Son(p,n)) ⊆ Son(p,n+1) at the banked pairs — THE FAMILY IS |   MONOTONE.
+   NEW: Together these four index facts, decided at the banked pairs (2,1)→(2,2), (2,2)→(2,3), (3,1)→(3,2), are the |   ingredients of the argument that ι(Son(p,n)) ⊆ Son(p,n+1) at those pairs; the inclusion is not a declaration of this |   file, and monotonicity of the whole family is not compiled here.
+
+== #43 Core/TraceSilence.lean:46 (rows changed s1)
+   OLD: the δ₀ coefficient: Tr(S) = dim Son = (p^n − 1)² at the banked cells
+   NEW: the δ₀ coefficient's values: (p^n − 1)² = 1, 9, 4, 64 at the banked cells (2,1), (2,2), (3,1), (3,2); that Tr(S) = dim | Son is the bank's reading, not stated here.
+
+== #44 Core/TwistedRootShadow.lean:1 (rows changed s3, s4, s5)
+   OLD: BRANCH (a) — the registered expectation, landed: at (2,2) on the twisted half |   E_i ⊕ E_{−i} (where M² = −1 already, so the row-39 parity obstruction is absent by |   construction), square roots of M EXIST: any W with W² = M preserves M's eigenspaces, |   and the eigenvalue square-root pairing is available in the banked ring — the square |   roots of i are ±ζ₁₆², of −i are ±ζ₁₆⁶, and every odd-index eighth root has fourth |   power −1 (decided below). The scalar witness W = ζ²·Id on E_i ⊕ ζ⁶·Id on E_{−i} |   satisfies W² = M and W⁴ = −1 (the abstract scalar-root lemma below, its instance's |   eigenvector the compiled row-33 tower witness M(ιu) = i·ιu). THE TWISTED HALF OF |   THE CHART SITS INSIDE THE C₈ FRAME at the cell — 5 of the 9 Sonin dimensions; |   extension questions staged, not run.
+   NEW: Decided below: the eighth-root pairing table (ζ₁₆^{2j}, j = 1,3,5,7, square to i, −i, i, −i with fourth power −1) |   and the abstract scalar-root lemma (c² = λ acting on a λ-eigenvector v of M gives c·(c·v) = M v); the existence of W |   with W² = M on E_i ⊕ E_{−i}, its eigenspace preservation and the 5-of-9 C₈-frame count are the bank's (relay |   data/b59_twisted_root.txt), not compiled here.
+
+== #45 Core/ValuationDivisibilityShadow.lean:1 (rows changed s31, s34)
+   OLD: `fuel_is_not_binding_on_the_tested_range_*` decides that doubling the fuel changes no |   answer on the range actually tested. THE GUARD IS DECIDED, NOT PROMISED IN A COMMENT. |  |   THE POLARITY CONTROLS COME FIRST, BECAUSE A PREDICATE PAIR THAT AGREED EVERYWHERE FOR |   TRIVIAL REASONS WOULD PASS EVERY TEST BELOW. `the_two_predicates_disagree_one_index_out_*` |   decides that shifting the valuation threshold by one BREAKS the agreement — so the |   agreement at the stated threshold is a fact about that threshold and not about two |   predicates that would agree with anything.
+   NEW: `fuel_is_not_binding_on_the_tested_ranges` decides that doubling the fuel changes no agreement verdict on the ranges |   actually tested; `the_two_predicates_disagree_when_one_side_is_shifted_at_every_tested_pair` decides that keeping |   the valuation threshold at n while moving the divisibility exponent to n+1 BREAKS the agreement at every tested |   pair. THE GUARD IS DECIDED, NOT PROMISED IN A COMMENT. |  |   THE POLARITY CONTROLS COME FIRST, BECAUSE A PREDICATE PAIR THAT AGREED EVERYWHERE FOR |   TRIVIAL REASONS WOULD PASS EVERY TEST BELOW.
+
+== #46 Interfaces/FiniteInstanceIdentity.lean:1 (rows changed s5.3, s5.4)
+   OLD: · the volume-normalized quotient trace — owner: FILE D (the fixed-orbit count, |     proved longhand act 9, its formalization file D's labeled sorry) with the volume |     normalization forced (act 7, modulo the class-richness lemma at cite); |   · the restricted-tensor assembly — owner: INFRASTRUCTURE (the Hilbert ⊗′; the sharp |     missing lemma stated in GlobalSection.lean);
+   NEW: · the volume-normalized quotient trace — owner: FILE D (the fixed-orbit count, proved longhand act 9; no file D and |   no sorry are in this kernel) with the volume normalization forced (act 7, modulo the class-richness lemma at cite); |   · the restricted-tensor assembly — owner: INFRASTRUCTURE (the Hilbert ⊗′; its missing lemma is recorded in the |   working layer, relay/reports/2026-08-19-sorry-ledger-cleared.md, not stated in GlobalSection.lean).
+
+== #47 Interfaces/LocalLimit.lean:1 (rows changed s2)
+   OLD: DESIGN: the abstract Hilbert-space content is PROVED here (no sorry); |   the concrete realization over L²(ℚ_p) with the standard character is a SINGLE |   labeled debt (`padicFourierData_exists`, OWED TO FILES B–C of the companion).
+   NEW: the concrete realization over L²(ℚ_p) with the standard character is a SINGLE debt, OWED TO FILES B–C of the |   companion: the data structure `PadicFourierData` is declared here, and its existence statement is in the working |   layer (relay/reports/2026-08-19-sorry-ledger-cleared.md, item 1), not in this file.
+
+== #48 Interfaces/LocalLimit.lean:40 (rows changed s1)
+   OLD: THEOREM (R2-1, the CNU theorem's abstract engine): a compressed isometry with the |     ESCAPE property (no nonzero vector of `S` has its whole forward orbit in `S`) has no |     unimodular eigenvalue: if the compression of `U` to `S` has `P(Ux) = λ x` with |     `|λ| = 1`, then `x = 0`.
+   NEW: THEOREM (R2-1, the CNU theorem's abstract engine): a compressed unitary (a linear isometry equivalence U of a complete | H, compressed to S) with the ESCAPE property (no nonzero vector of S has its whole forward orbit in S) has no | unimodular eigenvalue: if P(Ux) = λ x with |λ| = 1, then x = 0.
+
+== #49 Interfaces/LocalLimit.lean:152 (rows changed s1)
+   OLD: THE HULL (b101, the monotonicity act): the running span of an arbitrary |     family — constructed unconditionally, so that a limit object exists for ANY |     level family whatever, monotone or not.
+   NEW: THE HULL (b101, the monotonicity act): the running span of an arbitrary family — constructed unconditionally and | monotone by construction (`hullMono`), so that a limit object exists for any level family, monotone or not, whose hull | levels and supremum closure carry orthogonal projections.
+
+== #50 Interfaces/LocalLimit.lean:251 (rows changed s3, s7)
+   OLD: ### WHY THIS LIVES AT THE CLASSICAL PROFILE AND NOT AT THE CORE ZERO-AXIOM BAR |   (the strikeable's honest landing, verified by print this act): the statements |   are PROVED, but they cannot reach the zero-axiom bar, and the reason is a |   property of Lean's own library rather than of the mathematics. Every route to |   them runs through core `Nat` lemmas that are themselves propext-carrying — |   `Nat.mul_assoc`, `Nat.pow_add`, `Nat.dvd_of_mod_eq_zero`, `Nat.mul_mod_mul_left`, |   `Nat.add_mul_mod_self_left`, `Nat.mul_div_cancel_left`, `Nat.mul_mod_right`, |   `Nat.mul_left_comm` (each printed this act). `rw` itself is clean; the taint is |   inherited transitively, not introduced by the proofs. Reaching the bar would |   mean reproving a chunk of core `Nat` arithmetic, which is not this act's |   business. So: the banked-pairs terminals stay in Core at the zero-axiom bar |   (row 65
+   NEW: Every route to |   them runs through core `Nat` lemmas that are themselves propext-carrying — |   `Nat.mul_assoc`, `Nat.pow_add`, `Nat.dvd_of_mod_eq_zero`, `Nat.mul_mod_mul_left`, |   `Nat.add_mul_mod_self_left`, `Nat.mul_div_cancel_left`, `Nat.mul_mod_right`, |   `Nat.mul_left_comm` (each printed this act). `rw` itself is clean; the taint is |   inherited transitively, not introduced by the proofs. Reaching the bar would |   mean reproving a chunk of core `Nat` arithmetic, which is not this act's |   business. So: the banked-pairs terminals stay in Core at the zero-axiom bar (row 65, unchanged), and the universal statements |   live here at the printed profile [propext] (inner_sum_general, quotient_general, ball_pullback_general, |   transform_shift_general), short of the zero-axiom bar by propext alone.
+
+== #51 Interfaces/LocalLimit.lean:363 (rows changed s1)
+   OLD: THE CONCRETE DEBT, in one place: the p-adic Fourier data over `L²(ℚ_p)` — the |     transform as a linear isometry equivalence with `F² = parity`, the Sonin closure as |     a closed subspace, the escape property.
+   NEW: THE CONCRETE DEBT, in one place: a Hilbert space with a linear isometry equivalence F and a parity, F² = parity, | parity² = 1, indexed by a prime p; its realization as the p-adic Fourier data over L²(ℚ_p), the Sonin closure as a | closed subspace and the escape property are not fields here and are OWED TO FILES B–C (the standard character; Haar; | Plancherel-by-the-tower; Schwartz–Bruhat).
+
+### ### **FILES 33 ; EDITS 51 ; LOCATION FAILURES 0 ; CODE OUTSIDE COMMENTS CHANGED IN 0 FILES.**
