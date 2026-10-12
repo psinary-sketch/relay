@@ -831,7 +831,7 @@ ARMS = [
     ('G-CONVERSION-ONE', 'every b655 tool`s code: no conversion defined (conv imported from b652_record); the suite importing it', lambda S: S['conv_bad'] == []
      and 'from b655_record import conv' in S['suite'], lambda S: put(S, 'conv_bad', ['b655_checks.py'])),
     ('G-KERNEL-NAMED', 'the b647 kernels table: SIDE-global-section the next by descending OVERREACHES count after SIDE-kernel, 43',
-     lambda S: kernel_named_ok(S), lambda S: put(S, 'ktable', S['ktable'].replace('|   43 |', '|   12 |'))),
+     lambda S: kernel_named_ok(S), lambda S: put(S, 'ktable', S['ktable'].replace('| 1007 |   8 |  43 |', '| 1007 |   8 |  12 |'))),
     ('G-SENTENCES-BANKED', 'the sentence-row bank: 51 parents read at main, 344 rows, none unread', lambda S: sentences_ok(S),
      lambda S: _mut(S, 'sent', lambda d: d.update(unread=['x']))),
     ('G-PLAIN-COMMENTS', 'the plain-comment bank: the needle`s controls, no hit, the wider shape read by hand', lambda S: plain_ok(S),
