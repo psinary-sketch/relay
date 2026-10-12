@@ -1,0 +1,94 @@
+b654 -- COMPONENT 2, (R264)(3): E1, THE CONFIGURATION-RELATIVE RATE -- THE STATEMENT DRAFTED BEFORE ANY LEAN (2026-10-12)
+
+### b559's reading, quoted by line (relay data/b559_constants.txt; rows are the bank's lines):
+  :10   threshold : the index j at which the zero side is negative: j = max J D (:1093, :1095)
+  :12   witness   : J from `Metric.tendsto_atTop.mp (rest_tendsto_zero H Q B D hQb) _ hc0` (:1092) -- an existential out of a limit with
+                    no rate; D from coeffs_exist
+  :143-:146 THE REACH: the index depends on M (the dominant`s score, a maximiser over zeros of zeta, PowerWindow :377), on the tie and kill
+            sets (Kp :271, cE :274, Nf :445), on CV over the tie nodes (PowerWindow :432), and on the largest ratio offScore/M outside
+            those sets -- quantities of the zero configuration, not of (gamma, delta).
+  :149-:152 (E1) a rate for the rest: with theta the largest offScore(x)/M over the zeros outside the tie and kill sets (a maximum over a
+            finite set by off_finite_above, below 1), for j >= D the rest over M^(2^(j+1)) is at most
+            theta^(2^(j+1) - 2^(D+1)) * 3 A0 Bf zeta3Sum; with fR_bound (:986) carrying the extra factor it gives an index explicit in
+            (theta, the tie terms` N, B, D, A0, Aw, M) -- a CONFIGURATION-RELATIVE j0. One lemma, moderate.
+  :60   Bf = 128 * 8^D * B^2 * (Aw H / M)^(2^(D+1)) (:957); A0 from zetaZeroConfig_local_count (:952)
+
+### THE LEMMA, as drafted (SIDE-explicit-formula, branch e1-rate-b654 from main 82550e4, a new file SIDEExplicitFormula/RateIndex.lean
+### importing SIDEExplicitFormula.PowerLimit, namespace SIDEExplicitFormula.B321; `theorem`, never `lemma`):
+
+/-- **E1, the configuration-relative rate (b654, `(R264)`(3)).** For the configuration `zetaZeroConfig`, a base `g0` and the dominant
+score `M` fixed by `H`; a coefficient family `Q` meeting the tie conditions with the bound `B (1 + ‖w‖) ^ D`; `θ` bounding `offScore g0 ρ / M`
+at every zero outside the tie and kill sets; `A₀` the local count's constant: at every index `j ≥ D` at which
+`θ ^ (2 ^ (j + 1) - 2 ^ (D + 1)) * (3 A₀ Bf zeta3Sum)`, `Bf = 128 * 8 ^ D * B ^ 2 * (Aw H / M) ^ (2 ^ (D + 1))`, is below the tie terms'
+sum `∑ x ∈ sT H, mult x * Nf H x`, the zero side of the window of index `j` has negative real part. -/
+theorem zeroSide_neg_at_rate (H : PWSetup Zeta23.zetaZeroConfig g0 L M)
+    (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+    (hQtie : ∀ j, ∀ ρ ∈ tieSet Zeta23.zetaZeroConfig g0 M,
+      (Polynomial.aeval (vOf ρ) (Q j)) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ))
+    (hQb : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D)
+    (θ : ℝ) (hθ0 : 0 ≤ θ)
+    (hθ : ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ρ ∉ tieSet Zeta23.zetaZeroConfig g0 M →
+      ρ ∉ killSet Zeta23.zetaZeroConfig g0 M → offScore g0 ρ / M ≤ θ)
+    (A₀ : ℝ) (hA : HCount Zeta23.zetaZeroConfig A₀)
+    (j : ℕ) (hj : D ≤ j)
+    (hrate : θ ^ (2 ^ (j + 1) - 2 ^ (D + 1)) *
+        (3 * A₀ * (128 * 8 ^ D * B ^ 2 * (Aw H / M) ^ (2 ^ (D + 1))) * zeta3Sum) <
+      ∑ x ∈ sT H, (Zeta23.zetaZeroConfig.mult x : ℝ) * Nf H x) :
+    (zeroSide (kWindow (coeffList (Pof H (Q j))) g0 j)).re < 0
+
+### ITS ONE HELPER, the rate itself (the same file; the lemma's proof reads it where zeroSide_eventually_neg reads the limit at :1092):
+
+/-- **E1's rate for the rest.** Under the hypotheses of `zeroSide_neg_at_rate` that bear on the rest, at every `j ≥ D` the rest over
+`M ^ (2 ^ (j + 1))` has norm at most `θ ^ (2 ^ (j + 1) - 2 ^ (D + 1)) * (3 A₀ Bf zeta3Sum)`. -/
+theorem rest_norm_le_rate (H : PWSetup Zeta23.zetaZeroConfig g0 L M)
+    (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+    (hQb : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D)
+    (θ : ℝ) (hθ0 : 0 ≤ θ)
+    (hθ : ∀ ρ ∈ Zeta23.zetaZeroConfig.carrier, ρ ∉ tieSet Zeta23.zetaZeroConfig g0 M →
+      ρ ∉ killSet Zeta23.zetaZeroConfig g0 M → offScore g0 ρ / M ≤ θ)
+    (A₀ : ℝ) (hA : HCount Zeta23.zetaZeroConfig A₀)
+    (j : ℕ) (hj : D ≤ j) :
+    ‖∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤
+      θ ^ (2 ^ (j + 1) - 2 ^ (D + 1)) * (3 * A₀ * (128 * 8 ^ D * B ^ 2 * (Aw H / M) ^ (2 ^ (D + 1))) * zeta3Sum)
+
+### EACH HYPOTHESIS NAMED AGAINST ITS b559 SOURCE LINE (N2):
+  H : PWSetup Zeta23.zetaZeroConfig g0 L M  -- THE CONFIGURATION and M, the dominant score (:143, PowerWindow :377; PWSetup.hdom
+                                               PowerLimit.lean:251); the base g0 and its width L (:162-:163)
+  Q, hQtie                                  -- the tie conditions the coefficient family meets (tie_term_neg :24-:30: the tie set, Kp :271,
+                                               cE :274, Nf :445); coeffs_exist supplies them (:48-:54)
+  B, D, hQb                                 -- the coefficient bound B (1 + |w|)^D, carrying CV over the tie nodes (:52, :128-:134; :144)
+  θ, hθ0, hθ                                -- theta, the largest offScore(x)/M over the zeros outside the tie and kill sets (:149; :145);
+                                               the statement takes any θ bounding that ratio there, the largest among them
+  A₀, hA                                    -- A0, the local count's constant (:60, :88-:94); HCount RestBound.lean:44
+  j, hj : D ≤ j                             -- the index, at or past D (:150 "for j >= D")
+  hrate                                     -- the rate at j below the tie terms' sum: θ^(2^(j+1) - 2^(D+1)) * 3 A0 Bf zeta3Sum (:150-:151),
+                                               Bf at :60, Aw (:64-:70), the tie terms' N (:28; :152), M
+  the conclusion                            -- the zero side of the window of index j negative, zeroSide_eventually_neg's conclusion
+                                               (:9) at an explicit j in place of max J D (:10)
+  of b559's named quantities, each in the statement: M (H, hrate) ; the tie set (hQtie, hθ, sT in hrate) ; the kill set (hθ) ; Kp, cE, Nf
+  (Nf in hrate; Kp and cE inside Pof, Xval and Nf) ; CV (through B, D) ; theta (θ) ; B, D ; A0 (A₀) ; Aw (hrate) ; zeta3Sum (hrate).
+  not a hypothesis: θ < 1. The lemma holds for any θ ≥ 0 bounding the ratio; θ < 1 (:149, by off_finite_above) is what makes some j meet
+  hrate, and the lemma does not use it (an unused binder reads as a false premise).
+
+### THE PROOF, as it will be attempted (no lean on this host; the runner builds it):
+  rest_norm_le_rate -- per zero, fR_norm_le (:969) and, off the tie and kill sets, r^(2^(j+1)) = r^(2^(D+1)) * r^(2^(j+1) - 2^(D+1)) with
+  0 <= r <= θ; on the tie and kill sets the term is 0 (fR, kill_term_zero); summed by Mathlib's tsum_of_norm_bounded against
+  θ^k times the dominant (dominant_summable :949), whose sum is at most 3 A0 Bf zeta3Sum by weighted_finite_bound (:879) and zero_weight (:809).
+  zeroSide_neg_at_rate -- zeroSide_eventually_neg's own proof (:1085-:1154) at the index j, its limit step (:1092) replaced by
+  rest_norm_le_rate and hrate.
+
+### THE WIDTH, (R264)(4) (the same branch, a new file SIDEExplicitFormula/TransversalityWidth.lean importing
+### Mathlib.NumberTheory.LSeries.RiemannZeta alone; no theorem):
+
+/-- **The transversality width at `ρ`: a definition.** The real number `‖ξ′(ρ)‖`, with `ξ s = (s * (s - 1) * Λ₀ s + 1) / 2` written from
+Mathlib's `completedRiemannZeta₀` (`Λ₀`) and `ξ′` Mathlib's `deriv`. The object of THE_UNCONDITIONAL_SURROUND §6a (PLACE-papers
+phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md :151, :153). -/
+def transversalityWidth (ρ : ℂ) : ℝ := ‖deriv (fun s : ℂ => (s * (s - 1) * completedRiemannZeta₀ s + 1) / 2) ρ‖
+
+  §6a's sentence beside it, :153: "Its *width* is set by |ζ′(ρ)|, and the open question is whether that width clears the zero-free region
+  uniformly in the height γ." and :151: "a uniform lower bound on |ξ′(ρ)| — equivalently |ζ′(ρ)| — at the zeros". Mathlib at de5ce8a9
+  carries no ξ (no riemannXi definition); Λ₀ (RiemannZeta.lean:64) is the completed zeta with its poles removed, so ξ is written here
+  from it without a case at s = 0, 1.
+
+### THE RUNNER: SIDE-explicit-formula has no workflow file on its main (the hosted runner was written on two other kernels' mains at b653).
+### The ruling's N5 admits no kernel main written except the merge under Component 4. The route is put to the author in the same prompt.
