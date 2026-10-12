@@ -1,0 +1,48 @@
+b656 -- THE READ-FIRST, UNDER (R266): EACH SOURCE CITED BY PATH AND LINE, THE UNIT OF EACH BANK'S ROWS NAMED (2026-10-12)
+
+### relay data/b655_closing.txt -- rows are the closing record's lines (149); the weight as (R266)(1) prints it:
+  :1    b655 closed: relay d585d4cd, PLACE-papers 651aedb; suite 78 of 79; root 99ca2e09cb50dbe0...; 2 prompts answered; 3 defects
+  :30-:31 the mirror export, built after the last PLACE-papers push: mirror-refresh-2026-10-12-b655.zip, MANIFEST md5 5eedff09...
+  :39   COMPONENT 5 : the root 99ca2e09cb50dbe0 ; FINDINGS :8337 ; OPEN_TRAILS :13970
+  :136  (a) THE NEXT ACT, (R265)(7): b656, a research act -- the clause (R266)(2) corrects
+### relay data/b655_defects.txt -- rows are lettered defects, the carried line first: (a) :7 the cut planner's one-space line; (b) :8 the
+### workflow draft's one-line grep; (c) :9 the positive control that mutated nothing; each caught before a kernel byte.
+### relay data/b655_closing_push_out.txt -- rows are push_gated's capture lines (6); relay main d585d4cd..c296f930 read back; committed at
+### e938ec6e with the ferry.
+
+### relay data/b654_e1_statement.txt -- rows are E1's hypotheses, each named against its b559 line:
+  :55   H : PWSetup Zeta23.zetaZeroConfig g0 L M -- THE CONFIGURATION and M (b559 :143)
+  :57   Q, hQtie -- the tie conditions (b559 :24-:30, :48-:54)
+  :59   B, D, hQb -- the coefficient bound (b559 :52)
+  :60   θ, hθ0, hθ -- theta (b559 :149, :145)
+  :62   A₀, hA -- the local count's constant (b559 :60; HCount RestBound.lean:44)
+  :63   j, hj : D ≤ j ; :64 hrate ; :66 the conclusion
+### relay data/b654_e1.txt -- rows are the landing point's lines (13): :3-:4 the two declarations RateIndex.lean :27, :113; :9 run
+### 38259645524 DERIVES; :11-:12 each at ['Classical.choice', 'Quot.sound', 'propext'].
+
+### SIDE-explicit-formula at v0.27 (tag -> main 111e418b), by file and line (blobs read by git show v0.27:<path>):
+  SIDEExplicitFormula/RateIndex.lean:27     theorem rest_norm_le_rate (H : PWSetup Zeta23.zetaZeroConfig g0 L M) ...
+  SIDEExplicitFormula/RateIndex.lean:113    theorem zeroSide_neg_at_rate (H : PWSetup Zeta23.zetaZeroConfig g0 L M) ... ; hrate :123-:125
+  SIDEExplicitFormula/PowerLimit.lean:245   structure PWSetup (Z : Zeta23.ZeroConfig) (g0 : ℝ → ℝ) (L M : ℝ) -- hev, hsm, hs, hL, hM, hdom :246-:251
+  SIDEExplicitFormula/PowerLimit.lean:108   def kWindow (a : List ℝ) (g0 : ℝ → ℝ) (j : ℕ) := weilTest (phiC (pwWindow a g0 j)) (phiC (pwWindow a g0 j))
+  SIDEExplicitFormula/PowerLimit.lean:343   def coeffList (P : Polynomial ℝ) : List ℝ := (List.range (P.natDegree + 1)).map P.coeff
+  SIDEExplicitFormula/PowerLimit.lean:317   def Pof (H) (Q) := Q.comp (X ^ 2) * (Kp H).comp (X ^ 2) * Ep H
+  SIDEExplicitFormula/B321Identity.lean:24  def zeroSide (k : ℝ → ℂ) : ℂ := ∑' ρ : Zeta23.zetaZeroConfig.carrier, mult ρ * paperFT k (gammaOf ρ)
+  SIDEExplicitFormula/PowerWindow.lean:328  def offScore (g) (ρ) := ‖paperFT (phiC g) (gammaOf ρ)‖ -- the score
+  SIDEExplicitFormula/PowerWindow.lean:368  theorem dominant_exists -- the dominant zero, a maximiser (Set.exists_max_image :377)
+  SIDEExplicitFormula/PowerWindow.lean:398  def tieSet (Z) (g) (M) := {ρ | ρ ∈ Z.carrier ∧ ρ.re ≠ 1/2 ∧ offScore g ρ = M}
+  SIDEExplicitFormula/PowerWindow.lean:401  def killSet (Z) (g) (M) := {ρ | ρ ∈ Z.carrier ∧ ρ.re = 1/2 ∧ M ≤ offScore g ρ}
+  SIDEExplicitFormula/PowerWindow.lean:274  theorem base_nonzero_at -- ℓ, its witness 1 / (4 * (‖z‖ + 1)) at :276
+  SIDEExplicitFormula/Schema/Detector.lean:33  def baseWidth (ρ) := 1 / (4 * (‖gammaOf ρ‖ + 1)) -- ℓ named
+  SIDEExplicitFormula/PowerWindow.lean:121  def power (g) : ℕ → ℝ → ℝ | 0 => g | j + 1 => selfConv (power g j) -- the power g j
+
+### relay data/b559_constants.txt -- rows are the bank's lines, one block per lemma (statement, threshold, kind, witness, reach, markers):
+  :8-:14 zeroSide_eventually_neg (NON-CONSTRUCTIVE) ; :24-:30 tie_term_neg (Nf :445) ; :48-:54 coeffs_exist (witness :52) ;
+  :56-:62 dominant_summable (Bf, A0 :60) ; :64-:70 Aw ; :72-:78 paperFT_decay ; :143-:146 THE REACH ; :149-:152 (E1)
+
+### the b627 precision bank: relay data/b627_margin_inputs.txt:7 -- "python-flint 0.9.0, Arb balls at 200 bits throughout"; rows are the
+### margin computation's input lines. relay data/b627_margin.txt:214 the certified digits at the worst value, 31.
+
+### b550's correction of the plateau/power conflation: PLACE-papers FINDINGS.md:5681 -- "Appended at b550 (2026-09-26) ... A CORRECTION,
+### THE NAVIGATOR'S ... b522's window of parameter a is a plateau on [−ln a, ln a] whose two ramps are order-p B-splines; its support does not
+### grow with p ... The route's n is a convolution power of a fixed base, whose support grows with n. The conflation was the navigator's."
