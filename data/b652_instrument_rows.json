@@ -1,5 +1,5 @@
 {
- "at": "2026-10-11T23:47:44Z",
+ "at": "2026-10-12T00:06:17Z",
  "rows": [
   {
    "id": "b652-in-1",
@@ -81,6 +81,102 @@
    "source_of": "the author`s answer before b652`s cut",
    "verdict": "INSTRUMENT",
    "by": "HAND"
+  },
+  {
+   "id": "b652-in-6",
+   "source": "SIDE-kernel/Bridge/OstrowskiBridge.lean:37",
+   "arm": "licensed_table.docstring_row D4 (the generated rule)",
+   "said": "D4 OVERREACHES",
+   "stated": "Every nontrivial absolute value on ℚ is equivalent to either the real absolute value or a p-adic absolute value. This is Ostrowski's theorem, re-exported for the kernel.",
+   "licensed": "\"equivalent\" is the equivalence of absolute values (f.IsEquiv), the relation the elaborated statement states; no logical biconditional is claimed, so D4 read a mathematical word as an \"iff\"",
+   "action": "TO THE ARM: read the statement`s own connective, ASCII and Unicode, and the sense of the word before grading an equivalence or a derivation",
+   "cited": [
+    "SIDE-kernel@b0f2a3a:Bridge/OstrowskiBridge.lean:37",
+    "relay@4c886f8b:data/b652_table_after.txt:14"
+   ],
+   "source_of": "the generated rule after the cut",
+   "verdict": "INSTRUMENT",
+   "by": "HAND"
+  },
+  {
+   "id": "b652-in-7",
+   "source": "SIDE-kernel/Bridge/OstrowskiBridge.lean:46",
+   "arm": "licensed_table.docstring_row D4 (the generated rule)",
+   "said": "D4 OVERREACHES",
+   "stated": "The real and p-adic absolute values are not equivalent.",
+   "licensed": "\"not equivalent\" is the negated IsEquiv the statement carries (¬ real.IsEquiv (padic p)); D4 read the word as a claimed biconditional",
+   "action": "TO THE ARM: read the statement`s own connective, ASCII and Unicode, and the sense of the word before grading an equivalence or a derivation",
+   "cited": [
+    "SIDE-kernel@b0f2a3a:Bridge/OstrowskiBridge.lean:46",
+    "relay@4c886f8b:data/b652_table_after.txt:16"
+   ],
+   "source_of": "the generated rule after the cut",
+   "verdict": "INSTRUMENT",
+   "by": "HAND"
+  },
+  {
+   "id": "b652-in-8",
+   "source": "SIDE-kernel/Kernel/Formation.lean:29",
+   "arm": "licensed_table.docstring_row D2 (the generated rule)",
+   "said": "D2 OVERREACHES",
+   "stated": "The forward exclusion theorem: if every class forces P and classes cover X, then P holds everywhere. This is TRIVIALLY VALID LOGIC. The content is in the instantiation. Compare: SIDE_exclusion proves ¬P from ExhaustiveCatalogue + NoneProduces. forward_exclusion proves P from ForwardCatalogue directly.",
+   "licensed": "\"SIDE_exclusion proves ¬P from ExhaustiveCatalogue + NoneProduces\" names the theorem`s hypotheses with its conclusion, which is what its statement says; D2 read the verb \"proves\" as a claim that the row derives unconditionally",
+   "action": "TO THE ARM: read the statement`s own connective, ASCII and Unicode, and the sense of the word before grading an equivalence or a derivation",
+   "cited": [
+    "SIDE-kernel@b0f2a3a:Kernel/Formation.lean:29",
+    "relay@4c886f8b:data/b652_table_after.txt:18"
+   ],
+   "source_of": "the generated rule after the cut",
+   "verdict": "INSTRUMENT",
+   "by": "HAND"
+  },
+  {
+   "id": "b652-in-9",
+   "source": "SIDE-kernel/Kernel/Voice2.lean:48",
+   "arm": "licensed_table.docstring_row D4 (the generated rule)",
+   "said": "D4 OVERREACHES",
+   "stated": "The two symmetries agree on real part iff sigma = 1/2. conjugate_re(sigma) = reflect_re(sigma) iff sigma = 1 - sigma iff sigma = 1/2",
+   "licensed": "the elaborated statement carries the biconditional, written ASCII `<->` (symmetries_agree_iff ... <-> sigma = 1 / 2); D4 looks for ↔ and reads \"holds no ↔\" of a statement that holds one",
+   "action": "TO THE ARM: read the statement`s own connective, ASCII and Unicode, and the sense of the word before grading an equivalence or a derivation",
+   "cited": [
+    "SIDE-kernel@b0f2a3a:Kernel/Voice2.lean:48",
+    "relay@4c886f8b:data/b652_table_after.txt:20"
+   ],
+   "source_of": "the generated rule after the cut",
+   "verdict": "INSTRUMENT",
+   "by": "HAND"
+  },
+  {
+   "id": "b652-in-10",
+   "source": "SIDE-kernel/Kernel/Voice6.lean:49",
+   "arm": "licensed_table.docstring_row D4 (the generated rule)",
+   "said": "D4 OVERREACHES",
+   "stated": "Zero offset iff on the critical line.",
+   "licensed": "the elaborated statement carries the biconditional, written ASCII `<->` (offset_zero_iff ... <-> sigma = 1 / 2); D4 reads \"holds no ↔\" of a statement that holds one",
+   "action": "TO THE ARM: read the statement`s own connective, ASCII and Unicode, and the sense of the word before grading an equivalence or a derivation",
+   "cited": [
+    "SIDE-kernel@b0f2a3a:Kernel/Voice6.lean:49",
+    "relay@4c886f8b:data/b652_table_after.txt:22"
+   ],
+   "source_of": "the generated rule after the cut",
+   "verdict": "INSTRUMENT",
+   "by": "HAND"
+  },
+  {
+   "id": "b652-in-11",
+   "source": "data/b652_table_after.txt:10",
+   "arm": "licensed_table.docstring_row rule (the generated reading over b647_record._kdoc_rows)",
+   "said": "MATCHES 428, OVERREACHES 5 before the cut and the same after it",
+   "stated": "the generated reading of SIDE-kernel`s 433 docstring rows at main b0f2a3a and at docstrings-SIDE-kernel 5033909",
+   "licensed": "113 blocks were cut between the two readings (152 sentences graded by hand against their parents` LICENSED cells); a reader whose counts do not move when the text it grades is re-cut cannot register the edit it is asked to grade",
+   "action": "TO THE ARM: a reader asked to grade a cut reads the cut sentences themselves against the hand cells, or is replaced by the hand reading for that purpose",
+   "cited": [
+    "relay@4c886f8b:data/b652_table_after.txt:9",
+    "relay@4c886f8b:data/b652_table_after.txt:10"
+   ],
+   "source_of": "the author`s word during the builds",
+   "verdict": "INSTRUMENT",
+   "by": "HAND"
   }
  ],
  "counts": {
@@ -88,7 +184,7 @@
   "UNDERSTATES": 0,
   "OVERREACHES": 0,
   "UNLICENSED": 0,
-  "INSTRUMENT": 5
+  "INSTRUMENT": 11
  },
  "faults": {}
 }

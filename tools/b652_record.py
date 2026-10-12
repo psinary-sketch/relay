@@ -567,6 +567,45 @@ def _irows():
              cited=['relay@d7ab2fdb:data/b651_table_SIDE-kernel_sentences.txt:632', 'relay@0256e9e:data/b647_table_SIDE-kernel.txt:595'],
              source_of='the author`s answer before b652`s cut'),
     ]
+    # ### the author's word during the builds: the generated rule's five OVERREACHES on SIDE-kernel's block table after the cut, and its identical
+    # ### reading before and after the cut, entered as the same instrument's rows
+    TA = 'data/b652_table_after.txt'
+    ls = rd(os.path.join(D, 'b652_table_after.txt')).split(NL)
+    st = {}
+    for i, l in enumerate(ls):
+        if ' | OVERREACHES | ' in l and i + 1 < len(ls):
+            st[l.split(' | ')[0].strip()] = ls[i + 1].strip()[len('STATED '):]
+    D4 = 'licensed_table.docstring_row D4 (the generated rule)'
+    five = [
+        ('Bridge/OstrowskiBridge.lean:37', 14, D4, 'D4 OVERREACHES',
+         '"equivalent" is the equivalence of absolute values (f.IsEquiv), the relation the elaborated statement states; no logical biconditional is '
+         'claimed, so D4 read a mathematical word as an "iff"'),
+        ('Bridge/OstrowskiBridge.lean:46', 16, D4, 'D4 OVERREACHES',
+         '"not equivalent" is the negated IsEquiv the statement carries (¬ real.IsEquiv (padic p)); D4 read the word as a claimed biconditional'),
+        ('Kernel/Formation.lean:29', 18, 'licensed_table.docstring_row D2 (the generated rule)', 'D2 OVERREACHES',
+         '"SIDE_exclusion proves ¬P from ExhaustiveCatalogue + NoneProduces" names the theorem`s hypotheses with its conclusion, which is what its '
+         'statement says; D2 read the verb "proves" as a claim that the row derives unconditionally'),
+        ('Kernel/Voice2.lean:48', 20, D4, 'D4 OVERREACHES',
+         'the elaborated statement carries the biconditional, written ASCII `<->` (symmetries_agree_iff ... <-> sigma = 1 / 2); D4 looks for ↔ and '
+         'reads "holds no ↔" of a statement that holds one'),
+        ('Kernel/Voice6.lean:49', 22, D4, 'D4 OVERREACHES',
+         'the elaborated statement carries the biconditional, written ASCII `<->` (offset_zero_iff ... <-> sigma = 1 / 2); D4 reads "holds no ↔" of '
+         'a statement that holds one'),
+    ]
+    for j, (src, ln, arm, said, lic) in enumerate(five, 6):
+        rows.append(dict(id='b652-in-%d' % j, source='SIDE-kernel/' + src, arm=arm, said=said, stated=st.get(src) or '(read at %s :%d)' % (TA, ln),
+                         licensed=lic, action='TO THE ARM: read the statement`s own connective, ASCII and Unicode, and the sense of the word before '
+                                              'grading an equivalence or a derivation',
+                         cited=['SIDE-kernel@b0f2a3a:%s' % src, 'relay@4c886f8b:%s:%d' % (TA, ln)], source_of='the generated rule after the cut'))
+    rows.append(dict(id='b652-in-11', source='data/b652_table_after.txt:10', arm='licensed_table.docstring_row rule (the generated reading over b647_record._kdoc_rows)',
+                     said='MATCHES 428, OVERREACHES 5 before the cut and the same after it',
+                     stated='the generated reading of SIDE-kernel`s 433 docstring rows at main b0f2a3a and at docstrings-SIDE-kernel 5033909',
+                     licensed='113 blocks were cut between the two readings (152 sentences graded by hand against their parents` LICENSED cells); a '
+                              'reader whose counts do not move when the text it grades is re-cut cannot register the edit it is asked to grade',
+                     action='TO THE ARM: a reader asked to grade a cut reads the cut sentences themselves against the hand cells, or is replaced by '
+                            'the hand reading for that purpose',
+                     cited=['relay@4c886f8b:data/b652_table_after.txt:9', 'relay@4c886f8b:data/b652_table_after.txt:10'],
+                     source_of='the author`s word during the builds'))
     for r in rows:
         r['verdict'] = LT.arm_verdict(r['arm'], r['said'], True)
         r['by'] = 'HAND'
@@ -591,13 +630,9 @@ def instrument_rows(*a):
     L += ['### the real contradictions of b651`s resolver (relay data/b651_axiom_claim_rows.txt rows 1, 3, 4, 6), through arm_verdict with no mis-binding:']
     for s, n in real:
         L.append('  %s (%s) : %s' % (s, n, LT.arm_verdict('G-AXIOM-CLAIM', 'CONTRADICTED', False)))
-    ta = jl('b652_table_after.json')
-    L += ['', '### NOT ENTERED (no order reaches them): the generated rule`s five D4 OVERREACHES on SIDE-kernel after the cut (relay',
-          '### data/b652_table_after.txt), present before it too -- Voice2.lean :48 and Voice6.lean :49 read "holds no ↔" of statements that carry',
-          '### `<->`; candidates of the same kind as row 5, for the author:']
-    for x in ta.get('not_matches', []):
-        L.append('  %s | %s' % (x['source'], (x['findings'] or [''])[0][:160]))
-    L += ['', '### ### **OPENING ROWS %d ; THE TABLE`S COUNTS %s ; FAULTS %s ; REAL CONTRADICTIONS MOVED TO INSTRUMENT 0 OF 4.**' % (
+    L += ['', '### rows 6-11 entered on the author`s word during the builds: the generated rule`s five OVERREACHES on SIDE-kernel`s block table',
+          '### after the cut (relay data/b652_table_after.txt :14-:22), and its identical reading before and after the cut (:9-:10).',
+          '', '### ### **OPENING ROWS %d ; THE TABLE`S COUNTS %s ; FAULTS %s ; REAL CONTRADICTIONS MOVED TO INSTRUMENT 0 OF 4.**' % (
         len(rows), dict(counts or {}), faults or 'NONE')]
     put_txt('b652_instrument_rows.txt', L)
     put_json('b652_instrument_rows.json', dict(at=utc(), rows=rows, counts=dict(counts or {}), faults=faults))
