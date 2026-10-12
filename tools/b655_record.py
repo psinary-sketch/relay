@@ -671,6 +671,73 @@ def check_file(*a):
         sys.exit(1)
 
 
+def _regrade(ref):
+    """every graded row of the grade bank looked for in its file at `ref`, whitespace aside: standing or gone, by its parent's verdict."""
+    import collections
+    G = jl(K.GRADES)
+    files, standing, gone = {}, [], 0
+    cnt = collections.Counter()
+    for k, q, rs, _slots in _plans():
+        mine = set(str(n) for _k, n, _w in (read_grade_row(k, x) for x in G['grades'].get(str(k), [])))
+        f = q['file']
+        if f not in files:
+            files[f] = _ws(_show(K.KD, ref, f) or '')
+        for r in rs:
+            if r['n'] not in mine:
+                cnt['MATCHES'] += 1
+                continue
+            if _ws(r['sentence']) in files[f]:
+                standing.append((k, f, r['n'], q['verdict'], r['sentence']))
+                cnt[q['verdict'] + ' (STANDING)'] += 1
+            else:
+                gone += 1
+                cnt['CUT'] += 1
+    return cnt, standing
+
+
+def cut_bank(*a):
+    """(R265)(3): data/b655_cut_SIDE-global-section.txt -- the branch, its commits one per file, each head blob against the plan and its
+    comment-stripped code against main's, and the grade bank re-run at the branch with its control at main."""
+    gk = lambda *x: g(K.KD, *x)   # noqa: E731
+    log = [l.split(' ', 1) for l in gk('log', '--reverse', '--format=%h %s', 'main..' + K.CUT_BRANCH).split(NL) if l.strip()]
+    plan = jl('b655_cut_edits.json')
+    pf = sorted(set(e['file'] for e in plan['edits']))
+    rows, bad = [], []
+    for h, s in log:
+        fs = [x for x in gk('show', '--name-only', '--format=', h).split(NL) if x.strip()]
+        f = fs[0] if len(fs) == 1 else None
+        if f is None:
+            bad.append('%s touches %d files' % (h, len(fs)))
+            continue
+        head = _show(K.KD, K.CUT_BRANCH, f) or ''
+        main = (_show(K.KD, K.K_MAIN, f) or '').replace(chr(13), '')
+        eq, code = head == _planned(f), _code_only(head) == _code_only(main)
+        if not (eq and code):
+            bad.append(f)
+        ks = [e['k'] for e in plan['edits'] if e['file'] == f]
+        rows.append('  %s  %-44s blocks %-22s blob %s ; code outside comments %s' % (
+            h, f, ', '.join('#%d' % k for k in ks), 'EQUALS THE PLAN' if eq else '### DIFFERS', 'EQUAL TO MAIN`S' if code else '### CHANGED'))
+    after, st = _regrade(K.CUT_BRANCH)
+    ctl, st0 = _regrade('main')
+    L = ['b655 -- COMPONENT 3, (R265)(3): %s`S DOCSTRINGS CUT ON THE BRANCH %s (%s)' % (K.KERNEL, K.CUT_BRANCH, utc()), '',
+         '### the grades: relay data/b655_sentence_grades.txt (rows are sentences, parents are blocks; the author`s word at Component 2: 49 as banked,',
+         '### #46 read as bullet rows, #50 by the premise rule); the plan: data/b655_cut_plan.txt; one commit per file by the Edit tool, each',
+         '### working file checked against the plan before its commit; the branch from main %s.' % K.K_MAIN, '',
+         '### THE COMMITS (rows are commits, one per file):'] + rows + [
+         '', '### COMMITS %d ; FILES IN THE PLAN %d ; COMMITS TOUCHING ONE FILE %d ; FAULTS %s' % (len(log), len(pf), len(rows), bad or 'NONE'),
+         '', '### THE GRADE BANK RE-RUN AT THE BRANCH (each graded row looked for in its file, whitespace aside):',
+         '  ' + ', '.join('%s %d' % kv for kv in sorted(after.items())),
+         '  graded rows still standing: %s' % (['#%d %s s%s %s' % x[:4] for x in st] or 'NONE'),
+         '### THE CONTROL, the same read at main: ' + ', '.join('%s %d' % kv for kv in sorted(ctl.items())), '',
+         '### ### **COMMITS %d IN %d FILES ; GRADED ROWS CUT %d ; STANDING %d (OVERREACHES %d, UNDERSTATES %d, UNLICENSED %d) ; AT MAIN STANDING %d ; '
+         'FAULTS %d.**' % (len(log), len(pf), after.get('CUT', 0), len(st), after.get('OVERREACHES (STANDING)', 0), after.get('UNDERSTATES (STANDING)', 0),
+                           after.get('UNLICENSED (STANDING)', 0), len(st0), len(bad))]
+    put_txt('b655_cut_SIDE-global-section.txt', L)
+    put_json('b655_cut_SIDE-global-section.json', dict(at=utc(), commits=[x[0] for x in log], files=len(pf), faults=bad, after=dict(after),
+                                                        standing=[list(x) for x in st], control=dict(ctl), control_standing=len(st0)))
+    print(NL.join(L[-8:]))
+
+
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R265)(1), (4)
 WH = ('*Appended 2026-10-12 by b655 to b654’s entry (:8313), under `(R265)`(1) -- b654 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
       'data/b654_closing.txt):*')
