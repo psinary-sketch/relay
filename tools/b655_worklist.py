@@ -34,6 +34,10 @@ PARENTS = 'b647_table_SIDE-global-section.json'
 SENT = 'b655_table_SIDE-global-section_sentences.json'
 GRADES = 'b655_sentence_grades.json'
 CUT_BRANCH = 'docstrings-cut-SIDE-global-section'
+K_WORKFLOW = '0b5949a'      # ### SIDE-global-section main: the workflow file under (R263)(4), in the kernel's own build path (the author's word)
+MATHLIB_PIN = 'cecd0c4d56a6410638a13491d566104756f892bf'
+RUNNER = {KERNEL: dict(branch=CUT_BRANCH, target='all', workflow_commit=K_WORKFLOW, run_id=38276189411,
+                       ref='8cea5b45f50d0f40ffde372b40f7005a4922a7bd')}
 
 # ### (R265)(4): the shared tool the act edits and its test
 EDITED_SHARED = ('edit_route.py', 'test_edit_route_b646.py')
