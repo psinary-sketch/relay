@@ -206,6 +206,85 @@ def c1(*a):
          dry='dry' in a)
 
 
+# ================================================================================ COMPONENT 2: THE GRADE BANK RE-RUN, (R263)(5)
+CUT_BRANCH, PC_BRANCH = 'docstrings-cut-SIDE-kernel', 'docstrings-SIDE-kernel'
+ELIDED = (56, 57, 69)
+
+
+def _ws(s):
+    return ' '.join(s.split())
+
+
+def regrade(*a):
+    """the sentence-grade bank re-run at the branch that carries the cut and the plain comments: for each of the 116 blocks, each sentence b652
+    graded (OVERREACHES or UNDERSTATES) read again -- still standing in its file at the branch (whitespace aside), or gone; the three elided
+    blocks apart, their completed ACTION read at the branch. Counts by the grade a sentence still standing keeps."""
+    import collections
+    rows = jl('b651_table_SIDE-kernel_sentences.json')['rows']
+    par = dict((r['id'], r) for r in jl('b647_table_SIDE-kernel.json')['rows'])
+    by = collections.OrderedDict()
+    for r in rows:
+        by.setdefault(r['parent'], []).append(r)
+    G = jl('b652_sentence_grades.json')['grades']
+    E = dict(((56, 'Kernel/SimplicityRouteD.lean'), 'Kernel/Root.lean imports Kernel.SimplicityRouteD; no declaration cites the theorem.'),
+             ) if False else {56: 'Kernel/Root.lean imports Kernel.SimplicityRouteD; no declaration cites the theorem.',
+                               57: 'Kernel/Root.lean imports Kernel.SimplicityRouteE; no declaration cites the theorem.',
+                               69: 'Kernel/Root.lean imports Kernel.TriviumCode.'}
+    ref = 'main' if 'control' in a else PC_BRANCH
+    rev = g('D:/SIDE-kernel', 'rev-parse', '--short=7', ref).strip()
+    files = {}
+    standing, gone, n_sent = [], [], 0
+    cnt = collections.Counter()
+    L = ['b653 -- COMPONENT 2, (R263)(5): THE SENTENCE-GRADE BANK RE-RUN AT %s %s, AFTER THE THREE ELIDED BLOCKS WERE CUT (%s)' % (ref, rev, utc()), '',
+         '### rows are sentences, parents are blocks: relay data/b651_table_SIDE-kernel_sentences.json (396 rows, 116 blocks), the grades relay',
+         '### data/b652_sentence_grades.json (152 graded); each graded sentence looked for in its file at the branch, whitespace aside.', '']
+    for k, (p, rs) in enumerate(by.items(), 1):
+        f = par[p]['file']
+        if f not in files:
+            files[f] = _ws(subprocess.run(['git', '-C', 'D:/SIDE-kernel', 'show', '%s:%s' % (ref, f)], capture_output=True).stdout.decode('utf-8', 'replace'))
+        text = files[f]
+        graded = dict((int(n), q) for n, q in G.get(str(k), []))
+        for r in rs:
+            n_sent += 1
+            if r['n'] not in graded:
+                cnt['MATCHES'] += 1
+                continue
+            s = _ws(r['sentence'])
+            if s and s in text:
+                standing.append((k, f, r['n'], par[p]['verdict'], r['sentence']))
+                cnt[par[p]['verdict'] + ' (STANDING)'] += 1
+            else:
+                gone.append((k, f, r['n']))
+                cnt['CUT'] += 1
+    L += ['### THE THREE ELIDED BLOCKS, THEIR COMPLETED ACTION AT THE BRANCH:']
+    for k in ELIDED:
+        p, rs = list(by.items())[k - 1]
+        f = par[p]['file']
+        L.append('  #%d %s : the completed ACTION present %s ; its graded sentence standing %s' % (
+            k, f, _ws(E[k]) in files[f], any(x[0] == k for x in standing)))
+    L += ['', '### GRADED SENTENCES STILL STANDING AT THE BRANCH (%d):' % len(standing)]
+    L += ['  #%d %s s%d %s -- %s' % x for x in standing] or ['  none']
+    L += ['', '### ### **SENTENCE ROWS %d ; MATCHES %d ; GRADED AND CUT %d ; GRADED AND STILL STANDING %d (OVERREACHES %d, UNDERSTATES %d).**' % (
+        n_sent, cnt['MATCHES'], cnt['CUT'], len(standing), cnt['OVERREACHES (STANDING)'], cnt['UNDERSTATES (STANDING)'])]
+    if 'control' not in a:
+        # ### the control: the same read at main, where the cut is not, must find the graded sentences standing
+        import io as _io
+        import contextlib
+        buf = _io.StringIO()
+        saved = (globals()['put_txt'], globals()['put_json'])
+        globals()['put_txt'], globals()['put_json'] = (lambda n_, L_: None), (lambda n_, o_: None)
+        try:
+            with contextlib.redirect_stdout(buf):
+                regrade('control')
+        finally:
+            globals()['put_txt'], globals()['put_json'] = saved
+        ctl = [l for l in buf.getvalue().split(NL) if 'SENTENCE ROWS' in l]
+        L += ['### THE CONTROL, the same read at main: %s' % (ctl[-1].strip('# *') if ctl else '### NOT READ')]
+    put_txt('b653_regrade.txt', L)
+    put_json('b653_regrade.json', dict(at=utc(), rev=rev, counts=dict(cnt), standing=[list(x) for x in standing], cut=len(gone), sentences=n_sent))
+    print(NL.join(L[-12:]))
+
+
 if __name__ == '__main__':
     fn = globals().get(sys.argv[1] if len(sys.argv) > 1 else '')
     if not callable(fn) or sys.argv[1].startswith('_'):
