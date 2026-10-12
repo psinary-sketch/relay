@@ -1,0 +1,440 @@
+{
+ "at": "2026-10-12T20:22:53Z",
+ "main": "b4c55b9",
+ "edits": [
+  {
+   "k": 1,
+   "file": "AxiomCheck.lean",
+   "line": 8,
+   "old": "Run `lake env lean AxiomCheck.lean` to reproduce the `#print axioms`\noutput for every theorem in this kernel.",
+   "new": "Run `lake env lean AxiomCheck.lean` to reproduce the `#print axioms` output for T1, T2, the T3 family and the W-8\nC₇-order chain (not every theorem of the kernel).",
+   "changed": [
+    "1.2"
+   ]
+  },
+  {
+   "k": 3,
+   "file": "SIDELvConservation/C7OrderBounds.lean",
+   "line": 222,
+   "old": "No `nlinarith`, no cases.",
+   "new": "One `nlinarith` (for `w + 2 ≤ (n + 2)^2` at :237) and no case split.",
+   "changed": [
+    "5"
+   ]
+  },
+  {
+   "k": 4,
+   "file": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 1,
+   "old": "It is the h1 half of the obligation, in progress.\n\nSTATUS AT THIS COMMIT (honest; see the per-class comments):\n  C₁ realness                       PROVED   (`C1_realness_at_Phi`)\n  C₂ half-plane Mellin nonvanishing PROVED   (`C2_halfplane_nonvanishing_at_Phi`)\n  C₃ theta transformation           PROVED   (`C3_theta_transformation_at_Phi`, via Mathlib's\n                                              `evenKernel_functional_equation`)\n  C₄ modularity                     STRENGTHENED (Fork B def, 2026-07-17: holomorphic ℍ-lift +\n                                              S/T generator laws; the v0.5.1 under-strength\n                                              C₃-in-a-wrapper form retired). Discharge = Fork B B2.\n  C₅-INPUT  heat trace of a real, non-negative spectrum   PROVED (`C5_input_at_Phi`, μ n = n²,\n                                              via Mathlib's `hasSum_int_evenKernel`)\n  C₅-OUTPUT the spectral realisation (Hilbert–Pólya)      STATED, DISCLAIMED, NEVER CLAIMED.\n                                              The gap between C₅-input and C₅-output is the\n                                              premise's FIFTH REGISTER — see `C5_output`.\n  C₆ holomorphic extension          PROVED   (`C6_holomorphic_extension_at_Phi`, via Mathlib's\n                                              `differentiableAt_jacobiTheta₂_snd`)\n  C₇-ENTIRETY entire completion of the Mellin transform  PROVED (`C7_entirety_at_Phi`, via\n                                              `differentiable_completedZeta₀` + T1)\n  C₇-ORDER    the order-≤1 growth bound       PROVED (`C7_order_at_Phi`, W-8 theta-Mellin route: the\n                                              order-≤1 growth of Λ₀ is read off its own Mellin\n                                              representation `Λ₀ = ½·mellin f_modif(s/2)` through the\n                                              even theta kernel, whose exponential decay IS in\n                                              Mathlib — no complex Stirling, no Phragmén–Lindelöf.\n\nSEVEN discharges now stand at the fixed witness Φ: C₁, C₂, C₃, C₅-input, C₆, C₇-entirety, C₇-order.\nThe h1 obligation of `T3prime_shared_witness` stands at everything-but-C₄: `sevenClasses` carries\n`C7_order` (PROVED, W-8, its real content — not the entirety half), and C₄ (modularity) is the only\nclass still unattempted.",
+   "new": "EIGHT discharges stand at the fixed witness Φ: C₁, C₂, C₃, C₄ (S-law and τ+2 translation, i.e. the theta group's\ngenerators), C₅-input, C₆, C₇-entirety, C₇-order, assembled in `h1_complete_at_Phi`; `C5_output` as defined is implied\nby `C5_input` and does not encode Hilbert–Pólya.\n\nSTATUS AT THIS COMMIT (honest; see the per-class comments):\n  C₁ realness                       PROVED   (`C1_realness_at_Phi`)\n  C₂ half-plane Mellin nonvanishing PROVED   (`C2_halfplane_nonvanishing_at_Phi`)\n  C₃ theta transformation           PROVED   (`C3_theta_transformation_at_Phi`, via Mathlib's\n                                              `evenKernel_functional_equation`)\n  C₄ modularity                     STRENGTHENED (Fork B def, 2026-07-17: holomorphic ℍ-lift +\n                                              S/T generator laws; the v0.5.1 under-strength\n                                              C₃-in-a-wrapper form retired). Discharge = Fork B B2.\n  C₅-INPUT  heat trace of a real, non-negative spectrum   PROVED (`C5_input_at_Phi`, μ n = n²,\n                                              via Mathlib's `hasSum_int_evenKernel`)\n  C₅-OUTPUT the spectral realisation (Hilbert–Pólya)      STATED, DISCLAIMED, NEVER CLAIMED.\n  C₆ holomorphic extension          PROVED   (`C6_holomorphic_extension_at_Phi`, via Mathlib's\n                                              `differentiableAt_jacobiTheta₂_snd`)\n  C₇-ENTIRETY entire completion of the Mellin transform  PROVED (`C7_entirety_at_Phi`, via\n                                              `differentiable_completedZeta₀` + T1)\n  C₇-ORDER    the order-≤1 growth bound       PROVED (`C7_order_at_Phi`, W-8 theta-Mellin route: the\n                                              order-≤1 growth of Λ₀ is read off its own Mellin\n                                              representation `Λ₀ = ½·mellin f_modif(s/2)` through the\n                                              even theta kernel, whose exponential decay IS in\n                                              Mathlib — no complex Stirling, no Phragmén–Lindelöf.",
+   "changed": [
+    "4",
+    "8",
+    "10",
+    "11"
+   ]
+  },
+  {
+   "k": 5,
+   "file": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 82,
+   "old": "`Φ` is the real-ray restriction of a holomorphic function `F` on the upper half-plane that is\ncovariant under the two generators of `PSL₂(ℤ) = ⟨S, T | S² = (ST)³ = I⟩`:\n\n  (i)   `F` holomorphic on `ℍ` (`0 < im τ`);\n  (ii)  ray restriction: `F (I·t) = 2·Φ t + 1` for `t > 0`  — via `evenKernel_def`, `2Φ+1 = evenKernel 0`;\n  (iii) **T-law**: `F (2 + τ) = F τ`  — a GENUINELY NEW fact, *not* implied by C₃; C₃ is only the\n        S-law's real-ray shadow, and the modular translation lives in the upper-half-plane variable τ\n        (`jacobiTheta(2+τ) = jacobiTheta τ`), not as the real-`t` identity `Φ(t+2)=Φ(t)`;\n  (iv)  **S-law**, in the library's exact branch form: `F (-1/τ) = (-I·τ)^(1/2) · F τ` on `ℍ`.\n\nTogether the four clauses state *\"Φ is the ray-restriction of a holomorphic PSL₂(ℤ)-generator-covariant\nfunction\"* — the modular STRUCTURE that Chapter 15 §15.3's per-class argument consumes, at the kernel's\nshare of the two-leg split.",
+   "new": "`Φ` is the real-ray restriction of a holomorphic function `F` on ℍ covariant under `S` (τ ↦ −1/τ, weight ½ in the\nlibrary's branch) and `T²` (τ ↦ τ + 2), the generators of the theta group Γ_θ (not under PSL₂(ℤ)'s `T`).\n\n  (i)   `F` holomorphic on `ℍ` (`0 < im τ`);\n  (ii)  ray restriction: `F (I·t) = 2·Φ t + 1` for `t > 0`  — via `evenKernel_def`, `2Φ+1 = evenKernel 0`;\n  (iii) **T-law**: `F (2 + τ) = F τ`  — a GENUINELY NEW fact, *not* implied by C₃; C₃ is only the\n        S-law's real-ray shadow, and the modular translation lives in the upper-half-plane variable τ\n        (`jacobiTheta(2+τ) = jacobiTheta τ`), not as the real-`t` identity `Φ(t+2)=Φ(t)`;\n  (iv)  **S-law**, in the library's exact branch form: `F (-1/τ) = (-I·τ)^(1/2) · F τ` on `ℍ`.",
+   "changed": [
+    "2.1",
+    "3"
+   ]
+  },
+  {
+   "k": 6,
+   "file": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 124,
+   "old": "That the spectrum of\nC₅-input is the spectrum *of a self-adjoint operator whose eigenvalues are the zeta zeros* — the\nHilbert–Pólya assertion.  **This programme explicitly DISCLAIMS it** (EXCLUSION_ENGINE, Misreadings:\nthe spectral kernels disclaim Hilbert–Pólya rather than rest on it), and NO theorem in this file\nclaims it at `Phi` or anywhere else.\n\nIt is stated only so that the gap between input and output has a name.  **That gap is the premise's\nFIFTH REGISTER** (BALANCE_AND_POSITIVITY §IV lists four; this is the fifth): over `𝔽_q` the input's\npositivity and the output's coincide — Weil's 1948 proof supplies the operator-side positivity from\nthe Hodge-index/Castelnuovo inequality on `C × C` — while over `ℚ` the coincidence is exactly what\nis missing.  The formation distance between `C5_input` and `C5_output` IS the premise, in spectral\ncoordinates.",
+   "new": "C₅-OUTPUT as defined here: C₅-input's spectrum together with, for each n, some ρ on re ρ = ½ with (im ρ)² = μ n — a\ncondition C₅-input already implies (ρ = ½ + i√(μ n)); it does not encode the Hilbert–Pólya realisation, which remains\ndisclaimed and unformalised.  **This programme explicitly DISCLAIMS it** (EXCLUSION_ENGINE, Misreadings:\nthe spectral kernels disclaim Hilbert–Pólya rather than rest on it), and NO theorem in this file\nclaims it at `Phi` or anywhere else.",
+   "changed": [
+    "2",
+    "4",
+    "5",
+    "6"
+   ]
+  },
+  {
+   "k": 7,
+   "file": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 158,
+   "old": "**C₇-ORDER (Hadamard, the open half).**  That entire completion has **order ≤ 1** — the\nmaximal-type growth `‖G s‖ ≤ C · exp (A · ‖s‖ · log (‖s‖ + 2))`.  This is the actual growth of the\ncompleted zeta (the Γ factor forces `exp(½‖s‖ log‖s‖)` on the real axis), it implies order ≤ 1, and\nit is exactly the hypothesis the **genus-1** Hadamard factorisation consumes — the one that bounds\nthe zero-counting function and gives the product its shape.  **Entirety alone does not give it**, and\nthis is where the class's real content sits.\n\nCORRECTION (2026-07-14 — W-8 sitting-1 STOP, `OPEN_TRAILS`).  This conjunct previously read\n`∃ C A, ‖G s‖ ≤ C · exp (A · ‖s‖)` and was mislabelled \"order ≤ 1\".  That is **finite exponential\ntype**, and it is **provably false** of the forced witness `G = completedRiemannZeta₀`: (i) along the\npositive real axis `‖G σ‖ ~ exp(½ σ log σ)` (the Γ factor), which beats `C · exp(A σ)` for *every*\nfixed `A`; (ii) `G` carries the nontrivial zeros of ζ, `n(T) ~ (T/2π) log T` — superlinear — so by\nJensen it cannot be of finite exponential type.  **Genus-1 Hadamard consumes order ≤ 1, not finite\ntype.**  The statement is corrected to the true order form, which complex Stirling delivers directly.\n\nOPEN, and priced honestly.  Its true cost is two classical ingredients, **neither of which is in\nMathlib at this pin**:\n  (1) **Stirling control of the Γ factor** — a bound `‖Γ(s/2)‖ ≤ exp (A‖s‖ log‖s‖)`-type estimate.\n      Mathlib has no `Gamma/Stirling` file and no norm bound on `Complex.Gamma` at all.\n  (2) **Finite order of ζ in the strip** — polynomial growth of `ζ` on vertical lines, then\n      Phragmén–Lindelöf to fill the strip.  Mathlib HAS `PhragmenLindelof.vertical_strip`, but that\n      is a *maximum principle*: it converts growth control into boundedness.  It cannot supply (1),\n      and it cannot manufacture an order bound from entirety.\nFormalising C₇-order is therefore a Γ-asymptotics project, not a corollary of what exists.",
+   "new": "**C₇-ORDER (Hadamard). That entire completion has order ≤ 1 in the maximal-type form `‖G s‖ ≤ C · exp (A · ‖s‖ · log\n(‖s‖ + 2))` — PROVED at `Phi` (`C7_order_at_Phi`, W-8 theta-Mellin route); the finite-type form it replaced is refuted\n(`C7_finite_type_false`).**  That entire completion has **order ≤ 1** — the\nmaximal-type growth `‖G s‖ ≤ C · exp (A · ‖s‖ · log (‖s‖ + 2))`.  This is the actual growth of the\ncompleted zeta (the Γ factor forces `exp(½‖s‖ log‖s‖)` on the real axis), it implies order ≤ 1, and\nit is exactly the hypothesis the **genus-1** Hadamard factorisation consumes — the one that bounds\nthe zero-counting function and gives the product its shape.  **Entirety alone does not give it**, and\nthis is where the class's real content sits.\n\nCORRECTION (2026-07-14 — W-8 sitting-1 STOP, `OPEN_TRAILS`).  This conjunct previously read\n`∃ C A, ‖G s‖ ≤ C · exp (A · ‖s‖)` and was mislabelled \"order ≤ 1\".  That is **finite exponential\ntype**, and it is **provably false** of the forced witness `G = completedRiemannZeta₀`: (i) along the\npositive real axis `‖G σ‖ ~ exp(½ σ log σ)` (the Γ factor), which beats `C · exp(A σ)` for *every*\nfixed `A`; (ii) `G` carries the nontrivial zeros of ζ, `n(T) ~ (T/2π) log T` — superlinear — so by\nJensen it cannot be of finite exponential type.  **Genus-1 Hadamard consumes order ≤ 1, not finite\ntype.**  The statement is corrected to the true order form, which complex Stirling delivers directly.",
+   "changed": [
+    "1",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16"
+   ]
+  },
+  {
+   "k": 8,
+   "file": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 256,
+   "old": "(The spectral OUTPUT — that this spectrum is a self-adjoint\noperator's, with the zeros as eigenvalues — is `C5_output`, and is NOT claimed: see its docstring.\nThe distance between the two is the premise's fifth register.)",
+   "new": "(The Hilbert–Pólya realisation is disclaimed and not formalised; `C5_output` as defined is implied by this input and\ndoes not express it.)",
+   "changed": [
+    "4",
+    "5"
+   ]
+  },
+  {
+   "k": 9,
+   "file": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 309,
+   "old": "`Φ` is the real-ray restriction of\n`jacobiTheta`, holomorphic on ℍ and covariant under the two PSL₂(ℤ) generators.",
+   "new": "`Φ` is the real-ray restriction of `jacobiTheta`, holomorphic on ℍ and covariant under `S` and `T²` (τ ↦ τ + 2), the\ngenerators of the theta group.",
+   "changed": [
+    "2"
+   ]
+  },
+  {
+   "k": 10,
+   "file": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 330,
+   "old": "What remains\nSTATED-ONLY is **C₅-OUTPUT** (`C5_output`): the *specific* spectral realisation (Hilbert–Pólya), which\nthe programme explicitly does NOT claim (EXCLUSION_ENGINE Misreadings: the spectral kernels disclaim\nHilbert–Pólya rather than rest on it).  Writing `C5_output Phi` as a theorem would be an overclaim.\n`C5_input` *is* discharged (`C5_input_at_Phi`); the input↔output distance is the premise's fifth register.",
+   "new": "The Hilbert–Pólya realisation is disclaimed and is not formalised; the definition `C5_output` as written is implied by\n`C5_input` and so does not state it.",
+   "changed": [
+    "2",
+    "3",
+    "4"
+   ]
+  },
+  {
+   "k": 11,
+   "file": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 340,
+   "old": "WHY IT IS NOT PROVED HERE.  It needs `γ ≥ log (4π) - 2 = 0.53102…`.  Mathlib's available bounds\nare `one_half_lt_eulerMascheroniConstant : 1/2 < γ` and `eulerMascheroniConstant_lt_two_thirds`,\nand `1/2 < γ` is NOT sharp enough (0.5 < 0.53102).  A sharper lower bound is derivable from\n`eulerMascheroniSeq_lt_eulerMascheroniConstant` plus numeric bounds on `log`, but that is a\nnumeric-analysis exercise, not a transport of the premise, and it is left as its own obligation\nrather than asserted.",
+   "new": "PROVED HERE (`n_one_binding_instance`): `γ + 2 ≥ log (4π)`, through `γ > eulerMascheroniSeq 12 = 86021/27720 − log 13`\nand explicit bounds on `exp 5` and `π`.  It needs `γ ≥ log (4π) - 2 = 0.53102…`.  Mathlib's available bounds\nare `one_half_lt_eulerMascheroniConstant : 1/2 < γ` and `eulerMascheroniConstant_lt_two_thirds`,\nand `1/2 < γ` is NOT sharp enough (0.5 < 0.53102).",
+   "changed": [
+    "6",
+    "9"
+   ]
+  },
+  {
+   "k": 12,
+   "file": "SIDELvConservation/CouplingsAtPhi.lean",
+   "line": 397,
+   "old": "`C4_modularity`             — the **strengthened** PSL₂(ℤ) modularity of the\n                                    ℍ-lift (S-inversion + T-translation laws), Fork B,\n                                    witnessed by `jacobiTheta`;\n  5. `C5_input`                  — the spectral heat-trace INPUT register;\n  6. `C6_holomorphic_extension`  — holomorphy of the completed object;\n  7. `C7_entirety`               — entirety (order-side, whole-plane);\n  8. `C7_order`                  — the order ≤ 1 maximal-type growth bound.\n\nLedger note.  C₅-**OUTPUT** (the Hilbert–Pólya spectral realization) is DISCLAIMED\nand lies OUTSIDE this count — it is the cited fifth-register premise, not a coupling\nproven here.  This theorem is the `h1` leg of the T3′ bracket; `h2` (nonvanishing of\nthe Mellin transform at the operative point) remains the outstanding obligation.",
+   "new": "`C4_modularity` — the strengthened modular law of the ℍ-lift under `S` and `T²` (τ ↦ τ + 2), the theta group's\n  generators, witnessed by `jacobiTheta`;\n  5. `C5_input`                  — the spectral heat-trace INPUT register;\n  6. `C6_holomorphic_extension` — holomorphic extension of Φ to `re z > 0`.\n  7. `C7_entirety`               — entirety (order-side, whole-plane);\n  8. `C7_order`                  — the order ≤ 1 maximal-type growth bound.\n\nLedger note.  C₅-**OUTPUT** (the Hilbert–Pólya spectral realization) is DISCLAIMED\nand lies OUTSIDE this count — it is the cited fifth-register premise, not a coupling\nproven here.  This theorem is the `h1` leg of the T3′ bracket; its `h2` leg -- nonvanishing of the Mellin transform at the operative\npoint, this kernel’s register and not the Prop the programme’s glossary names h2, which is `h2_sign`, Weil positivity\non classK (SIDE-explicit-formula `SIDEExplicitFormula/H2Sign.lean` :28-:29) -- remains outstanding.",
+   "changed": [
+    "6.1",
+    "8.1",
+    "13"
+   ]
+  },
+  {
+   "k": 13,
+   "file": "SIDELvConservation/DirichletC7Order.lean",
+   "line": 4,
+   "old": "**This module (sitting one of the proof):** the a-general exponential-domination bricks — the\nfoundation of the per-`a` bound.",
+   "new": "**This module:** the full splice — a-general domination bricks, per-`a` even and odd Hurwitz half-bounds, the\nreduction to `completedLFunction`, the whole-plane even and odd bounds, and the terminal\n`exists_norm_completedLFunction_le_exp` for every non-trivial Dirichlet character.",
+   "changed": [
+    "6"
+   ]
+  },
+  {
+   "k": 14,
+   "file": "SIDELvConservation/GammaBounds.lean",
+   "line": 4,
+   "old": "Norm (absolute-value) bounds for the factors of the completed Riemann zeta function on vertical\nlines, feeding the Hadamard order-`≤ 1` input `C7_order` (see `SIDELvConservation.CouplingsAtPhi`).",
+   "new": "Norm bounds for the factors of the completed Riemann zeta function on vertical lines; of these,\n`Real.Gamma_le_two_mul_rpow` feeds the C₇-order discharge (via `Gamma_le_exp`), while the vertical-line and edge\nbounds are standalone (the Phragmén–Lindelöf route they served was retired).",
+   "changed": [
+    "1.2"
+   ]
+  },
+  {
+   "k": 15,
+   "file": "SIDELvConservation/GammaBounds.lean",
+   "line": 69,
+   "old": "This is the right-edge datum consumed by `PhragmenLindelof.vertical_strip`.",
+   "new": "This is a right-edge datum of the shape `PhragmenLindelof.vertical_strip` would consume; no declaration in the kernel\nconsumes it (the C₇-order discharge took the theta-Mellin route).",
+   "changed": [
+    "4"
+   ]
+  },
+  {
+   "k": 16,
+   "file": "SIDELvConservation/Genus5Confinement.lean",
+   "line": 103,
+   "old": "Together with `hgolay_natDegree` (degree 5) this forces the certificate to split over ℝ with\nall roots in `(0,4)` — but **that last closure step is NOT compiled here** (see the module's\ngap note); what is certified is the existence and location of the five.",
+   "new": "together with hgolay_natDegree (degree 5) this closes in golay_confined below, which compiles that the certificate's\nroot multiset has cardinality 5 and every root lies in (0, 4).",
+   "changed": [
+    "3"
+   ]
+  },
+  {
+   "k": 17,
+   "file": "SIDELvConservation/LeadLaw.lean",
+   "line": 3,
+   "old": "hence (v) that the certificate `H = h * hᵒ` has leading coefficient `p 0 ^ 2`.",
+   "new": "hence (v) that the certificate h has leading coefficient p 0, so the product of two copies of that leading coefficient\nis p 0 ^ 2 (the step to H = h * h-conjugate, whose conjugate fixes p 0, is argued, not compiled).",
+   "changed": [
+    "7.2"
+   ]
+  },
+  {
+   "k": 18,
+   "file": "SIDELvConservation/QWantedPoster.lean",
+   "line": 3,
+   "old": "the two proved suppliers PASS, a known-wrong candidate\nFAILS on exactly the clause the compiled negative `certifiedInput_not_zeroRealizing` certifies.\n\n**ANTI-OVERCLAIM (load-bearing).** The profiles are MODEL-LEVEL Boolean summaries. The two PASS\nrows record the SHAPES of proved instances (Weil's intersection-form route; the Lee–Yang\nferromagnetic route) as literature-anchored assignments — they re-prove nothing. The FAIL row's\n`false` is warranted by the in-repo compiled negative under its named premise. Passing the screen\ndoes NOT construct a Q for ζ; the screen classifies candidate profiles, and the existence of a\nconforming instance over ℚ remains exactly the disclaimed clause (`Register5_output_HilbertPolya`,\nDISCLAIMED; pentagon precedent: STRUCTURE compiled, never the equivalence).\n\n**Sources per field (rail/monograph at pin; papers cited by version):**\n- THE_RESIDUE_OF_RH v1.1 §6 (the 𝔽_q anatomy; `transfer_obstruction_is_the_two_geometric_clauses`;\n  the wanted-poster list; \"positivity is free — the obstruction is realization\").\n- monograph A_Place_to_Stand §27.3 register 5 (the fifth register; Weil's route via the\n  intersection pairing on correspondences).\n- THE_UNCONDITIONAL_SURROUND v0.4 §6/§6a (the node `covers_all`; the positivity register face).\n- Face-D control (relay reports/2026-07-29-face-D-function-field.md): the intersection form on\n  C×C as the proved supplier over 𝔽_q.\n- Lee–Yang control (relay reports/2026-07-31-lee-yang-control.md): the ferromagnetic pair\n  coupling as the proved supplier in the circle theorem; the index-arity sort.\n- `certifiedInput_not_zeroRealizing` (this repo, RegisterPentagon): the compiled negative that\n  warrants the FAIL row.\n\nSECTION 0 — THE SCREEN'S FIRST THEOREM OF USE (filed 2026-08-02, from the maiden run).\nThe screen mechanically separates CARRIER candidates (objects that would BE the pairing:\nConnes-Consani, de Branges, Sonin/CCM — each passes the FE clauses and fails-or-leaves-open\nexactly the polarization, in its own vocabulary) from CRITERION routes (tests that would DETECT\nthe pairing's consequence: the Li route fails the carrier clause itself — a single-index\ndiagonal, not an object).",
+   "new": "the two proved suppliers' hand-assigned profiles PASS, and a known-wrong candidate's profile FAILS, with\nrealizesTargetSpectrum false warranted (in real-part form, under its named premise) by the compiled negative\ncertifiedInput_not_zeroRealizing and pairIndexed and distinctFromCertifiedInput false by assignment;\n\n**ANTI-OVERCLAIM (load-bearing).** The profiles are MODEL-LEVEL Boolean summaries. The two PASS\nrows record the SHAPES of proved instances (Weil's intersection-form route; the Lee–Yang\nferromagnetic route) as literature-anchored assignments — they re-prove nothing. The FAIL row's\n`false` is warranted by the in-repo compiled negative under its named premise. Passing the screen\ndoes NOT construct a Q for ζ; the screen classifies candidate profiles, and the existence of a\nconforming instance over ℚ remains exactly the disclaimed clause (`Register5_output_HilbertPolya`,\nDISCLAIMED; pentagon precedent: STRUCTURE compiled, never the equivalence).\n\n**Sources per field (rail/monograph at pin; papers cited by version):**\n- THE_RESIDUE_OF_RH v1.1 §6 (the 𝔽_q anatomy; `transfer_obstruction_is_the_two_geometric_clauses`;\n  the wanted-poster list; \"positivity is free — the obstruction is realization\").\n- monograph A_Place_to_Stand §27.3 register 5 (the fifth register; Weil's route via the\n  intersection pairing on correspondences).\n- THE_UNCONDITIONAL_SURROUND v0.4 §6/§6a (the node `covers_all`; the positivity register face).\n- Face-D control (relay reports/2026-07-29-face-D-function-field.md): the intersection form on\n  C×C as the proved supplier over 𝔽_q.\n- Lee–Yang control (relay reports/2026-07-31-lee-yang-control.md): the ferromagnetic pair\n  coupling as the proved supplier in the circle theorem; the index-arity sort.\n- `certifiedInput_not_zeroRealizing` (this repo, RegisterPentagon): the compiled negative that\n  warrants the FAIL row.\n\nSECTION 0 — THE SCREEN'S FIRST THEOREM OF USE (filed 2026-08-02, from the maiden run).\nthe carrier/criterion taxonomy of SECTION 0 is a reading of the maiden run, with no profile compiled here;",
+   "changed": [
+    "3.2",
+    "16"
+   ]
+  },
+  {
+   "k": 19,
+   "file": "SIDELvConservation/QWantedPoster.lean",
+   "line": 53,
+   "old": "Each constraint is one clause of the\ncharacterization THE_RESIDUE_OF_RH v1.1 §6 assembled; the enumeration is the compiled\nform of \"the constraint set pins every property except the positive polarization.\"",
+   "new": "each constructor names one clause of the characterization THE_RESIDUE_OF_RH v1.1 Sec. 6 assembled; that the set pins\nevery property except the positive polarization is the residue's reading, not stated by this type.",
+   "changed": [
+    "2"
+   ]
+  },
+  {
+   "k": 20,
+   "file": "SIDELvConservation/QWantedPoster.lean",
+   "line": 64,
+   "old": "realization: the spectrum/zero-set is the TARGET one (Frobenius eigenvalues over 𝔽_q;\n  the confined zeros in Lee–Yang; the ξ-ordinates for ζ) — the clause the certified input\n  provably fails (`certifiedInput_not_zeroRealizing`).",
+   "new": "realization: the spectrum/zero-set is the TARGET one (Frobenius eigenvalues over F_q; the confined zeros in\n  Lee-Yang; the xi-zeros for zeta) -- the certified input fails its real-part form under the named premise\n  NontrivialZeroExistsInStrip (certifiedInput_not_zeroRealizing); the ordinate form is open (C5-DIST-A).",
+   "changed": [
+    "1"
+   ]
+  },
+  {
+   "k": 21,
+   "file": "SIDELvConservation/QWantedPoster.lean",
+   "line": 171,
+   "old": "The graded row: the count (DERIVES, above) together with the\ncohomological reading carried as a named-premise SLOT — `h2Reading` holds the proposition \"the\nmissing n₄ interface is the codomain of the cup-product pairing over ℚ\" as a field, never\nasserted. Instantiating this structure requires SUPPLYING the reading; the row's grade is\nINTERFACES, the identification never forced.",
+   "new": "The Delta-n4 row: the count (DERIVES, above) together with a Prop-valued slot h2Reading meant to hold the\ncohomological reading; the type does not fix which proposition fills the slot and no instance requires a proof of it,\nso the reading is recorded, not carried as a premise.",
+   "changed": [
+    "2",
+    "3"
+   ]
+  },
+  {
+   "k": 22,
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 6,
+   "old": "Every face states its register's\nCONTENT; none is a `Bool`/`True` stub or a name that asserts a conclusion.\n\nThe goal state (the pentagon's centre) is the T3 bridge target, restated verbatim from\n`SIDELvConservation/PinnedGoal.lean:17-19` and `T3_StepNineBridge.lean:97` at v0.6.0:\n`∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0`.  It closes as `⟨Phi, h1, h2⟩`\n(`T3.T3prime_shared_witness`); **h1** (`∀ C ∈ 𝒞, C Phi`) is discharged (`h1_complete_at_Phi`),\n**h2** (`mellin Phi (s/2) ≠ 0`) is the one open obligation.  The five registers are five\nfaces of that premise.\n\n## Cross-kernel restatements (federation rule: no Lake deps)\n\nTwo faces have their canonical statement OFF-kernel; each is restated **verbatim** here with\nan attribution note and a doc-level correspondence line asserting definitional identity,\neye-verifiable at both pins.\n- **R2** `Register2_conservationHypothesis` restates `ConservationBridge.ConservationHypothesis`\n  from **SIDE-kernel v1.3 = 0bc21c0** (`Bridge/ConservationBridge.lean:26-29`), with its\n  helper defs `is_xi_zero` (`Kernel/XiDef.lean:34-38`) and `prime_as_real`\n  (`Kernel/Voice1.lean:8`) restated verbatim.  Definitional identity: eye-verifiable.\n- **R1** `Register1_universalityHypothesis` restates the load-bearing hypothesis of\n  `SilenceTheorem.silence_universal` from **SIDE-kernel v1.3 = 0bc21c0**\n  (`Kernel/SilenceTheorem.lean`: `ConfigurationSpace` 26-28, `Interface` 33-37,\n  `Interface.is_universal` 42-44).  Definitional identity: eye-verifiable.",
+   "new": "This module compiles five Prop-level faces around the one goal state (R5's output face is true as stated and so\ncarries no Hilbert-Polya content; R1's face is refuted at SIDE-kernel v1.3 by distinguishing_not_universal), the P2\nedges goal <= h1 and h2, R2 -> RH and R4 -> RH (one direction, Li's criterion as a named premise), R1 -> goal and\nR5-output -> RH as premise-carrying implications; it does not compile the equivalences between registers.\n\nThe goal state (the pentagon's centre) is the T3 bridge target, restated verbatim from\n`SIDELvConservation/PinnedGoal.lean:17-19` and `T3_StepNineBridge.lean:97` at v0.6.0:\n`∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0`.  It closes as `⟨Phi, h1, h2⟩`\n(`T3.T3prime_shared_witness`); **h1** (`∀ C ∈ 𝒞, C Phi`) is discharged (`h1_complete_at_Phi`),\n**h2** (`mellin Phi (s/2) ≠ 0`) is the one open obligation.  The five registers are five\nfaces of that premise.\n\n## Cross-kernel restatements (federation rule: no Lake deps)\n\nTwo faces have their canonical statement OFF-kernel; each is restated **verbatim** here with\nan attribution note and a doc-level correspondence line asserting definitional identity,\neye-verifiable at both pins.\n- **R2** `Register2_conservationHypothesis` restates `ConservationBridge.ConservationHypothesis`\n  from **SIDE-kernel v1.3 = 0bc21c0** (`Bridge/ConservationBridge.lean:26-29`), with its\n  helper defs `is_xi_zero` (`Kernel/XiDef.lean:34-38`) and `prime_as_real`\n  (`Kernel/Voice1.lean:8`) restated verbatim.  Definitional identity: eye-verifiable.\n- **R1** `Register1_universalityHypothesis` restates the load-bearing hypothesis of\n  `SilenceTheorem.silence_universal` from **SIDE-kernel v1.3 = 0bc21c0**\n  (`Kernel/SilenceTheorem.lean`: `ConfigurationSpace` 26-28, `Interface` 33-37,\n  `Interface.is_universal` 42-44).",
+   "changed": [
+    "4",
+    "12"
+   ]
+  },
+  {
+   "k": 23,
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 103,
+   "old": "The load-bearing premise of\n`SilenceTheorem.silence_universal` (SIDE-kernel v1.3): every essential interface is\nuniversal.",
+   "new": "every essential interface is universal; silence_universal (SIDE-kernel v1.3) takes the per-interface premise\nI.is_universal, and this quantified form is refuted at that pin by distinguishing_not_universal (an essential,\nnon-universal interface).",
+   "changed": [
+    "2"
+   ]
+  },
+  {
+   "k": 24,
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 168,
+   "old": "Content:\nthere is an OPERATOR (matrix form `T : ℕ → ℕ → ℝ`), self-adjoint with respect to a\nPOSITIVE-DEFINITE symmetric pairing, whose diagonal spectrum realizes every nontrivial\nζ-zero.  **DISCLAIMED** — this programme explicitly disclaims asserting it; it closes over\n𝔽_q (Weil 1948, Castelnuovo / intersection-pairing positivity), is open over ℚ.\n\nRepaired from the P1 draft (reviewer screen): the earlier `0 ≤ pairing i i` + bare-spectrum\nform was classically trivially true (witness `pairing ≡ 0`, choice-enumerate the countably\nmany zeros — no operator content).  Now the pairing is **positive-definite** (`0 < pairing i i`,\nstrict) so the zero-pairing witness dies, and an actual **operator** `T` self-adjoint w.r.t.\nthe pairing (`pairing i i * T i j = pairing j j * T j i`) with the spectrum on its diagonal is\nrequired, so a bare spectrum-enumeration no longer witnesses.",
+   "new": "R5 output face -- a schema of the Hilbert-Polya shape: a positive-diagonal symmetric pairing, a T self-adjoint for it,\nand a diagonal spectrum containing every nontrivial zeta-zero's real part; as stated it is true (SIDE-explicit-formula\nregister5_output_holds: pairing 1, a diagonal enumeration of the countable real parts), so it carries no Hilbert-Polya\ncontent; the ordinates and a genuine self-adjoint operator are what it lacks.  **DISCLAIMED** — this programme explicitly disclaims asserting it; it closes over\n𝔽_q (Weil 1948, Castelnuovo / intersection-pairing positivity), is open over ℚ.\n\nRepaired from the P1 draft (reviewer screen): the earlier `0 ≤ pairing i i` + bare-spectrum\nform was classically trivially true (witness `pairing ≡ 0`, choice-enumerate the countably\nmany zeros — no operator content).",
+   "changed": [
+    "2",
+    "5"
+   ]
+  },
+  {
+   "k": 25,
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 280,
+   "old": "**INTERFACES — R5-output → RiemannHypothesis**, **DISCLAIMED**.  Named premise: the\nHilbert–Pólya realization bridge.",
+   "new": "ENCODES -- R5-output -> RiemannHypothesis, DISCLAIMED: Register5_output_HilbertPolya is true as stated, so the premise\nhpBridge carries RiemannHypothesis itself; the edge records the disclaimed register's shape only.",
+   "changed": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "k": 26,
+   "file": "SIDELvConservation/RegisterPentagon.lean",
+   "line": 289,
+   "old": "The fifth register's boundary, made compiled: the CERTIFIED R5-input spectrum `{n²}` provably\nCANNOT witness the (disclaimed) R5-output realization face.",
+   "new": "The fifth register's boundary, made compiled under a named premise: given a nontrivial zeta-zero in the open strip\n(NontrivialZeroExistsInStrip), the certified R5-input spectrum {n^2} cannot witness the (disclaimed) R5-output\nrealization face.",
+   "changed": [
+    "1.2"
+   ]
+  },
+  {
+   "k": 27,
+   "file": "SIDELvConservation/T2_SDarkness.lean",
+   "line": 4,
+   "old": "Any predicate on `Φ` alone — in particular any\n  constraint the product formula imposes on `Φ` — factors through `Φ`,\n  hence is s-independent.  This is the substantive half.\n\nJoined with T1: constraints on the pre-image `Phi` of the Mellin\nfactorization cannot select among values of `s`.",
+   "new": "T2 names Mathlib's mellin definition: mellin Phi s is the Ioi 0 integral of Phi against t^(s-1) (T2b, by rfl), and\nequal integrands give equal transforms at every s (T2a, T2a', T2c);",
+   "changed": [
+    "7",
+    "8",
+    "9"
+   ]
+  },
+  {
+   "k": 28,
+   "file": "SIDELvConservation/ZeroActingPairing.lean",
+   "line": 3,
+   "old": "**Warrant:** the E-characterization proved that every\nstructure capable of bounding the zero-oscillation `E(n)` of `λ_Z` by the archimedean channel\n`λ_A` is *pairing-positivity* shaped (FE-cancellation fails; density gives only the σ=1 edge;\nthe only centre-reaching structure is a positive pairing on the zeros — the Weil-functional /\nHilbert–Pólya shape).\n\nThis module compiles the **TYPE** the E-characterization named — a *zero-acting* positive\npairing that is *Euler-consuming* (breaks for a sign-neutral ledger, i.e. for Davenport–\nHeilbronn) and *distinct from the certified `{n²}` input spectrum* — together with the\nINTERFACES chain `ZeroActingPairing → channel inequality → RH`.\n\n**It asserts NO instance.** The existence of a `ZeroActingPairing` is exactly the C₅-output the\nprogramme holds open (`Register5_output_HilbertPolya`, DISCLAIMED; closes over 𝔽_q by Weil 1948,\nopen over ℚ). This is the compiled *specification*, in the pentagon precedent (STRUCTURE compiled,\nnever the equivalence). INTERFACES grammar throughout; every non-native step is a named premise;\nthe disclaimer text extends — the register now holds a compiled *interface*, still no claimed\nwitness.\n\n**Salt-check (run before commit).** Not a shell: the structure carries four genuine `Prop`\nfields, and the two typing clauses kill the trivial witness — a bare diagonal enumeration of the\nzeros dies on `distinctFromInput` (via `certifiedInput_not_zeroRealizing`) and a sign-neutral\nledger dies on `eulerConsuming`.",
+   "new": "The E-characterization is the programme's argument, not a declaration of this file.\n\nThis module compiles the **TYPE** the E-characterization named — a *zero-acting* positive\npairing that is *Euler-consuming* (breaks for a sign-neutral ledger, i.e. for Davenport–\nHeilbronn) and *distinct from the certified `{n²}` input spectrum* — together with the\nINTERFACES chain `ZeroActingPairing → channel inequality → RH`.\n\n**It asserts NO instance.** The existence of a `ZeroActingPairing` is exactly the C₅-output the\nprogramme holds open (`Register5_output_HilbertPolya`, DISCLAIMED; closes over 𝔽_q by Weil 1948,\nopen over ℚ). This is the compiled *specification*, in the pentagon precedent (STRUCTURE compiled,\nnever the equivalence). INTERFACES grammar throughout; every non-native step is a named premise;\nthe disclaimer text extends — the register now holds a compiled *interface*, still no claimed\nwitness.\n\n**Salt-check (run before commit).** The structure carries four Prop fields; a sign-neutral ledger dies on eulerConsuming (dhModelLedger_no_pairing);\ndistinctFromInput is the closed requirement that the certified {n²} spectrum is not zero-realizing, which forces any\nwitness spectrum of zeroActing to differ from {n²} but does not exclude a diagonal enumeration of the zeros\n(RegisterPentagon :183).",
+   "changed": [
+    "2",
+    "10"
+   ]
+  },
+  {
+   "k": 29,
+   "file": "SIDELvConservation/ZeroActingPairing.lean",
+   "line": 77,
+   "old": "**The distinct-from-input clause is dischargeable** (not open): the certified `{n²}` input\nspectrum genuinely fails to realize the zeros, given a nontrivial zero exists in the strip.\nSo `distinctFromInput` is a *typing* constraint the object satisfies by the compiled negative,\nnot an added open premise.",
+   "new": "**The distinct-from-input clause is discharged under the named strip premise**: given NontrivialZeroExistsInStrip (a\nnamed premise, OPEN in the premise table), the certified {n²} input spectrum fails to realize the zeros, so\ndistinctFromInput reduces to that one premise.",
+   "changed": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "k": 30,
+   "file": "SIDELvConservation/ZeroActingPairing.lean",
+   "line": 141,
+   "old": "The σ=1 **edge** register, compiled as an actual lemma.",
+   "new": "The edge lemma's arithmetic core, compiled: for an abstract ledger and weight, a non-negative ledger against a\nnon-negative weight gives a non-negative finite drift sum (edge_drift_nonneg), and the DH model ledger gives a\nnegative one (edge_drift_neg_for_signNeutral); its reading as the σ=1 edge at ledger = Λ, and the 3-4-1 zero-free\nregion, are cited, not compiled.",
+   "changed": [
+    "1.2"
+   ]
+  },
+  {
+   "k": 31,
+   "file": "SIDELvConservation/ZeroActingPairing.lean",
+   "line": 179,
+   "old": "Over a smooth projective curve `C / 𝔽_q` the `ZeroActingPairing` type is **inhabited** — this is Weil\n1948 (the Riemann Hypothesis for curves), the one place a genuine witness is known. This section\nrecords, clause by clause, *what supplies each requirement over 𝔽_q* and *whether it transfers to ℚ*.\nIt grounds against the corpus's own C₅ split (BALANCE_AND_POSITIVITY §D.2 / the FIFTH REGISTER: over\n𝔽_q the two coincide, Weil supplying the output from Hodge-index / Castelnuovo positivity on `C × C`;\nover ℚ they do not). Docstring-level anatomy; the compiled `def`s below *record* the per-clause status\nand the theorem reads it back — no verdict is proved here, and the obstruction clauses stay open.\n\n**What supplies each clause over 𝔽_q (on `C` / `C × C`):**\n* `zeroActing`       — Frobenius acting on `H¹(C)`; its eigenvalues `α_i` (`|α_i| = √q`) *are* the\n  zeros of the curve's zeta function. The self-adjoint operator with the zeros as spectrum is a real\n  geometric object here.\n* `yieldsInequality` — the **intersection-form positivity** on `C × C` (Hodge index theorem /\n  Castelnuovo–Severi): positivity on the primitive part yields the Weil explicit-formula positivity,\n  i.e. the FE-even positivity that gives the two-channel inequality.\n* `eulerConsuming`   — the effective-divisor / point counts `N_r = #C(𝔽_{q^r}) ≥ 0` (the curve's Euler\n  product over closed points): the ledger is a non-negative count.\n* `distinctFromInput`— the Frobenius spectrum is the *output* (eigenvalues), genuinely distinct from\n  any `{n²}`-style diagonal input.\n\n**The ℚ-transfer obstruction, named per clause:**\n* `zeroActing`      — **OBSTRUCTS.** `Spec ℤ` is not a curve over a field: there is no Frobenius, no\n  `H¹`, no geometric self-adjoint operator with the ξ-zeros as spectrum. This clause *is* Hilbert–\n  Pólya, open over ℚ.\n* `yieldsInequality`— **OBSTRUCTS.** There is no Hodge index theorem for `Spec ℤ` (no positive\n  arithmetic intersection form). This clause *is* Weil positivity over ℚ, which *is* RH.\n* `eulerConsuming`  — **TRANSFERS.** `ζ` has an Euler product with `Λ(n) ≥ 0` (von Mangoldt); a\n  sign-neutral ledger is excluded (`zeroActingPairing_ledger_not_signNeutral`, this module). Clean.\n* `distinctFromInput`— **TRANSFERS.** The certified `{n²}` input does not realize the ξ-zeros\n  (`distinctFromInput_discharged`, this module). Clean.",
+   "new": "Over a smooth projective curve C / 𝔽_q the analogue of the four clauses is supplied by Weil 1948 (cited, not compiled;\nthe compiled ZeroActingPairing is the ℚ type and has no 𝔽_q instance here). This section\nrecords, clause by clause, *what supplies each requirement over 𝔽_q* and *whether it transfers to ℚ*.\nIt grounds against the corpus's own C₅ split (BALANCE_AND_POSITIVITY §D.2 / the FIFTH REGISTER: over\n𝔽_q the two coincide, Weil supplying the output from Hodge-index / Castelnuovo positivity on `C × C`;\nover ℚ they do not). Docstring-level anatomy; the compiled `def`s below *record* the per-clause status\nand the theorem reads it back — no verdict is proved here, and the obstruction clauses stay open.\n\n**What supplies each clause over 𝔽_q (on `C` / `C × C`):**\n* `zeroActing`       — Frobenius acting on `H¹(C)`; its eigenvalues `α_i` (`|α_i| = √q`) *are* the\n  zeros of the curve's zeta function. The self-adjoint operator with the zeros as spectrum is a real\n  geometric object here.\n* `yieldsInequality` — the **intersection-form positivity** on `C × C` (Hodge index theorem /\n  Castelnuovo–Severi): positivity on the primitive part yields the Weil explicit-formula positivity,\n  i.e. the FE-even positivity that gives the two-channel inequality.\n* `eulerConsuming`   — the effective-divisor / point counts `N_r = #C(𝔽_{q^r}) ≥ 0` (the curve's Euler\n  product over closed points): the ledger is a non-negative count.\n* `distinctFromInput`— the Frobenius spectrum is the *output* (eigenvalues), genuinely distinct from\n  any `{n²}`-style diagonal input.\n\n**The ℚ-transfer obstruction, named per clause:**\n* `zeroActing`      — **OBSTRUCTS.** `Spec ℤ` is not a curve over a field: there is no Frobenius, no\n  `H¹`, no geometric self-adjoint operator with the ξ-zeros as spectrum. This clause *is* Hilbert–\n  Pólya, open over ℚ.\n* `yieldsInequality`— **OBSTRUCTS.** There is no Hodge index theorem for `Spec ℤ` (no positive\n  arithmetic intersection form). This clause *is* Weil positivity over ℚ, which *is* RH.\n* `eulerConsuming`  — **TRANSFERS.** `ζ` has an Euler product with `Λ(n) ≥ 0` (von Mangoldt); a\n  sign-neutral ledger is excluded (`zeroActingPairing_ledger_not_signNeutral`, this module). Clean.\n* `distinctFromInput`— **TRANSFERS.** The certified `{n²}` input does not realize the ξ-zeros\n  (`distinctFromInput_discharged`, this module). distinctFromInput transfers only under the named premise NontrivialZeroExistsInStrip (OPEN).",
+   "changed": [
+    "1.2",
+    "22"
+   ]
+  },
+  {
+   "k": 32,
+   "file": "SIDELvConservation/ZeroActingPairing.lean",
+   "line": 258,
+   "old": "This lemma\nshows the certified input spectrum `{n²}` witnesses the **first four** — the whole positivity /\nself-adjoint / operator structure — with the identity pairing and the `{n²}` diagonal operator, and\nfails **only** the fifth (`certifiedInput_not_zeroRealizing`).",
+   "new": "This lemma shows the certified input spectrum {n²} witnesses the first four conjuncts with the identity pairing and\nthe {n²} diagonal operator, and, under the named premise NontrivialZeroExistsInStrip (OPEN), fails the fifth\n(certifiedInput_not_zeroRealizing).",
+   "changed": [
+    "3"
+   ]
+  },
+  {
+   "k": 33,
+   "file": "SIDELvConservation/ZeroActingPairing.lean",
+   "line": 348,
+   "old": "The three fields below are\nthe OPERATIONAL content those interpretations must supply; they compose to a `ZeroActingPairing`, so\n`X` is exactly `zeroActing`, single-object in kind.",
+   "new": "The three fields below are the OPERATIONAL content those interpretations must supply; with the named premise\nNontrivialZeroExistsInStrip (OPEN) they compose to a ZeroActingPairing (xRealization_to_zeroActingPairing), so X is\nzeroActing, single-object in kind.",
+   "changed": [
+    "4"
+   ]
+  },
+  {
+   "k": 34,
+   "file": "SIDELvConservation/ZeroActingPairing.lean",
+   "line": 444,
+   "old": "CCM prove Weil positivity at the ARCHIMEDEAN place (all heights); our `partialPositivity_finiteRange`\nproves it at ALL places to BOUNDED height (n <= N0).",
+   "new": "CCM prove Weil positivity at the archimedean place (cited); our partialPositivity_finiteRange (INTERFACES) gives\nfinite-range Li positivity for n ≤ N₀(T) under three named premises.",
+   "changed": [
+    "1.2"
+   ]
+  },
+  {
+   "k": 35,
+   "file": "SIDELvConservation/ZeroActingPartial.lean",
+   "line": 38,
+   "old": "This is what makes the\npartial inhabitants a *graded* family: `N` orders them, more coverage strictly stronger.",
+   "new": "This is what makes the partial inhabitants a graded family: N orders them, more coverage at least as strong.",
+   "changed": [
+    "2"
+   ]
+  },
+  {
+   "k": 36,
+   "file": "SIDELvConservation/ZeroActingPartial.lean",
+   "line": 82,
+   "old": "**Barrier-anchor (Program Four (i)(b)): the detection threshold is quadratic — exponent exactly 2.**\n`N₀(T)` sits in `(2·T² − 1, 2·T²]`: the exponent of `T` in the threshold is 2, pinned in the compiled\ncertificate — not 1, not tunable. This is the compilable core of the threshold-rigidity barrier (the\n`2` is the `γ²` of `|ρ|²`, functional-equation-forced; a mollifier acting on the ζ-integral side does\nnot touch this kernel exponent). It explains why the finite-range certificate cannot be extended by\nmollification — a barrier, not a crossing.",
+   "new": "**The detection threshold, as defined, is quadratic. N₀(T) = ⌊2·T²⌋ sits in (2·T² − 1, 2·T²]; the exponent 2 is the\none fixed in N₀'s definition (the Voros threshold, cited). The barrier reading that mollification cannot move it is\nargument, not compiled.**",
+   "changed": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ]
+  },
+  {
+   "k": 37,
+   "file": "SIDELvConservation/ZeroActingPartial.lean",
+   "line": 97,
+   "old": "Consequence: the threshold is pinned by the\nzero height `T` alone, so **no weighting that preserves the zero locations can lower it** — every\nmollifier of the ζ-integral (Levinson / Conrey / Soundararajan class) preserves the zeros, hence the\nthreshold; lowering it would require *moving the zeros*, which no such weighting does. The only\nweighting that reaches the centre is a *zero-side* test function (Weil functional) — but that is the\npositive pairing itself (Hilbert–Pólya, the realization wall), not a mollifier. So the barrier holds\nfor the mollifier class; the sole exception is the known pairing frontier.",
+   "new": "The reading that no zero-preserving weighting (mollifier) can lower it is argument, not compiled.",
+   "changed": [
+    "3",
+    "4",
+    "5"
+   ]
+  },
+  {
+   "k": 38,
+   "file": "SIDELvConservation/ZeroActingPartial.lean",
+   "line": 111,
+   "old": "## Item 1 (W-SIGN-6) — the conjunction as theorem: the residue is irreducible by structure\n\nFormalizes W-SIGN-6's result: *each clause individually free; the conjunction is RH.* The theorem\nbundles three **compiled** facts and lets their juxtaposition state the irreducibility — it derives\nthe structure, it does not define \"conjunction = RH\".",
+   "new": "## Item 1 (W-SIGN-6) — three facts juxtaposed. The theorem bundles, under named premises, three facts (the {n²}\nspectrum does not realize the zeros; the channel inequality holds to N₀(T); a ZeroActingPairing yields RH through two\nnamed premises) and offers their juxtaposition as W-SIGN-6's reading that the difficulty sits at the conjunction; that\nneither clause alone yields RH is not compiled.*",
+   "changed": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "k": 39,
+   "file": "SIDELvConservation/ZeroActingPartial.lean",
+   "line": 118,
+   "old": "Neither clause of `ZeroActingPairing` alone yields RH:\n* **clause 1 is free** — a positive self-adjoint operator with a discrete spectrum exists (the certified\n  `{n²}` input, `positivity_free_obstruction_is_zeroRealization`) that does **not** realize the ζ-zeros\n  (first conjunct here);\n* **clause 2 is free** — the finite-range inequality holds to the fixed threshold `N₀(T)` (the certified\n  partial inhabitant, second conjunct) and does not reach all `n`;\n* **only the conjunction implies RH** — the full `ZeroActingPairing`, both clauses jointly over the\n  ζ-zeros, gives RH through the named classical premises (the Weil direction `inequalityToPositivity`;\n  Li's criterion `liCriterion`) — third conjunct.\nSo the difficulty is exactly the conjunction. Derives from the compiled pieces (C-3, A2,\n`zeroActingPairing_to_RH`); the equivalence is not encoded — the `⟹ RH` is the compiled conditional,\nthe freeness are witnessed facts.",
+   "new": "**Three facts juxtaposed. Under NontrivialZeroExistsInStrip (OPEN), the three finite-range premises and the\ndecomposition, and the named premises inequalityToPositivity and liCriterion: the certified {n²} spectrum does not\nrealize the zeros; the channel inequality holds to N₀(T); and any ZeroActingPairing gives RH. That neither clause\nalone yields RH is the reading, not compiled.",
+   "changed": [
+    "2",
+    "3",
+    "4"
+   ]
+  }
+ ],
+ "planned_sha": {
+  "AxiomCheck.lean": "1137c8bea7f91a4b66d9b901afa8aad6eab7998adea4fd54609ff6e28fdf4a25",
+  "SIDELvConservation/C7OrderBounds.lean": "86a6a3235c0fe945c4bd0a692e55aaed723b7783e5586668aefdc0286d548542",
+  "SIDELvConservation/CouplingsAtPhi.lean": "556b29743c1542646401f0d536efcf17db6d32116be9fb85269706e3e07879a5",
+  "SIDELvConservation/DirichletC7Order.lean": "e9ea1366dd0503a8e2b185d459e0e24685ef85d0df5fa645f1cdd9764a6ef31d",
+  "SIDELvConservation/GammaBounds.lean": "6fbb208e6f1be8da5f5c3d07e7d74dd5343f8d2e2a77e0f26eaf56175b348c29",
+  "SIDELvConservation/Genus5Confinement.lean": "67113562f9ac3f765897703bf1f153f2e367fbd36d46f8e54f69d417ee8ba6b0",
+  "SIDELvConservation/LeadLaw.lean": "01a22b37fd03ed49b778ab1aee91736a558b2a6853d81fa24284cb75280f56a8",
+  "SIDELvConservation/QWantedPoster.lean": "8d1fa577d6aed55a95a1c4111d46258e36e2c1788d078347907defd31918b7d8",
+  "SIDELvConservation/RegisterPentagon.lean": "0c1fad3a439a546c8bf528af9cdb9c41b776df801e37c6cfe942177276159b65",
+  "SIDELvConservation/T2_SDarkness.lean": "5610b25cc41bc0456e412157ccba9be9be0f254d90c586e13be82683b478ff79",
+  "SIDELvConservation/ZeroActingPairing.lean": "b841bf4870ed1f3500838b4d0f84414f14a2d34e3ab9b820cca52699923a8410",
+  "SIDELvConservation/ZeroActingPartial.lean": "ffc98a1dd41d9cb88aed32a28da95c71059404678088c5d053a75efc889f2748"
+ },
+ "fails": [],
+ "code_bad": []
+}

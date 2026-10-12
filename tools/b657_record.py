@@ -415,6 +415,41 @@ def split_rows(rs, split):
     return out
 
 
+def _rows_of(k, rs0, G):
+    """the block's rows as the grade bank reads them: the sentence rows, then the seat's joins (two rows the sentence split broke at an
+    abbreviation, joined: G['joins'][k] = [[a, b]]), its breaks (a row broken before each named marker, the pieces numbered n.1, n.2, ...:
+    G['breaks'][k] = {n: [markers]}) and b655's bullet split (G['split']). Every marker must occur in its row, in order; the rows joined
+    whitespace-wise always equal the block's sentences joined -- the check exits otherwise."""
+    rows = [dict(n=str(r['n']), sentence=r['sentence']) for r in rs0]
+    for a, b in (G.get('joins') or {}).get(str(k)) or []:
+        ia = next(i for i, r in enumerate(rows) if r['n'] == str(a))
+        ib = next(i for i, r in enumerate(rows) if r['n'] == str(b))
+        if ib != ia + 1:
+            sys.exit('### BLOCK %d: A JOIN OF ROWS NOT ADJACENT -- NOTHING WRITTEN' % k)
+        rows[ia] = dict(n=str(a), sentence=rows[ia]['sentence'] + ' ' + rows[ib]['sentence'])
+        del rows[ib]
+    br = (G.get('breaks') or {}).get(str(k)) or {}
+    out = []
+    for r in rows:
+        ms = br.get(r['n'])
+        if not ms:
+            out.append(r)
+            continue
+        s, parts, pos = r['sentence'], [], 0
+        for m in ms:
+            j = s.find(m, pos + 1)
+            if j < 0:
+                sys.exit('### BLOCK %d s%s: A BREAK MARKER NOT FOUND IN ORDER -- NOTHING WRITTEN: %r' % (k, r['n'], m))
+            parts.append(s[pos:j])
+            pos = j
+        parts.append(s[pos:])
+        out += [dict(n='%s.%d' % (r['n'], i), sentence=_ws(p)) for i, p in enumerate(parts, 1)]
+    if _ws(' '.join(x['sentence'] for x in out)) != _ws(' '.join(x['sentence'] for x in rs0)):
+        sys.exit('### BLOCK %d: THE ROWS DO NOT REJOIN TO THE BLOCK`S SENTENCES -- NOTHING WRITTEN' % k)
+    return split_rows([dict(n=x['n'], sentence=x['sentence']) for x in out], (G.get('split') or {}).get(str(k)) or {}) \
+        if (G.get('split') or {}).get(str(k)) else out
+
+
 def cut(rows, graded, action, bullets=False, premise=None, row_actions=None):
     """the mechanical rule (b655's): a graded OVERREACHES or UNDERSTATES row replaced in place by the ACTION (by its sentences), an UNLICENSED one
     removed, MATCHES untouched; then a sentence repeating one already in the block dropped. New at b657: a graded row named in `row_actions`
@@ -513,11 +548,17 @@ def grades(*a):
     by_v, J, unres = {}, [], []
     SPLIT, PREM = G.get('split') or {}, G.get('premise') or {}
     h2_seen = False
+    UNACT = G.get('unacted') or {}
+    n_unact = 0
     for k, p, q, rs0 in blocks():
         split = (SPLIT.get(str(k)) or {})
-        rs = split_rows(rs0, split)
+        rs = _rows_of(k, rs0, G)
         n_rows += len(rs)
         cells = _row_cells(k, q)
+        un = UNACT.get(str(k)) or {}
+        for n, (w, why) in un.items():
+            if w not in q['licensed'] or n not in [r['n'] for r in rs]:
+                sys.exit('### BLOCK %d s%s: AN UNACTED ROW`S WORDS NOT IN THE CELL, OR NO SUCH ROW -- NOTHING WRITTEN' % (k, n))
         mine = dict((n, w) for _k, n, w in (read_grade_row(k, x) for x in gr.get(str(k), [])))
         for n, w in mine.items():
             lic = cells[n][1] if n in cells else q['licensed']
@@ -538,18 +579,21 @@ def grades(*a):
             ('; s%s read as its bullet rows' % ', s'.join(split)) if split else ''))
         L.append('   LICENSED : ' + q['licensed'])
         L.append('   ACTION   : ' + q['action'])
+        elided_by_rows = False
         if '...' in q['action']:
             n_cell += 1
             c = comp.get(str(k))
-            L.append('   ### UNRESOLVED-CELL: the ACTION carries "..."; completed from the block`s own LICENSED words for the strike: %s' % (
-                c or '### NOT COMPLETED'))
-            if not c:
-                sys.exit('### BLOCK %d: AN ELIDED ACTION NOT COMPLETED -- NOTHING WRITTEN' % k)
-            span = c[len('RE-CUT: '):] if c.startswith('RE-CUT: ') else c
-            if span.rstrip('.') not in q['licensed']:
-                sys.exit('### BLOCK %d: A COMPLETION NOT A SPAN OF THE LICENSED CELL -- NOTHING WRITTEN' % k)
-            L.append('   ### the completion is a verbatim span of the LICENSED cell; words from outside it 0.')
-            action = c
+            if c:
+                L.append('   ### UNRESOLVED-CELL: the ACTION carries "..."; completed from the block`s own LICENSED words for the strike: %s' % c)
+                span = c[len('RE-CUT: '):] if c.startswith('RE-CUT: ') else c
+                if span.rstrip('.') not in q['licensed']:
+                    sys.exit('### BLOCK %d: A COMPLETION NOT A SPAN OF THE LICENSED CELL -- NOTHING WRITTEN' % k)
+                L.append('   ### the completion is a verbatim span of the LICENSED cell; words from outside it 0.')
+                action = c
+            else:
+                elided_by_rows = True
+                L.append('   ### UNRESOLVED-CELL: the ACTION carries "..."; each graded row takes its own verbatim span of the ACTION`s words after the '
+                         'elision, for the strike (no completion composed).')
         graded, row_actions = {}, {}
         for r in rs:
             if r['n'] in mine:
@@ -566,12 +610,19 @@ def grades(*a):
                     L.append('        %-11s its ACTION: %s' % ('', row_actions[r['n']]))
                 if c and c[3] != 'the parent block':
                     h2_seen = True
+            elif r['n'] in un:
+                n_unact += 1
+                L.append('  s%-4s %-11s %s' % (r['n'], 'MATCHES', r['sentence']))
+                L.append('        ### REACHED BY THE CELL ("%s"), NO ACTION TEXT FOR THIS ROW -- NOT CUT, RAISED FOR THE STRIKE: %s' % tuple(un[r['n']]))
             else:
                 L.append('  s%-4s %-11s %s' % (r['n'], 'MATCHES', r['sentence']))
+        if elided_by_rows and [n for n in graded if n not in row_actions]:
+            sys.exit('### BLOCK %d: AN ELIDED ACTION AND A GRADED ROW WITHOUT ITS OWN SPAN -- NOTHING WRITTEN' % k)
         if not graded:
             n_unres += 1
             unres.append(k)
-            L.append('   ### UNRESOLVED: no sentence the cells reach; not cut.')
+            L.append('   ### UNRESOLVED: %s; not cut.' % ('every row the cells reach has no ACTION text usable at main (listed above), raised for '
+                                                        'the strike' if un else 'no sentence the cells reach'))
             J.append(dict(k=k, parent=p, file=q['file'], line=q['line'], unresolved=True))
             L.append('')
             continue
@@ -589,6 +640,7 @@ def grades(*a):
     L.append('### PARENT BLOCKS NOT FOUND AT MAIN (listed, not graded): %s' % ('; '.join(unread) or 'NONE'))
     L.append('### PLAIN-COMMENT ROWS (relay data/b657_plain_comments.txt): %s' % ('; '.join('%s:%d -- %s' % tuple(h) for h in pl.get('hits') or []) or 'NONE'))
     L.append('### THE h2 ROW (b648`s, (R267)(3)): %s' % ('GRADED, ITS ACTION b648`S SENTENCE' if h2_seen else '### NOT GRADED'))
+    L.append('### ROWS REACHED BY A CELL WITH NO ACTION TEXT FOR THEM (not cut; raised for the strike): %d' % n_unact)
     n_cut = len([b for b in J if b.get('kept') is not None])
     files = sorted(set(b['file'] for b in J if b.get('kept') is not None))
     L.append('### ### **PARENT BLOCKS %d ; SENTENCE ROWS %d ; GRADED %d (%s) ; MATCHES %d ; UNRESOLVED BLOCKS %d (%s) ; UNRESOLVED-CELL %d ; '
@@ -659,14 +711,14 @@ def _plans():
     out = []
     for k, p, q, rs0 in blocks():
         split = SPLIT.get(str(k)) or {}
-        rs = split_rows(rs0, split)
+        rs = _rows_of(k, rs0, G)
         cells = _row_cells(k, q)
         mine = dict((n, w) for _k, n, w in (read_grade_row(k, x) for x in gr.get(str(k), [])))
         graded = dict((r['n'], (cells[r['n']][0] if r['n'] in cells else q['verdict'])) for r in rs if r['n'] in mine)
         row_actions = dict((n, c[2]) for n, c in cells.items() if n in graded and c[2] is not None)
         if not graded:
             continue
-        action = comp.get(str(k)) if '...' in q['action'] else q['action']
+        action = (comp.get(str(k)) or q['action']) if '...' in q['action'] else q['action']
         cut(rs, graded, action, bullets=bool(split), premise=PREM.get(str(k)), row_actions=row_actions)
         out.append((k, q, rs, cut.slots))
     return out
