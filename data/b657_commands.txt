@@ -1,0 +1,95 @@
+b657 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-12T20:53:28Z)
+
+### the source: the seat`s session 1199f364-78c4-4147-843f-edf01bb11b28 from its first user line carrying 'RULING (R267) BEGIN', and its subagents` transcripts
+### commands read: 81
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-12T19:41:20.431Z | seat | PowerShell | $p = Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python)' } | Select-Object ProcessId, Name, CommandLine; if ($p) { $p | For
+  #2 | 2026-10-12T19:41:58.918Z | seat | Bash | PYTHONIOENCODING=utf-8 python - <<'EOF'
+  #3 | 2026-10-12T19:42:04.318Z | seat | Bash | git add data/b657_ferry.txt data/b657_ferry_scan.txt data/b656_closing_push_out.txt && git commit -q -m "b657 Component 0 under (R267): the ruling and the ferry
+  #4 | 2026-10-12T19:42:04.807Z | seat | Bash | git -C /d/relay branch -d push-b656 push-b656-root push-b656-closing
+  #5 | 2026-10-12T19:42:05.475Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b656 push-b656-root
+  #6 | 2026-10-12T19:42:11.562Z | seat | Bash | diff <(sed 's/b656/bXXX/g; s/R266/RXXX/g; s/B656/BXXX/g' tools/b656_tests.py) <(sed 's/b655/bXXX/g; s/R265/RXXX/g; s/B655/BXXX/g' tools/b655_tests.py)
+  #7 | 2026-10-12T19:42:41.871Z | seat | Bash | for t in $(ls tools | grep -E '^test_.*\.(py|sh)$' | grep -vE '^test_(asof|chain_page|name_b649|g_chain_page|elab_reader_b634)\.py$'); do PYTHONIOENCODING=utf-8
+  #8 | 2026-10-12T19:47:23.962Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_tests.py run test_asof.py
+  #9 | 2026-10-12T19:47:25.126Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_tests.py run test_chain_page.py
+  #10 | 2026-10-12T19:47:25.852Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_tests.py run test_name_b649.py && PYTHONIOENCODING=utf-8 python tools/b657_tests.py run test_g_chain_page.py
+  #11 | 2026-10-12T20:07:13.601Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_tests.py report | tail -3; for f in data/b628_intake_crank_v0_5.txt data/b647_navigator_memory.txt; do echo "$f $(git s
+  #12 | 2026-10-12T20:07:41.369Z | seat | Bash | git add data/b657_stepzero.txt data/b657_tests_stepzero.txt data/b657_tests_stepzero.json data/b657_tests_withheld.json tools/b657_tests.py && git commit -q -m 
+  #13 | 2026-10-12T20:07:51.406Z | seat | Bash | cat -n lakefile.lean; cd /d/relay && cat data/b648_h2_row.txt | cut -c1-400; echo ===; head -30 data/b649_lv_build.txt | cut -c1-200; echo ===; head -12 data/b6
+  #14 | 2026-10-12T20:08:00.345Z | seat | Bash | sed -n '183,500p' tools/b655_record.py
+  #15 | 2026-10-12T20:08:17.239Z | seat | Bash | grep -n "RG.check\|bar_floor_self_test\|straddle_self_test\|bar_floor_check\|straddle_check\|GATE VERDICT\|io.open(OUT" tools/b656_reg_gate.py; grep -n "h1_comp
+  #16 | 2026-10-12T20:08:23.246Z | seat | Bash | python -c "
+  #17 | 2026-10-12T20:08:31.512Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -c "
+  #18 | 2026-10-12T20:08:55.110Z | seat | Bash | cd /d/relay && grep -n "closed:\|THE MIRROR-REFRESH\|COMPONENT 5\|THE NEXT ACT" data/b656_closing.txt | cut -c1-160; grep -n "^    ([a-h])" data/b656_defects.tx
+  #19 | 2026-10-12T20:09:17.595Z | seat | Bash | sed -n '497,870p' tools/b655_record.py
+  #20 | 2026-10-12T20:09:42.584Z | seat | Bash | grep -n "def _kdoc_rows" -A25 tools/b647_record.py | head -40; python -c "import json;j=json.load(open('data/b648_h2_row.json',encoding='utf-8'));print(list(j.k
+  #21 | 2026-10-12T20:13:41.156Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_record.py c1 dry 2>&1 | head -12 | cut -c1-1500
+  #22 | 2026-10-12T20:13:46.805Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_record.py c1 2>&1 | tail -1
+  #23 | 2026-10-12T20:14:12.595Z | seat | Bash | python -m py_compile tools/b657_reg_gate.py tools/b657_record.py tools/b657_worklist.py && cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md OPEN_TRAILS.md
+  #24 | 2026-10-12T20:14:19.200Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python tools/b657_record.py sentences 2>&1 | tail -5 | cut -c1-600
+  #25 | 2026-10-12T20:14:25.302Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_record.py plain 2>&1 | cut -c1-400
+  #26 | 2026-10-12T20:14:32.522Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #27 | 2026-10-12T20:14:39.100Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_record.py plain "the one plain block comment, CouplingsAtPhi.lean:1 (the file's head block, a b647 parent graded with t
+  #28 | 2026-10-12T20:14:47.062Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #29 | 2026-10-12T20:15:09.354Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #30 | 2026-10-12T20:15:14.629Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #31 | 2026-10-12T20:15:18.835Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #32 | 2026-10-12T20:15:29.200Z | seat | Bash | cd /d/SIDE-lv-conservation && git show b4c55b9:PinnedGoal.lean | cat -n | head -40; echo ====; git show b4c55b9:SIDELvConservation/T3_StepNineBridge.lean | grep
+  #33 | 2026-10-12T20:16:14.933Z | seat | Bash | cd /d/relay && head -30 data/b653_elided_cells.txt | cut -c1-400; grep -n "completed" data/b655_sentence_grades.txt | head -3 | cut -c1-400
+  #34 | 2026-10-12T20:17:54.092Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #35 | 2026-10-12T20:22:32.850Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_record.py grades 2>&1 | tail -3 | cut -c1-600
+  #36 | 2026-10-12T20:22:39.524Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #37 | 2026-10-12T20:22:51.899Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_record.py plan_cut 2>&1 | tail -3 | cut -c1-400
+  #38 | 2026-10-12T20:23:00.429Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #39 | 2026-10-12T20:23:05.932Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #40 | 2026-10-12T20:23:13.288Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #41 | 2026-10-12T20:23:29.604Z | seat | Bash | git add data/b657_table_SIDE-lv-conservation_sentences.txt data/b657_table_SIDE-lv-conservation_sentences.json data/b657_plain_comments.txt data/b657_plain_comm
+  #42 | 2026-10-12T20:29:50.506Z | seat | Bash | ls data | grep -E "^b648_sorry|^b653_(runner|merge|cut)|^b653_.*lv" ; wc -l data/b648_sorry_classification.txt
+  #43 | 2026-10-12T20:29:54.892Z | seat | Bash | grep -n -i "lv-conservation\|PinnedGoal\|T3_perClass\|AxiomCheck\|sorryAx\|:108\|RESTATE\|QUARANTIN" data/b648_sorry_classification.txt | cut -c1-400 | head -40
+  #44 | 2026-10-12T20:29:59.781Z | seat | Bash | sed -n '1,8p;145,163p' data/b648_sorry_classification.txt | cut -c1-500; echo ====; grep -n "^### ###\|T3_perClass\|DERIVES\|merge\|sorry" data/b653_runner_SIDE
+  #45 | 2026-10-12T20:30:22.460Z | seat | Bash | grep -n -i "lv-conservation\|T3_perClass\|PinnedGoal\|stated, not proved" data/b648_sorry_repairs.txt | cut -c1-500 | head -20; echo ===; sed -n '1,12p' data/b6
+  #46 | 2026-10-12T20:30:28.664Z | seat | Bash | sed -n '127,192p' data/b648_sorry_repairs.txt | cut -c1-260
+  #47 | 2026-10-12T20:32:17.340Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #48 | 2026-10-12T20:33:04.039Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b657_record.py grades 2>&1 | tail -3 | cut -c1-600 && python tools/b657_record.py plan_cut 2>&1 | tail -2 && pytho
+  #49 | 2026-10-12T20:33:14.687Z | seat | Bash | grep "ROWS LISTED UNRESOLVED" data/b657_sentence_grades.txt | cut -c1-200; PYTHONIOENCODING=utf-8 python tools/b657_record.py answers && git add data/b657_sente
+  #50 | 2026-10-12T20:34:53.858Z | seat | Bash | cd /d/SIDE-lv-conservation && git status --porcelain --untracked-files=no | head; git rev-parse --short HEAD; git branch --show-current; git config core.autocrl
+  #51 | 2026-10-12T20:35:00.587Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #52 | 2026-10-12T20:35:06.359Z | seat | Bash | cd /d/SIDE-lv-conservation && git show b4c55b9:SIDELvConservation/C7OrderBounds.lean | sed -n '237p'; git diff --stat 2f71068 b4c55b9 -- SIDELvConservation/C7Or
+  #53 | 2026-10-12T20:35:21.478Z | seat | Bash | cd /d/relay && export PYTHONIOENCODING=utf-8 && for f in AxiomCheck.lean SIDELvConservation/C7OrderBounds.lean SIDELvConservation/DirichletC7Order.lean; do pyth
+  #54 | 2026-10-12T20:35:31.124Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #55 | 2026-10-12T20:35:53.051Z | seat | Bash | export PYTHONIOENCODING=utf-8 && L="SIDELvConservation/GammaBounds.lean SIDELvConservation/Genus5Confinement.lean SIDELvConservation/LeadLaw.lean SIDELvConserva
+  #56 | 2026-10-12T20:36:01.261Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #57 | 2026-10-12T20:36:23.969Z | seat | Bash | export PYTHONIOENCODING=utf-8 && f=SIDELvConservation/QWantedPoster.lean && python tools/b657_record.py check_file $f && cd /d/SIDE-lv-conservation && git add $
+  #58 | 2026-10-12T20:37:05.791Z | seat | Bash | export PYTHONIOENCODING=utf-8 && f=SIDELvConservation/ZeroActingPartial.lean && python tools/b657_record.py check_file $f && cd /d/SIDE-lv-conservation && git a
+  #59 | 2026-10-12T20:37:41.458Z | seat | Bash | export PYTHONIOENCODING=utf-8 && f=SIDELvConservation/RegisterPentagon.lean && python tools/b657_record.py check_file $f && cd /d/SIDE-lv-conservation && git ad
+  #60 | 2026-10-12T20:38:18.189Z | seat | Bash | export PYTHONIOENCODING=utf-8 && f=SIDELvConservation/ZeroActingPairing.lean && python tools/b657_record.py check_file $f && cd /d/SIDE-lv-conservation && git a
+  #61 | 2026-10-12T20:39:23.886Z | seat | Bash | export PYTHONIOENCODING=utf-8 && f=SIDELvConservation/CouplingsAtPhi.lean && python tools/b657_record.py check_file $f || PYTHONIOENCODING=utf-8 python -c "
+  #62 | 2026-10-12T20:39:35.984Z | seat | Bash | export PYTHONIOENCODING=utf-8 && f=SIDELvConservation/CouplingsAtPhi.lean && python tools/b657_record.py check_file $f && cd /d/SIDE-lv-conservation && git add 
+  #63 | 2026-10-12T20:39:48.173Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b657_record.py cut_bank 2>&1 | tail -8 | cut -c1-300
+  #64 | 2026-10-12T20:40:12.914Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_record.py cut_bank 2>&1 | tail -6 | cut -c1-300
+  #65 | 2026-10-12T20:40:23.808Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #66 | 2026-10-12T20:40:44.464Z | seat | Bash | git add data/b657_cut_SIDE-lv-conservation.txt data/b657_cut_SIDE-lv-conservation.json data/b657_defects.txt tools/b657_record.py && git commit -q -m "b657 Comp
+  #67 | 2026-10-12T20:40:52.327Z | seat | Bash | cd /d/SIDE-lv-conservation && git show main:.github/workflows/build-module.yml | cat -n
+  #68 | 2026-10-12T20:41:07.336Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-lv-conservation -f ref=c230e6d8b02a3330eaec4d2e213fa5e905be13a8 -f target=SIDELvConservation 2>&1; sleep
+  #69 | 2026-10-12T20:42:01.794Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -c "
+  #70 | 2026-10-12T20:42:09.632Z | seat | Bash | for i in $(seq 1 30); do s=$(gh run view 38305820585 -R psinary-sketch/SIDE-lv-conservation --json status,conclusion -q '.status+" "+.conclusion' 2>/dev/null); 
+  #71 | 2026-10-12T20:44:37.991Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_record.py runner 2>&1 | tail -2 | cut -c1-500; grep -n "### the artifact\|### the memory\|### the build\|STANDARD THREE
+  #72 | 2026-10-12T20:44:46.183Z | seat | Bash | sed -n '108,117p' data/b657_runner_SIDE-lv-conservation.txt | cut -c1-200
+  #73 | 2026-10-12T20:44:53.563Z | seat | Bash | sed -n '1,40p' tools/push_gated.sh | grep -n "usage\|tag\|::\|\$3" | head -15; git -C /d/SIDE-global-section log -1 --format='%H %P%n%s' 504e146 | cut -c1-300
+  #74 | 2026-10-12T20:45:08.260Z | seat | Bash | cd /d/SIDE-lv-conservation && git checkout -q main && git merge --no-ff -q docstrings-cut-SIDE-lv-conservation -m "b657 under (R267)(3), Component 3: merge docs
+  #75 | 2026-10-12T20:45:22.923Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b657_record.py runner_merged 8e3bc76 v0.13.0 && git add data/b657_runner_SIDE-lv-conservation.txt data/b657_r
+  #76 | 2026-10-12T20:47:04.986Z | seat | Bash | export PYTHONIOENCODING=utf-8 B657_STANDIN=1 && python tools/b657_record.py findings dry 2>&1 | head -3 | cut -c1-400; python tools/b657_record.py findings dry 
+  #77 | 2026-10-12T20:47:11.139Z | seat | Bash | export PYTHONIOENCODING=utf-8 B657_STANDIN=1 && python tools/b657_record.py findings dry 2>&1 | sed -n '2,26p' | cut -c1-700; python tools/b657_record.py trail 
+  #78 | 2026-10-12T20:47:28.990Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_record.py answers && grep -n "^### PROMPT\|^RESULT" data/b657_author_answers.txt | cut -c1-120; python -c "
+  #79 | 2026-10-12T20:47:57.758Z | seat | Bash | grep -n "SIDE-lv-conservation " data/b647_table_kernels.txt | cut -c1-120 | cat -A | head -2
+  #80 | 2026-10-12T20:48:04.457Z | seat | Bash | PYTHONIOENCODING=utf-8 python - <<'EOF'
+  #81 | 2026-10-12T20:52:25.538Z | seat | Bash | python -c "
+
+### ### **COMMANDS 81 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**

@@ -47,7 +47,8 @@ BANKED_PRINTS = ('b653_runner_SIDE-lv-conservation.txt', 120, 127)
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b656's face
 # ### (b656's own act arms not carried). Each run at HEAD and counted before the face names it.
-ACT_ARMS = ()
+ACT_ARMS = ('G-R267-ENTERED', 'G-DRY-STEP-LINE', 'G-DRY-STEP-CLEAN', 'G-KERNEL-NAMED', 'G-SENTENCES-BANKED', 'G-GRADES-VERBATIM', 'G-H2-ROW',
+            'G-REGRADE-BANKED', 'G-PROMPTS-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE')
 B656_ACT_ARMS = ('G-R266-ENTERED', 'G-CORRECTION-LINE', 'G-MIRROR-CLAUSE-LINE', 'G-BINDING-BANKED', 'G-PROMPT-AFTER-BINDING', 'G-STOPPED-AT-C2',
                  'G-E1-CFG-FILED', 'G-NO-PLATEAU-WIDTH')
 

@@ -1278,7 +1278,336 @@ def table_final(*a):
     print(L[-1])
 
 
-# ### THE SCORES, THE RECORD TEXT, THE DESK, THE COMPONENTS AND THE DRY RUN: written after Component 3 lands, before the gate's dry-run step.
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+SK = ('S1', 'S2', 'S3')
+SCORE_KEYS = NK + SK
+N5_RELAY_DATA = ('act_roots.txt', 'b656_closing_push_out.txt')
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md')
+FACE = os.path.join(D, 'b657_registration_2026-10-12.txt')
+
+
+def TRAIL_HEAD():
+    return ('### b657 — lane three, act eighty-four, the re-cut act under (R267): b656 at its weight; the dry run a gate step; '
+            'SIDE-lv-conservation’s sentences graded, re-graded at main, cut, built on the runner and merged; the mirror export')
+
+
+def _ct(repo, *a):
+    s = g(repo, 'log', '-1', '--format=%ct', *a).strip()
+    return int(s) if s.isdigit() else None
+
+
+def _iso(s):
+    import calendar
+    try:
+        return calendar.timegm(time.strptime((s or '')[:19], '%Y-%m-%dT%H:%M:%S'))
+    except Exception:
+        return None
+
+
+def _verbatim():
+    """every graded row's quoted words read again as a verbatim substring of its cell (the parent's LICENSED cell, b648's h2 cell, or the
+    re-grade's bank line); returns (rows read, rows not verbatim)."""
+    G = jl(K.GRADES)
+    n, bad = 0, []
+    for k, p, q, rs0 in blocks():
+        cells = _row_cells(k, q)
+        for x in G['grades'].get(str(k), []):
+            _k, nn, w = read_grade_row(k, x)
+            n += 1
+            lic = cells[nn][1] if nn in cells else q['licensed']
+            if w not in lic:
+                bad.append('#%d s%s' % (k, nn))
+    return n, bad
+
+
+def _first_cut_ct():
+    s = g(K.KD, 'log', '--reverse', '--format=%ct', K.K_MAIN + '..' + K.CUT_BRANCH).split(NL)[0].strip()
+    return int(s) if s.isdigit() else None
+
+
+def _n2():
+    n, bad = _verbatim()
+    h2 = h2_row()['action'][len('RE-CUT: '):]
+    blob = _ws(_show(K.KD, 'main', 'SIDELvConservation/CouplingsAtPhi.lean') or '')
+    aj = jl('b657_author_answers.json').get('calls') or []
+    last_ans = max((_iso(c.get('result_ts')) or 0) for c in aj) if aj else None
+    first_cut = _first_cut_ct()
+    ok = n > 0 and not bad and _ws(h2) in blob and last_ans and first_cut and last_ans < first_cut and len(aj) == 2
+    return ('HELD' if ok else 'REFUTED'), (
+        'graded rows %d, each quoting its cell verbatim: %s; the h1_complete_at_Phi row carries b648`s sentence on main %s; the author`s two '
+        'answers (the grades, the re-grades) by %s, the first kernel byte (the first cut commit) at %s -- the answers first %s' % (
+            n, 'ALL' if not bad else 'NOT %s' % bad, _ws(h2) in blob, time.strftime('%H:%M:%SZ', time.gmtime(last_ans)) if last_ans else '?',
+            time.strftime('%H:%M:%SZ', time.gmtime(first_cut)) if first_cut else '?', bool(last_ans and first_cut and last_ans < first_cut)))
+
+
+def _n3():
+    cb = jl('b657_cut_SIDE-lv-conservation.json')
+    rr = dict((r['kernel'], r) for r in jl('b657_runner_rows.json').get('rows') or []).get(K.KERNEL) or {}
+    rt = rdn('b657_runner_%s.txt' % K.KERNEL)
+    eq = re.search(r'TERMINALS (\d+), AT THE STANDARD THREE OR NONE (\d+), EQUAL TO THE BANKED PROFILES (\d+)', rt)
+    prints_ok = bool(eq) and eq.group(1) == eq.group(2) == eq.group(3) and int(eq.group(1)) > 0
+    a_ = cb.get('after') or {}
+    ok = (cb and not cb.get('standing') and not cb.get('faults') and not a_.get('OVERREACHES (STANDING)') and not a_.get('UNLICENSED (STANDING)')
+          and prints_ok and rr.get('gate') == 'DERIVES' and rr.get('merged'))
+    return ('HELD' if ok else 'REFUTED'), (
+        'the grade bank re-run at the branch: %s, standing %d (the rows listed UNRESOLVED stand by the author`s word, ungraded); every file`s '
+        'comment-stripped code equal to main`s, faults %s; the runner`s prints %s; gate %s, merged %s tag %s' % (
+            dict(a_), len(cb.get('standing') or []), cb.get('faults') or 'NONE', eq.group(0) if eq else '### UNREAD', rr.get('gate'),
+            rr.get('merged'), rr.get('tag')))
+
+
+def _n4():
+    gt = rdn('b657_reg_gate.txt')
+    face = rd(FACE)
+    m = re.search(r'locked at \(UTC\)[^0-9]*(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)', face)
+    lock = _iso(m.group(1)) if m else None
+    gate_t = os.path.getmtime(os.path.join(D, 'b657_reg_gate.txt')) if os.path.exists(os.path.join(D, 'b657_reg_gate.txt')) else None
+    after = [l for l in rdn('b657_defects.txt').split(NL) if re.match(r'^    \([a-z]\) ', l) and 'AFTER THE SEAL' in l.upper()
+             and re.search(r'\b(entry|trail)\b', l, re.I)]
+    ok = 'THE DRY-RUN STEP : CLEAN' in gt and lock and gate_t and gate_t <= lock + 5 and not after
+    return ('HELD' if ok else 'REFUTED'), (
+        'the gate`s record prints the dry-run step %s, written %s, the lock at %s; defects of the entry-or-trail kind after the seal: %s' % (
+            'CLEAN' if 'THE DRY-RUN STEP : CLEAN' in gt else '### NOT CLEAN', time.strftime('%H:%M:%SZ', time.gmtime(gate_t)) if gate_t else '?',
+            m.group(1) if m else '?', len(after)))
+
+
+def _n5():
+    face = jl('b657_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state([k for k in face if k != K.KERNEL]) if face else {}
+    others_ok = bool(face) and all(now[k] == list(v) for k, v in face.items() if k != K.KERNEL)
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b657_|audit_b657_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in N5_RELAY_DATA))]
+    km = [l for l in g(K.KD, 'log', '--first-parent', '--format=%h %p', K.K_MAIN + '..main').split(NL) if l.strip()]
+    rr = dict((r['kernel'], r) for r in jl('b657_runner_rows.json').get('rows') or []).get(K.KERNEL) or {}
+    km_ok = len(km) == 1 and len(km[0].split()) == 3 and km[0].split()[0] == rr.get('merged')
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    import b657_checks as CH
+    new_arms = sorted(set(a[0] for a in CH.ARMS) - set(CH.STANDING) - set(K.ACT_ARMS))
+    ok = others_ok and not pp_beyond and not kinds_beyond and not differ and km_ok and not new_arms
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unsubmitted); SIDE-lv-conservation`s main written by the one merge under '
+            'Component 3 alone (first-parent commits since %s: %s ; %s), its workflow file b653`s and unedited; every other kernel as the face read '
+            'it %s; standing arms added: %s (the act`s arms over its own banks %d); sealed tools not agreeing %s; PLACE-papers beyond FINDINGS and '
+            'OPEN_TRAILS: %s; relay files of a kind beyond the banks, the tools, the gate edit and the root list: %s; no identifier of the author '
+            'in any outbound request (git pushes, remote reads, the runner`s dispatch with a ref and a target, the artifact`s download)' % (
+                K.DRAFT, K.K_MAIN, [l.split()[0] for l in km], 'AS RULED' if km_ok else '### OTHERWISE', others_ok, new_arms or 'NONE',
+                len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE', kinds_beyond or 'NONE'))
+
+
+def scores(*a):
+    TF, RA = jl('b657_table_final.json'), jl('b657_root_arm.json')
+    _r, _n, sh = seal_hashes()
+    cm = jl('b657_commands.json')
+    S = {
+        'N1': (('HELD' if cm and not cm.get('local_lean') else 'REFUTED'),
+               'commands of this act that run lean or lake on this host: %s (relay data/b657_commands.txt); the build on the hosted runner alone' % (
+                   cm.get('local_lean') if cm else '### UNREAD')),
+        'N2': _n2(), 'N3': _n3(), 'N4': _n4(), 'N5': _n5(),
+        'S1': (('HELD' if not TF.get('gone') and not TF.get('grade_moved') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s, grade moved %s' % (
+                   len(TF.get('moved') or []), len(TF.get('gone') or []), len(TF.get('added') or []), len(TF.get('grade_moved') or []))),
+        'S2': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S3': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    put_json('b657_scores.json', dict((k2, list(v)) for k2, v in S.items()))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:500]))
+
+
+NEXT_LINE = ('b658, per `(R267)`(6), the research act: W-ORD-E1-CFG -- the rate theorem over a configuration with an excluded zero and a local '
+             'count, ζ an instance by rfl -- on the runner, the author’s word pending')
+
+
+def _gtot():
+    m = re.search(r'SENTENCE ROWS (\d+) ; GRADED (\d+)', rdn('b657_sentence_grades.txt'))
+    return (int(m.group(2)), int(m.group(1))) if m else (0, 0)
+
+
+def _title():
+    rr = dict((r['kernel'], r) for r in jl('b657_runner_rows.json').get('rows') or []).get(K.KERNEL) or {}
+    cut_n = (jl('b657_cut_SIDE-lv-conservation.json').get('after') or {}).get('CUT', 0)
+    return ('## SIDE-lv-conservation’s docstrings at %d sentence rows cut of %d, the h2 row among them, built on the runner and merged at %s; '
+            'the dry run as a gate step' % (cut_n, _gtot()[1], rr.get('tag') or 'its next tag'))
+
+
+def _sv(S, k):
+    return read_score_row(k, S.get(k) or ['?', ''])[1] if S.get(k) else '?'
+
+
+def _finding_text():
+    S, rl, J = jl('b657_scores.json'), jl('b657_record_lines.json'), jl('b657_act_root.json')
+    ans = rdn('b657_author_answers.txt')
+    n_ans = len(re.findall(r'^### PROMPT ', ans, re.M))
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    rr = dict((r['kernel'], r) for r in jl('b657_runner_rows.json').get('rows') or []).get(K.KERNEL) or {}
+    cb = jl('b657_cut_SIDE-lv-conservation.json')
+    gr_n, rows_n = _gtot()
+    e = ['', _title(), '',
+         '*Filed at b657 on the author’s ruling `(R267)` and the author’s answers (%d prompts). Banks: relay `data/b657_sentence_grades.txt`, '
+         '`data/b657_cut_SIDE-lv-conservation.txt`, `data/b657_runner_SIDE-lv-conservation.txt`, `data/b657_reg_gate.txt`, '
+         '`data/b657_act_root.txt`.*' % n_ans, '',
+         '**The kernel** (`(R267)`(3)): SIDE-lv-conservation, 35 OVERREACHES in relay `data/b647_table_kernels.txt` :17; b647 read its 40 graded '
+         'blocks at 2f71068, its main since moved by b648’s quarantine and restatement and b653’s merge to b4c55b9, where 39 were read into %d '
+         'sentence rows by the b651 route (the 40th, T3_perClass_to_combinations, restated, listed).' % rows_n, '',
+         '**The grades** (`(R267)`(3) and the author’s two answers): %d rows graded by hand against their cells, each with the cell’s words '
+         'beside it; where the sentence split glued a heading or a list number to a row the row was broken at a named marker, and where one '
+         'ACTION re-cut several items a graded row took its own verbatim span of it; the h1_complete_at_Phi h2 row graded by b648’s cells, its '
+         'ACTION b648’s sentence; sixteen rows reached without usable ACTION text or stale at main re-graded against the banks that record the '
+         'change (b648’s classification and repairs, b653’s runner bank), the bank’s words cited -- two removed, one replaced by b648’s own '
+         'sentence, thirteen listed UNRESOLVED with their reasons. N2 %s.' % (gr_n, _sv(S, 'N2')), '',
+         '**The cut and the runner** (`(R267)`(3)): %d graded rows cut by the mechanical rule in %d commits, one per file, each file’s '
+         'comment-stripped code equal to main’s, the grade bank at the branch reading none standing; one dispatch on the workflow already on '
+         'main, run %s, the artifact’s sha256 agreeing with the platform’s digest, the whole library built, memory low %s MB, T3’s eight '
+         'terminals at the standard three each equal to its banked profile; merged alone, SIDE-lv-conservation %s tagged %s. N3 %s.' % (
+             (cb.get('after') or {}).get('CUT', 0), len(cb.get('commits') or []), rr.get('run_id'), rr.get('mem_low'), rr.get('merged'),
+             rr.get('tag'), _sv(S, 'N3')), '',
+         '**The dry run** (`(R267)`(2)): the registration gate’s run before the lock dry-ran this entry and the trail record through their '
+         'screens with the face’s needles, CLEAN printed before the lock was taken (OPEN_TRAILS :%s). N4 %s.' % (ls[1].get('line'), _sv(S, 'N4')), '',
+         '**The record lines** (`(R267)`(1)): b656 at its weight (FINDINGS :%s).' % ls[0].get('line'), '',
+         '**The root.** b657 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): this cut re-reads b647’s block bank for SIDE-lv-conservation (relay '
+         '`data/b647_table_SIDE-lv-conservation.txt`), b648’s h2 row and its sorry classification and repairs, and b653’s runner bank, and finds '
+         'cells written at one main reaching sentences on the next; it is re-read by the next re-cut act and by a refresh of the cells for the '
+         'rows listed UNRESOLVED. It strengthens the programme’s offering of statements a reader can check: SIDE-lv-conservation’s docstrings now '
+         'say what its terminals carry, the h2 sentence names its register, and the build runs on a machine the reader can name by run id.', '',
+         '**Next.** %s.' % NEXT_LINE, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero; a docstring cut says less, not more, and a gate reading compares a '
+         'print with the banked profile and confers nothing beyond it.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) the blocks read at the kernel`s main b4c55b9, not at b647`s 2f71068, a block not found there listed; (2) the breaks, joins '
+              'and row spans of the grade bank, each checked to rejoin and to be verbatim; (3) the gate reading of this kernel the eight T3 '
+              'terminals its workflow prints, against b653`s banked profiles, the whole library built; (4) the dry run read under stand-ins for '
+              'the banks not yet written at the lock')
+
+
+def _trail_text():
+    S, fj, rl, J = (jl(n_) for n_ in ('b657_scores.json', 'b657_findings.json', 'b657_record_lines.json', 'b657_act_root.json'))
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b657_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R267) ratified.** (1) b656 at its weight. (2) The entry-and-trail dry run a step of the registration gate. (3) The kernel: '
+             'SIDE-lv-conservation, its sentences graded by hand, the h2 row among them; the cut, the runner, the merge. (4) The mirror export. (5) '
+             'The draft held at v5. (6) The act after: b658.', '',
+             '**Entered:** FINDINGS.md:%s (b656’s weight), :%s (the entry); OPEN_TRAILS.md:%s (the dry run a gate step); this record.' % (
+                 ls[0].get('line'), fj.get('entry_line'), ls[1].get('line')), '',
+             '**Act root:** b657 `%s` (previous `%s`, b656’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
+                 J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d (relay data/b657_author_answers.txt, with the author’s words), the grades and the re-grades, both before '
+             'any cut; none after the root.' % n_ans, '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Rows a later cell refresh reaches** (the author’s word): RegisterPentagon s22 and PinnedGoal s1–s2, when a bank sentence describes '
+             'those files as they stand at main.', '',
+             '**Defects** (relay data/b657_defects.txt): %s.' % ('; '.join(_defect_short()) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** %s.' % NEXT_LINE, '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b657_scores.json')
+    L = ['=' * 104, 'b657 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rdn('b657_defects.txt').rstrip(NL).split(NL)
+    put_txt('b657_desk_notes.txt', L)
+
+
+def components(*a):
+    S, fj, tj, rl, J = (jl(n_) for n_ in ('b657_scores.json', 'b657_findings.json', 'b657_trail.json', 'b657_record_lines.json', 'b657_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    L = ['b657 -- THE COMPONENTS, BANKED UNDER (R267).', '',
+         '### COMPONENT 0 : step zero (data/b657_ferry.txt, data/b657_stepzero.txt, data/b657_tests_stepzero.txt) ; push-out relay %s' % K.STEPZERO,
+         '### COMPONENT 1 : b656`s weight FINDINGS :%s ; the dry run a gate step OPEN_TRAILS :%s ; the gate`s step (tools/b657_reg_gate.py)' % (
+             ls[0].get('line'), ls[1].get('line')),
+         '### COMPONENT 2 : the grades and the re-grades (data/b657_table_SIDE-lv-conservation_sentences.txt, data/b657_sentence_grades.txt) ; N2 %s' % S['N2'][0],
+         '### COMPONENT 3 : the cut and the runner (data/b657_cut_SIDE-lv-conservation.txt, data/b657_runner_SIDE-lv-conservation.txt) ; N3 %s' % S['N3'][0],
+         '### COMPONENT 4 : the dry-run step (data/b657_reg_gate.txt), the seal (data/b657_seal_hashes.json) ; N4 %s ; S3 %s' % (S['N4'][0], S['S3'][0]),
+         '### COMPONENT 5 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N1 %s ; N5 %s' % ((J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'),
+                                                                                        S['N1'][0], S['N5'][0])]
+    put_txt('b657_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def _land_one(path, head, e, bank, extra):
+    if odd_lines(e):
+        sys.exit('### ODD BACKTICKS -- NOTHING WRITTEN: %s' % odd_lines(e)[:3])
+    guard_absent(path, head)
+    r = append_to(path, e)
+    ln = read_head(path, head)
+    put_json(bank, dict(extra, line=ln, head=head, append=r))
+    return ln
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = conv(e)
+    dry = 'dry' in a
+    cells, fired = screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(FIND, t, e, 'b657_findings.json', dict(title=t))
+    j = jl('b657_findings.json')
+    j['entry_line'] = ln
+    put_json('b657_findings.json', j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = conv(_trail_text())
+    dry = 'dry' in a
+    cells, fired = screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(OT, TRAIL_HEAD(), e, 'b657_trail.json', {})
+    print('  OPEN_TRAILS record :%s' % ln)
+
+
+def _face_needles(face_text, which):
+    m = re.search(r'^### THE DRY-RUN NEEDLES -- %s: (.*)$' % which, face_text, re.M)
+    return re.findall(r'"([^"]+)"', m.group(1)) if m else []
+
+
+def drycheck(*a):
+    """(R267)(2), STANDING FROM b657: the FINDINGS entry and the trail record composed as the record tool composes them -- under stand-ins
+    for the banks not yet written (B657_STANDIN) -- converted by conv and run through the screens their landing runs, the needles the face
+    names read in each; prints DRY-RUN STEP : CLEAN and exits 0 only when both screens are quiet and every needle is found. Writes no bank."""
+    face = rd(a[0] if a else FACE)
+    out, ok = [], True
+    for which, (head, text) in (('ENTRY', _finding_text()), ('TRAIL', (TRAIL_HEAD(), _trail_text()))):
+        t = conv(text)
+        print('  %s (the screens):' % which)
+        cells, fired = screens([('FINDINGS.md' if which == 'ENTRY' else 'OPEN_TRAILS.md', head, t)], 'dry_' + which.lower(), True)
+        nd = _face_needles(face, which)
+        miss = [n for n in nd if n not in t]
+        clean = not cells and not fired and nd and not miss
+        ok = ok and clean
+        print('  %s : table cells %s ; screens %s ; the face`s needles %d, found %d%s ; %s' % (
+            which, cells or 'NONE', 'FIRED' if fired else 'QUIET', len(nd), len(nd) - len(miss), (' -- missing %s' % miss) if miss else '',
+            'CLEAN' if clean else 'NOT CLEAN'))
+    print('  ### ### **DRY-RUN STEP : %s**' % ('CLEAN' if ok else 'NOT CLEAN'))
+    if not ok:
+        sys.exit(1)
 
 
 # ================================================================================ THE MIRROR, AT THE CLOSE ((R267)(4); b656's routes, carried)
