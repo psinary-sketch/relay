@@ -1,0 +1,110 @@
+b658 -- COMPONENT 2, (R268)(3): E1 OVER A CONFIGURATION -- THE STATEMENT DRAFTED BEFORE ANY LEAN (2026-10-12)
+
+### the kernel: SIDE-explicit-formula at v0.27 = main 111e418b; every line below read from the blob by `git show main:<path>`; no lean run,
+### no file of the kernel written. The ζ proof is RateIndex.lean (rest_norm_le_rate :25-:106, zeroSide_neg_at_rate :108-:188), read line by
+### line for what it consumes. Rows of section 2 are hypotheses (one binder group each, the form `  H<n>  <binder> -- CONSUMED AT RateIndex.lean
+### :<line>, ... -- <how>`); rows of section 3 are the configuration facts the proof consumes through named declarations.
+### The author's word before this bank (relay data/b658_author_answers.txt): the statement over WeilConfig as Converse.lean's twins are stated,
+### consuming the points and multiplicities, the setup and HCount and no other field; ζ's instance through Instances.lean :25, closing by rfl;
+### no excluded-zero hypothesis ((R268)(3)'s clause struck as the navigator's, relay data/b658_defects.txt (a)).
+
+================================================================================================================================
+### 1. THE CONFIGURATION
+================================================================================================================================
+  C : Schema.WeilConfig (Schema/Config.lean :24-:34), the structure the _cfg declarations range over (Converse.lean :24). The statement reads
+  C.toZeroConfig alone -- its carrier and mult (Zeta23 ZeroConfig, Defs.lean :136-:148) through PWSetup, tieSet, killSet, the sums and
+  zeroSide_cfg. Its fields rhs and ef (the explicit formula), count (the existential local count, :31) and target, target_iff are NOT
+  consumed: the local count enters as the hypothesis hA with its constant A₀ (O-3 of relay data/b656_e1_binding.txt :40-:43; LocalCount.lean
+  :287 holds ζ's constant existentially), and the summability the ζ proof took from the kernel's count (dominant_summable, PowerLimit.lean
+  :949-:960, its count at :952) is taken from hA through weighted_summable (PowerLimit.lean :934), as dominant_summable_cfg takes it from C.count
+  (Converse.lean :31, :34) -- here from the hypothesis, so no field beyond the points and multiplicities is read.
+  ζ: zetaWeilConfig := { Zeta23.zetaZeroConfig with ... } (Instances.lean :25-:37), so zetaWeilConfig.toZeroConfig is zetaZeroConfig by
+  definition, zeroSide_cfg zetaWeilConfig is zeroSide (Config.lean :37-:38 against B321Identity.lean :24-:26) and sT_cfg is sT (Converse.lean
+  :151-:152 against PowerLimit.lean :1072-:1073) -- the ground of the instance by rfl.
+
+================================================================================================================================
+### 2. THE HYPOTHESES, EACH TRACED TO THE LINE OF THE ζ PROOF THAT CONSUMED IT
+================================================================================================================================
+  H1  H : PWSetup C.toZeroConfig g0 L M -- CONSUMED AT RateIndex.lean :37, :38, :74, :84, :96, :97, :103, :130, :131, :151, :152, :167 -- H.hM (:37, :131), Aw_nonneg H (:38), fR_norm_le H (:74), dominant_summable H (:84, :103, :151), the bound Bf through Aw H (:96) and zero_weight H (:97), rest_norm_le_rate H (:130), fR_bound H (:152), tie_term_neg H (:167); PWSetup is stated over any ZeroConfig (PowerLimit.lean :245)
+  H2  Q : ℕ → Polynomial ℝ -- CONSUMED AT RateIndex.lean :126, :130, :136, :152, :167 -- the window's coefficients coeffList (Pof H (Q j)) in the conclusion (:126) and the split (:136), the rest (:130, :152), the tie terms (:167)
+  H3  B : ℝ -- CONSUMED AT RateIndex.lean :124, :130, :151, :152 -- Bf in hrate (:124), the rest bound (:130), the dominant (:151), fR_bound (:152)
+  H4  D : ℕ -- CONSUMED AT RateIndex.lean :39, :124, :130, :151, :152 -- 2 ^ (D + 1) ≤ 2 ^ (j + 1) (:39), Bf and the exponent in hrate (:124), the rest (:130), the dominant (:151), fR_bound (:152)
+  H5  hQtie : ∀ j, ∀ ρ ∈ tieSet C.toZeroConfig g0 M, (Polynomial.aeval (vOf ρ) (Q j)) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ) -- CONSUMED AT RateIndex.lean :167 -- tie_term_neg H (Q j) j (hQtie j) (PowerLimit.lean :749), each tie term's real part -mult · Nf · M ^ (2 ^ (j + 1))
+  H6  hQb : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D -- CONSUMED AT RateIndex.lean :74, :130, :152 -- fR_norm_le inside the rest bound (:74, reached through :130) and fR_bound for the rest's summability (:152)
+  H7  θ : ℝ, hθ0 : 0 ≤ θ -- CONSUMED AT RateIndex.lean :40, :130 -- pow_nonneg hθ0 (:40), the rate's factor non-negative, through rest_norm_le_rate (:130)
+  H8  hθ : ∀ ρ ∈ C.toZeroConfig.carrier, ρ ∉ tieSet C.toZeroConfig g0 M → ρ ∉ killSet C.toZeroConfig g0 M → offScore g0 ρ / M ≤ θ -- CONSUMED AT RateIndex.lean :62, :130 -- hθ x x.2 hT hK (:62), the ratio below θ off the tie and kill sets, through rest_norm_le_rate (:130)
+  H9  A₀ : ℝ, hA : HCount C.toZeroConfig A₀ -- CONSUMED AT RateIndex.lean :94, :130 -- weighted_finite_bound C.toZeroConfig hA (:94; PowerLimit.lean :879), the constant 3 A₀ Bf zeta3Sum, through rest_norm_le_rate (:130); in the configuration form also the summability at :84, :103, :151 (weighted_summable C.toZeroConfig hA, PowerLimit.lean :934), where ζ's proof read the kernel's existential count
+  H10  j : ℕ, hj : D ≤ j -- CONSUMED AT RateIndex.lean :39, :130, :152 -- the exponent comparison by omega (:39), the rest bound (:130), fR_bound at j ≥ D (:152)
+  H11  hrate : θ ^ (2 ^ (j + 1) - 2 ^ (D + 1)) * (3 * A₀ * (128 * 8 ^ D * B ^ 2 * (Aw H / M) ^ (2 ^ (D + 1))) * zeta3Sum) < ∑ x ∈ sT_cfg H, (C.toZeroConfig.mult x : ℝ) * Nf H x -- CONSUMED AT RateIndex.lean :130 -- lt_of_le_of_lt (rest_norm_le_rate ...) hrate, the rest below the tie terms' sum; the same hrate, sT_cfg for sT
+  (the excluded zero) -- CONSUMED AT NO LINE -- zeroSide_neg_at_rate takes no excluded-zero argument (:113-:125) and its proof reads none; the limit form takes one (PowerLimit.lean :1082-:1083, through coeffs_exist :1086 and the positive tie sum :1088). hrate carries it: its left side is never negative (θ ^ k ≥ 0 by hθ0, A₀ ≥ 1 by hA, Bf ≥ 0, zeta3Sum ≥ 0), so hrate forces ∑ over sT_cfg H positive, the tie set non-empty -- an off-line point of C at the dominant score M (tieSet, PowerWindow.lean :398; PWSetup.hdom, PowerLimit.lean :251). Not a hypothesis, on the author's word.
+
+================================================================================================================================
+### 3. THE CONFIGURATION FACTS THE ζ PROOF CONSUMES THROUGH NAMED DECLARATIONS, AND WHAT C CARRIES FOR EACH
+================================================================================================================================
+  F1  dominant_summable H B D (PowerLimit.lean :949; ζ's existential count at :952) at RateIndex.lean :84, :103, :151 -> weighted_summable C.toZeroConfig hA (PowerLimit.lean :934), the hypothesis H9
+  F2  fR (PowerLimit.lean :964) at RateIndex.lean :35, :45-:58, :71-:74, :100-:103, :128, :134-:142, :150-:153, :169-:178, :186 -> fR_cfg (Converse.lean :43)
+  F3  fR_norm_le (PowerLimit.lean :969) at RateIndex.lean :74 -> fR_norm_le_cfg (Converse.lean :48)
+  F4  fR_bound (PowerLimit.lean :986) at RateIndex.lean :152 -> fR_bound_cfg (Converse.lean :65)
+  F5  sT (PowerLimit.lean :1072) at RateIndex.lean :125, :129, :143-:145, :162, :170-:187 -> sT_cfg (Converse.lean :151)
+  F6  mem_sT (PowerLimit.lean :1075) at RateIndex.lean :145, :167, :184 -> mem_sT_cfg (Converse.lean :154)
+  F7  zeroSide (B321Identity.lean :24) at RateIndex.lean :126, :185 -> zeroSide_cfg C (Config.lean :37)
+  F8  consumed as they stand, each stated over any ZeroConfig: tieSet, killSet (PowerWindow.lean :398, :401), kill_term_zero (PowerLimit.lean :756) at :58, tie_term_neg (:749) at :167, zero_weight (:809) at :97, weighted_finite_bound (:879) at :94, Aw, Aw_nonneg (:800, :802) at :38, Nf (:445), HCount (RestBound.lean :44), zeta3Sum (RestBound.lean :51); the carrier membership x.2 at :62, :99
+  F9  NOT consumed: IsNontrivialZero and the seam (SeamClosed.lean :42, :44), b321_identity and the ef field, the target, the count field (H9 in its place), an excluded zero (section 2)
+
+================================================================================================================================
+### 4. THE STATEMENT, AS DRAFTED (SIDE-explicit-formula, branch e1cfg-b658 from main 111e418, a new file
+### SIDEExplicitFormula/Schema/RateIndexCfg.lean importing SIDEExplicitFormula.Schema.Instances and SIDEExplicitFormula.RateIndex,
+### namespace SIDEExplicitFormula.Schema, `open B321`, `variable {C : WeilConfig} {g0 : ℝ → ℝ} {L M : ℝ}`; `theorem`, never `lemma`)
+================================================================================================================================
+
+theorem rest_norm_le_rate_cfg (H : PWSetup C.toZeroConfig g0 L M)
+    (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+    (hQb : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D)
+    (θ : ℝ) (hθ0 : 0 ≤ θ)
+    (hθ : ∀ ρ ∈ C.toZeroConfig.carrier, ρ ∉ tieSet C.toZeroConfig g0 M →
+      ρ ∉ killSet C.toZeroConfig g0 M → offScore g0 ρ / M ≤ θ)
+    (A₀ : ℝ) (hA : HCount C.toZeroConfig A₀)
+    (j : ℕ) (hj : D ≤ j) :
+    ‖∑' x, fR_cfg H Q j x / (M : ℂ) ^ (2 ^ (j + 1))‖ ≤
+      θ ^ (2 ^ (j + 1) - 2 ^ (D + 1)) * (3 * A₀ * (128 * 8 ^ D * B ^ 2 * (Aw H / M) ^ (2 ^ (D + 1))) * zeta3Sum)
+
+theorem zeroSide_neg_at_rate_cfg (H : PWSetup C.toZeroConfig g0 L M)
+    (Q : ℕ → Polynomial ℝ) (B : ℝ) (D : ℕ)
+    (hQtie : ∀ j, ∀ ρ ∈ tieSet C.toZeroConfig g0 M,
+      (Polynomial.aeval (vOf ρ) (Q j)) ^ 2 * Xval H j ρ = -(‖Xval H j ρ‖ : ℂ))
+    (hQb : ∀ j (w : ℂ), ‖Polynomial.aeval w (Pof H (Q j))‖ ≤ B * (1 + ‖w‖) ^ D)
+    (θ : ℝ) (hθ0 : 0 ≤ θ)
+    (hθ : ∀ ρ ∈ C.toZeroConfig.carrier, ρ ∉ tieSet C.toZeroConfig g0 M →
+      ρ ∉ killSet C.toZeroConfig g0 M → offScore g0 ρ / M ≤ θ)
+    (A₀ : ℝ) (hA : HCount C.toZeroConfig A₀)
+    (j : ℕ) (hj : D ≤ j)
+    (hrate : θ ^ (2 ^ (j + 1) - 2 ^ (D + 1)) *
+        (3 * A₀ * (128 * 8 ^ D * B ^ 2 * (Aw H / M) ^ (2 ^ (D + 1))) * zeta3Sum) <
+      ∑ x ∈ sT_cfg H, (C.toZeroConfig.mult x : ℝ) * Nf H x) :
+    (zeroSide_cfg C (kWindow (coeffList (Pof H (Q j))) g0 j)).re < 0
+
+### THE ζ INSTANCE, the v0.15 form (Instances.lean :43-:45, h2_sign_cfg_zeta_statement by rfl): each configuration theorem at
+### zetaWeilConfig IS the ζ theorem, by definition -- the two sides' types agree by unfolding, the proofs by proof irrelevance:
+
+theorem rest_norm_le_rate_cfg_zeta :
+    @rest_norm_le_rate_cfg zetaWeilConfig = @B321.rest_norm_le_rate := rfl
+
+theorem zeroSide_neg_at_rate_cfg_zeta :
+    @zeroSide_neg_at_rate_cfg zetaWeilConfig = @B321.zeroSide_neg_at_rate := rfl
+
+### and, should rfl not close one of them, the one application in its place: the ζ statement written out as RateIndex.lean :113-:126 states
+### it, proved by `zeroSide_neg_at_rate_cfg (C := zetaWeilConfig) H Q B D hQtie hQb θ hθ0 hθ A₀ hA j hj hrate` (likewise for the rest).
+### RateIndex.lean is not edited: zeroSide_neg_at_rate's own print is read beside the new ones.
+
+### THE PROOF, TO BE ATTEMPTED ON THE AUTHOR'S WORD: the ζ proof at RateIndex.lean :37-:106 and :127-:188 with the replacements of section 3
+### (F1-F7) and C.toZeroConfig for Zeta23.zetaZeroConfig, the summability from hA (F1); no new definition.
+
+================================================================================================================================
+### 5. THE RUNNER, ON THE AUTHOR'S WORD (relay data/b658_author_answers.txt; (R263)(4) as the standing form from b658)
+================================================================================================================================
+  The print step of .github/workflows/build-module.yml (main :74-:88, names in its own text at :80-:82) edited on the branch to read its
+  terminal names from print_targets.txt at the kernel's root, one name per line, importing each module of the dispatch's target; the
+  branch carries the edit and the file (E1's three names as main prints them, then the four above); the one dispatch at the branch, its
+  target SIDEExplicitFormula.Schema.RateIndexCfg SIDEExplicitFormula.TransversalityWidth; the merge carries both to main.
+
+### ### **THE PROMPT OF (R268)(3) IS RAISED ON THIS BANK, ON THE STATEMENT ALONE; NO LEAN IS WRITTEN BEFORE THE AUTHOR'S WORD.**
