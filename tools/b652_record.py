@@ -262,6 +262,45 @@ def _lake_libs():
     return ('Kernel/', 'Bridge/'), ('MetaKernel.lean',)
 
 
+def _procs():
+    r = subprocess.run(['powershell', '-NoProfile', '-Command',
+                        'Get-Process | Sort-Object WorkingSet64 -Descending | ForEach-Object { "{0}`t{1}`t{2}" -f $_.Name,$_.Id,[math]::Round($_.WorkingSet64/1MB) }'],
+                       capture_output=True, text=True, encoding='utf-8', errors='replace')
+    rows = []
+    for l in (r.stdout or '').split(NL):
+        x = l.strip().split('\t')
+        if len(x) == 3 and x[2].isdigit():
+            rows.append(dict(name=x[0], pid=int(x[1]), ws_mb=int(x[2])))
+    return rows
+
+
+def margin3(*a):
+    """the author's answer to the margin prompt: one reading on this host after the author closes every application but Claude Code, printed
+    with the processes named. a[0] = 'open' (taken before the author's closing, banked as such) or 'closed' (on the author's word that it is done)."""
+    state = a[0] if a else 'open'
+    j = jl('b652_build_margin.json') or {'hold': HOLD, 'readings': []}
+    fm = free_mb()
+    seen = fm - HOLD
+    procs = _procs()
+    by = {}
+    for p in procs:
+        by[p['name']] = by.get(p['name'], 0) + p['ws_mb']
+    at = utc()
+    rows = []
+    for k, br, f, tgt, peak, src in MODULES:
+        need, lsrc = LOSS[tgt]
+        rows.append(dict(reading='3-' + state, at=at, kernel=k, branch=br, module=f, target=tgt, term='host loss', needed=need, free=fm, seen=seen,
+                         allows=seen >= need, source=lsrc))
+    j['readings'] += rows
+    j.setdefault('procs', {})['3-' + state] = dict(at=at, free=fm, by_name=sorted(by.items(), key=lambda kv: -kv[1])[:25], n=len(procs))
+    put_json('b652_build_margin.json', j)
+    print('  reading 3-%s %s free %d MB, seen %d above the hold ; processes %d' % (state, at, fm, seen, len(procs)))
+    for n_, mb in sorted(by.items(), key=lambda kv: -kv[1])[:12]:
+        print('    %-40s %6d MB' % (n_, mb))
+    for r in rows:
+        print('    %-38s needed %4d ; seen %4d ; %s' % (r['target'], r['needed'], r['seen'], 'ALLOWS' if r['allows'] else 'DOES NOT ALLOW'))
+
+
 def margin2(*a):
     """the second reading under the corrected term: per module of the three branches, per file of the cut branch; banked, the text too."""
     j = jl('b652_build_margin.json') or {'hold': HOLD, 'readings': []}
