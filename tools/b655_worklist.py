@@ -39,6 +39,11 @@ MATHLIB_PIN = 'cecd0c4d56a6410638a13491d566104756f892bf'
 RUNNER = {KERNEL: dict(branch=CUT_BRANCH, target='all', workflow_commit=K_WORKFLOW, run_id=38276189411,
                        ref='8cea5b45f50d0f40ffde372b40f7005a4922a7bd')}
 
+# ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b654's face
+# ### (b654's own act arms not carried)
+ACT_ARMS = ('G-R265-ENTERED', 'G-EDIT-ROUTE-LINE', 'G-EDIT-ROUTE-REPAIRED', 'G-KERNEL-NAMED', 'G-SENTENCES-BANKED', 'G-PLAIN-COMMENTS',
+            'G-GRADES-VERBATIM', 'G-REGRADE-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE', 'G-PROMPT-BEFORE-CUT')
+
 # ### (R265)(4): the shared tool the act edits and its test
 EDITED_SHARED = ('edit_route.py', 'test_edit_route_b646.py')
 NEW_TESTS = ()

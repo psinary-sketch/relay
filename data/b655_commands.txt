@@ -1,0 +1,115 @@
+b655 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-12T16:32:26Z)
+
+### the source: the seat`s session 1199f364-78c4-4147-843f-edf01bb11b28 from its first user line carrying 'RULING (R265) BEGIN', and its subagents` transcripts
+### commands read: 101
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-12T15:26:19.503Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|python3)(\.exe)?$' } | Select-Object ProcessId,Name,@{n='Cmd';e={$_.Comma
+  #2 | 2026-10-12T15:26:51.842Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -c "
+  #3 | 2026-10-12T15:26:58.026Z | seat | Bash | git add data/b655_ferry.txt data/b655_ferry_scan.txt data/b654_closing_push_out.txt && git commit -q -m "b655 Component 0 under (R265): the ruling and the ferry
+  #4 | 2026-10-12T15:27:04.033Z | seat | Bash | git -C /d/relay branch -d push-b654 && git -C /d/relay branch -d push-b654-root && git -C /d/relay branch -d push-b654-closing && git -C /d/MY-DOwnloads/PLACE-p
+  #5 | 2026-10-12T15:27:08.060Z | seat | Bash | git -C /d/SIDE-explicit-formula push origin --delete e1-rate-b654
+  #6 | 2026-10-12T15:27:13.423Z | seat | Bash | for r in relay MY-DOwnloads/PLACE-papers SIDE-explicit-formula; do echo "$r: $(git -C /d/$r branch -a --list '*push-b654*' '*e1-rate-b654*' | wc -l)"; done
+  #7 | 2026-10-12T15:27:22.229Z | seat | Bash | diff <(sed 's/b654/b655/g; s/R264/R265/g; s/b653/b654/g' tools/b654_tests.py) tools/b654_tests.py | head -5; echo; grep -n "b653\|b654\|R264" tools/b654_tests.p
+  #8 | 2026-10-12T15:27:50.291Z | seat | Bash | for t in $(ls tools | grep -E '^test_' | grep -vE '^(test_asof.py|test_chain_page.py|test_name_b649.py|test_g_chain_page.py|test_elab_reader_b634.py)$'); do PYT
+  #9 | 2026-10-12T15:32:42.845Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_tests.py run test_asof.py
+  #10 | 2026-10-12T15:39:28.537Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_tests.py run test_chain_page.py
+  #11 | 2026-10-12T15:45:49.346Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_tests.py run test_name_b649.py && PYTHONIOENCODING=utf-8 python tools/b655_tests.py run test_g_chain_page.py
+  #12 | 2026-10-12T15:51:00.861Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_tests.py report | tail -3; for f in data/b628_intake_crank_v0_5.txt data/b647_navigator_memory.txt; do echo "$f status 
+  #13 | 2026-10-12T15:51:26.002Z | seat | Bash | git add data/b655_stepzero.txt data/b655_defects.txt data/b655_tests_stepzero.txt data/b655_tests_stepzero.json data/b655_tests_withheld.json tools/b655_tests.p
+  #14 | 2026-10-12T15:51:31.547Z | seat | Bash | wc -l data/b647_table_kernels.txt && cat -n data/b647_table_kernels.txt | cut -c1-220 | head -80
+  #15 | 2026-10-12T15:51:41.067Z | seat | Bash | git ls-files data | grep -E "b647_table_SIDE-global|b651_table_SIDE-kernel|b652_sentence_grades|b653_elided|b650.*needle|b651_.*sentences" ; git ls-files tools 
+  #16 | 2026-10-12T15:51:46.986Z | seat | Bash | cat "/c/Users/echo chamber/.claude/projects/D--/memory/reference_kernel_build_procedure.md"; cd /d/SIDE-global-section && git ls-files | head -50; git ls-files 
+  #17 | 2026-10-12T15:51:54.159Z | seat | Bash | ls build | head; ls build | wc -l; cat .gitignore; grep -n -i "build\|mathlib\|LEAN_PATH\|lake" README.md | head -20; ls -d build/Mathlib* 2>/dev/null | head -2
+  #18 | 2026-10-12T15:51:58.252Z | seat | Bash | sed -n 15,60p README.md; ls Interfaces; git grep -l "^import Mathlib" -- '*.lean'
+  #19 | 2026-10-12T15:52:07.355Z | seat | Bash | cd /d/relay && wc -l data/b647_table_SIDE-global-section.txt && sed -n 1,12p data/b647_table_SIDE-global-section.txt | cut -c1-300; python -c "
+  #20 | 2026-10-12T15:52:13.850Z | seat | Bash | grep -n "^def \|sentences" tools/b651_record.py | head -60
+  #21 | 2026-10-12T15:52:17.040Z | seat | Bash | sed -n 268,342p tools/b651_record.py
+  #22 | 2026-10-12T15:52:22.832Z | seat | Bash | sed -n 1,40p data/b652_sentence_grades.txt | cut -c1-260; python -c "
+  #23 | 2026-10-12T15:52:26.973Z | seat | Bash | sed -n 408,522p tools/b652_record.py; sed -n 754,798p tools/b652_record.py
+  #24 | 2026-10-12T15:52:33.927Z | seat | Bash | git ls-files data | grep b650_ | head -40; git grep -n -i "needle" -- 'data/b650_*' | grep -i "plain\|/-" | head -10 | cut -c1-300
+  #25 | 2026-10-12T15:52:38.554Z | seat | Bash | sed -n 15,40p data/b650_resonances_navigator.txt | cut -c1-400; git grep -n -i "PLAIN-COMMENT\|plain block comment" -- data/b651_* data/b652_* 'tools/b65*' | he
+  #26 | 2026-10-12T15:52:43.091Z | seat | Bash | sed -n 13836p /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c300-1500; cd /d/relay && git grep -n "def .*needle\|NEEDLE\s*=" -- tools/*.py | head -10
+  #27 | 2026-10-12T15:52:49.511Z | seat | Bash | grep -n "Q2" -A12 data/b650_resonances_seat.txt | cut -c1-300 | head -20; ls tools | grep -i "ceil\|stem_sweep\|banned"
+  #28 | 2026-10-12T15:53:00.111Z | seat | Bash | mkdir -p "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/1199f364-78c4-4147-843f-edf01bb11b28/scratchpad" && echo ok
+  #29 | 2026-10-12T15:53:10.153Z | seat | Bash | grep -n "def _kdoc_rows\|^_MSPLIT\|def docstring_row" tools/b647_record.py tools/licensed_table.py; sed -n "$(grep -n 'def _kdoc_rows' tools/b647_record.py | cu
+  #30 | 2026-10-12T15:54:43.089Z | seat | Bash | sed -n 1,119p tools/edit_route.py
+  #31 | 2026-10-12T15:54:51.300Z | seat | Bash | cat tools/test_edit_route_b646.py | head -80; wc -l tools/test_edit_route_b646.py
+  #32 | 2026-10-12T15:55:06.106Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/test_edit_route_b646.py > /dev/null; PYTHONIOENCODING=utf-8 python tools/test_edit_route_b646.py | grep -v "PASS$"; PYTHONIO
+  #33 | 2026-10-12T15:55:20.424Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/test_edit_route_b646.py | grep -v "PASS$"; PYTHONIOENCODING=utf-8 python tools/test_edit_route_b646.py | sed -n '15p;26,27p'
+  #34 | 2026-10-12T15:55:42.907Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_record.py edit_route
+  #35 | 2026-10-12T15:55:49.819Z | seat | Bash | git add tools/edit_route.py tools/test_edit_route_b646.py && git diff --cached --name-only && git commit -q -m "b655 Component 1 under (R265)(4): G-EDIT-ROUTE r
+  #36 | 2026-10-12T15:55:55.808Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && sed -n 8313p FINDINGS.md | cut -c1-100; sed -n 13948p OPEN_TRAILS.md | cut -c1-80; wc -l FINDINGS.md OPEN_TRAILS.md; grep -n 
+  #37 | 2026-10-12T15:56:09.624Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b655_record.py c1 dry 2>&1 | head -3
+  #38 | 2026-10-12T15:56:16.785Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_record.py c1 2>&1 | tail -1 && cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md OPEN_TRAILS.md && git commit -q -
+  #39 | 2026-10-12T15:56:26.341Z | seat | Bash | cd /d/relay && grep -n "(d) THE SEAT'S\|(a) THE SEAT\|(b) THE NAV\|(c) THE SEAT\|(e) THE SEAT\|^b654 closed\|E1 LANDS\|THE WIDTH COMPILES\|pre-push :\|post-push
+  #40 | 2026-10-12T15:56:45.801Z | seat | Bash | cd /d/relay && git show 22ce9a8d:tools/edit_route.py | grep -n "elif g\[:1\] == \['push'\]\|elif g\[:1\] == \['branch'\]"; sed -n 28,29p /d/SIDE-global-section/
+  #41 | 2026-10-12T15:56:52.291Z | seat | Bash | for f in data/b655_readfirst.txt data/b655_edit_route.txt data/b655_edit_route.json data/b655_record_lines.json; do printf '%s CR=%s\n' $f $(tr -cd '\r' < $f | 
+  #42 | 2026-10-12T15:56:57.788Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python tools/b655_record.py sentences && PYTHONIOENCODING=utf-8 python tools/b655_record.py plain
+  #43 | 2026-10-12T15:57:13.196Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #44 | 2026-10-12T15:57:29.865Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_record.py plain "both read whole: ArchimedeanTwinShadow.lean:1 names Riemann-Lebesgue among the tools a shadow may not 
+  #45 | 2026-10-12T15:57:45.781Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #46 | 2026-10-12T15:58:20.327Z | seat | Bash | sed -n 1,39p data/b653_elided_cells.txt | cut -c1-400
+  #47 | 2026-10-12T15:59:40.439Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_record.py grades
+  #48 | 2026-10-12T15:59:58.650Z | seat | Bash | cd /d/SIDE-global-section && git grep -n "^import" -- Interfaces/LocalLimit.lean Interfaces/FiniteInstanceIdentity.lean; head -5 AXIOM_PRINTS_INTERFACES.txt; wc
+  #49 | 2026-10-12T16:00:11.475Z | seat | Bash | cd /d/relay && for f in data/b655_table_SIDE-global-section_sentences.txt data/b655_table_SIDE-global-section_sentences.json data/b655_plain_comments.txt data/b
+  #50 | 2026-10-12T16:04:21.925Z | seat | Bash | sed -n "$(grep -n '        graded = {}' tools/b655_record.py | cut -d: -f1),+30p" tools/b655_record.py
+  #51 | 2026-10-12T16:04:45.856Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_record.py grades && grep -n "== #46" -A30 data/b655_sentence_grades.txt | cut -c1-200 | grep -v "LICENSED\|ACTION" | he
+  #52 | 2026-10-12T16:04:51.068Z | seat | Bash | sed -n 956,962p data/b655_sentence_grades.txt | cut -c1-230; grep -n "== #50" -A40 data/b655_sentence_grades.txt | grep -n "PREMISE\|conclusion s\|premise    s\
+  #53 | 2026-10-12T16:04:58.012Z | seat | Bash | git add tools/b655_record.py data/b655_sentence_grades.json data/b655_sentence_grades.txt data/b655_sentence_cut_plan.json && git commit -q -m "b655 Component 2
+  #54 | 2026-10-12T16:05:21.885Z | seat | Bash | cd /d/SIDE-global-section && cat .gitattributes; git config core.autocrlf; for f in Core/AlternationShadow.lean Interfaces/LocalLimit.lean; do printf '%s CRLF=%
+  #55 | 2026-10-12T16:05:33.823Z | seat | Bash | cd "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/1199f364-78c4-4147-843f-edf01bb11b28/scratchpad" && python -c "open('crlf_probe.txt','wb').write(b'/-\r\n  a
+  #56 | 2026-10-12T16:05:41.653Z | seat | Bash | od -c "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/1199f364-78c4-4147-843f-edf01bb11b28/scratchpad/crlf_probe.txt"
+  #57 | 2026-10-12T16:06:25.611Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b655_record.py grades | tail -1 && PYTHONIOENCODING=utf-8 python tools/b655_record.py plan_cut
+  #58 | 2026-10-12T16:06:36.436Z | seat | Bash | git diff --stat -- data/b655_sentence_grades.txt; python - <<'EOF'
+  #59 | 2026-10-12T16:06:48.494Z | seat | Bash | git checkout -- data/b655_sentence_grades.txt && git status --short data/ | head -5; PYTHONIOENCODING=utf-8 python - <<'EOF'
+  #60 | 2026-10-12T16:06:52.500Z | seat | Bash | git diff -- data/b655_sentence_cut_plan.json | head -20 | cut -c1-150
+  #61 | 2026-10-12T16:06:55.972Z | seat | Bash | git checkout -- data/b655_sentence_cut_plan.json && git status --short --untracked-files=no
+  #62 | 2026-10-12T16:07:24.702Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_record.py plan_cut && PYTHONIOENCODING=utf-8 python - <<'EOF'
+  #63 | 2026-10-12T16:07:59.824Z | seat | Bash | git add tools/b655_record.py data/b655_cut_plan.txt data/b655_cut_edits.json && git commit -q -m "b655 Component 3 under (R265)(3): the cut planned on SIDE-glob
+  #64 | 2026-10-12T16:08:14.427Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_record.py check_file Core/AlternationShadow.lean
+  #65 | 2026-10-12T16:08:22.228Z | seat | Bash | cd /d/SIDE-global-section && git add Core/AlternationShadow.lean && git commit -q -m "b655 Component 3 under (R265)(3): Core/AlternationShadow.lean -- block #1 
+  #66 | 2026-10-12T16:08:41.896Z | seat | Bash | for f in Core/BallAbsorptionShadow.lean Core/BallPairShadow.lean Core/BoundaryValueShadow.lean; do PYTHONIOENCODING=utf-8 python tools/b655_record.py check_file
+  #67 | 2026-10-12T16:08:48.795Z | seat | Bash | cd /d/SIDE-global-section && c() { git add "$1" && git commit -q -m "b655 Component 3 under (R265)(3): $1 -- block(s) $2 cut by the mechanical rule (relay data/
+  #68 | 2026-10-12T16:09:16.716Z | seat | Bash | cd /d/relay && for f in Core/CeilingSweepShadow.lean Core/CrossPlaceShadow.lean Core/DependenceShadow.lean Core/DiagonalSection.lean Core/E1UnitPurityDraft.lean
+  #69 | 2026-10-12T16:09:23.794Z | seat | Bash | cd /d/SIDE-global-section && c() { git add "$1" && git commit -q -m "b655 Component 3 under (R265)(3): $1 -- block(s) $2 cut by the mechanical rule (relay data/
+  #70 | 2026-10-12T16:09:33.008Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -c "
+  #71 | 2026-10-12T16:10:21.477Z | seat | Bash | for f in Core/E2EvenMonotoneShadow.lean Core/H1Mechanism.lean Core/InequalityShadow.lean Core/JunctionSignShadow.lean Core/KLSilence.lean Core/LefschetzShadow.l
+  #72 | 2026-10-12T16:10:28.641Z | seat | Bash | cd /d/SIDE-global-section && c() { git add "$1" && git commit -q -m "b655 Component 3 under (R265)(3): $1 -- block(s) $2 cut by the mechanical rule (relay data/
+  #73 | 2026-10-12T16:11:10.242Z | seat | Bash | cd /d/relay && for f in Core/LinkShadow.lean Core/M4EnvelopeShadow.lean Core/MetaplecticRootShadow.lean Core/OrbitDictionary.lean Core/PairingShadow.lean Core/R
+  #74 | 2026-10-12T16:11:19.387Z | seat | Bash | cd /d/SIDE-global-section && c() { git add "$1" && git commit -q -m "b655 Component 3 under (R265)(3): $1 -- block(s) $2 cut by the mechanical rule (relay data/
+  #75 | 2026-10-12T16:11:36.772Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -c "
+  #76 | 2026-10-12T16:12:31.607Z | seat | Bash | for f in Core/SinglePrimeFactor.lean Core/StatedChoiceShadow.lean Core/TensorSquareShadow.lean Core/ThetaContinuationShadow.lean Core/TowerMonotoneShadow.lean C
+  #77 | 2026-10-12T16:12:42.070Z | seat | Bash | cd /d/SIDE-global-section && c() { git add "$1" && git commit -q -m "b655 Component 3 under (R265)(3): $1 -- block(s) $2 cut by the mechanical rule (relay data/
+  #78 | 2026-10-12T16:13:10.569Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b655_record.py cut_bank
+  #79 | 2026-10-12T16:13:28.037Z | seat | Bash | git add tools/b655_record.py data/b655_cut_SIDE-global-section.txt data/b655_cut_SIDE-global-section.json && git commit -q -m "b655 Component 3 under (R265)(3):
+  #80 | 2026-10-12T16:13:33.400Z | seat | Bash | sed -n 214p CORRESPONDENCE.md | cut -c1-2500; git -C /d/relay grep -l "b314" -- 'tools/*.py' 'tools/*.sh' | head; git -C /d/relay ls-files data | grep -E "b314|
+  #81 | 2026-10-12T16:13:43.405Z | seat | Bash | cd /d/relay && grep -n "def \|topo\|order\|import \|lean.*-o\|LEAN_PATH" tools/b314_coldclone.py | head -40
+  #82 | 2026-10-12T16:13:47.286Z | seat | Bash | sed -n 58,100p tools/b314_coldclone.py; sed -n 195,240p tools/b314_coldclone.py
+  #83 | 2026-10-12T16:13:56.429Z | seat | Bash | git grep -l "AXIOM_PRINTS_INTERFACES" -- tools | head; cd /d/SIDE-global-section && git log --format='%h %ad %s' --date=short -- AXIOM_PRINTS_INTERFACES.txt | c
+  #84 | 2026-10-12T16:14:32.144Z | seat | Bash | gh api repos/leanprover-community/mathlib4/commits/cecd0c4d56 --jq '.sha + " " + .commit.committer.date' 2>&1 | head -2; cd /d/SIDE-global-section && git grep -
+  #85 | 2026-10-12T16:14:44.655Z | seat | Bash | git checkout -q main && git branch --show-current && git status --short --untracked-files=no && ls .github 2>/dev/null; git config core.hooksPath; cat .githooks
+  #86 | 2026-10-12T16:15:37.824Z | seat | Bash | grep -ci "secrets\.\|psinary\|seale\|york\|hotmail\|orcid" .github/workflows/build-module.yml; python -c "import yaml" 2>/dev/null && python -c "import yaml,io;
+  #87 | 2026-10-12T16:15:51.096Z | seat | Bash | git push origin docstrings-cut-SIDE-global-section > /d/relay/data/b655_gs_branch_push_out.txt 2>&1; echo "rc=$?"; cat /d/relay/data/b655_gs_branch_push_out.txt
+  #88 | 2026-10-12T16:15:59.444Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-global-section -f ref=8cea5b45f50d0f40ffde372b40f7005a4922a7bd -f target=all > /d/relay/data/b655_gs_dis
+  #89 | 2026-10-12T16:16:41.217Z | seat | Bash | cd /d/relay && python -m py_compile tools/b655_record.py tools/b655_worklist.py && echo ok; gh run view 38276189411 -R psinary-sketch/SIDE-global-section --json
+  #90 | 2026-10-12T16:16:48.786Z | seat | Bash | for i in $(seq 1 28); do s=$(gh run view 38276189411 -R psinary-sketch/SIDE-global-section --json status --jq .status); [ "$s" = "completed" ] && break; sleep 1
+  #91 | 2026-10-12T16:22:27.308Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b655_record.py runner && grep -n "^### the artifact\|^### the ref built\|^### the mathlib\|^### the memory\|^### CORE\|^### 
+  #92 | 2026-10-12T16:22:39.168Z | seat | Bash | cd /d/SIDE-global-section && git tag -l --sort=-v:refname | head -5; git status --short --untracked-files=no; git branch --show-current
+  #93 | 2026-10-12T16:22:46.499Z | seat | Bash | git merge --no-ff -q docstrings-cut-SIDE-global-section -m "b655 under (R265)(3), Component 3: merge docstrings-cut-SIDE-global-section alone on its gate readin
+  #94 | 2026-10-12T16:22:53.354Z | seat | Bash | git branch push-b655-merge main && PUSH_GATED_LOG=/d/relay/data/b655_gs_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-global-section push-b655-me
+  #95 | 2026-10-12T16:23:11.742Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b655_record.py runner_merged 504e146 v0.3.0 && for f in data/b655_runner_SIDE-global-section.txt data/b655_ru
+  #96 | 2026-10-12T16:23:35.221Z | seat | Bash | grep -n -i "mirror" data/b652_closing.txt | cut -c1-250 | head -10; git log --format='%h %s' -6 -- data/b652_closing.txt | cut -c1-200; PYTHONIOENCODING=utf-8 p
+  #97 | 2026-10-12T16:23:49.820Z | seat | Bash | head -30 data/b652_mirror.txt | cut -c1-250; grep -n "def mirror" -A40 tools/b652_record.py | head -60
+  #98 | 2026-10-12T16:23:54.289Z | seat | Bash | git grep -n "mirror_build\|mirror_verify" -- tools/b652_record.py tools/b652_checks.py | head; python - <<'EOF'
+  #99 | 2026-10-12T16:23:58.186Z | seat | Bash | sed -n 1280,1380p tools/b652_record.py
+  #100 | 2026-10-12T16:26:51.156Z | seat | Bash | sed -n '/^def sources/,/^    S\[.live.\] = live_arms()/p' tools/b654_checks.py | head -5; grep -n "def b653_arms\|B653_ARMS\|def session_order" tools/b654_check
+  #101 | 2026-10-12T16:30:35.633Z | seat | Bash | sed -n '/^PLANTED = \[/,/^]/p' tools/b654_regspec.py | head -3; grep -n "b654\|R264\|E1\|width\|prints re-banked\|bench numbers\|theorems stated" tools/b654_reg
+
+### ### **COMMANDS 101 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
