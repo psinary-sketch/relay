@@ -1,0 +1,37 @@
+b654 -- COMPONENT 0: STEP ZERO UNDER (R264) (2026-10-12)
+
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R264) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b654_ferry.txt; the ferry scan 0 hits, 0 flags (data/b654_ferry_scan.txt); relay eda9fea0.
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python, git, grep), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 2895 MB
+### orphans: NONE ; stopped by PID: none needed.
+
+### b653's closing push-out bank committed at the start: relay eda9fea0 (data/b653_closing_push_out.txt, 6 lines, as b653's push wrote it).
+
+### the b653 push branches, listed by `git branch --merged main --list 'push-b653*' -v` and deleted by name with the lower-case flag in the
+### same command, read back:
+  relay                listed push-b653, push-b653-closing, push-b653-root ; deleted push-b653 (was c50be803), push-b653-root (was 3a001998),
+                       push-b653-closing (was a2beb696) ; push-b653* now 0
+  PLACE-papers         listed push-b653, push-b653-root ; deleted push-b653 (was 16ec28f), push-b653-root (was 94d769e) ; push-b653* now 0
+  SIDE-lv-conservation listed push-b653-merge, push-b653-runner ; deleted push-b653-runner (was 2b5959f), push-b653-merge (was b4c55b9) ; now 0
+  SIDE-kernel          listed push-b653-merge, push-b653-runner ; deleted push-b653-runner (was 802da94), push-b653-merge (was 70aba3c) ; now 0
+
+### the merged work branches, listed by `git branch -a --merged main` and deleted by name, local then remote:
+  SIDE-lv-conservation b648-restate-SIDE-lv-conservation local (was c35a3a3) deleted ; remote deleted (data/b654_stepzero_remote_delete_lv.txt)
+  SIDE-kernel          docstrings-SIDE-kernel local (was ee8d21a) deleted ; remote deleted (data/b654_stepzero_remote_delete_kernel.txt)
+  SIDE-kernel          docstrings-cut-SIDE-kernel local (was a6cbfc6) deleted ; at the remote: never pushed (b653 closing :106)
+  the four repositories' branch lists matching any of the deleted names now: 0, 0, 0, 0
+
+### every test file under tools/ (data/b654_tests_stepzero.txt, .json), tools/b654_tests.py with the lists in force after b653, one test per call:
+  TEST FILES 53 ; RUN 52 ; WITHHELD 1 ; NOT CLEAN 2:
+    test_chain_page.py (9) -- carried as W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE's case (OPEN_TRAILS :13838).
+    test_chain_page_b638.py (4)-(7) -- as carried since b643; (1) PASS since b653's repair (data/b653_b638.txt), 3 of 7.
+    test_elab_reader_b634.py -- WITHHELD: no lean run on this host in this act (data/b654_tests_withheld.json).
+  the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### no build on this host: no lean or lake process started by this act; the build of (R264)(3)-(4) goes to the hosted runner.
