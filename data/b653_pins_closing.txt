@@ -1,0 +1,43 @@
+====================================================================================================
+b303_pins.py -- b653. ### BY `ls-remote`, ALL 4 REPOS THE ROSTER NAMES.
+====================================================================================================
+  parser fixture                                 got/expected           agree
+  a real pair, tab-separated                     (0, 1)/(0, 1)          YES
+  a real pair, space-separated                   (2, 3)/(2, 3)          YES
+  both zero -- the synchronised state            (0, 0)/(0, 0)          YES
+  ### an error message, NOT a pair               None/None              YES
+  ### empty output -- the silent-zero trap       None/None              YES
+  ### one number only                            None/None              YES
+  ### three numbers                              None/None              YES
+  ### a non-integer                              None/None              YES
+  parser self-test : PASS
+
+--- relay   (D:\relay)
+    local HEAD   : c50be803403ec5afffae5db8e042df1757d18530
+    ls-remote    : c50be803403ec5afffae5db8e042df1757d18530
+    behind/ahead : 0 / 0
+    equal        : True
+    working tree : 1 tracked change(s), 113 untracked
+--- SIDE-global-section   (D:\SIDE-global-section)
+    local HEAD   : 17ce9ff5831de1bded63c8a4c83eee7f498f3a7a
+    ls-remote    : 17ce9ff5831de1bded63c8a4c83eee7f498f3a7a
+    behind/ahead : 0 / 0
+    equal        : True
+    working tree : 0 tracked change(s), 1 untracked
+--- PLACE-papers   (D:\MY-DOwnloads\PLACE-papers)
+    local HEAD   : 16ec28fefb641547ac520034a05b14cea71ebefd
+    ls-remote    : 16ec28fefb641547ac520034a05b14cea71ebefd
+    behind/ahead : 0 / 0
+    equal        : True
+    working tree : 0 tracked change(s), 2 untracked
+--- SIDE-effects   (D:\SIDE-effects)
+    local HEAD   : 9a279ac120ea8936de3c9e78aa8f8eab47ade4be
+    ls-remote    : 9a279ac120ea8936de3c9e78aa8f8eab47ade4be
+    behind/ahead : 0 / 0
+    equal        : True
+    working tree : 0 tracked change(s), 0 untracked
+
+  ### REPOS HARD-FAILING : 0
+  ### **A PIN IS A SHA READ BACK FROM THE REMOTE. ### IT SAYS WHAT IS THERE,
+  ### NOT THAT WHAT IS THERE IS RIGHT.**
+====================================================================================================
