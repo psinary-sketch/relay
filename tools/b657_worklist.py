@@ -39,7 +39,11 @@ CUT_BRANCH = 'docstrings-cut-SIDE-lv-conservation'
 K_WORKFLOW = '2b5959f'      # ### SIDE-lv-conservation main: the workflow file under (R263)(4), b653's
 MATHLIB_PIN = '5e932f97dd25535344f80f9dd8da3aab83df0fe6'   # ### lakefile.lean :12
 NEXT_TAG = 'v0.13.0'        # ### the next in the kernel's series after v0.12.0
-RUNNER = {}                 # ### filled at Component 3, after the one dispatch
+# ### the one dispatch of the cut branch (Component 3): the workflow on main since b653 (2b5959f), its print step naming T3's eight
+# ### terminals; their banked profiles are b653's runner bank :120-:127 (relay data/b653_runner_SIDE-lv-conservation.txt)
+RUNNER = {KERNEL: dict(branch=CUT_BRANCH, target='SIDELvConservation', workflow_commit=K_WORKFLOW, run_id=38305820585,
+                       ref='c230e6d8b02a3330eaec4d2e213fa5e905be13a8')}
+BANKED_PRINTS = ('b653_runner_SIDE-lv-conservation.txt', 120, 127)
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b656's face
 # ### (b656's own act arms not carried). Each run at HEAD and counted before the face names it.

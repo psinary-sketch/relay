@@ -1,0 +1,128 @@
+b657 -- COMPONENT 3, (R267)(3): THE HOSTED RUNNER FOR SIDE-lv-conservation, READ BY ITS RUN ID (2026-10-12T20:44:40Z)
+
+### the workflow file on main (2b5959f, .github/workflows/build-module.yml, b653`s, under (R263)(4)), read back whole:
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              cat > out/Axioms.lean <<'EOF'
+              import SIDELvConservation.T3_StepNineBridge
+              #print axioms SIDELvConservation.T3.ZeroLoc
+              #print axioms SIDELvConservation.T3.PerClassExcludes
+              #print axioms SIDELvConservation.T3.CombinationsExclude
+              #print axioms SIDELvConservation.T3.T3a_zeroLoc_is_function_of_Phi
+              #print axioms SIDELvConservation.T3.T3b_joint_witness_gives_combinations_exclude
+              #print axioms SIDELvConservation.T3.T3_perClass_to_combinations
+              #print axioms SIDELvConservation.T3.T3prime_shared_witness
+              #print axioms SIDELvConservation.T3.T3doubleprime_general_commutation_fails
+              EOF
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+
+### the dispatch, the one dispatch of this branch: ref c230e6d8b02a3330eaec4d2e213fa5e905be13a8 ; target SIDELvConservation
+### the run: id 38305820585 ; https://github.com/psinary-sketch/SIDE-lv-conservation/actions/runs/38305820585 ; status completed ; conclusion success ; head of the workflow b4c55b97963bfe4eec366e25a2a6a159eb0e9fc4 ; 2026-10-12T20:41:11Z to 2026-10-12T20:44:29Z
+### the artifact: id 11772581909 ; name build-module-38305820585 ; 4936 bytes ; sha256 8e363f7c36d7a15c3f7e367898314ceb83b0375865df8e5b6a4b17073117c616 ; the platform`s digest 8e363f7c36d7a15c3f7e367898314ceb83b0375865df8e5b6a4b17073117c616 ; AGREE
+### the ref built (out/ref.txt): c230e6d8b02a3330eaec4d2e213fa5e905be13a8 leanprover/lean4:v4.29.1
+### the memory log: samples 15 ; LOW 12672 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; the log`s last lines:
+    info: SIDELvConservation/AxiomCheck_v0_10_0.lean:35:0: 'SIDELvConservation.T3.T3prime_shared_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+    info: SIDELvConservation/AxiomCheck_v0_10_0.lean:36:0: 'SIDELvConservation.T3.T3doubleprime_general_commutation_fails' depends on axioms: [propext,
+     Classical.choice,
+     Quot.sound]
+    info: SIDELvConservation/AxiomCheck_v0_10_0.lean:37:0: 'SIDELvConservation.C7_finite_type_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+    Build completed successfully (8273 jobs).
+### THE GATE READING PER TERMINAL (the run`s print ; the banked profile, relay data/b653_runner_SIDE-lv-conservation.txt :120-:127):
+  SIDELvConservation.T3.ZeroLoc                                      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDELvConservation.T3.PerClassExcludes                             ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDELvConservation.T3.CombinationsExclude                          ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDELvConservation.T3.T3a_zeroLoc_is_function_of_Phi               ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDELvConservation.T3.T3b_joint_witness_gives_combinations_exclude ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDELvConservation.T3.T3_perClass_to_combinations                  ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDELvConservation.T3.T3prime_shared_witness                       ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDELvConservation.T3.T3doubleprime_general_commutation_fails      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  banked terminals not printed: NONE
+
+### ### **RUN 38305820585 ; CONCLUSION success ; ARTIFACT SHA256 8e363f7c36d7a15c ; MEMORY LOW 12672 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 8, AT THE STANDARD THREE OR NONE 8, EQUAL TO THE BANKED PROFILES 8 ; GATE DERIVES.**

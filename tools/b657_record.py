@@ -936,8 +936,122 @@ def cut_bank(*a):
     print(NL.join(L[-8:]))
 
 
-# ================================================================================ COMPONENT 3: THE RUNNER -- written at Component 3, after the
-# ### kernel's workflow file is read whole (its build path and print lines decide the route's reading).
+# ================================================================================ COMPONENT 3: THE RUNNER, (R267)(3) under (R263)(4)
+# ### the kernel's workflow (b653's, on main at 2b5959f), read whole: lake build of the target under the hold; a scratch file printing the axioms
+# ### of T3_StepNineBridge's eight named terminals; the artifact out/ (ref.txt, cache.log, build.log, build_exit.txt, mem.log, axioms.txt).
+STD3 = {'propext', 'Classical.choice', 'Quot.sound'}
+PRINT_RE = re.compile(r"^'(.+?)' (?:does not depend on any axioms|depends on axioms: \[([^\]]*)\])", re.M)
+ERR_RE = re.compile(r'^(?:error: )?(\S+\.lean):(\d+):(\d+): error: (.*)$', re.M)
+BANK_ROW = re.compile(r"^\s+(\S+)\s+(DERIVES|[A-Z][A-Z -]+?)\s+\[([^\]]*)\]\s*$")
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def _prints(text):
+    return [(m.group(1), sorted(x.strip() for x in (m.group(2) or '').split(',') if x.strip())) for m in PRINT_RE.finditer(text)]
+
+
+def _banked_prints():
+    """the banked profiles of the eight terminals: b653's runner bank, its table rows (name, verdict, axioms) at the worklist's lines."""
+    name, a0, a1 = K.BANKED_PRINTS
+    out = {}
+    for l in rdn(name).split(NL)[a0 - 1:a1]:
+        m = BANK_ROW.match(l)
+        if m:
+            out[m.group(1)] = sorted(x.strip().strip("'") for x in m.group(3).split(',') if x.strip())
+    return out
+
+
+def runner(*a):
+    """`runner`: the run read by its id; the artifact listed, downloaded by its id into memory, its sha256 against the platform's digest before
+    any reading; the build's exit and error lines, the memory log's low and any STOP, the eight prints against the banked profiles terminal by
+    terminal. Banked as data/b657_runner_SIDE-lv-conservation.txt and a row of data/b657_runner_rows.json."""
+    import hashlib
+    import zipfile
+    kern = K.KERNEL
+    R = K.RUNNER[kern]
+    repo = 'psinary-sketch/' + kern
+    rc, out, err = _gh('run', 'view', str(R['run_id']), '-R', repo, '--json', 'status,conclusion,headSha,createdAt,updatedAt,url')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, R['run_id']))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    wf = _show(K.KD, 'main', '.github/workflows/build-module.yml') or ''
+    row = dict(kernel=kern, branch=R['branch'], ref=R['ref'], target=R['target'], run_id=R['run_id'], conclusion=run.get('conclusion'),
+               artifact_sha256=None, mem_low=None, stopped=False, gate=None, merged=None, tag=None)
+    L = ['b657 -- COMPONENT 3, (R267)(3): THE HOSTED RUNNER FOR %s, READ BY ITS RUN ID (%s)' % (kern, utc()), '',
+         '### the workflow file on main (%s, .github/workflows/build-module.yml, b653`s, under (R263)(4)), read back whole:' % R['workflow_commit']] + \
+        ['    ' + l for l in wf.rstrip(NL).split(NL)] + ['',
+         '### the dispatch, the one dispatch of this branch: ref %s ; target %s' % (R['ref'], R['target']),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head of the workflow %s ; %s to %s' % (
+             R['run_id'], run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('createdAt'), run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        row['artifact_sha256'] = sha
+        L.append('### the artifact: id %s ; name %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else ('### DIFFER' if digest else 'no digest to compare')))
+        if digest and digest != sha:
+            row['artifact_sha256'] = None
+        else:
+            with zipfile.ZipFile(io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    stops = [l for l in mem.split(NL) if l.startswith('STOP ')]
+    row['stopped'] = bool(stops)
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip()
+    errs = [(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4)) for m in ERR_RE.finditer(blog)]
+    P = _prints(T_.get('axioms.txt', ''))
+    B = _banked_prints()
+    per = []
+    for n, ax in P:
+        b = B.get(n)
+        per.append((n, ax, b, set(ax) <= STD3 and 'sorryAx' not in ax, b is not None and b == ax))
+    missing = sorted(set(B) - set(n for n, _a in P))
+    ok = (run.get('conclusion') == 'success' and row['artifact_sha256'] and bexit == '0' and not errs and not stops and row['mem_low'] is not None
+          and row['mem_low'] >= K.HOLD and len(P) == len(B) > 0 and not missing and all(s and e for _n, _a, _b, s, e in per))
+    row['gate'] = 'DERIVES' if ok else ('STOPPED BENEATH THE HOLD' if stops else 'NOT DERIVES')
+    row['errors'] = [list(e) for e in errs]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: samples %d ; LOW %s MB ; the hold %d ; STOP lines %s' % (
+              len([l for l in mem.split(NL) if 'avail_mb=' in l]), row['mem_low'], K.HOLD, stops or 'NONE'),
+          '### the build: exit %s ; error lines %d ; the log`s last lines:' % (bexit or '### UNREAD', len(errs))] + \
+        ['    ' + l for l in blog.rstrip(NL).split(NL)[-6:]] + ['    %s:%d:%d: %s' % e for e in errs[:30]] + [
+          '### THE GATE READING PER TERMINAL (the run`s print ; the banked profile, relay data/%s :%d-:%d):' % K.BANKED_PRINTS] + \
+        ['  %-66s %-30s %s ; banked %s ; %s' % (n, ax, 'STANDARD THREE OR NONE' if s else '### NOT', b, 'EQUAL' if e else '### DIFFERENT')
+         for n, ax, b, s, e in per] + ['  banked terminals not printed: %s' % (missing or 'NONE'), '',
+          '### ### **RUN %s ; CONCLUSION %s ; ARTIFACT SHA256 %s ; MEMORY LOW %s MB (HOLD %d) ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS %d, AT THE '
+          'STANDARD THREE OR NONE %d, EQUAL TO THE BANKED PROFILES %d ; GATE %s.**' % (
+              R['run_id'], run.get('conclusion'), (row['artifact_sha256'] or '### NONE')[:16], row['mem_low'], K.HOLD, bexit or '?', len(errs), len(P),
+              sum(1 for x in per if x[3]), sum(1 for x in per if x[4]), row['gate'])]
+    put_txt('b657_runner_%s.txt' % kern, L)
+    j = jl('b657_runner_rows.json') or {'rows': []}
+    j['rows'] = [r for r in (j.get('rows') or []) if r['kernel'] != kern] + [row]
+    put_json('b657_runner_rows.json', j)
+    print(L[-1])
+
+
+def runner_merged(*a):
+    """`runner_merged <merge sha> <tag>`: the row's merge and tag, after main and the tag are read back at the remote."""
+    sha, tag = a[:2]
+    j = jl('b657_runner_rows.json')
+    for r in j['rows']:
+        if r['kernel'] == K.KERNEL:
+            r['merged'], r['tag'] = sha, tag
+    put_json('b657_runner_rows.json', j)
+    print('  %s merged %s tag %s' % (K.KERNEL, sha, tag))
 
 
 # ================================================================================ THE LATE ROUTES (b656's, carried; every row read through READERS)
