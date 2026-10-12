@@ -170,9 +170,10 @@ def read_grade_row(k, row):
     """a row of the hand grades (data/b655_sentence_grades.json): block number k and [sentence number, the cell's quoted words];
     returns (k, n, words); raises on a row of another shape."""
     n, w = row
-    if not isinstance(n, int) or n < 1 or not isinstance(w, str) or not w.strip() or not str(k).isdigit():
+    ok_n = (isinstance(n, int) and n >= 1) or (isinstance(n, str) and re.match(r'^\d+\.\d+$', n) is not None)
+    if not ok_n or not isinstance(w, str) or not w.strip() or not str(k).isdigit():
         raise ValueError('grade row of another shape: %r' % (row,))
-    return int(k), n, w
+    return int(k), (n if isinstance(n, str) else n), w
 
 
 READERS = ('read_runner_row', 'read_score_row', 'read_head', 'read_grade_row')
@@ -326,28 +327,70 @@ def blocks():
     return [(k, p, t[p], rs) for k, (p, rs) in enumerate(by.items(), 1)]
 
 
-def cut(rs, graded, action):
-    """the mechanical rule: a graded OVERREACHES or UNDERSTATES sentence replaced in place by the ACTION sentence(s), an UNLICENSED one removed,
-    MATCHES untouched; then a sentence that repeats one already earlier in the block dropped and returned."""
-    import b647_record as R47
-    act = action[len('RE-CUT: '):] if action.startswith('RE-CUT: ') else action
+BULLET = re.compile(r'\s(?=· )')
+
+
+def split_rows(rs, split):
+    """the block's rows, keyed by sentence number as text; a sentence named in `split` (the author's word at b655 on #46) read as its bullet
+    rows `n.1`, `n.2`, ... -- the lead before the first bullet, then each bullet -- split where a space meets the bullet mark."""
     out = []
     for r in rs:
+        if str(r['n']) in split:
+            for i, part in enumerate([p for p in BULLET.split(r['sentence']) if p.strip()], 1):
+                out.append(dict(n='%d.%d' % (r['n'], i), sentence=_ws(part)))
+        else:
+            out.append(dict(n=str(r['n']), sentence=r['sentence']))
+    return out
+
+
+def cut(rows, graded, action, bullets=False, premise=None):
+    """the mechanical rule: a graded OVERREACHES or UNDERSTATES row replaced in place by the ACTION (by its sentences; by its bullets in order,
+    the i-th graded bullet by the i-th ACTION bullet, where the block's rows are bullets), an UNLICENSED one removed, MATCHES untouched; then a
+    sentence that repeats one already in the block dropped -- the earlier occurrence kept, unless `premise` (the author's word at b655 on #50)
+    names the conclusion and premise rows: then the occurrence after the premise row is kept, the conclusion standing where its premise stands
+    before it. Returns (kept, dropped, the placement printed)."""
+    import b647_record as R47
+    act = action[len('RE-CUT: '):] if action.startswith('RE-CUT: ') else action
+    abul = [p for p in BULLET.split(act.strip()) if p.strip()]
+    out, gi = [], 0
+    for r in rows:
         gr = graded.get(r['n'])
         if gr is None:
-            out.append(r['sentence'])
+            out.append((r['n'], r['sentence']))
         elif gr == 'UNLICENSED':
             continue
+        elif bullets:
+            out.append((r['n'], _ws(abul[min(gi, len(abul) - 1)])))
+            gi += 1
         else:
-            out += [x for x in R47._MSPLIT.split(act.strip()) if x.strip()]
+            out += [(r['n'], x) for x in R47._MSPLIT.split(act.strip()) if x.strip()]
+    note = ''
+    keep_at = {}
+    if premise:
+        c, p = str(premise['conclusion']), str(premise['premise'])
+        pos_p = next((i for i, (n, _x) in enumerate(out) if n == p), None)
+        csent = [x for n, x in out if n == c]
+        if csent and pos_p is not None:
+            idx = [i for i, (_n, x) in enumerate(out) if _ws(x) == _ws(csent[0])]
+            after = [i for i in idx if i > pos_p]
+            keep_at[_ws(csent[0])] = after[0] if after else idx[0]
+            note = ('the conclusion row s%s drawn on the premise row s%s (%s); the premise survives as a MATCHES row, so the conclusion stands '
+                    'after it, at s%s`s place; its other occurrence dropped as a repeat' % (c, p, out[pos_p][1][:120], out[keep_at[_ws(csent[0])]][0]))
     kept, dropped, seen = [], [], set()
-    for x in out:
-        if _ws(x) in seen:
+    for i, (_n, x) in enumerate(out):
+        w = _ws(x)
+        if w in keep_at:
+            if i == keep_at[w]:
+                kept.append(x)
+            else:
+                dropped.append(x)
+            continue
+        if w in seen:
             dropped.append(x)
             continue
-        seen.add(_ws(x))
+        seen.add(w)
         kept.append(x)
-    return kept, dropped
+    return kept, dropped, note
 
 
 def grades(*a):
@@ -367,17 +410,22 @@ def grades(*a):
          '### Below each block: the block as the mechanical rule leaves it -- graded rows replaced in place by the ACTION, repeats dropped and printed.', '']
     n_rows = n_graded = n_unres = n_drop = n_cell = 0
     by_v, J, unres = {}, [], []
-    for k, p, q, rs in blocks():
+    SPLIT, PREM = G.get('split') or {}, G.get('premise') or {}
+    for k, p, q, rs0 in blocks():
+        split = (SPLIT.get(str(k)) or {})
+        rs = split_rows(rs0, split)
         n_rows += len(rs)
-        mine = dict((n, w) for _k, n, w in (read_grade_row(k, x) for x in gr.get(str(k), [])))
+        mine = dict((str(n), w) for _k, n, w in (read_grade_row(k, x) for x in gr.get(str(k), [])))
         bad = [w for w in mine.values() if w not in q['licensed']]
         if bad:
             sys.exit('### BLOCK %d: A QUOTED WORD NOT IN THE LICENSED CELL -- NOTHING WRITTEN: %s' % (k, bad))
-        far = [n for n in mine if not 1 <= n <= len(rs)]
+        far = [n for n in mine if n not in [r['n'] for r in rs]]
         if far:
-            sys.exit('### BLOCK %d: A GRADED SENTENCE THE BLOCK DOES NOT HAVE -- NOTHING WRITTEN: %s' % (k, far))
+            sys.exit('### BLOCK %d: A GRADED ROW THE BLOCK DOES NOT HAVE -- NOTHING WRITTEN: %s' % (k, far))
         v = q['verdict']
-        L.append('== #%d %s (b647`s bank line :%s ; %s ; HAND %s ; %d sentences)' % (k, p.split(':', 1)[1], rs[0]['parent_line'], q['kind'], v, len(rs)))
+        L.append('== #%d %s (b647`s bank line :%s ; %s ; HAND %s ; %d sentence rows%s)' % (
+            k, p.split(':', 1)[1], rs0[0]['parent_line'], q['kind'], v, len(rs),
+            ('; s%s read as its bullet rows by the author`s word at b655' % ', s'.join(split)) if split else ''))
         L.append('   LICENSED : ' + q['licensed'])
         L.append('   ACTION   : ' + q['action'])
         action = q['action']
@@ -399,10 +447,10 @@ def grades(*a):
                 graded[r['n']] = v
                 n_graded += 1
                 by_v[v] = by_v.get(v, 0) + 1
-                L.append('  s%-3d %-11s %s' % (r['n'], v, r['sentence']))
-                L.append('       %-11s cell: "%s"' % ('', mine[r['n']]))
+                L.append('  s%-4s %-11s %s' % (r['n'], v, r['sentence']))
+                L.append('        %-11s cell: "%s"' % ('', mine[r['n']]))
             else:
-                L.append('  s%-3d %-11s %s' % (r['n'], 'MATCHES', r['sentence']))
+                L.append('  s%-4s %-11s %s' % (r['n'], 'MATCHES', r['sentence']))
         if not graded:
             n_unres += 1
             unres.append(k)
@@ -410,12 +458,21 @@ def grades(*a):
             J.append(dict(k=k, parent=p, file=q['file'], line=q['line'], unresolved=True))
             L.append('')
             continue
-        kept, dropped = cut(rs, graded, action)
+        prem = PREM.get(str(k))
+        kept, dropped, note = cut(rs, graded, action, bullets=bool(split), premise=prem)
         n_drop += len(dropped)
+        if split:
+            L.append('   ### the ACTION read as its bullets, the i-th graded bullet row replaced by the i-th ACTION bullet (the author`s word at b655).')
+        if prem:
+            L.append('   ### THE PREMISE RULE (the author`s word at b655): the conclusion row printed with the row it draws on --')
+            L.append('       conclusion s%s: %s' % (prem['conclusion'], [r['sentence'] for r in rs if r['n'] == str(prem['conclusion'])][0]))
+            L.append('       premise    s%s: %s' % (prem['premise'], [r['sentence'] for r in rs if r['n'] == str(prem['premise'])][0]))
+            L.append('       ' + note)
         L.append('   -> THE BLOCK AFTER THE CUT (%d sentences; repeats dropped %d):' % (len(kept), len(dropped)))
         L += ['        ' + x for x in kept] + ['        ### DROPPED AS A REPEAT: ' + x for x in dropped]
-        J.append(dict(k=k, parent=p, file=q['file'], line=q['line'], bank_line=rs[0]['parent_line'], verdict=v, graded=sorted(graded),
-                      action=action, completed=('...' in q['action']), kept=kept, dropped=dropped, sentences=[r['sentence'] for r in rs]))
+        J.append(dict(k=k, parent=p, file=q['file'], line=q['line'], bank_line=rs0[0]['parent_line'], verdict=v, graded=sorted(graded),
+                      action=action, completed=('...' in q['action']), kept=kept, dropped=dropped, sentences=[r['sentence'] for r in rs0],
+                      split=sorted(split), premise=prem))
         L.append('')
     pl = jl('b655_plain_comments.json')
     L.append('### PLAIN-COMMENT ROWS (relay data/b655_plain_comments.txt): %s' % ('; '.join('%s:%d -- %s' % tuple(h) for h in pl.get('hits') or []) or 'NONE'))
