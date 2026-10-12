@@ -44,6 +44,9 @@ E1_TERMINALS = ('SIDEExplicitFormula.B321.rest_norm_le_rate', 'SIDEExplicitFormu
 WIDTH_TERMINAL = 'SIDEExplicitFormula.transversalityWidth'
 E1_FILE, WIDTH_FILE = 'SIDEExplicitFormula/RateIndex.lean', 'SIDEExplicitFormula/TransversalityWidth.lean'
 
+# ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b653's face
+ACT_ARMS = ('G-R264-ENTERED', 'G-ALTERNATION-LINE', 'G-FREEZE-LINE', 'G-AXIOM-PRINT-REBANKED', 'G-AXIOM-CLAIM-BEFORE-AFTER',
+            'G-E1-STATEMENT-BANKED', 'G-PROMPT-BEFORE-LEAN', 'G-E1-LANDED', 'G-WIDTH-DEFINED')
 EDITED_SHARED = ()
 NEW_TESTS = ()
 SEALED = ('b654_worklist.py', 'b654_tests.py', 'b654_record.py', 'b654_checks.py', 'b654_closing.py', 'b654_reg_gate.py', 'b654_regspec.py') \

@@ -142,8 +142,8 @@ def read_runner_row(r):
 
 
 def read_score_row(k, v):
-    """a scores row: key N1..N5, value [verdict, text]; returns (key, first verdict word, text)."""
-    if not re.match(r'^N[1-5]$', k) or not isinstance(v, list) or len(v) != 2:
+    """a scores row: key N1..N5 or S1..S5, value [verdict, text]; returns (key, first verdict word, text)."""
+    if not re.match(r'^[NS][1-5]$', k) or not isinstance(v, list) or len(v) != 2:
         raise ValueError('score row of another shape: %r' % (k,))
     return k, v[0].split(' ')[0], v[1]
 
@@ -486,6 +486,474 @@ def width(*a):
 
 import collections                 # noqa: E402,F401
 import b654_worklist as K          # noqa: E402
+
+
+# ================================================================================ THE LATE ROUTES (b653's, carried; every row read through READERS)
+import b633_record as R3           # noqa: E402
+import edit_route as ER            # noqa: E402
+RELAY = ROOT
+SESSION = 'C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % K.SESSION_ID
+SUBAGENTS = 'C:/Users/echo chamber/.claude/projects/D--/%s/subagents' % K.SESSION_ID
+R3.SP, R3.SESSION, R3.SESSION_ID = SP, SESSION, K.SESSION_ID
+
+
+def answers(*a):
+    """data/b654_author_answers.txt: every prompt put by the seat in this act, with its options and the answer; and every word of the author
+    delivered between BEGIN and END after the ruling (user lines and queued commands), and the author's plain messages, verbatim."""
+    calls, results, words, plain, start = [], {}, [], [], None
+    for i, raw in enumerate(io.open(SESSION, encoding='utf-8', errors='replace'), 1):
+        try:
+            o = json.loads(raw)
+        except ValueError:
+            continue
+        if start is None and K.ANCHOR in raw and o.get('type') == 'user' and not o.get('isCompactSummary'):
+            start = i
+        m = o.get('message') or {}
+        cs = m.get('content')
+        att = o.get('attachment') or {}
+        texts = []
+        if start is not None and att.get('type') == 'queued_command' and isinstance(att.get('prompt'), str):
+            texts = [att['prompt']]
+        elif start is not None and o.get('type') == 'user' and not o.get('isCompactSummary'):
+            texts = [cs] if isinstance(cs, str) else [c.get('text', '') for c in (cs or []) if isinstance(c, dict) and c.get('type') == 'text']
+            for t in texts:
+                if t and not t.lstrip().startswith(('<', 'BEGIN', 'RULING')) and len(t) < 400 and i > start:
+                    plain.append((i, t.strip()))
+        for t in texts:
+            for mm in re.finditer(r'(?ms)^BEGIN\s*\n(.*?)\nEND\s*$', t or ''):
+                if K.ANCHOR not in mm.group(1):
+                    words.append((i, mm.group(1)))
+        for c in cs if isinstance(cs, list) else []:
+            if isinstance(c, dict) and c.get('type') == 'tool_use' and c.get('name') == 'AskUserQuestion' and start is not None:
+                calls.append((i, c['id'], c['input']))
+            if isinstance(c, dict) and c.get('type') == 'tool_result':
+                t = c.get('content')
+                results[c.get('tool_use_id')] = (i, ''.join(x.get('text', '') for x in t) if isinstance(t, list) else t)
+    if start is None:
+        sys.exit('### THE ANCHOR IS NOT A USER LINE OF THIS SESSION -- NOTHING WRITTEN')
+    L, n = [], 0
+    for i, cid, inp in calls:
+        L.append('### CALL tool-use id %s (session %s, transcript line %d)' % (cid, K.SESSION_ID, i))
+        for k, q in enumerate(inp.get('questions', []), 1):
+            n += 1
+            L.append('### PROMPT %d (%s): %s' % (k, q.get('header'), q.get('question')))
+            for j, op in enumerate(q.get('options', []), 1):
+                L.append('  OPTION %d%s: %s :: %s' % (j, ' [RECOMMENDED]' if '(Recommended)' in op.get('label', '') else '', op.get('label'),
+                                                     op.get('description')))
+        r = results.get(cid, (None, '### NO RESULT'))
+        L += ['RESULT (transcript line %s): %s' % (r[0], r[1]), '']
+    W, seen = [], set()
+    for i, w in words:
+        if w in seen:
+            continue
+        seen.add(w)
+        W += ['### THE AUTHOR`S WORD (transcript line %d), BEGIN to END, verbatim:' % i] + w.replace('\r', '').split(NL) + ['']
+    for i, t in plain:
+        W += ['### THE AUTHOR`S MESSAGE (transcript line %d), verbatim: %s' % (i, t.replace('\r', '').replace(NL, ' ')), '']
+    nw = len([x for x in W if x.startswith('### THE AUTHOR`S WORD')])
+    head = ['### b654 -- THE AUTHOR`S ANSWERS, %d prompt(s) put by the seat in this act (%s), banked verbatim with the options and the recommended '
+            'mark; and %d word(s) of the author delivered between BEGIN and END; the session read: %s from %r (transcript line %d).' % (
+                n, K.DATE, nw, K.SESSION_ID[:8], K.ANCHOR, start), '']
+    put_txt('b654_author_answers.txt', [l.replace('\r', '') for l in head + (L or ['### NONE: no prompt has been put to the author in this act.']) + W])
+    print('  prompts banked: %d ; words banked: %d' % (n, nw))
+
+
+def capture():
+    rows = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
+    for i, r in enumerate(rows):
+        r['n'] = i + 1
+    return rows
+
+
+LOCAL_LEAN = re.compile(r'(^|[;&|(]\s*|\s)(lake|lean)(\.exe)?\s+(build|env|exe|update|\S+\.lean)')
+QUOTED = re.compile(r'"(?:[^"\\]|\\.)*"|\'[^\']*\'')
+
+
+def local_lean(cmd):
+    """a command runs lean or lake on this host: the pattern read outside quoted strings (a commit message that names `lake exe cache get` runs
+    nothing) and outside a gh workflow call (the hosted runner's)."""
+    return 'gh workflow' not in cmd and LOCAL_LEAN.search(QUOTED.sub('""', cmd)) is not None
+
+
+def commands(*a):
+    rows = capture()
+    if not rows:
+        sys.exit('### THE COMMAND CAPTURE READ NO COMMAND -- NOTHING WRITTEN')
+    hits = ER.scan(rows)
+    lean = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
+    L = ['b654 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (%s)' % utc(), '',
+         '### the source: the seat`s session %s from its first user line carrying %r, and its subagents` transcripts' % (K.SESSION_ID, K.ANCHOR),
+         '### commands read: %d' % len(rows), '', '### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (%d):' % len(hits)]
+    for r, o in hits:
+        L += ['  #%d %s %s %s -- %s' % (r['n'], r['ts'], r['src'], r['tool'], '; '.join(k for k, _ in o))] + ['      ' + x for x in r['cmd'].split(NL)]
+    if not hits:
+        L.append('  NONE')
+    L += ['', '### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (%d):' % len(lean)] + (['  #%d %s' % (r['n'], r['cmd'][:200]) for r in lean] or ['  NONE'])
+    L += ['', '### EVERY COMMAND (n | time | source | tool | first line, 160 characters):']
+    L += ['  #%d | %s | %s | %s | %s' % (r['n'], r['ts'], r['src'], r['tool'], r['cmd'].split(NL)[0][:160]) for r in rows]
+    L += ['', '### ### **COMMANDS %d ; G-EDIT-ROUTE OFFENCES %d ; LOCAL lean OR lake COMMANDS %d.**' % (len(rows), len(hits), len(lean))]
+    put_txt('b654_commands.txt', [l.replace('\r', '') for l in L])
+    put_json('b654_commands.json', dict(at=utc(), anchor=K.ANCHOR, rows=rows, offences=[dict(n=r['n'], kinds=[k for k, _ in o]) for r, o in hits],
+                                        local_lean=[r['n'] for r in lean]))
+    print(L[-1])
+
+
+def kernels(*a):
+    import b641_record as R41
+    put_json('b654_kernels_face.json', dict(at=utc(), kernels=R3.kern_state(list(R41.KERNS_READ))))
+    print('  kernels read: %d' % len(R41.KERNS_READ))
+
+
+def _defect_short():
+    return [re.match(r'^\(([a-z])\) ([^.]*)\.', l.strip()).group(0)[:-1].lower() for l in rdn('b654_defects.txt').split(NL)
+            if re.match(r'^    \([a-z]\) [^.]*\.', l)]
+
+
+def defects(*a):
+    t = rdn('b654_defects.txt')
+    ds = [l.strip() for l in t.split(NL) if re.match(r'^    \([a-z]\) ', l)]
+    put_json('b654_defects.json', dict(at=utc(), defects=ds, short=_defect_short()))
+    print('  defects %d' % len(ds))
+
+
+def seal_hashes():
+    import hashlib
+    rec_ = jl('b654_seal_hashes.json').get('tools') or {}
+    now = {}
+    for t in K.SEALED:
+        p = os.path.join(ROOT, 'tools', t)
+        now[t] = hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else None
+    out = [(t, 'absent' if (t not in rec_ or now[t] is None) else ('agree' if rec_[t] == now[t] else 'differ')) for t in K.SEALED]
+    return rec_, now, out
+
+
+ROOT_EXCLUDE = re.compile(r'^b654_(defects|scores|desk_notes|components|checks.*|lsr.*|exercise|findings|trail|closing.*|'
+                          r'act_root.*|root_arm.*|.*push_out.*|scanfile_.*|seal_check_.*|census_closing|faces_census_closing|pins_closing|commands)\.(txt|json|md)$')
+
+
+def root_banks():
+    return sorted('data/' + f for f in os.listdir(D) if f.startswith('b654_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f))
+
+
+def root(*a):
+    banks = root_banks()
+    crlf = [b for b in banks if b'\r\n' in open(os.path.join(ROOT, *b.split('/')), 'rb').read()]
+    print('  banks named: %d ; the seal bank among them %s ; written with CR LF: %s' % (len(banks), 'data/b654_seal_hashes.json' in banks, crlf or 'none'))
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'act_root.py'), 'compute', 'b654'] + banks + ([] if 'dry' in a else ['--write']),
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    print(NL.join(((r.stdout or '') + (r.stderr or '')).rstrip(NL).split(NL)[-4:]))
+    if r.returncode:
+        sys.exit('### act_root.py exit %d' % r.returncode)
+
+
+def root_arm(*a):
+    import shutil
+    import tempfile
+    import act_root as AR
+    J = jl('b654_act_root.json')
+    bank_ = [it.split()[0] for it in J['items'] if it.startswith('data/')][0]
+    tmp = tempfile.mkdtemp()
+    cp = os.path.join(tmp, os.path.basename(bank_))
+    shutil.copy(os.path.join(ROOT, *bank_.split('/')), cp)
+    b = bytearray(open(cp, 'rb').read())
+    b[0] ^= 0x01
+    open(cp, 'wb').write(bytes(b))
+    items2 = [('%s %s' % (bank_, AR.sha256_file(cp)) if it.split()[0] == bank_ else it) for it in J['items']]
+    r2 = AR.root_of(items2, J['previous'])
+    same = AR.root_of(J['items'], J['previous'])
+    late = []
+    for it in J['items']:
+        p = it.split()
+        if p[0].startswith('data/'):
+            fp = os.path.join(ROOT, *p[0].split('/'))
+            if not os.path.exists(fp) or AR.sha256_file(fp) != p[1]:
+                late.append('%s changed' % p[0])
+            elif os.path.getmtime(fp) > J.get('at_epoch', 0) + AR.ORDER_SLACK:
+                late.append('%s written after the root' % p[0])
+    L = ['b654 -- THE ACT-ROOT ARM`S OFFLINE CONTROL AND THE ROOT ORDER READ LOCALLY (%s)' % utc(), '',
+         '### the root`s time %s ; its recorded commit %s ; banks named %d ; changed or written after the root: %s' % (
+             J.get('at'), (J.get('commit') or {}).get('relay', '?')[:12], len([i for i in J['items'] if i.startswith('data/')]), late or 'NONE'),
+         '### ### **THE RECOMPUTED ROOT EQUALS THE TOOL`S %s ; THE ONE-BYTE CONTROL CHANGES IT %s ; THE ROOT ORDER HOLDS LOCALLY %s.**' % (
+             same == J['root'], r2 != J['root'], not late)]
+    put_txt('b654_root_arm.txt', L)
+    put_json('b654_root_arm.json', dict(at=utc(), bank=bank_, root_copy=r2, root_recomputed=same, root=J['root'], late=late))
+    print(L[-1])
+
+
+def _rows_state(rows):
+    return dict(((r['repo'], r['name']), (r.get('grade'), r.get('profile'), r.get('provenance'))) for r in rows)
+
+
+def table_final(*a):
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b654 -- THE TERMINAL TABLE REGENERATED, final (%s); exit %d ; against relay HEAD %s' % (utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved))]
+    L += ['    added   %s / %s' % k for k in added[:60]] + ['    gone    %s / %s' % k for k in gone[:60]] + [
+        '    moved   %s / %s : %s -> %s' % (k[0], k[1], before[k], after[k]) for k in moved[:60]]
+    L += ['### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b654_table_final.txt', L)
+    put_json('b654_table_final.json', dict(at=utc(), rc=r.returncode, moved=[list(k) for k in moved], added=[list(k) for k in added],
+                                           gone=[list(k) for k in gone], grade_moved=[list(k) for k in moved if before[k][0] != after[k][0]]))
+    print(L[-1])
+
+
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+SK = ('S1', 'S2', 'S3')
+SCORE_KEYS = NK + SK
+N5_RELAY_DATA = ('act_roots.txt', 'b653_closing_push_out.txt')
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md')
+B559_NAMED = ('M (H, hrate)', 'the tie set', 'the kill set', 'Kp, cE, Nf', 'CV (through B, D)', 'theta', 'B, D', 'A0', 'Aw', 'zeta3Sum')
+
+
+def TRAIL_HEAD():
+    return ('### b654 — lane two, act eighty-one, the research act under (R264): b653 at its weight; the alternation and the freeze; E1 '
+            'stated and built on the runner; the transversality width defined; the AxiomCheck print re-banked')
+
+
+def _runner_rows():
+    return [read_runner_row(r) for r in (jl('b654_runner_rows.json').get('rows') or [])]
+
+
+def _ct(repo, *a):
+    s = g(repo, 'log', '-1', '--format=%ct', *a).strip()
+    return int(s) if s.isdigit() else None
+
+
+def _n2():
+    """N2: the statement bank names every quantity b559's bank names for the index, each against its line, and lands before any Lean."""
+    t = rdn('b654_e1_statement.txt')
+    named = [q for q in B559_NAMED if q in t]
+    cited = all(x in t for x in (':143-:146', ':149-:152', ':60', ':10'))
+    t_bank = _ct(RELAY, '--diff-filter=A', '--', 'data/b654_e1_statement.txt')
+    t_lean = _ct(K.EF, K.RUNNER['SIDE-explicit-formula']['ref'])
+    first_lean = g(K.EF, 'log', '--diff-filter=A', '--format=%h', K.RUNNER['SIDE-explicit-formula']['ref'], '--', K.E1_FILE).split()
+    ans = rdn('b654_author_answers.txt')
+    ok = len(named) == len(B559_NAMED) and cited and t_bank and t_lean and t_bank < t_lean and 'E1 statement' in ans
+    return ('HELD' if ok else 'REFUTED'), (
+        'the statement bank (relay data/b654_e1_statement.txt) names %d of the %d quantities b559 names for the index, each against its line '
+        '(:10, :60, :143-:146, :149-:152 cited %s); the bank committed at %s, the Lean first committed at %s (%s), the bank first %s; the prompt '
+        'of (R264)(3) in the answers bank %s' % (len(named), len(B559_NAMED), cited, t_bank, t_lean, first_lean[-1:] or '?',
+                                                  bool(t_bank and t_lean and t_bank < t_lean), 'E1 statement' in ans))
+
+
+def _n5():
+    face = jl('b654_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    kern_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b654_|audit_b654_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in N5_RELAY_DATA))]
+    ef_main = [l for l in g(K.EF, 'log', '--first-parent', '--format=%h %p', K.EF_MAIN + '..main').split(NL) if l.strip()]
+    ef_ok = (len(ef_main) == 2 and g(K.EF, 'show', '--name-only', '--format=', K.EF_WORKFLOW).split() == ['.github/workflows/build-module.yml']
+             and len(ef_main[0].split()) == 3)
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    import b654_checks as CH
+    new_arms = sorted(set(a[0] for a in CH.ARMS) - set(CH.B653_ARMS) - set(K.ACT_ARMS))
+    ok = kern_ok and not pp_beyond and not kinds_beyond and not differ and ef_ok and not new_arms
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unsubmitted); SIDE-explicit-formula`s main written by the workflow file '
+            'under (R263)(4) and the one merge under Component 4 alone (first-parent commits since %s: %s ; %s); every kernel as the face read it '
+            '%s; standing arms added: %s (the act`s arms over its own banks %s); sealed tools not agreeing %s; PLACE-papers beyond FINDINGS and '
+            'OPEN_TRAILS: %s; relay files of a kind beyond the banks, the tools and the root list: %s; no identifier of the author in any outbound '
+            'request (git pushes, remote reads, the runner`s dispatch with a ref and a target, the artifacts` downloads)' % (
+                K.DRAFT, K.EF_MAIN, [l.split()[0] for l in ef_main], 'AS ANSWERED' if ef_ok else '### OTHERWISE', kern_ok, new_arms or 'NONE',
+                len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE', kinds_beyond or 'NONE'))
+
+
+def scores(*a):
+    TF, RA = jl('b654_table_final.json'), jl('b654_root_arm.json')
+    _r, _n, sh = seal_hashes()
+    raw = dict((r['kernel'], r) for r in jl('b654_runner_rows.json').get('rows') or [])
+    ef = raw.get('SIDE-explicit-formula') or {}
+    cm = jl('b654_commands.json')
+    e1j, wj = jl('b654_e1.json'), jl('b654_width.json')
+    import no_sorry_main as NSM
+    efs = NSM.scan_kernel(K.EF)
+    ef_hits = efs.get('hits') if isinstance(efs, dict) else efs
+    S = {
+        'N1': (('HELD' if cm and not cm.get('local_lean') else 'REFUTED'),
+               'commands of this act that run lean or lake on this host: %s (relay data/b654_commands.txt); the build on the hosted runner alone' % (
+                   cm.get('local_lean') if cm else '### UNREAD')),
+        'N2': _n2(),
+        'N3': (('HELD' if e1j.get('landing') == 'DERIVES' and ef.get('gate') == 'DERIVES' and ef.get('merged') and not ef_hits else 'REFUTED'),
+               'E1 lands %s (relay data/b654_e1.txt), the gate reading %s, merged %s tag %s; G-NO-SORRY-MAIN`s scan of SIDE-explicit-formula`s '
+               'main now: hits %s' % (e1j.get('landing'), e1j.get('gates'), ef.get('merged'), ef.get('tag'), ef_hits)),
+        'N4': (('HELD' if wj.get('gate') and set(wj['gate']) <= STD3 and not [d for d in wj.get('decls') or [] if d[1] in ('theorem', 'lemma')]
+                and not wj.get('props') else 'REFUTED'),
+               'the width on the runner: %s; declarations in its file %s; property words in its docstring %s (relay data/b654_width.txt)' % (
+                   wj.get('gate'), wj.get('decls'), wj.get('props'))),
+        'N5': _n5(),
+        'S1': (('HELD' if not TF.get('gone') and not TF.get('grade_moved') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s, grade moved %s' % (
+                   len(TF.get('moved') or []), len(TF.get('gone') or []), len(TF.get('added') or []), len(TF.get('grade_moved') or []))),
+        'S2': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S3': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    put_json('b654_scores.json', dict((k2, list(v)) for k2, v in S.items()))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:500]))
+
+
+NEXT_LINE = ('b655, per `(R264)`(7): the re-cut act -- the next kernel by descending OVERREACHES count under the b652 rule and the hosted runner; '
+             'research and re-cut acts alternate from here (`(R264)`(2)), b660 the next reading act')
+
+
+def _title():
+    e1j = jl('b654_e1.json')
+    land_ = {'DERIVES': 'DERIVES at the standard three', 'OPEN': 'the proof open'}.get(e1j.get('landing'), '### UNREAD')
+    return ('## E1, the configuration-relative rate, %s on the runner; the transversality width defined; the AxiomCheck print re-banked; the '
+            'alternation entered' % land_)
+
+
+def _finding_text():
+    S, rl, J = jl('b654_scores.json'), jl('b654_record_lines.json'), jl('b654_act_root.json')
+    ans = rdn('b654_author_answers.txt')
+    n_ans, n_w = len(re.findall(r'^### PROMPT ', ans, re.M)), len(re.findall(r'^### THE AUTHOR`S WORD ', ans, re.M))
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    sc = lambda k: read_score_row(k, S.get(k) or ['?', ''])[1] if S.get(k) else '?'   # noqa: E731
+    ef = dict((r['kernel'], r) for r in jl('b654_runner_rows.json').get('rows') or []).get('SIDE-explicit-formula') or {}
+    before = re.search(r'CONTRADICTED (\d+)', rdn('b654_axiom_claim_before.txt'))
+    after = re.search(r'CONTRADICTED (\d+)', rdn('b654_axiom_claim_after.txt'))
+    e = ['', _title(), '',
+         '*Filed at b654 on the author’s ruling `(R264)` and the author’s answers (%d prompts, %d words). Banks: relay `data/b654_e1_statement.txt`, '
+         '`data/b654_e1.txt`, `data/b654_width.txt`, `data/b654_runner_SIDE-explicit-formula.txt`, `data/b654_axiomcheck_print_lv.txt`, '
+         '`data/b654_act_root.txt`.*' % (n_ans, n_w), '',
+         '**E1** (`(R264)`(3)): in SIDE-explicit-formula, `rest_norm_le_rate` bounds the rest of the zero side over `M ^ (2 ^ (j + 1))` at every '
+         '`j ≥ D` by `θ ^ (2 ^ (j + 1) - 2 ^ (D + 1))` times `3 A₀ Bf zeta3Sum`, `θ` any bound on `offScore g0 ρ / M` off the tie and kill sets; '
+         '`zeroSide_neg_at_rate` gives the zero side of the window of index `j` a negative real part at every `j ≥ D` where that rate is below the '
+         'tie terms’ sum. Every hypothesis is fixed in the statement and named against relay `data/b559_constants.txt` before any Lean; the index '
+         'of `zeroSide_eventually_neg` (PowerLimit.lean:1082), read there off a limit with no rate (:1092), is here explicit relative to the '
+         'configuration. Built on the hosted runner, run %s, memory low %s MB, the artifact’s sha256 agreeing with the platform’s digest, both '
+         'terminals at the standard three; merged alone, SIDE-explicit-formula %s tagged %s. N2 %s, N3 %s.' % (
+             ef.get('run_id'), ef.get('mem_low'), ef.get('merged'), ef.get('tag'), sc('N2'), sc('N3')), '',
+         '**The width** (`(R264)`(4)): `transversalityWidth ρ := ‖deriv LiCriterion.riemannXi ρ‖`, a definition bound on the author’s word to the '
+         'kernel’s one ξ (the vendored `LiCriterion.riemannXi`), THE_UNCONDITIONAL_SURROUND §6a’s object (:151, :153); no theorem beside it. '
+         'N4 %s.' % sc('N4'), '',
+         '**The AxiomCheck print** (`(R264)`(5)): b653’s runner artifact for SIDE-lv-conservation read again by its id and its sha256, its axioms '
+         'output re-banked at the merged commit b4c55b9; G-AXIOM-CLAIM CONTRADICTED %s before and %s after, AxiomCheck.lean:8 now VERIFIED, the '
+         'SIDE-cosmo row declared until its re-cut act.' % (before.group(1) if before else '?', after.group(1) if after else '?'), '',
+         '**The record lines** (`(R264)`(1)-(2)): b653 at its weight (FINDINGS :%s); the alternation of research and re-cut acts (OPEN_TRAILS '
+         ':%s); the standing arms frozen (:%s).' % (ls[0].get('line'), ls[1].get('line'), ls[2].get('line')), '',
+         '**The root.** b654 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, (S.get(k2) or ['?'])[0]) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): E1 re-reads b559’s constants reading (relay `data/b559_constants.txt` :139-:159; '
+         'OPEN_TRAILS :11491, the price corrected) and `zeroSide_eventually_neg`’s own proof, which it re-runs at an explicit index; it is re-read '
+         'by (E2), the same constants bounded by `(γ, δ)` alone, which stays research grade, and by W-ORD-DETECTION-REGION (OPEN_TRAILS :11151, '
+         ':11512). The width gives W-ORD-CLOSE-PAIR-BENCH (OPEN_TRAILS :13848) a kernel name to bind to when its turn comes after the companions. '
+         'It strengthens the programme’s offering of compiled statements a reader can check: the detection route’s index now carries a stated '
+         'rate in its configuration’s quantities, built and printed on a machine the reader can name by run id.', '',
+         '**Next.** %s.' % NEXT_LINE, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero; the rate is relative to a configuration whose quantities are '
+         'zeros of zeta, and a gate reading compares a print with the standard three and confers nothing beyond it.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) θ is taken as any bound on offScore / M off the tie and kill sets, θ < 1 not a hypothesis, as answered; (2) A₀ enters as a '
+              'hypothesis with HCount in place of the local count`s existential, so the rate is explicit in it; (3) the width binds to '
+              'LiCriterion.riemannXi, a second vendored copy XiZeros.riemannXi carrying the same body; (4) the merge carried the branch`s two '
+              'files alone, the merged tree equal to the built one')
+
+
+def _trail_text():
+    S, fj, rl, J = (jl(n_) for n_ in ('b654_scores.json', 'b654_findings.json', 'b654_record_lines.json', 'b654_act_root.json'))
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b654_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R264) ratified.** (1) b653 at its weight. (2) The alternation of research and re-cut acts; the standing arms frozen. (3) E1, '
+             'the configuration-relative rate, stated and attempted on the runner. (4) The transversality width defined as an object. (5) The '
+             'AxiomCheck print re-banked. (6) The draft held at v5. (7) The act after: b655.', '',
+             '**Entered:** FINDINGS.md:%s (b653’s weight), :%s (the entry); OPEN_TRAILS.md:%s (the alternation), :%s (the freeze); this record.' % (
+                 ls[0].get('line'), fj.get('entry_line'), ls[1].get('line'), ls[2].get('line')), '',
+             '**Act root:** b654 `%s` (previous `%s`, b653’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
+                 J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d (relay data/b654_author_answers.txt, with the author’s words), none after the root.' % n_ans, '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b654_defects.txt): %s.' % '; '.join(_defect_short()), '',
+             '**' + ' · '.join('%s %s' % (k2, (S.get(k2) or ['?'])[0]) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** %s.' % NEXT_LINE, '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b654_scores.json')
+    L = ['=' * 104, 'b654 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rdn('b654_defects.txt').rstrip(NL).split(NL)
+    put_txt('b654_desk_notes.txt', L)
+
+
+def components(*a):
+    S, fj, tj, rl, J = (jl(n_) for n_ in ('b654_scores.json', 'b654_findings.json', 'b654_trail.json', 'b654_record_lines.json', 'b654_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    L = ['b654 -- THE COMPONENTS, BANKED UNDER (R264).', '',
+         '### COMPONENT 0 : step zero (data/b654_ferry.txt, data/b654_stepzero.txt, data/b654_tests_stepzero.txt, data/b654_readfirst.txt) ; push-out relay %s' % K.STEPZERO,
+         '### COMPONENT 1 : b653`s weight FINDINGS :%s ; the alternation OPEN_TRAILS :%s ; the freeze :%s ; the print re-banked (data/b654_axiomcheck_print_lv.txt)' % (
+             ls[0].get('line'), ls[1].get('line'), ls[2].get('line')),
+         '### COMPONENT 2 : E1 (data/b654_e1_statement.txt, data/b654_e1.txt) ; N2 %s ; N3 %s' % (S['N2'][0], S['N3'][0]),
+         '### COMPONENT 3 : the width (data/b654_width.txt) ; N4 %s' % S['N4'][0],
+         '### COMPONENT 4 : the merge (data/b654_runner_rows.json, data/b654_ef_merge_push_out.txt)',
+         '### COMPONENT 5 : the seal (data/b654_seal_hashes.json) ; S3 %s' % S['S3'][0],
+         '### COMPONENT 6 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N1 %s ; N5 %s' % ((J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'),
+                                                                                        S['N1'][0], S['N5'][0])]
+    put_txt('b654_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def _land_one(path, head, e, bank, extra):
+    if odd_lines(e):
+        sys.exit('### ODD BACKTICKS -- NOTHING WRITTEN: %s' % odd_lines(e)[:3])
+    guard_absent(path, head)
+    r = append_to(path, e)
+    ln = read_head(path, head)
+    put_json(bank, dict(extra, line=ln, head=head, append=r))
+    return ln
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = conv(e)
+    dry = 'dry' in a
+    cells, fired = screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(FIND, t, e, 'b654_findings.json', dict(title=t))
+    j = jl('b654_findings.json')
+    j['entry_line'] = ln
+    put_json('b654_findings.json', j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = conv(_trail_text())
+    dry = 'dry' in a
+    cells, fired = screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(OT, TRAIL_HEAD(), e, 'b654_trail.json', {})
+    print('  OPEN_TRAILS record :%s' % ln)
 
 
 if __name__ == '__main__':
