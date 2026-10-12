@@ -529,7 +529,7 @@ def kernel_named_ok(S):
 
 def sentences_ok(S):
     s = S['sent']
-    return len(s.get('rows') or []) == 298 and len(set(r['parent'] for r in s.get('rows') or [])) == 39 and s.get('unread') == [T3_ID]
+    return len(s.get('rows') or []) == 288 and len(set(r['parent'] for r in s.get('rows') or [])) == 39 and s.get('unread') == [T3_ID]
 
 
 def grades_verbatim_ok(S):
@@ -803,7 +803,7 @@ ARMS = [
      lambda S: dry_step_ok(S), lambda S: put(S, 'gate', S['gate'].replace('THE DRY-RUN STEP : CLEAN', 'THE DRY-RUN STEP : NOT CLEAN'))),
     ('G-KERNEL-NAMED', 'the b647 kernels table: SIDE-lv-conservation the next by descending OVERREACHES count after SIDE-kernel and SIDE-global-section, 35',
      lambda S: kernel_named_ok(S), lambda S: put(S, 'ktable', S['ktable'].replace('|  284 |   5 |  35 |', '|  284 |   5 |  12 |'))),
-    ('G-SENTENCES-BANKED', 'the sentence-row bank: 39 parents read at main, 298 rows, the restated T3 block the one not found',
+    ('G-SENTENCES-BANKED', 'the sentence-row bank: 39 parents read at main, 288 rows, the restated T3 block the one not found',
      lambda S: sentences_ok(S), lambda S: _mut(S, 'sent', lambda d: d.update(unread=['x']))),
     ('G-GRADES-VERBATIM', 'the hand grades against their cells (the parent`s, b648`s h2 cell, the re-grade`s bank line): every quoted word verbatim; the bank`s counts (N2)',
      lambda S: grades_verbatim_ok(S), lambda S: put(S, 'verb', (78, ['#1 s1']))),

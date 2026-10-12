@@ -1,11 +1,13 @@
 {
- "at": "2026-10-12T20:53:31Z",
+ "at": "2026-10-12T21:05:48Z",
  "defects": [
   "(a) THE SEAT'S: A CUT PLANNER THAT DROPS EMPHASIS MARKS AT A SENTENCE'S END. b651's sentence split (b647_record._MSPLIT) takes a closing `**` or `*` after a period as part of the gap between sentences, so a row's span ends before the mark and a replacement's own marks are lost; at two of the 38 edits the planned text leaves emphasis unbalanced in a docstring -- #38 ZeroActingPartial.lean (a lone `*` after \"is not compiled.\") and #39 (an opening `**` before \"Three facts juxtaposed.\" never closed) -- and at two more (#7 CouplingsAtPhi.lean, #36 ZeroActingPartial.lean) the bold, balanced, now spans the whole replacement. Comments only; the code outside comments equal to main's in every file. Seen on reading the planned edits before the cut, after the author's word on the grades; the cut made as banked and approved, the marks named here for the next re-cut's planner.",
-  "(b) THE SEAT'S: A RE-RUN THAT READ A CUT ONE-WORD ROW AS STANDING. The first re-run of the grade bank at the branch (tools/b657_record.py _regrade) looked for each graded sentence anywhere in its file and so read #31 s22 (\"Clean.\", the distinctFromInput row, cut) as OVERREACHES STANDING, the same word standing as the eulerConsuming row's MATCHES \"Clean.\" in the same file. Caught at that first run, before the cut bank was committed; the re-run now reads a row as cut when its sentence occurs fewer times at the branch than at main, and the control at main reads every graded row standing (78)."
+  "(b) THE SEAT'S: A RE-RUN THAT READ A CUT ONE-WORD ROW AS STANDING. The first re-run of the grade bank at the branch (tools/b657_record.py _regrade) looked for each graded sentence anywhere in its file and so read #31 s22 (\"Clean.\", the distinctFromInput row, cut) as OVERREACHES STANDING, the same word standing as the eulerConsuming row's MATCHES \"Clean.\" in the same file. Caught at that first run, before the cut bank was committed; the re-run now reads a row as cut when its sentence occurs fewer times at the branch than at main, and the control at main reads every graded row standing (78).",
+  "(c) THE SEAT'S: AN ARM THAT COUNTED ONE BANK'S ROWS BY ANOTHER'S NUMBER. G-SENTENCES-BANKED looked for 298 rows in the sentence-row bank, which holds 288 (the b651 route's sentences); 298 is the grade bank's count after its breaks and joins. The arm failed on real state at the first pre-run (relay data/b657_arms_prerun.txt as first run, committed). Caught there, before the lock: the count set to the sentence bank's own by the Edit tool, the pre-run run again."
  ],
  "short": [
   "(a) THE SEAT'S: A CUT PLANNER THAT DROPS EMPHASIS MARKS AT A SENTENCE'S END",
-  "(b) THE SEAT'S: A RE-RUN THAT READ A CUT ONE-WORD ROW AS STANDING"
+  "(b) THE SEAT'S: A RE-RUN THAT READ A CUT ONE-WORD ROW AS STANDING",
+  "(c) THE SEAT'S: AN ARM THAT COUNTED ONE BANK'S ROWS BY ANOTHER'S NUMBER"
  ]
 }
