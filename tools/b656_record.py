@@ -212,6 +212,39 @@ def c1(*a):
          dry='dry' in a)
 
 
+# ================================================================================ COMPONENT 2: THE AUTHOR'S WORD ON THE BINDING -- STOPPED HERE
+# ### the author's answer (relay data/b656_author_answers.txt): Option 2, the act stops at Component 2 with the result named; no map, no
+# ### H1-H3 (NOT SCORED, O-2 the reason); W-ORD-E1-CFG entered on OPEN_TRAILS; the grid lesson beside it, the navigator's.
+EH = ('### `W-ORD-E1-CFG` -- E1’S RATE THEOREM OVER A CONFIGURATION WITH AN EXCLUDED ZERO AND A LOCAL COUNT, PRICED, NOT STARTED, appended '
+      '2026-10-12, b656, under the author’s ruling `(R266)`(3) and the author’s word on the binding')
+GH = ('*Appended 2026-10-12 by b656 beside W-ORD-E1-CFG, under the author’s word on `(R266)`(3) -- A GRID LESSON, THE NAVIGATOR’S:*')
+
+
+def _e1_cfg():
+    return ('\n' + EH + '\n\n**Items.** rest_norm_le_rate and zeroSide_neg_at_rate (SIDE-explicit-formula RateIndex.lean :27, :113, v0.27) are '
+            'stated on zetaZeroConfig alone, whose carrier is ζ’s genuine zeros by rfl (Zeta23/Statement/SeamClosed.lean :42, :44): no '
+            'hypothetical off-line zero is in their tie set, and hrate’s right side has no referent there (O-1); the kernel has no '
+            'configuration-level rate theorem -- Schema/Converse.lean carries the limit form zeroSide_eventually_neg_cfg (:161) and the twins '
+            'sT_cfg, fR_cfg, dominant_summable_cfg, but no rate (O-2); the full configuration’s A₀ is existential (Zeta23/RvM/LocalCount.lean '
+            ':287; O-3). The item: the rate theorem over a configuration with an excluded zero and a local count, ζ an instance by rfl as v0.15 '
+            'made the seam. **Price:** from the binding bank’s O-1 to O-3 (relay data/b656_e1_binding.txt): the two statements restated over a '
+            'Schema.WeilConfig, their proofs using zetaZeroConfig only through dominant_summable, fR, sT and zeroSide (RateIndex.lean :84, :103, '
+            ':151), each with a twin in Converse.lean; the ζ instance by rfl. **Trigger:** this finding. **Acted:** at b658, the next research '
+            'act, on the runner.\n')
+
+
+def _grid_lesson():
+    return ('\n' + GH + ' `(R266)`(4) fixed J_max at 12 without reading D = 2 · card Xr + 8 ≥ 8 from coeffs_exist’s witness (PowerLimit.lean '
+            ':683; relay data/b656_e1_binding.txt, row D): under it at most five indices could be tested, and none at a cell whose kill set has '
+            'three ordinates or more. Any later grid sets J_max relative to D, not absolutely.\n')
+
+
+def c2(*a):
+    items = [('OPEN_TRAILS.md', EH, _e1_cfg()), ('OPEN_TRAILS.md', GH, _grid_lesson())]
+    land(items, 'b656_trail_lines.json', 'c2', entry=13992,
+         check=[('OPEN_TRAILS.md', 13992, 'THE MIRROR CLAUSE, AS IT READS FROM b656')], dry='dry' in a)
+
+
 # ================================================================================ THE LATE ROUTES (b655's, carried; every row read through READERS)
 import collections                 # noqa: E402
 import b633_record as R3           # noqa: E402
