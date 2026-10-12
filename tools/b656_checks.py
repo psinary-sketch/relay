@@ -536,9 +536,9 @@ def readfirst_ok(S):
 BINDING_ROWS = ('  ℓ  -- ', '  L  -- ', '  g0 -- ', '  M  -- ', '  the dominant zero -- ', '  the tie set and its multiplicities -- ',
                 '  the kill set -- ', '  Nf -- ', '  D  -- ', '  B  -- ', '  Aw -- ', '  θ  -- ', '  A₀ -- ', '  zeta3Sum -- ', '  Bf -- ',
                 '  hrate -- ', '  power g j -- ', '  H3`s zero side -- '.replace('`', "'"))
-BINDING_LINES = ('RateIndex.lean:27', 'RateIndex.lean:123-:125', 'SeamClosed.lean:42', 'PowerLimit.lean:683', 'PowerLimit.lean:667',
-                 'PowerWindow.lean:432', 'PowerLimit.lean:445', 'PowerLimit.lean:274', 'PowerLimit.lean:800', 'PowerLimit.lean:825',
-                 'RestBound.lean:44', 'RestBound.lean:51', 'PowerWindow.lean:398', 'PowerWindow.lean:401', 'PowerWindow.lean:276',
+BINDING_LINES = ('RateIndex.lean:27', 'RateIndex.lean:123-:125', 'SeamClosed.lean:42', 'PowerLimit.lean:683', 'fixed_poly_bound (:667)',
+                 'PowerWindow.lean:432', 'PowerLimit.lean:445', '(:274) = 1 + 4/|σ − 1/2|', 'PowerLimit.lean:800', 'PowerLimit.lean:825',
+                 'RestBound.lean:44', 'RestBound.lean:51', 'PowerWindow.lean:398', 'PowerWindow.lean:401', 'PowerWindow.lean:274, :276',
                  'Detector.lean:40', 'TwoPropertyWindow.lean:56', 'LocalCount.lean:287', 'Converse.lean:151', 'Config.lean:37')
 
 
