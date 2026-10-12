@@ -1,7 +1,7 @@
-b657 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-12T20:53:28Z)
+b657 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-12T21:14:56Z)
 
 ### the source: the seat`s session 1199f364-78c4-4147-843f-edf01bb11b28 from its first user line carrying 'RULING (R267) BEGIN', and its subagents` transcripts
-### commands read: 81
+### commands read: 100
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -91,5 +91,24 @@ b657 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READIN
   #79 | 2026-10-12T20:47:57.758Z | seat | Bash | grep -n "SIDE-lv-conservation " data/b647_table_kernels.txt | cut -c1-120 | cat -A | head -2
   #80 | 2026-10-12T20:48:04.457Z | seat | Bash | PYTHONIOENCODING=utf-8 python - <<'EOF'
   #81 | 2026-10-12T20:52:25.538Z | seat | Bash | python -c "
+  #82 | 2026-10-12T20:53:26.374Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -m py_compile tools/b657_checks.py tools/b657_record.py tools/b657_closing.py tools/b657_regspec.py tools/b657_reg_gate.
+  #83 | 2026-10-12T20:53:36.775Z | seat | Bash | git log --reverse --format='%h %s' 63001a6b..HEAD | cut -c1-120; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 31c03f9..HEAD | cut -c1-120;
+  #84 | 2026-10-12T20:54:59.794Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b657_reg_gate.py | tail -16 | cut -c1-260; python tools/b657_regspec.py | grep -n "PREDICTIONS FOUND\|line \|REFUS
+  #85 | 2026-10-12T20:55:09.287Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\1199f364-78c4-4147-843f-edf01bb11b28\scratchpad'; $p = Start-Process -FilePa
+  #86 | 2026-10-12T20:55:16.793Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/1199f364-78c4-4147-843f-edf01bb11b28/scratchpad/b657_prerun.log"; for i in $(seq 1 36); do if grep -q "writte
+  #87 | 2026-10-12T21:04:31.848Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/1199f364-78c4-4147-843f-edf01bb11b28/scratchpad/b657_prerun.log"; for i in $(seq 1 30); do if grep -q "writte
+  #88 | 2026-10-12T21:05:23.493Z | seat | Bash | python -c "
+  #89 | 2026-10-12T21:05:33.899Z | seat | Bash | git add data/b657_arms_prerun.txt data/b657_lsr_prerun.json data/b657_registration_2026-10-12.txt data/b657_reg_gate.txt && git commit -q -m "b657 Component 4 u
+  #90 | 2026-10-12T21:05:47.294Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b657_record.py defects && git add tools/b657_checks.py data/b657_defects.txt data/b657_defects.json && git commit -q -m "b65
+  #91 | 2026-10-12T21:05:58.870Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\1199f364-78c4-4147-843f-edf01bb11b28\scratchpad'; $p = Start-Process -FilePa
+  #92 | 2026-10-12T21:06:05.575Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/1199f364-78c4-4147-843f-edf01bb11b28/scratchpad/b657_prerun2.log"; for i in $(seq 1 36); do if grep -q "writt
+  #93 | 2026-10-12T21:12:20.481Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b657_reg_gate.py | grep "DRY-RUN STEP :\|GATE VERDICT\|UNDECLARED\|MISSES" | cut -c1-200; python -c "
+  #94 | 2026-10-12T21:12:28.852Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -c "
+  #95 | 2026-10-12T21:12:43.035Z | seat | Bash | export PYTHONIOENCODING=utf-8 && grep -c "GATES READ : 8. ### PASSING : 8." data/b657_lockgate_notes.txt && python tools/reg_seal.py --lock data/b657_registrati
+  #96 | 2026-10-12T21:12:53.923Z | seat | Bash | export PYTHONIOENCODING=utf-8 && timeout 590 python tools/b657_record.py table_final && git status --short --untracked-files=no && git add data/b657_table_final
+  #97 | 2026-10-12T21:13:35.613Z | seat | Bash | git diff --stat data/terminal_table.json data/terminal_table.md && git diff data/terminal_table.md | head -20 | cut -c1-200
+  #98 | 2026-10-12T21:13:44.278Z | seat | Bash | git add data/terminal_table.json data/terminal_table.md && git commit -q -m "b657 pre-root: the terminal table's files as the generator wrote them at b657 (data
+  #99 | 2026-10-12T21:13:45.695Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no; git branch push-b657-root HEAD && PUSH_GATED_LOG=/d/relay/data/b657_pp_root_push_out
+  #100 | 2026-10-12T21:14:28.283Z | seat | Bash | cd /d/relay && export PYTHONIOENCODING=utf-8 && python tools/b657_record.py root && python tools/b657_record.py root_arm && tail -1 data/act_roots.txt | cut -c1
 
-### ### **COMMANDS 81 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
+### ### **COMMANDS 100 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
