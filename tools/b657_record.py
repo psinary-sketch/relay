@@ -864,10 +864,12 @@ def check_file(*a):
 
 
 def _regrade(ref):
-    """every graded row of the grade bank looked for in its file at `ref`, whitespace aside: standing or gone, by its verdict."""
+    """every graded row of the grade bank looked for in its file at `ref`, whitespace aside: standing or gone, by its verdict. A row is
+    gone when its sentence occurs fewer times in the file at `ref` than at main (b657: a one-word row such as "Clean." also stands
+    elsewhere in its file as a MATCHES row, so presence alone cannot read it); at main itself every graded row stands."""
     import collections
     G = jl(K.GRADES)
-    files, standing, gone = {}, [], 0
+    files, mains, standing, gone = {}, {}, [], 0
     cnt = collections.Counter()
     for k, q, rs, _slots in _plans():
         cells = _row_cells(k, q)
@@ -875,12 +877,14 @@ def _regrade(ref):
         f = q['file']
         if f not in files:
             files[f] = _ws(_show(K.KD, ref, f) or '')
+            mains[f] = _ws(_show(K.KD, K.K_MAIN, f) or '')
         for r in rs:
             if r['n'] not in mine:
                 cnt['MATCHES'] += 1
                 continue
             v = cells[r['n']][0] if r['n'] in cells else q['verdict']
-            if _ws(r['sentence']) in files[f]:
+            s = _ws(r['sentence'])
+            if s in files[f] and files[f].count(s) >= mains[f].count(s):
                 standing.append((k, f, r['n'], v, r['sentence']))
                 cnt[v + ' (STANDING)'] += 1
             else:
