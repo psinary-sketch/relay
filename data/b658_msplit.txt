@@ -1,0 +1,45 @@
+b658 -- COMPONENT 1, (R268)(2): THE SENTENCE SPLITTER REPAIRED ON PLANTED CASES, RUN BEFORE AND AFTER (2026-10-12T23:53:22Z)
+
+### the defect: b647`s split (relay tools/b647_record.py :846, `_MSPLIT`) took a closing quote, asterisk or bracket after . ! or ? as
+### part of the gap between sentences, so the mark belonged to neither unit and b657`s cut, planned on the units, dropped it: two
+### unbalanced emphases at SIDE-lv-conservation main 8e3bc76, SIDELvConservation/ZeroActingPartial.lean :104 and :107 (relay data/b657_defects.txt (a)).
+### the repair (the Edit tool): the split takes the whitespace alone, a fixed-width look-behind for . ! or ? followed by up to four
+### closing marks, so the marks stay with their sentence and the split points are the old ones (five or more marks: no split).
+###   before: (?<=[.!?])["\'*)\]]*\s+(?=\S)
+###   after:  (?:(?<=[.!?])|(?<=[.!?]["\'*)\]])|(?<=[.!?]["\'*)\]]{2})|(?<=[.!?]["\'*)\]]{3})|(?<=[.!?]["\'*)\]]{4}))\s+(?=\S)
+### the planted test, tools/test_msplit_b658.py (new, the Write tool); rows are its numbered cases.
+
+### BEFORE (b647_record.py at relay 1b2649ea): cases 7 ; failing ['(1)', '(2)', '(3)', '(4)', '(6)'] ; exit 1 ; ### 7 cases, 5 failing
+### AFTER (b647_record.py repaired): cases 7 ; failing none ; exit 0 ; ### 7 cases, 0 failing
+
+### THE REAL STATE: the comment blocks of SIDELvConservation/ZeroActingPartial.lean at SIDE-lv-conservation b4c55b9 (the text b657 planned its cut on) where a split
+### loses a character other than whitespace (block`s first line | characters lost before | after):
+  :53 | 2 | 0
+  :82 | 2 | 0
+  :97 | 2 | 0
+  :111 | 1 | 0
+  :118 | 2 | 0
+
+### ### **BEFORE 2 OF 7 PASSING ; AFTER 7 OF 7 PASSING ; REAL-STATE BLOCKS LOSING A MARK: BEFORE 5, AFTER 0.**
+
+### THE TWO RUNS, WHOLE:
+=== before
+test_msplit_b658 -- the splitter at C:\Users\ECHOCH~1\AppData\Local\Temp\b658_ms_arm51lrs\b647_record.py
+  (1) a lone closing `*` after a period (ZeroActingPartial.lean :104`s shape) ; got ['neither clause alone yields RH is not compiled.', 'The programme`s first real step.'] ... FAIL
+  (2) a closing `**` after a period (ZeroActingPartial.lean :107`s shape) ; got ['**The residue is irreducible by structure.', '**Three facts juxtaposed.', 'Under the premise, the three hold.'] ... FAIL
+  (3) a closing quote and a closing bracket ; got ['He said "stop.', 'Then (it ran.', 'Next.'] ... FAIL
+  (4) four closing marks after a question mark ; got ['Is it **(open?', 'Yes.'] ... FAIL
+  (5) the split points are the old splitter`s: each unit starts where it started ... PASS
+  (6) no character but whitespace is lost by the split ... FAIL
+  (7) plain sentences split as before ... PASS
+### 7 cases, 5 failing
+=== after
+test_msplit_b658 -- the splitter at D:\relay\tools\b647_record.py
+  (1) a lone closing `*` after a period (ZeroActingPartial.lean :104`s shape) ... PASS
+  (2) a closing `**` after a period (ZeroActingPartial.lean :107`s shape) ... PASS
+  (3) a closing quote and a closing bracket ... PASS
+  (4) four closing marks after a question mark ... PASS
+  (5) the split points are the old splitter`s: each unit starts where it started ... PASS
+  (6) no character but whitespace is lost by the split ... PASS
+  (7) plain sentences split as before ... PASS
+### 7 cases, 0 failing
