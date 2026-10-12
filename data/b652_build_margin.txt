@@ -1,4 +1,4 @@
-b652 -- COMPONENT 2, (R262)(3) AND THE AUTHOR`S WORD AFTER THE STRIKE: THE BUILD MARGIN, PER MODULE (2026-10-11T23:44:46Z)
+b652 -- COMPONENT 2, (R262)(3) AND THE AUTHOR`S WORD AFTER THE STRIKE: THE BUILD MARGIN, PER MODULE (2026-10-12T00:41:32Z)
 
 ### the hold 2560 MB, not lowered. The rule as (R262)(3) wrote it: a module builds under the hold when the free memory at its start less its
 ### measured tree peak stays at or above the hold. Refuted by b651`s PerpendicularCrossing run (relay data/b651_docstrings_SIDE-kernel.txt
@@ -17,6 +17,26 @@ b652 -- COMPONENT 2, (R262)(3) AND THE AUTHOR`S WORD AFTER THE STRIKE: THE BUILD
   2026-10-11T23:44:22Z SIDELvConservation.T3_StepNineBridge   needed 1428 (host loss) ; seen  651 (free 3211) ; DOES NOT ALLOW ; relay data/b649_lv_build.txt :16: 3545-2135 = 1410 ; 3532-2104 = 1428
   2026-10-11T23:44:22Z SIDEEffects.Milestones                 needed 1255 (host loss) ; seen  651 (free 3211) ; DOES NOT ALLOW ; b648`s log w_b648_milestones.log :1, :31, :34 (data/b648_build_peaks.json rows 3-4): 3788-2533 = 1255 ; 3616-2529 = 1087
   2026-10-11T23:44:22Z Kernel.PerpendicularCrossing           needed  906 (host loss) ; seen  651 (free 3211) ; DOES NOT ALLOW ; relay data/b651_docstrings_SIDE-kernel.txt :18-:19: 3365-2459 = 906 ; 3151-2441 = 710
+
+### READING 3-OPEN (the author`s answer: one reading after every application but Claude Code is closed; taken before the author closed them, banked as such), free 3016 MB, processes 259:
+  the largest by name: chrome 4757 MB; svchost 1046 MB; Memory Compression 814 MB; claude 749 MB; explorer 372 MB; MsMpEng 360 MB; msedgewebview2 200 MB; powershell 194 MB; Dell.TechHub.Instrumentation.SubAgent 172 MB; WindowsTerminal 106 MB
+  2026-10-12T00:00:01Z SIDELvConservation.T3_StepNineBridge   needed 1428 (host loss) ; seen  456 (free 3016) ; DOES NOT ALLOW
+  2026-10-12T00:00:01Z SIDEEffects.Milestones                 needed 1255 (host loss) ; seen  456 (free 3016) ; DOES NOT ALLOW
+  2026-10-12T00:00:01Z Kernel.PerpendicularCrossing           needed  906 (host loss) ; seen  456 (free 3016) ; DOES NOT ALLOW
+
+### READING 3-CLOSED (the author`s answer: one reading after every application but Claude Code is closed; on the author`s word "closed"), free 4094 MB, processes 256:
+  the largest by name: chrome 3451 MB; svchost 1056 MB; Memory Compression 766 MB; claude 735 MB; explorer 372 MB; MsMpEng 358 MB; msedgewebview2 205 MB; powershell 194 MB; Dell.TechHub.Instrumentation.SubAgent 164 MB; SupportAssistAgent 99 MB
+  2026-10-12T00:04:23Z SIDELvConservation.T3_StepNineBridge   needed 1428 (host loss) ; seen 1534 (free 4094) ; ALLOWS
+  2026-10-12T00:04:23Z SIDEEffects.Milestones                 needed 1255 (host loss) ; seen 1534 (free 4094) ; ALLOWS
+  2026-10-12T00:04:23Z Kernel.PerpendicularCrossing           needed  906 (host loss) ; seen 1534 (free 4094) ; ALLOWS
+
+### THE BUILDS, IN THE AUTHOR`S ORDER (ascending need), each detached under the watchdog, the margin read at its slot (relay data/b652_build_results.json, data/b652_build_peaks.json):
+  Kernel.PerpendicularCrossing           needed  906 ; seen at its slot 1517 ; BUILT ; free at start [4018] ; attempts ['435s low 2566 peak 2434'] ; loss [1452] ; gate None ; merged None
+      the cut branch built for its measurement, unmerged by the author's word
+  SIDEEffects.Milestones                 needed 1255 ; seen at its slot 1892 ; BUILT ; free at start [4408] ; attempts ['532s low 3076 peak 1328'] ; loss [1332] ; gate PASS ; merged 9a279ac
+      fast-forward of SIDE-effects main ef4cff7 to 9a279ac, alone, pushed through push_gated.sh from push-b652-restate and read back (data/b652_effects_push_out.txt)
+  SIDELvConservation.T3_StepNineBridge   needed 1428 ; seen at its slot 1801 ; STOPPED ; free at start [4319, 3988] ; attempts ['678s low 2493 peak 1733 STOPPED'] ; loss [1826] ; gate None ; merged None
+      attempt 1 stopped beneath the hold by the watchdog at 00:40:22Z (low 2493 MB, tree peak 1733 MB, 678 s); the watchdog's retry stopped by the seat by PID on the author's word (a stop beneath the hold ends the builds for this act); the branch unmerged, the module UNBUILT
 
 ### THE CUT BRANCH (docstrings-SIDE-kernel, the cut and the plain comments), per file, at reading 2 (seen 651 MB above the hold):
   Bridge/CartanBBridge.lean                    UNMEASURED: no recorded host loss
@@ -53,8 +73,8 @@ b652 -- COMPONENT 2, (R262)(3) AND THE AUTHOR`S WORD AFTER THE STRIKE: THE BUILD
   legacy/ProductFormula_Int.lean               UNMEASURED: in no lean_lib (legacy/), nothing builds it
   legacy/SchwarzReflection_PR.lean             UNMEASURED: in no lean_lib (legacy/), nothing builds it
 
-### no build started: no module`s margin seen reached its margin needed at either reading, and no build is attempted on a file with no
-### measured need (the author`s word); no RUN-BENEATH-HOLD this act. The branches stay unmerged, their margins banked here.
+### at readings 1, 2 and 3-open no module`s margin seen reached its need; at 3-closed all three did, and they were built in the author`s
+### order; no build is attempted on a file with no measured need (the author`s word). A stop beneath the hold ends the builds for this act.
 
 === THE DIFF, SIDE-lv-conservation b648-restate-SIDE-lv-conservation over main, whole:
 diff --git a/SIDELvConservation/T3_StepNineBridge.lean b/SIDELvConservation/T3_StepNineBridge.lean
@@ -113,124 +133,7 @@ index 948498c..1f0e056 100644
  If the programme's Determination condition is in force, every coupling
 
 === THE DIFF, SIDE-effects b648-restate-SIDE-effects over main, whole:
-diff --git a/SIDEEffects/Milestones.lean b/SIDEEffects/Milestones.lean
-index caf7517..3689d1b 100644
---- a/SIDEEffects/Milestones.lean
-+++ b/SIDEEffects/Milestones.lean
-@@ -4,73 +4,56 @@ import SIDEEffects.Structural
-   SIDE-EFFECTS — MILESTONES
-   ==========================
-   Three analytic existence statements for the additive-multiplicative
--  problems. The STRUCTURAL Type-D exclusion they rest on is the genuine
--  `Phase15/Module1.lean : no_type_d_conspiracies` (CRT exhaustiveness);
--  `Structural.lean` carries the generic `no_type_d` lemma. The EXISTENCE
--  statements close via Mathlib infrastructure not yet bridged.
--  Each theorem here:
--    - states the real type (not a True placeholder)
--    - is proved by sorry at the marked boundary
--    - documents which Mathlib infrastructure closes it
--  When a milestone closes, its sorry is discharged in place and the
--  README/version tag updated. The migration history shows programme
--  progress over time.
-+  problems, each an open conjecture stated as a `Prop`. The programme's
-+  structural Type-D exclusion is `Phase15/Module1.lean :
-+  no_type_d_conspiracies` (CRT exhaustiveness); `Structural.lean` carries
-+  the generic `no_type_d` lemma; no milestone uses either. The EXISTENCE
-+  statements would be proved through Mathlib infrastructure not yet bridged.
-+  Each milestone here (RESTATED at b648 under the author's ruling (R258)(2)):
-+    - states the real conjecture as a `Prop` (not a True placeholder)
-+    - is stated, not proved; open -- a `def`, with no proof and no `sorry`
-+    - documents which Mathlib infrastructure would prove it
-+  When a milestone is proved, a theorem concluding its `Prop` is added
-+  and the README/version tag updated. Until 2026-10-10 each stood as a
-+  `theorem` closed by `sorry`; that history is in this file's git log.
-   J. York Seale | ORCID: 0009-0008-7993-0310
- -/
- namespace AddMult
--/-- MILESTONE M3: Infinitely many twin primes.
--    The structural argument is the genuine `Module1.no_type_d_conspiracies`
--    (CRT exhaustiveness): there is no TYPE D conspiracy that would
--    forbid infinitely many twins.
--    Closing this existence statement requires the Hardy-Littlewood
--    asymptotic π₂(N) ~ 2C₂ N / (log N)², which forces
--    π₂(N) → ∞, hence twin primes infinite.
--    Mathlib status: PrimeCounting infrastructure exists; the
-+/-- MILESTONE M3: infinitely many twin primes -- stated, not proved; open.
-+    The twin-prime conjecture as a `Prop`. Proving it would need the
-+    Hardy-Littlewood asymptotic π₂(N) ~ 2C₂ N / (log N)², which forces
-+    π₂(N) → ∞. Mathlib status: PrimeCounting infrastructure exists; the
-     Hardy-Littlewood density theorem is not yet packaged. -/
--theorem twin_primes_infinite :
--    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (p + 2))) := by
--  sorry  -- MILESTONE: Hardy-Littlewood asymptotic
--/-- MILESTONE M4: Goldbach binary conjecture.
--    Every even n ≥ 4 is the sum of two primes.
-+def twin_primes_infinite : Prop :=
-+    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (p + 2)))
-+/-- MILESTONE M4: the binary Goldbach conjecture -- stated, not proved; open.
-+    Every even n ≥ 4 is the sum of two primes, as a `Prop`.
-     Evenness expressed inline as `∃ k, n = 2 * k` to avoid
-     dependency on the Mathlib Even/Odd parity infrastructure
-     (whose location varies across Mathlib versions).
--    The structural argument is the genuine `Module1.no_type_d_conspiracies`
--    (CRT exhaustiveness): there is no TYPE D conspiracy that would
--    forbid the Goldbach representation.
--    Closing this existence statement requires the circle method
--    formalization, giving r(n) ≫ 1 for even n ≥ 4 (where r(n) counts
--    representations as p + q with p, q prime).
--    Mathlib status: circle method not yet formalized.
--    Helfgott's ternary Goldbach approach is one alternative path. -/
--theorem goldbach :
-+    Proving it would need the circle method, giving r(n) ≫ 1 for even
-+    n ≥ 4 (where r(n) counts representations as p + q with p, q prime).
-+    Mathlib status: circle method not yet formalized. -/
-+def goldbach : Prop :=
-     ∀ n : ℕ, n ≥ 4 → (∃ k : ℕ, n = 2 * k) →
--      ∃ p q : ℕ, Nat.Prime p ∧ Nat.Prime q ∧ p + q = n := by
--  sorry  -- MILESTONE: circle method or Helfgott-style approach
--/-- MILESTONE M5: Sophie Germain primes infinite.
--    Infinitely many primes p such that 2p+1 is also prime.
--    The structural argument is the genuine `Module1.no_type_d_conspiracies`
--    (CRT exhaustiveness): there is no TYPE D conspiracy that would
--    forbid infinitely many Sophie Germain primes.
--    Closing this existence statement requires sieve bounds
--    establishing positive density of Sophie Germain primes
--    in the integers.
--    Mathlib status: basic sieve infrastructure exists;
--    the specific bounds for Sophie Germain density are not
--    yet packaged. -/
--theorem sophie_germain_infinite :
--    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (2 * p + 1))) := by
--  sorry  -- MILESTONE: sieve density bounds
-+      ∃ p q : ℕ, Nat.Prime p ∧ Nat.Prime q ∧ p + q = n
-+/-- MILESTONE M5: infinitely many Sophie Germain primes -- stated, not proved; open.
-+    Infinitely many primes p such that 2p+1 is also prime, as a `Prop`.
-+    Proving it would need sieve bounds establishing positive density of
-+    Sophie Germain primes. Mathlib status: basic sieve infrastructure
-+    exists; the specific bounds are not yet packaged. -/
-+def sophie_germain_infinite : Prop :=
-+    ¬(∃ N : ℕ, ∀ p > N, ¬(Nat.Prime p ∧ Nat.Prime (2 * p + 1)))
- end AddMult
- /-!
-   ## Status
--  3 theorems, 3 sorrys, 0 axioms.
--  Each sorry is at a clearly-marked analytic boundary with
--  identified Mathlib infrastructure required for closure.
--  The structural Type-D exclusion these milestones rest on is the
--  genuine `Module1.no_type_d_conspiracies` (CRT exhaustiveness).
--  ## How to close a milestone
--  1. Identify the Mathlib lemma(s) that close the analytic boundary
--  2. Replace `sorry` with the proof using those lemmas
-+  3 definitions, each a `Prop` stating an open conjecture; 0 sorry.
-+  Restated from `theorem ... := by sorry` at b648 under the author's
-+  ruling (R258)(2). `Module1.no_type_d_conspiracies` (CRT exhaustiveness)
-+  states `IsEmpty TypeD` over the programme's own couplings; no milestone
-+  uses it, and none of the three conjectures follows from it in Lean.
-+  ## How to prove a milestone
-+  1. Identify the Mathlib lemma(s) the conjecture needs
-+  2. Add a theorem concluding the milestone's `Prop`
-   3. Update README and version tag
- -/
+
 
 === THE DIFF, SIDE-kernel docstrings-SIDE-kernel over docstrings-cut-SIDE-kernel, whole:
 diff --git a/Kernel/PerpendicularCrossing.lean b/Kernel/PerpendicularCrossing.lean
@@ -331,4 +234,4 @@ index 0618ebf..f2f22d4 100644
  theorem proved_infrastructure :
 
 ### the cut itself (33 commits) is printed block by block in relay data/b652_sentence_grades.txt and listed in data/b652_sidekernel_cut.txt.
-### ### **MODULES OF THE THREE BRANCHES 3, MEASURED 3, ALLOWING 0 AT EITHER READING ; CUT-BRANCH FILES 33: MEASURED 1, UNMEASURED IN A LEAN_LIB 28, IN NO LEAN_LIB 4 ; BUILDS STARTED 0 ; MERGED 0.**
+### ### **MODULES OF THE THREE BRANCHES 3, MEASURED 3 ; CUT-BRANCH FILES 33: MEASURED 1, UNMEASURED IN A LEAN_LIB 28, IN NO LEAN_LIB 4 ; BUILDS STARTED 3 ; BUILT 2 ; STOPPED 1 ; MERGED 1.**

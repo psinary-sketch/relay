@@ -709,6 +709,24 @@ def margin_bank(*a):
     for r in [r for r in j['readings'] if r['reading'] == 2]:
         L.append('  %s %-38s needed %4d (host loss) ; seen %4d (free %d) ; %s ; %s' % (r['at'], r['target'], r['needed'], r['seen'], r['free'],
                                                                                     'ALLOWS' if r['allows'] else 'DOES NOT ALLOW', r['source']))
+    for st in ('3-open', '3-closed'):
+        pr = (j.get('procs') or {}).get(st) or {}
+        L += ['', '### READING %s (the author`s answer: one reading after every application but Claude Code is closed; %s), free %s MB, processes %s:' % (
+            st.upper(), 'taken before the author closed them, banked as such' if st == '3-open' else 'on the author`s word "closed"', pr.get('free'), pr.get('n'))]
+        L.append('  the largest by name: ' + '; '.join('%s %d MB' % (n_, mb) for n_, mb in (pr.get('by_name') or [])[:10]))
+        for r in [r for r in j['readings'] if r['reading'] == st]:
+            L.append('  %s %-38s needed %4d (host loss) ; seen %4d (free %d) ; %s' % (r['at'], r['target'], r['needed'], r['seen'], r['free'],
+                                                                                  'ALLOWS' if r['allows'] else 'DOES NOT ALLOW'))
+    B = jl('b652_build_results.json').get('rows') or []
+    L += ['', '### THE BUILDS, IN THE AUTHOR`S ORDER (ascending need), each detached under the watchdog, the margin read at its slot (relay '
+              'data/b652_build_results.json, data/b652_build_peaks.json):']
+    for r in B:
+        L.append('  %-38s needed %4d ; seen at its slot %s ; %s ; free at start %s ; attempts %s ; loss %s ; gate %s ; merged %s' % (
+            r['target'], r['needed'], r.get('slot_seen'), r.get('outcome'), r.get('free_at_start'),
+            ['%ss low %s peak %s%s' % (x['seconds'], x['host_low'], x['tree_peak'], ' STOPPED' if x['stopped'] else '') for x in r.get('attempts') or []],
+            r.get('loss'), r.get('gate'), r.get('merged')))
+        if r.get('note'):
+            L.append('      ' + r['note'])
     c = j['cut_branch']
     L += ['', '### THE CUT BRANCH (%s, the cut and the plain comments), per file, at reading 2 (seen %d MB above the hold):' % (c['branch'], c['seen'])]
     for x in c['files']:
@@ -717,16 +735,18 @@ def margin_bank(*a):
     nm = sum(1 for x in c['files'] if x['needed'])
     nu = sum(1 for x in c['files'] if not x['needed'] and x['lib'])
     nl = sum(1 for x in c['files'] if not x['lib'])
-    L += ['', '### no build started: no module`s margin seen reached its margin needed at either reading, and no build is attempted on a file with no',
-          '### measured need (the author`s word); no RUN-BENEATH-HOLD this act. The branches stay unmerged, their margins banked here.', '']
+    L += ['', '### at readings 1, 2 and 3-open no module`s margin seen reached its need; at 3-closed all three did, and they were built in the author`s',
+          '### order; no build is attempted on a file with no measured need (the author`s word). A stop beneath the hold ends the builds for this act.', '']
     KD = {'SIDE-lv-conservation': 'D:/SIDE-lv-conservation', 'SIDE-effects': 'D:/SIDE-effects', 'SIDE-kernel': 'D:/SIDE-kernel'}
     for k, br, base in (('SIDE-lv-conservation', 'b648-restate-SIDE-lv-conservation', 'main'), ('SIDE-effects', 'b648-restate-SIDE-effects', 'main'),
                         ('SIDE-kernel', PC_BRANCH, CUT_BRANCH)):
         d = subprocess.run(['git', '-C', KD[k], 'diff', '%s...%s' % (base, br)], capture_output=True).stdout.decode('utf-8').replace('\r', '')
         L += ['=== THE DIFF, %s %s over %s, whole:' % (k, br, base)] + d.rstrip(NL).split(NL) + ['']
     L += ['### the cut itself (33 commits) is printed block by block in relay data/b652_sentence_grades.txt and listed in data/b652_sidekernel_cut.txt.',
-          '### ### **MODULES OF THE THREE BRANCHES 3, MEASURED 3, ALLOWING 0 AT EITHER READING ; CUT-BRANCH FILES %d: MEASURED %d, UNMEASURED IN A LEAN_LIB %d, '
-          'IN NO LEAN_LIB %d ; BUILDS STARTED 0 ; MERGED 0.**' % (len(c['files']), nm, nu, nl)]
+          '### ### **MODULES OF THE THREE BRANCHES 3, MEASURED 3 ; CUT-BRANCH FILES %d: MEASURED %d, UNMEASURED IN A LEAN_LIB %d, IN NO LEAN_LIB %d ; '
+          'BUILDS STARTED %d ; BUILT %d ; STOPPED %d ; MERGED %d.**' % (len(c['files']), nm, nu, nl, sum(1 for r in B if r.get('started')),
+                                                                    sum(1 for r in B if r.get('outcome') == 'BUILT'),
+                                                                    sum(1 for r in B if r.get('outcome') == 'STOPPED'), sum(1 for r in B if r.get('merged')))]
     put_txt('b652_build_margin.txt', L)
     print(L[-1])
 
@@ -1064,7 +1084,8 @@ def scores(*a):
     M = jl('b652_build_margin.json')
     two = all(len([r for r in M.get('readings') or [] if r['target'] == t]) >= 2 for t in LOSS)
     started_under = [r['target'] for r in B if r.get('started') and not r.get('allowed')]
-    rbh = [r['target'] for r in B if r.get('outcome') == 'RUN-BENEATH-HOLD']
+    # ### a run stopped beneath the hold is the event the clause names, whether or not the watchdog's retry reached its RUN-BENEATH-HOLD exit
+    rbh = [r['target'] for r in B if r.get('outcome') in ('RUN-BENEATH-HOLD', 'STOPPED')]
     stopped = [r['target'] for r in B if r.get('outcome') in ('STOPPED', 'RUN-BENEATH-HOLD')]
     TA = jl('b652_table_after.json')
     ac = collections.Counter(TA.get('after', {}).get('counts') or {})

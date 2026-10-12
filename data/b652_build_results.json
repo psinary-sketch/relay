@@ -61,6 +61,34 @@
    },
    "merged": "9a279ac",
    "note": "fast-forward of SIDE-effects main ef4cff7 to 9a279ac, alone, pushed through push_gated.sh from push-b652-restate and read back (data/b652_effects_push_out.txt)"
+  },
+  {
+   "target": "SIDELvConservation.T3_StepNineBridge",
+   "needed": 1428,
+   "slot_seen": 1801,
+   "outcome": "STOPPED",
+   "gate": null,
+   "merged": null,
+   "note": "attempt 1 stopped beneath the hold by the watchdog at 00:40:22Z (low 2493 MB, tree peak 1733 MB, 678 s); the watchdog's retry stopped by the seat by PID on the author's word (a stop beneath the hold ends the builds for this act); the branch unmerged, the module UNBUILT",
+   "started": true,
+   "attempts": [
+    {
+     "attempt": 1,
+     "at": "2026-10-12T00:40:22Z",
+     "seconds": 678,
+     "tree_peak": 1733,
+     "host_low": 2493,
+     "rc": 1,
+     "stopped": true
+    }
+   ],
+   "free_at_start": [
+    4319,
+    3988
+   ],
+   "loss": [
+    1826
+   ]
   }
  ]
 }
