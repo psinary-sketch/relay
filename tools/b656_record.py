@@ -133,23 +133,22 @@ def land(items, bank, tag, entry=None, check=(), expect_cells=(), dry=True):
 
 
 # ================================================================================ THE READERS, ONE PER ROW SHAPE A ROUTE READS ((R263)(3))
-CELL_KEYS = ('sigma', 't', 'D', 'j0', 'j_read', 'lhs', 'rhs', 'holds')
+RUNNER_KEYS = ('kernel', 'branch', 'ref', 'target', 'run_id', 'conclusion', 'artifact_sha256', 'mem_low', 'stopped', 'gate', 'merged', 'tag')
 
 
-def read_cell_row(r):
-    """a row of data/b656_detection_map.json's cells -- every key of CELL_KEYS present; j0 an index >= D or None (NONE <= J_max), j_read the
-    index whose two sides are printed (j0, or J_max for NONE); returns (sigma, t, reading) with the reading 'j0 = <n>' or 'NONE <= <J_max>';
-    raises on a row of another shape."""
-    missing = [k for k in CELL_KEYS if k not in r]
+def read_runner_row(r):
+    """a row of a runner-rows bank (this act reads b654's, the kernel's last run) -- every key of RUNNER_KEYS present (None where a step did
+    not reach it); returns the row's reading (kernel, outcome, merged); raises KeyError on a row of another shape."""
+    missing = [k for k in RUNNER_KEYS if k not in r]
     if missing:
-        raise KeyError('cell row without %s' % missing)
-    if r['j0'] is None:
-        if r['j_read'] != K.J_MAX or r['holds']:
-            raise ValueError('a NONE cell read at %r, holds %r' % (r['j_read'], r['holds']))
-        return r['sigma'], r['t'], 'NONE <= %d' % K.J_MAX
-    if not (isinstance(r['j0'], int) and r['j0'] >= r['D'] and r['j_read'] == r['j0'] and r['holds']):
-        raise ValueError('a finite cell of another shape: %r' % (r,))
-    return r['sigma'], r['t'], 'j0 = %d' % r['j0']
+        raise KeyError('runner row without %s' % missing)
+    if r['stopped']:
+        outcome = 'STOPPED BENEATH THE HOLD ON THE RUNNER'
+    elif r['conclusion'] != 'success':
+        outcome = 'RUN %s' % (r['conclusion'] or 'NOT CONCLUDED')
+    else:
+        outcome = 'GATE %s' % (r['gate'] or 'UNREAD')
+    return dict(kernel=r['kernel'], outcome=outcome, merged=r['merged'], low=r['mem_low'], above_hold=(r['mem_low'] is not None and r['mem_low'] >= 2560))
 
 
 def read_score_row(k, v):
@@ -167,7 +166,7 @@ def read_head(path, head):
     return ln
 
 
-READERS = ('read_cell_row', 'read_score_row', 'read_head')
+READERS = ('read_runner_row', 'read_score_row', 'read_head')
 
 
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R266)(1), (2)
@@ -470,7 +469,277 @@ def table_final(*a):
     print(L[-1])
 
 
-# ### THE SCORES, THE RECORD TEXT, THE DESK AND THE COMPONENTS: written at Component 4, after the map lands, before the seal.
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+HK = ('H1', 'H2', 'H3')
+SK = ('S1', 'S2', 'S3')
+SCORE_KEYS = NK + HK + SK
+N5_RELAY_DATA = ('act_roots.txt', 'b655_closing_push_out.txt')
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md')
+WIDTHS = ('33' + '.19', '38' + '.96')
+COMPUTE_CALL = re.compile(r'zeta_zeros?\(|\.integral\(')
+
+
+def TRAIL_HEAD():
+    return ('### b656 — lane two, act eighty-three, the research act under (R266): b655 at its weight; (R265)(7) corrected; E1’s quantities '
+            'bound to the kernel at v0.27; stopped at Component 2 on the author’s word; W-ORD-E1-CFG filed; the mirror export')
+
+
+def _stopped():
+    """no certified computation called in the act's capture, no map bank, no map script: the stop of the author's word, read."""
+    rows = capture()
+    calls = [r['n'] for r in rows if r['tool'] in ('Bash', 'PowerShell') and COMPUTE_CALL.search(r['cmd'])]
+    files = sorted(f for f in os.listdir(D) if f.startswith('b656_detection_map')) + sorted(f for f in os.listdir(T) if f.startswith('b656_detection_map'))
+    return calls, files
+
+
+def _widths():
+    hits = []
+    for f in sorted(os.listdir(D)):
+        if f.startswith(('b656_', 'audit_b656_')) and f != 'b656_ferry.txt' and os.path.isfile(os.path.join(D, f)):
+            if any(w in rd(os.path.join(D, f)) for w in WIDTHS):
+                hits.append(f)
+    return hits
+
+
+def _n2():
+    """N2: every quantity of hrate bound by file and line before any number, or the act stopped at Component 2."""
+    b = rdn('b656_e1_binding.txt')
+    files = g(RELAY, 'show', '--name-only', '--pretty=format:', K.BINDING_COMMIT).split()
+    aj = jl('b656_author_answers.json').get('calls') or []
+    ask = _iso(aj[0]['ts']) if aj and aj[0].get('ts') else None
+    ct = _ct(RELAY, K.BINDING_COMMIT)
+    word = 'Option 2, stop at Component 2' in rdn('b656_author_answers.txt')
+    calls, mfiles = _stopped()
+    ok = files == ['data/b656_e1_binding.txt'] and ask and ct and ct < ask and word and not calls and not mfiles and '(O-1)' in b
+    return ('HELD' if ok else 'REFUTED'), (
+        'by its second arm: the act stopped at Component 2 on the author`s word (relay data/b656_author_answers.txt, Option 2), the binding '
+        'banked by file and line with O-1 to O-3 named (relay data/b656_e1_binding.txt, committed alone at %s, %s) before the one prompt (%s); '
+        'certified computations called %s, map banks or scripts %s -- no number computed' % (
+            K.BINDING_COMMIT, time.strftime('%H:%M:%SZ', time.gmtime(ct)) if ct else '?', time.strftime('%H:%M:%SZ', time.gmtime(ask)) if ask else '?',
+            calls or 'NONE', mfiles or 'NONE'))
+
+
+def _n5():
+    face = jl('b656_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    kern_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b656_|audit_b656_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in N5_RELAY_DATA))]
+    km = g(K.KD, 'rev-parse', '--short=7', 'main').strip()
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    import b656_checks as CH
+    new_arms = sorted(set(a[0] for a in CH.ARMS) - set(CH.STANDING) - set(K.ACT_ARMS))
+    ok = kern_ok and not pp_beyond and not kinds_beyond and not differ and km == K.K_MAIN and not new_arms
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unsubmitted); no kernel main written (SIDE-explicit-formula main %s, '
+            'v0.27, as the act began); every kernel as the face read it %s; standing arms added: %s (the act`s arms over its own banks %d); sealed '
+            'tools not agreeing %s; PLACE-papers beyond FINDINGS and OPEN_TRAILS: %s; relay files of a kind beyond the banks, the tools and the '
+            'root list: %s; no identifier of the author in any outbound request (git pushes and remote reads alone)' % (
+                K.DRAFT, km, kern_ok, new_arms or 'NONE', len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE', kinds_beyond or 'NONE'))
+
+
+NOT_SCORED = 'NOT SCORED'
+O2 = ('O-2: E1 is stated at zetaZeroConfig alone and has no form over a configuration with an excluded zero, so a map at the cell`s '
+      'configuration would be E1`s expression where E1 says nothing; on the author`s word no map was computed (relay data/b656_e1_binding.txt, '
+      'data/b656_author_answers.txt)')
+
+
+def scores(*a):
+    TF, RA = jl('b656_table_final.json'), jl('b656_root_arm.json')
+    _r, _n, sh = seal_hashes()
+    cm = jl('b656_commands.json')
+    calls, mfiles = _stopped()
+    wh = _widths()
+    S = {
+        'N1': (('HELD' if cm and not cm.get('local_lean') else 'REFUTED'),
+               'commands of this act that run lean or lake on this host: %s (relay data/b656_commands.txt); no kernel file written (N5)' % (
+                   cm.get('local_lean') if cm else '### UNREAD')),
+        'N2': _n2(),
+        'N3': (NOT_SCORED, 'H3 was not computed; ' + O2),
+        'N4': (NOT_SCORED, 'no map was computed, so no grid cell is banked; ' + O2 + '. Its second clause read: a plateau width in the banks the '
+               'seat wrote and the ledger lines appended %s; the ferry bank (relay data/b656_ferry.txt) carries the two widths in the ruling`s own '
+               'sentence, verbatim' % (wh or 'NONE')),
+        'N5': _n5(),
+        'H1': (NOT_SCORED, O2), 'H2': (NOT_SCORED, O2), 'H3': (NOT_SCORED, O2),
+        'S1': (('HELD' if not TF.get('gone') and not TF.get('grade_moved') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s, grade moved %s' % (
+                   len(TF.get('moved') or []), len(TF.get('gone') or []), len(TF.get('added') or []), len(TF.get('grade_moved') or []))),
+        'S2': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S3': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    put_json('b656_scores.json', dict((k2, list(v)) for k2, v in S.items()))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:500]))
+
+
+def _ct(repo, *a):
+    s = g(repo, 'log', '-1', '--format=%ct', *a).strip()
+    return int(s) if s.isdigit() else None
+
+
+def _iso(s):
+    import calendar
+    try:
+        return calendar.timegm(time.strptime((s or '')[:19], '%Y-%m-%dT%H:%M:%S'))
+    except Exception:
+        return None
+
+
+NEXT_LINE = ('b657, per `(R266)`(7), the re-cut act on SIDE-lv-conservation (35 OVERREACHES, relay data/b647_table_kernels.txt :17) in the '
+             'form of `(R265)`; W-ORD-E1-CFG acted at b658, the next research act, on the runner')
+
+
+def _title():
+    return ('## E1’s quantities bound to the kernel at v0.27: no hypothetical zero in its tie set, no configuration-level rate theorem, the full '
+            'configuration’s A₀ existential -- the act stopped at Component 2; the (R265)(7) correction')
+
+
+def _finding_text():
+    S, rl, tl, J = jl('b656_scores.json'), jl('b656_record_lines.json'), jl('b656_trail_lines.json'), jl('b656_act_root.json')
+    ans = rdn('b656_author_answers.txt')
+    n_ans = len(re.findall(r'^### PROMPT ', ans, re.M))
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    ts = (tl.get('lines') or []) + [{}, {}]
+    sc = lambda k: read_score_row(k, S.get(k) or ['?', ''])[1] if S.get(k) else '?'   # noqa: E731
+    e = ['', _title(), '',
+         '*Filed at b656 on the author’s ruling `(R266)` and the author’s word on the binding (%d prompt). Banks: relay `data/b656_e1_binding.txt`, '
+         '`data/b656_readfirst.txt`, `data/b656_author_answers.txt`, `data/b656_act_root.txt`.*' % n_ans, '',
+         '**The binding** (`(R266)`(3)): every quantity of E1’s rate inequality and of the statement of zeroSide_neg_at_rate -- θ, A₀, Bf, '
+         'zeta3Sum, D, the tie set and its multiplicities, Nf, M, L, g0, the dominant zero, the kill set, ℓ -- read from SIDE-explicit-formula '
+         'at v0.27 and bound by file and line, the b559 constants table beside each row, before any number. Three findings. (O-1) E1 is stated '
+         'on zetaZeroConfig alone (RateIndex.lean :27, :113), whose carrier is ζ’s nontrivial zeros by rfl (Zeta23/Statement/SeamClosed.lean '
+         ':42, :44): no hypothetical off-line zero is in its tie set, and the right side of its rate inequality has no referent at a grid point. '
+         '(O-2) The kernel has no configuration-level rate theorem: Schema/Converse.lean carries the limit form zeroSide_eventually_neg_cfg '
+         '(:161) and the twins of the rest’s parts, but no rate. (O-3) The full configuration’s A₀ is existential (Zeta23/RvM/LocalCount.lean '
+         ':287, over zeta_growth_right’s existential constants). At the cell’s own configuration -- the orbit of four and ζ’s zeros below a '
+         'height -- every quantity binds to a kernel definition, each explicit or a finite maximum, and only E1’s implication does not. Read '
+         'beside the ruling’s grid: D = 2 · card Xr + 8 ≥ 8 from coeffs_exist’s witness (PowerLimit.lean :683). N2 %s.' % sc('N2'), '',
+         '**The stop** (the author’s word on `(R266)`(3)): Option 2 -- the act stops at Component 2, the binding its finding. A map at the cell’s '
+         'configuration would be E1’s expression at a configuration E1 says nothing about. No map, no number; H1, H2 and H3 NOT SCORED, O-2 the '
+         'reason; N3 %s, N4 %s. W-ORD-E1-CFG entered on OPEN_TRAILS (:%s): the rate theorem over a configuration with an excluded zero and a '
+         'local count, ζ an instance by rfl, priced from O-1 to O-3, acted at b658 on the runner; the grid lesson beside it, the navigator’s '
+         '(:%s): J_max set relative to D, not absolutely.' % (sc('N3'), sc('N4'), ts[0].get('line'), ts[1].get('line')), '',
+         '**The record lines** (`(R266)`(1), (2)): b655 at its weight (FINDINGS :%s); `(R265)`(7) corrected as the navigator’s (OPEN_TRAILS :%s); '
+         'the mirror clause as it reads from here (:%s).' % (ls[0].get('line'), ls[1].get('line'), ls[2].get('line')), '',
+         '**The root.** b656 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, (S.get(k2) or ['?'])[0]) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): this binding re-reads b559’s constants table (relay `data/b559_constants.txt` :143-:152) '
+         'and b654’s statement of E1 (relay `data/b654_e1_statement.txt`), and finds the reach b559 named -- “quantities of the zero '
+         'configuration” -- carried into E1’s statement as one fixed configuration; it is re-read by W-ORD-E1-CFG at b658 and by the next '
+         'reading act. It strengthens the programme’s offering of statements a reader can check: the rate is a compiled theorem with its '
+         'hypotheses named, and where it applies is now said by file and line, before any number is attached to it.', '',
+         '**Next.** %s.' % NEXT_LINE, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero; no number was computed, and a binding names where a theorem '
+         'applies and confers nothing beyond it.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) the cell`s configuration read as the orbit of four (a zero of ζ brings its conjugate and its reflection), every multiplicity 1, '
+              'and ζ`s zeros below T = 1000, the height the binding fixed; (2) D and B bound to coeffs_exist`s witness as read, a smaller pair '
+              'E1 admits named and not used; (3) H1-H3 scored NOT SCORED with O-2 the reason, and N3 and N4 with them, the second clause of N4 '
+              'read and printed beside it')
+
+
+def _trail_text():
+    S, fj, rl, tl, J = (jl(n_) for n_ in ('b656_scores.json', 'b656_findings.json', 'b656_record_lines.json', 'b656_trail_lines.json', 'b656_act_root.json'))
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b656_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    ts = (tl.get('lines') or []) + [{}, {}]
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R266) ratified.** (1) b655 at its weight; the mirror clause as the seat read it. (2) `(R265)`(7) corrected, the navigator’s. (3) '
+             'The binding, before any number. (4) The evaluation, on the author’s word -- the word was to stop at Component 2. (5) No kernel edit. '
+             '(6) The draft held at v5. (7) The act after: b657.', '',
+             '**Entered:** FINDINGS.md:%s (b655’s weight), :%s (the entry); OPEN_TRAILS.md:%s (the correction), :%s (the mirror clause), :%s '
+             '(W-ORD-E1-CFG), :%s (the grid lesson); this record.' % (ls[0].get('line'), fj.get('entry_line'), ls[1].get('line'), ls[2].get('line'),
+                                                                     ts[0].get('line'), ts[1].get('line')), '',
+             '**Act root:** b656 `%s` (previous `%s`, b655’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
+                 J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d (relay data/b656_author_answers.txt), the one of `(R266)`(3), before any number; none after the root.' % n_ans, '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b656_defects.txt): %s.' % ('; '.join(_defect_short()) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, (S.get(k2) or ['?'])[0]) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** %s.' % NEXT_LINE, '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b656_scores.json')
+    L = ['=' * 104, 'b656 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rdn('b656_defects.txt').rstrip(NL).split(NL)
+    put_txt('b656_desk_notes.txt', L)
+
+
+def components(*a):
+    S, fj, tj, rl, tl, J = (jl(n_) for n_ in ('b656_scores.json', 'b656_findings.json', 'b656_trail.json', 'b656_record_lines.json',
+                                              'b656_trail_lines.json', 'b656_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    ts = (tl.get('lines') or []) + [{}, {}]
+    L = ['b656 -- THE COMPONENTS, BANKED UNDER (R266).', '',
+         '### COMPONENT 0 : step zero (data/b656_ferry.txt, data/b656_stepzero.txt, data/b656_tests_stepzero.txt) ; push-out relay %s' % K.STEPZERO,
+         '### COMPONENT 1 : the read-first (data/b656_readfirst.txt) ; b655`s weight FINDINGS :%s ; the correction OPEN_TRAILS :%s ; the mirror clause :%s' % (
+             ls[0].get('line'), ls[1].get('line'), ls[2].get('line')),
+         '### COMPONENT 2 : the binding (data/b656_e1_binding.txt, relay %s) ; the one prompt, Option 2: stopped here ; W-ORD-E1-CFG OPEN_TRAILS :%s ; '
+         'the grid lesson :%s ; N2 %s' % (K.BINDING_COMMIT, ts[0].get('line'), ts[1].get('line'), S['N2'][0]),
+         '### COMPONENT 3 : NOT RUN, on the author`s word ; H1 %s ; H2 %s ; H3 %s ; N3 %s ; N4 %s' % (S['H1'][0], S['H2'][0], S['H3'][0], S['N3'][0], S['N4'][0]),
+         '### COMPONENT 4 : the seal (data/b656_seal_hashes.json) ; S3 %s' % S['S3'][0],
+         '### COMPONENT 5 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N1 %s ; N5 %s' % ((J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'),
+                                                                                        S['N1'][0], S['N5'][0])]
+    put_txt('b656_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def _land_one(path, head, e, bank, extra):
+    if odd_lines(e):
+        sys.exit('### ODD BACKTICKS -- NOTHING WRITTEN: %s' % odd_lines(e)[:3])
+    guard_absent(path, head)
+    r = append_to(path, e)
+    ln = read_head(path, head)
+    put_json(bank, dict(extra, line=ln, head=head, append=r))
+    return ln
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = conv(e)
+    dry = 'dry' in a
+    cells, fired = screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(FIND, t, e, 'b656_findings.json', dict(title=t))
+    j = jl('b656_findings.json')
+    j['entry_line'] = ln
+    put_json('b656_findings.json', j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = conv(_trail_text())
+    dry = 'dry' in a
+    cells, fired = screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(OT, TRAIL_HEAD(), e, 'b656_trail.json', {})
+    print('  OPEN_TRAILS record :%s' % ln)
 
 
 # ================================================================================ THE MIRROR, AT THE CLOSE ((R266)(1); b655's routes, carried)

@@ -31,6 +31,12 @@ KERNEL = 'SIDE-explicit-formula'
 KD = 'D:/SIDE-explicit-formula'
 K_TAG = 'v0.27'
 K_MAIN = '111e418'          # ### the kernel's main = v0.27, before and after the act
+BINDING_COMMIT = '5791409c' # ### relay: the binding bank, committed alone before the prompt
+# ### the standing runner arms read the kernel's last run (b654's, relay data/b654_runner_rows.json): its workflow on main, its build, its merge
+RUNNER = {KERNEL: dict(branch='e1-rate-b654', target='SIDEExplicitFormula.RateIndex SIDEExplicitFormula.TransversalityWidth',
+                       workflow_commit='7317db4', run_id=38259645524, ref='472887163f31063f3ca7e946ca6a0a790c2f6b7f')}
+RUNNER_ROWS = 'b654_runner_rows.json'
+RUNNER_BANK = 'b654_runner_SIDE-explicit-formula.txt'
 
 # ### (R266)(4): the grid, J_max and the precision, fixed by the ruling (the map script carries them as constants at its head)
 SIGMAS = (0.55, 0.6, 0.7, 0.8, 0.9)
@@ -40,8 +46,11 @@ PREC_BITS = 200             # ### b627's precision, relay data/b627_margin_input
 H3_CELL = (0.8, 29.6)
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b655's face
-# ### (b655's own act arms not carried). Filled at Component 4, each run at HEAD and counted before the face names it.
-ACT_ARMS = ()
+# ### (b655's own act arms not carried). Each run at HEAD and counted before the face names it.
+ACT_ARMS = ('G-R266-ENTERED', 'G-CORRECTION-LINE', 'G-MIRROR-CLAUSE-LINE', 'G-BINDING-BANKED', 'G-PROMPT-AFTER-BINDING', 'G-STOPPED-AT-C2',
+            'G-E1-CFG-FILED', 'G-NO-PLATEAU-WIDTH')
+B655_ACT_ARMS = ('G-R265-ENTERED', 'G-EDIT-ROUTE-LINE', 'G-EDIT-ROUTE-REPAIRED', 'G-KERNEL-NAMED', 'G-SENTENCES-BANKED', 'G-PLAIN-COMMENTS',
+                 'G-GRADES-VERBATIM', 'G-REGRADE-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE', 'G-PROMPT-BEFORE-CUT')
 
 EDITED_SHARED = ()
 NEW_TESTS = ()
