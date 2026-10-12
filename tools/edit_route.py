@@ -111,6 +111,28 @@ def _abs_ok(p):
     return bool(ABS_PATH.match(p)) and not re.search(r'[*?\[$]', p)
 
 
+REDIR_WORD = re.compile(r'^(?:\d?>>?|&>>?|\d?<)$')
+REDIR_GLUED = re.compile(r'^(?:\d?>>?|&>>?|\d?<|\d?>&)\S')
+
+
+def _drop_redirects(words):
+    """b655, (R265)(4): a branch deletion's words with its redirects taken out -- a bare redirect operator (`>`, `>>`, `2>`, `&>`, `<`) and the
+    word after it, or a redirect glued to its target (`2>&1`, `>/dev/null`) -- so a delete's output captured in a file is not read as a branch
+    name (b654's defect (d)); a glob or a variable stays a name and is read as before."""
+    out, skip = [], False
+    for w in words:
+        if skip:
+            skip = False
+            continue
+        if REDIR_WORD.match(w):
+            skip = True
+            continue
+        if REDIR_GLUED.match(w):
+            continue
+        out.append(w)
+    return out
+
+
 def offences(cmd):
     found = []
     shell, bodies = _heredocs(cmd)
@@ -154,12 +176,12 @@ def offences(cmd):
             if g[:1] == ['rm']:
                 ops = g[1:]
             elif g[:1] == ['branch'] and any(a in ('-d', '-D', '--delete') for a in g):
-                names = [a for a in g[1:] if not a.startswith('-')]
+                names = [a for a in _drop_redirects(g[1:]) if not a.startswith('-')]
                 bad = [a for a in names if not BRANCH.match(a)] or ([] if names else ['<none>'])
                 if bad:
                     found.append(('R branch deletion without an explicit name', seg))
             elif g[:1] == ['push'] and ('--delete' in g or '-d' in g):
-                names = [a for a in g[1:] if not a.startswith('-')][1:]
+                names = [a for a in _drop_redirects(g[1:]) if not a.startswith('-')][1:]
                 bad = [a for a in names if not BRANCH.match(a.lstrip(':'))] or ([] if names else ['<none>'])
                 if bad:
                     found.append(('R branch deletion without an explicit name', seg))

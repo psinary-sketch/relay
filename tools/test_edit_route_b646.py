@@ -27,6 +27,8 @@ PLANTED = [
     ('R', "git branch -d push-b64*"),
     ('R', "git branch --merged | grep push | xargs git branch -d"),
     ('R', "rm -f \"$SPD/x.txt\""),
+    # ### b655, (R265)(4): a redirect carried by a delete command does not make a glob explicit
+    ('R', "git -C /d/SIDE-x push origin --delete 'push-b99*' > /d/relay/data/b999_delete.txt 2>&1; cat /d/relay/data/b999_delete.txt"),
 ]
 HOUSE = [
     "sed -n '1,20p' tools/b645_record.py",
@@ -39,6 +41,9 @@ HOUSE = [
     "git push origin --delete push-b645-root",
     "grep -n 'x' tools/e0_rule.py | head > /d/relay/data/b999.txt",
     "python tools/b646_record.py commands",
+    # ### b655, (R265)(4): b654's two remote deletes (relay data/b654_commands.txt #22, #23), each naming its one branch, its output redirected
+    "git -C /d/SIDE-lv-conservation push origin --delete b648-restate-SIDE-lv-conservation > /d/relay/data/b654_stepzero_remote_delete_lv.txt 2>&1; echo rc=$?; cat /d/relay/data/b654_stepzero_remote_delete_lv.txt",
+    "git -C /d/SIDE-kernel push origin --delete docstrings-SIDE-kernel > /d/relay/data/b654_stepzero_remote_delete_kernel.txt 2>&1; echo rc=$?",
 ]
 
 
