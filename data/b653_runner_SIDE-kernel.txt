@@ -1,0 +1,242 @@
+b653 -- COMPONENT 3, (R263)(4): THE HOSTED RUNNER FOR SIDE-kernel, READ BY ITS RUN ID (2026-10-12T02:59:15Z)
+
+### the workflow file on main (802da94, .github/workflows/build-module.yml), read back whole:
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              cat > out/Axioms.lean <<'EOF'
+              import Bridge.CardDerived
+              import Bridge.CartanBBridge
+              import Bridge.ConservationBridge
+              import Bridge.CrossClassExclusion
+              import Bridge.TheBridgeComplete
+              import Bridge.Voice3_FE
+              import Kernel.Cascade.InvarianceBarrier
+              import Kernel.Cascade.SieveCeiling
+              import Kernel.Cascade.SieveCeilingBridge
+              import Kernel.Cascade.SieveCeilingSemantic
+              import Kernel.Cascade.SieveCeilingWitness
+              import Kernel.Core
+              import Kernel.Integration
+              import Kernel.Layer1
+              import Kernel.ProductFormula_Rat
+              import Kernel.SilenceTheorem
+              import Kernel.SpectralCannonFull
+              import Kernel.Voice1
+              import Kernel.Voice3b
+              import Kernel.Voice7
+              import Kernel.Voice7Witness
+              import MetaKernel
+              #print axioms ConservationBridge.conservation_activates_balance
+              #print axioms ConservationBridge.riemann_hypothesis
+              #print axioms ConservationBridge.structural_exhaustiveness_proved
+              #print axioms ConservationBridge.ConservationHypothesis
+              #print axioms InvarianceBarrier.Derives
+              #print axioms InvarianceBarrier.DeterminedBy
+              #print axioms InvarianceBarrier.derivability_barrier
+              #print axioms InvarianceBarrier.invariance_barrier
+              #print axioms SIDEKernel.formation
+              #print axioms techne_kernel.SIDE_exclusion
+              #print axioms SpectralCannonFull.spectral_cannon
+              #print axioms Voice7Witness.hadObs_dark
+              #print axioms Voice7Witness.hadamard_does_not_enforce_online
+              #print axioms Voice7Witness.hadamard_does_not_enforce_online'
+              #print axioms Voice7Witness.hadamard_witness
+              #print axioms techne_kernel_voice1.balance_theorem
+              #print axioms SieveCeilingBridge.blind_sieve_ceiling
+              #print axioms bright_access_required
+              #print axioms c6_exclusion
+              #print axioms c7_exclusion
+              #print axioms ProductFormula.conservation_of_spectra
+              #print axioms SieveCeilingWitness.dh_witness
+              #print axioms e_difficulty
+              #print axioms CartanBridge.elliptic_regularity_collapse
+              #print axioms fe_symmetry
+              #print axioms CartanBridge.formation_n_3_eq_two
+              #print axioms CartanBridge.identity_theorem_unique_bridge
+              #print axioms mechanism_class_card_derived
+              #print axioms mechanism_class_card_value
+              #print axioms none_produce
+              #print axioms CartanBridge.output_stage_card
+              #print axioms proof_dichotomy
+              #print axioms ProductFormula.s_darkness_from_product
+              #print axioms sieve_ceiling
+              #print axioms SieveCeilingSemantic.sieve_ceiling_semantic
+              #print axioms SilenceTheorem.silence_universal
+              #print axioms substrate_value_injective
+              #print axioms techne_kernel_cross_exclusion.all_pairs_excluded
+              #print axioms techne_kernel_integration.rh_from_structural_exhaustiveness
+              #print axioms techne_kernel_integration.structural_exhaustiveness_iff_rh
+              #print axioms techne_kernel_integration.voice3b_certificate
+              #print axioms techne_kernel_integration.voice7_certificate
+              #print axioms techne_kernel_voice3b.codim_off_line
+              #print axioms techne_kernel_voice3b.codim_on_line
+              #print axioms techne_kernel_voice3b.cr_forces_half
+              #print axioms techne_kernel_voice3b.cr_minimal_iff
+              #print axioms techne_kernel_voice3b.offLine_of_codim_two
+              #print axioms techne_kernel_voice3b.realConstraint_card
+              #print axioms techne_kernel_voice3b.reflect_fixed_iff
+              #print axioms techne_kernel_voice3b.zero_codimension
+              #print axioms techne_kernel_voice7.topological_constant
+              #print axioms techne_kernel_voice7.topological_no_sigma_preference
+              #print axioms ECondition.type_I_has_ostrowski
+              #print axioms voice7_sigma_neutral
+              EOF
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+
+### the dispatch: ref ee8d21a18a9ae0936523551d0bef773f56f409e1 ; target Kernel Bridge MetaKernel ; the first dispatch 38197387315 failed at checkout (defect (a))
+### the run: id 38197671140 ; https://github.com/psinary-sketch/SIDE-kernel/actions/runs/38197671140 ; status completed ; conclusion success ; head of the workflow 802da945f3b68d75703214ddab91c01932b068bb ; 2026-10-12T02:55:00Z to 2026-10-12T02:58:32Z
+### the artifact: id 11724496182 ; name build-module-38197671140 ; 6521 bytes ; sha256 b471d480daffb4d0409f746ae01259690dbc27559b065f7bee5357f90a38d2a8 ; the platform`s digest b471d480daffb4d0409f746ae01259690dbc27559b065f7bee5357f90a38d2a8 ; AGREE
+### the ref built (out/ref.txt): ee8d21a18a9ae0936523551d0bef773f56f409e1 leanprover/lean4:v4.29.0-rc8
+### the memory log: samples 13 ; LOW 13383 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines in its log 0
+### the build log`s last lines:
+    ✔ [3615/3621] Built Kernel.Simplicity (2.8s)
+    ✔ [3616/3621] Built Bridge.TheBridgeComplete (2.9s)
+    ✔ [3617/3621] Built Kernel.Root (2.6s)
+    ✔ [3619/3621] Built Bridge.CardDerived (1.9s)
+    ✔ [3620/3621] Built Bridge.CrossClassExclusion (1.9s)
+    Build completed successfully (3621 jobs).
+
+### THE GATE READING, per named terminal (54), from the artifact`s axioms output:
+  ConservationBridge.conservation_activates_balance                      DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  ConservationBridge.riemann_hypothesis                                  DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  ConservationBridge.structural_exhaustiveness_proved                    DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  ConservationBridge.ConservationHypothesis                              DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  InvarianceBarrier.Derives                                              DERIVES                    []
+  InvarianceBarrier.DeterminedBy                                         DERIVES                    []
+  InvarianceBarrier.derivability_barrier                                 DERIVES                    []
+  InvarianceBarrier.invariance_barrier                                   DERIVES                    []
+  SIDEKernel.formation                                                   DERIVES                    []
+  techne_kernel.SIDE_exclusion                                           DERIVES                    []
+  SpectralCannonFull.spectral_cannon                                     DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  Voice7Witness.hadObs_dark                                              DERIVES                    []
+  Voice7Witness.hadamard_does_not_enforce_online                         DERIVES                    []
+  Voice7Witness.hadamard_does_not_enforce_online'                        DERIVES                    []
+  Voice7Witness.hadamard_witness                                         DERIVES                    []
+  techne_kernel_voice1.balance_theorem                                   DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SieveCeilingBridge.blind_sieve_ceiling                                 DERIVES                    []
+  bright_access_required                                                 DERIVES                    []
+  c6_exclusion                                                           DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  c7_exclusion                                                           DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  ProductFormula.conservation_of_spectra                                 DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SieveCeilingWitness.dh_witness                                         DERIVES                    []
+  e_difficulty                                                           DERIVES                    ['Quot.sound', 'propext']
+  CartanBridge.elliptic_regularity_collapse                              DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  fe_symmetry                                                            DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  CartanBridge.formation_n_3_eq_two                                      DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  CartanBridge.identity_theorem_unique_bridge                            DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  mechanism_class_card_derived                                           DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  mechanism_class_card_value                                             DERIVES                    ['Quot.sound', 'propext']
+  none_produce                                                           DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  CartanBridge.output_stage_card                                         DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  proof_dichotomy                                                        DERIVES                    []
+  ProductFormula.s_darkness_from_product                                 DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  sieve_ceiling                                                          DERIVES                    []
+  SieveCeilingSemantic.sieve_ceiling_semantic                            DERIVES                    []
+  SilenceTheorem.silence_universal                                       DERIVES                    []
+  substrate_value_injective                                              DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_cross_exclusion.all_pairs_excluded                       DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_integration.rh_from_structural_exhaustiveness            DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_integration.structural_exhaustiveness_iff_rh             DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_integration.voice3b_certificate                          DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_integration.voice7_certificate                           DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_voice3b.codim_off_line                                   DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_voice3b.codim_on_line                                    DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_voice3b.cr_forces_half                                   DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_voice3b.cr_minimal_iff                                   DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_voice3b.offLine_of_codim_two                             DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_voice3b.realConstraint_card                              DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_voice3b.reflect_fixed_iff                                DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_voice3b.zero_codimension                                 DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_voice7.topological_constant                              DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  techne_kernel_voice7.topological_no_sigma_preference                   DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  ECondition.type_I_has_ostrowski                                        DERIVES                    ['Quot.sound', 'propext']
+  voice7_sigma_neutral                                                   DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+
+### ### **RUN 38197671140 ; CONCLUSION success ; ARTIFACT SHA256 b471d480daffb4d0 ; MEMORY LOW 13383 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 54, DERIVES 54 ; GATE DERIVES.**
