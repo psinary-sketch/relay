@@ -1,7 +1,7 @@
-b654 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-12T14:16:32Z)
+b654 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-12T14:38:54Z)
 
 ### the source: the seat`s session 1199f364-78c4-4147-843f-edf01bb11b28 from its first user line carrying 'RULING (R264) BEGIN', and its subagents` transcripts
-### commands read: 100
+### commands read: 122
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (2):
   #22 2026-10-12T13:11:47.288Z seat Bash -- R branch deletion without an explicit name
@@ -113,5 +113,27 @@ b654 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READIN
   #98 | 2026-10-12T14:09:19.183Z | seat | Bash | cat tools/b653_closing.py
   #99 | 2026-10-12T14:10:25.750Z | seat | Bash | ls -la "/c/Users/echo chamber/.claude/projects/D--/1199f364-78c4-4147-843f-edf01bb11b28.jsonl" && ls "/c/Users/echo chamber/.claude/projects/D--/1199f364-78c4-4
   #100 | 2026-10-12T14:13:06.262Z | seat | Bash | wc -l data/act_roots.txt && tail -1 data/act_roots.txt | cut -c1-160; python -c "
+  #101 | 2026-10-12T14:16:31.061Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b654_record.py answers && python tools/b654_record.py commands && python tools/b654_record.py kernels && python to
+  #102 | 2026-10-12T14:16:39.334Z | seat | Bash | sed -n '/THE OFFENDING COMMANDS/,/THE COMMANDS THAT RUN/p' data/b654_commands.txt | cut -c1-300 | head -40
+  #103 | 2026-10-12T14:16:44.208Z | seat | Bash | grep -n "branch deletion without an explicit name" -B30 tools/edit_route.py | grep -n "def \|re.compile\|--delete\|explicit\|push" | head -30
+  #104 | 2026-10-12T14:16:47.439Z | seat | Bash | sed -n 120,170p tools/edit_route.py
+  #105 | 2026-10-12T14:17:00.417Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b654_record.py defects && python -m py_compile tools/b654_checks.py tools/b654_record.py tools/b654_closing.py too
+  #106 | 2026-10-12T14:25:28.002Z | seat | Bash | for f in data/b654_author_answers.txt data/b654_commands.txt data/b654_commands.json data/b654_kernels_face.json data/b654_defects.txt data/b654_defects.json da
+  #107 | 2026-10-12T14:25:40.718Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #108 | 2026-10-12T14:26:54.533Z | seat | Bash | export PYTHONIOENCODING=utf-8 && timeout 585 python tools/b654_checks.py --prerun 2>&1 | grep -v " OK$" | grep -v "^  ### THE ACT-ROOT\|THE SEALED TOOLS" | tail
+  #109 | 2026-10-12T14:35:32.984Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b654_reg_gate.py | tail -6; python -c "
+  #110 | 2026-10-12T14:35:36.840Z | seat | Bash | grep -n "def bar_floor_check" -A40 tools/registration_gate.py | head -60; sed -n 1,30p data/b654_reg_gate.txt
+  #111 | 2026-10-12T14:35:40.361Z | seat | Bash | grep -n "^MULTIARM\|^ARMWORD\|^def _paragraphs" -A6 tools/registration_gate.py | head -30
+  #112 | 2026-10-12T14:35:50.359Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b654_reg_gate.py | tail -5; python -c "
+  #113 | 2026-10-12T14:35:58.826Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/reg_satisfiable.py data/b654_satisfiable.json --emit b654 2>&1 | tail -3; grep -n "JOINTLY\|VERDICT" data/audit_b6
+  #114 | 2026-10-12T14:36:07.565Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -c "
+  #115 | 2026-10-12T14:36:12.309Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/reg_seal.py --lock data/b654_registration_2026-10-12.txt 2>&1 | tail -3 && python tools/reg_seal.py --verify data/
+  #116 | 2026-10-12T14:36:21.056Z | seat | Bash | for f in data/b654_registration_2026-10-12.txt data/b654_reg_gate.txt data/b654_reg_termscan.txt data/b654_regspec_run.txt data/b654_satisfiable.json data/audit
+  #117 | 2026-10-12T14:36:31.807Z | seat | Bash | export PYTHONIOENCODING=utf-8 && timeout 590 python tools/b654_record.py table_final && sed -n 1,12p data/b654_table_final.txt; git status --short | grep -v "^?
+  #118 | 2026-10-12T14:37:07.092Z | seat | Bash | git add data/b654_table_final.txt data/b654_table_final.json data/terminal_table.json data/terminal_table.md && git commit -q -m "b654 pre-root: the terminal ta
+  #119 | 2026-10-12T14:37:20.563Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch --show-current && git status --short | grep -v "^??"; git branch push-b654-root HEAD && PUSH_GATED_LOG=/d/relay/da
+  #120 | 2026-10-12T14:37:53.393Z | seat | Bash | cd /d/relay && export PYTHONIOENCODING=utf-8 && python tools/b654_record.py root dry && python -c "
+  #121 | 2026-10-12T14:38:20.499Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b654_record.py root && python tools/b654_record.py root_arm && tail -2 data/act_roots.txt | cut -c1-200 && git sta
+  #122 | 2026-10-12T14:38:23.640Z | seat | Bash | for f in data/act_roots.txt data/b654_act_root.json data/b654_act_root.txt data/b654_root_arm.txt data/b654_root_arm.json data/b654_relay_root_push_out.txt data
 
-### ### **COMMANDS 100 ; G-EDIT-ROUTE OFFENCES 2 ; LOCAL lean OR lake COMMANDS 0.**
+### ### **COMMANDS 122 ; G-EDIT-ROUTE OFFENCES 2 ; LOCAL lean OR lake COMMANDS 0.**

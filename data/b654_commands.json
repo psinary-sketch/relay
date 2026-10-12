@@ -1,5 +1,5 @@
 {
- "at": "2026-10-12T14:16:32Z",
+ "at": "2026-10-12T14:38:54Z",
  "anchor": "RULING (R264) BEGIN",
  "rows": [
   {
@@ -701,6 +701,160 @@
    "src": "seat",
    "cmd": "wc -l data/act_roots.txt && tail -1 data/act_roots.txt | cut -c1-160; python -c \"\nimport sys; sys.path.insert(0,'tools'); import b641_record as R; print(len(R.KERNS_READ), 'SIDE-explicit-formula' in R.KERNS_READ)\"",
    "n": 100
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:16:31.061Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b654_record.py answers && python tools/b654_record.py commands && python tools/b654_record.py kernels && python tools/b654_record.py defects && head -30 data/b654_author_answers.txt | cut -c1-200 && grep -A4 \"RUN lean OR lake\" data/b654_commands.txt | cut -c1-200",
+   "n": 101
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:16:39.334Z",
+   "src": "seat",
+   "cmd": "sed -n '/THE OFFENDING COMMANDS/,/THE COMMANDS THAT RUN/p' data/b654_commands.txt | cut -c1-300 | head -40",
+   "n": 102
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:16:44.208Z",
+   "src": "seat",
+   "cmd": "grep -n \"branch deletion without an explicit name\" -B30 tools/edit_route.py | grep -n \"def \\|re.compile\\|--delete\\|explicit\\|push\" | head -30",
+   "n": 103
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:16:47.439Z",
+   "src": "seat",
+   "cmd": "sed -n 120,170p tools/edit_route.py",
+   "n": 104
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:17:00.417Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b654_record.py defects && python -m py_compile tools/b654_checks.py tools/b654_record.py tools/b654_closing.py tools/b654_regspec.py tools/b654_reg_gate.py tools/b654_worklist.py && timeout 580 python tools/b654_checks.py --mid b654_checks_mid1.txt 2>&1 | grep -v \" OK$\" | tail -60",
+   "n": 105
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:25:28.002Z",
+   "src": "seat",
+   "cmd": "for f in data/b654_author_answers.txt data/b654_commands.txt data/b654_commands.json data/b654_kernels_face.json data/b654_defects.txt data/b654_defects.json data/b654_checks_mid1.txt data/b654_lsr_mid1.json; do printf '%s CR=%s\\n' $f $(tr -cd '\\r' < $f | wc -c); done; git add tools/b654_checks.py tools/b654_closing.py tools/b654_reg_gate.py tools/b654_regspec.py tools/b654_record.py tools/b654_worklist.py data/b654_author_answers.txt data/b654_commands.txt data/b654_commands.json data/b654_kernels_face.json data/b654_defects.txt data/b654_defects.json data/b654_checks_mid1.txt data/b654_lsr_mid1.json && git diff --cached --name-only | wc -l && git commit -q -m \"b654 Component 5 under (R264): the suite (tools/b654_checks.py, 77 arms: b653's standing arms carried and nine arms over this act's banks, the freeze of (R264)(2)), the closing (tools/b654_closing.py), the registration gate and the spec (tools/b654_reg_gate.py, tools/b654_regspec.py, a planted claim row for the new reader), each by the Write tool; the record tool's late routes by the Edit tool; the answers (2 prompts), commands, kernels-face and defects banks (defects (c), (d)); a mid-act reading, 51 of 77. Nothing deposits.\" && git log --oneline -1 | cut -c1-20; git log --reverse --format='%h %s' a2beb696..HEAD | cut -c1-110; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 16ec28f..HEAD | cut -c1-100",
+   "n": 106
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:25:40.718Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -c \"\nimport sys,textwrap; sys.argv=['x']; sys.path.insert(0,'tools'); import b654_checks as C\ns=' '.join('\\x60%s\\x60'%a[0] for a in C.ARMS)\nfor l in textwrap.wrap(s, 136, break_on_hyphens=False, break_long_words=False): print('### '+l)\nprint(len(C.ARMS))\"",
+   "n": 107
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:26:54.533Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && timeout 585 python tools/b654_checks.py --prerun 2>&1 | grep -v \" OK$\" | grep -v \"^  ### THE ACT-ROOT\\|THE SEALED TOOLS\" | tail -40",
+   "n": 108
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:35:32.984Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b654_reg_gate.py | tail -6; python -c \"\nimport subprocess,sys\nr=subprocess.run([sys.executable,'tools/banned_terms.py','--new','data/b654_registration_2026-10-12.txt'],capture_output=True)\nopen('data/b654_reg_termscan.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nprint('rc',r.returncode)\"; grep \"VERDICT\" data/b654_reg_termscan.txt",
+   "n": 109
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:35:36.840Z",
+   "src": "seat",
+   "cmd": "grep -n \"def bar_floor_check\" -A40 tools/registration_gate.py | head -60; sed -n 1,30p data/b654_reg_gate.txt",
+   "n": 110
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:35:40.361Z",
+   "src": "seat",
+   "cmd": "grep -n \"^MULTIARM\\|^ARMWORD\\|^def _paragraphs\" -A6 tools/registration_gate.py | head -30",
+   "n": 111
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:35:50.359Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b654_reg_gate.py | tail -5; python -c \"\nimport subprocess,sys\nr=subprocess.run([sys.executable,'tools/banned_terms.py','--new','data/b654_registration_2026-10-12.txt'],capture_output=True)\nopen('data/b654_reg_termscan.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nprint('rc',r.returncode)\"; grep \"VERDICT\" data/b654_reg_termscan.txt; python -c \"\nimport subprocess,sys\nr=subprocess.run([sys.executable,'tools/b654_regspec.py'],capture_output=True)\nopen('data/b654_regspec_run.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nprint('rc',r.returncode)\"; sed -n '4,40p' data/b654_regspec_run.txt",
+   "n": 112
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:35:58.826Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/reg_satisfiable.py data/b654_satisfiable.json --emit b654 2>&1 | tail -3; grep -n \"JOINTLY\\|VERDICT\" data/audit_b654_reg_satisfiable.txt | tail -3; python -c \"\nimport subprocess,sys\nfor tool,out in (('b307_handoff_census.py','b654_census_stepzero.txt'),('b327_faces_census.py','b654_faces_census_stepzero.txt'),('b303_pins.py','b654_pins_stepzero.txt')):\n    r=subprocess.run([sys.executable,'tools/'+tool,'b654'],capture_output=True)\n    b=(r.stdout+r.stderr).replace(b'\\r\\n',b'\\n')\n    open('data/'+out,'wb').write(b); print(out,'rc',r.returncode,'CR',b.count(b'\\r'))\n\"; grep -h \"TOTAL MISSING\\|HARD-FAILING\" data/b654_census_stepzero.txt data/b654_faces_census_stepzero.txt data/b654_pins_stepzero.txt",
+   "n": 113
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:36:07.565Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -c \"\nimport sys; sys.path.insert(0,'tools'); import gate_hash as G\nF='data/b654_registration_2026-10-12.txt'\nfor r in ('data/b654_reg_gate.txt','data/b654_reg_termscan.txt','data/b654_regspec_run.txt','data/audit_b654_reg_satisfiable.txt'):\n    print(r, G.stamp(r,F), G.matches(r,F)[0])\n\" && python tools/b378_lockgate.py b654 data/b654_registration_2026-10-12.txt 2>&1 | tail -8; ls data/b654_lockgate*",
+   "n": 114
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:36:12.309Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/reg_seal.py --lock data/b654_registration_2026-10-12.txt 2>&1 | tail -3 && python tools/reg_seal.py --verify data/b654_registration_2026-10-12.txt 2>&1 | grep -i \"intact\" && python -m py_compile tools/b654_checks.py tools/b654_record.py tools/b654_closing.py && python tools/b654_checks.py --seal",
+   "n": 115
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:36:21.056Z",
+   "src": "seat",
+   "cmd": "for f in data/b654_registration_2026-10-12.txt data/b654_reg_gate.txt data/b654_reg_termscan.txt data/b654_regspec_run.txt data/b654_satisfiable.json data/audit_b654_reg_satisfiable.txt data/b654_arms_prerun.txt data/b654_lsr_prerun.json data/b654_lockgate.json data/b654_lockgate_notes.txt data/b654_seal_hashes.json data/b654_census_stepzero.txt data/b654_faces_census_stepzero.txt data/b654_pins_stepzero.txt; do printf '%s CR=%s\\n' $f $(tr -cd '\\r' < $f | wc -c); done; git status --short | grep -v \"^??\"; git add data/b654_registration_2026-10-12.txt data/b654_reg_gate.txt data/b654_reg_termscan.txt data/b654_regspec_run.txt data/b654_satisfiable.json data/audit_b654_reg_satisfiable.txt data/b654_arms_prerun.txt data/b654_lsr_prerun.json data/b654_lockgate.json data/b654_lockgate_notes.txt data/b654_seal_hashes.json data/b654_census_stepzero.txt data/b654_faces_census_stepzero.txt data/b654_pins_stepzero.txt && git diff --cached --name-only | wc -l && git commit -q -m \"b654 seal: the face locked after Components 0-4 (data/b654_registration_2026-10-12.txt, body sha256 c84afa72...), its gates -- the pre-run (77 arms run at HEAD, 53 passing, G-AXIOM-CLAIM and G-EDIT-ROUTE declared failing on real state, the rest reading the lock, the seal, the table, the root and the record not yet written), the registration gate CLEAR, the spec (six planted rows read, four controls refused), the satisfiability audit JOINTLY SATISFIABLE, the banned-term scan CLEAN, the censuses and pins before the lock gate (TOTAL MISSING 0, 0; REPOS HARD-FAILING 0), the four face-subject records stamped, the lock gate 8 of 8 -- and the seven sealed tools' sha256 recorded. Nothing deposits.\" && git log --oneline -1 | cut -c1-20",
+   "n": 116
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:36:31.807Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && timeout 590 python tools/b654_record.py table_final && sed -n 1,12p data/b654_table_final.txt; git status --short | grep -v \"^??\"",
+   "n": 117
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:37:07.092Z",
+   "src": "seat",
+   "cmd": "git add data/b654_table_final.txt data/b654_table_final.json data/terminal_table.json data/terminal_table.md && git commit -q -m \"b654 pre-root: the terminal table regenerated and diffed against relay HEAD 7a7c8f8c (data/b654_table_final.txt: 2110 rows, moved 0, added 0, gone 0, grade moved 0). Nothing deposits.\" && git log --oneline -1 | cut -c1-30 && git branch push-b654-root HEAD && PUSH_GATED_LOG=/d/relay/data/b654_relay_root_push_out.txt bash tools/push_gated.sh /d/relay push-b654-root; echo \"exit $?\"",
+   "n": 118
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:37:20.563Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch --show-current && git status --short | grep -v \"^??\"; git branch push-b654-root HEAD && PUSH_GATED_LOG=/d/relay/data/b654_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b654-root; echo \"exit $?\"",
+   "n": 119
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:37:53.393Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && export PYTHONIOENCODING=utf-8 && python tools/b654_record.py root dry && python -c \"\nimport sys; sys.path.insert(0,'tools'); import b654_record as R\nprint(' '.join(R.root_banks()))\"",
+   "n": 120
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:38:20.499Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b654_record.py root && python tools/b654_record.py root_arm && tail -2 data/act_roots.txt | cut -c1-200 && git status --short | grep -v \"^??\"",
+   "n": 121
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T14:38:23.640Z",
+   "src": "seat",
+   "cmd": "for f in data/act_roots.txt data/b654_act_root.json data/b654_act_root.txt data/b654_root_arm.txt data/b654_root_arm.json data/b654_relay_root_push_out.txt data/b654_pp_root_push_out.txt; do printf '%s CR=%s\\n' $f $(tr -cd '\\r' < $f | wc -c); done; git add data/act_roots.txt data/b654_act_root.json data/b654_act_root.txt data/b654_root_arm.txt data/b654_root_arm.json data/b654_relay_root_push_out.txt data/b654_pp_root_push_out.txt && git diff --cached --name-only | wc -l && git commit -q -m \"b654 root: the act root 4ada7117... over 39 banks, the seal bank among them, none written CR LF, at relay 5e676d0d (pushed through push_gated.sh from push-b654-root, read back; PLACE-papers 390210f likewise), its previous b653's 50feacd8...; the one line appended to data/act_roots.txt; the arm's offline control (the recomputed root equal, the one-byte control moving it, the order holding locally); the two pre-root push captures. Nothing deposits.\" && git log --oneline -1 | cut -c1-30",
+   "n": 122
   }
  ],
  "offences": [
