@@ -1,0 +1,42 @@
+b653 -- THE READ-FIRST LIST OF THE FERRY, CITED BY PATH AND LINE, EACH BANK'S ROW UNIT NAMED (2026-10-12), read before Component 1
+
+(1) data/b652_closing.txt (rows: lines of the record; 173)
+  :1        b652 closed: relay 6eaacf29, PLACE-papers 81fa18a; suite 78 of 80; root 89e62b1656d45a3c...; 2 prompts answered; 12 defects.
+  the builds (one row per module), the cut, the instrument rows, the mirror (zip md5 27606c06..., MANIFEST md5 ce698d41..., commit 81fa18a).
+
+(2) data/b652_defects.txt (rows: defects, one lettered line each), (a) :7 to (l) :18; the navigator's (b) :8 (the sentence-row
+    assumption) and (d) :10 (the margin term); (g) :13 the count read by the seat.
+
+(3) data/b652_build_margin.txt (rows: modules; 237 lines)
+  :10 reading 1 ; :16 reading 2 ; :21 reading 3-open ; :27 reading 3-closed ; :33 THE BUILDS --
+  :34 Kernel.PerpendicularCrossing BUILT, free at start 4018, low 2566, loss 1452 (a completed run);
+  :36 SIDEEffects.Milestones BUILT, free at start 4408, low 3076, loss 1332 (a completed run);
+  :38 SIDELvConservation.T3_StepNineBridge STOPPED, free at start 4319, low 2493 at the stop, loss at least 1826 (a stopped run);
+  :41 the cut branch per file (rows: files), :57 Kernel/PerpendicularCrossing.lean.
+
+(4) data/b652_sentence_grades.txt (rows: sentences; parents: blocks; 1553 lines)
+  :867 == #56 Kernel/SimplicityRouteD.lean:69 (b647's bank :285), :879 == #57 Kernel/SimplicityRouteE.lean:77 (:290),
+  :1047 == #69 Kernel/TriviumCode.lean:9 (:350), each UNRESOLVED-CELL; :1553 PARENT BLOCKS 116 ; SENTENCE ROWS 396 ; GRADED 152.
+
+(5) data/b652_sidekernel_cut.txt (rows: files, one commit each)
+  :8 b974b3d Bridge/CartanBBridge.lean ... :40 b4e5e05 legacy/SchwarzReflection_PR.lean ; :42 COMMITS 33 ; FILES 33 ; BLOCKS CUT 113.
+
+(6) the unmerged branches, by name, with their diffs:
+  SIDE-lv-conservation b648-restate-SIDE-lv-conservation c35a3a3 over main b2238d4: SIDELvConservation/T3_StepNineBridge.lean, 11+ 28-;
+    T3_perClass_to_combinations restated as a def : Prop at :90 (the open Prop; the sorry on main at :108).
+  SIDE-kernel docstrings-cut-SIDE-kernel b4e5e05 (33 commits) and docstrings-SIDE-kernel 5033909 (the cut and the two plain comments)
+    over main b0f2a3a: 33 files, 136+ 443-.
+  (the third of b652's, SIDE-effects b648-restate-SIDE-effects, merged at b652: SIDE-effects main 9a279ac.)
+
+(7) the lean-toolchain of the two kernels: SIDE-lv-conservation leanprover/lean4:v4.29.1 ; SIDE-kernel leanprover/lean4:v4.29.0-rc8.
+
+(8) tools/test_chain_page_b638.py case (1): :59-:63 -- ents = C.glossary_entries(); lines = the glossary's lines that are no comment; the case
+    wants len(ents) == len(lines). data/glossary.txt: 103 lines; its entries 89 (the generator's count), its lines that are no comment 90
+    (b652's (c): entry 65 superseded by a marked line and still written).
+
+(9) tools/b652_regspec.py's satisfiability rows: CLAUSES :24 onward (rows: clauses, each a cap and a demand); no row of a sealed route's
+    input shape (build rows, score rows, trail heads) -- the case of (R263)(3).
+
+(10) PLACE-papers OPEN_TRAILS :13898 -- b652's margin correction (the host's measured loss, the tree peak no substitute; UNMEASURED where none).
+
+(11) data/b652_closing_push_out.txt committed at the start: relay a82a81ad.
