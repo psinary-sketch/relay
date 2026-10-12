@@ -1150,7 +1150,7 @@ def _finding_text():
              dict(ta.get('after', {}).get('counts') or {}), sc('N3')), '',
          '**The instrument verdict** (`(R262)`(5)): INSTRUMENT, with an ARM cell, in the licensed-statement table; a mis-binding reads '
          'INSTRUMENT(<arm>), a real contradiction keeps the arm`s verdict; %d opening rows -- b651’s (l) and (n), b649’s two ARM-MATCHING rows, and '
-         'the generated docstring rule’s six readings, one of them its blindness to the cut. N4 %s.' % (
+         'the generated docstring rule’s six readings, one of them its counts unmoved by the cut. N4 %s.' % (
              len(jl('b652_instrument_rows.json').get('rows') or []), sc('N4')), '',
          '**The record lines** (`(R262)`(1)): b651 at its weight (FINDINGS :%s).' % ls[0].get('line'), '',
          '**The root.** b652 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
@@ -1159,7 +1159,7 @@ def _finding_text():
          '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): each instrument the act leaned on was read against what it was asked to do -- a converter '
          'against the line it lands, a margin against the host’s whole loss, a table against the edit it grades -- and where one could not see its '
          'object the reading became a row rather than a verdict. It strengthens the programme’s offering of statements a reader can check: a '
-         'docstring on the branch now says what its declaration states, and the table that grades it names its own blind spots.', '',
+         'docstring on the branch now says what its declaration states, and the table that grades it names what it cannot read.', '',
          '**Next.** %s.' % NEXT_LINE, '',
          '*Nothing here is a statement that RH or GRH holds or locates any zero; a verdict compares a sentence with a licence and confers none.*', '']
     return _title(), NL.join(e)
