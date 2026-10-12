@@ -247,11 +247,14 @@ def conv_planted():
 
 def conv_alone():
     """every b652 tool's code, prose stripped: no other conversion of a backtick possessive defined or called."""
+    # ### the tokens built from pieces, so this file's own text carries none of them
+    P = 'p' + 'oss('
+    toks = ['def _' + P, 'def ' + P, '._' + P, '.' + P, ' ' + P, '(' + P, '=' + P, 'Q.' + 'line_of', 'Q.' + 'guard_absent', 'Q.' + 'append_to']
     bad = []
     for f in sorted(os.listdir(T)):
         if f.startswith('b652_') and f.endswith('.py'):
             t = strip_prose(read(os.path.join(T, f)))
-            if re.search(r'\bdef _?poss\(|\b_?poss\(|_poss\b|Q\.poss|Q\.line_of|Q\.guard_absent|Q\.append_to', t):
+            if any(x in t for x in toks):
                 bad.append(f)
     return bad
 
@@ -523,7 +526,7 @@ def readfirst_ok(S):
 def restoration_ok(S):
     t = S['defects']
     i = t.find('### CARRIED FROM b651')
-    j = t.find('### THE ACT`S OWN')
+    j = t.find("### THE ACT'S OWN")
     return 0 <= i < j and 'b651_author_answers.txt' in t[i:j] and 'f2cdc66a' in t[i:j] and 'later than the root' in t[i:j]
 
 

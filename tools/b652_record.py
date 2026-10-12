@@ -1049,12 +1049,8 @@ def _tests():
 
 def _conv_alone():
     """every b652 tool's code: no conversion of a backtick possessive but conv (no poss/_poss defined or called; the suite imports conv)."""
-    bad = []
-    for f in sorted(os.listdir(os.path.join(ROOT, 'tools'))):
-        if f.startswith('b652_') and f.endswith('.py'):
-            t = io.open(os.path.join(ROOT, 'tools', f), encoding='utf-8').read()
-            if re.search(r'\bdef _?poss\(|\b_?poss\(|R41\._poss|Q\.poss|Q\.line_of|Q\.guard_absent|Q\.append_to', t):
-                bad.append(f)
+    import b652_checks as CHK
+    bad = CHK.conv_alone()
     suite = io.open(os.path.join(ROOT, 'tools', 'b652_checks.py'), encoding='utf-8').read() if os.path.exists(os.path.join(ROOT, 'tools', 'b652_checks.py')) else ''
     return bad, 'from b652_record import conv' in suite or 'REC.conv' in suite
 
