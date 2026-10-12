@@ -296,7 +296,20 @@ def plain(*a):
              len(ctl), len(neg)),
          '### files %d ; plain block comments %d ; needle hits %d:' % (len(files), nblocks, len(hits))]
     L += ['  %s:%d -- %s' % h for h in hits] or ['  NONE']
-    L += ['', '### ### **PLAIN BLOCK COMMENTS %d ; NEEDLE HITS %d ; CONTROLS %d OF 3 READ, %d OF 2 QUIET.**' % (nblocks, len(hits), len(ctl), 2 - len(neg))]
+    # ### a second, wider shape before the count is banked: every plain-comment sentence naming RH, GRH, Riemann, the line or the zeros, for the hand
+    wide = []
+    W = re.compile(r'\bRH\b|\bGRH\b|Riemann|critical line|off-line|nontrivial zero|zeros? of (?:ζ|zeta|L)', re.I)
+    for f in files:
+        t = _show(K.KD, 'main', f) or ''
+        for ln, b in _plain_blocks(t):
+            for s in B7._MSPLIT.split(_ws(b.strip('/-'))):
+                if W.search(s):
+                    wide.append((f, ln, _ws(s)))
+    L += ['### THE WIDER SHAPE (RH, GRH, Riemann, the critical line, off-line, nontrivial zeros, zeros of zeta or L), read by hand: %d sentences' % len(wide)]
+    L += ['  %s:%d -- %s' % (f, ln, s[:300]) for f, ln, s in wide]
+    L += ['  the hand reading: %s' % (a[0] if a else '### NOT READ')]
+    L += ['', '### ### **PLAIN BLOCK COMMENTS %d ; NEEDLE HITS %d ; CONTROLS %d OF 3 READ, %d OF 2 QUIET ; WIDER SHAPE %d, ASSERTING ROWS BY HAND %s.**' % (
+        nblocks, len(hits), len(ctl), 2 - len(neg), len(wide), (a[1] if len(a) > 1 else '?'))]
     put_txt('b655_plain_comments.txt', L)
     put_json('b655_plain_comments.json', dict(at=utc(), files=len(files), blocks=nblocks, hits=[list(h) for h in hits], controls=[len(ctl), 2 - len(neg)]))
     print(NL.join(L[3:]))
@@ -375,6 +388,10 @@ def grades(*a):
                 c or '### NOT COMPLETED'))
             if not c:
                 sys.exit('### BLOCK %d: AN ELIDED ACTION NOT COMPLETED -- NOTHING WRITTEN' % k)
+            span = c[len('RE-CUT: '):] if c.startswith('RE-CUT: ') else c
+            if span.rstrip('.') not in q['licensed']:
+                sys.exit('### BLOCK %d: A COMPLETION NOT A SPAN OF THE LICENSED CELL -- NOTHING WRITTEN' % k)
+            L.append('   ### the completion is a verbatim span of the LICENSED cell; words from outside it 0.')
             action = c
         graded = {}
         for r in rs:
