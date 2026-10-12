@@ -1,0 +1,32 @@
+b653 -- COMPONENT 0: STEP ZERO UNDER (R263) (2026-10-12)
+
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R263) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b653_ferry.txt; the ferry scan 0 hits, 0 flags (data/b653_ferry_scan.txt); relay edbe7b82.
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 4009 MB
+### orphans: NONE ; stopped by PID: none needed.
+
+### b652's closing push-out bank committed at the start: relay a82a81ad (data/b652_closing_push_out.txt, written LF).
+
+### the b652 push branches, listed by `git branch --merged main --list 'push-b652*' -v` and deleted by name with the lower-case flag in the
+### same command, read back:
+  relay        listed push-b652, push-b652-closing, push-b652-root ; deleted push-b652 (was 6eaacf29), push-b652-root (was ab37a668),
+               push-b652-closing (was 466886b5) ; push-b652* now 0
+  PLACE-papers listed push-b652, push-b652-root ; deleted push-b652 (was 81fa18a), push-b652-root (was 2d9fac4) ; push-b652* now 0
+  SIDE-effects listed push-b652-restate ; deleted push-b652-restate (was 9a279ac) ; push-b652* now 0
+
+### b652's (l), the scratch driver, entered first in the defects bank's successor form (data/b653_defects.txt).
+
+### every test file under tools/ (data/b653_tests_stepzero.txt, .json), tools/b653_tests.py with the lists in force after b652, one test per call:
+  TEST FILES 53 ; RUN 52 ; WITHHELD 1 ; NOT CLEAN 2:
+    test_chain_page.py (9) -- carried as W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE's case (OPEN_TRAILS :13838).
+    test_chain_page_b638.py (1), (4)-(7) -- (1) b652's defect (c), repaired at Component 4 under (R263)(6); (4)-(7) as carried since b643.
+    test_elab_reader_b634.py -- WITHHELD: no lean run on this host in this act (data/b653_tests_withheld.json).
+  the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### no build on this host: no lean or lake process started by this act; the builds of (R263)(4) go to the hosted runner.
