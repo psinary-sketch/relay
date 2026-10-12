@@ -122,6 +122,43 @@ def land(items, bank, tag, entry=None, check=(), expect_cells=(), dry=True):
     print('  ' + ' ; '.join('%s :%s' % (x['file'], x['line']) for x in out))
 
 
+# ================================================================================ THE READERS, ONE PER ROW SHAPE A ROUTE READS ((R263)(3))
+RUNNER_KEYS = ('kernel', 'branch', 'ref', 'target', 'run_id', 'conclusion', 'artifact_sha256', 'mem_low', 'stopped', 'gate', 'merged', 'tag')
+
+
+def read_runner_row(r):
+    """a row of data/b653_runner_rows.json -- every key of RUNNER_KEYS present (None where a step did not reach it); returns the row's reading
+    (kernel, outcome, merged) that the scores, the record and the closing print; raises KeyError on a row of another shape."""
+    missing = [k for k in RUNNER_KEYS if k not in r]
+    if missing:
+        raise KeyError('runner row without %s' % missing)
+    if r['stopped']:
+        outcome = 'STOPPED BENEATH THE HOLD ON THE RUNNER'
+    elif r['conclusion'] != 'success':
+        outcome = 'RUN %s' % (r['conclusion'] or 'NOT CONCLUDED')
+    else:
+        outcome = 'GATE %s' % (r['gate'] or 'UNREAD')
+    return dict(kernel=r['kernel'], outcome=outcome, merged=r['merged'], low=r['mem_low'], above_hold=(r['mem_low'] is not None and r['mem_low'] >= 2560))
+
+
+def read_score_row(k, v):
+    """a scores row: key N1..N5 or S1..S5, value [verdict, text]; returns (key, first verdict word, text)."""
+    if not re.match(r'^[NS][1-5]$', k) or not isinstance(v, list) or len(v) != 2:
+        raise ValueError('score row of another shape: %r' % (k,))
+    return k, v[0].split(' ')[0], v[1]
+
+
+def read_head(path, head):
+    """a landed head looked up in a ledger through the one conversion; returns its line or raises."""
+    ln = line_of(path, head)
+    if ln is None:
+        raise LookupError('head not found through conv: %s' % head[:60])
+    return ln
+
+
+READERS = ('read_runner_row', 'read_score_row', 'read_head')
+
+
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R263)(1)-(3)
 WH = ('*Appended 2026-10-12 by b653 to b652’s entry (:8259), under `(R263)`(1) -- b652 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
       'data/b652_closing.txt):*')
