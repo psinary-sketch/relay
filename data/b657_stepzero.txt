@@ -1,0 +1,32 @@
+b657 -- COMPONENT 0: STEP ZERO UNDER (R267) (2026-10-12)
+
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R267) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b657_ferry.txt (compared with the pasted text in the session transcript: equal, 9326 characters); the ferry scan 0 hits
+### (data/b657_ferry_scan.txt); relay 9b02d1ab.
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 6356 MB
+### orphans: NONE ; stopped by PID: none needed.
+
+### b656's closing push-out bank committed at the start: relay 9b02d1ab (data/b656_closing_push_out.txt, as b656's push wrote it), with the
+### ferry and its scan.
+
+### the b656 push branches, listed by `git branch --merged main --list 'push-b656*'` and deleted by name with the lower-case flag in the
+### same command, read back:
+  relay                 listed push-b656, push-b656-closing, push-b656-root ; deleted push-b656 (was 1bb09d54), push-b656-root (was 87a48547),
+                        push-b656-closing (was 63001a6b) ; push-b656* now 0
+  PLACE-papers          listed push-b656, push-b656-root ; deleted push-b656 (was 31c03f9), push-b656-root (was 99bd2b2) ; push-b656* now 0
+### no work branch was made in b656; none to delete at a remote.
+
+### every test file under tools/ (data/b657_tests_stepzero.txt, .json), tools/b657_tests.py with the lists in force after b656, one test per call:
+  TEST FILES 53 ; RUN 52 ; WITHHELD 1 ; NOT CLEAN 2:
+    test_chain_page.py (9) -- carried as W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE's case (OPEN_TRAILS :13838).
+    test_chain_page_b638.py (4)-(7) -- as carried since b643; 3 of 7.
+    test_elab_reader_b634.py -- WITHHELD: no lean run on this host in this act (data/b657_tests_withheld.json).
+  the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### no build on this host: no lean or lake process started by this act; the build of (R267)(3) goes to the hosted runner.
