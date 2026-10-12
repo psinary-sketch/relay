@@ -1,5 +1,5 @@
 {
- "at": "2026-10-12T16:32:26Z",
+ "at": "2026-10-12T16:50:01Z",
  "anchor": "RULING (R265) BEGIN",
  "rows": [
   {
@@ -708,6 +708,132 @@
    "src": "seat",
    "cmd": "sed -n '/^PLANTED = \\[/,/^]/p' tools/b654_regspec.py | head -3; grep -n \"b654\\|R264\\|E1\\|width\\|prints re-banked\\|bench numbers\\|theorems stated\" tools/b654_regspec.py | cut -c1-150",
    "n": 101
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:32:25.432Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -m py_compile tools/b655_checks.py tools/b655_record.py tools/b655_closing.py tools/b655_regspec.py tools/b655_reg_gate.py tools/b655_worklist.py && python tools/b655_record.py answers && python tools/b655_record.py commands && python tools/b655_record.py kernels && python tools/b655_record.py defects && grep -n \"^### CALL\\|^RESULT\" data/b655_author_answers.txt | cut -c1-160",
+   "n": 102
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:32:44.973Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b655_record.py defects && git add tools/b655_checks.py tools/b655_closing.py tools/b655_reg_gate.py tools/b655_regspec.py tools/b655_record.py tools/b655_worklist.py data/b655_author_answers.txt data/b655_author_answers.json data/b655_commands.txt data/b655_commands.json data/b655_kernels_face.json data/b655_defects.txt data/b655_defects.json && git commit -q -m \"b655 Component 4 under (R265): the suite (tools/b655_checks.py, 79 arms: b654's standing arms carried less its own arms over its own banks, two of them reading this kernel's runner form, and eleven arms over this act's banks -- the freeze of (R264)(2)), the closing (tools/b655_closing.py), the registration gate and the spec (tools/b655_reg_gate.py, tools/b655_regspec.py, planted grade rows for the new reader), each by the Write tool; the record tool's late routes and the mirror routes by the Edit tool; the answers (2 prompts), commands (0 edit-route offences, 0 local lean or lake), kernels-face and defects banks (defects (a), (b)). Nothing deposits.\" && git log --oneline -1 | cut -c1-10",
+   "n": 103
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-12T16:32:53.710Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; $p = Start-Process -FilePath python -ArgumentList 'tools/b655_checks.py','--mid','b655_checks_mid1.txt' -WorkingDirectory 'D:\\relay' -WindowStyle Hidden -RedirectStandardOutput 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\1199f364-78c4-4147-843f-edf01bb11b28\\scratchpad\\suite_mid1.log' -RedirectStandardError 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\1199f364-78c4-4147-843f-edf01bb11b28\\scratchpad\\suite_mid1.err' -PassThru; \"PID \" + $p.Id",
+   "n": 104
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:33:00.446Z",
+   "src": "seat",
+   "cmd": "L=/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/1199f364-78c4-4147-843f-edf01bb11b28/scratchpad/suite_mid1.log; for i in $(seq 1 30); do grep -q \"written: b655_checks\" $L 2>/dev/null && break; sleep 15; done; grep -v \" OK$\" $L | grep -v \"THE ACT-ROOT\\|THE SEALED TOOLS\" | tail -40; tail -3 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/1199f364-78c4-4147-843f-edf01bb11b28/scratchpad/suite_mid1.err",
+   "n": 105
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:39:30.692Z",
+   "src": "seat",
+   "cmd": "grep -c \"| 1007 |   8 |  43 |\" data/b647_table_kernels.txt && PYTHONIOENCODING=utf-8 python -c \"\nimport sys,re; sys.argv=['x']; sys.path.insert(0,'tools'); import b655_checks as C\nS={'ktable':open('data/b647_table_kernels.txt',encoding='utf-8').read(),'readfirst':open('data/b655_readfirst.txt',encoding='utf-8').read()}\na=[x for x in C.ARMS if x[0]=='G-KERNEL-NAMED'][0]\nprint('live',a[2](dict(S)),'pos',a[2](a[3](dict(S))))\"",
+   "n": 106
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:39:41.831Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b655_record.py defects && git add tools/b655_checks.py data/b655_defects.txt data/b655_defects.json data/b655_checks_mid1.txt data/b655_lsr_mid1.json && git commit -q -m \"b655 Component 4 under (R265): the mid-act reading (data/b655_checks_mid1.txt: 53 of 79 live, G-KERNEL-NAMED passing its positive control); that control repaired by the Edit tool to mutate SIDE-global-section's own row, read live True and positive False (defect (c)). Nothing deposits.\" && git log --oneline -1 | cut -c1-10; git log --reverse --format='%h %s' 22ce9a8d..HEAD | cut -c1-90; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 8e81846..HEAD | cut -c1-80; PYTHONIOENCODING=utf-8 python -c \"\nimport sys,textwrap; sys.argv=['x']; sys.path.insert(0,'tools'); import b655_checks as C\ns=' '.join('\\x60%s\\x60'%a[0] for a in C.ARMS)\nfor l in textwrap.wrap(s, 136, break_on_hyphens=False, break_long_words=False): print('### '+l)\nprint(len(C.ARMS))\"",
+   "n": 107
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-12T16:41:07.501Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; $p = Start-Process -FilePath python -ArgumentList 'tools/b655_checks.py','--prerun' -WorkingDirectory 'D:\\relay' -WindowStyle Hidden -RedirectStandardOutput 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\1199f364-78c4-4147-843f-edf01bb11b28\\scratchpad\\suite_prerun.log' -RedirectStandardError 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\1199f364-78c4-4147-843f-edf01bb11b28\\scratchpad\\suite_prerun.err' -PassThru; \"PID \" + $p.Id",
+   "n": 108
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:41:13.428Z",
+   "src": "seat",
+   "cmd": "L=/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/1199f364-78c4-4147-843f-edf01bb11b28/scratchpad/suite_prerun.log; for i in $(seq 1 30); do grep -q \"written: b655_arms_prerun\" $L 2>/dev/null && break; sleep 15; done; grep -v \" OK$\" $L | grep \"FAIL\\|DEFECTIVE\\|ARMS RUN\\|CONTROL\\|uncovered\\|took\" | cut -c1-200 | tail -40",
+   "n": 109
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:47:23.128Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b655_reg_gate.py | tail -5; python -c \"\nimport subprocess,sys\nr=subprocess.run([sys.executable,'tools/banned_terms.py','--new','data/b655_registration_2026-10-12.txt'],capture_output=True)\nopen('data/b655_reg_termscan.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nr=subprocess.run([sys.executable,'tools/b655_regspec.py'],capture_output=True)\nopen('data/b655_regspec_run.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nprint('regspec rc',r.returncode)\"; grep \"VERDICT\" data/b655_reg_termscan.txt; grep -n \"PLANTED ROWS\\|CONTROL\\|PREDICTIONS FOUND\\|line \" data/b655_regspec_run.txt | cut -c1-160",
+   "n": 110
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:47:36.277Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b655_reg_gate.py | tail -4; python -c \"\nimport subprocess,sys\nr=subprocess.run([sys.executable,'tools/banned_terms.py','--new','data/b655_registration_2026-10-12.txt'],capture_output=True)\nopen('data/b655_reg_termscan.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nr=subprocess.run([sys.executable,'tools/b655_regspec.py'],capture_output=True)\nopen('data/b655_regspec_run.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nprint('regspec rc',r.returncode)\"; grep \"VERDICT\" data/b655_reg_termscan.txt; grep -n \"PREDICTIONS FOUND\\|NON-ZERO\" data/b655_regspec_run.txt",
+   "n": 111
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:47:43.916Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/reg_satisfiable.py data/b655_satisfiable.json --emit b655 > /dev/null 2>&1; grep -n \"VERDICT\" data/audit_b655_reg_satisfiable.txt | head -2; python -c \"\nimport subprocess,sys\nfor tool,out in (('b307_handoff_census.py','b655_census_stepzero.txt'),('b327_faces_census.py','b655_faces_census_stepzero.txt'),('b303_pins.py','b655_pins_stepzero.txt')):\n    r=subprocess.run([sys.executable,'tools/'+tool,'b655'],capture_output=True)\n    b=(r.stdout+r.stderr).replace(b'\\r\\n',b'\\n')\n    open('data/'+out,'wb').write(b); print(out,'rc',r.returncode,'CR',b.count(b'\\r'))\n\"; grep -h \"TOTAL MISSING\\|HARD-FAILING\" data/b655_census_stepzero.txt data/b655_faces_census_stepzero.txt data/b655_pins_stepzero.txt",
+   "n": 112
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:47:52.636Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -c \"\nimport sys; sys.path.insert(0,'tools'); import gate_hash as G\nF='data/b655_registration_2026-10-12.txt'\nfor r in ('data/b655_reg_gate.txt','data/b655_reg_termscan.txt','data/b655_regspec_run.txt','data/audit_b655_reg_satisfiable.txt'):\n    print(r, G.stamp(r,F)[:16], G.matches(r,F)[0])\n\" && python tools/b378_lockgate.py b655 data/b655_registration_2026-10-12.txt 2>&1 | tail -4",
+   "n": 113
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:47:58.178Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && grep -c \"GATES READ : 8. ### PASSING : 8.\" data/b655_lockgate_notes.txt && python tools/reg_seal.py --lock data/b655_registration_2026-10-12.txt 2>&1 | tail -2 && python tools/reg_seal.py --verify data/b655_registration_2026-10-12.txt 2>&1 | grep -i \"intact\" && python -m py_compile tools/b655_checks.py tools/b655_record.py tools/b655_closing.py && python tools/b655_checks.py --seal",
+   "n": 114
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:48:07.629Z",
+   "src": "seat",
+   "cmd": "for f in data/b655_registration_2026-10-12.txt data/b655_reg_gate.txt data/b655_reg_termscan.txt data/b655_regspec_run.txt data/b655_satisfiable.json data/audit_b655_reg_satisfiable.txt data/b655_arms_prerun.txt data/b655_lsr_prerun.json data/b655_lockgate.json data/b655_lockgate_notes.txt data/b655_seal_hashes.json data/b655_census_stepzero.txt data/b655_faces_census_stepzero.txt data/b655_pins_stepzero.txt; do test $(tr -cd '\\r' < $f | wc -c) -eq 0 || echo \"CR in $f\"; done; git status --short --untracked-files=no; git add data/b655_registration_2026-10-12.txt data/b655_reg_gate.txt data/b655_reg_termscan.txt data/b655_regspec_run.txt data/b655_satisfiable.json data/audit_b655_reg_satisfiable.txt data/b655_arms_prerun.txt data/b655_lsr_prerun.json data/b655_lockgate.json data/b655_lockgate_notes.txt data/b655_seal_hashes.json data/b655_census_stepzero.txt data/b655_faces_census_stepzero.txt data/b655_pins_stepzero.txt && git commit -q -m \"b655 seal: the face locked after Components 0-3 (data/b655_registration_2026-10-12.txt, body sha256 08c2a914...), its gates -- the pre-run (79 arms run at HEAD, 56 passing, G-AXIOM-CLAIM declared failing on its one contradiction at HEAD, the rest reading the lock, the seal, the table, the root and the record not yet written), the registration gate CLEAR, the spec (seven planted rows read, five controls refused), the satisfiability audit JOINTLY SATISFIABLE, the banned-term scan CLEAN, the censuses and pins before the lock gate (TOTAL MISSING 0, 0; REPOS HARD-FAILING 0), the four face-subject records stamped, the lock gate 8 of 8 -- and the nine sealed tools' sha256 recorded. Nothing deposits.\" && git log --oneline -1 | cut -c1-10",
+   "n": 115
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:48:17.859Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && timeout 590 python tools/b655_record.py table_final && git status --short --untracked-files=no",
+   "n": 116
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:48:45.467Z",
+   "src": "seat",
+   "cmd": "git add data/b655_table_final.txt data/b655_table_final.json data/terminal_table.json data/terminal_table.md && git commit -q -m \"b655 pre-root: the terminal table regenerated and diffed against relay HEAD 965c9bb3 (data/b655_table_final.txt: moved 0, added 0, gone 0, grade moved 0). Nothing deposits.\" && git log --oneline -1 | cut -c1-10 && git branch push-b655-root HEAD && PUSH_GATED_LOG=/d/relay/data/b655_relay_root_push_out.txt bash tools/push_gated.sh /d/relay push-b655-root; echo \"exit $?\"",
+   "n": 117
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:48:58.192Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no; git branch push-b655-root HEAD && PUSH_GATED_LOG=/d/relay/data/b655_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b655-root; echo \"exit $?\"",
+   "n": 118
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T16:49:32.640Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && export PYTHONIOENCODING=utf-8 && python tools/b655_record.py root && python tools/b655_record.py root_arm && tail -1 data/act_roots.txt | cut -c1-140 && for f in data/act_roots.txt data/b655_act_root.json data/b655_act_root.txt data/b655_root_arm.txt data/b655_root_arm.json data/b655_relay_root_push_out.txt; do test $(tr -cd '\\r' < $f | wc -c) -eq 0 || echo \"CR in $f\"; done; git add data/act_roots.txt data/b655_act_root.json data/b655_act_root.txt data/b655_root_arm.txt data/b655_root_arm.json data/b655_relay_root_push_out.txt data/b655_pp_root_push_out.txt && git commit -q -m \"b655 root: the act root over the act's banks, the seal bank among them, none written CR LF, at relay abc4f8ff (pushed through push_gated.sh from push-b655-root, read back; PLACE-papers a6e1a53 likewise), its previous b654's 4ada7117...; the one line appended to data/act_roots.txt; the arm's offline control; the two pre-root push captures. Nothing deposits.\" && git log --oneline -1 | cut -c1-10",
+   "n": 119
   }
  ],
  "offences": [],

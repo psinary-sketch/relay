@@ -1,5 +1,5 @@
 {
- "at": "2026-10-12T16:39:43Z",
+ "at": "2026-10-12T16:50:01Z",
  "defects": [
   "(a) THE SEAT'S: A CUT PLANNER THAT LEFT A LINE OF ONE SPACE. The first plan of the cut (relay data/b655_cut_plan.txt) removed a row dropped as a repeat together with the one space before it, and where the row had stood on its own line after a blank one (#3 BallPairShadow, #13 E2EvenMonotoneShadow) a line holding a single space stayed inside the comment. Caught on the seat's reading of the planned edits, before any kernel byte was written; the planner now takes the whole whitespace run that led to a removed row, or the run after it where the row opens its region (#50), and the plan was re-run and read again before the cut.",
   "(b) THE SEAT'S: A WORKFLOW DRAFT THAT READ WRAPPED PRINTS BY ONE LINE. The first draft of SIDE-global-section's workflow took the Interfaces prints by a single-line grep, which misses a print Lean wraps over lines, and carried an awk line with no effect. Caught on reading the draft, before its commit; the prints are now joined to their closing bracket by a short python reader inside the run, and the dead line is gone.",
