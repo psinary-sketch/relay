@@ -1,0 +1,151 @@
+b656 -- COMPONENT 2, (R266)(3): E1'S QUANTITIES BOUND TO THE KERNEL AT v0.27, BEFORE ANY NUMBER (2026-10-12)
+
+### the kernel: SIDE-explicit-formula, tag v0.27 = main 111e418b; every line below read from the blob by `git show v0.27:<path>`; no lean run,
+### no file of the kernel written. The b559 constants table (relay data/b559_constants.txt; rows are the bank's lines) cited beside each row.
+### Rows below: one per quantity -- its definition by file and line; what it is at a cell of the map; the method; the cost. No number is
+### computed in this bank; every figure in it is a symbol, a line number or a closed form read from a definition.
+
+================================================================================================================================
+### 0. THE CONFIGURATION -- READ FIRST, BECAUSE EVERY ROW DEPENDS ON IT
+================================================================================================================================
+  E1's two statements take `H : PWSetup Zeta23.zetaZeroConfig g0 L M` (RateIndex.lean:27, :113); their tie set is
+  `tieSet Zeta23.zetaZeroConfig g0 M` (:115, :119), their sum `sT H` (:125; PowerLimit.lean:1072), their zero side `zeroSide`
+  (:126; B321Identity.lean:24, a sum over `Zeta23.zetaZeroConfig.carrier`). The carrier is fixed by definition:
+  `zetaZeroConfig := zetaZeros zetaSeam` (Zeta23/Statement/SeamClosed.lean:42) with `zetaZeroConfig.carrier = {ρ | IsNontrivialZero ρ}`
+  by rfl (:44). It is not a parameter.
+
+  (O-1) THE OBSTRUCTION AT E1 AS STATED. A grid point ρ₁ = σ + it is in zetaZeroConfig's carrier exactly when ζ(ρ₁) = 0. So the cell's
+  hypothetical zero is not in E1's tie set, E1's tie set (the off-line nontrivial zeros of ζ of score M) is not a computable set -- deciding
+  it decides every zero's real part -- and `∑ x ∈ sT H, mult x * Nf H x`, hrate's right side, cannot be bound to a cell. Under (R266)(3)'s
+  last sentence this quantity, read at E1's own configuration, does not bind.
+
+  THE CELL'S CONFIGURATION, as (R266)(4) names it ("ρ₁ ... taken as the configuration's excluded zero, with ζ's genuine zeros below a height
+  the binding fixes as the rest"): Z₁(σ, t) with carrier the orbit {ρ₁, 1 − conj ρ₁, conj ρ₁, 1 − ρ₁} (a zero of ζ brings its conjugate and
+  its reflection; `reflect` Defs.lean:124) and ζ's genuine zeros with |Im| ≤ T, every multiplicity 1. It is a `Zeta23.ZeroConfig`
+  (Defs.lean:136-:148): the points are distinct, in the strip, closed under `reflect` (an on-line point is its own reflection), finitely many in
+  any window. It is a `Schema.WeilConfig` (Schema/Config.lean:24) with rhs k := its own zero-side sum (ef by rfl), count from its HCount
+  (row A₀ below), target the strip form. THE HEIGHT FIXED BY THE BINDING: T = 1000.
+
+  Every definition hrate names is stated over an arbitrary `Z : Zeta23.ZeroConfig` (PWSetup PowerLimit.lean:245; tieSet, killSet
+  PowerWindow.lean:398, :401; Kp, cE, Ep, VF, Xval, Nf, Pof, Aw over `H : PWSetup Z ...`; coeffs_exist :672; HCount RestBound.lean:44;
+  weighted_finite_bound :879; zero_weight :809), and the three that are not have twins over a WeilConfig: sT_cfg (Schema/Converse.lean:151),
+  fR_cfg (:43), zeroSide_cfg (Schema/Config.lean:37), with dominant_summable_cfg (:28). So every quantity below binds at Z₁.
+
+  (O-2) WHAT DOES NOT BIND AT Z₁: E1 ITSELF. rest_norm_le_rate and zeroSide_neg_at_rate have no form over a WeilConfig at v0.27 (Converse.lean
+  carries the limit form zeroSide_eventually_neg_cfg :161, no rate). Their proofs use zetaZeroConfig only through dominant_summable (RateIndex
+  :84, :103, :151), fR, sT and zeroSide, each with a _cfg twin, so the statements would carry over -- but no kernel edit is made in this act
+  ((R266)(5)). At Z₁ the map would therefore evaluate E1's expression at a configuration E1 is not stated for; the implication from hrate to a
+  negative zero side is not a compiled statement there, and H3's direct reading of the zero side is the only check that links the two.
+
+  (O-3) A₀ AT THE FULL CONFIGURATION. Were the rest all of ζ's zeros (no height), A₀ would be HCount's constant for ζ's zeros with the orbit
+  added: the kernel's own is existential -- max 1 (max (2 A₁) K) (Zeta23/RvM/LocalCount.lean:287), A₁ from half_count_large (:112-:121) over
+  zeta_growth_right's existential constants (:113; ZetaGrowth.lean:159) -- not a computed number, and no explicit count of zeros is in the
+  kernel. So the full configuration does not bind; Z₁ (finite) does.
+
+================================================================================================================================
+### 1. THE QUANTITIES, ONE ROW EACH, AT A CELL'S CONFIGURATION Z₁(σ, t)
+================================================================================================================================
+  ℓ  -- base_nonzero_at's witness 1 / (4 * (‖z‖ + 1)) (PowerWindow.lean:274, :276), named baseWidth ρ (Schema/Detector.lean:33) at
+        z = gammaOf ρ₁ = (ρ₁ − 1/2) / I = t − i(σ − 1/2) (Zeta23/Defs.lean:121): ℓ = 1 / (4 (√(t² + (σ − 1/2)²) + 1)). EXPLICIT; a ball.
+        b559 :143 (THE REACH: the base and its width).
+
+  L  -- PWSetup's support half-width (PowerLimit.lean:248-:249); the detector takes L = baseWidth ρ₀ = ℓ (Detector.lean:113). EXPLICIT.
+
+  g0 -- detectorBase ρ₁ = plateau (1/2) ℓ (Detector.lean:40; TwoPropertyWindow.lean:56):
+        u ↦ smoothTransition((ℓ − u)/(ℓ/2)) · smoothTransition((ℓ + u)/(ℓ/2)), smoothTransition x = e(x)/(e(x) + e(1 − x)), e(x) = exp(−1/x)
+        for x > 0 and 0 else (Mathlib's closed form, quoted at TwoPropertyWindow.lean:51-:55). EXPLICIT, even, supported in [−ℓ, ℓ], 1 on
+        [−ℓ/2, ℓ/2]. Its derivatives in closed form by differentiation (arb power series at a point).
+
+  M  -- PWSetup.hM, hdom (PowerLimit.lean:250-:251); the detector's M = offScore g0 ρs at the dominant (Detector.lean:112-:114).
+        offScore g ρ = ‖paperFT (phiC g) (gammaOf ρ)‖ (PowerWindow.lean:328; paperFT Defs.lean:60, ∫ f(u) e^{izu} du). At Z₁:
+        M = |∫_{−ℓ}^{ℓ} g0(u) e^{itu} e^{(σ−1/2)u} du|. METHOD: certified integration (python-flint acb.integral) on [−ℓ, ℓ] split at the
+        ramp joints ±ℓ/2; at the support's ends e(x) has an essential singularity in the complex plane, so [ℓ − ε, ℓ] is cut out and bounded
+        by sup|g0| there (< e(2ε/ℓ)-sized, closed form) times its length, added to the ball's radius. b559 :28, :143.
+
+  the dominant zero -- dominant_exists (PowerWindow.lean:368; Set.exists_max_image :377). At Z₁ the only off-line points are the orbit
+        (ζ's genuine zeros below T are on the line, row "the zero list"); the four share one score (offScore_reflect PowerLimit.lean:219;
+        paperFT_neg_of_even :41 and paperFT_conj_of_real :36 for a real even g0), so ρs = ρ₁ and M = offScore g0 ρ₁. EXPLICIT given M.
+
+  the tie set and its multiplicities -- tieSet Z g0 M (PowerWindow.lean:398); sT_cfg (Converse.lean:151). At Z₁: the orbit, four points,
+        multiplicity 1 each (a hypothetical simple zero). Its v-nodes VF = vOf '' T (PowerLimit.lean:280; vOf ρ = (ρ − 1/2)² :146) are
+        v = ((σ − 1/2) + it)² and conj v, two nodes (v_eq_iff :183; Im v = 2(σ − 1/2)t ≠ 0). EXPLICIT. b559 :24-:30.
+
+  the kill set -- killSet Z g0 M (PowerWindow.lean:401): the on-line points with M ≤ offScore. At Z₁: the genuine zeros |γ| ≤ T with
+        |ĝ0(γ)| ≥ M (γ real for an on-line zero). METHOD: offScore in balls (as M); a zero whose decay bound (next row) is below M is outside
+        without an integral; a ball that straddles M is a decision 200 bits cannot make -- printed, and the cell reads UNDECIDED, not guessed.
+        Xr = the distinct real parts of vOf over the kill set (PowerLimit.lean:268), here −γ², one per |γ|. b559 :32-:38.
+
+  the zero list -- ζ's zeros with 0 < γ ≤ T, by Arb's zeta-zero routine (python-flint acb.zeta_zeros, Platt's isolation with Turing's method:
+        each zero a ball on the line, the count matched against N(T)), mirrored to −γ. A count that does not match stops the map. External to
+        the kernel (zetaZeroConfig's carrier is defined, not listed); this is the "genuine zeros below a height" (R266)(4) fixes.
+
+  Nf -- PowerLimit.lean:445: Nf H ρ = ‖Kp(vOf ρ)² · (1 − cE² · vOf ρ)‖; Kp = ∏_{x ∈ Xr} (X − x) (:271); cE = 1 + Σ_{ρ ∈ T} 1/|Re ρ − 1/2|
+        (:274) = 1 + 4/|σ − 1/2| at Z₁. hrate's right side Σ_{x ∈ sT} mult x · Nf H x = 4 · Nf H ρ₁ (the four share v or conj v, and Nf
+        is the norm of a polynomial with real coefficients there). EXPLICIT in balls. b559 :28.
+
+  D  -- E1's parameter (RateIndex.lean:114) with hQb (:117); BOUND TO coeffs_exist's witness (PowerLimit.lean:683), the one
+        zeroSide_eventually_neg uses (:1086): D = 2 · card VF + 2 · DK + DE, with DK, DE from fixed_poly_bound (:667) = natDegree + 1. At Z₁:
+        card VF = 2; Ep = 1 + C cE · X (:277), cE > 0, so DE = 2; DK = card Xr + 1. So D = 2 · card Xr + 8 -- a symbolic reading, no zero
+        computed. (E1 admits any (B, D) meeting hQb, and Pof's degree is at most 2 · card Xr + 3; the binding takes the kernel's witness, as
+        read, and does not shrink it.) b559 :48-:54.
+        ### READ BESIDE J_max: since D ≥ 8, the indices j with D ≤ j ≤ 12 number at most five, and none where card Xr ≥ 3; such a cell reads
+        ### NONE ≤ 12 with hrate's two sides printed at j = 12, where 2^(13) − 2^(D+1) is ℕ subtraction (truncated at 0) and θ's power is 1.
+
+  B  -- coeffs_exist's witness (PowerLimit.lean:683): B = card VF · max CV 0 · BK · BE. CV = Σ_{j < card VF} Σ_{i ∈ VF} |coeff_j of
+        Lagrange.basis VF id i| (PowerWindow.lean:432): for the two nodes v, conj v the bases are (X − conj v)/(v − conj v) and its conjugate,
+        coefficients in closed form. BK = (natDegree Kp + 1) · Σ_i |coeff_i Kp|, BE = 2 · (1 + cE) (:667). EXPLICIT in balls. b559 :52.
+
+  Aw -- PowerLimit.lean:800: Aw H = (∫|g0| + ∫|g0''''|) · e^{L/2}. ∫|g0| = ∫g0 (g0 ≥ 0, plateau_nonneg PowerWindow.lean:261). ∫|g0''''|:
+        g0'''' vanishes on the flat part and outside the support; on each ramp its sign changes are isolated in balls (a certified root
+        isolation of the closed-form derivative) and |g0''''| integrated piece by piece, the ends cut as for M. A ball containing Aw; hrate's
+        left side increases with Aw, so the ball's use is exact, not a bound. b559 :64-:70.
+
+  θ  -- E1's hθ (RateIndex.lean:118-:120): θ ≥ 0 bounding offScore g0 ρ / M at every point of the configuration outside the tie and kill sets.
+        At Z₁ (finite): θ = the largest offScore/M over the on-line zeros |γ| ≤ T outside the kill set -- a maximum over a finite set, no
+        supremum. METHOD: offScore in balls for the zeros near the top; every other zero screened by zero_weight's bound
+        offScore ≤ Aw / (1 + ‖gammaOf ρ‖⁴) (PowerLimit.lean:825), which needs no integral; θ := the largest upper endpoint. Printed beside it:
+        Aw / ((1 + T⁴) · M), the same bound for EVERY strip point above T -- where it is below θ, θ bounds the ratio at every genuine zero of ζ,
+        not only those below T. b559 :149 (and :150ff, (E2): θ has no bound below 1 in terms of the excluded zero -- two zeros of near-equal
+        score).
+
+  A₀ -- HCount Z A₀ (RestBound.lean:44): 1 ≤ A₀ and Z.N t (t + 1) ≤ A₀ · log(|t| + 3) for every real t. At Z₁ (finite): the least such A₀,
+        max(1, sup_t N₁(t, t+1] / log(|t| + 3)); N₁(t, t+1] is a step function of t changing only where t or t + 1 meets an ordinate, and on
+        each step the ratio is largest at the step's point nearest 0, so the supremum is a maximum over finitely many points, each a ball.
+        EXACT, no enclosure needed. (At the full configuration: (O-3).) b559 :60.
+
+  zeta3Sum -- RestBound.lean:51: Σ_{m ∈ ℤ} 1/(1 + |m|)³ = 1 + 2 Σ_{n ≥ 2} n⁻³ = 2ζ(3) − 1; Arb's ζ(3) at 200 bits. EXPLICIT. b559 :58.
+
+  Bf -- RateIndex.lean:124 (dominant_summable PowerLimit.lean:957): Bf = 128 · 8^D · B² · (Aw/M)^(2^(D+1)). EXPLICIT in balls (the power
+        2^(D+1) taken in Arb on a logarithmic scale where it exceeds the exponent range). b559 :60.
+
+  hrate -- RateIndex.lean:123-:125: θ^(2^(j+1) − 2^(D+1)) · (3 · A₀ · Bf · zeta3Sum) < Σ_{x ∈ sT} mult x · Nf H x. Both sides in balls; the
+        cell's j₀ is the least j in [D, 12] with the left ball wholly below the right; a j where the balls overlap is UNDECIDED and printed.
+
+  power g j -- PowerWindow.lean:121: power g 0 = g, power g (j+1) = selfConv (power g j) (:62, the self-convolution); its transform is
+        ĝ0^(2^j) (paperFT_power :146). kWindow a g0 j = weilTest (phiC f) (phiC f), f = polyOpFull a (power g0 j) (PowerLimit.lean:105,
+        :108, :56), and paperFT (kWindow a g0 j) z = polyEvalFull a (−iz) · polyEvalFull a (iz) · ĝ0(z)^(2^(j+1)) (kWindow_term :127).
+
+  H3's zero side -- zeroSide_cfg (Schema/Config.lean:37) at Z₁: Σ_{ρ ∈ Z₁} mult ρ · paperFT (kWindow a g0 j₀) (gammaOf ρ), a = coeffList
+        (Pof H (Q j₀)) (:343, :317), Q j₀ the Lagrange interpolant of rT H j₀ on VF (coeffs_exist :685-:686 through real_even_interpolant
+        :432-:434; rT :591, Yv :560, XV :523, Xval :437, sqrtC :545; rep :510's choice does not move the value -- Xval at ρ and 1 − ρ agree by
+        evenness). A finite sum at Z₁, each term by kWindow_term, every factor a ball. The kernel's zeroSide (B321Identity.lean:24) sums over
+        zetaZeroConfig, not Z₁ -- (O-1) again; at zetaZeroConfig no off-line term exists below T. If the H3 cell (0.8, 29.6) reads NONE ≤ 12,
+        it has no j₀; the zero side is then read at j = 12 and H3 is NOT SCORABLE at j₀, said so.
+
+================================================================================================================================
+### 2. THE COST, PRICED BEFORE ANY RUN
+================================================================================================================================
+  the zero list to T = 1000: one call of Arb's zero routine, seconds.
+  per cell: M, Aw (two ramp integrals and a root isolation), and offScore at the zeros the decay screen does not clear -- at most every zero
+  below T, about 650 integrals by symmetry in ±γ; at 200 bits an oscillatory integral over [−ℓ, ℓ] with the ends cut is estimated at 0.05-0.5 s,
+  so at most about 5 minutes a cell and under 2 hours for the 20 cells, far less where the screen clears the tail; the rest (D, B, Bf, A₀,
+  hrate for j ≤ 12, H3's finite sum) is polynomial arithmetic in balls, seconds. Run detached, watched by a single foreground check. No lean.
+
+================================================================================================================================
+### 3. THE BINDING'S VERDICT
+================================================================================================================================
+  AT E1's OWN CONFIGURATION (zetaZeroConfig): the tie set, and with it hrate's right side, does not bind (O-1); the full configuration's A₀
+  does not bind (O-3). AT THE CELL'S CONFIGURATION Z₁ (the orbit and ζ's zeros below T = 1000): every quantity of hrate and of
+  zeroSide_neg_at_rate's statement binds to a kernel definition by file and line (section 1), each EXPLICIT or EXACT in balls, θ a finite
+  maximum, A₀ a finite maximum -- but E1's implication is not stated at Z₁ (O-2), and H3 is the only link from hrate to the zero side there.
+  ### ### **THE PROMPT OF (R266)(3) IS RAISED ON THIS BANK; NO NUMBER IS COMPUTED BEFORE THE AUTHOR'S WORD.**
