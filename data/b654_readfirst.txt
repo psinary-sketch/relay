@@ -1,0 +1,98 @@
+b654 -- THE READ-FIRST, UNDER (R264): EACH BANK CITED BY PATH AND LINE, THE UNIT OF ITS ROWS NAMED (2026-10-12)
+
+### data/b653_closing.txt -- rows are the closing record's lines (157):
+  :1      the head: relay c50be803, PLACE-papers 16ec28f; suite 76 of 77; root 50feacd847483709…; 2 prompts answered; 6 defects
+  :6-:14  the sealed tools at the close, 8 of 8 AGREE
+  :16     FINDINGS.md :8283 ; OPEN_TRAILS.md :13920 (the margin rule) ; :13922 (the seal order)
+  :21     the grade bank at the branch: SENTENCE ROWS 396 ; MATCHES 244 ; GRADED AND CUT 152 ; GRADED AND STILL STANDING 0
+  :25     SIDE-kernel run 38197671140 ; artifact sha256 b471d480daffb4d0 ; memory low 13383 MB ; gate DERIVES ; merged 70aba3c ; tag v1.8
+  :26     SIDE-lv-conservation run 38197669258 ; artifact sha256 21b63ad8b6220fa2 ; memory low 12639 MB ; gate DERIVES ; merged b4c55b9 ; tag v0.12.0
+  :37     the root 50feacd847483709 ; FINDINGS :8285 ; OPEN_TRAILS :13924
+  :67-:70 the suite 76 of 77 before and after the push, G-AXIOM-CLAIM the one failure
+  :146-:148 G-AXIOM-CLAIM's two contradictions, for the author's ruling: SIDE-cosmo SteaneExemplar.lean:6; SIDE-lv-conservation AxiomCheck.lean:8
+            against b557's print, older than the T3 restatement
+  the closing push-out, relay data/b653_closing_push_out.txt (rows are push_gated's lines, 6): :4 c50be803..a2beb696 push-b653-closing -> main ;
+  :5 main read back a2beb6961fab… ; committed at step zero, relay eda9fea0.
+
+### data/b653_defects.txt -- rows are defect lines (12 lines; 1 carried, 6 the act's):
+  :4  b652's (l), the scratch driver (carried)
+  :7  (a) the navigator's, on the author's word: a remote runner sent after refs that lived on one host
+  :8  (b) the seat's: a push run in another repository's working directory
+  :9  (c) the seat's: a workflow's header comment read as a terminal
+  :10 (d) the seat's: a primed name cut at its quote
+  :11 (e) the seat's: the local-lean reading caught its author's commit messages
+  :12 (f) the seat's: the step-zero censuses written with carriage returns
+
+### data/b653_runner_SIDE-lv-conservation.txt -- rows are the runner bank's lines (129); the gate rows are per named terminal (8):
+  :3-:103   the workflow file on main 2b5959f, read back whole; :80-:90 the Axioms.lean heredoc naming the 8 T3 terminals
+  :105      the dispatch: ref c35a3a314ae9… ; target SIDELvConservation ; first dispatch 38197369344 failed at checkout
+  :106      the run: id 38197669258, conclusion success
+  :107      the artifact: id 11724116681 ; sha256 21b63ad8b6220fa2c77769f3cf2d94ff8ec8b725bb73375d747d476d24b06289, the platform's digest agreeing
+  :119-:127 the axioms output by terminal: 8 of 8 DERIVES ['Classical.choice', 'Quot.sound', 'propext'];
+            :125 SIDELvConservation.T3.T3_perClass_to_combinations DERIVES
+### data/b653_runner_SIDE-kernel.txt -- rows are the runner bank's lines (242); the gate rows are per named terminal (54):
+  :172      the dispatch: ref ee8d21a18a9a… ; target Kernel Bridge MetaKernel ; first dispatch 38197387315 failed at checkout
+  :173      the run: id 38197671140, conclusion success
+  :174      the artifact: id 11724496182 ; sha256 b471d480daffb4d0409f746ae01259690dbc27559b065f7bee5357f90a38d2a8
+  :186-:240 the axioms output by terminal: 54 of 54 DERIVES; :239 ECondition.type_I_has_ostrowski ['Quot.sound', 'propext']
+
+### the b559 banks -- relay data/b559_constants.txt, rows are the bank's lines (171), its readings one per lemma (16 lemmas):
+  :8-:14    zeroSide_eventually_neg (PowerLimit.lean:1082): the index j = max J D (:1093, :1095); NON-CONSTRUCTIVE; J from
+            Metric.tendsto_atTop over rest_tendsto_zero (:1092); reach THE CONFIGURATION
+  :16-:22   rest_tendsto_zero (:1025): per-zero limits (:1055-:1057), summed by tendsto_tsum_of_dominated_convergence (:1066), no rate
+  :24-:30   tie_term_neg (:749): -(N_rho M^(2^(j+1))), N_rho = Nf (:445), K over the kill nodes (Kp :271), c = cE over the tie set (:274)
+  :32-:38   kill_term_zero (:756)        :40-:46 rest_term_small (:764)
+  :48-:54   coeffs_exist (:672): B, D (:683) from CV (real_even_interpolant), BK, DK, BE, DE
+  :56-:62   dominant_summable (:949): Bf = 128 * 8^D * B^2 * (Aw H / M)^(2^(D+1)) (:957); A0 from the local count (:952)
+  :64-:70   Aw (:800)                     :88-:94 zetaZeroConfig_local_count: A0
+  :104-:118 plateau_dominant (:385), dominant_exists (:368): M the dominant score, a maximiser (PowerWindow :377)
+  :120-:126 off_finite_above (PowerWindow :331): zeros of score at least c finite
+  :128-:134 real_even_interpolant (PowerWindow :427): CV over the tie nodes (:432)
+  :136      THE COUNTS: EXPLICIT 7 ; EXISTENTIAL-WITH-WITNESS 7 ; NON-CONSTRUCTIVE 2
+  :139-:146 H9a REFUTED; the step by line, :1092; the index depends on M, the tie and kill sets (Kp :271, cE :274, Nf :445), CV (:432)
+            and the largest ratio offScore/M outside those sets
+  :149-:152 (E1) a rate for the rest: theta the largest offScore(x)/M over the zeros outside the tie and kill sets; for j >= D the rest
+            over M^(2^(j+1)) at most theta^(2^(j+1) - 2^(D+1)) * 3 A0 Bf zeta3Sum; an index explicit in (theta, the tie terms' N, B, D,
+            A0, Aw, M) -- a CONFIGURATION-RELATIVE j0. One lemma, moderate.
+  :153-:159 (E2) those constants bounded by (gamma, delta) alone: research grade, not one lemma
+  the same (E1)/(E2) in relay data/b559_components.txt :293, :297; data/b559_closing.txt :67-:68; OPEN_TRAILS :11491 (the price corrected)
+
+### branch detection-region-b559 at 8faf7de (SIDE-explicit-formula; from v0.2 5c72cad, the diff two files) -- rows are source lines:
+  SIDEExplicitFormula/DetectionRegion.lean:33  def h2_sign_upto (L₀ : ℝ) : Prop
+  SIDEExplicitFormula/DetectionRegion.lean:55  theorem h2_sign_iff_forall_upto : h2_sign ↔ ∀ L₀ : ℝ, h2_sign_upto L₀
+  SIDEExplicitFormula/DetectionRegion.lean:60  theorem forall_upto_iff_rh : (∀ L₀ : ℝ, h2_sign_upto L₀) ↔ RiemannHypothesis
+  SIDEExplicitFormula/PowerLimit.lean:1082     theorem zeroSide_eventually_neg (H : PWSetup Zeta23.zetaZeroConfig g0 L M) (ρs : ℂ)
+                                               (hρs : ρs ∈ tieSet Zeta23.zetaZeroConfig g0 M) : ∃ (a : List ℝ) (j : ℕ), (zeroSide (kWindow a g0 j)).re < 0
+  PowerLimit.lean:1092  obtain ⟨J, hJ⟩ := Metric.tendsto_atTop.mp (rest_tendsto_zero H Q B D hQb) _ hc0
+  PowerLimit.lean:1025  theorem rest_tendsto_zero ... : Tendsto (fun j => ∑' x, fR H Q j x / (M : ℂ) ^ (2 ^ (j + 1))) atTop (𝓝 0)
+  PowerLimit.lean:1066  have hlim := tendsto_tsum_of_dominated_convergence ...
+  at SIDE-explicit-formula main 82550e4: PowerLimit.lean identical to the branch (no diff); DetectionRegion.lean on main is b559's
+  file restated (13 insertions, 46 deletions against the branch); h2_sign_iff_forall_upto main :47, forall_upto_iff_rh main :52.
+  the objects E1 names, at main 82550e4: PWSetup PowerLimit.lean:245 (hdom :251, M the dominant score); tieSet PowerWindow.lean:398;
+  killSet PowerWindow.lean:401; offScore PowerWindow.lean:328; Nf PowerLimit.lean:445; fR :964; fR_norm_le :969; fR_bound :986;
+  weighted_finite_bound :879; dominant_summable :949; zero_weight :809; Aw :800; sT :1072; HCount RestBound.lean:44; zeta3Sum RestBound.lean:51.
+
+### PLACE-papers phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md -- rows are the document's lines; §6a is :145-:155:
+  :151  "... a uniform lower bound on |ξ′(ρ)| — equivalently |ζ′(ρ)| — at the zeros ..."
+  :153  the width sentence: "The transversality *exists* at every simple zero — that is structural. Its *width* is set by |ζ′(ρ)|, ..."
+  Mathlib at de5ce8a9 (SIDE-explicit-formula's pin) carries completedRiemannZeta (Mathlib/NumberTheory/LSeries/RiemannZeta.lean:68) and
+  completedRiemannZeta₀; no ξ of its own (git grep for a riemannXi definition: none).
+
+### SIDE-lv-conservation AxiomCheck.lean (main b4c55b9) -- rows are source lines:
+  :8   `/-!` -- the module docstring opens; :14-:15 "T1 and T2 are expected to reduce to Mathlib's standard axiomatic base
+       (`Classical.choice`, `Quot.sound`, `propext`)." -- G-AXIOM-CLAIM reads it at :8 as STD3 over the 31 declarations the module prints;
+  :15-:18 "T3 is expected to additionally list `sorryAx` ..." -- read as a MENTION.
+  b557's banked print, relay data/b557_prints_root.txt (rows are print lines; committed 95ae75d3, 2026-09-29):
+  :15  'SIDELvConservation.T3.T3_perClass_to_combinations' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+  the merged commit b4c55b9 against the built ref c35a3a31: the diff is .github/workflows/build-module.yml alone (100 insertions), so the
+  runner's print at c35a3a31 is the print at b4c55b9.
+
+### tools/axiom_claim.py -- rows are source lines:
+  :53       PRINT_LINE, the compiler's print line pattern
+  :121-:123 _act: the act read from the bank's name
+  :140-:180 index(): relay's tracked data banks at HEAD (git grep 'depends on axioms'), b642's declarations, the kernels' captured prints;
+            for a name printed more than once the latest act's bank stands (:146-:148)
+  :190-:198 lookup: EXACT, else the one SUFFIX
+  :439-:452 main: --bank writes the text and the .json beside it
+  G-AXIOM-CLAIM at HEAD now, SIDE-lv-conservation: AxiomCheck.lean:8 STD3 CONTRADICTED, 31 covered, 30 printed, by
+  T3.T3_perClass_to_combinations (SUFFIX SIDELvConservation.T3.T3_perClass_to_combinations) printing sorryAx from relay:data/b557_prints_root.txt.
