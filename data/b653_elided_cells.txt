@@ -1,0 +1,39 @@
+b653 -- COMPONENT 2, (R263)(5): THE THREE ELIDED ACTION CELLS COMPLETED FROM THE BLOCK'S OWN LICENSED WORDS (2026-10-12), FOR THE AUTHOR'S STRIKE
+
+### the source: relay data/b652_sentence_grades.txt (rows are sentences, parents are blocks) -- #56 :867, #57 :879, #69 :1047, each UNRESOLVED-CELL;
+### the LICENSED cells read from relay data/b647_table_SIDE-kernel.json (b647's bank lines :285, :290, :350).
+### The rule of the completion: every word of a completed ACTION is a word of the block's LICENSED cell, taken in its order; nothing is added;
+### the graded sentence (the one the cell reaches, b652's grades) is the one the completed ACTION replaces by the mechanical rule. Omitted
+### LICENSED words are named beside each.
+
+== #56 Kernel/SimplicityRouteD.lean:69 -- the graded sentence s4: "Uncited; nothing imports it."
+   LICENSED : The placeholder status and True body match, but the record 'nothing imports it' is false at the pin: Kernel/Root.lean imports
+              Kernel.SimplicityRouteD (lines 53 and 83); no declaration cites the theorem.
+   b647's ACTION (elided): RE-CUT: PLACEHOLDER — not the real statement; body is `True`. ... Uncited by any declaration; imported only by the
+              aggregator Kernel/Root.lean. Faithful formalization is work-order W-ORD-ROUTE-DE-EQUIV.
+   COMPLETED: RE-CUT: Kernel/Root.lean imports Kernel.SimplicityRouteD; no declaration cites the theorem.
+   the LICENSED words used: "Kernel/Root.lean imports Kernel.SimplicityRouteD" ; "no declaration cites the theorem"
+   omitted: "(lines 53 and 83)" -- line numbers at the pin, which move with the file.
+
+== #57 Kernel/SimplicityRouteE.lean:77 -- the graded sentence s5: "Uncited; nothing imports it."
+   LICENSED : The placeholder status and True body match, but 'nothing imports it' is false at the pin: Kernel/Root.lean imports
+              Kernel.SimplicityRouteE (lines 54 and 84); no declaration cites the theorem.
+   b647's ACTION (elided): RE-CUT: PLACEHOLDER — not the real statement; body is `True`. ... Unformalized. Uncited by any declaration;
+              imported only by the aggregator Kernel/Root.lean. Faithful formalization is work-order W-ORD-ROUTE-DE-EQUIV.
+   COMPLETED: RE-CUT: Kernel/Root.lean imports Kernel.SimplicityRouteE; no declaration cites the theorem.
+   the LICENSED words used: "Kernel/Root.lean imports Kernel.SimplicityRouteE" ; "no declaration cites the theorem"
+   omitted: "(lines 54 and 84)" -- as above.
+
+== #69 Kernel/TriviumCode.lean:9 -- the graded sentence s4: "Kept in place (uncited; nothing imports them)."
+   LICENSED : The tautology description and the steane_parameters pointer hold (SIDE-cosmo SteaneExemplar.lean:81; its profile {propext,
+              Quot.sound} agrees with the banked print relay data/b557_probe_co.txt:10), but 'nothing imports them' is false at the pin:
+              Kernel/Root.lean:44 imports Kernel.TriviumCode.
+   b647's ACTION (elided): RE-CUT: DEPRECATED — labeling stub. code_n/code_k/code_d state 7 = 7 / 1 = 1 / 3 = 3 (rfl) ... The [[7,1,3]]
+              parameters are compiled at SteaneExemplar.steane_parameters (SIDE-cosmo, {propext, Quot.sound}). Kept in place; uncited,
+              imported only by the aggregator Kernel/Root.lean.
+   COMPLETED: RE-CUT: Kernel/Root.lean imports Kernel.TriviumCode.
+   the LICENSED words used: "Kernel/Root.lean ... imports Kernel.TriviumCode"
+   omitted: ":44" (a line at the pin); the cell says nothing of "kept in place" or "uncited", so neither enters -- the sentence's
+              "Kept in place" and "uncited" leave with the graded sentence under the rule.
+
+### ### **CELLS 3 ; COMPLETED 3 ; WORDS FROM OUTSIDE THE LICENSED CELLS 0 ; BANKED FOR THE AUTHOR'S STRIKE BEFORE ANY EDIT.**
