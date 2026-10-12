@@ -59,8 +59,11 @@ def main():
     ents = C.glossary_entries()
     raw = io.open(C.GLOSSARY_FILE, encoding='utf-8').read().replace(chr(13), '')
     lines = [l for l in raw.split(NL) if l.strip() and not l.startswith('#')]
-    want('the glossary`s entries %d, its lines that are no comment %d, each a name, a definition and a source' % (len(ents), len(lines)),
-         ents and len(ents) == len(lines) and all(len(e) == 3 and all(e) for e in ents))
+    # ### b653 under (R263)(6): the count read from data/glossary.txt at run time -- its lines that are no comment, less the entries its own
+    # ### marked lines (`# SUPERSEDES ENTRY <n>: <name>`, b651) take out of the block; before b653 the case read the lines alone (89 against 90).
+    marks = [l for l in raw.split(NL) if l.startswith('# SUPERSEDES ENTRY ')]
+    want('the glossary`s entries %d, its lines that are no comment %d less its supersession marks %d, each a name, a definition and a source' % (
+        len(ents), len(lines), len(marks)), ents and len(ents) == len(lines) - len(marks) and all(len(e) == 3 and all(e) for e in ents))
     tmp = tempfile.mkdtemp()
     bad = os.path.join(tmp, 'bad_glossary.txt')
     io.open(bad, 'w', encoding='utf-8', newline=NL).write('# a comment' + NL + 'a name\tits definition alone' + NL)
