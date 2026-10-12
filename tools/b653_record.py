@@ -483,6 +483,13 @@ def capture():
 
 
 LOCAL_LEAN = re.compile(r'(^|[;&|(]\s*|\s)(lake|lean)(\.exe)?\s+(build|env|exe|update|\S+\.lean)')
+QUOTED = re.compile(r'"(?:[^"\\]|\\.)*"|\'[^\']*\'')
+
+
+def local_lean(cmd):
+    """a command runs lean or lake on this host: the pattern read outside quoted strings (a commit message that names `lake exe cache get` runs
+    nothing) and outside a gh workflow call (the hosted runner's)."""
+    return 'gh workflow' not in cmd and LOCAL_LEAN.search(QUOTED.sub('""', cmd)) is not None
 
 
 def commands(*a):
@@ -490,7 +497,7 @@ def commands(*a):
     if not rows:
         sys.exit('### THE COMMAND CAPTURE READ NO COMMAND -- NOTHING WRITTEN')
     hits = ER.scan(rows)
-    lean = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and LOCAL_LEAN.search(r['cmd']) and 'gh workflow' not in r['cmd']]
+    lean = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
     L = ['b653 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (%s)' % utc(), '',
          '### the source: the seat`s session %s from its first user line carrying %r, and its subagents` transcripts' % (K.SESSION_ID, K.ANCHOR),
          '### commands read: %d' % len(rows), '', '### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (%d):' % len(hits)]
