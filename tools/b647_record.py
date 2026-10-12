@@ -843,7 +843,9 @@ def sorries(*a):
 # ### route (tools/b646_record.py `mem_rule` .. `seat_memory`) carried: the unit a sentence, the reading at the dated heading's date, the
 # ### verdicts the same; no repair here -- the navigator repairs its own files on the author's word.
 NAV_SP = os.path.join(SP, 'nav')
-_MSPLIT = re.compile(r'(?<=[.!?])["\'*)\]]*\s+(?=\S)')
+# ### b658 under (R268)(2): the split takes the whitespace alone, so a closing quote, asterisk or bracket after . ! or ? stays with its sentence
+# ### (b657's defect (a): the marks were the gap's, a cut planned on the units dropped them); up to four marks, the split points the old ones.
+_MSPLIT = re.compile(r'(?:(?<=[.!?])|(?<=[.!?]["\'*)\]])|(?<=[.!?]["\'*)\]]{2})|(?<=[.!?]["\'*)\]]{3})|(?<=[.!?]["\'*)\]]{4}))\s+(?=\S)')
 NAV_RULE = [
     'THE EXPORT: relay data/b647_navigator_memory.txt, four files between ==== lines; its header (before FILE 1) is the rule and no unit.',
     'THE UNIT: a sentence of a file`s lines, a heading line included, split where . ! or ? (and any closing quote, asterisk or bracket) meets '
