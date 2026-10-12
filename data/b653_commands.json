@@ -1,5 +1,5 @@
 {
- "at": "2026-10-12T03:08:44Z",
+ "at": "2026-10-12T03:27:24Z",
  "anchor": "RULING (R263) BEGIN",
  "rows": [
   {
@@ -561,6 +561,300 @@
    "src": "seat",
    "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b653_record.py answers && python tools/b653_record.py commands && python tools/b653_record.py kernels && python tools/b653_record.py defects && head -40 data/b653_author_answers.txt | cut -c1-260 && grep -A3 \"RUN lean OR lake\" data/b653_commands.txt",
    "n": 80
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:08:43.629Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b653_record.py commands && python -c \"\nimport sys; sys.path.insert(0,'tools'); import b653_record as R\nfor c in ['lake build Kernel.Core','cd x && lake exe cache get','git commit -m \\\"lake exe cache get\\\"','LEAN_PATH=build lean Foo.lean','git grep -n sorry -- \\'*.lean\\'']: print(R.local_lean(c), c)\"",
+   "n": 81
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:08:49.718Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b653_record.py defects && git status --short | head -30",
+   "n": 82
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:08:53.194Z",
+   "src": "seat",
+   "cmd": "wc -l tools/b652_closing.py tools/b652_reg_gate.py && cat tools/b652_reg_gate.py",
+   "n": 83
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:09:10.752Z",
+   "src": "seat",
+   "cmd": "for k in SIDE-lv-conservation SIDE-effects SIDE-kernel; do echo \"== $k\"; git -C /d/$k branch --format='%(refname:short) %(objectname:short)'; git -C /d/$k branch --merged main --format='  merged: %(refname:short)'; git -C /d/$k tag --points-at main; done",
+   "n": 84
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:10:16.284Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && timeout 580 python tools/b653_checks.py --mid b653_checks_mid1.txt 2>&1 | grep -v \" OK$\" | tail -80",
+   "n": 85
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:16:31.977Z",
+   "src": "seat",
+   "cmd": "wc -l data/b652_registration_2026-10-11.txt && grep -n \"^### (\" data/b652_registration_2026-10-11.txt",
+   "n": 86
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:16:38.652Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format='%h %s' 466886b5..HEAD | cut -c1-230; echo ==; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 81fa18a..HEAD | cut -c1-200; git status --short tools data | grep -v \"^??\" ",
+   "n": 87
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:16:43.295Z",
+   "src": "seat",
+   "cmd": "for h in $(git log --reverse --format=%h 466886b5..HEAD); do echo \"$h: $(git show --name-only --format= $h | tr '\\n' ' ')\"; done; git log -1 --format=%B 520cbd54 | cut -c1-900",
+   "n": 88
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:16:54.833Z",
+   "src": "seat",
+   "cmd": "git add tools/b653_checks.py tools/b653_closing.py tools/b653_reg_gate.py tools/b653_record.py data/b653_defects.txt data/b653_defects.json data/b653_author_answers.txt data/b653_kernels_face.json data/b653_commands.txt data/b653_commands.json data/b653_checks_mid1.txt data/b653_lsr_mid1.json && git diff --cached --name-only && git commit -q -m \"b653 Component 5: the suite (tools/b653_checks.py, 77 arms, b652's harness carried by the Write tool), the closing (tools/b653_closing.py) and the registration gate (tools/b653_reg_gate.py), each written by the Write tool; the record tool's local-lean reading taken outside quoted strings through the Edit tool (defect (e)); the answers, commands, kernels-face and defects banks; a mid-act reading (data/b653_checks_mid1.txt: 52 of 77, every Component 0-4 arm passing but G-AXIOM-CLAIM on its two contradictions, the rest awaiting the face, the seal and the record). Nothing deposits.\" && git log -1 --format=%h",
+   "n": 89
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:17:07.940Z",
+   "src": "seat",
+   "cmd": "sed -n '/^def _runner_rows/,/^NEXT_LINE/p' tools/b653_record.py; grep -n \"N1\\|N2\\|N3\\|N4\\|N5\" data/b653_ferry.txt | cut -c1-400",
+   "n": 90
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:17:10.724Z",
+   "src": "seat",
+   "cmd": "sed -n 43,46p data/b653_ferry.txt",
+   "n": 91
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:18:22.396Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b653_reg_gate.py | tail -8; python tools/banned_terms.py --new data/b653_registration_2026-10-12.txt | tail -8",
+   "n": 92
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:18:26.325Z",
+   "src": "seat",
+   "cmd": "grep -n \"def straddle_check\" -A40 tools/registration_gate.py | head -70",
+   "n": 93
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:18:31.883Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b653_reg_gate.py | tail -4",
+   "n": 94
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:18:36.132Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && timeout 590 python tools/b653_checks.py --prerun 2>&1 | grep -v \" OK$\" | grep -v \"^  ### THE ACT-ROOT\\|run not declared\\|THE SEALED TOOLS\" | tail -45",
+   "n": 95
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:23:18.253Z",
+   "src": "seat",
+   "cmd": "cd /c/Users/echo\\ chamber/.claude/projects/D--/ && grep -o '\"command\":\"[^\"]*\\(gate_hash\\|b378_lockgate\\|reg_seal\\|reg_satisfiable\\|b652_regspec\\|b307_handoff\\)[^\"]*\"' 7ab48879-b65c-45b3-8af8-abdcd7120d6f.jsonl | sort -u | head -20",
+   "n": 96
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:23:22.039Z",
+   "src": "seat",
+   "cmd": "cd /c/Users/echo\\ chamber/.claude/projects/D--/ && grep -o '\"command\":\"[^\"]*\\(gate_hash\\|b378_lockgate\\)[^\"]*\"' 7ab48879-b65c-45b3-8af8-abdcd7120d6f.jsonl | grep b652 | tail -4 | cut -c1-1500",
+   "n": 97
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:23:26.207Z",
+   "src": "seat",
+   "cmd": "cd \"/c/Users/echo chamber/.claude/projects/D--/\" && grep -o 'gate_hash[^\"]\\{0,600\\}' 7ab48879-b65c-45b3-8af8-abdcd7120d6f.jsonl | grep -i \"b652\\|stamp\" | sort -u | head -6; grep -o 'b378_lockgate.py[^\"]\\{0,300\\}' 7ab48879-b65c-45b3-8af8-abdcd7120d6f.jsonl | grep b652 | sort -u | head -4",
+   "n": 98
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:23:31.283Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && export PYTHONIOENCODING=utf-8 && python tools/b653_regspec.py | tr -d '\\r' > data/b653_regspec_run.txt; tail -5 data/b653_regspec_run.txt; ls -la data/b653_satisfiable.json; python tools/reg_satisfiable.py data/b653_satisfiable.json --emit b653 2>&1 | tail -3; python tools/banned_terms.py --new data/b653_registration_2026-10-12.txt > data/b653_reg_termscan.txt 2>&1; grep \"VERDICT\" data/b653_reg_termscan.txt",
+   "n": 99
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:23:34.982Z",
+   "src": "seat",
+   "cmd": "grep -n \"VERDICT\\|SATISFIABLE\" data/audit_b653_reg_satisfiable.txt | head -5; grep -n \"PLANTED\\|REFUS\\|read\" data/b653_regspec_run.txt | head -12",
+   "n": 100
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:23:39.139Z",
+   "src": "seat",
+   "cmd": "grep -n \"JOINTLY\\|VERDICT\" data/audit_b653_reg_satisfiable.txt | tail -3; export PYTHONIOENCODING=utf-8; python tools/b307_handoff_census.py b653 > data/b653_census_stepzero.txt 2>&1; python tools/b327_faces_census.py b653 > data/b653_faces_census_stepzero.txt 2>&1; python tools/b303_pins.py b653 > data/b653_pins_stepzero.txt 2>&1; grep -h \"TOTAL MISSING\\|HARD-FAILING\" data/b653_census_stepzero.txt data/b653_faces_census_stepzero.txt data/b653_pins_stepzero.txt",
+   "n": 101
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:23:46.199Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -c \"\nimport sys; sys.path.insert(0,'tools'); import gate_hash as G\nF='data/b653_registration_2026-10-12.txt'\nfor r in ('data/b653_reg_gate.txt','data/b653_reg_termscan.txt','data/b653_regspec_run.txt','data/audit_b653_reg_satisfiable.txt'):\n    print(r, G.stamp(r,F), G.matches(r,F)[0])\n\" && python tools/b378_lockgate.py b653 data/b653_registration_2026-10-12.txt 2>&1 | tail -6",
+   "n": 102
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:23:50.149Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/reg_seal.py --lock data/b653_registration_2026-10-12.txt 2>&1 | tail -3 && python tools/reg_seal.py --verify data/b653_registration_2026-10-12.txt 2>&1 | grep -i \"intact\" && python -m py_compile tools/b653_checks.py tools/b653_record.py tools/b653_closing.py && python tools/b653_checks.py --seal && ls data/b653_lockgate*",
+   "n": 103
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:23:56.657Z",
+   "src": "seat",
+   "cmd": "git add data/b653_registration_2026-10-12.txt data/b653_reg_gate.txt data/b653_reg_termscan.txt data/b653_regspec_run.txt data/b653_satisfiable.json data/audit_b653_reg_satisfiable.txt data/b653_arms_prerun.txt data/b653_lsr_prerun.json data/b653_lockgate.json data/b653_lockgate_notes.txt data/b653_seal_hashes.json data/b653_census_stepzero.txt data/b653_faces_census_stepzero.txt data/b653_pins_stepzero.txt && git diff --cached --name-only | wc -l && git commit -q -m \"b653 seal: the face locked after Components 0-4 (data/b653_registration_2026-10-12.txt, body sha256 fb818dec...), its gates -- the pre-run (77 arms run at HEAD, 54 passing, G-AXIOM-CLAIM declared failing on its two contradictions at HEAD, 22 reading the lock, the seal, the table, the root and the record not yet written), the registration gate CLEAR, the spec (five planted rows read, three controls refused), the satisfiability audit JOINTLY SATISFIABLE, the banned-term scan CLEAN, the censuses and pins before the lock gate (TOTAL MISSING 0, 0; REPOS HARD-FAILING 0), the four face-subject records stamped, the lock gate 8 of 8 -- and the eight sealed tools' sha256 recorded. Nothing deposits.\" && git log --oneline -1 | cut -c1-40 && git status --short | grep -v \"^??\"",
+   "n": 104
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:24:03.203Z",
+   "src": "seat",
+   "cmd": "sed -n '/^ROOT_EXCLUDE/,/^def root(/p' tools/b653_record.py; grep -c $'\\r' data/b652_census_stepzero.txt; git show HEAD:data/b653_census_stepzero.txt | grep -c $'\\r'",
+   "n": 105
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:24:10.624Z",
+   "src": "seat",
+   "cmd": "python -c \"\nfor n in ('b653_census_stepzero.txt','b653_faces_census_stepzero.txt','b653_pins_stepzero.txt'):\n    b=open('data/'+n,'rb').read(); print(n, b.count(b'\\r\\n'), b.count(b'\\r')-b.count(b'\\r\\n'))\n\"; git config core.autocrlf",
+   "n": 106
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:24:15.735Z",
+   "src": "seat",
+   "cmd": "python -c \"\nfor n in ('b653_census_stepzero.txt','b653_faces_census_stepzero.txt','b653_pins_stepzero.txt'):\n    p='data/'+n; b=open(p,'rb').read(); open(p,'wb').write(b.replace(b'\\r\\n',b'\\n'))\n\" && for n in b653_census_stepzero.txt b653_faces_census_stepzero.txt b653_pins_stepzero.txt; do echo \"$n $(git hash-object --no-filters data/$n) $(git rev-parse HEAD:data/$n)\"; done; git status --short | grep -v \"^??\"",
+   "n": 107
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:24:20.925Z",
+   "src": "seat",
+   "cmd": "git diff --stat -- data/b653_census_stepzero.txt; git add --renormalize data/b653_census_stepzero.txt data/b653_faces_census_stepzero.txt data/b653_pins_stepzero.txt 2>&1; git status --short | grep -v \"^??\"; echo done",
+   "n": 108
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:24:26.294Z",
+   "src": "seat",
+   "cmd": "sed -n '/^def seal_hashes/,/^def _rows_state/p;/^def table_final/,/^NK = /p' tools/b653_record.py",
+   "n": 109
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:24:30.550Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && time timeout 590 python tools/b653_record.py table_final && sed -n 1,20p data/b653_table_final.txt",
+   "n": 110
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:24:56.374Z",
+   "src": "seat",
+   "cmd": "git status --short | grep -v \"^??\"; git add data/b653_table_final.txt data/b653_table_final.json $(git status --short data/terminal_table* | awk '{print $2}') && git diff --cached --name-only && git commit -q -m \"b653 pre-root: the terminal table regenerated and diffed against relay HEAD daee4cea (data/b653_table_final.txt: 2110 rows, moved 0, added 0, gone 0, grade moved 0). Nothing deposits.\" && git log --oneline -1 | cut -c1-30",
+   "n": 111
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:25:02.715Z",
+   "src": "seat",
+   "cmd": "cd \"/c/Users/echo chamber/.claude/projects/D--/\" && grep -o 'push_gated.sh[^\"]\\{0,250\\}' 7ab48879-b65c-45b3-8af8-abdcd7120d6f.jsonl | grep \"b652.*root\\|root_push\" | sort -u | head -5",
+   "n": 112
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:25:06.047Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git branch --show-current && git branch push-b653-root HEAD && PUSH_GATED_LOG=/d/relay/data/b653_relay_root_push_out.txt bash tools/push_gated.sh /d/relay push-b653-root; echo \"exit $?\"; tail -3 /d/relay/data/b653_relay_root_push_out.txt",
+   "n": 113
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:25:16.733Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch --show-current && git status --short | grep -v \"^??\" ; git branch push-b653-root HEAD && PUSH_GATED_LOG=/d/relay/data/b653_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b653-root; echo \"exit $?\"",
+   "n": 114
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:25:47.062Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && export PYTHONIOENCODING=utf-8 && python tools/b653_record.py root dry && python -c \"\nimport sys; sys.path.insert(0,'tools'); import b653_record as R\nfor b in R.root_banks(): print(b)\" | tr '\\n' ' '",
+   "n": 115
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:26:12.213Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b653_record.py root && python tools/b653_record.py root_arm && tail -2 data/act_roots.txt | cut -c1-200 && git status --short | grep -v \"^??\"",
+   "n": 116
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:26:37.138Z",
+   "src": "seat",
+   "cmd": "git add data/act_roots.txt data/b653_act_root.json data/b653_act_root.txt data/b653_root_arm.txt data/b653_root_arm.json data/b653_relay_root_push_out.txt data/b653_pp_root_push_out.txt && git diff --cached --name-only && git commit -q -m \"b653 root: the act root 50feacd8... over 33 banks, the seal bank among them, none written CR LF, at relay 3a001998 (pushed through push_gated.sh from push-b653-root, read back; PLACE-papers 94d769e likewise), its previous b652's 89e62b16...; the one line appended to data/act_roots.txt; the arm's offline control (the recomputed root equal, the one-byte control moving it, the order holding locally); the two pre-root push captures. Nothing deposits.\" && git log --oneline -1 | cut -c1-30",
+   "n": 117
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:26:45.546Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b653_record.py defects && python tools/b653_record.py scores",
+   "n": 118
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:26:54.633Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b653_record.py desk && python tools/b653_record.py findings dry",
+   "n": 119
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:27:00.795Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b653_record.py findings && python tools/b653_record.py trail dry",
+   "n": 120
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:27:09.072Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b653_record.py defects && python tools/b653_record.py trail dry | grep \"(f)\" | grep -o \"(f).*\" && python tools/b653_record.py trail && python tools/b653_record.py components && cat data/b653_components.txt | cut -c1-250",
+   "n": 121
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-12T03:27:17.317Z",
+   "src": "seat",
+   "cmd": "git log --format='%h %s' 466886b5~6..466886b5 | cut -c1-120; for h in $(git log --format=%h 466886b5~3..466886b5); do echo \"$h: $(git show --name-only --format= $h | tr '\\n' ' ')\"; done",
+   "n": 122
   }
  ],
  "offences": [],
