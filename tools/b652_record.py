@@ -328,6 +328,29 @@ def build_row(*a):
     print(json.dumps(row, ensure_ascii=False))
 
 
+def gate(*a):
+    """the gate reading of one built module before its merge: `gate <target> <kernel> <branch> <file> <log>` -- the watchdog's EXIT 0, no
+    `declaration uses 'sorry'` warning in the build's own output, and tools/no_sorry_main.py's code scan of the file at the branch reading no
+    `sorry` (sorry_hits); PASS only on all three. Banked into data/b652_build_results.json's row as gate and gate_detail."""
+    import no_sorry_main as NSM
+    tgt, k, br, f, log = a[:5]
+    t = rd(log) if os.path.exists(log) else ''
+    exit0 = bool(re.search(r'^### EXIT 0 ', t, re.M))
+    warn = [l for l in t.split(NL) if "declaration uses 'sorry'" in l]
+    src = subprocess.run(['git', '-C', 'D:/' + k, 'show', '%s:%s' % (br, f)], capture_output=True).stdout.decode('utf-8', 'replace').replace(chr(13), '')
+    hits = NSM.sorry_hits(src) if src else ['### UNREAD']
+    ok = exit0 and not warn and not hits and bool(src)
+    j = jl('b652_build_results.json') or {'rows': []}
+    row = next((r for r in j['rows'] if r['target'] == tgt), None)
+    detail = dict(exit0=exit0, sorry_warnings=warn[:5], code_sorry_hits=[list(h) if isinstance(h, tuple) else h for h in hits][:5], file=f, branch=br,
+                  at=utc())
+    if row is not None:
+        row['gate'] = 'PASS' if ok else 'FAIL'
+        row['gate_detail'] = detail
+        put_json('b652_build_results.json', j)
+    print('  gate %s : %s ; %s' % (tgt, 'PASS' if ok else 'FAIL', json.dumps(detail, ensure_ascii=False)[:600]))
+
+
 def margin2(*a):
     """the second reading under the corrected term: per module of the three branches, per file of the cut branch; banked, the text too."""
     j = jl('b652_build_margin.json') or {'hold': HOLD, 'readings': []}
@@ -770,7 +793,7 @@ def _show(repo, rev, path):
 def answers(*a):
     """data/b652_author_answers.txt: every prompt put by the seat in this act, from the ruling's delivery in this session, banked verbatim with
     its options and the answer; and every word of the author delivered between BEGIN and END lines after the ruling, verbatim."""
-    calls, results, words, start = [], {}, [], None
+    calls, results, words, plain, start = [], {}, [], [], None
     for i, raw in enumerate(io.open(SESSION, encoding='utf-8', errors='replace'), 1):
         try:
             o = json.loads(raw)
@@ -780,8 +803,17 @@ def answers(*a):
             start = i
         m = o.get('message') or {}
         cs = m.get('content')
-        if start is not None and o.get('type') == 'user' and not o.get('isCompactSummary'):
+        att = o.get('attachment') or {}
+        if start is not None and att.get('type') == 'queued_command' and isinstance(att.get('prompt'), str):
+            texts = [att['prompt']]
+        elif start is not None and o.get('type') == 'user' and not o.get('isCompactSummary'):
             texts = [cs] if isinstance(cs, str) else [c.get('text', '') for c in (cs or []) if isinstance(c, dict) and c.get('type') == 'text']
+            for t in texts:
+                if t and not t.lstrip().startswith(('<', 'BEGIN', 'RULING')) and len(t) < 400 and i > start:
+                    plain.append((i, t.strip()))
+        else:
+            texts = []
+        if texts:
             for t in texts:
                 for mm in re.finditer(r'(?ms)^BEGIN\s*\n(.*?)\nEND\s*$', t or ''):
                     if K.ANCHOR not in mm.group(1):
@@ -812,6 +844,8 @@ def answers(*a):
             continue
         seen.add(w)
         W += ['### THE AUTHOR`S WORD (transcript line %d), BEGIN to END, verbatim:' % i] + w.replace('\r', '').split(NL) + ['']
+    for i, t in plain:
+        W += ['### THE AUTHOR`S MESSAGE (transcript line %d), verbatim: %s' % (i, t.replace('\r', '').replace(NL, ' ')), '']
     head = ['### b652 -- THE AUTHOR`S ANSWERS, %d prompt(s) put by the seat in this act (%s), banked verbatim with the options and the recommended '
             'mark; and %d word(s) of the author delivered between BEGIN and END; the session read: %s from %r (transcript line %d).' % (
                 n, K.DATE, len(W and [x for x in W if x.startswith('### THE AUTHOR`S WORD')]), K.SESSION_ID[:8], K.ANCHOR, start), '']
