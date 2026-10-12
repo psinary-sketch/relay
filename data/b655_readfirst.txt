@@ -1,0 +1,39 @@
+b655 -- THE READ-FIRST, UNDER (R265): EACH BANK CITED BY PATH AND LINE, THE UNIT OF ITS ROWS NAMED (2026-10-12)
+
+### data/b654_closing.txt -- rows are the closing record's lines:
+  :1      the head: relay b8900947, PLACE-papers 8e81846; suite 75 of 77; root 4ada7117b54b9af9…; 2 prompts answered; 5 defects
+  :21     E1 LANDS DERIVES AT THE STANDARD THREE ON THE RUNNER
+  :22     THE WIDTH COMPILES ON THE RUNNER ; THEOREMS BESIDE IT 0 ; PROPERTY WORDS IN ITS DOCSTRING 0
+  :48-:52 the defects (a)-(e), as data/b654_defects.txt prints them
+  :51     (d) the two remote deletes written with a redirect (relay data/b654_commands.txt #22, #23)
+  :55-:58 the suite 75 of 77 pre-push and post-push, G-EDIT-ROUTE and G-AXIOM-CLAIM failing as declared
+  the closing push-out, relay data/b654_closing_push_out.txt (rows are push_gated's lines, 6): b8900947..22ce9a8d push-b654-closing -> main,
+  main read back 22ce9a8d…; committed at step zero, relay 9aa36fcb.
+
+### data/b654_defects.txt -- rows are defect lines; (a) :4, (b) :5 (the navigator's), (c) :6, (d) :7, (e) :8 (found after the trail record).
+
+### data/b647_table_kernels.txt -- rows are kernels (:5-:25 read at their mains, :3 SIDE-explicit-formula carried); the OVERREACHES column:
+  :15 SIDE-kernel 114 (cut at b652, merged at b653); :12 SIDE-global-section 43 -- THE NEXT BY DESCENDING COUNT; :17 SIDE-lv-conservation 35;
+  :22 SIDE-structural-error-correction 13. SIDE-global-section at its main 17ce9ff: 1058 rows -- MATCHES 1007, UNDERSTATES 8, OVERREACHES 43,
+  UNLICENSED 0. Its main is unmoved since b647 (17ce9ff).
+### data/b647_table_SIDE-global-section.txt and .json -- rows are blocks (docstrings, module headers, head blocks; 1058); the non-MATCHES
+  rows in full from :9 on, each with its STATED, LICENSED, ACTION and CITED cells: 51 blocks (43 OVERREACHES, 8 UNDERSTATES) in 33 files,
+  31 under Core/ and 2 under Interfaces/ (LocalLimit.lean 5, FiniteInstanceIdentity.lean 1).
+
+### data/b652_sentence_grades.txt -- the form of this act's grade bank; rows are sentences under their parent block: :1-:9 the rule and the
+  sources; each block a header line, its LICENSED and ACTION cells, a row per sentence with the cell's words beside each graded one, and the
+  block as the mechanical rule leaves it; :1553 the count line (116 blocks, 396 sentences, 152 graded, UNRESOLVED-CELL 3).
+### data/b653_elided_cells.txt -- the form for an ACTION carrying "..."; rows are cells; :39 CELLS 3 ; COMPLETED 3 ; WORDS FROM OUTSIDE THE
+  LICENSED CELLS 0.
+
+### tools/edit_route.py -- rows are source lines; the command parser: :21 BRANCH, :22 SEP, :77 _words, :85 _segments, :136 offences;
+  the branch deletions at :178 (`git branch -d`) and :183 (`git push <remote> --delete`), each reading its names after :118 _drop_redirects
+  (the b655 repair); at relay 22ce9a8d, before the repair, the same branches stood at :156-:160 and :161-:165 and read every word after the
+  remote as a name, so b654's two deletes (data/b654_commands.txt #22, #23) read as deletions without an explicit name.
+
+### SIDE-global-section at main 17ce9ff -- rows are source lines:
+  lean-toolchain :1  leanprover/lean4:v4.29.1
+  lakefile           NONE: the kernel tracks no lakefile (git ls-files: 0 matches); README.md :37-:41 "no lakefile is shipped": Core/ compiles
+                     each module standalone with the pinned toolchain, siblings through LEAN_PATH; AllPrints.lean re-runs every print;
+                     Interfaces/ elaborate against a mathlib4 checkout at the declared pin (v4.30.0-rc1, mathlib4 cecd0c4d56, README :28-:29).
+  so b653's workflow form (lake exe cache get; lake build <target>) does not apply to this kernel as written.

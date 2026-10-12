@@ -1,0 +1,15 @@
+b655 -- COMPONENT 1, (R265)(4): G-EDIT-ROUTE`S PARSER REPAIRED ON A PLANTED REDIRECT CASE, RUN BEFORE AND AFTER (2026-10-12T15:55:44Z)
+
+### the defect: tools/edit_route.py read every word after the remote of `git push <remote> --delete` as a branch name, a redirect and its
+### target among them, so b654`s two deletes (relay data/b654_commands.txt #22, #23; data/b654_defects.txt (d)) read as deletions without
+### an explicit name. The repair (the Edit tool): _drop_redirects takes a redirect operator and its target, or a redirect glued to its
+### target, out of a branch deletion`s words before the names are read; a glob or a variable stays a name and still fails.
+### the planted test, tools/test_edit_route_b646.py, gains three cases: the planted glob delete carrying a redirect (15) and b654`s two
+### commands as house forms (26), (27); rows are the test`s numbered cases.
+
+### BEFORE (edit_route.py at relay 22ce9a8d, the test as edited): cases 28 ; failing ['(26)', '(27)', '(28)'] ; exit 1 ; ### 28 cases, 3 failing
+###   b654`s capture scanned: offending rows [22, 23]
+### AFTER (edit_route.py repaired): cases 28 ; failing none ; exit 0 ; ### 28 cases, 0 failing
+###   b654`s capture scanned: offending rows none
+
+### ### **BEFORE 25 OF 28 PASSING, b654`S OFFENCES 2 ; AFTER 28 OF 28 PASSING, b654`S OFFENCES 0.**
