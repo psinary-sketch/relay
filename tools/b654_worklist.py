@@ -36,6 +36,13 @@ EF = 'D:/SIDE-explicit-formula'
 EF_MAIN = '82550e4'         # ### SIDE-explicit-formula main before the act
 E1_BRANCH = 'e1-rate-b654'
 DETECTION = ('detection-region-b559', '8faf7de')
+EF_WORKFLOW = '7317db4'     # ### SIDE-explicit-formula main: the workflow file under (R263)(4), pushed through push_gated.sh
+RUNNER = {'SIDE-explicit-formula': dict(branch=E1_BRANCH, target='SIDEExplicitFormula.RateIndex SIDEExplicitFormula.TransversalityWidth',
+                                        workflow_commit=EF_WORKFLOW, run_id=38259645524, failed_run=None,
+                                        ref='472887163f31063f3ca7e946ca6a0a790c2f6b7f')}
+E1_TERMINALS = ('SIDEExplicitFormula.B321.rest_norm_le_rate', 'SIDEExplicitFormula.B321.zeroSide_neg_at_rate')
+WIDTH_TERMINAL = 'SIDEExplicitFormula.transversalityWidth'
+E1_FILE, WIDTH_FILE = 'SIDEExplicitFormula/RateIndex.lean', 'SIDEExplicitFormula/TransversalityWidth.lean'
 
 EDITED_SHARED = ()
 NEW_TESTS = ()

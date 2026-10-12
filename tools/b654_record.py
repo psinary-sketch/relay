@@ -261,6 +261,229 @@ def axiom_claim(*a):
             print('  %s %s:%d %s %s -- %s' % (kern, f, ln, kind, v, '; '.join('%s %s' % (x['decl'], x['source']) for x in row['contradicted'][:3])))
 
 
+# ================================================================================ COMPONENTS 2-3: THE RUNNER, (R264)(3)-(4) under (R263)(4)
+STD3 = {'propext', 'Classical.choice', 'Quot.sound'}
+# ### the name runs to the quote before ` depends` or ` does not` (a primed name carries a quote of its own); the list may wrap across lines
+PRINT_RE = re.compile(r"^'(.+?)' (?:does not depend on any axioms|depends on axioms: \[([^\]]*)\])", re.M)
+ERR_RE = re.compile(r'^(?:error: )?(\S+\.lean):(\d+):(\d+): error: (.*)$', re.M)
+
+
+def gate_of(axioms_text, terminals):
+    """per named terminal its print: DERIVES where every axiom is one of the standard three and no sorryAx; UNREAD where no print line names it."""
+    got = {}
+    for m in PRINT_RE.finditer(axioms_text):
+        ax = set(x.strip() for x in (m.group(2) or '').split(',') if x.strip())
+        got[m.group(1)] = sorted(ax)
+    out = []
+    for t in terminals:
+        ax = got.get(t)
+        if ax is None:
+            out.append((t, 'UNREAD', None))
+        elif 'sorryAx' in ax or not set(ax) <= STD3:
+            out.append((t, 'NOT AT THE STANDARD THREE', ax))
+        else:
+            out.append((t, 'DERIVES', ax))
+    return out
+
+
+def runner(*a):
+    """`runner <kernel>`: the run read by its id -- its conclusion; the artifact listed by the API, downloaded as its zip by its id, its sha256
+    computed and compared with the platform's digest before any reading; the build exit, the build log's error lines by file and line, the
+    memory log's low and any STOP line, and the axioms output read per named terminal as the gate reading. Banked as
+    data/b654_runner_<kernel>.txt and a row of data/b654_runner_rows.json."""
+    import hashlib
+    import zipfile
+    kern = a[0]
+    R = K.RUNNER[kern]
+    repo = 'psinary-sketch/' + kern
+    rc, out, err = _gh('run', 'view', str(R['run_id']), '-R', repo, '--json', 'status,conclusion,headSha,createdAt,updatedAt,url')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, R['run_id']))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    wf = _show('D:/' + kern, 'main', '.github/workflows/build-module.yml') or ''
+    # ### a terminal is a line that begins with the command (the file's header comment names the command and is no terminal)
+    terminals = [l.strip()[len('#print axioms '):].strip() for l in wf.split(NL) if l.strip().startswith('#print axioms ')]
+    row = dict(kernel=kern, branch=R['branch'], ref=R['ref'], target=R['target'], run_id=R['run_id'], conclusion=run.get('conclusion'),
+               artifact_sha256=None, mem_low=None, stopped=False, gate=None, merged=None, tag=None)
+    L = ['b654 -- COMPONENTS 2-3, (R264)(3)-(4): THE HOSTED RUNNER FOR %s, READ BY ITS RUN ID (%s)' % (kern, utc()), '',
+         '### the workflow file on main (%s, .github/workflows/build-module.yml), read back whole:' % R['workflow_commit']] + \
+        ['    ' + l for l in wf.rstrip(NL).split(NL)] + ['',
+         '### the dispatch, the one dispatch of this branch: ref %s ; target %s' % (R['ref'], R['target']),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head of the workflow %s ; %s to %s' % (
+             R['run_id'], run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('createdAt'), run.get('updatedAt'))]
+    texts = {}
+    if art:
+        rc2 = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rc2.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        row['artifact_sha256'] = sha
+        L.append('### the artifact: id %s ; name %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else ('### DIFFER' if digest else 'no digest to compare')))
+        if digest and digest != sha:
+            row['artifact_sha256'] = None
+        else:
+            with zipfile.ZipFile(io.BytesIO(rc2.stdout)) as z:
+                for n in z.namelist():
+                    texts[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = texts.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    stops = [l for l in mem.split(NL) if l.startswith('STOP ')]
+    row['stopped'] = bool(stops)
+    bexit = texts.get('build_exit.txt', '').strip()
+    blog = texts.get('build.log', '')
+    errs = [(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4)) for m in ERR_RE.finditer(blog)]
+    G = gate_of(texts.get('axioms.txt', ''), terminals)
+    ok = (run.get('conclusion') == 'success' and row['artifact_sha256'] and bexit == '0' and not errs and not stops
+          and row['mem_low'] is not None and row['mem_low'] >= 2560 and G and all(v == 'DERIVES' for _t, v, _x in G))
+    row['gate'] = 'DERIVES' if ok else ('STOPPED BENEATH THE HOLD' if stops else 'NOT DERIVES')
+    row['errors'] = [list(e) for e in errs]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(texts.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: samples %d ; LOW %s MB ; the hold 2560 ; STOP lines %s' % (
+              len([l for l in mem.split(NL) if 'avail_mb=' in l]), row['mem_low'], stops or 'NONE'),
+          '### the build: exit %s ; error lines in its log %d' % (bexit or '### UNREAD', len(errs))]
+    L += ['    %s:%d:%d: %s' % e for e in errs[:40]]
+    L += ['### the build log`s last lines:'] + ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + ['',
+          '### the axioms output, whole:'] + ['    ' + l for l in texts.get('axioms.txt', '### UNREAD').rstrip(NL).split(NL)] + ['',
+          '### THE GATE READING, per named terminal (%d), from the artifact`s axioms output:' % len(G)]
+    L += ['  %-56s %-26s %s' % (t, v, x) for t, v, x in G]
+    L += ['', '### ### **RUN %s ; CONCLUSION %s ; ARTIFACT SHA256 %s ; MEMORY LOW %s MB (HOLD 2560) ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS %d, '
+              'DERIVES %d ; GATE %s.**' % (R['run_id'], run.get('conclusion'), (row['artifact_sha256'] or '### NONE')[:16], row['mem_low'], bexit or '?',
+                                         len(errs), len(G), sum(1 for _t, v, _x in G if v == 'DERIVES'), row['gate'])]
+    put_txt('b654_runner_%s.txt' % kern, L)
+    j = jl('b654_runner_rows.json') or {'rows': []}
+    j['rows'] = [r for r in j['rows'] if r['kernel'] != kern] + [row]
+    put_json('b654_runner_rows.json', j)
+    print(NL.join(L[-(len(G) + 3):]))
+    for e in errs[:12]:
+        print('  ERROR %s:%d:%d: %s' % e)
+
+
+def runner_merged(*a):
+    """`runner_merged <kernel> <merge sha> <tag>`: the row's merge and tag, after main and the tag are read back at the remote."""
+    kern, sha, tag = a[:3]
+    j = jl('b654_runner_rows.json')
+    for r in j['rows']:
+        if r['kernel'] == kern:
+            r['merged'], r['tag'] = sha, tag
+    put_json('b654_runner_rows.json', j)
+    print('  %s merged %s tag %s' % (kern, sha, tag))
+
+
+def _show(repo, rev, path):
+    r = subprocess.run(['git', '-C', repo, 'show', '%s:%s' % (rev, path)], capture_output=True)
+    return r.stdout.decode('utf-8', 'replace').replace(chr(13), '') if r.returncode == 0 else None
+
+
+DECL_RE = re.compile(r'^(?:noncomputable |protected |private )*(theorem|lemma|def|abbrev|instance|structure|example)\s+(\S+)', re.M)
+
+
+def _ef_row():
+    rows = [r for r in (jl('b654_runner_rows.json').get('rows') or []) if r['kernel'] == 'SIDE-explicit-formula']
+    return rows[0] if rows else {}
+
+
+def e1(*a):
+    """(R264)(3): the landing point of E1, banked as data/b654_e1.txt -- DERIVES at the standard three on the runner, or the proof open with
+    the obstruction by file and line from the build log; the statement as written on the branch read back beside the bank`s draft."""
+    R = K.RUNNER['SIDE-explicit-formula']
+    row = _ef_row()
+    read_runner_row(row)
+    src = _show(K.EF, R['ref'], K.E1_FILE) or ''
+    draft = rdn('b654_e1_statement.txt')
+    gates = {}
+    for m in PRINT_RE.finditer(rdn('b654_runner_SIDE-explicit-formula.txt').replace(NL + '    ', NL)):
+        gates[m.group(1)] = sorted(x.strip() for x in (m.group(2) or '').split(',') if x.strip())
+    e1g = [(t, gates.get(t)) for t in K.E1_TERMINALS]
+    derives = all(v is not None and set(v) <= STD3 for _t, v in e1g)
+    errs = [e for e in row.get('errors') or [] if e[0].endswith(K.E1_FILE)]
+    decls = [(src[:m.start()].count(NL) + 1, m.group(1), m.group(2)) for m in DECL_RE.finditer(src)]
+    stmt_same = []
+    for name in ('rest_norm_le_rate', 'zeroSide_neg_at_rate'):
+        i = src.find('theorem %s' % name)
+        j_ = src.find(':= by', i)
+        k_ = draft.find('theorem %s' % name)
+        dl = draft[k_:].split(NL + NL)[0] if k_ >= 0 else ''
+        stmt_same.append((name, ' '.join(src[i:j_].split()) == ' '.join(dl.split())))
+    landing = ('DERIVES' if derives and row.get('gate') == 'DERIVES' and not errs else 'OPEN')
+    L = ['b654 -- COMPONENT 2, (R264)(3): E1, THE CONFIGURATION-RELATIVE RATE -- THE LANDING POINT (%s)' % utc(), '',
+         '### the branch %s at %s (SIDE-explicit-formula), the file %s; its declarations (line, kind, name):' % (R['branch'], R['ref'][:8], K.E1_FILE)]
+    L += ['  :%d %s %s' % d for d in decls]
+    L += ['### each statement on the branch against the bank`s draft (relay data/b654_e1_statement.txt), whitespace aside: %s' % stmt_same,
+          '### sorry in the file: %d' % len(re.findall(r'\bsorry\b', src)),
+          '### the runner: run %s ; conclusion %s ; artifact sha256 %s ; memory low %s MB ; gate %s (relay data/b654_runner_SIDE-explicit-formula.txt)' % (
+              row.get('run_id'), row.get('conclusion'), (row.get('artifact_sha256') or '### NONE')[:16], row.get('mem_low'), row.get('gate')),
+          '### the gate reading per terminal:'] + ['  %-50s %s' % (t, v if v is not None else '### UNREAD') for t, v in e1g]
+    if landing == 'OPEN':
+        L += ['### THE OBSTRUCTION, by file and line (the build log`s error lines in %s, %d):' % (K.E1_FILE, len(errs))]
+        L += ['  %s:%d:%d: %s' % tuple(e) for e in errs[:30]] or ['  ### NONE IN THE FILE: the run did not reach it']
+    L += ['', '### ### **E1 LANDS %s%s.**' % (landing, ' AT THE STANDARD THREE ON THE RUNNER' if landing == 'DERIVES' else
+                                             ': THE BRANCH UNMERGED AT %s, THE OBSTRUCTION ABOVE' % R['ref'][:8])]
+    put_txt('b654_e1.txt', L)
+    put_json('b654_e1.json', dict(at=utc(), landing=landing, gates=dict(e1g), errors=errs, decls=decls, statements_as_drafted=dict(stmt_same)))
+    print(NL.join(L[-12:]))
+
+
+PROPERTY_WORDS = ('entire', 'nonzero', 'positive', 'bound', 'equal', 'holomorphic', 'differentiable', 'continuous', 'simple', 'vanish',
+                  'equivalent', 'lower', 'upper', 'uniform')
+
+
+def width(*a):
+    """(R264)(4): the width definition read on the branch -- its docstring, the declarations in its file (a definition and no theorem), the
+    property words its docstring carries; LiCriterion.riemannXi`s definition and the inline form of the bank, the difference printed (the author`s
+    word at Component 2); §6a`s sentences cited beside it; the runner`s gate reading for the definition. Banked as data/b654_width.txt."""
+    R = K.RUNNER['SIDE-explicit-formula']
+    src = _show(K.EF, R['ref'], K.WIDTH_FILE) or ''
+    decls = [(src[:m.start()].count(NL) + 1, m.group(1), m.group(2)) for m in DECL_RE.finditer(src)]
+    dm = re.search(r'/--(.*?)-/\s*def transversalityWidth', src, re.S)
+    doc = ' '.join(dm.group(1).split()) if dm else ''
+    props = [w for w in PROPERTY_WORDS if re.search(r'\b' + w, doc, re.I)]
+    basic = (_show(K.EF, 'main', 'Vendored/Bulka/Lc/LiCriterion/Basic.lean') or '').split(NL)
+    xz = (_show(K.EF, 'main', 'Vendored/Bulka/Lc/XiZeros.lean') or '').split(NL)
+    defs = [(i + 1, l) for i, l in enumerate(basic) if l.startswith('noncomputable def riemannXi')]
+    xdefs = [(i + 1, l) for i, l in enumerate(xz) if l.startswith('noncomputable def riemannXi')]
+    body = basic[defs[0][0]].strip() if defs else ''
+    xbody = xz[xdefs[0][0]].strip() if xdefs else ''
+    inline = '(s * (s - 1) * completedRiemannZeta₀ s + 1) / 2'
+    sur = (_show(PP, 'HEAD', 'phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md') or '').split(NL)
+    s151 = [x.strip() for x in re.split(r'(?<=\.) ', sur[150]) if '|ξ′(ρ)|' in x]
+    s153 = [x.strip() for x in re.split(r'(?<=\.) ', sur[152]) if '*width*' in x]
+    row = _ef_row()
+    gates = {}
+    for m in PRINT_RE.finditer(rdn('b654_runner_SIDE-explicit-formula.txt').replace(NL + '    ', NL)):
+        gates[m.group(1)] = sorted(x.strip() for x in (m.group(2) or '').split(',') if x.strip())
+    wg = gates.get(K.WIDTH_TERMINAL)
+    L = ['b654 -- COMPONENT 3, (R264)(4): THE TRANSVERSALITY WIDTH, DEFINED AS AN OBJECT (%s)' % utc(), '',
+         '### the branch %s at %s, the file %s; its declarations (line, kind, name): %s' % (R['branch'], R['ref'][:8], K.WIDTH_FILE, decls),
+         '### theorems in the file: %d ; definitions: %d' % (sum(1 for d in decls if d[1] in ('theorem', 'lemma')), sum(1 for d in decls if d[1] == 'def')),
+         '### the docstring: %s' % doc,
+         '### property words in the docstring (%s): %s' % (', '.join(PROPERTY_WORDS), props or 'NONE'),
+         '### the definition: %s' % ' '.join(l.strip() for l in src.split(NL) if l.startswith('def transversalityWidth')), '',
+         '### the kernel`s ξ, bound to (the author`s word at Component 2: one object, one name):',
+         '  Vendored/Bulka/Lc/LiCriterion/Basic.lean:%s %s' % (defs[0][0] if defs else '?', defs[0][1] if defs else '### NOT FOUND'),
+         '      %s' % body,
+         '  a second vendored copy, Vendored/Bulka/Lc/XiZeros.lean:%s %s -- body %s LiCriterion`s' % (
+             xdefs[0][0] if xdefs else '?', 'XiZeros.riemannXi' if xdefs else '### NOT FOUND', 'IDENTICAL TO' if xbody == body else 'DIFFERENT FROM'),
+         '### the inline form of the bank (relay data/b654_e1_statement.txt), kept there as the §6a reading: %s' % inline,
+         '### the difference, printed: riemannXi`s body is (1 / 2) * s * (s - 1) * Λ₀ s + 1 / 2, the inline form (s * (s - 1) * Λ₀ s + 1) / 2; '
+         'the two bodies differ as terms (the half distributed in the one, factored in the other); no equation between them is compiled here; '
+         'the definition binds to riemannXi all the same.', '',
+         '### §6a beside it (PLACE-papers phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md, rows are the document`s lines):',
+         '  :151 %s' % (s151[0] if s151 else '### NOT FOUND'),
+         '  :153 %s' % (s153[0] if s153 else '### NOT FOUND'), '',
+         '### the runner: run %s ; gate reading for %s: %s' % (row.get('run_id'), K.WIDTH_TERMINAL, wg if wg is not None else '### UNREAD'),
+         '', '### ### **THE WIDTH %s ON THE RUNNER ; THEOREMS BESIDE IT %d ; PROPERTY WORDS IN ITS DOCSTRING %d.**' % (
+             'COMPILES' if wg is not None and set(wg) <= STD3 else 'DOES NOT COMPILE', sum(1 for d in decls if d[1] in ('theorem', 'lemma')), len(props))]
+    put_txt('b654_width.txt', L)
+    put_json('b654_width.json', dict(at=utc(), decls=decls, props=props, gate=wg, xi_line=defs[0][0] if defs else None,
+                                     xizeros_identical=(xbody == body)))
+    print(NL.join(L[-6:]))
+
+
 import collections                 # noqa: E402,F401
 import b654_worklist as K          # noqa: E402
 

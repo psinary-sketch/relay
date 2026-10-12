@@ -1,0 +1,127 @@
+b654 -- COMPONENTS 2-3, (R264)(3)-(4): THE HOSTED RUNNER FOR SIDE-explicit-formula, READ BY ITS RUN ID (2026-10-12T14:06:36Z)
+
+### the workflow file on main (7317db4, .github/workflows/build-module.yml), read back whole:
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              cat > out/Axioms.lean <<'EOF'
+              import SIDEExplicitFormula.RateIndex
+              import SIDEExplicitFormula.TransversalityWidth
+              #print axioms SIDEExplicitFormula.B321.rest_norm_le_rate
+              #print axioms SIDEExplicitFormula.B321.zeroSide_neg_at_rate
+              #print axioms SIDEExplicitFormula.transversalityWidth
+              EOF
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+
+### the dispatch, the one dispatch of this branch: ref 472887163f31063f3ca7e946ca6a0a790c2f6b7f ; target SIDEExplicitFormula.RateIndex SIDEExplicitFormula.TransversalityWidth
+### the run: id 38259645524 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/38259645524 ; status completed ; conclusion success ; head of the workflow 7317db47ef96e73d041dcc6e20c2754deba47340 ; 2026-10-12T13:59:43Z to 2026-10-12T14:06:22Z
+### the artifact: id 11752112663 ; name build-module-38259645524 ; 6482 bytes ; sha256 6e003dc0835d05683ae5720c7f98439a9784de672ec141551079389296011ea2 ; the platform`s digest 6e003dc0835d05683ae5720c7f98439a9784de672ec141551079389296011ea2 ; AGREE
+### the ref built (out/ref.txt): 472887163f31063f3ca7e946ca6a0a790c2f6b7f leanprover/lean4:v4.34.0-rc1
+### the memory log: samples 56 ; LOW 12699 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines in its log 0
+### the build log`s last lines:
+    
+    Note: This linter can be disabled with `set_option linter.unusedTactic false`
+    ⚠ [3784/3784] Built SIDEExplicitFormula.RateIndex (3.5s)
+    warning: SIDEExplicitFormula/RateIndex.lean:52:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+    warning: SIDEExplicitFormula/RateIndex.lean:58:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+    warning: SIDEExplicitFormula/RateIndex.lean:145:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+    warning: SIDEExplicitFormula/RateIndex.lean:184:38: `if_pos` has been deprecated: Use `ite_eq_left` instead
+    Build completed successfully (3784 jobs).
+
+### the axioms output, whole:
+    'SIDEExplicitFormula.B321.rest_norm_le_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.zeroSide_neg_at_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.transversalityWidth' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+### THE GATE READING, per named terminal (3), from the artifact`s axioms output:
+  SIDEExplicitFormula.B321.rest_norm_le_rate               DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.B321.zeroSide_neg_at_rate            DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.transversalityWidth                  DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+
+### ### **RUN 38259645524 ; CONCLUSION success ; ARTIFACT SHA256 6e003dc0835d0568 ; MEMORY LOW 12699 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 3, DERIVES 3 ; GATE DERIVES.**

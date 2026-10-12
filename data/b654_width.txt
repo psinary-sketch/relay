@@ -1,0 +1,22 @@
+b654 -- COMPONENT 3, (R264)(4): THE TRANSVERSALITY WIDTH, DEFINED AS AN OBJECT (2026-10-12T14:06:56Z)
+
+### the branch e1-rate-b654 at 47288716, the file SIDEExplicitFormula/TransversalityWidth.lean; its declarations (line, kind, name): [(19, 'def', 'transversalityWidth')]
+### theorems in the file: 0 ; definitions: 1
+### the docstring: **The transversality width at `ρ`: a definition.** The real number `‖ξ′(ρ)‖`, with `ξ` the kernel's `LiCriterion.riemannXi` and `ξ′` Mathlib's `deriv`. The object of THE_UNCONDITIONAL_SURROUND §6a.
+### property words in the docstring (entire, nonzero, positive, bound, equal, holomorphic, differentiable, continuous, simple, vanish, equivalent, lower, upper, uniform): NONE
+### the definition: def transversalityWidth (ρ : ℂ) : ℝ := ‖deriv LiCriterion.riemannXi ρ‖
+
+### the kernel`s ξ, bound to (the author`s word at Component 2: one object, one name):
+  Vendored/Bulka/Lc/LiCriterion/Basic.lean:1252 noncomputable def riemannXi (s : ℂ) : ℂ :=
+      (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ)
+  a second vendored copy, Vendored/Bulka/Lc/XiZeros.lean:72 XiZeros.riemannXi -- body IDENTICAL TO LiCriterion`s
+### the inline form of the bank (relay data/b654_e1_statement.txt), kept there as the §6a reading: (s * (s - 1) * completedRiemannZeta₀ s + 1) / 2
+### the difference, printed: riemannXi`s body is (1 / 2) * s * (s - 1) * Λ₀ s + 1 / 2, the inline form (s * (s - 1) * Λ₀ s + 1) / 2; the two bodies differ as terms (the half distributed in the one, factored in the other); no equation between them is compiled here; the definition binds to riemannXi all the same.
+
+### §6a beside it (PLACE-papers phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md, rows are the document`s lines):
+  :151 But the geometric face names a single concrete analytic target: the jaws overlap at every height **iff** there is a uniform lower bound on |ξ′(ρ)| — equivalently |ζ′(ρ)| — at the zeros, large enough that the transversality obstruction reaches the zero-free region (the |ζ′(ρ)| territory is surveyed in `phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md`).
+  :153 Its *width* is set by |ζ′(ρ)|, and the open question is whether that width clears the zero-free region uniformly in the height γ.
+
+### the runner: run 38259645524 ; gate reading for SIDEExplicitFormula.transversalityWidth: ['Classical.choice', 'Quot.sound', 'propext']
+
+### ### **THE WIDTH COMPILES ON THE RUNNER ; THEOREMS BESIDE IT 0 ; PROPERTY WORDS IN ITS DOCSTRING 0.**
