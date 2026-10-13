@@ -1546,7 +1546,8 @@ def _finding_text():
          'at j₀ = 31 with its zero side below 0; H2 %s; both seats read the surface in one sentence each: the sufficient index is a function of '
          'height through the kill set and the lowest genuine ordinate above t, and moves with σ by no amount. N3 %s.' % (_sv(S, 'H2'), _sv(S, 'N3')), '',
          '**The kernel** (`(R272)`(6)): SIDE-carrier-spec, 9 OVERREACHES in relay `data/b647_table_kernels.txt` :7, read at b3916cc, its main '
-         'unmoved since b647, so no change bank; read at main into %d sentence rows; no plain block comment.' % rows_n, '',
+         'unmoved since b647, so no change bank; read at main into %d sentence rows, %d graded rows with one row broken in two; no plain block '
+         'comment.' % (len(jl(K.SENT).get('rows') or []), rows_n), '',
          '**The grades** (`(R272)`(6) and the author’s word): %d rows graded OVERREACHES by hand against their cells, the cell’s words beside '
          'each; rows of one ACTION each taking their own verbatim span of it; a grade label inside a docstring (DERIVES on a theorem the cell calls '
          'vacuous) removed on the author’s word; none UNRESOLVED.' % gr_n, '',
