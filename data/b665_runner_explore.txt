@@ -1,0 +1,40 @@
+b665 -- COMPONENT 3, (R275)(4): THE HOSTED RUNNER FOR SIDE-explicit-formula, STAGE EXPLORE, READ BY ITS RUN ID (2026-10-13T19:03:58Z)
+
+### the act`s kernel files, read from its banks and from no constant: SIDEExplicitFormula/FirstOrderBound.lean (from data/b665_keiper_statement.json); SIDEExplicitFormula/KeiperFinite.lean (from data/b665_keiper_statement.json)
+### print_targets.txt at the ref: 9 names
+### the dispatch: at main, the ref input 32f6f3a6e2191b6b411bac41283f57fcee57d98b (the branch keiper-b665 at that commit) ; target SIDEExplicitFormula.KeiperFinite SIDEExplicitFormula.FirstOrderBound
+### the run: id 38450860245 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/38450860245 ; build-module workflow_dispatch ; status completed ; conclusion success ; head d00ab16dcaaeddffca27674d3468e06c55298e6d on main ; 2026-10-13T18:56:43Z to 2026-10-13T19:03:01Z
+### the artifact: id 11840771104 ; name build-module-38450860245 ; 7582 bytes ; sha256 dd46d2d4ea1735d495c5f9d2925e4d7569d10f89a9f82872e7de8c9a47761dc0 ; the platform`s digest dd46d2d4ea1735d495c5f9d2925e4d7569d10f89a9f82872e7de8c9a47761dc0 ; AGREE
+### the ref built (out/ref.txt): 32f6f3a6e2191b6b411bac41283f57fcee57d98b leanprover/lean4:v4.34.0-rc1
+### the memory log: samples 51 ; LOW 12564 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; sorry warnings 0 ; the log`s last lines:
+    
+    Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+    warning: SIDEExplicitFormula/KeiperFinite.lean:38:4: Unused tactic linter: `sorry` does nothing
+    
+    Note: This linter can be disabled with `set_option linter.unusedTactic false`
+    Build completed successfully (3836 jobs).
+### the print step: error lines 0
+### THE PRINTS, PER TERMINAL (the standard three: propext, Classical.choice, Quot.sound):
+  SIDEExplicitFormula.Keiper.keiperTaylor_holds                  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Keiper.liCoeff_succ_eq_keiperSum           ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.B321.plateau_deriv_abs_integral            ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.B321.paperFT_plateau_first_order           ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.B321.offScore_plateau_first_order          ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Keiper.binomialTransform_holds             ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Keiper.logDerivSplit_holds                 ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.B321.paperFT_decay                         ['Classical.choice', 'Quot.sound', 'propext']
+
+### THE LANDING POINT PER DECLARATION ((R275)(4); the author`s word: each its own declaration, read per statement):
+  keiperTaylor_holds                                       DERIVES                decl SIDEExplicitFormula/KeiperFinite.lean :28
+  liCoeff_succ_eq_keiperSum                                DERIVES                decl SIDEExplicitFormula/KeiperFinite.lean :35
+  plateau_deriv_abs_integral                               DERIVES                decl SIDEExplicitFormula/FirstOrderBound.lean :28
+  paperFT_plateau_first_order                              DERIVES                decl SIDEExplicitFormula/FirstOrderBound.lean :175
+  offScore_plateau_first_order                             DERIVES                decl SIDEExplicitFormula/FirstOrderBound.lean :187
+
+### THE LANDING POINT PER LEMMA:
+  the Keiper finite-n equality       DERIVES
+  the transform bound                DERIVES
+
+### ### **STAGE EXPLORE ; RUN 38450860245 ; CONCLUSION success ; ARTIFACT SHA256 dd46d2d4ea1735d4 ; MEMORY LOW 12564 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; SORRY WARNINGS 0 ; TERMINALS 9, PRINTED 9 ; the Keiper finite-n equality DERIVES ; the transform bound DERIVES.**

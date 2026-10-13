@@ -473,7 +473,201 @@ def statement(*a):
     print(NL.join(L[-3:]))
 
 
-ROUTES = {'c1': c1, 'answers': answers, 'statement': statement}
+# ================================================================================ COMPONENT 3: THE RUNNER, READ BY ITS RUN ID; THE LANDINGS
+STD3 = {'propext', 'Classical.choice', 'Quot.sound'}
+ERR_RE = re.compile(r'^(?:error: )?(\S+\.lean):(\d+):(\d+): error: (.*)$', re.M)
+SORRY_RE = re.compile(r'^(?:warning: )?(\S+\.lean):(\d+):(\d+): (?:warning: )?declaration uses .sorry.', re.M)
+# ### the two lemmas of (R275)(4), each its declarations as the statement bank names them (the author's word: each its own declaration)
+LEMMAS = [('the Keiper finite-n equality', 'SIDEExplicitFormula/KeiperFinite.lean',
+           ['SIDEExplicitFormula.Keiper.keiperTaylor_holds', 'SIDEExplicitFormula.Keiper.liCoeff_succ_eq_keiperSum']),
+          ('the transform bound', 'SIDEExplicitFormula/FirstOrderBound.lean',
+           ['SIDEExplicitFormula.B321.plateau_deriv_abs_integral', 'SIDEExplicitFormula.B321.paperFT_plateau_first_order',
+            'SIDEExplicitFormula.B321.offScore_plateau_first_order'])]
+TARGET = 'SIDEExplicitFormula.KeiperFinite SIDEExplicitFormula.FirstOrderBound'
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def _decl_line(src, name):
+    short = name.rsplit('.', 1)[1]
+    for i, l in enumerate(src.split(NL), 1):
+        if re.match(r'^theorem %s\b' % re.escape(short), l):
+            return i
+    return None
+
+
+def runner(*a):
+    """`runner <run id> <ref> <stage>`: the run read by its id; the artifact listed, downloaded by its id into memory, its sha256 against the
+    platform's digest BEFORE any reading; the build's exit, its error lines and its sorry warnings, the memory log's low and any STOP; every print
+    of print_targets.txt at the ref; per declaration and per lemma the landing point (DERIVES at the standard three with no sorryAx; COMPILED,
+    PROOF OPEN with sorryAx printed, the obstruction the sorry warning's file and line; NOT COMPILED where no print). The stage names the tree
+    state ('explore' -- the fallback form; 'merge' -- the stripped tree, the author's word). Banked as data/b665_runner_<stage>.txt, a row of
+    data/b665_runner_rows.json and, for the stage's landings, data/b665_landings.json."""
+    import hashlib
+    import zipfile
+    import b569_record as R9
+    run_id, ref, stage = int(a[0]), a[1], a[2]
+    repo = 'psinary-sketch/' + K.KERNEL
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    pt = [l.strip() for l in (_show(K.KD, ref, 'print_targets.txt') or '').split(NL) if l.strip()]
+    kf = read_kernel_files()
+    srcs = dict((f, _show(K.KD, ref, f) or '') for f, _b in kf)
+    row = dict(kernel=K.KERNEL, branch=K.BRANCH, ref=ref, target=TARGET, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None,
+               mem_low=None, stopped=False, gate=None, merged=None, tag=None, stage=stage)
+    L = ['b665 -- COMPONENT 3, (R275)(4): THE HOSTED RUNNER FOR %s, STAGE %s, READ BY ITS RUN ID (%s)' % (K.KERNEL, stage.upper(), utc()), '',
+         '### the act`s kernel files, read from its banks and from no constant: %s' % '; '.join('%s (from %s)' % (f, ', '.join(b)) for f, b in kf),
+         '### print_targets.txt at the ref: %d names' % len(pt),
+         '### the dispatch: at main, the ref input %s (the branch %s at that commit) ; target %s' % (ref, K.BRANCH, TARGET),
+         '### the run: id %s ; %s ; %s %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('workflowName'), run.get('event'), run.get('status'), run.get('conclusion'), run.get('headSha'),
+             run.get('headBranch'), run.get('createdAt'), run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        row['artifact_sha256'] = sha
+        L.append('### the artifact: id %s ; name %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else ('### DIFFER' if digest else 'no digest to compare -- NOTHING READ FROM IT')))
+        if not digest or digest != sha:
+            row['artifact_sha256'] = None
+        else:
+            with zipfile.ZipFile(io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    stops = [l for l in mem.split(NL) if l.startswith('STOP ')]
+    row['stopped'] = bool(stops)
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip()
+    errs = [(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4)) for m in ERR_RE.finditer(blog)]
+    sorries = sorted(set((m.group(1), int(m.group(2))) for m in SORRY_RE.finditer(blog)))
+    P = dict((k_, sorted(v_)) for k_, v_ in R9.prints_axioms(T_.get('axioms.txt', '')).items())
+    axerr = [l for l in T_.get('axioms.txt', '').split(NL) if ': error' in l]
+    per = [(n, P.get(n)) for n in pt]
+    readable = bool(row['artifact_sha256']) and not stops
+    land_rows = []
+    for lem, f, names in LEMMAS:
+        src = srcs.get(f, '')
+        for n in names:
+            ax = P.get(n)
+            dl = _decl_line(src, n)
+            if ax is None:
+                point = 'NOT COMPILED'
+            elif set(ax) <= STD3 and 'sorryAx' not in ax:
+                point = 'DERIVES'
+            else:
+                point = 'COMPILED, PROOF OPEN'
+            obs = None
+            if point != 'DERIVES':
+                nxt = [_decl_line(src, m) for m in names if (_decl_line(src, m) or 0) > (dl or 0)]
+                end = min(nxt) if nxt else 10 ** 9
+                own = [(ff, ln) for ff, ln in sorries if ff.endswith(f.rsplit('/', 1)[1]) and (dl or 0) <= ln < end]
+                errs_own = [(ff, ln) for ff, ln, _c, _m in errs if ff.endswith(f.rsplit('/', 1)[1]) and (dl or 0) <= ln < end]
+                hits = own + errs_own
+                obs = ('%s :%s' % (f, ', :'.join(str(ln) for _ff, ln in hits))) if hits else (
+                    '%s :%s (the declaration; its open step reached through a declaration it uses)' % (f, dl))
+            land_rows.append(dict(lemma=lem, name=n, file=f, decl_line=dl, point=point, prints=ax, obstruction=obs))
+    lem_points = []
+    for lem, f, names in LEMMAS:
+        pts = [r['point'] for r in land_rows if r['lemma'] == lem]
+        lem_points.append((lem, 'DERIVES' if all(p == 'DERIVES' for p in pts) else ('NOT COMPILED' if 'NOT COMPILED' in pts else 'COMPILED, PROOF OPEN')))
+    ok = (run.get('conclusion') == 'success' and readable and bexit == '0' and not errs and row['mem_low'] is not None and row['mem_low'] >= K.HOLD
+          and len(pt) > 0 and not axerr)
+    row['gate'] = ('STOPPED BENEATH THE HOLD' if stops else ('BUILT' if ok else 'NOT BUILT'))
+    row['errors'] = [list(e) for e in errs]
+    row['sorry_warnings'] = [list(s) for s in sorries]
+    row['lemma_points'] = lem_points
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: samples %d ; LOW %s MB ; the hold %d ; STOP lines %s' % (
+              len([l for l in mem.split(NL) if 'avail_mb=' in l]), row['mem_low'], K.HOLD, stops or 'NONE'),
+          '### the build: exit %s ; error lines %d ; sorry warnings %d ; the log`s last lines:' % (bexit or '### UNREAD', len(errs), len(sorries))] + \
+        ['    ' + l for l in blog.rstrip(NL).split(NL)[-6:]] + ['    ERROR %s:%d:%d: %s' % e for e in errs[:30]] + \
+        ['    SORRY WARNING %s:%d' % s for s in sorries] + [
+          '### the print step: error lines %d%s' % (len(axerr), (' -- ' + ' | '.join(axerr[:4])) if axerr else ''),
+          '### THE PRINTS, PER TERMINAL (the standard three: propext, Classical.choice, Quot.sound):'] + \
+        ['  %-62s %s' % (n, ax if ax is not None else '### NOT PRINTED') for n, ax in per] + [
+          '', '### THE LANDING POINT PER DECLARATION ((R275)(4); the author`s word: each its own declaration, read per statement):'] + \
+        ['  %-56s %-22s %s' % (r['name'].rsplit('.', 1)[1], r['point'], ('obstruction ' + r['obstruction']) if r['obstruction'] else
+                               'decl %s :%s' % (r['file'], r['decl_line'])) for r in land_rows] + [
+          '', '### THE LANDING POINT PER LEMMA:'] + ['  %-34s %s' % lp for lp in lem_points] + [
+          '', '### ### **STAGE %s ; RUN %s ; CONCLUSION %s ; ARTIFACT SHA256 %s ; MEMORY LOW %s MB (HOLD %d) ; BUILD EXIT %s ; ERROR LINES %d ; '
+          'SORRY WARNINGS %d ; TERMINALS %d, PRINTED %d ; %s.**' % (
+              stage.upper(), run_id, run.get('conclusion'), (row['artifact_sha256'] or '### NONE')[:16], row['mem_low'], K.HOLD,
+              bexit or '### UNREAD', len(errs), len(sorries), len(pt), sum(1 for _n, ax in per if ax is not None),
+              ' ; '.join('%s %s' % lp for lp in lem_points))]
+    put_txt('b665_runner_%s.txt' % stage, L)
+    j = jl('b665_runner_rows.json')
+    rows_ = [r for r in (j.get('rows') or []) if r.get('stage') != stage] + [row]
+    put_json('b665_runner_rows.json', dict(j, rows=rows_, kernel_files=[f for f, _b in kf]))
+    lj = jl('b665_landings.json')
+    lj[stage] = dict(run_id=run_id, ref=ref, rows=land_rows, lemmas=lem_points)
+    put_json('b665_landings.json', lj)
+    print(NL.join(L[-(len(land_rows) + len(lem_points) + 6):]))
+
+
+def landings(*a):
+    """the landing point of each lemma, one bank each ((R275)(4)): data/b665_keiper.txt and data/b665_transform_bound.txt, read from
+    data/b665_landings.json through read_landing_row -- the exploratory tree's reading and the merge tree's beside it, the merge tree's the
+    landing (the author's word: the stripped tree, dispatched once more, is the tree that merges)."""
+    lj = jl('b665_landings.json')
+    rr = jl('b665_runner_rows.json')
+    runs = dict((r['stage'], r) for r in rr.get('rows') or [])
+    out = {}
+    for (lem, f, names), bank in zip(LEMMAS, (K.KEIPER_BANK, K.TB_BANK)):
+        L = ['b665 -- COMPONENT 3, (R275)(4): THE LANDING POINT OF %s (%s)' % (lem.upper(), utc()), '',
+             '### the statement: relay data/b665_keiper_statement.txt, section %s; the file %s on branch %s of %s' % (
+                 '(I)' if 'Keiper' in lem else '(II)', f, K.BRANCH, K.KERNEL)]
+        pts = {}
+        for stage in ('explore', 'merge'):
+            s = lj.get(stage) or {}
+            r = runs.get(stage) or {}
+            L += ['', '### STAGE %s -- run %s at %s (artifact sha256 %s, the platform`s digest agreeing; memory low %s MB; build exit 0 read in the '
+                  'runner bank data/b665_runner_%s.txt):' % (stage.upper(), s.get('run_id'), (s.get('ref') or '')[:7], (r.get('artifact_sha256') or '### NONE')[:16],
+                                                              r.get('mem_low'), stage)]
+            for row in [x for x in s.get('rows') or [] if x['lemma'] == lem]:
+                n, p, w = read_landing_row(row)
+                L.append('  %-56s %-22s prints %s ; %s' % (n.rsplit('.', 1)[1], p, row['prints'], ('obstruction ' + w) if p != 'DERIVES' else
+                                                           'decl %s :%s' % (row['file'], row['decl_line'])))
+            pts[stage] = dict(s.get('lemmas') or []).get(lem)
+        L += ['', '### ### **%s : EXPLORE %s ; MERGE %s -- THE LANDING POINT: %s.**' % (lem.upper(), pts.get('explore'), pts.get('merge'), pts.get('merge'))]
+        if pts.get('merge') != 'DERIVES':
+            L.append('### the obstruction, the next lemma of substance, by file and line: see the rows above; the branch unmerged.')
+        put_txt(bank, L)
+        out[lem] = pts.get('merge')
+        print(L[-1])
+    return out
+
+
+def attempt(*a):
+    """`attempt <explore sha> <merge sha>`: data/b665_attempt.json -- the branch's two tree states (the exploratory tree in the fallback form,
+    the stripped merge tree), each commit's files, the branch tip at the remote as the push read it; the files the act wrote on the kernel
+    (file_list), read by kernel_files()."""
+    ex, mg = a[0], a[1]
+    fl = lambda c: sorted(x for x in g(K.KD, 'show', '--name-only', '--format=', c).split(NL) if x.strip())   # noqa: E731
+    files = sorted(set(fl(ex)) | set(fl(mg)))
+    src = dict((f, _show(K.KD, mg, f) or '') for f in files if f.endswith('.lean'))
+    j = dict(at=utc(), branch=K.BRANCH, base=K.K_MAIN, explore=dict(sha=ex, files=fl(ex)), merge=dict(sha=mg, files=fl(mg)),
+             file_list=files, sorry_in_merge_tree=dict((f, len(re.findall(r'\bsorry\b', s))) for f, s in src.items()),
+             parent_of_merge=g(K.KD, 'rev-parse', mg + '^').strip())
+    put_json(K.ATTEMPT_BANK, j)
+    print('  explore %s %s ; merge %s %s ; parent of merge %s ; sorry in the merge tree %s' % (ex[:7], fl(ex), mg[:7], fl(mg), j['parent_of_merge'][:7],
+                                                                                      j['sorry_in_merge_tree']))
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'statement': statement, 'runner': runner, 'landings': landings, 'attempt': attempt}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

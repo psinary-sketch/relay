@@ -1,0 +1,40 @@
+b665 -- COMPONENT 3, (R275)(4): THE HOSTED RUNNER FOR SIDE-explicit-formula, STAGE MERGE, READ BY ITS RUN ID (2026-10-13T19:12:28Z)
+
+### the act`s kernel files, read from its banks and from no constant: SIDEExplicitFormula/FirstOrderBound.lean (from data/b665_keiper_statement.json); SIDEExplicitFormula/KeiperFinite.lean (from data/b665_keiper_statement.json)
+### print_targets.txt at the ref: 9 names
+### the dispatch: at main, the ref input ee0b6c5684c676cc919433c2a5121210ec34946c (the branch keiper-b665 at that commit) ; target SIDEExplicitFormula.KeiperFinite SIDEExplicitFormula.FirstOrderBound
+### the run: id 38452047820 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/38452047820 ; build-module workflow_dispatch ; status completed ; conclusion success ; head d00ab16dcaaeddffca27674d3468e06c55298e6d on main ; 2026-10-13T19:05:24Z to 2026-10-13T19:12:20Z
+### the artifact: id 11840707632 ; name build-module-38452047820 ; 8305 bytes ; sha256 845e35a450937673227c019435e9dd02bf38767eb207d92cb1190c67f94c7174 ; the platform`s digest 845e35a450937673227c019435e9dd02bf38767eb207d92cb1190c67f94c7174 ; AGREE
+### the ref built (out/ref.txt): ee0b6c5684c676cc919433c2a5121210ec34946c leanprover/lean4:v4.34.0-rc1
+### the memory log: samples 58 ; LOW 12830 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; sorry warnings 0 ; the log`s last lines:
+    Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+    warning: SIDEExplicitFormula/KeiperIdentities.lean:306:4: try 'simp' instead of 'simpa'
+    
+    Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+    ✔ [3836/3836] Built SIDEExplicitFormula.KeiperFinite (1.0s)
+    Build completed successfully (3836 jobs).
+### the print step: error lines 0
+### THE PRINTS, PER TERMINAL (the standard three: propext, Classical.choice, Quot.sound):
+  SIDEExplicitFormula.Keiper.keiperTaylor_holds                  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Keiper.liCoeff_succ_eq_keiperSum           ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.B321.plateau_deriv_abs_integral            ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.B321.paperFT_plateau_first_order           ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.B321.offScore_plateau_first_order          ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Keiper.binomialTransform_holds             ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Keiper.logDerivSplit_holds                 ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.LiCriterionBridge.li_coeff_eq_taylorCoeff  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.B321.paperFT_decay                         ['Classical.choice', 'Quot.sound', 'propext']
+
+### THE LANDING POINT PER DECLARATION ((R275)(4); the author`s word: each its own declaration, read per statement):
+  keiperTaylor_holds                                       DERIVES                decl SIDEExplicitFormula/KeiperFinite.lean :28
+  liCoeff_succ_eq_keiperSum                                DERIVES                decl SIDEExplicitFormula/KeiperFinite.lean :33
+  plateau_deriv_abs_integral                               DERIVES                decl SIDEExplicitFormula/FirstOrderBound.lean :28
+  paperFT_plateau_first_order                              DERIVES                decl SIDEExplicitFormula/FirstOrderBound.lean :139
+  offScore_plateau_first_order                             DERIVES                decl SIDEExplicitFormula/FirstOrderBound.lean :149
+
+### THE LANDING POINT PER LEMMA:
+  the Keiper finite-n equality       DERIVES
+  the transform bound                DERIVES
+
+### ### **STAGE MERGE ; RUN 38452047820 ; CONCLUSION success ; ARTIFACT SHA256 845e35a450937673 ; MEMORY LOW 12830 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; SORRY WARNINGS 0 ; TERMINALS 9, PRINTED 9 ; the Keiper finite-n equality DERIVES ; the transform bound DERIVES.**
