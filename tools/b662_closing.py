@@ -238,8 +238,8 @@ def main():
                                        verdict(rd('b662_faces_census_closing.txt'), r'TOTAL MISSING : \d+')),
           '    pins : %s' % verdict(rd('b662_pins_closing.txt'), r'REPOS HARD-FAILING : \d+'),
           '    kernel mains moved by the workflow where absent and the one merge on the hosted runner`s gate reading alone (SIDE-carrier-spec) ;'
-          ' no lean or lake run on this host ; no worktree made or removed ; b628`s local intake bank and the navigator`s export untracked ; no'
-          ' identifier of the author in any outbound request, workflow file or input ; no secret added, the platform`s own token alone ; the'
+          ' no lean or lake run on this host ; no worktree made or removed ; b628`s local intake bank and the navigator`s export untracked ;'
+          ' no identifier of the author in any outbound request, workflow file or input ; no secret added, the platform`s own token alone ; the'
           ' seat`s plain requests to github.com (its ls-remote reads, its pushes, the gh calls that dispatched the run and read it and its'
           ' artifact back) the act`s only outbound calls ; the deposit route untouched, publish never called ; no shared tool edited ;'
           ' FINDINGS and OPEN_TRAILS appended ; one dated line appended to data/b650_same_season_last_year.txt ; one line appended to'

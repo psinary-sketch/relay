@@ -552,7 +552,9 @@ def citation_ok(S):
 
 
 def finding_e2_ok(S):
-    return landed(S, 1, ['THE EMPTY MAP AS A FINDING', 'b559’s (E2)', 'j = 31']) and landed(S, 2, ['W-ORD-E2-SEPARATION', '**Trigger:**'])
+    ln = rline(S, 2).get('line') or 0
+    return landed(S, 1, ['THE EMPTY MAP AS A FINDING', 'b559’s (E2)', 'j = 31']) and landed(S, 2, ['W-ORD-E2-SEPARATION', 'PRICED, NOT STARTED']) \
+        and '**Trigger:** the empty map as a finding' in oline(S, ln + 2)
 
 
 def citation_acted_ok(S):
