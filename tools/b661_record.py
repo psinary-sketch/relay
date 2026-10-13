@@ -66,7 +66,7 @@ def put_txt(name, lines):
 def _standins():
     """(R267)(2), standing: the stand-ins a dry run reads for the banks not yet written before the lock -- every value marked as a stand-in,
     none a number any bank carries; a stand-in run writes no bank."""
-    sk = ('N1', 'N2', 'N3', 'N4', 'N5', 'H1', 'H2', 'H3', 'H4')
+    sk = ('N1', 'N2', 'N3', 'N4', 'N5', 'H1', 'H2', 'H3', 'H4', 'S1', 'S2', 'S3')
     return {
         'b661_scores.json': dict((k, ['NOT SCORED', 'a stand-in for the dry run']) for k in sk),
         'b661_findings.json': dict(entry_line=99999, title='stand-in'),
@@ -733,7 +733,7 @@ def _finding_text():
     if off is None or off >= 1e-3:
         sys.exit('### THE ENTRY`S θ SENTENCE IS NOT THE BANK`S (largest 1 - θ %s) -- NOTHING COMPOSED' % off)
     e = ['', _title(), '',
-         '*Filed at b661 on the author’s ruling `(R271)` and the author’s word (%d prompts in two calls). Banks: relay `data/b661_e1cfg_binding.txt`, '
+         '*Filed at b661 on the author’s ruling `(R271)` and the author’s word (%d questions in two calls). Banks: relay `data/b661_e1cfg_binding.txt`, '
          '`data/b661_detection_map.txt`, `data/b661_map_control.txt`, `data/b661_author_answers.txt`, `data/b661_act_root.txt`.*' % n_ans, '',
          '**The binding** (`(R271)`(3)): b656’s binding re-read against SIDE-explicit-formula v0.28 quantity by quantity, each re-bound to a '
          'binder of zeroSide_neg_at_rate_cfg (Schema/RateIndexCfg.lean :135-:148) by file and line, hA and A₀ binders now; O-2 discharged by '
@@ -756,10 +756,11 @@ def _finding_text():
              len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
          '**The scores.** ' + ', '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.', '',
          '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): this map re-reads b656’s binding (relay `data/b656_e1_binding.txt`) and b658’s '
-         'statement (relay `data/b658_e1cfg_statement.txt`), and finds the compiled theorem’s index set at Z₁ beyond J_max = D + 8 on the whole '
-         'grid; it is read by W-ORD-CLOSE-PAIR-BENCH when its turn comes and by the next reading act. It strengthens the programme’s offering of '
-         'statements a reader can check: every index the theorem could give at a grid cell is now bounded below by a printed inequality, its '
-         'hypotheses certified by name in balls.', '',
+         'statement (relay `data/b658_e1cfg_statement.txt`), and finds the rate inequality unmet at every index up to J_max = D + 8 on the whole '
+         'grid, at coeffs_exist’s B and D and the least θ the finite configuration admits -- the inequality is sufficient for the theorem’s '
+         'conclusion, not necessary, so no cell says the zero side is not negative there; it is read by W-ORD-CLOSE-PAIR-BENCH when its turn '
+         'comes and by the next reading act. It strengthens the programme’s offering of statements a reader can check: at each grid cell the '
+         'rate inequality’s two sides are printed at every index read, the theorem’s other hypotheses certified by name in balls.', '',
          '**Next.** %s.' % NEXT_LINE, '',
          '*Nothing here is a statement that RH or GRH holds or locates any zero; the map states what a compiled theorem says of a finite '
          'configuration Z₁, which is not ζ’s, and nothing of ζ.*', '']
@@ -784,8 +785,9 @@ def _trail_text():
              '**Entered:** FINDINGS.md:%s (b660’s weight), :%s (the entry); this record.' % (ls[0].get('line'), fj.get('entry_line')), '',
              '**Act root:** b661 `%s` (previous `%s`, b660’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
                  J.get('root'), J.get('previous')), '',
-             '**Prompts to the author:** %d in two calls (relay data/b661_author_answers.txt): the one of `(R271)`(3) before any number, and one '
-             'on the precision rung the author’s word named and no bank carried; none after the root.' % n_ans, '',
+             '**Prompts to the author:** %d questions in two calls (relay data/b661_author_answers.txt): the one prompt of `(R271)`(3), four '
+             'questions, before any number, and one question on the precision rung the author’s word named and no bank carried; none after the '
+             'root.' % n_ans, '',
              '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
              '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
              '**Defects** (relay data/b661_defects.txt): %s.' % ('; '.join(_defect_short()) or 'none'), '',
