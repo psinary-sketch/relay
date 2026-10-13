@@ -1,0 +1,40 @@
+b662 -- COMPONENT 0: STEP ZERO UNDER (R272) (2026-10-13)
+
+### the citation check of (R272)(4), the gate step, run BEFORE the ferry was banked (tools/b662_citation.py check; relay
+### data/b662_citation_check.txt): the ruling and the ferry read from the session transcript, 59 cites checked at HEAD, 54 OK, 5 misses --
+### three for Component 1 (the "heading line"; the index "near 2³¹"; "short by half") and two for Component 2 (no J_max constant at the
+### script's head; J_max = 40 below D = 66 at t = 100) -- raised to the author in one prompt before Component 1; the author's word banked
+### (data/b662_author_answers.txt): J_EXTRA 8 -> 40, J_max = D + 40; the banks' figures in the record lines; each miss the navigator's
+### (data/b662_defects.txt (a)-(d)).
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R272) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b662_ferry.txt by the same tool, from the session transcript; the ferry scan 0 hits (data/b662_ferry_scan.txt); relay 4545c986.
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 5788 MB
+### orphans: NONE at the start. The first detached test loop ran under a bash with no PATH (ls and grep not found; defect (e)): its tree --
+### the loop 28552 and its child shell 33508 (bash.exe ...\scratchpad\b662_tests_loop.sh), python 960 (tools/b662_tests.py run test_asof.py),
+### python 19464 (D:\relay\tools\test_asof.py), python 28968 (D:\relay\tools\b566_checks.py --rerun-postpush ...asof_b566_lines_false.txt)
+### -- stopped by PID, none left; no bank written by it. Read again after the second loop stopped: NONE ; free memory 5472 MB.
+
+### b661's closing push-out bank committed at the start: relay 4545c986 (data/b661_closing_push_out.txt, as b661's push wrote it), with the
+### citation check, the ferry and its scan.
+
+### the b661 branches, listed by `git branch --merged main` and deleted by name with the lower-case flag in the same command, read back:
+  relay                             listed push-b661, push-b661-closing, push-b661-root ; deleted push-b661 (was 85bcb701), push-b661-root
+                                    (was fb80b514), push-b661-closing (was 6cca73cf)
+  PLACE-papers                      listed push-b661, push-b661-root ; deleted push-b661 (was 13ee2d4), push-b661-root (was 3e922e5)
+
+### every test file under tools/ (data/b662_tests_stepzero.txt, .json): tools/b662_tests.py (carried from b661_tests.py, written whole by the
+### Write tool; the lists in force after b661, unchanged), one python process per test from a detached bash loop in the scratchpad, its PATH
+### set (the second loop), watched from the foreground:
+  TEST FILES 54 ; RUN 53 ; WITHHELD 1 ; NOT CLEAN 2:
+    test_chain_page.py (9) -- carried as W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE's case (OPEN_TRAILS :13838); the same at b659-b661.
+    test_chain_page_b638.py (4)-(7) -- as carried since b643; 3 of 7.
+    test_elab_reader_b634.py -- WITHHELD: no lean run on this host in this act (data/b662_tests_withheld.json).
+  the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### no build on this host: no lean or lake process started by this act.

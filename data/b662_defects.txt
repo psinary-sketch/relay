@@ -1,0 +1,23 @@
+b662 -- THE DEFECTS, WRITTEN AS THE ACT RAN (2026-10-13): THE SUCCESSOR OF data/b661_defects.txt
+
+### CARRIED FROM b661: (d), b660's in-place line of data/b650_same_season_last_year.txt, repaired by this act's dated line under (R272)(5).
+
+### THE ACT'S OWN. Rows are lettered defects, each with its owner and the line that shows it. (a)-(d) were found by the citation check
+### (relay data/b662_citation_check.txt, the gate step of (R272)(4), before the ferry was banked) and raised in one prompt before Component 1;
+### the author's word (data/b662_author_answers.txt): the ruling's wording yields to the script's and the bank's own line, the difference
+### printed, each recorded as the navigator's.
+    (a) THE NAVIGATOR'S: A CONSTANT THE SCRIPT DOES NOT HAVE, AND A CAP BELOW D. (R272)(3) asked for "one constant at its head, J_max = 40
+    for every cell"; tools/b661_map.py carries J_EXTRA = 8 at :27 and computes J_max = D + J_EXTRA per cell at :245, and D = 66 at t = 100
+    exceeds 40, leaving the theorem's hj : D ≤ j no index to read there. On the author's word: J_EXTRA 8 -> 40, every cell reading j in
+    [D, D + 40], the bank saying J_max = D + 40, N3 read accordingly.
+    (b) THE NAVIGATOR'S: A LINE NAMED WITHOUT READING git show. (R272)(5) said 7ebd1c4d rewrote the file's "heading line"; it rewrote the
+    section's last line ("-- the author's confirmation: asked in the one prompt of (R270)(6) ..."), the heading line unchanged -- from not
+    running git show before writing the clause.
+    (c) THE NAVIGATOR'S: A BANK'S FIGURE PARAPHRASED, THE INDEX. (R272)(2) said the sufficient index "sits near 2³¹"; the control prints the
+    index j = 31 (relay data/b661_map_control.txt), the window's power 2^(j+1) = 2^32 -- from paraphrasing a bank's figure instead of quoting it.
+    (d) THE NAVIGATOR'S: A BANK'S FIGURE PARAPHRASED, THE SHORTFALL. (R272)(2) said J_max = D + 8 "was short by half at the control cell";
+    there D + 8 = 22 against j = 31, short by 9 indices, 22 of 31 -- likewise.
+    (e) THE SEAT'S: A DETACHED LOOP STARTED WITHOUT A PATH. The step-zero test loop was started by Start-Process on Git's usr/bin bash.exe
+    directly; that shell had no PATH, so `ls` and `grep` were not found, the main loop ran no test and only the four long tests started.
+    Found by reading the empty log and the loop's stderr; the tree stopped by PID (data/b662_stepzero.txt), no bank written; the script given
+    its PATH by the Edit tool and run again whole.
