@@ -509,7 +509,10 @@ def runner(*a):
         ['    ' + l for l in blog.rstrip(NL).split(NL)[-6:]] + ['    %s:%d:%d: %s' % e for e in errs[:30]] + [
           '### the print step: error lines %d%s ; names refused %s' % (len(axerr), (' -- ' + ' | '.join(axerr[:4])) if axerr else '',
                                                                        T_.get('axioms_refused.txt', '').strip() or 'NONE'), '',
-          ] + E0.RULE_TEXT + ['', '### THE GATE READING PER TERMINAL: the run`s print ; the E0 grade from the statement at the tip (declarations of '
+          ] + E0.RULE_TEXT + ['### MET at this read carries Q0Premises: %s (entered by ruling at b663, the author`s word on Component 3; the test '
+                               'tools/test_e0_rule.py case (56) before and after: relay data/b663_tests_met_before.txt, data/b663_tests_met_after.txt)'
+                               % ('Q0Premises' in E0.MET),
+                               '', '### THE GATE READING PER TERMINAL: the run`s print ; the E0 grade from the statement at the tip (declarations of '
                                '%s; the others b590`s and the schema`s, printed for the reading):' % RUN['file']]
     rows, unread = [], []
     for n in pt:

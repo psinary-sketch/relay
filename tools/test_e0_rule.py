@@ -52,6 +52,10 @@
 ###        the bank fixed, before the rule read it;
 ###   (54) the five-name test: one hypothesis planted under the names h, H, hyp, x and ξ reads one outcome;
 ###   (55) the no-class control: a binder whose type is a bare name no lexicon lists reaches no class and raises, printed as a bug, no grade.
+### b663, (R273) and the author's word on Component 3 (relay data/b663_author_answers.txt) -- Q0Premises entered in MET by ruling:
+###   (56) the instance's binder shape hP : Q0Premises Z rhs reads INTERFACES on that premise (PREDICATE-UNLISTED before the widening);
+###        its positive control, b590's EpsteinPremises at the same shape, reads INTERFACES before and after; its guard, a planted name
+###        neither listed nor met at the same shape, reads PREDICATE-UNLISTED before and after.
 ### Each new case is guarded: a rule without the grammar fails the case, it does not stop the test.
 ### The planted modules are written by this test into the directory its first argument names (a fresh temporary directory
 ### when none is given), their absolute paths printed; they are read as text and never built.
@@ -284,6 +288,11 @@ def main():
     want('(25) the qualified class name with its default measure reads %s; the bare name %s' % (a25[0], b25[0]),
          a25[0] == 'DERIVES' and b25[0] == 'DERIVES')
     binder_grammar(want, pdir)
+    a56 = E0.grade('(Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : Q0Premises Z rhs) : ¬ (q0Config Z rhs hP).target', 'theorem')
+    p56 = E0.grade('(Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : EpsteinPremises Z rhs) : ¬ (epsteinConfig Z rhs hP).target', 'theorem')
+    u56 = E0.grade('(Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) (hP : PlantedUnmetQ0 Z rhs) : ¬ (plantedConfig Z rhs hP).target', 'theorem')
+    want('(56) Q0Premises reads %s on %s; its positive control EpsteinPremises %s; its guard, an unmet name, %s' % (a56[0], a56[1], p56[0], u56[0]),
+         a56[0] == 'INTERFACES' and a56[1] == 'hP : Q0Premises Z rhs' and p56[0] == 'INTERFACES' and u56[0] == 'PREDICATE-UNLISTED')
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1

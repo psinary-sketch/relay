@@ -1,4 +1,4 @@
-b663 -- COMPONENT 3, (R273)(2), (5): THE Q0 INSTANCE ON THE HOSTED RUNNER, READ BY ITS RUN ID (2026-10-13T14:34:03Z)
+b663 -- COMPONENT 3, (R273)(2), (5): THE Q0 INSTANCE ON THE HOSTED RUNNER, READ BY ITS RUN ID (2026-10-13T14:37:07Z)
 
 ### the branch epstein-b663 at c7d2858 (pushed by name before the dispatch); the file SIDEExplicitFormula/Schema/EpsteinQ0.lean, sha256 0e979431e1b6a36bcad279ca832224447a71df168d75f75794cfd4edf22f337b, 12701 bytes; print_targets.txt at the ref: 31 names
 ### the one dispatch: at main (the workflow on main since b654), the ref input c7d28584d0976625f63014f1e9b2e21a2a0c6c76 (the branch`s tip) ; target SIDEExplicitFormula.Schema.EpsteinQ0
@@ -52,6 +52,7 @@ b663 -- COMPONENT 3, (R273)(2), (5): THE Q0 INSTANCE ON THE HOSTED RUNNER, READ 
 ### the conclusion`s leading telescope, the antecedents of its implication, the binders of an existential in it) is classed by its
 ### kind, its typing (a Prop or data, read from its type) and its Prop`s form (CLASSES, 26); the grade follows the classes` outcomes;
 ### a binder that reaches no class raises BinderUnclassed and is printed as a bug, never graded.
+### MET at this read carries Q0Premises: True (entered by ruling at b663, the author`s word on Component 3; the test tools/test_e0_rule.py case (56) before and after: relay data/b663_tests_met_before.txt, data/b663_tests_met_after.txt)
 
 ### THE GATE READING PER TERMINAL: the run`s print ; the E0 grade from the statement at the tip (declarations of SIDEExplicitFormula/Schema/EpsteinQ0.lean; the others b590`s and the schema`s, printed for the reading):
   Schema.q0OnLine                                            ['Classical.choice', 'Quot.sound', 'propext'] DEF         
@@ -68,13 +69,13 @@ b663 -- COMPONENT 3, (R273)(2), (5): THE Q0 INSTANCE ON THE HOSTED RUNNER, READ 
   Schema.Q0Count                                             ['Classical.choice', 'Quot.sound', 'propext'] DEF         
   Schema.Q0Premises                                          ['Classical.choice', 'Quot.sound', 'propext'] DEF         
   Schema.q0Config                                            ['Classical.choice', 'Quot.sound', 'propext'] DEF         
-  Schema.q0_target_false                                     ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
-  Schema.q0_h2_iff_target                                    ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
-  Schema.q0_not_h2_sign_cfg                                  ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
-  Schema.q0_not_h2_sign_cfg_rhoE                             ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
-  Schema.q0_detector                                         ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
-  Schema.q0_hA                                               ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
-  Schema.q0_rate                                             ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
+  Schema.q0_target_false                                     ['Classical.choice', 'Quot.sound', 'propext'] INTERFACES   -- hP : Q0Premises Z rhs
+  Schema.q0_h2_iff_target                                    ['Classical.choice', 'Quot.sound', 'propext'] INTERFACES   -- hP : Q0Premises Z rhs
+  Schema.q0_not_h2_sign_cfg                                  ['Classical.choice', 'Quot.sound', 'propext'] INTERFACES   -- hP : Q0Premises Z rhs
+  Schema.q0_not_h2_sign_cfg_rhoE                             ['Classical.choice', 'Quot.sound', 'propext'] INTERFACES   -- hP : Q0Premises Z rhs
+  Schema.q0_detector                                         ['Classical.choice', 'Quot.sound', 'propext'] INTERFACES   -- hP : Q0Premises Z rhs
+  Schema.q0_hA                                               ['Classical.choice', 'Quot.sound', 'propext'] INTERFACES   -- hP : Q0Premises Z rhs
+  Schema.q0_rate                                             ['Classical.choice', 'Quot.sound', 'propext'] INTERFACES   -- hP : Q0Premises Z rhs, H : PWSetup (q0Config Z rhs hP).toZeroConfig g0 L M
   Schema.rhoE                                                ['Classical.choice', 'Quot.sound', 'propext'] -           
   Schema.rhoE_re_ne_half                                     ['Classical.choice', 'Quot.sound', 'propext'] -           
   Schema.EpsteinPremises                                     ['Classical.choice', 'Quot.sound', 'propext'] -           
@@ -90,10 +91,10 @@ b663 -- COMPONENT 3, (R273)(2), (5): THE Q0 INSTANCE ON THE HOSTED RUNNER, READ 
   the build`s warning lines on the new file: 2
     warning: SIDEExplicitFormula/Schema/EpsteinQ0.lean:86:16: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
     warning: SIDEExplicitFormula/Schema/EpsteinQ0.lean:90:16: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
-  PREDICATE-UNLISTED (the E0 rule, (R243)(2): a predicate met for the first time is printed, not graded INTERFACES; MET, tools/e0_rule.py :308-:315): 7 -- q0_target_false, q0_h2_iff_target, q0_not_h2_sign_cfg, q0_not_h2_sign_cfg_rhoE, q0_detector, q0_hA, q0_rate
+  PREDICATE-UNLISTED (the E0 rule, (R243)(2): a predicate met for the first time is printed, not graded INTERFACES; MET, tools/e0_rule.py :308-:315): 0 -- NONE
 
-### ### **RUN 38413488503 ; CONCLUSION success ; ARTIFACT SHA256 114cd68ce435fabd AGREE ; MEMORY LOW 13264 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 31, PRINTED 31, AT THE STANDARD THREE OR NONE 31 ; THE NEW FILE`S DECLARATIONS 21: INTERFACES 0, DERIVES 3, DEF 11.**
-  H1 REFUTED -- the instance compiled on the runner (run 38413488503); every premise (Q0Listed, Q0Complete, Q0Count, EpsteinPremises) INTERFACES by the E0 rule beside a print at the standard three; every other declaration at the standard three or none -- REFUTED IN ONE CLAUSE: compiled, every print at the standard three, but the premise-carrying theorems grade PREDICATE-UNLISTED (hP : Q0Premises Z rhs, Q0Premises not in MET), not INTERFACES
+### ### **RUN 38413488503 ; CONCLUSION success ; ARTIFACT SHA256 114cd68ce435fabd AGREE ; MEMORY LOW 13264 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 31, PRINTED 31, AT THE STANDARD THREE OR NONE 31 ; THE NEW FILE`S DECLARATIONS 21: INTERFACES 7, DERIVES 3, DEF 11.**
+  H1 HELD -- the instance compiled on the runner (run 38413488503); every premise (Q0Listed, Q0Complete, Q0Count, EpsteinPremises) INTERFACES by the E0 rule beside a print at the standard three; every other declaration at the standard three or none
   H2 HELD -- q0_h2_iff_target := h2_sign_cfg_iff_target (q0Config Z rhs hP), one application, printed ['Classical.choice', 'Quot.sound', 'propext']
 
-### THE LANDING POINT, (R273)(5): THE INSTANCE COMPILED ON THE RUNNER, EVERY PREMISE A PROP THE SCHEMA ACCEPTS (it is consumed by epsteinConfig, the detector and the rate theorem at the standard three); THE E0 GRADE OF ITS 7 PREMISE-CARRYING THEOREMS IS PREDICATE-UNLISTED, NOT INTERFACES -- neither landing point of (R273)(5) as written; the branch unmerged pending the author`s word.
+### THE LANDING POINT, (R273)(5): THE INSTANCE COMPILED ON THE RUNNER, EVERY PREMISE A PROP THE SCHEMA ACCEPTS: to merge alone on this gate reading (Component 5).

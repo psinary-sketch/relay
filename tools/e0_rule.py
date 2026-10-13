@@ -312,7 +312,7 @@ MET = ('Alt2', 'Alternates', 'AnalyticOnNhd', 'BoundPremises', 'ConservationHypo
        'StepsMI', 'StrictMono', 'StructuralExhaustiveness', 'SymPairBound', 'Tendsto', 'TrivialSummandPremise', 'WindowObligations',
        'ZetaSeam', 'farSmall', 'identity', 'is_xi_zero', 'zeroSideNeg') + (
     # ### the author's second answer before b633's seal: MET from every row -- the six names cell-graded rows' rule readings carry
-    'Blind', 'IsPreconnected', 'LiLimitExchange', 'VerifiedZerosTo', 'factorsDark', 'isConserved') + ("TrivialSummandPremise'",)   # ### (R256)(4)(d), b646: entered by ruling
+    'Blind', 'IsPreconnected', 'LiLimitExchange', 'VerifiedZerosTo', 'factorsDark', 'isConserved') + ("TrivialSummandPremise'",) + ('Q0Premises',)   # ### (R256)(4)(d), b646: entered by ruling ; (R273), b663: Q0Premises entered by ruling (the author's word on Component 3)
 NAMED_PRED = re.compile(r"^(?:([^\W\d][\w'.₀-₉]*)((?:\s+[^\W\d][\w'₀-₉]*)+)|([^\W\d][\w'₀-₉]*)\.([^\W\d][\w'₀-₉]*))\s*$")
 
 
