@@ -1,0 +1,35 @@
+b664 -- COMPONENT 0: STEP ZERO UNDER (R274) (2026-10-13)
+
+### the citation check, the gate step standing from b662 (OPEN_TRAILS :14136), run BEFORE the ferry was banked (tools/b664_citation.py check;
+### relay data/b664_citation_check.txt): the ruling and the ferry read from the session transcript, 50 cites checked at HEAD, 49 OK, 1 miss
+### (the defects range "(a)-(r)" of a bank with no (r)), raised to the author in one prompt before Component 1; the author's word banked
+### (data/b664_author_answers.txt): the navigator's (data/b664_defects.txt (a)).
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R274) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b664_ferry.txt by the same tool, from the session transcript; the ferry scan 0 hits (data/b664_ferry_scan.txt).
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python, bash), read before any run: NONE ; free memory 4258 MB.
+### Orphans: NONE. Read again after the test loop ended: NONE.
+
+### b663's closing push-out bank committed at the start: relay b71abf77 (data/b663_closing_push_out.txt, as b663's push wrote it), with the
+### citation check, the ferry and its scan, and the citation tool.
+
+### the b663 branches, listed by `git branch --merged main` and deleted by name with the lower-case flag, one repository per call, never in
+### parallel (b663's defect (g)), read back:
+  relay                             listed push-b663, push-b663-closing, push-b663-root ; deleted push-b663 (was d1217280), push-b663-root
+                                    (was da4f3d90), push-b663-closing (was ba1ba004)
+  PLACE-papers                      listed push-b663, push-b663-root ; deleted push-b663 (was 07d147d), push-b663-root (was 6f7d9ba)
+  SIDE-explicit-formula             listed epstein-b663, push-b663-merge (and at the remote origin/epstein-b663, by --merged origin/main) ;
+                                    deleted push-b663-merge (was d00ab16), epstein-b663 (was c7d2858); the remote branch deleted alone in its
+                                    command (`git push origin --delete epstein-b663`: [deleted])
+
+### (R274)(4): the no-disclosure arm re-run over b663's kernel file, read from data/b663_epstein_instance.json (run.file) and from no constant:
+### SIDEExplicitFormula/Schema/EpsteinQ0.lean at SIDE-explicit-formula main d00ab16, 12701 bytes, hits 0 (relay data/b664_nd_rerun.txt).
+
+### every test file under tools/ (relay data/b664_tests_stepzero.txt; tools/b664_tests.py, the stage an argument and no environment variable,
+### one python process per test from a detached bash loop with its PATH set, watched from the foreground): TEST FILES 54 ; RUN 53 ; WITHHELD 1
+### (test_elab_reader_b634.py, no lean on this host) ; NOT CLEAN 3 -- test_chain_page.py (9) and test_chain_page_b638.py (4)-(7), as at
+### b662's and b663's step zero; test_met_b646.py (2), new: b663's ruled MET line breaks the b646 test's "nothing else" case
+### (data/b664_defects.txt (b663-late)), raised to the author with this act's prompt.
+
+### the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE; the untracked files of earlier acts untracked,
+### as before. No build on this host.
