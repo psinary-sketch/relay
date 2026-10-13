@@ -1,0 +1,52 @@
+b665 -- THE READ-FIRST, CITED BY PATH AND LINE, EACH BANK'S ROW UNIT NAMED (2026-10-13), under (R275)'s ferry
+
+### relay data/b664_closing.txt -- rows are the closing's lines (a head line, the sealed tools' hashes, the record, the carried-forward list).
+###   :1 "b664 closed: relay 05bf7a5b, PLACE-papers b1a2bab; suite 82 of 83; root 1bd81723b37101b4…; 5 prompts answered; 5 defects" (05bf7a5b the
+###   record commit; the closing's own commit efdd9309); :166 CARRIED FORWARD; :167 (a) the next act b665, the Keiper face's finite-n equality and
+###   the transform-bound order; :174 (c) SIDE-effects' first relay print bank (34 declarations); :177 (e) G-AXIOM-CLAIM's SIDE-cosmo
+###   contradiction, declared until SIDE-cosmo's re-cut act.
+### relay data/b664_defects.txt -- rows are defects, as lettered there: :5 (b663-late) the navigator's, on the author's word; :15 (a) and :18 (b)
+###   the navigator's; :23 (c) and :28 (d) the seat's. Five rows.
+### relay data/b589_three_way.txt -- rows are n = 1..12 (:7-:18), each with the Keiper value at 70 digits and its floor 1e-45, the zero-sum value
+###   (Lambda_N + T2) and its floor, the arithmetic value Z(n,0) and its floor, the three ratios and BALPOS beside; :22 H30a HOLDS (36
+###   comparisons, 0 misses). The Keiper route's formula at :3: lambda_n = n SUM C(n-1, j-1) eta_j, eta_j the Taylor coefficients of log xi at
+###   s = 1, mpmath 1.3.0, Stieltjes constants.
+### relay data/b589_keiper_read.txt -- rows are search hits (Mathlib at de5ce8a9) under three searches and the re-price: :3 the Stieltjes
+###   constants by name, 386 hits, 287 after the measure-theoretic StieltjesFunction set aside -- none a Stieltjes constant; :170 READ:
+###   riemannZeta_residue_one (RiemannZeta.lean :242), tendsto_riemannZeta_sub_one_div (ZetaAsymp.lean :342); :172 THE PRICE, TWO LEMMAS OF
+###   SUBSTANCE: (1) the Keiper-Taylor identity, (2) computable two-sided bounds.
+### relay data/b641_keiper_status.txt -- rows are Keiper's seven obligations: (K1) binomial, (K2) split, (K3) stieltjesLog, (K4) gammaZeta of
+###   KeiperObligations; (B1)-(B3) of BoundPremises. K1-K3 are the "K1-K3 identities" (R275)(2) names.
+
+### SIDE-explicit-formula at main d00ab16 = v0.29:
+###   SIDEExplicitFormula/KeiperIdentities.lean :197 binomialTransform_holds (K1), :295 logDerivSplit_holds (K2), :358 stieltjesLog_holds (K3);
+###     first carried by tag v0.26 (commit b7e4459, act b642). K4 GammaRZetaValues not proved (the file's header :20-:22).
+###   SIDEExplicitFormula/Keiper.lean (b601) :47 stieltjes n := (-1)^n iteratedDeriv n riemannZeta₀ 1 (the Stieltjes constants, a kernel definition
+###     by derivative); :54 stieltjes_zero (= γ); :76 xiLogCoeff, :79 zetaLogCoeff, :82 gammaRLogCoeff (Taylor coefficients at 1 of the three
+###     logarithmic derivatives); :86 keiperA k := (-1)^k + zetaLogCoeff k + gammaRLogCoeff k; :89 keiperSum n := SUM_{k <= n} C(n+1, k+1) keiperA k;
+###     :92 KeiperTaylor := forall n, taylorCoeff riemannXi n = keiperSum n; :95 poleCoeff; :101 StieltjesLog; :107 GammaRZetaValues; :126
+###     KeiperObligations; :133 keiperTaylorIdentity_of (its first conjunct uses binomial and split alone, :136-:137); :239 liCoeff_one_keiper.
+###   SIDEExplicitFormula/LiCriterionBridge.lean :149 li_coeff_eq_taylorCoeff (n) : LiCoeff (n + 1) = (taylorCoeff riemannXi n).re -- first
+###     carried by tag v0.9 (commit d780a27).
+###   SIDEExplicitFormula/LiWeil.lean :243 def LiCoeff (n) : ℝ := (1/2) SUM' over zetaZeroConfig of mult * Re pairTerm n.
+###   SIDEExplicitFormula/Schema/Detector.lean :33 def baseWidth ρ := 1 / (4 (‖γ(ρ)‖ + 1)); :40 def detectorBase ρ := plateau (1/2) (baseWidth ρ).
+###   SIDEExplicitFormula/TwoPropertyWindow.lean :56 def plateau F L (support [-L, L], flat on [-(1-F)L, (1-F)L]); :60 plateau_contDiff (C^n for
+###     every n); :69 plateau_even; :76 plateau_hasCompactSupport.
+###   SIDEExplicitFormula/PowerWindow.lean :247 plateau_support_Icc; :261 plateau_nonneg.
+###   SIDEExplicitFormula/DecayBound.lean :63 paperFT_decay p : ‖paperFT (phiC g) z‖ ‖z‖^p ≤ (∫ |g^(p)|) exp(L |Im z|), for g C^p supported in
+###     [-L, L] -- the kernel's integration by parts, p times.
+###   SIDEExplicitFormula/PowerLimit.lean :825 hsA (zero_weight's fourth-order bound, the height near 629 b663 printed beside).
+
+### Mathlib at D:/SIDE-explicit-formula/.lake/packages/mathlib HEAD de5ce8a9: Mathlib/NumberTheory/LSeries/RiemannZeta.lean :242
+###   riemannZeta_residue_one; Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean :128 Real.eulerMascheroniConstant;
+###   Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean :342 tendsto_riemannZeta_sub_one_div; Mathlib/Analysis/SpecialFunctions/Gamma/Digamma.lean :47
+###   digamma_one, :50 digamma_one_half. The search for higher Stieltjes constants re-run at step zero (git grep -i stieltjes over Mathlib/*.lean):
+###   386 hits, none naming a Stieltjes constant once the measure-theoretic objects are set aside -- printed in the statement bank (Component 2).
+
+### relay data/b663_epstein_control.txt -- rows are the control's certified lines per configuration: :61 B1 (offScore g0 ρ / M ≤ 2 e^{ℓ/2}/(150 M),
+###   "certified on B1 (READ), not a kernel lemma"); :68 hθ at Q0 ("the points above T certified on B1 (READ), not a kernel lemma").
+### relay data/b663_epstein_plan.txt -- rows are the plan's lines: :107 the form 2 e^{ℓ/2}/|z| with |Im z| ≤ 1/2; :155-:163 B1 and its
+###   DERIVATION (one integration by parts, the boundary terms 0 at ±ℓ, ∫|g0'| = 2, |paperFT g0 z| ≤ 2 e^{ℓ |Im z|}/|z| at :160).
+### PLACE-papers OPEN_TRAILS.md :14162 W-ORD-FT-FIRST-ORDER (the transform-bound order), :14186 the order joined to b665, :14188
+###   W-ORD-EPSTEIN-CERTIFY as b667.
+### relay data/b664_closing_push_out.txt -- the closing push's capture, committed at the start (relay 0b2d09ce).
