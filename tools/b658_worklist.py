@@ -48,7 +48,8 @@ ZETA_TERMINALS = ('SIDEExplicitFormula.B321.rest_norm_le_rate', 'SIDEExplicitFor
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b657's face
 # ### (b657's own act arms not carried). Each run at HEAD and counted before the face names it. Named at Component 5.
-ACT_ARMS = ()
+ACT_ARMS = ('G-R268-ENTERED', 'G-EMPHASES-LINE', 'G-SPLITTER-REPAIRED', 'G-DRY-STEP-CLEAN', 'G-STATEMENT-TRACED', 'G-PROMPT-BEFORE-LEAN',
+            'G-CFG-LANDED', 'G-ZETA-PRINT-UNCHANGED', 'G-PRINT-TARGETS')
 B657_ACT_ARMS = ('G-R267-ENTERED', 'G-DRY-STEP-LINE', 'G-DRY-STEP-CLEAN', 'G-KERNEL-NAMED', 'G-SENTENCES-BANKED', 'G-GRADES-VERBATIM', 'G-H2-ROW',
                  'G-REGRADE-BANKED', 'G-PROMPTS-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE')
 

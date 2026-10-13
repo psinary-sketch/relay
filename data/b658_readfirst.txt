@@ -1,0 +1,36 @@
+b658 -- THE READ-FIRST, UNDER (R268): EACH SOURCE CITED BY PATH AND LINE, THE UNIT OF EACH BANK'S ROWS NAMED (2026-10-12)
+
+### written after Component 4, not before Component 1 (relay data/b658_defects.txt (d)); every source below was read before the bank or the
+### Lean that rests on it (the session's command bank, relay data/b658_commands.txt, carries each read in order).
+
+### relay data/b657_closing.txt -- rows are the closing record's lines (147); the weight as (R268)(1) prints it:
+  :1    b657 closed: relay e93ce54f, PLACE-papers 3f0e33f; suite 78 of 79; root c2efb9206d51f0d6...; 2 prompts answered; 3 defects
+  :25   SIDE-lv-conservation docstrings-cut at c230e6d8 ; run 38305820585 ; memory low 12672 MB ; gate DERIVES ; merged 8e3bc76 ; tag v0.13.0
+  :29   the mirror at mirror-refresh-2026-10-12-b657.zip ; MANIFEST md5 6f6768558061aff6c6ea1e279f4fcd50
+  :133-:134 (a) THE NEXT ACT, (R267)(6): b658, the research act, W-ORD-E1-CFG
+  :142-:144 (f) the branches left for this step zero (push-b657-merge alone in SIDE-lv-conservation)
+### relay data/b657_defects.txt -- rows are lettered defects: (a) :6 the cut planner dropping emphasis marks at a sentence's end (#38, #39
+### ZeroActingPartial.lean); (b) :7 a re-run reading a cut one-word row as standing; (c) :8 an arm counting one bank's rows by another's number.
+### relay data/b657_closing_push_out.txt -- rows are push_gated's capture lines (6); committed at c4a45cbb with the ferry.
+
+### relay data/b656_e1_binding.txt -- rows are quantities (section 1, :48-:133, one per quantity); the obstructions by line:
+  :17-:20  (O-1) E1 as stated is at zetaZeroConfig alone; its tie set does not bind at a cell
+  :34-:38  (O-2) no rate theorem over a WeilConfig at v0.27; Converse.lean carries the limit form zeroSide_eventually_neg_cfg (:161) alone
+  :40-:43  (O-3) A₀ at the full configuration existential (LocalCount.lean :287)
+### relay data/b654_e1_statement.txt -- rows are the draft's statements and its hypothesis rows: :16 the lemma as drafted, :39 its one helper,
+### :54 each hypothesis named against its b559 source line. relay data/b654_e1.txt -- rows are the landing's lines (13): :7 sorry 0; :13 E1 LANDS
+### DERIVES AT THE STANDARD THREE ON THE RUNNER.
+
+### SIDE-explicit-formula at v0.27 = main 111e418b:
+  SIDEExplicitFormula/RateIndex.lean :27-:106 rest_norm_le_rate (its proof :37-:106), :113-:188 zeroSide_neg_at_rate (its proof :127-:188)
+  SIDEExplicitFormula/Schema/Converse.lean :24 `variable {C : WeilConfig}`, the structure the _cfg declarations range over; :28 dominant_summable_cfg,
+      :43 fR_cfg, :48 fR_norm_le_cfg, :65 fR_bound_cfg, :151 sT_cfg, :154 mem_sT_cfg, :161 zeroSide_eventually_neg_cfg, :265 h2_sign_cfg_iff_target
+  SIDEExplicitFormula/Schema/Config.lean :24-:34 the structure WeilConfig (its count field :31), :37 zeroSide_cfg
+  SIDEExplicitFormula/Schema/Instances.lean :25-:37 zetaWeilConfig := { Zeta23.zetaZeroConfig with ... }; :43-:45 h2_sign_cfg_zeta_statement by
+      rfl, the v0.15 form of the ζ instance
+  Zeta23/RvM/LocalCount.lean :282 zeta_local_zero_count, ζ's local count existential, its constant `max 1 (max (2 * A₁) K)` at :287
+  SIDEExplicitFormula/PowerLimit.lean :245 PWSetup over any ZeroConfig; :949-:960 dominant_summable, ζ's count at :952; :1082 zeroSide_eventually_neg
+  .github/workflows/build-module.yml :77-:83 the print step naming E1's three terminals in its own text (relay data/b658_defects.txt (c))
+
+### the sentence splitter's planner -- relay tools/b647_record.py :846 `_MSPLIT` (before the repair: `(?<=[.!?])["\'*)\]]*\s+(?=\S)`); read by
+### tools/b657_record.py :280 (the sentence rows), :351 and :369 (the plain-comment screens) through `B7._MSPLIT.split`.

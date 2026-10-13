@@ -261,21 +261,19 @@ def msplit(*a):
     """(R268)(2): the planted test run against the splitter before the repair (b647_record.py at relay `pre`, the commit before the repair) and
     after it (the working file); and the real state: every comment block of ZeroActingPartial.lean at SIDE-lv-conservation b4c55b9 (the text
     b657's cut was planned on), the characters each split loses. Banked as data/b658_msplit.txt and .json."""
-    import shutil
     import tempfile
     pre = a[0] if a else 'HEAD~1'
     import b647_record as NEW
-    d = tempfile.mkdtemp(prefix='b658_ms_')
-    old_path = os.path.join(d, 'b647_record.py')
-    open(old_path, 'wb').write(subprocess.run(['git', '-C', ROOT, 'show', '%s:tools/b647_record.py' % pre], capture_output=True).stdout)
     out = {}
-    for name, path in (('before', old_path), ('after', os.path.join(T, 'b647_record.py'))):
-        r = subprocess.run([sys.executable, os.path.join(T, 'test_msplit_b658.py'), path], capture_output=True, text=True, encoding='utf-8',
-                           errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'), cwd=ROOT)
-        cases = [l for l in (r.stdout or '').split(NL) if re.match(r'^  \(\d+\) ', l)]
-        fails = [re.match(r'^  (\(\d+\))', c).group(1) for c in cases if not c.rstrip().endswith('PASS')]
-        out[name] = dict(rc=r.returncode, cases=len(cases), failing=fails, last=(r.stdout or '').strip().split(NL)[-1], output=r.stdout)
-    shutil.rmtree(d)
+    with tempfile.TemporaryDirectory(prefix='b658_ms_') as d:
+        old_path = os.path.join(d, 'b647_record.py')
+        open(old_path, 'wb').write(subprocess.run(['git', '-C', ROOT, 'show', '%s:tools/b647_record.py' % pre], capture_output=True).stdout)
+        for name, path in (('before', old_path), ('after', os.path.join(T, 'b647_record.py'))):
+            r = subprocess.run([sys.executable, os.path.join(T, 'test_msplit_b658.py'), path], capture_output=True, text=True, encoding='utf-8',
+                               errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'), cwd=ROOT)
+            cases = [l for l in (r.stdout or '').split(NL) if re.match(r'^  \(\d+\) ', l)]
+            fails = [re.match(r'^  (\(\d+\))', c).group(1) for c in cases if not c.rstrip().endswith('PASS')]
+            out[name] = dict(rc=r.returncode, cases=len(cases), failing=fails, last=(r.stdout or '').strip().split(NL)[-1], output=r.stdout)
     pat_old = OLD_SPLIT.pattern
     if NEW._MSPLIT.pattern == pat_old:
         sys.exit('### THE SPLITTER IS NOT REPAIRED IN THE WORKING FILE -- NOTHING WRITTEN')
@@ -615,6 +613,447 @@ def landing(*a):
     put_json('b658_e1cfg.json', dict(at=utc(), landing=land_, zeta_form=zeta_form, gates=dict(g), errors=errs, decls=decls,
                                      statements_as_drafted=dict(stmt_same), tip=R['ref']))
     print(NL.join(L[-14:]))
+
+
+# ================================================================================ COMPONENT 5: THE FACE`S BANKS, THE ROOT, THE SCORES, THE RECORD
+import collections   # noqa: E402
+
+
+def kernels(*a):
+    import b641_record as R41
+    put_json('b658_kernels_face.json', dict(at=utc(), kernels=R3.kern_state(list(R41.KERNS_READ))))
+    print('  kernels read: %d' % len(R41.KERNS_READ))
+
+
+def _defect_short():
+    return [re.match(r'^\(([a-z])\) ([^.]*)\.', l.strip()).group(0)[:-1] for l in rdn('b658_defects.txt').split(NL)
+            if re.match(r'^    \([a-z]\) [^.]*\.', l)]
+
+
+def defects(*a):
+    t = rdn('b658_defects.txt')
+    ds = [l.strip() for l in t.split(NL) if re.match(r'^    \([a-z]\) ', l)]
+    put_json('b658_defects.json', dict(at=utc(), defects=ds, short=_defect_short()))
+    print('  defects %d' % len(ds))
+
+
+def seal_hashes():
+    import hashlib
+    rec_ = jl('b658_seal_hashes.json').get('tools') or {}
+    now = {}
+    for t in K.SEALED:
+        p = os.path.join(ROOT, 'tools', t)
+        now[t] = hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else None
+    out = [(t, 'absent' if (t not in rec_ or now[t] is None) else ('agree' if rec_[t] == now[t] else 'differ')) for t in K.SEALED]
+    return rec_, now, out
+
+
+ROOT_EXCLUDE = re.compile(r'^b658_(defects|scores|desk_notes|components|checks.*|lsr.*|exercise|findings|trail|closing.*|'
+                          r'act_root.*|root_arm.*|.*push_out.*|scanfile_.*|seal_check_.*|census_closing|faces_census_closing|pins_closing|commands)\.(txt|json|md)$')
+
+
+def root_banks():
+    return sorted('data/' + f for f in os.listdir(D) if f.startswith('b658_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f))
+
+
+def root(*a):
+    banks = root_banks()
+    crlf = [b for b in banks if b'\r\n' in open(os.path.join(ROOT, *b.split('/')), 'rb').read()]
+    print('  banks named: %d ; the seal bank among them %s ; written with CR LF: %s' % (len(banks), 'data/b658_seal_hashes.json' in banks, crlf or 'none'))
+    if crlf:
+        sys.exit('### A BANK THE ROOT WOULD NAME IS CR LF -- NOTHING WRITTEN')
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'act_root.py'), 'compute', 'b658'] + banks + ([] if 'dry' in a else ['--write']),
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    print(NL.join(((r.stdout or '') + (r.stderr or '')).rstrip(NL).split(NL)[-4:]))
+    if r.returncode:
+        sys.exit('### act_root.py exit %d' % r.returncode)
+
+
+def root_arm(*a):
+    import tempfile
+    import act_root as AR
+    J = jl('b658_act_root.json')
+    bank_ = [it.split()[0] for it in J['items'] if it.startswith('data/')][0]
+    with tempfile.TemporaryDirectory(prefix='b658_ra_') as tmp:
+        cp = os.path.join(tmp, os.path.basename(bank_))
+        b = bytearray(open(os.path.join(ROOT, *bank_.split('/')), 'rb').read())
+        b[0] ^= 0x01
+        open(cp, 'wb').write(bytes(b))
+        items2 = [('%s %s' % (bank_, AR.sha256_file(cp)) if it.split()[0] == bank_ else it) for it in J['items']]
+    r2 = AR.root_of(items2, J['previous'])
+    same = AR.root_of(J['items'], J['previous'])
+    late = []
+    for it in J['items']:
+        p = it.split()
+        if p[0].startswith('data/'):
+            fp = os.path.join(ROOT, *p[0].split('/'))
+            if not os.path.exists(fp) or AR.sha256_file(fp) != p[1]:
+                late.append('%s changed' % p[0])
+            elif os.path.getmtime(fp) > J.get('at_epoch', 0) + AR.ORDER_SLACK:
+                late.append('%s written after the root' % p[0])
+    L = ['b658 -- THE ACT-ROOT ARM`S OFFLINE CONTROL AND THE ROOT ORDER READ LOCALLY (%s)' % utc(), '',
+         '### the root`s time %s ; its recorded commit %s ; banks named %d ; changed or written after the root: %s' % (
+             J.get('at'), (J.get('commit') or {}).get('relay', '?')[:12], len([i for i in J['items'] if i.startswith('data/')]), late or 'NONE'),
+         '### ### **THE RECOMPUTED ROOT EQUALS THE TOOL`S %s ; THE ONE-BYTE CONTROL CHANGES IT %s ; THE ROOT ORDER HOLDS LOCALLY %s.**' % (
+             same == J['root'], r2 != J['root'], not late)]
+    put_txt('b658_root_arm.txt', L)
+    put_json('b658_root_arm.json', dict(at=utc(), bank=bank_, root_copy=r2, root_recomputed=same, root=J['root'], late=late))
+    print(L[-1])
+
+
+def _rows_state(rows):
+    return dict(((r['repo'], r['name']), (r.get('grade'), r.get('profile'), r.get('provenance'))) for r in rows)
+
+
+def table_final(*a):
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b658 -- THE TERMINAL TABLE REGENERATED, final (%s); exit %d ; against relay HEAD %s' % (utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved))]
+    L += ['    added   %s / %s' % k for k in added[:60]] + ['    gone    %s / %s' % k for k in gone[:60]] + [
+        '    moved   %s / %s : %s -> %s' % (k[0], k[1], before[k], after[k]) for k in moved[:60]]
+    L += ['### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b658_table_final.txt', L)
+    put_json('b658_table_final.json', dict(at=utc(), rc=r.returncode, moved=[list(k) for k in moved], added=[list(k) for k in added],
+                                           gone=[list(k) for k in gone], grade_moved=[list(k) for k in moved if before[k][0] != after[k][0]]))
+    print(L[-1])
+
+
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+SK = ('S1', 'S2', 'S3')
+SCORE_KEYS = NK + SK
+N5_RELAY_DATA = ('act_roots.txt', 'b657_closing_push_out.txt')
+N5_RELAY_TOOLS = ('b647_record.py', 'test_msplit_b658.py')
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md')
+N5_EF = ['.github/workflows/build-module.yml', 'SIDEExplicitFormula/Schema/RateIndexCfg.lean', 'print_targets.txt']
+FACE = os.path.join(D, 'b658_registration_2026-10-12.txt')
+
+
+def TRAIL_HEAD():
+    return ('### b658 — lane two, act eighty-five, the research act under (R268): b657 at its weight; the splitter repaired; E1 over a '
+            'configuration stated in a bank, built on the runner and merged, ζ the instance by rfl')
+
+
+def _ct(repo, *a):
+    s = g(repo, 'log', '-1', '--format=%ct', *a).strip()
+    return int(s) if s.isdigit() else None
+
+
+def _iso(s):
+    import calendar
+    try:
+        return calendar.timegm(time.strptime((s or '')[:19], '%Y-%m-%dT%H:%M:%S'))
+    except Exception:
+        return None
+
+
+def trace_check():
+    """every hypothesis row of the statement bank read through read_trace_row, and each cited line of RateIndex.lean at v0.27 read for its
+    binder; returns (rows, [(id, lines missing the binder)])."""
+    src = (_show(K.EF, K.EF_TAG, 'SIDEExplicitFormula/RateIndex.lean') or '').split(NL)
+    tok = {'H1': 'H', 'H2': 'Q', 'H3': 'B', 'H4': 'D', 'H5': 'hQtie', 'H6': 'hQb', 'H7': 'θ', 'H8': 'hθ', 'H9': 'hA', 'H10': 'j', 'H11': 'hrate'}
+    rows, bad = [], []
+    for l in rdn('b658_e1cfg_statement.txt').split(NL):
+        if not l.startswith('  H'):
+            continue
+        i, b, ls, _h = read_trace_row(l)
+        rows.append(i)
+        t = tok.get(i)
+        miss = [n for n in ls if not t or n > len(src) or not re.search(r'(?<![\w.])' + re.escape(t) + r'(?![\w₀])', src[n - 1])]
+        if miss or not ls:
+            bad.append((i, miss))
+    return rows, bad
+
+
+def _first_lean_ct():
+    """the first commit on the branch that writes a .lean file: the first Lean byte of the act."""
+    for l in g(K.EF, 'log', '--reverse', '--format=%H %ct', K.EF_MAIN + '..' + K.RUNNER[K.KERNEL]['ref']).split(NL):
+        if l.strip():
+            h, ct = l.split()
+            if any(f.endswith('.lean') for f in g(K.EF, 'show', '--name-only', '--pretty=format:', h).split(NL)):
+                return int(ct)
+    return None
+
+
+def _n2():
+    rows, bad = trace_check()
+    aj = jl('b658_author_answers.json').get('calls') or []
+    last_ans = max((_iso(c.get('result_ts')) or 0) for c in aj) if aj else None
+    fl = _first_lean_ct()
+    ok = len(rows) == 11 and not bad and last_ans and fl and last_ans < fl and len(aj) == 1
+    return ('HELD' if ok else 'REFUTED'), (
+        'hypothesis rows of the statement bank %d, each read through its reader and each cited line of RateIndex.lean at %s carrying its binder: '
+        '%s; the one prompt answered at %s, the first Lean byte (the branch`s first .lean commit) at %s -- the answer first %s' % (
+            len(rows), K.EF_TAG, 'ALL' if not bad else 'NOT %s' % bad, time.strftime('%H:%M:%SZ', time.gmtime(last_ans)) if last_ans else '?',
+            time.strftime('%H:%M:%SZ', time.gmtime(fl)) if fl else '?', bool(last_ans and fl and last_ans < fl)))
+
+
+def _n3():
+    lj = jl('b658_e1cfg.json')
+    rr = dict((r['kernel'], r) for r in jl('b658_runner_rows.json').get('rows') or []).get(K.KERNEL) or {}
+    ri_same = _show(K.EF, 'main', 'SIDEExplicitFormula/RateIndex.lean') == _show(K.EF, K.EF_TAG, 'SIDEExplicitFormula/RateIndex.lean')
+    cfg_main = _show(K.EF, 'main', CFG_FILE) or ''
+    sorry_main = len(re.findall(r'\bsorry\b', cfg_main))
+    ok = (lj.get('landing') == 'DERIVES' and lj.get('zeta_form') in ('rfl', 'one application') and rr.get('zeta_unchanged')
+          and ri_same and cfg_main and sorry_main == 0 and rr.get('merged') and all((lj.get('statements_as_drafted') or {}).values()))
+    return ('HELD' if ok else 'REFUTED'), (
+        'the landing point banked: %s, the ζ instance by %s, the statements as drafted %s; zeroSide_neg_at_rate`s print against b654`s run %s, '
+        'RateIndex.lean at main equal to %s`s %s; sorry in the configuration file at main %d; merged %s tag %s' % (
+            lj.get('landing'), lj.get('zeta_form'), lj.get('statements_as_drafted'), 'UNCHANGED' if rr.get('zeta_unchanged') else '### CHANGED OR UNREAD',
+            K.EF_TAG, ri_same, sorry_main, rr.get('merged'), rr.get('tag')))
+
+
+def _n4():
+    mj = jl('b658_msplit.json')
+    b, a_ = mj.get('before') or {}, mj.get('after') or {}
+    ok = a_.get('cases') == 7 and a_.get('failing') == [] and a_.get('rc') == 0 and b.get('rc') == 1 and b.get('failing') \
+        and sum(1 for x in mj.get('real') or [] if x[1]) > 0 and not any(x[2] for x in mj.get('real') or [])
+    return ('HELD' if ok else 'REFUTED'), (
+        'the planted test after the repair %s of %s passing (exit %s); on its positive control, the splitter before the repair at relay %s: '
+        'failing %s (exit %s); at SIDE-lv-conservation b4c55b9 blocks losing a mark before %d, after %d (relay data/b658_msplit.txt)' % (
+            (a_.get('cases') or 0) - len(a_.get('failing') or []), a_.get('cases'), a_.get('rc'), mj.get('pre'), b.get('failing'), b.get('rc'),
+            sum(1 for x in mj.get('real') or [] if x[1]), sum(1 for x in mj.get('real') or [] if x[2])))
+
+
+def _n5():
+    face = jl('b658_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    others_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b658_|audit_b658_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in N5_RELAY_DATA)
+                                                or (x.startswith('tools/') and x[6:] in N5_RELAY_TOOLS))]
+    km = [l for l in g(K.EF, 'log', '--first-parent', '--format=%h %p', K.EF_MAIN + '..main').split(NL) if l.strip()]
+    rr = dict((r['kernel'], r) for r in jl('b658_runner_rows.json').get('rows') or []).get(K.KERNEL) or {}
+    km_ok = len(km) == 1 and len(km[0].split()) == 3 and km[0].split()[0] == rr.get('merged')
+    ef_files = sorted(x for x in g(K.EF, 'diff', '--name-only', K.EF_MAIN, 'main').split(NL) if x.strip())
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    import b658_checks as CH
+    new_arms = sorted(set(a[0] for a in CH.ARMS) - set(CH.STANDING) - set(K.ACT_ARMS))
+    ok = others_ok and not pp_beyond and not kinds_beyond and not differ and km_ok and not new_arms and ef_files == sorted(N5_EF)
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unsubmitted); SIDE-explicit-formula`s main written by the one merge under '
+            'Component 4 alone (first-parent commits since %s: %s ; %s), its files against %s: %s; every kernel as the face read it %s; standing '
+            'arms added: %s (the act`s arms over its own banks %d); sealed tools not agreeing %s; PLACE-papers beyond FINDINGS and OPEN_TRAILS: %s; '
+            'relay files of a kind beyond the banks, the tools, the splitter and its test and the root list: %s; no identifier of the author in any '
+            'outbound request (git pushes, remote reads, the runner`s dispatch with a ref and a target, the artifact`s download)' % (
+                K.DRAFT, K.EF_MAIN, [l.split()[0] for l in km], 'AS RULED' if km_ok else '### OTHERWISE', K.EF_MAIN, ef_files, others_ok,
+                new_arms or 'NONE', len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE', kinds_beyond or 'NONE'))
+
+
+def scores(*a):
+    TF, RA = jl('b658_table_final.json'), jl('b658_root_arm.json')
+    _r, _n, sh = seal_hashes()
+    cm = jl('b658_commands.json')
+    S = {
+        'N1': (('HELD' if cm and not cm.get('local_lean') else 'REFUTED'),
+               'commands of this act that run lean or lake on this host: %s (relay data/b658_commands.txt); the build on the hosted runner alone' % (
+                   cm.get('local_lean') if cm else '### UNREAD')),
+        'N2': _n2(), 'N3': _n3(), 'N4': _n4(), 'N5': _n5(),
+        'S1': (('HELD' if not TF.get('gone') and not TF.get('grade_moved') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s, grade moved %s' % (
+                   len(TF.get('moved') or []), len(TF.get('gone') or []), len(TF.get('added') or []), len(TF.get('grade_moved') or []))),
+        'S2': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S3': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    put_json('b658_scores.json', dict((k2, list(v)) for k2, v in S.items()))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:500]))
+
+
+NEXT_LINE = ('b659, per `(R268)`(6), the re-cut act on the next kernel by descending OVERREACHES count under `(R265)`’s form; b660 the reading act')
+
+
+def _title():
+    lj = jl('b658_e1cfg.json')
+    land_ = lj.get('landing') or 'its landing point'
+    return '## E1 over a configuration: %s on the runner, ζ the instance by %s; the splitter repaired' % (
+        land_, lj.get('zeta_form') or 'rfl')
+
+
+def _sv(S, k):
+    return read_score_row(k, S.get(k) or ['?', ''])[1] if S.get(k) else '?'
+
+
+def _finding_text():
+    S, rl, J, lj = jl('b658_scores.json'), jl('b658_record_lines.json'), jl('b658_act_root.json'), jl('b658_e1cfg.json')
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b658_author_answers.txt'), re.M))
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    rr = dict((r['kernel'], r) for r in jl('b658_runner_rows.json').get('rows') or []).get(K.KERNEL) or {}
+    mj = jl('b658_msplit.json')
+    e = ['', _title(), '',
+         '*Filed at b658 on the author’s ruling `(R268)`, the author’s three answers and the one prompt (%d). Banks: relay '
+         '`data/b658_e1cfg_statement.txt`, `data/b658_e1cfg.txt`, `data/b658_runner_SIDE-explicit-formula.txt`, `data/b658_msplit.txt`, '
+         '`data/b658_act_root.txt`.*' % n_ans, '',
+         '**The statement** (`(R268)`(3)): E1’s two statements carried from `zetaZeroConfig` to any `WeilConfig`, reading its points and '
+         'multiplicities alone -- the setup `PWSetup C.toZeroConfig g0 L M`, the local count as the hypothesis `hA` with its constant `A₀` '
+         '(the kernel holding ζ’s existentially), the same `hrate` over `sT_cfg`, the conclusion over `zeroSide_cfg C`; every hypothesis '
+         'traced in the bank to the RateIndex.lean lines that consumed it, before any Lean. No excluded-zero hypothesis: the rate proof takes '
+         'none, and `hrate` forces the tie set non-empty (the clause struck as the navigator’s). N2 %s.' % _sv(S, 'N2'), '',
+         '**The attempt** (`(R268)`(4)): `rest_norm_le_rate_cfg`, `zeroSide_neg_at_rate_cfg` and `dominant_summable_hcount` in a new file, '
+         'SIDEExplicitFormula/Schema/RateIndexCfg.lean, the ζ proof carried with Converse.lean’s twins; the ζ instances '
+         '`@zeroSide_neg_at_rate_cfg zetaWeilConfig = @B321.zeroSide_neg_at_rate` and the rest’s likewise, by %s; RateIndex.lean unedited. '
+         'One dispatch at the branch, run %s, the artifact’s sha256 agreeing with the platform’s digest, memory low %s MB; the eight names of '
+         'print_targets.txt at the standard three, ζ’s two prints unchanged from b654’s run; merged alone, SIDE-explicit-formula %s tagged %s. '
+         'N3 %s.' % (lj.get('zeta_form'), rr.get('run_id'), rr.get('mem_low'), rr.get('merged'), rr.get('tag'), _sv(S, 'N3')), '',
+         '**The runner’s print list** (the author’s word, standing under `(R263)`(4)): the print step reads its names from print_targets.txt '
+         'at the kernel’s root; the branch carried the edit and the file, the dispatch was at the branch, and the merge carried both to main.', '',
+         '**The splitter** (`(R268)`(2)): b647’s sentence split now keeps a closing quote, asterisk or bracket after a period with its sentence, '
+         'the split points unchanged; its planted test %s of 7 after the repair and %s of 7 before it; the two unbalanced emphases in '
+         'ZeroActingPartial.lean listed for SIDE-lv-conservation’s cell refresh (OPEN_TRAILS :%s). N4 %s.' % (
+             7 - len((mj.get('after') or {}).get('failing') or []), 7 - len((mj.get('before') or {}).get('failing') or []), ls[1].get('line'),
+             _sv(S, 'N4')), '',
+         '**The record lines** (`(R268)`(1)): b657 at its weight (FINDINGS :%s).' % ls[0].get('line'), '',
+         '**The root.** b658 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): this statement re-reads b654’s rate (relay `data/b654_e1.txt`) and b656’s binding '
+         '(relay `data/b656_e1_binding.txt`, O-1 to O-3), and answers O-2 -- E1 now has a compiled form over a general configuration; it is '
+         're-read by the map of `(R266)`(4), which returns as a research act bound to this theorem. It strengthens the programme’s offering of '
+         'statements a reader can check: the rate is a theorem about any configuration with a local count, ζ’s is its instance by definition, '
+         'and the build runs on a machine the reader can name by run id.', '',
+         '**Next.** %s.' % NEXT_LINE, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero; the configuration theorem is an implication from its hypotheses, '
+         'and a gate reading compares a print with the standard three and confers nothing beyond it.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) the statement over `WeilConfig` reading `C.toZeroConfig` alone, the summability from the hypothesis `hA`, not the '
+              'structure`s count field; (2) the ζ instance as an rfl equation between the configuration theorem at `zetaWeilConfig` and the ζ '
+              'theorem; (3) the gate reading the eight names of print_targets.txt, ζ’s two prints compared with b654’s run; (4) the splitter’s '
+              'look-behind taking up to four closing marks, the split points the old ones')
+
+
+def _trail_text():
+    S, fj, rl, J = (jl(n_) for n_ in ('b658_scores.json', 'b658_findings.json', 'b658_record_lines.json', 'b658_act_root.json'))
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b658_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R268) ratified.** (1) b657 at its weight. (2) The splitter repaired, the two emphases listed for the cell refresh. (3) E1 over a '
+             'configuration stated in a bank, every hypothesis traced; the excluded-zero clause struck as the navigator’s on the author’s word. '
+             '(4) The attempt on the runner, the print list from print_targets.txt on the author’s word, standing under `(R263)`(4). (5) The '
+             'draft held at v5. (6) The act after: b659.', '',
+             '**Entered:** FINDINGS.md:%s (b657’s weight), :%s (the entry); OPEN_TRAILS.md:%s (the two emphases); this record.' % (
+                 ls[0].get('line'), fj.get('entry_line'), ls[1].get('line')), '',
+             '**Act root:** b658 `%s` (previous `%s`, b657’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
+                 J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d (relay data/b658_author_answers.txt, with the author’s words), the statement alone, before any Lean; '
+             'none after the root.' % n_ans, '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**The runner’s print list, standing:** every kernel’s runner takes its print list from print_targets.txt at its next use; '
+             'SIDE-explicit-formula’s from b658.', '',
+             '**Defects** (relay data/b658_defects.txt): %s.' % ('; '.join(_defect_short()) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** %s.' % NEXT_LINE, '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b658_scores.json')
+    L = ['=' * 104, 'b658 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rdn('b658_defects.txt').rstrip(NL).split(NL)
+    put_txt('b658_desk_notes.txt', L)
+
+
+def components(*a):
+    S, fj, tj, rl, J = (jl(n_) for n_ in ('b658_scores.json', 'b658_findings.json', 'b658_trail.json', 'b658_record_lines.json', 'b658_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    ls = (rl.get('lines') or []) + [{}, {}, {}]
+    L = ['b658 -- THE COMPONENTS, BANKED UNDER (R268).', '',
+         '### COMPONENT 0 : step zero (data/b658_ferry.txt, data/b658_stepzero.txt, data/b658_tests_stepzero.txt) ; push-out relay %s' % K.STEPZERO,
+         '### COMPONENT 1 : b657`s weight FINDINGS :%s ; the two emphases OPEN_TRAILS :%s ; the splitter repaired (data/b658_msplit.txt) ; N4 %s' % (
+             ls[0].get('line'), ls[1].get('line'), S['N4'][0]),
+         '### COMPONENT 2 : the statement (data/b658_e1cfg_statement.txt), the one prompt (data/b658_author_answers.txt) ; N2 %s' % S['N2'][0],
+         '### COMPONENT 3 : the attempt on the runner (data/b658_runner_SIDE-explicit-formula.txt), the landing point (data/b658_e1cfg.txt) ; N3 %s' % S['N3'][0],
+         '### COMPONENT 4 : the merge, SIDE-explicit-formula %s tag %s (data/b658_ef_merge_push_out.txt)' % (
+             (dict((r['kernel'], r) for r in jl('b658_runner_rows.json').get('rows') or []).get(K.KERNEL) or {}).get('merged'), K.NEXT_TAG),
+         '### COMPONENT 5 : the dry-run step (data/b658_reg_gate.txt), the seal (data/b658_seal_hashes.json), the suite ; S3 %s' % S['S3'][0],
+         '### COMPONENT 6 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N1 %s ; N5 %s' % ((J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'),
+                                                                                        S['N1'][0], S['N5'][0])]
+    put_txt('b658_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def _land_one(path, head, e, bank, extra):
+    if odd_lines(e):
+        sys.exit('### ODD BACKTICKS -- NOTHING WRITTEN: %s' % odd_lines(e)[:3])
+    guard_absent(path, head)
+    r = append_to(path, e)
+    ln = read_head(path, head)
+    put_json(bank, dict(extra, line=ln, head=head, append=r))
+    return ln
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = conv(e)
+    dry = 'dry' in a
+    cells, fired = screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(FIND, t, e, 'b658_findings.json', dict(title=t))
+    j = jl('b658_findings.json')
+    j['entry_line'] = ln
+    put_json('b658_findings.json', j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = conv(_trail_text())
+    dry = 'dry' in a
+    cells, fired = screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(OT, TRAIL_HEAD(), e, 'b658_trail.json', {})
+    print('  OPEN_TRAILS record :%s' % ln)
+
+
+def _face_needles(face_text, which):
+    m = re.search(r'^### THE DRY-RUN NEEDLES -- %s: (.*)$' % which, face_text, re.M)
+    return re.findall(r'"([^"]+)"', m.group(1)) if m else []
+
+
+def drycheck(*a):
+    """(R267)(2), STANDING FROM b657: the FINDINGS entry and the trail record composed as the record tool composes them -- under stand-ins
+    for the banks not yet written (B658_STANDIN) -- converted by conv and run through the screens their landing runs, the needles the face
+    names read in each; prints DRY-RUN STEP : CLEAN and exits 0 only when both screens are quiet and every needle is found. Writes no bank."""
+    face = rd(a[0] if a else FACE)
+    ok = True
+    for which, (head, text) in (('ENTRY', _finding_text()), ('TRAIL', (TRAIL_HEAD(), _trail_text()))):
+        t = conv(text)
+        print('  %s (the screens):' % which)
+        cells, fired = screens([('FINDINGS.md' if which == 'ENTRY' else 'OPEN_TRAILS.md', head, t)], 'dry_' + which.lower(), True)
+        nd = _face_needles(face, which)
+        miss = [n for n in nd if n not in t]
+        clean = not cells and not fired and nd and not miss
+        ok = ok and clean
+        print('  %s : table cells %s ; screens %s ; the face`s needles %d, found %d%s ; %s' % (
+            which, cells or 'NONE', 'FIRED' if fired else 'QUIET', len(nd), len(nd) - len(miss), (' -- missing %s' % miss) if miss else '',
+            'CLEAN' if clean else 'NOT CLEAN'))
+    print('  ### ### **DRY-RUN STEP : %s**' % ('CLEAN' if ok else 'NOT CLEAN'))
+    if not ok:
+        sys.exit(1)
 
 
 if __name__ == '__main__':
