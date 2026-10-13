@@ -1,0 +1,73 @@
+b660 -- COMPONENT 3, (R270)(4): THE TWO LANES' STATE AFTER b659 (2026-10-13)
+
+### every line cites a ledger line (FINDINGS :n, OPEN_TRAILS :n), a relay bank by path and line, or a tag with its peeled SHA read by
+### `git rev-parse <tag>^{commit}` in the kernel at this act. Rows below are kernels in section 1 and work-orders or objects in section 2; each
+### work-order carries one of PRICED (entered with trigger and price, not acted), ACTED (work done under it, the order itself not closed),
+### DISCHARGED (closed on the ledger), OPEN (a trigger fired or a part stands, nothing closes it).
+
+================================================================================================================================
+### 1. THE RE-CUT LANE
+================================================================================================================================
+### KERNELS CUT AND MERGED (4), by the order of relay data/b647_table_kernels.txt (rows are kernels; OVERREACHES the fifth count column):
+  SIDE-kernel                       114 (:15)  tag v1.8 peeled 70aba3c ; graded b651-b652, cut and merged on the runner at b653 (FINDINGS :8285)
+  SIDE-global-section                43 (:12)  tag v0.3.0 peeled 504e146 ; b655 (FINDINGS :8337)
+  SIDE-lv-conservation               35 (:17)  tag v0.13.0 peeled 8e3bc76 ; b657 (FINDINGS :8383)
+  SIDE-structural-error-correction   13 (:22)  tag v0.2.3 peeled 5476ef3 ; b659 (FINDINGS :8435)
+### THE UNRESOLVED ROWS CARRIED, PER CUT KERNEL, WITH THEIR REASONS:
+  SIDE-kernel: none outstanding -- its three UNRESOLVED-CELL blocks #56, #57, #69 (relay data/b652_sentence_grades.txt :1553) completed from
+    their own LICENSED words and cut at b653 (relay data/b653_closing.txt).
+  SIDE-global-section: none outstanding -- its one UNRESOLVED-CELL (relay data/b655_sentence_grades.txt :380, :1042) completed and cut.
+  SIDE-lv-conservation: 13 rows listed UNRESOLVED (relay data/b657_sentence_grades.txt :946), re-graded at main against the change banks:
+    #2 PinnedGoal.lean :4 s1, s2 -- the module doc describes the example b648 quarantined off main (data/b648_sorry_repairs.txt :4); no bank
+       sentence describes the file as it stands
+    #4 CouplingsAtPhi.lean :1 s5 -- the status-list row; the change banks speak of T3_perClass_to_combinations and PinnedGoal alone
+    #5 CouplingsAtPhi.lean :82 s1 -- a title row the change banks do not reach
+    #12 CouplingsAtPhi.lean :397 s12 -- the ledger note's C5-output premise; not reached
+    #17 LeadLaw.lean :3 s2 -- the Galois-normalized certificate row; not reached
+    #18 QWantedPoster.lean :3 s21 -- the file's HELD line; not reached
+    #22 RegisterPentagon.lean :6 s1, s11, s13, s18 -- title, list item, section heading, sub-heading; not reached
+    #22 RegisterPentagon.lean :6 s22 -- names "the open sorry at T3_StepNineBridge.lean:108"; the bank reaches it (the step restated as a def
+        with no sorry, merged at b653) and no bank sentence fits the item
+    #24 RegisterPentagon.lean :168 s3 -- the disclaimer row; not reached
+    and the block T3_perClass_to_combinations, restated at b648 and not found at main (relay data/b657_closing.txt :19).
+  SIDE-structural-error-correction: none (relay data/b659_sentence_grades.txt :207).
+### THE CELL REFRESHES OWED: SIDE-lv-conservation -- RegisterPentagon s22 and PinnedGoal s1-s2, the author's word at b657 (OPEN_TRAILS
+### :14036); the two unbalanced emphases at ZeroActingPartial.lean :104 and :107 (OPEN_TRAILS :14044).
+### THE KERNELS REMAINING, BY DESCENDING OVERREACHES (relay data/b647_table_kernels.txt, line ; OVERREACHES ; UNLICENSED):
+  SIDE-carrier-spec :7 9 ; SIDE-effects :10 7 ; SIDE-cosmo :9 6 ; SIDE-grh-transfer :13 6 ; SIDE-trivium :24 5 ; SIDE-window :25 5 ;
+  SIDE-bijection :6 4 ; SIDE-silence-principle :19 4 ; SIDE-class-number-anomaly :8 3 ; SIDE-li-map :16 3 ; SIDE-spinor :21 3 ;
+  SIDE-archimedean :5 2 ; SIDE-rcurve :18 2 ; SIDE-interfaces :14 1 ; SIDE-simplicity :20 1 ; SIDE-substrate-cluster :23 0, UNLICENSED 1 ;
+  SIDE-frobenius :11 0 ; SIDE-explicit-formula 0 (:3, carried from b645).
+### ### **MERGED 4 KERNELS (205 OVERREACHES OF 266) ; REMAINING 15 KERNELS WITH OVERREACHES (61) AND 1 WITH AN UNLICENSED ROW ; NEXT
+### ### SIDE-carrier-spec (9), b662 by (R270)(8).**
+### STILL AHEAD BY THE AUTHOR'S ORDER (OPEN_TRAILS :13794, b648's answer): (3) the seven companions in descending count, each re-cut under
+### "papers state; ledgers narrate"; (4) the monograph last, as v6.0 from its 217 rows, after the companions have settled the template.
+### THE STANDING G-AXIOM-CLAIM ROW: SIDE-cosmo SIDECosmo/SteaneExemplar.lean :6 (knill_laflamme_t1), declared on every face from b654 until
+### SIDE-cosmo's re-cut act ((R264)(5); relay data/b659_closing.txt, carried (d)).
+
+================================================================================================================================
+### 2. THE RESEARCH LANE
+================================================================================================================================
+### THE COMPILED OBJECTS:
+  E1, the configuration-relative rate (rest_norm_le_rate, zeroSide_neg_at_rate)       SIDE-explicit-formula v0.27 peeled 111e418 (FINDINGS :8313)
+  the transversality width (def transversalityWidth, no theorem)                       SIDE-explicit-formula v0.27 peeled 111e418 (FINDINGS :8313)
+  E1 over a configuration (rest_norm_le_rate_cfg, zeroSide_neg_at_rate_cfg; ζ by rfl)  SIDE-explicit-formula v0.28 peeled ffbc617 (FINDINGS :8409)
+### THE WORK-ORDERS AND ITEMS, IN THE ORDER THE CORPUS HOLDS THEM, EACH WITH ITS STATUS:
+  W-ORD-E1-CFG                         DISCHARGED  OPEN_TRAILS :13994, discharged at :14068 (b658's theorem)
+  the detection map at Z₁              PRICED      OPEN_TRAILS :14070, b661's research act by (R270)(8), its ruling then
+  W-ORD-CLOSE-PAIR-BENCH               PRICED      OPEN_TRAILS :13848; trigger the author's word after the companions' re-cuts
+  W-ORD-EPSTEIN-ZQ                     PRICED      OPEN_TRAILS :13493, the price read from the pin :13533; trigger a ruling to build it
+  W-ORD-KEIPER-FACE                    ACTED       OPEN_TRAILS :11704, re-priced :12132; its two lemmas carried at b601 (FINDINGS :6972), Keiper's
+                                                   three identities at every index at v0.26 (FINDINGS :7965); λ_n equal to LiCoeff at finite n not closed
+  the χ-Li converse                    PRICED      OPEN_TRAILS :11732, (V1)-(V4) at χ, "when wanted"
+### THE SEVEN INSTRUMENT WORK-ORDERS OF b650 (OPEN_TRAILS :13828-:13840), AND W-ORD-SEAM-ROW (:13846):
+  W-ORD-VERDICT-INSTRUMENT             OPEN        :13828; its trigger fired at b651 and the verdict was not added (:13872)
+  W-ORD-LATE-BANKS                     PRICED      :13830
+  W-ORD-SEAL-ORDER-BY-CONTENT          PRICED      :13832
+  W-ORD-READER-COMPREHENSION           PRICED      :13834
+  W-ORD-PLAIN-COMMENT-ARM              PRICED      :13836; each re-cut act scans its own kernel's plain comments (relay data/b655, b657, b659
+                                                   _plain_comments.txt); the arm over every kernel not built
+  W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE  PRICED      :13838; the runner reads the lists in force since b651, its case test_chain_page.py (9) carried
+  W-ORD-CITATION-CHECK                 PRICED      :13840; the reading that would close the READING kind and the navigator's (data/b660_ten_acts.txt)
+  W-ORD-SEAM-ROW                       ACTED       :13846; the seam's rows re-graded at b651 (OPEN_TRAILS :13870, FINDINGS :8233)
+### ### **WORK-ORDERS AND ITEMS 15: DISCHARGED 1, ACTED 2, OPEN 1, PRICED 11.**
