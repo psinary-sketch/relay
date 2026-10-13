@@ -19,6 +19,22 @@ if hasattr(sys.stdout, 'reconfigure'):
 
 NAME = "SIDEExplicitFormula.Schema.Dedekind.dedekind_rhs'"
 ENTRY = "TrivialSummandPremise'"
+# ### b664, (R274) and the author's word on its prompt: case (2) made durable -- MET at HEAD is b646's 52 names as a prefix in order (read from
+# ### tools/e0_rule.py at relay 51838723, main before b663's ruled line), followed by the entries added by ruling, in the order of their
+# ### rulings, each named with its act below; a name not in this list fails the case, so the widening by ruling stays the one way in.
+B646_PREFIX_AT = '51838723'
+RULED = [('Q0Premises', 'b663')]
+
+
+def met_at(commit):
+    """MET as tools/e0_rule.py assigned it at `commit` (its assignment's literal tuples evaluated alone)."""
+    import re
+    import subprocess
+    src = subprocess.run(['git', '-C', ROOT, 'show', '%s:tools/e0_rule.py' % commit], capture_output=True).stdout.decode('utf-8')
+    m = re.search(r'^MET = [\s\S]*?(?=^\S)', src, re.M)
+    ns = {}
+    exec(compile(m.group(0), 'e0_rule.py@%s' % commit, 'exec'), {'__builtins__': {}}, ns)
+    return tuple(ns['MET'])
 
 
 def statement():
@@ -33,8 +49,10 @@ def main():
     met = E.MET
     cases = []
     cases.append(('the entry is in MET at HEAD', ENTRY in met))
-    cases.append(('MET at HEAD is the earlier list and the entry, nothing else', set(met) - {ENTRY} == set(met[:-1]) and met[-1] == ENTRY
-                  and len(met) == 52))
+    earlier = met_at(B646_PREFIX_AT)
+    cases.append(('MET at HEAD is b646`s 52 names in order (the entry last of them), then the entries added by ruling %s, nothing else' % (
+        ['%s (%s)' % r for r in RULED]), len(earlier) == 52 and earlier[-1] == ENTRY and tuple(met[:52]) == earlier
+        and tuple(met[52:]) == tuple(n for n, _a in RULED)))
     g1, why1, _r = E.grade(st, 'theorem')
     cases.append(('dedekind_rhs` reads INTERFACES at HEAD (got %s)' % g1, g1 == 'INTERFACES'))
     cases.append(('its premises are its two named binders, hT : TrivialSummandPremise` k and hE : Family.EulerFactorPremise q (got %r)' % why1,
