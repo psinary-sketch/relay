@@ -1,0 +1,60 @@
+b659 -- COMPONENT 3, (R269)(2): THE CUT PLANNED ON SIDE-structural-error-correction`S MAIN BLOBS AT 6bf19ab (2026-10-13T02:09:08Z)
+
+### from relay data/b659_sentence_grades.txt (rows are sentences, parents are blocks) and its hand grades; each graded block`s rows located in
+### order in its file from the block`s line at main; each changed row replaced in its span by its slot`s kept output, wrapped at the line`s
+### indent; one edit per block.
+### files 2 ; edits 13 ; rows located ALL ; regions not unique NONE ; files whose comment-stripped code differs from main`s NONE ; files whose comment blocks` emphasis parity moves NONE
+
+== #1 SIDEStructuralErrorCorrection/Basic.lean:1 (rows changed s1.2, s5)
+   OLD: Kernel verification of the Formation Distance Theorem for the Trivium |   under the formation-block error model: |  |     d_eff = 2S - 1 |  |   where S is the number of non-dark formation stages. |  |   For Class A's Trivium with formation tuple (n₁, n₂, n₃, n₄) = (2, 3, 2, 0): |   S = 3 non-dark stages (Primitive, Transformation, Output; the Interface |   stage is dark with n₄ = 0).  Hence d_eff = 2·3 − 1 = 5. |  |   Contrast with the standard per-component error model from SIDE-steane-arithmetic |   where d = 3 (Steane [[7, 1, 3]]).  The formation-block model gives |   stronger protection (d_eff = 5 > d = 3) on the same cubit substrate |   because the structured error model is more constrained.
+   NEW: This file defines the Class A formation tuple (2, 3, 2, 0), the non-dark stage count S = 3, and the number d_eff := |   2S - 1 (= 5), and checks by evaluation that it exceeds the defined Steane value d_standard := 3; the Formation |   Distance Theorem and the formation-block error model are the draft's (STRUCTURAL_ERROR_CORRECTION_DRAFT), not |   compiled here. |  |   For Class A's Trivium with formation tuple (n₁, n₂, n₃, n₄) = (2, 3, 2, 0): |   S = 3 non-dark stages (Primitive, Transformation, Output; the Interface |   stage is dark with n₄ = 0).  Hence d_eff = 2·3 − 1 = 5. |  |   Contrast with the standard per-component error model from SIDE-steane-arithmetic |   where d = 3 (Steane [[7, 1, 3]]).
+
+== #2 SIDEStructuralErrorCorrection/Basic.lean:83 (rows changed s2)
+   OLD: The three non-dark stages cover all 7 mechanism classes.
+   NEW: The three non-dark stage sizes sum to the formation total (2 + 3 + 2 = 7, the interface size being 0).
+
+== #3 SIDEStructuralErrorCorrection/Basic.lean:87 (rows changed s4)
+   OLD: This kernel verifies the equality at the structural-formula level.
+   NEW: The Formation Distance Theorem (d_eff >= 2S - 1 under the formation-block error model, with equality for rank-1 |   codespace) is the draft's (STRUCTURAL_ERROR_CORRECTION_DRAFT §2.5); this kernel defines d_eff := 2S - 1 and |   evaluates it (= 5) and does not verify the theorem.
+
+== #4 SIDEStructuralErrorCorrection/Basic.lean:116 (rows changed s1, s2)
+   OLD: Theorem 4.3.  Maximum correctable error weight under formation-block model.
+   NEW: Maximum correctable error weight under the formation-block model, defined as (d_eff - 1) / 2; its value 2 is | max_correctable_two.
+
+== #5 SIDEStructuralErrorCorrection/Basic.lean:136 (rows changed s2)
+   OLD: Stage complementarity for S = 3: |     weight 2 errors are K-L equivalent to weight 1 errors.
+   NEW: For S = 3 the complementary index of weight 2 is weight 1 (the K-L equivalence this index stands for is the draft's, | not compiled).
+
+== #6 SIDEStructuralErrorCorrection/Basic.lean:140 (rows changed s2)
+   OLD: Weight 1 errors are K-L equivalent to weight 2 errors (symmetric).
+   NEW: For S = 3 the complementary index of weight 1 is weight 2 (symmetric); the K-L equivalence is the draft's, not | compiled.
+
+== #7 SIDEStructuralErrorCorrection/Basic.lean:150 (rows changed s3, s4, s5)
+   OLD: d_eff = 2S − 1 exactly for formation codes |   with rank-1 codespace (k = 1) and S ≤ 3 non-dark stages. |  |   The rank-1 condition holds for the Trivium because the codespace |   is span{v̂} with v̂ = v/√12, a single vector.  The Spectral Volume |   λ = 12 is the unique non-zero eigenvalue of M = v†v.
+   NEW: The draft's Tightness Theorem (d_eff = 2S - 1 for rank-1 codespace and S <= 3) and its rank-1 reading of the Trivium |   codespace are manuscript-resident; this section defines k_logical := 1 and checks S <= 3 and the defining equation |   of d_eff.
+
+== #8 SIDEStructuralErrorCorrection/Basic.lean:185 (rows changed s1, s2)
+   OLD: Theorem 7.1.  The universal upper bound on d_eff.
+   NEW: The programme's proposed upper bound on d_eff, defined as 2 * S_universal_max - 1 (= 5) from the observed n4 = 0.
+
+== #9 SIDEStructuralErrorCorrection/Basic.lean:205 (rows changed s1, s2)
+   OLD: Theorem 8.2.  d_eff bounds the dimensionality of the dark subspace |     via d_eff + (formation_total − 1 − d_eff) = formation_total − 1 = 6.
+   NEW: The dark subspace dimension, defined as formation_total - 1 (= 6, dark_subspace_eq_six).
+
+== #10 SIDEStructuralErrorCorrection/Basic.lean:218 (rows changed s1, s2)
+   OLD: The Silence Principle: independent stages with κ = 0 interfaces |     cannot propagate errors between stages.  Each non-dark stage is |     an independent error compartment.
+   NEW: The number of independent error compartments, defined as S (the Silence Principle reading each non-dark stage as an | independent compartment is the corpus's, not compiled).
+
+== #11 SIDEStructuralErrorCorrection/DeAlignment.lean:1 (rows changed s10)
+   OLD: Vanilla Lean 4; no Mathlib; expected axiom-free.
+   NEW: Vanilla Lean 4; no Mathlib; the incidence-structure declarations (allSeven, pairCount, fano_two_design) depend on |   propext, the rest on no axioms.
+
+== #12 SIDEStructuralErrorCorrection/DeAlignment.lean:72 (rows changed s2)
+   OLD: Under the de-alignment condition, no |     single-domain failure completes any line — hence no single-domain |     failure induces a minimum-weight logical operator.
+   NEW: Under the de-alignment condition, no single-domain failure completes any line; read with the [[7,1,3]] code's | minimum-weight logical operators as the Fano lines (not compiled here), no single-domain failure induces one.
+
+== #13 SIDEStructuralErrorCorrection/DeAlignment.lean:82 (rows changed s1, s2)
+   OLD: The converse direction, as the design diagnostic: if two positions of a |     line share a domain, that domain's failure needs only one further fault |     to complete the line. Stated as: the line is not de-aligned.
+   NEW: A sufficient condition, as a design rule: an injective assignment of positions to domains de-aligns every proper line.
+
+### ### **FILES 2 ; EDITS 13 ; LOCATION FAILURES 0 ; CODE OUTSIDE COMMENTS CHANGED IN 0 FILES ; EMPHASIS PARITY MOVED IN 0 FILES.**

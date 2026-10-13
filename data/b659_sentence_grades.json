@@ -1,0 +1,28 @@
+{
+ "grades": {
+  "1": [["1.2", "calls the file a kernel verification of the Formation Distance Theorem under the formation-block error model"],
+        ["5", "says the formation-block model gives stronger protection because the error model is more constrained"]],
+  "2": [["2", "\"cover all 7 mechanism classes\" is not what the statement carries"]],
+  "3": [["4", "says the kernel verifies the equality"]],
+  "4": [["1", "The docstring calls a definition \"Theorem 4.3\""],
+        ["2", "max_correctable_weight := (d_eff - 1) / 2 is a def"]],
+  "5": [["2", "Knill-Laflamme equivalence of weight-2 and weight-1 errors is the draft's claim"]],
+  "6": [["2", "the Knill-Laflamme equivalence it names is not in the kernel"]],
+  "7": [["3", "The header states a Tightness Theorem for formation codes"],
+        ["4", "the Trivium codespace is span{v/sqrt12}"],
+        ["5", "lambda = 12 the unique non-zero eigenvalue of v†v"]],
+  "8": [["1", "The docstring calls a definition \"Theorem 7.1. The universal upper bound on d_eff\""],
+        ["2", "no bound over any family of codes is stated"]],
+  "9": [["1", "The docstring calls a definition \"Theorem 8.2\""],
+        ["2", "says d_eff bounds the dark subspace dimension"]],
+  "10": [["1", "The docstring states the Silence Principle (kappa = 0 interfaces cannot propagate errors"],
+         ["2", "each non-dark stage an independent error compartment) as fact"]],
+  "11": [["10", "The header says the file is \"expected axiom-free\""]],
+  "12": [["2", "\"hence no single-domain failure induces a minimum-weight logical operator\" rests on the uncompiled identification"]],
+  "13": [["1", "The docstring describes a converse (two positions sharing a domain means one further fault completes the line"],
+         ["2", "the line is not de-aligned"]]
+ },
+ "breaks": {"1": {"1": ["Kernel verification"]}},
+ "row_actions": {"12": {"2": "Under the de-alignment condition, no single-domain failure completes any line; read with the [[7,1,3]] code's minimum-weight logical operators as the Fano lines (not compiled here), no single-domain failure induces one."}},
+ "notes": "b659, by hand under (R269)(2): every block's rows read whole against its LICENSED cell; a row graded where the cell names its claim, the cell's words quoted verbatim; #1 s1 broken before 'Kernel verification' so the file's title line is not cut; #12 s2 takes its own verbatim span of the ACTION so the block's bold lead-in is not doubled; no re-grade (main unmoved since b647)."
+}

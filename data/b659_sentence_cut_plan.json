@@ -1,0 +1,451 @@
+{
+ "at": "2026-10-13T02:08:45Z",
+ "blocks": [
+  {
+   "k": 1,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:1",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 1,
+   "bank_line": 10,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "1.2",
+    "5"
+   ],
+   "verdicts": {
+    "1.2": "OVERREACHES",
+    "5": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: This file defines the Class A formation tuple (2, 3, 2, 0), the non-dark stage count S = 3, and the number d_eff := 2S - 1 (= 5), and checks by evaluation that it exceeds the defined Steane value d_standard := 3; the Formation Distance Theorem and the formation-block error model are the draft's (STRUCTURAL_ERROR_CORRECTION_DRAFT), not compiled here.",
+   "completed": false,
+   "kept": [
+    "SIDEStructuralErrorCorrection/Basic.lean ========================================= STRUCTURAL ERROR CORRECTION",
+    "This file defines the Class A formation tuple (2, 3, 2, 0), the non-dark stage count S = 3, and the number d_eff := 2S - 1 (= 5), and checks by evaluation that it exceeds the defined Steane value d_standard := 3; the Formation Distance Theorem and the formation-block error model are the draft's (STRUCTURAL_ERROR_CORRECTION_DRAFT), not compiled here.",
+    "For Class A's Trivium with formation tuple (n₁, n₂, n₃, n₄) = (2, 3, 2, 0): S = 3 non-dark stages (Primitive, Transformation, Output; the Interface stage is dark with n₄ = 0).",
+    "Hence d_eff = 2·3 − 1 = 5.",
+    "Contrast with the standard per-component error model from SIDE-steane-arithmetic where d = 3 (Steane [[7, 1, 3]]).",
+    "Vanilla Lean 4 — no Mathlib dependency.",
+    "Toolchain: leanprover/lean4:v4.29.0-rc8.",
+    "Source: STRUCTURAL_ERROR_CORRECTION_DRAFT.md (Phase 2 paper draft).",
+    "Author: J.",
+    "York Seale (NaturalScience, ORCID 0009-0008-7993-0310) Programme: A PLACE TO STAND, Phase 2.",
+    "May 2026.",
+    "Companion: SIDE-steane-arithmetic (standard d = 3 case, same cubit) SIDE-spinor-calibration (edge-stratum calibration, same cubit) SIDE-cubit-axis (federation cubit coherence)"
+   ],
+   "dropped": [
+    "This file defines the Class A formation tuple (2, 3, 2, 0), the non-dark stage count S = 3, and the number d_eff := 2S - 1 (= 5), and checks by evaluation that it exceeds the defined Steane value d_standard := 3; the Formation Distance Theorem and the formation-block error model are the draft's (STRUCTURAL_ERROR_CORRECTION_DRAFT), not compiled here."
+   ],
+   "sentences": [
+    "SIDEStructuralErrorCorrection/Basic.lean ========================================= STRUCTURAL ERROR CORRECTION Kernel verification of the Formation Distance Theorem for the Trivium under the formation-block error model: d_eff = 2S - 1 where S is the number of non-dark formation stages.",
+    "For Class A's Trivium with formation tuple (n₁, n₂, n₃, n₄) = (2, 3, 2, 0): S = 3 non-dark stages (Primitive, Transformation, Output; the Interface stage is dark with n₄ = 0).",
+    "Hence d_eff = 2·3 − 1 = 5.",
+    "Contrast with the standard per-component error model from SIDE-steane-arithmetic where d = 3 (Steane [[7, 1, 3]]).",
+    "The formation-block model gives stronger protection (d_eff = 5 > d = 3) on the same cubit substrate because the structured error model is more constrained.",
+    "Vanilla Lean 4 — no Mathlib dependency.",
+    "Toolchain: leanprover/lean4:v4.29.0-rc8.",
+    "Source: STRUCTURAL_ERROR_CORRECTION_DRAFT.md (Phase 2 paper draft).",
+    "Author: J.",
+    "York Seale (NaturalScience, ORCID 0009-0008-7993-0310) Programme: A PLACE TO STAND, Phase 2.",
+    "May 2026.",
+    "Companion: SIDE-steane-arithmetic (standard d = 3 case, same cubit) SIDE-spinor-calibration (edge-stratum calibration, same cubit) SIDE-cubit-axis (federation cubit coherence)"
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 2,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:83",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 83,
+   "bank_line": 15,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "2"
+   ],
+   "verdicts": {
+    "2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: Theorem 2.3. The three non-dark stage sizes sum to the formation total (2 + 3 + 2 = 7, the interface size being 0).",
+   "completed": false,
+   "kept": [
+    "Theorem 2.3.",
+    "The three non-dark stage sizes sum to the formation total (2 + 3 + 2 = 7, the interface size being 0)."
+   ],
+   "dropped": [
+    "Theorem 2.3."
+   ],
+   "sentences": [
+    "Theorem 2.3.",
+    "The three non-dark stages cover all 7 mechanism classes."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 3,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:87",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 87,
+   "bank_line": 20,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "4"
+   ],
+   "verdicts": {
+    "4": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: The Formation Distance Theorem (d_eff >= 2S - 1 under the formation-block error model, with equality for rank-1 codespace) is the draft's (STRUCTURAL_ERROR_CORRECTION_DRAFT §2.5); this kernel defines d_eff := 2S - 1 and evaluates it (= 5) and does not verify the theorem.",
+   "completed": false,
+   "kept": [
+    "## §3.",
+    "The Formation Distance Theorem **Formation Distance Theorem (STRUCTURAL_ERROR_CORRECTION_DRAFT §2.5).**",
+    "Under the formation-block error model, the effective distance satisfies d_eff ≥ 2S − 1, with equality for rank-1 codespace (k = 1).",
+    "The Formation Distance Theorem (d_eff >= 2S - 1 under the formation-block error model, with equality for rank-1 codespace) is the draft's (STRUCTURAL_ERROR_CORRECTION_DRAFT §2.5); this kernel defines d_eff := 2S - 1 and evaluates it (= 5) and does not verify the theorem."
+   ],
+   "dropped": [],
+   "sentences": [
+    "## §3.",
+    "The Formation Distance Theorem **Formation Distance Theorem (STRUCTURAL_ERROR_CORRECTION_DRAFT §2.5).**",
+    "Under the formation-block error model, the effective distance satisfies d_eff ≥ 2S − 1, with equality for rank-1 codespace (k = 1).",
+    "This kernel verifies the equality at the structural-formula level."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 4,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:116",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 116,
+   "bank_line": 25,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "1",
+    "2"
+   ],
+   "verdicts": {
+    "1": "OVERREACHES",
+    "2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: Maximum correctable error weight under the formation-block model, defined as (d_eff - 1) / 2; its value 2 is max_correctable_two.",
+   "completed": false,
+   "kept": [
+    "Maximum correctable error weight under the formation-block model, defined as (d_eff - 1) / 2; its value 2 is max_correctable_two."
+   ],
+   "dropped": [
+    "Maximum correctable error weight under the formation-block model, defined as (d_eff - 1) / 2; its value 2 is max_correctable_two."
+   ],
+   "sentences": [
+    "Theorem 4.3.",
+    "Maximum correctable error weight under formation-block model."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 5,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:136",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 136,
+   "bank_line": 30,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "2"
+   ],
+   "verdicts": {
+    "2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: Theorem 5.1. For S = 3 the complementary index of weight 2 is weight 1 (the K-L equivalence this index stands for is the draft's, not compiled).",
+   "completed": false,
+   "kept": [
+    "Theorem 5.1.",
+    "For S = 3 the complementary index of weight 2 is weight 1 (the K-L equivalence this index stands for is the draft's, not compiled)."
+   ],
+   "dropped": [
+    "Theorem 5.1."
+   ],
+   "sentences": [
+    "Theorem 5.1.",
+    "Stage complementarity for S = 3: weight 2 errors are K-L equivalent to weight 1 errors."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 6,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:140",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 140,
+   "bank_line": 35,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "2"
+   ],
+   "verdicts": {
+    "2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: Theorem 5.2. For S = 3 the complementary index of weight 1 is weight 2 (symmetric); the K-L equivalence is the draft's, not compiled.",
+   "completed": false,
+   "kept": [
+    "Theorem 5.2.",
+    "For S = 3 the complementary index of weight 1 is weight 2 (symmetric); the K-L equivalence is the draft's, not compiled."
+   ],
+   "dropped": [
+    "Theorem 5.2."
+   ],
+   "sentences": [
+    "Theorem 5.2.",
+    "Weight 1 errors are K-L equivalent to weight 2 errors (symmetric)."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 7,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:150",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 150,
+   "bank_line": 40,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "3",
+    "4",
+    "5"
+   ],
+   "verdicts": {
+    "3": "OVERREACHES",
+    "4": "OVERREACHES",
+    "5": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: The draft's Tightness Theorem (d_eff = 2S - 1 for rank-1 codespace and S <= 3) and its rank-1 reading of the Trivium codespace are manuscript-resident; this section defines k_logical := 1 and checks S <= 3 and the defining equation of d_eff.",
+   "completed": false,
+   "kept": [
+    "## §6.",
+    "Tightness for Rank-1 Codespace **Tightness Theorem.**",
+    "The draft's Tightness Theorem (d_eff = 2S - 1 for rank-1 codespace and S <= 3) and its rank-1 reading of the Trivium codespace are manuscript-resident; this section defines k_logical := 1 and checks S <= 3 and the defining equation of d_eff."
+   ],
+   "dropped": [
+    "The draft's Tightness Theorem (d_eff = 2S - 1 for rank-1 codespace and S <= 3) and its rank-1 reading of the Trivium codespace are manuscript-resident; this section defines k_logical := 1 and checks S <= 3 and the defining equation of d_eff.",
+    "The draft's Tightness Theorem (d_eff = 2S - 1 for rank-1 codespace and S <= 3) and its rank-1 reading of the Trivium codespace are manuscript-resident; this section defines k_logical := 1 and checks S <= 3 and the defining equation of d_eff."
+   ],
+   "sentences": [
+    "## §6.",
+    "Tightness for Rank-1 Codespace **Tightness Theorem.**",
+    "d_eff = 2S − 1 exactly for formation codes with rank-1 codespace (k = 1) and S ≤ 3 non-dark stages.",
+    "The rank-1 condition holds for the Trivium because the codespace is span{v̂} with v̂ = v/√12, a single vector.",
+    "The Spectral Volume λ = 12 is the unique non-zero eigenvalue of M = v†v."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 8,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:185",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 185,
+   "bank_line": 45,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "1",
+    "2"
+   ],
+   "verdicts": {
+    "1": "OVERREACHES",
+    "2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: The programme's proposed upper bound on d_eff, defined as 2 * S_universal_max - 1 (= 5) from the observed n4 = 0.",
+   "completed": false,
+   "kept": [
+    "The programme's proposed upper bound on d_eff, defined as 2 * S_universal_max - 1 (= 5) from the observed n4 = 0."
+   ],
+   "dropped": [
+    "The programme's proposed upper bound on d_eff, defined as 2 * S_universal_max - 1 (= 5) from the observed n4 = 0."
+   ],
+   "sentences": [
+    "Theorem 7.1.",
+    "The universal upper bound on d_eff."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 9,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:205",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 205,
+   "bank_line": 50,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "1",
+    "2"
+   ],
+   "verdicts": {
+    "1": "OVERREACHES",
+    "2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: The dark subspace dimension, defined as formation_total - 1 (= 6, dark_subspace_eq_six).",
+   "completed": false,
+   "kept": [
+    "The dark subspace dimension, defined as formation_total - 1 (= 6, dark_subspace_eq_six).",
+    "The dark subspace dimension is 6 = ‖v‖² − 2·max_correctable − 2."
+   ],
+   "dropped": [
+    "The dark subspace dimension, defined as formation_total - 1 (= 6, dark_subspace_eq_six)."
+   ],
+   "sentences": [
+    "Theorem 8.2.",
+    "d_eff bounds the dimensionality of the dark subspace via d_eff + (formation_total − 1 − d_eff) = formation_total − 1 = 6.",
+    "The dark subspace dimension is 6 = ‖v‖² − 2·max_correctable − 2."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 10,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/Basic.lean:218",
+   "file": "SIDEStructuralErrorCorrection/Basic.lean",
+   "line": 218,
+   "bank_line": 55,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "1",
+    "2"
+   ],
+   "verdicts": {
+    "1": "OVERREACHES",
+    "2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: The number of independent error compartments, defined as S (the Silence Principle reading each non-dark stage as an independent compartment is the corpus's, not compiled).",
+   "completed": false,
+   "kept": [
+    "The number of independent error compartments, defined as S (the Silence Principle reading each non-dark stage as an independent compartment is the corpus's, not compiled).",
+    "In structural terms: number of independent compartments = S = number of non-dark stages."
+   ],
+   "dropped": [
+    "The number of independent error compartments, defined as S (the Silence Principle reading each non-dark stage as an independent compartment is the corpus's, not compiled)."
+   ],
+   "sentences": [
+    "The Silence Principle: independent stages with κ = 0 interfaces cannot propagate errors between stages.",
+    "Each non-dark stage is an independent error compartment.",
+    "In structural terms: number of independent compartments = S = number of non-dark stages."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 11,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:1",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 1,
+   "bank_line": 60,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "10"
+   ],
+   "verdicts": {
+    "10": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: Vanilla Lean 4; no Mathlib; the incidence-structure declarations (allSeven, pairCount, fano_two_design) depend on propext, the rest on no axioms.",
+   "completed": false,
+   "kept": [
+    "SIDEStructuralErrorCorrection/DeAlignment.lean The de-alignment condition for Fano-structured modules.",
+    "The seven lines of the Fano plane are the minimum-weight logical operators of the [[7,1,3]] code: three faults on a line complete an operator the syndrome does not see.",
+    "A physical realization assigns each of the seven positions to a failure domain (rail, clock, coupler, thermal zone, band, region).",
+    "If a whole domain fails at once, every position assigned to it faults together.",
+    "This module states the design condition — each line's three positions occupy three distinct domains — and derives from it that no single-domain failure can complete a line.",
+    "The condition is decidable over the finite incidence structure, so a realization can be certified by evaluation.",
+    "What this does NOT claim: that the structure protects against arbitrary faults.",
+    "It is the compiled statement of the condition under which single-domain correlation is defeated.",
+    "Correlated faults spanning several domains, states outside the modelled space, and faults in the verification apparatus itself are outside this theorem and belong to the threat model.",
+    "Vanilla Lean 4; no Mathlib; the incidence-structure declarations (allSeven, pairCount, fano_two_design) depend on propext, the rest on no axioms."
+   ],
+   "dropped": [],
+   "sentences": [
+    "SIDEStructuralErrorCorrection/DeAlignment.lean The de-alignment condition for Fano-structured modules.",
+    "The seven lines of the Fano plane are the minimum-weight logical operators of the [[7,1,3]] code: three faults on a line complete an operator the syndrome does not see.",
+    "A physical realization assigns each of the seven positions to a failure domain (rail, clock, coupler, thermal zone, band, region).",
+    "If a whole domain fails at once, every position assigned to it faults together.",
+    "This module states the design condition — each line's three positions occupy three distinct domains — and derives from it that no single-domain failure can complete a line.",
+    "The condition is decidable over the finite incidence structure, so a realization can be certified by evaluation.",
+    "What this does NOT claim: that the structure protects against arbitrary faults.",
+    "It is the compiled statement of the condition under which single-domain correlation is defeated.",
+    "Correlated faults spanning several domains, states outside the modelled space, and faults in the verification apparatus itself are outside this theorem and belong to the threat model.",
+    "Vanilla Lean 4; no Mathlib; expected axiom-free."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 12,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:72",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 72,
+   "bank_line": 65,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "2"
+   ],
+   "verdicts": {
+    "2": "OVERREACHES"
+   },
+   "row_actions": {
+    "2": "Under the de-alignment condition, no single-domain failure completes any line; read with the [[7,1,3]] code's minimum-weight logical operators as the Fano lines (not compiled here), no single-domain failure induces one."
+   },
+   "action": "RE-CUT: The protection theorem. Under the de-alignment condition, no single-domain failure completes any line; read with the [[7,1,3]] code's minimum-weight logical operators as the Fano lines (not compiled here), no single-domain failure induces one.",
+   "completed": false,
+   "kept": [
+    "**The protection theorem.**",
+    "Under the de-alignment condition, no single-domain failure completes any line; read with the [[7,1,3]] code's minimum-weight logical operators as the Fano lines (not compiled here), no single-domain failure induces one."
+   ],
+   "dropped": [],
+   "sentences": [
+    "**The protection theorem.**",
+    "Under the de-alignment condition, no single-domain failure completes any line — hence no single-domain failure induces a minimum-weight logical operator."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 13,
+   "parent": "SIDE-structural-error-correction@6bf19ab:SIDEStructuralErrorCorrection/DeAlignment.lean:82",
+   "file": "SIDEStructuralErrorCorrection/DeAlignment.lean",
+   "line": 82,
+   "bank_line": 70,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "1",
+    "2"
+   ],
+   "verdicts": {
+    "1": "OVERREACHES",
+    "2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: A sufficient condition, as a design rule: an injective assignment of positions to domains de-aligns every proper line.",
+   "completed": false,
+   "kept": [
+    "A sufficient condition, as a design rule: an injective assignment of positions to domains de-aligns every proper line."
+   ],
+   "dropped": [
+    "A sufficient condition, as a design rule: an injective assignment of positions to domains de-aligns every proper line."
+   ],
+   "sentences": [
+    "The converse direction, as the design diagnostic: if two positions of a line share a domain, that domain's failure needs only one further fault to complete the line.",
+    "Stated as: the line is not de-aligned."
+   ],
+   "split": [],
+   "premise": null
+  }
+ ]
+}

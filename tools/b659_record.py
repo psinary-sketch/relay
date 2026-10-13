@@ -724,11 +724,12 @@ def _code_only(t):
 
 
 def _emph_parity(t):
-    """per comment block: the parity of `**` and of a lone `*` (b657's defect (a), b658's repair: a cut must not unbalance emphasis)."""
+    """per comment block: the parity of `**` and of a lone `*` (b657's defect (a), b658's repair: a cut must not unbalance emphasis). A lone `*`
+    with whitespace on both sides (a multiplication, `2 * S`) opens and closes nothing in CommonMark and is not counted."""
     out = []
     for m in re.finditer(r'/-.*?-/', t, re.S):
         b = m.group(0)
-        out.append((t[:m.start()].count(NL) + 1, b.count('**') % 2, len(re.findall(r'(?<!\*)\*(?!\*)', b)) % 2))
+        out.append((t[:m.start()].count(NL) + 1, b.count('**') % 2, len(re.findall(r'(?<!\*)(?<!\s)\*(?!\*)|(?<!\*)\*(?!\*)(?!\s)', b)) % 2))
     return out
 
 
