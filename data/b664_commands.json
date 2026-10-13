@@ -1,5 +1,5 @@
 {
- "at": "2026-10-13T16:49:04Z",
+ "at": "2026-10-13T17:13:14Z",
  "anchor": "RULING (R274) BEGIN",
  "rows": [
   {
@@ -470,6 +470,300 @@
    "src": "seat",
    "cmd": "$env:PYTHONIOENCODING='utf-8'; Set-Location D:\\relay; python tools/b664_record.py kernels; python tools/b664_record.py defects; python tools/b664_record.py commands; python -c \"import sys; sys.path.insert(0,'tools'); import b664_checks, b664_regspec, b664_closing, b664_reg_gate; print('arms', len(b664_checks.ARMS), 'standing', len(b664_checks.STANDING)); print(b664_checks.kernel_files_read())\"",
    "n": 67
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T16:51:48.091Z",
+   "src": "seat",
+   "cmd": "git status --short | head -40 && git log --oneline -3",
+   "n": 68
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T16:51:54.636Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python tools/b664_regspec.py 2>&1 | tail -30",
+   "n": 69
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T16:51:58.923Z",
+   "src": "seat",
+   "cmd": "grep -n \"FACE\\b\\|face_text\\|REG\\b\\|registration_2026\" tools/b664_checks.py | head -60",
+   "n": 70
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T16:52:04.892Z",
+   "src": "seat",
+   "cmd": "grep -n \"\\['face'\\]\" tools/b664_checks.py | head -40; grep -n \"def wl_globs\" -A25 tools/b664_checks.py | head -40",
+   "n": 71
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T16:52:11.577Z",
+   "src": "seat",
+   "cmd": "git status --short --untracked-files=all -- tools/b664_* data/b664_* tools/test_* data/act_roots.txt data/terminal_table*",
+   "n": 72
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T16:52:16.075Z",
+   "src": "seat",
+   "cmd": "git add tools/b664_record.py tools/b664_worklist.py tools/b664_checks.py tools/b664_closing.py tools/b664_reg_gate.py tools/b664_regspec.py data/b664_commands.json data/b664_commands.txt data/b664_defects.json data/b664_kernels_face.json && git commit -q -m \"b664 between the components: the suite (83 arms, 68 standing from b663's face, the kernel files read from the cut bank), the closing, the gate with its dry-run step and the spec by the Write tool; the record tool's late routes and the mirror routes by the Edit tool; the commands, kernels-face and defects banks\" && git log --oneline -1",
+   "n": 73
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T16:52:24.600Z",
+   "src": "seat",
+   "cmd": "git add data/b664_registration_2026-10-13.txt && git commit -q -m \"b664 the face drafted (section (0) to section (Z), G2 of 83 arms), before the prerun\" && git log --oneline -1",
+   "n": 74
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T16:52:32.449Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; Start-Process python -ArgumentList 'tools/b664_checks.py','--prerun' -WorkingDirectory 'D:\\relay' -RedirectStandardOutput 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad\\b664_prerun.log' -RedirectStandardError 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad\\b664_prerun.err' -WindowStyle Hidden -PassThru | Select-Object Id",
+   "n": 75
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T16:52:38.844Z",
+   "src": "seat",
+   "cmd": "grep -n -i \"env\" tools/edit_route.py | head -20",
+   "n": 76
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T16:52:49.218Z",
+   "src": "seat",
+   "cmd": "grep -n \"environment variable\" data/b664_registration_2026-10-13.txt",
+   "n": 77
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T16:52:59.821Z",
+   "src": "seat",
+   "cmd": "S=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad\"; for i in $(seq 1 55); do if ! tasklist //FI \"PID eq 31324\" | grep -q 31324; then echo DONE; break; fi; sleep 10; done; tail -5 \"$S/b664_prerun.log\"; cat \"$S/b664_prerun.err\" | tail -5",
+   "n": 78
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:02:15.407Z",
+   "src": "seat",
+   "cmd": "grep -n -A3 \"G-FILE-RULE-ENTERED\\|G-KERNEL-FILES-FROM-BANK\\|G-R274-ENTERED\\|G-AXIOM-CLAIM \" data/b664_arms_prerun.txt | head -50; head -20 data/b664_arms_prerun.txt",
+   "n": 79
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:02:20.292Z",
+   "src": "seat",
+   "cmd": "grep -n -B1 -A8 \"('G-FILE-RULE-ENTERED'\\|('G-KERNEL-FILES-FROM-BANK'\\|('G-R274-ENTERED'\" tools/b664_checks.py",
+   "n": 80
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:02:23.617Z",
+   "src": "seat",
+   "cmd": "grep -n -A16 \"^def file_rule_ok\\|^def kernel_files_ok\\|^def _rl\\b\\|^def _rl(\" tools/b664_checks.py",
+   "n": 81
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:02:28.622Z",
+   "src": "seat",
+   "cmd": "grep -n -A14 \"^def landed\" tools/b664_checks.py; grep -n -A10 \"^def kernel_files_read\" tools/b664_checks.py; python -c \"\nimport json;d=json.load(open('data/b664_record_lines.json',encoding='utf-8'));l=d['lines'][3];print({k:(v if not isinstance(v,str) else v[:300]) for k,v in l.items()})\"",
+   "n": 82
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:02:32.302Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && sed -n '14190p' OPEN_TRAILS.md | cut -c1-1200",
+   "n": 83
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:02:36.624Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && grep -n -A8 \"^def oline\\|^def fline\" tools/b664_checks.py; sed -n '14191,14194p' /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-600",
+   "n": 84
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:02:42.721Z",
+   "src": "seat",
+   "cmd": "grep -n -A12 \"^def orders_ok\" tools/b664_checks.py; grep -c \"kernel_files()\" /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md; awk 'NR>=14190 && NR<=14196' /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | grep -o \"kernel_files()\\|(o)\" | sort | uniq -c",
+   "n": 85
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:02:54.926Z",
+   "src": "seat",
+   "cmd": "grep -n \"'(b)'\\|\\\"(b)\\\"\\|(b) \" tools/b664_record.py | head; cat data/b664_defects.txt | head -30",
+   "n": 86
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:02:58.928Z",
+   "src": "seat",
+   "cmd": "tail -5 data/b664_defects.txt; grep -n \"def defects\" -A20 tools/b664_record.py | head -30",
+   "n": 87
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:03:05.487Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python tools/b664_record.py defects",
+   "n": 88
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T17:03:13.848Z",
+   "src": "seat",
+   "cmd": "Start-Process python -ArgumentList '-X','utf8','tools/b664_checks.py','--prerun' -WorkingDirectory 'D:\\relay' -RedirectStandardOutput 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad\\b664_prerun2.log' -RedirectStandardError 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad\\b664_prerun2.err' -WindowStyle Hidden -PassThru | Select-Object Id",
+   "n": 89
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:03:18.922Z",
+   "src": "seat",
+   "cmd": "S=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad\"; for i in $(seq 1 55); do if ! tasklist //FI \"PID eq 31996\" | grep -q 31996; then echo DONE; break; fi; sleep 10; done; grep \"LIVE FAILING\\|NEGATIVE-CONTROL\\|VERDICT\" \"$S/b664_prerun2.log\"; tail -3 \"$S/b664_prerun2.err\"",
+   "n": 90
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:10:32.089Z",
+   "src": "seat",
+   "cmd": "grep -n -i \"G-AXIOM-CLAIM\" data/b663_registration_2026-10-13.txt | head -5",
+   "n": 91
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:10:34.710Z",
+   "src": "seat",
+   "cmd": "sed -n '44,54p' data/b663_registration_2026-10-13.txt",
+   "n": 92
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:10:40.743Z",
+   "src": "seat",
+   "cmd": "grep -n -A6 \"('G-ARMS-PRERUN'\\|('G-DRY-STEP-CLEAN'\" tools/b664_checks.py",
+   "n": 93
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:10:47.714Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b664_reg_gate.py 2>&1 | tail -45",
+   "n": 94
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:10:51.253Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b664_record.py gatebanks 2>&1 | tail -40",
+   "n": 95
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:10:57.947Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b378_lockgate.py b664 data/b664_registration_2026-10-13.txt 2>&1 | tail -25",
+   "n": 96
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:11:01.565Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b664_registration_2026-10-13.txt 2>&1 | tail -8 && python -X utf8 tools/reg_seal.py --verify data/b664_registration_2026-10-13.txt 2>&1 | tail -6",
+   "n": 97
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:11:04.870Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b664_checks.py --seal 2>&1 | tail -15",
+   "n": 98
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:11:07.847Z",
+   "src": "seat",
+   "cmd": "git status --short --untracked-files=all -- data/b664_* data/audit_b664_* tools/b664_*",
+   "n": 99
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:11:12.730Z",
+   "src": "seat",
+   "cmd": "git add data/b664_defects.json data/b664_defects.txt data/b664_registration_2026-10-13.txt tools/b664_checks.py data/audit_b664_reg_satisfiable.txt data/b664_arms_prerun.txt data/b664_census_stepzero.txt data/b664_faces_census_stepzero.txt data/b664_lockgate.json data/b664_lockgate_notes.txt data/b664_lsr_prerun.json data/b664_pins_stepzero.txt data/b664_reg_gate.txt data/b664_reg_termscan.txt data/b664_regspec_run.txt data/b664_satisfiable.json data/b664_seal_hashes.json && git commit -q -m \"b664 seal: the face locked (a7a81350), the gate CLEAR with its dry-run step CLEAN (entry 12/12, trail 9/9 needles), the lockgate 8/8, the seal intact; the prerun 83 arms (G-AXIOM-CLAIM declared, carried); G-FILE-RULE-ENTERED's predicate repaired before the seal (defect (c)); the sealed tools' hashes recorded\" && git log --oneline -1",
+   "n": 100
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:11:18.907Z",
+   "src": "seat",
+   "cmd": "grep -n \"^def table_final\" -A30 tools/b664_record.py | head -45",
+   "n": 101
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:11:21.987Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b664_record.py table_final 2>&1 | tail -5 && git status --short -- data/terminal_table* data/b664_table_final*",
+   "n": 102
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:11:49.142Z",
+   "src": "seat",
+   "cmd": "git add data/terminal_table.json data/terminal_table.md data/b664_table_final.json data/b664_table_final.txt && git commit -q -m \"b664 pre-root: the terminal table regenerated, final (rows moved 0, added 0, gone 0, grade moved 0)\" && git log --oneline -1 && git rev-list --left-right --count main...origin/main && git -C /d/MY-DOwnloads/PLACE-papers rev-list --left-right --count main...origin/main && git -C /d/MY-DOwnloads/PLACE-papers log --oneline -2",
+   "n": 103
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:11:54.033Z",
+   "src": "seat",
+   "cmd": "ls data/b663_*push_out* ",
+   "n": 104
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:11:57.386Z",
+   "src": "seat",
+   "cmd": "git branch push-b664-root HEAD && PUSH_GATED_LOG=/d/relay/data/b664_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b664-root",
+   "n": 105
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:12:07.758Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b664-root HEAD && PUSH_GATED_LOG=/d/relay/data/b664_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b664-root",
+   "n": 106
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:12:38.745Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b664_record.py root 2>&1 | tail -15 && git status --short -- data/",
+   "n": 107
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:13:05.718Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" ba1ba004~6..ba1ba004 | cut -c1-90; git show --stat --format=\"%h %s\" $(git log --format=%h --grep=\"^b663 root\" -1) | cut -c1-120",
+   "n": 108
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T17:13:09.277Z",
+   "src": "seat",
+   "cmd": "git add data/act_roots.txt data/b664_act_root.json data/b664_act_root.txt && git commit -q -m \"b664 root: the act root 1bd81723... over 38 repositories, 34 tags and 46 banks, appended to data/act_roots.txt\" && git log --oneline -1",
+   "n": 109
   }
  ],
  "offences": [],
