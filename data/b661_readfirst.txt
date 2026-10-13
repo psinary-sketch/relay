@@ -1,0 +1,54 @@
+b661 -- THE READ-FIRST, UNDER (R271): EACH SOURCE CITED BY PATH AND LINE, THE UNIT OF EACH BANK'S ROWS NAMED (2026-10-13)
+
+### banked before Component 1 (b658's defect (d) not repeated).
+
+### relay data/b660_closing.txt -- rows are the closing record's lines; the weight as (R271)(1) prints it:
+  :1    b660 closed: relay 6625e16c, PLACE-papers 2e07a61; suite 72 of 77 (b659's, read once at HEAD for the record); root c147a36ec3d59632...;
+        1 prompt (4 questions) answered; 3 defects
+  :7    THE RECORD LINES: FINDINGS :8459 (b659's weight), :8461 (the entry) ; OPEN_TRAILS :14092 (the trail record)
+  :12   THE SUITE, ONCE: 77 run, 72 passing -- G-AXIOM-CLAIM carried; four arms reading act-shaped changes
+  :15-:16  NO TOOL EDITED: relay tools/ at the close equal to 673d79c0's
+  :19-:20  THE DEFECTS: (a), (b) in data/b660_defects.txt (root-named); (c) after the root, two push calls in parallel
+### relay data/b660_ten_acts.txt -- rows are defects of the acts b650-b659, one per line under its seat:
+  :78   DEFECTS 63 IN THE TEN ACTS: THE SEAT'S 48 IN 11 KINDS, THE NAVIGATOR'S 14 (15 WITH :13990), THE AUTHOR'S 1
+  :100  RECURRING KINDS 9 (THE SEAT'S) ; CLOSED BY RULE 1 (CONVERSION) ; OPEN 8
+  :127, :132, :134  the seat's sentence, the navigator's sentence (verbatim), the two read side by side
+### relay data/b660_lanes.txt -- rows are kernels (lane one) and work-orders or items (lane two), as they print:
+  :41-:42  MERGED 4 KERNELS (205 OVERREACHES OF 266) ; REMAINING 15 KERNELS WITH OVERREACHES (61) AND 1 WITH AN UNLICENSED ROW ; NEXT
+           SIDE-carrier-spec (9)
+  :77   WORK-ORDERS AND ITEMS 14: DISCHARGED 3, ACTED 2, OPEN 0, PRICED 9
+### relay data/b660_closing_push_out.txt -- rows are push_gated's capture lines; committed at a2443559 with the ferry.
+
+### relay data/b656_e1_binding.txt -- rows are quantities (section 1, :48-:133), one per symbol; the obstructions by line:
+  :17-:20  (O-1) at E1's own configuration the tie set is not computable; hrate's right side does not bind there
+  :22-:27  the cell's configuration Z₁(σ, t): the orbit of four and ζ's zeros with |Im| ≤ T, multiplicity 1; a WeilConfig with rhs its own
+           zero side (ef by rfl), count from its HCount, target the strip form; T = 1000
+  :34-:38  (O-2) at v0.27 E1 had no form over a WeilConfig -- DISCHARGED at b658 (v0.28, below)
+  :40-:43  (O-3) A₀ at the full configuration existential; Z₁ finite binds
+  :48-:133 the quantity rows: ℓ :48, L :52, g0 :54, M :59, the dominant :65, the tie set :69, the kill set :73, the zero list :78, Nf :82,
+           D :86 (with :91-:92 READ BESIDE J_max = 12, superseded by (R271)(2)'s J_max = D + 8), B :94, Aw :98, θ :103, A₀ :111,
+           zeta3Sum :116, Bf :118, hrate :121, power :124, H3's zero side :128
+  :138-:142 the cost; :147-:151 the verdict
+### relay data/b658_e1cfg_statement.txt -- rows are hypothesis groups with their lines (section 2, :28-:39, H1-H11 and the struck clause);
+### section 3 (:44-:52) the configuration facts F1-F9; the statement as drafted :60-:84.
+
+### SIDE-explicit-formula at v0.28 = main ffbc617 (v0.27 = 111e418); `git diff --name-only v0.27 v0.28`: .github/workflows/build-module.yml,
+### SIDEExplicitFormula/Schema/RateIndexCfg.lean, print_targets.txt -- so every line b656 cites outside RateIndexCfg.lean reads the same at v0.28.
+  Schema/RateIndexCfg.lean :32-:43 dominant_summable_hcount ; :48-:57 rest_norm_le_rate_cfg ; :135-:148 zeroSide_neg_at_rate_cfg, its binders:
+           :135 H : PWSetup C.toZeroConfig g0 L M ; :136 Q B D ; :137-:138 hQtie ; :139 hQb ; :140 θ hθ0 ; :141-:142 hθ ; :143 A₀ hA ;
+           :144 j hj ; :145-:147 hrate ; :148 the conclusion (zeroSide_cfg C (kWindow (coeffList (Pof H (Q j))) g0 j)).re < 0 ;
+           :217-:218 zeroSide_neg_at_rate_cfg_zeta, by rfl
+  Schema/Config.lean :24-:34 WeilConfig's fields (rhs :26, ef :28-:29, count :31, target :33, target_iff :34) ; :37-:38 zeroSide_cfg
+  Schema/Converse.lean :28 dominant_summable_cfg ; :43 fR_cfg ; :48 fR_norm_le_cfg ; :65 fR_bound_cfg ; :151 sT_cfg ; :154 mem_sT_cfg ;
+           :161 zeroSide_eventually_neg_cfg
+  Schema/Instances.lean :25 zetaWeilConfig
+  PowerLimit.lean :245-:251 PWSetup (hev, hsm, hs, hL, hM, hdom) ; :268 Xr ; :271 Kp ; :274 cE ; :277 Ep ; :280 VF ; :317-:318 Pof ;
+           :343 coeffList ; :437-:439 Xval ; :445 Nf ; :510 rep ; :591-:592 rT ; :615 rT_norm ; :624 rT_sq_mul ; :643 poly_norm_le ;
+           :658-:668 fixed_poly_bound (D = natDegree + 1) ; :672-:675 coeffs_exist ; :683 its witness
+           `(VF H).card * max CV 0 * BK * BE, 2 * (VF H).card + 2 * DK + DE` ; :749 tie_term_neg ; :756 kill_term_zero ; :800 Aw ; :809 zero_weight
+  PowerWindow.lean :328 offScore ; :398 tieSet ; :401 killSet ; :427-:432 real_even_interpolant, its constant CV
+  RestBound.lean :44-:45 HCount ; :51 zeta3Sum
+  Zeta23/Defs.lean :121 gammaOf ; :124 reflect ; :136-:146 ZeroConfig's fields ; :162 N
+
+### relay data/b627_margin_inputs.txt -- rows are the bench's input lines; :7 "python-flint 0.9.0, Arb balls at 200 bits throughout" -- the
+### precision of (R271)(4). This host: python-flint 0.9.0 (read 2026-10-13), acb.integral and acb.zeta_zeros present.
