@@ -1,0 +1,38 @@
+b660 -- COMPONENT 0: STEP ZERO UNDER (R270) (2026-10-13)
+
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R270) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b660_ferry.txt (extracted from the pasted text in the session transcript, 9846 characters, no CR); the ferry scan 0 hits
+### (data/b660_ferry_scan.txt); relay 9863dfe4.
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 4068 MB
+### orphans: NONE ; stopped by PID: none needed. Read again after the first test driver stopped (below): NONE.
+
+### b659's closing push-out bank committed at the start: relay 9863dfe4 (data/b659_closing_push_out.txt, as b659's push wrote it), with the
+### ferry and its scan. The tools tree at the act's start: relay 673d79c0 (b659's closing), the reference of N1's empty diff.
+
+### the b659 branches, listed by `git branch --merged main` and deleted by name with the lower-case flag in the same command, read back:
+  relay                             listed push-b659, push-b659-closing, push-b659-root ; deleted push-b659 (was 9e87ace6), push-b659-root
+                                    (was 3ac896f0), push-b659-closing (was 673d79c0)
+  PLACE-papers                      listed push-b659, push-b659-root ; deleted push-b659 (was b15b3c6), push-b659-root (was 4640106)
+  SIDE-structural-error-correction  listed docstrings-cut-SIDE-structural-error-correction, push-b659-merge, push-b659-workflow ; deleted
+                                    push-b659-workflow (was 6679a3a), push-b659-merge (was 5476ef3), docstrings-cut-SIDE-structural-error-correction
+                                    (was 17f4acf) ; at the remote, `git branch -r --merged origin/main` listed origin/docstrings-cut-SIDE-structural-
+                                    error-correction, deleted alone in its command (`git push origin --delete ...`: [deleted])
+
+### every test file under tools/ (data/b660_tests_stepzero.txt, .json): tools/b659_tests.py's run() UNEDITED, driven from the scratchpad with its
+### bank repointed to b660's name (no tool edited, (R270)(2)), the lists in force after b659, as a detached process watched from the foreground:
+  TEST FILES 54 ; RUN 53 ; WITHHELD 1 ; NOT CLEAN 2:
+    test_chain_page.py (9) -- carried as W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE's case (OPEN_TRAILS :13838).
+    test_chain_page_b638.py (4)-(7) -- as carried since b643; 3 of 7.
+    test_elab_reader_b634.py -- WITHHELD: no lean run on this host in this act (data/b660_tests_withheld.json).
+  the first driver (one python process running every test) stopped silently after its ninth test, test_banned_terms_backmatter.py, the next
+  being test_build_watch_b644.py, whose watchdog cases stop processes; the nine results stood banked, and the rest were run by a bash loop
+  calling the driver once per test (data/b660_defects.txt (a)).
+  the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### no build on this host: no lean or lake process started by this act; no kernel, tool or template file written.
