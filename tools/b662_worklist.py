@@ -59,8 +59,21 @@ RUNNER = {KERNEL: dict(branch=CUT_BRANCH, target=TARGET_MODULES, workflow_commit
                        ref='55421a3dd5423c3ae80215bac36ac973f88da662', dispatched_at='main',
                        refused='gh workflow run --ref docstrings-cut-SIDE-carrier-spec: HTTP 422, Workflow does not have workflow_dispatch trigger')}
 
+MERGE, MERGE_TAG = 'dd54a61', 'v0.4.2'
+CITATION_BANK = 'b662_citation_check.txt'
+
+# ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b661's face
+# ### (b661's own act arms not carried). Each run at HEAD and counted before the face names it.
+ACT_ARMS = ('G-R272-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-FINDING-AND-E2', 'G-CITATION-ACTED', 'G-REPAIR-APPENDED',
+            'G-MAP40-BANKED', 'G-KERNEL-NAMED', 'G-SENTENCES-BANKED', 'G-GRADES-VERBATIM', 'G-PROMPT-BEFORE-CUT', 'G-CUT-COMMITS',
+            'G-CUT-REGRADE')
+B661_ACT_ARMS = ('G-R271-ENTERED', 'G-DRY-STEP-CLEAN', 'G-BINDING-BANKED', 'G-PROMPT-BEFORE-NUMBER', 'G-MAP-SCRIPT-HEAD', 'G-MAP-BANKED',
+                 'G-CERTS-BEFORE-INDEX', 'G-MAP-CONTROL', 'G-HYPOTHESES-SCORED')
+
 EDITED_SHARED = ()
 NEW_TESTS = ()
+SEALED = ('b662_worklist.py', 'b662_tests.py', 'b662_citation.py', 'b662_record.py', 'b662_map.py', 'b662_checks.py', 'b662_closing.py',
+          'b662_reg_gate.py', 'b662_regspec.py')
 
 
 def show(path, rev=PRE_PP, repo=PP):
