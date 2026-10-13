@@ -1,0 +1,33 @@
+b661 -- COMPONENT 0: STEP ZERO UNDER (R271) (2026-10-13)
+
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R271) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b661_ferry.txt (extracted from the pasted text in the session transcript, no CR); the ferry scan 0 hits
+### (data/b661_ferry_scan.txt); relay a2443559.
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 4274 MB
+### orphans: NONE ; stopped by PID: none needed. Read again after the test driver stopped (below): NONE ; free memory 6733 MB.
+
+### b660's closing push-out bank committed at the start: relay a2443559 (data/b660_closing_push_out.txt, as b660's push wrote it), with the
+### ferry and its scan. The tools tree at the act's start: relay a2443559's parent tree, b660's closing (no tool written by b660).
+
+### the b660 branches, listed by `git branch --merged main` and deleted by name with the lower-case flag in the same command, read back:
+  relay                             listed push-b660, push-b660-closing, push-b660-root ; deleted push-b660 (was 6625e16c), push-b660-root
+                                    (was 65222ad8), push-b660-closing (was 2e439312)
+  PLACE-papers                      listed push-b660, push-b660-root ; deleted push-b660 (was 2e07a61), push-b660-root (was 0f2bced)
+  read back after the deletes: `git branch --list 'push-b66*'` empty in both repos.
+
+### every test file under tools/ (data/b661_tests_stepzero.txt, .json): tools/b661_tests.py (carried from b659_tests.py, written whole by the
+### Write tool; the lists in force after b660, unchanged), one python process per test from a detached bash loop in the scratchpad (b660's
+### lesson (a)), watched from the foreground:
+  TEST FILES 54 ; RUN 53 ; WITHHELD 1 ; NOT CLEAN 2:
+    test_chain_page.py (9) -- carried as W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE's case (OPEN_TRAILS :13838); the same at b659 and b660.
+    test_chain_page_b638.py (4)-(7) -- as carried since b643; 3 of 7.
+    test_elab_reader_b634.py -- WITHHELD: no lean run on this host in this act (data/b661_tests_withheld.json).
+  the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### no build on this host: no lean or lake process started by this act; no kernel file written; the deposit route untouched.
