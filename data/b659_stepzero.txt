@@ -1,0 +1,35 @@
+b659 -- COMPONENT 0: STEP ZERO UNDER (R269) (2026-10-13)
+
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R269) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b659_ferry.txt (extracted from the pasted text in the session transcript, 9247 characters, no CR); the ferry scan 0 hits
+### (data/b659_ferry_scan.txt); relay d75be0e6.
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python), read before any run:
+  NONE: no tail, lean, lake or python process is running ; free memory 2893 MB
+### orphans: NONE ; stopped by PID: none needed.
+
+### b658's closing push-out bank committed at the start: relay d75be0e6 (data/b658_closing_push_out.txt, as b658's push wrote it), with the
+### ferry and its scan.
+
+### the b658 branches, listed by `git branch --merged main` and deleted by name with the lower-case flag in the same command, read back:
+  relay                  listed push-b658, push-b658-closing, push-b658-root ; deleted push-b658 (was 7add190d), push-b658-root (was 3b737af3),
+                         push-b658-closing (was 8b7d2901)
+  PLACE-papers           listed push-b658, push-b658-root ; deleted push-b658 (was 5871eaa), push-b658-root (was 36e90f0)
+  SIDE-explicit-formula  listed e1cfg-b658, push-b658-merge ; deleted push-b658-merge (was ffbc617), e1cfg-b658 (was f18ab7e) ; at the remote,
+                         `git branch -r --merged origin/main` listed origin/e1cfg-b658, deleted alone in its command (`git push origin --delete
+                         e1cfg-b658`: [deleted])
+
+### every test file under tools/ (data/b659_tests_stepzero.txt, .json), tools/b659_tests.py with the lists in force after b658, one test per call,
+### run detached by a scratch driver outside every tree and watched in the foreground:
+  TEST FILES 54 ; RUN 53 ; WITHHELD 1 ; NOT CLEAN 2:
+    test_chain_page.py (9) -- carried as W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE's case (OPEN_TRAILS :13838).
+    test_chain_page_b638.py (4)-(7) -- as carried since b643; 3 of 7.
+    test_elab_reader_b634.py -- WITHHELD: no lean run on this host in this act (data/b659_tests_withheld.json).
+    test_msplit_b658.py -- b658's planted test of the repaired splitter: 7 of 7.
+  the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### the banks that stay untracked (git status --porcelain, git ls-files, git log --all):
+  data/b628_intake_crank_v0_5.txt   status ?? ; in the index NO ; in a commit NONE
+  data/b647_navigator_memory.txt    status ?? ; in the index NO ; in a commit NONE
+
+### no build on this host: no lean or lake process started by this act; the build of (R269)(2) goes to the hosted runner.
