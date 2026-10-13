@@ -771,14 +771,17 @@ def grades(*a):
     pl = jl('b664_plain_comments.json')
     unread = jl(K.SENT).get('unread') or []
     L.append('### PARENT BLOCKS NOT FOUND AT MAIN (listed, not graded): %s' % ('; '.join(unread) or 'NONE'))
+    L += ['  UNRESOLVED-NO-CELL  %s -- restated at b648 (relay data/b648_sorry_repairs.txt :6, :55-:101); no b647-form cell reaches the text at main; '
+          'listed for the kernel`s cell refresh, the author`s word; the seat`s hand reading printed beside it as a reading, not a grade (relay '
+          'data/b664_restated_reading.txt)' % u.split(':', 1)[1] for u in unread]
     L.append('### PLAIN-COMMENT ROWS (relay data/b664_plain_comments.txt): %s' % ('; '.join('%s:%d -- %s' % tuple(h) for h in pl.get('hits') or []) or 'NONE'))
     L.append('### ROWS LISTED UNRESOLVED WITH THEIR REASONS (not cut): %d' % n_unact)
     n_cut = len([b for b in J if b.get('kept') is not None])
     files = sorted(set(b['file'] for b in J if b.get('kept') is not None))
     L.append('### ### **PARENT BLOCKS %d ; SENTENCE ROWS %d ; GRADED %d (%s) ; MATCHES %d ; UNRESOLVED BLOCKS %d (%s) ; UNRESOLVED-CELL %d ; '
-             'NOT FOUND AT MAIN %d ; BLOCKS TO CUT %d IN %d FILES ; REPEATS DROPPED BY THE RULE %d ; PLAIN-COMMENT ROWS %d.**' % (
+             'NOT FOUND AT MAIN %d (UNRESOLVED-NO-CELL %d) ; BLOCKS TO CUT %d IN %d FILES ; REPEATS DROPPED BY THE RULE %d ; PLAIN-COMMENT ROWS %d.**' % (
                  len(J), n_rows, n_graded, ', '.join('%s %d' % kv for kv in sorted(by_v.items())), n_rows - n_graded, n_unres,
-                 ', '.join('#%d' % e for e in unres) or 'none', n_cell, len(unread), n_cut, len(files), n_drop, len(pl.get('hits') or [])))
+                 ', '.join('#%d' % e for e in unres) or 'none', n_cell, len(unread), len(unread), n_cut, len(files), n_drop, len(pl.get('hits') or [])))
     put_txt('b664_sentence_grades.txt', L)
     put_json('b664_sentence_cut_plan.json', dict(at=utc(), blocks=J))
     print(L[-1])

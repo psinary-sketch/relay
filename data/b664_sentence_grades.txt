@@ -1,0 +1,74 @@
+b664 -- COMPONENT 2, (R274)(5): SIDE-effects`S SENTENCE ROWS GRADED BY HAND, BOUND TO THE PARENT BLOCK`S HAND CELLS; BANKED FOR THE AUTHOR`S STRIKE BEFORE ANY EDIT (2026-10-13T16:32:04Z)
+
+### the rule (b652`s, (R265)(2), as (R267)(3) and (R274)(5) carry it): a sentence row is graded OVERREACHES, UNDERSTATES or UNLICENSED where
+### the parent block`s HAND LICENSED or CITED cell names, quotes or paraphrases that sentence`s claim, the grade citing the cell`s words beside
+### it; a sentence those cells do not reach stays MATCHES; a block whose cells reach no sentence is UNRESOLVED, not cut; an ACTION carrying
+### "..." is UNRESOLVED-CELL. The grade is the parent`s verdict. Where a block`s ACTION re-cuts several items, a graded row may carry its own
+### span of that ACTION (verbatim). (R267)(3): a row in a file the kernel`s main changed since b647 is re-graded against the change banks, the
+### bank`s own line quoted. The sources: relay data/b664_table_SIDE-effects_sentences.json, data/b647_table_SIDE-effects.json (b647, read at ef4cff7); the blocks read at main 9a279ac; the change banks data/b648_sorry_classification.txt, data/b648_sorry_repairs.txt, data/b652_build_results.json, data/b652_effects_push_out.txt; the
+### hand grades: data/b664_sentence_grades.json.
+### Below each block: the block as the mechanical rule leaves it -- graded rows replaced in place, repeats dropped and printed.
+
+== #1 SIDEEffects/ExhaustivenessLicense.lean:1 (b647`s bank line :10 ; at main SIDEEffects/ExhaustivenessLicense.lean:1 ; module ; HAND OVERREACHES ; 18 sentence rows)
+   LICENSED : "Each corpus instance carries its factual Evidence ... never asserted" and "The only open point is EDifficultyTop" — the Evidence bits are hand-set literals (RH_evidence := ⟨true, true, true⟩), so RH's THEOREM grade records the catalogue's exhaustiveness at ξ, the programme's one open clause (rule 5; ConservationHypothesis OPEN), as certified by a literal — a second open point the header does not name. The ladder facts, computed grades and no-Mathlib / no native_decide claims hold.
+   ACTION   : RE-CUT: Each corpus instance carries hand-set Evidence bits (data, asserted), and its grade is computed from them by `grade` and proved by rfl; besides the named premise EDifficultyTop, RH's hasClassificationTheorem = true records the open exhaustiveness of the catalogue at ξ as the reading, not a compiled certificate.
+  s1    MATCHES     # ExhaustivenessLicense — the graded ladder of exhaustiveness certificates W-LADDER kernel half (2026-07-25).
+  s2    MATCHES     The SIDE E-condition asks: *is the mechanism catalogue exhaustive?*
+  s3    MATCHES     This module compiles the **ordered ladder of licenses** an exclusion instance can carry for that exhaustiveness, and grades the corpus's own instances against it.
+  s4    MATCHES     The four grades, strongest first: * `theorem_` — **THEOREM (Ostrowski-class).**
+  s5    MATCHES     Exhaustiveness is certified by a classification / finiteness theorem in ZFC (Ostrowski 1916 for the places of ℚ; CFSG; geometrization).
+  s6    MATCHES     The search terminates *and* a theorem proves it terminates completely.
+  s7    MATCHES     * `search` — **SEARCH (Hodge-class).**
+  s8    MATCHES     Exhaustiveness is established by search / verification, with a conservation-style prediction of termination, but no closed classification theorem yet.
+  s9    MATCHES     * `forcedOrUnderdetermined` — **FORCED-OR-UNDERDETERMINED (T7-class).**
+  s10   MATCHES     The count is forced by the structure's own formation architecture, but its exhaustiveness carries no independent theorem or terminating-search certificate — forced by construction, or underdetermined.
+  s11   MATCHES     * `none` — **NONE.**
+  s12   MATCHES     No exhaustiveness license: no theorem, no terminating search, no forcing.
+  s13   MATCHES     **Salt-check discipline.**
+  s14   MATCHES     The grades are NOT axiom-stipulated.
+  s15   MATCHES     `Grade.rank` is a function; the order `Grade.le` derives from it; the ladder facts (`theorem_is_top`, `ladder_strict`) are proved.
+  s16   OVERREACHES Each corpus instance carries its factual `Evidence`, and its grade is *computed* by `grade` and proved by `decide`/`rfl` — never asserted.
+                    cell: "Each corpus instance carries its factual Evidence ... never asserted"
+  s17   OVERREACHES The **only** open point is the E-Difficulty biconditional (`EDifficultyTop`), carried as a **named premise** (INTERFACES), never proved here: it is the bridge from the ladder's top grade to the difficulty theory (E-Difficulty Level 1, TYPE-I discharge).
+                    cell: "The only open point is EDifficultyTop"
+  s18   MATCHES     `theorem` throughout (vanilla-build law); core Lean only, no Mathlib, no `native_decide`.
+   -> THE BLOCK AFTER THE CUT (17 sentences; repeats dropped 1):
+        # ExhaustivenessLicense — the graded ladder of exhaustiveness certificates W-LADDER kernel half (2026-07-25).
+        The SIDE E-condition asks: *is the mechanism catalogue exhaustive?*
+        This module compiles the **ordered ladder of licenses** an exclusion instance can carry for that exhaustiveness, and grades the corpus's own instances against it.
+        The four grades, strongest first: * `theorem_` — **THEOREM (Ostrowski-class).**
+        Exhaustiveness is certified by a classification / finiteness theorem in ZFC (Ostrowski 1916 for the places of ℚ; CFSG; geometrization).
+        The search terminates *and* a theorem proves it terminates completely.
+        * `search` — **SEARCH (Hodge-class).**
+        Exhaustiveness is established by search / verification, with a conservation-style prediction of termination, but no closed classification theorem yet.
+        * `forcedOrUnderdetermined` — **FORCED-OR-UNDERDETERMINED (T7-class).**
+        The count is forced by the structure's own formation architecture, but its exhaustiveness carries no independent theorem or terminating-search certificate — forced by construction, or underdetermined.
+        * `none` — **NONE.**
+        No exhaustiveness license: no theorem, no terminating search, no forcing.
+        **Salt-check discipline.**
+        The grades are NOT axiom-stipulated.
+        `Grade.rank` is a function; the order `Grade.le` derives from it; the ladder facts (`theorem_is_top`, `ladder_strict`) are proved.
+        Each corpus instance carries hand-set Evidence bits (data, asserted), and its grade is computed from them by `grade` and proved by rfl; besides the named premise EDifficultyTop, RH's hasClassificationTheorem = true records the open exhaustiveness of the catalogue at ξ as the reading, not a compiled certificate.
+        `theorem` throughout (vanilla-build law); core Lean only, no Mathlib, no `native_decide`.
+        ### DROPPED AS A REPEAT: Each corpus instance carries hand-set Evidence bits (data, asserted), and its grade is computed from them by `grade` and proved by rfl; besides the named premise EDifficultyTop, RH's hasClassificationTheorem = true records the open exhaustiveness of the catalogue at ξ as the reading, not a compiled certificate.
+
+== #2 SIDEEffects/ExhaustivenessLicense.lean:99 (b647`s bank line :15 ; at main SIDEEffects/ExhaustivenessLicense.lean:99 ; decl ; HAND OVERREACHES ; 2 sentence rows)
+   LICENSED : RH_evidence := ⟨true, true, true⟩ is a hand-set literal that records the seven-class catalogue's exhaustiveness at ξ (covers_all, the one open clause, rule 5) as classification-certified; RH_grade is unconditional rfl, the stated conditionality "on h2 at the totality register" appears in no declaration, and EDifficultyTop is a biconditional to TYPE-I discharge, not h2.
+   ACTION   : RE-CUT: **RH** — the Evidence bits are set to true by hand on the programme's reading (Ostrowski n₂=3, ring classification n₁=2, Cartan B n₃=2, Conservation/Tate n₄=0); the catalogue's exhaustiveness at ξ is the open clause, not certified here, so the THEOREM grade computed from these bits records the reading.
+  s1    OVERREACHES **RH** — the seven-class catalogue's exhaustiveness rests on classification theorems (Ostrowski n₂=3, ring classification n₁=2, Cartan B n₃=2, Conservation/Tate n₄=0).
+                    cell: "records the seven-class catalogue's exhaustiveness at ξ"
+  s2    OVERREACHES THEOREM-grade, conditional on `h2` at the totality register — the conditionality is the E-Difficulty bridge below.
+                    cell: "the stated conditionality "on h2 at the totality register" appears in no declaration"
+   -> THE BLOCK AFTER THE CUT (1 sentences; repeats dropped 1):
+        **RH** — the Evidence bits are set to true by hand on the programme's reading (Ostrowski n₂=3, ring classification n₁=2, Cartan B n₃=2, Conservation/Tate n₄=0); the catalogue's exhaustiveness at ξ is the open clause, not certified here, so the THEOREM grade computed from these bits records the reading.
+        ### DROPPED AS A REPEAT: **RH** — the Evidence bits are set to true by hand on the programme's reading (Ostrowski n₂=3, ring classification n₁=2, Cartan B n₃=2, Conservation/Tate n₄=0); the catalogue's exhaustiveness at ξ is the open clause, not certified here, so the THEOREM grade computed from these bits records the reading.
+
+### PARENT BLOCKS NOT FOUND AT MAIN (listed, not graded): SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:3; SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:21; SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:33; SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:50; SIDE-effects@ef4cff7:SIDEEffects/Milestones.lean:65
+  UNRESOLVED-NO-CELL  SIDEEffects/Milestones.lean:3 -- restated at b648 (relay data/b648_sorry_repairs.txt :6, :55-:101); no b647-form cell reaches the text at main; listed for the kernel`s cell refresh, the author`s word; the seat`s hand reading printed beside it as a reading, not a grade (relay data/b664_restated_reading.txt)
+  UNRESOLVED-NO-CELL  SIDEEffects/Milestones.lean:21 -- restated at b648 (relay data/b648_sorry_repairs.txt :6, :55-:101); no b647-form cell reaches the text at main; listed for the kernel`s cell refresh, the author`s word; the seat`s hand reading printed beside it as a reading, not a grade (relay data/b664_restated_reading.txt)
+  UNRESOLVED-NO-CELL  SIDEEffects/Milestones.lean:33 -- restated at b648 (relay data/b648_sorry_repairs.txt :6, :55-:101); no b647-form cell reaches the text at main; listed for the kernel`s cell refresh, the author`s word; the seat`s hand reading printed beside it as a reading, not a grade (relay data/b664_restated_reading.txt)
+  UNRESOLVED-NO-CELL  SIDEEffects/Milestones.lean:50 -- restated at b648 (relay data/b648_sorry_repairs.txt :6, :55-:101); no b647-form cell reaches the text at main; listed for the kernel`s cell refresh, the author`s word; the seat`s hand reading printed beside it as a reading, not a grade (relay data/b664_restated_reading.txt)
+  UNRESOLVED-NO-CELL  SIDEEffects/Milestones.lean:65 -- restated at b648 (relay data/b648_sorry_repairs.txt :6, :55-:101); no b647-form cell reaches the text at main; listed for the kernel`s cell refresh, the author`s word; the seat`s hand reading printed beside it as a reading, not a grade (relay data/b664_restated_reading.txt)
+### PLAIN-COMMENT ROWS (relay data/b664_plain_comments.txt): NONE
+### ROWS LISTED UNRESOLVED WITH THEIR REASONS (not cut): 0
+### ### **PARENT BLOCKS 2 ; SENTENCE ROWS 20 ; GRADED 4 (OVERREACHES 4) ; MATCHES 16 ; UNRESOLVED BLOCKS 0 (none) ; UNRESOLVED-CELL 0 ; NOT FOUND AT MAIN 5 (UNRESOLVED-NO-CELL 5) ; BLOCKS TO CUT 2 IN 1 FILES ; REPEATS DROPPED BY THE RULE 2 ; PLAIN-COMMENT ROWS 0.**

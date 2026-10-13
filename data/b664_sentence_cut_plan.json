@@ -1,0 +1,99 @@
+{
+ "at": "2026-10-13T16:32:04Z",
+ "blocks": [
+  {
+   "k": 1,
+   "parent": "SIDE-effects@ef4cff7:SIDEEffects/ExhaustivenessLicense.lean:1",
+   "file": "SIDEEffects/ExhaustivenessLicense.lean",
+   "line": 1,
+   "bank_line": 10,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "16",
+    "17"
+   ],
+   "verdicts": {
+    "16": "OVERREACHES",
+    "17": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: Each corpus instance carries hand-set Evidence bits (data, asserted), and its grade is computed from them by `grade` and proved by rfl; besides the named premise EDifficultyTop, RH's hasClassificationTheorem = true records the open exhaustiveness of the catalogue at ξ as the reading, not a compiled certificate.",
+   "completed": false,
+   "kept": [
+    "# ExhaustivenessLicense — the graded ladder of exhaustiveness certificates W-LADDER kernel half (2026-07-25).",
+    "The SIDE E-condition asks: *is the mechanism catalogue exhaustive?*",
+    "This module compiles the **ordered ladder of licenses** an exclusion instance can carry for that exhaustiveness, and grades the corpus's own instances against it.",
+    "The four grades, strongest first: * `theorem_` — **THEOREM (Ostrowski-class).**",
+    "Exhaustiveness is certified by a classification / finiteness theorem in ZFC (Ostrowski 1916 for the places of ℚ; CFSG; geometrization).",
+    "The search terminates *and* a theorem proves it terminates completely.",
+    "* `search` — **SEARCH (Hodge-class).**",
+    "Exhaustiveness is established by search / verification, with a conservation-style prediction of termination, but no closed classification theorem yet.",
+    "* `forcedOrUnderdetermined` — **FORCED-OR-UNDERDETERMINED (T7-class).**",
+    "The count is forced by the structure's own formation architecture, but its exhaustiveness carries no independent theorem or terminating-search certificate — forced by construction, or underdetermined.",
+    "* `none` — **NONE.**",
+    "No exhaustiveness license: no theorem, no terminating search, no forcing.",
+    "**Salt-check discipline.**",
+    "The grades are NOT axiom-stipulated.",
+    "`Grade.rank` is a function; the order `Grade.le` derives from it; the ladder facts (`theorem_is_top`, `ladder_strict`) are proved.",
+    "Each corpus instance carries hand-set Evidence bits (data, asserted), and its grade is computed from them by `grade` and proved by rfl; besides the named premise EDifficultyTop, RH's hasClassificationTheorem = true records the open exhaustiveness of the catalogue at ξ as the reading, not a compiled certificate.",
+    "`theorem` throughout (vanilla-build law); core Lean only, no Mathlib, no `native_decide`."
+   ],
+   "dropped": [
+    "Each corpus instance carries hand-set Evidence bits (data, asserted), and its grade is computed from them by `grade` and proved by rfl; besides the named premise EDifficultyTop, RH's hasClassificationTheorem = true records the open exhaustiveness of the catalogue at ξ as the reading, not a compiled certificate."
+   ],
+   "sentences": [
+    "# ExhaustivenessLicense — the graded ladder of exhaustiveness certificates W-LADDER kernel half (2026-07-25).",
+    "The SIDE E-condition asks: *is the mechanism catalogue exhaustive?*",
+    "This module compiles the **ordered ladder of licenses** an exclusion instance can carry for that exhaustiveness, and grades the corpus's own instances against it.",
+    "The four grades, strongest first: * `theorem_` — **THEOREM (Ostrowski-class).**",
+    "Exhaustiveness is certified by a classification / finiteness theorem in ZFC (Ostrowski 1916 for the places of ℚ; CFSG; geometrization).",
+    "The search terminates *and* a theorem proves it terminates completely.",
+    "* `search` — **SEARCH (Hodge-class).**",
+    "Exhaustiveness is established by search / verification, with a conservation-style prediction of termination, but no closed classification theorem yet.",
+    "* `forcedOrUnderdetermined` — **FORCED-OR-UNDERDETERMINED (T7-class).**",
+    "The count is forced by the structure's own formation architecture, but its exhaustiveness carries no independent theorem or terminating-search certificate — forced by construction, or underdetermined.",
+    "* `none` — **NONE.**",
+    "No exhaustiveness license: no theorem, no terminating search, no forcing.",
+    "**Salt-check discipline.**",
+    "The grades are NOT axiom-stipulated.",
+    "`Grade.rank` is a function; the order `Grade.le` derives from it; the ladder facts (`theorem_is_top`, `ladder_strict`) are proved.",
+    "Each corpus instance carries its factual `Evidence`, and its grade is *computed* by `grade` and proved by `decide`/`rfl` — never asserted.",
+    "The **only** open point is the E-Difficulty biconditional (`EDifficultyTop`), carried as a **named premise** (INTERFACES), never proved here: it is the bridge from the ladder's top grade to the difficulty theory (E-Difficulty Level 1, TYPE-I discharge).",
+    "`theorem` throughout (vanilla-build law); core Lean only, no Mathlib, no `native_decide`."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 2,
+   "parent": "SIDE-effects@ef4cff7:SIDEEffects/ExhaustivenessLicense.lean:99",
+   "file": "SIDEEffects/ExhaustivenessLicense.lean",
+   "line": 99,
+   "bank_line": 15,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "1",
+    "2"
+   ],
+   "verdicts": {
+    "1": "OVERREACHES",
+    "2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: **RH** — the Evidence bits are set to true by hand on the programme's reading (Ostrowski n₂=3, ring classification n₁=2, Cartan B n₃=2, Conservation/Tate n₄=0); the catalogue's exhaustiveness at ξ is the open clause, not certified here, so the THEOREM grade computed from these bits records the reading.",
+   "completed": false,
+   "kept": [
+    "**RH** — the Evidence bits are set to true by hand on the programme's reading (Ostrowski n₂=3, ring classification n₁=2, Cartan B n₃=2, Conservation/Tate n₄=0); the catalogue's exhaustiveness at ξ is the open clause, not certified here, so the THEOREM grade computed from these bits records the reading."
+   ],
+   "dropped": [
+    "**RH** — the Evidence bits are set to true by hand on the programme's reading (Ostrowski n₂=3, ring classification n₁=2, Cartan B n₃=2, Conservation/Tate n₄=0); the catalogue's exhaustiveness at ξ is the open clause, not certified here, so the THEOREM grade computed from these bits records the reading."
+   ],
+   "sentences": [
+    "**RH** — the seven-class catalogue's exhaustiveness rests on classification theorems (Ostrowski n₂=3, ring classification n₁=2, Cartan B n₃=2, Conservation/Tate n₄=0).",
+    "THEOREM-grade, conditional on `h2` at the totality register — the conditionality is the E-Difficulty bridge below."
+   ],
+   "split": [],
+   "premise": null
+  }
+ ]
+}
