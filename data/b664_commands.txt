@@ -1,0 +1,81 @@
+b664 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T16:49:04Z)
+
+### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R274) BEGIN', and its subagents` transcripts
+### commands read: 67
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-13T15:49:42.320Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|bash)' } | Select-Object ProcessId, Name, CommandLine | Format-Table -Aut
+  #2 | 2026-10-13T15:49:43.146Z | seat | Bash | sed -n '1,40p' data/b647_table_kernels.txt | cut -c1-160
+  #3 | 2026-10-13T15:49:51.988Z | seat | Bash | cd /d/SIDE-effects && git status --porcelain | head -3; git branch --show-current; git log --oneline ef4cff7..main | cut -c1-140; git rev-parse --short=7 main; 
+  #4 | 2026-10-13T15:50:03.486Z | seat | Bash | cd /d/relay && grep -n "^EPSTEIN_FILE" tools/b663_worklist.py; grep -n "def _main_src\|K.EPSTEIN_FILE" tools/b663_record.py; grep -n "^K_FILES\|K_FILES\]" tools
+  #5 | 2026-10-13T15:50:12.271Z | seat | Bash | git grep -l "SIDE-effects" -- 'data/b648_*' 'data/b649_*' 'data/b651_*' 'data/b652_*' | head -20; echo ---; cd /d/SIDE-effects && git show --stat --format='%h %
+  #6 | 2026-10-13T15:50:17.027Z | seat | Bash | cd /d/relay && ls data | grep -E "^b648_(sorry|restat|quarant|rows|repair)|^b652_(effects|milestone|build)" | head; grep -n "SIDE-effects" data/b647_table_SIDE-
+  #7 | 2026-10-13T15:51:13.305Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_citation.py check
+  #8 | 2026-10-13T15:51:20.164Z | seat | Bash | grep -E "next by descending|tag at the next|scorer's file|change banks" data/b664_citation_check.txt | cut -c1-330
+  #9 | 2026-10-13T15:51:26.195Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_citation.py ferry; Select-String -Path data\b664_ferry_scan.txt -Pattern 'VERDICT' | For
+  #10 | 2026-10-13T15:52:19.825Z | seat | Bash | git add data/b663_closing_push_out.txt data/b664_citation_check.txt data/b664_citation_check.json data/b664_ferry.txt data/b664_ferry_scan.txt tools/b664_citati
+  #11 | 2026-10-13T15:52:25.629Z | seat | Bash | echo relay: && git branch --merged main --list 'push-b663*' && echo PP: && git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list 'push-b663*' && echo 
+  #12 | 2026-10-13T15:52:29.592Z | seat | Bash | git branch -d push-b663 push-b663-root push-b663-closing
+  #13 | 2026-10-13T15:52:33.016Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch -d push-b663 push-b663-root
+  #14 | 2026-10-13T15:52:36.637Z | seat | Bash | cd /d/SIDE-explicit-formula && git branch --show-current && git branch -d push-b663-merge epstein-b663
+  #15 | 2026-10-13T15:52:40.734Z | seat | Bash | git push origin --delete epstein-b663
+  #16 | 2026-10-13T15:53:11.057Z | seat | Bash | cd /d/SIDE-effects && cat lakefile.toml; git ls-files | head -30; cat SIDEEffects.lean | head -20; cd /d/relay && ls data | grep -E "^b652_" | head -30; git gre
+  #17 | 2026-10-13T15:53:18.972Z | seat | Bash | python -c "
+  #18 | 2026-10-13T15:56:19.763Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_record.py nd_rerun; python tools/b664_record.py answers
+  #19 | 2026-10-13T15:56:56.393Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $p = Start-Process -FilePath 'C:\Program Files\Git\usr\bi
+  #20 | 2026-10-13T15:57:07.593Z | seat | Bash | grep -n -E "^### THE (CITATION|RECORD|PLAN|INSTANCE|COMPUTATION|DRY|SEALED|COMMITS)|^### CARRIED|^b663 closed" data/b663_closing.txt | cut -c1-70; grep -n -E "^
+  #21 | 2026-10-13T15:57:36.230Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $i=0; while ($i -lt 56) { if (-not (Get-Process -Id 31188
+  #22 | 2026-10-13T16:07:06.517Z | seat | Bash | grep -n "(2)" tools/test_met_b646.py | head -5; python -c "import json;o=json.load(open('data/b664_tests_stepzero.json',encoding='utf-8'))['test_met_b646.py']['
+  #23 | 2026-10-13T16:07:11.008Z | seat | Bash | grep -n -B3 -A12 "nothing else" tools/test_met_b646.py | cut -c1-200 | head -40; sed -n '1,30p' tools/test_met_b646.py | cut -c1-200
+  #24 | 2026-10-13T16:07:23.154Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $i=0; while ($i -lt 56) { if (-not (Get-Process -Id 31188
+  #25 | 2026-10-13T16:16:51.979Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $i=0; while ($i -lt 56) { if (-not (Get-Process -Id 31188
+  #26 | 2026-10-13T16:23:04.084Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|bash)' } | Select-Object ProcessId, Name | Format-Table | Out-String; Set
+  #27 | 2026-10-13T16:23:20.921Z | seat | Bash | git add data/b664_stepzero.txt data/b664_defects.txt data/b664_readfirst.txt data/b664_author_answers.txt data/b664_author_answers.json data/b664_tests_stepzero
+  #28 | 2026-10-13T16:23:26.876Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_record.py c1 dry | Select-Object -First 1
+  #29 | 2026-10-13T16:23:31.633Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_record.py c1
+  #30 | 2026-10-13T16:23:39.292Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md OPEN_TRAILS.md && git commit -q -m "b664 Component 1 under (R274)(1)-(4): b663 at its weight (FINDINGS :8
+  #31 | 2026-10-13T16:23:46.928Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_record.py sentences; python tools/b664_record.py plain
+  #32 | 2026-10-13T16:24:00.984Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b664_record.py plain "the wider shape reads no sentence; none asserting" 0 | tail -1; sed -n '6,40p' data/b664_table_SIDE-ef
+  #33 | 2026-10-13T16:24:21.336Z | seat | Bash | grep -n -i "Milestones\|twin_primes\|goldbach\|sophie" data/b648_sorry_repairs.txt data/b648_sorry_classification.txt | cut -c1-260 | head -20; git -C /d/SIDE-e
+  #34 | 2026-10-13T16:24:31.547Z | seat | Bash | git -C /d/SIDE-effects show main:SIDEEffects/Milestones.lean | sed -n '1,21p;47,60p'
+  #35 | 2026-10-13T16:24:46.183Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_record.py grades; Select-String -Path data\b664_sentence_grades.txt -Pattern '^   -> |^ 
+  #36 | 2026-10-13T16:31:32.261Z | seat | Bash | ls data | grep -E "^b653_runner|^b653_.*effects|^b653_.*Milestones" ; git grep -l "SIDEEffects.Milestones" -- 'data/b653_*' | head
+  #37 | 2026-10-13T16:31:41.819Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_record.py answers
+  #38 | 2026-10-13T16:32:02.832Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_record.py grades
+  #39 | 2026-10-13T16:32:10.544Z | seat | Bash | git add data/b664_table_SIDE-effects_sentences.txt data/b664_table_SIDE-effects_sentences.json data/b664_plain_comments.txt data/b664_plain_comments.json data/b
+  #40 | 2026-10-13T16:32:19.036Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_tests.py run test_met_b646.py met_before
+  #41 | 2026-10-13T16:32:42.202Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_tests.py run test_met_b646.py met_after; python tools/test_met_b646.py | Select-String '
+  #42 | 2026-10-13T16:32:49.599Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #43 | 2026-10-13T16:32:55.152Z | seat | Bash | git add tools/test_met_b646.py data/b664_tests_met_before.json data/b664_tests_met_after.json && git commit -q -m "b664 Component 3, on the author's word: test_
+  #44 | 2026-10-13T16:33:42.395Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_record.py plan_cut
+  #45 | 2026-10-13T16:33:50.467Z | seat | Bash | cd /d/SIDE-effects && git status --porcelain | head -2; git checkout -q -b docstrings-cut-SIDE-effects main && git branch --show-current && cd /d/relay && PYTHO
+  #46 | 2026-10-13T16:34:10.771Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b664_record.py check_file SIDEEffects/ExhaustivenessLicense.lean && cd /d/SIDE-effects && git add SIDEEffects/Exhaustiveness
+  #47 | 2026-10-13T16:34:23.260Z | seat | Bash | cd /d/SIDE-effects && git grep -n -w "sorry" main -- '*.lean' | cut -c1-140 | head; echo ---; git grep -n -E "^(theorem|lemma|def|abbrev|structure|inductive|ins
+  #48 | 2026-10-13T16:34:34.108Z | seat | Bash | for f in SIDEEffects/ExhaustivenessLicense.lean SIDEEffects/Milestones.lean SIDEEffects/Phase15/Module1.lean SIDEEffects/Phase15/SIDEFramework.lean SIDEEffects/
+  #49 | 2026-10-13T16:34:46.539Z | seat | Bash | cd /d/SIDE-explicit-formula && git show main:.github/workflows/build-module.yml
+  #50 | 2026-10-13T16:34:59.770Z | seat | Bash | cd /d/SIDE-effects && git status --porcelain | head -3; git checkout -q main && git branch --show-current && ls .github/workflows
+  #51 | 2026-10-13T16:35:16.984Z | seat | Bash | diff <(git -C /d/SIDE-explicit-formula show main:.github/workflows/build-module.yml | tr -d '\r') <(tr -d '\r' < .github/workflows/build-module.yml) && echo "ID
+  #52 | 2026-10-13T16:35:23.111Z | seat | Bash | git branch push-b664-workflow HEAD && PUSH_GATED_LOG=/d/relay/data/b664_wf_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-effects push-b664-workflow
+  #53 | 2026-10-13T16:35:33.208Z | seat | Bash | git checkout -q docstrings-cut-SIDE-effects && git rebase -q main && git log --oneline -3 | cut -c1-80 && cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b66
+  #54 | 2026-10-13T16:35:44.892Z | seat | Bash | cd /d/SIDE-effects && git branch --show-current && git add print_targets.txt && git commit -q -m "b664 under (R274)(5): print_targets.txt -- the named terminals
+  #55 | 2026-10-13T16:35:49.424Z | seat | Bash | git push origin docstrings-cut-SIDE-effects
+  #56 | 2026-10-13T16:35:56.310Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-effects --ref main -f ref=4c25526c286b41297ecbbe0bea72939e5618d012 -f target="SIDEEffects"
+  #57 | 2026-10-13T16:36:03.264Z | seat | Bash | gh run list -R psinary-sketch/SIDE-effects --limit 5 --json databaseId,workflowName,event,headSha,status,conclusion,createdAt
+  #58 | 2026-10-13T16:36:13.024Z | seat | Bash | git -C /d/SIDE-effects show main:README.md | sed -n '22,32p;98,106p'
+  #59 | 2026-10-13T16:36:55.944Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b664_record.py cut_bank | tail -5; for i in $(seq 1 27); do s=$(gh run view 38431820497 -R psinary-sketch/SID
+  #60 | 2026-10-13T16:38:07.528Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; gh run view 38431754330 -R psinary-sketch/SIDE-effects --json status,conclusion; python tools/b664_record.
+  #61 | 2026-10-13T16:38:20.757Z | seat | Bash | cd /d/SIDE-effects && git checkout -q main && git rev-parse --short=7 main && git merge --no-ff -q -m "b664 under (R274)(5), Component 3: merge docstrings-cut-S
+  #62 | 2026-10-13T16:38:26.127Z | seat | Bash | git branch push-b664-merge HEAD && PUSH_GATED_LOG=/d/relay/data/b664_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-effects push-b664-merge "v0.1.
+  #63 | 2026-10-13T16:38:41.613Z | seat | Bash | sleep 15; gh run list -R psinary-sketch/SIDE-effects --limit 3 --json databaseId,workflowName,event,headSha,status,conclusion
+  #64 | 2026-10-13T16:39:07.951Z | seat | Bash | for i in $(seq 1 27); do s=$(gh run view 38432169079 -R psinary-sketch/SIDE-effects --json status,conclusion 2>/dev/null); echo "$s" | grep -q '"completed"' && 
+  #65 | 2026-10-13T16:40:21.346Z | seat | Bash | git add data/b664_cut_plan.txt data/b664_cut_edits.json data/b664_cut_SIDE-effects.txt data/b664_cut_SIDE-effects.json data/b664_runner_SIDE-effects.txt data/b6
+  #66 | 2026-10-13T16:42:59.777Z | seat | Bash | sed -n '1,20p' tools/b663_reg_gate.py >/dev/null; wc -l tools/b663_checks.py
+  #67 | 2026-10-13T16:48:59.296Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b664_record.py kernels; python tools/b664_record.py defects; python tools/b664_record.py comm
+
+### ### **COMMANDS 67 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**

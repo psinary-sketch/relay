@@ -51,12 +51,21 @@ GRADES = 'b664_sentence_grades.json'
 CUT_BRANCH = 'docstrings-cut-SIDE-effects'
 TARGET = 'SIDEEffects'
 NEXT_TAG = 'v0.1.1'         # ### the next patch step after v0.1 (the kernel's series as its tag list prints it)
-K_WORKFLOW = None           # ### the commit putting the workflow on the kernel's main, set at Component 3
-RUNNER = {KERNEL: dict(branch=CUT_BRANCH, target=TARGET, workflow_commit=K_WORKFLOW, run_id=None, ref=None, dispatched_at='main')}
-MERGE, MERGE_TAG = None, NEXT_TAG
+K_WORKFLOW = 'ff7825d'      # ### the commit putting the workflow on the kernel's main (the file alone; pushed through push_gated.sh, read back)
+RUNNER = {KERNEL: dict(branch=CUT_BRANCH, target=TARGET, workflow_commit=K_WORKFLOW, run_id=38431820497,
+                       ref='4c25526c286b41297ecbbe0bea72939e5618d012', dispatched_at='main', push_runs=(38431754330, 38432169079))}
+MERGE, MERGE_TAG = '78bbcff', NEXT_TAG
+PRINT_TARGETS_N = 34
 
-ACT_ARMS = ()               # ### named at Component 4
-SEALED = ()                 # ### named at Component 4
+# ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b663's face
+# ### (b663's own act arms not carried). Each run at HEAD and counted before the face names it.
+ACT_ARMS = ('G-R274-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-ND-RERUN', 'G-ORDERS-PLACED', 'G-FILE-RULE-ENTERED', 'G-KERNEL-NAMED',
+            'G-SENTENCES-BANKED', 'G-GRADES-VERBATIM', 'G-NOCELL-LISTED', 'G-PROMPT-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE',
+            'G-MET-TEST-DURABLE', 'G-KERNEL-FILES-FROM-BANK')
+B663_ACT_ARMS = ('G-R273-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-PLAN-BANKED', 'G-PLAN-BEFORE-LEAN', 'G-WORK-ORDERS-ENTERED',
+                 'G-DOMINANCE-BANKED', 'G-INSTANCE-GATE', 'G-MET-WIDENED', 'G-CONTROL-BANKED', 'G-SCRIPT-DIFF-CONFINED', 'G-HYPOTHESES-SCORED')
+SEALED = ('b664_worklist.py', 'b664_tests.py', 'b664_citation.py', 'b664_record.py', 'b664_checks.py', 'b664_closing.py', 'b664_reg_gate.py',
+          'b664_regspec.py')
 
 
 def kernel_files():
