@@ -1,5 +1,5 @@
 {
- "at": "2026-10-13T14:51:46Z",
+ "at": "2026-10-13T15:18:04Z",
  "anchor": "RULING (R273) BEGIN",
  "rows": [
   {
@@ -890,6 +890,209 @@
    "src": "seat",
    "cmd": "$env:PYTHONIOENCODING='utf-8'; Set-Location D:\\relay; python tools/b663_record.py kernels; python tools/b663_record.py defects; python tools/b663_record.py commands; python -c \"import sys; sys.path.insert(0,'tools'); import b663_checks, b663_regspec, b663_closing, b663_reg_gate; print('imports ok; arms', len(b663_checks.ARMS), 'standing', len(b663_checks.STANDING))\"",
    "n": 127
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T14:51:51.470Z",
+   "src": "seat",
+   "cmd": "sed -n '/THE OFFENDING COMMANDS/,/THE COMMANDS THAT RUN/p' data/b663_commands.txt | cut -c1-260 | head -40",
+   "n": 128
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T14:52:03.809Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format='%h %s' 51838723..HEAD | cut -c1-140; echo ---; cd /d/MY-DOwnloads/PLACE-papers && git log --reverse --format='%h %s' 16be102..HEAD | cut -c1-120; echo ---; cd /d/SIDE-explicit-formula && git log --reverse --format='%h %s' ffbc617..main | cut -c1-100",
+   "n": 129
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T14:52:20.629Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && grep -n -E \"reg_satisfiable|banned_terms|b307_handoff|b327_faces|b303_pins|gate_hash|b378_lockgate|reg_seal|--prerun|reg_gate|regspec\" data/b662_commands.txt | cut -c1-330 | head -30",
+   "n": 130
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T14:52:24.953Z",
+   "src": "seat",
+   "cmd": "python - <<'EOF'\nimport json\nj=json.load(open('data/b662_commands.json',encoding='utf-8'))\nfor r in j['rows']:\n    if r['n'] in (83,84,85,86,87,88,89,90,91,92,93,94,95,96,97):\n        print('#%d'%r['n'], r['cmd'][:1500].replace('\\n',' | '))\n        print()\nEOF",
+   "n": 131
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T14:52:55.532Z",
+   "src": "seat",
+   "cmd": "sed -n '1,40p' tools/gate_hash.py | grep -n \"def stamp\\|def matches\\|cwd\\|ROOT\" | head; grep -n \"^def stamp\\|^def matches\" -A6 tools/gate_hash.py | head -20",
+   "n": 132
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T14:54:30.999Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; $env:B663_STANDIN='1'; Set-Location D:\\relay; python tools/b663_record.py drycheck data/b663_registration_2026-10-13.txt; $env:B663_STANDIN=''",
+   "n": 133
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T14:54:38.083Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; $env:B663_STANDIN='1'; Set-Location D:\\relay; python tools/b663_record.py findings dry | Select-Object -Skip 1 -First 30; $env:B663_STANDIN=''",
+   "n": 134
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T14:54:49.541Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all | grep -E \"b663|e0_rule\" | head -40",
+   "n": 135
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T14:54:57.309Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python tools/b663_record.py defects && git add data/b663_defects.txt data/b663_defects.json tools/b663_record.py tools/b663_worklist.py data/b663_commands.json data/b663_commands.txt data/b663_kernels_face.json data/b663_readfirst.txt data/b663_registration_2026-10-13.txt data/b663_scanfile_c1.md data/b663_scanfile_c2.md data/b663_scanfile_c2b.md tools/b663_checks.py tools/b663_closing.py tools/b663_reg_gate.py tools/b663_regspec.py && git commit -q -m \"b663 Component 6 under (R273): the suite, the closing, the gate and the spec by the Write tool; the record tool's late routes by the Edit tool; the read-first bank; the commands, kernels-face and defects banks; this face drafted (not yet locked)\" && git log --oneline -1 | cut -c1-9",
+   "n": 136
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T14:55:07.442Z",
+   "src": "seat",
+   "cmd": "$sp='C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad'; $env:PYTHONIOENCODING='utf-8'; $p = Start-Process -FilePath python -ArgumentList 'tools/b663_checks.py','--prerun' -WorkingDirectory 'D:\\relay' -WindowStyle Hidden -RedirectStandardOutput \"$sp\\b663_prerun.log\" -RedirectStandardError \"$sp\\b663_prerun.err\" -PassThru; $i=0; while ($i -lt 56) { if (-not (Get-Process -Id $p.Id -ErrorAction SilentlyContinue)) { break }; Start-Sleep 10; $i++ }; \"alive=\" + [bool](Get-Process -Id $p.Id -ErrorAction SilentlyContinue); Select-String -Path \"$sp\\b663_prerun.log\" -Pattern 'raised|ARMS RUN|NEGATIVE|written|declared not|run not|FAILS|DEFECTIVE' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(300,$_.Line.Length)) }; Get-Content \"$sp\\b663_prerun.err\" -Tail 5",
+   "n": 137
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T15:04:36.044Z",
+   "src": "seat",
+   "cmd": "$sp='C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad'; $i=0; while ($i -lt 56) { if (Select-String -Path \"$sp\\b663_prerun.log\" -Pattern 'written: b663_arms_prerun' -Quiet) { break }; if (-not (Get-Process python -ErrorAction SilentlyContinue | Where-Object { $_.CommandLine -match 'b663_checks' })) { break }; Start-Sleep 10; $i++ }; Select-String -Path \"$sp\\b663_prerun.log\" -Pattern 'raised|ARMS RUN|NEGATIVE|written|declared not|run not|FAILS|DEFECTIVE' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(300,$_.Line.Length)) }; Get-Content \"$sp\\b663_prerun.err\" -Tail 5",
+   "n": 138
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T15:04:41.771Z",
+   "src": "seat",
+   "cmd": "$sp='C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad'; Get-Process python -ErrorAction SilentlyContinue | Select-Object Id, StartTime | Format-Table | Out-String; (Get-Content \"$sp\\b663_prerun.log\").Count; Get-Content \"$sp\\b663_prerun.log\" -Tail 5; Get-Content \"$sp\\b663_prerun.err\" -Tail 8",
+   "n": 139
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T15:04:50.209Z",
+   "src": "seat",
+   "cmd": "$sp='C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad'; $i=0; while ($i -lt 56) { if (-not (Get-Process -Id 25808 -ErrorAction SilentlyContinue)) { break }; Start-Sleep 10; $i++ }; \"alive=\" + [bool](Get-Process -Id 25808 -ErrorAction SilentlyContinue); Select-String -Path \"$sp\\b663_prerun.log\" -Pattern 'raised|ARMS RUN|NEGATIVE|written|declared not|run not|FAILS|DEFECTIVE' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(300,$_.Line.Length)) }; Get-Content \"$sp\\b663_prerun.err\" -Tail 5",
+   "n": 140
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:06:47.209Z",
+   "src": "seat",
+   "cmd": "git branch -a --list '*push-b662*'; echo \"PP:\"; git -C /d/MY-DOwnloads/PLACE-papers branch -a --list '*push-b662*'; grep -c \"deleted push-b662 (was 83306684)\\|deleted push-b662 (was 16be102)\\|push-b662-closing (was 51838723)\\|docstrings-cut-SIDE-carrier-spec (was 55421a3)\\|\\[deleted\\]\" data/b663_stepzero.txt; grep -n \"deleted push-b662\\|was 16be102\\|\\[deleted\\]\" data/b663_stepzero.txt | cut -c1-200",
+   "n": 141
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:06:56.891Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b663_checks as C\nS=dict(stepz=C.rd('b663_stepzero.txt'), push_lists={'a':'','b':''})\nprint('branches_ok', C.branches_ok(S))\nS2=dict(S, push_lists={'a':'push-b662'}); print('pos', C.branches_ok(S2))\n\"",
+   "n": 142
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T15:07:18.395Z",
+   "src": "seat",
+   "cmd": "$sp='C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad'; $env:PYTHONIOENCODING='utf-8'; Set-Location D:\\relay; python tools/b663_record.py defects; $p = Start-Process -FilePath python -ArgumentList 'tools/b663_checks.py','--prerun' -WorkingDirectory 'D:\\relay' -WindowStyle Hidden -RedirectStandardOutput \"$sp\\b663_prerun2.log\" -RedirectStandardError \"$sp\\b663_prerun2.err\" -PassThru; \"PID \" + $p.Id; $i=0; while ($i -lt 56) { if (-not (Get-Process -Id $p.Id -ErrorAction SilentlyContinue)) { break }; Start-Sleep 10; $i++ }; \"alive=\" + [bool](Get-Process -Id $p.Id -ErrorAction SilentlyContinue); Select-String -Path \"$sp\\b663_prerun2.log\" -Pattern 'raised|ARMS RUN|NEGATIVE|written' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(700,$_.Line.Length)) }",
+   "n": 143
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T15:15:07.252Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; Set-Location D:\\relay; python tools/b663_reg_gate.py | Select-String -Pattern 'MISSES|UNDECLARED|ENTRY :|TRAIL :|DRY-RUN STEP :|GATE VERDICT|exit code' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(220,$_.Line.Length)) }; python tools/b663_record.py gatebanks",
+   "n": 144
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:15:17.747Z",
+   "src": "seat",
+   "cmd": "grep -n -A3 \"PREDICTIONS FOUND\" data/b663_regspec_run.txt | cut -c1-220; grep -n \"CONTRADICT\\|demand\\|cap\" data/audit_b663_reg_satisfiable.txt | head -8 | cut -c1-220",
+   "n": 145
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:15:22.145Z",
+   "src": "seat",
+   "cmd": "sed -n '69p' data/b663_registration_2026-10-13.txt; grep -n \"CONTRADICTORY\\|### NOT\" data/audit_b663_reg_satisfiable.txt | head -5 | cut -c1-200; grep -n -B1 -A1 \"predictions\" data/audit_b663_reg_satisfiable.txt | cut -c1-200 | head -8",
+   "n": 146
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T15:15:29.649Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; Set-Location D:\\relay; python tools/b663_reg_gate.py | Select-String -Pattern 'UNDECLARED|DRY-RUN STEP :|GATE VERDICT|exit code' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(220,$_.Line.Length)) }; python tools/b663_record.py gatebanks",
+   "n": 147
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:15:41.645Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b378_lockgate.py b663 data/b663_registration_2026-10-13.txt 2>&1 | tail -4 && grep -c \"GATES READ : 8. ### PASSING : 8.\" data/b663_lockgate_notes.txt",
+   "n": 148
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:15:46.494Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/reg_seal.py --lock data/b663_registration_2026-10-13.txt 2>&1 | tail -2 && python tools/reg_seal.py --verify data/b663_registration_2026-10-13.txt 2>&1 | grep -i \"intact\" && python tools/b663_checks.py --seal | tail -3",
+   "n": 149
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:15:53.725Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all | grep -E \"b663|e0_rule|audit_b663\" ; for f in $(git status --porcelain --untracked-files=all | grep -E \"b663\" | awk '{print $2}'); do test $(tr -cd '\\r' < $f | wc -c) -eq 0 || echo \"CR in $f\"; done",
+   "n": 150
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:16:03.946Z",
+   "src": "seat",
+   "cmd": "git add data/b663_defects.json data/b663_defects.txt data/b663_registration_2026-10-13.txt tools/b663_checks.py data/audit_b663_reg_satisfiable.txt data/b663_arms_prerun.txt data/b663_census_stepzero.txt data/b663_faces_census_stepzero.txt data/b663_lockgate.json data/b663_lockgate_notes.txt data/b663_lsr_prerun.json data/b663_pins_stepzero.txt data/b663_reg_gate.txt data/b663_reg_termscan.txt data/b663_regspec_run.txt data/b663_satisfiable.json data/b663_seal_hashes.json && git commit -q -m \"b663 seal: the face locked after Components 0-5 and the dry-run step (data/b663_registration_2026-10-13.txt, sha256 128f8ec9...); the gate CLEAR with its dry-run step CLEAN, the spec satisfiable, the term scan clean, the censuses and pins, the lock gate 8 of 8; the sealed tools' hashes recorded; the pre-run (80 arms, two declared failing on real state); defect (n). Nothing deposits.\" && git log --oneline -1 | cut -c1-9",
+   "n": 151
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:16:11.331Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python tools/b663_record.py table_final && git status --short --untracked-files=no | head; git add data/b663_table_final.txt data/b663_table_final.json data/terminal_table.md data/terminal_table.json data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json && git commit -q -m \"b663 pre-root: the terminal table regenerated and diffed against relay HEAD (data/b663_table_final.txt), the table files with it. Nothing deposits.\" && git log --oneline -1 | cut -c1-9",
+   "n": 152
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:16:43.498Z",
+   "src": "seat",
+   "cmd": "git branch push-b663-root HEAD && PUSH_GATED_LOG=/d/relay/data/b663_relay_root_push_out.txt bash tools/push_gated.sh /d/relay push-b663-root",
+   "n": 153
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:16:56.215Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b663-root HEAD && PUSH_GATED_LOG=/d/relay/data/b663_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b663-root",
+   "n": 154
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:17:34.222Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b663_record.py root",
+   "n": 155
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T15:18:01.166Z",
+   "src": "seat",
+   "cmd": "git add data/act_roots.txt data/b663_act_root.json data/b663_act_root.txt && git commit -q -m \"b663 root: the act root e00d7158... over 38 repositories, 34 tags and 44 banks, appended to data/act_roots.txt as the last bank step (previous 769efd11..., b662's)\" && git log --oneline -1 | cut -c1-9 && PYTHONIOENCODING=utf-8 python tools/b663_record.py root_arm && PYTHONIOENCODING=utf-8 python tools/b663_record.py commands",
+   "n": 156
   }
  ],
  "offences": [
