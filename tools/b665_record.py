@@ -667,7 +667,158 @@ def attempt(*a):
                                                                                       j['sorry_in_merge_tree']))
 
 
-ROUTES = {'c1': c1, 'answers': answers, 'statement': statement, 'runner': runner, 'landings': landings, 'attempt': attempt}
+# ================================================================================ COMPONENT 4: H3, THE CONTROL ON THE STATEMENT'S BINDING
+def _keiper_rhs(prec, N=12):
+    """the compiled right side, keiperSum n = SUM_{k <= n} C(n + 1, k + 1) keiperA k for n = 0..N-1, in arb at `prec` bits:
+    keiperA k = (-1)^k + zetaLogCoeff k + gammaRLogCoeff k, each the Taylor coefficient at s = 1 its kernel name says --
+    zetaLogCoeff from (s - 1) ζ(s) = 1 + SUM_m (-1)^m γ_m / m! (s - 1)^(m+1) (arb's Stieltjes constants), its logarithmic derivative's
+    series by exact series division in balls; gammaRLogCoeff from logDeriv Γℝ(s) = -½ log π + ½ ψ(s/2), the k-th coefficient
+    ψ^(k)(1/2) / (2 k! 2^k) (arb's polygamma), plus -½ log π at k = 0."""
+    from flint import acb, ctx
+    from math import comb, factorial
+    old = ctx.prec
+    ctx.prec = prec
+    try:
+        M = N + 2
+        F = [acb(1)] + [acb(-1) ** m * acb.stieltjes(m) / factorial(m) for m in range(M)]
+        dF = [F[i + 1] * (i + 1) for i in range(M)]
+        Q = []
+        for k in range(N):
+            s = dF[k] - sum((F[k - i] * Q[i] for i in range(k)), acb(0))
+            Q.append(s / F[0])
+        lp = acb.pi().log()
+        G = [(-lp / 2 if k == 0 else acb(0)) + acb(0.5).polygamma(k) / (2 * factorial(k) * acb(2) ** k) for k in range(N)]
+        A = [acb(-1) ** k + Q[k] + G[k] for k in range(N)]
+        out = []
+        for n in range(N):
+            v = sum((comb(n + 1, k + 1) * A[k] for k in range(n + 1)), acb(0))
+            out.append((v.real.mid(), v.real.rad(), v.imag.abs_upper(), v.real.str(40, radius=True)))
+        return out
+    finally:
+        ctx.prec = old
+
+
+def control(*a):
+    """H3 ((R275)(4), the author's word): where the Keiper equality lands DERIVES, keiperSum n for n = 0..11 (λ_1..λ_12) recomputed from the
+    compiled statement's right side in arb at 200 bits, the 400-bit rung taken where a comparison does not decide at 200; compared per n with
+    b589's KEIPER column within its floor plus the ball radius plus the banked decimal's own half-unit (the bank holds the 70-digit run rounded
+    to its printed digits -- a reading, declared), and with its ZERO column within that column's floor. A KEIPER disagreement refutes H3 (the
+    binding); a ZERO disagreement alone is a datum about b589's bench. Banked as data/b665_keiper_control.txt (.json)."""
+    from decimal import Decimal
+    from flint import arb
+    lj = jl('b665_landings.json')
+    kp = dict((jl('b665_landings.json').get('merge') or {}).get('lemmas') or []).get('the Keiper finite-n equality')
+    if kp != 'DERIVES':
+        sys.exit('### THE KEIPER EQUALITY DID NOT LAND DERIVES (%s) -- H3 NOT RUN, NOTHING WRITTEN' % kp)
+    bench = jl('b589_three_way.json').get('rows') or []
+    if len(bench) != 12:
+        sys.exit('### b589`s bench rows read: %d, not 12 -- NOTHING WRITTEN' % len(bench))
+
+    def half_unit(s):
+        d = Decimal(s)
+        return Decimal(1).scaleb(d.as_tuple().exponent) / 2
+
+    def compare(prec):
+        from flint import ctx
+        R = _keiper_rhs(prec)
+        rows = []
+        # ### the comparisons at the control's own precision (b665's defect (c): _keiper_rhs restores the context's precision on return, and
+        # ### the first run compared at 53 bits)
+        old = ctx.prec
+        ctx.prec = prec
+        try:
+            return _rows(R, rows)
+        finally:
+            ctx.prec = old
+
+    def _rows(R, rows):
+        for (mid, rad, im, txt), b in zip(R, bench):
+            kv = arb(b['keiper'])
+            hu = arb(str(half_unit(b['keiper'])))
+            tol_k = arb(b['floor_k']) + rad + hu
+            dk = abs(mid - kv)
+            dz = abs(mid - arb(repr(b['zero'])))
+            tol_z = arb(b['floor_z']) + rad
+            okk = bool(dk <= tol_k) if (dk <= tol_k or dk > tol_k) else None
+            okz = bool(dz <= tol_z) if (dz <= tol_z or dz > tol_z) else None
+            rows.append(dict(n=b['n'], value=txt, rad=rad.str(3), im_upper=im.str(3), keiper=b['keiper'], d_keiper=dk.str(3),
+                             tol_keiper=tol_k.str(3), half_unit=str(half_unit(b['keiper'])), agree_keiper=okk, zero=b['zero'], d_zero=dz.str(3),
+                             tol_zero=tol_z.str(3), agree_zero=okz))
+        return rows
+    rows, prec = compare(200), 200
+    if any(r['agree_keiper'] is None or r['agree_zero'] is None for r in rows):
+        rows, prec = compare(400), 400
+    L = ['b665 -- COMPONENT 4, (R275)(4) H3: THE COMPILED FACE AGAINST THE NUMERICAL ONE, A CONTROL ON THE STATEMENT`S BINDING, NOT ON THE THEOREM (%s)' % utc(),
+         '',
+         '### the statement: liCoeff_succ_eq_keiperSum n : LiCoeff (n + 1) = (keiperSum n).re, DERIVES at the standard three (relay data/b665_keiper.txt,',
+         '### run %s at %s). The right side recomputed from its kernel names in arb (python-flint): zetaLogCoeff from arb`s Stieltjes constants through' % (
+             (lj.get('merge') or {}).get('run_id'), ((lj.get('merge') or {}).get('ref') or '')[:7]),
+         '### the series log-derivative of (s - 1) ζ(s); gammaRLogCoeff from ½(ψ(s/2) - log π) through arb`s polygamma at 1/2; at %d bits%s.' % (
+             prec, ' (the 400-bit rung taken: a comparison did not decide at 200)' if prec == 400 else ' (the 400-bit rung not needed: every comparison decided)'),
+         '### b589`s bench (relay data/b589_three_way.json, rows n = 1..12; the text bank :7-:18): KEIPER at 70 digits banked as a decimal of 31 significant',
+         '### digits, floor 1e-45; ZERO (Lambda_N + T2) with its floor. THE READING, DECLARED: the KEIPER tolerance is the floor plus the ball radius',
+         '### plus the banked decimal`s own half-unit in its last place, since the bank holds the run rounded to its printed digits.',
+         '### Rows are n: λ_n here (ball) | KEIPER banked | |difference| | tolerance | agree | ZERO banked | |difference| | its floor + radius | agree.', '']
+    for r in rows:
+        L.append('  n=%-3d %s ; |Im| <= %s' % (r['n'], r['value'], r['im_upper']))
+        L.append('        KEIPER %s ; |d| %s ; tol %s (half-unit %s) ; %s' % (r['keiper'], r['d_keiper'], r['tol_keiper'], r['half_unit'],
+                                                                           'AGREE' if r['agree_keiper'] else '### DISAGREE'))
+        L.append('        ZERO   %r ; |d| %s ; tol %s ; %s' % (r['zero'], r['d_zero'], r['tol_zero'], 'AGREE' if r['agree_zero'] else 'differs (a datum)'))
+    nk = sum(1 for r in rows if r['agree_keiper'])
+    nz = sum(1 for r in rows if r['agree_zero'])
+    # ### THE CONTROLS ON THE COMPARISON ITSELF (a pass is evidence only when the same comparison refuses a wrong binding): (i) λ_n from a wrong
+    # ### binding -- keiperSum with gammaRLogCoeff dropped at every k (its first form dropped only k >= 1 and could not fire at n = 1, where
+    # ### keiperSum 0 has no such term); (ii) the right side shifted by 1e-28, twenty half-units.
+    from flint import ctx as _ctx
+    from math import comb as _comb
+    _old = _ctx.prec
+    _ctx.prec = prec
+    try:
+        R = _keiper_rhs(prec)
+        from flint import acb as _acb
+        from math import factorial as _fac
+        lp = _acb.pi().log()
+        G1 = [(-lp / 2 if k == 0 else _acb(0)) + _acb(0.5).polygamma(k) / (2 * _fac(k) * _acb(2) ** k) for k in range(12)]
+        wrong = [R[n][0] - arb(sum((_comb(n + 1, k + 1) * G1[k].real for k in range(0, n + 1)), arb(0))) for n in range(12)]
+        c1 = sum(1 for n, b in enumerate(bench) if not (abs(wrong[n] - arb(b['keiper'])) <= arb(b['floor_k']) + R[n][1] + arb(str(half_unit(b['keiper'])))))
+        c2 = sum(1 for n, b in enumerate(bench) if not (abs(R[n][0] + arb('1e-28') - arb(b['keiper'])) <= arb(b['floor_k']) + R[n][1] + arb(str(half_unit(b['keiper'])))))
+    finally:
+        _ctx.prec = _old
+    L += ['', '### THE CONTROLS ON THE COMPARISON: (i) a wrong binding (gammaRLogCoeff dropped at every k) DISAGREES WITH KEIPER AT %d OF 12 n ; '
+          '(ii) the right side shifted by 1e-28 DISAGREES AT %d OF 12 n -- each must refuse at 12 for the comparison to have teeth: %s.' % (
+              c1, c2, 'IT HAS' if c1 == 12 and c2 == 12 else '### IT DOES NOT')]
+    L += ['', '### ### **H3 %s -- KEIPER AGREES AT %d OF 12 n ; ZERO AGREES AT %d OF 12 n (printed beside, refuting nothing) ; PRECISION %d BITS.**' % (
+        'HELD' if nk == 12 else 'REFUTED', nk, nz, prec)]
+    put_txt(K.CONTROL_BANK, L)
+    put_json(K.CONTROL_BANK.replace('.txt', '.json'), dict(at=utc(), prec=prec, rows=rows, keiper_agree=nk, zero_agree=nz, held=(nk == 12)))
+    print(NL.join(L[-14:]))
+
+
+DH = ('*Appended 2026-10-13 by b665 beneath the transform-bound order (:14162, named there W-ORD-FT-FIRST-ORDER), under `(R275)`(4) -- '
+      'W-ORD-FT-FIRST-ORDER DISCHARGED:*')
+
+
+def _discharge():
+    tb = rdn(K.TB_BANK)
+    if 'THE LANDING POINT: DERIVES' not in tb:
+        sys.exit('### THE TRANSFORM BOUND DID NOT LAND DERIVES -- THE ORDER IS NOT DISCHARGED, NOTHING WRITTEN')
+    lj = jl('b665_landings.json').get('merge') or {}
+    return ('\n' + DH + ' the order’s item -- for the plateau base g0 = plateau (1/2) ℓ and z ≠ 0, ‖paperFT (phiC g0) z‖ ≤ 2 e^{ℓ |Im z|} / ‖z‖ -- is '
+            'SIDE-explicit-formula’s paperFT_plateau_first_order, ‖paperFT (phiC (plateau F L)) z‖ · ‖z‖ ≤ 2 e^{L |Im z|} at every ramp fraction F '
+            'and half-width L, with plateau_deriv_abs_integral (∫ |plateau′| = 2) and offScore_plateau_first_order (b663’s B1 at strip points), '
+            'SIDEExplicitFormula/FirstOrderBound.lean, each DERIVES at the standard three on the hosted runner (run %s at %s; relay '
+            'data/b665_transform_bound.txt). b663’s hθ line re-read “certified on the kernel lemma” in a dated line beneath relay '
+            'data/b663_epstein_control.txt; the READ caveat on b663’s negative control falls; the banked-not-ball-certified caveat stands until '
+            'W-ORD-EPSTEIN-CERTIFY (b667).\n' % (lj.get('run_id'), (lj.get('ref') or '')[:7]))
+
+
+def c4(*a):
+    land([('OPEN_TRAILS.md', DH, _discharge())], 'b665_discharge_line.json', 'c4', entry=K.FT_LINE,
+         check=[('OPEN_TRAILS.md', K.FT_LINE, 'W-ORD-FT-FIRST-ORDER')], dry='dry' in a)
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'statement': statement, 'runner': runner, 'landings': landings, 'attempt': attempt, 'control': control,
+          'c4': c4}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

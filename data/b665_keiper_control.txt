@@ -1,0 +1,50 @@
+b665 -- COMPONENT 4, (R275)(4) H3: THE COMPILED FACE AGAINST THE NUMERICAL ONE, A CONTROL ON THE STATEMENT`S BINDING, NOT ON THE THEOREM (2026-10-13T19:14:32Z)
+
+### the statement: liCoeff_succ_eq_keiperSum n : LiCoeff (n + 1) = (keiperSum n).re, DERIVES at the standard three (relay data/b665_keiper.txt,
+### run 38452047820 at ee0b6c5). The right side recomputed from its kernel names in arb (python-flint): zetaLogCoeff from arb`s Stieltjes constants through
+### the series log-derivative of (s - 1) ζ(s); gammaRLogCoeff from ½(ψ(s/2) - log π) through arb`s polygamma at 1/2; at 200 bits (the 400-bit rung not needed: every comparison decided).
+### b589`s bench (relay data/b589_three_way.json, rows n = 1..12; the text bank :7-:18): KEIPER at 70 digits banked as a decimal of 31 significant
+### digits, floor 1e-45; ZERO (Lambda_N + T2) with its floor. THE READING, DECLARED: the KEIPER tolerance is the floor plus the ball radius
+### plus the banked decimal`s own half-unit in its last place, since the bank holds the run rounded to its printed digits.
+### Rows are n: λ_n here (ball) | KEIPER banked | |difference| | tolerance | agree | ZERO banked | |difference| | its floor + radius | agree.
+
+  n=1   [0.02309570896612103381431024790649529162193 +/- 2.13e-42] ; |Im| <= 0
+        KEIPER 0.0230957089661210338143102479065 ; |d| [4.71e-33 +/- 1.63e-36] ; tol [5.00e-32 +/- 3e-39] (half-unit 5E-32) ; AGREE
+        ZERO   0.023095712253211 ; |d| [3.29e-9 +/- 2.92e-12] ; tol [0.000135 +/- 2.98e-7] ; AGREE
+  n=2   [0.09234573522804667038572848619206788677413 +/- 2.22e-42] ; |Im| <= 0
+        KEIPER 0.0923457352280466703857284861921 ; |d| [3.21e-32 +/- 1.33e-35] ; tol [5.00e-32 +/- 3e-39] (half-unit 5E-32) ; AGREE
+        ZERO   0.092345748376807 ; |d| [1.31e-8 +/- 4.88e-11] ; tol [0.000539 +/- 1.91e-7] ; AGREE
+  n=3   [0.2076389205543248037914920466178032069826 +/- 3.61e-41] ; |Im| <= 0
+        KEIPER 0.207638920554324803791492046618 ; |d| [1.97e-31 +/- 2.08e-34] ; tol [5.00e-31 +/- 3e-38] (half-unit 5E-31) ; AGREE
+        ZERO   0.207638950140657 ; |d| [2.96e-8 +/- 1.37e-11] ; tol [0.00121 +/- 2.33e-6] ; AGREE
+  n=4   [0.3687904794922416385905114896377560722622 +/- 3.34e-41] ; |Im| <= 0
+        KEIPER 0.368790479492241638590511489638 ; |d| [2.44e-31 +/- 7.23e-35] ; tol [5.00e-31 +/- 3e-38] (half-unit 5E-31) ; AGREE
+        ZERO   0.36879053209409 ; |d| [5.26e-8 +/- 1.85e-12] ; tol [0.00216 +/- 4.77e-6] ; AGREE
+  n=5   [0.5755427144611774524311064054928638335675 +/- 4.34e-41] ; |Im| <= 0
+        KEIPER 0.575542714461177452431106405493 ; |d| [1.36e-31 +/- 1.67e-34] ; tol [5.00e-31 +/- 3e-38] (half-unit 5E-31) ; AGREE
+        ZERO   0.575542796659413 ; |d| [8.22e-8 +/- 1.79e-12] ; tol [0.00337 +/- 2.44e-6] ; AGREE
+  n=6   [0.8275660122823792974250028220204999813683 +/- 3.80e-41] ; |Im| <= 0
+        KEIPER 0.82756601228237929742500282202 ; |d| [5.00e-31 +/- 1.87e-35] ; tol [5.00e-30 +/- 3e-37] (half-unit 5E-30) ; AGREE
+        ZERO   0.827566130661799 ; |d| [1.18e-7 +/- 3.80e-10] ; tol [0.00485 +/- 7.12e-7] ; AGREE
+  n=7   [1.124460117570959490582820108016975640460 +/- 2.30e-40] ; |Im| <= 0
+        KEIPER 1.12446011757095949058282010802 ; |d| [3.02e-30 +/- 4.36e-33] ; tol [5.00e-30 +/- 3e-37] (half-unit 5E-30) ; AGREE
+        ZERO   1.124460278720905 ; |d| [1.61e-7 +/- 1.50e-10] ; tol [0.00660 +/- 4.22e-7] ; AGREE
+  n=8   [1.465755677147060632655514541977748787920 +/- 1.53e-40] ; |Im| <= 0
+        KEIPER 1.46575567714706063265551454198 ; |d| [2.25e-30 +/- 1.22e-33] ; tol [5.00e-30 +/- 3e-37] (half-unit 5E-30) ; AGREE
+        ZERO   1.465755887662471 ; |d| [2.11e-7 +/- 4.85e-10] ; tol [0.00862 +/- 9.60e-7] ; AGREE
+  n=9   [1.850916048382534155326044867920897426711 +/- 2.90e-40] ; |Im| <= 0
+        KEIPER 1.85091604838253415532604486792 ; |d| [8.97e-31 +/- 4.27e-34] ; tol [5.00e-30 +/- 3e-37] (half-unit 5E-30) ; AGREE
+        ZERO   1.850916314864618 ; |d| [2.66e-7 +/- 4.83e-10] ; tol [0.0109 +/- 1.10e-5] ; AGREE
+  n=10  [2.279339363193157743693034057368445338075 +/- 1.62e-40] ; |Im| <= 0
+        KEIPER 2.27933936319315774369303405737 ; |d| [1.55e-30 +/- 4.67e-33] ; tol [5.00e-30 +/- 3e-37] (half-unit 5E-30) ; AGREE
+        ZERO   2.279339692250395 ; |d| [3.29e-7 +/- 5.73e-11] ; tol [0.0135 +/- 2.98e-5] ; AGREE
+  n=11  [2.750360838220196060354547092853799413310 +/- 1.82e-40] ; |Im| <= 0
+        KEIPER 2.75036083822019606035454709285 ; |d| [3.80e-30 +/- 5.87e-34] ; tol [5.00e-30 +/- 3e-37] (half-unit 5E-30) ; AGREE
+        ZERO   2.750361236469051 ; |d| [3.98e-7 +/- 2.49e-10] ; tol [0.0163 +/- 1.01e-6] ; AGREE
+  n=12  [3.263255320624619848079085989911846880134 +/- 3.93e-40] ; |Im| <= 0
+        KEIPER 3.26325532062461984807908598991 ; |d| [1.85e-30 +/- 3.13e-33] ; tol [5.00e-30 +/- 3e-37] (half-unit 5E-30) ; AGREE
+        ZERO   3.263255794690524 ; |d| [4.74e-7 +/- 6.60e-11] ; tol [0.0194 +/- 2.85e-6] ; AGREE
+
+### THE CONTROLS ON THE COMPARISON: (i) a wrong binding (gammaRLogCoeff dropped at every k) DISAGREES WITH KEIPER AT 12 OF 12 n ; (ii) the right side shifted by 1e-28 DISAGREES AT 12 OF 12 n -- each must refuse at 12 for the comparison to have teeth: IT HAS.
+
+### ### **H3 HELD -- KEIPER AGREES AT 12 OF 12 n ; ZERO AGREES AT 12 OF 12 n (printed beside, refuting nothing) ; PRECISION 200 BITS.**
