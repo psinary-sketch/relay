@@ -133,3 +133,43 @@ PROMPT BEFORE ANY NUMBER (2026-10-13)
   tools/b667_epstein_certify.py (the precision, the rung, h, the widening, t0, T, R's σ-range, the initial segments and the depth limits as
   constants at its head); relay data/b667_epstein_zeros_certified.txt (.json) -- rows are zeros with balls; relay
   data/b667_epstein_counts.txt -- rows are rectangles and the region, with V1-V2 and C1-C3. b326's banks are read and never written.
+
+== 11. THE AUTHOR'S WORD (relay data/b667_author_answers.txt), ENTERED BEFORE ANY NUMBER: WHAT IT ADDS AND CHANGES
+  (route) Option 1, Chowla-Selberg. Added before any zero is counted, each printed:
+  11.1 THE SIGN (−1)^{kn}, CITED TO ITS STEP. Q = a m² + b mn + c n² with a = 1, b = 1, c = 6: Q = a (m + bn/(2a))² + (|D|/(4a)) n², so for
+       the row n the shift is α_n = bn/(2a) = n/2 (section 2, line :24) and Poisson's phase is e^{2πikα_n} = e^{πikn} = (−1)^{kn}; the sign
+       follows from b = 1 alone (b = 0 would give 1). β_n = √(|D|/(4a)) |n| = √23 |n|/2 and a^{−s} = 1.
+  11.2 T4'S DERIVATION FROM DLMF 10.32.9, WRITTEN OUT WITH ITS CONSTANTS. Let s = σ + it, ν = s − ½, μ = Re ν = σ − ½, x > 0.
+       (a) DLMF 10.32.9: K_ν(x) = ∫_0^∞ e^{−x cosh u} cosh(νu) du (x > 0, every ν).
+       (b) |cosh(νu)| = |cosh(μu + i·t·u)| ≤ cosh(μu), since |cosh(p + iq)|² = sinh²p + cos²q ≤ cosh²p.
+       (c) So |K_ν(x)| ≤ ∫_0^∞ e^{−x cosh u} cosh(μu) du = K_μ(x).
+       (d) For |μ| ≤ 1 and u ≥ 0: cosh(μu) ≤ e^{|μ|u} ≤ e^{u}, and cosh u ≥ 1 + u²/2; so
+           K_μ(x) ≤ e^{−x} ∫_0^∞ e^{−xu²/2 + u} du ≤ e^{−x} ∫_{−∞}^{∞} e^{−(x/2)(u − 1/x)² + 1/(2x)} du = e^{−x} √(2π/x) e^{1/(2x)}.
+       (e) In T3's tail the argument is x = 2πkβ_n = π√23 kn = π√23 m (m = kn ≥ M + 1 ≥ 2), so e^{1/(2x)} ≤ e^{1/(2π√23)} =: C1 and
+           √(2π/x) = √(2/(√23 m)).
+       (f) |k^{s−½} β_n^{½−s}| = (k/β_n)^{μ}: for μ ≥ 0, k ≤ m and β_n ≥ √23/2 give ≤ (2m/√23)^{μ} ≤ m^{μ}; for μ < 0, β_n ≤ √23 m/2 and k ≥ 1
+           give ≤ (√23 m/2)^{|μ|}; both ≤ (√23/2)^{|μ|} m^{|μ|} =: C2 m^{|μ|}.
+       (g) The pairs (k, n) with kn = m number d(m) ≤ 2√m (each divisor k ≤ √m pairs with one above).
+       (h) Hence the tail term at m is at most 2√m · C2 m^{|μ|} · √(2/(√23 m)) · C1 · e^{−π√23 m} = C3 · m^{|μ|} e^{−cm}, with
+           C3 = 2 √(2/√23) C1 C2 and c = π√23.
+       (i) Σ_{m > M} m^{|μ|} e^{−cm} ≤ (M + 1)^{|μ|} e^{−c(M+1)} / (1 − 2e^{−c}): the ratio of consecutive terms is
+           ((m + 1)/m)^{|μ|} e^{−c} ≤ 2 e^{−c} < 1 for |μ| ≤ 1, m ≥ 1.
+       (j) |T4| ≤ 8 |π^s Γ(s)⁻¹| · C3 · (M + 1)^{|μ|} e^{−c(M+1)} / (1 − 2e^{−c}); every constant (C1, C2, C3, c, 2e^{−c}) computed as an arb
+           ball and the bound's upper end taken; |π^s Γ(s)⁻¹| = π^σ |rgamma(s)|, its upper end on a segment ball.
+  11.3 V1 AS A BALL CHECK. At the five points of section 2, Λ_Q(s) and Λ_Q(1 − s) each printed as its ball, and their overlap printed.
+  11.4 V3, THE ROUTE SEES THE ZERO IT WILL COUNT. At qE0 (relay data/b326_offline.json index 0), Z_Q evaluated by the route on the ball
+       of radius h = 10⁻¹² about the banked point prints a ball containing 0; at the point of equal height on the line, ½ + i·Im(qE0), the
+       point ball prints a ball excluding 0. Both balls printed.
+  (squares) Option 1, h = 10⁻¹², the ball the square, the one widening to 10⁻⁹ printed WIDENED with C2 void for that point; a widened point
+       is counted apart in H1's or H2's line and is still certified (its ball is the wider square); the bank records that its banked value
+       was good to nine digits and not twelve, a datum about b326's routes. The reflection partners 1 − conj ρ isolated as the functional
+       equation's check.
+  (region) Option 2. R as section 4, by the half path. THE BAND, added: B = [−0.5, 1.5] × [−0.5, 0.5], symmetric under s → 1 − conj s, by
+       its own half path P_B : ½ − 0.5i → 1.5 − 0.5i → 1.5 + 0.5i → ½ + 0.5i, the count of zeros less poles N_B − 2 = (1/π) Δ_{P_B} arg Λ_Q
+       (Λ_Q's poles in B: s = 0, from Γ, and s = 1, from Z_Q -- each simple; Γ's other poles lie at σ ≤ −1, outside B); so N_B = that count + 2.
+       P_B keeps Re s ≥ ½, where lgamma is continuous, and stays 0.5 from s = ½ (T1's and T2's cancelling poles) and from s = 1. The list has
+       no point with |t| < 0.5, so B's expected count is 0; a real zero of Z_Q in (−0.5, 1.5), if B counts one, is printed as a finding and
+       enters the configuration's point list for the kernel item. With R, B and R's conjugate, P2 reads certified for every |t| ≤ 150 and
+       σ ∈ [−0.5, 1.5], and beyond that strip by section 4. Initial segments on P_B: 8 per edge.
+  (count) Option 1, the segment enclosures, for the squares, R and B alike -- one form for every count, the controls exercising it.
+  THE ORDER, AS AMENDED: V1, V2, V3; C1; C2; R's count, C3 on it; B's count; then the Q0 squares (H1, H2) and H3.
