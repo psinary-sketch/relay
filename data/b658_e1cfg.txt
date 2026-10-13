@@ -1,0 +1,20 @@
+b658 -- COMPONENT 3, (R268)(4): E1 OVER A CONFIGURATION -- THE LANDING POINT (2026-10-13T00:08:09Z)
+
+### the branch e1cfg-b658 at f18ab7e6 (SIDE-explicit-formula), the file SIDEExplicitFormula/Schema/RateIndexCfg.lean; its declarations (line, kind, name):
+  :32 theorem dominant_summable_hcount
+  :48 theorem rest_norm_le_rate_cfg
+  :135 theorem zeroSide_neg_at_rate_cfg
+  :213 theorem rest_norm_le_rate_cfg_zeta
+  :217 theorem zeroSide_neg_at_rate_cfg_zeta
+### each statement on the branch against the bank`s draft (relay data/b658_e1cfg_statement.txt section 4), whitespace aside: [('rest_norm_le_rate_cfg', True), ('zeroSide_neg_at_rate_cfg', True), ('rest_norm_le_rate_cfg_zeta', True), ('zeroSide_neg_at_rate_cfg_zeta', True)]
+### sorry in the file: 0
+### the ζ instance written as: rfl (the author`s word: rfl tried first, the one application the fallback)
+### the runner: run 38324985690 ; conclusion success ; artifact sha256 574aa9d53c80f4ac ; memory low 12684 MB ; ζ`s prints unchanged ; gate DERIVES (relay data/b658_runner_SIDE-explicit-formula.txt)
+### the gate reading per new terminal:
+  SIDEExplicitFormula.Schema.dominant_summable_hcount            ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.rest_norm_le_rate_cfg               ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.zeroSide_neg_at_rate_cfg            ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.rest_norm_le_rate_cfg_zeta          ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.zeroSide_neg_at_rate_cfg_zeta       ['Classical.choice', 'Quot.sound', 'propext']
+
+### ### **E1-CFG LANDS DERIVES AT THE STANDARD THREE ON THE RUNNER, THE ζ INSTANCE BY RFL.**

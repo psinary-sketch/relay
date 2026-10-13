@@ -1,0 +1,168 @@
+b658 -- COMPONENT 3, (R268)(4): THE HOSTED RUNNER FOR SIDE-explicit-formula, READ BY ITS RUN ID (2026-10-13T00:07:56Z)
+
+### the workflow file at the branch (f18ab7e6, .github/workflows/build-module.yml, the dispatch at the branch on the author`s word), read back whole:
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    # From b658 ((R263)(4), standing): the named terminals are read from print_targets.txt at the kernel's root, one name per line, and the
+    # scratch file imports each module of the target; no workflow edit is needed to print a new theorem.
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              : > out/Axioms.lean
+              for m in $TARGET; do echo "import $m" >> out/Axioms.lean; done
+              cp print_targets.txt out/print_targets.txt
+              while IFS= read -r n || [ -n "$n" ]; do
+                n=$(printf '%s' "$n" | tr -d '\r' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                [ -z "$n" ] && continue
+                case "$n" in
+                  *[!A-Za-z0-9_.\']*) echo "print target refused: $n" >> out/axioms_refused.txt; continue ;;
+                esac
+                echo "#print axioms $n" >> out/Axioms.lean
+              done < print_targets.txt
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+
+### print_targets.txt at the branch (8 names):
+    SIDEExplicitFormula.B321.rest_norm_le_rate
+    SIDEExplicitFormula.B321.zeroSide_neg_at_rate
+    SIDEExplicitFormula.transversalityWidth
+    SIDEExplicitFormula.Schema.dominant_summable_hcount
+    SIDEExplicitFormula.Schema.rest_norm_le_rate_cfg
+    SIDEExplicitFormula.Schema.zeroSide_neg_at_rate_cfg
+    SIDEExplicitFormula.Schema.rest_norm_le_rate_cfg_zeta
+    SIDEExplicitFormula.Schema.zeroSide_neg_at_rate_cfg_zeta
+
+### the dispatch, the one dispatch of this branch: ref f18ab7e649bad2f8aa3f97b5b7e570728231f57e ; target SIDEExplicitFormula.Schema.RateIndexCfg SIDEExplicitFormula.TransversalityWidth
+### the run: id 38324985690 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/38324985690 ; status completed ; conclusion success ; head f18ab7e649bad2f8aa3f97b5b7e570728231f57e on e1cfg-b658 ; 2026-10-12T23:59:34Z to 2026-10-13T00:06:47Z
+### the artifact: id 11781071327 ; name build-module-38324985690 ; 7230 bytes ; sha256 574aa9d53c80f4ac10d1a657c174b31197660b6172007c4dde172ce2f4ea9153 ; the platform`s digest 574aa9d53c80f4ac10d1a657c174b31197660b6172007c4dde172ce2f4ea9153 ; AGREE
+### the ref built (out/ref.txt): f18ab7e649bad2f8aa3f97b5b7e570728231f57e leanprover/lean4:v4.34.0-rc1
+### the memory log: samples 61 ; LOW 12684 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines in its log 0
+### the build log`s last lines:
+    ```
+    ✔ [3812/3813] Built SIDEExplicitFormula.Schema.Instances (1.9s)
+    ⚠ [3813/3813] Built SIDEExplicitFormula.Schema.RateIndexCfg (3.0s)
+    warning: SIDEExplicitFormula/Schema/RateIndexCfg.lean:73:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+    warning: SIDEExplicitFormula/Schema/RateIndexCfg.lean:79:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+    warning: SIDEExplicitFormula/Schema/RateIndexCfg.lean:167:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+    warning: SIDEExplicitFormula/Schema/RateIndexCfg.lean:206:38: `if_pos` has been deprecated: Use `ite_eq_left` instead
+    Build completed successfully (3813 jobs).
+
+### the print file the run assembled (out/Axioms.lean):
+    import SIDEExplicitFormula.Schema.RateIndexCfg
+    import SIDEExplicitFormula.TransversalityWidth
+    #print axioms SIDEExplicitFormula.B321.rest_norm_le_rate
+    #print axioms SIDEExplicitFormula.B321.zeroSide_neg_at_rate
+    #print axioms SIDEExplicitFormula.transversalityWidth
+    #print axioms SIDEExplicitFormula.Schema.dominant_summable_hcount
+    #print axioms SIDEExplicitFormula.Schema.rest_norm_le_rate_cfg
+    #print axioms SIDEExplicitFormula.Schema.zeroSide_neg_at_rate_cfg
+    #print axioms SIDEExplicitFormula.Schema.rest_norm_le_rate_cfg_zeta
+    #print axioms SIDEExplicitFormula.Schema.zeroSide_neg_at_rate_cfg_zeta
+### names refused by the print step: NONE
+
+### the axioms output, whole:
+    'SIDEExplicitFormula.B321.rest_norm_le_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.B321.zeroSide_neg_at_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.transversalityWidth' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.Schema.dominant_summable_hcount' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.Schema.rest_norm_le_rate_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.Schema.zeroSide_neg_at_rate_cfg' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.Schema.rest_norm_le_rate_cfg_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.Schema.zeroSide_neg_at_rate_cfg_zeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+### ζ`S TWO PRINTS against b654`s run 38259645524 (relay data/b654_runner_SIDE-explicit-formula.txt): rest_norm_le_rate UNCHANGED ; zeroSide_neg_at_rate UNCHANGED
+
+### THE GATE READING, per name of print_targets.txt (8), from the artifact`s axioms output:
+  SIDEExplicitFormula.B321.rest_norm_le_rate                     DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.B321.zeroSide_neg_at_rate                  DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.transversalityWidth                        DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.dominant_summable_hcount            DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.rest_norm_le_rate_cfg               DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.zeroSide_neg_at_rate_cfg            DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.rest_norm_le_rate_cfg_zeta          DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.zeroSide_neg_at_rate_cfg_zeta       DERIVES                    ['Classical.choice', 'Quot.sound', 'propext']
+
+### ### **RUN 38324985690 ; CONCLUSION success ; ARTIFACT SHA256 574aa9d53c80f4ac ; MEMORY LOW 12684 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 8, DERIVES 8 ; ζ`S PRINTS UNCHANGED ; GATE DERIVES.**

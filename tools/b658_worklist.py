@@ -41,7 +41,9 @@ EF_TAG = 'v0.27'
 NEXT_TAG = 'v0.28'
 CFG_BRANCH = 'e1cfg-b658'
 EF_WORKFLOW = '7317db4'     # ### SIDE-explicit-formula main: the workflow file under (R263)(4), b654's
-RUNNER = {}                 # ### filled at Component 3, after the one dispatch
+# ### the one dispatch of the branch (Component 3), at the branch on the author's word: its workflow reads print_targets.txt
+RUNNER = {KERNEL: dict(branch=CFG_BRANCH, target='SIDEExplicitFormula.Schema.RateIndexCfg SIDEExplicitFormula.TransversalityWidth',
+                       workflow_commit='f18ab7e', run_id=38324985690, ref='f18ab7e649bad2f8aa3f97b5b7e570728231f57e')}
 ZETA_TERMINALS = ('SIDEExplicitFormula.B321.rest_norm_le_rate', 'SIDEExplicitFormula.B321.zeroSide_neg_at_rate')
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b657's face
