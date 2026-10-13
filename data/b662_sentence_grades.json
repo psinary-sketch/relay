@@ -1,10 +1,10 @@
 {
- "note": "b662, (R272)(6): the seat's hand grades of SIDE-carrier-spec's sentence rows against b647's HAND cells (data/b647_table_SIDE-carrier-spec.json, read at b3916cc; no change bank). Each graded row: [sentence number, the LICENSED cell's words that reach it, verbatim]. breaks: a row broken before a marker (pieces n.1, n.2). row_actions: a graded row's own verbatim span of its block's ACTION, where the ACTION re-cuts several rows.",
+ "note": "b662, (R272)(6): the seat's hand grades of SIDE-carrier-spec's sentence rows against b647's HAND cells (data/b647_table_SIDE-carrier-spec.json, read at b3916cc; no change bank). Each graded row: [sentence number, the LICENSED cell's words that reach it, verbatim]. breaks: a row broken before a marker (pieces n.1, n.2). row_actions: a graded row's own verbatim span of its block's ACTION, where the ACTION re-cuts several rows; an empty span removes the row (#4 s3, the label DERIVES., on the author's word at Component 3: a grade claim inside a docstring, reached by the cell's 'the theorem is VACUOUS' by paraphrase, the grade being the terminal table's to give).",
  "grades": {
   "1": [["13", "ties the arithmetic operators to the spec's own action and closes the bolt-on hole"]],
   "2": [["2", "cannot satisfy this field by bolting an unrelated ring onto itself"]],
   "3": [["1", "sits inside the class object"]],
-  "4": [["1", "the theorem is VACUOUS"], ["2", "No CarrierSpec candidate is the \"witness\" the docstring describes"]],
+  "4": [["1", "the theorem is VACUOUS"], ["2", "No CarrierSpec candidate is the \"witness\" the docstring describes"], ["3", "the theorem is VACUOUS"]],
   "5": [["2", "no theorem stated against CarrierSpec is vacuously true"]],
   "6": [["4", "Three sharpenings now"]],
   "7": [["4", "the fourth sharpening, like the three before it"], ["5", "Four sharpenings now"]],
@@ -16,7 +16,8 @@
  },
  "row_actions": {
   "4": {"1": "**At `v0.1.0` a candidate satisfying `arch_present` could still be archimedean-free in substance**: for a candidate whose archimedean map factors as above, `arch_present` holds and the archimedean place adds nothing.",
-        "2": "Since `v0.2.0` `CarrierSpec` carries `arch_independent`, which contradicts the factoring, so this statement is vacuous for every current candidate."},
+        "2": "Since `v0.2.0` `CarrierSpec` carries `arch_independent`, which contradicts the factoring, so this statement is vacuous for every current candidate.",
+        "3": ""},
   "5": {"2": "The specification's fields are jointly satisfiable (at `ℤ × ℝ`), so a theorem whose only hypothesis is a `CarrierSpec` there is not vacuously true; a theorem adding a hypothesis that contradicts a field (as a factoring `φ` contradicts `arch_independent`) still can be."},
   "6": {"4": "> **Two sharpenings now — `arch_independent` at `v0.2.0`, `Δ4` (`ArithContent`) at `v0.3.0` — and the same completely degenerate witness passes both."},
   "7": {"4": "The witness declares one and remains completely degenerate, so the third sharpening, like the two before it, made the specification harder to satisfy without moving it toward the conclusion.",

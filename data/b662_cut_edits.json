@@ -1,5 +1,5 @@
 {
- "at": "2026-10-13T08:19:16Z",
+ "at": "2026-10-13T08:29:58Z",
  "main": "b3916cc",
  "edits": [
   {
@@ -36,11 +36,12 @@
    "k": 4,
    "file": "SIDECarrierSpec/Grading/DivisorLadder.lean",
    "line": 55,
-   "old": "**A candidate satisfying `arch_present` can still be archimedean-free in substance.**  The\nwitness is any candidate whose archimedean map factors as above: `arch_present` holds, and yet\nby `archPart_separates_nothing_new` the archimedean place contributes no information the finite\nplaces did not already carry.",
+   "old": "**A candidate satisfying `arch_present` can still be archimedean-free in substance.**  The\nwitness is any candidate whose archimedean map factors as above: `arch_present` holds, and yet\nby `archPart_separates_nothing_new` the archimedean place contributes no information the finite\nplaces did not already carry.  DERIVES.",
    "new": "**At `v0.1.0` a candidate satisfying `arch_present` could still be archimedean-free in substance**: for a candidate\nwhose archimedean map factors as above, `arch_present` holds and the archimedean place adds nothing.  Since `v0.2.0` `CarrierSpec` carries `arch_independent`, which contradicts the factoring, so this statement is vacuous\nfor every current candidate.",
    "changed": [
     "1",
-    "2"
+    "2",
+    "3"
    ]
   },
   {
@@ -97,7 +98,7 @@
  ],
  "planned_sha": {
   "SIDECarrierSpec/ArithContent.lean": "2b6d8e06b92f1330c01213e1f5ab616855608e90eb69ca777c5d426f1d7f5405",
-  "SIDECarrierSpec/Grading/DivisorLadder.lean": "7e6aca7d88cdc8fe8263b4dfd0cc8c630a0929e0c800d5b93a9f6c7e938a8880",
+  "SIDECarrierSpec/Grading/DivisorLadder.lean": "19c4c2130e480ed192c1e7d4baecafcbf112f0809d989115e3a8a7b5e7966e03",
   "SIDECarrierSpec/SaltCheck.lean": "ffdea6de65aaac4ca6697f882ccd2c9ccc6adbba50062d59297e10724efe50c9",
   "SIDECarrierSpec/Spec.lean": "ff481069d350e937bc3734b53f28bc1a8d5cad4b8e1bb9e749288216a65e05a6"
  },
