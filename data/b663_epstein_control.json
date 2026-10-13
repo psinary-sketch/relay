@@ -1,0 +1,378 @@
+{
+ "cells": [
+  {
+   "name": "THE CONTROL Z₁(0.8, 29.6)",
+   "base": [
+    "0.8",
+    "29.6"
+   ],
+   "prec": 200,
+   "certs": [
+    [
+     "H.hev",
+     "CERTIFIED",
+     "plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED"
+    ],
+    [
+     "H.hsm",
+     "CERTIFIED",
+     "plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED"
+    ],
+    [
+     "H.hs",
+     "CERTIFIED",
+     "plateau_support_Icc, as Detector.lean :107-:108; COMPILED"
+    ],
+    [
+     "H.hL",
+     "CERTIFIED",
+     "baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED"
+    ],
+    [
+     "H.hM",
+     "CERTIFIED",
+     "M = offScore g0 ρ* = |ĝ0(γ(ρ*))| = [0.0121848333635 +/- 6.11e-15] > 0, ρ* = 0.8 + 29.6 i the largest of 1 off-line orbit(s)"
+    ],
+    [
+     "H.hdom",
+     "CERTIFIED",
+     "the dominant`s four scores ρ [0.012184833 +/- 3.64e-10] ; 1 − conj ρ [0.012184833 +/- 3.64e-10] ; conj ρ [0.012184833 +/- 3.64e-10] ; 1 − ρ [0.012184833 +/- 3.64e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36); the other 0 orbit(s), 0 point(s), every score below M in balls (the largest -)"
+    ],
+    [
+     "tieSet",
+     "CERTIFIED",
+     "tieSet C g0 M (PowerWindow.lean :398) = the dominant`s orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [17.7600000000 +/- 1e-15] ≠ 0"
+    ],
+    [
+     "killSet",
+     "CERTIFIED",
+     "killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 3 (γ ≤ [25.01085758 +/- 1.46e-10]), screened by the decay bound 0, straddling 0; off-line points killed 0 (the guard); card Xr = 3"
+    ],
+    [
+     "hA",
+     "CERTIFIED",
+     "HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)"
+    ],
+    [
+     "hQtie",
+     "CERTIFIED",
+     "by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41"
+    ],
+    [
+     "hQb",
+     "CERTIFIED",
+     "by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41"
+    ],
+    [
+     "hθ0",
+     "CERTIFIED",
+     "θ = 0.999677841314598 ≥ 0"
+    ],
+    [
+     "hθ",
+     "CERTIFIED",
+     "every point outside the tie and kill sets read or screened: offScore/M ≤ θ (the largest at [30.42487613 +/- 4.15e-9])"
+    ]
+   ],
+   "hrate": [
+    [
+     14,
+     "FAILS",
+     "left exp([919458.880258321 +/- 2.97e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     15,
+     "FAILS",
+     "left exp([919448.322061719 +/- 1.14e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     16,
+     "FAILS",
+     "left exp([919427.205668515 +/- 9.29e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     17,
+     "FAILS",
+     "left exp([919384.972882107 +/- 2.56e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     18,
+     "FAILS",
+     "left exp([919300.507309292 +/- 4.19e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     19,
+     "FAILS",
+     "left exp([919131.576163660 +/- 2.33e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     20,
+     "FAILS",
+     "left exp([918793.713872398 +/- 4.65e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     21,
+     "FAILS",
+     "left exp([918117.989289872 +/- 1.42e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     22,
+     "FAILS",
+     "left exp([916766.540124821 +/- 3.54e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     23,
+     "FAILS",
+     "left exp([914063.641794720 +/- 2.24e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     24,
+     "FAILS",
+     "left exp([908657.845134517 +/- 3.77e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     25,
+     "FAILS",
+     "left exp([897846.251814110 +/- 3.19e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     26,
+     "FAILS",
+     "left exp([876223.065173298 +/- 2.94e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     27,
+     "FAILS",
+     "left exp([832976.691891672 +/- 4.84e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     28,
+     "FAILS",
+     "left exp([746483.945328422 +/- 3.75e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     29,
+     "FAILS",
+     "left exp([573498.452201921 +/- 1.45e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     30,
+     "FAILS",
+     "left exp([227527.465948919 +/- 3.60e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     31,
+     "HOLDS",
+     "left exp([-464414.506557084 +/- 2.11e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ]
+   ],
+   "unresolved": [],
+   "reading": "j₀ = 31",
+   "triggers": [],
+   "M": "[0.0121848333635 +/- 6.11e-15]",
+   "dominant": [
+    "0.8",
+    "29.6"
+   ],
+   "Aw": "[18654477909.2 +/- 0.0153]",
+   "theta_at": "[30.424876125859513210311897530584091320181560023715440180962 +/- 1.49e-58]",
+   "D": 14,
+   "J_max": 54,
+   "card_Xr": 3,
+   "A0": "1.00000000000000",
+   "B": "[6.75246342713e+11 +/- 0.0426]",
+   "theta": "[0.999677841315 +/- 4.03e-13]",
+   "j0": 31,
+   "sides": "left exp([-464414.506557084 +/- 2.11e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]",
+   "zero_side": {
+    "j0": 31,
+    "zero_side": "[-3.9247896371573229546e+21 +/- 35.6]",
+    "orbit": "[-3.9247896371573229546e+21 +/- 35.6]",
+    "others": "0",
+    "online": "[1.5976639572756374056e-600991 +/- 2.20e-601011]",
+    "above": "0",
+    "held": true
+   }
+  },
+  {
+   "name": "Q0 AT qE0",
+   "base": [
+    "0.9532604747946607",
+    "16.290215720390393"
+   ],
+   "prec": 200,
+   "certs": [
+    [
+     "H.hev",
+     "CERTIFIED",
+     "plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED"
+    ],
+    [
+     "H.hsm",
+     "CERTIFIED",
+     "plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED"
+    ],
+    [
+     "H.hs",
+     "CERTIFIED",
+     "plateau_support_Icc, as Detector.lean :107-:108; COMPILED"
+    ],
+    [
+     "H.hL",
+     "CERTIFIED",
+     "baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED"
+    ],
+    [
+     "H.hM",
+     "CERTIFIED",
+     "M = offScore g0 ρ* = |ĝ0(γ(ρ*))| = [0.0215642208687 +/- 2.76e-14] > 0, ρ* = 0.9532604747946607 + 16.290215720390393 i the largest of 17 off-line orbit(s)"
+    ],
+    [
+     "H.hdom",
+     "CERTIFIED",
+     "the dominant`s four scores ρ [0.021564221 +/- 1.32e-10] ; 1 − conj ρ [0.021564221 +/- 1.32e-10] ; conj ρ [0.021564221 +/- 1.32e-10] ; 1 − ρ [0.021564221 +/- 1.32e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36); the other 16 orbit(s), 64 point(s), every score below M in balls (the largest [0.021298690 +/- 8.62e-12]); above T = 150 by B1 (below)"
+    ],
+    [
+     "tieSet",
+     "CERTIFIED",
+     "tieSet C g0 M (PowerWindow.lean :398) = the dominant`s orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [14.7674218239 +/- 3.69e-11] ≠ 0"
+    ],
+    [
+     "killSet",
+     "CERTIFIED",
+     "killSet C g0 M (PowerWindow.lean :401): zeros read 146, killed 8 (γ ≤ [14.63045953 +/- 2.39e-9]), screened by the decay bound 0, straddling 0; off-line points killed 0 (the guard); card Xr = 8"
+    ],
+    [
+     "hA",
+     "CERTIFIED",
+     "HCount C.toZeroConfig A0Q BY P3 (Q0Count, a named premise, stated, not proved; open), A0Q = 10; the listed points` own A₀ = 1.00000000000000 ≤ A0Q (relay data/b663_a0_list.txt)"
+    ],
+    [
+     "hQtie",
+     "CERTIFIED",
+     "by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41"
+    ],
+    [
+     "hQb",
+     "CERTIFIED",
+     "by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41"
+    ],
+    [
+     "hθ0",
+     "CERTIFIED",
+     "θ = 0.998184669760907 ≥ 0"
+    ],
+    [
+     "hθ",
+     "CERTIFIED",
+     "every point outside the tie and kill sets read or screened: offScore/M ≤ θ (the largest at [18.82849120 +/- 3.73e-10]); the points above T certified on B1 (READ), not a kernel lemma"
+    ]
+   ],
+   "hrate": [
+    [
+     24,
+     "FAILS",
+     "left exp([864952227.478841 +/- 4.81e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     25,
+     "FAILS",
+     "left exp([864891259.748736 +/- 1.51e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     26,
+     "FAILS",
+     "left exp([864769324.288525 +/- 4.93e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     27,
+     "FAILS",
+     "left exp([864525453.368104 +/- 1.75e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     28,
+     "FAILS",
+     "left exp([864037711.527262 +/- 4.61e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     29,
+     "FAILS",
+     "left exp([863062227.845576 +/- 2.71e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     30,
+     "FAILS",
+     "left exp([861111260.482206 +/- 2.70e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     31,
+     "FAILS",
+     "left exp([857209325.755465 +/- 3.48e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     32,
+     "FAILS",
+     "left exp([849405456.301982 +/- 4.96e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     33,
+     "FAILS",
+     "left exp([833797717.395018 +/- 1.82e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     34,
+     "FAILS",
+     "left exp([802582239.581090 +/- 4.46e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     35,
+     "FAILS",
+     "left exp([740151283.953232 +/- 3.00e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     36,
+     "FAILS",
+     "left exp([615289372.697518 +/- 2.11e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     37,
+     "FAILS",
+     "left exp([365565550.186089 +/- 2.31e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ],
+    [
+     38,
+     "HOLDS",
+     "left exp([-133882094.836769 +/- 2.71e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]"
+    ]
+   ],
+   "unresolved": [],
+   "reading": "j₀ = 38",
+   "triggers": [],
+   "M": "[0.0215642208687 +/- 2.76e-14]",
+   "dominant": [
+    "0.9532604747946607",
+    "16.290215720390393"
+   ],
+   "Aw": "[3379052353.23 +/- 4.49e-4]",
+   "B1": "[0.622792770329 +/- 3.82e-13]",
+   "theta_at": "[18.828491200372080000000000000000000000000000000000000000000 +/- 1.62e-59]",
+   "D": 24,
+   "J_max": 64,
+   "card_Xr": 8,
+   "A0": "10.0000000000000",
+   "B": "[1.03806322378e+18 +/- 2.38e+4]",
+   "theta": "[0.998184669761 +/- 9.35e-14]",
+   "j0": 38,
+   "sides": "left exp([-133882094.836769 +/- 2.71e-7]) ; right exp([91.8251399681171 +/- 1.29e-14]) = [7.570971096e+39 +/- 2.96e+29]",
+   "zero_side": {
+    "j0": 38,
+    "zero_side": "[-7.5709710957045862943e+39 +/- 5.68e+18]",
+    "orbit": "[-7.5709710957045862943e+39 +/- 5.68e+18]",
+    "others": "[1.6776107711383631081e-2958169308 +/- 2.44e-2958169328]",
+    "online": "[2.3717502417342004538e-433814672 +/- 2.52e-433814693]",
+    "above": "[+/- 8.13e-113060822100]",
+    "held": true
+   }
+  }
+ ]
+}

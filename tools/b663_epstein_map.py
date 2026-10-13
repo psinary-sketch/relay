@@ -245,8 +245,8 @@ def cell(name, base, online, offline, prec, i4, above=None, a0_premise=None, run
            ' ; '.join('%s %s' % (nm, b(x, 8)) for (nm, _z, _g), x in zip(gh, sc)), len(others), 4 * len(others),
            b(max((abs(g) for o in others for _n, _z, g in o[3]), key=lambda x: x.mid()), 8) if others else '-',
            '' if above is None else '; above T = %d by B1 (below)' % above))
-    st, tt = arb(top[1]), arb(top[2])
-    dl = st - arb(1) / 2
+    sd, tt = arb(top[1]), arb(top[2])
+    dl = sd - arb(1) / 2
     t = tt
     v = (dl + acb(0, 1) * t) ** 2                       # vOf ρ* (PowerLimit.lean :146)
     if not (v.imag > 0 or v.imag < 0):
@@ -292,6 +292,7 @@ def cell(name, base, online, offline, prec, i4, above=None, a0_premise=None, run
         say('  B1        the points of Z with |Im ρ| ≥ %d (unlisted; P2 lists every point below it): offScore g0 ρ / M ≤ 2 e^{ℓ/2}/(%d M) = %s ; '
             'certified on B1 (READ), not a kernel lemma -- the kernel`s fourth-order bound (zero_weight`s hsA, PowerLimit.lean :825) clears '
             'only above %s, the banks reach %d' % (above, above, b(b1, 10), b(h4, 8) if h4 is not None else '-', above))
+    rec['theta_at'] = str(targ)
     xr = [-(gm ** 2) for gm in killed]                    # Xr (PowerLimit.lean :268), one per |γ|
     ok('killSet', 'killSet C g0 M (PowerWindow.lean :401): zeros read %d, killed %d%s, screened by the decay bound %d, straddling 0; '
        'off-line points killed 0 (the guard); card Xr = %d' % (nread, len(killed), (' (γ ≤ %s)' % b(killed[-1], 10)) if killed else '', nscreen, len(xr)))
@@ -318,7 +319,7 @@ def cell(name, base, online, offline, prec, i4, above=None, a0_premise=None, run
     B = 2 * cv * bk * be                                 # B = card VF · max CV 0 · BK · BE
     say('  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = %d ; J_max = D + %d = %d ; cE = %s ; CV = %s ; BK = %s ; BE = %s ; B = %s' % (
         D, jcap, jmax, b(cE, 10), b(cv, 10), b(bk, 10), b(be, 10), b(B, 10)))
-    rec.update(D=D, J_max=jmax, card_Xr=len(xr), A0=a0.str(15, radius=False), B=b(B), theta=b(theta), theta_at=str(targ))
+    rec.update(D=D, J_max=jmax, card_Xr=len(xr), A0=a0.str(15, radius=False), B=b(B), theta=b(theta))
 
     def kp(w):
         return _prod([w - x for x in xr]) if xr else acb(1)
@@ -328,7 +329,7 @@ def cell(name, base, online, offline, prec, i4, above=None, a0_premise=None, run
 
     # ### the controls of hQtie and hQb at j in [D, J_max]: Q j = a + b X interpolating rT H j on {v, conj v}
     us = [unit(g) for _nm, _z, g in gh]
-    nodes = [v, v.conjugate(), v.conjugate(), v]               # vOf at ρ*, 1 − conj ρ*, conj ρ*, 1 − ρ*
+    nodes = [v, v.conjugate(), v.conjugate(), v]               # vOf at ρ₁, 1 − conj ρ₁, conj ρ₁, 1 − ρ₁
     pw = list(us)
     for _ in range(D + 1):
         pw = [p * p for p in pw]
@@ -365,34 +366,34 @@ def cell(name, base, online, offline, prec, i4, above=None, a0_premise=None, run
     if not rhs > 0:
         return fail('hrate', 'the right side %s meets 0 (UNDERFLOW)' % b(rhs))
     lr = rhs.log()
-    base_ = (3 * a0 * z3 * 128).log() + D * arb(8).log() + 2 * B.log() + arb(2) ** (D + 1) * (aw / M).log()
+    base = (3 * a0 * z3 * 128).log() + D * arb(8).log() + 2 * B.log() + arb(2) ** (D + 1) * (aw / M).log()
     j0 = None
     for j in range(D, jmax + 1):
         ex = 2 ** (j + 1) - 2 ** (D + 1)
         if ex == 0:
-            ll = base_
+            ll = base
         elif theta == 0:
             ll = None
         else:
-            ll = base_ + ex * theta.log()
+            ll = base + ex * theta.log()
         if ll is None:
-            st_, sides = 'HOLDS', 'left 0 (θ = 0) ; right %s' % b(rhs, 10)
+            st, sides = 'HOLDS', 'left 0 (θ = 0) ; right %s' % b(rhs, 10)
         else:
             if not ll.is_finite():
                 rec['triggers'].append('hrate OVERFLOW at j = %d' % j)
-                st_ = 'OVERLAP'
+                st = 'OVERLAP'
             elif ll.upper() < lr.lower():
-                st_ = 'HOLDS'
+                st = 'HOLDS'
             elif ll.lower() > lr.upper():
-                st_ = 'FAILS'
+                st = 'FAILS'
             else:
-                st_ = 'OVERLAP'
+                st = 'OVERLAP'
             sides = 'left exp(%s) ; right exp(%s) = %s' % (b(ll, 15), b(lr, 15), b(rhs, 10))
-        rec['hrate'].append((j, st_, sides))
-        say('    hrate j = %-3d %-7s %s' % (j, st_, sides))
-        if st_ == 'OVERLAP':
+        rec['hrate'].append((j, st, sides))
+        say('    hrate j = %-3d %-7s %s' % (j, st, sides))
+        if st == 'OVERLAP':
             rec['unresolved'].append(j)
-        if st_ == 'HOLDS' and j0 is None:
+        if st == 'HOLDS' and j0 is None:
             j0 = j
             break
     if j0 is not None:

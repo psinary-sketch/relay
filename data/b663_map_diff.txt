@@ -1,0 +1,491 @@
+b663 -- COMPONENT 4: tools/b662_map.py CARRIED INTO tools/b663_epstein_map.py, THE DIFF (2026-10-13T14:39:43Z)
+
+### the plan`s section 6 (relay data/b663_epstein_plan.txt) names the lines the author let change: the configuration (zero_list ->
+### q0_list beside it; the cell), M and hdom (:197-:210), θ and the kill set (:219-:236), hA (:241), the zero side (:351-:388); ghat,
+### ramp_R, i4_ball, a0_upper, the controls of hQtie and hQb, hrate and the rung unchanged. Hunks: 33 ; lines removed 199 ; added 250.
+### the hunks` b662 ranges: -2,12 -23,4 -29,2 -127 -141 -171 -173,13 -188,3 -197,3 -200,0 -205 -208,4 -214 -217,0 -220,2 -236,0 -239,6 -293,2 -337,4 -351,5 -357 -362,2 -366,0 -384 -386,6 -394 -396,4 -401,12 -414,33 -448,28 -477,7 -494,34 -529,5
+
+--- tools/b662_map.py
++++ tools/b663_epstein_map.py
+@@ -2,12 +2,15 @@
+-"""b662_map.py -- THE DETECTION-INDEX MAP AT Z₁, BOUND TO zeroSide_neg_at_rate_cfg (SIDE-explicit-formula v0.28, Schema/RateIndexCfg.lean
+-:135-:148), under (R271)(4)-(5) and the author's word (relay data/b661_author_answers.txt).
+-
+-### Written whole by the Write tool at b661. The binding is relay data/b661_e1cfg_binding.txt; every quantity below names its kernel line.
+-### Per cell, every hypothesis of the theorem other than hrate is certified BY NAME AND ITS OWN BALL before any index prints; the readings
+-### are the three words of (R271)(4) and nothing else: `j₀ = <j>` (with any UNRESOLVED-AT-j beside it), `NONE ≤ J_max`, `HYP-UNVERIFIED(<name>)`.
+-### The rung (the author's word, set at b661, b627 having run at 200 bits throughout): a cell that does not certify a hypothesis, or meets an
+-### overlap of hrate's two balls, is re-read ONCE in full at PREC_RUNG; the 200-bit triggers are printed beside the cell; the re-read stands.
+-### The map states what the compiled theorem says of Z₁ and nothing of ζ: Z₁ is not ζ's configuration.
+-### Usage: `python tools/b662_map.py` -- banks data/b662_detection_map_40.txt and .json. No lean; no kernel file read but by citation.
+-### b662, (R272)(3) and the author's word (relay data/b662_author_answers.txt): tools/b661_map.py carried by the Write tool unchanged but for
+-### the constant J_EXTRA (8 -> 40), the bank's name and the act in its title line and in this docstring; the difference printed and banked.
++"""b663_epstein_map.py -- THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, BOUND TO zeroSide_neg_at_rate_cfg (SIDE-explicit-formula
++v0.28, Schema/RateIndexCfg.lean :135-:148) AT q0Config (branch epstein-b663, Schema/EpsteinQ0.lean), under (R273)(4) and the author's word on
++b663's plan (relay data/b663_epstein_plan.txt, section 8; data/b663_author_answers.txt).
++
++### Carried by the Write tool from tools/b662_map.py; the changes confined to the plan's section 6: the configuration (the bench's list in
++### place of ζ's, one cell at the base qE0 in place of the grid), M and hdom over all seventeen off-line orbits (M := the dominant's score),
++### θ and the kill set over the other sixteen orbits and the points above T (on B1), hA's ordinates and A₀ (P3's A0Q), and the zero side
++### (the other orbits' terms and the tail above T on B1 and P3). ghat, ramp_R, i4_ball, a0_upper, zero_list, the controls of hQtie and
++### hQb, hrate and the rung are b662's lines unchanged; the diff is banked (relay data/b663_map_diff.txt).
++### Every zero of Q0 is BANKED, NOT BALL-CERTIFIED (two agreeing routes in mpmath at 119 digits): each enters as its decimal literal, exact,
++### the configuration's own point. B1 is a named READ premise of this computation, not a kernel lemma (the plan, section 8).
++### THE CONTROL (the author's word on Q3): the same cell routine run first on b661's Z₁(0.8, 29.6) -- the orbit of 0.8 + 29.6 i and ζ's zeros
++### to 1000 from Arb --, expected to reproduce j₀ = 31 and the zero side below 0 (relay data/b661_map_control.txt); printed beside the Q0 cell.
++### Usage: `python tools/b663_epstein_map.py` -- banks data/b663_epstein_control.txt and .json. No lean; no kernel file read but by citation.
++### Nothing here is about ζ: Z₁ is not ζ's configuration, and the Q0 configuration is Z_Q's only under its premises.
+@@ -23,4 +26,2 @@
+-# ================================================================================ THE CONSTANTS, AT THE HEAD ((R271)(4), the ferry)
+-GRID_SIGMA = ('0.55', '0.6', '0.7', '0.8', '0.9')          # ### (R266)(4), carried by (R271)(4)
+-GRID_T = ('14.1', '29.6', '50.0', '100.0')
+-T_HEIGHT = 1000                                            # ### Z₁'s height, b656's binding (relay data/b656_e1_binding.txt :27)
++# ================================================================================ THE CONSTANTS, AT THE HEAD
++T_HEIGHT = 1000                                            # ### Z₁'s height, b656's binding (relay data/b656_e1_binding.txt :27) -- the control
+@@ -29,2 +30,6 @@
+-J_EXTRA = 40                                               # ### J_max = D + 40 per cell ((R272)(3) and the author's word at b662)
+-H3_CELL = ('0.8', '29.6')                                  # ### (R271)(5) H3
++J_EXTRA = 40                                               # ### J_max = D + 40 ((R273)(4), the b662 script's rule)
++Z1_CELL = ('0.8', '29.6')                                  # ### the control: b661's Z₁ at its H3 cell
++Q0_ON, Q0_OFF = 'b326_epstein_zeros.json', 'b326_offline.json'   # ### the bench's list (on the author's word, b326's)
++Q0_T = 150                                                 # ### the height cut, the banks' own T
++Q0_BASE = 0                                                # ### qE0 = the off-line list's index 0, the dominant (data/b663_dominance.txt)
++Q0_A0 = 10                                                 # ### A0Q, P3's constant (Schema/EpsteinQ0.lean; data/b663_a0_list.txt)
+@@ -127 +132 @@
+-# ================================================================================ THE ZERO LIST (Z₁'s on-line part, its definition)
++# ================================================================================ THE ZERO LISTS: Z₁'s on-line part (the control), Q0's
+@@ -141 +146,12 @@
+-# ================================================================================ hA: THE LOCAL COUNT AT Z₁, A FINITE MAXIMUM
++def q0_list():
++    """the bench's list (relay data/b326_epstein_zeros.json, data/b326_offline.json, key "zeros"): the ordinates gamma_a (= gamma_b) and
++    the off-line zeros rho_a (= rho_b), each by index, each as its decimal literal (an exact arb of the double the bank holds); a row whose
++    two routes disagree stops the map."""
++    on = json.load(io.open(os.path.join(D_DIR, Q0_ON), encoding='utf-8'))['zeros']
++    off = json.load(io.open(os.path.join(D_DIR, Q0_OFF), encoding='utf-8'))['zeros']
++    if not all(z['agree'] and z['gamma_a'] == z['gamma_b'] for z in on) or not all(z['agree'] and z['rho_a'] == z['rho_b'] for z in off):
++        sys.exit('### A BANKED ZERO WHOSE TWO ROUTES DISAGREE -- THE MAP STOPS')
++    return [arb(repr(z['gamma_a'])) for z in on], [(repr(z['rho_a'][0]), repr(z['rho_a'][1])) for z in off]
++
++
++# ================================================================================ hA: THE LOCAL COUNT, A FINITE MAXIMUM
+@@ -171 +187,10 @@
+-def cell(sig, tt, prec, zl, i4, rung_note=None, jcap=J_EXTRA):
++def orbit_of(sg, t):
++    """the four points ρ, 1 − conj ρ, conj ρ, 1 − ρ of an off-line zero σ + it, as gammaOf ρ = (ρ - 1/2)/I (Defs.lean :121)."""
++    dl = sg - arb(1) / 2
++    return [('ρ', acb(t, -dl)), ('1 − conj ρ', acb(t, dl)), ('conj ρ', acb(-t, -dl)), ('1 − ρ', acb(-t, dl))]
++
++
++def cell(name, base, online, offline, prec, i4, above=None, a0_premise=None, rung_note=None, jcap=J_EXTRA):
++    """one configuration at one base: base = (σ, t) strings of the off-line zero whose detectorBase is g0; online = the ordinates (arb,
++    positive); offline = the off-line zeros as (σ, t) strings; above = None (a finite configuration) or Q0_T (the points above it read on
++    B1 and P3); a0_premise = None (A₀ from the list) or P3's constant."""
+@@ -173,13 +198,11 @@
+-    rec = dict(sigma=sig, t=tt, prec=prec, certs=[], hrate=[], unresolved=[], reading=None, triggers=[])
+-    sg, t = arb(sig), arb(tt)
+-    dl = sg - arb(1) / 2
+-    rho1 = acb(sg, t)
+-    z1 = acb(t, -dl)                                     # gammaOf ρ₁ = (ρ₁ - 1/2)/I (Defs.lean :121)
+-    ell = 1 / (4 * (abs(z1) + 1))                        # baseWidth ρ₁ (Detector.lean :33)
+-    say('== CELL (σ, t) = (%s, %s) -- %d bits%s' % (sig, tt, prec, (' -- ' + rung_note) if rung_note else ''))
+-    say('  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = %s ; L = ℓ (Detector.lean :113)' % b(ell))
+-
+-    def fail(name, why):
+-        rec['certs'].append((name, 'NOT CERTIFIED', why))
+-        say('  %-9s NOT CERTIFIED -- %s' % (name, why))
+-        rec['reading'] = 'HYP-UNVERIFIED(%s)' % name
++    rec = dict(name=name, base=list(base), prec=prec, certs=[], hrate=[], unresolved=[], reading=None, triggers=[])
++    sb, tb = arb(base[0]), arb(base[1])
++    zb = acb(tb, -(sb - arb(1) / 2))
++    ell = 1 / (4 * (abs(zb) + 1))                        # baseWidth ρb (Detector.lean :33)
++    say('== CELL %s -- base %s + %s i -- %d bits%s' % (name, base[0], base[1], prec, (' -- ' + rung_note) if rung_note else ''))
++    say('  ℓ = baseWidth ρb (Schema/Detector.lean :33) = 1/(4(‖γ(ρb)‖ + 1)) = %s ; L = ℓ (Detector.lean :113)' % b(ell))
++
++    def fail(nm, why):
++        rec['certs'].append((nm, 'NOT CERTIFIED', why))
++        say('  %-9s NOT CERTIFIED -- %s' % (nm, why))
++        rec['reading'] = 'HYP-UNVERIFIED(%s)' % nm
+@@ -188,3 +211,3 @@
+-    def ok(name, why):
+-        rec['certs'].append((name, 'CERTIFIED', why))
+-        say('  %-9s CERTIFIED -- %s' % (name, why))
++    def ok(nm, why):
++        rec['certs'].append((nm, 'CERTIFIED', why))
++        say('  %-9s CERTIFIED -- %s' % (nm, why))
+@@ -197,3 +220,7 @@
+-    orbit = [('ρ₁', z1), ('1 − conj ρ₁', acb(t, dl)), ('conj ρ₁', acb(-t, -dl)), ('1 − ρ₁', acb(-t, dl))]
+-    gh = [(nm, z, ghat(z, ell, prec)) for nm, z in orbit]
+-    M = abs(gh[0][2])                                    # offScore g0 ρ₁ (PowerWindow.lean :328)
++    # ### M := the dominant's score over every off-line orbit (the plan, section 6: :197-:210 changed)
++    orbs = []
++    for k, (ss, ts) in enumerate(offline):
++        o = orbit_of(arb(ss), arb(ts))
++        orbs.append((k, ss, ts, [(nm, z, ghat(z, ell, prec)) for nm, z in o]))
++    top = max(orbs, key=lambda x: abs(x[3][0][2]).mid())
++    M = abs(top[3][0][2])                                # offScore g0 ρ* (PowerWindow.lean :328), ρ* the dominant
+@@ -200,0 +228 @@
++    rec['dominant'] = [top[1], top[2]]
+@@ -205 +233,2 @@
+-    ok('H.hM', 'M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = %s > 0' % b(M))
++    ok('H.hM', 'M = offScore g0 ρ* = |ĝ0(γ(ρ*))| = %s > 0, ρ* = %s + %s i the largest of %d off-line orbit(s)' % (b(M), top[1], top[2], len(orbs)))
++    gh = top[3]
+@@ -208,4 +237,15 @@
+-        return fail('H.hdom', 'an orbit score does not meet M: %s' % ' '.join(b(x, 8) for x in sc))
+-    ok('H.hdom', 'the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores %s each meet M, equal by '
+-       'offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)' % ' ; '.join('%s %s' % (nm, b(x, 8)) for (nm, _z, _g), x in zip(gh, sc)))
+-    v = (dl + acb(0, 1) * t) ** 2                       # vOf ρ₁ (PowerLimit.lean :146)
++        return fail('H.hdom', 'an orbit score of the dominant does not meet M: %s' % ' '.join(b(x, 8) for x in sc))
++    others = [o for o in orbs if o[0] != top[0]]
++    over = [(o[1], o[2], b(abs(g), 8)) for o in others for _nm, _z, g in o[3] if not abs(g).upper() < M.lower()]
++    if over:
++        return fail('H.hdom', 'THE GUARD: an off-line point of another orbit does not lie below M (dominance not decided, or the point '
++                    'killed): %s -- THE CELL STOPS' % over[:4])
++    ok('H.hdom', 'the dominant`s four scores %s each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36); '
++       'the other %d orbit(s), %d point(s), every score below M in balls (the largest %s)%s' % (
++           ' ; '.join('%s %s' % (nm, b(x, 8)) for (nm, _z, _g), x in zip(gh, sc)), len(others), 4 * len(others),
++           b(max((abs(g) for o in others for _n, _z, g in o[3]), key=lambda x: x.mid()), 8) if others else '-',
++           '' if above is None else '; above T = %d by B1 (below)' % above))
++    sd, tt = arb(top[1]), arb(top[2])
++    dl = sd - arb(1) / 2
++    t = tt
++    v = (dl + acb(0, 1) * t) ** 2                       # vOf ρ* (PowerLimit.lean :146)
+@@ -214 +254 @@
+-    ok('tieSet', 'tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = %s ≠ 0' % b(v.imag))
++    ok('tieSet', 'tieSet C g0 M (PowerWindow.lean :398) = the dominant`s orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = %s ≠ 0' % b(v.imag))
+@@ -217,0 +258 @@
++    zl = online
+@@ -220,2 +261,2 @@
+-        sb = aw.upper() / (1 + gm.lower() ** 4)
+-        if sb < M.lower() and (sb / M.lower()).upper() <= theta.upper() and theta > 0:
++        sb_ = aw.upper() / (1 + gm.lower() ** 4)
++        if sb_ < M.lower() and (sb_ / M.lower()).upper() <= theta.upper() and theta > 0:
+@@ -236,0 +278,18 @@
++    # ### θ over the other off-line orbits (the plan, section 6: :219-:236 changed)
++    for o in others:
++        for _nm, _z, g in o[3]:
++            r = arb((abs(g).upper() / M.lower()).upper())
++            if r.upper() > theta.upper():
++                theta, targ = r, 'off-line %s + %s i' % (o[1][:10], o[2][:10])
++    # ### the points above T (Q0): B1, a named READ premise (the plan, section 8)
++    b1 = None
++    if above is not None:
++        b1 = arb((2 * (ell / 2).exp() / (arb(above) * M.lower())).upper())
++        h4 = ((aw / (theta * M) - 1).log() / 4).exp() if theta > 0 else None
++        if b1.upper() > theta.upper():
++            theta, targ = b1, 'B1 at |Im ρ| = %d' % above
++        rec['B1'] = b(b1)
++        say('  B1        the points of Z with |Im ρ| ≥ %d (unlisted; P2 lists every point below it): offScore g0 ρ / M ≤ 2 e^{ℓ/2}/(%d M) = %s ; '
++            'certified on B1 (READ), not a kernel lemma -- the kernel`s fourth-order bound (zero_weight`s hsA, PowerLimit.lean :825) clears '
++            'only above %s, the banks reach %d' % (above, above, b(b1, 10), b(h4, 8) if h4 is not None else '-', above))
++    rec['theta_at'] = str(targ)
+@@ -239,6 +298,14 @@
+-       'card Xr = %d' % (nread, len(killed), (' (γ ≤ %s)' % b(killed[-1], 10)) if killed else '', nscreen, len(xr)))
+-    # ### hA
+-    ords = [x for gm in zl for x in (gm, -gm)] + [t, t, -t, -t]
+-    a0, sarg, scnt = a0_upper(ords)
+-    ok('hA', 'HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = %s (an exact upper value; the steps of N(s, s+1] read at their '
+-       'points nearest 0, the largest ratio at s = %s, count %d; 1 ≤ A₀)' % (a0.str(15, radius=False), b(sarg, 10) if sarg is not None else '-', scnt))
++       'off-line points killed 0 (the guard); card Xr = %d' % (nread, len(killed), (' (γ ≤ %s)' % b(killed[-1], 10)) if killed else '', nscreen, len(xr)))
++    # ### hA (the plan, section 6: :241 changed -- every listed ordinate; A₀ from P3 where it is given)
++    ords = [x for gm in zl for x in (gm, -gm)] + [x for o in orbs for x in (arb(o[2]), arb(o[2]), -arb(o[2]), -arb(o[2]))]
++    a0l, sarg, scnt = a0_upper(ords)
++    if a0_premise is None:
++        a0 = a0l
++        ok('hA', 'HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = %s (an exact upper value; the steps of N(s, s+1] read at their '
++           'points nearest 0, the largest ratio at s = %s, count %d; 1 ≤ A₀)' % (a0.str(15, radius=False), b(sarg, 10) if sarg is not None else '-', scnt))
++    else:
++        a0 = arb(a0_premise)
++        if not a0l.upper() <= a0.lower():
++            return fail('hA', 'the listed points` own A₀ %s exceeds P3`s A0Q = %s' % (a0l.str(15, radius=False), a0_premise))
++        ok('hA', 'HCount C.toZeroConfig A0Q BY P3 (Q0Count, a named premise, stated, not proved; open), A0Q = %s; the listed points` own '
++           'A₀ = %s ≤ A0Q (relay data/b663_a0_list.txt)' % (a0_premise, a0l.str(15, radius=False)))
+@@ -293,2 +360,3 @@
+-    ok('hθ', 'every on-line point outside the kill set read or screened: offScore/M ≤ θ%s' % (
+-        (' (the largest at γ = %s)' % b(targ, 10)) if targ is not None else ' (none read outside the kill set)'))
++    ok('hθ', 'every point outside the tie and kill sets read or screened: offScore/M ≤ θ%s%s' % (
++        (' (the largest at %s)' % (b(targ, 10) if isinstance(targ, arb) else targ)) if targ is not None else ' (none read outside the kill set)',
++        '' if above is None else '; the points above T certified on B1 (READ), not a kernel lemma'))
+@@ -337,4 +405,3 @@
+-    # ### H3's control at its cell
+-    if (sig, tt) == H3_CELL and j0 is not None:
+-        rec['H3'] = h3(j0, Qs[j0], kp, F, gh, M, zl, killed, nread, aw, ell, prec)
+-    rec['_ctx'] = dict(Qs=Qs)
++    # ### the zero side at j₀ (the plan, section 6: :351-:388 changed -- the other orbits' terms; the tail above T on B1 and P3)
++    if j0 is not None:
++        rec['zero_side'] = zero_side(j0, Qs[j0], kp, F, gh, others, M, zl, killed, nread, aw, ell, prec, cE, a0, above, b1)
+@@ -351,5 +418,7 @@
+-def h3(j0, Q, kp, F, gh, M, zl, killed, nread, aw, ell, prec):
+-    """(R271)(5) H3: (zeroSide_cfg Z₁ (kWindow (coeffList (Pof H (Q j₀))) g0 j₀)).re, each term by term_eq (PowerLimit.lean :736),
+-    (Q j₀)(vOf ρ)² · Xval H j₀ ρ, divided by M^(2^(j₀+1)) (the sign unchanged): the four orbit terms from their own balls; a killed zero's
+-    term 0 (its vOf a root of Kp by the definition of Xr, kill_term_zero :756); a read zero's term in balls; a screened zero's term in
+-    [0, its decay bound's term] (every on-line term is a square times a positive real)."""
++def zero_side(j0, Q, kp, F, gh, others, M, zl, killed, nread, aw, ell, prec, cE, a0, above, b1):
++    """(zeroSide_cfg C (kWindow (coeffList (Pof H (Q j₀))) g0 j₀)).re, each term by term_eq (PowerLimit.lean :736), (Q j₀)(vOf ρ)² ·
++    Xval H j₀ ρ, divided by M^(2^(j₀+1)) (the sign unchanged): the dominant's four orbit terms and every other off-line orbit's four from
++    their own balls; a killed zero's term 0 (kill_term_zero :756); a read zero's term in balls; a screened zero's term in [0, its decay
++    bound's term]; and, above T (Q0), every unlisted point's term bounded on B1 and P3: |term| ≤ |Q(v)|² |F(v)| B1^(2^(j₀+1)) with
++    |v| ≤ (|Im ρ| + 1/2)², the points in (n, n+1] at most A0Q log(n + 4) on each side by P3, summed for n ≥ 149 (the n = 149 window holds
++    only points at |Im ρ| = 150) through Σ_{n ≥ 150} n^(K - E) ≤ 150^(K - E) (1 + 150/(E - K - 1))."""
+@@ -357 +426 @@
+-    n = 2 ** (j0 + 1)
++    E = 2 ** (j0 + 1)
+@@ -362,2 +431 @@
+-        rr = g / M
+-        p = rr
++        p = g / M
+@@ -366,0 +435,9 @@
++    oth = acb(0)
++    for o in others:
++        for _nm, z, g in o[3]:
++            vv = (acb(0, 1) * z) ** 2
++            q = acb(aq) + bq * vv
++            p = g / M
++            for _ in range(j0 + 1):
++                p = p * p
++            oth += q ** 2 * F(vv) * p
+@@ -384 +461,9 @@
+-    zs = tot.real + on
++    tail = arb(0)
++    if above is not None:
++        K = 7 + 4 * len(killed)
++        c0 = 2 * arb(a0) * (abs(acb(aq)) + abs(bq)) ** 2 * _prod([(1 + gm ** 2) ** 2 for gm in killed]) * (1 + cE ** 2) * arb('1.0201') ** (3 + 2 * len(killed))
++        bnd =c0 * (arb(above) ** K) * (E * b1.log()).exp() * (2 + arb(above) / (E - K - 1))
++        tail = arb(0, bnd.upper())
++        say('  the points above T = %d: |Σ terms| ≤ %s, on B1 (READ) and P3 (A0Q = %s) -- K = %d, B1 = %s, E = 2^(j₀+1) = 2^%d' % (
++            above, b(arb(bnd.upper()), 6), a0.str(5, radius=False), K, b(b1, 8), j0 + 1))
++    zs = tot.real + oth.real + on + tail
+@@ -386,6 +471,32 @@
+-    say('  H3 at (%s, %s), j₀ = %d: (zeroSide_cfg Z₁ (kWindow …) g0 j₀).re / M^(2^(j₀+1)) = %s -- the orbit %s, the on-line terms %s ; '
+-        'the ball %s 0' % (H3_CELL[0], H3_CELL[1], j0, b(zs, 15), b(tot.real, 15), b(on, 15), 'BELOW' if held else 'NOT BELOW'))
+-    return dict(j0=j0, zero_side=b(zs, 20), orbit=b(tot.real, 20), online=b(on, 20), held=held)
+-
+-
+-# ================================================================================ THE MAP
++    say('  THE ZERO SIDE at j₀ = %d: (zeroSide_cfg C (kWindow …) g0 j₀).re / M^(2^(j₀+1)) = %s -- the dominant`s orbit %s, the other off-line '
++        'orbits %s, the on-line terms %s, the points above T %s ; the ball %s 0' % (j0, b(zs, 15), b(tot.real, 15), b(oth.real, 15), b(on, 15),
++                                                                           b(tail, 6), 'BELOW' if held else 'NOT BELOW'))
++    return dict(j0=j0, zero_side=b(zs, 20), orbit=b(tot.real, 20), others=b(oth.real, 20), online=b(on, 20), above=b(tail, 8), held=held)
++
++
++# ================================================================================ THE CONTROL AND THE Q0 CELL
++def run_cell(name, base, online, offline, i4s, zls_rung, above=None, a0_premise=None):
++    r = cell(name, base, online, offline, PREC, i4s[PREC], above=above, a0_premise=a0_premise)
++    trig = []
++    if r['reading'].startswith('HYP-UNVERIFIED'):
++        trig.append(r['reading'])
++    if r['unresolved']:
++        trig.append('hrate overlap at j = %s' % r['unresolved'])
++    trig += r['triggers']
++    if trig:
++        ctx.prec = PREC_RUNG
++        if PREC_RUNG not in i4s:
++            lo, hi = i4_ball()
++            i4s[PREC_RUNG] = span(lo, hi)
++        online2 = zls_rung() if zls_rung else online
++        say('  ### the 200-bit reading %s ; triggers: %s -- RE-READ ONCE AT %d BITS:' % (r['reading'], '; '.join(trig), PREC_RUNG))
++        r2 = cell(name, base, online2, offline, PREC_RUNG, i4s[PREC_RUNG], above=above, a0_premise=a0_premise, rung_note='the rung, re-read once')
++        r2['first'] = dict(reading=r['reading'], triggers=trig)
++        r = r2
++    if r['reading'].startswith('j₀') and r['unresolved']:
++        r['reading'] += ' (UNRESOLVED-AT-j %s beside it: the true j₀ may be lower)' % ', '.join(str(j) for j in r['unresolved'])
++    say('  READING %s: %s%s' % (name, r['reading'], ('  ### ' + r['sides']) if not r['reading'].startswith('HYP') else ''))
++    say('')
++    return r
++
++
+@@ -394 +505 @@
+-    say('b662 -- THE DETECTION-INDEX MAP AT Z₁ BOUND TO zeroSide_neg_at_rate_cfg, AT J_max = D + 40, UNDER (R271)(4)-(5) AND (R272)(3) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
++    say('b663 -- THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, BOUND TO zeroSide_neg_at_rate_cfg AT q0Config, UNDER (R273)(4) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
+@@ -396,4 +507,5 @@
+-    say('### the kernel: SIDE-explicit-formula v0.28 = main ffbc617, Schema/RateIndexCfg.lean :135-:148; the binding relay data/b661_e1cfg_binding.txt;')
+-    say('### the author`s word relay data/b661_author_answers.txt. Rows are cells (σ, t); per cell the hypotheses by name, then hrate by j, then')
+-    say('### the reading. python-flint %s ; Arb balls at %d bits, the rung %d ; T = %d ; J_max = D + %d.' % (__import__('flint').__version__, PREC, PREC_RUNG, T_HEIGHT, J_EXTRA))
+-    say('### The map states what the compiled theorem says of Z₁ and nothing of ζ: Z₁ is not ζ`s configuration.')
++    say('### the kernel: SIDE-explicit-formula v0.28 = main ffbc617, Schema/RateIndexCfg.lean :135-:148; the instance on branch epstein-b663,')
++    say('### Schema/EpsteinQ0.lean (q0Config, q0_rate, q0_hA); the plan relay data/b663_epstein_plan.txt (section 8, the author`s word). Rows are')
++    say('### cells: the control Z₁(%s, %s) first, then Q0 at the base qE0. python-flint %s ; Arb balls at %d bits, the rung %d ; J_max = D + %d.' % (
++        Z1_CELL[0], Z1_CELL[1], __import__('flint').__version__, PREC, PREC_RUNG, J_EXTRA))
++    say('### Q0`s zeros BANKED, NOT BALL-CERTIFIED; B1 a named READ premise, not a kernel lemma; A₀ by P3. Nothing here is about ζ.')
+@@ -401,12 +513,17 @@
+-    zls, i4s, recs = {}, {}, []
+-    for prec in (PREC,):
+-        ctx.prec = prec
+-        n, zl, okz, last, nxt = zero_list()
+-        say('### THE ZERO LIST at %d bits: N(%d) = %d by arb.zeta_nzeros ; acb.zeta_zeros(1, %d), every real part 1/2 ; the %d-th %s < T < the next %s ; %s' % (
+-            prec, T_HEIGHT, n, n, n, b(last, 12), b(nxt, 12), 'MATCHED' if okz else 'NOT MATCHED -- THE MAP STOPS'))
+-        if not okz:
+-            sys.exit(2)
+-        zls[prec] = zl
+-        lo, hi = i4_ball()
+-        i4s[prec] = span(lo, hi)
+-        say("### ∫_0^1 |s''''| at %d bits (Aw`s fourth-derivative part, PowerLimit.lean :800, = 16 I4 / ℓ³ over both ramps): I4 = %s" % (prec, b(i4s[prec], 20)))
++    ctx.prec = PREC
++    lo, hi = i4_ball()
++    i4s = {PREC: span(lo, hi)}
++    say("### ∫_0^1 |s''''| at %d bits (Aw`s fourth-derivative part, PowerLimit.lean :800): I4 = %s" % (PREC, b(i4s[PREC], 20)))
++    # ### THE CONTROL: b661's Z₁(0.8, 29.6)
++    n, zl, okz, last, nxt = zero_list()
++    say('### THE CONTROL`S ZERO LIST at %d bits: N(%d) = %d by arb.zeta_nzeros ; acb.zeta_zeros(1, %d), every real part 1/2 ; %s' % (
++        PREC, T_HEIGHT, n, n, 'MATCHED' if okz else 'NOT MATCHED -- THE CONTROL STOPS'))
++    if not okz:
++        sys.exit(2)
++
++    def zl_rung():
++        ctx.prec = PREC_RUNG
++        n2, z2, ok2, _l, _n = zero_list()
++        if not ok2 or n2 != n:
++            sys.exit('### THE ZERO LIST AT %d BITS DOES NOT MATCH -- THE MAP STOPS' % PREC_RUNG)
++        return z2
+@@ -414,33 +531,14 @@
+-    for tt in GRID_T:
+-        for sig in GRID_SIGMA:
+-            r = cell(sig, tt, PREC, zls[PREC], i4s[PREC])
+-            trig = []
+-            if r['reading'].startswith('HYP-UNVERIFIED'):
+-                trig.append(r['reading'])
+-            if r['unresolved']:
+-                trig.append('hrate overlap at j = %s' % r['unresolved'])
+-            trig += r['triggers']
+-            if trig:
+-                if PREC_RUNG not in zls:
+-                    ctx.prec = PREC_RUNG
+-                    n2, zl2, ok2, _l, _n = zero_list()
+-                    if not ok2 or n2 != len(zls[PREC]):
+-                        sys.exit('### THE ZERO LIST AT %d BITS DOES NOT MATCH -- THE MAP STOPS' % PREC_RUNG)
+-                    zls[PREC_RUNG] = zl2
+-                    lo, hi = i4_ball()
+-                    i4s[PREC_RUNG] = span(lo, hi)
+-                    say('### the rung: the zero list re-read at %d bits, N(T) = %d MATCHED ; I4 = %s' % (PREC_RUNG, n2, b(i4s[PREC_RUNG], 20)))
+-                say('  ### the 200-bit reading %s ; triggers: %s -- RE-READ ONCE AT %d BITS:' % (r['reading'], '; '.join(trig), PREC_RUNG))
+-                r2 = cell(sig, tt, PREC_RUNG, zls[PREC_RUNG], i4s[PREC_RUNG], rung_note='the rung, re-read once')
+-                r2['first'] = dict(reading=r['reading'], triggers=trig)
+-                r = r2
+-            if r['reading'].startswith('j₀') and r['unresolved']:
+-                r['reading'] += ' (UNRESOLVED-AT-j %s beside it: the true j₀ may be lower)' % ', '.join(str(j) for j in r['unresolved'])
+-            elif r['unresolved']:
+-                r['reading_beside'] = 'UNRESOLVED-AT-j %s' % ', '.join(str(j) for j in r['unresolved'])
+-            say('  READING (%s, %s): %s%s%s' % (sig, tt, r['reading'], ('  ### ' + r['sides']) if not r['reading'].startswith('HYP') else '',
+-                                              ('  ### ' + r['reading_beside']) if r.get('reading_beside') else ''))
+-            say('')
+-            r.pop('_ctx', None)
+-            recs.append(r)
+-    score(recs)
++    rc = run_cell('THE CONTROL Z₁(%s, %s)' % Z1_CELL, Z1_CELL, zl, [Z1_CELL], i4s, zl_rung)
++    zc = rc.get('zero_side')
++    c_ok = rc.get('j0') == 31 and zc is not None and zc['held']
++    say('  ### THE CONTROL %s -- expected j₀ = 31 and the zero side below 0 (relay data/b661_map_control.txt); read j₀ = %s, the zero side %s' % (
++        'REPRODUCED' if c_ok else 'NOT REPRODUCED', rc.get('j0'), ('BELOW 0' if zc['held'] else 'NOT BELOW 0') if zc else 'not read'))
++    say('')
++    # ### Q0
++    ctx.prec = PREC
++    on, off = q0_list()
++    say('### THE Q0 LIST: relay data/%s, %d ordinates (index 0-%d); relay data/%s, %d off-line zeros (index 0-%d); the base qE0 = index %d = %s + %s i ; '
++        'T = %d ; A0Q = %d' % (Q0_ON, len(on), len(on) - 1, Q0_OFF, len(off), len(off) - 1, Q0_BASE, off[Q0_BASE][0], off[Q0_BASE][1], Q0_T, Q0_A0))
++    say('')
++    rq = run_cell('Q0 AT qE0', off[Q0_BASE], on, off, i4s, None, above=Q0_T, a0_premise=Q0_A0)
++    score(rc, c_ok, rq)
+@@ -448,28 +546,19 @@
+-    put(recs)
+-
+-
+-def score(recs):
+-    forms = [r['reading'].split(' ')[0] for r in recs]
+-    one = all(r['reading'].startswith(('j₀ = ', 'NONE ≤ J_max', 'HYP-UNVERIFIED(')) for r in recs)
+-    c = len(recs)
+-    ni = sum(1 for r in recs if r['reading'].startswith('j₀'))
+-    nn = sum(1 for r in recs if r['reading'].startswith('NONE'))
+-    nu = sum(1 for r in recs if r['reading'].startswith('HYP'))
+-    say('### ### **CELLS %d: %d WITH AN INDEX, %d NONE ≤ J_max, %d HYP-UNVERIFIED.**' % (c, ni, nn, nu))
+-    say('  H1 %s -- every cell prints exactly one of j₀, NONE ≤ J_max, HYP-UNVERIFIED(<name>): %d of %d' % (
+-        'HELD' if one else 'REFUTED', sum(1 for r in recs if r['reading'].startswith(('j₀ = ', 'NONE ≤ J_max', 'HYP-UNVERIFIED('))), c))
+-    bad, pairs = [], 0
+-    for tt in GRID_T:
+-        row = [(arb(r['sigma']), r['j0']) for r in recs if r['t'] == tt and 'j0' in r]
+-        row.sort(key=lambda x: x[0].mid())
+-        for (s1, j1), (s2, j2) in zip(row, row[1:]):
+-            pairs += 1
+-            if j1 < j2:
+-                bad.append('t = %s: j₀ %d at σ = %s below j₀ %d at σ = %s' % (tt, j1, s1.str(3, radius=False), j2, s2.str(3, radius=False)))
+-    say('  H2 %s -- at fixed t among cells with j₀, j₀ non-decreasing as σ decreases toward 1/2: %d adjacent pair(s) read%s%s' % (
+-        'REFUTED' if bad else ('HELD' if pairs else 'VACUOUS (HELD, no pair of cells with an index at one t)'), pairs,
+-        (' ; refuting: ' + '; '.join(bad)) if bad else '', ''))
+-    h3c = [r for r in recs if (r['sigma'], r['t']) == H3_CELL][0]
+-    if 'H3' in h3c:
+-        say('  H3 %s -- at (%s, %s), j₀ = %d, the zero side`s ball %s' % ('HELD' if h3c['H3']['held'] else 'REFUTED', H3_CELL[0], H3_CELL[1],
+-                                                                         h3c['H3']['j0'], h3c['H3']['zero_side']))
++    put([rc, rq])
++
++
++def score(rc, c_ok, rq):
++    """H3 and H4 by printed line; H1 and H2 read from the instance bank (relay data/b663_epstein_instance.txt) where it stands."""
++    ib = os.path.join(D_DIR, 'b663_epstein_instance.txt')
++    inst = io.open(ib, encoding='utf-8').read() if os.path.exists(ib) else ''
++    say('### ### **THE HYPOTHESES OF (R273)(4):**')
++    for h in ('H1', 'H2'):
++        ln = [l for l in inst.split(NL) if l.startswith('  %s ' % h)]
++        say('  %s %s' % (h, ln[0][5:] if ln else 'read at Component 3 from relay data/b663_epstein_instance.txt (not in this bank)'))
++    certs = [c[0] for c in rq['certs'] if c[1] == 'CERTIFIED']
++    h3 = rq['reading'].startswith('j₀') and 'j0' in rq and rq['j0'] <= rq['J_max']
++    say('  H3 %s -- at Q0 every hypothesis of zeroSide_neg_at_rate_cfg certified by name (%s)%s and hrate %s' % (
++        'HELD ON B1' if h3 else 'REFUTED', ', '.join(certs), '; hθ above T on B1 (READ)', ('holds at j₀ = %d ≤ D + %d = %d' % (rq['j0'], J_EXTRA, rq['J_max']))
++        if h3 else 'reads %s' % rq['reading']))
++    zs = rq.get('zero_side')
++    if zs is None:
++        say('  H4 NOT SCORABLE -- no j₀ at Q0')
+@@ -477,7 +566,6 @@
+-        say('  H3 NOT SCORABLE -- the cell (%s, %s) reads %s, no j₀ to read the zero side at' % (H3_CELL[0], H3_CELL[1], h3c['reading']))
+-    hA = [r for r in recs if r['reading'] == 'HYP-UNVERIFIED(hA)']
+-    say('  H4 %s -- cells printing HYP-UNVERIFIED(hA): %d of %d' % ('REFUTED' if hA else 'HELD', len(hA), c))
+-    return forms
+-
+-
+-def put(recs, name='b662_detection_map_40'):
++        say('  H4 %s -- the zero side at j₀ = %d: %s' % ('HELD ON B1' if zs['held'] else ('REFUTED, H3 HELD -- THE ACT`S FINDING' if h3 else 'REFUTED'),
++                                                    zs['j0'], zs['zero_side']))
++    say('  THE CONTROL %s' % ('REPRODUCED (j₀ = 31, the zero side below 0)' if c_ok else 'NOT REPRODUCED'))
++
++
++def put(recs, name='b663_epstein_control'):
+@@ -494,34 +581,0 @@
+-# ================================================================================ THE CONTROL, NOT A READING
+-CONTROL_CAP = 40                                           # ### the control's index range: j in [D, D + 40], not the map's J_max
+-
+-
+-def control():
+-    """`python tools/b661_map.py control`: every cell of the map read NONE ≤ J_max, so no index was there to check the computation's binding
+-    to the kernel's objects by. A positive control, NOT a reading of the map: at H3's cell the same certifications, then hrate read past
+-    J_max up to D + 40 until it holds, and the zero side read at that j as H3 reads it. H3 stays NOT SCORABLE (its cell prints no j₀);
+-    this bank (data/b661_map_control.txt) says whether the machinery binds where an index exists."""
+-    t0 = time.time()
+-    say('b661 -- THE CONTROL BESIDE THE MAP, NOT A READING OF IT (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
+-    say('')
+-    say('### every cell of relay data/b661_detection_map.txt read NONE ≤ J_max; H3 is NOT SCORABLE there. This control reads H3`s cell')
+-    say('### (%s, %s) with the same certifications and hrate past J_max (j ≤ D + %d), and the zero side at the first j where hrate holds:' % (
+-        H3_CELL[0], H3_CELL[1], CONTROL_CAP))
+-    say('### it tests the computation`s binding to the kernel`s objects, and scores nothing. Arb balls at %d bits.' % PREC)
+-    say('')
+-    ctx.prec = PREC
+-    n, zl, okz, last, nxt = zero_list()
+-    say('### THE ZERO LIST at %d bits: N(%d) = %d ; %s' % (PREC, T_HEIGHT, n, 'MATCHED' if okz else 'NOT MATCHED -- THE CONTROL STOPS'))
+-    if not okz:
+-        sys.exit(2)
+-    lo, hi = i4_ball()
+-    i4 = span(lo, hi)
+-    say("### ∫_0^1 |s''''| = %s" % b(i4, 20))
+-    say('')
+-    r = cell(H3_CELL[0], H3_CELL[1], PREC, zl, i4, rung_note='THE CONTROL, j ≤ D + %d' % CONTROL_CAP, jcap=CONTROL_CAP)
+-    say('  CONTROL (%s, %s): hrate first holds at %s ; %s' % (H3_CELL[0], H3_CELL[1], ('j = %d' % r['j0']) if 'j0' in r else 'no j ≤ D + %d' % CONTROL_CAP,
+-                                                         ('the zero side BELOW 0' if r['H3']['held'] else 'the zero side NOT BELOW 0') if 'H3' in r else 'no zero side read'))
+-    say('### elapsed %d s' % int(time.time() - t0))
+-    r.pop('_ctx', None)
+-    put([r], name='b661_map_control')
+-
+-
+@@ -529,5 +583,2 @@
+-    if len(sys.argv) > 1 and sys.argv[1] == 'control':
+-        sys.exit('### b662: the control route is b661`s and writes b661`s bank -- NOT RUN FROM THIS COPY')
+-    else:
+-        main()
+-
++    main()
++

@@ -582,7 +582,25 @@ def runner(*a):
         print('  ERROR %s:%d:%d: %s' % e)
 
 
-ROUTES = {'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2, 'c2b': c2b, 'a0list': a0list, 'runner': runner}
+def mapdiff(*a):
+    """Component 4: tools/b662_map.py against tools/b663_epstein_map.py, a unified diff by difflib, banked as data/b663_map_diff.txt with
+    its hunk count and the b662 line ranges each hunk touches, read against the plan's section 6 list."""
+    import difflib
+    old = rd(os.path.join(T, K.MAP_FROM)).split(NL)
+    new = rd(os.path.join(T, K.MAP_TO)).split(NL)
+    d = list(difflib.unified_diff(old, new, 'tools/' + K.MAP_FROM, 'tools/' + K.MAP_TO, lineterm='', n=0))
+    hunks = [l for l in d if l.startswith('@@')]
+    L = ['b663 -- COMPONENT 4: tools/%s CARRIED INTO tools/%s, THE DIFF (%s)' % (K.MAP_FROM, K.MAP_TO, utc()), '',
+         '### the plan`s section 6 (relay data/b663_epstein_plan.txt) names the lines the author let change: the configuration (zero_list ->',
+         '### q0_list beside it; the cell), M and hdom (:197-:210), θ and the kill set (:219-:236), hA (:241), the zero side (:351-:388); ghat,',
+         '### ramp_R, i4_ball, a0_upper, the controls of hQtie and hQb, hrate and the rung unchanged. Hunks: %d ; lines removed %d ; added %d.' % (
+             len(hunks), sum(1 for l in d if l.startswith('-') and not l.startswith('---')), sum(1 for l in d if l.startswith('+') and not l.startswith('+++'))),
+         '### the hunks` b662 ranges: ' + ' '.join(h.split(' ')[1] for h in hunks), ''] + d
+    put_txt('b663_map_diff.txt', L)
+    print('  hunks %d' % len(hunks))
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2, 'c2b': c2b, 'a0list': a0list, 'runner': runner, 'mapdiff': mapdiff}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
