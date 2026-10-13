@@ -50,7 +50,14 @@ CUT_BRANCH = 'docstrings-cut-SIDE-carrier-spec'
 TARGET = 'SIDECarrierSpec'
 NEXT_TAG = 'v0.4.2'         # ### the next in the kernel's series after v0.4.1 (main b3916cc), b659's form (a patch step for a docstring cut)
 README_PROFILES = ('README.md', 75, 101)   # ### the kernel's banked axiom profiles at v0.4.1, README.md :75-:101 (rows are declarations, short names)
-RUNNER = {}                 # ### filled at Component 4: the workflow commit on main, the branch ref, the run id
+K_WORKFLOW = '553e9c4'      # ### the commit putting the workflow on the kernel's main (the file alone; pushed through push_gated.sh, read back)
+TARGET_MODULES = ('SIDECarrierSpec.ArithContent SIDECarrierSpec.Grading.AdelicFrame SIDECarrierSpec.Grading.DivisorLadder '
+                  'SIDECarrierSpec.IdempotentNoGo SIDECarrierSpec.Level SIDECarrierSpec.SaltCheck SIDECarrierSpec.Spec')   # ### no root module file
+# ### the one dispatch (Component 4), on the author's word: at main, the ref input the cut branch's tip (the branch predates the workflow on
+# ### main; a first call at the branch was refused with HTTP 422 and ran nothing, defect (f))
+RUNNER = {KERNEL: dict(branch=CUT_BRANCH, target=TARGET_MODULES, workflow_commit=K_WORKFLOW, run_id=38370416643,
+                       ref='55421a3dd5423c3ae80215bac36ac973f88da662', dispatched_at='main',
+                       refused='gh workflow run --ref docstrings-cut-SIDE-carrier-spec: HTTP 422, Workflow does not have workflow_dispatch trigger')}
 
 EDITED_SHARED = ()
 NEW_TESTS = ()

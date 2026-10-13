@@ -1063,7 +1063,137 @@ def cut_bank(*a):
     print(NL.join(L[-8:]))
 
 
-ROUTES_EARLY = ('c1', 'answers', 'sentences', 'plain', 'grades', 'plan_cut', 'planned_text', 'check_file', 'cut_bank')
+# ================================================================================ COMPONENT 4: THE RUNNER, (R272)(6) under (R263)(4)
+STD3 = {'propext', 'Classical.choice', 'Quot.sound'}
+PRINT_RE = re.compile(r"^'(.+?)' (?:does not depend on any axioms|depends on axioms: \[([^\]]*)\])", re.M)
+ERR_RE = re.compile(r'^(?:error: )?(\S+\.lean):(\d+):(\d+): error: (.*)$', re.M)
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def _prints(text):
+    return [(m.group(1), sorted(x.strip() for x in (m.group(2) or '').split(',') if x.strip())) for m in PRINT_RE.finditer(text)]
+
+
+def _banked_prints(targets):
+    """the kernel's banked profiles: its README's rows at the worklist's lines (main b3916cc), each through read_print_row; every short name
+    mapped to the one print target ending in it. Returns ({full name: axioms}, [short names not mapped or mapped twice])."""
+    f, a0, a1 = K.README_PROFILES
+    out, bad = {}, []
+    for l in (_show(K.KD, K.K_MAIN, f) or '').split(NL)[a0 - 1:a1]:
+        if l.strip():
+            n, ax = read_print_row(l)
+            hits = [t for t in targets if t == n or t.endswith('.' + n)]
+            if len(hits) != 1:
+                bad.append(n)
+                continue
+            out[hits[0]] = ax
+    return out, bad
+
+
+def runner(*a):
+    """`runner`: the run read by its id; the artifact listed, downloaded by its id into memory, its sha256 against the platform's digest before
+    any reading; the build's exit and error lines, the memory log's low and any STOP, every print against the banked profile terminal by
+    terminal. Banked as data/b662_runner_<kernel>.txt and a row of data/b662_runner_rows.json."""
+    import hashlib
+    import zipfile
+    kern = K.KERNEL
+    R = K.RUNNER[kern]
+    repo = 'psinary-sketch/' + kern
+    rc, out, err = _gh('run', 'view', str(R['run_id']), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, R['run_id']))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    wf = _show(K.KD, R['workflow_commit'], '.github/workflows/build-module.yml') or ''
+    pt = [l.strip() for l in (_show(K.KD, R['ref'], 'print_targets.txt') or '').split(NL) if l.strip()]
+    row = dict(kernel=kern, branch=R['branch'], ref=R['ref'], target=R['target'], run_id=R['run_id'], conclusion=run.get('conclusion'),
+               artifact_sha256=None, mem_low=None, stopped=False, gate=None, merged=None, tag=None)
+    L = ['b662 -- COMPONENT 4, (R272)(6): THE HOSTED RUNNER FOR %s, READ BY ITS RUN ID (%s)' % (kern, utc()), '',
+         '### the workflow file on main (%s, put where absent under (R263)(4), the file alone), read back whole:' % R['workflow_commit']] + \
+        ['    ' + l for l in wf.rstrip(NL).split(NL)] + ['', '### print_targets.txt at the ref: %d names' % len(pt), '',
+         '### the refused call, before the dispatch: %s -- it ran nothing; the reason: the cut branch was cut from %s, before the workflow went '
+         'onto main (relay data/b662_defects.txt (f)).' % (R['refused'], K.K_MAIN),
+         '### the one dispatch, on the author`s word: at %s, the ref input %s (the cut branch`s tip) ; target %s' % (R['dispatched_at'], R['ref'], R['target']),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             R['run_id'], run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+             run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        row['artifact_sha256'] = sha
+        L.append('### the artifact: id %s ; name %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else ('### DIFFER' if digest else 'no digest to compare')))
+        if digest and digest != sha:
+            row['artifact_sha256'] = None
+        else:
+            with zipfile.ZipFile(io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    stops = [l for l in mem.split(NL) if l.startswith('STOP ')]
+    row['stopped'] = bool(stops)
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip()
+    errs = [(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4)) for m in ERR_RE.finditer(blog)]
+    P = _prints(T_.get('axioms.txt', ''))
+    B, unmapped = _banked_prints(pt)
+    per = []
+    for n, ax in P:
+        b = B.get(n)
+        per.append((n, ax, b, set(ax) <= STD3 and 'sorryAx' not in ax, b is not None and b == ax))
+    missing = sorted(set(B) - set(n for n, _a in P))
+    ok = (run.get('conclusion') == 'success' and row['artifact_sha256'] and bexit == '0' and not errs and not stops and row['mem_low'] is not None
+          and row['mem_low'] >= K.HOLD and len(P) == len(B) == len(pt) > 0 and not missing and not unmapped and all(s and e for _n, _a, _b, s, e in per))
+    row['gate'] = 'DERIVES' if ok else ('STOPPED BENEATH THE HOLD' if stops else 'NOT DERIVES')
+    row['errors'] = [list(e) for e in errs]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: samples %d ; LOW %s MB ; the hold %d ; STOP lines %s' % (
+              len([l for l in mem.split(NL) if 'avail_mb=' in l]), row['mem_low'], K.HOLD, stops or 'NONE'),
+          '### the build: exit %s ; error lines %d ; the log`s last lines:' % (bexit or '### UNREAD', len(errs))] + \
+        ['    ' + l for l in blog.rstrip(NL).split(NL)[-6:]] + ['    %s:%d:%d: %s' % e for e in errs[:30]] + [
+          '### names refused by the print step: %s' % (T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### THE BANKED PROFILES: the kernel`s README.md :%d-:%d at %s ("Axiom profiles at v0.4.1"), short names mapped to print targets: %d ; '
+          'not mapped or mapped twice: %s ; no relay print bank exists for this kernel (listed for the next census)' % (
+              K.README_PROFILES[1], K.README_PROFILES[2], K.K_MAIN, len(B), unmapped or 'NONE'),
+          '### THE GATE READING PER TERMINAL (the run`s print ; the banked profile):'] + \
+        ['  %-66s %-30s %s ; banked %s ; %s' % (n, ax, 'STANDARD THREE OR NONE' if s else '### NOT', b, 'EQUAL' if e else '### DIFFERENT')
+         for n, ax, b, s, e in per] + ['  banked terminals not printed: %s' % (missing or 'NONE'), '',
+          '### ### **RUN %s ; CONCLUSION %s ; ARTIFACT SHA256 %s ; MEMORY LOW %s MB (HOLD %d) ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS %d, AT THE '
+          'STANDARD THREE OR NONE %d, EQUAL TO THE BANKED PROFILES %d ; GATE %s.**' % (
+              R['run_id'], run.get('conclusion'), (row['artifact_sha256'] or '### NONE')[:16], row['mem_low'], K.HOLD, bexit or '### UNREAD', len(errs),
+              len(P), sum(1 for x in per if x[3]), sum(1 for x in per if x[4]), row['gate'])]
+    put_txt('b662_runner_%s.txt' % kern, L)
+    j = jl('b662_runner_rows.json') or {'rows': []}
+    j['rows'] = [r for r in (j.get('rows') or []) if r['kernel'] != kern] + [row]
+    put_json('b662_runner_rows.json', j)
+    print(L[-1])
+    for e in errs[:12]:
+        print('  ERROR %s:%d:%d: %s' % e)
+
+
+def runner_merged(*a):
+    """`runner_merged <merge sha> <tag>`: the row's merge and tag, after main and the tag are read back at the remote."""
+    sha, tag = a[:2]
+    j = jl('b662_runner_rows.json')
+    for r in j['rows']:
+        if r['kernel'] == K.KERNEL:
+            r['merged'], r['tag'] = sha, tag
+    put_json('b662_runner_rows.json', j)
+    print('  %s merged %s tag %s' % (K.KERNEL, sha, tag))
+
+
+ROUTES_EARLY = ('c1', 'answers', 'sentences', 'plain', 'grades', 'plan_cut', 'planned_text', 'check_file', 'cut_bank', 'runner', 'runner_merged')
 
 if __name__ == '__main__':
     fn = globals().get(sys.argv[1] if len(sys.argv) > 1 else '')

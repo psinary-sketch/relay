@@ -1,0 +1,154 @@
+b662 -- COMPONENT 4, (R272)(6): THE HOSTED RUNNER FOR SIDE-carrier-spec, READ BY ITS RUN ID (2026-10-13T08:39:54Z)
+
+### the workflow file on main (553e9c4, put where absent under (R263)(4), the file alone), read back whole:
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    # From b658 ((R263)(4), standing): the named terminals are read from print_targets.txt at the kernel's root, one name per line, and the
+    # scratch file imports each module of the target; no workflow edit is needed to print a new theorem.
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              : > out/Axioms.lean
+              for m in $TARGET; do echo "import $m" >> out/Axioms.lean; done
+              cp print_targets.txt out/print_targets.txt
+              while IFS= read -r n || [ -n "$n" ]; do
+                n=$(printf '%s' "$n" | tr -d '\r' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                [ -z "$n" ] && continue
+                case "$n" in
+                  *[!A-Za-z0-9_.\']*) echo "print target refused: $n" >> out/axioms_refused.txt; continue ;;
+                esac
+                echo "#print axioms $n" >> out/Axioms.lean
+              done < print_targets.txt
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+
+### print_targets.txt at the ref: 27 names
+
+### the refused call, before the dispatch: gh workflow run --ref docstrings-cut-SIDE-carrier-spec: HTTP 422, Workflow does not have workflow_dispatch trigger -- it ran nothing; the reason: the cut branch was cut from b3916cc, before the workflow went onto main (relay data/b662_defects.txt (f)).
+### the one dispatch, on the author`s word: at main, the ref input 55421a3dd5423c3ae80215bac36ac973f88da662 (the cut branch`s tip) ; target SIDECarrierSpec.ArithContent SIDECarrierSpec.Grading.AdelicFrame SIDECarrierSpec.Grading.DivisorLadder SIDECarrierSpec.IdempotentNoGo SIDECarrierSpec.Level SIDECarrierSpec.SaltCheck SIDECarrierSpec.Spec
+### the run: id 38370416643 ; https://github.com/psinary-sketch/SIDE-carrier-spec/actions/runs/38370416643 ; status completed ; conclusion success ; head 553e9c426d8892291a5e60f94e546d3897a075aa on main ; 2026-10-13T08:36:34Z to 2026-10-13T08:39:40Z
+### the artifact: id 11798019266 ; name build-module-38370416643 ; 4192 bytes ; sha256 c126aa81fa0cfe15717885e2d31d1c68bac0fd5ade50badd8e306be1b6969d45 ; the platform`s digest c126aa81fa0cfe15717885e2d31d1c68bac0fd5ade50badd8e306be1b6969d45 ; AGREE
+### the ref built (out/ref.txt): 55421a3dd5423c3ae80215bac36ac973f88da662 leanprover/lean4:v4.29.1
+### the memory log: samples 5 ; LOW 6598 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; the log`s last lines:
+    
+    Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+    ✔ [1890/1892] Built SIDECarrierSpec.SaltCheck (2.2s)
+    ✔ [1891/1892] Built SIDECarrierSpec.Grading.DivisorLadder (2.3s)
+    ✔ [1892/1892] Built SIDECarrierSpec.Grading.AdelicFrame (1.9s)
+    Build completed successfully (1892 jobs).
+### names refused by the print step: NONE
+### THE BANKED PROFILES: the kernel`s README.md :75-:101 at b3916cc ("Axiom profiles at v0.4.1"), short names mapped to print targets: 27 ; not mapped or mapped twice: NONE ; no relay print bank exists for this kernel (listed for the next census)
+### THE GATE READING PER TERMINAL (the run`s print ; the banked profile):
+  SIDECarrierSpec.map_eq_zero_of_idempotent                          ['propext']                    STANDARD THREE OR NONE ; banked ['propext'] ; EQUAL
+  SIDECarrierSpec.signedCompletion_trivial_of_idempotent             ['propext']                    STANDARD THREE OR NONE ; banked ['propext'] ; EQUAL
+  SIDECarrierSpec.trivial_of_idempotent_of_spec                      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.no_idempotent_candidate                            ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.SaltCheck.spec_satisfiable                         ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.SaltCheck.witness_degenerate                       ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.SaltCheck.witness_not_definite                     ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.SaltCheck.translation_additive_iff_zero            ['propext']                    STANDARD THREE OR NONE ; banked ['propext'] ; EQUAL
+  SIDECarrierSpec.Grading.archPart_separates_nothing_new             ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.Grading.arch_present_is_not_independence           ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.Grading.two_torsion_trivial_of_spec                ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.Grading.multiplication_action_fails_R4             ['propext']                    STANDARD THREE OR NONE ; banked ['propext'] ; EQUAL
+  SIDECarrierSpec.Grading.powerMap_is_endomorphism                   ['propext']                    STANDARD THREE OR NONE ; banked ['propext'] ; EQUAL
+  SIDECarrierSpec.arch_present_of_arch_independent                   ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.Grading.factored_fails_arch_independent            ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.SaltCheck.witness_arch_independent_and_still_degenerate ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.Grading.frame_shape_arch_independent               ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.Grading.frame_shape_finPart_surjective             ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.Grading.frame_shape_has_both                       ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.Grading.arch_independent_excludes_factoring        ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.int_frobenius                                      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.powerMap_not_multiplicative                        ['propext']                    STANDARD THREE OR NONE ; banked ['propext'] ; EQUAL
+  SIDECarrierSpec.powerMap_fails_frobenius                           ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.SaltCheck.witness_arith_and_still_degenerate       ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  SIDECarrierSpec.descent_not_unique                                 ['propext']                    STANDARD THREE OR NONE ; banked ['propext'] ; EQUAL
+  SIDECarrierSpec.descent_carries_no_warrant                         []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDECarrierSpec.SaltCheck.witness_descent_and_still_degenerate     ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE ; banked ['Classical.choice', 'Quot.sound', 'propext'] ; EQUAL
+  banked terminals not printed: NONE
+
+### ### **RUN 38370416643 ; CONCLUSION success ; ARTIFACT SHA256 c126aa81fa0cfe15 ; MEMORY LOW 6598 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 27, AT THE STANDARD THREE OR NONE 27, EQUAL TO THE BANKED PROFILES 27 ; GATE DERIVES.**

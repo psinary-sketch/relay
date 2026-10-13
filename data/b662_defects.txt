@@ -21,3 +21,8 @@ b662 -- THE DEFECTS, WRITTEN AS THE ACT RAN (2026-10-13): THE SUCCESSOR OF data/
     directly; that shell had no PATH, so `ls` and `grep` were not found, the main loop ran no test and only the four long tests started.
     Found by reading the empty log and the loop's stderr; the tree stopped by PID (data/b662_stepzero.txt), no bank written; the script given
     its PATH by the Edit tool and run again whole.
+    (f) THE SEAT'S: A DISPATCH AT A REF THAT DOES NOT CARRY THE WORKFLOW. `gh workflow run build-module.yml --ref
+    docstrings-cut-SIDE-carrier-spec` was refused with HTTP 422 ("Workflow does not have 'workflow_dispatch' trigger"): GitHub reads the
+    workflow at the dispatched ref, and the cut branch was cut from b3916cc, before the workflow went onto main (553e9c4). Nothing ran (the run
+    list empty). The waiting loop beside the call was stopped by TaskStop, no orphan left. On the author's word: the one dispatch at main with
+    the ref input the branch's tip (run 38370416643), "one dispatch at the branch" read as "one dispatch with the branch as the ref".

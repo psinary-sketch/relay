@@ -1,0 +1,21 @@
+b662 -- COMPONENT 4, (R272)(6): SIDE-carrier-spec`S DOCSTRINGS CUT ON THE BRANCH docstrings-cut-SIDE-carrier-spec (2026-10-13T08:31:26Z)
+
+### the grades: relay data/b662_sentence_grades.txt (rows are sentences, parents are blocks; the author`s word at Component 3); the plan:
+### data/b662_cut_plan.txt; one commit per file by the Edit tool, each working file checked against the plan before its commit; the
+### branch from main b3916cc.
+
+### THE COMMITS (rows are commits, one per file):
+  054664a  SIDECarrierSpec/ArithContent.lean                blocks #1, #2, #3             blob EQUALS THE PLAN ; the comment-stripped diff against main EMPTY
+  a13e520  SIDECarrierSpec/Grading/DivisorLadder.lean       blocks #4                     blob EQUALS THE PLAN ; the comment-stripped diff against main EMPTY
+  b4d82c7  SIDECarrierSpec/SaltCheck.lean                   blocks #5, #6, #7             blob EQUALS THE PLAN ; the comment-stripped diff against main EMPTY
+  4c1333c  SIDECarrierSpec/Spec.lean                        blocks #8, #9                 blob EQUALS THE PLAN ; the comment-stripped diff against main EMPTY
+### the branch`s other commits (not a cut file, each touching one file): NONE
+
+### COMMITS 4 ; FILES IN THE PLAN 4 ; CUT COMMITS TOUCHING ONE FILE 4 ; FAULTS NONE
+
+### THE GRADE BANK RE-RUN AT THE BRANCH (each graded row looked for in its file, whitespace aside):
+  CUT 12, MATCHES 42
+  graded rows still standing: NONE
+### THE CONTROL, the same read at main b3916cc: MATCHES 42, OVERREACHES (STANDING) 12
+
+### ### **CUT COMMITS 4 IN 4 FILES ; GRADED ROWS CUT 12 ; STANDING 0 (OVERREACHES 0, UNDERSTATES 0, UNLICENSED 0) ; AT MAIN STANDING 12 ; FAULTS 0.**
