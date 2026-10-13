@@ -249,7 +249,151 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = {'c1': c1, 'answers': answers}
+# ================================================================================ COMPONENT 2: THE DOMINANCE READING BESIDE THE PLAN
+def _zeros():
+    """the banked list (on the author's word, b326's): the on-line ordinates (gamma_a == gamma_b) and the off-line zeros (rho_a == rho_b),
+    each by its index in its bank; a row whose two routes disagree is refused."""
+    on = jl(K.ZEROS_ON)['zeros']
+    off = jl(K.ZEROS_OFF)['zeros']
+    if not all(z['agree'] and z['gamma_a'] == z['gamma_b'] for z in on) or not all(z['agree'] and z['rho_a'] == z['rho_b'] for z in off):
+        sys.exit('### A BANKED ZERO WHOSE TWO ROUTES DISAGREE -- NOTHING WRITTEN')
+    return [(i, repr(z['gamma_a'])) for i, z in enumerate(on)], [(i, repr(z['rho_a'][0]), repr(z['rho_a'][1])) for i, z in enumerate(off)]
+
+
+def dominance(*a):
+    """(R273)(3) and the author's word on the second question: the configuration's excluded zero and its tie set are read from all seventeen
+    off-line zeros. At the base detectorBase ρb (Schema/Detector.lean :40, half-width baseWidth ρb :33) of each off-line zero ρb in turn, the
+    score offScore g0 ρ = |paperFT (phiC g0) (gammaOf ρ)| (PowerWindow.lean :328; gammaOf Defs.lean :121) of every off-line zero, in Arb balls
+    at 200 bits through tools/b662_map.py's ghat, imported unedited; which zero's score is largest and whether the largest is decided; and at
+    the named base (rhoE's) the count of on-line ordinates whose score is not below the largest (the kill set's size, D = 2 · card Xr + 8 by
+    coeffs_exist's witness when every off-line orbit but the dominant's lies below M). A reading beside the plan; no hypothesis scored."""
+    import b662_map as MP
+    from flint import arb, acb, ctx
+    ctx.prec = MP.PREC
+    on, off = _zeros()
+    t0 = time.time()
+    L = ['b663 -- COMPONENT 2: THE DOMINANCE READING BESIDE THE PLAN (%s)' % utc(), '',
+         '### the zeros: relay data/%s (%d on-line ordinates, by index) and data/%s (%d off-line zeros, by index), banked by two agreeing routes'
+         % (K.ZEROS_ON, len(on), K.ZEROS_OFF, len(off)),
+         '### in mpmath at 119 digits, NOT BALL-CERTIFIED (the author`s word on the third question); each entered here as its decimal literal, exact.',
+         '### rows are bases: the off-line zero ρb whose detectorBase is g0; per row every off-line zero`s score at g0, the largest, and whether',
+         '### the largest ball lies wholly above every other (DECIDED) or meets one (TIED). Arb balls at %d bits; tools/b662_map.py`s ghat.' % MP.PREC, '']
+    rows = []
+    for bi, bs, bt in off:
+        sb, tb = arb(bs), arb(bt)
+        ell = 1 / (4 * (abs(acb(tb, -(sb - arb(1) / 2))) + 1))
+        sc = []
+        for i, s, t in off:
+            z = acb(arb(t), -(arb(s) - arb(1) / 2))
+            sc.append((i, abs(MP.ghat(z, ell, MP.PREC))))
+        top = max(sc, key=lambda x: x[1].mid())
+        decided = all(top[1].lower() > x[1].upper() for x in sc if x[0] != top[0])
+        rows.append(dict(base=bi, base_rho=[bs, bt], ell=MP.b(ell, 8), dominant=top[0], decided=decided,
+                         scores=[[i, MP.b(x, 10)] for i, x in sc]))
+        L.append('  base off[%2d] = %s + %s i ; ℓ = %s ; the largest score off[%d] (t = %s) %s %s' % (
+            bi, bs[:10], bt[:10], MP.b(ell, 8), top[0], off[top[0]][2][:10], MP.b(top[1], 10), 'DECIDED' if decided else 'TIED'))
+        L.append('      scores: ' + ' ; '.join('[%d] %s' % (i, x.str(6, radius=False)) for i, x in sc))
+    named = [r for r in rows if r['base_rho'] == list(K.RHO_E)]
+    L += ['']
+    if len(named) != 1:
+        L.append('### rhoE (Schema/Epstein.lean :32) IS NOT ONE OF THE BANKED OFF-LINE ZEROS AS WRITTEN -- printed, not repaired')
+    else:
+        r = named[0]
+        bi = r['base']
+        sb, tb = arb(K.RHO_E[0]), arb(K.RHO_E[1])
+        ell = 1 / (4 * (abs(acb(tb, -(sb - arb(1) / 2))) + 1))
+        dz = off[r['dominant']]
+        M = abs(MP.ghat(acb(arb(dz[2]), -(arb(dz[1]) - arb(1) / 2)), ell, MP.PREC))
+        kill, strad = [], []
+        for i, gm in on:
+            g_ = abs(MP.ghat(acb(arb(gm)), ell, MP.PREC))
+            if g_.lower() >= M.upper():
+                kill.append(i)
+            elif not g_.upper() < M.lower():
+                strad.append(i)
+        L += ['### AT THE NAMED BASE, rhoE = off[%d] (Schema/Epstein.lean :32): the dominant off[%d] (t = %s), M = %s; on-line ordinates with score '
+              'not below M: %d (indices %s)%s; card Xr = %d distinct |γ| would give D = 2 · card Xr + 8 = %d, J_max = D + 40 = %d.' % (
+                  bi, r['dominant'], dz[2][:10], MP.b(M, 10), len(kill), kill[:40], (' ; STRADDLING M: %s' % strad) if strad else ' ; none straddling',
+                  len(kill), 2 * len(kill) + 8, 2 * len(kill) + 48)]
+    self_dom = [r['base'] for r in rows if r['dominant'] == r['base'] and r['decided']]
+    L += ['### the bases at which the base`s own zero is the decided dominant: %s' % (self_dom or 'NONE'), '']
+    # ### the two candidate bases: the kill set, θ over the listed points, and the heights above which each decay bound clears θ·M
+    lo4, hi4 = MP.i4_ball()
+    i4 = MP.span(lo4, hi4)
+    L += ['### THE TWO CANDIDATE BASES (off[0], the self-dominant; rhoE = off[1], the kernel`s named zero): at each, M = the dominant`s score;',
+          '### the kill set = listed points scoring ≥ M (decided in balls); θ = the largest score/M over the listed points outside the tie set',
+          '### (the dominant`s orbit) and the kill set; then the height H above which an UNLISTED strip point is cleared, offScore ≤ θ·M:',
+          '###   first order  -- |paperFT g0 z| ≤ (1/|z|) ∫|g0`| e^{|Im z| |u|} du ≤ 2 e^{ℓ/2}/|z| (g0 monotone on each side of 0, total',
+          '###                   variation 2, support [-ℓ, ℓ], |Im z| ≤ 1/2): H1 = 2 e^{ℓ/2}/(θ M); integration by parts, NOT A KERNEL LEMMA;',
+          '###   fourth order -- zero_weight`s hsA (PowerLimit.lean :825), offScore ≤ Aw/(1 + |γ|⁴), Aw (:800) as tools/b662_map.py :216:',
+          '###                   H4 = (Aw/(θ M) - 1)^{1/4}; A KERNEL LEMMA. I4 = %s.' % MP.b(i4, 15)]
+    cand = {}
+    for bi in (0, 1):
+        _bi, bs, bt = off[bi]
+        sb, tb = arb(bs), arb(bt)
+        ell = 1 / (4 * (abs(acb(tb, -(sb - arb(1) / 2))) + 1))
+        dz = off[[r for r in rows if r['base'] == bi][0]['dominant']]
+        M = abs(MP.ghat(acb(arb(dz[2]), -(arb(dz[1]) - arb(1) / 2)), ell, MP.PREC))
+        kill, strad, th, targ = [], [], arb(0), None
+        for i, gm in on:
+            g_ = abs(MP.ghat(acb(arb(gm)), ell, MP.PREC))
+            if g_.lower() >= M.upper():
+                kill.append(i)
+            elif g_.upper() < M.lower():
+                r_ = arb((g_.upper() / M.lower()).upper())
+                if r_.upper() > th.upper():
+                    th, targ = r_, 'on[%d] γ = %s' % (i, gm[:10])
+            else:
+                strad.append(i)
+        for i, s, t in off:
+            if (s, t) == (dz[1], dz[2]):
+                continue
+            g_ = abs(MP.ghat(acb(arb(t), -(arb(s) - arb(1) / 2)), ell, MP.PREC))
+            if g_.lower() >= M.upper():
+                kill.append('off%d' % i)
+            elif g_.upper() < M.lower():
+                r_ = arb((g_.upper() / M.lower()).upper())
+                if r_.upper() > th.upper():
+                    th, targ = r_, 'off[%d] t = %s' % (i, t[:10])
+            else:
+                strad.append('off%d' % i)
+        aw = (arb(3) / 2 * ell + 16 * i4 / ell ** 3) * (ell / 2).exp()
+        h1 = 2 * (ell / 2).exp() / (th * M)
+        h4 = ((aw / (th * M) - 1).log() / 4).exp()
+        cand[bi] = dict(ell=MP.b(ell, 10), M=MP.b(M, 12), kill=kill, straddle=strad, theta=MP.b(th, 12), theta_at=targ, D=2 * len(kill) + 8,
+                        H1=MP.b(h1, 8), H4=MP.b(h4, 8), Aw=MP.b(aw, 8))
+        L.append('  base off[%d] (%s + %s i): ℓ = %s ; dominant off[%d], M = %s ; kill set %d (%s)%s ; θ = %s at %s ; D = %d, J_max = %d ; '
+                 'H1 = %s ; Aw = %s, H4 = %s ; the banked list ends at T = 150' % (
+                     bi, bs[:10], bt[:10], MP.b(ell, 8), dz[0], MP.b(M, 10), len(kill), kill, (' ; STRADDLING %s' % strad) if strad else '',
+                     MP.b(th, 10), targ, 2 * len(kill) + 8, 2 * len(kill) + 48, MP.b(h1, 8), MP.b(aw, 6), MP.b(h4, 8)))
+    L += ['### elapsed %d s' % int(time.time() - t0)]
+    put_txt('b663_dominance.txt', L)
+    put_json('b663_dominance.json', dict(at=utc(), rows=rows, self_dominant=self_dom, candidates=cand))
+    print(NL.join(L[-4:]))
+
+
+CERT_H = ('### `W-ORD-EPSTEIN-CERTIFY` -- THE Q0 ZERO LIST IN BALLS, PRICED, NOT STARTED, appended 2026-10-13, b663, on the author’s word '
+          'to b663’s citation prompt')
+
+
+def _certify():
+    return ('\n' + CERT_H + '\n\n**Items.** The seventeen off-line zeros of Z_Q (Q = x² + xy + 6y², discriminant −23) below T = 150 (relay '
+            'data/b326_offline.json, key "zeros", index 0-16) and the 146 on-line ordinates (data/b326_epstein_zeros.json, index 0-145) '
+            'isolated in Arb balls at 200 bits by an argument-principle count, so the configuration’s points carry balls; with them the band '
+            '|t| < 0.5 and σ in (1/2, 0.52), which neither census of b326 reads. Today the zeros are banked by two agreeing routes in mpmath at '
+            '119 digits with winding counts, registered_gate_passed = False: banked, not ball-certified (relay data/b663_defects.txt (c)). '
+            '**Price:** one act, b642’s R5 price for a witnessed certificate (relay data/b642_epstein_rungs.txt :182), a compiled one '
+            'unpriced. **Trigger:** H4 of b663 held -- a control that fires on banked data earns the certification that makes it stand. '
+            '**Entered** beside b663’s plan (relay data/b663_epstein_plan.txt).\n')
+
+
+def c2(*a):
+    land([('OPEN_TRAILS.md', CERT_H, _certify())], 'b663_record_lines_c2.json', 'c2', entry=K.EPSTEIN_LINE,
+         check=[('OPEN_TRAILS.md', K.EPSTEIN_LINE, 'W-ORD-EPSTEIN-ZQ'), ('OPEN_TRAILS.md', K.RUNGS_LINE, 'W-ORD-EPSTEIN-ZQ')],
+         dry='dry' in a)
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

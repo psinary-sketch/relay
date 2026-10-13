@@ -1,0 +1,135 @@
+b663 -- COMPONENT 2, (R273)(3): THE RUNGS READ AND THE PLAN, BEFORE ANY LEAN (2026-10-13)
+
+### The rungs read rung by rung (relay data/b642_epstein_rungs.txt, rows are rungs; OPEN_TRAILS :13533 the price beside W-ORD-EPSTEIN-ZQ
+### at :13493); b590's file and banks read first, on the author's word (SIDE-explicit-formula main ffbc617 = v0.28, by `git show`; relay
+### data/b590_statements_epstein.txt, data/b590_e0_epstein.txt); the zeros cited by index in b326's banks, on the author's word, b548's
+### reading of the same list beside them; the dominance reading beside the plan (relay data/b663_dominance.txt). No Lean is written before
+### the author's word on this bank. Every zero below is "banked, not ball-certified" (the author's word on the third question).
+
+================================================================================================================================
+### 1. THE RUNGS, EACH WITH ITS STATUS AT ffbc617
+================================================================================================================================
+  R1 the lattice sum and its convergence (b642 :4-:16)     PRICED one act ; NOT BUILT. No Epstein zeta at the pin (:14, 0 hits).
+  R2 the theta and its inversion (:18-:35)                 PRICED two acts ; NOT BUILT.
+  R3 the functional equation and continuation (:37-:54)    PRICED one act after R2 ; NOT BUILT.
+  R4 the explicit formula (:56-:154)                       PRICED three acts at the least ; NOT BUILT. b590 put a named premise in its place:
+                                                           EpsteinPremises.ef (Schema/Epstein.lean :42-:43), T1-lit, cited (Weil 1952;
+                                                           Bombieri-Lagarias 1999; PLACE-papers BALANCE_AND_POSITIVITY.md :542, :422).
+  R5 the off-line zero as a certified witness (:156-:182)  PRICED one act for a witnessed certificate, a compiled one unpriced ; NOT BUILT.
+                                                           b590 put a hypothesis in its place: hE : rhoE ∈ Z.carrier (Epstein.lean :57, :62),
+                                                           rhoE = 0.7979971571786801 + 29.551761098629115 i (:32, from relay
+                                                           data/b506_c2_results.json) -- b326_offline.json's zero index 1.
+  The count (E1's field; b641's estimate)                  b590 put a named premise in its place: EpsteinPremises.count (Epstein.lean :44),
+                                                           `∃ A₀, HCount Z A₀`, T3, read off the bench's list.
+  ### THIS ACT BUILDS NO RUNG. All five stay priced as b642 read them. The ruling's description of the instance as new is read against b590's
+  ### file (data/b663_defects.txt (d)): b590 built the schema side of the instance at INTERFACES; no rung of Z_Q itself is compiled.
+
+================================================================================================================================
+### 2. WHAT b590 BUILT, AND WHAT IT LEFT FOR THIS ACT
+================================================================================================================================
+  BUILT (v0.16, c404e72; on main since): Schema/Detector.lean (8 declarations: baseWidth :33, detectorBase :40, detector :99,
+  not_h2_sign_cfg_of_offline :120, ...), Schema/Epstein.lean (6: rhoE :32, rhoE_re_ne_half :34, EpsteinPremises :41, epsteinConfig :47 --
+  target := the strip form, target_iff := Iff.rfl --, epstein_not_h2_sign_cfg :57 and epstein_detector :62, both INTERFACES on hP), the salt
+  check Schema/SaltCheckEpstein.lean (toyZ, toy_premises :90, epstein_hypotheses_satisfiable :94, membership_load_bearing :126) and
+  AxiomCheckEpstein.lean; every print at the standard three (data/b590_e0_epstein.txt: GATE PASS, theorems 3, DERIVES 1, INTERFACES 2).
+  LEFT:
+   (L1) Z is abstract. No point of Z_Q's banked list is in the kernel but rhoE, and rhoE only as a hypothesis of membership.
+   (L2) rhs is free. EpsteinPremises.ef is satisfied by any configuration with rhs its own zero side (SaltCheckEpstein.lean :88-:90,
+        toy_premises): the bundle carries no arithmetic of Z_Q; its Epstein content is the membership hE alone. Mathlib has no Z_Q to name
+        its arithmetic side with (R1-R4 unbuilt); this act does not change that.
+   (L3) the count premise is existential (`∃ A₀`): zeroSide_neg_at_rate_cfg needs A₀ as a number (RateIndexCfg.lean :143, :146), so no rate
+        can be computed from b590's bundle as it stands.
+   (L4) rhoE is not the dominant at its own base (data/b663_dominance.txt :10-:11): at detectorBase rhoE the largest score of the seventeen
+        is index 0's (0.9532604747946607 + 16.290215720390393 i), decided. The detector (Detector.lean :111-:113) takes its dominant by
+        dominant_exists, so epstein_detector is unaffected; the rate theorem's M is the dominant's score, not rhoE's.
+   (L5) print_targets.txt at main names 8 declarations, none of b590's: the Epstein instance has never been printed on the runner.
+
+================================================================================================================================
+### 3. THE ZEROS, BY BANK AND INDEX, AND THE HEIGHT CUT
+================================================================================================================================
+  The form: x² + xy + 6y², discriminant −23, h(−23) = 3 (relay data/b523_registration_2026-09-25.txt :62).
+  On the line: relay data/b326_epstein_zeros.json key "zeros" (:13), 146 rows, index 0..145, the ordinate gamma_a (= gamma_b, both routes):
+   index 0 γ = 1.3088963261727018 ... index 7 γ = 14.630459532385498, index 8 γ = 18.82849120037208, ... index 145 γ = 149.7180075858455;
+   each enters as the points 1/2 ± iγ, mult 1 -- 292 points.
+  Off the line: relay data/b326_offline.json key "zeros" (:885), 17 rows, index 0..16, rho_a (= rho_b), σ in [0.52, 1.5] by its census:
+     0  0.9532604747946607 + 16.290215720390393 i      9  0.7304981576021291 + 89.5181059788535 i
+     1  0.7979971571786801 + 29.551761098629115 i      10 0.8117833479328327 + 92.15177371885736 i
+     2  0.6636516788595986 + 33.65010058252734 i       11 0.6054364221857381 + 93.08126840179203 i
+     3  0.8099915314971334 + 43.85866436500448 i       12 0.9515046579731146 + 107.39929110192057 i
+     4  0.7823785766777296 + 46.96099366990747 i       13 0.8230214293761758 + 110.19743296884323 i
+     5  0.8086599714776392 + 61.68790376879195 i       14 0.8394283849959813 + 124.77543810003729 i
+     6  0.8498790995198219 + 64.43482894033404 i       15 0.6665341524713113 + 127.62283672383899 i
+     7  0.7136405423571629 + 75.08120418273509 i       16 0.8743056607269751 + 137.88555701699448 i
+     8  0.7957690258412357 + 79.59854966493671 i
+   each enters with its orbit {ρ, 1 − conj ρ, conj ρ, 1 − ρ}, mult 1 -- 68 points. In all 360 points; b548's reading of the same list beside
+   it (relay data/b548_reads.txt :307: 146 on-line ordinates, last 149.718008; 17 off-line zeros).
+  THE HEIGHT CUT: T = 150, the banks' own (b326_epstein_zeros.json "T": 150.0; b326_offline.json "T": 150.0).
+  WHAT THE BANKS DO NOT READ: the band |t| < 0.5 (both censuses' boxes start at t = 0.5: b326_epstein_zeros.json boxes[0] t_lo 0.5,
+  b326_offline.json boxes[0] t_lo 0.5) -- a real zero of Z_Q in (1/2, 1), if any, is outside the list; and σ in (1/2, 0.52) above the
+  on-line boxes' half-width 0.02 is read by neither census as off-line. Both are named as premises in (4), not claimed.
+
+================================================================================================================================
+### 4. THE INSTANCE PROPOSED (built on b590's, on branch epstein-b663, one new file Schema/EpsteinQ0.lean; b590's file untouched)
+================================================================================================================================
+  DATA (defs, each docstring citing its bank and index): q0OnLine : List ℝ (the 146 ordinates), q0OffLine : List ℂ (the 17 zeros),
+  q0Points : Set ℂ (the 360 points of section 3). rhoE_mem : rhoE ∈ q0Points, by the literal (index 1).
+  PREMISES (Props, each docstring "stated, not proved; open"; INTERFACES-on-named-premise by the E0 rule):
+   (P1) Q0Listed Z     : ∀ ρ ∈ q0Points, ρ ∈ Z.carrier ∧ Z.mult ρ = 1                     -- T3, the banked list (banked, not ball-certified)
+   (P2) Q0Complete Z   : ∀ ρ ∈ Z.carrier, |ρ.im| < 150 → ρ ∈ q0Points                     -- T3, includes the band |t| < 0.5 and σ ∈ (1/2, 0.52)
+   (P3) Q0Count Z      : HCount Z A₀Q, A₀Q a named constant (proposed 10)                  -- T3/T4, the local count with a number; the banked
+                                                                                            list's own step maximum printed beside it (Component 4)
+   (P4) EpsteinPremises Z rhs                                                              -- b590's, carried by name (ef T1-lit, count)
+   Q0Premises Z rhs := P1 ∧ P2 ∧ P3 ∧ P4 (a structure, as b590's).
+  THEOREMS (each INTERFACES on Q0Premises, or DERIVES where it binds nothing):
+   q0_target_false   : ¬ (epsteinConfig Z rhs hP.ef_count).target          -- from P1 at index 0 (or rhoE), Re ≠ 1/2
+   q0_h2_iff_target  : h2_sign_cfg (epsteinConfig ..) ↔ (epsteinConfig ..).target := h2_sign_cfg_iff_target _   -- (R273)(4) H2, ONE APPLICATION
+   q0_not_h2_sign    : ¬ h2_sign_cfg (epsteinConfig ..)                    -- b590's epstein_not_h2_sign_cfg at rhoE, hE from P1
+   q0_detector       : b590's epstein_detector at rhoE, hE from P1          -- the detector read at the instance
+   q0_rate           : zeroSide_neg_at_rate_cfg (RateIndexCfg.lean :135-:148) at C := epsteinConfig Z rhs .., A₀ := A₀Q, hA := P3; the other
+                       binders (H, Q, B, D, θ, hθ0, hθ, j, hj, hrate) left binders of the statement -- certified by arithmetic at Component 4,
+                       not compiled (b661's form).
+   Lean cost: no new mathematics; membership by `simp` over a 360-point list; ~8-10 declarations; print_targets.txt naming each.
+  THE ALTERNATIVE, FINITE: Z := the 360 points themselves as a concrete ZeroConfig (fields proved: strip, reflect_mem, finite), rhs := its
+  own zero side with ef by rfl, count proved -- b661's Z₁ form. Every hypothesis then certifies at a built configuration with no unlisted
+  point; but it is not Z_Q (the zeros above 150 are absent), and no premise reads INTERFACES (H1's premise clause empty).
+
+================================================================================================================================
+### 5. THE DOMINANCE READING (relay data/b663_dominance.txt) AND THE BASE
+================================================================================================================================
+  At every one of the seventeen bases detectorBase ρb, the largest score is index 0's, decided; index 0 is the one zero dominant at its own
+  base. The two candidate bases (data/b663_dominance.txt, the last two rows):
+   base index 0 : ℓ ≈ 0.014454 ; M ≈ 0.021564 ; kill set the on-line indices 0-7 (γ < 16.29) ; θ ≈ 0.998185 at on-line index 8 (γ = 18.83) ;
+                  D = 24, J_max = D + 40 = 64 ; an UNLISTED strip point is cleared (offScore ≤ θ M) above H1 ≈ 93.6 by the first-order bound,
+                  above H4 ≈ 629 by the kernel's fourth-order bound (zero_weight's hsA, PowerLimit.lean :825).
+   base rhoE    : ℓ ≈ 0.008182 ; M ≈ 0.012252 (index 0's score) ; the same kill set ; θ ≈ 0.999419 ; D = 24 ; H1 ≈ 164.0, H4 ≈ 1110.
+  WHAT THIS DECIDES. Under the proposed instance (4), hθ quantifies over Z's points above T = 150, which no bank lists: at base index 0 the
+  first-order bound clears them all (93.6 < 150); at base rhoE neither bound does below 164. The first-order bound is |paperFT g0 z| ≤
+  2 e^{ℓ/2}/|z| (integration by parts; g0 monotone on each side, total variation 2, |Im z| ≤ 1/2): elementary, but NOT A KERNEL LEMMA --
+  certified as READ (an argument written in the bank), a fourth kind beside b661's ARITHMETIC, COMPILED and READ-from-a-proof. With the
+  kernel's lemma alone, hθ above 150 is HYP-UNVERIFIED(hθ) at both bases. Under the finite alternative there is no point above 150.
+
+================================================================================================================================
+### 6. THE COMPUTATION: WHAT THE b662 SCRIPT CANNOT DO UNCHANGED
+================================================================================================================================
+  The ferry's Component 4 asks for tools/b662_map.py carried whole with "the configuration replaced by Q0's as built and no computation line
+  changed". The script's computation assumes one off-line orbit, the base's own, and ζ's list from Arb; at Q0 these lines must change:
+   :128-:138 zero_list()            ζ's zeros by acb.zeta_zeros -> the banked list (section 3)                       [the configuration]
+   :171-:178 cell(σ, t)             one hypothetical ρ₁ at a grid cell -> one cell, the base ρb, no grid            [the configuration]
+   :197-:210 orbit, M, hdom         M := the base's own score; hdom "the orbit alone" -> M := the dominant's score; hdom over all 17 orbits
+   :219-:236 θ and the kill set     on-line points only -> the other 16 orbits' points too (complex vOf), and the points above T (section 5)
+   :237      Xr                     −γ² of killed on-line points -> unchanged if no off-line point is killed (guarded: stop if one is)
+   :241      hA's ordinates         the orbit at ±t -> every listed ordinate; A₀ := A₀Q from P3, the list's own maximum printed beside it
+   :351-:388 h3 (the zero side)     orbit + on-line -> + the other 16 orbits' terms, + a bound for the points above T (H4 reads it)
+  Every other line (ghat, ramp_R, i4_ball, a0_upper, the controls of hQtie/hQb, hrate, the rung) unchanged. The diff banked
+  (data/b663_map_diff.txt) as b662's was.
+
+================================================================================================================================
+### 7. THE HYPOTHESES AS FIXED BY (R273)(4), READ ON THIS PLAN
+================================================================================================================================
+  H1 the instance compiles on the runner, every premise INTERFACES by the E0 rule beside a print at the standard three, every other
+     declaration at the standard three.     H2 q0_h2_iff_target closes by one application, printed.
+  H3 at Q0 every hypothesis of zeroSide_neg_at_rate_cfg certifies by name and hrate holds at some j₀ ≤ D + 40 (the index printed).
+  H4 the zero side at j₀ below zero in certified arithmetic, on the banked configuration (not ball-certified points, the author's word).
+  N1-N5 the navigator's, as the ferry writes them.
+
+### ### **ONE PROMPT ON THIS BANK, BEFORE ANY LEAN: the instance's form, the base, the script's changes, the rungs.**
