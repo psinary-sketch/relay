@@ -50,7 +50,8 @@ E1CFG_LINE = 13994          # ### OPEN_TRAILS: W-ORD-E1-CFG, filed at b656 (rela
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b658's face
 # ### (b658's own act arms not carried). Each run at HEAD and counted before the face names it. Named at Component 4.
-ACT_ARMS = ()
+ACT_ARMS = ('G-R269-ENTERED', 'G-E1CFG-DISCHARGED', 'G-DRY-STEP-CLEAN', 'G-KERNEL-NAMED', 'G-SENTENCES-BANKED', 'G-GRADES-VERBATIM',
+            'G-PROMPT-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE')
 B658_ACT_ARMS = ('G-R268-ENTERED', 'G-EMPHASES-LINE', 'G-SPLITTER-REPAIRED', 'G-DRY-STEP-CLEAN', 'G-STATEMENT-TRACED', 'G-PROMPT-BEFORE-LEAN',
                  'G-CFG-LANDED', 'G-ZETA-PRINT-UNCHANGED', 'G-PRINT-TARGETS')
 

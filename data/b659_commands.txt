@@ -1,0 +1,68 @@
+b659 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T02:24:11Z)
+
+### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R269) BEGIN', and its subagents` transcripts
+### commands read: 54
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-13T01:38:59.815Z | seat | PowerShell | $p = Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python)' } | Select-Object ProcessId, Name, CommandLine; if ($p) { $p | For
+  #2 | 2026-10-13T01:39:09.350Z | seat | Bash | PYTHONIOENCODING=utf-8 python - <<'EOF'
+  #3 | 2026-10-13T01:39:14.862Z | seat | Bash | git add data/b659_ferry.txt data/b659_ferry_scan.txt data/b658_closing_push_out.txt && git commit -q -m "b659 Component 0 under (R269): the ruling and the ferry
+  #4 | 2026-10-13T01:39:15.511Z | seat | Bash | git -C /d/relay branch -d push-b658 push-b658-root push-b658-closing
+  #5 | 2026-10-13T01:39:16.263Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b658 push-b658-root
+  #6 | 2026-10-13T01:39:16.864Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -d push-b658-merge e1cfg-b658
+  #7 | 2026-10-13T01:39:21.775Z | seat | Bash | git -C /d/SIDE-explicit-formula push origin --delete e1cfg-b658
+  #8 | 2026-10-13T01:39:30.323Z | seat | Bash | diff <(sed 's/b658/bXXX/g; s/R268/RXXX/g; s/B658/BXXX/g' tools/b658_tests.py) <(sed 's/b657/bXXX/g; s/R267/RXXX/g; s/B657/BXXX/g' tools/b657_tests.py)
+  #9 | 2026-10-13T01:40:05.057Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $p = Start-Process -FilePath 'C:\Program Files\Git\bin\ba
+  #10 | 2026-10-13T01:40:09.890Z | seat | Bash | cat -n data/b647_table_kernels.txt | cut -c1-200 | head -40
+  #11 | 2026-10-13T01:40:18.105Z | seat | Bash | cd /d/SIDE-structural-error-correction && git log --oneline -3 main && git status --short | head -5; git branch -a; git tag --sort=-creatordate | head -5; ls; c
+  #12 | 2026-10-13T01:40:37.424Z | seat | Bash | cd /d/relay && ls data | grep -E "^b647_table_SIDE-(structural|kernel|lv|global)" ; ls data | grep -E "^b65[1-7]_.*(SIDE-|sentence|grades|cut_)" | head -30; hea
+  #13 | 2026-10-13T01:40:43.252Z | seat | Bash | wc -l data/b647_table_SIDE-structural-error-correction.txt && head -60 data/b647_table_SIDE-structural-error-correction.txt | cut -c1-400
+  #14 | 2026-10-13T01:41:11.633Z | seat | Bash | cat "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b659_tests.log" | grep -v "failing NONE" | tail -5; cd /d/S
+  #15 | 2026-10-13T01:41:39.963Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && sed -n '13994p' OPEN_TRAILS.md | cut -c1-400; grep -n "W-ORD-E1-CFG" OPEN_TRAILS.md | cut -c1-120; sed -n '8409p' FINDINGS.md
+  #16 | 2026-10-13T01:45:20.222Z | seat | Bash | cd /d/relay && python -m py_compile tools/b659_record.py tools/b659_worklist.py tools/b659_tests.py && echo compiled; grep -v "failing NONE" "/c/Users/ECHOCH~1/
+  #17 | 2026-10-13T01:45:28.301Z | seat | Bash | wc -l data/b658_closing.txt data/b658_closing_push_out.txt data/b657_sentence_grades.txt data/b647_table_SIDE-structural-error-correction.txt; grep -n "closed:\
+  #18 | 2026-10-13T01:45:50.002Z | seat | Bash | sed -n '3p;64p;65p;66p' data/b623_sec_prints.txt | cut -c1-80; grep -n "^###" data/b647_table_SIDE-structural-error-correction.txt | cut -c1-70; git -C /d/SIDE-
+  #19 | 2026-10-13T01:45:56.947Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b659_tests.log"; for i in $(seq 1 36); do if grep -q "STEPZER
+  #20 | 2026-10-13T01:55:21.545Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b659_tests.log"; for i in $(seq 1 36); do if grep -q "STEPZER
+  #21 | 2026-10-13T02:04:42.131Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b659_tests.log"; for i in $(seq 1 36); do if grep -q "STEPZER
+  #22 | 2026-10-13T02:06:57.191Z | seat | Bash | git add data/b659_stepzero.txt data/b659_tests_stepzero.txt data/b659_tests_stepzero.json data/b659_tests_withheld.json tools/b659_tests.py && git commit -q -m 
+  #23 | 2026-10-13T02:07:04.341Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b659_record.py c1 dry 2>&1 | cut -c1-1500
+  #24 | 2026-10-13T02:07:12.921Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b659_record.py c1 2>&1 | tail -1 && cd /d/MY-DOwnloads/PLACE-papers && git diff --stat && git add FINDINGS.md OPEN_TRAILS.md
+  #25 | 2026-10-13T02:07:20.329Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python tools/b659_record.py sentences 2>&1 | tail -5 | cut -c1-600
+  #26 | 2026-10-13T02:07:24.784Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b659_record.py plain 2>&1 | cut -c1-400
+  #27 | 2026-10-13T02:07:31.097Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #28 | 2026-10-13T02:07:38.319Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b659_record.py plain "the two plain block comments are the files' head blocks, Basic.lean:1 and DeAlignment.lean:1, each a b
+  #29 | 2026-10-13T02:07:43.857Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #30 | 2026-10-13T02:08:45.026Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b659_record.py grades 2>&1 | tail -2 | cut -c1-600 && PYTHONIOENCODING=utf-8 python tools/b659_record.py plan_cut 2>&1 | tai
+  #31 | 2026-10-13T02:08:52.759Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #32 | 2026-10-13T02:09:07.297Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #33 | 2026-10-13T02:09:13.656Z | seat | Bash | sed -n '8,60p' data/b659_cut_plan.txt | cut -c1-900
+  #34 | 2026-10-13T02:09:25.167Z | seat | Bash | git add data/b659_table_SIDE-structural-error-correction_sentences.txt data/b659_table_SIDE-structural-error-correction_sentences.json data/b659_plain_comments.
+  #35 | 2026-10-13T02:12:35.418Z | seat | Bash | grep -n -A5 "^== #4 \|^== #8 " data/b659_sentence_grades.txt | grep -v "LICENSED\|ACTION" | cut -c1-220; PYTHONIOENCODING=utf-8 python tools/b659_record.py answ
+  #36 | 2026-10-13T02:13:03.542Z | seat | Bash | cd /d/SIDE-structural-error-correction && git config core.hooksPath; ls .githooks 2>/dev/null; git status --short; git branch --show-current
+  #37 | 2026-10-13T02:13:09.244Z | seat | Bash | git add .github/workflows/build-module.yml && git commit -q -m "b659 under (R269)(2) and (R263)(4): .github/workflows/build-module.yml -- the hosted runner's wo
+  #38 | 2026-10-13T02:13:21.562Z | seat | Bash | git switch -c docstrings-cut-SIDE-structural-error-correction && git branch --show-current && cd /d/relay && PYTHONIOENCODING=utf-8 python -c "
+  #39 | 2026-10-13T02:13:52.937Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b659_record.py check_file SIDEStructuralErrorCorrection/Basic.lean && cd /d/SIDE-structural-error-correction && git add SIDE
+  #40 | 2026-10-13T02:14:06.620Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b659_record.py check_file SIDEStructuralErrorCorrection/DeAlignment.lean && cd /d/SIDE-structural-error-correction && git ad
+  #41 | 2026-10-13T02:14:13.445Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b659_record.py print_targets && cat "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/sc
+  #42 | 2026-10-13T02:14:28.712Z | seat | Bash | cd /d/SIDE-structural-error-correction && diff <(tr -d '\r' < print_targets.txt) <(tr -d '\r' < "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4
+  #43 | 2026-10-13T02:14:33.009Z | seat | Bash | git push origin docstrings-cut-SIDE-structural-error-correction
+  #44 | 2026-10-13T02:14:33.852Z | seat | Bash | git ls-remote origin refs/heads/docstrings-cut-SIDE-structural-error-correction refs/heads/main; git rev-parse HEAD
+  #45 | 2026-10-13T02:14:39.786Z | seat | Bash | gh workflow run build-module.yml --repo psinary-sketch/SIDE-structural-error-correction --ref docstrings-cut-SIDE-structural-error-correction -f ref=17f4acf5a5f
+  #46 | 2026-10-13T02:14:46.195Z | seat | Bash | for i in $(seq 1 18); do s=$(gh run view 38335955879 --repo psinary-sketch/SIDE-structural-error-correction --json status,conclusion -q '.status+" "+.conclusion
+  #47 | 2026-10-13T02:15:24.939Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b659_record.py runner 2>&1 | tail -3 | cut -c1-400; grep -n "the artifact:\|the memory log\|the build:\|names
+  #48 | 2026-10-13T02:15:34.509Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b659_record.py cut_bank 2>&1 | cut -c1-300; sed -n '/THE COMMITS (rows/,/FAULTS/p' data/b659_cut_SIDE-structural-error-corre
+  #49 | 2026-10-13T02:15:42.935Z | seat | Bash | cd /d/SIDE-structural-error-correction && git checkout -q main && git merge --no-ff -q docstrings-cut-SIDE-structural-error-correction -m "b659 under (R269)(2),
+  #50 | 2026-10-13T02:15:58.680Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b659_record.py runner_merged 5476ef3 v0.2.3 && git add data/b659_runner_SIDE-structural-error-correction.txt 
+  #51 | 2026-10-13T02:16:18.833Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #52 | 2026-10-13T02:18:37.792Z | seat | Bash | sed -n '/^def sources/,/^    return S$/p' tools/b658_checks.py | wc -l; grep -n "^ARMS = \[" tools/b658_checks.py
+  #53 | 2026-10-13T02:22:00.264Z | seat | Bash | sed -n 1,20p tools/b658_closing.py | head -3; grep -n "b658\|R268\|SIDE-explicit-formula\|e1cfg\|SPLITTER\|STATEMENT\|LANDING" tools/b658_closing.py | cut -c1-1
+  #54 | 2026-10-13T02:24:10.122Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -m py_compile tools/b659_checks.py tools/b659_record.py tools/b659_closing.py tools/b659_regspec.py tools/b659_reg_gate.
+
+### ### **COMMANDS 54 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
