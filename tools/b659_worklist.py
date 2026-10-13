@@ -40,8 +40,10 @@ TARGET = 'SIDEStructuralErrorCorrection'
 NEXT_TAG = 'v0.2.3'         # ### the next in the kernel's series after v0.2.2
 KEPT_LOCAL = 'sec-axiom-b623'
 BANKED_PRINTS = ('b623_sec_prints.txt', 3, 64)   # ### the kernel's 62 banked prints, b623's AxiomCheck run (rows are declarations)
-RUNNER = {}                 # ### filled at Component 3, after the workflow on main and the one dispatch
-K_WORKFLOW = None           # ### the commit putting the workflow on the kernel's main, filled at Component 3
+K_WORKFLOW = '6679a3a'      # ### the commit putting the workflow on the kernel's main (pushed through push_gated.sh, read back), under (R263)(4)
+# ### the one dispatch of the cut branch (Component 3), at the branch: its workflow reads print_targets.txt (the branch's, the 62 banked names)
+RUNNER = {KERNEL: dict(branch=CUT_BRANCH, target=TARGET, workflow_commit=K_WORKFLOW, run_id=38335955879,
+                       ref='17f4acf5a5f3821703c6166a5f3702b39831dd02')}
 
 # ### (R269)(1), (3): the record lines
 E1CFG_LINE = 13994          # ### OPEN_TRAILS: W-ORD-E1-CFG, filed at b656 (relay data/b656_closing.txt)

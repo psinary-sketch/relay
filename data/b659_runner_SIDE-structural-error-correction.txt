@@ -1,0 +1,185 @@
+b659 -- COMPONENT 3, (R269)(2): THE HOSTED RUNNER FOR SIDE-structural-error-correction, READ BY ITS RUN ID (2026-10-13T02:15:28Z)
+
+### the workflow file at the dispatched ref (17f4acf5; on main from 6679a3a, under (R263)(4)), read back whole:
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold; lake build of the target;
+    # a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log and the axioms output
+    # uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    # This kernel's own build path: plain Lean 4 with no Mathlib requirement (lakefile.toml), so no cache step.
+    # From b658 ((R263)(4), standing): the named terminals are read from print_targets.txt at the kernel's root, one name per line, and the
+    # scratch file imports each module of the target; no workflow edit is needed to print a new theorem.
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 120
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              : > out/Axioms.lean
+              for m in $TARGET; do echo "import $m" >> out/Axioms.lean; done
+              cp print_targets.txt out/print_targets.txt
+              while IFS= read -r n || [ -n "$n" ]; do
+                n=$(printf '%s' "$n" | tr -d '\r' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                [ -z "$n" ] && continue
+                case "$n" in
+                  *[!A-Za-z0-9_.\']*) echo "print target refused: $n" >> out/axioms_refused.txt; continue ;;
+                esac
+                echo "#print axioms $n" >> out/Axioms.lean
+              done < print_targets.txt
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+
+### print_targets.txt at the ref: 62 names
+
+### the dispatch, the one dispatch of this branch: ref 17f4acf5a5f3821703c6166a5f3702b39831dd02 ; target SIDEStructuralErrorCorrection
+### the run: id 38335955879 ; https://github.com/psinary-sketch/SIDE-structural-error-correction/actions/runs/38335955879 ; status completed ; conclusion success ; head 17f4acf5a5f3821703c6166a5f3702b39831dd02 on docstrings-cut-SIDE-structural-error-correction ; 2026-10-13T02:14:41Z to 2026-10-13T02:15:15Z
+### the artifact: id 11785056334 ; name build-module-38335955879 ; 2992 bytes ; sha256 e2374b2fa2bb6033bbd72e7a2958cbd0dd420d4747288ae03709420899027e18 ; the platform`s digest e2374b2fa2bb6033bbd72e7a2958cbd0dd420d4747288ae03709420899027e18 ; AGREE
+### the ref built (out/ref.txt): 17f4acf5a5f3821703c6166a5f3702b39831dd02 leanprover/lean4:v4.29.0-rc8
+### the memory log: samples 4 ; LOW 14973 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; the log`s last lines:
+    info: downloading https://releases.lean-lang.org/lean4/v4.29.0-rc8/lean-4.29.0-rc8-linux.tar.zst
+    info: installing /home/runner/.elan/toolchains/leanprover--lean4---v4.29.0-rc8
+    ✔ [2/5] Built SIDEStructuralErrorCorrection.Basic (273ms)
+    ✔ [3/5] Built SIDEStructuralErrorCorrection.DeAlignment (308ms)
+    ✔ [4/5] Built SIDEStructuralErrorCorrection (161ms)
+    Build completed successfully (5 jobs).
+### names refused by the print step: NONE
+### THE GATE READING PER TERMINAL (the run`s print ; the banked profile, relay data/b623_sec_prints.txt :3-:64):
+  SIDEStructuralErrorCorrection.primitive_size                   []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.transformation_size              []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.output_size                      []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.interface_size                   []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.formation_total                  []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.formation_total_seven            []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.wall_squared                     []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.interface_dark                   []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.isNonDark                        []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.S                                []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.S_eq_three                       []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.interface_not_counted            []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.non_dark_covers_seven            []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.d_eff                            []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.d_eff_eq_five                    []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.d_eff_formula                    []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.d_standard                       []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.formation_block_stronger         []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.improvement_two                  []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.max_correctable_weight           []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.max_correctable_two              []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.max_correctable_standard         []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.complement_weight                []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.complementarity_weight_2         []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.complementarity_weight_1         []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.complementarity_weight_0         []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.full_corruption_complement       []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.k_logical                        []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.rank_one                         []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.tightness_regime                 []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.d_eff_tight                      []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.S_universal_max                  []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.S_within_universal_max           []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.d_eff_universal_max              []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.d_eff_universal_max_eq_five      []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.trivium_saturates_universal_max  []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.spectral_volume                  []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.spectral_volume_eq_twelve        []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.spectral_d_eff_relation          []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.dark_subspace_dim                []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.dark_subspace_eq_six             []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.cubit_substrate_connection       []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.num_compartments                 []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.compartment_count_three          []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  SIDEStructuralErrorCorrection.silence_yields_protection        []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.Line                                               []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.Line.Proper                                        []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.DealignedAt                                        []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.Dealigned                                          []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.domainFault                                        []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.CompletesLine                                      []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.no_domain_covers_line                              []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.single_domain_fault_not_logical                    []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.dealigned_of_lines_injective                       []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.fanoLines                                          []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.dealignedCheck                                     []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.fano_dealignment_decidable_example                 []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.fano_collapsed_line_rejected                       []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.onLine                                             []                             STANDARD THREE OR NONE ; banked [] ; EQUAL
+  DeAlignment.allSeven                                           ['propext']                    STANDARD THREE OR NONE ; banked ['propext'] ; EQUAL
+  DeAlignment.pairCount                                          ['propext']                    STANDARD THREE OR NONE ; banked ['propext'] ; EQUAL
+  DeAlignment.fano_two_design                                    ['propext']                    STANDARD THREE OR NONE ; banked ['propext'] ; EQUAL
+  banked terminals not printed: NONE
+
+### ### **RUN 38335955879 ; CONCLUSION success ; ARTIFACT SHA256 e2374b2fa2bb6033 ; MEMORY LOW 14973 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 62, AT THE STANDARD THREE OR NONE 62, EQUAL TO THE BANKED PROFILES 62 ; GATE DERIVES.**
