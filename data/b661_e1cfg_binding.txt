@@ -1,0 +1,121 @@
+b661 -- COMPONENT 2, (R271)(3): b656'S BINDING RE-READ AT v0.28 -- EACH QUANTITY RE-BOUND TO A BINDER OF zeroSide_neg_at_rate_cfg, BEFORE
+ANY NUMBER (2026-10-13)
+
+### the kernel: SIDE-explicit-formula, tag v0.28 = main ffbc617; every line below read from the blob by `git show v0.28:<path>`; no lean run, no
+### file of the kernel written. v0.27 -> v0.28 changes three files (.github/workflows/build-module.yml, Schema/RateIndexCfg.lean,
+### print_targets.txt), so every line b656 cites outside RateIndexCfg.lean reads the same at v0.28 (relay data/b661_readfirst.txt).
+### Rows below: one per binder of the theorem, in its order (RateIndexCfg.lean :135-:148), each with the b656 quantity rows it re-binds
+### (relay data/b656_e1_binding.txt, rows are quantities, by line), the method, the cost, and HOW IT IS CERTIFIED AT A CELL:
+###   ARITHMETIC -- decided in Arb balls at 200 bits (relay data/b627_margin_inputs.txt :7), a straddling ball not decided;
+###   COMPILED   -- a kernel theorem by file and line, its finite inputs decided in balls;
+###   READ       -- a witness read from a kernel proof's text (not a compiled statement of the value), its argument cited by line.
+### No number is computed in this bank. No plateau width is printed in it or in any bank of this act (N5): the base's width enters by its
+### definition (baseWidth, Schema/Detector.lean :33) and is printed nowhere.
+
+================================================================================================================================
+### 0. WHAT CHANGED SINCE b656, AND THE CONFIGURATION
+================================================================================================================================
+  (O-2) DISCHARGED. b656 :34-:38 found E1 had no form over a WeilConfig; b658 compiled it: zeroSide_neg_at_rate_cfg (RateIndexCfg.lean
+  :135-:148) over `C : WeilConfig`, reading C.toZeroConfig alone, hA and A₀ binders (:143), the summability from hA
+  (dominant_summable_hcount :32-:43). So at Z₁ the implication hrate => (zero side).re < 0 IS a compiled statement once the other binders
+  are met; H3 is now a control on the computation's binding to the kernel's objects, not the only link (R271)(5).
+  (O-1) and (O-3) STAND AS b656 READ THEM (:17-:20, :40-:43): at zetaZeroConfig neither the tie set nor A₀ binds; the map is read at Z₁ only,
+  and states nothing of ζ ((R271)(2)).
+
+  C := Z₁(σ, t). Carrier: the orbit {ρ₁, 1 − conj ρ₁, conj ρ₁, 1 − ρ₁} of ρ₁ = σ + it, and ζ's zeros with |Im| ≤ T = 1000, each mult 1.
+  ZeroConfig fields (Zeta23/Defs.lean :136-:146), each certified:
+    carrier distinct     ARITHMETIC: the orbit is off the line (σ ≠ 1/2), the zeros on it; the four orbit points distinct (σ ≠ 1/2, t ≠ 0)
+    one_le_mult          by definition (mult 1 on the carrier)
+    strip                ARITHMETIC: 0 < 1 − σ < σ < 1 on the grid; the zeros at Re = 1/2
+    reflect_mem          by construction: reflect (Defs.lean :124) maps the orbit to itself and fixes each on-line point
+    mult_reflect         by definition (mult 1 throughout)
+    finite_window        the carrier is finite
+  WeilConfig fields (Schema/Config.lean :24-:34), as b656 :26 fixed them -- NOT CONSUMED by the theorem (b658 statement :14-:20, F9 :52):
+    rhs := the configuration's own zero side, ef by rfl ; count := ⟨A₀, hA⟩ from the hA row ; target := the strip form, target_iff by Iff.rfl.
+  THE ZERO LIST (b656 :78-:80): arb.zeta_nzeros(1000) for N(T), then acb.zeta_zeros(1, N(T)) -- Platt's isolation with Turing's method, each
+  zero a ball with real part exactly 1/2 -- the N(T)-th below T, the next above it; mirrored to −γ. A count that does not match stops the map.
+  External to the kernel; it is the definition of Z₁'s on-line part, not a claim about ζ in this act.
+
+================================================================================================================================
+### 1. THE BINDERS, IN THE THEOREM'S ORDER (RateIndexCfg.lean :135-:148)
+================================================================================================================================
+  :135 H : PWSetup C.toZeroConfig g0 L M   (PowerLimit.lean :245-:251) -- re-binds b656 ℓ :48, L :52, g0 :54, M :59, the dominant :65
+        g0 := detectorBase ρ₁ (Detector.lean :40), L := baseWidth ρ₁ (:33), M := offScore g0 ρ₁ (PowerWindow.lean :328) -- the construction
+        the detector theorem makes (Detector.lean :111-:114) with ρs = ρ₁.
+        hev, hsm, hs, hL   COMPILED: plateau_even (TwoPropertyWindow.lean :69), plateau_contDiff, plateau_support_Icc, baseWidth_pos -- the
+                           terms Detector.lean :114 passes; nothing to compute.
+        hM : 0 < M         ARITHMETIC: M's ball (acb.integral on the base's support, split at the ramp joints, the ends cut and bounded as
+                           b656 :61-:63) wholly above 0.
+        hdom               COMPILED + ARITHMETIC: the off-line points of Z₁ are the orbit alone (the zero list on the line); the four share
+                           one score by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36) for the real even g0, so
+                           offScore ≤ M holds with equality; the four balls printed side by side as a control.
+  :136 Q : ℕ → Polynomial ℝ   -- re-binds b656 H3's zero side :128-:130
+        Q j := the real interpolant of rT H j (PowerLimit.lean :591-:592) on VF = {v, conj v}, v = ((σ − 1/2) + it)² (vOf :146, VF :280):
+        degree < 2, Q j = a_j + b_j X with b_j = Im r / Im v, a_j = Re r − b_j Re v, r = rT H j v. Unique among polynomials of degree
+        < card VF meeting the node values, so it is coeffs_exist's Q (:685, through real_even_interpolant PowerWindow.lean :427-:432).
+  :136 B : ℝ   -- re-binds b656 B :94-:96.   READ: coeffs_exist's witness (PowerLimit.lean :683) B = card VF · max CV 0 · BK · BE;
+        CV = Σ_{j<2} Σ_{i∈VF} |coeff_j (Lagrange.basis VF id i)| (PowerWindow.lean :432), BK = (natDegree Kp + 1) · Σ |coeff Kp|,
+        BE = 2 · (1 + cE) (fixed_poly_bound :667; Ep :277 of natDegree 1). EXPLICIT in balls.
+  :136 D : ℕ   -- re-binds b656 D :86-:90.   READ: D = 2 · card VF + 2 · DK + DE (:683) = 2 · card Xr + 8 (DK = card Xr + 1, DE = 2,
+        card VF = 2). Read per cell after the kill set is decided. (b656 :91-:92's J_max = 12 SUPERSEDED: J_max = D + 8 per cell, (R271)(2).)
+  :137-:138 hQtie : ∀ j, ∀ ρ ∈ tieSet, (aeval (vOf ρ) (Q j))² · Xval H j ρ = −‖Xval H j ρ‖   -- re-binds the tie set :69-:71
+        READ + COMPILED: at every j by coeffs_exist's argument (:686-:704: the interpolation at the node, rT_sq_mul :624, XV_node :525) for
+        the unique Q j above. ARITHMETIC CONTROL at each j in [D, J_max]: the residual ball (Q j)(v)² · Xval + |Xval| printed, 0 inside it.
+        PRECISION: Xval's phase is 2^(j+1) times arg ĝ0(γ(ρ₁)) plus a fixed phase, so the control needs the arg's ball radius below
+        2^−(j+1) by a margin; at 200 bits a j whose control ball does not resolve is printed as such.
+  :139 hQb : ∀ j (w : ℂ), ‖aeval w (Pof H (Q j))‖ ≤ B · (1 + ‖w‖)^D   -- re-binds B :94 and D :86
+        READ + COMPILED: at every j and w by coeffs_exist's argument (:705-:731; poly_norm_le :643, fixed_poly_bound :658), whose inputs are
+        |coeff Q j| ≤ CV for every j (|rT| = 1, rT_norm :615) and natDegree (Q j) < card VF. ARITHMETIC CONTROL at each j in [D, J_max]:
+        |a_j|, |b_j| ≤ CV printed.
+  :140 θ : ℝ, hθ0 : 0 ≤ θ   -- re-binds θ :103-:109.   ARITHMETIC: θ := the largest upper endpoint of offScore g0 ρ / M over the on-line
+        points of Z₁ outside the kill set (0 where there are none); each offScore in balls where the decay screen offScore ≤ Aw/(1 + ‖γ‖⁴)
+        (zero_weight's hsA, PowerLimit.lean :825) does not already put it below the running maximum. b656 :107-:108's print of the bound for
+        strip points above T is NOT CARRIED: it speaks of ζ's zeros above T, and the map states nothing of ζ ((R271)(2)).
+  :141-:142 hθ : ∀ ρ ∈ carrier, ρ ∉ tieSet → ρ ∉ killSet → offScore g0 ρ / M ≤ θ   -- re-binds the kill set :73-:76 and θ
+        ARITHMETIC: the carrier finite; the tie set the orbit (by hdom's equality, the four of score M exactly; no on-line point is in it);
+        the kill set {on-line ρ : M ≤ offScore g0 ρ} decided per zero in balls; a zero whose ball straddles M is NOT DECIDED and the cell
+        prints HYP-UNVERIFIED(hθ) -- the kill set enters hθ, Xr, Kp, Nf, B and D, so no other binder is read past it.
+        Xr = the distinct −γ² over the kill set (PowerLimit.lean :268), one per |γ|.
+  :143 A₀ : ℝ, hA : HCount C.toZeroConfig A₀   -- re-binds A₀ :111-:114, now a binder (RestBound.lean :44-:45)
+        ARITHMETIC: A₀ := max(1, the largest upper endpoint of N(t, t+1] / log(|t| + 3)) over the finitely many steps of the step function
+        N(t, t+1] (Defs.lean :162: Im in (t, t+1], with multiplicity; the orbit puts two points at Im t and two at −t), each step read at its
+        point nearest 0; an ordinate whose ball meets a step's edge counted on both sides (an upper bound, as HCount needs). hA's two clauses
+        then hold with this A₀: 1 ≤ A₀ by the max, the count by the step reading. A cell where some step's count is not decided prints
+        HYP-UNVERIFIED(hA). zeta3Sum (RestBound.lean :51) = 2ζ(3) − 1 in Arb (b656 :116).
+  :144 j : ℕ, hj : D ≤ j   -- the map's index, j ∈ [D, J_max], J_max = D + 8 ((R271)(2)).
+  :145-:147 hrate   -- re-binds hrate :121-:122, Bf :118-:119, Aw :98-:101, Nf :82-:84
+        θ^(2^(j+1) − 2^(D+1)) · (3 · A₀ · (128 · 8^D · B² · (Aw H / M)^(2^(D+1))) · zeta3Sum) < Σ_{x ∈ sT_cfg H} mult x · Nf H x.
+        sT_cfg (Converse.lean :151) the orbit; the right side = 4 · Nf H ρ₁ (Nf :445; Kp :271, cE :274 = 1 + 4/|σ − 1/2|); Aw (:800) by
+        acb.integral of g0 and of |g0''''| between its certified sign changes on each ramp (b656 :98-:101). Both sides in balls, the powers
+        on a logarithmic scale where they leave the exponent range. ARITHMETIC: hrate HOLDS at j when the left ball lies wholly below the
+        right; FAILS when wholly above; an OVERLAP is neither (the prompt's third question).
+  :148 THE CONCLUSION, read at H3's cell (0.8, 29.6) only: (zeroSide_cfg Z₁ (kWindow (coeffList (Pof H (Q j₀))) g0 j₀)).re   -- re-binds
+        H3's zero side :128-:133. zeroSide_cfg (Config.lean :37-:38) over the finite carrier; each term by term_eq (PowerLimit.lean :736),
+        (Q j₀)(vOf ρ)² · Xval H j₀ ρ, every factor a ball, the sum divided by M^(2^(j₀+1)) to keep its scale (the sign unchanged). Its ball
+        printed; H3 holds when the ball lies wholly below 0. If the cell prints no j₀, H3 is NOT SCORABLE there, said so.
+
+================================================================================================================================
+### 2. THE CELL'S READING, (R271)(4)
+================================================================================================================================
+  In this order, each printed by name before the next: the zero list (once); the setup (hM, hdom); the tie set and its multiplicities;
+  the kill set (hθ's decision); hA; then D, B, CV and the controls of hQtie and hQb; θ and hθ0. Any of these not certified: the cell prints
+  HYP-UNVERIFIED(<name>) and no index. All certified: hrate read at j = D, D+1, …, J_max; the least j where it HOLDS is j₀, printed with
+  the two sides; none: NONE ≤ J_max with the two sides at J_max.
+
+================================================================================================================================
+### 3. THE COST, CARRIED FROM b656 :138-:142 AND RE-PRICED
+================================================================================================================================
+  the zero list to T = 1000: one count and one call of Arb's routine, seconds.
+  per cell: M and Aw (two ramp integrals and a root isolation); offScore at the zeros the decay screen does not clear -- at most every zero
+  below T, about 650 integrals by the symmetry in ±γ, estimated 0.05-0.5 s each at 200 bits, so at most about 5 minutes a cell; the
+  rest (A₀'s steps, D, B, CV, the controls at J_max − D + 1 = 9 indices, hrate at 9 indices, H3's finite sum) polynomial arithmetic in balls,
+  seconds. 20 cells: under 2 hours at the bound, run detached and watched by a single foreground check. No lean.
+
+================================================================================================================================
+### 4. THE VERDICT
+================================================================================================================================
+  EVERY BINDER of zeroSide_neg_at_rate_cfg BINDS at Z₁(σ, t) by file and line: H, θ, hθ0, hθ, A₀, hA, j, hj, hrate and the conclusion by
+  ARITHMETIC or COMPILED lemmas with ARITHMETIC inputs; B and D READ from coeffs_exist's witness (:683); hQtie and hQb READ + COMPILED --
+  they quantify over every j (and every w), which no finite arithmetic exhausts, and are certified by coeffs_exist's argument at the
+  unique Q j, with an ARITHMETIC CONTROL at each j the map reads. No quantity is unbindable; the act does not stop here.
+  ### ### **THE PROMPT OF (R271)(3) IS RAISED ON THIS BANK; NO NUMBER IS COMPUTED BEFORE THE AUTHOR'S WORD.**
