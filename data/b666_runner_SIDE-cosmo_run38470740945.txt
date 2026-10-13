@@ -1,0 +1,181 @@
+b666 -- COMPONENT 3, (R276)(2): THE HOSTED RUNNER FOR SIDE-cosmo, READ BY ITS RUN ID (2026-10-13T21:29:29Z)
+
+### (R274)(4): the act`s kernel files, read from its cut bank and from no constant: SIDECosmo/FanoFormation.lean (from data/b666_cut_edits.json); SIDECosmo/SteaneExemplar.lean (from data/b666_cut_edits.json)
+### the workflow file on main (f5d8c7d, put where absent under (R263)(4), the file alone, b654`s form), read back whole:
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    # From b658 ((R263)(4), standing): the named terminals are read from print_targets.txt at the kernel's root, one name per line, and the
+    # scratch file imports each module of the target; no workflow edit is needed to print a new theorem.
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              : > out/Axioms.lean
+              for m in $TARGET; do echo "import $m" >> out/Axioms.lean; done
+              cp print_targets.txt out/print_targets.txt
+              while IFS= read -r n || [ -n "$n" ]; do
+                n=$(printf '%s' "$n" | tr -d '\r' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                [ -z "$n" ] && continue
+                case "$n" in
+                  *[!A-Za-z0-9_.\']*) echo "print target refused: $n" >> out/axioms_refused.txt; continue ;;
+                esac
+                echo "#print axioms $n" >> out/Axioms.lean
+              done < print_targets.txt
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+
+### print_targets.txt at the ref: 54 names
+
+### the dispatch: at main, the ref input 6e857afca0cceed78c8c1af9fd7788cbca705725 (the cut branch`s tip, made from the workflow`s main) ; target SIDECosmo
+### the run: id 38470740945 ; https://github.com/psinary-sketch/SIDE-cosmo/actions/runs/38470740945 ; build-module workflow_dispatch ; status completed ; conclusion success ; head f5d8c7d287e1b4f96343ec28365ad94403b7decd on main ; 2026-10-13T21:27:26Z to 2026-10-13T21:29:15Z
+### BESIDE IT, NOT THE DISPATCH (the author`s word): the push-triggered run id 38470582495 ; Lean Action CI push ; conclusion  ; head f5d8c7d287e1b4f96343ec28365ad94403b7decd ; 2026-10-13T21:26:12Z to 2026-10-13T21:26:15Z
+### BESIDE IT, NOT THE DISPATCH (the author`s word): the push-triggered run id 38470730498 ; Lean Action CI push ; conclusion  ; head 6e857afca0cceed78c8c1af9fd7788cbca705725 ; 2026-10-13T21:27:21Z to 2026-10-13T21:27:24Z
+### the artifact: id 11850579742 ; name build-module-38470740945 ; 4326 bytes ; sha256 42cd4ec86ea3bf9e07ef469ad8560f0d86dac78c22637975037121dd43291f26 ; the platform`s digest 42cd4ec86ea3bf9e07ef469ad8560f0d86dac78c22637975037121dd43291f26 ; AGREE
+### the ref built (out/ref.txt): 6e857afca0cceed78c8c1af9fd7788cbca705725 leanprover/lean4:v4.30.0-rc2
+### the memory log: samples 2 ; LOW 14303 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; the log`s last lines:
+    Note: This linter can be disabled with `set_option linter.style.longLine false`
+    warning: SIDECosmo/SteaneExemplar.lean:73:100: This line exceeds the 100 character limit, please shorten it!
+    
+    Note: This linter can be disabled with `set_option linter.style.longLine false`
+    ✔ [1149/1150] Built SIDECosmo (1.5s)
+    Build completed successfully (1150 jobs).
+### the print step: error lines 1 -- out/Axioms.lean:25:14: error(lean.unknownIdentifier): Unknown constant `b2n` ; names refused NONE
+### THE GATE READING PER TERMINAL (the author`s word: the two banked prints, relay data/b557_probe_co.txt :10-:11, read for equality; the rest at the standard three or none, no sorryAx; the prints banked here as the kernel`s relay print bank, relay data/b666_prints_SIDE-cosmo.txt):
+  FormationTuple                     []                                     STANDARD THREE OR NONE
+  FormationTuple.formation_total     []                                     STANDARD THREE OR NONE
+  total_slots                        ['propext']                            STANDARD THREE OR NONE
+  visible_slots                      ['propext']                            STANDARD THREE OR NONE
+  dark_slots                         ['propext']                            STANDARD THREE OR NONE
+  stormer_wall                       ['propext']                            STANDARD THREE OR NONE
+  silence                            ['propext']                            STANDARD THREE OR NONE
+  dark_sector_exists                 ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  wall_squared                       ['propext']                            STANDARD THREE OR NONE
+  xi                                 ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  shannon                            ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  ym                                 ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  prop_logic                         ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  xi_total                           ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  xi_visible                         ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  xi_dark                            ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  xi_balanced                        ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  xi_wall_sq                         ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  xi_form_total                      ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  xi_77                              ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  prop_dec                           ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  fanoLine                           ['propext']                            STANDARD THREE OR NONE
+  onLine                             ['propext']                            STANDARD THREE OR NONE
+  b2n                                ### NOT PRINTED                        ### NOT PRINTED
+  linesThrough                       ['propext']                            STANDARD THREE OR NONE
+  sharedPoints                       ['propext']                            STANDARD THREE OR NONE
+  three_lines_per_point              ['propext']                            STANDARD THREE OR NONE
+  unique_intersection                ['propext']                            STANDARD THREE OR NONE
+  three_distinct                     ['propext']                            STANDARD THREE OR NONE
+  formation_is_fano                  []                                     STANDARD THREE OR NONE
+  gl3f2                              []                                     STANDARD THREE OR NONE
+  char_two                           ['propext']                            STANDARD THREE OR NONE
+  xi_total_eq_fano                   ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  formation_fano_match               ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  b2n_local                          []                                     STANDARD THREE OR NONE
+  coupled                            ['propext']                            STANDARD THREE OR NONE
+  coupled_symm                       ['propext']                            STANDARD THREE OR NONE
+  coupling_count                     ['propext']                            STANDARD THREE OR NONE
+  block_length                       ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  visible_dim                        ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  dark_dim                           ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  formation_rate                     ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  block_match_steane                 ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  V                                  []                                     STANDARD THREE OR NONE
+  H                                  ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  steane_n                           ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  steane_kc                          ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  steane_k                           ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  syndrome_nonzero                   ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  syndrome_injective                 ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  distance_ge_three                  ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  distance_eq_three_witness          ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  knill_laflamme_t1                  ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  steane_parameters                  ['Quot.sound', 'propext']              EQUALS ITS BANKED PRINT  (banked ['Quot.sound', 'propext'])
+
+### ### **RUN 38470740945 ; CONCLUSION success ; ARTIFACT SHA256 42cd4ec86ea3bf9e ; MEMORY LOW 14303 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 54, PRINTED 53, AGAINST THEIR BANKED PRINTS 2 EQUAL, AT THE STANDARD THREE OR NONE 51 ; GATE NOT DERIVES.**
