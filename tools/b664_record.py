@@ -787,7 +787,424 @@ def grades(*a):
     print(L[-1])
 
 
-ROUTES = {'nd_rerun': nd_rerun, 'c1': c1, 'answers': answers, 'sentences': sentences, 'plain': plain, 'grades': grades}
+# ================================================================================ COMPONENT 3: THE CUT PLANNED ON THE BLOBS (b655's, b662's, carried)
+def _norm_map(text):
+    out, idx, prev_ws = [], [], False
+    for i, ch in enumerate(text):
+        if ch.isspace():
+            if not prev_ws:
+                out.append(' ')
+                idx.append(i)
+            prev_ws = True
+        else:
+            out.append(ch)
+            idx.append(i)
+            prev_ws = False
+    return ''.join(out), idx
+
+
+def _wrap(text, indent, width=118):
+    import textwrap
+    return ('\n' + indent).join(textwrap.wrap(text, width - len(indent), break_long_words=False, break_on_hyphens=False)) or ''
+
+
+def _code_only(t):
+    out, i, depth, n = [], 0, 0, len(t)
+    while i < n:
+        if t.startswith('/-', i):
+            depth += 1
+            i += 2
+            continue
+        if depth and t.startswith('-/', i):
+            depth -= 1
+            i += 2
+            continue
+        if depth:
+            i += 1
+            continue
+        if t.startswith('--', i):
+            j = t.find(NL, i)
+            i = n if j < 0 else j
+            continue
+        if t[i] == '"':
+            j = i + 1
+            while j < n and t[j] != '"':
+                j += 2 if t[j] == chr(92) else 1
+            out.append(t[i:j + 1])
+            i = j + 1
+            continue
+        out.append(t[i])
+        i += 1
+    return ' '.join(''.join(out).split())
+
+
+def _emph_parity(t):
+    """per comment block: the parity of `**` and of a lone `*` (b657's defect (a), b658's repair: a cut must not unbalance emphasis). A lone `*`
+    with whitespace on both sides (a multiplication, `2 * S`) opens and closes nothing in CommonMark and is not counted."""
+    out = []
+    for m in re.finditer(r'/-.*?-/', t, re.S):
+        b = m.group(0)
+        out.append((t[:m.start()].count(NL) + 1, b.count('**') % 2, len(re.findall(r'(?<!\*)(?<!\s)\*(?!\*)|(?<!\*)\*(?!\*)(?!\s)', b)) % 2))
+    return out
+
+
+def _plans():
+    """per graded block: (k, q, rows, slots) -- the rows read as the grade bank reads them, the cut's slot outputs."""
+    G = jl(K.GRADES)
+    gr, comp, SPLIT, PREM = G['grades'], G.get('completed') or {}, G.get('split') or {}, G.get('premise') or {}
+    out = []
+    for k, p, q, rs0 in blocks():
+        split = SPLIT.get(str(k)) or {}
+        rs = _rows_of(k, rs0, G)
+        cells = _row_cells(k, q)
+        mine = dict((n, w) for _k, n, w in (read_grade_row(k, x) for x in gr.get(str(k), [])))
+        graded = dict((r['n'], (cells[r['n']][0] if r['n'] in cells else q['verdict'])) for r in rs if r['n'] in mine)
+        row_actions = dict((n, c[2]) for n, c in cells.items() if n in graded and c[2] is not None)
+        if not graded:
+            continue
+        action = (comp.get(str(k)) or q['action']) if '...' in q['action'] else q['action']
+        cut(rs, graded, action, bullets=bool(split), premise=PREM.get(str(k)), row_actions=row_actions)
+        out.append((k, q, rs, cut.slots))
+    return out
+
+
+def plan_cut(*a):
+    """(R274)(5): the cut planned on the kernel's main blobs at K_MAIN, b655's planner: every row of a graded block located in order in its file by
+    its whitespace-collapsed text from the block's line at main; each changed row replaced in its span by its slot's kept output, wrapped at the
+    line's indent; one edit per block. The planned file checked: its comment-stripped code equal to main's; the emphasis parity of every comment
+    block unmoved."""
+    files, edits, fails = {}, [], []
+    S = dict((r['parent'], r) for r in jl(K.SENT)['rows'])
+    for k, q, rs, slots in _plans():
+        f = q['file']
+        if f not in files:
+            files[f] = (_show(K.KD, K.K_MAIN, f) or '').replace(chr(13), '')
+        text = files[f]
+        at = S[q['id']].get('at_main') or ''
+        m = re.search(r':(\d+)$', at)
+        line0 = int(m.group(1)) if m else q['line']
+        start_line_off = sum(len(l) + 1 for l in text.split(NL)[:line0 - 1])
+        norm, idx = _norm_map(text)
+        nstart = next(i for i, ri in enumerate(idx) if ri >= start_line_off)
+        spans, pos = {}, nstart
+        for r in rs:
+            s = _ws(r['sentence'])
+            j = norm.find(s, pos)
+            if j < 0:
+                fails.append('#%d s%s not found' % (k, r['n']))
+                break
+            spans[r['n']] = (idx[j], idx[j + len(s) - 1] + 1)
+            pos = j + len(s)
+        if len(spans) != len(rs):
+            continue
+        out_by = {}
+        for n, x, keep in slots:
+            out_by.setdefault(n, []).append((x, keep))
+        changed = [r['n'] for r in rs if [x for x, kp in out_by.get(r['n'], []) if kp] != [r['sentence']]]
+        if not changed:
+            continue
+        reg0 = min(spans[n][0] for n in changed)
+        reg1 = max(spans[n][1] for n in changed)
+        new = text[reg0:reg1]
+        for n in sorted(changed, key=lambda n_: -spans[n_][0]):
+            s0, s1 = spans[n]
+            line_start = text.rfind(NL, 0, s0) + 1
+            indent = re.match(r'[ \t]*', text[line_start:]).group(0)
+            repl = ' '.join(x for x, kp in out_by.get(n, []) if kp)
+            repl = _wrap(repl, indent) if repl else ''
+            a0, a1 = s0 - reg0, s1 - reg0
+            if not repl:
+                if a0 > 0:
+                    while a0 > 0 and new[a0 - 1].isspace():
+                        a0 -= 1
+                else:
+                    while a1 < len(new) and new[a1].isspace():
+                        a1 += 1
+            new = new[:a0] + repl + new[a1:]
+        old = text[reg0:reg1]
+        if text.count(old) != 1:
+            fails.append('#%d region not unique in %s' % (k, f))
+        edits.append(dict(k=k, file=f, line=line0, old=old, new=new, changed=changed))
+    planned = {}
+    for f, t in files.items():
+        nt = t
+        for e in [x for x in edits if x['file'] == f]:
+            nt = nt.replace(e['old'], e['new'], 1)
+        planned[f] = nt
+    code_bad = [f for f in files if _code_only(files[f]) != _code_only(planned[f])]
+    emph_bad = [f for f in files if [x[1:] for x in _emph_parity(files[f])] != [x[1:] for x in _emph_parity(planned[f])]]
+    L = ['b664 -- COMPONENT 3, (R274)(5): THE CUT PLANNED ON %s`S MAIN BLOBS AT %s (%s)' % (K.KERNEL, K.K_MAIN, utc()), '',
+         '### from relay data/b664_sentence_grades.txt (rows are sentences, parents are blocks) and its hand grades; each graded block`s rows located in',
+         '### order in its file from the block`s line at main; each changed row replaced in its span by its slot`s kept output, wrapped at the line`s',
+         '### indent; one edit per block.',
+         '### files %d ; edits %d ; rows located %s ; regions not unique %s ; files whose comment-stripped code differs from main`s %s ; files whose '
+         'comment blocks` emphasis parity moves %s' % (
+             len(files), len(edits), 'ALL' if not [x for x in fails if 'not found' in x] else fails,
+             [x for x in fails if 'unique' in x] or 'NONE', code_bad or 'NONE', emph_bad or 'NONE'), '']
+    for e in edits:
+        L += ['== #%d %s:%d (rows changed %s)' % (e['k'], e['file'], e['line'], ', '.join('s' + n for n in e['changed'])),
+              '   OLD: ' + e['old'].replace(NL, ' | ')[:1600], '   NEW: ' + e['new'].replace(NL, ' | ')[:1600], '']
+    L += ['### ### **FILES %d ; EDITS %d ; LOCATION FAILURES %d ; CODE OUTSIDE COMMENTS CHANGED IN %d FILES ; EMPHASIS PARITY MOVED IN %d FILES.**' % (
+        len(files), len(edits), len(fails), len(code_bad), len(emph_bad))]
+    put_txt('b664_cut_plan.txt', L)
+    put_json('b664_cut_edits.json', dict(at=utc(), main=K.K_MAIN, edits=edits, planned_sha={f: __import__('hashlib').sha256(t.encode('utf-8')).hexdigest()
+                                                                                           for f, t in planned.items()}, fails=fails, code_bad=code_bad,
+                                         emph_bad=emph_bad))
+    print(NL.join(L[5:6] + L[-1:]))
+
+
+def _planned(f):
+    j = jl('b664_cut_edits.json')
+    t = (_show(K.KD, j['main'], f) or '').replace(chr(13), '')
+    for e in [x for x in j['edits'] if x['file'] == f]:
+        t = t.replace(e['old'], e['new'], 1)
+    return t
+
+
+def planned_text(*a):
+    """`planned_text <file>`: prints the planned text of a cut file whole, for the seat to read before writing it by the Edit tool."""
+    sys.stdout.write(_planned(a[0]))
+
+
+def check_file(*a):
+    """`check_file <file> [head]`: the working file (CR stripped) or the branch head's blob against the planned text, and its comment-stripped
+    code against main's. Prints one line; exits 1 on a difference."""
+    import hashlib
+    f = a[0]
+    want = _planned(f)
+    if len(a) > 1 and a[1] == 'head':
+        got = (_show(K.KD, K.CUT_BRANCH, f) or '')
+        where = 'blob at %s' % K.CUT_BRANCH
+    else:
+        got = io.open(os.path.join(K.KD, f), encoding='utf-8', newline='').read().replace(chr(13), '')
+        where = 'working file'
+    main = (_show(K.KD, K.K_MAIN, f) or '').replace(chr(13), '')
+    same, code = got == want, _code_only(got) == _code_only(main)
+    print('  %-48s %s %s planned (sha %s) ; code outside comments %s main`s' % (
+        f, where, 'EQUALS' if same else '### DIFFERS FROM', hashlib.sha256(got.encode('utf-8')).hexdigest()[:12],
+        'EQUAL TO' if code else '### DIFFERENT FROM'))
+    if not (same and code):
+        sys.exit(1)
+
+
+def _regrade(ref):
+    """every graded row of the grade bank looked for in its file at `ref`, whitespace aside: standing or gone, by its verdict; gone when its
+    sentence occurs fewer times in the file at `ref` than at main (b657's defect (b)); at main itself every graded row stands."""
+    import collections
+    G = jl(K.GRADES)
+    files, mains, standing = {}, {}, []
+    cnt = collections.Counter()
+    for k, q, rs, _slots in _plans():
+        cells = _row_cells(k, q)
+        mine = set(n for _k, n, _w in (read_grade_row(k, x) for x in G['grades'].get(str(k), [])))
+        f = q['file']
+        if f not in files:
+            files[f] = _ws(_show(K.KD, ref, f) or '')
+            mains[f] = _ws(_show(K.KD, K.K_MAIN, f) or '')
+        for r in rs:
+            if r['n'] not in mine:
+                cnt['MATCHES'] += 1
+                continue
+            v = cells[r['n']][0] if r['n'] in cells else q['verdict']
+            s = _ws(r['sentence'])
+            if s in files[f] and files[f].count(s) >= mains[f].count(s):
+                standing.append((k, f, r['n'], v, r['sentence']))
+                cnt[v + ' (STANDING)'] += 1
+            else:
+                cnt['CUT'] += 1
+    return cnt, standing
+
+
+def cut_bank(*a):
+    """(R274)(5): data/b664_cut_<kernel>.txt -- the branch, its commits one per file, each head blob against the plan and its comment-stripped code
+    against main's, printed per file, and the grade bank re-run at the branch with its control at main; the cut files listed (file_list) for
+    (R274)(4)'s read."""
+    gk = lambda *x: g(K.KD, *x)   # noqa: E731
+    log = [l.split(' ', 1) for l in gk('log', '--reverse', '--format=%h %s', K.K_MAIN + '..' + K.CUT_BRANCH).split(NL) if l.strip()]
+    plan = jl('b664_cut_edits.json')
+    pf = sorted(set(e['file'] for e in plan['edits']))
+    rows, bad, extra, flist = [], [], [], []
+    for h, s in log:
+        fs = [x for x in gk('show', '--name-only', '--format=', h).split(NL) if x.strip()]
+        f = fs[0] if len(fs) == 1 else None
+        if f is None:
+            bad.append('%s touches %d files' % (h, len(fs)))
+            continue
+        if f not in pf:
+            extra.append((h, f))
+            continue
+        flist.append(f)
+        head = _show(K.KD, K.CUT_BRANCH, f) or ''
+        main = (_show(K.KD, K.K_MAIN, f) or '').replace(chr(13), '')
+        eq, code = head == _planned(f), _code_only(head) == _code_only(main)
+        if not (eq and code):
+            bad.append(f)
+        ks = [e['k'] for e in plan['edits'] if e['file'] == f]
+        rows.append('  %s  %-48s blocks %-22s blob %s ; the comment-stripped diff against main %s' % (
+            h, f, ', '.join('#%d' % k for k in ks), 'EQUALS THE PLAN' if eq else '### DIFFERS', 'EMPTY' if code else '### NOT EMPTY'))
+    after, st = _regrade(K.CUT_BRANCH)
+    ctl, st0 = _regrade(K.K_MAIN)
+    L = ['b664 -- COMPONENT 3, (R274)(5): %s`S DOCSTRINGS CUT ON THE BRANCH %s (%s)' % (K.KERNEL, K.CUT_BRANCH, utc()), '',
+         '### the grades: relay data/b664_sentence_grades.txt (rows are sentences, parents are blocks; the author`s word at Component 2); the plan:',
+         '### data/b664_cut_plan.txt; one commit per file by the Edit tool, each working file checked against the plan before its commit; the',
+         '### branch from main %s.' % K.K_MAIN, '',
+         '### THE COMMITS (rows are commits, one per file):'] + rows + [
+         '### the branch`s other commits (not a cut file, each touching one file): %s' % (['%s %s' % x for x in extra] or 'NONE'),
+         '', '### COMMITS %d ; FILES IN THE PLAN %d ; CUT COMMITS TOUCHING ONE FILE %d ; FAULTS %s' % (len(log), len(pf), len(rows), bad or 'NONE'),
+         '', '### THE GRADE BANK RE-RUN AT THE BRANCH (each graded row looked for in its file, whitespace aside):',
+         '  ' + ', '.join('%s %d' % kv for kv in sorted(after.items())),
+         '  graded rows still standing: %s' % (['#%d %s s%s %s' % x[:4] for x in st] or 'NONE'),
+         '### THE CONTROL, the same read at main %s: ' % K.K_MAIN + ', '.join('%s %d' % kv for kv in sorted(ctl.items())), '',
+         '### THE KERNEL FILES OF THIS ACT ((R274)(4), read by the suite and the scorer from this bank): %s' % (flist or 'NONE'), '',
+         '### ### **CUT COMMITS %d IN %d FILES ; GRADED ROWS CUT %d ; STANDING %d (OVERREACHES %d, UNDERSTATES %d, UNLICENSED %d) ; AT MAIN STANDING %d ; '
+         'FAULTS %d.**' % (len(rows), len(pf), after.get('CUT', 0), len(st), after.get('OVERREACHES (STANDING)', 0), after.get('UNDERSTATES (STANDING)', 0),
+                           after.get('UNLICENSED (STANDING)', 0), len(st0), len(bad))]
+    put_txt('b664_cut_%s.txt' % K.KERNEL, L)
+    put_json('b664_cut_%s.json' % K.KERNEL, dict(at=utc(), commits=[x[0] for x in log], cut_commits=len(rows), extra=[list(x) for x in extra], files=len(pf),
+                                                file_list=flist, faults=bad, after=dict(after), standing=[list(x) for x in st], control=dict(ctl),
+                                                control_standing=len(st0)))
+    print(NL.join(L[-10:]))
+
+
+# ================================================================================ COMPONENT 3: THE RUNNER, (R274)(5) under (R263)(4)
+STD3 = {'propext', 'Classical.choice', 'Quot.sound'}
+ERR_RE = re.compile(r'^(?:error: )?(\S+\.lean):(\d+):(\d+): error: (.*)$', re.M)
+README_CLAIMS = (('README.md :28', '"Axiom-free; core Lean only, no Mathlib, no `native_decide`" (the ExhaustivenessLicense paragraph)',
+                  lambda n: n.startswith('SIDEEffects.ExhaustivenessLicense.'), lambda ax: ax == []),
+                 ('README.md :103', '"0 axioms beyond ZFC throughout"', lambda n: True, lambda ax: set(ax) <= STD3))
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def runner(*a):
+    """`runner <run id> <ref> <workflow commit> <push run id>`: the run read by its id; the artifact listed, downloaded by its id into memory,
+    its sha256 against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP; every
+    print of print_targets.txt at the ref read at the standard three or none with no sorryAx (the author's word: the gate's reference); the
+    prints banked as SIDE-effects' first relay print bank (data/b664_prints_SIDE-effects.txt), the reference from here; the README's two axiom
+    sentences checked against them, a contradiction listed as a row for the kernel's cell refresh; the push-triggered build.yml run read and
+    banked beside, not the one dispatch. Banked as data/b664_runner_<kernel>.txt and a row of data/b664_runner_rows.json."""
+    import hashlib
+    import zipfile
+    import b569_record as R9
+    run_id, ref, wfc, push_run = int(a[0]), a[1], a[2], int(a[3])
+    kern = K.KERNEL
+    repo = 'psinary-sketch/' + kern
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('run', 'view', str(push_run), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    prun = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    wf = _show(K.KD, wfc, '.github/workflows/build-module.yml') or ''
+    pt = [l.strip() for l in (_show(K.KD, ref, 'print_targets.txt') or '').split(NL) if l.strip()]
+    kf = read_kernel_files()
+    row = dict(kernel=kern, branch=K.CUT_BRANCH, ref=ref, target=K.TARGET, run_id=run_id, conclusion=run.get('conclusion'),
+               artifact_sha256=None, mem_low=None, stopped=False, gate=None, merged=None, tag=None)
+    L = ['b664 -- COMPONENT 3, (R274)(5): THE HOSTED RUNNER FOR %s, READ BY ITS RUN ID (%s)' % (kern, utc()), '',
+         '### (R274)(4): the act`s kernel files, read from its cut bank and from no constant: %s' % '; '.join('%s (from %s)' % (f, ', '.join(b)) for f, b in kf),
+         '### the workflow file on main (%s, put where absent under (R263)(4), the file alone, SIDE-explicit-formula`s b654 form unchanged), read back whole:' % wfc] + \
+        ['    ' + l for l in wf.rstrip(NL).split(NL)] + ['', '### print_targets.txt at the ref: %d names' % len(pt), '',
+         '### the one dispatch: at main, the ref input %s (the cut branch`s tip, rebased onto the workflow`s main before it was pushed) ; target %s' % (ref, K.TARGET),
+         '### the run: id %s ; %s ; %s %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('workflowName'), run.get('event'), run.get('status'), run.get('conclusion'), run.get('headSha'),
+             run.get('headBranch'), run.get('createdAt'), run.get('updatedAt')),
+         '### BESIDE IT, NOT THE ONE DISPATCH (the author`s word): the push-triggered build.yml run on the workflow`s push to main: id %s ; %s %s ; '
+         'conclusion %s ; head %s ; %s to %s' % (push_run, prun.get('workflowName'), prun.get('event'), prun.get('conclusion'), prun.get('headSha'),
+                                                 prun.get('createdAt'), prun.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        row['artifact_sha256'] = sha
+        L.append('### the artifact: id %s ; name %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else ('### DIFFER' if digest else 'no digest to compare -- NOTHING READ FROM IT')))
+        if not digest or digest != sha:
+            row['artifact_sha256'] = None
+        else:
+            with zipfile.ZipFile(io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    stops = [l for l in mem.split(NL) if l.startswith('STOP ')]
+    row['stopped'] = bool(stops)
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip()
+    errs = [(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4)) for m in ERR_RE.finditer(blog)]
+    P = dict((k_, sorted(v_)) for k_, v_ in R9.prints_axioms(T_.get('axioms.txt', '')).items())
+    axerr = [l for l in T_.get('axioms.txt', '').split(NL) if ': error' in l]
+    per = [(n, P.get(n)) for n in pt]
+    missing = [n for n, ax in per if ax is None]
+    std = [(n, ax is not None and set(ax) <= STD3 and 'sorryAx' not in ax) for n, ax in per]
+    claims = []
+    for where, what, scope, ok_ in README_CLAIMS:
+        rows_ = [(n, ax) for n, ax in per if ax is not None and scope(n)]
+        bad = [n for n, ax in rows_ if not ok_(ax)]
+        claims.append((where, what, len(rows_), bad))
+    ok = (run.get('conclusion') == 'success' and row['artifact_sha256'] and bexit == '0' and not errs and not stops and row['mem_low'] is not None
+          and row['mem_low'] >= K.HOLD and len(pt) > 0 and not missing and not axerr and all(s for _n, s in std))
+    row['gate'] = 'DERIVES' if ok else ('STOPPED BENEATH THE HOLD' if stops else 'NOT DERIVES')
+    row['errors'] = [list(e) for e in errs]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: samples %d ; LOW %s MB ; the hold %d ; STOP lines %s' % (
+              len([l for l in mem.split(NL) if 'avail_mb=' in l]), row['mem_low'], K.HOLD, stops or 'NONE'),
+          '### the build: exit %s ; error lines %d ; the log`s last lines:' % (bexit or '### UNREAD', len(errs))] + \
+        ['    ' + l for l in blog.rstrip(NL).split(NL)[-6:]] + ['    %s:%d:%d: %s' % e for e in errs[:30]] + [
+          '### the print step: error lines %d%s ; names refused %s' % (len(axerr), (' -- ' + ' | '.join(axerr[:4])) if axerr else '',
+                                                                       T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### THE GATE READING PER TERMINAL (the author`s word: each print at the standard three or none, no sorryAx; the prints banked here as '
+          'the kernel`s first relay print bank, relay data/b664_prints_SIDE-effects.txt):'] + \
+        ['  %-62s %-38s %s' % (n, ax if ax is not None else '### NOT PRINTED', 'STANDARD THREE OR NONE' if s else '### NOT') for (n, ax), (_n, s) in zip(per, std)] + \
+        ['', '### THE README`S AXIOM SENTENCES AGAINST THE PRINTS (axiom claims of the G-AXIOM-CLAIM kind; a contradiction a row for the kernel`s '
+         'cell refresh, not the gate):'] + \
+        ['  %s %s -- prints in scope %d ; contradicted by %s' % (w, wh, n_, bad or 'NONE') for w, wh, n_, bad in claims] + [
+          '', '### ### **RUN %s ; CONCLUSION %s ; ARTIFACT SHA256 %s ; MEMORY LOW %s MB (HOLD %d) ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS %d, PRINTED %d, '
+          'AT THE STANDARD THREE OR NONE %d ; README AXIOM SENTENCES CONTRADICTED %d ; GATE %s.**' % (
+              run_id, run.get('conclusion'), (row['artifact_sha256'] or '### NONE')[:16], row['mem_low'], K.HOLD, bexit or '### UNREAD', len(errs),
+              len(pt), len(pt) - len(missing), sum(1 for _n, s in std if s), sum(1 for c in claims if c[3]), row['gate'])]
+    put_txt('b664_runner_%s.txt' % kern, L)
+    PL = ['b664 -- %s`S RELAY PRINT BANK, THE FIRST: the hosted runner`s #print axioms at %s (run %s, artifact sha256 %s, the platform`s digest '
+          'agreeing), the reference from here (the author`s word at b664) (%s)' % (kern, ref[:7], run_id, (row['artifact_sha256'] or '-')[:16], utc()), '',
+          '### rows are declarations: the full name and its axioms as printed; [] = does not depend on any axioms.'] + \
+        ['  %-62s %s' % (n, ax) for n, ax in per if ax is not None]
+    if row['artifact_sha256']:
+        put_txt('b664_prints_%s.txt' % kern, PL)
+    put_json('b664_runner_rows.json', dict(rows=[row], push_run=dict(id=push_run, conclusion=prun.get('conclusion'), head=prun.get('headSha'),
+                                                                     workflow=prun.get('workflowName'), event=prun.get('event')),
+                                           readme_claims=[dict(where=w, scope_prints=n_, contradicted=bad) for w, _wh, n_, bad in claims],
+                                           kernel_files=[f for f, _b in kf]))
+    print(L[-1])
+    for e in errs[:12]:
+        print('  ERROR %s:%d:%d: %s' % e)
+
+
+def runner_merged(*a):
+    """`runner_merged <merge sha> <tag> [<push run id>]`: the row's merge and tag, after main and the tag are read back at the remote; the
+    push-triggered build.yml run on the merge's push read and banked beside it, not the one dispatch."""
+    sha, tag = a[:2]
+    j = jl('b664_runner_rows.json')
+    for r in j['rows']:
+        if r['kernel'] == K.KERNEL:
+            r['merged'], r['tag'] = sha, tag
+    j['tag_peeled'] = g(K.KD, 'rev-parse', '--short=7', '%s^{commit}' % tag).strip()
+    if len(a) > 2:
+        rc, out, err = _gh('run', 'view', a[2], '-R', 'psinary-sketch/' + K.KERNEL, '--json', 'status,conclusion,headSha,workflowName,event,createdAt,updatedAt')
+        j['merge_push_run'] = dict(json.loads(out or b'{}'), id=int(a[2]))
+    put_json('b664_runner_rows.json', j)
+    print('  %s merged %s tag %s peeled %s' % (K.KERNEL, sha, tag, j['tag_peeled']))
+
+
+ROUTES = {'nd_rerun': nd_rerun, 'c1': c1, 'answers': answers, 'sentences': sentences, 'plain': plain, 'grades': grades, 'plan_cut': plan_cut,
+          'planned_text': planned_text, 'check_file': check_file, 'cut_bank': cut_bank, 'runner': runner, 'runner_merged': runner_merged}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

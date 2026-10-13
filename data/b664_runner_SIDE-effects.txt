@@ -1,0 +1,164 @@
+b664 -- COMPONENT 3, (R274)(5): THE HOSTED RUNNER FOR SIDE-effects, READ BY ITS RUN ID (2026-10-13T16:38:11Z)
+
+### (R274)(4): the act`s kernel files, read from its cut bank and from no constant: SIDEEffects/ExhaustivenessLicense.lean (from data/b664_cut_SIDE-effects.json, data/b664_cut_edits.json)
+### the workflow file on main (ff7825d, put where absent under (R263)(4), the file alone, SIDE-explicit-formula`s b654 form unchanged), read back whole:
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    # From b658 ((R263)(4), standing): the named terminals are read from print_targets.txt at the kernel's root, one name per line, and the
+    # scratch file imports each module of the target; no workflow edit is needed to print a new theorem.
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              : > out/Axioms.lean
+              for m in $TARGET; do echo "import $m" >> out/Axioms.lean; done
+              cp print_targets.txt out/print_targets.txt
+              while IFS= read -r n || [ -n "$n" ]; do
+                n=$(printf '%s' "$n" | tr -d '\r' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                [ -z "$n" ] && continue
+                case "$n" in
+                  *[!A-Za-z0-9_.\']*) echo "print target refused: $n" >> out/axioms_refused.txt; continue ;;
+                esac
+                echo "#print axioms $n" >> out/Axioms.lean
+              done < print_targets.txt
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+
+### print_targets.txt at the ref: 34 names
+
+### the one dispatch: at main, the ref input 4c25526c286b41297ecbbe0bea72939e5618d012 (the cut branch`s tip, rebased onto the workflow`s main before it was pushed) ; target SIDEEffects
+### the run: id 38431820497 ; https://github.com/psinary-sketch/SIDE-effects/actions/runs/38431820497 ; build-module workflow_dispatch ; status completed ; conclusion success ; head ff7825d549fc8b9957943057440a49e65b2cb2d8 on main ; 2026-10-13T16:35:57Z to 2026-10-13T16:37:58Z
+### BESIDE IT, NOT THE ONE DISPATCH (the author`s word): the push-triggered build.yml run on the workflow`s push to main: id 38431754330 ; build push ; conclusion success ; head ff7825d549fc8b9957943057440a49e65b2cb2d8 ; 2026-10-13T16:35:28Z to 2026-10-13T16:37:16Z
+### the artifact: id 11831202032 ; name build-module-38431820497 ; 3687 bytes ; sha256 14a7a42ffda9784864da770d1416204f3621baa30927fe87c8ea5e4396dcd648 ; the platform`s digest 14a7a42ffda9784864da770d1416204f3621baa30927fe87c8ea5e4396dcd648 ; AGREE
+### the ref built (out/ref.txt): 4c25526c286b41297ecbbe0bea72939e5618d012 leanprover/lean4:v4.30.0-rc2
+### the memory log: samples 3 ; LOW 14376 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; the log`s last lines:
+    ⚠ [8317/8319] Built SIDEEffects.Phase15.Module1 (4.6s)
+    warning: SIDEEffects/Phase15/Module1.lean:158:31: '' starts on column 31, but all commands should start at the beginning of the line.
+    
+    Note: This linter can be disabled with `set_option linter.style.whitespace false`
+    ✔ [8318/8319] Built SIDEEffects (3.4s)
+    Build completed successfully (8319 jobs).
+### the print step: error lines 0 ; names refused NONE
+### THE GATE READING PER TERMINAL (the author`s word: each print at the standard three or none, no sorryAx; the prints banked here as the kernel`s first relay print bank, relay data/b664_prints_SIDE-effects.txt):
+  SIDEEffects.ExhaustivenessLicense.Grade.rank                   []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.Grade.le                     []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.Grade.le_refl                []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.Grade.le_trans               []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.theorem_is_top               []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.none_is_bottom               []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.ladder_strict                []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.grade                        []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.RH_evidence                  []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.Hodge_evidence               []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.T7_evidence                  []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_evidence []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.RH_grade                     []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.Hodge_grade                  []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.T7_grade                     []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_grade    []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.instances_ordered            []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.EDifficultyTop               []                                     STANDARD THREE OR NONE
+  SIDEEffects.ExhaustivenessLicense.RH_typeI_of_top              []                                     STANDARD THREE OR NONE
+  formation_seven                                                []                                     STANDARD THREE OR NONE
+  AddMult.no_type_d                                              []                                     STANDARD THREE OR NONE
+  AddMult.twin_primes_infinite                                   ['propext']                            STANDARD THREE OR NONE
+  AddMult.goldbach                                               ['propext']                            STANDARD THREE OR NONE
+  AddMult.sophie_germain_infinite                                ['propext']                            STANDARD THREE OR NONE
+  SIDEEffects.Phase15.Module1.StructuralCoupling.period_pos      ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  SIDEEffects.Phase15.Module1.periodic_lift                      ['propext']                            STANDARD THREE OR NONE
+  SIDEEffects.Phase15.Module1.StructuralCoupling.eval_periodic   ['Quot.sound', 'propext']              STANDARD THREE OR NONE
+  SIDEEffects.Phase15.Module1.ofPeriodic_eval                    ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEEffects.Phase15.Module1.to_modular_correct                 ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEEffects.Phase15.Module1.crt_exhaustiveness                 ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEEffects.Phase15.Module1.no_type_d_conspiracies             ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEFramework.SIDE_exclusion                                   []                                     STANDARD THREE OR NONE
+  SIDEFramework.determination_collapse                           []                                     STANDARD THREE OR NONE
+  SIDEFramework.side_bridge                                      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+
+### THE README`S AXIOM SENTENCES AGAINST THE PRINTS (axiom claims of the G-AXIOM-CLAIM kind; a contradiction a row for the kernel`s cell refresh, not the gate):
+  README.md :28 "Axiom-free; core Lean only, no Mathlib, no `native_decide`" (the ExhaustivenessLicense paragraph) -- prints in scope 19 ; contradicted by NONE
+  README.md :103 "0 axioms beyond ZFC throughout" -- prints in scope 34 ; contradicted by NONE
+
+### ### **RUN 38431820497 ; CONCLUSION success ; ARTIFACT SHA256 14a7a42ffda97848 ; MEMORY LOW 14376 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 34, PRINTED 34, AT THE STANDARD THREE OR NONE 34 ; README AXIOM SENTENCES CONTRADICTED 0 ; GATE DERIVES.**
