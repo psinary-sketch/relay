@@ -1,0 +1,104 @@
+b663 -- STEPZERO_RERUN: EVERY TEST FILE UNDER tools/, RUN AND COUNTED ((R238)(2), standing) (2026-10-13T13:59:33Z)
+
+  test_act_root.py                   ### NOT RUN
+  test_act_root_commit_b644.py       ### NOT RUN
+  test_act_root_order_b641.py        ### NOT RUN
+  test_addenda_licence.py            ### NOT RUN
+  test_addenda_writelist.py          ### NOT RUN
+  test_additive_shared_b644.py       ### NOT RUN
+  test_asof.py                       exit 0 ; numbered cases 24, passing 24, failing none ; its own last line: ### ### **24 of 24 cases as wanted -- PASS** ; 480 s
+  test_axiom_claim.py                ### NOT RUN
+  test_axiom_claim_b651.py           ### NOT RUN
+  test_banned_terms_backmatter.py    ### NOT RUN
+  test_build_watch_b644.py           ### NOT RUN
+  test_build_watch_b647.py           ### NOT RUN
+  test_chain_page.py                 ### NOT RUN
+  test_chain_page_b592.py            ### NOT RUN
+  test_chain_page_b596.py            ### NOT RUN
+  test_chain_page_b629.py            ### NOT RUN
+  test_chain_page_b630.py            ### NOT RUN
+  test_chain_page_b632.py            ### NOT RUN
+  test_chain_page_b635.py            ### NOT RUN
+  test_chain_page_b638.py            ### NOT RUN
+  test_closing_headline_b634.py      ### NOT RUN
+  test_clusters_served_b651.py       ### NOT RUN
+  test_composer_b646.py              ### NOT RUN
+  test_composer_b647.py              ### NOT RUN
+  test_composer_b649.py              ### NOT RUN
+  test_conversion_b652.py            ### NOT RUN
+  test_e0_databinder_b643.py         ### NOT RUN
+  test_e0_existential.py             ### NOT RUN
+  test_e0_rule.py                    ### NOT RUN
+  test_edit_route_b646.py            ### NOT RUN
+  test_elab_reader_b634.py           ### WITHHELD: no lean run on this host in this act (the ferry of R273; N1); the test elaborates through lean, so it is not started
+  test_faces_form.py                 ### NOT RUN
+  test_g_chain_page.py               exit 0 ; numbered cases 6, passing 6, failing none ; its own last line: ### ### **6 of 6 cases as wanted -- PASS** ; 156 s ; args b649_nodes_zeta.txt b643_probe_out_zeta.txt THE_CLAUSE_AND_ITS_COMPILED_FACES.md
+  test_glossary_supersede_b651.py    ### NOT RUN
+  test_licensed_table_b645.py        ### NOT RUN
+  test_licensed_table_instrument_b652.py ### NOT RUN
+  test_met_b646.py                   ### NOT RUN
+  test_module_header.py              ### NOT RUN
+  test_msplit_b658.py                ### NOT RUN
+  test_name_b649.py                  ### NOT RUN
+  test_name_patterns_b636.py         ### NOT RUN
+  test_no_sorry_main.py              ### NOT RUN
+  test_premise_status.py             ### NOT RUN
+  test_primed_names_b643.py          ### NOT RUN
+  test_push_gated.sh                 ### NOT RUN
+  test_reader_needle_b641.py         ### NOT RUN
+  test_record_findings_b632.py       ### NOT RUN
+  test_registry_tags_b636.py         ### NOT RUN
+  test_row_sort.py                   ### NOT RUN
+  test_rowgen_ident.py               ### NOT RUN
+  test_terminal_table_b630.py        ### NOT RUN
+  test_terminal_table_b635.py        ### NOT RUN
+  test_terminal_table_b636.py        ### NOT RUN
+  test_terminal_table_b637.py        ### NOT RUN
+
+### the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE
+
+### ### **TEST FILES 54 ; RUN 2 ; WITHHELD 1 ; NOT CLEAN 0 .**
+
+### THE OUTPUTS, WHOLE:
+
+=== test_asof.py
+test_asof.py -- (R178)(2)(ii). records under C:\Users\ECHOCH~1\AppData\Local\Temp\tmp0hczr94o
+  (1) the push-out parser, both polarities on synthetic banks                                          PASS
+  (2) b566`s bank names ce360e88... (read ce360e8854c1)                                                PASS
+  (2) b567`s bank names d77bb7aa... (read d77bb7aa4458)                                                PASS
+    b566 at its own as-of: relay ce360e88 (b566_closing_push_out.txt) -- G-NUMBER-UNCLAIMED, G-PEEK-DECLARED and G-PRIORBANK-UNCHANGED read the relay tree there, not at HEAD
+  (3) b566 at ce360e88: G-NUMBER-UNCLAIMED PASS (read PASS)                                            PASS
+  (3) b566 at ce360e88: G-PEEK-DECLARED PASS (read PASS)                                               PASS
+  (3) b566 at ce360e88: G-PRIORBANK-UNCHANGED PASS (read PASS)                                         PASS
+    b566 pointed at b567`s close: relay d77bb7aa (--as-of) -- G-NUMBER-UNCLAIMED, G-PEEK-DECLARED and G-PRIORBANK-UNCHANGED read the relay tree there, not at HEAD
+  (4) b566 pointed at d77bb7aa (claim false there): G-NUMBER-UNCLAIMED FAIL (read FAIL)                PASS
+  (4) b566 pointed at d77bb7aa (claim false there): G-PRIORBANK-UNCHANGED FAIL (read FAIL)             PASS
+    b567 at its own as-of: relay d77bb7aa (b567_closing_push_out.txt) -- G-PRIORBANK-UNCHANGED read the relay data tree there, not at HEAD
+  (5) b567 at d77bb7aa: G-PRIORBANK-UNCHANGED PASS (read PASS)                                         PASS
+    b567 pointed at its own commit before the ordered append: relay 0e50bd19 (--as-of) -- G-PRIORBANK-UNCHANGED read the relay data tree there, not at HEAD
+  (6) b567 pointed at 0e50bd19 (the ordered append absent there): G-PRIORBANK-UNCHANGED FAIL (read FAIL) PASS
+  (R179)(3) the as-of lines: the parser on synthetic lines, both polarities -- True
+  (7) b566`s lines read from b569_asof_b566.txt: PLACE-papers 5ce2895, the kernel e5a5a83, bulka 35df682f PASS
+  (7) b566 at its own lines: G-CEILING-APPENDED PASS (read PASS)                                       PASS
+  (7) b566 at its own lines: G-CORPUS-SCOPE PASS (read PASS)                                           PASS
+  (7) b566 at its own lines: G-TAG-READ-BACK PASS (read PASS)                                          PASS
+  (7) b566 at its own lines: G-BULKA-KEPT PASS (read PASS)                                             PASS
+  (8) b566 pointed at b567`s heads in two repositories (claims false there): G-CEILING-APPENDED FAIL (read FAIL) PASS
+  (8) b566 pointed at b567`s heads in two repositories (claims false there): G-CORPUS-SCOPE FAIL (read FAIL) PASS
+  (8) b566 pointed at b567`s heads in two repositories (claims false there): G-TAG-READ-BACK FAIL (read FAIL) PASS
+  (9) b567 at its own lines (b569_asof_b567.txt): G-TAG-READ-BACK PASS (read PASS)                     PASS
+  (9) b567 at its own lines (b569_asof_b567.txt): G-CORPUS-SCOPE PASS (read PASS)                      PASS
+  (9) b567 at its own lines (b569_asof_b567.txt): G-CACHE-MAIN PASS (read PASS)                        PASS
+  (9) b567 at its own lines (b569_asof_b567.txt): G-BULKA-DELETED PASS (read PASS)                     PASS
+  (10) b567 pointed at b568`s PLACE-papers and b566`s kernel (claims false there): G-TAG-READ-BACK FAIL (read FAIL) PASS
+  (10) b567 pointed at b568`s PLACE-papers and b566`s kernel (claims false there): G-CORPUS-SCOPE FAIL (read FAIL) PASS
+### ### **24 of 24 cases as wanted -- PASS**
+
+=== test_g_chain_page.py
+  (1) the generated page: the arm PASSES (regeneration exit 0)                               PASS
+  (2) one sentence appended: the arm FAILS (first differing line 734)                        PASS
+  (3) mutation applied: one statement altered                                                PASS
+  (3) the arm FAILS and names a line (read 16)                                               PASS
+  (4) the regeneration made to fail: the arm FAILS (regeneration exit 6)                     PASS
+  (5) no committed page: FAIL                                                                PASS
+### ### **6 of 6 cases as wanted -- PASS**
