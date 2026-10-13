@@ -393,7 +393,51 @@ def c2(*a):
          dry='dry' in a)
 
 
-ROUTES = {'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2}
+FT_H = ('### `W-ORD-FT-FIRST-ORDER` -- THE FIRST-ORDER TRANSFORM BOUND AS A KERNEL LEMMA, PRICED, NOT STARTED, appended 2026-10-13, b663, '
+        'on the author’s word to b663’s plan prompt')
+
+
+def _ft():
+    return ('\n' + FT_H + '\n\n**Items.** For the plateau base g0 = plateau (1/2) ℓ (SIDE-explicit-formula TwoPropertyWindow.lean :56-:69) '
+            'and z ≠ 0: ‖paperFT (phiC g0) z‖ ≤ 2 e^{ℓ |Im z|} / ‖z‖, by one integration by parts (the boundary terms 0 at ±ℓ; ∫ |g0′| = 2). '
+            'It is b663’s B1 (relay data/b663_epstein_plan.txt, section 8), used there as a named READ premise of the computation to certify '
+            'hθ at Z_Q’s points above T = 150, where the kernel’s fourth-order bound (zero_weight’s hsA, PowerLimit.lean :825) clears only '
+            'above a height near 629. **Price:** one lemma, one integration by parts, built and printed on the runner; one act, or inside '
+            'another. **Trigger:** b663’s use of B1. **Acted:** at the next research slot or inside W-ORD-E2-SEPARATION’s act, on the '
+            'author’s word.\n')
+
+
+def c2b(*a):
+    land([('OPEN_TRAILS.md', FT_H, _ft())], 'b663_record_lines_c2b.json', 'c2b', entry=K.EPSTEIN_LINE,
+         check=[('OPEN_TRAILS.md', 14158, 'W-ORD-EPSTEIN-CERTIFY')], dry='dry' in a)
+
+
+def a0list(*a):
+    """the author's word on Q1: A₀Q = 10 printed with its source line or its reason. The banked list's own step maximum -- HCount's ratio
+    N(s, s+1] / log(|s| + 3) read over the 360 listed points by tools/b662_map.py's a0_upper, imported unedited (every listed ordinate as a
+    ball of radius 0: the points are the configuration's literals) -- banked as data/b663_a0_list.txt, the reason for A₀Q printed beside."""
+    import b662_map as MP
+    from flint import arb, ctx
+    ctx.prec = MP.PREC
+    on, off = _zeros()
+    ords = [x for _i, gm in on for x in (arb(gm), -arb(gm))] + [x for _i, _s, t in off for x in (arb(t), arb(t), -arb(t), -arb(t))]
+    a0, sarg, cnt = MP.a0_upper(ords)
+    L = ['b663 -- THE BANKED LIST`S OWN LOCAL COUNT, BESIDE P3`s A₀Q (%s)' % utc(), '',
+         '### HCount (RestBound.lean :44-:45): 1 ≤ A₀ and N(s, s+1] ≤ A₀ log(|s| + 3) for every real s, N counting Im in (s, s+1] with',
+         '### multiplicity (Defs.lean :162). Over the 360 listed points (%d ordinates with sign and multiplicity) by tools/b662_map.py`s a0_upper:' % len(ords),
+         ('  the listed points` own A₀ = %s (the largest ratio at s = %s, count %d there)' % (a0.str(15, radius=False), MP.b(sarg, 10), cnt))
+         if sarg is not None else
+         '  the listed points` own A₀ = %s: NO STEP`S RATIO N(s, s+1] / log(|s| + 3) EXCEEDS 1, so HCount`s clause 1 ≤ A₀ sets it' % a0.str(15, radius=False),
+         '',
+         '### A₀Q = 10 HAS NO SOURCE LINE; ITS REASON: P3 states HCount for Z_Q`s whole configuration, above T = 150 too, where no bank lists',
+         '### a zero. 10 is the plan`s round constant above the listed points` own value printed here, a margin for the unlisted zeros above 150',
+         '### (whose count in (s, s+1] grows like (1/π) log s), stated, not proved; open. In hrate A₀ enters once, linearly, inside 3 A₀ Bf',
+         '### (RateIndexCfg.lean :146), so its size moves j₀ by at most the index where θ^(2^(j+1) - 2^(D+1)) absorbs a factor of 10.']
+    put_txt('b663_a0_list.txt', L)
+    print(NL.join(L[4:5]))
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2, 'c2b': c2b, 'a0list': a0list}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

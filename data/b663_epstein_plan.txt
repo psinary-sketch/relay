@@ -133,3 +133,44 @@ b663 -- COMPONENT 2, (R273)(3): THE RUNGS READ AND THE PLAN, BEFORE ANY LEAN (20
   N1-N5 the navigator's, as the ferry writes them.
 
 ### ### **ONE PROMPT ON THIS BANK, BEFORE ANY LEAN: the instance's form, the base, the script's changes, the rungs.**
+
+================================================================================================================================
+### 8. THE AUTHOR'S WORD ON THE PROMPT (relay data/b663_author_answers.txt, the second call) AND WHAT IT FIXES
+================================================================================================================================
+  THE PRECEDENCE READ. The answer to Q1 carries four lines (Instance, Base, Script, Rungs); the answers to Q2, Q3 and Q4 each answer their own
+  question. Where they differ the seat follows the answer given to the question on that subject: the Script by Q3's answer (changes confined
+  to section 6, "no computation line changed" recorded as the navigator's), not Q1's "Script:" line (carried whole, no computation line
+  changed); the Base and the above-150 bound by Q2's (B1, below), which is one of Q1's two forms ("a certified computation printed per cell",
+  named); the Rungs by Q4's (all PRICED, the stand-ins named), which is Q1's listing with BUILT-AT-b590 and BUILT-THIS-ACT empty. Printed
+  here so the reading can be struck.
+
+  THE INSTANCE (Q1): Z_Q's configuration on premises in Schema/EpsteinQ0.lean, b590's file untouched; the 360 banked points as data; P1-P4
+  named Props, each docstring "stated, not proved; open"; P2's statement carries the band |t| < 0.5 and σ in (1/2, 0.52), printed beside
+  it (section 3). A₀Q = 10: NO SOURCE LINE; ITS REASON (relay data/b663_a0_list.txt): the listed points' own A₀ is 1 (no step's ratio
+  N(s, s+1] / log(|s| + 3) exceeds 1, HCount's clause 1 ≤ A₀ sets it); 10 is the plan's round margin for the unlisted zeros above 150,
+  stated, not proved; open; A₀ enters hrate once, linearly.
+  THE BASE (Q2): g0 := detectorBase qE0, qE0 := index 0 = 0.9532604747946607 + 16.290215720390393 i, the dominant by its own score; M its
+  score; the tie set its orbit. qE0 named in the Lean beside b590's rhoE, both printed with their scores; b590's named zero is not the dominant
+  of Z_Q below 150 (section 2 (L4)).
+  B1, A NAMED READ PREMISE OF THE COMPUTATION (not a kernel lemma), for every strip point ρ of Z with |Im ρ| ≥ 150:
+     offScore g0 ρ = |paperFT (phiC g0) (gammaOf ρ)| ≤ 2 e^{ℓ/2} / |Im ρ|.
+   DERIVATION. paperFT k z = ∫ k(u) e^{izu} du (Zeta23/Defs.lean :60); g0 = plateau (1/2) ℓ is C^∞, even, 1 on [−ℓ/2, ℓ/2], monotone on
+   each ramp, 0 outside [−ℓ, ℓ] (TwoPropertyWindow.lean :56-:69). For z ≠ 0 one integration by parts, the boundary terms 0 at ±ℓ:
+   ∫ g0(u) e^{izu} du = −(1/(iz)) ∫ g0'(u) e^{izu} du; on the support |e^{izu}| = e^{−u Im z} ≤ e^{ℓ |Im z|}; ∫ |g0'| = 2 (the rise 0 to 1
+   and the fall 1 to 0); so |paperFT g0 z| ≤ 2 e^{ℓ |Im z|} / |z|. At z = gammaOf ρ = (ρ − 1/2)/i (Defs.lean :121): |Im z| = |Re ρ − 1/2|
+   ≤ 1/2 in the strip (ZeroConfig's strip field), |z| ≥ |Im ρ|. Every cell's hθ line reads "certified on B1 (READ), not a kernel lemma",
+   the kernel's fourth-order lemma (PowerLimit.lean :825) printed beside with the height it clears (≈ 629) and the height the banks reach
+   (150). H3 and H4 score "held on B1" where they hold. W-ORD-FT-FIRST-ORDER entered priced (the bound as a kernel lemma).
+  THE SCRIPT (Q3): tools/b663_epstein_map.py carried from b662_map.py, the changes confined to section 6's lines, the diff banked as
+  data/b663_map_diff.txt; ghat, i4_ball, a0_upper, the controls, hrate and the rung unchanged; the guards (stop if an off-line point is
+  killed or the dominance is not decided). THE CONTROL: the new script run once on b661's Z₁(0.8, 29.6) before the Q0 cell, expected to
+  reproduce j₀ = 31 and the zero side's sign (relay data/b661_map_control.txt), printed and banked beside the Q0 cell.
+  THE RUNGS (Q4), by line of relay data/b642_epstein_rungs.txt -- BUILT-AT-b590 none, BUILT-THIS-ACT none:
+   R1 :4   PRICED (one act)                   stand-in: none (Z abstract; Z_Q is not defined in the kernel)
+   R2 :18  PRICED (two acts)                  stand-in: none
+   R3 :37  PRICED (one act after R2)          stand-in: none
+   R4 :56  PRICED (three acts at the least)   stand-in: P4, EpsteinPremises.ef (b590, Epstein.lean :42-:43), T1-lit, cited
+   R5 :156 PRICED (one act, witnessed)        stand-in: P1's membership (qE0, rhoE and the other 15 among the listed points); the balls
+                                              W-ORD-EPSTEIN-CERTIFY (OPEN_TRAILS :14158), at its trigger
+   the count (E1's field)                     stand-in: P3 (HCount Z A₀Q) and P4's existential count (b590, Epstein.lean :44)
+  ### ### **LEAN MAY NOW BE WRITTEN, ON THE AUTHOR'S WORD ON THIS BANK.**
