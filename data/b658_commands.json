@@ -1,5 +1,5 @@
 {
- "at": "2026-10-13T00:21:10Z",
+ "at": "2026-10-13T00:37:44Z",
  "anchor": "RULING (R268) BEGIN",
  "rows": [
   {
@@ -757,6 +757,111 @@
    "src": "seat",
    "cmd": "PYTHONIOENCODING=utf-8 python -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x']\nimport b658_record as R\nrows=R.capture(); hits=R.ER.scan(rows)\nprint('commands',len(rows),'offences',len(hits))\nfor r,o in hits: print(r['n'],r['ts'],[k for k,_ in o], r['cmd'][:120].replace(chr(10),' | '))\n\"",
    "n": 108
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:21:09.267Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -m py_compile tools/b658_checks.py tools/b658_record.py tools/b658_closing.py tools/b658_regspec.py tools/b658_reg_gate.py tools/b658_worklist.py && python tools/b658_record.py answers && python tools/b658_record.py commands && python tools/b658_record.py kernels && python tools/b658_record.py defects",
+   "n": 109
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:21:19.043Z",
+   "src": "seat",
+   "cmd": "python -c \"import json;print(sorted(json.load(open('data/b658_kernels_face.json',encoding='utf-8'))['kernels']))\" && git add tools/b658_checks.py tools/b658_closing.py tools/b658_regspec.py tools/b658_reg_gate.py tools/b658_record.py tools/b658_worklist.py data/b658_readfirst.txt data/b658_author_answers.txt data/b658_author_answers.json data/b658_commands.txt data/b658_commands.json data/b658_kernels_face.json data/b658_defects.txt data/b658_defects.json && git commit -q -m \"b658 Component 5 under (R268): the suite (tools/b658_checks.py: b657's standing arms carried less its own arms over its own banks, the runner arms reading this kernel's run, nine arms over this act's banks), the closing, the registration gate with its dry-run step and the spec by the Write tool; the record tool's late routes by the Edit tool (its splitter route's cleanup by a temporary-directory context); the read-first bank (written late, defect (d)); the answers, commands, kernels-face and defects banks (defects (a)-(f), two offences of the edit route among them). Nothing deposits.\" && git log --oneline -1 | cut -c1-9",
+   "n": 110
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:21:26.843Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format='%h %s' 640df77a..HEAD | cut -c1-110; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 3f0e33f..HEAD | cut -c1-110; PYTHONIOENCODING=utf-8 python -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x']\nimport b658_checks as C, b658_worklist as K\nnames=[a[0] for a in C.ARMS]\nprint(len(names),'arms;', 'standing',len(C.STANDING),'carried',len(set(names)&set(C.STANDING)),'not carried',sorted(set(C.STANDING)-set(names)),'beyond',sorted(set(names)-set(C.STANDING)-set(K.ACT_ARMS)))\nprint(' '.join('\\`%s\\`'%n for n in names))\"",
+   "n": 111
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:22:52.221Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b658_reg_gate.py | tail -22 | cut -c1-260; python tools/b658_regspec.py | grep -n \"PREDICTIONS FOUND\\|line \\|REFUSED\\|PLANTED ROWS\\|MEASURED\\|      [A-Z]\" | cut -c1-200",
+   "n": 112
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T00:22:59.309Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; $sp='C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad'; $p = Start-Process -FilePath python -ArgumentList 'tools/b658_checks.py','--prerun' -WorkingDirectory 'D:\\relay' -WindowStyle Hidden -RedirectStandardOutput \"$sp\\b658_prerun.log\" -RedirectStandardError \"$sp\\b658_prerun.err\" -PassThru; \"PID \" + $p.Id; \"free MB \" + [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)",
+   "n": 113
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:23:05.176Z",
+   "src": "seat",
+   "cmd": "L=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b658_prerun.log\"; until grep -q \"written: b658_arms_prerun\" \"$L\" 2>/dev/null || ! tasklist //FI \"PID eq 7784\" | grep -q 7784; do sleep 15; done; grep \"FAILS\\|DEFECTIVE\\|raised\\|ARMS RUN\\|NEGATIVE\\|written\\|standing arms not\\|declared not\\|run not\" \"$L\" | cut -c1-300; tail -5 \"${L%.log}.err\"",
+   "n": 114
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:33:35.396Z",
+   "src": "seat",
+   "cmd": "cat \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/bi10rvey9.output\"; grep \"THE STATEMENT\\|THE RUNNER\\|G-EDIT-ROUTE read\\|CONTRADICTED\\|FREEZE\\|run took\" \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b658_prerun.log\" | cut -c1-300",
+   "n": 115
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:33:46.138Z",
+   "src": "seat",
+   "cmd": "git add data/b658_arms_prerun.txt data/b658_lsr_prerun.json data/b658_registration_2026-10-12.txt data/b658_reg_gate.txt data/b658_satisfiable.json && git commit -q -m \"b658 Component 5 under (R268): the face drafted (data/b658_registration_2026-10-12.txt, not yet locked), the gate run once with its dry-run step (CLEAN, the gate CLEAR), the spec emitted (seven planted rows read, five controls refused, no prediction), and the pre-run (R202)(3) (data/b658_arms_prerun.txt): 77 arms, 53 passing, G-EDIT-ROUTE (#82, #107) and G-AXIOM-CLAIM (SIDE-cosmo) failing on real state as the face declares them, the rest reading the lock, the seal, the table, the root and the record not yet written; no positive control passing. Nothing deposits.\" && git log --oneline -1 | cut -c1-9",
+   "n": 116
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:33:57.960Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b658_reg_gate.py | grep \"DRY-RUN STEP :\\|GATE VERDICT\\|UNDECLARED\\|MISSES\" | cut -c1-200; python -c \"\nimport subprocess,sys\nr=subprocess.run([sys.executable,'tools/banned_terms.py','--new','data/b658_registration_2026-10-12.txt'],capture_output=True)\nopen('data/b658_reg_termscan.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nr=subprocess.run([sys.executable,'tools/b658_regspec.py'],capture_output=True)\nopen('data/b658_regspec_run.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nprint('regspec rc',r.returncode)\"; grep \"VERDICT\" data/b658_reg_termscan.txt; grep -n \"PREDICTIONS FOUND\\|NON-ZERO\" data/b658_regspec_run.txt | cut -c1-160; python tools/reg_satisfiable.py data/b658_satisfiable.json --emit b658 > /dev/null 2>&1; grep -n \"VERDICT\" data/audit_b658_reg_satisfiable.txt | head -2",
+   "n": 117
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:34:05.779Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -c \"\nimport subprocess,sys\nfor tool,out in (('b307_handoff_census.py','b658_census_stepzero.txt'),('b327_faces_census.py','b658_faces_census_stepzero.txt'),('b303_pins.py','b658_pins_stepzero.txt')):\n    r=subprocess.run([sys.executable,'tools/'+tool,'b658'],capture_output=True)\n    b=(r.stdout+r.stderr).replace(b'\\r\\n',b'\\n')\n    open('data/'+out,'wb').write(b); print(out,'rc',r.returncode,'CR',b.count(b'\\r'))\n\"; grep -h \"TOTAL MISSING\\|HARD-FAILING\" data/b658_census_stepzero.txt data/b658_faces_census_stepzero.txt data/b658_pins_stepzero.txt | head; python -c \"\nimport sys; sys.path.insert(0,'tools'); import gate_hash as G\nF='data/b658_registration_2026-10-12.txt'\nfor r in ('data/b658_reg_gate.txt','data/b658_reg_termscan.txt','data/b658_regspec_run.txt','data/audit_b658_reg_satisfiable.txt'):\n    print(r, G.stamp(r,F)[:16], G.matches(r,F)[0])\n\" && python tools/b378_lockgate.py b658 data/b658_registration_2026-10-12.txt 2>&1 | tail -4",
+   "n": 118
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:35:47.747Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && grep -c \"GATES READ : 8. ### PASSING : 8.\" data/b658_lockgate_notes.txt && python tools/reg_seal.py --lock data/b658_registration_2026-10-12.txt 2>&1 | tail -2 && python tools/reg_seal.py --verify data/b658_registration_2026-10-12.txt 2>&1 | grep -i \"intact\" && python -m py_compile tools/b658_checks.py tools/b658_record.py tools/b658_closing.py && python tools/b658_checks.py --seal | tail -3 && for f in data/b658_registration_2026-10-12.txt data/b658_reg_gate.txt data/b658_reg_termscan.txt data/b658_regspec_run.txt data/b658_satisfiable.json data/audit_b658_reg_satisfiable.txt data/b658_arms_prerun.txt data/b658_lsr_prerun.json data/b658_lockgate.json data/b658_lockgate_notes.txt data/b658_seal_hashes.json data/b658_census_stepzero.txt data/b658_faces_census_stepzero.txt data/b658_pins_stepzero.txt; do test $(tr -cd '\\r' < $f | wc -c) -eq 0 || echo \"CR in $f\"; done; git add data/b658_registration_2026-10-12.txt data/b658_reg_gate.txt data/b658_reg_termscan.txt data/b658_regspec_run.txt data/b658_satisfiable.json data/audit_b658_reg_satisfiable.txt data/b658_lockgate.json data/b658_lockgate_notes.txt data/b658_seal_hashes.json data/b658_census_stepzero.txt data/b658_faces_census_stepzero.txt data/b658_pins_stepzero.txt && git commit -q -m \"b658 seal: the face locked after Components 0-4 and the dry-run step (data/b658_registration_2026-10-12.txt), its gates -- the pre-run (77 arms run at HEAD, 53 passing, G-EDIT-ROUTE and G-AXIOM-CLAIM declared failing on real state, the rest reading the lock, the seal, the table, the root and the record not yet written), the registration gate CLEAR with its dry-run step CLEAN, the spec (seven planted rows read, five controls refused, no prediction), jointly satisfiable, the term scan CLEAN, the step-zero censuses 0 missing and pins 0 hard-failing, the lock gate 8 of 8; the sealed tools' hashes recorded (data/b658_seal_hashes.json). Nothing deposits.\" && git log --oneline -1 | cut -c1-9",
+   "n": 119
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:35:58.096Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && timeout 590 python tools/b658_record.py table_final && git status --short --untracked-files=no",
+   "n": 120
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:36:28.772Z",
+   "src": "seat",
+   "cmd": "git diff --stat data/terminal_table.json data/terminal_table.md && git add data/b658_table_final.txt data/b658_table_final.json data/terminal_table.json data/terminal_table.md && git commit -q -m \"b658 pre-root: the terminal table regenerated and diffed against relay HEAD 55b0bc97 (data/b658_table_final.txt: moved 0, added 0, gone 0), and its files as the generator wrote them (data/terminal_table.json, .md): SIDE-explicit-formula's rows read at its main ffbc617 after the merge, their rev cell moved and no grade, profile or provenance. Nothing deposits.\" && git log --oneline -1 | cut -c1-10 && git branch push-b658-root HEAD && PUSH_GATED_LOG=/d/relay/data/b658_relay_root_push_out.txt bash tools/push_gated.sh /d/relay push-b658-root; echo \"exit $?\"",
+   "n": 121
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:36:41.431Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no; git branch push-b658-root HEAD && PUSH_GATED_LOG=/d/relay/data/b658_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b658-root; echo \"exit $?\"",
+   "n": 122
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T00:37:14.800Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && export PYTHONIOENCODING=utf-8 && python tools/b658_record.py root && python tools/b658_record.py root_arm && tail -1 data/act_roots.txt | cut -c1-160 && for f in data/act_roots.txt data/b658_act_root.json data/b658_act_root.txt data/b658_root_arm.txt data/b658_root_arm.json; do test $(tr -cd '\\r' < $f | wc -c) -eq 0 || echo \"CR in $f\"; done; git add data/act_roots.txt data/b658_act_root.json data/b658_act_root.txt data/b658_root_arm.txt data/b658_root_arm.json data/b658_relay_root_push_out.txt data/b658_pp_root_push_out.txt && git commit -q -m \"b658 root: the act root over the act's banks, the seal bank and the runner rows among them, none written CR LF, at relay 3b737af3 (pushed through push_gated.sh from push-b658-root, read back; PLACE-papers 36e90f0 likewise), its previous b657's c2efb920...; the one line appended to data/act_roots.txt; the arm's offline control; the pre-root push captures. Nothing deposits.\" && git log --oneline -1 | cut -c1-9",
+   "n": 123
   }
  ],
  "offences": [

@@ -1,7 +1,7 @@
-b658 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T00:21:10Z)
+b658 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T00:37:44Z)
 
 ### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R268) BEGIN', and its subagents` transcripts
-### commands read: 108
+### commands read: 123
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (2):
   #82 2026-10-12T23:59:07.926Z seat Bash -- R rm without an explicit absolute path
@@ -121,5 +121,20 @@ b658 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READIN
   #106 | 2026-10-13T00:11:38.788Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
   #107 | 2026-10-13T00:14:17.762Z | seat | Bash | sed -i 's/x/x/' /dev/null; python -m py_compile tools/b658_record.py && echo ok; grep -n "structure\`s" tools/b658_record.py | cut -c1-120
   #108 | 2026-10-13T00:14:24.414Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #109 | 2026-10-13T00:21:09.267Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -m py_compile tools/b658_checks.py tools/b658_record.py tools/b658_closing.py tools/b658_regspec.py tools/b658_reg_gate.
+  #110 | 2026-10-13T00:21:19.043Z | seat | Bash | python -c "import json;print(sorted(json.load(open('data/b658_kernels_face.json',encoding='utf-8'))['kernels']))" && git add tools/b658_checks.py tools/b658_clo
+  #111 | 2026-10-13T00:21:26.843Z | seat | Bash | git log --reverse --format='%h %s' 640df77a..HEAD | cut -c1-110; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 3f0e33f..HEAD | cut -c1-110;
+  #112 | 2026-10-13T00:22:52.221Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b658_reg_gate.py | tail -22 | cut -c1-260; python tools/b658_regspec.py | grep -n "PREDICTIONS FOUND\|line \|REFUS
+  #113 | 2026-10-13T00:22:59.309Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $p = Start-Process -FilePa
+  #114 | 2026-10-13T00:23:05.176Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b658_prerun.log"; until grep -q "written: b658_arms_prerun" "
+  #115 | 2026-10-13T00:33:35.396Z | seat | Bash | cat "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/bi10rvey9.output"; grep "THE STATEMENT\|THE RUNNER\|G-EDIT-ROUTE
+  #116 | 2026-10-13T00:33:46.138Z | seat | Bash | git add data/b658_arms_prerun.txt data/b658_lsr_prerun.json data/b658_registration_2026-10-12.txt data/b658_reg_gate.txt data/b658_satisfiable.json && git commi
+  #117 | 2026-10-13T00:33:57.960Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b658_reg_gate.py | grep "DRY-RUN STEP :\|GATE VERDICT\|UNDECLARED\|MISSES" | cut -c1-200; python -c "
+  #118 | 2026-10-13T00:34:05.779Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -c "
+  #119 | 2026-10-13T00:35:47.747Z | seat | Bash | export PYTHONIOENCODING=utf-8 && grep -c "GATES READ : 8. ### PASSING : 8." data/b658_lockgate_notes.txt && python tools/reg_seal.py --lock data/b658_registrati
+  #120 | 2026-10-13T00:35:58.096Z | seat | Bash | export PYTHONIOENCODING=utf-8 && timeout 590 python tools/b658_record.py table_final && git status --short --untracked-files=no
+  #121 | 2026-10-13T00:36:28.772Z | seat | Bash | git diff --stat data/terminal_table.json data/terminal_table.md && git add data/b658_table_final.txt data/b658_table_final.json data/terminal_table.json data/te
+  #122 | 2026-10-13T00:36:41.431Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no; git branch push-b658-root HEAD && PUSH_GATED_LOG=/d/relay/data/b658_pp_root_push_out
+  #123 | 2026-10-13T00:37:14.800Z | seat | Bash | cd /d/relay && export PYTHONIOENCODING=utf-8 && python tools/b658_record.py root && python tools/b658_record.py root_arm && tail -1 data/act_roots.txt | cut -c1
 
-### ### **COMMANDS 108 ; G-EDIT-ROUTE OFFENCES 2 ; LOCAL lean OR lake COMMANDS 0.**
+### ### **COMMANDS 123 ; G-EDIT-ROUTE OFFENCES 2 ; LOCAL lean OR lake COMMANDS 0.**
