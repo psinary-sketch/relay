@@ -1,0 +1,107 @@
+{
+ "at": "2026-10-13T08:19:16Z",
+ "main": "b3916cc",
+ "edits": [
+  {
+   "k": 1,
+   "file": "SIDECarrierSpec/ArithContent.lean",
+   "line": 5,
+   "old": "Adding a ring parameter to\n`CarrierSpec` would re-sign every `v0.2.0` terminal for no gain in binding force — because the\nbinding is done by the `equivariant` field below, which ties the arithmetic operators to the\nspec's own action and closes the bolt-on hole.",
+   "new": "Adding a ring parameter to `CarrierSpec` would re-sign every `v0.2.0` terminal; instead the `equivariant` field below\nties the arithmetic operators to the spec's own action along `link` — a tie that binds only as far as `link` is\nnon-trivial, since `link` is not required to be injective and `link = 0` satisfies it.",
+   "changed": [
+    "13"
+   ]
+  },
+  {
+   "k": 2,
+   "file": "SIDECarrierSpec/ArithContent.lean",
+   "line": 41,
+   "old": "`R` is the candidate's arithmetic structure; `ψ` its prime-indexed operators; `link` and\n`equivariant` tie those operators to the specification's own action, so a candidate **cannot\nsatisfy this field by bolting an unrelated ring onto itself** — the hole the `finPart` defect\nleft open at `components_faithful` is closed here at the point of writing rather than found by a\nlater grading.",
+   "new": "`R` is the candidate's arithmetic structure; `ψ` its prime-indexed operators; `link` and `equivariant` require the\nspecification's action to intertwine with `ψ` along `link` — which excludes a bolted-on ring only when `link` is\nrequired to be non-trivial, and this structure does not require it (`link = 0` satisfies `equivariant`).",
+   "changed": [
+    "2"
+   ]
+  },
+  {
+   "k": 3,
+   "file": "SIDECarrierSpec/ArithContent.lean",
+   "line": 63,
+   "old": "the arithmetic structure sits inside the class object",
+   "new": "an additive map from the arithmetic structure into the class object (not required to be injective)",
+   "changed": [
+    "1"
+   ]
+  },
+  {
+   "k": 4,
+   "file": "SIDECarrierSpec/Grading/DivisorLadder.lean",
+   "line": 55,
+   "old": "**A candidate satisfying `arch_present` can still be archimedean-free in substance.**  The\nwitness is any candidate whose archimedean map factors as above: `arch_present` holds, and yet\nby `archPart_separates_nothing_new` the archimedean place contributes no information the finite\nplaces did not already carry.",
+   "new": "**At `v0.1.0` a candidate satisfying `arch_present` could still be archimedean-free in substance**: for a candidate\nwhose archimedean map factors as above, `arch_present` holds and the archimedean place adds nothing.  Since `v0.2.0` `CarrierSpec` carries `arch_independent`, which contradicts the factoring, so this statement is vacuous\nfor every current candidate.",
+   "changed": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "k": 5,
+   "file": "SIDECarrierSpec/SaltCheck.lean",
+   "line": 68,
+   "old": "The specification's fields are jointly satisfiable, so no theorem stated\nagainst `CarrierSpec` is vacuously true.",
+   "new": "The specification's fields are jointly satisfiable (at `ℤ × ℝ`), so a theorem whose only hypothesis is a `CarrierSpec`\nthere is not vacuously true; a theorem adding a hypothesis that contradicts a field (as a factoring `φ` contradicts\n`arch_independent`) still can be.",
+   "changed": [
+    "2"
+   ]
+  },
+  {
+   "k": 6,
+   "file": "SIDECarrierSpec/SaltCheck.lean",
+   "line": 122,
+   "old": "> **Three sharpenings now — `arch_independent` at `v0.2.0`, `arith_action` at `v0.3.0` — and the\n> same completely degenerate witness passes every one of them.",
+   "new": "> **Two sharpenings now — `arch_independent` at `v0.2.0`, `Δ4` (`ArithContent`) at `v0.3.0` — and the same completely\ndegenerate witness passes both.",
+   "changed": [
+    "4"
+   ]
+  },
+  {
+   "k": 7,
+   "file": "SIDECarrierSpec/SaltCheck.lean",
+   "line": 150,
+   "old": "**The witness declares one\nand remains completely degenerate**, so the fourth sharpening, like the three before it, made the\nspecification harder to satisfy without moving it toward the conclusion.\n\n> **Four sharpenings now.",
+   "new": "The witness declares one and remains completely degenerate, so the third sharpening, like the two before it, made the\nspecification harder to satisfy without moving it toward the conclusion.\n\n> **Three sharpenings now.",
+   "changed": [
+    "4",
+    "5"
+   ]
+  },
+  {
+   "k": 8,
+   "file": "SIDECarrierSpec/Spec.lean",
+   "line": 4,
+   "old": "`Definite`, `Nondegenerate`, `SeesTheZeros` are defined as *predicates on candidates*, never as\nrequirements of the structure.",
+   "new": "`Definite` and `Nondegenerate` are defined as *predicates on candidates*, and `SeesTheZeros` enters only as an opaque\n`Prop` supplied to `ResolvesGenusTension` — none of the three is a requirement of the structure.",
+   "changed": [
+    "13.2"
+   ]
+  },
+  {
+   "k": 9,
+   "file": "SIDECarrierSpec/Spec.lean",
+   "line": 55,
+   "old": "This single field is\n  what excludes the entire characteristic-one / tropical class (see `no_idempotent_candidate`).",
+   "new": "This field collapses every characteristic-one / tropical candidate to the zero object\n  (`trivial_of_idempotent_of_spec`), and with `(R3d)` excludes the class (`no_idempotent_candidate`).",
+   "changed": [
+    "3"
+   ]
+  }
+ ],
+ "planned_sha": {
+  "SIDECarrierSpec/ArithContent.lean": "2b6d8e06b92f1330c01213e1f5ab616855608e90eb69ca777c5d426f1d7f5405",
+  "SIDECarrierSpec/Grading/DivisorLadder.lean": "7e6aca7d88cdc8fe8263b4dfd0cc8c630a0929e0c800d5b93a9f6c7e938a8880",
+  "SIDECarrierSpec/SaltCheck.lean": "ffdea6de65aaac4ca6697f882ccd2c9ccc6adbba50062d59297e10724efe50c9",
+  "SIDECarrierSpec/Spec.lean": "ff481069d350e937bc3734b53f28bc1a8d5cad4b8e1bb9e749288216a65e05a6"
+ },
+ "fails": [],
+ "code_bad": [],
+ "emph_bad": []
+}

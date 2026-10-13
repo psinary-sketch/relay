@@ -1,0 +1,344 @@
+{
+ "at": "2026-10-13T08:19:16Z",
+ "blocks": [
+  {
+   "k": 1,
+   "parent": "SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:5",
+   "file": "SIDECarrierSpec/ArithContent.lean",
+   "line": 5,
+   "bank_line": 10,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "13"
+   ],
+   "verdicts": {
+    "13": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: Adding a ring parameter to `CarrierSpec` would re-sign every `v0.2.0` terminal; instead the `equivariant` field below ties the arithmetic operators to the spec's own action along `link` — a tie that binds only as far as `link` is non-trivial, since `link` is not required to be injective and `link = 0` satisfies it.",
+   "completed": false,
+   "kept": [
+    "# `Δ4` — the arithmetic-content field (`v0.3.0`) **THE ADDITION IS FORCED BY A CANDIDATE, which is the only condition under which the stopping rule permits a refinement.**",
+    "`(R4)` asks that the action be by *endomorphisms*; the second grading showed both canonical objects satisfy it **vacuously** — their power maps are additive endomorphisms carrying no arithmetic whatever.",
+    "**`Δ4` is the field that tells the two apart.**",
+    "**THE CRITERION IS THE FROBENIUS LIFT.**",
+    "A prime-indexed family `ψ_p` with `ψ_p ψ_q = ψ_{pq}`, each a ring endomorphism, satisfying > `ψ_p(x) ≡ x^p (mod p)` **at the structure's mod-`p` reduction.**",
+    "This is the Λ-ring / Witt condition, and it is what \"arithmetic content\" means here: the operators are not merely maps, they *reduce to Frobenius*.",
+    "**ANTI-ENCODING DISCIPLINE, CHECKED AT THE POINT OF WRITING.**",
+    "The field demands the congruence's **expressibility and satisfaction** — a divisibility statement in the structure's own ring — and **nothing about magnitude, sign, order, or positivity.**",
+    "There is no ordered target anywhere in this file.",
+    "`SaltCheck.witness_arith_and_still_degenerate` compiles the consequence: the witness satisfies `Δ4` and remains completely degenerate.",
+    "**WHY IT IS CARRIED BESIDE `CarrierSpec` RATHER THAN INSIDE IT.**",
+    "`Δ4` needs a **commutative ring**; the class object `C` is only an `AddCommMonoid`.",
+    "Adding a ring parameter to `CarrierSpec` would re-sign every `v0.2.0` terminal; instead the `equivariant` field below ties the arithmetic operators to the spec's own action along `link` — a tie that binds only as far as `link` is non-trivial, since `link` is not required to be injective and `link = 0` satisfies it.",
+    "**The reason is recorded so the separation is not read as a weakening.**",
+    "0 sorry, 0 native_decide."
+   ],
+   "dropped": [],
+   "sentences": [
+    "# `Δ4` — the arithmetic-content field (`v0.3.0`) **THE ADDITION IS FORCED BY A CANDIDATE, which is the only condition under which the stopping rule permits a refinement.**",
+    "`(R4)` asks that the action be by *endomorphisms*; the second grading showed both canonical objects satisfy it **vacuously** — their power maps are additive endomorphisms carrying no arithmetic whatever.",
+    "**`Δ4` is the field that tells the two apart.**",
+    "**THE CRITERION IS THE FROBENIUS LIFT.**",
+    "A prime-indexed family `ψ_p` with `ψ_p ψ_q = ψ_{pq}`, each a ring endomorphism, satisfying > `ψ_p(x) ≡ x^p (mod p)` **at the structure's mod-`p` reduction.**",
+    "This is the Λ-ring / Witt condition, and it is what \"arithmetic content\" means here: the operators are not merely maps, they *reduce to Frobenius*.",
+    "**ANTI-ENCODING DISCIPLINE, CHECKED AT THE POINT OF WRITING.**",
+    "The field demands the congruence's **expressibility and satisfaction** — a divisibility statement in the structure's own ring — and **nothing about magnitude, sign, order, or positivity.**",
+    "There is no ordered target anywhere in this file.",
+    "`SaltCheck.witness_arith_and_still_degenerate` compiles the consequence: the witness satisfies `Δ4` and remains completely degenerate.",
+    "**WHY IT IS CARRIED BESIDE `CarrierSpec` RATHER THAN INSIDE IT.**",
+    "`Δ4` needs a **commutative ring**; the class object `C` is only an `AddCommMonoid`.",
+    "Adding a ring parameter to `CarrierSpec` would re-sign every `v0.2.0` terminal for no gain in binding force — because the binding is done by the `equivariant` field below, which ties the arithmetic operators to the spec's own action and closes the bolt-on hole.",
+    "**The reason is recorded so the separation is not read as a weakening.**",
+    "0 sorry, 0 native_decide."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 2,
+   "parent": "SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:41",
+   "file": "SIDECarrierSpec/ArithContent.lean",
+   "line": 41,
+   "bank_line": 15,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "2"
+   ],
+   "verdicts": {
+    "2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: `R` is the candidate's arithmetic structure; `ψ` its prime-indexed operators; `link` and `equivariant` require the specification's action to intertwine with `ψ` along `link` — which excludes a bolted-on ring only when `link` is required to be non-trivial, and this structure does not require it (`link = 0` satisfies `equivariant`).",
+   "completed": false,
+   "kept": [
+    "**`Δ4` — ARITHMETIC CONTENT.**",
+    "`R` is the candidate's arithmetic structure; `ψ` its prime-indexed operators; `link` and `equivariant` require the specification's action to intertwine with `ψ` along `link` — which excludes a bolted-on ring only when `link` is required to be non-trivial, and this structure does not require it (`link = 0` satisfies `equivariant`)."
+   ],
+   "dropped": [],
+   "sentences": [
+    "**`Δ4` — ARITHMETIC CONTENT.**",
+    "`R` is the candidate's arithmetic structure; `ψ` its prime-indexed operators; `link` and `equivariant` tie those operators to the specification's own action, so a candidate **cannot satisfy this field by bolting an unrelated ring onto itself** — the hole the `finPart` defect left open at `components_faithful` is closed here at the point of writing rather than found by a later grading."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 3,
+   "parent": "SIDE-carrier-spec@b3916cc:SIDECarrierSpec/ArithContent.lean:63",
+   "file": "SIDECarrierSpec/ArithContent.lean",
+   "line": 63,
+   "bank_line": 20,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "1"
+   ],
+   "verdicts": {
+    "1": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: an additive map from the arithmetic structure into the class object (not required to be injective)",
+   "completed": false,
+   "kept": [
+    "an additive map from the arithmetic structure into the class object (not required to be injective)"
+   ],
+   "dropped": [],
+   "sentences": [
+    "the arithmetic structure sits inside the class object"
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 4,
+   "parent": "SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Grading/DivisorLadder.lean:55",
+   "file": "SIDECarrierSpec/Grading/DivisorLadder.lean",
+   "line": 55,
+   "bank_line": 25,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "1",
+    "2"
+   ],
+   "verdicts": {
+    "1": "OVERREACHES",
+    "2": "OVERREACHES"
+   },
+   "row_actions": {
+    "1": "**At `v0.1.0` a candidate satisfying `arch_present` could still be archimedean-free in substance**: for a candidate whose archimedean map factors as above, `arch_present` holds and the archimedean place adds nothing.",
+    "2": "Since `v0.2.0` `CarrierSpec` carries `arch_independent`, which contradicts the factoring, so this statement is vacuous for every current candidate."
+   },
+   "action": "RE-CUT: **At `v0.1.0` a candidate satisfying `arch_present` could still be archimedean-free in substance**: for a candidate whose archimedean map factors as above, `arch_present` holds and the archimedean place adds nothing. Since `v0.2.0` `CarrierSpec` carries `arch_independent`, which contradicts the factoring, so this statement is vacuous for every current candidate.",
+   "completed": false,
+   "kept": [
+    "**At `v0.1.0` a candidate satisfying `arch_present` could still be archimedean-free in substance**: for a candidate whose archimedean map factors as above, `arch_present` holds and the archimedean place adds nothing.",
+    "Since `v0.2.0` `CarrierSpec` carries `arch_independent`, which contradicts the factoring, so this statement is vacuous for every current candidate.",
+    "DERIVES."
+   ],
+   "dropped": [],
+   "sentences": [
+    "**A candidate satisfying `arch_present` can still be archimedean-free in substance.**",
+    "The witness is any candidate whose archimedean map factors as above: `arch_present` holds, and yet by `archPart_separates_nothing_new` the archimedean place contributes no information the finite places did not already carry.",
+    "DERIVES."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 5,
+   "parent": "SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:68",
+   "file": "SIDECarrierSpec/SaltCheck.lean",
+   "line": 68,
+   "bank_line": 30,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "2"
+   ],
+   "verdicts": {
+    "2": "OVERREACHES"
+   },
+   "row_actions": {
+    "2": "The specification's fields are jointly satisfiable (at `ℤ × ℝ`), so a theorem whose only hypothesis is a `CarrierSpec` there is not vacuously true; a theorem adding a hypothesis that contradicts a field (as a factoring `φ` contradicts `arch_independent`) still can be."
+   },
+   "action": "RE-CUT: **NON-VACUITY.**  The specification's fields are jointly satisfiable (at `ℤ × ℝ`), so a theorem whose only hypothesis is a `CarrierSpec` there is not vacuously true; a theorem adding a hypothesis that contradicts a field (as a factoring `φ` contradicts `arch_independent`) still can be.",
+   "completed": false,
+   "kept": [
+    "**NON-VACUITY.**",
+    "The specification's fields are jointly satisfiable (at `ℤ × ℝ`), so a theorem whose only hypothesis is a `CarrierSpec` there is not vacuously true; a theorem adding a hypothesis that contradicts a field (as a factoring `φ` contradicts `arch_independent`) still can be."
+   ],
+   "dropped": [],
+   "sentences": [
+    "**NON-VACUITY.**",
+    "The specification's fields are jointly satisfiable, so no theorem stated against `CarrierSpec` is vacuously true."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 6,
+   "parent": "SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:122",
+   "file": "SIDECarrierSpec/SaltCheck.lean",
+   "line": 122,
+   "bank_line": 35,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "4"
+   ],
+   "verdicts": {
+    "4": "OVERREACHES"
+   },
+   "row_actions": {
+    "4": "> **Two sharpenings now — `arch_independent` at `v0.2.0`, `Δ4` (`ArithContent`) at `v0.3.0` — and the same completely degenerate witness passes both."
+   },
+   "action": "RE-CUT: > **Two sharpenings now — `arch_independent` at `v0.2.0`, `Δ4` (`ArithContent`) at `v0.3.0` — and the same completely degenerate witness passes both.  The specification has become strictly harder to satisfy and has not moved one step toward the conclusion.**",
+   "completed": false,
+   "kept": [
+    "**THE ANTI-ENCODING CHECK, RE-RUN AGAINST THE `v0.3.0` SHARPENING.**",
+    "`Δ4` had to be checked for the `W-2` trap at the moment it was written: it demands a *congruence*, which is an equality-shaped statement in a ring, and mentions **no order, no sign and no positivity anywhere.**",
+    "So it cannot imply definiteness — **and the witness proves it, by satisfying the sharpened specification while separating nothing at all.**",
+    "> **Two sharpenings now — `arch_independent` at `v0.2.0`, `Δ4` (`ArithContent`) at `v0.3.0` — and the same completely degenerate witness passes both.",
+    "The specification has become > strictly harder to satisfy and has not moved one step toward the conclusion.**"
+   ],
+   "dropped": [],
+   "sentences": [
+    "**THE ANTI-ENCODING CHECK, RE-RUN AGAINST THE `v0.3.0` SHARPENING.**",
+    "`Δ4` had to be checked for the `W-2` trap at the moment it was written: it demands a *congruence*, which is an equality-shaped statement in a ring, and mentions **no order, no sign and no positivity anywhere.**",
+    "So it cannot imply definiteness — **and the witness proves it, by satisfying the sharpened specification while separating nothing at all.**",
+    "> **Three sharpenings now — `arch_independent` at `v0.2.0`, `arith_action` at `v0.3.0` — and the > same completely degenerate witness passes every one of them.",
+    "The specification has become > strictly harder to satisfy and has not moved one step toward the conclusion.**"
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 7,
+   "parent": "SIDE-carrier-spec@b3916cc:SIDECarrierSpec/SaltCheck.lean:150",
+   "file": "SIDECarrierSpec/SaltCheck.lean",
+   "line": 150,
+   "bank_line": 40,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "4",
+    "5"
+   ],
+   "verdicts": {
+    "4": "OVERREACHES",
+    "5": "OVERREACHES"
+   },
+   "row_actions": {
+    "4": "The witness declares one and remains completely degenerate, so the third sharpening, like the two before it, made the specification harder to satisfy without moving it toward the conclusion.",
+    "5": "> **Three sharpenings now."
+   },
+   "action": "RE-CUT: The witness declares one and remains completely degenerate, so the third sharpening, like the two before it, made the specification harder to satisfy without moving it toward the conclusion.  > **Three sharpenings now.  The same degenerate witness passes every one.**",
+   "completed": false,
+   "kept": [
+    "**THE ANTI-ENCODING CHECK, RE-RUN AGAINST THE `v0.4.0` LEVEL DISCIPLINE.**",
+    "The level discipline demands that a descent be **declared**.",
+    "It says nothing about the descent being **good** — no order, no sign, no non-degeneracy, no positivity.",
+    "The witness declares one and remains completely degenerate, so the third sharpening, like the two before it, made the specification harder to satisfy without moving it toward the conclusion.",
+    "> **Three sharpenings now.",
+    "The same degenerate witness passes every one.**"
+   ],
+   "dropped": [],
+   "sentences": [
+    "**THE ANTI-ENCODING CHECK, RE-RUN AGAINST THE `v0.4.0` LEVEL DISCIPLINE.**",
+    "The level discipline demands that a descent be **declared**.",
+    "It says nothing about the descent being **good** — no order, no sign, no non-degeneracy, no positivity.",
+    "**The witness declares one and remains completely degenerate**, so the fourth sharpening, like the three before it, made the specification harder to satisfy without moving it toward the conclusion.",
+    "> **Four sharpenings now.",
+    "The same degenerate witness passes every one.**"
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 8,
+   "parent": "SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:4",
+   "file": "SIDECarrierSpec/Spec.lean",
+   "line": 4,
+   "bank_line": 45,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "13.2"
+   ],
+   "verdicts": {
+    "13.2": "OVERREACHES"
+   },
+   "row_actions": {},
+   "action": "RE-CUT: `Definite` and `Nondegenerate` are defined as *predicates on candidates*, and `SeesTheZeros` enters only as an opaque `Prop` supplied to `ResolvesGenusTension` — none of the three is a requirement of the structure.",
+   "completed": false,
+   "kept": [
+    "# `CarrierSpec` — the certified specification of a candidate carrier **GRADE OF THIS FILE: MODEL, NOT DERIVES.**",
+    "Every declaration below *encodes* a requirement that was accumulated by the `W-ORD-SURFACE-SURVEY` from external sources at cite.",
+    "Nothing here derives those requirements, and nothing here constructs an object satisfying them.",
+    "**WHAT THIS FILE IS FOR.**",
+    "It **grades candidates**.",
+    "A proposed carrier either supplies these fields or it does not, and when it does not, the failure is located at a *named field* instead of in prose.",
+    "The survey's roster failed at six different places; this structure is the attempt to make \"where it failed\" a machine-checkable question.",
+    "**WHAT THIS FILE IS NOT.**",
+    "It is not a construction, not a route, and not a step toward one.",
+    "It attempts nothing whatever on the clause.",
+    "A candidate satisfying `CarrierSpec` in full is *not* thereby a solution to anything — see `SaltCheck.witness`, which satisfies every field and is completely degenerate.",
+    "That witness is compiled precisely so this sentence cannot be mistaken for modesty.",
+    "## The five requirement fields, and their sources | field | requirement | source (external, at cite) | |:--|:--|:--| | `cancel` | cancellativity is the door predicate | `arXiv:1502.05580` Lemma 2.3 (*\"simplifiable\"*) | | `neg` / `add_neg` | signed classes | the symmetrization requirement | | `finPart` / `archPart` | ℤ at finite places, ℝ at ∞, **fused in one object** | `arXiv:2205.01391` (Arakelov divisors) | | `act` | the action is by **endomorphisms, not translations** | `arXiv:2602.15941` (*\"a decisive departure\"*) | | `pair` | a biadditive pairing into an ordered target | the absence itself | ## The three open slots, and why they are NOT fields",
+    "`Definite` and `Nondegenerate` are defined as *predicates on candidates*, and `SeesTheZeros` enters only as an opaque `Prop` supplied to `ResolvesGenusTension` — none of the three is a requirement of the structure.",
+    "**Making definiteness a field would encode the conclusion** — positive-definiteness of the pairing is the thing the clause needs *proved*, and a specification that assumes it grades every candidate as a success.",
+    "This is the `W-2` trap in its exact form, and it is refused here at birth rather than caught later.",
+    "0 sorry, 0 native_decide."
+   ],
+   "dropped": [],
+   "sentences": [
+    "# `CarrierSpec` — the certified specification of a candidate carrier **GRADE OF THIS FILE: MODEL, NOT DERIVES.**",
+    "Every declaration below *encodes* a requirement that was accumulated by the `W-ORD-SURFACE-SURVEY` from external sources at cite.",
+    "Nothing here derives those requirements, and nothing here constructs an object satisfying them.",
+    "**WHAT THIS FILE IS FOR.**",
+    "It **grades candidates**.",
+    "A proposed carrier either supplies these fields or it does not, and when it does not, the failure is located at a *named field* instead of in prose.",
+    "The survey's roster failed at six different places; this structure is the attempt to make \"where it failed\" a machine-checkable question.",
+    "**WHAT THIS FILE IS NOT.**",
+    "It is not a construction, not a route, and not a step toward one.",
+    "It attempts nothing whatever on the clause.",
+    "A candidate satisfying `CarrierSpec` in full is *not* thereby a solution to anything — see `SaltCheck.witness`, which satisfies every field and is completely degenerate.",
+    "That witness is compiled precisely so this sentence cannot be mistaken for modesty.",
+    "## The five requirement fields, and their sources | field | requirement | source (external, at cite) | |:--|:--|:--| | `cancel` | cancellativity is the door predicate | `arXiv:1502.05580` Lemma 2.3 (*\"simplifiable\"*) | | `neg` / `add_neg` | signed classes | the symmetrization requirement | | `finPart` / `archPart` | ℤ at finite places, ℝ at ∞, **fused in one object** | `arXiv:2205.01391` (Arakelov divisors) | | `act` | the action is by **endomorphisms, not translations** | `arXiv:2602.15941` (*\"a decisive departure\"*) | | `pair` | a biadditive pairing into an ordered target | the absence itself | ## The three open slots, and why they are NOT fields `Definite`, `Nondegenerate`, `SeesTheZeros` are defined as *predicates on candidates*, never as requirements of the structure.",
+    "**Making definiteness a field would encode the conclusion** — positive-definiteness of the pairing is the thing the clause needs *proved*, and a specification that assumes it grades every candidate as a success.",
+    "This is the `W-2` trap in its exact form, and it is refused here at birth rather than caught later.",
+    "0 sorry, 0 native_decide."
+   ],
+   "split": [],
+   "premise": null
+  },
+  {
+   "k": 9,
+   "parent": "SIDE-carrier-spec@b3916cc:SIDECarrierSpec/Spec.lean:55",
+   "file": "SIDECarrierSpec/Spec.lean",
+   "line": 55,
+   "bank_line": 50,
+   "verdict": "OVERREACHES",
+   "graded": [
+    "3"
+   ],
+   "verdicts": {
+    "3": "OVERREACHES"
+   },
+   "row_actions": {
+    "3": "This field collapses every characteristic-one / tropical candidate to the zero object (`trivial_of_idempotent_of_spec`), and with `(R3d)` excludes the class (`no_idempotent_candidate`)."
+   },
+   "action": "RE-CUT: **(R1) THE DOOR PREDICATE — cancellativity.**  MODEL of the external criterion: the symmetrization construction works exactly on *simplifiable* semigroups.  This field collapses every characteristic-one / tropical candidate to the zero object (`trivial_of_idempotent_of_spec`), and with `(R3d)` excludes the class (`no_idempotent_candidate`).",
+   "completed": false,
+   "kept": [
+    "**(R1) THE DOOR PREDICATE — cancellativity.**",
+    "MODEL of the external criterion: the symmetrization construction works exactly on *simplifiable* semigroups.",
+    "This field collapses every characteristic-one / tropical candidate to the zero object (`trivial_of_idempotent_of_spec`), and with `(R3d)` excludes the class (`no_idempotent_candidate`)."
+   ],
+   "dropped": [],
+   "sentences": [
+    "**(R1) THE DOOR PREDICATE — cancellativity.**",
+    "MODEL of the external criterion: the symmetrization construction works exactly on *simplifiable* semigroups.",
+    "This single field is what excludes the entire characteristic-one / tropical class (see `no_idempotent_candidate`)."
+   ],
+   "split": [],
+   "premise": null
+  }
+ ]
+}

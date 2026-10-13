@@ -1,0 +1,44 @@
+b662 -- COMPONENT 4, (R272)(6): THE CUT PLANNED ON SIDE-carrier-spec`S MAIN BLOBS AT b3916cc (2026-10-13T08:19:16Z)
+
+### from relay data/b662_sentence_grades.txt (rows are sentences, parents are blocks) and its hand grades; each graded block`s rows located in
+### order in its file from the block`s line at main; each changed row replaced in its span by its slot`s kept output, wrapped at the line`s
+### indent; one edit per block.
+### files 4 ; edits 9 ; rows located ALL ; regions not unique NONE ; files whose comment-stripped code differs from main`s NONE ; files whose comment blocks` emphasis parity moves NONE
+
+== #1 SIDECarrierSpec/ArithContent.lean:5 (rows changed s13)
+   OLD: Adding a ring parameter to | `CarrierSpec` would re-sign every `v0.2.0` terminal for no gain in binding force — because the | binding is done by the `equivariant` field below, which ties the arithmetic operators to the | spec's own action and closes the bolt-on hole.
+   NEW: Adding a ring parameter to `CarrierSpec` would re-sign every `v0.2.0` terminal; instead the `equivariant` field below | ties the arithmetic operators to the spec's own action along `link` — a tie that binds only as far as `link` is | non-trivial, since `link` is not required to be injective and `link = 0` satisfies it.
+
+== #2 SIDECarrierSpec/ArithContent.lean:41 (rows changed s2)
+   OLD: `R` is the candidate's arithmetic structure; `ψ` its prime-indexed operators; `link` and | `equivariant` tie those operators to the specification's own action, so a candidate **cannot | satisfy this field by bolting an unrelated ring onto itself** — the hole the `finPart` defect | left open at `components_faithful` is closed here at the point of writing rather than found by a | later grading.
+   NEW: `R` is the candidate's arithmetic structure; `ψ` its prime-indexed operators; `link` and `equivariant` require the | specification's action to intertwine with `ψ` along `link` — which excludes a bolted-on ring only when `link` is | required to be non-trivial, and this structure does not require it (`link = 0` satisfies `equivariant`).
+
+== #3 SIDECarrierSpec/ArithContent.lean:63 (rows changed s1)
+   OLD: the arithmetic structure sits inside the class object
+   NEW: an additive map from the arithmetic structure into the class object (not required to be injective)
+
+== #4 SIDECarrierSpec/Grading/DivisorLadder.lean:55 (rows changed s1, s2)
+   OLD: **A candidate satisfying `arch_present` can still be archimedean-free in substance.**  The | witness is any candidate whose archimedean map factors as above: `arch_present` holds, and yet | by `archPart_separates_nothing_new` the archimedean place contributes no information the finite | places did not already carry.
+   NEW: **At `v0.1.0` a candidate satisfying `arch_present` could still be archimedean-free in substance**: for a candidate | whose archimedean map factors as above, `arch_present` holds and the archimedean place adds nothing.  Since `v0.2.0` `CarrierSpec` carries `arch_independent`, which contradicts the factoring, so this statement is vacuous | for every current candidate.
+
+== #5 SIDECarrierSpec/SaltCheck.lean:68 (rows changed s2)
+   OLD: The specification's fields are jointly satisfiable, so no theorem stated | against `CarrierSpec` is vacuously true.
+   NEW: The specification's fields are jointly satisfiable (at `ℤ × ℝ`), so a theorem whose only hypothesis is a `CarrierSpec` | there is not vacuously true; a theorem adding a hypothesis that contradicts a field (as a factoring `φ` contradicts | `arch_independent`) still can be.
+
+== #6 SIDECarrierSpec/SaltCheck.lean:122 (rows changed s4)
+   OLD: > **Three sharpenings now — `arch_independent` at `v0.2.0`, `arith_action` at `v0.3.0` — and the | > same completely degenerate witness passes every one of them.
+   NEW: > **Two sharpenings now — `arch_independent` at `v0.2.0`, `Δ4` (`ArithContent`) at `v0.3.0` — and the same completely | degenerate witness passes both.
+
+== #7 SIDECarrierSpec/SaltCheck.lean:150 (rows changed s4, s5)
+   OLD: **The witness declares one | and remains completely degenerate**, so the fourth sharpening, like the three before it, made the | specification harder to satisfy without moving it toward the conclusion. |  | > **Four sharpenings now.
+   NEW: The witness declares one and remains completely degenerate, so the third sharpening, like the two before it, made the | specification harder to satisfy without moving it toward the conclusion. |  | > **Three sharpenings now.
+
+== #8 SIDECarrierSpec/Spec.lean:4 (rows changed s13.2)
+   OLD: `Definite`, `Nondegenerate`, `SeesTheZeros` are defined as *predicates on candidates*, never as | requirements of the structure.
+   NEW: `Definite` and `Nondegenerate` are defined as *predicates on candidates*, and `SeesTheZeros` enters only as an opaque | `Prop` supplied to `ResolvesGenusTension` — none of the three is a requirement of the structure.
+
+== #9 SIDECarrierSpec/Spec.lean:55 (rows changed s3)
+   OLD: This single field is |   what excludes the entire characteristic-one / tropical class (see `no_idempotent_candidate`).
+   NEW: This field collapses every characteristic-one / tropical candidate to the zero object |   (`trivial_of_idempotent_of_spec`), and with `(R3d)` excludes the class (`no_idempotent_candidate`).
+
+### ### **FILES 4 ; EDITS 9 ; LOCATION FAILURES 0 ; CODE OUTSIDE COMMENTS CHANGED IN 0 FILES ; EMPHASIS PARITY MOVED IN 0 FILES.**
