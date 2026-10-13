@@ -817,8 +817,41 @@ def c4(*a):
          check=[('OPEN_TRAILS.md', K.FT_LINE, 'W-ORD-FT-FIRST-ORDER')], dry='dry' in a)
 
 
+def merged(*a):
+    """`merged <merge sha> <tag>`: the merge stage's row carries the merge and its tag, after main and the tag are read back at the remote by
+    push_gated.sh (its capture data/b665_merge_push_out.txt); the merge's parents, the merged tree against the built tree, the tag's peel and
+    the sorry count of the act's kernel files at main, read here; banked as data/b665_merge.txt and into data/b665_runner_rows.json."""
+    sha, tag = a[:2]
+    j = jl('b665_runner_rows.json')
+    built = None
+    for r in j['rows']:
+        if r['stage'] == 'merge':
+            r['merged'], r['tag'] = sha, tag
+            built = r['ref']
+    parents = g(K.KD, 'log', '-1', '--format=%P', sha).split()
+    t_main, t_built = g(K.KD, 'rev-parse', sha + '^{tree}').strip(), g(K.KD, 'rev-parse', (built or '') + '^{tree}').strip()
+    peel = g(K.KD, 'rev-parse', '%s^{commit}' % tag).strip()
+    kf = read_kernel_files()
+    sorry_main = dict((f, len(re.findall(r'\bsorry\b', _show(K.KD, sha, f) or ''))) for f, _b in kf)
+    cap = rdn('b665_merge_push_out.txt')
+    j['merge'] = dict(sha=sha, parents=parents, tree_equal=(t_main == t_built and bool(t_main)), tag=tag, tag_peeled=peel, sorry_main=sorry_main,
+                      push_done='DONE -- main and 1 tag(s) pushed and read back' in cap)
+    put_json('b665_runner_rows.json', j)
+    L = ['b665 -- COMPONENT 5, (R275)(4)-(5): THE MERGE (%s)' % utc(), '',
+         '### %s main %s, parents %s (the kernel`s main before the act %s; the merge tree %s), merged alone' % (K.KERNEL, sha[:7], ' '.join(p[:7] for p in parents),
+                                                                                                         K.K_MAIN, (built or '')[:7]),
+         '### the merged tree against the built tree (run 38452047820): %s' % ('EQUAL' if j['merge']['tree_equal'] else '### NOT EQUAL'),
+         '### the tag %s, made by push_gated.sh at the read-back, peeled %s ; the capture: %s' % (tag, peel[:7], 'DONE, main and the tag read back'
+                                                                                               if j['merge']['push_done'] else '### NOT DONE'),
+         '### sorry in the act`s kernel files at main: %s' % sorry_main,
+         '### ### **MERGED %s ; TAG %s PEELED %s ; MERGED TREE = BUILT TREE %s ; SORRY ON MAIN %d.**' % (sha[:7], tag, peel[:7], j['merge']['tree_equal'],
+                                                                                                     sum(sorry_main.values()))]
+    put_txt('b665_merge.txt', L)
+    print(L[-1])
+
+
 ROUTES = {'c1': c1, 'answers': answers, 'statement': statement, 'runner': runner, 'landings': landings, 'attempt': attempt, 'control': control,
-          'c4': c4}
+          'c4': c4, 'merged': merged}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
