@@ -1,7 +1,7 @@
-b659 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T02:24:11Z)
+b659 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T02:36:55Z)
 
 ### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R269) BEGIN', and its subagents` transcripts
-### commands read: 54
+### commands read: 68
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -64,5 +64,19 @@ b659 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READIN
   #52 | 2026-10-13T02:18:37.792Z | seat | Bash | sed -n '/^def sources/,/^    return S$/p' tools/b658_checks.py | wc -l; grep -n "^ARMS = \[" tools/b658_checks.py
   #53 | 2026-10-13T02:22:00.264Z | seat | Bash | sed -n 1,20p tools/b658_closing.py | head -3; grep -n "b658\|R268\|SIDE-explicit-formula\|e1cfg\|SPLITTER\|STATEMENT\|LANDING" tools/b658_closing.py | cut -c1-1
   #54 | 2026-10-13T02:24:10.122Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -m py_compile tools/b659_checks.py tools/b659_record.py tools/b659_closing.py tools/b659_regspec.py tools/b659_reg_gate.
+  #55 | 2026-10-13T02:24:21.347Z | seat | Bash | git add tools/b659_checks.py tools/b659_closing.py tools/b659_regspec.py tools/b659_reg_gate.py tools/b659_record.py tools/b659_worklist.py data/b659_author_ans
+  #56 | 2026-10-13T02:24:29.952Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #57 | 2026-10-13T02:25:44.054Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b659_reg_gate.py | grep "ENTRY :\|TRAIL :\|DRY-RUN STEP :\|GATE VERDICT\|UNDECLARED\|MISSES\|exit code\|odd backti
+  #58 | 2026-10-13T02:25:54.714Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b659_reg_gate.py | grep "DRY-RUN STEP :\|GATE VERDICT\|UNDECLARED" | cut -c1-200
+  #59 | 2026-10-13T02:26:00.615Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $p = Start-Process -FilePa
+  #60 | 2026-10-13T02:26:04.033Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b659_prerun.log"; sleep 3; P=$(powershell -NoProfile -Command
+  #61 | 2026-10-13T02:34:38.247Z | seat | Bash | git add data/b659_arms_prerun.txt data/b659_lsr_prerun.json data/b659_registration_2026-10-13.txt data/b659_reg_gate.txt data/b659_satisfiable.json && git commi
+  #62 | 2026-10-13T02:34:46.898Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b659_reg_gate.py | grep "DRY-RUN STEP :\|GATE VERDICT\|UNDECLARED" | cut -c1-200; python -c "
+  #63 | 2026-10-13T02:34:55.445Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -c "
+  #64 | 2026-10-13T02:35:08.494Z | seat | Bash | export PYTHONIOENCODING=utf-8 && grep -c "GATES READ : 8. ### PASSING : 8." data/b659_lockgate_notes.txt && python tools/reg_seal.py --lock data/b659_registrati
+  #65 | 2026-10-13T02:35:15.694Z | seat | Bash | export PYTHONIOENCODING=utf-8 && timeout 590 python tools/b659_record.py table_final && git status --short --untracked-files=no
+  #66 | 2026-10-13T02:35:44.516Z | seat | Bash | git add data/b659_table_final.txt data/b659_table_final.json data/terminal_table.json data/terminal_table.md && git commit -q -m "b659 pre-root: the terminal ta
+  #67 | 2026-10-13T02:35:45.793Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no; git branch push-b659-root HEAD && PUSH_GATED_LOG=/d/relay/data/b659_pp_root_push_out
+  #68 | 2026-10-13T02:36:26.607Z | seat | Bash | cd /d/relay && export PYTHONIOENCODING=utf-8 && python tools/b659_record.py root && python tools/b659_record.py root_arm && tail -1 data/act_roots.txt | cut -c1
 
-### ### **COMMANDS 54 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
+### ### **COMMANDS 68 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**

@@ -1,5 +1,5 @@
 {
- "at": "2026-10-13T02:24:11Z",
+ "at": "2026-10-13T02:36:55Z",
  "anchor": "RULING (R269) BEGIN",
  "rows": [
   {
@@ -379,6 +379,104 @@
    "src": "seat",
    "cmd": "export PYTHONIOENCODING=utf-8 && python -m py_compile tools/b659_checks.py tools/b659_record.py tools/b659_closing.py tools/b659_regspec.py tools/b659_reg_gate.py tools/b659_worklist.py && python tools/b659_record.py answers && python tools/b659_record.py commands && python tools/b659_record.py kernels && python tools/b659_record.py defects",
    "n": 54
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:24:21.347Z",
+   "src": "seat",
+   "cmd": "git add tools/b659_checks.py tools/b659_closing.py tools/b659_regspec.py tools/b659_reg_gate.py tools/b659_record.py tools/b659_worklist.py data/b659_author_answers.txt data/b659_author_answers.json data/b659_commands.txt data/b659_commands.json data/b659_kernels_face.json data/b659_defects.txt data/b659_defects.json && git commit -q -m \"b659 Component 4 under (R269): the suite (tools/b659_checks.py: b658's standing arms carried less its own arms over its own banks, the runner arms reading this kernel's run, nine arms over this act's banks), the closing, the registration gate with its dry-run step and the spec by the Write tool; the record tool's late routes and the mirror routes by the Edit tool; the answers, commands (0 offences), kernels-face and defects banks (defect (a), the navigator's). Nothing deposits.\" && git log --oneline -1 | cut -c1-9; git log --reverse --format='%h %s' 8b7d2901..HEAD | cut -c1-80; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 5871eaa..HEAD | cut -c1-80",
+   "n": 55
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:24:29.952Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x']\nimport b659_checks as C, b659_worklist as K\nnames=[a[0] for a in C.ARMS]\nprint(len(names),'arms; standing',len(C.STANDING),'carried',len(set(names)&set(C.STANDING)),'not carried',sorted(set(C.STANDING)-set(names)),'beyond',sorted(set(names)-set(C.STANDING)-set(K.ACT_ARMS)))\ns=' '.join('\\`%s\\`'%n for n in names)\nimport textwrap; print(chr(10).join('### '+l for l in textwrap.wrap(s,136)))\"",
+   "n": 56
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:25:44.054Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b659_reg_gate.py | grep \"ENTRY :\\|TRAIL :\\|DRY-RUN STEP :\\|GATE VERDICT\\|UNDECLARED\\|MISSES\\|exit code\\|odd backticks\\|missing\" | cut -c1-300; python tools/b659_regspec.py | grep -n \"PREDICTIONS FOUND\\|line \\|REFUSED\\|PLANTED ROWS\\|      [A-Z][A-Z]\" | cut -c1-200",
+   "n": 57
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:25:54.714Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b659_reg_gate.py | grep \"DRY-RUN STEP :\\|GATE VERDICT\\|UNDECLARED\" | cut -c1-200",
+   "n": 58
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T02:26:00.615Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; $sp='C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad'; $p = Start-Process -FilePath python -ArgumentList 'tools/b659_checks.py','--prerun' -WorkingDirectory 'D:\\relay' -WindowStyle Hidden -RedirectStandardOutput \"$sp\\b659_prerun.log\" -RedirectStandardError \"$sp\\b659_prerun.err\" -PassThru; \"PID \" + $p.Id",
+   "n": 59
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:26:04.033Z",
+   "src": "seat",
+   "cmd": "L=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b659_prerun.log\"; sleep 3; P=$(powershell -NoProfile -Command \"(Get-CimInstance Win32_Process | Where-Object { \\$_.CommandLine -like '*b659_checks.py*--prerun*' } | Select-Object -First 1).ProcessId\"); for i in $(seq 1 36); do if grep -q \"written: b659_arms_prerun\" \"$L\" 2>/dev/null; then break; fi; if ! tasklist //FI \"PID eq $P\" | grep -q \"$P\"; then echo EXITED; break; fi; sleep 15; done; grep \"FAILS\\|DEFECTIVE\\|raised\\|ARMS RUN\\|NEGATIVE\\|written\\|standing arms not\\|declared not\\|run not\\|offences\" \"$L\" | cut -c1-300; tail -3 \"${L%.log}.err\"",
+   "n": 60
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:34:38.247Z",
+   "src": "seat",
+   "cmd": "git add data/b659_arms_prerun.txt data/b659_lsr_prerun.json data/b659_registration_2026-10-13.txt data/b659_reg_gate.txt data/b659_satisfiable.json && git commit -q -m \"b659 Component 4 under (R269): the face drafted (data/b659_registration_2026-10-13.txt, not yet locked), the gate run with its dry-run step (CLEAN, the gate CLEAR after the (D) paragraph's pre-push and post-push declaration), the spec emitted (nine planted rows read, six controls refused, no prediction), and the pre-run (R202)(3) (data/b659_arms_prerun.txt): 77 arms, 54 passing, G-AXIOM-CLAIM (SIDE-cosmo) failing on real state as the face declares it, G-EDIT-ROUTE passing, the rest reading the lock, the seal, the table, the root and the record not yet written; no positive control passing. Nothing deposits.\" && git log --oneline -1 | cut -c1-9",
+   "n": 61
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:34:46.898Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python tools/b659_reg_gate.py | grep \"DRY-RUN STEP :\\|GATE VERDICT\\|UNDECLARED\" | cut -c1-200; python -c \"\nimport subprocess,sys\nr=subprocess.run([sys.executable,'tools/banned_terms.py','--new','data/b659_registration_2026-10-13.txt'],capture_output=True)\nopen('data/b659_reg_termscan.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nr=subprocess.run([sys.executable,'tools/b659_regspec.py'],capture_output=True)\nopen('data/b659_regspec_run.txt','wb').write((r.stdout+r.stderr).replace(b'\\r\\n',b'\\n'))\nprint('regspec rc',r.returncode)\"; grep \"VERDICT\" data/b659_reg_termscan.txt; grep -n \"PREDICTIONS FOUND\\|NON-ZERO\" data/b659_regspec_run.txt | cut -c1-160; python tools/reg_satisfiable.py data/b659_satisfiable.json --emit b659 > /dev/null 2>&1; grep -n \"VERDICT\" data/audit_b659_reg_satisfiable.txt | head -2",
+   "n": 62
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:34:55.445Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -c \"\nimport subprocess,sys\nfor tool,out in (('b307_handoff_census.py','b659_census_stepzero.txt'),('b327_faces_census.py','b659_faces_census_stepzero.txt'),('b303_pins.py','b659_pins_stepzero.txt')):\n    r=subprocess.run([sys.executable,'tools/'+tool,'b659'],capture_output=True)\n    b=(r.stdout+r.stderr).replace(b'\\r\\n',b'\\n')\n    open('data/'+out,'wb').write(b); print(out,'rc',r.returncode,'CR',b.count(b'\\r'))\n\"; grep -h \"TOTAL MISSING\\|HARD-FAILING\" data/b659_census_stepzero.txt data/b659_faces_census_stepzero.txt data/b659_pins_stepzero.txt | head; python -c \"\nimport sys; sys.path.insert(0,'tools'); import gate_hash as G\nF='data/b659_registration_2026-10-13.txt'\nfor r in ('data/b659_reg_gate.txt','data/b659_reg_termscan.txt','data/b659_regspec_run.txt','data/audit_b659_reg_satisfiable.txt'):\n    print(r, G.stamp(r,F)[:16], G.matches(r,F)[0])\n\" && python tools/b378_lockgate.py b659 data/b659_registration_2026-10-13.txt 2>&1 | tail -4",
+   "n": 63
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:35:08.494Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && grep -c \"GATES READ : 8. ### PASSING : 8.\" data/b659_lockgate_notes.txt && python tools/reg_seal.py --lock data/b659_registration_2026-10-13.txt 2>&1 | tail -2 && python tools/reg_seal.py --verify data/b659_registration_2026-10-13.txt 2>&1 | grep -i \"intact\" && python -m py_compile tools/b659_checks.py tools/b659_record.py tools/b659_closing.py && python tools/b659_checks.py --seal | tail -2 && for f in data/b659_registration_2026-10-13.txt data/b659_reg_gate.txt data/b659_reg_termscan.txt data/b659_regspec_run.txt data/b659_satisfiable.json data/audit_b659_reg_satisfiable.txt data/b659_lockgate.json data/b659_lockgate_notes.txt data/b659_seal_hashes.json data/b659_census_stepzero.txt data/b659_faces_census_stepzero.txt data/b659_pins_stepzero.txt; do test $(tr -cd '\\r' < $f | wc -c) -eq 0 || echo \"CR in $f\"; done; git add data/b659_registration_2026-10-13.txt data/b659_reg_gate.txt data/b659_reg_termscan.txt data/b659_regspec_run.txt data/b659_satisfiable.json data/audit_b659_reg_satisfiable.txt data/b659_lockgate.json data/b659_lockgate_notes.txt data/b659_seal_hashes.json data/b659_census_stepzero.txt data/b659_faces_census_stepzero.txt data/b659_pins_stepzero.txt && git commit -q -m \"b659 seal: the face locked after Components 0-3 and the dry-run step (data/b659_registration_2026-10-13.txt), its gates -- the pre-run (77 arms run at HEAD, 54 passing, G-AXIOM-CLAIM declared failing on real state, G-EDIT-ROUTE passing, the rest reading the lock, the seal, the table, the root and the record not yet written), the registration gate CLEAR with its dry-run step CLEAN, the spec (nine planted rows read, six controls refused, no prediction), jointly satisfiable, the term scan CLEAN, the step-zero censuses 0 missing and pins 0 hard-failing, the lock gate 8 of 8; the sealed tools' hashes recorded (data/b659_seal_hashes.json). Nothing deposits.\" && git log --oneline -1 | cut -c1-9",
+   "n": 64
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:35:15.694Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && timeout 590 python tools/b659_record.py table_final && git status --short --untracked-files=no",
+   "n": 65
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:35:44.516Z",
+   "src": "seat",
+   "cmd": "git add data/b659_table_final.txt data/b659_table_final.json data/terminal_table.json data/terminal_table.md && git commit -q -m \"b659 pre-root: the terminal table regenerated and diffed against relay HEAD c5f4a532 (data/b659_table_final.txt: moved 0, added 0, gone 0), and its files as the generator wrote them (data/terminal_table.json, .md): SIDE-structural-error-correction's rows read at its main 5476ef3 after the merge, their rev cell moved and no grade, profile or provenance. Nothing deposits.\" && git log --oneline -1 | cut -c1-10 && git branch push-b659-root HEAD && PUSH_GATED_LOG=/d/relay/data/b659_relay_root_push_out.txt bash tools/push_gated.sh /d/relay push-b659-root; echo \"exit $?\"",
+   "n": 66
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:35:45.793Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no; git branch push-b659-root HEAD && PUSH_GATED_LOG=/d/relay/data/b659_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b659-root; echo \"exit $?\"",
+   "n": 67
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T02:36:26.607Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && export PYTHONIOENCODING=utf-8 && python tools/b659_record.py root && python tools/b659_record.py root_arm && tail -1 data/act_roots.txt | cut -c1-160 && for f in data/act_roots.txt data/b659_act_root.json data/b659_act_root.txt data/b659_root_arm.txt data/b659_root_arm.json; do test $(tr -cd '\\r' < $f | wc -c) -eq 0 || echo \"CR in $f\"; done; git add data/act_roots.txt data/b659_act_root.json data/b659_act_root.txt data/b659_root_arm.txt data/b659_root_arm.json data/b659_relay_root_push_out.txt data/b659_pp_root_push_out.txt && git commit -q -m \"b659 root: the act root over the act's banks, the seal bank and the runner rows among them, none written CR LF, at relay 3ac896f0 (pushed through push_gated.sh from push-b659-root, read back; PLACE-papers 4640106 likewise), its previous b658's 4804e20c...; the one line appended to data/act_roots.txt; the arm's offline control; the pre-root push captures. Nothing deposits.\" && git log --oneline -1 | cut -c1-9",
+   "n": 68
   }
  ],
  "offences": [],
