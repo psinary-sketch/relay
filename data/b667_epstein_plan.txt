@@ -186,3 +186,30 @@ PROMPT BEFORE ANY NUMBER (2026-10-13)
   near x ≈ |ν| to 2|ν| loses about πt/2 / ln 2 bits. So at the ruled precision (200 bits, the 400 rung) the route cannot bound T3 above
   height 120: the squares about every banked point above 120, R's right edge above 120 and R's top edge -- hence R's count -- would print
   UNRESOLVED. Per (R277)(6) the act stops here with this obstruction banked unless the author rules otherwise; raised as a prompt.
+  ITS RESOLUTION, (R277)(3a), the author's word on that prompt (relay data/b667_author_answers.txt): the Bessel factor K_ν(π√23 m) carries
+  its own rung at 600 bits -- a term whose ball at 400 bits has radius at or above 2^{−60} is recomputed at 600 bits and carried as a ball,
+  every such term printed with its m, its point (σ, t) and the precision it took; the readings at all 183 grid points at 600 bits banked
+  beneath relay data/b667_bessel_obstruction.txt (183 of 183 enclosed below 2^{−60}); the rung entered beneath the precision bank (relay
+  data/b627_margin_inputs.txt) as this act's, additive. 200 bits with the 400-bit rung stand for every other quantity of the route.
+  (R277)(6)'s stop reads a term with no bound at any precision the host holds; this term is bounded at 600, so the stop does not fire.
+
+== 13. THE PLAN AS COMPLETED, (3a) IN FORCE -- RAISED AS THE ONE PROMPT OF (R277)(3); COMPONENT 3 ON THE AUTHOR'S WORD AND NOT BEFORE
+  Route        sections 2 and 11.1-11.4: Z_Q = T1 + T2 + T3 + T4 (Chowla-Selberg), T1-T3 Arb balls, T4 bounded by 11.2's derivation.
+  Precision    200 bits; the 400-bit rung for any ball wider than a relative 2^{−40} (section 2); (3a) the 600-bit rung for a Bessel factor
+               alone whose term's radius at 400 bits is at or above 2^{−60}, each printed with m, (σ, t) and its precision.
+               Per evaluation the Bessel factors are taken in order: 200 bits; a factor whose term's radius is at or above 2^{−60} at 200
+               re-taken at 400; at or above at 400, re-taken at 600. The sum's arithmetic stays at 200 bits (400 on the route's rung).
+  Checks       V1 (functional equation, each side's ball printed, the overlap printed), V2 (Z_Q(1.5) − 2 in [1.38, 2)), V3 (the route
+               sees qE0: a ball containing 0 on the h-ball about it; a ball excluding 0 at ½ + i·Im(qE0)).
+  Squares      h = 10⁻¹², the ball the square, one widening to 10⁻⁹ printed WIDENED (C2 void for that point, counted apart in H1's or H2's
+               line); 146 on-line, 17 off-line, 17 partners 1 − conj ρ (the functional equation's check).
+  Regions      R = [−0.5, 1.5] × [0.5, 150] by its half path (section 4), expected 180; B = [−0.5, 1.5] × [−0.5, 0.5] by its half path,
+               zeros = (1/π)Δ + 2, expected 0 (section 11, region); σ ≥ 1.5 by V2's ball, σ ≤ −0.5 by the functional equation.
+  Count        segment enclosures for every contour (section 5): accepted when 0 is excluded with radius ≤ half the midpoint's modulus;
+               bisection to depth 16 (squares) and 24 (paths); then the 400 rung; then UNRESOLVED printed.
+  Controls     C1 (ζ: three squares about acb.zeta_zero(1..3), count 1 each; the region to the midpoint of the third and fourth ordinates,
+               count 3); C2 (qE0 shifted 10⁻¹⁰ in σ: a count ball not containing 1); C3 (R's count against 179: UNLISTED 1).
+  Order        V1, V2, V3; C1; C2; R, then C3 on it; B; the Q0 squares; H1-H3 read; then Component 4 (H4) on the certified balls.
+  Banks        tools/b667_epstein_certify.py (constants at its head, read back whole); relay data/b667_epstein_zeros_certified.txt (.json),
+               rows zeros with balls; relay data/b667_epstein_counts.txt, rows rectangles and regions with V1-V3 and C1-C3.
+  Run          detached, one process per batch of squares (the host's cores), watched by a single foreground check.

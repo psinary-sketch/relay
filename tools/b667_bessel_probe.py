@@ -92,5 +92,30 @@ def main():
     print(NL.join(S))
 
 
+def readings600():
+    """(R277)(3a): the readings at all grid points at 600 bits, appended beneath data/b667_bessel_obstruction.txt from its own .json
+    (the measurement of main(), not re-run); additive -- the bank's earlier lines are not touched."""
+    p = os.path.join(D, 'b667_bessel_obstruction.txt')
+    old = io.open(p, encoding='utf-8').read()
+    if 'THE READINGS AT 600 BITS' in old:
+        sys.exit('### THE 600-BIT READINGS ARE ALREADY BENEATH THE BANK -- NOTHING WRITTEN')
+    rows = json.load(io.open(os.path.join(D, 'b667_bessel_obstruction.json'), encoding='utf-8'))['rows']
+    L = ['', '### DATED, 2026-10-13, under (R277)(3a) (the author`s word on the Bessel prompt, relay data/b667_author_answers.txt): THE READINGS AT '
+         '600 BITS AT ALL %d GRID POINTS, from this bank`s .json (the same measurement): rows are (σ, t); the m not enclosed below 2^-60 and the '
+         'largest absolute radius any term m ≤ M carries.' % len(rows)]
+    for r in rows:
+        x = r['by_prec']['600']
+        L.append('  σ %4s  t %5.1f  M %2d | 600: %-6s | largest radius %s' % (r['sigma'], r['t'], r['M200'], x['bad_m'] or 'clean', x['max_rad']))
+    n_clean = sum(1 for r in rows if not r['by_prec']['600']['bad_m'])
+    L.append('### ### **AT 600 BITS: GRID POINTS %d ; ENCLOSED BELOW 2^-60 AT EVERY TERM %d ; NOT %d.**' % (len(rows), n_clean, len(rows) - n_clean))
+    b = (old.rstrip(NL) + NL + NL.join(L) + NL).encode('utf-8')
+    open(p + '.tmp', 'wb').write(b)
+    os.replace(p + '.tmp', p)
+    print(L[-1])
+
+
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) > 1 and sys.argv[1] == 'readings600':
+        readings600()
+    else:
+        main()
