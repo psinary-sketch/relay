@@ -583,7 +583,16 @@ def orders_ok(S):
 
 
 def file_rule_ok(S):
-    return landed(S, 3, ['A KERNEL FILE IS READ FROM THE ACT', '(o)', 'kernel_files()'])
+    # the rule's head carries its title; its cause (o) and its carrier kernel_files() sit in the body below the head, up to the next head
+    # (repaired at the prerun, before the seal: the first form read the head line alone and could not find the body's needles)
+    n = rline(S, 3).get('line') or 0
+    body = []
+    for k in range(n + 1, n + 12):
+        o = oline(S, k)
+        if o.startswith('### '):
+            break
+        body.append(o)
+    return landed(S, 3, ['A KERNEL FILE IS READ FROM THE ACT']) and all(x in NL.join(body) for x in ('(o)', 'kernel_files()'))
 
 
 def kernel_named_ok(S):
