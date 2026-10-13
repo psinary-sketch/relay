@@ -1,5 +1,5 @@
 {
- "at": "2026-10-13T21:42:57Z",
+ "at": "2026-10-13T21:58:39Z",
  "anchor": "RULING (R276) BEGIN",
  "rows": [
   {
@@ -470,6 +470,125 @@
    "src": "seat",
    "cmd": "python -X utf8 -c \"\nimport sys; sys.path.insert(0,'tools')\nimport b666_worklist, b666_record, b666_regspec, b666_closing, b666_reg_gate\nimport b666_checks as C\nnames=[a[0] for a in C.ARMS]\nprint('arms', len(C.ARMS), 'standing', len(C.STANDING), 'act', len(b666_worklist.ACT_ARMS))\nprint('dupes', [n for n in set(names) if names.count(n)>1])\nprint('standing not carried', sorted(set(C.STANDING)-set(names)))\nprint('beyond', sorted(set(names)-set(C.STANDING)-set(b666_worklist.ACT_ARMS)))\nt=open('tools/b666_closing.py',encoding='utf-8').read()\nprint('closing needles', C.closing_sentence_ok(dict(closing_src=t)))\nprint(b666_worklist.kernel_files())\n\" && python -X utf8 tools/b666_record.py kernels && python -X utf8 tools/b666_record.py defects && python -X utf8 tools/b666_record.py commands",
    "n": 67
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:44:04.945Z",
+   "src": "seat",
+   "cmd": "git add tools/b666_record.py tools/b666_worklist.py tools/b666_checks.py tools/b666_closing.py tools/b666_reg_gate.py tools/b666_regspec.py data/b666_commands.json data/b666_commands.txt data/b666_defects.json data/b666_kernels_face.json && git status --short --untracked-files=all -- data/b666_* | cat; git commit -q -m \"b666 between the components: the suite (81 arms, 68 standing from b665's face, 13 over this act's banks, the kernel files read from the cut bank), the closing, the gate with its dry-run step and the spec by the Write tool; the record tool's late routes and the mirror routes and the worklist's runner constants by the Edit tool; the commands, kernels-face and defects banks\" && git log --oneline -1 && python -X utf8 -c \"\nimport sys; sys.path.insert(0,'tools')\nimport b666_checks as C\nn=['\\`%s\\`'%a[0] for a in C.ARMS]\nline='###'; out=[]\nfor x in n:\n    if len(line)+1+len(x)>138: out.append(line); line='###'\n    line+=' '+x\nout.append(line); print('\\n'.join(out))\"",
+   "n": 68
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:45:26.605Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b666_regspec.py 2>&1 | grep -A3 \"PREDICTIONS FOUND\\|MEASURED OFF\" | head -14",
+   "n": 69
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:45:31.180Z",
+   "src": "seat",
+   "cmd": "sed -n '64p' data/b666_registration_2026-10-13.txt",
+   "n": 70
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:45:37.016Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b666_regspec.py 2>&1 | grep -A1 \"PREDICTIONS FOUND\" && git add data/b666_registration_2026-10-13.txt && git commit -q -m \"b666 the face drafted (section (0) to section (Z), G2 of 81 arms), before the prerun\" && git log --oneline -1",
+   "n": 71
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T21:45:45.169Z",
+   "src": "seat",
+   "cmd": "Start-Process python -ArgumentList '-X','utf8','tools/b666_checks.py','--prerun' -WorkingDirectory 'D:\\relay' -RedirectStandardOutput 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad\\b666_prerun.log' -RedirectStandardError 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad\\b666_prerun.err' -WindowStyle Hidden -PassThru | Select-Object Id",
+   "n": 72
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:45:51.615Z",
+   "src": "seat",
+   "cmd": "for i in $(seq 1 55); do if ! tasklist //FI \"PID eq 38436\" | grep -q 38436; then echo DONE; break; fi; sleep 9; done; echo waited",
+   "n": 73
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:54:24.302Z",
+   "src": "seat",
+   "cmd": "for i in $(seq 1 55); do if ! tasklist //FI \"PID eq 38436\" | grep -q 38436; then echo DONE; break; fi; sleep 9; done; grep \"LIVE FAILING\\|NEGATIVE-CONTROL\\|VERDICT\\|raised\\|run took\" /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b666_prerun.log",
+   "n": 74
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:56:07.385Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b666_reg_gate.py 2>&1 | tail -11 && python -X utf8 tools/b666_record.py gatebanks 2>&1 | tail -10",
+   "n": 75
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:56:16.255Z",
+   "src": "seat",
+   "cmd": "sed -n '1,22p' data/b666_reg_gate.txt | cut -c1-220",
+   "n": 76
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:56:22.366Z",
+   "src": "seat",
+   "cmd": "grep -n \"def straddle_check\" -A40 tools/registration_gate.py | head -60",
+   "n": 77
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:56:35.524Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b666_reg_gate.py 2>&1 | grep \"UNDECLARED\\|GATE VERDICT\\|DRY-RUN STEP :\" && python -X utf8 tools/b666_record.py gatebanks 2>&1 | tail -10",
+   "n": 78
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:56:45.617Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b378_lockgate.py b666 data/b666_registration_2026-10-13.txt 2>&1 | grep \"GATES READ\\|VERDICT\" && python -X utf8 tools/reg_seal.py --lock data/b666_registration_2026-10-13.txt 2>&1 | tail -2 && python -X utf8 tools/reg_seal.py --verify data/b666_registration_2026-10-13.txt 2>&1 | tail -1 && python -X utf8 tools/b666_checks.py --seal 2>&1 | tail -2",
+   "n": 79
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:56:50.233Z",
+   "src": "seat",
+   "cmd": "git status --short --untracked-files=all -- data/b666_* data/audit_b666_* tools/b666_* | cat",
+   "n": 80
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:56:56.270Z",
+   "src": "seat",
+   "cmd": "git add data/b666_registration_2026-10-13.txt data/audit_b666_reg_satisfiable.txt data/b666_arms_prerun.txt data/b666_census_stepzero.txt data/b666_faces_census_stepzero.txt data/b666_lockgate.json data/b666_lockgate_notes.txt data/b666_lsr_prerun.json data/b666_pins_stepzero.txt data/b666_reg_gate.txt data/b666_reg_termscan.txt data/b666_regspec_run.txt data/b666_satisfiable.json data/b666_seal_hashes.json && git commit -q -m \"b666 seal: the face locked (c7744335), the gate CLEAR with its dry-run step CLEAN (entry 12/12, trail 9/9 needles) after two paragraphs took their side words, the lockgate 8/8, the seal intact; the prerun 81 arms, none failing on real state (G-AXIOM-CLAIM passing at HEAD); the sealed tools' hashes recorded\" && git log --oneline -1",
+   "n": 81
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:57:02.773Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b666_record.py table_final 2>&1 | tail -1 && git status --short -- data/terminal_table* | cat && git add data/terminal_table.json data/terminal_table.md data/b666_table_final.json data/b666_table_final.txt && git commit -q -m \"b666 pre-root: the terminal table regenerated, final\" && git log --oneline -1 && git branch push-b666-root HEAD && PUSH_GATED_LOG=/d/relay/data/b666_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b666-root",
+   "n": 82
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:57:41.889Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b666-root HEAD && PUSH_GATED_LOG=/d/relay/data/b666_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b666-root",
+   "n": 83
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T21:58:15.841Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b666_record.py root 2>&1 | tail -4 && git add data/act_roots.txt data/b666_act_root.json data/b666_act_root.txt && git commit -q -m \"b666 root: the act root over the act's banks, appended to data/act_roots.txt\" && git log --oneline -1 && python -X utf8 tools/b666_record.py root_arm 2>&1 | tail -1 && python -X utf8 tools/b666_record.py commands 2>&1 | tail -1",
+   "n": 84
   }
  ],
  "offences": [],
