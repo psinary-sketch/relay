@@ -1,0 +1,34 @@
+b667 -- COMPONENT 0: STEP ZERO UNDER (R277) (2026-10-13)
+
+### the citation check, the gate step standing from b662 (OPEN_TRAILS :14136), run BEFORE the ferry was banked (tools/b667_citation.py check;
+### relay data/b667_citation_check.txt): the ruling and the ferry read from the session transcript, 59 cites checked at HEAD, 59 OK, no miss;
+### one of the tool's own predicates (the G-AXIOM-CLAIM row, which also passed on a fallback read) tightened by the Edit tool to the closing's
+### own line :33 before the ferry was banked, the check re-run: 59 of 59; nothing raised.
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R277) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b667_ferry.txt by the same tool, from the session transcript; the ferry scan 0 hits (data/b667_ferry_scan.txt).
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python), read before any run: NONE. Orphans: NONE. Read again after
+### the test loop ended (names matching tail, lean, lake, python, bash): NONE ; free memory 3813 MB.
+
+### b666's closing push-out bank committed at the start: relay bd6f388d (data/b666_closing_push_out.txt, as b666's push wrote it), with the
+### citation check, the ferry and its scan, and the citation tool.
+
+### the b666 branches, listed by `git branch --merged main` and deleted by name with the lower-case flag, one repository per call, never in
+### parallel, read back:
+  relay                             listed push-b666, push-b666-closing, push-b666-root ; deleted push-b666 (was f9e6a22d), push-b666-root
+                                    (was f69d3904), push-b666-closing (was d43a72f9)
+  PLACE-papers                      listed push-b666, push-b666-root ; deleted push-b666 (was c143bcb), push-b666-root (was 3935a5e)
+  SIDE-cosmo                        listed docstrings-cut-SIDE-cosmo, push-b666-merge, push-b666-workflow (and at the remote
+                                    origin/docstrings-cut-SIDE-cosmo, by --merged origin/main) ; deleted push-b666-workflow (was f5d8c7d),
+                                    push-b666-merge (was ca04c8c), docstrings-cut-SIDE-cosmo (was 1ddeb7c); the remote branch deleted alone in
+                                    its command, in a turn of its own after the local deletes (`git push origin --delete
+                                    docstrings-cut-SIDE-cosmo`: [deleted]). second-exemplar-m4a, listed and not b666's, left as it is.
+
+### every test file under tools/ (relay data/b667_tests_stepzero.txt; tools/b667_tests.py, the stage an argument, each python test started as
+### `python -X utf8` with no environment mapping, one process per test from a detached bash loop whose own PATH carries Git's tools, watched
+### from the foreground): TEST FILES 54 ; RUN 53 ; WITHHELD 1 (test_elab_reader_b634.py, no lean on this host) ; NOT CLEAN 2 --
+### test_chain_page.py (9) and test_chain_page_b638.py (4)-(7), as at every act since b638.
+### the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### git status: b628's local intake bank (data/b628_intake_crank_v0_5.txt) and the navigator's export (data/b647_navigator_memory.txt) read
+### `??`, untracked. No build on this host; no lean or lake process started.
