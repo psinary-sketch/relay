@@ -1,0 +1,16 @@
+b662 -- COMPONENT 1, (R272)(5): G-SHARED-ADDITIVE'S TOOL RE-RUN AFTER THE APPEND (2026-10-13)
+
+### the tool: tools/additive_shared.py check(worktree=True) -- the last commit touching each shared file against the one before, and the
+### working file against HEAD; rows are reads. Run at relay 51f9db78, the commit carrying the dated line.
+  data/act_roots.txt                   f149b3e043c6 against d37509c4a8bd        ADDITIVE
+  data/act_roots.txt                   the working file against HEAD            ADDITIVE
+  data/b650_resonances_seat.txt        7ebd1c4dab1f against 9f0f15833dbc        ADDITIVE
+  data/b650_resonances_seat.txt        the working file against HEAD            ADDITIVE
+  data/b650_same_season_last_year.txt  51f9db781116 against 7ebd1c4dab1f        ADDITIVE
+  data/b650_same_season_last_year.txt  the working file against HEAD            ADDITIVE
+  data/glossary.txt                    1dd6e85e789b against 5c644b0d64d6        ADDITIVE
+  data/glossary.txt                    the working file against HEAD            ADDITIVE
+
+### before the append (b661's suite, relay data/b661_checks_postpush.txt): data/b650_same_season_last_year.txt 7ebd1c4d against 58c8d3c8,
+### NOT ADDITIVE (a replace). After: the pair read is 51f9db78 against 7ebd1c4d, 4 lines added, 0 changed.
+### ### **SHARED FILES 4 ; READS 8 ; NOT ADDITIVE 0.**
