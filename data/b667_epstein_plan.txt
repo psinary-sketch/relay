@@ -1,0 +1,135 @@
+b667 -- THE PLAN OF (R277)(3): Q0'S ZEROS BELOW HEIGHT 150 IN ARB BALLS, THE EVALUATION ROUTE FOR Z_Q AND EVERY TERM'S ERROR BOUND, RAISED AS ONE
+PROMPT BEFORE ANY NUMBER (2026-10-13)
+
+### No value of Z_Q, of ζ or of any term below has been computed for this plan; every figure here is read from a bank (cited by path and line)
+### or is a constant the plan fixes. Nothing here is a kernel file and nothing is about ζ except control C1. Rows are sections.
+
+== 1. THE OBJECT AND ITS COUNT BY ORBIT AND PAIR
+  Q0 = x² + xy + 6y² (disc −23, h(−23) = 3; relay data/b523_registration_2026-09-25.txt :62). Z_Q(s) = Σ_{(m,n) ≠ (0,0)} Q(m,n)^{−s}
+  = Σ_{k ≥ 1} r_Q(k) k^{−s} (b326's normalisation: r_Q(1) = 2, tools/b326_zeros.py :103-:121).
+  Λ_Q(s) = (2π/√23)^{−s} Γ(s) Z_Q(s); Λ_Q(s) = Λ_Q(1 − s) (the theta relation Θ(1/x) = x Θ(x) by Poisson summation: Q's matrix
+  M = [[2, 1], [1, 12]], det 23, M⁻¹ = (1/23)[[12, −1], [−1, 2]], the dual form 6x² − xy + y² equivalent to Q0; the corpus's census evaluates
+  Λ_Q in this form, tools/e16/epstein_census.py :55-:63); real coefficients give Λ_Q(conj s) = conj Λ_Q(s); so Λ_Q(1 − conj s) = conj Λ_Q(s).
+  THE LIST (relay data/b663_epstein_plan.txt :51-:65):
+    on the line   relay data/b326_epstein_zeros.json key "zeros" (:13), 146 rows, index 0..145, ordinate gamma_a (= gamma_b);
+                  points 1/2 ± iγ -- 292 points; in the upper half-plane 146.
+    off the line  relay data/b326_offline.json key "zeros" (:885), 17 rows, index 0..16, rho_a (= rho_b), Re in [0.6054, 0.9533], Im in
+                  [16.29, 137.89]; orbits {ρ, 1 − conj ρ, conj ρ, 1 − ρ} -- 68 points; in the upper half-plane two per orbit (ρ and
+                  1 − conj ρ) -- 34.
+    THE LIST'S SIZE AS THE REGION COUNT READS IT: 146 + 2 × 17 = 180 in the upper half-plane with t ∈ [t0, 150] (b523 :62's "180 zeros");
+    the lower half by conjugation.
+
+== 2. THE EVALUATION ROUTE (RAISED): THE CHOWLA-SELBERG FORM OF Z_Q, EVERY TERM AN ARB BALL OR A STATED BOUND
+  Q(m, n) = (m + n/2)² + (23/4) n². The row n = 0 gives 2ζ(2s). For n ≠ 0, Poisson summation in m of f(x) = ((x + α)² + β²)^{−s} with
+  α = n/2, β = β_n = √23 |n| / 2, whose Fourier transform is √π Γ(s − ½)/Γ(s) β^{1−2s} at ξ = 0 (the beta integral) and
+  (2π^s/Γ(s)) |ξ|^{s−½} β^{½−s} K_{s−½}(2π|ξ|β) at ξ ≠ 0 (DLMF 10.32.11 with ν = s − ½, z = β, x = 2πξ); e^{2πikα} = (−1)^{kn};
+  Σ_{n ≠ 0} β_n^{1−2s} = 2 (√23/2)^{1−2s} ζ(2s − 1); the k- and n-sums even in sign. Hence, for Re s > 1 and then on C \ {1} by analytic
+  continuation (the double sum converges absolutely and uniformly on compacta, K decaying as e^{−x}):
+      Z_Q(s) = T1 + T2 + T3 + T4
+      T1 = 2 ζ(2s)
+      T2 = 2 √π Γ(s − ½) Γ(s)⁻¹ (√23/2)^{1−2s} ζ(2s − 1)
+      T3 = 8 π^s Γ(s)⁻¹ Σ_{k, n ≥ 1, kn ≤ M} (−1)^{kn} k^{s−½} β_n^{½−s} K_{s−½}(π√23 kn)
+      T4 = the same sum over kn > M (the truncation), bounded and added to the ball as its radius.
+  The formula: S. Chowla and A. Selberg, On Epstein's zeta-function, J. reine angew. Math. 227 (1967) 86-110; derived above line by line so
+  the act rests on the derivation, not on the citation alone. T1 and T2 each have a pole at s = ½ which cancels; every point the act
+  evaluates has Im s ≥ 0.5, so no pole is met.
+
+  THE TERMS, THEIR ERROR BOUNDS AND THEIR SOURCES (Arb returns a ball containing the true value for every function named; python-flint 0.9.0,
+  the docstrings read at step zero, relay data/b667_readfirst.txt):
+    T1     acb.zeta (Arb's acb_zeta)                                        the ball Arb returns
+    T2     acb.gamma (Γ(s − ½)), acb.rgamma (1/Γ(s)), acb.zeta (ζ(2s − 1)),  the balls Arb returns, multiplied in ball arithmetic
+           acb powers (acb_pow, principal branch; the bases positive reals)
+    T3     acb.bessel_k (Arb's acb_hypgeom_bessel_k, complex order),         the balls Arb returns; M terms at most Σ_{m ≤ M} d(m) Bessel
+           acb.rgamma, acb powers, arb.pi                                     calls
+    T4     BOUNDED HERE, elementary:                                         an upper bound, added as the radius
+             |K_ν(x)| ≤ K_{Re ν}(x) for x > 0 (DLMF 10.32.9: K_ν(x) = ∫_0^∞ e^{−x cosh u} cosh(νu) du, and |cosh(νu)| ≤ cosh(Re ν · u));
+             for |Re ν| ≤ 1 (here Re ν = σ − ½ ∈ [−1, 1] on the whole region): K_{Re ν}(x) ≤ ∫_0^∞ e^{−x(1 + u²/2)} e^{u} du
+               ≤ e^{−x} √(2π/x) e^{1/(2x)} (cosh u ≥ 1 + u²/2; cosh(au) ≤ e^{u} for |a| ≤ 1; the square completed);
+             |k^{s−½} β_n^{½−s}| = (k/β_n)^{σ−½} ≤ (√23/2)^{|σ−½|} m^{|σ−½|} for kn = m (k, n ≤ m, β_n ≥ √23/2);
+             the pairs with kn = m number d(m) ≤ 2√m; x = π√23 m;
+             so |T4| ≤ 8 |π^s/Γ(s)| (√23/2)^{a} · 2 √(2/√23) e^{1/(2π√23)} · Σ_{m > M} m^{a} e^{−π√23 m}, a = |σ − ½| ≤ 1,
+             and Σ_{m > M} m^{a} e^{−cm} ≤ (M + 1)^{a} e^{−c(M+1)} / (1 − 2 e^{−c}), c = π√23 (successive ratios ≤ 2e^{−c}).
+           Computed in arb arithmetic, its upper end taken; |π^s/Γ(s)| from acb.rgamma. On a segment ball the bound is taken at the ball
+           (σ's upper value in a, the ball's |π^s/Γ(s)|).
+    M      M = ⌈(π|t|/2 + (prec + 20) ln 2) / (π√23)⌉ + 1 at each evaluation (|π^s/Γ(s)| grows as e^{π|t|/2}); M and the T4 radius printed
+           (their maxima per run).
+  A ball whose relative radius exceeds 2^{−40} at 200 bits is re-evaluated at the 400-bit rung; still wider, it is printed UNRESOLVED with its
+  point and the term that widened, and the count that needed it is not certified (no stand-in value).
+
+  CHECKS OF THE ROUTE, RUN BEFORE C1 AND PRINTED (each a printed line, not a hypothesis):
+    V1  the functional equation: the balls of Λ_Q(s) and Λ_Q(1 − s) overlap at five points (s = 0.8 + 20i, 0.3 + 60i, 1.2 + 100i,
+        0.5 + 140i, −0.2 + 149i) -- the Chowla-Selberg form is not symmetric term by term, so this tests T1-T4 together.
+    V2  Z_Q(1.5) − 2 (a real ball) at or above b326's truncated sum 1.38 (relay data/b326_offline.json "tail_at_1p5", Σ_{2 ≤ k ≤ 240}
+        r_Q(k) k^{−1.5}, tools/b326_offline.py :141; every term positive, so the full series is at least the truncation) and below 2.
+
+  ROUTES CONSIDERED AND NOT TAKEN (the ruling names them):
+    (i) the theta-integral form with its tail bounded (b326's route A, Λ_Q by incomplete gammas at the split point a_k = 2πk/√23): the pole
+        term −1/s − 1/(1 − s) cancels against the sum by e^{πt/2}/t², about 0.68t − 2 log10 t decimal digits (tools/b326_zeros.py :21-:23),
+        more at t near 150 than 200 bits carry; a complex split point (a ray rotated toward the imaginary axis, the smoothed form of the
+        approximate functional equation) removes most of it, but needs thousands of complex incomplete gammas per evaluation and its ball
+        enclosures on a segment inflate by the remaining cancellation factor.
+    (ii) the decomposition over the class group's characters: Z_Q = (2/3) ζ(s) L(s, χ_{−23}) + (4/3) L(s, f), f the weight-one form
+        η(z)η(23z) (from θ_{Q0} + 2θ_{Q1} = 2 Σ_{d|n} χ_{−23}(d) and θ_{Q0} − θ_{Q1} = 2 η(z)η(23z), the classical identity, not checked by this
+        act): ζ and L(s, χ) are Arb functions, but L(s, f) is not, and its own evaluation is route (i)'s problem again.
+
+== 3. THE RECTANGLES ABOUT THE POINTS
+  Each banked point z0 (an on-line point 1/2 + iγ, an off-line ρ, and -- a check of the functional equation, printed apart, no hypothesis --
+  each partner 1 − conj ρ) gets the square [Re z0 − h, Re z0 + h] × [Im z0 − h, Im z0 + h], h = 10⁻¹², centred at the banked double read as
+  an exact decimal (b663's literal, tools/b663_epstein_map.py :146-:158). An on-line square straddles σ = ½. The point's ball is its square:
+  acb(arb(Re z0, h), arb(Im z0, h)). The banked doubles carry 119-digit roots rounded to 53 bits (an error below 10⁻¹³ at height 150), well
+  inside h. ONE WIDENING: a square whose count is 0 is re-counted once at h = 10⁻⁹, printed WIDENED with its index; for that point C2's
+  reading does not apply. The squares' centres are pairwise far apart beside 2h; the minimum separation printed.
+
+== 4. THE REGION AND THE FLOOR
+  R = [−0.5, 1.5] × [t0, T], t0 = 0.5 (the census's own floor, tools/b326_zeros.py :64 and tools/b326_offline.py :43), T = 150 (the banks'
+  T). R is symmetric under s → 1 − conj s, so the boundary's argument change is twice that along the half path
+      P : ½ + i t0 → 1.5 + i t0 → 1.5 + i T → ½ + i T,
+  and the count is N(R) = (1/π) Δ_P arg Λ_Q, Δ_P arg Λ_Q = Δ_P arg Z_Q + Im[log γ(½ + iT) − log γ(½ + i t0)],
+  log γ(s) = −s log(2π/√23) + lgamma(s) (acb.lgamma, continuous off the negative half-axis; P stays in Re s > 0).
+  The count ball N(R) must contain one integer and have radius below ½; that integer is the region count, compared with 180.
+  OUTSIDE R ABOVE THE FLOOR: for σ ≥ 1.5, |Z_Q(s) − 2| ≤ Σ_{k ≥ 2} r_Q(k) k^{−1.5} = Z_Q(1.5) − 2 < 2 (V2's ball), so Z_Q ≠ 0 there
+  (tools/b326_offline.py :9-:12's argument, with the series' value in place of its truncation); for σ ≤ −0.5 none by the functional
+  equation (Γ's poles are real). So the region count certifies P2's data for t0 ≤ |t| ≤ 150 in the whole plane.
+  THE BAND |t| < t0 = 0.5 is not counted: P2's band (relay data/b663_epstein_plan.txt :78) stays a premise unless the author rules otherwise.
+
+== 5. THE CONTOUR'S DISCRETISATION AND THE ON-CONTOUR EXCLUSION
+  A segment [z_a, z_b] is enclosed by the ball centred at its midpoint with radius half its length along its direction; F evaluated on that
+  ball (the route of section 2 with ball input) encloses F on the whole segment. The segment is ACCEPTED when the enclosure excludes 0 with
+  its radius at most half its midpoint's modulus -- then F has no zero on the segment and arg F varies there by less than π/3 about the
+  midpoint's argument, so the segment's argument change is the principal arg(F(z_b)/F(z_a)) from the endpoint balls. Otherwise the segment
+  is bisected, to depth 16 on a square and 24 on P; at the depth limit, the 400-bit rung once; still not accepted, the segment is printed
+  UNRESOLVED with its location and that rectangle's count is not certified. The accepted segments cover the contour, so F ≠ 0 on it is
+  proved, not assumed.
+  Initial segments: 4 per side of a square; on P, 8 on the bottom edge, 299 on the right edge (step 0.5, the census's own box step), 8 on the
+  top edge. A square's count ball is (1/2π) Σ Δ_j; on R, section 4's N(R).
+
+== 6. THE PRECISION
+  200 bits throughout (relay data/b627_margin_inputs.txt :7; tools/b663_epstein_map.py :28), the one rung 400 (:29), set around each
+  comparison and restored (b665's (c): a helper restoring ctx.prec on return is not trusted; the precision set at the comparison itself).
+
+== 7. THE CONTROLS, CONCRETE ((R277)(4))
+  C1  the same counting engine with F = ζ (acb.zeta) and log γ_ζ(s) = −(s/2) log π + lgamma(s/2): the squares (h = 10⁻¹²) about Arb's own
+      acb.zeta_zero(1), (2), (3) each count 1; the region [−0.5, 1.5] × [0.5, T_c], T_c the midpoint of Arb's third and fourth ordinates,
+      counts 3 by the half path. Only F and log γ change; the engine is the one Q0 uses.
+  C2  qE0 (relay data/b326_offline.json index 0) shifted by +10⁻¹⁰ in σ: the square (h = 10⁻¹²) about the shifted point prints a count ball
+      not containing 1; the unshifted square's count printed beside.
+  C3  the region count compared with the list less one on-line point (index 0 removed: 145 + 34 = 179) prints UNLISTED 1.
+  ORDER: V1, V2; C1; C2; the region count, then C3 on it; then the Q0 squares (H1, H2) and H3's comparison. Each control's print banked
+  beside the result (relay data/b667_epstein_counts.txt).
+
+== 8. THE HYPOTHESES AS THE RUN READS THEM ((R277)(5))
+  H1  17 off-line squares, each count 1, its ball printed with the banked value inside it (the centre).
+  H2  146 on-line squares, each count 1, straddling σ = ½.
+  H3  N(R) = 180; a count 180 + k prints UNLISTED k and the act banks it as the finding.
+  H4  tools/b667_epstein_map_balls.py (b663's script, q0_list's decimal literals replaced by the certified balls, no computation line
+      changed, the diff banked) prints j₀ = 38 and a zero side below zero, each with its ball.
+  H5  V1-V2 as printed, and C1-C3 as fixed.
+
+== 9. WHAT STOPS THE ACT AT THIS PLAN
+  A term the route cannot bound. In the route raised, none: T1-T3 are Arb balls and T4 is bounded in section 2. If the author's answer takes
+  another route, its terms are bounded in the same form before any number, or the act stops here with the obstruction banked.
+
+== 10. THE BANKS AND THE SCRIPT (Component 3, on the author's word)
+  tools/b667_epstein_certify.py (the precision, the rung, h, the widening, t0, T, R's σ-range, the initial segments and the depth limits as
+  constants at its head); relay data/b667_epstein_zeros_certified.txt (.json) -- rows are zeros with balls; relay
+  data/b667_epstein_counts.txt -- rows are rectangles and the region, with V1-V2 and C1-C3. b326's banks are read and never written.

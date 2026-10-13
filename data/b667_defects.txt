@@ -3,4 +3,7 @@ b667 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-13): THE SUCCESSOR OF data
 ### CARRIED FROM b666: none open. b666's (a)-(d) were the seat's and closed there.
 
 ### THE ACT'S OWN. Rows are lettered defects, each with its owner and the line that shows it.
-    NONE SO FAR.
+    (a) THE SEAT'S: TWO REPOSITORY-MUTATING CALLS SENT IN PARALLEL. At Component 1 the PLACE-papers commit of the record line (3f14824) and
+    the relay commit of its bank were sent as two calls in one turn; the relay call failed ("pathspec 'data/b667_record_lines.json' did not
+    match any files") though the bank was on disk, and was re-sent alone (bb79bb54). b663's lesson (one repo-mutating call at a time) not
+    kept; nothing lost, the record line landed once at FINDINGS :8647.
