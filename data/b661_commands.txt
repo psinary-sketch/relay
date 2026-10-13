@@ -1,0 +1,105 @@
+b661 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T06:21:02Z)
+
+### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R271) BEGIN', and its subagents` transcripts
+### commands read: 91
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-13T05:01:23.582Z | seat | PowerShell | $p = Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python)' } | Select-Object ProcessId, Name, CommandLine; if ($p) { $p | For
+  #2 | 2026-10-13T05:01:28.787Z | seat | Bash | PYTHONIOENCODING=utf-8 python - <<'EOF'
+  #3 | 2026-10-13T05:01:36.515Z | seat | Bash | git add data/b661_ferry.txt data/b661_ferry_scan.txt data/b660_closing_push_out.txt && git commit -q -m "b661 Component 0 under (R271): the ruling and the ferry
+  #4 | 2026-10-13T05:01:36.995Z | seat | Bash | git -C /d/relay branch -d push-b660 push-b660-root push-b660-closing
+  #5 | 2026-10-13T05:01:37.107Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b660 push-b660-root
+  #6 | 2026-10-13T05:01:45.668Z | seat | Bash | sed 's/b659/b661/g; s/R269/R271/g; s/B659/B661/g; s/after b658/after b660/g; s/b658_tests.py/b659_tests.py/' tools/b659_tests.py > "C:/Users/ECHOCH~1/AppData/Lo
+  #7 | 2026-10-13T05:02:24.321Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $p = Start-Process -FilePath 'C:\Program Files\Git\bin\ba
+  #8 | 2026-10-13T05:02:32.427Z | seat | Bash | cd /d/SIDE-explicit-formula && git show v0.28:SIDEExplicitFormula/Schema/RateIndexCfg.lean | grep -n "^theorem\|^    (\|^    :\|hrate\|zeroSide_cfg C" | cut -c1
+  #9 | 2026-10-13T05:02:39.680Z | seat | Bash | git show v0.28:SIDEExplicitFormula/PowerLimit.lean | grep -n "2 \* (VF H).card + 2 \* DK + DE\|theorem fixed_poly_bound\|theorem real_even_interpolant" | cut -c
+  #10 | 2026-10-13T05:03:25.193Z | seat | Bash | python -c "import flint; print('python-flint', flint.__version__); print('zeta_zeros' in dir(flint.acb), 'integral' in dir(flint.acb))"; git -C /d/SIDE-explicit
+  #11 | 2026-10-13T05:04:39.716Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests.log"; ls -la "$L"; wc -l "$L"; tail -5 "$L"; taskl
+  #12 | 2026-10-13T05:04:44.111Z | seat | Bash | date; wmic process where "ParentProcessId=16672" get ProcessId,CommandLine 2>/dev/null | head; ls /d/relay/tools | grep -E '^test_' | wc -l
+  #13 | 2026-10-13T05:04:48.752Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests.log"; for i in $(seq 1 55); do grep -q "STEPZERO T
+  #14 | 2026-10-13T05:14:18.478Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests.log"; for i in $(seq 1 55); do grep -q "STEPZERO T
+  #15 | 2026-10-13T05:23:54.230Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests.log"; for i in $(seq 1 55); do grep -q "STEPZERO T
+  #16 | 2026-10-13T05:33:04.930Z | seat | Bash | python -c "
+  #17 | 2026-10-13T05:33:09.338Z | seat | Bash | cat data/b660_stepzero.txt | head -60
+  #18 | 2026-10-13T05:33:13.621Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_tests.py report; git status --porcelain | head; git -C /d/MY-DOwnloads/PLACE-papers status --porcelain --untracked-file
+  #19 | 2026-10-13T05:33:25.388Z | seat | Bash | for f in data/b628_intake_crank_v0_5.txt data/b647_navigator_memory.txt; do echo "$f $(git status --porcelain -- $f) idx:$(git ls-files -- $f | wc -l) log:$(git
+  #20 | 2026-10-13T05:34:19.527Z | seat | Bash | git add data/b661_stepzero.txt data/b661_tests_stepzero.txt data/b661_tests_stepzero.json data/b661_tests_withheld.json tools/b661_tests.py && git diff --cached
+  #21 | 2026-10-13T05:34:29.028Z | seat | Bash | cat data/b661_ferry.txt
+  #22 | 2026-10-13T05:34:33.458Z | seat | Bash | ls data/b65*_readfirst* data/b660_readfirst* 2>/dev/null; head -40 data/b659_readfirst.txt 2>/dev/null; echo ====; cat data/b660_closing.txt | head -80
+  #23 | 2026-10-13T05:34:38.420Z | seat | Bash | wc -l data/b656_e1_binding.txt data/b658_e1cfg_statement.txt data/b660_ten_acts.txt data/b660_lanes.txt; cat -n data/b656_e1_binding.txt
+  #24 | 2026-10-13T05:34:43.505Z | seat | Bash | cat -n data/b658_e1cfg_statement.txt
+  #25 | 2026-10-13T05:34:43.752Z | seat | Bash | cd /d/SIDE-explicit-formula && git show v0.28:SIDEExplicitFormula/Schema/RateIndexCfg.lean | cat -n
+  #26 | 2026-10-13T05:34:56.829Z | seat | Bash | git show v0.28:SIDEExplicitFormula/PowerLimit.lean > /dev/null && git show v0.28:SIDEExplicitFormula/PowerLimit.lean | sed -n '240,300p;420,450p;500,600p' | cat
+  #27 | 2026-10-13T05:35:07.671Z | seat | Bash | git show v0.28:SIDEExplicitFormula/PowerWindow.lean | awk 'NR>=270&&NR<=280{print "PW "NR": "$0} NR>=325&&NR<=332{print "PW "NR": "$0} NR>=394&&NR<=404{print "P
+  #28 | 2026-10-13T05:35:15.955Z | seat | Bash | git grep -n "def reflect\|structure ZeroConfig\|def gammaOf\|def N \|def paperFT\|def N(" v0.28 -- 'Zeta23/*.lean' 'SIDEExplicitFormula/*.lean' | head; git ls-t
+  #29 | 2026-10-13T05:35:19.550Z | seat | Bash | git show v0.28:Zeta23/Defs.lean | awk 'NR>=118&&NR<=165{print NR": "$0}'
+  #30 | 2026-10-13T05:35:30.655Z | seat | Bash | git show v0.28:SIDEExplicitFormula/PowerLimit.lean | awk 'NR>=500&&NR<=700{print NR": "$0}'
+  #31 | 2026-10-13T05:36:21.079Z | seat | Bash | git show v0.28:SIDEExplicitFormula/PowerLimit.lean | awk '(NR>=700&&NR<=760)||(NR>=310&&NR<=350)||(NR>=95&&NR<=135)||(NR>=140&&NR<=150)||(NR>=795&&NR<=830){prin
+  #32 | 2026-10-13T05:36:56.510Z | seat | Bash | cd /d/relay && ls -la tools/b659_*.py tools/b658_*.py | awk '{print $5, $9}'; grep -n "weight" tools/b659_record.py | head -30; awk 'NR>=8440&&NR<=8462{print NR
+  #33 | 2026-10-13T05:37:02.182Z | seat | Bash | wc -l tools/b659_record.py tools/b659_worklist.py tools/b658_record.py; awk 'NR<=120' tools/b659_record.py
+  #34 | 2026-10-13T05:37:08.018Z | seat | Bash | awk 'NR>=120&&NR<=330' tools/b659_record.py
+  #35 | 2026-10-13T05:37:14.182Z | seat | Bash | awk 'NR>=8461{print NR": "$0}' /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | cut -c1-400; cat tools/b659_worklist.py | head -65
+  #36 | 2026-10-13T05:37:20.278Z | seat | Bash | grep -n "###.*\*\*\|^### \(THE\|COUNT\)" data/b660_ten_acts.txt | cut -c1-260 | head -30; echo ===; grep -n "\*\*" data/b660_lanes.txt | cut -c1-260 | head -20;
+  #37 | 2026-10-13T05:37:27.155Z | seat | Bash | cd /d/SIDE-explicit-formula && git diff --stat v0.27 v0.28 -- SIDEExplicitFormula/Schema/Converse.lean SIDEExplicitFormula/Schema/Config.lean SIDEExplicitFormul
+  #38 | 2026-10-13T05:37:30.711Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --short v0.27 v0.28^{commit} main; git diff --name-only v0.27 v0.28
+  #39 | 2026-10-13T05:37:34.392Z | seat | Bash | git -C /d/SIDE-explicit-formula rev-parse --short "v0.27^{commit}"; git -C /d/SIDE-explicit-formula rev-parse --short "v0.28^{commit}"; git -C /d/SIDE-explicit-
+  #40 | 2026-10-13T05:38:02.084Z | seat | Bash | cd /d/relay && awk 'NR==1||NR==7||NR==12||NR==16||NR==20{print NR": "substr($0,1,90)}' data/b660_closing.txt; git -C /d/SIDE-explicit-formula show v0.28:SIDEExp
+  #41 | 2026-10-13T05:38:10.855Z | seat | Bash | git add data/b661_readfirst.txt && git commit -q -m "b661 the read-first under (R271): each source cited by path and line, each bank's row unit named, banked be
+  #42 | 2026-10-13T05:38:15.745Z | seat | Bash | git log --oneline -5 | cut -c1-80; git rev-parse --short origin/main; git -C /d/MY-DOwnloads/PLACE-papers rev-parse --short origin/main
+  #43 | 2026-10-13T05:38:29.847Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && awk 'NR==8461||NR==14092{print NR": "substr($0,1,200)}' FINDINGS.md OPEN_TRAILS.md; awk 'NR==14092{print "OT "NR": "substr($0
+  #44 | 2026-10-13T05:39:11.234Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b661_record.py c1 dry
+  #45 | 2026-10-13T05:39:17.418Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_record.py c1 && cat data/b661_record_lines.json && git -C /d/MY-DOwnloads/PLACE-papers diff --stat
+  #46 | 2026-10-13T05:39:22.650Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b661 Component 1 under (R271)(1): b660 at its weight, appended to b660's entry (FIND
+  #47 | 2026-10-13T05:39:30.652Z | seat | Bash | cd /d/SIDE-explicit-formula && git show v0.28:SIDEExplicitFormula/Schema/Detector.lean | awk 'NR>=28&&NR<=45{print NR": "$0} NR>=95&&NR<=135{print NR": "$0}'
+  #48 | 2026-10-13T05:39:39.156Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && grep -n "plateau width" OPEN_TRAILS.md FINDINGS.md | cut -c1-400 | tail -8
+  #49 | 2026-10-13T05:39:42.979Z | seat | Bash | awk 'NR==13990' OPEN_TRAILS.md | fold -w 300 | grep -i -n "plateau\|width" ; grep -n "plateau width\|plateau-width" /d/relay/data/b66*_ferry.txt /d/relay/data/b
+  #50 | 2026-10-13T05:40:45.648Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n "theorem offScore_reflect\|theorem paperFT_conj_of_real\|theorem paperFT_neg_of_even\|theorem term_eq\|theorem XV_nod
+  #51 | 2026-10-13T05:40:51.200Z | seat | Bash | python -c "
+  #52 | 2026-10-13T05:41:58.938Z | seat | Bash | cd /d/relay && grep -n "^def \(prompt\|answers\|ask\)\|_prompt\|author_answers" tools/b659_record.py | head -20
+  #53 | 2026-10-13T05:42:01.854Z | seat | Bash | awk 'NR>=1060&&NR<=1160' tools/b659_record.py
+  #54 | 2026-10-13T05:42:15.238Z | seat | Bash | git add data/b661_e1cfg_binding.txt && git commit -q -m "b661 Component 2 under (R271)(3): b656's binding re-read at v0.28 -- every binder of zeroSide_neg_at_ra
+  #55 | 2026-10-13T05:45:39.164Z | seat | Bash | grep -iln "ladder" data/b627_* tools/b627_* 2>/dev/null; grep -in "ladder" data/b627_*.txt tools/b627_*.py 2>/dev/null | cut -c1-260 | head -20
+  #56 | 2026-10-13T05:45:43.981Z | seat | Bash | grep -n "bits" data/b627_*.txt tools/b627_*.py 2>/dev/null | cut -c1-240 | head -30
+  #57 | 2026-10-13T05:45:48.983Z | seat | Bash | grep -n "PREC\b\|PREC \|PREC=\|prec\s*=\|ctx.prec\|400\|doubl" tools/b627_margin.py | cut -c1-200 | head -30; grep -rn "b627 ladder\|precision ladder\|ladder of
+  #58 | 2026-10-13T05:47:46.213Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && grep -n "400 bits\|bits, then\|raised to [0-9]* bits\|precision raised\|precision.*ladder\|ladder.*precision\|ladder.*bits\|b
+  #59 | 2026-10-13T05:50:15.405Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_record.py answers && grep -c "" data/b661_author_answers.txt && grep -n "^### \(CALL\|PROMPT\|THE AUTHOR\)\|^RESULT" da
+  #60 | 2026-10-13T05:50:31.154Z | seat | Bash | awk 'NR==60||NR==78{print NR": "substr($0,1,150)}' data/b660_ten_acts.txt; git add tools/b661_record.py data/b661_author_answers.txt data/b661_author_answers.js
+  #61 | 2026-10-13T05:53:18.305Z | seat | Bash | cd /d/SIDE-explicit-formula && git show v0.28:SIDEExplicitFormula/TwoPropertyWindow.lean | awk 'NR>=40&&NR<=75{print NR": "$0}'; python -c "import flint; print(
+  #62 | 2026-10-13T05:53:33.552Z | seat | Bash | cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad && PYTHONIOENCODING=utf-8 timeout 300 python b661_proto.py
+  #63 | 2026-10-13T05:54:03.228Z | seat | Bash | cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad && PYTHONIOENCODING=utf-8 timeout 500 python b661_proto_i4.py
+  #64 | 2026-10-13T05:54:20.901Z | seat | Bash | cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad && PYTHONIOENCODING=utf-8 timeout 500 python -c "
+  #65 | 2026-10-13T05:58:42.244Z | seat | Bash | cd /d/relay && python -c "import ast,io; ast.parse(io.open('tools/b661_map.py',encoding='utf-8').read()); print('PARSES')"
+  #66 | 2026-10-13T05:58:56.406Z | seat | PowerShell | $sp = "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad"; $p = Start-Process bash -ArgumentList "$sp\b661_map_run
+  #67 | 2026-10-13T05:59:06.620Z | seat | Bash | cygpath -w "$(which bash)"
+  #68 | 2026-10-13T05:59:14.784Z | seat | PowerShell | $sp = "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad"; $p = Start-Process "C:\Program Files\Git\usr\bin\bash.e
+  #69 | 2026-10-13T05:59:19.925Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_map.log"; for i in $(seq 1 6); do sleep 10; done; wc -l 
+  #70 | 2026-10-13T06:00:33.651Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_map.log"; for i in $(seq 1 55); do grep -q "MAP RUN DONE
+  #71 | 2026-10-13T06:03:03.747Z | seat | Bash | grep -n "^###\|^  H[1-4]\|killSet\|hθ0\|== CELL\|D = 2" data/b661_detection_map.txt | tail -90 | cut -c1-230 | grep -v "^3:\|^4:\|^5:\|^6:" | awk 'NR%1==0' | he
+  #72 | 2026-10-13T06:03:54.116Z | seat | Bash | python -c "import ast,io; ast.parse(io.open('tools/b661_map.py',encoding='utf-8').read()); print('PARSES')" && PYTHONIOENCODING=utf-8 timeout 580 python tools/b
+  #73 | 2026-10-13T06:04:32.984Z | seat | Bash | cp data/b661_detection_map.txt /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_detection_map_first.txt && P
+  #74 | 2026-10-13T06:08:01.768Z | seat | Bash | git add tools/b661_map.py data/b661_detection_map.txt data/b661_detection_map.json data/b661_map_control.txt data/b661_map_control.json && git commit -q -m "b66
+  #75 | 2026-10-13T06:08:09.776Z | seat | Bash | wc -l tools/b656_*.py tools/b658_*.py | sort -k2; head -5 data/b656_closing.txt | cut -c1-250
+  #76 | 2026-10-13T06:08:26.879Z | seat | Bash | wc -l data/b659_registration_2026-10-13.txt && cat data/b659_registration_2026-10-13.txt | cut -c1-400
+  #77 | 2026-10-13T06:08:47.043Z | seat | Bash | grep -n "G-WORKFLOW-FILES\|G-RUNNER-READ\|G-RUNNER-GATE\|G-MERGES-ON-GATE\|STANDING = \|standing arms not carried\|B655_ACT_ARMS\|ACT_ARMS" tools/b656_checks.py
+  #78 | 2026-10-13T06:08:48.283Z | seat | Bash | grep -n "^### (R264)(2), THE FREEZE\|THE FREEZE" -A6 data/b656_registration_2026-10-12.txt | cut -c1-260 | head -14; grep -n "G-WORKFLOW-FILES\|G-RUNNER\|G-MERG
+  #79 | 2026-10-13T06:09:00.777Z | seat | Bash | cat tools/b659_reg_gate.py; echo =====; cat tools/b659_regspec.py
+  #80 | 2026-10-13T06:09:04.604Z | seat | Bash | cat tools/b659_closing.py
+  #81 | 2026-10-13T06:09:09.672Z | seat | Bash | grep -n "def wf_state\|def merges_state\|def wf_ok\|def runner_ok\|def gate_ok\|def merges_ok" tools/b656_checks.py; awk 'NR>=275&&NR<=300' tools/b656_checks.py
+  #82 | 2026-10-13T06:09:14.839Z | seat | Bash | sed -n 30,60p tools/b658_worklist.py; ls data/b658_runner*; python -c "
+  #83 | 2026-10-13T06:09:23.125Z | seat | Bash | cd /d/SIDE-explicit-formula && git show main:.github/workflows/build-module.yml | grep -n "workflow_dispatch\|hold_mb\|cache get\|print axioms\|print_targets\|l
+  #84 | 2026-10-13T06:09:29.055Z | seat | Bash | git show main:.github/workflows/build-module.yml | grep -n "2560\|HOLD" | cut -c1-150
+  #85 | 2026-10-13T06:10:48.645Z | seat | Bash | cd /d/relay && head -12 data/b659_defects.txt | cut -c1-200; wc -l data/act_roots.txt; tail -3 data/act_roots.txt | cut -c1-120
+  #86 | 2026-10-13T06:13:54.193Z | seat | Bash | python -c "import ast,io; ast.parse(io.open('tools/b661_record.py',encoding='utf-8').read()); print('PARSES')" && PYTHONIOENCODING=utf-8 python -c "
+  #87 | 2026-10-13T06:14:09.507Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #88 | 2026-10-13T06:18:17.784Z | seat | Bash | ls data/b660_act_root.json tools/b627_margin.py tools/b627_worklist.py && python -c "import ast,io; ast.parse(io.open('tools/b661_checks.py',encoding='utf-8').r
+  #89 | 2026-10-13T06:20:38.282Z | seat | Bash | python - <<'EOF'
+  #90 | 2026-10-13T06:20:44.836Z | seat | Bash | python - <<'EOF'
+  #91 | 2026-10-13T06:20:51.321Z | seat | Bash | python - <<'EOF'
+
+### ### **COMMANDS 91 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**

@@ -1,0 +1,645 @@
+{
+ "at": "2026-10-13T06:21:02Z",
+ "anchor": "RULING (R271) BEGIN",
+ "rows": [
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T05:01:23.582Z",
+   "src": "seat",
+   "cmd": "$p = Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python)' } | Select-Object ProcessId, Name, CommandLine; if ($p) { $p | Format-Table -AutoSize | Out-String -Width 300 } else { \"NONE: no tail, lean, lake or python process is running\" }; \"free MB \" + [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)",
+   "n": 1
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:01:28.787Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python - <<'EOF'\nimport json,subprocess,sys\np=r'C:\\Users\\echo chamber\\.claude\\projects\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf.jsonl'\nbest=None\nfor line in open(p,encoding='utf-8'):\n    try: o=json.loads(line)\n    except: continue\n    if o.get('type')!='user': continue\n    c=o.get('message',{}).get('content')\n    texts=[c] if isinstance(c,str) else [x.get('text','') for x in (c or []) if isinstance(x,dict) and x.get('type')=='text']\n    for t in texts:\n        if 'RULING (R271) BEGIN' in t and 'FERRY END (part 1 of 1)' in t: best=t\ns=best[best.index('RULING (R271) BEGIN'):best.index('FERRY END (part 1 of 1)')+len('FERRY END (part 1 of 1)')]\nopen('data/b661_ferry.txt','wb').write((s+'\\n').encode('utf-8'))\nprint('banked',len(s),'chars; CR',s.count('\\r'),'; RULING END',('RULING (R271) END' in s))\nr=subprocess.run([sys.executable,'tools/ferry_scan.py','data/b661_ferry.txt'],capture_output=True)\nout=r.stdout.replace(b'\\r\\n',b'\\n'); open('data/b661_ferry_scan.txt','wb').write(out)\nprint('scan rc',r.returncode,[l for l in out.decode('utf-8').split('\\n') if 'VERDICT:' in l])\nEOF\ngit status --short data/b660_closing_push_out.txt; for r in /d/relay /d/MY-DOwnloads/PLACE-papers; do echo \"== $r merged: $(git -C $r branch --merged main --list 'push-b660*' | tr '\\n' ' ')\"; done",
+   "n": 2
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:01:36.515Z",
+   "src": "seat",
+   "cmd": "git add data/b661_ferry.txt data/b661_ferry_scan.txt data/b660_closing_push_out.txt && git commit -q -m \"b661 Component 0 under (R271): the ruling and the ferry, part 1 of 1, received in full and banked verbatim from the session transcript (data/b661_ferry.txt); the ferry scan (data/b661_ferry_scan.txt, 0 hits); b660's closing push-out bank committed at the start (data/b660_closing_push_out.txt). Nothing deposits.\" && git log --oneline -1 | cut -c1-9",
+   "n": 3
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:01:36.995Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b660 push-b660-root push-b660-closing",
+   "n": 4
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:01:37.107Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b660 push-b660-root",
+   "n": 5
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:01:45.668Z",
+   "src": "seat",
+   "cmd": "sed 's/b659/b661/g; s/R269/R271/g; s/B659/B661/g; s/after b658/after b660/g; s/b658_tests.py/b659_tests.py/' tools/b659_tests.py > \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests_preview.py\" && diff tools/b659_tests.py \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests_preview.py\" | head -30",
+   "n": 6
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T05:02:24.321Z",
+   "src": "seat",
+   "cmd": "$sp='C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad'; $p = Start-Process -FilePath 'C:\\Program Files\\Git\\bin\\bash.exe' -ArgumentList \"$sp\\b661_tests_loop.sh\" -WorkingDirectory 'D:\\relay' -WindowStyle Hidden -RedirectStandardOutput \"$sp\\b661_tests.log\" -RedirectStandardError \"$sp\\b661_tests.err\" -PassThru; \"PID \" + $p.Id",
+   "n": 7
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:02:32.427Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git show v0.28:SIDEExplicitFormula/Schema/RateIndexCfg.lean | grep -n \"^theorem\\|^    (\\|^    :\\|hrate\\|zeroSide_cfg C\" | cut -c1-170; git show v0.28:SIDEExplicitFormula/PowerLimit.lean | sed -n '672,700p' | cut -c1-160; ls /d/relay/data | grep -E \"^b627_\" | head; grep -rln \"prec\\|bits\" /d/relay/data/b627_* 2>/dev/null | head",
+   "n": 8
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:02:39.680Z",
+   "src": "seat",
+   "cmd": "git show v0.28:SIDEExplicitFormula/PowerLimit.lean | grep -n \"2 \\* (VF H).card + 2 \\* DK + DE\\|theorem fixed_poly_bound\\|theorem real_even_interpolant\" | cut -c1-140; cd /d/relay && grep -n \"bits\\|prec\" data/b627_closing.txt data/b627_margin_inputs.txt data/b627_reads.txt | head -10 | cut -c1-220; ls data | grep -E \"^b627_\" | tail -20",
+   "n": 9
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:03:25.193Z",
+   "src": "seat",
+   "cmd": "python -c \"import flint; print('python-flint', flint.__version__); print('zeta_zeros' in dir(flint.acb), 'integral' in dir(flint.acb))\"; git -C /d/SIDE-explicit-formula diff --stat v0.27 v0.28 | tail -5; grep -v \"failing NONE\" \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests.log\" | tail -3",
+   "n": 10
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:04:39.716Z",
+   "src": "seat",
+   "cmd": "L=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests.log\"; ls -la \"$L\"; wc -l \"$L\"; tail -5 \"$L\"; tasklist //FI \"PID eq 16672\"",
+   "n": 11
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:04:44.111Z",
+   "src": "seat",
+   "cmd": "date; wmic process where \"ParentProcessId=16672\" get ProcessId,CommandLine 2>/dev/null | head; ls /d/relay/tools | grep -E '^test_' | wc -l",
+   "n": 12
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:04:48.752Z",
+   "src": "seat",
+   "cmd": "L=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests.log\"; for i in $(seq 1 55); do grep -q \"STEPZERO TESTS DONE\" \"$L\" && break; tasklist //FI \"PID eq 16672\" | grep -q 16672 || { echo DRIVER GONE; break; }; sleep 10; done; date; wc -l < \"$L\"; tail -3 \"$L\"",
+   "n": 13
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:14:18.478Z",
+   "src": "seat",
+   "cmd": "L=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests.log\"; for i in $(seq 1 55); do grep -q \"STEPZERO TESTS DONE\" \"$L\" && break; tasklist //FI \"PID eq 16672\" | grep -q 16672 || { echo DRIVER GONE; break; }; sleep 10; done; date; wc -l < \"$L\"; tail -6 \"$L\"",
+   "n": 14
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:23:54.230Z",
+   "src": "seat",
+   "cmd": "L=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_tests.log\"; for i in $(seq 1 55); do grep -q \"STEPZERO TESTS DONE\" \"$L\" && break; tasklist //FI \"PID eq 16672\" | grep -q 16672 || { echo DRIVER GONE; break; }; sleep 10; done; date; tail -4 \"$L\"",
+   "n": 15
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:33:04.930Z",
+   "src": "seat",
+   "cmd": "python -c \"\nimport json\nfor b in ['data/b661_tests_stepzero.json','data/b660_tests_stepzero.json','data/b659_tests_stepzero.json']:\n    try: j=json.load(open(b,encoding='utf-8'))\n    except Exception as e: print(b,'ABSENT',e); continue\n    x=j.get('test_chain_page.py'); print(b, x and (x['cases'],x['passing'],x['failing'],x['seconds']))\n\" ; python -c \"\nimport json;j=json.load(open('data/b661_tests_stepzero.json',encoding='utf-8'));o=j['test_chain_page.py']['output']\nimport re\nfor l in o.split('\\n'):\n  if re.match(r'^  \\(9\\) ',l) or 'FAIL' in l: print(l[:400])\n\"",
+   "n": 16
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:33:09.338Z",
+   "src": "seat",
+   "cmd": "cat data/b660_stepzero.txt | head -60",
+   "n": 17
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:33:13.621Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python tools/b661_tests.py report; git status --porcelain | head; git -C /d/MY-DOwnloads/PLACE-papers status --porcelain --untracked-files=no; powershell -NoProfile -Command \"Get-CimInstance Win32_Process | ? { \\$_.Name -match 'tail|lean|lake|python' } | select ProcessId,Name; [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)\"; git log --oneline -1",
+   "n": 18
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:33:25.388Z",
+   "src": "seat",
+   "cmd": "for f in data/b628_intake_crank_v0_5.txt data/b647_navigator_memory.txt; do echo \"$f $(git status --porcelain -- $f) idx:$(git ls-files -- $f | wc -l) log:$(git log --all --oneline -- $f | wc -l)\"; done; git branch --list 'push-b66*'; git -C /d/MY-DOwnloads/PLACE-papers branch --list 'push-b66*'; git -C /d/MY-DOwnloads/PLACE-papers log --oneline -1",
+   "n": 19
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:34:19.527Z",
+   "src": "seat",
+   "cmd": "git add data/b661_stepzero.txt data/b661_tests_stepzero.txt data/b661_tests_stepzero.json data/b661_tests_withheld.json tools/b661_tests.py && git diff --cached --stat && git commit -q -m \"b661 Component 0 under (R271): step zero -- the process listing NONE; the b660 branches deleted by name; every test file under tools/ run and counted (tools/b661_tests.py; 54 files, 53 run, 1 withheld, 2 not clean as carried: test_chain_page.py (9), test_chain_page_b638.py (4)-(7)). Nothing deposits.\" && git log --oneline -1",
+   "n": 20
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:34:29.028Z",
+   "src": "seat",
+   "cmd": "cat data/b661_ferry.txt",
+   "n": 21
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:34:33.458Z",
+   "src": "seat",
+   "cmd": "ls data/b65*_readfirst* data/b660_readfirst* 2>/dev/null; head -40 data/b659_readfirst.txt 2>/dev/null; echo ====; cat data/b660_closing.txt | head -80",
+   "n": 22
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:34:38.420Z",
+   "src": "seat",
+   "cmd": "wc -l data/b656_e1_binding.txt data/b658_e1cfg_statement.txt data/b660_ten_acts.txt data/b660_lanes.txt; cat -n data/b656_e1_binding.txt",
+   "n": 23
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:34:43.505Z",
+   "src": "seat",
+   "cmd": "cat -n data/b658_e1cfg_statement.txt",
+   "n": 24
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:34:43.752Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git show v0.28:SIDEExplicitFormula/Schema/RateIndexCfg.lean | cat -n",
+   "n": 25
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:34:56.829Z",
+   "src": "seat",
+   "cmd": "git show v0.28:SIDEExplicitFormula/PowerLimit.lean > /dev/null && git show v0.28:SIDEExplicitFormula/PowerLimit.lean | sed -n '240,300p;420,450p;500,600p' | cat -A | head -0; git show v0.28:SIDEExplicitFormula/PowerLimit.lean | awk 'NR>=240&&NR<=300{print NR\": \"$0} NR>=420&&NR<=450{print NR\": \"$0}'",
+   "n": 26
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:35:07.671Z",
+   "src": "seat",
+   "cmd": "git show v0.28:SIDEExplicitFormula/PowerWindow.lean | awk 'NR>=270&&NR<=280{print \"PW \"NR\": \"$0} NR>=325&&NR<=332{print \"PW \"NR\": \"$0} NR>=394&&NR<=404{print \"PW \"NR\": \"$0} NR>=428&&NR<=436{print \"PW \"NR\": \"$0}'; git show v0.28:SIDEExplicitFormula/Schema/Config.lean | awk '{print \"CF \"NR\": \"$0}'; git show v0.28:SIDEExplicitFormula/RestBound.lean | awk 'NR>=40&&NR<=53{print \"RB \"NR\": \"$0}'",
+   "n": 27
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:35:15.955Z",
+   "src": "seat",
+   "cmd": "git grep -n \"def reflect\\|structure ZeroConfig\\|def gammaOf\\|def N \\|def paperFT\\|def N(\" v0.28 -- 'Zeta23/*.lean' 'SIDEExplicitFormula/*.lean' | head; git ls-tree -r --name-only v0.28 | grep -i \"Defs.lean\"",
+   "n": 28
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:35:19.550Z",
+   "src": "seat",
+   "cmd": "git show v0.28:Zeta23/Defs.lean | awk 'NR>=118&&NR<=165{print NR\": \"$0}'",
+   "n": 29
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:35:30.655Z",
+   "src": "seat",
+   "cmd": "git show v0.28:SIDEExplicitFormula/PowerLimit.lean | awk 'NR>=500&&NR<=700{print NR\": \"$0}'",
+   "n": 30
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:36:21.079Z",
+   "src": "seat",
+   "cmd": "git show v0.28:SIDEExplicitFormula/PowerLimit.lean | awk '(NR>=700&&NR<=760)||(NR>=310&&NR<=350)||(NR>=95&&NR<=135)||(NR>=140&&NR<=150)||(NR>=795&&NR<=830){print NR\": \"$0}'",
+   "n": 31
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:36:56.510Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && ls -la tools/b659_*.py tools/b658_*.py | awk '{print $5, $9}'; grep -n \"weight\" tools/b659_record.py | head -30; awk 'NR>=8440&&NR<=8462{print NR\": \"substr($0,1,600)}' /d/MY-DOwnloads/PLACE-papers/FINDINGS.md; wc -l /d/MY-DOwnloads/PLACE-papers/FINDINGS.md /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md",
+   "n": 32
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:37:02.182Z",
+   "src": "seat",
+   "cmd": "wc -l tools/b659_record.py tools/b659_worklist.py tools/b658_record.py; awk 'NR<=120' tools/b659_record.py",
+   "n": 33
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:37:08.018Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=120&&NR<=330' tools/b659_record.py",
+   "n": 34
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:37:14.182Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=8461{print NR\": \"$0}' /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | cut -c1-400; cat tools/b659_worklist.py | head -65",
+   "n": 35
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:37:20.278Z",
+   "src": "seat",
+   "cmd": "grep -n \"###.*\\*\\*\\|^### \\(THE\\|COUNT\\)\" data/b660_ten_acts.txt | cut -c1-260 | head -30; echo ===; grep -n \"\\*\\*\" data/b660_lanes.txt | cut -c1-260 | head -20; echo; awk 'NR<=12{print NR\": \"$0}' data/b627_margin_inputs.txt | cut -c1-200",
+   "n": 36
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:37:27.155Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git diff --stat v0.27 v0.28 -- SIDEExplicitFormula/Schema/Converse.lean SIDEExplicitFormula/Schema/Config.lean SIDEExplicitFormula/PowerLimit.lean SIDEExplicitFormula/PowerWindow.lean SIDEExplicitFormula/RestBound.lean Zeta23/Defs.lean | tail -1; echo \"(empty above = unchanged)\"; git show v0.28:SIDEExplicitFormula/Schema/Converse.lean | grep -n \"^theorem\\|^def\" | cut -c1-120; git show v0.28:SIDEExplicitFormula/Schema/Instances.lean | grep -n \"zetaWeilConfig :\\|def zetaWeilConfig\" ; git rev-parse --short v0.28 main",
+   "n": 37
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:37:30.711Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git rev-parse --short v0.27 v0.28^{commit} main; git diff --name-only v0.27 v0.28",
+   "n": 38
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:37:34.392Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula rev-parse --short \"v0.27^{commit}\"; git -C /d/SIDE-explicit-formula rev-parse --short \"v0.28^{commit}\"; git -C /d/SIDE-explicit-formula rev-parse --short main",
+   "n": 39
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:38:02.084Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && awk 'NR==1||NR==7||NR==12||NR==16||NR==20{print NR\": \"substr($0,1,90)}' data/b660_closing.txt; git -C /d/SIDE-explicit-formula show v0.28:SIDEExplicitFormula/PowerWindow.lean | awk 'NR>=424&&NR<=427{print NR\": \"$0}'",
+   "n": 40
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:38:10.855Z",
+   "src": "seat",
+   "cmd": "git add data/b661_readfirst.txt && git commit -q -m \"b661 the read-first under (R271): each source cited by path and line, each bank's row unit named, banked before Component 1. Nothing deposits.\" && git log --oneline -1 | cut -c1-60",
+   "n": 41
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:38:15.745Z",
+   "src": "seat",
+   "cmd": "git log --oneline -5 | cut -c1-80; git rev-parse --short origin/main; git -C /d/MY-DOwnloads/PLACE-papers rev-parse --short origin/main",
+   "n": 42
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:38:29.847Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && awk 'NR==8461||NR==14092{print NR\": \"substr($0,1,200)}' FINDINGS.md OPEN_TRAILS.md; awk 'NR==14092{print \"OT \"NR\": \"substr($0,1,200)}' OPEN_TRAILS.md; tail -c 300 FINDINGS.md | od -c | tail -3",
+   "n": 43
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:39:11.234Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PYTHONIOENCODING=utf-8 python tools/b661_record.py c1 dry",
+   "n": 44
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:39:17.418Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python tools/b661_record.py c1 && cat data/b661_record_lines.json && git -C /d/MY-DOwnloads/PLACE-papers diff --stat",
+   "n": 45
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:39:22.650Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m \"b661 Component 1 under (R271)(1): b660 at its weight, appended to b660's entry (FINDINGS :8483). Nothing deposits.\" && git log --oneline -1 | cut -c1-70; cd /d/relay && git add tools/b661_worklist.py tools/b661_record.py data/b661_record_lines.json && git commit -q -m \"b661 Component 1 under (R271)(1): the record line landed (FINDINGS :8483, data/b661_record_lines.json); tools/b661_worklist.py and tools/b661_record.py written by the Write tool. Nothing deposits.\" && git log --oneline -1 | cut -c1-70",
+   "n": 46
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:39:30.652Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git show v0.28:SIDEExplicitFormula/Schema/Detector.lean | awk 'NR>=28&&NR<=45{print NR\": \"$0} NR>=95&&NR<=135{print NR\": \"$0}'",
+   "n": 47
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:39:39.156Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && grep -n \"plateau width\" OPEN_TRAILS.md FINDINGS.md | cut -c1-400 | tail -8",
+   "n": 48
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:39:42.979Z",
+   "src": "seat",
+   "cmd": "awk 'NR==13990' OPEN_TRAILS.md | fold -w 300 | grep -i -n \"plateau\\|width\" ; grep -n \"plateau width\\|plateau-width\" /d/relay/data/b66*_ferry.txt /d/relay/data/b65[6-9]_ferry.txt | cut -c1-300",
+   "n": 49
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:40:45.648Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git grep -n \"theorem offScore_reflect\\|theorem paperFT_conj_of_real\\|theorem paperFT_neg_of_even\\|theorem term_eq\\|theorem XV_node\\|theorem dominant_exists\\|theorem plateau_even\\|theorem tie_reflect\\|theorem Xval_real_neg\\|theorem weighted_finite_bound\\|theorem weighted_summable\" v0.28 -- SIDEExplicitFormula | cut -c1-140; python -c \"import flint; print([x for x in dir(flint.acb) if 'zero' in x]); print(flint.acb.zeta_zeros.__doc__[:600] if hasattr(flint.acb,'zeta_zeros') else '')\"",
+   "n": 50
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:40:51.200Z",
+   "src": "seat",
+   "cmd": "python -c \"\nimport flint\nfor m in (flint.acb, flint.arb):\n    print(m.__name__, [x for x in dir(m) if 'zeta' in x or 'nzero' in x or 'hardy' in x or 'backlund' in x])\n\"",
+   "n": 51
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:41:58.938Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && grep -n \"^def \\(prompt\\|answers\\|ask\\)\\|_prompt\\|author_answers\" tools/b659_record.py | head -20",
+   "n": 52
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:42:01.854Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=1060&&NR<=1160' tools/b659_record.py",
+   "n": 53
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:42:15.238Z",
+   "src": "seat",
+   "cmd": "git add data/b661_e1cfg_binding.txt && git commit -q -m \"b661 Component 2 under (R271)(3): b656's binding re-read at v0.28 -- every binder of zeroSide_neg_at_rate_cfg bound by file and line at Z1, hA and A0 binders, the methods and costs carried; no number computed; the prompt raised on it (data/b661_e1cfg_binding.txt). Nothing deposits.\" && git log --oneline -1 | cut -c1-60",
+   "n": 54
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:45:39.164Z",
+   "src": "seat",
+   "cmd": "grep -iln \"ladder\" data/b627_* tools/b627_* 2>/dev/null; grep -in \"ladder\" data/b627_*.txt tools/b627_*.py 2>/dev/null | cut -c1-260 | head -20",
+   "n": 55
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:45:43.981Z",
+   "src": "seat",
+   "cmd": "grep -n \"bits\" data/b627_*.txt tools/b627_*.py 2>/dev/null | cut -c1-240 | head -30",
+   "n": 56
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:45:48.983Z",
+   "src": "seat",
+   "cmd": "grep -n \"PREC\\b\\|PREC \\|PREC=\\|prec\\s*=\\|ctx.prec\\|400\\|doubl\" tools/b627_margin.py | cut -c1-200 | head -30; grep -rn \"b627 ladder\\|precision ladder\\|ladder of precision\" data/*.txt 2>/dev/null | cut -c1-200 | head",
+   "n": 57
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:47:46.213Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && grep -n \"400 bits\\|bits, then\\|raised to [0-9]* bits\\|precision raised\\|precision.*ladder\\|ladder.*precision\\|ladder.*bits\\|bits.*ladder\" FINDINGS.md OPEN_TRAILS.md | cut -c1-260 | head; cd /d/relay && git grep -n -i \"ladder.*bits\\|bits.*ladder\\|precision ladder\\|PREC_LADDER\\|LADDER *=\" -- tools data | cut -c1-200 | head",
+   "n": 58
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:50:15.405Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python tools/b661_record.py answers && grep -c \"\" data/b661_author_answers.txt && grep -n \"^### \\(CALL\\|PROMPT\\|THE AUTHOR\\)\\|^RESULT\" data/b661_author_answers.txt | cut -c1-160",
+   "n": 59
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:50:31.154Z",
+   "src": "seat",
+   "cmd": "awk 'NR==60||NR==78{print NR\": \"substr($0,1,150)}' data/b660_ten_acts.txt; git add tools/b661_record.py data/b661_author_answers.txt data/b661_author_answers.json data/b661_defects.txt && git commit -q -m \"b661 Component 2 under (R271)(3): the author's word banked (data/b661_author_answers.txt: proceed on the binding; hQtie/hQb by coeffs_exist with per-j controls; overlap re-read once then UNRESOLVED-AT-j; the base width printed per cell; one rung 200 -> 400 bits); the navigator's defects (a), (b) (data/b661_defects.txt). Nothing deposits.\" && git log --oneline -1 | cut -c1-50",
+   "n": 60
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:53:18.305Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git show v0.28:SIDEExplicitFormula/TwoPropertyWindow.lean | awk 'NR>=40&&NR<=75{print NR\": \"$0}'; python -c \"import flint; print(hasattr(flint,'arb_series'), hasattr(flint,'acb_series')); s=flint.arb_series([flint.arb('0.3'),1],prec=6); print((-1/s).exp())\"",
+   "n": 61
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:53:33.552Z",
+   "src": "seat",
+   "cmd": "cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad && PYTHONIOENCODING=utf-8 timeout 300 python b661_proto.py",
+   "n": 62
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:54:03.228Z",
+   "src": "seat",
+   "cmd": "cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad && PYTHONIOENCODING=utf-8 timeout 500 python b661_proto_i4.py",
+   "n": 63
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:54:20.901Z",
+   "src": "seat",
+   "cmd": "cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad && PYTHONIOENCODING=utf-8 timeout 500 python -c \"\nimport b661_proto_i4 as P\nfrom flint import arb\nlo,hi = P.i4(delta0=arb(1)/300, n=400, minw=arb(2)**-120)\nprint((hi-lo).upper().str(5), ((hi-lo)/lo).upper().str(5))\n\" 2>&1 | tail -3",
+   "n": 64
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:58:42.244Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -c \"import ast,io; ast.parse(io.open('tools/b661_map.py',encoding='utf-8').read()); print('PARSES')\"",
+   "n": 65
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T05:58:56.406Z",
+   "src": "seat",
+   "cmd": "$sp = \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad\"; $p = Start-Process bash -ArgumentList \"$sp\\b661_map_run.sh\" -RedirectStandardOutput \"$sp\\b661_map.log\" -RedirectStandardError \"$sp\\b661_map.err\" -WindowStyle Hidden -PassThru; \"PID $($p.Id)\"",
+   "n": 66
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:59:06.620Z",
+   "src": "seat",
+   "cmd": "cygpath -w \"$(which bash)\"",
+   "n": 67
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-13T05:59:14.784Z",
+   "src": "seat",
+   "cmd": "$sp = \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad\"; $p = Start-Process \"C:\\Program Files\\Git\\usr\\bin\\bash.exe\" -ArgumentList \"$sp\\b661_map_run.sh\" -RedirectStandardOutput \"$sp\\b661_map.log\" -RedirectStandardError \"$sp\\b661_map.err\" -WindowStyle Hidden -PassThru; \"PID $($p.Id)\"",
+   "n": 68
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T05:59:19.925Z",
+   "src": "seat",
+   "cmd": "L=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_map.log\"; for i in $(seq 1 6); do sleep 10; done; wc -l < \"$L\"; head -30 \"$L\" | cut -c1-260; cat \"${L%.log}.err\" | tail -5",
+   "n": 69
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:00:33.651Z",
+   "src": "seat",
+   "cmd": "L=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_map.log\"; for i in $(seq 1 55); do grep -q \"MAP RUN DONE\" \"$L\" && break; tasklist //FI \"PID eq 3128\" | grep -q 3128 || { echo DRIVER GONE; break; }; sleep 10; done; date; grep -n \"READING\\|MAP RUN DONE\\|RE-READ\\|Traceback\" \"$L\" | cut -c1-200; tail -3 \"${L%.log}.err\"",
+   "n": 70
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:03:03.747Z",
+   "src": "seat",
+   "cmd": "grep -n \"^###\\|^  H[1-4]\\|killSet\\|hθ0\\|== CELL\\|D = 2\" data/b661_detection_map.txt | tail -90 | cut -c1-230 | grep -v \"^3:\\|^4:\\|^5:\\|^6:\" | awk 'NR%1==0' | head -100",
+   "n": 71
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:03:54.116Z",
+   "src": "seat",
+   "cmd": "python -c \"import ast,io; ast.parse(io.open('tools/b661_map.py',encoding='utf-8').read()); print('PARSES')\" && PYTHONIOENCODING=utf-8 timeout 580 python tools/b661_map.py control 2>&1 | grep -v \"^    hrate j\" | cut -c1-300; grep -c \"hrate j\" data/b661_map_control.txt",
+   "n": 72
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:04:32.984Z",
+   "src": "seat",
+   "cmd": "cp data/b661_detection_map.txt /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_detection_map_first.txt && PYTHONIOENCODING=utf-8 timeout 580 python tools/b661_map.py > /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_map_final.log 2>&1; echo \"exit $?\"; tail -7 data/b661_detection_map.txt; diff <(sed 1d /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_detection_map_first.txt | grep -v elapsed) <(sed 1d data/b661_detection_map.txt | grep -v elapsed) && echo \"IDENTICAL to the first run (header time and elapsed aside)\"",
+   "n": 73
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:08:01.768Z",
+   "src": "seat",
+   "cmd": "git add tools/b661_map.py data/b661_detection_map.txt data/b661_detection_map.json data/b661_map_control.txt data/b661_map_control.json && git commit -q -m \"b661 Component 3 under (R271)(4)-(5): the detection-index map at Z1, 20 cells: 0 with an index, 20 NONE <= J_max, 0 HYP-UNVERIFIED; H1 held, H2 vacuous, H3 not scorable, H4 held (data/b661_detection_map.txt); the positive control at H3's cell past J_max, j = 31, the zero side below 0, not a reading (data/b661_map_control.txt); tools/b661_map.py. Nothing deposits.\" && git log --oneline -1 | cut -c1-60; ls tools/b659_*.py | xargs wc -l | tail -8",
+   "n": 74
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:08:09.776Z",
+   "src": "seat",
+   "cmd": "wc -l tools/b656_*.py tools/b658_*.py | sort -k2; head -5 data/b656_closing.txt | cut -c1-250",
+   "n": 75
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:08:26.879Z",
+   "src": "seat",
+   "cmd": "wc -l data/b659_registration_2026-10-13.txt && cat data/b659_registration_2026-10-13.txt | cut -c1-400",
+   "n": 76
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:08:47.043Z",
+   "src": "seat",
+   "cmd": "grep -n \"G-WORKFLOW-FILES\\|G-RUNNER-READ\\|G-RUNNER-GATE\\|G-MERGES-ON-GATE\\|STANDING = \\|standing arms not carried\\|B655_ACT_ARMS\\|ACT_ARMS\" tools/b656_checks.py | cut -c1-260 | head -20; grep -n \"ACT_ARMS\\|RUNNER\" tools/b656_worklist.py | cut -c1-260; grep -n \"G-RUNNER\\|G-WORKFLOW\\|G-MERGES\\|standing arms not carried\\|not carried\" data/b656_registration_2026-10-12.txt | cut -c1-300",
+   "n": 77
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:08:48.283Z",
+   "src": "seat",
+   "cmd": "grep -n \"^### (R264)(2), THE FREEZE\\|THE FREEZE\" -A6 data/b656_registration_2026-10-12.txt | cut -c1-260 | head -14; grep -n \"G-WORKFLOW-FILES\\|G-RUNNER\\|G-MERGES\" data/b655_registration_*.txt data/b658_registration_*.txt | cut -c1-120 | head",
+   "n": 78
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:09:00.777Z",
+   "src": "seat",
+   "cmd": "cat tools/b659_reg_gate.py; echo =====; cat tools/b659_regspec.py",
+   "n": 79
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:09:04.604Z",
+   "src": "seat",
+   "cmd": "cat tools/b659_closing.py",
+   "n": 80
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:09:09.672Z",
+   "src": "seat",
+   "cmd": "grep -n \"def wf_state\\|def merges_state\\|def wf_ok\\|def runner_ok\\|def gate_ok\\|def merges_ok\" tools/b656_checks.py; awk 'NR>=275&&NR<=300' tools/b656_checks.py; grep -n \"def wf_ok\" -A60 tools/b656_checks.py | head -62; grep -n \"RUNNER\\|NEXT_TAG\\|K_MAIN\\|K_WORKFLOW\" tools/b656_worklist.py tools/b658_worklist.py | cut -c1-250",
+   "n": 81
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:09:14.839Z",
+   "src": "seat",
+   "cmd": "sed -n 30,60p tools/b658_worklist.py; ls data/b658_runner*; python -c \"\nimport json;j=json.load(open('data/b658_runner_rows.json',encoding='utf-8'));print(json.dumps(j,ensure_ascii=False)[:900])\"; grep -n \"GATE\\|artifact:\\|TERMINALS\" data/b658_runner_SIDE-explicit-formula.txt | cut -c1-200 | tail -8; git -C /d/SIDE-explicit-formula log -3 --format='%h %p %s' main | cut -c1-120; git -C /d/SIDE-explicit-formula show --name-only --format=%h 5eddcca 2>/dev/null | head -3",
+   "n": 82
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:09:23.125Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git show main:.github/workflows/build-module.yml | grep -n \"workflow_dispatch\\|hold_mb\\|cache get\\|print axioms\\|print_targets\\|lake build\" | cut -c1-150; git show --name-only --format=%h 7317db4 | head -4; git show main:print_targets.txt | wc -l; git tag --points-at main",
+   "n": 83
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:09:29.055Z",
+   "src": "seat",
+   "cmd": "git show main:.github/workflows/build-module.yml | grep -n \"2560\\|HOLD\" | cut -c1-150",
+   "n": 84
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:10:48.645Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && head -12 data/b659_defects.txt | cut -c1-200; wc -l data/act_roots.txt; tail -3 data/act_roots.txt | cut -c1-120",
+   "n": 85
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:13:54.193Z",
+   "src": "seat",
+   "cmd": "python -c \"import ast,io; ast.parse(io.open('tools/b661_record.py',encoding='utf-8').read()); print('PARSES')\" && PYTHONIOENCODING=utf-8 python -c \"\nimport sys; sys.path.insert(0,'tools')\nimport b661_record as R\ncs=R._cells(); print(len(cs), cs[0][:4], len(cs[0][4]), cs[0][5])\nprint(R._counts(), R._by_t('card_Xr'), R._by_t('D'), R._theta_off_one(), R._nt(), R._rungs())\nprint([ (c,ok) for c,ok,w in R._cert_blocks() if not ok], len(R._cert_blocks()))\nprint(R._n2()); print(R._n3()); print(R._n4()); print(R._h('H2'))\nprint(R._control_line())\n\"",
+   "n": 86
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:14:09.507Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -c \"\nimport sys; sys.path.insert(0,'tools')\nimport b661_record as R, time\nrows=R.capture(); print(len(rows))\nhits=[(r['n'],r['ts'],r['cmd'][:90]) for r in rows if r['tool'] in ('Bash','PowerShell') and R.NUMBER_RUN.search(r['cmd'])]\nfor h in hits[:8]: print(h)\nprint(R._n2())\n\"",
+   "n": 87
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:18:17.784Z",
+   "src": "seat",
+   "cmd": "ls data/b660_act_root.json tools/b627_margin.py tools/b627_worklist.py && python -c \"import ast,io; ast.parse(io.open('tools/b661_checks.py',encoding='utf-8').read()); print('PARSES')\"",
+   "n": 88
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:20:38.282Z",
+   "src": "seat",
+   "cmd": "python - <<'EOF'\nimport json,io,re\np='C:/Users/echo chamber/.claude/projects/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf.jsonl'\nout=[]\nfor line in io.open(p,encoding='utf-8',errors='replace'):\n    if 'b659' not in line: continue\n    try: o=json.loads(line)\n    except: continue\n    for c in (o.get('message') or {}).get('content') or []:\n        if isinstance(c,dict) and c.get('type')=='tool_use' and c.get('name') in ('Bash','PowerShell'):\n            cmd=c['input'].get('command','')\n            if re.search(r'gate_hash|lockgate|reg_seal|reg_satisfiable|banned_terms|b307_|b327_|b303_|reg_gate|regspec|--prerun|--seal',cmd):\n                out.append(cmd[:700])\nfor x in out: print('----'); print(x)\nEOF",
+   "n": 89
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:20:44.836Z",
+   "src": "seat",
+   "cmd": "python - <<'EOF'\nimport json,io,re\np='C:/Users/echo chamber/.claude/projects/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf.jsonl'\nfor line in io.open(p,encoding='utf-8',errors='replace'):\n    if 'b659' not in line: continue\n    try: o=json.loads(line)\n    except: continue\n    for c in (o.get('message') or {}).get('content') or []:\n        if isinstance(c,dict) and c.get('type')=='tool_use' and c.get('name') in ('Bash','PowerShell'):\n            cmd=c['input'].get('command','')\n            if 'gate_hash as G' in cmd or ('reg_seal.py --lock' in cmd):\n                print('----'); print(cmd)\nEOF",
+   "n": 90
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-13T06:20:51.321Z",
+   "src": "seat",
+   "cmd": "python - <<'EOF'\nimport json,io\np='C:/Users/echo chamber/.claude/projects/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf.jsonl'\nfor line in io.open(p,encoding='utf-8',errors='replace'):\n    if 'satisfiable' not in line or 'b659' not in line: continue\n    try: o=json.loads(line)\n    except: continue\n    for c in (o.get('message') or {}).get('content') or []:\n        if isinstance(c,dict) and c.get('type')=='tool_use' and c.get('name') in ('Bash','PowerShell'):\n            cmd=c['input'].get('command','')\n            if 'reg_satisfiable' in cmd: print('----'); print(cmd[:1500])\nEOF\nhead -5 data/audit_b659_reg_satisfiable.txt",
+   "n": 91
+  }
+ ],
+ "offences": [],
+ "local_lean": []
+}
