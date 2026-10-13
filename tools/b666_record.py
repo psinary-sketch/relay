@@ -696,6 +696,12 @@ def grades(*a):
                 by_v[rv] = by_v.get(rv, 0) + 1
                 L.append('  s%-4s %-11s %s' % (r['n'], rv, r['sentence']))
                 L.append('        %-11s cell: "%s"%s' % ('', mine[r['n']], (' (%s)' % c[3]) if c and c[3] != 'the parent block' else ''))
+                dr = ((G.get('drops') or {}).get(str(k)) or {}).get(r['n'])
+                if dr:
+                    if dr['clause'] not in q['action'] or dr['words'] not in _bank_line_text(dr['bank'], dr['line']):
+                        sys.exit('### BLOCK %d s%s: A DROPPED CLAUSE NOT IN THE ACTION, OR ITS CELL`S WORDS NOT ON THE BANK LINE -- NOTHING WRITTEN' % (k, r['n']))
+                    L.append('        %-11s the ACTION`s clause "%s" dropped from its span (the author`s word): its cell relay %s :%d -- "%s"' % (
+                        '', dr['clause'], dr['bank'], dr['line'], dr['words']))
                 if r['n'] in row_actions:
                     L.append('        %-11s its ACTION: %s' % ('', row_actions[r['n']] if _ws(row_actions[r['n']][len('RE-CUT: '):] if
                                                                                     row_actions[r['n']].startswith('RE-CUT: ') else row_actions[r['n']])
