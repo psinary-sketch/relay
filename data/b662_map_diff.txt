@@ -1,0 +1,15 @@
+b662 -- COMPONENT 2, (R272)(3): tools/b662_map.py AGAINST tools/b661_map.py, THE DIFFERENCE PRINTED (2026-10-13)
+
+### the author's word (relay data/b662_author_answers.txt): J_EXTRA 8 -> 40, every cell reading j in [D, D + 40]; the ruling's wording
+### yields to the script's own line wherever they differ, the difference printed. tools/b661_map.py is a closed act's tool whose run wrote
+### root-named banks (data/b661_detection_map.*), so it is not edited in place: tools/b662_map.py carries it whole by the Write tool.
+### `git diff --no-index --unified=0 tools/b661_map.py tools/b662_map.py`, hunk by hunk (rows are hunks):
+  @@ -2 +2 @@        the docstring's first line: b661_map.py -> b662_map.py
+  @@ -11 +11,3 @@    the docstring's usage line: tools/b662_map.py, data/b662_detection_map_40.txt; two lines added naming this carriage
+  @@ -27 +29 @@      THE ONE CONSTANT: J_EXTRA = 8 (J_max = D + 8, (R271)(2)) -> J_EXTRA = 40 (J_max = D + 40, (R272)(3), the author's word at b662)
+  @@ -392 +394 @@    the bank's title line: b661 -> b662, "AT J_max = D + 40", "AND (R272)(3)"
+  @@ -481 +483 @@    the bank's name: put(..., name='b661_detection_map') -> name='b662_detection_map_40'
+  @@ -528 +530 @@    the control route refused in the copy (it is b661's and writes b661's bank), so no prior bank can be written by it
+### every other line equal: the grid, T = 1000, PREC = 200, PREC_RUNG = 400, H3_CELL, the I4 constants, the certifications, the hrate
+### reading, the rung, the scores.
+### ### **HUNKS 6 ; THE CONSTANT 1 (J_EXTRA 8 -> 40) ; NAMES AND LABELS 4 ; THE GUARD 1 ; COMPUTATION LINES CHANGED 0.**

@@ -1,0 +1,752 @@
+b662 -- THE DETECTION-INDEX MAP AT Z₁ BOUND TO zeroSide_neg_at_rate_cfg, AT J_max = D + 40, UNDER (R271)(4)-(5) AND (R272)(3) (2026-10-13T07:53:58Z)
+
+### the kernel: SIDE-explicit-formula v0.28 = main ffbc617, Schema/RateIndexCfg.lean :135-:148; the binding relay data/b661_e1cfg_binding.txt;
+### the author`s word relay data/b661_author_answers.txt. Rows are cells (σ, t); per cell the hypotheses by name, then hrate by j, then
+### the reading. python-flint 0.9.0 ; Arb balls at 200 bits, the rung 400 ; T = 1000 ; J_max = D + 40.
+### The map states what the compiled theorem says of Z₁ and nothing of ζ: Z₁ is not ζ`s configuration.
+
+### THE ZERO LIST at 200 bits: N(1000) = 649 by arb.zeta_nzeros ; acb.zeta_zeros(1, 649), every real part 1/2 ; the 649-th [999.791571557 +/- 4.14e-10] < T < the next [1001.34948264 +/- 2.22e-9] ; MATCHED
+### ∫_0^1 |s''''| at 200 bits (Aw`s fourth-derivative part, PowerLimit.lean :800, = 16 I4 / ℓ³ over both ramps): I4 = [633.11141717429854951 +/- 3.97e-18]
+
+== CELL (σ, t) = (0.55, 14.1) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.0165561941892 +/- 1.18e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0247030801497 +/- 3.51e-14] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.024703080 +/- 1.50e-10] ; 1 − conj ρ₁ [0.024703080 +/- 1.50e-10] ; conj ρ₁ [0.024703080 +/- 1.50e-10] ; 1 − ρ₁ [0.024703080 +/- 1.50e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [1.41000000000 +/- 1e-16] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 304, killed 0, screened by the decay bound 345, straddling 0; card Xr = 0
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.07875881833295 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = [13.13472514 +/- 1.74e-9], count 3; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 8 ; J_max = D + 40 = 48 ; cE = [81.00000000 +/- 3e-12] ; CV = [141.7109929 +/- 7.81e-9] ; BK = 1.000000000 ; BE = [164.0000000 +/- 3e-12] ; B = [46481.20567 +/- 3.76e-6]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999973781963064 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [14.13472514 +/- 1.74e-9])
+    hrate j = 8   FAILS   left exp([12964.9816596509 +/- 7.74e-12]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 9   FAILS   left exp([12964.9682358400 +/- 7.39e-12]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 10  FAILS   left exp([12964.9413882182 +/- 3.77e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 11  FAILS   left exp([12964.8876929747 +/- 1.94e-12]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 12  FAILS   left exp([12964.7803024876 +/- 1.90e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 13  FAILS   left exp([12964.5655215135 +/- 3.92e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 14  FAILS   left exp([12964.1359595651 +/- 4.45e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 15  FAILS   left exp([12963.2768356685 +/- 1.18e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 16  FAILS   left exp([12961.5585878752 +/- 4.64e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 17  FAILS   left exp([12958.1220922887 +/- 1.56e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 18  FAILS   left exp([12951.2491011157 +/- 4.60e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 19  FAILS   left exp([12937.5031187695 +/- 3.09e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 20  FAILS   left exp([12910.0111540773 +/- 1.54e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 21  FAILS   left exp([12855.0272246928 +/- 7.92e-12]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 22  FAILS   left exp([12745.0593659238 +/- 7.02e-12]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 23  FAILS   left exp([12525.1236483858 +/- 3.69e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 24  FAILS   left exp([12085.2522133099 +/- 3.42e-12]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 25  FAILS   left exp([11205.5093431580 +/- 1.61e-11]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 26  FAILS   left exp([9446.02360285425 +/- 4.87e-12]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 27  FAILS   left exp([5927.05212224673 +/- 2.58e-12]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+    hrate j = 28  HOLDS   left exp([-1110.89083896831 +/- 2.02e-12]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+  READING (0.55, 14.1): j₀ = 28  ### left exp([-1110.89083896831 +/- 2.02e-12]) ; right exp([15.4675556065854 +/- 2.12e-14]) = [5217639.250 +/- 1.01e-4]
+
+== CELL (σ, t) = (0.6, 14.1) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.0165559025951 +/- 2.44e-14] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0247026546446 +/- 3.68e-14] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.024702655 +/- 3.56e-10] ; 1 − conj ρ₁ [0.024702655 +/- 3.56e-10] ; conj ρ₁ [0.024702655 +/- 3.56e-10] ; 1 − ρ₁ [0.024702655 +/- 3.56e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [2.82000000000 +/- 1e-16] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 304, killed 0, screened by the decay bound 345, straddling 0; card Xr = 0
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.07875881833295 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = [13.13472514 +/- 1.74e-9], count 3; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 8 ; J_max = D + 40 = 48 ; cE = [41.00000000 +/- 3e-13] ; CV = [70.85815603 +/- 1.64e-9] ; BK = 1.000000000 ; BE = [84.00000000 +/- 3e-12] ; B = [11904.17021 +/- 2.77e-6]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999973582063067 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [14.13472514 +/- 1.74e-9])
+    hrate j = 8   FAILS   left exp([12962.2931384764 +/- 4.84e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 9   FAILS   left exp([12962.2796123141 +/- 2.87e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 10  FAILS   left exp([12962.2525599893 +/- 1.75e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 11  FAILS   left exp([12962.1984553398 +/- 9.59e-12]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 12  FAILS   left exp([12962.0902460408 +/- 6.16e-12]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 13  FAILS   left exp([12961.8738274428 +/- 3.77e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 14  FAILS   left exp([12961.4409902467 +/- 6.24e-13]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 15  FAILS   left exp([12960.5753158546 +/- 2.66e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 16  FAILS   left exp([12958.8439670703 +/- 2.16e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 17  FAILS   left exp([12955.3812695018 +/- 1.78e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 18  FAILS   left exp([12948.4558743648 +/- 1.01e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 19  FAILS   left exp([12934.6050840908 +/- 5.19e-12]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 20  FAILS   left exp([12906.9035035428 +/- 3.57e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 21  FAILS   left exp([12851.5003424467 +/- 3.30e-12]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 22  FAILS   left exp([12740.6940202546 +/- 1.88e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 23  FAILS   left exp([12519.0813758703 +/- 3.72e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 24  FAILS   left exp([12075.8560871018 +/- 4.91e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 25  FAILS   left exp([11189.4055095649 +/- 2.74e-11]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 26  FAILS   left exp([9416.50435449092 +/- 6.7e-14]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 27  FAILS   left exp([5870.70204434301 +/- 4.80e-12]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+    hrate j = 28  HOLDS   left exp([-1220.90257595280 +/- 4.27e-12]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+  READING (0.6, 14.1): j₀ = 28  ### left exp([-1220.90257595280 +/- 4.27e-12]) ; right exp([14.1058413790803 +/- 3.22e-14]) = [1336869.680 +/- 4.03e-4]
+
+== CELL (σ, t) = (0.7, 14.1) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.0165547363765 +/- 1.89e-14] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0247009528496 +/- 4.74e-14] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.024700953 +/- 1.51e-10] ; 1 − conj ρ₁ [0.024700953 +/- 1.51e-10] ; conj ρ₁ [0.024700953 +/- 1.51e-10] ; 1 − ρ₁ [0.024700953 +/- 1.51e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [5.64000000000 +/- 3e-16] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 304, killed 0, screened by the decay bound 345, straddling 0; card Xr = 0
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.07875881833295 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = [13.13472514 +/- 1.74e-9], count 3; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 8 ; J_max = D + 40 = 48 ; cE = [21.00000000 +/- 1e-13] ; CV = [35.43439716 +/- 3.13e-9] ; BK = 1.000000000 ; BE = [44.00000000 +/- 1e-13] ; B = [3118.226950 +/- 3.55e-7]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999972782605268 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [14.13472514 +/- 1.74e-9])
+    hrate j = 8   FAILS   left exp([12959.7570665628 +/- 2.74e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 9   FAILS   left exp([12959.7431310671 +/- 2.05e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 10  FAILS   left exp([12959.7152600756 +/- 1.61e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 11  FAILS   left exp([12959.6595180926 +/- 7.18e-12]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 12  FAILS   left exp([12959.5480341266 +/- 1.06e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 13  FAILS   left exp([12959.3250661946 +/- 4.60e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 14  FAILS   left exp([12958.8791303307 +/- 1.68e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 15  FAILS   left exp([12957.9872586029 +/- 4.17e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 16  FAILS   left exp([12956.2035151471 +/- 4.16e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 17  FAILS   left exp([12952.6360282357 +/- 7.97e-12]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 18  FAILS   left exp([12945.5010544128 +/- 4.08e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 19  FAILS   left exp([12931.2311067671 +/- 6.48e-12]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 20  FAILS   left exp([12902.6912114756 +/- 3.79e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 21  FAILS   left exp([12845.6114208927 +/- 5.32e-13]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 22  FAILS   left exp([12731.4518397268 +/- 2.60e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 23  FAILS   left exp([12503.1326773951 +/- 2.33e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 24  FAILS   left exp([12046.4943527316 +/- 2.17e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 25  FAILS   left exp([11133.2177034046 +/- 1.84e-11]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 26  FAILS   left exp([9306.66440475059 +/- 1.83e-12]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 27  FAILS   left exp([5653.55780744260 +/- 1.24e-12]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+    hrate j = 28  HOLDS   left exp([-1652.65538717337 +/- 2.66e-12]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+  READING (0.7, 14.1): j₀ = 28  ### left exp([-1652.65538717337 +/- 2.66e-12]) ; right exp([12.7679014070060 +/- 1.80e-14]) = [350775.3984 +/- 9.24e-6]
+
+== CELL (σ, t) = (0.8, 14.1) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.0165527932393 +/- 2.77e-14] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0246981173248 +/- 2.75e-14] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.024698117 +/- 3.25e-10] ; 1 − conj ρ₁ [0.024698117 +/- 3.25e-10] ; conj ρ₁ [0.024698117 +/- 3.25e-10] ; 1 − ρ₁ [0.024698117 +/- 3.25e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [8.46000000000 +/- 1e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 305, killed 0, screened by the decay bound 344, straddling 0; card Xr = 0
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.07875881833295 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = [13.13472514 +/- 1.74e-9], count 3; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 8 ; J_max = D + 40 = 48 ; cE = [14.33333333 +/- 3.34e-9] ; CV = [23.62884161 +/- 2.44e-9] ; BK = 1.000000000 ; BE = [30.66666667 +/- 3.34e-9] ; B = [1449.235619 +/- 4.03e-7]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999971450680945 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [14.13472514 +/- 1.74e-9])
+    hrate j = 8   FAILS   left exp([12958.4631914044 +/- 3.69e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 9   FAILS   left exp([12958.4485739444 +/- 2.03e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 10  FAILS   left exp([12958.4193390244 +/- 1.32e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 11  FAILS   left exp([12958.3608691843 +/- 2.03e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 12  FAILS   left exp([12958.2439295042 +/- 1.32e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 13  FAILS   left exp([12958.0100501439 +/- 2.02e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 14  FAILS   left exp([12957.5422914234 +/- 1.32e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 15  FAILS   left exp([12956.6067739823 +/- 2.02e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 16  FAILS   left exp([12954.7357391002 +/- 1.33e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 17  FAILS   left exp([12950.9936693359 +/- 1.99e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 18  FAILS   left exp([12943.5095298074 +/- 1.38e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 19  FAILS   left exp([12928.5412507503 +/- 1.89e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 20  FAILS   left exp([12898.6046926362 +/- 1.58e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 21  FAILS   left exp([12838.7315764079 +/- 1.50e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 22  FAILS   left exp([12718.9853439514 +/- 2.38e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 23  FAILS   left exp([12479.4928790383 +/- 1.02e-12]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 24  FAILS   left exp([12000.5079492121 +/- 4.45e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 25  FAILS   left exp([11042.5380895598 +/- 3.54e-11]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 26  FAILS   left exp([9126.59837025522 +/- 2.90e-12]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 27  FAILS   left exp([5294.71893164598 +/- 6.71e-13]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+    hrate j = 28  HOLDS   left exp([-2369.03994557249 +/- 2.21e-12]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+  READING (0.8, 14.1): j₀ = 28  ### left exp([-2369.03994557249 +/- 2.21e-12]) ; right exp([12.0042966506618 +/- 3.20e-14]) = [163455.5964 +/- 1.99e-5]
+
+== CELL (σ, t) = (0.9, 14.1) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.0165500740236 +/- 3.54e-14] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0246941492694 +/- 2.41e-14] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.024694149 +/- 2.70e-10] ; 1 − conj ρ₁ [0.024694149 +/- 2.70e-10] ; conj ρ₁ [0.024694149 +/- 2.70e-10] ; 1 − ρ₁ [0.024694149 +/- 2.70e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [11.2800000000 +/- 3e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 305, killed 0, screened by the decay bound 344, straddling 0; card Xr = 0
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.07875881833295 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = [13.13472514 +/- 1.74e-9], count 3; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 8 ; J_max = D + 40 = 48 ; cE = [11.00000000 +/- 1e-13] ; CV = [17.72783688 +/- 5.68e-10] ; BK = 1.000000000 ; BE = [24.00000000 +/- 1e-13] ; B = [850.9361702 +/- 1.28e-8]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999969587047345 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [14.13472514 +/- 1.74e-9])
+    hrate j = 8   FAILS   left exp([12957.7321997912 +/- 4.81e-12]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 9   FAILS   left exp([12957.7166281227 +/- 4.60e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 10  FAILS   left exp([12957.6854847856 +/- 4.75e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 11  FAILS   left exp([12957.6231981113 +/- 4.96e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 12  FAILS   left exp([12957.4986247629 +/- 4.36e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 13  FAILS   left exp([12957.2494780661 +/- 3.16e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 14  FAILS   left exp([12956.7511846725 +/- 7.63e-12]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 15  FAILS   left exp([12955.7545978853 +/- 4.04e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 16  FAILS   left exp([12953.7614243108 +/- 3.62e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 17  FAILS   left exp([12949.7750771618 +/- 2.80e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 18  FAILS   left exp([12941.8023828638 +/- 1.15e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 19  FAILS   left exp([12925.8569942678 +/- 2.17e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 20  FAILS   left exp([12893.9662170759 +/- 1.24e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 21  FAILS   left exp([12830.1846626920 +/- 1.99e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 22  FAILS   left exp([12702.6215539243 +/- 1.60e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 23  FAILS   left exp([12447.4953363888 +/- 1.27e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 24  FAILS   left exp([11937.2429013179 +/- 3.03e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 25  FAILS   left exp([10916.7380311760 +/- 1.61e-11]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 26  FAILS   left exp([8875.72829089221 +/- 2.26e-12]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 27  FAILS   left exp([4793.70881032467 +/- 1.06e-12]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+    hrate j = 28  HOLDS   left exp([-3370.33015081042 +/- 2.35e-12]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+  READING (0.9, 14.1): j₀ = 28  ### left exp([-3370.33015081042 +/- 2.35e-12]) ; right exp([11.4752804348743 +/- 4.81e-14]) = [96305.47357 +/- 2.87e-6]
+
+== CELL (σ, t) = (0.55, 29.6) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00816992336557 +/- 4.86e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0121854082447 +/- 4.91e-14] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.012185408 +/- 2.45e-10] ; 1 − conj ρ₁ [0.012185408 +/- 2.45e-10] ; conj ρ₁ [0.012185408 +/- 2.45e-10] ; 1 − ρ₁ [0.012185408 +/- 2.45e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [2.96000000000 +/- 1e-16] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 3 (γ ≤ [25.01085758 +/- 1.46e-10]), screened by the decay bound 0, straddling 0; card Xr = 3
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 14 ; J_max = D + 40 = 54 ; cE = [81.00000000 +/- 3e-12] ; CV = [296.3386824 +/- 3.25e-8] ; BK = [222887265.9 +/- 0.0110] ; BE = [164.0000000 +/- 3e-12] ; B = [2.166443894e+13 +/- 2.79e+3]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999678380761636 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [30.42487613 +/- 4.15e-9])
+    hrate j = 14  FAILS   left exp([919459.529432235 +/- 1.61e-11]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 15  FAILS   left exp([919448.988917925 +/- 3.01e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 16  FAILS   left exp([919427.907889306 +/- 6.71e-11]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 17  FAILS   left exp([919385.745832067 +/- 1.99e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 18  FAILS   left exp([919301.421717590 +/- 2.71e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 19  FAILS   left exp([919132.773488635 +/- 2.10e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 20  FAILS   left exp([918795.477030725 +/- 8.62e-11]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 21  FAILS   left exp([918120.884114905 +/- 1.61e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 22  FAILS   left exp([916771.698283266 +/- 3.48e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 23  FAILS   left exp([914073.326619987 +/- 3.62e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 24  FAILS   left exp([908676.583293429 +/- 3.92e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 25  FAILS   left exp([897883.096640313 +/- 4.51e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 26  FAILS   left exp([876296.123334080 +/- 4.32e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 27  FAILS   left exp([833122.176721616 +/- 1.96e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 28  FAILS   left exp([746774.283496688 +/- 2.78e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 29  FAILS   left exp([574078.497046831 +/- 2.24e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 30  FAILS   left exp([228686.924147117 +/- 1.15e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+    hrate j = 31  HOLDS   left exp([-462096.221652311 +/- 1.04e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+  READING (0.55, 29.6): j₀ = 31  ### left exp([-462096.221652311 +/- 1.04e-10]) ; right exp([53.1794080562245 +/- 1.80e-14]) = [1.246015571e+23 +/- 3.55e+13]
+
+== CELL (σ, t) = (0.6, 29.6) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00816988954101 +/- 4.02e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0121853589659 +/- 3.54e-16] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.012185359 +/- 3.42e-11] ; 1 − conj ρ₁ [0.012185359 +/- 3.42e-11] ; conj ρ₁ [0.012185359 +/- 3.42e-11] ; 1 − ρ₁ [0.012185359 +/- 3.42e-11] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [5.92000000000 +/- 1e-16] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 3 (γ ≤ [25.01085758 +/- 1.46e-10]), screened by the decay bound 0, straddling 0; card Xr = 3
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 14 ; J_max = D + 40 = 54 ; cE = [41.00000000 +/- 3e-13] ; CV = [148.1706081 +/- 8.11e-9] ; BK = [222887265.9 +/- 0.0110] ; BE = [84.00000000 +/- 3e-12] ; B = [5.548257411e+12 +/- 4.32e+2]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999678334519193 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [30.42487613 +/- 4.15e-9])
+    hrate j = 14  FAILS   left exp([919457.344010550 +/- 1.71e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 15  FAILS   left exp([919446.801980481 +/- 4.11e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 16  FAILS   left exp([919425.717920341 +/- 4.30e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 17  FAILS   left exp([919383.549800063 +/- 1.09e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 18  FAILS   left exp([919299.213559506 +/- 4.67e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 19  FAILS   left exp([919130.541078393 +/- 1.82e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 20  FAILS   left exp([918793.196116167 +/- 3.88e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 21  FAILS   left exp([918118.506191713 +/- 4.76e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 22  FAILS   left exp([916769.126342807 +/- 2.00e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 23  FAILS   left exp([914070.366644995 +/- 3.53e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 24  FAILS   left exp([908672.847249370 +/- 4.56e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 25  FAILS   left exp([897877.808458119 +/- 3.40e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 26  FAILS   left exp([876287.730875619 +/- 7.31e-11]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 27  FAILS   left exp([833107.575710618 +/- 1.04e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 28  FAILS   left exp([746747.265380616 +/- 4.57e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 29  FAILS   left exp([574026.644720613 +/- 1.63e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 30  FAILS   left exp([228585.403400607 +/- 4.26e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+    hrate j = 31  HOLDS   left exp([-462297.079239407 +/- 3.98e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+  READING (0.6, 29.6): j₀ = 31  ### left exp([-462297.079239407 +/- 3.98e-10]) ; right exp([51.8181616000253 +/- 3.60e-14]) = [3.194049521e+22 +/- 3.21e+12]
+
+== CELL (σ, t) = (0.7, 29.6) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00816975424702 +/- 1.02e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0121851618569 +/- 4.31e-14] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.012185162 +/- 1.44e-10] ; 1 − conj ρ₁ [0.012185162 +/- 1.44e-10] ; conj ρ₁ [0.012185162 +/- 1.44e-10] ; 1 − ρ₁ [0.012185162 +/- 1.44e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [11.8400000000 +/- 3e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 3 (γ ≤ [25.01085758 +/- 1.46e-10]), screened by the decay bound 0, straddling 0; card Xr = 3
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 14 ; J_max = D + 40 = 54 ; cE = [21.00000000 +/- 1e-13] ; CV = [74.08783784 +/- 2.17e-9] ; BK = [222887265.9 +/- 0.0110] ; BE = [44.00000000 +/- 1e-13] ; B = [1.453164734e+12 +/- 62.4]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999678149557157 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [30.42487613 +/- 4.15e-9])
+    hrate j = 14  FAILS   left exp([919456.820304499 +/- 2.73e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 15  FAILS   left exp([919446.272211642 +/- 4.09e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 16  FAILS   left exp([919425.176025930 +/- 2.31e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 17  FAILS   left exp([919382.983654504 +/- 4.93e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 18  FAILS   left exp([919298.598911654 +/- 6.21e-11]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 19  FAILS   left exp([919129.829425953 +/- 1.71e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 20  FAILS   left exp([918792.290454551 +/- 3.89e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 21  FAILS   left exp([918117.212511746 +/- 1.77e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 22  FAILS   left exp([916767.056626137 +/- 3.06e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 23  FAILS   left exp([914066.744854920 +/- 4.37e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 24  FAILS   left exp([908666.121312484 +/- 8.14e-11]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 25  FAILS   left exp([897864.874227613 +/- 1.16e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 26  FAILS   left exp([876262.380057871 +/- 1.84e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 27  FAILS   left exp([833057.391718387 +/- 3.21e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 28  FAILS   left exp([746647.415039420 +/- 4.07e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 29  FAILS   left exp([573827.461681484 +/- 1.42e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 30  FAILS   left exp([228187.554965613 +/- 2.35e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+    hrate j = 31  HOLDS   left exp([-463092.258466129 +/- 4.23e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+  READING (0.7, 29.6): j₀ = 31  ### left exp([-463092.258466129 +/- 4.23e-10]) ; right exp([50.4820917290143 +/- 1.04e-15]) = [8.396414556e+21 +/- 1.43e+11]
+
+== CELL (σ, t) = (0.8, 29.6) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00816952877213 +/- 1.22e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0121848333635 +/- 6.11e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.012184833 +/- 3.64e-10] ; 1 − conj ρ₁ [0.012184833 +/- 3.64e-10] ; conj ρ₁ [0.012184833 +/- 3.64e-10] ; 1 − ρ₁ [0.012184833 +/- 3.64e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [17.7600000000 +/- 1e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 3 (γ ≤ [25.01085758 +/- 1.46e-10]), screened by the decay bound 0, straddling 0; card Xr = 3
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 14 ; J_max = D + 40 = 54 ; cE = [14.33333333 +/- 3.34e-9] ; CV = [49.39470721 +/- 2.80e-9] ; BK = [222887265.9 +/- 0.0110] ; BE = [30.66666667 +/- 3.34e-9] ; B = [6.752463427e+11 +/- 13.0]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999677841314598 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [30.42487613 +/- 4.15e-9])
+    hrate j = 14  FAILS   left exp([919458.880258321 +/- 2.97e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 15  FAILS   left exp([919448.322061719 +/- 1.14e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 16  FAILS   left exp([919427.205668515 +/- 9.29e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 17  FAILS   left exp([919384.972882107 +/- 2.56e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 18  FAILS   left exp([919300.507309292 +/- 4.19e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 19  FAILS   left exp([919131.576163660 +/- 2.33e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 20  FAILS   left exp([918793.713872398 +/- 4.65e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 21  FAILS   left exp([918117.989289872 +/- 1.42e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 22  FAILS   left exp([916766.540124821 +/- 3.54e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 23  FAILS   left exp([914063.641794720 +/- 2.24e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 24  FAILS   left exp([908657.845134517 +/- 3.77e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 25  FAILS   left exp([897846.251814110 +/- 3.19e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 26  FAILS   left exp([876223.065173298 +/- 2.94e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 27  FAILS   left exp([832976.691891672 +/- 4.84e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 28  FAILS   left exp([746483.945328422 +/- 3.75e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 29  FAILS   left exp([573498.452201921 +/- 1.45e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 30  FAILS   left exp([227527.465948919 +/- 3.60e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 31  HOLDS   left exp([-464414.506557084 +/- 2.11e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+  H3 at (0.8, 29.6), j₀ = 31: (zeroSide_cfg Z₁ (kWindow …) g0 j₀).re / M^(2^(j₀+1)) = [-3.92478963715732e+21 +/- 2.96e+6] -- the orbit [-3.92478963715732e+21 +/- 2.96e+6], the on-line terms [1.59766395727564e-600991 +/- 2.60e-601006] ; the ball BELOW 0
+  READING (0.8, 29.6): j₀ = 31  ### left exp([-464414.506557084 +/- 2.11e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+
+== CELL (σ, t) = (0.9, 29.6) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00816921313900 +/- 2.15e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0121843735178 +/- 2.15e-14] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.012184374 +/- 4.83e-10] ; 1 − conj ρ₁ [0.012184374 +/- 4.83e-10] ; conj ρ₁ [0.012184374 +/- 4.83e-10] ; 1 − ρ₁ [0.012184374 +/- 4.83e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [23.6800000000 +/- 3e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 3 (γ ≤ [25.01085758 +/- 1.46e-10]), screened by the decay bound 0, straddling 0; card Xr = 3
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 14 ; J_max = D + 40 = 54 ; cE = [11.00000000 +/- 1e-13] ; CV = [37.04898649 +/- 3.52e-9] ; BK = [222887265.9 +/- 0.0110] ; BE = [24.00000000 +/- 1e-13] ; B = [3.963718705e+11 +/- 31.8]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999677409832755 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [30.42487613 +/- 4.15e-9])
+    hrate j = 14  FAILS   left exp([919462.844387613 +/- 2.52e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 15  FAILS   left exp([919452.272047654 +/- 3.19e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 16  FAILS   left exp([919431.127367737 +/- 4.58e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 17  FAILS   left exp([919388.838007904 +/- 2.64e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 18  FAILS   left exp([919304.259288236 +/- 2.96e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 19  FAILS   left exp([919135.101848901 +/- 4.13e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 20  FAILS   left exp([918796.786970232 +/- 3.55e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 21  FAILS   left exp([918120.157212892 +/- 1.13e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 22  FAILS   left exp([916766.897698213 +/- 4.61e-11]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 23  FAILS   left exp([914060.378668855 +/- 8.70e-11]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 24  FAILS   left exp([908647.340610139 +/- 3.53e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 25  FAILS   left exp([897821.264492706 +/- 1.17e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 26  FAILS   left exp([876169.112257841 +/- 5.50e-11]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 27  FAILS   left exp([832864.807788111 +/- 6.92e-11]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 28  FAILS   left exp([746256.198848651 +/- 3.17e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 29  FAILS   left exp([573038.980969730 +/- 1.89e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 30  FAILS   left exp([226604.545211889 +/- 1.98e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+    hrate j = 31  HOLDS   left exp([-466264.326303793 +/- 2.18e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+  READING (0.9, 29.6): j₀ = 31  ### left exp([-466264.326303793 +/- 2.18e-10]) ; right exp([49.1969321610500 +/- 1.34e-15]) = [2.322502361e+21 +/- 2.50e+11]
+
+== CELL (σ, t) = (0.55, 50.0) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00490195838139 +/- 3.56e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.00731011910695 +/- 4.46e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.0073101191 +/- 6.95e-12] ; 1 − conj ρ₁ [0.0073101191 +/- 6.95e-12] ; conj ρ₁ [0.0073101191 +/- 6.95e-12] ; 1 − ρ₁ [0.0073101191 +/- 6.95e-12] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [5.00000000000 +/- 1e-16] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 10 (γ ≤ [49.77383248 +/- 2.33e-9]), screened by the decay bound 0, straddling 0; card Xr = 10
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 28 ; J_max = D + 40 = 68 ; cE = [81.00000000 +/- 3e-12] ; CV = [500.2005000 +/- 3e-12] ; BK = [1.567545567e+31 +/- 1.86e+21] ; BE = [164.0000000 +/- 3e-12] ; B = [2.571805610e+36 +/- 2.43e+26]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999284855203427 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [52.97032148 +/- 2.29e-9])
+    hrate j = 28  FAILS   left exp([16159032616.2055 +/- 2.18e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 29  FAILS   left exp([16158648538.4144 +/- 1.86e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 30  FAILS   left exp([16157880382.8321 +/- 9.12e-7]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 31  FAILS   left exp([16156344071.6675 +/- 3.99e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 32  FAILS   left exp([16153271449.3384 +/- 1.77e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 33  FAILS   left exp([16147126204.6802 +/- 2.69e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 34  FAILS   left exp([16134835715.3637 +/- 1.57e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 35  FAILS   left exp([16110254736.7307 +/- 6.77e-6]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 36  FAILS   left exp([16061092779.4648 +/- 4.85e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 37  FAILS   left exp([15962768864.9328 +/- 4.11e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 38  FAILS   left exp([15766121035.8690 +/- 2.01e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 39  FAILS   left exp([15372825377.7414 +/- 2.20e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 40  FAILS   left exp([14586234061.4861 +/- 5.85e-6]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 41  FAILS   left exp([13013051428.9755 +/- 2.64e-5]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 42  FAILS   left exp([9866686163.95439 +/- 6.01e-7]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 43  FAILS   left exp([3573955633.91212 +/- 8.14e-7]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+    hrate j = 44  HOLDS   left exp([-9011505426.17242 +/- 3.64e-6]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+  READING (0.55, 50.0): j₀ = 44  ### left exp([-9011505426.17242 +/- 3.64e-6]) ; right exp([150.161358338268 +/- 3.86e-13]) = [1.637756461e+65 +/- 2.30e+54]
+
+== CELL (σ, t) = (0.6, 50.0) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00490195117265 +/- 4.38e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.00731010861129 +/- 1.20e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.0073101086 +/- 1.13e-11] ; 1 − conj ρ₁ [0.0073101086 +/- 1.13e-11] ; conj ρ₁ [0.0073101086 +/- 1.13e-11] ; 1 − ρ₁ [0.0073101086 +/- 1.13e-11] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [10.0000000000 +/- 1e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 10 (γ ≤ [49.77383248 +/- 2.33e-9]), screened by the decay bound 0, straddling 0; card Xr = 10
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 28 ; J_max = D + 40 = 68 ; cE = [41.00000000 +/- 3e-13] ; CV = [250.1010000 +/- 3e-12] ; BK = [1.567545567e+31 +/- 1.86e+21] ; BE = [84.00000000 +/- 3e-12] ; B = [6.586351192e+35 +/- 6.01e+24]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999284839706725 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [52.97032148 +/- 2.29e-9])
+    hrate j = 28  FAILS   left exp([16159035750.9124 +/- 2.60e-5]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 29  FAILS   left exp([16158651664.7956 +/- 4.86e-5]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 30  FAILS   left exp([16157883492.5619 +/- 6.21e-6]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 31  FAILS   left exp([16156347148.0946 +/- 1.57e-5]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 32  FAILS   left exp([16153274459.1600 +/- 3.47e-5]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 33  FAILS   left exp([16147129081.2909 +/- 2.75e-5]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 34  FAILS   left exp([16134838325.5525 +/- 4.85e-5]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 35  FAILS   left exp([16110256814.0759 +/- 2.39e-7]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 36  FAILS   left exp([16061093791.1226 +/- 3.76e-6]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 37  FAILS   left exp([15962767745.2160 +/- 1.08e-5]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 38  FAILS   left exp([15766115653.4028 +/- 2.49e-5]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 39  FAILS   left exp([15372811469.7765 +/- 4.70e-5]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 40  FAILS   left exp([14586203102.5237 +/- 9.30e-6]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 41  FAILS   left exp([13012986368.0182 +/- 2.19e-5]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 42  FAILS   left exp([9866552899.00725 +/- 2.99e-6]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 43  FAILS   left exp([3573685960.98530 +/- 2.69e-6]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+    hrate j = 44  HOLDS   left exp([-9012047915.05860 +/- 2.08e-6]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+  READING (0.6, 50.0): j₀ = 44  ### left exp([-9012047915.05860 +/- 2.08e-6]) ; right exp([148.932724760882 +/- 2.63e-13]) = [4.793586167e+64 +/- 4.29e+54]
+
+== CELL (σ, t) = (0.7, 50.0) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00490192233802 +/- 2.21e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.00731006662913 +/- 1.24e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.0073100666 +/- 2.92e-11] ; 1 − conj ρ₁ [0.0073100666 +/- 2.92e-11] ; conj ρ₁ [0.0073100666 +/- 2.92e-11] ; 1 − ρ₁ [0.0073100666 +/- 2.92e-11] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [20.0000000000 +/- 3e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 10 (γ ≤ [49.77383248 +/- 2.33e-9]), screened by the decay bound 0, straddling 0; card Xr = 10
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 28 ; J_max = D + 40 = 68 ; cE = [21.00000000 +/- 1e-13] ; CV = [125.0520000 +/- 1e-12] ; BK = [1.567545567e+31 +/- 1.86e+21] ; BE = [44.00000000 +/- 1e-13] ; B = [1.725017432e+35 +/- 3.48e+25]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999284777720841 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [52.97032148 +/- 2.29e-9])
+    hrate j = 28  FAILS   left exp([16159048297.8652 +/- 9.57e-6]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 29  FAILS   left exp([16158664178.4461 +/- 3.20e-5]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 30  FAILS   left exp([16157895939.6080 +/- 1.50e-5]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 31  FAILS   left exp([16156359461.9318 +/- 1.92e-5]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 32  FAILS   left exp([16153286506.5793 +/- 1.28e-5]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 33  FAILS   left exp([16147140595.8744 +/- 2.34e-5]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 34  FAILS   left exp([16134848774.4645 +/- 4.30e-6]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 35  FAILS   left exp([16110265131.6448 +/- 4.04e-5]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 36  FAILS   left exp([16061097846.0053 +/- 2.97e-5]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 37  FAILS   left exp([15962763274.7263 +/- 8.31e-6]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 38  FAILS   left exp([15766094132.1683 +/- 3.45e-5]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 39  FAILS   left exp([15372755847.0524 +/- 2.00e-5]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 40  FAILS   left exp([14586079276.8206 +/- 9.11e-6]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 41  FAILS   left exp([13012726136.3569 +/- 3.29e-5]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 42  FAILS   left exp([9866019855.42962 +/- 3.25e-6]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 43  FAILS   left exp([3572607293.57498 +/- 4.56e-6]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+    hrate j = 44  HOLDS   left exp([-9014217830.13428 +/- 1.65e-7]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+  READING (0.7, 50.0): j₀ = 44  ### left exp([-9014217830.13428 +/- 1.65e-7]) ; right exp([148.002861887520 +/- 3.94e-14]) = [1.891586577e+64 +/- 4.69e+54]
+
+== CELL (σ, t) = (0.8, 50.0) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00490187428143 +/- 1.55e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.00730999666048 +/- 4.38e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.0073099967 +/- 3.96e-11] ; 1 − conj ρ₁ [0.0073099967 +/- 3.96e-11] ; conj ρ₁ [0.0073099967 +/- 3.96e-11] ; 1 − ρ₁ [0.0073099967 +/- 3.96e-11] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [30.0000000000 +/- 1e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 10 (γ ≤ [49.77383248 +/- 2.33e-9]), screened by the decay bound 0, straddling 0; card Xr = 10
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 28 ; J_max = D + 40 = 68 ; cE = [14.33333333 +/- 3.34e-9] ; CV = [83.36966667 +/- 3.34e-9] ; BK = [1.567545567e+31 +/- 1.86e+21] ; BE = [30.66666667 +/- 3.34e-9] ; B = [8.015392752e+34 +/- 7.02e+23]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999284674414308 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [52.97032148 +/- 2.29e-9])
+    hrate j = 28  FAILS   left exp([16159069212.0569 +/- 2.87e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 29  FAILS   left exp([16158685037.1358 +/- 4.12e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 30  FAILS   left exp([16157916687.2938 +/- 1.95e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 31  FAILS   left exp([16156379987.6097 +/- 4.05e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 32  FAILS   left exp([16153306588.2414 +/- 1.75e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 33  FAILS   left exp([16147159789.5049 +/- 3.34e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 34  FAILS   left exp([16134866192.0320 +/- 3.50e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 35  FAILS   left exp([16110278997.0860 +/- 2.85e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 36  FAILS   left exp([16061104607.1942 +/- 4.48e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 37  FAILS   left exp([15962755827.4104 +/- 8.78e-6]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 38  FAILS   left exp([15766058267.8429 +/- 1.60e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 39  FAILS   left exp([15372663148.7079 +/- 3.03e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 40  FAILS   left exp([14585872910.4380 +/- 4.12e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 41  FAILS   left exp([13012292433.8980 +/- 1.61e-5]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 42  FAILS   left exp([9865131480.81813 +/- 3.96e-7]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 43  FAILS   left exp([3570809574.65836 +/- 8.40e-7]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+    hrate j = 44  HOLDS   left exp([-9017834237.66118 +/- 3.31e-6]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+  READING (0.8, 50.0): j₀ = 44  ### left exp([-9017834237.66118 +/- 3.31e-6]) ; right exp([147.691292885148 +/- 3.42e-13]) = [1.385203324e+64 +/- 4.60e+54]
+
+== CELL (σ, t) = (0.9, 50.0) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00490180700459 +/- 3.63e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.00730989870776 +/- 2.03e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.0073098987 +/- 7.76e-12] ; 1 − conj ρ₁ [0.0073098987 +/- 7.76e-12] ; conj ρ₁ [0.0073098987 +/- 7.76e-12] ; 1 − ρ₁ [0.0073098987 +/- 7.76e-12] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [40.0000000000 +/- 3e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 10 (γ ≤ [49.77383248 +/- 2.33e-9]), screened by the decay bound 0, straddling 0; card Xr = 10
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 28 ; J_max = D + 40 = 68 ; cE = [11.00000000 +/- 1e-13] ; CV = [62.52900000 +/- 1e-13] ; BK = [1.567545567e+31 +/- 1.86e+21] ; BE = [24.00000000 +/- 1e-13] ; B = [4.704818724e+34 +/- 1.27e+24]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999284529792038 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [52.97032148 +/- 2.29e-9])
+    hrate j = 28  FAILS   left exp([16159098492.3142 +/- 4.44e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 29  FAILS   left exp([16158714239.6941 +/- 3.84e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 30  FAILS   left exp([16157945734.4539 +/- 2.64e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 31  FAILS   left exp([16156408723.9735 +/- 2.28e-6]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 32  FAILS   left exp([16153334703.0127 +/- 4.59e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 33  FAILS   left exp([16147186661.0910 +/- 4.22e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 34  FAILS   left exp([16134890577.2476 +/- 3.47e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 35  FAILS   left exp([16110298409.5608 +/- 1.97e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 36  FAILS   left exp([16061114074.1872 +/- 1.03e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 37  FAILS   left exp([15962745403.4401 +/- 2.99e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 38  FAILS   left exp([15766008061.9458 +/- 1.01e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 39  FAILS   left exp([15372533378.9572 +/- 2.96e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 40  FAILS   left exp([14585584012.9801 +/- 8.71e-6]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 41  FAILS   left exp([13011685281.0259 +/- 3.30e-5]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 42  FAILS   left exp([9863887817.11738 +/- 3.62e-6]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 43  FAILS   left exp([3568292889.30042 +/- 3.19e-6]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+    hrate j = 44  HOLDS   left exp([-9022896966.33352 +/- 3.24e-6]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+  READING (0.9, 50.0): j₀ = 44  ### left exp([-9022896966.33352 +/- 3.24e-6]) ; right exp([147.585379883361 +/- 6.75e-14]) = [1.245994407e+64 +/- 1.89e+54]
+
+== CELL (σ, t) = (0.55, 100.0) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00247524721841 +/- 1.70e-17] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.00369082012192 +/- 3.60e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.0036908201 +/- 2.20e-11] ; 1 − conj ρ₁ [0.0036908201 +/- 2.20e-11] ; conj ρ₁ [0.0036908201 +/- 2.20e-11] ; 1 − ρ₁ [0.0036908201 +/- 2.20e-11] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [10.0000000000 +/- 1e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 29 (γ ≤ [98.83119422 +/- 1.81e-9]), screened by the decay bound 0, straddling 0; card Xr = 29
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 66 ; J_max = D + 40 = 106 ; cE = [81.00000000 +/- 3e-12] ; CV = [1000.100250 +/- 3e-11] ; BK = [1.052934814e+103 +/- 9.64e+92] ; BE = [164.0000000 +/- 3e-12] ; B = [3.453972416e+108 +/- 3.71e+98]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999841795015275 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [101.3178510 +/- 5.74e-9])
+    hrate j = 66  FAILS   left exp([4.84494500316536e+21 +/- 3.29e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 67  FAILS   left exp([4.84492165438345e+21 +/- 2.52e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 68  FAILS   left exp([4.84487495681963e+21 +/- 9.63e+5]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 69  FAILS   left exp([4.84478156169199e+21 +/- 2.14e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 70  FAILS   left exp([4.84459477143670e+21 +/- 1.67e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 71  FAILS   left exp([4.84422119092613e+21 +/- 7.41e+5]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 72  FAILS   left exp([4.84347402990498e+21 +/- 4.46e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 73  FAILS   left exp([4.84197970786269e+21 +/- 4.86e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 74  FAILS   left exp([4.83899106377812e+21 +/- 4.37e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 75  FAILS   left exp([4.83301377560896e+21 +/- 2.79e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 76  FAILS   left exp([4.82105919927064e+21 +/- 3.59e+5]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 77  FAILS   left exp([4.79715004659401e+21 +/- 3.35e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 78  FAILS   left exp([4.74933174124074e+21 +/- 7.57e+5]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 79  FAILS   left exp([4.65369513053420e+21 +/- 4.43e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 80  FAILS   left exp([4.46242190912113e+21 +/- 4.79e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 81  FAILS   left exp([4.07987546629500e+21 +/- 4.50e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 82  FAILS   left exp([3.31478258064272e+21 +/- 3.05e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 83  FAILS   left exp([1.78459680933816e+21 +/- 1.54e+5]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+    hrate j = 84  HOLDS   left exp([-1.27577473327095e+21 +/- 4.37e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+  READING (0.55, 100.0): j₀ = 84  ### left exp([-1.27577473327095e+21 +/- 4.37e+6]) ; right exp([505.118923364902 +/- 2.82e-13]) = [2.346178887e+219 +/- 8.62e+208]
+
+== CELL (σ, t) = (0.6, 100.0) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00247524629938 +/- 3.33e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.00369081878450 +/- 4.80e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.0036908188 +/- 1.56e-11] ; 1 − conj ρ₁ [0.0036908188 +/- 1.56e-11] ; conj ρ₁ [0.0036908188 +/- 1.56e-11] ; 1 − ρ₁ [0.0036908188 +/- 1.56e-11] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [20.0000000000 +/- 1e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 29 (γ ≤ [98.83119422 +/- 1.81e-9]), screened by the decay bound 0, straddling 0; card Xr = 29
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 66 ; J_max = D + 40 = 106 ; cE = [41.00000000 +/- 3e-13] ; CV = [500.0505000 +/- 3e-12] ; BK = [1.052934814e+103 +/- 9.64e+92] ; BE = [84.00000000 +/- 3e-12] ; B = [8.845545747e+107 +/- 3.14e+97]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999841790641282 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [101.3178510 +/- 5.74e-9])
+    hrate j = 66  FAILS   left exp([4.84494522095020e+21 +/- 4.34e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 67  FAILS   left exp([4.84492187152270e+21 +/- 4.79e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 68  FAILS   left exp([4.84487517266769e+21 +/- 4.34e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 69  FAILS   left exp([4.84478177495769e+21 +/- 2.56e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 70  FAILS   left exp([4.84459497953769e+21 +/- 1.01e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 71  FAILS   left exp([4.84422138869768e+21 +/- 1.89e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 72  FAILS   left exp([4.84347420701767e+21 +/- 2.33e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 73  FAILS   left exp([4.84197984365764e+21 +/- 7.68e+5]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 74  FAILS   left exp([4.83899111693758e+21 +/- 2.36e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 75  FAILS   left exp([4.83301366349747e+21 +/- 1.40e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 76  FAILS   left exp([4.82105875661724e+21 +/- 1.11e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 77  FAILS   left exp([4.79714894285679e+21 +/- 3.90e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 78  FAILS   left exp([4.74932931533588e+21 +/- 3.91e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 79  FAILS   left exp([4.65369006029406e+21 +/- 3.93e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 80  FAILS   left exp([4.46241155021042e+21 +/- 3.95e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 81  FAILS   left exp([4.07985453004314e+21 +/- 4.01e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 82  FAILS   left exp([3.31474048970858e+21 +/- 4.13e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 83  FAILS   left exp([1.78451240903946e+21 +/- 4.36e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+    hrate j = 84  HOLDS   left exp([-1.27594375229878e+21 +/- 4.81e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+  READING (0.6, 100.0): j₀ = 84  ### left exp([-1.27594375229878e+21 +/- 4.81e+6]) ; right exp([503.763755040553 +/- 2.50e-13]) = [6.050886365e+218 +/- 4.39e+208]
+
+== CELL (σ, t) = (0.7, 100.0) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00247524262329 +/- 3.17e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.00369081343480 +/- 3.80e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.0036908134 +/- 3.48e-11] ; 1 − conj ρ₁ [0.0036908134 +/- 3.48e-11] ; conj ρ₁ [0.0036908134 +/- 3.48e-11] ; 1 − ρ₁ [0.0036908134 +/- 3.48e-11] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [40.0000000000 +/- 3e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 29 (γ ≤ [98.83119422 +/- 1.81e-9]), screened by the decay bound 0, straddling 0; card Xr = 29
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 66 ; J_max = D + 40 = 106 ; cE = [21.00000000 +/- 1e-13] ; CV = [250.0260000 +/- 1e-12] ; BK = [1.052934814e+103 +/- 9.64e+92] ; BE = [44.00000000 +/- 1e-13] ; B = [2.316697502e+107 +/- 7.35e+96]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999841773145373 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [101.3178510 +/- 5.74e-9])
+    hrate j = 66  FAILS   left exp([4.84494609208791e+21 +/- 3.62e+4]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 67  FAILS   left exp([4.84492274007806e+21 +/- 5.07e+5]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 68  FAILS   left exp([4.84487603605836e+21 +/- 1.60e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 69  FAILS   left exp([4.84478262801896e+21 +/- 3.77e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 70  FAILS   left exp([4.84459581194017e+21 +/- 1.90e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 71  FAILS   left exp([4.84422217978258e+21 +/- 3.22e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 72  FAILS   left exp([4.84347491546739e+21 +/- 4.15e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 73  FAILS   left exp([4.84198038683703e+21 +/- 1.13e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 74  FAILS   left exp([4.83899132957630e+21 +/- 1.68e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 75  FAILS   left exp([4.83301321505484e+21 +/- 2.78e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 76  FAILS   left exp([4.82105698601192e+21 +/- 4.97e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 77  FAILS   left exp([4.79714452792607e+21 +/- 6.52e+5]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 78  FAILS   left exp([4.74931961175438e+21 +/- 1.89e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 79  FAILS   left exp([4.65366977941100e+21 +/- 4.35e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 80  FAILS   left exp([4.46237011472425e+21 +/- 7.37e+5]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 81  FAILS   left exp([4.07977078535074e+21 +/- 8.95e+5]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 82  FAILS   left exp([3.31457212660372e+21 +/- 1.21e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 83  FAILS   left exp([1.78417480910968e+21 +/- 1.85e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+    hrate j = 84  HOLDS   left exp([-1.27661982587840e+21 +/- 3.11e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+  READING (0.7, 100.0): j₀ = 84  ### left exp([-1.27661982587840e+21 +/- 3.11e+6]) ; right exp([502.451702438856 +/- 4.19e-13]) = [1.629302756e+218 +/- 1.55e+208]
+
+== CELL (σ, t) = (0.8, 100.0) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00247523649650 +/- 4.14e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.00369080451868 +/- 3.06e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.0036908045 +/- 1.87e-11] ; 1 − conj ρ₁ [0.0036908045 +/- 1.87e-11] ; conj ρ₁ [0.0036908045 +/- 1.87e-11] ; 1 − ρ₁ [0.0036908045 +/- 1.87e-11] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [60.0000000000 +/- 1e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 29 (γ ≤ [98.83119422 +/- 1.81e-9]), screened by the decay bound 0, straddling 0; card Xr = 29
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 66 ; J_max = D + 40 = 106 ; cE = [14.33333333 +/- 3.34e-9] ; CV = [166.6848333 +/- 3.34e-8] ; BK = [1.052934814e+103 +/- 9.64e+92] ; BE = [30.66666667 +/- 3.34e-9] ; B = [1.076450686e+107 +/- 3.40e+97]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999841743985758 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [101.3178510 +/- 5.74e-9])
+    hrate j = 66  FAILS   left exp([4.84494754397836e+21 +/- 2.46e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 67  FAILS   left exp([4.84492418766463e+21 +/- 2.58e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 68  FAILS   left exp([4.84487747503717e+21 +/- 2.82e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 69  FAILS   left exp([4.84478404978225e+21 +/- 3.29e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 70  FAILS   left exp([4.84459719927241e+21 +/- 4.24e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 71  FAILS   left exp([4.84422349825272e+21 +/- 3.86e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 72  FAILS   left exp([4.84347609621336e+21 +/- 4.85e+4]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 73  FAILS   left exp([4.84198129213463e+21 +/- 2.44e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 74  FAILS   left exp([4.83899168397718e+21 +/- 2.81e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 75  FAILS   left exp([4.83301246766227e+21 +/- 3.28e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 76  FAILS   left exp([4.82105403503245e+21 +/- 4.22e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 77  FAILS   left exp([4.79713716977280e+21 +/- 3.91e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 78  FAILS   left exp([4.74930343925352e+21 +/- 1.50e+5]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 79  FAILS   left exp([4.65363597821495e+21 +/- 2.64e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 80  FAILS   left exp([4.46230105613782e+21 +/- 2.41e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 81  FAILS   left exp([4.07963121198355e+21 +/- 2.47e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 82  FAILS   left exp([3.31429152367501e+21 +/- 2.61e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 83  FAILS   left exp([1.78361214705793e+21 +/- 2.88e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+    hrate j = 84  HOLDS   left exp([-1.27774660617623e+21 +/- 3.41e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+  READING (0.8, 100.0): j₀ = 84  ### left exp([-1.27774660617623e+21 +/- 3.41e+6]) ; right exp([501.730231634638 +/- 1.18e-13]) = [7.919012035e+217 +/- 4.74e+207]
+
+== CELL (σ, t) = (0.9, 100.0) -- 200 bits
+  ℓ = baseWidth ρ₁ (Schema/Detector.lean :33) = 1/(4(‖γ(ρ₁)‖ + 1)) = [0.00247522791907 +/- 4.80e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.00369079203623 +/- 3.51e-15] > 0
+  H.hdom    CERTIFIED -- the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.0036907920 +/- 3.63e-11] ; 1 − conj ρ₁ [0.0036907920 +/- 3.63e-11] ; conj ρ₁ [0.0036907920 +/- 3.63e-11] ; 1 − ρ₁ [0.0036907920 +/- 3.63e-11] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [80.0000000000 +/- 3e-14] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 29 (γ ≤ [98.83119422 +/- 1.81e-9]), screened by the decay bound 0, straddling 0; card Xr = 29
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)
+  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = 66 ; J_max = D + 40 = 106 ; cE = [11.00000000 +/- 1e-13] ; CV = [125.0145000 +/- 1e-12] ; BK = [1.052934814e+103 +/- 9.64e+92] ; BE = [24.00000000 +/- 1e-13] ; B = [6.318341726e+106 +/- 5.25e+95]
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999841703162787 ≥ 0
+  hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [101.3178510 +/- 5.74e-9])
+    hrate j = 66  FAILS   left exp([4.84494957661292e+21 +/- 4.16e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 67  FAILS   left exp([4.84492621427383e+21 +/- 3.27e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 68  FAILS   left exp([4.84487948959565e+21 +/- 1.49e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 69  FAILS   left exp([4.84478604023929e+21 +/- 2.08e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 70  FAILS   left exp([4.84459914152656e+21 +/- 8.07e+5]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 71  FAILS   left exp([4.84422534410111e+21 +/- 3.44e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 72  FAILS   left exp([4.84347774925020e+21 +/- 1.92e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 73  FAILS   left exp([4.84198255954838e+21 +/- 1.13e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 74  FAILS   left exp([4.83899218014475e+21 +/- 2.80e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 75  FAILS   left exp([4.83301142133748e+21 +/- 6.46e+5]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 76  FAILS   left exp([4.82104990372294e+21 +/- 3.67e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 77  FAILS   left exp([4.79712686849387e+21 +/- 2.28e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 78  FAILS   left exp([4.74928079803573e+21 +/- 4.89e+5]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 79  FAILS   left exp([4.65358865711944e+21 +/- 3.98e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 80  FAILS   left exp([4.46220437528687e+21 +/- 2.91e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 81  FAILS   left exp([4.07943581162173e+21 +/- 7.67e+5]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 82  FAILS   left exp([3.31389868429145e+21 +/- 3.52e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 83  FAILS   left exp([1.78282442963088e+21 +/- 2.08e+6]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+    hrate j = 84  HOLDS   left exp([-1.27932407969026e+21 +/- 8.10e+5]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+  READING (0.9, 100.0): j₀ = 84  ### left exp([-1.27932407969026e+21 +/- 8.10e+5]) ; right exp([501.258218401624 +/- 2.30e-13]) = [4.939446211e+217 +/- 1.83e+207]
+
+### ### **CELLS 20: 20 WITH AN INDEX, 0 NONE ≤ J_max, 0 HYP-UNVERIFIED.**
+  H1 HELD -- every cell prints exactly one of j₀, NONE ≤ J_max, HYP-UNVERIFIED(<name>): 20 of 20
+  H2 HELD -- at fixed t among cells with j₀, j₀ non-decreasing as σ decreases toward 1/2: 16 adjacent pair(s) read
+  H3 HELD -- at (0.8, 29.6), j₀ = 31, the zero side`s ball [-3.9247896371573229546e+21 +/- 35.6]
+  H4 HELD -- cells printing HYP-UNVERIFIED(hA): 0 of 20
+### elapsed 182 s
