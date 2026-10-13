@@ -1,0 +1,99 @@
+b663 -- COMPONENT 3, (R273)(2), (5): THE Q0 INSTANCE ON THE HOSTED RUNNER, READ BY ITS RUN ID (2026-10-13T14:34:03Z)
+
+### the branch epstein-b663 at c7d2858 (pushed by name before the dispatch); the file SIDEExplicitFormula/Schema/EpsteinQ0.lean, sha256 0e979431e1b6a36bcad279ca832224447a71df168d75f75794cfd4edf22f337b, 12701 bytes; print_targets.txt at the ref: 31 names
+### the one dispatch: at main (the workflow on main since b654), the ref input c7d28584d0976625f63014f1e9b2e21a2a0c6c76 (the branch`s tip) ; target SIDEExplicitFormula.Schema.EpsteinQ0
+### the run: id 38413488503 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/38413488503 ; status completed ; conclusion success ; head ffbc6172c81c3f6f4f1f6a7f1959e8159e67902a on main ; 2026-10-13T14:27:18Z to 2026-10-13T14:32:46Z
+### the artifact: id 11823455892 ; name build-module-38413488503 ; 7228 bytes ; sha256 114cd68ce435fabd4c306a3ebe65b4c277e744aec8af5cb006f32a0b93173bd4 ; the platform`s digest 114cd68ce435fabd4c306a3ebe65b4c277e744aec8af5cb006f32a0b93173bd4 ; AGREE
+### the ref built (out/ref.txt): c7d28584d0976625f63014f1e9b2e21a2a0c6c76 leanprover/lean4:v4.34.0-rc1
+### the memory log: samples 43 ; LOW 13264 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; the log`s last lines:
+    warning: SIDEExplicitFormula/Schema/RateIndexCfg.lean:167:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+    warning: SIDEExplicitFormula/Schema/RateIndexCfg.lean:206:38: `if_pos` has been deprecated: Use `ite_eq_left` instead
+    ⚠ [3784/3784] Built SIDEExplicitFormula.Schema.EpsteinQ0 (2.0s)
+    warning: SIDEExplicitFormula/Schema/EpsteinQ0.lean:86:16: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    warning: SIDEExplicitFormula/Schema/EpsteinQ0.lean:90:16: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    Build completed successfully (3784 jobs).
+### the print step: error lines 0 ; names refused NONE
+
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+### (R180)(2)(f): a binder restricting a variable to the class the statement is about (ContDiff, HasCompactSupport or
+### IsCompact of a variable the conclusion mentions) is a domain condition; on a variable the conclusion does not
+### mention it is a premise (CLASS_PREDS, class_case).
+### (R201)(3), b591: a binder inside an existential in a theorem`s conclusion is part of the conclusion and not a premise
+### (exist_spans: from an ∃ in the conclusion to its top-level comma); every binder before the conclusion is read as before.
+### (R234)(2), b624: the grade is read from the statement`s binders alone -- a hypothesis the proof introduces (by induction,
+### by cases, by a match arm, by intro inside the proof term) is no binder of the statement (statement_only cuts a header where
+### a proof begins inside it); a non-membership (∉) is a domain condition as a membership is; a theorem one of whose explicit
+### hypothesis binders has the conclusion itself as its type, its bound variables abstracted, reads ENCODES-CONCLUSION.
+### (R235)(2), b625, THE DOMAIN-CONDITION CRITERION: a binder is a domain condition, and does not enter the grade, when it is
+### (i) an instance binder whose class is not Fact; (ii) a membership, non-membership, non-emptiness or finiteness condition on
+### an object the statement names; (iii) a restriction on a variable the same statement quantifies universally (support,
+### parity, smoothness, continuity, integrability; a real`s positivity; a natural`s bound). A binder is a premise when it asserts
+### a Prop about a fixed object the kernel names and does not derive (a structure of premises, an EF_lit_* hypothesis, a Fact
+### instance, a Summable or HasSum of the kernel`s own series). Read here: a Fact instance a premise (INSTANCE); non-emptiness
+### and finiteness in DOMAIN; continuity, integrability and the support inclusion beside CLASS_PREDS, on a variable the
+### statement binds and its conclusion mentions; the named restrictions the seat read at their pins (RESTRICTIONS) on such
+### variables alone; a
+### bounded quantifier`s range (∀ x ∈ S,) no condition on a named object, its body read in its place (strip_range).
+### (R236)(2), b626: (i) SEAM ANTECEDENTS -- a Prop that is the antecedent of a top-level implication in the conclusion is
+### read as a binder when it is itself a named implication between open statements, a SEAMS entry (seam_antecedents), the
+### author`s answer before b626`s seal narrowing the ruled reading of every antecedent; a plain A -> B keeps DERIVES;
+### (ii) DATA BINDERS -- a binder whose type is not a Prop (a function, a real, a natural, a character) is an object of the
+### statement and not a hypothesis whatever its name (data_binder). (R236)(3): each named restriction names the quantified
+### variable it restricts; an entry that cannot is struck.
+### (R243)(2), b633: Alt2 and Alternates enter the named restrictions, each with the variable it restricts; and a named predicate
+### on the statement`s quantified variables that the rule neither lists nor has met (MET) reads PREDICATE-UNLISTED, not INTERFACES.
+### (R247)(3)-(4), b637, THE BINDER GRAMMAR: a binder`s name is no part of its reading. Every binder of a statement (the header`s groups,
+### the conclusion`s leading telescope, the antecedents of its implication, the binders of an existential in it) is classed by its
+### kind, its typing (a Prop or data, read from its type) and its Prop`s form (CLASSES, 26); the grade follows the classes` outcomes;
+### a binder that reaches no class raises BinderUnclassed and is printed as a bug, never graded.
+
+### THE GATE READING PER TERMINAL: the run`s print ; the E0 grade from the statement at the tip (declarations of SIDEExplicitFormula/Schema/EpsteinQ0.lean; the others b590`s and the schema`s, printed for the reading):
+  Schema.q0OnLine                                            ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.qE0                                                 ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.qE0_re_ne_half                                      ['Classical.choice', 'Quot.sound', 'propext'] DERIVES      -- no hypothesis binder
+  Schema.q0OffLine                                           ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.onLinePt                                            ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.q0Points                                            ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.qE0_mem                                             ['Classical.choice', 'Quot.sound', 'propext'] DERIVES      -- no hypothesis binder
+  Schema.rhoE_mem                                            ['Classical.choice', 'Quot.sound', 'propext'] DERIVES      -- no hypothesis binder
+  Schema.Q0Listed                                            ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.Q0Complete                                          ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.A0Q                                                 ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.Q0Count                                             ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.Q0Premises                                          ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.q0Config                                            ['Classical.choice', 'Quot.sound', 'propext'] DEF         
+  Schema.q0_target_false                                     ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
+  Schema.q0_h2_iff_target                                    ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
+  Schema.q0_not_h2_sign_cfg                                  ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
+  Schema.q0_not_h2_sign_cfg_rhoE                             ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
+  Schema.q0_detector                                         ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
+  Schema.q0_hA                                               ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
+  Schema.q0_rate                                             ['Classical.choice', 'Quot.sound', 'propext'] PREDICATE-UNLISTED  -- hP : Q0Premises Z rhs
+  Schema.rhoE                                                ['Classical.choice', 'Quot.sound', 'propext'] -           
+  Schema.rhoE_re_ne_half                                     ['Classical.choice', 'Quot.sound', 'propext'] -           
+  Schema.EpsteinPremises                                     ['Classical.choice', 'Quot.sound', 'propext'] -           
+  Schema.epsteinConfig                                       ['Classical.choice', 'Quot.sound', 'propext'] -           
+  Schema.epstein_not_h2_sign_cfg                             ['Classical.choice', 'Quot.sound', 'propext'] -           
+  Schema.epstein_detector                                    ['Classical.choice', 'Quot.sound', 'propext'] -           
+  Schema.h2_sign_cfg_iff_target                              ['Classical.choice', 'Quot.sound', 'propext'] -           
+  Schema.detector                                            ['Classical.choice', 'Quot.sound', 'propext'] -           
+  Schema.not_h2_sign_cfg_of_offline                          ['Classical.choice', 'Quot.sound', 'propext'] -           
+  Schema.zeroSide_neg_at_rate_cfg                            ['Classical.choice', 'Quot.sound', 'propext'] -           
+
+  sorry in the new file: 0
+  the build`s warning lines on the new file: 2
+    warning: SIDEExplicitFormula/Schema/EpsteinQ0.lean:86:16: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    warning: SIDEExplicitFormula/Schema/EpsteinQ0.lean:90:16: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+  PREDICATE-UNLISTED (the E0 rule, (R243)(2): a predicate met for the first time is printed, not graded INTERFACES; MET, tools/e0_rule.py :308-:315): 7 -- q0_target_false, q0_h2_iff_target, q0_not_h2_sign_cfg, q0_not_h2_sign_cfg_rhoE, q0_detector, q0_hA, q0_rate
+
+### ### **RUN 38413488503 ; CONCLUSION success ; ARTIFACT SHA256 114cd68ce435fabd AGREE ; MEMORY LOW 13264 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 31, PRINTED 31, AT THE STANDARD THREE OR NONE 31 ; THE NEW FILE`S DECLARATIONS 21: INTERFACES 0, DERIVES 3, DEF 11.**
+  H1 REFUTED -- the instance compiled on the runner (run 38413488503); every premise (Q0Listed, Q0Complete, Q0Count, EpsteinPremises) INTERFACES by the E0 rule beside a print at the standard three; every other declaration at the standard three or none -- REFUTED IN ONE CLAUSE: compiled, every print at the standard three, but the premise-carrying theorems grade PREDICATE-UNLISTED (hP : Q0Premises Z rhs, Q0Premises not in MET), not INTERFACES
+  H2 HELD -- q0_h2_iff_target := h2_sign_cfg_iff_target (q0Config Z rhs hP), one application, printed ['Classical.choice', 'Quot.sound', 'propext']
+
+### THE LANDING POINT, (R273)(5): THE INSTANCE COMPILED ON THE RUNNER, EVERY PREMISE A PROP THE SCHEMA ACCEPTS (it is consumed by epsteinConfig, the detector and the rate theorem at the standard three); THE E0 GRADE OF ITS 7 PREMISE-CARRYING THEOREMS IS PREDICATE-UNLISTED, NOT INTERFACES -- neither landing point of (R273)(5) as written; the branch unmerged pending the author`s word.

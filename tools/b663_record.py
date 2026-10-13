@@ -437,7 +437,149 @@ def a0list(*a):
     print(NL.join(L[4:5]))
 
 
-ROUTES = {'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2, 'c2b': c2b, 'a0list': a0list}
+# ================================================================================ COMPONENT 3: THE RUNNER, READ BY ITS RUN ID
+STD3 = {'propext', 'Classical.choice', 'Quot.sound'}
+PRINT_RE = re.compile(r"^'(.+?)' (?:does not depend on any axioms|depends on axioms: \[([^\]]*)\])", re.M)
+ERR_RE = re.compile(r'^(?:error: )?(\S+\.lean):(\d+):(\d+): error: (.*)$', re.M)
+RUN = dict(run_id=38413488503, ref='c7d28584d0976625f63014f1e9b2e21a2a0c6c76', dispatched_at='main', target='SIDEExplicitFormula.Schema.EpsteinQ0',
+           file='SIDEExplicitFormula/Schema/EpsteinQ0.lean')
+PREMISES = ('Q0Listed', 'Q0Complete', 'Q0Count', 'EpsteinPremises')
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def runner(*a):
+    """the run read by its id; the artifact listed, downloaded by its id into memory, its sha256 against the platform's digest BEFORE any
+    reading; the build's exit and error lines, the memory log's low and any STOP; every print of print_targets.txt read at the standard
+    three or none, no sorryAx; every declaration of the new file graded by the shared E0 rule (tools/e0_rule.py) from its statement at the
+    branch tip, the premises listed by name beside the print (the author's word on the INTERFACES miss); H1 and H2 scored by printed line;
+    the landing point of (R273)(5). Banked as data/b663_epstein_instance.txt and .json."""
+    import hashlib
+    import zipfile
+    import b569_record as R9
+    import e0_rule as E0
+    repo = 'psinary-sketch/' + K.KERNEL
+    rc, out, err = _gh('run', 'view', str(RUN['run_id']), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, RUN['run_id']))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    pt = [l.strip() for l in (_show(K.KD, RUN['ref'], 'print_targets.txt') or '').split(NL) if l.strip()]
+    src = _show(K.KD, RUN['ref'], RUN['file']) or ''
+    L = ['b663 -- COMPONENT 3, (R273)(2), (5): THE Q0 INSTANCE ON THE HOSTED RUNNER, READ BY ITS RUN ID (%s)' % utc(), '',
+         '### the branch %s at %s (pushed by name before the dispatch); the file %s, sha256 %s, %d bytes; print_targets.txt at the ref: %d names' % (
+             K.BRANCH, RUN['ref'][:7], RUN['file'], hashlib.sha256(src.encode('utf-8')).hexdigest(), len(src.encode('utf-8')), len(pt)),
+         '### the one dispatch: at %s (the workflow on main since b654), the ref input %s (the branch`s tip) ; target %s' % (
+             RUN['dispatched_at'], RUN['ref'], RUN['target']),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             RUN['run_id'], run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+             run.get('updatedAt'))]
+    T_, sha_ok, sha = {}, False, None
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        sha_ok = bool(digest) and digest == sha
+        L.append('### the artifact: id %s ; name %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if sha_ok else ('### DIFFER' if digest else 'no digest to compare -- NOTHING READ FROM IT')))
+        if sha_ok:
+            with zipfile.ZipFile(io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    mem_low = int(low[-1]) if low else None
+    stops = [l for l in mem.split(NL) if l.startswith('STOP ')]
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip()
+    errs = [(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4)) for m in ERR_RE.finditer(blog)]
+    axt = T_.get('axioms.txt', '')
+    P = dict((k_, sorted(v_)) for k_, v_ in R9.prints_axioms(axt).items())          # ### Lean's wrapped lines read (b569's reader)
+    axerr = [l for l in axt.split(NL) if ': error' in l]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: samples %d ; LOW %s MB ; the hold %d ; STOP lines %s' % (
+              len([l for l in mem.split(NL) if 'avail_mb=' in l]), mem_low, K.HOLD, stops or 'NONE'),
+          '### the build: exit %s ; error lines %d ; the log`s last lines:' % (bexit or '### UNREAD', len(errs))] + \
+        ['    ' + l for l in blog.rstrip(NL).split(NL)[-6:]] + ['    %s:%d:%d: %s' % e for e in errs[:30]] + [
+          '### the print step: error lines %d%s ; names refused %s' % (len(axerr), (' -- ' + ' | '.join(axerr[:4])) if axerr else '',
+                                                                       T_.get('axioms_refused.txt', '').strip() or 'NONE'), '',
+          ] + E0.RULE_TEXT + ['', '### THE GATE READING PER TERMINAL: the run`s print ; the E0 grade from the statement at the tip (declarations of '
+                               '%s; the others b590`s and the schema`s, printed for the reading):' % RUN['file']]
+    rows, unread = [], []
+    for n in pt:
+        ax = P.get(n)
+        short = n.split('.')[-1]
+        m = re.search(r'^(theorem|def|structure|abbrev)\s+%s(?![\w\'])' % re.escape(short), src, re.M)
+        kind = m.group(1) if m else None
+        gr, why = ('-', 'not in the new file')
+        if kind == 'theorem':
+            head, _ln = R9.header_of(src, short)
+            gr, why, _b = E0.grade(head or '', 'theorem')
+        elif kind is not None:
+            gr, why = 'DEF', ''
+        std = ax is not None and set(ax) <= STD3 and 'sorryAx' not in ax
+        prem = [p for p in PREMISES if re.search(r'\b%s\b' % p, why or '')]
+        rows.append(dict(name=n, axioms=ax, std3=std, grade=gr, why=why, premises=prem, in_file=kind is not None))
+        if ax is None:
+            unread.append(n)
+        L.append('  %-58s %-32s %-11s %s%s' % (n.replace('SIDEExplicitFormula.', ''), ax if ax is not None else '### NOT PRINTED',
+                                               gr, ('premises by name: ' + ', '.join(prem)) if prem else '', ('' if not why or gr in ('DEF', '-') else ' -- ' + why[:110])))
+    infile = [r for r in rows if r['in_file']]
+    sorry_src = len(re.findall(r'\bsorry\b', src))
+    h1 = (run.get('conclusion') == 'success' and sha_ok and bexit == '0' and not errs and not stops and mem_low is not None and mem_low >= K.HOLD
+          and not unread and not axerr and all(r['std3'] for r in rows) and sorry_src == 0
+          and all(r['grade'] in ('INTERFACES', 'DERIVES', 'DEF') for r in infile))
+    h2r = [r for r in rows if r['name'].endswith('.q0_h2_iff_target')]
+    h2_line = re.search(r'theorem q0_h2_iff_target[\s\S]*?:=\s*\n?\s*(h2_sign_cfg_iff_target \(q0Config Z rhs hP\))', src)
+    h2 = bool(run.get('conclusion') == 'success' and sha_ok and bexit == '0' and not errs and h2r and h2r[0]['std3'] and h2_line)
+    warns = [l.strip() for l in blog.split(NL) if 'warning' in l and 'EpsteinQ0' in l]
+    n_int = sum(1 for r in infile if r['grade'] == 'INTERFACES')
+    n_der = sum(1 for r in infile if r['grade'] == 'DERIVES')
+    compiled = run.get('conclusion') == 'success' and sha_ok and bexit == '0' and not errs and not stops
+    unl0 = [r for r in infile if r['grade'] == 'PREDICATE-UNLISTED']
+    land_pt = ('THE INSTANCE COMPILED ON THE RUNNER, EVERY PREMISE A PROP THE SCHEMA ACCEPTS: to merge alone on this gate reading (Component 5)'
+               if h1 else
+               ('THE INSTANCE COMPILED ON THE RUNNER, EVERY PREMISE A PROP THE SCHEMA ACCEPTS (it is consumed by epsteinConfig, the detector and '
+                'the rate theorem at the standard three); THE E0 GRADE OF ITS %d PREMISE-CARRYING THEOREMS IS PREDICATE-UNLISTED, NOT INTERFACES '
+                '-- neither landing point of (R273)(5) as written; the branch unmerged pending the author`s word' % len(unl0))
+               if compiled and unl0 else
+               'THE INSTANCE NOT COMPILED AS WRITTEN: the branch stays unmerged, its tip banked; the obstruction by file and line above')
+    unl = [r['name'].split('.')[-1] for r in infile if r['grade'] == 'PREDICATE-UNLISTED']
+    L += ['', '  sorry in the new file: %d' % sorry_src,
+          '  the build`s warning lines on the new file: %d%s' % (len(warns), ''.join(NL + '    ' + w[:200] for w in warns[:12])),
+          '  PREDICATE-UNLISTED (the E0 rule, (R243)(2): a predicate met for the first time is printed, not graded INTERFACES; MET, '
+          'tools/e0_rule.py :308-:315): %d -- %s' % (len(unl), ', '.join(unl) or 'NONE'),
+          '', '### ### **RUN %s ; CONCLUSION %s ; ARTIFACT SHA256 %s %s ; MEMORY LOW %s MB (HOLD %d) ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS %d, '
+          'PRINTED %d, AT THE STANDARD THREE OR NONE %d ; THE NEW FILE`S DECLARATIONS %d: INTERFACES %d, DERIVES %d, DEF %d.**' % (
+              RUN['run_id'], run.get('conclusion'), (sha or '### NONE')[:16], 'AGREE' if sha_ok else '### NOT AGREED', mem_low, K.HOLD,
+              bexit or '### UNREAD', len(errs), len(pt), len(pt) - len(unread), sum(1 for r in rows if r['std3']), len(infile), n_int, n_der,
+              sum(1 for r in infile if r['grade'] == 'DEF')),
+          '  H1 %s -- the instance %s on the runner (run %s); every premise (%s) INTERFACES by the E0 rule beside a print at the standard three; '
+          'every other declaration at the standard three or none%s' % ('HELD' if h1 else 'REFUTED', 'compiled' if bexit == '0' else 'NOT compiled',
+                                                                         RUN['run_id'], ', '.join(PREMISES),
+                                                                         '' if h1 else ' -- REFUTED IN ONE CLAUSE: compiled, every print at the standard '
+                                                                         'three, but the premise-carrying theorems grade PREDICATE-UNLISTED (hP : '
+                                                                         'Q0Premises Z rhs, Q0Premises not in MET), not INTERFACES'),
+          '  H2 %s -- q0_h2_iff_target := h2_sign_cfg_iff_target (q0Config Z rhs hP), one application, printed %s' % (
+              'HELD' if h2 else 'REFUTED', h2r[0]['axioms'] if h2r else '### NOT PRINTED'),
+          '', '### THE LANDING POINT, (R273)(5): %s.' % land_pt]
+    put_txt('b663_epstein_instance.txt', L)
+    put_json('b663_epstein_instance.json', dict(at=utc(), run=RUN, conclusion=run.get('conclusion'), sha256=sha, sha_ok=sha_ok, mem_low=mem_low,
+                                                build_exit=bexit, errors=[list(e) for e in errs], rows=rows, H1=h1, H2=h2, landing=land_pt))
+    print(L[-5])
+    print(L[-4])
+    print(L[-3])
+    for e in errs[:12]:
+        print('  ERROR %s:%d:%d: %s' % e)
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2, 'c2b': c2b, 'a0list': a0list, 'runner': runner}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
