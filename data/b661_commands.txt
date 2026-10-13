@@ -1,7 +1,7 @@
-b661 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T06:21:02Z)
+b661 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T06:54:15Z)
 
 ### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R271) BEGIN', and its subagents` transcripts
-### commands read: 91
+### commands read: 130
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -101,5 +101,44 @@ b661 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READIN
   #89 | 2026-10-13T06:20:38.282Z | seat | Bash | python - <<'EOF'
   #90 | 2026-10-13T06:20:44.836Z | seat | Bash | python - <<'EOF'
   #91 | 2026-10-13T06:20:51.321Z | seat | Bash | python - <<'EOF'
+  #92 | 2026-10-13T06:21:01.190Z | seat | Bash | export PYTHONIOENCODING=utf-8 && for f in tools/b661_checks.py tools/b661_record.py tools/b661_closing.py tools/b661_regspec.py tools/b661_reg_gate.py tools/b66
+  #93 | 2026-10-13T06:21:21.034Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #94 | 2026-10-13T06:21:33.570Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_record.py defects && python -c "
+  #95 | 2026-10-13T06:21:40.883Z | seat | Bash | git add tools/b661_checks.py tools/b661_closing.py tools/b661_regspec.py tools/b661_reg_gate.py tools/b661_record.py tools/b661_worklist.py data/b661_commands.t
+  #96 | 2026-10-13T06:21:53.282Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #97 | 2026-10-13T06:23:12.685Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_reg_gate.py | grep -v "^  [|]" | cut -c1-300 | tail -40
+  #98 | 2026-10-13T06:23:23.025Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_reg_gate.py | grep "ENTRY :\|TRAIL :\|unread\|DRY-RUN STEP :\|GATE VERDICT\|UNDECLARED" | cut -c1-300; PYTHONIOENCODING
+  #99 | 2026-10-13T06:23:33.369Z | seat | Bash | PYTHONIOENCODING=utf-8 B661_STANDIN=1 python tools/b661_record.py findings dry 2>&1 | cut -c1-2000
+  #100 | 2026-10-13T06:23:48.699Z | seat | Bash | grep -n "== CELL\|the largest at γ" data/b661_detection_map.txt | sed 's/hθ        CERTIFIED -- every on-line point outside the kill set read or screened: offSc
+  #101 | 2026-10-13T06:23:58.193Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_reg_gate.py | grep "ENTRY :\|TRAIL :\|DRY-RUN STEP :\|GATE VERDICT\|UNDECLARED" | cut -c1-200
+  #102 | 2026-10-13T06:24:08.206Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_regspec.py | grep -v "^      line" | cut -c1-200 | head -40
+  #103 | 2026-10-13T06:24:13.407Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_regspec.py | grep "^      line" | cut -c1-260
+  #104 | 2026-10-13T06:24:19.350Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_regspec.py | grep "PREDICTIONS FOUND\|^      line\|CELLS\|NON-ZERO" | cut -c1-200; PYTHONIOENCODING=utf-8 python tools/
+  #105 | 2026-10-13T06:24:26.144Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $p = Start-Process -FilePa
+  #106 | 2026-10-13T06:24:33.241Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_prerun.log"; for i in $(seq 1 38); do if grep -q "writte
+  #107 | 2026-10-13T06:34:25.721Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_prerun.log"; ls -la "$L" "${L%.log}.err"; tasklist //FI 
+  #108 | 2026-10-13T06:34:34.481Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_prerun.log"; for i in $(seq 1 38); do if grep -q "writte
+  #109 | 2026-10-13T06:38:37.415Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #110 | 2026-10-13T06:38:51.056Z | seat | Bash | git log --format='%h %ad %s' --date=iso -- data/b650_same_season_last_year.txt | cut -c1-150 | head -5; grep -n "def check" -A30 tools/additive_shared.py | head
+  #111 | 2026-10-13T06:39:10.705Z | seat | Bash | git diff 58c8d3c8 7ebd1c4d -- data/b650_same_season_last_year.txt | cut -c1-250
+  #112 | 2026-10-13T06:39:28.653Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b661_record.py defects && python tools/b661_reg_gate.py | grep "UNDECLARED\|DRY-RUN STEP :\|GATE VERDICT" | cut -c
+  #113 | 2026-10-13T06:39:35.334Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_reg_gate.py | grep -v "^  [|]" | head -16 | cut -c1-250
+  #114 | 2026-10-13T06:39:41.528Z | seat | Bash | grep -n "def bar_floor_check" -A40 tools/registration_gate.py | head -60
+  #115 | 2026-10-13T06:39:46.538Z | seat | Bash | grep -n "^MULTIARM\|^ARMWORD\|^THRESHOLD\|^FLOOR_WORD" -A3 tools/registration_gate.py | head -20
+  #116 | 2026-10-13T06:39:54.337Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b661_reg_gate.py | grep "MISSES\|UNDECLARED\|DRY-RUN STEP :\|GATE VERDICT" | cut -c1-200 && python tools/b661_regs
+  #117 | 2026-10-13T06:40:08.710Z | seat | Bash | git add tools/b661_record.py data/b661_defects.txt data/b661_defects.json data/b661_arms_prerun.txt data/b661_lsr_prerun.json data/b661_reg_gate.txt data/b661_r
+  #118 | 2026-10-13T06:40:23.718Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $p = Start-Process -FilePa
+  #119 | 2026-10-13T06:40:36.830Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_prerun2.log"; for i in $(seq 1 38); do if grep -q "writt
+  #120 | 2026-10-13T06:50:26.339Z | seat | Bash | L="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b661_prerun2.log"; for i in $(seq 1 38); do if grep -q "writt
+  #121 | 2026-10-13T06:51:21.179Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b661_reg_gate.py | grep "DRY-RUN STEP :\|GATE VERDICT\|UNDECLARED\|MISSES" | cut -c1-200; python -c "
+  #122 | 2026-10-13T06:51:30.090Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -c "
+  #123 | 2026-10-13T06:51:45.411Z | seat | Bash | export PYTHONIOENCODING=utf-8 && grep -c "GATES READ : 8. ### PASSING : 8." data/b661_lockgate_notes.txt && python tools/reg_seal.py --lock data/b661_registrati
+  #124 | 2026-10-13T06:51:57.027Z | seat | Bash | python -c "
+  #125 | 2026-10-13T06:52:03.119Z | seat | Bash | git log --format='%h %s' 776f9f4f..673d79c0 | cut -c1-330; git -C /d/MY-DOwnloads/PLACE-papers log --format='%h %s' 5871eaa..b15b3c6 | cut -c1-200
+  #126 | 2026-10-13T06:52:13.933Z | seat | Bash | PYTHONIOENCODING=utf-8 python tools/b661_record.py table_final && git status --short --untracked-files=no | cut -c1-100
+  #127 | 2026-10-13T06:52:47.552Z | seat | Bash | git add data/b661_table_final.txt data/b661_table_final.json && git commit -q -m "b661 pre-root: the terminal table regenerated and diffed against relay HEAD 7b
+  #128 | 2026-10-13T06:53:03.313Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no; git branch push-b661-root HEAD && PUSH_GATED_LOG=/d/relay/data/b661_pp_root_push_out
+  #129 | 2026-10-13T06:53:36.843Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -c "
+  #130 | 2026-10-13T06:53:45.546Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python tools/b661_record.py root && python tools/b661_record.py root_arm && tail -1 data/act_roots.txt | cut -c1-140 && for f i
 
-### ### **COMMANDS 91 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
+### ### **COMMANDS 130 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
