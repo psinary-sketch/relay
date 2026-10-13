@@ -1,0 +1,47 @@
+====================================================================================================
+b661_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+  ### (R263)(3) THE PLANTED ROWS, ONE PER SHAPE A SEALED ROUTE READS, EACH THROUGH THE RECORD TOOL`S READER:
+      runner row                                   READ -- {'kernel': 'SIDE-x', 'outcome': 'GATE DERIVES', 'merged': None, 'low': 9000, 'above_hold': True}
+      runner row, stopped on the runner            READ -- {'kernel': 'SIDE-x', 'outcome': 'STOPPED BENEATH THE HOLD ON THE RUNNER', 'merged': None, 'low': 2400, 'above_hold': Fal
+      score row                                    READ -- ('N3', 'REFUTED IN ONE CLAUSE', 'a planted score text')
+      score row of a hypothesis, vacuous           READ -- ('H2', 'HELD, VACUOUS', 'a planted score text')
+      trail head with a backtick possessive        READ -- 3
+      entry title with a backtick possessive       READ -- 3
+      map cell row with an index                   READ -- ('0.7', '50.0', 'j₀', 30, ['H.hev', 'H.hM'], [])
+      map cell row, NONE                           READ -- ('0.7', '50.0', 'NONE ≤ J_max', None, ['H.hev', 'H.hM'], [])
+      map cell row, HYP-UNVERIFIED                 READ -- ('0.7', '50.0', 'HYP-UNVERIFIED', None, ['H.hev', 'H.hM'], ['hθ'])
+  ### ### **PLANTED ROWS 9 ; READ 9 ; REFUSED 0.**
+      CONTROL a runner row missing its keys (b652`s build-row shape)       REFUSED, AS WANTED
+      CONTROL a score row of another shape                                 REFUSED, AS WANTED
+      CONTROL a head the ledger does not carry                             REFUSED, AS WANTED
+      CONTROL a map cell whose reading is of another form                  REFUSED, AS WANTED
+      CONTROL a map cell with no certifications                            REFUSED, AS WANTED
+      CONTROL a map cell with an index and no j0                           REFUSED, AS WANTED
+
+  registration : b661_registration_2026-10-13.txt
+  bytes/lines  : 21081 / 200
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **MEASURED OFF THE FACE AND THE BANKS, NOT TYPED:**
+      ARMS       77
+      READINGS   3
+      EXPECT     12
+      BARS       0
+      TESTS      53
+      QUESTIONS  5
+      CELLS      20
+
+  clauses emitted : 67
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 13**
+  written : b661_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 8392b0b8bdc102822f6c7aa7aa9addc40b1baeabd7ee0c75947ab02c0fe4916a  (b661_registration_2026-10-13.txt)
