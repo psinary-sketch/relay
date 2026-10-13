@@ -31,3 +31,7 @@ b662 -- THE DEFECTS, WRITTEN AS THE ACT RAN (2026-10-13): THE SUCCESSOR OF data/
     identifier of the author in any outbound request" was split across two string literals in tools/b662_closing.py, so it never stood whole
     in the source. Both found by the first pre-run (both FAIL on real state, neither declared), both repaired by the Edit tool before the lock,
     the pre-run run again at the repaired tools.
+    (h) THE SEAT'S: A PRE-ROOT PUSH BEFORE THE TABLE'S FILES WERE COMMITTED. The final table regenerated terminal_table.json and .md
+    (SIDE-carrier-spec's rows read at dd54a61; no grade moved), but relay's pre-root push (ec9755aa) went out before they were committed;
+    act_root.py then refused ("main 748e6fe1, the remote ec9755aa -- NO ROOT") and a second pre-root push (push-b662-root-table, 748e6fe1,
+    read back) preceded the root. b657's lesson (the pre-root commit includes the table files) not applied in order.
