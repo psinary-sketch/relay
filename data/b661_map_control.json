@@ -1,0 +1,188 @@
+{
+ "cells": [
+  {
+   "sigma": "0.8",
+   "t": "29.6",
+   "prec": 200,
+   "certs": [
+    [
+     "H.hev",
+     "CERTIFIED",
+     "plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED"
+    ],
+    [
+     "H.hsm",
+     "CERTIFIED",
+     "plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED"
+    ],
+    [
+     "H.hs",
+     "CERTIFIED",
+     "plateau_support_Icc, as Detector.lean :107-:108; COMPILED"
+    ],
+    [
+     "H.hL",
+     "CERTIFIED",
+     "baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED"
+    ],
+    [
+     "H.hM",
+     "CERTIFIED",
+     "M = offScore g0 ρ₁ = |ĝ0(γ(ρ₁))| = [0.0121848333635 +/- 6.11e-15] > 0"
+    ],
+    [
+     "H.hdom",
+     "CERTIFIED",
+     "the off-line points of Z₁ are the orbit alone (the zero list on the line); the four scores ρ₁ [0.012184833 +/- 3.64e-10] ; 1 − conj ρ₁ [0.012184833 +/- 3.64e-10] ; conj ρ₁ [0.012184833 +/- 3.64e-10] ; 1 − ρ₁ [0.012184833 +/- 3.64e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36)"
+    ],
+    [
+     "tieSet",
+     "CERTIFIED",
+     "tieSet C g0 M (PowerWindow.lean :398) = the orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [17.7600000000 +/- 1e-15] ≠ 0"
+    ],
+    [
+     "killSet",
+     "CERTIFIED",
+     "killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 3 (γ ≤ [25.01085758 +/- 1.46e-10]), screened by the decay bound 0, straddling 0; card Xr = 3"
+    ],
+    [
+     "hA",
+     "CERTIFIED",
+     "HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000 (an exact upper value; the steps of N(s, s+1] read at their points nearest 0, the largest ratio at s = -, count 0; 1 ≤ A₀)"
+    ],
+    [
+     "hQtie",
+     "CERTIFIED",
+     "by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41"
+    ],
+    [
+     "hQb",
+     "CERTIFIED",
+     "by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41"
+    ],
+    [
+     "hθ0",
+     "CERTIFIED",
+     "θ = 0.999677841314598 ≥ 0"
+    ],
+    [
+     "hθ",
+     "CERTIFIED",
+     "every on-line point outside the kill set read or screened: offScore/M ≤ θ (the largest at γ = [30.42487613 +/- 4.15e-9])"
+    ]
+   ],
+   "hrate": [
+    [
+     14,
+     "FAILS",
+     "left exp([919458.880258321 +/- 2.97e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     15,
+     "FAILS",
+     "left exp([919448.322061719 +/- 1.14e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     16,
+     "FAILS",
+     "left exp([919427.205668515 +/- 9.29e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     17,
+     "FAILS",
+     "left exp([919384.972882107 +/- 2.56e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     18,
+     "FAILS",
+     "left exp([919300.507309292 +/- 4.19e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     19,
+     "FAILS",
+     "left exp([919131.576163660 +/- 2.33e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     20,
+     "FAILS",
+     "left exp([918793.713872398 +/- 4.65e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     21,
+     "FAILS",
+     "left exp([918117.989289872 +/- 1.42e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     22,
+     "FAILS",
+     "left exp([916766.540124821 +/- 3.54e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     23,
+     "FAILS",
+     "left exp([914063.641794720 +/- 2.24e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     24,
+     "FAILS",
+     "left exp([908657.845134517 +/- 3.77e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     25,
+     "FAILS",
+     "left exp([897846.251814110 +/- 3.19e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     26,
+     "FAILS",
+     "left exp([876223.065173298 +/- 2.94e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     27,
+     "FAILS",
+     "left exp([832976.691891672 +/- 4.84e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     28,
+     "FAILS",
+     "left exp([746483.945328422 +/- 3.75e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     29,
+     "FAILS",
+     "left exp([573498.452201921 +/- 1.45e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     30,
+     "FAILS",
+     "left exp([227527.465948919 +/- 3.60e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ],
+    [
+     31,
+     "HOLDS",
+     "left exp([-464414.506557084 +/- 2.11e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]"
+    ]
+   ],
+   "unresolved": [],
+   "reading": "j₀ = 31",
+   "triggers": [],
+   "M": "[0.0121848333635 +/- 6.11e-15]",
+   "Aw": "[18654477909.2 +/- 0.0153]",
+   "D": 14,
+   "J_max": 54,
+   "card_Xr": 3,
+   "A0": "1.00000000000000",
+   "B": "[6.75246342713e+11 +/- 0.0426]",
+   "theta": "[0.999677841315 +/- 4.03e-13]",
+   "j0": 31,
+   "sides": "left exp([-464414.506557084 +/- 2.11e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]",
+   "H3": {
+    "j0": 31,
+    "zero_side": "[-3.9247896371573229546e+21 +/- 35.6]",
+    "orbit": "[-3.9247896371573229546e+21 +/- 35.6]",
+    "online": "[1.5976639572756374056e-600991 +/- 2.20e-601011]",
+    "held": true
+   }
+  }
+ ]
+}
