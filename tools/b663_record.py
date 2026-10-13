@@ -63,11 +63,23 @@ def put_txt(name, lines):
     os.replace(p + '.tmp', p)
 
 
+def _standins():
+    """(R267)(2), standing: the stand-ins a dry run reads for the banks not yet written before the lock -- every value marked as a stand-in,
+    none a number any bank carries; a stand-in run writes no bank."""
+    sk = ('N1', 'N2', 'N3', 'N4', 'N5', 'H1', 'H2', 'H3', 'H4', 'S1', 'S2', 'S3')
+    return {
+        'b663_scores.json': dict((k, ['NOT SCORED', 'a stand-in for the dry run']) for k in sk),
+        'b663_findings.json': dict(entry_line=99999, title='stand-in'),
+        'b663_trail.json': dict(line=99999),
+        'b663_act_root.json': dict(root='0' * 64, previous='769efd11' + '0' * 56, reads=dict(heads=['x'], tags=['x'], banks=['x'])),
+    }
+
+
 def jl(name):
     try:
         return json.load(io.open(os.path.join(D, name), encoding='utf-8'))
     except Exception:
-        return {}
+        return _standins().get(name, {}) if STANDIN else {}
 
 
 def g(repo, *a):
@@ -145,7 +157,47 @@ def read_head(path, head):
     return ln
 
 
-READERS = ['read_head']
+def read_score_row(k, v):
+    """a scores row: key N1..N5, H1..H4 or S1..S3, value [verdict, text]; returns (key, the whole verdict, text) -- the whole verdict, not
+    its first word (b656's defect (e))."""
+    if not re.match(r'^(N[1-5]|H[1-4]|S[1-3])$', k) or not isinstance(v, list) or len(v) != 2 or not isinstance(v[0], str) or not v[0].strip():
+        raise ValueError('score row of another shape: %r' % (k,))
+    return k, v[0], v[1]
+
+
+INSTANCE_KEYS = ('run', 'conclusion', 'sha256', 'sha_ok', 'mem_low', 'build_exit', 'errors', 'rows', 'H1', 'H2', 'landing')
+
+
+def read_instance(j):
+    """the instance bank (data/b663_epstein_instance.json): every key of INSTANCE_KEYS present, rows each with name, axioms, std3, grade;
+    returns (H1, H2, the run id, the merge or None); raises on a bank of another shape."""
+    miss = [k for k in INSTANCE_KEYS if k not in j]
+    if miss or not isinstance(j.get('rows'), list) or not all(isinstance(r, dict) and {'name', 'axioms', 'std3', 'grade'} <= set(r) for r in j['rows']):
+        raise KeyError('instance bank without %s' % (miss or 'its rows'))
+    return bool(j['H1']), bool(j['H2']), j['run'].get('run_id'), j.get('merged')
+
+
+def read_control_cell(r):
+    """a cell of the computation bank (data/b663_epstein_control.json, rows are cells): name, base, certs a non-empty list of [name,
+    CERTIFIED or NOT CERTIFIED, why], a reading `j₀ = <j>` or `NONE ≤ J_max` or `HYP-UNVERIFIED(<name>)`; returns (name, form, j0, the zero
+    side's held or None); raises on a row of another shape."""
+    if not isinstance(r, dict) or not isinstance(r.get('name'), str) or not isinstance(r.get('base'), list):
+        raise ValueError('control cell of another shape')
+    cs = r.get('certs')
+    if not isinstance(cs, list) or not cs or not all(isinstance(c, list) and len(c) == 3 and c[1] in ('CERTIFIED', 'NOT CERTIFIED') for c in cs):
+        raise ValueError('control cell without its certifications')
+    rd_ = r.get('reading') or ''
+    form = [f for f in ('j₀ = ', 'NONE ≤ J_max', 'HYP-UNVERIFIED(') if rd_.startswith(f)]
+    if len(form) != 1:
+        raise ValueError('control cell reading of another form: %r' % (rd_,))
+    j0 = r.get('j0') if form[0] == 'j₀ = ' else None
+    if form[0] == 'j₀ = ' and not isinstance(j0, int):
+        raise ValueError('control cell with an index and no j0')
+    zs = r.get('zero_side')
+    return r['name'], form[0].strip(' =('), j0, (zs.get('held') if isinstance(zs, dict) else None)
+
+
+READERS = ['read_head', 'read_score_row', 'read_instance', 'read_control_cell']
 
 
 # ================================================================================ COMPONENT 1: THE RECORD LINE, (R273)(1)
@@ -611,8 +663,554 @@ def merged(*a):
     print('  merged %s ; tag %s peeled %s ; the merged tree equals the built tree: %s' % (sha, tag, pk[:7], j['merge_tree_equals_built']))
 
 
-ROUTES = {'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2, 'c2b': c2b, 'a0list': a0list, 'runner': runner, 'mapdiff': mapdiff,
-          'merged': merged}
+# ================================================================================ THE LATE ROUTES (b662's, carried; every row read through READERS)
+import collections                 # noqa: E402
+import b633_record as R3           # noqa: E402
+import edit_route as ER            # noqa: E402
+RELAY = ROOT
+SUBAGENTS = 'C:/Users/echo chamber/.claude/projects/D--/%s/subagents' % K.SESSION_ID
+R3.SP, R3.SESSION, R3.SESSION_ID = SP, SESSION, K.SESSION_ID
+
+
+def capture():
+    rows = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
+    for i, r in enumerate(rows):
+        r['n'] = i + 1
+    return rows
+
+
+LOCAL_LEAN = re.compile(r'(^|[;&|(]\s*|\s)(lake|lean)(\.exe)?\s+(build|env|exe|update|\S+\.lean)')
+QUOTED = re.compile(r'"(?:[^"\\]|\\.)*"|\'[^\']*\'')
+
+
+def local_lean(cmd):
+    """a command runs lean or lake on this host: the pattern read outside quoted strings and outside a gh workflow call (the hosted runner's)."""
+    return 'gh workflow' not in cmd and LOCAL_LEAN.search(QUOTED.sub('""', cmd)) is not None
+
+
+def commands(*a):
+    rows = capture()
+    if not rows:
+        sys.exit('### THE COMMAND CAPTURE READ NO COMMAND -- NOTHING WRITTEN')
+    hits = ER.scan(rows)
+    lean = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
+    L = ['b663 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (%s)' % utc(), '',
+         '### the source: the seat`s session %s from its first user line carrying %r, and its subagents` transcripts' % (K.SESSION_ID, K.ANCHOR),
+         '### commands read: %d' % len(rows), '', '### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (%d):' % len(hits)]
+    for r, o in hits:
+        L += ['  #%d %s %s %s -- %s' % (r['n'], r['ts'], r['src'], r['tool'], '; '.join(k for k, _ in o))] + ['      ' + x for x in r['cmd'].split(NL)]
+    if not hits:
+        L.append('  NONE')
+    L += ['', '### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (%d):' % len(lean)] + (['  #%d %s' % (r['n'], r['cmd'][:200]) for r in lean] or ['  NONE'])
+    L += ['', '### EVERY COMMAND (n | time | source | tool | first line, 160 characters):']
+    L += ['  #%d | %s | %s | %s | %s' % (r['n'], r['ts'], r['src'], r['tool'], r['cmd'].split(NL)[0][:160]) for r in rows]
+    L += ['', '### ### **COMMANDS %d ; G-EDIT-ROUTE OFFENCES %d ; LOCAL lean OR lake COMMANDS %d.**' % (len(rows), len(hits), len(lean))]
+    put_txt('b663_commands.txt', [l.replace('\r', '') for l in L])
+    put_json('b663_commands.json', dict(at=utc(), anchor=K.ANCHOR, rows=rows, offences=[dict(n=r['n'], kinds=[k for k, _ in o]) for r, o in hits],
+                                        local_lean=[r['n'] for r in lean]))
+    print(L[-1])
+
+
+def kernels(*a):
+    import b641_record as R41
+    put_json('b663_kernels_face.json', dict(at=utc(), kernels=R3.kern_state(list(R41.KERNS_READ))))
+    print('  kernels read: %d' % len(R41.KERNS_READ))
+
+
+def _defect_short():
+    out = []
+    for l in rdn('b663_defects.txt').split(NL):
+        m = re.match(r'^    \(([a-z]|b662-late)\) ([^.]*)\.', l)
+        if m:
+            out.append(m.group(0).strip()[:-1])
+    return out
+
+
+def defects(*a):
+    t = rdn('b663_defects.txt')
+    ds = [l.strip() for l in t.split(NL) if re.match(r'^    \(([a-z]|b662-late)\) ', l)]
+    put_json('b663_defects.json', dict(at=utc(), defects=ds, short=_defect_short()))
+    print('  defects %d' % len(ds))
+
+
+def seal_hashes():
+    import hashlib
+    rec_ = jl('b663_seal_hashes.json').get('tools') or {}
+    now = {}
+    for t in K.SEALED:
+        p = os.path.join(ROOT, 'tools', t)
+        now[t] = hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else None
+    out = [(t, 'absent' if (t not in rec_ or now[t] is None) else ('agree' if rec_[t] == now[t] else 'differ')) for t in K.SEALED]
+    return rec_, now, out
+
+
+ROOT_EXCLUDE = re.compile(r'^b663_(defects|scores|desk_notes|components|checks.*|lsr.*|exercise|findings|trail|closing.*|'
+                          r'act_root.*|root_arm.*|.*push_out.*|scanfile_.*|seal_check_.*|census_closing|faces_census_closing|pins_closing|commands)\.(txt|json|md)$')
+
+
+def root_banks():
+    return sorted('data/' + f for f in os.listdir(D) if f.startswith('b663_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f))
+
+
+def root(*a):
+    banks = root_banks()
+    crlf = [b for b in banks if b'\r\n' in open(os.path.join(ROOT, *b.split('/')), 'rb').read()]
+    print('  banks named: %d ; the seal bank among them %s ; written with CR LF: %s' % (len(banks), 'data/b663_seal_hashes.json' in banks, crlf or 'none'))
+    if crlf:
+        sys.exit('### A BANK THE ROOT WOULD NAME IS CR LF -- NOTHING WRITTEN')
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'act_root.py'), 'compute', 'b663'] + banks + ([] if 'dry' in a else ['--write']),
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    print(NL.join(((r.stdout or '') + (r.stderr or '')).rstrip(NL).split(NL)[-4:]))
+    if r.returncode:
+        sys.exit('### act_root.py exit %d' % r.returncode)
+
+
+def root_arm(*a):
+    import tempfile
+    import act_root as AR
+    J = jl('b663_act_root.json')
+    bank_ = [it.split()[0] for it in J['items'] if it.startswith('data/')][0]
+    with tempfile.TemporaryDirectory(prefix='b663_ra_') as tmp:
+        cp = os.path.join(tmp, os.path.basename(bank_))
+        b = bytearray(open(os.path.join(ROOT, *bank_.split('/')), 'rb').read())
+        b[0] ^= 0x01
+        open(cp, 'wb').write(bytes(b))
+        items2 = [('%s %s' % (bank_, AR.sha256_file(cp)) if it.split()[0] == bank_ else it) for it in J['items']]
+    r2 = AR.root_of(items2, J['previous'])
+    same = AR.root_of(J['items'], J['previous'])
+    late = []
+    for it in J['items']:
+        p = it.split()
+        if p[0].startswith('data/'):
+            fp = os.path.join(ROOT, *p[0].split('/'))
+            if not os.path.exists(fp) or AR.sha256_file(fp) != p[1]:
+                late.append('%s changed' % p[0])
+            elif os.path.getmtime(fp) > J.get('at_epoch', 0) + AR.ORDER_SLACK:
+                late.append('%s written after the root' % p[0])
+    L = ['b663 -- THE ACT-ROOT ARM`S OFFLINE CONTROL AND THE ROOT ORDER READ LOCALLY (%s)' % utc(), '',
+         '### the root`s time %s ; its recorded commit %s ; banks named %d ; changed or written after the root: %s' % (
+             J.get('at'), (J.get('commit') or {}).get('relay', '?')[:12], len([i for i in J['items'] if i.startswith('data/')]), late or 'NONE'),
+         '### ### **THE RECOMPUTED ROOT EQUALS THE TOOL`S %s ; THE ONE-BYTE CONTROL CHANGES IT %s ; THE ROOT ORDER HOLDS LOCALLY %s.**' % (
+             same == J['root'], r2 != J['root'], not late)]
+    put_txt('b663_root_arm.txt', L)
+    put_json('b663_root_arm.json', dict(at=utc(), bank=bank_, root_copy=r2, root_recomputed=same, root=J['root'], late=late))
+    print(L[-1])
+
+
+def _rows_state(rows):
+    return dict(((r['repo'], r['name']), (r.get('grade'), r.get('profile'), r.get('provenance'))) for r in rows)
+
+
+def table_final(*a):
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b663 -- THE TERMINAL TABLE REGENERATED, final (%s); exit %d ; against relay HEAD %s' % (utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved))]
+    L += ['    added   %s / %s' % k for k in added[:60]] + ['    gone    %s / %s' % k for k in gone[:60]] + [
+        '    moved   %s / %s : %s -> %s' % (k[0], k[1], before[k], after[k]) for k in moved[:60]]
+    L += ['### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b663_table_final.txt', L)
+    put_json('b663_table_final.json', dict(at=utc(), rc=r.returncode, moved=[list(k) for k in moved], added=[list(k) for k in added],
+                                           gone=[list(k) for k in gone], grade_moved=[list(k) for k in moved if before[k][0] != after[k][0]]))
+    print(L[-1])
+
+
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+HK = ('H1', 'H2', 'H3', 'H4')
+SK = ('S1', 'S2', 'S3')
+SCORE_KEYS = NK + HK + SK
+N5_RELAY_DATA = ('act_roots.txt', 'b662_closing_push_out.txt')
+N5_RELAY_TOOLS = ('e0_rule.py', 'test_e0_rule.py')          # ### the one tool edit of the act, by ruling (the author's word on Component 3)
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md')
+N5_KFILES = ['SIDEExplicitFormula/Schema/EpsteinQ0.lean', 'print_targets.txt']
+FACE = os.path.join(D, 'b663_registration_2026-10-13.txt')
+OPEN_DOC = 'stated, not proved; open'
+
+
+def TRAIL_HEAD():
+    return ('### b663 — lane two, act ninety, the research act under (R273): b662 at its weight; the Epstein rungs read and the plan raised; '
+            'the Q0 configuration built on premises; the detector and the rate index at the real configuration')
+
+
+def _iso(s):
+    import calendar
+    try:
+        return calendar.timegm(time.strptime((s or '')[:19], '%Y-%m-%dT%H:%M:%S'))
+    except Exception:
+        return None
+
+
+def _calls():
+    return jl('b663_author_answers.json').get('calls') or []
+
+
+def _main_src():
+    return _show(K.KD, 'main', K.EPSTEIN_FILE) or ''
+
+
+def _premise_docs(src):
+    """each premise of the new file with its docstring: (name, is a Prop, carries the open docstring)."""
+    out = []
+    for nm in ('Q0Listed', 'Q0Complete', 'Q0Count', 'Q0Premises'):
+        m = re.search(r'/--((?:(?!-/)[\s\S])*)-/\s*\n(def|structure) %s\b[^\n]*' % nm, src)
+        out.append((nm, bool(m) and (': Prop' in m.group(0).split('\n')[-1]), bool(m) and OPEN_DOC in m.group(1)))
+    return out
+
+
+def _n2():
+    src = _main_src()
+    pd = _premise_docs(src)
+    sorry_main = len(re.findall(r'\bsorry\b', src))
+    sorry_br = len(re.findall(r'\bsorry\b', _show(K.KD, K.BRANCH, K.EPSTEIN_FILE) or ''))
+    ok = bool(src) and all(p and d for _n, p, d in pd) and sorry_main == 0 and sorry_br == 0
+    return ('HELD' if ok else 'REFUTED'), (
+        'the premises this act states, at SIDE-explicit-formula main (%s): %s; P4 b590`s EpsteinPremises carried by name inside Q0Premises (its '
+        'own docstring b590`s, "cited, not compiled", the file untouched on the author`s word); sorry in the file at main %d, at the branch %d' % (
+            K.EPSTEIN_FILE, ' ; '.join('%s Prop %s, open docstring %s' % x for x in pd), sorry_main, sorry_br))
+
+
+def _n3():
+    j = jl('b663_epstein_instance.json')
+    rows = [r for r in j.get('rows') or [] if r.get('name', '').split('.')[-1].startswith('q0_')]
+    beyond = [r['name'] for r in j.get('rows') or [] if not r.get('std3')]
+    unl = [r['name'] for r in rows if r.get('grade') != 'INTERFACES']
+    ok = bool(rows) and not beyond and not unl
+    return ('HELD ON THE RE-GRADE' if ok else 'REFUTED'), (
+        'the gate reading (relay data/b663_epstein_instance.txt): every terminal at the standard three or none, beyond it %s; the premise-carrying '
+        'theorems %d, INTERFACES on Q0Premises %d -- on the re-grade after Q0Premises entered MET by ruling (the first reading printed them '
+        'PREDICATE-UNLISTED, (R243)(2))' % (beyond or 'NONE', len(rows), len(rows) - len(unl)))
+
+
+def _ctl():
+    return [read_control_cell(r) for r in jl('b663_epstein_control.json').get('cells') or []]
+
+
+def _n4():
+    cs = _ctl()
+    q = [c for c in cs if c[0].startswith('Q0')]
+    z = [c for c in cs if c[0].startswith('THE CONTROL')]
+    cells = jl('b663_epstein_control.json').get('cells') or []
+    qcert = [x for x in (cells[-1].get('certs') if cells else []) if x[1] == 'CERTIFIED']
+    ok = bool(q) and q[0][1] == 'j₀' and q[0][2] is not None and bool(z) and z[0][2] == 31
+    return ('HELD ON B1' if ok else 'REFUTED'), (
+        'the computation (relay data/b663_epstein_control.txt): Q0 at qE0 reads j₀ = %s, every hypothesis certified by name (%s), hθ above 150 on '
+        'B1 (READ); the control Z₁(0.8, 29.6) j₀ = %s' % (q[0][2] if q else '?', ', '.join(x[0] for x in qcert), z[0][2] if z else '?'))
+
+
+def _n5():
+    face = jl('b663_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    others_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b663_|audit_b663_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in N5_RELAY_DATA)
+                                                or (x.startswith('tools/') and x[6:] in N5_RELAY_TOOLS))]
+    km = [l for l in g(K.KD, 'log', '--first-parent', '--format=%h %p', K.K_MAIN + '..main').split(NL) if l.strip()]
+    km_ok = len(km) == 1 and len(km[0].split()) == 3
+    k_files = sorted(x for x in g(K.KD, 'diff', '--name-only', K.K_MAIN, 'main').split(NL) if x.strip())
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    import b663_checks as CH
+    new_arms = sorted(set(a[0] for a in CH.ARMS) - set(CH.STANDING) - set(K.ACT_ARMS))
+    zeta = [l for l in rdn('b663_epstein_control.txt').split(NL) + _main_src().split(NL) if re.search(r'\bζ\b|zeta\b', l) and 'not about' not in l
+            and 'Nothing here is about' not in l and 'zeta3Sum' not in l and 'zeta_zeros' not in l and 'zeta_nzeros' not in l and 'zeta()' not in l
+            and "nothing of ζ" not in l and "is not ζ" not in l and 'and nothing here is about' not in l]
+    ok = others_ok and not pp_beyond and not kinds_beyond and not differ and km_ok and not new_arms and k_files == sorted(N5_KFILES)
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unsubmitted); %s`s main written by the one merge under Component 5 alone '
+            '(first-parent commits since %s: %s ; %s), its files against %s: %s; every kernel as the face read it %s; standing arms added: %s (the '
+            'act`s arms over its own banks %d); sealed tools not agreeing %s; PLACE-papers beyond FINDINGS and OPEN_TRAILS: %s; relay files of a '
+            'kind beyond the banks, the tools, the root list, b662`s push-out bank and the one tool edit of the act by ruling (tools/e0_rule.py`s '
+            'MET line with its test): %s; lines of the act`s computation bank and file naming ζ beyond saying they are not about it: %d; no '
+            'identifier of the author in any outbound request (git pushes, remote reads, the runner`s dispatch with a ref and a target, the '
+            'artifact`s download)' % (
+                K.DRAFT, K.KERNEL, K.K_MAIN, [l.split()[0] for l in km], 'AS RULED' if km_ok else '### OTHERWISE', K.K_MAIN, k_files, others_ok,
+                new_arms or 'NONE', len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE', kinds_beyond or 'NONE', len(zeta)))
+
+
+def _h_from(bank, h):
+    m = re.search(r'^  %s (.*)$' % h, rdn(bank), re.M)
+    line = m.group(1) if m else ''
+    w = line.split(' -- ')[0].strip() or '### UNREAD'
+    return w, 'relay data/%s: %s %s' % (bank, h, line[:400])
+
+
+def scores(*a):
+    TF, RA = jl('b663_table_final.json'), jl('b663_root_arm.json')
+    _r, _n, sh = seal_hashes()
+    cm = jl('b663_commands.json')
+    S = {
+        'N1': (('HELD' if cm and not cm.get('local_lean') else 'REFUTED'),
+               'commands of this act that run lean or lake on this host: %s (relay data/b663_commands.txt); the build on the hosted runner alone' % (
+                   cm.get('local_lean') if cm else '### UNREAD')),
+        'N2': _n2(), 'N3': _n3(), 'N4': _n4(), 'N5': _n5(),
+        'H1': _h_from('b663_epstein_instance.txt', 'H1'), 'H2': _h_from('b663_epstein_instance.txt', 'H2'),
+        'H3': _h_from('b663_epstein_control.txt', 'H3'), 'H4': _h_from('b663_epstein_control.txt', 'H4'),
+        'S1': (('HELD' if not TF.get('gone') and not TF.get('grade_moved') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s, grade moved %s' % (
+                   len(TF.get('moved') or []), len(TF.get('gone') or []), len(TF.get('added') or []), len(TF.get('grade_moved') or []))),
+        'S2': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S3': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    put_json('b663_scores.json', dict((k2, list(v)) for k2, v in S.items()))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:500]))
+
+
+NEXT_LINE = 'b664, per `(R273)`(7), the re-cut act on the next kernel by count under `(R265)`’s form; then b665, the Keiper face'
+
+
+def _sv(S, k):
+    return read_score_row(k, S.get(k) or ['?', ''])[1] if S.get(k) else '?'
+
+
+def _q0():
+    cs = jl('b663_epstein_control.json').get('cells') or []
+    q = [c for c in cs if str(c.get('name', '')).startswith('Q0')]
+    return q[0] if q else {}
+
+
+def _title():
+    q = _q0()
+    zs = q.get('zero_side') or {}
+    j = jl('b663_epstein_instance.json')
+    S = jl('b663_scores.json')
+    hs = [_sv(S, k) for k in HK]
+    allh = all(h.startswith('HELD') for h in hs)
+    return ('## The Epstein instance at Q0 on four named premises, merged alone at %s on the runner’s gate reading; the detector at the real '
+            'configuration: j₀ = %s, the zero side %s zero; H1–H4 %s' % (
+                j.get('tag') or 'its next tag', q.get('j0', '?'), 'below' if zs.get('held') else 'not below',
+                'held, H3 and H4 on B1' if allh else ' '.join('%s %s' % (k, h) for k, h in zip(HK, hs))))
+
+
+def _finding_text():
+    S, J = jl('b663_scores.json'), jl('b663_act_root.json')
+    rl, rl2, rl3 = jl('b663_record_lines.json'), jl('b663_record_lines_c2.json'), jl('b663_record_lines_c2b.json')
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b663_author_answers.txt'), re.M))
+    ln0 = ((rl.get('lines') or [{}])[0]).get('line')
+    lc2 = ((rl2.get('lines') or [{}])[0]).get('line')
+    lc2b = ((rl3.get('lines') or [{}])[0]).get('line')
+    j = jl('b663_epstein_instance.json')
+    q = _q0()
+    zs = q.get('zero_side') or {}
+    cc = re.search(r'CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+    e = ['', _title(), '',
+         '*Filed at b663 on the author’s ruling `(R273)` and the author’s word (%d questions in %d calls). Banks: relay '
+         '`data/b663_citation_check.txt`, `data/b663_epstein_plan.txt`, `data/b663_dominance.txt`, `data/b663_epstein_instance.txt`, '
+         '`data/b663_epstein_control.txt`, `data/b663_map_diff.txt`, `data/b663_act_root.txt`.*' % (n_ans, len(_calls())), '',
+         '**The citation check** (the gate step from b662): %s cites checked at HEAD, %s OK, %s misses -- the Q0 list named in banks that read '
+         'it, one off-line zero where the bench banks seventeen and calls them certified, the instance described as new where b590 built it, '
+         'a grade read as a print, a range naming five defects of eight -- each the navigator’s on the author’s word.' % (
+             cc.group(1) if cc else '?', cc.group(2) if cc else '?', cc.group(3) if cc else '?'), '',
+         '**The record lines** (`(R273)`(1)): b662 at its weight (FINDINGS :%s); W-ORD-EPSTEIN-CERTIFY (OPEN_TRAILS :%s) and W-ORD-FT-FIRST-ORDER '
+         '(:%s) entered priced beside the plan on the author’s word.' % (ln0, lc2, lc2b), '',
+         '**The plan** (`(R273)`(3)): the five rungs read by line and all five left priced, b590’s Schema/Epstein.lean read first and built on; '
+         'the bench’s 360 points below height 150 -- 146 ordinates on the line, 17 off-line zeros with their orbits -- banked by two agreeing '
+         'routes in mpmath, not ball-certified; the dominant at every base read is the zero at 0.9533 + 16.2902 i, not b590’s named one; raised as '
+         'one prompt before any Lean.', '',
+         '**The instance** (`(R273)`(2), (5)): SIDEExplicitFormula/Schema/EpsteinQ0.lean on four named premises -- the list in the configuration, '
+         'the list complete below 150, a local count with the constant 10, and b590’s EpsteinPremises -- each a Prop stated, not proved; open; '
+         'the target false, the schema’s equivalence by one application, the detector at the dominant, b590’s control at its zero, the rate '
+         'theorem read at the instance; one dispatch, run %s, the artifact’s sha256 agreeing, %d prints at the standard three; Q0Premises entered '
+         'in the E0 rule’s list of met names by ruling, the seven premise-carrying theorems INTERFACES on it; merged alone at %s. N2 %s, '
+         'N3 %s.' % ((j.get('run') or {}).get('run_id'), len(j.get('rows') or []), j.get('tag'), _sv(S, 'N2'), _sv(S, 'N3')), '',
+         '**The computation** (`(R273)`(4)): b662’s script carried whole with the changes the author let -- the configuration, the dominant over '
+         'all seventeen orbits, θ and the kill set over the others and over the points above 150, the local count by its premise, the zero side '
+         '-- its control at b661’s cell reproducing j₀ = 31; at Q0 every hypothesis of the rate theorem certified by name, the points above 150 on '
+         'the first-order transform bound B1, a named READ premise, not a kernel lemma; hrate holds at j₀ = %s ≤ D + 40 = %s, and the zero side '
+         'there is %s zero in certified arithmetic on the banked configuration. H1 %s, H2 %s, H3 %s, H4 %s. N4 %s.' % (
+             q.get('j0', '?'), q.get('J_max', '?'), 'below' if zs.get('held') else 'not below', _sv(S, 'H1'), _sv(S, 'H2'), _sv(S, 'H3'),
+             _sv(S, 'H4'), _sv(S, 'N4')), '',
+         '**The root.** b663 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): this act re-reads b590’s Epstein instance, b326’s zero census and b642’s rungs, and '
+         'b661’s and b662’s map at its control cell; it is re-read by W-ORD-EPSTEIN-CERTIFY, by W-ORD-FT-FIRST-ORDER and by W-ORD-E2-SEPARATION’s '
+         'act. It strengthens the programme’s offering of statements a reader can check: the schema’s negative control now fires at a '
+         'configuration whose points a reader can list, on premises a reader can name, with the index and the sign printed in balls.', '',
+         '**Next.** %s.' % NEXT_LINE, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero, or about ζ; the instance states what follows from its named '
+         'premises, and the computation what the compiled rate theorem says of the banked configuration.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) the dominant zero qE0 named beside b590’s rhoE, both in the Lean; (2) the computation’s script changes confined to the plan’s '
+              'section 6, hrate’s lines left as b662 wrote them (defect (k)); (3) the tail above 150 in the zero side bounded on B1 and P3 by a '
+              'polynomial count, its derivation in the script’s zero_side docstring; (4) the print list replaced by the act’s terminals, so the '
+              'merged main prints the instance’s declarations; (5) H2 read from the compiled statement and its one-application proof')
+
+
+def _trail_text():
+    S, fj, J = (jl(n_) for n_ in ('b663_scores.json', 'b663_findings.json', 'b663_act_root.json'))
+    rl, rl2, rl3 = jl('b663_record_lines.json'), jl('b663_record_lines_c2.json'), jl('b663_record_lines_c2b.json')
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b663_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R273) ratified.** (1) b662 at its weight, its late defect at step zero. (2) The object: the schema’s negative control at Q0. (3) '
+             'The rungs read and the plan raised before any Lean. (4) The computation at the real configuration, H1-H4 fixed. (5) The landing '
+             'points. (6) The draft held at v5. (7) The act after: b664, then b665.', '',
+             '**Entered:** FINDINGS.md:%s (b662’s weight), :%s (the entry); OPEN_TRAILS.md:%s (W-ORD-EPSTEIN-CERTIFY), :%s (W-ORD-FT-FIRST-ORDER); '
+             'this record.' % (((rl.get('lines') or [{}])[0]).get('line'), fj.get('entry_line'), ((rl2.get('lines') or [{}])[0]).get('line'),
+                               ((rl3.get('lines') or [{}])[0]).get('line')), '',
+             '**Act root:** b663 `%s` (previous `%s`, b662’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
+                 J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d questions in %d calls (relay data/b663_author_answers.txt): the citation check’s misses before '
+             'Component 1, the plan before any Lean, the E0 grade before the merge; none after the root.' % (n_ans, len(_calls())), '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b663_defects.txt): %s.' % ('; '.join(_defect_short()) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** %s.' % NEXT_LINE, '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b663_scores.json')
+    L = ['=' * 104, 'b663 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rdn('b663_defects.txt').rstrip(NL).split(NL)
+    put_txt('b663_desk_notes.txt', L)
+
+
+def components(*a):
+    S, fj, tj, J = (jl(n_) for n_ in ('b663_scores.json', 'b663_findings.json', 'b663_trail.json', 'b663_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    rl, rl2, rl3 = jl('b663_record_lines.json'), jl('b663_record_lines_c2.json'), jl('b663_record_lines_c2b.json')
+    j = jl('b663_epstein_instance.json')
+    q = _q0()
+    L = ['b663 -- THE COMPONENTS, BANKED UNDER (R273).', '',
+         '### COMPONENT 0 : the citation check (data/b663_citation_check.txt), step zero (data/b663_ferry.txt, data/b663_stepzero.txt, '
+         'data/b663_tests_stepzero.txt, data/b663_defects.txt) ; push-out relay %s ; N2 %s' % (K.STEPZERO, S['N2'][0]),
+         '### COMPONENT 1 : b662`s weight FINDINGS :%s' % ((rl.get('lines') or [{}])[0]).get('line'),
+         '### COMPONENT 2 : the plan (data/b663_epstein_plan.txt, data/b663_dominance.txt, data/b663_a0_list.txt) ; W-ORD-EPSTEIN-CERTIFY '
+         'OPEN_TRAILS :%s ; W-ORD-FT-FIRST-ORDER :%s' % (((rl2.get('lines') or [{}])[0]).get('line'), ((rl3.get('lines') or [{}])[0]).get('line')),
+         '### COMPONENT 3 : the instance (data/b663_epstein_instance.txt) ; run %s ; H1 %s ; H2 %s ; N3 %s' % (
+             (j.get('run') or {}).get('run_id'), S['H1'][0], S['H2'][0], S['N3'][0]),
+         '### COMPONENT 4 : the computation (data/b663_epstein_control.txt, data/b663_map_diff.txt) ; j₀ %s ; H3 %s ; H4 %s ; N4 %s' % (
+             q.get('j0'), S['H3'][0], S['H4'][0], S['N4'][0]),
+         '### COMPONENT 5 : the merge %s tag %s (data/b663_merge_push_out.txt)' % (j.get('merged'), j.get('tag')),
+         '### COMPONENT 6 : the dry-run step (data/b663_reg_gate.txt), the seal (data/b663_seal_hashes.json), the suite ; S3 %s' % S['S3'][0],
+         '### COMPONENT 7 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N1 %s ; N5 %s' % (
+             (J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'), S['N1'][0], S['N5'][0])]
+    put_txt('b663_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def _land_one(path, head, e, bank, extra):
+    if odd_lines(e):
+        sys.exit('### ODD BACKTICKS -- NOTHING WRITTEN: %s' % odd_lines(e)[:3])
+    guard_absent(path, head)
+    r = append_to(path, e)
+    ln = read_head(path, head)
+    put_json(bank, dict(extra, line=ln, head=head, append=r))
+    return ln
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = conv(e)
+    dry = 'dry' in a
+    cells, fired = screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(FIND, t, e, 'b663_findings.json', dict(title=t))
+    j = jl('b663_findings.json')
+    j['entry_line'] = ln
+    put_json('b663_findings.json', j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = conv(_trail_text())
+    dry = 'dry' in a
+    cells, fired = screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(OT, TRAIL_HEAD(), e, 'b663_trail.json', {})
+    print('  OPEN_TRAILS record :%s' % ln)
+
+
+def _face_needles(face_text, which):
+    m = re.search(r'^### THE DRY-RUN NEEDLES -- %s: (.*)$' % which, face_text, re.M)
+    return re.findall(r'"([^"]+)"', m.group(1)) if m else []
+
+
+def drycheck(*a):
+    """(R267)(2), STANDING FROM b657: the FINDINGS entry and the trail record composed as the record tool composes them -- under stand-ins
+    for the banks not yet written (B663_STANDIN) -- converted by conv and run through the screens their landing runs, the needles the face
+    names read in each; prints DRY-RUN STEP : CLEAN and exits 0 only when both screens are quiet and every needle is found. Writes no bank."""
+    face = rd(a[0] if a else FACE)
+    ok = True
+    for which, (head, text) in (('ENTRY', _finding_text()), ('TRAIL', (TRAIL_HEAD(), _trail_text()))):
+        t = conv(text)
+        print('  %s (the screens):' % which)
+        cells, fired = screens([('FINDINGS.md' if which == 'ENTRY' else 'OPEN_TRAILS.md', head, t)], 'dry_' + which.lower(), True)
+        nd = _face_needles(face, which)
+        miss = [n for n in nd if n not in t]
+        clean = not cells and not fired and nd and not miss
+        ok = ok and clean
+        print('  %s : table cells %s ; screens %s ; the face`s needles %d, found %d%s ; %s' % (
+            which, cells or 'NONE', 'FIRED' if fired else 'QUIET', len(nd), len(nd) - len(miss), (' -- missing %s' % miss) if miss else '',
+            'CLEAN' if clean else 'NOT CLEAN'))
+    print('  ### ### **DRY-RUN STEP : %s**' % ('CLEAN' if ok else 'NOT CLEAN'))
+    if not ok:
+        sys.exit(1)
+
+
+def gatebanks(*a):
+    """the gate's steps between the face and the lock (b662's order), each tool's output banked by this route, never by a shell redirect:
+    banned_terms --new -> data/b663_reg_termscan.txt; b663_regspec.py -> data/b663_regspec_run.txt; reg_satisfiable.py --emit b663 (it writes
+    data/audit_b663_reg_satisfiable.txt itself); the step-zero censuses and pins -> data/b663_census_stepzero.txt,
+    data/b663_faces_census_stepzero.txt, data/b663_pins_stepzero.txt; then gate_hash stamps the four face-subject records."""
+    import gate_hash as G
+    env = dict(os.environ, PYTHONIOENCODING='utf-8')
+
+    def runb(args, out):
+        r = subprocess.run([sys.executable] + args, capture_output=True, cwd=ROOT, env=env)
+        b = (r.stdout + r.stderr).replace(b'\r\n', b'\n')
+        if out:
+            p = os.path.join(D, out)
+            open(p + '.tmp', 'wb').write(b)
+            os.replace(p + '.tmp', p)
+        return r.returncode, b.decode('utf-8', 'replace')
+    face_rel = 'data/b663_registration_2026-10-13.txt'
+    rc1, t1 = runb([os.path.join(T, 'banned_terms.py'), '--new', face_rel], 'b663_reg_termscan.txt')
+    rc2, t2 = runb([os.path.join(T, 'b663_regspec.py')], 'b663_regspec_run.txt')
+    rc3, t3 = runb([os.path.join(T, 'reg_satisfiable.py'), 'data/b663_satisfiable.json', '--emit', 'b663'], None)
+    print('  banned_terms rc %d ; %s' % (rc1, ([l for l in t1.split(NL) if 'VERDICT' in l] or ['### NO VERDICT'])[0][:160]))
+    print('  regspec rc %d ; %s' % (rc2, ([l for l in t2.split(NL) if 'PREDICTIONS FOUND' in l] or ['### NONE'])[0].strip()))
+    print('  reg_satisfiable rc %d ; %s' % (rc3, ([l for l in rdn('audit_b663_reg_satisfiable.txt').split(NL) if 'VERDICT' in l] or ['### NO VERDICT'])[0][:160]))
+    for tool, out in (('b307_handoff_census.py', 'b663_census_stepzero.txt'), ('b327_faces_census.py', 'b663_faces_census_stepzero.txt'),
+                      ('b303_pins.py', 'b663_pins_stepzero.txt')):
+        rc, t = runb([os.path.join(T, tool), 'b663'], out)
+        print('  %s rc %d ; %s' % (out, rc, ([l.strip() for l in t.split(NL) if 'TOTAL MISSING' in l or 'HARD-FAILING' in l] or ['### NONE'])[0][:120]))
+    fa = os.path.join(ROOT, *face_rel.split('/'))
+    for r in ('data/b663_reg_gate.txt', 'data/b663_reg_termscan.txt', 'data/b663_regspec_run.txt', 'data/audit_b663_reg_satisfiable.txt'):
+        ra = os.path.join(ROOT, *r.split('/'))
+        print('  stamp %s %s %s' % (r, G.stamp(ra, fa)[:16], G.matches(ra, fa)[0]))
+
+
+ROUTES = {'gatebanks': gatebanks, 'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2, 'c2b': c2b, 'a0list': a0list, 'runner': runner, 'mapdiff': mapdiff,
+          'merged': merged, 'commands': commands, 'kernels': kernels, 'defects': defects, 'root': root, 'root_arm': root_arm,
+          'table_final': table_final, 'scores': scores, 'desk': desk, 'components': components, 'findings': findings, 'trail': trail,
+          'drycheck': drycheck}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

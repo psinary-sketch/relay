@@ -1,0 +1,146 @@
+b663 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T14:51:46Z)
+
+### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R273) BEGIN', and its subagents` transcripts
+### commands read: 127
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (3):
+  #49 2026-10-13T13:59:31.720Z seat PowerShell -- R rm without an explicit absolute path
+      $env:PYTHONIOENCODING='utf-8'; $env:B663_TESTS_STAGE='stepzero_rerun'; Set-Location D:\relay; python tools/b663_tests.py report | Select-Object -Last 1; Remove-Item Env:B663_TESTS_STAGE; Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|bash)' } | Select-Object ProcessId, Name, CommandLine | Format-Table -AutoSize -Wrap | Out-String -Width 200; git status --porcelain --untracked-files=no; git status --porcelain | Where-Object { $_ -match 'b663' }
+  #110 2026-10-13T14:36:43.483Z seat PowerShell -- R rm without an explicit absolute path
+      $env:PYTHONIOENCODING='utf-8'; $env:B663_TESTS_STAGE='met_before'; Set-Location D:\relay; python tools/b663_tests.py run test_e0_rule.py; python tools/b663_tests.py report | Select-Object -Last 1; python -c "import json;o=json.load(open('data/b663_tests_met_before.json',encoding='utf-8'))['test_e0_rule.py']['output'];print([l for l in o.splitlines() if '(56)' in l or 'cases as wanted' in l])"; Remove-Item Env:B663_TESTS_STAGE
+  #111 2026-10-13T14:36:52.280Z seat PowerShell -- R rm without an explicit absolute path
+      $env:PYTHONIOENCODING='utf-8'; $env:B663_TESTS_STAGE='met_after'; Set-Location D:\relay; python tools/b663_tests.py run test_e0_rule.py; python tools/b663_tests.py report | Select-Object -Last 1; python -c "import json;o=json.load(open('data/b663_tests_met_after.json',encoding='utf-8'))['test_e0_rule.py']['output'];print([l for l in o.splitlines() if '(56)' in l or 'cases as wanted' in l])"; Remove-Item Env:B663_TESTS_STAGE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-13T13:08:07.679Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|bash)' } | Select-Object ProcessId, ParentProcessId, Name, CommandLine | 
+  #2 | 2026-10-13T13:08:21.757Z | seat | Bash | ls data | grep -E '^b54[89]_' | head -60; echo ---; ls data/b642_epstein_rungs.txt data/b662_closing_push_out.txt; wc -l data/b642_epstein_rungs.txt; cd /d/MY-D
+  #3 | 2026-10-13T13:08:28.750Z | seat | Bash | cd /d/relay && ls data | grep -E '^b549_' | tail -40; echo; head -40 data/b548_sweep_q0.txt
+  #4 | 2026-10-13T13:08:35.609Z | seat | Bash | git grep -n -i -E 'off-line|offline zero|180-zero|zero list|zeros_q0|q0_zeros' -- 'data/b54[0-9]_*' 'data/b53*' 'data/b52*' | cut -c1-260 | head -40
+  #5 | 2026-10-13T13:08:40.085Z | seat | Bash | sed -n '55,70p' data/b523_registration_2026-09-25.txt | cut -c1-200; echo ---; git grep -n -l -E '180 zeros|17 off-line' -- data | head; echo ---; ls data | gre
+  #6 | 2026-10-13T13:08:50.984Z | seat | Bash | head -c 1500 data/b326_epstein_zeros.json; echo; echo ---; wc -l data/b326_epstein_zeros_bank.jsonl; head -2 data/b326_epstein_zeros_bank.jsonl | cut -c1-400; e
+  #7 | 2026-10-13T13:08:55.924Z | seat | Bash | sed -n '300,330p' data/b548_reads.txt | cut -c1-240; echo ---; python -c "
+  #8 | 2026-10-13T13:09:01.412Z | seat | Bash | git grep -l -E '0\.95326047' -- data tools | head -20; echo ---; git grep -n -E 'OFFLINE|off_line\s*=|offline\s*=' -- 'tools/b52*.py' 'tools/b326*.py' 'tools/b5
+  #9 | 2026-10-13T13:09:06.266Z | seat | Bash | python -c "
+  #10 | 2026-10-13T13:10:23.998Z | seat | Bash | head -30 data/b590_statements_epstein.txt | cut -c1-220; echo ---; head -12 data/b590_e0_epstein.txt | cut -c1-220; echo ---; tail -5 data/b590_build_epstein.tx
+  #11 | 2026-10-13T13:10:35.074Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -E 'epstein-b590|Schema/Epstein\.lean' -- FINDINGS.md OPEN_TRAILS.md | cut -c1-330 | head -12; cd /d/SIDE-explici
+  #12 | 2026-10-13T13:10:45.740Z | seat | Bash | git grep -n -E '^(structure|def|theorem|lemma|abbrev|class|instance|noncomputable def)|^  [a-zA-Z_]+ :' main -- SIDEExplicitFormula/Schema/Config.lean | cut -c1
+  #13 | 2026-10-13T13:10:53.101Z | seat | Bash | for t in v0.14 v0.15 v0.16 v0.27 v0.28; do printf "%s iff:%s evneg:%s rate:%s epstein:%s\n" $t $(git grep -q 'theorem h2_sign_cfg_iff_target' $t -- SIDEExplicit
+  #14 | 2026-10-13T13:11:13.003Z | seat | Bash | cd /d/relay && grep -n -E 'G-SHARED-ADDITIVE|0 of 8' data/b662_closing.txt data/b662_checks_postpush.txt | cut -c1-250 | head; grep -n -E 'VACUOUS|DERIVES\.' da
+  #15 | 2026-10-13T13:11:23.896Z | seat | Bash | grep -n -i -E 'shared.additive|additive' data/b662_closing.txt data/b662_checks_postpush.txt data/b662_additive_rerun.txt | cut -c1-260 | head -12
+  #16 | 2026-10-13T13:11:31.985Z | seat | Bash | python -c "
+  #17 | 2026-10-13T13:11:50.884Z | seat | Bash | cd /d/SIDE-explicit-formula && git cat-file -e main:.github/workflows/build-module.yml && echo wf-yes; git cat-file -e main:print_targets.txt && echo pt-yes; gi
+  #18 | 2026-10-13T13:13:01.552Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_citation.py check
+  #19 | 2026-10-13T13:13:16.027Z | seat | Bash | grep -n 'NOT ADDITIVE' data/b662_additive_rerun.txt | cut -c1-160; grep -n -E '29\.5517|16\.2902' data/b548_interference.txt data/b548_registration_2026-09-26.t
+  #20 | 2026-10-13T13:13:31.547Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_citation.py check | Select-Object -Last 3; Select-String -Path data\b663_citation_check.
+  #21 | 2026-10-13T13:13:37.672Z | seat | Bash | head -c 600 data/b548_interference.jsonl; echo; wc -l data/b548_interference.jsonl
+  #22 | 2026-10-13T13:13:41.685Z | seat | Bash | python -c "
+  #23 | 2026-10-13T13:13:50.090Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_citation.py check | Select-Object -Last 1
+  #24 | 2026-10-13T13:14:05.496Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_citation.py ferry; Get-Content data\b663_ferry_scan.txt -Tail 4
+  #25 | 2026-10-13T13:18:48.853Z | seat | Bash | git add data/b662_closing_push_out.txt data/b663_citation_check.txt data/b663_citation_check.json data/b663_ferry.txt data/b663_ferry_scan.txt tools/b663_citati
+  #26 | 2026-10-13T13:18:54.237Z | seat | Bash | echo "relay:" && git branch --merged main --list 'push-b662*'; cd /d/MY-DOwnloads/PLACE-papers && echo "PP:" && git branch --merged main --list 'push-b662*'; cd
+  #27 | 2026-10-13T13:18:57.597Z | seat | Bash | cd /d/relay && git branch -d push-b662 push-b662-root push-b662-root-table push-b662-closing
+  #28 | 2026-10-13T13:18:58.319Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch -d push-b662 push-b662-root
+  #29 | 2026-10-13T13:18:59.075Z | seat | Bash | git branch -d push-b662-workflow push-b662-merge docstrings-cut-SIDE-carrier-spec
+  #30 | 2026-10-13T13:19:04.556Z | seat | Bash | cd /d/SIDE-carrier-spec && pwd && git branch --list && git reflog -3 --date=iso | cat
+  #31 | 2026-10-13T13:19:10.995Z | seat | Bash | git branch -d push-b662-workflow push-b662-merge docstrings-cut-SIDE-carrier-spec
+  #32 | 2026-10-13T13:19:13.600Z | seat | Bash | git push origin --delete docstrings-cut-SIDE-carrier-spec
+  #33 | 2026-10-13T13:19:45.254Z | seat | Bash | cd /d/relay && cat data/b662_tests_withheld.json; ls "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad" | grep -i
+  #34 | 2026-10-13T13:20:20.256Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $p = Start-Process -FilePath 'C:\Program Files\Git\usr\bi
+  #35 | 2026-10-13T13:20:27.076Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; Start-Sleep 20; Get-Content "$sp\b663_tests.log" -Tail 5;
+  #36 | 2026-10-13T13:21:17.864Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --short=7 main v0.28^{commit} && git status --porcelain | head -3 && git branch --show-current
+  #37 | 2026-10-13T13:21:20.970Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --short=7 main && git rev-parse --short=7 'v0.28^{commit}' && git branch --show-current && git status --porcelain |
+  #38 | 2026-10-13T13:22:06.598Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py answers; Select-String -Path data\b663_author_answers.txt -Pattern '^### (CALL
+  #39 | 2026-10-13T13:22:18.417Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; "alive=" + [bool](Get-Process -Id 8076 -ErrorAction Silen
+  #40 | 2026-10-13T13:23:30.809Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $i=0; while ($i -lt 55) { if (-not (Get-Process -Id 8076 
+  #41 | 2026-10-13T13:32:47.344Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $i=0; while ($i -lt 55) { if (-not (Get-Process -Id 8076 
+  #42 | 2026-10-13T13:42:24.971Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $i=0; while ($i -lt 55) { if (-not (Get-Process -Id 8076 
+  #43 | 2026-10-13T13:48:30.414Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_tests.py report | Select-Object -Last 6; python -c "import json;j=json.load(open('data/b
+  #44 | 2026-10-13T13:48:42.462Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $p = Start-Process -FilePath 'C:\Program Files\Git\usr\bi
+  #45 | 2026-10-13T13:48:47.885Z | seat | Bash | grep -n "G-TAG-READ-BACK" tools/b566_checks.py | head -5; grep -n -A12 "def.*tag_read_back\|'G-TAG-READ-BACK'" tools/b566_checks.py | sed -n '1,30p' | cut -c1-2
+  #46 | 2026-10-13T13:48:51.086Z | seat | Bash | grep -n -B2 -A14 "^def tag_ok" tools/b566_checks.py | cut -c1-200
+  #47 | 2026-10-13T13:48:58.054Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $i=0; while ($i -lt 57) { if (-not (Get-Process -Id 41808
+  #48 | 2026-10-13T13:58:34.398Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $i=0; while ($i -lt 57) { if (-not (Get-Process -Id 41808
+  #49 | 2026-10-13T13:59:31.720Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; $env:B663_TESTS_STAGE='stepzero_rerun'; Set-Location D:\relay; python tools/b663_tests.py report | Select-Object -Last 1; Remove-
+  #50 | 2026-10-13T13:59:38.119Z | seat | Bash | head -c 2500 data/b662_stepzero.txt
+  #51 | 2026-10-13T13:59:57.992Z | seat | Bash | git add data/b663_stepzero.txt data/b663_defects.txt data/b663_author_answers.txt data/b663_author_answers.json data/b663_tests_stepzero.json data/b663_tests_st
+  #52 | 2026-10-13T14:00:03.454Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py c1 dry
+  #53 | 2026-10-13T14:00:07.864Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py c1
+  #54 | 2026-10-13T14:00:15.338Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b663 Component 1 under (R273)(1): b662 at its weight (FINDINGS :8535)" && git log --
+  #55 | 2026-10-13T14:00:19.745Z | seat | Bash | sed -n '1,60p' data/b661_e1cfg_binding.txt | cut -c1-230
+  #56 | 2026-10-13T14:00:22.995Z | seat | Bash | sed -n '60,140p' data/b661_e1cfg_binding.txt | cut -c1-230
+  #57 | 2026-10-13T14:01:28.020Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $env:PYTHONIOENCODING='utf-8'; $p = Start-Process -FilePa
+  #58 | 2026-10-13T14:01:54.443Z | seat | Bash | grep -n "base off" data/b663_dominance.txt | cut -c1-200; sed -n '8,11p' data/b663_dominance.txt | cut -c1-400
+  #59 | 2026-10-13T14:02:14.960Z | seat | Bash | grep -n -i -E "real zero|real axis|t in \[ *0(\.0)?,|t_lo.: 0\.0|\[0, 0\.5\]|below 0\.5|real segment|on the real" data/b326_zeros_run.txt data/b326_offline_run_
+  #60 | 2026-10-13T14:03:07.445Z | seat | Bash | grep -E "^  |^###.*(VERDICT|ROWS|DERIVES|INTERFACES)" data/b590_e0_epstein.txt | cut -c1-170 | head -50; sed -n '13436p' /d/MY-DOwnloads/PLACE-papers/OPEN_TRAIL
+  #61 | 2026-10-13T14:03:13.057Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n -E "^(theorem|def|structure|lemma|example) " main -- SIDEExplicitFormula/Schema/SaltCheckEpstein.lean SIDEExplicitFor
+  #62 | 2026-10-13T14:03:43.320Z | seat | Bash | git show main:SIDEExplicitFormula/Schema/Detector.lean | sed -n '95,125p'; git show main:SIDEExplicitFormula/Schema/RateIndexCfg.lean | sed -n '128,150p'
+  #63 | 2026-10-13T14:04:44.886Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $env:PYTHONIOENCODING='utf-8'; $p = Start-Process -FilePa
+  #64 | 2026-10-13T14:05:17.418Z | seat | Bash | cd /d/relay && python -c "
+  #65 | 2026-10-13T14:06:20.458Z | seat | Bash | cd /d/SIDE-explicit-formula && git show main:SIDEExplicitFormula/Schema/Epstein.lean | grep -n -E "ef :|count :|^structure|^theorem|^def" ; git show main:SIDEEx
+  #66 | 2026-10-13T14:06:42.160Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py c2 dry | Select-Object -First 2
+  #67 | 2026-10-13T14:06:46.714Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py c2
+  #68 | 2026-10-13T14:06:53.324Z | seat | Bash | git add data/b663_epstein_plan.txt data/b663_dominance.txt data/b663_dominance.json data/b663_record_lines_c2.json tools/b663_record.py && git commit -q -m "b66
+  #69 | 2026-10-13T14:21:01.177Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py answers
+  #70 | 2026-10-13T14:21:15.995Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py a0list
+  #71 | 2026-10-13T14:21:28.147Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py a0list
+  #72 | 2026-10-13T14:22:13.082Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py c2b dry | Select-Object -First 1; python tools/b663_record.py c2b
+  #73 | 2026-10-13T14:22:19.876Z | seat | Bash | git add data/b663_epstein_plan.txt data/b663_author_answers.txt data/b663_author_answers.json data/b663_a0_list.txt data/b663_record_lines_c2b.json tools/b663_r
+  #74 | 2026-10-13T14:23:06.215Z | seat | Bash | cd /d/SIDE-explicit-formula && cat lean-toolchain; git show main:SIDEExplicitFormula/Schema/RateIndexCfg.lean | sed -n '1,40p'; git grep -n -A12 "^structure Zer
+  #75 | 2026-10-13T14:23:10.676Z | seat | Bash | git grep -n "structure ZeroConfig" main | head; f=$(git grep -l "structure ZeroConfig" main -- SIDEExplicitFormula | head -1 | sed 's/^main://'); echo $f; git s
+  #76 | 2026-10-13T14:23:14.767Z | seat | Bash | git show main:Zeta23/Defs.lean | sed -n '115,170p'
+  #77 | 2026-10-13T14:23:52.571Z | seat | Bash | git show main:.github/workflows/build-module.yml | sed -n '1,200p' | grep -n -E "inputs|ref|target|print_targets|Axioms|import|lake |cache|HOLD|run:" | head -40
+  #78 | 2026-10-13T14:24:01.660Z | seat | Bash | git show main:lakefile.lean 2>/dev/null | head -40 || git show main:lakefile.toml; git show main:SIDEExplicitFormula.lean | grep -n -E "Epstein|RateIndexCfg|Det
+  #79 | 2026-10-13T14:24:05.069Z | seat | Bash | git ls-tree --name-only main | head -30; git show main:lakefile.toml 2>&1 | head -40
+  #80 | 2026-10-13T14:24:14.995Z | seat | Bash | cd /d/relay && python -c "
+  #81 | 2026-10-13T14:24:19.361Z | seat | Bash | cd /d/SIDE-explicit-formula && git status --porcelain | head -3 && git checkout -q -b epstein-b663 main && git branch --show-current && git rev-parse --short=7 
+  #82 | 2026-10-13T14:26:36.295Z | seat | Bash | cd /d/relay && grep -n -i -E "git push|push_gated|branch.*pushed|pushed.*branch" data/b662_runner_SIDE-carrier-spec.txt data/b662_cut_SIDE-carrier-spec.txt 2>/d
+  #83 | 2026-10-13T14:26:40.066Z | seat | Bash | grep -rn -l "docstrings-cut-SIDE-carrier-spec" data/b662_*.txt | head; grep -n -B2 -A6 "cut_push\|branch_push\|push origin" tools/b662_record.py | head -40
+  #84 | 2026-10-13T14:26:43.999Z | seat | Bash | grep -n -i "push" data/b662_commands.txt | grep -i "cut\|branch" | cut -c1-260 | head -8
+  #85 | 2026-10-13T14:26:47.242Z | seat | Bash | grep -n -E "git push|origin " data/b662_commands.txt | cut -c1-260 | head -8
+  #86 | 2026-10-13T14:26:50.597Z | seat | Bash | sed -n '60,84p' data/b662_commands.txt | cut -c1-230
+  #87 | 2026-10-13T14:26:54.563Z | seat | Bash | sed -n '/^  #58 /p' data/b662_commands.txt | cut -c200-700
+  #88 | 2026-10-13T14:27:03.993Z | seat | Bash | cd /d/SIDE-explicit-formula && git add SIDEExplicitFormula/Schema/EpsteinQ0.lean print_targets.txt && git commit -q -m "b663 under (R273)(2)-(5), Component 3: t
+  #89 | 2026-10-13T14:27:08.915Z | seat | Bash | cd /d/SIDE-explicit-formula && git push origin epstein-b663
+  #90 | 2026-10-13T14:27:16.854Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=c7d28584d0976625f63014f1e9b2e21a2a0c6c76 -f target="SIDEExplicitFormu
+  #91 | 2026-10-13T14:28:06.909Z | seat | Bash | gh run view 38413488503 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,headBranch,event,createdAt
+  #92 | 2026-10-13T14:30:58.042Z | seat | Bash | gh run view 38413488503 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion
+  #93 | 2026-10-13T14:31:06.133Z | seat | Bash | cd /d/relay && grep -n "^def \|^RUNNER\|^# ====" tools/b662_record.py | sed -n '1,200p' | grep -n -i -A3 -B1 "runner"
+  #94 | 2026-10-13T14:31:15.204Z | seat | Bash | sed -n '1,40p' tools/e0_rule.py | cut -c1-200; grep -n "^def " tools/e0_rule.py | head -30
+  #95 | 2026-10-13T14:31:19.454Z | seat | Bash | grep -n "^def grade\|^def e0\|^def read_decls\|^def decls\|^def grade_file\|^def grade_theorem\|^def " tools/e0_rule.py | sed -n '30,80p'; grep -n "e0_rule\.\w*
+  #96 | 2026-10-13T14:31:23.274Z | seat | Bash | sed -n '961,995p' tools/e0_rule.py; grep -rn "E0\.\(grade\|RULE_TEXT\)\|e0_rule" tools/b590_record.py | head -6
+  #97 | 2026-10-13T14:31:32.900Z | seat | Bash | gh run view 38413488503 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #98 | 2026-10-13T14:32:11.242Z | seat | Bash | grep -n "^def header_of" -A12 tools/b569_record.py | head -16; grep -n "^KERNEL\|^KD\|^BRANCH\|^HOLD" tools/b663_worklist.py
+  #99 | 2026-10-13T14:32:22.827Z | seat | Bash | gh run view 38413488503 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #100 | 2026-10-13T14:32:28.761Z | seat | Bash | for i in $(seq 1 27); do s=$(gh run view 38413488503 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion 2>/dev/null); echo "$s" | grep -q '"comple
+  #101 | 2026-10-13T14:32:54.601Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py runner
+  #102 | 2026-10-13T14:33:04.832Z | seat | Bash | grep -n "Schema\." data/b663_epstein_instance.txt | cut -c1-260
+  #103 | 2026-10-13T14:33:21.389Z | seat | Bash | grep -n "EpsteinPremises\|TrivialSummandPremise\|^MET\|^PREMISE\|^LISTED\|'unlisted'" tools/e0_rule.py | head -20
+  #104 | 2026-10-13T14:33:25.427Z | seat | Bash | sed -n '300,318p' tools/e0_rule.py | cut -c1-200; cd /d/MY-DOwnloads/PLACE-papers && git grep -n -E "MET list|entered by ruling|PREDICATE-UNLISTED" -- OPEN_TRAI
+  #105 | 2026-10-13T14:33:40.339Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py runner; Select-String -Path data\b663_epstein_instance.txt -Pattern 'warning l
+  #106 | 2026-10-13T14:34:00.355Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py runner | Select-Object -Skip 1; Select-String -Path data\b663_epstein_instance
+  #107 | 2026-10-13T14:34:20.942Z | seat | Bash | git add data/b663_epstein_instance.txt data/b663_epstein_instance.json data/b663_defects.txt tools/b663_record.py tools/b663_epstein_map.py && git commit -q -m 
+  #108 | 2026-10-13T14:36:12.375Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py answers
+  #109 | 2026-10-13T14:36:12.545Z | seat | Bash | grep -n "TrivialSummandPremise'\|EpsteinPremises\|PREDICATE-UNLISTED\|^def \|cases = \|^CASES\|positive" tools/test_e0_rule.py | head -30; wc -l tools/test_e0_r
+  #110 | 2026-10-13T14:36:43.483Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; $env:B663_TESTS_STAGE='met_before'; Set-Location D:\relay; python tools/b663_tests.py run test_e0_rule.py; python tools/b663_test
+  #111 | 2026-10-13T14:36:52.280Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; $env:B663_TESTS_STAGE='met_after'; Set-Location D:\relay; python tools/b663_tests.py run test_e0_rule.py; python tools/b663_tests
+  #112 | 2026-10-13T14:37:03.854Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py runner; Select-String -Path data\b663_epstein_instance.txt -Pattern 'MET at th
+  #113 | 2026-10-13T14:37:15.829Z | seat | Bash | git add tools/e0_rule.py tools/test_e0_rule.py data/b663_tests_met_before.json data/b663_tests_met_before.txt data/b663_tests_met_after.json data/b663_tests_met
+  #114 | 2026-10-13T14:37:24.352Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $env:PYTHONIOENCODING='utf-8'; $p = Start-Process -FilePa
+  #115 | 2026-10-13T14:38:12.474Z | seat | Bash | grep -n -E "== CELL|CERTIFIED|B1  |D = 2|READING|THE ZERO SIDE|points above T|THE CONTROL|THE Q0 LIST|hrate j = (2[4-9]|3[0-9]) " data/b663_epstein_control.txt 
+  #116 | 2026-10-13T14:38:28.609Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py mapdiff; Select-String -Path data\b663_map_diff.txt -Pattern "^### (Hunks|the 
+  #117 | 2026-10-13T14:38:41.922Z | seat | Bash | awk '/^@@ -25[0-9]|^@@ -26[0-9]|^@@ -29[0-9]|^@@ -3[0-3][0-9]/{p=1} /^@@ -35/{p=0} p' data/b663_map_diff.txt | cut -c1-200 | head -80
+  #118 | 2026-10-13T14:39:11.113Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; $p 
+  #119 | 2026-10-13T14:39:56.890Z | seat | Bash | git add tools/b663_epstein_map.py tools/b663_record.py data/b663_epstein_control.txt data/b663_epstein_control.json data/b663_map_diff.txt data/b663_defects.txt
+  #120 | 2026-10-13T14:40:08.087Z | seat | Bash | cd /d/SIDE-explicit-formula && git checkout -q main && git rev-parse --short=7 main && git merge --no-ff -q -m "b663 under (R273)(5), Component 5: merge epstein
+  #121 | 2026-10-13T14:40:13.150Z | seat | Bash | git branch push-b663-merge HEAD && PUSH_GATED_LOG=/d/relay/data/b663_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-explicit-formula push-b663-mer
+  #122 | 2026-10-13T14:40:34.024Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py merged d00ab16 v0.29; git add tools/b663_record.py data/b663_epstein_instance.
+  #123 | 2026-10-13T14:40:44.478Z | seat | Bash | wc -l tools/b662_checks.py tools/b662_closing.py tools/b662_reg_gate.py tools/b662_regspec.py tools/b662_record.py; grep -n "^ACT_ARMS\|^def \|^ARMS\|^STANDING"
+  #124 | 2026-10-13T14:41:54.420Z | seat | Bash | wc -l data/b662_registration_2026-10-13.txt && grep -n -E "^### \(([A-Z0-9]+)\)|^### BAR|^### THE DRY-RUN NEEDLES|\*\*READING \(|\*\*\((N|S)[0-9]\)\*\*|^### loc
+  #125 | 2026-10-13T14:42:08.632Z | seat | Bash | grep -n -E "^### (THE CITATION|THE RECORD LINES|THE REPAIR|THE MAP AT|THE HOSTED|THE MIRROR|CARRIED)" data/b662_closing.txt | cut -c1-80; sed -n '1p' data/b662_
+  #126 | 2026-10-13T14:45:06.349Z | seat | Bash | git show --name-only --pretty=format:'%h %s' 7317db4 | cut -c1-120; git log --format='%h' -1 -- .github/workflows/build-module.yml; git merge-base --is-ancestor
+  #127 | 2026-10-13T14:51:41.982Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; Set-Location D:\relay; python tools/b663_record.py kernels; python tools/b663_record.py defects; python tools/b663_record.py comm
+
+### ### **COMMANDS 127 ; G-EDIT-ROUTE OFFENCES 3 ; LOCAL lean OR lake COMMANDS 0.**

@@ -51,8 +51,23 @@ RHO_E = ('0.7979971571786801', '29.551761098629115')   # ### Schema/Epstein.lean
 MAP_FROM = 'b662_map.py'
 MAP_TO = 'b663_epstein_map.py'
 
-ACT_ARMS = ()               # ### named at Component 6, each run at HEAD and counted before the face names it
-SEALED = ('b663_worklist.py', 'b663_tests.py', 'b663_citation.py', 'b663_record.py')   # ### completed at Component 6
+# ### Components 3-5: the one dispatch, the run, the merge
+K_WORKFLOW = '7317db4'      # ### the workflow put on the kernel's main at b654, the file alone in its commit
+RUN_ID = 38413488503
+RUN_REF = 'c7d28584d0976625f63014f1e9b2e21a2a0c6c76'
+RUN_TARGET = 'SIDEExplicitFormula.Schema.EpsteinQ0'
+MERGE, MERGE_TAG = 'd00ab16', 'v0.29'
+PRINT_TARGETS_N = 31
+
+# ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b662's face
+# ### (b662's own act arms not carried). Each run at HEAD and counted before the face names it.
+ACT_ARMS = ('G-R273-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-PLAN-BANKED', 'G-PLAN-BEFORE-LEAN', 'G-WORK-ORDERS-ENTERED',
+            'G-DOMINANCE-BANKED', 'G-INSTANCE-GATE', 'G-MET-WIDENED', 'G-CONTROL-BANKED', 'G-SCRIPT-DIFF-CONFINED', 'G-HYPOTHESES-SCORED')
+B662_ACT_ARMS = ('G-R272-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-FINDING-AND-E2', 'G-CITATION-ACTED', 'G-REPAIR-APPENDED',
+                 'G-MAP40-BANKED', 'G-KERNEL-NAMED', 'G-SENTENCES-BANKED', 'G-GRADES-VERBATIM', 'G-PROMPT-BEFORE-CUT', 'G-CUT-COMMITS',
+                 'G-CUT-REGRADE')
+SEALED = ('b663_worklist.py', 'b663_tests.py', 'b663_citation.py', 'b663_record.py', 'b663_epstein_map.py', 'b663_checks.py', 'b663_closing.py',
+          'b663_reg_gate.py', 'b663_regspec.py')
 
 
 def show(path, rev=PRE_PP, repo=PP):

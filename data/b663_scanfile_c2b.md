@@ -1,0 +1,4 @@
+
+### `W-ORD-FT-FIRST-ORDER` -- THE FIRST-ORDER TRANSFORM BOUND AS A KERNEL LEMMA, PRICED, NOT STARTED, appended 2026-10-13, b663, on the author’s word to b663’s plan prompt
+
+**Items.** For the plateau base g0 = plateau (1/2) ℓ (SIDE-explicit-formula TwoPropertyWindow.lean :56-:69) and z ≠ 0: ‖paperFT (phiC g0) z‖ ≤ 2 e^{ℓ |Im z|} / ‖z‖, by one integration by parts (the boundary terms 0 at ±ℓ; ∫ |g0′| = 2). It is b663’s B1 (relay data/b663_epstein_plan.txt, section 8), used there as a named READ premise of the computation to certify hθ at Z_Q’s points above T = 150, where the kernel’s fourth-order bound (zero_weight’s hsA, PowerLimit.lean :825) clears only above a height near 629. **Price:** one lemma, one integration by parts, built and printed on the runner; one act, or inside another. **Trigger:** b663’s use of B1. **Acted:** at the next research slot or inside W-ORD-E2-SEPARATION’s act, on the author’s word.
