@@ -1,0 +1,192 @@
+b667 -- THE ROUTE`S TERM T3 AT THE RULED PRECISION, OVER THE REGION`S HEIGHTS (2026-10-13T23:45:41Z)
+
+### rows are (σ, t) grid points; each prints M (the plan`s, at 200 bits), the m whose T3 term carries an absolute radius at or above
+### 2^-60 at 200 / 400 / 600 / 800 bits, and the first precision at which none does. acb.bessel_k (python-flint 0.9.0); no zero read,
+### no value of Z_Q computed.
+
+  σ -0.5  t   0.0  M 12 | 200: [6]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t   2.5  M 12 | 200: [6]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t   5.0  M 12 | 200: [6]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t   7.5  M 12 | 200: [6]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  10.0  M 13 | 200: [6]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  12.5  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  15.0  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  17.5  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  20.0  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  22.5  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  25.0  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  27.5  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  30.0  M 15 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  32.5  M 15 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  35.0  M 15 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  37.5  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  40.0  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  42.5  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  45.0  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  47.5  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  50.0  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  52.5  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ -0.5  t  55.0  M 17 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  57.5  M 18 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  60.0  M 18 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  62.5  M 18 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  65.0  M 18 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  67.5  M 19 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  70.0  M 19 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  72.5  M 19 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  75.0  M 19 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  77.5  M 20 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  80.0  M 20 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  82.5  M 20 | 200: [7, 8, 9, 10]                | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  85.0  M 20 | 200: [7, 8, 9, 10]                | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  87.5  M 21 | 200: [7, 8, 9, 10]                | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  90.0  M 21 | 200: [7, 8, 9, 10]                | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  92.5  M 21 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  95.0  M 22 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t  97.5  M 22 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t 100.0  M 22 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t 102.5  M 22 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t 105.0  M 23 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t 107.5  M 23 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t 110.0  M 23 | 200: [7, 8, 9, 10, 11, 12, 13]    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t 112.5  M 23 | 200: [7, 8, 9, 10, 11, 12, 13]    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t 115.0  M 24 | 200: [7, 8, 9, 10, 11, 12, 13]    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t 117.5  M 24 | 200: [7, 8, 9, 10, 11, 12, 13]    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ -0.5  t 120.0  M 24 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 122.5  M 24 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 125.0  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 127.5  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 130.0  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 132.5  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 135.0  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 137.5  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16] | 400: [14, 15, 16]           | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 140.0  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16] | 400: [14, 15, 16]           | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 142.5  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16] | 400: [14, 15, 16]           | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 145.0  M 27 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] | 400: [14, 15, 16, 17]       | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 147.5  M 27 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] | 400: [14, 15, 16, 17]       | 600: clean          | 800: clean      | first clean 600
+  σ -0.5  t 150.0  M 27 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] | 400: [14, 15, 16, 17]       | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t   0.0  M 12 | 200: [6]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t   2.5  M 12 | 200: [6]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t   5.0  M 12 | 200: [6]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t   7.5  M 12 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  10.0  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  12.5  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  15.0  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  17.5  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  20.0  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  22.5  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  25.0  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  27.5  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  30.0  M 15 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  32.5  M 15 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  35.0  M 15 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  37.5  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  40.0  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  42.5  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  45.0  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  47.5  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  50.0  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  52.5  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  55.0  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  0.5  t  57.5  M 18 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  60.0  M 18 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  62.5  M 18 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  65.0  M 18 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  67.5  M 19 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  70.0  M 19 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  72.5  M 19 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  75.0  M 19 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  77.5  M 20 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  80.0  M 20 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  82.5  M 20 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  85.0  M 20 | 200: [7, 8, 9, 10]                | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  87.5  M 21 | 200: [7, 8, 9, 10]                | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  90.0  M 21 | 200: [7, 8, 9, 10]                | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  92.5  M 21 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  95.0  M 22 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t  97.5  M 22 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t 100.0  M 22 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t 102.5  M 22 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t 105.0  M 23 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t 107.5  M 23 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t 110.0  M 23 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t 112.5  M 23 | 200: [7, 8, 9, 10, 11, 12, 13]    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t 115.0  M 24 | 200: [7, 8, 9, 10, 11, 12, 13]    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t 117.5  M 24 | 200: [7, 8, 9, 10, 11, 12, 13]    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  0.5  t 120.0  M 24 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 122.5  M 24 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 125.0  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 127.5  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 130.0  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 132.5  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 135.0  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 137.5  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16] | 400: [14, 15, 16]           | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 140.0  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16] | 400: [14, 15, 16]           | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 142.5  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16] | 400: [14, 15, 16]           | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 145.0  M 27 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16] | 400: [14, 15, 16]           | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 147.5  M 27 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] | 400: [14, 15, 16, 17]       | 600: clean          | 800: clean      | first clean 600
+  σ  0.5  t 150.0  M 27 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] | 400: [14, 15, 16, 17]       | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t   0.0  M 12 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t   2.5  M 12 | 200: [6]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t   5.0  M 12 | 200: [6]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t   7.5  M 12 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  10.0  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  12.5  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  15.0  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  17.5  M 13 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  20.0  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  22.5  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  25.0  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  27.5  M 14 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  30.0  M 15 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  32.5  M 15 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  35.0  M 15 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  37.5  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  40.0  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  42.5  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  45.0  M 16 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  47.5  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  50.0  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  52.5  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  55.0  M 17 | 200: clean                        | 400: clean                  | 600: clean          | 800: clean      | first clean 200
+  σ  1.5  t  57.5  M 18 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  60.0  M 18 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  62.5  M 18 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  65.0  M 18 | 200: [7]                          | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  67.5  M 19 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  70.0  M 19 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  72.5  M 19 | 200: [7, 8]                       | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  75.0  M 19 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  77.5  M 20 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  80.0  M 20 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  82.5  M 20 | 200: [7, 8, 9]                    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  85.0  M 20 | 200: [7, 8, 9, 10]                | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  87.5  M 21 | 200: [7, 8, 9, 10]                | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  90.0  M 21 | 200: [7, 8, 9, 10]                | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  92.5  M 21 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  95.0  M 22 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t  97.5  M 22 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t 100.0  M 22 | 200: [7, 8, 9, 10, 11]            | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t 102.5  M 22 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t 105.0  M 23 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t 107.5  M 23 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t 110.0  M 23 | 200: [7, 8, 9, 10, 11, 12]        | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t 112.5  M 23 | 200: [7, 8, 9, 10, 11, 12, 13]    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t 115.0  M 24 | 200: [7, 8, 9, 10, 11, 12, 13]    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t 117.5  M 24 | 200: [7, 8, 9, 10, 11, 12, 13]    | 400: clean                  | 600: clean          | 800: clean      | first clean 400
+  σ  1.5  t 120.0  M 24 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 122.5  M 24 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 125.0  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 127.5  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14] | 400: [14]                   | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 130.0  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 132.5  M 25 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 135.0  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 137.5  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15] | 400: [14, 15]               | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 140.0  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16] | 400: [14, 15, 16]           | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 142.5  M 26 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16] | 400: [14, 15, 16]           | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 145.0  M 27 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16] | 400: [14, 15, 16]           | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 147.5  M 27 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] | 400: [14, 15, 16, 17]       | 600: clean          | 800: clean      | first clean 600
+  σ  1.5  t 150.0  M 27 | 200: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] | 400: [14, 15, 16, 17]       | 600: clean          | 800: clean      | first clean 600
+
+### THE LOWEST HEIGHT ON THE GRID WHERE A TERM IS NOT ENCLOSED BELOW 2^-60: at 200 bits 0.0 ; at 400 bits 120.0 ; at 600 bits None ; at 800 bits None.
+### ### **GRID POINTS 183 ; CLEAN AT 400 BITS 144 ; CLEAN ONLY ABOVE 400 39 ; NOT CLEAN AT 800 0 ; 51 s.**

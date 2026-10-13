@@ -173,3 +173,16 @@ PROMPT BEFORE ANY NUMBER (2026-10-13)
        σ ∈ [−0.5, 1.5], and beyond that strip by section 4. Initial segments on P_B: 8 per edge.
   (count) Option 1, the segment enclosures, for the squares, R and B alike -- one form for every count, the controls exercising it.
   THE ORDER, AS AMENDED: V1, V2, V3; C1; C2; R's count, C3 on it; B's count; then the Q0 squares (H1, H2) and H3.
+
+== 12. THE OBSTRUCTION, MEASURED AFTER THE AUTHOR'S WORD AND BEFORE ANY ZERO IS COUNTED (relay data/b667_bessel_obstruction.txt)
+  Section 9 said no term of the route is unbounded; it had not measured T3's Bessel factors at the ruled precision (relay
+  data/b667_defects.txt (b)). Measured by tools/b667_bessel_probe.py over t ∈ {0, 2.5, ..., 150} on σ = −0.5, ½, 1.5 (183 grid points; no
+  zero read, no value of Z_Q computed), the absolute radius T3's term m carries -- |8 π^s Γ(s)⁻¹| rad(K_ν(π√23 m)) Σ_{k|m} |k^ν β^{−ν}| --
+  against 2^{−60}:
+    at 200 bits   not enclosed from t ≈ 60 upward (terms m = 7 ... 17), and at m = 6 for t ≤ 10 on σ = −0.5;
+    at 400 bits   enclosed at every grid point with t < 120; NOT enclosed at t = 120 ... 150 (terms m = 14 ... 17) on every σ -- 39 grid points;
+    at 600 bits   enclosed at all 183 grid points; at 800 the same.
+  acb.bessel_k's ball is valid but useless where it fails (|pre|·rad up to 10^{135} at 200 bits): Arb's own algorithm at order |Im ν| ≈ t
+  near x ≈ |ν| to 2|ν| loses about πt/2 / ln 2 bits. So at the ruled precision (200 bits, the 400 rung) the route cannot bound T3 above
+  height 120: the squares about every banked point above 120, R's right edge above 120 and R's top edge -- hence R's count -- would print
+  UNRESOLVED. Per (R277)(6) the act stops here with this obstruction banked unless the author rules otherwise; raised as a prompt.
