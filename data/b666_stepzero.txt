@@ -1,0 +1,31 @@
+b666 -- COMPONENT 0: STEP ZERO UNDER (R276) (2026-10-13)
+
+### the citation check, the gate step standing from b662 (OPEN_TRAILS :14136), run BEFORE the ferry was banked (tools/b666_citation.py check;
+### relay data/b666_citation_check.txt): the ruling and the ferry read from the session transcript, 49 cites checked at HEAD, 49 OK after two of
+### the tool's own predicates were repaired by the Edit tool before the ferry was banked (data/b666_defects.txt (a)); nothing raised.
+### the ruling and the ferry, part 1 of 1, received in full (RULING (R276) BEGIN ... END; FERRY BEGIN ... FERRY END (part 1 of 1)), banked
+### verbatim at data/b666_ferry.txt by the same tool, from the session transcript; the ferry scan 0 hits (data/b666_ferry_scan.txt).
+
+### the process listing (Win32_Process, names matching tail, lean, lake, python, bash), read before any run: NONE ; free memory 4617 MB.
+### Orphans: NONE. Read again after the test loop ended: NONE.
+
+### b665's closing push-out bank committed at the start: relay 06149425 (data/b665_closing_push_out.txt, as b665's push wrote it), with the
+### citation check, the ferry and its scan, and the citation tool.
+
+### the b665 branches, listed by `git branch --merged main` and deleted by name with the lower-case flag, one repository per call, never in
+### parallel, read back:
+  relay                             listed push-b665, push-b665-closing, push-b665-root ; deleted push-b665 (was 2043e1e0), push-b665-root
+                                    (was b19a90e4), push-b665-closing (was 0ff929e0)
+  PLACE-papers                      listed push-b665, push-b665-root ; deleted push-b665 (was a708de2), push-b665-root (was 345c6b1)
+  SIDE-explicit-formula             listed keiper-b665, push-b665-merge (and at the remote origin/keiper-b665, by --merged origin/main) ;
+                                    deleted push-b665-merge (was 02bc85d), keiper-b665 (was ee0b6c5); the remote branch deleted alone in its
+                                    command, in a turn of its own after the local deletes (`git push origin --delete keiper-b665`: [deleted])
+
+### every test file under tools/ (relay data/b666_tests_stepzero.txt; tools/b666_tests.py, the stage an argument, each python test started as
+### `python -X utf8` with no environment mapping, one process per test from a detached bash loop whose own PATH carries Git's tools, watched
+### from the foreground): TEST FILES 54 ; RUN 53 ; WITHHELD 1 (test_elab_reader_b634.py, no lean on this host) ; NOT CLEAN 2 --
+### test_chain_page.py (9) and test_chain_page_b638.py (4)-(7), as at every act since b638.
+### the trees after the runs: relay tracked changes NONE ; PLACE-papers tracked changes NONE.
+
+### git status: b628's local intake bank (data/b628_intake_crank_v0_5.txt) and the navigator's export (data/b647_navigator_memory.txt) read
+### `??`, untracked. No build on this host; no lean or lake process started.
