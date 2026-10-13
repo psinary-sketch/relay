@@ -600,7 +600,19 @@ def mapdiff(*a):
     print('  hunks %d' % len(hunks))
 
 
-ROUTES = {'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2, 'c2b': c2b, 'a0list': a0list, 'runner': runner, 'mapdiff': mapdiff}
+def merged(*a):
+    """`merged <merge sha> <tag>`: the instance row's merge and tag, after main and the tag are read back at the remote by push_gated.sh
+    (relay data/b663_merge_push_out.txt)."""
+    sha, tag = a[:2]
+    j = jl('b663_epstein_instance.json')
+    pk = g(K.KD, 'rev-parse', '%s^{commit}' % tag).strip()
+    j.update(merged=sha, tag=tag, tag_peeled=pk, merge_tree_equals_built=g(K.KD, 'rev-parse', sha + '^{tree}').strip() == g(K.KD, 'rev-parse', RUN['ref'] + '^{tree}').strip())
+    put_json('b663_epstein_instance.json', j)
+    print('  merged %s ; tag %s peeled %s ; the merged tree equals the built tree: %s' % (sha, tag, pk[:7], j['merge_tree_equals_built']))
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'dominance': dominance, 'c2': c2, 'c2b': c2b, 'a0list': a0list, 'runner': runner, 'mapdiff': mapdiff,
+          'merged': merged}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
