@@ -662,7 +662,8 @@ def grades(*a):
         for n, c in cells.items():
             if c[3] == 'the parent block' and c[2] is not None:
                 span = c[2][len('RE-CUT: '):] if c[2].startswith('RE-CUT: ') else c[2]
-                if span not in action:
+                # ### a span may be closed by a period the ACTION has later (a span that stops before a clause is a sentence) -- declared
+                if span.rstrip('.') not in action:
                     sys.exit('### BLOCK %d s%s: A ROW ACTION NOT A VERBATIM SPAN OF THE BLOCK`S ACTION -- NOTHING WRITTEN' % (k, n))
         v = q['verdict']
         L.append('== #%d %s (b647`s bank line :%s ; at main %s ; %s ; HAND %s ; %d sentence rows%s)' % (

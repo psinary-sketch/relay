@@ -1,0 +1,85 @@
+b666 -- COMPONENT 2, (R276)(2): SIDE-cosmo`S SENTENCE ROWS GRADED BY HAND, BOUND TO THE PARENT BLOCK`S HAND CELLS AND, FOR THE AXIOM CLAIM, TO THE AXIOM-CLAIM BANK`S ROW; BANKED FOR THE AUTHOR`S STRIKE BEFORE ANY EDIT (2026-10-13T21:20:53Z)
+
+### the rule (b652`s, (R265)(2), as (R267)(3) and (R276)(2) carry it): a sentence row is graded OVERREACHES, UNDERSTATES or UNLICENSED where
+### the parent block`s HAND LICENSED or CITED cell names, quotes or paraphrases that sentence`s claim, the grade citing the cell`s words beside
+### it; a sentence those cells do not reach stays MATCHES; a block whose cells reach no sentence is UNRESOLVED, not cut; an ACTION carrying
+### "..." is UNRESOLVED-CELL. The grade is the parent`s verdict. (R276)(2): SteaneExemplar.lean :6`s axiom claim is graded against the
+### axiom-claim bank (relay data/b649_axiom_claim_rows.txt) as its cell, the bank`s own line quoted. The sources: relay data/b666_table_SIDE-cosmo_sentences.json, data/b647_table_SIDE-cosmo.json (b647, read at c5cba30);
+### the blocks read at main c5cba30 (unmoved since b647: no change bank owed); the hand grades: data/b666_sentence_grades.json.
+### Below each block: the block as the mechanical rule leaves it -- graded rows replaced in place, repeats dropped and printed.
+
+== #1 SIDECosmo/FanoFormation.lean:9 (b647`s bank line :10 ; at main SIDECosmo/FanoFormation.lean:9 ; module ; HAND OVERREACHES ; 1 sentence rows)
+   LICENSED : Under the heading the file proves xi.formation_total = 7 and formation_fano_match : xi.formation_total = 7 ∧ True; the number of Fano points appears in no statement (the points are the index type Fin 7), so no identification is compiled and the second conjunct is True.
+   ACTION   : RE-CUT: ## The formation total of ξ is 7, the size of the Fano point index Fin 7 (the identification is the reading; formation_fano_match's second conjunct is True).
+  s1    OVERREACHES ## Identification: Formation total = Fano points
+                    cell: "no identification is compiled"
+   -> THE BLOCK AFTER THE CUT (1 sentences; repeats dropped 0):
+        ## The formation total of ξ is 7, the size of the Fano point index Fin 7 (the identification is the reading; formation_fano_match's second conjunct is True).
+
+== #2 SIDECosmo/SteaneExemplar.lean:6 (b647`s bank line :15 ; at main SIDECosmo/SteaneExemplar.lean:6 ; module ; HAND OVERREACHES ; 6 sentence rows)
+   LICENSED : No code is defined in the file: n and k are formation arithmetic (xi.formation_total = 7; 2·visible_slots xi − 7 = 1) and d is two column facts of H, so "the [[7,1,3]] code parameters n, k, d certified" and "the Knill–Laflamme correctability" are the reading, not compiled; the profile {propext, Quot.sound} has no banked print (terminal table NOT PROFILED; SteaneAxiomCheck prints only at build), so class A cannot be read.
+   ACTION   : RE-CUT: This file compiles, on the parity check H (columns the seven nonzero vectors of 𝔽₂³), that its columns are nonzero and pairwise distinct and that columns 0, 1, 3 sum to zero, and from the (2,3,2,0) tuple that the formation total is 7 and 2·4 − 7 = 1; read as the Steane code these give n = 7, k = 1, d = 3 — the code, its distance and Knill–Laflamme correctability are not defined here, and the axiom profile is printed by SteaneAxiomCheck.lean, not banked.
+  s1    MATCHES     # The Second Exemplar — the Steane [[7,1,3]] code from the {2,3} substrate M-4A, the Method Program (Program Five).
+  s2.1  MATCHES     J. York Seale | ORCID: 0009-0008-7993-0310
+  s2.2  OVERREACHES This file is **Engine 1** (the certification core, THE_METHOD_CANON.md §I): the [[7,1,3]] code parameters n, k, d certified from the Fano / formation substrate already compiled in this project (`FormationPhaseSpace.lean`, `FanoPlane.lean`, `FanoFormation.lean`).
+                    cell: "the [[7,1,3]] code parameters n, k, d certified"
+                    its ACTION: RE-CUT: This file compiles, on the parity check H (columns the seven nonzero vectors of 𝔽₂³), that its columns are nonzero and pairwise distinct and that columns 0, 1, 3 sum to zero, and from the (2,3,2,0) tuple that the formation total is 7 and 2·4 − 7 = 1; read as the Steane code these give n = 7, k = 1, d = 3 — the code, its distance and Knill–Laflamme correctability are not defined here, and the axiom profile is printed by SteaneAxiomCheck.lean.
+  s4    OVERREACHES Every proof is `by decide` or definitional — axioms **{propext, Quot.sound}**, *cleaner* than the standard three axioms {propext, Classical.choice, Quot.sound} (no Classical.choice).
+                    cell: "prints Classical.choice, Quot.sound, propext" (relay data/b649_axiom_claim_rows.txt :11)
+                    its ACTION: (the row removed, its sentence replaced by nothing)
+  s5    MATCHES     What was already compiled: n = 7 (block = formation total, `xi_form_total`), k_classical = 4 (`xi_visible`, = 2²), the Fano incidence geometry (the Hamming parity-check structure).
+  s6    OVERREACHES What this file adds — the parameters `block_match_steane` only re-asserted: the **distance d = 3** and the **logical dimension k = 1**, and the Knill–Laflamme correctability that d = 3 means.
+                    cell: "the Knill–Laflamme correctability"
+                    its ACTION: RE-CUT: This file compiles, on the parity check H (columns the seven nonzero vectors of 𝔽₂³), that its columns are nonzero and pairwise distinct and that columns 0, 1, 3 sum to zero, and from the (2,3,2,0) tuple that the formation total is 7 and 2·4 − 7 = 1; read as the Steane code these give n = 7, k = 1, d = 3 — the code, its distance and Knill–Laflamme correctability are not defined here, and the axiom profile is printed by SteaneAxiomCheck.lean.
+   -> THE BLOCK AFTER THE CUT (4 sentences; repeats dropped 1):
+        # The Second Exemplar — the Steane [[7,1,3]] code from the {2,3} substrate M-4A, the Method Program (Program Five).
+        J. York Seale | ORCID: 0009-0008-7993-0310
+        This file compiles, on the parity check H (columns the seven nonzero vectors of 𝔽₂³), that its columns are nonzero and pairwise distinct and that columns 0, 1, 3 sum to zero, and from the (2,3,2,0) tuple that the formation total is 7 and 2·4 − 7 = 1; read as the Steane code these give n = 7, k = 1, d = 3 — the code, its distance and Knill–Laflamme correctability are not defined here, and the axiom profile is printed by SteaneAxiomCheck.lean.
+        What was already compiled: n = 7 (block = formation total, `xi_form_total`), k_classical = 4 (`xi_visible`, = 2²), the Fano incidence geometry (the Hamming parity-check structure).
+        ### DROPPED AS A REPEAT: This file compiles, on the parity check H (columns the seven nonzero vectors of 𝔽₂³), that its columns are nonzero and pairwise distinct and that columns 0, 1, 3 sum to zero, and from the (2,3,2,0) tuple that the formation total is 7 and 2·4 − 7 = 1; read as the Steane code these give n = 7, k = 1, d = 3 — the code, its distance and Knill–Laflamme correctability are not defined here, and the axiom profile is printed by SteaneAxiomCheck.lean.
+
+== #3 SIDECosmo/SteaneExemplar.lean:60 (b647`s bank line :20 ; at main SIDECosmo/SteaneExemplar.lean:60 ; decl ; HAND OVERREACHES ; 2 sentence rows)
+   LICENSED : distance_ge_three states only H i + H j ≠ 0 for i ≠ j, i.e. pairwise-distinct columns; "no weight-≤2 relation" and "all weight-1 syndromes are distinct and nonzero" also need H i ≠ 0, which is syndrome_nonzero, not this statement.
+   ACTION   : RE-CUT: **No double-column collision**: no two distinct columns of H sum to zero (in characteristic 2, the columns are pairwise distinct); with syndrome_nonzero there is no weight-≤2 relation, so d ≥ 3.
+  s1    OVERREACHES **d ≥ 3**: no two columns sum to zero, so there is no weight-≤2 relation — equivalently (char 2: `H i + H j = 0 ↔ H i = H j`) all weight-1 syndromes are distinct and nonzero.
+                    cell: "no weight-≤2 relation"
+  s2    OVERREACHES No single- or double-column syndrome collision.
+                    cell: "also need H i ≠ 0, which is syndrome_nonzero, not this statement"
+   -> THE BLOCK AFTER THE CUT (1 sentences; repeats dropped 1):
+        **No double-column collision**: no two distinct columns of H sum to zero (in characteristic 2, the columns are pairwise distinct); with syndrome_nonzero there is no weight-≤2 relation, so d ≥ 3.
+        ### DROPPED AS A REPEAT: **No double-column collision**: no two distinct columns of H sum to zero (in characteristic 2, the columns are pairwise distinct); with syndrome_nonzero there is no weight-≤2 relation, so d ≥ 3.
+
+== #4 SIDECosmo/SteaneExemplar.lean:65 (b647`s bank line :25 ; at main SIDECosmo/SteaneExemplar.lean:65 ; decl ; HAND OVERREACHES ; 2 sentence rows)
+   LICENSED : H 0 + H 1 + H 3 = 0 is compiled (checked: (1,0,0)+(0,1,0)+(1,1,0) = 0); "together with distance_ge_three this pins the code distance to exactly 3" — distance_ge_three lacks nonzero columns (syndrome_nonzero is also needed) and no code or distance is defined in the file.
+   ACTION   : RE-CUT: **d ≤ 3**: columns 0, 1, 3 (the Fano line fanoLine 0) sum to zero; with distance_ge_three and syndrome_nonzero, the classical code with parity check H has minimum distance exactly 3 (the code is the reading, not defined here).
+  s1    OVERREACHES **d ≤ 3**: a weight-3 zero-sum relation exists — the Fano line {0,1,3} (`fanoLine 0`).
+                    cell: "no code or distance is defined in the file"
+  s2    OVERREACHES Together with `distance_ge_three` this pins the code **distance to exactly 3**.
+                    cell: "together with distance_ge_three this pins the code distance to exactly 3"
+   -> THE BLOCK AFTER THE CUT (1 sentences; repeats dropped 1):
+        **d ≤ 3**: columns 0, 1, 3 (the Fano line fanoLine 0) sum to zero; with distance_ge_three and syndrome_nonzero, the classical code with parity check H has minimum distance exactly 3 (the code is the reading, not defined here).
+        ### DROPPED AS A REPEAT: **d ≤ 3**: columns 0, 1, 3 (the Fano line fanoLine 0) sum to zero; with distance_ge_three and syndrome_nonzero, the classical code with parity check H has minimum distance exactly 3 (the code is the reading, not defined here).
+
+== #5 SIDECosmo/SteaneExemplar.lean:72 (b647`s bank line :30 ; at main SIDECosmo/SteaneExemplar.lean:72 ; decl ; HAND OVERREACHES ; 2 sentence rows)
+   LICENSED : knill_laflamme_t1 is the classical column condition Injective H ∧ ∀ i, H i ≠ 0; the Knill–Laflamme iff and "Hence the [[7,1,3]] code corrects any single-qubit error" are not compiled — no code, Pauli error or recovery is defined.
+   ACTION   : RE-CUT: The single-error syndrome condition: the columns of H are pairwise distinct and nonzero (syndrome_injective ∧ syndrome_nonzero); by the Knill–Laflamme condition in the CSS setting (not compiled here) this is what correcting every single-qubit error requires.
+  s1    OVERREACHES The Knill–Laflamme condition, specialized to the CSS / stabilizer setting: the code corrects **every** weight-≤1 Pauli error iff all weight-1 error syndromes are distinct and nonzero — exactly `syndrome_injective ∧ syndrome_nonzero`.
+                    cell: "the Knill–Laflamme iff"
+  s2    OVERREACHES Hence the [[7,1,3]] code corrects any single-qubit error (t = 1 = ⌊(d−1)/2⌋).
+                    cell: "Hence the [[7,1,3]] code corrects any single-qubit error"
+   -> THE BLOCK AFTER THE CUT (1 sentences; repeats dropped 1):
+        The single-error syndrome condition: the columns of H are pairwise distinct and nonzero (syndrome_injective ∧ syndrome_nonzero); by the Knill–Laflamme condition in the CSS setting (not compiled here) this is what correcting every single-qubit error requires.
+        ### DROPPED AS A REPEAT: The single-error syndrome condition: the columns of H are pairwise distinct and nonzero (syndrome_injective ∧ syndrome_nonzero); by the Knill–Laflamme condition in the CSS setting (not compiled here) this is what correcting every single-qubit error requires.
+
+== #6 SIDECosmo/SteaneExemplar.lean:80 (b647`s bank line :35 ; at main SIDECosmo/SteaneExemplar.lean:80 ; decl ; HAND OVERREACHES ; 1 sentence rows)
+   LICENSED : steane_parameters is the conjunction formation total = 7, 2·4 − 7 = 1, pairwise-distinct columns, and H 0 + H 1 + H 3 = 0; it omits syndrome_nonzero, so even the classical d ≥ 3 is not in it, and no [[n,k,d]] code is defined to certify.
+   ACTION   : RE-CUT: The parameter conjunction read as [[7, 1, 3]]: formation total 7, 2·4 − 7 = 1, pairwise-distinct columns of H, and a weight-3 zero sum of columns 0, 1, 3 (d ≥ 3 also needs syndrome_nonzero).
+  s1    OVERREACHES The full parameter tuple, certified: **[[7, 1, 3]]**.
+                    cell: "no [[n,k,d]] code is defined to certify"
+   -> THE BLOCK AFTER THE CUT (1 sentences; repeats dropped 0):
+        The parameter conjunction read as [[7, 1, 3]]: formation total 7, 2·4 − 7 = 1, pairwise-distinct columns of H, and a weight-3 zero sum of columns 0, 1, 3 (d ≥ 3 also needs syndrome_nonzero).
+
+### PARENT BLOCKS NOT FOUND AT MAIN (listed, not graded): NONE
+### PLAIN-COMMENT ROWS (relay data/b666_plain_comments.txt): NONE
+### ROWS LISTED UNRESOLVED WITH THEIR REASONS (not cut): 0
+### ### **PARENT BLOCKS 6 ; SENTENCE ROWS 14 ; GRADED 11 (OVERREACHES 11) ; MATCHES 3 ; UNRESOLVED BLOCKS 0 (none) ; UNRESOLVED-CELL 0 ; NOT FOUND AT MAIN 0 ; BLOCKS TO CUT 6 IN 2 FILES ; REPEATS DROPPED BY THE RULE 4 ; PLAIN-COMMENT ROWS 0.**
