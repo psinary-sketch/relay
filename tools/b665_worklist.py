@@ -52,10 +52,18 @@ ATTEMPT_BANK = 'b665_attempt.json'            # ### Component 3: the branch comm
 KEIPER_BANK, TB_BANK = 'b665_keiper.txt', 'b665_transform_bound.txt'
 CONTROL_BANK = 'b665_keiper_control.txt'
 B663_CONTROL = 'b663_epstein_control.txt'
+# ### Component 3 and 5, as run (the author's word: the exploratory tree in the fallback form, then the stripped tree dispatched once more as
+# ### the merge tree's build -- one dispatch per tree state)
+RUNNER = dict(explore=dict(run_id=38450860245, ref='32f6f3a6e2191b6b411bac41283f57fcee57d98b'),
+              merge=dict(run_id=38452047820, ref='ee0b6c5684c676cc919433c2a5121210ec34946c'))
+MERGE = '02bc85d'
+PRINT_TARGETS_N = 9
+DISCHARGE_LINE = 14216      # ### OPEN_TRAILS: W-ORD-FT-FIRST-ORDER DISCHARGED (data/b665_discharge_line.json)
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b664's face
 # ### (b664's own act arms not carried). Each run at HEAD and counted before the face names it. Filled at Component 6.
-ACT_ARMS = ()
+ACT_ARMS = ('G-R275-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-STATEMENT-TRACED', 'G-PROMPT-BEFORE-LEAN', 'G-LANDINGS-BANKED',
+            'G-FALLBACK-STRIPPED', 'G-H3-CONTROL', 'G-CAVEAT-DATED', 'G-ORDER-DISCHARGED', 'G-KERNEL-FILES-FROM-BANK', 'G-HYPOTHESES-SCORED')
 B664_ACT_ARMS = ('G-R274-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-ND-RERUN', 'G-ORDERS-PLACED', 'G-FILE-RULE-ENTERED', 'G-KERNEL-NAMED',
                  'G-SENTENCES-BANKED', 'G-GRADES-VERBATIM', 'G-NOCELL-LISTED', 'G-PROMPT-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE',
                  'G-MET-TEST-DURABLE', 'G-KERNEL-FILES-FROM-BANK')

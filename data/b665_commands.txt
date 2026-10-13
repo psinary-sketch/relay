@@ -1,0 +1,131 @@
+b665 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-13T19:26:19Z)
+
+### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R275) BEGIN', and its subagents` transcripts
+### commands read: 117
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-13T18:07:59.415Z | seat | Bash | cd /d/relay && wc -l tools/b664_citation.py && sed -n '1,80p' tools/b664_citation.py
+  #2 | 2026-10-13T18:08:02.686Z | seat | Bash | sed -n '80,240p' tools/b664_citation.py
+  #3 | 2026-10-13T18:08:13.682Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --short=7 main v0.29^{commit} v0.26^{commit} v0.9^{commit} 2>&1; git status --short | head; git branch -a | head -2
+  #4 | 2026-10-13T18:08:14.461Z | seat | Bash | ls data | grep -i "b589" | head -30; git grep -n -i "keiper" -- 'data/b589*' | head -20
+  #5 | 2026-10-13T18:08:21.728Z | seat | Bash | git tag --list | tr '\n' ' '; echo; git log --oneline -3 main; git grep -n "^theorem\|^lemma\|^def\|^noncomputable def\|^structure\|^/-- \*\*K" -- SIDEExplicitF
+  #6 | 2026-10-13T18:08:27.176Z | seat | Bash | ls /d/relay/data | grep -i "^b589" ; ls /d/relay/data | grep -i "^b601" | head; ls /d/relay/data | grep -i "^b63[0-9]_.*keiper\|keiper" | head
+  #7 | 2026-10-13T18:08:30.423Z | seat | Bash | cd /d/relay/data && cat b589_three_way.txt | head -60; echo ======; cat b589_keiper_read.txt | head -80
+  #8 | 2026-10-13T18:08:35.530Z | seat | Bash | grep -n "###" b589_keiper_read.txt | tail -30; echo =====; cat b641_keiper_status.txt | head -70
+  #9 | 2026-10-13T18:08:40.706Z | seat | Bash | cd /d/SIDE-explicit-formula && for t in v0.9 v0.26 v0.29; do echo "$t $(git rev-parse --short=7 $t^{commit}) $(git log -1 --format=%s $t^{commit} | cut -c1-300)
+  #10 | 2026-10-13T18:08:47.440Z | seat | Bash | f=$(git log --reverse --format=%h -- SIDEExplicitFormula/KeiperIdentities.lean | head -1); echo first $f; git tag --contains $f | sort -V | head -3; g=$(git log
+  #11 | 2026-10-13T18:08:53.620Z | seat | Bash | git ls-files | grep -i detector; sed -n '25,45p' $(git ls-files | grep -i "Detector.lean" | head -1); cd .lake/packages/mathlib && git rev-parse --short=8 HEAD 
+  #12 | 2026-10-13T18:09:45.257Z | seat | Bash | git grep -n "riemannZeta_residue_one\|riemannZeta_one_sub_one_div\|tendsto_riemannZeta_sub_one_div" -- 'Mathlib/*.lean' | head -8; git grep -n -i "stieltjesCons
+  #13 | 2026-10-13T18:09:51.104Z | seat | Bash | git grep -n "riemannZeta_residue_one" -- 'Mathlib/*.lean' | grep -v "apply\|exact\|using\|\.sub" | head -3; cd /d/relay/data && grep -n "hθ\|B1" b663_epstein_co
+  #14 | 2026-10-13T18:10:01.752Z | seat | Bash | grep -n "B1" b663_epstein_plan.txt | head -10; cd /d/SIDE-explicit-formula && sed -n '50,72p' SIDEExplicitFormula/TwoPropertyWindow.lean; git grep -n "^def plat
+  #15 | 2026-10-13T18:10:06.207Z | seat | Bash | sed -n '155,163p' /d/relay/data/b663_epstein_plan.txt; grep -n "" /d/relay/data/b664_closing.txt | sed -n '1,12p' | cut -c1-200
+  #16 | 2026-10-13T18:10:29.285Z | seat | Bash | sed -n '160,200p' /d/relay/data/b589_keiper_read.txt | cut -c1-400; cd /d/SIDE-explicit-formula && sed -n '125,140p' SIDEExplicitFormula/Keiper.lean; sed -n '14
+  #17 | 2026-10-13T18:10:34.944Z | seat | Bash | git grep -n "KeiperTaylor\b\|keiperSum\|LiCoeff" -- 'SIDEExplicitFormula/*.lean' 'SIDEExplicitFormula/**/*.lean' | grep -v "^SIDEExplicitFormula/LiWeil.lean\|Li
+  #18 | 2026-10-13T18:11:09.016Z | seat | Bash | ls -t "/c/Users/echo chamber/.claude/projects/D--/"*.jsonl | head -3; grep -l "RULING (R275) BEGIN" "/c/Users/echo chamber/.claude/projects/D--/96a5c4ea-0b59-4b
+  #19 | 2026-10-13T18:12:26.321Z | seat | Bash | cd /d/relay && python -X utf8 tools/b665_citation.py check && grep -c "^  OK\|^  MISS" data/b665_citation_check.txt && grep "^  MISS" data/b665_citation_check.t
+  #20 | 2026-10-13T18:12:34.353Z | seat | Bash | grep -n "e^{ℓ/2}" data/b663_epstein_plan.txt | cut -c1-250; grep "B1 \"as\|two lemmas b589\|K1-K3\|efdd9309\|:14186" data/b665_citation_check.txt | cut -c1-500
+  #21 | 2026-10-13T18:12:45.724Z | seat | Bash | python -X utf8 tools/b665_citation.py check | tail -1 && grep "B1 \"as" data/b665_citation_check.txt | cut -c100-420 && python -X utf8 tools/b665_citation.py fe
+  #22 | 2026-10-13T18:12:54.496Z | seat | Bash | grep -n "^def \|^ROUTES\|^    '[a-z_]*': " tools/b664_record.py | head -80; head -30 data/b664_stepzero.txt
+  #23 | 2026-10-13T18:12:58.885Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|bash' } | Select-Object ProcessId,Name,CommandLine | Format-Table -AutoSize
+  #24 | 2026-10-13T18:13:05.367Z | seat | Bash | git status --short -- data/b664_closing_push_out.txt data/b665_* tools/b665_* && git add data/b664_closing_push_out.txt data/b665_citation_check.txt data/b665_c
+  #25 | 2026-10-13T18:13:09.680Z | seat | Bash | git branch --merged main --list 'push-b664*' && git rev-parse --short=8 push-b664 push-b664-root push-b664-closing
+  #26 | 2026-10-13T18:13:12.810Z | seat | Bash | for b in push-b664 push-b664-root push-b664-closing; do echo "$b $(git rev-parse --short=8 refs/heads/$b)"; done
+  #27 | 2026-10-13T18:13:16.073Z | seat | Bash | git branch -d push-b664 push-b664-root push-b664-closing
+  #28 | 2026-10-13T18:13:19.468Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch --merged main --list 'push-b664*' && for b in push-b664 push-b664-root; do echo "$b $(git rev-parse --short=7 refs
+  #29 | 2026-10-13T18:13:22.745Z | seat | Bash | git branch -d push-b664 push-b664-root
+  #30 | 2026-10-13T18:13:26.414Z | seat | Bash | cd /d/SIDE-effects && git fetch -q origin && git branch --merged main && git branch -r --merged origin/main | grep docstrings; for b in push-b664-workflow push-
+  #31 | 2026-10-13T18:13:32.098Z | seat | Bash | git branch -d push-b664-workflow push-b664-merge docstrings-cut-SIDE-effects
+  #32 | 2026-10-13T18:13:32.739Z | seat | Bash | git push origin --delete docstrings-cut-SIDE-effects
+  #33 | 2026-10-13T18:13:41.835Z | seat | Bash | cd /d/relay && cat tools/b664_tests.py | head -120; wc -l tools/b664_tests.py
+  #34 | 2026-10-13T18:13:48.465Z | seat | Bash | sed -n '120,125p' tools/b664_tests.py; cat data/b664_tests_withheld.json; ls /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffd
+  #35 | 2026-10-13T18:13:53.519Z | seat | Bash | ls -t /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/ | grep -i "b66[34].*loop\|b66[34].*tests" | head; cat /c/
+  #36 | 2026-10-13T18:14:29.813Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; Start-Process 'C:\Program Files\Git\bin\bash.exe' -Argume
+  #37 | 2026-10-13T18:14:36.459Z | seat | Bash | cd /d/SIDE-explicit-formula && sed -n '800,840p' SIDEExplicitFormula/PowerLimit.lean; git grep -n "theorem .*paperFT.*le\|theorem norm_paperFT\|theorem paperFT_
+  #38 | 2026-10-13T18:14:42.815Z | seat | Bash | sed -n '1,30p' SIDEExplicitFormula/DecayBound.lean; git grep -n "^theorem paperFT_decay\|^theorem paperFT_decay_zero" -A4 -- 'SIDEExplicitFormula/*.lean'
+  #39 | 2026-10-13T18:14:44.116Z | seat | Bash | git grep -n "^theorem paperFT_decay_zero\|^theorem paperFT_decay \|^theorem paperFT_decay$" -A6 -- 'SIDEExplicitFormula/*.lean' 'SIDEExplicitFormula/**/*.lean' 
+  #40 | 2026-10-13T18:14:45.289Z | seat | Bash | git grep -n "paperFT_decay" -- '*.lean' | grep -v "have\|:= paperFT\|exact" | head; git grep -n "theorem paperFT_decay" -- '*.lean'
+  #41 | 2026-10-13T18:14:49.858Z | seat | Bash | sed -n '63,70p' SIDEExplicitFormula/DecayBound.lean; sed -n '240,262p' SIDEExplicitFormula/PowerWindow.lean; git grep -n "monotone\|Monotone\|Antitone\|antitone
+  #42 | 2026-10-13T18:15:30.295Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; for i in $(seq 1 55); do if grep -q "STEPZERO TESTS DONE" "
+  #43 | 2026-10-13T18:24:51.475Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; for i in $(seq 1 55); do if grep -q "STEPZERO TESTS DONE" "
+  #44 | 2026-10-13T18:34:12.449Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; for i in $(seq 1 55); do if grep -q "STEPZERO TESTS DONE" "
+  #45 | 2026-10-13T18:39:00.731Z | seat | Bash | cd /d/relay && python -X utf8 tools/b665_tests.py report stepzero | tail -6; git status --short --untracked-files=no; git -C /d/MY-DOwnloads/PLACE-papers status
+  #46 | 2026-10-13T18:39:09.808Z | seat | Bash | grep -n "CARRIED FORWARD\|THE NEXT ACT\|SIDE-effects\` first relay print\|G-AXIOM-CLAIM\`s one" data/b664_closing.txt | head; grep -n "^    ([a-z]\|^    (b663-l
+  #47 | 2026-10-13T18:39:18.879Z | seat | Bash | cd /d/SIDE-explicit-formula/.lake/packages/mathlib && git grep -n -i "stieltjes" -- 'Mathlib/*.lean' | grep -v -i "stieltjesFunction\|Stieltjes measure\|Stieltj
+  #48 | 2026-10-13T18:39:54.603Z | seat | Bash | cd /d/SIDE-explicit-formula && grep -n "The fourth, (O4)" SIDEExplicitFormula/KeiperIdentities.lean; sed -n '54p;76p;79p;82p;95p;101p;107p;126p;136,137p' SIDEEx
+  #49 | 2026-10-13T18:40:23.676Z | seat | Bash | cd /d/relay && git add tools/b665_tests.py data/b665_tests_withheld.json data/b665_tests_stepzero.json data/b665_tests_stepzero.txt data/b665_readfirst.txt data
+  #50 | 2026-10-13T18:40:33.605Z | seat | Bash | cat tools/b664_worklist.py
+  #51 | 2026-10-13T18:40:56.974Z | seat | Bash | sed -n '310,380p' tools/b664_record.py; sed -n '8561,8564p' /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | cut -c1-300
+  #52 | 2026-10-13T18:41:49.932Z | seat | Bash | python -X utf8 tools/b665_record.py c1 dry 2>&1 | head -8
+  #53 | 2026-10-13T18:41:54.484Z | seat | Bash | python -X utf8 tools/b665_record.py c1 2>&1 | tail -2 && cd /d/MY-DOwnloads/PLACE-papers && git diff --stat && git add FINDINGS.md && git commit -q -m "b665 Com
+  #54 | 2026-10-13T18:42:07.028Z | seat | Bash | cd /d/relay && sed -n '8589p' /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | cut -c1-90 && git add tools/b665_worklist.py tools/b665_record.py data/b665_record_line
+  #55 | 2026-10-13T18:42:45.825Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n "^def offScore\|^noncomputable def offScore\|^def phiC\|^def riemannZeta₁\|^noncomputable def riemannZeta₁\|^def Bino
+  #56 | 2026-10-13T18:42:51.395Z | seat | Bash | sed -n '117,121p' SIDEExplicitFormula/Keiper.lean; git grep -n "riemannZeta₁\b" -- 'SIDEExplicitFormula/Keiper.lean' | head -3; f=$(git ls-files | grep "Zeta23/
+  #57 | 2026-10-13T18:42:58.332Z | seat | Bash | git grep -n "def riemannZeta₁\|def riemannZeta₀\|riemannZeta₁ :=\|riemannZeta₀ :=" -- '*.lean' | head; cd .lake/packages/mathlib && git grep -n "def riemannZeta
+  #58 | 2026-10-13T18:43:05.654Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n "structure ZeroConfig" -A12 -- 'Zeta23/*.lean' | grep -n "strip\|structure" ; git grep -n "^def phi\b\|def phi (" -- 
+  #59 | 2026-10-13T18:43:11.268Z | seat | Bash | grep -n "structure ZeroConfig" Zeta23/*.lean; grep -n "^  strip" Zeta23/*.lean | head -3
+  #60 | 2026-10-13T18:43:50.011Z | seat | Bash | for f in TwoPropertyWindow PowerWindow DecayBound RestBound PowerLimit Keiper KeiperIdentities LiCriterionBridge LiWeil; do echo "$f: $(grep -n '^namespace\|^im
+  #61 | 2026-10-13T18:45:00.502Z | seat | Bash | cd /d/relay && python -X utf8 tools/b665_record.py statement 2>&1 | tail -12
+  #62 | 2026-10-13T18:45:09.301Z | seat | Bash | grep -n "^  [A-Za-z].* :[0-9]* --" data/b665_keiper_statement.txt | cut -c1-140; sed -n '146p' /d/SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/Analysis/
+  #63 | 2026-10-13T18:45:13.737Z | seat | Bash | grep -n "monotone\|Monotone\|zero_of_nonpos\|theorem contDiff\|projIcc" /d/SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Smooth
+  #64 | 2026-10-13T18:45:19.171Z | seat | Bash | git add tools/b665_record.py data/b665_keiper_statement.txt data/b665_keiper_statement.json && git commit -q -m "b665 Component 2 under (R275)(2)-(3): the state
+  #65 | 2026-10-13T18:50:06.467Z | seat | Bash | python -X utf8 tools/b665_record.py answers && grep -c "" data/b665_author_answers.txt && grep -n "^### PROMPT\|^RESULT" data/b665_author_answers.txt | cut -c1-
+  #66 | 2026-10-13T18:50:13.079Z | seat | Bash | git add data/b665_author_answers.txt data/b665_author_answers.json && git commit -q -m "b665 the author's word on the one prompt of (R275)(2)-(3), banked verbat
+  #67 | 2026-10-13T18:51:07.026Z | seat | Bash | cd /d/SIDE-explicit-formula/.lake/packages/mathlib && git grep -n "theorem Antitone.deriv_nonpos\|theorem Monotone.deriv_nonneg\|lemma Monotone.deriv_nonneg\|le
+  #68 | 2026-10-13T18:52:21.625Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n "plateau_contDiff" -- 'SIDEExplicitFormula/*.lean' 'SIDEExplicitFormula/**/*.lean' | grep -v "^SIDEExplicitFormula/Tw
+  #69 | 2026-10-13T18:52:29.223Z | seat | Bash | sed -n '388,398p' SIDEExplicitFormula/PowerWindow.lean; sed -n '100,112p' SIDEExplicitFormula/Schema/Detector.lean; grep -n "theorem support_deriv_Icc" SIDEExpl
+  #70 | 2026-10-13T18:52:36.811Z | seat | Bash | cd /d/SIDE-explicit-formula/.lake/packages/mathlib && git grep -n "theorem IsLocalMax.deriv_eq_zero\|lemma IsLocalMax.deriv_eq_zero" -- 'Mathlib/*.lean'; git gr
+  #71 | 2026-10-13T18:53:09.496Z | seat | Bash | git grep -n "theorem div_le_div_of_nonneg_right\|lemma div_le_div_of_nonneg_right" -- 'Mathlib/*.lean'; git grep -n -B1 "div_le_div_of_nonneg_right" -- 'Mathlib
+  #72 | 2026-10-13T18:53:17.914Z | seat | Bash | git show --stat --format="%h %s" c7d2858 | tail -6 | cut -c1-120; grep -n "Keiper\|DecayBound\|EpsteinQ0" SIDEExplicitFormula.lean 2>/dev/null | head; ls *.lean
+  #73 | 2026-10-13T18:53:22.317Z | seat | Bash | git checkout -q -b keiper-b665 main && git branch --show-current && git rev-parse --short=7 HEAD
+  #74 | 2026-10-13T18:55:22.696Z | seat | Bash | cd /d/SIDE-explicit-formula/.lake/packages/mathlib && for p in "theorem add_neg_cancel \|lemma add_neg_cancel \|add_neg_cancel :" "lt_or_eq" "theorem uIcc_of_le
+  #75 | 2026-10-13T18:56:07.327Z | seat | Bash | git grep -n "theorem Continuous.intervalIntegrable" -A2 -- 'Mathlib/*.lean'; git grep -n "theorem Continuous.intervalIntegrable" -- 'Mathlib/*.lean' | head -1 |
+  #76 | 2026-10-13T18:56:21.022Z | seat | Bash | cd /d/SIDE-explicit-formula && git status --short && git diff --stat && file print_targets.txt SIDEExplicitFormula/KeiperFinite.lean SIDEExplicitFormula/FirstOr
+  #77 | 2026-10-13T18:56:29.849Z | seat | Bash | git add SIDEExplicitFormula/KeiperFinite.lean SIDEExplicitFormula/FirstOrderBound.lean print_targets.txt && git commit -q -m "b665 under (R275)(4), Component 3:
+  #78 | 2026-10-13T18:56:33.610Z | seat | Bash | git push origin keiper-b665
+  #79 | 2026-10-13T18:56:41.344Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=32f6f3a6e2191b6b411bac41283f57fcee57d98b -f target="SIDEExplicitFormu
+  #80 | 2026-10-13T18:57:02.240Z | seat | Bash | cd /d/relay && python -X utf8 -c "
+  #81 | 2026-10-13T18:57:10.583Z | seat | Bash | python -X utf8 -c "
+  #82 | 2026-10-13T18:57:15.819Z | seat | Bash | for i in $(seq 1 55); do s=$(gh run view 38450860245 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion -q '.status+" "+.conclusion'); case "$s" i
+  #83 | 2026-10-13T19:03:11.745Z | seat | Bash | grep -n "^ERR_RE\|^STD3\|^WARN_RE" tools/b664_record.py; grep -n "ERR_RE = \|STD3 = " tools/b664_record.py tools/b663_record.py | head; grep -n "sorry\|warning"
+  #84 | 2026-10-13T19:03:55.834Z | seat | Bash | python -X utf8 tools/b665_record.py runner 38450860245 32f6f3a6e2191b6b411bac41283f57fcee57d98b explore 2>&1 | tail -22
+  #85 | 2026-10-13T19:04:03.950Z | seat | Bash | grep -n "artifact:\|ref built\|memory log\|the build:\|^  SIDEExplicitFormula\|print step" data/b665_runner_explore.txt | cut -c1-200
+  #86 | 2026-10-13T19:05:07.628Z | seat | Bash | cd /d/SIDE-explicit-formula && python -X utf8 -c "
+  #87 | 2026-10-13T19:05:14.491Z | seat | Bash | git add SIDEExplicitFormula/KeiperFinite.lean SIDEExplicitFormula/FirstOrderBound.lean && git commit -q -m "b665 under (R275)(4), on the author's word: the merg
+  #88 | 2026-10-13T19:05:22.330Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=ee0b6c5684c676cc919433c2a5121210ec34946c -f target="SIDEExplicitFormu
+  #89 | 2026-10-13T19:05:41.939Z | seat | Bash | cd /d/relay && python -X utf8 -c "
+  #90 | 2026-10-13T19:05:45.252Z | seat | Bash | sed -n '25,45p' tools/act_root.py
+  #91 | 2026-10-13T19:05:50.688Z | seat | Bash | grep -n "G-PRIORBANK-UNCHANGED" -A3 tools/b664_checks.py | head -8; grep -n "def priorbank\|def prior_ok\|PRIORBANK\|def additive" tools/b664_checks.py | head
+  #92 | 2026-10-13T19:05:54.665Z | seat | Bash | grep -n "prior_bad\|SHARED_ADD\|ADDITIVE\b\|additive_files\|ADD.SHARED\|ADD\.\w*" tools/b664_checks.py | head -12; grep -n "^SHARED\|^ADDITIVE\|^FILES\s*=\|^SHA
+  #93 | 2026-10-13T19:05:58.116Z | seat | Bash | sed -n '405,426p' tools/b664_checks.py; grep -n "def shared_files" -A12 tools/additive_shared.py
+  #94 | 2026-10-13T19:06:10.766Z | seat | Bash | for i in $(seq 1 55); do s=$(gh run view 38452047820 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion -q '.status+" "+.conclusion'); case "$s" i
+  #95 | 2026-10-13T19:12:25.446Z | seat | Bash | python -X utf8 tools/b665_record.py runner 38452047820 ee0b6c5684c676cc919433c2a5121210ec34946c merge 2>&1 | tail -12; grep -n "artifact:\|ref built\|^  SIDEExp
+  #96 | 2026-10-13T19:12:47.608Z | seat | Bash | python -X utf8 tools/b665_record.py landings && cat data/b665_transform_bound.txt | head -20
+  #97 | 2026-10-13T19:13:02.652Z | seat | Bash | python -X utf8 tools/b665_record.py attempt 32f6f3a6e2191b6b411bac41283f57fcee57d98b ee0b6c5684c676cc919433c2a5121210ec34946c && git add tools/b665_record.py da
+  #98 | 2026-10-13T19:13:13.368Z | seat | Bash | python -X utf8 -c "
+  #99 | 2026-10-13T19:13:48.494Z | seat | Bash | timeout 580 python -X utf8 tools/b665_record.py control 2>&1 | tail -16
+  #100 | 2026-10-13T19:13:59.609Z | seat | Bash | timeout 580 python -X utf8 tools/b665_record.py control 2>&1 | tail -10; grep -c "AGREE ; \|; AGREE$" data/b665_keiper_control.txt; grep "KEIPER" data/b665_keip
+  #101 | 2026-10-13T19:14:16.798Z | seat | Bash | timeout 580 python -X utf8 tools/b665_record.py control 2>&1 | tail -4
+  #102 | 2026-10-13T19:14:30.783Z | seat | Bash | timeout 580 python -X utf8 tools/b665_record.py control 2>&1 | tail -4
+  #103 | 2026-10-13T19:14:42.033Z | seat | Bash | grep -n "g0\b\|g0 =\|ℓ =\|base " data/b663_epstein_control.txt | head -10; tail -5 data/b663_epstein_control.txt | cut -c1-200; tail -c 50 data/b663_epstein_con
+  #104 | 2026-10-13T19:14:50.269Z | seat | Bash | grep -c "### elapsed 29 s" data/b663_epstein_control.txt; grep -n "### elapsed" data/b663_epstein_control.txt; sed -n '68p' data/b663_epstein_control.txt | cut 
+  #105 | 2026-10-13T19:15:04.025Z | seat | Bash | git diff --stat data/b663_epstein_control.txt && git diff data/b663_epstein_control.txt | grep -c "^-[^-]"
+  #106 | 2026-10-13T19:15:15.463Z | seat | Bash | python -X utf8 tools/b665_record.py c4 dry 2>&1 | head -3 | cut -c1-300
+  #107 | 2026-10-13T19:15:19.745Z | seat | Bash | python -X utf8 tools/b665_record.py c4 2>&1 | tail -1 && python -X utf8 -c "
+  #108 | 2026-10-13T19:15:33.162Z | seat | Bash | git add tools/b665_record.py data/b665_keiper_control.txt data/b665_keiper_control.json data/b663_epstein_control.txt data/b665_discharge_line.json data/b665_de
+  #109 | 2026-10-13T19:15:41.344Z | seat | Bash | sed -n '1,30p' /d/relay/tools/push_gated.sh | grep -n "tag\|usage\|\$3" | head; grep -h "push_gated" /d/relay/data/b663_merge_push_out.txt | head -3
+  #110 | 2026-10-13T19:15:48.578Z | seat | Bash | cd /d/SIDE-explicit-formula && git checkout -q main && git status --short | head -3 && git merge --no-ff keiper-b665 -q -m "b665 under (R275)(4)-(5), Component 
+  #111 | 2026-10-13T19:15:54.236Z | seat | Bash | git grep -c "\bsorry\b" main -- SIDEExplicitFormula/KeiperFinite.lean SIDEExplicitFormula/FirstOrderBound.lean; git branch push-b665-merge HEAD && PUSH_GATED_LO
+  #112 | 2026-10-13T19:16:09.717Z | seat | Bash | tail -3 /d/relay/data/b665_merge_push_out.txt; cd /d/SIDE-explicit-formula && git rev-parse --short=7 v0.30^{commit} main origin/main
+  #113 | 2026-10-13T19:16:13.270Z | seat | Bash | git rev-parse --short=7 "v0.30^{commit}"; git rev-parse --short=7 main; git rev-parse --short=7 refs/remotes/origin/main
+  #114 | 2026-10-13T19:16:27.852Z | seat | Bash | cd /d/relay && python -X utf8 tools/b665_record.py merged 02bc85d72da836186bbe72f65cd02f23fb75db83 v0.30 && git add tools/b665_record.py data/b665_runner_rows.j
+  #115 | 2026-10-13T19:24:05.146Z | seat | Bash | wc -l tools/b664_closing.py && cat tools/b664_closing.py
+  #116 | 2026-10-13T19:25:09.318Z | seat | Bash | sed -n '1,9p' tools/b664_regspec.py >/dev/null; grep -n "Carried\|b664\|R274" tools/b664_regspec.py | head -40
+  #117 | 2026-10-13T19:26:14.450Z | seat | Bash | python -X utf8 -c "
+
+### ### **COMMANDS 117 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
