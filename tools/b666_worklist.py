@@ -49,10 +49,18 @@ AXIOM_BANK = 'data/b649_axiom_claim_rows.txt'   # ### the axiom-claim bank, its 
 CUT_BRANCH = 'docstrings-cut-SIDE-cosmo'
 TARGET = 'SIDECosmo'
 NEXT_TAG = 'v0.3.1'         # ### the next patch step after v0.3 (the kernel's series as its tag list prints it: v0.2, v0.3)
+K_WORKFLOW = 'f5d8c7d'      # ### the commit putting the workflow on the kernel's main (the file alone; pushed through push_gated.sh, read back)
+RUNNER = {KERNEL: dict(branch=CUT_BRANCH, target=TARGET, workflow_commit=K_WORKFLOW, run_id=38471056772,
+                       ref='1ddeb7c28d0833ea63011460d861ef196646ab64', dispatched_at='main', prior_run=38470740945,
+                       push_runs=(38470582495, 38470730498, 38471044694))}
+MERGE, MERGE_TAG = 'ca04c8c', NEXT_TAG
+PRINT_TARGETS_N = 53
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b665's face
 # ### (b665's own act arms not carried). Each run at HEAD and counted before the face names it. Filled at Component 4.
-ACT_ARMS = ()
+ACT_ARMS = ('G-R276-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-TIE-RULE-ENTERED', 'G-KERNEL-NAMED', 'G-SENTENCES-BANKED',
+            'G-GRADES-VERBATIM', 'G-AXIOM-ROW-CELL', 'G-PROMPT-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE', 'G-AXIOM-CLAIM-AFTER',
+            'G-KERNEL-FILES-FROM-BANK')
 B665_ACT_ARMS = ('G-R275-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-STATEMENT-TRACED', 'G-PROMPT-BEFORE-LEAN', 'G-LANDINGS-BANKED',
                  'G-FALLBACK-STRIPPED', 'G-H3-CONTROL', 'G-CAVEAT-DATED', 'G-ORDER-DISCHARGED', 'G-KERNEL-FILES-FROM-BANK', 'G-HYPOTHESES-SCORED')
 SEALED = ('b666_worklist.py', 'b666_tests.py', 'b666_citation.py', 'b666_record.py', 'b666_checks.py', 'b666_closing.py', 'b666_reg_gate.py',
