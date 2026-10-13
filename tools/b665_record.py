@@ -317,7 +317,163 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = {'c1': c1, 'answers': answers}
+# ================================================================================ COMPONENT 2: THE STATEMENTS, (R275)(2)-(3), BEFORE ANY LEAN
+EFK = 'SIDEExplicitFormula/'
+ML_ = K.MATHLIB
+# ### every term either statement uses, traced to its declaration by file and line: (term, repo, file, the declaration's pattern, what it is)
+TRACE_K = [
+    ('LiWeil.LiCoeff', K.KD, EFK + 'LiWeil.lean', r'^def LiCoeff\b', 'the programme`s Li coefficient, a sum over the genuine zeros of ζ (kernel)'),
+    ('LiCriterionBridge.li_coeff_eq_taylorCoeff', K.KD, EFK + 'LiCriterionBridge.lean', r'^theorem li_coeff_eq_taylorCoeff\b',
+     'LiCoeff (n + 1) = (taylorCoeff riemannXi n).re (kernel, v0.9)'),
+    ('LiCriterion.taylorCoeff', K.KD, 'Vendored/Bulka/Lc/LiCriterion/Basic.lean', r'^noncomputable def taylorCoeff\b',
+     'the n-th Taylor coefficient at 0 of logDeriv (phi f) (vendored, Bulka)'),
+    ('LiCriterion.phi', K.KD, 'Vendored/Bulka/Lc/LiCriterion/Basic.lean', r'^noncomputable def phi\b', 'phi f z = f (1 / (1 - z)) (vendored)'),
+    ('LiCriterion.riemannXi', K.KD, 'Vendored/Bulka/Lc/LiCriterion/Basic.lean', r'^noncomputable def riemannXi\b',
+     'ξ(s) = ½ s (s − 1) completedRiemannZeta₀ s + ½ (vendored)'),
+    ('Keiper.taylorAt', K.KD, EFK + 'Keiper.lean', r'^def taylorAt\b', 'iteratedDeriv k f a / k! (kernel, b601)'),
+    ('Keiper.xiLogCoeff', K.KD, EFK + 'Keiper.lean', r'^def xiLogCoeff\b', 'taylorAt (logDeriv riemannXi) 1 k (kernel)'),
+    ('Keiper.zetaLogCoeff', K.KD, EFK + 'Keiper.lean', r'^def zetaLogCoeff\b', 'taylorAt (logDeriv riemannZeta₁) 1 k (kernel)'),
+    ('Keiper.gammaRLogCoeff', K.KD, EFK + 'Keiper.lean', r'^def gammaRLogCoeff\b', 'taylorAt (logDeriv Gammaℝ) 1 k (kernel)'),
+    ('Keiper.keiperA', K.KD, EFK + 'Keiper.lean', r'^def keiperA\b', '(-1)^k + zetaLogCoeff k + gammaRLogCoeff k (kernel)'),
+    ('Keiper.keiperSum', K.KD, EFK + 'Keiper.lean', r'^def keiperSum\b', 'SUM_{k <= n} C(n + 1, k + 1) keiperA k (kernel)'),
+    ('Keiper.KeiperTaylor', K.KD, EFK + 'Keiper.lean', r'^def KeiperTaylor\b', 'forall n, taylorCoeff riemannXi n = keiperSum n (kernel)'),
+    ('Keiper.stieltjes', K.KD, EFK + 'Keiper.lean', r'^def stieltjes\b',
+     'the n-th Stieltjes constant, (-1)^n riemannZeta₀^(n)(1) -- a kernel definition by derivative (b601), named'),
+    ('Keiper.stieltjes_zero', K.KD, EFK + 'Keiper.lean', r'^theorem stieltjes_zero\b', 'stieltjes 0 = γ (kernel, from Mathlib`s limit)'),
+    ('Keiper.binomialTransform_holds (K1)', K.KD, EFK + 'KeiperIdentities.lean', r'^theorem binomialTransform_holds\b', 'K1 (kernel, v0.26)'),
+    ('Keiper.logDerivSplit_holds (K2)', K.KD, EFK + 'KeiperIdentities.lean', r'^theorem logDerivSplit_holds\b', 'K2 (kernel, v0.26)'),
+    ('Keiper.stieltjesLog_holds (K3)', K.KD, EFK + 'KeiperIdentities.lean', r'^theorem stieltjesLog_holds\b',
+     'K3: zetaLogCoeff in the Stieltjes constants, coefficient by coefficient (kernel, v0.26)'),
+    ('Keiper.GammaRZetaValues (K4)', K.KD, EFK + 'Keiper.lean', r'^def GammaRZetaValues\b', 'K4: gammaRLogCoeff in ζ(k + 2) -- OPEN since b641'),
+    ('riemannZeta₀', ML_, 'Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean', r'^noncomputable def riemannZeta₀\b', 'Mathlib at de5ce8a9'),
+    ('riemannZeta₁', ML_, 'Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean', r'^noncomputable def riemannZeta₁\b', '1 + (s − 1) riemannZeta₀ s, Mathlib'),
+    ('Gammaℝ', ML_, 'Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean', r'^noncomputable def Gammaℝ\b', 'π^(−s/2) Γ(s/2), Mathlib'),
+    ('riemannZeta_residue_one', ML_, 'Mathlib/NumberTheory/LSeries/RiemannZeta.lean', r'^lemma riemannZeta_residue_one\b', 'b589`s first, Mathlib'),
+    ('tendsto_riemannZeta_sub_one_div', ML_, 'Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean', r'^theorem _root_.tendsto_riemannZeta_sub_one_div\b',
+     'b589`s second (γ as the constant term), Mathlib'),
+    ('Real.eulerMascheroniConstant', ML_, 'Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean', r'def eulerMascheroniConstant\b', 'γ, Mathlib'),
+]
+TRACE_T = [
+    ('B321.plateau', K.KD, EFK + 'TwoPropertyWindow.lean', r'^def plateau\b', 'the plateau, ramp fraction F, half-width L (kernel)'),
+    ('B321.plateau_contDiff', K.KD, EFK + 'TwoPropertyWindow.lean', r'^theorem plateau_contDiff\b', 'C^n for every n (kernel, compiled)'),
+    ('B321.plateau_even', K.KD, EFK + 'TwoPropertyWindow.lean', r'^theorem plateau_even\b', 'even (kernel, compiled)'),
+    ('B321.plateau_eq_one', K.KD, EFK + 'TwoPropertyWindow.lean', r'^theorem plateau_eq_one\b', '1 on [-(1-F)L, (1-F)L] (kernel, compiled)'),
+    ('B321.plateau_support_Icc', K.KD, EFK + 'PowerWindow.lean', r'^theorem plateau_support_Icc\b', 'support in [-L, L] (kernel, compiled)'),
+    ('B321.plateau_nonneg', K.KD, EFK + 'PowerWindow.lean', r'^theorem plateau_nonneg\b', '0 <= plateau (kernel, compiled)'),
+    ('Schema.detectorBase', K.KD, EFK + 'Schema/Detector.lean', r'^def detectorBase\b', 'plateau (1/2) (baseWidth ρ): the detector`s base'),
+    ('Schema.baseWidth', K.KD, EFK + 'Schema/Detector.lean', r'^def baseWidth\b', '1 / (4 (‖γ(ρ)‖ + 1)) -- Detector.lean :33'),
+    ('Schema.half_pos`, half_lt_one`, baseWidth_pos', K.KD, EFK + 'Schema/Detector.lean', r'^theorem baseWidth_pos\b',
+     'the base`s parameter hypotheses, compiled'),
+    ('Zeta23.paperFT', K.KD, 'Zeta23/Defs.lean', r'^def paperFT\b', '∫ f(u) e^{izu} du'),
+    ('Zeta23.gammaOf', K.KD, 'Zeta23/Defs.lean', r'^def gammaOf\b', '(ρ − 1/2) / i'),
+    ('Zeta23.ZeroConfig.strip', K.KD, 'Zeta23/Defs.lean', r'^  strip :', '0 <= Re ρ <= 1 for every configuration point'),
+    ('B321.phiC', K.KD, EFK + 'PairTerm.lean', r'^def phiC\b', 'the real window as a complex function'),
+    ('B321.offScore', K.KD, EFK + 'PowerWindow.lean', r'^def offScore\b', '‖paperFT (phiC g) (gammaOf ρ)‖'),
+    ('B321.paperFT_decay', K.KD, EFK + 'DecayBound.lean', r'^theorem paperFT_decay\b',
+     '‖paperFT (phiC g) z‖ ‖z‖^p <= (∫ |g^(p)|) e^{L |Im z|}, g C^p supported in [-L, L] (kernel, compiled)'),
+    ('B321.gammaOf_re`, gammaOf_im`', K.KD, EFK + 'RestBound.lean', r"^theorem gammaOf_im'", 'Re γ(ρ) = Im ρ, Im γ(ρ) = −(Re ρ − 1/2) (kernel)'),
+    ('Real.smoothTransition', ML_, 'Mathlib/Analysis/SpecialFunctions/SmoothTransition.lean', r'^def smoothTransition\b|smoothTransition \(x : ℝ\)',
+     'Mathlib`s closed-form transition, monotone'),
+]
+FILES_PLANNED = [EFK + 'KeiperFinite.lean', EFK + 'FirstOrderBound.lean']
+
+
+def _trace(rows):
+    out = []
+    for term, repo, f, pat, what in rows:
+        n = None
+        for i, l in enumerate(rd(os.path.join(repo, *f.split('/'))).split(NL), 1):
+            if re.search(pat, l):
+                n = i
+                break
+        out.append((term, '%s :%s' % (f, n) if n else None, what))
+    return out
+
+
+def _stieltjes_search():
+    """the Mathlib search for higher Stieltjes constants, run live at the pin, bounded to Mathlib/ (git grep), printed whole by count and residue."""
+    r = subprocess.run(['git', '-C', ML_, 'grep', '-n', '-i', 'stieltjes', '--', 'Mathlib/*.lean'], capture_output=True, text=True,
+                       encoding='utf-8', errors='replace')
+    hits = [l for l in r.stdout.split(NL) if l.strip()]
+    measure = re.compile(r'stieltjesFunction|Stieltjes (measure|function|outer|transform)|Measure\.Stieltjes|stieltjesOfMeasurableRat|'
+                         r'RatStieltjes|MeasurableStieltjes|stieltjes_id|Stieltjes measures|StieltjesFunction', re.I)
+    residue = [l for l in hits if not measure.search(l)]
+    pin = g(ML_, 'rev-parse', '--short=8', 'HEAD').strip()
+    files = sorted(set(l.split(':', 1)[0] for l in hits))
+    return pin, hits, residue, files
+
+
+def statement(*a):
+    tk, tt = _trace(TRACE_K), _trace(TRACE_T)
+    pin, hits, residue, files = _stieltjes_search()
+    miss = [t for t, w, _x in tk + tt if not w]
+    L = ['b665 -- COMPONENT 2: THE STATEMENTS, (R275)(2)-(3), DRAFTED IN A BANK BEFORE ANY LEAN (%s)' % utc(), '',
+         '### SIDE-explicit-formula at main %s (= v0.29); Mathlib at %s. No Lean file is written before the author`s word on the prompt of '
+         '(R275)(2)-(3); the files planned (the act`s kernel files, read from this bank by tools/b665_worklist.py`s kernel_files()): %s.' % (
+             g(K.KD, 'rev-parse', '--short=7', 'main').strip(), pin, ', '.join(FILES_PLANNED)), '',
+         '=' * 100, '### (I) THE KEIPER FINITE-n EQUALITY, (R275)(2). Planned file SIDEExplicitFormula/KeiperFinite.lean, namespace '
+         'SIDEExplicitFormula.Keiper, importing SIDEExplicitFormula.KeiperIdentities.', '=' * 100, '',
+         '  (K-a) theorem keiperTaylor_holds : KeiperTaylor',
+         '        -- forall n, LiCriterion.taylorCoeff LiCriterion.riemannXi n = keiperSum n, at every n (b601 proved n = 0 only, keiperTaylor_zero).',
+         '  (K-b) theorem liCoeff_succ_eq_keiperSum (n : ℕ) : LiWeil.LiCoeff (n + 1) = (keiperSum n).re',
+         '        -- THE FINITE-n EQUALITY: λ_{n+1} = Re SUM_{k <= n} C(n + 1, k + 1) ((-1)^k + zetaLogCoeff k + gammaRLogCoeff k).', '',
+         '  THE BENCH`S FORM, TRACED (not a separate statement): b589`s Keiper route (relay data/b589_three_way.txt :3) computes λ_N = N SUM_{j=1..N}',
+         '  C(N-1, j-1) η_j with η_j the Taylor coefficients of log ξ at s = 1. With N = n + 1: xiLogCoeff k, the Taylor coefficient of (log ξ)` = ξ`/ξ,',
+         '  is (k + 1) η_{k+1}, and C(n + 1, k + 1) (k + 1) = (n + 1) C(n, k), so SUM_k C(n + 1, k + 1) xiLogCoeff k = N SUM_{j=1..N} C(N-1, j-1) η_j:',
+         '  the bench`s sum term for term. K2 (logDerivSplit_holds) puts xiLogCoeff k = keiperA k, the bench`s three parts: 1/s, (s - 1) ζ(s) and Γℝ.', '',
+         '  THE CONSTANTS. zetaLogCoeff carries the Stieltjes constants through K3 (stieltjesLog_holds: (k + 1) poleCoeff (k + 1) = SUM_i poleCoeff i',
+         '  zetaLogCoeff (k - i), poleCoeff (i + 1) = (-1)^i stieltjes i / i!); stieltjes n is the kernel`s definition by derivative (Keiper.lean :47),',
+         '  named, and stieltjes 0 = γ (stieltjes_zero, through Mathlib`s limit). Mathlib names no higher Stieltjes constant (the search below), and',
+         '  (K-b) needs none by name: they live inside zetaLogCoeff. gammaRLogCoeff carries ζ(k + 2) and log π only through K4 (GammaRZetaValues),',
+         '  OPEN since b641 (relay data/b641_keiper_status.txt (K4)): so the equality is stated in the kernel`s Taylor coefficients, which every',
+         '  term below names, and not in ζ-values -- the prompt puts the choice.', '',
+         '  THE PROOF`S SHAPE: (K-a) from K1 (binomialTransform_holds n) and K2 (logDerivSplit_holds k), the first conjunct of b601`s',
+         '  keiperTaylorIdentity_of (Keiper.lean :133-:137) with its two used fields proved; (K-b) li_coeff_eq_taylorCoeff n, then (K-a) at n.',
+         '  b589`s two lemmas at de5ce8a9 (riemannZeta_residue_one, RiemannZeta.lean :242; tendsto_riemannZeta_sub_one_div, ZetaAsymp.lean :342)',
+         '  enter through the kernel`s stieltjes_zero and the residue of riemannZeta₁ (Keiper.lean :54, :65) -- the γ term, already compiled.', '',
+         '### EVERY TERM, TRACED (H1: a Mathlib name at de5ce8a9 or a named definition):']
+    L += ['  %-48s %s -- %s' % (t, w or '### NOT FOUND', x) for t, w, x in tk]
+    L += ['', '### THE SEARCH FOR HIGHER STIELTJES CONSTANTS IN MATHLIB AT %s (git grep -n -i stieltjes -- Mathlib/*.lean, run live):' % pin,
+          '  hits %d in %d files ; after the measure-theoretic objects (StieltjesFunction, Stieltjes measures, stieltjesOfMeasurableRat, the '
+          'Stieltjes transform) are set aside: %d' % (len(hits), len(files), len(residue))]
+    L += ['    ' + x for x in residue] or ['    NONE -- no Stieltjes constant by name; γ alone, as Real.eulerMascheroniConstant']
+    L += ['', '=' * 100, '### (II) THE TRANSFORM BOUND, (R275)(3) -- b663`s B1 as a kernel lemma. Planned file SIDEExplicitFormula/FirstOrderBound.lean, '
+          'namespace SIDEExplicitFormula.B321, importing SIDEExplicitFormula.PowerWindow.', '=' * 100, '',
+          '  (T-a) theorem plateau_deriv_abs_integral (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) :',
+          '          ∫ u, |deriv (plateau F L hF0 hF1 hL) u| = 2',
+          '        -- the total variation: the rise 0 to 1 and the fall 1 to 0.',
+          '  (T-b) theorem paperFT_plateau_first_order (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (z : ℂ) :',
+          '          ‖Zeta23.paperFT (phiC (plateau F L hF0 hF1 hL)) z‖ * ‖z‖ ≤ 2 * Real.exp (L * |z.im|)',
+          '        -- b663`s derivation line (relay data/b663_epstein_plan.txt :160), |paperFT g0 z| ≤ 2 e^{ℓ|Im z|}/|z|, in product form (no z ≠ 0).',
+          '  (T-c) theorem offScore_plateau_first_order (F L : ℝ) (hF0 : 0 < F) (hF1 : F < 1) (hL : 0 < L) (ρ : ℂ) (h0 : 0 ≤ ρ.re) (h1 : ρ.re ≤ 1) :',
+          '          offScore (plateau F L hF0 hF1 hL) ρ * |ρ.im| ≤ 2 * Real.exp (L / 2)',
+          '        -- B1 at strip points as b663 wrote it (:156, offScore g0 ρ ≤ 2 e^{ℓ/2}/|Im ρ|; the form 2e^{ℓ/2}/|z| at :107).', '',
+          '  THE WINDOW AND ITS HYPOTHESES (H2): the statements range over the kernel`s plateau at every ramp fraction F and half-width L; their',
+          '  hypotheses are the plateau`s own parameter ranges (0 < F < 1, 0 < L), and for (T-c) the strip, which every configuration point',
+          '  carries (ZeroConfig.strip). The detector`s base detectorBase ρ = plateau (1/2) (baseWidth ρ) meets them by the compiled half_pos`,',
+          '  half_lt_one` and baseWidth_pos (Detector.lean); b663`s g0 = plateau (1/2) ℓ at qE0 by the same two and its ℓ > 0. No hypothesis the',
+          '  window does not already satisfy by a compiled lemma.', '',
+          '  THE PROOF`S SHAPE: (T-b) paperFT_decay 1 (DecayBound.lean :63) at plateau_contDiff and plateau_support_Icc, iteratedDeriv 1 = deriv,',
+          '  then (T-a). (T-c) (T-b) at z = gammaOf ρ: |Im γ(ρ)| = |Re ρ − 1/2| ≤ 1/2 (gammaOf_im`), |Im ρ| ≤ ‖γ(ρ)‖ (gammaOf_re`), the lines of',
+          '  zero_weight (PowerLimit.lean :813-:832). (T-a), the substance: on u ≥ 0 the plateau is smoothTransition ((L − u)/(F L)) (the other',
+          '  factor is 1 there), antitone by Mathlib`s smoothTransition monotonicity, so its derivative is ≤ 0 on (0, L); |deriv| is even',
+          '  (plateau_even); the integral is over [−L, L] (the derivative`s support), twice the integral over [0, L] of −deriv, which is',
+          '  plateau 0 − plateau L = 1 − 0 by the fundamental theorem (plateau_eq_one at 0; the support at L).', '',
+          '### EVERY TERM, TRACED (H2: each the kernel`s, compiled, or Mathlib`s):']
+    L += ['  %-48s %s -- %s' % (t, w or '### NOT FOUND', x) for t, w, x in tt]
+    L += ['', '### ### **TERMS TRACED %d ; NOT FOUND %d %s ; STIELTJES HITS %d, CONSTANTS BY NAME %d ; FILES PLANNED %d.**' % (
+        len(tk) + len(tt), len(miss), miss or '', len(hits), len(residue), len(FILES_PLANNED))]
+    if miss:
+        print(NL.join(L[-12:]))
+        sys.exit('### A TERM IS NOT TRACED -- NOTHING WRITTEN')
+    put_txt(K.STATEMENT_BANK + '.txt', L)
+    put_json(K.STATEMENT_BANK + '.json', dict(at=utc(), kernel_main=g(K.KD, 'rev-parse', '--short=7', 'main').strip(), mathlib=pin,
+                                              files=FILES_PLANNED, trace_keiper=tk, trace_bound=tt, stieltjes_hits=len(hits),
+                                              stieltjes_residue=residue))
+    print(NL.join(L[-3:]))
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'statement': statement}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

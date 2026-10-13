@@ -1,0 +1,220 @@
+{
+ "at": "2026-10-13T18:45:02Z",
+ "kernel_main": "d00ab16",
+ "mathlib": "de5ce8a9",
+ "files": [
+  "SIDEExplicitFormula/KeiperFinite.lean",
+  "SIDEExplicitFormula/FirstOrderBound.lean"
+ ],
+ "trace_keiper": [
+  [
+   "LiWeil.LiCoeff",
+   "SIDEExplicitFormula/LiWeil.lean :243",
+   "the programme`s Li coefficient, a sum over the genuine zeros of ζ (kernel)"
+  ],
+  [
+   "LiCriterionBridge.li_coeff_eq_taylorCoeff",
+   "SIDEExplicitFormula/LiCriterionBridge.lean :149",
+   "LiCoeff (n + 1) = (taylorCoeff riemannXi n).re (kernel, v0.9)"
+  ],
+  [
+   "LiCriterion.taylorCoeff",
+   "Vendored/Bulka/Lc/LiCriterion/Basic.lean :541",
+   "the n-th Taylor coefficient at 0 of logDeriv (phi f) (vendored, Bulka)"
+  ],
+  [
+   "LiCriterion.phi",
+   "Vendored/Bulka/Lc/LiCriterion/Basic.lean :395",
+   "phi f z = f (1 / (1 - z)) (vendored)"
+  ],
+  [
+   "LiCriterion.riemannXi",
+   "Vendored/Bulka/Lc/LiCriterion/Basic.lean :1252",
+   "ξ(s) = ½ s (s − 1) completedRiemannZeta₀ s + ½ (vendored)"
+  ],
+  [
+   "Keiper.taylorAt",
+   "SIDEExplicitFormula/Keiper.lean :73",
+   "iteratedDeriv k f a / k! (kernel, b601)"
+  ],
+  [
+   "Keiper.xiLogCoeff",
+   "SIDEExplicitFormula/Keiper.lean :76",
+   "taylorAt (logDeriv riemannXi) 1 k (kernel)"
+  ],
+  [
+   "Keiper.zetaLogCoeff",
+   "SIDEExplicitFormula/Keiper.lean :79",
+   "taylorAt (logDeriv riemannZeta₁) 1 k (kernel)"
+  ],
+  [
+   "Keiper.gammaRLogCoeff",
+   "SIDEExplicitFormula/Keiper.lean :82",
+   "taylorAt (logDeriv Gammaℝ) 1 k (kernel)"
+  ],
+  [
+   "Keiper.keiperA",
+   "SIDEExplicitFormula/Keiper.lean :86",
+   "(-1)^k + zetaLogCoeff k + gammaRLogCoeff k (kernel)"
+  ],
+  [
+   "Keiper.keiperSum",
+   "SIDEExplicitFormula/Keiper.lean :89",
+   "SUM_{k <= n} C(n + 1, k + 1) keiperA k (kernel)"
+  ],
+  [
+   "Keiper.KeiperTaylor",
+   "SIDEExplicitFormula/Keiper.lean :92",
+   "forall n, taylorCoeff riemannXi n = keiperSum n (kernel)"
+  ],
+  [
+   "Keiper.stieltjes",
+   "SIDEExplicitFormula/Keiper.lean :47",
+   "the n-th Stieltjes constant, (-1)^n riemannZeta₀^(n)(1) -- a kernel definition by derivative (b601), named"
+  ],
+  [
+   "Keiper.stieltjes_zero",
+   "SIDEExplicitFormula/Keiper.lean :54",
+   "stieltjes 0 = γ (kernel, from Mathlib`s limit)"
+  ],
+  [
+   "Keiper.binomialTransform_holds (K1)",
+   "SIDEExplicitFormula/KeiperIdentities.lean :197",
+   "K1 (kernel, v0.26)"
+  ],
+  [
+   "Keiper.logDerivSplit_holds (K2)",
+   "SIDEExplicitFormula/KeiperIdentities.lean :295",
+   "K2 (kernel, v0.26)"
+  ],
+  [
+   "Keiper.stieltjesLog_holds (K3)",
+   "SIDEExplicitFormula/KeiperIdentities.lean :358",
+   "K3: zetaLogCoeff in the Stieltjes constants, coefficient by coefficient (kernel, v0.26)"
+  ],
+  [
+   "Keiper.GammaRZetaValues (K4)",
+   "SIDEExplicitFormula/Keiper.lean :107",
+   "K4: gammaRLogCoeff in ζ(k + 2) -- OPEN since b641"
+  ],
+  [
+   "riemannZeta₀",
+   "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean :532",
+   "Mathlib at de5ce8a9"
+  ],
+  [
+   "riemannZeta₁",
+   "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean :536",
+   "1 + (s − 1) riemannZeta₀ s, Mathlib"
+  ],
+  [
+   "Gammaℝ",
+   "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean :43",
+   "π^(−s/2) Γ(s/2), Mathlib"
+  ],
+  [
+   "riemannZeta_residue_one",
+   "Mathlib/NumberTheory/LSeries/RiemannZeta.lean :242",
+   "b589`s first, Mathlib"
+  ],
+  [
+   "tendsto_riemannZeta_sub_one_div",
+   "Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean :342",
+   "b589`s second (γ as the constant term), Mathlib"
+  ],
+  [
+   "Real.eulerMascheroniConstant",
+   "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean :128",
+   "γ, Mathlib"
+  ]
+ ],
+ "trace_bound": [
+  [
+   "B321.plateau",
+   "SIDEExplicitFormula/TwoPropertyWindow.lean :56",
+   "the plateau, ramp fraction F, half-width L (kernel)"
+  ],
+  [
+   "B321.plateau_contDiff",
+   "SIDEExplicitFormula/TwoPropertyWindow.lean :60",
+   "C^n for every n (kernel, compiled)"
+  ],
+  [
+   "B321.plateau_even",
+   "SIDEExplicitFormula/TwoPropertyWindow.lean :69",
+   "even (kernel, compiled)"
+  ],
+  [
+   "B321.plateau_eq_one",
+   "SIDEExplicitFormula/TwoPropertyWindow.lean :90",
+   "1 on [-(1-F)L, (1-F)L] (kernel, compiled)"
+  ],
+  [
+   "B321.plateau_support_Icc",
+   "SIDEExplicitFormula/PowerWindow.lean :247",
+   "support in [-L, L] (kernel, compiled)"
+  ],
+  [
+   "B321.plateau_nonneg",
+   "SIDEExplicitFormula/PowerWindow.lean :261",
+   "0 <= plateau (kernel, compiled)"
+  ],
+  [
+   "Schema.detectorBase",
+   "SIDEExplicitFormula/Schema/Detector.lean :40",
+   "plateau (1/2) (baseWidth ρ): the detector`s base"
+  ],
+  [
+   "Schema.baseWidth",
+   "SIDEExplicitFormula/Schema/Detector.lean :33",
+   "1 / (4 (‖γ(ρ)‖ + 1)) -- Detector.lean :33"
+  ],
+  [
+   "Schema.half_pos`, half_lt_one`, baseWidth_pos",
+   "SIDEExplicitFormula/Schema/Detector.lean :35",
+   "the base`s parameter hypotheses, compiled"
+  ],
+  [
+   "Zeta23.paperFT",
+   "Zeta23/Defs.lean :60",
+   "∫ f(u) e^{izu} du"
+  ],
+  [
+   "Zeta23.gammaOf",
+   "Zeta23/Defs.lean :121",
+   "(ρ − 1/2) / i"
+  ],
+  [
+   "Zeta23.ZeroConfig.strip",
+   "Zeta23/Defs.lean :142",
+   "0 <= Re ρ <= 1 for every configuration point"
+  ],
+  [
+   "B321.phiC",
+   "SIDEExplicitFormula/PairTerm.lean :44",
+   "the real window as a complex function"
+  ],
+  [
+   "B321.offScore",
+   "SIDEExplicitFormula/PowerWindow.lean :328",
+   "‖paperFT (phiC g) (gammaOf ρ)‖"
+  ],
+  [
+   "B321.paperFT_decay",
+   "SIDEExplicitFormula/DecayBound.lean :63",
+   "‖paperFT (phiC g) z‖ ‖z‖^p <= (∫ |g^(p)|) e^{L |Im z|}, g C^p supported in [-L, L] (kernel, compiled)"
+  ],
+  [
+   "B321.gammaOf_re`, gammaOf_im`",
+   "SIDEExplicitFormula/RestBound.lean :145",
+   "Re γ(ρ) = Im ρ, Im γ(ρ) = −(Re ρ − 1/2) (kernel)"
+  ],
+  [
+   "Real.smoothTransition",
+   "Mathlib/Analysis/SpecialFunctions/SmoothTransition.lean :146",
+   "Mathlib`s closed-form transition, monotone"
+  ]
+ ],
+ "stieltjes_hits": 386,
+ "stieltjes_residue": []
+}
