@@ -530,7 +530,7 @@ def readfirst_ok(S):
 
 
 def branches_ok(S):
-    z = S['stepz']
+    z = ' '.join(S['stepz'].split())          # ### the bank hard-wraps through its needles; read with the whitespace collapsed
     return all(v == '' for v in S['push_lists'].values()) and 'deleted push-b662 (was 83306684)' in z \
         and 'deleted push-b662 (was 16be102)' in z and 'push-b662-closing (was 51838723)' in z \
         and 'docstrings-cut-SIDE-carrier-spec (was 55421a3)' in z and '[deleted]' in z

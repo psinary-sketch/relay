@@ -1,0 +1,45 @@
+====================================================================================================
+b663_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+  ### (R263)(3) THE PLANTED ROWS, ONE PER SHAPE A SEALED ROUTE READS, EACH THROUGH THE RECORD TOOL`S READER:
+      score row                                    READ -- ('N3', 'HELD ON THE RE-GRADE', 'a planted score text')
+      score row of H4                              READ -- ('H4', 'HELD ON B1', 'a planted score text')
+      trail head with a backtick possessive        READ -- 3
+      entry title with a backtick possessive       READ -- 3
+      instance bank                                READ -- (True, True, 1, None)
+      control cell with an index                   READ -- ('Q0 AT planted', 'j₀', 38, True)
+      control cell with no index                   READ -- ('THE CONTROL planted', 'NONE ≤ J_max', None, None)
+  ### ### **PLANTED ROWS 7 ; READ 7 ; REFUSED 0.**
+      CONTROL a score row of another shape                                 REFUSED, AS WANTED
+      CONTROL a head the ledger does not carry                             REFUSED, AS WANTED
+      CONTROL an instance bank without its keys                            REFUSED, AS WANTED
+      CONTROL a control cell with no certifications                        REFUSED, AS WANTED
+
+  registration : b663_registration_2026-10-13.txt
+  bytes/lines  : 23297 / 215
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **MEASURED OFF THE FACE AND THE BANKS, NOT TYPED:**
+      ARMS       80
+      READINGS   3
+      EXPECT     8
+      BARS       0
+      TESTS      53
+      QUESTIONS  9
+      DISPATCHES 1
+      MERGES     1
+      CELLS      2
+
+  clauses emitted : 68
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 16**
+  written : b663_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 128f8ec91b509884e58048ccb3e773de4d25da3f3e4576a123112343301bab7f  (b663_registration_2026-10-13.txt)
