@@ -48,7 +48,12 @@ SENT = 'b668_table_SIDE-grh-transfer_sentences.json'
 GRADES = 'b668_sentence_grades.json'
 BANKED_PRINTS = 'data/b555_probe_g2.txt'     # ### the kernel's banked prints: 21 declarations at 858cbf6, each at the standard three
 CUT_BRANCH = 'docstrings-cut-SIDE-grh-transfer'
-TARGET = 'SIDEGRHTransfer'
+# ### the dispatch target: the kernel's 14 modules by name -- the lib SIDEGRHTransfer has no root module (no SIDEGRHTransfer.lean; lakefile
+# ### :17-:19 globs .submodules), so the workflow's print step, which imports each name of the target, can import modules and not the lib
+TARGET = ('SIDEGRHTransfer.CharacterCodim SIDEGRHTransfer.CharacterModular SIDEGRHTransfer.CharacterSpectral SIDEGRHTransfer.CharacterSymmetry '
+          'SIDEGRHTransfer.CharacterTopological SIDEGRHTransfer.CharacterTransfer SIDEGRHTransfer.GRHBridge SIDEGRHTransfer.Voice1Vendored '
+          'SIDEGRHTransfer.Voice2Vendored SIDEGRHTransfer.Voice3Vendored SIDEGRHTransfer.Voice3bVendored SIDEGRHTransfer.Voice5Vendored '
+          'SIDEGRHTransfer.Voice6Vendored SIDEGRHTransfer.Voice7Vendored')
 NEXT_TAG = 'v0.5.1'         # ### the next patch step after v0.5.0 (the kernel's series as its tag list prints it: v0.1.0 ... v0.5.0)
 K_WORKFLOW = None           # ### the commit putting the workflow on the kernel's main, filled at Component 3
 RUNNER = {}                 # ### filled at Component 3

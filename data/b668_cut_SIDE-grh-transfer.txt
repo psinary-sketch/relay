@@ -1,0 +1,23 @@
+b668 -- COMPONENT 3, (R278)(2): SIDE-grh-transfer`S DOCSTRINGS CUT ON THE BRANCH docstrings-cut-SIDE-grh-transfer (2026-10-14T15:13:26Z)
+
+### the grades: relay data/b668_sentence_grades.txt (rows are sentences, parents are blocks; the author`s word at Component 2); the plan:
+### data/b668_cut_plan.txt; one commit per file by the Edit tool, each working file checked against the plan before its commit; the
+### branch from main 858cbf6.
+
+### THE COMMITS (rows are commits, one per file):
+  cf786f8  SIDEGRHTransfer/CharacterTopological.lean        blocks #1, #2                 blob EQUALS THE PLAN ; the comment-stripped diff against main EMPTY
+  e116e8c  SIDEGRHTransfer/GRHBridge.lean                   blocks #3, #4                 blob EQUALS THE PLAN ; the comment-stripped diff against main EMPTY
+  d290b8d  SIDEGRHTransfer/Voice7Vendored.lean              blocks #5, #6                 blob EQUALS THE PLAN ; the comment-stripped diff against main EMPTY
+### the branch`s other commits (not a cut file, each touching one file): NONE
+
+### COMMITS 3 ; FILES IN THE PLAN 3 ; CUT COMMITS TOUCHING ONE FILE 3 ; FAULTS NONE
+
+### THE GRADE BANK RE-RUN AT THE BRANCH (each graded row looked for in its file, whitespace aside):
+  CUT 14, MATCHES 43
+  graded rows still standing: NONE
+### THE CONTROL, the same read at main 858cbf6: MATCHES 43, OVERREACHES (STANDING) 14
+
+### THE KERNEL FILES OF THIS ACT ((R274)(4), read by the suite and the scorer from this bank): ['SIDEGRHTransfer/CharacterTopological.lean', 'SIDEGRHTransfer/GRHBridge.lean', 'SIDEGRHTransfer/Voice7Vendored.lean']
+### A CENSUS ITEM: main 858cbf6 reads `v0.5.0-1-g858cbf6` -- 1 commit(s) past v0.5.0 untagged (858cbf6 v0.1.0: SIDE-frobenius - Frobenius/{2,3} indicial identification of sigma = 1/2); the tag of this act is the next patch step, v0.5.1.
+
+### ### **CUT COMMITS 3 IN 3 FILES ; GRADED ROWS CUT 14 ; STANDING 0 (OVERREACHES 0, UNDERSTATES 0, UNLICENSED 0) ; AT MAIN STANDING 14 ; FAULTS 0.**
