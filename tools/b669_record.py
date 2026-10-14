@@ -556,7 +556,237 @@ def plan(*a):
     print(L[-1])
 
 
-ROUTES = {'repair': repair, 'c1': c1, 'answers': answers, 'plan': plan}
+# ================================================================================ COMPONENT 3: THE ζ-NAMING WALK ON THE BRANCH (b564's pattern)
+ZETA_ID = re.compile(r'\b(?:riemannZeta\w*|completedRiemannZeta\w*|\w*riemannZeta\w*|zeta_\w+|\w+_riemannZeta\w*)\b')   # ### b564_record.py :454
+DECL_RE = re.compile(r'^(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+)?(?:noncomputable\s+)?(theorem|def|abbrev|structure|instance|lemma)\s+([^\s(:{\[]+)', re.M)
+
+
+def _strip_comments(t):
+    t = re.sub(r'/-[\s\S]*?-/', ' ', t)
+    return NL.join(l.split('--', 1)[0] for l in t.split(NL))
+
+
+def _decl_index(rev):
+    """every declaration of the kernel's source trees (SIDEExplicitFormula/, Zeta23/) at `rev`: short name -> [(file, line, code)], the code
+    the comment-stripped text from its head to the next declaration's head."""
+    idx = collections.defaultdict(list)
+    files = [f for f in g(K.KD, 'ls-tree', '-r', '--name-only', rev, '--', 'SIDEExplicitFormula', 'Zeta23').split(NL) if f.endswith('.lean')]
+    for f in files:
+        t = (_show(K.KD, rev, f) or '')
+        heads = [(m.start(), m.group(2)) for m in DECL_RE.finditer(t)]
+        for i, (pos, name) in enumerate(heads):
+            end = heads[i + 1][0] if i + 1 < len(heads) else len(t)
+            idx[name.split('.')[-1]].append((f, t[:pos].count(NL) + 1, _strip_comments(t[pos:end])))
+    return idx
+
+
+def walk(*a):
+    """(R279)(4), H2 and N4: the forward half's proof walked through the kernel's source at the branch tip -- from
+    grh_chi_imp_li_nonneg_chi, every identifier of a declaration's comment-stripped code that names a kernel declaration (by its last
+    component; an over-reach, never an under-reach) followed transitively; each reached declaration read by b564's ζ pattern (ZETA_ID,
+    b564_record.py :454). data/b669_zeta_walk.txt (.json)."""
+    rev = a[0] if a else K.BRANCH
+    idx = _decl_index(rev)
+
+    def _walk(root):
+        seen, queue, order = {root}, [root], []
+        while queue:
+            n = queue.pop(0)
+            for f, ln, code in idx.get(n, []):
+                order.append((n, f, ln, sorted(set(ZETA_ID.findall(code)))))
+                for tok in set(re.findall(r"[A-Za-z_][A-Za-z0-9_'.₀-₉]*", code)):
+                    s = tok.split('.')[-1]
+                    if s in idx and s not in seen:
+                        seen.add(s)
+                        queue.append(s)
+        return order
+    root = 'grh_chi_imp_li_nonneg_chi'
+    order = _walk(root)
+    ctl = _walk('rh_imp_li_nonneg')            # ### the control: ζ's own forward half must reach a ζ-naming declaration
+    ctl_z = [x for x in ctl if x[3]]
+    zn = [x for x in order if x[3]]
+    L = ['b669 -- COMPONENT 3: THE ζ-NAMING WALK OF THE FORWARD HALF AT χ, ON THE BRANCH (%s)' % utc(), '',
+         '### rows are declarations, in the order the walk reaches them: from %s at %s (%s), every identifier of a reached declaration`s '
+         'comment-stripped code that is a kernel declaration`s name (SIDEExplicitFormula/, Zeta23/; matched by its last component, so a '
+         'shared short name over-reaches and never under-reaches) followed; each reached declaration read by b564`s ζ pattern %r.' % (
+             root, rev, g(K.KD, 'rev-parse', '--short=7', rev).strip(), ZETA_ID.pattern), '']
+    L += ['  %-48s %s:%d %s' % (n, f, ln, ('ζ-NAMING ' + ', '.join(z[:4])) if z else '') for n, f, ln, z in order]
+    L += ['', '### THE CONTROL: the same walk from LiWeil.rh_imp_li_nonneg (ζ`s forward half) reaches %d declarations, ζ-naming %d -- %s; the '
+          'matcher fires where ζ is consumed.' % (len(ctl), len(ctl_z), ', '.join('%s %s:%d %s' % (n, f, ln, z[:2]) for n, f, ln, z in ctl_z[:4]) or '### NONE')]
+    L += ['', '### ### **DECLARATIONS REACHED %d ; ζ-NAMING %d%s ; THE CONTROL %d.**' % (
+        len(order), len(zn), (' -- ' + ', '.join(sorted(set(x[0] for x in zn)))) if zn else '', len(ctl_z))]
+    put_txt('b669_zeta_walk.txt', L)
+    put_json('b669_zeta_walk.json', dict(at=utc(), rev=rev, root=root, reached=len(order), zeta=[dict(name=n, file=f, line=ln, ids=z) for n, f, ln, z in zn],
+                                         order=[[n, f, ln] for n, f, ln, _z in order]))
+    print(L[-1])
+
+
+# ================================================================================ COMPONENT 3: THE RUNNER (b668's, carried; no banked prints for
+# ================================================================================ the act's new names, so every print is read at the standard three)
+STD3 = {'propext', 'Classical.choice', 'Quot.sound'}
+ERR_RE = re.compile(r'^(?:error: )?(\S+\.lean):(\d+):(\d+): error: (.*)$', re.M)
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def runner(*a):
+    """`runner <run id> <ref> <workflow commit> [<branch>]`: the run read by its id; the artifact listed, downloaded by its id into memory, its
+    sha256 against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP; every
+    print of print_targets.txt at the ref read at the standard three or none, sorryAx named. Banked as data/b669_runner_<kernel>[_<tag>].txt
+    and a row of data/b669_runner_rows.json (rows keyed by run id; an earlier run's row kept)."""
+    import hashlib
+    import zipfile
+    import b569_record as R9
+    run_id, ref, wfc = int(a[0]), a[1], a[2]
+    branch = a[3] if len(a) > 3 else K.BRANCH
+    kern = K.KERNEL
+    repo = 'psinary-sketch/' + kern
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    pt = [l.strip() for l in (_show(K.KD, ref, 'print_targets.txt') or '').split(NL) if l.strip()]
+    row = dict(kernel=kern, branch=branch, ref=ref, target=None, run_id=run_id, conclusion=run.get('conclusion'),
+               artifact_sha256=None, mem_low=None, stopped=False, gate=None, merged=None, tag=None)
+    L = ['b669 -- COMPONENT 3, (R279)(4): THE HOSTED RUNNER FOR %s, READ BY ITS RUN ID (%s)' % (kern, utc()), '',
+         '### the workflow on main: %s (build-module.yml, b658`s form; the print step imports each module of the target)' % wfc,
+         '### print_targets.txt at the ref: %d names' % len(pt),
+         '### the dispatch: at main, the ref input %s (the tip of %s)' % (ref, branch),
+         '### the run: id %s ; %s ; %s %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('workflowName'), run.get('event'), run.get('status'), run.get('conclusion'), run.get('headSha'),
+             run.get('headBranch'), run.get('createdAt'), run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        row['artifact_sha256'] = sha
+        L.append('### the artifact: id %s ; name %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else ('### DIFFER' if digest else 'no digest to compare -- NOTHING READ FROM IT')))
+        if not digest or digest != sha:
+            row['artifact_sha256'] = None
+        else:
+            with zipfile.ZipFile(io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    stops = [l for l in mem.split(NL) if l.startswith('STOP ')]
+    row['stopped'] = bool(stops)
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip()
+    errs = [(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4)) for m in ERR_RE.finditer(blog)]
+    P = dict((k_, sorted(v_)) for k_, v_ in R9.prints_axioms(T_.get('axioms.txt', '')).items())
+    axerr = [l for l in T_.get('axioms.txt', '').split(NL) if ': error' in l]
+    row['target'] = ' '.join(T_.get('ref.txt', '').split()[:1]) and None
+    gate_rows = []
+    for n in pt:
+        ax = P.get(n)
+        if ax is None:
+            gate_rows.append((n, ax, '### NOT PRINTED'))
+        elif 'sorryAx' in ax:
+            gate_rows.append((n, ax, 'SORRYAX'))
+        else:
+            gate_rows.append((n, ax, 'STANDARD THREE OR NONE' if set(ax) <= STD3 else '### OUTSIDE THE STANDARD THREE'))
+    good = [r for r in gate_rows if r[2] == 'STANDARD THREE OR NONE']
+    ok = (run.get('conclusion') == 'success' and row['artifact_sha256'] and bexit == '0' and not errs and not stops and row['mem_low'] is not None
+          and row['mem_low'] >= K.HOLD and len(pt) > 0 and len(good) == len(pt) and not axerr)
+    row['gate'] = 'DERIVES' if ok else ('STOPPED BENEATH THE HOLD' if stops else 'NOT DERIVES')
+    row['errors'] = [list(e) for e in errs]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: samples %d ; LOW %s MB ; the hold %d ; STOP lines %s' % (
+              len([l for l in mem.split(NL) if 'avail_mb=' in l]), row['mem_low'], K.HOLD, stops or 'NONE'),
+          '### the build: exit %s ; error lines %d ; the log`s last lines:' % (bexit or '### UNREAD', len(errs))] + \
+        ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + ['    %s:%d:%d: %s' % e for e in errs[:40]] + [
+          '### the print step: error lines %d%s ; names refused %s' % (len(axerr), (' -- ' + ' | '.join(axerr[:4])) if axerr else '',
+                                                                       T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### THE GATE READING PER TERMINAL (no banked print for the act`s new names: each read at the standard three or none, sorryAx named):'] + \
+        ['  %-58s %-44s %s' % (n, ax if ax is not None else '### NOT PRINTED', v) for n, ax, v in gate_rows] + [
+          '', '### ### **RUN %s ; CONCLUSION %s ; ARTIFACT SHA256 %s ; MEMORY LOW %s MB (HOLD %d) ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS %d, PRINTED %d, '
+          'AT THE STANDARD THREE OR NONE %d, SORRYAX %d ; GATE %s.**' % (
+              run_id, run.get('conclusion'), (row['artifact_sha256'] or '### NONE')[:16], row['mem_low'], K.HOLD, bexit or '### UNREAD', len(errs),
+              len(pt), sum(1 for r in gate_rows if r[1] is not None), len(good), sum(1 for r in gate_rows if r[2] == 'SORRYAX'), row['gate'])]
+    tag = 'run%d' % run_id
+    put_txt('b669_runner_%s_%s.txt' % (kern, tag), L)
+    if row['artifact_sha256']:
+        put_txt('b669_axioms_%s.txt' % tag, T_.get('axioms.txt', '').rstrip(NL).split(NL))
+        put_txt('b669_build_log_%s.txt' % tag, blog.rstrip(NL).split(NL))
+    j = jl('b669_runner_rows.json') if os.path.isfile(os.path.join(D, 'b669_runner_rows.json')) else {}
+    rows = [r for r in (j.get('rows') or []) if r.get('run_id') != run_id] + [row]
+    gr = dict(j.get('gate_rows') or {})
+    gr[str(run_id)] = [list(r) for r in gate_rows]
+    put_json('b669_runner_rows.json', dict(rows=rows, gate_rows=gr, workflow_commit=wfc))
+    print(L[-1])
+    for e in errs[:20]:
+        print('  ERROR %s:%d:%d: %s' % e)
+
+
+# ================================================================================ COMPONENT 3: THE LANDING, ONE ROW PER DECLARATION
+def _sorry_lines(rev, f):
+    t = _show(K.KD, rev, f) or ''
+    return [i for i, l in enumerate(t.split(NL), 1) if re.search(r'(?<![A-Za-z_])sorry(?![A-Za-z_])', l.split('--', 1)[0])]
+
+
+def landing(*a):
+    """`landing <run id> <ref>`: each print target of the run's ref landed on its own reading -- DERIVES (printed, at the standard three or
+    none, the build clean), COMPILED, PROOF OPEN (printed with sorryAx; the obstruction: the declaration's own `sorry` by file and line,
+    else the first `sorry` of a declaration of the same file its code names), NOT COMPILED (not printed; the first error line). Each row
+    read back through read_landing_row. data/b669_chi_li_landing.txt (.json; file_list the act's kernel files)."""
+    run_id, ref = a[0], a[1]
+    j = jl('b669_runner_rows.json')
+    rr = [r for r in j.get('rows') or [] if str(r.get('run_id')) == run_id][0]
+    gate_rows = j['gate_rows'][run_id]
+    idx = _decl_index(ref)
+    errs = rr.get('errors') or []
+    rows = []
+    for n, ax, v in gate_rows:
+        short = n.split('.')[-1]
+        loc = [(f, ln, code) for f, ln, code in idx.get(short, []) if f.startswith('SIDEExplicitFormula/')]
+        f, ln, code = loc[0] if loc else ('?', 0, '')
+        if v == 'STANDARD THREE OR NONE' and rr.get('artifact_sha256') and not errs:
+            rows.append(dict(name=n, landing='DERIVES', axioms=ax, file=f, line=ln, obstruction=None))
+        elif v == 'SORRYAX':
+            own = [x for x in _sorry_lines(ref, f) if ln <= x < ln + code.count(NL) + 1]
+            if own:
+                ob = dict(file=f, line=own[0], why='its own sorry')
+            else:
+                called = [s for s in set(re.findall(r"[A-Za-z_][A-Za-z0-9_'.]*", code)) if s.split('.')[-1] in idx and s.split('.')[-1] != short]
+                cand = []
+                for s in called:
+                    for f2, ln2, code2 in idx[s.split('.')[-1]]:
+                        cand += [(f2, x, s.split('.')[-1]) for x in _sorry_lines(ref, f2) if ln2 <= x < ln2 + code2.count(NL) + 1]
+                cand.sort()
+                ob = dict(file=cand[0][0], line=cand[0][1], why='the sorry of %s, which its proof names' % cand[0][2]) if cand else dict(file=f, line=ln, why='sorryAx printed; no sorry line found')
+            rows.append(dict(name=n, landing='COMPILED, PROOF OPEN', axioms=ax, file=f, line=ln, obstruction=ob))
+        else:
+            e0 = errs[0] if errs else [f, ln, 0, v]
+            rows.append(dict(name=n, landing='NOT COMPILED', axioms=ax, file=f, line=ln, obstruction=dict(file=e0[0], line=int(e0[1]), why=str(e0[3])[:200])))
+    for r in rows:
+        read_landing_row(r)
+    c = collections.Counter(r['landing'] for r in rows)
+    L = ['b669 -- COMPONENT 3, (R279)(4): EACH DECLARATION LANDED ON ITS OWN READING (%s)' % utc(), '',
+         '### rows are declarations: the name, its landing, its file and line at %s (%s), its printed axioms, and where open the obstruction by '
+         'file and line. The run: %s (relay data/b669_runner_%s_run%s.txt).' % (ref[:8], K.BRANCH, run_id, K.KERNEL, run_id), '']
+    for r in rows:
+        L.append('  %-58s %-22s %s:%s  %s' % (r['name'], r['landing'], r['file'], r['line'], r['axioms']))
+        if r['obstruction']:
+            L.append('  %-58s %-22s OBSTRUCTION %s:%s (%s)' % ('', '', r['obstruction']['file'], r['obstruction']['line'], r['obstruction']['why']))
+    L += ['', '### ### **DECLARATIONS %d ; %s.**' % (len(rows), ' ; '.join('%s %d' % kv for kv in sorted(c.items())))]
+    files = sorted(set(r['file'] for r in rows if r['file'] != '?'))
+    put_txt('b669_chi_li_landing.txt', L)
+    put_json('b669_chi_li_landing.json', dict(at=utc(), run_id=int(run_id), ref=ref, rows=rows, file_list=files))
+    print(NL.join(L[3:]))
+
+
+ROUTES = {'repair': repair, 'c1': c1, 'answers': answers, 'plan': plan, 'walk': walk, 'runner': runner, 'landing': landing}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
