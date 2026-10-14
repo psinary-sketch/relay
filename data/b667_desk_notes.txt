@@ -1,0 +1,76 @@
+========================================================================================================
+b667 -- THE DESK.
+========================================================================================================
+
+  **(N1)** ### **HELD.** -- commands of this act that run lean or lake on this host: [] (relay data/b667_commands.txt); no kernel file written (N5`s kernel reading)
+  **(N2)** ### **HELD.** -- the plan raised and answered (23:41:13Z) before the first certify run (03:40:02Z); 7 prompts in all, the last answered (03:51:42Z) before the run that counted (03:55:26Z); the two obstructions measured and ruled before any Q0 point -- (3a) the Bessel rung, (3b) the derivative bound for the enclosure, (3c) the right edge by the tail bound, (3d) T4 restated -- each term`s bound and source in the plan`s sections 2, 11, 14 and 16; the plan`s first claim that no term was unbounded unmeasured (relay data/b667_defects.txt (b))
+  **(N3)** ### **HELD.** -- relay data/b667_epstein_counts.txt: C1 (ζ`s three squares 1, 1, 1 and its region 3), C2 (the shifted point`s count ball not containing 1) and C3 (UNLISTED 1 against the list less one) print as fixed, each before the first Q0 square; found True, True, True ; the squares at 8410
+  **(N4)** ### **NOT SCORABLE.** -- H1 HELD ; H2 HELD (every point at count 1) ; H4 NOT SCORABLE on the balls ((R277)(6a); relay data/b667_h4_reading.txt) -- READING Q0 AT qE0: HYP-UNVERIFIED(hQtie) ; H4 NOT SCORABLE -- no j₀ at Q0 ; THE CONTROL REPRODUCED (j₀ = 31, the zero side below 0)
+  **(N5)** ### **HELD.** -- nothing deposits: the deposit route untouched (draft 23228113, v5, unsubmitted); every kernel`s main, tags, branches and status as the face read them True (no kernel main written); standing arms added: NONE (the act`s arms over its own banks 13); sealed tools not agreeing NONE; PLACE-papers beyond FINDINGS and OPEN_TRAILS: NONE; relay files of a kind beyond the scripts, the banks, the record lines` dated lines (b663`s control bank, b627`s precision bank), the root list and b666`s push-out bank: NONE; b326`s banks changed: NONE; no identifier of the author in any outbound request (git pushes and remote reads alone)
+  **(S1)** ### **HELD.** -- the table at the end against relay HEAD`s: moved 0, gone 0, added 0, grade moved 0
+  **(S2)** ### **HELD.** -- the root recomputed equal, the one-byte control moving it, the root order holding locally
+  **(S3)** ### **HELD.** -- the sealed tools` hashes {'agree': 10}
+
+b667 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-13): THE SUCCESSOR OF data/b666_defects.txt
+
+### CARRIED FROM b666: none open. b666's (a)-(d) were the seat's and closed there.
+
+### THE ACT'S OWN. Rows are lettered defects, each with its owner and the line that shows it.
+    (a) THE SEAT'S: TWO REPOSITORY-MUTATING CALLS SENT IN PARALLEL. At Component 1 the PLACE-papers commit of the record line (3f14824) and
+    the relay commit of its bank were sent as two calls in one turn; the relay call failed ("pathspec 'data/b667_record_lines.json' did not
+    match any files") though the bank was on disk, and was re-sent alone (bb79bb54). b663's lesson (one repo-mutating call at a time) not
+    kept; nothing lost, the record line landed once at FINDINGS :8647.
+    (b) THE SEAT'S: THE PLAN SAID NO TERM WAS UNBOUNDED WITHOUT MEASURING THE TERM AT THE RULED PRECISION. relay data/b667_epstein_plan.txt
+    section 9 read "In the route raised, none: T1-T3 are Arb balls", true of validity and untested for width. A scratch probe after the
+    author's word (no banked point read) found acb.bessel_k useless at order ≈ 0.2 + 149.3i for x ≈ 105-272 at 200 bits; measured by
+    tools/b667_bessel_probe.py (relay data/b667_bessel_obstruction.txt), the route cannot bound T3 above height 120 at 400 bits. Entered as
+    the plan's section 12 and raised to the author before any zero was counted; the plan's prompt had offered the route on that unmeasured
+    claim.
+    (c) THE NAVIGATOR'S (the author's word on the Bessel prompt, relay data/b667_author_answers.txt): the wording "the ruled precision" in
+    (R277)(3) -- 200 bits with the 400-bit rung -- did not anticipate the Bessel factor of the Chowla-Selberg route, which needs 600 bits
+    above height 120. Resolved by (R277)(3a): a 600-bit rung for that factor alone, entered beneath relay data/b627_margin_inputs.txt.
+    (d) THE SEAT'S: THE PLAN'S SEGMENT ENCLOSURE ASSUMED ARB'S BALL PROPAGATION THROUGH THE BESSEL FACTOR WITHOUT MEASURING IT; AND THE
+    SCRIPT FORMED THE BESSEL ARGUMENT AT 200 BITS. relay data/b667_epstein_plan.txt section 5 said "F evaluated on that ball (the route of
+    section 2 with ball input) encloses F on the whole segment" -- true and useless: T3's ball is 10^56-10^81 times r·|Z_Q'| (relay
+    data/b667_ball_obstruction.txt). The written script (tools/b667_epstein_certify.py, read back whole, not run) also formed x = π√23 m at
+    200 bits before a 600-bit Bessel call, so the rung could not tighten the factor. Both found by a scratch smoke test at points holding no
+    banked zero, before the run; entered as the plan's section 14 and raised; the script not run.
+    (e) THE SEAT'S: TWO OF THE THREE (3b) CHECK POINTS NAMED OUTSIDE T4'S DOMAIN. The seat named (1.5, 100.0) and (−0.5, 147.5) on the
+    region's σ-edges; a ball of radius 1e-6 in both directions there reaches |σ − ½| > 1, where T4's bound (plan 11.2 (d), |μ| ≤ 1) does not
+    apply, and the script's guard stopped the first run at the second point after two comparisons held (relay data/b667_certify_run1.txt).
+    Re-named, before the second run, to three grid points on σ = ½ -- (0.5, 40.0), (0.5, 100.0), (0.5, 147.5), one in each precision regime
+    of relay data/b667_bessel_obstruction.txt (200, 400, 600 bits) -- the plan's section 15 amended by a dated line; nothing else changed.
+    (f) THE SEAT'S: T4'S BOUND WRITTEN FOR |μ| ≤ 1 ON A REGION WHOSE EDGE IS |μ| = 1. The plan's 11.2 (d) took cosh(au) ≤ e^{u} for |a| ≤ 1;
+    the region R and the band B end at σ = 3/2, where |μ| = 1 exactly, and a horizontal segment's enclosing ball there has its σ-radius
+    rounded upward, so |μ| passes 1 by a rounding. The second run stopped at R's bottom edge after (3b), V1-V3, C1 and C2 had printed (relay
+    data/b667_certify_run2.txt). The same derivation keeping |μ| gives a bound for |μ| ≤ 2 (plan section 16); raised before a third run.
+    (g) THE SEAT'S: AN ADDED TAIL TEST WHOSE INSTRUMENT FLOOR SAT ABOVE ITS BAR (b505's trap, "the fixture bar above the bank floor"). To
+    (3d)'s ruled comparison (the longer sum inside the ball) the seat added "the terms M + 1 ... 2M ≤ T4's bound" as a pass condition, read
+    as the upper end of |S_2M − S_M| -- a difference of two 800-bit sums each carrying a radius near 1e-72, against a bound of 2.7e-83 at
+    (1.5, 40.0). It could not pass, and the third run stopped on it with the ruled comparison holding at all three points (relay
+    data/b667_certify_run3.txt). Repaired before the fourth run: the tail summed directly over m = M + 1 ... 2M at 800 bits (no difference
+    of full sums), read in three states -- BELOW (its upper end at or under the bound), NOT DECIDED (the ball straddles the bound), ABOVE (its
+    lower end over the bound, which stops the act) -- and the pass condition the author's alone, every longer sum inside its ball.
+    (h) THE NAVIGATOR'S (the author's word on H4, (R277)(6a), relay data/b667_author_answers.txt): the squares' half-width 10⁻¹² was fixed
+    in the squares answer without reading the map's input tolerance; the map raises the dominant's phase to 2²⁵ and beyond, so at that width
+    hQtie reads 0 of 41 and H4 is NOT SCORABLE on the balls (relay data/b667_h4_reading.txt). Carried as W-ORD-EPSTEIN-BALL-WIDTH.
+    (i) THE SEAT'S: A STRAY `sed -i` IN A COMMAND. While searching the record tool for the landing-list pads the seat sent a Bash command that
+    opened with `sed -i.x 's/x/x/' /dev/null` before its grep: an in-place sed form the ferry forbids ("not sed"), aimed at /dev/null, so it
+    wrote no file (no .x backup made; relay`s status shows no change from it). It stands in the act`s command capture, and tools/edit_route.py
+    reads it; G-EDIT-ROUTE is expected to read it as an offence, declared on the face rather than hidden.
+    (j) THE SEAT'S: THREE OF THE SUITE'S OWN READS WRONG AT THE FIRST PRERUN. G-DRY-STEP-CLEAN raised KeyError (the gate's record not among the
+    suite's sources); G-PLAN-BEFORE-NUMBER asked every prompt to precede the run that counted, though the large banks' and H4's prompts
+    necessarily follow it (the record tool's N2 carried the same test); G-MAP-ON-BALLS looked for "hQtie 0 of 41" where the reading bank says
+    "controls 0 of 41". Each repaired by the Edit tool before the seal -- the gate's record added, the route's prompts alone read against the
+    count, the bank's own words -- and the prerun run again (relay data/b667_arms_prerun.txt holds the second run). A dry check of the entry
+    before the gate found a fourth of the same kind: the entry read the Bessel-factor total from data/b667_bessel_rungs.txt, which the large
+    banks' answer had gzipped, and printed " ? "; repaired to read the summary bank's own total line, the dry check then CLEAN.
+    (k) THE NAVIGATOR'S (the author's word on the root, relay data/b667_author_answers.txt): the .gz form of the large banks was fixed in the
+    large-banks answer without reading the root tool's rule; the two .gz hold the byte pair CR LF by chance in their compressed data, and both
+    the sealed record tool's root route and tools/act_root.py compute --write refuse a named bank holding it (the b644 rule, written for text
+    banks). The root taken by act_root.py over the record tool's list less the two .gz (relay data/b667_root_list.txt); W-ORD-ROOT-BINARY-BANK
+    entered.
+    (l) THE SEAT'S: N2'S PRINTED TEXT COUNTS EVERY CALL BUT TIMES THE ROUTE'S LAST. The sealed scorer prints "7 prompts in all, the last answered
+    (03:51:42Z) before the run that counted"; 03:51:42Z is the last route prompt's answer, and the large banks' and H4's prompts were answered
+    after the count, as the repaired test intends. The verdict reads the route's prompts alone and is right; the sentence's "the last" means
+    the route's last. Not editable after the seal; entered here.

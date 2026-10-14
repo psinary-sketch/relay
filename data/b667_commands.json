@@ -1,5 +1,5 @@
 {
- "at": "2026-10-14T13:32:39Z",
+ "at": "2026-10-14T14:03:49Z",
  "anchor": "RULING (R277) BEGIN",
  "rows": [
   {
@@ -1219,6 +1219,272 @@
    "src": "seat",
    "cmd": "cd /d/relay && python -X utf8 tools/b667_record.py answers | tail -1 && git add data/b663_epstein_control.txt data/b667_defects.txt data/b667_hypotheses.txt data/b667_hypotheses.json data/b667_landing.json data/b667_scanfile_landing.md data/b667_author_answers.txt data/b667_author_answers.json tools/b667_record.py tools/b667_checks.py && git commit -q -m \"b667 Component 5, under (R277)(6) and (6a): the dated line beneath b663's control (the points ball-certified, the control on the balls NOT SCORABLE); H1-H3 and H5 HELD, H4 NOT SCORABLE, by printed line; the landing bank (OPEN_TRAILS :14262, :14264, :14266); defects (h) the navigator's, (i) the seat's stray sed; the record and suite read (6a)\" && git log --oneline -1",
    "n": 174
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:32:38.754Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b667_record.py commands && python -X utf8 tools/b667_record.py kernels && python -X utf8 tools/b667_record.py defects && grep -A12 \"THE OFFENDING COMMANDS\" data/b667_commands.txt | cut -c1-200",
+   "n": 175
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:32:50.950Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format=\"%h %s\" d43a72f9..HEAD | cut -c1-150; echo ===; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format=\"%h %s\" c143bcb..HEAD | cut -c1-150",
+   "n": 176
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:34:29.165Z",
+   "src": "seat",
+   "cmd": "git add data/b667_registration_2026-10-14.txt data/b667_commands.txt data/b667_commands.json data/b667_kernels_face.json data/b667_defects.json && git commit -q -m \"b667 face draft: the registration drafted after Components 0-5; the commands bank, the kernels face, the defects json\" && git log --oneline -1",
+   "n": 177
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-14T13:34:38.070Z",
+   "src": "seat",
+   "cmd": "$sp='C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad'; Start-Process python -ArgumentList '-X','utf8','tools/b667_checks.py','--prerun' -WorkingDirectory 'D:\\relay' -RedirectStandardOutput \"$sp\\b667_prerun.log\" -RedirectStandardError \"$sp\\b667_prerun.err\" -WindowStyle Hidden -PassThru | Select-Object Id",
+   "n": 178
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:34:45.584Z",
+   "src": "seat",
+   "cmd": "S=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad\"; while ! grep -q \"written: b667_arms_prerun\" \"$S/b667_prerun.log\" 2>/dev/null; do if ! tasklist //FI \"PID eq 9756\" | grep -q 9756; then echo \"PROCESS GONE\"; break; fi; sleep 30; done; echo \"WAITER END\"",
+   "n": 179
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:47:00.894Z",
+   "src": "seat",
+   "cmd": "cat \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/bmnkx1x07.output\"; grep -n \"FAIL\\|raised\\|ARMS RUN\\|POSITIVE-CONTROL\\|arms in the\\|declared not\\|run not\\|FREEZE\\|took\" data/b667_arms_prerun.txt | cut -c1-220; tail -3 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b667_prerun.err\"",
+   "n": 180
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:47:11.785Z",
+   "src": "seat",
+   "cmd": "timeout 200 python -X utf8 -c \"\nimport sys,re; sys.path.insert(0,'tools')\nimport b667_checks as CH\nS={'answj':CH.jl('b667_author_answers.json').get('calls'),'answers':CH.rd('b667_author_answers.txt'),'plan':CH.rd('b667_epstein_plan.txt'),'runs':[CH.rd('b667_certify_run%d.txt'%i) for i in (1,2,3)],'counts':CH.rd('b667_epstein_counts.txt')}\nts=[CH.iso_epoch((c.get('result_ts') or '')[:19]+'Z') for c in S['answj']]\nprint('ts',ts); print('runs', CH._run_epochs(S), CH._first_count_epoch(S))\nprint('(Route)' in S['answers'], '== 2. THE EVALUATION ROUTE (RAISED)' in S['plan'])\nm=CH.rd('b667_epstein_control_balls.txt'); h=CH.rd('b667_h4_reading.txt')\nprint('READING Q0 AT qE0: HYP-UNVERIFIED(hQtie)' in m, re.search(r'^\\s*H4 NOT SCORABLE', m, re.M) is not None, 'THE CONTROL REPRODUCED (' in m, 'hQtie 0 of 41' in ' '.join(h.split()), CH.map_unchanged_but_literals())\n\"",
+   "n": 181
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:47:43.185Z",
+   "src": "seat",
+   "cmd": "timeout 200 python -X utf8 -c \"\nimport sys,re; sys.path.insert(0,'tools')\nimport b667_checks as CH, b667_record as R\nS={'answj':CH.jl('b667_author_answers.json').get('calls'),'answers':CH.rd('b667_author_answers.txt'),'plan':CH.rd('b667_epstein_plan.txt'),'runs':[CH.rd('b667_certify_run%d.txt'%i) for i in (1,2,3)],'counts':CH.rd('b667_epstein_counts.txt'),'cmap':CH.rd('b667_epstein_control_balls.txt'),'h4read':CH.rd('b667_h4_reading.txt'),'mapdiff':CH.map_unchanged_but_literals()}\nprint('route calls', CH._route_calls(S['answers']))\nprint('plan', CH.plan_before_number(S), 'map', CH.map_ok(S))\nprint(R._n2()[0], R._n3()[0], R._n4()[0])\n\"",
+   "n": 182
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-14T13:48:02.127Z",
+   "src": "seat",
+   "cmd": "$sp='C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad'; Start-Process python -ArgumentList '-X','utf8','tools/b667_checks.py','--prerun' -WorkingDirectory 'D:\\relay' -RedirectStandardOutput \"$sp\\b667_prerun2.log\" -RedirectStandardError \"$sp\\b667_prerun2.err\" -WindowStyle Hidden -PassThru | Select-Object Id",
+   "n": 183
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:48:09.228Z",
+   "src": "seat",
+   "cmd": "S=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad\"; while ! grep -q \"written: b667_arms_prerun\" \"$S/b667_prerun2.log\" 2>/dev/null; do if ! tasklist //FI \"PID eq 42480\" | grep -q 42480; then echo \"PROCESS GONE\"; break; fi; sleep 30; done; echo \"WAITER END\"",
+   "n": 184
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:48:16.883Z",
+   "src": "seat",
+   "cmd": "timeout 300 python -X utf8 tools/b667_record.py drycheck data/b667_registration_2026-10-14.txt standin 2>&1 | tail -8 | cut -c1-300",
+   "n": 185
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:48:38.168Z",
+   "src": "seat",
+   "cmd": "timeout 300 python -X utf8 tools/b667_record.py findings dry standin 2>&1 | grep -n \" ? \" | cut -c1-300",
+   "n": 186
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:48:58.484Z",
+   "src": "seat",
+   "cmd": "timeout 300 python -X utf8 tools/b667_record.py findings dry standin 2>&1 | sed -n 15p | grep -o \".\\{60\\} ? .\\{40\\}\"",
+   "n": 187
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:49:22.487Z",
+   "src": "seat",
+   "cmd": "grep -n \"b667_bessel_rungs.txt'\" tools/b667_record.py tools/b667_closing.py tools/b667_checks.py; timeout 300 python -X utf8 tools/b667_record.py drycheck data/b667_registration_2026-10-14.txt standin 2>&1 | tail -1",
+   "n": 188
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:49:53.016Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b667_record.py defects",
+   "n": 189
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:56:49.107Z",
+   "src": "seat",
+   "cmd": "grep -n \"raised\\|ARMS RUN\\|POSITIVE-CONTROL\" data/b667_arms_prerun.txt | cut -c1-600",
+   "n": 190
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:56:56.069Z",
+   "src": "seat",
+   "cmd": "timeout 500 python -X utf8 tools/b667_reg_gate.py 2>&1 | grep -n \"exit code\\|fixtures\\|MISSES\\|UNDECLARED\\|DRY-RUN STEP\\|GATE VERDICT\\|FAIL\\|missing\" | cut -c1-300",
+   "n": 191
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:57:15.789Z",
+   "src": "seat",
+   "cmd": "timeout 580 python -X utf8 tools/b667_record.py gatebanks 2>&1 | cut -c1-250; grep -n \"line \\|PREDICTIONS FOUND\\|PLANTED ROWS\\|CONTROL\" data/b667_regspec_run.txt | cut -c1-200",
+   "n": 192
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:57:24.948Z",
+   "src": "seat",
+   "cmd": "sed -n '105p;210p' data/b667_registration_2026-10-14.txt",
+   "n": 193
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:57:31.762Z",
+   "src": "seat",
+   "cmd": "timeout 500 python -X utf8 tools/b667_reg_gate.py 2>&1 | grep \"UNDECLARED\\|DRY-RUN STEP : \\|GATE VERDICT\" | cut -c1-200 && timeout 580 python -X utf8 tools/b667_record.py gatebanks 2>&1 | cut -c1-200",
+   "n": 194
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:57:55.270Z",
+   "src": "seat",
+   "cmd": "grep -n \"b378_lockgate\\|reg_seal.py --lock\\|reg_seal.py --verify\\|checks.py --seal\" data/b666_commands.txt | cut -c1-260",
+   "n": 195
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:58:00.814Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b378_lockgate.py b667 data/b667_registration_2026-10-14.txt 2>&1 | grep \"GATES READ\\|VERDICT\" && python -X utf8 tools/reg_seal.py --lock data/b667_registration_2026-10-14.txt 2>&1 | tail -3 && python -X utf8 tools/reg_seal.py --verify data/b667_registration_2026-10-14.txt 2>&1 | tail -2",
+   "n": 196
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:58:07.038Z",
+   "src": "seat",
+   "cmd": "ls data/b667_lockgate* && python -X utf8 tools/b667_checks.py --seal | tail -12",
+   "n": 197
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:58:11.515Z",
+   "src": "seat",
+   "cmd": "git status --short | grep -v \"^??\" ; git status --short | grep \"^??\" | grep \"b667\\|audit_b667\"",
+   "n": 198
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:58:18.607Z",
+   "src": "seat",
+   "cmd": "git add data/b667_defects.json data/b667_defects.txt data/b667_registration_2026-10-14.txt tools/b667_checks.py tools/b667_record.py data/audit_b667_reg_satisfiable.txt data/b667_arms_prerun.txt data/b667_census_stepzero.txt data/b667_faces_census_stepzero.txt data/b667_lockgate.json data/b667_lockgate_notes.txt data/b667_lsr_prerun.json data/b667_pins_stepzero.txt data/b667_reg_gate.txt data/b667_reg_termscan.txt data/b667_regspec_run.txt data/b667_satisfiable.json data/b667_seal_hashes.json && git commit -q -m \"b667 seal: the face locked (sha256 0622441d...) after Components 0-5, the second prerun (81 arms run at HEAD; the failures declared or unwritten), the gate CLEAR with its dry-run step CLEAN, the spec jointly satisfiable, the lock gate 8 of 8; the sealed tools' hashes recorded; defects (j)\" && git log --oneline -1",
+   "n": 199
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:58:28.016Z",
+   "src": "seat",
+   "cmd": "sed -n '/#80 /,/#125 /p' data/b666_commands.txt | cut -c1-230",
+   "n": 200
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:58:34.448Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json\nj=json.load(open('data/b666_commands.json',encoding='utf-8'))\nfor r in j['rows'][81:84]: print('#',r['n'], r['cmd'][:900]); print()\n\"",
+   "n": 201
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:58:40.224Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b667_record.py table_final 2>&1 | tail -1 && git status --short -- data/terminal_table* && git add data/terminal_table.json data/terminal_table.md data/b667_table_final.json data/b667_table_final.txt && git commit -q -m \"b667 pre-root: the terminal table regenerated, final\" && git log --oneline -1",
+   "n": 202
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:59:13.461Z",
+   "src": "seat",
+   "cmd": "git branch push-b667-root HEAD && PUSH_GATED_LOG=/d/relay/data/b667_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b667-root",
+   "n": 203
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T13:59:29.622Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b667-root HEAD && PUSH_GATED_LOG=/d/relay/data/b667_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b667-root",
+   "n": 204
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T14:00:04.461Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b667_record.py root dry 2>&1 | tail -5 | cut -c1-300",
+   "n": 205
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T14:00:14.275Z",
+   "src": "seat",
+   "cmd": "grep -n \"crlf\\|\\\\\\\\r\\\\\\\\n\" tools/act_root.py | head -20",
+   "n": 206
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T14:00:18.797Z",
+   "src": "seat",
+   "cmd": "sed -n 30,50p tools/act_root.py; grep -n \"def crlf_form\\|crlf_form(\\|'crlf'\\|crlf=\" tools/act_root.py; git check-attr -a data/b667_bessel_rungs.txt.gz; cat .gitattributes",
+   "n": 207
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T14:00:33.342Z",
+   "src": "seat",
+   "cmd": "for f in data/b667_bessel_rungs.txt.gz data/b667_epstein_zeros_certified.json.gz; do echo \"$f blob $(git rev-parse HEAD:$f) work $(git hash-object $f)\"; done; git diff --numstat HEAD -- data/b667_bessel_rungs.txt.gz",
+   "n": 208
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T14:02:37.510Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport subprocess, hashlib, re, sys\nsys.path.insert(0,'tools')\nt=open('data/b667_large_banks.txt',encoding='utf-8').read()\nfor n in ('b667_bessel_rungs.txt.gz','b667_epstein_zeros_certified.json.gz'):\n    b=subprocess.run(['git','show','HEAD:data/'+n],capture_output=True).stdout\n    sh=hashlib.sha256(b).hexdigest()\n    m=re.search(r'data/%s \\| uncompressed \\d+ bytes, sha256 \\w+ \\| gz \\d+ bytes, sha256 (\\w+)'%re.escape(n), t)\n    print(n, 'committed blob sha256', sh, '; banked', m.group(1) if m else None, '; EQUAL', bool(m) and m.group(1)==sh)\nimport b667_record as R\nL=R.root_banks()\nex=['data/b667_bessel_rungs.txt.gz','data/b667_epstein_zeros_certified.json.gz']\nprint('record tool list', len(L), '; less the two', len([x for x in L if x not in ex]))\n\"",
+   "n": 209
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T14:02:43.796Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys; sys.path.insert(0,'tools')\nimport b667_record as R\nex=['data/b667_bessel_rungs.txt.gz','data/b667_epstein_zeros_certified.json.gz']\nprint(' '.join(x for x in R.root_banks() if x not in ex))\"",
+   "n": 210
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T14:03:06.130Z",
+   "src": "seat",
+   "cmd": "L=$(sed -n 's/^    \\(data\\/[^ ]*\\)$/\\1/p' data/b667_root_list.txt | tr '\\n' ' ') && echo \"$L\" | wc -w && python -X utf8 tools/act_root.py compute b667 $L --write 2>&1 | tail -4",
+   "n": 211
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T14:03:35.843Z",
+   "src": "seat",
+   "cmd": "git add data/act_roots.txt data/b667_act_root.json data/b667_act_root.txt data/b667_root_list.txt data/b667_defects.txt && git commit -q -m \"b667 root: the act root (d2fba79e...) by tools/act_root.py over the record tool's bank list less the two .gz banks (binary, CR LF bytes by chance; reached by hash through data/b667_large_banks.txt), the list printed beforehand (data/b667_root_list.txt); appended to data/act_roots.txt; defect (k)\" && git log --oneline -1 && python -X utf8 tools/b667_record.py root_arm 2>&1 | tail -1",
+   "n": 212
   }
  ],
  "offences": [
