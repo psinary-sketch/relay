@@ -745,7 +745,8 @@ def corr(*a):
             sha = refs.get('refs/tags/%s^{}' % t) or refs.get('refs/tags/%s' % t)
             remote[k] = dict(rc=r.returncode, refs=len(refs), sha=(sha or '')[:7],
                              reading=('AGREE' if sha and sha.startswith(tags[k][1]) else ('TAG ABSENT AT THE REMOTE' if r.returncode == 0 and refs else
-                                                                                       'NO READ (exit %d, %d refs; absent or private)' % (r.returncode, len(refs)))))
+                                                                                       ('NO TAGS AT THE REMOTE (exit 0, 0 refs)' if r.returncode == 0 else
+                                                                                        'NO READ (exit %d; absent or private)' % r.returncode))))
     T_ += ['    %-34s %s at %s ; at the remote (ls-remote --tags, one call): %s' % (
         k, t[0], t[1], ('%s %s' % (remote[k]['sha'], remote[k]['reading'])) if k in remote else 'NOT READ IN A DRY RUN') for k, t in sorted(tags.items())]
     T_ += ['', '=' * 100, '### ROWS ARE KERNELS: the kernel ; the tables` tags (each cited commit`s nearest tag at or before it, git describe) with their',

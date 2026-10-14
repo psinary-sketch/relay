@@ -1,0 +1,153 @@
+b670 -- COMPONENT 3 (ii), (R280)(3): THE CORRESPONDENCE TABLES AGAINST EACH KERNEL`S CURRENT TAG (2026-10-14T20:33:23Z), reading 1 of 2
+
+### the tables: the 19 roster documents of relay data/b586_corroboration.txt, each table`s heading read at PLACE-papers 7e9b771 at the line that
+### bank names and re-found at HEAD 1cdbc08 by its whole text; a row is a table line carrying a backticked commit. The kernels`
+### current tags (main, local, the clones the census reads):
+    SIDE-cosmo                         v0.3.1 at ca04c8c ; at the remote (ls-remote --tags, one call): ca04c8c AGREE
+    SIDE-effects                       v0.1.1 at 78bbcff ; at the remote (ls-remote --tags, one call): 78bbcff AGREE
+    SIDE-explicit-formula              v0.31 at 115abfe ; at the remote (ls-remote --tags, one call): 115abfe AGREE
+    SIDE-grh-transfer                  v0.5.1 at 6e149db ; at the remote (ls-remote --tags, one call): 6e149db AGREE
+    SIDE-kernel                        v1.8 at 70aba3c ; at the remote (ls-remote --tags, one call): 70aba3c AGREE
+    SIDE-li-map                        NO TAG at  ; at the remote (ls-remote --tags, one call):  NO TAGS AT THE REMOTE (exit 0, 0 refs)
+    ### (the line as the tool first printed it read "NO READ (exit 0, 0 refs; absent or private)": an exit 0 is a read; the label corrected
+    ### by the Edit tool in the tool and here, the ls-remote not sent again -- one call per repository)
+    SIDE-lv-conservation               v0.13.0 at 8e3bc76 ; at the remote (ls-remote --tags, one call): 8e3bc76 AGREE
+    SIDE-rcurve                        v0.1.0 at d5f33b4 ; at the remote (ls-remote --tags, one call): d5f33b4 AGREE
+    SIDE-silence-principle             v0.2.0 at 667c254 ; at the remote (ls-remote --tags, one call): 667c254 AGREE
+    SIDE-structural-error-correction   v0.2.3 at 5476ef3 ; at the remote (ls-remote --tags, one call): 5476ef3 AGREE
+    SIDE-substrate-cluster             v0.1.0 at 06b61c3 ; at the remote (ls-remote --tags, one call): 06b61c3 AGREE
+
+====================================================================================================
+### ROWS ARE KERNELS: the kernel ; the tables` tags (each cited commit`s nearest tag at or before it, git describe) with their
+### commit counts ; main`s tag ; the commits AT THE TAG / BEHIND it (a `*` on a kernel in the rows below: resolved outside b586`s list)
+  SIDE-cosmo                         tables` tags {'v0.3': 2} ; main`s tag v0.3.1 ; {'BEHIND': 2}
+  SIDE-effects                       tables` tags {'phase-1.5-module-1-v2': 14} ; main`s tag v0.1.1 ; {'BEHIND': 14}
+  SIDE-explicit-formula              tables` tags {'v0.11': 5, 'v0.2': 8, 'v0.1': 2, 'v0.9': 1} ; main`s tag v0.31 ; {'BEHIND': 16}
+  SIDE-grh-transfer                  tables` tags {'v0.5.0': 1} ; main`s tag v0.5.1 ; {'BEHIND': 1}
+  SIDE-kernel                        tables` tags {'v1.1': 3, 'v1.5': 17, 'v1.4': 7, 'v1.7': 12, 'v1.2': 1, 'v1.3': 1} ; main`s tag v1.8 ; {'BEHIND': 32, 'OFF THE TAG`S LINE': 9}
+  SIDE-li-map                        tables` tags {'NO TAG AT OR BEFORE IT': 2} ; main`s tag NO TAG ; {'NO TAG': 2}
+  SIDE-lv-conservation               tables` tags {'v0.10.0': 8, 'v0.9.0': 5, 'v0.8.0': 9, 'v0.4.0': 2, 'v0.5.0': 4, 'v0.6.0': 4, 'v0.7.0': 9, 'v0.5.1': 4, 'v0.11.0': 6, 'v0.2.0': 1} ; main`s tag v0.13.0 ; {'BEHIND': 52}
+  SIDE-rcurve                        tables` tags {'v0.1.0': 1} ; main`s tag v0.1.0 ; {'AT THE TAG': 1}
+  SIDE-silence-principle             tables` tags {'v0.2.0': 1} ; main`s tag v0.2.0 ; {'AT THE TAG': 1}
+  SIDE-structural-error-correction   tables` tags {'v0.2.1': 5} ; main`s tag v0.2.3 ; {'BEHIND': 5}
+  SIDE-substrate-cluster             tables` tags {'v0.1.0': 2} ; main`s tag v0.1.0 ; {'AT THE TAG': 2}
+
+====================================================================================================
+### THE TABLES, EVERY ROW WITH A COMMIT (line ; the row`s reading ; each commit, its kernel, its reading, its tag):
+=== PATHS_TO_THE_CRITICAL_LINE         phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md :285-:551 ; rows with a commit 17 ; {'NO TAG': 1, 'BEHIND': 15, 'UNRESOLVED': 1}
+    :292   NO TAG       73cee42 SIDE-li-map NO TAG NO TAG AT OR BEFORE IT
+    :298   BEHIND       21433177 - UNRESOLVED - ; 19b7d1e SIDE-explicit-formula BEHIND v0.11 ; 5c72cad SIDE-explicit-formula BEHIND v0.2
+    :299   BEHIND       19b7d1e SIDE-explicit-formula BEHIND v0.11 ; 5c72cad SIDE-explicit-formula BEHIND v0.2
+    :301   BEHIND       baed4df SIDE-explicit-formula BEHIND v0.1
+    :306   UNRESOLVED   5e932f97 - UNRESOLVED -
+    :308   BEHIND       93c27ec SIDE-lv-conservation BEHIND v0.10.0
+    :310   BEHIND       f18e143 SIDE-kernel BEHIND v1.1
+    :326   BEHIND       0e5233f SIDE-kernel BEHIND v1.5 ; e4ea219 SIDE-kernel BEHIND v1.4 ; 5be31be SIDE-kernel BEHIND v1.4 ; 691295b SIDE-kernel BEHIND v1.5
+    :327   BEHIND       0e5233f SIDE-kernel BEHIND v1.5
+    :328   BEHIND       0e5233f SIDE-kernel BEHIND v1.5 ; baed4df SIDE-explicit-formula BEHIND v0.1
+    :329   BEHIND       e3d08b6 SIDE-lv-conservation BEHIND v0.9.0 ; 19b7d1e SIDE-explicit-formula BEHIND v0.11 ; 5c72cad SIDE-explicit-formula BEHIND v0.2
+    :330   BEHIND       e3d08b6 SIDE-lv-conservation BEHIND v0.9.0
+    :331   BEHIND       e3d08b6 SIDE-lv-conservation BEHIND v0.9.0 ; 5e932f97 - UNRESOLVED - ; 93c27ec SIDE-lv-conservation BEHIND v0.10.0
+    :332   BEHIND       d5f33b4 SIDE-rcurve AT THE TAG v0.1.0 ; 5c72cad SIDE-explicit-formula BEHIND v0.2
+    :334   BEHIND       858cbf6 SIDE-grh-transfer* BEHIND v0.5.0
+    :386   BEHIND       6efa9e5 SIDE-lv-conservation BEHIND v0.8.0
+    :387   BEHIND       e5a5a83 SIDE-explicit-formula BEHIND v0.9 ; 6efa9e5 SIDE-lv-conservation BEHIND v0.8.0
+=== SIMPLICITY_OF_RIEMANN_ZEROS        phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md :435-:495 ; rows with a commit 10 ; {'OFF THE TAG`S LINE': 2, 'BEHIND': 8}
+    :436   OFF THE TAG`S LINE 27a3ae7 SIDE-kernel OFF THE TAG`S LINE v1.5
+    :437   BEHIND       27a3ae7 SIDE-kernel OFF THE TAG`S LINE v1.5 ; 691295b SIDE-kernel BEHIND v1.5
+    :438   OFF THE TAG`S LINE 27a3ae7 SIDE-kernel OFF THE TAG`S LINE v1.5
+    :443   BEHIND       0d2d74c SIDE-lv-conservation BEHIND v0.4.0
+    :446   BEHIND       6efa9e5 SIDE-lv-conservation BEHIND v0.8.0
+    :450   BEHIND       1767bd6 SIDE-lv-conservation BEHIND v0.5.0
+    :452   BEHIND       f18e143 SIDE-kernel BEHIND v1.1
+    :453   BEHIND       c80bdc2 SIDE-lv-conservation BEHIND v0.6.0
+    :454   BEHIND       2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; 2d86182 SIDE-lv-conservation BEHIND v0.7.0
+    :455   BEHIND       bc4751e SIDE-lv-conservation BEHIND v0.5.1
+=== THE_UNCONDITIONAL_SURROUND         phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md :181-:218 ; rows with a commit 9 ; {'BEHIND': 9}
+    :185   BEHIND       691295b SIDE-kernel BEHIND v1.5
+    :187   BEHIND       f18e143 SIDE-kernel BEHIND v1.1
+    :189   BEHIND       5c72cad SIDE-explicit-formula BEHIND v0.2
+    :190   BEHIND       c80bdc2 SIDE-lv-conservation BEHIND v0.6.0 ; 19b7d1e SIDE-explicit-formula BEHIND v0.11 ; 5c72cad SIDE-explicit-formula BEHIND v0.2
+    :191   BEHIND       2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; 2d86182 SIDE-lv-conservation BEHIND v0.7.0
+    :192   BEHIND       6efa9e5 SIDE-lv-conservation BEHIND v0.8.0
+    :193   BEHIND       6efa9e5 SIDE-lv-conservation BEHIND v0.8.0 ; 93c27ec SIDE-lv-conservation BEHIND v0.10.0
+    :194   BEHIND       1767bd6 SIDE-lv-conservation BEHIND v0.5.0
+    :195   BEHIND       bc4751e SIDE-lv-conservation BEHIND v0.5.1
+=== GRH_CASCADE                        phase1.5/spectral/GRH_CASCADE_v0_3_6.md :383-:438 ; rows with a commit 2 ; {'BEHIND': 2}
+    :390   BEHIND       c66f3c5 SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2
+    :395   BEHIND       c66f3c5 SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2
+=== R_CURVE_CRITERION                  phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md :351-:363 ; rows with a commit 11 ; {'OFF THE TAG`S LINE': 2, 'BEHIND': 9}
+    :352   OFF THE TAG`S LINE 27a3ae7 SIDE-kernel OFF THE TAG`S LINE v1.5 ; 01e5633 SIDE-kernel OFF THE TAG`S LINE v1.5
+    :353   BEHIND       27a3ae7 SIDE-kernel OFF THE TAG`S LINE v1.5 ; 01e5633 SIDE-kernel OFF THE TAG`S LINE v1.5 ; 691295b SIDE-kernel BEHIND v1.5
+    :354   OFF THE TAG`S LINE 27a3ae7 SIDE-kernel OFF THE TAG`S LINE v1.5 ; 01e5633 SIDE-kernel OFF THE TAG`S LINE v1.5
+    :355   BEHIND       0d2d74c SIDE-lv-conservation BEHIND v0.4.0
+    :356   BEHIND       6efa9e5 SIDE-lv-conservation BEHIND v0.8.0
+    :357   BEHIND       6efa9e5 SIDE-lv-conservation BEHIND v0.8.0
+    :358   BEHIND       1767bd6 SIDE-lv-conservation BEHIND v0.5.0
+    :359   BEHIND       c80bdc2 SIDE-lv-conservation BEHIND v0.6.0 ; 19b7d1e SIDE-explicit-formula BEHIND v0.11 ; 5c72cad SIDE-explicit-formula BEHIND v0.2
+    :360   BEHIND       2d86182 SIDE-lv-conservation BEHIND v0.7.0
+    :361   BEHIND       bc4751e SIDE-lv-conservation BEHIND v0.5.1
+    :362   BEHIND       5c72cad SIDE-explicit-formula BEHIND v0.2
+=== INDEX_ARITY_AT_THE_CRITICAL_LINE   phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md :375-:656 ; rows with a commit 10 ; {'BEHIND': 10}
+    :376   BEHIND       93c27ec SIDE-lv-conservation BEHIND v0.10.0
+    :377   BEHIND       93c27ec SIDE-lv-conservation BEHIND v0.10.0
+    :378   BEHIND       93c27ec SIDE-lv-conservation BEHIND v0.10.0
+    :379   BEHIND       5a14205 SIDE-lv-conservation BEHIND v0.10.0 ; 2f71068 SIDE-lv-conservation BEHIND v0.11.0
+    :380   BEHIND       2957e7d SIDE-kernel BEHIND v1.7
+    :381   BEHIND       2957e7d SIDE-kernel BEHIND v1.7
+    :387   BEHIND       14720d9 SIDE-lv-conservation BEHIND v0.10.0 ; 2f71068 SIDE-lv-conservation BEHIND v0.11.0
+    :389   BEHIND       2f71068 SIDE-lv-conservation BEHIND v0.11.0
+    :390   BEHIND       2f71068 SIDE-lv-conservation BEHIND v0.11.0
+    :391   BEHIND       2f71068 SIDE-lv-conservation BEHIND v0.11.0
+=== THE_RESIDUE_OF_RH                  phase1.5/proofs/THE_RESIDUE_OF_RH.md :101-:214 ; rows with a commit 1 ; {'UNRESOLVED': 1}
+    :145   UNRESOLVED   bd2ae1a - UNRESOLVED -
+=== ADDITIVE_MULTIPLICATIVE_CONSPIRACY phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md :410-:483 ; rows with a commit 7 ; {'BEHIND': 7}
+    :411   BEHIND       c66f3c5 SIDE-effects BEHIND phase-1.5-module-1-v2
+    :412   BEHIND       c66f3c5 SIDE-effects BEHIND phase-1.5-module-1-v2
+    :413   BEHIND       c66f3c5 SIDE-effects BEHIND phase-1.5-module-1-v2
+    :414   BEHIND       c66f3c5 SIDE-effects BEHIND phase-1.5-module-1-v2
+    :415   BEHIND       c66f3c5 SIDE-effects BEHIND phase-1.5-module-1-v2
+    :416   BEHIND       f374174 SIDE-kernel BEHIND v1.4
+    :448   BEHIND       c66f3c5 SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2
+=== FOUNDATIONS_OF_THE_SIDE_PROGRAMME  phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md :627-:666 ; rows with a commit 5 ; {'AT THE TAG': 1, 'BEHIND': 4}
+    :630   AT THE TAG   667c254 SIDE-silence-principle AT THE TAG v0.2.0
+    :632   BEHIND       f374174 SIDE-kernel BEHIND v1.4
+    :633   BEHIND       f374174 SIDE-kernel BEHIND v1.4
+    :634   BEHIND       f374174 SIDE-kernel BEHIND v1.4
+    :635   BEHIND       f374174 SIDE-kernel BEHIND v1.4
+=== TECHNE_TOOLKIT                     phase1.5/method/TECHNE_TOOLKIT.md :507-:568 ; rows with a commit 4 ; {'BEHIND': 2, 'AT THE TAG': 2}
+=== SILENCE_STAGES_DEALIGNMENT         phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md :202-:266 ; rows with a commit 7 ; {'BEHIND': 7}
+    :203   BEHIND       6a4f482 SIDE-structural-error-correction BEHIND v0.2.1
+    :204   BEHIND       6a4f482 SIDE-structural-error-correction BEHIND v0.2.1
+    :205   BEHIND       6a4f482 SIDE-structural-error-correction BEHIND v0.2.1
+    :206   BEHIND       6a4f482 SIDE-structural-error-correction BEHIND v0.2.1
+    :207   BEHIND       6a4f482 SIDE-structural-error-correction BEHIND v0.2.1
+    :208   BEHIND       c5cba30 SIDE-cosmo BEHIND v0.3
+    :209   BEHIND       c5cba30 SIDE-cosmo BEHIND v0.3
+=== EXHAUSTIVENESS_LICENSE             phase1.5/method/EXHAUSTIVENESS_LICENSE.md :105-:139 ; rows with a commit 0 ; NONE
+=== INVARIANCE_BARRIERS                phase1.5/method/INVARIANCE_BARRIERS_v1_4.md :503-:721 ; rows with a commit 8 ; {'BEHIND': 8}
+    :504   BEHIND       2957e7d SIDE-kernel BEHIND v1.7
+    :505   BEHIND       2957e7d SIDE-kernel BEHIND v1.7
+    :506   BEHIND       2957e7d SIDE-kernel BEHIND v1.7
+    :507   BEHIND       2957e7d SIDE-kernel BEHIND v1.7
+    :508   BEHIND       2957e7d SIDE-kernel BEHIND v1.7
+    :509   BEHIND       2957e7d SIDE-kernel BEHIND v1.7
+    :510   BEHIND       2957e7d SIDE-kernel BEHIND v1.7
+    :511   BEHIND       2957e7d SIDE-kernel BEHIND v1.7
+=== REPARAMETERIZATION_BARRIERS_v0_1   phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md :223-:265 ; rows with a commit 1 ; {'BEHIND': 1}
+    :224   BEHIND       5e668b4 SIDE-kernel BEHIND v1.7 ; 2957e7d SIDE-kernel BEHIND v1.7
+=== A_Place_to_Stand                   day1/A_Place_to_Stand.md :2241-:2267 ; rows with a commit 2 ; {'BEHIND': 2}
+    :2248  BEHIND       2f71068 SIDE-lv-conservation* BEHIND v0.11.0 ; 2d86182 SIDE-lv-conservation* BEHIND v0.7.0
+    :2249  BEHIND       6efa9e5 SIDE-lv-conservation* BEHIND v0.8.0
+=== BALANCE_AND_POSITIVITY             phase1.5/spectral/BALANCE_AND_POSITIVITY.md :343-:364 ; rows with a commit 3 ; {'BEHIND': 3}
+    :344   BEHIND       c8e3d31 SIDE-lv-conservation BEHIND v0.2.0
+    :345   BEHIND       c80bdc2 SIDE-lv-conservation BEHIND v0.6.0 ; 2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; 1767bd6 SIDE-lv-conservation BEHIND v0.5.0 ; bc4751e SIDE-lv-conservation BEHIND v0.5.1 ; 21433177 - UNRESOLVED -
+    :346   BEHIND       b1407b2 SIDE-kernel* BEHIND v1.2
+=== FACES_OF_H2_AT_FINITE_INSTANCE     phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md :40-:189 ; rows with a commit 0 ; NONE
+=== FACES_LEDGER                       FACES_LEDGER.md :16-:489 ; rows with a commit 3 ; {'BEHIND': 3}
+    :17    BEHIND       0bc21c0 SIDE-kernel BEHIND v1.3
+    :19    BEHIND       2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; e3d08b6 SIDE-lv-conservation BEHIND v0.9.0
+    :27    BEHIND       2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; 6efa9e5 SIDE-lv-conservation BEHIND v0.8.0 ; 73cee42 SIDE-li-map NO TAG NO TAG AT OR BEFORE IT
+=== THE_IDENTITY_CHAIN                 phase2/method/THE_IDENTITY_CHAIN.md :564-:3169 ; rows with a commit 0 ; NONE
+
+### ### **TABLES 19 ; RE-FOUND AT HEAD 19 ; ROWS WITH A COMMIT 100 ; AT THE TAG 3 ; BEHIND 90 ; UNRESOLVED 2 ; OTHER 5.**
