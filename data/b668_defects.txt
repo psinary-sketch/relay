@@ -24,3 +24,8 @@ b668 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-14): THE SUCCESSOR OF data
     and times alone; both found no call, and the mid-act suite run (data/b668_checks_mid.txt) failed the arm on real state. Repaired by the
     Edit tool before the seal: the call chosen by its id, read from the text bank's CALL block whose PROMPT header reads (Cut); N2 read again
     (HELD on the banks) before the face was committed.
+    (e) THE SEAT'S: TWO REPOSITORY-MUTATING CALLS SENT IN PARALLEL, AFTER THE TRAIL WAS LANDED. The PLACE-papers record commit (f691545) and
+    the relay record commit were sent in one message; the relay call ran in PLACE-papers' working directory, its `git add` refused on the
+    first relay path and nothing was staged or committed there. The relay commit was sent again alone (7f47f00f). The standing rule (b663:
+    one repository-mutating call at a time; b667's defect (a), the same fault) was not kept. Entered after the trail record, so the trail's
+    defect line names (a)-(d); the closing carries all five.
