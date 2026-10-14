@@ -1,0 +1,31 @@
+b667 -- THE CERTIFY SCRIPT'S FIRST RUN (started 2026-10-14T03:40:02Z, commit 17f21478), STOPPED BY ITS OWN GUARD INSIDE THE (3b) CHECK:
+its print and its error, as the detached process wrote them (scratch b667_certify.log and b667_certify.err), banked whole. No count was made;
+no bank of the run was written. relay data/b667_defects.txt (e).
+
+### the print:
+b667 -- Q0`S ZEROS BELOW 150 IN BALLS: THE COUNTS (2026-10-14T03:40:02Z)
+
+### the plan relay data/b667_epstein_plan.txt sections 13-15 (the author`s word, (3a)-(3c)); python-flint 0.9.0; 200 bits, rung 400, Bessel rung 600 at 2^-60, the remedy`s check at 800; h 1e-12, widening 1e-9; R = [-0.5, 1.5] × [0.5, 150], B = [-0.5, 1.5] × [−0.5, 0.5]; depths 16 / 24. Rows are rectangles and regions.
+### READINGS NAMED HERE ((R277)(3c), plan §15): (i) the departure from one form for every count is confined to R`s right edge σ = 3/2, taken by the tail bound from two point values, and C1`s right edge, which exercises it; (ii) R`s half path has no left edge -- σ = −½ is not traversed, the left half of R`s boundary being P`s reflection under s -> 1 − conj s; (iii) C1`s region is [−1, 2] × [0.5, T_c], its right edge σ = 2, since ζ(3/2) − 1 exceeds 1.
+### the list: relay data/b326_epstein_zeros.json "zeros" 146 ordinates ; relay data/b326_offline.json "zeros" 17 off-line zeros ; R`s list size by orbit and pair 180
+### the processes: 8 workers and the main process (plan §15: eight, reduced further only if the projection breaches the hold) ; free memory at the start 2978 MB ; projected low 2753 MB against the hold 2560 MB
+
+== (3b) THE REMEDY`S CHECK: Z_Q on the ball of radius 1e-6 by the remedy at 200 bits, against Z_Q at 800 bits at its centre and at the offset point (σ + r/2, t + r/2)
+  (σ, t) = (0.5, 40.0) centre : the ball [2.57 +/- 2.34e-3] + [1.91 +/- 3.38e-3]j ; at 800 bits [2.57118330382575 +/- 4.87e-15] + [1.90777540263168 +/- 3.54e-15]j ; INSIDE True
+  (σ, t) = (0.5, 40.0) offset : the ball [2.57 +/- 2.34e-3] + [1.91 +/- 3.38e-3]j ; at 800 bits [2.57118832886385 +/- 4.32e-15] + [1.90776683421747 +/- 6.42e-17]j ; INSIDE True
+
+### the error:
+Traceback (most recent call last):
+  File "D:\relay\tools\b667_epstein_certify.py", line 599, in <module>
+    main()
+  File "D:\relay\tools\b667_epstein_certify.py", line 407, in main
+    zb = zq(acb(arb(sg, CHECK_R), arb(tt, CHECK_R)), PREC)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\relay\tools\b667_epstein_certify.py", line 169, in zq
+    raise ValueError('|σ − ½| above 1: T4`s bound does not apply')
+ValueError: |σ − ½| above 1: T4`s bound does not apply
+
+### the reading: the second check point (σ, t) = (1.5, 100.0) with a ball of radius 1e-6 in both directions reaches |σ − ½| = 1 + 1e-6,
+### outside the domain |μ| ≤ 1 of T4's bound (plan 11.2 (d)); the guard raised. The two comparisons made held. The 800-bit radii printed
+### near 5e-15 are the display's: arb.str(15, radius=True) folds the rounding of the fifteen printed digits into the printed radius; the
+### value's own radius there is below 1e-70 (T3's, traced). The counts never meet the guard: a vertical segment's ball has no σ-radius.

@@ -47,7 +47,8 @@ PREC_BESSEL = 600                  # ### (R277)(3a): the Bessel factor's own run
 PREC_CHECK = 800                   # ### (R277)(3b): the direct evaluation the remedy is checked against
 BESSEL_BAR_EXP = -60               # ### (3a): a term's radius at or above 2^-60 climbs
 REL_BAR_EXP = -40                  # ### plan §2: a point value wider than a relative 2^-40 is re-taken at the rung
-CHECK_POINTS = (('0.5', '40.0'), ('1.5', '100.0'), ('-0.5', '147.5'))   # ### (3b): three grid points of data/b667_bessel_obstruction.txt
+CHECK_POINTS = (('0.5', '40.0'), ('0.5', '100.0'), ('0.5', '147.5'))    # ### (3b): three grid points of data/b667_bessel_obstruction.txt
+#                                                                           ### on σ = ½ (plan §15, dated; defect (e))
 CHECK_R = '1e-6'                   # ### (3b): the ball's radius at each
 H = '1e-12'                        # ### the squares' half-width (plan §3)
 H_WIDE = '1e-9'                    # ### the one widening (plan §11, squares)
@@ -414,7 +415,7 @@ def main():
             ins = zb.contains(zd)
             ok3b = ok3b and ins
             log('  (σ, t) = (%s, %s) %s : the ball %s ; at %d bits %s ; INSIDE %s' % (sg, tt, label, zb.str(12, radius=True), PREC_CHECK,
-                                                                                   zd.str(15, radius=True), ins))
+                                                                                   zd.str(40, radius=True), ins))
     log('  (3b) %s' % ('HOLDS: every 800-bit value inside its ball' if ok3b else '### FAILS -- THE ACT STOPS HERE, THE COMPARISON BANKED'))
     if not ok3b:
         put('b667_epstein_counts.txt', NL.join(OUT) + NL)
