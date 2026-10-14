@@ -40,12 +40,24 @@ PLAN_BANK = 'data/b667_epstein_plan.txt'
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b666's face
 # ### (b666's own act arms not carried). Each run at HEAD and counted before the face names it. Filled at Component 6.
-ACT_ARMS = ()
+ACT_ARMS = ('G-R277-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-PLAN-BEFORE-NUMBER', 'G-OBSTRUCTIONS-BANKED', 'G-ROUTE-CHECKS',
+            'G-CONTROLS-FIXED', 'G-SQUARES-CERTIFIED', 'G-REGION-COUNTED', 'G-MAP-ON-BALLS', 'G-LANDING-DATED', 'G-B326-UNTOUCHED', 'G-RUNS-BANKED')
 B666_ACT_ARMS = ('G-R276-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-TIE-RULE-ENTERED', 'G-KERNEL-NAMED', 'G-SENTENCES-BANKED',
                  'G-GRADES-VERBATIM', 'G-AXIOM-ROW-CELL', 'G-PROMPT-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE', 'G-AXIOM-CLAIM-AFTER',
                  'G-KERNEL-FILES-FROM-BANK')
 SEALED = ('b667_worklist.py', 'b667_tests.py', 'b667_citation.py', 'b667_record.py', 'b667_checks.py', 'b667_closing.py', 'b667_reg_gate.py',
-          'b667_regspec.py')
+          'b667_regspec.py', 'b667_epstein_certify.py', 'b667_epstein_map_balls.py')
+
+# ### THE RUNNER ARMS, STANDING: no dispatch this act, so they read the latest dispatch's bank and the kernel it merged (b661's precedent,
+# ### which read b658's runner rows): b666's run on SIDE-cosmo, its workflow, its print list and its merge, as relay data/b666_runner_rows.json
+# ### and data/b666_runner_SIDE-cosmo.txt bank them -- the state those arms find unchanged.
+KERNEL = 'SIDE-cosmo'
+KD = 'D:/SIDE-cosmo'
+RUNNER = {KERNEL: dict(branch='docstrings-cut-SIDE-cosmo', target='SIDECosmo', workflow_commit='f5d8c7d', run_id=38471056772,
+                       ref='1ddeb7c28d0833ea63011460d861ef196646ab64', dispatched_at='main', prior_run=38470740945)}
+RUNNER_ROWS, RUNNER_BANK = 'b666_runner_rows.json', 'b666_runner_SIDE-cosmo.txt'
+PRINT_TARGETS_N = 53
+NEXT_TAG = 'v0.3.1'
 
 
 def show(path, rev=PRE_PP, repo=PP):
