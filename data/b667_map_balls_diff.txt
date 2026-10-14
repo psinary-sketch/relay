@@ -1,0 +1,96 @@
+b667 -- THE b663 MAP CARRIED ONTO THE BALLS ((R277)(5) H4): `git diff --no-index tools/b663_epstein_map.py tools/b667_epstein_map_balls.py`, whole.
+
+diff --git a/tools/b663_epstein_map.py b/tools/b667_epstein_map_balls.py
+index 4e7e4238..aaf75807 100644
+--- a/tools/b663_epstein_map.py
++++ b/tools/b667_epstein_map_balls.py
+@@ -1,18 +1,16 @@
+ # -*- coding: utf-8 -*-
+-"""b663_epstein_map.py -- THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, BOUND TO zeroSide_neg_at_rate_cfg (SIDE-explicit-formula
+-v0.28, Schema/RateIndexCfg.lean :135-:148) AT q0Config (branch epstein-b663, Schema/EpsteinQ0.lean), under (R273)(4) and the author's word on
+-b663's plan (relay data/b663_epstein_plan.txt, section 8; data/b663_author_answers.txt).
+-
+-### Carried by the Write tool from tools/b662_map.py; the changes confined to the plan's section 6: the configuration (the bench's list in
+-### place of ζ's, one cell at the base qE0 in place of the grid), M and hdom over all seventeen off-line orbits (M := the dominant's score),
+-### θ and the kill set over the other sixteen orbits and the points above T (on B1), hA's ordinates and A₀ (P3's A0Q), and the zero side
+-### (the other orbits' terms and the tail above T on B1 and P3). ghat, ramp_R, i4_ball, a0_upper, zero_list, the controls of hQtie and
+-### hQb, hrate and the rung are b662's lines unchanged; the diff is banked (relay data/b663_map_diff.txt).
+-### Every zero of Q0 is BANKED, NOT BALL-CERTIFIED (two agreeing routes in mpmath at 119 digits): each enters as its decimal literal, exact,
+-### the configuration's own point. B1 is a named READ premise of this computation, not a kernel lemma (the plan, section 8).
+-### THE CONTROL (the author's word on Q3): the same cell routine run first on b661's Z₁(0.8, 29.6) -- the orbit of 0.8 + 29.6 i and ζ's zeros
+-### to 1000 from Arb --, expected to reproduce j₀ = 31 and the zero side below 0 (relay data/b661_map_control.txt); printed beside the Q0 cell.
+-### Usage: `python tools/b663_epstein_map.py` -- banks data/b663_epstein_control.txt and .json. No lean; no kernel file read but by citation.
++"""b667_epstein_map_balls.py -- THE b663 CONTROL RE-RUN ON THE BALLS: THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, BOUND TO
++zeroSide_neg_at_rate_cfg (SIDE-explicit-formula, Schema/RateIndexCfg.lean :135-:148) AT q0Config, under (R277)(5) H4.
++
++### Carried by the Write tool from tools/b663_epstein_map.py with the decimal literals replaced by the balls and no computation line
++### changed: q0_list reads the certified balls (relay data/b667_epstein_zeros_certified.json, rows ON and OFF, each with its half-width h)
++### in place of b326's doubles -- an on-line ordinate as arb(γ, h), an off-line zero as the ball strings '[σ +/- h]', '[t +/- h]' (arb() of
++### either is the ball, so every line that reads a point reads its ball); the header lines and the bank's name are this act's; the diff
++### against tools/b663_epstein_map.py is banked (relay data/b667_map_balls_diff.txt).
++### Every zero of Q0 enters as its CERTIFIED BALL (b667: count 1 in its square by the argument principle); a row whose count is not 1 stops
++### the map. B1 is a named READ premise of this computation, not a kernel lemma (b663's plan, section 8), now B1 on the kernel lemma (b665).
++### THE CONTROL (b663's): the same cell routine run first on b661's Z₁(0.8, 29.6), expected to reproduce j₀ = 31 and the zero side below 0.
++### Usage: `python tools/b667_epstein_map_balls.py` -- banks data/b667_epstein_control_balls.txt and .json. No lean; no kernel file read.
+ ### Nothing here is about ζ: Z₁ is not ζ's configuration, and the Q0 configuration is Z_Q's only under its premises.
+ """
+ import io
+@@ -30,6 +28,7 @@ PREC_RUNG = 400                                            # ### the one rung, 2
+ J_EXTRA = 40                                               # ### J_max = D + 40 ((R273)(4), the b662 script's rule)
+ Z1_CELL = ('0.8', '29.6')                                  # ### the control: b661's Z₁ at its H3 cell
+ Q0_ON, Q0_OFF = 'b326_epstein_zeros.json', 'b326_offline.json'   # ### the bench's list (on the author's word, b326's)
++Q0_CERT = 'b667_epstein_zeros_certified.json'              # ### the balls (b667 Component 3) -- in place of the decimal literals
+ Q0_T = 150                                                 # ### the height cut, the banks' own T
+ Q0_BASE = 0                                                # ### qE0 = the off-line list's index 0, the dominant (data/b663_dominance.txt)
+ Q0_A0 = 10                                                 # ### A0Q, P3's constant (Schema/EpsteinQ0.lean; data/b663_a0_list.txt)
+@@ -144,14 +143,15 @@ def zero_list():
+ 
+ 
+ def q0_list():
+-    """the bench's list (relay data/b326_epstein_zeros.json, data/b326_offline.json, key "zeros"): the ordinates gamma_a (= gamma_b) and
+-    the off-line zeros rho_a (= rho_b), each by index, each as its decimal literal (an exact arb of the double the bank holds); a row whose
+-    two routes disagree stops the map."""
+-    on = json.load(io.open(os.path.join(D_DIR, Q0_ON), encoding='utf-8'))['zeros']
+-    off = json.load(io.open(os.path.join(D_DIR, Q0_OFF), encoding='utf-8'))['zeros']
+-    if not all(z['agree'] and z['gamma_a'] == z['gamma_b'] for z in on) or not all(z['agree'] and z['rho_a'] == z['rho_b'] for z in off):
+-        sys.exit('### A BANKED ZERO WHOSE TWO ROUTES DISAGREE -- THE MAP STOPS')
+-    return [arb(repr(z['gamma_a'])) for z in on], [(repr(z['rho_a'][0]), repr(z['rho_a'][1])) for z in off]
++    """the certified balls (relay data/b667_epstein_zeros_certified.json, b667 Component 3): the on-line ordinates as arb(γ, h) and the
++    off-line zeros as the ball strings '[σ +/- h]', '[t +/- h]', each by its bank index, in place of b326's decimal literals; a row whose
++    count is not 1 stops the map."""
++    rows = json.load(io.open(os.path.join(D_DIR, Q0_CERT), encoding='utf-8'))['rows']
++    on = sorted((r for r in rows if r['kind'] == 'ON'), key=lambda r: r['idx'])
++    off = sorted((r for r in rows if r['kind'] == 'OFF'), key=lambda r: r['idx'])
++    if not all(r['count'] == 1 for r in on + off) or len(on) != 146 or len(off) != 17:
++        sys.exit('### A ROW WITHOUT A CERTIFIED BALL (count not 1) -- THE MAP STOPS')
++    return [arb(r['im'], r['h']) for r in on], [('[%s +/- %s]' % (r['re'], r['h']), '[%s +/- %s]' % (r['im'], r['h'])) for r in off]
+ 
+ 
+ # ================================================================================ hA: THE LOCAL COUNT, A FINITE MAXIMUM
+@@ -502,13 +502,13 @@ def run_cell(name, base, online, offline, i4s, zls_rung, above=None, a0_premise=
+ 
+ def main():
+     t0 = time.time()
+-    say('b663 -- THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, BOUND TO zeroSide_neg_at_rate_cfg AT q0Config, UNDER (R273)(4) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
++    say('b667 -- THE b663 CONTROL RE-RUN ON THE BALLS: THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, UNDER (R277)(5) H4 (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
+     say('')
+-    say('### the kernel: SIDE-explicit-formula v0.28 = main ffbc617, Schema/RateIndexCfg.lean :135-:148; the instance on branch epstein-b663,')
+-    say('### Schema/EpsteinQ0.lean (q0Config, q0_rate, q0_hA); the plan relay data/b663_epstein_plan.txt (section 8, the author`s word). Rows are')
++    say('### the script: tools/b663_epstein_map.py carried with the decimal literals replaced by the certified balls (relay data/%s) and no' % Q0_CERT)
++    say('### computation line changed (the diff relay data/b667_map_balls_diff.txt). Rows are')
+     say('### cells: the control Z₁(%s, %s) first, then Q0 at the base qE0. python-flint %s ; Arb balls at %d bits, the rung %d ; J_max = D + %d.' % (
+         Z1_CELL[0], Z1_CELL[1], __import__('flint').__version__, PREC, PREC_RUNG, J_EXTRA))
+-    say('### Q0`s zeros BANKED, NOT BALL-CERTIFIED; B1 a named READ premise, not a kernel lemma; A₀ by P3. Nothing here is about ζ.')
++    say('### Q0`s zeros BALL-CERTIFIED AT b667 (each its square, count 1); B1 as b663 states it (on the kernel lemma since b665); A₀ by P3. Nothing here is about ζ.')
+     say('')
+     ctx.prec = PREC
+     lo, hi = i4_ball()
+@@ -568,7 +568,7 @@ def score(rc, c_ok, rq):
+     say('  THE CONTROL %s' % ('REPRODUCED (j₀ = 31, the zero side below 0)' if c_ok else 'NOT REPRODUCED'))
+ 
+ 
+-def put(recs, name='b663_epstein_control'):
++def put(recs, name='b667_epstein_control_balls'):
+     tx = (NL.join(OUT) + NL).encode('utf-8')
+     p = os.path.join(D_DIR, name + '.txt')
+     open(p + '.tmp', 'wb').write(tx)

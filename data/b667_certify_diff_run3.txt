@@ -1,0 +1,150 @@
+b667 -- THE CERTIFY SCRIPT, THE THIRD RUN`S AGAINST THE SECOND`S (15918f9d) ((R277)(3d)): `git diff 15918f9d -- tools/b667_epstein_certify.py`, whole.
+
+diff --git a/tools/b667_epstein_certify.py b/tools/b667_epstein_certify.py
+index 80105885..87f524a1 100644
+--- a/tools/b667_epstein_certify.py
++++ b/tools/b667_epstein_certify.py
+@@ -6,8 +6,9 @@ data/b667_epstein_plan.txt sections 13-15, relay data/b667_author_answers.txt).
+ ### THE ROUTE (plan sections 2, 11, 14, 15): Z_Q(s) = T1 + T2 + T3 + T4 (Chowla-Selberg, Q0 = x² + xy + 6y²):
+ ###   T1 = 2 ζ(2s); T2 = 2 √π Γ(s − ½) Γ(s)⁻¹ (√23/2)^{1−2s} ζ(2s − 1);
+ ###   T3 = 8 π^s Γ(s)⁻¹ Σ_{m ≤ M} (−1)^m K_{s−½}(π√23 m) Σ_{k|m} k^{s−½} β_{m/k}^{½−s}, β_n = √23 n/2 (the sign (−1)^{kn} = (−1)^m, 11.1);
+-###   T4 the truncation, |T4| ≤ 8 |π^s Γ(s)⁻¹| C3 (M+1)^{|μ|} e^{−c(M+1)} / (1 − 2e^{−c}), c = π√23, C3 = 2 √(2/√23) e^{1/(2c)} (√23/2)^{|μ|},
+-###   μ = σ − ½ (11.2), added to the ball as its radius. M = ⌈(π|t|/2 + (prec + 20) ln 2)/(π√23)⌉ + 1.
++###   T4 the truncation, |T4| ≤ 8 |π^s Γ(s)⁻¹| C3(μ) (M+1)^{|μ|} e^{−c(M+1)} / (1 − 2^{|μ|} e^{−c}), c = π√23,
++###   C3(μ) = 2 √(2/√23) e^{μ²/(2c)} (√23/2)^{|μ|}, μ = σ − ½, |μ| ≤ 2 (plan section 16, (R277)(3d)), added to the ball as its radius.
++###   M = ⌈(π|t|/2 + (prec + 20) ln 2)/(π√23)⌉ + 1.
+ ### (3b) EVERY BESSEL FACTOR is K_{ν_mid}(x) at the ball's centre, x = π√23 m formed at the call's own precision, plus |ν − ν_mid| times the
+ ###   shifted-contour bound sup|∂_ν K| ≤ 2 e^{−|t||θ|} (|θ| K_{|μ|}(a) + e^{−1} K_{|μ|+1}(a)), a = x cos θ (plan 14(a)-(d)); Arb never
+ ###   propagates a radius in ν or in x. Checked before any count against direct 800-bit evaluations at three grid points.
+@@ -23,7 +24,7 @@ data/b667_epstein_plan.txt sections 13-15, relay data/b667_author_answers.txt).
+ ### THE SQUARES: half-width h = 1e-12 about each banked double, the ball the square; one widening to 1e-9 printed WIDENED.
+ ### THE REGIONS: R = [−0.5, 1.5] × [0.5, 150] and B = [−0.5, 1.5] × [−0.5, 0.5], each by its half path under Λ_Q(1 − conj s) = conj Λ_Q(s);
+ ###   N(R) = (1/π) Δ_P arg Λ_Q ; zeros in B = (1/π) Δ_{P_B} arg Λ_Q + 2 (Λ_Q's poles at 0 and 1).
+-### THE ORDER: (3b)'s check; V1, V2, V3; C1; C2; R, then C3 on it; B; the Q0 squares; H1-H3 read.
++### THE ORDER: (3b)'s check; (3d)'s check; V1, V2, V3; C1; C2; R, then C3 on it; B; the Q0 squares; H1-H3 read.
+ ### b326's banks are read and never written. No lean; no kernel file read. Nothing here is about ζ but C1.
+ ### Usage: `python -X utf8 tools/b667_epstein_certify.py` -> data/b667_epstein_counts.txt, data/b667_epstein_zeros_certified.txt (.json),
+ ### data/b667_bessel_rungs.txt. Written by the Write tool at b667 (rewritten whole under (3b)-(3c) before any run), read back whole before
+@@ -50,6 +51,7 @@ REL_BAR_EXP = -40                  # ### plan §2: a point value wider than a re
+ CHECK_POINTS = (('0.5', '40.0'), ('0.5', '100.0'), ('0.5', '147.5'))    # ### (3b): three grid points of data/b667_bessel_obstruction.txt
+ #                                                                           ### on σ = ½ (plan §15, dated; defect (e))
+ CHECK_R = '1e-6'                   # ### (3b): the ball's radius at each
++T4_CHECK_POINTS = (('1.5', '40.0'), ('1.5', '100.0'), ('-0.5', '147.5'))   # ### (3d): grid points on the σ-edges, the ball's |μ| in (1, 2]
+ H = '1e-12'                        # ### the squares' half-width (plan §3)
+ H_WIDE = '1e-9'                    # ### the one widening (plan §11, squares)
+ SIG_L, SIG_R = '-0.5', '1.5'       # ### R's and B's σ-range
+@@ -142,8 +144,22 @@ def _bessel(m, nu, nu_mid, rad_nu, pre_mid, dsum_mid, prec, s):
+     return km
+ 
+ 
+-def zq(s, prec=PREC):
+-    """Z_Q at s (a point or a ball), at the working precision prec, T4 in the radius."""
++def t4_bound(s, M):
++    """T4 (plan 16 (d')-(j'), (R277)(3d)): |T4| ≤ 8 |π^s Γ(s)⁻¹| C3(μ) (M + 1)^{|μ|} e^{−c(M+1)} / (1 − 2^{|μ|} e^{−c}), C3(μ) = 2 √(2/√23)
++    e^{μ²/(2c)} (√23/2)^{|μ|}, |μ| the ball's largest |σ − ½|, required ≤ 2; an arb upper bound."""
++    pi, sq = arb.pi(), arb(23).sqrt()
++    a = _mu_abs(s)
++    if not (a <= 2):
++        raise ValueError('|σ − ½| above 2: T4`s bound does not apply')
++    c = pi * sq
++    C3 = 2 * (2 / sq).sqrt() * (a * a / (2 * c)).exp() * (sq / 2) ** a
++    t4 = 8 * abs(acb(pi) ** s * s.rgamma()).upper() * C3 * arb(M + 1) ** a * (-c * (M + 1)).exp() / (1 - arb(2) ** a * (-c).exp())
++    return arb(t4.upper())
++
++
++def zq(s, prec=PREC, M_force=None, with_t4=True):
++    """Z_Q at s (a point or a ball), at the working precision prec, T4 in the radius. M_force and with_t4 serve (3d)'s check alone (the
++    sum to a given length, without its tail bound); the route runs with their defaults."""
+     ctx.prec = prec
+     half = arb(1) / 2
+     pi, sq = arb.pi(), arb(23).sqrt()
+@@ -154,7 +170,7 @@ def zq(s, prec=PREC):
+     nu, nu_mid = s - half, s_mid - half
+     pre = 8 * acb(pi) ** s * s.rgamma()
+     pre_mid = abs(8 * acb(pi) ** s_mid * s_mid.rgamma())
+-    M = M_of(_tmax(s), prec)
++    M = M_force if M_force else M_of(_tmax(s), prec)
+     S = acb(0)
+     for m in range(1, M + 1):
+         divs = [k for k in range(1, m + 1) if m % k == 0]
+@@ -164,14 +180,10 @@ def zq(s, prec=PREC):
+         ctx.prec = prec
+         S += (dsum * K) if m % 2 == 0 else -(dsum * K)
+     T3 = pre * S
+-    # ### T4 (plan 11.2 (j)): an upper bound, added as the radius
+-    a = _mu_abs(s)
+-    if not (a <= 1):
+-        raise ValueError('|σ − ½| above 1: T4`s bound does not apply')
+-    c = pi * sq
+-    C3 = 2 * (2 / sq).sqrt() * (1 / (2 * c)).exp() * (sq / 2) ** a
+-    t4 = 8 * abs(acb(pi) ** s * s.rgamma()).upper() * C3 * arb(M + 1) ** a * (-c * (M + 1)).exp() / (1 - 2 * (-c).exp())
+-    r = arb(t4.upper())
++    if not with_t4:
++        return T1 + T2 + T3
++    # ### T4 (plan 16 (j'), (R277)(3d)): an upper bound, added as the radius
++    r = t4_bound(s, M)
+     return T1 + T2 + T3 + acb(arb(0, r), arb(0, r))
+ 
+ 
+@@ -422,6 +434,41 @@ def main():
+         say('CERTIFY STOPPED AT (3b)')
+         return
+ 
++    # ### (3d): T4 restated for |μ| ≤ 2, its check against the sum taken to twice the length at 800 bits
++    log('')
++    log('== (3d) T4 RESTATED FOR |μ| ≤ 2 (plan section 16), ITS CHECK: Z_Q on the ball of radius %s by the route at %d bits (the sum to M, T4 in '
++        'the radius) against the sum to 2M at %d bits at the ball`s centre; beside it the terms M + 1 ... 2M against T4`s bound' % (
++            CHECK_R, PREC, PREC_CHECK))
++    ok3d = True
++    for sg, tt in T4_CHECK_POINTS:
++        del RUNGS[:]
++        ctx.prec = PREC
++        bl = acb(arb(sg, CHECK_R), arb(tt, CHECK_R))
++        zb = zq(bl, PREC)
++        ctx.prec = PREC
++        Mb = M_of(_tmax(bl), PREC)
++        mu = _mu_abs(bl)
++        tb = t4_bound(bl, Mb)
++        all_rungs += RUNGS
++        ctx.prec = PREC_CHECK
++        p = acb(arb(sg), arb(tt))
++        zl2 = zq(p, PREC_CHECK, M_force=2 * Mb, with_t4=False)
++        zl1 = zq(p, PREC_CHECK, M_force=Mb, with_t4=False)
++        ctx.prec = PREC
++        ins = zb.contains(zl2)
++        tl = abs(zl2 - zl1)
++        tail_ok = tl.upper() <= tb
++        ok3d = ok3d and ins and tail_ok
++        log('  (σ, t) = (%s, %s) : the ball`s largest |μ| %s ; M %d ; the ball %s ; the sum to 2M = %d at %d bits %s ; INSIDE %s ; the terms '
++            'M + 1 ... 2M %s ≤ T4`s bound %s : %s' % (sg, tt, mu.str(10, radius=False), Mb, zb.str(12, radius=True), 2 * Mb, PREC_CHECK,
++                                                      zl2.str(40, radius=True), ins, tl.str(5, radius=False), tb.str(5, radius=False), tail_ok))
++    log('  (3d) %s' % ('HOLDS: every longer sum inside its ball, every tail below its bound' if ok3d else
++                       '### FAILS -- THE ACT STOPS HERE, THE COMPARISON BANKED'))
++    if not ok3d:
++        put('b667_epstein_counts.txt', NL.join(OUT) + NL)
++        say('CERTIFY STOPPED AT (3d)')
++        return
++
+     # ### V1: the functional equation, each side a ball
+     log('')
+     log('== V1  THE FUNCTIONAL EQUATION Λ_Q(s) = Λ_Q(1 − s), each side`s ball')
+@@ -564,7 +611,7 @@ def main():
+     H1 = h1[1] + h1[2] == h1[0] == 17
+     H2 = h2[1] + h2[2] == h2[0] == 146
+     H3 = nR == LIST_SIZE_R and nB == 0
+-    H5 = all((ok3b, v1_ok, v2_ok, v3_ok, c1_ok, c2_ok, c3_ok))
++    H5 = all((ok3b, ok3d, v1_ok, v2_ok, v3_ok, c1_ok, c2_ok, c3_ok))
+     log('  (H1) off-line squares %d ; count 1 at h %d ; count 1 WIDENED %d ; not 1 %s ; each ball centred at its banked value -> %s' % (
+         h1[0], h1[1], h1[2], h1[3] or 'NONE', 'HELD' if H1 else 'REFUTED'))
+     log('  (H2) on-line squares %d (straddling σ = ½) ; count 1 at h %d ; count 1 WIDENED %d ; not 1 %s -> %s' % (
+@@ -572,8 +619,8 @@ def main():
+     log('  (FE) partner squares %d ; count 1 at h %d ; WIDENED %d ; not 1 %s' % (hp[0], hp[1], hp[2], hp[3] or 'NONE'))
+     log('  (H3) N(R) = %s against %d ; zeros in B = %s against 0%s -> %s' % (
+         nR, LIST_SIZE_R, nB, (' ; UNLISTED %d' % (nR - LIST_SIZE_R)) if (nR is not None and nR > LIST_SIZE_R) else '', 'HELD' if H3 else 'REFUTED'))
+-    log('  (H5) (3b) %s ; V1 %s ; V2 %s ; V3 %s ; C1 %s ; C2 %s ; C3 %s -> %s' % (ok3b, v1_ok, v2_ok, v3_ok, c1_ok, c2_ok, c3_ok,
+-                                                                                'HELD' if H5 else 'REFUTED'))
++    log('  (H5) (3b) %s ; (3d) %s ; V1 %s ; V2 %s ; V3 %s ; C1 %s ; C2 %s ; C3 %s -> %s' % (ok3b, ok3d, v1_ok, v2_ok, v3_ok, c1_ok, c2_ok,
++                                                                                          c3_ok, 'HELD' if H5 else 'REFUTED'))
+     log('  Bessel factors taken at %d bits: %d (relay data/b667_bessel_rungs.txt)' % (PREC_BESSEL, len(all_rungs)))
+     log('')
+     log('### ### **H1 %s ; H2 %s ; H3 %s ; H5 %s ; %.0f s.**' % ('HELD' if H1 else 'REFUTED', 'HELD' if H2 else 'REFUTED', 'HELD' if H3 else 'REFUTED',

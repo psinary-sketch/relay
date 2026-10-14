@@ -276,6 +276,16 @@ PROMPT BEFORE ANY NUMBER (2026-10-13)
     (i') Σ_{m > M} m^{|μ|} e^{−cm} ≤ (M + 1)^{|μ|} e^{−c(M+1)} / (1 − 2^{|μ|} e^{−c}), the ratio ((m+1)/m)^{|μ|} e^{−c} ≤ 2^{|μ|} e^{−c} < 1
          for |μ| ≤ 2 (4e^{−c} < 1, c = π√23).
     (j') |T4| ≤ 8 |π^s Γ(s)⁻¹| C3(μ) (M + 1)^{|μ|} e^{−c(M+1)} / (1 − 2^{|μ|} e^{−c}), |μ| the ball's largest, required ≤ 2.
+  THE STEP THAT CARRIES |μ|, NAMED ((R277)(3d)): from the integral representation K_μ(x) = ∫_0^∞ e^{−x cosh t} cosh(μt) dt (DLMF 10.32.9,
+  x > 0, every μ), with cosh t ≥ 1 + t²/2 and |cosh(μt)| ≤ cosh(|μ|t) ≤ e^{|μ|t} -- the last is where 11.2 (d) had put e^{t} (|μ| ≤ 1) and
+  (d') keeps e^{|μ|t}; the Gaussian integral then gives the factor e^{μ²/(2x)} in place of e^{1/(2x)}.
   For |μ| ≤ 1 (d') is no weaker than 11.2 (d) (e^{μ²/(2x)} ≤ e^{1/(2x)}), and (i') with 2^{|μ|} ≤ 2 matches 11.2 (i). The script's change:
   T4's two constants (C1 with μ², the ratio with 2^{|μ|}) and its guard at |μ| ≤ 2; nothing else. The derivative bound 14(d) needs no
   change (its step (c) keeps |μ| already). (3b), V1-V3, C1 and C2 would run again, unchanged, before any count.
+  (R277)(3d), THE AUTHOR'S WORD (relay data/b667_author_answers.txt): option 1. T4 as (d')-(j'), the two constants and the guard changed in
+  the script and nothing else of the route, the diff against the second run's script banked (relay data/b667_certify_diff_run3.txt). ITS
+  CHECK, BEFORE ANY COUNT: at three grid points of relay data/b667_bessel_obstruction.txt on the region's σ-edges -- (1.5, 40.0),
+  (1.5, 100.0), (−0.5, 147.5) -- the ball of radius 1e-6 about each (its largest |μ| = 1 + 1e-6, between 1 and 2): Z_Q on the ball by the
+  route at 200 bits (the sum to M plus T4 in the radius) against the sum taken to 2M at 800 bits at the ball's centre, the longer sum printed
+  inside the ball; beside it, at the centre at 800 bits, the terms M + 1 ... 2M's sum printed against T4's bound. The third run repeats
+  (3b), V1-V3, C1 and C2 before any count, detached as before, the host low printed at the foreground check.

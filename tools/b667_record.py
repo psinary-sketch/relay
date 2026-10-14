@@ -273,7 +273,24 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = {'c1': c1, 'answers': answers}
+# ================================================================================ THE DIFFS ((R277)(3d); Component 4)
+def diffs(*a):
+    """data/b667_certify_diff_run3.txt: tools/b667_epstein_certify.py at the second run's commit (15918f9d) against the working file; and
+    data/b667_map_balls_diff.txt: tools/b663_epstein_map.py against tools/b667_epstein_map_balls.py. Each git diff's output whole."""
+    out = {}
+    r = subprocess.run(['git', '-C', ROOT, 'diff', '15918f9d', '--', 'tools/b667_epstein_certify.py'], capture_output=True)
+    out['b667_certify_diff_run3.txt'] = ('b667 -- THE CERTIFY SCRIPT, THE THIRD RUN`S AGAINST THE SECOND`S (15918f9d) ((R277)(3d)): `git diff 15918f9d -- '
+                                         'tools/b667_epstein_certify.py`, whole.', r.stdout.decode('utf-8', 'replace').replace(chr(13), ''))
+    r = subprocess.run(['git', '-C', ROOT, 'diff', '--no-index', 'tools/b663_epstein_map.py', 'tools/b667_epstein_map_balls.py'], capture_output=True)
+    out['b667_map_balls_diff.txt'] = ('b667 -- THE b663 MAP CARRIED ONTO THE BALLS ((R277)(5) H4): `git diff --no-index tools/b663_epstein_map.py '
+                                      'tools/b667_epstein_map_balls.py`, whole.', r.stdout.decode('utf-8', 'replace').replace(chr(13), ''))
+    for name, (head, body) in out.items():
+        put_txt(name, [head, ''] + body.rstrip(NL).split(NL))
+        print('  %s : %d lines, %d removed, %d added' % (name, len(body.split(NL)), sum(1 for l in body.split(NL) if l.startswith('-') and not l.startswith('---')),
+                                                       sum(1 for l in body.split(NL) if l.startswith('+') and not l.startswith('+++'))))
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'diffs': diffs}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
