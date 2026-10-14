@@ -263,3 +263,19 @@ PROMPT BEFORE ANY NUMBER (2026-10-13)
        (3b)'s three grid points re-named (0.5, 40.0), (0.5, 100.0), (0.5, 147.5) -- on σ = ½, one in each precision regime of the
        obstruction bank (200, 400, 600 bits) -- since a two-sided ball about a point of σ = −0.5 or 1.5 leaves T4's domain |μ| ≤ 1. Nothing
        else changed; the first run's two comparisons at (0.5, 40.0) held.
+
+== 16. THE SECOND RUN'S STOP AND T4'S BOUND RESTATED FOR |μ| ≤ 2 (raised as a prompt; not run) (relay data/b667_certify_run2.txt)
+  The second run printed (3b) HOLDS (six of six inside), V1, V2 and V3 HOLD, C1 READS AS FIXED (1, 1, 1 and 3), C2 READS AS FIXED (count 0),
+  and stopped at R's bottom edge: the segment ending at σ = 3/2 is enclosed by a ball whose σ-radius Arb rounds upward, so the ball's |μ|
+  exceeds 1 by a rounding, outside 11.2 (d)'s domain ("cosh(au) ≤ e^{u} for |a| ≤ 1").
+  THE BOUND RESTATED, THE SAME DERIVATION KEEPING |μ| IN PLACE OF ITS CEILING 1:
+    (d') For any real μ and x > 0: K_μ(x) ≤ ∫_0^∞ e^{−x(1 + u²/2)} e^{|μ|u} du ≤ e^{−x} ∫_ℝ e^{−(x/2)(u − |μ|/x)² + μ²/(2x)} du
+         = e^{−x} √(2π/x) e^{μ²/(2x)} (cosh(μu) ≤ e^{|μ|u}; cosh u ≥ 1 + u²/2; the square completed).
+    (e') x = π√23 m ≥ c, so e^{μ²/(2x)} ≤ e^{μ²/(2c)} =: C1(μ).
+    (h') the tail term at m ≤ C3(μ) m^{|μ|} e^{−cm}, C3(μ) = 2 √(2/√23) C1(μ) (√23/2)^{|μ|}.
+    (i') Σ_{m > M} m^{|μ|} e^{−cm} ≤ (M + 1)^{|μ|} e^{−c(M+1)} / (1 − 2^{|μ|} e^{−c}), the ratio ((m+1)/m)^{|μ|} e^{−c} ≤ 2^{|μ|} e^{−c} < 1
+         for |μ| ≤ 2 (4e^{−c} < 1, c = π√23).
+    (j') |T4| ≤ 8 |π^s Γ(s)⁻¹| C3(μ) (M + 1)^{|μ|} e^{−c(M+1)} / (1 − 2^{|μ|} e^{−c}), |μ| the ball's largest, required ≤ 2.
+  For |μ| ≤ 1 (d') is no weaker than 11.2 (d) (e^{μ²/(2x)} ≤ e^{1/(2x)}), and (i') with 2^{|μ|} ≤ 2 matches 11.2 (i). The script's change:
+  T4's two constants (C1 with μ², the ratio with 2^{|μ|}) and its guard at |μ| ≤ 2; nothing else. The derivative bound 14(d) needs no
+  change (its step (c) keeps |μ| already). (3b), V1-V3, C1 and C2 would run again, unchanged, before any count.

@@ -1,0 +1,52 @@
+b667 -- THE CERTIFY SCRIPT'S SECOND RUN (started 2026-10-14T03:42:01Z, commit 15918f9d), STOPPED BY ITS OWN GUARD AT R'S BOTTOM EDGE:
+its print and its error, as the detached process wrote them (scratch b667_certify2.log and b667_certify2.err), banked whole. (3b), V1-V3,
+C1 and C2 ran and printed; no count of R, B or a Q0 square was made; no bank of the run was written. relay data/b667_defects.txt (f).
+
+### the print:
+b667 -- Q0`S ZEROS BELOW 150 IN BALLS: THE COUNTS (2026-10-14T03:42:01Z)
+
+### the plan relay data/b667_epstein_plan.txt sections 13-15 (the author`s word, (3a)-(3c)); python-flint 0.9.0; 200 bits, rung 400, Bessel rung 600 at 2^-60, the remedy`s check at 800; h 1e-12, widening 1e-9; R = [-0.5, 1.5] × [0.5, 150], B = [-0.5, 1.5] × [−0.5, 0.5]; depths 16 / 24. Rows are rectangles and regions.
+### READINGS NAMED HERE ((R277)(3c), plan §15): (i) the departure from one form for every count is confined to R`s right edge σ = 3/2, taken by the tail bound from two point values, and C1`s right edge, which exercises it; (ii) R`s half path has no left edge -- σ = −½ is not traversed, the left half of R`s boundary being P`s reflection under s -> 1 − conj s; (iii) C1`s region is [−1, 2] × [0.5, T_c], its right edge σ = 2, since ζ(3/2) − 1 exceeds 1.
+### the list: relay data/b326_epstein_zeros.json "zeros" 146 ordinates ; relay data/b326_offline.json "zeros" 17 off-line zeros ; R`s list size by orbit and pair 180
+### the processes: 8 workers and the main process (plan §15: eight, reduced further only if the projection breaches the hold) ; free memory at the start 2975 MB ; projected low 2750 MB against the hold 2560 MB
+
+== (3b) THE REMEDY`S CHECK: Z_Q on the ball of radius 1e-6 by the remedy at 200 bits, against Z_Q at 800 bits at its centre and at the offset point (σ + r/2, t + r/2)
+  (σ, t) = (0.5, 40.0) centre : the ball [2.57 +/- 2.34e-3] + [1.91 +/- 3.38e-3]j ; at 800 bits [2.571183303825754862762579762271049710856 +/- 1.11e-40] + [1.907775402631683532893408901025900853901 +/- 7.65e-41]j ; INSIDE True
+  (σ, t) = (0.5, 40.0) offset : the ball [2.57 +/- 2.34e-3] + [1.91 +/- 3.38e-3]j ; at 800 bits [2.571188328863854318485161075784809746875 +/- 4.31e-40] + [1.907766834217470064005625075044345772030 +/- 1.13e-40]j ; INSIDE True
+  (σ, t) = (0.5, 100.0) centre : the ball [6.45 +/- 5.10e-3] + [-3.49 +/- 7.62e-3]j ; at 800 bits [6.449045915224586934097344344208897483793 +/- 4.73e-40] + [-3.486524698171150199373546390207038599741 +/- 4.53e-40]j ; INSIDE True
+  (σ, t) = (0.5, 100.0) offset : the ball [6.45 +/- 5.10e-3] + [-3.49 +/- 7.62e-3]j ; at 800 bits [6.449022902243173646713503098110844626400 +/- 3.72e-40] + [-3.486526164299594155338678663735929347803 +/- 2.25e-40]j ; INSIDE True
+  (σ, t) = (0.5, 147.5) centre : the ball [2.05 +/- 6.41e-3] + [1.21 +/- 5.37e-3]j ; at 800 bits [2.045637993862685407140439861570352340427 +/- 3.71e-40] + [1.206680232036895683973118964443073625368 +/- 1.99e-40]j ; INSIDE True
+  (σ, t) = (0.5, 147.5) offset : the ball [2.05 +/- 6.41e-3] + [1.21 +/- 5.37e-3]j ; at 800 bits [2.045638987720950495275399456892728345765 +/- 3.17e-40] + [1.206671783060058383079819363765885436463 +/- 2.87e-40]j ; INSIDE True
+  (3b) HOLDS: every 800-bit value inside its ball
+
+== V1  THE FUNCTIONAL EQUATION Λ_Q(s) = Λ_Q(1 − s), each side`s ball
+  s = 0.8 + 20i : Λ_Q(s) [-1.42832893258e-13 +/- 3.09e-25] + [-1.16555376435e-13 +/- 2.34e-25]j ; Λ_Q(1 − s) [-1.42832893258e-13 +/- 3.09e-25] + [-1.16555376435e-13 +/- 2.34e-25]j ; OVERLAP True
+  s = 0.3 + 60i : Λ_Q(s) [2.88087623727e-40 +/- 2.79e-52] + [-5.17562460244e-41 +/- 4.66e-53]j ; Λ_Q(1 − s) [2.88087623727e-40 +/- 2.79e-52] + [-5.17562460244e-41 +/- 4.66e-53]j ; OVERLAP True
+  s = 1.2 + 100i : Λ_Q(s) [5.71754972456e-68 +/- 9.10e-81] + [6.43153733300e-67 +/- 3.70e-79]j ; Λ_Q(1 − s) [5.71754972456e-68 +/- 9.10e-81] + [6.43153733300e-67 +/- 3.70e-79]j ; OVERLAP True
+  s = 0.5 + 140i : Λ_Q(s) [2.75512794602e-95 +/- 3.67e-107] + [+/- 3.80e-128]j ; Λ_Q(1 − s) [2.75512794602e-95 +/- 3.67e-107] + [+/- 3.80e-128]j ; OVERLAP True
+  s = -0.2 + 149i : Λ_Q(s) [-6.90489251461e-101 +/- 3.32e-114] + [2.41392763855e-100 +/- 2.64e-112]j ; Λ_Q(1 − s) [-6.90489251461e-101 +/- 3.31e-114] + [2.41392763855e-100 +/- 2.64e-112]j ; OVERLAP True
+  V1 HOLDS (5 of 5 overlap)
+
+== V2  Z_Q(3/2) = [3.54841378141857 +/- 1.08e-15] + [+/- 1.81e-82]j ; Σ_{n ≥ 2} r_Q(n) n^{−3/2} = Z_Q(3/2) − 2 = [1.54841378141857 +/- 1.08e-15] ; above b326`s truncated 1.380006363821581 : True ; below 2 : True -> V2 HOLDS
+      a bound in σ alone: |Z_Q(s) − 2| ≤ Z_Q(3/2) − 2 < 2 for Re s ≥ 3/2, so no zero there and Z_Q in the open right half-plane on R`s right edge; σ ≤ −1/2 by the functional equation
+
+== V3  Z_Q on the h-ball about qE0 = 0.9532604747946607 + 16.290215720390393 i : [+/- 7.75e-11] + [+/- 7.75e-11]j, CONTAINS 0 True ; at ½ + 16.290215720390393 i : [-2.313560682 +/- 1.90e-10] + [-0.8760475025 +/- 3.02e-11]j, CONTAINS 0 False -> V3 HOLDS
+
+== C1  THE SAME ENGINE POINTED AT ζ (acb.zeta; log γ_ζ(s) = −(s/2) log π + lgamma(s/2))
+  square about acb.zeta_zero(1) = 0.50000000000000000000 + 14.134725141734693790j : count 1 (ball [1.0000000 +/- 3e-13] ; segments 256, depth 4, unresolved NONE)
+  square about acb.zeta_zero(2) = 0.50000000000000000000 + 21.022039638771554993j : count 1 (ball [1.0000000 +/- 3e-13] ; segments 248, depth 4, unresolved NONE)
+  square about acb.zeta_zero(3) = 0.50000000000000000000 + 25.010857580145688763j : count 1 (ball [1.0000000 +/- 3e-13] ; segments 132, depth 4, unresolved NONE)
+  region [−1, 2] × [0.5, 27.7178668530] by the half path: the right edge by (3c): tail [0.6449340668 +/- 4.83e-11] < 1 ; F(B) = [1.446277906 +/- 3.54e-10] + [-0.3687713046 +/- 4.05e-12]j (arg [-0.2496597893 +/- 1.39e-11]) ; F(C) = [1.386479760 +/- 3.45e-10] + [-0.04377642035 +/- 3.67e-12]j (arg [-0.03156330394 +/- 3.73e-13]) ; its argument change [0.2180964853 +/- 4.58e-11]
+    count 3 (ball [3.0000000 +/- 1e-12] ; segments 38, depth 4, unresolved NONE)
+  C1 READS AS FIXED (1, 1, 1 and 3)
+
+== C2  qE0 shifted by 1e-10 in σ, the square h = 1e-12 about the shifted point: count 0, ball [+/- 5.37e-18] ; CONTAINS 1 False -> C2 READS AS FIXED
+
+== R   THE REGION [-0.5, 1.5] × [0.5, 150] BY THE HALF PATH ½ + i0.5 -> 1.5 + i0.5 -> 1.5 + i150 -> ½ + i150
+
+### the error (frames, innermost last): main :503 -> half_path_3c :317 (R's bottom edge, ½ + 0.5i -> 1.5 + 0.5i) -> edge_arg :262 ->
+### segment :233 -> zq :170:  ValueError: |σ − ½| above 1: T4`s bound does not apply
+
+### the reading: the bottom edge's last segment ends at σ = 3/2; its enclosing ball's σ-radius, rounded upward by Arb, carries the ball's
+### upper σ past 3/2, so |μ| = |σ − ½| exceeds 1 by a rounding, outside T4's written domain (plan 11.2 (d): cosh(au) ≤ e^{u} for |a| ≤ 1);
+### the guard raised. R's bottom and top edges and B's bottom and top edges all end at σ = 3/2; a vertical segment there carries no σ-radius.
