@@ -1,0 +1,78 @@
+b670 -- COMPONENT 2, (R280)(2): THE TEN ACTS b660-b669, READ FROM THEIR CLOSINGS (2026-10-14)
+
+### the sources: the ten closings relay data/b660_closing.txt ... data/b669_closing.txt (rows are the closing record`s lines) and b660`s
+### defects bank data/b660_defects.txt (its (a), (b); its closing :19 names them). Rows below are acts; each cell is followed by its cite,
+### a closing line the record tool re-read for the cell`s needle before writing (tools/b670_record.py `ten`). Defects are counted from the
+### lettered rows of each closing`s defect section, set beside its head line`s total; their kinds are in data/b670_defects_by_kind.txt.
+
+=== b660
+  lane     LANE THREE, THE READING ACT   [data/b660_closing.txt :3]
+  landed   NONE: no build, no deposit, no seal   [data/b660_closing.txt :4]
+  hyp      NONE PUT: the closing carries no H row (29 lines)   [data/b660_closing.txt :1]
+  defects  3: the seat`s 3, the navigator`s 0   [data/b660_closing.txt :1 ; the lettered rows below]
+  orders   entered 0, discharged 0; W-ORD-CITATION-CHECK carried to b662 as a gate step   [data/b660_closing.txt :27]
+
+=== b661
+  lane     LANE TWO, THE RESEARCH ACT   [data/b661_closing.txt :3]
+  landed   NONE: no kernel main moved, no merge, no tag; the map banked (data/b661_detection_map.txt)   [data/b661_closing.txt :158]
+  hyp      H1-H4: HELD 3 (H2 VACUOUS), REFUTED 0, NOT SCORABLE 1 (H3)   [data/b661_closing.txt :37]
+  defects  4: the seat`s 2, the navigator`s 2   [data/b661_closing.txt :1 ; the lettered rows below]
+  orders   entered 0, discharged 0; W-ORD-CLOSE-PAIR-BENCH named as the map`s reader   [data/b661_closing.txt :163]
+
+=== b662
+  lane     LANE THREE, THE RE-CUT ACT   [data/b662_closing.txt :3]
+  landed   SIDE-carrier-spec cut, merged dd54a61, tag v0.4.2   [data/b662_closing.txt :36]
+  hyp      H1-H4: HELD 4, REFUTED 0 (:24-:27)   [data/b662_closing.txt :24]
+  defects  8: the seat`s 4, the navigator`s 4   [data/b662_closing.txt :1 ; the lettered rows below]
+  orders   entered 1 (W-ORD-E2-SEPARATION, OPEN_TRAILS :14132); the citation check acted (:14136)   [data/b662_closing.txt :44]
+
+=== b663
+  lane     LANE TWO, THE RESEARCH ACT   [data/b663_closing.txt :3]
+  landed   the Q0 instance (SIDEExplicitFormula/Schema/EpsteinQ0.lean), merged d00ab16, tag v0.29   [data/b663_closing.txt :47]
+  hyp      H1-H4: HELD 4 (H3, H4 ON B1), REFUTED 0 (:58-:61; the first print`s H2 REFUTED a predicate defect, (i))   [data/b663_closing.txt :58]
+  defects  18: the seat`s 13, the navigator`s 5   [data/b663_closing.txt :1 ; the lettered rows below]
+  orders   entered 2 (W-ORD-EPSTEIN-CERTIFY :14158, W-ORD-FT-FIRST-ORDER :14162), each read with its trigger met (:224-:226)   [data/b663_closing.txt :44]
+
+=== b664
+  lane     LANE THREE, THE RE-CUT ACT   [data/b664_closing.txt :3]
+  landed   SIDE-effects cut, merged 78bbcff, tag v0.1.1   [data/b664_closing.txt :29]
+  hyp      NONE PUT: the scores are N1-N5 and S1-S3 alone   [data/b664_closing.txt :45]
+  defects  5: the seat`s 2, the navigator`s 3   [data/b664_closing.txt :1 ; the lettered rows below]
+  orders   placed 2 (OPEN_TRAILS :14186, :14188); the file-constant rule :14190   [data/b664_closing.txt :40]
+
+=== b665
+  lane     LANE TWO, THE RESEARCH ACT   [data/b665_closing.txt :3]
+  landed   the Keiper finite-n equality and the transform bound DERIVES, merged 02bc85d, tag v0.30   [data/b665_closing.txt :36]
+  hyp      H1-H3: HELD 3, REFUTED 0 (:55-:57)   [data/b665_closing.txt :55]
+  defects  5: the seat`s 5, the navigator`s 0   [data/b665_closing.txt :1 ; the lettered rows below]
+  orders   discharged 1 (W-ORD-FT-FIRST-ORDER, OPEN_TRAILS :14216)   [data/b665_closing.txt :34]
+
+=== b666
+  lane     LANE THREE, THE RE-CUT ACT   [data/b666_closing.txt :3]
+  landed   SIDE-cosmo cut, merged ca04c8c, tag v0.3.1   [data/b666_closing.txt :29]
+  hyp      NONE PUT: the scores are N1-N5 and S1-S3 alone   [data/b666_closing.txt :45]
+  defects  4: the seat`s 4, the navigator`s 0   [data/b666_closing.txt :1 ; the lettered rows below]
+  orders   entered 0, discharged 0; the tie rule OPEN_TRAILS :14238   [data/b666_closing.txt :40]
+
+=== b667
+  lane     LANE TWO, THE RESEARCH ACT   [data/b667_closing.txt :3]
+  landed   NONE: no kernel main moved, no merge, no tag   [data/b667_closing.txt :216]
+  hyp      H1-H5: HELD 4 (H1, H2, H3, H5), REFUTED 0, NOT SCORABLE 1 (H4, :52)   [data/b667_closing.txt :42]
+  defects  12: the seat`s 9, the navigator`s 3   [data/b667_closing.txt :1 ; the lettered rows below]
+  orders   discharged 1 (W-ORD-EPSTEIN-CERTIFY`s data half, :14262); entered 2 (W-ORD-EPSTEIN-BALL-WIDTH :14264; W-ORD-ROOT-BINARY-BANK :14268, :239); the kernel item :14266   [data/b667_closing.txt :63]
+
+=== b668
+  lane     LANE THREE, THE RE-CUT ACT   [data/b668_closing.txt :3]
+  landed   SIDE-grh-transfer cut, merged 6e149db, tag v0.5.1 (the merged tree not the built tree, (c))   [data/b668_closing.txt :32]
+  hyp      NONE PUT: the scores are N1-N5 and S1-S3 alone   [data/b668_closing.txt :50]
+  defects  5: the seat`s 4, the navigator`s 1   [data/b668_closing.txt :1 ; the lettered rows below]
+  orders   entered 1 (the research order :14294); the plan form :14290; the mid-act check :14292   [data/b668_closing.txt :41]
+
+=== b669
+  lane     LANE TWO, THE RESEARCH ACT   [data/b669_closing.txt :3]
+  landed   liCoeffCfg and the forward half at χ, merged 115abfe, tag v0.31; the converse on chi-li-b669 at b804bf2, unmerged   [data/b669_closing.txt :31]
+  hyp      H1-H4: HELD 4, REFUTED 0   [data/b669_closing.txt :33]
+  defects  4: the seat`s 3, the navigator`s 1   [data/b669_closing.txt :1 ; the lettered rows below]
+  orders   entered 1 (W-ORD-LI-CONVERSE-NATIVE, trigger "S5 DERIVES", in the plan`s consumers section)   [data/b669_closing.txt :172]
+
+### ### **ACTS 10 ; LANE TWO 5, LANE THREE 5 ; ACTS THAT LANDED IN A KERNEL 7 ; DEFECTS 68 (THE SEAT`S 49, THE NAVIGATOR`S 19).**

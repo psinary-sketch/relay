@@ -19,3 +19,16 @@ Reading (i) runs constellation mode over the 19 roster tables of relay data/b586
 ROW 4 -- THE BRANCH-DELETION RULE. Source: the navigator's answer on the two decisions (relay data/b670_author_answers.txt), after the seat's
 defect (c) (relay data/b670_defects.txt). Text verbatim:
 "a branch a closing names for deletion is deleted when the next ferry's list carries it, and not before."
+
+================================================================================
+THE SWEEP OF (R270)-(R280) (2026-10-14), added to Component 2 by the navigator`s answer on the four tabs: every "the author`s ... at
+bNNN" / "as the author set at bNNN" / "the author`s ... of bNNN" in the rulings (the text of data/b660_ferry.txt ... data/b670_ferry.txt
+before the word FERRY, whitespace joined), checked for a bank or ledger line (tools/b670_record.py `sweep`). Patterns: (?i)(?:the author|as the author)[^.;]{0,120}?\bat b\d{3} ; (?i)author[`'’]s [^.;()]{0,60}?\bof b\d{3}
+
+  (R270) "the author's word at b645" -- MISS ; THE NAVIGATOR`S, TEXT NOT HELD STANDING (the answer on the two decisions); no b645 bank or ledger line names the bench after the companions (data/b645_author_answers.txt, b645_ferry.txt, b645_closing.txt read: no "bench"); the lines that carry the bench`s order are b650`s, printed beside and not substituted: data/b650_author_answers.txt :8 (the author`s word on question 4, (R260)(4)) and OPEN_TRAILS :13848 ("Trigger: the author’s word after the companions’ re-cuts")
+  (R271) "W-ORD-CITATION-CHECK a gate step at b662" -- FOUND at OPEN_TRAILS.md :14104 ; the author`s word at b660 (data/b660_author_answers.txt :19); the ledger line OPEN_TRAILS :14104
+  (R272) "the author set at b660" -- FOUND at OPEN_TRAILS.md :14104 ; the research order Epstein, Keiper, χ-Li: data/b660_author_answers.txt :19 ("Option 1: after b661`s map"); OPEN_TRAILS :14104
+  (R280) "the author set at b663" -- MISS ; TEXT SUPPLIED by the navigator`s answer: ROW 1 above
+  (R280) "author's criteria of b663" -- MISS ; TEXT SUPPLIED by the navigator`s answer: ROW 2 above
+
+### ### **PHRASES 5 ; FOUND 2 ; MISSES 3 (TEXT SUPPLIED 2, TEXT NOT HELD 1 -- the (R270) b645 word, its act read at b650`s lines).**
