@@ -333,6 +333,9 @@ def hypotheses(*a):
          '(relay data/b667_epstein_counts.txt, data/b667_epstein_zeros_certified.json, data/b667_epstein_control_balls.txt).' % utc(), '']
     for k, ok, l in H:
         L.append('  (%s) %s -- %s' % (k, 'HELD' if ok else 'REFUTED', l))
+        if k == 'H3':
+            L.append('       the list`s size in R by orbit and pair, 146 + 2 × 17 = 180: relay data/b667_epstein_plan.txt section 1 (:7, :19), N(R) '
+                     'banked as printed')
     L += ['', '### ### **HELD %d OF 5.**' % sum(1 for _k, ok, _l in H if ok)]
     put_txt('b667_hypotheses.txt', L)
     put_json('b667_hypotheses.json', dict(at=utc(), rows=[dict(h=k, held=ok, line=l) for k, ok, l in H]))
