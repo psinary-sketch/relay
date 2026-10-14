@@ -309,7 +309,8 @@ def answers(*a):
                 results[c.get('tool_use_id')] = (i, t, o.get('timestamp'))
                 texts.append(t)
         for t in texts:
-            for mm in re.finditer(r'(?s)BEGIN\s*(.*?)\s*END(?!\w)', t or ''):
+            # ### a word is a whole pasted text or a whole answer field ("question"="BEGIN ... END"), never BEGIN and END inside other prose
+            for mm in re.finditer(r'(?s)(?:\A\s*|=")BEGIN\s*(.*?)\s*END(?=\s*\Z|")', t or ''):
                 if K.ANCHOR not in mm.group(1) and 'RULING (' not in mm.group(1)[:20]:
                     words.append((i, mm.group(1)))
     if start is None:
