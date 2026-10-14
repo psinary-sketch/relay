@@ -1,0 +1,83 @@
+b669 -- THE CITATION CHECK, A GATE STEP AT STEP ZERO (standing from b662), RUN BEFORE THE FERRY IS BANKED (2026-10-14T16:34:49Z)
+
+### the source: the ruling and the ferry as pasted, read from the session transcript (14085 characters, 'RULING (R279) BEGIN' to 'FERRY END (part 1 of 1)'); every cite checked at HEAD; rows are cites: where | what | OK or MISS | how | the component that cites it.
+
+  OK   | ferry read-first | data/b668_closing.txt | exists at the working tree | Component 0-6
+  OK   | ferry read-first | data/b668_defects.txt | exists at the working tree | Component 0-6
+  OK   | ferry read-first | data/b569_bulka_generic.txt | exists at the working tree | Component 0-6
+  OK   | ferry read-first | data/b572_lemmas.txt | exists at the working tree | Component 0-6
+  OK   | ferry read-first | data/b668_closing_push_out.txt | exists at the working tree | Component 0-6
+  OK   | ferry read-first | data/b668_scores.json | exists at the working tree | Component 0-6
+  OK   | ferry read-first | data/b668_findings.json | exists at the working tree | Component 0-6
+  MISS | ferry read-first | data/b660_ten_acts.txt (rows are acts; the χ-Li converse row) | the bank exists (137 lines); its rows are defects ("one per line: act and letter, seat, kind", :6), and no row names the χ-Li converse; the χ-Li converse is priced at OPEN_TRAILS :11732 (b570) and :11796 (b574, REMAINDER 1) | Component 2
+  OK   | ruling (1) | relay bfc407e5, PLACE-papers f691545, root f716a8e4... | git cat-file; data/act_roots.txt b668; the closing`s head "b668 closed: relay 68952b8a, PLACE-papers f691545; suite 82 of 83; root f716a8e4de9187cb…; 2 prompts answered; 5 defects" | Component 1
+  OK   | ruling (1) | suite 82 of 83 | data/b668_closing.txt :1 | Component 1
+  OK   | ruling (1) | G-MERGES-ON-GATE declared by name | data/b668_closing.txt :92 | Component 1
+  OK   | ruling (1) | six blocks, 57 rows, 14 OVERREACHES | data/b668_closing.txt :22 | Component 1
+  OK   | ruling (1) | one commit per file in three files | data/b668_closing.txt :24 | Component 1
+  OK   | ruling (1) | run 38587853597 | data/b668_closing.txt :28 | Component 1
+  OK   | ruling (1) | G-AXIOM-CLAIM 0 before and after | data/b668_closing.txt :34 | Component 1
+  OK   | ruling (1) | the mirror CLEAN | data/b668_closing.txt :37 | Component 1
+  OK   | ruling (1) | the sealed tools at the close | data/b668_closing.txt :14 | Component 1
+  OK   | ruling (1) | branch tip d487072, merge 6e149db, tag v0.5.1 peeled | data/b668_runner_rows.json; git rev-parse v0.5.1^{commit} | Component 1
+  OK   | ruling (1) | "five defects, (b) the navigator`s" | data/b668_defects.txt rows: (a) SEAT'S, (b) NAVIGATOR'S, (c) SEAT'S, (d) SEAT'S, (e) SEAT'S | Component 1
+  OK   | ruling (1), (6) | the FINDINGS entry`s N4 cell PENDING, the scores bank HELD | FINDINGS :8677`s entry reads N4 PENDING ; data/b668_scores.json N4 HELD | Component 0
+  OK   | ruling (1) | FINDINGS :8675 | *Appended 2026-10-14 by b668 to b667’s entry (:8649), under `(R278)`(1) -- b667 AT ITS WEI | Component 1
+  OK   | ruling (1) | FINDINGS :8677 | ## SIDE-grh-transfer’s docstrings at 14 sentence rows cut of 57, built on the runner and m | Component 1
+  OK   | ruling (1), (3); ferry | OPEN_TRAILS :14290 | *Appended 2026-10-14 by b668 beneath the citation check as a gate step (:14136), under `(R278)`(3) - | Component 1-2
+  OK   | ruling (1), (3); ferry | OPEN_TRAILS :14292 | *Appended 2026-10-14 by b668 beneath the citation check as a gate step (:14136), under `(R278)`(4) - | Component 1-2
+  OK   | ruling (1), (3); ferry | OPEN_TRAILS :14294 | *Appended 2026-10-14 by b668 beneath the alternation of research and re-cut acts (:13944), under `(R | Component 1-2
+  OK   | ruling (1), (3); ferry | OPEN_TRAILS :14296 | *Appended 2026-10-14 by b668 beneath its record lines (:14294), under the author’s word on the cut ( | Component 1-2
+  OK   | ruling (1), (3); ferry | OPEN_TRAILS :14298 | *Appended 2026-10-14 by b668 beneath its record lines (:14294), under the author’s word on the cut ( | Component 1-2
+  OK   | ruling (1), (3); ferry | OPEN_TRAILS :14300 | ### b668 — lane three, act ninety-five, the re-cut act under (R278): b667 at its weight; SIDE-grh-tr | Component 1-2
+  OK   | ruling (1), (3); ferry | OPEN_TRAILS :11609 | *Appended 2026-09-29 by b564, under the author’s ruling `(R174)`(4), to the LI-WEIL-BRIDGE work-orde | Component 1-2
+  OK   | ruling (1), (3); ferry | OPEN_TRAILS :11732 | *Appended 2026-10-01 by b570, under the author’s ruling `(R180)`(4), to the W-ORD-GRH-WEIL entry (:1 | Component 1-2
+  OK   | ruling (1), (3); ferry | OPEN_TRAILS :11796 | *Appended 2026-10-01 by b574, under the author’s ruling `(R184)`(3), to the W-ORD-GRH-WEIL entry (:1 | Component 1-2
+  OK   | ruling (3) | OPEN_TRAILS :11609`s (V1)-(V4), the power-sum lemma at (V4) | OPEN_TRAILS :11609 | Component 2
+  OK   | ferry read-first | FINDINGS :6136 (Bulka`s route) | FINDINGS :6136 names ['bulka/li-criterion-rh-equivalence-lean'] | Component 2
+  OK   | ruling (2)-(4) | SIDE-explicit-formula at v0.30 (main), v0.31 the next tag | git describe --tags main: v0.30 ; v0.31 not yet listed | Component 2-4
+  OK   | ruling (2); ferry read-first | LiWeil.lean`s LiCoeff | v0.30: SIDEExplicitFormula/LiWeil.lean :243 | Component 2
+  OK   | ruling (2); ferry read-first | LiWeil.lean`s rh_imp_li_nonneg | v0.30: SIDEExplicitFormula/LiWeil.lean :267 | Component 2
+  OK   | ruling (2); ferry read-first | li_nonneg_iff_rh at v0.9 | v0.9: SIDEExplicitFormula/LiCriterionBridge.lean :179 | Component 2
+  OK   | ruling (2); ferry read-first | li_coeff_eq_taylorCoeff (the ferry`s "LiCriterion") | v0.30: SIDEExplicitFormula/LiCriterionBridge.lean :149 | Component 2
+  OK   | ruling (2); ferry read-first | riemannXi (the ferry`s "LiCriterion") | v0.30: Vendored/Bulka/Lc/LiCriterion/Basic.lean :1252; Vendored/Bulka/Lc/XiZeros.lean :72 | Component 2
+  OK   | ruling (2); ferry read-first | Chi/ZeroConfig.lean`s chiZeroConfig | v0.30: SIDEExplicitFormula/Chi/ZeroConfig.lean :225 | Component 2
+  OK   | ruling (2); ferry read-first | h2_sign_chi_iff_grh_chi at v0.14 | v0.14: SIDEExplicitFormula/Chi/CriterionConverse.lean :270 | Component 2
+  OK   | ruling (2); ferry read-first | Config.lean`s WeilConfig | v0.30: SIDEExplicitFormula/Schema/Config.lean :24 | Component 2
+  OK   | ruling (2); ferry read-first | ZeroConfig (Zeta23) | v0.30: Zeta23/Defs.lean :136 | Component 2
+  OK   | ferry read-first | PageConverses.lean | v0.30:SIDEExplicitFormula/PageConverses.lean | Component 2
+  OK   | ruling (3) | Mathlib at de5ce8a9 | lake-manifest at v0.30: ['de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11'] ; the package checkout at de5ce8a9 | Component 2
+  OK   | ferry read-first | the completed L-function of a Dirichlet character | Mathlib de5ce8a9 Mathlib/NumberTheory/LSeries/DirichletContinuation.lean: :Mathlib/NumberTheory/LSeries/DirichletContinuation.lean 224 | Component 2
+  OK   | ferry read-first | its functional equation | Mathlib de5ce8a9 Mathlib/NumberTheory/LSeries/DirichletContinuation.lean: :Mathlib/NumberTheory/LSeries/DirichletContinuation.lean 284 | Component 2
+  OK   | ferry read-first | its differentiability | Mathlib de5ce8a9 Mathlib/NumberTheory/LSeries/DirichletContinuation.lean: :Mathlib/NumberTheory/LSeries/DirichletContinuation.lean 250 | Component 2
+  OK   | ferry Component 0 | relay push-b668 | git branch --list | Component 0
+  OK   | ferry Component 0 | relay push-b668-root | git branch --list | Component 0
+  OK   | ferry Component 0 | relay push-b668-closing | git branch --list | Component 0
+  OK   | ferry Component 0 | PLACE-papers push-b668 | git branch --list | Component 0
+  OK   | ferry Component 0 | PLACE-papers push-b668-root | git branch --list | Component 0
+  OK   | ferry Component 0 | SIDE-grh-transfer push-b668-workflow | git branch --list | Component 0
+  OK   | ferry Component 0 | SIDE-grh-transfer push-b668-merge | git branch --list | Component 0
+  OK   | ferry Component 0 | SIDE-grh-transfer docstrings-cut-SIDE-grh-transfer | git branch --list | Component 0
+  OK   | ruling (4) | branch chi-li-b669 not yet made | git branch --list chi-li-b669 in SIDE-explicit-formula | Component 3
+  OK   | ruling; ferry | (R278)(3, 4, 5) | data/b668_ferry.txt | Component 0-6
+  OK   | ruling; ferry | (R251)(3) | data/b641_ferry.txt | Component 6
+  OK   | ruling; ferry | (R254)(2) | data/b644_ferry.txt | Component 0-6
+  OK   | ferry; the b663 plan form | tools/push_gated.sh | exists | Component 0-6
+  OK   | ferry; the b663 plan form | tools/act_root.py | exists | Component 0-6
+  OK   | ferry; the b663 plan form | tools/additive_shared.py | exists | Component 0-6
+  OK   | ferry; the b663 plan form | tools/ferry_scan.py | exists | Component 0-6
+  OK   | ferry; the b663 plan form | tools/b663_epstein_map.py | exists | Component 0-6
+  OK   | ruling (3) | the b663 plan form (data/b663_epstein_plan.txt) | exists | Component 2
+  OK   | ruling (5) | the draft at v5, held | data/b668_closing.txt (N5): draft 23228113, v5, unsubmitted | Component 6
+
+### THE MISSES, EACH RAISED TO THE AUTHOR BEFORE THE COMPONENT THAT CITES IT RUNS (none repaired silently):
+  data/b660_ten_acts.txt (rows are acts; the χ-Li converse row) -- the bank exists (137 lines); its rows are defects ("one per line: act and letter, seat, kind", :6), and no row names the χ-Li converse; the χ-Li converse is priced at OPEN_TRAILS :11732 (b570) and :11796 (b574, REMAINDER 1) (Component 2)
+
+### ### **CITES CHECKED 67 ; OK 66 ; MISSES 1.**
+
+### (R278)(4) THE MID-ACT CHECK (2026-10-14T16:35:53Z): the navigator`s answer carrying "NAVIGATOR'S ANSWER on the order cite", 1103 characters; its cites checked at HEAD before the seat acts on it:
+  OK   | path | data/b660_ten_acts.txt
+  OK   | path | data/b669_citation_check.txt
+  OK   | path, this act`s bank the answer orders written -- TO BE WRITTEN, not a cite | data/b669_defects.txt
+  OK   | line | OPEN_TRAILS :11732
+### ### **ANSWER CITES CHECKED 4 ; OK 4 ; MISSES 0.**
