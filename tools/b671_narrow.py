@@ -51,6 +51,10 @@ C2_ON_SHIFT = '1e-11'              # ### C2: ON idx 0's interval shifted by 10 �
 C2_OFF_SHIFT = '1e-9'              # ### C2: OFF idx 0's square shifted in σ
 C1_N = (1, 2, 3)                   # ### C1: ζ's lowest three zeros, by acb.zeta_zero(n)
 PROCS = CERT.PROCS                 # ### 8 (b667's, under the 2560 MB hold)
+BESSEL_BAR_EXP = -200              # ### the author's word on the Bessel bar: (3a)'s acceptance lifted from b667's -60 (certify :49). Its consumer: a
+#                                  ### sign or a segment enclosure at half-width W, |Z_Q'|·W at the smallest |Z_Q'| b667's banks hold (3.895 at
+#                                  ### 0.7 + 40.25i, data/b667_ball_obstruction.txt :3) = 3.9e-24; a term accepted below 2^-200 (6.2e-61), far beneath
+#                                  ### two decimal orders under it. The ladder 200 -> 400 -> 600 bits unchanged. b667's certificates stand on their bar.
 DIGITS = 45                        # ### decimal digits of a printed centre
 Q0_CERT = 'b667_epstein_zeros_certified.json.gz'
 
@@ -67,7 +71,8 @@ def say(s=''):
 
 
 def bs(x, n=15):
-    return x.str(n, radius=True)
+    """a ball printed as its midpoint and its radius (b671 defect (e): a 15-digit `[+/- r]` print hid a ball that excludes 0)."""
+    return 'mid %s rad %s' % (x.mid().str(n, radius=False), x.rad().str(3, radius=False))
 
 
 def exact(s):
@@ -104,6 +109,34 @@ def segment(F, za, zb, depth, maxd, cache, st):
 
 
 CERT.segment = segment             # ### edge_arg reads `segment` from its own module: the carried one, set by name
+
+
+def _bessel(m, nu, nu_mid, rad_nu, pre_mid, dsum_mid, prec, s):
+    """(3a)-(3b): the factor K_ν(π√23 m) on the ball nu: K at the centre nu_mid at the lowest precision of the ladder at which the term's
+    radius there is below 2^BESSEL_BAR_EXP (x formed at that precision), plus rad_nu · sup|∂_ν K|; every factor taken at 600 logged."""
+    bar = arb(2) ** BESSEL_BAR_EXP
+    ladder = sorted({prec} | {p for p in (CERT.PREC, CERT.PREC_RUNG, CERT.PREC_BESSEL) if p >= prec})
+    used, km = ladder[-1], None
+    for p in ladder:
+        ctx.prec = p
+        x = arb.pi() * arb(23).sqrt() * m
+        km = acb(x).bessel_k(nu_mid)
+        r = pre_mid * km.rad() * dsum_mid
+        used = p
+        if r.is_finite() and r < bar:
+            break
+    ctx.prec = used
+    if rad_nu > 0:
+        x = arb.pi() * arb(23).sqrt() * m
+        e = (rad_nu * CERT.dK_bound(x, nu)).upper()
+        km = km + acb(arb(0, e), arb(0, e))
+    if used == CERT.PREC_BESSEL and prec < CERT.PREC_BESSEL:
+        CERT.RUNGS.append((m, float(s.real.mid()), float(s.imag.mid()), used))
+    ctx.prec = prec
+    return km
+
+
+CERT._bessel = _bessel             # ### zq reads `_bessel` from its own module: the carried one, its bar lifted, set by name (the author's word)
 
 
 def square_count(F, re, im, h):
@@ -152,10 +185,14 @@ def sign_at(lam, t):
     return None, True, line
 
 
-def narrow_on(lam, name, t0, h0):
-    """(M-on) from [t0 − h0, t0 + h0] to half-width W: returns the row's reading and the depth lines."""
+def narrow_on(lam, name, t0, h0, lo=None, hi=None):
+    """(M-on) from [t0 − h0, t0 + h0] -- or from a last certified interval [lo, hi] (the author's word on the Bessel bar: the 9 re-run from
+    there, not from the start) -- to half-width W: returns the row's reading and the depth lines."""
     ctx.prec = PREC
-    a, bb = exact(t0) - arb(h0), exact(t0) + arb(h0)
+    if lo is not None:
+        a, bb = exact(lo), exact(hi)
+    else:
+        a, bb = exact(t0) - arb(h0), exact(t0) + arb(h0)
     a, bb = a.mid(), bb.mid()
     lines = []
     sa, ia, la = sign_at(lam, a)
@@ -308,6 +345,72 @@ def run1():
     say('  written: data/b671_narrow_run1.json, data/b671_narrow_run1.txt')
 
 
+def run1b():
+    """the author's word on the Bessel bar: C1 and C2 re-run under BESSEL_BAR_EXP and read as fixed before any Q0 point, then the on-line
+    points run 1 left UNRESOLVED re-run from their last certified intervals."""
+    t_start = time.time()
+    say('b671 -- THE NARROWING, RUN 1b: C1, C2 AND RUN 1`S UNRESOLVED ON-LINE POINTS UNDER THE BAR 2^%d (%s) ; W %s ; DEPTH %d' % (
+        BESSEL_BAR_EXP, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), W, DEPTH))
+    r1 = json.load(io.open(os.path.join(D, 'b671_narrow_run1.json'), encoding='utf-8'))
+    res = dict(bar=BESSEL_BAR_EXP, c1=[], c2={}, on=[])
+    for n in C1_N:
+        ctx.prec = PREC
+        z = acb.zeta_zero(n)
+        t0 = z.imag.mid().str(DIGITS, radius=False)
+        r, lines = narrow_on(lam_z_at, 'C1 n=%d' % n, t0, H0)
+        for l in lines:
+            say(l)
+        ctx.prec = PREC
+        ref = acb.zeta_zero(n).imag
+        inside = bool(r['lo'] <= ref.lower()) and bool(ref.upper() <= r['hi'])
+        say('  C1 n = %d : %s at depth %d ; [%s, %s] ; the call`s ball inside it %s' % (n, r['reading'], r['depth'], r['lo'].str(DIGITS, radius=False),
+                                                                                    r['hi'].str(DIGITS, radius=False), inside))
+        res['c1'].append(dict(n=n, reading=r['reading'], depth=r['depth'], inside=inside))
+    rows = rows667()
+    on = dict((r['idx'], r) for r in rows if r['kind'] == 'ON')
+    off = sorted((r for r in rows if r['kind'] == 'OFF'), key=lambda r: r['idx'])
+    ctx.prec = PREC
+    r0 = on[0]
+    r, lines = narrow_on(lam_q_at, 'C2 ON idx 0 shifted', (exact(r0['im']) + arb(C2_ON_SHIFT)).mid().str(DIGITS, radius=False), H0)
+    for l in lines:
+        say(l)
+    say('  C2 ON idx 0 shifted by %s : %s' % (C2_ON_SHIFT, r['reading']))
+    q0 = off[0]
+    ctx.prec = PREC
+    n, cb, st = square_count(CERT.zq, (exact(q0['re']) + arb(C2_OFF_SHIFT)).mid().str(DIGITS, radius=False), q0['im'], H0)
+    say('  C2 OFF idx 0 shifted by %s in σ : count %s ; ball %s ; segments %d ; doublings %d' % (C2_OFF_SHIFT, n, bs(cb) if cb is not None else None,
+                                                                                                st['segments'], len(st.get('doublings') or [])))
+    res['c2'] = dict(on=r['reading'], off=n)
+    if not (all(x['inside'] and x['reading'] == 'NARROWED' for x in res['c1']) and res['c2'] == dict(on='NO SIGN CHANGE', off=0)):
+        say('### C1 OR C2 NOT AS FIXED UNDER THE NEW BAR -- NO Q0 POINT RUN')
+        put('b671_narrow_run1b.json', json.dumps(res, indent=1, ensure_ascii=False) + NL)
+        put('b671_narrow_run1b.txt', NL.join(OUT) + NL)
+        return
+    for x in r1['on']:
+        if x['reading'] == 'NARROWED':
+            continue
+        t1 = time.time()
+        r, lines = narrow_on(lam_q_at, 'ON %d' % x['idx'], None, None, lo=x['lo'], hi=x['hi'])
+        for l in lines:
+            say(l)
+        mid = ((r['lo'] + r['hi']) / 2).mid()
+        row = dict(kind='ON', idx=x['idx'], reading=r['reading'], depth=x['depth'] + r['depth'], signs=r['signs'], re='0.5',
+                   im=mid.str(DIGITS, radius=False), h=W if r['reading'] == 'NARROWED' else ((r['hi'] - r['lo']) / 2).upper().str(DIGITS, radius=False),
+                   count=1, why=r.get('why'), lo=r['lo'].str(DIGITS, radius=False), hi=r['hi'].str(DIGITS, radius=False), seconds=int(time.time() - t1),
+                   from_run1=dict(depth=x['depth'], lo=x['lo'], hi=x['hi']))
+        res['on'].append(row)
+        say('  ON %d : %s at depth %d (run 1 %d + run 1b %d) ; signs %s ; [%s, %s] ; %d s' % (
+            x['idx'], row['reading'], row['depth'], x['depth'], r['depth'], row['signs'], row['lo'], row['hi'], row['seconds']))
+    c = {}
+    for x in res['on']:
+        c[x['reading']] = c.get(x['reading'], 0) + 1
+    say('### ### **RUN 1b : C1 %s ; C2 ON %s, OFF count %s ; THE %d RE-RUN %s ; %d s.**' % (
+        [(x['n'], x['reading'], x['inside']) for x in res['c1']], res['c2']['on'], res['c2']['off'], len(res['on']), c, time.time() - t_start))
+    put('b671_narrow_run1b.json', json.dumps(res, indent=1, ensure_ascii=False) + NL)
+    put('b671_narrow_run1b.txt', NL.join(OUT) + NL)
+    say('  written: data/b671_narrow_run1b.json, data/b671_narrow_run1b.txt')
+
+
 def _init():
     ctx.prec = PREC
 
@@ -339,8 +442,24 @@ def run2():
     put('b671_narrow_run2.txt', NL.join(OUT) + NL)
 
 
+def _last_interval(x):
+    """an on-line row's ball: W about its interval's midpoint where NARROWED; where not, its last certified interval [lo, hi] -- the plan's
+    "keeps its last certified interval" -- by its midpoint and the interval's half-width rounded up, never b667's square."""
+    ctx.prec = PREC
+    lo, hi = exact(x['lo']), exact(x['hi'])
+    return ((lo + hi) / 2).mid().str(DIGITS, radius=False), (W if x['reading'] == 'NARROWED' else ((hi - lo) / 2).upper().str(DIGITS, radius=False))
+
+
 def bank():
     r1 = json.load(io.open(os.path.join(D, 'b671_narrow_run1.json'), encoding='utf-8'))
+    p1b = os.path.join(D, 'b671_narrow_run1b.json')
+    if os.path.exists(p1b):           # ### the author's word on the Bessel bar: the re-run rows replace run 1's for their points
+        r1b = json.load(io.open(p1b, encoding='utf-8'))
+        rb = dict((x['idx'], x) for x in r1b.get('on') or [])
+        r1['on'] = [rb.get(x['idx'], x) for x in r1['on']]
+        r1['c1_run1b'], r1['c2_run1b'] = r1b.get('c1'), r1b.get('c2')
+    for x in r1['on']:
+        x['im'], x['h'] = _last_interval(x)
     off = [json.loads(l) for l in io.open(os.path.join(D, 'b671_narrow_run2_points.jsonl'), encoding='utf-8') if l.strip()]
     off = sorted(off, key=lambda r: r['idx'])
     rows = [dict(kind=r['kind'], idx=r['idx'], re=r['re'], im=r['im'], h=r['h'], count=1, reading=r['reading'], depth=r['depth'])
@@ -386,7 +505,7 @@ if __name__ == '__main__':
         out = ['b671 -- THE CARRIED COUNT AGAINST b667`s (tools/b667_epstein_certify.py): square_count and segment, unified diff', '']
         mine = io.open(os.path.abspath(__file__), encoding='utf-8').read().splitlines()
         mt = ast.parse(io.open(os.path.abspath(__file__), encoding='utf-8').read())
-        for name in ('square_count', 'segment'):
+        for name in ('square_count', 'segment', '_bessel'):
             n0 = [x for x in tree.body if isinstance(x, ast.FunctionDef) and x.name == name][0]
             n1 = [x for x in mt.body if isinstance(x, ast.FunctionDef) and x.name == name][0]
             a = lines[n0.lineno - 1:n0.end_lineno]
@@ -395,6 +514,8 @@ if __name__ == '__main__':
                 difflib.unified_diff(a, bb, 'b667', 'b671', lineterm='')) + ['']
         put('b671_narrow_carry_diff.txt', NL.join(out) + NL)
         print(NL.join(out))
+    elif mode == 'run1b':
+        run1b()
     elif mode == 'run1':
         run1()
     elif mode == 'run2':

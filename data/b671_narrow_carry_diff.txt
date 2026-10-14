@@ -1,6 +1,6 @@
 b671 -- THE CARRIED COUNT AGAINST b667`s (tools/b667_epstein_certify.py): square_count and segment, unified diff
 
-=== square_count (b667 :301-:315 ; b671 :109-:123)
+=== square_count (b667 :301-:315 ; b671 :142-:156)
 --- b667
 +++ b671
 @@ -4,9 +4,9 @@
@@ -16,7 +16,7 @@ b671 -- THE CARRIED COUNT AGAINST b667`s (tools/b667_epstein_certify.py): square
              return None, None, st
          tot += d
 
-=== segment (b667 :258-:281 ; b671 :79-:103)
+=== segment (b667 :258-:281 ; b671 :84-:108)
 --- b667
 +++ b671
 @@ -1,24 +1,25 @@
@@ -50,4 +50,32 @@ b671 -- THE CARRIED COUNT AGAINST b667`s (tools/b667_epstein_certify.py): square
 +    fa, fb = CERT._pt(F, za, cache), CERT._pt(F, zb, cache)
      ctx.prec = PREC
      return (fb / fa).arg()
+
+=== _bessel (b667 :122-:144 ; b671 :114-:136)
+--- b667
++++ b671
+@@ -1,8 +1,8 @@
+ def _bessel(m, nu, nu_mid, rad_nu, pre_mid, dsum_mid, prec, s):
+     """(3a)-(3b): the factor K_ν(π√23 m) on the ball nu: K at the centre nu_mid at the lowest precision of the ladder at which the term's
+-    radius there is below 2^-60 (x formed at that precision), plus rad_nu · sup|∂_ν K|; every factor taken at 600 logged."""
++    radius there is below 2^BESSEL_BAR_EXP (x formed at that precision), plus rad_nu · sup|∂_ν K|; every factor taken at 600 logged."""
+     bar = arb(2) ** BESSEL_BAR_EXP
+-    ladder = sorted({prec} | {p for p in (PREC, PREC_RUNG, PREC_BESSEL) if p >= prec})
++    ladder = sorted({prec} | {p for p in (CERT.PREC, CERT.PREC_RUNG, CERT.PREC_BESSEL) if p >= prec})
+     used, km = ladder[-1], None
+     for p in ladder:
+         ctx.prec = p
+@@ -15,9 +15,9 @@
+     ctx.prec = used
+     if rad_nu > 0:
+         x = arb.pi() * arb(23).sqrt() * m
+-        e = (rad_nu * dK_bound(x, nu)).upper()
++        e = (rad_nu * CERT.dK_bound(x, nu)).upper()
+         km = km + acb(arb(0, e), arb(0, e))
+-    if used == PREC_BESSEL and prec < PREC_BESSEL:
+-        RUNGS.append((m, float(s.real.mid()), float(s.imag.mid()), used))
++    if used == CERT.PREC_BESSEL and prec < CERT.PREC_BESSEL:
++        CERT.RUNGS.append((m, float(s.real.mid()), float(s.imag.mid()), used))
+     ctx.prec = prec
+     return km
 
