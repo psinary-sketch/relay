@@ -1,0 +1,60 @@
+b670 -- COMPONENT 4, (R280)(4): THE METHOD-READINESS TABLE (2026-10-14T20:37:45Z), per relay data/b670_rules.txt row 2 (the navigator`s text of the
+b663 criteria): READY when used in at least two acts, its inputs and outputs banked by name, and at least one failure mode recorded as a
+lettered defect; otherwise NOT READY, or NOT YET USED TWICE where the act count alone fails.
+
+### rows are methods: the ten (R280)(4) names. "method" stands in 1 of the ten closings (the control, the ferry: 1): data/b666_closing.txt
+### :171, "the isolation method" of b667, which is the argument-principle certification`s row; the closings name no other.
+### ACTS: the bNNN of every relay bank whose name marks the method (and, where named below, whose text carries the method`s line);
+### BANKS: those banks by name (first, last and count); DEFECTS: lettered defect heads read by hand, each bank and line cited.
+
+=== the E0 gate reading -- READY
+    acts 15: b300 b559 b560 b561 b562 b563 ... b569 b570 b571 b572 b573 b663
+    banks 15: data/b300_e0_gate.txt ... data/b663_epstein_instance.txt
+    defects 2: b663 (e) data/b663_defects.txt :26 ; b664 (b663-late) data/b664_defects.txt :5
+
+=== the sentence-row grade bank and the mechanical cut -- READY
+    acts 8: b652 b655 b657 b659 b662 b664 b666 b668
+    banks 16: data/b652_sentence_grades.txt ... data/b668_sentence_grades.txt
+    defects 4: b652 (b) data/b652_defects.txt :8 ; b655 (a) data/b655_defects.txt :7 ; b657 (a) data/b657_defects.txt :6 ; b668 (c) data/b668_defects.txt :17
+
+=== the runner build with the artifact hash -- READY
+    acts 12: b653 b654 b655 b657 b658 b659 b662 b664 b665 b666 b668 b669
+    banks 12: data/b653_runner_rows.json ... data/b669_runner_rows.json
+    defects 3: b653 (a) data/b653_defects.txt :7 ; b659 (a) data/b659_defects.txt :6 ; b662 (f) data/b662_defects.txt :24
+
+=== the citation check at step zero and mid-act -- READY
+    acts 9: b662 b663 b664 b665 b666 b667 b668 b669 b670
+    banks 9: data/b662_citation_check.txt ... data/b670_citation_check.txt
+    defects 3: b663 (f) data/b663_defects.txt :30 ; b668 (a) data/b668_defects.txt :7 ; b669 (b) data/b669_defects.txt :11
+
+=== the consumers section -- NOT YET USED TWICE
+    acts 1: b669
+    banks 1: b669_chi_li_plan.txt
+    defects 0: NONE RECORDED
+
+=== the argument-principle certification -- NOT YET USED TWICE
+    acts 1: b667
+    banks 1: b667_epstein_counts.txt
+    defects 0: NONE RECORDED
+
+=== the detection map -- READY
+    acts 4: b661 b662 b663 b667
+    banks 5: data/b661_detection_map.txt ... data/b667_map_balls_diff.txt
+    defects 2: b662 (a) data/b662_defects.txt :9 ; b663 (k) data/b663_defects.txt :50
+
+=== the dry-run gate step -- READY
+    acts 12: b657 b658 b659 b661 b662 b663 b664 b665 b666 b667 b668 b669
+    banks 12: data/b657_reg_gate.txt ... data/b669_reg_gate.txt
+    defects 2: b642 (g) data/b642_defects.txt :9 ; b644 (o) data/b644_defects.txt :17
+
+=== the act root -- READY
+    acts 46: b624 b625 b626 b627 b628 b629 ... b664 b665 b666 b667 b668 b669
+    banks 46: data/b624_act_root.txt ... data/b669_act_root.txt
+    defects 1: b662 (h) data/b662_defects.txt :34
+
+=== the mirror export -- READY
+    acts 181: b307 b314 b323 b324 b325 b326 ... b657 b659 b662 b664 b666 b668
+    banks 181: data/b307_mirror.txt ... data/b668_mirror.txt
+    defects 2: b537 (b) data/b537_defects.txt :7 ; b576 (d) data/b576_defects.txt :5
+
+### ### **METHODS 10 ; READY 8 ; NOT READY 0 ; NOT YET USED TWICE 2.**
