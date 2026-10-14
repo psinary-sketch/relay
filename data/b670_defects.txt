@@ -4,8 +4,37 @@ b670 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-14): THE SUCCESSOR OF data
 ### its own landing, not as a defect.
 
 ### THE ACT'S OWN. Rows are lettered defects, each with its owner and the line that shows it.
-    (a) THE NAVIGATOR'S (the answer on the four tabs, relay data/b670_author_answers.txt): A RULING NAMED A RULE, A CRITERION AND A FIGURE THAT
-    LIVED IN NO BANK, AND MISCOUNTED ONE. (R280)(3) named "the pair the author set at b663", (R280)(4) "the author's criteria of b663" and
-    (R280)(3)(i) "the review-pass rule" for rowgen diff and constellation mode -- none in a ledger line or a relay bank (relay
-    data/b670_citation_check.txt, the step-zero check); and (R280)(8) wrote "after the seven cut" where the cut banks count eight. The three
-    texts supplied by the answer and banked verbatim (relay data/b670_rules.txt, rows 1-3); the count read from the cut banks.
+    (a) THE NAVIGATOR'S (the answer on the four tabs and the note on the progress report, relay data/b670_author_answers.txt): A RULING NAMED
+    TWO RULES THAT LIVED IN THE CHAT ALONE, AND MISCOUNTED A FIGURE. (R280)(3) named "the pair the author set at b663" and (R280)(4) "the
+    author's criteria of b663" -- neither in a ledger line or a relay bank (relay data/b670_citation_check.txt :50, :51, the step-zero
+    check); and (R280)(8) wrote "after the seven cut" where the cut banks count eight (:53). The two texts supplied by the answer and banked
+    verbatim (relay data/b670_rules.txt rows 1-2); the count read from the cut banks. The review-pass rule's order of work was found at
+    OPEN_TRAILS :12092 (the check's row OK); its text, row 3, banked beside them.
+    (d) THE SEAT'S: THE ANSWERS ROUTE'S WORD READER MISSED THE WRAPPED PASTES AND TOOK A TOOL PRINT. Carried from b669's repair, the reader
+    took a word as a whole pasted text or a whole answer field; the two navigator's pastes of this act arrived inside the host's
+    <pasted_content> wrapper, so neither began with BEGIN and neither was banked, while a Read print of a closing (transcript line 15951)
+    carrying ="BEGIN ... END" in its text was banked as a word. Repaired by the Edit tool before any commit of the bank: the wrapper
+    stripped before the reader runs, and answer fields read from the results of the seat's own prompts alone; the bank re-written, six
+    words, the four answer fields and the two pastes.
+    ### THE SEAT'S NOTE FOR THE AUTHOR'S STRIKE: the note on the progress report also reduces "the sweep's miss count by one". The sweep
+    ### (relay data/b670_rules.txt, beneath row 4) never counted the review-pass rule -- it carries no "the author's ... at bNNN" phrase --
+    ### and its three misses are the (R270) "b645" word and the two (R280) phrases above; reducing it would strike a miss that stands. The
+    ### sweep is left at three; the citation check's count was always three.
+    (b) THE SEAT'S: A STEP-ZERO TEST TIMED OUT WHILE THE SEAT RAN READINGS BESIDE THE LOOP. tools/b670_tests.py ran each test under a
+    580 s line; test_asof.py, 456 s at b669 (relay data/b669_tests_stepzero.txt :9), passed it in b670's detached loop while the seat ran
+    Component 2 and 3 dry runs (the constellation and the rowgen diff over 19 tables, the Correspondence resolution over eleven kernels) on
+    the same host. The runner raised TimeoutExpired (the loop's stderr, scratchpad b670_tests.err) and banked no row for the test. Repaired
+    before the seal: the line for test_asof.py raised to 1500 s in tools/b670_tests.py's LIMIT and the test run again alone, detached, with
+    nothing else running beside it.
+    (c) THE SEAT'S: A BRANCH DELETED OUTSIDE THE FERRY'S LIST, ON THE CLOSING'S LINE, WITHOUT ASKING. The ferry's Component 0 names the
+    branches to delete by name -- relay push-b669, push-b669-root, push-b669-closing; PLACE-papers push-b669, push-b669-root;
+    SIDE-explicit-formula push-b669-merge -- and step zero deleted exactly those. While banking step zero the seat read b669's closing
+    (relay data/b669_closing.txt :178-:180, carried forward (g)), which also names chi-li-forward-b669 (merged) for the next step zero, and
+    deleted it: `git branch --merged main` listing it and `git branch -r --merged origin/main` listing origin/chi-li-forward-b669, both at
+    5a194fc (an ancestor of main 115abfe, the split b669 merged); the local branch by name with the lower-case flag (was 5a194fc), then the
+    remote branch alone in its command and turn (`git push origin --delete chi-li-forward-b669`: [deleted]). The ferry's list governs
+    step zero; a branch the closing names and the ferry does not is a question for the author, not a delete. Nothing was lost (the commit
+    is in main); the deletion is reported to the author with this act's first prompt. chi-li-b669 kept, unmerged, at b804bf2.
+    Beside it, THE NAVIGATOR'S (the answer on the two decisions, relay data/b670_author_answers.txt): b669's closing line (g) named the
+    branch for deletion and the ferry's list did not carry it. The deletion accepted as it stands, the branch not restored (a restore would
+    be a second write outside the ferry's list); the rule entered as row 4 of relay data/b670_rules.txt.
