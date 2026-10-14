@@ -786,7 +786,43 @@ def landing(*a):
     print(NL.join(L[3:]))
 
 
-ROUTES = {'repair': repair, 'c1': c1, 'answers': answers, 'plan': plan, 'walk': walk, 'runner': runner, 'landing': landing}
+def merged(*a):
+    """`merged <run id> <merge sha> <tag> <open branch>`: the merge of the DERIVES run's tree recorded on its runner row and in the landing
+    bank -- the tag's peeled SHA read back, the merged tree against the built tree, the merged declarations (the run's print list), the open
+    branch's tip read locally and its remote tracking ref, and no sorry on main in the merged files."""
+    run_id, sha, tag, ob = a[0], a[1], a[2], a[3]
+    j = jl('b669_runner_rows.json')
+    for r in j['rows']:
+        if str(r['run_id']) == run_id:
+            r['merged'], r['tag'] = sha, tag
+            built = r['ref']
+    peeled = g(K.KD, 'rev-parse', '%s^{commit}' % tag).strip()
+    tree_eq = g(K.KD, 'rev-parse', sha + '^{tree}').strip() == g(K.KD, 'rev-parse', built + '^{tree}').strip()
+    names = [l.strip() for l in (_show(K.KD, built, 'print_targets.txt') or '').split(NL) if l.strip()]
+    files = sorted(x for x in g(K.KD, 'diff', '--name-only', K.KREV if hasattr(K, 'KREV') else 'v0.30', sha).split(NL) if x.endswith('.lean'))
+    sorry = [l for l in g(K.KD, 'grep', '-n', '-w', 'sorry', sha, '--', *files).split(NL) if l.strip()] if files else []
+    otip = g(K.KD, 'rev-parse', ob).strip()
+    j['merge'] = dict(run_id=int(run_id), sha=sha, tag=tag, peeled=peeled, tree_equal=tree_eq, built=built, names=names, files=files,
+                      sorry_on_main=sorry, open_branch=ob, open_tip=otip, open_remote=g(K.KD, 'rev-parse', 'origin/' + ob).strip())
+    put_json('b669_runner_rows.json', j)
+    lj = jl('b669_chi_li_landing.json')
+    lj['merge'] = j['merge']
+    put_json('b669_chi_li_landing.json', lj)
+    lt = rdn('b669_chi_li_landing.txt').rstrip(NL).split(NL)
+    lt += ['', '### THE MERGE ((R279)(4), the split): the DERIVES declarations of LiCfg.lean and LiForward.lean (%s) on their own branch from main,' % (
+               ', '.join(n.split('.')[-1] for n in names)),
+           '### built alone (run %s, DERIVES), merged alone at %s, tagged %s, peeled %s read back; the merged tree the built tree %s; sorry on main in the' % (
+               run_id, sha[:8], tag, peeled[:8], tree_eq),
+           '### merged files %s ; the converse`s branch %s at %s (the remote %s), unmerged, its open declarations above with their obstructions;' % (
+               sorry or 'NONE', ob, otip[:8], j['merge']['open_remote'][:8]),
+           '### the next lemma of substance: (V4) powerSum_re_le_neg_infinitely, SIDEExplicitFormula/Schema/LiConverseCfg.lean :129 at %s, with (V5)' % otip[:8],
+           '### remainder_le :139 open beside it; V2, V3 and V4`s two Cesàro steps DERIVES on that branch, held with its file.',
+           '### ### **MERGED %d DECLARATIONS AT %s, TAG %s ; THE CONVERSE OPEN AT V4 (:129) AND V5 (:139) ON %s.**' % (len(names), sha[:8], tag, ob)]
+    put_txt('b669_chi_li_landing.txt', lt)
+    print(NL.join(lt[-6:]))
+
+
+ROUTES = {'repair': repair, 'c1': c1, 'answers': answers, 'plan': plan, 'walk': walk, 'runner': runner, 'landing': landing, 'merged': merged}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

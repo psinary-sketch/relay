@@ -1,0 +1,27 @@
+b669 -- COMPONENT 3, (R279)(4): THE HOSTED RUNNER FOR SIDE-explicit-formula, READ BY ITS RUN ID (2026-10-14T17:37:33Z)
+
+### the workflow on main: f18ab7e (build-module.yml, b658`s form; the print step imports each module of the target)
+### print_targets.txt at the ref: 5 names
+### the dispatch: at main, the ref input 5a194fc9cafe8274bdeebe804f92d6e8a8b387f7 (the tip of chi-li-forward-b669)
+### the run: id 38607173157 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/38607173157 ; build-module workflow_dispatch ; status completed ; conclusion success ; head 02bc85d72da836186bbe72f65cd02f23fb75db83 on main ; 2026-10-14T17:30:07Z to 2026-10-14T17:36:38Z
+### the artifact: id 11916601976 ; name build-module-38607173157 ; 7078 bytes ; sha256 01d8b335514c762bbfdddf9d185a5f8aa08ed91baac0687e943ec2eba3b0ec05 ; the platform`s digest 01d8b335514c762bbfdddf9d185a5f8aa08ed91baac0687e943ec2eba3b0ec05 ; AGREE
+### the ref built (out/ref.txt): 5a194fc9cafe8274bdeebe804f92d6e8a8b387f7 leanprover/lean4:v4.34.0-rc1
+### the memory log: samples 53 ; LOW 13198 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; the log`s last lines:
+    warning: SIDEExplicitFormula/Chi/ZeroConfig.lean:120:0: automatically included section variable(s) unused in theorem `SIDEExplicitFormula.GRHWeil.gammaFactor_inv_differentiable`:
+      [NeZero N]
+    consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+      omit [NeZero N] in theorem ...
+    
+    Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+    ✔ [3757/3757] Built SIDEExplicitFormula.Chi.LiForward (2.2s)
+    Build completed successfully (3757 jobs).
+### the print step: error lines 0 ; names refused NONE
+### THE GATE READING PER TERMINAL (no banked print for the act`s new names: each read at the standard three or none, sorryAx named):
+  SIDEExplicitFormula.Schema.liCoeffCfg                      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg           ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.liCoeffCfg_summable             ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg    ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+
+### ### **RUN 38607173157 ; CONCLUSION success ; ARTIFACT SHA256 01d8b335514c762b ; MEMORY LOW 13198 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 5, PRINTED 5, AT THE STANDARD THREE OR NONE 5, SORRYAX 0 ; GATE DERIVES.**

@@ -14,6 +14,21 @@
    "merged": null,
    "tag": null,
    "errors": []
+  },
+  {
+   "kernel": "SIDE-explicit-formula",
+   "branch": "chi-li-forward-b669",
+   "ref": "5a194fc9cafe8274bdeebe804f92d6e8a8b387f7",
+   "target": null,
+   "run_id": 38607173157,
+   "conclusion": "success",
+   "artifact_sha256": "01d8b335514c762bbfdddf9d185a5f8aa08ed91baac0687e943ec2eba3b0ec05",
+   "mem_low": 13198,
+   "stopped": false,
+   "gate": "DERIVES",
+   "merged": "115abfe4ec5c7c24f534c6b43df102ec405f35eb",
+   "tag": "v0.31",
+   "errors": []
   }
  ],
  "gate_rows": {
@@ -157,7 +172,77 @@
     ],
     "SORRYAX"
    ]
+  ],
+  "38607173157": [
+   [
+    "SIDEExplicitFormula.Schema.liCoeffCfg",
+    [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "STANDARD THREE OR NONE"
+   ],
+   [
+    "SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg",
+    [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "STANDARD THREE OR NONE"
+   ],
+   [
+    "SIDEExplicitFormula.Schema.liCoeffCfg_summable",
+    [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "STANDARD THREE OR NONE"
+   ],
+   [
+    "SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg",
+    [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "STANDARD THREE OR NONE"
+   ],
+   [
+    "SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi",
+    [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "STANDARD THREE OR NONE"
+   ]
   ]
  },
- "workflow_commit": "f18ab7e"
+ "workflow_commit": "f18ab7e",
+ "merge": {
+  "run_id": 38607173157,
+  "sha": "115abfe4ec5c7c24f534c6b43df102ec405f35eb",
+  "tag": "v0.31",
+  "peeled": "115abfe4ec5c7c24f534c6b43df102ec405f35eb",
+  "tree_equal": true,
+  "built": "5a194fc9cafe8274bdeebe804f92d6e8a8b387f7",
+  "names": [
+   "SIDEExplicitFormula.Schema.liCoeffCfg",
+   "SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg",
+   "SIDEExplicitFormula.Schema.liCoeffCfg_summable",
+   "SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg",
+   "SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi"
+  ],
+  "files": [
+   "SIDEExplicitFormula/Chi/LiForward.lean",
+   "SIDEExplicitFormula/Schema/LiCfg.lean"
+  ],
+  "sorry_on_main": [],
+  "open_branch": "chi-li-b669",
+  "open_tip": "b804bf2b682b31aea7fe48ac214e040082703cfc",
+  "open_remote": "b804bf2b682b31aea7fe48ac214e040082703cfc"
+ }
 }
