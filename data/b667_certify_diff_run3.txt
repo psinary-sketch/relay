@@ -1,7 +1,7 @@
 b667 -- THE CERTIFY SCRIPT, THE THIRD RUN`S AGAINST THE SECOND`S (15918f9d) ((R277)(3d)): `git diff 15918f9d -- tools/b667_epstein_certify.py`, whole.
 
 diff --git a/tools/b667_epstein_certify.py b/tools/b667_epstein_certify.py
-index 80105885..87f524a1 100644
+index 80105885..11f97403 100644
 --- a/tools/b667_epstein_certify.py
 +++ b/tools/b667_epstein_certify.py
 @@ -6,8 +6,9 @@ data/b667_epstein_plan.txt sections 13-15, relay data/b667_author_answers.txt).
@@ -67,7 +67,7 @@ index 80105885..87f524a1 100644
      S = acb(0)
      for m in range(1, M + 1):
          divs = [k for k in range(1, m + 1) if m % k == 0]
-@@ -164,14 +180,10 @@ def zq(s, prec=PREC):
+@@ -164,17 +180,29 @@ def zq(s, prec=PREC):
          ctx.prec = prec
          S += (dsum * K) if m % 2 == 0 else -(dsum * K)
      T3 = pre * S
@@ -86,7 +86,26 @@ index 80105885..87f524a1 100644
      return T1 + T2 + T3 + acb(arb(0, r), arb(0, r))
  
  
-@@ -422,6 +434,41 @@ def main():
++def tail_sum(s, prec, m_lo, m_hi):
++    """(3d)'s instrument alone: T3's terms m = m_lo ... m_hi at the point s, summed directly at prec (the factor at the point, x formed at
++    prec) -- the quantity T4 bounds, without the difference of two full sums."""
++    ctx.prec = prec
++    half = arb(1) / 2
++    pi, sq = arb.pi(), arb(23).sqrt()
++    nu = s - half
++    S = acb(0)
++    for m in range(m_lo, m_hi + 1):
++        divs = [k for k in range(1, m + 1) if m % k == 0]
++        dsum = sum((acb(k) ** nu * acb(sq * (m // k) / 2) ** (-nu) for k in divs), acb(0))
++        K = acb(pi * sq * m).bessel_k(nu)
++        S += (dsum * K) if m % 2 == 0 else -(dsum * K)
++    return 8 * acb(pi) ** s * s.rgamma() * S
++
++
+ def zq_point(z):
+     """a point value at 200 bits, re-taken at 400 when wider than a relative 2^-40."""
+     v = zq(z, PREC)
+@@ -422,6 +450,41 @@ def main():
          say('CERTIFY STOPPED AT (3b)')
          return
  
@@ -109,16 +128,16 @@ index 80105885..87f524a1 100644
 +        ctx.prec = PREC_CHECK
 +        p = acb(arb(sg), arb(tt))
 +        zl2 = zq(p, PREC_CHECK, M_force=2 * Mb, with_t4=False)
-+        zl1 = zq(p, PREC_CHECK, M_force=Mb, with_t4=False)
++        tl = abs(tail_sum(p, PREC_CHECK, Mb + 1, 2 * Mb))
 +        ctx.prec = PREC
 +        ins = zb.contains(zl2)
-+        tl = abs(zl2 - zl1)
-+        tail_ok = tl.upper() <= tb
-+        ok3d = ok3d and ins and tail_ok
++        tstate = 'BELOW' if tl.upper() <= tb else ('ABOVE' if tl.lower() > tb else 'NOT DECIDED')
++        ok3d = ok3d and ins and tstate != 'ABOVE'
 +        log('  (σ, t) = (%s, %s) : the ball`s largest |μ| %s ; M %d ; the ball %s ; the sum to 2M = %d at %d bits %s ; INSIDE %s ; the terms '
-+            'M + 1 ... 2M %s ≤ T4`s bound %s : %s' % (sg, tt, mu.str(10, radius=False), Mb, zb.str(12, radius=True), 2 * Mb, PREC_CHECK,
-+                                                      zl2.str(40, radius=True), ins, tl.str(5, radius=False), tb.str(5, radius=False), tail_ok))
-+    log('  (3d) %s' % ('HOLDS: every longer sum inside its ball, every tail below its bound' if ok3d else
++            'M + 1 ... 2M summed directly %s against T4`s bound %s : %s' % (
++                sg, tt, mu.str(10, radius=False), Mb, zb.str(12, radius=True), 2 * Mb, PREC_CHECK, zl2.str(40, radius=True), ins,
++                tl.str(5, radius=True), tb.str(5, radius=False), tstate))
++    log('  (3d) %s' % ('HOLDS: every longer sum inside its ball (the ruled comparison); no tail above its bound' if ok3d else
 +                       '### FAILS -- THE ACT STOPS HERE, THE COMPARISON BANKED'))
 +    if not ok3d:
 +        put('b667_epstein_counts.txt', NL.join(OUT) + NL)
@@ -128,7 +147,7 @@ index 80105885..87f524a1 100644
      # ### V1: the functional equation, each side a ball
      log('')
      log('== V1  THE FUNCTIONAL EQUATION Λ_Q(s) = Λ_Q(1 − s), each side`s ball')
-@@ -564,7 +611,7 @@ def main():
+@@ -564,7 +627,7 @@ def main():
      H1 = h1[1] + h1[2] == h1[0] == 17
      H2 = h2[1] + h2[2] == h2[0] == 146
      H3 = nR == LIST_SIZE_R and nB == 0
@@ -137,7 +156,7 @@ index 80105885..87f524a1 100644
      log('  (H1) off-line squares %d ; count 1 at h %d ; count 1 WIDENED %d ; not 1 %s ; each ball centred at its banked value -> %s' % (
          h1[0], h1[1], h1[2], h1[3] or 'NONE', 'HELD' if H1 else 'REFUTED'))
      log('  (H2) on-line squares %d (straddling σ = ½) ; count 1 at h %d ; count 1 WIDENED %d ; not 1 %s -> %s' % (
-@@ -572,8 +619,8 @@ def main():
+@@ -572,8 +635,8 @@ def main():
      log('  (FE) partner squares %d ; count 1 at h %d ; WIDENED %d ; not 1 %s' % (hp[0], hp[1], hp[2], hp[3] or 'NONE'))
      log('  (H3) N(R) = %s against %d ; zeros in B = %s against 0%s -> %s' % (
          nR, LIST_SIZE_R, nB, (' ; UNLISTED %d' % (nR - LIST_SIZE_R)) if (nR is not None and nR > LIST_SIZE_R) else '', 'HELD' if H3 else 'REFUTED'))

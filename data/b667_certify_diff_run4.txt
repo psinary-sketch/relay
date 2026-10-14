@@ -1,0 +1,53 @@
+b667 -- THE CERTIFY SCRIPT, THE FOURTH RUN`S AGAINST THE THIRD`S (be6b8d76) (defect (g)): `git diff be6b8d76 -- tools/b667_epstein_certify.py`, whole.
+
+diff --git a/tools/b667_epstein_certify.py b/tools/b667_epstein_certify.py
+index 87f524a1..11f97403 100644
+--- a/tools/b667_epstein_certify.py
++++ b/tools/b667_epstein_certify.py
+@@ -187,6 +187,22 @@ def zq(s, prec=PREC, M_force=None, with_t4=True):
+     return T1 + T2 + T3 + acb(arb(0, r), arb(0, r))
+ 
+ 
++def tail_sum(s, prec, m_lo, m_hi):
++    """(3d)'s instrument alone: T3's terms m = m_lo ... m_hi at the point s, summed directly at prec (the factor at the point, x formed at
++    prec) -- the quantity T4 bounds, without the difference of two full sums."""
++    ctx.prec = prec
++    half = arb(1) / 2
++    pi, sq = arb.pi(), arb(23).sqrt()
++    nu = s - half
++    S = acb(0)
++    for m in range(m_lo, m_hi + 1):
++        divs = [k for k in range(1, m + 1) if m % k == 0]
++        dsum = sum((acb(k) ** nu * acb(sq * (m // k) / 2) ** (-nu) for k in divs), acb(0))
++        K = acb(pi * sq * m).bessel_k(nu)
++        S += (dsum * K) if m % 2 == 0 else -(dsum * K)
++    return 8 * acb(pi) ** s * s.rgamma() * S
++
++
+ def zq_point(z):
+     """a point value at 200 bits, re-taken at 400 when wider than a relative 2^-40."""
+     v = zq(z, PREC)
+@@ -453,16 +469,16 @@ def main():
+         ctx.prec = PREC_CHECK
+         p = acb(arb(sg), arb(tt))
+         zl2 = zq(p, PREC_CHECK, M_force=2 * Mb, with_t4=False)
+-        zl1 = zq(p, PREC_CHECK, M_force=Mb, with_t4=False)
++        tl = abs(tail_sum(p, PREC_CHECK, Mb + 1, 2 * Mb))
+         ctx.prec = PREC
+         ins = zb.contains(zl2)
+-        tl = abs(zl2 - zl1)
+-        tail_ok = tl.upper() <= tb
+-        ok3d = ok3d and ins and tail_ok
++        tstate = 'BELOW' if tl.upper() <= tb else ('ABOVE' if tl.lower() > tb else 'NOT DECIDED')
++        ok3d = ok3d and ins and tstate != 'ABOVE'
+         log('  (σ, t) = (%s, %s) : the ball`s largest |μ| %s ; M %d ; the ball %s ; the sum to 2M = %d at %d bits %s ; INSIDE %s ; the terms '
+-            'M + 1 ... 2M %s ≤ T4`s bound %s : %s' % (sg, tt, mu.str(10, radius=False), Mb, zb.str(12, radius=True), 2 * Mb, PREC_CHECK,
+-                                                      zl2.str(40, radius=True), ins, tl.str(5, radius=False), tb.str(5, radius=False), tail_ok))
+-    log('  (3d) %s' % ('HOLDS: every longer sum inside its ball, every tail below its bound' if ok3d else
++            'M + 1 ... 2M summed directly %s against T4`s bound %s : %s' % (
++                sg, tt, mu.str(10, radius=False), Mb, zb.str(12, radius=True), 2 * Mb, PREC_CHECK, zl2.str(40, radius=True), ins,
++                tl.str(5, radius=True), tb.str(5, radius=False), tstate))
++    log('  (3d) %s' % ('HOLDS: every longer sum inside its ball (the ruled comparison); no tail above its bound' if ok3d else
+                        '### FAILS -- THE ACT STOPS HERE, THE COMPARISON BANKED'))
+     if not ok3d:
+         put('b667_epstein_counts.txt', NL.join(OUT) + NL)

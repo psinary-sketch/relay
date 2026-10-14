@@ -281,6 +281,9 @@ def diffs(*a):
     r = subprocess.run(['git', '-C', ROOT, 'diff', '15918f9d', '--', 'tools/b667_epstein_certify.py'], capture_output=True)
     out['b667_certify_diff_run3.txt'] = ('b667 -- THE CERTIFY SCRIPT, THE THIRD RUN`S AGAINST THE SECOND`S (15918f9d) ((R277)(3d)): `git diff 15918f9d -- '
                                          'tools/b667_epstein_certify.py`, whole.', r.stdout.decode('utf-8', 'replace').replace(chr(13), ''))
+    r = subprocess.run(['git', '-C', ROOT, 'diff', 'be6b8d76', '--', 'tools/b667_epstein_certify.py'], capture_output=True)
+    out['b667_certify_diff_run4.txt'] = ('b667 -- THE CERTIFY SCRIPT, THE FOURTH RUN`S AGAINST THE THIRD`S (be6b8d76) (defect (g)): `git diff be6b8d76 -- '
+                                         'tools/b667_epstein_certify.py`, whole.', r.stdout.decode('utf-8', 'replace').replace(chr(13), ''))
     r = subprocess.run(['git', '-C', ROOT, 'diff', '--no-index', 'tools/b663_epstein_map.py', 'tools/b667_epstein_map_balls.py'], capture_output=True)
     out['b667_map_balls_diff.txt'] = ('b667 -- THE b663 MAP CARRIED ONTO THE BALLS ((R277)(5) H4): `git diff --no-index tools/b663_epstein_map.py '
                                       'tools/b667_epstein_map_balls.py`, whole.', r.stdout.decode('utf-8', 'replace').replace(chr(13), ''))
