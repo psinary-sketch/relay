@@ -634,11 +634,14 @@ def _run_starts():
 
 
 def _n2():
+    import b667_checks as CH
     calls = _calls()
-    ts = [_iso(c.get('result_ts')) for c in calls]
+    ts_all = [_iso(c.get('result_ts')) for c in calls]
+    route = CH._route_calls(rdn('b667_author_answers.txt'))
+    ts = [t for t, r in zip(ts_all, route) if r]          # ### the route's prompts; the large banks` and H4`s, after the count, set aside
     starts = _run_starts()
     plan_ans = ts[0] if ts else None
-    ok = bool(ts) and all(ts) and all(starts) and plan_ans < starts[0] and max(ts) < starts[-1]
+    ok = bool(ts) and len(route) == len(ts_all) and all(ts) and all(starts) and plan_ans < starts[0] and max(ts) < starts[-1]
     return ('HELD' if ok else 'REFUTED'), (
         'the plan raised and answered (%s) before the first certify run (%s); %d prompts in all, the last answered (%s) before the run that '
         'counted (%s); the two obstructions measured and ruled before any Q0 point -- (3a) the Bessel rung, (3b) the derivative bound for the '
@@ -745,7 +748,7 @@ def _finding_text():
     j, rows = _cert()
     cc = re.search(r'CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
     w = sum(1 for x in rows if x[3])
-    rungs = re.search(r'FACTORS AT 600 BITS: (\d+)', rdn('b667_bessel_rungs.txt'))
+    rungs = re.search(r'FACTORS (\d+) ;', rdn('b667_bessel_rungs_summary.txt'))      # ### the summary bank (the rungs bank is .gz)
     e = ['', _title(), '',
          '*Filed at b667 on the author’s ruling `(R277)` and the author’s word on its plan and its four amendments, (3a) to (3d) (%d questions '
          'in %d calls). Banks: relay `data/b667_citation_check.txt`, `data/b667_epstein_plan.txt`, `data/b667_bessel_obstruction.txt`, '

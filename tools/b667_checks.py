@@ -373,7 +373,7 @@ def sources():
         margin=rd('b627_margin_inputs.txt'), counts=rd('b667_epstein_counts.txt'), certj=REC.cert_json(), large=large_now(),
         largebank=rd('b667_large_banks.txt'),
         cmap=rd('b667_epstein_control_balls.txt'), mapdiff=map_unchanged_but_literals(), control=rd('b663_epstein_control.txt'),
-        hyp=rd('b667_hypotheses.txt'), h4read=rd('b667_h4_reading.txt'), runs=[rd('b667_certify_run%d.txt' % i) for i in (1, 2, 3)],
+        gate=rd('b667_reg_gate.txt'), hyp=rd('b667_hypotheses.txt'), h4read=rd('b667_h4_reading.txt'), runs=[rd('b667_certify_run%d.txt' % i) for i in (1, 2, 3)],
         rundiffs=[rd('b667_certify_diff_run3.txt'), rd('b667_certify_diff_run4.txt')], rungs=rd('b667_bessel_rungs_summary.txt'),
         b326={p: tri(ROOT, p, PRE['relay']) for p in K.B326_BANKS},
         standing=STANDING, wf=wf_state(), runner=jl(K.RUNNER_ROWS), rbank=rd(K.RUNNER_BANK), merges=merges_state(),
@@ -596,12 +596,23 @@ def _run_epochs(S):
     return out
 
 
+def _route_calls(answers):
+    """the calls whose prompts are all the route`s (PROMPT_HEADS), in order -- the large banks` and H4`s prompts, after the count, set aside."""
+    out = []
+    for blk in re.split(r'^### CALL tool-use id ', answers, flags=re.M)[1:]:
+        heads = re.findall(r'^### PROMPT \d+ (\([^)]*\))', blk, re.M)
+        out.append(bool(heads) and all(h in PROMPT_HEADS for h in heads))
+    return out
+
+
 def plan_before_number(S):
     calls = S['answj']
     ts = [iso_epoch((c.get('result_ts') or '')[:19] + 'Z') for c in calls]
     runs = _run_epochs(S) + [_first_count_epoch(S)]
-    return len(calls) >= 1 and all(ts) and all(runs) and ts[0] < runs[0] and max(ts) < runs[-1] and '(Route)' in S['answers'] \
-        and '== 2. THE EVALUATION ROUTE (RAISED)' in S['plan']
+    route = _route_calls(S['answers'])
+    rts = [t for t, r in zip(ts, route) if r]
+    return len(calls) >= 1 and len(route) == len(calls) and all(ts) and all(runs) and route[0] and ts[0] < runs[0] and len(rts) >= 5 \
+        and max(rts) < runs[-1] and '(Route)' in S['answers'] and '== 2. THE EVALUATION ROUTE (RAISED)' in S['plan']
 
 
 def obstructions_ok(S):
@@ -646,7 +657,7 @@ def map_ok(S):
     banked; the carry against b663's map with no computation line changed."""
     m = S['cmap']
     return 'READING Q0 AT qE0: HYP-UNVERIFIED(hQtie)' in m and re.search(r'^\s*H4 NOT SCORABLE', m, re.M) is not None \
-        and 'THE CONTROL REPRODUCED (' in m and 'hQtie 0 of 41' in ' '.join(S['h4read'].split()) and S['mapdiff'][0]
+        and 'THE CONTROL REPRODUCED (' in m and 'controls 0 of 41' in ' '.join(S['h4read'].split()) and S['mapdiff'][0]
 
 
 def landing_ok(S):
@@ -905,7 +916,7 @@ ARMS = [
      lambda S: dry_step_ok(S), lambda S: put(S, 'gate', S['gate'].replace('THE DRY-RUN STEP : CLEAN', 'THE DRY-RUN STEP : NOT CLEAN'))),
     ('G-CITATION-CHECKED', 'the citation check`s bank (the gate step): run before the ferry was banked, no miss',
      lambda S: citation_ok(S), lambda S: put(S, 'citation', S['citation'].replace('RUN BEFORE THE FERRY IS BANKED', 'RUN'))),
-    ('G-PLAN-BEFORE-NUMBER', 'the answers bank against the certify runs` start times: the plan answered before the first run, every prompt before the run that counted (N2)',
+    ('G-PLAN-BEFORE-NUMBER', 'the answers bank against the certify runs` start times: the plan answered before the first run, every route prompt before the run that counted (N2)',
      lambda S: plan_before_number(S), lambda S: put(S, 'answj', [dict(result_ts='2099-01-01T00:00:00Z')])),
     ('G-OBSTRUCTIONS-BANKED', 'the obstruction banks, the plan`s sections 12 and 14-16, the dated line beneath the precision bank ((3a)-(3d))',
      lambda S: obstructions_ok(S), lambda S: put(S, 'margin', '')),

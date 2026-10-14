@@ -1,0 +1,42 @@
+====================================================================================================
+b667_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+  ### (R263)(3) THE PLANTED ROWS, ONE PER SHAPE A SEALED ROUTE READS, EACH THROUGH THE RECORD TOOL`S READER:
+      score row                                    READ -- ('N3', 'HELD', 'a planted score text')
+      score row, a two-word verdict                READ -- ('S2', 'NOT SCORABLE', 'a planted score text')
+      trail head with a backtick possessive        READ -- 3
+      entry title with a backtick possessive       READ -- 3
+      certified row                                READ -- ('ON', 0, 1, False)
+      certified row, widened                       READ -- ('OFF', 3, 1, True)
+  ### ### **PLANTED ROWS 6 ; READ 6 ; REFUSED 0.**
+      CONTROL a score row of another shape                                 REFUSED, AS WANTED
+      CONTROL a head the ledger does not carry                             REFUSED, AS WANTED
+      CONTROL a certified row with no count                                REFUSED, AS WANTED
+      CONTROL a certified row of an unknown kind                           REFUSED, AS WANTED
+
+  registration : b667_registration_2026-10-14.txt
+  bytes/lines  : 24477 / 222
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **MEASURED OFF THE FACE AND THE BANKS, NOT TYPED:**
+      ARMS       81
+      READINGS   3
+      EXPECT     8
+      BARS       0
+      TESTS      53
+      QUESTIONS  10
+      LANDED     4
+
+  clauses emitted : 66
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 11**
+  written : b667_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 0622441d89028388868f66f8f092ec5e4dc46bf4d37fec1ee6700668250e8030  (b667_registration_2026-10-14.txt)
