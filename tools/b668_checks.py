@@ -582,7 +582,8 @@ def grades_verbatim_ok(S):
 
 
 def prompt_before_cut(S):
-    calls = [c for c in S['answj'] if '(R278)(2), the one prompt before any cut' in json.dumps(c, ensure_ascii=False)]
+    ids = [b.split(' ', 1)[0] for b in re.split(r'^### CALL tool-use id ', S['answers'], flags=re.M)[1:] if re.search(r'^### PROMPT \d+ \(Cut\)', b, re.M)]
+    calls = [c for c in S['answj'] if c.get('id') in ids]
     ts = [iso_epoch((c.get('result_ts') or '')[:19] + 'Z') for c in calls]
     return len(calls) == 1 and all(ts) and S['first_kernel'] > 0 and max(ts) < S['first_kernel'] and '(Cut)' in S['answers']
 

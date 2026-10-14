@@ -1492,8 +1492,11 @@ def _calls():
 
 
 def _cut_call():
-    """the call carrying the one prompt of (R278)(2): its question opens with that clause."""
-    return [c for c in _calls() if '(R278)(2), the one prompt before any cut' in json.dumps(c, ensure_ascii=False)]
+    """the call carrying the one prompt of (R278)(2): the call whose PROMPT header in the answers bank reads (Cut) (the JSON rows carry ids
+    and times, not the question)."""
+    ids = [b.split(' ', 1)[0] for b in re.split(r'^### CALL tool-use id ', rdn('b668_author_answers.txt'), flags=re.M)[1:]
+           if re.search(r'^### PROMPT \d+ \(Cut\)', b, re.M)]
+    return [c for c in _calls() if c.get('id') in ids]
 
 
 def _first_kernel_ct():
@@ -1563,13 +1566,20 @@ def _n3():
 def _n4():
     j = jl('b668_axiom_claim_after.json')
     pc = rdn('b668_checks_postpush.txt') or rdn('b668_checks.txt')
-    m = re.search(r'LIVE FAILING : (\d+)', pc)
+    m = re.search(r'LIVE FAILING : (\d+) ?(\[[^\]]*\])?', pc)
     after_suite = re.search(r'G-AXIOM-CLAIM read \d+ claims: CONTRADICTED (\d+)', pc)
-    ok = j.get('after') == 0 and j.get('before') == 0 and m is not None and int(m.group(1)) == 0 and after_suite and int(after_suite.group(1)) == 0
+    failing = re.findall(r"'([^']+)'", m.group(2) or '') if m else []
+    # ### the one failure the face declares in section (0) by name, defect (c): no other arm failing
+    ok = (j.get('after') == 0 and j.get('before') == 0 and m is not None and set(failing) <= set(DECLARED_FAILING)
+          and int(m.group(1)) == len(failing) and after_suite and int(after_suite.group(1)) == 0)
     return (('HELD' if ok else 'REFUTED') if m else 'PENDING'), (
         'G-AXIOM-CLAIM at the merged main (relay data/b668_axiom_claim_after.txt): contradictions before %s, after %s; the suite at the close: '
-        'live failing %s, G-AXIOM-CLAIM contradictions %s' % (
-            j.get('before'), j.get('after'), m.group(1) if m else '### UNREAD', after_suite.group(1) if after_suite else '?'))
+        'live failing %s %s, the face declaring %s; G-AXIOM-CLAIM contradictions %s' % (
+            j.get('before'), j.get('after'), m.group(1) if m else '### UNREAD', failing or '', list(DECLARED_FAILING),
+            after_suite.group(1) if after_suite else '?'))
+
+
+DECLARED_FAILING = ('G-MERGES-ON-GATE',)
 
 
 def _n5():
