@@ -1,0 +1,32 @@
+b668 -- COMPONENT 3, (R278)(2): THE CUT PLANNED ON SIDE-grh-transfer`S MAIN BLOBS AT 858cbf6 (2026-10-14T15:09:09Z)
+
+### from relay data/b668_sentence_grades.txt (rows are sentences, parents are blocks) and its hand grades; each graded block`s rows located in
+### order in its file from the block`s line at main; each changed row replaced in its span by its slot`s kept output, wrapped at the line`s
+### indent; one edit per block.
+### files 3 ; edits 6 ; rows located ALL ; regions not unique NONE ; files whose comment-stripped code differs from main`s NONE ; files whose comment blocks` emphasis parity moves NONE
+
+== #1 SIDEGRHTransfer/CharacterTopological.lean:1 (rows changed s5, s8, s9)
+   OLD: The contribution function is constant in σ, so the |   mechanism cannot place zeros at any specific σ — neither at 1/2 |   nor anywhere else. |  |   This is essential for chorus exhaustiveness. SIDE closure requires |   accounting for ALL mechanism classes. The six iff-σ=1/2 voices |   force zeros to the line; the σ-inert Voice7 proves the residual |   topological class cannot move them off the line. Together: every |   mechanism is either forcing σ = 1/2 or incapable of placing a zero |   anywhere.
+   NEW: Lifts Voice7's topological_no_sigma_preference to a (chi, chibar)-typed signature: the modelled topological |   contribution, defined as the constant 0, has the same value at every sigma as at sigma = 1/2; that this class cannot |   place or move zeros is the manuscript's argument, not a compiled statement, and chi, chibar are unused. |  |   This is essential for chorus exhaustiveness. SIDE closure requires |   accounting for ALL mechanism classes.
+
+== #2 SIDEGRHTransfer/CharacterTopological.lean:51 (rows changed s3)
+   OLD: Equivalently, the topological class cannot |     distinguish σ = 1/2 from any other σ, and so cannot place zeros |     at any specific σ.
+   NEW: For any (chi, chibar), unused in the proof, the modelled topological contribution (the constant 0) has the same |     value at sigma as at sigma = 1/2.
+
+== #3 SIDEGRHTransfer/GRHBridge.lean:1 (rows changed s1.2, s2, s4, s5)
+   OLD: **The composite GRH theorem for L(s, χ): structural exhaustiveness assembly.** |  |   This file mirrors `SIDE-kernel/Bridge/TheBridgeComplete.lean` on the |   ξ side — the SIDE syllogism (7 mechanism classes + per-class exclusion |   via paired Voice theorems + Ostrowski exhaustiveness) lifted to the |   character-paired form for L(s, χ). |  |   **What this proves.** The χ-paired form of the SIDE structural |   exhaustiveness statement: every mechanism class is either forcing |   σ = 1/2 (voices 1-6 paired) or σ-inert (voice 7 paired), and |   Ostrowski exhausts the absolute values of ℚ. This is the SIDE |   method's voice in Lean for L(s, χ).
+   NEW: **What this proves.** Assembles, with typed but unused (chi, chibar) parameters, the character-free sigma-algebra schema of |   TheBridgeComplete: a seven-element class type, the exclusion of each class's sigma-condition off sigma = 1/2 on the |   defined functions, and Ostrowski's theorem; it states nothing about L(s, chi) or its zeros, and the Conservation |   step is not proved.
+
+== #4 SIDEGRHTransfer/GRHBridge.lean:142 (rows changed s1)
+   OLD: **The composite GRH theorem (SIDE structural exhaustiveness form).**
+   NEW: The SIDE structural-exhaustiveness schema (seven defined classes, the seven sigma-condition exclusions, Ostrowski) | with typed but unused (chi, chibar); mirrors structural_exhaustiveness_proved in TheBridgeComplete.lean; not a | statement of GRH.
+
+== #5 SIDEGRHTransfer/Voice7Vendored.lean:1 (rows changed s3, s7, s8)
+   OLD: Where the other six voices prove `iff σ = 1/2` (their mechanism |   forces zeros to the critical line), Voice7 proves |   σ-INERTNESS — the topological class CANNOT place zeros at any |   specific σ. |   The Hadamard product / argument principle COUNTS zeros and |   RELATES locations to growth, but it does not PREFER any σ. The |   contribution is constant in σ. |  |   This inversion is essential for chorus exhaustiveness: SIDE |   closure requires accounting for ALL mechanism classes. Six |   classes force σ = 1/2; the seventh proves no other class can |   place zeros elsewhere. Together they say "every mechanism is |   either forcing σ = 1/2 or incapable of placing a zero".
+   NEW: Voice7's vendored content is a constant-0 contribution function and its rfl consequences (constant in sigma, equal |   to its value at 1/2, the rest predicate at every sigma); the reading that this class cannot place zeros is the |   manuscript's, not compiled here. |   The Hadamard product / argument principle COUNTS zeros and |   RELATES locations to growth, but it does not PREFER any σ. The |   contribution is constant in σ. |  |   This inversion is essential for chorus exhaustiveness: SIDE |   closure requires accounting for ALL mechanism classes.
+
+== #6 SIDEGRHTransfer/Voice7Vendored.lean:58 (rows changed s2, s3)
+   OLD: Voice7's main claim — it cannot distinguish σ = 1/2 from σ ≠ 1/2; |     it provides no force toward or away from the critical line. |     Cannot place zeros at ANY specific σ.
+   NEW: The modelled topological contribution (defined as 0) has the same value at any sigma as at sigma = 1/2.
+
+### ### **FILES 3 ; EDITS 6 ; LOCATION FAILURES 0 ; CODE OUTSIDE COMMENTS CHANGED IN 0 FILES ; EMPHASIS PARITY MOVED IN 0 FILES.**

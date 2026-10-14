@@ -1,0 +1,75 @@
+b668 -- COMPONENT 2, (R278)(2): SIDE-grh-transfer`S OVERREACHES, UNDERSTATES AND UNLICENSED BLOCKS READ INTO SENTENCE ROWS (2026-10-14T15:07:52Z)
+
+### rows are sentences, parents are blocks. The parents: relay data/b647_table_SIDE-grh-transfer.json, its OVERREACHES, UNDERSTATES and UNLICENSED rows (6), read at 858cbf6; the generator: b647_record._kdoc_rows at SIDE-grh-transfer main 858cbf6, each block`s context captured and each unit read by licensed_table.docstring_row; the unit: b647_record._MSPLIT as b658 repaired it -- the b651 route. A GENERATED reading per sentence; the HAND reading per sentence is the grade bank`s.
+### parents read 6 ; parents not found at main 0 (none)
+
+
+== SIDEGRHTransfer/CharacterTopological.lean:1 (module ; b647`s bank line :10 ; at main SIDEGRHTransfer/CharacterTopological.lean:1 ; HAND OVERREACHES ; 19 sentences)
+  s1 MATCHES     SIDE-grh-transfer · CharacterTopological.lean =========================================== **Voice7 paired-form: σ-inertness of the topological class for L(s, χ).**
+  s2 MATCHES     Lifts Voice7's `topological_no_sigma_preference` (the topological contribution is constant in σ, hence cannot distinguish σ = 1/2 from σ ≠ 1/2) to the (χ, χbar)-paired form for complex Dirichlet characters.
+  s3 MATCHES     **STRUCTURAL INVERSION from voices 1/2/3/3b/5/6.**
+  s4 MATCHES     Where the other six chorus voices each prove `iff σ = 1/2` (their mechanism forces zeros to the critical line), Voice7 proves the topological class is σ-INERT.
+  s5 MATCHES     The contribution function is constant in σ, so the mechanism cannot place zeros at any specific σ — neither at 1/2 nor anywhere else.
+  s6 MATCHES     This is essential for chorus exhaustiveness.
+  s7 MATCHES     SIDE closure requires accounting for ALL mechanism classes.
+  s8 MATCHES     The six iff-σ=1/2 voices force zeros to the line; the σ-inert Voice7 proves the residual topological class cannot move them off the line.
+  s9 MATCHES     Together: every mechanism is either forcing σ = 1/2 or incapable of placing a zero anywhere.
+  s10 MATCHES     For ξ(s), the Hadamard product / argument principle COUNTS zeros and RELATES locations to growth, but does not PREFER any σ.
+  s11 MATCHES     For L(s, χ) with complex χ, the analog requires the (χ, χbar) pairing: the joint topological winding of the (L(·, χ), L(·, χbar)) pair is σ-independent in the same sense.
+  s12 MATCHES     The Lean theorem expresses this with typed (χ, χbar) parameters; the σ-axis algebra collapses to Voice7's `topological_no_sigma_preference`.
+  s13 MATCHES     When Mathlib's Hadamard factorization / argument-principle infrastructure for L-functions matures, this becomes a corollary of the joint winding argument on the paired system.
+  s14 MATCHES     **Federation provenance.**
+  s15 MATCHES     Voice7's topological algebra is attribution-vendored from `SIDE-kernel/Kernel/Voice7.lean` (see `Voice7Vendored.lean`).
+  s16 MATCHES     **Scope.**
+  s17 MATCHES     Chorus extension (6-of-7 → 7-of-7 voices closed — chorus complete).
+  s18 MATCHES     Remaining open work for full GRH closure: the exhaustiveness/exclusion architecture transfer (not voice transfer — separate downstream target).
+  s19 MATCHES     May 2026.
+
+== SIDEGRHTransfer/CharacterTopological.lean:51 (decl ; b647`s bank line :15 ; at main SIDEGRHTransfer/CharacterTopological.lean:51 ; HAND OVERREACHES ; 9 sentences)
+  s1 MATCHES     **Paired-form topological σ-inertness** (chorus extension, Voice7 reformulation — structurally inverted vs the other voices).
+  s2 MATCHES     For any pair of Dirichlet characters (χ, χbar) — intended use: χbar = the conjugate character of χ — the topological contribution is constant in σ.
+  s3 MATCHES     Equivalently, the topological class cannot distinguish σ = 1/2 from any other σ, and so cannot place zeros at any specific σ.
+  s4 MATCHES     The (χ, χbar) parameters are typed in the signature but unused in the proof: the σ-axis algebra is character-independent and collapses to Voice7's `topological_no_sigma_preference` applied to σ.
+  s5 MATCHES     The character signature expresses the (χ, χbar)-paired form; the actual joint argument-principle / Hadamard-product argument on (L(·, χ), L(·, χbar)) requires Mathlib's L-function-specific topological infrastructure not yet at the depth needed.
+  s6 MATCHES     **Structural inversion note.**
+  s7 OVERREACHES This is NOT an iff-σ=1/2 theorem.
+  s8 MATCHES     The conclusion is an equality of contributions at any σ versus at σ = 1/2 — both equal because the contribution is constant.
+  s9 MATCHES     This is the dual of the other six voices: instead of forcing σ = 1/2, this proves the topological class is σ-inert.
+
+== SIDEGRHTransfer/GRHBridge.lean:1 (module ; b647`s bank line :20 ; at main SIDEGRHTransfer/GRHBridge.lean:1 ; HAND OVERREACHES ; 12 sentences)
+  s1 MATCHES     SIDE-grh-transfer · GRHBridge.lean =================================== **The composite GRH theorem for L(s, χ): structural exhaustiveness assembly.**
+  s2 MATCHES     This file mirrors `SIDE-kernel/Bridge/TheBridgeComplete.lean` on the ξ side — the SIDE syllogism (7 mechanism classes + per-class exclusion via paired Voice theorems + Ostrowski exhaustiveness) lifted to the character-paired form for L(s, χ).
+  s3 MATCHES     **What this proves.**
+  s4 MATCHES     The χ-paired form of the SIDE structural exhaustiveness statement: every mechanism class is either forcing σ = 1/2 (voices 1-6 paired) or σ-inert (voice 7 paired), and Ostrowski exhausts the absolute values of ℚ.
+  s5 MATCHES     This is the SIDE method's voice in Lean for L(s, χ).
+  s6 MATCHES     **What it does NOT prove (yet).**
+  s7 MATCHES     The Wiles+Hales-pattern final assembly via paired Conservation — i.e., the analog of `Bridge/ ConservationBridge.lean` `riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis` — would close the Lean theorem to `(h_cons : ConservationHypothesisChi) : RiemannHypothesisChi`.
+  s8 MATCHES     That is a separate downstream deposit (Conservation-based Route 3 analog for L(s, χ)).
+  s9 MATCHES     **Federation provenance.**
+  s10 MATCHES     This file is the structural-exhaustiveness assembly for SIDE-grh-transfer; analogous in role to `TheBridgeComplete.lean` in `SIDE-kernel`.
+  s11 MATCHES     Paired Voice theorems are imported from the v0.4.0 chorus.
+  s12 MATCHES     May 2026.
+
+== SIDEGRHTransfer/GRHBridge.lean:142 (decl ; b647`s bank line :26 ; at main SIDEGRHTransfer/GRHBridge.lean:142 ; HAND OVERREACHES ; 2 sentences)
+  s1 MATCHES     **The composite GRH theorem (SIDE structural exhaustiveness form).**
+  s2 MATCHES     Mirrors `structural_exhaustiveness_proved` in `TheBridgeComplete.lean`.
+
+== SIDEGRHTransfer/Voice7Vendored.lean:1 (module ; b647`s bank line :32 ; at main SIDEGRHTransfer/Voice7Vendored.lean:1 ; HAND OVERREACHES ; 11 sentences)
+  s1 MATCHES     SIDE-grh-transfer · Voice7Vendored.lean =========================================== Attribution-vendored from SIDE-kernel/Kernel/Voice7.lean (SIDE-kernel main HEAD 2c49ae6, file unchanged since pre-audit-arc baseline 2026-04-30, Phase S.5b chorus extension context).
+  s2 MATCHES     Vendored content is the trimmed subset needed for the (χ, χbar)-paired reformulation of the topological-inertness voice: • `topological_contribution` — σ ↦ 0 (constant) • `topological_constant` — σ1 = σ2 invariance • `topological_no_sigma_preference` — σ-independence (substance) • `topological_rests` — predicate: contribution = 0 • `c7_rests_everywhere` — universal restful Skipped (not used by `paired_topological_no_sigma_preference`): • `c7_rests_at_half` (corollary of c7_rests_everywhere) • `c7_forces_half` (trivial tautology σ → σ = σ) • `c7_no_placement_force` (alias of topological_no_sigm
+  s3 MATCHES     Where the other six voices prove `iff σ = 1/2` (their mechanism forces zeros to the critical line), Voice7 proves σ-INERTNESS — the topological class CANNOT place zeros at any specific σ.
+  s4 MATCHES     The Hadamard product / argument principle COUNTS zeros and RELATES locations to growth, but it does not PREFER any σ.
+  s5 MATCHES     The contribution is constant in σ.
+  s6 MATCHES     This inversion is essential for chorus exhaustiveness: SIDE closure requires accounting for ALL mechanism classes.
+  s7 MATCHES     Six classes force σ = 1/2; the seventh proves no other class can place zeros elsewhere.
+  s8 MATCHES     Together they say "every mechanism is either forcing σ = 1/2 or incapable of placing a zero".
+  s9 MATCHES     Federation provenance: vendor-with-attribution per the PLACE TO STAND principle.
+  s10 MATCHES     Original author: J.
+  s11 MATCHES     York Seale.
+
+== SIDEGRHTransfer/Voice7Vendored.lean:58 (decl ; b647`s bank line :37 ; at main SIDEGRHTransfer/Voice7Vendored.lean:58 ; HAND OVERREACHES ; 3 sentences)
+  s1 MATCHES     **σ-inertness: the topological class has no σ-preference.**
+  s2 MATCHES     Voice7's main claim — it cannot distinguish σ = 1/2 from σ ≠ 1/2; it provides no force toward or away from the critical line.
+  s3 MATCHES     Cannot place zeros at ANY specific σ.
+
+### ### **PARENT BLOCKS 6 ; NOT FOUND AT MAIN 0 ; SENTENCE ROWS 56 ; GENERATED: MATCHES 55, OVERREACHES 1 ; HAND PER SENTENCE: the grade bank`s.**

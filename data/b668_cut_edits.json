@@ -1,0 +1,82 @@
+{
+ "at": "2026-10-14T15:09:09Z",
+ "main": "858cbf6",
+ "edits": [
+  {
+   "k": 1,
+   "file": "SIDEGRHTransfer/CharacterTopological.lean",
+   "line": 1,
+   "old": "The contribution function is constant in σ, so the\n  mechanism cannot place zeros at any specific σ — neither at 1/2\n  nor anywhere else.\n\n  This is essential for chorus exhaustiveness. SIDE closure requires\n  accounting for ALL mechanism classes. The six iff-σ=1/2 voices\n  force zeros to the line; the σ-inert Voice7 proves the residual\n  topological class cannot move them off the line. Together: every\n  mechanism is either forcing σ = 1/2 or incapable of placing a zero\n  anywhere.",
+   "new": "Lifts Voice7's topological_no_sigma_preference to a (chi, chibar)-typed signature: the modelled topological\n  contribution, defined as the constant 0, has the same value at every sigma as at sigma = 1/2; that this class cannot\n  place or move zeros is the manuscript's argument, not a compiled statement, and chi, chibar are unused.\n\n  This is essential for chorus exhaustiveness. SIDE closure requires\n  accounting for ALL mechanism classes.",
+   "changed": [
+    "5",
+    "8",
+    "9"
+   ]
+  },
+  {
+   "k": 2,
+   "file": "SIDEGRHTransfer/CharacterTopological.lean",
+   "line": 51,
+   "old": "Equivalently, the topological class cannot\n    distinguish σ = 1/2 from any other σ, and so cannot place zeros\n    at any specific σ.",
+   "new": "For any (chi, chibar), unused in the proof, the modelled topological contribution (the constant 0) has the same\n    value at sigma as at sigma = 1/2.",
+   "changed": [
+    "3"
+   ]
+  },
+  {
+   "k": 3,
+   "file": "SIDEGRHTransfer/GRHBridge.lean",
+   "line": 1,
+   "old": "**The composite GRH theorem for L(s, χ): structural exhaustiveness assembly.**\n\n  This file mirrors `SIDE-kernel/Bridge/TheBridgeComplete.lean` on the\n  ξ side — the SIDE syllogism (7 mechanism classes + per-class exclusion\n  via paired Voice theorems + Ostrowski exhaustiveness) lifted to the\n  character-paired form for L(s, χ).\n\n  **What this proves.** The χ-paired form of the SIDE structural\n  exhaustiveness statement: every mechanism class is either forcing\n  σ = 1/2 (voices 1-6 paired) or σ-inert (voice 7 paired), and\n  Ostrowski exhausts the absolute values of ℚ. This is the SIDE\n  method's voice in Lean for L(s, χ).",
+   "new": "**What this proves.** Assembles, with typed but unused (chi, chibar) parameters, the character-free sigma-algebra schema of\n  TheBridgeComplete: a seven-element class type, the exclusion of each class's sigma-condition off sigma = 1/2 on the\n  defined functions, and Ostrowski's theorem; it states nothing about L(s, chi) or its zeros, and the Conservation\n  step is not proved.",
+   "changed": [
+    "1.2",
+    "2",
+    "4",
+    "5"
+   ]
+  },
+  {
+   "k": 4,
+   "file": "SIDEGRHTransfer/GRHBridge.lean",
+   "line": 142,
+   "old": "**The composite GRH theorem (SIDE structural exhaustiveness form).**",
+   "new": "The SIDE structural-exhaustiveness schema (seven defined classes, the seven sigma-condition exclusions, Ostrowski)\nwith typed but unused (chi, chibar); mirrors structural_exhaustiveness_proved in TheBridgeComplete.lean; not a\nstatement of GRH.",
+   "changed": [
+    "1"
+   ]
+  },
+  {
+   "k": 5,
+   "file": "SIDEGRHTransfer/Voice7Vendored.lean",
+   "line": 1,
+   "old": "Where the other six voices prove `iff σ = 1/2` (their mechanism\n  forces zeros to the critical line), Voice7 proves\n  σ-INERTNESS — the topological class CANNOT place zeros at any\n  specific σ.\n  The Hadamard product / argument principle COUNTS zeros and\n  RELATES locations to growth, but it does not PREFER any σ. The\n  contribution is constant in σ.\n\n  This inversion is essential for chorus exhaustiveness: SIDE\n  closure requires accounting for ALL mechanism classes. Six\n  classes force σ = 1/2; the seventh proves no other class can\n  place zeros elsewhere. Together they say \"every mechanism is\n  either forcing σ = 1/2 or incapable of placing a zero\".",
+   "new": "Voice7's vendored content is a constant-0 contribution function and its rfl consequences (constant in sigma, equal\n  to its value at 1/2, the rest predicate at every sigma); the reading that this class cannot place zeros is the\n  manuscript's, not compiled here.\n  The Hadamard product / argument principle COUNTS zeros and\n  RELATES locations to growth, but it does not PREFER any σ. The\n  contribution is constant in σ.\n\n  This inversion is essential for chorus exhaustiveness: SIDE\n  closure requires accounting for ALL mechanism classes.",
+   "changed": [
+    "3",
+    "7",
+    "8"
+   ]
+  },
+  {
+   "k": 6,
+   "file": "SIDEGRHTransfer/Voice7Vendored.lean",
+   "line": 58,
+   "old": "Voice7's main claim — it cannot distinguish σ = 1/2 from σ ≠ 1/2;\n    it provides no force toward or away from the critical line.\n    Cannot place zeros at ANY specific σ.",
+   "new": "The modelled topological contribution (defined as 0) has the same value at any sigma as at sigma = 1/2.",
+   "changed": [
+    "2",
+    "3"
+   ]
+  }
+ ],
+ "planned_sha": {
+  "SIDEGRHTransfer/CharacterTopological.lean": "2fe67eabd8893be051e2a95e62630555397a8162c6a3545530e3de894979b4a7",
+  "SIDEGRHTransfer/GRHBridge.lean": "bc1cab032bfaaf7945f7f01b1e0c0653172a67ba9b6eb686515a62a5ba3f3ca3",
+  "SIDEGRHTransfer/Voice7Vendored.lean": "27c4d48fa5d0eb0bccef4de8ffb0913f21096c37ef6d238fce979d348403e634"
+ },
+ "fails": [],
+ "code_bad": [],
+ "emph_bad": []
+}
