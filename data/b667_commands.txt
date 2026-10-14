@@ -1,0 +1,189 @@
+b667 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-14T13:32:39Z)
+
+### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R277) BEGIN', and its subagents` transcripts
+### commands read: 174
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
+  #169 2026-10-14T13:31:01.100Z seat Bash -- S sed -i
+      sed -i.x 's/x/x/' /dev/null 2>/dev/null; grep -n "\[{}, {}\]" tools/b667_record.py; grep -n "(R277) ratified.\*\* (1)" tools/b667_record.py
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-13T23:00:50.500Z | seat | Bash | cd /d/relay/data && python -X utf8 -c "
+  #2 | 2026-10-13T23:01:04.573Z | seat | Bash | cd /d/relay && ls data | grep "^b627" | sed -n '10,60p' | tr '\n' ' '; echo; ls tools | grep -i "b326\|epstein" ; grep -n "def \|K = \|Chowla\|theta\|incomplete
+  #3 | 2026-10-13T23:02:14.236Z | seat | Bash | python -X utf8 - <<'EOF'
+  #4 | 2026-10-13T23:02:24.690Z | seat | Bash | python -X utf8 - <<'EOF'
+  #5 | 2026-10-13T23:02:32.974Z | seat | Bash | wc -l data/b666_closing.txt tools/b666_citation.py data/b663_epstein_plan.txt data/b663_epstein_control.txt tools/b663_epstein_map.py; grep -n "38471056772\|384
+  #6 | 2026-10-13T23:02:33.333Z | seat | Bash | cat -n tools/b666_citation.py | head -150
+  #7 | 2026-10-13T23:02:36.225Z | seat | Bash | sed -n 150,247p tools/b666_citation.py
+  #8 | 2026-10-13T23:02:39.885Z | seat | Bash | grep -n -i "orbit\|pair\|146\|17 \|count\|180\|points" data/b663_epstein_plan.txt | cut -c1-220 | head -40; echo ----; sed -n 1,12p data/b663_epstein_control.tx
+  #9 | 2026-10-13T23:02:41.154Z | seat | Bash | grep -n "^[A-Z_][A-Z0-9_]* *=\|b326\|json\|mpmath\|dps\|prec" tools/b663_epstein_map.py | cut -c1-200 | head -60; echo ---; grep -ln -i "precision\|200 bits\|40
+  #10 | 2026-10-13T23:02:46.038Z | seat | Bash | sed -n 1,12p data/b627_margin_inputs.txt | cut -c1-220; echo ---; sed -n 140,192p tools/b663_epstein_map.py; echo ---; grep -n '"zeros"\|"offline"\|registered_g
+  #11 | 2026-10-13T23:02:55.797Z | seat | Bash | grep -n "W-ORD-EPSTEIN-CERTIFY" /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-160; sed -n 8619p /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | cut -c1-120; 
+  #12 | 2026-10-13T23:03:01.666Z | seat | Bash | git branch --list 'push-b666*'; git -C /d/MY-DOwnloads/PLACE-papers branch --list 'push-b666*'; git -C /d/SIDE-cosmo branch --list; ls data/b666_closing_push_ou
+  #13 | 2026-10-13T23:04:04.048Z | seat | Bash | python -X utf8 tools/b667_citation.py check && cat data/b667_citation_check.txt | cut -c1-330
+  #14 | 2026-10-13T23:04:11.042Z | seat | Bash | sed -n 33p data/b666_closing.txt | cut -c1-250; python -X utf8 tools/b667_citation.py ferry; tail -5 data/b667_ferry_scan.txt
+  #15 | 2026-10-13T23:04:19.110Z | seat | Bash | python -X utf8 tools/b667_citation.py check | tail -1; grep -n "G-AXIOM" data/b667_citation_check.txt | cut -c1-120
+  #16 | 2026-10-13T23:04:24.657Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python' } | Select-Object ProcessId, Name, @{n='Cmd';e={$_.CommandLine.Substring(0
+  #17 | 2026-10-13T23:04:30.926Z | seat | Bash | ls data/b666_* | sed -n 1,200p | tr '\n' ' '; echo; cat data/b666_procs_stepzero.txt 2>/dev/null | head
+  #18 | 2026-10-13T23:04:35.772Z | seat | Bash | head -40 data/b666_stepzero.txt | cut -c1-250; echo; grep -n "def \|^ROUTES\|'stepzero'\|census\|pins" tools/b666_record.py | head -60
+  #19 | 2026-10-13T23:04:41.063Z | seat | Bash | grep -ln "census_stepzero\|pins_stepzero" tools/b666_*.py tools/*.py | head; grep -n "census_stepzero\|pins_stepzero\|faces_census" tools/b666_*.py | head
+  #20 | 2026-10-13T23:05:34.745Z | seat | Bash | sed -n 1380,1420p tools/b666_record.py; grep -n "^    fn = \|^ROUTES\|': [a-z_]*," tools/b666_record.py | tail -5
+  #21 | 2026-10-13T23:05:38.330Z | seat | Bash | git status --short -- data/b666_closing_push_out.txt data/b667_* tools/b667_*; git log --oneline -1
+  #22 | 2026-10-13T23:05:43.509Z | seat | Bash | git add data/b666_closing_push_out.txt data/b667_citation_check.json data/b667_citation_check.txt data/b667_ferry.txt data/b667_ferry_scan.txt tools/b667_citati
+  #23 | 2026-10-13T23:05:44.086Z | seat | Bash | git branch --merged main --list 'push-b666*'; git rev-parse --short=8 push-b666 push-b666-root push-b666-closing
+  #24 | 2026-10-13T23:05:50.627Z | seat | Bash | git branch -d push-b666 push-b666-root push-b666-closing
+  #25 | 2026-10-13T23:05:53.409Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch --merged main --list 'push-b666*'
+  #26 | 2026-10-13T23:05:56.769Z | seat | Bash | git branch -d push-b666 push-b666-root
+  #27 | 2026-10-13T23:05:59.759Z | seat | Bash | cd /d/SIDE-cosmo && git branch --merged main; echo ---; git branch -r --merged origin/main
+  #28 | 2026-10-13T23:06:03.443Z | seat | Bash | git branch -d push-b666-workflow push-b666-merge docstrings-cut-SIDE-cosmo
+  #29 | 2026-10-13T23:06:06.374Z | seat | Bash | git push origin --delete docstrings-cut-SIDE-cosmo
+  #30 | 2026-10-13T23:06:11.770Z | seat | Bash | cd /d/relay && cat tools/b666_tests.py | head -120; wc -l tools/b666_tests.py
+  #31 | 2026-10-13T23:06:16.890Z | seat | Bash | sed -n 118,124p tools/b666_tests.py; cat data/b666_tests_withheld.json; grep -n "tests.py run\|for t in\|Start-Process" data/b666_commands.txt | head -5
+  #32 | 2026-10-13T23:06:21.569Z | seat | Bash | sed -n 29,32p data/b666_commands.txt | cut -c1-900; ls "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/" | head
+  #33 | 2026-10-13T23:06:27.201Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; ls $S | grep b666; cat $S/b666_stepzero_tests.sh 2>/dev/nul
+  #34 | 2026-10-13T23:07:00.167Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; Start-Process 'C:\Program Files\Git\bin\bash.exe' -Argume
+  #35 | 2026-10-13T23:07:05.991Z | seat | Bash | sed -n 1,48p tools/b326_zeros.py; grep -n "^def \|gammainc\|K = \|def Z\|theta\|exp(" tools/b326_zeros.py | head -50
+  #36 | 2026-10-13T23:07:09.618Z | seat | Bash | sed -n 49,160p tools/b326_zeros.py; grep -n "^def \|^[A-Z]* = \|gammainc\|SQ23\|def Lam\|def winding" tools/e16/epstein_census.py | head -40
+  #37 | 2026-10-13T23:14:12.038Z | seat | Bash | python -X utf8 -c "
+  #38 | 2026-10-13T23:14:20.077Z | seat | Bash | sed -n 1,40p tools/b666_record.py; sed -n 40,330p tools/b666_record.py
+  #39 | 2026-10-13T23:14:27.438Z | seat | Bash | wc -l tools/b666_worklist.py tools/b666_checks.py tools/b666_regspec.py tools/b666_reg_gate.py tools/b666_closing.py; grep -n "^[A-Z_0-9]* = \|^def " tools/b666
+  #40 | 2026-10-13T23:14:29.012Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; grep -c "" $S/b667_tests.log; grep -v "failing NONE" $S/b66
+  #41 | 2026-10-13T23:14:33.837Z | seat | Bash | sed -n 1,15p tools/b666_worklist.py; sed -n 53,87p tools/b666_worklist.py
+  #42 | 2026-10-13T23:15:35.948Z | seat | Bash | python -X utf8 tools/b667_record.py c1 dry 2>&1 | cut -c1-400
+  #43 | 2026-10-13T23:15:41.841Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; for i in $(seq 1 55); do if grep -q "STEPZERO TESTS DONE" "
+  #44 | 2026-10-13T23:24:09.257Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|bash' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={$_.C
+  #45 | 2026-10-13T23:24:14.838Z | seat | Bash | grep -n "test_chain_page.py \|test_name_b649\|test_g_chain_page\|test_asof" data/b666_tests_stepzero.txt | head -5 | cut -c1-200
+  #46 | 2026-10-13T23:24:24.141Z | seat | Bash | grep -n "^    ([a-d])" data/b666_defects.txt | cut -c1-90; head -3 data/b666_closing_push_out.txt | cut -c1-200; sed -n 13,16p data/b326_epstein_zeros.json; sed
+  #47 | 2026-10-13T23:24:28.282Z | seat | Bash | grep -n "tail15\|SIG_HI\|SIG_LO\|T_LO\|t_lo" tools/b326_offline.py | head -20; sed -n 1,30p tools/b326_offline.py | cut -c1-160
+  #48 | 2026-10-13T23:25:01.239Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; for i in $(seq 1 55); do if grep -q "STEPZERO TESTS DONE" "
+  #49 | 2026-10-13T23:33:26.083Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; for i in $(seq 1 55); do if grep -q "STEPZERO TESTS DONE" "
+  #50 | 2026-10-13T23:34:24.442Z | seat | Bash | python -X utf8 tools/b667_tests.py report stepzero | tail -6; git status --short | grep -v "^??" ; git -C /d/MY-DOwnloads/PLACE-papers status --short --untracke
+  #51 | 2026-10-13T23:34:29.068Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|bash' } | Measure-Object | Select-Object Count; [math]::Round((Get-CimInsta
+  #52 | 2026-10-13T23:34:45.448Z | seat | Bash | git add data/b667_stepzero.txt data/b667_defects.txt data/b667_readfirst.txt data/b667_tests_stepzero.txt data/b667_tests_stepzero.json data/b667_tests_withheld
+  #53 | 2026-10-13T23:34:50.464Z | seat | Bash | python -X utf8 tools/b667_record.py c1 2>&1 | tail -2 && sed -n 8623,8624p /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | cut -c1-160
+  #54 | 2026-10-13T23:34:54.649Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && sed -n 8647p FINDINGS.md | cut -c1-200; git status --short --untracked-files=no; git add FINDINGS.md && git commit -q -m "b66
+  #55 | 2026-10-13T23:34:55.577Z | seat | Bash | git add data/b667_record_lines.json data/b667_scanfile_c1.md && git commit -q -m "b667 Component 1: the record line's bank (FINDINGS :8647) and its scan file" &
+  #56 | 2026-10-13T23:35:01.487Z | seat | Bash | cd /d/relay && ls data/b667_record_lines.json data/b667_scanfile_c1.md; git status --short | grep b667
+  #57 | 2026-10-13T23:35:06.163Z | seat | Bash | git add data/b667_record_lines.json data/b667_scanfile_c1.md && git commit -q -m "b667 Component 1: the record line's bank (FINDINGS :8647) and its scan file" &
+  #58 | 2026-10-13T23:37:23.127Z | seat | Bash | grep -n "0.68 t\|e^{pi t / 2} / t^2\|^T_LO\|^def rq_b\|^_RQB" tools/b326_zeros.py
+  #59 | 2026-10-13T23:37:31.231Z | seat | Bash | git add data/b667_epstein_plan.txt data/b667_defects.txt && git commit -q -m "b667 Component 2: the plan of (R277)(3) -- the Chowla-Selberg route for Z_Q in bal
+  #60 | 2026-10-13T23:41:39.432Z | seat | Bash | tail -5 data/b667_epstein_plan.txt | cut -c1-80; grep -n "α = n/2" data/b667_epstein_plan.txt
+  #61 | 2026-10-13T23:42:04.100Z | seat | Bash | python -X utf8 tools/b667_record.py answers && head -30 data/b667_author_answers.txt | cut -c1-200
+  #62 | 2026-10-13T23:42:10.364Z | seat | Bash | git add data/b667_epstein_plan.txt data/b667_author_answers.txt data/b667_author_answers.json && git commit -q -m "b667 Component 2: the author's word on the pl
+  #63 | 2026-10-13T23:43:10.173Z | seat | Bash | timeout 300 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b667_api_probe.py"
+  #64 | 2026-10-13T23:43:38.359Z | seat | Bash | timeout 300 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b667_api_probe2.py"
+  #65 | 2026-10-13T23:44:06.921Z | seat | Bash | timeout 500 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b667_api_probe3.py"
+  #66 | 2026-10-13T23:44:49.825Z | seat | Bash | timeout 580 python -X utf8 tools/b667_bessel_probe.py
+  #67 | 2026-10-13T23:45:46.589Z | seat | Bash | sed -n 6,12p data/b667_bessel_obstruction.txt; grep -n "t  [0-9.]*  M" data/b667_bessel_obstruction.txt | awk 'NR%6==0' | head -40 | cut -c1-200; grep -c "first
+  #68 | 2026-10-13T23:45:50.108Z | seat | Bash | grep -n "first clean 600\|first clean 800" data/b667_bessel_obstruction.txt | cut -c1-200 | awk 'NR<=14 || NR>=36'
+  #69 | 2026-10-13T23:46:21.097Z | seat | Bash | git add tools/b667_bessel_probe.py data/b667_bessel_obstruction.txt data/b667_bessel_obstruction.json data/b667_epstein_plan.txt data/b667_defects.txt && git co
+  #70 | 2026-10-13T23:50:38.705Z | seat | Bash | sed -n 1,40p tools/additive_shared.py; grep -n "^def \|argv" tools/additive_shared.py | head -20; tail -5 data/b627_margin_inputs.txt | cut -c1-200; git log --o
+  #71 | 2026-10-13T23:51:05.259Z | seat | Bash | wc -l data/b627_margin_inputs.txt; tail -c 200 data/b627_margin_inputs.txt | od -c | tail -3
+  #72 | 2026-10-13T23:51:24.198Z | seat | Bash | python -X utf8 tools/b667_bessel_probe.py readings600 && grep -n "DATED\|largest radius" data/b667_bessel_obstruction.txt | sed -n '1,3p;180,184p' | cut -c1-160
+  #73 | 2026-10-13T23:51:45.116Z | seat | Bash | python -X utf8 tools/b667_record.py answers && python -X utf8 tools/additive_shared.py --worktree | tail -3
+  #74 | 2026-10-13T23:51:56.300Z | seat | Bash | git add data/b627_margin_inputs.txt data/b667_bessel_obstruction.txt tools/b667_bessel_probe.py data/b667_epstein_plan.txt data/b667_defects.txt data/b667_autho
+  #75 | 2026-10-14T03:23:29.669Z | seat | Bash | python -X utf8 -c "
+  #76 | 2026-10-14T03:26:25.015Z | seat | Bash | timeout 500 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b667_smoke.py"
+  #77 | 2026-10-14T03:26:39.923Z | seat | Bash | timeout 200 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b667_smoke2.py"
+  #78 | 2026-10-14T03:27:00.088Z | seat | Bash | timeout 200 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b667_smoke3.py"
+  #79 | 2026-10-14T03:27:10.078Z | seat | Bash | timeout 200 python -X utf8 -c "
+  #80 | 2026-10-14T03:27:25.201Z | seat | Bash | timeout 200 python -X utf8 -c "
+  #81 | 2026-10-14T03:27:35.616Z | seat | Bash | timeout 200 python -X utf8 -c "
+  #82 | 2026-10-14T03:27:57.630Z | seat | Bash | timeout 400 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b667_smoke4.py"
+  #83 | 2026-10-14T03:29:46.921Z | seat | Bash | timeout 500 python -X utf8 tools/b667_ball_probe.py
+  #84 | 2026-10-14T03:30:06.278Z | seat | Bash | timeout 500 python -X utf8 tools/b667_ball_probe.py | tail -14
+  #85 | 2026-10-14T03:30:13.477Z | seat | Bash | timeout 200 python -X utf8 -c "
+  #86 | 2026-10-14T03:30:25.968Z | seat | Bash | timeout 200 python -X utf8 -c "
+  #87 | 2026-10-14T03:30:50.146Z | seat | Bash | timeout 500 python -X utf8 tools/b667_ball_probe.py | tail -13
+  #88 | 2026-10-14T03:31:22.801Z | seat | Bash | timeout 300 python -X utf8 -c "
+  #89 | 2026-10-14T03:31:53.068Z | seat | Bash | python -X utf8 tools/b667_ball_probe.py > /dev/null; git add tools/b667_ball_probe.py tools/b667_epstein_certify.py data/b667_ball_obstruction.txt data/b667_eps
+  #90 | 2026-10-14T03:35:59.860Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'python|lean|lake'
+  #91 | 2026-10-14T03:36:12.123Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; $p = Start-Process python -ArgumentList '-X','utf8',"$sp\
+  #92 | 2026-10-14T03:37:27.944Z | seat | Bash | python -X utf8 -c "import psutil; print(psutil.__version__)" 2>&1 | tail -1; python -X utf8 -c "
+  #93 | 2026-10-14T03:39:35.860Z | seat | Bash | timeout 580 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b667_smoke5.py"
+  #94 | 2026-10-14T03:39:55.457Z | seat | Bash | git add data/b667_epstein_plan.txt tools/b667_epstein_certify.py && git commit -q -m "b667 Component 3: (R277)(3b)-(3c) entered as the plan's section 15 with it
+  #95 | 2026-10-14T03:40:00.981Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; Start-Process python -ArgumentList '-X','utf8','tools/b66
+  #96 | 2026-10-14T03:40:07.111Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "CERTIFY DONE\|CERTIFY STOPPED" "$S/b667_ce
+  #97 | 2026-10-14T03:40:24.492Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; cat "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d
+  #98 | 2026-10-14T03:41:00.522Z | seat | Bash | timeout 300 python -X utf8 -c "
+  #99 | 2026-10-14T03:41:06.554Z | seat | Bash | timeout 300 python -X utf8 -c "
+  #100 | 2026-10-14T03:41:52.024Z | seat | Bash | git diff --stat -- tools/b667_epstein_certify.py && git diff -- tools/b667_epstein_certify.py | grep "^[-+]" | cut -c1-200
+  #101 | 2026-10-14T03:41:57.985Z | seat | Bash | git add tools/b667_epstein_certify.py data/b667_certify_run1.txt data/b667_defects.txt data/b667_epstein_plan.txt && git commit -q -m "b667 Component 3: the fir
+  #102 | 2026-10-14T03:42:00.073Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; Start-Process python -ArgumentList '-X','utf8','tools/b66
+  #103 | 2026-10-14T03:42:05.273Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "CERTIFY DONE\|CERTIFY STOPPED" "$S/b667_ce
+  #104 | 2026-10-14T03:44:13.891Z | seat | Bash | git diff --no-index --stat tools/b663_epstein_map.py tools/b667_epstein_map_balls.py; git diff --no-index tools/b663_epstein_map.py tools/b667_epstein_map_balls
+  #105 | 2026-10-14T03:44:20.728Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; cat "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d
+  #106 | 2026-10-14T03:44:48.681Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; wc -l $S/b667_certify2.log $S/b667_certify2.err; grep -n "F
+  #107 | 2026-10-14T03:45:37.518Z | seat | Bash | git add data/b667_certify_run2.txt data/b667_epstein_plan.txt data/b667_defects.txt tools/b667_epstein_map_balls.py && git commit -q -m "b667 Component 3: the s
+  #108 | 2026-10-14T03:53:04.772Z | seat | Bash | python -X utf8 tools/b667_record.py diffs && python -X utf8 tools/b667_record.py answers && grep "^[-+]" data/b667_certify_diff_run3.txt | grep -v "^[-+][-+]" |
+  #109 | 2026-10-14T03:53:13.634Z | seat | Bash | git add tools/b667_epstein_certify.py tools/b667_record.py data/b667_epstein_plan.txt data/b667_certify_diff_run3.txt data/b667_map_balls_diff.txt data/b667_aut
+  #110 | 2026-10-14T03:53:15.771Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; Start-Process python -ArgumentList '-X','utf8','tools/b66
+  #111 | 2026-10-14T03:53:21.208Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "CERTIFY DONE\|CERTIFY STOPPED" "$S/b667_ce
+  #112 | 2026-10-14T03:53:28.916Z | seat | Bash | sed -n 1,80p tools/b666_checks.py
+  #113 | 2026-10-14T03:53:34.032Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; cat "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d
+  #114 | 2026-10-14T03:54:46.993Z | seat | Bash | git diff -- tools/b667_epstein_certify.py | grep "^[-+]" | grep -v "^[-+][-+]" | cut -c1-170
+  #115 | 2026-10-14T03:54:59.250Z | seat | Bash | python -X utf8 tools/b667_record.py diffs && git add tools/b667_epstein_certify.py tools/b667_record.py data/b667_certify_run3.txt data/b667_defects.txt data/b6
+  #116 | 2026-10-14T03:55:18.262Z | seat | Bash | python -X utf8 -c "import ast,sys; ast.parse(open('tools/b667_epstein_certify.py',encoding='utf-8').read()); print('parses')" && python -X utf8 tools/b667_recor
+  #117 | 2026-10-14T03:55:24.600Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; Start-Process python -ArgumentList '-X','utf8','tools/b66
+  #118 | 2026-10-14T03:55:29.976Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "CERTIFY DONE\|CERTIFY STOPPED" "$S/b667_ce
+  #119 | 2026-10-14T03:55:35.856Z | seat | Bash | sed -n 80,200p tools/b666_checks.py
+  #120 | 2026-10-14T03:55:41.391Z | seat | Bash | wc -l data/b666_registration_2026-10-13.txt && grep -n "^### (\|^## \|^### [A-Z0-9]*)" data/b666_registration_2026-10-13.txt | head -60
+  #121 | 2026-10-14T03:55:56.787Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; grep -c "" $S/b667_certify4.log; grep -n "^== \|(3d)\|N(R)\
+  #122 | 2026-10-14T03:56:01.341Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; sed -n 18,20p $S/b667_certify4.log | grep -o "summed direct
+  #123 | 2026-10-14T03:56:21.663Z | seat | Bash | for f in data/b66[0-6]_registration_*.txt data/b65[5-9]_registration_*.txt; do echo "$f: $(grep -o 'G-RUNNER-[A-Z]*\|G-WORKFLOW-FILES\|G-MERGES-ON-GATE\|G-NO-RU
+  #124 | 2026-10-14T03:56:27.848Z | seat | Bash | for a in b661 b662 b663 b665; do echo "== $a"; grep -n "RUNNER = \|^RUNNER\|run_id" tools/${a}_worklist.py | head -3; grep -n -A6 "def runner_ok" tools/${a}_che
+  #125 | 2026-10-14T03:56:39.467Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; grep -c "" $S/b667_certify4.log; sed -n '46,$p' $S/b667_cer
+  #126 | 2026-10-14T03:56:57.769Z | seat | Bash | python -X utf8 -c "
+  #127 | 2026-10-14T03:57:01.695Z | seat | Bash | sed -n 48,56p data/b665_registration_2026-10-13.txt; sed -n 79,84p data/b665_registration_2026-10-13.txt
+  #128 | 2026-10-14T03:57:48.157Z | seat | Bash | sed -n 1196,1228p tools/b666_record.py; grep -n "^import collections\|^RELAY\|^STD3\|^import edit_route\|^import b633_record\|collections" tools/b666_record.py 
+  #129 | 2026-10-14T03:57:54.108Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; grep -c "" $S/b667_certify4.log; sed -n '47,$p' $S/b667_cer
+  #130 | 2026-10-14T03:58:00.061Z | seat | Bash | cat tools/b666_reg_gate.py; sed -n 1,60p tools/b666_regspec.py
+  #131 | 2026-10-14T03:58:03.624Z | seat | Bash | sed -n 60,232p tools/b666_regspec.py
+  #132 | 2026-10-14T03:58:10.210Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; grep -c "" $S/b667_certify4.log; sed -n '53,$p' $S/b667_cer
+  #133 | 2026-10-14T03:59:19.043Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; grep -c "" $S/b667_certify4.log; sed -n '53,$p' $S/b667_cer
+  #134 | 2026-10-14T03:59:47.468Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; grep -c "" $S/b667_certify4.log; sed -n '53,$p' $S/b667_cer
+  #135 | 2026-10-14T04:01:57.307Z | seat | Bash | python -X utf8 -c "import ast; ast.parse(open('tools/b667_record.py',encoding='utf-8').read()); print('parses')"; S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude
+  #136 | 2026-10-14T04:02:03.369Z | seat | Bash | cat tools/b666_closing.py
+  #137 | 2026-10-14T04:03:07.064Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; grep -c "" $S/b667_certify4.log; tail -2 $S/b667_certify4.l
+  #138 | 2026-10-14T04:03:17.727Z | seat | Bash | python -X utf8 -c "
+  #139 | 2026-10-14T04:07:41.233Z | seat | Bash | python -X utf8 -c "import ast; ast.parse(open('tools/b667_checks.py',encoding='utf-8').read()); print('parses')"; S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude
+  #140 | 2026-10-14T04:07:50.481Z | seat | Bash | timeout 120 python -X utf8 -c "
+  #141 | 2026-10-14T04:07:58.498Z | seat | Bash | timeout 60 python -X utf8 -c "
+  #142 | 2026-10-14T04:08:07.198Z | seat | Bash | timeout 60 python -X utf8 -c "
+  #143 | 2026-10-14T04:08:21.271Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; grep -c "" $S/b667_certify4.log; tail -2 $S/b667_certify4.e
+  #144 | 2026-10-14T04:08:30.672Z | seat | Bash | git add tools/b667_checks.py tools/b667_closing.py tools/b667_reg_gate.py tools/b667_regspec.py tools/b667_record.py tools/b667_worklist.py && git commit -q -m 
+  #145 | 2026-10-14T04:24:39.697Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|bash' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={$_.C
+  #146 | 2026-10-14T04:24:46.727Z | seat | PowerShell | $c=(Get-CimInstance Win32_Process -Filter "ProcessId=12308").CommandLine; $i=$c.IndexOf('S="'); $c.Substring($i, [Math]::Min(400, $c.Length-$i))
+  #147 | 2026-10-14T04:24:53.138Z | seat | PowerShell | $c=(Get-CimInstance Win32_Process -Filter "ProcessId=12308").CommandLine; $i=$c.IndexOf('while'); "length $($c.Length) ; while at $i"; if ($i -ge 0) { $c.Substr
+  #148 | 2026-10-14T04:25:04.277Z | seat | Bash | grep -n "^== 1\.\|THE LIST'S SIZE AS THE REGION COUNT\|== 2\. " data/b667_epstein_plan.txt
+  #149 | 2026-10-14T04:25:30.702Z | seat | Bash | python -X utf8 -c "import ast; [ast.parse(open(f,encoding='utf-8').read()) for f in ('tools/b667_tail_recheck.py','tools/b667_record.py')]; print('parse')" && g
+  #150 | 2026-10-14T05:19:49.161Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'python|bash|lean|
+  #151 | 2026-10-14T05:46:19.811Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "CERTIFY DONE\|CERTIFY STOPPED" "$S/b667_ce
+  #152 | 2026-10-14T05:46:22.861Z | seat | PowerShell | "free MB: " + [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'bas
+  #153 | 2026-10-14T05:46:30.710Z | seat | PowerShell | "free MB: " + [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'bas
+  #154 | 2026-10-14T05:46:53.493Z | seat | Bash | git add data/b667_waiter_reap.txt && git commit -q -m "b667 Component 3, under the navigator's answer: the reaped waiter and its restart banked as printed -- th
+  #155 | 2026-10-14T07:30:59.425Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; cat "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d
+  #156 | 2026-10-14T07:31:10.160Z | seat | Bash | ls -la data/b667_epstein_counts.txt data/b667_epstein_zeros_certified.txt data/b667_epstein_zeros_certified.json data/b667_bessel_rungs.txt; head -3 data/b667_e
+  #157 | 2026-10-14T07:31:32.971Z | seat | Bash | timeout 590 python -X utf8 tools/b667_tail_recheck.py
+  #158 | 2026-10-14T07:31:44.233Z | seat | Bash | python -X utf8 -c "
+  #159 | 2026-10-14T13:22:45.075Z | seat | Bash | timeout 300 python -X utf8 tools/b667_record.py gzbanks && cat data/b667_large_banks.txt | cut -c1-250 && head -40 data/b667_bessel_rungs_summary.txt
+  #160 | 2026-10-14T13:23:04.871Z | seat | Bash | ls -la /d/relay/data/b667_bessel_rungs.txt.gz /d/relay/data/b667_bessel_rungs.txt && rm -- /d/relay/data/b667_bessel_rungs.txt
+  #161 | 2026-10-14T13:23:10.752Z | seat | Bash | ls -la /d/relay/data/b667_epstein_zeros_certified.json.gz /d/relay/data/b667_epstein_zeros_certified.json && rm -- /d/relay/data/b667_epstein_zeros_certified.js
+  #162 | 2026-10-14T13:23:40.831Z | seat | Bash | timeout 120 python -X utf8 -c "
+  #163 | 2026-10-14T13:24:04.281Z | seat | Bash | git status --short | grep "b667\|b627\|b663" ; git add data/b667_epstein_counts.txt data/b667_epstein_zeros_certified.txt data/b667_epstein_zeros_certified.json
+  #164 | 2026-10-14T13:24:11.877Z | seat | Bash | grep -n "elapsed" data/b663_epstein_control.txt
+  #165 | 2026-10-14T13:24:16.372Z | seat | Bash | timeout 580 python -X utf8 tools/b667_epstein_map_balls.py 2>&1 | grep -n "READING\|H4\|H3 \|THE CONTROL\|ZERO SIDE\|NOT CERTIFIED\|elapsed\|Error\|Traceback" |
+  #166 | 2026-10-14T13:25:09.881Z | seat | Bash | ls -la data/b667_epstein_control_balls.txt && sed -n 50,86p data/b667_epstein_control_balls.txt | cut -c1-260; grep -n "D = \|hQtie\|j₀ = 38" data/b663_epstein_
+  #167 | 2026-10-14T13:25:46.159Z | seat | Bash | git add data/b667_epstein_control_balls.txt data/b667_epstein_control_balls.json data/b667_h4_reading.txt && git commit -q -m "b667 Component 4: the b663 map ru
+  #168 | 2026-10-14T13:30:43.079Z | seat | Bash | grep -n "ll = (ld.get('lines') or \[\]) + \[{}, {}\]\|W-ORD-EPSTEIN-CERTIFY DISCHARGED), :%s (the kernel\|def _n4\|item for P1 and P2); this record\|:%s (the ke
+  #169 | 2026-10-14T13:31:01.100Z | seat | Bash | sed -i.x 's/x/x/' /dev/null 2>/dev/null; grep -n "\[{}, {}\]" tools/b667_record.py; grep -n "(R277) ratified.\*\* (1)" tools/b667_record.py
+  #170 | 2026-10-14T13:31:15.347Z | seat | Bash | ls /dev/null.x 2>&1 | head -1; git status --short | grep -v "^??" ; python -X utf8 -c "import ast; ast.parse(open('tools/b667_record.py',encoding='utf-8').read(
+  #171 | 2026-10-14T13:31:48.067Z | seat | Bash | python -X utf8 tools/b667_record.py hypotheses && python -X utf8 tools/b667_record.py landing dry 2>&1 | head -12 | cut -c1-400
+  #172 | 2026-10-14T13:32:05.422Z | seat | Bash | python -X utf8 tools/b667_record.py landing 2>&1 | tail -1
+  #173 | 2026-10-14T13:32:18.261Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no && git add OPEN_TRAILS.md && git commit -q -m "b667 Component 5, under (R277)(6) and 
+  #174 | 2026-10-14T13:32:26.870Z | seat | Bash | cd /d/relay && python -X utf8 tools/b667_record.py answers | tail -1 && git add data/b663_epstein_control.txt data/b667_defects.txt data/b667_hypotheses.txt dat
+
+### ### **COMMANDS 174 ; G-EDIT-ROUTE OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0.**
