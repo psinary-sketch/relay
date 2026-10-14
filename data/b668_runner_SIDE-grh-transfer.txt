@@ -1,0 +1,178 @@
+b668 -- COMPONENT 3, (R278)(2): THE HOSTED RUNNER FOR SIDE-grh-transfer, READ BY ITS RUN ID (2026-10-14T15:20:01Z)
+
+### (R274)(4): the act`s kernel files, read from its cut bank and from no constant: SIDEGRHTransfer/CharacterTopological.lean (from data/b668_cut_SIDE-grh-transfer.json, data/b668_cut_edits.json); SIDEGRHTransfer/GRHBridge.lean (from data/b668_cut_SIDE-grh-transfer.json, data/b668_cut_edits.json); SIDEGRHTransfer/Voice7Vendored.lean (from data/b668_cut_SIDE-grh-transfer.json, data/b668_cut_edits.json)
+### the workflow file on main (7f3e31563d2067a5203c9cbc3eedc64325604616, put where absent under (R263)(4), the file alone, b654`s form), read back whole:
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    # From b658 ((R263)(4), standing): the named terminals are read from print_targets.txt at the kernel's root, one name per line, and the
+    # scratch file imports each module of the target; no workflow edit is needed to print a new theorem.
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              : > out/Axioms.lean
+              for m in $TARGET; do echo "import $m" >> out/Axioms.lean; done
+              cp print_targets.txt out/print_targets.txt
+              while IFS= read -r n || [ -n "$n" ]; do
+                n=$(printf '%s' "$n" | tr -d '\r' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                [ -z "$n" ] && continue
+                case "$n" in
+                  *[!A-Za-z0-9_.\']*) echo "print target refused: $n" >> out/axioms_refused.txt; continue ;;
+                esac
+                echo "#print axioms $n" >> out/Axioms.lean
+              done < print_targets.txt
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+
+### print_targets.txt at the ref: 53 names
+
+### the dispatch: at main, the ref input d487072543ddd8c09376fd424678b524aba06c93 (the cut branch`s tip, made from the workflow`s main) ; target SIDEGRHTransfer.CharacterCodim SIDEGRHTransfer.CharacterModular SIDEGRHTransfer.CharacterSpectral SIDEGRHTransfer.CharacterSymmetry SIDEGRHTransfer.CharacterTopological SIDEGRHTransfer.CharacterTransfer SIDEGRHTransfer.GRHBridge SIDEGRHTransfer.Voice1Vendored SIDEGRHTransfer.Voice2Vendored SIDEGRHTransfer.Voice3Vendored SIDEGRHTransfer.Voice3bVendored SIDEGRHTransfer.Voice5Vendored SIDEGRHTransfer.Voice6Vendored SIDEGRHTransfer.Voice7Vendored
+### the run: id 38587853597 ; https://github.com/psinary-sketch/SIDE-grh-transfer/actions/runs/38587853597 ; build-module workflow_dispatch ; status completed ; conclusion success ; head 7f3e31563d2067a5203c9cbc3eedc64325604616 on main ; 2026-10-14T15:16:17Z to 2026-10-14T15:18:34Z
+### the artifact: id 11906685756 ; name build-module-38587853597 ; 4825 bytes ; sha256 5ab95446d35a0a053eaf4e107a2870289732399e68944387978779e02608f990 ; the platform`s digest 5ab95446d35a0a053eaf4e107a2870289732399e68944387978779e02608f990 ; AGREE
+### the ref built (out/ref.txt): d487072543ddd8c09376fd424678b524aba06c93 leanprover/lean4:v4.29.1
+### the memory log: samples 3 ; LOW 13981 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; the log`s last lines:
+    
+    Note: This linter can be disabled with `set_option linter.unusedVariables false`
+    warning: SIDEGRHTransfer/GRHBridge.lean:126:7: unused variable `χbar`
+    
+    Note: This linter can be disabled with `set_option linter.unusedVariables false`
+    Build completed successfully (2320 jobs).
+### the print step: error lines 0 ; names refused NONE
+### THE GATE READING PER TERMINAL ((R278)(2): each name read against its banked print in relay data/b555_probe_g2.txt for equality where it has one; the rest at the standard three or none, no sorryAx; the prints banked here as the kernel`s relay print bank, relay data/b668_prints_SIDE-grh-transfer.txt):
+  SIDEGRHTransfer.GRHStructuralExhaustiveness ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.MechanismClass           []                                     STANDARD THREE OR NONE
+  SIDEGRHTransfer.R_action                 ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.R_no_constraint          ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.S_action                 ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.S_fixed_point            ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.S_involution             ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.balance_theorem          ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.c1_chi_exclusion         ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.c2_chi_exclusion         ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.c3_chi_exclusion         ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.c4_chi_exclusion         ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.c5_chi_exclusion         ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.c6_chi_exclusion         ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.c7_chi_exclusion         ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.c7_rests_everywhere      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.conjugate_re             ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.cr_forces_half           ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.cr_minimal_codim         ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.cr_minimal_iff           ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.grh_structural_exhaustiveness_proved ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.modular_forces_half      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.none_produce_chi         ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.offset_zero_iff          ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.ostrowski_exhaustive_chi ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.paired_conjugation_real_axis_agree_iff ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.paired_cr_minimal_codim_axis_iff ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.paired_modular_S_fixed_iff ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.paired_reflection_axis_invariant_iff ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.paired_spectral_offset_zero_iff ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.paired_topological_no_sigma_preference ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.prime_as_real            ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.prime_gt_one             ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.produces_offline_chi     ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.reflect                  ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.reflect_fixed_iff        ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.reflect_fixed_point_forward ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.reflect_re               ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.rpow_injective           ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.self_adjoint_constraint  ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.self_adjoint_forces_half ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.seven_classes_chi        ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.spectral_offset          ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.symmetries_agree_forward ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.symmetries_agree_iff     ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.topological_constant     ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.topological_contribution ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.topological_no_sigma_preference ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.topological_rests        ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEGRHTransfer.twisted_balance_at_half  ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.twisted_balance_at_unramified_prime ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.voice1_balance_chi       ['Classical.choice', 'Quot.sound', 'propext'] EQUALS ITS BANKED PRINT  (banked ['Classical.choice', 'Quot.sound', 'propext'])
+  SIDEGRHTransfer.zero_codimension         ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+
+### ### **RUN 38587853597 ; CONCLUSION success ; ARTIFACT SHA256 5ab95446d35a0a05 ; MEMORY LOW 13981 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 53, PRINTED 53, AGAINST THEIR BANKED PRINTS 21 EQUAL, AT THE STANDARD THREE OR NONE 32 ; GATE DERIVES.**
