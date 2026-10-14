@@ -52,6 +52,7 @@ def line(p, n):
 def _user_texts(results=True):
     """the session's user texts; with results, also the tool results (where an AskUserQuestion answer lands) -- the ferry reads the user
     messages alone, so a tool's own print naming the anchors is never taken for the paste."""
+    ask = set()     # ### b670 defect (e): only the results of the seat's own prompts are read, never another tool's print
     for raw in io.open(SESSION, encoding='utf-8', errors='replace'):
         try:
             o = json.loads(raw)
@@ -60,11 +61,14 @@ def _user_texts(results=True):
         if o.get('isCompactSummary'):
             continue
         cs = (o.get('message') or {}).get('content')
+        for c in (cs if isinstance(cs, list) else []):
+            if isinstance(c, dict) and c.get('type') == 'tool_use' and c.get('name') == 'AskUserQuestion':
+                ask.add(c.get('id'))
         if o.get('type') == 'user':
             for t in ([cs] if isinstance(cs, str) else [c.get('text', '') for c in (cs or []) if isinstance(c, dict) and c.get('type') == 'text']):
                 yield t
             for c in (cs if isinstance(cs, list) else []) if results else []:
-                if isinstance(c, dict) and c.get('type') == 'tool_result':
+                if isinstance(c, dict) and c.get('type') == 'tool_result' and c.get('tool_use_id') in ask:
                     t = c.get('content')
                     yield ''.join(x.get('text', '') for x in t) if isinstance(t, list) else (t or '')
 
@@ -255,7 +259,7 @@ def answer(needle, *a):
     after one ledger name) and commits checked at HEAD, the print appended to the citation bank with the answer named."""
     best = None
     for t in _user_texts():
-        if needle in t and "NAVIGATOR'S ANSWER" in t:
+        if needle in t and ("NAVIGATOR'S ANSWER" in t or "NAVIGATOR'S NOTE" in t):
             best = t
     if best is None:
         sys.exit('### NO ANSWER CARRYING %r IN THE SESSION -- NOTHING WRITTEN' % needle)
