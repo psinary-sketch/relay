@@ -1,0 +1,29 @@
+b667 -- THE REAPED WAITER AND ITS RESTART, BANKED AS PRINTED (2026-10-14), under the navigator's answer on the reaped waiter ((R277), no new clause)
+
+### WHAT HAPPENED: the act's single watcher of the certify run (the background bash loop that waits for "CERTIFY DONE" or "CERTIFY STOPPED"
+### in the run's log, or for the run's main PID 17200 to end) was stopped by the host -- Claude Code reaped it "because the system was
+### critically low on memory while the session was idle". The seat did not see that memory low. Until the run's own sampled low prints with
+### the squares, the host low reads "at or below the hold's reap point, UNMEASURED by the seat"; the run's own sampled low is the figure for
+### the margin rule. No worker restarted, no square re-run; the run continues as it is.
+
+### THE READING AFTER THE REAP, AS PRINTED: free memory 3024 MB ; the processes matching python, bash, lean, lake:
+    PID 17200  python.exe  134 MB  -- the run's main process (tools/b667_epstein_certify.py, started 03:55:26Z)
+    PID 21796  python.exe   27 MB  -- worker
+    PID 24524  python.exe   41 MB  -- worker
+    PID 15828  python.exe   31 MB  -- worker
+    PID 33756  python.exe   30 MB  -- worker
+    PID  7468  python.exe   40 MB  -- worker
+    PID 10168  python.exe   31 MB  -- worker
+    PID 29280  python.exe   30 MB  -- worker
+    PID 18136  python.exe   31 MB  -- worker
+    (eight workers, 261 MB together; the run 395 MB with its main process; no bash -- the reaped waiter gone; no lean, no lake)
+
+### THE RESTART: the same waiter started again as the act's single watcher, its command line as the listing prints it:
+    WAITER PID 13264 (the Git-bash wrapper) and PID 43580 (its inner shell), one waiter:
+    S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "CERTIFY DONE\|CERTIFY STOPPED" "$S/b667_certify4.log" 2>/dev/null; do if ! tasklist //FI "PID eq 17200" | grep -q 17200; then echo "PROCESS GONE"; break; fi; sleep 60; done; echo "WAITER END"
+    free memory at the restart's listing: 2845 MB
+
+### THE OUTSIDE PROCESS THAT DROVE THE PRESSURE: not seen in the listing -- the listing was taken after the reap, when the low had passed.
+### The largest processes at that listing, for the record (working sets): Memory Compression 913 MB ; claude 716 MB ; chrome 665, 652, 554,
+### 480, 261, 247, 147 MB (seven processes, about 3006 MB together) ; MsMpEng 312 MB ; explorer 209 MB ; Dell.TechHub.Instrumentation.SubAgent
+### 178 MB. None of these is named the driver: the reap's moment is not in any listing the seat holds.
