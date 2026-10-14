@@ -45,13 +45,18 @@ MATHLIB = 'D:/SIDE-explicit-formula/.lake/packages/mathlib'
 PIN = 'de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11'
 BRANCH = 'chi-li-b669'
 NEXT_TAG = 'v0.31'
-K_WORKFLOW = None           # ### filled at Component 3 (the kernel's build-module workflow, read there)
-RUNNER = {}                 # ### filled at Component 3
-PRINT_TARGETS_N = None
+K_WORKFLOW = '7317db4'      # ### the commit putting build-module.yml on main where absent (b654, the file alone); edited at b658 (f18ab7e)
+RUNNER = {KERNEL: dict(branch='chi-li-forward-b669', target='SIDEExplicitFormula.Schema.LiCfg SIDEExplicitFormula.Chi.LiForward',
+                       workflow_commit=K_WORKFLOW, run_id=38607173157, ref='5a194fc9cafe8274bdeebe804f92d6e8a8b387f7', dispatched_at='main',
+                       prior_run=38606143304, prior_ref='b804bf2b682b31aea7fe48ac214e040082703cfc')}
+RUNNER_ROWS, RUNNER_BANK = 'b669_runner_rows.json', 'b669_runner_SIDE-explicit-formula_run38607173157.txt'
+PRINT_TARGETS_N = 5          # ### main's print_targets.txt after the merge: the five merged declarations
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm is a standing arm carried from b668's face (b668's own act arms
 # ### not carried). Each run at HEAD and counted before the face names it. Filled at Component 5.
-ACT_ARMS = ()
+ACT_ARMS = ('G-R279-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-REPAIR-APPENDED', 'G-PLAN-BEFORE-LEAN',
+            'G-PLAN-SEARCHES-PRINTED', 'G-CONSUMERS-SECTION', 'G-WALK-ZERO', 'G-LANDINGS-BANKED', 'G-SPLIT-MERGED', 'G-OPEN-BRANCH-UNMERGED',
+            'G-HYPOTHESES-SCORED', 'G-KERNEL-FILES-FROM-BANK')
 B668_ACT_ARMS = ('G-R278-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-PLANFORM-ENTERED', 'G-RESEARCH-ORDER-ENTERED',
                  'G-SENTENCES-BANKED', 'G-GRADES-VERBATIM', 'G-PROMPT-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE', 'G-AXIOM-CLAIM-AFTER',
                  'G-KERNEL-FILES-FROM-BANK', 'G-ITEMS-ENTERED', 'G-CENSUS-ROW')
