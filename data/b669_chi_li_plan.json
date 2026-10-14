@@ -1,0 +1,258 @@
+{
+ "at": "2026-10-14T17:11:03Z",
+ "kernel": "SIDE-explicit-formula",
+ "rev": "v0.30",
+ "mathlib": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+ "searches": [
+  {
+   "where": "kernel",
+   "label": "a configuration-level Li coefficient",
+   "pattern": "^(noncomputable )?def [A-Za-z_]*(li_?coeff|licoeff)[A-Za-z_]*\\b",
+   "paths": [
+    "SIDEExplicitFormula",
+    "Zeta23"
+   ],
+   "hits": 2,
+   "first": [
+    "SIDEExplicitFormula/LiWeil.lean:243:def LiCoeff (n : ℕ) : ℝ :=",
+    "SIDEExplicitFormula/Registers.lean:29:def liCoeff (n : ℕ) : ℝ :="
+   ]
+  },
+  {
+   "where": "kernel",
+   "label": "a χ-Li declaration (a Li name and a chi name in one declaration name)",
+   "pattern": "^(def|theorem) ([A-Za-z_]*li[_A-Z][A-Za-z_]*chi|[A-Za-z_]*chi[A-Za-z_]*_li_)[A-Za-z_]*\\b",
+   "paths": [
+    "SIDEExplicitFormula",
+    "Zeta23"
+   ],
+   "hits": 13,
+   "first": [
+    "SIDEExplicitFormula/Chi/FullLine.lean:169:def FlineCond_chi (N : ℕ) (k : ℝ → ℂ) (c : ℝ) (t : ℝ) : ℂ :=",
+    "SIDEExplicitFormula/Chi/FullLine.lean:173:def Fline_chi (χ : DirichletCharacter ℂ N) (k : ℝ → ℂ) (c : ℝ) (t : ℝ) : ℂ :=",
+    "SIDEExplicitFormula/Chi/FullLine.lean:179:theorem integrable_Fline_chi {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (hk : ContDiff ℝ 2 k)",
+    "SIDEExplicitFormula/Chi/FullLine.lean:244:theorem tendsto_interval_Fline_chi {χ : DirichletCharacter ℂ N} (h1 : χ ≠ 1) (hk : ContDiff ℝ 2 k)"
+   ]
+  },
+  {
+   "where": "kernel",
+   "label": "a χ-seam declaration",
+   "pattern": "^(def|structure|theorem) [A-Za-z_]*[Ss]eam[A-Za-z_]*",
+   "paths": [
+    "SIDEExplicitFormula/Chi"
+   ],
+   "hits": 0,
+   "first": []
+  },
+  {
+   "where": "kernel",
+   "label": "the generic summability over a configuration with a local count",
+   "pattern": "^theorem (zero_sum_inv_sq_gen|EF_zero_sum_summable_gen)\\b",
+   "paths": [
+    "Zeta23"
+   ],
+   "hits": 2,
+   "first": [
+    "Zeta23/WeilEF/ZeroSummability.lean:121:theorem zero_sum_inv_sq_gen (Z : ZeroConfig) {A₀ : ℝ} (hA₀ : 1 ≤ A₀)",
+    "Zeta23/WeilEF/ZeroSummability.lean:179:theorem EF_zero_sum_summable_gen (Z : ZeroConfig) {A₀ : ℝ} (hA₀ : 1 ≤ A₀)"
+   ]
+  },
+  {
+   "where": "kernel",
+   "label": "a strict modulus lemma |1 - 1/ρ| > 1 off the line (V2)",
+   "pattern": "^theorem [A-Za-z_]*(norm|abs)_one_sub_inv[A-Za-z_]*(gt|lt|ne)",
+   "paths": [
+    "SIDEExplicitFormula",
+    "Zeta23"
+   ],
+   "hits": 0,
+   "first": []
+  },
+  {
+   "where": "kernel",
+   "label": "a power-sum lemma (V4)",
+   "pattern": "(power.?sum|turan|turán)",
+   "paths": [
+    "SIDEExplicitFormula",
+    "Zeta23"
+   ],
+   "hits": 0,
+   "first": []
+  },
+  {
+   "where": "mathlib",
+   "label": "a Turán-type power-sum inequality (V4)",
+   "pattern": "(turan|turán)",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 152,
+   "first": [
+    "Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:11:public import Mathlib.Combinatorics.SimpleGraph.Extremal.Turan",
+    "Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:50:`completeMultipartiteGraph (const (Fin r) (Fin t))` (or `turanGraph (r * t) r`), it is convenient",
+    "Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:53:See `completeEquipartiteGraph.completeMultipartiteGraph`, `completeEquipartiteGraph.turanGraph`",
+    "Mathlib/Combinatorics/SimpleGraph/CompleteMultipartite.lean:55:`completeMultipartiteGraph`, `turanGraph`."
+   ]
+  },
+  {
+   "where": "mathlib",
+   "label": "a power-sum inequality by name (V4)",
+   "pattern": "^(theorem|lemma) [A-Za-z_]*(power_?sum|powerSum)[A-Za-z_]*\\b",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 2,
+   "first": [
+    "Mathlib/SetTheory/Cardinal/Defs.lean:453:theorem lift_power_sum {ι : Type u} (a : Cardinal.{v}) (f : ι → Cardinal.{v}) :",
+    "Mathlib/SetTheory/Cardinal/Defs.lean:464:theorem power_sum {ι : Type u} (a : Cardinal.{max u v}) (f : ι → Cardinal.{max u v}) :"
+   ]
+  },
+  {
+   "where": "mathlib",
+   "label": "a Pringsheim theorem (B, the Pringsheim step)",
+   "pattern": "pringsheim",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 0,
+   "first": []
+  },
+  {
+   "where": "mathlib",
+   "label": "a Hadamard factorization (B, the product)",
+   "pattern": "(hadamard.?factori|canonical.?product|weierstrass.?(product|factori))",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 57,
+   "first": [
+    "Mathlib/CategoryTheory/Limits/Sifted.lean:185:/-- If `C` is sifted, the canonical product comparison map for the `colim` functor",
+    "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean:18:In this file we define Weierstrass division, Weierstrass factorization, and prove",
+    "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean:47:- `PowerSeries.IsWeierstrassFactorizationAt g f h I`: for a power series `g` over `A` and",
+    "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean:51:- `PowerSeries.IsWeierstrassFactorization`: version of `PowerSeries.IsWeierstrassFactorizationAt`"
+   ]
+  },
+  {
+   "where": "mathlib",
+   "label": "a growth or order bound for the completed L-function (B)",
+   "pattern": "completedLFunction[A-Za-z_]*(isBigO|bound|growth|order|le_exp|norm_le)",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 0,
+   "first": []
+  },
+  {
+   "where": "mathlib",
+   "label": "a finite-order entire function notion (B)",
+   "pattern": "(finite.?order|order.?of.?growth|EntireOfFiniteOrder)",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 651,
+   "first": [
+    "Mathlib/Algebra/BigOperators/Intervals.lean:32:    [ExistsAddOfLE α] [LocallyFiniteOrder α]",
+    "Mathlib/Algebra/BigOperators/Intervals.lean:39:    [ExistsAddOfLE α] [LocallyFiniteOrder α]",
+    "Mathlib/Algebra/BigOperators/Intervals.lean:46:    [ExistsAddOfLE α] [LocallyFiniteOrder α] [Sub α] [OrderedSub α] (a b c : α) :",
+    "Mathlib/Algebra/Group/Pointwise/Finset/Interval.lean:41:theorem Icc_mul_Icc_subset' [LocallyFiniteOrder α] (a b c d : α) :"
+   ]
+  },
+  {
+   "where": "mathlib",
+   "label": "the completed L-function of a Dirichlet character",
+   "pattern": "^@\\[pp_nodot\\] noncomputable def completedLFunction|^noncomputable def completedLFunction",
+   "paths": [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean"
+   ],
+   "hits": 1,
+   "first": [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:224:@[pp_nodot] noncomputable def completedLFunction (χ : DirichletCharacter ℂ N) (s : ℂ) : ℂ :="
+   ]
+  },
+  {
+   "where": "mathlib",
+   "label": "its differentiability (χ ≠ 1)",
+   "pattern": "^lemma differentiable_completedLFunction\\b",
+   "paths": [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean"
+   ],
+   "hits": 1,
+   "first": [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:250:lemma differentiable_completedLFunction {χ : DirichletCharacter ℂ N} (hχ : χ ≠ 1) :"
+   ]
+  },
+  {
+   "where": "mathlib",
+   "label": "its functional equation (primitive χ)",
+   "pattern": "^theorem completedLFunction_one_sub\\b",
+   "paths": [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean"
+   ],
+   "hits": 1,
+   "first": [
+    "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean:284:theorem completedLFunction_one_sub {χ : DirichletCharacter ℂ N} (hχ : IsPrimitive χ) (s : ℂ) :"
+   ]
+  },
+  {
+   "where": "mathlib",
+   "label": "L(1, χ) ≠ 0 (B, φ(0) ≠ 0)",
+   "pattern": "^(theorem|lemma) LFunction_apply_one_ne_zero\\b",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 1,
+   "first": [
+    "Mathlib/NumberTheory/LSeries/Nonvanishing.lean:406:theorem LFunction_apply_one_ne_zero (hχ : χ ≠ 1) : LFunction χ 1 ≠ 0 :="
+   ]
+  },
+  {
+   "where": "mathlib",
+   "label": "the geometric sum (V4, a Cesàro-mean proof)",
+   "pattern": "^(theorem|lemma) geom_sum_eq\\b",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 1,
+   "first": [
+    "Mathlib/Algebra/Field/GeomSum.lean:43:theorem geom_sum_eq (h : x ≠ 1) (n : ℕ) : ∑ i ∈ range n, x ^ i = (x ^ n - 1) / (x - 1) := by"
+   ]
+  },
+  {
+   "where": "mathlib",
+   "label": "TIGHTENED: a Turán-type inequality on sums of powers",
+   "pattern": "(turan|turán).*(power|sums? of powers|exponential sum)",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 0,
+   "first": []
+  },
+  {
+   "where": "mathlib",
+   "label": "TIGHTENED: a Hadamard or Weierstrass factorization of an entire function",
+   "pattern": "(hadamard|weierstrass).{0,40}(entire|genus|product of zeros|zeros of)",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 0,
+   "first": []
+  },
+  {
+   "where": "mathlib",
+   "label": "TIGHTENED: an order-of-growth notion for entire functions",
+   "pattern": "(order.?of.?growth|EntireOfFiniteOrder|growth.?order)",
+   "paths": [
+    "Mathlib"
+   ],
+   "hits": 0,
+   "first": []
+  }
+ ],
+ "kernel_files": [
+  "SIDEExplicitFormula/Schema/LiCfg.lean",
+  "SIDEExplicitFormula/Chi/LiForward.lean",
+  "SIDEExplicitFormula/Schema/LiConverseCfg.lean"
+ ],
+ "preferred": "P",
+ "branch": "chi-li-b669"
+}
