@@ -1,7 +1,7 @@
 b667 -- THE CERTIFY SCRIPT, THE THIRD RUN`S AGAINST THE SECOND`S (15918f9d) ((R277)(3d)): `git diff 15918f9d -- tools/b667_epstein_certify.py`, whole.
 
 diff --git a/tools/b667_epstein_certify.py b/tools/b667_epstein_certify.py
-index 80105885..11f97403 100644
+index 80105885..087e1cd1 100644
 --- a/tools/b667_epstein_certify.py
 +++ b/tools/b667_epstein_certify.py
 @@ -6,8 +6,9 @@ data/b667_epstein_plan.txt sections 13-15, relay data/b667_author_answers.txt).
@@ -105,7 +105,28 @@ index 80105885..11f97403 100644
  def zq_point(z):
      """a point value at 200 bits, re-taken at 400 when wider than a relative 2^-40."""
      v = zq(z, PREC)
-@@ -422,6 +450,41 @@ def main():
+@@ -346,11 +374,15 @@ def task_square(args):
+     del RUNGS[:]
+     t0 = time.time()
+     re, im = arb(re_s), arb(im_s)
+-    n, cb, st = square_count(zq, re, im, H)
+-    widened = False
+-    if n == 0:
+-        n, cb, st = square_count(zq, re, im, H_WIDE)
+-        widened = True
++    try:
++        n, cb, st = square_count(zq, re, im, H)
++        widened = False
++        if n == 0:
++            n, cb, st = square_count(zq, re, im, H_WIDE)
++            widened = True
++    except Exception as ex:                       # ### one square's error is its own row, not the run's end
++        return dict(kind=kind, idx=idx, re=re_s, im=im_s, h=H, widened=False, count=None, count_ball=None, segments=0, max_depth=0,
++                    rung_segments=0, unresolved=['### ERROR %r' % ex], ball=None, rungs=list(RUNGS), seconds=round(time.time() - t0, 1))
+     hb = H_WIDE if widened else H
+     ball = acb(arb(re_s, hb), arb(im_s, hb))
+     return dict(kind=kind, idx=idx, re=re_s, im=im_s, h=hb, widened=widened, count=n,
+@@ -422,6 +454,41 @@ def main():
          say('CERTIFY STOPPED AT (3b)')
          return
  
@@ -147,7 +168,7 @@ index 80105885..11f97403 100644
      # ### V1: the functional equation, each side a ball
      log('')
      log('== V1  THE FUNCTIONAL EQUATION Λ_Q(s) = Λ_Q(1 − s), each side`s ball')
-@@ -564,7 +627,7 @@ def main():
+@@ -564,7 +631,7 @@ def main():
      H1 = h1[1] + h1[2] == h1[0] == 17
      H2 = h2[1] + h2[2] == h2[0] == 146
      H3 = nR == LIST_SIZE_R and nB == 0
@@ -156,7 +177,7 @@ index 80105885..11f97403 100644
      log('  (H1) off-line squares %d ; count 1 at h %d ; count 1 WIDENED %d ; not 1 %s ; each ball centred at its banked value -> %s' % (
          h1[0], h1[1], h1[2], h1[3] or 'NONE', 'HELD' if H1 else 'REFUTED'))
      log('  (H2) on-line squares %d (straddling σ = ½) ; count 1 at h %d ; count 1 WIDENED %d ; not 1 %s -> %s' % (
-@@ -572,8 +635,8 @@ def main():
+@@ -572,8 +639,8 @@ def main():
      log('  (FE) partner squares %d ; count 1 at h %d ; WIDENED %d ; not 1 %s' % (hp[0], hp[1], hp[2], hp[3] or 'NONE'))
      log('  (H3) N(R) = %s against %d ; zeros in B = %s against 0%s -> %s' % (
          nR, LIST_SIZE_R, nB, (' ; UNLISTED %d' % (nR - LIST_SIZE_R)) if (nR is not None and nR > LIST_SIZE_R) else '', 'HELD' if H3 else 'REFUTED'))

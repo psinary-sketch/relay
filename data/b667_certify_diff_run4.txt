@@ -1,7 +1,7 @@
 b667 -- THE CERTIFY SCRIPT, THE FOURTH RUN`S AGAINST THE THIRD`S (be6b8d76) (defect (g)): `git diff be6b8d76 -- tools/b667_epstein_certify.py`, whole.
 
 diff --git a/tools/b667_epstein_certify.py b/tools/b667_epstein_certify.py
-index 87f524a1..11f97403 100644
+index 87f524a1..087e1cd1 100644
 --- a/tools/b667_epstein_certify.py
 +++ b/tools/b667_epstein_certify.py
 @@ -187,6 +187,22 @@ def zq(s, prec=PREC, M_force=None, with_t4=True):
@@ -27,7 +27,28 @@ index 87f524a1..11f97403 100644
  def zq_point(z):
      """a point value at 200 bits, re-taken at 400 when wider than a relative 2^-40."""
      v = zq(z, PREC)
-@@ -453,16 +469,16 @@ def main():
+@@ -358,11 +374,15 @@ def task_square(args):
+     del RUNGS[:]
+     t0 = time.time()
+     re, im = arb(re_s), arb(im_s)
+-    n, cb, st = square_count(zq, re, im, H)
+-    widened = False
+-    if n == 0:
+-        n, cb, st = square_count(zq, re, im, H_WIDE)
+-        widened = True
++    try:
++        n, cb, st = square_count(zq, re, im, H)
++        widened = False
++        if n == 0:
++            n, cb, st = square_count(zq, re, im, H_WIDE)
++            widened = True
++    except Exception as ex:                       # ### one square's error is its own row, not the run's end
++        return dict(kind=kind, idx=idx, re=re_s, im=im_s, h=H, widened=False, count=None, count_ball=None, segments=0, max_depth=0,
++                    rung_segments=0, unresolved=['### ERROR %r' % ex], ball=None, rungs=list(RUNGS), seconds=round(time.time() - t0, 1))
+     hb = H_WIDE if widened else H
+     ball = acb(arb(re_s, hb), arb(im_s, hb))
+     return dict(kind=kind, idx=idx, re=re_s, im=im_s, h=hb, widened=widened, count=n,
+@@ -453,16 +473,16 @@ def main():
          ctx.prec = PREC_CHECK
          p = acb(arb(sg), arb(tt))
          zl2 = zq(p, PREC_CHECK, M_force=2 * Mb, with_t4=False)

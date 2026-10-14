@@ -374,11 +374,15 @@ def task_square(args):
     del RUNGS[:]
     t0 = time.time()
     re, im = arb(re_s), arb(im_s)
-    n, cb, st = square_count(zq, re, im, H)
-    widened = False
-    if n == 0:
-        n, cb, st = square_count(zq, re, im, H_WIDE)
-        widened = True
+    try:
+        n, cb, st = square_count(zq, re, im, H)
+        widened = False
+        if n == 0:
+            n, cb, st = square_count(zq, re, im, H_WIDE)
+            widened = True
+    except Exception as ex:                       # ### one square's error is its own row, not the run's end
+        return dict(kind=kind, idx=idx, re=re_s, im=im_s, h=H, widened=False, count=None, count_ball=None, segments=0, max_depth=0,
+                    rung_segments=0, unresolved=['### ERROR %r' % ex], ball=None, rungs=list(RUNGS), seconds=round(time.time() - t0, 1))
     hb = H_WIDE if widened else H
     ball = acb(arb(re_s, hb), arb(im_s, hb))
     return dict(kind=kind, idx=idx, re=re_s, im=im_s, h=hb, widened=widened, count=n,
