@@ -1,0 +1,106 @@
+b671 -- COMPONENT 2, (R281)(3)-(5): THE PLAN FOR THE NARROWING, IN THE b663 FORM WITH THE CONSUMERS SECTION (2026-10-14T22:48:32Z)
+
+### rows are plan items; every figure stands beside the line it is read from; nothing in this plan is a number of the narrowing -- the
+### only arithmetic is on figures b667 banked. Raised as the one prompt of (R281)(3) before any number.
+
+== 1. THE CONSUMER AND ITS TOLERANCE, NAMED BEFORE w IS FIXED ((R281)(3), (6) H4; N2)
+  the consumer: tools/b667_epstein_map_balls.py, its reader q0_list (:146-:155) taking each ON row as arb(im, h) and each OFF row as the
+  ball strings [re +/- h], [im +/- h]; run once on the narrowed list by a copy whose one changed line is the bank`s name (Component 4).
+  the tolerance, data/b667_h4_reading.txt :13-:14: "can, and the zero side at j₀ = 38 would raise the same ratio to 2^39. The map as b663 wrote it needs its inputs to a relative width near 2^-(j₀+1) · 2^-20 ≈ 1e-18 or finer; the balls of this act are 1e-12 wide, and the banked doubles they are centred on are themselves good"
+  the transfer from a point`s half-width to that relative width, data/b667_h4_reading.txt :9-:10: "WHY, BY THE PRINTED FIGURES (arithmetic, no new computation): the dominant orbit`s four scores print [0.021564221 +/- 1.32e-10], a relative radius of about 6.1e-9, carried from the squares` half-width 1e-12 through ĝ. The tie check raises each tie point`s phase to the"
+  arithmetic: a half-width of 1e-12 gave a relative radius of 6.1e-9 in the dominant orbit`s scores, a transfer of 6.1e3; the tolerance
+  near 1e-18 in relative width asks a half-width at or below 1e-18 / 6.1e3 = 1.6e-22.
+  ### w = 1e-24: two decimal orders below 1.6e-22 (1.6e-24), rounded down to the power of ten. Read on the tolerance figure`s own scale,
+  ### w is ten thousand times below 1e-18 / 100 = 1e-20, so H4`s "at or below that tolerance by two decimal orders" holds on either
+  ### scale. A reading for the author: the transfer of 6.1e3 is the b667 figure for the dominant orbit and is taken for every point.
+  depth: from b667`s half-width 1e-12 to w, 40 halvings (2^40 = 1.1e12).
+
+== 2. Λ_Q IS REAL ON σ = ½ (N2: derived before any sign is read)
+  Λ_Q(s) = (2π/√23)^{−s} Γ(s) Z_Q(s), the record`s completed function (tools/b667_epstein_certify.py :219-:220 logg_q, :227-:229 lam_q).
+  (i) the functional equation Λ_Q(s) = Λ_Q(1 − s): Epstein`s, for the positive definite form Q0 = x² + xy + 6y² of discriminant −23;
+      its check at five points, data/b667_certify_run2.txt :22-:28: "V1 HOLDS (5 of 5 overlap)".
+  (ii) real coefficients: Z_Q(s) = Σ′ Q(x, y)^{−s} over integer pairs, each Q(x, y) a positive integer, so Z_Q(conj s) = conj Z_Q(s); the
+      factor (2π/√23)^{−s} has a positive base and Γ(conj s) = conj Γ(s), so Λ_Q(conj s) = conj Λ_Q(s).
+  (iii) on the line s = ½ + it: conj s = ½ − it = 1 − s, so Λ_Q(s) = Λ_Q(1 − s) = Λ_Q(conj s) = conj Λ_Q(s), and Λ_Q(½ + it) is real.
+  its trace in b667`s print: at s = 0.5 + 140i the imaginary part is a ball about zero, data/b667_certify_run2.txt :26 ("[+/- 3.80e-128]j").
+  in the run: each endpoint value`s imaginary ball is printed and must contain 0 (a check of the line, not a sign); the sign is the real
+  ball`s, read only when the real ball excludes 0.
+
+== 3. (M-on), ITS FIGURES ((R281)(4))
+  start: each ON row`s b667 square [im ± 1e-12] on σ = ½ (b667 count 1 in the square), its t-interval [im − 1e-12, im + 1e-12].
+  the endpoints: exact points ½ + i t_e (decimal strings at 40 digits); Λ_Q(½ + i t_e) by lam_q`s route at 200 bits, then the 400 rung
+  where the real ball contains 0, with the Bessel factor`s own 600-bit rung as b667 fixed it (tools/b667_epstein_certify.py :45-:50, (3a)-(3b)).
+  certified: both endpoint balls exclude 0 with opposite signs -- a zero of Λ_Q on the line in the interval, and by the square`s count 1
+  the square`s one zero; σ carried as the rational ½.
+  narrowed: the midpoint`s sign read the same way and the half with the sign change kept, to half-width w (depth 40); a midpoint whose
+  ball contains 0 at every rung prints UNRESOLVED-AT-DEPTH d and the point keeps its last certified interval.
+  where the starting endpoints do not show opposite signs: NO SIGN CHANGE printed, the point keeps its b667 square, UNRESOLVED stands.
+  price: about 42 evaluations a point, 146 points, b667`s median 0.13 s an evaluation (its ON rows: 130 s over a median 1024 segments)
+  -- about 6100 evaluations, near a quarter hour in one process.
+
+== 4. (M-off), ITS FIGURES ((R281)(4))
+  start: each OFF row`s b667 square [re ± 1e-12] × [im ± 1e-12] at count 1.
+  each depth: the square split at its centre into four quarters, each quarter`s count by b667`s segment form. square_count
+  (tools/b667_epstein_certify.py :301-:315) holds its segments per side as the module constant SQ_SEG = 4 (:61) and its depth as DEPTH_SQ = 16 (:65), so it
+  is CARRIED into the b671 script with both lifted to the head -- SEGS_PER_SIDE = 16, the starting segments per side, the width the
+  enclosure test consumes (the navigator`s note, (2)); DOUBLINGS_MAX = 16, the printed ceiling -- and its diff against b667`s banked
+  (data/b671_narrow_carry_diff.txt), no computation line changed. segment (:258-:281) takes its depth as an argument and halves a
+  segment whose enclosure is not accepted (its ball includes 0, or its radius exceeds half its midpoint`s modulus), each halving a
+  doubling of that segment`s count; it is carried beside square_count with one recording line added (the depth and the segment`s two
+  ends appended to the quarter`s log), every doubling printed with its depth and point; edge_arg, zq and the rungs imported unedited.
+  at the ceiling: the 400 rung once, then UNRESOLVED-AT-DEPTH printed, as b667. (3a)-(3d) in force through zq and its Bessel rungs.
+  the quarter at count 1 kept, the three at 0 printed.
+  a split line meeting the zero (a quarter whose count cannot be read): the depth printed and both split lines offset by an eighth of the
+  half-width, printed, once; unread again: UNRESOLVED-AT-DEPTH d, the point keeping its last square at count 1.
+  to half-width w (depth 40).
+  price, re-read on SEGS_PER_SIDE = 16: b667`s OFF squares started at 4 a side (16 on the contour) and accepted a median 1314 segments,
+  so the adaptive halving, not the start, set their cost; starting at 64 on the contour moves a quarter`s count by at most the 48 added
+  starting segments (under 4 per cent of 1314). 4 counts a depth, 40 depths, 17 points = about 2720 counts at b667`s median 100 s a
+  count -- about 75 process-hours, near ten hours on b667`s 8 processes (tools/b667_epstein_certify.py :70, the 2560 MB hold, 25 MB a process).
+  ### A READING, ON THE NAVIGATOR`S NOTE ON THE PRICING: the median of 1314 segments is not the segment count`s doing but the (3b)
+  ### remedy`s -- its ball is 131-507 times r·|Z_Q`| (data/b667_epstein_plan.txt :236: "MEASURED WITH THE REMEDY (x formed at 600 bits): T3's ball 131-178 times r·|Z_Q'| at t = 40.25, 359-507 times "),
+  ### so the enclosure accepts a segment when its half-length r is below the distance to the zero by that factor, a ratio that does not
+  ### change as the square shrinks; the price stands. Entered on OPEN_TRAILS as `W-ORD-BESSEL-BOUND-TIGHTEN` (Component 1`s lines),
+  ### trigger "the next act that counts on Q0 after b671".
+
+  THE ORDER OF RUNS: C1, C2, the 146 on-line points, then the 17 off-line points.
+
+== 5. THE CONTROLS, CONCRETE ((R281)(5), the author`s word on the Hardy function)
+  (C1) ζ`s lowest three zeros by (M-on) on Λ(s) = π^{−s/2} Γ(s/2) ζ(s) (tools/b667_epstein_certify.py :223-:224 logg_z; real on the line by the same steps:
+       Λ(s) = Λ(1 − s) and real coefficients), each start interval taken from acb.zeta_zero(n)`s ball (n = 1, 2, 3), widened to ± 1e-12
+       about the ball`s midpoint and printed, narrowed to w, each final interval printed with the same call`s ball inside it; no
+       ordinate typed into any script or bank (the navigator`s note, (1); data/b671_defects.txt (c)) -- python-flint 0.9.0`s wrapped
+       calls acb.zeta, acb.lgamma and acb.zeta_zero; no Hardy function.
+  (C2) planted: ON row idx 0`s t-interval shifted by 10 · 1e-12 before (M-on), the endpoint signs printing NO SIGN CHANGE; OFF row
+       idx 0`s square (qE0, the dominant) shifted by 1e-9 in σ before (M-off), its count printing 0.
+  (C3) none new: b667`s region count N(R) = 180 (data/b667_epstein_counts.txt) stands as the completeness certificate.
+  C1 and C2 run and printed before any Q0 point (N3).
+
+== 6. THE ORDER AND THE HOST
+  one script, tools/b671_narrow.py, by the Write tool, w, the precisions, the rungs, the shifts, the depth, SEGS_PER_SIDE and
+  DOUBLINGS_MAX as constants at its head, b667`s square_count and segment carried in it (their diff banked), everything else imported,
+  read back whole; C1, C2, the ON points, the OFF points; detached, watched by one foreground check, the host`s low printed; no lean.
+  two runs: the first C1, C2 and the 146 on-line points (within the hour), banked and committed before the second starts; the second
+  the 17 off-line points, about ten hours detached on 8 processes under the hold with the single watcher, the host`s low printed when
+  it fires -- so a reap of the long run loses nothing banked (the navigator`s note on the pricing).
+
+== 7. THE CONSUMERS SECTION ((R278)(3), standing): each bank the act writes, its consumers, each consumer`s input tolerance
+  data/b671_epstein_zeros_narrowed.json.gz (rows are points: kind, idx, re, im, h, count, as b667`s rows, so the map`s reader reads it
+    unchanged) -- consumers: the map copy (tolerance: half-width at or below 1.6e-22, section 1); the kernel item for P1 and P2
+    (OPEN_TRAILS :14266, its data the balls); the suite (read_square_row). Both hashes in data/b671_epstein_zeros_narrowed_hashes.txt.
+  data/b671_narrow_log.txt (.json) (rows are points with their depth, reading and, ON, the two endpoint signs) -- consumers: the
+    landing`s H1, the suite (read_narrow_row); tolerance: every row read, none NOT READ.
+  data/b671_epstein_control_narrowed.txt (.json) -- consumers: H3, the dated line beneath data/b663_epstein_control.txt; tolerance: the
+    map`s own print, j₀ and the zero side with their balls.
+  data/b671_map_narrowed_diff.txt -- consumer: N4; tolerance: no computation line changed.
+  data/b671_narrow_carry_diff.txt (the carried square_count and segment against b667`s) -- consumer: the suite; tolerance: the two
+    constants lifted and the one recording line, no computation line changed.
+
+== 8. THE HYPOTHESES AS THE RUN READS THEM ((R281)(6))
+  H1 the log`s rows: every ON NARROWED with opposite endpoint signs, every OFF NARROWED at count 1 at every depth, UNRESOLVED counted.
+  H2 C1`s three intervals each containing acb.zeta_zero`s ordinate; C2 printing NO SIGN CHANGE and count 0.
+  H3 the map on the narrowed list: hQtie certified at every j to the control`s j, j₀ = 38, the zero side below zero -- else the finding.
+  H4 section 1 printed before w was fixed, w at or below the tolerance by two decimal orders.
+
+== 9. WHAT STOPS THE ACT AT THIS PLAN
+  the author`s word on the plan; no number of the narrowing is computed before it.
