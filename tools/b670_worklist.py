@@ -51,7 +51,21 @@ NEXT_CUT = (('SIDE-window', 25), ('SIDE-trivium', 24))   # ### data/b647_table_k
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm is a standing arm carried from b669's face (b669's own act arms
 # ### not carried). Each run at HEAD and counted before the face names it. Filled at Component 6.
-ACT_ARMS = ()
+ACT_ARMS = ('G-R280-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-TEN-ACTS-CITED', 'G-DEFECTS-BY-KIND',
+            'G-SWEEP-BANKED', 'G-LICENSED-TABLE', 'G-CORRESPONDENCE-READ', 'G-CEILING-EQUAL', 'G-QUEUE-READ', 'G-STATE-LINE', 'G-METHODS-TABLE',
+            'G-ZFR-ONE-REQUEST', 'G-ITEMS-ENTERED', 'G-OPEN-BRANCH-KEPT', 'G-TECHNE-WITHHELD')
+
+# ### the last merged run, b669's, which the standing runner arms read: no build in this act, SIDE-explicit-formula's main unmoved at 115abfe
+KERNEL = 'SIDE-explicit-formula'
+BRANCH = OPEN_BRANCH
+NEXT_TAG = 'v0.31'           # ### the tag the last merge set; this act sets none
+K_WORKFLOW = '7317db4'
+RUNNER = {KERNEL: dict(branch='chi-li-forward-b669', target='SIDEExplicitFormula.Schema.LiCfg SIDEExplicitFormula.Chi.LiForward',
+                       workflow_commit=K_WORKFLOW, run_id=38607173157, ref='5a194fc9cafe8274bdeebe804f92d6e8a8b387f7', dispatched_at='main',
+                       prior_run=38606143304, prior_ref='b804bf2b682b31aea7fe48ac214e040082703cfc')}
+RUNNER_ROWS, RUNNER_BANK = 'b669_runner_rows.json', 'b669_runner_SIDE-explicit-formula_run38607173157.txt'
+PRINT_TARGETS_N = 5
+KD = KE
 B669_ACT_ARMS = ('G-R279-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-REPAIR-APPENDED', 'G-PLAN-BEFORE-LEAN',
                  'G-PLAN-SEARCHES-PRINTED', 'G-CONSUMERS-SECTION', 'G-WALK-ZERO', 'G-LANDINGS-BANKED', 'G-SPLIT-MERGED', 'G-OPEN-BRANCH-UNMERGED',
                  'G-HYPOTHESES-SCORED', 'G-KERNEL-FILES-FROM-BANK')

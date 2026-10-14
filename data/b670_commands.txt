@@ -1,0 +1,227 @@
+b670 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-14T20:45:36Z)
+
+### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R280) BEGIN', and its subagents` transcripts
+### commands read: 213
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-14T19:38:43.227Z | seat | Bash | for a in 660 661 662 663 664 665 666 667 668 669; do printf "b$a closing %s defects %s | " $(test -f data/b${a}_closing.txt && echo Y || echo N) $(test -f data/
+  #2 | 2026-10-14T19:38:57.534Z | seat | Bash | echo "== rowgen/constellation"; grep -n -i "rowgen\|constellation mode" OPEN_TRAILS.md | cut -c1-140 | head -8; echo "== b663 pair / method readiness"; grep -n 
+  #3 | 2026-10-14T19:39:06.660Z | seat | Bash | echo "== review pass"; grep -n -i "review.pass rule\|THE REVIEW PASS\|row-?gen" OPEN_TRAILS.md | cut -c1-150 | head -6; echo "== consecutive reading"; grep -n -
+  #4 | 2026-10-14T19:40:26.377Z | seat | Bash | grep -n -i "rowgen\|constellation\|def main\|argv\|mode" tools/licensed_table.py | head -20; grep -n -i "rowgen\|constellation" /d/MY-DOwnloads/PLACE-papers/OPE
+  #5 | 2026-10-14T19:40:32.951Z | seat | Bash | git grep -n -i "rowgen" -- tools data | cut -c1-160 | head -8; git grep -l -i "constellation" -- tools | tail -8; grep -rn -i "rowgen" /d/MY-DOwnloads/PLACE-pap
+  #6 | 2026-10-14T19:40:55.779Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && grep -n -i "agenda" OPEN_TRAILS.md | cut -c1-170 | tail -12; grep -n -i "review pass" OPEN_TRAILS.md | grep -i "rule\|diff\|c
+  #7 | 2026-10-14T19:41:03.627Z | seat | Bash | grep -n -i "ceiling" README.md REGISTRY.md | cut -c1-200 | head -10; grep -n -i "the ceiling sentence\|ceiling sentence" FINDINGS.md | cut -c1-200 | head -8
+  #8 | 2026-10-14T19:41:13.344Z | seat | Bash | sed -n '115,125p' README.md | cut -c1-200; echo ====; grep -n "THE CEILING LINE\|CEILING SENTENCE\|ceiling sentence" REGISTRY.md | cut -c1-140; echo ====; grep 
+  #9 | 2026-10-14T19:41:21.688Z | seat | Bash | grep -n "^\*(Appended under the author's ruling\|^\*(Reworded under\|^\*\*THE CEILING LINE\|^\*\*Supportable\|Supportable:" README.md | cut -c1-110; echo ===; s
+  #10 | 2026-10-14T19:41:34.437Z | seat | Bash | cd /d/relay && cat data/b668_b670_items.txt | cut -c1-200; cd /d/MY-DOwnloads/PLACE-papers && for p in "UNRESOLVED" "Milestones" "README heading\|README’s headi
+  #11 | 2026-10-14T19:41:44.006Z | seat | Bash | for p in "lv-conservation.{0,80}UNRESOLVED|UNRESOLVED.{0,80}lv-conservation" "Milestones" "carrier-spec.{0,60}README|README.{0,40}heading" "\bK4\b"; do echo "==
+  #12 | 2026-10-14T19:41:50.378Z | seat | Bash | cd /d/relay && grep -l -i "UNRESOLVED" data/b66[0-9]_closing.txt | tr '\n' ' '; echo; grep -n -i "lv-conservation" data/b657_closing.txt data/b659_closing.txt d
+  #13 | 2026-10-14T19:41:57.245Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && grep -n "UNRESOLVED" OPEN_TRAILS.md | cut -c1-140 | tail -8; grep -n "UNRESOLVED BLOCKS [1-9]" /d/relay/data/b657_sentence_gr
+  #14 | 2026-10-14T19:42:02.120Z | seat | Bash | cd /d/relay && sed -n 947p data/b657_sentence_grades.txt | cut -c150-400; grep -n "lv-conservation" /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | tail -5 | cut 
+  #15 | 2026-10-14T19:42:12.473Z | seat | Bash | grep -n -i "consecutive\|reading act\|method\|READY" data/b663_ferry.txt | cut -c1-200 | head -12
+  #16 | 2026-10-14T19:42:19.720Z | seat | Bash | ls data/b663_ferry* 2>&1; git grep -l -i -E "two consecutive|consecutive reading|method.readiness|readiness" -- 'data/b66*' | head; grep -rl -i -E "two consecut
+  #17 | 2026-10-14T19:42:24.695Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && grep -n -i -E "two consecutive|method.readiness" FINDINGS.md | cut -c1-220
+  #18 | 2026-10-14T19:43:44.228Z | seat | Bash | cd /d/relay && python -X utf8 tools/b670_citation.py check 2>&1 | cut -c1-260; grep "^  OK " data/b670_citation_check.txt | grep "ruling (5)\|ruling (1)\|ceilin
+  #19 | 2026-10-14T19:43:58.106Z | seat | Bash | grep "review-pass rule" data/b670_citation_check.txt | cut -c1-120; python -X utf8 -c "
+  #20 | 2026-10-14T19:44:03.457Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && grep -n -i "rowgen diff" OPEN_TRAILS.md FINDINGS.md | cut -c1-260
+  #21 | 2026-10-14T19:44:08.090Z | seat | Bash | sed -n 12092p OPEN_TRAILS.md | grep -o -i ".\{200\}rowgen diff.\{300\}"; sed -n 12090p OPEN_TRAILS.md | cut -c1-300
+  #22 | 2026-10-14T19:44:14.014Z | seat | Bash | python -X utf8 -c "
+  #23 | 2026-10-14T19:44:29.429Z | seat | Bash | cd /d/relay && python -X utf8 tools/b670_citation.py check 2>&1 | tail -1; grep "review-pass rule" data/b670_citation_check.txt | cut -c1-260
+  #24 | 2026-10-14T19:44:36.572Z | seat | Bash | python -X utf8 tools/b670_citation.py ferry && grep -n "VERDICT" data/b670_ferry_scan.txt
+  #25 | 2026-10-14T19:47:36.658Z | seat | Bash | python -X utf8 tools/b670_citation.py answer "NAVIGATOR'S ANSWER on the four tabs" 2>&1 | tail -12
+  #26 | 2026-10-14T19:48:01.458Z | seat | Bash | git status --porcelain --untracked-files=no; git add data/b669_closing_push_out.txt data/b670_citation_check.txt data/b670_citation_check.json data/b670_ferry.t
+  #27 | 2026-10-14T19:48:08.793Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python' } | Select-Object ProcessId, Name, @{n='Cmd';e={$_.CommandLine.Substring(0
+  #28 | 2026-10-14T19:48:08.976Z | seat | Bash | git branch --merged main --list 'push-b669*'
+  #29 | 2026-10-14T19:48:14.927Z | seat | Bash | git branch -d push-b669 push-b669-root push-b669-closing
+  #30 | 2026-10-14T19:48:18.848Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch --merged main --list 'push-b669*'
+  #31 | 2026-10-14T19:48:22.982Z | seat | Bash | git branch -d push-b669 push-b669-root
+  #32 | 2026-10-14T19:48:29.019Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --abbrev-ref HEAD && git branch --merged main --list 'push-b669*'
+  #33 | 2026-10-14T19:48:33.811Z | seat | Bash | git branch -d push-b669-merge && git rev-parse --short=7 chi-li-b669 origin/chi-li-b669
+  #34 | 2026-10-14T19:48:40.347Z | seat | Bash | git rev-parse --short=7 chi-li-b669 && git rev-parse --short=7 origin/chi-li-b669
+  #35 | 2026-10-14T19:48:45.706Z | seat | Bash | cd /d/relay && python -X utf8 -c "
+  #36 | 2026-10-14T19:49:20.894Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; Start-Process 'C:\Program Files\Git\bin\bash.exe' -Argume
+  #37 | 2026-10-14T19:49:29.015Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "STEPZERO TESTS DONE" "$S/b670_tests.log" 2
+  #38 | 2026-10-14T19:49:54.705Z | seat | Bash | grep -n "^def \|^# ===" tools/b669_record.py | head -30
+  #39 | 2026-10-14T19:50:57.574Z | seat | Bash | python -X utf8 tools/b670_record.py answers && grep -c "^### PROMPT" data/b670_author_answers.txt; grep -n "^### THE AUTHOR\`S WORD" -A1 data/b670_author_answer
+  #40 | 2026-10-14T19:52:23.749Z | seat | Bash | S=/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad; tail -3 $S/b670_tests.log; cat "/c/Users/ECHOCH~1/AppData/Loc
+  #41 | 2026-10-14T19:52:29.910Z | seat | Bash | for a in 660 661 662 663 664 665 666 667 668 669; do f=data/b${a}_closing.txt; echo "== $f $(wc -l < $f 2>/dev/null) lines"; done; ls data | grep -E '^b66[0-9]_
+  #42 | 2026-10-14T19:52:33.863Z | seat | Bash | cat -n data/b660_closing.txt; echo ======; cat -n data/b669_closing.txt
+  #43 | 2026-10-14T19:52:42.571Z | seat | Bash | for a in 661 662 663 664 665 666 667 668; do echo "######## b$a"; grep -nE "^b6.. closed|LANE |### THE HYPOTHES|HYPOTHES.*HELD|### THE MERGE|tag v|W-ORD|^    \(
+  #44 | 2026-10-14T19:52:50.940Z | seat | Bash | head -30 data/b660_ten_acts.txt | cut -c1-240; echo; grep -n "^###" data/b660_ten_acts.txt | cut -c1-200 | head -30; wc -l data/b660_ten_acts.txt
+  #45 | 2026-10-14T19:53:00.081Z | seat | Bash | for a in 660 661 662 663 664 665 666 667 668 669; do grep -nE "^ *\([a-z]\) THE (SEAT|NAVIGATOR|AUTHOR)" data/b${a}_closing.txt | sed "s/^/b$a:/" | cut -c1-230;
+  #46 | 2026-10-14T19:53:06.961Z | seat | Bash | grep -nE "^ *\([a-z]\) " data/b660_defects.txt | cut -c1-200; grep -nE "\(r\)|\(e\)" data/b663_closing.txt data/b663_defects.txt data/b664_closing.txt data/b664
+  #47 | 2026-10-14T19:53:11.174Z | seat | Bash | grep -n "b662-late\|LATE" data/b663_closing.txt | head -5 | cut -c1-250; grep -nE "^ *\([a-z]\) |^    \(" data/b664_closing.txt | sed -n 1,12p | cut -c1-200; se
+  #48 | 2026-10-14T19:53:17.697Z | seat | Bash | grep -nE "^ *\(b6..-late\)" data/b66?_closing.txt | cut -c1-200; tail -5 data/b670_tests_loop.log 2>/dev/null; tail -2 /c/Users/ECHOCH~1/AppData/Local/Temp/clau
+  #49 | 2026-10-14T19:53:23.662Z | seat | Bash | for a in 660 661 662 663 664 665 666 667 668 669; do echo "######## b$a"; grep -nE "THE HYPOTHESES|H[1-9] (HELD|REFUTED|NOT)|DISCHARGED|W-ORD-[A-Z0-9-]+ (entere
+  #50 | 2026-10-14T19:53:30.761Z | seat | Bash | sed -n '1,58p;150,173p' data/b661_closing.txt | cut -c1-330
+  #51 | 2026-10-14T19:53:35.401Z | seat | Bash | for a in 660 661 662 663 664 665 666 667 668 669; do echo "## b$a"; grep -noE "W-ORD-[A-Z0-9-]+[^;.]{0,90}" data/b${a}_closing.txt | grep -iE "enter|discharg|na
+  #52 | 2026-10-14T19:53:42.124Z | seat | Bash | sed -n '40,48p' data/b662_closing.txt | cut -c1-400; echo ---; sed -n '36,46p' data/b664_closing.txt | cut -c1-400; echo ---; sed -n '160,175p' data/b664_closin
+  #53 | 2026-10-14T19:53:47.850Z | seat | Bash | for a in 663 665 666 667; do echo "## b$a"; grep -nE "^    ### COMPONENT|^### THE (MERGE|CONTROL|HYPOTHES|RUNNER|ATTEMPT)|merged [0-9a-f]{7}|^    H[0-9] |^    \
+  #54 | 2026-10-14T19:54:00.748Z | seat | Bash | sed -n '18,36p' data/b662_closing.txt | cut -c1-300; grep -nE "^    ### COMPONENT 1|^    ### COMPONENT 3|merged .* tag v" data/b664_closing.txt data/b666_closin
+  #55 | 2026-10-14T19:54:17.308Z | seat | Bash | for a in 660 661 662 663 664 665 666 667 668 669; do f=data/b${a}_closing.txt; [ $a = 660 ] && f="data/b660_defects.txt data/b660_closing.txt"; grep -noE "(b6[0
+  #56 | 2026-10-14T19:54:31.060Z | seat | Bash | tail -2 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.log | cut -c1-150; cd /d/relay; grep -nE "mer
+  #57 | 2026-10-14T19:55:31.145Z | seat | Bash | python -X utf8 tools/b670_record.py ten dry 2>&1 | cut -c1-260
+  #58 | 2026-10-14T19:55:36.531Z | seat | Bash | grep -n "(H2) HELD, VACUOUS (H3)" data/b661_closing.txt | cut -c1-60; grep -n "W-ORD-CITATION-CHECK" data/b660_closing.txt | cut -c1-60
+  #59 | 2026-10-14T19:55:41.676Z | seat | Bash | python -X utf8 tools/b670_record.py ten dry 2>&1 | cut -c1-300
+  #60 | 2026-10-14T19:55:58.643Z | seat | Bash | sed -n '224,227p' data/b663_closing.txt
+  #61 | 2026-10-14T19:56:09.532Z | seat | Bash | python -X utf8 tools/b670_record.py ten dry 2>&1 | grep -E "cites read|defects read|AGAINST|b664 \(|b661 \(d|b663 \((c|i|o)|b667 \((b|d|h)|b668 \((a|c)|b669 \((
+  #62 | 2026-10-14T19:56:16.653Z | seat | Bash | for a in 660 661 662 663 664 665 666 667 668 669 670; do echo "## b$a $(grep -o 'RULING (R2[0-9]*)' data/b${a}_ferry.txt | head -1)"; grep -noE "(the author['\`
+  #63 | 2026-10-14T19:56:25.352Z | seat | Bash | python -X utf8 - <<'EOF'
+  #64 | 2026-10-14T19:56:33.763Z | seat | Bash | python -X utf8 - <<'EOF'
+  #65 | 2026-10-14T19:56:43.820Z | seat | Bash | ls data/b645_author_answers.txt data/b660_author_answers.txt data/b663_author_answers.txt 2>&1; grep -n -i "companion" data/b645_author_answers.txt | head -5 | 
+  #66 | 2026-10-14T19:56:49.485Z | seat | Bash | grep -n -i "bench" data/b645_author_answers.txt | cut -c1-250 | head; grep -n "W-ORD-CLOSE-PAIR-BENCH" /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | head -5 | c
+  #67 | 2026-10-14T19:56:53.906Z | seat | Bash | sed -n 13848p /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | grep -oiE ".{0,120}(companion|b645).{0,120}" | head; grep -rn -l "after the companions" data/b64[5-9
+  #68 | 2026-10-14T19:57:03.662Z | seat | Bash | grep -n "after the companions" data/b648_author_answers.txt | cut -c1-300; ls data/b645_* | head -30 | tr '\n' ' '; echo; grep -ln -i "close-pair\|CLOSE-PAIR" d
+  #69 | 2026-10-14T19:57:09.274Z | seat | Bash | grep -n -i "bench" data/b645_ferry.txt data/b645_closing.txt | cut -c1-250 | head -5; git grep -n -i "bench.*after the companions\|after the companions.*bench" 
+  #70 | 2026-10-14T19:58:33.075Z | seat | Bash | cat -n data/b670_rules.txt | cut -c1-200; sed -n 13848p /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-200; sed -n '19,24p' data/b660_author_answers.txt 
+  #71 | 2026-10-14T19:58:38.202Z | seat | Bash | grep -n "RESULT" data/b660_author_answers.txt | cut -c1-80; grep -n -oE ".{60}Option 1 — .{100}|.{0,40}Epstein, Keiper.{0,80}" data/b660_author_answers.txt | cu
+  #72 | 2026-10-14T19:58:42.303Z | seat | Bash | sed -n 19p data/b660_author_answers.txt | grep -oE '"="[^"]{0,40}|research acts[^"]{0,60}"="[^"]{0,200}' | head; sed -n 14104p /d/MY-DOwnloads/PLACE-papers/OPEN
+  #73 | 2026-10-14T19:59:08.803Z | seat | Bash | python -X utf8 tools/b670_record.py sweep dry 2>&1 | cut -c1-260
+  #74 | 2026-10-14T19:59:16.845Z | seat | Bash | python -X utf8 - <<'EOF'
+  #75 | 2026-10-14T19:59:24.759Z | seat | Bash | tail -3 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.log | cut -c1-150; grep -c "exit" /c/Users/EC
+  #76 | 2026-10-14T19:59:30.687Z | seat | Bash | sed -n '1,60p' tools/rowgen/rowgen.py | cut -c1-200; grep -nE "argparse|add_argument|sys.argv|def main|usage" tools/rowgen/rowgen.py | head -30
+  #77 | 2026-10-14T19:59:32.101Z | seat | Bash | sed -n '1,40p' tools/licensed_table.py | cut -c1-200; grep -nE "add_argument|sys.argv|usage|def main" tools/licensed_table.py | head
+  #78 | 2026-10-14T19:59:33.021Z | seat | Bash | head -30 data/b586_corroboration.txt | cut -c1-200; grep -nE "^#|roster|ROSTER" data/b586_corroboration.txt | head -30 | cut -c1-200; wc -l data/b586_corroborat
+  #79 | 2026-10-14T19:59:39.633Z | seat | Bash | sed -n 180,330p tools/rowgen/rowgen.py | cut -c1-220; ls tools/rowgen/
+  #80 | 2026-10-14T19:59:46.281Z | seat | Bash | head -25 tools/rowgen/gen_source_only.py | cut -c1-200; echo ----; head -25 tools/rowgen/diff_source_only.py | cut -c1-200; echo ----; head -20 tools/rowgen/dif
+  #81 | 2026-10-14T19:59:47.046Z | seat | Bash | grep -nE "^def |__main__|sys.argv" tools/licensed_table.py; git log --oneline -3 -- tools/licensed_table.py tools/rowgen | cat; git grep -l "licensed_table" -- 
+  #82 | 2026-10-14T20:00:18.759Z | seat | Bash | head -12 data/b648_recut_order.txt | cut -c1-250; grep -c . data/b648_recut_order.txt; sed -n 34p data/b586_corroboration.txt | cut -c1-900
+  #83 | 2026-10-14T20:00:32.271Z | seat | Bash | sed -n '13,37p' data/b648_recut_order.txt | cut -c1-200
+  #84 | 2026-10-14T20:00:39.736Z | seat | Bash | ls data | grep -E "_cut_SIDE|_cut_.*\.txt$|recut|sentence_grades\.txt$" | head -60
+  #85 | 2026-10-14T20:00:49.312Z | seat | Bash | for f in data/b652_sentence_grades.txt data/b655_cut_SIDE-global-section.txt data/b657_cut_SIDE-lv-conservation.txt data/b659_cut_SIDE-structural-error-correcti
+  #86 | 2026-10-14T20:01:08.833Z | seat | Bash | git grep -l "docstrings-cut-SIDE-kernel" -- data | head; grep -n "SIDE-kernel" data/b653_closing.txt 2>/dev/null | grep -iE "cut|merged|tag" | head -3 | cut -c1
+  #87 | 2026-10-14T20:01:09.712Z | seat | Bash | tail -4 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.log | cut -c1-160
+  #88 | 2026-10-14T20:03:01.136Z | seat | Bash | ls tools | grep -E '^test_.*\.(py|sh)$' | awk '/test_terminal_table_b637/{f=1;next} f'; tasklist //FI "IMAGENAME eq python.exe" | tail -5
+  #89 | 2026-10-14T20:03:08.430Z | seat | Bash | head -3 data/b652_sidekernel_cut.txt | cut -c1-250; grep -m3 -nE "merged|tag v" data/b652_closing.txt data/b653_closing.txt | cut -c1-200
+  #90 | 2026-10-14T20:03:18.470Z | seat | Bash | ls data | grep -E "^b(649|65[0-9]|66[0-9])_table_" | head -30; ls data | grep -iE "^b(649|65[0-9]|66[0-9])_.*(monograph|companion|pages)" | head
+  #91 | 2026-10-14T20:03:29.225Z | seat | Bash | grep -n -i "h2 row\|CouplingsAtPhi" data/b649_closing.txt data/b65?_closing.txt | head -6 | cut -c1-240; ls data/b648_table_pages_after.txt data/b648_h2_row.txt
+  #92 | 2026-10-14T20:03:30.555Z | seat | Bash | tail -3 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.log | cut -c1-160
+  #93 | 2026-10-14T20:03:37.598Z | seat | Bash | grep -c "CouplingsAtPhi" data/b657_sentence_grades.txt data/b657_cut_SIDE-lv-conservation.txt; grep -n "CouplingsAtPhi" data/b657_cut_SIDE-lv-conservation.txt |
+  #94 | 2026-10-14T20:03:42.742Z | seat | Bash | grep -n "CouplingsAtPhi" data/b657_sentence_grades.txt | cut -c1-220 | head -14; sed -n '1,12p' data/b648_h2_row.txt | cut -c1-220
+  #95 | 2026-10-14T20:03:58.333Z | seat | Bash | sed -n 20,110p tools/rowgen/diff_rowpin.py | cut -c1-200; python -X utf8 -c "import json;d=json.load(open('tools/rowgen/namemap.json',encoding='utf-8'));print(t
+  #96 | 2026-10-14T20:04:06.472Z | seat | Bash | head -8 data/b566_rowgen.txt | cut -c1-250; grep -n -m5 "constellation\|diff_rowpin" data/b566_rowgen.txt data/b567_components.txt 2>/dev/null | cut -c1-250
+  #97 | 2026-10-14T20:04:16.711Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && python -X utf8 - <<'EOF'
+  #98 | 2026-10-14T20:05:11.281Z | seat | Bash | cd /d/relay && python -X utf8 tools/b670_record.py licensed dry 2>&1 | cut -c1-200
+  #99 | 2026-10-14T20:05:59.693Z | seat | Bash | for f in data/b652_sidekernel_cut.txt data/b659_cut_SIDE-structural-error-correction.txt data/b662_cut_SIDE-carrier-spec.txt data/b664_cut_SIDE-effects.txt data
+  #100 | 2026-10-14T20:06:06.278Z | seat | Bash | sed -n '3,12p;44,53p' data/b652_sidekernel_cut.txt | cut -c1-260; sed -n '18,30p' data/b653_closing.txt | cut -c1-260
+  #101 | 2026-10-14T20:06:23.447Z | seat | Bash | python -X utf8 tools/b670_record.py licensed dry 2>&1 | cut -c1-200
+  #102 | 2026-10-14T20:06:46.775Z | seat | Bash | python -X utf8 -c "
+  #103 | 2026-10-14T20:06:54.021Z | seat | Bash | tail -3 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.log | cut -c1-170; cat "/c/Users/ECHOCH~1/App
+  #104 | 2026-10-14T20:06:58.862Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='python.exe' or Name='bash.exe' or Name='git.exe'" | Select-Object ProcessId,ParentProcessId,CreationDate,@{n='cmd';
+  #105 | 2026-10-14T20:07:18.859Z | seat | Bash | sed -n 8,30p data/b586_corroboration.txt | awk -F'|' '{print $2"|"$4"|"$6"|"$7"|"$8}' | cut -c1-260; ls -d /d/SIDE-* | tr '\n' ' '
+  #106 | 2026-10-14T20:07:51.408Z | seat | Bash | python -X utf8 tools/b670_record.py corr dry 2>&1 | cut -c1-220
+  #107 | 2026-10-14T20:09:02.039Z | seat | Bash | python -X utf8 tools/b670_record.py corr dry 2>&1 | cut -c1-220
+  #108 | 2026-10-14T20:10:02.420Z | seat | Bash | grep -n -i "ceiling" data/b670_citation_check.txt | cut -c1-300; grep -n -i "ceiling" data/b670_ferry.txt | cut -c1-400
+  #109 | 2026-10-14T20:10:04.149Z | seat | Bash | tail -2 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.log | cut -c1-170; cat "/c/Users/ECHOCH~1/App
+  #110 | 2026-10-14T20:10:10.396Z | seat | Bash | sed -n '9p;35p' data/b670_ferry.txt
+  #111 | 2026-10-14T20:10:30.200Z | seat | Bash | python -X utf8 -c "
+  #112 | 2026-10-14T20:11:42.966Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && sed -n 6206p FINDINGS.md | cut -c1-1500; echo; sed -n '111,130p' README.md | cut -c1-250
+  #113 | 2026-10-14T20:11:50.076Z | seat | Bash | sed -n 129p README.md; echo ====; sed -n '962,970p' REGISTRY.md | cut -c1-400; echo ====; grep -n "R245\`(5)(ii)\|(R245)(5)(ii)" FINDINGS.md | cut -c1-200 | hea
+  #114 | 2026-10-14T20:11:54.641Z | seat | Bash | grep -n "RH up to the Platt–Trudgian height stated as rh_upto" README.md REGISTRY.md FINDINGS.md | cut -c1-160; grep -n "(R245)\`(5)" REGISTRY.md FINDINGS.md | 
+  #115 | 2026-10-14T20:12:05.177Z | seat | Bash | python -X utf8 - <<'EOF'
+  #116 | 2026-10-14T20:12:20.023Z | seat | Bash | python -X utf8 - <<'EOF'
+  #117 | 2026-10-14T20:12:28.952Z | seat | Bash | python -X utf8 - <<'EOF'
+  #118 | 2026-10-14T20:12:53.308Z | seat | Bash | cd /d/relay && python -X utf8 tools/b670_record.py ceiling dry 2>&1 | cut -c1-200
+  #119 | 2026-10-14T20:13:03.354Z | seat | Bash | tail -3 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.log | cut -c1-170; cat "/c/Users/ECHOCH~1/App
+  #120 | 2026-10-14T20:13:11.154Z | seat | Bash | grep -n "test_chain_page.py\|test_asof.py" data/b669_tests_stepzero.txt | head -4 | cut -c1-200; python -X utf8 -c "
+  #121 | 2026-10-14T20:13:19.260Z | seat | Bash | grep -n "test_asof\|test_name_b649\|test_g_chain" /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.log
+  #122 | 2026-10-14T20:13:29.711Z | seat | Bash | ls -la /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/ | grep -i "b670_tests"; grep -rl "TimeoutExpired" /c/Use
+  #123 | 2026-10-14T20:13:36.301Z | seat | Bash | cat /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.err
+  #124 | 2026-10-14T20:13:59.135Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && grep -nE "^#+ .*\`?W-ORD-[A-Z0-9-]+" OPEN_TRAILS.md | wc -l; grep -nE "^#+ .*\`?W-ORD-[A-Z0-9-]+" OPEN_TRAILS.md | tail -30 |
+  #125 | 2026-10-14T20:14:10.282Z | seat | Bash | python -X utf8 - <<'EOF'
+  #126 | 2026-10-14T20:14:46.872Z | seat | Bash | cd /d/relay && python -X utf8 tools/b670_record.py orders dry 2>&1 | cut -c1-250
+  #127 | 2026-10-14T20:14:56.268Z | seat | Bash | python -X utf8 -c "
+  #128 | 2026-10-14T20:15:20.781Z | seat | Bash | python -X utf8 tools/b670_record.py orders dry 2>&1 | cut -c1-250
+  #129 | 2026-10-14T20:15:37.081Z | seat | Bash | python -X utf8 tools/b670_record.py orders dry 2>&1 | tail -2 | cut -c1-250; tail -3 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf7
+  #130 | 2026-10-14T20:15:43.495Z | seat | Bash | grep -n "^(4)\|^COMPONENT 4\|^(5)\|^COMPONENT 5" data/b670_ferry.txt | cut -c1-2000
+  #131 | 2026-10-14T20:15:57.046Z | seat | Bash | grep -no -i ".\{60\}\bmethods\?\b.\{60\}" data/b66?_closing.txt | cut -c1-200 | head -20
+  #132 | 2026-10-14T20:16:05.285Z | seat | Bash | for p in '_e0' 'sentence_grades' '_cut_SIDE\|sidekernel_cut' 'runner_rows' 'citation_check.txt' 'detection_map\|map_balls\|map_diff' 'reg_gate.txt' 'act_root.tx
+  #133 | 2026-10-14T20:16:06.588Z | seat | Bash | ls data | grep -iE "^b[0-9]{3}_.*(e0|met_|elab)" | head -20; grep -l "E0 rule\|e0_rule" data/b66?_closing.txt
+  #134 | 2026-10-14T20:16:08.745Z | seat | Bash | tail -3 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.log | cut -c1-170; cat "/c/Users/ECHOCH~1/App
+  #135 | 2026-10-14T20:16:28.698Z | seat | Bash | python -X utf8 - <<'EOF'
+  #136 | 2026-10-14T20:16:55.810Z | seat | Bash | grep -l "DRY-RUN STEP" data/b*_reg_gate.txt | sed -E 's#data/(b[0-9]+)_.*#\1#' | tr '\n' ' '; echo; grep -l "mirror-refresh" data/b*_mirror.txt | sed -E 's#data
+  #137 | 2026-10-14T20:17:14.300Z | seat | Bash | sed -n '126,132p' data/b667_closing.txt; grep -n "consumers" data/b669_chi_li_plan.txt | head -3 | cut -c1-160; grep -n "OPEN_TRAILS :14290\|plan form" data/b66
+  #138 | 2026-10-14T20:17:54.211Z | seat | Bash | python -X utf8 tools/b670_record.py methods dry 2>&1 | cut -c1-250
+  #139 | 2026-10-14T20:18:04.111Z | seat | Bash | grep -n -iwE "methods?" data/b66?_closing.txt | cut -c1-300
+  #140 | 2026-10-14T20:18:08.603Z | seat | Bash | sed -n 169,172p data/b666_closing.txt
+  #141 | 2026-10-14T20:18:20.404Z | seat | Bash | python -X utf8 -c "
+  #142 | 2026-10-14T20:18:31.430Z | seat | Bash | cat -n data/b668_b670_items.txt | cut -c1-400
+  #143 | 2026-10-14T20:18:35.019Z | seat | Bash | sed -n 5p data/b668_b670_items.txt
+  #144 | 2026-10-14T20:19:13.649Z | seat | Bash | python -X utf8 tools/b670_record.py zfr dry; cat "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/br1fa2lxz.output"; 
+  #145 | 2026-10-14T20:19:27.943Z | seat | Bash | grep -n -E "UNRESOLVED|README.*heading|heading.*README|decimal literal|\bK4\b|Milestones|untagged|ASCII|858cbf6" data/b65[7-9]_closing.txt data/b66?_closing.txt
+  #146 | 2026-10-14T20:19:32.616Z | seat | Bash | grep -n "README" data/b662_closing.txt data/b663_closing.txt | grep -v "README and REGISTRY unwritten\|ERRATA, SPIRAL_MAP, README" | cut -c1-230; sed -n '176,19
+  #147 | 2026-10-14T20:19:52.526Z | seat | Bash | python -X utf8 tools/b670_record.py orders dry 2>&1 | tail -3 | cut -c1-200; cat "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a76
+  #148 | 2026-10-14T20:19:57.809Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='python.exe'" | ForEach-Object { "{0} {1} {2}" -f $_.ProcessId, $_.CreationDate, ($_.CommandLine -replace '.*tools',
+  #149 | 2026-10-14T20:20:23.621Z | seat | Bash | tail -2 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_tests.log | cut -c1-170; cat "/c/Users/ECHOCH~1/App
+  #150 | 2026-10-14T20:20:31.557Z | seat | PowerShell | $S = "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad"; $p = Start-Process -FilePath "C:\Program Files\Git\bin\b
+  #151 | 2026-10-14T20:20:38.971Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "ASOF RERUN DONE" "$S/b670_asof_rerun.log" 
+  #152 | 2026-10-14T20:20:45.265Z | seat | Bash | cat data/b669_stepzero.txt | cut -c1-250; echo =====; head -40 data/b669_readfirst.txt | cut -c1-250
+  #153 | 2026-10-14T20:20:56.888Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--" && python -X utf8 - <<'EOF'
+  #154 | 2026-10-14T20:21:03.851Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--" && python -X utf8 - <<'EOF'
+  #155 | 2026-10-14T20:21:11.217Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--" && python -X utf8 - <<'EOF'
+  #156 | 2026-10-14T20:21:20.161Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --abbrev-ref HEAD && git branch --merged main && echo --- && git branch -r --merged origin/main | grep -i "b669" ; 
+  #157 | 2026-10-14T20:21:25.191Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --short=7 chi-li-forward-b669 && git rev-parse --short=7 origin/chi-li-forward-b669 && git branch -d chi-li-forward
+  #158 | 2026-10-14T20:21:28.987Z | seat | Bash | git push origin --delete chi-li-forward-b669
+  #159 | 2026-10-14T20:21:47.680Z | seat | Bash | git rev-parse --short=7 chi-li-b669 && git rev-parse --short=7 main && git status --porcelain --untracked-files=no | head -3; cat "/c/Users/ECHOCH~1/AppData/Loc
+  #160 | 2026-10-14T20:21:51.974Z | seat | Bash | cd /d/relay && sed -n '27,31p' data/b670_ferry.txt
+  #161 | 2026-10-14T20:22:12.951Z | seat | Bash | cat "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/b5hrmtxen.output"; cd /d/relay && grep -n "ls-remote\|ls_remote"
+  #162 | 2026-10-14T20:26:48.639Z | seat | Bash | python -X utf8 tools/b670_record.py sweep dry 2>&1 | grep -E "b645|\*\*" | cut -c1-200; python -X utf8 tools/b670_record.py orders dry 2>&1 | tail -1 | cut -c1-
+  #163 | 2026-10-14T20:26:59.447Z | seat | Bash | head -8 data/b647_table_kernels.txt | cut -c1-200; grep -c . data/b647_table_kernels.txt; for n in 14238 14290 14292; do sed -n ${n}p /d/MY-DOwnloads/PLACE-pape
+  #164 | 2026-10-14T20:27:04.638Z | seat | Bash | sed -n '4,28p' data/b647_table_kernels.txt | awk -F'|' '{print $4"|"$1}' | sort -t'|' -k1 -n -r | cut -c1-80; sed -n 14238p /d/MY-DOwnloads/PLACE-papers/OPEN_TR
+  #165 | 2026-10-14T20:27:09.945Z | seat | Bash | grep -n "^  SIDE-" data/b647_table_kernels.txt | awk -F'|' '{print $5"|"$6"|"$1}' | sort -t'|' -k1 -n -r | cut -c1-90
+  #166 | 2026-10-14T20:27:48.361Z | seat | Bash | sleep 1; cat /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_asof_rerun.log /c/Users/ECHOCH~1/AppData/Local
+  #167 | 2026-10-14T20:28:09.460Z | seat | Bash | grep -n "MISS\b\|^  MISS\|CITES CHECKED" data/b670_citation_check.txt | cut -c1-220
+  #168 | 2026-10-14T20:28:17.958Z | seat | Bash | cat /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_asof_rerun.log; tasklist //FI "PID eq 21416" | tail -1
+  #169 | 2026-10-14T20:29:56.266Z | seat | Bash | cat /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad/b670_asof_rerun.log; tasklist //FI "PID eq 21416" | tail -1
+  #170 | 2026-10-14T20:30:01.349Z | seat | Bash | python -X utf8 tools/b670_tests.py report stepzero 2>&1 | tail -8 | cut -c1-250
+  #171 | 2026-10-14T20:30:02.521Z | seat | PowerShell | $p = Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|bash' } | Select-Object ProcessId, Name; if ($p) { $p | Format-Table -
+  #172 | 2026-10-14T20:30:15.460Z | seat | Bash | git status --porcelain | grep -v "^?? data/b[0-5]\|^?? data/b6[0-5]\|^?? tools/b[0-5]\|^?? tools/b6[0-5]" | head -40
+  #173 | 2026-10-14T20:30:20.199Z | seat | Bash | ls -la --time-style=full-iso -- "=" && head -c 300 -- "=" ; echo; git status --porcelain | grep -E "b670" 
+  #174 | 2026-10-14T20:30:27.372Z | seat | Bash | python -X utf8 tools/b670_record.py answers && grep -n "^### THE AUTHOR\`S WORD" -A1 data/b670_author_answers.txt | cut -c1-120
+  #175 | 2026-10-14T20:30:46.525Z | seat | Bash | python -X utf8 tools/b670_record.py answers && grep -n "^### THE AUTHOR\`S WORD\|^### PROMPT\|^RESULT" -A1 data/b670_author_answers.txt | grep -v "^--" | cut -c
+  #176 | 2026-10-14T20:30:56.786Z | seat | Bash | git add data/b670_defects.txt data/b670_rules.txt data/b670_author_answers.json data/b670_author_answers.txt data/b670_readfirst.txt data/b670_stepzero.txt data
+  #177 | 2026-10-14T20:31:05.586Z | seat | Bash | git commit -q -F - <<'EOF'
+  #178 | 2026-10-14T20:31:18.087Z | seat | Bash | python -X utf8 tools/b670_record.py c1 dry 2>&1 | head -2 | cut -c1-250 && python -X utf8 tools/b670_record.py c1 && cd /d/MY-DOwnloads/PLACE-papers && git stat
+  #179 | 2026-10-14T20:31:29.261Z | seat | Bash | sed -n 8731p FINDINGS.md | cut -c1-200 && git diff --stat && git add FINDINGS.md && git commit -q -m "b670 Component 1, (R280)(1): b669 at its weight, appended 
+  #180 | 2026-10-14T20:31:35.964Z | seat | Bash | cd /d/relay && git add data/b670_record_lines.json && git commit -q -m "b670 Component 1, (R280)(1): the record line bank (data/b670_record_lines.json): b669's 
+  #181 | 2026-10-14T20:31:42.732Z | seat | Bash | python -X utf8 tools/b670_record.py ten 2>&1 | tail -4 | cut -c1-200 && python -X utf8 tools/b670_record.py sweep 2>&1 | tail -1 | cut -c1-200 && git status --p
+  #182 | 2026-10-14T20:31:51.209Z | seat | Bash | git ls-files data | grep -c "b669_scanfile" ; git add data/b670_rules.txt data/b670_defects_by_kind.txt data/b670_scanfile_c1.md data/b670_ten_acts.json data/b6
+  #183 | 2026-10-14T20:31:57.906Z | seat | Bash | python -X utf8 tools/b670_record.py licensed 2>&1 | grep -E "exit|\*\*|NOT READ" | cut -c1-220
+  #184 | 2026-10-14T20:32:29.675Z | seat | Bash | grep -n "TECHNE" data/b670_licensed_table.txt | cut -c1-160; awk '/=== TECHNE_TOOLKIT/{f=1;print NR": "$0;next} f&&/^===|^$/{f=0} f{print "LEAK "NR}' data/b670_
+  #185 | 2026-10-14T20:32:35.226Z | seat | Bash | python -X utf8 tools/b670_record.py corr 2>&1 | tail -1 | cut -c1-220; sed -n '6,18p' data/b670_correspondence.txt | cut -c1-200; grep -c "TECHNE" data/b670_cor
+  #186 | 2026-10-14T20:33:40.056Z | seat | Bash | python -X utf8 tools/b670_record.py ceiling 2>&1 | tail -1 && python -X utf8 tools/b670_record.py orders 2>&1 | tail -1 | cut -c1-200 && grep -n "NO READ" data/
+  #187 | 2026-10-14T20:33:45.963Z | seat | Bash | python -X utf8 -c "import json;json.load(open('data/b670_correspondence.json',encoding='utf-8'));print('json ok')"
+  #188 | 2026-10-14T20:34:04.107Z | seat | Bash | git add tools/b670_record.py data/b670_licensed_table.txt data/b670_licensed_table.json data/b670_correspondence.txt data/b670_correspondence.json data/b670_cei
+  #189 | 2026-10-14T20:37:37.641Z | seat | Bash | python -X utf8 tools/b670_record.py answers | tail -1 && git add data/b670_state.txt data/b670_author_answers.txt data/b670_author_answers.json && git commit -q
+  #190 | 2026-10-14T20:37:44.578Z | seat | Bash | python -X utf8 tools/b670_record.py methods 2>&1 | tail -1 && git add data/b670_methods.txt data/b670_methods.json && git commit -q -m "b670 Component 4, (R280)
+  #191 | 2026-10-14T20:38:47.843Z | seat | Bash | ls data | grep -E "^b6[6]?[0-9]_seal_hashes.json$" | sed -E 's/_.*//' | tr '\n' ' '; echo; ls data | grep -E "^b[0-9]{3}_seal_hashes.json$" | wc -l; ls data | g
+  #192 | 2026-10-14T20:38:55.158Z | seat | Bash | head -3 data/b596_lemmas.txt | cut -c1-200; head -2 data/b669_zeta_walk.txt | cut -c1-200
+  #193 | 2026-10-14T20:39:10.201Z | seat | Bash | python -X utf8 tools/b670_record.py methods 2>&1 | grep -E "===|\*\*" && sed -n '/=== the sealed suite/,/defects/p' data/b670_methods.txt | cut -c1-200
+  #194 | 2026-10-14T20:39:17.345Z | seat | Bash | python -X utf8 tools/b670_record.py answers | tail -1 && git add tools/b670_record.py data/b670_methods.txt data/b670_methods.json data/b670_author_answers.txt 
+  #195 | 2026-10-14T20:39:24.209Z | seat | Bash | python -X utf8 tools/b670_record.py zfr 2>&1 | cut -c1-230
+  #196 | 2026-10-14T20:39:50.070Z | seat | Bash | python -X utf8 tools/b670_record.py c5 dry 2>&1 | cut -c1-400
+  #197 | 2026-10-14T20:39:57.555Z | seat | Bash | python -X utf8 tools/b670_record.py c5 dry 2>&1 | head -1 | cut -c1-250 && python -X utf8 tools/b670_record.py c5 2>&1 | tail -1 | cut -c1-250
+  #198 | 2026-10-14T20:40:04.471Z | seat | Bash | tail -3 data/b670_work_orders.txt | cut -c1-200
+  #199 | 2026-10-14T20:40:15.808Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git diff --stat && git add OPEN_TRAILS.md && git commit -q -m "b670 Component 5, (R280)(5) and (8): item 1, EXTERNAL-ZFR-7/8,
+  #200 | 2026-10-14T20:40:22.446Z | seat | Bash | cd /d/relay && git status --porcelain | grep b670 && git add tools/b670_record.py data/b670_zfr_search.txt data/b670_items_lines.json data/b670_scanfile_c5.md d
+  #201 | 2026-10-14T20:40:31.468Z | seat | Bash | wc -l tools/b669_checks.py tools/b669_closing.py tools/b669_regspec.py tools/b669_reg_gate.py && grep -n "^def \|^# ====\|^ACT_ARMS\|^ARMS\|^STANDING\|B668\|imp
+  #202 | 2026-10-14T20:41:08.323Z | seat | Bash | grep -n "^def \|^# ====\|^ROUTES\|^[A-Z_]* = " tools/b669_record.py | sed -n '1,200p' | awk -F: '$1>340' | cut -c1-150
+  #203 | 2026-10-14T20:41:16.854Z | seat | Bash | grep -n "def read_runner_row" -A22 tools/b669_record.py | cut -c1-200; grep -n "RUNNER\b\|RUNNER =\|RUNNER_ROWS\|RUNNER_BANK\|PRINT_TARGETS_N\|NEXT_TAG\|^KERNEL
+  #204 | 2026-10-14T20:41:21.082Z | seat | Bash | sed -n '41,58p' tools/b669_worklist.py; grep -n "^RUNNER_KEYS" -A3 tools/b669_record.py
+  #205 | 2026-10-14T20:41:47.210Z | seat | Bash | grep -o -i "lane [a-z]*[^;.]\{0,60\}" data/b670_ferry.txt | head; grep -n "^COMPONENT 6\|^COMPONENT 7\|^COMPONENT 8\|^COMPONENT 9\|^EXPECT\|^(N[1-5])\|NAVIGATOR
+  #206 | 2026-10-14T20:41:56.244Z | seat | Bash | for n in "NAVIGATOR'S ANSWER on the two decisions" "NAVIGATOR'S NOTE on the progress report" "NAVIGATOR'S ANSWER on the state line" "NAVIGATOR'S ANSWER on the m
+  #207 | 2026-10-14T20:42:05.834Z | seat | Bash | python -X utf8 tools/b670_citation.py answer "NAVIGATOR'S ANSWER on the two decisions" 2>&1 | head -12 | cut -c1-250; grep -n "def answer" -A30 tools/b670_citat
+  #208 | 2026-10-14T20:42:15.433Z | seat | Bash | python -X utf8 -c "
+  #209 | 2026-10-14T20:42:21.864Z | seat | Bash | grep -n "def _user_texts" -A28 tools/b670_citation.py
+  #210 | 2026-10-14T20:42:33.099Z | seat | Bash | for n in "NAVIGATOR'S ANSWER on the two decisions" "NAVIGATOR'S NOTE on the progress report" "NAVIGATOR'S ANSWER on the state line" "NAVIGATOR'S ANSWER on the m
+  #211 | 2026-10-14T20:42:42.816Z | seat | Bash | python -X utf8 tools/b670_citation.py answer "NAVIGATOR'S NOTE on the progress report" 2>&1 | grep -vE "^  OK" | cut -c1-220
+  #212 | 2026-10-14T20:42:55.335Z | seat | Bash | git add tools/b670_citation.py data/b670_citation_check.txt data/b670_defects.txt && git commit -q -m "b670: the mid-act checks of (R278)(4) over the four later
+  #213 | 2026-10-14T20:45:31.718Z | seat | Bash | python -X utf8 tools/b670_record.py kernels && python -X utf8 tools/b670_record.py commands 2>&1 | tail -4 | cut -c1-250 && python -X utf8 tools/b670_record.py 
+
+### ### **COMMANDS 213 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
