@@ -998,6 +998,13 @@ METHODS = [
     ('the mirror export', dict(name=r'_mirror\.txt$', line='mirror-refresh'),
      [('b537', 'b', 'data/b537_defects.txt', 7, 'THE HEAD BLOCK WENT TO THE MANIFEST`S END, NOT ITS HEAD'),
       ('b576', 'd', 'data/b576_defects.txt', 5, 'THE SEALED FACE`S WRITE LIST OMITS A WRITE OF THE MIRROR BUILDER')]),
+    # ### rows (11) and (12), added by the navigator's answer on the methods table (prompt 2), their cells read the same way
+    ('the sealed suite (the standing arms frozen, the act`s arms over its own banks, the hashes compared at the close)',
+     dict(name=r'_seal_hashes\.json$'),
+     [('b663', 'o', 'data/b663_defects.txt', 68, 'A CONSTANT NAMING THE WRONG FILE, FOUND AFTER THE SEAL'),
+      ('b666', 'd', 'data/b666_defects.txt', 21, 'AN EMPTY PRINT READ AS OUTSIDE THE STANDARD THREE'),
+      ('b667', 'l', 'data/b667_defects.txt', 60, "N2'S PRINTED TEXT COUNTS EVERY CALL BUT TIMES THE ROUTE'S LAST")]),
+    ('the ζ-naming walk (the declaration closure counted for ζ objects)', dict(name=r'^b572_lemmas\.txt$|_zeta_walk\.txt$'), []),
 ]
 
 
@@ -1033,6 +1040,10 @@ def methods(*a):
           'lettered defect; otherwise NOT READY, or NOT YET USED TWICE where the act count alone fails.', '',
           '### rows are methods: the ten (R280)(4) names. "method" stands in %d of the ten closings (the control, the ferry: %s): data/b666_closing.txt' % ctl,
           '### :171, "the isolation method" of b667, which is the argument-principle certification`s row; the closings name no other.',
+          '### rows 11 and 12 added by the navigator`s answer on the methods table (relay data/b670_author_answers.txt). The sealed suite`s acts',
+          '### are read from its hash records: b660 sealed nothing (data/b660_closing.txt :4, "NO SEAL"), so nine of the ten carry one. The',
+          '### ζ-naming walk`s acts are b572 and b669 (data/b596_lemmas.txt is the walk for the proportion of simple zeros, another method); no',
+          '### lettered defect head names a failure of it, so its defect cell is empty and it reads NOT READY on that cell alone.',
           '### ACTS: the bNNN of every relay bank whose name marks the method (and, where named below, whose text carries the method`s line);',
           '### BANKS: those banks by name (first, last and count); DEFECTS: lettered defect heads read by hand, each bank and line cited.', '']
     for r in rows:

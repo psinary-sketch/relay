@@ -1,9 +1,13 @@
-b670 -- COMPONENT 4, (R280)(4): THE METHOD-READINESS TABLE (2026-10-14T20:37:45Z), per relay data/b670_rules.txt row 2 (the navigator`s text of the
+b670 -- COMPONENT 4, (R280)(4): THE METHOD-READINESS TABLE (2026-10-14T20:39:11Z), per relay data/b670_rules.txt row 2 (the navigator`s text of the
 b663 criteria): READY when used in at least two acts, its inputs and outputs banked by name, and at least one failure mode recorded as a
 lettered defect; otherwise NOT READY, or NOT YET USED TWICE where the act count alone fails.
 
 ### rows are methods: the ten (R280)(4) names. "method" stands in 1 of the ten closings (the control, the ferry: 1): data/b666_closing.txt
 ### :171, "the isolation method" of b667, which is the argument-principle certification`s row; the closings name no other.
+### rows 11 and 12 added by the navigator`s answer on the methods table (relay data/b670_author_answers.txt). The sealed suite`s acts
+### are read from its hash records: b660 sealed nothing (data/b660_closing.txt :4, "NO SEAL"), so nine of the ten carry one. The
+### ζ-naming walk`s acts are b572 and b669 (data/b596_lemmas.txt is the walk for the proportion of simple zeros, another method); no
+### lettered defect head names a failure of it, so its defect cell is empty and it reads NOT READY on that cell alone.
 ### ACTS: the bNNN of every relay bank whose name marks the method (and, where named below, whose text carries the method`s line);
 ### BANKS: those banks by name (first, last and count); DEFECTS: lettered defect heads read by hand, each bank and line cited.
 
@@ -57,4 +61,14 @@ lettered defect; otherwise NOT READY, or NOT YET USED TWICE where the act count 
     banks 181: data/b307_mirror.txt ... data/b668_mirror.txt
     defects 2: b537 (b) data/b537_defects.txt :7 ; b576 (d) data/b576_defects.txt :5
 
-### ### **METHODS 10 ; READY 8 ; NOT READY 0 ; NOT YET USED TWICE 2.**
+=== the sealed suite (the standing arms frozen, the act`s arms over its own banks, the hashes compared at the close) -- READY
+    acts 32: b636 b637 b638 b639 b640 b641 ... b664 b665 b666 b667 b668 b669
+    banks 32: data/b636_seal_hashes.json ... data/b669_seal_hashes.json
+    defects 3: b663 (o) data/b663_defects.txt :68 ; b666 (d) data/b666_defects.txt :21 ; b667 (l) data/b667_defects.txt :60
+
+=== the ζ-naming walk (the declaration closure counted for ζ objects) -- NOT READY
+    acts 2: b572 b669
+    banks 2: b572_lemmas.txt, b669_zeta_walk.txt
+    defects 0: NONE RECORDED
+
+### ### **METHODS 12 ; READY 9 ; NOT READY 1 ; NOT YET USED TWICE 2.**
