@@ -1,0 +1,53 @@
+b671 -- THE CARRIED COUNT AGAINST b667`s (tools/b667_epstein_certify.py): square_count and segment, unified diff
+
+=== square_count (b667 :301-:315 ; b671 :109-:123)
+--- b667
++++ b671
+@@ -4,9 +4,9 @@
+     c = acb(re, im)
+     hh = arb(h)
+     cs = [c + acb(-hh, -hh), c + acb(hh, -hh), c + acb(hh, hh), c + acb(-hh, hh), c + acb(-hh, -hh)]
+-    st, cache, tot = _stats(), {}, arb(0)
++    st, cache, tot = CERT._stats(), {}, arb(0)
+     for i in range(4):
+-        d = edge_arg(F, cs[i], cs[i + 1], SQ_SEG, DEPTH_SQ, st, cache)
++        d = CERT.edge_arg(F, cs[i], cs[i + 1], SEGS_PER_SIDE, DOUBLINGS_MAX, st, cache)
+         if d is None:
+             return None, None, st
+         tot += d
+
+=== segment (b667 :258-:281 ; b671 :79-:103)
+--- b667
++++ b671
+@@ -1,24 +1,25 @@
+ def segment(F, za, zb, depth, maxd, cache, st):
+     """the argument change of F along [za, zb] as an arb, or None (UNRESOLVED, its location in st['unresolved'])."""
+     ctx.prec = PREC
+-    e = F(_ball(za, zb), PREC)
++    e = F(CERT._ball(za, zb), PREC)
+     ctx.prec = PREC
+-    if not _accepted(e):
++    if not CERT._accepted(e):
+         if depth < maxd:
++            st.setdefault('doublings', []).append((depth + 1, za.mid().str(DIGITS, radius=False), zb.mid().str(DIGITS, radius=False)))   # ### b671: the record
+             zm = (za + zb) / 2
+             a = segment(F, za, zm, depth + 1, maxd, cache, st)
+             if a is None:
+                 return None
+             b = segment(F, zm, zb, depth + 1, maxd, cache, st)
+             return None if b is None else a + b
+-        e = F(_ball(za, zb), PREC_RUNG)
++        e = F(CERT._ball(za, zb), PREC_RUNG)
+         ctx.prec = PREC
+         st['rung_segments'] += 1
+-        if not _accepted(e):
++        if not CERT._accepted(e):
+             st['unresolved'].append('[%s, %s]' % (za.mid().str(12, radius=False), zb.mid().str(12, radius=False)))
+             return None
+     st['segments'] += 1
+     st['max_depth'] = max(st['max_depth'], depth)
+-    fa, fb = _pt(F, za, cache), _pt(F, zb, cache)
++    fa, fb = CERT._pt(F, za, cache), CERT._pt(F, zb, cache)
+     ctx.prec = PREC
+     return (fb / fa).arg()
+
