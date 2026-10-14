@@ -55,14 +55,18 @@ TARGET = ('SIDEGRHTransfer.CharacterCodim SIDEGRHTransfer.CharacterModular SIDEG
           'SIDEGRHTransfer.Voice2Vendored SIDEGRHTransfer.Voice3Vendored SIDEGRHTransfer.Voice3bVendored SIDEGRHTransfer.Voice5Vendored '
           'SIDEGRHTransfer.Voice6Vendored SIDEGRHTransfer.Voice7Vendored')
 NEXT_TAG = 'v0.5.1'         # ### the next patch step after v0.5.0 (the kernel's series as its tag list prints it: v0.1.0 ... v0.5.0)
-K_WORKFLOW = None           # ### the commit putting the workflow on the kernel's main, filled at Component 3
-RUNNER = {}                 # ### filled at Component 3
-MERGE, MERGE_TAG = None, NEXT_TAG
-PRINT_TARGETS_N = None
+K_WORKFLOW = '7f3e315'      # ### the commit putting the workflow on the kernel's main (Component 3, pushed and read back)
+RUNNER = {KERNEL: dict(branch=CUT_BRANCH, target=TARGET, workflow_commit=K_WORKFLOW, run_id=38587853597,
+                       ref='d487072543ddd8c09376fd424678b524aba06c93', dispatched_at='main', prior_run=None)}
+RUNNER_ROWS, RUNNER_BANK = 'b668_runner_rows.json', 'b668_runner_SIDE-grh-transfer.txt'
+MERGE, MERGE_TAG = '6e149db', NEXT_TAG
+PRINT_TARGETS_N = 53
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm of the suite is a standing arm carried from b667's face
 # ### (b667's own act arms not carried). Each run at HEAD and counted before the face names it. Filled at Component 4.
-ACT_ARMS = ()
+ACT_ARMS = ('G-R278-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-PLANFORM-ENTERED', 'G-RESEARCH-ORDER-ENTERED',
+            'G-SENTENCES-BANKED', 'G-GRADES-VERBATIM', 'G-PROMPT-BEFORE-CUT', 'G-CUT-COMMITS', 'G-CUT-REGRADE', 'G-AXIOM-CLAIM-AFTER',
+            'G-KERNEL-FILES-FROM-BANK', 'G-ITEMS-ENTERED', 'G-CENSUS-ROW')
 B667_ACT_ARMS = ('G-R277-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-PLAN-BEFORE-NUMBER', 'G-OBSTRUCTIONS-BANKED', 'G-ROUTE-CHECKS',
                  'G-CONTROLS-FIXED', 'G-SQUARES-CERTIFIED', 'G-REGION-COUNTED', 'G-MAP-ON-BALLS', 'G-LANDING-DATED', 'G-B326-UNTOUCHED', 'G-RUNS-BANKED')
 SEALED = ('b668_worklist.py', 'b668_tests.py', 'b668_citation.py', 'b668_record.py', 'b668_checks.py', 'b668_closing.py', 'b668_reg_gate.py',

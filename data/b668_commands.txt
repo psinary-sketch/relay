@@ -1,0 +1,123 @@
+b668 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-14T15:32:46Z)
+
+### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R278) BEGIN', and its subagents` transcripts
+### commands read: 109
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-14T14:32:38.036Z | seat | Bash | cd /d/relay && grep -n "^  SIDE-grh-transfer \|^  SIDE-cosmo " data/b647_table_kernels.txt | cut -c1-160; ls data/b647_table_SIDE-grh-transfer.txt; grep -c "OVE
+  #2 | 2026-10-14T14:32:47.536Z | seat | Bash | for t in v0.1.0 v0.2.0 v0.3.0 v0.4.0 v0.5.0; do echo "$t $(git rev-parse --short=7 $t^{commit})"; done; git tag --points-at main; grep -n "" lakefile.lean | hea
+  #3 | 2026-10-14T14:32:58.346Z | seat | Bash | ls data/b667_closing_push_out.txt && git branch --list 'push-b667*' && git -C /d/MY-DOwnloads/PLACE-papers branch --list 'push-b667*' && grep -n "^### THE RECOR
+  #4 | 2026-10-14T14:33:04.762Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && sed -n 14136p OPEN_TRAILS.md | cut -c1-200; grep -n "^### b667 —" OPEN_TRAILS.md; sed -n 8649p FINDINGS.md | cut -c1-80; ls /
+  #5 | 2026-10-14T14:34:11.198Z | seat | Bash | cd /d/relay && python -X utf8 tools/b668_citation.py check && grep -n "MISS\|^  OK " data/b668_citation_check.txt | cut -c1-260
+  #6 | 2026-10-14T14:34:20.018Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -i "ZFR" -- OPEN_TRAILS.md FINDINGS.md REGISTRY.md | cut -c1-200 | head -20; cd /d/relay && git grep -l -i "EXTER
+  #7 | 2026-10-14T14:34:28.037Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -i "zero-free\|zero free\|EXTERNAL-" -- OPEN_TRAILS.md | cut -c1-180 | head -15; cd /d/relay && git grep -l -i "E
+  #8 | 2026-10-14T14:34:37.696Z | seat | Bash | git grep -l -i "relative.entropy\|ZFR" | head; cd /d/relay && git grep -l -i "relative.entropy\|EXTERNAL-ZFR" | head; git grep -n -i "b670" -- data/*ferry*.txt 
+  #9 | 2026-10-14T14:35:13.654Z | seat | Bash | python -X utf8 tools/b668_citation.py check && python -X utf8 tools/b668_citation.py ferry && tail -4 data/b668_ferry_scan.txt
+  #10 | 2026-10-14T14:35:34.071Z | seat | Bash | python -X utf8 tools/b668_citation.py check | tail -1 && head -3 data/b668_citation_check.txt | cut -c1-200 && python -X utf8 tools/b668_citation.py ferry && he
+  #11 | 2026-10-14T14:37:25.540Z | seat | Bash | python -X utf8 tools/b668_citation.py answer "ANSWER on the order cites"
+  #12 | 2026-10-14T14:37:39.355Z | seat | Bash | python -X utf8 tools/b668_citation.py answer "ANSWER on the order cites"
+  #13 | 2026-10-14T14:37:56.800Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python' } | Select-Object ProcessId, Name, @{n='Cmd';e={$_.CommandLine.Substring(0
+  #14 | 2026-10-14T14:38:06.194Z | seat | Bash | git add data/b667_closing_push_out.txt data/b668_citation_check.txt data/b668_citation_check.json data/b668_ferry.txt data/b668_ferry_scan.txt data/b668_b670_it
+  #15 | 2026-10-14T14:38:11.172Z | seat | Bash | git branch --merged main --list 'push-b667*' && git rev-parse --short=8 push-b667 push-b667-root push-b667-closing
+  #16 | 2026-10-14T14:38:15.314Z | seat | Bash | git branch -d push-b667 push-b667-root push-b667-closing
+  #17 | 2026-10-14T14:38:20.511Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch --merged main --list 'push-b667*'
+  #18 | 2026-10-14T14:38:24.597Z | seat | Bash | git branch -d push-b667 push-b667-root
+  #19 | 2026-10-14T14:38:29.314Z | seat | Bash | cd /d/relay && python -X utf8 -c "
+  #20 | 2026-10-14T14:39:02.625Z | seat | PowerShell | $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad'; Start-Process 'C:\Program Files\Git\bin\bash.exe' -Argume
+  #21 | 2026-10-14T14:39:09.603Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "STEPZERO TESTS DONE" "$S/b668_tests.log" 2
+  #22 | 2026-10-14T14:39:50.823Z | seat | Bash | ls data | grep -i "probe" | head -20; git grep -l -i "grh-transfer\|SIDEGRHTransfer" -- 'data/*probe*' 'data/*prints*' | head
+  #23 | 2026-10-14T14:39:57.406Z | seat | Bash | grep -n -i "grh\|SIDEGRHTransfer" data/b554_probe_g1.txt data/b555_probe_g2.txt | head -12 | cut -c1-200; python -X utf8 -c "
+  #24 | 2026-10-14T14:41:34.362Z | seat | Bash | python -X utf8 tools/b668_record.py c1 dry 2>&1 | head -2 | cut -c1-300
+  #25 | 2026-10-14T14:43:00.798Z | seat | Bash | python -X utf8 -c "import ast; ast.parse(open('tools/b668_record.py',encoding='utf-8').read()); print('parses')"; S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude
+  #26 | 2026-10-14T14:44:22.578Z | seat | Bash | grep -n "test_chain_page_b638" data/b667_tests_stepzero.txt data/b666_tests_stepzero.txt | head; python -X utf8 -c "
+  #27 | 2026-10-14T14:44:27.780Z | seat | Bash | grep -n "^def \|^[A-Z_]* = \|^ROUTES\|^# ====" tools/b666_record.py | awk -F: '$1>600'
+  #28 | 2026-10-14T14:44:36.994Z | seat | Bash | ls data/b667_checks_postpush.txt && grep -o "G-AXIOM-CLAIM read [0-9]* claims: CONTRADICTED [0-9]*" data/b667_checks_postpush.txt | head -2; cd /d/SIDE-grh-tran
+  #29 | 2026-10-14T14:46:08.769Z | seat | Bash | cd /d/relay && grep -n "^import\|^from\|collections" tools/b668_record.py | head -20; python -X utf8 -c "import ast; ast.parse(open('tools/b668_record.py',encod
+  #30 | 2026-10-14T14:46:16.087Z | seat | Bash | cat data/b667_readfirst.txt | head -40; echo ====; cat data/b667_stepzero.txt | head -40
+  #31 | 2026-10-14T14:46:24.395Z | seat | Bash | python -X utf8 - <<'EOF'
+  #32 | 2026-10-14T14:46:32.028Z | seat | Bash | python -X utf8 - <<'EOF'
+  #33 | 2026-10-14T14:46:37.135Z | seat | Bash | S=/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad; grep -c "" $S/b668_tests.log; tail -2 $S/b668_tests.log; cd /
+  #34 | 2026-10-14T14:46:41.531Z | seat | Bash | cd /d/relay && grep -n -i "read-first\|read first\|READ FIRST" data/b668_ferry.txt | head; 
+  #35 | 2026-10-14T14:46:44.468Z | seat | Bash | head -c 6000 data/b668_ferry.txt
+  #36 | 2026-10-14T14:46:50.933Z | seat | Bash | head -3 data/b667_closing.txt; grep -n "FINDINGS\|OPEN_TRAILS\|suite\|root\|NOT CLEAN\|host low\|LOW" data/b667_closing.txt | head -20; echo ===; grep -n "^    
+  #37 | 2026-10-14T14:46:56.914Z | seat | Bash | grep -n "80 of 81\|FAIL\b\|NOT CLEAN\|post-push" data/b667_closing.txt | head -8; grep -n "" /d/SIDE-grh-transfer/lean-toolchain; grep -n "" /d/SIDE-grh-transfe
+  #38 | 2026-10-14T14:47:20.681Z | seat | Bash | cd /d/relay && grep -n "DEPARTURE\|LEFT OUT\|large_banks" data/b667_root_list.txt | head -5; tail -3 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b
+  #39 | 2026-10-14T14:47:30.160Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|bash' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={$_.C
+  #40 | 2026-10-14T14:47:37.850Z | seat | Bash | python -X utf8 -c "
+  #41 | 2026-10-14T15:06:36.800Z | seat | Bash | cat "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/bwvoaidw0.output"; cd /d/relay && python -X utf8 tools/b668_test
+  #42 | 2026-10-14T15:06:42.732Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|bash' } | Select-Object ProcessId, Name, @{n='Cmd';e={$_.CommandLine.Substr
+  #43 | 2026-10-14T15:07:04.048Z | seat | Bash | git add tools/b668_tests.py tools/b668_worklist.py tools/b668_record.py data/b668_readfirst.txt data/b668_stepzero.txt data/b668_tests_stepzero.json data/b668_t
+  #44 | 2026-10-14T15:07:23.328Z | seat | Bash | python -X utf8 tools/b668_record.py c1 dry 2>&1 | tail -15
+  #45 | 2026-10-14T15:07:31.165Z | seat | Bash | python -X utf8 tools/b668_record.py c1 2>&1 | grep -v "^\*Appended" | tail -12; git -C /d/MY-DOwnloads/PLACE-papers status --porcelain --untracked-files=no; git
+  #46 | 2026-10-14T15:07:39.310Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git diff --stat && git add FINDINGS.md OPEN_TRAILS.md && git commit -q -m "b668 Component 1 under (R278)(1),(3),(4),(5): b667
+  #47 | 2026-10-14T15:07:45.204Z | seat | Bash | git add data/b668_record_lines.json data/b668_scanfile_c1.md && git commit -q -m "b668 Component 1: the record lines' bank (PLACE-papers 1ad42a6; FINDINGS :8675
+  #48 | 2026-10-14T15:07:49.982Z | seat | Bash | python -X utf8 tools/b668_record.py sentences 2>&1 | tail -6; echo; python -X utf8 tools/b668_record.py plain 2>&1 | tail -40
+  #49 | 2026-10-14T15:08:05.929Z | seat | Bash | python -X utf8 tools/b668_record.py plain "the two needle hits are denials, not assertions: CharacterSymmetry.lean:1 states what GRH as a whole would require, C
+  #50 | 2026-10-14T15:08:12.654Z | seat | Bash | sed -n '5,200p' data/b668_table_SIDE-grh-transfer_sentences.txt
+  #51 | 2026-10-14T15:08:16.623Z | seat | Bash | cat data/b666_sentence_grades.json | head -60; grep -n "def read_grade_row" -A12 tools/b668_record.py
+  #52 | 2026-10-14T15:09:02.754Z | seat | Bash | python -X utf8 tools/b668_record.py grades 2>&1 | tail -3 && sed -n '10,200p' data/b668_sentence_grades.txt
+  #53 | 2026-10-14T15:09:08.623Z | seat | Bash | python -X utf8 tools/b668_record.py plan_cut 2>&1 | tail -4
+  #54 | 2026-10-14T15:09:16.633Z | seat | Bash | git add data/b668_table_SIDE-grh-transfer_sentences.txt data/b668_table_SIDE-grh-transfer_sentences.json data/b668_plain_comments.txt data/b668_plain_comments.j
+  #55 | 2026-10-14T15:11:37.325Z | seat | Bash | python -X utf8 tools/b668_citation.py answer "NAVIGATOR'S ANSWER on the cut" 2>&1 | tail -20
+  #56 | 2026-10-14T15:11:43.262Z | seat | Bash | cd /d/SIDE-grh-transfer && git show --stat --format='%H%n%an <hidden> %ad%n%P%n%s%n%b' 858cbf6 | grep -v "^.*@" ; git log --format='%h %s' -6 main
+  #57 | 2026-10-14T15:11:48.439Z | seat | Bash | git show 858cbf6 -- .gitignore | tail -12; git show 858cbf6 -- build_v4291.log update2.log | grep "^+" | head -14
+  #58 | 2026-10-14T15:11:59.117Z | seat | Bash | cd /d/relay && tail -c 400 data/b668_cut_plan.txt; echo; wc -l data/b668_cut_plan.txt; cd /d/SIDE-grh-transfer && git show --numstat --format= 858cbf6; git show
+  #59 | 2026-10-14T15:12:11.557Z | seat | Bash | cd /d/relay && python -X utf8 tools/b668_record.py answers 2>&1 | tail -3; git add data/b668_cut_plan.txt data/b668_citation_check.txt data/b668_citation_check.
+  #60 | 2026-10-14T15:12:19.774Z | seat | Bash | cd /d/SIDE-grh-transfer && git status --porcelain && git config core.autocrlf; git rev-parse --abbrev-ref HEAD && git switch -c docstrings-cut-SIDE-grh-transfer
+  #61 | 2026-10-14T15:12:26.977Z | seat | Bash | cd /d/relay && python -X utf8 -c "
+  #62 | 2026-10-14T15:12:40.140Z | seat | Bash | python -X utf8 tools/b668_record.py check_file SIDEGRHTransfer/CharacterTopological.lean
+  #63 | 2026-10-14T15:12:46.428Z | seat | Bash | cd /d/SIDE-grh-transfer && git add SIDEGRHTransfer/CharacterTopological.lean && git commit -q -m "docstrings: CharacterTopological.lean re-cut to its compiled c
+  #64 | 2026-10-14T15:12:52.376Z | seat | Bash | cd /d/SIDE-grh-transfer && grep -n "composite GRH theorem\|What this proves\|method's voice" SIDEGRHTransfer/GRHBridge.lean
+  #65 | 2026-10-14T15:13:04.397Z | seat | Bash | cd /d/relay && python -X utf8 tools/b668_record.py check_file SIDEGRHTransfer/GRHBridge.lean
+  #66 | 2026-10-14T15:13:10.073Z | seat | Bash | cd /d/SIDE-grh-transfer && git add SIDEGRHTransfer/GRHBridge.lean && git commit -q -m "docstrings: GRHBridge.lean re-cut to its compiled content (b668, (R278)(2
+  #67 | 2026-10-14T15:13:23.471Z | seat | Bash | python -X utf8 tools/b668_record.py check_file SIDEGRHTransfer/Voice7Vendored.lean && cd /d/SIDE-grh-transfer && git add SIDEGRHTransfer/Voice7Vendored.lean && 
+  #68 | 2026-10-14T15:13:34.470Z | seat | Bash | cd /d/SIDE-cosmo && git log --oneline -3 -- .github/workflows/build-module.yml; git show main:.github/workflows/build-module.yml; ls .github/workflows; git show
+  #69 | 2026-10-14T15:13:46.203Z | seat | Bash | cd /d/SIDE-grh-transfer && git ls-files '*.lean'; cat /d/relay/data/b555_probe_g2.txt | head -40; head -20 AxiomCheck.lean
+  #70 | 2026-10-14T15:14:01.042Z | seat | Bash | cd /d/relay && grep -n "print_targets" data/b666_closing.txt data/b666_registration_2026-10-13.txt 2>/dev/null | head -8; git -C /d/SIDE-cosmo show main:print_t
+  #71 | 2026-10-14T15:14:11.499Z | seat | Bash | cd /d/SIDE-grh-transfer && git grep -n -E "^\s*(private\s+|protected\s+|noncomputable\s+)*(theorem|lemma|def|abbrev|structure|inductive|instance|class)\s" docst
+  #72 | 2026-10-14T15:14:26.019Z | seat | Bash | git grep -h -E "^\s*(noncomputable\s+)?(theorem|lemma|def|abbrev|structure|inductive|instance)\s" docstrings-cut-SIDE-grh-transfer -- 'SIDEGRHTransfer/*.lean' |
+  #73 | 2026-10-14T15:14:36.563Z | seat | Bash | git switch -q docstrings-cut-SIDE-grh-transfer 2>&1; git rev-parse --abbrev-ref HEAD; git status --porcelain; echo "SIDEGRHTransfer.GRHStructuralExhaustiveness 
+  #74 | 2026-10-14T15:14:50.402Z | seat | Bash | grep -c "" print_targets.txt && git grep -n "private" docstrings-cut-SIDE-grh-transfer -- 'SIDEGRHTransfer/*.lean' | head -3; git add print_targets.txt && git c
+  #75 | 2026-10-14T15:14:57.063Z | seat | Bash | git switch -q main && git rev-parse --abbrev-ref HEAD && git status --porcelain && ls .github 2>&1 | head -2
+  #76 | 2026-10-14T15:15:01.773Z | seat | Bash | cd /d/SIDE-cosmo && git show main:.github/workflows/build-module.yml | sha256sum; git show main:.github/workflows/build-module.yml | grep -c ""
+  #77 | 2026-10-14T15:15:17.754Z | seat | Bash | cd /d/SIDE-grh-transfer && tr -d '\r' < .github/workflows/build-module.yml | sha256sum && git add .github/workflows/build-module.yml && git commit -q -m "b668 u
+  #78 | 2026-10-14T15:15:25.475Z | seat | Bash | cd /d/relay && ls data/b666_*push* ; grep -n "docstrings-cut\|push origin" data/b666_registration_2026-10-13.txt | head -8; sed -n 1,40p tools/push_gated.sh | g
+  #79 | 2026-10-14T15:15:31.088Z | seat | Bash | head -5 data/b666_wf_push_out.txt; python -X utf8 - <<'EOF'
+  #80 | 2026-10-14T15:15:40.382Z | seat | Bash | python -X utf8 - <<'EOF'
+  #81 | 2026-10-14T15:15:49.115Z | seat | Bash | cd /d/SIDE-grh-transfer && git show HEAD:.github/workflows/build-module.yml | grep -c $'\r'; git branch push-b668-workflow HEAD && PUSH_GATED_LOG=/d/relay/data/
+  #82 | 2026-10-14T15:16:04.361Z | seat | Bash | git switch -q docstrings-cut-SIDE-grh-transfer && git rev-parse --abbrev-ref HEAD && git show HEAD:print_targets.txt | grep -c $'\r'; git log --oneline main..HE
+  #83 | 2026-10-14T15:16:14.824Z | seat | Bash | cd /d/relay && T=$(python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b668_worklist as K;print(K.TARGET)") && echo "$T" && gh workflow run build-mo
+  #84 | 2026-10-14T15:16:24.487Z | seat | Bash | until [ "$(gh run view 38587853597 -R psinary-sketch/SIDE-grh-transfer --json status -q .status)" = completed ]; do sleep 60; done; gh run view 38587853597 -R p
+  #85 | 2026-10-14T15:16:30.362Z | seat | Bash | git add tools/b668_worklist.py data/b668_cut_SIDE-grh-transfer.txt data/b668_cut_SIDE-grh-transfer.json data/b668_wf_push_out.txt && git commit -q -m "b668 Comp
+  #86 | 2026-10-14T15:16:49.555Z | seat | Bash | grep -n "^SESSION\|^FIND\|^OT\b\|^OT =\|^SP\|^def read_score_row\|^def screens\|^def read_head\|__main__\|^PP\|^T =\|^D =\|^ROOT\|^FIND\|_session_rows" tools/b6
+  #87 | 2026-10-14T15:16:59.366Z | seat | Bash | grep -n "^def c1" -A75 tools/b668_record.py | head -120
+  #88 | 2026-10-14T15:17:05.605Z | seat | Bash | grep -n "^def land" -A40 tools/b668_record.py | head -60; grep -n "^def _research" -A12 tools/b668_record.py; grep -n "^RH\|^PH\|^MH\|^WH" -A3 tools/b668_record
+  #89 | 2026-10-14T15:19:39.807Z | seat | Bash | python -X utf8 -c "import ast; ast.parse(open('tools/b668_record.py',encoding='utf-8').read()); print('parses')"; grep -n "^def jl\|^def rdn" -A4 tools/b668_rec
+  #90 | 2026-10-14T15:19:50.036Z | seat | Bash | cat "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/ba51tbq9x.output"; gh run list -R psinary-sketch/SIDE-grh-transf
+  #91 | 2026-10-14T15:19:58.106Z | seat | Bash | python -X utf8 tools/b668_record.py runner 38587853597 d487072543ddd8c09376fd424678b524aba06c93 7f3e31563d2067a5203c9cbc3eedc64325604616 2>&1 | tail -15; grep -
+  #92 | 2026-10-14T15:20:06.229Z | seat | Bash | sed -n '115,125p' data/b668_runner_SIDE-grh-transfer.txt; grep -c "" data/b668_prints_SIDE-grh-transfer.txt; sed -n '4,12p' data/b668_prints_SIDE-grh-transfer.t
+  #93 | 2026-10-14T15:20:12.678Z | seat | Bash | cd /d/SIDE-grh-transfer && git switch -q main && git status --porcelain && git merge --no-ff -q -m "b668 under (R278)(2): merge docstrings-cut-SIDE-grh-transfer
+  #94 | 2026-10-14T15:20:19.683Z | seat | Bash | git diff --stat d487072 6e149db
+  #95 | 2026-10-14T15:20:27.894Z | seat | Bash | git branch push-b668-merge HEAD && PUSH_GATED_LOG=/d/relay/data/b668_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-grh-transfer push-b668-merge "
+  #96 | 2026-10-14T15:20:39.778Z | seat | Bash | cd /d/relay && gh run list -R psinary-sketch/SIDE-grh-transfer --limit 4 --json databaseId,event,workflowName,conclusion,headSha; python -X utf8 tools/b668_reco
+  #97 | 2026-10-14T15:23:01.106Z | seat | Bash | cd /d/relay && wc -l tools/b667_checks.py tools/b666_checks.py tools/b667_closing.py tools/b667_reg_gate.py tools/b667_regspec.py; grep -n "^STANDING\|^ARMS\|^d
+  #98 | 2026-10-14T15:23:08.567Z | seat | Bash | tail -6 "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/beqm9owp3.output"; cd /d/relay && grep -c "SIDEGRHTransfer" 
+  #99 | 2026-10-14T15:23:15.339Z | seat | Bash | python -X utf8 tools/b668_record.py items 2>&1 | tail -2 && cd /d/MY-DOwnloads/PLACE-papers && git status --porcelain --untracked-files=no && git add OPEN_TRAIL
+  #100 | 2026-10-14T15:23:22.502Z | seat | Bash | cd /d/relay && git status --porcelain | grep b668; 
+  #101 | 2026-10-14T15:23:29.327Z | seat | Bash | git add data/b668_defects.txt tools/b668_record.py data/b668_axiom_claim_after.json data/b668_axiom_claim_after.txt data/b668_items_lines.json data/b668_merge_p
+  #102 | 2026-10-14T15:23:50.592Z | seat | Bash | python -X utf8 -c "
+  #103 | 2026-10-14T15:23:56.614Z | seat | Bash | grep -n "^ACT_ARMS" -A4 tools/b666_worklist.py; grep -n "G-TIE-RULE-ENTERED\|G-KERNEL-NAMED\|G-SENTENCES-BANKED\|G-GRADES-VERBATIM\|G-AXIOM-ROW-CELL\|G-GRADES-B
+  #104 | 2026-10-14T15:24:00.942Z | seat | Bash | sed -n 860,900p tools/b666_checks.py; grep -n "def sentences_ok\|def grades_ok\|def cut_commits_ok\|def cut_regrade_ok\|def prompt_before_cut\|def kernel_named_
+  #105 | 2026-10-14T15:24:36.274Z | seat | Bash | grep -n "^### PROMPT\|^### b668 -- THE AUTHOR\|^### CALL" data/b668_author_answers.txt | cut -c1-160; grep -n "def read_runner_row" -A16 tools/b668_record.py | 
+  #106 | 2026-10-14T15:24:45.197Z | seat | Bash | grep -n "STANDIN\|def _standins" -A25 tools/b668_record.py | sed -n 1,60p
+  #107 | 2026-10-14T15:24:50.393Z | seat | Bash | grep -n "K.RUNNER\b\|RUNNER_ROWS\|RUNNER_BANK\|B326_BANKS\|AXIOM_BANK" tools/b667_worklist.py | head; grep -n "^RUNNER\|^RUNNER_ROWS\|^RUNNER_BANK" -A4 tools/b6
+  #108 | 2026-10-14T15:25:32.343Z | seat | Bash | grep -c "" data/act_roots.txt; tail -1 data/act_roots.txt | cut -c1-60; ls data/b667_act_root.json; ls tools/b667_*.py | tr '\n' ' '
+  #109 | 2026-10-14T15:31:26.366Z | seat | Bash | sed -n 26,45p tools/b667_closing.py; grep -n "### THE MERGE\|CARRIED = \[" tools/b667_closing.py | head
+
+### ### **COMMANDS 109 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
