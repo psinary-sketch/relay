@@ -236,10 +236,10 @@ def main():
                                        verdict(rd('b669_faces_census_closing.txt'), r'TOTAL MISSING : \d+')),
           '    pins : %s' % verdict(rd('b669_pins_closing.txt'), r'REPOS HARD-FAILING : \d+'),
           '    kernel mains moved by the one merge on the hosted runner`s gate reading alone (SIDE-explicit-formula, v0.31) ; no lean or lake',
-          '    run on this host ; no worktree made or removed ; b628`s local intake bank and the navigator`s export untracked ; no identifier of',
-          '    the author in any outbound request, workflow file or input ; no secret added, the platform`s own token alone ; the seat`s plain',
-          '    requests to github.com (its ls-remote reads, its pushes, the gh calls that dispatched the two runs and read them and their artifacts',
-          '    back) the act`s only outbound calls ; the deposit route untouched, publish never called ; no shared tool edited ; FINDINGS and',
+          '    run on this host ; no worktree made or removed ; b628`s local intake bank and the navigator`s export untracked ;',
+          '    no identifier of the author in any outbound request, workflow file or input ; no secret added, the platform`s own token alone ;',
+          '    the seat`s plain requests to github.com (its ls-remote reads, its pushes, the gh calls that dispatched the two runs and read them',
+          '    and their artifacts back) the act`s only outbound calls ; the deposit route untouched, publish never called ; no shared tool edited ; FINDINGS and',
           '    OPEN_TRAILS appended ; one line appended to data/act_roots.txt as the act`s last bank step ; ERRATA, SPIRAL_MAP, README, REGISTRY,',
           '    the censuses, the pages, the map, the monograph and the companions untouched ; no bench number in a keystone', '']
     L += ['### CARRIED FORWARD.'] + CARRIED + ['=' * 104]
