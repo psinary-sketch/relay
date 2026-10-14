@@ -116,3 +116,19 @@ b671 -- COMPONENT 2, (R281)(3)-(5): THE PLAN FOR THE NARROWING, IN THE b663 FORM
   9 on-line points stopped at depths 24-40 on it (data/b671_narrow_run1.txt).
   the order now: run 1b -- C1 and C2 re-run under the new bar and read as fixed before any Q0 point, then the 9 from their last certified
   intervals; then run 2, the 17 off-line points; then the bank step, every on-line point keeping its last certified interval where it stops.
+
+== 11. THE SPLIT-LINE OFFSET, (4a) (added 2026-10-14 during run 2, on the navigator's answer on the split-line stops; data/b671_defects.txt (f))
+  the rule: (R281)(4)'s offset reads "once" no longer. At any depth whose quarter cannot be read, the split lines are offset by one third of
+  that depth's half-width, in the coordinate whose line meets the zero, the depth and the offset printed each time. A third and not a dyadic
+  fraction, so that no later halving returns the split line to a line already met.
+  the coordinate, as the script reads it (tools/b671_narrow.py _line_meeting): the quarters in the order lower-left, lower-right, upper-left,
+  upper-right; a lower or upper pair unread shares the vertical split line (offset in σ); a left or right pair the horizontal (offset in t);
+  any other pattern offsets both, printed as such. One offset per depth: a depth unread again after its offset stops the point at
+  UNRESOLVED-AT-DEPTH, printed.
+  the order: run 2 finishes under section 4 as written and banks every UNRESOLVED-AT-DEPTH point; those points alone re-run (`run3`) from their
+  last square at count 1 -- its centre and half-width as the row holds them, or less the one-eighth offset where the row stopped at that
+  offset's own depth -- the start depth and square printed and the start square's count read again; no point already narrowed is touched.
+  why: run 2 stopped OFF 2 and OFF 6 at depth 4 with quarters [None, None, 0, 0] and [0, 0, None, None] after the one-eighth offset at depth 1:
+  b667's centre is the zero's estimate, so the vertical split line through it meets the zero; the offset +1.25e-13 and the quarters taken at
+  depths 1-3 (lower-left, upper-right, upper-right) put the centre at cr0 - 3.75e-13, cr0 - 1.25e-13, cr0, so the depth-4 split line is b667's
+  own line again (data/b671_narrow_run2_points.jsonl, the two rows' lines).

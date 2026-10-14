@@ -10,6 +10,12 @@ data/b671_narrow_plan.txt, relay data/b671_author_answers.txt).
 ### (M-off): each off-line point's square, from b667's [re ± 1e-12] × [im ± 1e-12] at count 1, split at its centre into four quarters, each
 ###   quarter's count by b667's segment form; the quarter at count 1 kept, the three at 0 printed; to half-width W. A quarter whose count cannot
 ###   be read: the grid offset by an eighth of the half-width, printed, once; then UNRESOLVED-AT-DEPTH d.
+### (4a), the navigator's answer on the split-line stops (the offset rule reads "once" no longer): the points run 2 banks UNRESOLVED-AT-DEPTH,
+###   and those alone, re-run (`run3`) from their last square at count 1, the start depth and square printed; at any depth whose quarter cannot
+###   be read, the split lines offset by one third of that depth's half-width in the coordinate whose line meets the zero, the depth and the
+###   offset printed each time; a third, not a dyadic fraction, so that no later halving returns a split line to a line already met (defect
+###   (f): an eighth is a power-of-two fraction, and a power-of-two fraction of a square halved three times is the square's own grid again).
+###   One offset per depth: a depth unread again after its offset stops the point at UNRESOLVED-AT-DEPTH, printed.
 ### b667's square_count (tools/b667_epstein_certify.py :301-:315) holds SQ_SEG and DEPTH_SQ as module constants and is CARRIED here with both
 ###   lifted to this head (SEGS_PER_SIDE, DOUBLINGS_MAX); its segment (:258-:281) is CARRIED with one recording line (each halving's depth and
 ###   ends); edge_arg looks segment up in its own module, so the carried segment is set there by name (CERT.segment) and edge_arg, zq, _pt,
@@ -264,6 +270,93 @@ def task_off(r):
                 count=1, seconds=int(time.time() - t0), lines=lines, b667=dict(re=r['re'], im=r['im'], h=r['h']))
 
 
+OFFSET_4A = 3                      # ### (4a): the split lines offset by a third of the depth's half-width (not a dyadic fraction)
+
+
+def _line_meeting(counts):
+    """(4a): the coordinate whose split line meets the zero, read from the unread quarters (grid order: lower-left, lower-right, upper-left,
+    upper-right). A lower or upper pair unread shares the vertical line (σ); a left or right pair the horizontal (t); any other pattern
+    names both, printed as such."""
+    u = tuple(i for i, n in enumerate(counts) if n is None)
+    if u in ((0, 1), (2, 3)):
+        return ('re',)
+    if u in ((0, 2), (1, 3)):
+        return ('im',)
+    return ('re', 'im')
+
+
+def narrow_off_4a(name, re0, im0, h0, d0):
+    """(4a) from a point's last square at count 1 [re0 ± h0] × [im0 ± h0], reached at depth d0, to half-width W: returns the reading and
+    the depth lines."""
+    ctx.prec = PREC
+    cr, ci, h = exact(re0), exact(im0), exact(h0)
+    w = arb(W)
+    lines, d, off_at = [], d0, None
+    while d < DEPTH and not (h <= w):
+        hq = (h / 2).mid()
+        sr, si = cr, ci
+        if off_at is not None:
+            sr, si = sr + off_at[1], si + off_at[2]
+        grid = [(sr - hq, si - hq), (sr + hq, si - hq), (sr - hq, si + hq), (sr + hq, si + hq)]
+        got = []
+        for gr, gi in grid:
+            n, cb, st = square_count(CERT.zq, gr.mid().str(DIGITS, radius=False), gi.mid().str(DIGITS, radius=False), hq.str(DIGITS, radius=False))
+            got.append((n, cb, st, gr, gi))
+        counts = [x[0] for x in got]
+        lines.append('  %s depth %d : half-width %s ; quarters %s ; segments %s ; doublings %s%s' % (
+            name, d + 1, hq.str(4, radius=False), counts, [x[2]['segments'] for x in got], [len(x[2].get('doublings') or []) for x in got],
+            ' (split lines offset)' if off_at is not None else ''))
+        if None in counts or counts.count(1) != 1 or sum(counts) != 1:
+            if off_at is not None:
+                lines.append('  %s depth %d : unread again after its offset -- UNRESOLVED-AT-DEPTH (one offset per depth)' % (name, d + 1))
+                return dict(reading='UNRESOLVED-AT-DEPTH', depth=d + 1, re=cr, im=ci, h=h, counts=counts), lines
+            co = _line_meeting(counts)
+            off = (hq / OFFSET_4A).mid()
+            off_at = (d, off if 're' in co else arb(0), off if 'im' in co else arb(0))
+            lines.append('  %s depth %d : a quarter unread or the counts %s not one 1 and three 0 -- (4a) the split lines offset by %s (a third of '
+                         'the depth`s half-width) in %s' % (name, d + 1, counts, off.str(4, radius=False),
+                                                           ' and '.join({'re': 'σ', 'im': 't'}[c] for c in co)))
+            continue
+        k = counts.index(1)
+        cr, ci, h, off_at = got[k][3].mid(), got[k][4].mid(), hq, None
+        d += 1
+    return dict(reading='NARROWED' if h <= w else 'UNRESOLVED-AT-DEPTH', depth=d, re=cr, im=ci, h=h, counts=[1]), lines
+
+
+def _start_square(r):
+    """(4a): a run-2 UNRESOLVED row's last square at count 1. The row carries the centre and half-width held when it stopped; where its stop
+    came at the depth of its one-eighth offset, the centre carried the offset, which is taken back (the offset's own line read). Returns
+    (re, im, h, d0, how)."""
+    ctx.prec = PREC
+    h = exact(r['h'])
+    d0 = r['depth'] - 1
+    ls = r['lines'] if isinstance(r['lines'], list) else []
+    offs = [l for l in ls if 'the grid offset by' in l]
+    if offs and ('depth %d :' % r['depth']) in offs[-1]:
+        o = (h / 8).mid()
+        return ((exact(r['re']) - o).mid().str(DIGITS, radius=False), (exact(r['im']) - o).mid().str(DIGITS, radius=False), r['h'], d0,
+                'the row`s centre less its one-eighth offset (its stop at the offset`s depth %d)' % r['depth'])
+    return r['re'], r['im'], r['h'], d0, 'the row`s centre and half-width (its stop at depth %d, after its last quarter at count 1)' % r['depth']
+
+
+def task_off_4a(r):
+    t0 = time.time()
+    re0, im0, h0, d0, how = _start_square(r)
+    name = 'OFF %d' % r['idx']
+    ctx.prec = PREC
+    n0, _cb, _st = square_count(CERT.zq, re0, im0, h0)
+    head = ['  %s (4a) re-run start : depth %d ; square [%s ± %s] × [%s ± %s] ; %s ; its count read again: %s' % (
+        name, d0, re0, h0, im0, h0, how, n0)]
+    if n0 != 1:
+        return dict(kind='OFF', idx=r['idx'], reading='UNRESOLVED-AT-DEPTH', depth=r['depth'], re=r['re'], im=r['im'], h=r['h'], count=1,
+                    seconds=int(time.time() - t0), lines=head + ['  %s : the start square`s count not 1 -- not re-run' % name], rerun='4a',
+                    start=dict(re=re0, im=im0, h=h0, depth=d0, count=n0))
+    res, lines = narrow_off_4a(name, re0, im0, h0, d0)
+    return dict(kind='OFF', idx=r['idx'], reading=res['reading'], depth=res['depth'], re=res['re'].str(DIGITS, radius=False),
+                im=res['im'].str(DIGITS, radius=False), h=W if res['reading'] == 'NARROWED' else res['h'].str(DIGITS, radius=False),
+                count=1, seconds=int(time.time() - t0), lines=head + lines, rerun='4a', start=dict(re=re0, im=im0, h=h0, depth=d0, count=n0))
+
+
 def rows667():
     return json.loads(gzip.decompress(open(os.path.join(D, Q0_CERT), 'rb').read()).decode('utf-8'))['rows']
 
@@ -442,6 +535,44 @@ def run2():
     put('b671_narrow_run2.txt', NL.join(OUT) + NL)
 
 
+def run3():
+    """(4a): run 2's UNRESOLVED-AT-DEPTH points alone, from their last square at count 1; each finished point appended to
+    data/b671_narrow_run3_points.jsonl as it lands -> data/b671_narrow_run3.txt. No point run 2 narrowed is read again."""
+    t_start = time.time()
+    say('b671 -- THE NARROWING, RUN 3 ((4a), THE NAVIGATOR`S ANSWER ON THE SPLIT-LINE STOPS): RUN 2`S UNRESOLVED POINTS ON %d PROCESSES (%s) ; '
+        'W %s ; DEPTH %d ; THE OFFSET A THIRD OF THE DEPTH`S HALF-WIDTH' % (PROCS, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), W, DEPTH))
+    f0 = CERT.free_mb()
+    say('### host free at start: %s MB ; the hold %d MB' % (f0, CERT.HOLD_MB))
+    r2 = [json.loads(l) for l in io.open(os.path.join(D, 'b671_narrow_run2_points.jsonl'), encoding='utf-8') if l.strip()]
+    if len(r2) != 17 or len(set(r['idx'] for r in r2)) != 17:
+        say('### RUN 2 HAS NOT BANKED THE 17 POINTS (%d rows) -- NOTHING RUN' % len(r2))
+        return 3
+    un = sorted((r for r in r2 if r['reading'] == 'UNRESOLVED-AT-DEPTH'), key=lambda r: r['idx'])
+    pts = os.path.join(D, 'b671_narrow_run3_points.jsonl')
+    done = set()
+    if os.path.exists(pts):
+        for l in io.open(pts, encoding='utf-8'):
+            if l.strip():
+                done.add(json.loads(l)['idx'])
+    todo = [r for r in un if r['idx'] not in done]
+    say('### run 2`s UNRESOLVED points: %s ; already banked here: %s ; to run: %s ; run 2`s NARROWED points, untouched: %s' % (
+        [r['idx'] for r in un], sorted(done), [r['idx'] for r in todo], sorted(r['idx'] for r in r2 if r['reading'] == 'NARROWED')))
+    low = f0
+    with mpr.Pool(min(PROCS, max(1, len(todo))), initializer=_init) as pool:
+        for res in pool.imap_unordered(task_off_4a, todo):
+            with io.open(pts, 'a', encoding='utf-8', newline=NL) as fh:
+                fh.write(json.dumps(res, ensure_ascii=False) + NL)
+            f = CERT.free_mb()
+            low = f if (low is None or (f is not None and f < low)) else low
+            for l in res['lines']:
+                if 'doubling at depth' not in l:
+                    say(l)
+            say('  OFF %d : %s at depth %d ; %d s ; host free %s MB' % (res['idx'], res['reading'], res['depth'], res['seconds'], f))
+    say('### ### **RUN 3 : DONE ; HOST LOW %s MB ; %d s.**' % (low, time.time() - t_start))
+    put('b671_narrow_run3.txt', NL.join(OUT) + NL)
+    return 0
+
+
 def _last_interval(x):
     """an on-line row's ball: W about its interval's midpoint where NARROWED; where not, its last certified interval [lo, hi] -- the plan's
     "keeps its last certified interval" -- by its midpoint and the interval's half-width rounded up, never b667's square."""
@@ -460,7 +591,21 @@ def bank():
         r1['c1_run1b'], r1['c2_run1b'] = r1b.get('c1'), r1b.get('c2')
     for x in r1['on']:
         x['im'], x['h'] = _last_interval(x)
+    # ### defect (e)'s repair: every on-line point's two final endpoints read again under the bar and printed by midpoint and radius (N3)
+    ends = []
+    for x in r1['on']:
+        ctx.prec = PREC
+        sa, ia, la = sign_at(lam_q_at, exact(x['lo']))
+        sb, ib, lb = sign_at(lam_q_at, exact(x['hi']))
+        ok = ia and ib and sa is not None and sb is not None and sa != sb
+        x['ends'] = dict(lo=la, hi=lb, signs=[sa, sb], certified=bool(ok))
+        ends.append('  ON %d : t_lo %s : %s%s  ON %d : t_hi %s : %s%s  ON %d : opposite signs, each ball excluding 0 : %s' % (
+            x['idx'], x['lo'], la, NL, x['idx'], x['hi'], lb, NL, x['idx'], ok))
     off = [json.loads(l) for l in io.open(os.path.join(D, 'b671_narrow_run2_points.jsonl'), encoding='utf-8') if l.strip()]
+    p3 = os.path.join(D, 'b671_narrow_run3_points.jsonl')
+    if os.path.exists(p3):            # ### (4a): run 3's rows replace run 2's for their points alone
+        r3 = dict((x['idx'], x) for x in (json.loads(l) for l in io.open(p3, encoding='utf-8') if l.strip()))
+        off = [r3.get(r['idx'], r) for r in off]
     off = sorted(off, key=lambda r: r['idx'])
     rows = [dict(kind=r['kind'], idx=r['idx'], re=r['re'], im=r['im'], h=r['h'], count=1, reading=r['reading'], depth=r['depth'])
             for r in r1['on']] + [dict(kind='OFF', idx=r['idx'], re=r['re'], im=r['im'], h=r['h'], count=1, reading=r['reading'], depth=r['depth'])
@@ -475,20 +620,27 @@ def bank():
         'data/b671_epstein_zeros_narrowed.json (inside the .gz) sha256 %s bytes %d%sdata/b671_epstein_zeros_narrowed.json.gz sha256 %s bytes %d%s' % (
             NL, hashlib.sha256(js).hexdigest(), len(js), NL, hashlib.sha256(gz).hexdigest(), len(gz), NL))
     log = [dict(kind='ON', idx=r['idx'], depth=r['depth'], reading=r['reading'] if r['reading'] in ('NARROWED', 'UNRESOLVED-AT-DEPTH') else
-                'UNRESOLVED-AT-DEPTH', signs=r['signs'], why=r.get('why')) for r in r1['on']] + [
-        dict(kind='OFF', idx=r['idx'], depth=r['depth'], reading=r['reading'], signs=None) for r in off]
+                'UNRESOLVED-AT-DEPTH', signs=r['ends']['signs'], ends_certified=r['ends']['certified'], ends=r['ends'], why=r.get('why'))
+           for r in r1['on']] + [
+        dict(kind='OFF', idx=r['idx'], depth=r['depth'], reading=r['reading'], signs=None, why=('re-run under (4a) from depth %d' % r['start']['depth'])
+             if r.get('rerun') == '4a' else None) for r in off]
     c = {}
     for x in log:
         c[(x['kind'], x['reading'])] = c.get((x['kind'], x['reading']), 0) + 1
     L = ['b671 -- THE NARROWING`S LOG (rows are points with their depth and reading; the depth-by-depth lines in data/b671_narrow_run1.txt and '
-         'data/b671_narrow_run2_points.jsonl) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
-         '### C1: %s ; C2: ON %s, OFF count %s' % ([(x['n'], x['reading'], x['inside']) for x in r1['c1']], r1['c2']['on'], r1['c2']['off']), '']
+         'data/b671_narrow_run2_points.jsonl, with data/b671_narrow_run3_points.jsonl`s rows over run 2`s for their points under (4a)) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+         '### C1 (run 1): %s ; C2: ON %s, OFF count %s' % ([(x['n'], x['reading'], x['inside']) for x in r1['c1']], r1['c2']['on'], r1['c2']['off']),
+         '### C1 and C2 under the bar 2^%d (run 1b): %s ; %s' % (BESSEL_BAR_EXP, [(x['n'], x['reading'], x['inside']) for x in (r1.get('c1_run1b') or [])],
+                                                                r1.get('c2_run1b')), '']
     L += ['  %-3s %-4d depth %-3d %-20s signs %s%s' % (x['kind'], x['idx'], x['depth'], x['reading'], x['signs'], (' ; ' + x['why']) if x.get('why') else '')
           for x in log]
     on_n = sum(v for (k, r_), v in c.items() if k == 'ON' and r_ == 'NARROWED')
     off_n = sum(v for (k, r_), v in c.items() if k == 'OFF' and r_ == 'NARROWED')
-    L += ['', '### ### **POINTS %d ; ON NARROWED %d OF %d ; OFF NARROWED %d OF %d ; UNRESOLVED %d ; HALF-WIDTH %s.**' % (
-        len(log), on_n, len(r1['on']), off_n, len(off), len(log) - on_n - off_n, W)]
+    L += ['', '### THE ON-LINE POINTS` FINAL ENDPOINTS, READ AGAIN UNDER THE BAR 2^%d, EACH BALL BY ITS MIDPOINT AND RADIUS (defect (e); N3):' % BESSEL_BAR_EXP]
+    L += ends
+    nc = sum(1 for x in log if x['kind'] == 'ON' and x.get('ends_certified'))
+    L += ['', '### ### **POINTS %d ; ON NARROWED %d OF %d, THEIR FINAL ENDPOINTS CERTIFIED OPPOSITE %d ; OFF NARROWED %d OF %d ; UNRESOLVED %d ; '
+          'HALF-WIDTH %s.**' % (len(log), on_n, len(r1['on']), nc, off_n, len(off), len(log) - on_n - off_n, W)]
     put('b671_narrow_log.txt', NL.join(L) + NL)
     put('b671_narrow_log.json', json.dumps(dict(rows=log, c1=r1['c1'], c2=r1['c2'], w=W), indent=1, ensure_ascii=False) + NL)
     print(L[-1])
@@ -520,8 +672,10 @@ if __name__ == '__main__':
         run1()
     elif mode == 'run2':
         run2()
+    elif mode == 'run3':
+        sys.exit(run3())
     elif mode == 'bank':
         bank()
     else:
-        print('usage: b671_narrow.py diff | run1 | run2 | bank')
+        print('usage: b671_narrow.py diff | run1 | run1b | run2 | run3 | bank')
         sys.exit(2)
