@@ -1,7 +1,7 @@
-b670 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-14T21:24:54Z)
+b670 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-14T21:36:55Z)
 
 ### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R280) BEGIN', and its subagents` transcripts
-### commands read: 248
+### commands read: 264
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -258,5 +258,21 @@ b670 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READIN
   #246 | 2026-10-14T21:23:58.304Z | seat | Bash | tail -2 data/b670_rules.txt | cut -c1-200
   #247 | 2026-10-14T21:24:23.432Z | seat | Bash | python -X utf8 -c "
   #248 | 2026-10-14T21:24:51.306Z | seat | Bash | python -X utf8 tools/b670_record.py answers | tail -1 && python -X utf8 tools/b670_record.py defects && python -X utf8 tools/b670_record.py commands | tail -1
+  #249 | 2026-10-14T21:25:03.745Z | seat | PowerShell | $S = "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\scratchpad"; $p = Start-Process -FilePath "C:\Program Files\Git\bin\b
+  #250 | 2026-10-14T21:25:10.160Z | seat | Bash | S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "PRERUN DONE" "$S/b670_prerun2.log" 2>/dev/
+  #251 | 2026-10-14T21:33:29.458Z | seat | Bash | cat "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/b300nah78.output" | cut -c1-400; grep -E "FAILS|raised" /d/relay
+  #252 | 2026-10-14T21:33:42.515Z | seat | Bash | timeout 580 python -X utf8 tools/b670_reg_gate.py 2>&1 | tail -22 | cut -c1-250
+  #253 | 2026-10-14T21:33:50.576Z | seat | Bash | timeout 580 python -X utf8 tools/b670_record.py gatebanks 2>&1 | cut -c1-230
+  #254 | 2026-10-14T21:33:59.653Z | seat | Bash | timeout 580 python -X utf8 tools/b378_lockgate.py b670 data/b670_registration_2026-10-14.txt 2>&1 | tail -15 | cut -c1-220
+  #255 | 2026-10-14T21:34:04.548Z | seat | Bash | python -X utf8 tools/reg_seal.py --lock data/b670_registration_2026-10-14.txt 2>&1 | tail -6 && python -X utf8 tools/reg_seal.py --verify b670_registration_2026
+  #256 | 2026-10-14T21:34:09.254Z | seat | Bash | python -X utf8 tools/reg_seal.py --verify data/b670_registration_2026-10-14.txt 2>&1 | tail -3
+  #257 | 2026-10-14T21:34:15.273Z | seat | Bash | git status --porcelain | grep -E "b670|act_roots|terminal_table|tools/" 
+  #258 | 2026-10-14T21:34:24.410Z | seat | Bash | git add data/b670_author_answers.json data/b670_author_answers.txt data/b670_citation_check.txt data/b670_commands.json data/b670_commands.txt data/b670_corresp
+  #259 | 2026-10-14T21:34:36.094Z | seat | Bash | timeout 580 python -X utf8 tools/b670_record.py table_final 2>&1 | tail -2 && git status --porcelain | grep -E "terminal_table|b670_table" 
+  #260 | 2026-10-14T21:35:08.951Z | seat | Bash | git add data/b670_table_final.json data/b670_table_final.txt && git commit -q -m "b670 pre-root: the final table (data/b670_table_final.txt): rows moved 0, adde
+  #261 | 2026-10-14T21:35:09.364Z | seat | Bash | git branch push-b670-root HEAD && PUSH_GATED_LOG=/d/relay/data/b670_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b670-root
+  #262 | 2026-10-14T21:35:24.903Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch push-b670-root HEAD && PUSH_GATED_LOG=/d/relay/data/b670_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d
+  #263 | 2026-10-14T21:35:58.142Z | seat | Bash | cd /d/relay && python -X utf8 tools/b670_record.py root dry 2>&1 | tail -6 | cut -c1-200
+  #264 | 2026-10-14T21:36:26.136Z | seat | Bash | python -X utf8 tools/b670_record.py root 2>&1 | tail -3 | cut -c1-200 && tail -1 data/act_roots.txt | cut -c1-160 && python -X utf8 tools/b670_record.py root_ar
 
-### ### **COMMANDS 248 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
+### ### **COMMANDS 264 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**

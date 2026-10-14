@@ -1,5 +1,5 @@
 {
- "at": "2026-10-14T21:24:54Z",
+ "at": "2026-10-14T21:36:55Z",
  "anchor": "RULING (R280) BEGIN",
  "rows": [
   {
@@ -1737,6 +1737,118 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b670_record.py answers | tail -1 && python -X utf8 tools/b670_record.py defects && python -X utf8 tools/b670_record.py commands | tail -1",
    "n": 248
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-14T21:25:03.745Z",
+   "src": "seat",
+   "cmd": "$S = \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf\\scratchpad\"; $p = Start-Process -FilePath \"C:\\Program Files\\Git\\bin\\bash.exe\" -ArgumentList \"$S\\b670_prerun2.sh\" -RedirectStandardOutput \"$S\\b670_prerun2.log\" -RedirectStandardError \"$S\\b670_prerun2.err\" -WindowStyle Hidden -PassThru; $p.Id",
+   "n": 249
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:25:10.160Z",
+   "src": "seat",
+   "cmd": "S=\"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad\"; while ! grep -q \"PRERUN DONE\" \"$S/b670_prerun2.log\" 2>/dev/null; do if ! tasklist //FI \"PID eq 23432\" | grep -q 23432; then echo \"PROCESS GONE\"; break; fi; sleep 30; done; echo \"WAITER END\"; grep -E \"ARMS RUN|VERDICT|NEGATIVE|PRERUN DONE\" \"$S/b670_prerun2.log\"",
+   "n": 250
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:33:29.458Z",
+   "src": "seat",
+   "cmd": "cat \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/b300nah78.output\" | cut -c1-400; grep -E \"FAILS|raised\" /d/relay/data/b670_arms_prerun.txt | cut -c1-120",
+   "n": 251
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:33:42.515Z",
+   "src": "seat",
+   "cmd": "timeout 580 python -X utf8 tools/b670_reg_gate.py 2>&1 | tail -22 | cut -c1-250",
+   "n": 252
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:33:50.576Z",
+   "src": "seat",
+   "cmd": "timeout 580 python -X utf8 tools/b670_record.py gatebanks 2>&1 | cut -c1-230",
+   "n": 253
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:33:59.653Z",
+   "src": "seat",
+   "cmd": "timeout 580 python -X utf8 tools/b378_lockgate.py b670 data/b670_registration_2026-10-14.txt 2>&1 | tail -15 | cut -c1-220",
+   "n": 254
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:34:04.548Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b670_registration_2026-10-14.txt 2>&1 | tail -6 && python -X utf8 tools/reg_seal.py --verify b670_registration_2026-10-14.txt 2>&1 | tail -3 && python -X utf8 tools/b670_checks.py --seal 2>&1 | tail -10",
+   "n": 255
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:34:09.254Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --verify data/b670_registration_2026-10-14.txt 2>&1 | tail -3",
+   "n": 256
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:34:15.273Z",
+   "src": "seat",
+   "cmd": "git status --porcelain | grep -E \"b670|act_roots|terminal_table|tools/\" ",
+   "n": 257
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:34:24.410Z",
+   "src": "seat",
+   "cmd": "git add data/b670_author_answers.json data/b670_author_answers.txt data/b670_citation_check.txt data/b670_commands.json data/b670_commands.txt data/b670_correspondence.json data/b670_defects.json data/b670_defects.txt data/b670_registration_2026-10-14.txt data/b670_rules.txt tools/b670_checks.py tools/b670_record.py data/audit_b670_reg_satisfiable.txt data/b670_arms_prerun.txt data/b670_census_stepzero.txt data/b670_faces_census_stepzero.txt data/b670_lockgate.json data/b670_lockgate_notes.txt data/b670_lsr_prerun.json data/b670_pins_stepzero.txt data/b670_reg_gate.txt data/b670_reg_termscan.txt data/b670_regspec_run.txt data/b670_satisfiable.json data/b670_seal_hashes.json && git commit -q -m \"b670 seal: the face locked (sha256 0c4e0b38...), the lock gate 8 of 8, the gate CLEAR with the dry-run step CLEAN (entry 12 of 12 needles, trail 10 of 10), the spec jointly satisfiable, the censuses and pins clean; the pre-run 85 arms, none failing on real state; the sealed tools' hashes recorded; defects (f)-(h), the TECHNE line withheld in the working bank (the author's word: history kept), rules row 5, the mid-act check on that answer. Nothing deposits.\" && git log --oneline -1 | cut -c1-30",
+   "n": 258
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:34:36.094Z",
+   "src": "seat",
+   "cmd": "timeout 580 python -X utf8 tools/b670_record.py table_final 2>&1 | tail -2 && git status --porcelain | grep -E \"terminal_table|b670_table\" ",
+   "n": 259
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:35:08.951Z",
+   "src": "seat",
+   "cmd": "git add data/b670_table_final.json data/b670_table_final.txt && git commit -q -m \"b670 pre-root: the final table (data/b670_table_final.txt): rows moved 0, added 0, gone 0, grade moved 0. Nothing deposits.\" && git log --oneline -1 | cut -c1-30",
+   "n": 260
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:35:09.364Z",
+   "src": "seat",
+   "cmd": "git branch push-b670-root HEAD && PUSH_GATED_LOG=/d/relay/data/b670_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b670-root",
+   "n": 261
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:35:24.903Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b670-root HEAD && PUSH_GATED_LOG=/d/relay/data/b670_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b670-root",
+   "n": 262
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:35:58.142Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b670_record.py root dry 2>&1 | tail -6 | cut -c1-200",
+   "n": 263
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:36:26.136Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b670_record.py root 2>&1 | tail -3 | cut -c1-200 && tail -1 data/act_roots.txt | cut -c1-160 && python -X utf8 tools/b670_record.py root_arm 2>&1 | tail -1",
+   "n": 264
   }
  ],
  "offences": [],
