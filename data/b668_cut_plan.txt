@@ -30,3 +30,15 @@ b668 -- COMPONENT 3, (R278)(2): THE CUT PLANNED ON SIDE-grh-transfer`S MAIN BLOB
    NEW: The modelled topological contribution (defined as 0) has the same value at any sigma as at sigma = 1/2.
 
 ### ### **FILES 3 ; EDITS 6 ; LOCATION FAILURES 0 ; CODE OUTSIDE COMMENTS CHANGED IN 0 FILES ; EMPHASIS PARITY MOVED IN 0 FILES.**
+
+### CENSUS ROWS (the navigator's answer on the cut, (a), read before any branch; appended by the Edit tool after the plan was written):
+  untagged main  main 858cbf6 reads `v0.5.0-1-g858cbf6`: one commit past v0.5.0 (bfd2af7), untagged; the tag of this act is the next patch
+                 step, v0.5.1.
+  858cbf6        `git show --stat 858cbf6`: parent bfd2af7 ; files touched 5 -- .gitignore (+3 -4), build_v4291.log (+3), cacheget.log (+40),
+                 cacheget2.log (+8), update2.log (+7) ; NO .lean FILE, so neither Voice7Vendored.lean nor any SIDEGRHTransfer/ source among
+                 them, and nothing of SIDE-frobenius vendored. The diff: .gitignore's lines `build*.log`, `cacheget*.log`, `update*.log`,
+                 `*.out` removed and `build/`, `*.olean` added, and four logs of a local build and cache pull of this kernel committed
+                 (build_v4291.log ends "Build completed successfully (2285 jobs)", its modules SIDEGRHTransfer.*). FROM THE DIFF, NOT THE
+                 MESSAGE: a commit carrying another kernel's message ("v0.1.0: SIDE-frobenius - Frobenius/{2,3} indicial identification of
+                 sigma = 1/2", its body naming SIDE-frobenius's eight theorems) whose bytes are this kernel's ignore rules and local build
+                 logs -- addressed to SIDE-frobenius, landed here. The cut proceeds on main as it stands.
