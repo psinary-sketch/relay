@@ -1,0 +1,25 @@
+b669 -- COMPONENT 3, (R279)(4): EACH DECLARATION LANDED ON ITS OWN READING (2026-10-14T17:29:20Z)
+
+### rows are declarations: the name, its landing, its file and line at b804bf2b (chi-li-b669), its printed axioms, and where open the obstruction by file and line. The run: 38606143304 (relay data/b669_runner_SIDE-explicit-formula_run38606143304.txt).
+
+  SIDEExplicitFormula.Schema.liCoeffCfg                      DERIVES                SIDEExplicitFormula/Schema/LiCfg.lean:28  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg           DERIVES                SIDEExplicitFormula/Schema/LiCfg.lean:32  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.liCoeffCfg_summable             DERIVES                SIDEExplicitFormula/Schema/LiCfg.lean:36  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg    DERIVES                SIDEExplicitFormula/Schema/LiCfg.lean:86  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi      DERIVES                SIDEExplicitFormula/Chi/LiForward.lean:28  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.norm_lt_norm_sub_one_of_re_lt_half DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:34  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.one_lt_norm_one_sub_inv         DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:42  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.exists_dominant_point           DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:49  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.dominant_finite                 DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:68  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.norm_geom_sum_le                DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:102  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.norm_sum_powerSum_le            DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:112  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.powerSum_re_le_neg_infinitely   COMPILED, PROOF OPEN   SIDEExplicitFormula/Schema/LiConverseCfg.lean:125  ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx']
+                                                                                    OBSTRUCTION SIDEExplicitFormula/Schema/LiConverseCfg.lean:129 (its own sorry)
+  SIDEExplicitFormula.Schema.remainder_le                    COMPILED, PROOF OPEN   SIDEExplicitFormula/Schema/LiConverseCfg.lean:135  ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx']
+                                                                                    OBSTRUCTION SIDEExplicitFormula/Schema/LiConverseCfg.lean:139 (its own sorry)
+  SIDEExplicitFormula.Schema.li_nonneg_cfg_imp_online        COMPILED, PROOF OPEN   SIDEExplicitFormula/Schema/LiConverseCfg.lean:145  ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx']
+                                                                                    OBSTRUCTION SIDEExplicitFormula/Schema/LiConverseCfg.lean:147 (its own sorry)
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_imp_grh_chi      COMPILED, PROOF OPEN   SIDEExplicitFormula/Schema/LiConverseCfg.lean:159  ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx']
+                                                                                    OBSTRUCTION SIDEExplicitFormula/Schema/LiConverseCfg.lean:147 (the sorry of li_nonneg_cfg_imp_online, which its proof names)
+
+### ### **DECLARATIONS 15 ; COMPILED, PROOF OPEN 4 ; DERIVES 11.**

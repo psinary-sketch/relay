@@ -1,0 +1,37 @@
+b669 -- COMPONENT 3, (R279)(4): THE HOSTED RUNNER FOR SIDE-explicit-formula, READ BY ITS RUN ID (2026-10-14T17:29:08Z)
+
+### the workflow on main: f18ab7e (build-module.yml, b658`s form; the print step imports each module of the target)
+### print_targets.txt at the ref: 15 names
+### the dispatch: at main, the ref input b804bf2b682b31aea7fe48ac214e040082703cfc (the tip of chi-li-b669)
+### the run: id 38606143304 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/38606143304 ; build-module workflow_dispatch ; status completed ; conclusion success ; head 02bc85d72da836186bbe72f65cd02f23fb75db83 on main ; 2026-10-14T17:22:44Z to 2026-10-14T17:28:08Z
+### the artifact: id 11916235670 ; name build-module-38606143304 ; 6714 bytes ; sha256 70d0088a3c9f617e1a6114257d32ea2d2c22f9fe3268c9a1b4bd7e64bf29e650 ; the platform`s digest 70d0088a3c9f617e1a6114257d32ea2d2c22f9fe3268c9a1b4bd7e64bf29e650 ; AGREE
+### the ref built (out/ref.txt): b804bf2b682b31aea7fe48ac214e040082703cfc leanprover/lean4:v4.34.0-rc1
+### the memory log: samples 42 ; LOW 13396 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 0 ; error lines 0 ; the log`s last lines:
+    ✔ [3760/3763] Built SIDEExplicitFormula.Chi.ZetaBoundsStrip (2.0s)
+    ✔ [3761/3763] Built SIDEExplicitFormula.Chi.ZetaGrowth (2.7s)
+    ✔ [3762/3763] Built SIDEExplicitFormula.Chi.LocalCount (7.2s)
+    ⚠ [3763/3763] Built SIDEExplicitFormula.Schema.LiConverseCfg (3.5s)
+    warning: SIDEExplicitFormula/Schema/LiConverseCfg.lean:125:8: declaration uses `sorry`
+    warning: SIDEExplicitFormula/Schema/LiConverseCfg.lean:135:8: declaration uses `sorry`
+    warning: SIDEExplicitFormula/Schema/LiConverseCfg.lean:145:8: declaration uses `sorry`
+    Build completed successfully (3763 jobs).
+### the print step: error lines 0 ; names refused NONE
+### THE GATE READING PER TERMINAL (no banked print for the act`s new names: each read at the standard three or none, sorryAx named):
+  SIDEExplicitFormula.Schema.liCoeffCfg                      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg           ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.liCoeffCfg_summable             ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg    ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi      ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.norm_lt_norm_sub_one_of_re_lt_half ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.one_lt_norm_one_sub_inv         ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.exists_dominant_point           ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.dominant_finite                 ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.norm_geom_sum_le                ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.norm_sum_powerSum_le            ['Classical.choice', 'Quot.sound', 'propext'] STANDARD THREE OR NONE
+  SIDEExplicitFormula.Schema.powerSum_re_le_neg_infinitely   ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx'] SORRYAX
+  SIDEExplicitFormula.Schema.remainder_le                    ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx'] SORRYAX
+  SIDEExplicitFormula.Schema.li_nonneg_cfg_imp_online        ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx'] SORRYAX
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_imp_grh_chi      ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx'] SORRYAX
+
+### ### **RUN 38606143304 ; CONCLUSION success ; ARTIFACT SHA256 70d0088a3c9f617e ; MEMORY LOW 13396 MB (HOLD 2560) ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS 15, PRINTED 15, AT THE STANDARD THREE OR NONE 11, SORRYAX 4 ; GATE NOT DERIVES.**
