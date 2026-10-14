@@ -1,0 +1,80 @@
+b668 -- THE CITATION CHECK, A GATE STEP AT STEP ZERO (standing from b662), RUN BEFORE THE FERRY IS BANKED (2026-10-14T14:35:40Z)
+
+### the source: the ruling and the ferry as pasted, read from the session transcript (11059 characters, 'RULING (R278) BEGIN' to 'FERRY END (part 1 of 1)'); every cite checked at HEAD; rows are cites: where | what | OK or MISS | how | the component that cites it.
+
+  OK   | ferry read-first | data/b667_closing.txt | exists at the working tree | Component 0-5
+  OK   | ferry read-first | data/b667_defects.txt | exists at the working tree | Component 0-5
+  OK   | ferry read-first | data/b667_root_list.txt | exists at the working tree | Component 0-5
+  OK   | ferry read-first | data/b647_table_kernels.txt | exists at the working tree | Component 0-5
+  OK   | ferry read-first | data/b647_table_SIDE-grh-transfer.txt | exists at the working tree | Component 0-5
+  OK   | ferry read-first | data/b657_sentence_grades.txt | exists at the working tree | Component 0-5
+  OK   | ferry read-first | data/b667_closing_push_out.txt | exists at the working tree | Component 0-5
+  OK   | ferry read-first | tools/mirror_build.ps1 | exists at the working tree | Component 0-5
+  OK   | ferry read-first | tools/mirror_verify.py | exists at the working tree | Component 0-5
+  OK   | ruling (1) | relay aeccc731, PLACE-papers 7904281 | git cat-file; the closing`s head prints "b667 closed: relay 32fbf9cb, PLACE-papers 7904281; suite 80 of 81; root d2fba79ee9a39093…; 10 prompts answered" | Component 1
+  OK   | ruling (1) | "twelve defects (a)-(l), (c), (h) and (k) the navigator`s" | data/b667_defects.txt rows: (a) SEAT'S, (b) SEAT'S, (c) NAVIGATOR'S, (d) SEAT'S, (e) SEAT'S, (f) SEAT'S, (g) SEAT'S, (h) NAVIGATOR'S, (i) SEAT'S, (j) SEAT'S, (k) NAVIGATOR'S, (l) SEAT'S | Component 1
+  OK   | ruling (1) | 146 on-line at count 1 | data/b667_closing.txt :43 | Component 1
+  OK   | ruling (1) | 17 off-line at count 1, none widened | data/b667_closing.txt :42 | Component 1
+  OK   | ruling (1) | N(R) = 180, the band 0 | data/b667_closing.txt :45 | Component 1
+  OK   | ruling (1) | C1 1, 1, 1 and 3 | data/b667_closing.txt :37 | Component 1
+  OK   | ruling (1) | C3 UNLISTED 1 | data/b667_closing.txt :71 | Component 1
+  OK   | ruling (1) | the host low 2,742 MB | data/b667_closing.txt :47 | Component 1
+  OK   | ruling (1) | the sealed tools at the close | data/b667_closing.txt :16 | Component 1
+  OK   | ruling (1) | suite 80 of 81, G-EDIT-ROUTE declared | the closing`s head and its post-push line | Component 1
+  OK   | ruling (1) | FINDINGS :8647 | *Appended 2026-10-13 by b667 to b666’s entry (:8621), under `(R277)`(1) -- b666 AT ITS WEIGHT, AS IT | Component 1
+  OK   | ruling (1) | FINDINGS :8649 | ## Q0’s zeros below 150 in balls: 17 off-line and 146 on-line isolated at count 1, the region count  | Component 1
+  OK   | ruling (1) | OPEN_TRAILS :14262 | *Appended 2026-10-14 by b667 beneath W-ORD-EPSTEIN-CERTIFY (:14158), under `(R277)`(6) and (6a) -- W | Component 1
+  OK   | ruling (1) | OPEN_TRAILS :14264 | *Appended 2026-10-14 by b667 beneath W-ORD-EPSTEIN-CERTIFY (:14158), under `(R277)`(6a) -- `W-ORD-EP | Component 1
+  OK   | ruling (1) | OPEN_TRAILS :14266 | *Appended 2026-10-14 by b667 beneath W-ORD-EPSTEIN-CERTIFY (:14158), under `(R277)`(6) -- THE KERNEL | Component 1
+  OK   | ruling (1) | OPEN_TRAILS :14268 | *Appended 2026-10-14 by b667 beneath the kernel item for P1 and P2, under the author’s word on the r | Component 1
+  OK   | ruling (1) | OPEN_TRAILS :14270 | ### b667 — lane two, act ninety-four, the research act under (R277): b666 at its weight; the evaluat | Component 1
+  OK   | ruling (1) | root d2fba79e... | data/act_roots.txt b667 line | Component 1
+  OK   | ferry read-first | b667_root_list.txt (rows are banks; the two binary names with their reason) | data/b667_root_list.txt :9 (the reason), the names below it | Component 1
+  OK   | ruling (1) | both hashes in data/b667_large_banks.txt | data/b667_large_banks.txt | Component 1
+  OK   | ruling (2) | SIDE-grh-transfer at 6 OVERREACHES | data/b647_table_kernels.txt :13 SIDE-grh-transfer                  858cbf6 |   58 |   52 |   0 |   6 |   0 |   6 of   58 | | Component 2
+  OK   | ruling (2) | the tie rule at OPEN_TRAILS :14238 | OPEN_TRAILS :14238 | Component 2
+  OK   | ferry read-first | SIDE-grh-transfer`s b647 bank (rows are blocks) | data/b647_table_SIDE-grh-transfer.txt: 6 distinct OVERREACHES blocks at 858cbf6: SIDEGRHTransfer/CharacterTopological.lean:1, SIDEGRHTransfer/CharacterTopological.lean:51, SIDEGRHTransfer/GRHBridge.lean:1, SIDEGRHTransfer/GRHBridge.lean:142, SIDEGRHTransfer/Voice7Vendored.lean:1, SIDEGRHTransfer/Voice7Vendored.lean:58 | Component 2
+  OK   | ferry read-first; ruling (2) | the change banks since b647, if any | main 858cbf6 = b647`s read 858cbf6: no change since, no change bank owed ((R267)(3) as written) | Component 2
+  OK   | ferry read-first | the kernel`s lean-toolchain and lakefile by line | lean-toolchain :1 leanprover/lean4:v4.29.1 ; lakefile.lean :4 package sideGrhTransfer where ; :14 mathlib rev ; :17-:19 lean_lib SIDEGRHTransfer, srcDir ".", globs submodules | Component 3
+  OK   | ruling (2) | the workflow on its main where absent | no .github/workflows directory at main | Component 3
+  OK   | ruling (2) | the tag at the next patch step in its series | tags: v0.1.0 v0.2.0 v0.3.0 v0.4.0 v0.5.0 ; v0.5.0 at bfd2af7 ; main 858cbf6 past it, untagged | Component 3
+  OK   | ferry Component 0 | relay push-b667 | git branch --list | Component 0
+  OK   | ferry Component 0 | relay push-b667-root | git branch --list | Component 0
+  OK   | ferry Component 0 | relay push-b667-closing | git branch --list | Component 0
+  OK   | ferry Component 0 | PLACE-papers push-b667 | git branch --list | Component 0
+  OK   | ferry Component 0 | PLACE-papers push-b667-root | git branch --list | Component 0
+  OK   | ruling (2); ferry | (R265)(2, 3, 4) | data/b655_ferry.txt | Component 2-3
+  OK   | ruling (2); ferry | (R267)(3) | data/b657_ferry.txt | Component 2
+  OK   | ruling (2); ferry | (R263)(4) | data/b653_ferry.txt | Component 3
+  OK   | ruling (2); ferry | (R251)(3) | data/b641_ferry.txt | Component 5
+  OK   | ruling (2); ferry | (R254)(2) | data/b644_ferry.txt | Component 0-5
+  OK   | ruling (3)-(4) | the citation-check rule on OPEN_TRAILS (beside which (3) and (4) are entered) | OPEN_TRAILS :14136 | Component 1
+  OK   | ruling (5) | b671 W-ORD-EPSTEIN-BALL-WIDTH | OPEN_TRAILS :14264 | Component 1
+  MISS | ruling (5) | the EXTERNAL-ZFR-7/8 line | OPEN_TRAILS :None ; git grep -i "ZFR" over PLACE-papers and relay: ['data/b629_author_answers.txt', 'data/b629_author_answers_verbatim.txt', 'data/b667_epstein_zeros_certified.json.gz'] | Component 1
+  MISS | ruling (5) | the two relative-entropy questions (b670) | git grep -i "relative.entropy" over PLACE-papers and relay: no file | Component 1
+  OK   | ruling (6) | the mirror export in the b655 form | tools/mirror_build.ps1, tools/mirror_verify.py | Component 5
+  OK   | ruling (7) | the draft at v5, held | data/b667_closing.txt (N5): draft 23228113, v5, unsubmitted | Component 5
+  OK   | ferry | tools/push_gated.sh | exists | Component 0-5
+  OK   | ferry | tools/act_root.py | exists | Component 0-5
+  OK   | ferry | tools/additive_shared.py | exists | Component 0-5
+  OK   | ferry | tools/ferry_scan.py | exists | Component 0-5
+  OK   | ferry | tools/licensed_table.py | exists | Component 0-5
+  OK   | ferry | tools/axiom_claim.py | exists | Component 0-5
+
+### THE MISSES, EACH RAISED TO THE AUTHOR BEFORE THE COMPONENT THAT CITES IT RUNS (none repaired silently):
+  the EXTERNAL-ZFR-7/8 line -- OPEN_TRAILS :None ; git grep -i "ZFR" over PLACE-papers and relay: ['data/b629_author_answers.txt', 'data/b629_author_answers_verbatim.txt', 'data/b667_epstein_zeros_certified.json.gz'] (Component 1)
+  the two relative-entropy questions (b670) -- git grep -i "relative.entropy" over PLACE-papers and relay: no file (Component 1)
+
+### ### **CITES CHECKED 58 ; OK 56 ; MISSES 2.**
+
+### (R278)(4) THE MID-ACT CHECK (2026-10-14T14:37:26Z): the navigator`s answer carrying 'ANSWER on the order cites', 2408 characters; its cites checked at HEAD before the seat acts on it:
+  MISS | path | data/b668_b670_items.txt
+  OK   | path | data/b668_citation_check.txt
+  MISS | path | data/b668_defects.txt
+### ### **ANSWER CITES CHECKED 3 ; OK 1 ; MISSES 2 -- RAISED: data/b668_b670_items.txt, data/b668_defects.txt.**
+
+### (R278)(4) THE MID-ACT CHECK (2026-10-14T14:37:40Z): the navigator`s answer carrying 'ANSWER on the order cites', 2408 characters; its cites checked at HEAD before the seat acts on it:
+  OK   | path, this act`s bank the answer orders written -- TO BE WRITTEN, not a cite | data/b668_b670_items.txt
+  OK   | path | data/b668_citation_check.txt
+  OK   | path, this act`s bank the answer orders written -- TO BE WRITTEN, not a cite | data/b668_defects.txt
+### ### **ANSWER CITES CHECKED 3 ; OK 3 ; MISSES 0.**
