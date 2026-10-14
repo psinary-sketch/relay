@@ -1,10 +1,10 @@
 b667 -- THE b663 MAP CARRIED ONTO THE BALLS ((R277)(5) H4): `git diff --no-index tools/b663_epstein_map.py tools/b667_epstein_map_balls.py`, whole.
 
 diff --git a/tools/b663_epstein_map.py b/tools/b667_epstein_map_balls.py
-index 4e7e4238..aaf75807 100644
+index 4e7e4238..e6c8c66f 100644
 --- a/tools/b663_epstein_map.py
 +++ b/tools/b667_epstein_map_balls.py
-@@ -1,18 +1,16 @@
+@@ -1,20 +1,19 @@
  # -*- coding: utf-8 -*-
 -"""b663_epstein_map.py -- THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, BOUND TO zeroSide_neg_at_rate_cfg (SIDE-explicit-formula
 -v0.28, Schema/RateIndexCfg.lean :135-:148) AT q0Config (branch epstein-b663, Schema/EpsteinQ0.lean), under (R273)(4) and the author's word on
@@ -34,8 +34,11 @@ index 4e7e4238..aaf75807 100644
 +### Usage: `python tools/b667_epstein_map_balls.py` -- banks data/b667_epstein_control_balls.txt and .json. No lean; no kernel file read.
  ### Nothing here is about ζ: Z₁ is not ζ's configuration, and the Q0 configuration is Z_Q's only under its premises.
  """
++import gzip
  import io
-@@ -30,6 +28,7 @@ PREC_RUNG = 400                                            # ### the one rung, 2
+ import json
+ import os
+@@ -30,6 +29,7 @@ PREC_RUNG = 400                                            # ### the one rung, 2
  J_EXTRA = 40                                               # ### J_max = D + 40 ((R273)(4), the b662 script's rule)
  Z1_CELL = ('0.8', '29.6')                                  # ### the control: b661's Z₁ at its H3 cell
  Q0_ON, Q0_OFF = 'b326_epstein_zeros.json', 'b326_offline.json'   # ### the bench's list (on the author's word, b326's)
@@ -43,7 +46,7 @@ index 4e7e4238..aaf75807 100644
  Q0_T = 150                                                 # ### the height cut, the banks' own T
  Q0_BASE = 0                                                # ### qE0 = the off-line list's index 0, the dominant (data/b663_dominance.txt)
  Q0_A0 = 10                                                 # ### A0Q, P3's constant (Schema/EpsteinQ0.lean; data/b663_a0_list.txt)
-@@ -144,14 +143,15 @@ def zero_list():
+@@ -144,14 +144,15 @@ def zero_list():
  
  
  def q0_list():
@@ -58,7 +61,7 @@ index 4e7e4238..aaf75807 100644
 +    """the certified balls (relay data/b667_epstein_zeros_certified.json, b667 Component 3): the on-line ordinates as arb(γ, h) and the
 +    off-line zeros as the ball strings '[σ +/- h]', '[t +/- h]', each by its bank index, in place of b326's decimal literals; a row whose
 +    count is not 1 stops the map."""
-+    rows = json.load(io.open(os.path.join(D_DIR, Q0_CERT), encoding='utf-8'))['rows']
++    rows = json.loads(gzip.decompress(open(os.path.join(D_DIR, Q0_CERT + '.gz'), 'rb').read()).decode('utf-8'))['rows']
 +    on = sorted((r for r in rows if r['kind'] == 'ON'), key=lambda r: r['idx'])
 +    off = sorted((r for r in rows if r['kind'] == 'OFF'), key=lambda r: r['idx'])
 +    if not all(r['count'] == 1 for r in on + off) or len(on) != 146 or len(off) != 17:
@@ -67,7 +70,7 @@ index 4e7e4238..aaf75807 100644
  
  
  # ================================================================================ hA: THE LOCAL COUNT, A FINITE MAXIMUM
-@@ -502,13 +502,13 @@ def run_cell(name, base, online, offline, i4s, zls_rung, above=None, a0_premise=
+@@ -502,13 +503,13 @@ def run_cell(name, base, online, offline, i4s, zls_rung, above=None, a0_premise=
  
  def main():
      t0 = time.time()
@@ -85,7 +88,7 @@ index 4e7e4238..aaf75807 100644
      say('')
      ctx.prec = PREC
      lo, hi = i4_ball()
-@@ -568,7 +568,7 @@ def score(rc, c_ok, rq):
+@@ -568,7 +569,7 @@ def score(rc, c_ok, rq):
      say('  THE CONTROL %s' % ('REPRODUCED (j₀ = 31, the zero side below 0)' if c_ok else 'NOT REPRODUCED'))
  
  

@@ -1,0 +1,8 @@
+b667 -- THE RUN`S TWO LARGE BANKS, GZIPPED UNDER THEIR OWN NAMES (2026-10-14T13:22:52Z), the navigator`s answer on the large banks: rows are banks -- the uncompressed byte count, the sha256 of the uncompressed bytes, the .gz`s byte count and sha256 as committed, the read-back.
+
+  data/b667_bessel_rungs.txt.gz | uncompressed 132269830 bytes, sha256 2e1beea567b621c86cec1fde337be14feedb5d0e1497f25f0f6a36b745cf90a1 | gz 1191378 bytes, sha256 20ef822dc61b66d2269dfcbc1b49f325b0e96175be58297cd101504aaac7ccdd | read back byte-equal True
+  data/b667_epstein_zeros_certified.json.gz | uncompressed 172812228 bytes, sha256 33d88882372f46d200c43cc86fa8453cfbd475b5a4ae2469dc518e61df2596ca | gz 2233501 bytes, sha256 5dfd6a4bfdc099298b2a0953f92faeea6e57262045cdf7ab09e24c3353b9ff05 | read back byte-equal True
+
+### the rows of data/b667_bessel_rungs.txt.gz are Bessel factors: m, the evaluation`s point (σ, t) at its centre, the precision; the
+### run printed no ball column for a factor (the answer`s "ball" not in the rows as written; nothing added). The rows of
+### data/b667_epstein_zeros_certified.json.gz are squares with their balls and their rung lists. Nothing re-written from the run`s output.

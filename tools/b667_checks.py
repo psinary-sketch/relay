@@ -322,10 +322,26 @@ def map_unchanged_but_literals():
         t = re.sub(r'"""[\s\S]*?"""\n', '', t, count=1)      # ### the module docstring, after the coding line
         t = re.sub(r'\ndef q0_list\(\):[\s\S]*?(?=\n\n\n)', '\n', t)
         ls = [l for l in t.split(NL) if not re.match(r"^\s*say\('(### |b66\d)", l) and not l.startswith('Q0_CERT') and not l.startswith('def put(')
+              and l != 'import gzip'                                  # ### the .gz reader's import, I/O alone (the answer on the large banks)
               and not re.match(r"^\s*'### Q0`s zeros|^\s*say\('### Q0", l)]
         return [l for l in ls if l.strip()]
     a, b = norm(read(os.path.join(T, 'b663_epstein_map.py'))), norm(read(os.path.join(T, 'b667_epstein_map_balls.py')))
     return a == b and len(a) > 300, len(a), len(b)
+
+
+def large_now():
+    """the sha256 of each large bank's bytes after decompression of its .gz as committed (the navigator's answer on the large banks)."""
+    import gzip
+    out = {}
+    for n in ('b667_bessel_rungs.txt', 'b667_epstein_zeros_certified.json'):
+        b = raw(os.path.join(D, n + '.gz'))
+        out[n] = hashlib.sha256(gzip.decompress(b)).hexdigest() if b is not None else None
+    return out
+
+
+def large_ok(S):
+    return all(v and ('data/%s.gz | uncompressed' % n) in S['largebank'] and ('sha256 %s |' % v) in S['largebank'] for n, v in S['large'].items()) \
+        and 'read back byte-equal True' in S['largebank']
 
 
 def sources():
@@ -354,10 +370,11 @@ def sources():
         planted={t: run_test(t) for t in TESTS}, spec=spec_planted(), conv_bad=conv_alone(), suite=read(os.path.join(T, 'b667_checks.py')),
         citation=rd(K.CITATION_BANK), c1_ct=_ct_first(ROOT, PRE['relay'], 'b667 Component 1'),
         plan=rd('b667_epstein_plan.txt'), obst=rd('b667_bessel_obstruction.txt'), ballobst=rd('b667_ball_obstruction.txt'),
-        margin=rd('b627_margin_inputs.txt'), counts=rd('b667_epstein_counts.txt'), certj=jl('b667_epstein_zeros_certified.json'),
+        margin=rd('b627_margin_inputs.txt'), counts=rd('b667_epstein_counts.txt'), certj=REC.cert_json(), large=large_now(),
+        largebank=rd('b667_large_banks.txt'),
         cmap=rd('b667_epstein_control_balls.txt'), mapdiff=map_unchanged_but_literals(), control=rd('b663_epstein_control.txt'),
         hyp=rd('b667_hypotheses.txt'), runs=[rd('b667_certify_run%d.txt' % i) for i in (1, 2, 3)],
-        rundiffs=[rd('b667_certify_diff_run3.txt'), rd('b667_certify_diff_run4.txt')], rungs=rd('b667_bessel_rungs.txt'),
+        rundiffs=[rd('b667_certify_diff_run3.txt'), rd('b667_certify_diff_run4.txt')], rungs=rd('b667_bessel_rungs_summary.txt'),
         b326={p: tri(ROOT, p, PRE['relay']) for p in K.B326_BANKS},
         standing=STANDING, wf=wf_state(), runner=jl(K.RUNNER_ROWS), rbank=rd(K.RUNNER_BANK), merges=merges_state(),
         export_present=os.path.exists(os.path.join(ROOT, *EXPORT.split('/'))), export_log=gs(ROOT, 'log', '--all', '--format=%h', '--', EXPORT),
@@ -615,7 +632,7 @@ def squares_ok(S):
         return False
     by = dict((k, [x for x in rows if x[0] == k]) for k in ('ON', 'OFF', 'PARTNER'))
     return len(by['ON']) == 146 and len(by['OFF']) == 17 and len(by['PARTNER']) == 17 and all(x[2] == 1 for x in rows) \
-        and j.get('H1') is True and j.get('H2') is True and not any((r.get('unresolved') or []) for r in j.get('rows') or [])
+        and j.get('H1') is True and j.get('H2') is True and not any((r.get('unresolved') or []) for r in j.get('rows') or []) and large_ok(S)
 
 
 def region_ok(S):
@@ -642,7 +659,7 @@ def b326_ok(S):
 
 def runs_ok(S):
     return all('STOPPED' in t for t in S['runs']) and all(('    (%s) THE SEAT' % x) in S['defects'] for x in 'efg') \
-        and all(d.startswith('b667 -- THE CERTIFY SCRIPT') for d in S['rundiffs']) and 'FACTORS AT 600 BITS:' in S['rungs']
+        and all(d.startswith('b667 -- THE CERTIFY SCRIPT') for d in S['rundiffs']) and 'FACTORS 2196052 ;' in S['rungs'] and large_ok(S)
 
 
 # ================================================================== THE RUNNER (the standing arms, the latest dispatch's banks: b666's)

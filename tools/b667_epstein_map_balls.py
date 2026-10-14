@@ -13,6 +13,7 @@ zeroSide_neg_at_rate_cfg (SIDE-explicit-formula, Schema/RateIndexCfg.lean :135-:
 ### Usage: `python tools/b667_epstein_map_balls.py` -- banks data/b667_epstein_control_balls.txt and .json. No lean; no kernel file read.
 ### Nothing here is about ζ: Z₁ is not ζ's configuration, and the Q0 configuration is Z_Q's only under its premises.
 """
+import gzip
 import io
 import json
 import os
@@ -146,7 +147,7 @@ def q0_list():
     """the certified balls (relay data/b667_epstein_zeros_certified.json, b667 Component 3): the on-line ordinates as arb(γ, h) and the
     off-line zeros as the ball strings '[σ +/- h]', '[t +/- h]', each by its bank index, in place of b326's decimal literals; a row whose
     count is not 1 stops the map."""
-    rows = json.load(io.open(os.path.join(D_DIR, Q0_CERT), encoding='utf-8'))['rows']
+    rows = json.loads(gzip.decompress(open(os.path.join(D_DIR, Q0_CERT + '.gz'), 'rb').read()).decode('utf-8'))['rows']
     on = sorted((r for r in rows if r['kind'] == 'ON'), key=lambda r: r['idx'])
     off = sorted((r for r in rows if r['kind'] == 'OFF'), key=lambda r: r['idx'])
     if not all(r['count'] == 1 for r in on + off) or len(on) != 146 or len(off) != 17:

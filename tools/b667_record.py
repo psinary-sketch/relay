@@ -288,7 +288,7 @@ def answers(*a):
 
 # ================================================================================ COMPONENT 5: THE LANDING, (R277)(6)
 def _cert():
-    j = jl('b667_epstein_zeros_certified.json')
+    j = cert_json()
     rows = [read_cert_row(r) for r in (j.get('rows') or [])]
     return j, rows
 
@@ -881,6 +881,67 @@ def drycheck(*a):
         sys.exit(1)
 
 
+# ================================================================================ THE LARGE BANKS (the navigator's answer: option 1, the names fixed)
+LARGE = ('b667_bessel_rungs.txt', 'b667_epstein_zeros_certified.json')
+
+
+def gzbanks(*a):
+    """the run's two large banks gzipped under their own names (-9, mtime 0), the run's bytes unchanged; each read back and compared byte for
+    byte; data/b667_large_banks.txt with the uncompressed byte count, the sha256 of the uncompressed bytes and of the .gz; and
+    data/b667_bessel_rungs_summary.txt, counts by m and by height. Deletes nothing (the seat deletes the uncompressed files after the read-back,
+    one verified absolute path per command)."""
+    import gzip
+    import hashlib
+    rows, rb = [], {}
+    for n in LARGE:
+        src = os.path.join(D, n)
+        b = open(src, 'rb').read()
+        z = gzip.compress(b, 9, mtime=0)
+        gp = src + '.gz'
+        if os.path.exists(gp):
+            sys.exit('### %s.gz EXISTS -- NOTHING WRITTEN' % n)
+        open(gp + '.tmp', 'wb').write(z)
+        os.replace(gp + '.tmp', gp)
+        back = gzip.decompress(open(gp, 'rb').read())
+        eq = back == b
+        rows.append((n, len(b), hashlib.sha256(b).hexdigest(), len(z), hashlib.sha256(open(gp, 'rb').read()).hexdigest(), eq))
+        rb[n] = b
+        print('  %s.gz : %d bytes from %d ; READ BACK BYTE-EQUAL %s' % (n, len(z), len(b), eq))
+    if not all(r[5] for r in rows):
+        sys.exit('### A READ-BACK DIFFERS -- THE BANKS NOT WRITTEN, NOTHING TO DELETE')
+    L = ['b667 -- THE RUN`S TWO LARGE BANKS, GZIPPED UNDER THEIR OWN NAMES (%s), the navigator`s answer on the large banks: rows are banks -- the '
+         'uncompressed byte count, the sha256 of the uncompressed bytes, the .gz`s byte count and sha256 as committed, the read-back.' % utc(), '']
+    for n, nb, sh, nz, shz, eq in rows:
+        L.append('  data/%s.gz | uncompressed %d bytes, sha256 %s | gz %d bytes, sha256 %s | read back byte-equal %s' % (n, nb, sh, nz, shz, eq))
+    L += ['', '### the rows of data/b667_bessel_rungs.txt.gz are Bessel factors: m, the evaluation`s point (σ, t) at its centre, the precision; the',
+          '### run printed no ball column for a factor (the answer`s "ball" not in the rows as written; nothing added). The rows of',
+          '### data/b667_epstein_zeros_certified.json.gz are squares with their balls and their rung lists. Nothing re-written from the run`s output.']
+    put_txt('b667_large_banks.txt', L)
+    cnt_m, cnt_t = collections.Counter(), collections.Counter()
+    tot = 0
+    for l in rb['b667_bessel_rungs.txt'].decode('utf-8').split(NL):
+        m = re.match(r'^  m\s+(\d+) \| σ (\S+) \| t (\S+) \| (\d+) bits', l)
+        if m:
+            tot += 1
+            cnt_m[int(m.group(1))] += 1
+            cnt_t[int(float(m.group(3)) // 10) * 10] += 1
+    S_ = ['b667 -- THE BESSEL FACTORS TAKEN AT 600 BITS, SUMMARISED (%s), from data/b667_bessel_rungs.txt.gz: rows are counts -- by m, then by height '
+          '(t in bands of 10).' % utc(), '']
+    S_ += ['  m %2d : %d' % (k, cnt_m[k]) for k in sorted(cnt_m)] + [''] + ['  t in [%3d, %3d) : %d' % (k, k + 10, cnt_t[k]) for k in sorted(cnt_t)]
+    S_ += ['', '### ### **FACTORS %d ; the run`s own total line %s.**' % (tot, re.search(r'FACTORS AT 600 BITS: \d+', rb['b667_bessel_rungs.txt'].decode('utf-8')).group(0))]
+    put_txt('b667_bessel_rungs_summary.txt', S_)
+    print(S_[-1])
+
+
+def cert_json():
+    """the certified rows, read from data/b667_epstein_zeros_certified.json.gz (I/O alone)."""
+    import gzip
+    p = os.path.join(D, 'b667_epstein_zeros_certified.json.gz')
+    if not os.path.exists(p):
+        return jl('b667_epstein_zeros_certified.json')
+    return json.loads(gzip.decompress(open(p, 'rb').read()).decode('utf-8'))
+
+
 # ================================================================================ THE DIFFS ((R277)(3d); Component 4)
 def diffs(*a):
     """data/b667_certify_diff_run3.txt: tools/b667_epstein_certify.py at the second run's commit (15918f9d) against the working file; and
@@ -901,7 +962,7 @@ def diffs(*a):
                                                        sum(1 for l in body.split(NL) if l.startswith('+') and not l.startswith('+++'))))
 
 
-ROUTES = {'c1': c1, 'answers': answers, 'diffs': diffs, 'hypotheses': hypotheses, 'landing': landing, 'commands': commands, 'kernels': kernels,
+ROUTES = {'c1': c1, 'answers': answers, 'diffs': diffs, 'gzbanks': gzbanks, 'hypotheses': hypotheses, 'landing': landing, 'commands': commands, 'kernels': kernels,
           'defects': defects, 'root': root, 'root_arm': root_arm, 'table_final': table_final, 'gatebanks': gatebanks, 'scores': scores,
           'desk': desk, 'components': components, 'findings': findings, 'trail': trail, 'drycheck': drycheck}
 
