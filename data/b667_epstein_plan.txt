@@ -213,3 +213,27 @@ PROMPT BEFORE ANY NUMBER (2026-10-13)
   Banks        tools/b667_epstein_certify.py (constants at its head, read back whole); relay data/b667_epstein_zeros_certified.txt (.json),
                rows zeros with balls; relay data/b667_epstein_counts.txt, rows rectangles and regions with V1-V3 and C1-C3.
   Run          detached, one process per batch of squares (the host's cores), watched by a single foreground check.
+
+== 14. THE SECOND OBSTRUCTION, FOUND BY A SMOKE TEST OF THE WRITTEN SCRIPT BEFORE ITS RUN (no banked point read, no control run; relay
+   data/b667_ball_obstruction.txt, tools/b667_ball_probe.py)
+  Section 5 encloses Z_Q on a segment by the route evaluated on the segment's ball. Measured on balls of radius r ∈ {1e-12, 1e-6, 1e-3, 1e-2}
+  about 0.7 + 40.25i and 0.7 + 140.25i: T3's ball as Arb propagates it is 10^56 to 10^81 times r·|Z_Q'| -- acb.bessel_k propagates a
+  radius in its order ν (and in its argument x) by a bound blind to K's e^{−π|t|/2} cancellation -- so no segment of section 5 is ever
+  accepted. T1's ball is 4-7 times r·|Z_Q'| and T2's 34-85 times: usable.
+  A SECOND FAULT OF THE SAME KIND, IN THE SCRIPT: the argument x = π√23 m was formed at 200 bits, its radius then propagated by the same
+  crude bound, so re-taking a factor at 600 bits did not tighten it (a point value at t = 140.25 carried a radius 4e-6). The repair is to
+  form x at the Bessel call's own precision -- an implementation repair, no new bound.
+  THE REMEDY PROPOSED (raised as a prompt; not run): never let Arb propagate a radius in ν; take K at the ball's centre and add
+  |ν − ν_mid| · sup_{ν ∈ ball} |∂_ν K_ν(x)| by the mean value inequality, with the supremum bounded as follows.
+    (a) K_ν(x) = ½ ∫_ℝ e^{−x cosh u − νu} du (DLMF 10.32.9, even in u); so ∂_ν K_ν(x) = −½ ∫_ℝ u e^{−x cosh u − νu} du.
+    (b) Shift ℝ to ℝ − iθ, 0 < θ t, |θ| < π/2 (Cauchy: the integrand is entire in u and decays at both ends of the strip, since
+        Re(x cosh(u − iθ)) = x cosh u cos θ > 0). With ν = μ + it: |e^{−x cosh(u−iθ) − ν(u−iθ)}| = e^{−x cos θ cosh u − μu − tθ}.
+    (c) |u − iθ| ≤ |u| + |θ|; e^{−μu} ≤ e^{|μ||u|}; |u| e^{|μ||u|} ≤ e^{−1} e^{(|μ|+1)|u|} (u ≤ e^{u−1}); and
+        ∫_ℝ e^{−a cosh u + λ|u|} du = 2 ∫_0^∞ e^{−a cosh u + λu} du ≤ 4 K_λ(a) (e^{λu} ≤ 2 cosh(λu); DLMF 10.32.9 again).
+    (d) Hence |∂_ν K_ν(x)| ≤ 2 e^{−|t||θ|} (|θ| K_{|μ|}(a) + e^{−1} K_{|μ|+1}(a)), a = x cos θ -- uniform over a ball of ν when |t| is the
+        ball's least |Im ν| and |μ| its largest |Re ν|; θ = sign(t)(π/2 − 1/max(|t|, 1)), and θ = 0 where the ball meets Im ν = 0.
+        K_{|μ|}(a), K_{|μ|+1}(a): real order, real argument, Arb balls (acb.bessel_k), tight.
+  MEASURED WITH THE REMEDY (x formed at 600 bits): T3's ball 131-178 times r·|Z_Q'| at t = 40.25, 359-507 times at t = 140.25. One
+  evaluation takes about 0.04 s. The segment test then needs segments of half-length about |Z_Q|/(2·500·|Z_Q'|): about 1000 per side of a
+  square (1.6 hours for the 180 squares on ten processes) and about 1.6 million on R's right edge (about 3.6 hours); the top edge, B and C1
+  far fewer.
