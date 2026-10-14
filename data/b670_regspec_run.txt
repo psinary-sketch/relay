@@ -1,0 +1,49 @@
+====================================================================================================
+b670_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+  ### (R263)(3) THE PLANTED ROWS, ONE PER SHAPE A SEALED ROUTE READS, EACH THROUGH THE RECORD TOOL`S READER:
+      runner row (the last merged run`s shape)     READ -- {'kernel': 'SIDE-x', 'outcome': 'GATE DERIVES', 'merged': None, 'low': 9000, 'above_hold': True}
+      score row                                    READ -- ('N3', 'HELD', 'a planted score text')
+      trail head with a backtick possessive        READ -- 3
+      entry title with a backtick possessive       READ -- 3
+      act row                                      READ -- ('b661', {'lane': {'value': 'LANE TWO', 'cite': 'data/b661_closing.txt :3'}})
+      method row, READY                            READ -- ('a planted method', 'READY')
+      method row, NOT YET USED TWICE               READ -- ('a planted method', 'NOT YET USED TWICE')
+      order row                                    READ -- ('W-ORD-PLANTED', 'NOT STATED', 0)
+  ### ### **PLANTED ROWS 8 ; READ 8 ; REFUSED 0.**
+      CONTROL a runner row missing its keys (b652`s build-row shape)       REFUSED, AS WANTED
+      CONTROL a score row of another shape                                 REFUSED, AS WANTED
+      CONTROL a head the ledger does not carry                             REFUSED, AS WANTED
+      CONTROL an act row with a cell without its cite                      REFUSED, AS WANTED
+      CONTROL a method row whose reading the cells do not give             REFUSED, AS WANTED
+      CONTROL an order row without its age                                 REFUSED, AS WANTED
+
+  registration : b670_registration_2026-10-14.txt
+  bytes/lines  : 24348 / 221
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **MEASURED OFF THE FACE AND THE BANKS, NOT TYPED:**
+      ARMS       85
+      READINGS   3
+      EXPECT     8
+      BARS       0
+      TESTS      53
+      QUESTIONS  7
+      ACTS       10
+      METHODS    12
+      READS      4
+      MIDS       11
+
+  clauses emitted : 74
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 16**
+  written : b670_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 0c4e0b3848de8a103ea35301fa0e5ad384b8117decccd2635b259d3d0b9b9c1e  (b670_registration_2026-10-14.txt)

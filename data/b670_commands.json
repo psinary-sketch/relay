@@ -1,5 +1,5 @@
 {
- "at": "2026-10-14T20:45:36Z",
+ "at": "2026-10-14T21:24:54Z",
  "anchor": "RULING (R280) BEGIN",
  "rows": [
   {
@@ -1492,6 +1492,251 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b670_record.py kernels && python -X utf8 tools/b670_record.py commands 2>&1 | tail -4 | cut -c1-250 && python -X utf8 tools/b670_record.py defects",
    "n": 213
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:46:07.127Z",
+   "src": "seat",
+   "cmd": "grep -n \"RUN BEFORE THE FERRY IS BANKED\\|THE MISSES, EACH RAISED\\|NAVIGATOR'S ANSWER on the four tabs\\|THE MID-ACT CHECK\" data/b670_citation_check.txt | cut -c1-140; git branch -a --list '*push-b669*'; git -C /d/MY-DOwnloads/PLACE-papers branch -a --list '*push-b669*'; git -C /d/SIDE-explicit-formula branch -a --list '*push-b669*' '*chi-li-forward-b669*' '*chi-li-b669*'",
+   "n": 214
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:46:12.489Z",
+   "src": "seat",
+   "cmd": "python -X utf8 - <<'EOF'\nsrc = open('tools/b669_checks.py', encoding='utf-8').read()\nprint(src.count('b669'), src.count('b668'))\nEOF",
+   "n": 215
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:50:33.245Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x']\nimport b670_checks as C, b670_worklist as K\nnames=[a[0] for a in C.ARMS]\nprint('arms',len(names),'dupes',len(names)-len(set(names)))\nprint('standing',len(C.STANDING),'missing standing',sorted(set(C.STANDING)-set(names)))\nprint('beyond',sorted(set(names)-set(C.STANDING)-set(K.ACT_ARMS)))\nprint('act arms not run',sorted(set(K.ACT_ARMS)-set(names)))\n\"",
+   "n": 216
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:50:43.593Z",
+   "src": "seat",
+   "cmd": "grep -n -i \"mirror\" tools/b668_closing.py | cut -c1-240",
+   "n": 217
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:50:47.391Z",
+   "src": "seat",
+   "cmd": "sed -n 228,236p tools/b668_closing.py; grep -n \"def mirror\" -A40 tools/b668_record.py | cut -c1-200 | head -60",
+   "n": 218
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:50:51.298Z",
+   "src": "seat",
+   "cmd": "grep -n \"mirror\" tools/b668_record.py | head -20 | cut -c1-200",
+   "n": 219
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:52:30.144Z",
+   "src": "seat",
+   "cmd": "cat tools/b669_reg_gate.py; sed -n 1,80p tools/b669_regspec.py",
+   "n": 220
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:52:35.305Z",
+   "src": "seat",
+   "cmd": "sed -n 80,238p tools/b669_regspec.py",
+   "n": 221
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:53:53.065Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b670_record.py findings dry standin 2>&1 | head -40 | cut -c1-400",
+   "n": 222
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:54:02.761Z",
+   "src": "seat",
+   "cmd": "python -X utf8 - <<'EOF'\nimport re\np='tools/b670_record.py'\ns=open(p,encoding='utf-8').read()\nprint(s.count(\"il_.get(H5[0][:40])\"), s.count(\"il_.get(H5[1][:40])\"), s.count(\"il_.get(H5[2][:40])\"), s.count(\"il_.get(H5[3][:40])\"))\nEOF",
+   "n": 223
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:54:09.648Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b670_record.py findings dry standin 2>&1 | grep -E \"table cells|\\*\\*The items\" | cut -c1-330; python -X utf8 tools/b670_record.py trail dry standin 2>&1 | cut -c1-300",
+   "n": 224
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:54:20.430Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x','x','standin']\nimport b670_record as R\nfor s in R._defect_short(): print(s[:200])\"",
+   "n": 225
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:54:56.518Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x','x','standin']\nimport b670_record as R\nfor s in R._defect_short(): print(s[:230])\" && python -X utf8 tools/b670_record.py defects",
+   "n": 226
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:55:02.966Z",
+   "src": "seat",
+   "cmd": "wc -l data/b669_registration_2026-10-14.txt && grep -n \"^### (\\|^### THE DRY-RUN NEEDLES\\|^\\*\\*READING\\|^### BAR\\|^\\*\\*(N\\|^\\*\\*(S\\|WHAT RAN AHEAD\\|locked at\\|face-hash\\|FACE HASH\" data/b669_registration_2026-10-14.txt | cut -c1-160",
+   "n": 227
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:55:15.113Z",
+   "src": "seat",
+   "cmd": "git status --porcelain | grep -E \"b670|act_roots|terminal\" ",
+   "n": 228
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:55:22.419Z",
+   "src": "seat",
+   "cmd": "git add data/b670_defects.txt data/b670_defects.json data/b670_commands.json data/b670_commands.txt data/b670_kernels_face.json tools/b670_record.py tools/b670_worklist.py tools/b670_checks.py tools/b670_closing.py tools/b670_reg_gate.py tools/b670_regspec.py && git commit -q -m \"b670 between the components: the suite (tools/b670_checks.py, 85 arms: 68 standing from b669's face less its own 14, 17 over this act's banks), the closing, the gate and the spec by the Write tool; the worklist's act arms and the last merged run's constants, the record tool's late routes, scores, record and mirror routes by the Edit tool; the commands, kernels-face and defects banks; the defects bank re-ordered (a)-(e). Nothing deposits.\" && git log --oneline -1 | cut -c1-30",
+   "n": 229
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:55:30.075Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format='%h %s' e527a09e..HEAD | cut -c1-110; echo ---; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 165a645..HEAD | cut -c1-110",
+   "n": 230
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:55:36.919Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x']\nimport b670_checks as C\nnames=['\\`%s\\`'%a[0] for a in C.ARMS]\nline='###';out=[]\nfor n in names:\n    if len(line)+len(n)+1>140: out.append(line); line='###'\n    line+=' '+n\nout.append(line); print('\\n'.join(out))\"",
+   "n": 231
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:57:16.924Z",
+   "src": "seat",
+   "cmd": "git add data/b670_registration_2026-10-14.txt && git commit -q -m \"b670 Component 6: the face drafted (data/b670_registration_2026-10-14.txt), section (0) naming every commit before it, (G2) the 85 arms. Nothing deposits.\" && git log --oneline -1 | cut -c1-30",
+   "n": 232
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T20:57:25.235Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b670_checks.py --prerun 2>&1 | grep -E \"FAIL|raised|arms in|FREEZE|not carried|ARMS RUN|VERDICT|NEGATIVE\" | cut -c1-230",
+   "n": 233
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:09:31.670Z",
+   "src": "seat",
+   "cmd": "tail -5 \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/bizzshs1o.output\" | cut -c1-200",
+   "n": 234
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-14T21:09:37.037Z",
+   "src": "seat",
+   "cmd": "Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | ForEach-Object { \"{0} {1} {2}\" -f $_.ProcessId, $_.CreationDate, ($_.CommandLine -replace '.*\\\\','') }; \"free MB: \" + [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)",
+   "n": 235
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:16:49.491Z",
+   "src": "seat",
+   "cmd": "cat \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/bizzshs1o.output\" | cut -c1-230; grep -E \"FAILS|DEFECTIVE|run took\" /d/relay/data/b670_arms_prerun.txt | cut -c1-120",
+   "n": 236
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:16:59.701Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys,re;sys.path.insert(0,'tools');sys.argv=['x']\nimport b670_checks as C, b670_record as R\np=' '.join(C.rd('b670_stepzero.txt').split())\nfor n in ['names matching tail, lean, lake, python','read before any run: NONE','Orphans: NONE']: print(n in p, n)\nprint(re.search(r'the process listing after the loop \\(names matching tail, lean, lake, python, bash\\): [^;]*; no tail, lean, lake or python', p))\nz=' '.join(C.rd('b670_readfirst.txt').split())\nprint([x for x in C.READFIRST_NEEDLES if x not in z])\nprint(R._techne_leak())\n\"",
+   "n": 237
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:17:18.651Z",
+   "src": "seat",
+   "cmd": "for f in data/b670_licensed_table.txt data/b670_correspondence.txt data/b670_licensed_table.json data/b670_correspondence.json data/b670_ten_acts.txt data/b670_methods.txt data/b670_work_orders.txt data/b670_defects_by_kind.txt data/b670_state.txt data/b670_ceiling.txt data/b670_zfr_search.txt data/b670_rules.txt data/b670_readfirst.txt; do grep -n \"TECHNE\" $f | sed \"s|^|$f:|\" | cut -c1-200; done",
+   "n": 238
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:17:25.778Z",
+   "src": "seat",
+   "cmd": "sed -n 1318,1330p data/b670_correspondence.json | cut -c1-160",
+   "n": 239
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:17:44.343Z",
+   "src": "seat",
+   "cmd": "grep -c \"Specification Pipeline\" data/b670_correspondence.txt data/b670_correspondence.json data/b670_licensed_table.txt data/b670_licensed_table.json; git log --oneline -1 -- data/b670_correspondence.json; python -X utf8 -c \"import json;json.load(open('data/b670_correspondence.json',encoding='utf-8'));print('ok')\"",
+   "n": 240
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:18:13.011Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x']\nimport b670_record as R; print(R._techne_leak())\"",
+   "n": 241
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:18:22.141Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys,os,json,tempfile,shutil;sys.path.insert(0,'tools');sys.argv=['x']\nimport b670_record as R\nd=tempfile.mkdtemp(prefix='b670_ctl_')\nfor f in R.READING_BANKS: shutil.copy(os.path.join(R.D,f),d)\nj=json.load(open(os.path.join(d,'b670_correspondence.json'),encoding='utf-8'))\nfor t in j['tables']:\n    if t['doc']=='TECHNE_TOOLKIT': t['heading']='| a planted row |'\njson.dump(j,open(os.path.join(d,'b670_correspondence.json'),'w',encoding='utf-8'))\nopen(os.path.join(d,'b670_licensed_table.txt'),'a',encoding='utf-8').write('  [ACTIONABLE] L3 [x] TECHNE_TOOLKIT.md planted quoted line\\n')\nR.D=d; print('control:',R._techne_leak())\n\" ",
+   "n": 242
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:18:35.127Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x']\nimport b670_checks as C\nS=dict(stepz=C.rd('b670_stepzero.txt'),readfirst=C.rd('b670_readfirst.txt'))\nprint('procs',C.procs_ok(S),'readfirst',C.readfirst_ok(S))\nS2=dict(stepz=S['stepz'].replace('Orphans: NONE','Orphans: 1'),readfirst=S['readfirst'].replace(':14238','x'))\nprint('controls',C.procs_ok(S2),C.readfirst_ok(S2))\"",
+   "n": 243
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:23:47.882Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b670_citation.py answer \"NAVIGATOR'S ANSWER on the TECHNE blob\" 2>&1 | grep -vE \"^  OK\" | cut -c1-220",
+   "n": 244
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:23:53.585Z",
+   "src": "seat",
+   "cmd": "grep -n \"ROW 4 --\" -A3 data/b670_rules.txt | cut -c1-120",
+   "n": 245
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:23:58.304Z",
+   "src": "seat",
+   "cmd": "tail -2 data/b670_rules.txt | cut -c1-200",
+   "n": 246
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:24:23.432Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys,json;sys.path.insert(0,'tools');sys.argv=['x']\nimport b670_record as R\nh=[t.get('doc') for t in (json.loads(R._show(R.RELAY,'d3181fba','data/b670_correspondence.json') or '{}').get('tables') or []) if t.get('doc') in R.WITHHELD_LINES and t.get('heading') and not str(t.get('heading')).startswith('### WITHHELD')]\nprint(h)\"",
+   "n": 247
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-14T21:24:51.306Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b670_record.py answers | tail -1 && python -X utf8 tools/b670_record.py defects && python -X utf8 tools/b670_record.py commands | tail -1",
+   "n": 248
   }
  ],
  "offences": [],

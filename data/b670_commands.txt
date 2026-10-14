@@ -1,7 +1,7 @@
-b670 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-14T20:45:36Z)
+b670 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-14T21:24:54Z)
 
 ### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R280) BEGIN', and its subagents` transcripts
-### commands read: 213
+### commands read: 248
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -223,5 +223,40 @@ b670 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READIN
   #211 | 2026-10-14T20:42:42.816Z | seat | Bash | python -X utf8 tools/b670_citation.py answer "NAVIGATOR'S NOTE on the progress report" 2>&1 | grep -vE "^  OK" | cut -c1-220
   #212 | 2026-10-14T20:42:55.335Z | seat | Bash | git add tools/b670_citation.py data/b670_citation_check.txt data/b670_defects.txt && git commit -q -m "b670: the mid-act checks of (R278)(4) over the four later
   #213 | 2026-10-14T20:45:31.718Z | seat | Bash | python -X utf8 tools/b670_record.py kernels && python -X utf8 tools/b670_record.py commands 2>&1 | tail -4 | cut -c1-250 && python -X utf8 tools/b670_record.py 
+  #214 | 2026-10-14T20:46:07.127Z | seat | Bash | grep -n "RUN BEFORE THE FERRY IS BANKED\|THE MISSES, EACH RAISED\|NAVIGATOR'S ANSWER on the four tabs\|THE MID-ACT CHECK" data/b670_citation_check.txt | cut -c1
+  #215 | 2026-10-14T20:46:12.489Z | seat | Bash | python -X utf8 - <<'EOF'
+  #216 | 2026-10-14T20:50:33.245Z | seat | Bash | python -X utf8 -c "
+  #217 | 2026-10-14T20:50:43.593Z | seat | Bash | grep -n -i "mirror" tools/b668_closing.py | cut -c1-240
+  #218 | 2026-10-14T20:50:47.391Z | seat | Bash | sed -n 228,236p tools/b668_closing.py; grep -n "def mirror" -A40 tools/b668_record.py | cut -c1-200 | head -60
+  #219 | 2026-10-14T20:50:51.298Z | seat | Bash | grep -n "mirror" tools/b668_record.py | head -20 | cut -c1-200
+  #220 | 2026-10-14T20:52:30.144Z | seat | Bash | cat tools/b669_reg_gate.py; sed -n 1,80p tools/b669_regspec.py
+  #221 | 2026-10-14T20:52:35.305Z | seat | Bash | sed -n 80,238p tools/b669_regspec.py
+  #222 | 2026-10-14T20:53:53.065Z | seat | Bash | python -X utf8 tools/b670_record.py findings dry standin 2>&1 | head -40 | cut -c1-400
+  #223 | 2026-10-14T20:54:02.761Z | seat | Bash | python -X utf8 - <<'EOF'
+  #224 | 2026-10-14T20:54:09.648Z | seat | Bash | python -X utf8 tools/b670_record.py findings dry standin 2>&1 | grep -E "table cells|\*\*The items" | cut -c1-330; python -X utf8 tools/b670_record.py trail dry
+  #225 | 2026-10-14T20:54:20.430Z | seat | Bash | python -X utf8 -c "
+  #226 | 2026-10-14T20:54:56.518Z | seat | Bash | python -X utf8 -c "
+  #227 | 2026-10-14T20:55:02.966Z | seat | Bash | wc -l data/b669_registration_2026-10-14.txt && grep -n "^### (\|^### THE DRY-RUN NEEDLES\|^\*\*READING\|^### BAR\|^\*\*(N\|^\*\*(S\|WHAT RAN AHEAD\|locked at\|f
+  #228 | 2026-10-14T20:55:15.113Z | seat | Bash | git status --porcelain | grep -E "b670|act_roots|terminal" 
+  #229 | 2026-10-14T20:55:22.419Z | seat | Bash | git add data/b670_defects.txt data/b670_defects.json data/b670_commands.json data/b670_commands.txt data/b670_kernels_face.json tools/b670_record.py tools/b670_
+  #230 | 2026-10-14T20:55:30.075Z | seat | Bash | git log --reverse --format='%h %s' e527a09e..HEAD | cut -c1-110; echo ---; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 165a645..HEAD | cu
+  #231 | 2026-10-14T20:55:36.919Z | seat | Bash | python -X utf8 -c "
+  #232 | 2026-10-14T20:57:16.924Z | seat | Bash | git add data/b670_registration_2026-10-14.txt && git commit -q -m "b670 Component 6: the face drafted (data/b670_registration_2026-10-14.txt), section (0) namin
+  #233 | 2026-10-14T20:57:25.235Z | seat | Bash | python -X utf8 tools/b670_checks.py --prerun 2>&1 | grep -E "FAIL|raised|arms in|FREEZE|not carried|ARMS RUN|VERDICT|NEGATIVE" | cut -c1-230
+  #234 | 2026-10-14T21:09:31.670Z | seat | Bash | tail -5 "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/bizzshs1o.output" | cut -c1-200
+  #235 | 2026-10-14T21:09:37.037Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='python.exe'" | ForEach-Object { "{0} {1} {2}" -f $_.ProcessId, $_.CreationDate, ($_.CommandLine -replace '.*\\','')
+  #236 | 2026-10-14T21:16:49.491Z | seat | Bash | cat "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0e414d80-fcb3-4850-8359-5f1a764bc0e3/tasks/bizzshs1o.output" | cut -c1-230; grep -E "FAILS|DEFECTIVE|run to
+  #237 | 2026-10-14T21:16:59.701Z | seat | Bash | python -X utf8 -c "
+  #238 | 2026-10-14T21:17:18.651Z | seat | Bash | for f in data/b670_licensed_table.txt data/b670_correspondence.txt data/b670_licensed_table.json data/b670_correspondence.json data/b670_ten_acts.txt data/b670_
+  #239 | 2026-10-14T21:17:25.778Z | seat | Bash | sed -n 1318,1330p data/b670_correspondence.json | cut -c1-160
+  #240 | 2026-10-14T21:17:44.343Z | seat | Bash | grep -c "Specification Pipeline" data/b670_correspondence.txt data/b670_correspondence.json data/b670_licensed_table.txt data/b670_licensed_table.json; git log 
+  #241 | 2026-10-14T21:18:13.011Z | seat | Bash | python -X utf8 -c "
+  #242 | 2026-10-14T21:18:22.141Z | seat | Bash | python -X utf8 -c "
+  #243 | 2026-10-14T21:18:35.127Z | seat | Bash | python -X utf8 -c "
+  #244 | 2026-10-14T21:23:47.882Z | seat | Bash | python -X utf8 tools/b670_citation.py answer "NAVIGATOR'S ANSWER on the TECHNE blob" 2>&1 | grep -vE "^  OK" | cut -c1-220
+  #245 | 2026-10-14T21:23:53.585Z | seat | Bash | grep -n "ROW 4 --" -A3 data/b670_rules.txt | cut -c1-120
+  #246 | 2026-10-14T21:23:58.304Z | seat | Bash | tail -2 data/b670_rules.txt | cut -c1-200
+  #247 | 2026-10-14T21:24:23.432Z | seat | Bash | python -X utf8 -c "
+  #248 | 2026-10-14T21:24:51.306Z | seat | Bash | python -X utf8 tools/b670_record.py answers | tail -1 && python -X utf8 tools/b670_record.py defects && python -X utf8 tools/b670_record.py commands | tail -1
 
-### ### **COMMANDS 213 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
+### ### **COMMANDS 248 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**

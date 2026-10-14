@@ -731,7 +731,8 @@ def corr(*a):
                                                   ('AT THE TAG' if all(s in ('AT THE TAG', 'UNRESOLVED') for s in sts) else sts[0]))
             rows.append(dict(line=i + 1, pins=res, reading=row))
             tot[row] += 1
-        out.append(dict(doc=n, path=p, heading=hl, found=1, at=i0 + 1, end=j, rows=rows, kernels=ks))
+        out.append(dict(doc=n, path=p, heading=('### WITHHELD (N5)' if n in WITHHELD_LINES else hl), found=1, at=i0 + 1, end=j, rows=rows,
+                        kernels=ks))      # ### defect (g): a withheld document's heading line is its text, and is not banked
     T_ = ['b670 -- COMPONENT 3 (ii), (R280)(3): THE CORRESPONDENCE TABLES AGAINST EACH KERNEL`S CURRENT TAG (%s), reading 1 of 2' % utc(), '',
           '### the tables: the 19 roster documents of relay data/b586_corroboration.txt, each table`s heading read at PLACE-papers %s at the line that' % B586_PIN,
           '### bank names and re-found at HEAD %s by its whole text; a row is a table line carrying a backticked commit. The kernels`' % g(PP, 'rev-parse', '--short', 'HEAD').strip(),
@@ -1405,17 +1406,29 @@ def _ledger_adds():
     return NL.join(out)
 
 
+READING_BANKS = ('b670_licensed_table.txt', 'b670_licensed_table.json', 'b670_correspondence.txt', 'b670_correspondence.json')
+TECHNE_OK = re.compile(r'^\s*(TECHNE_TOOLKIT\s+phase1\.5/method/TECHNE_TOOLKIT\.md|TECHNE_TOOLKIT\s+constellation \[[\d, ]+\] ; rowgen diff \[[\d, ]+\]'
+                       r'|=== TECHNE_TOOLKIT\.md : \d+ actionable.*### ITS FLAG LINES NOT BANKED \(N5\)'
+                       r'|=== TECHNE_TOOLKIT\.md\s+checked.*### ITS FLAG LINES NOT BANKED \(N5\)'
+                       r'|=== TECHNE_TOOLKIT\s+phase1\.5/method/TECHNE_TOOLKIT\.md :\d+-:\d+ ; rows with a commit \d+ ; \{[^}]*\}'
+                       r'|"doc": "TECHNE_TOOLKIT",|"path": "phase1\.5/method/TECHNE_TOOLKIT\.md",)\s*$')
+
+
 def _techne_leak():
-    """lines of this act's banks naming TECHNE_TOOLKIT beyond its name in the document set and its count lines (N5)."""
+    """(N5), the reading banks that read TECHNE_TOOLKIT (the two of reading (i) and (ii), text and JSON): every line naming the document is
+    one of its name, path and count shapes, and the JSON record of its table carries no line of its text; returns the offending lines.
+    (b670 defect (g): the first form read every bank for the word and caught the ruling and the face; the JSON heading leaked past it.)"""
     bad = []
-    for f in sorted(os.listdir(D)):
-        if f.startswith('b670_') and os.path.isfile(os.path.join(D, f)) and f.endswith(('.txt', '.md')):
-            for i, l in enumerate(rdn(f).split(NL), 1):
-                if 'TECHNE' in l and not re.search(r'TECHNE_TOOLKIT(\.md)?\s+(phase1\.5/method/TECHNE_TOOLKIT\.md|constellation \[|: \d+ actionable|checked\s+\d|'
-                                                   r'phase1\.5/method/TECHNE_TOOLKIT\.md :\d+-:\d+ ; rows with a commit)', l) \
-                        and 'WITHHELD_LINES' not in l and 'TECHNE_TOOLKIT`s quoted lines' not in l and "TECHNE_TOOLKIT's quoted lines" not in l \
-                        and 'nothing of TECHNE' not in l.lower() and 'Nothing of TECHNE' not in l and 'TECHNE-Core' not in l and 'TECHNE`s' not in l:
-                    bad.append('%s :%d' % (f, i))
+    for f in READING_BANKS:
+        for i, l in enumerate(rdn(f).split(NL), 1):
+            if 'TECHNE_TOOLKIT' in l and not TECHNE_OK.match(l):
+                bad.append('%s :%d' % (f, i))
+    try:
+        for t in json.load(io.open(os.path.join(D, 'b670_correspondence.json'), encoding='utf-8')).get('tables') or []:
+            if t.get('doc') in WITHHELD_LINES and t.get('heading') and not t['heading'].startswith('### WITHHELD (N5)'):
+                bad.append('b670_correspondence.json: the %s heading' % t['doc'])
+    except Exception:
+        bad.append('b670_correspondence.json: unread')
     return bad
 
 
@@ -1505,14 +1518,21 @@ def _n5():
     new_arms = sorted(set(a[0] for a in CH.ARMS) - set(CH.STANDING) - set(K.ACT_ARMS))
     leak = _techne_leak()
     pat = [n for n in ('patent', 'Patent', 'PATENT') if n in _ledger_adds()]
-    ok = others_ok and not pp_beyond and not kinds_beyond and not differ and not new_arms and not leak and not pat
+    # ### the author's word on the TECHNE blob: the line of TECHNE_TOOLKIT.md :507 written to the bank in relay d3181fba and kept in history
+    # ### refutes N5 in its letter on that line, whatever the working bank now holds; read off the commit's own blob
+    hist = [t.get('doc') for t in (json.loads(_show(RELAY, 'd3181fba', 'data/b670_correspondence.json') or '{}').get('tables') or [])
+            if t.get('doc') in WITHHELD_LINES and t.get('heading') and not str(t.get('heading')).startswith('### WITHHELD')]
+    ok = others_ok and not pp_beyond and not kinds_beyond and not differ and not new_arms and not leak and not pat and not hist
     return (('HELD' if ok else 'REFUTED'),
             'nothing deposits: the deposit route untouched (draft %s, v5, unsubmitted); no kernel main written, every kernel as the face read it %s; '
             'standing arms added: %s (the act`s arms over its own banks %d); sealed tools not agreeing %s; PLACE-papers beyond FINDINGS and '
             'OPEN_TRAILS: %s; relay files of a kind beyond the banks, the tools, the root list and b669`s push-out bank: %s; lines of this act`s banks '
-            'naming TECHNE_TOOLKIT beyond its name and counts: %s; "patent" in the ledger lines: %s; the mirror export written outside every tree' % (
+            'naming TECHNE_TOOLKIT beyond its name and counts: %s; "patent" in the ledger lines: %s; the mirror export written outside every tree; '
+            'IN ITS LETTER, a quoted line of TECHNE_TOOLKIT written to a bank: %s (PLACE-papers phase1.5/method/TECHNE_TOOLKIT.md :507, a table row '
+            'of the public document, banked in data/b670_correspondence.json at relay d3181fba, then withheld in the working bank; the text '
+            'public, the blob in history, defect (g), the reading declared on the face)' % (
                 K.DRAFT, others_ok, new_arms or 'NONE', len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE', kinds_beyond or 'NONE',
-                leak or 'NONE', pat or 'NONE'))
+                leak or 'NONE', pat or 'NONE', hist or 'NONE'))
 
 
 def scores(*a):
@@ -1632,7 +1652,7 @@ def _trail_text():
              '**Act root:** b670 `%s` (previous `%s`, b669’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
                  J.get('root'), J.get('previous')), '',
              '**Prompts to the author:** %d questions in %d calls (relay data/b670_author_answers.txt): the four tabs at step zero, the state line '
-             'of `(R280)`(3), the methods table of `(R280)`(4); none after the root.' % (n_ans, len(_calls())), '',
+             'of `(R280)`(3), the methods table of `(R280)`(4), the TECHNE blob after the pre-run; none after the root.' % (n_ans, len(_calls())), '',
              '**The state, reading 1 of 2:** (i) %s rows outside LICENSED or CITED; (ii) %s rows behind; (iii) the ceiling %s; (iv) %s orders older '
              'than ten acts open without a trigger met and %s without a status word; b680 the second reading.' % (f['n'], f['m'], f['eq'], f['old'], f['ns']), '',
              '**The open converse:** branch %s at %s, kept, unmerged; V4 and V5 at b673.' % (K.OPEN_BRANCH, K.OPEN_TIP), '',

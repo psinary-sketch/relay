@@ -460,8 +460,14 @@ def landed(S, i, need, key='rl'):
     return bool(x) and o.startswith(conv(x.get('head', '\x00'))) and all(n in o for n in need)
 
 
+def unwrap(t):
+    """a bank's text with each line's leading `###` markers dropped and the whitespace collapsed, so a needle the bank hard-wraps across its
+    prefixed lines reads whole (b670: `REGISTRY.md :960` and the after-loop listing were split by a `### ` at a line start)."""
+    return ' '.join(' '.join(re.sub(r'^\s*(?:###\s*)+', '', l) for l in t.split(NL)).split())
+
+
 def procs_ok(S):
-    p = ' '.join(S['stepz'].split())
+    p = unwrap(S['stepz'])
     return 'names matching tail, lean, lake, python' in p and 'read before any run: NONE' in p and 'Orphans: NONE' in p \
         and re.search(r'the process listing after the loop \(names matching tail, lean, lake, python, bash\): [^;]*; no tail, lean, lake or python', p) is not None
 
@@ -479,7 +485,7 @@ def tests_ok(S):
 
 
 UNANSWERED = "The user doesn't want to proceed with this tool use"
-PROMPT_HEADS = ('(b663 pair)', '(Criteria)', '(Cut count)', '(Reading (i))', '(State line)', '(Methods)')
+PROMPT_HEADS = ('(b663 pair)', '(Criteria)', '(Cut count)', '(Reading (i))', '(State line)', '(Methods)', '(TECHNE blob)')
 
 
 def answers_ok(S):
@@ -538,7 +544,7 @@ READFIRST_NEEDLES = ('data/b669_closing.txt (rows are lines', 'data/b669_defects
 
 
 def readfirst_ok(S):
-    z = ' '.join(S['readfirst'].split())
+    z = unwrap(S['readfirst'])
     return all(x in z for x in READFIRST_NEEDLES)
 
 
@@ -565,7 +571,7 @@ def citation_ok(S):
 
 
 MID_NEEDLES = ("NAVIGATOR'S ANSWER on the four tabs", "NAVIGATOR'S ANSWER on the two decisions", "NAVIGATOR'S NOTE on the progress report",
-               "NAVIGATOR'S ANSWER on the state line", "NAVIGATOR'S ANSWER on the methods table")
+               "NAVIGATOR'S ANSWER on the state line", "NAVIGATOR'S ANSWER on the methods table", "NAVIGATOR'S ANSWER on the TECHNE blob")
 
 
 def midact_ok(S):
