@@ -1,0 +1,232 @@
+b670 -- COMPONENT 5, (R280)(5): ITEM 1`S TRIGGER (a), ONE SEARCH OF THE arXiv LISTING API BY THE CLAIM`S WORDS (2026-10-14T20:39:24Z)
+
+### THE CLAIM, as relay data/b668_b670_items.txt :5 holds it: a zero-free region σ > 7/8 for ζ and a family of L-functions, with Siegel zeros excluded.
+### THE REQUEST: GET https://export.arxiv.org/api/query?search_query=abs:%22zero-free%20region%22%20AND%20abs:Siegel&sortBy=submittedDate&sortOrder=descending&start=0&max_results=50
+###   headers set by the tool: NONE ; the library adds Host, Accept-Encoding, User-Agent (Python-urllib/3.12) and Connection, nothing else:
+###   no name, address, account or identifier of the author in the URL, the headers or a body (a GET carries none).
+### THE RESPONSE: status 200 ; 17186 bytes ; entries 11 ; the response headers: {'content-type': 'application/atom+xml; charset=utf-8', 'Date': 'Wed, 14 Oct 2026 20:39:25 GMT'}
+### AN ENTRY IS A CANDIDATE where its own title or abstract carries 7/8: 0.
+
+### THE ENTRIES (identifier ; published ; candidate ; title):
+  http://arxiv.org/abs/2608.12257v1 ; 2026-08-12 ; - ; Power sums and Siegel-type zero-free regions for L-functions
+  http://arxiv.org/abs/2601.04189v1 ; 2026-01-07 ; - ; Landau-Siegel zeros of Rankin-Selberg $L$-functions
+  http://arxiv.org/abs/2508.10844v3 ; 2025-08-14 ; - ; Tatuzawa's theorem for Rankin-Selberg $L$-functions
+  http://arxiv.org/abs/2508.09984v2 ; 2025-08-13 ; - ; Exceptional zeros of $\mathrm{GL}_3\times\mathrm{GL}_3$ Rankin-Selberg $L$-functions
+  http://arxiv.org/abs/2508.06423v3 ; 2025-08-08 ; - ; Landau-Siegel Zeros of Triple Product L-functions
+  http://arxiv.org/abs/2404.06482v2 ; 2024-04-09 ; - ; Exceptional zeros of Rankin-Selberg $L$-functions and joint Sato-Tate distributions
+  http://arxiv.org/abs/2303.16889v6 ; 2023-03-29 ; - ; A new zero-free region for Rankin-Selberg $L$-functions
+  http://arxiv.org/abs/2108.10878v2 ; 2021-08-24 ; - ; Refinements to the prime number theorem for arithmetic progressions
+  http://arxiv.org/abs/2009.06800v1 ; 2020-09-15 ; - ; On a conjecture of Soundararajan
+  http://arxiv.org/abs/2004.09488v2 ; 2020-04-20 ; - ; Towards a $\mathrm{GL}_n$ variant of the Hoheisel phenomenon
+  http://arxiv.org/abs/math/0408126v1 ; 2004-08-10 ; - ; Explicit lower bounds on the modular degree of an elliptic curve
+
+### ### **ONE REQUEST ; ENTRIES 11 ; CANDIDATES 0 ; NOT LOCATED.**
+
+### THE PRINT, WHOLE (the Atom feed as received):
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/uKpowdpK8JBlg9BmCCPXWdH+Dl4</id>
+  <title>arXiv Query: search_query=abs:"zero-free region" AND abs:Siegel&amp;id_list=&amp;start=0&amp;max_results=50</title>
+  <updated>2026-10-14T20:39:25Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:%22zero-free+region%22+AND+abs:Siegel&amp;start=0&amp;max_results=50&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+  <opensearch:totalResults>11</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2608.12257v1</id>
+    <title>Power sums and Siegel-type zero-free regions for L-functions</title>
+    <updated>2026-08-12T17:00:49Z</updated>
+    <link href="https://arxiv.org/abs/2608.12257v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.12257v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $π$ and $π'$ be unitary cuspidal automorphic representations of $\mathrm{GL}(n)$ and $\mathrm{GL}(n')$ over a number field $F$. Let $\mathfrak{C}_π$ be the analytic conductor of $π$. We develop a new approach to zero-free regions for $L$-functions via lower bounds for power sums, proving for all $\varepsilon&gt;0$ the existence of ineffective constants $c=c_{n,F,\varepsilon}&gt;0$ and $c'=c'_{n,F,π',\varepsilon}&gt;0$ such that the standard $L$-function $L(s,π)$ satisfies \[ |L(σ+it,π)|\geq c(\mathfrak{C}_π(|t|+3))^{-\varepsilon},\qquad σ\geq 1-c(\mathfrak{C}_π(|t|+3))^{-\varepsilon} \] and the Rankin-Selberg $L$-function $L(s,π\timesπ')$ satisfies \[ |L(σ+it,π\timesπ')|\geq c'(\mathfrak{C}_π(|t|+3))^{-\varepsilon},\qquad σ\geq 1-c'(\mathfrak{C}_π(|t|+3))^{-\varepsilon}. \] Applications include improvements to the prime number theorems for these $L$-functions and new generalizations of the Brauer-Siegel theorem.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-12T17:00:49Z</published>
+    <arxiv:comment>21 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jesse Thorner</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.04189v1</id>
+    <title>Landau-Siegel zeros of Rankin-Selberg $L$-functions</title>
+    <updated>2026-01-07T18:56:09Z</updated>
+    <link href="https://arxiv.org/abs/2601.04189v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.04189v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We establish standard zero-free regions with no exceptional Landau-Siegel zeros for Rankin-Selberg $L$-functions and triple product $L$-functions in several new families for which modularity is not yet known.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-07T18:56:09Z</published>
+    <arxiv:comment>25 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jesse Thorner</name>
+    </author>
+    <author>
+      <name>Shifan Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.10844v3</id>
+    <title>Tatuzawa's theorem for Rankin-Selberg $L$-functions</title>
+    <updated>2026-01-18T23:24:27Z</updated>
+    <link href="https://arxiv.org/abs/2508.10844v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.10844v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $π$ and $π'$ be unitary cuspidal automorphic representations of $\mathrm{GL}(n)$ and $\mathrm{GL}(n')$ over a number field $F$. We establish a new zero-free region for all $\mathrm{GL}(1)$-twists of the Rankin-Selberg $L$-function $L(s,π\timesπ')$, generalizing Tatuzawa's refinement of Siegel's work on Dirichlet $L$-functions. As a corollary, we show that for all $\varepsilon&gt;0$, there exists an effectively computable constant $c&gt;0$ depending only on $(n,n',[F:\mathbb{Q}],\varepsilon)$ such that $L(s,π\timesπ')$ has at most one zero (necessarily simple) in the region \[ \mathrm{Re}(s)\geq 1-c/(C(π)C(π')(|\mathrm{Im}(s)|+1))^{\varepsilon}, \] where $C(π)$ and $C(π')$ are the analytic conductors. A crucial component of our proof is a new standard zero-free region for any twist of $L(s,π\times\widetildeπ)$ by an idele class character $χ$ apart from a possible single exceptional zero (necessarily real and simple) that can occur only when $π\otimesχ^2=π$. This extends earlier work of Humphries and Thorner.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-14T17:12:28Z</published>
+    <arxiv:comment>21 pages, LaTeX2e; v3: Small typographical errors fixed</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Gergely Harcos</name>
+    </author>
+    <author>
+      <name>Jesse Thorner</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.09984v2</id>
+    <title>Exceptional zeros of $\mathrm{GL}_3\times\mathrm{GL}_3$ Rankin-Selberg $L$-functions</title>
+    <updated>2026-01-08T02:10:21Z</updated>
+    <link href="https://arxiv.org/abs/2508.09984v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.09984v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $χ$ be an idele class character over a number field $F$, and let $π,π'$ be any two cuspidal automorphic representations of $\mathrm{GL}_2(\mathbb{A}_F)$. We prove that the Rankin-Selberg $L$-function $L(s,\mathrm{Sym}^2(π)\times(\mathrm{Sym}^2 (π')\otimesχ))$ has a "standard" zero-free region with no exceptional Landau-Siegel zero except possibly when it is divisible by the $L$-function of a real idele class character. In particular, no such zero exists if $π$ is non-dihedral and $π'$ is not a twist of $π$. Until now, this was only known when $π=π'$, $π$ is self-dual, and $χ$ is trivial.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-13T17:58:00Z</published>
+    <arxiv:comment>12 pages. This preprint is now superseded by arXiv:2601.04189. arXiv admin note: substantial text overlap with arXiv:2404.06482</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jesse Thorner</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.06423v3</id>
+    <title>Landau-Siegel Zeros of Triple Product L-functions</title>
+    <updated>2026-01-08T17:30:41Z</updated>
+    <link href="https://arxiv.org/abs/2508.06423v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.06423v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $F$ be a number field. Let $π_1,π_2$ be cuspidal automorphic representations of $GL_2(\mathbb{A}_F)$, and let $π$ be a cuspidal automorphic representation of either $GL_2(\mathbb{A}_F)$ or $GL_3(\mathbb{A}_F)$. When $(π_1,π_2,π)$ is of general type, we show that the triple product $L$-function $L(s,π_1 \times π_2 \times π)$ on either $GL(2) \times GL(2) \times GL(2)$ or $GL(2) \times GL(2) \times GL(3)$ has a standard zero-free region with no exceptional Landau-Siegel zero. Moreover, when $(π_1,π_2,π)$ is not of general type, we give precise conditions when $L(s,π_1 \times π_2 \times π)$ could possibly have exceptional Landau-Siegel zeros.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-08T16:11:23Z</published>
+    <arxiv:comment>21 pages. This preprint is now superseded by arXiv:2601.04189</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Shifan Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2404.06482v2</id>
+    <title>Exceptional zeros of Rankin-Selberg $L$-functions and joint Sato-Tate distributions</title>
+    <updated>2025-07-03T21:27:56Z</updated>
+    <link href="https://arxiv.org/abs/2404.06482v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2404.06482v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $χ$ be an idele class character over a number field $F$, and let $π,π'$ be non-dihedral twist-inequivalent cuspidal automorphic representations of $\mathrm{GL}_2(\mathbb{A}_F)$. We prove that if $m,n\geq 0$ are integers, $m+n\geq 1$, $F$ is totally real, $χ$ corresponds with a ray class character, and $π,π'$ correspond with primitive non-CM holomorphic Hilbert cusp forms, then the Rankin--Selberg $L$-function $L(s,\mathrm{Sym}^m(π)\times(\mathrm{Sym}^n(π')\otimesχ))$ has a standard zero-free region with no exceptional Landau--Siegel zero. This is new even for $F=\mathbb{Q}$. As an application, we establish the strongest known unconditional effective rates of convergence in the Sato--Tate distribution for $π$ and the joint Sato--Tate distribution for $π$ and $π'$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-04-09T17:32:47Z</published>
+    <arxiv:comment>16 pages. Significant revision</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Int. Math. Res. Not. IMRN 2025, no. 20, rnaf307</arxiv:journal_ref>
+    <author>
+      <name>Jesse Thorner</name>
+    </author>
+    <arxiv:doi>10.1093/imrn/rnaf307</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1093/imrn/rnaf307" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2303.16889v6</id>
+    <title>A new zero-free region for Rankin-Selberg $L$-functions</title>
+    <updated>2025-01-29T05:56:23Z</updated>
+    <link href="https://arxiv.org/abs/2303.16889v6" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2303.16889v6" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $π$ and $π'$ be cuspidal automorphic representations of $\mathrm{GL}(n)$ and $\mathrm{GL}(n')$ with unitary central characters. We establish a new zero-free region for all $\mathrm{GL}(1)$-twists of the Rankin-Selberg $L$-function $L(s,π\timesπ')$, generalizing Siegel's celebrated work on Dirichlet $L$-functions. As an application, we prove the first unconditional Siegel-Walfisz theorem for the Dirichlet coefficients of $-L'(s,π\timesπ')/L(s,π\timesπ')$. Also, for $n\leq 8$, we extend the region of holomorphy and nonvanishing for the twisted symmetric power $L$-functions $L(s,π,\mathrm{Sym}^n\otimesχ)$ of any cuspidal automorphic representation of $\mathrm{GL}(2)$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-03-29T17:58:18Z</published>
+    <arxiv:comment>21 pages, LaTeX2e; v2: updated Section 3 and the Remark below Theorem 1.1; v3: updated Section 1, added Theorem 2.2 and Section 8, added the Remark below the proof of Proposition 4.4; v4: updated the end of Section 1, added Section 4 (part of which was formerly Section 5.2); v5: updated Section 1; v6: updated Section 5</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>J. Reine Angew. Math. (Crelle's Journal), 2025 (822), 179-201</arxiv:journal_ref>
+    <author>
+      <name>Gergely Harcos</name>
+    </author>
+    <author>
+      <name>Jesse Thorner</name>
+    </author>
+    <arxiv:doi>10.1515/crelle-2025-0009</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1515/crelle-2025-0009" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2108.10878v2</id>
+    <title>Refinements to the prime number theorem for arithmetic progressions</title>
+    <updated>2021-09-21T08:12:48Z</updated>
+    <link href="https://arxiv.org/abs/2108.10878v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2108.10878v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove a version of the prime number theorem for arithmetic progressions that is uniform enough to deduce the Siegel-Walfisz theorem, Hoheisel's asymptotic for intervals of length $x^{1-δ}$, a Brun-Titchmarsh bound, and Linnik's bound on the least prime in an arithmetic progression as corollaries. Our proof uses the Vinogradov-Korobov zero-free region, a log-free zero density estimate, and the Deuring-Heilbronn zero repulsion phenomenon. Improvements exist when the modulus is sufficiently powerful.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-08-24T17:59:01Z</published>
+    <arxiv:comment>11 pages. Theorems 1.1 and 2.1 improved</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Math. Z. 306 (2024), no. 3, Paper No. 54</arxiv:journal_ref>
+    <author>
+      <name>Jesse Thorner</name>
+    </author>
+    <author>
+      <name>Asif Zaman</name>
+    </author>
+    <arxiv:doi>10.1007/s00209-023-03414-3</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00209-023-03414-3" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2009.06800v1</id>
+    <title>On a conjecture of Soundararajan</title>
+    <updated>2020-09-15T00:23:30Z</updated>
+    <link href="https://arxiv.org/abs/2009.06800v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2009.06800v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Building on recent work of A. Harper (2012), and using various results of M. C. Chang (2014) and H. Iwaniec (1974) on the zero-free regions of $L$-functions $L(s,χ)$ for characters $χ$ with a smooth modulus $q$, we establish a conjecture of K. Soundararajan (2008) on the distribution of smooth numbers over reduced residue classes for such moduli $q$. A crucial ingredient in our argument is that, for such $q$, there is at most one "problem character" for which $L(s,χ)$ has a smaller zero-free region. Similarly, using the "Deuring-Heilbronn" phenomenon on the repelling nature of zeros of $L$-functions close to one, we also show that Soundararajan's conjecture holds for a family of moduli having Siegel zeros.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-09-15T00:23:30Z</published>
+    <arxiv:comment>17 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>William Banks</name>
+    </author>
+    <author>
+      <name>Igor Shparlinski</name>
+    </author>
+    <arxiv:doi>10.1112/blms.12524</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/blms.12524" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2004.09488v2</id>
+    <title>Towards a $\mathrm{GL}_n$ variant of the Hoheisel phenomenon</title>
+    <updated>2021-12-02T23:40:13Z</updated>
+    <link href="https://arxiv.org/abs/2004.09488v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2004.09488v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $π$ be a unitary cuspidal automorphic representation of $\mathrm{GL}_n$ over a number field, and let $\tildeπ$ be contragredient to $π$. We prove effective upper and lower bounds of the correct order in the short interval prime number theorem for the Rankin-Selberg $L$-function $L(s,π\times\tildeπ)$, extending the work of Hoheisel and Linnik. Along the way, we prove for the first time that $L(s,π\times\widetildeπ)$ has an unconditional standard zero-free region apart from a possible Landau-Siegel zero.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-04-20T17:59:56Z</published>
+    <arxiv:comment>23 pages. Incorporates referee comments</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Transactions of the American Mathematical Society 375:3 (2022), 1801-1824</arxiv:journal_ref>
+    <author>
+      <name>Peter Humphries</name>
+    </author>
+    <author>
+      <name>Jesse Thorner</name>
+    </author>
+    <arxiv:doi>10.1090/tran/8544</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1090/tran/8544" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0408126v1</id>
+    <title>Explicit lower bounds on the modular degree of an elliptic curve</title>
+    <updated>2004-08-10T04:06:19Z</updated>
+    <link href="https://arxiv.org/abs/math/0408126v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0408126v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We derive an explicit zero-free region for symmetric square L-functions of elliptic curves, and use this to derive an explicit lower bound for the modular degree of rational elliptic curves. The techniques are similar to those used in the classical derivation of zero-free regions for Dirichlet L-functions, but here, due to the work of Goldfield-Hoffstein-Lieman, we know that there are no Siegel zeros, which leads to a strengthened result.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2004-08-10T04:06:19Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Mark Watkins</name>
+    </author>
+  </entry>
+</feed>
+

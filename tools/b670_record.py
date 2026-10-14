@@ -1122,8 +1122,47 @@ def zfr(*a):
     print(T_[T_.index('### THE PRINT, WHOLE (the Atom feed as received):') - 2])
 
 
+# ================================================================================ COMPONENT 5: THE ITEMS ON OPEN_TRAILS
+H5 = ('*Appended 2026-10-14 by b670 under `(R280)`(5) -- ITEM 1, EXTERNAL-ZFR-7/8, AS relay data/b668_b670_items.txt :5 HOLDS IT, ITS TRIGGER (a) '
+      'ATTEMPTED ONCE:*',
+      '*Appended 2026-10-14 by b670 under `(R280)`(5) -- ITEM 2, THE TWO RELATIVE-ENTROPY QUESTIONS, THE FLAG CARRIED:*',
+      '### `W-ORD-STATUS-CELLS` -- A STATUS WORD ON ITS OWN LINE FOR EACH ORDER THE QUEUE READER CANNOT READ, PRICED, NOT STARTED, appended '
+      '2026-10-14, b670, on the navigator`s answer on the two decisions',
+      '*Appended 2026-10-14 by b670 under `(R280)`(8) as amended by the navigator`s note on the progress report -- THE ORDER AFTER b670, THE '
+      'AUTHOR’S PLACEMENT, STRIKEABLE:*')
+
+
+def c5(*a):
+    it = rdn('b668_b670_items.txt').split(NL)
+    claim = it[4]
+    if not claim.startswith('EXTERNAL-ZFR-7/8'):
+        sys.exit('### data/b668_b670_items.txt :5 IS NOT ITEM 1 -- NOTHING WRITTEN')
+    z = rdn('b670_zfr_search.txt')
+    res = re.search(r'### ### \*\*ONE REQUEST ; ENTRIES (\d+) ; CANDIDATES (\d+) ; ([^*]+)\.\*\*', z)
+    if not res:
+        sys.exit('### THE SEARCH BANK CARRIES NO RESULT LINE -- NOTHING WRITTEN')
+    wo = json.load(io.open(os.path.join(D, 'b670_work_orders.json'), encoding='utf-8'))
+    ns = [o for o in wo['orders'] if o['status'] == 'NOT STATED']
+    t1 = (NL + H5[0] + ' ' + claim + ' **Trigger (a), attempted once at b670:** one request to the arXiv listing API by the claim`s words '
+          '("zero-free region" and "Siegel" in the abstract, newest first, fifty entries), no identifier of the author in it; %s entries, '
+          '%s carrying 7/8 -- %s (relay data/b670_zfr_search.txt, the request and the print whole). Nothing else of the claim is entered.' % (
+              res.group(1), res.group(2), res.group(3)) + NL)
+    t2 = (NL + H5[1] + ' as relay data/b668_b670_items.txt :7-:9 holds it: "the two relative-entropy questions (not yet in any relay bank at '
+          'b668; their source the author`s chat record)". The flag alone is carried; no question is supplied by the seat.' + NL)
+    t3 = (NL + H5[2] + NL + NL + '**Items.** The %d orders whose status the b670 queue reader cannot find, each listed by the line last naming '
+          'it under its own heading in relay data/b670_work_orders.txt; each to carry a status word on its own line, the author`s strike on '
+          'the list.' % len(ns) + NL + NL + '**Reason.** The work-order queue is the fourth reading of the pair (relay data/b670_rules.txt row 1); '
+          'a status the reader cannot find cannot be read as steady or aged.' + NL + NL + '**Price:** one step. **Trigger:** the next re-cut '
+          'act`s step zero.' + NL)
+    t4 = (NL + H5[3] + ' ' + K.NEXT_ACTS + '. The (R280)(8) wording "b672 the re-cut act on the next kernel by count" stands superseded '
+          'by this line (relay data/b670_author_answers.txt, the navigator`s note on the progress report); the next kernels by count after '
+          'the eight cut, SIDE-window and SIDE-trivium at 5 each (relay data/b647_table_kernels.txt :25, :24), the tie rule at :14238 deciding.' + NL)
+    land([('OPEN_TRAILS.md', H5[0], t1), ('OPEN_TRAILS.md', H5[1], t2), ('OPEN_TRAILS.md', H5[2], t3), ('OPEN_TRAILS.md', H5[3], t4)],
+         'b670_items_lines.json', 'c5', check=[('OPEN_TRAILS.md', K.B669_TRAIL, '### b669')], dry='dry' in a)
+
+
 ROUTES = {'c1': c1, 'answers': answers, 'ten': ten, 'sweep': sweep, 'licensed': licensed, 'corr': corr, 'ceiling': ceiling, 'orders': orders,
-          'methods': methods, 'zfr': zfr}
+          'methods': methods, 'zfr': zfr, 'c5': c5}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
