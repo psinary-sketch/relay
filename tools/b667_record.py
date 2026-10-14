@@ -327,35 +327,61 @@ def _hyp():
     return [('H1', h1, l1), ('H2', h2, l2), ('H3', h3, l3), ('H4', h4, '%s ; %s ; %s' % (lj, l4, lc)), ('H5', h5, l5)]
 
 
+def _state(k, ok, l):
+    """(R277)(6a): H4 reads NOT SCORABLE where the map on the balls prints no j₀ (HYP-UNVERIFIED) and its control reproduced."""
+    if k == 'H4' and not ok and 'HYP-UNVERIFIED(hQtie)' in (l or '') and 'H4 NOT SCORABLE' in (l or '') and 'THE CONTROL REPRODUCED' in (l or ''):
+        return 'NOT SCORABLE'
+    return 'HELD' if ok else 'REFUTED'
+
+
+def _h4_ns():
+    return any(k == 'H4' and _state(k, ok, l) == 'NOT SCORABLE' for k, ok, l in _hyp())
+
+
 def hypotheses(*a):
     H = _hyp()
     L = ['b667 -- H1-H5 OF (R277)(5), SCORED BY PRINTED LINE (%s): rows are hypotheses -- the verdict and the bank line it reads, verbatim '
          '(relay data/b667_epstein_counts.txt, data/b667_epstein_zeros_certified.json, data/b667_epstein_control_balls.txt).' % utc(), '']
     for k, ok, l in H:
-        L.append('  (%s) %s -- %s' % (k, 'HELD' if ok else 'REFUTED', l))
+        L.append('  (%s) %s -- %s' % (k, _state(k, ok, l), l))
         if k == 'H3':
             L.append('       the list`s size in R by orbit and pair, 146 + 2 × 17 = 180: relay data/b667_epstein_plan.txt section 1 (:7, :19), N(R) '
                      'banked as printed')
-    L += ['', '### ### **HELD %d OF 5.**' % sum(1 for _k, ok, _l in H if ok)]
+        if k == 'H4' and _state(k, ok, l) == 'NOT SCORABLE':
+            L.append('       (R277)(6a): the act`s finding -- the balls` relative phase width at h = 10⁻¹² raised to 2²⁵ at the map`s j against the '
+                     'control`s 2⁻²⁰, hQtie 0 of 41 (relay data/b667_h4_reading.txt)')
+    ns = [k for k, ok, l in H if _state(k, ok, l) == 'NOT SCORABLE']
+    L += ['', '### ### **HELD %d OF 5%s.**' % (sum(1 for _k, ok, _l in H if ok), (' ; %s NOT SCORABLE ON THE BALLS ((R277)(6a))' % ', '.join(ns)) if ns else '')]
     put_txt('b667_hypotheses.txt', L)
-    put_json('b667_hypotheses.json', dict(at=utc(), rows=[dict(h=k, held=ok, line=l) for k, ok, l in H]))
+    put_json('b667_hypotheses.json', dict(at=utc(), rows=[dict(h=k, held=ok, state=_state(k, ok, l), line=l) for k, ok, l in H]))
     print(NL.join(L[2:]))
 
 
-DH = ('*Appended 2026-10-14 by b667 beneath W-ORD-EPSTEIN-CERTIFY (:14158), under `(R277)`(6) -- W-ORD-EPSTEIN-CERTIFY DISCHARGED:*')
+DH = ('*Appended 2026-10-14 by b667 beneath W-ORD-EPSTEIN-CERTIFY (:14158), under `(R277)`(6) and (6a) -- W-ORD-EPSTEIN-CERTIFY, ITS DATA HALF '
+      'DISCHARGED:*')
+SH = ('*Appended 2026-10-14 by b667 beneath W-ORD-EPSTEIN-CERTIFY (:14158), under `(R277)`(6a) -- `W-ORD-EPSTEIN-BALL-WIDTH`, ITS CONTROL HALF, '
+      'A NAMED SUCCESSOR, PROPOSED:*')
 KH = ('*Appended 2026-10-14 by b667 beneath W-ORD-EPSTEIN-CERTIFY (:14158), under `(R277)`(6) -- THE KERNEL ITEM FOR P1 AND P2, PLACED:*')
 
 
 def _discharge():
     j, rows = _cert()
     w = sum(1 for x in rows if x[3])
-    return ('\n' + DH + ' Q0’s zeros below 150 isolated in Arb balls by the argument-principle count: the 17 off-line zeros and the 146 '
-            'on-line ordinates each counted 1 in a square of half-width 10⁻¹² about its banked double (%s), the 17 reflection partners 1 − conj ρ '
-            'likewise; the region [−0.5, 1.5] × [0.5, 150] counted %s, the list’s 146 + 2 × 17, and the band [−0.5, 1.5] × [−0.5, 0.5] %s, so '
-            'P2’s data reads certified for every |t| ≤ 150 (σ ≥ 3/2 by the Dirichlet bound, σ ≤ −1/2 by the functional equation); the route '
-            'Chowla-Selberg with each term bounded, under (R277)(3a)-(3d); the b663 control re-run on the balls at j₀ = 38, the zero side below '
-            'zero. Relay data/b667_epstein_zeros_certified.txt, data/b667_epstein_counts.txt, data/b667_epstein_control_balls.txt; b326’s '
-            'banks unedited.\n' % ('%d widened to 10⁻⁹' % w if w else 'none widened', j.get('N_R'), j.get('N_B')))
+    return ('\n' + DH + ' P1’s points in balls and P2’s count: Q0’s zeros below 150 isolated in Arb balls by the argument-principle count, '
+            'the 17 off-line zeros and the 146 on-line ordinates each counted 1 in a square of half-width 10⁻¹² about its banked double (%s), '
+            'the 17 reflection partners 1 − conj ρ likewise; the region [−0.5, 1.5] × [0.5, 150] counted %s, the list’s 146 + 2 × 17, and the '
+            'band [−0.5, 1.5] × [−0.5, 0.5] %s, so P2’s data reads certified for every |t| ≤ 150 (σ ≥ 3/2 by the Dirichlet bound, σ ≤ −1/2 by '
+            'the functional equation); the route Chowla-Selberg with each term bounded, under (R277)(3a)-(3d). The control half is not '
+            'discharged: the b663 control on the balls is NOT SCORABLE at this width (hQtie 0 of 41), carried as W-ORD-EPSTEIN-BALL-WIDTH '
+            'beneath. Relay data/b667_epstein_zeros_certified.txt, data/b667_epstein_counts.txt, data/b667_h4_reading.txt; b326’s banks '
+            'unedited.\n' % ('%d widened to 10⁻⁹' % w if w else 'none widened', j.get('N_R'), j.get('N_B')))
+
+
+def _successor():
+    return ('\n' + SH + ' each banked zero of Q0 below 150 refined in balls to the map’s input width -- relative width at or below 10⁻¹⁸, the '
+            'figure relay data/b667_h4_reading.txt prints -- re-isolated by the same segment count, the controls re-run before the map, and the '
+            'b663 map run once on those balls, reading j₀ and the zero side. Trigger: the balls at the map’s width. Proposed for the research '
+            'slot after the reading act (b670), its placement the author’s.\n')
 
 
 def _kernel_item():
@@ -369,9 +395,12 @@ def landing(*a):
     """Component 5's OPEN_TRAILS lines, after the dated line beneath data/b663_epstein_control.txt (written by the Edit tool) is in place."""
     if 'ball-certified at b667' not in rdn('b663_epstein_control.txt'):
         sys.exit('### THE DATED LINE BENEATH data/b663_epstein_control.txt IS NOT IN PLACE -- NOTHING WRITTEN')
-    if not all(ok for _k, ok, _l in _hyp()):
-        sys.exit('### H1-H5 DO NOT ALL HOLD -- THE DISCHARGE IS NOT WRITTEN (the finding route instead)')
-    items = [('OPEN_TRAILS.md', DH, _discharge()), ('OPEN_TRAILS.md', KH, _kernel_item())]
+    st = dict((k, _state(k, ok, l)) for k, ok, l in _hyp())
+    if [st[k] for k in ('H1', 'H2', 'H3', 'H4', 'H5')] != ['HELD', 'HELD', 'HELD', 'NOT SCORABLE', 'HELD']:
+        sys.exit('### THE HYPOTHESES DO NOT READ AS (R277)(6a) RULES FOR -- NOTHING WRITTEN: %s' % st)
+    if 'b667 under (R277)(6) and (6a)' not in rdn('b663_epstein_control.txt'):
+        sys.exit('### THE (6a) DATED LINE BENEATH data/b663_epstein_control.txt IS NOT IN PLACE -- NOTHING WRITTEN')
+    items = [('OPEN_TRAILS.md', DH, _discharge()), ('OPEN_TRAILS.md', SH, _successor()), ('OPEN_TRAILS.md', KH, _kernel_item())]
     land(items, 'b667_landing.json', 'landing', entry=K.ORDER, check=[('OPEN_TRAILS.md', K.ORDER, '### `W-ORD-EPSTEIN-CERTIFY`')],
          dry='dry' in a)
 
@@ -632,10 +661,11 @@ def _n3():
 
 
 def _n4():
-    H = dict((k, (ok, l)) for k, ok, l in _hyp())
+    H = dict((k, (ok, l, _state(k, ok, l))) for k, ok, l in _hyp())
     ok = H['H1'][0] and H['H2'][0] and H['H4'][0]
-    return ('HELD' if ok else 'REFUTED'), 'H1 %s ; H2 %s ; H4 %s (relay data/b667_hypotheses.txt)' % (
-        'HELD' if H['H1'][0] else 'REFUTED', 'HELD' if H['H2'][0] else 'REFUTED', H['H4'][1])
+    v = 'HELD' if ok else ('NOT SCORABLE' if H['H1'][0] and H['H2'][0] and H['H4'][2] == 'NOT SCORABLE' else 'REFUTED')
+    return v, 'H1 %s ; H2 %s (every point at count 1) ; H4 %s on the balls ((R277)(6a); relay data/b667_h4_reading.txt) -- %s' % (
+        H['H1'][2], H['H2'][2], H['H4'][2], H['H4'][1])
 
 
 def _n5():
@@ -696,10 +726,13 @@ def _title():
     j, rows = _cert()
     off = sum(1 for x in rows if x[0] == 'OFF' and x[2] == 1)
     on = sum(1 for x in rows if x[0] == 'ON' and x[2] == 1)
+    rel = 'equal to' if j.get('N_R') == 180 and j.get('N_B') == 0 else 'exceeding'
+    if _h4_ns():
+        return ('## Q0’s zeros below 150 in balls: %d off-line and %d on-line isolated at count 1, the region count %s the list; the b663 '
+                'control on the balls NOT SCORABLE at h = 10⁻¹²; H1–H3, H5 held' % (off, on, rel))
     H = _hyp()
     lj = re.search(r'j₀ = (\d+)', H[3][2] or '')
     held = all(ok for _k, ok, _l in H)
-    rel = 'equal to' if j.get('N_R') == 180 and j.get('N_B') == 0 else 'exceeding'
     return ('## Q0’s zeros below 150 in balls: %d off-line and %d on-line isolated, the region count %s the list; the b663 control on the '
             'balls at j₀ = %s; H1–H5 %s' % (off, on, rel, lj.group(1) if lj else '?', 'held' if held else 'not all held'))
 
@@ -708,7 +741,7 @@ def _finding_text():
     S, rl, J, ld = jl('b667_scores.json'), jl('b667_record_lines.json'), jl('b667_act_root.json'), jl('b667_landing.json')
     n_ans = len(re.findall(r'^### PROMPT ', rdn('b667_author_answers.txt'), re.M))
     ls = (rl.get('lines') or []) + [{}]
-    ll = (ld.get('lines') or []) + [{}, {}]
+    ll = (ld.get('lines') or []) + [{}, {}, {}]
     j, rows = _cert()
     cc = re.search(r'CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
     w = sum(1 for x in rows if x[3])
@@ -731,12 +764,16 @@ def _finding_text():
          'zero shifted by 10⁻¹⁰ counted 0; the list less one point read UNLISTED 1 -- each before the first Q0 square. N3 %s.' % _sv(S, 'N3'), '',
          '**The balls** (`(R277)`(5)): the 17 off-line zeros and the 146 on-line ordinates each counted 1 in a square of half-width 10⁻¹² about '
          'its banked double (%s), the reflection partners likewise; the region [−0.5, 1.5] × [0.5, 150] counted %s, the list’s 146 + 2 × 17, and '
-         'the band below it %s, so P2’s data is certified below 150; %s Bessel factors taken at 600 bits. The b663 control on the balls: j₀ = 38, '
-         'the zero side below zero. N4 %s.' % ('none widened' if not w else '%d widened to 10⁻⁹' % w, j.get('N_R'), j.get('N_B'),
-                                             rungs.group(1) if rungs else '?', _sv(S, 'N4')), '',
-         '**The landing** (`(R277)`(6)): the dated line beneath relay `data/b663_epstein_control.txt` (“ball-certified at b667”); '
-         'W-ORD-EPSTEIN-CERTIFY DISCHARGED (OPEN_TRAILS :%s); the kernel item for P1 and P2 placed (OPEN_TRAILS :%s); b326’s banks unedited.' % (
-             ll[0].get('line'), ll[1].get('line')), '',
+         'the band below it %s, so P2’s data is certified below 150; %s Bessel factors taken at 600 bits. The b663 control on the balls is NOT '
+         'SCORABLE at h = 10⁻¹² (`(R277)`(6a)), the act’s finding: the map raises the dominant’s phase to 2²⁵ at its first j, so the balls’ '
+         'relative width near 6 × 10⁻⁹ leaves its tie controls 0 of 41 against 2⁻²⁰; the map needs inputs near 10⁻¹⁸ relative. The Z₁ '
+         'control reproduced. N4 %s.' % ('none widened' if not w else '%d widened to 10⁻⁹' % w, j.get('N_R'), j.get('N_B'),
+                                       rungs.group(1) if rungs else '?', _sv(S, 'N4')), '',
+         '**The landing** (`(R277)`(6) and (6a)): the dated line beneath relay `data/b663_epstein_control.txt` (the configuration’s points '
+         'ball-certified at b667, the control’s j₀ = 38 standing on point values the balls contain, the control on the balls NOT SCORABLE); '
+         'W-ORD-EPSTEIN-CERTIFY’s data half DISCHARGED (OPEN_TRAILS :%s); its control half carried as W-ORD-EPSTEIN-BALL-WIDTH (OPEN_TRAILS '
+         ':%s); the kernel item for P1 and P2 placed (OPEN_TRAILS :%s); b326’s banks unedited.' % (
+             ll[0].get('line'), ll[1].get('line'), ll[2].get('line')), '',
          '**The root.** b667 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
              len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
          '**The scores.** ' + ', '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.', '',
@@ -760,13 +797,15 @@ def _trail_text():
     n_ans = len(re.findall(r'^### PROMPT ', rdn('b667_author_answers.txt'), re.M))
     _r, _n, sh = seal_hashes()
     ls = (rl.get('lines') or []) + [{}]
-    ll = (ld.get('lines') or []) + [{}, {}]
+    ll = (ld.get('lines') or []) + [{}, {}, {}]
     rows_ = ['', TRAIL_HEAD(), '',
              '**(R277) ratified.** (1) b666 at its weight. (2) The object: Q0’s list as b326 banks it. (3) The method’s shape, the route raised in '
-             'a plan; (3a)-(3d) added on the author’s word. (4) The controls. (5) H1-H5. (6) The landing. (7) The draft held at v5. (8) The act '
-             'after: b668.', '',
-             '**Entered:** FINDINGS.md:%s (b666’s weight), :%s (the entry); OPEN_TRAILS.md:%s (W-ORD-EPSTEIN-CERTIFY DISCHARGED), :%s (the kernel '
-             'item for P1 and P2); this record.' % (ls[0].get('line'), fj.get('entry_line'), ll[0].get('line'), ll[1].get('line')), '',
+             'a plan; (3a)-(3d) added on the author’s word. (4) The controls. (5) H1-H5: H1-H3 and H5 held, H4 NOT SCORABLE on the balls. (6) The '
+             'landing, with (6a): the data half discharged, the control half carried as W-ORD-EPSTEIN-BALL-WIDTH. (7) The draft held at v5. (8) The '
+             'act after: b668.', '',
+             '**Entered:** FINDINGS.md:%s (b666’s weight), :%s (the entry); OPEN_TRAILS.md:%s (W-ORD-EPSTEIN-CERTIFY’s data half DISCHARGED), '
+             ':%s (W-ORD-EPSTEIN-BALL-WIDTH, its control half), :%s (the kernel item for P1 and P2); this record.' % (
+                 ls[0].get('line'), fj.get('entry_line'), ll[0].get('line'), ll[1].get('line'), ll[2].get('line')), '',
              '**Act root:** b667 `%s` (previous `%s`, b666’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF.' % (
                  J.get('root'), J.get('previous')), '',
              '**Prompts to the author:** %d questions in %d calls (relay data/b667_author_answers.txt): the plan’s prompt of `(R277)`(3) before any '
@@ -792,7 +831,7 @@ def components(*a):
     if not fj.get('entry_line') or not tj.get('line'):
         sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
     ls = (rl.get('lines') or []) + [{}]
-    ll = (ld.get('lines') or []) + [{}, {}]
+    ll = (ld.get('lines') or []) + [{}, {}, {}]
     j, _rows = _cert()
     L = ['b667 -- THE COMPONENTS, BANKED UNDER (R277).', '',
          '### COMPONENT 0 : the citation check (data/b667_citation_check.txt), step zero (data/b667_ferry.txt, data/b667_stepzero.txt, '
@@ -802,8 +841,9 @@ def components(*a):
          '### COMPONENT 3 : the isolation (data/b667_epstein_counts.txt, data/b667_epstein_zeros_certified.txt, data/b667_bessel_rungs.txt ; the '
          'stopped runs data/b667_certify_run1.txt to run3.txt) ; N(R) %s ; N(B) %s ; N3 %s' % (j.get('N_R'), j.get('N_B'), S['N3'][0]),
          '### COMPONENT 4 : the b663 control on the balls (data/b667_epstein_control_balls.txt, data/b667_map_balls_diff.txt) ; N4 %s' % S['N4'][0],
-         '### COMPONENT 5 : the landing -- the dated line beneath data/b663_epstein_control.txt ; OPEN_TRAILS :%s (DISCHARGED), :%s (the kernel '
-         'item) ; H1-H5 (data/b667_hypotheses.txt)' % (ll[0].get('line'), ll[1].get('line')),
+         '### COMPONENT 5 : the landing -- the dated line beneath data/b663_epstein_control.txt ; OPEN_TRAILS :%s (the data half DISCHARGED), :%s '
+         '(W-ORD-EPSTEIN-BALL-WIDTH), :%s (the kernel item) ; H1-H5 (data/b667_hypotheses.txt)' % (ll[0].get('line'), ll[1].get('line'),
+                                                                                                  ll[2].get('line')),
          '### COMPONENT 6 : the dry-run step (data/b667_reg_gate.txt), the seal (data/b667_seal_hashes.json), the suite ; S3 %s' % S['S3'][0],
          '### COMPONENT 7 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N1 %s ; N5 %s' % (
              (J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'), S['N1'][0], S['N5'][0])]

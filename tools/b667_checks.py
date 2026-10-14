@@ -373,7 +373,7 @@ def sources():
         margin=rd('b627_margin_inputs.txt'), counts=rd('b667_epstein_counts.txt'), certj=REC.cert_json(), large=large_now(),
         largebank=rd('b667_large_banks.txt'),
         cmap=rd('b667_epstein_control_balls.txt'), mapdiff=map_unchanged_but_literals(), control=rd('b663_epstein_control.txt'),
-        hyp=rd('b667_hypotheses.txt'), runs=[rd('b667_certify_run%d.txt' % i) for i in (1, 2, 3)],
+        hyp=rd('b667_hypotheses.txt'), h4read=rd('b667_h4_reading.txt'), runs=[rd('b667_certify_run%d.txt' % i) for i in (1, 2, 3)],
         rundiffs=[rd('b667_certify_diff_run3.txt'), rd('b667_certify_diff_run4.txt')], rungs=rd('b667_bessel_rungs_summary.txt'),
         b326={p: tri(ROOT, p, PRE['relay']) for p in K.B326_BANKS},
         standing=STANDING, wf=wf_state(), runner=jl(K.RUNNER_ROWS), rbank=rd(K.RUNNER_BANK), merges=merges_state(),
@@ -642,15 +642,18 @@ def region_ok(S):
 
 
 def map_ok(S):
+    """(R277)(6a): the map run once on the balls -- the Z₁ control reproduced, Q0 read HYP-UNVERIFIED(hQtie) and H4 NOT SCORABLE, the cause
+    banked; the carry against b663's map with no computation line changed."""
     m = S['cmap']
-    return 'READING Q0 AT qE0: j₀ = 38' in m and re.search(r'^\s*H4 HELD', m, re.M) is not None and 'THE CONTROL REPRODUCED (' in m \
-        and S['mapdiff'][0]
+    return 'READING Q0 AT qE0: HYP-UNVERIFIED(hQtie)' in m and re.search(r'^\s*H4 NOT SCORABLE', m, re.M) is not None \
+        and 'THE CONTROL REPRODUCED (' in m and 'hQtie 0 of 41' in ' '.join(S['h4read'].split()) and S['mapdiff'][0]
 
 
 def landing_ok(S):
-    return re.search(r'^### DATED LINE, 2026-10-14, b667 under \(R277\)\(6\).*ball-certified at b667', S['control'], re.M | re.S) is not None \
-        and landed(S, 0, ['W-ORD-EPSTEIN-CERTIFY DISCHARGED'], key='ld') and landed(S, 1, ['THE KERNEL ITEM FOR P1 AND P2'], key='ld') \
-        and 'HELD 5 OF 5' in S['hyp']
+    return re.search(r'^### DATED LINE, 2026-10-14, b667 under \(R277\)\(6\) and \(6a\).*ball-certified at b667.*NOT SCORABLE at this width',
+                     S['control'], re.M | re.S) is not None \
+        and landed(S, 0, ['ITS DATA HALF DISCHARGED'], key='ld') and landed(S, 1, ['W-ORD-EPSTEIN-BALL-WIDTH', 'the map’s width'], key='ld') \
+        and landed(S, 2, ['THE KERNEL ITEM FOR P1 AND P2'], key='ld') and 'HELD 4 OF 5 ; H4 NOT SCORABLE ON THE BALLS' in S['hyp']
 
 
 def b326_ok(S):
@@ -914,9 +917,9 @@ ARMS = [
      lambda S: squares_ok(S), lambda S: _mut(S, 'certj', lambda d: d['rows'][0].update(count=0))),
     ('G-REGION-COUNTED', 'the certified bank and the counts: N(R) = 180, the band 0 (H3)', lambda S: region_ok(S),
      lambda S: _mut(S, 'certj', lambda d: d.update(N_R=181))),
-    ('G-MAP-ON-BALLS', 'the map on the balls: j₀ = 38, H4 held, the control reproduced; the carry against b663`s map, no computation line changed (H4)',
+    ('G-MAP-ON-BALLS', 'the map on the balls, run once: the Z₁ control reproduced, Q0 HYP-UNVERIFIED(hQtie) and H4 NOT SCORABLE, the cause banked ((R277)(6a)); the carry against b663`s map, no computation line changed',
      lambda S: map_ok(S), lambda S: put(S, 'mapdiff', (False, 0, 0))),
-    ('G-LANDING-DATED', 'b663`s control bank`s dated line; OPEN_TRAILS at the landing bank`s lines through conv; H1-H5 held by printed line',
+    ('G-LANDING-DATED', 'b663`s control bank`s (6a) dated line; OPEN_TRAILS at the landing bank`s three lines through conv; H1-H3 and H5 held, H4 NOT SCORABLE, by printed line',
      lambda S: landing_ok(S), lambda S: _rl(S, 0, 1, key='ld')),
     ('G-B326-UNTOUCHED', 'b326`s two banks: before, working tree and HEAD (N5)', lambda S: b326_ok(S),
      lambda S: put(S, 'b326', dict(S['b326'], **{K.B326_BANKS[0]: (b'x', b'y', b'y')}))),
