@@ -258,7 +258,8 @@ def answer(needle, *a):
     at HEAD, the print appended to the citation bank with the answer named."""
     best = None
     for t in _user_texts():
-        if needle in t and ("NAVIGATOR'S ANSWER" in t or "NAVIGATOR'S NOTE" in t):
+        u = t.replace('’', "'")     # ### defect (g): an answer pasted with the curly apostrophe (NAVIGATOR’S) read as the straight
+        if needle in t and ("NAVIGATOR'S ANSWER" in u or "NAVIGATOR'S NOTE" in u):
             best = t
     if best is None:
         sys.exit('### NO ANSWER CARRYING %r IN THE SESSION -- NOTHING WRITTEN' % needle)
