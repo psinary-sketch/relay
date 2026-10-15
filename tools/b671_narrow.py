@@ -544,6 +544,14 @@ def run3():
         'W %s ; DEPTH %d ; THE OFFSET A THIRD OF THE DEPTH`S HALF-WIDTH' % (PROCS, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), W, DEPTH))
     f0 = CERT.free_mb()
     say('### host free at start: %s MB ; the hold %d MB' % (f0, CERT.HOLD_MB))
+    # ### the navigator's note on the reap reading: free memory compared with the hold before run 3; beneath it, the author's word alone
+    beneath = f0 is None or f0 < CERT.HOLD_MB
+    say('### free %s MB against the hold %d MB : %s' % (f0, CERT.HOLD_MB, 'UNREAD' if f0 is None else 'BENEATH THE HOLD' if beneath else 'AT OR ABOVE THE HOLD'))
+    if beneath and '--author-word' not in sys.argv:
+        say('### BENEATH THE HOLD WITHOUT THE AUTHOR`S WORD -- NOTHING RUN')
+        return 3
+    if beneath:
+        say('### BENEATH THE HOLD; STARTED ON THE AUTHOR`S WORD (--author-word)')
     r2 = [json.loads(l) for l in io.open(os.path.join(D, 'b671_narrow_run2_points.jsonl'), encoding='utf-8') if l.strip()]
     if len(r2) != 17 or len(set(r['idx'] for r in r2)) != 17:
         say('### RUN 2 HAS NOT BANKED THE 17 POINTS (%d rows) -- NOTHING RUN' % len(r2))
