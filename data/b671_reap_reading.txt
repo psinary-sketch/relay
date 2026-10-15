@@ -1,0 +1,22 @@
+b671 -- THE REAPED WATCHER (rows are lines): the reap, the process listing before the watcher started again, the watcher's command line.
+### On the navigator's answer on the reaped watcher (no new clause): the reap entered on the face as a declared reading in b667's form -- the
+### host's low not seen by the seat, the run's own sample the figure.
+
+### THE REAP: the background watcher bruj98f1c (a wait loop on run 2's log, PID 38644 polled once a minute) stopped by the host while the
+### session was idle, "the system is running low on memory"; notified 2026-10-15, read at 13:54:06Z. Run 2 itself not stopped: PID 38644
+### alive with 9 python processes, 11 of 17 off-line points banked. The host's low at the reap was not seen by the seat; the figure is the
+### run's own sample, the host free memory run 2 prints at each landed point: lowest 1522 MB (OFF 0), the others 3347-6115 MB.
+
+### THE PROCESS LISTING BEFORE THE WATCHER STARTED AGAIN (2026-10-15T13:57:48Z): free 3089 MB of 16178 MB ; the hold 2560 MB.
+### names matching tail, lean, lake, python, bash (working set MB): bash 4736 9 ; python 7852 27 ; python 13024 27 ; python 15184 99 ;
+### python 16796 96 ; python 16844 24 ; python 20728 120 ; python 23368 67 ; bash 24872 7 ; python 30408 40 ; bash 38644 6 ; python 41632 87
+### -- run 2's launcher, driver and 8 workers, started 2026-10-14 23:05:24Z-23:05:28Z; no tail, lean or lake.
+### the ten largest by working set (MB): chrome 4588 903 ; Memory Compression 2824 872 ; chrome 14656 698 ; claude 37772 692 ;
+### chrome 8564 493 ; chrome 21044 448 ; explorer 7960 275 ; MsMpEng 30080 266 ; SupportAssistAgent 14760 247 ; chrome 24028 185.
+### No process stopped by the seat.
+
+### THE WATCHER STARTED AGAIN (bm5y8spxz), the same command line:
+S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "RUN2 DONE" "$S/b671_run2.log" 2>/dev/null; do if ! tasklist //FI "PID eq 38644" | grep -q 38644; then echo "PROCESS GONE"; break; fi; sleep 60; done; echo "WAITER END"; grep -E "OFF [0-9]+ :|RUN 2 :" "$S/b671_run2.log" | cut -c1-200; tail -5 "$S/b671_run2.err"
+
+### Run 3 does not start while run 2 runs; it starts when RUN2 DONE prints, free memory printed before it, its whole list the five
+### UNRESOLVED points OFF 2, 6, 7, 8, 15 (as run 2 banks them).

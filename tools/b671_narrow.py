@@ -271,6 +271,7 @@ def task_off(r):
 
 
 OFFSET_4A = 3                      # ### (4a): the split lines offset by a third of the depth's half-width (not a dyadic fraction)
+RUN3_LIST = (2, 6, 7, 8, 15)       # ### the navigator's answer on the reaped watcher: run 3's whole list, the five UNRESOLVED points
 
 
 def _line_meeting(counts):
@@ -548,6 +549,10 @@ def run3():
         say('### RUN 2 HAS NOT BANKED THE 17 POINTS (%d rows) -- NOTHING RUN' % len(r2))
         return 3
     un = sorted((r for r in r2 if r['reading'] == 'UNRESOLVED-AT-DEPTH'), key=lambda r: r['idx'])
+    if tuple(r['idx'] for r in un) != RUN3_LIST:
+        say('### RUN 2`S UNRESOLVED POINTS %s ARE NOT THE ANSWER`S LIST %s -- NOTHING RUN; THE AUTHOR`S WORD FIRST' % (
+            [r['idx'] for r in un], list(RUN3_LIST)))
+        return 3
     pts = os.path.join(D, 'b671_narrow_run3_points.jsonl')
     done = set()
     if os.path.exists(pts):
