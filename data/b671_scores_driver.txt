@@ -1,0 +1,78 @@
+b671 -- THE SCORES' SCRATCH DRIVER, IN b663'S FORM (b663 defect (o)), on the navigator's answer on the N5 score under (R281); banked by the
+seat beside data/b671_scores.json, its text whole below.
+
+### the driver : C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/60123014-9988-4663-b491-449d50464d7e/scratchpad/b671_scores_driver.py
+###               (outside every tree; written by the Write tool), 4,045 bytes, sha256 5c9e9b269426e3c89640a1d95edd43a371597daf0c2074cc20fc8c38bc17ed09
+### its run   : 2026-10-16, after the root; it wrote data/b671_scores.json through the sealed route `scores` and nothing else
+### the sealed record tool tools/b671_record.py sha256 before : 1c55408d66e43a3ac5d0e9a02e4b1780db611c35634bb3958cf4cedaee57b48f
+### the sealed record tool tools/b671_record.py sha256 after  : 1c55408d66e43a3ac5d0e9a02e4b1780db611c35634bb3958cf4cedaee57b48f ; EQUAL
+### what it replaces in memory: _n5 alone -- the nine b667 files compared by bytes, and no clause about the word "patent", which (R281)'s
+### N5 does not carry (it stands in the author's verbatim sequence line at OPEN_TRAILS :14384, as (R281)(2) ordered); every other clause
+### of the sealed _n5 kept as it reads. The scores it printed: N1 HELD, N2 HELD, N3 HELD, N4 HELD, N5 HELD, S1 HELD, S2 HELD, S3 HELD.
+
+### THE DRIVER, WHOLE:
+# -*- coding: utf-8 -*-
+"""b671 -- THE SCORES THROUGH A SCRATCH DRIVER IN b663'S FORM (b663 defect (o)), on the navigator's answer on the N5 score under (R281).
+
+### Outside every tree. Imports the sealed tools/b671_record.py UNEDITED (its sha256 printed before and after) and replaces one function in
+### memory, _n5, by N5 scored on (R281)'s own clauses: the nine b667 files compared by BYTES (git show stdout bytes against the file's bytes),
+### and no clause about the word "patent", which (R281)'s N5 does not carry. Every other clause of the sealed _n5 is kept as it reads.
+### Then the sealed route `scores` runs unchanged and writes data/b671_scores.json; this driver's text is banked beside it by the seat.
+"""
+import hashlib
+import os
+import re
+import subprocess
+import sys
+
+RELAY = 'D:/relay'
+REC_PATH = os.path.join(RELAY, 'tools', 'b671_record.py')
+sys.path.insert(0, os.path.join(RELAY, 'tools'))
+sys.argv = [REC_PATH, 'scores']
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
+before = hashlib.sha256(open(REC_PATH, 'rb').read()).hexdigest()
+print('### the sealed record tool sha256 before : %s' % before)
+import b671_record as R  # noqa: E402
+K = R.K
+
+
+def _blob(rev, path):
+    r = subprocess.run(['git', '-C', RELAY, 'show', '%s:%s' % (rev, path)], capture_output=True)
+    return r.stdout if r.returncode == 0 else None
+
+
+def _n5():
+    face = R.jl('b671_kernels_face.json').get('kernels') or {}
+    now = R.R3.kern_state(list(face)) if face else {}
+    others_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (R.g(R.PP, 'diff', '--name-only', K.PRE_PP) + R.NL + R.g(R.PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(R.NL)
+                       if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in R.N5_PP]
+    relay_ch = sorted(set(x for x in (R.g(R.RELAY, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + R.NL + R.g(R.RELAY, 'diff', '--name-only')).split(R.NL)
+                          if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b671_|audit_b671_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in R.N5_RELAY_DATA))]
+    _r, _n, sh = R.seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    import b671_checks as CH
+    new_arms = sorted(set(a[0] for a in CH.ARMS) - set(CH.STANDING) - set(K.ACT_ARMS))
+    # ### BY BYTES: the pre-act blob's bytes against the file's bytes (the sealed _n5 read the .gz through a text reader)
+    b667_ed = [p for p in R.B667_READ if _blob(K.PRE_RELAY, p) != open(os.path.join(RELAY, *p.split('/')), 'rb').read()]
+    ok = others_ok and not pp_beyond and not kinds_beyond and not differ and not new_arms and not b667_ed
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unsubmitted); no kernel main written, every kernel as the face read it %s; '
+            'standing arms added: %s (the act`s arms over its own banks %d); sealed tools not agreeing %s; PLACE-papers beyond FINDINGS and '
+            'OPEN_TRAILS (no keystone): %s; relay files of a kind beyond the banks, the tools, the root list, b670`s push-out bank and the two '
+            'dated lines: %s; b667`s banks and tools the act reads, edited (by bytes): %s; outbound requests: the seat`s plain git reads and '
+            'pushes to github.com alone, no search made, so no identifier of the author placed in a request -- scored through a scratch driver '
+            'in b663`s form (relay data/b671_scores_driver.txt)' % (
+                K.DRAFT, others_ok, new_arms or 'NONE', len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE', kinds_beyond or 'NONE',
+                b667_ed or 'NONE'))
+
+
+R._n5 = _n5
+R.scores()
+after = hashlib.sha256(open(REC_PATH, 'rb').read()).hexdigest()
+print('### the sealed record tool sha256 after  : %s ; %s' % (after, 'EQUAL' if after == before else '### DIFFER'))

@@ -1,7 +1,7 @@
-b671 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-16T12:25:10Z)
+b671 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (2026-10-16T12:53:01Z)
 
 ### the source: the seat`s session 96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf from its first user line carrying 'RULING (R281) BEGIN', and its subagents` transcripts
-### commands read: 292
+### commands read: 324
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -302,5 +302,37 @@ b671 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READIN
   #290 | 2026-10-16T12:24:38.567Z | seat 60123014 | Bash | python -X utf8 -c "import ast;ast.parse(open('tools/b671_checks.py',encoding='utf-8').read())" && python -X utf8 -c "
   #291 | 2026-10-16T12:24:50.505Z | seat 60123014 | Bash | grep -n "G-NOTHING-RAN-AHEAD" -A4 tools/b671_checks.py | cut -c1-260; grep -n "def wl_globs" -A8 tools/b671_checks.py; grep -n "def written_files" -A9 tools/b67
   #292 | 2026-10-16T12:25:01.161Z | seat 60123014 | Bash | git log --reverse --format="%h %s" 87410d3c..HEAD | cut -c1-150; echo ===; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format="%h %s" c740f56..HEAD | cu
+  #293 | 2026-10-16T12:25:08.044Z | seat 60123014 | Bash | python -X utf8 tools/b671_record.py answers 2>&1 | tail -1 && python -X utf8 tools/b671_record.py commands 2>&1 | tail -2 | cut -c1-250 && python -X utf8 tools/
+  #294 | 2026-10-16T12:25:26.494Z | seat 60123014 | Bash | git add tools/b671_closing.py tools/b671_reg_gate.py tools/b671_regspec.py tools/b671_record.py tools/b671_worklist.py data/b671_author_answers.json data/b671_a
+  #295 | 2026-10-16T12:26:54.998Z | seat 60123014 | Bash | python -X utf8 -c "
+  #296 | 2026-10-16T12:27:17.267Z | seat 60123014 | Bash | python -X utf8 -c "
+  #297 | 2026-10-16T12:27:22.780Z | seat 60123014 | Bash | python -X utf8 -c "
+  #298 | 2026-10-16T12:27:25.599Z | seat 60123014 | Bash | sed -n 100,140p tools/registration_gate.py
+  #299 | 2026-10-16T12:27:44.234Z | seat 60123014 | Bash | python -X utf8 -c "
+  #300 | 2026-10-16T12:27:56.357Z | seat 60123014 | PowerShell | $S = 'C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\60123014-9988-4663-b491-449d50464d7e\scratchpad'; $p = Start-Process -FilePath 'C:\Program Files\Git\bin\b
+  #301 | 2026-10-16T12:28:02.612Z | seat 60123014 | Bash | S=/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/60123014-9988-4663-b491-449d50464d7e/scratchpad; for i in $(seq 1 22); do grep -q "PRERUN DONE" $S/b671_prerun
+  #302 | 2026-10-16T12:37:27.610Z | seat 60123014 | Bash | S=/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/60123014-9988-4663-b491-449d50464d7e/scratchpad; for i in $(seq 1 22); do grep -q "PRERUN DONE" $S/b671_prerun
+  #303 | 2026-10-16T12:40:53.620Z | seat 60123014 | Bash | grep -n "FAILS\|DEFECTIVE\|raised\|ARMS RUN\|VERDICT\|NEGATIVE" data/b671_arms_prerun.txt | cut -c1-200
+  #304 | 2026-10-16T12:41:02.248Z | seat 60123014 | Bash | python -X utf8 -c "
+  #305 | 2026-10-16T12:41:11.406Z | seat 60123014 | Bash | python -X utf8 -c "
+  #306 | 2026-10-16T12:41:17.937Z | seat 60123014 | Bash | grep -n "'G-CENSUS-ITEMS'" -A2 tools/b671_checks.py | cut -c1-250
+  #307 | 2026-10-16T12:41:27.507Z | seat 60123014 | Bash | python -X utf8 -c "
+  #308 | 2026-10-16T12:41:39.320Z | seat 60123014 | PowerShell | $S = 'C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\60123014-9988-4663-b491-449d50464d7e\scratchpad'; $p = Start-Process -FilePath 'C:\Program Files\Git\bin\b
+  #309 | 2026-10-16T12:41:48.638Z | seat 60123014 | Bash | S=/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/60123014-9988-4663-b491-449d50464d7e/scratchpad; for i in $(seq 1 22); do grep -q "PRERUN DONE" $S/b671_prerun
+  #310 | 2026-10-16T12:49:29.009Z | seat 60123014 | Bash | grep -n "### FAILS\|DEFECTIVE\|raised\|ARMS RUN\|VERDICT\|NEGATIVE" data/b671_arms_prerun.txt | sed 's/  */ /g' | cut -c1-120
+  #311 | 2026-10-16T12:49:36.345Z | seat 60123014 | Bash | python -X utf8 tools/b671_record.py defects 2>&1 | tail -1 && timeout 580 python -X utf8 tools/b671_reg_gate.py 2>&1 | tail -22 | cut -c1-250
+  #312 | 2026-10-16T12:49:44.409Z | seat 60123014 | Bash | timeout 580 python -X utf8 tools/b671_record.py gatebanks 2>&1 | cut -c1-230
+  #313 | 2026-10-16T12:49:53.734Z | seat 60123014 | Bash | timeout 580 python -X utf8 tools/b378_lockgate.py b671 data/b671_registration_2026-10-14.txt 2>&1 | tail -15 | cut -c1-220; ls data/b671_lockgate*
+  #314 | 2026-10-16T12:49:59.138Z | seat 60123014 | Bash | python -X utf8 tools/reg_seal.py --lock data/b671_registration_2026-10-14.txt 2>&1 | tail -5 && python -X utf8 tools/reg_seal.py --verify data/b671_registration
+  #315 | 2026-10-16T12:50:05.906Z | seat 60123014 | Bash | git status --short | grep -v "^?? data/\(_b\|audit_b[345]\|b[2-5]\|b6[0-6]\|anthropic\)\|^?? tools/\(_\|b4\)\|^?? =" 
+  #316 | 2026-10-16T12:50:10.667Z | seat 60123014 | Bash | ls -la --time-style=full-iso records.json; head -c 400 records.json; echo; git log --all --oneline -1 -- records.json; grep -ln "records.json" tools/b378_lockga
+  #317 | 2026-10-16T12:50:18.303Z | seat 60123014 | Bash | git add data/b671_defects.json data/b671_defects.txt data/b671_registration_2026-10-14.txt data/audit_b671_reg_satisfiable.txt data/b671_arms_prerun.txt data/b6
+  #318 | 2026-10-16T12:50:27.481Z | seat 60123014 | Bash | timeout 580 python -X utf8 tools/b671_record.py table_final 2>&1 | tail -2 && git status --short | grep -E "terminal_table|b671_table"
+  #319 | 2026-10-16T12:51:01.373Z | seat 60123014 | Bash | git add data/b671_table_final.json data/b671_table_final.txt && git commit -q -m "b671 pre-root: the final table (data/b671_table_final.txt): rows moved 0, adde
+  #320 | 2026-10-16T12:51:07.643Z | seat 60123014 | Bash | git branch push-b671-root HEAD && PUSH_GATED_LOG=/d/relay/data/b671_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b671-root
+  #321 | 2026-10-16T12:51:24.694Z | seat 60123014 | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch push-b671-root HEAD && PUSH_GATED_LOG=/d/relay/data/b671_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d
+  #322 | 2026-10-16T12:52:00.711Z | seat 60123014 | Bash | cd /d/relay && python -X utf8 tools/b671_record.py root dry 2>&1 | tail -6 | cut -c1-220
+  #323 | 2026-10-16T12:52:27.668Z | seat 60123014 | Bash | python -X utf8 tools/b671_record.py root 2>&1 | tail -2 | cut -c1-200 && tail -1 data/act_roots.txt | cut -c1-160 && git status --short | grep -v "^??"; git sta
+  #324 | 2026-10-16T12:52:52.942Z | seat 60123014 | Bash | git add data/act_roots.txt data/b671_act_root.json data/b671_act_root.txt && git commit -q -m "b671 root: the act root 9e045502… over 38 repositories, 34 tags a
 
-### ### **COMMANDS 292 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
+### ### **COMMANDS 324 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0.**
