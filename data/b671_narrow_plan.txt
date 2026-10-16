@@ -132,3 +132,14 @@ b671 -- COMPONENT 2, (R281)(3)-(5): THE PLAN FOR THE NARROWING, IN THE b663 FORM
   b667's centre is the zero's estimate, so the vertical split line through it meets the zero; the offset +1.25e-13 and the quarters taken at
   depths 1-3 (lower-left, upper-right, upper-right) put the centre at cr0 - 3.75e-13, cr0 - 1.25e-13, cr0, so the depth-4 split line is b667's
   own line again (data/b671_narrow_run2_points.jsonl, the two rows' lines).
+
+== 12. THE PROGRESS READ (added 2026-10-16 during run 2, on the navigator's answer on the progress read; data/b671_defects.txt (h))
+  (1) run 3 writes each completed depth as it completes: its UTC time, the point's index, the depth, the accepted quarter's segments and
+  doublings per side (square_count's per-side record), to data/b671_narrow_run3_depths.jsonl, printed and flushed; the start square's
+  re-read and a stop written so too. The diff: data/b671_run3_output_diff.txt. Nothing of the counting changes.
+  (2) OFF 16 runs on; its wall time read against the slowest banked point (OFF 14, 76,051 s) at each watcher report; at 152,000 s without a
+  finish (run 2 started 2026-10-14T23:05:28Z, so 2026-10-16 about 17:18Z) one prompt with the figures, nothing stopped before it.
+  (3) for the landing, beneath W-ORD-BESSEL-BOUND-TIGHTEN on OPEN_TRAILS: the late points' accepted quarters used 1,856-3,510 segments
+  (data/b671_run2_progress.txt: above 100, OFF 12 1,856, OFF 13 2,159, OFF 14 3,510, at t 107.4-124.8; OFF 9 1,988 and OFF 11 3,337 at
+  t 89.5 and 93.1 lie in the same range below it), its measured cost at heights above 100; run 2's per-side figures
+  NOT RECORDED, the quarter totals standing as banked.

@@ -1,9 +1,9 @@
 b671 -- THE CARRIED COUNT AGAINST b667`s (tools/b667_epstein_certify.py): square_count and segment, unified diff
 
-=== square_count (b667 :301-:315 ; b671 :142-:156)
+=== square_count (b667 :301-:315 ; b671 :148-:164)
 --- b667
 +++ b671
-@@ -4,9 +4,9 @@
+@@ -4,9 +4,11 @@
      c = acb(re, im)
      hh = arb(h)
      cs = [c + acb(-hh, -hh), c + acb(hh, -hh), c + acb(hh, hh), c + acb(-hh, hh), c + acb(-hh, -hh)]
@@ -11,12 +11,14 @@ b671 -- THE CARRIED COUNT AGAINST b667`s (tools/b667_epstein_certify.py): square
 +    st, cache, tot = CERT._stats(), {}, arb(0)
      for i in range(4):
 -        d = edge_arg(F, cs[i], cs[i + 1], SQ_SEG, DEPTH_SQ, st, cache)
++        s0, d0 = st['segments'], len(st.get('doublings') or [])
 +        d = CERT.edge_arg(F, cs[i], cs[i + 1], SEGS_PER_SIDE, DOUBLINGS_MAX, st, cache)
++        st.setdefault('per_side', []).append((st['segments'] - s0, len(st.get('doublings') or []) - d0))   # ### b671: the record per side
          if d is None:
              return None, None, st
          tot += d
 
-=== segment (b667 :258-:281 ; b671 :84-:108)
+=== segment (b667 :258-:281 ; b671 :90-:114)
 --- b667
 +++ b671
 @@ -1,24 +1,25 @@
@@ -51,7 +53,7 @@ b671 -- THE CARRIED COUNT AGAINST b667`s (tools/b667_epstein_certify.py): square
      ctx.prec = PREC
      return (fb / fa).arg()
 
-=== _bessel (b667 :122-:144 ; b671 :114-:136)
+=== _bessel (b667 :122-:144 ; b671 :120-:142)
 --- b667
 +++ b671
 @@ -1,8 +1,8 @@

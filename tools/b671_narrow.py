@@ -153,7 +153,9 @@ def square_count(F, re, im, h):
     cs = [c + acb(-hh, -hh), c + acb(hh, -hh), c + acb(hh, hh), c + acb(-hh, hh), c + acb(-hh, -hh)]
     st, cache, tot = CERT._stats(), {}, arb(0)
     for i in range(4):
+        s0, d0 = st['segments'], len(st.get('doublings') or [])
         d = CERT.edge_arg(F, cs[i], cs[i + 1], SEGS_PER_SIDE, DOUBLINGS_MAX, st, cache)
+        st.setdefault('per_side', []).append((st['segments'] - s0, len(st.get('doublings') or []) - d0))   # ### b671: the record per side
         if d is None:
             return None, None, st
         tot += d
@@ -292,7 +294,7 @@ def narrow_off_4a(name, re0, im0, h0, d0):
     ctx.prec = PREC
     cr, ci, h = exact(re0), exact(im0), exact(h0)
     w = arb(W)
-    lines, d, off_at = [], d0, None
+    lines, d, off_at, off_note = [], d0, None, None
     while d < DEPTH and not (h <= w):
         hq = (h / 2).mid()
         sr, si = cr, ci
@@ -310,10 +312,14 @@ def narrow_off_4a(name, re0, im0, h0, d0):
         if None in counts or counts.count(1) != 1 or sum(counts) != 1:
             if off_at is not None:
                 lines.append('  %s depth %d : unread again after its offset -- UNRESOLVED-AT-DEPTH (one offset per depth)' % (name, d + 1))
+                _depth_out(dict(name=name, depth=d + 1, half_width=hq.str(4, radius=False), per_side=[x[2].get('per_side') for x in got],
+                                segments=sum(x[2]['segments'] for x in got), doublings=sum(len(x[2].get('doublings') or []) for x in got),
+                                offset='STOPPED: unread again after its offset, quarters %s' % counts))
                 return dict(reading='UNRESOLVED-AT-DEPTH', depth=d + 1, re=cr, im=ci, h=h, counts=counts), lines
             co = _line_meeting(counts)
             off = (hq / OFFSET_4A).mid()
             off_at = (d, off if 're' in co else arb(0), off if 'im' in co else arb(0))
+            off_note = 'after a (4a) offset of %s in %s' % (off.str(4, radius=False), ' and '.join({'re': 'σ', 'im': 't'}[c] for c in co))
             lines.append('  %s depth %d : a quarter unread or the counts %s not one 1 and three 0 -- (4a) the split lines offset by %s (a third of '
                          'the depth`s half-width) in %s' % (name, d + 1, counts, off.str(4, radius=False),
                                                            ' and '.join({'re': 'σ', 'im': 't'}[c] for c in co)))
@@ -321,7 +327,24 @@ def narrow_off_4a(name, re0, im0, h0, d0):
         k = counts.index(1)
         cr, ci, h, off_at = got[k][3].mid(), got[k][4].mid(), hq, None
         d += 1
+        _depth_out(dict(name=name, depth=d, half_width=hq.str(4, radius=False), per_side=got[k][2].get('per_side'),
+                        segments=got[k][2]['segments'], doublings=len(got[k][2].get('doublings') or []), offset=off_note))
+        off_note = None
     return dict(reading='NARROWED' if h <= w else 'UNRESOLVED-AT-DEPTH', depth=d, re=cr, im=ci, h=h, counts=[1]), lines
+
+
+RUN3_DEPTHS = 'b671_narrow_run3_depths.jsonl'
+
+
+def _depth_out(rec):
+    """the navigator's answer on the progress read, (1): each completed depth written as it completes, with its UTC time -- appended to
+    data/b671_narrow_run3_depths.jsonl and printed, flushed. Output only: nothing of the counting reads it."""
+    rec = dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), **rec)
+    with io.open(os.path.join(D, RUN3_DEPTHS), 'a', encoding='utf-8', newline=NL) as fh:
+        fh.write(json.dumps(rec, ensure_ascii=False) + NL)
+    print('  %s %s depth %d : accepted quarter per side (segments, doublings) %s ; segments %d ; doublings %d%s' % (
+        rec['at'], rec['name'], rec['depth'], rec['per_side'], rec['segments'], rec['doublings'],
+        (' ; ' + rec['offset']) if rec.get('offset') else ''), flush=True)
 
 
 def _start_square(r):
@@ -346,6 +369,8 @@ def task_off_4a(r):
     name = 'OFF %d' % r['idx']
     ctx.prec = PREC
     n0, _cb, _st = square_count(CERT.zq, re0, im0, h0)
+    _depth_out(dict(name=name, depth=d0, half_width=h0, per_side=_st.get('per_side'), segments=_st['segments'],
+                    doublings=len(_st.get('doublings') or []), offset='the start square read again, its count %s' % n0))
     head = ['  %s (4a) re-run start : depth %d ; square [%s ± %s] × [%s ± %s] ; %s ; its count read again: %s' % (
         name, d0, re0, h0, im0, h0, how, n0)]
     if n0 != 1:
@@ -685,6 +710,15 @@ if __name__ == '__main__':
         run1()
     elif mode == 'run2':
         run2()
+    elif mode == 'run3diff':
+        # ### the navigator's answer on the progress read, (1): run 3's output change against the script before it, banked
+        import subprocess
+        r = subprocess.run(['git', '-C', ROOT, 'diff', 'b311ba66', '--', 'tools/b671_narrow.py'], capture_output=True)
+        t = r.stdout.decode('utf-8', 'replace').replace(chr(13), '')
+        put('b671_run3_output_diff.txt', 'b671 -- RUN 3`S OUTPUT CHANGE (the navigator`s answer on the progress read, (1)): tools/b671_narrow.py '
+            'against b311ba66, unified diff. Recording lines only: the per-side record in square_count, each completed depth written with its '
+            'UTC time (_depth_out); nothing of the counting reads either.%s%s%s' % (NL, NL, t))
+        print(t)
     elif mode == 'run3':
         sys.exit(run3())
     elif mode == 'bank':
