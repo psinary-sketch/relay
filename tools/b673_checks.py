@@ -594,7 +594,8 @@ def citation_ok(S):
 
 
 MID_NEEDLES = ('on the four misses', 'on the PROSE-PINS line', 'on HStrip, under (R283)', 'on the faces page, under (R283)',
-               'on V4, under (R283)(3)', 'on V5, under (R283)(3)', 'on the attempt, under (R283)(5)', 'on the C3/C4 report')
+               'on V4, under (R283)(3)', 'on V5, under (R283)(3)', 'on the attempt, under (R283)(5)', 'on the C3/C4 report',
+               'on the stopped pre-run')
 MID_RAISED = 'RAISED: data/b671_epstein_zeros_narrowed.json'
 
 
@@ -964,7 +965,7 @@ ARMS = [
      lambda S: dry_step_ok(S), lambda S: put(S, 'gate', S['gate'].replace('THE DRY-RUN STEP : CLEAN', 'THE DRY-RUN STEP : NOT CLEAN'))),
     ('G-CITATION-CHECKED', 'the citation check`s bank (the gate step): run before the ferry was banked, its four misses raised and answered',
      lambda S: citation_ok(S), lambda S: put(S, 'citation', S['citation'].replace('RUN BEFORE THE FERRY IS BANKED', 'RUN'))),
-    ('G-MIDACT-CHECKED', 'the citation check`s bank ((R278)(4)): each of the eight answers checked, its last print with no miss or the one answered',
+    ('G-MIDACT-CHECKED', 'the citation check`s bank ((R278)(4)): each of the nine answers checked, its last print with no miss or the one answered',
      lambda S: midact_ok(S), lambda S: put(S, 'citation', S['citation'].replace("'on the C3/C4 report'", "'x'"))),
     ('G-R283-ENTERED', 'the ferry and the trail', lambda S: 'RULING (R283) END' in S['ferry'] and S['ot'].count('**(R283) ratified') == 1,
      lambda S: put(S, 'ot', S['ot'].replace('**(R283) ratified', '**(R2830) ratified'))),
