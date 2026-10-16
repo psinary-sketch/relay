@@ -1,0 +1,60 @@
+b673 -- COMPONENT 3, (R283)(5): EACH DECLARATION LANDED ON ITS OWN READING (2026-10-16T20:23:26Z)
+
+### rows are declarations: the name, its landing, its file and line at 5050a46a (chi-li-b669), its printed axioms, and where open the obstruction by file and line. The run: 38960681935 (relay data/b673_runner_SIDE-explicit-formula_run38960681935.txt); the earlier runs of the attempt, each at its own tip, in data/b673_runner_rows.json and data/b673_defects.txt (l).
+
+  SIDEExplicitFormula.Schema.liCoeffCfg                          DERIVES                SIDEExplicitFormula/Schema/LiCfg.lean:28  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg               DERIVES                SIDEExplicitFormula/Schema/LiCfg.lean:32  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.liCoeffCfg_summable                 DERIVES                SIDEExplicitFormula/Schema/LiCfg.lean:36  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg        DERIVES                SIDEExplicitFormula/Schema/LiCfg.lean:86  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi          DERIVES                SIDEExplicitFormula/Chi/LiForward.lean:28  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.norm_lt_norm_sub_one_of_re_lt_half  DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:38  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.one_lt_norm_one_sub_inv             DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:46  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.exists_dominant_point               DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:53  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.dominant_finite                     DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:72  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.norm_geom_sum_le                    DERIVES                SIDEExplicitFormula/Schema/PowerSum.lean:33  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.norm_sum_powerSum_le                DERIVES                SIDEExplicitFormula/Schema/PowerSum.lean:43  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.norm_window_le                      DERIVES                SIDEExplicitFormula/Schema/PowerSum.lean:52  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.powerSum_window_sq_ge               DERIVES                SIDEExplicitFormula/Schema/PowerSum.lean:114  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.exists_ge_of_mean_sq                DERIVES                SIDEExplicitFormula/Schema/PowerSum.lean:174  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.powerSum_re_ge_infinitely           DERIVES                SIDEExplicitFormula/Schema/PowerSum.lean:237  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.powerSum_re_le_neg_infinitely       DERIVES                SIDEExplicitFormula/Schema/PowerSum.lean:248  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.one_sub_pow_expand                  DERIVES                SIDEExplicitFormula/Schema/LiRemainder.lean:27  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.liTerm_re_abs_le_pow                DERIVES                SIDEExplicitFormula/Schema/LiRemainder.lean:84  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.summable_rest                       DERIVES                SIDEExplicitFormula/Schema/LiRemainder.lean:110  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.rest_term_le                        DERIVES                SIDEExplicitFormula/Schema/LiRemainder.lean:125  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.remainder_le                        DERIVES                SIDEExplicitFormula/Schema/LiRemainder.lean:175  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.liCoeffCfg_eq_indicator             DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:122  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.sum_gL_dom                          DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:142  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.Schema.li_nonneg_cfg_imp_online            DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:157  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_imp_grh_chi          DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:322  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_iff_grh_chi          DERIVES                SIDEExplicitFormula/Schema/LiConverseCfg.lean:332  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.LiConverseNative.li_nonneg_imp_rh_native   DERIVES                SIDEExplicitFormula/LiConverseNative.lean:27  ['Classical.choice', 'Quot.sound', 'propext']
+  SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh         DERIVES                SIDEExplicitFormula/LiCriterionBridge.lean:179  ['Classical.choice', 'Quot.sound', 'propext']
+  LiCriterion.positivity_implies_RH                              DERIVES                Vendored/Bulka (vendored, not walked):0  ['Classical.choice', 'Quot.sound', 'propext']
+
+### ### **DECLARATIONS 29 ; DERIVES 29.**
+
+### THE MERGE (Component 4): chi-li-b669 at 5050a46 merged into SIDE-explicit-formula main as e36ea31 (no-ff; print_targets.txt's conflict
+### with b669's five-name list resolved to the built tip's file); merged tree 2f243083 EQUAL to the built tree; no sorry in the act's four
+### files on main; main and tag v0.32 pushed by tools/push_gated.sh and read back at the remote, v0.32 peeled e36ea31 local and remote
+### (relay data/b673_merge_push_out.txt). No declaration left open, so no split.
+
+== (R283)(6) THE LANDING DRAFTS, FOR THE AUTHOR'S WORD -- WRITTEN TO NO KEYSTONE AND NO LEDGER (the navigator's answer on the C3/C4 report (5)(a))
+
+  W-ORD-LI-CONVERSE-NATIVE   DISCHARGED. Its trigger "S5 DERIVES" (OPEN_TRAILS :14334) met: li_nonneg_cfg_imp_online DERIVES at the
+                             standard three (this bank, "DECLARATIONS 29 ; DERIVES 29", run 38960681935), merged at e36ea31, tag v0.32
+                             peeled at e36ea31 and read back at the remote. The OPEN_TRAILS text is Component 6's.
+
+  THE CEILING SENTENCE'S SUCCESSOR (draft; bounded by the claim ceiling as the answer's (6) words it):
+    Supportable, the author's sentence (draft): *Li's criterion is compiled two ways at primitive χ ≠ 1: Weil positivity on classK for χ ⟺
+    GRH_chi (h2_sign_chi_iff_grh_chi, v0.14) and Li nonnegativity over the χ-configuration ⟺ GRH_chi (li_nonneg_chi_iff_grh_chi, v0.32), the
+    converse of the second by the power-sum route over a generic configuration (li_nonneg_cfg_imp_online, v0.32). At ζ the converse has a
+    kernel-native proof beside the vendored one: li_nonneg_imp_rh_native (v0.32) DERIVES at the standard three in the kernel's named premise,
+    the nonnegativity of the kernel's own coefficients LiWeil.LiCoeff, and replaces nothing -- the vendored positivity_implies_RH and
+    li_nonneg_iff_rh stand as compiled. "RiemannHypothesis" appears here only as the conclusion of a stated implication from Li
+    nonnegativity: the theorem is that implication, and its premise is not proved.* Not supportable, unchanged: *RH proved*; *GRH proved*;
+    *λ_n ≥ 0 proved*; anything about a zero.
+
+  THE FACES PAGE'S LINE ON UNEQUAL CONVERSES (candidate node text for THE_CLAUSE_AND_ITS_COMPILED_FACES.md's generator; data/b673_defects.txt (e)):
+    equivalent faces, unequal converses: the Weil converse by a chosen window, the Li converse at ζ by Pringsheim (vendored) and by the
+    power-sum route (native, v0.32), and at primitive χ the Li converse by the power-sum route (v0.32).

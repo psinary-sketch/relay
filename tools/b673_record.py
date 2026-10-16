@@ -173,7 +173,21 @@ def read_square_row(r):
     return r['kind'], r['idx']
 
 
-READERS = ['read_score_row', 'read_head', 'read_square_row']
+LANDINGS = ('DERIVES', 'COMPILED, PROOF OPEN', 'NOT COMPILED')
+
+
+def read_landing_row(r):
+    """a row of data/b673_landing.json: a declaration, its landing (one of LANDINGS) and, where open, its obstruction by file and line;
+    returns (name, landing, obstruction); raises on a row of another shape. Carried from b669_record.py :196-:204 unchanged."""
+    if not isinstance(r, dict) or not r.get('name') or r.get('landing') not in LANDINGS:
+        raise ValueError('landing row of another shape: %r' % (r,))
+    ob = r.get('obstruction')
+    if r['landing'] != 'DERIVES' and not (isinstance(ob, dict) and ob.get('file') and isinstance(ob.get('line'), int)):
+        raise ValueError('an open landing without its obstruction by file and line: %r' % (r.get('name'),))
+    return r['name'], r['landing'], ob
+
+
+READERS = ['read_score_row', 'read_head', 'read_square_row', 'read_landing_row']
 
 
 # ================================================================================ COMPONENT 1: b672 AT ITS WEIGHT, (R283)(1)
@@ -217,6 +231,35 @@ def c1(*a):
             sys.exit('### OPEN_TRAILS :%d DOES NOT CARRY %s -- NOTHING WRITTEN' % (n, needle))
     land([('FINDINGS.md', WH, _weight())], 'b673_record_lines.json', 'c1', entry=K.B672_ENTRY,
          check=[('FINDINGS.md', K.B672_ENTRY, '## The Correspondence generator'), ('OPEN_TRAILS.md', K.B672_TRAIL, '### b672')], dry=dry)
+
+
+# ================================================================================ COMPONENT 4: THE ORDER MARKED AS THE LANDING READS, AND THE ANSWER'S ITEM
+PRINT_TARGETS_LINE = 14446          # ### OPEN_TRAILS: b672's W-ORD-PRINT-TARGETS line
+
+C4_CONVERSE_HEAD = ('*Appended 2026-10-16 by b673 under `(R283)`(5)-(6), Component 4 -- **`W-ORD-LI-CONVERSE-NATIVE`** (:14334) '
+                    'DISCHARGED, AS THE LANDING READS:*')
+C4_CONVERSE_BODY = (' its trigger “S5 DERIVES” met. li_nonneg_cfg_imp_online DERIVES at the standard three (relay data/b673_landing.txt, '
+                    '“DECLARATIONS 29 ; DERIVES 29”, run 38960681935 at 5050a46 on chi-li-b669); chi-li-b669 merged into SIDE-explicit-formula '
+                    'main as e36ea31, the merged tree the built tree; tag v0.32 peeled at e36ea31 and read back at the remote. Closed with it: '
+                    'V4 in both signs (powerSum_re_ge_infinitely, powerSum_re_le_neg_infinitely, Schema/PowerSum.lean), V5 (remainder_le, '
+                    'Schema/LiRemainder.lean), S6 li_nonneg_chi_imp_grh_chi and S7 li_nonneg_chi_iff_grh_chi (Schema/LiConverseCfg.lean), and '
+                    'the native ζ converse li_nonneg_imp_rh_native (LiConverseNative.lean), compiled beside the vendored positivity_implies_RH '
+                    'and replacing nothing. The ceiling successor and the faces line drafted in the landing bank for the author’s word, '
+                    'written to no keystone.')
+C4_ITEM_HEAD = ('*Appended 2026-10-16 by b673 under the navigator’s answer on the C3/C4 report (4) -- an item under **`W-ORD-PRINT-TARGETS`** '
+                '(:14446):*')
+C4_ITEM_BODY = (' the ζ-naming walk matches an identifier by its last component, so a proof’s local binder that shares a kernel '
+                'declaration’s short name is followed as a reference (relay data/b673_defects.txt (i), (i′): S5’s binder N0 read as '
+                'Zeta23.N0 at 516803e). The binder renamed at b1d4342 with the matcher unchanged; the matcher’s reach into local binders is '
+                'the item, not repaired in this act (relay data/b673_rules.txt row 4).')
+
+
+def c4(*a):
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', C4_CONVERSE_HEAD, NL + C4_CONVERSE_HEAD + C4_CONVERSE_BODY + NL),
+          ('OPEN_TRAILS.md', C4_ITEM_HEAD, NL + C4_ITEM_HEAD + C4_ITEM_BODY + NL)], 'b673_record_lines_c4.json', 'c4',
+         check=[('OPEN_TRAILS.md', K.OPEN_CONVERSE, 'W-ORD-LI-CONVERSE-NATIVE'), ('OPEN_TRAILS.md', PRINT_TARGETS_LINE, '`W-ORD-PRINT-TARGETS`')],
+         dry=dry)
 
 
 # ================================================================================ COMPONENT 2: THE PLAN, (R283)(3), IN THE b663 FORM WITH THE CONSUMERS SECTION
@@ -475,7 +518,300 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = {'c1': c1, 'answers': answers, 'plan': plan}
+# ================================================================================ COMPONENT 3: THE ζ-NAMING WALK ON THE BRANCH (b669's, carried)
+ZETA_ID = re.compile(r'\b(?:riemannZeta\w*|completedRiemannZeta\w*|\w*riemannZeta\w*|zeta_\w+|\w+_riemannZeta\w*)\b')   # ### b564_record.py :454
+DECL_RE = re.compile(r'^(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+)?(?:noncomputable\s+)?(theorem|def|abbrev|structure|instance|lemma)\s+([^\s(:{\[]+)', re.M)
+
+
+def _strip_comments(t):
+    t = re.sub(r'/-[\s\S]*?-/', ' ', t)
+    return NL.join(l.split('--', 1)[0] for l in t.split(NL))
+
+
+def _decl_index(rev):
+    """every declaration of the kernel's source trees (SIDEExplicitFormula/, Zeta23/) at `rev`: short name -> [(file, line, code)], the code
+    the comment-stripped text from its head to the next declaration's head. Carried from b669_record.py :569-:580 unchanged."""
+    import collections
+    idx = collections.defaultdict(list)
+    files = [f for f in g(K.KD, 'ls-tree', '-r', '--name-only', rev, '--', 'SIDEExplicitFormula', 'Zeta23').split(NL) if f.endswith('.lean')]
+    for f in files:
+        t = (_show(K.KD, rev, f) or '')
+        heads = [(m.start(), m.group(2)) for m in DECL_RE.finditer(t)]
+        for i, (pos, name) in enumerate(heads):
+            end = heads[i + 1][0] if i + 1 < len(heads) else len(t)
+            idx[name.split('.')[-1]].append((f, t[:pos].count(NL) + 1, _strip_comments(t[pos:end])))
+    return idx
+
+
+def _walk_from(idx, root):
+    seen, queue, order = {root}, [root], []
+    while queue:
+        n = queue.pop(0)
+        for f, ln, code in idx.get(n, []):
+            order.append((n, f, ln, sorted(set(ZETA_ID.findall(code)))))
+            for tok in set(re.findall(r"[A-Za-z_][A-Za-z0-9_'.₀-₉]*", code)):
+                s = tok.split('.')[-1]
+                if s in idx and s not in seen:
+                    seen.add(s)
+                    queue.append(s)
+    return order
+
+
+def walk(*a):
+    """(R283)(5), H3 and N4: S5's proof walked through the kernel's source at the branch tip -- from li_nonneg_cfg_imp_online, every
+    identifier of a reached declaration's comment-stripped code that names a kernel declaration (by its last component; an over-reach, never
+    an under-reach) followed transitively; each reached declaration read by b564's ζ pattern. The control: the same walk from
+    LiWeil.rh_imp_li_nonneg (ζ's forward half), which must reach a ζ-naming declaration. data/b673_zeta_walk.txt (.json)."""
+    rev = a[0] if a else K.OPEN_BRANCH
+    idx = _decl_index(rev)
+    root = 'li_nonneg_cfg_imp_online'
+    order = _walk_from(idx, root)
+    ctl = _walk_from(idx, 'rh_imp_li_nonneg')
+    ctl_z = [x for x in ctl if x[3]]
+    zn = [x for x in order if x[3]]
+    L = ['b673 -- COMPONENT 3: THE ζ-NAMING WALK OF THE GENERIC CONVERSE S5, ON THE BRANCH (%s)' % utc(), '',
+         '### rows are declarations, in the order the walk reaches them: from %s at %s (%s), every identifier of a reached declaration`s '
+         'comment-stripped code that is a kernel declaration`s name (SIDEExplicitFormula/, Zeta23/; matched by its last component, so a '
+         'shared short name over-reaches and never under-reaches) followed; each reached declaration read by b564`s ζ pattern %r.' % (
+             root, rev, g(K.KD, 'rev-parse', '--short=7', rev).strip(), ZETA_ID.pattern), '']
+    L += ['  %-48s %s:%d %s' % (n, f, ln, ('ζ-NAMING ' + ', '.join(z[:4])) if z else '') for n, f, ln, z in order]
+    L += ['', '### THE CONTROL: the same walk from LiWeil.rh_imp_li_nonneg (ζ`s forward half) reaches %d declarations, ζ-naming %d -- %s; the '
+          'matcher fires where ζ is consumed.' % (len(ctl), len(ctl_z), ', '.join('%s %s:%d %s' % (n, f, ln, z[:2]) for n, f, ln, z in ctl_z[:4]) or '### NONE')]
+    L += ['', '### ### **DECLARATIONS REACHED %d ; ζ-NAMING %d%s ; THE CONTROL %d.**' % (
+        len(order), len(zn), (' -- ' + ', '.join(sorted(set(x[0] for x in zn)))) if zn else '', len(ctl_z))]
+    put_txt('b673_zeta_walk.txt', L)
+    put_json('b673_zeta_walk.json', dict(at=utc(), rev=rev, root=root, reached=len(order), zeta=[dict(name=n, file=f, line=ln, ids=z) for n, f, ln, z in zn],
+                                         order=[[n, f, ln] for n, f, ln, _z in order], control_reached=len(ctl), control_zeta=len(ctl_z)))
+    print(L[-1])
+
+
+# ================================================================================ COMPONENT 3: THE RUNNER (b669's, carried; no banked prints for
+# ================================================================================ the act's new names, so every print is read at the standard three)
+STD3 = {'propext', 'Classical.choice', 'Quot.sound'}
+ERR_RE = re.compile(r'^(?:error: )?(\S+\.lean):(\d+):(\d+): error: (.*)$', re.M)
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def runner(*a):
+    """`runner <run id> <ref> <workflow commit> [<branch>]`: the run read by its id; the artifact listed, downloaded by its id into memory, its
+    sha256 against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP; every
+    print of print_targets.txt at the ref read at the standard three or none, sorryAx named. Banked as data/b673_runner_<kernel>_run<id>.txt
+    and a row of data/b673_runner_rows.json (rows keyed by run id; an earlier run's row kept). Carried from b669_record.py :635-:733."""
+    import hashlib
+    import zipfile
+    import b569_record as R9
+    run_id, ref, wfc = int(a[0]), a[1], a[2]
+    branch = a[3] if len(a) > 3 else K.OPEN_BRANCH
+    kern = K.KERNEL
+    repo = 'psinary-sketch/' + kern
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    pt = [l.strip() for l in (_show(K.KD, ref, 'print_targets.txt') or '').split(NL) if l.strip()]
+    row = dict(kernel=kern, branch=branch, ref=ref, target=None, run_id=run_id, conclusion=run.get('conclusion'),
+               artifact_sha256=None, mem_low=None, stopped=False, gate=None, merged=None, tag=None)
+    L = ['b673 -- COMPONENT 3, (R283)(5): THE HOSTED RUNNER FOR %s, READ BY ITS RUN ID (%s)' % (kern, utc()), '',
+         '### the workflow on main: %s (build-module.yml, b658`s form; the print step imports each module of the target)' % wfc,
+         '### print_targets.txt at the ref: %d names' % len(pt),
+         '### the dispatch: at main, the ref input %s (the tip of %s)' % (ref, branch),
+         '### the run: id %s ; %s ; %s %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('workflowName'), run.get('event'), run.get('status'), run.get('conclusion'), run.get('headSha'),
+             run.get('headBranch'), run.get('createdAt'), run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        row['artifact_sha256'] = sha
+        L.append('### the artifact: id %s ; name %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else ('### DIFFER' if digest else 'no digest to compare -- NOTHING READ FROM IT')))
+        if not digest or digest != sha:
+            row['artifact_sha256'] = None
+        else:
+            with zipfile.ZipFile(io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    stops = [l for l in mem.split(NL) if l.startswith('STOP ')]
+    row['stopped'] = bool(stops)
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip()
+    errs = [(m.group(1), int(m.group(2)), int(m.group(3)), m.group(4)) for m in ERR_RE.finditer(blog)]
+    P = dict((k_, sorted(v_)) for k_, v_ in R9.prints_axioms(T_.get('axioms.txt', '')).items())
+    axerr = [l for l in T_.get('axioms.txt', '').split(NL) if ': error' in l]
+    gate_rows = []
+    for n in pt:
+        ax = P.get(n)
+        if ax is None:
+            gate_rows.append((n, ax, '### NOT PRINTED'))
+        elif 'sorryAx' in ax:
+            gate_rows.append((n, ax, 'SORRYAX'))
+        else:
+            gate_rows.append((n, ax, 'STANDARD THREE OR NONE' if set(ax) <= STD3 else '### OUTSIDE THE STANDARD THREE'))
+    good = [r for r in gate_rows if r[2] == 'STANDARD THREE OR NONE']
+    ok = (run.get('conclusion') == 'success' and row['artifact_sha256'] and bexit == '0' and not errs and not stops and row['mem_low'] is not None
+          and row['mem_low'] >= K.HOLD and len(pt) > 0 and len(good) == len(pt) and not axerr)
+    row['gate'] = 'DERIVES' if ok else ('STOPPED BENEATH THE HOLD' if stops else 'NOT DERIVES')
+    row['errors'] = [list(e) for e in errs]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: samples %d ; LOW %s MB ; the hold %d ; STOP lines %s' % (
+              len([l for l in mem.split(NL) if 'avail_mb=' in l]), row['mem_low'], K.HOLD, stops or 'NONE'),
+          '### the build: exit %s ; error lines %d ; the log`s last lines:' % (bexit or '### UNREAD', len(errs))] + \
+        ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + ['    %s:%d:%d: %s' % e for e in errs[:60]] + [
+          '### the print step: error lines %d%s ; names refused %s' % (len(axerr), (' -- ' + ' | '.join(axerr[:4])) if axerr else '',
+                                                                       T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### THE GATE READING PER TERMINAL (no banked print for the act`s new names: each read at the standard three or none, sorryAx named):'] + \
+        ['  %-58s %-44s %s' % (n, ax if ax is not None else '### NOT PRINTED', v) for n, ax, v in gate_rows] + [
+          '', '### ### **RUN %s ; CONCLUSION %s ; ARTIFACT SHA256 %s ; MEMORY LOW %s MB (HOLD %d) ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS %d, PRINTED %d, '
+          'AT THE STANDARD THREE OR NONE %d, SORRYAX %d ; GATE %s.**' % (
+              run_id, run.get('conclusion'), (row['artifact_sha256'] or '### NONE')[:16], row['mem_low'], K.HOLD, bexit or '### UNREAD', len(errs),
+              len(pt), sum(1 for r in gate_rows if r[1] is not None), len(good), sum(1 for r in gate_rows if r[2] == 'SORRYAX'), row['gate'])]
+    tag = 'run%d' % run_id
+    put_txt('b673_runner_%s_%s.txt' % (kern, tag), L)
+    if row['artifact_sha256']:
+        put_txt('b673_axioms_%s.txt' % tag, T_.get('axioms.txt', '').rstrip(NL).split(NL))
+        put_txt('b673_build_log_%s.txt' % tag, blog.rstrip(NL).split(NL))
+    j = jl('b673_runner_rows.json') if os.path.isfile(os.path.join(D, 'b673_runner_rows.json')) else {}
+    rows = [r for r in (j.get('rows') or []) if r.get('run_id') != run_id] + [row]
+    gr = dict(j.get('gate_rows') or {})
+    gr[str(run_id)] = [list(r) for r in gate_rows]
+    put_json('b673_runner_rows.json', dict(rows=rows, gate_rows=gr, workflow_commit=wfc))
+    print(L[-1])
+    for e in errs[:60]:
+        print('  ERROR %s:%d:%d: %s' % e)
+
+
+# ================================================================================ COMPONENT 3: THE LANDING, ONE ROW PER DECLARATION (b669's, carried)
+def _sorry_lines(rev, f):
+    t = _show(K.KD, rev, f) or ''
+    return [i for i, l in enumerate(t.split(NL), 1) if re.search(r'(?<![A-Za-z_])sorry(?![A-Za-z_])', l.split('--', 1)[0])]
+
+
+def landing(*a):
+    """`landing <run id> <ref>`: each print target of the run's ref landed on its own reading -- DERIVES (printed, at the standard three or
+    none, the build clean), COMPILED, PROOF OPEN (printed with sorryAx; the obstruction the declaration's own `sorry` by file and line,
+    else the first `sorry` of a declaration its code names), NOT COMPILED (not printed; the first error line). Each row read back through
+    read_landing_row. data/b673_landing.txt (.json). Carried from b669_record.py :741-:786 with b673's names."""
+    import collections
+    run_id, ref = a[0], a[1]
+    j = jl('b673_runner_rows.json')
+    rr = [r for r in j.get('rows') or [] if str(r.get('run_id')) == run_id][0]
+    gate_rows = j['gate_rows'][run_id]
+    idx = _decl_index(ref)
+    errs = rr.get('errors') or []
+    rows = []
+    for n, ax, v in gate_rows:
+        short = n.split('.')[-1]
+        loc = [(f, ln, code) for f, ln, code in idx.get(short, []) if f.startswith('SIDEExplicitFormula/')]
+        if not loc and n.startswith('LiCriterion.'):
+            loc = [('Vendored/Bulka (vendored, not walked)', 0, '')]
+        f, ln, code = loc[0] if loc else ('?', 0, '')
+        if v == 'STANDARD THREE OR NONE' and rr.get('artifact_sha256') and not errs and rr.get('gate') == 'DERIVES':
+            rows.append(dict(name=n, landing='DERIVES', axioms=ax, file=f, line=ln, obstruction=None))
+        elif v == 'SORRYAX':
+            own = [x for x in _sorry_lines(ref, f) if ln <= x < ln + code.count(NL) + 1]
+            ob = dict(file=f, line=own[0], why='its own sorry') if own else dict(file=f, line=ln, why='sorryAx printed; no own sorry line')
+            rows.append(dict(name=n, landing='COMPILED, PROOF OPEN', axioms=ax, file=f, line=ln, obstruction=ob))
+        else:
+            e0 = errs[0] if errs else [f, ln, 0, v]
+            rows.append(dict(name=n, landing='NOT COMPILED', axioms=ax, file=f, line=ln, obstruction=dict(file=e0[0], line=int(e0[1]), why=str(e0[3])[:200])))
+    for r in rows:
+        read_landing_row(r)
+    c = collections.Counter(r['landing'] for r in rows)
+    L = ['b673 -- COMPONENT 3, (R283)(5): EACH DECLARATION LANDED ON ITS OWN READING (%s)' % utc(), '',
+         '### rows are declarations: the name, its landing, its file and line at %s (%s), its printed axioms, and where open the obstruction by '
+         'file and line. The run: %s (relay data/b673_runner_%s_run%s.txt); the earlier runs of the attempt, each at its own tip, in '
+         'data/b673_runner_rows.json and data/b673_defects.txt (l).' % (ref[:8], K.OPEN_BRANCH, run_id, K.KERNEL, run_id), '']
+    for r in rows:
+        L.append('  %-62s %-22s %s:%s  %s' % (r['name'], r['landing'], r['file'], r['line'], r['axioms']))
+        if r['obstruction']:
+            L.append('  %-62s %-22s OBSTRUCTION %s:%s (%s)' % ('', '', r['obstruction']['file'], r['obstruction']['line'], r['obstruction']['why']))
+    L += ['', '### ### **DECLARATIONS %d ; %s.**' % (len(rows), ' ; '.join('%s %d' % kv for kv in sorted(c.items())))]
+    files = sorted(set(r['file'] for r in rows if r['file'].startswith('SIDEExplicitFormula/')))
+    put_txt('b673_landing.txt', L)
+    put_json('b673_landing.json', dict(at=utc(), run_id=int(run_id), ref=ref, rows=rows, file_list=files))
+    print(NL.join(L[3:]))
+
+
+# ================================================================================ COMPONENT 3: H5, THE TWO ζ CONVERSES SIDE BY SIDE
+H5_DECLS = (('native', 'SIDEExplicitFormula/LiConverseNative.lean', 'theorem li_nonneg_imp_rh_native',
+             'SIDEExplicitFormula.LiConverseNative.li_nonneg_imp_rh_native'),
+            ('vendored', 'Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean', 'theorem positivity_implies_RH',
+             'LiCriterion.positivity_implies_RH'))
+
+
+def _statement(rev, f, head):
+    """a declaration's statement as its source carries it at `rev`: from its head to the `:=` that opens the proof, whitespace joined."""
+    t = _show(K.KD, rev, f) or ''
+    i = t.find(head)
+    if i < 0:
+        return None, None
+    j = t.find(':=', i)
+    return t[:i].count(NL) + 1, ' '.join(t[i:j].split())
+
+
+def h5(*a):
+    """`h5 <rev> <run id>`: (R283)(5) H5 and the navigator's answer on the C3/C4 report (5)(b) -- li_nonneg_imp_rh_native and the vendored
+    positivity_implies_RH printed side by side, each statement from its source at `rev`, each axiom line from the run's print bank
+    (data/b673_axioms_run<id>.txt); the hypothesis and conclusion forms compared as text, and the native conclusion read through
+    rh_equiv_mathlib's statement (RHBridge.lean) at the same rev. data/b673_h5.txt (.json)."""
+    import b569_record as R9
+    rev, run_id = a[0], a[1]
+    P = R9.prints_axioms(rdn('b673_axioms_run%s.txt' % run_id))
+    rows = []
+    for tag, f, head, full in H5_DECLS:
+        ln, st = _statement(rev, f, head)
+        body = st[len(head):].strip() if st else ''
+        body = body[1:].strip() if body.startswith(':') else body
+        hyp, _arrow, concl = body.partition(' → ')
+        rows.append(dict(tag=tag, name=full, file=f, line=ln, statement=st, hypothesis=hyp.strip(), conclusion=concl.strip(), axioms=P.get(full)))
+    brl, br = _statement(rev, 'Vendored/Bulka/Lc/LiCriterion/RHBridge.lean', 'theorem rh_equiv_mathlib')
+    nat, ven = rows
+    same_hyp = nat['hypothesis'] == ven['hypothesis']
+    same_concl = nat['conclusion'] == ven['conclusion']
+    bridge = bool(br) and 'RiemannHypothesis ↔' in br and ven['conclusion'] in br
+    _sp = lambda x: re.sub(r'\s+', '', x or '')
+    bridge_sp = bool(br) and 'RiemannHypothesis↔' in _sp(br) and _sp(ven['conclusion']) in _sp(br)
+    L = ['b673 -- COMPONENT 3, (R283)(5) H5: THE NATIVE AND THE VENDORED ζ CONVERSE, SIDE BY SIDE (%s)' % utc(), '',
+         '### rows are the two declarations: each statement from its source at %s (%s), its axioms from relay data/b673_axioms_run%s.txt; then '
+         'the hypothesis and conclusion forms compared as text, the comparison the text`s and not a proof of equality.' % (
+             rev[:8], g(K.KD, 'rev-parse', '--short=7', rev).strip(), run_id), '']
+    for r in rows:
+        L += ['  %-9s %s  (%s:%s)' % (r['tag'], r['name'], r['file'], r['line']),
+              '            statement   %s' % r['statement'],
+              '            hypothesis  %s' % r['hypothesis'],
+              '            conclusion  %s' % r['conclusion'],
+              '            axioms      %s' % r['axioms'], '']
+    L += ['  the bridge  LiCriterion.rh_equiv_mathlib  (Vendored/Bulka/Lc/LiCriterion/RHBridge.lean:%s)' % brl,
+          '            statement   %s' % br, '',
+          '### THE HYPOTHESES AS TEXT: %s -- the native premise is the kernel`s LiWeil.LiCoeff n, a sum over the zero configuration; the vendored '
+          'premise is the real part of the Taylor coefficient of Bulka`s riemannXi; li_nonneg_iff_rh (LiCriterionBridge.lean :179) joins them at ζ '
+          'through li_coeff_eq_taylorCoeff.' % ('EQUAL' if same_hyp else 'DIFFERENT'),
+          '### THE CONCLUSIONS AS TEXT: %s; the native conclusion RiemannHypothesis and the vendored strip form are the two sides of '
+          'rh_equiv_mathlib, whose statement carries the vendored conclusion character for character: %s; with whitespace removed from both '
+          '(the vendored `1/2` against the bridge`s `1 / 2`): %s.' % ('EQUAL' if same_concl else 'DIFFERENT', bridge, bridge_sp),
+          '', '### ### **H5: li_nonneg_imp_rh_native AXIOMS %s ; positivity_implies_RH AXIOMS %s ; HYPOTHESES %s AS TEXT ; CONCLUSIONS %s AS TEXT, '
+          'JOINED BY rh_equiv_mathlib: CHARACTER FOR CHARACTER %s, WHITESPACE REMOVED %s.**' % (
+              nat['axioms'], ven['axioms'], 'EQUAL' if same_hyp else 'DIFFERENT', 'EQUAL' if same_concl else 'DIFFERENT', bridge, bridge_sp)]
+    put_txt('b673_h5.txt', L)
+    put_json('b673_h5.json', dict(at=utc(), rev=rev, run_id=int(run_id), rows=rows, bridge=dict(line=brl, statement=br, carries_vendored=bridge,
+                                                                                                carries_vendored_whitespace_removed=bridge_sp),
+                                  hypotheses_equal=same_hyp, conclusions_equal=same_concl))
+    print(NL.join(L[3:]))
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'plan': plan, 'walk': walk, 'runner': runner, 'landing': landing, 'h5': h5, 'c4': c4}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

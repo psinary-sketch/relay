@@ -1,0 +1,51 @@
+b673 -- COMPONENT 3, (R283)(5): THE HOSTED RUNNER FOR SIDE-explicit-formula, READ BY ITS RUN ID (2026-10-16T20:12:57Z)
+
+### the workflow on main: f18ab7e (build-module.yml, b658`s form; the print step imports each module of the target)
+### print_targets.txt at the ref: 29 names
+### the dispatch: at main, the ref input 921fb71e6c6952b2f7ac8a3e09305170cba4ceda (the tip of chi-li-b669)
+### the run: id 38959501957 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/38959501957 ; build-module workflow_dispatch ; status completed ; conclusion success ; head 115abfe4ec5c7c24f534c6b43df102ec405f35eb on main ; 2026-10-16T20:03:56Z to 2026-10-16T20:12:29Z
+### the artifact: id 12072900786 ; name build-module-38959501957 ; 9324 bytes ; sha256 17a669895e41b4e903b363b90768786a19f861d939d2db184dd1864507616174 ; the platform`s digest 17a669895e41b4e903b363b90768786a19f861d939d2db184dd1864507616174 ; AGREE
+### the ref built (out/ref.txt): 921fb71e6c6952b2f7ac8a3e09305170cba4ceda leanprover/lean4:v4.34.0-rc1
+### the memory log: samples 78 ; LOW 12810 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 1 ; error lines 0 ; the log`s last lines:
+    ```
+    open Lean.Parser.Tactic in
+    macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+      `(tactic| push $cfg:optConfig Not $[$loc]?)
+    ```
+    Some required targets logged failures:
+    - SIDEExplicitFormula.Schema.LiConverseCfg
+    error: build failed
+### the print step: error lines 0 ; names refused NONE
+### THE GATE READING PER TERMINAL (no banked print for the act`s new names: each read at the standard three or none, sorryAx named):
+  SIDEExplicitFormula.Schema.liCoeffCfg                      ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg           ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liCoeffCfg_summable             ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg    ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi      ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_lt_norm_sub_one_of_re_lt_half ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.one_lt_norm_one_sub_inv         ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.exists_dominant_point           ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.dominant_finite                 ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_geom_sum_le                ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_sum_powerSum_le            ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_window_le                  ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.powerSum_window_sq_ge           ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.exists_ge_of_mean_sq            ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.powerSum_re_ge_infinitely       ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.powerSum_re_le_neg_infinitely   ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.one_sub_pow_expand              ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liTerm_re_abs_le_pow            ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.summable_rest                   ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.rest_term_le                    ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.remainder_le                    ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liCoeffCfg_eq_indicator         ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.sum_gL_dom                      ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.li_nonneg_cfg_imp_online        ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_imp_grh_chi      ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_iff_grh_chi      ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.LiConverseNative.li_nonneg_imp_rh_native ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh     ### NOT PRINTED                              ### NOT PRINTED
+  LiCriterion.positivity_implies_RH                          ### NOT PRINTED                              ### NOT PRINTED
+
+### ### **RUN 38959501957 ; CONCLUSION success ; ARTIFACT SHA256 17a669895e41b4e9 ; MEMORY LOW 12810 MB (HOLD 2560) ; BUILD EXIT 1 ; ERROR LINES 0 ; TERMINALS 29, PRINTED 0, AT THE STANDARD THREE OR NONE 0, SORRYAX 0 ; GATE NOT DERIVES.**

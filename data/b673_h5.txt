@@ -1,0 +1,23 @@
+b673 -- COMPONENT 3, (R283)(5) H5: THE NATIVE AND THE VENDORED ζ CONVERSE, SIDE BY SIDE (2026-10-16T20:31:03Z)
+
+### rows are the two declarations: each statement from its source at e36ea316 (e36ea31), its axioms from relay data/b673_axioms_run38960681935.txt; then the hypothesis and conclusion forms compared as text, the comparison the text`s and not a proof of equality.
+
+  native    SIDEExplicitFormula.LiConverseNative.li_nonneg_imp_rh_native  (SIDEExplicitFormula/LiConverseNative.lean:27)
+            statement   theorem li_nonneg_imp_rh_native : (∀ n : ℕ, 0 ≤ LiWeil.LiCoeff n) → RiemannHypothesis
+            hypothesis  (∀ n : ℕ, 0 ≤ LiWeil.LiCoeff n)
+            conclusion  RiemannHypothesis
+            axioms      ['propext', 'Classical.choice', 'Quot.sound']
+
+  vendored  LiCriterion.positivity_implies_RH  (Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean:413)
+            statement   theorem positivity_implies_RH : (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re) → (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2)
+            hypothesis  (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re)
+            conclusion  (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2)
+            axioms      ['propext', 'Classical.choice', 'Quot.sound']
+
+  the bridge  LiCriterion.rh_equiv_mathlib  (Vendored/Bulka/Lc/LiCriterion/RHBridge.lean:43)
+            statement   theorem rh_equiv_mathlib : RiemannHypothesis ↔ (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2)
+
+### THE HYPOTHESES AS TEXT: DIFFERENT -- the native premise is the kernel`s LiWeil.LiCoeff n, a sum over the zero configuration; the vendored premise is the real part of the Taylor coefficient of Bulka`s riemannXi; li_nonneg_iff_rh (LiCriterionBridge.lean :179) joins them at ζ through li_coeff_eq_taylorCoeff.
+### THE CONCLUSIONS AS TEXT: DIFFERENT; the native conclusion RiemannHypothesis and the vendored strip form are the two sides of rh_equiv_mathlib, whose statement carries the vendored conclusion character for character: False; with whitespace removed from both (the vendored `1/2` against the bridge`s `1 / 2`): True.
+
+### ### **H5: li_nonneg_imp_rh_native AXIOMS ['propext', 'Classical.choice', 'Quot.sound'] ; positivity_implies_RH AXIOMS ['propext', 'Classical.choice', 'Quot.sound'] ; HYPOTHESES DIFFERENT AS TEXT ; CONCLUSIONS DIFFERENT AS TEXT, JOINED BY rh_equiv_mathlib: CHARACTER FOR CHARACTER False, WHITESPACE REMOVED True.**

@@ -1,0 +1,43 @@
+{
+ "at": "2026-10-16T20:31:03Z",
+ "rev": "e36ea316e363b1fad04b7fa9def0fc7f2e78188f",
+ "run_id": 38960681935,
+ "rows": [
+  {
+   "tag": "native",
+   "name": "SIDEExplicitFormula.LiConverseNative.li_nonneg_imp_rh_native",
+   "file": "SIDEExplicitFormula/LiConverseNative.lean",
+   "line": 27,
+   "statement": "theorem li_nonneg_imp_rh_native : (∀ n : ℕ, 0 ≤ LiWeil.LiCoeff n) → RiemannHypothesis",
+   "hypothesis": "(∀ n : ℕ, 0 ≤ LiWeil.LiCoeff n)",
+   "conclusion": "RiemannHypothesis",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "tag": "vendored",
+   "name": "LiCriterion.positivity_implies_RH",
+   "file": "Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean",
+   "line": 413,
+   "statement": "theorem positivity_implies_RH : (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re) → (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2)",
+   "hypothesis": "(∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re)",
+   "conclusion": "(∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  }
+ ],
+ "bridge": {
+  "line": 43,
+  "statement": "theorem rh_equiv_mathlib : RiemannHypothesis ↔ (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2)",
+  "carries_vendored": false,
+  "carries_vendored_whitespace_removed": true
+ },
+ "hypotheses_equal": false,
+ "conclusions_equal": false
+}

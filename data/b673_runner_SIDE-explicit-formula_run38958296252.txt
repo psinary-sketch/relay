@@ -1,0 +1,51 @@
+b673 -- COMPONENT 3, (R283)(5): THE HOSTED RUNNER FOR SIDE-explicit-formula, READ BY ITS RUN ID (2026-10-16T20:02:36Z)
+
+### the workflow on main: f18ab7e (build-module.yml, b658`s form; the print step imports each module of the target)
+### print_targets.txt at the ref: 29 names
+### the dispatch: at main, the ref input b1d4342559f7725028f8a139ff47a235e2c66c29 (the tip of chi-li-b669)
+### the run: id 38958296252 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/38958296252 ; build-module workflow_dispatch ; status completed ; conclusion success ; head 115abfe4ec5c7c24f534c6b43df102ec405f35eb on main ; 2026-10-16T19:54:03Z to 2026-10-16T20:02:05Z
+### the artifact: id 12071144274 ; name build-module-38958296252 ; 8964 bytes ; sha256 6d1c3ed85d1927e37e7cd5ca11617e16f865a3a8041fc98a24515276f7c923c2 ; the platform`s digest 6d1c3ed85d1927e37e7cd5ca11617e16f865a3a8041fc98a24515276f7c923c2 ; AGREE
+### the ref built (out/ref.txt): b1d4342559f7725028f8a139ff47a235e2c66c29 leanprover/lean4:v4.34.0-rc1
+### the memory log: samples 74 ; LOW 12841 MB ; the hold 2560 ; STOP lines NONE
+### the build: exit 1 ; error lines 0 ; the log`s last lines:
+    Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+    error: SIDEExplicitFormula/Schema/LiRemainder.lean:174:8: (kernel) unknown constant 'SIDEExplicitFormula.Schema.summable_rest'
+    ✔ [3841/3845] Built SIDEExplicitFormula.Chi.ZetaGrowth (4.9s)
+    ✔ [3842/3845] Built SIDEExplicitFormula.LiCriterionBridge (9.9s)
+    ✔ [3843/3845] Built SIDEExplicitFormula.Chi.LocalCount (9.4s)
+    Some required targets logged failures:
+    - SIDEExplicitFormula.Schema.LiRemainder
+    error: build failed
+### the print step: error lines 0 ; names refused NONE
+### THE GATE READING PER TERMINAL (no banked print for the act`s new names: each read at the standard three or none, sorryAx named):
+  SIDEExplicitFormula.Schema.liCoeffCfg                      ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg           ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liCoeffCfg_summable             ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg    ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi      ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_lt_norm_sub_one_of_re_lt_half ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.one_lt_norm_one_sub_inv         ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.exists_dominant_point           ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.dominant_finite                 ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_geom_sum_le                ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_sum_powerSum_le            ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_window_le                  ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.powerSum_window_sq_ge           ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.exists_ge_of_mean_sq            ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.powerSum_re_ge_infinitely       ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.powerSum_re_le_neg_infinitely   ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.one_sub_pow_expand              ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liTerm_re_abs_le_pow            ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.summable_rest                   ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.rest_term_le                    ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.remainder_le                    ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liCoeffCfg_eq_indicator         ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.sum_gL_dom                      ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.li_nonneg_cfg_imp_online        ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_imp_grh_chi      ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_iff_grh_chi      ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.LiConverseNative.li_nonneg_imp_rh_native ### NOT PRINTED                              ### NOT PRINTED
+  SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh     ### NOT PRINTED                              ### NOT PRINTED
+  LiCriterion.positivity_implies_RH                          ### NOT PRINTED                              ### NOT PRINTED
+
+### ### **RUN 38958296252 ; CONCLUSION success ; ARTIFACT SHA256 6d1c3ed85d1927e3 ; MEMORY LOW 12841 MB (HOLD 2560) ; BUILD EXIT 1 ; ERROR LINES 0 ; TERMINALS 29, PRINTED 0, AT THE STANDARD THREE OR NONE 0, SORRYAX 0 ; GATE NOT DERIVES.**
