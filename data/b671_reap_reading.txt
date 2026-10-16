@@ -55,3 +55,14 @@ S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d
            line ; the hold 2560 ; at or above the hold ; no tail, lean, lake, python or bash running before it
   START 5  watcher bokbfwcq8 started 2026-10-16T01:46Z on run 3's log, the same form with RUN3 DONE and PID 28500:
 S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "RUN3 DONE" "$S/b671_run3.log" 2>/dev/null; do if ! tasklist //FI "PID eq 28500" | grep -q 28500; then echo "PROCESS GONE"; break; fi; sleep 60; done; echo "WAITER END"; grep -E "OFF [0-9]+ :|RUN 3 :" "$S/b671_run3.log" | cut -c1-200; tail -5 "$S/b671_run3.err"
+  START 6  watcher bf4il1wv5 started 2026-10-16T04:21:46Z by the continuation session (60123014), START 5's command line unchanged ; free
+           3368 at 04:25:03Z ; the hold 2560 ; at or above the hold. Started while START 5's watcher still ran, its seat not yet closed:
+           two watchers on one log for about three minutes, each read-only (grep, tasklist, sleep); no bank written by either
+  END 5    watcher bokbfwcq8 gone with the previous session's instance, closed by the author on the navigator's note on the session change:
+           its shell (bash 23072 under 41468, claude 37772) listed at 2026-10-16T04:24:29Z and absent at 04:24:44Z
+  LISTING  2026-10-16T04:24:44Z, printed before any further bank write (the navigator's note on the session change): one claude process,
+           18608, the continuation's (this seat's shell ancestry: powershell 8592 <- cmd 41696 <- claude 18608); one watcher for run 3,
+           bash 8180 (parent 18608) and its inner shell 28016, both created 00:21:46 local (04:21:46Z), waiting for RUN3 DONE or PID 28500
+           gone; run 3 intact: bash 28500 (01:46:26Z) -> 24704 -> 6096 -> python 35288 (tools/b671_narrow.py run3, 01:46:27Z) and its five
+           pool workers (python 26164, 28384, 31452, 40392, 42768, each multiprocessing.spawn under 35288); no other claude, watcher or
+           python, and no lean or lake process (Get-Process by name, read after the listing)
