@@ -2,7 +2,8 @@
 
 Each case is a planted table and planted sources (tags, print bank, grade bank, the declarations declared at the tag), run through
 tools/correspondence_gen.py's regen_lines / regen_bytes with no git, no remote and no file read:
-  (1) the tag moved: the kernel clause's version and commit go to the new tag; the profile and grade tokens follow the bank; the prose stays.
+  (1) the tag moved: the kernel clause's version and commit go to the new tag; the profile and grade tokens follow the bank; the prose stays;
+      a declaration the bank did not print reads NOT PRINTED AT <tag> (was <old profile> at <old pin>).
   (2) a declaration vanished: the profile token reads ABSENT AT <tag>; the pin and the status are kept.
   (3) a kernel with no print bank: the profile token reads NO PRINT BANK AT <tag>; the grade token carries UNREFRESHED.
   (4) a table already at its tag: the file's bytes identical (CRLF kept), and case (1)'s output run again is identical.
@@ -56,17 +57,22 @@ def case1():
     OUT.append('### (1) THE TAG MOVED: SIDE-x v0.1.0 = `aaaaaaa` -> tag v0.2.0 at bbbbbbb; the bank prints Mod.thm with [propext]; the grade bank says INTERFACES')
     rows = ['| a claim | SIDE-x v0.1.0 = `aaaaaaa` (carried at y v0.3) | `Mod.thm` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — prose kept. |',
             '| inherited | v0.1.0 (`aaaaaaa`) | `Mod.two` | axiom-free | DERIVES |',
-            '| bold pin | SIDE-x **`aaaaaaa`** (re-verified; drafted against v0.0 `ccccccc`) | `Mod.thm` | `{propext}` | DERIVES |']
+            '| bold pin | SIDE-x **`aaaaaaa`** (re-verified; drafted against v0.0 `ccccccc`) | `Mod.thm` | `{propext}` | DERIVES |',
+            '| not printed | SIDE-x v0.1.0 = `aaaaaaa` | `Mod.np` | `{propext, Quot.sound}` | DERIVES |']
     c = ctx({'SIDE-x': ('v0.2.0', C_NEW)}, {'SIDE-x': dict(prints={'X.Mod.thm': ['propext'], 'X.Mod.two': []})},  # ### the bank prints `X.Mod.thm`
-            {('SIDE-x', 'bbbbbbb', 'thm'), ('SIDE-x', 'bbbbbbb', 'two')}, {'SIDE-x': {'X.Mod.thm': 'INTERFACES', 'X.Mod.two': 'DERIVES'}})
+            {('SIDE-x', 'bbbbbbb', 'thm'), ('SIDE-x', 'bbbbbbb', 'two'), ('SIDE-x', 'bbbbbbb', 'np')},
+            {'SIDE-x': {'X.Mod.thm': 'INTERFACES', 'X.Mod.two': 'DERIVES'}})
     L0 = doc(rows)
     L1, r = G.regen_lines(L0, ANCHOR, c, 'planted-1')
     ok = check('row 1 rewritten', L1[8], '| a claim | SIDE-x v0.2.0 = `bbbbbbb` (carried at y v0.3) | `Mod.thm` | `{propext}` | **INTERFACES** — prose kept. |')
     ok &= check('row 2 (inheriting) rewritten in its own form', L1[9], '| inherited | v0.2.0 (`bbbbbbb`) | `Mod.two` | axiom-free | DERIVES |')
     ok &= check('row 3 (a bold commit alone): the commit in place, the trailing prose and its pin kept', L1[10],
                 '| bold pin | SIDE-x **`bbbbbbb`** (re-verified; drafted against v0.0 `ccccccc`) | `Mod.thm` | `{propext}` | INTERFACES |')
-    ok &= check('lines outside the table untouched; row count equal', (L1[:8], L1[11:], len(L1)), (L0[:8], L0[11:], len(L0)))
-    ok &= check('cells changed 6 (kernel, profile, status of row 1; kernel of row 2; kernel, status of row 3)', r['counts']['CELLS CHANGED'], 6)
+    ok &= check('row 4 (declared at the tag, not in the bank): NOT PRINTED AT the tag, the verified profile and its pin kept beside, the commit bare',
+                L1[11], '| not printed | SIDE-x v0.2.0 = `bbbbbbb` | `Mod.np` | NOT PRINTED AT v0.2.0 (was `{propext, Quot.sound}` at v0.1.0 = aaaaaaa) | DERIVES |')
+    ok &= check('lines outside the table untouched; row count equal', (L1[:8], L1[12:], len(L1)), (L0[:8], L0[12:], len(L0)))
+    ok &= check('cells changed 8 (kernel, profile, status of row 1; kernel of row 2; kernel, status of row 3; kernel, profile of row 4)',
+                r['counts']['CELLS CHANGED'], 8)
     ok &= check('no blank cell', cells_ok(L1), True)
     return ok, L1, c
 

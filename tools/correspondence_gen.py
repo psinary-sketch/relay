@@ -11,7 +11,8 @@ anchor, and rewrites in it only the cells the ruling names, from the sources it 
 Rows are neither added nor removed; names, prose and the table's position are untouched; a table already at its tag is byte-identical.
 
 The cell words, each counted on its own: ABSENT AT <tag> (the row's declaration is not declared at the tag: the pin is kept);
-NO PRINT BANK AT <tag> (no qualifying bank for the kernel); NOT PRINTED AT <tag> (a qualifying bank that did not print the declaration).
+NO PRINT BANK AT <tag> (no qualifying bank for the kernel); NOT PRINTED AT <tag> (a qualifying bank that did not print the declaration),
+written as "NOT PRINTED AT <tag> (was <old profile> at <old version = commit>)", the old pin from the row's kernel cell before the rewrite.
 Held and left as they stand, each counted: a table not in the generator's shape (no kernel, terminal or profile column) -- NOT IN THE
 GENERATOR'S SHAPE; a kernel cell naming a DEPOSIT-PIN or a DOI, and the rows inheriting it -- HELD: DEPOSIT PIN; a profile cell with more than
 one profile token -- MULTI; with none -- NO PROFILE TOKEN. The navigator's answers on readings (1)-(8) and the anchor (b672) fix these rules.
@@ -53,6 +54,10 @@ PTOK = re.compile(r'`\{[^`}]*\}`|`\[[^`\]]*\]`|axiom-free(?: \((?:none|both)\))?
 GTOK = re.compile(r'^((?:###\s*)?(?:\*\*)?)(' + '|'.join(VOCAB) + r')( UNREFRESHED)?(?![\w-])')
 IDENT = re.compile(r"`([A-Za-z_][\w.'′″₀-₉]*)`")
 HELD_PIN = re.compile(r'DEPOSIT-PIN|\bDOI\b')
+# ### the navigator's answer on the NOT PRINTED cells (b672): the word keeps what was verified -- "NOT PRINTED AT <tag> (was <old profile> at
+# ### <old version = commit>)", the old pin from the row's kernel cell before the rewrite, the commit bare (a backticked commit in a row is a
+# ### pin to reading (ii)). The parenthetical is skipped when the cell's profile tokens are counted, so a re-run leaves the cell as it stands.
+WAS = re.compile(r' \(was .*? at [^)]*\)| \(was .*?, no pin cited\)')
 
 
 # ================================================================================ CELLS
@@ -199,6 +204,17 @@ def rewrite_clause_tokens(kc, toks, tag, commit):
     return kc
 
 
+def old_pin(toks):
+    """A clause's cited pin as the NOT PRINTED parenthetical names it: 'v0.4.0 = 0d2d74c', 'v0.4.0', '0d2d74c', or None."""
+    ver = next((t for _s, _e, kind, t in toks if kind == 'ver'), None)
+    hx = next((t for _s, _e, kind, t in toks if kind == 'hex'), None)
+    return ' = '.join(x for x in (ver, hx) if x) or None
+
+
+def was_note(old_tok, pin):
+    return ' (was %s at %s)' % (old_tok, pin) if pin else ' (was %s, no pin cited)' % old_tok
+
+
 def clause_at_tag(toks, tag, commit):
     for _s, _e, kind, text in toks:
         if kind == 'ver' and text != tag:
@@ -231,7 +247,7 @@ def regen_lines(lines, anchor, ctx, doc=''):
         res['status'] = 'NOT IN THE GENERATOR`S SHAPE'
         return lines, res
     res['status'] = 'SHAPED'
-    prev_k, prev_held = [], False
+    prev_k, prev_held, prev_pins = [], False, {}
     for i in range(j + 1, e):
         line = lines[i]
         if SEP_ROW.match(line):
@@ -254,10 +270,13 @@ def regen_lines(lines, anchor, ctx, doc=''):
             ks, held = list(prev_k), held or prev_held
             if clauses and clauses[0][0] is None:
                 clauses = [(prev_k[0] if prev_k else None, clauses[0][1])]
+            pins = dict(prev_pins)
+            pins.update((k, old_pin(t)) for k, t in clauses if k and old_pin(t))
         else:
             ks = [k for k, _t in clauses]
+            pins = dict((k, old_pin(t)) for k, t in clauses)
             if ks:
-                prev_k, prev_held = ks, held
+                prev_k, prev_held, prev_pins = ks, held, pins
         row = dict(line=i + 1, kernels=ks)
         res['rows'].append(row)
         if not ks or not ks[0]:
@@ -282,7 +301,7 @@ def regen_lines(lines, anchor, ctx, doc=''):
         row['declaration'] = d0
         star = next((k for k in tagged if ctx['present'](k, ctx['tags'][k][1], d0)), None)
         pc = cell(line, sp[cols['profile']])
-        ptoks = PTOK.findall(pc)
+        ptoks = PTOK.findall(WAS.sub('', pc))
         if star is None:
             k0 = tagged[0]
             row['reading'] = 'ABSENT'
@@ -329,14 +348,16 @@ def regen_lines(lines, anchor, ctx, doc=''):
                 new_tok = ('SET', frozenset(bank['prints'][full]))
                 row['reading'] = 'PRINTED'
         pc = cell(line, sp[cols['profile']])
-        ptoks = PTOK.findall(pc)
+        ptoks = PTOK.findall(WAS.sub('', pc))
         if len(ptoks) == 1:
             t0 = ptoks[0]
             if isinstance(new_tok, tuple):
                 if tok_set(t0) != new_tok[1]:
                     style = '[' if t0.startswith('`[') else '{'
-                    pc = pc.replace(t0, fmt_set(new_tok[1], style), 1)
+                    pc = WAS.sub('', pc).replace(t0, fmt_set(new_tok[1], style), 1)
             elif t0 != new_tok:
+                if new_tok.startswith('NOT PRINTED') and tok_set(t0) is not None:
+                    new_tok = new_tok + was_note(t0, pins.get(star))     # ### the verified profile kept beside the word
                 pc = pc.replace(t0, new_tok, 1)
             line = put_cell(line, sp[cols['profile']], pc)
             sp = spans(line)
@@ -536,6 +557,24 @@ def sha(s):
     return hashlib.sha256(s.encode('utf-8')).hexdigest()
 
 
+RANK = {'DERIVES': 3, 'INTERFACES': 2}
+
+
+def grade_down(results):
+    """Every status cell whose leading grade token moves downward (DERIVES to INTERFACES or lower; INTERFACES to lower), " UNREFRESHED"
+    set aside for the rank."""
+    out = []
+    for r in results:
+        for c in r['changes']:
+            if c['column'] != 'status':
+                continue
+            a, b = GTOK.match(c['old']), GTOK.match(c['new'])
+            if a and b and RANK.get(b.group(2), 1) < RANK.get(a.group(2), 1):
+                out.append(dict(doc=c['doc'], line=c['line'], kernel=c['kernel'], old=a.group(2) + (a.group(3) or ''),
+                                new=b.group(2) + (b.group(3) or ''), withheld=r['withheld']))
+    return out
+
+
 def main(mode, roster_path=ROSTER, full=False):
     roster = json.load(io.open(roster_path, encoding='utf-8'))
     ks = kernels_of(roster)
@@ -573,6 +612,10 @@ def main(mode, roster_path=ROSTER, full=False):
     for r in results:
         L.append('    %-36s %-62s %-30s %s ; rows %d ; %s' % (r['doc'], r['path'], r['status'], ':%d-:%d' % r['span'] if r.get('span') else '-',
                                                           len(r['rows']), dict(r['counts']) or '-'))
+    down = grade_down(results)
+    L += ['', '### THE GRADE TOKENS MOVED DOWNWARD (the navigator`s answer, b672: listed before the write, entered under W-ORD-GRADE-MOVED): '
+              'document :line ; kernel ; old token -> new token']
+    L += ['    %s :%d ; %s ; %s -> %s' % (d['doc'], d['line'], d['kernel'], d['old'], d['new']) for d in down] or ['    none']
     L += ['', '### THE DIFF: rows are cells changed (document :line ; column ; kernel ; old ; new)']
     for r in results:
         for c in r['changes']:
@@ -589,7 +632,9 @@ def main(mode, roster_path=ROSTER, full=False):
               sum(1 for r in results if r['status'].startswith('ANCHOR')), len(tags), sum(1 for v in tags.values() if v), tot['CELLS CHANGED'],
               len(writes), tot['ABSENT'], tot['NO PRINT BANK'], tot['NOT PRINTED'], tot['HELD: DEPOSIT PIN'], tot['MULTI'], tot['NO TAG'])]
     tables_at = L.index('### THE TABLES (document ; file ; status ; the table`s lines ; rows ; the cell words and holds)')
-    print(NL.join(l for n, l in enumerate(L) if not l.startswith('    ') or '### NO PRINT BANK AT' in l or tables_at < n <= tables_at + len(results)))
+    down_at = next(n for n, l in enumerate(L) if l.startswith('### THE GRADE TOKENS MOVED DOWNWARD'))
+    print(NL.join(l for n, l in enumerate(L) if not l.startswith('    ') or '### NO PRINT BANK AT' in l or tables_at < n <= tables_at + len(results)
+                  or down_at < n <= down_at + max(1, len(down))))
     if mode != 'run':
         if full:
             print(NL.join(L))
@@ -606,7 +651,7 @@ def main(mode, roster_path=ROSTER, full=False):
                                                                    for k, v in banks.items()},
               tables=[dict(doc=r['doc'], path=r['path'], status=r['status'], span=r.get('span'), counts=dict(r['counts']),
                            rows=r['rows'], changes=(len(r['changes']) if r['withheld'] else r['changes'])) for r in results],
-              counts=dict(tot), by_kernel={k: dict(c) for k, c in byk.items()}, files=[p for p, _b in writes])
+              counts=dict(tot), by_kernel={k: dict(c) for k, c in byk.items()}, files=[p for p, _b in writes], grade_down=down)
     open(DIFF_JSON + '.tmp', 'wb').write(json.dumps(js, ensure_ascii=False, indent=1).encode('utf-8'))
     os.replace(DIFF_JSON + '.tmp', DIFF_JSON)
     print('### WRITTEN: %d files ; %s ; %s' % (len(writes), DIFF_TXT, DIFF_JSON))
