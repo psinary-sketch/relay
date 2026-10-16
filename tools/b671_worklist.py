@@ -34,6 +34,7 @@ CITATION_BANK = 'b671_citation_check.txt'
 B670_ENTRY = 8733           # ### FINDINGS: b670's entry head
 B670_TRAIL = 14360          # ### OPEN_TRAILS: b670's trail record
 RESEARCH_ORDER = 14294      # ### OPEN_TRAILS: the research order after b668 -- the sequence line beneath it, (R281)(2)
+BESSEL_ORDER = 14388        # ### OPEN_TRAILS: W-ORD-BESSEL-BOUND-TIGHTEN, entered at b671 Component 1 (PLACE-papers 29674b2)
 CERTIFY, BALL_WIDTH, KERNEL_ITEM = 14158, 14264, 14266   # ### OPEN_TRAILS: W-ORD-EPSTEIN-CERTIFY, its control half, the kernel item for P1/P2
 
 # ### the kernels this act reads and does not write

@@ -906,8 +906,62 @@ def landing(*a):
          dry=dry)
 
 
+def hypotheses(*a):
+    """data/b671_hypotheses.json: (R281)(6)'s H1-H4 as _hyp() reads them off their printed lines, [verdict, the line ; its bank]."""
+    hy = _hyp()
+    put_json('b671_hypotheses.json', dict((k, [v, '%s ; %s' % (l, src)]) for k, v, l, src in hy))
+    print('  ' + ' ; '.join('%s %s' % (k, v) for k, v, _l, _s in hy))
+
+
+def mapread(*a):
+    """data/b671_map_reading.json: the map's one run on the narrowed balls (data/b671_epstein_control_narrowed.txt) read off its printed
+    lines -- hQtie's count at Q0 at each precision, the control's reading, Q0's reading; nothing recomputed."""
+    t = rdn('b671_epstein_control_narrowed.txt')
+    hq = re.findall(r'^  hQtie\s+(NOT CERTIFIED|CERTIFIED) -- [^;]*; controls (\d+ of \d+)', t, re.M)
+    rq = re.findall(r'^  READING Q0 AT qE0: (.*)$', t, re.M)
+    ctl = re.search(r'^\s*### THE CONTROL REPRODUCED -- expected j₀ = (\d+) and the zero side below 0 .*read j₀ = (\d+), the zero side BELOW 0', t, re.M)
+    if len(hq) != 3 or not rq or not ctl:
+        sys.exit('### THE CONTROL BANK DOES NOT PRINT THE LINES THE READING NEEDS (hQtie %d, Q0 %d, control %s) -- NOTHING WRITTEN' % (
+            len(hq), len(rq), bool(ctl)))
+    j = dict(at=utc(), source='data/b671_epstein_control_narrowed.txt', hqtie_control=hq[0][1], hqtie_controls=hq[-1][1],
+             hqtie_q0=[list(x) for x in hq[1:]], control_reproduced=ctl.group(1) == ctl.group(2) == '31', control_j0=int(ctl.group(2)),
+             reading=rq[-1].strip(), tie_words=re.findall(r'INSTRUMENT \d+, OBJECT \d+, NEITHER \d+', rdn('b671_tie_diagnostic.txt'))[:2])
+    put_json('b671_map_reading.json', j)
+    print('  %s' % json.dumps(j, ensure_ascii=False)[:400])
+
+
+BH1 = ('*Appended 2026-10-16 by b671 beneath `W-ORD-BESSEL-BOUND-TIGHTEN` (:14388), on the navigator’s answer on the Bessel bar -- THE BAR, '
+       'THIS ORDER’S SECOND OBJECT:*')
+BH2 = ('*Appended 2026-10-16 by b671 beneath `W-ORD-BESSEL-BOUND-TIGHTEN` (:14388), on the navigator’s answer on the progress read (relay '
+       'data/b671_narrow_plan.txt section 12 (3)) -- THE MEASURED COST ABOVE HEIGHT 100:*')
+
+
+def _bar_line():
+    return ('\n' + BH1 + ' the acceptance bar of (3a) for a Bessel term -- b667’s 2⁻⁶⁰ absolute in Z_Q’s units (relay '
+            'tools/b667_epstein_certify.py :49), lifted at b671 to 2⁻²⁰⁰ (relay tools/b671_narrow.py :60) -- named as this order’s second '
+            'object, so that any later Q0 count sets the bar from its width and not from a constant. At b671 a term is accepted below 2⁻²⁰⁰ ≈ '
+            '6.2·10⁻⁶¹, far beneath |Z_Q′|·w at the smallest |Z_Q′| the b667 banks hold (3.895 at t = 40.25, relay '
+            'data/b667_ball_obstruction.txt :3) with w = 10⁻²⁴, which is 3.9·10⁻²⁴ (relay data/b671_narrow_plan.txt section 10; defect (d)). '
+            'b667’s certificates stand on their own bar.\n')
+
+
+def _cost_line():
+    return ('\n' + BH2 + ' the late off-line points’ accepted quarters used 1,856–3,510 segments at the last depth (relay '
+            'data/b671_run2_progress.txt: above 100, OFF 12 1,856, OFF 13 2,159 and OFF 14 3,510 at t 107.4–124.8; OFF 9 1,988 and OFF 11 3,337 '
+            'at t 89.5 and 93.1 lie in the same range below it), the order’s measured cost at heights above 100; run 2’s per-side figures not '
+            'recorded, the quarter totals standing as banked.\n')
+
+
+def bessel(*a):
+    """the two lines beneath W-ORD-BESSEL-BOUND-TIGHTEN the act's answers ordered: the bar as the order's second object (the answer on the
+    Bessel bar) and the measured cost above height 100 (plan section 12 (3)), through the guarded landing."""
+    land([('OPEN_TRAILS.md', BH1, _bar_line()), ('OPEN_TRAILS.md', BH2, _cost_line())], 'b671_bessel_lines.json', 'bessel',
+         entry=K.BESSEL_ORDER, check=[('OPEN_TRAILS.md', K.BESSEL_ORDER, 'W-ORD-BESSEL-BOUND-TIGHTEN')], dry='dry' in a)
+
+
 ROUTES = {'c1': c1, 'answers': answers, 'plan': plan, 'commands': commands, 'kernels': kernels, 'defects': defects, 'root': root,
-          'root_arm': root_arm, 'table_final': table_final, 'gatebanks': gatebanks, 'progress': progress, 'landing': landing}
+          'root_arm': root_arm, 'table_final': table_final, 'gatebanks': gatebanks, 'progress': progress, 'landing': landing,
+          'hypotheses': hypotheses, 'mapread': mapread, 'bessel': bessel}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
