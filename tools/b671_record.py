@@ -10,6 +10,7 @@
 ### components the plan, the narrowing's banks, the map's reading and the landing. No kernel byte is written by any route.
 ### Every python child is started as `python -X utf8`, no environment mapping passed. Routes: `python tools/b671_record.py <route> [dry]`.
 """
+import calendar
 import collections
 import gzip
 import io
@@ -194,7 +195,25 @@ def read_narrow_row(r):
     return r['kind'], r['idx'], r['reading']
 
 
-READERS = ['read_score_row', 'read_head', 'read_square_row', 'read_narrow_row']
+RUNNER_KEYS = ('kernel', 'branch', 'ref', 'target', 'run_id', 'conclusion', 'artifact_sha256', 'mem_low', 'stopped', 'gate', 'merged', 'tag')
+
+
+def read_runner_row(r):
+    """a row of the last merged run's bank (b669's, read by the standing runner arms) -- every key of RUNNER_KEYS present; raises KeyError.
+    Carried from b670_record.py :1171-:1185 unchanged."""
+    missing = [k for k in RUNNER_KEYS if k not in r]
+    if missing:
+        raise KeyError('runner row without %s' % missing)
+    if r['stopped']:
+        outcome = 'STOPPED BENEATH THE HOLD ON THE RUNNER'
+    elif r['conclusion'] != 'success':
+        outcome = 'RUN %s' % (r['conclusion'] or 'NOT CONCLUDED')
+    else:
+        outcome = 'GATE %s' % (r['gate'] or 'UNREAD')
+    return dict(kernel=r['kernel'], outcome=outcome, merged=r['merged'], low=r['mem_low'], above_hold=(r['mem_low'] is not None and r['mem_low'] >= 2560))
+
+
+READERS = ['read_score_row', 'read_head', 'read_square_row', 'read_narrow_row', 'read_runner_row']
 
 
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R281)(1), (2), (8)
@@ -507,7 +526,284 @@ def plan(*a):
     print('  data/b671_narrow_plan.txt %d lines' % len(L))
 
 
-ROUTES = {'c1': c1, 'answers': answers, 'plan': plan}
+# ================================================================================ THE LATE ROUTES (b670's, carried; every row read through READERS)
+import b633_record as R3           # noqa: E402
+import edit_route as ER            # noqa: E402
+RELAY = ROOT
+SUBAGENTS = 'C:/Users/echo chamber/.claude/projects/D--/%s/subagents' % K.SESSION_ID
+R3.SP, R3.SESSION, R3.SESSION_ID = SP, SESSION, K.SESSION_ID
+
+
+def capture():
+    rows = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
+    for i, r in enumerate(rows):
+        r['n'] = i + 1
+    return rows
+
+
+LOCAL_LEAN = re.compile(r'(^|[;&|(]\s*|\s)(lake|lean)(\.exe)?\s+(build|env|exe|update|\S+\.lean)')
+QUOTED = re.compile(r'"(?:[^"\\]|\\.)*"|\'[^\']*\'')
+
+
+def local_lean(cmd):
+    """a command runs lean or lake on this host: the pattern read outside quoted strings and outside a gh workflow call."""
+    return 'gh workflow' not in cmd and LOCAL_LEAN.search(QUOTED.sub('""', cmd)) is not None
+
+
+def commands(*a):
+    rows = capture()
+    if not rows:
+        sys.exit('### THE COMMAND CAPTURE READ NO COMMAND -- NOTHING WRITTEN')
+    hits = ER.scan(rows)
+    lean = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
+    L = ['b671 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING AND THE LOCAL LEAN READING (N1) (%s)' % utc(), '',
+         '### the source: the seat`s session %s from its first user line carrying %r, and its subagents` transcripts' % (K.SESSION_ID, K.ANCHOR),
+         '### commands read: %d' % len(rows), '', '### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (%d):' % len(hits)]
+    for r, o in hits:
+        L += ['  #%d %s %s %s -- %s' % (r['n'], r['ts'], r['src'], r['tool'], '; '.join(k for k, _ in o))] + ['      ' + x for x in r['cmd'].split(NL)]
+    if not hits:
+        L.append('  NONE')
+    L += ['', '### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (%d):' % len(lean)] + (['  #%d %s' % (r['n'], r['cmd'][:200]) for r in lean] or ['  NONE'])
+    L += ['', '### EVERY COMMAND (n | time | source | tool | first line, 160 characters):']
+    L += ['  #%d | %s | %s | %s | %s' % (r['n'], r['ts'], r['src'], r['tool'], r['cmd'].split(NL)[0][:160]) for r in rows]
+    L += ['', '### ### **COMMANDS %d ; G-EDIT-ROUTE OFFENCES %d ; LOCAL lean OR lake COMMANDS %d.**' % (len(rows), len(hits), len(lean))]
+    put_txt('b671_commands.txt', [l.replace('\r', '') for l in L])
+    put_json('b671_commands.json', dict(at=utc(), anchor=K.ANCHOR, rows=rows, offences=[dict(n=r['n'], kinds=[k for k, _ in o]) for r, o in hits],
+                                        local_lean=[r['n'] for r in lean]))
+    print(L[-1])
+    for r, o in hits:
+        print('  OFFENCE #%d %s: %s' % (r['n'], '; '.join(k for k, _ in o), r['cmd'].split(NL)[0][:200]))
+
+
+def kernels(*a):
+    import b641_record as R41
+    put_json('b671_kernels_face.json', dict(at=utc(), kernels=R3.kern_state(list(R41.KERNS_READ))))
+    print('  kernels read: %d' % len(R41.KERNS_READ))
+
+
+DEFECT_ROW = re.compile(r'^    \(([a-z])\) ')
+
+
+def _defect_short():
+    out = []
+    L = rdn('b671_defects.txt').split(NL)
+    for i, l in enumerate(L):
+        if DEFECT_ROW.match(l):
+            j = i + 1
+            while j < len(L) and L[j].startswith('    ') and not DEFECT_ROW.match(L[j]) and not L[j].startswith('    ###'):
+                j += 1
+            m = re.match(r'^\(([a-z])\) (.*?)\.(?= |$)', ' '.join(x.strip() for x in L[i:j]))
+            if m:
+                out.append(m.group(0)[:-1])
+    return out
+
+
+def defects(*a):
+    t = rdn('b671_defects.txt')
+    ds = [l.strip() for l in t.split(NL) if DEFECT_ROW.match(l)]
+    put_json('b671_defects.json', dict(at=utc(), defects=ds, short=_defect_short()))
+    print('  defects %d' % len(ds))
+
+
+def seal_hashes():
+    import hashlib
+    rec_ = jl('b671_seal_hashes.json').get('tools') or {} if os.path.isfile(os.path.join(D, 'b671_seal_hashes.json')) else {}
+    now = {}
+    for t in K.SEALED:
+        p = os.path.join(ROOT, 'tools', t)
+        now[t] = hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else None
+    out = [(t, 'absent' if (t not in rec_ or now[t] is None) else ('agree' if rec_[t] == now[t] else 'differ')) for t in K.SEALED]
+    return rec_, now, out
+
+
+ROOT_EXCLUDE = re.compile(r'^b671_(defects|scores|desk_notes|components|checks.*|lsr.*|exercise|findings|trail|closing.*|'
+                          r'act_root.*|root_arm.*|.*push_out.*|scanfile_.*|seal_check_.*|census_closing|faces_census_closing|pins_closing|commands|'
+                          r'mirror.*)\.(txt|json|md)$')
+
+
+SHARED_APPENDED = ('data/b663_epstein_control.txt', 'data/b670_methods.txt')   # ### the dated lines of (R281)(7): named by this root, so shared
+
+
+def root_banks():
+    return sorted(['data/' + f for f in os.listdir(D) if f.startswith('b671_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f)]
+                  + list(SHARED_APPENDED))
+
+
+def root(*a):
+    banks = root_banks()
+    crlf = [b_ for b_ in banks if not b_.endswith('.gz') and b'\r\n' in open(os.path.join(ROOT, *b_.split('/')), 'rb').read()]
+    print('  banks named: %d ; the seal bank among them %s ; written with CR LF: %s' % (len(banks), 'data/b671_seal_hashes.json' in banks, crlf or 'none'))
+    if crlf:
+        sys.exit('### A BANK THE ROOT WOULD NAME IS CR LF -- NOTHING WRITTEN')
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'act_root.py'), 'compute', 'b671'] + banks + ([] if 'dry' in a else ['--write']),
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    print(NL.join(((r.stdout or '') + (r.stderr or '')).rstrip(NL).split(NL)[-4:]))
+    if r.returncode:
+        sys.exit('### act_root.py exit %d' % r.returncode)
+
+
+def root_arm(*a):
+    import tempfile
+    import act_root as AR
+    J = jl('b671_act_root.json')
+    bank_ = [it.split()[0] for it in J['items'] if it.startswith('data/') and not it.split()[0].endswith('.gz')][0]
+    with tempfile.TemporaryDirectory(prefix='b671_ra_') as tmp:
+        cp = os.path.join(tmp, os.path.basename(bank_))
+        b_ = bytearray(open(os.path.join(ROOT, *bank_.split('/')), 'rb').read())
+        b_[0] ^= 0x01
+        open(cp, 'wb').write(bytes(b_))
+        items2 = [('%s %s' % (bank_, AR.sha256_file(cp)) if it.split()[0] == bank_ else it) for it in J['items']]
+    r2 = AR.root_of(items2, J['previous'])
+    same = AR.root_of(J['items'], J['previous'])
+    late = []
+    for it in J['items']:
+        p = it.split()
+        if p[0].startswith('data/'):
+            fp = os.path.join(ROOT, *p[0].split('/'))
+            if not os.path.exists(fp) or AR.sha256_file(fp) != p[1]:
+                late.append('%s changed' % p[0])
+            elif os.path.getmtime(fp) > J.get('at_epoch', 0) + AR.ORDER_SLACK:
+                late.append('%s written after the root' % p[0])
+    L = ['b671 -- THE ACT-ROOT ARM`S OFFLINE CONTROL AND THE ROOT ORDER READ LOCALLY (%s)' % utc(), '',
+         '### the root`s time %s ; its recorded commit %s ; banks named %d ; changed or written after the root: %s' % (
+             J.get('at'), (J.get('commit') or {}).get('relay', '?')[:12], len([i for i in J['items'] if i.startswith('data/')]), late or 'NONE'),
+         '### ### **THE RECOMPUTED ROOT EQUALS THE TOOL`S %s ; THE ONE-BYTE CONTROL CHANGES IT %s ; THE ROOT ORDER HOLDS LOCALLY %s.**' % (
+             same == J['root'], r2 != J['root'], not late)]
+    put_txt('b671_root_arm.txt', L)
+    put_json('b671_root_arm.json', dict(at=utc(), bank=bank_, root_copy=r2, root_recomputed=same, root=J['root'], late=late))
+    print(L[-1])
+
+
+def _rows_state(rows):
+    return dict(((r['repo'], r['name']), (r.get('grade'), r.get('profile'), r.get('provenance'))) for r in rows)
+
+
+def table_final(*a):
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b671 -- THE TERMINAL TABLE REGENERATED, final (%s); exit %d ; against relay HEAD %s' % (utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved))]
+    L += ['    added   %s / %s' % k for k in added[:60]] + ['    gone    %s / %s' % k for k in gone[:60]] + [
+        '    moved   %s / %s : %s -> %s' % (k[0], k[1], before[k], after[k]) for k in moved[:60]]
+    L += ['### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b671_table_final.txt', L)
+    put_json('b671_table_final.json', dict(at=utc(), rc=r.returncode, moved=[list(k) for k in moved], added=[list(k) for k in added],
+                                           gone=[list(k) for k in gone], grade_moved=[list(k) for k in moved if before[k][0] != after[k][0]]))
+    print(L[-1])
+
+
+FACE_REL = 'data/b671_registration_2026-10-14.txt'
+FACE = os.path.join(D, 'b671_registration_2026-10-14.txt')
+
+
+def gatebanks(*a):
+    """the gate's steps between the face and the lock (b665's order), each tool's output banked by this route, never by a shell redirect."""
+    import gate_hash as G
+    env = dict(os.environ, PYTHONIOENCODING='utf-8')
+
+    def runb(args, out):
+        r = subprocess.run([sys.executable] + args, capture_output=True, cwd=ROOT, env=env)
+        b_ = (r.stdout + r.stderr).replace(b'\r\n', b'\n')
+        if out:
+            p = os.path.join(D, out)
+            open(p + '.tmp', 'wb').write(b_)
+            os.replace(p + '.tmp', p)
+        return r.returncode, b_.decode('utf-8', 'replace')
+    rc1, t1 = runb([os.path.join(T, 'banned_terms.py'), '--new', FACE_REL], 'b671_reg_termscan.txt')
+    rc2, t2 = runb([os.path.join(T, 'b671_regspec.py')], 'b671_regspec_run.txt')
+    rc3, t3 = runb([os.path.join(T, 'reg_satisfiable.py'), 'data/b671_satisfiable.json', '--emit', 'b671'], None)
+    print('  banned_terms rc %d ; %s' % (rc1, ([l for l in t1.split(NL) if 'VERDICT' in l] or ['### NO VERDICT'])[0][:160]))
+    print('  regspec rc %d ; %s' % (rc2, ([l for l in t2.split(NL) if 'PREDICTIONS FOUND' in l] or ['### NONE'])[0].strip()))
+    print('  reg_satisfiable rc %d ; %s' % (rc3, ([l for l in rdn('audit_b671_reg_satisfiable.txt').split(NL) if 'VERDICT' in l] or ['### NO VERDICT'])[0][:160]))
+    for tool, out in (('b307_handoff_census.py', 'b671_census_stepzero.txt'), ('b327_faces_census.py', 'b671_faces_census_stepzero.txt'),
+                      ('b303_pins.py', 'b671_pins_stepzero.txt')):
+        rc, t = runb([os.path.join(T, tool), 'b671'], out)
+        print('  %s rc %d ; %s' % (out, rc, ([l.strip() for l in t.split(NL) if 'TOTAL MISSING' in l or 'HARD-FAILING' in l] or ['### NONE'])[0][:120]))
+    for r in ('data/b671_reg_gate.txt', 'data/b671_reg_termscan.txt', 'data/b671_regspec_run.txt', 'data/audit_b671_reg_satisfiable.txt'):
+        ra = os.path.join(ROOT, *r.split('/'))
+        print('  stamp %s %s %s' % (r, G.stamp(ra, FACE)[:16], G.matches(ra, FACE)[0]))
+
+
+# ================================================================================ THE PROGRESS TABLE (the navigator's answer on progress)
+RUN2_LOG = os.path.join(K.SP, 'b671_run2.log')
+RUN2_ERR = os.path.join(K.SP, 'b671_run2.err')
+RUN2_START = '2026-10-14T23:05:28Z'
+_DEPTH = re.compile(r'^  OFF (\d+) depth (\d+) : half-width (\S+) ; quarters \[([^\]]*)\] ; segments \[([^\]]*)\] ; doublings \[([^\]]*)\]')
+_DBL = re.compile(r'^      doubling at depth (\d+) :')
+
+
+def _free_mb():
+    r = subprocess.run(['powershell', '-NoProfile', '-Command', '[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)'],
+                       capture_output=True, text=True)
+    return (r.stdout or '').strip() or 'UNREAD'
+
+
+def progress(*a):
+    """a read of run 2's own records, no process touched: rows are points. What run 2 writes, and when: the log (scratchpad
+    b671_run2.log) one line per point as it lands; data/b671_narrow_run2_points.jsonl one row per point as it lands, carrying its depth
+    lines; narrow_off writes nothing while a point runs (its depth lines held in the worker until the point returns); no depth line
+    carries a time; a depth line's segments and doublings are per quarter, summed over the quarter's four sides."""
+    at = utc()
+    free = _free_mb()
+    log = rd(RUN2_LOG).split(NL)
+    err = rd(RUN2_ERR)
+    rows = [json.loads(l) for l in rd(os.path.join(D, 'b671_narrow_run2_points.jsonl')).split(NL) if l.strip()]
+    banked = dict((r['idx'], r) for r in rows)
+    q0 = dict((r['idx'], r) for r in json.loads(gzip.decompress(open(os.path.join(D, K.Q0_CERT), 'rb').read()).decode('utf-8'))['rows']
+              if r['kind'] == 'OFF')
+    src = rd(os.path.join(T, 'b671_narrow.py'))
+    body = src[src.index('def narrow_off('):src.index('def task_off(')]
+    writes = [w for w in ('print(', 'say(', '.write(', 'flush') if w in body]
+    L = ['b671 -- RUN 2`S PROGRESS, READ FROM ITS OWN RECORDS (rows are points) (%s) ; host free %s MB ; the hold %d MB' % (at, free, K.HOLD), '',
+         '### the navigator`s answer on progress, a read with no change to the run and no process touched. The records: the log (%d lines, '
+         'one per landed point after a 3-line head), stderr (%d characters), data/b671_narrow_run2_points.jsonl (%d rows, one per landed point, '
+         'its depth lines inside). narrow_off`s body (tools/b671_narrow.py) writes while a point runs: %s.' % (
+             len([l for l in log if l.strip()]), len(err), len(rows), writes or 'NOTHING -- no print, say, write or flush'),
+         '### so for a point still running, its last completed depth, that line`s time, its segments and doublings are NOT IN RUN 2`S RECORDS '
+         '(held in the worker until it returns), and no projection is formed from them. No depth line carries a time, banked or running: the '
+         'time of a line and the seconds of the last three depths are NOT RECORDED for any point; a banked point`s whole time is its row`s '
+         'seconds, printed with seconds per depth as that whole over its depth lines (a depth read again after an offset counted twice) -- a '
+         'mean, NOT the last three depths and not a projection.',
+         '### segments and doublings are a quarter`s, summed over its four sides (CERT._stats in square_count, one st per quarter); per side is '
+         'NOT RECORDED. A side past 1,024 segments can be excluded only where the quarter`s whole is at or below 1,024.', '']
+    L.append('  %-6s %-24s %-22s %-6s %-26s %-14s %-22s %s' % ('point', 't (b667`s centre)', 'reading', 'depth', 'last accepted quarter: segs, dbls',
+                                                             'seconds', 's / depth', 'a side past 1,024 segments'))
+    for i in sorted(q0):
+        t = q0[i]['im'][:22]
+        if i not in banked:
+            el = int(time.time() - calendar.timegm(time.strptime(RUN2_START, '%Y-%m-%dT%H:%M:%SZ')))
+            L.append('  OFF %-2d %-24s %-22s %-6s %-26s %-14s %-22s %s' % (i, t, 'RUNNING', 'NOT IN RECORDS', 'NOT IN RECORDS',
+                                                                          'running %d s' % el, 'NOT IN RECORDS', 'NOT IN RECORDS'))
+            continue
+        r = banked[i]
+        ds = [m for m in (_DEPTH.match(l) for l in r['lines']) if m]
+        last = None
+        for m in ds:
+            qs = [x.strip() for x in m.group(4).split(',')]
+            if qs.count('1') == 1 and all(x in ('0', '1') for x in qs):
+                k = qs.index('1')
+                last = (int(m.group(2)), int(m.group(5).split(',')[k]), int(m.group(6).split(',')[k]))
+        tot = [int(x) for m in ds for x in m.group(5).split(',')]
+        first = next((int(m.group(2)) for m in ds if max(int(x) for x in m.group(5).split(',')) > 1024), None)
+        past = 'NO (every quarter`s whole at or below 1,024)' if tot and max(tot) <= 1024 else (
+            'NOT DECIDABLE (per side NOT RECORDED): a quarter`s whole first past 1,024 at narrowing depth %d, its largest %d' % (
+                first, max(tot)) if tot else 'NO DEPTH LINE')
+        L.append('  OFF %-2d %-24s %-22s %-6d %-26s %-14d %-22s %s' % (
+            i, t, r['reading'], r['depth'], ('depth %d : %d, %d' % last) if last else 'NONE ACCEPTED', r['seconds'],
+            '%.0f (mean over %d lines)' % (r['seconds'] / max(1, len(ds)), len(ds)), past))
+    L += ['', '### ### **BANKED %d OF %d (NARROWED %d, UNRESOLVED-AT-DEPTH %d) ; RUNNING %d, THEIR FIGURES NOT IN RUN 2`S RECORDS ; host free %s MB '
+          'at %s.**' % (len(banked), len(q0), sum(1 for r in rows if r['reading'] == 'NARROWED'),
+                        sum(1 for r in rows if r['reading'] != 'NARROWED'), len(q0) - len(banked), free, at)]
+    put_txt('b671_run2_progress.txt', L)
+    print(NL.join(L))
+
+
+ROUTES = {'c1': c1, 'answers': answers, 'plan': plan, 'commands': commands, 'kernels': kernels, 'defects': defects, 'root': root,
+          'root_arm': root_arm, 'table_final': table_final, 'gatebanks': gatebanks, 'progress': progress}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
