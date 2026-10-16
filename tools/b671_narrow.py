@@ -577,6 +577,8 @@ def run3():
         return 3
     if beneath:
         say('### BENEATH THE HOLD; STARTED ON THE AUTHOR`S WORD (--author-word)')
+    if not _sha_gate('b671_narrow_run2_points.jsonl'):
+        return 3
     r2 = [json.loads(l) for l in io.open(os.path.join(D, 'b671_narrow_run2_points.jsonl'), encoding='utf-8') if l.strip()]
     if len(r2) != 17 or len(set(r['idx'] for r in r2)) != 17:
         say('### RUN 2 HAS NOT BANKED THE 17 POINTS (%d rows) -- NOTHING RUN' % len(r2))
@@ -611,6 +613,58 @@ def run3():
     return 0
 
 
+LARGE_BANKS = 'b671_large_banks.txt'
+
+
+def _sha_gate(name):
+    """the navigator's answer on the large bank: before a points file is read, its sha256 printed and compared with
+    data/b671_large_banks.txt's row; a file whose row is absent or whose digest differs stops the reader. Returns True to read."""
+    p = os.path.join(D, name)
+    h = hashlib.sha256(open(p, 'rb').read()).hexdigest()
+    bank = io.open(os.path.join(D, LARGE_BANKS), encoding='utf-8').read() if os.path.exists(os.path.join(D, LARGE_BANKS)) else ''
+    row = [l for l in bank.split(NL) if l.strip().startswith('data/%s.gz |' % name)]
+    want = (row[0].split('uncompressed', 1)[1].split('sha256', 1)[1].split('|', 1)[0].strip()) if row else None
+    say('### %s sha256 %s ; the large-banks row %s : %s' % (name, h, want or 'ABSENT', 'EQUAL' if h == want else 'NOT EQUAL -- NOT READ'))
+    return h == want
+
+
+def gzbank(names):
+    """the navigator's answer on the large bank: each points file gzipped under its own name (mtime 0), read back, and its row written in
+    data/b667_large_banks.txt's form to data/b671_large_banks.txt (rows replaced by name, others kept)."""
+    p0 = os.path.join(D, LARGE_BANKS)
+    old = io.open(p0, encoding='utf-8').read().split(NL) if os.path.exists(p0) else []
+    rows = dict((l.strip().split(' |', 1)[0], l) for l in old if l.startswith('  data/'))
+    for name in names:
+        raw_ = open(os.path.join(D, name), 'rb').read()
+        gz = gzip.compress(raw_, mtime=0)
+        q = os.path.join(D, name + '.gz')
+        open(q + '.tmp', 'wb').write(gz)
+        os.replace(q + '.tmp', q)
+        back = gzip.decompress(open(q, 'rb').read()) == raw_
+        rows['data/%s.gz' % name] = '  data/%s.gz | uncompressed %d bytes, sha256 %s | gz %d bytes, sha256 %s | read back byte-equal %s | CR LF pairs in the .gz %d' % (
+            name, len(raw_), hashlib.sha256(raw_).hexdigest(), len(gz), hashlib.sha256(gz).hexdigest(), back, gz.count(b'\r\n'))
+        print(rows['data/%s.gz' % name])
+    L = ['b671 -- THE RUN`S LARGE BANKS, GZIPPED UNDER THEIR OWN NAMES (%s), the navigator`s answer on the large bank: rows are banks -- the '
+         'uncompressed byte count, the sha256 of the uncompressed bytes, the .gz`s byte count and sha256 as committed, the read-back, the CR LF '
+         'pairs the .gz holds.' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '']
+    L += [rows[k] for k in sorted(rows)]
+    L += ['', '### the rows of the points files are points as each landed: kind, index, reading, depth, centre, half-width, seconds, and the',
+          '### point`s depth lines with its doubling records (run 3`s with its start square). The .jsonl stays untracked on disk for run 3 and the',
+          '### bank step, each printing its sha256 equal to the row above before reading it. Nothing re-written from the run`s output.',
+          '### Where a .gz holds a CR LF pair, the root is taken as b667`s was: without the binary bank, the chain reaching it through this LF',
+          '### hashes bank, declared in the root list and the trail under W-ORD-ROOT-BINARY-BANK.', '',
+          '### DECLARED READINGS FOR THE FACE (the navigator`s answer on the large bank):',
+          '### (1) ONE LOCAL COMMIT UNDONE BEFORE ANY PUSH: relay 89d2c38f ("b671 Component 3: run 2`s banks -- ...") took in',
+          '### data/b671_narrow_run2_points.jsonl at 88,175,649 bytes; undone by `git reset --soft HEAD~1` on 2026-10-16 about 01:46Z, the',
+          '### reason: an 88 MB blob in the history to be pushed (b667`s large banks gzipped under their own names); the files kept, the log and',
+          '### reap banks committed again as 6c92c680 without it. No pushed history touched: relay origin/main stood at 87410d3c, b670`s closing.',
+          '### (2) RUN 3`S READ BEFORE THE GATE: run 3 (PID 28500) started 2026-10-16T01:46:26Z, before this answer, and read',
+          '### data/b671_narrow_run2_points.jsonl without printing its sha256 against this bank. The file was last written 2026-10-16T01:45:05Z',
+          '### (run 2`s last landing), before run 3 started; its sha256 as gzipped here is the row above. The gate stands in the bank step and in',
+          '### any start of run 3 after this answer (tools/b671_narrow.py _sha_gate).']
+    put(LARGE_BANKS, NL.join(L) + NL)
+
+
 def _last_interval(x):
     """an on-line row's ball: W about its interval's midpoint where NARROWED; where not, its last certified interval [lo, hi] -- the plan's
     "keeps its last certified interval" -- by its midpoint and the interval's half-width rounded up, never b667's square."""
@@ -639,8 +693,13 @@ def bank():
         x['ends'] = dict(lo=la, hi=lb, signs=[sa, sb], certified=bool(ok))
         ends.append('  ON %d : t_lo %s : %s%s  ON %d : t_hi %s : %s%s  ON %d : opposite signs, each ball excluding 0 : %s' % (
             x['idx'], x['lo'], la, NL, x['idx'], x['hi'], lb, NL, x['idx'], ok))
+    if not _sha_gate('b671_narrow_run2_points.jsonl'):
+        sys.exit(3)
     off = [json.loads(l) for l in io.open(os.path.join(D, 'b671_narrow_run2_points.jsonl'), encoding='utf-8') if l.strip()]
     p3 = os.path.join(D, 'b671_narrow_run3_points.jsonl')
+    big = io.open(os.path.join(D, LARGE_BANKS), encoding='utf-8').read() if os.path.exists(os.path.join(D, LARGE_BANKS)) else ''
+    if os.path.exists(p3) and 'data/b671_narrow_run3_points.jsonl.gz |' in big and not _sha_gate('b671_narrow_run3_points.jsonl'):
+        sys.exit(3)
     if os.path.exists(p3):            # ### (4a): run 3's rows replace run 2's for their points alone
         r3 = dict((x['idx'], x) for x in (json.loads(l) for l in io.open(p3, encoding='utf-8') if l.strip()))
         off = [r3.get(r['idx'], r) for r in off]
@@ -719,6 +778,8 @@ if __name__ == '__main__':
             'against b311ba66, unified diff. Recording lines only: the per-side record in square_count, each completed depth written with its '
             'UTC time (_depth_out); nothing of the counting reads either.%s%s%s' % (NL, NL, t))
         print(t)
+    elif mode == 'gzbank':
+        gzbank(sys.argv[2:] or ['b671_narrow_run2_points.jsonl'])
     elif mode == 'run3':
         sys.exit(run3())
     elif mode == 'bank':

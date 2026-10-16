@@ -51,3 +51,7 @@ S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d
   BREACH 3 run 2's own sample at OFF 13's landing (the run's line "OFF 13 : NARROWED at depth 40 ; 71123 s ; host free 2479 MB") ; free 2479 ;
            the hold 2560 ; BENEATH THE HOLD BY 81 MB -- the host's (run 2 about 590 MB in the 13:57:48Z listing); its time not recorded by
            the run (no landing line carries one; data/b671_defects.txt (h)), between REAP 3 (18:43:43Z) and the progress read (00:39:55Z)
+  RUN 3    started 2026-10-16T01:46:26Z, PID 28500, after RUN2 DONE ; free 4094 at 01:46:20Z (the seat's read) and 4040 at the run's own start
+           line ; the hold 2560 ; at or above the hold ; no tail, lean, lake, python or bash running before it
+  START 5  watcher bokbfwcq8 started 2026-10-16T01:46Z on run 3's log, the same form with RUN3 DONE and PID 28500:
+S="/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf/scratchpad"; while ! grep -q "RUN3 DONE" "$S/b671_run3.log" 2>/dev/null; do if ! tasklist //FI "PID eq 28500" | grep -q 28500; then echo "PROCESS GONE"; break; fi; sleep 60; done; echo "WAITER END"; grep -E "OFF [0-9]+ :|RUN 3 :" "$S/b671_run3.log" | cut -c1-200; tail -5 "$S/b671_run3.err"
