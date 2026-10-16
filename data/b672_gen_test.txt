@@ -1,0 +1,25 @@
+b672 -- THE CORRESPONDENCE GENERATOR`S PLANTED CASES, (R282)(4): tools/test_correspondence_gen.py over tools/correspondence_gen.py
+
+### (1) THE TAG MOVED: SIDE-x v0.1.0 = `aaaaaaa` -> tag v0.2.0 at bbbbbbb; the bank prints Mod.thm with [propext]; the grade bank says INTERFACES
+    PASS row 1 rewritten
+    PASS row 2 (inheriting) rewritten in its own form
+    PASS row 3 (a bold commit alone): the commit in place, the trailing prose and its pin kept
+    PASS row 4 (declared at the tag, not in the bank): NOT PRINTED AT the tag, the verified profile and its pin kept beside, the commit bare
+    PASS lines outside the table untouched; row count equal
+    PASS cells changed 8 (kernel, profile, status of row 1; kernel of row 2; kernel, status of row 3; kernel, profile of row 4)
+    PASS no blank cell
+### (2) A DECLARATION VANISHED: Mod.gone is not declared at v0.2.0
+    PASS profile reads ABSENT AT v0.2.0; pin and status kept
+    PASS ABSENT counted 1, by kernel
+    PASS no blank cell
+### (3) A KERNEL WITH NO PRINT BANK: SIDE-z at v0.2.0, the grade bank says DERIVES
+    PASS profile NO PRINT BANK AT v0.2.0; grade DERIVES UNREFRESHED
+    PASS the kernel-less row untouched
+    PASS NO PRINT BANK counted 1, by kernel
+    PASS run again: unchanged (the cell words are idempotent)
+### (4) A TABLE ALREADY AT ITS TAG: the file`s bytes identical, CRLF kept; case (1)`s output run again identical
+    PASS bytes identical
+    PASS the deposit pin and its inheriting row HELD, counted 2
+    PASS case (1)`s output run again: identical, 0 cells changed
+
+### ### **PLANTED CASES 4 ; AS WANTED 4 ; PASS**
