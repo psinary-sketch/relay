@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """b672_worklist.py -- THE ACT'S DATA, UNDER (R282). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
 
-### ### b672: LANE THREE, ACT NINETY-NINE, THE TOOLING ACT -- b671 AT ITS WEIGHT; TWO RULES ENTERED (THREE ROWS); THE CORRESPONDENCE
-### GENERATOR WRITTEN, TESTED ON PLANTED CASES AND RUN OVER THE ROSTER; THE ONE COPY OF RECORD RULED AND THE SUPERSEDED COPIES MOVED; THE
-### MIRROR EXPORT. NO KERNEL EDIT.
+### ### b672: LANE THREE, ACT NINETY-NINE, THE TOOLING ACT -- b671 AT ITS WEIGHT; THREE RULES ENTERED; THE CORRESPONDENCE GENERATOR
+### WRITTEN, TESTED ON PLANTED CASES AND RUN OVER THE ROSTER; THE COPY OF RECORD AS REGISTRY NAMES IT, NOTHING MOVED (THE NAVIGATOR'S
+### ANSWER ON THE REGISTRY); THE MIRROR EXPORT. NO KERNEL EDIT.
 ### Written whole by the Write tool from b671_worklist.py's form. The face is sealed after Components 1-3 and the dry-run step.
 """
 import os
@@ -15,6 +15,7 @@ NL = chr(10)
 PP = 'D:/MY-DOwnloads/PLACE-papers'
 PRE_PP = 'd6d2d4b'          # ### PLACE-papers main before the act (b671's record, pushed)
 PRE_RELAY = '64158393'      # ### relay main before the act (b671's closing, pushed)
+STEPZERO = '3176a028'       # ### relay: b671's closing push-out bank, the citation check, the ferry and its scan, the defects bank, the citation tool
 DATE = '2026-10-16'
 SESSION_ID = 'b895aca8-50cf-4976-9217-c566f780a886'
 SP = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/%s/scratchpad' % SESSION_ID
@@ -53,8 +54,25 @@ ROSTER_BANK = 'b586_corroboration.txt'
 READING_II = 'b670_correspondence.txt'
 STATE = 'b670_state.txt'
 
-# ### filled at the seal
-ACT_ARMS = ()
+# ### the generator's commits, each the tool and its test alone (or the tool alone), committed before the run ((R282)(4))
+GEN_COMMITS = ('944affbd', '05e8af50', 'a3082922')
+GEN_FILES = ('tools/correspondence_gen.py', 'tools/test_correspondence_gen.py')
+GEN_FILES_BASE = ('correspondence_gen.py', 'test_correspondence_gen.py')
+# ### the PLACE-papers files this act writes beyond FINDINGS and OPEN_TRAILS: the roster's files the generator wrote (relay
+# ### data/b672_correspondence_diff.json), the partner written identically, and b651's line carried to SIMPLICITY's v1.1.3 ((R282)(5))
+B651_COPY = 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md'
+B651_SOURCE = 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md'
+NEXT = 'b673 V4 and V5 on chi-li-b669; b674 the re-cut act between SIDE-window and SIDE-trivium by the tie rule -- `(R282)`(10)'
+
+# ### (R264)(2), the freeze: the act's arms over its own banks; every other arm is a standing arm carried from b671's face (b671's own act arms
+# ### not carried). Each run at HEAD and counted before the face names it.
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-R282-ENTERED', 'G-OPEN-BRANCH-KEPT', 'G-RULES-ENTERED',
+            'G-LEDGER-SPLIT-ITEM', 'G-GEN-PLANTED', 'G-GEN-COMMITTED-ALONE', 'G-ROSTER-READ', 'G-ONE-COPY-LIST', 'G-GEN-RUN',
+            'G-GEN-IDENTICAL-RERUN', 'G-ROWS-KEPT', 'G-READING-II-AFTER', 'G-STATE-LINE', 'G-ORDERS-ENTERED', 'G-B651-LINE',
+            'G-NOTHING-MOVED', 'G-HYPOTHESES-SCORED')
+B671_ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-SEQUENCE-ENTERED', 'G-CENSUS-ITEMS', 'G-PLAN-BEFORE-NUMBER',
+                 'G-CONTROLS-FIRST', 'G-NARROWED-LIST', 'G-NARROW-LOG', 'G-CARRY-DIFF', 'G-MAP-DIFF', 'G-MAP-READ', 'G-HYPOTHESES-SCORED',
+                 'G-LANDING', 'G-TIE-DIAGNOSTIC', 'G-B667-UNEDITED', 'G-OPEN-BRANCH-KEPT', 'G-R281-ENTERED')
 SHARED_APPENDED = ('data/b670_state.txt',)   # ### (R282)(6) H5's dated line
 SEALED = ('b672_worklist.py', 'b672_tests.py', 'b672_citation.py', 'b672_record.py', 'b672_checks.py', 'b672_closing.py', 'b672_reg_gate.py',
           'b672_regspec.py', 'correspondence_gen.py')
