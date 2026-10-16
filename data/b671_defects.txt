@@ -61,3 +61,8 @@ b671 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-14): THE SUCCESSOR OF data
     (j) THE SEAT'S: A COPY NOBODY READ. In the continuation the seat copied data/b671_large_banks.txt to C:\Users\ECHOCH~1\AppData\Local\
     Temp\x, outside the session's scratchpad, before rewriting the bank. Nothing read the copy. Found at once, it was compared byte-equal with
     the bank at HEAD and deleted by its verified absolute path. No repo tree was touched.
+    (k) THE SEAT'S: A HEADER THAT PRINTED THE CAP, NOT THE POOL. tools/b671_narrow.py run3's first line printed "ON %d PROCESSES" from
+    PROCS (8), while the pool it opened was min(PROCS, len(todo)) = 5 for run 3's five points. So data/b671_narrow_run3.txt reads "ON 8
+    PROCESSES", and the process listing of 2026-10-16T04:24:44Z (data/b671_reap_reading.txt LISTING) shows five workers under python
+    35288. The counting is untouched, since each point runs in one worker. The run's bank stands as the run wrote it, nothing re-written from
+    its output; the true figure, 5, is declared here. No later run is planned, so the print is not repaired.

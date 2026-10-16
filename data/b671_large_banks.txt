@@ -1,6 +1,7 @@
-b671 -- THE RUN`S LARGE BANKS, GZIPPED UNDER THEIR OWN NAMES (2026-10-16T04:20:09Z), the navigator`s answer on the large bank: rows are banks -- the uncompressed byte count, the sha256 of the uncompressed bytes, the .gz`s byte count and sha256 as committed, the read-back, the CR LF pairs the .gz holds.
+b671 -- THE RUN`S LARGE BANKS, GZIPPED UNDER THEIR OWN NAMES (2026-10-16T09:55:14Z), the navigator`s answer on the large bank: rows are banks -- the uncompressed byte count, the sha256 of the uncompressed bytes, the .gz`s byte count and sha256 as committed, the read-back, the CR LF pairs the .gz holds.
 
   data/b671_narrow_run2_points.jsonl.gz | uncompressed 88175649 bytes, sha256 2f5291538e93c8d464a912cb2d0a177317f952197f5caa281ab35f6bb4ff47ce | gz 3833376 bytes, sha256 5bab8753c3053b864d5eb6811d6f0797caa2f9c3a47eb8953ff4976eb69f0a6a | read back byte-equal True | CR LF pairs in the .gz 19
+  data/b671_narrow_run3_points.jsonl | uncompressed 30860 bytes, sha256 b372fd6fe1d48f1fa4153b98cc0ae03d897c34cb2a7cc0168117e51f3b260fc2 | committed as it is, beneath the limit | CR LF pairs 0
 
 ### the rows of the points files are points as each landed: kind, index, reading, depth, centre, half-width, seconds, and the
 ### point`s depth lines with its doubling records (run 3`s with its start square). The .jsonl stays untracked on disk for run 3 and the
