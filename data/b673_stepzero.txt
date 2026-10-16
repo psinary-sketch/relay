@@ -1,0 +1,23 @@
+b673 -- STEP ZERO, UNDER (R283) (2026-10-16)
+
+### rows are the ferry's step-zero items, each with its print.
+  the citation check        data/b673_citation_check.txt: CITES CHECKED 92 ; OK 88 ; MISSES 4 (defect (a), the seat's predicate, repaired before
+                            the ferry was banked); the four misses raised as one prompt and answered (data/b673_defects.txt (b)-(e), the
+                            navigator's), each answer's mid-act check appended
+  the ferry                 data/b673_ferry.txt (15195 characters); data/b673_ferry_scan.txt 0 hits
+  the read-first bank       data/b673_readfirst.txt ((R283)(7)): every item of the ferry's list by path and line with its row unit; the narrowed
+                            list read as the committed .gz, its sha256 equal to b671's hashes bank
+  the process listing       2026-10-16T18:20:05Z (names matching tail, lean, lake, python, bash): claude.exe 14680 alone; no tail, lean, lake,
+                            python or bash process; no orphan; free 4990 MB
+                            2026-10-16T18:52:11Z, after the loop: claude.exe 14680 alone; no tail, lean, lake, python or bash process; free 4103 MB
+  b672's push-out bank      data/b672_closing_push_out.txt committed, relay 53aec8b0
+  the branches deleted      after `git branch --merged main` listed them: relay push-b672 (92e07d46), push-b672-root (e06d2f25), push-b672-closing
+                            (db2b75f4); PLACE-papers push-b672 (8b85716), push-b672-root (79d2444); chi-li-b669 kept at b804bf2
+  the tests                 data/b673_tests_stepzero.txt: TEST FILES 55 ; RUN 54 ; WITHHELD 1 ; NOT CLEAN 2 (test_chain_page.py (9);
+                            test_chain_page_b638.py (4)-(7)) -- the standing set since b638, unchanged; test_elab_reader_b634.py withheld
+                            (data/b673_tests_withheld.json: no lean on this host); one process per test from a detached bash loop (scratchpad
+                            b673_tests_loop.sh, 18:22:11Z-18:51:20Z) over tools/b673_tests.py run, which carries no one-driver route (b672
+                            defect (b)); test_correspondence_gen.py four planted cases as wanted.
+  git status                relay tracked changes after the runs NONE; PLACE-papers NONE; the local banks (data/b628_intake_crank_v0_5.txt,
+                            data/b647_navigator_memory.txt, data/b671_narrow_run2_points.jsonl) untracked
+  no build                  no lean or lake run on this host
