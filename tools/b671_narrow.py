@@ -622,13 +622,33 @@ def _sha_gate(name):
     p = os.path.join(D, name)
     h = hashlib.sha256(open(p, 'rb').read()).hexdigest()
     bank = io.open(os.path.join(D, LARGE_BANKS), encoding='utf-8').read() if os.path.exists(os.path.join(D, LARGE_BANKS)) else ''
-    row = [l for l in bank.split(NL) if l.strip().startswith('data/%s.gz |' % name)]
+    row = [l for l in bank.split(NL) if l.strip().startswith(('data/%s.gz |' % name, 'data/%s |' % name))]
     want = (row[0].split('uncompressed', 1)[1].split('sha256', 1)[1].split('|', 1)[0].strip()) if row else None
     say('### %s sha256 %s ; the large-banks row %s : %s' % (name, h, want or 'ABSENT', 'EQUAL' if h == want else 'NOT EQUAL -- NOT READ'))
     return h == want
 
 
-def gzbank(names):
+# ### the navigator's note confirming the two readings, under (R281): "the limit" is GitHub's 50 MB warning size. GitHub's documentation
+# ### writes it 50 MiB (52,428,800 bytes); a points file between 50,000,000 and 52,428,800 bytes reads differently under the two, and stops
+# ### the route for the author's word rather than taking either.
+LIMIT_MB, LIMIT_MIB = 50 * 1000 * 1000, 50 * 1024 * 1024
+
+
+def sizebank(names):
+    """the navigator's note: a points file above the limit takes the .gz form (gzbank); one beneath it is committed as it is, its row
+    written to data/b671_large_banks.txt with its sha256 so the gate reads it as it reads a .gz row."""
+    gz_, plain_ = [], []
+    for name in names:
+        n = os.path.getsize(os.path.join(D, name))
+        ruling = 'ABOVE THE LIMIT -- THE .gz FORM' if n > LIMIT_MIB else 'BENEATH THE LIMIT -- COMMITTED AS IT IS' if n <= LIMIT_MB else None
+        print('  data/%s : %d bytes against 50 MB (%d) and 50 MiB (%d) : %s' % (name, n, LIMIT_MB, LIMIT_MIB, ruling or 'BETWEEN THE TWO -- STOPPED'))
+        if ruling is None:
+            sys.exit('### THE LIMIT READS TWO WAYS FOR %s -- NOTHING WRITTEN; the author`s word asked' % name)
+        (gz_ if n > LIMIT_MIB else plain_).append(name)
+    gzbank(gz_, plain_)
+
+
+def gzbank(names, plain=()):
     """the navigator's answer on the large bank: each points file gzipped under its own name (mtime 0), read back, and its row written in
     data/b667_large_banks.txt's form to data/b671_large_banks.txt (rows replaced by name, others kept)."""
     p0 = os.path.join(D, LARGE_BANKS)
@@ -644,6 +664,11 @@ def gzbank(names):
         rows['data/%s.gz' % name] = '  data/%s.gz | uncompressed %d bytes, sha256 %s | gz %d bytes, sha256 %s | read back byte-equal %s | CR LF pairs in the .gz %d' % (
             name, len(raw_), hashlib.sha256(raw_).hexdigest(), len(gz), hashlib.sha256(gz).hexdigest(), back, gz.count(b'\r\n'))
         print(rows['data/%s.gz' % name])
+    for name in plain:
+        raw_ = open(os.path.join(D, name), 'rb').read()
+        rows['data/%s' % name] = '  data/%s | uncompressed %d bytes, sha256 %s | committed as it is, beneath the limit | CR LF pairs %d' % (
+            name, len(raw_), hashlib.sha256(raw_).hexdigest(), raw_.count(b'\r\n'))
+        print(rows['data/%s' % name])
     L = ['b671 -- THE RUN`S LARGE BANKS, GZIPPED UNDER THEIR OWN NAMES (%s), the navigator`s answer on the large bank: rows are banks -- the '
          'uncompressed byte count, the sha256 of the uncompressed bytes, the .gz`s byte count and sha256 as committed, the read-back, the CR LF '
          'pairs the .gz holds.' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '']
@@ -661,7 +686,15 @@ def gzbank(names):
           '### (2) RUN 3`S READ BEFORE THE GATE: run 3 (PID 28500) started 2026-10-16T01:46:26Z, before this answer, and read',
           '### data/b671_narrow_run2_points.jsonl without printing its sha256 against this bank. The file was last written 2026-10-16T01:45:05Z',
           '### (run 2`s last landing), before run 3 started; its sha256 as gzipped here is the row above. The gate stands in the bank step and in',
-          '### any start of run 3 after this answer (tools/b671_narrow.py _sha_gate).']
+          '### any start of run 3 after this answer (tools/b671_narrow.py _sha_gate).', '',
+          '### THE NAVIGATOR`S NOTE CONFIRMING THE TWO READINGS, under (R281) (2026-10-16, the act`s continuation session 60123014):',
+          '### (a) "the limit" is GitHub`s 50 MB warning size: a points file above it takes the .gz form, one beneath it is committed as it is',
+          '### (tools/b671_narrow.py sizebank; a size between 50,000,000 and 52,428,800 bytes, where 50 MB and GitHub`s written 50 MiB differ,',
+          '### stops the route for the author`s word). A file committed as it is carries a row here with its sha256, and the gate reads it.',
+          '### (b) the narrowed list`s own .gz (data/b671_epstein_zeros_narrowed.json.gz) is read for CR LF pairs at the root, and declared in',
+          '### the same way where it holds any (the count printed in data/b671_epstein_zeros_narrowed_hashes.txt by the bank step).',
+          '### (c) run 3`s read of the points file before the gate stands as declared in (2) above: the file unchanged since 01:45:05Z, its',
+          '### sha256 equal to this bank`s row. The gate guards every later read.']
     put(LARGE_BANKS, NL.join(L) + NL)
 
 
@@ -697,8 +730,8 @@ def bank():
         sys.exit(3)
     off = [json.loads(l) for l in io.open(os.path.join(D, 'b671_narrow_run2_points.jsonl'), encoding='utf-8') if l.strip()]
     p3 = os.path.join(D, 'b671_narrow_run3_points.jsonl')
-    big = io.open(os.path.join(D, LARGE_BANKS), encoding='utf-8').read() if os.path.exists(os.path.join(D, LARGE_BANKS)) else ''
-    if os.path.exists(p3) and 'data/b671_narrow_run3_points.jsonl.gz |' in big and not _sha_gate('b671_narrow_run3_points.jsonl'):
+    # ### the navigator's note: the gate guards every later read -- run 3's points file read only against its row (sizebank first)
+    if os.path.exists(p3) and not _sha_gate('b671_narrow_run3_points.jsonl'):
         sys.exit(3)
     if os.path.exists(p3):            # ### (4a): run 3's rows replace run 2's for their points alone
         r3 = dict((x['idx'], x) for x in (json.loads(l) for l in io.open(p3, encoding='utf-8') if l.strip()))
@@ -714,8 +747,13 @@ def bank():
     open(p + '.tmp', 'wb').write(gz)
     os.replace(p + '.tmp', p)
     put('b671_epstein_zeros_narrowed_hashes.txt', 'b671 -- THE NARROWED LIST`S HASHES (rows are files): the JSON as written, then gzipped (mtime 0)%s'
-        'data/b671_epstein_zeros_narrowed.json (inside the .gz) sha256 %s bytes %d%sdata/b671_epstein_zeros_narrowed.json.gz sha256 %s bytes %d%s' % (
-            NL, hashlib.sha256(js).hexdigest(), len(js), NL, hashlib.sha256(gz).hexdigest(), len(gz), NL))
+        'data/b671_epstein_zeros_narrowed.json (inside the .gz) sha256 %s bytes %d%sdata/b671_epstein_zeros_narrowed.json.gz sha256 %s bytes %d'
+        ' ; CR LF pairs in the .gz %d%s%s' % (
+            NL, hashlib.sha256(js).hexdigest(), len(js), NL, hashlib.sha256(gz).hexdigest(), len(gz), gz.count(b'\r\n'), NL,
+            ('### the .gz holds CR LF pairs: the root taken as b667`s was, without it, the chain reaching it through this LF hashes bank, declared '
+             'in the root list and the trail under W-ORD-ROOT-BINARY-BANK (the navigator`s note confirming the two readings)' + NL)
+            if gz.count(b'\r\n') else ''))
+    print('  data/b671_epstein_zeros_narrowed.json.gz : CR LF pairs %d' % gz.count(b'\r\n'))
     log = [dict(kind='ON', idx=r['idx'], depth=r['depth'], reading=r['reading'] if r['reading'] in ('NARROWED', 'UNRESOLVED-AT-DEPTH') else
                 'UNRESOLVED-AT-DEPTH', signs=r['ends']['signs'], ends_certified=r['ends']['certified'], ends=r['ends'], why=r.get('why'))
            for r in r1['on']] + [
@@ -778,6 +816,8 @@ if __name__ == '__main__':
             'against b311ba66, unified diff. Recording lines only: the per-side record in square_count, each completed depth written with its '
             'UTC time (_depth_out); nothing of the counting reads either.%s%s%s' % (NL, NL, t))
         print(t)
+    elif mode == 'sizebank':
+        sizebank(sys.argv[2:])          # ### no names: the bank's text written again, its rows kept
     elif mode == 'gzbank':
         gzbank(sys.argv[2:] or ['b671_narrow_run2_points.jsonl'])
     elif mode == 'run3':

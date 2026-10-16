@@ -1,4 +1,4 @@
-b671 -- THE RUN`S LARGE BANKS, GZIPPED UNDER THEIR OWN NAMES (2026-10-16T04:10:58Z), the navigator`s answer on the large bank: rows are banks -- the uncompressed byte count, the sha256 of the uncompressed bytes, the .gz`s byte count and sha256 as committed, the read-back, the CR LF pairs the .gz holds.
+b671 -- THE RUN`S LARGE BANKS, GZIPPED UNDER THEIR OWN NAMES (2026-10-16T04:20:09Z), the navigator`s answer on the large bank: rows are banks -- the uncompressed byte count, the sha256 of the uncompressed bytes, the .gz`s byte count and sha256 as committed, the read-back, the CR LF pairs the .gz holds.
 
   data/b671_narrow_run2_points.jsonl.gz | uncompressed 88175649 bytes, sha256 2f5291538e93c8d464a912cb2d0a177317f952197f5caa281ab35f6bb4ff47ce | gz 3833376 bytes, sha256 5bab8753c3053b864d5eb6811d6f0797caa2f9c3a47eb8953ff4976eb69f0a6a | read back byte-equal True | CR LF pairs in the .gz 19
 
@@ -17,3 +17,12 @@ b671 -- THE RUN`S LARGE BANKS, GZIPPED UNDER THEIR OWN NAMES (2026-10-16T04:10:5
 ### data/b671_narrow_run2_points.jsonl without printing its sha256 against this bank. The file was last written 2026-10-16T01:45:05Z
 ### (run 2`s last landing), before run 3 started; its sha256 as gzipped here is the row above. The gate stands in the bank step and in
 ### any start of run 3 after this answer (tools/b671_narrow.py _sha_gate).
+
+### THE NAVIGATOR`S NOTE CONFIRMING THE TWO READINGS, under (R281) (2026-10-16, the act`s continuation session 60123014):
+### (a) "the limit" is GitHub`s 50 MB warning size: a points file above it takes the .gz form, one beneath it is committed as it is
+### (tools/b671_narrow.py sizebank; a size between 50,000,000 and 52,428,800 bytes, where 50 MB and GitHub`s written 50 MiB differ,
+### stops the route for the author`s word). A file committed as it is carries a row here with its sha256, and the gate reads it.
+### (b) the narrowed list`s own .gz (data/b671_epstein_zeros_narrowed.json.gz) is read for CR LF pairs at the root, and declared in
+### the same way where it holds any (the count printed in data/b671_epstein_zeros_narrowed_hashes.txt by the bank step).
+### (c) run 3`s read of the points file before the gate stands as declared in (2) above: the file unchanged since 01:45:05Z, its
+### sha256 equal to this bank`s row. The gate guards every later read.

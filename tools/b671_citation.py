@@ -28,6 +28,8 @@ NL = chr(10)
 PP = 'D:/MY-DOwnloads/PLACE-papers'
 KE = 'D:/SIDE-explicit-formula'
 SESSION = 'C:/Users/echo chamber/.claude/projects/D--/96a5c4ea-0b59-4b9b-bbd4-bf76d508ffdf.jsonl'
+# ### the act's continuation session (tools/b671_worklist.py SESSIONS_AFTER), read after the first, so "the latest" stays the latest
+SESSIONS_AFTER = ('C:/Users/echo chamber/.claude/projects/D--/60123014-9988-4663-b491-449d50464d7e.jsonl',)
 ANCHOR, TAIL = 'RULING (R281) BEGIN', 'FERRY END (part 1 of 1)'
 REPOS = (ROOT, PP, KE)
 if hasattr(sys.stdout, 'reconfigure'):
@@ -52,7 +54,7 @@ def line(p, n):
 def _user_texts(results=True):
     """the session's user texts; with results, the results of the seat's own prompts alone (b670 defect (e))."""
     ask = set()
-    for raw in io.open(SESSION, encoding='utf-8', errors='replace'):
+    for raw in (r for s in (SESSION,) + SESSIONS_AFTER for r in io.open(s, encoding='utf-8', errors='replace')):
         try:
             o = json.loads(raw)
         except ValueError:
