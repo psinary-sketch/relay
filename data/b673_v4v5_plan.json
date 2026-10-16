@@ -1,0 +1,316 @@
+{
+ "at": "2026-10-16T19:03:50Z",
+ "kernel": "SIDE-explicit-formula",
+ "branch": "chi-li-b669",
+ "rev": "b804bf2",
+ "mathlib": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+ "searches": [
+  {
+   "step": "V4 (i), the partial sums over a window",
+   "name": "geom_sum_eq",
+   "tried": [
+    [
+     "`theorem geom_sum_eq `",
+     1
+    ],
+    [
+     "any declaration form, the bare word geom_sum_eq",
+     1
+    ]
+   ],
+   "first": "Mathlib/Algebra/Field/GeomSum.lean:43:theorem geom_sum_eq (h : x ≠ 1) (n : ℕ) : ∑ i ∈ range n, x ^ i = (x ^ n - 1) / (x - 1) := by",
+   "namesakes": 0,
+   "use": "Algebra/Field/GeomSum.lean"
+  },
+  {
+   "step": "V4 (i), the partial sums over a window",
+   "name": "geom_sum_Ico",
+   "tried": [
+    [
+     "`theorem geom_sum_Ico `",
+     0
+    ],
+    [
+     "any declaration form, the bare word geom_sum_Ico",
+     2
+    ]
+   ],
+   "first": "Mathlib/Algebra/Field/GeomSum.lean:52:lemma geom_sum_Ico (hx : x ≠ 1) {m n : ℕ} (hmn : m ≤ n) :",
+   "namesakes": 1,
+   "use": "Algebra/Field/GeomSum.lean"
+  },
+  {
+   "step": "V4 (ii), |s_n|^2 expanded",
+   "name": "RCLike.mul_conj (Complex)",
+   "tried": [
+    [
+     "`theorem mul_conj `",
+     2
+    ],
+    [
+     "any declaration form, the bare word mul_conj",
+     3
+    ]
+   ],
+   "first": "Mathlib/Analysis/RCLike/Basic.lean:465:theorem mul_conj (z : K) : z * conj z = ‖z‖ ^ 2 := by",
+   "namesakes": 2,
+   "use": "Analysis/RCLike/Basic.lean"
+  },
+  {
+   "step": "V4 (ii), |s_n|^2 expanded",
+   "name": "Complex.normSq_eq_norm_sq",
+   "tried": [
+    [
+     "`theorem normSq_eq_norm_sq `",
+     0
+    ],
+    [
+     "any declaration form, the bare word normSq_eq_norm_sq",
+     1
+    ]
+   ],
+   "first": "Mathlib/Analysis/Complex/Norm.lean:147:lemma normSq_eq_norm_sq (z : ℂ) : normSq z = ‖z‖ ^ 2 := by",
+   "namesakes": 0,
+   "use": "Analysis/Complex/Norm.lean"
+  },
+  {
+   "step": "V4 (ii)-(ii`), the double sums",
+   "name": "Finset.sum_mul_sum",
+   "tried": [
+    [
+     "`theorem sum_mul_sum `",
+     0
+    ],
+    [
+     "any declaration form, the bare word sum_mul_sum",
+     2
+    ]
+   ],
+   "first": "Mathlib/Algebra/BigOperators/Ring/Finset.lean:62:lemma sum_mul_sum (s : Finset ι) (t : Finset κ) (f : ι → R) (g : κ → R) :",
+   "namesakes": 1,
+   "use": "Algebra/BigOperators/Ring/Finset.lean"
+  },
+  {
+   "step": "V4 (ii`), the real part of a sum",
+   "name": "Complex.re_sum",
+   "tried": [
+    [
+     "`theorem re_sum `",
+     1
+    ],
+    [
+     "any declaration form, the bare word re_sum",
+     1
+    ]
+   ],
+   "first": "Mathlib/Data/Complex/BigOperators.lean:44:theorem re_sum (f : α → ℂ) : (∑ i ∈ s, f i).re = ∑ i ∈ s, (f i).re :=",
+   "namesakes": 0,
+   "use": "Data/Complex/BigOperators.lean"
+  },
+  {
+   "step": "V4 (ii`), conj of a power",
+   "name": "map_pow (starRingEnd is a ring hom)",
+   "tried": [
+    [
+     "`theorem map_pow `",
+     2
+    ],
+    [
+     "any declaration form, the bare word map_pow",
+     16
+    ]
+   ],
+   "first": "Mathlib/Algebra/Group/Hom/Defs.lean:470:theorem map_pow [Monoid G] [Monoid H] [MonoidHomClass F G H] (f : F) (a : G) :",
+   "namesakes": 15,
+   "use": "Algebra/Group/Hom/Defs.lean"
+  },
+  {
+   "step": "V5, |w^n| and |z^n|",
+   "name": "norm_pow",
+   "tried": [
+    [
+     "`theorem norm_pow `",
+     1
+    ],
+    [
+     "any declaration form, the bare word norm_pow",
+     2
+    ]
+   ],
+   "first": "Mathlib/Analysis/Normed/Ring/Basic.lean:747:theorem norm_pow (a : α) : ∀ n : ℕ, ‖a ^ n‖ = ‖a‖ ^ n :=",
+   "namesakes": 1,
+   "use": "Analysis/Normed/Ring/Basic.lean"
+  },
+  {
+   "step": "V5, the binomial tail",
+   "name": "Nat.sum_range_choose",
+   "tried": [
+    [
+     "`theorem sum_range_choose `",
+     1
+    ],
+    [
+     "any declaration form, the bare word sum_range_choose",
+     1
+    ]
+   ],
+   "first": "Mathlib/Data/Nat/Choose/Sum.lean:94:theorem sum_range_choose (n : ℕ) : (∑ m ∈ range (n + 1), n.choose m) = 2 ^ n := by",
+   "namesakes": 0,
+   "use": "Data/Nat/Choose/Sum.lean"
+  },
+  {
+   "step": "V5, the binomial tail",
+   "name": "add_pow (the binomial theorem, CommSemiring)",
+   "tried": [
+    [
+     "`theorem add_pow `",
+     3
+    ],
+    [
+     "any declaration form, the bare word add_pow",
+     4
+    ]
+   ],
+   "first": "Mathlib/Data/Nat/Choose/Sum.lean:34:theorem add_pow (h : Commute x y) (n : ℕ) :",
+   "namesakes": 3,
+   "use": "Data/Nat/Choose/Sum.lean"
+  },
+  {
+   "step": "V5, the summable tail",
+   "name": "Summable.of_norm_bounded",
+   "tried": [
+    [
+     "`theorem of_norm_bounded `",
+     0
+    ],
+    [
+     "any declaration form, the bare word of_norm_bounded",
+     1
+    ]
+   ],
+   "first": "Mathlib/Analysis/Normed/Group/InfiniteSum.lean:111:theorem Summable.of_norm_bounded [CompleteSpace E] {f : ι → E} {g : ι → ℝ} (hg : Summable g)",
+   "namesakes": 0,
+   "use": "Analysis/Normed/Group/InfiniteSum.lean"
+  },
+  {
+   "step": "S5, the dominant modulus",
+   "name": "Finset.exists_max_image",
+   "tried": [
+    [
+     "`theorem exists_max_image `",
+     2
+    ],
+    [
+     "any declaration form, the bare word exists_max_image",
+     3
+    ]
+   ],
+   "first": "Mathlib/Data/Finset/Max.lean:528:theorem exists_max_image (s : Finset β) (f : β → α) (h : s.Nonempty) :",
+   "namesakes": 2,
+   "use": "Data/Finset/Max.lean"
+  },
+  {
+   "step": "S5, the split of the tsum at the dominant set",
+   "name": "Summable.sum_add_tsum_compl (to_additive)",
+   "tried": [
+    [
+     "`theorem sum_add_tsum_compl `",
+     0
+    ],
+    [
+     "any declaration form, the bare word sum_add_tsum_compl",
+     1
+    ],
+    [
+     "`theorem prod_mul_tprod_compl `",
+     0
+    ],
+    [
+     "any declaration form, the bare word prod_mul_tprod_compl",
+     1
+    ]
+   ],
+   "first": "Mathlib/Topology/Algebra/InfiniteSum/Group.lean:178:protected theorem Multipliable.prod_mul_tprod_compl {s : Finset β} (hf : Multipliable f) :",
+   "namesakes": 1,
+   "use": "Topology/Algebra/InfiniteSum/Group.lean"
+  },
+  {
+   "step": "S5, the split of the tsum at the dominant set",
+   "name": "Summable.tsum_union_disjoint (to_additive)",
+   "tried": [
+    [
+     "`theorem tsum_union_disjoint `",
+     0
+    ],
+    [
+     "any declaration form, the bare word tsum_union_disjoint",
+     0
+    ],
+    [
+     "`theorem tprod_union_disjoint `",
+     0
+    ],
+    [
+     "any declaration form, the bare word tprod_union_disjoint",
+     1
+    ]
+   ],
+   "first": "Mathlib/Topology/Algebra/InfiniteSum/Basic.lean:760:protected theorem Multipliable.tprod_union_disjoint {s t : Set β} (hd : Disjoint s t)",
+   "namesakes": 0,
+   "use": "Topology/Algebra/InfiniteSum/Basic.lean"
+  },
+  {
+   "step": "S5, n^2 (s/r)^n tends to 0",
+   "name": "tendsto_pow_const_mul_const_pow_of_abs_lt_one",
+   "tried": [
+    [
+     "`theorem tendsto_pow_const_mul_const_pow_of_abs_lt_one `",
+     1
+    ],
+    [
+     "any declaration form, the bare word tendsto_pow_const_mul_const_pow_of_abs_lt_one",
+     1
+    ]
+   ],
+   "first": "Mathlib/Analysis/SpecificLimits/Normed.lean:187:theorem tendsto_pow_const_mul_const_pow_of_abs_lt_one (k : ℕ) {r : ℝ} (hr : |r| < 1) :",
+   "namesakes": 0,
+   "use": "Analysis/SpecificLimits/Normed.lean"
+  },
+  {
+   "step": "S5, r^n unbounded",
+   "name": "tendsto_pow_atTop_atTop_of_one_lt",
+   "tried": [
+    [
+     "`theorem tendsto_pow_atTop_atTop_of_one_lt `",
+     0
+    ],
+    [
+     "any declaration form, the bare word tendsto_pow_atTop_atTop_of_one_lt",
+     1
+    ]
+   ],
+   "first": "Mathlib/Analysis/SpecificLimits/Basic.lean:181:theorem tendsto_pow_atTop_atTop_of_one_lt",
+   "namesakes": 0,
+   "use": "Analysis/SpecificLimits/Basic.lean"
+  },
+  {
+   "step": "V4 (iii), the squeeze`s Bernoulli step",
+   "name": "one_add_mul_le_pow",
+   "tried": [
+    [
+     "`theorem one_add_mul_le_pow `",
+     0
+    ],
+    [
+     "any declaration form, the bare word one_add_mul_le_pow",
+     1
+    ]
+   ],
+   "first": "Mathlib/Algebra/Order/Ring/Pow.lean:100:lemma one_add_mul_le_pow (H : -2 ≤ a) (n : ℕ) : 1 + n * a ≤ (1 + a) ^ n :=",
+   "namesakes": 0,
+   "use": "Algebra/Order/Ring/Pow.lean"
+  }
+ ],
+ "sign_consumed": "+c",
+ "c": "sum m^2 / (4 sum m)"
+}
