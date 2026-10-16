@@ -1,0 +1,57 @@
+b673 -- STEP ZERO, (R283)(7): THE READ-FIRST BANK -- EVERY ITEM OF THE FERRY'S LIST CITED BY PATH AND LINE WITH ITS ROW UNIT (2026-10-16)
+
+### rows are items of the ferry's read-first list, in its order: the item ; its row unit ; the lines read and what they carry. The kernel
+### is SIDE-explicit-formula at chi-li-b669 = b804bf2, read by git show and git grep bounded to *.lean; nothing of the kernel written.
+
+  data/b672_closing.txt                 rows are lines. :1 the head line "b672 closed: relay ### NOT , PLACE-papers 8b85716; suite 87 of 88;
+                                        root 41f49fc1d8f59e43…; 5 prompts answered; 8 defects" (relay NOT READ: b672 defect (h), the
+                                        read-back cut and read by hand as 92e07d46); :15 the sealed tools AGREE 9 of 9; :25 THE RUN (189 cells,
+                                        14 files, ABSENT 7, NOT PRINTED 48, NO PRINT BANK 12); :29 reading (ii) after (114 rows, 54 behind
+                                        against b670's 90); :33 the hypotheses (H1, H3, H5 HELD; H2 HELD AT THE GENERATOR'S CLAIM; REFUTED BY
+                                        b670'S METHOD; H4 NOT HELD); :35 the mirror; :121-:124 the suite 87 of 88 pre-push and post-push,
+                                        G-READFIRST-CITED; :195-:196 the censuses and pins.
+  data/b672_defects.txt                 rows are defects, as lettered there: (a) (b) (d) (f) the seat's; (c) (g) the navigator's; (e) b670's;
+                                        (h) the host's (the read-back cut by a connection reset, read by hand as 92e07d463207c46a).
+  data/b669_chi_li_plan.txt             rows are statements and priced facts. :1 the plan's head (v0.30 = 02bc85d, Mathlib de5ce8a9); :19-:25
+                                        the V4 searches (the kernel's power-sum yield 0; Mathlib's Turán-type yield 152, by name 2); :136-:160
+                                        route (P), the Bombieri-Lagarias route on the configuration (V1)-(V5), S5 and S6; :165 the consumers
+                                        section; :183 W-ORD-LI-CONVERSE-NATIVE named, its trigger "S5 DERIVES".
+  data/b669_chi_li_landing.txt          rows are declarations with their landing. :12 exists_dominant_point (V2) DERIVES; :13 dominant_finite
+                                        (V3) DERIVES; :14 norm_geom_sum_le and :15 norm_sum_powerSum_le (V4's two geometric-sum steps) DERIVES;
+                                        :16 powerSum_re_le_neg_infinitely (V4), :18 remainder_le (V5), :20 li_nonneg_cfg_imp_online (S5), :22
+                                        li_nonneg_chi_imp_grh_chi (S6) COMPILED, PROOF OPEN; :30-:31 the next lemma of substance V4 :129, V5 :139.
+  Schema/LiConverseCfg.lean (whole)     rows are lines of SIDEExplicitFormula/Schema/LiConverseCfg.lean at b804bf2 (168 lines). :1-:18 the
+                                        header; :34, :42, :49 (V2); :68 (V3); :102, :112 V4's geometric-sum steps; :120-:129 V4
+                                        `powerSum_re_le_neg_infinitely`, its statement at :125-:128 -- the real part of Σ m_i w_i ^ n AT OR
+                                        BELOW -(Σ m_i ^ 2) / (8 Σ m_i) for infinitely many n -- and its sorry at :129; :133-:139 V5
+                                        `remainder_le`, |Σ' over ‖1 - ρ⁻¹‖ < s of m_ρ Re (liTerm n ρ)| ≤ C (n + 1) ^ 2 s ^ n, its sorry at :139;
+                                        :143-:147 S5 `li_nonneg_cfg_imp_online`, (∀ n, 0 ≤ liCoeffCfg Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1/2, its
+                                        sorry at :147; :157-:165 S6 `li_nonneg_chi_imp_grh_chi`, S5 at chiZeroConfig.
+  THE SIGN S5 CONSUMES                  read off S5's statement and the definitions it names: liCoeffCfg Z n = (1/2) Σ' m_ρ Re (pairTerm n ρ)
+                                        (Schema/LiCfg.lean :28-:29), pairTerm n ρ = 2 Re (liTerm n ρ) (LiWeil.lean :71), liTerm n ρ =
+                                        1 - (1 - ρ⁻¹) ^ n (LiWeil.lean :60); so liCoeffCfg Z n = Σ' m_ρ (1 - Re z_ρ ^ n), z_ρ = 1 - 1/ρ, and a
+                                        negative coefficient needs Re Σ_D m_ρ z_ρ ^ n LARGE AND POSITIVE: S5 consumes V4 in the sign AT OR ABOVE
+                                        +c. The branch's V4 states the other sign alone (:125-:128). The plan of Component 2 prints this.
+  Schema/LiCfg.lean                     rows are lines. :27-:29 liCoeffCfg (its docstring :27, the definition :28-:29); :32
+                                        liCoeff_eq_liCoeffCfg (ζ's coefficient at zetaZeroConfig, rfl); :34-:40 liCoeffCfg_summable under HCount
+                                        (the theorem at :36); :86 online_imp_liCoeffCfg_nonneg (the forward half's step).
+  LiWeil.lean                           rows are lines. :60 liTerm; :63 pairTerm; :66 liTerm_conj; :71 pairTerm_eq; :79 pairTerm_re; :101
+                                        liTerm_re_nonneg_of_re_half and :109 pairTerm_re_nonneg_of_re_half (the on-line terms at or above 0);
+                                        :149 liTerm_re_abs_le; :177 pairTerm_norm_le; :189 and :257 the summability at zetaZeroConfig.
+  Config.lean's HCount and HStrip       read where they are defined (b673 defect (d), the navigator's answer on HStrip): RestBound.lean :40
+                                        `def HStrip (Z) : ∀ ρ ∈ Z.carrier, 0 < ρ.re ∧ ρ.re < 1`; :44 `def HCount (Z) (A₀)`; Schema/Config.lean
+                                        :30-:31 the count field, HCount as dominant_summable consumes it. S5 names B321.HStrip and B321.HCount.
+  PageConverses.lean and the vendored   rows are lines. SIDEExplicitFormula/PageConverses.lean present at the branch; the vendored
+  positivity_implies_RH, rh_equiv_mathlib  Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean :413 `positivity_implies_RH`;
+                                        Vendored/Bulka/Lc/LiCriterion/RHBridge.lean :43 `rh_equiv_mathlib`; SIDEExplicitFormula/LiCriterionBridge.lean
+                                        :179 li_nonneg_iff_rh (the vendored route: `→` through positivity_implies_RH and rh_equiv_mathlib, :182-:183).
+  data/b671_epstein_zeros_narrowed.json read as the committed .json.gz (b673 defect (b), the navigator's answer on the four misses): rows are
+                                        points with balls (kind ON or OFF, idx, re, im, h, count). Its sha256 checked before the read against
+                                        b671's hashes bank, which data/b671_large_banks.txt :26-:27 names: the .gz 51d9e6322510b738... (5830 bytes)
+                                        EQUAL to data/b671_epstein_zeros_narrowed_hashes.txt :3; the JSON inside cd3a8ea1dcc7660c... (31567 bytes)
+                                        EQUAL to :2; 163 rows, 146 ON and 17 OFF, each count 1. No uncompressed copy written.
+  data/b572_lemmas.txt                  rows are declarations of a proof's closure, in the constant walk's order: number ; ζ-NAMING or GENERIC ;
+                                        the name ; its module ; the ζ objects it names. :1-:3 the form (the probe relay data/b572_crit_probe.lean.txt,
+                                        its output data/b572_crit_probe_out.txt); :6 the whole proof's count line (declarations 193 ; ζ-naming 20).
+  data/b672_closing_push_out.txt        rows are lines of the push tool's capture of b672's closing push (2026-10-16T17:51:18Z): 92e07d46..db2b75f4
+                                        on main, read back at the remote db2b75f4752d9efb. Committed at step zero.
