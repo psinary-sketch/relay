@@ -1,7 +1,8 @@
 """correspondence_gen.py -- the Correspondence generator, under (R282)(4) (b672).
 
-Reads each roster table (data/b672_roster_read.json: the file of record, the heading line above the table, the header row's text) by its
-anchor, and rewrites in it only the cells the ruling names, from the sources it names:
+Reads each roster table (data/b672_roster_read.json: the roster's file, the heading line above the table, the header row's text) by its
+anchor, and rewrites in it only the cells the ruling names, from the sources it names (the file's one-copy partner is written too, and
+identically, where it carried an identical table before the run -- the navigator's answer on the REGISTRY):
   the kernel cell's leading clause(s) -- version and commit -- from each kernel's current tag (one `git ls-remote --tags` per repository,
       the highest v-tag, the commit it peels to);
   the profile cell's one profile token -- from the kernel's latest relay print bank that is AT THE TAG (built at the tag, or at an ancestor
@@ -583,6 +584,7 @@ def main(mode, roster_path=ROSTER, full=False):
     ctx = dict(tags=tags, banks=banks, grades=read_grades(), present=present)
     stamp = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
     results, writes = [], []
+    pairs = []
     for t in roster['tables']:
         p = os.path.join(PP, t['path'])
         b = open(p, 'rb').read()
@@ -592,6 +594,24 @@ def main(mode, roster_path=ROSTER, full=False):
         results.append(res)
         if nb != b:
             writes.append((p, nb))
+        # ### the navigator's answer on the REGISTRY: a one-copy partner carrying an identical table is written too, and identically
+        if t.get('partner') and t.get('partner_identical'):
+            q = os.path.join(PP, t['partner'])
+            qb = open(q, 'rb').read()
+            nq, rq = regen_bytes(qb, t, ctx, t['doc'] + ' (partner)')
+            A = nb.decode('utf-8').replace('\r\n', '\n').split('\n')
+            B = nq.decode('utf-8').replace('\r\n', '\n').split('\n')
+            fa, fb = find_table(A, t), find_table(B, t)
+            same = not isinstance(fa, str) and not isinstance(fb, str) and A[fa[0]:fa[1]] == B[fb[0]:fb[1]]
+            if not same:
+                sys.exit('### REFUSED: %s and its partner %s were identical before the run and differ after it -- NOTHING WRITTEN' % (t['path'], t['partner']))
+            pairs.append(dict(doc=t['doc'], path=t['path'], partner=t['partner'], cells=rq['counts']['CELLS CHANGED'], written=nq != qb))
+            if nq != qb:
+                writes.append((q, nq))
+        elif t.get('partner'):
+            pairs.append(dict(doc=t['doc'], path=t['path'], partner=t['partner'], cells=0, written=False,
+                              reason=('NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN %d LINES' % t.get('partner_lines_differing', -1))
+                              if 'partner_identical' in t else 'NOT WRITTEN: %s' % t.get('partner_found')))
     tot = collections.Counter()
     byk = collections.defaultdict(collections.Counter)
     for r in results:
@@ -612,6 +632,9 @@ def main(mode, roster_path=ROSTER, full=False):
     for r in results:
         L.append('    %-36s %-62s %-30s %s ; rows %d ; %s' % (r['doc'], r['path'], r['status'], ':%d-:%d' % r['span'] if r.get('span') else '-',
                                                           len(r['rows']), dict(r['counts']) or '-'))
+    L += ['', '### THE ONE-COPY PAIRS (the navigator`s answer on the REGISTRY): document ; the roster`s file ; its partner ; the partner`s reading']
+    L += ['    %-36s %s ; %s ; %s' % (x['doc'], x['path'], x['partner'], ('WRITTEN IDENTICALLY (%d cells, as the roster`s file)' % x['cells'])
+                                     if x['written'] else (x.get('reason') or 'IDENTICAL, NOTHING TO WRITE')) for x in pairs] or ['    none']
     down = grade_down(results)
     L += ['', '### THE GRADE TOKENS MOVED DOWNWARD (the navigator`s answer, b672: listed before the write, entered under W-ORD-GRADE-MOVED): '
               'document :line ; kernel ; old token -> new token']
@@ -633,8 +656,9 @@ def main(mode, roster_path=ROSTER, full=False):
               len(writes), tot['ABSENT'], tot['NO PRINT BANK'], tot['NOT PRINTED'], tot['HELD: DEPOSIT PIN'], tot['MULTI'], tot['NO TAG'])]
     tables_at = L.index('### THE TABLES (document ; file ; status ; the table`s lines ; rows ; the cell words and holds)')
     down_at = next(n for n, l in enumerate(L) if l.startswith('### THE GRADE TOKENS MOVED DOWNWARD'))
+    pairs_at = next(n for n, l in enumerate(L) if l.startswith('### THE ONE-COPY PAIRS'))
     print(NL.join(l for n, l in enumerate(L) if not l.startswith('    ') or '### NO PRINT BANK AT' in l or tables_at < n <= tables_at + len(results)
-                  or down_at < n <= down_at + max(1, len(down))))
+                  or down_at < n <= down_at + max(1, len(down)) or pairs_at < n <= pairs_at + max(1, len(pairs))))
     if mode != 'run':
         if full:
             print(NL.join(L))
@@ -651,7 +675,7 @@ def main(mode, roster_path=ROSTER, full=False):
                                                                    for k, v in banks.items()},
               tables=[dict(doc=r['doc'], path=r['path'], status=r['status'], span=r.get('span'), counts=dict(r['counts']),
                            rows=r['rows'], changes=(len(r['changes']) if r['withheld'] else r['changes'])) for r in results],
-              counts=dict(tot), by_kernel={k: dict(c) for k, c in byk.items()}, files=[p for p, _b in writes], grade_down=down)
+              counts=dict(tot), by_kernel={k: dict(c) for k, c in byk.items()}, files=[p for p, _b in writes], grade_down=down, pairs=pairs)
     open(DIFF_JSON + '.tmp', 'wb').write(json.dumps(js, ensure_ascii=False, indent=1).encode('utf-8'))
     os.replace(DIFF_JSON + '.tmp', DIFF_JSON)
     print('### WRITTEN: %d files ; %s ; %s' % (len(writes), DIFF_TXT, DIFF_JSON))
