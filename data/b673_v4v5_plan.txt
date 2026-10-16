@@ -1,4 +1,4 @@
-b673 -- COMPONENT 2, (R283)(3): THE PLAN -- V4 AND V5 WITH THEIR SIGNS AND CONSTANTS, THE COMPOSITION, IN THE b663 FORM WITH THE CONSUMERS SECTION (2026-10-16T19:03:50Z)
+b673 -- COMPONENT 2, (R283)(3): THE PLAN -- V4 AND V5 WITH THEIR SIGNS AND CONSTANTS, THE COMPOSITION, IN THE b663 FORM WITH THE CONSUMERS SECTION (2026-10-16T19:07:50Z)
 
 ### rows are statements, steps and priced facts. The kernel: SIDE-explicit-formula at chi-li-b669 = b804bf2; Mathlib at de5ce8a9 (the kernel`s lake-manifest pin; the package checkout .lake/packages/mathlib read by git grep at HEAD = the pin). No Lean is written before the author`s word on this plan.
 
@@ -88,7 +88,8 @@ b673 -- COMPONENT 2, (R283)(3): THE PLAN -- V4 AND V5 WITH THEIR SIGNS AND CONST
   < 0, outside the strip), m_ρ ≥ 1. Split liCoeffCfg at D (Summable.sum_add_tsum_compl, liCoeffCfg_summable; pairTerm_re turns the
   half of twice the real part into the real part): along (V4+)`s n, λ_n ≤ Σ_D m_ρ - c r_max^n + C (n + 1)^2 s^n, negative for n
   large ((n + 1)^2 (s / r_max)^n → 0 by tendsto_pow_const_mul_const_pow_of_abs_lt_one; r_max^n → ∞) -- against 0 ≤ λ_n. So every
-  point is on the line: S5. The ruling`s composition "λ_n ≤ Σ_D m_ρ - c·r_max^n + n^2·r_1^n·K" with V5 read in its consumed form.
+  point is on the line: S5. ### THE COMPOSITION LINE, RE-WRITTEN BY THE NAVIGATOR`S ANSWER ON V5: λ_n ≤ Σ_D m - c·r_max^n +
+  C (n + 1)^2 s^n with s < r_max (the ruling`s "+ n^2·r_1^n·K" read through V5`s consumed form; relay data/b673_defects.txt (h)).
 
 == 5. S6, S7 AND THE NATIVE ζ CONVERSE ((R283)(5), H4, H5)
   S6 li_nonneg_chi_imp_grh_chi (LiConverseCfg.lean :159-:165): as written, resting on S5 at chiZeroConfig with chiZeroConfig_local_count.
