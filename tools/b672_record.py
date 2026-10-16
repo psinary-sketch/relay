@@ -298,10 +298,15 @@ def roster(*a):
     eL = _lines(EDIFF[1])
     src.append((EDIFF[0], EDIFF[1], next(i for i in range(eL.index(EDIFF[2]), len(eL)) if eL[i].startswith('|')) + 1))
     out, T_ = [], []
+    part = {}
+    for u, vs in pairs.items():
+        part[u], part[max(vs, key=_vk)] = max(vs, key=_vk), u
     for doc, p, at in src:
         h, hdr, k = _anchor_of(p, at)
         rec = p if _vk(p) else cor.get(p, p)
-        a_ = dict(doc=doc, b670_path=p, path=rec, withheld=doc in WITHHELD,
+        # ### the navigator's answer on the REGISTRY: the copy of record is as REGISTRY names it, and the generator writes to the roster's file
+        # ### (b670's) for each table, and to its one-copy partner too where the partner carries an identical table
+        a_ = dict(doc=doc, b670_path=p, path=p, highest_versioned=rec, partner=part.get(p), withheld=doc in WITHHELD,
                   kernels=[x.strip() for x in (meta.get(doc) or ['', '', '', '', '', ''])[5].split(',') if x.strip().startswith('SIDE-')])
         if doc in WITHHELD:
             a_.update(heading_sha256=_sha(h.rstrip()), header_sha256=_sha(hdr.strip()), heading_len=len(h.rstrip()), header_len=len(hdr.strip()))
@@ -316,11 +321,25 @@ def roster(*a):
             a_['same_table'] = t0 == t1
             a_['rows'] = [len(t0) - 2, len(t1) - 2]
             a_['rows_differing'] = sum(1 for x, y in zip(t0, t1) if x != y) + abs(len(t0) - len(t1))
+        if a_['partner']:
+            fp = CG.find_table(_lines(a_['partner']), a_)
+            a_['partner_found'] = fp if isinstance(fp, str) else [fp[0] + 1, fp[1]]
+            if not isinstance(fp, str) and not isinstance(f0, str):
+                tp = _lines(a_['partner'])[fp[0]:fp[1]]
+                t0 = _lines(p)[f0[0]:f0[1]]
+                a_['partner_identical'] = tp == t0
+                a_['partner_lines_differing'] = sum(1 for x, y in zip(t0, tp) if x != y) + abs(len(t0) - len(tp))
         out.append(a_)
         an = ('heading sha256 %s (%d chars) ; header sha256 %s (%d chars)' % (a_['heading_sha256'][:16], a_['heading_len'], a_['header_sha256'][:16],
                                                                              a_['header_len'])) if a_['withheld'] else ('heading %r ; header %r' % (h.rstrip()[:70], hdr.strip()[:90]))
+        pf = a_.get('partner_found')
         T_ += ['=== %s' % doc,
-               '    file read by b670 %s ; the copy of record %s%s' % (p, rec, '' if rec == p else ' (W-ORD-ONE-COPY: the highest versioned copy)'),
+               '    THE FILE WRITTEN: %s (the roster`s file, b670`s) ; its one-copy partner %s%s' % (
+                   p, a_['partner'] or '-',
+                   '' if not a_['partner'] else (' -- %s' % pf if isinstance(pf, str) else (' carries the table at :%d-:%d, %s' % (
+                       pf[0], pf[1], 'IDENTICAL: WRITTEN TOO' if a_.get('partner_identical') else
+                       'DIFFERING IN %d LINES: NOT WRITTEN' % a_.get('partner_lines_differing', -1))))),
+               '    the highest versioned copy (W-ORD-ONE-COPY`s presumption, corrected by the navigator`s answer on the REGISTRY): %s' % rec,
                '    the anchor: %s' % an,
                '    found at b670`s file %s ; at the copy of record %s ; the two tables %s' % (
                    (':%d-:%d' % tuple(a_['found_b670'])) if isinstance(a_['found_b670'], list) else a_['found_b670'],
@@ -333,9 +352,13 @@ def roster(*a):
          '### the tables: the 19 of relay data/b670_correspondence.json (b670`s reading (ii), each found by a row`s text) and E_DIFFICULTY_THEOREM`s',
          '### (%s :%s). Each table`s stable anchor: the heading line above it and its header row, found once in the copy of record; the' % (EDIFF[1], eL.index(EDIFF[2]) + 1),
          '### generator and the after-run reading (ii) find tables by it, and b680`s reading (ii) by the same. TECHNE_TOOLKIT`s anchor as sha256 alone.',
-         '### The copy of record: W-ORD-ONE-COPY`s highest versioned copy (OPEN_TRAILS :%d item (b)); the generator writes to it alone.' % K.CENSUS_ITEMS, '']
-    S = ['', '### ### **TABLES %d ; ANCHOR FOUND AT THE COPY OF RECORD %d ; COPY OF RECORD NOT b670`S FILE %d ; TABLES IDENTICAL IN BOTH COPIES %d.**' % (
-        len(out), nrec, sum(1 for x in out if x['path'] != x['b670_path']), same)]
+         '### THE FILE WRITTEN (the navigator`s answer on the REGISTRY, which corrects (R282)(5)): the roster`s file for each table, b670`s; and its',
+         '### one-copy partner (OPEN_TRAILS :%d item (b)) too where the partner carries an identical table, so that no identical pair diverges' % K.CENSUS_ITEMS,
+         '### while W-ORD-ONE-COPY is open; a partner whose table already differs is named and not written. Nothing moves this act.', '']
+    S = ['', '### ### **TABLES %d ; ANCHOR FOUND AT THE ROSTER`S FILE %d ; WITH A ONE-COPY PARTNER %d ; PARTNER CARRYING THE TABLE %d ; PARTNER`S TABLE '
+             'IDENTICAL (WRITTEN TOO) %d ; ANCHOR FOUND AT THE HIGHEST VERSIONED COPY %d ; TABLES IDENTICAL THERE %d.**' % (
+        len(out), sum(1 for x in out if isinstance(x['found_b670'], list)), sum(1 for x in out if x['partner']),
+        sum(1 for x in out if isinstance(x.get('partner_found'), list)), sum(1 for x in out if x.get('partner_identical')), nrec, same)]
     print(NL.join(T_ + S))
     if dry:
         return
