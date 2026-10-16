@@ -661,6 +661,31 @@ def _c3_texts():
             ('OPEN_TRAILS.md', H_AD, t5), ('OPEN_TRAILS.md', H_OC, t6)]
 
 
+H_PP = '*Appended 2026-10-16 by b672 under `(R282)`(6) and the navigator’s answer on Component 3’s landing -- **`W-ORD-PROSE-PINS`**:*'
+PP_TRIGGER = 'the document’s next re-cut act'
+
+
+def _prose_pins_text():
+    af = jl('b672_correspondence_after.json')
+    t = rdn('b672_author_answers.txt')
+    i = t.find('W-ORD-PROSE-PINS')
+    if i < 0 or PP_TRIGGER not in t[i:i + 600]:
+        sys.exit('### W-ORD-PROSE-PINS AND ITS TRIGGER NOT IN THE ANSWERS BANK -- NOTHING WRITTEN')
+    rows = [(d['doc'], r['line'], list(dict.fromkeys(q for q, _k, s, _pt in r['pins'] if s == 'BEHIND')), r['cause'])
+            for d in af['tables'] for r in d['rows'] if r['cause'].startswith('BEHIND IN CARRIED PROSE')]
+    kc = sum(1 for x in rows if 'KERNEL CELL' in x[3])
+    return ('\n' + H_PP + ' %d rows of the shaped tables read BEHIND by b670’s method through an old commit in carried prose alone, the kernel '
+            'cell’s leading clause at the tag (relay data/b672_correspondence_after.txt; %d in another cell, %d in the kernel cell’s trailing '
+            'text), by document and line with the commit each names: %s. Each is a stipulation naming a commit the kernel has moved past, '
+            'to be re-pointed or re-dated as historical; the generator carries prose unverified by rule. H2 reads both figures: HELD at the '
+            'generator’s claim (0 at the leading clause), REFUTED by b670’s method (these %d). **Trigger:** “%s”.\n' % (
+                len(rows), len(rows) - kc, kc, '; '.join('%s :%d (%s)' % (d, ln, ', '.join(q)) for d, ln, q, _c in rows), len(rows), PP_TRIGGER))
+
+
+def prosepins(*a):
+    land([('OPEN_TRAILS.md', H_PP, _prose_pins_text())], 'b672_record_lines_prosepins.json', 'prosepins', entry=None, dry='dry' in a)
+
+
 def c3(*a):
     dry = 'dry' in a
     land(_c3_texts(), 'b672_record_lines_c3.json', 'c3', entry=None,
@@ -755,7 +780,7 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = {'c1': c1, 'roster': roster, 'onecopy': onecopy, 'answers': answers, 'after': after, 'c3': c3}
+ROUTES = {'c1': c1, 'roster': roster, 'onecopy': onecopy, 'answers': answers, 'after': after, 'c3': c3, 'prosepins': prosepins}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
