@@ -838,8 +838,9 @@ def _hyp():
                '(relay data/b672_rows_kept.txt)'],
         'H4': ['NOT HELD' if two else 'HELD', '%d roster tables live in two files, their one-copy partner carrying the same anchored table: nothing '
                'moved this act (the navigator`s answer on the REGISTRY), the carrier `W-ORD-ONE-COPY` (relay data/b672_roster_read.txt)' % len(two)],
-        'H5': ['HELD' if h5 else 'REFUTED', 'the dated line beneath relay data/b670_state.txt with the new figure: 54 rows to zero by b670`s method '
-               'against b670`s 90, the like-for-like correction (110 at b670`s tables) beside it'],
+        'H5': ['HELD' if h5 else 'REFUTED', 'the dated line beneath relay data/b670_state.txt with the new figure read from relay '
+               'data/b672_correspondence_after.txt: 54 rows to zero by b670`s method against b670`s 90, the like-for-like correction (110 at '
+               'b670`s tables) beside it'],
     }
 
 
