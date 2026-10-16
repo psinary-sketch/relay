@@ -418,6 +418,256 @@ def onecopy(*a):
     put_json('b672_one_copy.json', dict(at=utc(), pairs=rows))
 
 
+# ================================================================================ COMPONENT 3: b670'S READING (ii) RE-RUN, AT THE STABLE ANCHORS
+# ### b670's method (tools/b670_record.py corr): a row is a table line carrying a backticked commit; each commit resolved in the kernels
+# ### b586 lists for the document, else in every local kernel clone (marked *); set against that kernel's tag (git describe --tags --abbrev=0
+# ### main, peeled -- local; the run's one ls-remote per repository was the generator's, data/b672_correspondence_diff.json, printed beside):
+# ### AT THE TAG, BEHIND, OFF THE TAG'S LINE, UNRESOLVED, NO TAG; a row is BEHIND when any of its commits is. THE CHANGE OF METHOD, declared:
+# ### each table is found by its stable anchor (data/b672_roster_read.json) and not by a row's text, and its span is b670's (the table to
+# ### b670's span end) -- the rows past the table proper are HISTORICAL; E_DIFFICULTY_THEOREM's span is its table. b680 reads the same.
+HEX7 = re.compile(r'`([0-9a-f]{7,40})`')
+ALLK = sorted(x for x in os.listdir('D:/') if x.startswith('SIDE-') and os.path.isdir(os.path.join('D:/', x, '.git')))
+
+
+def _anc(kd, a, b):
+    return subprocess.run(['git', '-C', kd, 'merge-base', '--is-ancestor', a, b], capture_output=True).returncode == 0
+
+
+def _ltag(k):
+    t = g('D:/' + k, 'describe', '--tags', '--abbrev=0', 'main').strip()
+    return (t, g('D:/' + k, 'rev-parse', '--short', t + '^{commit}').strip()) if t else ('NO TAG', '')
+
+
+def _has(k, q):
+    return subprocess.run(['git', '-C', 'D:/' + k, 'cat-file', '-e', q + '^{commit}'], capture_output=True).returncode == 0
+
+
+def after(*a):
+    dry = 'dry' in a
+    ro, dj, co = jl('b672_roster_read.json'), jl('b672_correspondence_diff.json'), jl('b670_correspondence.json')
+    gen = dict((t['doc'], t) for t in dj['tables'])
+    b670 = dict((t['doc'], t) for t in co['tables'])
+    tags, out, tot = {}, [], {}
+    import collections
+    cat = collections.Counter()
+    for t in ro['tables']:
+        L = _lines(t['path'])
+        ft = CG.find_table(L, t)
+        gt = gen[t['doc']]
+        if isinstance(ft, str):
+            out.append(dict(doc=t['doc'], found=ft, rows=[]))
+            continue
+        j, e = ft
+        end = b670[t['doc']]['end'] if t['doc'] in b670 and b670[t['doc']].get('end') else e
+        cols = CG.columns(L[j])
+        greading = dict((r['line'], r.get('reading')) for r in gt.get('rows', []))
+        rows = []
+        for i in range(j + 1, max(end, e)):
+            l = L[i]
+            if not l.lstrip().startswith('|'):
+                continue
+            pins = HEX7.findall(l)
+            if not pins:
+                continue
+            res = []
+            for q in pins:
+                hit = [k for k in t['kernels'] if _has(k, q)] or [k + '*' for k in ALLK if k not in t['kernels'] and _has(k, q)]
+                if not hit:
+                    res.append((q, None, 'UNRESOLVED', '-'))
+                    continue
+                k = hit[0].rstrip('*')
+                if k not in tags:
+                    tags[k] = _ltag(k)
+                tc = tags[k][1]
+                st = 'NO TAG' if not tc else ('AT THE TAG' if _anc('D:/' + k, tc, q) else ('BEHIND' if _anc('D:/' + k, q, tc) else 'OFF THE TAG`S LINE'))
+                res.append((q, hit[0], st, g('D:/' + k, 'describe', '--tags', '--abbrev=0', q).strip() or 'NO TAG AT OR BEFORE IT'))
+            sts = [r_[2] for r_ in res]
+            reading = 'BEHIND' if 'BEHIND' in sts else ('UNRESOLVED' if all(s == 'UNRESOLVED' for s in sts) else
+                                                     ('AT THE TAG' if all(s in ('AT THE TAG', 'UNRESOLVED') for s in sts) else sts[0]))
+            # ### the cause, for the rows the generator's tables hold
+            if gt['status'] != 'SHAPED':
+                why = 'NOT IN SHAPE'
+            elif i >= e:
+                why = 'HISTORICAL'
+            elif greading.get(i + 1) in ('ABSENT', 'HELD: DEPOSIT PIN', 'INHERITS AN UNREAD ROW', 'ROW WITH TOO FEW CELLS', 'NO TAG'):
+                why = greading.get(i + 1)
+            elif reading == 'BEHIND':
+                # ### the generator's claim is the kernel cell's leading clause (its version and commit tokens); a behind commit anywhere else
+                # ### -- the kernel cell's trailing prose or another cell -- is carried prose (the navigator's answers on readings (1) and (8))
+                sp = CG.spans(l)
+                kc = CG.cell(l, sp[cols['kernel']]) if cols['kernel'] is not None and len(sp) > cols['kernel'] else ''
+                lead = [tx for _k, toks in CG.parse_kernel_cell(kc) for _s, _e, kind, tx in toks if kind == 'hex']
+                if any(r_[2] == 'BEHIND' and any(r_[0].startswith(x) or x.startswith(r_[0]) for x in lead) for r_ in res):
+                    why = 'BEHIND AT THE LEADING CLAUSE'
+                elif any(r_[2] == 'BEHIND' and ('`%s`' % r_[0]) in kc for r_ in res):
+                    why = 'BEHIND IN CARRIED PROSE (THE KERNEL CELL`S TRAILING TEXT)'
+                else:
+                    why = 'BEHIND IN CARRIED PROSE (ANOTHER CELL)'
+            else:
+                why = 'SHAPED, ' + reading
+            rows.append(dict(line=i + 1, pins=res, reading=reading, cause=why))
+            cat[(reading, why)] += 1
+        out.append(dict(doc=t['doc'], path=t['path'], found=[j + 1, e], end=end, status=gt['status'], rows=rows))
+    n = sum(len(d['rows']) for d in out)
+    rd_ = collections.Counter(r['reading'] for d in out for r in d['rows'])
+    shaped_behind = [(d['doc'], r) for d in out for r in d['rows'] if d.get('status') == 'SHAPED' and r['reading'] == 'BEHIND']
+    h2 = [x for x in shaped_behind if x[1]['cause'].startswith('BEHIND ')]
+    h2k = [x for x in h2 if x[1]['cause'] == 'BEHIND AT THE LEADING CLAUSE']
+    T_ = ['b672 -- COMPONENT 3, (R282)(6) H2: b670`S READING (ii) RE-RUN AFTER THE GENERATOR (%s)' % utc(), '',
+          '### the method: b670`s (tools/b670_record.py corr) -- a row is a table line carrying a backticked commit, each commit resolved in the',
+          '### kernels b586 lists for the document (else every local clone, marked *) and set against the kernel`s tag (local describe on main).',
+          '### THE CHANGE OF METHOD, DECLARED (the navigator`s answer on the anchor): each table found by its stable anchor (relay',
+          '### data/b672_roster_read.json) and not by a row`s text; the span b670`s (the table to b670`s span end), the rows past the table proper',
+          '### HISTORICAL; E_DIFFICULTY_THEOREM`s span its table. b680`s reading (ii) uses the same anchors. The files: the roster`s, as written.',
+          '### THE TAGS (local; the generator`s one ls-remote per repository beside, relay data/b672_correspondence_diff.json):']
+    T_ += ['    %-34s %s at %s ; the generator`s read %s' % (k, v[0], v[1], (dj['tags'].get(k) or ['-', ''])[0] + ' ' + ((dj['tags'].get(k) or ['', ''])[1] or '')[:7]
+                                                            if k in dj['tags'] else 'NOT READ BY THE GENERATOR') for k, v in sorted(tags.items())]
+    T_ += ['', '### THE ROWS WITH A COMMIT (document :line ; reading ; cause ; each commit, its kernel, its reading, its tag); a withheld document`s rows by count']
+    for d in out:
+        if isinstance(d.get('found'), str):
+            T_.append('=== %-36s ### ANCHOR NOT FOUND: %s' % (d['doc'], d['found']))
+            continue
+        cn = collections.Counter(r['reading'] for r in d['rows'])
+        T_.append('=== %-36s %s :%d-:%d (span to :%d) %s ; rows with a commit %d ; %s' % (d['doc'], d['path'], d['found'][0], d['found'][1], d['end'],
+                                                                                         d['status'], len(d['rows']), dict(cn) or 'NONE'))
+        for r in d['rows']:
+            if d['doc'] in WITHHELD:
+                continue
+            T_.append('    :%-5d %-12s %-40s %s' % (r['line'], r['reading'], r['cause'], ' ; '.join('%s %s %s %s' % (q, k or '-', s, pt) for q, k, s, pt in r['pins'])))
+    T_ += ['', '### THE ROWS BY READING AND CAUSE:'] + ['    %-12s %-42s %d' % (k[0], k[1], v) for k, v in sorted(cat.items())]
+    # ### like with like: b670's reader began at the row after the row it found each table by (range(i0 + 1, j)), so each anchor row went
+    # ### unread (defect (e), b670's); this reading reads it. The rows new to this reading, set against b670's rows in the same files.
+    newrows = []
+    for d in out:
+        bt = b670.get(d['doc'])
+        if bt and bt.get('rows') is not None and 'found' in d and not isinstance(d['found'], str):
+            bl = set(r['line'] for r in bt['rows'])
+            newrows += [(d['doc'], r['line'], r['line'] == bt.get('at')) for r in d['rows'] if r['line'] not in bl]
+    T_ += ['', '### LIKE WITH LIKE: the rows with a commit new to this reading against b670`s, in b670`s tables (document :line ; b670`s anchor row?):']
+    T_ += ['    %s :%d ; %s' % (x[0], x[1], 'b670`S ANCHOR ROW, WHICH ITS READER SKIPPED' if x[2] else '### NOT b670`S ANCHOR ROW') for x in newrows] or ['    none']
+    T_ += ['### ### **b670`S TABLES: ROWS WITH A COMMIT %d = b670`S 100 + %d ANCHOR ROWS ITS READER SKIPPED + %d OTHER ; E_DIFFICULTY_THEOREM`S TABLE, NEW TO '
+           'THE ROSTER, %d.**' % (n - sum(len(d['rows']) for d in out if d['doc'] == EDIFF[0]), sum(1 for x in newrows if x[2]),
+                                   sum(1 for x in newrows if not x[2]), sum(len(d['rows']) for d in out if d['doc'] == EDIFF[0]))]
+    rem = collections.Counter(r['cause'] for d in out for r in d['rows'] if r['reading'] == 'BEHIND' and not r['cause'].startswith('BEHIND '))
+    pro = collections.Counter(r['cause'] for _d, r in h2 if r['cause'] != 'BEHIND AT THE LEADING CLAUSE')
+    T_ += ['', '### ### **ROWS WITH A COMMIT %d (b670: 100) ; AT THE TAG %d (b670: 3) ; BEHIND %d (b670: 90) ; UNRESOLVED %d (b670: 2) ; OTHER %d (b670: 5).**' % (
+        n, rd_['AT THE TAG'], rd_['BEHIND'], rd_['UNRESOLVED'], n - rd_['AT THE TAG'] - rd_['BEHIND'] - rd_['UNRESOLVED']),
+        '### ### **H2, OVER THE SHAPED TABLES, BY b670`S METHOD: ROWS BEHIND %d -- AT THE LEADING CLAUSE (THE GENERATOR`S CLAIM) %d ; BY A COMMIT IN '
+        'CARRIED PROSE ALONE %d (%s) ; BESIDE IT, THE REMAINDER BEHIND BY NAME: %s.**' % (
+            len(h2), len(h2k), len(h2) - len(h2k), '; '.join('%s %d' % kv for kv in sorted(pro.items())) or 'none',
+            '; '.join('%s %d' % kv for kv in sorted(rem.items())) or 'none')]
+    print(NL.join([l for l in T_ if l.startswith('===') or l.startswith('### ### **') or (l.startswith('    ') and l.strip()[:1].isupper() and 'BEHIND' in l[:20])]))
+    print(NL.join(T_[T_.index('### THE ROWS BY READING AND CAUSE:'):]))
+    if dry:
+        return
+    put_txt('b672_correspondence_after.txt', T_)
+    put_json('b672_correspondence_after.json', dict(at=utc(), tags=tags, tables=out, counts=dict(rd_), causes={'%s | %s' % k: v for k, v in cat.items()},
+                                                    h2=dict(behind=len(h2), kernel_cell=len(h2k), prose=len(h2) - len(h2k), remainder=dict(rem))))
+
+
+# ================================================================================ COMPONENT 3: THE RECORD LINES OF THE RUN
+# ### Every figure and list read from the run's banks (data/b672_correspondence_diff.json, _after.json, _roster_read.json, _one_copy.json)
+# ### and every quoted trigger read from the answers bank (data/b672_author_answers.txt) between its curly quotes, never retyped.
+LEDGER_SPLIT_LINE = 14438
+H_NPB = ('*Appended 2026-10-16 by b672 beneath the ledger-split item (:%d), under `(R282)`(7) -- THE KERNELS WITH NO RELAY PRINT BANK AT '
+         'THEIR TAG, THE NEXT RUNNER ITEMS:*' % LEDGER_SPLIT_LINE)
+H_TS = '*Appended 2026-10-16 by b672 under `(R282)`(4) and the navigator’s answer on readings 5–8 -- **`W-ORD-TABLE-SHAPE`**:*'
+H_GM = '*Appended 2026-10-16 by b672 under `(R282)`(4) and the navigator’s answer on the four tabs -- **`W-ORD-GRADE-MOVED`**:*'
+H_PT = '*Appended 2026-10-16 by b672 under `(R282)`(4) and the navigator’s answer on the NOT PRINTED cells -- **`W-ORD-PRINT-TARGETS`**:*'
+H_AD = '*Appended 2026-10-16 by b672 under `(R282)`(6) and the navigator’s answer on the ABSENT count -- **`W-ORD-ABSENT-DECLARATIONS`**:*'
+H_OC = ('*Appended 2026-10-16 by b672 under `(R282)`(5) and the navigator’s answer on the REGISTRY, beneath b671’s census items (:%d) -- '
+        '**`W-ORD-ONE-COPY`**, ITS TRIGGER RE-WRITTEN IN FULL; NOTHING MOVED:*' % K.CENSUS_ITEMS)
+
+
+def _quoted(after_words, n=1):
+    """the n-th curly-quoted text after `after_words` in the answers bank, whitespace joined."""
+    t = rdn('b672_author_answers.txt')
+    i = t.find(after_words)
+    if i < 0:
+        sys.exit('### %r NOT IN THE ANSWERS BANK -- NOTHING WRITTEN' % after_words)
+    q = re.findall(r'“([^”]+)”', t[i:])
+    if len(q) < n:
+        sys.exit('### NO QUOTED TEXT AFTER %r -- NOTHING WRITTEN' % after_words)
+    return ' '.join(q[n - 1].split())
+
+
+def _c3_texts():
+    import collections
+    dj, af, ro, oc = jl('b672_correspondence_diff.json'), jl('b672_correspondence_after.json'), jl('b672_roster_read.json'), jl('b672_one_copy.json')
+    tables = dict((t['doc'], t) for t in dj['tables'])
+    # ### the kernels with no print bank at their tag, each with its NO PRINT BANK cells
+    npb = sorted(k for k, v in dj['banks'].items() if v is None and dj['tags'].get(k))
+    npb_txt = '; '.join('%s at %s (%d cell%s)' % (k, dj['tags'][k][0], (dj['by_kernel'].get(k) or {}).get('NO PRINT BANK', 0),
+                                                   '' if (dj['by_kernel'].get(k) or {}).get('NO PRINT BANK', 0) == 1 else 's') for k in npb)
+    t1 = ('\n' + H_NPB + ' %d kernels whose tag no relay print bank reaches (relay data/b672_correspondence_diff.txt, the print banks read '
+          'beside each tag): %s. Each is a runner build at its tag with the declarations its roster rows cite in print_targets.txt; until then '
+          'its rows read NO PRINT BANK AT <tag> and their grade tokens UNREFRESHED.\n' % (len(npb), npb_txt))
+    # ### W-ORD-TABLE-SHAPE: the six tables, each with its header (a withheld document's by its column count alone)
+    six = [t for t in ro['tables'] if tables[t['doc']]['status'].startswith('NOT IN')]
+    six_txt = '; '.join(('%s (`%s`, its header withheld under b670’s rules row 5, %d characters)' % (t['doc'], t['path'], t['header_len']))
+                        if t.get('withheld') else ('%s (`%s`, its header “%s”)' % (t['doc'], t['path'], t['header'].strip().strip('|').strip()))
+                        for t in six)
+    t2 = ('\n' + H_TS + ' %d roster tables outside the generator’s shape (no kernel, terminal or profile column), read and left byte-identical '
+          'by the generator, each with its header: %s. Bringing a table into the shape changes its form and is not the generator’s to do. '
+          '**Trigger:** “%s”.\n' % (len(six), six_txt, _quoted('W-ORD-TABLE-SHAPE, entered for the six tables with the trigger')))
+    # ### W-ORD-GRADE-MOVED: the downward grade moves
+    gd = dj.get('grade_down') or []
+    t3 = ('\n' + H_GM + ' %d status cells whose leading grade token the generator moved downward to the grade bank’s E0 grade (relay '
+          'data/terminal_table.json), listed before the write (relay data/b672_correspondence_diff.txt): %s. A downgrade produces a repair or '
+          'a named order, and a cell alone closes nothing. **Trigger:** “%s”.\n' % (
+              len(gd), '; '.join('%s :%d (%s) %s → %s' % (d['doc'], d['line'], d['kernel'], d['old'], d['new']) for d in gd),
+              _quoted('W-ORD-GRADE-MOVED, with the trigger')))
+    # ### W-ORD-PRINT-TARGETS: the NOT PRINTED declarations by kernel (the kernel the generator read the row at: its profile change's)
+    chk = dict(((c['doc'], c['line']), (c['kernel'], c['new'])) for t in dj['tables'] if isinstance(t.get('changes'), list) for c in t['changes']
+               if c['column'] == 'profile')
+    byk, left = collections.defaultdict(list), []
+    for t in dj['tables']:
+        for r in t['rows']:
+            if r.get('reading') == 'NOT PRINTED':
+                k, new = chk.get((t['doc'], r['line'])) or ((r['kernels'][0] if r['kernels'] else '-'), '')
+                byk[k].append('`%s` (%s :%d)' % (r['declaration'], t['doc'], r['line']))
+                if 'NOT PRINTED AT' not in new:
+                    left.append('%s :%d' % (t['doc'], r['line']))
+    npt = sum(len(v) for v in byk.values())
+    t4 = ('\n' + H_PT + ' %d declarations present at their kernel’s tag that the kernel’s qualifying print bank did not print (the navigator '
+          'named 46 from the dry run at the highest versioned copies; the run at the roster’s files reads %d): %d profile cells read NOT '
+          'PRINTED AT <tag> with the verified profile and its pin beside, and %d were left as they stood, holding no single profile token (%s). '
+          'By kernel: %s. The repair is a print, not a word. **Trigger:** “%s”.\n' % (
+              npt, npt, npt - len(left), len(left), ', '.join(left) or 'none',
+              ' | '.join('%s (%d): %s' % (k, len(v), ', '.join(v)) for k, v in sorted(byk.items())),
+              _quoted('W-ORD-PRINT-TARGETS, listed by kernel, with the trigger')))
+    # ### W-ORD-ABSENT-DECLARATIONS
+    ab = [(t['doc'], r['line'], r.get('declaration'), (r['kernels'] or ['-'])[0]) for t in dj['tables'] for r in t['rows'] if r.get('reading') == 'ABSENT']
+    abl = ['%s :%d' % (d, ln) for d, ln, _x, _k in ab if 'ABSENT AT' not in (chk.get((d, ln)) or ('', ''))[1]]
+    t5 = ('\n' + H_AD + ' %d table rows whose declaration their kernel does not declare at its tag, each keeping its pin -- %d profile cells '
+          'reading ABSENT AT <tag>, %d left as they stood, holding no single profile token (%s) -- by document and kernel: %s. Each is a '
+          'sentence citing a terminal the kernel does not hold, to be re-cut to what the kernel holds or re-pointed to the declaration that '
+          'replaced it; H2 counts them beside its figure, not in it. **Trigger:** “%s”.\n' % (
+              len(ab), len(ab) - len(abl), len(abl), ', '.join(abl) or 'none', '; '.join('%s :%d `%s` (%s)' % x for x in ab),
+              _quoted('W-ORD-ABSENT-DECLARATIONS, listed by document and kernel, with the trigger')))
+    # ### W-ORD-ONE-COPY: the trigger re-written in full, the pairs beneath with their readers
+    pp = []
+    for r in oc['pairs']:
+        hits = ['%s :%s' % tuple(h.split(':', 2)[:2]) for h in r['standing_hits']]
+        pp.append('`%s` (its highest versioned copy %s%s)' % (r['unversioned'], os.path.basename(r['record']),
+                                       ('; relay readers: ' + ', '.join(hits)) if hits else '; no relay reader'))
+    t6 = ('\n' + H_OC + ' the copy of record is as REGISTRY names it -- REGISTRY is the source of truth -- and `(R282)`(5)’s presumption '
+          'that the highest versioned copy is the copy of record is the navigator’s defect, entered (relay data/b672_defects.txt (c)); the '
+          'generator wrote the roster’s file for each table, and the partner copy where it carried an identical table. **Trigger:** “%s”. '
+          'The %d pairs, each with its relay readers by tool and line (relay data/b672_one_copy.txt; REGISTRY’s file column besides, read '
+          'at the move: :214, :663, :227, :681, :909, :1056 for the four struck): %s.\n' % (
+              _quoted('trigger re-written in full'), len(pp), '; '.join(pp)))
+    return [('OPEN_TRAILS.md', H_NPB, t1), ('OPEN_TRAILS.md', H_TS, t2), ('OPEN_TRAILS.md', H_GM, t3), ('OPEN_TRAILS.md', H_PT, t4),
+            ('OPEN_TRAILS.md', H_AD, t5), ('OPEN_TRAILS.md', H_OC, t6)]
+
+
+def c3(*a):
+    dry = 'dry' in a
+    land(_c3_texts(), 'b672_record_lines_c3.json', 'c3', entry=None,
+         check=[('OPEN_TRAILS.md', LEDGER_SPLIT_LINE, '*Appended 2026-10-16 by b672 under `(R282)`(7) -- THE LEDGER SPLIT'),
+                ('OPEN_TRAILS.md', K.CENSUS_ITEMS, 'THE CENSUS ITEMS FROM THE MIRROR’S SORTING')], dry=dry)
+
+
 # ================================================================================ THE AUTHOR'S ANSWERS (b671's route, carried by the Edit tool)
 def _session_rows():
     """the seat's session from K.ANCHOR, then each continuation (K.SESSIONS_AFTER, b646's form) from its own anchor; a continuation whose
@@ -505,7 +755,7 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = {'c1': c1, 'roster': roster, 'onecopy': onecopy, 'answers': answers}
+ROUTES = {'c1': c1, 'roster': roster, 'onecopy': onecopy, 'answers': answers, 'after': after, 'c3': c3}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
