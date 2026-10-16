@@ -72,3 +72,17 @@ lettered defect; otherwise NOT READY, or NOT YET USED TWICE where the act count 
     defects 0: NONE RECORDED
 
 ### ### **METHODS 12 ; READY 9 ; NOT READY 1 ; NOT YET USED TWICE 2.**
+
+### DATED LINE, 2026-10-16, b671 under (R281)(7) -- the two rows NOT YET USED TWICE read at their second act, by the table's own criteria
+### (relay data/b670_rules.txt row 2: used in at least two acts, inputs and outputs banked by name, at least one failure mode a lettered defect):
+=== the consumers section -- READY
+    acts 2: b669 b671
+    banks 2: b669_chi_li_plan.txt, data/b671_narrow_plan.txt (section 7)
+    defects 1: b671 (d) data/b671_defects.txt :22 (a plan constant carried without reading it against the new width -- the consumers rule
+    unapplied to one of the plan's own constants)
+=== the argument-principle certification -- READY
+    acts 2: b667 b671
+    banks 4: b667_epstein_counts.txt, data/b671_narrow_run2.txt, data/b671_narrow_run3.txt, data/b671_narrow_log.txt (the off-line points
+    narrowed by the segment count of b667)
+    defects 1: b671 (f) data/b671_defects.txt :35 (a dyadic offset -- the split line returned to b667's centre line, which meets the zero)
+### ### **AT b671: METHODS 12 ; READY 11 ; NOT READY 1 ; NOT YET USED TWICE 0.**

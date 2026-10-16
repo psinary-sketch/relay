@@ -1,132 +1,133 @@
-b671 -- THE TIE DIAGNOSTIC (the navigator`s answer on the landing, under (R281)(7)) (2026-10-16T12:03:16Z): rows are tie controls -- the cell, the precision, j; the separation`s ball at each of the four tie nodes by its midpoint`s modulus |mid| and its radius; the largest of each beside the bar 2^-20 = 9.536743e-07; the map`s own test (every ball containing 0 with radius below the bar); the radius-to-bar ratio.
+b671 -- THE TIE DIAGNOSTIC (the navigator`s answer on the landing, under (R281)(7)) (2026-10-16T12:07:42Z): rows are tie controls -- the cell, the precision, j; the separation`s ball at each of the four tie nodes by its midpoint`s modulus |mid| and its radius; the largest of each beside the bar 2^-20 = 9.536743e-07; the map`s own test (every ball containing 0 with radius below the bar); the radius-to-bar ratio.
 
 ### the map tools/b667_epstein_map_balls.py sha256 011bbe47d528eb170ffcbca6f1ef500d09a517933071fe2313e5719072afe275 before the run and 011bbe47d528eb170ffcbca6f1ef500d09a517933071fe2313e5719072afe275 after (EQUAL)
 ### the columns: RAD>=BAR -- the radius alone crosses the bar ; |MID|<BAR -- the midpoint`s separation beneath the bar ; |MID|-RAD>=BAR -- the ball held off zero by more than the bar
+### the words (the navigator`s answer on the two readings, under (R281)): INSTRUMENT -- the separation`s ball contains 0 and its radius crosses the bar, the control undecided by the instrument; OBJECT -- the ball wholly beneath the bar, |mid| + radius < 2^-20, the separation certified small by the object; a passing control reads PASS, a failed control that is neither NEITHER.
 
-  THE CONTROL Z₁(0.8, 29.6)    200 j 14 : |mid| max 1.167e-57 ; rad max 1.675e-51 ; rad/bar 1.757e-45 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 15 : |mid| max 2.355e-57 ; rad max 6.357e-51 ; rad/bar 6.666e-45 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 16 : |mid| max 4.711e-57 ; rad max 2.012e-50 ; rad/bar 2.110e-44 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 17 : |mid| max 9.343e-57 ; rad max 3.788e-50 ; rad/bar 3.972e-44 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 18 : |mid| max 1.877e-56 ; rad max 1.006e-49 ; rad/bar 1.054e-43 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 19 : |mid| max 3.756e-56 ; rad max 3.125e-49 ; rad/bar 3.277e-43 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 20 : |mid| max 7.510e-56 ; rad max 4.533e-49 ; rad/bar 4.753e-43 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 21 : |mid| max 1.502e-55 ; rad max 8.803e-49 ; rad/bar 9.230e-43 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 22 : |mid| max 3.004e-55 ; rad max 1.771e-48 ; rad/bar 1.857e-42 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 23 : |mid| max 6.008e-55 ; rad max 3.583e-48 ; rad/bar 3.757e-42 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 24 : |mid| max 1.202e-54 ; rad max 7.451e-48 ; rad/bar 7.813e-42 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 25 : |mid| max 2.404e-54 ; rad max 2.326e-47 ; rad/bar 2.439e-41 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 26 : |mid| max 4.807e-54 ; rad max 9.327e-47 ; rad/bar 9.780e-41 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 27 : |mid| max 9.616e-54 ; rad max 3.400e-46 ; rad/bar 3.565e-40 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 28 : |mid| max 1.924e-53 ; rad max 1.085e-45 ; rad/bar 1.138e-39 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 29 : |mid| max 3.845e-53 ; rad max 8.702e-46 ; rad/bar 9.124e-40 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 30 : |mid| max 7.697e-53 ; rad max 2.255e-45 ; rad/bar 2.364e-39 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 31 : |mid| max 1.541e-52 ; rad max 8.665e-45 ; rad/bar 9.086e-39 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 32 : |mid| max 3.078e-52 ; rad max 2.189e-44 ; rad/bar 2.296e-38 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 33 : |mid| max 6.157e-52 ; rad max 4.814e-44 ; rad/bar 5.048e-38 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 34 : |mid| max 1.235e-51 ; rad max 1.867e-43 ; rad/bar 1.958e-37 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 35 : |mid| max 2.465e-51 ; rad max 7.254e-43 ; rad/bar 7.607e-37 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 36 : |mid| max 4.939e-51 ; rad max 2.177e-42 ; rad/bar 2.283e-36 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 37 : |mid| max 9.876e-51 ; rad max 2.168e-42 ; rad/bar 2.273e-36 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 38 : |mid| max 1.973e-50 ; rad max 4.538e-42 ; rad/bar 4.759e-36 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 39 : |mid| max 3.954e-50 ; rad max 1.089e-41 ; rad/bar 1.141e-35 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 40 : |mid| max 7.963e-50 ; rad max 2.970e-41 ; rad/bar 3.114e-35 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 41 : |mid| max 1.592e-49 ; rad max 8.486e-41 ; rad/bar 8.898e-35 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 42 : |mid| max 3.178e-49 ; rad max 3.517e-40 ; rad/bar 3.687e-34 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 43 : |mid| max 6.395e-49 ; rad max 5.532e-40 ; rad/bar 5.800e-34 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 44 : |mid| max 1.295e-48 ; rad max 1.393e-39 ; rad/bar 1.460e-33 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 45 : |mid| max 2.679e-48 ; rad max 6.118e-39 ; rad/bar 6.415e-33 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 46 : |mid| max 5.114e-48 ; rad max 6.430e-39 ; rad/bar 6.742e-33 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 47 : |mid| max 1.058e-47 ; rad max 2.506e-38 ; rad/bar 2.627e-32 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 48 : |mid| max 2.170e-47 ; rad max 1.114e-37 ; rad/bar 1.168e-31 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 49 : |mid| max 4.345e-47 ; rad max 2.495e-37 ; rad/bar 2.616e-31 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 50 : |mid| max 8.839e-47 ; rad max 7.608e-37 ; rad/bar 7.977e-31 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 51 : |mid| max 2.182e-46 ; rad max 2.258e-36 ; rad/bar 2.367e-30 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 52 : |mid| max 3.435e-46 ; rad max 2.412e-36 ; rad/bar 2.530e-30 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 53 : |mid| max 7.787e-46 ; rad max 5.337e-36 ; rad/bar 5.596e-30 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  THE CONTROL Z₁(0.8, 29.6)    200 j 54 : |mid| max 1.919e-45 ; rad max 1.420e-35 ; rad/bar 1.489e-29 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 24 : |mid| max 4.250e-24 ; rad max 7.021e-14 ; rad/bar 7.362e-08 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 25 : |mid| max 2.013e-23 ; rad max 2.095e-13 ; rad/bar 2.197e-07 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 26 : |mid| max 3.777e-23 ; rad max 5.923e-13 ; rad/bar 6.211e-07 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 27 : |mid| max 9.470e-23 ; rad max 9.929e-13 ; rad/bar 1.041e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 28 : |mid| max 3.548e-22 ; rad max 3.599e-12 ; rad/bar 3.774e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 29 : |mid| max 1.131e-21 ; rad max 8.529e-12 ; rad/bar 8.943e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 30 : |mid| max 1.674e-21 ; rad max 1.539e-11 ; rad/bar 1.613e-05 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 31 : |mid| max 7.196e-21 ; rad max 9.285e-11 ; rad/bar 9.736e-05 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 32 : |mid| max 1.590e-20 ; rad max 1.134e-10 ; rad/bar 1.189e-04 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 33 : |mid| max 2.359e-20 ; rad max 6.837e-10 ; rad/bar 7.169e-04 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 34 : |mid| max 1.084e-19 ; rad max 1.135e-09 ; rad/bar 1.190e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 35 : |mid| max 2.717e-19 ; rad max 2.562e-09 ; rad/bar 2.686e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 36 : |mid| max 4.920e-19 ; rad max 7.411e-09 ; rad/bar 7.771e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 37 : |mid| max 1.600e-18 ; rad max 1.701e-08 ; rad/bar 1.784e-02 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 38 : |mid| max 3.952e-18 ; rad max 3.947e-08 ; rad/bar 4.138e-02 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 39 : |mid| max 6.785e-18 ; rad max 1.093e-07 ; rad/bar 1.146e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 40 : |mid| max 1.174e-17 ; rad max 3.436e-07 ; rad/bar 3.603e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 41 : |mid| max 3.016e-17 ; rad max 6.969e-07 ; rad/bar 7.307e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    200 j 42 : |mid| max 5.376e-17 ; rad max 1.430e-06 ; rad/bar 1.499e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 43 : |mid| max 1.809e-16 ; rad max 2.982e-06 ; rad/bar 3.126e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 44 : |mid| max 3.433e-16 ; rad max 6.250e-06 ; rad/bar 6.554e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 45 : |mid| max 9.017e-11 ; rad max 1.218e-05 ; rad/bar 1.277e+01 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 46 : |mid| max 4.657e-10 ; rad max 1.798e-05 ; rad/bar 1.886e+01 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 47 : |mid| max 2.953e-09 ; rad max 1.280e-04 ; rad/bar 1.342e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 48 : |mid| max 1.079e-09 ; rad max 2.098e-04 ; rad/bar 2.200e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 49 : |mid| max 1.138e-09 ; rad max 4.902e-04 ; rad/bar 5.140e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 50 : |mid| max 2.077e-09 ; rad max 1.124e-03 ; rad/bar 1.178e+03 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 51 : |mid| max 1.024e-08 ; rad max 3.310e-03 ; rad/bar 3.471e+03 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 52 : |mid| max 5.305e-08 ; rad max 1.241e-02 ; rad/bar 1.302e+04 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 53 : |mid| max 2.559e-07 ; rad max 1.820e-02 ; rad/bar 1.909e+04 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 54 : |mid| max 1.156e-06 ; rad max 5.259e-02 ; rad/bar 5.514e+04 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 55 : |mid| max 9.272e-03 ; rad max 1.291e-01 ; rad/bar 1.353e+05 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 56 : |mid| max 1.156e-04 ; rad max 7.133e-01 ; rad/bar 7.480e+05 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 57 : |mid| max 6.066e-02 ; rad max 9.921e-01 ; rad/bar 1.040e+06 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 58 : |mid| max 2.268e-03 ; rad max 3.007e+00 ; rad/bar 3.153e+06 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 59 : |mid| max 1.043e-02 ; rad max 1.031e+01 ; rad/bar 1.081e+07 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 60 : |mid| max 1.071e-01 ; rad max 5.993e+01 ; rad/bar 6.284e+07 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 61 : |mid| max 4.001e-01 ; rad max 8.574e+02 ; rad/bar 8.990e+08 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 62 : |mid| max 1.371e-01 ; rad max 5.269e+03 ; rad/bar 5.525e+09 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 63 : |mid| max 3.787e+00 ; rad max 4.427e+05 ; rad/bar 4.642e+11 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    200 j 64 : |mid| max 9.175e+01 ; rad max 6.419e+07 ; rad/bar 6.731e+13 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 24 : |mid| max 4.225e-24 ; rad max 7.012e-14 ; rad/bar 7.353e-08 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 25 : |mid| max 8.281e-24 ; rad max 2.092e-13 ; rad/bar 2.194e-07 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 26 : |mid| max 1.122e-23 ; rad max 5.915e-13 ; rad/bar 6.202e-07 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 27 : |mid| max 6.642e-23 ; rad max 9.916e-13 ; rad/bar 1.040e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 28 : |mid| max 2.032e-22 ; rad max 3.594e-12 ; rad/bar 3.768e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 29 : |mid| max 1.130e-21 ; rad max 8.517e-12 ; rad/bar 8.931e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 30 : |mid| max 1.274e-21 ; rad max 1.537e-11 ; rad/bar 1.611e-05 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 31 : |mid| max 5.672e-21 ; rad max 9.273e-11 ; rad/bar 9.723e-05 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 32 : |mid| max 6.371e-21 ; rad max 1.133e-10 ; rad/bar 1.188e-04 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 33 : |mid| max 6.838e-20 ; rad max 6.828e-10 ; rad/bar 7.160e-04 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 34 : |mid| max 6.969e-20 ; rad max 1.133e-09 ; rad/bar 1.188e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 35 : |mid| max 7.238e-20 ; rad max 2.558e-09 ; rad/bar 2.683e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 36 : |mid| max 1.165e-19 ; rad max 7.401e-09 ; rad/bar 7.760e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 37 : |mid| max 1.231e-18 ; rad max 1.699e-08 ; rad/bar 1.782e-02 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 38 : |mid| max 3.392e-18 ; rad max 3.941e-08 ; rad/bar 4.133e-02 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 39 : |mid| max 7.343e-18 ; rad max 1.091e-07 ; rad/bar 1.144e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 40 : |mid| max 1.602e-17 ; rad max 3.431e-07 ; rad/bar 3.598e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 41 : |mid| max 4.573e-17 ; rad max 6.959e-07 ; rad/bar 7.297e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS
-  Q0 AT qE0                    400 j 42 : |mid| max 5.376e-17 ; rad max 1.428e-06 ; rad/bar 1.497e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 43 : |mid| max 9.630e-17 ; rad max 2.978e-06 ; rad/bar 3.122e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 44 : |mid| max 1.537e-16 ; rad max 6.242e-06 ; rad/bar 6.545e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 45 : |mid| max 9.017e-11 ; rad max 1.218e-05 ; rad/bar 1.277e+01 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 46 : |mid| max 3.599e-14 ; rad max 1.796e-05 ; rad/bar 1.883e+01 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 47 : |mid| max 1.150e-09 ; rad max 1.278e-04 ; rad/bar 1.340e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 48 : |mid| max 7.823e-10 ; rad max 2.095e-04 ; rad/bar 2.197e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 49 : |mid| max 9.163e-10 ; rad max 4.894e-04 ; rad/bar 5.132e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 50 : |mid| max 1.156e-09 ; rad max 1.122e-03 ; rad/bar 1.177e+03 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 51 : |mid| max 9.347e-09 ; rad max 3.305e-03 ; rad/bar 3.466e+03 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 52 : |mid| max 5.114e-08 ; rad max 1.240e-02 ; rad/bar 1.300e+04 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 53 : |mid| max 2.559e-07 ; rad max 1.818e-02 ; rad/bar 1.906e+04 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 54 : |mid| max 1.152e-06 ; rad max 5.252e-02 ; rad/bar 5.507e+04 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 55 : |mid| max 9.240e-03 ; rad max 1.289e-01 ; rad/bar 1.351e+05 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 56 : |mid| max 1.153e-04 ; rad max 7.123e-01 ; rad/bar 7.469e+05 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 57 : |mid| max 6.073e-02 ; rad max 9.907e-01 ; rad/bar 1.039e+06 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 58 : |mid| max 2.262e-03 ; rad max 3.001e+00 ; rad/bar 3.147e+06 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 59 : |mid| max 1.040e-02 ; rad max 1.029e+01 ; rad/bar 1.079e+07 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 60 : |mid| max 1.066e-01 ; rad max 5.972e+01 ; rad/bar 6.262e+07 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 61 : |mid| max 3.990e-01 ; rad max 8.536e+02 ; rad/bar 8.950e+08 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 62 : |mid| max 1.383e-01 ; rad max 5.253e+03 ; rad/bar 5.508e+09 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 63 : |mid| max 3.775e+00 ; rad max 4.399e+05 ; rad/bar 4.613e+11 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
-  Q0 AT qE0                    400 j 64 : |mid| max 9.119e+01 ; rad max 6.342e+07 ; rad/bar 6.650e+13 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL
+  THE CONTROL Z₁(0.8, 29.6)    200 j 14 : |mid| max 1.167e-57 ; rad max 1.675e-51 ; rad/bar 1.757e-45 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 15 : |mid| max 2.355e-57 ; rad max 6.357e-51 ; rad/bar 6.666e-45 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 16 : |mid| max 4.711e-57 ; rad max 2.012e-50 ; rad/bar 2.110e-44 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 17 : |mid| max 9.343e-57 ; rad max 3.788e-50 ; rad/bar 3.972e-44 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 18 : |mid| max 1.877e-56 ; rad max 1.006e-49 ; rad/bar 1.054e-43 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 19 : |mid| max 3.756e-56 ; rad max 3.125e-49 ; rad/bar 3.277e-43 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 20 : |mid| max 7.510e-56 ; rad max 4.533e-49 ; rad/bar 4.753e-43 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 21 : |mid| max 1.502e-55 ; rad max 8.803e-49 ; rad/bar 9.230e-43 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 22 : |mid| max 3.004e-55 ; rad max 1.771e-48 ; rad/bar 1.857e-42 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 23 : |mid| max 6.008e-55 ; rad max 3.583e-48 ; rad/bar 3.757e-42 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 24 : |mid| max 1.202e-54 ; rad max 7.451e-48 ; rad/bar 7.813e-42 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 25 : |mid| max 2.404e-54 ; rad max 2.326e-47 ; rad/bar 2.439e-41 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 26 : |mid| max 4.807e-54 ; rad max 9.327e-47 ; rad/bar 9.780e-41 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 27 : |mid| max 9.616e-54 ; rad max 3.400e-46 ; rad/bar 3.565e-40 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 28 : |mid| max 1.924e-53 ; rad max 1.085e-45 ; rad/bar 1.138e-39 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 29 : |mid| max 3.845e-53 ; rad max 8.702e-46 ; rad/bar 9.124e-40 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 30 : |mid| max 7.697e-53 ; rad max 2.255e-45 ; rad/bar 2.364e-39 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 31 : |mid| max 1.541e-52 ; rad max 8.665e-45 ; rad/bar 9.086e-39 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 32 : |mid| max 3.078e-52 ; rad max 2.189e-44 ; rad/bar 2.296e-38 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 33 : |mid| max 6.157e-52 ; rad max 4.814e-44 ; rad/bar 5.048e-38 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 34 : |mid| max 1.235e-51 ; rad max 1.867e-43 ; rad/bar 1.958e-37 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 35 : |mid| max 2.465e-51 ; rad max 7.254e-43 ; rad/bar 7.607e-37 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 36 : |mid| max 4.939e-51 ; rad max 2.177e-42 ; rad/bar 2.283e-36 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 37 : |mid| max 9.876e-51 ; rad max 2.168e-42 ; rad/bar 2.273e-36 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 38 : |mid| max 1.973e-50 ; rad max 4.538e-42 ; rad/bar 4.759e-36 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 39 : |mid| max 3.954e-50 ; rad max 1.089e-41 ; rad/bar 1.141e-35 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 40 : |mid| max 7.963e-50 ; rad max 2.970e-41 ; rad/bar 3.114e-35 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 41 : |mid| max 1.592e-49 ; rad max 8.486e-41 ; rad/bar 8.898e-35 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 42 : |mid| max 3.178e-49 ; rad max 3.517e-40 ; rad/bar 3.687e-34 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 43 : |mid| max 6.395e-49 ; rad max 5.532e-40 ; rad/bar 5.800e-34 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 44 : |mid| max 1.295e-48 ; rad max 1.393e-39 ; rad/bar 1.460e-33 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 45 : |mid| max 2.679e-48 ; rad max 6.118e-39 ; rad/bar 6.415e-33 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 46 : |mid| max 5.114e-48 ; rad max 6.430e-39 ; rad/bar 6.742e-33 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 47 : |mid| max 1.058e-47 ; rad max 2.506e-38 ; rad/bar 2.627e-32 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 48 : |mid| max 2.170e-47 ; rad max 1.114e-37 ; rad/bar 1.168e-31 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 49 : |mid| max 4.345e-47 ; rad max 2.495e-37 ; rad/bar 2.616e-31 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 50 : |mid| max 8.839e-47 ; rad max 7.608e-37 ; rad/bar 7.977e-31 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 51 : |mid| max 2.182e-46 ; rad max 2.258e-36 ; rad/bar 2.367e-30 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 52 : |mid| max 3.435e-46 ; rad max 2.412e-36 ; rad/bar 2.530e-30 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 53 : |mid| max 7.787e-46 ; rad max 5.337e-36 ; rad/bar 5.596e-30 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  THE CONTROL Z₁(0.8, 29.6)    200 j 54 : |mid| max 1.919e-45 ; rad max 1.420e-35 ; rad/bar 1.489e-29 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 24 : |mid| max 4.250e-24 ; rad max 7.021e-14 ; rad/bar 7.362e-08 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 25 : |mid| max 2.013e-23 ; rad max 2.095e-13 ; rad/bar 2.197e-07 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 26 : |mid| max 3.777e-23 ; rad max 5.923e-13 ; rad/bar 6.211e-07 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 27 : |mid| max 9.470e-23 ; rad max 9.929e-13 ; rad/bar 1.041e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 28 : |mid| max 3.548e-22 ; rad max 3.599e-12 ; rad/bar 3.774e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 29 : |mid| max 1.131e-21 ; rad max 8.529e-12 ; rad/bar 8.943e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 30 : |mid| max 1.674e-21 ; rad max 1.539e-11 ; rad/bar 1.613e-05 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 31 : |mid| max 7.196e-21 ; rad max 9.285e-11 ; rad/bar 9.736e-05 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 32 : |mid| max 1.590e-20 ; rad max 1.134e-10 ; rad/bar 1.189e-04 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 33 : |mid| max 2.359e-20 ; rad max 6.837e-10 ; rad/bar 7.169e-04 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 34 : |mid| max 1.084e-19 ; rad max 1.135e-09 ; rad/bar 1.190e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 35 : |mid| max 2.717e-19 ; rad max 2.562e-09 ; rad/bar 2.686e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 36 : |mid| max 4.920e-19 ; rad max 7.411e-09 ; rad/bar 7.771e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 37 : |mid| max 1.600e-18 ; rad max 1.701e-08 ; rad/bar 1.784e-02 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 38 : |mid| max 3.952e-18 ; rad max 3.947e-08 ; rad/bar 4.138e-02 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 39 : |mid| max 6.785e-18 ; rad max 1.093e-07 ; rad/bar 1.146e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 40 : |mid| max 1.174e-17 ; rad max 3.436e-07 ; rad/bar 3.603e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 41 : |mid| max 3.016e-17 ; rad max 6.969e-07 ; rad/bar 7.307e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    200 j 42 : |mid| max 5.376e-17 ; rad max 1.430e-06 ; rad/bar 1.499e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 43 : |mid| max 1.809e-16 ; rad max 2.982e-06 ; rad/bar 3.126e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 44 : |mid| max 3.433e-16 ; rad max 6.250e-06 ; rad/bar 6.554e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 45 : |mid| max 9.017e-11 ; rad max 1.218e-05 ; rad/bar 1.277e+01 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 46 : |mid| max 4.657e-10 ; rad max 1.798e-05 ; rad/bar 1.886e+01 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 47 : |mid| max 2.953e-09 ; rad max 1.280e-04 ; rad/bar 1.342e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 48 : |mid| max 1.079e-09 ; rad max 2.098e-04 ; rad/bar 2.200e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 49 : |mid| max 1.138e-09 ; rad max 4.902e-04 ; rad/bar 5.140e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 50 : |mid| max 2.077e-09 ; rad max 1.124e-03 ; rad/bar 1.178e+03 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 51 : |mid| max 1.024e-08 ; rad max 3.310e-03 ; rad/bar 3.471e+03 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 52 : |mid| max 5.305e-08 ; rad max 1.241e-02 ; rad/bar 1.302e+04 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 53 : |mid| max 2.559e-07 ; rad max 1.820e-02 ; rad/bar 1.909e+04 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 54 : |mid| max 1.156e-06 ; rad max 5.259e-02 ; rad/bar 5.514e+04 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 55 : |mid| max 9.272e-03 ; rad max 1.291e-01 ; rad/bar 1.353e+05 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 56 : |mid| max 1.156e-04 ; rad max 7.133e-01 ; rad/bar 7.480e+05 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 57 : |mid| max 6.066e-02 ; rad max 9.921e-01 ; rad/bar 1.040e+06 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 58 : |mid| max 2.268e-03 ; rad max 3.007e+00 ; rad/bar 3.153e+06 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 59 : |mid| max 1.043e-02 ; rad max 1.031e+01 ; rad/bar 1.081e+07 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 60 : |mid| max 1.071e-01 ; rad max 5.993e+01 ; rad/bar 6.284e+07 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 61 : |mid| max 4.001e-01 ; rad max 8.574e+02 ; rad/bar 8.990e+08 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 62 : |mid| max 1.371e-01 ; rad max 5.269e+03 ; rad/bar 5.525e+09 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 63 : |mid| max 3.787e+00 ; rad max 4.427e+05 ; rad/bar 4.642e+11 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    200 j 64 : |mid| max 9.175e+01 ; rad max 6.419e+07 ; rad/bar 6.731e+13 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 24 : |mid| max 4.225e-24 ; rad max 7.012e-14 ; rad/bar 7.353e-08 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 25 : |mid| max 8.281e-24 ; rad max 2.092e-13 ; rad/bar 2.194e-07 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 26 : |mid| max 1.122e-23 ; rad max 5.915e-13 ; rad/bar 6.202e-07 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 27 : |mid| max 6.642e-23 ; rad max 9.916e-13 ; rad/bar 1.040e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 28 : |mid| max 2.032e-22 ; rad max 3.594e-12 ; rad/bar 3.768e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 29 : |mid| max 1.130e-21 ; rad max 8.517e-12 ; rad/bar 8.931e-06 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 30 : |mid| max 1.274e-21 ; rad max 1.537e-11 ; rad/bar 1.611e-05 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 31 : |mid| max 5.672e-21 ; rad max 9.273e-11 ; rad/bar 9.723e-05 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 32 : |mid| max 6.371e-21 ; rad max 1.133e-10 ; rad/bar 1.188e-04 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 33 : |mid| max 6.838e-20 ; rad max 6.828e-10 ; rad/bar 7.160e-04 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 34 : |mid| max 6.969e-20 ; rad max 1.133e-09 ; rad/bar 1.188e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 35 : |mid| max 7.238e-20 ; rad max 2.558e-09 ; rad/bar 2.683e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 36 : |mid| max 1.165e-19 ; rad max 7.401e-09 ; rad/bar 7.760e-03 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 37 : |mid| max 1.231e-18 ; rad max 1.699e-08 ; rad/bar 1.782e-02 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 38 : |mid| max 3.392e-18 ; rad max 3.941e-08 ; rad/bar 4.133e-02 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 39 : |mid| max 7.343e-18 ; rad max 1.091e-07 ; rad/bar 1.144e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 40 : |mid| max 1.602e-17 ; rad max 3.431e-07 ; rad/bar 3.598e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 41 : |mid| max 4.573e-17 ; rad max 6.959e-07 ; rad/bar 7.297e-01 ; RAD>=BAR False ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test PASS ; PASS
+  Q0 AT qE0                    400 j 42 : |mid| max 5.376e-17 ; rad max 1.428e-06 ; rad/bar 1.497e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 43 : |mid| max 9.630e-17 ; rad max 2.978e-06 ; rad/bar 3.122e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 44 : |mid| max 1.537e-16 ; rad max 6.242e-06 ; rad/bar 6.545e+00 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 45 : |mid| max 9.017e-11 ; rad max 1.218e-05 ; rad/bar 1.277e+01 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 46 : |mid| max 3.599e-14 ; rad max 1.796e-05 ; rad/bar 1.883e+01 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 47 : |mid| max 1.150e-09 ; rad max 1.278e-04 ; rad/bar 1.340e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 48 : |mid| max 7.823e-10 ; rad max 2.095e-04 ; rad/bar 2.197e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 49 : |mid| max 9.163e-10 ; rad max 4.894e-04 ; rad/bar 5.132e+02 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 50 : |mid| max 1.156e-09 ; rad max 1.122e-03 ; rad/bar 1.177e+03 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 51 : |mid| max 9.347e-09 ; rad max 3.305e-03 ; rad/bar 3.466e+03 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 52 : |mid| max 5.114e-08 ; rad max 1.240e-02 ; rad/bar 1.300e+04 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 53 : |mid| max 2.559e-07 ; rad max 1.818e-02 ; rad/bar 1.906e+04 ; RAD>=BAR True  ; |MID|<BAR True  ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 54 : |mid| max 1.152e-06 ; rad max 5.252e-02 ; rad/bar 5.507e+04 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 55 : |mid| max 9.240e-03 ; rad max 1.289e-01 ; rad/bar 1.351e+05 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 56 : |mid| max 1.153e-04 ; rad max 7.123e-01 ; rad/bar 7.469e+05 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 57 : |mid| max 6.073e-02 ; rad max 9.907e-01 ; rad/bar 1.039e+06 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 58 : |mid| max 2.262e-03 ; rad max 3.001e+00 ; rad/bar 3.147e+06 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 59 : |mid| max 1.040e-02 ; rad max 1.029e+01 ; rad/bar 1.079e+07 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 60 : |mid| max 1.066e-01 ; rad max 5.972e+01 ; rad/bar 6.262e+07 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 61 : |mid| max 3.990e-01 ; rad max 8.536e+02 ; rad/bar 8.950e+08 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 62 : |mid| max 1.383e-01 ; rad max 5.253e+03 ; rad/bar 5.508e+09 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 63 : |mid| max 3.775e+00 ; rad max 4.399e+05 ; rad/bar 4.613e+11 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
+  Q0 AT qE0                    400 j 64 : |mid| max 9.119e+01 ; rad max 6.342e+07 ; rad/bar 6.650e+13 ; RAD>=BAR True  ; |MID|<BAR False ; |MID|-RAD>=BAR False ; the map`s test FAIL ; INSTRUMENT
 
-### ### **Q0 AT qE0 at 200 bits : CONTROLS 41 ; PASS 18 ; FAIL 23 ; of the failed: RAD>=BAR 23, |MID|<BAR 12, |MID|-RAD>=BAR 0 ; largest rad/bar over the failed 6.731e+13.**
-### ### **Q0 AT qE0 at 400 bits : CONTROLS 41 ; PASS 18 ; FAIL 23 ; of the failed: RAD>=BAR 23, |MID|<BAR 12, |MID|-RAD>=BAR 0 ; largest rad/bar over the failed 6.650e+13.**
-### ### **THE CONTROL Z₁(0.8, 29.6) at 200 bits : CONTROLS 41 ; PASS 41 ; FAIL 0 ; of the failed: RAD>=BAR 0, |MID|<BAR 0, |MID|-RAD>=BAR 0 ; largest rad/bar over the failed -.**
+### ### **Q0 AT qE0 at 200 bits : CONTROLS 41 ; PASS 18 ; FAIL 23 ; of the failed: RAD>=BAR 23, |MID|<BAR 12, |MID|-RAD>=BAR 0 ; INSTRUMENT 23, OBJECT 0, NEITHER 0 ; largest rad/bar over the failed 6.731e+13.**
+### ### **Q0 AT qE0 at 400 bits : CONTROLS 41 ; PASS 18 ; FAIL 23 ; of the failed: RAD>=BAR 23, |MID|<BAR 12, |MID|-RAD>=BAR 0 ; INSTRUMENT 23, OBJECT 0, NEITHER 0 ; largest rad/bar over the failed 6.650e+13.**
+### ### **THE CONTROL Z₁(0.8, 29.6) at 200 bits : CONTROLS 41 ; PASS 41 ; FAIL 0 ; of the failed: RAD>=BAR 0, |MID|<BAR 0, |MID|-RAD>=BAR 0 ; INSTRUMENT 0, OBJECT 0, NEITHER 0 ; largest rad/bar over the failed -.**

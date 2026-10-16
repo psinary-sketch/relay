@@ -98,31 +98,51 @@ def bank(out, before, after):
         mids = [float(p.group(2)) for p in parts]
         rads = [float(p.group(3)) for p in parts]
         zin = [p.group(4) == 'True' for p in parts]
+        passed = all(zin) and max(rads) < bar
+        # ### the words, the navigator's answer on the two readings: INSTRUMENT -- the ball contains 0 and its radius crosses the bar;
+        # ### OBJECT -- the ball wholly beneath the bar, |mid| + radius < 2^-20; a failed control that is neither printed NEITHER
+        obj = all(mm + rr < bar for mm, rr in zip(mids, rads))
+        ins = all(zin) and max(rads) >= bar
+        word = 'PASS' if passed else 'OBJECT' if obj else 'INSTRUMENT' if ins else 'NEITHER'
         rows.append(dict(cell=m.group(1), bits=int(m.group(2)), j=int(m.group(3)), mids=mids, rads=rads, zin=zin,
-                         sep=max(mids), rad=max(rads), passed=all(zin) and max(rads) < bar))
+                         sep=max(mids), rad=max(rads), passed=passed, word=word))
     L = ['b671 -- THE TIE DIAGNOSTIC (the navigator`s answer on the landing, under (R281)(7)) (%s): rows are tie controls -- the cell, the '
          'precision, j; the separation`s ball at each of the four tie nodes by its midpoint`s modulus |mid| and its radius; the largest of each '
          'beside the bar 2^%d = %.6e; the map`s own test (every ball containing 0 with radius below the bar); the radius-to-bar ratio.'
          % (time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), BAR_EXP, bar), '',
          '### the map tools/b667_epstein_map_balls.py sha256 %s before the run and %s after (%s)' % (before, after, 'EQUAL' if before == after else 'CHANGED'),
          '### the columns: RAD>=BAR -- the radius alone crosses the bar ; |MID|<BAR -- the midpoint`s separation beneath the bar ; '
-         '|MID|-RAD>=BAR -- the ball held off zero by more than the bar', '']
+         '|MID|-RAD>=BAR -- the ball held off zero by more than the bar',
+         '### the words (the navigator`s answer on the two readings, under (R281)): INSTRUMENT -- the separation`s ball contains 0 and its '
+         'radius crosses the bar, the control undecided by the instrument; OBJECT -- the ball wholly beneath the bar, |mid| + radius < 2^-20, '
+         'the separation certified small by the object; a passing control reads PASS, a failed control that is neither NEITHER.', '']
     for x in rows:
         L.append('  %-28s %3d j %2d : |mid| max %.3e ; rad max %.3e ; rad/bar %.3e ; RAD>=BAR %-5s ; |MID|<BAR %-5s ; |MID|-RAD>=BAR %-5s ; '
-                 'the map`s test %s' % (x['cell'], x['bits'], x['j'], x['sep'], x['rad'], x['rad'] / bar, x['rad'] >= bar, x['sep'] < bar,
-                                        any(mm - rr >= bar for mm, rr in zip(x['mids'], x['rads'])), 'PASS' if x['passed'] else 'FAIL'))
+                 'the map`s test %s ; %s' % (x['cell'], x['bits'], x['j'], x['sep'], x['rad'], x['rad'] / bar, x['rad'] >= bar, x['sep'] < bar,
+                                             any(mm - rr >= bar for mm, rr in zip(x['mids'], x['rads'])), 'PASS' if x['passed'] else 'FAIL',
+                                             x['word']))
     L.append('')
     for (cell, bits) in sorted(set((x['cell'], x['bits']) for x in rows)):
         g = [x for x in rows if (x['cell'], x['bits']) == (cell, bits)]
         f = [x for x in g if not x['passed']]
         L.append('### ### **%s at %d bits : CONTROLS %d ; PASS %d ; FAIL %d ; of the failed: RAD>=BAR %d, |MID|<BAR %d, |MID|-RAD>=BAR %d ; '
-                 'largest rad/bar over the failed %s.**' % (
+                 'INSTRUMENT %d, OBJECT %d, NEITHER %d ; largest rad/bar over the failed %s.**' % (
                      cell, bits, len(g), len(g) - len(f), len(f), sum(x['rad'] >= bar for x in f), sum(x['sep'] < bar for x in f),
                      sum(any(mm - rr >= bar for mm, rr in zip(x['mids'], x['rads'])) for x in f),
+                     sum(x['word'] == 'INSTRUMENT' for x in f), sum(x['word'] == 'OBJECT' for x in f), sum(x['word'] == 'NEITHER' for x in f),
                      ('%.3e' % max(x['rad'] / bar for x in f)) if f else '-'))
     put('b671_tie_diagnostic.txt', NL.join(L) + NL)
     print(NL.join(L[-6:]))
 
 
+def words():
+    """the words added from the run`s own print lines as its bank holds them (data/b671_tie_diagnostic_run.txt); nothing re-run."""
+    t = io.open(os.path.join(D, RUN_BANK + '.txt'), encoding='utf-8').read()
+    h = re.search(r'the map \(sha256 ([0-9a-f]{64})\)', t)
+    if not h or h.group(1) != sha(MAP):
+        sys.exit('### THE RUN BANK DOES NOT NAME THE MAP AT ITS PRESENT sha256 -- NOTHING WRITTEN')
+    bank(t.split(NL), h.group(1), sha(MAP))
+
+
 if __name__ == '__main__':
-    {'diff': diff, 'run': run}.get(sys.argv[1] if len(sys.argv) > 1 else '', lambda: print('usage: diff | run'))()
+    {'diff': diff, 'run': run, 'words': words}.get(sys.argv[1] if len(sys.argv) > 1 else '', lambda: print('usage: diff | run'))()
