@@ -1,0 +1,267 @@
+b673 closed: relay 57fdb813, PLACE-papers f755f99, SIDE-explicit-formula e36ea31 v0.32; suite 84 of 84; root 4f86a02506f47b9f…; 7 prompts answered; 16 defects
+========================================================================================================
+b673 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED, THE RESEARCH ACT: b672 AT ITS WEIGHT; V4 AND V5 ON THE CONFIGURATION; THE GENERIC LI CONVERSE, THE χ CONVERSE AND THE χ-LI EQUIVALENCE; THE NATIVE ζ CONVERSE BESIDE THE VENDORED ONE; v0.32, UNDER (R283).**
+========================================================================================================
+### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b673_seal_hashes.json):
+      b673_worklist.py           seal 5d3c8649a056cc16 ; close 5d3c8649a056cc16 ; AGREE
+      b673_tests.py              seal a4b47b81b3d1f089 ; close a4b47b81b3d1f089 ; AGREE
+      b673_citation.py           seal caccf9073fe6a109 ; close caccf9073fe6a109 ; AGREE
+      b673_record.py             seal 1ae7b9d05cc98fb0 ; close 1ae7b9d05cc98fb0 ; AGREE
+      b673_checks.py             seal b2d30571d6195fbb ; close b2d30571d6195fbb ; AGREE
+      b673_closing.py            seal 8eb2b5d78a5b95b7 ; close 8eb2b5d78a5b95b7 ; AGREE
+      b673_reg_gate.py           seal 7b10b3ff91f05a22 ; close 7b10b3ff91f05a22 ; AGREE
+      b673_regspec.py            seal c439142b50628a64 ; close c439142b50628a64 ; AGREE
+      ### AGREE 8 of 8
+
+### THE CITATION CHECK (the gate step, before the ferry was banked; relay data/b673_citation_check.txt): CITES CHECKED 92 ; OK 88 ; MISSES 4 (the four misses raised and answered, the defects bank`s (b)-(e)) ; the mid-act checks ((R278)(4)): ANSWER CITES CHECKED 6 ; OK 5 ; MISSES 1; ANSWER CITES CHECKED 6 ; OK 5 ; MISSES 1; ANSWER CITES CHECKED 6 ; OK 5 ; MISSES 1; ANSWER CITES CHECKED 6 ; OK 5 ; MISSES 1; ANSWER CITES CHECKED 0 ; OK 0 ; MISSES 0; ANSWER CITES CHECKED 0 ; OK 0 ; MISSES 0; ANSWER CITES CHECKED 0 ; OK 0 ; MISSES 0; ANSWER CITES CHECKED 7 ; OK 7 ; MISSES 0; ANSWER CITES CHECKED 2 ; OK 2 ; MISSES 0
+
+### THE RECORD LINES ((R283)(1) and Component 4; relay data/b673_record_lines.json, data/b673_record_lines_c4.json): FINDINGS.md :8817 ; OPEN_TRAILS.md :14478 ; OPEN_TRAILS.md :14480
+
+### THE DRY RUN ((R267)(2), standing; relay data/b673_reg_gate.txt, the gate`s step before the lock): THE DRY-RUN STEP : CLEAN
+
+### THE PLAN AND THE CONTROL ((R283)(3), (4); relay data/b673_v4v5_plan.txt, data/b673_v4_control.txt): the sign S5 consumes printed first (Re s_n ≥ +c); V4 in both signs at c = Σ m^2 / (4 Σ m); V5 two-sided; the control at Q0, c = 1/4, the least n 1 and 28, (C2) as planted
+
+### THE ATTEMPT ((R283)(5); relay data/b673_runner_rows.json, data/b673_landing.txt, data/b673_zeta_walk.txt, data/b673_h5.txt): runs 38957029697 at 516803e NOT DERIVES ; 38958296252 at b1d4342 NOT DERIVES ; 38959501957 at 921fb71 NOT DERIVES ; 38960681935 at 5050a46 DERIVES
+    the landing: DECLARATIONS 29 ; DERIVES 29.
+    the walk: DECLARATIONS REACHED 254 ; ζ-NAMING 0 ; THE CONTROL 1.
+    H5: H5: THE NATIVE AND THE VENDORED ζ CONVERSE, SIDE BY SIDE (2026-10-16T20:31:03Z)
+
+### rows are the two declarations: each statement from its source at e36ea316 (e36ea31), its axioms from relay data/b673_axioms_run38960681935.txt; then the hypothesis and conclusion forms compared as text, the comparison the text`s and not a proof of equality.
+
+  native    SIDEExplicitFormula.LiConverseNative.li_nonneg_imp_rh_native  (SIDEExplicitFormula/LiConverseNative.lean:27)
+            statement   theorem li_nonneg_imp_rh_native : (∀ n : ℕ, 0 ≤ LiWeil.LiCoeff n) → RiemannHypothesis
+            hypothesis  (∀ n : ℕ, 0 ≤ LiWeil.LiCoeff n)
+            conclusion  RiemannHypothesis
+            axioms      ['propext', 'Classical.choice', 'Quot.sound']
+
+  vendored  LiCriterion.positivity_implies_RH  (Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean:413)
+            statement   theorem positivity_implies_RH : (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re) → (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2)
+            hypothesis  (∀ n : ℕ, 0 ≤ (taylorCoeff riemannXi n).re)
+            conclusion  (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1/2)
+            axioms      ['propext', 'Classical.choice', 'Quot.sound']
+
+  the bridge  LiCriterion.rh_equiv_mathlib  (Vendored/Bulka/Lc/LiCriterion/RHBridge.lean:43)
+            statement   theorem rh_equiv_mathlib : RiemannHypothesis ↔ (∀ s : ℂ, riemannZeta s = 0 → (0 < s.re ∧ s.re < 1) → s.re = 1 / 2)
+
+### THE HYPOTHESES AS TEXT: DIFFERENT -- the native premise is the kernel`s LiWeil.LiCoeff n, a sum over the zero configuration; the vendored premise is the real part of the Taylor coefficient of Bulka`s riemannXi; li_nonneg_iff_rh (LiCriterionBridge.lean :179) joins them at ζ through li_coeff_eq_taylorCoeff.
+### THE CONCLUSIONS AS TEXT: DIFFERENT; the native conclusion RiemannHypothesis and the vendored strip form are the two sides of rh_equiv_mathlib, whose statement carries the vendored conclusion character for character: False; with whitespace removed from both (the vendored `1/2` against the bridge`s `1 / 2`): True.
+
+### ### 
+
+### THE MERGE (Component 4; relay data/b673_merge_push_out.txt): tag v0.32 peeled local e36ea316e363b1fad04b7fa9def0fc7f2e78188f remote e36ea316e363b1fad04b7fa9def0fc7f2e78188f
+
+### THE HYPOTHESES ((R283)(5); relay data/b673_hypotheses.txt): H1 HELD ; H2 HELD ; H3 HELD ; H4 HELD ; H5 HELD THROUGH rh_equiv_mathlib; REFUTED AS TEXT ; H6 HELD
+
+### THE MIRROR-REFRESH EXPORT (relay data/b673_mirror.txt), BUILT AFTER THE LAST PLACE-papers PUSH, for the author`s Project:
+    D:/MY-DOwnloads/mirror-refresh-2026-10-16-b673.zip ; 4441838 bytes ; sha256 c829ea46b7214c61 ; MANIFEST md5 8314c5d54768e70fdafd65af494e83ff ; entries 84 ; Act root: b673 4f86a02506f47b9fd7bc83adfff99c5ba4933d7cc7b51b098e7295d6c65631ec ; the verification CLEAN ON ALL THREE CLAUSES ; moves in MANIFEST: none (nothing moved)
+
+### THE AUTHOR`S ANSWERS AND WORDS (relay data/b673_author_answers.txt): 7 prompt(s) put by the seat in this act (2026-10-16), banked verbatim with the options and the recommended mark
+    ### COMPONENT 0 : the citation check (data/b673_citation_check.txt), step zero (data/b673_ferry.txt, data/b673_readfirst.txt, data/b673_stepzero.txt, data/b673_tests_stepzero.txt) ; push-out relay 53aec8b0
+    ### COMPONENT 1 : b672`s weight FINDINGS :8817
+    ### COMPONENT 2 : the plan (data/b673_v4v5_plan.txt) and the control (data/b673_v4_control.txt) ; the one prompt answered ; N2 HELD
+    ### COMPONENT 3 : the attempt on chi-li-b669, four runs (data/b673_runner_rows.json), the landing 29 DERIVES (data/b673_landing.txt), the walk (data/b673_zeta_walk.txt), H5 (data/b673_h5.txt) ; H H1 HELD H2 HELD H3 HELD H4 HELD H5 HELD THROUGH rh_equiv_mathlib; REFUTED AS TEXT H6 HELD ; N3 HELD (the split clause VACUOUS: no declaration open, no split) ; N4 HELD
+    ### COMPONENT 4 : the merge e36ea31, v0.32 (data/b673_merge_push_out.txt) ; OPEN_TRAILS :14478, :14480
+    ### COMPONENT 5 : the dry-run step (data/b673_reg_gate.txt), the seal (data/b673_seal_hashes.json), the suite ; S3 HELD
+    ### COMPONENT 6 : the root 4f86a02506f47b9f ; FINDINGS :8819 ; OPEN_TRAILS :14482 ; N1 HELD ; N5 HELD
+    (N1) HELD (N2) HELD (N3) HELD (the split clause VACUOUS: no declaration open, no split) (N4) HELD (N5) HELD ; (S1) HELD (S2) HELD (S3) HELD
+
+### THE SCORES IN FULL:
+    (N1) HELD -- commands of this act that run lean or lake on this host: [] (relay data/b673_commands.txt); every build on the hosted runner, four runs each at its own tip (relay data/b673_runner_rows.json)
+    (N2) HELD -- the plan prints the sign S5 consumes, Re s_n ≥ +c, True, its terms traced through V4`s four steps, V5 and the composition True (relay data/b673_v4v5_plan.txt, committed 74d5b06a); the control`s least n for each sign printed, 1 and 28 (relay data/b673_v4_control.txt, committed 74d5b06a); both before the first Lean commit SIDE-explicit-formula 25c360b, True
+    (N3) HELD (the split clause VACUOUS: no declaration open, no split) -- declarations 29, each with one landing point (relay data/b673_landing.txt): {'DERIVES': 29}; `sorry` in code in the act`s files on main NONE; open declarations NONE, so no branch was split and none is left open on main
+    (N4) HELD -- S5 lands DERIVES and the walk reads 0 ζ objects in its closure at 5050a46 (H3 HELD; relay data/b673_zeta_walk.txt), the 516803e reading of 2 through a local binder entered (relay data/b673_defects.txt (i′)); the native converse`s conclusion printed beside the vendored one True (relay data/b673_h5.txt)
+    (N5) HELD -- nothing deposits: the deposit route untouched (draft 23228113, v5, unpublished); SIDE-explicit-formula`s main moved by ['e36ea31'] alone (the merge of Component 4, parents [['115abfe', '5050a46']]) True, its files beyond the branch`s NONE; every kernel as the face read it after the merge True; README and REGISTRY written NONE; standing arms added: NONE (the act`s arms over its own banks 16); sealed tools not agreeing NONE; PLACE-papers beyond the ledgers: NONE; relay files of a kind beyond the banks, the act`s tools, the table, the root list and b672`s push-out bank: NONE; "patent" in the ledger lines: NONE; outbound requests: the seat`s git reads and pushes and the gh workflow, run and artifact calls to the author`s own repositories at github.com, no search made, so no identifier of the author placed in a request
+    (S1) HELD -- the table at the end against relay HEAD`s: moved 0, gone 0, added 0, grade moved 0
+    (S2) HELD -- the root recomputed equal, the one-byte control moving it, the root order holding locally
+    (S3) HELD -- the sealed tools` hashes {'agree': 8}
+
+### THIS ACT`S DEFECTS (the desk), THE SEAT`S AND THE NAVIGATOR`S.
+b673 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-16): THE SUCCESSOR OF data/b672_defects.txt
+
+### CARRIED FROM b672: none open. b672's (a)-(h) closed there; its navigator's (g) carries into this act's ferry form as the read-first bank
+### data/b673_readfirst.txt, written at step zero ((R283)(7)).
+
+### THE ACT'S OWN. Rows are lettered defects, each with its owner and the line that shows it.
+    (a) THE SEAT'S: A CITATION PREDICATE THAT READ A DEFECT'S OWNER AFTER "THE " ALONE. tools/b673_citation.py's first run read b672's
+    defect letters with `^    \(([a-h])\) THE ([\w']+)`, and b672's (e) opens "(e) b670'S:", so (e) went unread and the row "eight defects
+    (a)-(h), (c) and (g) the navigator's" printed MISS though the bank carries all eight. Repaired by the Edit tool before the ferry was
+    banked: the owner read with "THE " optional; the check run again, 92 cites, 88 OK, its four misses each real and raised (b672 (a)'s kind,
+    again: a predicate written for a bank's shape before the bank was read).
+    (b) THE NAVIGATOR'S: A FERRY THAT NAMED A BANK BY ITS UNCOMPRESSED NAME. The read-first list names
+    data/b671_epstein_zeros_narrowed.json; b671 committed it gzipped as data/b671_epstein_zeros_narrowed.json.gz (data/b671_large_banks.txt).
+    By the navigator's answer on the four misses: the .gz read through gzip by the readfirst bank and the control, cited by its own name, its
+    sha256 checked against data/b671_large_banks.txt before the read, no uncompressed copy written.
+    (c) THE NAVIGATOR'S: A RANGE THAT MISSED ONE ORDER. (R283)(1) puts the five orders at OPEN_TRAILS :14440-:14450; W-ORD-PROSE-PINS stands at
+    :14452 under that name, :14440 being the no-print-bank list. By the answer on the PROSE-PINS line: the weight line cites the five orders at
+    :14442-:14452 with the list at :14440, the ruling's other words as written.
+    (d) THE NAVIGATOR'S: A DEFINITION PLACED IN THE WRONG FILE. The read-first list says "Config.lean's HCount and HStrip"; on chi-li-b669
+    both are defined in SIDEExplicitFormula/RestBound.lean (:44, :40), Config.lean carrying HCount as its count field (:30-:31). By the answer
+    on HStrip: the readfirst bank cites RestBound.lean :40 and :44 and Config.lean :30-:31; S5's statement names the hypothesis B321.HStrip,
+    the ruling's name, so no name differs.
+    (e) THE NAVIGATOR'S: A PAGE NAMED BY NO FILE. (R283)(6)'s "the faces page" names no file. By the answers on the four misses and on the
+    faces page: THE_CLAUSE_AND_ITS_COMPILED_FACES.md, a page generated from its nodes bank, so no line is drafted into it; the landing bank
+    carries the candidate node text for the page's generator, written to no keystone, for a later regeneration act.
+    (f) THE SEAT'S: A POWER OF A COMPLEX BALL TAKEN BY REPEATED MULTIPLICATION. tools/b673_v4_control.py's first run (not banked as the
+    control) formed w^n by multiplying the complex ball by w at each step; the rectangular ball's radius grew by about |Re w| + |Im w| ~ 1.06
+    per step, 2.9 at n = 1000 and 4e75 at n = 4000, and 3095 of 4000 rows read NEITHER and (C2)'s mean printed 0e+73. Found at the first
+    run's print by the seat (the counts against s_n = 2 cos(nθ)'s known share). Repaired by the Edit tool before the control was banked: w^n
+    read through its angle, θ = arg w a real ball, Re s_n = 2 cos(nθ), radius at most 3.6e-23 over n = 1..4000; 1842 at or above c, 1839 at
+    or below -c, 319 strictly inside (-c, c), none straddling. b671's lesson, again: the squaring of complex balls grows their radius.
+    (g) THE NAVIGATOR'S: A PROOF'S STEPS SHORT BY ONE. (R283)(3) names V4's Cesàro proof in three steps -- the mean of s_n to 0, the mean of
+    |s_n|^2 to Σ m^2, the squeeze -- and the squeeze runs on Re s_n, whose mean square needs the mean of s_n^2 bounded below as well. By the
+    navigator's answer on V4: the seat's step (ii'), the mean of s_n^2 bounded below by the conjugate-pair sum Σ_{w_i w_j = 1} m_i m_j ≥ 0,
+    giving the mean of (Re s_n)^2 at or above Σ m^2 / 2, named as the fourth step; V4 written in both signs at c = Σ m^2 / (4 Σ m).
+    (h) THE NAVIGATOR'S: A REMAINDER BOUNDED IN THE WRONG DIRECTION. (R283)(3)'s V5 bounds the non-dominant pairs and the on-line points from
+    below; the composition shows λ_n negative, so it needs the rest bounded above, and a lower bound on the rest shows nothing of that. By
+    the answer on V5: the branch's two-sided remainder_le kept as stated, proved by the split at ‖ρ‖ = 1/(s - 1) with
+    K' = Σ_{‖ρ‖≥R0} m_ρ / ‖ρ‖^2 from HCount; the ruling's one-sided bounds entered as not consumed; the composition line re-written as
+    λ_n ≤ Σ_D m - c r_max^n + C (n + 1)^2 s^n, s < r_max.
+    (i) THE SEAT'S: A LOCAL BINDER NAMED AS A KERNEL DECLARATION. S5's proof at 516803e bound `obtain ⟨N0, hN0⟩`, and the ζ-naming walk
+    (matching by the last component, an over-reach by design) followed the token N0 to Zeta23.N0 (Zeta23/Statement.lean :72) and from it
+    to zeroMult and IsNontrivialZero: DECLARATIONS REACHED 257 ; ζ-NAMING 2 ; THE CONTROL 2, S5's own code naming no ζ object. The binder
+    renamed Nq at b1d4342 by the Edit tool, no matcher changed; the walk at b1d4342 reads DECLARATIONS REACHED 254 ; ζ-NAMING 0 ; THE CONTROL 1.
+    (i′) THE WALK AT 516803e, ENTERED FROM THE SESSION TRANSCRIPT BY THE NAVIGATOR'S ANSWER ON THE C3/C4 REPORT (2): the first walk printed
+    "### ### **DECLARATIONS REACHED 257 ; ζ-NAMING 2 -- IsNontrivialZero, zeroMult ; THE CONTROL 2.**" -- 2 zeta-naming, IsNontrivialZero
+    (Zeta23/Statement.lean :54) and zeroMult (Zeta23/Statement.lean :59), reached through the local binder N0 -> Zeta23.N0
+    (Zeta23/Statement.lean :72), N0 bound at SIDEExplicitFormula/Schema/LiConverseCfg.lean :256 at 516803e. Its bank was overwritten (j);
+    the walk at the final tip 5050a46 is data/b673_zeta_walk.txt, DECLARATIONS REACHED 254 ; ζ-NAMING 0 ; THE CONTROL 1.
+    (j) THE SEAT'S: A WALK BANK OVERWRITTEN BY ITS OWN SECOND RUN. data/b673_zeta_walk.txt (.json) carries one name for every tip, so the
+    516803e reading of (i) was replaced by the b1d4342 run; its figures are entered here from the session transcript, where the first run's
+    print stands.
+    (k) THE SEAT'S: TWO GIT WRITES IN ONE CALL. The repair commit b1d4342 and the branch push were chained in one Bash call (commit && push),
+    against "one git write per turn". Both completed (the push read 516803e..b1d4342); the later commits and pushes in separate calls.
+    (l) THE SEAT'S: V5'S SUMMABILITY THROUGH comp_injective, TWICE A whnf TIMEOUT. Run 38957029697 (516803e): LiRemainder.lean :116 a type
+    mismatch (`Subtype.ext (congrArg Subtype.val h)`, Subtype.val taken at the source subtype) and :109 a (deterministic) whnf timeout at
+    remainder_le's head; repaired at b1d4342 by splitting remainder_le (summable_rest, rest_term_le, the composition). Run 38958296252
+    (b1d4342): the timeout again at summable_rest (:109), whose proof composed the carrier's summability with an injection by
+    Summable.comp_injective. Repaired at 921fb71 through the indicator over ℂ and Summable.subtype at the set's own predicate. The ruling's
+    "one dispatch" read with its constraint's "once per tree state": each run at its own tip, each banked by its run id.
+    (m) THE SEAT'S: A TEXT COMPARISON WRITTEN CHARACTER-EXACT ACROSS TWO AUTHORS' SPACING. tools/b673_record.py h5's first run read whether
+    rh_equiv_mathlib's statement carries positivity_implies_RH's conclusion as an exact substring and printed False, the vendored file writing
+    `s.re = 1/2` (ReverseDirection.lean :415) and the bridge `s.re = 1 / 2` (RHBridge.lean :43). Both readings now printed in
+    data/b673_h5.txt, named: CHARACTER FOR CHARACTER False, WHITESPACE REMOVED True; the first predicate kept, not replaced.
+    (n) THE SEAT'S: TWO ARMS FAILING ON REAL STATE AT THE FIRST PRE-RUN. tools/b673_checks.py --prerun read 84 arms, 59 passing; of the 25
+    failing, 23 read banks not yet written, and two failed on real state, both the seat's: `G-LANDING-DRAFTS`, whose needles carried a
+    backtick possessive ("SENTENCE`S") where the landing bank writes an apostrophe (b656's lesson again: needles in the bank's own words), and
+    `G-CLOSING-SENTENCE`, whose rule phrase tools/b673_closing.py wrapped across two printed lines. Both repaired by the Edit tool before the
+    seal, each predicate read alone after the repair, and the pre-run run again; its bank the second run's.
+    (o) THE SEAT'S: A COUNT ON THE FACE READ AS A PREDICTION. The face's section (0) said "29 terminals at the standard three" (line 33);
+    tools/b300_regspec.py's lexical counter read it as an artifact-count prediction (ARTIFACT-COUNT PREDICTIONS FOUND : 1) and
+    tools/reg_satisfiable.py refused, "NOT SATISFIABLE -- 1 CONTRADICTORY CLAUSE(S). DO NOT SEAL." The line re-worded by the Edit tool before
+    the lock ("every name of print_targets.txt at the standard three"), the gate and its banks run again: 0 predictions, JOINTLY SATISFIABLE,
+    the lock gate 8 of 8. (The second pre-run, detached, was stopped by the host for memory; run again in the foreground by the navigator's
+    answer on the stopped pre-run, 396 s.)
+    (p) THE SEAT'S, AT THE CLOSE: A NETWORK BURST IN THE CLOSING'S READS, AND A CLOSING PATTERN THAT TOOK A WHOLE BANK. Entered after the
+    root (no root-named bank written). (1) The first run of tools/b673_closing.py (2026-10-16, after the post-push suite) read three
+    remotes empty, its retry included: "SIDE-formation-arithmetic main ef0fcf1e9967 ; remote  ; ### DIFFER", "SIDE-meta main 6bb7b23b4e6c ;
+    remote  ; ### DIFFER", "SIDE-orchestrator main 5d0a34109fd0 ; remote  ; ### DIFFER" -- every other repository AGREE, and b671's and
+    b672's closings reading all three AGREE. The claim tested directly, one read alone: SIDE-meta's `git ls-remote origin refs/heads/main`
+    returned 6bb7b23b4e6c…, equal to its local main, exit 0. A transient burst (b644's kind); the closing run again alone, its bank the
+    second run's; the first run's three rows kept here verbatim, not as a copied file (no cp, and a hand copy of the whole bank is not
+    the bank). (2) The sealed closing tool's H5 line reads `verdict(<the H5 bank>, r'H5: [^*]*')`, whose pattern matches the bank's header
+    "H5: THE NATIVE AND THE VENDORED ζ CONVERSE, SIDE BY SIDE" and runs to the first asterisk, so the closing prints the H5 bank whole where
+    one line was meant; the verdict line stands in the hypotheses section beside it. The tool is sealed and is not repaired in this act.
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ARMS RUN : 84. ### LIVE PASSING : 84. ### LIVE FAILING : 0 .
+    pre-push : VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES
+    post-push : ARMS RUN : 84. ### LIVE PASSING : 84. ### LIVE FAILING : 0 .
+    post-push : VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES
+      relay                            main 57fdb8130680 ; remote 57fdb8130680 ; AGREE
+      PLACE-papers                     main f755f99b6a80 ; remote f755f99b6a80 ; AGREE
+      SIDE-global-section              main 504e146bc038 ; remote 504e146bc038 ; AGREE
+      SIDE-explicit-formula            main e36ea316e363 ; remote e36ea316e363 ; AGREE
+      SIDE-kernel                      main 70aba3cd7392 ; remote 70aba3cd7392 ; AGREE
+      SIDE-lv-conservation             main 8e3bc76cbb32 ; remote 8e3bc76cbb32 ; AGREE
+      SIDE-effects                     main 78bbcff533b7 ; remote 78bbcff533b7 ; AGREE
+      SIDE-silence-principle           main 667c25487775 ; remote 667c25487775 ; AGREE
+      SIDE-omega-b                     main 9c80279b6976 ; remote 9c80279b6976 ; AGREE
+      SIDE-cosmo                       main ca04c8cf467a ; remote ca04c8cf467a ; AGREE
+      SIDE-trivium                     main 1aac3a9e1939 ; remote 1aac3a9e1939 ; AGREE
+      SIDE-residual-bridge             main 5aa5ab72af41 ; remote 5aa5ab72af41 ; AGREE
+      SIDE-yang-mills-formation        main 73e9e2c3e962 ; remote 73e9e2c3e962 ; AGREE
+      SIDE-substrate-cluster           main 2e76426dc4b0 ; remote 2e76426dc4b0 ; AGREE
+      SIDE-constants                   main 545dde2671c2 ; remote 545dde2671c2 ; AGREE
+      SIDE-simplicity                  main 54ba4f38b729 ; remote 54ba4f38b729 ; AGREE
+      SIDE-bsd-formation-transfer      main 34917669160d ; remote 34917669160d ; AGREE
+      SIDE-bsd-multiplicity            main d77ce309e6bd ; remote d77ce309e6bd ; AGREE
+      SIDE-t7-topology-cmb             main 936cd65de384 ; remote 936cd65de384 ; AGREE
+      SIDE-local-cosmic-interface      main 7a62cedbb956 ; remote 7a62cedbb956 ; AGREE
+      SIDE-quaternionic-dark-sector    main e860142a5381 ; remote e860142a5381 ; AGREE
+      SIDE-spinor                      main 520abe7a6b7d ; remote 520abe7a6b7d ; AGREE
+      SIDE-bijection                   main a26f6f1c5dea ; remote a26f6f1c5dea ; AGREE
+      SIDE-class-coupling              main b6a6e869304d ; remote b6a6e869304d ; AGREE
+      SIDE-coupling                    main 42b5e4e5a1f9 ; remote 42b5e4e5a1f9 ; AGREE
+      SIDE-formation-arithmetic        main ef0fcf1e9967 ; remote ef0fcf1e9967 ; AGREE
+      SIDE-meta                        main 6bb7b23b4e6c ; remote 6bb7b23b4e6c ; AGREE
+      SIDE-orchestrator                main 5d0a34109fd0 ; remote 5d0a34109fd0 ; AGREE
+      SIDE-structural-error-correction main 5476ef356920 ; remote 5476ef356920 ; AGREE
+      SIDE-carrier-spec                main dd54a6163c17 ; remote dd54a6163c17 ; AGREE
+      SIDE-grh-transfer                main 6e149db34ab5 ; remote 6e149db34ab5 ; AGREE
+      SIDE-explicit-formula            v0.32 peeled e36ea316e363 ; at the remote e36ea316e363 ; main e36ea316e363 ; AGREE
+      SIDE-explicit-formula            v0.31 peeled 115abfe4ec5c ; at the remote 115abfe4ec5c ; main e36ea316e363 ; AGREE
+      SIDE-grh-transfer                v0.5.1 peeled 6e149db34ab5 ; at the remote 6e149db34ab5 ; main 6e149db34ab5 ; AGREE
+      SIDE-cosmo                       v0.3.1 peeled ca04c8cf467a ; at the remote ca04c8cf467a ; main ca04c8cf467a ; AGREE
+      SIDE-effects                     v0.1.1 peeled 78bbcff533b7 ; at the remote 78bbcff533b7 ; main 78bbcff533b7 ; AGREE
+      SIDE-carrier-spec                v0.4.2 peeled dd54a6163c17 ; at the remote dd54a6163c17 ; main dd54a6163c17 ; AGREE
+      SIDE-structural-error-correction v0.2.3 peeled 5476ef356920 ; at the remote 5476ef356920 ; main 5476ef356920 ; AGREE
+      SIDE-lv-conservation             v0.13.0 peeled 8e3bc76cbb32 ; at the remote 8e3bc76cbb32 ; main 8e3bc76cbb32 ; AGREE
+      SIDE-global-section              v0.3.0 peeled 504e146bc038 ; at the remote 504e146bc038 ; main 504e146bc038 ; AGREE
+      SIDE-kernel                      v1.8 peeled 70aba3cd7392 ; at the remote 70aba3cd7392 ; main 70aba3cd7392 ; AGREE
+      sorry-quarantine-SIDE-kernel     local a28f62f1f5f8 ; remote a28f62f1f5f8 ; AGREE (the quarantine and its legacy map)
+      sorry-quarantine-SIDE-lv-conserv local 011121e5d446 ; remote 011121e5d446 ; AGREE (the quarantine and its legacy map)
+      chi-li-b669                        SIDE-explicit-formula local 5050a46acf26 ; at the remote 5050a46acf26 ; merged into main True (the converse, V4 to S7 and the native converse, merged at e36ea31 (Component 4))
+      detection-region-b559            local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (kept)
+      li-weil-b561                     local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                    local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                     local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (kept)
+      grh-weil-b564                    local 6ec71b302998 ; remote 6ec71b302998 ; AGREE (kept)
+      vendor-bulka-backport-b566       local 76c1f11eff5b ; remote 76c1f11eff5b ; AGREE (kept)
+      vendor-bulka-forward-b566        local e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE (kept)
+      residue-discharge-b567           local fee07817fd27 ; remote fee07817fd27 ; AGREE (kept)
+      grh-weil-b567                    local 6baed63ae664 ; remote 6baed63ae664 ; AGREE (kept)
+      grh-weil-b569                    local 19b7d1e48a40 ; remote 19b7d1e48a40 ; AGREE (kept)
+      grh-weil-b569-held               local 0fdbe6545659 ; remote 0fdbe6545659 ; AGREE (kept)
+      grh-weil-b570                    local 141e844b7445 ; remote 141e844b7445 ; AGREE (kept)
+      grh-weil-b571                    local ac157c1d0024 ; remote ac157c1d0024 ; AGREE (kept)
+      grh-weil-b572                    local 4dce7b97eb29 ; remote 4dce7b97eb29 ; AGREE (kept)
+      grh-weil-b573                    local 21c8c522bfc8 ; remote 21c8c522bfc8 ; AGREE (kept)
+      epstein-b590                     local c404e727d7f7 ; remote c404e727d7f7 ; AGREE (kept)
+      simplicity-b596                  local 5a1630b8292b ; remote 5a1630b8292b ; AGREE (kept)
+      product-b600                     local 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE (kept)
+      doubling-keiper-b601             local 5fc0c878182d ; remote 5fc0c878182d ; AGREE (kept)
+      sign-window-b602                 local 914c4137e196 ; remote 914c4137e196 ; AGREE (kept)
+      family-b603                      local 1d5d4dd9a481 ; remote 1d5d4dd9a481 ; AGREE (kept)
+      platt-b626                       local e939c9282e0c ; remote e939c9282e0c ; AGREE (kept)
+      cite-b628                        local 98b7668d1989 ; remote 98b7668d1989 ; AGREE (kept)
+      nb-b629                          local aa17442f98cc ; remote aa17442f98cc ; AGREE (kept)
+      dedekind-b631                    local 8c51431ada77 ; remote 8c51431ada77 ; AGREE (kept)
+      sec-axiom-b623                   local 6bf19ab0ef6a ; v0.2.2 peeled 6bf19ab0ef6a, at the remote 6bf19ab0ef6a ; main 5476ef356920 (unmoved by this act) ; AGREE (kept, local)
+      TECHNE-Core                      main 36352a0b10e6 ; remote-tracking 29208f635b13 ; ahead 4, behind 0 -- PRIVATE, NOT PUSHED, NOT WRITTEN BY THIS ACT
+    censuses : TOTAL MISSING : 0 / TOTAL MISSING : 0
+    pins : REPOS HARD-FAILING : 0
+    SIDE-explicit-formula`s main moved by the merge of Component 4 alone (e36ea31, tag v0.32), its files the branch`s five ; four
+    dispatches on the hosted runner, one per tree state ; no lean or lake run on this host ; no worktree made or removed ; no file
+    deleted ; b628`s local intake bank, the navigator`s export and b671`s uncompressed points file untracked ;
+    no identifier of the author in any outbound request ; no secret added ; the seat`s plain requests to github.com (its git reads and pushes, and the gh
+    workflow, run and artifact calls to the author`s own repositories) the act`s only outbound calls ; the deposit route untouched,
+    publish never called ; no shared tool edited ; FINDINGS and OPEN_TRAILS appended ; one line appended to data/act_roots.txt as the
+    act`s last bank step ; ERRATA, SPIRAL_MAP, README, REGISTRY, the censuses, the pages and the companions untouched ; nothing of
+    TECHNE or any patent written
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT ACT, (R283)(9)**: b674, the re-cut act between SIDE-window and SIDE-trivium.
+    (b) For the author`s word: the ceiling sentence`s successor and the faces page`s line on unequal converses, drafted in relay
+        data/b673_landing.txt and written to no keystone; the faces line for the generator of THE_CLAUSE_AND_ITS_COMPILED_FACES.md.
+    (c) The walk`s reach into local binders, an item under `W-ORD-PRINT-TARGETS` (OPEN_TRAILS :14480); from the next walk its bank
+        carries the tip`s SHA in its name (relay data/b673_rules.txt row 2).
+    (d) The run`s orders of b672 open: `W-ORD-ONE-COPY`, `W-ORD-TABLE-SHAPE`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`,
+        `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`; the ledger split at the b680 reading act.
+    (e) b628`s full intake bank, the navigator`s export and b671`s uncompressed points file stay local and untracked in relay data/.
+    (f) The act root of b673 is relay data/act_roots.txt`s last line; the mirror export of this act carries it in MANIFEST.
+    (g) Branches left for the next act`s step zero: the push-b673* branches of relay, PLACE-papers and SIDE-explicit-formula, deleted
+        when the next ferry`s list carries them; chi-li-b669, merged, kept until a ferry lists it; the quarantine branches and the kept
+        kernel branches untouched.
+    (h) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.
+    (i) The closing reads each repository`s remote refs once (the standing line at OPEN_TRAILS :12703).
+========================================================================================================

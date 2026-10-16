@@ -1,5 +1,5 @@
 {
- "at": "2026-10-16T20:47:00Z",
+ "at": "2026-10-16T21:31:20Z",
  "anchor": "RULING (R283) BEGIN",
  "rows": [
   {
@@ -1205,6 +1205,314 @@
    "src": "seat",
    "cmd": "for f in b673_checks b673_closing b673_regspec b673_reg_gate b673_record b673_worklist; do python -X utf8 -c \"import ast; ast.parse(open('tools/$f.py',encoding='utf-8').read()); print('$f OK')\"; done; python -X utf8 -c \"\nimport sys; sys.path.insert(0,'tools')\nimport re, io\nt=io.open('tools/b673_checks.py',encoding='utf-8').read()\nnames=re.findall(r\\\"^    \\('(G-[A-Z0-9-]+)'\\\", t, re.M)+['G-N%d-SCORED'%i for i in range(1,6)]\nimport b673_worklist as K\nf=io.open('data/b672_registration_2026-10-16.txt',encoding='utf-8').read()\ng2=f[f.index('### (G2) THE GATE ARMS.'):f.index('### (W) THE WRITE LIST.')]\nst=sorted(set(x.rstrip('-') for x in re.findall(r'\\b[GF]-[A-Z0-9][A-Za-z0-9-]*', g2))-{'G-NO'}-set(K.B672_ACT_ARMS))\nprint('arms',len(names),'unique',len(set(names)),'standing',len(st))\nprint('standing not carried',sorted(set(st)-set(names)))\nprint('beyond',sorted(set(names)-set(st)-set(K.ACT_ARMS)))\nprint('act arms not in suite',sorted(set(K.ACT_ARMS)-set(names)))\n\"",
    "n": 172
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:46:58.960Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py commands 2>&1 | tail -25",
+   "n": 173
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:47:10.283Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py scores dry 2>&1 | cut -c1-700",
+   "n": 174
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:47:24.440Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format='%h %s' db2b75f4..HEAD | cut -c1-160; echo ----; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 8b85716..HEAD | cut -c1-160; echo ----; git -C /d/SIDE-explicit-formula log --reverse --format='%h %s' 115abfe..main | cut -c1-120",
+   "n": 175
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:49:07.656Z",
+   "src": "seat",
+   "cmd": "grep -n \"the run took\" data/b672_arms_prerun.txt data/b672_checks.txt data/b672_checks_postpush.txt",
+   "n": 176
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:49:14.002Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_checks.py --prerun 2>&1 | tail -110",
+   "n": 177
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:49:19.842Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py drycheck data/b673_registration_2026-10-16.txt standin 2>&1 | tail -12",
+   "n": 178
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:49:28.669Z",
+   "src": "seat",
+   "cmd": "sed -n '/^def _standins/,/^def jl/p' tools/b672_record.py",
+   "n": 179
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:49:50.959Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py drycheck data/b673_registration_2026-10-16.txt standin 2>&1 | grep -v \"(the screens)\" | tail -6",
+   "n": 180
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:49:58.317Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py findings dry standin 2>&1 | grep -v \"^  table cells\\|^  cells\" | fold -w 220 -s",
+   "n": 181
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:50:11.752Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py trail dry standin 2>&1 | grep -v \"^  table cells\\|^  cells\" | fold -w 220 -s",
+   "n": 182
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T20:59:53.826Z",
+   "src": "seat",
+   "cmd": "grep -n \"FAIL\\|raised\\|ARMS RUN\\|POSITIVE\\|declared not\\|run not\\|OVERREACH\\|CONTRADICTED\\|sorry in code\" data/b673_arms_prerun.txt | grep -v \"PASS  PASS  FAIL  OK\" | cut -c1-230",
+   "n": 183
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:00:10.218Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys; sys.path.insert(0,'tools')\nimport io,re\nimport b673_checks as C\nt=C.unwrap(C.rd('b673_landing.txt'))\nprint('drafts', [x for x in C.DRAFT_NEEDLES if ' '.join(x.split()) not in t])\nsrc=C.read('tools/b673_closing.py')\nprint('closing', C.closing_sentence_ok(dict(closing_src=src)))\n\"",
+   "n": 184
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:00:21.418Z",
+   "src": "seat",
+   "cmd": "git add tools/b673_checks.py tools/b673_closing.py tools/b673_reg_gate.py tools/b673_regspec.py tools/b673_record.py tools/b673_worklist.py data/b673_hypotheses.txt data/b673_hypotheses.json data/b673_commands.txt data/b673_commands.json data/b673_kernels_face.json data/b673_defects.txt data/b673_defects.json data/b673_runner_rows.json data/b673_author_answers.txt data/b673_author_answers.json && git commit -q -m \"b673 between the components, under (R283): the suite, the closing, the gate and the spec by the Write tool; the record tool's late routes (merged, hypotheses, the capture, kernels, defects, the root and its arm, the table, the gate's banks, the scores, the record, the dry run, the mirror) and the worklist's constants by the Edit tool; the run's row marked merged at e36ea31 with v0.32; the hypotheses (H1-H4 and H6 HELD, H5 held through rh_equiv_mathlib and refuted as text), the commands, kernels-face, answers and defects banks, defect (n)\" && git log --oneline -1",
+   "n": 185
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:00:34.723Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_checks.py --prerun 2>&1 | tail -6",
+   "n": 186
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:00:40.005Z",
+   "src": "seat",
+   "cmd": "head -30 data/b672_lockgate_notes.txt; head -40 tools/b378_lockgate.py | grep -n \"usage\\|argv\\|def main\" ; grep -n \"usage\\|--lock\" tools/reg_seal.py | head",
+   "n": 187
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:00:43.788Z",
+   "src": "seat",
+   "cmd": "grep -n \"sys.argv\\|argparse\\|def main\\|b6[0-9][0-9]_\\|ACT\\b\\|act =\" tools/b378_lockgate.py | head -20; grep -n \"b672_lockgate\\|b378_lockgate\" tools/b672_record.py tools/b672_checks.py | head",
+   "n": 188
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:00:46.969Z",
+   "src": "seat",
+   "cmd": "sed -n '30,60p;146,200p' tools/b378_lockgate.py",
+   "n": 189
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-16T21:03:39.917Z",
+   "src": "seat",
+   "cmd": "Get-Process | Where-Object { $_.Name -match '^(python|git|lean|lake|bash|tail|claude)' } | Select-Object Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}} | Format-Table -AutoSize; $os = Get-CimInstance Win32_OperatingSystem; \"free MB: \" + [int]($os.FreePhysicalMemory/1024)",
+   "n": 190
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:05:53.779Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_citation.py answer \"on the stopped pre-run\" 2>&1 | tail -6",
+   "n": 191
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:06:02.433Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_checks.py --prerun 2>&1 | grep -n \"FAILS\\|ARMS RUN\\|POSITIVE\\|VERDICT\\|run took\\|raised\" | cut -c1-260",
+   "n": 192
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:12:48.308Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_reg_gate.py 2>&1 | tail -14",
+   "n": 193
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:12:52.619Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py gatebanks 2>&1 | tail -14",
+   "n": 194
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:12:59.283Z",
+   "src": "seat",
+   "cmd": "grep -n -A3 \"PREDICTIONS FOUND\" data/b673_regspec_run.txt | head; grep -n \"CONTRAD\\|###\" data/audit_b673_reg_satisfiable.txt | head -20",
+   "n": 195
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:13:07.020Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_reg_gate.py 2>&1 | tail -3 && python -X utf8 tools/b673_record.py gatebanks 2>&1 | tail -10",
+   "n": 196
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:13:16.640Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b378_lockgate.py b673 data/b673_registration_2026-10-16.txt 2>&1 | grep -n \"PASS\\|FAIL\\|VERDICT\\|GATES READ\" | cut -c1-200",
+   "n": 197
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:13:20.932Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b673_registration_2026-10-16.txt 2>&1 | tail -6 && python -X utf8 tools/reg_seal.py --verify data/b673_registration_2026-10-16.txt 2>&1 | grep -i \"intact\\|verdict\" && python -X utf8 tools/b673_checks.py --seal",
+   "n": 198
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:13:41.545Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py answers && python -X utf8 tools/b673_record.py defects && git -C /d/MY-DOwnloads/PLACE-papers log --oneline -3 && cat data/b672_pp_push_out.txt | head -4 && cat data/b672_pp_root_push_out.txt | head -3 && git log --format='%h %s' db2b75f4~6..db2b75f4 | cut -c1-120",
+   "n": 199
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:13:53.633Z",
+   "src": "seat",
+   "cmd": "git status --short | grep \"b673\\|audit_b673\"",
+   "n": 200
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:13:59.590Z",
+   "src": "seat",
+   "cmd": "git add data/b673_author_answers.json data/b673_author_answers.txt data/b673_citation_check.txt data/b673_defects.json data/b673_defects.txt tools/b673_checks.py data/audit_b673_reg_satisfiable.txt data/b673_arms_prerun.txt data/b673_census_stepzero.txt data/b673_faces_census_stepzero.txt data/b673_lockgate.json data/b673_lockgate_notes.txt data/b673_lsr_prerun.json data/b673_pins_stepzero.txt data/b673_reg_gate.txt data/b673_reg_termscan.txt data/b673_registration_2026-10-16.txt data/b673_regspec_run.txt data/b673_satisfiable.json data/b673_seal_hashes.json && git commit -q -m \"b673 seal: the face locked (eb4cb45b), the gate CLEAR with its dry-run step CLEAN, the gate banks (banned terms CLEAN, 0 predictions, jointly satisfiable, censuses and pins), the lock gate 8 of 8, the sealed tools' hashes recorded; the foreground pre-run (84 arms, 61 passing, the 23 failing reading banks not yet written) by the navigator's answer on the stopped pre-run, its mid-act check; defects (n) and (o)\" && git log --oneline -1",
+   "n": 201
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:14:04.854Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b673-root 180ef90 && PUSH_GATED_LOG=/d/relay/data/b673_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b673-root; echo \"exit $?\"",
+   "n": 202
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:14:36.946Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git branch push-b673-root 6f8833d3 && PUSH_GATED_LOG=/d/relay/data/b673_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b673-root; echo \"exit $?\"",
+   "n": 203
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:14:47.897Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py table_final && python -X utf8 tools/b673_record.py root dry",
+   "n": 204
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:15:36.079Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py root && python -X utf8 tools/b673_record.py root_arm && tail -2 data/act_roots.txt | cut -c1-160",
+   "n": 205
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:16:01.555Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py scores 2>&1 | cut -c1-260 && python -X utf8 tools/b673_record.py desk",
+   "n": 206
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:16:09.088Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py findings 2>&1 | tail -2 && python -X utf8 tools/b673_record.py trail 2>&1 | tail -2 && python -X utf8 tools/b673_record.py components | tail -3",
+   "n": 207
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:16:15.862Z",
+   "src": "seat",
+   "cmd": "git status --short | grep -v \"^??.*\\(_b389\\|_b48\\|audit_b3\\|audit_b4\\|audit_b5\\|b2[0-9][0-9]_\\|b3[0-9][0-9]_\\|b4[0-9][0-9]_\\|b5[0-9][0-9]_\\|anthropic\\|records.json\\|tools/_\\|tools/b4\\|^?? =\\)\"",
+   "n": 208
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:16:21.179Z",
+   "src": "seat",
+   "cmd": "git add data/act_roots.txt data/terminal_table.json data/terminal_table.md data/b673_act_root.json data/b673_act_root.txt data/b673_components.txt data/b673_desk_notes.txt data/b673_findings.json data/b673_pp_root_push_out.txt data/b673_relay_root_push_out.txt data/b673_root_arm.json data/b673_root_arm.txt data/b673_scanfile_entry.md data/b673_scanfile_trail.md data/b673_scores.json data/b673_table_final.json data/b673_table_final.txt data/b673_trail.json && git commit -q -m \"b673 record: the act root 4f86a025 (the last bank step, 54 banks), its arm, the final table (nothing moved), the scores (N1-N5 and S1-S3 HELD), the desk, the FINDINGS entry (:8819) and the trail record (OPEN_TRAILS :14482) banks, the components, the pre-root push-out captures, under (R283)\" && git log --oneline -1",
+   "n": 209
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:16:25.607Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short && git add FINDINGS.md OPEN_TRAILS.md && git commit -q -m \"b673 record: the FINDINGS entry (:8819) and the trail record carrying the root 4f86a025 (OPEN_TRAILS :14482), under (R283)\" && git log --oneline -1",
+   "n": 210
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:16:30.404Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b673_checks.py 2>&1 | grep -n \"FAILS\\|ARMS RUN\\|POSITIVE\\|VERDICT\\|run took\\|raised\\|DEFECTIVE\" | cut -c1-260",
+   "n": 211
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:23:26.421Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b673 f755f99 && PUSH_GATED_LOG=/d/relay/data/b673_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b673; echo \"exit $?\"",
+   "n": 212
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:23:56.781Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git branch push-b673 57fdb813 && PUSH_GATED_LOG=/d/relay/data/b673_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b673; echo \"exit $?\"",
+   "n": 213
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:24:06.326Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_checks.py 2>&1 | grep -n \"FAILS\\|ARMS RUN\\|POSITIVE\\|VERDICT\\|run took\\|raised\\|POST-PUSH\\|written\" | cut -c1-260",
+   "n": 214
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:30:34.869Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py mbuild 2>&1 | tail -8",
+   "n": 215
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-16T21:31:10.212Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b673_record.py mroot && python -X utf8 tools/b673_record.py mverify | tail -4 && python -X utf8 tools/b673_record.py mbank | tail -6",
+   "n": 216
   }
  ],
  "offences": [],
