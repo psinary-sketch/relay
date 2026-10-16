@@ -1,0 +1,19 @@
+b672 -- STEP ZERO, UNDER (R282) (2026-10-16)
+
+### rows are the ferry's step-zero items, each with its print.
+  the citation check        data/b672_citation_check.txt: CITES CHECKED 70 ; OK 70 ; MISSES 0 (defect (a), the seat's predicate, repaired before the ferry was banked)
+  the ferry                 data/b672_ferry.txt (14462 characters, sha256 f3df271ea659c500...); data/b672_ferry_scan.txt 0 hits
+  the process listing       2026-10-16T13:42Z: claude.exe 14680 alone; no tail, lean, lake or python process; free 3621 MB
+                            2026-10-16T14:10Z (before the restart): claude.exe 14680 alone; free 5808 MB (the browser trimmed on the author's word)
+  b671's push-out bank      data/b671_closing_push_out.txt committed, relay 3176a028
+  the branches deleted      after `git branch --merged main` listed them: relay push-b671 (4e3a46d6), push-b671-root (9bdaf75d), push-b671-closing
+                            (64158393); PLACE-papers push-b671 (d6d2d4b), push-b671-root (84ba4fa); chi-li-b669 kept at b804bf2
+  the rules                 data/b672_rules.txt rows 1-3 verbatim; the OPEN_TRAILS line lands with Component 1
+  the tests                 data/b672_tests_stepzero.txt: TEST FILES 54 ; RUN 53 ; WITHHELD 1 ; NOT CLEAN 2 (test_chain_page.py (9); test_chain_page_b638.py
+                            (4)-(7)) -- the two b671 banked at its step zero (data/b671_tests_stepzero.txt), unchanged. Ten tests from the one-process
+                            driver (defect (b)), kept as banked; the remaining 43 run one process per test from a detached bash loop (scratchpad
+                            b672_tests_loop.sh, PID 14860, 14:10:10Z-14:27:52Z), one foreground watcher; free memory 5647-5860 MB through the loop.
+                            The navigator's answer on step zero checked first (data/b672_citation_check.txt, VACUOUS: no cite).
+  git status                relay tracked changes: this act's banks alone; PLACE-papers NONE; the local banks (data/b628_intake_crank_v0_5.txt,
+                            data/b647_navigator_memory.txt, data/b671_narrow_run2_points.jsonl) untracked
+  no build                  no lean or lake run on this host

@@ -9,3 +9,12 @@ b672 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-16): THE SUCCESSOR OF data
     the row printed MISS ("NO kernels KEY") though the bank names its eleven kernels under `tags`. Repaired by the Edit tool before the
     ferry was banked: the kernels read from `tags`; the check run again, 70 of 70 OK, nothing raised for it (b671 (b)'s kind, again: a
     predicate written for a bank's shape before the bank was read).
+    (b) THE SEAT'S: A TEST DRIVER IN ONE PROCESS, AGAINST b660'S LESSON. tools/b671_tests.py's docstring carried b660's lesson -- "Run one
+    process per test from a bash loop (b660's lesson: test_build_watch stops processes)" -- and tools/b672_tests.py, carried from it,
+    added an `all` route that ran every test from one python driver, detached (PID 43200, started 2026-10-16T13:43:38Z). The driver ran ten
+    tests (test_act_root.py to test_banned_terms_backmatter.py, all as wanted, the last line 13:52:19Z) and was gone, with no line in
+    its stderr, while test_build_watch_b644.py ran: that test stops processes, and the driver was one of them (b660 (a)'s kind, again).
+    The bank data/b672_tests_stepzero.json holds the ten as they ran. Found by the foreground watch (no line for ten minutes against
+    b671's 11 s), confirmed by the process listing (no python process). Free memory read 799 MB and then 386 MB at the listing, the
+    browser holding about 4 GB; no process of the author's stopped. Repaired: the remaining tests run one process per test from a
+    detached bash loop over `run`, as b671 did; the `all` route left in the tool and not used.
