@@ -156,3 +156,10 @@ b671 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-14): THE SUCCESSOR OF data
     ### its cites checked at HEAD before the seat acts on it:
     ###   (no path, ledger line or commit named)
     ### ### **ANSWER CITES CHECKED 0 ; OK 0 ; MISSES 0.** -- VACUOUS: no cite to check.
+    ### THE SUITE AT THE CLOSE, AS IT READ (G-ACTROOT-LAST the one declared failure, by name, defect (r)):
+    ###   pre-push  (data/b671_checks.txt)                : ARMS RUN 86 ; LIVE PASSING 85 ; LIVE FAILING 1 ['G-ACTROOT-LAST'] ; controls 0 defective
+    ###   post-push (data/b671_checks_postpush.txt)       : ARMS RUN 86 ; LIVE PASSING 84 ; LIVE FAILING 2 ['G-ACTROOT-LAST', 'G-LSREMOTE-ONE-PER-REPO']
+    ###     -- SIDE-yang-mills-formation`s remote read twice (data/b671_lsr_postpush.json), the suite`s one read retried once when it came
+    ###     back empty, the cause unprinted; read as a transient of the host`s network (b644`s DNS-burst kind), not as an arm`s finding
+    ###   post-push, run again alone (data/b671_checks_postpush_rerun.txt) : ARMS RUN 86 ; LIVE PASSING 85 ; LIVE FAILING 1
+    ###     ['G-ACTROOT-LAST'] ; every repository read once (data/b671_lsr_postpush_rerun.json) ; controls 0 defective
