@@ -816,8 +816,98 @@ def progress(*a):
     print(NL.join(L))
 
 
+# ================================================================================ COMPONENT 5: THE LANDING, (R281)(7), H3 REFUTED
+# ### the navigator's answers on the landing and on the two readings: the finding entered, no discharge, the orders open with their triggers
+def _hyp():
+    """(R281)(6)'s H1-H4, each scored by a line its bank prints (key, verdict, the printed line, its bank)."""
+    log = rdn('b671_narrow_log.txt').split(NL)
+    h1 = [l for l in log if l.startswith('### ### **POINTS ')]
+    c1_ = [l for l in log if l.startswith('### C1 and C2 under the bar')]
+    ctl = rdn('b671_epstein_control_narrowed.txt').split(NL)
+    hq = [l for l in ctl if l.startswith('  READING Q0 AT qE0:')]
+    tie = [l for l in ctl if l.strip().startswith('hQtie ')]
+    pl = [l for l in rdn('b671_narrow_plan.txt').split(NL) if l.strip().startswith('### w = 1e-24: two decimal orders below 1.6e-22')]
+    out = []
+    ok1 = bool(h1) and 'ON NARROWED 146 OF 146, THEIR FINAL ENDPOINTS CERTIFIED OPPOSITE 146 ; OFF NARROWED 17 OF 17 ; UNRESOLVED 0' in h1[0]
+    out.append(('H1', 'HELD' if ok1 else 'REFUTED', h1[0] if h1 else '### LINE ABSENT', 'data/b671_narrow_log.txt'))
+    ok2 = bool(c1_) and "(1, 'NARROWED', True), (2, 'NARROWED', True), (3, 'NARROWED', True)" in c1_[0] and "'on': 'NO SIGN CHANGE', 'off': 0" in c1_[0]
+    out.append(('H2', 'HELD' if ok2 else 'REFUTED', c1_[0] if c1_ else '### LINE ABSENT', 'data/b671_narrow_log.txt'))
+    ok3 = bool(hq) and 'j₀ = 38' in hq[-1]
+    out.append(('H3', 'HELD' if ok3 else 'REFUTED', (hq[-1].strip() + ' ; ' + tie[-1].strip()) if hq and tie else '### LINE ABSENT',
+                'data/b671_epstein_control_narrowed.txt'))
+    out.append(('H4', 'HELD' if pl else 'REFUTED', pl[0].strip() if pl else '### LINE ABSENT', 'data/b671_narrow_plan.txt section 1'))
+    return out
+
+
+LH = ('*Appended 2026-10-16 by b671 beneath `W-ORD-EPSTEIN-BALL-WIDTH` (:14264), under `(R281)`(7) and the navigator’s answers on the landing '
+      'and on the two readings -- THE FINDING; THE ORDER OPEN, ITS TRIGGER RE-DATED:*')
+AH = ('### `W-ORD-MAP-ANGLE-FORM` -- THE MAP’S TIE TEST ON THE CERTIFIED ANGLE, ENTERED 2026-10-16, b671, on the navigator’s answer on the '
+      'two readings')
+KH = ('*Appended 2026-10-16 by b671 beneath the kernel item for P1 and P2 (:14266), under `(R281)`(7) -- THE KERNEL ITEM RE-DATED:*')
+
+
+def _finding():
+    return ('\n' + LH + ' Q0’s 163 points narrowed to half-width 10⁻²⁴: 146 on-line at σ = ½ by sign, 17 off-line by count, none unresolved '
+            '(relay data/b671_epstein_zeros_narrowed.json.gz, data/b671_narrow_log.txt). The b663 map run once on the narrowed balls, no '
+            'computation line changed: the control reproduced (j₀ = 31, the zero side below 0); at Q0 hQtie certifies 18 of 41 tie controls '
+            '(j = 24–41) and no j₀ is read (relay data/b671_epstein_control_narrowed.txt). The tie diagnostic (relay data/b671_tie_diagnostic.txt, '
+            'rows are tie controls): the 23 failed controls (j = 42–64) each INSTRUMENT -- the separation’s ball contains 0 and its radius crosses '
+            '2⁻²⁰, the control undecided by the instrument -- and none OBJECT (the ball wholly beneath the bar, |mid| + radius < 2⁻²⁰); the '
+            'largest radius-to-bar ratio 6.73·10¹³, at j = 64. **Two width figures.** (ii) FROM THE AMPLIFICATION: the tie test at j amplifies '
+            'the input width by 2^j through the transfer 6.1·10³, so the width that keeps every control to J_max = 64 beneath the bar is '
+            '2⁻²⁰ / (2⁶⁴ · 6.1·10³) ≈ 8.5·10⁻³⁰, with two decimal orders about 10⁻³¹ -- the figure this order carries. (i) LINEAR ESTIMATE, '
+            'the instrument’s present reading: 10⁻²⁴ / 6.73·10¹³ ≈ 1.5·10⁻³⁸, with two decimal orders 1.5·10⁻⁴⁰, from a radius that grows '
+            'faster than linearly past j ≈ 53. **A reading of the instrument:** past j ≈ 53 the radius grows five to a hundred times per j '
+            'against a doubling before; the phase at j is computed by repeated squaring of complex balls, whose radius blows up once 2^j '
+            'times the input width approaches the ball’s own scale, where the same angle multiplied by 2^j in real ball arithmetic would grow '
+            'by a factor of two per j and no more (`W-ORD-MAP-ANGLE-FORM`). **The H4 mis-estimate:** relay data/b667_h4_reading.txt’s '
+            'tolerance (a relative width near 10⁻¹⁸ through the transfer 6.1·10³) sized the range of j to 39, where hQtie asks 24 to 64; '
+            'measured at 10⁻²⁴, every j to 41 passes and every j from 42 fails. H1, H2 and H4 HELD, H3 REFUTED (relay data/b671_landing.txt). '
+            'This order stays open, and the control half of W-ORD-EPSTEIN-CERTIFY with it. **Trigger:** after `W-ORD-MAP-ANGLE-FORM`, the '
+            'width re-read from the angle form.\n')
+
+
+def _angle_form():
+    return ('\n' + AH + '\n\n**Items.** The map’s tie test (relay tools/b667_epstein_map_balls.py :331-:356) to amplify the certified angle '
+            'linearly in place of squaring the ball: the phase at j taken as the input angle multiplied by 2^j in real ball arithmetic, its '
+            'radius growing by a factor of two per j, where repeated squaring of complex balls blows up once 2^j times the input width '
+            'approaches the ball’s own scale (relay data/b671_tie_diagnostic.txt, j = 54–64).\n\n**Reason.** A change to a computation line '
+            'of the map, and so its own act with controls; `W-ORD-EPSTEIN-BALL-WIDTH` re-reads its width from the angle form after it.\n\n'
+            '**Trigger:** before the next narrowing act.\n')
+
+
+def _kernel_redated():
+    return ('\n' + KH + ' its data now the narrowed balls of relay data/b671_epstein_zeros_narrowed.json.gz in place of b667’s squares of '
+            'half-width 10⁻¹²: 163 rows, the 146 on-line ordinates at σ = ½ exactly, each certified by sign on an interval of half-width '
+            '10⁻²⁴, and the 17 off-line zeros each at count 1 in a square of half-width 10⁻²⁴ (both hashes in '
+            'data/b671_epstein_zeros_narrowed_hashes.txt); P2’s count stands on data/b667_epstein_counts.txt. A later act; the kernel '
+            'untouched at b671.\n')
+
+
+def landing(*a):
+    """Component 5: H1-H4 scored by printed line into data/b671_landing.txt; the three OPEN_TRAILS items through the guarded landing."""
+    dry = 'dry' in a
+    if 'b671 under (R281)(7), the navigator`s answer on the landing' not in rdn('b663_epstein_control.txt'):
+        sys.exit('### THE DATED LINE BENEATH data/b663_epstein_control.txt IS NOT IN PLACE -- NOTHING WRITTEN')
+    hy = _hyp()
+    L = ['b671 -- COMPONENT 5, (R281)(7): H1-H4 SCORED BY PRINTED LINE (%s); rows are hypotheses -- the verdict, the line, its bank.' % utc(), '']
+    for k, v, l, src in hy:
+        L += ['  %s %s -- %s' % (k, v, src), '      ' + l]
+    st = [v for _k, v, _l, _s in hy]
+    L += ['', '### ### **H1 %s ; H2 %s ; H3 %s ; H4 %s.**' % tuple(st)]
+    print(NL.join(L))
+    if st != ['HELD', 'HELD', 'REFUTED', 'HELD']:
+        sys.exit('### THE HYPOTHESES DO NOT READ AS THE NAVIGATOR`S ANSWER ON THE LANDING HAS THEM -- NOTHING WRITTEN')
+    if not dry:
+        put_txt('b671_landing.txt', L)
+    land([('OPEN_TRAILS.md', LH, _finding()), ('OPEN_TRAILS.md', AH, _angle_form()), ('OPEN_TRAILS.md', KH, _kernel_redated())],
+         'b671_landing.json', 'landing', entry=K.BALL_WIDTH,
+         check=[('OPEN_TRAILS.md', K.BALL_WIDTH, 'W-ORD-EPSTEIN-BALL-WIDTH'), ('OPEN_TRAILS.md', K.KERNEL_ITEM, 'THE KERNEL ITEM FOR P1 AND P2')],
+         dry=dry)
+
+
 ROUTES = {'c1': c1, 'answers': answers, 'plan': plan, 'commands': commands, 'kernels': kernels, 'defects': defects, 'root': root,
-          'root_arm': root_arm, 'table_final': table_final, 'gatebanks': gatebanks, 'progress': progress}
+          'root_arm': root_arm, 'table_final': table_final, 'gatebanks': gatebanks, 'progress': progress, 'landing': landing}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
