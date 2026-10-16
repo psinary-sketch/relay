@@ -59,7 +59,9 @@ Q0_ON_N, Q0_OFF_N = 146, 17
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm is a standing arm carried from b670's face (b670's own act arms
 # ### not carried). Each run at HEAD and counted before the face names it. Filled at Component 6.
-ACT_ARMS = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-SEQUENCE-ENTERED', 'G-CENSUS-ITEMS', 'G-PLAN-BEFORE-NUMBER',
+            'G-CONTROLS-FIRST', 'G-NARROWED-LIST', 'G-NARROW-LOG', 'G-CARRY-DIFF', 'G-MAP-DIFF', 'G-MAP-READ', 'G-HYPOTHESES-SCORED', 'G-LANDING',
+            'G-TIE-DIAGNOSTIC', 'G-B667-UNEDITED', 'G-OPEN-BRANCH-KEPT', 'G-R281-ENTERED')   # ### this act's arms over its own banks
 B670_ACT_ARMS = ('G-R280-ENTERED', 'G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-TEN-ACTS-CITED', 'G-DEFECTS-BY-KIND',
                  'G-SWEEP-BANKED', 'G-LICENSED-TABLE', 'G-CORRESPONDENCE-READ', 'G-CEILING-EQUAL', 'G-QUEUE-READ', 'G-STATE-LINE', 'G-METHODS-TABLE',
                  'G-ZFR-ONE-REQUEST', 'G-ITEMS-ENTERED', 'G-OPEN-BRANCH-KEPT', 'G-TECHNE-WITHHELD')

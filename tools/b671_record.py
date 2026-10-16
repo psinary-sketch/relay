@@ -638,9 +638,14 @@ ROOT_EXCLUDE = re.compile(r'^b671_(defects|scores|desk_notes|components|checks.*
 SHARED_APPENDED = ('data/b663_epstein_control.txt', 'data/b670_methods.txt')   # ### the dated lines of (R281)(7): named by this root, so shared
 
 
+# ### the navigator's answer on the large bank: the .gz holding CR LF pairs is left out of the root as b667's were, the chain reaching it by
+# ### sha256 through the LF hashes bank data/b671_large_banks.txt (W-ORD-ROOT-BINARY-BANK); the uncompressed file stays untracked and unnamed
+ROOT_BINARY = ('b671_narrow_run2_points.jsonl.gz', 'b671_narrow_run2_points.jsonl')
+
+
 def root_banks():
-    return sorted(['data/' + f for f in os.listdir(D) if f.startswith('b671_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f)]
-                  + list(SHARED_APPENDED))
+    return sorted(['data/' + f for f in os.listdir(D) if f.startswith('b671_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f)
+                   and f not in ROOT_BINARY] + list(SHARED_APPENDED))
 
 
 def root(*a):
@@ -959,9 +964,374 @@ def bessel(*a):
          entry=K.BESSEL_ORDER, check=[('OPEN_TRAILS.md', K.BESSEL_ORDER, 'W-ORD-BESSEL-BOUND-TIGHTEN')], dry='dry' in a)
 
 
+# ================================================================================ THE SCORES, (N1)-(N5) OF THE FERRY AND THE SEAT'S (S1)-(S3)
+# ### carried from b670_record.py :1381-:1764 by the Edit tool, every predicate re-written against (R281)'s expectations and this act's banks
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+SK = ('S1', 'S2', 'S3')
+SCORE_KEYS = NK + SK
+N5_RELAY_DATA = ('act_roots.txt', 'b670_closing_push_out.txt', 'b663_epstein_control.txt', 'b670_methods.txt')
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md')
+AUTHOR_IDS = ('psinary', 'hotmail', '@', 'orcid', '0009-0008', 'Seale', 'seale')
+B667_READ = ('data/b667_epstein_zeros_certified.json.gz', 'data/b667_epstein_counts.txt', 'data/b667_h4_reading.txt', 'data/b667_epstein_plan.txt',
+             'data/b667_certify_run2.txt', 'data/b667_large_banks.txt', 'data/b667_ball_obstruction.txt', 'tools/b667_epstein_certify.py',
+             'tools/b667_epstein_map_balls.py')
+
+
+def TRAIL_HEAD():
+    return ('### b671 — lane two, act ninety-eight, the research act under (R281): b670 at its weight; the sequence line; Q0’s points narrowed '
+            'to half-width 10⁻²⁴; the controls; the b663 control on the narrowed balls, H3 refuted')
+
+
+def _calls():
+    return jl('b671_author_answers.json').get('calls') or []
+
+
+def _ledger_adds():
+    out = []
+    for f in N5_PP:
+        old = _show(PP, K.PRE_PP, f) or ''
+        now = rd(os.path.join(PP, f))
+        out.append(now[len(old):] if now.startswith(old) else now)
+    return NL.join(out)
+
+
+def _first_commit(path):
+    """the first relay commit since the act began that touches `path`: (epoch, short hash), or None."""
+    l = [x for x in g(RELAY, 'log', '--reverse', '--format=%ct %h', K.PRE_RELAY + '..HEAD', '--', path).split(NL) if x.strip()]
+    return (int(l[0].split()[0]), l[0].split()[1]) if l else None
+
+
+def _n1():
+    cm = jl('b671_commands.json')
+    face = jl('b671_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    unmoved = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    loc = g(K.KE, 'rev-parse', '--short=7', K.OPEN_BRANCH).strip()
+    rem = g(K.KE, 'rev-parse', '--short=7', 'origin/' + K.OPEN_BRANCH).strip()
+    ok = bool(cm) and not cm.get('local_lean') and unmoved and loc == rem == K.OPEN_TIP
+    return ('HELD' if ok else 'REFUTED'), (
+        'commands of this act that run lean or lake on this host: %s (relay data/b671_commands.txt); every kernel`s main, tags, branches and '
+        'status as the face read them %s; %s at %s locally and %s at its remote-tracking ref' % (
+            cm.get('local_lean') if cm else '### UNREAD', unmoved, K.OPEN_BRANCH, loc, rem))
+
+
+def _n2():
+    p = rdn('b671_narrow_plan.txt')
+    tol = 'data/b667_h4_reading.txt :13-:14' in p and '1.6e-22' in p and 'w = 1e-24: two decimal orders below 1.6e-22' in p
+    real = '== 2. Λ_Q IS REAL ON σ = ½' in p and 'data/b667_certify_run2.txt :22-:28' in p
+    pc, sc_ = _first_commit('data/b671_narrow_plan.txt'), _first_commit('data/b671_narrow_run1.txt')
+    order = bool(pc and sc_ and pc[0] < sc_[0])
+    ok = tol and real and order
+    return ('HELD' if ok else 'REFUTED'), (
+        'the plan (relay data/b671_narrow_plan.txt) names the map`s tolerance with its source line (data/b667_h4_reading.txt :13-:14, 1.6e-22) '
+        'and prints w = 1e-24 two decimal orders below it %s; Λ_Q derived real on σ = ½ from V1`s functional equation (data/b667_certify_run2.txt '
+        ':22-:28) %s; the plan committed (%s) before the first sign was read (run 1, %s) %s' % (
+            tol, real, pc[1] if pc else '### NONE', sc_[1] if sc_ else '### NONE', order))
+
+
+def _n3():
+    out, why = True, []
+    for name in ('b671_narrow_run1.txt', 'b671_narrow_run1b.txt'):
+        t = rdn(name)
+        c1 = re.findall(r"C1 n = \d : NARROWED at depth \d+ ; \[[^\]]*\] ; the call`s ball inside it (\w+)", t)
+        c2 = 'C2 ON idx 0 shifted by 1e-11 : NO SIGN CHANGE' in t and re.search(r'C2 OFF idx 0 shifted by 1e-9 in σ : count 0 ', t) is not None
+        on = re.search(r'^  ON \d+ depth ', t, re.M)
+        last_c = max([m.start() for m in re.finditer(r'^  (C2 OFF idx 0 shifted|C1 n = 3 :)', t, re.M)] or [10 ** 9])
+        ok_ = c1 == ['True', 'True', 'True'] and c2 and on is not None and last_c < on.start()
+        why.append('%s: C1 %s, C2 %s, before the first Q0 point %s' % (name, c1, c2, ok_))
+        out = out and ok_
+    lj = jl('b671_narrow_log.json').get('rows') or []
+    on_rows = [r for r in lj if r['kind'] == 'ON']
+    certified = sum(1 for r in on_rows if r.get('ends_certified') and sorted(r.get('signs') or []) == [-1, 1])
+    ok = out and len(on_rows) == 146 and certified == 146
+    return ('HELD' if ok else 'REFUTED'), (
+        '%s; on-line points whose two final endpoint balls exclude 0 with opposite signs: %d of %d (relay data/b671_narrow_log.txt)' % (
+            '; '.join(why), certified, len(on_rows)))
+
+
+def _n4():
+    md, ctl, mj = rdn('b671_map_narrowed_diff.txt'), rdn('b671_epstein_control_narrowed.txt'), jl('b671_map_reading.json')
+    import hashlib as _h
+    sha_ = _h.sha256(open(os.path.join(ROOT, 'tools', 'b667_epstein_map_balls.py'), 'rb').read()).hexdigest()
+    diff_ok = 'NO COMPUTATION LINE CHANGED' in md and ('sha256 %s' % sha_) in md and sha_ in ctl
+    printed = bool(mj.get('hqtie_controls')) and re.search(r'controls \d+ of \d+', ctl) is not None
+    td = rdn('b671_tie_diagnostic_diff.txt')
+    diag_ok = 'lines added 1, lines removed 0' in td
+    ok = diff_ok and printed and diag_ok
+    return ('HELD' if ok else 'REFUTED'), (
+        'the map`s diff (relay data/b671_map_narrowed_diff.txt): the map imported unedited at sha256 %s…, no computation line changed %s; its '
+        'hQtie count on the narrowed balls printed whatever it reads: %s at Q0, the control %s (relay data/b671_epstein_control_narrowed.txt, '
+        'data/b671_map_reading.json); the diagnostic run`s diff one added print line %s (relay data/b671_tie_diagnostic_diff.txt)' % (
+            sha_[:16], diff_ok, mj.get('hqtie_controls'), mj.get('hqtie_control'), diag_ok))
+
+
+def _n5():
+    face = jl('b671_kernels_face.json').get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    others_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b671_|audit_b671_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in N5_RELAY_DATA))]
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    import b671_checks as CH
+    new_arms = sorted(set(a[0] for a in CH.ARMS) - set(CH.STANDING) - set(K.ACT_ARMS))
+    b667_ed = [p for p in B667_READ if (_show(RELAY, K.PRE_RELAY, p) or '') != rd(os.path.join(ROOT, *p.split('/')))]
+    pat = [n for n in ('patent', 'Patent', 'PATENT') if n in _ledger_adds()]
+    ids = [w for w in AUTHOR_IDS if w in ''.join(rdn(f) for f in ('b671_tie_diagnostic.txt', 'b671_map_reading.json'))]
+    ok = others_ok and not pp_beyond and not kinds_beyond and not differ and not new_arms and not b667_ed and not pat
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unsubmitted); no kernel main written, every kernel as the face read it %s; '
+            'standing arms added: %s (the act`s arms over its own banks %d); sealed tools not agreeing %s; PLACE-papers beyond FINDINGS and '
+            'OPEN_TRAILS (no keystone): %s; relay files of a kind beyond the banks, the tools, the root list, b670`s push-out bank and the two '
+            'dated lines: %s; b667`s banks and tools the act reads, edited: %s; "patent" in the ledger lines: %s; outbound requests: the seat`s '
+            'plain git reads and pushes to github.com alone, no search made, so no identifier of the author placed in a request' % (
+                K.DRAFT, others_ok, new_arms or 'NONE', len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE', kinds_beyond or 'NONE',
+                b667_ed or 'NONE', pat or 'NONE'))
+
+
+def scores(*a):
+    TF, RA = jl('b671_table_final.json'), jl('b671_root_arm.json')
+    _r, _n, sh = seal_hashes()
+    S = {
+        'N1': _n1(), 'N2': _n2(), 'N3': _n3(), 'N4': _n4(), 'N5': _n5(),
+        'S1': (('HELD' if not TF.get('gone') and not TF.get('grade_moved') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s, grade moved %s' % (
+                   len(TF.get('moved') or []), len(TF.get('gone') or []), len(TF.get('added') or []), len(TF.get('grade_moved') or []))),
+        'S2': (('HELD' if RA.get('root_recomputed') == RA.get('root') and RA.get('root_copy') != RA.get('root') and not RA.get('late') else 'REFUTED')
+               if RA else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally'),
+        'S3': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else 'REFUTED', 'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    put_json('b671_scores.json', dict((k2, list(v)) for k2, v in S.items()))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:500]))
+
+
+NEXT_LINE = ('b672 the Correspondence generator in the re-cut slot, its ruling then; b673 V4 and V5 on chi-li-b669 -- `(R281)`(10); '
+             '`W-ORD-MAP-ANGLE-FORM` before the next narrowing act')
+
+
+def _sv(S, k):
+    return read_score_row(k, S.get(k) or ['?', ''])[1] if S.get(k) else '?'
+
+
+def _figs():
+    lj, mj, hj = jl('b671_narrow_log.json'), jl('b671_map_reading.json'), jl('b671_hypotheses.json')
+    rows = lj.get('rows') or []
+    return dict(n=len(rows), on=sum(1 for r in rows if r['kind'] == 'ON' and r['reading'] == 'NARROWED'),
+                off=sum(1 for r in rows if r['kind'] == 'OFF' and r['reading'] == 'NARROWED'),
+                u=sum(1 for r in rows if r['reading'] != 'NARROWED'), tie=mj.get('hqtie_controls', '?'),
+                ins=(re.findall(r'INSTRUMENT (\d+)', ' '.join(mj.get('tie_words') or [])) or ['?'])[0],
+                held=[k for k in ('H1', 'H2', 'H3', 'H4') if (hj.get(k) or [''])[0] == 'HELD'],
+                ref=[k for k in ('H1', 'H2', 'H3', 'H4') if (hj.get(k) or [''])[0] == 'REFUTED'])
+
+
+def _num(n):
+    return {0: 'none', 1: 'one'}.get(n, str(n))
+
+
+def _title():
+    f = _figs()
+    return ('## Q0’s %s points narrowed to half-width 10⁻²⁴: %s on-line at σ = ½ by sign, %s off-line by count, %s unresolved; the b663 control '
+            'on the narrowed balls: hQtie %s, no j₀ read, the %s failed controls INSTRUMENT; %s held, %s refuted' % (
+                f['n'], f['on'], f['off'], _num(f['u']), f['tie'], f['ins'], ', '.join(f['held']) or 'none', ', '.join(f['ref']) or 'none'))
+
+
+def _finding_text():
+    S, rl, J = jl('b671_scores.json'), jl('b671_record_lines.json'), jl('b671_act_root.json')
+    lj, bj = jl('b671_landing.json'), jl('b671_bessel_lines.json')
+    f = _figs()
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b671_author_answers.txt'), re.M))
+    ls = (rl.get('lines') or []) + [{}] * 4
+    ll = [x.get('line') for x in lj.get('lines') or []] + ['?'] * 3
+    bl = [x.get('line') for x in bj.get('lines') or []] + ['?'] * 2
+    cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+    mids = re.findall(r'ANSWER CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+    e = ['', _title(), '',
+         '*Filed at b671 on the author’s ruling `(R281)` and the navigator’s answers (%d questions in %d calls, and the pasted answers). Banks: '
+         'relay `data/b671_narrow_plan.txt`, `data/b671_narrow_log.txt`, `data/b671_epstein_zeros_narrowed.json.gz` with '
+         '`data/b671_epstein_zeros_narrowed_hashes.txt`, `data/b671_epstein_control_narrowed.txt`, `data/b671_tie_diagnostic.txt`, '
+         '`data/b671_landing.txt`, `data/b671_act_root.txt`.*' % (n_ans, len(_calls())), '',
+         '**The citation check** (the gate step from b662): %s cites checked at HEAD, %s OK, %s missed; the mid-act checks of `(R278)`(4), %d '
+         'prints, the last %s of %s OK.' % (cc.group(1) if cc else '?', cc.group(2) if cc else '?', cc.group(3) if cc else '?', len(mids),
+                                           mids[-1][1] if mids else '?', mids[-1][0] if mids else '?'), '',
+         '**The record lines** (`(R281)`(1), (2), (8)): b670 at its weight (FINDINGS :%s); the sequence line and its five triggers (OPEN_TRAILS '
+         ':%s); the census items with `W-ORD-ONE-COPY` (:%s); `W-ORD-BESSEL-BOUND-TIGHTEN` (:%s).' % (
+             ls[0].get('line'), ls[1].get('line'), ls[2].get('line'), ls[3].get('line')), '',
+         '**The plan** (`(R281)`(3)-(5)): the map’s tolerance read from its source line, a half-width at or below 1.6·10⁻²² through the b667 '
+         'transfer 6.1·10³, and w = 10⁻²⁴ fixed two decimal orders beneath it; Λ_Q derived real on σ = ½ from V1’s functional equation and the '
+         'real coefficients before any sign was read; the Bessel bar lifted to 2⁻²⁰⁰ on the author’s word, its consumer written beside it.', '',
+         '**The narrowing** (`(R281)`(4)): %s points, %s on-line narrowed at σ = ½ by sign on Λ_Q’s real values, each with two endpoint balls '
+         'excluding 0 at opposite signs; %s off-line narrowed by the argument-principle count, the split lines offset by a third of the '
+         'depth’s half-width where a quarter could not be read; %s unresolved; four runs and the bank step, the large points file gzipped '
+         'under its own name with its hashes.' % (f['n'], f['on'], f['off'], _num(f['u'])), '',
+         '**The controls** (`(R281)`(5)): C1, ζ’s three lowest zeros on Arb’s Hardy function, narrowed with Arb’s own ordinates inside; C2, a '
+         'shifted on-line interval printing NO SIGN CHANGE and a shifted off-line square counting 0 -- both read as fixed before the first Q0 '
+         'point, and again under the lifted bar.', '',
+         '**The map** (`(R281)`(6) H3): b667’s map run once on the narrowed balls, no computation line changed: the control reproduced (j₀ = 31, '
+         'the zero side below 0); at Q0 hQtie certifies %s tie controls and no j₀ is read. The diagnostic run, its prints alone changed, reads '
+         'the %s failed controls (j = 42–64) INSTRUMENT, each ball containing 0 with its radius across 2⁻²⁰, and none OBJECT.' % (
+             f['tie'], f['ins']), '',
+         '**The landing** (`(R281)`(7)): H3 refuted, so no discharge; the caveat beneath relay data/b663_epstein_control.txt names the count; '
+         '`W-ORD-EPSTEIN-BALL-WIDTH` open with its width from the amplification, about 10⁻³¹, and the linear estimate beside it (OPEN_TRAILS '
+         ':%s); `W-ORD-MAP-ANGLE-FORM` entered (:%s); the kernel item re-dated (:%s); the Bessel bar and the measured cost beneath its order '
+         '(:%s, :%s); the methods table’s two rows READY at their second act.' % (ll[0], ll[1], ll[2], bl[0], bl[1]), '',
+         '**The root.** b671 over %d repositories, %d tags and %d banks, the last step of the act’s banks; its chain read at commit inside the suite.' % (
+             len((J.get('reads') or {}).get('heads') or []), len((J.get('reads') or {}).get('tags') or []), len((J.get('reads') or {}).get('banks') or [])), '',
+         '**The scores.** ' + ', '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.', '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): this act re-reads b667’s squares, b663’s control and b667’s H4 reading; it is '
+         're-read by the act of `W-ORD-MAP-ANGLE-FORM`, which changes the map’s tie test and re-reads the width, and by the kernel act that '
+         'restates P1 and P2 on certified data. It strengthens the programme’s offering of a corpus a reader can audit: the narrowed balls and '
+         'the control’s count stand with the banks and the lines they are read from, and the instrument’s limit is named where it was met.', '',
+         '**Next.** %s.' % NEXT_LINE, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero; this act wrote no kernel byte.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) the methods table’s two rows read READY at b671 on defects (d) and (f) as their failure modes (relay data/b670_methods.txt, '
+              'the dated line); (2) a points file between 50,000,000 and 52,428,800 bytes stops the size rule for the author’s word, where 50 MB '
+              'and GitHub’s written 50 MiB differ; (3) the diagnostic run’s words added from its own print lines, nothing re-run')
+
+
+def _trail_text():
+    S, fj, rl, J = (jl(n_) for n_ in ('b671_scores.json', 'b671_findings.json', 'b671_record_lines.json', 'b671_act_root.json'))
+    lj, bj = jl('b671_landing.json'), jl('b671_bessel_lines.json')
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b671_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    ls = (rl.get('lines') or []) + [{}]
+    f = _figs()
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R281) ratified.** (1) b670 at its weight. (2) The sequence line and its five triggers. (3)-(5) The plan, the narrowing and the '
+             'controls. (6) The hypotheses. (7) The landing. (8) The census items. (9) The draft held at v5, no kernel byte. (10) The acts after.', '',
+             '**Entered:** FINDINGS.md:%s (b670’s weight), :%s (the entry); OPEN_TRAILS.md:%s (the sequence line, the census items, the Bessel '
+             'order), :%s (the landing), :%s (the Bessel lines); this record.' % (
+                 ls[0].get('line'), fj.get('entry_line'), ', :'.join(str(x.get('line')) for x in (rl.get('lines') or [])[1:]),
+                 ', :'.join(str(x.get('line')) for x in lj.get('lines') or []), ', :'.join(str(x.get('line')) for x in bj.get('lines') or [])), '',
+             '**Act root:** b671 `%s` (previous `%s`, b670’s; relay data/act_roots.txt), computed after the last bank it names, every one of them '
+             'LF; the binary bank data/b671_narrow_run2_points.jsonl.gz left out and reached through data/b671_large_banks.txt '
+             '(`W-ORD-ROOT-BINARY-BANK`).' % (J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d questions in %d calls (relay data/b671_author_answers.txt), and the navigator’s pasted answers; none '
+             'after the root.' % (n_ans, len(_calls())), '',
+             '**The narrowing and the map:** %s points at half-width 10⁻²⁴, %s on-line by sign, %s off-line by count, %s unresolved; hQtie at Q0 %s, '
+             'no j₀, the %s failed controls INSTRUMENT.' % (f['n'], f['on'], f['off'], _num(f['u']), f['tie'], f['ins']), '',
+             '**The open orders:** `W-ORD-EPSTEIN-BALL-WIDTH` and the control half of `W-ORD-EPSTEIN-CERTIFY`, after `W-ORD-MAP-ANGLE-FORM`; '
+             '`W-ORD-MAP-ANGLE-FORM`, before the next narrowing act; the converse on %s at %s, kept, V4 and V5 at b673.' % (K.OPEN_BRANCH, K.OPEN_TIP), '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b671_defects.txt): %s.' % ('; '.join(_defect_short()) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.**', '',
+             '**Next:** %s.' % NEXT_LINE, '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S = jl('b671_scores.json')
+    L = ['=' * 104, 'b671 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+    L += [''] + rdn('b671_landing.txt').rstrip(NL).split(NL) + [''] + rdn('b671_defects.txt').rstrip(NL).split(NL)
+    put_txt('b671_desk_notes.txt', L)
+
+
+def components(*a):
+    S, fj, tj, rl, J = (jl(n_) for n_ in ('b671_scores.json', 'b671_findings.json', 'b671_trail.json', 'b671_record_lines.json', 'b671_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    ls = (rl.get('lines') or []) + [{}]
+    f = _figs()
+    L = ['b671 -- THE COMPONENTS, BANKED UNDER (R281).', '',
+         '### COMPONENT 0 : the citation check (data/b671_citation_check.txt), step zero (data/b671_ferry.txt, data/b671_stepzero.txt, '
+         'data/b671_tests_stepzero.txt, data/b671_readfirst.txt) ; push-out relay %s' % K.STEPZERO,
+         '### COMPONENT 1 : b670`s weight FINDINGS :%s ; the sequence line, the census items, the Bessel order (data/b671_rules.txt)' % ls[0].get('line'),
+         '### COMPONENT 2 : the plan (data/b671_narrow_plan.txt) ; N2 %s' % S['N2'][0],
+         '### COMPONENT 3 : the narrowing (data/b671_narrow_log.txt ; data/b671_epstein_zeros_narrowed.json.gz) %s points, ON %s, OFF %s, unresolved %s ; '
+         'N3 %s' % (f['n'], f['on'], f['off'], f['u'], S['N3'][0]),
+         '### COMPONENT 4 : the map on the narrowed balls (data/b671_epstein_control_narrowed.txt) hQtie %s ; the tie diagnostic '
+         '(data/b671_tie_diagnostic.txt) INSTRUMENT %s ; N4 %s' % (f['tie'], f['ins'], S['N4'][0]),
+         '### COMPONENT 5 : the landing (data/b671_landing.txt ; OPEN_TRAILS :14396-:14410 ; data/b663_epstein_control.txt and '
+         'data/b670_methods.txt, one dated line each) ; H %s held, %s refuted' % (','.join(f['held']), ','.join(f['ref'])),
+         '### COMPONENT 6 : the dry-run step (data/b671_reg_gate.txt), the seal (data/b671_seal_hashes.json), the suite ; S3 %s' % S['S3'][0],
+         '### COMPONENT 7 : the root %s ; FINDINGS :%s ; OPEN_TRAILS :%s ; N1 %s ; N5 %s' % (
+             (J.get('root') or '')[:16], fj.get('entry_line'), tj.get('line'), S['N1'][0], S['N5'][0])]
+    put_txt('b671_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def _land_one(path, head, e, bank, extra):
+    if odd_lines(e):
+        sys.exit('### ODD BACKTICKS -- NOTHING WRITTEN: %s' % odd_lines(e)[:3])
+    guard_absent(path, head)
+    r = append_to(path, e)
+    ln = read_head(path, head)
+    put_json(bank, dict(extra, line=ln, head=head, append=r))
+    return ln
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = conv(e)
+    dry = 'dry' in a
+    cells, fired = screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(FIND, t, e, 'b671_findings.json', dict(title=t))
+    j = jl('b671_findings.json')
+    j['entry_line'] = ln
+    put_json('b671_findings.json', j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = conv(_trail_text())
+    dry = 'dry' in a
+    cells, fired = screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells)
+        return
+    if cells or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(OT, TRAIL_HEAD(), e, 'b671_trail.json', {})
+    print('  OPEN_TRAILS record :%s' % ln)
+
+
+def _face_needles(face_text, which):
+    m = re.search(r'^### THE DRY-RUN NEEDLES -- %s: (.*)$' % which, face_text, re.M)
+    return re.findall(r'"([^"]+)"', m.group(1)) if m else []
+
+
+def drycheck(*a):
+    """(R267)(2), STANDING FROM b657: the FINDINGS entry and the trail record composed as the record tool composes them -- under stand-ins
+    for the banks not yet written -- converted by conv and run through the screens their landing runs, the needles the face names read in
+    each; prints DRY-RUN STEP : CLEAN and exits 0 only when both screens are quiet and every needle is found. Writes no bank."""
+    face = rd(a[0] if a and not a[0] == 'standin' else FACE)
+    ok = True
+    for which, (head, text) in (('ENTRY', _finding_text()), ('TRAIL', (TRAIL_HEAD(), _trail_text()))):
+        t = conv(text)
+        print('  %s (the screens):' % which)
+        cells, fired = screens([('FINDINGS.md' if which == 'ENTRY' else 'OPEN_TRAILS.md', head, t)], 'dry_' + which.lower(), True)
+        nd = _face_needles(face, which)
+        miss = [n for n in nd if n not in t]
+        clean = not cells and not fired and nd and not miss
+        ok = ok and clean
+        print('  %s : table cells %s ; screens %s ; the face`s needles %d, found %d%s ; %s' % (
+            which, cells or 'NONE', 'FIRED' if fired else 'QUIET', len(nd), len(nd) - len(miss), (' -- missing %s' % miss) if miss else '',
+            'CLEAN' if clean else 'NOT CLEAN'))
+    print('  ### ### **DRY-RUN STEP : %s**' % ('CLEAN' if ok else 'NOT CLEAN'))
+    if not ok:
+        sys.exit(1)
+
+
 ROUTES = {'c1': c1, 'answers': answers, 'plan': plan, 'commands': commands, 'kernels': kernels, 'defects': defects, 'root': root,
           'root_arm': root_arm, 'table_final': table_final, 'gatebanks': gatebanks, 'progress': progress, 'landing': landing,
-          'hypotheses': hypotheses, 'mapread': mapread, 'bessel': bessel}
+          'hypotheses': hypotheses, 'mapread': mapread, 'bessel': bessel, 'scores': scores, 'desk': desk, 'components': components,
+          'findings': findings, 'trail': trail, 'drycheck': drycheck}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
