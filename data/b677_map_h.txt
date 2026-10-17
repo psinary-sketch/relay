@@ -1,0 +1,12 @@
+b677 -- THE HYPOTHESES OF (R287)(4), READ ON THE RUN (data/b677_map_h.txt) (2026-10-17T15:52:50Z): rows are the hypotheses with their reading and the rows that decide them.
+
+  H1 REFUTED -- of the 46 controls b671 read INSTRUMENT (data/b671_tie_diagnostic.txt :66-:88, :107-:129), 22 read PASS in the angle form and 24 do not (200 bits j 53, 200 bits j 54, 200 bits j 55 ...); each still failing read by the b671 rule: INSTRUMENT 24, OBJECT 0, NEITHER 0 (data/b677_map.txt).
+  H2 REFUTED -- the residual radius at j = 64: 200 bits 2.051e-03, 400 bits 2.048e-03 against the bar 9.537e-07; h_tol(64) 3.162e-28 against the banked width 1e-24 (data/b677_tolerance.txt).
+  H3 REFUTED -- as data/b663_epstein_plan.txt :131 states it: the map reads HYP-UNVERIFIED(hQtie); hQtie controls 29 of 41 -- ON A FAILING INSTRUMENT: no object reading taken ((R287)(5)) (data/b677_map_run.txt).
+  H4 NOT SCORABLE -- as data/b667_epstein_plan.txt :124-:125 states it: no j₀ read by the map (hQtie 29 of 41), the plan`s own criterion
+  H5 HELD -- P3 at j = 38 and 64 reads PASS at h_tol/3 and FAIL at 3·h_tol: j 38 PASS / INSTRUMENT; j 64 PASS / INSTRUMENT; h_tol(38) 3.162e-20 beside b667`s 1e-18, ratio 3.162e-02 (data/b677_tolerance.txt).
+
+  THE LABELLED READING (the navigator`s answer on the run; an instrument-side row, not an object finding): hQtie taken from coeffs_exist (PowerLimit.lean :686-:704) and the orbit identity (relay data/b677_map_plan.txt section 4), not from balls -- an instrument-side reading row, not an object finding (the navigator`s answer on the run) -- j₀ = 38; the zero side at j₀ = 38 [-7.570971096e+39 +/- 3.96e+29], BELOW 0
+  THE LOCATED FAILURE: the first failing j at Q0 53; the price (plan section 6) the last passing j 47 (upper) to 56 (lower) and the radius at j = 64 7.7e-02 to 1.3e-04.
+
+### ### **H1 REFUTED ; H2 REFUTED ; H3 REFUTED ; H4 NOT SCORABLE ; H5 HELD.**

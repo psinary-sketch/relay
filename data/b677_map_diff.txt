@@ -1,0 +1,856 @@
+b677 -- THE NEW TOOL`S DIFF AGAINST THE b667 MAP (data/b677_map_diff.txt) (2026-10-17T15:51:53Z): tools/b667_epstein_map_balls.py sha256 011bbe47d528eb170ffcbca6f1ef500d09a517933071fe2313e5719072afe275 (left as it is) ; tools/b677_epstein_map_angle.py sha256 b21f6926056461a39cd19299ca23433ce3819748bb7739491c765ecbcc52176f ; added 539, removed 214 lines.
+
+### N3 READ ON THE TEXT: every `**` left in the new tool, each hand-read (exact integers and exact powers of two only):
+  :156 minw = arb(2) ** -I4_MINW_EXP
+  :376 bar = arb(2) ** BAR_EXP
+  :379 e = 2 ** (j + 1)
+  :432 base = (3 * a0 * z3 * 128).log() + D * arb(8).log() + 2 * B.log() + arb(2) ** (D + 1) * (aw / M).log()
+  :435 ex = 2 ** (j + 1) - 2 ** (D + 1)
+  :490 E = 2 ** (j0 + 1)
+  :633 bar = 2.0 ** BAR_EXP
+  :663 L.append('### ### **%s at %d bits : CONTROLS %d ; PASS %d (j %s) ; INSTRUMENT %d ; OBJECT %d ; NEITHER %d ; of b671`s INSTRUMENT %d now PASS %d ; '
+  :664 'the first failing j %s ; the radius at j = 64 %s.**' % (
+  :669 L.append('### ### **ROWS %d (the b671 list: 41 + 41 + 41) ; NONE DROPPED %s.**' % (len(rows), len(rows) == 123))
+  :780 bar = 2.0 ** BAR_EXP
+  :821 '### ### **P1 WIDTHS %d ; h_tol(38) %s ; h_tol(64) %s ; P2 SHIFT 1e-12 FIRES %s ; P2 QUARTER-RADIUS SHIFT AS UNPLANTED %s ; P3 %s ; %d s.**' % (
+  :838 bar = 2.0 ** BAR_EXP
+  :878 '### ### **H1 %s ; H2 %s ; H3 %s ; H4 %s ; H5 %s.**' % ('HELD' if h1 else 'REFUTED', 'HELD' if h2 else 'REFUTED', 'HELD' if h3 else 'REFUTED',
+  :897 '### N3 READ ON THE TEXT: every `**` left in the new tool, each hand-read (exact integers and exact powers of two only):']
+### the repeated-squaring loops (`p = p * p`, `[p * p for`) left: NONE
+
+### THE DIFF, WHOLE:
+--- tools/b667_epstein_map_balls.py
++++ tools/b677_epstein_map_angle.py
+@@ -2,12 +2,14 @@
+-"""b667_epstein_map_balls.py -- THE b663 CONTROL RE-RUN ON THE BALLS: THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, BOUND TO
+-zeroSide_neg_at_rate_cfg (SIDE-explicit-formula, Schema/RateIndexCfg.lean :135-:148) AT q0Config, under (R277)(5) H4.
+-
+-### Carried by the Write tool from tools/b663_epstein_map.py with the decimal literals replaced by the balls and no computation line
+-### changed: q0_list reads the certified balls (relay data/b667_epstein_zeros_certified.json, rows ON and OFF, each with its half-width h)
+-### in place of b326's doubles -- an on-line ordinate as arb(γ, h), an off-line zero as the ball strings '[σ +/- h]', '[t +/- h]' (arb() of
+-### either is the ball, so every line that reads a point reads its ball); the header lines and the bank's name are this act's; the diff
+-### against tools/b663_epstein_map.py is banked (relay data/b667_map_balls_diff.txt).
+-### Every zero of Q0 enters as its CERTIFIED BALL (b667: count 1 in its square by the argument principle); a row whose count is not 1 stops
+-### the map. B1 is a named READ premise of this computation, not a kernel lemma (b663's plan, section 8), now B1 on the kernel lemma (b665).
+-### THE CONTROL (b663's): the same cell routine run first on b661's Z₁(0.8, 29.6), expected to reproduce j₀ = 31 and the zero side below 0.
+-### Usage: `python tools/b667_epstein_map_balls.py` -- banks data/b667_epstein_control_balls.txt and .json. No lean; no kernel file read.
++"""b677_epstein_map_angle.py -- THE DETECTION MAP IN THE ANGLE FORM OVER THE NARROWED BALLS: THE RATE INDEX AND THE ZERO SIDE AT THE Q0
++CONFIGURATION, BOUND TO zeroSide_neg_at_rate_cfg (SIDE-explicit-formula, Schema/RateIndexCfg.lean :135-:148) AT q0Config, under (R287)(4)
++and the navigator's answer on the run (option 2).
++
++### Written whole by the Write tool from tools/b667_epstein_map_balls.py (left as it is): its computation lines kept, and every power taken
++### in the angle form, zⁿ = exp(n·log z) with log z once per ball about an exact point at its midpoint (relay data/b677_map_plan.txt
++### section 3) -- the phase at j is exp(2^(j+1)·log us) in place of us squared j+1 times, and the zero side's (ĝ/M)^(2^(j₀+1)) likewise.
++### The diff against the b667 map is banked (relay data/b677_map_diff.txt, `diff`).
++### Added, each named in the plan: the per-tie row (section 5); the plants P1 width, P2 shift, P3 confirmation (section 7); and, on the
++### navigator's answer, the labelled reading -- hrate and the zero side computed past the tie controls with hQtie taken from coeffs_exist
++### (PowerLimit.lean :686-:704) and the orbit identity (plan section 4), banked as an instrument-side row, not an object finding.
++### The balls: relay data/b671_epstein_zeros_narrowed.json.gz (h = 1e-24). Routes, each one foreground part under 600 s:
++###   part1 -> data/b677_map.txt (.json) and data/b677_map_run.txt ; part2 -> data/b677_tolerance_p1.json ; part3 -> data/b677_tolerance.txt
++###   (.json) ; hyp -> data/b677_map_h.txt (.json) ; diff -> data/b677_map_diff.txt. No lean; no kernel file read.
+@@ -15,0 +18 @@
++import difflib
+@@ -16,0 +20 @@
++import hashlib
+@@ -18,0 +23 @@
++import math
+@@ -19,0 +25 @@
++import re
+@@ -32 +38 @@
+-Q0_CERT = 'b667_epstein_zeros_certified.json'              # ### the balls (b667 Component 3) -- in place of the decimal literals
++Q0_CERT = 'b671_epstein_zeros_narrowed.json'               # ### the narrowed balls (b671), read with '.gz' appended, as b671's wrapper read them
+@@ -36,0 +43,10 @@
++BAR_EXP = -20                                              # ### the control's bar 2^-20 (the b667 map :349)
++WIDTHS = ['1e-%d' % k for k in range(16, 35)]              # ### P1: the planted half-widths 1e-16 ... 1e-24 (as banked) ... 1e-34 (plan section 7;
++                                                           # ### the grid widened above 1e-24 after part 2's first run, which could not read h_tol(38))
++SHIFT = '1e-12'                                            # ### P2: the shift of one tie point's phase angle (plan section 7)
++SHIFT_AT = 1                                               # ### P2: the tie point shifted, 1 − conj ρ
++H4_J0, B667_TOL = 38, 1e-18                                # ### H4's j₀ (data/b667_epstein_plan.txt :125) ; b667's estimate (data/b667_h4_reading.txt :14)
++PRICE = dict(upper=dict(c=2.092e-21, rad64=7.720e-02, last_pass=47, h_need=1.24e-29),
++             lower=dict(c=3.606e-24, rad64=1.330e-04, last_pass=56, h_need=7.17e-27))   # ### the plan's price (data/b677_map_plan.txt section 6)
++B671_WIDTH = (('(ii) FROM THE AMPLIFICATION', '8.5e-30, with two decimal orders about 1e-31'),
++              ('(i) LINEAR ESTIMATE', '1.5e-38, with two decimal orders 1.5e-40'))   # ### OPEN_TRAILS :14396, left beside the measurement
+@@ -39,0 +56 @@
++B667_MAP = os.path.join(ROOT, 'tools', 'b667_epstein_map_balls.py')
+@@ -43,0 +61 @@
++TALLY = dict(angle=0, square_by_product=0)
+@@ -55 +73,30 @@
+-# ================================================================================ THE BASE: s, ĝ0, ∫|s''''|
++def utc():
++    return time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
++
++
++def sha(p):
++    return hashlib.sha256(open(p, 'rb').read()).hexdigest()
++
++
++# ================================================================================ THE ANGLE FORM (plan section 3)
++def lg(z):
++    """log z once per ball, about the exact point at its midpoint: log z̃ + log(z/z̃), so the ball of the logarithm sits away from the cut."""
++    zt = acb(z.mid()) if isinstance(z, acb) else arb(z.mid())
++    return zt.log() + (z / zt).log()
++
++
++def pw(z, n):
++    """zⁿ = exp(n·log z), never repeated multiplication. A square of a ball that holds 0 (where no logarithm is taken) is the one product
++    z·z, counted in TALLY and printed; any other power of a ball holding 0 stops the map."""
++    if n == 0:
++        return acb(1) if isinstance(z, acb) else arb(1)
++    if z.contains(0):
++        if n == 2:
++            TALLY['square_by_product'] += 1
++            return z * z
++        sys.exit('### A POWER %d OF A BALL HOLDING 0 -- THE MAP STOPS (%s)' % (n, b(z)))
++    TALLY['angle'] += 1
++    return (n * lg(z)).exp()
++
++
++# ================================================================================ THE BASE: s, ĝ0, ∫|s''''| (the b667 map :55-:129)
+@@ -82,2 +129 @@
+-    TwoPropertyWindow.lean :56-:57): g0 even, 1 on [-ℓ/2, ℓ/2], s(2(ℓ-|u|)/ℓ) on the ramps; = 2∫_0^ℓ g0 cos(zu) du = ℓ (2 sin(w/2)/w + R(w)),
+-    w = zℓ."""
++    TwoPropertyWindow.lean :56-:57): = ℓ (2 sin(w/2)/w + R(w)), w = zℓ."""
+@@ -103,3 +149 @@
+-    """I4 = ∫_0^1 |s''''| = 2 ∫_0^{1/2} |s''''| (s''''(1-x) = -s''''(x)). On [0, δ0] a Cauchy bound (radius x/2; increasing in x there);
+-    on [δ0, 1/2] pieces where s'''' keeps its sign contribute |s'''(b) - s'''(a)| exactly, pieces bisected to 2^-120 where it does not
+-    contribute at most their width times the ball's sup. Returns (lower, upper) of I4."""
++    """I4 = ∫_0^1 |s''''| = 2 ∫_0^{1/2} |s''''| (the b667 map :102-:124); the Cauchy bound's x⁴ in the angle form."""
+@@ -107 +151 @@
+-    cb = x * 24 * 16 / x ** 4 * (-(arb(2) / (3 * x))).exp() / ((-1 / (1 - arb(1.5) * x)).exp() - (-(arb(2) / (3 * x))).exp())
++    cb = x * 24 * 16 / pw(x, 4) * (-(arb(2) / (3 * x))).exp() / ((-1 / (1 - arb(1.5) * x)).exp() - (-(arb(2) / (3 * x))).exp())
+@@ -128 +171,0 @@
+-    """the ball [lo, hi]."""
+@@ -132 +175 @@
+-# ================================================================================ THE ZERO LISTS: Z₁'s on-line part (the control), Q0's
++# ================================================================================ THE ZERO LISTS (the b667 map :132-:155; the width plant P1 added)
+@@ -134,2 +176,0 @@
+-    """arb.zeta_nzeros(T) and acb.zeta_zeros(1, N(T)) (Platt's isolation with Turing's method): every zero a ball with real part 1/2; the
+-    N(T)-th below T and the next above it, or the map stops."""
+@@ -146,4 +187,4 @@
+-def q0_list():
+-    """the certified balls (relay data/b667_epstein_zeros_certified.json, b667 Component 3): the on-line ordinates as arb(γ, h) and the
+-    off-line zeros as the ball strings '[σ +/- h]', '[t +/- h]', each by its bank index, in place of b326's decimal literals; a row whose
+-    count is not 1 stops the map."""
++def q0_list(width=None):
++    """the narrowed balls (relay data/b671_epstein_zeros_narrowed.json.gz): the on-line ordinates as arb(γ, h) and the off-line zeros as
++    the ball strings '[σ +/- h]', '[t +/- h]'; with width (P1) every half-width set to that planted value about the banked centre -- a
++    planted width, not a certified ball."""
+@@ -155,4 +196,5 @@
+-    return [arb(r['im'], r['h']) for r in on], [('[%s +/- %s]' % (r['re'], r['h']), '[%s +/- %s]' % (r['im'], r['h'])) for r in off]
+-
+-
+-# ================================================================================ hA: THE LOCAL COUNT, A FINITE MAXIMUM
++    h = (lambda r: width) if width is not None else (lambda r: r['h'])
++    return [arb(r['im'], h(r)) for r in on], [('[%s +/- %s]' % (r['re'], h(r)), '[%s +/- %s]' % (r['im'], h(r))) for r in off]
++
++
++# ================================================================================ hA (the b667 map :159-:180, unchanged)
+@@ -160,4 +201,0 @@
+-    """HCount (RestBound.lean :44-:45): 1 ≤ A₀ and Z.N s (s+1) ≤ A₀ log(|s| + 3) for every real s; Z.N s (s+1) counts Im in (s, s+1]
+-    (Defs.lean :162). N(s) ≤ N⁺(s) = #{y : y_lo - 1 ≤ s < y_hi} (an ordinate whose ball meets an edge counted on both sides); N⁺ is a step
+-    function between the sorted exact endpoints, and on each step 1/log(|s|+3) is largest at the step's point nearest 0. Returns
+-    (A₀ an exact upper value, the arg max s, the count there)."""
+@@ -183 +221 @@
+-# ================================================================================ ONE CELL
++# ================================================================================ ONE CELL (the b667 map :184-:409)
+@@ -194,4 +232,10 @@
+-def cell(name, base, online, offline, prec, i4, above=None, a0_premise=None, rung_note=None, jcap=J_EXTRA):
+-    """one configuration at one base: base = (σ, t) strings of the off-line zero whose detectorBase is g0; online = the ordinates (arb,
+-    positive); offline = the off-line zeros as (σ, t) strings; above = None (a finite configuration) or Q0_T (the points above it read on
+-    B1 and P3); a0_premise = None (A₀ from the list) or P3's constant."""
++def word(mids, rads, zin, bar):
++    """the b671 diagnostic's rule (tools/b671_tie_diagnostic.py :101-:107, the navigator's answer on the two readings at b671)."""
++    passed = all(zin) and max(rads) < bar
++    obj = all(mm + rr < bar for mm, rr in zip(mids, rads))
++    ins = all(zin) and max(rads) >= bar
++    return passed, 'PASS' if passed else 'OBJECT' if obj else 'INSTRUMENT' if ins else 'NEITHER'
++
++
++def cell(name, base, online, offline, prec, i4, above=None, a0_premise=None, rung_note=None, jcap=J_EXTRA, tie_only=False, past=False,
++         shift=None):
+@@ -199 +243 @@
+-    rec = dict(name=name, base=list(base), prec=prec, certs=[], hrate=[], unresolved=[], reading=None, triggers=[])
++    rec = dict(name=name, base=list(base), prec=prec, certs=[], hrate=[], unresolved=[], reading=None, triggers=[], ties=[])
+@@ -206,4 +250,8 @@
+-    def fail(nm, why):
+-        rec['certs'].append((nm, 'NOT CERTIFIED', why))
+-        say('  %-9s NOT CERTIFIED -- %s' % (nm, why))
+-        rec['reading'] = 'HYP-UNVERIFIED(%s)' % nm
++    def put_cert(tgt, nm, st, why):
++        tgt['certs'].append((nm, st, why))
++        say('  %s%-9s %s -- %s' % ('[LABELLED] ' if tgt is not rec else '', nm, st, why))
++
++    def fail(nm, why, tgt=None):
++        tgt = rec if tgt is None else tgt
++        put_cert(tgt, nm, 'NOT CERTIFIED', why)
++        tgt['reading'] = 'HYP-UNVERIFIED(%s)' % nm
+@@ -212,5 +260,3 @@
+-    def ok(nm, why):
+-        rec['certs'].append((nm, 'CERTIFIED', why))
+-        say('  %-9s CERTIFIED -- %s' % (nm, why))
+-
+-    # ### the setup H : PWSetup C.toZeroConfig g0 L M (PowerLimit.lean :245-:251)
++    def ok(nm, why, tgt=None):
++        put_cert(rec if tgt is None else tgt, nm, 'CERTIFIED', why)
++
+@@ -221 +266,0 @@
+-    # ### M := the dominant's score over every off-line orbit (the plan, section 6: :197-:210 changed)
+@@ -227 +272 @@
+-    M = abs(top[3][0][2])                                # offScore g0 ρ* (PowerWindow.lean :328), ρ* the dominant
++    M = abs(top[3][0][2])
+@@ -242,2 +287 @@
+-        return fail('H.hdom', 'THE GUARD: an off-line point of another orbit does not lie below M (dominance not decided, or the point '
+-                    'killed): %s -- THE CELL STOPS' % over[:4])
++        return fail('H.hdom', 'THE GUARD: an off-line point of another orbit does not lie below M: %s -- THE CELL STOPS' % over[:4])
+@@ -245 +289 @@
+-       'the other %d orbit(s), %d point(s), every score below M in balls (the largest %s)%s' % (
++       'the other %d orbit(s), %d point(s), every score below M in balls%s' % (
+@@ -247 +290,0 @@
+-           b(max((abs(g) for o in others for _n, _z, g in o[3]), key=lambda x: x.mid()), 8) if others else '-',
+@@ -252 +295 @@
+-    v = (dl + acb(0, 1) * t) ** 2                       # vOf ρ* (PowerLimit.lean :146)
++    v = pw(dl + acb(0, 1) * t, 2)                        # vOf ρ* (PowerLimit.lean :146), the square in the angle form
+@@ -256,2 +299 @@
+-    # ### the kill set and θ, by the zeros in order of |γ|, the decay screen offScore ≤ Aw/(1 + ‖γ‖⁴) (PowerLimit.lean :825)
+-    aw = (arb(3) / 2 * ell + 16 * i4 / ell ** 3) * (ell / 2).exp()     # Aw (PowerLimit.lean :800) = (∫g0 + ∫|g0''''|) e^{L/2}
++    aw = (arb(3) / 2 * ell + 16 * i4 / pw(ell, 3)) * (ell / 2).exp()     # Aw (PowerLimit.lean :800)
+@@ -262 +304 @@
+-        sb_ = aw.upper() / (1 + gm.lower() ** 4)
++        sb_ = aw.upper() / (1 + pw(gm.lower(), 4))
+@@ -279 +320,0 @@
+-    # ### θ over the other off-line orbits (the plan, section 6: :219-:236 changed)
+@@ -285 +325,0 @@
+-    # ### the points above T (Q0): B1, a named READ premise (the plan, section 8)
+@@ -289 +328,0 @@
+-        h4 = ((aw / (theta * M) - 1).log() / 4).exp() if theta > 0 else None
+@@ -293,3 +332 @@
+-        say('  B1        the points of Z with |Im ρ| ≥ %d (unlisted; P2 lists every point below it): offScore g0 ρ / M ≤ 2 e^{ℓ/2}/(%d M) = %s ; '
+-            'certified on B1 (READ), not a kernel lemma -- the kernel`s fourth-order bound (zero_weight`s hsA, PowerLimit.lean :825) clears '
+-            'only above %s, the banks reach %d' % (above, above, b(b1, 10), b(h4, 8) if h4 is not None else '-', above))
++        say('  B1        the points of Z with |Im ρ| ≥ %d: offScore g0 ρ / M ≤ 2 e^{ℓ/2}/(%d M) = %s ; certified on B1 (READ)' % (above, above, b(b1, 10)))
+@@ -297,4 +334,3 @@
+-    xr = [-(gm ** 2) for gm in killed]                    # Xr (PowerLimit.lean :268), one per |γ|
+-    ok('killSet', 'killSet C g0 M (PowerWindow.lean :401): zeros read %d, killed %d%s, screened by the decay bound %d, straddling 0; '
+-       'off-line points killed 0 (the guard); card Xr = %d' % (nread, len(killed), (' (γ ≤ %s)' % b(killed[-1], 10)) if killed else '', nscreen, len(xr)))
+-    # ### hA (the plan, section 6: :241 changed -- every listed ordinate; A₀ from P3 where it is given)
++    xr = [-pw(gm, 2) for gm in killed]                   # Xr (PowerLimit.lean :268), one per |γ|
++    ok('killSet', 'killSet C g0 M (PowerWindow.lean :401): zeros read %d, killed %d, screened by the decay bound %d, straddling 0; '
++       'off-line points killed 0 (the guard); card Xr = %d' % (nread, len(killed), nscreen, len(xr)))
+@@ -305,2 +341 @@
+-        ok('hA', 'HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = %s (an exact upper value; the steps of N(s, s+1] read at their '
+-           'points nearest 0, the largest ratio at s = %s, count %d; 1 ≤ A₀)' % (a0.str(15, radius=False), b(sarg, 10) if sarg is not None else '-', scnt))
++        ok('hA', 'HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = %s' % a0.str(15, radius=False))
+@@ -312,2 +347 @@
+-           'A₀ = %s ≤ A0Q (relay data/b663_a0_list.txt)' % (a0_premise, a0l.str(15, radius=False)))
+-    # ### D, B, CV (coeffs_exist's witness, PowerLimit.lean :683)
++           'A₀ = %s ≤ A0Q' % (a0_premise, a0l.str(15, radius=False)))
+@@ -317,5 +351,5 @@
+-    cv = 2 * (abs(v) + 1) / abs(v - v.conjugate())       # CV (PowerWindow.lean :432) at the two nodes
+-    bk = (len(xr) + 1) * _prod([1 + gm ** 2 for gm in killed])   # BK = (natDegree Kp + 1) Σ|coeff Kp| (:667), Kp = ∏(X + γ²)
+-    be = 2 * (1 + cE)                                    # BE = (natDegree Ep + 1) Σ|coeff Ep|, Ep = 1 + cE X (:277)
+-    B = 2 * cv * bk * be                                 # B = card VF · max CV 0 · BK · BE
+-    say('  D = 2 card VF + 2 DK + DE = 2·card Xr + 8 = %d ; J_max = D + %d = %d ; cE = %s ; CV = %s ; BK = %s ; BE = %s ; B = %s' % (
++    cv = 2 * (abs(v) + 1) / abs(v - v.conjugate())       # CV (PowerWindow.lean :432)
++    bk = (len(xr) + 1) * _prod([1 + pw(gm, 2) for gm in killed])
++    be = 2 * (1 + cE)
++    B = 2 * cv * bk * be
++    say('  D = 2·card Xr + 8 = %d ; J_max = D + %d = %d ; cE = %s ; CV = %s ; BK = %s ; BE = %s ; B = %s' % (
+@@ -323,0 +358 @@
++    cE2 = pw(cE, 2)
+@@ -329,3 +364,3 @@
+-        return kp(w) ** 2 * (1 - cE ** 2 * w)
+-
+-    # ### the controls of hQtie and hQb at j in [D, J_max]: Q j = a + b X interpolating rT H j on {v, conj v}
++        return pw(kp(w), 2) * (1 - cE2 * w)
++
++    # ### THE TIE TEST IN THE ANGLE FORM (the b667 map :331-:356): the phase at j is exp(2^(j+1)·log us), log us once per tie point
+@@ -333,4 +368,9 @@
+-    nodes = [v, v.conjugate(), v.conjugate(), v]               # vOf at ρ₁, 1 − conj ρ₁, conj ρ₁, 1 − ρ₁
+-    pw = list(us)
+-    for _ in range(D + 1):
+-        pw = [p * p for p in pw]
++    lus = [lg(u) for u in us]
++    if shift is not None:                                # ### P2: one tie point's angle shifted (plan section 7)
++        dlt = arb(lus[SHIFT_AT].imag.rad()) / 4 if shift == 'quarter' else arb(shift)
++        lus[SHIFT_AT] = lus[SHIFT_AT] + acb(0, dlt)
++        rec['shift'] = dict(at=gh[SHIFT_AT][0], delta=b(dlt, 6))
++        say('  ### P2 THE SHIFT PLANT: the angle at %s shifted by %s' % (gh[SHIFT_AT][0], b(dlt, 6)))
++    rec['angle_rad'] = [float(l.imag.rad()) for l in lus]
++    nodes = [v, v.conjugate(), v.conjugate(), v]
++    bar = arb(2) ** BAR_EXP
+@@ -339,4 +379,5 @@
+-        if j > D:
+-            pw = [p * p for p in pw]
+-        ph = [unit(F(nd)) * p for nd, p in zip(nodes, pw)]        # Xval/|Xval| at each tie point (PowerLimit.lean :437-:439)
+-        yv = -ph[0].conjugate()                                     # Yv (:560)
++        e = 2 ** (j + 1)
++        pwj = [(e * l).exp() for l in lus]
++        TALLY['angle'] += len(lus)
++        ph = [unit(F(nd)) * p for nd, p in zip(nodes, pwj)]
++        yv = -ph[0].conjugate()
+@@ -344 +385 @@
+-        r = r1 if r1.rad() <= r2.rad() else r2                       # rT (:591-:592) up to sign; Q² and the window unchanged
++        r = r1 if r1.rad() <= r2.rad() else r2
+@@ -348,2 +389,6 @@
+-        res = [(acb(aq) + bq * nd) ** 2 * p + 1 for nd, p in zip(nodes, ph)]
+-        if all(x.real.contains(0) and x.imag.contains(0) and x.rad() < arb(2) ** -20 for x in res):
++        res = [pw(acb(aq) + bq * nd, 2) * p + 1 for nd, p in zip(nodes, ph)]
++        mids = [float(abs(x.mid())) for x in res]
++        rads = [float(x.rad()) for x in res]
++        zin = [bool(x.real.contains(0) and x.imag.contains(0)) for x in res]
++        passed, wd = word(mids, rads, zin, float(bar))
++        if all(x.real.contains(0) and x.imag.contains(0) and x.rad() < bar for x in res):
+@@ -352,0 +398,4 @@
++        arad = max(float((e * l).imag.rad()) for l in lus)
++        rec['ties'].append(dict(j=j, mids=mids, rads=rads, zin=zin, angle_rad=arad, word=wd))
++        say('  TIE %s %d j %d : angle rad %.3e ; ' % (name, prec, j, arad) + ' | '.join(
++            '|mid| %.3e ; rad %.3e ; 0 in %s' % (mm, rr, zz) for mm, rr, zz in zip(mids, rads, zin)) + ' ; %s' % wd)
+@@ -353,0 +403,5 @@
++    rec['hqtie'] = [nt, k]
++    if tie_only:
++        rec['reading'] = 'TIE ONLY (a plant)'
++        return rec
++    tgt = rec
+@@ -355,2 +409,10 @@
+-        return fail('hQtie', 'by coeffs_exist, inputs certified; controls %d of %d -- a tie residual ball not resolved at 0' % (nt, k))
+-    ok('hQtie', 'by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls %d of %d' % (nt, k))
++        fail('hQtie', 'by coeffs_exist, inputs certified; controls %d of %d -- a tie residual ball not resolved at 0' % (nt, k))
++        if not past:
++            return rec
++        tgt = rec['labelled'] = dict(note='hQtie taken from coeffs_exist (PowerLimit.lean :686-:704) and the orbit identity (relay '
++                                          'data/b677_map_plan.txt section 4), not from balls -- an instrument-side reading row, not an '
++                                          'object finding (the navigator`s answer on the run)', certs=[], hrate=[], unresolved=[],
++                                     triggers=[], reading=None)
++        say('  ### [LABELLED] THE READING PAST THE TIE CONTROLS: %s' % tgt['note'])
++    else:
++        ok('hQtie', 'by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls %d of %d' % (nt, k))
+@@ -358,9 +420,8 @@
+-        return fail('hQb', 'by coeffs_exist, inputs certified; controls %d of %d -- |a_j| or |b_j| not below CV' % (nb, k))
+-    ok('hQb', 'by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls %d of %d' % (nb, k))
+-    ok('hθ0', 'θ = %s ≥ 0' % theta.str(15, radius=False))
+-    ok('hθ', 'every point outside the tie and kill sets read or screened: offScore/M ≤ θ%s%s' % (
+-        (' (the largest at %s)' % (b(targ, 10) if isinstance(targ, arb) else targ)) if targ is not None else ' (none read outside the kill set)',
+-        '' if above is None else '; the points above T certified on B1 (READ), not a kernel lemma'))
+-    # ### hrate (RateIndexCfg.lean :145-:147), both sides on a logarithmic scale
+-    z3 = 2 * arb(3).zeta() - 1                           # zeta3Sum (RestBound.lean :51)
+-    rhs = sum((abs(F(nd)) for nd in nodes), arb(0))      # Σ_{x ∈ sT_cfg H} mult x · Nf H x (Nf :445)
++        fail('hQb', 'by coeffs_exist, inputs certified; controls %d of %d -- |a_j| or |b_j| not below CV' % (nb, k), tgt)
++        return rec
++    ok('hQb', 'by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls %d of %d' % (nb, k), tgt)
++    ok('hθ0', 'θ = %s ≥ 0' % theta.str(15, radius=False), tgt)
++    ok('hθ', 'every point outside the tie and kill sets read or screened: offScore/M ≤ θ%s' % (
++        '' if above is None else '; the points above T certified on B1 (READ), not a kernel lemma'), tgt)
++    z3 = 2 * arb(3).zeta() - 1
++    rhs = sum((abs(F(nd)) for nd in nodes), arb(0))
+@@ -368 +429,2 @@
+-        return fail('hrate', 'the right side %s meets 0 (UNDERFLOW)' % b(rhs))
++        fail('hrate', 'the right side %s meets 0 (UNDERFLOW)' % b(rhs), tgt)
++        return rec
+@@ -384 +446 @@
+-                rec['triggers'].append('hrate OVERFLOW at j = %d' % j)
++                tgt['triggers'].append('hrate OVERFLOW at j = %d' % j)
+@@ -393,2 +455,2 @@
+-        rec['hrate'].append((j, st, sides))
+-        say('    hrate j = %-3d %-7s %s' % (j, st, sides))
++        tgt['hrate'].append((j, st, sides))
++        say('    %shrate j = %-3d %-7s %s' % ('[LABELLED] ' if tgt is not rec else '', j, st, sides))
+@@ -396 +458 @@
+-            rec['unresolved'].append(j)
++            tgt['unresolved'].append(j)
+@@ -399,0 +462 @@
++    tgt['reading'] = ('j₀ = %d' % j0) if j0 is not None else 'NONE ≤ J_max'
+@@ -401,6 +464,2 @@
+-        rec['reading'] = 'j₀ = %d' % j0
+-        rec['j0'] = j0
+-    else:
+-        rec['reading'] = 'NONE ≤ J_max'
+-    rec['sides'] = rec['hrate'][-1][2]
+-    # ### the zero side at j₀ (the plan, section 6: :351-:388 changed -- the other orbits' terms; the tail above T on B1 and P3)
++        tgt['j0'] = j0
++    tgt['sides'] = tgt['hrate'][-1][2]
+@@ -408 +467,2 @@
+-        rec['zero_side'] = zero_side(j0, Qs[j0], kp, F, gh, others, M, zl, killed, nread, aw, ell, prec, cE, a0, above, b1)
++        tgt['zero_side'] = zero_side(j0, Qs[j0], kp, F, gh, others, M, zl, killed, nread, aw, ell, prec, cE, a0, above, b1,
++                                     '[LABELLED] ' if tgt is not rec else '')
+@@ -419,7 +479,10 @@
+-def zero_side(j0, Q, kp, F, gh, others, M, zl, killed, nread, aw, ell, prec, cE, a0, above, b1):
+-    """(zeroSide_cfg C (kWindow (coeffList (Pof H (Q j₀))) g0 j₀)).re, each term by term_eq (PowerLimit.lean :736), (Q j₀)(vOf ρ)² ·
+-    Xval H j₀ ρ, divided by M^(2^(j₀+1)) (the sign unchanged): the dominant's four orbit terms and every other off-line orbit's four from
+-    their own balls; a killed zero's term 0 (kill_term_zero :756); a read zero's term in balls; a screened zero's term in [0, its decay
+-    bound's term]; and, above T (Q0), every unlisted point's term bounded on B1 and P3: |term| ≤ |Q(v)|² |F(v)| B1^(2^(j₀+1)) with
+-    |v| ≤ (|Im ρ| + 1/2)², the points in (n, n+1] at most A0Q log(n + 4) on each side by P3, summed for n ≥ 149 (the n = 149 window holds
+-    only points at |Im ρ| = 150) through Σ_{n ≥ 150} n^(K - E) ≤ 150^(K - E) (1 + 150/(E - K - 1))."""
++def _rpow(rr, E):
++    """a ratio ball rr ≥ 0 raised to E: in the angle form where rr is held off 0, else as the ball [0, ub^E] (the power increasing)."""
++    if rr.contains(0) or not rr > 0:
++        u = pw(arb(rr.upper()), E).upper()
++        return arb(u / 2, u / 2)
++    return pw(rr, E)
++
++
++def zero_side(j0, Q, kp, F, gh, others, M, zl, killed, nread, aw, ell, prec, cE, a0, above, b1, tag=''):
++    """the b667 map :419-:475, every power in the angle form: (ĝ/M)^(2^(j₀+1)) = exp(2^(j₀+1)·log(ĝ/M))."""
+@@ -430 +493 @@
+-        vv = (acb(0, 1) * z) ** 2                         # vOf ρ = (ρ - 1/2)² = (i γ(ρ))²
++        vv = pw(acb(0, 1) * z, 2)
+@@ -432,4 +495 @@
+-        p = g / M
+-        for _ in range(j0 + 1):
+-            p = p * p
+-        tot += q ** 2 * F(vv) * p
++        tot += pw(q, 2) * F(vv) * pw(g / M, E)
+@@ -439 +499 @@
+-            vv = (acb(0, 1) * z) ** 2
++            vv = pw(acb(0, 1) * z, 2)
+@@ -441,4 +501 @@
+-            p = g / M
+-            for _ in range(j0 + 1):
+-                p = p * p
+-            oth += q ** 2 * F(vv) * p
++            oth += pw(q, 2) * F(vv) * pw(g / M, E)
+@@ -450 +507 @@
+-        vv = acb(-(gm ** 2))
++        vv = acb(-pw(gm, 2))
+@@ -452 +509 @@
+-        fac = (q ** 2 * F(vv)).real
++        fac = (pw(q, 2) * F(vv)).real
+@@ -456,5 +513,3 @@
+-            rr = arb(0, (aw.upper() / (1 + gm.lower() ** 4) / M.lower()).upper())
+-        p = rr
+-        for _ in range(j0 + 1):
+-            p = p * p
+-        term = 2 * fac * p                                 # ±γ
++            rr = arb(0, (aw.upper() / (1 + pw(gm.lower(), 4)) / M.lower()).upper())
++        p = _rpow(rr, E)
++        term = 2 * fac * p
+@@ -465,2 +520,2 @@
+-        c0 = 2 * arb(a0) * (abs(acb(aq)) + abs(bq)) ** 2 * _prod([(1 + gm ** 2) ** 2 for gm in killed]) * (1 + cE ** 2) * arb('1.0201') ** (3 + 2 * len(killed))
+-        bnd =c0 * (arb(above) ** K) * (E * b1.log()).exp() * (2 + arb(above) / (E - K - 1))
++        c0 = 2 * arb(a0) * pw(abs(acb(aq)) + abs(bq), 2) * _prod([pw(1 + pw(gm, 2), 2) for gm in killed]) * (1 + pw(cE, 2)) * pw(arb('1.0201'), 3 + 2 * len(killed))
++        bnd = c0 * pw(arb(above), K) * (E * b1.log()).exp() * (2 + arb(above) / (E - K - 1))
+@@ -468,2 +523,2 @@
+-        say('  the points above T = %d: |Σ terms| ≤ %s, on B1 (READ) and P3 (A0Q = %s) -- K = %d, B1 = %s, E = 2^(j₀+1) = 2^%d' % (
+-            above, b(arb(bnd.upper()), 6), a0.str(5, radius=False), K, b(b1, 8), j0 + 1))
++        say('  %sthe points above T = %d: |Σ terms| ≤ %s, on B1 (READ) and P3 (A0Q = %s) -- K = %d, E = 2^(j₀+1) = 2^%d' % (
++            tag, above, b(arb(bnd.upper()), 6), a0.str(5, radius=False), K, j0 + 1))
+@@ -472,3 +527,2 @@
+-    say('  THE ZERO SIDE at j₀ = %d: (zeroSide_cfg C (kWindow …) g0 j₀).re / M^(2^(j₀+1)) = %s -- the dominant`s orbit %s, the other off-line '
+-        'orbits %s, the on-line terms %s, the points above T %s ; the ball %s 0' % (j0, b(zs, 15), b(tot.real, 15), b(oth.real, 15), b(on, 15),
+-                                                                           b(tail, 6), 'BELOW' if held else 'NOT BELOW'))
++    say('  %sTHE ZERO SIDE at j₀ = %d: %s -- the dominant`s orbit %s, the other off-line orbits %s, the on-line terms %s, the points above T '
++        '%s ; the ball %s 0' % (tag, j0, b(zs, 15), b(tot.real, 15), b(oth.real, 15), b(on, 15), b(tail, 6), 'BELOW' if held else 'NOT BELOW'))
+@@ -478,3 +532,3 @@
+-# ================================================================================ THE CONTROL AND THE Q0 CELL
+-def run_cell(name, base, online, offline, i4s, zls_rung, above=None, a0_premise=None):
+-    r = cell(name, base, online, offline, PREC, i4s[PREC], above=above, a0_premise=a0_premise)
++# ================================================================================ THE CELLS AND THE RUNG (the b667 map :479-:501)
++def run_cell(name, base, online, offline, i4s, zls_rung, above=None, a0_premise=None, past=False):
++    r = cell(name, base, online, offline, PREC, i4s[PREC], above=above, a0_premise=a0_premise, past=past)
+@@ -494,2 +548,3 @@
+-        r2 = cell(name, base, online2, offline, PREC_RUNG, i4s[PREC_RUNG], above=above, a0_premise=a0_premise, rung_note='the rung, re-read once')
+-        r2['first'] = dict(reading=r['reading'], triggers=trig)
++        r2 = cell(name, base, online2, offline, PREC_RUNG, i4s[PREC_RUNG], above=above, a0_premise=a0_premise, rung_note='the rung, re-read once',
++                  past=past)
++        r2['first'] = dict(reading=r['reading'], triggers=trig, ties=r['ties'], labelled=r.get('labelled'), hqtie=r.get('hqtie'))
+@@ -499 +554,3 @@
+-    say('  READING %s: %s%s' % (name, r['reading'], ('  ### ' + r['sides']) if not r['reading'].startswith('HYP') else ''))
++    say('  READING %s: %s' % (name, r['reading']))
++    if r.get('labelled'):
++        say('  [LABELLED] READING %s past the tie controls: %s' % (name, r['labelled']['reading']))
+@@ -504,10 +561 @@
+-def main():
+-    t0 = time.time()
+-    say('b667 -- THE b663 CONTROL RE-RUN ON THE BALLS: THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, UNDER (R277)(5) H4 (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
+-    say('')
+-    say('### the script: tools/b663_epstein_map.py carried with the decimal literals replaced by the certified balls (relay data/%s) and no' % Q0_CERT)
+-    say('### computation line changed (the diff relay data/b667_map_balls_diff.txt). Rows are')
+-    say('### cells: the control Z₁(%s, %s) first, then Q0 at the base qE0. python-flint %s ; Arb balls at %d bits, the rung %d ; J_max = D + %d.' % (
+-        Z1_CELL[0], Z1_CELL[1], __import__('flint').__version__, PREC, PREC_RUNG, J_EXTRA))
+-    say('### Q0`s zeros BALL-CERTIFIED AT b667 (each its square, count 1); B1 as b663 states it (on the kernel lemma since b665); A₀ by P3. Nothing here is about ζ.')
+-    say('')
++def _i4():
+@@ -516,6 +564,36 @@
+-    i4s = {PREC: span(lo, hi)}
+-    say("### ∫_0^1 |s''''| at %d bits (Aw`s fourth-derivative part, PowerLimit.lean :800): I4 = %s" % (PREC, b(i4s[PREC], 20)))
+-    # ### THE CONTROL: b661's Z₁(0.8, 29.6)
+-    n, zl, okz, last, nxt = zero_list()
+-    say('### THE CONTROL`S ZERO LIST at %d bits: N(%d) = %d by arb.zeta_nzeros ; acb.zeta_zeros(1, %d), every real part 1/2 ; %s' % (
+-        PREC, T_HEIGHT, n, n, 'MATCHED' if okz else 'NOT MATCHED -- THE CONTROL STOPS'))
++    return {PREC: span(lo, hi)}
++
++
++def _put(name, text):
++    p = os.path.join(D_DIR, name)
++    open(p + '.tmp', 'wb').write(text.encode('utf-8'))
++    os.replace(p + '.tmp', p)
++
++
++def _putj(name, obj):
++    _put(name, json.dumps(obj, indent=1, ensure_ascii=False, default=str) + NL)
++
++
++def _b671_words():
++    """the b671 diagnostic's word per (cell, bits, j), read from its bank's rows (data/b671_tie_diagnostic.txt :7-:129)."""
++    t = io.open(os.path.join(D_DIR, 'b671_tie_diagnostic.txt'), encoding='utf-8').read()
++    out = {}
++    for i, l in enumerate(t.split(NL), 1):
++        m = re.match(r'^  (THE CONTROL Z₁\(0\.8, 29\.6\)|Q0 AT qE0)\s+(\d+) j (\d+) : .* ; (PASS|INSTRUMENT|OBJECT|NEITHER)$', l)
++        if m:
++            out[(m.group(1), int(m.group(2)), int(m.group(3)))] = (m.group(4), i)
++    return out
++
++
++# ================================================================================ PART 1: THE CONTROL AND Q0, THE 123 ROWS (plan section 9)
++def part1(*a):
++    t0 = time.time()
++    s0 = sha(B667_MAP)
++    say('b677 -- PART 1: THE DETECTION MAP IN THE ANGLE FORM, THE CONTROL Z₁ AND Q0 AT qE0 ON THE NARROWED BALLS, UNDER (R287)(4) (%s)' % utc())
++    say('### the b667 map tools/b667_epstein_map_balls.py sha256 %s before the part ; python-flint %s ; %d bits, the rung %d ; J_max = D + %d.'
++        % (s0, __import__('flint').__version__, PREC, PREC_RUNG, J_EXTRA))
++    say('')
++    i4s = _i4()
++    say("### ∫_0^1 |s''''| at %d bits: I4 = %s" % (PREC, b(i4s[PREC], 20)))
++    n, zl, okz, _l, _n = zero_list()
++    say('### THE CONTROL`S ZERO LIST at %d bits: N(%d) = %d ; %s' % (PREC, T_HEIGHT, n, 'MATCHED' if okz else 'NOT MATCHED -- THE CONTROL STOPS'))
+@@ -527 +605 @@
+-        n2, z2, ok2, _l, _n = zero_list()
++        n2, z2, ok2, _a, _b = zero_list()
+@@ -535,2 +613 @@
+-    say('  ### THE CONTROL %s -- expected j₀ = 31 and the zero side below 0 (relay data/b661_map_control.txt); read j₀ = %s, the zero side %s' % (
+-        'REPRODUCED' if c_ok else 'NOT REPRODUCED', rc.get('j0'), ('BELOW 0' if zc['held'] else 'NOT BELOW 0') if zc else 'not read'))
++    say('  ### THE CONTROL %s -- expected j₀ = 31 and the zero side below 0; read j₀ = %s' % ('REPRODUCED' if c_ok else 'NOT REPRODUCED', rc.get('j0')))
+@@ -538 +615,3 @@
+-    # ### Q0
++    if not c_ok:
++        _put('b677_map_run.txt', NL.join(OUT) + NL)
++        sys.exit('### THE CONTROL NOT REPRODUCED IN THE ANGLE FORM -- THE ACT STOPS BEFORE ANY Q0 ROW (plan section 10)')
+@@ -541,2 +620,2 @@
+-    say('### THE Q0 LIST: relay data/%s, %d ordinates (index 0-%d); relay data/%s, %d off-line zeros (index 0-%d); the base qE0 = index %d = %s + %s i ; '
+-        'T = %d ; A0Q = %d' % (Q0_ON, len(on), len(on) - 1, Q0_OFF, len(off), len(off) - 1, Q0_BASE, off[Q0_BASE][0], off[Q0_BASE][1], Q0_T, Q0_A0))
++    say('### THE Q0 LIST: relay data/%s.gz, %d ordinates, %d off-line zeros; the base qE0 = %s + %s i ; T = %d ; A0Q = %d' % (
++        Q0_CERT, len(on), len(off), off[Q0_BASE][0], off[Q0_BASE][1], Q0_T, Q0_A0))
+@@ -544,22 +623,14 @@
+-    rq = run_cell('Q0 AT qE0', off[Q0_BASE], on, off, i4s, None, above=Q0_T, a0_premise=Q0_A0)
+-    score(rc, c_ok, rq)
+-    say('### elapsed %d s' % int(time.time() - t0))
+-    put([rc, rq])
+-
+-
+-def score(rc, c_ok, rq):
+-    """H3 and H4 by printed line; H1 and H2 read from the instance bank (relay data/b663_epstein_instance.txt) where it stands."""
+-    ib = os.path.join(D_DIR, 'b663_epstein_instance.txt')
+-    inst = io.open(ib, encoding='utf-8').read() if os.path.exists(ib) else ''
+-    say('### ### **THE HYPOTHESES OF (R273)(4):**')
+-    for h in ('H1', 'H2'):
+-        ln = [l for l in inst.split(NL) if l.startswith('  %s ' % h)]
+-        say('  %s %s' % (h, ln[0][5:] if ln else 'read at Component 3 from relay data/b663_epstein_instance.txt (not in this bank)'))
+-    certs = [c[0] for c in rq['certs'] if c[1] == 'CERTIFIED']
+-    h3 = rq['reading'].startswith('j₀') and 'j0' in rq and rq['j0'] <= rq['J_max']
+-    say('  H3 %s -- at Q0 every hypothesis of zeroSide_neg_at_rate_cfg certified by name (%s)%s and hrate %s' % (
+-        'HELD ON B1' if h3 else 'REFUTED', ', '.join(certs), '; hθ above T on B1 (READ)', ('holds at j₀ = %d ≤ D + %d = %d' % (rq['j0'], J_EXTRA, rq['J_max']))
+-        if h3 else 'reads %s' % rq['reading']))
+-    zs = rq.get('zero_side')
+-    if zs is None:
+-        say('  H4 NOT SCORABLE -- no j₀ at Q0')
++    rq = run_cell('Q0 AT qE0', off[Q0_BASE], on, off, i4s, None, above=Q0_T, a0_premise=Q0_A0, past=True)
++    s1 = sha(B667_MAP)
++    say('### the b667 map sha256 %s after the part (%s) ; powers in the angle form %d ; squares by one product of a ball holding 0 %d ; '
++        'elapsed %d s' % (s1, 'EQUAL' if s1 == s0 else 'CHANGED', TALLY['angle'], TALLY['square_by_product'], int(time.time() - t0)))
++    _put('b677_map_run.txt', NL.join(OUT) + NL)
++    bank_map(rc, rq, c_ok, s0, s1, int(time.time() - t0))
++
++
++def bank_map(rc, rq, c_ok, s0, s1, secs):
++    W = _b671_words()
++    bar = 2.0 ** BAR_EXP
++    groups = [('THE CONTROL Z₁(0.8, 29.6)', PREC, rc['ties'] if 'first' not in rc else rc['first']['ties'])]
++    if 'first' in rq:
++        groups += [('Q0 AT qE0', PREC, rq['first']['ties']), ('Q0 AT qE0', PREC_RUNG, rq['ties'])]
+@@ -567,14 +638,264 @@
+-        say('  H4 %s -- the zero side at j₀ = %d: %s' % ('HELD ON B1' if zs['held'] else ('REFUTED, H3 HELD -- THE ACT`S FINDING' if h3 else 'REFUTED'),
+-                                                    zs['j0'], zs['zero_side']))
+-    say('  THE CONTROL %s' % ('REPRODUCED (j₀ = 31, the zero side below 0)' if c_ok else 'NOT REPRODUCED'))
+-
+-
+-def put(recs, name='b667_epstein_control_balls'):
+-    tx = (NL.join(OUT) + NL).encode('utf-8')
+-    p = os.path.join(D_DIR, name + '.txt')
+-    open(p + '.tmp', 'wb').write(tx)
+-    os.replace(p + '.tmp', p)
+-    js = (json.dumps(dict(cells=recs), indent=1, ensure_ascii=False, default=str) + NL).encode('utf-8')
+-    p = os.path.join(D_DIR, name + '.json')
+-    open(p + '.tmp', 'wb').write(js)
+-    os.replace(p + '.tmp', p)
++        groups += [('Q0 AT qE0', PREC, rq['ties'])]
++    rows = []
++    for cellname, bits, ties in groups:
++        for x in ties:
++            w671 = W.get((cellname, bits, x['j']), (None, None))
++            rows.append(dict(cell=cellname, bits=bits, j=x['j'], mids=x['mids'], rads=x['rads'], zin=x['zin'], angle_rad=x['angle_rad'],
++                             rad=max(x['rads']), word=x['word'], b671=w671[0], b671_row=w671[1]))
++    L = ['b677 -- THE MAP IN THE ANGLE FORM (data/b677_map.txt), UNDER (R287)(4) (%s): rows are ties -- the cell, the precision, j; the phase '
++         'angle`s radius at j (the largest of the four, exp(2^(j+1)·log us)); at each of the four tie points the residual`s |mid| and radius; '
++         'the largest radius and its ratio to the bar 2^-20 = %.6e; the word by the b671 diagnostic`s rule (INSTRUMENT, OBJECT, PASS or '
++         'NEITHER); the b671 word from its cited row.' % (utc(), bar), '',
++         '### the tool tools/b677_epstein_map_angle.py sha256 %s ; the b667 map sha256 %s before and %s after (%s) ; the balls relay '
++         'data/%s.gz ; part 1 %d s.' % (sha(os.path.abspath(__file__)), s0, s1, 'EQUAL' if s0 == s1 else 'CHANGED', Q0_CERT, secs),
++         '### the control Z₁ %s (j₀ = %s, the zero side %s).' % ('REPRODUCED' if c_ok else 'NOT REPRODUCED', rc.get('j0'),
++                                                                ('BELOW 0' if rc.get('zero_side', {}).get('held') else 'NOT BELOW 0')), '']
++    for x in rows:
++        L.append('  %-26s %3d j %2d : angle rad %.3e ; ' % (x['cell'], x['bits'], x['j'], x['angle_rad']) + ' | '.join(
++            '|mid| %.3e rad %.3e' % (mm, rr) for mm, rr in zip(x['mids'], x['rads'])) + ' ; rad max %.3e ; rad/bar %.3e ; %-10s ; b671 %s (:%s)' % (
++            x['rad'], x['rad'] / bar, x['word'], x['b671'], x['b671_row']))
++    L.append('')
++    for cellname, bits, _t in groups:
++        g = [x for x in rows if (x['cell'], x['bits']) == (cellname, bits)]
++        ps = [x['j'] for x in g if x['word'] == 'PASS']
++        fl = [x for x in g if x['word'] != 'PASS']
++        was = [x for x in g if x['b671'] == 'INSTRUMENT']
++        L.append('### ### **%s at %d bits : CONTROLS %d ; PASS %d (j %s) ; INSTRUMENT %d ; OBJECT %d ; NEITHER %d ; of b671`s INSTRUMENT %d now PASS %d ; '
++                 'the first failing j %s ; the radius at j = 64 %s.**' % (
++                     cellname, bits, len(g), len(ps), ('%d-%d' % (min(ps), max(ps))) if ps else '-', sum(x['word'] == 'INSTRUMENT' for x in fl),
++                     sum(x['word'] == 'OBJECT' for x in fl), sum(x['word'] == 'NEITHER' for x in fl), len(was),
++                     sum(x['word'] == 'PASS' for x in was), min((x['j'] for x in fl), default='-'),
++                     next(('%.3e' % x['rad'] for x in g if x['j'] == 64), '-')))
++    L.append('### ### **ROWS %d (the b671 list: 41 + 41 + 41) ; NONE DROPPED %s.**' % (len(rows), len(rows) == 123))
++    _put('b677_map.txt', NL.join(L) + NL)
++    _putj('b677_map.json', dict(at=utc(), rows=rows, control=dict(reproduced=c_ok, j0=rc.get('j0'), zero_side=rc.get('zero_side')),
++                                q0=dict(reading=rq['reading'], hqtie=rq.get('hqtie'), first=dict((k, v) for k, v in rq.get('first', {}).items() if k != 'ties'),
++                                        certs=rq['certs'], labelled=rq.get('labelled'), zero_side=rq.get('zero_side'), D=rq.get('D'),
++                                        J_max=rq.get('J_max'), angle_rad=rq.get('angle_rad')),
++                                tally=TALLY, secs=secs))
++    print(NL.join(L[-5:]))
++
++
++# ================================================================================ PART 2: P1 THE WIDTH PLANT (plan section 7)
++def _tie_cell(width=None, shift=None, prec=PREC):
++    on, off = q0_list(width)
++    i4s = _i4() if prec == PREC else None
++    if i4s is None:
++        ctx.prec = prec
++        lo, hi = i4_ball()
++        i4s = {prec: span(lo, hi)}
++    return cell('Q0 AT qE0', off[Q0_BASE], on, off, prec, i4s[prec], above=Q0_T, a0_premise=Q0_A0, tie_only=True, shift=shift,
++                rung_note='a plant: width %s%s' % (width or 'as banked', '' if shift is None else ', shift %s' % shift))
++
++
++def part2(*a):
++    t0 = time.time()
++    s0 = sha(B667_MAP)
++    res = {}
++    for h in WIDTHS:
++        t1 = time.time()
++        r = _tie_cell(width=h)
++        res[h] = dict(secs=int(time.time() - t1), passing=[x['j'] for x in r['ties'] if x['word'] == 'PASS'],
++                      rows=[dict(j=x['j'], word=x['word'], rad=max(x['rads']), angle_rad=x['angle_rad']) for x in r['ties']],
++                      angle_rad=r['angle_rad'])
++        print('  P1 h = %s : PASS j %s ; %d s' % (h, _runs(res[h]['passing']), res[h]['secs']), flush=True)
++    tol = _tolerance(res)
++    bis = {}
++    for j in (H4_J0, 64):
++        lo_h, hi_h = tol[j]['passing_h'], tol[j]['failing_h']
++        if lo_h is not None and hi_h is not None:
++            hm = '%.3e' % math.sqrt(float(lo_h) * float(hi_h))
++            r = _tie_cell(width=hm)
++            row = next(x for x in r['ties'] if x['j'] == j)
++            bis[j] = dict(h=hm, word=row['word'], rad=max(row['rads']))
++            print('  P1 bisection at j = %d : h = %s %s' % (j, hm, row['word']), flush=True)
++    _putj('b677_tolerance_p1.json', dict(at=utc(), widths=res, tolerance=tol, bisection=bis, sha_b667=[s0, sha(B667_MAP)],
++                                         secs=int(time.time() - t0)))
++    print('### P1 banked (data/b677_tolerance_p1.json) ; %d s' % int(time.time() - t0))
++
++
++def _runs(js):
++    if not js:
++        return '-'
++    out, s, p = [], js[0], js[0]
++    for j in js[1:] + [None]:
++        if j is not None and j == p + 1:
++            p = j
++            continue
++        out.append('%d-%d' % (s, p) if s != p else '%d' % s)
++        if j is not None:
++            s = p = j
++    return ', '.join(out)
++
++
++def _tolerance(res):
++    """h_tol(j): the largest planted width on the grid at which the control at j passes, with the next width up that fails."""
++    hs = sorted(res, key=lambda h: float(h))
++    tol = {}
++    for j in range(24, 65):
++        ps = [h for h in hs if j in res[h]['passing']]
++        best = max(ps, key=float) if ps else None
++        up = [h for h in hs if best is not None and float(h) > float(best)]
++        tol[j] = dict(passing_h=best, failing_h=min(up, key=float) if up else None)
++    return tol
++
++
++# ================================================================================ PART 3: P2 THE SHIFT CONTROL, P3 THE CONFIRMATION
++def part3(*a):
++    t0 = time.time()
++    p1 = json.load(io.open(os.path.join(D_DIR, 'b677_tolerance_p1.json'), encoding='utf-8'))
++    tol = dict((int(k), v) for k, v in p1['tolerance'].items())
++    p2 = {}
++    for nm, sh in (('P2 shift 1e-12', SHIFT), ('P2 shift a quarter of the angle`s radius', 'quarter')):
++        r = _tie_cell(shift=sh)
++        p2[nm] = dict(shift=r.get('shift'), rows=[dict(j=x['j'], word=x['word'], zin=x['zin'], rad=max(x['rads']), mid=max(x['mids'])) for x in r['ties']])
++        print('  %s : words %s' % (nm, sorted(set(x['word'] for x in p2[nm]['rows']))), flush=True)
++    p3 = {}
++    for j in (H4_J0, 64):
++        ht = _best_tol(p1, j)
++        if ht is None:
++            p3[j] = dict(h_tol=None, note='no passing width on the grid')
++            continue
++        out = {}
++        for nm, f in (('at h_tol/3 (expected PASS)', 1 / 3), ('at 3·h_tol (expected FAIL)', 3)):
++            hh = '%.3e' % (ht * f)
++            r = _tie_cell(width=hh)
++            row = next(x for x in r['ties'] if x['j'] == j)
++            out[nm] = dict(h=hh, word=row['word'], rad=max(row['rads']))
++            print('  P3 j = %d %s : h = %s %s' % (j, nm, hh, row['word']), flush=True)
++        p3[j] = dict(h_tol=ht, rows=out)
++    bank_tolerance(p1, tol, p2, p3, int(time.time() - t0))
++
++
++def _best_tol(p1, j):
++    """the measured tolerance at j: the bisection's width where it passed, else the grid's passing width."""
++    bj = p1.get('bisection', {}).get(str(j))
++    t = p1['tolerance'][str(j)]
++    if bj and bj['word'] == 'PASS':
++        return float(bj['h'])
++    return float(t['passing_h']) if t['passing_h'] is not None else None
++
++
++def bank_tolerance(p1, tol, p2, p3, secs):
++    bar = 2.0 ** BAR_EXP
++    ar = p1['widths']['1e-24']['angle_rad']
++    transfer = max(ar) / 1e-24
++    L = ['b677 -- THE CONSUMER`S TOLERANCE, MEASURED ON THE CONSUMER (data/b677_tolerance.txt), UNDER (R287)(4) H2 AND H5 (%s): rows are the '
++         'perturbation, the consumer`s response and the tolerance read. The consumer: the tie check of the map (data/b667_h4_reading.txt :9-:14; '
++         'every residual ball holding 0 with radius below 2^-20 = %.6e).' % (utc(), bar), '',
++         '### P1 THE WIDTH PLANT: every input ball`s half-width set to h about the banked centres (a planted width, not a certified ball); the '
++         'Q0 cell`s tie test in the angle form at %d bits; per width the passing j and the part`s seconds.' % PREC]
++    for h in sorted(p1['widths'], key=float, reverse=True):
++        w = p1['widths'][h]
++        L.append('  P1 h = %-6s : PASS j %-10s ; the phase angle`s input radius (largest of four) %.3e ; %d s' % (h, _runs(w['passing']), max(w['angle_rad']), w['secs']))
++    L += ['', '### THE TRANSFER: the input width to the phase angle`s radius at qE0, at h = 1e-24: %.3e / 1e-24 = %.3e (b671`s "6.1·10³" '
++          'beside it, OPEN_TRAILS :14396).' % (max(ar), transfer), '',
++          '### h_tol(j), THE LARGEST PASSING WIDTH ON THE GRID AND THE NEXT ONE UP THAT FAILS (rows are j):']
++    for j in range(24, 65):
++        t = tol[j]
++        L.append('  j %2d : h_tol %-7s ; fails at %s' % (j, t['passing_h'] or 'NONE', t['failing_h'] or '-'))
++    L += ['', '### THE BISECTION (one half-decade step between the grid`s last pass and first fail):']
++    for j, x in sorted(p1.get('bisection', {}).items(), key=lambda kv: int(kv[0])):
++        L.append('  j %s : h = %s %s (rad %.3e)' % (j, x['h'], x['word'], x['rad']))
++    L += ['', '### P2 THE SHIFT PLANT, A POSITIVE CONTROL (one tie point`s phase angle shifted, the symmetry of plan section 4 broken):']
++    for nm, x in p2.items():
++        ws = [r['word'] for r in x['rows']]
++        L.append('  %s (at %s, δ = %s) : %s' % (nm, x['shift']['at'], x['shift']['delta'], ' '.join('j%d %s' % (r['j'], r['word']) for r in x['rows'])))
++        L.append('    words: %s' % ', '.join('%s %d' % (w, ws.count(w)) for w in sorted(set(ws))))
++    L += ['', '### P3 THE CONFIRMATION (H5): at j = 38 and j = 64, P1 re-run at h_tol/3 and 3·h_tol:']
++    for j, x in p3.items():
++        if x.get('rows') is None:
++            L.append('  j %d : %s' % (j, x['note']))
++            continue
++        for nm, r in x['rows'].items():
++            L.append('  j %d : h_tol %.3e ; %s : h = %s %s' % (j, x['h_tol'], nm, r['h'], r['word']))
++    t38, t64 = _best_tol(p1, H4_J0), _best_tol(p1, 64)
++    L += ['', '### THE TOLERANCE READ:',
++          '  at j = 38 (b667`s sizing): h_tol %s ; b667`s estimate %.0e (data/b667_h4_reading.txt :13-:14) ; ratio measured / estimate %s' % (
++              ('%.3e' % t38) if t38 else 'NONE', B667_TOL, ('%.3e' % (t38 / B667_TOL)) if t38 else '-'),
++          '  at j = 64 (J_max): h_tol %s ; the banked width 1e-24 %s it' % (('%.3e' % t64) if t64 else 'NONE ON THE GRID',
++                                                                           'within' if (t64 and 1e-24 <= t64) else 'ABOVE'),
++          '  the plan`s price (data/b677_map_plan.txt section 6) beside it: the width carrying every control to j = 64, %.2e (upper) to %.2e '
++          '(lower); b671`s figures left beside with their labels: %s.' % (
++              PRICE['upper']['h_need'], PRICE['lower']['h_need'], '; '.join('%s %s' % kv for kv in B671_WIDTH)), '',
++          '### ### **P1 WIDTHS %d ; h_tol(38) %s ; h_tol(64) %s ; P2 SHIFT 1e-12 FIRES %s ; P2 QUARTER-RADIUS SHIFT AS UNPLANTED %s ; P3 %s ; %d s.**' % (
++              len(p1['widths']), ('%.3e' % t38) if t38 else 'NONE', ('%.3e' % t64) if t64 else 'NONE',
++              all(r['word'] != 'PASS' for r in p2['P2 shift 1e-12']['rows']),
++              [r['j'] for r in p2['P2 shift a quarter of the angle`s radius']['rows'] if r['word'] == 'PASS'] ==
++              [r['j'] for r in p1['widths']['1e-24']['rows'] if r['word'] == 'PASS'],
++              'AS PLANTED' if all(x.get('rows') and list(x['rows'].values())[0]['word'] == 'PASS' and list(x['rows'].values())[1]['word'] != 'PASS'
++                                  for x in p3.values()) else 'NOT AS PLANTED', secs)]
++    _put('b677_tolerance.txt', NL.join(L) + NL)
++    _putj('b677_tolerance.json', dict(at=utc(), transfer=transfer, tolerance=tol, p2=p2, p3=p3, h_tol38=t38, h_tol64=t64, secs=secs))
++    print(NL.join(L[-8:]))
++
++
++# ================================================================================ THE HYPOTHESES (data/b677_map_h.txt)
++def hyp(*a):
++    m = json.load(io.open(os.path.join(D_DIR, 'b677_map.json'), encoding='utf-8'))
++    tj = json.load(io.open(os.path.join(D_DIR, 'b677_tolerance.json'), encoding='utf-8'))
++    rows = m['rows']
++    bar = 2.0 ** BAR_EXP
++    was = [x for x in rows if x['b671'] == 'INSTRUMENT']
++    still = [x for x in was if x['word'] != 'PASS']
++    h1 = not still
++    q64 = [x for x in rows if x['cell'] == 'Q0 AT qE0' and x['j'] == 64]
++    h2 = all(x['rad'] < bar for x in q64) and tj['h_tol64'] is not None and 1e-24 <= tj['h_tol64']
++    q = m['q0']
++    h3 = q['reading'].startswith('j₀')
++    zs = q.get('zero_side')
++    p3 = tj['p3']
++    h5 = all(x.get('rows') and list(x['rows'].values())[0]['word'] == 'PASS' and list(x['rows'].values())[1]['word'] != 'PASS' for x in p3.values())
++    lab = q.get('labelled') or {}
++    first_fail = min((x['j'] for x in rows if x['cell'] == 'Q0 AT qE0' and x['word'] != 'PASS'), default=None)
++    L = ['b677 -- THE HYPOTHESES OF (R287)(4), READ ON THE RUN (data/b677_map_h.txt) (%s): rows are the hypotheses with their reading and the '
++         'rows that decide them.' % utc(), '',
++         '  H1 %s -- of the %d controls b671 read INSTRUMENT (data/b671_tie_diagnostic.txt :66-:88, :107-:129), %d read PASS in the angle form '
++         'and %d do not (%s); each still failing read by the b671 rule: %s (data/b677_map.txt).' % (
++             'HELD' if h1 else 'REFUTED', len(was), len(was) - len(still), len(still),
++             ', '.join('%d bits j %d' % (x['bits'], x['j']) for x in still[:3]) + (' ...' if len(still) > 3 else ''),
++             ', '.join('%s %d' % (w, sum(x['word'] == w for x in still)) for w in ('INSTRUMENT', 'OBJECT', 'NEITHER'))),
++         '  H2 %s -- the residual radius at j = 64: %s against the bar %.3e; h_tol(64) %s against the banked width 1e-24 '
++         '(data/b677_tolerance.txt).' % ('HELD' if h2 else 'REFUTED', ', '.join('%d bits %.3e' % (x['bits'], x['rad']) for x in q64), bar,
++                                         ('%.3e' % tj['h_tol64']) if tj['h_tol64'] else 'NONE ON THE GRID'),
++         '  H3 %s -- as data/b663_epstein_plan.txt :131 states it: the map reads %s; hQtie controls %s of %s%s (data/b677_map_run.txt).' % (
++             'HELD' if h3 else 'REFUTED', q['reading'], (q.get('hqtie') or ['-', '-'])[0], (q.get('hqtie') or ['-', '-'])[1],
++             '' if h1 else ' -- ON A FAILING INSTRUMENT: no object reading taken ((R287)(5))'),
++         '  H4 %s -- as data/b667_epstein_plan.txt :124-:125 states it: %s' % (
++             ('SCORABLE: ' + ('HELD' if zs['held'] and zs['j0'] == H4_J0 else 'REFUTED')) if zs else 'NOT SCORABLE',
++             ('j₀ = %d, the zero side %s' % (zs['j0'], zs['zero_side'])) if zs else 'no j₀ read by the map (hQtie %s of %s), the plan`s own criterion' % tuple(q.get('hqtie') or ['-', '-'])),
++         '  H5 %s -- P3 at j = 38 and 64 reads PASS at h_tol/3 and FAIL at 3·h_tol: %s; h_tol(38) %s beside b667`s %.0e, ratio %s '
++         '(data/b677_tolerance.txt).' % ('HELD' if h5 else 'REFUTED', '; '.join(
++             'j %s %s' % (j, ' / '.join(r['word'] for r in x['rows'].values()) if x.get('rows') else x.get('note')) for j, x in p3.items()),
++             ('%.3e' % tj['h_tol38']) if tj['h_tol38'] else 'NONE', B667_TOL, ('%.3e' % (tj['h_tol38'] / B667_TOL)) if tj['h_tol38'] else '-'),
++         '',
++         '  THE LABELLED READING (the navigator`s answer on the run; an instrument-side row, not an object finding): %s -- %s%s' % (
++             lab.get('note', 'not computed'), lab.get('reading'), ('; the zero side at j₀ = %d %s, %s' % (lab['zero_side']['j0'], lab['zero_side']['zero_side'],
++                                                                                                       'BELOW 0' if lab['zero_side']['held'] else 'NOT BELOW 0'))
++             if lab.get('zero_side') else ''),
++         '  THE LOCATED FAILURE: the first failing j at Q0 %s; the price (plan section 6) the last passing j 47 (upper) to 56 (lower) and the '
++         'radius at j = 64 %.1e to %.1e.' % (first_fail, PRICE['upper']['rad64'], PRICE['lower']['rad64']), '',
++         '### ### **H1 %s ; H2 %s ; H3 %s ; H4 %s ; H5 %s.**' % ('HELD' if h1 else 'REFUTED', 'HELD' if h2 else 'REFUTED', 'HELD' if h3 else 'REFUTED',
++                                                              ('SCORABLE' if zs else 'NOT SCORABLE'), 'HELD' if h5 else 'REFUTED')]
++    _put('b677_map_h.txt', NL.join(L) + NL)
++    _putj('b677_map_h.json', dict(at=utc(), H1=h1, H2=h2, H3=h3, H4=('SCORABLE' if zs else 'NOT SCORABLE'), H5=h5, first_fail=first_fail,
++                                  still=[(x['bits'], x['j'], x['word']) for x in still], labelled=lab))
++    print(NL.join(L))
++
++
++# ================================================================================ THE DIFF AGAINST THE b667 MAP (N3 read on the text)
++def diff(*a):
++    old = io.open(B667_MAP, encoding='utf-8').read().split(NL)
++    me = io.open(os.path.abspath(__file__), encoding='utf-8').read().split(NL)
++    d = list(difflib.unified_diff(old, me, 'tools/b667_epstein_map_balls.py', 'tools/b677_epstein_map_angle.py', lineterm='', n=0))
++    stars = [(i, l.strip()) for i, l in enumerate(me, 1) if '**' in l and not l.strip().startswith('#') and '"""' not in l and "'**" not in l]
++    loops = [(i, l.strip()) for i, l in enumerate(me, 1) if re.search(r'\bp = p \* p\b|\[p \* p for', l) and 'repeated-squaring loops' not in l]
++    L = ['b677 -- THE NEW TOOL`S DIFF AGAINST THE b667 MAP (data/b677_map_diff.txt) (%s): tools/b667_epstein_map_balls.py sha256 %s (left as it '
++         'is) ; tools/b677_epstein_map_angle.py sha256 %s ; added %d, removed %d lines.' % (
++             utc(), sha(B667_MAP), sha(os.path.abspath(__file__)), sum(1 for l in d if l.startswith('+') and not l.startswith('+++')),
++             sum(1 for l in d if l.startswith('-') and not l.startswith('---'))), '',
++         '### N3 READ ON THE TEXT: every `**` left in the new tool, each hand-read (exact integers and exact powers of two only):']
++    L += ['  :%d %s' % (i, l[:150]) for i, l in stars] or ['  NONE']
++    L += ['### the repeated-squaring loops (`p = p * p`, `[p * p for`) left: %s' % (loops or 'NONE'), '', '### THE DIFF, WHOLE:'] + d
++    _put('b677_map_diff.txt', NL.join(L) + NL)
++    print(NL.join(L[:len(stars) + 6]))
+@@ -584,2 +905,6 @@
+-    main()
+-
++    fn = {'part1': part1, 'part2': part2, 'part3': part3, 'hyp': hyp, 'diff': diff}.get(sys.argv[1] if len(sys.argv) > 1 else '')
++    if fn is None:
++        print('usage: b677_epstein_map_angle.py part1 | part2 | part3 | hyp | diff')
++        sys.exit(2)
++    fn(*sys.argv[2:])
++

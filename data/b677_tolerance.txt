@@ -1,0 +1,90 @@
+b677 -- THE CONSUMER`S TOLERANCE, MEASURED ON THE CONSUMER (data/b677_tolerance.txt), UNDER (R287)(4) H2 AND H5 (2026-10-17T15:51:37Z): rows are the perturbation, the consumer`s response and the tolerance read. The consumer: the tie check of the map (data/b667_h4_reading.txt :9-:14; every residual ball holding 0 with radius below 2^-20 = 9.536743e-07).
+
+### P1 THE WIDTH PLANT: every input ball`s half-width set to h about the banked centres (a planted width, not a certified ball); the Q0 cell`s tie test in the angle form at 200 bits; per width the passing j and the part`s seconds.
+  P1 h = 1e-16  : PASS j 24-25      ; the phase angle`s input radius (largest of four) 1.838e-17 ; 4 s
+  P1 h = 1e-17  : PASS j 24-30      ; the phase angle`s input radius (largest of four) 1.838e-18 ; 4 s
+  P1 h = 1e-18  : PASS j 24-32      ; the phase angle`s input radius (largest of four) 1.838e-19 ; 4 s
+  P1 h = 1e-19  : PASS j 24-35      ; the phase angle`s input radius (largest of four) 1.838e-20 ; 4 s
+  P1 h = 1e-20  : PASS j 24-39      ; the phase angle`s input radius (largest of four) 1.838e-21 ; 4 s
+  P1 h = 1e-21  : PASS j 24-42      ; the phase angle`s input radius (largest of four) 1.838e-22 ; 4 s
+  P1 h = 1e-22  : PASS j 24-46      ; the phase angle`s input radius (largest of four) 1.838e-23 ; 4 s
+  P1 h = 1e-23  : PASS j 24-50      ; the phase angle`s input radius (largest of four) 1.838e-24 ; 4 s
+  P1 h = 1e-24  : PASS j 24-52      ; the phase angle`s input radius (largest of four) 1.838e-25 ; 4 s
+  P1 h = 1e-25  : PASS j 24-55      ; the phase angle`s input radius (largest of four) 1.838e-26 ; 4 s
+  P1 h = 1e-26  : PASS j 24-58      ; the phase angle`s input radius (largest of four) 1.838e-27 ; 4 s
+  P1 h = 1e-27  : PASS j 24-62      ; the phase angle`s input radius (largest of four) 1.838e-28 ; 4 s
+  P1 h = 1e-28  : PASS j 24-64      ; the phase angle`s input radius (largest of four) 1.838e-29 ; 4 s
+  P1 h = 1e-29  : PASS j 24-64      ; the phase angle`s input radius (largest of four) 1.838e-30 ; 4 s
+  P1 h = 1e-30  : PASS j 24-64      ; the phase angle`s input radius (largest of four) 1.838e-31 ; 4 s
+  P1 h = 1e-31  : PASS j 24-64      ; the phase angle`s input radius (largest of four) 1.838e-32 ; 4 s
+  P1 h = 1e-32  : PASS j 24-64      ; the phase angle`s input radius (largest of four) 1.838e-33 ; 4 s
+  P1 h = 1e-33  : PASS j 24-64      ; the phase angle`s input radius (largest of four) 1.838e-34 ; 4 s
+  P1 h = 1e-34  : PASS j 24-64      ; the phase angle`s input radius (largest of four) 1.838e-35 ; 4 s
+
+### THE TRANSFER: the input width to the phase angle`s radius at qE0, at h = 1e-24: 1.838e-25 / 1e-24 = 1.838e-01 (b671`s "6.1·10³" beside it, OPEN_TRAILS :14396).
+
+### h_tol(j), THE LARGEST PASSING WIDTH ON THE GRID AND THE NEXT ONE UP THAT FAILS (rows are j):
+  j 24 : h_tol 1e-16   ; fails at -
+  j 25 : h_tol 1e-16   ; fails at -
+  j 26 : h_tol 1e-17   ; fails at 1e-16
+  j 27 : h_tol 1e-17   ; fails at 1e-16
+  j 28 : h_tol 1e-17   ; fails at 1e-16
+  j 29 : h_tol 1e-17   ; fails at 1e-16
+  j 30 : h_tol 1e-17   ; fails at 1e-16
+  j 31 : h_tol 1e-18   ; fails at 1e-17
+  j 32 : h_tol 1e-18   ; fails at 1e-17
+  j 33 : h_tol 1e-19   ; fails at 1e-18
+  j 34 : h_tol 1e-19   ; fails at 1e-18
+  j 35 : h_tol 1e-19   ; fails at 1e-18
+  j 36 : h_tol 1e-20   ; fails at 1e-19
+  j 37 : h_tol 1e-20   ; fails at 1e-19
+  j 38 : h_tol 1e-20   ; fails at 1e-19
+  j 39 : h_tol 1e-20   ; fails at 1e-19
+  j 40 : h_tol 1e-21   ; fails at 1e-20
+  j 41 : h_tol 1e-21   ; fails at 1e-20
+  j 42 : h_tol 1e-21   ; fails at 1e-20
+  j 43 : h_tol 1e-22   ; fails at 1e-21
+  j 44 : h_tol 1e-22   ; fails at 1e-21
+  j 45 : h_tol 1e-22   ; fails at 1e-21
+  j 46 : h_tol 1e-22   ; fails at 1e-21
+  j 47 : h_tol 1e-23   ; fails at 1e-22
+  j 48 : h_tol 1e-23   ; fails at 1e-22
+  j 49 : h_tol 1e-23   ; fails at 1e-22
+  j 50 : h_tol 1e-23   ; fails at 1e-22
+  j 51 : h_tol 1e-24   ; fails at 1e-23
+  j 52 : h_tol 1e-24   ; fails at 1e-23
+  j 53 : h_tol 1e-25   ; fails at 1e-24
+  j 54 : h_tol 1e-25   ; fails at 1e-24
+  j 55 : h_tol 1e-25   ; fails at 1e-24
+  j 56 : h_tol 1e-26   ; fails at 1e-25
+  j 57 : h_tol 1e-26   ; fails at 1e-25
+  j 58 : h_tol 1e-26   ; fails at 1e-25
+  j 59 : h_tol 1e-27   ; fails at 1e-26
+  j 60 : h_tol 1e-27   ; fails at 1e-26
+  j 61 : h_tol 1e-27   ; fails at 1e-26
+  j 62 : h_tol 1e-27   ; fails at 1e-26
+  j 63 : h_tol 1e-28   ; fails at 1e-27
+  j 64 : h_tol 1e-28   ; fails at 1e-27
+
+### THE BISECTION (one half-decade step between the grid`s last pass and first fail):
+  j 38 : h = 3.162e-20 PASS (rad 5.067e-07)
+  j 64 : h = 3.162e-28 PASS (rad 6.504e-07)
+
+### P2 THE SHIFT PLANT, A POSITIVE CONTROL (one tie point`s phase angle shifted, the symmetry of plan section 4 broken):
+  P2 shift 1e-12 (at 1 − conj ρ, δ = [1.00000e-12 +/- 3e-22]) : j24 NEITHER j25 NEITHER j26 NEITHER j27 NEITHER j28 NEITHER j29 NEITHER j30 NEITHER j31 NEITHER j32 NEITHER j33 NEITHER j34 NEITHER j35 NEITHER j36 NEITHER j37 NEITHER j38 NEITHER j39 NEITHER j40 NEITHER j41 NEITHER j42 NEITHER j43 NEITHER j44 NEITHER j45 NEITHER j46 NEITHER j47 NEITHER j48 NEITHER j49 NEITHER j50 NEITHER j51 NEITHER j52 NEITHER j53 NEITHER j54 NEITHER j55 NEITHER j56 NEITHER j57 NEITHER j58 NEITHER j59 NEITHER j60 NEITHER j61 NEITHER j62 NEITHER j63 NEITHER j64 NEITHER
+    words: NEITHER 41
+  P2 shift a quarter of the angle`s radius (at 1 − conj ρ, δ = [4.59617e-26 +/- 8.62e-33]) : j24 PASS j25 PASS j26 PASS j27 PASS j28 PASS j29 PASS j30 PASS j31 PASS j32 PASS j33 PASS j34 PASS j35 PASS j36 PASS j37 PASS j38 PASS j39 PASS j40 PASS j41 PASS j42 PASS j43 PASS j44 PASS j45 PASS j46 PASS j47 PASS j48 PASS j49 PASS j50 PASS j51 PASS j52 PASS j53 INSTRUMENT j54 INSTRUMENT j55 INSTRUMENT j56 INSTRUMENT j57 INSTRUMENT j58 INSTRUMENT j59 INSTRUMENT j60 INSTRUMENT j61 INSTRUMENT j62 INSTRUMENT j63 INSTRUMENT j64 INSTRUMENT
+    words: INSTRUMENT 12, PASS 29
+
+### P3 THE CONFIRMATION (H5): at j = 38 and j = 64, P1 re-run at h_tol/3 and 3·h_tol:
+  j 38 : h_tol 3.162e-20 ; at h_tol/3 (expected PASS) : h = 1.054e-20 PASS
+  j 38 : h_tol 3.162e-20 ; at 3·h_tol (expected FAIL) : h = 9.486e-20 INSTRUMENT
+  j 64 : h_tol 3.162e-28 ; at h_tol/3 (expected PASS) : h = 1.054e-28 PASS
+  j 64 : h_tol 3.162e-28 ; at 3·h_tol (expected FAIL) : h = 9.486e-28 INSTRUMENT
+
+### THE TOLERANCE READ:
+  at j = 38 (b667`s sizing): h_tol 3.162e-20 ; b667`s estimate 1e-18 (data/b667_h4_reading.txt :13-:14) ; ratio measured / estimate 3.162e-02
+  at j = 64 (J_max): h_tol 3.162e-28 ; the banked width 1e-24 ABOVE it
+  the plan`s price (data/b677_map_plan.txt section 6) beside it: the width carrying every control to j = 64, 1.24e-29 (upper) to 7.17e-27 (lower); b671`s figures left beside with their labels: (ii) FROM THE AMPLIFICATION 8.5e-30, with two decimal orders about 1e-31; (i) LINEAR ESTIMATE 1.5e-38, with two decimal orders 1.5e-40.
+
+### ### **P1 WIDTHS 19 ; h_tol(38) 3.162e-20 ; h_tol(64) 3.162e-28 ; P2 SHIFT 1e-12 FIRES True ; P2 QUARTER-RADIUS SHIFT AS UNPLANTED True ; P3 AS PLANTED ; 26 s.**
