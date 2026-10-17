@@ -381,7 +381,88 @@ def c1order(*a):
     print('  data/%s appended (%d bytes before, %d after): %s' % (ORDERS, len(old), len(new), rows[1].strip()[:120]))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'faces': faces, 'c1': c1, 'c1order': c1order}
+# ================================================================================ COMPONENT 3: THE ARMS AND THE RULES, (R290)(5)
+VALUE_ARMS = {   # ### an arm reading an object's state -- a hash, a blob id, a remote SHA, a print line, a commit, a tree, a live kernel; every other
+    # ### standing arm reads a bank's form, presence or text (SHAPE). Each entry read by hand against the arm's `reads` field.
+    'G-PUSHOUT-COMMITTED': 'the step-zero commit`s files and ancestry (git objects)',
+    'G-BRANCHES-DELETED': 'the repositories` branch refs, local and remote-tracking',
+    'G-LOCAL-BANK-UNTRACKED': 'the git index and log for one path',
+    'G-EXPORT-UNTRACKED': 'the git index and log for one path',
+    'G-WORKFLOW-FILES': 'the kernel`s main blobs (the workflow before and now, the print list)',
+    'G-RUNNER-READ': 'the run`s row: the artifact`s sha256 and the memory low',
+    'G-RUNNER-GATE': 'the run`s axioms print lines and the artifact`s digest',
+    'G-MERGES-ON-GATE': 'the kernel`s main commit, its parents, the trees and the tag`s peel',
+    'G-NO-SORRY-MAIN': 'every kernel`s code at HEAD and its remote',
+    'G-AXIOM-CLAIM': 'every kernel`s claims against the banked print lines',
+    'G-MODULE-HEADER': 'every kernel`s module headers at HEAD',
+    'G-PP-SCOPE': 'PLACE-papers` changed files by git diff',
+    'G-CURRENTS-UNEDITED': 'the currents` bytes: working tree, before and HEAD',
+    'G-KERNELS-UNTOUCHED': 'every kernel`s main, tags, branches and status',
+    'G-INSTRUMENTS-UNEDITED': 'the instruments` bytes: before, working tree and HEAD',
+    'G-SHARED-ADDITIVE': 'the shared files` bytes before and now',
+    'G-PRIORBANK-UNCHANGED': 'every prior bank`s blob id',
+    'G-FINDINGS-APPEND-ONLY': 'FINDINGS` bytes before and now',
+    'G-TRAIL-APPEND-ONLY': 'OPEN_TRAILS` bytes before and now',
+    'G-SEALED-AFTER-COMPONENTS': 'the commits` times against the lock`s',
+    'G-NOTHING-RAN-AHEAD': 'the commits` hashes before the lock',
+    'G-SEAL-VERIFIES': 'the face`s sha256 by reg_seal',
+    'G-SEAL-HASHES': 'the sealed tools` sha256 now',
+    'G-ACTROOT-BANKED': 'the root recomputed from its items',
+    'G-ACTROOT-LAST': 'the named banks` write times',
+    'G-ACTROOT-VERIFY': 'the chain recomputed at commit with remote reads',
+    'G-WRITELIST-KINDS': 'the tracked files written, by git diff',
+    'G-ARTEFACTS-NOT-COMMITTED': 'relay`s tracked files',
+    'G-LSREMOTE-ONE-PER-REPO': 'the run`s remote calls, counted',
+}
+
+
+def arms(*a):
+    """(R290)(5)(i): the census of the sealed suite's standing arms (tools/b679_checks.py STANDING, :311; each arm's `reads` field) by what each
+    reads, SHAPE or VALUE; every standing arm once. data/b680_arms.txt (.json)."""
+    import importlib
+    sys.argv = sys.argv[:1]
+    C = importlib.import_module('b679_checks')
+    st = list(C.STANDING)
+    reads = dict((x[0], x[1]) for x in C.ARMS)
+    rows = [(n, 'VALUE' if n in VALUE_ARMS else 'SHAPE', reads.get(n, '### NOT IN THE SUITE'), VALUE_ARMS.get(n, '')) for n in st]
+    nv = sum(1 for r in rows if r[1] == 'VALUE')
+    L = ['b680 -- COMPONENT 3, (R290)(5)(i): THE STANDING ARMS BY WHAT EACH READS (%s)' % utc(), '',
+         '### rows are the sealed suite`s standing arms (tools/b679_checks.py :311, STANDING = b678`s face`s (G2) arms less b678`s act arms), each',
+         '### once: its kind -- SHAPE (a bank`s form, presence or text) or VALUE (an object`s state: a hash, a blob id, a remote SHA, a print line, a',
+         '### commit, a tree, a live kernel) -- and the bank or object it reads (its `reads` field, the suite`s own words).', '']
+    L += ['  %-34s %-5s %s%s' % (n, k, r[:150], ('  [the object: %s]' % v) if v else '') for n, k, r, v in rows]
+    L += ['', '### ### **STANDING ARMS %d ; SHAPE %d ; VALUE %d ; EACH ONCE %s.**' % (len(rows), len(rows) - nv, nv, len(set(st)) == len(st))]
+    put_txt('b680_arms.txt', L)
+    put_json('b680_arms.json', dict(at=utc(), rows=[dict(arm=n, kind=k, reads=r, obj=v) for n, k, r, v in rows], shape=len(rows) - nv, value=nv))
+    print(L[-1])
+
+
+def rulesarms(*a):
+    """(R290)(5)(ii): every rule row across the rules banks that exist, once, with its act, its text and the standing arm that enforces it or
+    NONE, from the generated index (tools/b680_rules_index.py, committed alone); the NONE rows listed for the author. data/b680_rules_arms.txt."""
+    import b680_rules_index as RI
+    R = RI.rows()
+    seen = set()
+    for r in R:
+        k = (r['act'], r['row'])
+        if k in seen:
+            sys.exit('### A RULE ROW TWICE: %s -- NOTHING WRITTEN' % (k,))
+        seen.add(k)
+    none = [r for r in R if r['arm'] == 'NONE']
+    L = ['b680 -- COMPONENT 3, (R290)(5)(ii): THE RULES AND THE STANDING ARMS THAT ENFORCE THEM (%s)' % utc(), '',
+         '### rows are rules: act ; row ; bank :line ; its head ; the standing arm or NONE. The rows from tools/b680_rules_index.py (committed alone,',
+         '### its output data/b680_rules_index.txt); the banks read: those that exist (b676 and b679 banked no rules file -- the author`s answer at',
+         '### step zero, data/b680_defects.txt (a)). No arm is added in this act.', '']
+    L += ['  %-5s row %-2d %-28s %-36s %s' % (r['act'], r['row'], '%s :%d' % (r['bank'], r['line']), r['arm'], r['head'][:110]) for r in R]
+    L += ['', '### THE NONE ROWS, FOR THE AUTHOR`S DECISION ON WHICH RECEIVE ARMS:'] + ['  %s row %d -- %s' % (r['act'], r['row'], r['head'][:130]) for r in none]
+    L += ['', '### ### **RULE ROWS %d ACROSS THE %d BANKS THAT EXIST (b676, b679 BANKED NONE) ; EACH ONCE True ; WITH A STANDING ARM %d ; NONE %d.**' % (
+        len(R), len(RI.banks()), len(R) - len(none), len(none))]
+    put_txt('b680_rules_arms.txt', L)
+    put_json('b680_rules_arms.json', dict(at=utc(), rows=R, none=[[r['act'], r['row']] for r in none]))
+    print(L[-1])
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'faces': faces, 'c1': c1, 'c1order': c1order, 'arms': arms, 'rulesarms': rulesarms}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
