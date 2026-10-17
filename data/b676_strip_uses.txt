@@ -1,0 +1,46 @@
+b676 -- COMPONENT 4, (R286)(4): THE STRIP`S USES IN V5 AND THE COMPOSITION AT SIDE-explicit-formula v0.32 (e36ea31), READ AND NOT ATTEMPTED (2026-10-17T05:10:43Z)
+
+### the hypothesis: SIDEExplicitFormula/RestBound.lean :40 "def HStrip (Z : Zeta23.ZeroConfig) : Prop := ∀ ρ ∈ Z.carrier, 0 < ρ.re ∧ ρ.re < 1"
+### the field: Zeta23/Defs.lean :142 "strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1" (a field of ZeroConfig: every configuration carries the closed strip)
+### the variant a later act states: HStrip on (-1/2, 3/2) (relay data/b675_li_plan.txt :136-:138), the strip (3c) proves at Q0.
+### rows are uses: file :line | the line at e36ea31 | the declaration | what is consumed | the step | the bound the step needs | the
+### reading on (-1/2, 3/2) (the seat`s arithmetic on the step, not compiled). Every row`s needle read on its line by git show.
+
+  LiRemainder.lean :84 | theorem liTerm_re_abs_le_pow {ρ : ℂ} (h0 : 0 < ρ.re) (h1 : ρ.re < 1) {s : ℝ} (hs1 : 1 ≤ s) (hz : ‖1 - ρ⁻¹‖ ≤ s) | liTerm_re_abs_le_pow | the open strip as two binders (supplied at :131 from HStrip) | the per-point bound |Re liTerm n ρ| ≤ 2 (n + 1)² sⁿ / ‖ρ‖² | NEEDS: the hypotheses of :88, :94, :95 below | ON (-1/2, 3/2): as below
+  LiRemainder.lean :88 | rw [e, Complex.zero_re] at h0 | liTerm_re_abs_le_pow | h0 : 0 < Re ρ | ρ ≠ 0 | NEEDS: ρ ≠ 0 alone | ON (-1/2, 3/2): the strip (-1/2, 3/2) contains 0: ρ ≠ 0 must come from elsewhere (0 not a point of the configuration)
+  LiRemainder.lean :94 | rw [Complex.inv_re, Complex.normSq_eq_norm_sq, abs_div, abs_of_pos hn2, abs_of_pos h0] | liTerm_re_abs_le_pow | h0 : 0 < Re ρ | |Re ρ⁻¹| = |Re ρ| / ‖ρ‖², the absolute value dropped | NEEDS: Re ρ > 0 as written; the content needs |Re ρ| bounded | ON (-1/2, 3/2): kept as |Re ρ| / ‖ρ‖² (no sign needed)
+  LiRemainder.lean :95 | exact div_le_div_of_nonneg_right h1.le hn2.le | liTerm_re_abs_le_pow | h1 : Re ρ < 1 | |Re ρ⁻¹| ≤ 1 / ‖ρ‖² | NEEDS: |Re ρ| ≤ 1 | ON (-1/2, 3/2): |Re ρ| < 3/2, so |Re ρ⁻¹| ≤ (3/2) / ‖ρ‖²; the constant 2 at :85 still holds (2 (n + 1)² sⁿ - n² sⁿ - (3/2) n ≥ 0 for sⁿ ≥ 1)
+  LiRemainder.lean :125 | theorem rest_term_le (Z : ZeroConfig) (hs : B321.HStrip Z) {s : ℝ} (hs1 : 1 < s) (n : ℕ) {ρ : ℂ} | rest_term_le | HStrip Z (binder) | (V5) per point | NEEDS: as :130-:136 | ON (-1/2, 3/2): as below
+  LiRemainder.lean :130 | have hst : 0 < ρ.re ∧ ρ.re < 1 := hs ρ hmem | rest_term_le | HStrip Z at the point | the open strip at ρ | NEEDS: 0 < Re ρ < 1 | ON (-1/2, 3/2): replaced by -1/2 < Re ρ < 3/2
+  LiRemainder.lean :131 | have hb := liTerm_re_abs_le_pow hst.1 hst.2 hs1.le hlt.le n | rest_term_le | hst.1, hst.2 | the per-point bound of :84 | NEEDS: as :84 | ON (-1/2, 3/2): as :88-:95
+  LiRemainder.lean :134 | have := hst.1 | rest_term_le | hst.1 : 0 < Re ρ | ρ ≠ 0 (:132-:136) | NEEDS: ρ ≠ 0 alone | ON (-1/2, 3/2): as :88
+  LiRemainder.lean :147 | have hstc := Z.strip _ hmem | rest_term_le | the FIELD ZeroConfig.strip (Zeta23/Defs.lean :142, 0 ≤ Re ρ ≤ 1) | the closed strip at ρ | NEEDS: consumed at :150 | ON (-1/2, 3/2): the field itself excludes the object: a configuration with a zero off [0, 1] is no ZeroConfig
+  LiRemainder.lean :150 | nlinarith [hstc.1, hstc.2] | rest_term_le | hstc.1, hstc.2 | ‖γ(ρ)‖² ≤ (Im ρ)² + 1/4 (γ(ρ) = Im ρ - i (Re ρ - 1/2), RestBound.lean :140, :145) | NEEDS: (Re ρ - 1/2)² ≤ 1/4 | ON (-1/2, 3/2): (Re ρ - 1/2)² < 1, so ‖γ(ρ)‖² ≤ (Im ρ)² + 1; the constant 2 + 2 (1 + s)² at :157 still bounds 1 / ‖ρ‖² (1 + ‖γ‖² ≤ 2 + ‖ρ‖² < (2 + 2 (1 + s)²) ‖ρ‖² by :146)
+  LiRemainder.lean :175 | theorem remainder_le (Z : ZeroConfig) {A₀ : ℝ} (hc : B321.HCount Z A₀) (hs : B321.HStrip Z) {s : ℝ} (hs1 : 1 < s) : | remainder_le | HStrip Z (binder) | (V5) | NEEDS: as :185 | ON (-1/2, 3/2): as :125
+  LiRemainder.lean :185 | fun ρ => rest_term_le Z hs hs1 n ρ.2.1 ρ.2.2 | remainder_le | hs | every point of the rest | NEEDS: as :125 | ON (-1/2, 3/2): as :125
+  LiConverseCfg.lean :53 | theorem exists_dominant_point (Z : ZeroConfig) (hs : B321.HStrip Z) {ρ : ℂ} (hρ : ρ ∈ Z.carrier) | exists_dominant_point | HStrip Z (binder) | (V2) on the configuration | NEEDS: as :57 | ON (-1/2, 3/2): as :57
+  LiConverseCfg.lean :57 | have h0 := (hs σ hσ).1 | exists_dominant_point | (hs σ hσ).1 : 0 < Re σ | every point ≠ 0 (:55-:59); the orbit step :60-:66 reads Re ρ ≠ 1/2 and reflect_mem alone | NEEDS: σ ≠ 0 alone | ON (-1/2, 3/2): as :88 (0 lies in the strip)
+  LiConverseCfg.lean :89 | have hst := Z.strip ρ hρ | dominant_finite | the FIELD ZeroConfig.strip | the closed strip at ρ | NEEDS: consumed at :94 | ON (-1/2, 3/2): as :147
+  LiConverseCfg.lean :94 | have hbd : (r ^ 2 - 1) * ‖ρ‖ ^ 2 ≤ 1 := by nlinarith [hst.1] | dominant_finite | hst.1 : 0 ≤ Re ρ | (r² - 1) ‖ρ‖² ≤ 1 from r ‖ρ‖ ≤ ‖ρ - 1‖ (:86-:93), so the ordinates are bounded (:98-:101) | NEEDS: Re ρ ≥ 0 | ON (-1/2, 3/2): Re ρ > -1/2 gives (r² - 1) ‖ρ‖² < 2; K = 2 / (r² - 1) in place of 1 / (r² - 1), the window at :77 widened by that factor; the set finite still
+  LiConverseCfg.lean :157 | theorem li_nonneg_cfg_imp_online (Z : ZeroConfig) {A₀ : ℝ} (hc : B321.HCount Z A₀) (hs : B321.HStrip Z) : | li_nonneg_cfg_imp_online | HStrip Z (binder) | (S5) | NEEDS: as :164, :216, :244 | ON (-1/2, 3/2): as those rows
+  LiConverseCfg.lean :164 | obtain ⟨ρ', hρ', hr0⟩ := exists_dominant_point Z hs hρ1 hoff | li_nonneg_cfg_imp_online | hs | (V2) at the off-line point | NEEDS: as :57 | ON (-1/2, 3/2): as :57
+  LiConverseCfg.lean :216 | have hst := hs x hxD.1 | li_nonneg_cfg_imp_online | HStrip Z at a dominant point x | w ≠ 1 on the dominant set (:213-:232) | NEEDS: as :219, :231 | ON (-1/2, 3/2): as those rows
+  LiConverseCfg.lean :219 | have := hst.1 | li_nonneg_cfg_imp_online | hst.1 : 0 < Re x | x ≠ 0 (:217-:221) | NEEDS: x ≠ 0 alone | ON (-1/2, 3/2): as :88
+  LiConverseCfg.lean :231 | exact div_pos hst.1 (Complex.normSq_pos.mpr hx0) | li_nonneg_cfg_imp_online | hst.1 : 0 < Re x | 0 < Re x⁻¹ against Re x⁻¹ = 1 - R < 0 (:225-:228; R > 1): w = (1 - x⁻¹) / R is never 1 | NEEDS: no dominant point is the negative real 1 / (1 - R) (Re x ≥ 0 suffices) | ON (-1/2, 3/2): NOT REACHED BY A CONSTANT: 1 / (1 - R) lies in (-1/2, 0) whenever R > 3, so on (-1/2, 3/2) the step needs that point excluded by another premise -- the one use of this list the wider strip does not carry by arithmetic alone
+  LiConverseCfg.lean :244 | obtain ⟨C, hC⟩ := remainder_le Z hc hs hs1 | li_nonneg_cfg_imp_online | hs | (V5) on the rest | NEEDS: as :125 | ON (-1/2, 3/2): as :125-:185
+
+### THE PRODUCER (HStrip proved, not consumed):
+  LiConverseCfg.lean :325 | have hstrip : B321.HStrip (chiZeroConfig χ hχ h1) := by | li_nonneg_chi_imp_grh_chi | HStrip proved for χ`s configuration from its carrier (:326-:327), S5 applied at :328 -- a producer, not a consumer
+  LiConverseCfg.lean :326 | unfold B321.HStrip | the producer`s own line
+  LiConverseCfg.lean :328 | exact Schema.li_nonneg_cfg_imp_online (chiZeroConfig χ hχ h1) (A₀ := A₀) ⟨hA₀, hloc⟩ hstrip h s ⟨hs, h0, h1'⟩ | the producer`s own line
+
+### A NAMESAKE (the name, not the hypothesis):
+  LiConverseCfg.lean :323 | (∀ n : ℕ, 0 ≤ Schema.liCoeffCfg (chiZeroConfig χ hχ h1) n) → GRH_chi χ := fun h s hs h0 h1' => by | hs is GRH_chi`s binder for s (a hypothesis on s), not HStrip
+
+### APART -- outside the two files, on the composition`s path (named, not counted):
+  LiCfg.lean :53 | have hstrip := Z.strip _ hρmem | liCoeffCfg_summable (:36) | the FIELD, read by summable_indicator_gL (LiConverseCfg.lean :133-:136, used at :278) | ON (-1/2, 3/2): (Re ρ - 1/2)² ≤ 1/4 at :63 gives the constant 9/4 at :68; on (-1/2, 3/2) with ‖ρ‖ ≥ 1 (:54): 1 + ‖γ‖² ≤ 2 + ‖ρ‖² ≤ 3 ‖ρ‖², the constant 3
+
+### THE COMPLETENESS READ: every code line of the two files naming hs, hst, hstc, hstrip, HStrip or strip: 22 ; listed above 22 ; unlisted NONE
+### the comment and docstring lines naming the strip (prose, not uses): LiRemainder.lean :7, LiRemainder.lean :10, LiRemainder.lean :82, LiRemainder.lean :123, LiRemainder.lean :174, LiConverseCfg.lean :9, LiConverseCfg.lean :15, LiConverseCfg.lean :51, LiConverseCfg.lean :155, LiConverseCfg.lean :321
+
+### ### **USES 22 (V5 12, THE COMPOSITION 10) ; THE FIELD READ AT 2 ; ONE STEP NOT REACHED BY A CONSTANT (LiConverseCfg.lean :231) ; PRODUCER 1 ; APART 1 ; UNLISTED 0 ; NO LEAN WRITTEN.**

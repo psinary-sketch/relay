@@ -1,0 +1,181 @@
+{
+ "at": "2026-10-17T05:10:43Z",
+ "rev": "e36ea31",
+ "uses": [
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   84,
+   "(h0 : 0 < ρ.re) (h1 : ρ.re < 1)",
+   "liTerm_re_abs_le_pow"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   88,
+   "rw [e, Complex.zero_re] at h0",
+   "liTerm_re_abs_le_pow"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   94,
+   "abs_of_pos h0",
+   "liTerm_re_abs_le_pow"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   95,
+   "div_le_div_of_nonneg_right h1.le hn2.le",
+   "liTerm_re_abs_le_pow"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   125,
+   "(hs : B321.HStrip Z)",
+   "rest_term_le"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   130,
+   "have hst : 0 < ρ.re ∧ ρ.re < 1 := hs ρ hmem",
+   "rest_term_le"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   131,
+   "liTerm_re_abs_le_pow hst.1 hst.2",
+   "rest_term_le"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   134,
+   "have := hst.1",
+   "rest_term_le"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   147,
+   "have hstc := Z.strip _ hmem",
+   "rest_term_le"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   150,
+   "nlinarith [hstc.1, hstc.2]",
+   "rest_term_le"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   175,
+   "(hs : B321.HStrip Z)",
+   "remainder_le"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   185,
+   "rest_term_le Z hs hs1 n ρ.2.1 ρ.2.2",
+   "remainder_le"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   53,
+   "(hs : B321.HStrip Z)",
+   "exists_dominant_point"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   57,
+   "have h0 := (hs σ hσ).1",
+   "exists_dominant_point"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   89,
+   "have hst := Z.strip ρ hρ",
+   "dominant_finite"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   94,
+   "nlinarith [hst.1]",
+   "dominant_finite"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   157,
+   "(hs : B321.HStrip Z)",
+   "li_nonneg_cfg_imp_online"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   164,
+   "exists_dominant_point Z hs hρ1 hoff",
+   "li_nonneg_cfg_imp_online"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   216,
+   "have hst := hs x hxD.1",
+   "li_nonneg_cfg_imp_online"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   219,
+   "have := hst.1",
+   "li_nonneg_cfg_imp_online"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   231,
+   "exact div_pos hst.1 (Complex.normSq_pos.mpr hx0)",
+   "li_nonneg_cfg_imp_online"
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   244,
+   "remainder_le Z hc hs hs1",
+   "li_nonneg_cfg_imp_online"
+  ]
+ ],
+ "unlisted": [],
+ "doc": [
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   7
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   10
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   82
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   123
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiRemainder.lean",
+   174
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   9
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   15
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   51
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   155
+  ],
+  [
+   "SIDEExplicitFormula/Schema/LiConverseCfg.lean",
+   321
+  ]
+ ]
+}
