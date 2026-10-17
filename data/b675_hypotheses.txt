@@ -1,0 +1,67 @@
+b675 -- COMPONENT 2, (R285)(5): THE KERNEL`S HYPOTHESES READ AT Q0, BEFORE ANY SUM (2026-10-17T02:52:26Z)
+
+### rows are hypotheses with their reading and source. The object: relay data/b671_epstein_zeros_narrowed.json.gz (sha256 51d9e6322510b738, EQUAL to b671`s hashes bank :3), the JSON inside it cd3a8ea1dcc7660c (EQUAL to :2); 163 rows, ON 146, OFF 17, half-width w = 1e-24; balls in Arb at 256 bits, σ = [re ± h]. The kernel at SIDE-explicit-formula e36ea31 (v0.32), read by git show.
+
+== HStrip, as RestBound.lean :40 states it: "def HStrip (Z : Zeta23.ZeroConfig) : Prop := ∀ ρ ∈ Z.carrier, 0 < ρ.re ∧ ρ.re < 1"
+   the on-line rows: 146, every real part the string "0.5" as the bank carries it: True -- in (0, 1)
+   the off-line balls and their reflections 1 - conj ρ (the orbit member of S5`s exists_dominant_point, Schema/LiConverseCfg.lean :53),
+   each real part with its sign relative to 0 and to 1 (rows are points: idx ; point ; Re as a ball ; t ; Re > 0 ; Re < 1):
+      0  ρ           [0.95326047479466068625051 +/- 1.80e-24]     t 16.290215720390390792963  > 0 True   < 1 True 
+      0  1 - conj ρ  [0.04673952520533931374949 +/- 1.80e-24]     t 16.290215720390390792963  > 0 True   < 1 True 
+      1  ρ           [0.79799715717868018622219 +/- 5.12e-24]     t 29.551761098629114770715  > 0 True   < 1 True 
+      1  1 - conj ρ  [0.20200284282131981377781 +/- 5.12e-24]     t 29.551761098629114770715  > 0 True   < 1 True 
+      2  ρ           [0.66365167885959860982655 +/- 4.96e-24]     t 33.650100582527335123374  > 0 True   < 1 True 
+      2  1 - conj ρ  [0.33634832114040139017345 +/- 4.96e-24]     t 33.650100582527335123374  > 0 True   < 1 True 
+      3  ρ           [0.80999153149713342170178 +/- 4.23e-24]     t 43.858664365004478179284  > 0 True   < 1 True 
+      3  1 - conj ρ  [0.19000846850286657829822 +/- 4.23e-24]     t 43.858664365004478179284  > 0 True   < 1 True 
+      4  ρ           [0.78237857667772956411559 +/- 1.87e-24]     t 46.960993669907468077784  > 0 True   < 1 True 
+      4  1 - conj ρ  [0.21762142332227043588441 +/- 1.87e-24]     t 46.960993669907468077784  > 0 True   < 1 True 
+      5  ρ           [0.80865997147763928580376 +/- 5.40e-24]     t 61.687903768791950780246  > 0 True   < 1 True 
+      5  1 - conj ρ  [0.19134002852236071419624 +/- 5.40e-24]     t 61.687903768791950780246  > 0 True   < 1 True 
+      6  ρ           [0.84987909951982189113320 +/- 2.86e-24]     t 64.434828940334042583908  > 0 True   < 1 True 
+      6  1 - conj ρ  [0.15012090048017810886680 +/- 2.86e-24]     t 64.434828940334042583908  > 0 True   < 1 True 
+      7  ρ           [0.71364054235716289993277 +/- 3.28e-24]     t 75.081204182735098674647  > 0 True   < 1 True 
+      7  1 - conj ρ  [0.28635945764283710006723 +/- 3.28e-24]     t 75.081204182735098674647  > 0 True   < 1 True 
+      8  ρ           [0.79576902584123569126558 +/- 4.02e-24]     t 79.598549664936705629422  > 0 True   < 1 True 
+      8  1 - conj ρ  [0.20423097415876430873442 +/- 4.02e-24]     t 79.598549664936705629422  > 0 True   < 1 True 
+      9  ρ           [0.73049815760212905892983 +/- 4.22e-24]     t 89.518105978853499354761  > 0 True   < 1 True 
+      9  1 - conj ρ  [0.26950184239787094107017 +/- 4.22e-24]     t 89.518105978853499354761  > 0 True   < 1 True 
+     10  ρ           [0.81178334793283264814407 +/- 3.73e-24]     t 92.151773718857358300723  > 0 True   < 1 True 
+     10  1 - conj ρ  [0.18821665206716735185593 +/- 3.73e-24]     t 92.151773718857358300723  > 0 True   < 1 True 
+     11  ρ           [0.60543642218573816683312 +/- 1.40e-24]     t 93.081268401792030973085  > 0 True   < 1 True 
+     11  1 - conj ρ  [0.39456357781426183316688 +/- 1.40e-24]     t 93.081268401792030973085  > 0 True   < 1 True 
+     12  ρ           [0.95150465797311451600804 +/- 2.51e-24]     t 107.39929110192056774460  > 0 True   < 1 True 
+     12  1 - conj ρ  [0.04849534202688548399196 +/- 2.51e-24]     t 107.39929110192056774460  > 0 True   < 1 True 
+     13  ρ           [0.82302142937617588717693 +/- 2.10e-24]     t 110.19743296884322678310  > 0 True   < 1 True 
+     13  1 - conj ρ  [0.17697857062382411282307 +/- 2.10e-24]     t 110.19743296884322678310  > 0 True   < 1 True 
+     14  ρ           [0.83942838499598123322115 +/- 3.79e-24]     t 124.77543810003728498706  > 0 True   < 1 True 
+     14  1 - conj ρ  [0.16057161500401876677885 +/- 3.79e-24]     t 124.77543810003728498706  > 0 True   < 1 True 
+     15  ρ           [0.66653415247131130520586 +/- 5.80e-24]     t 127.62283672383898925128  > 0 True   < 1 True 
+     15  1 - conj ρ  [0.33346584752868869479414 +/- 5.80e-24]     t 127.62283672383898925128  > 0 True   < 1 True 
+     16  ρ           [0.87430566072697513052885 +/- 5.15e-24]     t 137.88555701699447429775  > 0 True   < 1 True 
+     16  1 - conj ρ  [0.12569433927302486947115 +/- 5.15e-24]     t 137.88555701699447429775  > 0 True   < 1 True 
+   THE CERTIFIED POINTS: 17 off-line balls and 17 reflections, every real part strictly between 0 and 1: True; the least [0.04673952520533931374949 +/- 1.80e-24] (idx 0, 1 - conj ρ), the greatest [0.95326047479466068625051 +/- 1.80e-24] (idx 0, ρ).
+   THE STATEMENT`S REACH: HStrip quantifies over every point of the carrier, with no height. The certified list reaches t = 150 alone
+   (b667`s region R = [-0.5, 1.5] × [0.5, 150], N(R) = 180 = the list, relay data/b667_epstein_counts.txt :52; P2 Q0Complete, Schema/EpsteinQ0.lean :100).
+   Above 150 two facts bound the reading: (a) no zero of Z_Q at σ ≥ 3/2, at any height -- (3c)`s tail bound is a bound in σ alone,
+   |Z_Q(s) - 2| ≤ Z_Q(3/2) - 2 = [1.54841378141857 +/- 1.08e-15] < 2 (relay data/b667_epstein_plan.txt :247-:248, data/b667_epstein_counts.txt
+   :34), and by Λ_Q(s) = Λ_Q(1 - s) with Γ zero-free (data/b667_epstein_plan.txt :10) none at σ ≤ -1/2 off the real axis; (b) Q0 has
+   class number h(-23) = 3 > 1 (data/b667_epstein_plan.txt :8), and Davenport and Heilbronn (1936) proved that the Epstein zeta function
+   of a positive definite binary form of class number above 1 has infinitely many zeros in σ > 1 (J. London Math. Soc. 11; cited, not
+   read from a pinned copy) -- above t = 150, since R counts none below it; each such zero ρ and its reflection 1 - conj ρ (σ < 0)
+   lie outside the open strip (0, 1).
+   THE READING: HStrip HOLDS ON EVERY CERTIFIED POINT (H1 as written, on the balls: HELD) AND FAILS FOR Q0`S CONFIGURATION AS A WHOLE,
+   by (b): Q0 lies outside the kernel`s configuration class (R285)(8) names, the bound marked as NOT APPLYING to Q0 at v0.32, the
+   sums of (6)-(7) observation alone. The variant hypothesis named for a later act (entered in the plan bank): HStrip on the
+   strip (-1/2, 3/2), which (a) proves at Q0 at every height; rest_term_le (Schema/LiRemainder.lean :125) uses the open strip
+   through |Re ρ⁻¹| ≤ 1/‖ρ‖² and the lower bound on ‖ρ‖, and its constant changes with the strip. RAISED as one prompt before (6).
+
+== HCount, as RestBound.lean :44 states it: "def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :="
+   a count law for Z_Q pinned in data/b667_epstein_plan.txt: NONE (292 lines; its counts are the region and square counts, == 1, 4, 11).
+   T-COUNT, named by (R285)(5): the kernel`s premise P3 at Q0 -- "def Q0Count (Z : Zeta23.ZeroConfig) : Prop := HCount Z A0Q" with "def A0Q : ℝ := 10" (Schema/EpsteinQ0.lean :104, :108), that is
+   N(t, t + 1) ≤ 10 log(|t| + 3) for every real t, N counting Im in (t, t + 1] with multiplicity; its reason relay data/b663_a0_list.txt
+   :6-:9 (the listed points` own A₀ = 1; 10 a round margin for the unlisted zeros above 150, whose count in (t, t + 1] grows like
+   (1/π) log t), "stated, not proved; open". CARRIED AS AN ASSUMPTION OF THE BENCH ON THE FACE, NOT AS A THEOREM: every tail bound
+   of (6)(ii) and (6)(iv) names it. On the certified points it holds with A₀ = 1 (data/b663_a0_list.txt :5).
+
+### ### **HStrip ON THE CERTIFIED POINTS: HELD (34 of 34 real parts in (0, 1)) ; HStrip FOR Q0`S CONFIGURATION: FAILS (Davenport-Heilbronn, above t = 150) ; HCount: T-COUNT ASSUMED (P3, A₀Q = 10) ; THE BOUND AT v0.32: NOT APPLYING TO Q0 ; RAISED BEFORE (6).**

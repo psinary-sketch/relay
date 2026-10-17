@@ -1,0 +1,36 @@
+b675 -- COMPONENT 4, (R285)(7): H1-H6 READ, EACH READING CITED TO ITS ROW (2026-10-16)
+
+### rows are hypotheses with their reading and the bank line that prints it. By the navigator's answers (data/b675_author_answers.txt):
+### the v0.32 bound does not apply to Q0; H2-H4 are observation lines, not tests of the kernel; H3 and H4 read along V4's subsequence;
+### H5 read on C2′; T-COUNT (P3, HCount Z 10) an ASSUMPTION of every U_n. The bench in six foreground parts, 16, 18, 35, 75, 52 and 53 s
+### (data/b675_li_constants.json "parts"; no phase above 450 s).
+
+  (H1) HStrip at Q0               THE FINDING: HELD on the 34 certified real parts (17 off-line balls and their reflections, least
+                                  0.0467..., greatest 0.9533...), FAILS for Q0's configuration (Davenport-Heilbronn 1936, h(-23) = 3,
+                                  zeros in σ > 1 above t = 150) -- relay data/b675_hypotheses.txt :67; Q0 outside the kernel's class at
+                                  v0.32, by the navigator's answer on HStrip.
+  (H2) n* with its constants      PRINTED: n* = 63676, "the v0.32 bound's onset, were HStrip to hold" -- R = [1.0017065545999015147...
+                                  +/- 1.38e-25] (Schema/LiConverseCfg.lean :169-:170), r = (1 + R)/2 (:165-:166), s1 = r (:183-:191:
+                                  every rest modulus below r, the next idx 1's 1.000341..., every uncertified one below 1.0000445),
+                                  s = 1.0012799159499261... (:192), c = 1/4 (Schema/PowerSum.lean :222; :241-:242), K = K_cert 1.04828 +
+                                  K_tail 0.80988 (T-COUNT) = 1.85816..., C = 2(2 + 2(1 + s)²)·K = 37.2013... (Schema/LiRemainder.lean
+                                  :180-:181), the expression at n* [-1.21e43 +/- 1.93e28] (:295's line); K′ = 2.14342... beside it,
+                                  consumed by nothing -- relay data/b675_li_constants.json "bench", data/b675_li_bench.txt :851.
+  (H3) the window [n*, n* + 200]  READ ALONG V4'S SUBSEQUENCE (an observation): NEG at 102 of 201 n, the least NEG 63709, the longest runs
+                                  51 NEG (63709-63759) and 51 NONNEG (63760-63810), UNDECIDED 0; the sign follows 2cos(nθ) -- e.g. 63709
+                                  NEG at 2cos(nθ) = 0.115, 63760 NONNEG at -0.087 -- relay data/b675_li_bench.txt :849, rows :645-:845.
+                                  As written at every n ((R285)(7)) it is not met, and that clause is the navigator's (data/b675_defects.txt (a)).
+  (H4) n_obs ≤ n*                 HELD AS AN OBSERVATION: n_obs = 10034 (the first run of NEG, 10034-10050; NONNEG at every n below),
+                                  10034 ≤ 63676 -- relay data/b675_li_bench.txt :848, :851. Under T-COUNT, λ_10034 < 0 for every
+                                  configuration agreeing with Q0's certified list below 150 with its points in (-1/2, 3/2): Q0's Li
+                                  coefficient at n = 10034 is negative, given T-COUNT.
+  (H5) C2′, the instrument        HELD: over [1, 63876] NEG 0, UNDECIDED 0, P_n ≥ 0 at every n as algebra requires; the radius at the
+                                  largest n 1.125e-19 -- relay data/b675_li_controls.txt :644. C2 as (R285)(7) writes it, an object
+                                  reading beside it: NEG at 23292 n, the least 15401, the onset predicted from idx 1's term alone 17241
+                                  (a sufficient rule; the observed onset before it) -- :1285-:1286.
+  (H6) the second control         PRINTED: the dominant pair removed, D′ = idx 1's reflection and its conjugate, n*′ = 358665 (s′ =
+                                  1.00025586..., C′ = 37.1251...), n_obs′ = 64065; the window [358665, 358865] NEG at 93 of 201, the least
+                                  358757, UNDECIDED 0; the orderings n* 63676 < n*′ 358665 and n_obs 10034 < n_obs′ 64065 -- relay
+                                  data/b675_li_controls.txt :5076-:5077, :5079.
+
+### the radius of P_n at the largest n of the bench (63876): 1.451e+26 against |P_n| near 3e47 (data/b675_li_bench.txt :847, :845).

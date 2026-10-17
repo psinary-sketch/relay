@@ -1,0 +1,152 @@
+b675 -- THE PLAN OF (R285)(6): THE LI INDEX AT Q0 -- EVERY QUANTITY, ITS FORMULA, ITS SOURCE AND ITS TOLERANCE, RAISED AS ONE PROMPT
+BEFORE ANY SUM (2026-10-16)
+
+### No sum over the zeros has been computed for this plan; every figure here is read from a bank (cited by path and line) or a Lean line
+### at SIDE-explicit-formula e36ea31 (v0.32), or is a constant the plan fixes. One timing was taken on a dummy point (== 6), not on the
+### object. Rows are quantities, their formulas, their sources and their tolerances, by section. The read-first bank: relay
+### data/b675_readfirst.txt; the hypotheses: relay data/b675_hypotheses.txt; the citation check's misses: relay data/b675_citation_check.txt.
+
+== 0. THE AUTHOR'S WORD ON HStrip, ENTERED BEFORE THE PLAN (relay data/b675_author_answers.txt, the navigator's answer under (R285)(5))
+  Option 1, the H1-fails landing of (8): Q0 outside the kernel's configuration class at v0.32 (the 34 certified real parts in (0, 1),
+  least 0.0467, greatest 0.9533; Davenport-Heilbronn above t = 150, relay data/b675_hypotheses.txt). The bound marked NOT APPLYING at
+  v0.32; the sums of (6)-(7) computed as OBSERVATION ALONE, with two amendments, both carried here:
+    (A1) the tail U_n bounded on the strip (-1/2, 3/2) that (3c) proves at every height (relay data/b667_epstein_plan.txt :247-:248, the
+         ball data/b667_epstein_counts.txt :34; with Λ_Q(s) = Λ_Q(1 - s), data/b667_epstein_plan.txt :10), so λ_n ≤ P_n + U_n is an
+         inequality, not an estimate (section 2 (iv));
+    (A2) n* computed as the bound's formula gives it and printed as "the v0.32 bound's onset, were HStrip to hold", consumed by no
+         hypothesis; H2-H4 read as observation lines, not as tests of the kernel (section 3).
+  The variant hypothesis HStrip on (-1/2, 3/2) named for a later act with its question (section 7). C2 and H6 kept (section 4).
+
+== 1. THE OBJECT AND THE COEFFICIENT
+  Q0 = x² + xy + 6y², disc -23, h(-23) = 3 (data/b667_epstein_plan.txt :8). The certified points: relay data/b671_epstein_zeros_narrowed.json.gz
+  (sha256 51d9e632..., the JSON inside cd3a8ea1..., both compared with data/b671_epstein_zeros_narrowed_hashes.txt :2-:3 before any row is
+  read, tools/b675_record.py `zeros`), 163 rows in the upper half-plane: ON 146 (Re the string "0.5", Im a ball of half-width 1e-24), OFF 17
+  (Re and Im balls of half-width 1e-24, the ball form of data/b671_narrow_plan.txt :7-:8). THE CARRIER BELOW |t| = 150: the 146 on-line
+  ordinates ±; each off-line ρ with its orbit {ρ, 1 - conj ρ, conj ρ, 1 - ρ} -- 292 + 68 = 360 points, multiplicity 1 each (every square's
+  count 1, data/b667_epstein_counts.txt). COMPLETE below 150, certified: R = [-0.5, 1.5] × [0.5, 150] counts N(R) = 180 = the list
+  (data/b667_epstein_counts.txt :52), the band [-0.5, 1.5] × [-0.5, 0.5] counts 0 (:56), the lower half by conjugation, and no zero at
+  σ ≥ 3/2 or σ ≤ -1/2 at any height ((3c), (A1)).
+  THE COEFFICIENT: λ_n = liCoeffCfg Z n = (1/2) Σ' m_ρ Re(pairTerm n ρ) (Schema/LiCfg.lean :28-:29), = Σ' over the carrier of m_ρ Re(liTerm n ρ)
+  (liCoeffCfg_eq_indicator, Schema/LiConverseCfg.lean :122), liTerm n ρ = 1 - (1 - ρ⁻¹)ⁿ (LiWeil.lean :60). z_ρ = 1 - 1/ρ.
+  λ_n = P_n + Λ_n^rest, P_n over the 360 certified points, Λ_n^rest over the points with |t| ≥ 150 (none of them certified).
+
+== 2. THE QUANTITIES ((R285)(6)(i)-(v)), EACH WITH ITS FORMULA, SOURCE AND TOLERANCE
+  (i) THE DOMINANT SET D: the certified point(s) of largest ‖z_ρ‖. By data/b673_v4_control.txt :6, :23-:24 (balls at 256 bits): ρ′ = 1 -
+      conj ρ of off-line idx 0 and its conjugate, ‖z‖ = R = [1.0017065545999015147 +/- 3.49e-20], certified above every other point; m = 1
+      each, Σ_D m = 2, Σ_D m² = 2, c = Σm²/(4Σm) = 1/4 (powerSum_consts, Schema/PowerSum.lean :222; consumed at Schema/LiConverseCfg.lean
+      :241-:242), the control of b673 reading 1/4 (data/b673_v4_control.txt :24). No uncertified point reaches R: at |t| ≥ 150 and
+      σ > -1/2, ‖z‖² = 1 + (1 - 2σ)/‖ρ‖² < 1 + 2/150² (section 2 (iv)), ‖z‖ < 1.0000445. w = z/R, θ = arg w = [0.0613198770021965645581628
+      +/- 4.54e-26] (:26). Recomputed in the bench from the balls, compared with b673's within the balls' radii.
+  (ii) n*, THE v0.32 BOUND'S ONSET, WERE HStrip TO HOLD ((A2); consumed by no hypothesis): the least n with
+          Σ_D m - c·Rⁿ + C·(n + 1)²·sⁿ < 0,   i.e.   2 - Rⁿ/4 + C(n + 1)²sⁿ < 0,
+      the composition's line (Schema/LiConverseCfg.lean :295) with its constants as the proof fixes them:
+        ρ1, the off-line point the by_contra names (:162), fixed here as qE0 (off-line idx 0; Schema/EpsteinQ0.lean :60), its orbit member
+        ρ′ = reflect qE0 (exists_dominant_point, :53-:63); r = (1 + ‖1 - ρ′⁻¹‖)/2 = (1 + R)/2 (:165-:166); R = r_max over the finite set
+        {r ≤ ‖z‖} (:169-:170); s1 = the largest modulus in [r, R) or r where none lies there (:183-:191) -- none does (the next certified
+        modulus is idx 1's 1.0003411544340932246, data/b673_v4_control.txt :7, below r ≈ 1.000853; every uncertified one below 1.0000445),
+        so s1 = r; s = (s1 + R)/2 (:192); C = 2(2 + 2(1 + s)²)·K (remainder_le, Schema/LiRemainder.lean :180-:181) with
+          K = Σ over the rest set {‖z‖ < s} (every carrier point outside D) of m_ρ/(1 + |γ_ρ|²), |γ_ρ|² = t² + (σ - 1/2)² (gammaOf,
+          RestBound.lean :140, :145) = K_cert + K_tail:
+          K_cert over the 358 certified points outside D, in balls; K_tail over |t| ≥ 150 under T-COUNT (P3, N(t, t + 1] ≤ 10 log(|t| + 3),
+          Schema/EpsteinQ0.lean :104, :108): K_tail ≤ 2 Σ_{k ≥ 149} 10 log(k + 4)/(1 + max(k, 150)²) (both signs of t; each unit interval
+          (k, k + 1] its count bound at its far end), summed in balls to k = 20000 and the rest by ∫ log(x + 4)/x² ≤ (log K + 1)/K + 2/K²
+          at K = 20000 (the summand decreasing for x ≥ 2).
+        K′, the ruling's "Σ_{‖ρ‖≥R0} m/‖ρ‖²", printed beside K and not consumed: the proof's C carries m/(1 + |γ|²), and its header
+        (Schema/LiRemainder.lean :12) reads "The plan's split at ‖ρ‖ = R0 is not needed" (data/b675_citation_check.txt, raised); K′ taken
+        over the same rest set with the same tail form, ‖ρ‖² ≥ t².
+      Tolerance: n* is the least n at which the expression's ball is certified below 0; the expression's ball radius at n* printed. Each
+      constant printed with its Lean line.
+  (iii) THE OBSERVED QUANTITY P_n = Σ over the 360 certified points of m_ρ(1 - Re z_ρⁿ), in Arb balls at 256 bits, each zⁿ taken as
+      exp(n·log z) and never by repeated multiplication: squaring a ball doubles its relative radius at each step (the reason b671 gave for
+      amplifying the angle in place of squaring the ball, data/b671_scanfile_landing.md :6 and OPEN_TRAILS :14396; data/b671_tie_diagnostic.txt
+      prints the radius growing with j). Conjugate pairs taken once and doubled (Re zⁿ of conj ρ equals that of ρ). The radius printed at every banked n and at the
+      largest n of each run.
+  (iv) THE TAIL U_n, an upper bound on Λ_n^rest, every term bounded with its source: for ρ = σ + it with |t| ≥ 150 and -1/2 < σ < 3/2 ((A1)),
+      u = 1/ρ, z = 1 - u, the identity 1 - zⁿ = n·u - u²·Σ_{j<n} Σ_{l<j} z^l (one_sub_pow_expand, Schema/LiRemainder.lean :27) gives
+          Re(1 - zⁿ) ≤ n·Re u + |u|²·(n(n - 1)/2)·max(1, ‖z‖)^n,   Re u = σ/‖ρ‖² < (3/2)/t²,   |u|² ≤ 1/t²,
+          ‖z‖² = 1 + (1 - 2σ)/‖ρ‖² < 1 + 2/t²,   so   max(1, ‖z‖)ⁿ ≤ exp(n/t²),
+      and the count by T-COUNT over the unit intervals (k, k + 1], k ≥ 149, both signs of t (the far end's count bound, the near end's term
+      bound, each term decreasing in |t|):
+          U_n = Σ_{k ≥ 149} 2·10 log(k + 4)·[(3/2)n + (n²/2)·exp(n/k′²)]/k′²,   k′ = max(k, 150),
+      summed in balls to k = 20000 and the rest bounded by exp(n/20000²)·(that integral bound). U_n increases with n: computed on a grid of
+      step 100 and, for n in (g, g + 100], the value at g + 100 used (an upper bound at every n). Then λ_n ≤ P_n + U_n at every n, under
+      T-COUNT, an ASSUMPTION carried on the face.
+  (v) THE RANGE: n ∈ [1, n* + 200] for P_n + U_n, the sign printed at every n in [n*, n* + 200]; n_obs = the least n with the ball
+      P_n + U_n certified below 0 (then λ_n < 0 under T-COUNT). Priced in section 6.
+
+  THE COMPARISON'S TOLERANCE ((R285)(6), consumers): the ball P_n + U_n against 0 -- NEG where the ball lies below 0, NONNEG where it lies at
+  or above 0, UNDECIDED where it contains 0; the tolerance is P_n's ball radius at n with U_n inside the quantity (U_n is an upper bound,
+  not a radius), measured on the comparison itself and printed beside each banked sign.
+
+== 3. THE OBSERVATION LINES, AS THE NAVIGATOR'S ANSWER READS THEM (A2) -- each refutable by a printed line, none a test of the kernel
+  (H1) ENTERED AS THE FINDING of Component 2: HStrip holds on the 34 certified real parts and fails for Q0's configuration (relay
+       data/b675_hypotheses.txt, its verdict line).
+  (H2) n* printed with every constant of section 2 (ii) and its Lean line: "the v0.32 bound's onset, were HStrip to hold".
+  (H3) the sign of P_n + U_n at every n in [n*, n* + 200], printed with its tolerance -- an observation. Expected: the sign follows
+       cos(nθ) (θ ≈ 0.0613, period ≈ 102.5 in n), NEG about where Re Σ_D wⁿ = 2cos(nθ) > 0 and NONNEG where it is negative. The
+       composition bounds λ_n only along V4's subsequence, Re Σ_D wⁿ ≥ c (Schema/LiConverseCfg.lean :259; data/b673_v4v5_plan.txt :89),
+       so its formula predicts nothing at the n where 2cos(nθ) < 1/4 (data/b673_v4_control.txt :4032: 1839 of n = 1..4000 certified at or
+       below -c) -- the window's NONNEG lines are not a refutation of the formula; each is printed with 2cos(nθ) beside it.
+  (H4) n_obs ≤ n*, printed as an observation.
+  (H5) the control C2 (section 4), its sign line over the range.
+  (H6) the second control (section 4), n*′ and n_obs′ and the ordering of the two onsets.
+
+== 4. THE CONTROLS, CONCRETE, AND ONE RAISED
+  C2, AS (R285)(7) WRITES IT: the dominant pair reflected onto the line (ρ′ of idx 0 and its conjugate set to σ = 1/2 at the same
+       ordinates), every other point unchanged; P_n ≥ 0 over [1, n* + 200] within tolerance. RAISED: as written C2 is not a negative
+       control at Q0. Sixteen other reflected off-line points keep ‖z‖ > 1 (idx 1's 1.000341..., data/b673_v4_control.txt :7), so P_n's
+       term 2(1 - Re z_1ⁿ) reaches about -2e^{0.000341 n}, past the at most 720 of the 358 points with ‖z‖ ≤ 1, near n ≈ 2·10⁴ -- inside the
+       range. As written it is predicted to print P_n < 0 at many n, by the object and not by the instrument.
+  C2′, THE ALL-ON-LINE CONTROL (offered): every off-line orbit moved onto the line at its ordinates (‖z‖ = 1 at every point), so each term
+       1 - Re zⁿ ∈ [0, 2] and P_n ≥ 0 at every n -- the instrument's sign and radii checked against a value known by algebra.
+  H6, THE SECOND CONTROL: the dominant pair (ρ′ of idx 0 and its conjugate) removed; D′ = ρ′ of idx 1 and its conjugate, R′ =
+       [1.0003411544340932246 +/- 3.27e-20] (data/b673_v4_control.txt :7), the next largest; r′, s1′, s′, C′ and n*′ by section 2 (ii)'s
+       rules on the reduced set (idx 3's 1.0001611372270417832 the next modulus, :9, below r′ ≈ 1.000171, so s1′ = r′); P_n′ + U_n over
+       [1, n*′ + 200], n_obs′ its least certified NEG; the ordering of (n*, n*′) and of (n_obs, n_obs′) printed. Banked beside the bench as
+       relay data/b675_li_controls.txt (rows are n with the control's P_n and sign).
+
+== 5. THE CONSUMERS SECTION ((R278)(3), standing): each bank the act writes, its consumers, each consumer's tolerance
+  data/b675_hypotheses.txt (.json)  -- consumers: the FINDINGS entry (H1's line), the suite's arm over this act's banks; tolerance: none --
+                                       each sign is a certified ball comparison at 256 bits, a ball containing 0 or 1 printed UNDECIDED.
+  data/b675_li_plan.txt             -- consumers: the bench (every constant read by line), the author's word; tolerance: none.
+  data/b675_li_bench.txt (.json)    -- rows are n with P_n as a ball, U_n, P_n + U_n and the sign; consumers: (H2)-(H4), the FINDINGS entry's
+                                       title, the faces line if the word is given; tolerance: the comparison of section 2, measured on it.
+  data/b675_li_controls.txt (.json) -- rows are n with the control's P_n and sign; consumers: (H5), (H6); tolerance: as the bench's.
+  data/b675_li_constants.json       -- R, θ, r, s1, s, K_cert, K_tail, K, C, K′, n* and their primed forms, each a ball with its Lean line;
+                                       consumers: (H2), (H6); tolerance: none (balls).
+
+== 6. THE PRICING AND THE PARTS (the foreground limit 600 s; no detached run)
+  Measured on a dummy point (not the object), 2026-10-17 before 03:00Z: 50000 acb exp(n·log z) plus one subtraction and one addition at 256 bits
+  in python-flint 0.9.0: 0.14 s, about 2.8 µs a term.
+  Estimated, not computed (K is a sum and is not taken before the word): ln(R/s) ≈ 4.26·10⁻⁴ from the banked R alone, so n* ≈ 6·10⁴ for C
+  in the tens; n*′ ≈ 3.5·10⁵ by ln(R′/s′) ≈ 8.5·10⁻⁵. The terms: the bench 360 × (n* + 200) ≈ 2.3·10⁷, about 65 s; C2 and C2′ each the
+  same; H6 358 × (n*′ + 200) ≈ 1.3·10⁸, about 360 s; the U_n grid ≈ (n*′/100) × 2·10⁴ ≈ 7·10⁷ terms, about 200 s.
+  THE PARTS, each one foreground call, each printing its phases' seconds ((R285)(2)'s rule row: a part whose longest phase passes 450 s is
+  split at the next act):
+    part 1  the constants (R, θ, r, s, K, C, n*, and the primed set) and U_n's grid to n* + 300                  -- about 60 s
+    part 2  the bench P_n, n = 1 .. n* + 200, with U_n; data/b675_li_bench.txt                                   -- about 90 s
+    part 3  C2 as written and C2′ (if the word keeps it), n = 1 .. n* + 200                                     -- about 150 s
+    part 4  U_n's grid from n* + 300 to n*′ + 300                                                              -- about 200 s
+    part 5  H6, n = 1 .. ⌈(n*′ + 200)/2⌉                                                                       -- about 200 s
+    part 6  H6, the rest to n*′ + 200; data/b675_li_controls.txt                                                -- about 200 s
+  Where a part's measured seconds pass 540, it stops at its own bound and the next part resumes from its banked last n.
+  THE BANKS' SIZE: one row per n for the bench's window [n*, n* + 200] and every 100th n elsewhere, with every sign change of P_n + U_n
+  and n_obs in full; the per-n signs over [1, n* + 200] kept as a run-length line.
+
+== 7. THE VARIANT HYPOTHESIS FOR A LATER ACT, AND THE CONFIGURATION'S TYPE
+  HStrip on (-1/2, 3/2), which (3c) proves at Q0 at every height. ITS QUESTION, as the navigator's answer carries it -- which of V5's steps
+  use the strip's width, by Lean line:
+    Schema/LiRemainder.lean :94-:95   |Re ρ⁻¹| ≤ 1/‖ρ‖² from 0 < Re ρ < 1 (abs_of_pos h0, h1.le); on (-1/2, 3/2) it is (3/2)/‖ρ‖².
+    Schema/LiRemainder.lean :86-:89   ρ ≠ 0 from 0 < Re ρ; on the wider strip 0 lies inside it, so ρ ≠ 0 must come from elsewhere.
+    Schema/LiRemainder.lean :131, :134  rest_term_le hands HStrip's two halves to liTerm_re_abs_le_pow and to ρ ≠ 0.
+    Schema/LiRemainder.lean :147-:150 hγ: normSq(gammaOf ρ) ≤ (Im ρ)² + 1/4 from Z.strip; on the wider strip (Im ρ)² + 1, and the constant
+                                      2 + 2(1 + s)² changes with it.
+    Zeta23/Defs.lean :142             ZeroConfig.strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1 -- a field of the configuration type itself.
+  THE TYPE'S READING, entered for the record: by Defs.lean :142 and Davenport-Heilbronn, Z_Q's zero set is carried by no ZeroConfig. The
+  kernel's Q0 instance (Schema/EpsteinQ0.lean :112-:116, Q0Premises over an abstract Z : ZeroConfig; b590's EpsteinPremises with an
+  abstract rhs, Schema/Epstein.lean :41-:44) is a configuration agreeing with Z_Q's certified list below 150 and lying in the closed strip
+  by type; its premises do not name Z_Q's zero set and are not contradicted by it. The bound applies to any such Z that also meets HStrip;
+  since [0, 1] ⊂ (-1/2, 3/2), this act's U_n bounds that class's λ_n as well.
+
+== 8. WHAT STOPS THE ACT AT THIS PLAN: the author's word on this plan, raised as one prompt with the C2 question of section 4 and the K′
+  question of section 2 (ii); no sum before it.
