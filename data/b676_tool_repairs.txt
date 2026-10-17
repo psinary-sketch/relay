@@ -1,0 +1,27 @@
+b676 -- COMPONENT 5, (R286)`S FERRY: THE CARRY-TIME REPAIRS, AGAINST b675`S SEALED COPIES (2026-10-17T05:17:59Z)
+
+### b675`s sealed copy: tools/b675_citation.py sha256 e5aa4c372ade0724 ; the seal`s record e5aa4c372ade0724 ; AGREE
+### b675`s sealed copy: tools/b675_closing.py sha256 a5a5e22c6b7530e9 ; the seal`s record a5a5e22c6b7530e9 ; AGREE
+### rows are repairs, each with the defect it answers, the diff`s hunks (b675 -> b676) that carry it, and its reading on real banks.
+### The other differences of the carried tools are the act`s own text (its names, its banks and its sections), not repairs.
+
+  REPAIR 1 -- THE MID-ACT CHECK CUTS EACH ANSWER OUT OF A RESULT THAT CARRIES SEVERAL. Answers b675 defect (j) and b676 defect (b)
+  (tools/b676_citation.py, made before its seal). Hunks 1:
+    @@ -332,0 +299,6 @@ def answer(needle, *a):
+    +    # ### one result can carry several answers (b675 defect (j), b676 defect (b)): the answer is cut from the last BEGIN before the needle
+    +    # ### to the first END after it
+    +    k = best.find(needle)
+    +    b0, e0 = best.rfind('BEGIN', 0, k), best.find('END', k)
+    +    if b0 >= 0 and e0 > k:
+    +        best = best[b0:e0 + 3]
+  on this act`s result carrying both navigator answers (2341 characters): the sealed reading takes the whole result for each needle; the repaired reading takes 853 and 594 characters
+
+  REPAIR 2 -- THE CLOSING`S CITATION LINE READS THE MID-ACT CHECK`S HEADER IN BOTH WORDINGS. Answers the citation tool`s header
+  ("the answer carrying", since the route reads the author`s tool results as well as the navigator`s pasted answers), which the
+  sealed needle ("the navigator`s answer carrying") reads as no check at all. Hunks 1:
+    @@ -199 +198 @@ def citation_line():
+    -    needles = re.findall(r"^### \(R278\)\(4\) THE MID-ACT CHECK \([^)]*\): the navigator`s answer carrying '([^']*)'", cc, re.M)
+    +    needles = re.findall(r"^### \(R278\)\(4\) THE MID-ACT CHECK \([^)]*\): the (?:navigator`s )?answer carrying '([^']*)'", cc, re.M)
+  on relay b676_citation_check.txt: the sealed needle finds 0 checks ; the repaired needle finds 4 (on the print list; on the ‘before’ bank; on the print list; on the ‘before’ bank)
+
+### ### **REPAIRS 2 ; THE SEALED COPIES AGREE ; HUNKS 1 AND 1 ; EACH ANSWER CUT FROM ITS RESULT True ; THE CHECKS READ BY THE CLOSING True.**

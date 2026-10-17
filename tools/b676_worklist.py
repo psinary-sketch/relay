@@ -68,8 +68,12 @@ NEXT = ('b677, the research act on W-ORD-MAP-ANGLE-FORM, its ruling then, its pl
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm is a standing arm carried from b675's face (b675's own act
 # ### arms not carried). Each run at HEAD and counted before the face names it. Filled at Component 5.
-ACT_ARMS = ()
-SHARED_APPENDED = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-R286-ENTERED', 'G-ROWGEN-STEPZERO',
+            'G-BRANCHES-BANKED', 'G-NAMING-BEFORE-BRANCH', 'G-CUT-COMMENT-ONLY', 'G-PRINTS-EQUAL', 'G-CUT-DISTANCE', 'G-CORRESPONDENCE-DRY',
+            'G-Q0-LINES-BANKED', 'G-Q0-ORDER-ENTERED', 'G-STRIP-USES-BANKED', 'G-TOOL-REPAIRS')
+SHARED_APPENDED = ('data/b670_work_orders.txt',)    # ### the orders bank, its order row appended under (R254)(2) ((R286)(3))
+LEFT = (('D:/relay', ()), ('D:/MY-DOwnloads/PLACE-papers', ()),
+        ('D:/SIDE-trivium', ('push-b676-main', 'push-b676-merge', 'recut-trivium-b676')))   # ### left for the next ferry's list
 SEALED = ('b676_worklist.py', 'b676_tests.py', 'b676_citation.py', 'b676_record.py', 'b676_checks.py', 'b676_closing.py', 'b676_reg_gate.py',
           'b676_regspec.py')
 
