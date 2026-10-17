@@ -259,7 +259,129 @@ def branches(*a):
     print(NL.join(L[5:]))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches}
+# ================================================================================ COMPONENT 1: THE FACES LINE, (R290)(2) AND THE AUTHOR'S WORD
+FACES = os.path.join(PP, K.FACES_PAGE)
+LANDING679 = os.path.join(D, 'b679_landing.txt')
+REPAIRS_ROW = ('### Appended 2026-10-17 by b680 under (R290)(2) and the author`s word (write through the generator; relay data/b680_author_answers.txt): '
+               'the draft above written to THE_CLAUSE_AND_ITS_COMPILED_FACES.md through relay tools/chain_page.py`s backmatter channel from relay '
+               'data/b680_nodes_zeta.txt, its content unchanged and its form repaired three ways: (i) the possessives and the prime written with straight '
+               'characters, no backtick in the row; (ii) "lies on the line" read "has every zero on the line"; (iii) "(v0.33)" read '
+               '"(SIDE-explicit-formula v0.33)". The diff banked at relay data/b680_faces_diff.txt.')
+
+
+def faces(*a):
+    """(R290)(2): the control (b674's list re-emits the committed page byte for byte from b643's banked probe output), then b680's list
+    emitted to the scratchpad and diffed against the committed page, then -- not dry -- written to the page by the generator and read back
+    equal to the scratch emission; the landing bank of b679 gains one row beneath the draft (additive, (R254)(2)). data/b680_faces_diff.txt."""
+    import difflib
+    dry = 'dry' in a
+    probe = os.path.join(D, 'b643_probe_out_zeta.txt')
+
+    def emit(nodes, out):
+        r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'chain_page.py'), '--nodes', nodes, '--probe-dir', SP, '--out', out,
+                            '--from-output', probe], capture_output=True, text=True, encoding='utf-8', errors='replace')
+        return r.returncode
+    before = open(FACES, 'rb').read()
+    ctl_p, new_p = os.path.join(SP, 'b680_faces_control.md'), os.path.join(SP, 'b680_faces_new.md')
+    rc1 = emit(os.path.join(D, 'b674_nodes_zeta.txt'), ctl_p)
+    rc2 = emit(os.path.join(D, 'b680_nodes_zeta.txt'), new_p)
+    ctl, new = open(ctl_p, 'rb').read(), open(new_p, 'rb').read()
+    d = list(difflib.unified_diff(before.decode('utf-8').split(NL), new.decode('utf-8').split(NL), 'committed', 'b680', lineterm='', n=0))
+    plus = [l for l in d if l.startswith('+') and not l.startswith('+++')]
+    minus = [l for l in d if l.startswith('-') and not l.startswith('---')]
+    import chain_page as CP
+    rec = [x for x in CP.backmatter_of(os.path.join(D, 'b680_nodes_zeta.txt')) if 'b680' in x][-1]
+    ok = rc1 == 0 and rc2 == 0 and ctl == before and len(plus) >= 1 and '`' not in rec and 'T-COUNT named' in rec \
+        and rec in new.decode('utf-8') and rec not in before.decode('utf-8') and all(rec in l for l in plus if 'Li face over the widened class' in l)
+    written = False
+    if not dry and ok:
+        rc3 = emit(os.path.join(D, 'b680_nodes_zeta.txt'), FACES)
+        written = rc3 == 0 and open(FACES, 'rb').read() == new
+        old = open(LANDING679, 'rb').read()
+        if REPAIRS_ROW.encode('utf-8') not in old:
+            sep = b'\n' if old.endswith(b'\n') else b'\n\n'
+            add = (sep + b'\n' + REPAIRS_ROW.encode('utf-8') + b'\n')
+            open(LANDING679 + '.tmp', 'wb').write(old + add)
+            os.replace(LANDING679 + '.tmp', LANDING679)
+    L = ['b680 -- COMPONENT 1, (R290)(2): THE FACES LINE THROUGH THE GENERATOR, ON THE AUTHOR`S WORD (%s)' % utc(), '',
+         '### the generator: relay tools/chain_page.py --from-output relay data/b643_probe_out_zeta.txt (no elaboration; no lean on this host)',
+         '### the control: b674`s list (relay data/b674_nodes_zeta.txt) re-emits the committed page byte for byte: %s (%d bytes)' % (ctl == before, len(before)),
+         '### the new list: relay data/b680_nodes_zeta.txt (b674`s 165 lines unchanged, one backmatter record added); emitted %d bytes, exit %d' % (len(new), rc2),
+         '### the diff, committed page -> b680 emission (lines added %d, removed %d):' % (len(plus), len(minus))] + ['    ' + l for l in d] + [
+         '', '### the page written by the generator and read back equal to the emission: %s ; the landing bank`s row beneath the draft: %s' % (
+             written if not dry else 'DRY', 'appended' if (not dry and ok) else 'DRY'),
+         '', '### ### **CONTROL EQUAL %s ; LINES ADDED %d ; REMOVED %d ; THE ROW CARRIES T-COUNT AND NO BACKTICK %s ; PAGE WRITTEN %s.**' % (
+             ctl == before, len(plus), len(minus), ok, written)]
+    if dry:
+        print(NL.join(L[3:]))
+        return
+    put_txt('b680_faces_diff.txt', L)
+    print(NL.join(L[-3:]))
+
+
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R290)(1) AND (3)
+WH = ('*Appended 2026-10-17 by b680 to b679’s entry (:9050), under `(R290)`(1) -- b679 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b679_closing.txt):*')
+WB = (' “b679 closed: relay 6b2a8f78, PLACE-papers 3e375cb, SIDE-explicit-formula 95f8dc8 v0.33; suite 89 of 89; root 5046df1d1fc69df6…; '
+      '3 prompts answered; 5 defects” (data/b679_closing.txt :1), the closing pushed at relay f507c3f7 (data/b679_closing_push_out.txt :4). '
+      'The readings as the banks print them: WideConfig with the open strip (−1/2, 3/2) and HExcl, every real point of the carrier of positive '
+      'real part; V5’, the composition’ and Wide.li_nonneg_cfg_imp_online DERIVES, 49 printed names at the standard three, the 29 v0.32 prints '
+      'equal (data/b679_landing.txt, data/b679_prints_compare.txt); C2 fails HExcl and S5’ does not apply to it, C2b has every Li coefficient '
+      'nonnegative with 1 off the line, the exclusion of 0 necessary; Q0 meets the widened class with T-COUNT assumed, HExcl read on [−1/2, −1/4] '
+      'by the functional equation’s form and on [−1/4, 0] by b667’s route, 35 balls negative, Z_Q(0) = −1 (data/b679_q0_membership.txt); '
+      'n*’ = 63676, equal to b675’s n*, the wider strip changing no constant of the bound, n_obs = 10034 below it, 94 of 94 n on V4’s '
+      'subsequence in the window NEG (data/b679_onset.txt); the mirror mirror-refresh-2026-10-17-b679.zip CLEAN with the root line; N1–N5 and '
+      'S1–S3 HELD. Five defects (a)–(e), (a)–(c) the navigator’s, (d) a cp and (e) a short name shared with ζ’s summability that sent the walk '
+      'to 22 ζ-naming declarations before the rename, 0 of 278 after (data/b679_defects.txt). The root module’s import list left unedited, '
+      'accepted; the split at w = 1 entered as a later act’s candidate, accepted. Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], 'b680_record_lines.json', 'c1', entry=K.B679_ENTRY,
+         check=[('FINDINGS.md', K.B679_ENTRY, '## The Li converse over the strip'), ('OPEN_TRAILS.md', K.B679_TRAIL, '### b679')], dry=dry)
+
+
+ORDERS = 'b670_work_orders.txt'
+ORDER = 'W-ORD-EPSTEIN-COUNT'
+OH = ('*Appended 2026-10-17 by b680 beneath b679’s trail record (:14650), under `(R290)`(3) -- THE ORDER `W-ORD-EPSTEIN-COUNT` ENTERED, '
+      'THE COUNT LAW FOR Z_Q:*')
+OB = (' T-COUNT -- HCount at Q0, the kernel’s premise P3 (relay data/b675_hypotheses.txt :61, :67; Schema/EpsteinQ0.lean :104-:108) -- is the '
+      'one assumption left under the Q0 test of b679. Two routes, priced and neither begun. (i) A located explicit zero-counting bound for Z_Q, '
+      'searched under the names the literature uses for Dedekind zeta functions and Hecke L-functions of class-group characters (Z_Q for the '
+      'principal form at D = −23, h = 3, a combination of such L-functions); each candidate entered as LOCATED with its statement and constant '
+      'or NOT LOCATED, no result recalled. Its price: one research act`s reading -- the queries, each candidate`s statement read at its source, '
+      'and the constant carried to A₀ against the kernel`s A0Q = 10; a located bound discharges T-COUNT at every height. (ii) A certification by '
+      'the argument principle on the certified region extended upward under the (3c) bound, priced in b667`s units: b667 counted R = [−0.5, 1.5] '
+      '× [0.5, 150] in 1042 segments (N(R) = 180, relay data/b667_epstein_counts.txt :49-:52), each Z_Q value taking M terms, M a fixed part plus a part '
+      'linear in the height (tools/b667_epstein_certify.py :106-:107, M_of); a count to height T needs segments growing about as T log T against '
+      'b667`s 150 log 150, each segment`s values costing more in proportion to M at that height; it certifies the count only up to T, never for every t -- so (ii) narrows T-COUNT to t > T and does not discharge it alone. '
+      'Trigger: after b681. Status OPEN. Its row in relay data/b670_work_orders.txt, appended additively.')
+
+
+def c1order(*a):
+    """(R290)(3): the order on OPEN_TRAILS beneath b679's trail record, then its row appended to the orders bank additively ((R254)(2))."""
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', OH, NL + OH + OB + NL)], 'b680_record_lines_order.json', 'c1order',
+         check=[('OPEN_TRAILS.md', K.B679_TRAIL, '### b679')], dry=dry)
+    if dry:
+        return
+    ol = jl('b680_record_lines_order.json')['lines'][0]['line']
+    rows = ['### Appended 2026-10-17 by b680 under (R290)(3) (additive, (R254)(2)): W-ORD-EPSTEIN-COUNT entered, its Status cell filled and its '
+            'line its pin, both routes priced on its line.',
+            '  %-44s :%d  %s   %-5d %-16s :%d  %s [:%d]' % (ORDER, ol, 'b680', 0, 'OPEN', ol, 'after b681', ol)]
+    p = os.path.join(D, ORDERS)
+    old = open(p, 'rb').read()
+    sep = NL if old.endswith(b'\n') else NL + NL
+    new = old + (sep + NL.join(rows) + NL).encode('utf-8')
+    if not new.startswith(old):
+        sys.exit('### THE ORDERS BANK APPEND IS NOT ADDITIVE -- NOTHING WRITTEN')
+    open(p + '.tmp', 'wb').write(new)
+    os.replace(p + '.tmp', p)
+    print('  data/%s appended (%d bytes before, %d after): %s' % (ORDERS, len(old), len(new), rows[1].strip()[:120]))
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'faces': faces, 'c1': c1, 'c1order': c1order}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

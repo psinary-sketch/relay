@@ -45,7 +45,7 @@ NEXT = ('b681, the narrowing act under W-ORD-EPSTEIN-BALL-WIDTH at the width b67
         'its trigger reached; b683 the research act, W-ORD-EPSTEIN-COUNT’s route (i) or (ii) its candidate on the reading of (R290)(3)')
 
 ACT_ARMS = ()
-SHARED_APPENDED = ('data/b670_work_orders.txt',)
+SHARED_APPENDED = ('data/b670_work_orders.txt', 'data/b679_landing.txt')   # ### the second: one row beneath the faces draft, the author`s word on (R290)(2)
 PARTS = ('standing-a', 'standing-b', 'act')          # ### data/b678_rules.txt row 1
 SEALED = ('b680_worklist.py', 'b680_tests.py', 'b680_citation.py', 'b680_record.py', 'b680_checks.py', 'b680_closing.py', 'b680_reg_gate.py',
           'b680_regspec.py')

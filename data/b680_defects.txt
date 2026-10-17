@@ -6,3 +6,7 @@ b680 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-17): THE SUCCESSOR OF data
         data/b670_rules.txt through data/b679_rules.txt", ten banks; b676 and b679 banked no rules file, so eight exist (data/b680_citation_check.txt,
         its one miss). The author's answer: data/b680_rules_arms.txt reads the eight that exist and prints b676 and b679 by name; N4 reads
         "every rule row across the banks that exist".
+    (b) THE SEAT'S: A FOREGROUND RUN PASSED INTO THE BACKGROUND. The faces route's dry run (two generator emissions, about a minute each)
+        was started without a timeout; the shell's 120 s default moved it to the background, where it finished (exit 0, writing only
+        the scratchpad). The ferry orders a long run split into foreground parts, never detached. Every later run of the route set its
+        timeout under 600 s and ran in the foreground (relay data/b680_commands.txt at the close).
