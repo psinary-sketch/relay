@@ -1,0 +1,152 @@
+b675 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1) AND THE MOVES AND DELETES (2026-10-17T03:48:15Z)
+
+### the source: the seat`s session 51ceaa11-0301-4ed4-9e1c-71b70f1e78ca from its first user line carrying 'RULING (R285) BEGIN', and its subagents` transcripts
+### commands read: 126
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+  #46 2026-10-17T02:24:03.394Z Bash
+      git -C /d/relay branch --merged main --list push-b674 push-b674-root push-b674-closing && git -C /d/relay branch -d push-b674 push-b674-root push-b674-closing
+  #47 2026-10-17T02:24:08.780Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b674 push-b674-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b674 push-b674-root
+  #48 2026-10-17T02:24:14.413Z Bash
+      git -C /d/SIDE-window branch --merged main --list push-b674-workflow push-b674-merge recut-window-b674 && git -C /d/SIDE-window branch -d push-b674-workflow push-b674-merge recut-window-b674
+  #49 2026-10-17T02:24:20.456Z Bash
+      git -C /d/SIDE-window branch -r --merged main --list origin/recut-window-b674 && git -C /d/SIDE-window push origin --delete recut-window-b674
+  #50 2026-10-17T02:24:29.828Z Bash
+      git -C /d/SIDE-explicit-formula merge-base --is-ancestor 5050a46acf269e7745ce678c3deb8deed9f2d0bf e36ea316e363b1fad04b7fa9def0fc7f2e78188f && echo "ANCESTOR 5050a46 of e36ea31: True" && git -C /d/SIDE-explicit-formula branch -r --merged main --list origin/chi-li-b669 && git -C /d/SIDE-explicit-formula push origin --delete chi-li-b669
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-17T02:08:54.272Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/memory" && cat project_state_cp4_cp5_b559_b576.md | head -80 && echo ---- && cat feedback_b674_traps.md feedback_
+  #2 | 2026-10-17T02:09:10.553Z | seat | Bash | cd /d && ls; for d in */; do [ -f "$d/data/b674_closing.txt" ] && echo "RELAY: $d"; done 2>/dev/null; ls -d */*/data/b674_closing.txt 2>/dev/null
+  #3 | 2026-10-17T02:11:14.624Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/memory" && cat project_place_to_stand.md | head -40; grep -l "relay" reference_*.md | head
+  #4 | 2026-10-17T02:11:24.127Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/memory" && grep -ho "D:[\\/][A-Za-z_/\\-]*relay[A-Za-z_/\\-]*" *.md | sort | uniq -c | sort -rn | head
+  #5 | 2026-10-17T02:11:34.051Z | seat | Bash | cd /d/relay && git status --short | head -20; git log --oneline -3; cat -A data/b674_closing.txt | head -40; ls tools | grep -E "b674|b673" 
+  #6 | 2026-10-17T02:11:41.571Z | seat | Bash | ls data | grep -E "^b674_" ; head -60 tools/b674_citation.py; grep -n "def \|argv\|__main__" tools/b674_citation.py | head -40
+  #7 | 2026-10-17T02:11:57.694Z | seat | Bash | ls "/c/Users/echo chamber/.claude/projects/D--/" | grep 51ceaa11; echo; grep -nE "^    \([a-m]'?\)|^    \(e.\)" data/b674_defects.txt | cut -c1-140; echo; cat d
+  #8 | 2026-10-17T02:12:04.365Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse HEAD main v0.32^{commit} 2>&1 | head; git status --short | head -5; git ls-tree -r --name-only e36ea31 | grep -E "R
+  #9 | 2026-10-17T02:12:22.706Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiRemainder.lean | grep -nE "theorem|lemma|def |s :=|C :=|set |obtain|let |R0|R₀|sqrt|/ 2|\(n \+ 1\)" | head -60
+  #10 | 2026-10-17T02:12:28.750Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiRemainder.lean | sed -n '1,26p;120,200p'
+  #11 | 2026-10-17T02:12:34.474Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiConverseCfg.lean | grep -nE "^theorem|^def|^/--|s :=|exists_|obtain|refine ⟨|choose|r_max|rmax|dominant" | head -6
+  #12 | 2026-10-17T02:12:38.247Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiConverseCfg.lean | sed -n '155,300p'
+  #13 | 2026-10-17T02:13:18.746Z | seat | Bash | cd /d/relay && python -X utf8 -c "
+  #14 | 2026-10-17T02:13:24.635Z | seat | Bash | cd /d/relay && ls data | grep -iE "b671_(epstein|narrow)|b667_epstein|b671_large" ; cat data/b671_large_banks.txt 2>/dev/null | head
+  #15 | 2026-10-17T02:13:31.827Z | seat | Bash | cat data/b671_epstein_zeros_narrowed_hashes.txt | cut -c1-400; python -X utf8 -c "
+  #16 | 2026-10-17T02:13:41.005Z | seat | Bash | python -X utf8 -c "
+  #17 | 2026-10-17T02:14:18.754Z | seat | Bash | sed -n '1,30p' data/b667_epstein_plan.txt | cut -c1-260; grep -rniE "davenport|heilbronn|σ ?> ?1|sigma > 1" data/b667_epstein_plan.txt data/b663_epstein_plan.tx
+  #18 | 2026-10-17T02:14:25.519Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/EpsteinQ0.lean | sed -n '1,30p;85,122p'
+  #19 | 2026-10-17T02:16:11.809Z | seat | Bash | cd /d/relay && for f in data/b674_closing.txt data/b674_defects.txt data/b674_cut.txt data/b674_rules.txt data/b673_v4v5_plan.txt data/b673_v4_control.txt data/
+  #20 | 2026-10-17T02:16:19.154Z | seat | Bash | head -12 data/b671_tie_diagnostic.txt | cut -c1-250; grep -niE "power|repeated|mult|radius|grow" data/b671_tie_diagnostic.txt | head -6 | cut -c1-220; PP=/d/MY-
+  #21 | 2026-10-17T02:16:27.430Z | seat | Bash | git grep -nliE "squaring|repeated multipl|blow-?up" -- 'data/b671_*' 'tools/b671_*' | head; git grep -niE "squaring|blow-?up" -- 'data/b671_*' | head -5 | cut -
+  #22 | 2026-10-17T02:16:35.512Z | seat | Bash | git branch --list 'push-b674*'; git -C /d/MY-DOwnloads/PLACE-papers branch --list 'push-b674*'; git -C /d/SIDE-window branch --list; git -C /d/SIDE-window rev-p
+  #23 | 2026-10-17T02:16:59.298Z | seat | Bash | sed -n '82,95p' data/b674_defects.txt | cut -c1-200; grep -n "23228113\|DRAFT" tools/b674_worklist.py | head -3; grep -n ":17\b" data/b674_cut.txt | head -3 | c
+  #24 | 2026-10-17T02:18:33.842Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_citation.py check
+  #25 | 2026-10-17T02:18:46.014Z | seat | Bash | cd /d/SIDE-explicit-formula && git show e36ea31:SIDEExplicitFormula/Schema/EpsteinQ0.lean | grep -n "A0Q : ℝ\|def Q0Count"; cd /d/relay && python -X utf8 -c "
+  #26 | 2026-10-17T02:18:52.656Z | seat | Bash | python - <<'EOF'
+  #27 | 2026-10-17T02:19:00.637Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_citation.py check | tail -2
+  #28 | 2026-10-17T02:19:09.664Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_citation.py ferry && tail -5 data/b675_ferry_scan.txt
+  #29 | 2026-10-17T02:19:21.224Z | seat | Bash | head -30 data/b674_readfirst.txt | cut -c1-260; wc -l data/b674_readfirst.txt data/b674_cut.txt data/b673_v4v5_plan.txt data/b673_landing.txt data/b671_narrow_p
+  #30 | 2026-10-17T02:19:31.731Z | seat | Bash | grep -n "^  (\|^    (" data/b674_rules.txt | cut -c1-60; grep -nE "^### THE (RE-CUT|SEALED|CITATION|DRY|DRAFTS)|the merge: tag|ARMS RUN" data/b674_closing.txt |
+  #31 | 2026-10-17T02:19:36.646Z | seat | Bash | sed -n '140,160p' tools/b671_narrow.py; grep -n "Λ\|R = \|σ = 3/2\|tail" data/b667_epstein_plan.txt | sed -n '1,8p' | cut -c1-140
+  #32 | 2026-10-17T02:20:11.952Z | seat | Bash | cd /d/SIDE-explicit-formula && git show e36ea31:SIDEExplicitFormula/Schema/LiConverseCfg.lean | sed -n '180p;191p;241,242p;295,300p' | cut -c1-110; git show e36
+  #33 | 2026-10-17T02:20:22.000Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiRemainder.lean | grep -n "refine ⟨2 \* (2"; git show e36ea31:SIDEExplicitFormula/Schema/LiConverseCfg.lean | grep 
+  #34 | 2026-10-17T02:20:32.715Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_citation.py check | grep -E "K\`|CITES CHECKED" | cut -c1-260
+  #35 | 2026-10-17T02:20:42.881Z | seat | Bash | grep "^  MISS" data/b675_citation_check.txt | cut -c1-140
+  #36 | 2026-10-17T02:20:52.911Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_citation.py check | tail -1
+  #37 | 2026-10-17T02:21:13.049Z | seat | Bash | head -6 data/b674_rowgen_stepzero.txt | cut -c1-250; grep -n "rowgen" data/b674_commands.txt | head -5 | cut -c1-250
+  #38 | 2026-10-17T02:21:19.862Z | seat | Bash | wc -l tools/b674_*.py; grep -n "^def \|^[A-Z_]* = " tools/b674_record.py | head -80
+  #39 | 2026-10-17T02:22:48.784Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py rowgen 2>&1 | tail -8 | cut -c1-200
+  #40 | 2026-10-17T02:23:13.702Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|python3|bash)(\.exe)?$' } | Select-Object ProcessId, ParentProcessId, Nam
+  #41 | 2026-10-17T02:23:25.327Z | seat | PowerShell | $n = @('tail','lean','lake','python'); foreach ($x in $n) { $c = @(Get-Process -Name $x -ErrorAction SilentlyContinue).Count; "$x : $c" }; "free MB: " + [int]((
+  #42 | 2026-10-17T02:23:32.294Z | seat | Bash | sed -n '1,40p' data/b674_stepzero.txt | cut -c1-220
+  #43 | 2026-10-17T02:23:37.061Z | seat | Bash | git log -1 --format='%s%n%b' 9ef75f6f; git show --stat 9ef75f6f | tail -3; git branch --show-current; git diff --cached --stat
+  #44 | 2026-10-17T02:23:46.168Z | seat | Bash | git add -- data/b674_closing_push_out.txt && git commit -q -m "b675 step zero: b674's closing push-out bank (main read back at 27992411), committed per (R285)(3
+  #45 | 2026-10-17T02:23:54.759Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py branches
+  #46 | 2026-10-17T02:24:03.394Z | seat | Bash | git -C /d/relay branch --merged main --list push-b674 push-b674-root push-b674-closing && git -C /d/relay branch -d push-b674 push-b674-root push-b674-closing
+  #47 | 2026-10-17T02:24:08.780Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b674 push-b674-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b674 push-b674-ro
+  #48 | 2026-10-17T02:24:14.413Z | seat | Bash | git -C /d/SIDE-window branch --merged main --list push-b674-workflow push-b674-merge recut-window-b674 && git -C /d/SIDE-window branch -d push-b674-workflow pus
+  #49 | 2026-10-17T02:24:20.456Z | seat | Bash | git -C /d/SIDE-window branch -r --merged main --list origin/recut-window-b674 && git -C /d/SIDE-window push origin --delete recut-window-b674
+  #50 | 2026-10-17T02:24:29.828Z | seat | Bash | git -C /d/SIDE-explicit-formula merge-base --is-ancestor 5050a46acf269e7745ce678c3deb8deed9f2d0bf e36ea316e363b1fad04b7fa9def0fc7f2e78188f && echo "ANCESTOR 505
+  #51 | 2026-10-17T02:24:45.565Z | seat | Bash | diff data/b649_nodes_zeta.txt data/b674_nodes_zeta.txt | head -8 | cut -c1-200; grep -n "nodes_zeta" tools/b674_record.py | head -5 | cut -c1-200
+  #52 | 2026-10-17T02:25:17.667Z | seat | Bash | cat data/b674_tests_withheld.json
+  #53 | 2026-10-17T02:25:22.705Z | seat | Bash | python -X utf8 tools/b675_tests.py parts
+  #54 | 2026-10-17T02:25:35.775Z | seat | Bash | for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_addenda_writelist.py test_additive_shared_b644.p
+  #55 | 2026-10-17T02:33:24.948Z | seat | Bash | for t in test_chain_page.py test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py test_chain_page_b632.py; do PYTHONIO
+  #56 | 2026-10-17T02:42:22.123Z | seat | Bash | for t in test_chain_page_b635.py test_chain_page_b638.py test_closing_headline_b634.py test_clusters_served_b651.py test_composer_b646.py test_composer_b647.py 
+  #57 | 2026-10-17T02:49:32.764Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_tests.py report stepzero | tail -5 | cut -c1-250; git status --short --untracked-files=no; git -C /d/MY-DOwnloa
+  #58 | 2026-10-17T02:49:52.610Z | seat | PowerShell | $n = @('tail','lean','lake','python','bash'); foreach ($x in $n) { $c = @(Get-Process -Name $x -ErrorAction SilentlyContinue).Count; "$x : $c" }; "free MB: " + 
+  #59 | 2026-10-17T02:50:24.840Z | seat | Bash | grep -nE "CLEAN ON ALL THREE|\(N1\) HELD|\(S1\) HELD|prompts answered|PROMPTS" data/b674_closing.txt | cut -c1-160; grep -n "re-cut\|ceiling\|faces" data/b674_c
+  #60 | 2026-10-17T02:50:39.191Z | seat | Bash | sed -n '28,33p' data/b674_closing.txt | cut -c1-80; PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py c1 dry 2>&1 | cut -c1-400
+  #61 | 2026-10-17T02:50:56.203Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py c1 2>&1 | cut -c1-300; git -C /d/MY-DOwnloads/PLACE-papers diff --stat
+  #62 | 2026-10-17T02:51:06.602Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git commit -q -m "b675 Component 1, (R285)(1): b674 at its weight, as its closing prints, appended to b674's entry (:8851) at
+  #63 | 2026-10-17T02:51:16.620Z | seat | Bash | cd /d/relay && grep -nE "N\(R\)|180|UNLISTED|band B|N_B" data/b667_epstein_counts.txt | head -8 | cut -c1-200; python -X utf8 -c "import flint; print(flint.__ve
+  #64 | 2026-10-17T02:51:31.494Z | seat | Bash | grep -nE "\(3c\)" data/b667_epstein_plan.txt | cut -c1-260 | head -4
+  #65 | 2026-10-17T02:51:35.995Z | seat | Bash | sed -n '247,252p' data/b667_epstein_plan.txt | cut -c1-260; grep -nE "tail|1\.548|Z_Q\(3/2\)" data/b667_epstein_counts.txt | head -4 | cut -c1-220
+  #66 | 2026-10-17T02:51:48.203Z | seat | Bash | head -12 data/b663_a0_list.txt | cut -c1-230; grep -n "A0\|max\|MAX" data/b663_a0_list.txt | tail -4 | cut -c1-200
+  #67 | 2026-10-17T02:52:24.291Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py hypotheses 2>&1 | cut -c1-300 && sed -n '6,46p' data/b675_hypotheses.txt | cut -c1-170
+  #68 | 2026-10-17T02:55:44.944Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_citation.py answer "HStrip at Q0, under (R285)(5)" | cut -c1-200
+  #69 | 2026-10-17T02:56:15.400Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py answers && grep -c "" data/b675_author_answers.txt && grep -n "^### PROMPT\|^  OPTION\|^### THE AUTHO
+  #70 | 2026-10-17T02:56:27.860Z | seat | Bash | sed -n '5,30p' data/b673_v4_control.txt | cut -c1-200; grep -n "^== \|CONSUMERS\|consumers" data/b663_epstein_plan.txt | head -20 | cut -c1-150
+  #71 | 2026-10-17T02:57:24.395Z | seat | Bash | python -X utf8 -c "
+  #72 | 2026-10-17T02:57:40.808Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n "def gammaOf\|theorem gammaOf_re\|theorem gammaOf_im" e36ea31 -- 'SIDEExplicitFormula/*.lean' 'SIDEExplicitFormula/**
+  #73 | 2026-10-17T02:57:54.750Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiRemainder.lean | sed -n '84,108p'; git show e36ea31:SIDEExplicitFormula/Schema/LiRemainder.lean | grep -n "Z.strip
+  #74 | 2026-10-17T02:58:05.484Z | seat | Bash | git grep -n -B2 -A14 "structure ZeroConfig" e36ea31 | cut -c1-200 | head -30
+  #75 | 2026-10-17T02:59:12.697Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/Epstein.lean | grep -n -B3 -A10 "structure EpsteinPremises\|def EpsteinPremises" | cut -c1-200 | head -30
+  #76 | 2026-10-17T02:59:38.746Z | seat | Bash | cd /d/relay && grep -nE "^== B|N_B|band" data/b667_epstein_counts.txt | head -5 | cut -c1-220
+  #77 | 2026-10-17T03:01:02.012Z | seat | Bash | for n in 6 7 9 22 24 26 28 29 30; do printf "%s: " $n; sed -n "${n}p" data/b673_v4_control.txt | cut -c1-90; done
+  #78 | 2026-10-17T03:04:12.010Z | seat | Bash | for nd in "on the plan, under (R285)(6)" "on the control, under (R285)(7)" "on the constant, under (R285)(6)(ii)"; do PYTHONIOENCODING=utf-8 python -X utf8 tool
+  #79 | 2026-10-17T03:04:22.882Z | seat | Bash | tail -9 data/b675_citation_check.txt | cut -c1-160; PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py answers
+  #80 | 2026-10-17T03:04:35.727Z | seat | Bash | sed -n '1,13p' data/b674_defects.txt | cut -c1-220
+  #81 | 2026-10-17T03:07:25.287Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_li_bench.py part1
+  #82 | 2026-10-17T03:07:55.457Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_li_bench.py part2
+  #83 | 2026-10-17T03:08:25.317Z | seat | Bash | grep -nE "^ +(10000|10100|63676|63708|63709|63759|63760|63876) " data/b675_li_bench.txt | cut -c1-220; tail -4 data/b675_li_bench.txt | cut -c1-250; python -X u
+  #84 | 2026-10-17T03:08:36.168Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_li_bench.py part3
+  #85 | 2026-10-17T03:09:25.519Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_li_bench.py part4
+  #86 | 2026-10-17T03:10:48.238Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_li_bench.py part5
+  #87 | 2026-10-17T03:11:47.701Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_li_bench.py part6
+  #88 | 2026-10-17T03:12:57.860Z | seat | Bash | grep -n "^### ### \|^### THE WINDOW\|^### n_obs\|^### THE RADIUS" data/b675_li_bench.txt | cut -c1-120; grep -n "^== \|  ### \|^### ### " data/b675_li_controls.
+  #89 | 2026-10-17T03:13:40.632Z | seat | Bash | sed -n '73,81p' data/b674_defects.txt; ls data | grep -E "^b673_.*push_out" ; ls data | grep -E "^b674_.*push_out"
+  #90 | 2026-10-17T03:13:55.792Z | seat | Bash | grep -n "^def \|^[A-Z_]\+ = \|^ARMS\|^    ('G-\|^    \"G-\|'G-[A-Z0-9-]*'" tools/b674_checks.py | cut -c1-150 | head -150
+  #91 | 2026-10-17T03:14:23.795Z | seat | Bash | wc -c data/b674_registration_2026-10-16.txt; grep -n "^### (" data/b674_registration_2026-10-16.txt | cut -c1-140
+  #92 | 2026-10-17T03:16:47.831Z | seat | Bash | python -X utf8 -c "
+  #93 | 2026-10-17T03:17:19.524Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py repairs && grep -n "on SIDE-window\|on relay data/b674_prints\|the sealed copy carries" data/b675_too
+  #94 | 2026-10-17T03:17:57.047Z | seat | Bash | python -X utf8 -c "
+  #95 | 2026-10-17T03:20:16.129Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py findings dry 2>&1 | head -5 | cut -c1-300; PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py
+  #96 | 2026-10-17T03:21:13.673Z | seat | Bash | python -X utf8 -c "
+  #97 | 2026-10-17T03:26:56.350Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py kernels && PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py defects && PYTHONIOENCODING=utf
+  #98 | 2026-10-17T03:27:09.989Z | seat | Bash | git add -- data/b675_ferry.txt data/b675_ferry_scan.txt data/b675_citation_check.txt data/b675_citation_check.json data/b675_readfirst.txt data/b675_corrigenda.
+  #99 | 2026-10-17T03:27:20.360Z | seat | Bash | ls data/b675_* | tr '\n' ' '; echo; git status --short data/ tools/ | grep b675 | cut -c1-80
+  #100 | 2026-10-17T03:27:26.853Z | seat | Bash | git add -- data/b675_record_lines.json data/b675_scanfile_c1.md data/b675_hypotheses.txt data/b675_hypotheses.json data/b675_author_answers.txt data/b675_author
+  #101 | 2026-10-17T03:27:36.993Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_regspec.py 2>&1 | head -20 | cut -c1-200; git checkout -- data/b675_satisfiable.json 2>/dev/null; git status --
+  #102 | 2026-10-17T03:27:47.808Z | seat | Bash | git add -- tools/b675_record.py tools/b675_closing.py tools/b675_checks.py tools/b675_reg_gate.py tools/b675_regspec.py data/b675_tool_repairs.txt data/b675_rul
+  #103 | 2026-10-17T03:28:03.525Z | seat | Bash | grep -nE "reg_gate|gatebanks|lockgate|reg_seal|--seal|--prerun|push_gated|act_root|table_final|scores|findings|trail |components|closing.py" data/b674_commands.
+  #104 | 2026-10-17T03:28:08.442Z | seat | Bash | grep -nE "^  #1(4[2-9]|5[0-9]|6[0-9]|7[0-9]) " data/b674_commands.txt | cut -c1-330
+  #105 | 2026-10-17T03:29:33.962Z | seat | Bash | python -m py_compile tools/b675_checks.py tools/b675_record.py tools/b675_regspec.py tools/b675_reg_gate.py tools/b675_worklist.py tools/b675_closing.py && echo
+  #106 | 2026-10-17T03:35:55.861Z | seat | Bash | grep -c "relay data/b675_" data/b675_li_readings.txt; grep -n "^  (H" data/b675_li_readings.txt | cut -c1-60
+  #107 | 2026-10-17T03:36:09.970Z | seat | Bash | python -X utf8 -c "
+  #108 | 2026-10-17T03:36:25.160Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py defects && git add -- tools/b675_checks.py data/b675_defects.txt data/b675_defects.json && git commit
+  #109 | 2026-10-17T03:36:36.527Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b675_checks.py --prerun 2>&1 | grep -E "PHASES|LONGEST|POS PASSES|ARMS RUN|NEGATIVE|VERDICT|raised" | cu
+  #110 | 2026-10-17T03:42:50.609Z | seat | Bash | grep -E "the run took|run at" data/b675_arms_prerun.txt | cut -c1-120
+  #111 | 2026-10-17T03:42:58.116Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b675_reg_gate.py 2>&1 | tail -45 | cut -c1-330
+  #112 | 2026-10-17T03:43:36.001Z | seat | Bash | grep -n "def bar_floor_check" -A40 tools/registration_gate.py | grep -niE "multi|MULTIARM|arm|both|either|pattern|re\.compile" | head -20 | cut -c1-200
+  #113 | 2026-10-17T03:43:40.207Z | seat | Bash | grep -n "^MULTIARM\|^ARMWORD" -A3 tools/registration_gate.py | cut -c1-250
+  #114 | 2026-10-17T03:43:51.094Z | seat | Bash | grep -niE "the largest of|the weaker of|two routes|both routes|three arms|two arms|two estimators|\((u|a|b)[0-9]\)" data/b675_registration_2026-10-16.txt | cut 
+  #115 | 2026-10-17T03:44:20.363Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b675_record.py gatebanks 2>&1 | tail -15 | cut -c1-220
+  #116 | 2026-10-17T03:44:32.143Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b378_lockgate.py b675 data/b675_registration_2026-10-16.txt 2>&1 | grep -n "GATES READ\|VERDICT\|REFUS\|written\|STA
+  #117 | 2026-10-17T03:44:40.307Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_seal.py --lock data/b675_registration_2026-10-16.txt 2>&1 | tail -6 && PYTHONIOENCODING=utf-8 python -X utf8 too
+  #118 | 2026-10-17T03:44:51.043Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_checks.py --seal 2>&1 | tail -10
+  #119 | 2026-10-17T03:45:01.770Z | seat | Bash | git status --short | grep -v "^?? data/_\|^?? data/audit_b[0-6]\|^?? =" | grep -iE "b675|terminal|act_roots" 
+  #120 | 2026-10-17T03:45:12.055Z | seat | Bash | git add -- data/b675_registration_2026-10-16.txt data/b675_seal_hashes.json data/b675_arms_prerun.txt data/b675_lsr_prerun.json data/b675_reg_gate.txt data/b675
+  #121 | 2026-10-17T03:45:22.999Z | seat | Bash | python -X utf8 -c "
+  #122 | 2026-10-17T03:45:33.402Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short | head -3; git log --oneline -1 && git branch push-b675-root dca9548 && PUSH_GATED_LOG=/d/relay/data/b675_
+  #123 | 2026-10-17T03:46:06.714Z | seat | Bash | cd /d/relay && git log --oneline -1 && git branch push-b675-root HEAD && PUSH_GATED_LOG=/d/relay/data/b675_relay_root_push_out.txt bash /d/relay/tools/push_gate
+  #124 | 2026-10-17T03:46:22.674Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py table_final 2>&1 | tail -2 && git status --short | grep -v "^??"; PYTHONIOENCODING=utf-8 python -X ut
+  #125 | 2026-10-17T03:47:19.256Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py root 2>&1 | tail -3 && tail -2 data/act_roots.txt | cut -c1-160 && PYTHONIOENCODING=utf-8 python -X u
+  #126 | 2026-10-17T03:47:50.771Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py defects && PYTHONIOENCODING=utf-8 python -X utf8 tools/b675_record.py scores 2>&1 | cut -c1-330
+
+### ### **COMMANDS 126 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; MOVE OR DELETE COMMANDS 5.**
