@@ -1,5 +1,5 @@
 {
- "at": "2026-10-17T01:14:31Z",
+ "at": "2026-10-17T01:39:26Z",
  "anchor": "RULING (R284) BEGIN",
  "rows": [
   {
@@ -785,6 +785,293 @@
    "src": "seat",
    "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools')\nimport b674_regspec as S\nfor x in S.planted(): print(x)\n\" && python -X utf8 tools/b674_record.py defects && python -X utf8 tools/b674_record.py kernels",
    "n": 112
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:14:29.577Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py commands 2>&1 | tail -20",
+   "n": 113
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:14:38.133Z",
+   "src": "seat",
+   "cmd": "for r in /d/relay /d/MY-DOwnloads/PLACE-papers /d/SIDE-explicit-formula; do echo \"== $r\"; git -C $r branch -a --list 'push-b673*' 'chi-li-b669' '*/push-b673*' '*/chi-li-b669'; done",
+   "n": 114
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:15:08.563Z",
+   "src": "seat",
+   "cmd": "grep -c \"BRANCHES 7 ; MERGED 7 ; TO BE DELETED 7\" data/b674_branches.txt; python -X utf8 tools/b674_record.py scores dry 2>&1 | cut -c1-900",
+   "n": 115
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:15:21.798Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py scores dry 2>&1 | grep \"^  N5\" | cut -c880-2000",
+   "n": 116
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:15:29.243Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools')\nimport b674_record as R\nv=R._n5();print(v[1][700:])\"",
+   "n": 117
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:15:44.141Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools')\nimport b674_record as R\na=R._ledger_adds();print(len(a.split(chr(10))),'lines added;', [n for n in ('patent','Patent','PATENT') if n in a])\n# control: the same reader over a planted line\nimport re\nprint('control:', 'patent' in (a+chr(10)+'a planted patent line'))\"",
+   "n": 118
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:15:56.568Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py defects && python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools')\nimport b674_record as R\nprint(R._n5()[0])\"",
+   "n": 119
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:16:14.139Z",
+   "src": "seat",
+   "cmd": "git status --short | grep -v \"^??\" ; git status --short | grep \"b674\" ",
+   "n": 120
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:16:37.167Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools')\nimport b674_checks as C\nn=[a[0] for a in C.ARMS];print(len(n));print(' '.join('\\`%s\\`'%x for x in n))\nprint(sorted(set(n)-set(C.STANDING)))\nprint(sorted(set(C.STANDING)-set(n)))\" 2>&1 | tail -5",
+   "n": 121
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:18:25.261Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py drycheck data/b674_registration_2026-10-16.txt standin 2>&1 | tail -12",
+   "n": 122
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:18:39.300Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py findings dry standin 2>&1 | grep -v \"^  table cells\" | fold -w 200 -s | head -80",
+   "n": 123
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:18:48.621Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py trail dry standin 2>&1 | grep -v \"^  table cells\" | fold -w 200 -s",
+   "n": 124
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:19:01.967Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py drycheck data/b674_registration_2026-10-16.txt standin 2>&1 | tail -1 && python -m pyflakes tools/b674_checks.py tools/b674_record.py tools/b674_regspec.py tools/b674_reg_gate.py tools/b674_worklist.py 2>&1 | head",
+   "n": 125
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:19:11.342Z",
+   "src": "seat",
+   "cmd": "python -m py_compile tools/b674_checks.py tools/b674_record.py tools/b674_regspec.py tools/b674_reg_gate.py tools/b674_worklist.py && echo compiled && timeout 590 python -X utf8 tools/b674_checks.py --prerun 2>&1 | grep -v \" OK$\" | tail -60",
+   "n": 126
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:28:19.566Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json,hashlib,subprocess\nf=json.load(open('data/b674_faces_diff.json'));print({k:f[k] for k in ('control','faces_line','written','committed')})\np='D:/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md'\nprint('now ',hashlib.sha256(open(p,'rb').read()).hexdigest())\nb=subprocess.run(['git','-C','D:/MY-DOwnloads/PLACE-papers','show','HEAD:THE_CLAUSE_AND_ITS_COMPILED_FACES.md'],capture_output=True).stdout\nprint('head',hashlib.sha256(b).hexdigest(), b'\\r\\n' in open(p,'rb').read(), b'\\r\\n' in b)\na=open('data/b674_nodes_zeta.txt',encoding='utf-8').read().rstrip('\\n').split('\\n');c=open('data/b649_nodes_zeta.txt',encoding='utf-8').read().rstrip('\\n').split('\\n')\nprint(len(a),len(c),a[:len(c)]==c,[x[:80] for x in a if x not in c])\"",
+   "n": 127
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:28:24.655Z",
+   "src": "seat",
+   "cmd": "git diff --no-index --unified=1 data/b649_nodes_zeta.txt data/b674_nodes_zeta.txt | cut -c1-160",
+   "n": 128
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:28:38.548Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys,io,json,hashlib,subprocess;sys.path.insert(0,'tools')\nimport b674_checks as C\nS=dict(facesj=json.load(open('data/b674_faces_diff.json')),nodes=C.rd('b674_nodes_zeta.txt'),nodes649=C.rd('b649_nodes_zeta.txt'))\nS['faces_now']=S['faces_head']=S['facesj']['written']\nprint('live',C.faces_ok(S))\nprint('pos (a second backmatter line)',C.faces_ok(dict(S,nodes=S['nodes']+'# backmatter: x'+chr(10))))\nprint('pos (a b649 line changed)',C.faces_ok(dict(S,nodes=S['nodes'].replace('SIDEExplicitFormula.NymanBeurling.constOne','X',1))))\nprint('pos (a code line inserted)',C.faces_ok(dict(S,nodes=S['nodes']+'X.y | kernel | x'+chr(10))))\"",
+   "n": 129
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:28:51.638Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py defects && git add tools/b674_checks.py tools/b674_reg_gate.py tools/b674_regspec.py tools/b674_record.py tools/b674_worklist.py data/b674_commands.json data/b674_commands.txt data/b674_defects.json data/b674_defects.txt data/b674_kernels_face.json && git commit -q -m \"b674 Component 5, under (R284): the suite (84 arms: b673's 68 standing arms carried, 16 over this act's banks), the gate with its dry-run step and the spec by the Write tool; the record tool's late routes (commands, kernels, defects, the root and its arm, the table, the gate's banks, N1-N5 and S1-S3, the entry, the trail, the dry run, the mirror) and the worklist's constants by the Edit tool; the commands, kernels-face and defects banks; the seat's (j) and (k)\" && git log --oneline -1",
+   "n": 130
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:29:29.652Z",
+   "src": "seat",
+   "cmd": "python -m py_compile tools/b674_checks.py && timeout 590 python -X utf8 tools/b674_checks.py --prerun 2>&1 | grep -v \" OK$\" | grep -v \"^  ### THE ACT-ROOT CHAIN\" | tail -42",
+   "n": 131
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:35:44.104Z",
+   "src": "seat",
+   "cmd": "grep \"THE PHASES\" data/b674_arms_prerun.txt",
+   "n": 132
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:35:49.982Z",
+   "src": "seat",
+   "cmd": "git add tools/b674_checks.py && git commit -q -m \"b674 Component 5, under (R284): the suite prints the seconds of each phase of its sources and the table's regeneration (the 600 s foreground limit; the second pre-run 371 s), by the Edit tool before the seal\" && git log --oneline -1",
+   "n": 133
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:35:56.595Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_reg_gate.py 2>&1 | tail -25",
+   "n": 134
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:36:00.984Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py gatebanks 2>&1 | tail -15",
+   "n": 135
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:36:08.917Z",
+   "src": "seat",
+   "cmd": "sed -n '/MEASURED OFF/,/CARRIED/p' data/b674_regspec_run.txt; grep -n \"PLANTED ROWS\\|CONTROL\" data/b674_regspec_run.txt | head; head -30 tools/b378_lockgate.py | grep -n \"usage\\|argv\\|notes\" ",
+   "n": 136
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:36:13.782Z",
+   "src": "seat",
+   "cmd": "grep -n \"sys.argv\\|def main\\|notes\" tools/b378_lockgate.py | head -20; grep -o '\"command\":\"[^\"]*lockgate[^\"]*\"' \"/c/Users/echo chamber/.claude/projects/D--/b895aca8-50cf-4976-9217-c566f780a886.jsonl\" | head -3",
+   "n": 137
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:36:17.865Z",
+   "src": "seat",
+   "cmd": "sed -n 146,186p tools/b378_lockgate.py; grep -o '\"command\":\"[^\"]*b378_lockgate.py b673[^\"]*\"' \"/c/Users/echo chamber/.claude/projects/D--/b895aca8-50cf-4976-9217-c566f780a886.jsonl\" | head -3; grep -o '\"command\":\"[^\"]*reg_seal.py --lock[^\"]*\"' \"/c/Users/echo chamber/.claude/projects/D--/b895aca8-50cf-4976-9217-c566f780a886.jsonl\" | tail -2",
+   "n": 138
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:36:21.940Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b378_lockgate.py b674 data/b674_registration_2026-10-16.txt 2>&1 | grep -n \"GATES READ\\|VERDICT\\|REFUS\\|written\\|STALE\\|MISMATCH\" | head -12; ls data/b674_lockgate*",
+   "n": 139
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:36:26.251Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b674_registration_2026-10-16.txt 2>&1 | tail -6 && python -X utf8 tools/reg_seal.py --verify data/b674_registration_2026-10-16.txt 2>&1 | grep -i \"SEAL INTACT\\|BROKEN\" && python -X utf8 tools/b674_checks.py --seal",
+   "n": 140
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:36:30.150Z",
+   "src": "seat",
+   "cmd": "git status --short | grep -i \"b674\\|terminal_table\\|act_roots\"",
+   "n": 141
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:36:35.140Z",
+   "src": "seat",
+   "cmd": "git add data/audit_b674_reg_satisfiable.txt data/b674_arms_prerun.txt data/b674_census_stepzero.txt data/b674_faces_census_stepzero.txt data/b674_lockgate.json data/b674_lockgate_notes.txt data/b674_lsr_prerun.json data/b674_pins_stepzero.txt data/b674_reg_gate.txt data/b674_reg_termscan.txt data/b674_registration_2026-10-16.txt data/b674_regspec_run.txt data/b674_satisfiable.json data/b674_seal_hashes.json && git commit -q -m \"b674 seal, under (R284): the face locked (sha256 410c5a87..., 25629 bytes) after Components 0-4, the pre-run (84 arms, 61 passing, 371 s, the 23 failing every one reading what is not yet written) and the gate CLEAR with its dry-run step CLEAN; the spec jointly satisfiable, the term scan clean, the censuses and pins, the lock gate 8 of 8; the eight sealed tools' sha256 recorded\" && git log --oneline -1",
+   "n": 142
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:36:41.750Z",
+   "src": "seat",
+   "cmd": "ls data/b673_*push_out*; grep -o '\"command\":\"[^\"]*push_gated.sh[^\"]*\"' \"/c/Users/echo chamber/.claude/projects/D--/b895aca8-50cf-4976-9217-c566f780a886.jsonl\" | tail -8",
+   "n": 143
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:36:50.176Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git log --oneline -3 && git status --short | head -5 && git branch push-b674 4cb90e0 && PUSH_GATED_LOG=/d/relay/data/b674_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b674; echo \"exit $?\"",
+   "n": 144
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:37:22.965Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git status --short | grep -i \"b674\" ; git branch push-b674 HEAD && PUSH_GATED_LOG=/d/relay/data/b674_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b674; echo \"exit $?\"",
+   "n": 145
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:37:37.329Z",
+   "src": "seat",
+   "cmd": "git log --format='%h %s' 25df081b..6f98c458 | cut -c1-230; echo; git -C /d/MY-DOwnloads/PLACE-papers log --format='%h %s' 028eb70..f755f99 | cut -c1-200",
+   "n": 146
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:37:41.939Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py table_final 2>&1 | tail -3 && git status --short | grep -v \"^??\" ",
+   "n": 147
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:38:10.020Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py root dry 2>&1 | tail -6",
+   "n": 148
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:38:34.650Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools')\nimport b674_record as R\nprint(' '.join(b[5:] for b in R.root_banks()))\"",
+   "n": 149
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:38:39.062Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py root 2>&1 | tail -3 && tail -2 data/act_roots.txt | cut -c1-200 && python -X utf8 tools/b674_record.py root_arm",
+   "n": 150
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:39:05.512Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py scores 2>&1 | cut -c1-260 && python -X utf8 tools/b674_record.py desk && python -X utf8 tools/b674_record.py defects",
+   "n": 151
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:39:14.679Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py findings dry 2>&1 | grep -n \"table cells\\|root.\\*\\*\\|scores.\\*\\*\\|cells\" | cut -c1-300",
+   "n": 152
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T01:39:19.276Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b674_record.py findings 2>&1 | tail -2 && python -X utf8 tools/b674_record.py trail 2>&1 | tail -2",
+   "n": 153
   }
  ],
  "offences": [],

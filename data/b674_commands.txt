@@ -1,7 +1,7 @@
-b674 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1) AND THE MOVES AND DELETES (2026-10-17T01:14:31Z)
+b674 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1) AND THE MOVES AND DELETES (2026-10-17T01:39:26Z)
 
 ### the source: the seat`s session b895aca8-50cf-4976-9217-c566f780a886 from its first user line carrying 'RULING (R284) BEGIN', and its subagents` transcripts
-### commands read: 112
+### commands read: 153
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -130,5 +130,46 @@ b674 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #110 | 2026-10-17T01:08:39.596Z | seat | Bash | grep -c "plain requests to github.com" tools/b674_closing.py; grep -o "no identifier of the author in any outbound request" tools/b674_closing.py | head -1; gre
   #111 | 2026-10-17T01:13:09.844Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers diff --numstat f755f99 HEAD; sed -n 20,31p data/b674_author_answers.txt | grep -o "Li.s criterion is compiled two ways at pr
   #112 | 2026-10-17T01:14:15.849Z | seat | Bash | python -X utf8 -c "
+  #113 | 2026-10-17T01:14:29.577Z | seat | Bash | python -X utf8 tools/b674_record.py commands 2>&1 | tail -20
+  #114 | 2026-10-17T01:14:38.133Z | seat | Bash | for r in /d/relay /d/MY-DOwnloads/PLACE-papers /d/SIDE-explicit-formula; do echo "== $r"; git -C $r branch -a --list 'push-b673*' 'chi-li-b669' '*/push-b673*' '
+  #115 | 2026-10-17T01:15:08.563Z | seat | Bash | grep -c "BRANCHES 7 ; MERGED 7 ; TO BE DELETED 7" data/b674_branches.txt; python -X utf8 tools/b674_record.py scores dry 2>&1 | cut -c1-900
+  #116 | 2026-10-17T01:15:21.798Z | seat | Bash | python -X utf8 tools/b674_record.py scores dry 2>&1 | grep "^  N5" | cut -c880-2000
+  #117 | 2026-10-17T01:15:29.243Z | seat | Bash | python -X utf8 -c "
+  #118 | 2026-10-17T01:15:44.141Z | seat | Bash | python -X utf8 -c "
+  #119 | 2026-10-17T01:15:56.568Z | seat | Bash | python -X utf8 tools/b674_record.py defects && python -X utf8 -c "
+  #120 | 2026-10-17T01:16:14.139Z | seat | Bash | git status --short | grep -v "^??" ; git status --short | grep "b674" 
+  #121 | 2026-10-17T01:16:37.167Z | seat | Bash | python -X utf8 -c "
+  #122 | 2026-10-17T01:18:25.261Z | seat | Bash | python -X utf8 tools/b674_record.py drycheck data/b674_registration_2026-10-16.txt standin 2>&1 | tail -12
+  #123 | 2026-10-17T01:18:39.300Z | seat | Bash | python -X utf8 tools/b674_record.py findings dry standin 2>&1 | grep -v "^  table cells" | fold -w 200 -s | head -80
+  #124 | 2026-10-17T01:18:48.621Z | seat | Bash | python -X utf8 tools/b674_record.py trail dry standin 2>&1 | grep -v "^  table cells" | fold -w 200 -s
+  #125 | 2026-10-17T01:19:01.967Z | seat | Bash | python -X utf8 tools/b674_record.py drycheck data/b674_registration_2026-10-16.txt standin 2>&1 | tail -1 && python -m pyflakes tools/b674_checks.py tools/b674_
+  #126 | 2026-10-17T01:19:11.342Z | seat | Bash | python -m py_compile tools/b674_checks.py tools/b674_record.py tools/b674_regspec.py tools/b674_reg_gate.py tools/b674_worklist.py && echo compiled && timeout 5
+  #127 | 2026-10-17T01:28:19.566Z | seat | Bash | python -X utf8 -c "
+  #128 | 2026-10-17T01:28:24.655Z | seat | Bash | git diff --no-index --unified=1 data/b649_nodes_zeta.txt data/b674_nodes_zeta.txt | cut -c1-160
+  #129 | 2026-10-17T01:28:38.548Z | seat | Bash | python -X utf8 -c "
+  #130 | 2026-10-17T01:28:51.638Z | seat | Bash | python -X utf8 tools/b674_record.py defects && git add tools/b674_checks.py tools/b674_reg_gate.py tools/b674_regspec.py tools/b674_record.py tools/b674_worklis
+  #131 | 2026-10-17T01:29:29.652Z | seat | Bash | python -m py_compile tools/b674_checks.py && timeout 590 python -X utf8 tools/b674_checks.py --prerun 2>&1 | grep -v " OK$" | grep -v "^  ### THE ACT-ROOT CHAIN
+  #132 | 2026-10-17T01:35:44.104Z | seat | Bash | grep "THE PHASES" data/b674_arms_prerun.txt
+  #133 | 2026-10-17T01:35:49.982Z | seat | Bash | git add tools/b674_checks.py && git commit -q -m "b674 Component 5, under (R284): the suite prints the seconds of each phase of its sources and the table's rege
+  #134 | 2026-10-17T01:35:56.595Z | seat | Bash | python -X utf8 tools/b674_reg_gate.py 2>&1 | tail -25
+  #135 | 2026-10-17T01:36:00.984Z | seat | Bash | python -X utf8 tools/b674_record.py gatebanks 2>&1 | tail -15
+  #136 | 2026-10-17T01:36:08.917Z | seat | Bash | sed -n '/MEASURED OFF/,/CARRIED/p' data/b674_regspec_run.txt; grep -n "PLANTED ROWS\|CONTROL" data/b674_regspec_run.txt | head; head -30 tools/b378_lockgate.py 
+  #137 | 2026-10-17T01:36:13.782Z | seat | Bash | grep -n "sys.argv\|def main\|notes" tools/b378_lockgate.py | head -20; grep -o '"command":"[^"]*lockgate[^"]*"' "/c/Users/echo chamber/.claude/projects/D--/b895
+  #138 | 2026-10-17T01:36:17.865Z | seat | Bash | sed -n 146,186p tools/b378_lockgate.py; grep -o '"command":"[^"]*b378_lockgate.py b673[^"]*"' "/c/Users/echo chamber/.claude/projects/D--/b895aca8-50cf-4976-921
+  #139 | 2026-10-17T01:36:21.940Z | seat | Bash | python -X utf8 tools/b378_lockgate.py b674 data/b674_registration_2026-10-16.txt 2>&1 | grep -n "GATES READ\|VERDICT\|REFUS\|written\|STALE\|MISMATCH" | head -1
+  #140 | 2026-10-17T01:36:26.251Z | seat | Bash | python -X utf8 tools/reg_seal.py --lock data/b674_registration_2026-10-16.txt 2>&1 | tail -6 && python -X utf8 tools/reg_seal.py --verify data/b674_registration
+  #141 | 2026-10-17T01:36:30.150Z | seat | Bash | git status --short | grep -i "b674\|terminal_table\|act_roots"
+  #142 | 2026-10-17T01:36:35.140Z | seat | Bash | git add data/audit_b674_reg_satisfiable.txt data/b674_arms_prerun.txt data/b674_census_stepzero.txt data/b674_faces_census_stepzero.txt data/b674_lockgate.json 
+  #143 | 2026-10-17T01:36:41.750Z | seat | Bash | ls data/b673_*push_out*; grep -o '"command":"[^"]*push_gated.sh[^"]*"' "/c/Users/echo chamber/.claude/projects/D--/b895aca8-50cf-4976-9217-c566f780a886.jsonl" |
+  #144 | 2026-10-17T01:36:50.176Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git log --oneline -3 && git status --short | head -5 && git branch push-b674 4cb90e0 && PUSH_GATED_LOG=/d/relay/data/b674_pp_
+  #145 | 2026-10-17T01:37:22.965Z | seat | Bash | cd /d/relay && git status --short | grep -i "b674" ; git branch push-b674 HEAD && PUSH_GATED_LOG=/d/relay/data/b674_relay_push_out.txt bash /d/relay/tools/push_
+  #146 | 2026-10-17T01:37:37.329Z | seat | Bash | git log --format='%h %s' 25df081b..6f98c458 | cut -c1-230; echo; git -C /d/MY-DOwnloads/PLACE-papers log --format='%h %s' 028eb70..f755f99 | cut -c1-200
+  #147 | 2026-10-17T01:37:41.939Z | seat | Bash | python -X utf8 tools/b674_record.py table_final 2>&1 | tail -3 && git status --short | grep -v "^??" 
+  #148 | 2026-10-17T01:38:10.020Z | seat | Bash | python -X utf8 tools/b674_record.py root dry 2>&1 | tail -6
+  #149 | 2026-10-17T01:38:34.650Z | seat | Bash | python -X utf8 -c "
+  #150 | 2026-10-17T01:38:39.062Z | seat | Bash | python -X utf8 tools/b674_record.py root 2>&1 | tail -3 && tail -2 data/act_roots.txt | cut -c1-200 && python -X utf8 tools/b674_record.py root_arm
+  #151 | 2026-10-17T01:39:05.512Z | seat | Bash | python -X utf8 tools/b674_record.py scores 2>&1 | cut -c1-260 && python -X utf8 tools/b674_record.py desk && python -X utf8 tools/b674_record.py defects
+  #152 | 2026-10-17T01:39:14.679Z | seat | Bash | python -X utf8 tools/b674_record.py findings dry 2>&1 | grep -n "table cells\|root.\*\*\|scores.\*\*\|cells" | cut -c1-300
+  #153 | 2026-10-17T01:39:19.276Z | seat | Bash | python -X utf8 tools/b674_record.py findings 2>&1 | tail -2 && python -X utf8 tools/b674_record.py trail 2>&1 | tail -2
 
-### ### **COMMANDS 112 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; MOVE OR DELETE COMMANDS 3.**
+### ### **COMMANDS 153 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; MOVE OR DELETE COMMANDS 3.**
