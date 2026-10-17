@@ -1,0 +1,63 @@
+b675 -- STEP ZERO, (R285)(9): THE READ-FIRST BANK -- EVERY ITEM OF THE FERRY'S LIST CITED BY PATH AND LINE WITH ITS ROW UNIT (2026-10-16)
+
+### rows are items of the ferry's read-first list, in its order: the item ; its row unit ; the lines read and what they carry. The kernel
+### is read at SIDE-explicit-formula main e36ea31 = tag v0.32 by git show, not checked out or built (no lean on this host).
+
+  data/b674_closing.txt                 rows are lines. :1 the head line "b674 closed: relay 7d432c88, PLACE-papers 4cb90e0, SIDE-window
+                                        e5b737a v0.5.1; suite 84 of 84; root 34e0e30f0034da57…; 6 prompts answered; 14 defects" (its two
+                                        commits the pre-root pushes, data/b674_defects.txt (l); corrected in data/b675_corrigenda.txt); :5-:14
+                                        the sealed tools AGREE 8 of 8; :16 the citation check; :20 the dry run CLEAN; :22 the drafts; :27-:28
+                                        the re-cut ROWS 6, distance 5 -> 1 (of any kind 6 -> 1), merged e5b737a v0.5.1, the two runs; :36 the
+                                        merge tag; :157 and :159 the suite 84 of 84 pre-push and post-push. The record commits 92e003e7 (relay)
+                                        and 6b95ac8 (PLACE-papers) and the closing 27992411 are not in it (written before them): git log reads them.
+  data/b674_defects.txt                 rows are defects, as lettered there: (a) :7, (b) :14, (c) :19, (d) :24, (e′) :32, (e) :38, (f) :43,
+                                        (g) :47, (h) :53, (i) :58, (j) :62, (k) :67, (l) :73, (m) :82 -- fourteen; the navigator's (a)-(d)
+                                        and (e′) (:32 "THE NAVIGATOR'S"); (m) :82-:90 the closing tool's three wrong readings; (l) :73 the
+                                        capture names.
+  data/b674_cut.txt                     rows are licensed-table rows (the tie :4-:7, the rule, the six rows and their cut); :28 the Sawtooth
+                                        header's marker at :17 left (TWO CLAIMS, the ACTION covering one).
+  data/b674_rules.txt                   rows are rules: (1) :5 an empty remote read re-read alone; (2) :8 the tie-break beyond the count
+                                        (rows outside LICENSED/CITED of any kind, then the larger table) -- (R285)(11)'s rule; (3) :12 the
+                                        ruling quotes the closing's head line.
+  data/b673_v4v5_plan.txt               rows are statements, steps and priced facts, by section: == 2 :54 (V4), == 3 :71 (V5; :75 remainder_le
+                                        "≤ C (n + 1)^2 s^n -- KEPT AS STATED"), == 4 :83 the composition (:89 "along (V4+)`s n, λ_n ≤ Σ_D m_ρ
+                                        - c r_max^n + C (n + 1)^2 s^n"; :92 V5's consumed form), == 7 :113 the consumers, == 8 :123 the
+                                        hypotheses.
+  data/b673_v4_control.txt              rows are n with Re s_n in balls: :3 the input (the narrowed .gz, sha256 51d9e632..., the JSON inside
+                                        cd3a8ea1...); :24 the dominant pair (ρ′ of idx 0 and its conjugate), Σm = 2, Σm² = 2, c = 1/4; :4032 the
+                                        verdict: n = 1..4000, at or above c 1842 (least n 1), at or below -c 1839 (least n 28), neither 319.
+  data/b673_landing.txt                 rows are declarations with their landing (:5-:33), :35 DECLARATIONS 29 ; DERIVES 29, :37-:40 the merge,
+                                        :48 and :58 the two drafts (written at b674).
+  SIDE-explicit-formula e36ea31 (v0.32), read by git show:
+    Schema/PowerSum.lean                rows are declarations: V4 in both signs, c = Σm²/(4Σm) (powerSum_consts, consumed at
+                                        Schema/LiConverseCfg.lean :241).
+    Schema/LiRemainder.lean             rows are declarations: :12 "The plan's split at ‖ρ‖ = R0 is not needed"; summable_rest :110;
+                                        rest_term_le :125 (per point, 2(2 + 2(1 + s)²)(n + 1)² sⁿ · m/(1 + |γ|²)); remainder_le :175, its C
+                                        :180-:181 = 2(2 + 2(1 + s)²)·Σ over {‖1 - ρ⁻¹‖ < s} of m/(1 + |γ|²).
+    Schema/LiConverseCfg.lean           rows are declarations: S5 li_nonneg_cfg_imp_online :157; the off-line point by by_contra :162, its
+                                        orbit member ρ′ :164, r = (1 + ‖1 - ρ′⁻¹‖)/2 :165-:166, R = r_max :169-:170, s1 :183-:191, s = (s1 +
+                                        R)/2 :192, c :241-:242, C from remainder_le :244, the subsequence (V4+) :259 powerSum_re_ge_infinitely,
+                                        the composition 0 ≤ λ_n ≤ Σ_D m - cRⁿ + C(n + 1)²sⁿ < 0 from :295.
+    RestBound.lean :40                  HStrip Z := ∀ ρ ∈ Z.carrier, 0 < ρ.re ∧ ρ.re < 1 (every carrier point, no height bound).
+    RestBound.lean :44                  HCount Z A₀ := 1 ≤ A₀ ∧ ∀ t, N(t, t + 1) ≤ A₀ log(|t| + 3).
+    Schema/LiCfg.lean                   rows are declarations: liCoeffCfg (the coefficient over a configuration), pairTerm.
+    Schema/EpsteinQ0.lean (beside)      :95 Q0Listed (P1), :100 Q0Complete (P2, below 150), :104 A0Q = 10, :108 Q0Count := HCount Z A0Q
+                                        (P3, "stated, not proved; open") -- the kernel's count law at Q0, a premise.
+  data/b671_epstein_zeros_narrowed.json rows are points with balls -- committed as data/b671_epstein_zeros_narrowed.json.gz, the JSON inside it
+                                        named at data/b671_epstein_zeros_narrowed_hashes.txt :2 (sha256 cd3a8ea1..., 31567 bytes), :3 the .gz
+                                        (51d9e632..., 5830 bytes); keys w = '1e-24', h0 = 1e-12, depth 40, prec 200, rows 163 (kind ON 146,
+                                        OFF 17; idx, re, im, h, count 1, reading NARROWED).
+  data/b671_narrow_plan.txt             rows are sections: :7-:8 the ball form -- each ON row arb(im, h) on σ = 1/2, each OFF row the ball
+                                        strings [re ± h], [im ± h]; the offset rule in the same section.
+  data/b667_epstein_plan.txt            rows are sections: == 1 :7-:21 Q0 = x² + xy + 6y², disc -23, h(-23) = 3, the list 146 + 2·17 = 180
+                                        in the upper half-plane for t ∈ [0.5, 150]; :84 the region R = [-0.5, 1.5] × [0.5, 150]; == 11 (3c)
+                                        the right edge at σ = 3/2; no count law for Z_Q is pinned in the plan (292 lines).
+  tools/b671_narrow.py                  rows are code lines: :148-:152 the square reading, acb(re, im) with arb(h) half-width.
+  data/b671_tie_diagnostic.txt          rows are tie controls (the cell, the precision, j): the separation's radius growing with j (e.g. :6-:11
+                                        rad 1.7e-51 -> 3.1e-49 over j 14-19); it names no squaring. The reason for exp(n·log z) over repeated
+                                        multiplication -- the ball squared in place of the angle amplified -- is stated at
+                                        data/b671_scanfile_landing.md :6 and OPEN_TRAILS :14396.
+  data/b674_closing_push_out.txt        rows are the push tool's capture lines: :1 capture on, :2 branch push-b674-closing tip 27992411;
+                                        untracked at step zero, committed at step zero.
+
+### the misses this reading meets are the citation check's (data/b675_citation_check.txt), raised before the components that cite them.
