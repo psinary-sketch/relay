@@ -64,11 +64,11 @@ PLAN_COMMIT = '87fad8f6'    # ### the plan committed, before the first Lean writ
 WIDE_FILES = ('SIDEExplicitFormula/Schema/Wide/Config.lean', 'SIDEExplicitFormula/Schema/Wide/Remainder.lean',
               'SIDEExplicitFormula/Schema/Wide/Converse.lean')
 
-NEXT = ('b680, the reading act, reading 2 of 2, its ruling then: the licensed table re-read over the roster by b670`s method against b670`s 372; '
-        'the Correspondence distance by both methods; the ceiling sites; the orders census with Status cells; the methods` readiness; the ledger '
-        'split archive-3; the census of the suite`s arms by what each reads; the keystone lag; the residues of the re-cut acts counted; the rules '
-        'rows of data/b670_rules.txt through data/b679_rules.txt counted by act; b681 the narrowing act under W-ORD-EPSTEIN-BALL-WIDTH at the '
-        'width b677 measured -- `(R289)`(11)')
+NEXT = ('b680, the reading act, reading 2 of 2, its ruling then: the licensed table re-read over the roster by b670’s method against b670’s 372; '
+        'the Correspondence distance by both methods; the ceiling sites; the orders census with Status cells; the readiness of the methods; the '
+        'ledger split archive-3; the census of the arms of the suite by what each reads; the keystone lag; the residues of the re-cut acts counted; '
+        'the rules rows of data/b670_rules.txt through data/b679_rules.txt counted by act; b681 the narrowing act under W-ORD-EPSTEIN-BALL-WIDTH at '
+        'the width b677 measured -- (R289)(11)')
 
 ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R289-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
             'G-DELETES-ONE-BRANCH', 'G-ORDER-ENTERED', 'G-PLAN-BEFORE-LEAN', 'G-ANSWERS-CHECKED', 'G-LANDING-DERIVES', 'G-V032-PRINTS-EQUAL',

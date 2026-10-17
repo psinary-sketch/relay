@@ -1082,7 +1082,7 @@ def _finding_text():
          'real points have positive real part, under the local count, with every Li coefficient nonnegative, lies on the line '
          '(Wide.li_nonneg_cfg_imp_online, %s, DERIVES at the standard three, the ζ-naming walk from it at 0); every v0.32 declaration stands, its '
          'print unchanged. Q0 meets that class on its certified balls, the (3c) bound and its real segment, the local count assumed, so b675’s '
-         'certified negative coefficient at n_obs = 10034, before the bound’s onset n*\' = %s, is a test of a kernel bound against a certified '
+         'negative coefficient at n_obs = 10034, certified under that assumption, before the bound’s onset n*\' = %s, is a test of a kernel bound against a certified '
          'object and not a statement about Q0’s zeros. Nothing here proves RH or GRH.' % (K.K_NEXT_TAG, ns), '',
          '*Filed at b679 on the author’s ruling `(R289)`%s. Banks: relay `data/b679_strip_plan.txt`, `data/b679_landing.txt`, '
          '`data/b679_prints_compare.txt`, `data/b679_zeta_walk_%s.txt`, `data/b679_q0_membership.txt`, `data/b679_onset.txt`, '
@@ -1120,10 +1120,10 @@ def _finding_text():
     return _title(), NL.join(e)
 
 
-FOR_AUTHOR = ('(1) the form a second structure, by the type`s field and the v0.32 declarations a parameter would change (relay '
-              'data/b679_strip_plan.txt == 0); (2) the summability renamed apart from ζ`s short name, a second tree state, so the carried walk reads '
-              'the proof and not a namesake; (3) HExcl at Q0 read on [−1/2, −1/4] by the functional equation`s form, where the direct route`s Γ(s − ½) '
-              'pole meets ζ(−2) = 0; (4) the root module`s import list not written, the build naming its modules by the target')
+FOR_AUTHOR = ('(1) the form a second structure, by the type’s field and the v0.32 declarations a parameter would change (relay '
+              'data/b679_strip_plan.txt == 0); (2) the summability renamed apart from the short name of ζ’s summability, a second tree state, so the '
+              'carried walk reads the proof and not a namesake; (3) HExcl at Q0 read on [−1/2, −1/4] by the functional equation’s form, where the '
+              'direct route’s Γ(s − ½) pole meets ζ(−2) = 0; (4) the root module’s import list not written, the build naming its modules by the target')
 
 
 def _trail_text():
@@ -1142,7 +1142,8 @@ def _trail_text():
              'the re-cut act after b680); this record.' % (c1[0], fj.get('entry_line'), co[0]), '',
              '**Act root:** b679 `%s` (previous `%s`, b678’s; relay data/act_roots.txt), computed after the last bank it names, every one of them '
              'LF.' % (J.get('root'), J.get('previous')), '',
-             '**Prompts to the author:** %d questions in %d calls (relay data/b679_author_answers.txt); none after the root.' % (n_ans, len(_calls())), '',
+             '**Prompts to the author:** %d questions in %d call%s (relay data/b679_author_answers.txt); none after the root.' % (
+                 n_ans, len(_calls()), '' if len(_calls()) == 1 else 's'), '',
              '**The kernel:** SIDE-explicit-formula main %s, tag %s; runs %s; 20 declarations DERIVES; walk 0 ζ-naming.' % (
                  K.K_MERGE, K.K_NEXT_TAG, ' and '.join(str(r) for r, _t in K.K_RUNS)), '',
              '**The readings:** Q0 in the widened class, T-COUNT assumed (relay data/b679_q0_membership.txt); n*\' %s, n_obs 10034; on V4’s '
