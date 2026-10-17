@@ -45,8 +45,22 @@ DELETE = (('D:/relay', ('push-b673-root', 'push-b673', 'push-b673-closing')),
 MERGE = 'e36ea316e363b1fad04b7fa9def0fc7f2e78188f'
 CHI_LI_TIP = '5050a46acf269e7745ce678c3deb8deed9f2d0bf'
 
-# ### filled at the seal
-ACT_ARMS = ()
+# ### the re-cut ((R284)(4) and the navigator's answers on the cut's route and the SIDE-window build): SIDE-window's main before the act, the
+# ### workflow commit on main, the cut on recut-window-b674, the merge and its tag; the two lean files the cut touched
+WD = 'D:/SIDE-window'
+W_PRE_MAIN, W_WORKFLOW, W_CUT, W_MERGE, W_TAG = '3dab5f4', '7c4a2e1', '22bf840', 'e5b737a', 'v0.5.1'
+W_WORKFLOW_FILE = '.github/workflows/build-module.yml'
+W_CUT_FILES = ('SIDEWindow/LocalModel.lean', 'SIDEWindow/Sawtooth.lean')
+W_RUNS = ((38988546013, 'before'), (38988610526, 'after'))
+CEILING_SHA = '9347f9bc'    # ### the (R183)(3) sentence's sha256 head, b670's, read at step zero
+
+NEXT = ('b675, a research act, its ruling then; b680 the reading act, reading 2 of 2 -- `(R284)`(9)')
+
+# ### (R264)(2), the freeze: the act's arms over its own banks; every other arm is a standing arm carried from b673's face (b673's own act
+# ### arms not carried). Each run at HEAD and counted before the face names it.
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-R284-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DISCHARGE-H5', 'G-TIE-BEFORE-NAMING', 'G-DRAFTS-BEFORE-SITES', 'G-CEILING-SITES', 'G-FACES-REGENERATED', 'G-RULES-BANKED',
+            'G-CUT-DISTANCE', 'G-PRINTS-EQUAL', 'G-CUT-COMMENT-ONLY', 'G-TOOL-REPAIRS')
 SHARED_APPENDED = ()
 SEALED = ('b674_worklist.py', 'b674_tests.py', 'b674_citation.py', 'b674_record.py', 'b674_checks.py', 'b674_closing.py', 'b674_reg_gate.py',
           'b674_regspec.py')
