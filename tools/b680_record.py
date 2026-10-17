@@ -382,6 +382,43 @@ def c1order(*a):
     print('  data/%s appended (%d bytes before, %d after): %s' % (ORDERS, len(old), len(new), rows[1].strip()[:120]))
 
 
+ORDER4 = 'W-ORD-LEDGER-SPLIT-RESOLVER'
+OH4 = ('*Appended 2026-10-17 by b680 beneath its order `W-ORD-EPSTEIN-COUNT` (:14678), under `(R290)`(6) and the navigator’s answer on '
+       'archive-3 -- THE ORDER `W-ORD-LEDGER-SPLIT-RESOLVER` ENTERED, THE LEDGER SPLIT HELD:*')
+OB4 = (' the proposed cut FINDINGS :456-:6949 (the record stream through the last entry filed before b600; the reference frames stay) moves the '
+       'line cited by 4565 of 4635 FINDINGS :NNNN citation sites (banks 3670, corrigendum 166, ledgers 553, papers 155, roster 21; relay '
+       'data/b680_split_price.txt), and no house tool re-pins a line citation; so archive-3 is HELD and the count is the finding. The 23 anchor '
+       'citations (FINDINGS#name) are the form that survives a cut unaided, as the 2026-08-24 split kept them. A re-pin tool is struck as a route: '
+       'it would rewrite banks that sit under act roots and sealed hashes. The route entered and priced: at the moment of any future cut, a banked '
+       'line-offset table, one row -- the cut’s range and the offset it induces -- and a resolver that rowgen, the citation check and the '
+       'Correspondence generator consult when they read a FINDINGS :NNNN citation older than the cut; no bank, ledger or paper rewritten. Its '
+       'price: one table row written with the cut, one resolver function, and its call added in those three readers. Trigger: on the author’s '
+       'word, when FINDINGS’ size asks for it. Status OPEN. Its row in relay data/b670_work_orders.txt, appended additively.')
+
+
+def c4order(*a):
+    """(R290)(6) and the navigator's answer on archive-3: the order on OPEN_TRAILS beneath b680's first order, then its row appended to the
+    orders bank additively ((R254)(2))."""
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', OH4, NL + OH4 + OB4 + NL)], 'b680_record_lines_order4.json', 'c4order',
+         check=[('OPEN_TRAILS.md', 14678, '*Appended 2026-10-17 by b680 beneath b679')], dry=dry)
+    if dry:
+        return
+    ol = jl('b680_record_lines_order4.json')['lines'][0]['line']
+    rows = ['### Appended 2026-10-17 by b680 under (R290)(6) and the navigator`s answer on archive-3 (additive, (R254)(2)): W-ORD-LEDGER-SPLIT-RESOLVER '
+            'entered, its Status cell filled and its line its pin, its route priced on its line.',
+            '  %-44s :%d  %s   %-5d %-16s :%d  %s [:%d]' % (ORDER4, ol, 'b680', 0, 'OPEN', ol, 'on the author`s word', ol)]
+    p = os.path.join(D, ORDERS)
+    old = open(p, 'rb').read()
+    sep = NL if old.endswith(b'\n') else NL + NL
+    new = old + (sep + NL.join(rows) + NL).encode('utf-8')
+    if not new.startswith(old):
+        sys.exit('### THE ORDERS BANK APPEND IS NOT ADDITIVE -- NOTHING WRITTEN')
+    open(p + '.tmp', 'wb').write(new)
+    os.replace(p + '.tmp', p)
+    print('  data/%s appended (%d bytes before, %d after): %s' % (ORDERS, len(old), len(new), rows[1].strip()[:120]))
+
+
 # ================================================================================ COMPONENT 3: THE ARMS AND THE RULES, (R290)(5)
 VALUE_ARMS = {   # ### an arm reading an object's state -- a hash, a blob id, a remote SHA, a print line, a commit, a tree, a live kernel; every other
     # ### standing arm reads a bank's form, presence or text (SHAPE). Each entry read by hand against the arm's `reads` field.
@@ -547,7 +584,7 @@ def splitprice(*a):
 
 
 ROUTES = {'rowgen': rowgen, 'branches': branches, 'faces': faces, 'c1': c1, 'c1order': c1order, 'arms': arms, 'rulesarms': rulesarms,
-          'splitprice': splitprice}
+          'splitprice': splitprice, 'c4order': c4order}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
