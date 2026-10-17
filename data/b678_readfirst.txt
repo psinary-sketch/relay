@@ -1,0 +1,46 @@
+b678 -- THE READ-FIRST BANK, (R288)(5), WRITTEN AT STEP ZERO (2026-10-17)
+
+### rows are the ferry's read-first items: the path, the lines read, the unit of the bank's rows, and what this act takes from it. Every
+### count below is copied from the line cited beside it, not typed from memory.
+
+  data/b677_closing.txt              :1 the head line ("b677 closed: relay 7beac43e, PLACE-papers f614597; suite 85 of 85; root
+                                     cd2137c837efe204…; 2 prompts answered; 9 defects"). THE RUN section by line: :22 THE PLAN (the price at
+                                     j = 64), :24 THE RUN (ROWS 123 ; NONE DROPPED True), :25 Q0 at 200 bits (PASS 29, j 24-52 ; INSTRUMENT
+                                     12 ; OBJECT 0 ; the first failing j 53), :26 the diff (no repeated-squaring loop), :28 THE TOLERANCE,
+                                     :30 THE HYPOTHESES. Rows: the closing's sections. Component 1's weight line cites these lines.
+  data/b677_defects.txt              rows are lettered defects (a)-(i), :5-:44; (a)-(d) the navigator's, (e)-(i) the seat's; (c) :16 the
+                                     path data/b663_plan.txt for data/b663_epstein_plan.txt; (i) :39 the glob in the --list half.
+  data/b677_map_h.txt                rows are hypotheses with their reading: :3 H1 REFUTED, :4 H2 REFUTED, :5 H3 REFUTED (on the
+                                     instrument), :6 H4 NOT SCORABLE, :7 H5 HELD; :9 the labelled reading (instrument-side); :10 the
+                                     located failure; :12 the verdict line.
+  data/b677_tolerance.txt            rows are the perturbation, the consumer's response and the tolerance read: :24 the transfer
+                                     (1.838e-01); :86 at j = 38 h_tol 3.162e-20 against b667's 1e-18; :87 at j = 64 h_tol 3.162e-28, the
+                                     banked width 1e-24 above it; :90 the verdict line.
+  data/b670_work_orders.txt          rows are orders with entry line, act, age, Status and trigger: W-ORD-Q0-CLASS-LINES :262 (OPEN,
+                                     :14556); W-ORD-MAP-ANGLE-FORM :265 (OPEN, :14588, after W-ORD-EPSTEIN-BALL-WIDTH);
+                                     W-ORD-EPSTEIN-BALL-WIDTH :266 (OPEN, :14590, a narrowing act at half-width 1e-28 or finer).
+  data/b676_q0_lines.txt             rows are hits with file, line, kind, sentence, reading and reason; :186 the verdict "HITS 136 ;
+                                     CONSISTENT 100 ; TO RE-CUT 36 (ON 35 LINES: FINDINGS 25, OPEN_TRAILS 11, ROSTER 0)"; the bank's JSON
+                                     (data/b676_q0_lines.json) carries the rows the corrigendum generator reads.
+  FINDINGS :8881                     the b675 finding, "## The Li index at Q0: HStrip fails ..." -- the corrigendum's first citation.
+  Zeta23/Defs.lean :142 (e36ea31)    "strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1", a field of ZeroConfig -- the corrigendum's second.
+  data/b670_licensed_table.txt       rows are licensed-table rows, document | before -> now | bank; the kernels :100-:121 (SIDE-bijection
+                                     :101 4 -> 4, SIDE-silence-principle :114 4 -> 4, SIDE-trivium :119 cut at b676 to 1, SIDE-window :120
+                                     cut at b674 to 1).
+  data/b647_table_kernels.txt        the per-document kernels table, rows are kernels: rows | MATCHES | UNDERSTATES | OVERREACHES |
+                                     UNLICENSED (:4 the header); SIDE-bijection :6 (30 rows, 0 | 4 | 0); SIDE-silence-principle :19 (48 rows,
+                                     0 | 4 | 0).
+  data/b648_recut_order.txt          rows are agenda documents with kind and counts; with data/b652_ferry.txt :19 ("the next kernel by
+                                     descending count under the same rules, then the companions"), the order the re-cut acts cut by.
+  data/b674_rules.txt                rows are rules; (2) :8 the tie-break beyond the count: rows outside LICENSED/CITED of any kind, then
+                                     the larger table.
+  data/b676_cut.txt, data/b674_cut.txt   the kernel form: rows are the cut document's licensed-table rows with state before and after and
+                                     the pin or the kind; the residues carried: SIDE-window's Sawtooth header marker at :17
+                                     (data/b674_cut.txt :28) and SIDE-trivium's header introduction (:8, :23 at v0.1.1) (data/b676_cut.txt
+                                     :64-:65).
+  tools/correspondence_gen.py        the Correspondence generator (dry first, its run mode where a cell names the cut kernel).
+  data/b675_rules.txt                rows are rules: (1) :5 the closing dry-run a gate step; (2) :9 a pre-run's long phase splits the next.
+  data/b677_rules.txt                rows are rules: (1) :5 the suite in two foreground parts -- from this act the standing arms in two
+                                     parts and the act's in one, (R288)(1), entered in data/b678_rules.txt.
+  data/b677_closing_push_out.txt     :1-:6 the closing push's capture; :4 "7beac43e..da8a46bc push-b677-closing -> main". Committed at step
+                                     zero.
