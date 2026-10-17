@@ -1,0 +1,70 @@
+b679 -- COMPONENT 3, (R289)(6): THE HOSTED RUNNER FOR SIDE-explicit-formula, READ BY ITS RUN ID (2026-10-17T19:53:03Z)
+
+### the dispatch: at main e36ea31 (build-module.yml), the ref input eb1e2081674f66861c2a7f75801face613ad77ab (strip-variant-b679) ; the target `SIDEExplicitFormula.Schema.LiCfg SIDEExplicitFormula.Chi.LiForward SIDEExplicitFormula.Schema.PowerSum SIDEExplicitFormula.Schema.LiRemainder SIDEExplicitFormula.Schema.LiConverseCfg SIDEExplicitFormula.LiConverseNative SIDEExplicitFormula.Schema.Wide.Config SIDEExplicitFormula.Schema.Wide.Remainder SIDEExplicitFormula.Schema.Wide.Converse`
+### the run: id 39063750051 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/39063750051 ; status completed ; conclusion success ; head e36ea316e363b1fad04b7fa9def0fc7f2e78188f on main ; 2026-10-17T19:44:26Z to 2026-10-17T19:52:41Z
+### the artifact: id 12113040750 ; build-module-39063750051 ; 9850 bytes ; sha256 dff7466e59103d18e6dea62d98d6ef7580406cabae54d961e167fe7d4c0ec75b ; the platform`s digest dff7466e59103d18e6dea62d98d6ef7580406cabae54d961e167fe7d4c0ec75b ; AGREE
+### the ref built (out/ref.txt): eb1e2081674f66861c2a7f75801face613ad77ab leanprover/lean4:v4.34.0-rc1
+### the memory log: LOW 12843 MB ; the hold 2560 ; STOP lines False
+### the build: exit 0 ; error lines 0:
+### the log`s last lines:
+    warning: SIDEExplicitFormula/Schema/Wide/Converse.lean:234:6: `push_neg` has been deprecated. Prefer using `push Not` instead.
+    If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+    ```
+    open Lean.Parser.Tactic in
+    macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+      `(tactic| push $cfg:optConfig Not $[$loc]?)
+    ```
+    Build completed successfully (3848 jobs).
+### the print step: the list (out/print_targets.txt) 49 names ; terminals printed 49 ; every name printed once True ; unmatched NONE ; sorryAx 0 ; refused NONE
+### the gate per terminal (DERIVES: the printed axioms within the standard three, no sorryAx):
+  SIDEExplicitFormula.Schema.liCoeffCfg                          DERIVES
+  SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg               DERIVES
+  SIDEExplicitFormula.Schema.liCoeffCfg_summable                 DERIVES
+  SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg        DERIVES
+  SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi          DERIVES
+  SIDEExplicitFormula.Schema.norm_lt_norm_sub_one_of_re_lt_half  DERIVES
+  SIDEExplicitFormula.Schema.one_lt_norm_one_sub_inv             DERIVES
+  SIDEExplicitFormula.Schema.exists_dominant_point               DERIVES
+  SIDEExplicitFormula.Schema.dominant_finite                     DERIVES
+  SIDEExplicitFormula.Schema.norm_geom_sum_le                    DERIVES
+  SIDEExplicitFormula.Schema.norm_sum_powerSum_le                DERIVES
+  SIDEExplicitFormula.Schema.norm_window_le                      DERIVES
+  SIDEExplicitFormula.Schema.powerSum_window_sq_ge               DERIVES
+  SIDEExplicitFormula.Schema.exists_ge_of_mean_sq                DERIVES
+  SIDEExplicitFormula.Schema.powerSum_re_ge_infinitely           DERIVES
+  SIDEExplicitFormula.Schema.powerSum_re_le_neg_infinitely       DERIVES
+  SIDEExplicitFormula.Schema.one_sub_pow_expand                  DERIVES
+  SIDEExplicitFormula.Schema.liTerm_re_abs_le_pow                DERIVES
+  SIDEExplicitFormula.Schema.summable_rest                       DERIVES
+  SIDEExplicitFormula.Schema.rest_term_le                        DERIVES
+  SIDEExplicitFormula.Schema.remainder_le                        DERIVES
+  SIDEExplicitFormula.Schema.liCoeffCfg_eq_indicator             DERIVES
+  SIDEExplicitFormula.Schema.sum_gL_dom                          DERIVES
+  SIDEExplicitFormula.Schema.li_nonneg_cfg_imp_online            DERIVES
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_imp_grh_chi          DERIVES
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_iff_grh_chi          DERIVES
+  SIDEExplicitFormula.LiConverseNative.li_nonneg_imp_rh_native   DERIVES
+  SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh         DERIVES
+  LiCriterion.positivity_implies_RH                              DERIVES
+  SIDEExplicitFormula.Schema.Wide.ne_zero_of_excl                DERIVES
+  SIDEExplicitFormula.Schema.Wide.localCount_ofWindowCount       DERIVES
+  SIDEExplicitFormula.Schema.Wide.zero_sum_inv_sq                DERIVES
+  SIDEExplicitFormula.Schema.Wide.liTerm_re_abs_le_pow           DERIVES
+  SIDEExplicitFormula.Schema.Wide.summable_rest                  DERIVES
+  SIDEExplicitFormula.Schema.Wide.rest_term_le                   DERIVES
+  SIDEExplicitFormula.Schema.Wide.remainder_le                   DERIVES
+  SIDEExplicitFormula.Schema.Wide.liCoeff                        DERIVES
+  SIDEExplicitFormula.Schema.Wide.liCoeff_summable               DERIVES
+  SIDEExplicitFormula.Schema.Wide.exists_dominant_point          DERIVES
+  SIDEExplicitFormula.Schema.Wide.dominant_finite                DERIVES
+  SIDEExplicitFormula.Schema.Wide.liCoeff_eq_indicator           DERIVES
+  SIDEExplicitFormula.Schema.Wide.summable_indicator_gL          DERIVES
+  SIDEExplicitFormula.Schema.Wide.sum_gL_dom                     DERIVES
+  SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online       DERIVES
+  SIDEExplicitFormula.Schema.Wide.reflect_ofReal                 DERIVES
+  SIDEExplicitFormula.Schema.Wide.c2Config                       DERIVES
+  SIDEExplicitFormula.Schema.Wide.c2_not_excl                    DERIVES
+  SIDEExplicitFormula.Schema.Wide.c2bConfig                      DERIVES
+  SIDEExplicitFormula.Schema.Wide.c2b_nonneg_offline             DERIVES
+
+### ### **RUN 39063750051 ; CONCLUSION success ; ARTIFACT AGREE ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS PRINTED 49 OF 49 ; SORRYAX 0 ; GATE DERIVES.**

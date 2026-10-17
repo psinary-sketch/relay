@@ -50,6 +50,13 @@ HCOUNT = ('SIDEExplicitFormula/RestBound.lean', 44)
 V5_FILE = 'SIDEExplicitFormula/Schema/LiRemainder.lean'
 COMP_FILE = 'SIDEExplicitFormula/Schema/LiConverseCfg.lean'
 EXCL_LINE = 231
+K_REPO = 'psinary-sketch/SIDE-explicit-formula'
+K_TARGET = ('SIDEExplicitFormula.Schema.LiCfg SIDEExplicitFormula.Chi.LiForward SIDEExplicitFormula.Schema.PowerSum '
+            'SIDEExplicitFormula.Schema.LiRemainder SIDEExplicitFormula.Schema.LiConverseCfg SIDEExplicitFormula.LiConverseNative '
+            'SIDEExplicitFormula.Schema.Wide.Config SIDEExplicitFormula.Schema.Wide.Remainder SIDEExplicitFormula.Schema.Wide.Converse')
+V032_PRINTS = 'b673_axioms_run38960681935.txt'   # ### b673's run at the v0.32 tree (merged e36ea31): the 29 names' prints before
+WIDE_FILES = ('SIDEExplicitFormula/Schema/Wide/Config.lean', 'SIDEExplicitFormula/Schema/Wide/Remainder.lean',
+              'SIDEExplicitFormula/Schema/Wide/Converse.lean')
 
 NEXT = ('b680, the reading act, reading 2 of 2, its ruling then: the licensed table re-read over the roster by b670`s method against b670`s 372; '
         'the Correspondence distance by both methods; the ceiling sites; the orders census with Status cells; the methods` readiness; the ledger '

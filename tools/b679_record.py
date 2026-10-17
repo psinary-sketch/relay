@@ -306,7 +306,224 @@ def c1order(*a):
     print('  data/%s appended (%d bytes before, %d after): %s' % (ORDERS, len(old), len(new), rows[1].strip()[:120]))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'c1order': c1order}
+# ================================================================================ COMPONENT 3: THE RUNS ON THE HOSTED RUNNER (b678's runner, carried)
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def _deps(ax):
+    return re.findall(r"^'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)",
+                      re.sub(r'\n(?=[ \t]*[A-Za-z_.]+[,\]])', ' ', ax), re.M)
+
+
+def runner(*a):
+    """`runner <run id> <ref>`: SIDE-explicit-formula's run read by its id; the artifact listed, downloaded by its id into memory, its sha256
+    against the platform's digest BEFORE any reading; the build's exit and error lines (each with file and line), the memory log's low and
+    any STOP; the axioms output banked whole, every name of the list matched to one printed line, and the gate per terminal (DERIVES at the
+    standard three). data/b679_runner_run<id>.txt, data/b679_axioms_run<id>.txt and a row of data/b679_runner_rows.json."""
+    import hashlib
+    import io as _io
+    import zipfile
+    run_id, ref = int(a[0]), a[1]
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', K.K_REPO, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (K.K_REPO, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    row = dict(run_id=run_id, ref=ref, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None, stopped=False, build_exit=None,
+               errors=[], axioms_sha256=None)
+    L = ['b679 -- COMPONENT 3, (R289)(6): THE HOSTED RUNNER FOR SIDE-explicit-formula, READ BY ITS RUN ID (%s)' % utc(), '',
+         '### the dispatch: at main %s (build-module.yml), the ref input %s (strip-variant-b679) ; the target `%s`' % (K.KREV, ref, K.K_TARGET),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+             run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (K.K_REPO, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    row['axioms_sha256'] = hashlib.sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    deps = _deps(ax)
+    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+    printed = [n for n, _d in deps]
+    unmatched = [n for n in tg if n not in printed]
+    std = {'propext', 'Classical.choice', 'Quot.sound'}
+    axs = lambda d: set(x.strip() for x in d.split('[', 1)[1].rstrip(']').split(',') if x.strip()) if '[' in d else set()   # noqa: E731
+    gate = [(n, 'DERIVES' if axs(d) <= std else 'NOT DERIVES: ' + d) for n, d in deps]
+    row['gate_rows'] = gate
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d:' % (row['build_exit'], len(row['errors']))] + ['    ' + l for l in row['errors'][:60]] + [
+          '### the log`s last lines:'] + ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + [
+          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; unmatched %s ; '
+          'sorryAx %d ; refused %s' % (len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg), unmatched or 'NONE',
+                                       sum(1 for _n, d in deps if 'sorryAx' in d), T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### the gate per terminal (DERIVES: the printed axioms within the standard three, no sorryAx):'] + [
+          '  %-62s %s' % (n, gv) for n, gv in gate]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and all(gv == 'DERIVES' for _n, gv in gate)
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    L += ['', '### ### **RUN %s ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; GATE %s.**' % (
+        run_id, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']), len(deps),
+        len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), row['gate'])]
+    put_txt('b679_runner_run%d.txt' % run_id, L)
+    if row['artifact_sha256']:
+        put_txt('b679_axioms_run%d.txt' % run_id, (ax or '### NO AXIOMS OUTPUT').split(NL))
+        put_txt('b679_buildlog_run%d.txt' % run_id, blog.rstrip(NL).split(NL))
+    j = jl('b679_runner_rows.json') if os.path.isfile(os.path.join(D, 'b679_runner_rows.json')) else {}
+    rows = [r for r in (j.get('rows') or []) if r.get('run_id') != run_id] + [row]
+    put_json('b679_runner_rows.json', dict(rows=rows))
+    print(NL.join(L[:8] + L[-3:]))
+
+
+def prints(*a):
+    """`prints <run id>`: the 29 v0.32 names' printed lines at the run against b673's run at the v0.32 tree (relay data/b673_axioms_run38960681935.txt),
+    name by name; data/b679_prints_compare.txt."""
+    run_id = int(a[0])
+    b, f = dict(_deps(rdn(K.V032_PRINTS))), dict(_deps(rdn('b679_axioms_run%d.txt' % run_id)))
+    if not b or not f:
+        sys.exit('### A PRINT BANK IS MISSING -- NOTHING WRITTEN')
+    rows = [(n, b[n], f.get(n)) for n in b]
+    diff = [r for r in rows if r[1] != r[2]]
+    L = ['b679 -- COMPONENT 3, N3: THE v0.32 DECLARATIONS` PRINTS BEFORE AND AFTER, NAME BY NAME (%s)' % utc(), '',
+         '### before: relay data/%s (b673`s run 38960681935, the tree merged as e36ea31 = v0.32), %d names ; after: relay data/b679_axioms_run%d.txt' % (
+             K.V032_PRINTS, len(b), run_id), '### rows are the v0.32 names: EQUAL or the two lines:']
+    L += ['  %-62s %s' % (n, 'EQUAL' if x == y else 'DIFFER: %s | %s' % (x, y)) for n, x, y in rows]
+    L += ['', '### ### **v0.32 NAMES %d ; PRINTED AFTER %d ; EQUAL %d ; DIFFERING %d.**' % (len(rows), sum(1 for r in rows if r[2]), len(rows) - len(diff), len(diff))]
+    put_txt('b679_prints_compare.txt', L)
+    print(L[-1])
+
+
+# ================================================================================ COMPONENT 3: THE ζ-NAMING WALK ON S5' (b669's, carried)
+ZETA_ID = re.compile(r'\b(?:riemannZeta\w*|completedRiemannZeta\w*|\w*riemannZeta\w*|zeta_\w+|\w+_riemannZeta\w*)\b')   # ### b564_record.py :454
+DECL_RE = re.compile(r'^(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+)?(?:noncomputable\s+)?(theorem|def|abbrev|structure|instance|lemma)\s+([^\s(:{\[]+)', re.M)
+
+
+def _strip_lean_comments(t):
+    t = re.sub(r'/-[\s\S]*?-/', ' ', t)
+    return NL.join(l.split('--', 1)[0] for l in t.split(NL))
+
+
+def _decl_index(rev):
+    """every declaration of the kernel's source trees (SIDEExplicitFormula/, Zeta23/) at `rev`: short name -> [(file, line, code)]."""
+    import collections
+    idx = collections.defaultdict(list)
+    files = [f for f in g(K.KE, 'ls-tree', '-r', '--name-only', rev, '--', 'SIDEExplicitFormula', 'Zeta23').split(NL) if f.endswith('.lean')]
+    for f in files:
+        t = (_show(K.KE, rev, f) or '')
+        heads = [(m.start(), m.group(2)) for m in DECL_RE.finditer(t)]
+        for i, (pos, name) in enumerate(heads):
+            end = heads[i + 1][0] if i + 1 < len(heads) else len(t)
+            idx[name.split('.')[-1]].append((f, t[:pos].count(NL) + 1, _strip_lean_comments(t[pos:end])))
+    return idx
+
+
+def walk(*a):
+    """(R289)(6), H3 and N4: S5' walked through the kernel's source at the branch tip, b669's text walk (tools/b669_record.py :559-:621):
+    from li_nonneg_cfg_imp_online (its short name, so v0.32's namesake is reached too -- an over-reach, never an under-reach), every
+    identifier of a reached declaration's comment-stripped code that names a kernel declaration by its last component followed transitively;
+    each reached declaration read by b564's ζ pattern. The control: the walk from LiWeil.rh_imp_li_nonneg reaches ζ. data/b679_zeta_walk.txt."""
+    rev = a[0]
+    idx = _decl_index(rev)
+
+    def _walk(root):
+        seen, queue, order = {root}, [root], []
+        while queue:
+            n = queue.pop(0)
+            for f, ln, code in idx.get(n, []):
+                order.append((n, f, ln, sorted(set(ZETA_ID.findall(code)))))
+                for tok in set(re.findall(r"[A-Za-z_][A-Za-z0-9_'.₀-₉]*", code)):
+                    s = tok.split('.')[-1]
+                    if s in idx and s not in seen:
+                        seen.add(s)
+                        queue.append(s)
+        return order
+    root = 'li_nonneg_cfg_imp_online'
+    order = _walk(root)
+    ctl = _walk('rh_imp_li_nonneg')
+    ctl_z = [x for x in ctl if x[3]]
+    zn = [x for x in order if x[3]]
+    wide = [x for x in order if x[1].startswith('SIDEExplicitFormula/Schema/Wide/')]
+    L = ['b679 -- COMPONENT 3, (R289)(6): THE ζ-NAMING WALK OF S5`, ON THE BRANCH (%s)' % utc(), '',
+         '### rows are declarations, in the order the walk reaches them: from %s at %s (%s), every identifier of a reached declaration`s '
+         'comment-stripped code that is a kernel declaration`s name (SIDEExplicitFormula/, Zeta23/; matched by its last component, so a '
+         'shared short name over-reaches -- v0.32`s namesakes among them -- and never under-reaches) followed; each reached declaration read by '
+         'b564`s ζ pattern %r.' % (root, rev, g(K.KE, 'rev-parse', '--short=7', rev).strip(), ZETA_ID.pattern), '']
+    L += ['  %-48s %s:%d %s' % (n, f, ln, ('ζ-NAMING ' + ', '.join(z[:4])) if z else '') for n, f, ln, z in order]
+    L += ['', '### THE CONTROL: the same walk from LiWeil.rh_imp_li_nonneg (ζ`s forward half) reaches %d declarations, ζ-naming %d -- %s.' % (
+        len(ctl), len(ctl_z), ', '.join('%s %s:%d %s' % (n, f, ln, z[:2]) for n, f, ln, z in ctl_z[:4]) or '### NONE')]
+    L += ['', '### ### **DECLARATIONS REACHED %d (IN Schema/Wide/ %d) ; ζ-NAMING %d%s ; THE CONTROL %d.**' % (
+        len(order), len(wide), len(zn), (' -- ' + ', '.join(sorted(set(x[0] for x in zn)))) if zn else '', len(ctl_z))]
+    tag = '' if rev.startswith('eb1e208') else '_' + g(K.KE, 'rev-parse', '--short=7', rev).strip()   # ### the first tree state's bank kept as written
+    put_txt('b679_zeta_walk%s.txt' % tag, L)
+    put_json('b679_zeta_walk%s.json' % tag, dict(at=utc(), rev=rev, root=root, reached=len(order), zeta=[dict(name=n, file=f, line=ln, ids=z) for n, f, ln, z in zn],
+                                         order=[[n, f, ln] for n, f, ln, _z in order]))
+    print(L[-1])
+
+
+def landing(*a):
+    """`landing <run id> <rev>`: (R289)(6): each declaration of the three Wide files with its landing (the run's gate per terminal), its file
+    and line at <rev>, and its printed axioms; the controls with (H6) and (H6b); the split rule's reading. data/b679_landing.txt (.json)."""
+    run_id, rev = int(a[0]), a[1]
+    row = [r for r in jl('b679_runner_rows.json').get('rows', []) if r.get('run_id') == run_id]
+    if not row or not row[0].get('artifact_sha256'):
+        sys.exit('### THE RUN %d IS NOT READ WITH AN AGREEING ARTIFACT -- NOTHING WRITTEN' % run_id)
+    row = row[0]
+    deps = dict(_deps(rdn('b679_axioms_run%d.txt' % run_id)))
+    gate = dict((n, gv) for n, gv in row['gate_rows'])
+    where = {}
+    for f in K.WIDE_FILES:
+        for i, l in enumerate((_show(K.KE, rev, f) or '').split(NL), 1):
+            m = re.match(r'^(?:theorem|def|structure)\s+(\S+)', l)
+            if m:
+                where['SIDEExplicitFormula.Schema.' + ('' if m.group(1) == 'WideConfig' else 'Wide.') + m.group(1)] = '%s:%d' % (f, i)
+    names = [n for n in deps if '.Schema.Wide.' in n]
+    sorry = [f for f in K.WIDE_FILES if re.search(r'\bsorry\b', _strip_lean_comments(_show(K.KE, rev, f) or ''))]
+    L = ['b679 -- COMPONENT 3, (R289)(6): EACH DECLARATION LANDED ON ITS OWN READING (%s)' % utc(), '',
+         '### rows are declarations: the name, its landing, its file and line at %s (strip-variant-b679), its printed axioms, and where open the' % rev[:7],
+         '### obstruction by file and line. The run: %d (relay data/b679_runner_run%d.txt), artifact sha256 %s AGREE; the gate DERIVES at the' % (
+             run_id, run_id, row['artifact_sha256'][:16]),
+         '### standard three [propext, Classical.choice, Quot.sound] or within them, no sorryAx. The structure WideConfig itself carries no print',
+         '### (a structure, not a terminal); its fields are read by every row.', '']
+    for n in names:
+        L.append('  %-58s %-12s %-50s %s' % (n, gate.get(n, '### UNREAD'), where.get(n, '### NOT FOUND AT THE REV'), deps[n].replace('depends on axioms: ', '')))
+    nd = sum(1 for n in names if gate.get(n) == 'DERIVES')
+    L += ['', '### THE CONTROLS: (H6) Wide.c2_not_excl %s -- C2 (-1/4, 5/4) fails HExcl, so S5` does not apply to it; (H6b) Wide.c2b_nonneg_offline %s '
+          '-- C2b (0, 1): every coefficient nonnegative with 1 off the line, the exclusion`s half at 0 necessary.' % (
+              gate.get('SIDEExplicitFormula.Schema.Wide.c2_not_excl'), gate.get('SIDEExplicitFormula.Schema.Wide.c2b_nonneg_offline')),
+          '### THE v0.32 DECLARATIONS: relay data/b679_prints_compare.txt (the 29 names` prints against b673`s run 38960681935).',
+          '### `sorry` in the three files at %s (comments stripped): %s.' % (rev[:7], sorry or 'NONE'),
+          '### THE SPLIT RULE ((R279)(4), relay data/b669_ferry.txt :11): %s' % (
+              'every declaration DERIVES, so the branch merges whole and no declaration is left open.' if nd == len(names) else
+              '### OPEN DECLARATIONS STAY ON THE BRANCH: ' + ', '.join(n for n in names if gate.get(n) != 'DERIVES')),
+          '', '### ### **DECLARATIONS %d ; DERIVES %d ; OPEN %d ; SORRY IN THE FILES %d.**' % (len(names), nd, len(names) - nd, len(sorry))]
+    put_txt('b679_landing.txt', L)
+    put_json('b679_landing.json', dict(at=utc(), run_id=run_id, rev=rev, rows=[dict(name=n, landing=gate.get(n), where=where.get(n), axioms=deps[n])
+                                                                           for n in names], sorry=sorry))
+    print(L[-1])
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'c1order': c1order, 'runner': runner, 'prints': prints, 'walk': walk,
+          'landing': landing}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

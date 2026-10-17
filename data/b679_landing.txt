@@ -1,0 +1,34 @@
+b679 -- COMPONENT 3, (R289)(6): EACH DECLARATION LANDED ON ITS OWN READING (2026-10-17T20:03:00Z)
+
+### rows are declarations: the name, its landing, its file and line at 46ee9a4 (strip-variant-b679), its printed axioms, and where open the
+### obstruction by file and line. The run: 39064453563 (relay data/b679_runner_run39064453563.txt), artifact sha256 c61edad54bef06e5 AGREE; the gate DERIVES at the
+### standard three [propext, Classical.choice, Quot.sound] or within them, no sorryAx. The structure WideConfig itself carries no print
+### (a structure, not a terminal); its fields are read by every row.
+
+  SIDEExplicitFormula.Schema.Wide.ne_zero_of_excl            DERIVES      SIDEExplicitFormula/Schema/Wide/Config.lean:57     [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.localCount_ofWindowCount   DERIVES      SIDEExplicitFormula/Schema/Wide/Config.lean:64     [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.zero_sum_inv_sq_wide       DERIVES      SIDEExplicitFormula/Schema/Wide/Config.lean:86     [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.liTerm_re_abs_le_pow       DERIVES      SIDEExplicitFormula/Schema/Wide/Remainder.lean:28  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.summable_rest              DERIVES      SIDEExplicitFormula/Schema/Wide/Remainder.lean:51  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.rest_term_le               DERIVES      SIDEExplicitFormula/Schema/Wide/Remainder.lean:66  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.remainder_le               DERIVES      SIDEExplicitFormula/Schema/Wide/Remainder.lean:112 [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.liCoeff                    DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:32   [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.liCoeff_summable           DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:37   [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.exists_dominant_point      DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:95   [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.dominant_finite            DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:109  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.liCoeff_eq_indicator       DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:156  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.summable_indicator_gL      DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:167  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.sum_gL_dom                 DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:176  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online   DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:191  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.reflect_ofReal             DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:354  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.c2Config                   DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:359  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.c2_not_excl                DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:373  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.c2bConfig                  DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:381  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.c2b_nonneg_offline         DERIVES      SIDEExplicitFormula/Schema/Wide/Converse.lean:396  [propext, Classical.choice, Quot.sound]
+
+### THE CONTROLS: (H6) Wide.c2_not_excl DERIVES -- C2 (-1/4, 5/4) fails HExcl, so S5` does not apply to it; (H6b) Wide.c2b_nonneg_offline DERIVES -- C2b (0, 1): every coefficient nonnegative with 1 off the line, the exclusion`s half at 0 necessary.
+### THE v0.32 DECLARATIONS: relay data/b679_prints_compare.txt (the 29 names` prints against b673`s run 38960681935).
+### `sorry` in the three files at 46ee9a4 (comments stripped): NONE.
+### THE SPLIT RULE ((R279)(4), relay data/b669_ferry.txt :11): every declaration DERIVES, so the branch merges whole and no declaration is left open.
+
+### ### **DECLARATIONS 20 ; DERIVES 20 ; OPEN 0 ; SORRY IN THE FILES 0.**
