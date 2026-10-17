@@ -1,0 +1,23 @@
+b679 -- COMPONENT 5, (R289)`S FERRY: THE CARRY-TIME READING OF THE TOOLS, AGAINST b678`S SEALED COPIES (2026-10-17T20:18:59Z)
+
+### rows are the carried tools: b678`s sealed copy and its seal record; the hunks of the diff to b679`s copy. Every hunk is the act`s own
+### text -- its names, its banks, its sections and its predicates over this act`s banks -- save the repairs below, each with the defect
+### it answers.
+
+  b678_citation.py     -> b679_citation.py     b678 sealed 335a06e832d500b6 ; the seal`s record 335a06e832d500b6 ; AGREE ; hunks 24
+  b678_closing.py      -> b679_closing.py      b678 sealed bb0eb4d897e6107e ; the seal`s record bb0eb4d897e6107e ; AGREE ; hunks 28
+  b678_reg_gate.py     -> b679_reg_gate.py     b678 sealed cd3cec549c0afc0e ; the seal`s record cd3cec549c0afc0e ; AGREE ; hunks 6
+  b678_regspec.py      -> b679_regspec.py      b678 sealed 7f11ae0eef499e79 ; the seal`s record 7f11ae0eef499e79 ; AGREE ; hunks 22
+  b678_tests.py        -> b679_tests.py        b678 sealed f820b8f89f8c04c4 ; the seal`s record f820b8f89f8c04c4 ; AGREE ; hunks 11
+  b678_worklist.py     -> b679_worklist.py     b678 sealed 884e1eb4f064a474 ; the seal`s record 884e1eb4f064a474 ; AGREE ; hunks 12
+  b678_record.py       -> b679_record.py       b678 sealed a11e65b4aba964cb ; the seal`s record a11e65b4aba964cb ; AGREE ; hunks 135
+  b678_checks.py       -> b679_checks.py       b678 sealed 875ec944e2f6f8ca ; the seal`s record 875ec944e2f6f8ca ; AGREE ; hunks 127
+
+  REPAIR 1 -- THE BRANCH-DELETE SHAPE READS A REMOTE DELETE (answering (R289)(8)`s one remote deletion, which b678`s shape did not
+  read): tools/b679_record.py delete_shape counts `push origin --delete <name>` beside `branch -d <name>`, so N4 reads all nine deletes.
+  REPAIR 2 -- THE WALK`S BANKS NAMED BY REVISION (answering data/b679_defects.txt (e)): tools/b679_record.py walk writes a later tree
+  state`s walk under its revision, the first tree state`s bank kept as written.
+  REPAIR 3 -- THE WORD READER ADMITS A PREFIXED BEGIN (answering b679`s first answer, "(for the seat, verbatim):" and two CRs before
+  BEGIN, which b678`s reader did not bank as a word): tools/b679_record.py answers banks 3 words of 3 answers.
+
+### ### **REPAIRS 3 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8.**

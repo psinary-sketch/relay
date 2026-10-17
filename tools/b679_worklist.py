@@ -55,6 +55,12 @@ K_TARGET = ('SIDEExplicitFormula.Schema.LiCfg SIDEExplicitFormula.Chi.LiForward 
             'SIDEExplicitFormula.Schema.LiRemainder SIDEExplicitFormula.Schema.LiConverseCfg SIDEExplicitFormula.LiConverseNative '
             'SIDEExplicitFormula.Schema.Wide.Config SIDEExplicitFormula.Schema.Wide.Remainder SIDEExplicitFormula.Schema.Wide.Converse')
 V032_PRINTS = 'b673_axioms_run38960681935.txt'   # ### b673's run at the v0.32 tree (merged e36ea31): the 29 names' prints before
+K_RUNS = ((39063750051, 'eb1e2081674f66861c2a7f75801face613ad77ab'), (39064453563, '46ee9a43c6488f10b6637b35f588563dee22d92e'))
+K_TIP = '46ee9a43c6488f10b6637b35f588563dee22d92e'
+K_MERGE = '95f8dc8'
+K_FILES = ('SIDEExplicitFormula/Schema/Wide/Config.lean', 'SIDEExplicitFormula/Schema/Wide/Converse.lean',
+           'SIDEExplicitFormula/Schema/Wide/Remainder.lean', 'print_targets.txt')
+PLAN_COMMIT = '87fad8f6'    # ### the plan committed, before the first Lean write (the kernel commit eb1e208)
 WIDE_FILES = ('SIDEExplicitFormula/Schema/Wide/Config.lean', 'SIDEExplicitFormula/Schema/Wide/Remainder.lean',
               'SIDEExplicitFormula/Schema/Wide/Converse.lean')
 
@@ -64,7 +70,10 @@ NEXT = ('b680, the reading act, reading 2 of 2, its ruling then: the licensed ta
         'rows of data/b670_rules.txt through data/b679_rules.txt counted by act; b681 the narrowing act under W-ORD-EPSTEIN-BALL-WIDTH at the '
         'width b677 measured -- `(R289)`(11)')
 
-ACT_ARMS = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R289-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ORDER-ENTERED', 'G-PLAN-BEFORE-LEAN', 'G-ANSWERS-CHECKED', 'G-LANDING-DERIVES', 'G-V032-PRINTS-EQUAL',
+            'G-WALK-ZERO', 'G-RUNS-ONE-PER-STATE', 'G-Q0-MEMBERSHIP', 'G-ONSET-H5', 'G-CONTROLS-LANDED', 'G-HYPOTHESES-READ',
+            'G-TOOL-REPAIRS', 'G-PARTS-PRERUN', 'G-DEFECTS-LETTERED')
 SHARED_APPENDED = ('data/b670_work_orders.txt',)
 PARTS = ('standing-a', 'standing-b', 'act')          # ### data/b678_rules.txt row 1
 LEFT = ()

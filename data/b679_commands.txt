@@ -1,0 +1,204 @@
+b679 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES AND THE MOVES AND DELETES (2026-10-17T20:19:06Z)
+
+### the source: the seat`s session df03c73f-520a-4848-85dc-8fada095f008 from its first user line carrying 'RULING (R289) BEGIN', and its subagents` transcripts
+### commands read: 164
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES, ONE PER TREE STATE (2):
+  #109 gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=eb1e2081674f66861c2a7f75801face613ad77ab -f target="SIDEExplicitFormula.Schema.LiCfg SIDEExplicitFormula.Chi.LiForward SIDEExplicitFormula.Schema.Pow
+  #131 gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=46ee9a43c6488f10b6637b35f588563dee22d92e -f target="SIDEExplicitFormula.Schema.LiCfg SIDEExplicitFormula.Chi.LiForward SIDEExplicitFormula.Schema.Pow
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (9):
+  #43 2026-10-17T18:50:35.666Z Bash
+      git -C /d/relay branch --merged main --list push-b678 && git -C /d/relay branch -d push-b678
+  #44 2026-10-17T18:50:37.986Z Bash
+      git -C /d/relay branch --merged main --list push-b678-root && git -C /d/relay branch -d push-b678-root
+  #45 2026-10-17T18:50:40.564Z Bash
+      git -C /d/relay branch --merged main --list push-b678-closing && git -C /d/relay branch -d push-b678-closing
+  #46 2026-10-17T18:50:43.123Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b678 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b678
+  #47 2026-10-17T18:50:45.575Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b678-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b678-root
+  #48 2026-10-17T18:50:48.240Z Bash
+      git -C /d/SIDE-silence-principle branch --merged main --list push-b678-main && git -C /d/SIDE-silence-principle branch -d push-b678-main
+  #49 2026-10-17T18:50:51.166Z Bash
+      git -C /d/SIDE-silence-principle branch --merged main --list push-b678-merge && git -C /d/SIDE-silence-principle branch -d push-b678-merge
+  #50 2026-10-17T18:50:53.677Z Bash
+      git -C /d/SIDE-silence-principle branch --merged main --list recut-silence-principle-b678 && git -C /d/SIDE-silence-principle branch -d recut-silence-principle-b678
+  #53 2026-10-17T18:51:07.720Z Bash
+      git -C /d/SIDE-silence-principle merge-base --is-ancestor 8829bcc89e7824ac4b6e8a1db9e240ebcfa448ce 96b3098 && echo "8829bcc ANCESTOR OF main 96b3098" && git -C /d/SIDE-silence-principle push origin --delete recut-silence-principle-b678
+
+### THE BRANCH DELETES BY SHAPE ((R289)(8): one branch per command, no glob in any half): #43 deletes ['push-b678'], globs none; #44 deletes ['push-b678-root'], globs none; #45 deletes ['push-b678-closing'], globs none; #46 deletes ['push-b678'], globs none; #47 deletes ['push-b678-root'], globs none; #48 deletes ['push-b678-main'], globs none; #49 deletes ['push-b678-merge'], globs none; #50 deletes ['recut-silence-principle-b678'], globs none; #53 deletes ['recut-silence-principle-b678'], globs none
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-17T18:41:20.637Z | seat | Bash | for f in data/b678_closing.txt data/b678_defects.txt data/b678_cut.txt data/b676_strip_uses.txt data/b675_hypotheses.txt data/b675_li_plan.txt data/b675_li_benc
+  #2 | 2026-10-17T18:41:29.013Z | seat | Bash | grep -n "^(4)" data/b669_ferry.txt | cut -c1-300; head -1 data/b678_closing.txt; sed -n 4p data/b678_closing_push_out.txt; grep -n "longest part" data/b678_chec
+  #3 | 2026-10-17T18:41:33.578Z | seat | Bash | git rev-parse --short main; git rev-parse --short "v0.32^{commit}"; git branch -a | head -40 | tr '\n' ' '; echo; git status --short | head -3; sed -n 11p /d/re
+  #4 | 2026-10-17T18:41:57.749Z | seat | Bash | cd /d/relay && grep -n "(3c)" data/b667_epstein_plan.txt | head -5 | cut -c1-200; grep -n "THE VARIANT HYPOTHESIS" data/b675_li_plan.txt | cut -c1-120; git -C /
+  #5 | 2026-10-17T18:43:07.813Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #6 | 2026-10-17T18:43:16.704Z | seat | Bash | head -3 data/b678_closing.txt | cut -c1-250; grep -n "302 s\|88 of 88\|96b3098\|v0.2.1\|:628" data/b678_closing.txt | cut -c1-160 | head; PP=/d/MY-DOwnloads/PLA
+  #7 | 2026-10-17T18:43:21.884Z | seat | Bash | grep -n "FOUNDATIONS_OF" data/b678_cut.txt data/b678_closing.txt | head -3 | cut -c1-200; ls /d/MY-DOwnloads/PLACE-papers | head -40; grep -n "longest\|302" dat
+  #8 | 2026-10-17T18:43:25.748Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git ls-files | grep -i FOUNDATIONS_OF; cd /d/relay; grep -rn "302 s" data/b678_checks_postpush.txt data/b678_rules.txt | head
+  #9 | 2026-10-17T18:43:31.999Z | seat | Bash | F=/d/MY-DOwnloads/PLACE-papers/phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md; sed -n '628,630p' $F | cut -c1-90; ls data/b675_hypotheses.txt data/b67
+  #10 | 2026-10-17T18:43:38.413Z | seat | Bash | grep -n "^    ([a-z]) THE" data/b678_defects.txt | cut -c1-90; grep -n "mirror" data/b670_ferry.txt | head -5 | cut -c1-200; grep -n "MANIFEST\|root" tools/mirr
+  #11 | 2026-10-17T18:43:42.138Z | seat | Bash | sed -n 1,30p tools/mirror_build.ps1 | cut -c1-160; grep -n "mirror" data/b674_closing.txt | head -5 | cut -c1-220
+  #12 | 2026-10-17T18:44:40.573Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_citation.py check; grep -c "^  OK\|^  MISS" data/b679_citation_check.txt; grep "^  MISS" data/b679_citation_che
+  #13 | 2026-10-17T18:44:45.396Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_citation.py ferry; tail -5 data/b679_ferry_scan.txt | cut -c1-200
+  #14 | 2026-10-17T18:44:50.259Z | seat | Bash | head -12 data/b678_readfirst.txt | cut -c1-220; wc -l data/b678_readfirst.txt; grep -n "readfirst" tools/b678_record.py | head -5
+  #15 | 2026-10-17T18:44:56.039Z | seat | Bash | grep -n "^###" data/b678_closing.txt | cut -c1-130 | head -30; echo ----; wc -l data/b678_cut.txt data/b676_strip_uses.txt data/b675_hypotheses.txt data/b675_li
+  #16 | 2026-10-17T18:45:27.382Z | seat | Bash | cd /d/SIDE-explicit-formula && git show e36ea31:Zeta23/Defs.lean | sed -n '100,200p'
+  #17 | 2026-10-17T18:45:37.633Z | seat | Bash | for f in LiCfg PowerSum LiRemainder LiConverseCfg; do echo "$f $(git show e36ea31:SIDEExplicitFormula/Schema/$f.lean | wc -l)"; done; git show e36ea31:SIDEExpli
+  #18 | 2026-10-17T18:45:46.650Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiCfg.lean | sed -n '1,94p'
+  #19 | 2026-10-17T18:45:53.176Z | seat | Bash | git grep -n "theorem zero_sum_inv_sq_gen\|theorem pairTerm_norm_le\|def pairTerm\|def liTerm\|def liConst" e36ea31 -- SIDEExplicitFormula | cut -c1-200; git gre
+  #20 | 2026-10-17T18:45:58.672Z | seat | Bash | git grep -n "zero_sum_inv_sq_gen" e36ea31 -- SIDEExplicitFormula Zeta23 | cut -c1-150; git show e36ea31:Zeta23/WeilEF/ZeroSummability.lean | sed -n '185,240p'
+  #21 | 2026-10-17T18:46:02.034Z | seat | Bash | git show e36ea31:Zeta23/WeilEF/ZeroSummability.lean | sed -n '100,182p'; git grep -n "theorem\|lemma" e36ea31 -- Zeta23/Tail.lean | cut -c1-150 | head -30; git 
+  #22 | 2026-10-17T18:46:13.211Z | seat | Bash | git show e36ea31:Zeta23/Tail.lean | sed -n '118,162p'; git grep -n "structure LocalCount" -A8 e36ea31 -- Zeta23 | cut -c1-160
+  #23 | 2026-10-17T18:47:03.398Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiRemainder.lean | sed -n '1,26p;80,199p'
+  #24 | 2026-10-17T18:47:18.624Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiConverseCfg.lean | sed -n '1,37p;50,160p'
+  #25 | 2026-10-17T18:47:24.402Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiConverseCfg.lean | sed -n '160,204p;240,320p'
+  #26 | 2026-10-17T18:48:17.570Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/LiWeil.lean | sed -n '140,200p'; git show e36ea31:SIDEExplicitFormula/Schema/LiRemainder.lean | sed -n '27,80p'
+  #27 | 2026-10-17T18:48:25.248Z | seat | Bash | cd /d/relay && python -c "
+  #28 | 2026-10-17T18:48:29.486Z | seat | Bash | PYTHONIOENCODING=utf-8 python -c "
+  #29 | 2026-10-17T18:48:37.420Z | seat | Bash | sed -n '1,12p;241,256p' data/b667_epstein_plan.txt | cut -c1-260; echo ----; sed -n '50,57p;34p' data/b667_epstein_counts.txt | cut -c1-220
+  #30 | 2026-10-17T18:48:46.239Z | seat | Bash | cd /d/SIDE-explicit-formula && git show e36ea31:SIDEExplicitFormula/Schema/EpsteinQ0.lean | sed -n '95,125p'; cd /d/relay; grep -n "walk\|ζ-naming\|ZETA" data/b
+  #31 | 2026-10-17T18:48:50.866Z | seat | Bash | sed -n 1,12p data/b572_lemmas.txt | cut -c1-260; grep -n "walk\|ζ-nam\|zeta" data/b673_landing.txt | head -10 | cut -c1-220
+  #32 | 2026-10-17T18:48:53.348Z | seat | Bash | sed -n 1,60p data/b673_landing.txt | cut -c1-230
+  #33 | 2026-10-17T18:48:58.365Z | seat | Bash | grep -n "VERDICT\|### ###" data/b675_hypotheses.txt | cut -c1-220; sed -n '86,92p' data/b673_v4v5_plan.txt | cut -c1-200; grep -n "^==" data/b673_v4v5_plan.txt 
+  #34 | 2026-10-17T18:49:03.332Z | seat | Bash | grep -n "def rowgen\|def branches\|constellation" -A6 tools/b678_record.py | head -60 | cut -c1-200
+  #35 | 2026-10-17T18:49:08.396Z | seat | Bash | wc -l tools/b678_record.py tools/b678_checks.py tools/b678_closing.py tools/b678_reg_gate.py tools/b678_regspec.py tools/b678_tests.py tools/b678_worklist.py; s
+  #36 | 2026-10-17T18:49:16.083Z | seat | Bash | tail -2 data/act_roots.txt | cut -c1-120; git -C /d/SIDE-silence-principle ls-remote origin recut-silence-principle-b678 2>&1 | head -2
+  #37 | 2026-10-17T18:49:59.568Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 560 python -X utf8 tools/b679_record.py rowgen
+  #38 | 2026-10-17T18:50:13.572Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|bash)' } | Select-Object ProcessId, Name, @{n='Cmd';e={ if ($_.CommandLin
+  #39 | 2026-10-17T18:50:18.159Z | seat | PowerShell | $p = Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|claude|node' }; "matched: $($p.Count)"; $p | ForEach-Object { "{0} {1}
+  #40 | 2026-10-17T18:50:23.214Z | seat | Bash | git status --short | head -20; git add data/b678_closing_push_out.txt && git commit -q -m "b679 step zero: data/b678_closing_push_out.txt committed ((R289)(8))"
+  #41 | 2026-10-17T18:50:28.247Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py branches
+  #42 | 2026-10-17T18:50:32.779Z | seat | Bash | grep -n "branch -d\|delete_shape" tools/b678_record.py | head -8 | cut -c1-220; grep -n "branch -d" data/b678_commands.txt 2>/dev/null | head -3 | cut -c1-200
+  #43 | 2026-10-17T18:50:35.666Z | seat | Bash | git -C /d/relay branch --merged main --list push-b678 && git -C /d/relay branch -d push-b678
+  #44 | 2026-10-17T18:50:37.986Z | seat | Bash | git -C /d/relay branch --merged main --list push-b678-root && git -C /d/relay branch -d push-b678-root
+  #45 | 2026-10-17T18:50:40.564Z | seat | Bash | git -C /d/relay branch --merged main --list push-b678-closing && git -C /d/relay branch -d push-b678-closing
+  #46 | 2026-10-17T18:50:43.123Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b678 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b678
+  #47 | 2026-10-17T18:50:45.575Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b678-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b678-root
+  #48 | 2026-10-17T18:50:48.240Z | seat | Bash | git -C /d/SIDE-silence-principle branch --merged main --list push-b678-main && git -C /d/SIDE-silence-principle branch -d push-b678-main
+  #49 | 2026-10-17T18:50:51.166Z | seat | Bash | git -C /d/SIDE-silence-principle branch --merged main --list push-b678-merge && git -C /d/SIDE-silence-principle branch -d push-b678-merge
+  #50 | 2026-10-17T18:50:53.677Z | seat | Bash | git -C /d/SIDE-silence-principle branch --merged main --list recut-silence-principle-b678 && git -C /d/SIDE-silence-principle branch -d recut-silence-principle-
+  #51 | 2026-10-17T18:50:58.637Z | seat | Bash | grep -ln "push origin --delete\|push --delete" data/b6[0-9][0-9]_commands.txt 2>/dev/null | head; grep -h "push origin --delete\|push --delete" data/b6[0-9][0-9
+  #52 | 2026-10-17T18:51:01.600Z | seat | Bash | grep -h "push origin --delete" data/b66[3-9]_commands.txt data/b67[0-8]_commands.txt 2>/dev/null | tail -3 | cut -c1-260
+  #53 | 2026-10-17T18:51:07.720Z | seat | Bash | git -C /d/SIDE-silence-principle merge-base --is-ancestor 8829bcc89e7824ac4b6e8a1db9e240ebcfa448ce 96b3098 && echo "8829bcc ANCESTOR OF main 96b3098" && git -C 
+  #54 | 2026-10-17T18:51:16.064Z | seat | Bash | git -C /d/SIDE-silence-principle ls-remote origin refs/heads/recut-silence-principle-b678; echo "rc=$? (empty = absent at the remote)"
+  #55 | 2026-10-17T18:51:19.906Z | seat | Bash | git -C /d/SIDE-silence-principle ls-remote origin refs/heads/main refs/heads/recut-silence-principle-b678
+  #56 | 2026-10-17T18:51:50.398Z | seat | Bash | cat data/b678_tests_withheld.json; PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #57 | 2026-10-17T18:51:55.013Z | seat | Bash | python -X utf8 tools/b679_tests.py parts
+  #58 | 2026-10-17T18:51:59.894Z | seat | Bash | for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_addenda_writelist.py test_additive_shared_b644.p
+  #59 | 2026-10-17T18:59:50.219Z | seat | Bash | for t in test_chain_page.py test_chain_page_b592.py; do python -X utf8 tools/b679_tests.py run $t; done
+  #60 | 2026-10-17T19:07:02.575Z | seat | Bash | for t in test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py test_chain_page_b632.py test_chain_page_b635.py test_chain_page_b638.py test_cl
+  #61 | 2026-10-17T19:12:21.014Z | seat | Bash | for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_names_b643.py test_push_gated.sh test_reader_need
+  #62 | 2026-10-17T19:15:59.853Z | seat | Bash | python -X utf8 tools/b679_tests.py report | tail -5; git status --short --untracked-files=no; grep -n "chain_page.py\|chain_page_b638" data/b678_stepzero.txt 2>
+  #63 | 2026-10-17T19:16:03.767Z | seat | Bash | cat data/b678_stepzero.txt | cut -c1-240; echo; sed -n 1,12p data/b678_defects.txt | cut -c1-200
+  #64 | 2026-10-17T19:16:10.128Z | seat | Bash | sed -n 1,8p data/b678_cut.txt | cut -c1-180; echo ---; sed -n 1,12p data/b675_hypotheses.txt | cut -c1-200; echo ---; sed -n 1,10p data/b675_li_bench.txt | cut 
+  #65 | 2026-10-17T19:16:17.252Z | seat | Bash | grep -n "^###\|^==" data/b673_v4v5_plan.txt | sed -n 1,20p | cut -c1-140; grep -n "rows are\|^### " data/b678_cut.txt | head -8 | cut -c1-140; grep -n "^###" da
+  #66 | 2026-10-17T19:16:56.657Z | seat | Bash | git -C /d/SIDE-explicit-formula show e36ea31:Zeta23/Defs.lean | grep -n "structure ZeroConfig\|finite_window :\|^/-- An abstract zero" ; sed -n '87p' data/b673_
+  #67 | 2026-10-17T19:17:08.881Z | seat | PowerShell | $p = Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|bash' }; "{0} matched {1}; free {2} MB" -f (Get-Date).ToUniversalTime(
+  #68 | 2026-10-17T19:17:14.336Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|bash' } | ForEach-Object { "{0} {1} {2}" -f $_.ProcessId, $_.Name, $_.Comma
+  #69 | 2026-10-17T19:17:42.688Z | seat | Bash | git add tools/b679_worklist.py tools/b679_citation.py tools/b679_record.py tools/b679_tests.py data/b679_citation_check.txt data/b679_citation_check.json data/b
+  #70 | 2026-10-17T19:17:50.594Z | seat | Bash | sed -n '16,30p;46,55p' data/b678_closing.txt | cut -c1-330
+  #71 | 2026-10-17T19:18:14.960Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py c1 dry 2>&1 | head -8 | cut -c1-400; PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py c1ord
+  #72 | 2026-10-17T19:18:29.597Z | seat | Bash | sed -n '47p;54p' data/b678_closing.txt | cut -c1-30; PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py c1
+  #73 | 2026-10-17T19:18:33.113Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py c1order
+  #74 | 2026-10-17T19:18:37.534Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log --oneline -6; git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-files=no
+  #75 | 2026-10-17T19:18:41.111Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md OPEN_TRAILS.md && git commit -q -m "b679 Component 1, under (R289)(1)-(3): b678 at its weight (FINDINGS :
+  #76 | 2026-10-17T19:18:46.372Z | seat | Bash | cd /d/relay && git add tools/b679_record.py data/b670_work_orders.txt data/b679_record_lines.json data/b679_record_lines_order.json data/b679_scanfile_c1.md dat
+  #77 | 2026-10-17T19:18:56.140Z | seat | Bash | cd /d/SIDE-explicit-formula && ls .lake/packages 2>&1 | head; cat lake-manifest.json 2>/dev/null | grep -A3 '"mathlib"' | head -8; grep -n "Mathlib\|de5ce8a9" /
+  #78 | 2026-10-17T19:19:04.865Z | seat | Bash | cd /d/SIDE-explicit-formula/.lake/packages/mathlib && git rev-parse HEAD; for n in "theorem inv_im" "theorem inv_re" "theorem normSq_pos" "theorem ofReal_im" "t
+  #79 | 2026-10-17T19:19:57.551Z | seat | Bash | for n in inv_im inv_re ofReal_im sub_im one_im normSq_pos div_eq_zero_iff div_pos finite_insert finite_singleton toFinite inv_le_one_of_one_le₀ div_le_div_of_no
+  #80 | 2026-10-17T19:20:28.407Z | seat | Bash | git grep -n -E "(theorem|lemma|alias|def) +(Complex\.)?normSq_pos\b" HEAD -- Mathlib/ | head -3 | cut -c1-150; git grep -n -E "(theorem|lemma) abs_le\b|abs_le\b
+  #81 | 2026-10-17T19:20:38.583Z | seat | Bash | git show HEAD:Mathlib/Algebra/Order/Group/Abs.lean | sed -n '60,64p'; git grep -n -E "mabs_lt\b" HEAD -- Mathlib/Algebra/Order/Group/Abs.lean | head -2 | cut -c
+  #82 | 2026-10-17T19:20:54.250Z | seat | Bash | git show e36ea31:Zeta23/WeilEF/ZeroSummability.lean | grep -n "def key\|summable_weight\|def totalWeight\|private\|^namespace\|^open\|^import\|^section\|^variab
+  #83 | 2026-10-17T19:21:02.415Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/RestBound.lean | sed -n '30,48p'; git show e36ea31:SIDEExplicitFormula/RestBound.lean | sed -n '136,150p'; cat print_target
+  #84 | 2026-10-17T19:22:13.764Z | seat | Bash | cd /d/relay && grep -n "def answers" -A40 tools/b678_record.py | head -60 | cut -c1-200; ls data/b677_prompt* data/b677_author_answers* 2>/dev/null
+  #85 | 2026-10-17T19:22:22.125Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiConverseCfg.lean | awk 'NR>=210 && NR<=233 {printf "%d %s\n", NR, $0}' | cut -c1-110; git show e36ea31:SIDEExplici
+  #86 | 2026-10-17T19:24:31.328Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiConverseCfg.lean | awk 'NR==75||NR==77||NR==259||NR==295 {printf "%d %s\n", NR, $0}' | cut -c1-120; git show e36ea
+  #87 | 2026-10-17T19:24:47.965Z | seat | Bash | cd /d/relay && git add data/b679_strip_plan.txt && git commit -q -m "b679 Component 2: data/b679_strip_plan.txt -- the form (WideConfig with HExcl), 22 uses re-
+  #88 | 2026-10-17T19:32:38.663Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_citation.py answer "ANSWER on the plan, under (R289)(5)"
+  #89 | 2026-10-17T19:32:43.245Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_citation.py answer "ANSWER on the control, under (R289)(5)(v)"
+  #90 | 2026-10-17T19:32:47.431Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_citation.py answer "ANSWER on the ball bank"; ls data/b671_epstein_zeros_narrowed_hashes.txt
+  #91 | 2026-10-17T19:33:34.271Z | seat | Bash | git add data/b679_strip_plan.txt data/b679_defects.txt data/b679_citation_check.txt && git commit -q -m "b679 Component 2: the author's word on the plan (option
+  #92 | 2026-10-17T19:33:43.091Z | seat | Bash | cd /d/SIDE-explicit-formula && git show e36ea31:SIDEExplicitFormula/Schema/LiConverseCfg.lean | sed -n '36,50p;204,209p;233,243p'; git show e36ea31:SIDEExplicit
+  #93 | 2026-10-17T19:33:47.898Z | seat | Bash | git grep -n "gammaOf_re\b\|gammaOf_im\b" e36ea31 -- Zeta23 | grep "theorem\|lemma" | cut -c1-160; cat SIDEExplicitFormula.lean | tail -15; head -5 print_targets
+  #94 | 2026-10-17T19:33:54.210Z | seat | Bash | wc -l SIDEExplicitFormula.lean; grep -n "Schema" SIDEExplicitFormula.lean | head; ls; grep -rn "target" /d/relay/data/b673_runner_SIDE-explicit-formula*.txt 2>/
+  #95 | 2026-10-17T19:34:01.242Z | seat | Bash | cd /d/relay && sed -n 1,14p data/b673_runner_SIDE-explicit-formula_run38960681935.txt | cut -c1-250; grep -n "def runner\|def prints" tools/b678_record.py
+  #96 | 2026-10-17T19:34:13.625Z | seat | Bash | cd /d/SIDE-explicit-formula && git show e36ea31:Zeta23/Tail/Basic.lean | sed -n '1,30p;75,95p' | grep -v "^$" | cut -c1-160; git show e36ea31:Zeta23/WeilEF/Zero
+  #97 | 2026-10-17T19:34:20.941Z | seat | Bash | git show e36ea31:Zeta23/Tail.lean | sed -n '58,66p'; git status --short | head -5; git branch --show-current; git log --oneline -1
+  #98 | 2026-10-17T19:34:25.152Z | seat | Bash | git -C /d/SIDE-explicit-formula checkout -b strip-variant-b679 e36ea31 && git -C /d/SIDE-explicit-formula branch --show-current
+  #99 | 2026-10-17T19:36:24.819Z | seat | Bash | git show e36ea31:SIDEExplicitFormula/Schema/LiConverseCfg.lean | sed -n '196,212p;240,246p'
+  #100 | 2026-10-17T19:42:10.813Z | seat | Bash | git grep -n "reflect_ofReal\|theorem c2\|WideConfig\|namespace Wide" -- SIDEExplicitFormula Zeta23 | grep -v "Schema/Wide/" | head; cd .lake/packages/mathlib &&
+  #101 | 2026-10-17T19:42:23.323Z | seat | Bash | cd /d/relay && grep -n "T_TARGET\|target" tools/b673_worklist.py | head -5 | cut -c1-250; grep -rn "workflow run build-module" data/b673_commands.txt | head -3 
+  #102 | 2026-10-17T19:42:27.354Z | seat | Bash | sed -n 55,60p tools/b673_worklist.py | cut -c1-300
+  #103 | 2026-10-17T19:42:37.701Z | seat | Bash | cd /d/SIDE-explicit-formula && tail -c 40 print_targets.txt | od -c | tail -4; git config core.autocrlf; git ls-files --eol print_targets.txt
+  #104 | 2026-10-17T19:42:47.419Z | seat | Bash | git status --short; wc -l print_targets.txt SIDEExplicitFormula/Schema/Wide/*.lean; grep -c $'\r' SIDEExplicitFormula/Schema/Wide/*.lean; grep -n "sorry" SIDEEx
+  #105 | 2026-10-17T19:43:58.791Z | seat | Bash | cd /d/relay && grep -h "push origin\|push_gated" data/b673_commands.txt data/b678_commands.txt | cut -c1-260 | head -12
+  #106 | 2026-10-17T19:44:04.678Z | seat | Bash | cd /d/SIDE-explicit-formula && git add SIDEExplicitFormula/Schema/Wide/Config.lean SIDEExplicitFormula/Schema/Wide/Remainder.lean SIDEExplicitFormula/Schema/Wid
+  #107 | 2026-10-17T19:44:08.644Z | seat | Bash | git push origin strip-variant-b679; echo "push exit $?"
+  #108 | 2026-10-17T19:44:17.079Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote origin refs/heads/strip-variant-b679 refs/heads/main
+  #109 | 2026-10-17T19:44:23.024Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=eb1e2081674f66861c2a7f75801face613ad77ab -f target="SIDEExplicitFormu
+  #110 | 2026-10-17T19:44:46.002Z | seat | Bash | cd /d/relay && ls data | grep "b673_axioms\|b673_landing\|b673_runner" ; grep -n "depends on axioms" data/b673_runner_SIDE-explicit-formula_run38960681935.txt |
+  #111 | 2026-10-17T19:45:26.112Z | seat | Bash | head -3 data/b673_axioms_run38960681935.txt | cut -c1-160; grep -c "depends on axioms" data/b673_axioms_run38960681935.txt; grep -v "propext, Classical.choice, 
+  #112 | 2026-10-17T19:45:34.531Z | seat | Bash | python -X utf8 -c "import ast,sys;ast.parse(open('tools/b679_record.py',encoding='utf-8').read());print('ok')"
+  #113 | 2026-10-17T19:45:38.716Z | seat | Bash | gh run view 39063750051 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #114 | 2026-10-17T19:45:43.651Z | seat | Bash | sed -n 555,625p tools/b669_record.py
+  #115 | 2026-10-17T19:46:07.534Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py walk eb1e208
+  #116 | 2026-10-17T19:46:27.894Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #117 | 2026-10-17T19:46:38.918Z | seat | Bash | gh run view 39063750051 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #118 | 2026-10-17T19:46:46.039Z | seat | Bash | ls tools | grep -i "b667\|epstein" | head; grep -n "^def \|^    def " tools/b667_epstein_*.py 2>/dev/null | head -30 | cut -c1-140
+  #119 | 2026-10-17T19:46:50.114Z | seat | Bash | sed -n 1,80p tools/b667_epstein_certify.py | cut -c1-180; sed -n 96,235p tools/b667_epstein_certify.py
+  #120 | 2026-10-17T19:46:59.160Z | seat | Bash | gh run view 39063750051 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt,jobs -q '.status+" "+.conclusion+" "+(.jobs[0].steps|map(.nam
+  #121 | 2026-10-17T19:47:14.731Z | seat | Bash | cat data/b671_epstein_zeros_narrowed_hashes.txt | cut -c1-200; python -X utf8 -c "
+  #122 | 2026-10-17T19:48:06.643Z | seat | Bash | tail -5 tools/b667_epstein_certify.py; grep -n "^[a-zA-Z_].*(" tools/b667_epstein_certify.py | grep -v "^[0-9]*:def \|^[0-9]*:class" | head
+  #123 | 2026-10-17T19:48:09.651Z | seat | Bash | gh run view 39063750051 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #124 | 2026-10-17T19:53:00.841Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py runner 39063750051 eb1e2081674f66861c2a7f75801face613ad77ab; grep -n "NOT DERIVES\|DERIVES" data/b679
+  #125 | 2026-10-17T19:53:09.264Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py prints 39063750051; grep -c "propext" data/b679_axioms_run39063750051.txt; grep -i "warning" data/b67
+  #126 | 2026-10-17T19:53:19.857Z | seat | Bash | cp data/b679_zeta_walk.txt /dev/null; git -C /d/SIDE-explicit-formula grep -n "zero_sum_inv_sq\b" -- SIDEExplicitFormula/Schema/Wide print_targets.txt
+  #127 | 2026-10-17T19:53:44.092Z | seat | Bash | cd /d/SIDE-explicit-formula && git add SIDEExplicitFormula/Schema/Wide/Config.lean SIDEExplicitFormula/Schema/Wide/Remainder.lean SIDEExplicitFormula/Schema/Wid
+  #128 | 2026-10-17T19:53:53.090Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py walk 46ee9a4
+  #129 | 2026-10-17T19:54:04.278Z | seat | Bash | cd /d/SIDE-explicit-formula && git push origin strip-variant-b679; echo "push exit $?"
+  #130 | 2026-10-17T19:54:11.835Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote origin refs/heads/strip-variant-b679
+  #131 | 2026-10-17T19:54:18.199Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=46ee9a43c6488f10b6637b35f588563dee22d92e -f target="SIDEExplicitFormu
+  #132 | 2026-10-17T19:55:12.332Z | seat | Bash | cd /d/relay && python -X utf8 -c "
+  #133 | 2026-10-17T19:55:49.558Z | seat | Bash | gh run view 39064453563 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion
+  #134 | 2026-10-17T20:02:50.537Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py runner 39064453563 46ee9a43c6488f10b6637b35f588563dee22d92e | tail -2; PYTHONIOENCODING=utf-8 python 
+  #135 | 2026-10-17T20:03:04.299Z | seat | Bash | sed -n 8,40p data/b679_landing.txt | cut -c1-170
+  #136 | 2026-10-17T20:03:10.425Z | seat | Bash | git add tools/b679_worklist.py tools/b679_record.py tools/b679_q0_membership.py tools/b679_onset.py data/b679_defects.txt data/b679_runner_run39063750051.txt da
+  #137 | 2026-10-17T20:03:15.573Z | seat | Bash | sed -n 1,40p tools/push_gated.sh | cut -c1-180; grep -h "push_gated.sh /d/SIDE-explicit-formula" data/b673_commands.txt | cut -c1-400
+  #138 | 2026-10-17T20:03:20.168Z | seat | Bash | git -C /d/SIDE-explicit-formula checkout main && git -C /d/SIDE-explicit-formula log --oneline -1
+  #139 | 2026-10-17T20:03:27.017Z | seat | Bash | git -C /d/SIDE-explicit-formula merge --no-ff strip-variant-b679 -m "b679 under (R289)(6): merge strip-variant-b679 -- the Li converse over the widened class: W
+  #140 | 2026-10-17T20:03:34.169Z | seat | Bash | cd /d/SIDE-explicit-formula && git branch push-b679-merge 95f8dc8 && PUSH_GATED_LOG=/d/relay/data/b679_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/S
+  #141 | 2026-10-17T20:03:53.856Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 560 python -X utf8 tools/b679_q0_membership.py
+  #142 | 2026-10-17T20:04:06.893Z | seat | Bash | grep -n "^ *\[[-+]0\.[0-9]*, [-+]0\.[0-9]*\]" data/b679_q0_membership.txt | head -40 | cut -c1-200
+  #143 | 2026-10-17T20:04:33.741Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #144 | 2026-10-17T20:05:00.334Z | seat | Bash | grep -n "balls=\[\[" tools/b679_q0_membership.py
+  #145 | 2026-10-17T20:05:05.625Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 560 python -X utf8 tools/b679_q0_membership.py; grep -c "  False" data/b679_q0_membership.txt; sed -n '/(iv)/,/BALLS/p' data/b679
+  #146 | 2026-10-17T20:05:15.632Z | seat | Bash | grep -n "FE \|direct" data/b679_q0_membership.txt | sed -n '1,3p;15,20p;33,40p' | cut -c40-150; grep -n "(i)\|(ii)\|(iii)" -A1 data/b679_q0_membership.txt | cut
+  #147 | 2026-10-17T20:05:20.608Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 560 python -X utf8 tools/b679_onset.py 95f8dc8fb3423ea36a1a9f7b71e97436243f8e54; sed -n 5,20p data/b679_onset.txt | cut -c1-200
+  #148 | 2026-10-17T20:05:42.116Z | seat | Bash | git -C /d/SIDE-explicit-formula show 95f8dc8:SIDEExplicitFormula/Schema/Wide/Config.lean | grep -n "def HExcl"; git -C /d/SIDE-explicit-formula branch --show-cu
+  #149 | 2026-10-17T20:05:46.922Z | seat | Bash | git add tools/b679_q0_membership.py data/b679_q0_membership.txt data/b679_q0_membership.json data/b679_onset.txt data/b679_onset.json data/b679_landing.txt data
+  #150 | 2026-10-17T20:09:09.375Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py answers && PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py commands && PYTHONIOENCODING=ut
+  #151 | 2026-10-17T20:09:20.921Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py answers && grep -c "^### THE AUTHOR\`S WORD" data/b679_author_answers.txt
+  #152 | 2026-10-17T20:09:24.737Z | seat | Bash | grep -n "RESULT" data/b679_author_answers.txt | cut -c1-260
+  #153 | 2026-10-17T20:09:31.757Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #154 | 2026-10-17T20:09:37.295Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #155 | 2026-10-17T20:09:41.422Z | seat | Bash | grep -n "for the seat, verbatim" tools/b679_record.py; grep -n "texts.append(t)" tools/b679_record.py
+  #156 | 2026-10-17T20:09:49.533Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #157 | 2026-10-17T20:09:55.106Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py answers
+  #158 | 2026-10-17T20:10:05.202Z | seat | Bash | grep -n "^def \|^STANDING\|^ARMS\|^B_ARMS\|^ACT\|^import\|^from\|b678" tools/b678_checks.py | cut -c1-150 | head -150
+  #159 | 2026-10-17T20:10:20.965Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #160 | 2026-10-17T20:11:04.792Z | seat | Bash | git -C /d/SIDE-silence-principle branch -a --list '*recut-silence-principle-b678*' '*push-b678*'; echo "---"; git -C /d/SIDE-explicit-formula log --format='%h %
+  #161 | 2026-10-17T20:11:10.835Z | seat | Bash | sed -n 1294,1400p tools/b674_record.py
+  #162 | 2026-10-17T20:16:09.307Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #163 | 2026-10-17T20:18:45.858Z | seat | Bash | wc -l data/b678_registration_2026-10-17.txt; grep -n "^### (" data/b678_registration_2026-10-17.txt | cut -c1-120
+  #164 | 2026-10-17T20:18:58.543Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py repairs | tail -9 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py kernels && PYTHONIOEN
+
+### ### **COMMANDS 164 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9.**
