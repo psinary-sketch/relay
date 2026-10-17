@@ -1,0 +1,20 @@
+b679 -- COMPONENT 4, (R289)(6), H5: n*` FROM THE WIDENED PROOF`S CONSTANTS, AND b675`S OBSERVATION RE-READ (2026-10-17T20:05:21Z)
+
+### rows are the constants with their sources and n*`; Arb balls at 256 bits.
+
+  the remainder`s factor   2 * (2 + 2 * (1 + s) ^ 2) -- read from Wide.remainder_le`s witness at 95f8dc8 (SIDEExplicitFormula/Schema/Wide/Remainder.lean), equal in form
+                           to v0.32`s (Schema/LiRemainder.lean :180-:181): the widened strip moved no constant of the bound (plan == 2 :12, :18)
+  K                        [1.8581638114257668706 +/- 3.08e-20] -- relay data/b675_li_constants.json bench K (K_cert over the 358 certified rest points + K_tail under T-COUNT)
+  R                        [1.001706554599901514735 +/- 1.32e-22] -- bench R (Schema/LiConverseCfg.lean :169-:170; the widened copy`s same lines in Schema/Wide/Converse.lean)
+  s                        [1.001279915949926136051 +/- 1.53e-22] -- bench s = (s1 + R)/2 (:192)
+  c                        1/4 -- Σ_D m² / (4 Σ_D m), Σ_D m = 2 (Schema/PowerSum.lean :222)
+  C`                       [37.201341100575583589 +/- 6.39e-19] -- the factor times K; b675`s C [37.201341100575583588 +/- 3.64e-19] ; overlapping True
+  n*`                      63676 -- the least n with 2 - c·Rⁿ + C`(n + 1)²sⁿ certified below 0; the expression there [-1.211777360e+43 +/- 6.39e+32] ; b675`s n* 63676
+
+### THE TEST (H5): n_obs = 10034 (data/b675_li_bench.txt :848) ≤ n*` = 63676 : True.
+### THE WINDOW [63676, 63876] ALONG V4`S SUBSEQUENCE, re-read from the bench`s rows (2cos(nθ) = Re Σ_D m wⁿ against c = 1/4; data/b675_li_plan.txt :85-:89):
+    rows in the window 201 ; on the subsequence (2cos(nθ) certified ≥ 1/4) 94 ; NEG among them 94 ; NONNEG or UNDECIDED among them 0  ;
+    balls straddling 1/4 0  ; b675`s whole-window line: NEG 102 of 201, the least NEG 63709 (:849).
+    A NONNEG at an n on the subsequence at or past n*` would stand against the bound`s form: NONE.
+
+### ### **n*` 63676 (b675`s n* 63676, C` OVERLAPPING b675`s C True) ; n_obs 10034 ≤ n*` True ; ON THE SUBSEQUENCE 94, NEG 94, OTHER 0 ; H5 HELD ; 0 s.**

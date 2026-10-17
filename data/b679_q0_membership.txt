@@ -1,0 +1,71 @@
+b679 -- COMPONENT 4, (R289)(5)(iv), H4: Q0 READ AGAINST THE WIDENED CLASS (2026-10-17T20:05:11Z)
+
+### rows are hypotheses of the widened class with their reading at Q0 and source. The ball bank: relay data/b671_epstein_zeros_narrowed.json.gz,
+### sha256 51d9e6322510b738 EQUAL, the JSON inside cd3a8ea1dcc7660c EQUAL (data/b671_epstein_zeros_narrowed_hashes.txt :2-:3); rows 163 (ON 146, OFF 17), half-width 1e-24.
+
+  strip (-1/2, 3/2), every height      HOLDS -- (3c): "Σ_{n ≥ 2} r_Q(n) n^{−3/2} = Z_Q(3/2) − 2 printed as a ball below 2" (relay
+                                       data/b667_epstein_plan.txt :247-:248), its ball "[1.54841378141857 +/- 1.08e-15]" (data/b667_epstein_counts.txt :34, below 2 True), so
+                                       |Z_Q(s) − 2| < 2 and no zero at Re s ≥ 3/2; with Λ_Q(s) = Λ_Q(1 − s) (:10) none at Re s ≤ −1/2. On the
+                                       certified balls: the 17 off-line real parts in [0.6054, 0.9533], their reflections in [0.0467, 0.3946], the 146
+                                       on-line rows at Re 0.5: all inside (-1/2, 3/2) True.
+  reflect_mem, mult_reflect            HOLDS -- Λ_Q(1 − conj s) = conj Λ_Q(s) (data/b667_epstein_plan.txt :12), at every height.
+  finite_window                        HOLDS below 150 by count ("N(R) = 180", data/b667_epstein_counts.txt :52, True); above 150 under
+                                       T-COUNT, a unit-window count presupposing finitely many points (P3, Schema/EpsteinQ0.lean :104-:108).
+  one_le_mult                          HOLDS -- every certified ball`s count 1 (the bank`s "count" field: 163 of 163 rows); a multiplicity, by
+                                       definition, above 150.
+  HExcl (no real point in (-1/2, 0])   HOLDS -- THE ROUTE THE AUTHOR`S ANSWER NAMES, CHECKED:
+                                       (i) Z_Q(σ) = Σ_k r_Q(k) k^{−σ} > 0 for real σ > 1, every term positive (data/b667_epstein_plan.txt :9);
+                                           the instrument at σ = 1.05, 1.25, 1.50: [26.921297 +/- 3.72e-7]; [6.0546992 +/- 1.03e-8]; [3.5484138 +/- 1.86e-8].
+                                       (ii) Λ_Q(s) = (2π/√23)^{−s} Γ(s) Z_Q(s) = Λ_Q(1 − s) (:10); for s in (−1/2, 0), 1 − s in (1, 3/2), so
+                                           Λ_Q(s) > 0, and Γ(s) < 0 on (−1, 0) (at -0.9, -0.5, -0.1: [-10.5706 +/- 3.59e-5]; [-3.54491 +/- 2.30e-6]; [-10.6863 +/- 1.30e-5]), so Z_Q(s) < 0 there, nonzero.
+                                       (iii) Z_Q(0) read directly by the instrument (Γ(s)⁻¹ = 0 at s = 0 removes T2 and T3; T1 = 2ζ(0)): -1.0000000000000000000.
+                                       (iv) the balls on [-1/2, 0], 32 closed subintervals of width 1/64 at 200 bits, each bisected where its ball
+                                           meets 0 (depth at most 12): on [-1/2, -1/4] by the FE form Z_Q(s) = (2π/√23)^{2s-1} Γ(1-s) Γ(s)⁻¹ Z_Q(1-s)
+                                           (Λ_Q(s) = Λ_Q(1 - s), :10; finite through -1/2, where the direct route`s Γ(s - ½) pole meets ζ(-2) = 0),
+                                           on [-1/4, 0] by b667`s route direct, T4 in the radius (rows: subinterval ; form ; Z_Q`s real part, its
+                                           midpoint and radius ; negative real ; excludes 0):
+                                             [-0.500000000, -0.484375000] FE     -0.524215 +/- 2.466e-02  True  True
+                                             [-0.484375000, -0.468750000] FE     -0.538840 +/- 2.555e-02  True  True
+                                             [-0.468750000, -0.453125000] FE     -0.553388 +/- 2.653e-02  True  True
+                                             [-0.453125000, -0.437500000] FE     -0.567878 +/- 2.774e-02  True  True
+                                             [-0.437500000, -0.421875000] FE     -0.582305 +/- 2.906e-02  True  True
+                                             [-0.421875000, -0.406250000] FE     -0.596680 +/- 3.048e-02  True  True
+                                             [-0.406250000, -0.390625000] FE     -0.611012 +/- 3.203e-02  True  True
+                                             [-0.390625000, -0.375000000] FE     -0.625309 +/- 3.372e-02  True  True
+                                             [-0.375000000, -0.359375000] FE     -0.639582 +/- 3.555e-02  True  True
+                                             [-0.359375000, -0.343750000] FE     -0.653839 +/- 3.756e-02  True  True
+                                             [-0.343750000, -0.328125000] FE     -0.668093 +/- 3.977e-02  True  True
+                                             [-0.328125000, -0.312500000] FE     -0.682354 +/- 4.221e-02  True  True
+                                             [-0.312500000, -0.296875000] FE     -0.696636 +/- 4.491e-02  True  True
+                                             [-0.296875000, -0.281250000] FE     -0.710951 +/- 4.791e-02  True  True
+                                             [-0.281250000, -0.265625000] FE     -0.725315 +/- 5.127e-02  True  True
+                                             [-0.265625000, -0.250000000] FE     -0.739742 +/- 5.504e-02  True  True
+                                             [-0.250000000, -0.234375000] direct -0.754837 +/- 9.244e-02  True  True
+                                             [-0.234375000, -0.218750000] direct -0.769386 +/- 9.423e-02  True  True
+                                             [-0.218750000, -0.203125000] direct -0.784075 +/- 9.715e-02  True  True
+                                             [-0.203125000, -0.187500000] direct -0.798909 +/- 1.010e-01  True  True
+                                             [-0.187500000, -0.171875000] direct -0.813925 +/- 1.061e-01  True  True
+                                             [-0.171875000, -0.156250000] direct -0.829159 +/- 1.127e-01  True  True
+                                             [-0.156250000, -0.140625000] direct -0.844660 +/- 1.213e-01  True  True
+                                             [-0.140625000, -0.125000000] direct -0.860501 +/- 1.325e-01  True  True
+                                             [-0.125000000, -0.109375000] direct -0.876795 +/- 1.475e-01  True  True
+                                             [-0.109375000, -0.093750000] direct -0.893726 +/- 1.680e-01  True  True
+                                             [-0.093750000, -0.078125000] direct -0.911666 +/- 1.973e-01  True  True
+                                             [-0.078125000, -0.062500000] direct -0.931432 +/- 2.418e-01  True  True
+                                             [-0.062500000, -0.046875000] direct -0.955209 +/- 3.158e-01  True  True
+                                             [-0.046875000, -0.031250000] direct -0.990739 +/- 4.618e-01  True  True
+                                             [-0.031250000, -0.015625000] direct -1.085280 +/- 8.823e-01  True  True
+                                             [-0.015625000, -0.007812500] direct -1.104718 +/- 8.780e-01  True  True
+                                             [-0.007812500, -0.003906250] direct -1.114750 +/- 8.764e-01  True  True
+                                             [-0.003906250, -0.001953125] direct -1.119847 +/- 8.757e-01  True  True
+                                             [-0.001953125, +0.000000000] direct -1.000987 +/- 9.123e-01  True  True
+                                       BALLS 35 ; EXCLUDING 0 35 ; NEGATIVE 35. Beside it, the band count: "== B   THE BAND [-0.5, 1.5] × [−0.5, 0.5] BY ITS HALF PATH, zeros = (1/π)Δ + 2 (Λ_Q`s pole" (data/b667_epstein_counts.txt
+                                           :56, True). Against the certified real parts: the off-line points are not real (the least |Im| over
+                                           all 163 rows 1.3089, a ball containing 0 False). Against (3c)`s form: (3c) bounds Re s ≥ 3/2 alone and
+                                           says nothing on the real segment inside the strip; the exclusion is read from (i)-(iv).
+  HCount Z 10                          ASSUMED -- T-COUNT, as b675 left it (P3, A₀Q = 10, Schema/EpsteinQ0.lean :104, :108; data/b675_hypotheses.txt
+                                       :67).
+  a Lean instance                      NOT WRITTEN -- the kernel has no Lean term for Λ_Q`s zero set (its Q0 premises are over an abstract
+                                       Z : ZeroConfig, Schema/EpsteinQ0.lean :112-:116); this reading is of banks, lines and balls.
+
+### ### **HYPOTHESES READ 7 ; HOLDING 5 (strip, reflect, finite_window, one_le_mult, HExcl) ; ASSUMED 1 (HCount, T-COUNT) ; NOT WRITTEN 1 (the Lean instance) ; HExcl BALLS 35 OF 35 EXCLUDING 0, NEGATIVE 35, Z_Q(0) -1.0000000 ; H4 HELD ; 5 s.**

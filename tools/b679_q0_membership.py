@@ -70,13 +70,29 @@ def main():
     s_r = [arb('1.05'), arb('1.25'), arb('1.5')]
     zpos = [(float(s.mid()), E.zq(acb(s), PREC)) for s in s_r]
     gam = [(x, acb(arb(x)).gamma()) for x in ('-0.9', '-0.5', '-0.1')]
+    def zq_fe(s):
+        """Z_Q(s) = (2π/√23)^{2s-1} Γ(1 - s) Γ(s)⁻¹ Z_Q(1 - s), from Λ_Q(s) = Λ_Q(1 - s) (plan :10): finite through s = -1/2, where the
+        direct route's Γ(s - ½) pole meets ζ(2s - 1) = ζ(-2) = 0."""
+        z1 = E.zq(1 - s, PREC)
+        ctx.prec = PREC
+        return acb(2 * arb.pi() / arb(23).sqrt()) ** (2 * s - 1) * (1 - s).gamma() * s.rgamma() * z1
+
     balls = []
-    for k in range(NSUB):
-        a, b = arb(-1) / 2 + arb(k) / 64, arb(-1) / 2 + arb(k + 1) / 64
+
+    def cover(a, b, form, depth):
         s = acb(arb((a + b) / 2, (b - a) / 2))
-        v = E.zq(s, PREC)
-        balls.append((float(a.mid()), float(b.mid()), v, bool(v.real < 0 and v.imag.contains(0)), not v.contains(0)))
-    excl_ok = all(nz for _a, _b, _v, _neg, nz in balls) and not z0.contains(0)
+        v = zq_fe(s) if form == 'FE' else E.zq(s, PREC)
+        if (v.contains(0) or not v.is_finite()) and depth < 12:
+            m = (a + b) / 2
+            cover(a, m, form, depth + 1)
+            cover(m, b, form, depth + 1)
+            return
+        balls.append((float(a.mid()), float(b.mid()), v, bool(v.real < 0 and v.imag.contains(0)), bool(v.is_finite() and not v.contains(0)), form))
+    for k in range(NSUB // 2):                        # ### [-1/2, -1/4] by the FE form, 16 subintervals of width 1/64
+        cover(arb(-1) / 2 + arb(k) / 64, arb(-1) / 2 + arb(k + 1) / 64, 'FE', 0)
+    for k in range(NSUB // 2):                        # ### [-1/4, 0] by the direct route, 16 subintervals of width 1/64
+        cover(arb(-1) / 4 + arb(k) / 64, arb(-1) / 4 + arb(k + 1) / 64, 'direct', 0)
+    excl_ok = all(x[4] for x in balls) and all(x[3] for x in balls) and not z0.contains(0)
     V2 = line('b667_epstein_counts.txt', 34)
     band = line('b667_epstein_counts.txt', 56)
     NR = line('b667_epstein_counts.txt', 52)
@@ -109,11 +125,15 @@ def main():
          '                                           Λ_Q(s) > 0, and Γ(s) < 0 on (−1, 0) (at %s: %s), so Z_Q(s) < 0 there, nonzero.' % (
              ', '.join(x for x, _g in gam), '; '.join(g.real.str(6) for _x, g in gam)),
          '                                       (iii) Z_Q(0) read directly by the instrument (Γ(s)⁻¹ = 0 at s = 0 removes T2 and T3; T1 = 2ζ(0)): %s.' % z0.str(20),
-         '                                       (iv) the balls on (-1/2, 0], %d closed subintervals of width 1/64, Z_Q by b667`s route at %d bits, the' % (NSUB, PREC),
-         '                                           T4 bound in the radius (rows: subinterval ; Z_Q`s ball ; negative real ; excludes 0):']
-    L += ['                                             [%+.6f, %+.6f]  %s  %s  %s' % (a, b, v.real.str(10), neg, nz) for a, b, v, neg, nz in balls]
+         '                                       (iv) the balls on [-1/2, 0], %d closed subintervals of width 1/64 at %d bits, each bisected where its ball' % (NSUB, PREC),
+         '                                           meets 0 (depth at most 12): on [-1/2, -1/4] by the FE form Z_Q(s) = (2π/√23)^{2s-1} Γ(1-s) Γ(s)⁻¹ Z_Q(1-s)',
+         '                                           (Λ_Q(s) = Λ_Q(1 - s), :10; finite through -1/2, where the direct route`s Γ(s - ½) pole meets ζ(-2) = 0),',
+         '                                           on [-1/4, 0] by b667`s route direct, T4 in the radius (rows: subinterval ; form ; Z_Q`s real part, its',
+         '                                           midpoint and radius ; negative real ; excludes 0):']
+    L += ['                                             [%+.9f, %+.9f] %-6s %+.6f +/- %.3e  %s  %s' % (a, b, form, float(v.real.mid()), float(v.real.rad()), neg, nz)
+          for a, b, v, neg, nz, form in balls]
     L += ['                                       BALLS %d ; EXCLUDING 0 %d ; NEGATIVE %d. Beside it, the band count: "%s" (data/b667_epstein_counts.txt' % (
-              NSUB, sum(1 for x in balls if x[4]), sum(1 for x in balls if x[3]), band.strip()[:90]),
+              len(balls), sum(1 for x in balls if x[4]), sum(1 for x in balls if x[3]), band.strip()[:90]),
           '                                           :56, %s). Against the certified real parts: the off-line points are not real (the least |Im| over' % band_ok,
           '                                           all %d rows %.4f, a ball containing 0 %s). Against (3c)`s form: (3c) bounds Re s ≥ 3/2 alone and' % (
               len(rows), im_lo, any_real),
@@ -123,14 +143,17 @@ def main():
           '  a Lean instance                      NOT WRITTEN -- the kernel has no Lean term for Λ_Q`s zero set (its Q0 premises are over an abstract',
           '                                       Z : ZeroConfig, Schema/EpsteinQ0.lean :112-:116); this reading is of banks, lines and balls.', '']
     ok = gz_ok and js_ok and v2_ok and all_in_strip and nr_ok and excl_ok and band_ok and not any_real
-    L += ['### ### **HYPOTHESES READ 7 ; HOLDING 5 (strip, reflect, finite_window, one_le_mult, HExcl) ; ASSUMED 1 (HCount, T-COUNT) ; NOT WRITTEN 1 (the '
-          'Lean instance) ; HExcl BALLS %d OF %d EXCLUDING 0, Z_Q(0) %s ; H4 %s ; %d s.**' % (
-              sum(1 for x in balls if x[4]), NSUB, z0.real.str(8), 'HELD' if ok else '### NOT HELD', int(time.time() - t0))]
+    hold = [n for n, v in (('strip', v2_ok and all_in_strip), ('reflect', True), ('finite_window', nr_ok), ('one_le_mult', True),
+                           ('HExcl', excl_ok and band_ok and not any_real)) if v]
+    L += ['### ### **HYPOTHESES READ 7 ; HOLDING %d (%s) ; ASSUMED 1 (HCount, T-COUNT) ; NOT WRITTEN 1 (the Lean instance) ; HExcl BALLS %d OF %d '
+          'EXCLUDING 0, NEGATIVE %d, Z_Q(0) %s ; H4 %s ; %d s.**' % (
+              len(hold), ', '.join(hold), sum(1 for x in balls if x[4]), len(balls), sum(1 for x in balls if x[3]), z0.real.str(8),
+              'HELD' if ok else '### NOT HELD', int(time.time() - t0))]
     for name, data in (('b679_q0_membership.txt', (NL.join(L) + NL).encode('utf-8')),
                        ('b679_q0_membership.json', (json.dumps(dict(
                            at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), gz_ok=gz_ok, json_ok=js_ok, v2_ok=v2_ok, strip_on_balls=all_in_strip,
                            re_off=[re_lo, re_hi], nr_ok=nr_ok, band_ok=band_ok, any_real=any_real, im_lo=im_lo, z0=z0.str(30),
-                           balls=[[a, b, v.str(20), neg, nz] for a, b, v, neg, nz in balls], excl=excl_ok, h4='HELD' if ok else 'NOT HELD'),
+                           balls=[[a, b, form, v.str(20), neg, nz] for a, b, v, neg, nz, form in balls], excl=excl_ok, h4='HELD' if ok else 'NOT HELD'),
                            indent=1, ensure_ascii=False) + NL).encode('utf-8'))):
         p = os.path.join(D, name)
         open(p + '.tmp', 'wb').write(data)
