@@ -48,3 +48,9 @@ b675 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-16): THE SUCCESSOR OF data
     (k) THE SEAT'S: A DIRECTORY WALK OF D:/ AT THE SESSION'S START. The first command looped over D:/'s directories for the relay's path,
     passed the 120 s limit and was moved to the background; it was stopped by TaskStop, and the process listing of step zero found no
     bash, tail, lean, lake or python process (data/b675_stepzero.txt). The path was in the memory index (D:/relay).
+    (l) THE SEAT'S: AN ARM THAT FAILED ON A WRAPPED CITE, AND A CONTROL THAT KEPT ITS NEEDLE. The first pre-run (2026-10-17T03:29:36Z, 363 s
+    in the foreground) read two arms wrong on real state: G-READINGS-CITED counted the string "relay data/b675_" in the readings bank,
+    which H6's row wraps across two lines ("relay" at a line's end, its path on the next), so five were found for six rows; and
+    G-TOOL-REPAIRS's positive control renamed `def remote_tag` to `def remote_tag_`, which still carries its needle, so the control
+    passed. Repaired by the Edit tool before the seal: the readings arm reads each row's block whole and unwrapped; the control mutates the
+    capture check's words. Both run live and on their controls before the second pre-run.

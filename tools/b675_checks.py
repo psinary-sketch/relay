@@ -669,8 +669,11 @@ def controls_ok(S):
 
 
 def readings_ok(S):
-    r = S['readings']
-    return all(re.search(r'^  \(H%d\) .*' % i, r, re.M) for i in range(1, 7)) and r.count('relay data/b675_') >= 6
+    """each of H1-H6 a row of the readings bank, its block (the row to the next) citing a bank of this act by path: the block read whole
+    and unwrapped, a cite wrapped across two lines read as one."""
+    blocks = re.split(r'(?m)^(?=  \(H\d\) )', S['readings'])[1:]
+    heads = [re.match(r'^  \(H(\d)\) ', b).group(1) for b in blocks]
+    return heads == [str(i) for i in range(1, 7)] and all('data/b675_' in unwrap(b) for b in blocks)
 
 
 def rules_banked_ok(S):
@@ -947,7 +950,7 @@ ARMS = [
     ('G-RULES-BANKED', 'the rules bank: the closing`s dry run a gate step, the pre-run`s long phase splitting the next', lambda S: rules_banked_ok(S),
      lambda S: put(S, 'rules', S['rules'].replace('450 s', '600 s'))),
     ('G-TOOL-REPAIRS', 'the repairs bank`s verdict and tools/b675_closing.py`s code: the lightweight tag, the verdict line, the citation line, the captures',
-     lambda S: repairs_ok(S), lambda S: put(S, 'closing_src', S['closing_src'].replace('def remote_tag', 'def remote_tag_'))),
+     lambda S: repairs_ok(S), lambda S: put(S, 'closing_src', S['closing_src'].replace('IS NOT THE RECORD`S CAPTURE', 'IS THE CAPTURE'))),
     ('G-SPEC-PLANTED', 'tools/b675_regspec.py`s planted rows run live through the record tool`s readers, and rows of another shape refused',
      lambda S: bool(S['spec']['read']) and all(S['spec']['read']) and all(S['spec']['controls']) and any('bench' in x for x in S['spec']['shapes']),
      lambda S: _mut(S, 'spec', lambda d: d['controls'].append(False))),
