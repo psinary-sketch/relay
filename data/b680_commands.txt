@@ -1,0 +1,170 @@
+b680 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES AND THE MOVES AND DELETES (2026-10-17T23:31:47Z)
+
+### the source: the seat`s session df03c73f-520a-4848-85dc-8fada095f008 from its first user line carrying 'RULING (R290) BEGIN', and its subagents` transcripts
+### commands read: 133
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (0; the reading act dispatches none):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (8):
+  #20 2026-10-17T21:22:47.048Z Bash
+      git -C /d/relay branch --merged main --list push-b679 && git -C /d/relay branch -d push-b679
+  #21 2026-10-17T21:22:52.060Z Bash
+      git -C /d/relay branch --merged main --list push-b679-root && git -C /d/relay branch -d push-b679-root
+  #22 2026-10-17T21:22:58.261Z Bash
+      git -C /d/relay branch --merged main --list push-b679-closing && git -C /d/relay branch -d push-b679-closing
+  #23 2026-10-17T21:23:04.534Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b679 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b679
+  #24 2026-10-17T21:23:10.467Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b679-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b679-root
+  #25 2026-10-17T21:23:16.712Z Bash
+      git -C /d/SIDE-explicit-formula branch --merged main --list push-b679-merge && git -C /d/SIDE-explicit-formula branch -d push-b679-merge
+  #26 2026-10-17T21:23:21.857Z Bash
+      git -C /d/SIDE-explicit-formula branch --merged main --list strip-variant-b679 && git -C /d/SIDE-explicit-formula branch -d strip-variant-b679
+  #27 2026-10-17T21:23:27.321Z Bash
+      git -C /d/SIDE-explicit-formula merge-base --is-ancestor 46ee9a43c6488f10b6637b35f588563dee22d92e 95f8dc8 && echo "46ee9a4 ANCESTOR OF main 95f8dc8" && git -C /d/SIDE-explicit-formula push origin --delete strip-variant-b679
+
+### THE BRANCH DELETES BY SHAPE ((R290)(8): one branch per command, no glob in any half): #20 deletes ['push-b679'], globs none; #21 deletes ['push-b679-root'], globs none; #22 deletes ['push-b679-closing'], globs none; #23 deletes ['push-b679'], globs none; #24 deletes ['push-b679-root'], globs none; #25 deletes ['push-b679-merge'], globs none; #26 deletes ['strip-variant-b679'], globs none; #27 deletes ['strip-variant-b679'], globs none
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-17T21:12:26.485Z | seat | Bash | head -1 data/b679_closing.txt; sed -n 4p data/b679_closing_push_out.txt; git log --oneline -1; git -C /d/MY-DOwnloads/PLACE-papers log --oneline -1 | cut -c1-40
+  #2 | 2026-10-17T21:12:36.517Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && ls archive/2026-08-24-ledger-split/ archive | head -30; git -C /d/relay ls-files tools | grep -i "split\|archive" | head
+  #3 | 2026-10-17T21:13:03.975Z | seat | Bash | cd /d/relay && sed -n 1,12p data/b670_rules.txt | cut -c1-220; echo; for f in b670_state b670_licensed_table b670_methods b670_ceiling b672_correspondence_after
+  #4 | 2026-10-17T21:13:10.643Z | seat | Bash | grep -n "34\b.*46\|OPEN 34\|46.*69" data/b670_work_orders.txt | head -5 | cut -c1-200; grep -n "### ###" data/b670_work_orders.txt | head -5 | cut -c1-220; sed 
+  #5 | 2026-10-17T21:13:20.521Z | seat | Bash | for a in 673 674 675 676 677 678 679; do python -X utf8 -c "
+  #6 | 2026-10-17T21:13:31.039Z | seat | Bash | sed -n 1,6p /d/MY-DOwnloads/PLACE-papers/archive/2026-08-24-ledger-split/README.md | cut -c1-200; head -20 tools/ledger_split.py | cut -c1-160; grep -n "372\|RO
+  #7 | 2026-10-17T21:14:30.246Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_citation.py check; grep "^  MISS" data/b680_citation_check.txt | cut -c1-250
+  #8 | 2026-10-17T21:14:42.375Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_citation.py ferry; grep "VERDICT" data/b680_ferry_scan.txt | head -2
+  #9 | 2026-10-17T21:14:50.637Z | seat | Bash | grep -n "HIT(S) REPORTED" data/b680_ferry_scan.txt | cut -c1-120
+  #10 | 2026-10-17T21:15:00.517Z | seat | Bash | grep -n "^    ([a-e]) THE" data/b679_defects.txt | cut -c1-60; for f in data/b67*_rules.txt; do echo "$f $(grep -cE '^  \([0-9]+\) |^ROW [0-9]+ ' $f)"; done; gr
+  #11 | 2026-10-17T21:15:35.696Z | seat | Bash | grep -n "^### THE ATTEMPT\|^### THE READINGS\|^### THE MIRROR\|AGREE 8 of 8" data/b679_closing.txt | cut -c1-40; grep -n "^  (i) \|^STATE\|^### THE DISTANCE\|^#
+  #12 | 2026-10-17T21:15:42.486Z | seat | Bash | grep -n "Sawtooth\|:17" data/b674_cut.txt | head -4 | cut -c1-120
+  #13 | 2026-10-17T21:15:59.871Z | seat | Bash | grep -n "^def \|^# =====\|^ROUTES" tools/b679_record.py | head -40
+  #14 | 2026-10-17T21:16:53.825Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 560 python -X utf8 tools/b680_record.py rowgen | tail -3
+  #15 | 2026-10-17T21:22:09.492Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_citation.py answer "WORD on (R290)(2)" | tail -3
+  #16 | 2026-10-17T21:22:16.108Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_citation.py answer "ANSWER on the rules banks" | tail -3
+  #17 | 2026-10-17T21:22:25.512Z | seat | PowerShell | $p = Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|bash' }; "{0} matched {1}; free {2} MB" -f (Get-Date).ToUniversalTime(
+  #18 | 2026-10-17T21:22:34.115Z | seat | Bash | git add data/b679_closing_push_out.txt && git commit -q -m "b680 step zero: data/b679_closing_push_out.txt committed ((R290)(8))" && git log --oneline -1
+  #19 | 2026-10-17T21:22:40.023Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_record.py branches
+  #20 | 2026-10-17T21:22:47.048Z | seat | Bash | git -C /d/relay branch --merged main --list push-b679 && git -C /d/relay branch -d push-b679
+  #21 | 2026-10-17T21:22:52.060Z | seat | Bash | git -C /d/relay branch --merged main --list push-b679-root && git -C /d/relay branch -d push-b679-root
+  #22 | 2026-10-17T21:22:58.261Z | seat | Bash | git -C /d/relay branch --merged main --list push-b679-closing && git -C /d/relay branch -d push-b679-closing
+  #23 | 2026-10-17T21:23:04.534Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b679 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b679
+  #24 | 2026-10-17T21:23:10.467Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b679-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b679-root
+  #25 | 2026-10-17T21:23:16.712Z | seat | Bash | git -C /d/SIDE-explicit-formula branch --merged main --list push-b679-merge && git -C /d/SIDE-explicit-formula branch -d push-b679-merge
+  #26 | 2026-10-17T21:23:21.857Z | seat | Bash | git -C /d/SIDE-explicit-formula branch --merged main --list strip-variant-b679 && git -C /d/SIDE-explicit-formula branch -d strip-variant-b679
+  #27 | 2026-10-17T21:23:27.321Z | seat | Bash | git -C /d/SIDE-explicit-formula merge-base --is-ancestor 46ee9a43c6488f10b6637b35f588563dee22d92e 95f8dc8 && echo "46ee9a4 ANCESTOR OF main 95f8dc8" && git -C /
+  #28 | 2026-10-17T21:23:34.848Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote origin refs/heads/main refs/heads/strip-variant-b679
+  #29 | 2026-10-17T21:23:44.449Z | seat | Bash | python -X utf8 -c "
+  #30 | 2026-10-17T21:24:15.810Z | seat | Bash | python -X utf8 tools/b680_tests.py parts | cut -c1-120
+  #31 | 2026-10-17T21:24:24.047Z | seat | Bash | for t in $(python -X utf8 tools/b680_tests.py parts | sed -n 1p | cut -d: -f2-); do python -X utf8 tools/b680_tests.py run $t | cut -c1-140; done
+  #32 | 2026-10-17T21:32:28.911Z | seat | Bash | for t in $(python -X utf8 tools/b680_tests.py parts | sed -n 2p | cut -d: -f2-); do python -X utf8 tools/b680_tests.py run $t | cut -c1-140; done
+  #33 | 2026-10-17T21:41:48.796Z | seat | Bash | for t in $(python -X utf8 tools/b680_tests.py parts | sed -n 3p | cut -d: -f2-); do python -X utf8 tools/b680_tests.py run $t | cut -c1-140; done; python -X utf
+  #34 | 2026-10-17T21:49:20.471Z | seat | Bash | python -X utf8 tools/b680_tests.py report | tail -2
+  #35 | 2026-10-17T21:49:40.905Z | seat | Bash | git status --short --untracked-files=no; git add tools/b680_worklist.py tools/b680_citation.py tools/b680_record.py tools/b680_tests.py data/b680_citation_check
+  #36 | 2026-10-17T21:50:01.098Z | seat | Bash | sed -n 1,40p tools/chain_page.py | cut -c1-200; grep -n "backmatter\|BACKMATTER" tools/chain_page.py | head -10; tail -15 data/b674_nodes_zeta.txt | cut -c1-200
+  #37 | 2026-10-17T21:50:09.090Z | seat | Bash | grep -h "chain_page.py" data/b674_commands.txt | grep "^  #" | cut -c1-330 | head -5; grep -n "backmatter" data/b674_nodes_zeta.txt | cut -c1-60; wc -l data/b67
+  #38 | 2026-10-17T21:50:15.126Z | seat | Bash | grep -A2 "#51 |" data/b674_commands.txt | cut -c1-600 | head -4; sed -n 1,6p data/b674_nodes_zeta.txt | cut -c1-220; sed -n 159p data/b674_nodes_zeta.txt
+  #39 | 2026-10-17T21:51:45.177Z | seat | Bash | python -X utf8 -c "
+  #40 | 2026-10-17T21:53:08.505Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_record.py faces dry 2>&1 | cut -c1-260
+  #41 | 2026-10-17T21:55:17.964Z | seat | Bash | sleep 1; cat "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/51ceaa11-0301-4ed4-9e1c-71b70f1e78ca/tasks/b6y3kohtt.output" | cut -c1-200 | tail -5
+  #42 | 2026-10-17T21:55:25.013Z | seat | Bash | grep -n "^    [-+@]" "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/51ceaa11-0301-4ed4-9e1c-71b70f1e78ca/tasks/b6y3kohtt.output" | cut -c1-260
+  #43 | 2026-10-17T21:55:37.976Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b680_record.py faces 2>&1 | tail -3 | cut -c1-260; git -C /d/MY-DOwnloads/PLACE-papers status --short --
+  #44 | 2026-10-17T21:59:14.425Z | seat | Bash | grep -n " s\b\|seconds\|SECONDS\|segments" data/b667_epstein_counts.txt | head -12 | cut -c1-200; grep -n "price\|PRICE\|seconds" data/b667_epstein_plan.txt | h
+  #45 | 2026-10-17T21:59:23.729Z | seat | Bash | grep -n "seconds\| s ;\|took\|WALL\|wall" data/b667_epstein_counts.txt data/b667_closing.txt 2>/dev/null | head -10 | cut -c1-200; grep -n "== R \|N(R) = 180\|s
+  #46 | 2026-10-17T22:00:02.314Z | seat | Bash | grep -n "def M_of" -A2 tools/b667_epstein_certify.py | head -3; PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_record.py c1 dry 2>&1 | head -1 | cut -c1-250; 
+  #47 | 2026-10-17T22:00:18.657Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_record.py c1 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_record.py c1order
+  #48 | 2026-10-17T22:00:26.879Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md OPEN_TRAILS.md THE_CLAUSE_AND_ITS_COMPILED_FACES.md && git commit -q -m "b680 Component 1, under (R290)(1
+  #49 | 2026-10-17T22:00:37.681Z | seat | Bash | cd /d/relay && git add tools/b680_record.py tools/b680_worklist.py data/b680_nodes_zeta.txt data/b680_faces_diff.txt data/b679_landing.txt data/b670_work_orders
+  #50 | 2026-10-17T22:00:51.207Z | seat | Bash | grep -n "^def \|^ROUTES" tools/b670_record.py | cut -c1-120; ls data/b670_*.txt | head -40
+  #51 | 2026-10-17T22:01:21.851Z | seat | Bash | grep -n "CUT_BANKS\|WITHHELD_LINES" tools/b670_record.py tools/b670_worklist.py | head; grep -n "CUT_BANKS" -A12 tools/b670_worklist.py | head -20
+  #52 | 2026-10-17T22:01:28.959Z | seat | Bash | sed -n 515,533p tools/b670_record.py; grep -n "THE DISTANCE BEFORE\|STANDING" data/b674_cut.txt data/b676_cut.txt data/b678_cut.txt | head -8 | cut -c1-150; gre
+  #53 | 2026-10-17T22:01:59.907Z | seat | Bash | grep -n "^def \|correspondence_after\|GENERATOR\`S CLAIM" tools/b672_record.py | head -40 | cut -c1-140; grep -n "def ceilingdiff" -A40 tools/b674_record.py | h
+  #54 | 2026-10-17T22:02:25.904Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && sed -n 14440p OPEN_TRAILS.md | fold -w 250 | head -20
+  #55 | 2026-10-17T22:02:37.110Z | seat | Bash | cd /d/relay && grep -n "def \|PRINT BANK" tools/correspondence_gen.py | head -50 | cut -c1-150; ls data | grep -i "axioms_SIDE\|_axioms_" | head -20
+  #56 | 2026-10-17T22:02:42.632Z | seat | Bash | sed -n 426,540p tools/correspondence_gen.py
+  #57 | 2026-10-17T22:02:57.329Z | seat | Bash | for f in b674 b676 b678; do echo "== $f"; grep -n "CUT IN PART\|residue\|RESIDUE\|not reach\|does not reach" data/${f}_cut.txt | cut -c1-230; done
+  #58 | 2026-10-17T22:03:04.093Z | seat | Bash | sed -n 27,32p data/b674_cut.txt | cut -c40-230; echo; sed -n 35,42p data/b676_cut.txt | cut -c38-230; echo; sed -n 40,46p data/b678_cut.txt | cut -c38-230; sed 
+  #59 | 2026-10-17T22:05:02.298Z | seat | Bash | ls data/b670_licensed_table.json data/b670_correspondence.json 2>&1; PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b680_readings.py licensed 2>&1 | ta
+  #60 | 2026-10-17T22:05:22.363Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b680_readings.py corr 2>&1 | tail -4 | cut -c1-300
+  #61 | 2026-10-17T22:06:56.424Z | seat | Bash | for r in ceiling orders methods; do PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b680_readings.py $r 2>&1 | tail -1 | cut -c1-300; done
+  #62 | 2026-10-17T22:07:07.427Z | seat | Bash | sed -n 74,88p data/b670_methods.txt | cut -c1-230; grep "^===" data/b680_methods.txt
+  #63 | 2026-10-17T22:07:34.053Z | seat | Bash | sed -n 22p data/b671_defects.txt | cut -c1-80; sed -n 35p data/b671_defects.txt | cut -c1-80; PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b680_readi
+  #64 | 2026-10-17T22:07:46.137Z | seat | Bash | for r in kernels9 residues lag; do PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b680_readings.py $r 2>&1 | tail -1 | cut -c1-280; done
+  #65 | 2026-10-17T22:08:00.743Z | seat | Bash | grep "^  SIDE" data/b680_kernels9.txt | cut -c1-230; grep "^  [A-Z]" data/b680_lag.txt | cut -c1-200
+  #66 | 2026-10-17T22:08:07.112Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b680_readings.py outside 2>&1 | cut -c1-200
+  #67 | 2026-10-17T22:08:15.191Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && for n in 8833 8901 8951; do sed -n "${n}p" FINDINGS.md | cut -c1-220; echo; done
+  #68 | 2026-10-17T22:08:30.436Z | seat | Bash | cd /d/relay && git add tools/b680_readings.py data/b680_licensed.txt data/b680_licensed.json data/b680_correspondence.txt data/b680_correspondence.json data/b68
+  #69 | 2026-10-17T22:08:43.707Z | seat | Bash | for f in 670 671 672 673 674 675 677 678; do echo "=== b$f"; grep -nE "^ROW [0-9]+ --|^  \([0-9]+\) " data/b${f}_rules.txt | cut -c1-200; done
+  #70 | 2026-10-17T22:09:22.281Z | seat | Bash | git add tools/b680_rules_index.py && git commit -q -m "b680 under (R290)(5)(iii): tools/b680_rules_index.py, the generated rules index, committed alone" && git 
+  #71 | 2026-10-17T22:09:33.796Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #72 | 2026-10-17T22:10:13.048Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_record.py arms && PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_record.py rulesarms
+  #73 | 2026-10-17T22:10:26.034Z | seat | Bash | git add tools/b680_record.py data/b680_rules_index.txt data/b680_rules_index.json data/b680_arms.txt data/b680_arms.json data/b680_rules_arms.txt data/b680_rule
+  #74 | 2026-10-17T22:10:34.450Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && sed -n 7,60p archive/2026-08-24-ledger-split/README.md | cut -c1-260
+  #75 | 2026-10-17T22:10:46.181Z | seat | Bash | cd /d/relay && grep -n -i "repin\|re-pin\|citation\|:NNNN\|line cit\|anchor" tools/ledger_split.py | head -20 | cut -c1-180; wc -l tools/ledger_split.py; grep -
+  #76 | 2026-10-17T22:10:56.003Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && sed -n 14438p OPEN_TRAILS.md | fold -w 240 | head -15; grep -n "archive-3\|archive 3" OPEN_TRAILS.md | tail -5 | cut -c1-160;
+  #77 | 2026-10-17T22:11:12.138Z | seat | Bash | grep -n "^\*Filed at b[0-9]*" FINDINGS.md | awk -F: '{print $1": "substr($2,1,20)}' | awk 'NR%20==1' | head -40; grep -n "^## " FINDINGS.md | head -5 | cut -c1-
+  #78 | 2026-10-17T22:11:50.679Z | seat | Bash | cd /d/relay && grep -n "^import collections\|^import" tools/b680_record.py | head; PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b680_record.py splitp
+  #79 | 2026-10-17T22:13:14.229Z | seat | Bash | git grep -n -I -E 'FINDINGS(\.md)? ?:[0-9]{3,5}' HEAD -- data tools/rowgen | awk -F: 'NF<4' | head -5 | cut -c1-200; grep -n "^def g(" -A6 tools/b680_record.py
+  #80 | 2026-10-17T22:13:24.072Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b680_record.py splitprice 2>&1 | tail -6 | cut -c1-300; grep -n "^  [a-z(]" data/b680_split_price.txt | 
+  #81 | 2026-10-17T22:13:30.851Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b680_record.py splitprice 2>&1 | tail -6 | cut -c1-300; grep -n "^  [a-z(]" data/b680_split_price.txt | 
+  #82 | 2026-10-17T22:13:42.574Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b680_record.py splitprice 2>&1 | tail -1 | cut -c1-300; git status --short | head
+  #83 | 2026-10-17T22:13:48.728Z | seat | Bash | git add tools/b680_record.py data/b680_split_price.txt data/b680_split_price.json && git commit -q -m "b680 C4: the ledger split priced, (R290)(6) -- 4565 of 46
+  #84 | 2026-10-17T23:13:33.803Z | seat | Bash | grep -n "def answer" -A25 tools/b680_citation.py | head -40
+  #85 | 2026-10-17T23:13:39.686Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_citation.py answer "W-ORD-LEDGER-SPLIT-RESOLVER" 2>&1 | tail -15 | cut -c1-220
+  #86 | 2026-10-17T23:13:46.981Z | seat | Bash | grep -n "^def c1order" tools/b680_record.py; sed -n "$(grep -n '^def c1order' tools/b680_record.py | cut -d: -f1),+75p" tools/b680_record.py
+  #87 | 2026-10-17T23:13:52.712Z | seat | Bash | grep -n "^ORDER\b\|^ORDER =\|^OH =\|^OB =\|^ORDERS =" tools/b680_record.py; sed -n "$(grep -n '^OH =' tools/b680_record.py | cut -d: -f1),+22p" tools/b680_recor
+  #88 | 2026-10-17T23:14:10.909Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b680_record.py c4order dry 2>&1 | tail -12 | cut -c1-260
+  #89 | 2026-10-17T23:14:16.778Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b680_record.py c4order 2>&1 | tail -4 | cut -c1-260; git -C /d/MY-DOwnloads/PLACE-papers status --short;
+  #90 | 2026-10-17T23:14:23.410Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b680 C4: W-ORD-LEDGER-SPLIT-RESOLVER entered (OT :14680), archive-3 HELD at 4565 
+  #91 | 2026-10-17T23:14:27.696Z | seat | Bash | cd /d/relay && git add tools/b680_record.py data/b670_work_orders.txt data/b680_record_lines_order4.json && git commit -q -m "b680 C4: the order's row appended 
+  #92 | 2026-10-17T23:14:34.260Z | seat | Bash | ls data | grep -E "^b671_tie|^b677_map|^b679_q0|^b675_li|^b679_.*json.gz|^b679_onset|narrow" | head -30; python -c "import matplotlib; print(matplotlib.__versio
+  #93 | 2026-10-17T23:14:41.350Z | seat | Bash | py -0p 2>&1 | head; for p in $(py -0p 2>/dev/null | awk '{print $NF}'); do "$p" -c "import matplotlib,sys;print(sys.executable, matplotlib.__version__)" 2>/dev/
+  #94 | 2026-10-17T23:14:53.443Z | seat | Bash | head -30 data/b671_tie_diagnostic.txt | cut -c1-220; echo ----; ls data | grep -E "^b677_(map|tol)"; 
+  #95 | 2026-10-17T23:14:59.046Z | seat | Bash | grep -n -i "fig\|(7)" data/b680_ferry.txt | cut -c1-400 | head -20
+  #96 | 2026-10-17T23:15:04.704Z | seat | Bash | sed -n 17p data/b680_ferry.txt; echo; head -12 data/b677_map.txt | cut -c1-260; grep -c "" data/b677_map.txt; python -c "
+  #97 | 2026-10-17T23:15:11.608Z | seat | Bash | python -X utf8 - <<'EOF'
+  #98 | 2026-10-17T23:15:21.222Z | seat | Bash | for f in data/b671_tie_diagnostic.txt data/b677_map.txt; do grep -n " j [0-9]* : " $f | sed -n '1p;41p;42p;82p;83p;123p' | cut -c1-40; done; git log --oneline -
+  #99 | 2026-10-17T23:15:47.303Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_fig_tie.py
+  #100 | 2026-10-17T23:15:58.209Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_fig_tie.py && sha256sum data/b680_fig_tie.png && PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_fig_tie.py &&
+  #101 | 2026-10-17T23:16:02.051Z | seat | Bash | git add tools/b680_fig_tie.py && git commit -q -m "b680 C5: tools/b680_fig_tie.py, committed alone ((R290)(7))" && git log --oneline -1
+  #102 | 2026-10-17T23:16:07.868Z | seat | Bash | python -X utf8 -c "
+  #103 | 2026-10-17T23:16:12.049Z | seat | Bash | grep -n -i "pair\|domin\|OFF" data/b679_q0_membership.txt | head -20 | cut -c1-260; python -X utf8 -c "
+  #104 | 2026-10-17T23:16:15.374Z | seat | Bash | git grep -n -i "dominant pair" -- data | head -8 | cut -c1-300
+  #105 | 2026-10-17T23:16:21.505Z | seat | Bash | sed -n 1,30p data/b673_v4_control.txt | cut -c1-260; grep -n -i "dominant\|idx 0\|\|z\|max" data/b675_li_bench.txt | head -15 | cut -c1-260
+  #106 | 2026-10-17T23:16:31.893Z | seat | Bash | python -X utf8 -c "
+  #107 | 2026-10-17T23:17:02.035Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_fig_q0.py
+  #108 | 2026-10-17T23:17:09.031Z | seat | Bash | sha256sum data/b680_fig_q0.png && PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_fig_q0.py > /dev/null && sha256sum data/b680_fig_q0.png && git add tools/b680
+  #109 | 2026-10-17T23:17:15.754Z | seat | Bash | python -X utf8 -c "
+  #110 | 2026-10-17T23:17:45.037Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_fig_li.py
+  #111 | 2026-10-17T23:18:01.940Z | seat | Bash | sed -n 26p data/b673_v4_control.txt | cut -c1-120; PYTHONIOENCODING=utf-8 python -X utf8 tools/b680_fig_li.py && sha256sum data/b680_fig_li.png && PYTHONIOENCOD
+  #112 | 2026-10-17T23:18:10.123Z | seat | Bash | git add tools/b680_fig_li.py && git commit -q -m "b680 C5: tools/b680_fig_li.py, committed alone ((R290)(7)); its panel (a) labelled an alias of the 100-step sa
+  #113 | 2026-10-17T23:18:13.621Z | seat | Bash | git add data/b680_fig_tie.png data/b680_fig_q0.png data/b680_fig_li.png && git commit -q -m "b680 C5: the three figure banks (tie, Q0, Li), each regenerated byt
+  #114 | 2026-10-17T23:18:18.602Z | seat | Bash | git add data/b680_citation_check.txt data/b680_scanfile_c4order.md && git commit -q -m "b680 C4: the mid-act check of the navigator's answer on archive-3 (4 cit
+  #115 | 2026-10-17T23:18:23.816Z | seat | Bash | wc -l tools/b679_record.py tools/b680_record.py tools/b679_checks.py tools/b679_closing.py tools/b679_reg_gate.py tools/b679_regspec.py; grep -n "^ROUTES" -A12 
+  #116 | 2026-10-17T23:18:32.210Z | seat | Bash | grep -n "^def \|^READERS\|^# =====\|^[A-Z_]* = " tools/b680_record.py | cut -c1-120
+  #117 | 2026-10-17T23:18:41.243Z | seat | Bash | for n in licensed correspondence ceiling orders methods kernels9 residues lag outside; do python -X utf8 -c "
+  #118 | 2026-10-17T23:18:57.498Z | seat | Bash | grep -n "^def \|^# =====\|^[A-Z_]* = \|^ARMS\|^STANDING\|^ACT" tools/b679_checks.py | cut -c1-140
+  #119 | 2026-10-17T23:19:18.214Z | seat | Bash | python -X utf8 -c "
+  #120 | 2026-10-17T23:19:23.408Z | seat | Bash | grep -n "RUNNER-READ\|RUNNER-GATE\|MERGES-ON-GATE\|WORKFLOW-FILES\|def runner_ok\|def gate_ok\|def wf_ok\|def merges_ok\|W_RUNS\|W_TIP\|reads the last\|no run" 
+  #121 | 2026-10-17T23:19:39.614Z | seat | Bash | grep -n "THE MID-ACT CHECK\|ANSWER CITES CHECKED\|CITES CHECKED" data/b680_citation_check.txt | cut -c1-200; PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_re
+  #122 | 2026-10-17T23:22:24.785Z | seat | Bash | grep -n "### ### \*\*" data/b680_correspondence.txt | cut -c1-900; grep -c "" data/b680_correspondence.txt; tail -3 data/b680_faces_diff.txt | cut -c1-300
+  #123 | 2026-10-17T23:22:32.822Z | seat | Bash | grep -n "^def ceiling" -A45 tools/b680_readings.py | cut -c1-220
+  #124 | 2026-10-17T23:22:43.285Z | seat | Bash | python -X utf8 -c "
+  #125 | 2026-10-17T23:22:52.459Z | seat | Bash | python -X utf8 -c "
+  #126 | 2026-10-17T23:25:58.908Z | seat | Bash | grep -n "^def captured\|^HEAD\b\|^HEAD =" tools/b680_readings.py | head; grep -n "^def faces" -A3 tools/b680_record.py | head -5; PYTHONIOENCODING=utf-8 python 
+  #127 | 2026-10-17T23:26:15.831Z | seat | Bash | ls data/b680_* | head -80; grep -n "### ### \*\*" data/b680_branches.txt data/b680_rowgen_stepzero.txt data/b680_stepzero.txt data/b680_readfirst.txt data/b680_
+  #128 | 2026-10-17T23:26:19.977Z | seat | Bash | cat data/b680_stepzero.txt | cut -c1-300 | head -40; head -5 data/b680_citation_check.txt | cut -c1-200; python -X utf8 -c "
+  #129 | 2026-10-17T23:26:35.907Z | seat | Bash | grep -c "RULING (R290) END" data/b680_ferry.txt; tail -c 120 data/b680_ferry.txt; echo; grep -n "^def \|^def main" tools/b680_rules_index.py | head; grep -n "os
+  #130 | 2026-10-17T23:26:44.889Z | seat | Bash | ls tools/b679_*.py; python -X utf8 -c "
+  #131 | 2026-10-17T23:31:30.513Z | seat | Bash | git ls-tree --name-only f507c3f7 tools/ledger_split.py tools/b670_record.py tools/b679_onset.py tools/b679_q0_membership.py; sed -n 9076p /d/MY-DOwnloads/PLACE-
+  #132 | 2026-10-17T23:31:36.137Z | seat | Bash | sed -n 9076p /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | grep -o "Nothing deposited[^.]*\.\|Nothing deposits[^.]*" | head -3; PYTHONIOENCODING=utf-8 python -X ut
+  #133 | 2026-10-17T23:31:43.043Z | seat | Bash | for r in answers commands kernels defects repairs; do echo "== $r"; PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b680_record.py $r 2>&1 | tail -14 | 
+
+### ### **COMMANDS 133 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 8 OF 8.**
