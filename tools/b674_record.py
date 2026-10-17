@@ -242,6 +242,141 @@ def branches(*a):
     print(NL.join(L[4:]))
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R284)(1)-(2)
+WH = ('*Appended 2026-10-16 by b674 to b673’s entry (:8819), under `(R284)`(1) and the navigator’s answer on the weight-line misses -- b673 '
+      'AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay data/b673_closing.txt):*')
+WB = (' “b673 closed: relay 57fdb813, PLACE-papers f755f99, SIDE-explicit-formula e36ea31 v0.32; suite 84 of 84; root 4f86a025…; 7 prompts '
+      'answered; 16 defects” (data/b673_closing.txt :1); the closing pushed and read back at relay 6f98c458 (data/b673_closing_push_out.txt '
+      ':5); the sealed tools agreeing 8 of 8 (:14); four runs at four tree states, 516803e, b1d4342, 921fb71 and 5050a46 (:24), one dispatch '
+      'per tree state (data/b673_rules.txt row 1); the landing DECLARATIONS 29 ; DERIVES 29 (:25); the walk on S5 DECLARATIONS REACHED 254 ; '
+      'ζ-NAMING 0 ; THE CONTROL 1 (:26); the hypotheses with H5 held through rh_equiv_mathlib and refuted as text (:53), read as held by '
+      '`(R284)`(2); the mirror mirror-refresh-2026-10-16-b673.zip clean on all three clauses with the root line (:56); the suite 84 of 84 '
+      'pre-push and post-push (:166-:169); the foreground pre-run in 396 s replacing the detached run the host stopped (relay '
+      'data/b673_registration_2026-10-16.txt); sixteen defects (a)-(p), the navigator’s (b)-(e), (g) and (h). Nothing deposited.')
+DH = ('*Appended 2026-10-16 by b674 beneath b673’s discharge line (:14478), under `(R284)`(2) -- **`W-ORD-LI-CONVERSE-NATIVE`**, THE '
+      'DISCHARGE ON H5 THROUGH rh_equiv_mathlib:*')
+DB = (' H5 through rh_equiv_mathlib: the native converse li_nonneg_imp_rh_native and the vendored positivity_implies_RH conclude the two '
+      'sides of that bridge, equal as propositions through it and unequal as text (relay data/b673_h5.txt :17-:23); reading (iii) of b673’s '
+      'face confirmed and not struck, and the discharge stands on it. The faces page’s drafted line on unequal converses (relay '
+      'data/b673_landing.txt :58-:60) is the record of the text side.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL), ('OPEN_TRAILS.md', DH, NL + DH + DB + NL)], 'b674_record_lines.json', 'c1', entry=K.B673_ENTRY,
+         check=[('FINDINGS.md', K.B673_ENTRY, '## V4 DERIVES and V5 DERIVES'), ('OPEN_TRAILS.md', K.B673_TRAIL, '### b673'),
+                ('OPEN_TRAILS.md', K.DISCHARGE, '`W-ORD-LI-CONVERSE-NATIVE`')], dry=dry)
+
+
+# ================================================================================ COMPONENT 2: THE TWO DRAFTS, WRITTEN ON THE AUTHOR'S WORD ((R284)(3))
+SUP = re.compile(r"Supportable[^*]*?: \*(.+?)\*")                                       # ### b670_record.py :791, unchanged
+PLACED = re.compile(r"placed at README\.md :(\d+) and REGISTRY\.md :(\d+): \*(.+?)\*")   # ### b670_record.py :792, unchanged
+NEW_SITES = (('README.md', 127), ('REGISTRY.md', 962))
+FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
+
+
+def _placement(f, ln):
+    l = rd(os.path.join(PP, f)).split(NL)[ln - 1]
+    m = (PLACED if f == 'FINDINGS.md' else SUP).search(l)
+    s = (m.group(3) if f == 'FINDINGS.md' else m.group(1)) if m else None
+    import hashlib
+    return l, s, hashlib.sha256(s.encode('utf-8')).hexdigest() if s else None
+
+
+def _successor():
+    rows = [_placement(f, n) for f, n in NEW_SITES]
+    if not all("`(R284)`(3)" in l and s for l, s, _h in rows) or len(set(h for _l, _s, h in rows)) != 1:
+        sys.exit('### README :127 AND REGISTRY :962 DO NOT CARRY ONE (R284)(3) SENTENCE -- NOTHING WRITTEN')
+    return rows[0][1]
+
+
+PH = ('*Appended 2026-10-16 by b674 to the ceiling’s χ-sentence record (:6354), under `(R284)`(3) and the author’s word on it -- THE CEILING '
+      'SENTENCE’S SUCCESSOR, the author’s sentence,')
+
+
+def c2(*a):
+    dry = 'dry' in a
+    s = _successor()
+    body = (' placed at README.md :%d and REGISTRY.md :%d: *%s* The (R183)(3) sentence it stands beside stays at README.md :125, REGISTRY.md '
+            ':960 and here at :6354; the ceiling “RH reduced to a single located clause, reduction machine-verified” stays where it stands, at '
+            'README.md :106, unwritten.' % (NEW_SITES[0][1], NEW_SITES[1][1], s))
+    land([('FINDINGS.md', PH, NL + PH + body + NL)], 'b674_record_lines_c2.json', 'c2', check=[('FINDINGS.md', 6354, '`(R183)`(3)')], dry=dry)
+
+
+def ceilingdiff(*a):
+    """data/b674_ceiling_diff.txt: rows are sites with before (PLACE-papers at the act's start) and after (the working tree): the (R183)(3)
+    sentence at its three placements and the successor at its three, each by its own delimiters, sha256 and bytes; the byte-equality of
+    each three-site set printed."""
+    import hashlib
+    fl = jl('b674_record_lines_c2.json').get('lines') or []
+    fline = fl[0]['line'] if fl else None
+    if not fline:
+        sys.exit('### THE FINDINGS PLACEMENT IS NOT LANDED -- RUN c2 FIRST -- NOTHING WRITTEN')
+    rows = []
+    for label, f, n_before, n_after in (('(R183)(3)', 'README.md', 125, 125), ('(R183)(3)', 'REGISTRY.md', 960, 960), ('(R183)(3)', 'FINDINGS.md', 6354, 6354),
+                                        ('(R284)(3)', 'README.md', None, 127), ('(R284)(3)', 'REGISTRY.md', None, 962), ('(R284)(3)', 'FINDINGS.md', None, fline)):
+        before = None
+        if n_before:
+            old = (_show(PP, K.PRE_PP, f) or '').split(NL)[n_before - 1]
+            m = (PLACED if f == 'FINDINGS.md' else SUP).search(old)
+            sb = (m.group(3) if f == 'FINDINGS.md' else m.group(1)) if m else None
+            before = (len(sb.encode('utf-8')), hashlib.sha256(sb.encode('utf-8')).hexdigest()) if sb else None
+        _l, sa, ha = _placement(f, n_after)
+        rows.append(dict(sentence=label, site='%s :%s' % (f, n_after), before=before, after=(len(sa.encode('utf-8')), ha) if sa else None))
+    eq = dict((lab, len(set(r['after'][1] for r in rows if r['sentence'] == lab and r['after'])) == 1 and
+               all(r['after'] for r in rows if r['sentence'] == lab)) for lab in ('(R183)(3)', '(R284)(3)'))
+    kept = all(r['before'] == r['after'] for r in rows if r['sentence'] == '(R183)(3)')
+    L = ['b674 -- COMPONENT 2, (R284)(3): THE CEILING`S SITES BEFORE AND AFTER (%s)' % utc(), '',
+         '### rows are sites: the sentence ; the site ; before (PLACE-papers %s, bytes and sha256 of the sentence by its own delimiters, b670`s) ; '
+         'after (the working tree)' % K.PRE_PP]
+    L += ['  %-10s %-18s before %-80s after %s' % (r['sentence'], r['site'], ('%d bytes %s' % r['before']) if r['before'] else 'ABSENT',
+                                                  ('%d bytes %s' % r['after']) if r['after'] else '### ABSENT') for r in rows]
+    L += ['', '### ### **THE (R183)(3) SENTENCE UNCHANGED AT ITS THREE SITES %s ; BYTE-EQUAL %s ; THE SUCCESSOR BYTE-EQUAL AT ITS THREE SITES %s.**' % (
+        kept, eq['(R183)(3)'], eq['(R284)(3)'])]
+    put_txt('b674_ceiling_diff.txt', L)
+    put_json('b674_ceiling_diff.json', dict(at=utc(), rows=rows, kept=kept, equal=eq))
+    print(NL.join(L[3:]))
+
+
+def faces(*a):
+    """the faces page re-emitted through its generator from relay data/b674_nodes_zeta.txt and b643's banked probe output (`--from-output`,
+    no elaboration), into PLACE-papers; the control first: b649's list into the scratchpad, its sha256 against the committed page's. The diff
+    of the written page against the committed one banked by kind. data/b674_faces_diff.txt (.json)."""
+    import hashlib
+    sha = lambda p: hashlib.sha256(open(p, 'rb').read()).hexdigest()   # noqa: E731
+    page = os.path.join(PP, FACES_PAGE)
+    run_ = lambda nodes, out: subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'chain_page.py'), '--nodes', nodes, '--probe-dir',   # noqa: E731
+                                              os.path.join(SP, 'b674_probe'), '--out', out, '--from-output', os.path.join(D, 'b643_probe_out_zeta.txt')],
+                                             capture_output=True, text=True, encoding='utf-8', errors='replace')
+    committed = sha(page)
+    ctl_out = os.path.join(SP, 'b674_page_control.md')
+    r0 = run_(os.path.join(D, 'b649_nodes_zeta.txt'), ctl_out)
+    ctl = r0.returncode == 0 and sha(ctl_out) == committed
+    if not ctl:
+        sys.exit('### THE CONTROL DOES NOT EMIT THE COMMITTED PAGE (exit %d) -- NOTHING WRITTEN' % r0.returncode)
+    if 'dry' in a:
+        print('  the control: b649`s list emits the committed page byte for byte: %s (dry: nothing written)' % ctl)
+        return
+    r1 = run_(os.path.join(D, 'b674_nodes_zeta.txt'), page)
+    d = subprocess.run(['git', '-C', PP, 'diff', '--unified=0', '--', FACES_PAGE], capture_output=True, text=True, encoding='utf-8', errors='replace').stdout
+    plus = [l for l in d.split(NL) if l.startswith('+') and not l.startswith('+++')]
+    minus = [l for l in d.split(NL) if l.startswith('-') and not l.startswith('---')]
+    faces_line = [l for l in plus if 'equivalent faces, unequal converses' in l]
+    L = ['b674 -- COMPONENT 2, (R284)(3): THE FACES PAGE RE-EMITTED THROUGH ITS GENERATOR (%s)' % utc(), '',
+         '### the generator: relay tools/chain_page.py `--from-output` relay data/b643_probe_out_zeta.txt (no elaboration, no lean)',
+         '### the control: b649`s list (relay data/b649_nodes_zeta.txt) emits the committed page byte for byte: %s (sha256 %s)' % (ctl, committed[:16]),
+         '### the written page: from relay data/b674_nodes_zeta.txt (b649`s lines unchanged and one backmatter record), exit %d, sha256 %s' % (
+             r1.returncode, sha(page)[:16]),
+         '### THE DIFF AGAINST THE COMMITTED PAGE, BY KIND: lines added %d ; lines removed %d ; the faces line among the added %s' % (
+             len(plus), len(minus), bool(faces_line)), '', '### the diff, whole:'] + ['    ' + l for l in d.rstrip(NL).split(NL)]
+    L += ['', '### ### **CONTROL %s ; ADDED %d ; REMOVED %d ; THE FACES LINE WRITTEN THROUGH THE BACKMATTER CHANNEL %s.**' % (
+        ctl, len(plus), len(minus), bool(faces_line))]
+    put_txt('b674_faces_diff.txt', L)
+    put_json('b674_faces_diff.json', dict(at=utc(), control=ctl, committed=committed, written=sha(page), added=len(plus), removed=len(minus),
+                                          faces_line=bool(faces_line), rc=r1.returncode))
+    print(L[-1])
+
+
 # ================================================================================ THE AUTHOR'S ANSWERS (b673's route, carried)
 def _session_rows():
     """the seat's session from K.ANCHOR, then each continuation (K.SESSIONS_AFTER, b646's form) from its own anchor; a continuation whose
@@ -329,7 +464,7 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'answers': answers}
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'answers': answers, 'c1': c1, 'c2': c2, 'ceilingdiff': ceilingdiff, 'faces': faces}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
