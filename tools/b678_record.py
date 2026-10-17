@@ -310,7 +310,279 @@ def c2(*a):
     print('  data/%s appended (%d bytes before, %d after): %s' % (ORDERS, len(old), len(new), rows[1].strip()[:120]))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'c2': c2}
+# ================================================================================ COMPONENT 3: THE NAMING, (R288)(3) -- before any kernel write
+def _kern_rows():
+    """the kernels table's rows (data/b647_table_kernels.txt): rows | MATCHES | UNDERSTATES | OVERREACHES | UNLICENSED (its header :4)."""
+    out = []
+    for i, l in enumerate(rdn(K.KERNELS_BANK).split(NL), 1):
+        m = re.match(r'^  (SIDE-[\w-]+)\s+([0-9a-f]{7}) \|\s+(\d+) \|\s+(\d+) \|\s+(\d+) \|\s+(\d+) \|\s+(\d+) \|', l)
+        if m:
+            out.append(dict(line=i, text=l, kernel=m.group(1), pin=m.group(2), rows=int(m.group(3)), under=int(m.group(5)),
+                            over=int(m.group(6)), unlic=int(m.group(7))))
+    return out
+
+
+def naming(*a):
+    """(R288)(3) and N3: the order's line (data/b652_ferry.txt :19), the tie-break rule's row and the table rows printed verbatim from their
+    banks; every kernel's standing count read from the licensed table (a kernel cut since its read stands at its cut bank's figure); the
+    document named by the descending count and, at a tie, by the rule's letter (rows outside LICENSED/CITED of any kind, then the larger
+    table); then the named kernel's workflow directory, print list and print bank read or declared absent -- before any kernel write.
+    data/b678_naming.txt (.json)."""
+    rules = rdn(K.RULES_BANK).split(NL)
+    i0 = [i for i, l in enumerate(rules) if l.startswith('  (%d) ' % K.TIE_RULE_ROW)][0]
+    rule = [rules[i0]] + [l for l in __import__('itertools').takewhile(lambda x: x.startswith('      '), rules[i0 + 1:])]
+    order_line = rd(os.path.join(D, 'b652_ferry.txt')).split(NL)[18]
+    lt = rdn(K.TABLE_BANK).split(NL)
+    standing = {}
+    for i, l in enumerate(lt, 1):
+        m = re.match(r'^  (SIDE-[\w-]+) docstrings \(read at ([0-9a-f]{7})\)\s+(\d+) ->\s+(\d+)', l)
+        if m:
+            standing[m.group(1)] = (i, int(m.group(4)), l)
+    cut_since = {}
+    for k, bank, needle in K.CUT_SINCE:
+        m = re.search(r'THE DISTANCE BEFORE (\d+), AFTER (\d+)', rdn(bank))
+        if m and needle in rdn(bank):
+            cut_since[k] = (int(m.group(2)), bank)
+    rank = []
+    for r in _kern_rows():
+        ln, now, _l = standing.get(r['kernel'], (None, None, None))
+        if r['kernel'] in cut_since:
+            now = cut_since[r['kernel']][0]
+        rank.append((now if now is not None else -1, r['under'] + r['over'] + r['unlic'], r['rows'], r['kernel'], ln, r))
+    rank.sort(key=lambda x: (-x[0], x[3]))
+    top = rank[0][0]
+    tied = [x for x in rank if x[0] == top]
+    by_rule = sorted(tied, key=lambda x: (-x[1], -x[2], x[3]))
+    named = by_rule[0][3] if (len(tied) == 1 or (by_rule[0][1], by_rule[0][2]) != (by_rule[1][1], by_rule[1][2])) else None
+    wf = g(K.TD, 'ls-tree', '--name-only', 'main', '.github/workflows/').split()
+    pt = g(K.TD, 'ls-tree', '--name-only', 'main').split()
+    pshape = r"'SIDESilencePrinciple\.[A-Za-z0-9_.']+' (depends on axioms|does not depend on any axioms)|^  SIDESilencePrinciple\.[A-Za-z0-9_.']+ +\["
+    pb = sorted(set(g(ROOT, 'grep', '-lE', pshape, '--', 'data/').split()))
+    ctl = sorted(set(g(ROOT, 'grep', '-lE', r"'Trivium\.[A-Za-z0-9_.']+' (depends on axioms|does not depend on any axioms)", '--', 'data/').split()))
+    L = ['b678 -- COMPONENT 3, (R288)(3): THE ORDER, THE RULE ROW AND THE TABLE ROWS, VERBATIM, BEFORE THE DOCUMENT IS NAMED (%s)' % utc(), '',
+         '### THE ORDER, verbatim (relay data/b652_ferry.txt :19): ' + order_line.strip(),
+         '### THE RULE, verbatim with path and line (relay data/%s :%d):' % (K.RULES_BANK, i0 + 1)] + ['    ' + l for l in rule] + [
+         '', '### THE TABLE ROWS, verbatim with path and line: the licensed table (relay data/%s) for each kernel of the kernels table (relay' % K.TABLE_BANK,
+         '### data/%s, columns rows | MATCHES | UNDERSTATES | OVERREACHES | UNLICENSED, its header :4); a kernel cut since its read stands at' % K.KERNELS_BANK,
+         '### its cut bank`s figure (%s); ordered by the count now standing:' % '; '.join('%s at %d, relay data/%s' % (k, v[0], v[1]) for k, v in cut_since.items())]
+    for now, anyk, nrows, k, ln, r in rank:
+        L.append('  %2d  %-34s licensed table :%s  "%s"' % (now, k, ln, (standing.get(k) or (0, 0, ''))[2].strip()))
+        L.append('      %-34s kernels table :%d  "%s"  (outside of any kind %d ; rows %d)' % ('', r['line'], r['text'].strip(), anyk, nrows))
+    L += ['', '### THE NAMING: the greatest count standing is %d, carried by %s.' % (top, ', '.join(x[3] for x in tied))]
+    if len(tied) > 1:
+        L.append('### A TIE: neither carries a declared suite failure (b677`s suite 85 of 85, relay data/b677_closing.txt :1); the rule of row %d by its '
+                 'letter -- rows outside LICENSED/CITED of any kind: %s; %s' % (K.TIE_RULE_ROW, ', '.join('%s %d' % (x[3], x[1]) for x in tied),
+                                                                                 'EQUAL, so the larger table: %s' % ', '.join('%s %d rows' % (x[3], x[2]) for x in tied)
+                                                                                 if len(set(x[1] for x in tied)) == 1 else 'the greater count'))
+    L += ['### NAMED: %s docstrings' % (named or '### NONE'),
+          '', '### THE NAMED KERNEL`S WORKFLOW DIRECTORY, PRINT LIST AND PRINT BANK (read before any kernel write):',
+          '  %s main %s (tag %s at %s): .github/workflows/ carries %s -- %s' % (
+              named, g(K.TD, 'rev-parse', '--short', 'main').strip(), K.T_LAST_TAG, g(K.TD, 'rev-parse', '--short', K.T_LAST_TAG + '^{commit}').strip(),
+              wf or 'NOTHING', 'a build-module.yml' if any('build-module' in f for f in wf) else 'NO build-module.yml (no dispatch input; no print step)'),
+          '  print_targets.txt at its root: %s ; AxiomCheck*.lean at its root: %s' % ('print_targets.txt' in pt, [f for f in pt if f.startswith('AxiomCheck')] or 'NONE'),
+          '  relay tracked banks carrying a printed axiom line of a SIDESilencePrinciple declaration (git grep -lE over data/): %s -- %s' % (
+              pb or 'NONE', 'NO PRINT BANK' if not pb else 'a print bank'),
+          '  the control, the same shape over SIDE-trivium`s declarations: %d bank(s), b676`s after bank among them %s' % (
+              len(ctl), 'data/b676_axioms_SIDE-trivium_after.txt' in ctl),
+          '  its dependency form: lakefile.toml, no require (Mathlib-free) %s ; lean-toolchain %s' % (
+              'require' not in (_show(K.TD, 'main', 'lakefile.toml') or 'require'), (_show(K.TD, 'main', 'lean-toolchain') or '').strip()),
+          '', '### ### **NAMED %s ; TIED %d ; WORKFLOW build-module.yml %s ; PRINT LIST %s ; PRINT BANK %s.**' % (
+              named or '### NONE', len(tied), 'PRESENT' if any('build-module' in f for f in wf) else 'ABSENT',
+              'PRESENT' if 'print_targets.txt' in pt else 'ABSENT', 'PRESENT' if pb else 'ABSENT')]
+    put_txt('b678_naming.txt', L)
+    put_json('b678_naming.json', dict(at=utc(), named=named, tied=[x[3] for x in tied], top=top, workflows=wf, print_banks=pb,
+                                      rank=[[x[0], x[1], x[2], x[3], x[4]] for x in rank]))
+    print(NL.join(L[-16:]))
+
+
+# ================================================================================ COMPONENT 3: THE RUNS ON THE HOSTED RUNNER (b676's runner, carried)
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def runner(*a):
+    """`runner <run id> <ref> <label>`: the named kernel's run read by its id; the artifact listed, downloaded by its id into memory, its sha256
+    against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP; the axioms output
+    of the print step banked whole, every name of the list matched to one printed line. data/b678_runner_<kernel>_<label>.txt,
+    data/b678_axioms_<kernel>_<label>.txt and a row of data/b678_runner_rows.json. Carried from b676_record.py's runner."""
+    import hashlib
+    import io as _io
+    import zipfile
+    run_id, ref, label = int(a[0]), a[1], a[2]
+    repo = 'psinary-sketch/' + K.CANDIDATE
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    row = dict(kernel=K.CANDIDATE, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+               stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+    L = ['b678 -- COMPONENT 3, (R288)(3): THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (K.CANDIDATE, label.upper(), utc()), '',
+         '### the dispatch: at main (the workflow %s, the print list %s), the ref input %s ; the target `%s`' % (K.T_WORKFLOW, K.T_MAIN, ref, K.T_TARGET)]
+    if label == 'before':
+        L.append('### THE PRINT BANK AT MAIN: main %s is the tag %s (%s) with the workflow and print-list commits atop it (%s past %s), no .lean '
+                 'byte changed' % (K.T_MAIN, K.T_LAST_TAG, K.T_PRE_MAIN, g(K.TD, 'rev-list', '--count', '%s..%s' % (K.T_LAST_TAG, K.T_MAIN)).strip(),
+                                   K.T_LAST_TAG))
+    L.append('### the run: id %s ; %s ; status %s ; conclusion %s ; %s to %s' % (run_id, run.get('url'), run.get('status'), run.get('conclusion'),
+                                                                               run.get('createdAt'), run.get('updatedAt')))
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('size_in_bytes'), sha, digest or '### NONE GIVEN', 'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    row['axioms_sha256'] = hashlib.sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    deps = re.findall(r"^'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)", re.sub(r'\n(?=[ \t]*[A-Za-z_.]+[,\]])', ' ', ax), re.M)
+    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+    printed = [n for n, _d in deps]
+    unmatched = [n for n in tg if n not in printed]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d ; the log`s last lines:' % (row['build_exit'], len(row['errors']))] + \
+        ['    ' + l for l in blog.rstrip(NL).split(NL)[-6:]] + [
+          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; axiom-free %d ; '
+          'sorryAx %d ; refused %s' % (len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg),
+                                       sum(1 for _n, d in deps if d.startswith('does not')), sum(1 for _n, d in deps if 'sorryAx' in d),
+                                       T_.get('axioms_refused.txt', '').strip() or 'NONE')]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and not any('sorryAx' in d for _n, d in deps)
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; GATE %s.**' % (
+        run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']), len(deps),
+        len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), row['gate'])]
+    put_txt('b678_runner_%s_%s.txt' % (K.CANDIDATE, label), L)
+    if row['artifact_sha256']:
+        put_txt('b678_axioms_%s_%s.txt' % (K.CANDIDATE, label), ax.split(NL))
+    j = jl('b678_runner_rows.json') if os.path.isfile(os.path.join(D, 'b678_runner_rows.json')) else {}
+    rows = [r for r in (j.get('rows') or []) if r.get('label') != label] + [row]
+    put_json('b678_runner_rows.json', dict(rows=rows))
+    print(NL.join(L))
+
+
+def prints(*a):
+    """the 'before' and 'after' axioms outputs compared line for line (the merge only where they are equal at every line).
+    data/b678_prints_compare.txt."""
+    b, f = rdn('b678_axioms_%s_before.txt' % K.CANDIDATE), rdn('b678_axioms_%s_after.txt' % K.CANDIDATE)
+    if not b or not f:
+        sys.exit('### A PRINT BANK IS MISSING -- NOTHING WRITTEN')
+    bl, fl = b.rstrip(NL).split(NL), f.rstrip(NL).split(NL)
+    diff = [(i + 1, x, y) for i, (x, y) in enumerate(zip(bl, fl)) if x != y] + ([('length', len(bl), len(fl))] if len(bl) != len(fl) else [])
+    L = ['b678 -- COMPONENT 3: THE PRINTS BEFORE AND AFTER THE CUT, LINE FOR LINE (%s)' % utc(), '',
+         '### before: relay data/b678_axioms_%s_before.txt (%s, %d lines) ; after: relay data/b678_axioms_%s_after.txt (%s, %d lines)' % (
+             K.CANDIDATE, K.T_MAIN, len(bl), K.CANDIDATE, K.T_CUT, len(fl)), '### the lines that differ:'] + (['    %s : %s | %s' % d for d in diff] or ['    NONE'])
+    L += ['', '### ### **PRINTS BEFORE %d LINES ; AFTER %d LINES ; DIFFERING %d ; EQUAL LINE FOR LINE %s.**' % (len(bl), len(fl), len(diff), not diff)]
+    put_txt('b678_prints_compare.txt', L)
+    print(L[-1])
+
+
+def _strip_comments(t):
+    """the Lean text with every block comment (nested /- -/, docstrings and module docs included) and every line comment removed, whitespace
+    runs collapsed: what the elaborator reads."""
+    out, i, depth = [], 0, 0
+    while i < len(t):
+        if t.startswith('/-', i):
+            depth, i = depth + 1, i + 2
+            continue
+        if depth and t.startswith('-/', i):
+            depth, i = depth - 1, i + 2
+            continue
+        if not depth and t.startswith('--', i):
+            j = t.find(NL, i)
+            i = len(t) if j < 0 else j
+            continue
+        if not depth:
+            out.append(t[i])
+        i += 1
+    return re.sub(r'\s+', ' ', ''.join(out)).strip()
+
+
+CONTROL_NEEDLE = 'theorem silence_yields_protection'
+
+
+def cutdiff(*a):
+    """(R288)(3): the cut's diff (the print-list main to the cut tip), printed whole; the files it touches; each file's text with its comments
+    stripped compared before and after (equal = no line the elaborator reads changed), with a positive control (a one-word code change in
+    the after text must make the comparison unequal). data/b678_cut_diff.txt."""
+    files = g(K.TD, 'diff', '--name-only', K.T_MAIN, K.T_CUT).split()
+    d = g(K.TD, 'diff', '--unified=0', K.T_MAIN, K.T_CUT).replace(chr(13), '')
+    rows = []
+    for f in files:
+        b, n = _show(K.TD, K.T_MAIN, f) or '', _show(K.TD, K.T_CUT, f) or ''
+        eq = _strip_comments(b) == _strip_comments(n)
+        ctl = _strip_comments(b) == _strip_comments(n.replace(CONTROL_NEEDLE, CONTROL_NEEDLE + '_', 1))
+        rows.append((f, eq, ctl, CONTROL_NEEDLE in n))
+    plus = [l for l in d.split(NL) if l.startswith('+') and not l.startswith('+++')]
+    minus = [l for l in d.split(NL) if l.startswith('-') and not l.startswith('---')]
+    L = ['b678 -- COMPONENT 3, (R288)(3): THE CUT`S DIFF, RESTRICTED TO COMMENT AND DOCSTRING LINES (%s)' % utc(), '',
+         '### %s %s (main, the print list) -> %s (the cut, %s); files %s ; lines added %d, removed %d' % (
+             K.CANDIDATE, K.T_MAIN, K.T_CUT, K.T_BRANCH, files, len(plus), len(minus)),
+         '### rows are files: the text with every comment stripped equal before and after ; the control (a one-word code change in the after',
+         '### text) unequal ; the control`s needle present:']
+    L += ['  %-34s CODE EQUAL %s ; CONTROL UNEQUAL %s ; NEEDLE PRESENT %s' % (f, eq, not ctl, nd) for f, eq, ctl, nd in rows]
+    L += ['', '### the diff, whole:'] + ['    ' + l for l in d.rstrip(NL).split(NL)]
+    ok = files == list(K.T_CUT_FILES) and all(eq and not ctl and nd for _f, eq, ctl, nd in rows)
+    L += ['', '### ### **FILES %d ; CODE EQUAL WITH COMMENTS STRIPPED %s ; CONTROLS UNEQUAL %s ; COMMENT AND DOCSTRING LINES ALONE %s.**' % (
+        len(files), all(r[1] for r in rows), all(not r[2] for r in rows), ok)]
+    put_txt('b678_cut_diff.txt', L)
+    print(L[-1])
+
+
+def corr(*a):
+    """(R288)(3): the Correspondence generator (tools/correspondence_gen.py) run `dry full` (the local clones' tags, no remote call; it writes
+    nothing), its print banked whole with the count of lines naming the cut kernel; the run mode only where the dry run changes a cell.
+    data/b678_correspondence_dry.txt."""
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'correspondence_gen.py'), 'dry', 'full'], capture_output=True, text=True,
+                       encoding='utf-8', errors='replace', timeout=560)
+    out = ((r.stdout or '') + (r.stderr or '')).replace(chr(13), '')
+    hits = [l for l in out.split(NL) if re.search(r'(?i)silence-principle|SIDESilencePrinciple', l)]
+    v = [l for l in out.split(NL) if 'CELLS CHANGED' in l][-1:] or ['### NO VERDICT LINE']
+    L = ['b678 -- COMPONENT 3, (R288)(3): THE CORRESPONDENCE GENERATOR, DRY, AFTER THE TAG %s (%s)' % (K.T_NEXT_TAG, utc()), '',
+         '### relay tools/correspondence_gen.py `dry full`, exit %d ; lines naming the cut kernel %d ; the generator`s verdict:' % (
+             r.returncode, len(hits)), '    ' + v[0].strip(), '', '### the print, whole:'] + ['    ' + l for l in out.rstrip(NL).split(NL)]
+    cc = re.search(r'CELLS CHANGED (\d+)', v[0])
+    L += ['', '### ### **GENERATOR EXIT %d ; CELLS CHANGED %s ; LINES NAMING THE CUT KERNEL %d ; RUN MODE %s.**' % (
+        r.returncode, cc.group(1) if cc else '### UNREAD', len(hits), 'NOT RUN (no cell to change)' if cc and cc.group(1) == '0' and not hits
+        else '### TO BE RUN')]
+    put_txt('b678_correspondence_dry.txt', L)
+    print(L[-1])
+
+
+NH = ('*Appended 2026-10-17 by b678 beneath the nine-kernels item (:14440), under `(R288)`(3) -- SIDE-silence-principle’s FIRST RELAY RUNNER '
+      'PRINT BANKS, AT v0.2.0’S LEAN TEXT AND AT ITS TAG v0.2.1:*')
+NB = (' SIDE-silence-principle, “at v0.2.0 (3 cells)” among the nine, is printed by the hosted runner at both trees of its re-cut (relay '
+      'data/b678_cut.txt): run 39055170313 at 6968b6c, its Lean text v0.2.0’s (the workflow and the print list committed atop it, no .lean '
+      'byte), and run 39055212218 at the cut 8829bcc, merged as 96b3098 and tagged v0.2.1 -- 58 of 58 declarations printed in each, DERIVES, '
+      'the prints equal line for line (relay data/b678_axioms_SIDE-silence-principle_before.txt, data/b678_axioms_SIDE-silence-principle_after.txt). '
+      'The Correspondence generator, run dry after the tag, would change 5 cells in FOUNDATIONS_OF_THE_SIDE_PROGRAMME :628-:630 and still read '
+      'them “NO PRINT BANK AT v0.2.1”, its print-bank reader not reading these runner banks (relay data/b678_correspondence_dry.txt); its run '
+      'mode is not run in this act, and the five cells are carried here with the reader.')
+
+
+def c3(*a):
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', NH, NL + NH + NB + NL)], 'b678_record_lines_c3.json', 'c3',
+         check=[('OPEN_TRAILS.md', 14440, 'THE KERNELS WITH NO RELAY PRINT BANK AT THEIR TAG')], dry=dry)
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'c2': c2, 'naming': naming, 'runner': runner, 'prints': prints,
+          'cutdiff': cutdiff, 'corr': corr, 'c3': c3}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
