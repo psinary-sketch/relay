@@ -1,0 +1,11 @@
+b675 -- THE RULES BANKED IN THE ACT, UNDER (R285)(2) (2026-10-16)
+
+### rows are rules, each with its source and its scope.
+
+  (1) THE CLOSING TOOL'S DRY RUN, A GATE STEP. The closing tool is run in a dry-run before the seal as a gate step, its readings printed, and
+      sealed after: `python tools/bNNN_closing.py dry` writes the record to the scratchpad and prints its head line, its citation line, its
+      verdict lines and its tag rows; the gate's record carries the step's verdict. Source: (R285)(2), from b674 defect (m) (the closing first
+      run after the post-push suite, three of its readings wrong). Scope: standing; this act's gate runs it (tools/b675_reg_gate.py).
+  (2) A PRE-RUN'S LONG PHASE SPLITS THE NEXT ONE. A pre-run whose longest phase exceeds 450 s is split into foreground parts at the next act,
+      the phases' seconds cited. Source: (R285)(2) (b674's pre-runs, 537 s and 371 s in the foreground). Scope: standing; this act's suite
+      prints each phase's seconds and the bench printed each part's.
