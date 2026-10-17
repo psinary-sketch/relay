@@ -1,0 +1,12 @@
+b678 -- THE RULES BANKED IN THE ACT, UNDER (R288)(1) (2026-10-17)
+
+### rows are rules, each with its source and its scope.
+
+  (1) THE STANDING ARMS IN TWO FOREGROUND PARTS, THE ACT`S IN ONE. Every run of the suite -- the pre-run, the pre-push and the post-push
+      runs -- is split into three foreground parts, each under the 600 s limit and each computing only the sources its arms read:
+      `--part standing-a` (the standing arms but two, over the three arms at HEAD, the written files, the public bytes and the prior
+      banks), `--part standing-b` (the two standing arms over the act-root chain and the shared additive files, G-ACTROOT-VERIFY and
+      G-SHARED-ADDITIVE) and `--part act` (the act's arms over this act's banks, the table regenerated in a closing run); `--combine
+      <bank>` writes the run's bank, the counts summed at its head with each part's seconds, the part banks carried whole beneath. Source:
+      (R288)(1), from b677's pre-run standing part at 557 s (relay data/b677_arms_prerun_standing.txt) and data/b675_rules.txt row 2;
+      it supersedes data/b677_rules.txt row 1's two parts. Scope: standing from this act; tools/b678_checks.py carries it.

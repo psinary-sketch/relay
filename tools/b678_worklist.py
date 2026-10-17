@@ -55,7 +55,7 @@ T_TARGET = 'SIDESilencePrinciple'
 T_FILE = 'SIDESilencePrinciple/Basic.lean'
 T_CUT_FILES = (T_FILE,)
 T_WORKFLOW, T_MAIN, T_CUT = '5d2e587', '6968b6c', '8829bcc'    # ### the workflow alone, the print list alone (main), the cut (the branch)
-T_MERGE = None                                                  # ### filled at the merge
+T_MERGE = '96b3098'                                             # ### the merge, tagged v0.2.1 by the push tool
 T_RUNS = ((39055170313, 'before'), (39055212218, 'after'))     # ### one dispatch per tree state, read by its run id
 
 NEXT = ('b679, the research act, the strip variant its object, with data/b676_strip_uses.txt (22 uses) and LiConverseCfg.lean :231 (the point '
@@ -64,10 +64,14 @@ NEXT = ('b679, the research act, the strip variant its object, with data/b676_st
         'candidate -- `(R288)`(7)')
 
 # ### (R264)(2), the freeze: filled at Component 4
-ACT_ARMS = ()
-SHARED_APPENDED = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R288-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-CORRIGENDUM-GENERATED', 'G-LEDGER-LINES-UNMOVED', 'G-CORRIGENDUM-TOOL-ALONE', 'G-ORDER-DISCHARGED',
+            'G-ROWGEN-AFTER', 'G-NAMING-BEFORE-WRITE', 'G-CUT-COMMENT-ONLY', 'G-PRINTS-EQUAL', 'G-CUT-DISTANCE', 'G-CORRESPONDENCE-CARRIED',
+            'G-NINE-KERNELS-LINE', 'G-TOOL-REPAIRS', 'G-RULES-ROW')
+SHARED_APPENDED = ('data/b670_work_orders.txt',)    # ### the orders bank, its discharge row appended under (R254)(2) ((R288)(2))
 PARTS = ('standing-a', 'standing-b', 'act')      # ### (R288)(1): the standing arms in two foreground parts, the act's in one
-LEFT = (('D:/relay', ()), ('D:/MY-DOwnloads/PLACE-papers', ()))
+LEFT = (('D:/relay', ()), ('D:/MY-DOwnloads/PLACE-papers', ()),
+        ('D:/SIDE-silence-principle', ('push-b678-main', 'push-b678-merge', 'recut-silence-principle-b678')))   # ### left for the next ferry's list
 SEALED = ('b678_worklist.py', 'b678_tests.py', 'b678_citation.py', 'b678_record.py', 'b678_checks.py', 'b678_closing.py', 'b678_reg_gate.py',
           'b678_regspec.py')
 
