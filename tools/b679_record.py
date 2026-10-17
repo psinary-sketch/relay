@@ -250,7 +250,63 @@ def branches(*a):
     print(NL.join(L[5:]))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches}
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R289)(1)-(3)
+WH = ('*Appended 2026-10-17 by b679 to b678’s entry (:9022), under `(R289)`(1) -- b678 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b678_closing.txt):*')
+WB = (' “b678 closed: relay 9ae206f5, PLACE-papers 935f8df, SIDE-silence-principle 96b3098 v0.2.1; suite 88 of 88; root d384fb97f3770665…; '
+      '0 prompts answered; 2 defects” (data/b678_closing.txt :1), the closing pushed at relay 435ceb1f (data/b678_closing_push_out.txt :4). '
+      'The readings as the banks print them: N1–N5 and S1–S3 HELD (:47–:54); the 36 Q0 sentences on 35 ledger lines answered by one generated '
+      'corrigendum entry at FINDINGS :8977, “TO RE-CUT ROWS 36 ; HAND COUNT 36 ; WRITTEN 36 ; CARRIED 0” (:22), no ledger line rewritten or '
+      'pinned, `W-ORD-Q0-CLASS-LINES` DISCHARGED at OPEN_TRAILS :14618, the one row at FINDINGS :4437 quoted through its closing backtick and '
+      'said so in its row; SIDE-silence-principle named by b652’s order and b674’s tie-break, 48 rows against SIDE-bijection’s 30 at the '
+      'count 4 each (:25; data/b678_cut.txt :14–:16), its workflow and a 58-name print list committed alone on main, the cut docstrings alone, '
+      'both runner builds DERIVES with 58 prints equal line for line (runs 39055170313, 39055212218), merged 96b3098, tag v0.2.1, rows '
+      'outside LICENSED/CITED 4 to 1 (:27), Theorem 8.1’s title and the header’s introduction carried as residues; the five Correspondence '
+      'cells of FOUNDATIONS_OF_THE_SIDE_PROGRAMME :628–:630 not written, the generator’s reader not seeing the runner print banks, carried at '
+      'OPEN_TRAILS :14620; the suite in three foreground parts, the longest 302 s (data/b678_checks_postpush.txt :7), relay '
+      'data/b678_rules.txt row 1. Two defects, both the seat’s: (a) delete commands sent in parallel calls, (b) a push piped through tail '
+      '(data/b678_defects.txt :5, :10), the rules as written and this act’s deletes one per message its repair. Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], 'b679_record_lines.json', 'c1', entry=K.B678_ENTRY,
+         check=[('FINDINGS.md', K.B678_ENTRY, '## Q0 class lines'), ('OPEN_TRAILS.md', K.B678_TRAIL, '### b678')], dry=dry)
+
+
+ORDERS = 'b670_work_orders.txt'
+ORDER = 'W-ORD-CORRESPONDENCE-RUNNER-BANKS'
+OH = ('*Appended 2026-10-17 by b679 beneath the five Correspondence cells’ line (:14620), under `(R289)`(3) -- THE ORDER '
+      '`W-ORD-CORRESPONDENCE-RUNNER-BANKS` ENTERED:*')
+OB = (' that relay tools/correspondence_gen.py’s reader be extended to the runner print banks, so that a kernel’s profile cell reads its '
+      'print bank at the kernel’s last tag where one exists. Trigger: the re-cut act after b680. Consumers: the five Correspondence cells '
+      'of FOUNDATIONS_OF_THE_SIDE_PROGRAMME :628–:630 that b678 did not write and carried at :14620 (relay data/b678_closing.txt :170). '
+      'Status OPEN. Its row in relay data/b670_work_orders.txt, appended additively.')
+
+
+def c1order(*a):
+    """(R289)(3): the order on OPEN_TRAILS beneath the carried cells' line, then its row appended to the orders bank additively ((R254)(2))."""
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', OH, NL + OH + OB + NL)], 'b679_record_lines_order.json', 'c1order',
+         check=[('OPEN_TRAILS.md', K.NINE_KERNELS_LINE, 'nine-kernels')], dry=dry)
+    if dry:
+        return
+    ol = jl('b679_record_lines_order.json')['lines'][0]['line']
+    rows = ['### Appended 2026-10-17 by b679 under (R289)(3) (additive, (R254)(2)): W-ORD-CORRESPONDENCE-RUNNER-BANKS entered, its Status cell '
+            'filled and its line its pin.',
+            '  %-44s :%d  %s   %-5d %-16s :%d  %s [:%d]' % (ORDER, ol, 'b679', 0, 'OPEN', ol, 'the re-cut act after b680', ol)]
+    p = os.path.join(D, ORDERS)
+    old = open(p, 'rb').read()
+    sep = NL if old.endswith(b'\n') else NL + NL
+    new = old + (sep + NL.join(rows) + NL).encode('utf-8')
+    if not new.startswith(old):
+        sys.exit('### THE ORDERS BANK APPEND IS NOT ADDITIVE -- NOTHING WRITTEN')
+    open(p + '.tmp', 'wb').write(new)
+    os.replace(p + '.tmp', p)
+    print('  data/%s appended (%d bytes before, %d after): %s' % (ORDERS, len(old), len(new), rows[1].strip()[:120]))
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'c1order': c1order}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
