@@ -1,5 +1,5 @@
 {
- "at": "2026-10-17T20:19:06Z",
+ "at": "2026-10-17T20:38:41Z",
  "anchor": "RULING (R289) BEGIN",
  "rows": [
   {
@@ -1149,6 +1149,195 @@
    "src": "seat",
    "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py repairs | tail -9 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py kernels && PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py defects",
    "n": 164
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:19:05.463Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py commands | tail -2 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py scores dry 2>&1 | cut -c1-500",
+   "n": 165
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:19:12.594Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py scores dry 2>&1 | grep \"^  N5\" | cut -c500-1600",
+   "n": 166
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:19:21.048Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format='%h %s' 435ceb1f..HEAD | cut -c1-110; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 935f8df..HEAD | cut -c1-110; git status --short --untracked-files=all | grep \"b679\\|b670_work\" | head -30",
+   "n": 167
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:19:27.203Z",
+   "src": "seat",
+   "cmd": "git add tools/b679_record.py tools/b679_worklist.py tools/b679_checks.py tools/b679_closing.py tools/b679_reg_gate.py tools/b679_regspec.py data/b679_author_answers.json data/b679_author_answers.txt data/b679_commands.json data/b679_commands.txt data/b679_defects.json data/b679_kernels_face.json data/b679_tool_repairs.txt && git commit -q -m \"b679 Component 5: the tools carried from b678's sealed copies with three repairs at carry (data/b679_tool_repairs.txt); the record tool's late routes and the mirror routes, the suite (89 arms, 21 over this act's banks), the gate, the spec, the closing; the answers, commands, kernels face and defects banks\" && git log --oneline -1",
+   "n": 168
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:21:00.522Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b679_checks.py --prerun --part standing-a > /dev/null; echo \"exit $?\"; grep -E \"FAILS|DEFECTIVE|raised|### PART|PHASES|declared not|run not\" data/b679_arms_prerun_standing-a.txt | cut -c1-200",
+   "n": 169
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:28:44.547Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b679_checks.py --prerun --part standing-b > /dev/null; echo \"exit $?\"; grep -E \"FAILS|DEFECTIVE|raised|### PART|PHASES|ACT-ROOT CHAIN\" data/b679_arms_prerun_standing-b.txt | cut -c1-260",
+   "n": 170
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:33:12.673Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b679_checks.py --prerun --part act > /dev/null; echo \"exit $?\"; grep -E \"FAILS|DEFECTIVE|raised|### PART\" data/b679_arms_prerun_act.txt | cut -c1-260",
+   "n": 171
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:33:40.596Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_checks.py --combine b679_arms_prerun.txt; echo \"exit $?\"",
+   "n": 172
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:33:49.514Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b679_reg_gate.py 2>&1 | grep -vE \"^  (    |  \\|)\" | tail -40 | cut -c1-260",
+   "n": 173
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:34:28.066Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py drycheck data/b679_registration_2026-10-17.txt standin 2>&1 | grep -E \"ENTRY :|TRAIL :|DRY-RUN STEP|odd\" | cut -c1-300",
+   "n": 174
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:34:33.190Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py findings dry standin 2>&1 | fold -w 230 | head -60",
+   "n": 175
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:34:45.018Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py trail dry standin 2>&1 | fold -w 230 | head -40; echo ======; sed -n '1,40p' \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/df03c73f-520a-4848-85dc-8fada095f008/scratchpad/b679_closing_dry.txt\" | cut -c1-230",
+   "n": 176
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:34:51.212Z",
+   "src": "seat",
+   "cmd": "grep -n \"certified negative coefficient\\|questions in %d calls\" tools/b679_record.py",
+   "n": 177
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:34:57.261Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b679_reg_gate.py 2>&1 | grep -E \"VERDICT|DRY-RUN STEP|ENTRY :|TRAIL :|MISSES|UNDECLARED\" | cut -c1-200",
+   "n": 178
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:35:28.250Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 560 python -X utf8 tools/b679_record.py gatebanks 2>&1 | cut -c1-220",
+   "n": 179
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:35:38.419Z",
+   "src": "seat",
+   "cmd": "grep -h \"lockgate\\|reg_seal\\|--seal\" data/b678_commands.txt | grep \"^  #\" | cut -c1-260 | head -8",
+   "n": 180
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:35:45.163Z",
+   "src": "seat",
+   "cmd": "grep -A3 \"#89 |\" data/b678_commands.txt | head -6 | cut -c1-400; grep -n \"^  #9[0-9] |\" data/b678_commands.txt | head -5 | cut -c1-300",
+   "n": 181
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:35:52.172Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b378_lockgate.py b679 data/b679_registration_2026-10-17.txt 2>&1 | grep -E \"GATES READ|VERDICT : LOCK|FAIL\" ; ls data/b679_lockgate* ",
+   "n": 182
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:35:58.435Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_seal.py --lock data/b679_registration_2026-10-17.txt 2>&1 | tail -4 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_checks.py --seal",
+   "n": 183
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:36:06.112Z",
+   "src": "seat",
+   "cmd": "git status --short --untracked-files=all | grep -v \"^?? data/_\\|^?? data/audit_b[0-5]\\|^?? data/audit_b6[0-6]\\|anthropic\\|^?? =\" | head -40",
+   "n": 184
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:36:11.659Z",
+   "src": "seat",
+   "cmd": "git status --short --untracked-files=all -- 'data/b679_*' 'data/audit_b679_*' 'tools/b679_*' 'data/terminal_table*' | cat",
+   "n": 185
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:36:19.917Z",
+   "src": "seat",
+   "cmd": "git add tools/b679_record.py tools/b679_worklist.py data/audit_b679_reg_satisfiable.txt data/b679_arms_prerun.txt data/b679_arms_prerun_act.txt data/b679_arms_prerun_standing-a.txt data/b679_arms_prerun_standing-b.txt data/b679_census_stepzero.txt data/b679_faces_census_stepzero.txt data/b679_lockgate.json data/b679_lockgate_notes.txt data/b679_lsr_prerun_act.json data/b679_lsr_prerun_standing-a.json data/b679_lsr_prerun_standing-b.json data/b679_pins_stepzero.txt data/b679_reg_gate.txt data/b679_reg_termscan.txt data/b679_registration_2026-10-17.txt data/b679_regspec_run.txt data/b679_satisfiable.json data/b679_seal_hashes.json && git commit -q -m \"b679 seal: the face locked (0ffde114), the pre-run in three parts (89 arms, 64 passing, the 25 failing each a bank not yet written), the gate CLEAR with both dry runs, the spec, the censuses, the lock gate 8 of 8, the sealed tools' hashes\" && git log --oneline -1",
+   "n": 186
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:36:28.876Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no | head -3; git log --oneline -1 | cut -c1-60 && git branch push-b679-root 129098e && PUSH_GATED_LOG=/d/relay/data/b679_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b679-root; echo \"push_gated exit $?\"",
+   "n": 187
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:37:05.292Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git log --oneline -1 | cut -c1-60 && git branch push-b679-root HEAD && PUSH_GATED_LOG=/d/relay/data/b679_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b679-root; echo \"push_gated exit $?\"",
+   "n": 188
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:37:19.891Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py table_final 2>&1 | tail -1 && git status --short --untracked-files=no",
+   "n": 189
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:37:46.919Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py root dry 2>&1 | tail -5",
+   "n": 190
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T20:38:11.591Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py root 2>&1 | tail -2 && tail -1 data/act_roots.txt | cut -c1-140 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py root_arm",
+   "n": 191
   }
  ],
  "offences": [],

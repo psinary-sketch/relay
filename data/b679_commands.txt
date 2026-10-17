@@ -1,7 +1,7 @@
-b679 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES AND THE MOVES AND DELETES (2026-10-17T20:19:06Z)
+b679 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES AND THE MOVES AND DELETES (2026-10-17T20:38:41Z)
 
 ### the source: the seat`s session df03c73f-520a-4848-85dc-8fada095f008 from its first user line carrying 'RULING (R289) BEGIN', and its subagents` transcripts
-### commands read: 164
+### commands read: 191
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -200,5 +200,32 @@ b679 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #162 | 2026-10-17T20:16:09.307Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
   #163 | 2026-10-17T20:18:45.858Z | seat | Bash | wc -l data/b678_registration_2026-10-17.txt; grep -n "^### (" data/b678_registration_2026-10-17.txt | cut -c1-120
   #164 | 2026-10-17T20:18:58.543Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py repairs | tail -9 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py kernels && PYTHONIOEN
+  #165 | 2026-10-17T20:19:05.463Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py commands | tail -2 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py scores dry 2>&1 | cu
+  #166 | 2026-10-17T20:19:12.594Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py scores dry 2>&1 | grep "^  N5" | cut -c500-1600
+  #167 | 2026-10-17T20:19:21.048Z | seat | Bash | git log --reverse --format='%h %s' 435ceb1f..HEAD | cut -c1-110; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 935f8df..HEAD | cut -c1-110;
+  #168 | 2026-10-17T20:19:27.203Z | seat | Bash | git add tools/b679_record.py tools/b679_worklist.py tools/b679_checks.py tools/b679_closing.py tools/b679_reg_gate.py tools/b679_regspec.py data/b679_author_ans
+  #169 | 2026-10-17T20:21:00.522Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b679_checks.py --prerun --part standing-a > /dev/null; echo "exit $?"; grep -E "FAILS|DEFECTIVE|raised|#
+  #170 | 2026-10-17T20:28:44.547Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b679_checks.py --prerun --part standing-b > /dev/null; echo "exit $?"; grep -E "FAILS|DEFECTIVE|raised|#
+  #171 | 2026-10-17T20:33:12.673Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b679_checks.py --prerun --part act > /dev/null; echo "exit $?"; grep -E "FAILS|DEFECTIVE|raised|### PART
+  #172 | 2026-10-17T20:33:40.596Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_checks.py --combine b679_arms_prerun.txt; echo "exit $?"
+  #173 | 2026-10-17T20:33:49.514Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b679_reg_gate.py 2>&1 | grep -vE "^  (    |  \|)" | tail -40 | cut -c1-260
+  #174 | 2026-10-17T20:34:28.066Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py drycheck data/b679_registration_2026-10-17.txt standin 2>&1 | grep -E "ENTRY :|TRAIL :|DRY-RUN STEP|o
+  #175 | 2026-10-17T20:34:33.190Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py findings dry standin 2>&1 | fold -w 230 | head -60
+  #176 | 2026-10-17T20:34:45.018Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py trail dry standin 2>&1 | fold -w 230 | head -40; echo ======; sed -n '1,40p' "C:/Users/ECHOCH~1/AppDa
+  #177 | 2026-10-17T20:34:51.212Z | seat | Bash | grep -n "certified negative coefficient\|questions in %d calls" tools/b679_record.py
+  #178 | 2026-10-17T20:34:57.261Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b679_reg_gate.py 2>&1 | grep -E "VERDICT|DRY-RUN STEP|ENTRY :|TRAIL :|MISSES|UNDECLARED" | cut -c1-200
+  #179 | 2026-10-17T20:35:28.250Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 560 python -X utf8 tools/b679_record.py gatebanks 2>&1 | cut -c1-220
+  #180 | 2026-10-17T20:35:38.419Z | seat | Bash | grep -h "lockgate\|reg_seal\|--seal" data/b678_commands.txt | grep "^  #" | cut -c1-260 | head -8
+  #181 | 2026-10-17T20:35:45.163Z | seat | Bash | grep -A3 "#89 |" data/b678_commands.txt | head -6 | cut -c1-400; grep -n "^  #9[0-9] |" data/b678_commands.txt | head -5 | cut -c1-300
+  #182 | 2026-10-17T20:35:52.172Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b378_lockgate.py b679 data/b679_registration_2026-10-17.txt 2>&1 | grep -E "GATES READ|VERDICT : LOCK|FAIL" ; ls dat
+  #183 | 2026-10-17T20:35:58.435Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_seal.py --lock data/b679_registration_2026-10-17.txt 2>&1 | tail -4 && PYTHONIOENCODING=utf-8 python -X utf8 too
+  #184 | 2026-10-17T20:36:06.112Z | seat | Bash | git status --short --untracked-files=all | grep -v "^?? data/_\|^?? data/audit_b[0-5]\|^?? data/audit_b6[0-6]\|anthropic\|^?? =" | head -40
+  #185 | 2026-10-17T20:36:11.659Z | seat | Bash | git status --short --untracked-files=all -- 'data/b679_*' 'data/audit_b679_*' 'tools/b679_*' 'data/terminal_table*' | cat
+  #186 | 2026-10-17T20:36:19.917Z | seat | Bash | git add tools/b679_record.py tools/b679_worklist.py data/audit_b679_reg_satisfiable.txt data/b679_arms_prerun.txt data/b679_arms_prerun_act.txt data/b679_arms_p
+  #187 | 2026-10-17T20:36:28.876Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no | head -3; git log --oneline -1 | cut -c1-60 && git branch push-b679-root 129098e && 
+  #188 | 2026-10-17T20:37:05.292Z | seat | Bash | cd /d/relay && git log --oneline -1 | cut -c1-60 && git branch push-b679-root HEAD && PUSH_GATED_LOG=/d/relay/data/b679_relay_root_push_out.txt bash /d/relay/to
+  #189 | 2026-10-17T20:37:19.891Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py table_final 2>&1 | tail -1 && git status --short --untracked-files=no
+  #190 | 2026-10-17T20:37:46.919Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py root dry 2>&1 | tail -5
+  #191 | 2026-10-17T20:38:11.591Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b679_record.py root 2>&1 | tail -2 && tail -1 data/act_roots.txt | cut -c1-140 && PYTHONIOENCODING=utf-8 python -X u
 
-### ### **COMMANDS 164 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9.**
+### ### **COMMANDS 191 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9.**
