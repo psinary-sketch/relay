@@ -9,6 +9,7 @@
 ### answers bank with b679's word reader); the later routes are added at their components.
 ### Every python child is started as `python -X utf8`, no environment mapping passed. Routes: `python tools/b680_record.py <route> [dry]`.
 """
+import collections
 import io
 import json
 import os
@@ -462,7 +463,91 @@ def rulesarms(*a):
     print(L[-1])
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'faces': faces, 'c1': c1, 'c1order': c1order, 'arms': arms, 'rulesarms': rulesarms}
+# ================================================================================ COMPONENT 4: THE LEDGER SPLIT, PRICED BEFORE IT IS MADE, (R290)(6)
+CITE = re.compile(r'FINDINGS(?:\.md)?\s?:(\d{3,5})((?:(?:,| and|,? or|;)\s*:\d{3,5})*)')
+ANCHOR_CITE = re.compile(r'FINDINGS(?:\.md)?#[\w-]+')
+SPLIT_BOUNDARY_ACT = 600
+
+
+def _cut_block():
+    """the proposed cut in the 2026-08-24 form (relay tools/ledger_split.py; PLACE-papers archive/2026-08-24-ledger-split/README.md :18-:22): the
+    record stream moves, the reference frames stay -- FINDINGS` "What this document is", "Epistemic-weight tags" and "How to cite" (:434-:455);
+    the block from the first record section after them through the last entry filed before b600."""
+    F = rd(FIND).split(NL)
+    start = next(i + 1 for i, l in enumerate(F) if l.startswith('## 0. '))
+    heads = [i + 1 for i, l in enumerate(F) if l.startswith('## ')]
+    end = None
+    for h in heads:
+        if h <= start:
+            continue
+        nxt = next((x for x in heads if x > h), len(F) + 1)
+        filed = re.search(r'\*Filed at b(\d{3})', NL.join(F[h - 1:nxt - 1]))
+        if filed and int(filed.group(1)) >= SPLIT_BOUNDARY_ACT:
+            end = h - 1
+            break
+    return start, end, len(F)
+
+
+def splitprice(*a):
+    """(R290)(6): how line citations into FINDINGS survived the 2026-08-24 split (by anchor and the index of archived headings; the split tool
+    re-pins no line citation), every `FINDINGS :NNNN` citation site found by git grep in relay's tracked banks and rowgen's name map and in
+    PLACE-papers' tracked papers and ledgers, each with its kind and whether the proposed cut moves the line it cites (a line at or after the
+    cut's start moves -- into the archive or upward by the block's length); the anchor citations counted apart. data/b680_split_price.txt."""
+    start, end, nlines = _cut_block()
+    roster_paths = set(p for _n, p in roster())
+    sites = []
+    for repo, specs, label in ((ROOT, ['data', 'tools/rowgen'], 'relay'), (PP, ['*.md', '**/*.md'], 'PLACE-papers')):
+        # ### bytes, not text mode: text mode turns a stray CR inside a line into a line break (the first run's ValueError)
+        out = subprocess.run(['git', '-C', repo, 'grep', '-n', '-I', '-E', r'FINDINGS(\.md)? ?:[0-9]{3,5}', 'HEAD', '--', *specs],
+                             capture_output=True).stdout.decode('utf-8', 'replace')
+        for raw in out.split(NL):
+            if not raw.strip():
+                continue
+            _h, path, ln, text = raw.split(':', 3)
+            if label == 'relay':
+                kind = 'rowgen' if path.startswith('tools/rowgen') else ('corrigendum' if 'corrigendum' in path else 'bank')
+            else:
+                kind = ('ledger' if path in ('FINDINGS.md', 'OPEN_TRAILS.md') else ('archive' if path.startswith('archive/') else
+                                                                                   ('roster (the Correspondence cells and tables)' if path in roster_paths else 'paper')))
+            for m in CITE.finditer(text):
+                for n in [int(m.group(1))] + [int(x) for x in re.findall(r':(\d{3,5})', m.group(2) or '')]:
+                    moved = n >= start
+                    sites.append(dict(repo=label, path=path, line=int(ln), kind=kind, cited=n, moved=moved))
+    anchors = 0
+    for repo, specs in ((ROOT, ['data']), (PP, ['*.md', '**/*.md'])):
+        out = g(repo, 'grep', '-c', '-I', '-E', r'FINDINGS(\.md)?#[A-Za-z0-9_-]+', 'HEAD', '--', *specs)
+        anchors += sum(int(x.rsplit(':', 1)[1]) for x in out.split(NL) if x.strip())
+    by = collections.Counter((s['kind'], s['moved']) for s in sites)
+    nm = sum(1 for s in sites if s['moved'])
+    L = ['b680 -- COMPONENT 4, (R290)(6): THE LEDGER SPLIT PRICED BEFORE IT IS MADE (%s)' % utc(), '',
+         '### HOW LINE CITATIONS SURVIVED THE 2026-08-24 SPLIT: by anchor. The README (PLACE-papers archive/2026-08-24-ledger-split/README.md :25-:26):',
+         '### "a full index of the headings archived, so a citation resolves in one hop ... papers cite `FINDINGS#anchor-name`"; the split tool',
+         '### (relay tools/ledger_split.py) moves byte-exact slices by anchors and writes that index (:84-:87) -- it re-pins NO line citation, and',
+         '### no house tool re-pins ":NNNN" citations into FINDINGS. A line citation into a moved block, or below it, shifts.',
+         '### THE PROPOSED CUT LINE, in that form (the record stream moves, the reference frames stay): FINDINGS :%d through :%s, the record' % (start, end),
+         '### sections from "## 0." through the last entry filed before b%d; FINDINGS has %d lines; every line at or after :%d moves (into the' % (SPLIT_BOUNDARY_ACT, nlines, start),
+         '### archive, or upward by %s lines).' % ((end - start + 1) if end else '?'),
+         '### THE SITES: every `FINDINGS :NNNN` citation (and its listed continuations) by git grep at HEAD in relay`s data/ and tools/rowgen/ and in',
+         '### PLACE-papers` tracked *.md (rowgen`s name map holds none); a site counts once per FINDINGS line it names. Its line number is read',
+         '### against today`s FINDINGS: a site banked by an older act cites the line of its own day, which may already differ -- the count prices',
+         '### the cut`s shift, not each site`s present accuracy. Kinds: bank, corrigendum, rowgen, roster (the Correspondence cells and tables), paper (the keystones and',
+         '### the rest), ledger (FINDINGS and OPEN_TRAILS themselves), archive. Anchor citations (`FINDINGS#name`) %d, counted apart: they survive.' % anchors, '',
+         '### BY KIND (sites ; moved by the cut):']
+    for k in sorted(set(x for x, _m in by)):
+        L.append('  %-46s %6d ; moved %6d' % (k, by[(k, True)] + by[(k, False)], by[(k, True)]))
+    L += ['', '### ROWS ARE CITATION SITES (repo path :line ; kind ; the FINDINGS line cited ; moved by the cut):']
+    L += ['  %s %s :%d ; %s ; FINDINGS :%d ; %s' % (s['repo'], s['path'], s['line'], s['kind'], s['cited'], 'MOVED' if s['moved'] else 'stays') for s in sites]
+    held = nm > 0
+    L += ['', '### ### **CITATION SITES %d ; MOVED BY THE CUT %d ; RE-PINNED BY A HOUSE TOOL 0 ; ANCHOR CITATIONS %d (SURVIVE) ; THE CUT FINDINGS :%d-:%s ; '
+          'ARCHIVE-3 %s.**' % (len(sites), nm, anchors, start, end, 'HELD AT %d CITATIONS' % nm if held else 'TO BE MADE')]
+    put_txt('b680_split_price.txt', L)
+    put_json('b680_split_price.json', dict(at=utc(), start=start, end=end, lines=nlines, sites=len(sites), moved=nm, anchors=anchors,
+                                           by_kind=dict(('%s|%s' % k, v) for k, v in by.items()), held=held))
+    print(NL.join(L[6:9] + L[-1:]))
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'faces': faces, 'c1': c1, 'c1order': c1order, 'arms': arms, 'rulesarms': rulesarms,
+          'splitprice': splitprice}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
