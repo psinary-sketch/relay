@@ -354,6 +354,7 @@ def sources():
     local = os.path.join(ROOT, *K.LOCAL_BANK.split('/'))
     aj = jl('b674_author_answers.json').get('calls') or []
     cit = jl('b674_citation_check.json')
+    t0 = time.time()
     S = dict(
         REC=REC, ER=ER, face=face, ferry=rd('b674_ferry.txt'), scan=rd('b674_ferry_scan.txt'), stepz=rd('b674_stepzero.txt'),
         readfirst=rd('b674_readfirst.txt'), defects=rd('b674_defects.txt'),
@@ -420,8 +421,13 @@ def sources():
             S['pins'].append((p, bool(re.match(r'^\s*(theorem|lemma|def)\s+%s\b' % re.escape(name.split('.', 1)[1]), ln))))
         except Exception:
             S['pins'].append((p, False))
+    # ### the seconds of each phase of the sources, printed by the run (the 600 s foreground limit: a split is planned from these)
+    S['phase_secs'] = {'the banks and the state': time.time() - t0}
     S['pp_allowed'] = sorted(['FINDINGS.md', 'OPEN_TRAILS.md'] + list(WRITTEN_ON_WORD))
+    t1 = time.time()
     S['live'] = live_arms()
+    S['phase_secs']['the three arms at HEAD'] = time.time() - t1
+    t1 = time.time()
     S['kern_now'] = kern_now(S['kern_face']) if S['kern_face'] else {}
     S['written'] = written_files()
     S['globs'] = wl_globs(face)
@@ -455,6 +461,8 @@ def sources():
         if rb is None or i not in (blob_id(rb), blob_id(cr0(rb))):
             bad.append(p)
     S['prior_bad'], S['prior_n'] = bad, len(pre_ids)
+    S['phase_secs']['the written files, the public bytes and the prior banks'] = time.time() - t1
+    t1 = time.time()
     S['roots_pre'] = cr0(blob(ROOT, PRE['relay'] + ':data/act_roots.txt'))
     S['roots_now'] = cr0(raw(os.path.join(D, 'act_roots.txt')))
     S['bank_mtimes'] = {}
@@ -469,10 +477,13 @@ def sources():
     except Exception as e:
         S['ar_verify'], S['ar_reads'] = [('raised', type(e).__name__, [])], {}
     S['order_slack'] = AR.ORDER_SLACK
+    S['phase_secs']['the act-root chain'] = time.time() - t1
+    t1 = time.time()
     try:
         S['additive'] = ADD.check(worktree=True)
     except Exception as e:
         S['additive'] = [('raised', type(e).__name__, [('x', [])])]
+    S['phase_secs']['the shared additive files'] = time.time() - t1
     return S
 
 
@@ -1176,7 +1187,10 @@ def main():
     rec('=' * 104)
     S = sources()
     S['pushed'] = pushed
+    t1 = time.time()
     rc_gen, gen_diff = (0, dict(rerun=True)) if (RERUN or PRERUN or MID) else regenerate()
+    S['phase_secs']['the table regenerated'] = time.time() - t1
+    rec('  ### THE PHASES, IN SECONDS: %s' % '; '.join('%s %.0f' % kv for kv in S['phase_secs'].items()))
     declared = g2_names(S['face'])
     names = [a[0] for a in ARMS]
     S['declared_eq_run'] = sorted(names) == declared and len(names) == len(set(names))
