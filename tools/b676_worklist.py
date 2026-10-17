@@ -52,6 +52,12 @@ T_PRE_MAIN = '1aac3a9'
 T_LAST_TAG, T_LAST_TAG_AT = 'v0.1', 'ec92d62'
 T_NEXT_TAG = 'v0.1.1'
 T_BRANCH = 'recut-trivium-b676'
+# ### the route as run (the navigator's answers on the print list and the 'before' bank): the workflow alone on main, the print list alone on
+# ### main after it, the cut on the branch; the two runs, one per tree state; the target modules (the root module imports Bijection alone)
+T_WORKFLOW, T_MAIN, T_CUT = 'dd587f9', '7074154', 'db315fe'
+T_TARGET = 'Trivium Trivium.CardDerived'
+T_CUT_FILES = ('Trivium/Bijection.lean',)
+T_RUNS = ((39004445565, 'before'), (39004541707, 'after'))
 TABLE_BANK, TABLE_ROWS = 'b670_licensed_table.txt', (119, 120)
 KERNELS_BANK, KERNELS_ROWS = 'b647_table_kernels.txt', (24, 25)
 RULES_BANK, TIE_RULE_ROW = 'b674_rules.txt', 2

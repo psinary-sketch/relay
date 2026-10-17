@@ -296,6 +296,12 @@ def answer(needle, *a):
             best = t
     if best is None:
         sys.exit('### NO ANSWER CARRYING %r IN THE SESSION -- NOTHING WRITTEN' % needle)
+    # ### one result can carry several answers (b675 defect (j), b676 defect (b)): the answer is cut from the last BEGIN before the needle
+    # ### to the first END after it
+    k = best.find(needle)
+    b0, e0 = best.rfind('BEGIN', 0, k), best.find('END', k)
+    if b0 >= 0 and e0 > k:
+        best = best[b0:e0 + 3]
     rows_ = []
     for pth in sorted(set(re.findall(r'\b((?:data|tools)/[\w./-]+\.[a-z]{2,4})\b', best))):
         ex = os.path.exists(os.path.join(ROOT, *pth.split('/')))

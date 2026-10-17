@@ -1,0 +1,60 @@
+b676 -- COMPONENT 2, (R286)(2): THE CUT`S DIFF, RESTRICTED TO COMMENT AND DOCSTRING LINES (2026-10-17T05:02:17Z)
+
+### SIDE-trivium 7074154 (main, the print list) -> db315fe (the cut, recut-trivium-b676); files ['Trivium/Bijection.lean'] ; lines added 22, removed 16
+### rows are files: the text with every comment stripped equal before and after ; the control (a one-word code change in the after
+### text) unequal ; the control`s needle present:
+  Trivium/Bijection.lean       CODE EQUAL True ; CONTROL UNEQUAL True ; NEEDLE PRESENT True
+
+### the diff, whole:
+    diff --git a/Trivium/Bijection.lean b/Trivium/Bijection.lean
+    index 3e3ad37..ca3b4cb 100644
+    --- a/Trivium/Bijection.lean
+    +++ b/Trivium/Bijection.lean
+    @@ -30 +30 @@
+    -       cardinality 7 each.
+    +       cardinality 7 each;
+    @@ -32,2 +32,2 @@
+    -    2. The pairing function `mechanismToDiscriminant` is a bijection
+    -       (decidable check on a 7-element set).
+    +    2. the chosen pairing mechanismToDiscriminant (a canonical-order
+    +       convention) is a bijection;
+    @@ -35,2 +35 @@
+    -    3. The discriminants generate exactly the seven nontrivial elements
+    -       of (ℤ/2)³ via the squarefree-part exponent encoding.
+    +    3. the exponent-triple table is injective and avoids (0,0,0);
+    @@ -38,2 +37,4 @@
+    -    4. Each discriminant defines a quadratic field ℚ(√d), and the seven
+    -       fields are pairwise non-isomorphic.
+    +    4. the seven integer values are pairwise distinct.
+    +
+    +  The fields ℚ(√d) and their pairwise non-isomorphism are not formalized
+    +  (v0.2).
+    @@ -58 +59,2 @@ The kernel's canonical numbering, as established in SIDE-kernel's
+    -`Formation.lean`. We re-state the type here for the bijection module's
+    +`Bridge/TheBridgeComplete.lean` (MechanismClass, C1–C7). We re-state the
+    +type here for the bijection module's
+    @@ -240 +242,3 @@ def QuadraticDiscriminant.isSquarefree (d : QuadraticDiscriminant) : Prop :=
+    -/-- Every Trivium discriminant is squarefree. -/
+    +/-- Every Trivium discriminant satisfies the lookup predicate isSquarefree
+    +(its value is one of the seven listed squarefree integers); squarefreeness
+    +in Mathlib's sense is not stated. -/
+    @@ -247,3 +251,5 @@ theorem all_discriminants_squarefree (d : QuadraticDiscriminant) :
+    -The main result: the bijection `triviumBijection` connects the seven
+    -mechanism classes of ξ(s) to the seven nontrivial quadratic discriminants,
+    -and the discriminants are exactly the (ℤ/2)³ orbit over {−1, 2, 3}.
+    +The main result: the seven mechanism classes and the seven nontrivial
+    +quadratic discriminants have equal count 7 and are equivalent as finite
+    +types (via the chosen pairing `triviumBijection`); separately, the
+    +discriminants' exponent-triple table is injective into the nonzero
+    +elements of (ℤ/2)³.
+    @@ -252,4 +258,4 @@ and the discriminants are exactly the (ℤ/2)³ orbit over {−1, 2, 3}.
+    -/-- The Trivium structural theorem (v0.1 version).
+    -
+    -    The mechanism classes of ξ(s) and the nontrivial quadratic discriminants
+    -    over (ℤ/2)³ are in canonical bijection, and both have cardinality 7. -/
+    +/-- The Trivium structural theorem (v0.1 version): the mechanism classes and
+    +    the nontrivial quadratic discriminants are equinumerous, both of
+    +    cardinality 7, so an equivalence between them exists; the element-level
+    +    pairing is a convention. -/
+
+### ### **FILES 1 ; CODE EQUAL WITH COMMENTS STRIPPED True ; CONTROLS UNEQUAL True ; COMMENT AND DOCSTRING LINES ALONE True.**
