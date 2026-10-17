@@ -250,7 +250,42 @@ def branches(*a):
     print(NL.join(L[6:]))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches}
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R287)(1)
+WH = ('*Appended 2026-10-17 by b677 to b676’s entry (:8913), under `(R287)`(1) -- b676 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b676_closing.txt):*')
+WB = (' “b676 closed: relay afb4bd59, PLACE-papers 9abb234, SIDE-trivium 135be2e v0.1.1; suite 84 of 84; root d3271717321e8d5e…; 2 prompts '
+      'answered; 9 defects” (data/b676_closing.txt :1), the closing pushed at relay e41e165f (data/b676_closing_push_out.txt :4). The re-cut '
+      '(:24-:28): SIDE-trivium named alone at 5, no tie; the workflow and the 22-name print list each committed alone on main (dd587f9, '
+      '7074154); the ‘before’ print bank at main, 9 commits past v0.1, said so (:78); the cut db315fe comments and docstrings alone; both '
+      'runner builds DERIVES, 22 prints equal line for line; merged 135be2e, tag v0.1.1; rows outside LICENSED/CITED 5 to 1, the header’s '
+      '“correspond exactly” paragraph a residue beside SIDE-window’s marker at :17 (data/b676_cut.txt); no Correspondence cell moved. The Q0 '
+      'lines (:31): 136 hits hand-read, 100 CONSISTENT, 36 sentences on 35 lines TO RE-CUT (25 FINDINGS, 11 OPEN_TRAILS), nothing cut, '
+      'W-ORD-Q0-CLASS-LINES at OPEN_TRAILS :14556 and OPEN in the orders bank (data/b670_work_orders.txt :262). The strip’s uses (:33): 22 in '
+      'V5 and the composition, listed by file and line; one step not carried by a constant alone, LiConverseCfg.lean :231, needing the point '
+      '1/(1 − R) excluded once R > 3. The arm count: no arm removed, 68 standing arms at both acts, the per-act arms 16 at b674 and 15 at '
+      'b675, the ruling’s “removal” the navigator’s defect (e). Entry FINDINGS :8913, trail OPEN_TRAILS :14560, root over 48 banks; N1–N5, '
+      'S1–S3 held (:46); the suite 84 of 84 pre-push and post-push (:106, :108); nine defects (a)–(i), the navigator’s (c)(d)(e) '
+      '(data/b676_defects.txt :5–:44). Nothing deposited.')
+OH = ('*Appended 2026-10-17 by b677, under `(R287)`(1) and its ferry’s step zero -- W-ORD-CHAIN-PAGE-B638-CASES, ENTERED WITH ITS '
+      'TRIGGER:*')
+OB = (' the two test files failing at every act’s step zero since b638, named by path with their failing lines (relay '
+      'data/b677_tests_stepzero.txt): tools/test_chain_page.py case (9), “the title is the variant’s” (:246), carried by '
+      'W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE (:13838, b650), the order that names this case; and tools/test_chain_page_b638.py cases '
+      '(4)–(7) (:327–:330), the faces-page generator read on b632’s ζ list without the mark exiting 6 with 0 bytes, so the block its cases '
+      'compare is empty -- which no order carried (relay data/b677_citation_check.txt: the one line naming the file beside an order, '
+      ':13583, b643’s defects, its order W-ORD-WATCHDOG-STOP unrelated). This order carries the second: the generator’s exit 6 on that list '
+      'read to its cause, and the four cases either repaired against the list in force or retired by the author’s word with the reason '
+      'banked. Trigger: the next act that edits the faces-page generator or the lists it reads, or b680’s census of the suite’s arms by what '
+      'each reads, whichever comes first. Status OPEN.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL), ('OPEN_TRAILS.md', OH, NL + OH + OB + NL)], 'b677_record_lines.json', 'c1', entry=K.B676_ENTRY,
+         check=[('FINDINGS.md', K.B676_ENTRY, '## SIDE-trivium docstrings re-cut'), ('OPEN_TRAILS.md', K.B676_TRAIL, '### b676')], dry=dry)
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
