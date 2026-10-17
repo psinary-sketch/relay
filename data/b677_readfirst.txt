@@ -1,0 +1,62 @@
+b677 -- THE READ-FIRST BANK, (R287)(8), WRITTEN AT STEP ZERO (2026-10-17)
+
+### rows are the ferry's read-first items: the path, the lines read, the unit of the bank's rows, and what this act takes from it. Every
+### count below is copied from the line cited beside it, not typed from memory (b676 defect (a)).
+
+  data/b676_closing.txt              :1 the head line ("b676 closed: relay afb4bd59, PLACE-papers 9abb234, SIDE-trivium 135be2e v0.1.1;
+                                     suite 84 of 84; root d3271717321e8d5e…; 2 prompts answered; 9 defects"); :78 the 'before' print bank
+                                     9 commits past v0.1. Rows: the closing's sections, one reading per row. Component 1's weight line.
+  data/b676_defects.txt              :5-:44, rows are defects lettered (a)-(i); the seat's (a)(b)(f)(g)(h)(i), the navigator's (c)(d)(e).
+                                     (f) :26 and (i) :40 are the redirect writes this act's ferry forbids again (scratch files by the Write
+                                     tool alone).
+  data/b676_q0_lines.txt             rows are hits with their reading (CONSISTENT or TO RE-CUT); :186 "HITS 136 ; CONSISTENT 100 ; TO RE-CUT
+                                     36 (ON 35 LINES: FINDINGS 25, OPEN_TRAILS 11, ROSTER 0) ; NOTHING CUT". Untouched this act ((R287)(5)).
+  data/b676_strip_uses.txt           rows are uses (file :line | the step | the theorem | what it takes | its need); :46 "USES 22 (V5 12, THE
+                                     COMPOSITION 10) ... ONE STEP NOT REACHED BY A CONSTANT (LiConverseCfg.lean :231)". b679's readfirst.
+  data/b670_work_orders.txt          rows are orders with ledger line, act, age, status and trigger. W-ORD-EPSTEIN-BALL-WIDTH at :159 (status
+                                     NOT STATED, :14262/:14264) and :232; W-ORD-Q0-CLASS-LINES at :262 (OPEN, appended by b676).
+                                     W-ORD-MAP-ANGLE-FORM: NO ROW -- the bank was written at b670, the order entered at b671 (OPEN_TRAILS
+                                     :14398-:14404, trigger "before the next narrowing act"); a miss of the citation check, raised.
+  data/b667_epstein_plan.txt         rows are plan sections (== N.). Section 8 :120-:126 the hypotheses as the b667 run read them: H3 (:123)
+                                     "N(R) = 180" -- the region count, not the map; H4 (:124-:125) the map on the balls "prints j₀ = 38 and a
+                                     zero side below zero, each with its ball". Sections 11-16 (:137, :177, :196, :217, :241, :267) the
+                                     evaluation route's amendments (the author's word, the Bessel obstructions, T4) -- not the map's
+                                     quantities; a miss of the citation check, raised.
+  data/b671_narrow_plan.txt          :102 the map's H3 as b671 read it: "the map on the narrowed list: hQtie certified at every j to the
+                                     control's j, j₀ = 38, the zero side below zero -- else the finding" (REFUTED at b671, OPEN_TRAILS
+                                     :14396). Read beside the b667 plan because the ruling's "H3" is this row.
+  data/b667_h4_reading.txt           rows are the reading's paragraphs. :4 D = 24, J_max = 64; :9-:14 THE CONSUMER: the tie check -- "each
+                                     control asks its residual ball to sit at 0 with radius below 2^-20 ≈ 9.5e-7"; the phase raised to
+                                     2^(D+1) at its first j and squared at each further j; :13-:14 the estimate "a relative width near
+                                     2^-(j₀+1) · 2^-20 ≈ 1e-18 or finer" (sized at j₀ = 38, not at J_max = 64: OPEN_TRAILS :14396's "H4
+                                     mis-estimate").
+  tools/b667_epstein_map_balls.py    the map, by line: :184-:185 unit; :188-:191 orbit_of (the four tie points); :252 v = (dl + i t)²;
+                                     :325-:329 kp, F; :331-:356 THE TIE TEST -- :332 us = unit(ĝ) at the four points, :333 nodes v, v̄, v̄, v,
+                                     :334-:336 pw squared D+1 times, :340 squared again per j (pw = us^(2^(j+1))), :341 ph = unit(F(node))·pw,
+                                     :342-:347 Yv, rT and Q = a + bX, :348 res = Q(node)²·ph + 1, :349 the control (every res ball contains 0,
+                                     radius < 2^-20); :366-:399 hrate; :419-:475 zero_side (its powers by repeated squaring at :433-:434,
+                                     :442-:443, :458-:459). sha256 011bbe47... (data/b671_tie_diagnostic.txt :3). Left as it is ((R287)'s
+                                     ferry, Component 3).
+  data/b671_tie_diagnostic.txt       rows are controls: cell, precision, j; |mid| max, rad max, rad/bar, the three columns, the map's test,
+                                     the word. :48-:88 Q0 at 200 bits j 24-64 (j 24-41 PASS, j 42-64 INSTRUMENT); :89-:129 the same at 400
+                                     bits; :7-:47 the control Z₁ j 14-54 all PASS. :131-:132 "CONTROLS 41 ; PASS 18 ; FAIL 23 ... INSTRUMENT
+                                     23, OBJECT 0, NEITHER 0 ; largest rad/bar over the failed 6.731e+13" (200 bits; 6.650e+13 at 400). The
+                                     radius at j = 24 is 7.021e-14 (:48); at j = 41 6.969e-07 (:65); 200 and 400 bits agree to three
+                                     figures at every j, so the radius is the input width's and not the precision's.
+  data/b671_epstein_zeros_narrowed.json.gz   rows are points with balls: 163 rows (kind ON 146 / OFF 17, idx, re, im, h = 1e-24, count 1,
+                                     reading NARROWED, depth 40). The ruling cites data/b671_epstein_zeros_narrowed.json, which stands only
+                                     inside the .gz (data/b671_epstein_zeros_narrowed_hashes.txt :2 names it "inside the .gz", sha256
+                                     cd3a8ea1..., :3 the .gz sha256 51d9e632...); a miss of the citation check, raised.
+  data/b675_li_plan.txt              rows are plan sections. :21-:22 the narrowed balls the bench read; :60-:61 "exp(n·log z) and never by
+                                     repeated multiplication: squaring a ball doubles its relative radius at each step"; :119 the timing
+                                     measured on a dummy point.
+  data/b675_li_bench.txt             rows are n with P_n, U_n, P+U, the sign and 2cos(nθ), each a ball; :4 the angle form; :847 "THE RADIUS
+                                     OF P_n AT THE LARGEST n (63876): 1.451e+26".
+  data/b675_li_controls.txt          rows are n with balls, as the bench; :644 C2′ over [1, 63876] NEG 0, radius at the largest n 1.125e-19;
+                                     :5075 H6 at n = 358865 with its ball; :5079 "C2′: NEG 0, UNDECIDED 0 (H5 HELD)". The printed radii are
+                                     Arb's str(…, radius=True) at twelve-odd digits and inflate at low digit counts (b675 trap): a price
+                                     taken from them is an upper figure, and the plan prices from the arithmetic beside it.
+  data/b675_rules.txt                rows are rules: (1) :5 the closing dry-run a gate step; (2) :9 a pre-run's long phase splits the next
+                                     one.
+  data/b676_closing_push_out.txt     :1-:6 the closing push's capture; :4 "afb4bd59..e41e165f push-b676-closing -> main". Committed at step
+                                     zero.
