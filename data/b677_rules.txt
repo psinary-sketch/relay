@@ -1,0 +1,11 @@
+b677 -- THE RULES BANKED IN THE ACT, UNDER (R287)(7) (2026-10-17)
+
+### rows are rules, each with its source and its scope.
+
+  (1) THE SUITE IN TWO FOREGROUND PARTS. Every run of the suite -- the pre-run, the pre-push and the post-push runs -- is split into two
+      foreground parts, each under the 600 s limit: `--part standing` runs the standing arms over the whole sources (the three arms at
+      HEAD, the act-root chain, the shared additive files) and `--part act` runs the act's arms over this act's banks, with the light
+      sources alone and the table regenerated in a closing run; `--combine <bank>` then writes the run's bank, the counts of the two parts
+      summed at its head with each part's seconds, the part banks carried whole beneath it. Source: (R287)(7), from data/b675_rules.txt
+      row 2 (a pre-run's long phase splits the next one; b676's pre-run 476 s, its act-root chain and three arms the long phases, relay
+      data/b676_arms_prerun.txt). Scope: standing from this act; tools/b677_checks.py carries it.

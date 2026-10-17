@@ -54,15 +54,18 @@ NEW_TOOL = 'tools/b677_epstein_map_angle.py'
 KE = 'D:/SIDE-explicit-formula'
 KREV = 'e36ea31'
 
-NEXT = ('b678, the re-cut act, W-ORD-Q0-CLASS-LINES` 36 sentences its object and the licensed table`s next document read at step zero, its '
+NEXT = ('b678, the re-cut act, the 36 sentences of W-ORD-Q0-CLASS-LINES its object and the licensed table`s next document read at step zero, its '
         'ruling then; b679 the research act, the strip variant its candidate, with data/b676_strip_uses.txt and the :231 exclusion as its '
         'readfirst; b680 the reading act, reading 2 of 2, with the ledger split archive-3 and the census of the suite`s arms by what each reads '
         '-- `(R287)`(10)')
 
 # ### (R264)(2), the freeze: the act's arms over its own banks; every other arm is a standing arm carried from b676's face (b676's own act
 # ### arms not carried). Each run at HEAD and counted before the face names it. Filled at Component 5.
-ACT_ARMS = ()
-SHARED_APPENDED = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-MIDACT-CHECKED', 'G-R287-ENTERED', 'G-ROWGEN-STEPZERO',
+            'G-BRANCHES-BANKED', 'G-PLAN-BEFORE-RUN', 'G-MAP-ROWS-READ', 'G-ANGLE-FORM', 'G-CONTROL-REPRODUCED', 'G-TOLERANCE-MEASURED',
+            'G-HYPOTHESES-READ', 'G-ORDERS-LANDED', 'G-NEW-TOOL-ALONE', 'G-TOOL-REPAIRS', 'G-RULES-ROW')
+SHARED_APPENDED = ('data/b670_work_orders.txt',)    # ### the orders bank, its two order rows appended under (R254)(2) ((R287)(5))
+PARTS = ('standing', 'act')                          # ### (R287)(7): every suite run in two foreground parts, the counts summed
 LEFT = (('D:/relay', ()), ('D:/MY-DOwnloads/PLACE-papers', ()))   # ### left for the next ferry's list
 SEALED = ('b677_worklist.py', 'b677_tests.py', 'b677_citation.py', 'b677_record.py', 'b677_checks.py', 'b677_closing.py', 'b677_reg_gate.py',
           'b677_regspec.py')

@@ -36,3 +36,9 @@ b677 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-17): THE SUCCESSOR OF data
     (h) THE SEAT'S: A PLAN LINE CORRECTED BEFORE THE PROMPT. Section 7's P2 first read "δ_j = 2^-(j+21)/8, below the residual's own radius",
         which is false at small j (that shift moves the midpoint far past the radius there). Corrected by the Edit tool to a quarter of the
         angle's own radius before the plan was committed (relay e3837b93) and before the prompt; no run had read it.
+    (i) THE SEAT'S: A GLOB IN THE LISTING HALF OF THE DELETE COMMANDS. The three local delete commands of step zero read
+        `git branch --merged main --list 'push-b676*'` (SIDE-trivium's with 'recut-trivium-b676' beside it) before deleting by explicit
+        name (relay data/b677_commands.txt, MOVE OR DELETE #32-#34). The deletes named each branch, but the ferry forbids a glob in a
+        delete command, and b676's house form lists each branch by name in the --list half as well (data/b676_commands.txt #34-#35). The
+        glob listed exactly the branches the ruling named (the listing printed with each command) and no branch outside the list was
+        deleted (data/b677_branches.txt; the suite's G-BRANCHES-DELETED).
