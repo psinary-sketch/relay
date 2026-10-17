@@ -1,0 +1,126 @@
+b678 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES AND THE MOVES AND DELETES (2026-10-17T18:14:11Z)
+
+### the source: the seat`s session df03c73f-520a-4848-85dc-8fada095f008 from its first user line carrying 'RULING (R288) BEGIN', and its subagents` transcripts
+### commands read: 94
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES, ONE PER TREE STATE (2):
+  #57 gh workflow run build-module.yml -R psinary-sketch/SIDE-silence-principle --ref main -f ref=6968b6c4753c7f7cc5fa6f2ac92c87e6c5eaf1e3 -f target=SIDESilencePrinciple; echo "exit $?"
+  #61 gh workflow run build-module.yml -R psinary-sketch/SIDE-silence-principle --ref main -f ref=8829bcc89e7824ac4b6e8a1db9e240ebcfa448ce -f target=SIDESilencePrinciple; echo "exit $?"; gh run view 39055170313 -R psinary-sketch/SIDE-silence-prin
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+  #15 2026-10-17T17:08:24.524Z Bash
+      git -C /d/relay branch --merged main --list push-b677 && git -C /d/relay branch -d push-b677
+  #16 2026-10-17T17:08:25.250Z Bash
+      git -C /d/relay branch --merged main --list push-b677-root && git -C /d/relay branch -d push-b677-root
+  #17 2026-10-17T17:08:25.495Z Bash
+      git -C /d/relay branch --merged main --list push-b677-closing && git -C /d/relay branch -d push-b677-closing
+  #18 2026-10-17T17:08:33.333Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b677 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b677
+  #19 2026-10-17T17:08:37.829Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b677-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b677-root
+
+### THE BRANCH DELETES BY SHAPE (N4: one branch per command, no glob in any half): #15 deletes ['push-b677'], globs none; #16 deletes ['push-b677-root'], globs none; #17 deletes ['push-b677-closing'], globs none; #18 deletes ['push-b677'], globs none; #19 deletes ['push-b677-root'], globs none
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-17T17:03:20.750Z | seat | Bash | sed -n 1,20p data/b670_licensed_table.txt | cut -c1-200; grep -n -E '^\s+\S.*\b[0-9]+ +-> +[0-9]+' data/b670_licensed_table.txt | head -50 | cut -c1-200; sed -n
+  #2 | 2026-10-17T17:03:37.905Z | seat | Bash | sed -n 1,60p data/b676_naming.txt | cut -c1-260
+  #3 | 2026-10-17T17:03:54.336Z | seat | Bash | sed -n 20,89p data/b670_licensed_table.txt | cut -c1-230; sed -n 123,140p data/b670_licensed_table.txt | cut -c1-260
+  #4 | 2026-10-17T17:04:06.473Z | seat | Bash | sed -n 1,40p data/b648_recut_order.txt | cut -c1-230; grep -rn -i "descending" data/b652_*.txt 2>/dev/null | head -5 | cut -c1-260
+  #5 | 2026-10-17T17:04:24.805Z | seat | Bash | grep -n -E "^### THE (RUN|TOLERANCE|HYPOTHESES|PLAN)|^    Q0 at 200|^    the diff" data/b677_closing.txt | cut -c1-200; grep -n -E "^  H[1-5] |LABELLED|LOCATED|
+  #6 | 2026-10-17T17:05:53.349Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_citation.py check
+  #7 | 2026-10-17T17:06:00.742Z | seat | Bash | grep -n -i -E "residue|correspond|header" data/b676_cut.txt | cut -c1-260 | head -8
+  #8 | 2026-10-17T17:06:10.308Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_citation.py check | tail -1 && python -X utf8 tools/b678_citation.py ferry && tail -3 data/b678_ferry
+  #9 | 2026-10-17T17:06:17.101Z | seat | Bash | grep -n "VERDICT" data/b678_ferry_scan.txt; head -12 data/b647_table_kernels.txt | cut -c1-200; sed -n 19p data/b647_table_kernels.txt; sed -n 6p data/b647_tabl
+  #10 | 2026-10-17T17:06:41.633Z | seat | Bash | sed -n 1,3p data/b647_table_kernels.txt | cut -c1-60; grep -n "FINDINGS 25" data/b676_q0_lines.txt | cut -c1-12; sed -n 19p /d/relay/data/b652_ferry.txt | cut -
+  #11 | 2026-10-17T17:07:38.838Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py rowgen | tail -3
+  #12 | 2026-10-17T17:08:06.301Z | seat | PowerShell | $d = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); "listing at $d"; foreach ($n in 'tail','lean','lake','python','bash') { $p = Get-CimInstance
+  #13 | 2026-10-17T17:08:13.955Z | seat | Bash | git add data/b677_closing_push_out.txt && git commit -q -m "b678 step zero: data/b677_closing_push_out.txt committed, the b677 closing push's capture (7beac43e.
+  #14 | 2026-10-17T17:08:19.173Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py branches
+  #15 | 2026-10-17T17:08:24.524Z | seat | Bash | git -C /d/relay branch --merged main --list push-b677 && git -C /d/relay branch -d push-b677
+  #16 | 2026-10-17T17:08:25.250Z | seat | Bash | git -C /d/relay branch --merged main --list push-b677-root && git -C /d/relay branch -d push-b677-root
+  #17 | 2026-10-17T17:08:25.495Z | seat | Bash | git -C /d/relay branch --merged main --list push-b677-closing && git -C /d/relay branch -d push-b677-closing
+  #18 | 2026-10-17T17:08:33.333Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b677 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b677
+  #19 | 2026-10-17T17:08:37.829Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b677-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b677-root
+  #20 | 2026-10-17T17:09:17.392Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_tests.py parts
+  #21 | 2026-10-17T17:09:24.006Z | seat | Bash | export PYTHONIOENCODING=utf-8 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_addenda_writeli
+  #22 | 2026-10-17T17:18:01.592Z | seat | Bash | export PYTHONIOENCODING=utf-8 && for t in test_chain_page.py test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py; do
+  #23 | 2026-10-17T17:27:16.584Z | seat | Bash | export PYTHONIOENCODING=utf-8 && for t in test_chain_page_b632.py test_chain_page_b635.py test_chain_page_b638.py test_closing_headline_b634.py test_clusters_se
+  #24 | 2026-10-17T17:36:07.594Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_tests.py report stepzero | tail -3; PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #25 | 2026-10-17T17:36:15.834Z | seat | PowerShell | $d = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); "listing at $d"; foreach ($n in 'tail','lean','lake','python','bash') { $p = Get-CimInstance
+  #26 | 2026-10-17T17:36:21.503Z | seat | Bash | grep -n -E "^=== test_chain_page.py$|title is the variant" data/b678_tests_stepzero.txt | head -3; awk '/^=== test_chain_page_b638.py/{f=1} f&&/^   \([4-7]\) /{
+  #27 | 2026-10-17T17:36:26.531Z | seat | Bash | grep -n -E "^ +\([4-7]\) .*-- FAIL" data/b678_tests_stepzero.txt | cut -c1-60
+  #28 | 2026-10-17T17:36:34.144Z | seat | Bash | for n in 22 24 25 26 28 30; do printf ':%s ' $n; sed -n "${n}p" data/b677_closing.txt | cut -c1-400; done; for n in 3 4 5 6 7 9 10 12; do printf 'map_h :%s ' $n
+  #29 | 2026-10-17T17:37:00.075Z | seat | Bash | git add data/b678_branches.json data/b678_branches.txt data/b678_citation_check.json data/b678_citation_check.txt data/b678_ferry.txt data/b678_ferry_scan.txt d
+  #30 | 2026-10-17T17:37:17.590Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py c1 dry 2>&1 | head -1 | cut -c1-300
+  #31 | 2026-10-17T17:37:23.148Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py c1 2>&1 | tail -1
+  #32 | 2026-10-17T17:37:30.284Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no && git add FINDINGS.md && git commit -q -m "b678 Component 1, under (R288)(1): b677 a
+  #33 | 2026-10-17T17:37:39.519Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #34 | 2026-10-17T17:37:55.148Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #35 | 2026-10-17T17:38:23.531Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #36 | 2026-10-17T17:38:40.392Z | seat | Bash | sed -n 4437p /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | cut -c1-400
+  #37 | 2026-10-17T17:39:54.863Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_corrigendum.py dry 2>&1 | head -3 | cut -c1-400; PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_corrigendum.p
+  #38 | 2026-10-17T17:40:02.118Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_corrigendum.py dry 2>&1 | grep -E "^- (FINDINGS :4437|FINDINGS :7266|OPEN_TRAILS :14168|FINDINGS :8561)" | cut 
+  #39 | 2026-10-17T17:40:10.162Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #40 | 2026-10-17T17:40:17.964Z | seat | Bash | git add tools/b678_corrigendum.py && git commit -q -m "b678 Component 2, under (R288)(2): tools/b678_corrigendum.py, the corrigendum generator (the TO RE-CUT ro
+  #41 | 2026-10-17T17:40:23.035Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_corrigendum.py land 2>&1 | tail -2 | cut -c1-300
+  #42 | 2026-10-17T17:40:59.096Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py c2 dry 2>&1 | head -1 | cut -c1-250 && python -X utf8 tools/b678_record.py c2 2>&1 | tail -
+  #43 | 2026-10-17T17:41:07.408Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py rowgen after | grep -E "TOTALS|EXIT"; grep -E "TOTALS" data/b678_rowgen_stepzero.txt
+  #44 | 2026-10-17T17:41:21.988Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no && git add FINDINGS.md OPEN_TRAILS.md && git commit -q -m "b678 Component 2, under (R
+  #45 | 2026-10-17T17:41:27.202Z | seat | Bash | cd /d/relay && git add data/b678_corrigendum.txt data/b678_corrigendum.json data/b678_corrigendum_landing.json data/b678_record_lines.json data/b678_record_line
+  #46 | 2026-10-17T17:41:38.072Z | seat | Bash | grep -n -E "OVERREACHES|UNLICENSED|ACTION" data/b647_table_SIDE-silence-principle.txt | cut -c1-400 | head -30; echo ---; cd /d/SIDE-silence-principle && git lo
+  #47 | 2026-10-17T17:41:48.522Z | seat | Bash | cat lakefile.toml; git rev-parse --short v0.2.0^{commit} v0.1.0^{commit}; git rev-list --count v0.2.0..main; ls SIDESilencePrinciple; cat SIDESilencePrinciple.l
+  #48 | 2026-10-17T17:42:00.270Z | seat | Bash | cd /d/SIDE-trivium && git show main:.github/workflows/build-module.yml; echo =====; cd /d/SIDE-window && git show main:.github/workflows/build-module.yml | head
+  #49 | 2026-10-17T17:42:10.308Z | seat | Bash | cd /d/SIDE-silence-principle && wc -l SIDESilencePrinciple/Basic.lean && grep -n -E "^\s*(namespace|end|section|open)\b|^\s*(@\[[^]]*\]\s*)?(private\s+|protecte
+  #50 | 2026-10-17T17:42:21.903Z | seat | Bash | cd /d/relay && sed -n 8,30p data/b647_table_SIDE-silence-principle.txt
+  #51 | 2026-10-17T17:42:29.784Z | seat | Bash | cd /d/SIDE-silence-principle && sed -n 1,43p SIDESilencePrinciple/Basic.lean; echo ...; sed -n 99,120p SIDESilencePrinciple/Basic.lean; echo ...; sed -n 339,349
+  #52 | 2026-10-17T17:43:22.597Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py naming 2>&1 | cut -c1-260
+  #53 | 2026-10-17T17:44:55.755Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #54 | 2026-10-17T17:45:13.978Z | seat | Bash | cd /d/SIDE-silence-principle && git rev-parse --abbrev-ref HEAD && git status --short && git add .github/workflows/build-module.yml && git commit -q -m "build-m
+  #55 | 2026-10-17T17:45:34.890Z | seat | Bash | wc -l print_targets.txt && grep -c -E "^\s*(@\[[^]]*\]\s*)?(private\s+|protected\s+|noncomputable\s+)*(theorem|lemma|def|abbrev|structure|inductive|instance|cla
+  #56 | 2026-10-17T17:45:41.602Z | seat | Bash | git -C /d/SIDE-silence-principle branch push-b678-main 6968b6c && PUSH_GATED_LOG=/d/relay/data/b678_silence_main_push_out.txt bash /d/relay/tools/push_gated.sh 
+  #57 | 2026-10-17T17:45:48.097Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-silence-principle --ref main -f ref=6968b6c4753c7f7cc5fa6f2ac92c87e6c5eaf1e3 -f target=SIDESilencePrinci
+  #58 | 2026-10-17T17:45:55.225Z | seat | Bash | git checkout -q -b recut-silence-principle-b678 6968b6c && git rev-parse --abbrev-ref HEAD && git status --short
+  #59 | 2026-10-17T17:46:11.158Z | seat | Bash | git diff --stat && git diff | grep -E "^[+-]" | grep -v -E "^(\+\+\+|---)" | cut -c1-120 && git add SIDESilencePrinciple/Basic.lean && git commit -q -m "Basic.l
+  #60 | 2026-10-17T17:46:15.880Z | seat | Bash | git push origin recut-silence-principle-b678 2>&1 | tail -3; git ls-remote origin refs/heads/recut-silence-principle-b678
+  #61 | 2026-10-17T17:46:23.668Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-silence-principle --ref main -f ref=8829bcc89e7824ac4b6e8a1db9e240ebcfa448ce -f target=SIDESilencePrinci
+  #62 | 2026-10-17T17:47:16.112Z | seat | Bash | gh run view 39055212218 -R psinary-sketch/SIDE-silence-principle --json status,conclusion,headSha; cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 tools/b6
+  #63 | 2026-10-17T17:47:26.437Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py runner 39055212218 8829bcc89e7824ac4b6e8a1db9e240ebcfa448ce after | grep -E "ref built|arti
+  #64 | 2026-10-17T17:47:36.255Z | seat | Bash | cd /d/SIDE-silence-principle && git status --short | head -3; git checkout -q main && git rev-parse --short HEAD && git merge --no-ff -q -m "Merge recut-silence
+  #65 | 2026-10-17T17:47:40.878Z | seat | Bash | git -C /d/SIDE-silence-principle branch push-b678-merge 96b3098 && PUSH_GATED_LOG=/d/relay/data/b678_silence_merge_push_out.txt bash /d/relay/tools/push_gated.s
+  #66 | 2026-10-17T17:47:51.551Z | seat | Bash | cd /d/relay && sed -n 1,66p data/b676_cut.txt | cut -c1-240
+  #67 | 2026-10-17T17:48:06.406Z | seat | Bash | cd /d/SIDE-silence-principle && git show v0.2.1:SIDESilencePrinciple/Basic.lean | grep -n -E "^theorem silence_principle|^theorem silence_universal|^def firewal
+  #68 | 2026-10-17T17:48:09.651Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py corr
+  #69 | 2026-10-17T17:48:18.919Z | seat | Bash | grep -n -i -E "silence|CELLS CHANGED|changed|->" data/b678_correspondence_dry.txt | cut -c1-260 | head -40
+  #70 | 2026-10-17T17:48:38.968Z | seat | Bash | sed -n 14440p /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-1200; grep -n "nine-kernels\|NINE KERNELS\|14440" /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.m
+  #71 | 2026-10-17T17:49:24.408Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py c3 dry 2>&1 | head -1 | cut -c1-250 && python -X utf8 tools/b678_record.py c3 2>&1 | tail -
+  #72 | 2026-10-17T17:49:29.795Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no && git add OPEN_TRAILS.md && git commit -q -m "b678 Component 3, under (R288)(3): SID
+  #73 | 2026-10-17T17:49:35.922Z | seat | Bash | cd /d/relay && git status --short | grep -E "b678|b670" | cut -c1-70; git add data/b678_naming.txt data/b678_naming.json data/b678_runner_SIDE-silence-principle
+  #74 | 2026-10-17T17:52:43.207Z | seat | Bash | python -m py_compile tools/b678_record.py && export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py answers && python -X utf8 tools/b678_record.py
+  #75 | 2026-10-17T17:53:12.601Z | seat | Bash | grep -n "^def \|^ARMS = \|^] + \[\|^STANDING\|^    ('G-" tools/b677_checks.py | awk -F: '{print $1": "substr($0, index($0,$2), 70)}' | head -150 | cut -c1-90 | 
+  #76 | 2026-10-17T17:58:15.724Z | seat | Bash | grep -n -E "b677|R287|THE PLAN|THE RUN|THE TOLERANCE|THE HYPOTHESES|LEFT = |CARRIED = \[" tools/b677_closing.py | cut -c1-150 | head -60
+  #77 | 2026-10-17T18:00:37.496Z | seat | Bash | python -m py_compile tools/b678_checks.py tools/b678_record.py tools/b678_regspec.py tools/b678_reg_gate.py tools/b678_worklist.py tools/b678_closing.py tools/b
+  #78 | 2026-10-17T18:00:49.972Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py repairs | tail -1 && python -X utf8 tools/b678_record.py scores dry 2>&1 | cut -c1-260
+  #79 | 2026-10-17T18:00:57.743Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #80 | 2026-10-17T18:01:04.036Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py findings dry 2>&1 | head -4 | cut -c1-500; python -X utf8 tools/b678_record.py trail dry 2>
+  #81 | 2026-10-17T18:01:11.363Z | seat | Bash | git add tools/b678_checks.py tools/b678_closing.py tools/b678_reg_gate.py tools/b678_regspec.py tools/b678_record.py tools/b678_worklist.py data/b678_author_ans
+  #82 | 2026-10-17T18:02:40.150Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_checks.py --prerun --part standing-a > /dev/null; echo "exit $?"; grep -E "PHASES|run took|### PART|raised|decl
+  #83 | 2026-10-17T18:05:58.843Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_checks.py --prerun --part standing-b > /dev/null; echo "exit $?"; grep -E "PHASES|run took|### PART|raised|ACT-
+  #84 | 2026-10-17T18:10:45.609Z | seat | Bash | grep -o -E "b67[0-9] [A-Z]+[^;]*" data/b678_arms_prerun_standing-b.txt | head -10
+  #85 | 2026-10-17T18:10:49.659Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_checks.py --prerun --part act > /dev/null; echo "exit $?"; grep -E "run took|### PART|raised" data/b678_arms_pr
+  #86 | 2026-10-17T18:11:14.862Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_checks.py --combine b678_arms_prerun.txt | head -8 | cut -c1-200
+  #87 | 2026-10-17T18:11:21.661Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_reg_gate.py | grep -E "exit code|MISSES|UNDECLARED|fixtures|ENTRY :|TRAIL :|DRY-RUN STEP :|CLOSING DRY-RUN|GATE
+  #88 | 2026-10-17T18:11:46.409Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py gatebanks 2>&1 | tail -10 | cut -c1-200; grep -A3 "PREDICTIONS FOUND" data/b678_regspec_run.txt | hea
+  #89 | 2026-10-17T18:11:55.782Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b378_lockgate.py b678 data/b678_registration_2026-10-17.txt 2>&1 | grep -E "GATES READ|VERDICT : LOCK" && PYTHONIOEN
+  #90 | 2026-10-17T18:12:03.411Z | seat | Bash | git add data/audit_b678_reg_satisfiable.txt data/b678_arms_prerun.txt data/b678_arms_prerun_standing-a.txt data/b678_arms_prerun_standing-b.txt data/b678_arms_p
+  #91 | 2026-10-17T18:12:09.799Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no | head -3; git log --oneline -1 | cut -c1-60 && git branch push-b678-root 1f9b836 && 
+  #92 | 2026-10-17T18:12:43.429Z | seat | Bash | cd /d/relay && git log --oneline -1 | cut -c1-60 && git branch push-b678-root HEAD && PUSH_GATED_LOG=/d/relay/data/b678_relay_root_push_out.txt bash /d/relay/to
+  #93 | 2026-10-17T18:12:54.237Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py table_final 2>&1 | tail -1 && git status --short --untracked-files=no; python -X utf8 tools
+  #94 | 2026-10-17T18:13:44.744Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py root 2>&1 | tail -2 && tail -1 data/act_roots.txt | cut -c1-140 && python -X utf8 tools/b67
+
+### ### **COMMANDS 94 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5.**

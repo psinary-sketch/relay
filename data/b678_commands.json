@@ -1,0 +1,714 @@
+{
+ "at": "2026-10-17T18:14:11Z",
+ "anchor": "RULING (R288) BEGIN",
+ "rows": [
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:03:20.750Z",
+   "src": "seat",
+   "cmd": "sed -n 1,20p data/b670_licensed_table.txt | cut -c1-200; grep -n -E '^\\s+\\S.*\\b[0-9]+ +-> +[0-9]+' data/b670_licensed_table.txt | head -50 | cut -c1-200; sed -n 1,30p data/b674_rules.txt | cut -c1-220",
+   "n": 1
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:03:37.905Z",
+   "src": "seat",
+   "cmd": "sed -n 1,60p data/b676_naming.txt | cut -c1-260",
+   "n": 2
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:03:54.336Z",
+   "src": "seat",
+   "cmd": "sed -n 20,89p data/b670_licensed_table.txt | cut -c1-230; sed -n 123,140p data/b670_licensed_table.txt | cut -c1-260",
+   "n": 3
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:04:06.473Z",
+   "src": "seat",
+   "cmd": "sed -n 1,40p data/b648_recut_order.txt | cut -c1-230; grep -rn -i \"descending\" data/b652_*.txt 2>/dev/null | head -5 | cut -c1-260",
+   "n": 4
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:04:24.805Z",
+   "src": "seat",
+   "cmd": "grep -n -E \"^### THE (RUN|TOLERANCE|HYPOTHESES|PLAN)|^    Q0 at 200|^    the diff\" data/b677_closing.txt | cut -c1-200; grep -n -E \"^  H[1-5] |LABELLED|LOCATED|### ###\" data/b677_map_h.txt | cut -c1-120; grep -n -E \"THE TOLERANCE READ|at j = (38|64)|### ### |THE TRANSFER\" data/b677_tolerance.txt | cut -c1-120; grep -n -E \"W-ORD-(Q0-CLASS-LINES|MAP-ANGLE-FORM|EPSTEIN-BALL-WIDTH) \" data/b670_work_orders.txt | cut -c1-160; grep -n -E '^    \\([a-i]\\)' data/b677_defects.txt | cut -c1-60",
+   "n": 5
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:05:53.349Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_citation.py check",
+   "n": 6
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:06:00.742Z",
+   "src": "seat",
+   "cmd": "grep -n -i -E \"residue|correspond|header\" data/b676_cut.txt | cut -c1-260 | head -8",
+   "n": 7
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:06:10.308Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_citation.py check | tail -1 && python -X utf8 tools/b678_citation.py ferry && tail -3 data/b678_ferry_scan.txt | head -1",
+   "n": 8
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:06:17.101Z",
+   "src": "seat",
+   "cmd": "grep -n \"VERDICT\" data/b678_ferry_scan.txt; head -12 data/b647_table_kernels.txt | cut -c1-200; sed -n 19p data/b647_table_kernels.txt; sed -n 6p data/b647_table_kernels.txt",
+   "n": 9
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:06:41.633Z",
+   "src": "seat",
+   "cmd": "sed -n 1,3p data/b647_table_kernels.txt | cut -c1-60; grep -n \"FINDINGS 25\" data/b676_q0_lines.txt | cut -c1-12; sed -n 19p /d/relay/data/b652_ferry.txt | cut -c1-120; ls data/b676_q0_lines.json",
+   "n": 10
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:07:38.838Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py rowgen | tail -3",
+   "n": 11
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-17T17:08:06.301Z",
+   "src": "seat",
+   "cmd": "$d = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); \"listing at $d\"; foreach ($n in 'tail','lean','lake','python','bash') { $p = Get-CimInstance Win32_Process -Filter \"Name like '$n%'\" ; if ($p) { $p | ForEach-Object { \"$n  PID $($_.ProcessId)  $($_.CommandLine)\" } } else { \"$n : none\" } }; $os = Get-CimInstance Win32_OperatingSystem; \"free MB $([int]($os.FreePhysicalMemory/1024))\"",
+   "n": 12
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:08:13.955Z",
+   "src": "seat",
+   "cmd": "git add data/b677_closing_push_out.txt && git commit -q -m \"b678 step zero: data/b677_closing_push_out.txt committed, the b677 closing push's capture (7beac43e..da8a46bc), under (R288)(4)\" && git log --oneline -1",
+   "n": 13
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:08:19.173Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py branches",
+   "n": 14
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:08:24.524Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b677 && git -C /d/relay branch -d push-b677",
+   "n": 15
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:08:25.250Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b677-root && git -C /d/relay branch -d push-b677-root",
+   "n": 16
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:08:25.495Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b677-closing && git -C /d/relay branch -d push-b677-closing",
+   "n": 17
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:08:33.333Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b677 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b677",
+   "n": 18
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:08:37.829Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b677-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b677-root",
+   "n": 19
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:09:17.392Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_tests.py parts",
+   "n": 20
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:09:24.006Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_addenda_writelist.py test_additive_shared_b644.py test_asof.py test_axiom_claim.py test_axiom_claim_b651.py test_banned_terms_backmatter.py test_build_watch_b644.py test_build_watch_b647.py; do python -X utf8 tools/b678_tests.py run $t stepzero; done | cut -c1-150",
+   "n": 21
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:18:01.592Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && for t in test_chain_page.py test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py; do python -X utf8 tools/b678_tests.py run $t stepzero; done | cut -c1-150",
+   "n": 22
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:27:16.584Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && for t in test_chain_page_b632.py test_chain_page_b635.py test_chain_page_b638.py test_closing_headline_b634.py test_clusters_served_b651.py test_composer_b646.py test_composer_b647.py test_composer_b649.py test_conversion_b652.py test_correspondence_gen.py test_e0_databinder_b643.py test_e0_existential.py test_e0_rule.py test_edit_route_b646.py test_faces_form.py test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py test_licensed_table_instrument_b652.py test_met_b646.py test_module_header.py test_msplit_b658.py test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_names_b643.py test_push_gated.sh test_reader_needle_b641.py test_record_findings_b632.py test_registry_tags_b636.py test_row_sort.py test_rowgen_ident.py test_terminal_table_b630.py test_terminal_table_b635.py test_terminal_table_b636.py test_terminal_table_b637.py; do python -X utf8 tools/b678_tests.py run $t stepzero; done | grep -v \"failing NONE\" | cut -c1-150; echo done",
+   "n": 23
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:36:07.594Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_tests.py report stepzero | tail -3; PYTHONIOENCODING=utf-8 python -X utf8 -c \"\nimport json;j=json.load(open('data/b678_tests_stepzero.json',encoding='utf-8'));print(len(j), sum(v['seconds'] for v in j.values()))\"",
+   "n": 24
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-17T17:36:15.834Z",
+   "src": "seat",
+   "cmd": "$d = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); \"listing at $d\"; foreach ($n in 'tail','lean','lake','python','bash') { $p = Get-CimInstance Win32_Process -Filter \"Name like '$n%'\" ; if ($p) { $p | ForEach-Object { \"$n  PID $($_.ProcessId)  $($_.CommandLine)\" } } else { \"$n : none\" } }; $os = Get-CimInstance Win32_OperatingSystem; \"free MB $([int]($os.FreePhysicalMemory/1024))\"",
+   "n": 25
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:36:21.503Z",
+   "src": "seat",
+   "cmd": "grep -n -E \"^=== test_chain_page.py$|title is the variant\" data/b678_tests_stepzero.txt | head -3; awk '/^=== test_chain_page_b638.py/{f=1} f&&/^   \\([4-7]\\) /{print NR} /^=== test_closing/{f=0}' data/b678_tests_stepzero.txt | tr '\\n' ' '",
+   "n": 26
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:36:26.531Z",
+   "src": "seat",
+   "cmd": "grep -n -E \"^ +\\([4-7]\\) .*-- FAIL\" data/b678_tests_stepzero.txt | cut -c1-60",
+   "n": 27
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:36:34.144Z",
+   "src": "seat",
+   "cmd": "for n in 22 24 25 26 28 30; do printf ':%s ' $n; sed -n \"${n}p\" data/b677_closing.txt | cut -c1-400; done; for n in 3 4 5 6 7 9 10 12; do printf 'map_h :%s ' $n; sed -n \"${n}p\" data/b677_map_h.txt | cut -c1-330; done; for n in 24 86 87 90; do printf 'tol :%s ' $n; sed -n \"${n}p\" data/b677_tolerance.txt | cut -c1-260; done",
+   "n": 28
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:37:00.075Z",
+   "src": "seat",
+   "cmd": "git add data/b678_branches.json data/b678_branches.txt data/b678_citation_check.json data/b678_citation_check.txt data/b678_ferry.txt data/b678_ferry_scan.txt data/b678_readfirst.txt data/b678_rowgen_stepzero.txt data/b678_stepzero.txt data/b678_tests_stepzero.json data/b678_tests_stepzero.txt data/b678_tests_withheld.json data/b678_defects.txt tools/b678_citation.py tools/b678_record.py tools/b678_tests.py tools/b678_worklist.py && git commit -q -m \"b678 step zero, under (R288): the citation check (61 cites, no miss), the ferry and its scan, the read-first bank, rowgen and constellation, b677's run readings printed from their banks by line, the branches bank (5 deleted, one branch per command, no glob), the tests (54 run, the standing two not clean), the step-zero bank, the defects bank opened\" && git log --oneline -1 | cut -c1-60",
+   "n": 29
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:37:17.590Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py c1 dry 2>&1 | head -1 | cut -c1-300",
+   "n": 30
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:37:23.148Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py c1 2>&1 | tail -1",
+   "n": 31
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:37:30.284Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no && git add FINDINGS.md && git commit -q -m \"b678 Component 1, under (R288)(1): b677 at its weight (FINDINGS :8975, beneath b677's entry :8943), its run readings as the banks print them\" && git log --oneline -1 | cut -c1-60",
+   "n": 32
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:37:39.519Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 -c \"\nimport json,collections\nj=json.load(open('data/b676_q0_lines.json',encoding='utf-8'))\nprint(list(j.keys()))\nh=[x for x in j['hits'] if x['reading']=='TO RE-CUT']\nprint(len(h), collections.Counter(x['why'] for x in h))\nprint(collections.Counter(x['kind'] for x in h))\nfor x in h[:3]: print(json.dumps(x,ensure_ascii=False)[:600])\n\"",
+   "n": 33
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:37:55.148Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -c \"\nimport json\nj=json.load(open('data/b676_q0_lines.json',encoding='utf-8'))\nh=[x for x in j['hits'] if x['reading']=='TO RE-CUT']\nfor x in h: print(x['file'][:4], x['line'], x['kind'], len(x['s']), '|', x['why'][:60])\nprint(sum(1 for x in h if x['file']=='FINDINGS.md'), len(set((x['file'],x['line']) for x in h)))\n\"; sed -n 8881p /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | cut -c1-400",
+   "n": 34
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:38:23.531Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -c \"\nimport json,re,sys\nsys.path.insert(0,'tools')\nfrom b652_record import conv\nj=json.load(open('data/b676_q0_lines.json',encoding='utf-8'))\nh=[x for x in j['hits'] if x['reading']=='TO RE-CUT']\nfor x in h:\n  s=x['s']; c=conv(s)\n  hz=[]\n  if c.count('\\`')%2: hz.append('odd-tick')\n  if '|' in s: hz.append('pipe')\n  if 'None' in s or ' ? ' in s or '### NOT' in s: hz.append('unread')\n  if re.search(r'\\b(gap|blind)',s,re.I): hz.append('stem')\n  if '\\n' in s: hz.append('newline')\n  if hz: print(x['file'][:4],x['line'],hz, s[:90].replace('\\n',' '))\n\"",
+   "n": 35
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:38:40.392Z",
+   "src": "seat",
+   "cmd": "sed -n 4437p /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | cut -c1-400",
+   "n": 36
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:39:54.863Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_corrigendum.py dry 2>&1 | head -3 | cut -c1-400; PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_corrigendum.py dry 2>&1 | tail -3",
+   "n": 37
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:40:02.118Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_corrigendum.py dry 2>&1 | grep -E \"^- (FINDINGS :4437|FINDINGS :7266|OPEN_TRAILS :14168|FINDINGS :8561)\" | cut -c1-700",
+   "n": 38
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:40:10.162Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools')\nimport b678_corrigendum as C\nfrom b652_record import conv\nrows,out,car=C.compose();t=conv(C.entry_text(out,car))\nfor l in t.split('\\n'):\n  if l.startswith(('- FINDINGS :7266','- OPEN_TRAILS :14168','- FINDINGS :8561','- OPEN_TRAILS :14160')): print(l[:520]); print()\n\"",
+   "n": 39
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:40:17.964Z",
+   "src": "seat",
+   "cmd": "git add tools/b678_corrigendum.py && git commit -q -m \"b678 Component 2, under (R288)(2): tools/b678_corrigendum.py, the corrigendum generator (the TO RE-CUT rows of data/b676_q0_lines.json, each sentence quoted verbatim with its corrected reading in one clause citing FINDINGS :8881 and Zeta23/Defs.lean :142), committed alone\" && git log --oneline -1 | cut -c1-60",
+   "n": 40
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:40:23.035Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_corrigendum.py land 2>&1 | tail -2 | cut -c1-300",
+   "n": 41
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:40:59.096Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py c2 dry 2>&1 | head -1 | cut -c1-250 && python -X utf8 tools/b678_record.py c2 2>&1 | tail -2 | cut -c1-260",
+   "n": 42
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:41:07.408Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py rowgen after | grep -E \"TOTALS|EXIT\"; grep -E \"TOTALS\" data/b678_rowgen_stepzero.txt",
+   "n": 43
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:41:21.988Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no && git add FINDINGS.md OPEN_TRAILS.md && git commit -q -m \"b678 Component 2, under (R288)(2): the corrigendum entry (FINDINGS :8977), Q0 outside the kernel's configuration class at v0.32, 36 sentences on 35 ledger lines read against b675's finding, none carried; W-ORD-Q0-CLASS-LINES discharged on it (OPEN_TRAILS :14618)\" && git log --oneline -1 | cut -c1-60",
+   "n": 44
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:41:27.202Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git add data/b678_corrigendum.txt data/b678_corrigendum.json data/b678_corrigendum_landing.json data/b678_record_lines.json data/b678_record_lines_c2.json data/b678_rowgen_after.txt data/b670_work_orders.txt data/b678_scanfile_c1.md data/b678_scanfile_c2.md data/b678_scanfile_corrigendum.md tools/b678_record.py && git commit -q -m \"b678 Components 1-2 banks, under (R288)(1)-(2): the weight line's bank; the corrigendum bank (36 rows, hand count 36, none carried, FINDINGS :8977) and its landing; the order's record line (OPEN_TRAILS :14618) and its row appended to the orders bank, DISCHARGED; rowgen after, nothing moved\" && git log --oneline -1 | cut -c1-60",
+   "n": 45
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:41:38.072Z",
+   "src": "seat",
+   "cmd": "grep -n -E \"OVERREACHES|UNLICENSED|ACTION\" data/b647_table_SIDE-silence-principle.txt | cut -c1-400 | head -30; echo ---; cd /d/SIDE-silence-principle && git log --oneline -3 && git status --short | head && git tag --sort=-creatordate | head -3 && git branch -a && ls && ls .github/workflows 2>/dev/null; cat lean-toolchain; grep -n -i mathlib lakefile* | head",
+   "n": 46
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:41:48.522Z",
+   "src": "seat",
+   "cmd": "cat lakefile.toml; git rev-parse --short v0.2.0^{commit} v0.1.0^{commit}; git rev-list --count v0.2.0..main; ls SIDESilencePrinciple; cat SIDESilencePrinciple.lean | head; cd /d/relay && grep -n -i -E \"print list|print_targets|22 names\" data/b676_author_answers.txt | head -8 | cut -c1-400",
+   "n": 47
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:42:00.270Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-trivium && git show main:.github/workflows/build-module.yml; echo =====; cd /d/SIDE-window && git show main:.github/workflows/build-module.yml | head -120",
+   "n": 48
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:42:10.308Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-silence-principle && wc -l SIDESilencePrinciple/Basic.lean && grep -n -E \"^\\s*(namespace|end|section|open)\\b|^\\s*(@\\[[^]]*\\]\\s*)?(private\\s+|protected\\s+|noncomputable\\s+)*(theorem|lemma|def|abbrev|structure|inductive|instance|class)\\s+\\S+\" SIDESilencePrinciple/Basic.lean | cut -c1-110",
+   "n": 49
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:42:21.903Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && sed -n 8,30p data/b647_table_SIDE-silence-principle.txt",
+   "n": 50
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:42:29.784Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-silence-principle && sed -n 1,43p SIDESilencePrinciple/Basic.lean; echo ...; sed -n 99,120p SIDESilencePrinciple/Basic.lean; echo ...; sed -n 339,349p SIDESilencePrinciple/Basic.lean; echo ...; sed -n 403,425p SIDESilencePrinciple/Basic.lean; file SIDESilencePrinciple/Basic.lean",
+   "n": 51
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:43:22.597Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py naming 2>&1 | cut -c1-260",
+   "n": 52
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:44:55.755Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -c \"\nimport json;j=json.load(open('data/b676_commands.json',encoding='utf-8'))\nfor r in j['rows']:\n  c=r['cmd']\n  if ('SIDE-trivium' in c or '/d/SIDE-trivium' in c) and ('push_gated' in c or 'gh workflow' in c or 'git commit' in c or 'git merge' in c or 'git tag' in c or 'gh run' in c or 'git push' in c or 'checkout' in c):\n    print(r['n'], c[:700]); print()\n\"",
+   "n": 53
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:45:13.978Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-silence-principle && git rev-parse --abbrev-ref HEAD && git status --short && git add .github/workflows/build-module.yml && git commit -q -m \"build-module workflow: a hand-dispatched build of one ref with the print step over print_targets.txt (b678, under (R288)(3)); no Lean byte changed\" && git log --oneline -1 && git show --stat --format= HEAD",
+   "n": 54
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:45:34.890Z",
+   "src": "seat",
+   "cmd": "wc -l print_targets.txt && grep -c -E \"^\\s*(@\\[[^]]*\\]\\s*)?(private\\s+|protected\\s+|noncomputable\\s+)*(theorem|lemma|def|abbrev|structure|inductive|instance|class)\\s+\\S+\" SIDESilencePrinciple/Basic.lean && git add print_targets.txt && git commit -q -m \"print_targets.txt: the 58 declarations of SIDESilencePrinciple/Basic.lean, one per line, the build-module print step's list (b678, under (R288)(3) and (R263)(4)); no Lean byte changed\" && git log --oneline -1 && git diff --stat v0.2.0 HEAD",
+   "n": 55
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:45:41.602Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-silence-principle branch push-b678-main 6968b6c && PUSH_GATED_LOG=/d/relay/data/b678_silence_main_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-silence-principle push-b678-main; echo \"exit $?\"",
+   "n": 56
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:45:48.097Z",
+   "src": "seat",
+   "cmd": "gh workflow run build-module.yml -R psinary-sketch/SIDE-silence-principle --ref main -f ref=6968b6c4753c7f7cc5fa6f2ac92c87e6c5eaf1e3 -f target=SIDESilencePrinciple; echo \"exit $?\"",
+   "n": 57
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:45:55.225Z",
+   "src": "seat",
+   "cmd": "git checkout -q -b recut-silence-principle-b678 6968b6c && git rev-parse --abbrev-ref HEAD && git status --short",
+   "n": 58
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:46:11.158Z",
+   "src": "seat",
+   "cmd": "git diff --stat && git diff | grep -E \"^[+-]\" | grep -v -E \"^(\\+\\+\\+|---)\" | cut -c1-120 && git add SIDESilencePrinciple/Basic.lean && git commit -q -m \"Basic.lean docstrings re-cut to what the file compiles (b678, under (R288)(3)): the licensed table's four ACTIONs applied verbatim -- the header's list, Lemma 3.1, the section 7 preamble, Theorem 8.1; no code line changed\" && git log --oneline -1",
+   "n": 59
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:46:15.880Z",
+   "src": "seat",
+   "cmd": "git push origin recut-silence-principle-b678 2>&1 | tail -3; git ls-remote origin refs/heads/recut-silence-principle-b678",
+   "n": 60
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:46:23.668Z",
+   "src": "seat",
+   "cmd": "gh workflow run build-module.yml -R psinary-sketch/SIDE-silence-principle --ref main -f ref=8829bcc89e7824ac4b6e8a1db9e240ebcfa448ce -f target=SIDESilencePrinciple; echo \"exit $?\"; gh run view 39055170313 -R psinary-sketch/SIDE-silence-principle --json status,conclusion,headSha",
+   "n": 61
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:47:16.112Z",
+   "src": "seat",
+   "cmd": "gh run view 39055212218 -R psinary-sketch/SIDE-silence-principle --json status,conclusion,headSha; cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py runner 39055170313 6968b6c4753c7f7cc5fa6f2ac92c87e6c5eaf1e3 before | sed -n '3,6p;10,30p' | cut -c1-220",
+   "n": 62
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:47:26.437Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py runner 39055212218 8829bcc89e7824ac4b6e8a1db9e240ebcfa448ce after | grep -E \"ref built|artifact:|### ###\" | cut -c1-220 && python -X utf8 tools/b678_record.py prints && python -X utf8 tools/b678_record.py cutdiff",
+   "n": 63
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:47:36.255Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-silence-principle && git status --short | head -3; git checkout -q main && git rev-parse --short HEAD && git merge --no-ff -q -m \"Merge recut-silence-principle-b678: Basic.lean's docstrings re-cut to what the file compiles (the licensed table's four ACTIONs, verbatim; no code line changed); built before (run 39055170313) and after (run 39055212218), both DERIVES, the 58 prints equal line for line\" recut-silence-principle-b678 && git log --oneline -2 && echo \"tree equal: $(test $(git rev-parse HEAD^{tree}) = $(git rev-parse 8829bcc^{tree}) && echo True)\"",
+   "n": 64
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:47:40.878Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-silence-principle branch push-b678-merge 96b3098 && PUSH_GATED_LOG=/d/relay/data/b678_silence_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-silence-principle push-b678-merge \"v0.2.1::v0.2.1 -- Basic.lean's docstrings re-cut to what the file compiles (b678); prints equal before and after\"; echo \"exit $?\"",
+   "n": 65
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:47:51.551Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && sed -n 1,66p data/b676_cut.txt | cut -c1-240",
+   "n": 66
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:48:06.406Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-silence-principle && git show v0.2.1:SIDESilencePrinciple/Basic.lean | grep -n -E \"^theorem silence_principle|^theorem silence_universal|^def firewall|^def resolution_floor_denom|^def supports_emergence|^theorem silence_yields_protection|Theorem 8.1|We encode A, D|This kernel proves|In coupled systems|If the Bool chain|^def trivium_d_eff|^def num_silent\" ; cd /d/relay && grep -E \"'SIDESilencePrinciple\\.(silence_principle|Universal\\.silence_universal|firewall|resolution_floor_denom|supports_emergence|silence_yields_protection|trivium_d_eff)'\" data/b678_axioms_SIDE-silence-principle_after.txt | cut -c1-140",
+   "n": 67
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:48:09.651Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py corr",
+   "n": 68
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:48:18.919Z",
+   "src": "seat",
+   "cmd": "grep -n -i -E \"silence|CELLS CHANGED|changed|->\" data/b678_correspondence_dry.txt | cut -c1-260 | head -40",
+   "n": 69
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:48:38.968Z",
+   "src": "seat",
+   "cmd": "sed -n 14440p /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-1200; grep -n \"nine-kernels\\|NINE KERNELS\\|14440\" /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-100 | tail -4; sed -n 14558p /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-300",
+   "n": 70
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:49:24.408Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py c3 dry 2>&1 | head -1 | cut -c1-250 && python -X utf8 tools/b678_record.py c3 2>&1 | tail -1",
+   "n": 71
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:49:29.795Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no && git add OPEN_TRAILS.md && git commit -q -m \"b678 Component 3, under (R288)(3): SIDE-silence-principle's first relay runner print banks entered beneath the nine-kernels item (OPEN_TRAILS :14620), the five Correspondence cells carried there\" && git log --oneline -1 | cut -c1-60",
+   "n": 72
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:49:35.922Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git status --short | grep -E \"b678|b670\" | cut -c1-70; git add data/b678_naming.txt data/b678_naming.json data/b678_runner_SIDE-silence-principle_before.txt data/b678_runner_SIDE-silence-principle_after.txt data/b678_axioms_SIDE-silence-principle_before.txt data/b678_axioms_SIDE-silence-principle_after.txt data/b678_runner_rows.json data/b678_prints_compare.txt data/b678_cut_diff.txt data/b678_correspondence_dry.txt data/b678_cut.txt data/b678_silence_main_push_out.txt data/b678_silence_merge_push_out.txt data/b678_record_lines_c3.json data/b678_scanfile_c3.md data/b678_defects.txt tools/b678_record.py tools/b678_worklist.py && git commit -q -m \"b678 Component 3, under (R288)(3): the naming (SIDE-silence-principle, the tie at 4 broken by the larger table), the runs before and after (both DERIVES, 58 prints equal), the cut's diff (docstrings alone), the generator dry (5 cells carried), the cut bank (distance 4 to 1, v0.2.1), the push captures, the nine-kernels line's bank; the defects bank (b)\" && git log --oneline -1 | cut -c1-60",
+   "n": 73
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:52:43.207Z",
+   "src": "seat",
+   "cmd": "python -m py_compile tools/b678_record.py && export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py answers && python -X utf8 tools/b678_record.py kernels && python -X utf8 tools/b678_record.py commands && grep \"BRANCH DELETES BY SHAPE\" data/b678_commands.txt | cut -c1-400",
+   "n": 74
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:53:12.601Z",
+   "src": "seat",
+   "cmd": "grep -n \"^def \\|^ARMS = \\|^] + \\[\\|^STANDING\\|^    ('G-\" tools/b677_checks.py | awk -F: '{print $1\": \"substr($0, index($0,$2), 70)}' | head -150 | cut -c1-90 | tail -100",
+   "n": 75
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T17:58:15.724Z",
+   "src": "seat",
+   "cmd": "grep -n -E \"b677|R287|THE PLAN|THE RUN|THE TOLERANCE|THE HYPOTHESES|LEFT = |CARRIED = \\[\" tools/b677_closing.py | cut -c1-150 | head -60",
+   "n": 76
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:00:37.496Z",
+   "src": "seat",
+   "cmd": "python -m py_compile tools/b678_checks.py tools/b678_record.py tools/b678_regspec.py tools/b678_reg_gate.py tools/b678_worklist.py tools/b678_closing.py tools/b678_citation.py tools/b678_tests.py && echo compiled && export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py kernels && python -X utf8 tools/b678_record.py defects && python -X utf8 tools/b678_record.py repairs | tail -9 && python -X utf8 tools/b678_regspec.py | grep -E \"PLANTED ROWS|CONTROL|REFUS\" | cut -c1-140",
+   "n": 77
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:00:49.972Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py repairs | tail -1 && python -X utf8 tools/b678_record.py scores dry 2>&1 | cut -c1-260",
+   "n": 78
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:00:57.743Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x','dry']\nimport b678_record as R;v,t=R._n5();print(v);print(t[200:])\"",
+   "n": 79
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:01:04.036Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py findings dry 2>&1 | head -4 | cut -c1-500; python -X utf8 tools/b678_record.py trail dry 2>&1 | head -1 | cut -c1-300",
+   "n": 80
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:01:11.363Z",
+   "src": "seat",
+   "cmd": "git add tools/b678_checks.py tools/b678_closing.py tools/b678_reg_gate.py tools/b678_regspec.py tools/b678_record.py tools/b678_worklist.py data/b678_author_answers.txt data/b678_author_answers.json data/b678_kernels_face.json data/b678_defects.txt data/b678_defects.json data/b678_tool_repairs.txt data/b678_rules.txt && git commit -q -m \"b678 Component 4, the ferry's Component 4: the tools carried from b677's sealed copies with one repair at carry (the suite's standing arms in two foreground parts and the act's in one, (R288)(1)), the carry-time bank; the record tool's late routes, the suite (68 standing arms carried, 20 over this act's banks), the gate with both dry runs, the spec; the rules bank's row; the answers bank (no prompt), the kernels face read after Component 3's kernel writes, the defects bank (a)-(b)\" && git log --oneline -1 | cut -c1-60",
+   "n": 81
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:02:40.150Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_checks.py --prerun --part standing-a > /dev/null; echo \"exit $?\"; grep -E \"PHASES|run took|### PART|raised|declared not|run not\" data/b678_arms_prerun_standing-a.txt | cut -c1-400; grep -E \"FAILS|DEFECTIVE\" data/b678_arms_prerun_standing-a.txt | cut -c1-110",
+   "n": 82
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:05:58.843Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_checks.py --prerun --part standing-b > /dev/null; echo \"exit $?\"; grep -E \"PHASES|run took|### PART|raised|ACT-ROOT CHAIN\" data/b678_arms_prerun_standing-b.txt | cut -c1-300; grep -E \"^  G-\" data/b678_arms_prerun_standing-b.txt | cut -c1-110",
+   "n": 83
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:10:45.609Z",
+   "src": "seat",
+   "cmd": "grep -o -E \"b67[0-9] [A-Z]+[^;]*\" data/b678_arms_prerun_standing-b.txt | head -10",
+   "n": 84
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:10:49.659Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_checks.py --prerun --part act > /dev/null; echo \"exit $?\"; grep -E \"run took|### PART|raised\" data/b678_arms_prerun_act.txt | cut -c1-300; grep -E \"^  G-\" data/b678_arms_prerun_act.txt | cut -c1-110",
+   "n": 85
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:11:14.862Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_checks.py --combine b678_arms_prerun.txt | head -8 | cut -c1-200",
+   "n": 86
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:11:21.661Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_reg_gate.py | grep -E \"exit code|MISSES|UNDECLARED|fixtures|ENTRY :|TRAIL :|DRY-RUN STEP :|CLOSING DRY-RUN|GATE VERDICT|b678 closed|Trace|Error\" | cut -c1-300",
+   "n": 87
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:11:46.409Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_record.py gatebanks 2>&1 | tail -10 | cut -c1-200; grep -A3 \"PREDICTIONS FOUND\" data/b678_regspec_run.txt | head -5",
+   "n": 88
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:11:55.782Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b378_lockgate.py b678 data/b678_registration_2026-10-17.txt 2>&1 | grep -E \"GATES READ|VERDICT : LOCK\" && PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_seal.py --lock data/b678_registration_2026-10-17.txt 2>&1 | tail -3 && PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_seal.py --verify data/b678_registration_2026-10-17.txt 2>&1 | tail -1 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b678_checks.py --seal | tail -2",
+   "n": 89
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:12:03.411Z",
+   "src": "seat",
+   "cmd": "git add data/audit_b678_reg_satisfiable.txt data/b678_arms_prerun.txt data/b678_arms_prerun_standing-a.txt data/b678_arms_prerun_standing-b.txt data/b678_arms_prerun_act.txt data/b678_census_stepzero.txt data/b678_faces_census_stepzero.txt data/b678_lockgate.json data/b678_lockgate_notes.txt data/b678_lsr_prerun_standing-a.json data/b678_lsr_prerun_standing-b.json data/b678_lsr_prerun_act.json data/b678_pins_stepzero.txt data/b678_reg_gate.txt data/b678_reg_termscan.txt data/b678_registration_2026-10-17.txt data/b678_regspec_run.txt data/b678_satisfiable.json data/b678_seal_hashes.json && git commit -q -m \"b678 seal, under (R288): the face locked (sha256 15b61691..., 25004 bytes) after Components 0-3, the pre-run in three foreground parts (88 arms, 63 passing; standing-a 193 s, standing-b 281 s, act 21 s; the 25 failing every one reading what is not yet written), the gate CLEAR with its dry-run step and the closing's dry run CLEAN; the spec jointly satisfiable, the term scan clean, the censuses and pins, the lock gate 8 of 8; the eight sealed tools' sha256 recorded\" && git log --oneline -1 | cut -c1-60; git status --short --untracked-files=no",
+   "n": 90
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:12:09.799Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no | head -3; git log --oneline -1 | cut -c1-60 && git branch push-b678-root 1f9b836 && PUSH_GATED_LOG=/d/relay/data/b678_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b678-root; echo \"exit $?\"",
+   "n": 91
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:12:43.429Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git log --oneline -1 | cut -c1-60 && git branch push-b678-root HEAD && PUSH_GATED_LOG=/d/relay/data/b678_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b678-root; echo \"exit $?\"",
+   "n": 92
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:12:54.237Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py table_final 2>&1 | tail -1 && git status --short --untracked-files=no; python -X utf8 tools/b678_record.py root dry 2>&1 | tail -3",
+   "n": 93
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-17T18:13:44.744Z",
+   "src": "seat",
+   "cmd": "export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b678_record.py root 2>&1 | tail -2 && tail -1 data/act_roots.txt | cut -c1-140 && python -X utf8 tools/b678_record.py root_arm",
+   "n": 94
+  }
+ ],
+ "offences": [],
+ "local_lean": [],
+ "dispatches": [
+  57,
+  61
+ ],
+ "moves_deletes": [
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "delete_shapes": [
+  {
+   "n": 15,
+   "deletes": [
+    "push-b677"
+   ],
+   "globs": []
+  },
+  {
+   "n": 16,
+   "deletes": [
+    "push-b677-root"
+   ],
+   "globs": []
+  },
+  {
+   "n": 17,
+   "deletes": [
+    "push-b677-closing"
+   ],
+   "globs": []
+  },
+  {
+   "n": 18,
+   "deletes": [
+    "push-b677"
+   ],
+   "globs": []
+  },
+  {
+   "n": 19,
+   "deletes": [
+    "push-b677-root"
+   ],
+   "globs": []
+  }
+ ]
+}
