@@ -377,6 +377,100 @@ def faces(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 3: THE RE-CUT'S RUNS ON THE HOSTED RUNNER (b673's runner, carried)
+WINDOW = 'SIDE-window'
+WINDOW_DIR = 'D:/SIDE-window'
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def runner(*a):
+    """`runner <run id> <ref> <label>`: SIDE-window's run read by its id; the artifact listed, downloaded by its id into memory, its sha256
+    against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP; the axioms output
+    of every AxiomCheck*.lean banked whole. data/b674_runner_SIDE-window_<label>.txt, data/b674_axioms_SIDE-window_<label>.txt and a row of
+    data/b674_runner_rows.json. Carried from b673_record.py's runner with the kernel's own print step."""
+    import hashlib
+    import io as _io
+    import zipfile
+    run_id, ref, label = int(a[0]), a[1], a[2]
+    repo = 'psinary-sketch/' + WINDOW
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    row = dict(kernel=WINDOW, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+               stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+    L = ['b674 -- COMPONENT 3, (R284)(4): THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (WINDOW, label.upper(), utc()), '',
+         '### the dispatch: at main (the workflow 7c4a2e1), the ref input %s' % ref,
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; %s to %s' % (run_id, run.get('url'), run.get('status'), run.get('conclusion'),
+                                                                             run.get('createdAt'), run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('size_in_bytes'), sha, digest or '### NONE GIVEN', 'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    import hashlib as _h
+    row['axioms_sha256'] = _h.sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    files = re.findall(r'^=== (\S+)', ax, re.M)
+    deps = re.findall(r"^'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)", re.sub(r'\n(?=[ \t]*[A-Za-z_.]+[,\]])', ' ', ax), re.M)
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d ; the log`s last lines:' % (row['build_exit'], len(row['errors']))] + \
+        ['    ' + l for l in blog.rstrip(NL).split(NL)[-6:]] + [
+          '### the print step: files %d (%s) ; terminals printed %d ; axiom-free %d ; sorryAx %d' % (
+              len(files), ', '.join(files), len(deps), sum(1 for _n, d in deps if d.startswith('does not')), sum(1 for _n, d in deps if 'sorryAx' in d))]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not any('sorryAx' in d for _n, d in deps)
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d ; SORRYAX %d ; GATE %s.**' % (
+        run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']), len(deps),
+        sum(1 for _n, d in deps if 'sorryAx' in d), row['gate'])]
+    put_txt('b674_runner_SIDE-window_%s.txt' % label, L)
+    if row['artifact_sha256']:
+        put_txt('b674_axioms_SIDE-window_%s.txt' % label, ax.split(NL))
+    j = jl('b674_runner_rows.json') if os.path.isfile(os.path.join(D, 'b674_runner_rows.json')) else {}
+    rows = [r for r in (j.get('rows') or []) if r.get('label') != label] + [row]
+    put_json('b674_runner_rows.json', dict(rows=rows))
+    print(L[-1])
+
+
+def prints(*a):
+    """the 'before' and 'after' axioms outputs compared line for line (the navigator's answer on the SIDE-window build: the merge only where
+    they are equal at every line). data/b674_prints_compare.txt."""
+    b, f = rdn('b674_axioms_SIDE-window_before.txt'), rdn('b674_axioms_SIDE-window_after.txt')
+    if not b or not f:
+        sys.exit('### A PRINT BANK IS MISSING -- NOTHING WRITTEN')
+    bl, fl = b.rstrip(NL).split(NL), f.rstrip(NL).split(NL)
+    diff = [(i + 1, x, y) for i, (x, y) in enumerate(zip(bl, fl)) if x != y] + ([('length', len(bl), len(fl))] if len(bl) != len(fl) else [])
+    L = ['b674 -- COMPONENT 3: THE PRINTS BEFORE AND AFTER THE CUT, LINE FOR LINE (%s)' % utc(), '',
+         '### before: relay data/b674_axioms_SIDE-window_before.txt (3dab5f4, %d lines) ; after: relay data/b674_axioms_SIDE-window_after.txt (%d lines)' % (
+             len(bl), len(fl)), '### the lines that differ:'] + (['    %s : %s | %s' % d for d in diff] or ['    NONE'])
+    L += ['', '### ### **PRINTS BEFORE %d LINES ; AFTER %d LINES ; DIFFERING %d ; EQUAL LINE FOR LINE %s.**' % (len(bl), len(fl), len(diff), not diff)]
+    put_txt('b674_prints_compare.txt', L)
+    print(L[-1])
+
+
 # ================================================================================ THE AUTHOR'S ANSWERS (b673's route, carried)
 def _session_rows():
     """the seat's session from K.ANCHOR, then each continuation (K.SESSIONS_AFTER, b646's form) from its own anchor; a continuation whose
@@ -464,7 +558,8 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'answers': answers, 'c1': c1, 'c2': c2, 'ceilingdiff': ceilingdiff, 'faces': faces}
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'answers': answers, 'c1': c1, 'c2': c2, 'ceilingdiff': ceilingdiff, 'faces': faces,
+          'runner': runner, 'prints': prints}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
