@@ -471,6 +471,42 @@ def prints(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 4: THE CLOSING TOOL'S REPAIRS AT CARRY ((R284)(5))
+def repairs(*a):
+    """data/b674_tool_repairs.txt: rows are repairs with the defect they answer; b673's closing tool read against its seal hash (relay
+    data/b673_seal_hashes.json) first; each repair shown by the hunks of the diff against that sealed copy that carry it; the H5 pattern run
+    both ways on b673's H5 bank."""
+    import hashlib
+    old, new = os.path.join(T, 'b673_closing.py'), os.path.join(T, 'b674_closing.py')
+    seal = (jl('b673_seal_hashes.json').get('tools') or {}).get('b673_closing.py')
+    now = hashlib.sha256(open(old, 'rb').read()).hexdigest()
+    d = subprocess.run(['git', 'diff', '--no-index', '--unified=0', old, new], capture_output=True, text=True, encoding='utf-8', errors='replace').stdout
+    hunks = re.split(r'(?m)^(?=@@ )', d)[1:]
+    pick = lambda keys: [h for h in hunks if any(k in h for k in keys)]   # noqa: E731
+    h_rem = pick(('read_remotes', 'REREAD', '_ls(', 'def remote_refs'))
+    h_h5 = pick(('H5_LINE', "r'H5: "))
+    t = rdn('b673_h5.txt')
+    m_new = re.search(r'\*\*H5: ([^*]*?)\.\*\*', t)
+    m_old = re.search(r'H5: [^*]*', t)
+    L = ['b674 -- COMPONENT 4, (R284)(5): THE CLOSING TOOL`S TWO REPAIRS AT CARRY, AGAINST b673`S SEALED COPY (%s)' % utc(), '',
+         '### b673`s sealed copy: tools/b673_closing.py sha256 %s ; the seal`s record %s ; %s' % (now[:16], (seal or '### NONE')[:16],
+                                                                                                 'AGREE' if seal == now else '### DIFFER'),
+         '### rows are repairs, each with the defect it answers and the diff`s hunks (b673 -> b674) that carry it:', '',
+         '  REPAIR 1 -- THE REMOTE READS ONE PER CALL, IN SEQUENCE, AN EMPTY READ RE-READ ALONE BEFORE ANY ROW IS DECLARED. Answers b673 defect (p)',
+         '  item 1 (three remotes read empty in one burst, the retry inside the burst) and banks relay data/b674_rules.txt row 1. Hunks %d:' % len(h_rem)]
+    L += ['    ' + l for h in h_rem for l in h.rstrip(NL).split(NL)]
+    L += ['', '  REPAIR 2 -- THE H5 LINE PRINTS ONE LINE, NOT THE BANK. Answers b673 defect (p) item 2 (the pattern `H5: [^*]*` matched the H5 bank`s',
+          '  header and ran to its first asterisk). Hunks %d:' % len(h_h5)]
+    L += ['    ' + l for h in h_h5 for l in h.rstrip(NL).split(NL)]
+    L += ['  the patterns run on relay data/b673_h5.txt: b673`s `H5: [^*]*` takes %d characters (the bank from its header); b674`s anchored pattern '
+          'takes one line, %d characters: "%s"' % (len(m_old.group(0)) if m_old else 0, len(m_new.group(1)) if m_new else 0,
+                                                   (m_new.group(1)[:120] + '...') if m_new else '### NOT FOUND')]
+    L += ['', '### ### **REPAIRS 2 ; THE SEALED COPY %s ; HUNKS %d AND %d ; THE H5 LINE ONE LINE %s.**' % (
+        'AGREE' if seal == now else '### DIFFER', len(h_rem), len(h_h5), bool(m_new))]
+    put_txt('b674_tool_repairs.txt', L)
+    print(L[-1])
+
+
 # ================================================================================ THE AUTHOR'S ANSWERS (b673's route, carried)
 def _session_rows():
     """the seat's session from K.ANCHOR, then each continuation (K.SESSIONS_AFTER, b646's form) from its own anchor; a continuation whose
@@ -559,7 +595,7 @@ def answers(*a):
 
 
 ROUTES = {'rowgen': rowgen, 'branches': branches, 'answers': answers, 'c1': c1, 'c2': c2, 'ceilingdiff': ceilingdiff, 'faces': faces,
-          'runner': runner, 'prints': prints}
+          'runner': runner, 'prints': prints, 'repairs': repairs}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
