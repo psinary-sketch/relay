@@ -641,7 +641,7 @@ def distance_ok(S):
     v = re.search(r'THE DISTANCE BEFORE (\d+), AFTER (\d+) \(OF ANY KIND (\d+), (\d+)\)', S['cut'])
     pins = S['REC']._pin_blocks(S['cut'])
     return bool(v) and int(v.group(2)) <= int(v.group(1)) and int(v.group(4)) <= int(v.group(3)) and len(pins) == 4 \
-        and all(re.search(r':\d+', p) for p in pins) and 'the marker at :17' in S['cut']
+        and all(re.search(r':\d+', p) for p in pins) and 'SIDE-window`s Sawtooth header marker at :17' in S['cut'].replace("'", '`')
 
 
 def corr_ok(S):
