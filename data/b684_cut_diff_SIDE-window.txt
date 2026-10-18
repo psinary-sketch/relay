@@ -1,0 +1,19 @@
+b684 -- THE CUT`S DIFF OF SIDE-window, RESTRICTED TO COMMENT AND DOCSTRING LINES (2026-10-18T18:12:00Z)
+
+### SIDE-window e5b737a (main) -> d3d9213 (the cut, recut-window-b684r); files ['SIDEWindow/Sawtooth.lean'] ; lines added 3, removed 1
+### rows are files: the text with every comment stripped equal before and after ; the control (a one-word code change in the after
+### text, 'theorem chains_partition') unequal ; the control`s needle present:
+  SIDEWindow/Sawtooth.lean           CODE EQUAL True ; CONTROL UNEQUAL True ; NEEDLE PRESENT True
+
+### the diff, whole:
+    diff --git a/SIDEWindow/Sawtooth.lean b/SIDEWindow/Sawtooth.lean
+    index daab1c6..4923a4b 100644
+    --- a/SIDEWindow/Sawtooth.lean
+    +++ b/SIDEWindow/Sawtooth.lean
+    @@ -17 +17,3 @@
+    -        of a PATH GRAPH on its members.                     ← COMBINATORIAL, COMPILED HERE
+    +        of a PATH GRAPH on its members.
+    +            ← ITS RESIDUE-CLASS SIZES AND THEIR SUM TO M COMPILED HERE (chainLens, chains_partition, by decide at listed (M, k));
+    +              THAT S_k ACTS AS A PATH ADJACENCY IS NOT STATED IN LEAN
+
+### ### **FILES 1 ; CODE EQUAL WITH COMMENTS STRIPPED True ; CONTROLS UNEQUAL True ; COMMENT AND DOCSTRING LINES ALONE True.**

@@ -1,0 +1,34 @@
+b684 -- THE CUT`S DIFF OF SIDE-trivium, RESTRICTED TO COMMENT AND DOCSTRING LINES (2026-10-18T18:13:13Z)
+
+### SIDE-trivium 135be2e (main) -> fd42d96 (the cut, recut-trivium-b684r); files ['Trivium/Bijection.lean'] ; lines added 10, removed 8
+### rows are files: the text with every comment stripped equal before and after ; the control (a one-word code change in the after
+### text, 'theorem exponent_triple_injective') unequal ; the control`s needle present:
+  Trivium/Bijection.lean             CODE EQUAL True ; CONTROL UNEQUAL True ; NEEDLE PRESENT True
+
+### the diff, whole:
+    diff --git a/Trivium/Bijection.lean b/Trivium/Bijection.lean
+    index ca3b4cb..0f55cb6 100644
+    --- a/Trivium/Bijection.lean
+    +++ b/Trivium/Bijection.lean
+    @@ -6,5 +6,5 @@
+    -  This module formalizes one of the deepest structural findings of the
+    -  PLACE TO STAND research programme: the seven mechanism classes that
+    -  govern off-line zero exclusion for ξ(s) correspond exactly to the seven
+    -  nontrivial quadratic field discriminants in the (ℤ/2)³ structure over
+    -  the discriminant set {−1, 2, 3}.
+    +  This module formalizes, at the level of two seven-element finite types,
+    +  the count identity between the seven mechanism classes that govern
+    +  off-line zero exclusion for ξ(s) and the seven nontrivial quadratic field
+    +  discriminants over the discriminant set {−1, 2, 3} (trivium_theorem); the
+    +  element-level pairing below is a canonical-order convention.
+    @@ -23,3 +23,5 @@
+    -  The seven discriminants are exactly the seven nontrivial elements of
+    -  (ℤ/2)³ when the three coordinates are interpreted as exponents of
+    -  {−1, 2, 3} in the squarefree part of d.
+    +  The exponent-triple table (the three coordinates read as exponents of
+    +  {−1, 2, 3} in the squarefree part of d) is injective and avoids (0,0,0)
+    +  (exponent_triple_injective, exponent_triple_nonzero); that the seven
+    +  discriminants are exactly the seven nontrivial elements of (ℤ/2)³ is not
+    +  stated in Lean here.
+
+### ### **FILES 1 ; CODE EQUAL WITH COMMENTS STRIPPED True ; CONTROLS UNEQUAL True ; COMMENT AND DOCSTRING LINES ALONE True.**
