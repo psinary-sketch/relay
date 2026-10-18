@@ -216,6 +216,8 @@ def online(*a):
                 bar_misses=BAR_MISS[0], at=utc(), on=dict((k, sum(1 for x in ons if x['reading'] == k)) for k in set(x['reading'] for x in ons)))
     out.append('PART ' + json.dumps(summ, ensure_ascii=False))
     _append(PROGRESS, out)
+    say('### PART %d LINE : points touched ON 0-145 (%d) and the controls ; their half-widths now %s ; %d s ; memory low %s MB' % (
+        part, len(ons), sorted(set(x['h'] for x in ons)), secs, summ['mem_low']))
     ctl = [json.loads(x[8:]) for x in out if x.startswith('CONTROL ')]
     c1 = sum(1 for c in ctl if c['control'] == 'C1' and c['reading'] == 'NARROWED' and c['inside'] and c['at_width'])
     c2 = [c for c in ctl if c['control'] == 'C2'][0]['refused']
@@ -381,7 +383,7 @@ def part(*a):
     if new_grids:
         _append(UNITS, new_grids)
     say('### points live %d %s ; finished or stopped %d ; units to run %d' % (len(live), sorted(s['idx'] for s in live), len(st) - len(live), len(tasks)))
-    landed, low, stop_why = 0, f0, 'all units landed'
+    landed, low, stop_why, touched = 0, f0, 'all units landed', set()
     if tasks:
         pool = mpr.Pool(PROCS, initializer=_init)
         try:
@@ -400,6 +402,7 @@ def part(*a):
                     stop_why = 'the deadline'
                     break
                 r['part'] = pn
+                touched.add(r['idx'])
                 buf.append('UNIT ' + json.dumps(r, ensure_ascii=False))
                 landed += 1
                 units[(r['idx'], r['step'], r['sq'], r['side'], r['seg'])] = r
@@ -434,6 +437,10 @@ def part(*a):
                                          free_start=f0, free_end=f1, mem_low=low, at=utc()), ensure_ascii=False))
     _append(PROGRESS, out)
     stt = _state(rows)
+    # ### the navigator's answer on the plan: each part's line -- the part, the points it touched, their current half-widths, the seconds
+    # ### and the memory low -- so the run's progress reads from the chat or the progress bank at any time
+    say('### PART %d LINE : points touched %s ; their half-widths now %s ; %d s ; memory low %s MB' % (
+        pn, sorted(touched), ', '.join('OFF %d %s' % (i, stt[i]['h'][:9]) for i in sorted(touched)) or 'NONE', secs, low))
     say('### ### **OFF-LINE PART %d : UNITS LANDED %d OF %d (%s) ; POINTS NARROWED %d ; LIVE %d ; STOPPED %d ; %d s ; MEMORY LOW %s MB.**' % (
         pn, landed, len(tasks), stop_why, sum(1 for s in stt.values() if s['reading'] == 'NARROWED'),
         sum(1 for s in stt.values() if s['reading'] in ('START', 'READY', 'NARROWING')),
