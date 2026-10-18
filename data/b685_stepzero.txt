@@ -1,0 +1,33 @@
+b685 -- STEP ZERO, COMPONENT 0, UNDER (R295) (2026-10-18)
+
+### rows are the step-zero items in the ferry's order, each with its bank and its reading.
+
+  the ferry                 data/b685_ferry.txt, banked by the Write tool from the paste (18,421 characters), equal to the transcript's text
+                            (tools/b685_citation.py ferry: "equal True ; ferry_scan exit 0"; data/b685_ferry_scan.txt)
+  the citation check        data/b685_citation_check.txt: CITES CHECKED 94 ; OK 91 ; MISSES 3, each citing Component 2 and raised to the author
+                            before it: (i) the name "HCount Z 10" quoted as data/b675_hypotheses.txt's -- that bank names it "HCount Z A0Q"
+                            with A0Q := 10 (:61, :67), the quoted string being data/b679_q0_membership.txt :66's; (ii) "the hA row" of
+                            data/b683_map_h.txt -- that bank carries H1-H5 and no hA row, the hA line being data/b683_map_run.txt :176; (iii)
+                            "the configuration's count field by line" -- ZeroConfig (Zeta23/Defs.lean :136-:146) has no count field, :133-:134
+                            placing the local count in PaperInputs (H-RvM, Zeta23/Hypotheses.lean :86).
+  the readfirst bank        data/b685_readfirst.txt, every item of the ferry's list by path and line with its row unit
+  rowgen and constellation  data/b685_rowgen_stepzero.txt: CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19
+  the process listing       tail, lean, lake and python named (Win32_Process by name, 2026-10-18T19:41Z): tail 0, lean 0, lake 0, python 0. No
+                            task of this session stopped; no orphan, nothing stopped by PID.
+  the closing capture       data/b684_closing_push_out.txt committed alone at relay 61cb2a24
+  the branches              data/b685_branches.txt: 18 named (14 local, 4 remote), every tip read and merged before any delete; each cut
+                            branch's tip printed as an ancestor of its kernel's main at the new tag, 4 of 4 (v0.2.1, v0.5.2, v0.1.2, v0.2.2);
+                            deleted by name in the house form, one branch per command, each command its own message, in sequence: relay
+                            push-b684-root (c0c82f14), push-b684 (b6df52d7), push-b684-closing (4b97f382); PLACE-papers push-b684-root
+                            (9fd9b9c), push-b684 (a2acff6); SIDE-class-number-anomaly push-b684-main (a66ac37), push-b684-merge (68df58d),
+                            recut-class-number-anomaly-b684 (328a06b) local and at the remote; SIDE-window push-b684r-merge (b905507),
+                            recut-window-b684r (d3d9213) local and at the remote; SIDE-trivium push-b684r-merge (6ede9af),
+                            recut-trivium-b684r (fd42d96) local and at the remote; SIDE-silence-principle push-b684r-merge (716b686),
+                            recut-silence-principle-b684r (675679c) local and at the remote; no unnamed branch under the prefixes
+  the tests                 data/b685_tests_stepzero.txt: TEST FILES 55 ; RUN 54 ; WITHHELD 1 (test_elab_reader_b634.py, runs lean) ; NOT
+                            CLEAN 2 -- test_chain_page.py (9) and test_chain_page_b638.py (4)-(7), the standing set since b638. Five
+                            foreground parts, one call per part, the free memory printed before each against the 2,560 MB hold
+                            (tools/b685_tests.py hold): test_asof.py alone (5123 MB; 403 s), test_chain_page.py alone (5006 MB; 404 s), part
+                            3 (4310 MB), part 4 (4106 MB), part 5 (4074 MB); the longest test 404 s; no part moved to the background
+  git status                relay and PLACE-papers tracked changes NONE after the runs; this act's banks and tools untracked as written
+  no build                  no lean, lake or build on this host

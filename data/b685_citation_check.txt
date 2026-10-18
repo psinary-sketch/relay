@@ -1,0 +1,105 @@
+b685 -- THE CITATION CHECK, A GATE STEP AT STEP ZERO (standing from b662) (2026-10-18T19:38:38Z)
+
+### the source: the ruling and the ferry as pasted, read from the session transcript (18421 characters, 'RULING (R295) BEGIN' to 'FERRY END (part 1 of 1)'); every cite checked at HEAD; rows are cites: where | what | OK or MISS | how | the component that cites it.
+
+  OK   | ferry read-first; ruling | data/b684_closing.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b684_defects.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b684_scores.json | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b675_hypotheses.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b683_map_h.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b679_q0_membership.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b667_epstein_plan.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b667_epstein_zeros_certified.json.gz | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b667_large_banks.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b681_epstein_zeros_narrowed.json.gz | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b681_epstein_zeros_narrowed_hashes.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b673_v4v5_plan.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | tools/b671_narrow.py | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b670_work_orders.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b684_closing_push_out.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b667_epstein_counts.txt | exists at the working tree | Component 0-4
+  OK   | ferry read-first; ruling | data/b679_strip_plan.txt | exists at the working tree | Component 0-4
+  OK   | ruling (1) | the head line at data/b684_closing.txt :1 | b684 closed: relay b6df52d7, PLACE-papers a2acff6; suite 107 of 107; root 4c8935f8f80c9eac…; 2 prompts answere | Component 1
+  OK   | ruling (1) | the closing at relay 4b97f382 read back | data/b684_closing_push_out.txt | Component 0-1
+  OK   | ruling (1) | relay b6df52d7 | b684 record: the act root 4c8935f8 appended last, chained from b683's, every nam | Component 0-1
+  OK   | ruling (1) | relay 4b97f382 | b684 closing: the suite 107 of 107 pre-push and post-push in its four foreground | Component 0-1
+  OK   | ruling (1) | PLACE-papers a2acff6 | b684 record: the FINDINGS entry (:9200) and the trail record (:14804), the act r | Component 0-1
+  OK   | ruling (1) | suite 107 of 107 (b684_checks.txt) | data/b684_checks.txt :9 | Component 1
+  OK   | ruling (1) | suite 107 of 107 (b684_checks_postpush.txt) | data/b684_checks_postpush.txt :9 | Component 1
+  OK   | ruling (1) | root 4c8935f8 in the chain | data/act_roots.txt | Component 1
+  OK   | ruling (1) | the split rule row "a suite PART over 450 s splits the next run" | data/b684_rules.txt :5, :9 | Component 1
+  OK   | ruling (1) | a part not starting beneath the 2,560 MB hold | tools/b684_tests.py :42 | Component 1
+  OK   | ruling (1) | G-RULE-SUITE-PARTS repaired at carry | data/b684_tool_repairs.txt | Component 1
+  OK   | ruling (1) | SIDE-class-number-anomaly tagged v0.2.1 at main | 68df58d440be | Component 1
+  OK   | ruling (1) | SIDE-window tagged v0.5.2 at main | b9055074f965 | Component 1
+  OK   | ruling (1) | SIDE-trivium tagged v0.1.2 at main | 6ede9af61387 | Component 1
+  OK   | ruling (1) | SIDE-silence-principle tagged v0.2.2 at main | 716b686ea846 | Component 1
+  OK   | ruling (1) | the distance 3 to 0; R3b CARRIED (introduction :7-:12) | data/b684_cut.txt :72, :84 | Component 1
+  OK   | ruling (1) | three FOUNDATIONS cells carried, not hand-written | data/b684_cut.txt :80-:82 | Component 1
+  OK   | ruling (1) | N4 REFUTED with the scorer`s line quoted; N1-N3, N5, S1-S3 HELD | data/b684_scores.json :14-:16 | Component 1
+  OK   | ruling (1) | five defects: (a), (c)-(e) the seat`s, (b) the navigator`s | data/b684_defects.txt :5-:29 | Component 1
+  OK   | ruling (1) | the b684 mirror CLEAN | the zip and data/b684_mirror_verify.txt :24 | Component 0
+  OK   | ruling (1) | FINDINGS :9200 | ## SIDE-class-number-anomaly re-cut: 3 rows outside LICENSED/CITED to  | Component 1
+  OK   | ruling (1) | OPEN_TRAILS :14804 | ### b684 — lane two, act one hundred and eleven, the re-cut act under  | Component 1
+  MISS | ruling (2) | P3 as data/b675_hypotheses.txt names it, quoted "HCount Z 10" | the bank names it "HCount Z A0Q" with "def A0Q : ℝ := 10" (:61) and "(P3, A₀Q = 10)" (:67); the quoted string is not the bank`s text -- it is data/b679_q0_membership.txt :66`s (True) | Component 2
+  OK   | ruling (2) | T-COUNT at data/b675_hypotheses.txt :61 | data/b675_hypotheses.txt :61 | Component 2
+  MISS | ruling (2); ferry | the hA row of data/b683_map_h.txt | data/b683_map_h.txt carries rows H1-H5 and no hA row; the hA line is data/b683_map_run.txt :176 ("BY P3 (Q0Count, ...)") -- True | Component 2
+  OK   | ruling (3); ferry | HCount at SIDEExplicitFormula/RestBound.lean :44 (v0.33) | def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop := | Component 2
+  OK   | ferry | Zeta23/Defs.lean :142 (v0.33) | strip : ∀ ρ ∈ carrier, 0 ≤ ρ.re ∧ ρ.re ≤ 1 | Component 2
+  MISS | ferry | the configuration`s count field by line | ZeroConfig (Zeta23/Defs.lean :136-:146) carries no count field; :133-:134 "The quantitative local count ... is not part of this structure; it is a field of PaperInputs (H-RvM)" -- Zeta23/Hypotheses.lean :86 `local_count` (True); the widened class Schema/Wide/Config.lean :49 `Wide.HCount` (True) | Component 2
+  OK   | ferry | SIDE-explicit-formula v0.33 at main 95f8dc8 | git rev-parse | Component 2
+  OK   | ferry | Q0Count := HCount Z A0Q, A0Q := 10 (Schema/EpsteinQ0.lean :104, :108) | v0.33 | Component 2
+  OK   | ruling (3); ferry | Q0`s completed function and functional equation (data/b667_epstein_plan.txt :10) | section 1 :10 -- the ruling`s (√23/2π)^s is the same factor | Component 2
+  OK   | ruling (3); ferry | the region R and N(R) = 180 | data/b667_epstein_counts.txt :49-:52; plan section 13 :206 | Component 2
+  OK   | ruling (3); (5) | the (3c) tail bound at σ = 3/2 (plan section 15 :247-:248) | data/b667_epstein_plan.txt :247-:248 | Component 2-3
+  OK   | ruling (3); (5) | V2: Z_Q(3/2) − 2 = [1.548...] below 2 | data/b667_epstein_counts.txt (V2) | Component 2-3
+  OK   | ruling (3) | b681`s 163 points | data/b681_epstein_zeros_narrowed.json.gz rows 163 | Component 2
+  OK   | ferry | the narrowed hashes bank | data/b681_epstein_zeros_narrowed_hashes.txt :3 | Component 2
+  OK   | ferry | the certified list`s hashes bank | data/b667_large_banks.txt :4 | Component 2
+  OK   | ferry | K and the count`s use in V5 (data/b673_v4v5_plan.txt :79-:80) | data/b673_v4v5_plan.txt :79 | Component 2
+  OK   | ferry | tools/b671_narrow.py, the ball form | tools/b671_narrow.py :42 | Component 3
+  OK   | ferry | W-ORD-EPSTEIN-COUNT in the orders bank | data/b670_work_orders.txt :275 | Component 4
+  OK   | ferry | both routes as b680 priced them (OPEN_TRAILS :14678) | OPEN_TRAILS :14678 | Component 2-3
+  OK   | ruling (8) | relay push-b684-root | git branch --list | Component 0
+  OK   | ruling (8) | relay push-b684 | git branch --list | Component 0
+  OK   | ruling (8) | relay push-b684-closing | git branch --list | Component 0
+  OK   | ruling (8) | PLACE-papers push-b684-root | git branch --list | Component 0
+  OK   | ruling (8) | PLACE-papers push-b684 | git branch --list | Component 0
+  OK   | ruling (8) | SIDE-class-number-anomaly push-b684-main | git branch --list | Component 0
+  OK   | ruling (8) | SIDE-class-number-anomaly push-b684-merge | git branch --list | Component 0
+  OK   | ruling (8) | SIDE-class-number-anomaly recut-class-number-anomaly-b684 | git branch --list | Component 0
+  OK   | ruling (8) | SIDE-window push-b684r-merge | git branch --list | Component 0
+  OK   | ruling (8) | SIDE-window recut-window-b684r | git branch --list | Component 0
+  OK   | ruling (8) | SIDE-trivium push-b684r-merge | git branch --list | Component 0
+  OK   | ruling (8) | SIDE-trivium recut-trivium-b684r | git branch --list | Component 0
+  OK   | ruling (8) | SIDE-silence-principle push-b684r-merge | git branch --list | Component 0
+  OK   | ruling (8) | SIDE-silence-principle recut-silence-principle-b684r | git branch --list | Component 0
+  OK   | ruling (8) | SIDE-class-number-anomaly origin/recut-class-number-anomaly-b684 | the remote-tracking ref | Component 0
+  OK   | ruling (8) | SIDE-window origin/recut-window-b684r | the remote-tracking ref | Component 0
+  OK   | ruling (8) | SIDE-trivium origin/recut-trivium-b684r | the remote-tracking ref | Component 0
+  OK   | ruling (8) | SIDE-silence-principle origin/recut-silence-principle-b684r | the remote-tracking ref | Component 0
+  OK   | ruling (8) | data/b684_closing_push_out.txt untracked, to be committed | not tracked | Component 0
+  OK   | ruling (10) | the draft at v5, held | tools/b684_worklist.py | Component 5
+  OK   | ruling (11) | the w = 1 split, data/b679_strip_plan.txt == 11 | data/b679_strip_plan.txt (the split at :56-:57) | Component 6
+  OK   | ruling; ferry | (R278)(4) | data/b668_ferry.txt | Component 6
+  OK   | ruling; ferry | (R251)(3) | data/b641_ferry.txt | Component 6
+  OK   | ruling; ferry | (R254)(2) | data/b644_ferry.txt | Component 1
+  OK   | ferry C5 | data/b675_rules.txt row 1, the closing a gate step | data/b675_rules.txt :5 | Component 5
+  OK   | ferry | data/b680_rules.txt, binary banks beside a text hashes bank | data/b680_rules.txt row (1) | Component 4
+  OK   | ruling; ferry | data/b685_readfirst.txt -- TO BE WRITTEN, not a cite | a step-zero bank, written after the check`s first run (exists False) | Component 0-5
+  OK   | ruling; ferry | data/b685_rules.txt -- TO BE WRITTEN, not a cite | absent, as ordered | Component 0-5
+  OK   | ruling; ferry | data/b685_p3.txt -- TO BE WRITTEN, not a cite | absent, as ordered | Component 0-5
+  OK   | ruling; ferry | data/b685_search.txt -- TO BE WRITTEN, not a cite | absent, as ordered | Component 0-5
+  OK   | ruling; ferry | data/b685_count_plan.txt -- TO BE WRITTEN, not a cite | absent, as ordered | Component 0-5
+  OK   | ruling; ferry | data/b685_count.txt -- TO BE WRITTEN, not a cite | absent, as ordered | Component 0-5
+  OK   | ruling; ferry | data/b685_count_controls.txt -- TO BE WRITTEN, not a cite | absent, as ordered | Component 0-5
+  OK   | ruling; ferry | data/b685_p3_status.txt -- TO BE WRITTEN, not a cite | absent, as ordered | Component 0-5
+  OK   | ruling; ferry | data/b685_q0_reread.txt -- TO BE WRITTEN, not a cite | absent, as ordered | Component 0-5
+  OK   | ruling; ferry | data/b685_tool_repairs.txt -- TO BE WRITTEN, not a cite | absent, as ordered | Component 0-5
+
+### THE MISSES, EACH RAISED TO THE AUTHOR BEFORE THE COMPONENT THAT CITES IT RUNS (none repaired silently):
+  P3 as data/b675_hypotheses.txt names it, quoted "HCount Z 10" -- the bank names it "HCount Z A0Q" with "def A0Q : ℝ := 10" (:61) and "(P3, A₀Q = 10)" (:67); the quoted string is not the bank`s text -- it is data/b679_q0_membership.txt :66`s (True) (Component 2)
+  the hA row of data/b683_map_h.txt -- data/b683_map_h.txt carries rows H1-H5 and no hA row; the hA line is data/b683_map_run.txt :176 ("BY P3 (Q0Count, ...)") -- True (Component 2)
+  the configuration`s count field by line -- ZeroConfig (Zeta23/Defs.lean :136-:146) carries no count field; :133-:134 "The quantitative local count ... is not part of this structure; it is a field of PaperInputs (H-RvM)" -- Zeta23/Hypotheses.lean :86 `local_count` (True); the widened class Schema/Wide/Config.lean :49 `Wide.HCount` (True) (Component 2)
+
+### ### **CITES CHECKED 94 ; OK 91 ; MISSES 3.**

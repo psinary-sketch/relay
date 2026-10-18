@@ -1,0 +1,52 @@
+b685 -- THE READ-FIRST BANK, (R295)(9) AND THE FERRY'S READ-FIRST LIST (2026-10-18)
+
+### rows are items read before anything: the path, the line or lines read, the unit of that bank's rows, and what the act takes from it.
+### The citation check of every cite: relay data/b685_citation_check.txt (94 cites, 3 misses, each raised before Component 2).
+
+  data/b684_closing.txt :1           rows are the closing's lines (214). The head line, quoted: "b684 closed: relay b6df52d7, PLACE-papers
+                                     a2acff6; suite 107 of 107; root 4c8935f8f80c9eac…; 2 prompts answered; 5 defects".
+  data/b684_defects.txt :5-:29       rows are defects, as lettered there: (a) and (e) the seat's, a reading sed typed; (b) the navigator's, a
+                                     phase rule cited for a part's total; (c) the seat's, the pre-push suite run twice for the N4 scorer's bank;
+                                     (d) the seat's, four suite parts in one call moved to the background.
+  data/b684_scores.json :14-:16      rows are scores keyed N1-N5, S1-S3, each [verdict, text]. N4's correction by line: :15 "REFUTED", :16 the
+                                     seat's correction by the Edit tool with the sealed scorer's reading ("... read HELD") quoted beside it.
+  data/b675_hypotheses.txt :59-:65   rows are the hypotheses read at Q0 with their reading. P3 by line: :59 HCount as RestBound.lean :44 states
+                                     it; :61 T-COUNT -- "def Q0Count (Z : Zeta23.ZeroConfig) : Prop := HCount Z A0Q" with "def A0Q : ℝ := 10"
+                                     (Schema/EpsteinQ0.lean :104, :108); :62 the inequality N(t, t + 1) ≤ 10 log(|t| + 3) for every real t, N
+                                     counting Im in (t, t + 1] with multiplicity; :63-:64 its reason relay data/b663_a0_list.txt :6-:9 and
+                                     "stated, not proved; open"; :67 the verdict line "HCount: T-COUNT ASSUMED (P3, A₀Q = 10)". The ruling's
+                                     quoted name "HCount Z 10" is data/b679_q0_membership.txt :66's, not this bank's (the citation check's miss).
+  data/b683_map_h.txt :1-:9          rows are the hypotheses H1-H5 with their reading. No hA row is there (the citation check's miss); the hA
+                                     reading is data/b683_map_run.txt :176 -- "BY P3 (Q0Count, a named premise, stated, not proved; open)" --
+                                     and H3's row :5 "hypotheses not certified NONE" reads it.
+  data/b679_q0_membership.txt :66    rows are hypotheses of the widened class with their reading at Q0 and source. :66 "HCount Z 10 ASSUMED --
+                                     T-COUNT, as b675 left it"; :71 the verdict, ASSUMED 1 (HCount, T-COUNT), HExcl balls 35 of 35.
+  SIDE-explicit-formula v0.33        the tag at main 95f8dc8; files read by `git show v0.33:<path>`, no build.
+    SIDEExplicitFormula/RestBound.lean :42-:45   "def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=" / "1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t
+                                     (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)".
+    Zeta23/Defs.lean :142            ZeroConfig's strip field, the closed strip "0 ≤ ρ.re ∧ ρ.re ≤ 1"; :162 "def N (T₁ T₂ : ℝ) : ℕ := ∑ᶠ ρ ∈
+                                     Z.window T₁ T₂, Z.mult ρ"; :153 the window T₁ < Im ρ ≤ T₂. The configuration's count field: ZeroConfig
+                                     (:136-:146) has none -- :133-:134 place the local count in PaperInputs (H-RvM), Zeta23/Hypotheses.lean
+                                     :86 `local_count` (the citation check's miss).
+    SIDEExplicitFormula/Schema/Wide/Config.lean :28-:50   WideConfig, the strip field the open strip (-1/2, 3/2) (:34); Wide.N (:46);
+                                     Wide.HCount (:49-:50), RestBound.lean :44's statement over the widened class.
+    SIDEExplicitFormula/Schema/EpsteinQ0.lean :102-:108   A0Q := 10 (:104) and Q0Count := HCount Z A0Q (:108), "stated, not proved; open".
+    Zeta23/RvM/LocalCount.lean :25-:37   (vendored) ζ's local count, N(t, t+1] ≤ A₀ log(|t| + 3) by a Jensen-type count on a disc about
+                                     2 + (t + ½)i with A₀ existential -- a route read beside Backlund's, recorded in the plan bank.
+  data/b667_epstein_plan.txt         rows are sections. Q0's definition and the completed function with its functional equation: section 1
+                                     :10-:12 (Λ_Q(s) = (2π/√23)^{−s} Γ(s) Z_Q(s) = Λ_Q(1 − s); Λ_Q(1 − conj s) = conj Λ_Q(s)); the evaluation
+                                     route section 2 :22-:33 (Chowla-Selberg); the region R = [−0.5, 1.5] × [0.5, 150] and B section 13
+                                     :206-:207; the count N(R) section 4 :87-:89; the (3c) tail bound at σ = 3/2, section 15 :247-:249.
+  data/b667_epstein_counts.txt :49-:56   rows are rectangles and regions. :52 N(R) = 180 (ball [180.0000000 +/- 1e-12]); :56 the band B
+                                     [−0.5, 1.5] × [−0.5, 0.5] 0; V2 Z_Q(3/2) − 2 = [1.54841378141857 +/- 1.08e-15], below 2.
+  data/b667_epstein_zeros_certified.json.gz   rows are squares with their balls and rung lists; its hashes bank data/b667_large_banks.txt :4
+                                     (gz sha256 5dfd6a4b...). The largest certified height: R's top edge, t = 150.
+  data/b681_epstein_zeros_narrowed.json.gz   rows are points with balls (163: kind, idx, re, im, h, count, ...); its hashes bank
+                                     data/b681_epstein_zeros_narrowed_hashes.txt :2-:4 (gz sha256 f6613564...).
+  data/b673_v4v5_plan.txt :79-:80    rows are the plan's sections. K` = Σ_{‖ρ‖≥R0} m_ρ/‖ρ‖², "finite by HCount (WeilEF.zero_sum_inv_sq_gen)";
+                                     C = 2 #(a) + 2 K` -- the count's use in V5.
+  tools/b671_narrow.py :42, :79-:81  the ball form: python-flint arb and acb; a ball printed as its midpoint and its radius.
+  data/b670_work_orders.txt :275     rows are orders. W-ORD-EPSTEIN-COUNT, :14678, b680, OPEN, trigger "after b681"; both routes as b680
+                                     priced them at OPEN_TRAILS :14678: (i) a located explicit bound (one reading act); (ii) the argument
+                                     principle extended upward under (3c), which "narrows T-COUNT to t > T and does not discharge it alone".
+  data/b684_closing_push_out.txt     the closing push's capture (b6df52d7..4b97f382, read back at the remote); committed at step zero.
