@@ -1,7 +1,7 @@
-b686 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-18T23:24:26Z)
+b686 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-18T23:47:03Z)
 
 ### the source: the seat`s session 3bd076e1-80b3-48c6-919f-407447a1df25 from its first user line carrying 'RULING (R296) BEGIN', and its subagents` transcripts
-### commands read: 151
+### commands read: 166
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -16,8 +16,8 @@ b686 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS THAT START A DETACHED RUN (0):
   NONE
 
-### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
-  NONE
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (1):
+  #165 timeout 120 python -X utf8 -B tools/b686_checks.py --combine b686_checks_postpush.txt 2>&1 | sed -n 0p; timeout 120 python -X utf8 -B tools/b686_checks.py --combine b686_checks_postpush.txt 2>&1 | head -9 | cut -c1-200
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #35 2026-10-18T22:14:10.167Z Bash
@@ -188,5 +188,20 @@ b686 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #149 | 2026-10-18T23:24:11.730Z | seat | Bash | timeout 300 python -X utf8 -B tools/b686_record.py root_arm 2>&1 | cut -c1-250
   #150 | 2026-10-18T23:24:15.859Z | seat | Bash | timeout 300 python -X utf8 -B tools/b686_record.py trail 2>&1 | tail -2 | cut -c1-300 && git -C /d/MY-DOwnloads/PLACE-papers diff --stat
   #151 | 2026-10-18T23:24:20.124Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers add -- OPEN_TRAILS.md && git -C D:/MY-DOwnloads/PLACE-papers commit -q -m "b686 record: the trail record at OPEN_TRAILS :148
+  #152 | 2026-10-18T23:24:24.398Z | seat | Bash | timeout 60 python -X utf8 -B tools/b686_record.py defects && timeout 60 python -X utf8 -B tools/b686_record.py desk && timeout 60 python -X utf8 -B tools/b686_r
+  #153 | 2026-10-18T23:24:30.899Z | seat | Bash | git add -- data/act_roots.txt data/b686_commands.json data/b686_commands.txt data/b686_defects.json data/b686_act_root.json data/b686_act_root.txt data/b686_com
+  #154 | 2026-10-18T23:24:36.611Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --part standing-a 2>&1 | grep "FAIL\|raised\|PART standing-a :\|free memory" | grep -v "FAIL  OK$" | cut -c1-
+  #155 | 2026-10-18T23:27:43.933Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --part standing-c 2>&1 | grep "FAIL\|raised\|PART standing-c :\|free memory\|uncovered" | grep -v "FAIL  OK$"
+  #156 | 2026-10-18T23:28:27.842Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --part standing-b 2>&1 | grep "FAIL\|raised\|PART standing-b :\|free memory" | grep -v "FAIL  OK$" | cut -c1-
+  #157 | 2026-10-18T23:34:15.503Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --part act 2>&1 | grep "FAIL\|raised\|PART act :\|free memory\|GENERATOR\|rows added" | grep -v "FAIL  OK$" |
+  #158 | 2026-10-18T23:35:15.603Z | seat | Bash | timeout 120 python -X utf8 -B tools/b686_checks.py --combine b686_checks.txt 2>&1 | head -12 | cut -c1-220; git status --short --untracked-files=no
+  #159 | 2026-10-18T23:35:21.616Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch push-b686 9b9a7c6 && PUSH_GATED_LOG=/d/relay/data/b686_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOw
+  #160 | 2026-10-18T23:35:50.798Z | seat | Bash | cd /d/relay && git branch push-b686 b0249275 && PUSH_GATED_LOG=/d/relay/data/b686_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b686
+  #161 | 2026-10-18T23:36:01.723Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --part standing-a 2>&1 | grep "READING\|FAIL\|raised\|PART standing-a :\|free memory" | grep -v "FAIL  OK$" |
+  #162 | 2026-10-18T23:39:15.535Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --part standing-c 2>&1 | grep "READING\|FAIL\|raised\|PART standing-c :\|free memory" | grep -v "FAIL  OK$" |
+  #163 | 2026-10-18T23:40:00.121Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --part standing-b 2>&1 | grep "READING\|FAIL\|raised\|PART standing-b :\|free memory" | grep -v "FAIL  OK$" |
+  #164 | 2026-10-18T23:45:47.922Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --part act 2>&1 | grep "READING\|FAIL\|raised\|PART act :\|free memory" | grep -v "FAIL  OK$" | cut -c1-200
+  #165 | 2026-10-18T23:46:45.487Z | seat | Bash | timeout 120 python -X utf8 -B tools/b686_checks.py --combine b686_checks_postpush.txt 2>&1 | sed -n 0p; timeout 120 python -X utf8 -B tools/b686_checks.py --com
+  #166 | 2026-10-18T23:47:01.753Z | seat | Bash | timeout 400 python -X utf8 -B tools/b686_record.py commands && timeout 60 python -X utf8 -B tools/b686_record.py defects && python -X utf8 -c "
 
-### ### **COMMANDS 151 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 166 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
