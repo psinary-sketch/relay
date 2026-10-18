@@ -52,12 +52,15 @@ PREFIXES = ('push-b684', 'recut-')
 NEXT = ('b686, the re-cut act: the licensed table`s next document and the three FOUNDATIONS cells regenerated at v0.2.2, its ruling then; '
         'b687 the research act, its candidate on the reading of (R295)(7); b690 the reading act, reading 3')
 
-ACT_ARMS = ()               # ### the act's arms, entered at Component 5 after each has been run at HEAD
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R295-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-RULES-BANKED', 'G-STATEMENT-BANKED', 'G-SEARCH-BANKED', 'G-PLAN-BEFORE-CONSTANTS',
+            'G-COUNT-CONSTANTS', 'G-C1-STOP', 'G-C2-READ', 'G-LANDING', 'G-COUNT-TOOL-BANKS', 'G-TOOL-REPAIRS', 'G-PARTS-PRERUN',
+            'G-DEFECTS-LETTERED')
 STANDING_ADDED = ()         # ### (R295)'s N5: no standing arm added
 SHARED_APPENDED = ('data/b670_work_orders.txt',)
 PARTS = ('standing-a', 'standing-c', 'standing-b', 'act')     # ### data/b684_rules.txt row (1): the standing arms in three parts, the act's in one
 SEALED = ('b685_worklist.py', 'b685_tests.py', 'b685_citation.py', 'b685_record.py', 'b685_checks.py', 'b685_closing.py', 'b685_reg_gate.py',
-          'b685_regspec.py')
+          'b685_regspec.py', 'b685_count.py')
 
 
 def show(path, rev=PRE_PP, repo=PP):
