@@ -1,7 +1,7 @@
-b684 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES (2026-10-18T18:26:57Z)
+b684 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES (2026-10-18T18:47:11Z)
 
 ### the source: the seat`s session df03c73f-520a-4848-85dc-8fada095f008 from its first user line carrying 'RULING (R294) BEGIN', and its subagents` transcripts
-### commands read: 95
+### commands read: 119
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -129,5 +129,29 @@ b684 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #93 | 2026-10-18T18:15:34.866Z | seat | Bash | python -X utf8 -c "
   #94 | 2026-10-18T18:26:44.192Z | seat | Bash | python -X utf8 -c "
   #95 | 2026-10-18T18:26:49.411Z | seat | Bash | python -X utf8 tools/b684_record.py repairs && python -X utf8 tools/b684_record.py kernels && python -X utf8 tools/b684_record.py defects && python -X utf8 tool
+  #96 | 2026-10-18T18:27:05.285Z | seat | Bash | timeout 590 python -X utf8 tools/b684_record.py scores dry | grep "^  N5" | fold -w 250
+  #97 | 2026-10-18T18:27:12.566Z | seat | Bash | timeout 590 python -X utf8 tools/b684_record.py scores dry | grep "^  N5" | cut -c700-1500
+  #98 | 2026-10-18T18:27:20.358Z | seat | Bash | python -X utf8 -c "
+  #99 | 2026-10-18T18:27:31.021Z | seat | Bash | timeout 590 python -X utf8 tools/b684_closing.py dry 2>&1 | grep -v " peeled \| local .* remote " | cut -c1-230 | head -24
+  #100 | 2026-10-18T18:27:57.966Z | seat | Bash | timeout 590 python -X utf8 tools/b684_closing.py dry 2>&1 | grep "THE RESIDUES\|CLOSING DRY-RUN :" | cut -c1-260
+  #101 | 2026-10-18T18:28:22.355Z | seat | Bash | git add tools/rule_arms.py tools/b684_checks.py tools/b684_closing.py tools/b684_reg_gate.py tools/b684_regspec.py tools/b684_record.py tools/b684_worklist.py d
+  #102 | 2026-10-18T18:29:58.805Z | seat | Bash | python -X utf8 -c "
+  #103 | 2026-10-18T18:30:38.789Z | seat | Bash | timeout 590 python -X utf8 tools/b684_checks.py --prerun --part standing-a > /dev/null; echo "exit $?"; grep -n "free memory\|PHASES\|### PART" data/b684_arms_p
+  #104 | 2026-10-18T18:34:17.609Z | seat | Bash | timeout 590 python -X utf8 tools/b684_checks.py --prerun --part standing-c > /dev/null; echo "exit $?"; grep -n "free memory\|PHASES\|### PART\|uncovered\|chang
+  #105 | 2026-10-18T18:37:04.594Z | seat | Bash | timeout 590 python -X utf8 tools/b684_checks.py --prerun --part standing-b > /dev/null; echo "exit $?"; grep -n "free memory\|### PART" data/b684_arms_prerun_st
+  #106 | 2026-10-18T18:42:43.782Z | seat | Bash | timeout 590 python -X utf8 tools/b684_checks.py --prerun --part act > /dev/null; echo "exit $?"; grep -n "### PART" data/b684_arms_prerun_act.txt | cut -c1-300;
+  #107 | 2026-10-18T18:43:19.949Z | seat | Bash | python -X utf8 tools/b684_checks.py --combine b684_arms_prerun.txt | head -9 | cut -c1-260; grep -h "THE LONGEST PHASE" data/b684_arms_prerun_*.txt
+  #108 | 2026-10-18T18:43:30.595Z | seat | Bash | timeout 590 python -X utf8 tools/b684_record.py scores dry > /dev/null; timeout 590 python -X utf8 tools/b684_reg_gate.py > /dev/null; echo "exit $?"; grep -n "
+  #109 | 2026-10-18T18:44:01.625Z | seat | Bash | timeout 590 python -X utf8 tools/b684_record.py gatebanks && timeout 590 python -X utf8 tools/b378_lockgate.py b684 data/b684_registration_2026-10-18.txt > /dev
+  #110 | 2026-10-18T18:44:10.457Z | seat | Bash | python -X utf8 tools/reg_seal.py --lock data/b684_registration_2026-10-18.txt && python -X utf8 tools/b684_checks.py --seal
+  #111 | 2026-10-18T18:44:15.290Z | seat | Bash | git status --short | grep -v "^??"; git status --short | grep "^??" | grep "b684" | tr '\n' ' '
+  #112 | 2026-10-18T18:44:40.259Z | seat | Bash | git add data/audit_b684_reg_satisfiable.txt data/b684_arms_prerun.txt data/b684_arms_prerun_act.txt data/b684_arms_prerun_standing-a.txt data/b684_arms_prerun_s
+  #113 | 2026-10-18T18:44:46.702Z | seat | Bash | timeout 590 python -X utf8 tools/b684_record.py table_final && git status --short data/ | grep -v "^??"
+  #114 | 2026-10-18T18:45:37.677Z | seat | Bash | git diff --stat data/terminal_table.json data/terminal_table.md && git diff data/terminal_table.md | grep "^[-+]" | grep -v "^+++\|^---" | head -10 | cut -c1-22
+  #115 | 2026-10-18T18:45:43.913Z | seat | Bash | git add data/b684_table_final.txt data/b684_table_final.json data/terminal_table.json data/terminal_table.md && git commit -q -m "b684 pre-root: the final table
+  #116 | 2026-10-18T18:45:49.081Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch push-b684-root 9fd9b9c && PUSH_GATED_LOG=/d/relay/data/b684_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh
+  #117 | 2026-10-18T18:46:20.775Z | seat | Bash | cd /d/relay && git branch push-b684-root c0c82f14 && PUSH_GATED_LOG=/d/relay/data/b684_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b
+  #118 | 2026-10-18T18:46:33.709Z | seat | Bash | timeout 590 python -X utf8 tools/b684_record.py root
+  #119 | 2026-10-18T18:47:07.483Z | seat | Bash | python -X utf8 tools/b684_record.py root_arm && python -X utf8 tools/b684_record.py commands && python -X utf8 tools/b684_record.py defects && timeout 590 pytho
 
-### ### **COMMANDS 95 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 5 ; DETACHED RUNS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5.**
+### ### **COMMANDS 119 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 5 ; DETACHED RUNS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5.**

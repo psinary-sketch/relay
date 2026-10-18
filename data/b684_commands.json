@@ -1,5 +1,5 @@
 {
- "at": "2026-10-18T18:26:57Z",
+ "at": "2026-10-18T18:47:11Z",
  "anchor": "RULING (R294) BEGIN",
  "rows": [
   {
@@ -666,6 +666,174 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b684_record.py repairs && python -X utf8 tools/b684_record.py kernels && python -X utf8 tools/b684_record.py defects && python -X utf8 tools/b684_record.py commands && timeout 590 python -X utf8 tools/b684_record.py scores dry | cut -c1-300",
    "n": 95
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:27:05.285Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_record.py scores dry | grep \"^  N5\" | fold -w 250",
+   "n": 96
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:27:12.566Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_record.py scores dry | grep \"^  N5\" | cut -c700-1500",
+   "n": 97
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:27:20.358Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b684_record as R\nv,t=R._n5(); print(v); print(t[600:])\"",
+   "n": 98
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:27:31.021Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_closing.py dry 2>&1 | grep -v \" peeled \\| local .* remote \" | cut -c1-230 | head -24",
+   "n": 99
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:27:57.966Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_closing.py dry 2>&1 | grep \"THE RESIDUES\\|CLOSING DRY-RUN :\" | cut -c1-260",
+   "n": 100
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:28:22.355Z",
+   "src": "seat",
+   "cmd": "git add tools/rule_arms.py tools/b684_checks.py tools/b684_closing.py tools/b684_reg_gate.py tools/b684_regspec.py tools/b684_record.py tools/b684_worklist.py data/b684_tool_repairs.txt data/b684_kernels_face.json data/b684_defects.json data/b684_commands.txt data/b684_commands.json data/b684_citation_check.txt && git commit -q -m \"b684 C4: the tools carried from b683's sealed copies (three repairs: the suite in four parts, G-RULE-SUITE-PARTS reading each act's governing parts, the standing set), the gate, the spec, the closing; the kernels face, the defects and commands banks\" && git log --oneline -1",
+   "n": 101
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:29:58.805Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b684_checks as C\nf=C.read(C.FACE); d=C.g2_names(f); n=sorted(a[0] for a in C.ARMS)\nprint('declared',len(d),'suite',len(n),'equal',d==n,sorted(set(d)-set(n)),sorted(set(n)-set(d)))\nimport registration_gate as RG\nprint(RG.bar_floor_check(f)[:2], RG.straddle_check(f)[0], RG.check(C.FACE)[0])\nimport b300_regspec as CNT; print('predictions',CNT.count_predictions(f))\n\"",
+   "n": 102
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:30:38.789Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_checks.py --prerun --part standing-a > /dev/null; echo \"exit $?\"; grep -n \"free memory\\|PHASES\\|### PART\" data/b684_arms_prerun_standing-a.txt | cut -c1-260; grep \"FAILS\" data/b684_arms_prerun_standing-a.txt | awk '{print $1}' | tr '\\n' ' '",
+   "n": 103
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:34:17.609Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_checks.py --prerun --part standing-c > /dev/null; echo \"exit $?\"; grep -n \"free memory\\|PHASES\\|### PART\\|uncovered\\|changed \" data/b684_arms_prerun_standing-c.txt | cut -c1-260",
+   "n": 104
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:37:04.594Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_checks.py --prerun --part standing-b > /dev/null; echo \"exit $?\"; grep -n \"free memory\\|### PART\" data/b684_arms_prerun_standing-b.txt | cut -c1-260",
+   "n": 105
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:42:43.782Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_checks.py --prerun --part act > /dev/null; echo \"exit $?\"; grep -n \"### PART\" data/b684_arms_prerun_act.txt | cut -c1-300; grep \"FAILS\\|raised\" data/b684_arms_prerun_act.txt | cut -c1-200",
+   "n": 106
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:43:19.949Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b684_checks.py --combine b684_arms_prerun.txt | head -9 | cut -c1-260; grep -h \"THE LONGEST PHASE\" data/b684_arms_prerun_*.txt",
+   "n": 107
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:43:30.595Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_record.py scores dry > /dev/null; timeout 590 python -X utf8 tools/b684_reg_gate.py > /dev/null; echo \"exit $?\"; grep -n \"exit code\\|MISSES\\|UNDECLARED\\|ENTRY :\\|TRAIL :\\|CLOSING DRY-RUN STEP :\\|GATE VERDICT\\|missing\" data/b684_reg_gate.txt | cut -c1-220",
+   "n": 108
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:44:01.625Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_record.py gatebanks && timeout 590 python -X utf8 tools/b378_lockgate.py b684 data/b684_registration_2026-10-18.txt > /dev/null; echo \"lockgate exit $?\"; grep -h \"GATES READ\\|VERDICT : LOCK\" data/b684_lockgate_notes.txt",
+   "n": 109
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:44:10.457Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b684_registration_2026-10-18.txt && python -X utf8 tools/b684_checks.py --seal",
+   "n": 110
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:44:15.290Z",
+   "src": "seat",
+   "cmd": "git status --short | grep -v \"^??\"; git status --short | grep \"^??\" | grep \"b684\" | tr '\\n' ' '",
+   "n": 111
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:44:40.259Z",
+   "src": "seat",
+   "cmd": "git add data/audit_b684_reg_satisfiable.txt data/b684_arms_prerun.txt data/b684_arms_prerun_act.txt data/b684_arms_prerun_standing-a.txt data/b684_arms_prerun_standing-b.txt data/b684_arms_prerun_standing-c.txt data/b684_census_stepzero.txt data/b684_faces_census_stepzero.txt data/b684_lockgate.json data/b684_lockgate_notes.txt data/b684_lsr_prerun_act.json data/b684_lsr_prerun_standing-a.json data/b684_lsr_prerun_standing-b.json data/b684_lsr_prerun_standing-c.json data/b684_pins_stepzero.txt data/b684_reg_gate.txt data/b684_reg_termscan.txt data/b684_registration_2026-10-18.txt data/b684_regspec_run.txt data/b684_satisfiable.json data/b684_seal_hashes.json && git commit -q -m \"b684 seal: the face locked (58dd19ae) after Components 0-3, the closing's dry run and the dry-run step; the pre-run 107 arms in four parts, 80 passing, every failure a late-state arm, none carried; the gate CLEAR; the lock gate 8 of 8; the sealed tools' sha256 recorded (nine, rule_arms.py among them)\" && git log --oneline -1",
+   "n": 112
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:44:46.702Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_record.py table_final && git status --short data/ | grep -v \"^??\"",
+   "n": 113
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:45:37.677Z",
+   "src": "seat",
+   "cmd": "git diff --stat data/terminal_table.json data/terminal_table.md && git diff data/terminal_table.md | grep \"^[-+]\" | grep -v \"^+++\\|^---\" | head -10 | cut -c1-220",
+   "n": 114
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:45:43.913Z",
+   "src": "seat",
+   "cmd": "git add data/b684_table_final.txt data/b684_table_final.json data/terminal_table.json data/terminal_table.md && git commit -q -m \"b684 pre-root: the final table (0 moved, 0 added, 0 gone; the four kernels' pins at their merges), committed before the root\" && git log --oneline -1",
+   "n": 115
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:45:49.081Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b684-root 9fd9b9c && PUSH_GATED_LOG=/d/relay/data/b684_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b684-root",
+   "n": 116
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:46:20.775Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git branch push-b684-root c0c82f14 && PUSH_GATED_LOG=/d/relay/data/b684_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b684-root",
+   "n": 117
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:46:33.709Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b684_record.py root",
+   "n": 118
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T18:47:07.483Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b684_record.py root_arm && python -X utf8 tools/b684_record.py commands && python -X utf8 tools/b684_record.py defects && timeout 590 python -X utf8 tools/b684_record.py scores | cut -c1-200",
+   "n": 119
   }
  ],
  "offences": [],
