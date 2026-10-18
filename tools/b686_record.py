@@ -628,6 +628,100 @@ def cutdiff(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 2: THE CELLS, (R296)(3) (b682's routes, carried)
+DIFF_ROW = re.compile(r'^    (\S+) :(\d+) \| (kernel|profile|status) \| (SIDE-[a-z0-9-]+) \| OLD (.*) \| NEW (.*)$')
+
+
+def read_diff_row(line):
+    """a row of the generator's diff: document, line, column, kernel, the cell before and after; returns (document, line, column, old, new)."""
+    m = DIFF_ROW.match(line or '')
+    if not m:
+        raise ValueError('diff row of another shape: %r' % ((line or '')[:120],))
+    return m.group(1), int(m.group(2)), m.group(3), m.group(5), m.group(6)
+
+
+READERS += ['read_diff_row']
+
+
+def gendry(*a):
+    """tools/correspondence_gen.py `dry full` over the roster the generator reads (data/b672_roster_read.json), nothing written to any roster
+    file; its whole print banked as data/b686_correspondence_diff.txt, rows the cells with before and after, the three cells of (R296)(3)
+    (FOUNDATIONS :628-:630) printed first, every other changed cell beside them. Carried from b682_record.py's gendry."""
+    t0 = time.time()
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'correspondence_gen.py'), 'dry', 'full'], capture_output=True, text=True,
+                       encoding='utf-8', errors='replace', cwd=ROOT, timeout=560)
+    out = (r.stdout or '') + (r.stderr or '')
+    full = out.split(NL)
+    k = max(i for i, l in enumerate(full) if l.startswith('b672 -- THE CORRESPONDENCE GENERATOR'))
+    body = [l for l in full[k:] if l != '### DRY: nothing written']
+    rows = [read_diff_row(l) for l in body if DIFF_ROW.match(l)]
+    rk = [(l, DIFF_ROW.match(l).group(4)) for l in body if DIFF_ROW.match(l)]
+    v = [l for l in body if l.startswith('### ### **TABLES')]
+    tm = re.search(r'TABLES (\d+) ; SHAPED (\d+)', v[0]) if v else None
+    three = [x for x in rows if x[0] == 'FOUNDATIONS_OF_THE_SIDE_PROGRAMME' and x[1] in K.FOUND_LINES]
+    other = [x for x in rows if x not in three]
+    kerns = collections.Counter(kk for _l, kk in rk)
+    L = ['b686 -- COMPONENT 2, (R296)(3): THE CORRESPONDENCE GENERATOR`S DRY RUN, BANKED AS A CELL DIFF (%s)' % utc(), '',
+         '### tools/correspondence_gen.py (unedited since b682, %s) run `dry full` at relay %s over the roster it reads, relay' % (
+             g(ROOT, 'log', '-1', '--format=%h', '--', 'tools/correspondence_gen.py').strip(), g(ROOT, 'rev-parse', '--short=8', 'HEAD').strip()),
+         '### data/b672_roster_read.json: TABLES %s ; SHAPED %s; the local clones` tags, no remote call; NOTHING WRITTEN to any roster file;' % (
+             tm.group(1) if tm else '?', tm.group(2) if tm else '?'),
+         '### SIDE-silence-principle at %s, its print bank relay %s (built at 675679c, merged at v0.2.2). Rows are cells with before and after (the' % (
+             K.SILENCE_TAG, K.SILENCE_PRINTS),
+         '### THE DIFF section below: document :line | column | kernel | OLD | NEW); exit %d ; %d s.' % (r.returncode, int(time.time() - t0)), '',
+         '### THE THREE CELLS OF (R296)(3) (FOUNDATIONS :628-:630), from the diff: %d' % len(three)]
+    L += ['    :%d %s | OLD %s | NEW %s' % (x[1], x[2], x[3][:90], x[4][:90]) for x in three]
+    L += ['', '### EVERY OTHER CELL THE GENERATOR WOULD WRITE (beyond the three the ruling names): %d, by kernel %s' % (len(other), dict(kerns))]
+    L += ['    %s :%d %s | OLD %s | NEW %s' % (x[0], x[1], x[2], x[3][:80], x[4][:80]) for x in other] or ['    NONE']
+    L += ['', '### THE GENERATOR`S PRINT, WHOLE:'] + body
+    L += ['', '### ### **CELLS CHANGED %d ; THE THREE CELLS AT FOUNDATIONS :628-:630 %d ; OTHER CELLS %d ; TABLES %s ; SHAPED %s ; GENERATOR EXIT %d ; '
+              'NOTHING WRITTEN TO THE ROSTER.**' % (len(rows), len(three), len(other), tm.group(1) if tm else '?', tm.group(2) if tm else '?', r.returncode)]
+    put_txt('%s.txt' % K.DIFF_STEM, L)
+    put_json('%s.json' % K.DIFF_STEM, dict(at=utc(), rows=[list(x) for x in rows], three=[list(x) for x in three], other=[list(x) for x in other],
+                                          rc=r.returncode))
+    print(NL.join(L[8:9 + len(three)] + L[9 + len(three):12 + len(three) + len(other)] + L[-1:]))
+
+
+def dist(*a):
+    """the distance by b670's method (tools/b672_record.py `after`, b670's method over the stable anchors) and by the generator's claim, with
+    b670's heading-text reader beside them, each route run by import with its bank writers captured in memory so nothing of b670's or b672's is
+    written; printed beside b682's 55 and 0. data/b686_correspondence_<stage>.txt (.json). Carried from b682_record.py's dist."""
+    stage = a[0] if a else 'before'
+    import b670_record as B
+    import b672_record as B2
+    s1 = {}
+    B.put_txt = lambda name, lines: s1.__setitem__(name, lines)
+    B.put_json = lambda name, obj: s1.__setitem__(name, obj)
+    B.corr()
+    v1 = [l for l in s1['b670_correspondence.txt'] if l.startswith('### ### **')][-1]
+    s2 = {}
+    B2.put_txt = lambda name, lines: s2.__setitem__(name, lines)
+    B2.put_json = lambda name, obj: s2.__setitem__(name, obj)
+    B2.after()
+    T2 = s2['b672_correspondence_after.txt']
+    vv = [l for l in T2 if l.startswith('### ### **')]
+    m1 = re.search(r'BEHIND (\d+)', v1)
+    m2 = re.search(r'ROWS WITH A COMMIT (\d+) .*? BEHIND (\d+) \(b670', vv[-2]) if len(vv) >= 2 else None
+    m3 = re.search(r'AT THE LEADING CLAUSE \(THE GENERATOR`S CLAIM\) (\d+)', vv[-1]) if vv else None
+    L = ['b686 -- COMPONENT 2, (R296)(3): THE CORRESPONDENCE DISTANCE %s THE GENERATOR`S WRITE, BY b670`S METHOD AND BY THE GENERATOR`S CLAIM (%s)' % (
+        stage.upper(), utc()), '',
+         '### the methods as b680 and b682 ran them: b670`s (tools/b670_record.py `corr`) by its heading-text reader; b672`s re-read of b670`s',
+         '### method over the stable anchors (tools/b672_record.py `after`), its last two verdicts the distance by b670`s method and at the',
+         '### generator`s claim; each run by import, its bank writers captured, nothing of b670`s or b672`s written.',
+         '### PLACE-papers HEAD %s.' % g(PP, 'rev-parse', '--short', 'HEAD').strip(), '',
+         '### BY b670`S HEADING-TEXT READER: ' + v1,
+         '### BY THE STABLE ANCHORS (b672`s re-read): ' + (vv[-2] if len(vv) >= 2 else '### UNREAD'),
+         '### THE GENERATOR`S CLAIM: ' + (vv[-1] if vv else '### UNREAD'), '',
+         '### ### **%s: BEHIND BY b670`S METHOD %s AGAINST b682`S %d ; AT THE GENERATOR`S CLAIM %s AGAINST b682`S %d ; BY b670`S HEADING-TEXT READER %s.**' % (
+             stage.upper(), m2.group(2) if m2 else '### UNREAD', K.B682_DISTANCE[0], m3.group(1) if m3 else '### UNREAD', K.B682_DISTANCE[1],
+             m1.group(1) if m1 else '### UNREAD'), '',
+         '### THE ANCHORED RE-READ, WHOLE:'] + T2
+    put_txt('b686_correspondence_%s.txt' % stage, L)
+    put_json('b686_correspondence_%s.json' % stage, dict(at=utc(), behind=int(m2.group(2)) if m2 else None, claim=int(m3.group(1)) if m3 else None,
+                                                       heading_reader=int(m1.group(1)) if m1 else None))
+    print(L[11])
+
+
 # ================================================================================ THE LATE ROUTES (b685's, carried; every row read through READERS)
 import collections                 # noqa: E402
 import b633_record as R3           # noqa: E402
@@ -1164,7 +1258,7 @@ def scores_line(S):
 
 ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, naming=naming, runner=runner, prints=prints, cutdiff=cutdiff,
               commands=commands, kernels=kernels, defects=defects, repairs=repairs, rootbanks=rootbanks, root=root, root_arm=root_arm,
-              table_final=table_final, scores=scores)
+              table_final=table_final, scores=scores, gendry=gendry, dist=dist)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
