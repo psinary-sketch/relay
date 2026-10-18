@@ -1,0 +1,43 @@
+b686 -- THE CUT`S DIFF OF SIDE-spinor, RESTRICTED TO COMMENT AND DOCSTRING LINES (2026-10-18T22:53:13Z)
+
+### SIDE-spinor 254b7bd (main) -> bfaf89e (the cut, recut-spinor-b686); files ['SIDESpinor/Spinor.lean', 'SIDESpinor/SpinorLeg.lean'] ; lines added 13, removed 8
+### rows are files: the text with every comment stripped equal before and after ; the control (a one-word code change in the after
+### text, 'theorem') unequal ; the control`s needle present:
+  SIDESpinor/Spinor.lean             CODE EQUAL True ; CONTROL UNEQUAL True ; NEEDLE PRESENT True
+  SIDESpinor/SpinorLeg.lean          CODE EQUAL True ; CONTROL UNEQUAL True ; NEEDLE PRESENT True
+
+### the diff, whole:
+    diff --git a/SIDESpinor/Spinor.lean b/SIDESpinor/Spinor.lean
+    index 8b3122d..b660016 100644
+    --- a/SIDESpinor/Spinor.lean
+    +++ b/SIDESpinor/Spinor.lean
+    @@ -8,4 +8,7 @@
+    -  (PATHS_TO_THE_CRITICAL_LINE). An IDENTIFICATION kernel — it
+    -  verifies that the phase-invariant Hermitian observable M = vv†
+    -  collapses its quarter-twist orbit {v, iv, −v, −iv} to a single
+    -  fixed point only at the centered origin w = 0, i.e. σ = 1/2.
+    +  (PATHS_TO_THE_CRITICAL_LINE). An IDENTIFICATION kernel: it
+    +  verifies the arithmetic of the identification (the |n| list sums
+    +  to 12, 1 + 6 = 7 and aperture 1/7, |i|^2 = 1, i^2 = -1 and i^4 = 1,
+    +  and multiplication by i on C fixes only 0) and the real identity
+    +  sigma = 1/2 iff sigma - 1/2 = 0; the observable M = vv†, its
+    +  spectrum {0^6, 12} and the reading of w as s - 1/2 are the source
+    +  papers' content, not compiled here.
+    @@ -58 +61,2 @@ The quarter-twist w ↦ iw fixes only w = 0 (since i ≠ 1). In the
+    -centered coordinate w = s − 1/2, w = 0 is σ = 1/2. -/
+    +centered coordinate w = s − 1/2, w = 0 is the point s = 1/2, which
+    +lies on σ = 1/2; the kernel does not connect w to σ. -/
+    diff --git a/SIDESpinor/SpinorLeg.lean b/SIDESpinor/SpinorLeg.lean
+    index 45e2149..ea9f8fe 100644
+    --- a/SIDESpinor/SpinorLeg.lean
+    +++ b/SIDESpinor/SpinorLeg.lean
+    @@ -15,3 +15,4 @@
+    -  • Route B (this file, metaplectic / quarter-twist; Mathlib / ℂ): −1 = W⁴ = T², where
+    -    W is the order-8 metaplectic lift of S (W⁴ = −Id, the cocycle) and T = W² is the
+    -    quarter-twist, acting on the weight-½ spinor line as multiplication by i.
+    +  • Route B (this file; Mathlib / ℂ): with the quarter-twist read as T = i on the weight-½
+    +    spinor line, the file derives T² = −1 from i² = −1, and W⁴ = −1 for any complex W with
+    +    W² = T, witnessed by ζ₈ = (1+i)/√2; the metaplectic lift of S and W⁴ = −Id are the
+    +    reading, not compiled, and no salt-check is carried in the repository.
+
+### ### **FILES 2 ; CODE EQUAL WITH COMMENTS STRIPPED True ; CONTROLS UNEQUAL True ; COMMENT AND DOCSTRING LINES ALONE True.**

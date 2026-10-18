@@ -1184,8 +1184,8 @@ def _n2():
     kwrites = []
     if named:
         td = 'D:/' + named
-        base = (jl('b686_kernels_face.json').get('base') or {}).get(named) or ''
-        kwrites = [int(x) for x in g(td, 'log', '--format=%ct', '%s..main' % base if base else 'main', '--since=%s' % K.DATE).split() if x.isdigit()]
+        base = jl('b686_cut.json').get('base') or ''
+        kwrites = [int(x) for x in g(td, 'log', '--all', '--format=%ct', '^%s' % base if base else 'main').split() if x.isdigit()]
     printed = 'THE RULE, verbatim' in rdn('b686_naming.txt') and 'THE TABLE ROWS, verbatim' in rdn('b686_naming.txt')
     rows_first = bool(t_name) and (not kwrites or t_name <= min(kwrites))
     calls = jl('b686_author_answers.json').get('calls') or []
@@ -1248,12 +1248,14 @@ def _n5():
     kmain = []
     if named:
         td = 'D:/' + named
-        base = (jl('b686_kernels_face.json').get('base') or {}).get(named) or ''
-        kmain = [l for l in g(td, 'log', '--first-parent', '--format=%h %s', '%s..main' % base).split(NL) if l.strip()] if base else ['### NO BASE READ']
+        base = jl('b686_cut.json').get('base') or ''
+        kmain = [l.split()[0] for l in g(td, 'log', '--first-parent', '--format=%h %s', '%s..main' % base).split(NL) if l.strip()] if base else ['### NO BASE READ']
+        allowed = set(jl('b686_cut.json').get('main_writes') or []) | {jl('b686_cut.json').get('merge')}
+        kmain_beyond = [h for h in kmain if h not in allowed]
         wfile = _show(td, 'main', '.github/workflows/build-module.yml') or ''
         widents = [w for w in IDENT if w in wfile.lower()]
     else:
-        widents = []
+        widents, kmain_beyond = [], ['### NO KERNEL NAMED']
     _r, _n, sh = seal_hashes()
     differ = [t for t, v in sh if v != 'agree']
     import importlib
@@ -1266,15 +1268,16 @@ def _n5():
     ob = jl('b686_commands.json').get('outbound') or []
     ident = [r for r in ob if r.get('identifiers')]
     pat = [n for n in ('patent', 'Patent', 'PATENT') if n in _ledger_adds()]
-    ok = k_ok and not pp_beyond and not kinds_beyond and not differ and not new_arms and not ident and not pat and not widents
+    ok = k_ok and not pp_beyond and not kinds_beyond and not differ and not new_arms and not ident and not pat and not widents and not kmain_beyond
     return (('HELD' if ok else 'REFUTED'),
             'nothing deposits: the deposit route untouched (draft %s, v5, unpublished); every kernel as the face read it %s, the named kernel %s`s '
-            'main written by the first-parent commits %s alone; standing arms added: %s (the act`s arms over its own banks %d); sealed tools not '
+            'main written by the first-parent commits %s (beyond the workflow, the print list and the merge: %s); standing arms added: %s (the '
+            'act`s arms over its own banks %d); sealed tools not '
             'agreeing %s; PLACE-papers beyond FINDINGS, OPEN_TRAILS and the regenerated roster file: %s; relay files of a kind beyond the act`s '
             'banks and tools, the table, the root list and b685`s push-out bank: %s; "patent" in the lines written: %s; outbound requests: the '
             'seat`s git reads and pushes at github.com and %d web searches, subagent prompts and fetches (relay data/b686_commands.txt), an '
             'identifier of the author in %s; in the named kernel`s workflow file %s' % (
-                K.DRAFT, k_ok, named, kmain or 'NONE', new_arms or 'NONE', len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE',
+                K.DRAFT, k_ok, named, kmain or 'NONE', kmain_beyond or 'NONE', new_arms or 'NONE', len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE',
                 kinds_beyond or 'NONE', pat or 'NONE', len(ob), [r['line'] for r in ident] or 'NONE', widents or 'NONE'))
 
 
