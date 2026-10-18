@@ -1,7 +1,7 @@
-b682 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES (2026-10-18T12:50:20Z)
+b682 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES (2026-10-18T13:03:18Z)
 
 ### the source: the seat`s session df03c73f-520a-4848-85dc-8fada095f008 from its first user line carrying 'RULING (R292) BEGIN', and its subagents` transcripts
-### commands read: 142
+### commands read: 159
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #138 2026-10-18T12:46:17.614Z seat Bash -- S sed -i
@@ -174,5 +174,22 @@ b682 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #140 | 2026-10-18T12:46:38.942Z | seat | Bash | python -X utf8 tools/b682_checks.py --prerun --part standing-a > /dev/null; echo "exit $?"; grep -E "### PART|### THE PHASES" data/b682_arms_prerun_standing-a.t
   #141 | 2026-10-18T12:49:54.922Z | seat | Bash | grep -n "G-EDIT-ROUTE read" data/b682_arms_prerun_standing-a.txt | cut -c1-300
   #142 | 2026-10-18T12:50:15.908Z | seat | Bash | python -X utf8 tools/b682_record.py defects && python -X utf8 tools/b682_record.py commands | tail -2 && python -X utf8 tools/b682_checks.py --prerun --part sta
+  #143 | 2026-10-18T12:55:49.945Z | seat | Bash | python -X utf8 tools/b682_checks.py --prerun --part act > /dev/null; echo "exit $?"; grep -E "### PART|FAILS|DEFECTIVE|raised" data/b682_arms_prerun_act.txt | c
+  #144 | 2026-10-18T12:56:27.341Z | seat | Bash | python -X utf8 tools/b682_checks.py --prerun --part standing-a > /dev/null; echo "exit $?"; grep -E "### PART" data/b682_arms_prerun_standing-a.txt | cut -c1-90
+  #145 | 2026-10-18T12:59:36.283Z | seat | Bash | python -X utf8 tools/b682_checks.py --combine b682_arms_prerun.txt; grep -E "### THE PHASES" data/b682_arms_prerun_standing-a.txt data/b682_arms_prerun_standing
+  #146 | 2026-10-18T12:59:46.053Z | seat | Bash | python -X utf8 tools/b682_reg_gate.py 2>&1 | grep -E "exit code|FLOOR MISSES|ARM MISSES|UNDECLARED|DRY-RUN STEP :|CLOSING DRY-RUN STEP :|GATE VERDICT|NOT CLEAN|
+  #147 | 2026-10-18T13:00:16.119Z | seat | Bash | for n in "b682 closed:" "the misses as the bank lists them" "(annotated, peeled) ; main" "### THE READER" "### THE NEXT DOCUMENT" "### NO VERDICT LINE" "ENTRY :
+  #148 | 2026-10-18T13:00:22.678Z | seat | Bash | python -X utf8 tools/b682_record.py gatebanks 2>&1 | cut -c1-250
+  #149 | 2026-10-18T13:00:32.552Z | seat | Bash | python -X utf8 tools/b378_lockgate.py b682 data/b682_registration_2026-10-18.txt 2>&1 | tail -6 | cut -c1-250
+  #150 | 2026-10-18T13:00:38.200Z | seat | Bash | python -X utf8 tools/reg_seal.py --lock data/b682_registration_2026-10-18.txt 2>&1 | tail -4 && python -X utf8 tools/b682_checks.py --seal
+  #151 | 2026-10-18T13:00:45.023Z | seat | Bash | git status --short | grep -E "b682|audit_b682" 
+  #152 | 2026-10-18T13:00:54.165Z | seat | Bash | git add data/b682_defects.json data/b682_defects.txt data/b682_tool_repairs.txt tools/b682_checks.py tools/b682_record.py data/audit_b682_reg_satisfiable.txt da
+  #153 | 2026-10-18T13:01:04.031Z | seat | Bash | python -X utf8 tools/b682_record.py table_final && git status --short | grep -v "^??"
+  #154 | 2026-10-18T13:01:35.335Z | seat | Bash | git diff --stat data/terminal_table.json data/terminal_table.md && git diff data/terminal_table.md | head -20
+  #155 | 2026-10-18T13:01:42.790Z | seat | Bash | git add data/terminal_table.json data/terminal_table.md data/b682_table_final.txt data/b682_table_final.json && git commit -q -m "b682 pre-root: the final table
+  #156 | 2026-10-18T13:01:49.342Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch push-b682-root 7936579 && PUSH_GATED_LOG=/d/relay/data/b682_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh
+  #157 | 2026-10-18T13:02:25.287Z | seat | Bash | cd /d/relay && git branch push-b682-root c8d250e9 && PUSH_GATED_LOG=/d/relay/data/b682_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b
+  #158 | 2026-10-18T13:02:40.254Z | seat | Bash | python -X utf8 tools/b682_record.py root
+  #159 | 2026-10-18T13:03:14.287Z | seat | Bash | python -X utf8 tools/b682_record.py root_arm && python -X utf8 tools/b682_record.py commands | head -2 && python -X utf8 tools/b682_record.py scores 2>&1 | cut 
 
-### ### **COMMANDS 142 ; G-EDIT-ROUTE OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5.**
+### ### **COMMANDS 159 ; G-EDIT-ROUTE OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5.**

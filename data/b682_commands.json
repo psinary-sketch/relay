@@ -1,5 +1,5 @@
 {
- "at": "2026-10-18T12:50:20Z",
+ "at": "2026-10-18T13:03:18Z",
  "anchor": "RULING (R292) BEGIN",
  "rows": [
   {
@@ -995,6 +995,125 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b682_record.py defects && python -X utf8 tools/b682_record.py commands | tail -2 && python -X utf8 tools/b682_checks.py --prerun --part standing-b > /dev/null; echo \"exit $?\"; grep -E \"### PART|THE ACT-ROOT CHAIN\" data/b682_arms_prerun_standing-b.txt | cut -c1-260; grep -o \"b681 AGREE\\|b680 AGREE\" data/b682_arms_prerun_standing-b.txt | head",
    "n": 142
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T12:55:49.945Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b682_checks.py --prerun --part act > /dev/null; echo \"exit $?\"; grep -E \"### PART|FAILS|DEFECTIVE|raised\" data/b682_arms_prerun_act.txt | cut -c1-260",
+   "n": 143
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T12:56:27.341Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b682_checks.py --prerun --part standing-a > /dev/null; echo \"exit $?\"; grep -E \"### PART\" data/b682_arms_prerun_standing-a.txt | cut -c1-900",
+   "n": 144
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T12:59:36.283Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b682_checks.py --combine b682_arms_prerun.txt; grep -E \"### THE PHASES\" data/b682_arms_prerun_standing-a.txt data/b682_arms_prerun_standing-b.txt | cut -c1-260",
+   "n": 145
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T12:59:46.053Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b682_reg_gate.py 2>&1 | grep -E \"exit code|FLOOR MISSES|ARM MISSES|UNDECLARED|DRY-RUN STEP :|CLOSING DRY-RUN STEP :|GATE VERDICT|NOT CLEAN|missing|FIRED|NO VERDICT|### NOT\" | cut -c1-260",
+   "n": 146
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:00:16.119Z",
+   "src": "seat",
+   "cmd": "for n in \"b682 closed:\" \"the misses as the bank lists them\" \"(annotated, peeled) ; main\" \"### THE READER\" \"### THE NEXT DOCUMENT\" \"### NO VERDICT LINE\" \"ENTRY : table cells NONE ; screens QUIET\" \"TRAIL : table cells NONE ; screens QUIET\"; do printf \"%s : \" \"$n\"; grep -cF \"$n\" data/b682_reg_gate.txt; done",
+   "n": 147
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:00:22.678Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b682_record.py gatebanks 2>&1 | cut -c1-250",
+   "n": 148
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:00:32.552Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b378_lockgate.py b682 data/b682_registration_2026-10-18.txt 2>&1 | tail -6 | cut -c1-250",
+   "n": 149
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:00:38.200Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b682_registration_2026-10-18.txt 2>&1 | tail -4 && python -X utf8 tools/b682_checks.py --seal",
+   "n": 150
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:00:45.023Z",
+   "src": "seat",
+   "cmd": "git status --short | grep -E \"b682|audit_b682\" ",
+   "n": 151
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:00:54.165Z",
+   "src": "seat",
+   "cmd": "git add data/b682_defects.json data/b682_defects.txt data/b682_tool_repairs.txt tools/b682_checks.py tools/b682_record.py data/audit_b682_reg_satisfiable.txt data/b682_arms_prerun.txt data/b682_arms_prerun_act.txt data/b682_arms_prerun_standing-a.txt data/b682_arms_prerun_standing-b.txt data/b682_census_stepzero.txt data/b682_commands.json data/b682_commands.txt data/b682_faces_census_stepzero.txt data/b682_lockgate.json data/b682_lockgate_notes.txt data/b682_lsr_prerun_act.json data/b682_lsr_prerun_standing-a.json data/b682_lsr_prerun_standing-b.json data/b682_pins_stepzero.txt data/b682_reg_gate.txt data/b682_reg_termscan.txt data/b682_registration_2026-10-18.txt data/b682_regspec_run.txt data/b682_satisfiable.json data/b682_scanfile_c1.md data/b682_scanfile_c3.md data/b682_scanfile_word.md data/b682_seal_hashes.json && git commit -q -m \"b682 seal: the face locked (6eb03fac) after Components 1-4, the pre-run in three parts (90 arms; G-EDIT-ROUTE declared, defect (e)), the gate CLEAR with both dry runs, the lock gate 8 of 8; the sealed tools' hashes\" && git log --oneline -1",
+   "n": 152
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:01:04.031Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b682_record.py table_final && git status --short | grep -v \"^??\"",
+   "n": 153
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:01:35.335Z",
+   "src": "seat",
+   "cmd": "git diff --stat data/terminal_table.json data/terminal_table.md && git diff data/terminal_table.md | head -20",
+   "n": 154
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:01:42.790Z",
+   "src": "seat",
+   "cmd": "git add data/terminal_table.json data/terminal_table.md data/b682_table_final.txt data/b682_table_final.json && git commit -q -m \"b682 pre-root: the final table (0 moved; SIDE-bijection's pin to b800504), committed before the root\" && git log --oneline -1",
+   "n": 155
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:01:49.342Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b682-root 7936579 && PUSH_GATED_LOG=/d/relay/data/b682_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b682-root",
+   "n": 156
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:02:25.287Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git branch push-b682-root c8d250e9 && PUSH_GATED_LOG=/d/relay/data/b682_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b682-root",
+   "n": 157
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:02:40.254Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b682_record.py root",
+   "n": 158
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T13:03:14.287Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b682_record.py root_arm && python -X utf8 tools/b682_record.py commands | head -2 && python -X utf8 tools/b682_record.py scores 2>&1 | cut -c1-200 && python -X utf8 tools/b682_record.py desk",
+   "n": 159
   }
  ],
  "offences": [
