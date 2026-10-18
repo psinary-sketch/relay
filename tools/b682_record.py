@@ -550,8 +550,96 @@ def read_order_row(line):
 READERS += ['read_order_row']
 
 
+# ================================================================================ COMPONENT 4: THE NAMING, (R292)(5) -- before any kernel write (b678's route)
+def _kern_rows():
+    """the kernels table's rows (data/b647_table_kernels.txt): rows | MATCHES | UNDERSTATES | OVERREACHES | UNLICENSED (its header :4)."""
+    out = []
+    for i, l in enumerate(rdn(K.KERNELS_BANK).split(NL), 1):
+        m = re.match(r'^  (SIDE-[\w-]+)\s+([0-9a-f]{7}) \|\s+(\d+) \|\s+(\d+) \|\s+(\d+) \|\s+(\d+) \|\s+(\d+) \|', l)
+        if m:
+            out.append(dict(line=i, text=l, kernel=m.group(1), pin=m.group(2), rows=int(m.group(3)), under=int(m.group(5)),
+                            over=int(m.group(6)), unlic=int(m.group(7))))
+    return out
+
+
+def naming(*a):
+    """(R292)(5) and N4: the order's line (data/b652_ferry.txt :19), the tie-break rule's row and the table rows printed verbatim from their
+    banks; every kernel's standing count read from the licensed table (a kernel cut since its read stands at its cut bank's figure); the
+    document named by the descending count and, at a tie, by the rule's letter; then the named kernel's workflow directory, print list and
+    print bank read or declared absent -- before any kernel write. data/b682_naming.txt (.json). Carried from b678_record.py's naming."""
+    rules = rdn(K.RULES_BANK).split(NL)
+    i0 = [i for i, l in enumerate(rules) if l.startswith('  (%d) ' % K.TIE_RULE_ROW)][0]
+    rule = [rules[i0]] + [l for l in __import__('itertools').takewhile(lambda x: x.startswith('      '), rules[i0 + 1:])]
+    order_line = rd(os.path.join(D, 'b652_ferry.txt')).split(NL)[18]
+    lt = rdn(K.TABLE_BANK).split(NL)
+    standing = {}
+    for i, l in enumerate(lt, 1):
+        m = re.match(r'^  (SIDE-[\w-]+) docstrings \(read at ([0-9a-f]{7})\)\s+(\d+) ->\s+(\d+)', l)
+        if m:
+            standing[m.group(1)] = (i, int(m.group(4)), l)
+    cut_since = {}
+    for k, bank, needle in K.CUT_SINCE:
+        t = rd(os.path.join(ROOT, *bank.split('/')))
+        m = re.search(r'THE DISTANCE BEFORE (\d+), AFTER (\d+)', t)
+        if m and needle in t:
+            cut_since[k] = (int(m.group(2)), bank)
+    rank = []
+    for r in _kern_rows():
+        ln, now, _l = standing.get(r['kernel'], (None, None, None))
+        if r['kernel'] in cut_since:
+            now = cut_since[r['kernel']][0]
+        rank.append((now if now is not None else -1, r['under'] + r['over'] + r['unlic'], r['rows'], r['kernel'], ln, r))
+    rank.sort(key=lambda x: (-x[0], x[3]))
+    top = rank[0][0]
+    tied = [x for x in rank if x[0] == top]
+    by_rule = sorted(tied, key=lambda x: (-x[1], -x[2], x[3]))
+    named = by_rule[0][3] if (len(tied) == 1 or (by_rule[0][1], by_rule[0][2]) != (by_rule[1][1], by_rule[1][2])) else None
+    td = 'D:/' + named if named else None
+    wf = g(td, 'ls-tree', '--name-only', 'main', '.github/workflows/').split() if td else []
+    pt = g(td, 'ls-tree', '--name-only', 'main').split() if td else []
+    pfx = 'SIDEBijection' if named == 'SIDE-bijection' else 'X'
+    pshape = r"'%s\.[A-Za-z0-9_.']+' (depends on axioms|does not depend on any axioms)|^  %s\.[A-Za-z0-9_.']+ +\[" % (pfx, pfx)
+    pb = sorted(set(g(ROOT, 'grep', '-lE', pshape, '--', 'data/').split()))
+    ctl = sorted(set(g(ROOT, 'grep', '-lE', r"'SIDESilencePrinciple\.[A-Za-z0-9_.']+' (depends on axioms|does not depend on any axioms)", '--', 'data/').split()))
+    tags = sorted(g(td, 'tag', '--list').split(), key=lambda x: [int(n) for n in re.findall(r'\d+', x)]) if td else []
+    L = ['b682 -- COMPONENT 4, (R292)(5): THE ORDER, THE RULE ROW AND THE TABLE ROWS, VERBATIM, BEFORE THE DOCUMENT IS NAMED (%s)' % utc(), '',
+         '### THE ORDER, verbatim (relay data/b652_ferry.txt :19): ' + order_line.strip(),
+         '### THE RULE, verbatim with path and line (relay data/%s :%d):' % (K.RULES_BANK, i0 + 1)] + ['    ' + l for l in rule] + [
+         '', '### THE TABLE ROWS, verbatim with path and line: the licensed table (relay data/%s) for each kernel of the kernels table (relay' % K.TABLE_BANK,
+         '### data/%s, columns rows | MATCHES | UNDERSTATES | OVERREACHES | UNLICENSED, its header :4); a kernel cut since its read stands at' % K.KERNELS_BANK,
+         '### its cut bank`s figure (%s); ordered by the count now standing:' % '; '.join('%s at %d, relay %s' % (k, v[0], v[1]) for k, v in cut_since.items())]
+    for now, anyk, nrows, k, ln, r in rank:
+        L.append('  %2d  %-34s licensed table :%s  "%s"' % (now, k, ln, (standing.get(k) or (0, 0, ''))[2].strip()))
+        L.append('      %-34s kernels table :%d  "%s"  (outside of any kind %d ; rows %d)' % ('', r['line'], r['text'].strip(), anyk, nrows))
+    L += ['', '### THE NAMING: the greatest count standing is %d, carried by %s%s.' % (
+        top, ', '.join(x[3] for x in tied), ' alone, so no tie and the rule of row %d not reached' % K.TIE_RULE_ROW if len(tied) == 1 else '')]
+    if len(tied) > 1:
+        L.append('### A TIE: the rule of row %d by its letter -- rows outside LICENSED/CITED of any kind: %s' % (
+            K.TIE_RULE_ROW, ', '.join('%s %d (rows %d)' % (x[3], x[1], x[2]) for x in tied)))
+    L += ['### NAMED: %s docstrings' % (named or '### NONE'),
+          '', '### THE NAMED KERNEL`S WORKFLOW DIRECTORY, PRINT LIST AND PRINT BANK (read before any kernel write):',
+          '  %s main %s ; its tags %s, the last %s at %s: .github/workflows/ carries %s -- %s' % (
+              named, g(td, 'rev-parse', '--short', 'main').strip(), tags, tags[-1] if tags else '-',
+              g(td, 'rev-parse', '--short', (tags[-1] if tags else 'main') + '^{commit}').strip(),
+              wf or 'NOTHING', 'a build-module.yml' if any('build-module' in f for f in wf) else 'NO build-module.yml (no dispatch input; no print step)'),
+          '  print_targets.txt at its root: %s ; AxiomCheck*.lean at its root: %s' % ('print_targets.txt' in pt, [f for f in pt if f.startswith('AxiomCheck')] or 'NONE'),
+          '  relay tracked banks carrying a printed axiom line of a %s declaration (git grep -lE over data/): %s -- %s' % (
+              pfx, pb or 'NONE', 'NO PRINT BANK' if not pb else 'a print bank'),
+          '  the control, the same shape over SIDE-silence-principle`s declarations: %d bank(s), b678`s after bank among them %s' % (
+              len(ctl), 'data/b678_axioms_SIDE-silence-principle_after.txt' in ctl),
+          '  its dependency form: lakefile.lean, no require (Mathlib-free) %s ; lean-toolchain %s' % (
+              'require' not in (_show(td, 'main', 'lakefile.lean') or 'require'), (_show(td, 'main', 'lean-toolchain') or '').strip()),
+          '', '### ### **NAMED %s ; TIED %d ; WORKFLOW build-module.yml %s ; PRINT LIST %s ; PRINT BANK %s.**' % (
+              named or '### NONE', len(tied), 'PRESENT' if any('build-module' in f for f in wf) else 'ABSENT',
+              'PRESENT' if 'print_targets.txt' in pt else 'ABSENT', 'PRESENT' if pb else 'ABSENT')]
+    put_txt('b682_naming.txt', L)
+    put_json('b682_naming.json', dict(at=utc(), named=named, tied=[x[3] for x in tied], top=top, workflows=wf, print_banks=pb, tags=tags,
+                                      rank=[[x[0], x[1], x[2], x[3], x[4]] for x in rank]))
+    print(NL.join(L[-12:]))
+
+
 ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers, 'gendry': gendry, 'word': word, 'dist': dist, 'partner': partner,
-          'c3': c3}
+          'c3': c3, 'naming': naming}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

@@ -49,6 +49,12 @@ FOUNDATIONS_COPY = 'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md'
 FIVE = (628, 629, 630)
 RUNNER_KERNELS = (('SIDE-window', 'v0.5.1', 'b674'), ('SIDE-trivium', 'v0.1.1', 'b676'), ('SIDE-silence-principle', 'v0.2.1', 'b678'))
 
+# ### (R292)(5): the licensed table's next document, named by b652's order and b674's tie-break (tools/b682_record.py naming)
+RULES_BANK, TIE_RULE_ROW = 'b674_rules.txt', 2
+TABLE_BANK, KERNELS_BANK = 'b670_licensed_table.txt', 'b647_table_kernels.txt'
+CUT_SINCE = (('SIDE-window', 'data/b674_cut.txt', 'SIDE-window'), ('SIDE-trivium', 'data/b676_cut.txt', 'SIDE-trivium'),
+             ('SIDE-silence-principle', 'data/b678_cut.txt', 'SIDE-silence-principle'))
+
 NEXT = ('b683, the research act: the map in the angle form over the b681 balls under W-ORD-MAP-ANGLE-FORM, its plan to read '
         'data/b677_map_plan.txt, data/b677_tolerance.txt and data/b681_narrow.txt before any run; W-ORD-EPSTEIN-COUNT the alternative on the '
         'author’s placement; the 24 rules without arms held for the author’s decision')
