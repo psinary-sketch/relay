@@ -406,7 +406,24 @@ def gendry(*a):
     print(NL.join(L[8:9 + len(five)] + L[-1:]))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers, 'gendry': gendry}
+# ================================================================================ THE AUTHOR'S WORD, A DATED LINE AT THE b680 ARMS CENSUS
+ARMS_CENSUS = 14694
+AH = ('*Appended 2026-10-18 by b682 to b680’s arms census (:14694), under `(R292)` -- THE AUTHOR’S WORD ON THE RULES WITHOUT ARMS, given '
+      '2026-10-18, verbatim:*')
+AB = (' “arms for the traceable ones, the seat sorts them”. Its reading for b683’s ruling: of the 24 rules without arms in relay '
+      'data/b680_rules_arms.txt, the seat sorts each as TRACEABLE (its breach leaves a trace a suite can read in a bank, a capture or the tree) '
+      'or PROSE (its breach leaves no such trace), prints the sort with the trace each TRACEABLE rule would be read from, and the TRACEABLE '
+      'rules receive standing arms under b683’s ruling after the author has seen the sort; no arm written in this act. Banked as relay '
+      'data/b682_rules.txt row (1).')
+
+
+def word(*a):
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', AH, NL + AH + AB + NL)], 'b682_record_lines_word.json', 'word',
+         check=[('OPEN_TRAILS.md', ARMS_CENSUS, '**The arms and the rules:**')], dry=dry)
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers, 'gendry': gendry, 'word': word}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
