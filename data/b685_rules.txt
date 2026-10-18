@@ -1,0 +1,11 @@
+b685 -- THE RULES BANKED IN THE ACT, UNDER (R295)(1) (2026-10-18)
+
+### rows are rules, each with its source and its scope. The citation check: relay data/b685_citation_check.txt.
+
+  (1) ONE CALL PER SUITE PART, EACH ITS OWN MESSAGE. Every suite part -- of the pre-run, the pre-push or the post-push run -- is sent as its own
+      foreground call in its own message under the 590 s guard, and the parts are combined by a call of their own; no two parts chained in one
+      call. Source: (R295)(1), on b684's defect (d) (four pre-push parts in one call passed the call's 598 s limit and were moved to the
+      background, relay data/b684_defects.txt (d)). Scope: standing; beside data/b684_rules.txt row (1), which sets the parts.
+  (2) SED IN NO COMMAND, A READING ONE INCLUDED. No command the seat sends carries sed in any form -- no `sed -i`, no `sed -n`, no sed in a
+      pipe -- whether it writes or only reads; a read by line goes through awk or the Read tool. Source: (R295)(1), on b684's defects (a)
+      and (e) (relay data/b684_defects.txt) and b682's defect (e). Scope: standing; wider than the ferry's write rule ("not sed in any form").

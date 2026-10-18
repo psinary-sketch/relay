@@ -270,6 +270,30 @@ def branches(*a):
     print(NL.join(L[5:]))
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R295)(1)
+WH = ('*Appended 2026-10-18 by b685 to b684’s entry (:9200), under `(R295)`(1) -- b684 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b684_closing.txt):*')
+WB = (' “b684 closed: relay b6df52d7, PLACE-papers a2acff6; suite 107 of 107; root 4c8935f8f80c9eac…; 2 prompts answered; 5 defects” '
+      '(data/b684_closing.txt :1), the closing pushed and read back at relay 4b97f382 (data/b684_closing_push_out.txt). The split rule row '
+      'banked, “a suite PART over 450 s splits the next run”, beside b675 row 2 (data/b684_rules.txt row (1)); the suite in four parts, a '
+      'part not starting beneath the 2,560 MB hold; `G-RULE-SUITE-PARTS` repaired at carry to read each act’s parts from the rules banks '
+      '(data/b684_tool_repairs.txt). SIDE-class-number-anomaly cut 3 to 0, tagged v0.2.1; the residues applied on the author’s word with '
+      'prints equal line for line -- SIDE-window v0.5.2, SIDE-trivium v0.1.2, SIDE-silence-principle v0.2.2 -- and R3b (the '
+      'silence-principle introduction :7–:12) CARRIED for the next reading act’s census; three FOUNDATIONS cells naming '
+      'SIDE-silence-principle v0.2.1 carried, not hand-written. N4 REFUTED -- four pre-push suite parts sent in one call, the call moved to '
+      'the background past 598 s though no part passed 590 s, the sealed scorer reading HELD and corrected by the Edit tool with the '
+      'scorer’s line quoted beside (data/b684_scores.json :16); N1–N3, N5, S1–S3 HELD. Five defects: (a) and (e) a reading sed typed, (b) '
+      'the navigator’s phase rule cited for a part’s total, (c) the pre-push suite run twice for the N4 scorer’s bank, (d) the backgrounded '
+      'call (data/b684_defects.txt). The mirror CLEAN. The rule rows banked at b685 (data/b685_rules.txt): one call per suite part, each its '
+      'own message; and sed in no command, a reading one included. Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], 'b685_record_lines.json', 'c1', entry=K.B684_ENTRY,
+         check=[('FINDINGS.md', K.B684_ENTRY, '## SIDE-class-number-anomaly re-cut'), ('OPEN_TRAILS.md', K.B684_TRAIL, '### b684')], dry=dry)
+
+
 # ================================================================================ THE ANSWERS BANK (b684's route, carried)
 def _session_rows():
     for sid, anc in ((K.SESSION_ID, K.ANCHOR),) + K.SESSIONS_AFTER:
@@ -355,7 +379,7 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers)
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
