@@ -57,7 +57,10 @@ B682_DISTANCE = (55, 0)     # ### b682's distance by b670's method and by the ge
 NEXT = ('b687, the research act on W-ORD-EPSTEIN-COUNT`s three readings as OPEN_TRAILS :14832 states them, its ruling then, its plan to read '
         'data/b685_count_plan.txt and data/b685_count_controls.txt before any reading; b690 the reading act, reading 3')
 
-ACT_ARMS = ()               # ### set at carry time (Component 4), each run at HEAD before the face names it
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R296-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-RULES-BANKED', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL',
+            'G-CELL-DIFF-BEFORE-WRITE', 'G-CELLS-BY-GENERATOR', 'G-DISTANCE-READ', 'G-NAMING-BEFORE-CUT', 'G-KERNEL-CUT', 'G-PRINTS-EQUAL',
+            'G-RESIDUES-CARRIED', 'G-TOOL-REPAIRS', 'G-PARTS-PRERUN', 'G-DEFECTS-LETTERED')
 STANDING_ADDED = ()         # ### (R296)'s N5: no standing arm added
 SHARED_APPENDED = ()
 PARTS = ('standing-a', 'standing-c', 'standing-b', 'act')     # ### data/b684_rules.txt row (1): the standing arms in three parts, the act's in one

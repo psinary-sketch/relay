@@ -1325,7 +1325,328 @@ def scores_line(S):
     return '**The scores.** ' + ', '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.'
 
 
+# ================================================================================ THE RECORD: THE ENTRY BEFORE THE ROOT, THE TRAIL CARRYING IT
+def TRAIL_HEAD():
+    return ('### b686 — lane two, act one hundred and thirteen, the re-cut act under (R296): SIDE-spinor’s docstrings re-cut by the b670 '
+            'method, the three FOUNDATIONS cells regenerated at v0.2.2 by the generator alone, the N4 scorer reading banks')
+
+
+def _calls():
+    return jl('b686_author_answers.json').get('calls') or []
+
+
+def _rl_lines(*banks):
+    out = []
+    for b_ in banks:
+        out += [x.get('line') for x in jl(b_).get('lines') or []]
+    return out
+
+
+def _title():
+    cj, ca = jl('b686_cut.json'), jl('b686_correspondence_after.json')
+    return ('## SIDE-spinor re-cut: %s rows outside LICENSED/CITED to %s, %s; the three FOUNDATIONS cells at v0.2.2 written; distance %s against 55 '
+            'by b670’s method, %s against 0 by the generator’s; the N4 scorer reading banks' % (
+                cj.get('distance_before', '?'), cj.get('distance_after', '?'), cj.get('tag', '?'), ca.get('behind', '?'), ca.get('claim', '?')))
+
+
+def _finding_text():
+    """the FINDINGS entry, composed before the root: its scores line from the scores bank alone (data/b686_rules.txt row (1)); the root is
+    carried by the trail record."""
+    S = jl('b686_scores.json')
+    cj, cl, ca, cb = jl('b686_cut.json'), jl('b686_cells.json'), jl('b686_correspondence_after.json'), jl('b686_correspondence_before.json')
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b686_author_answers.txt'), re.M))
+    c1 = _rl_lines('b686_record_lines.json') + ['?']
+    cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+    e = ['', _title(), '',
+         'SIDE-spinor’s docstrings, the licensed table’s next document by b652’s order and b674’s tie-break (3 rows outside LICENSED/CITED, '
+         'tied with SIDE-li-map, the larger table), are re-cut to what the files compile: the three ACTIONs applied verbatim, the prints of all '
+         '15 terminals equal line for line before and after, merged and tagged %s; %s rows of %s now read their LICENSED text and one is cut in '
+         'part, the head of SpinorLeg.lean still saying salt-checked where its ACTION does not reach (carried as R4). The three FOUNDATIONS '
+         'cells naming SIDE-silence-principle are carried from v0.2.1 to v0.2.2 by the generator alone; the Correspondence distance does not '
+         'move (%s by b670’s method, %s at the generator’s claim), the cells carrying no commit in their leading clause.' % (
+             cj.get('tag', '?'), len(cj.get('rows') or []) - 1, len(cj.get('rows') or []), ca.get('behind', '?'), ca.get('claim', '?')), '',
+         '*Filed at b686 on the author’s ruling `(R296)`%s. Banks: relay `data/b686_naming.txt`, `data/b686_cut.txt`, '
+         '`data/b686_prints_SIDE-spinor.txt`, `data/b686_correspondence_diff.txt`, `data/b686_cells.txt`, `data/b686_correspondence_after.txt`, '
+         '`data/b686_rules.txt`, `data/b686_tool_repairs.txt`.*' % ((' and the author’s word on the cells (%d question)' % n_ans) if n_ans else ''), '',
+         '**The citation check** (the gate step from b662): %s cites checked at HEAD, %s OK, %s missed. b685 at its weight (FINDINGS :%s), its '
+         'head line quoted.' % (cc.group(1) if cc else '?', cc.group(2) if cc else '?', cc.group(3) if cc else '?', c1[0]), '',
+         '**The scorer** (`(R296)`(2)): N4 reads the suite banks and the scores bank and no ledger line; the scores bank is written once, before '
+         'this entry, and this entry’s scores line is composed from it; a reading that waits on a later bank stands PENDING there and is read at '
+         'the close (relay data/b686_rules.txt row (1), the diff against b685’s sealed copy in data/b686_tool_repairs.txt).', '',
+         '**The cells** (`(R296)`(3), the author’s word): the generator’s dry run changed exactly the three kernel cells at '
+         'FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md :628-:630 and no other cell of the 20 tables; written by the generator alone, %d of %d '
+         'changed lines its own, none by hand; the one-copy partner not written, its 13 differing table lines entered by line and carried '
+         'under `W-ORD-ONE-COPY`; the distance before %s and %s, after %s and %s.' % (
+             len(cl.get('changed') or []) - len(cl.get('by_hand') or []), len(cl.get('changed') or []), cb.get('behind', '?'), cb.get('claim', '?'),
+             ca.get('behind', '?'), ca.get('claim', '?')), '',
+         '**The cut** (`(R296)`(4)): the workflow and the print list committed alone on SIDE-spinor’s main, the before run at main and the after '
+         'run at the cut both DERIVES, 15 prints equal, the cut’s diff comment and docstring lines alone; merged %s, tag %s; the distance %s to '
+         '%s; R3b and R4 carried (relay data/b686_cut.txt).' % (cj.get('merge', '?'), cj.get('tag', '?'), cj.get('distance_before', '?'),
+                                                                cj.get('distance_after', '?')), '',
+         scores_line(S), '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): this act re-reads b647’s table of SIDE-spinor (relay data/b647_table_SIDE-spinor.txt) '
+         'and b684’s carried cells (relay data/b684_cut.txt :80-:82), and is re-read by the next re-cut act, which takes SIDE-li-map and the '
+         'carried residues. It strengthens the programme’s offering of kernels whose docstrings say what their files compile, printed before '
+         'and after at the same terminals.', '',
+         '**Carried to:** R3b and R4 (relay data/b686_cut.txt); `W-ORD-ONE-COPY` (the partner’s 13 lines); `W-ORD-EPSTEIN-COUNT` (b687); the '
+         'draft held at v5.', '',
+         '**Next.** %s.' % K.NEXT, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) the tie read by b674 row (2): SIDE-spinor and SIDE-li-map at 3 of any kind each, the larger table 15 against 13; (2) the '
+              'SpinorLeg.lean head cut in part, the ACTION re-cutting Route B’s bullet alone and the closing sentence’s “(salt-checked)” carried '
+              'as R4 by b674’s precedent; (3) the partner’s differing lines counted live (13), the generator’s stored figure (4) beside it; (4) N4 '
+              'and S2 PENDING in the scores bank, read at the close into a bank no ledger line reads')
+
+
+def _trail_text():
+    S, J = jl('b686_scores.json'), jl('b686_act_root.json')
+    fj = jl('b686_findings.json')
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('b686_author_answers.txt'), re.M))
+    _r, _n, sh = seal_hashes()
+    c1 = _rl_lines('b686_record_lines.json') + ['?']
+    cj = jl('b686_cut.json')
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R296) ratified.** (1) b685 at its weight. (2) The N4 scorer. (3) The three FOUNDATIONS cells. (4) The licensed table’s next '
+             'document. (5) The branches. (6) The read-first bank. (7) The draft held at v5. (8) The acts after.', '',
+             '**Entered:** FINDINGS.md:%s (b685’s weight), :%s (the entry); this record.' % (c1[0], fj.get('entry_line')), '',
+             '**Act root:** b686 `%s` (previous `%s`, b685’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF '
+             'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d question%s in %d call%s (relay data/b686_author_answers.txt); none after the root.' % (
+                 n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
+             '**The cut:** SIDE-spinor %s to %s, merged %s, tag %s, the prints equal; R3b and R4 carried (relay data/b686_cut.txt).' % (
+                 cj.get('distance_before', '?'), cj.get('distance_after', '?'), cj.get('merge', '?'), cj.get('tag', '?')), '',
+             '**The cells:** FOUNDATIONS :628-:630 at v0.2.2 by the generator alone (relay data/b686_cells.txt).', '',
+             '**The mirror:** the export made after this root in the b670 form, its name in the closing (relay data/b686_closing.txt).', '',
+             '**The open orders:** `W-ORD-EPSTEIN-COUNT` (readings (i)-(iii), b687); `W-ORD-LEDGER-SPLIT-RESOLVER` (on the author’s word); '
+             '`W-ORD-CHAIN-PAGE-B638-CASES`; `W-ORD-PRINT-TARGETS`; `W-ORD-ONE-COPY`; `W-ORD-TABLE-SHAPE`; `W-ORD-GRADE-MOVED`; '
+             '`W-ORD-ABSENT-DECLARATIONS`; `W-ORD-PROSE-PINS`; `W-ORD-ROOT-BINARY-BANK`.', '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b686_defects.txt): %s.' % ('; '.join(_defect_short()) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in NK + SK) + '.** (the scores bank; the readings that waited, at the close)', '',
+             '**Next:** %s.' % K.NEXT, '']
+    return NL.join(rows_)
+
+
+def desk(*a):
+    S, C = jl('b686_scores.json'), jl('b686_scores_close.json')
+    L = ['=' * 104, 'b686 -- THE DESK.', '=' * 104, ''] + ['  **(%s)** ### **%s.** -- %s%s' % (
+        k2, S[k2][0], S[k2][1], ('  ### AT THE CLOSE: %s -- %s' % (C[k2][0], C[k2][1])) if (S[k2][0] == 'PENDING' and C.get(k2)) else '')
+        for k2 in SCORE_KEYS]
+    L += [''] + rdn('b686_defects.txt').rstrip(NL).split(NL)
+    put_txt('b686_desk_notes.txt', L)
+
+
+def components(*a):
+    S, fj, tj, J = (jl(n_) for n_ in ('b686_scores.json', 'b686_findings.json', 'b686_trail.json', 'b686_act_root.json'))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    c1 = _rl_lines('b686_record_lines.json') + ['?']
+    L = ['b686 -- THE COMPONENTS, BANKED UNDER (R296).', '',
+         '### COMPONENT 0 : the citation check (data/b686_citation_check.txt), step zero (data/b686_ferry.txt, data/b686_readfirst.txt, '
+         'data/b686_stepzero.txt, data/b686_tests_stepzero.txt, data/b686_rowgen_stepzero.txt, data/b686_branches.txt) ; N1 %s' % S['N1'][0],
+         '### COMPONENT 1 : b685`s weight FINDINGS :%s ; the rule row (data/b686_rules.txt) ; the N4 scorer repaired at carry (data/b686_tool_repairs.txt) ; N4 %s' % (
+             c1[0], S['N4'][0]),
+         '### COMPONENT 2 : the cell diff (data/b686_correspondence_diff.txt), one prompt, the cells by the generator (data/b686_cells.txt), the '
+         'distance (data/b686_correspondence_before.txt, data/b686_correspondence_after.txt) ; N2 %s' % S['N2'][0],
+         '### COMPONENT 3 : the naming (data/b686_naming.txt), the cut of SIDE-spinor (data/b686_cut.txt) ; N3 %s' % S['N3'][0],
+         '### COMPONENT 4 : the carry-time reading (data/b686_tool_repairs.txt), the dry-run steps (data/b686_reg_gate.txt), the seal '
+         '(data/b686_seal_hashes.json), the suite in four parts ; S3 %s' % S['S3'][0],
+         '### COMPONENT 5 : FINDINGS :%s ; the root %s ; OPEN_TRAILS :%s ; the mirror after the root ; N5 %s' % (
+             fj.get('entry_line'), (J.get('root') or '')[:16], tj.get('line'), S['N5'][0])]
+    put_txt('b686_components.txt', L)
+    print(NL.join(L[2:]))
+
+
+def _land_one(path, head, e, bank, extra):
+    if odd_lines(e):
+        sys.exit('### ODD BACKTICKS -- NOTHING WRITTEN: %s' % odd_lines(e)[:3])
+    guard_absent(path, head)
+    r = append_to(path, e)
+    ln = read_head(path, head)
+    put_json(bank, dict(extra, line=ln, head=head, append=r))
+    return ln
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = conv(e)
+    dry = 'dry' in a
+    cells_, fired = screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells_)
+        return
+    if not os.path.isfile(os.path.join(D, 'b686_scores.json')):
+        sys.exit('### THE SCORES BANK IS NOT WRITTEN -- THE ENTRY READS IT (data/b686_rules.txt row (1)) -- NOTHING WRITTEN')
+    if cells_ or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(FIND, t, e, 'b686_findings.json', dict(title=t))
+    j = jl('b686_findings.json')
+    j['entry_line'] = ln
+    put_json('b686_findings.json', j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = conv(_trail_text())
+    dry = 'dry' in a
+    cells_, fired = screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells_)
+        return
+    if cells_ or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = _land_one(OT, TRAIL_HEAD(), e, 'b686_trail.json', {})
+    print('  OPEN_TRAILS record :%s' % ln)
+
+
+def _face_needles(face_text, which):
+    m = re.search(r'^### THE DRY-RUN NEEDLES -- %s: (.*)$' % which, face_text, re.M)
+    return re.findall(r'"([^"]+)"', m.group(1)) if m else []
+
+
+def drycheck(*a):
+    """(R267)(2), STANDING FROM b657: the FINDINGS entry and the trail record composed as the record tool composes them -- under stand-ins
+    for the banks not yet written -- converted by conv and run through the screens their landing runs, the needles the face names read in
+    each; prints DRY-RUN STEP : CLEAN and exits 0 only when both screens are quiet and every needle is found. Writes no bank."""
+    face = rd(a[0] if a and not a[0] == 'standin' else FACE)
+    ok = True
+    for which, (head, text) in (('ENTRY', _finding_text()), ('TRAIL', (TRAIL_HEAD(), _trail_text()))):
+        t = conv(text)
+        print('  %s (the screens):' % which)
+        cells_, fired = screens([('FINDINGS.md' if which == 'ENTRY' else 'OPEN_TRAILS.md', head, t)], 'dry_' + which.lower(), True)
+        nd = _face_needles(face, which)
+        miss = [n for n in nd if n not in t]
+        clean = not cells_ and not fired and nd and not miss
+        ok = ok and clean
+        print('  %s : table cells %s ; screens %s ; the face`s needles %d, found %d%s ; %s' % (
+            which, cells_ or 'NONE', 'FIRED' if fired else 'QUIET', len(nd), len(nd) - len(miss), (' -- missing %s' % miss) if miss else '',
+            'CLEAN' if clean else 'NOT CLEAN'))
+    print('  ### ### **DRY-RUN STEP : %s**' % ('CLEAN' if ok else 'NOT CLEAN'))
+    if not ok:
+        sys.exit(1)
+
+
+FACE_REL = 'data/b686_registration_2026-10-18.txt'
+FACE = os.path.join(D, 'b686_registration_2026-10-18.txt')
+
+
+def gatebanks(*a):
+    """the gate's steps between the face and the lock (b665's order), each tool's output banked by this route, never by a shell redirect."""
+    import gate_hash as G
+    env = dict(os.environ, PYTHONIOENCODING='utf-8')
+
+    def runb(args, out):
+        r = subprocess.run([sys.executable] + args, capture_output=True, cwd=ROOT, env=env)
+        b_ = (r.stdout + r.stderr).replace(b'\r\n', b'\n')
+        if out:
+            p = os.path.join(D, out)
+            open(p + '.tmp', 'wb').write(b_)
+            os.replace(p + '.tmp', p)
+        return r.returncode, b_.decode('utf-8', 'replace')
+    rc1, t1 = runb([os.path.join(T, 'banned_terms.py'), '--new', FACE_REL], 'b686_reg_termscan.txt')
+    rc2, t2 = runb([os.path.join(T, 'b686_regspec.py')], 'b686_regspec_run.txt')
+    rc3, t3 = runb([os.path.join(T, 'reg_satisfiable.py'), 'data/b686_satisfiable.json', '--emit', 'b686'], None)
+    print('  banned_terms rc %d ; %s' % (rc1, ([l for l in t1.split(NL) if 'VERDICT' in l] or ['### NO VERDICT'])[0][:160]))
+    print('  regspec rc %d ; %s' % (rc2, ([l for l in t2.split(NL) if 'PREDICTIONS FOUND' in l] or ['### NONE'])[0].strip()))
+    print('  reg_satisfiable rc %d ; %s' % (rc3, ([l for l in rdn('audit_b686_reg_satisfiable.txt').split(NL) if 'VERDICT' in l] or ['### NO VERDICT'])[0][:160]))
+    for tool, out in (('b307_handoff_census.py', 'b686_census_stepzero.txt'), ('b327_faces_census.py', 'b686_faces_census_stepzero.txt'),
+                      ('b303_pins.py', 'b686_pins_stepzero.txt')):
+        rc, t = runb([os.path.join(T, tool), 'b686'], out)
+        print('  %s rc %d ; %s' % (out, rc, ([l.strip() for l in t.split(NL) if 'TOTAL MISSING' in l or 'HARD-FAILING' in l] or ['### NONE'])[0][:120]))
+    for r in ('data/b686_reg_gate.txt', 'data/b686_reg_termscan.txt', 'data/b686_regspec_run.txt', 'data/audit_b686_reg_satisfiable.txt'):
+        ra = os.path.join(ROOT, *r.split('/'))
+        print('  stamp %s %s %s' % (r, G.stamp(ra, FACE)[:16], G.matches(ra, FACE)[0]))
+
+
+# ================================================================================ THE MIRROR, AT THE CLOSE (the b670 form, b685's routes, carried)
+import hashlib as _hl              # noqa: E402
+MIRROR_TAG = '2026-10-18-b686'
+ZIP = 'D:/MY-DOwnloads/mirror-refresh-%s.zip' % MIRROR_TAG
+STAGE = os.path.join(os.environ.get('TEMP', SP), 'mirror-build-%s' % MIRROR_TAG)
+
+
+def mbuild(*a):
+    if os.path.exists(ZIP) or os.path.exists(STAGE):
+        sys.exit('### THE ZIP OR ITS STAGE EXISTS -- NOT STARTED')
+    loc, rem = g(PP, 'rev-parse', 'HEAD').strip(), (g(PP, 'ls-remote', 'origin', 'refs/heads/main').split() or [''])[0]
+    if loc != rem:
+        sys.exit('### PLACE-papers HEAD %s IS NOT THE REMOTE MAIN %s -- NOT STARTED' % (loc[:12], rem[:12]))
+    t0 = time.time()
+    r = subprocess.run(['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', os.path.join(ROOT, 'tools', 'mirror_build.ps1'), '-DateTag',
+                        MIRROR_TAG], capture_output=True, text=True, encoding='utf-8', errors='replace')
+    put_json('b686_mirror_build.json', dict(at=utc(), rc=r.returncode, out=r.stdout, err=r.stderr, seconds=int(time.time() - t0), pp_head=loc))
+    print(r.stdout[-800:], r.stderr[-400:], 'exit', r.returncode)
+
+
+def mroot(*a):
+    last = [l for l in io.open(os.path.join(D, 'act_roots.txt'), encoding='utf-8').read().split(NL) if l.strip()][-1].split()
+    if last[0] != 'b686':
+        sys.exit('### THE ROOTS FILE`S LAST LINE IS %s, NOT b686`s -- NOTHING WRITTEN' % last[0])
+    line = 'Act root: %s %s' % (last[0], last[1])
+    man_p = os.path.join(STAGE, 'MANIFEST.md')
+    raw = open(man_p, 'rb').read()
+    if b'Act root: ' in raw:
+        sys.exit('### THE ROOT LINE IS IN THE STAGED MANIFEST ALREADY -- REFUSING TO WRITE IT TWICE')
+    bom = raw.startswith(b'\xef\xbb\xbf')
+    text = raw.decode('utf-8-sig')
+    sep = '\r\n' if '\r\n' in text else '\n'
+    out = text.rstrip('\r\n') + sep + sep + line + sep
+    before = _hl.sha256(open(ZIP, 'rb').read()).hexdigest()
+    open(man_p, 'wb').write((b'\xef\xbb\xbf' if bom else b'') + out.encode('utf-8'))
+    ps = subprocess.run(['powershell', '-NoProfile', '-Command', "Compress-Archive -Path '%s' -DestinationPath '%s' -Update" % (man_p, ZIP)],
+                        capture_output=True, text=True)
+    after = _hl.sha256(open(ZIP, 'rb').read()).hexdigest()
+    put_json('b686_mirror_root.json', dict(at=utc(), line=line, bom=bom, zip_sha_before=before, zip_sha_after=after, update_rc=ps.returncode))
+    print('  %s ; update rc %d ; zip sha256 %s -> %s' % (line, ps.returncode, before[:16], after[:16]))
+
+
+def mverify(*a):
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'mirror_verify.py'), ZIP, 'origin', 'main'], cwd=PP,
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    put_txt('b686_mirror_verify.txt', (r.stdout + r.stderr + '### exit %d' % r.returncode).replace(chr(13), '').split(NL))
+    print(r.stdout[-600:])
+
+
+def mbank(*a):
+    import zipfile
+    import b616_record as R6
+    z = zipfile.ZipFile(ZIP)
+    names = sorted(z.namelist())
+    man = z.read('MANIFEST.md')
+    ls = man.decode('utf-8-sig').replace(chr(13), '').split(NL)
+    rootl = [l for l in ls if l.startswith('Act root: ')]
+    rosterl = [l for l in ls if l.startswith('ROSTER')]
+    commits = sorted(set(re.findall(r'\b([0-9a-f]{7,12})\b', NL.join(l for l in ls if '|' in l))))
+    zb = open(ZIP, 'rb').read()
+    clean = 'VERDICT: CLEAN ON ALL THREE CLAUSES' in rdn('b686_mirror_verify.txt')
+    nd = R6.nd_hits(NL.join(names), R6.nd_sets())[0]
+    files_ = [n for n in names if n != 'MANIFEST.md']
+    pp_head = g(PP, 'rev-parse', '--short=7', 'HEAD').strip()
+    L = ['b686 -- THE MIRROR-REFRESH EXPORT, BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH BY THE UNEDITED BUILDER, banked %s' % utc(),
+         '### THE ZIP : %s ; %d bytes ; md5 %s ; sha256 %s' % (ZIP, len(zb), _hl.md5(zb).hexdigest(), _hl.sha256(zb).hexdigest()),
+         '### THE MANIFEST : md5 %s ; entries in the zip %d (files %d + MANIFEST)' % (_hl.md5(man).hexdigest(), len(names), len(files_)),
+         '### PLACE-papers HEAD AT THE BUILD : %s ; the last commit carried in MANIFEST`s rows %s' % (pp_head, pp_head in commits),
+         '### THE ROSTER LINE : %s' % (' / '.join(rosterl) or '### NONE'), '### THE ROOT LINE : %s' % (rootl[0] if rootl else '### NONE'),
+         '### THE SPAN: every roster and ledger change of b686 (the last export b685`s, D:/MY-DOwnloads/mirror-refresh-2026-10-18-b685.zip)',
+         '### THE VERIFICATION : %s' % ('CLEAN ON ALL THREE CLAUSES' if clean else '### NOT CLEAN'),
+         '### THE NO-DISCLOSURE ARM OVER THE FILE LIST: %s' % dict(nd), '### THE FILE LIST:'] + ['    %s' % n for n in names]
+    put_txt('b686_mirror.txt', L)
+    put_json('b686_mirror.json', dict(at=utc(), zip=ZIP, zip_md5=_hl.md5(zb).hexdigest(), zip_sha256=_hl.sha256(zb).hexdigest(), bytes=len(zb),
+                                      manifest_md5=_hl.md5(man).hexdigest(), entries=len(names), files=len(files_), roster_line=rosterl,
+                                      root_line=rootl[0] if rootl else '', clean=clean, nd=dict(nd), pp_head=pp_head, last_commit_in_manifest=pp_head in commits))
+    for l in L[:9]:
+        print(l[:240])
+
+
 ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, naming=naming, runner=runner, prints=prints, cutdiff=cutdiff,
+              desk=desk, components=components, findings=findings, trail=trail, drycheck=drycheck, gatebanks=gatebanks,
+              mbuild=mbuild, mroot=mroot, mverify=mverify, mbank=mbank,
               commands=commands, kernels=kernels, defects=defects, repairs=repairs, rootbanks=rootbanks, root=root, root_arm=root_arm,
               table_final=table_final, scores=scores, gendry=gendry, dist=dist, partner=partner, cells=cells)
 

@@ -1,17 +1,17 @@
-b686 -- COMPONENT 1 AND COMPONENT 4, (R296)`S FERRY: THE CARRY-TIME READING OF THE TOOLS, AGAINST b685`S SEALED COPIES (2026-10-18T22:43:30Z)
+b686 -- COMPONENT 1 AND COMPONENT 4, (R296)`S FERRY: THE CARRY-TIME READING OF THE TOOLS, AGAINST b685`S SEALED COPIES (2026-10-18T23:07:50Z)
 
 ### rows are the carried tools: b685`s sealed copy and its seal record; the hunks of the diff to b686`s copy. Every hunk is the act`s own
 ### text -- its names, its banks, its sections and its predicates over this act`s banks -- save the repairs below, each with the defect
 ### it answers.
 
   b685_citation.py     -> b686_citation.py     b685 sealed 781bc28d335fc35e ; the seal`s record 781bc28d335fc35e ; AGREE ; hunks 28
-  b685_closing.py      -> b686_closing.py      b685 sealed 0347ff26cbbf9500 ; the seal`s record 0347ff26cbbf9500 ; AGREE ; hunks NOT YET CARRIED
-  b685_reg_gate.py     -> b686_reg_gate.py     b685 sealed d1c97f6d279ce0b8 ; the seal`s record d1c97f6d279ce0b8 ; AGREE ; hunks NOT YET CARRIED
-  b685_regspec.py      -> b686_regspec.py      b685 sealed 4b5ec3671c84ec9f ; the seal`s record 4b5ec3671c84ec9f ; AGREE ; hunks NOT YET CARRIED
+  b685_closing.py      -> b686_closing.py      b685 sealed 0347ff26cbbf9500 ; the seal`s record 0347ff26cbbf9500 ; AGREE ; hunks 24
+  b685_reg_gate.py     -> b686_reg_gate.py     b685 sealed d1c97f6d279ce0b8 ; the seal`s record d1c97f6d279ce0b8 ; AGREE ; hunks 6
+  b685_regspec.py      -> b686_regspec.py      b685 sealed 4b5ec3671c84ec9f ; the seal`s record 4b5ec3671c84ec9f ; AGREE ; hunks 20
   b685_tests.py        -> b686_tests.py        b685 sealed 9cb475a26b95ef63 ; the seal`s record 9cb475a26b95ef63 ; AGREE ; hunks 11
   b685_worklist.py     -> b686_worklist.py     b685 sealed 74863b2108650a6a ; the seal`s record 74863b2108650a6a ; AGREE ; hunks 13
-  b685_record.py       -> b686_record.py       b685 sealed ba76a54251a3758a ; the seal`s record ba76a54251a3758a ; AGREE ; hunks 86
-  b685_checks.py       -> b686_checks.py       b685 sealed 84f3cb7a3926f945 ; the seal`s record 84f3cb7a3926f945 ; AGREE ; hunks NOT YET CARRIED
+  b685_record.py       -> b686_record.py       b685 sealed ba76a54251a3758a ; the seal`s record ba76a54251a3758a ; AGREE ; hunks 120
+  b685_checks.py       -> b686_checks.py       b685 sealed 84f3cb7a3926f945 ; the seal`s record 84f3cb7a3926f945 ; AGREE ; hunks 127
   rule_arms.py            the standing instrument, unedited in this act: 04ce62dba4bb4afb ; the last seal record naming it (b684`s) 04ce62dba4bb4afb ; AGREE
 
   REPAIR 1 -- THE N4 SCORER READS BANKS AND NOT THE ENTRY (answering b685 defect (f), under (R296)(2); data/b686_rules.txt row (1)): b685`s sealed
@@ -104,14 +104,20 @@ b686 -- COMPONENT 1 AND COMPONENT 4, (R296)`S FERRY: THE CARRY-TIME READING OF T
      
     --- b685_record.py _finding_text (sealed)
     +++ b686_record.py _finding_text
-    @@ -1,48 +1 @@
-    -def _finding_text():
+    @@ -1,43 +1,42 @@
+     def _finding_text():
     -    S, J = jl('b685_scores.json'), jl('b685_act_root.json')
     -    n_ans = len(re.findall(r'^### PROMPT ', rdn('b685_author_answers.txt'), re.M))
     -    c1 = _rl_lines('b685_record_lines.json') + ['?']
     -    c4 = _rl_lines('b685_landing.json') + ['?']
-    -    cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
-    -    e = ['', _title(), '',
+    +    """the FINDINGS entry, composed before the root: its scores line from the scores bank alone (data/b686_rules.txt row (1)); the root is
+    +    carried by the trail record."""
+    +    S = jl('b686_scores.json')
+    +    cj, cl, ca, cb = jl('b686_cut.json'), jl('b686_cells.json'), jl('b686_correspondence_after.json'), jl('b686_correspondence_before.json')
+    +    n_ans = len(re.findall(r'^### PROMPT ', rdn('b686_author_answers.txt'), re.M))
+    +    c1 = _rl_lines('b686_record_lines.json') + ['?']
+         cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+         e = ['', _title(), '',
     -         'P3 -- HCount at Q0, N(t, t + 1) ≤ 10 log(|t| + 3) for every real t over Q0’s zeros in the open strip (−1/2, 3/2) -- is not derived in this '
     -         'act and stays stated, not proved: the derivation in Backlund’s form ran with its constants in balls, but its ζ instance came out sharper than '
     -         'Hasanalizade, Shen and Wong’s Corollary 1.2 at T = 100, 1000 and 10⁴, which the author’s word reads as a failure of the derivation, so the act '
@@ -147,11 +153,38 @@ b686 -- COMPONENT 1 AND COMPONENT 4, (R296)`S FERRY: THE CARRY-TIME READING OF T
     -         'premise and its status in the sentence that states them, with the derivation’s figures banked for the reading that would move it.', '',
     -         '**Carried to:** `W-ORD-EPSTEIN-COUNT` (readings (i)-(iii)); `W-ORD-EPSTEIN-COUNT-LEAN`, priced in the plan, not entered; the draft held '
     -         'at v5.', '',
-    -         '**Next.** %s.' % K.NEXT, '',
-    -         '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
-    -    return _title(), NL.join(e)
-     
-    -
-    -
+    +         'SIDE-spinor’s docstrings, the licensed table’s next document by b652’s order and b674’s tie-break (3 rows outside LICENSED/CITED, '
+    +         'tied with SIDE-li-map, the larger table), are re-cut to what the files compile: the three ACTIONs applied verbatim, the prints of all '
+    +         '15 terminals equal line for line before and after, merged and tagged %s; %s rows of %s now read their LICENSED text and one is cut in '
+    +         'part, the head of SpinorLeg.lean still saying salt-checked where its ACTION does not reach (carried as R4). The three FOUNDATIONS '
+    +         'cells naming SIDE-silence-principle are carried from v0.2.1 to v0.2.2 by the generator alone; the Correspondence distance does not '
+    +         'move (%s by b670’s method, %s at the generator’s claim), the cells carrying no commit in their leading clause.' % (
+    +             cj.get('tag', '?'), len(cj.get('rows') or []) - 1, len(cj.get('rows') or []), ca.get('behind', '?'), ca.get('claim', '?')), '',
+    +         '*Filed at b686 on the author’s ruling `(R296)`%s. Banks: relay `data/b686_naming.txt`, `data/b686_cut.txt`, '
+    +         '`data/b686_prints_SIDE-spinor.txt`, `data/b686_correspondence_diff.txt`, `data/b686_cells.txt`, `data/b686_correspondence_after.txt`, '
+    +         '`data/b686_rules.txt`, `data/b686_tool_repairs.txt`.*' % ((' and the author’s word on the cells (%d question)' % n_ans) if n_ans else ''), '',
+    +         '**The citation check** (the gate step from b662): %s cites checked at HEAD, %s OK, %s missed. b685 at its weight (FINDINGS :%s), its '
+    +         'head line quoted.' % (cc.group(1) if cc else '?', cc.group(2) if cc else '?', cc.group(3) if cc else '?', c1[0]), '',
+    +         '**The scorer** (`(R296)`(2)): N4 reads the suite banks and the scores bank and no ledger line; the scores bank is written once, before '
+    +         'this entry, and this entry’s scores line is composed from it; a reading that waits on a later bank stands PENDING there and is read at '
+    +         'the close (relay data/b686_rules.txt row (1), the diff against b685’s sealed copy in data/b686_tool_repairs.txt).', '',
+    +         '**The cells** (`(R296)`(3), the author’s word): the generator’s dry run changed exactly the three kernel cells at '
+    +         'FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md :628-:630 and no other cell of the 20 tables; written by the generator alone, %d of %d '
+    +         'changed lines its own, none by hand; the one-copy partner not written, its 13 differing table lines entered by line and carried '
+    +         'under `W-ORD-ONE-COPY`; the distance before %s and %s, after %s and %s.' % (
+    +             len(cl.get('changed') or []) - len(cl.get('by_hand') or []), len(cl.get('changed') or []), cb.get('behind', '?'), cb.get('claim', '?'),
+    +             ca.get('behind', '?'), ca.get('claim', '?')), '',
+    +         '**The cut** (`(R296)`(4)): the workflow and the print list committed alone on SIDE-spinor’s main, the before run at main and the after '
+    +         'run at the cut both DERIVES, 15 prints equal, the cut’s diff comment and docstring lines alone; merged %s, tag %s; the distance %s to '
+    +         '%s; R3b and R4 carried (relay data/b686_cut.txt).' % (cj.get('merge', '?'), cj.get('tag', '?'), cj.get('distance_before', '?'),
+    +                                                                cj.get('distance_after', '?')), '',
+    +         scores_line(S), '',
+    +         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): this act re-reads b647’s table of SIDE-spinor (relay data/b647_table_SIDE-spinor.txt) '
+    +         'and b684’s carried cells (relay data/b684_cut.txt :80-:82), and is re-read by the next re-cut act, which takes SIDE-li-map and the '
+    +         'carried residues. It strengthens the programme’s offering of kernels whose docstrings say what their files compile, printed before '
+    +         'and after at the same terminals.', '',
+    +         '**Carried to:** R3b and R4 (relay data/b686_cut.txt); `W-ORD-ONE-COPY` (the partner’s 13 lines); `W-ORD-EPSTEIN-COUNT` (b687); the '
+    +         'draft held at v5.', '',
+              '**Next.** %s.' % K.NEXT, '',
 
-### ### **REPAIRS 2 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 4 ; THE SCORER`S DIFF LINES 126.**
+### ### **REPAIRS 2 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8 ; THE SCORER`S DIFF LINES 159.**
