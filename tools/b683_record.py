@@ -378,7 +378,61 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers)
+# ================================================================================ COMPONENT 3: THE LANDING, (R293)(5)
+ORDERS = 'b670_work_orders.txt'
+OH = ('*Appended 2026-10-18 by b683 beneath b682’s trail record (:14746), under `(R293)`(5) -- `W-ORD-MAP-ANGLE-FORM` (:14398, :14714) '
+      'DISCHARGED:*')
+OB = (' the detection map in the angle form (relay tools/b677_epstein_map_angle.py, imported unchanged through tools/b683_epstein_map_angle.py, '
+      'its four changes named in data/b683_map_plan.txt section 1) run over the b681 balls at half-width 1e-30, the hash chain verified 7 of 7 '
+      'before any ball was read (data/b683_chain.txt): all 123 controls of b671’s list PASS -- Z₁ 41 of 41, Q0 41 of 41 at 200 bits and 41 of '
+      '41 at 400, the rung forced by the ruling, not the tool’s own choice; of the 46 that b671 read INSTRUMENT, 46 PASS (H1 HELD); the radius '
+      'at j = 64 2.073e-9 at 200 bits and 2.063e-9 at 400 against the bar 2^-20 = 9.54e-7, 2.17e-3 of it (H2 HELD), beside the plan’s price '
+      '1.3e-10 to 7.7e-8. On the passing instrument: H3 HELD, every hypothesis of zeroSide_neg_at_rate_cfg certified by name (hQtie 41 of 41) '
+      'and hrate holding at j₀ = 38 ≤ D + 40 = 64 -- hA by the named premise P3 (Q0Count, stated, not proved), so H3 holds on that premise; '
+      'H4 SCORABLE and HELD, j₀ = 38 and the zero side [-7.570971095704516e+39 +/- 2.40e+23] below 0; H5 HELD, b677’s instrument-side row '
+      'agreeing at the 15 j where both exist, 24–38 (relay data/b683_map.txt, data/b683_map_run.txt, data/b683_map_h.txt, data/b683_landing.txt). '
+      'Pin: relay data/b683_map.txt. Status DISCHARGED.')
+ORDER_ROW = re.compile(r'^  (W-ORD-[A-Z0-9-]+)\s+:(\d+)\s+(b\d+)\s+(\d+)\s+(OPEN|DISCHARGED|ACTED|NOT STATED|CLOSED)\s+:(\d+)\s+(.+?) \[:(\d+)\]$')
+
+
+def read_order_row(line):
+    """a row of the orders bank: order, entry line, act entered, age in acts, Status, the line of its last mark, the trigger or pin, and that
+    line again; returns (order, Status, mark line)."""
+    m = ORDER_ROW.match(line or '')
+    if not m or m.group(6) != m.group(8):
+        raise ValueError('order row of another shape: %r' % (line,))
+    return m.group(1), m.group(5), int(m.group(6))
+
+
+READERS.append('read_order_row')
+
+
+def c3(*a):
+    """(R293)(5): the discharge line on OPEN_TRAILS, then its row appended to the orders bank additively ((R254)(2))."""
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', OH, NL + OH + OB + NL)], 'b683_landing.json', 'c3',
+         check=[('OPEN_TRAILS.md', K.ORDER_LINE, 'W-ORD-MAP-ANGLE-FORM'), ('OPEN_TRAILS.md', K.B682_TRAIL, '### b682')], dry=dry)
+    if dry:
+        return
+    ln = jl('b683_landing.json')['lines'][0]['line']
+    rows = ['### Appended 2026-10-18 by b683 under (R293)(5) (additive, (R254)(2)): W-ORD-MAP-ANGLE-FORM DISCHARGED, its pin the map bank; its '
+            'Status cell filled and its line its pin.',
+            '  %-44s :%d  %s   %-5d %-16s :%d  %s [:%d]' % ('W-ORD-MAP-ANGLE-FORM', K.ORDER_FIRST, 'b671', 12, 'DISCHARGED', ln,
+                                                            'pinned by data/b683_map.txt', ln)]
+    for r in rows[1:]:
+        read_order_row(r)
+    p = os.path.join(D, ORDERS)
+    old = open(p, 'rb').read()
+    sep = NL if old.endswith(b'\n') else NL + NL
+    new = old + (sep + NL.join(rows) + NL).encode('utf-8')
+    if not new.startswith(old):
+        sys.exit('### THE ORDERS BANK APPEND IS NOT ADDITIVE -- NOTHING WRITTEN')
+    open(p + '.tmp', 'wb').write(new)
+    os.replace(p + '.tmp', p)
+    print('  data/%s appended (%d bytes before, %d after)' % (ORDERS, len(old), len(new)))
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, c3=c3)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

@@ -1,0 +1,242 @@
+b683 -- (R293)(4), BY tools/b677_epstein_map_angle.py IMPORTED UNCHANGED THROUGH tools/b683_epstein_map_angle.py, OVER relay data/b681_epstein_zeros_narrowed.json.gz (h = 1e-30); THE TOOL`S OWN TITLE: PART 1: THE DETECTION MAP IN THE ANGLE FORM, THE CONTROL Z₁ AND Q0 AT qE0 ON THE NARROWED BALLS, UNDER (R287)(4) (2026-10-18T15:37:12Z)
+### the b667 map tools/b667_epstein_map_balls.py sha256 011bbe47d528eb170ffcbca6f1ef500d09a517933071fe2313e5719072afe275 before the part ; python-flint 0.9.0 ; 200 bits, the rung 400 ; J_max = D + 40.
+
+### ∫_0^1 |s''''| at 200 bits: I4 = [633.11141717429854951 +/- 3.97e-18]
+### THE CONTROL`S ZERO LIST at 200 bits: N(1000) = 649 ; MATCHED
+
+== CELL THE CONTROL Z₁(0.8, 29.6) -- base 0.8 + 29.6 i -- 200 bits
+  ℓ = baseWidth ρb (Schema/Detector.lean :33) = 1/(4(‖γ(ρb)‖ + 1)) = [0.00816952877213 +/- 1.22e-15] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ* = |ĝ0(γ(ρ*))| = [0.0121848333635 +/- 6.11e-15] > 0, ρ* = 0.8 + 29.6 i the largest of 1 off-line orbit(s)
+  H.hdom    CERTIFIED -- the dominant`s four scores ρ [0.012184833 +/- 3.64e-10] ; 1 − conj ρ [0.012184833 +/- 3.64e-10] ; conj ρ [0.012184833 +/- 3.64e-10] ; 1 − ρ [0.012184833 +/- 3.64e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36); the other 0 orbit(s), 0 point(s), every score below M in balls
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the dominant`s orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [17.7600000000 +/- 1e-15] ≠ 0
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 649, killed 3, screened by the decay bound 0, straddling 0; off-line points killed 0 (the guard); card Xr = 3
+  hA        CERTIFIED -- HCount C.toZeroConfig A₀ (RestBound.lean :44-:45): A₀ = 1.00000000000000
+  D = 2·card Xr + 8 = 14 ; J_max = D + 40 = 54 ; cE = [14.33333333 +/- 3.34e-9] ; CV = [49.39470721 +/- 2.80e-9] ; BK = [222887265.9 +/- 0.0110] ; BE = [30.66666667 +/- 3.34e-9] ; B = [6.752463427e+11 +/- 13.0]
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 14 : angle rad 2.648e-56 ; |mid| 1.312e-56 ; rad 7.729e-52 ; 0 in True | |mid| 1.312e-56 ; rad 7.729e-52 ; 0 in True | |mid| 1.312e-56 ; rad 7.729e-52 ; 0 in True | |mid| 1.312e-56 ; rad 7.729e-52 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 15 : angle rad 5.297e-56 ; |mid| 2.626e-56 ; rad 2.042e-51 ; 0 in True | |mid| 2.626e-56 ; rad 2.042e-51 ; 0 in True | |mid| 2.626e-56 ; rad 2.042e-51 ; 0 in True | |mid| 2.626e-56 ; rad 2.042e-51 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 16 : angle rad 1.059e-55 ; |mid| 5.329e-56 ; rad 6.032e-51 ; 0 in True | |mid| 5.329e-56 ; rad 6.032e-51 ; 0 in True | |mid| 5.329e-56 ; rad 6.032e-51 ; 0 in True | |mid| 5.329e-56 ; rad 6.032e-51 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 17 : angle rad 2.119e-55 ; |mid| 1.064e-55 ; rad 6.299e-51 ; 0 in True | |mid| 1.064e-55 ; rad 6.299e-51 ; 0 in True | |mid| 1.064e-55 ; rad 6.299e-51 ; 0 in True | |mid| 1.064e-55 ; rad 6.299e-51 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 18 : angle rad 4.238e-55 ; |mid| 2.088e-55 ; rad 1.700e-50 ; 0 in True | |mid| 2.088e-55 ; rad 1.700e-50 ; 0 in True | |mid| 2.088e-55 ; rad 1.700e-50 ; 0 in True | |mid| 2.088e-55 ; rad 1.700e-50 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 19 : angle rad 8.475e-55 ; |mid| 4.293e-55 ; rad 2.313e-50 ; 0 in True | |mid| 4.293e-55 ; rad 2.313e-50 ; 0 in True | |mid| 4.293e-55 ; rad 2.313e-50 ; 0 in True | |mid| 4.293e-55 ; rad 2.313e-50 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 20 : angle rad 1.695e-54 ; |mid| 8.305e-55 ; rad 2.117e-50 ; 0 in True | |mid| 8.305e-55 ; rad 2.117e-50 ; 0 in True | |mid| 8.305e-55 ; rad 2.117e-50 ; 0 in True | |mid| 8.305e-55 ; rad 2.117e-50 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 21 : angle rad 3.390e-54 ; |mid| 1.738e-54 ; rad 8.904e-50 ; 0 in True | |mid| 1.738e-54 ; rad 8.904e-50 ; 0 in True | |mid| 1.738e-54 ; rad 8.904e-50 ; 0 in True | |mid| 1.738e-54 ; rad 8.904e-50 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 22 : angle rad 6.780e-54 ; |mid| 3.448e-54 ; rad 1.719e-49 ; 0 in True | |mid| 3.448e-54 ; rad 1.719e-49 ; 0 in True | |mid| 3.448e-54 ; rad 1.719e-49 ; 0 in True | |mid| 3.448e-54 ; rad 1.719e-49 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 23 : angle rad 1.356e-53 ; |mid| 6.685e-54 ; rad 3.191e-49 ; 0 in True | |mid| 6.685e-54 ; rad 3.191e-49 ; 0 in True | |mid| 6.685e-54 ; rad 3.191e-49 ; 0 in True | |mid| 6.685e-54 ; rad 3.191e-49 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 24 : angle rad 2.712e-53 ; |mid| 1.359e-53 ; rad 5.727e-49 ; 0 in True | |mid| 1.359e-53 ; rad 5.727e-49 ; 0 in True | |mid| 1.359e-53 ; rad 5.727e-49 ; 0 in True | |mid| 1.359e-53 ; rad 5.727e-49 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 25 : angle rad 5.424e-53 ; |mid| 2.790e-53 ; rad 1.618e-48 ; 0 in True | |mid| 2.790e-53 ; rad 1.618e-48 ; 0 in True | |mid| 2.790e-53 ; rad 1.618e-48 ; 0 in True | |mid| 2.790e-53 ; rad 1.618e-48 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 26 : angle rad 1.085e-52 ; |mid| 5.380e-53 ; rad 4.355e-48 ; 0 in True | |mid| 5.380e-53 ; rad 4.355e-48 ; 0 in True | |mid| 5.380e-53 ; rad 4.355e-48 ; 0 in True | |mid| 5.380e-53 ; rad 4.355e-48 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 27 : angle rad 2.170e-52 ; |mid| 1.091e-52 ; rad 1.404e-47 ; 0 in True | |mid| 1.091e-52 ; rad 1.404e-47 ; 0 in True | |mid| 1.091e-52 ; rad 1.404e-47 ; 0 in True | |mid| 1.091e-52 ; rad 1.404e-47 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 28 : angle rad 4.339e-52 ; |mid| 2.237e-52 ; rad 2.578e-47 ; 0 in True | |mid| 2.237e-52 ; rad 2.578e-47 ; 0 in True | |mid| 2.237e-52 ; rad 2.578e-47 ; 0 in True | |mid| 2.237e-52 ; rad 2.578e-47 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 29 : angle rad 8.679e-52 ; |mid| 4.245e-52 ; rad 1.034e-47 ; 0 in True | |mid| 4.245e-52 ; rad 1.034e-47 ; 0 in True | |mid| 4.245e-52 ; rad 1.034e-47 ; 0 in True | |mid| 4.245e-52 ; rad 1.034e-47 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 30 : angle rad 1.736e-51 ; |mid| 8.884e-52 ; rad 4.315e-47 ; 0 in True | |mid| 8.884e-52 ; rad 4.315e-47 ; 0 in True | |mid| 8.884e-52 ; rad 4.315e-47 ; 0 in True | |mid| 8.884e-52 ; rad 4.315e-47 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 31 : angle rad 3.471e-51 ; |mid| 1.751e-51 ; rad 1.394e-46 ; 0 in True | |mid| 1.751e-51 ; rad 1.394e-46 ; 0 in True | |mid| 1.751e-51 ; rad 1.394e-46 ; 0 in True | |mid| 1.751e-51 ; rad 1.394e-46 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 32 : angle rad 6.943e-51 ; |mid| 3.444e-51 ; rad 1.676e-46 ; 0 in True | |mid| 3.444e-51 ; rad 1.676e-46 ; 0 in True | |mid| 3.444e-51 ; rad 1.676e-46 ; 0 in True | |mid| 3.444e-51 ; rad 1.676e-46 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 33 : angle rad 1.389e-50 ; |mid| 6.811e-51 ; rad 3.562e-46 ; 0 in True | |mid| 6.811e-51 ; rad 3.562e-46 ; 0 in True | |mid| 6.811e-51 ; rad 3.562e-46 ; 0 in True | |mid| 6.811e-51 ; rad 3.562e-46 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 34 : angle rad 2.777e-50 ; |mid| 1.442e-50 ; rad 1.132e-45 ; 0 in True | |mid| 1.442e-50 ; rad 1.132e-45 ; 0 in True | |mid| 1.442e-50 ; rad 1.132e-45 ; 0 in True | |mid| 1.442e-50 ; rad 1.132e-45 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 35 : angle rad 5.554e-50 ; |mid| 2.785e-50 ; rad 3.730e-45 ; 0 in True | |mid| 2.785e-50 ; rad 3.730e-45 ; 0 in True | |mid| 2.785e-50 ; rad 3.730e-45 ; 0 in True | |mid| 2.785e-50 ; rad 3.730e-45 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 36 : angle rad 1.111e-49 ; |mid| 5.659e-50 ; rad 6.657e-45 ; 0 in True | |mid| 5.659e-50 ; rad 6.657e-45 ; 0 in True | |mid| 5.659e-50 ; rad 6.657e-45 ; 0 in True | |mid| 5.659e-50 ; rad 6.657e-45 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 37 : angle rad 2.222e-49 ; |mid| 1.089e-49 ; rad 3.514e-45 ; 0 in True | |mid| 1.089e-49 ; rad 3.514e-45 ; 0 in True | |mid| 1.089e-49 ; rad 3.514e-45 ; 0 in True | |mid| 1.089e-49 ; rad 3.514e-45 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 38 : angle rad 4.443e-49 ; |mid| 2.192e-49 ; rad 1.442e-44 ; 0 in True | |mid| 2.192e-49 ; rad 1.442e-44 ; 0 in True | |mid| 2.192e-49 ; rad 1.442e-44 ; 0 in True | |mid| 2.192e-49 ; rad 1.442e-44 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 39 : angle rad 8.887e-49 ; |mid| 4.499e-49 ; rad 3.341e-44 ; 0 in True | |mid| 4.499e-49 ; rad 3.341e-44 ; 0 in True | |mid| 4.499e-49 ; rad 3.341e-44 ; 0 in True | |mid| 4.499e-49 ; rad 3.341e-44 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 40 : angle rad 1.777e-48 ; |mid| 9.163e-49 ; rad 8.144e-44 ; 0 in True | |mid| 9.163e-49 ; rad 8.144e-44 ; 0 in True | |mid| 9.163e-49 ; rad 8.144e-44 ; 0 in True | |mid| 9.163e-49 ; rad 8.144e-44 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 41 : angle rad 3.555e-48 ; |mid| 1.762e-48 ; rad 1.580e-43 ; 0 in True | |mid| 1.762e-48 ; rad 1.580e-43 ; 0 in True | |mid| 1.762e-48 ; rad 1.580e-43 ; 0 in True | |mid| 1.762e-48 ; rad 1.580e-43 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 42 : angle rad 7.110e-48 ; |mid| 3.585e-48 ; rad 4.570e-43 ; 0 in True | |mid| 3.585e-48 ; rad 4.570e-43 ; 0 in True | |mid| 3.585e-48 ; rad 4.570e-43 ; 0 in True | |mid| 3.585e-48 ; rad 4.570e-43 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 43 : angle rad 1.422e-47 ; |mid| 7.104e-48 ; rad 5.183e-43 ; 0 in True | |mid| 7.104e-48 ; rad 5.183e-43 ; 0 in True | |mid| 7.104e-48 ; rad 5.183e-43 ; 0 in True | |mid| 7.104e-48 ; rad 5.183e-43 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 44 : angle rad 2.844e-47 ; |mid| 1.434e-47 ; rad 1.377e-42 ; 0 in True | |mid| 1.434e-47 ; rad 1.377e-42 ; 0 in True | |mid| 1.434e-47 ; rad 1.377e-42 ; 0 in True | |mid| 1.434e-47 ; rad 1.377e-42 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 45 : angle rad 5.688e-47 ; |mid| 3.005e-47 ; rad 3.117e-42 ; 0 in True | |mid| 3.005e-47 ; rad 3.117e-42 ; 0 in True | |mid| 3.005e-47 ; rad 3.117e-42 ; 0 in True | |mid| 3.005e-47 ; rad 3.117e-42 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 46 : angle rad 1.138e-46 ; |mid| 5.573e-47 ; rad 2.585e-42 ; 0 in True | |mid| 5.573e-47 ; rad 2.585e-42 ; 0 in True | |mid| 5.573e-47 ; rad 2.585e-42 ; 0 in True | |mid| 5.573e-47 ; rad 2.585e-42 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 47 : angle rad 2.275e-46 ; |mid| 1.129e-46 ; rad 9.403e-42 ; 0 in True | |mid| 1.129e-46 ; rad 9.404e-42 ; 0 in True | |mid| 1.129e-46 ; rad 9.403e-42 ; 0 in True | |mid| 1.129e-46 ; rad 9.404e-42 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 48 : angle rad 4.550e-46 ; |mid| 2.253e-46 ; rad 3.105e-41 ; 0 in True | |mid| 2.253e-46 ; rad 3.105e-41 ; 0 in True | |mid| 2.253e-46 ; rad 3.105e-41 ; 0 in True | |mid| 2.253e-46 ; rad 3.105e-41 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 49 : angle rad 9.100e-46 ; |mid| 4.561e-46 ; rad 5.674e-41 ; 0 in True | |mid| 4.561e-46 ; rad 5.674e-41 ; 0 in True | |mid| 4.561e-46 ; rad 5.674e-41 ; 0 in True | |mid| 4.561e-46 ; rad 5.674e-41 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 50 : angle rad 1.820e-45 ; |mid| 9.296e-46 ; rad 1.228e-40 ; 0 in True | |mid| 9.296e-46 ; rad 1.228e-40 ; 0 in True | |mid| 9.296e-46 ; rad 1.228e-40 ; 0 in True | |mid| 9.296e-46 ; rad 1.228e-40 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 51 : angle rad 3.640e-45 ; |mid| 1.832e-45 ; rad 2.219e-40 ; 0 in True | |mid| 1.832e-45 ; rad 2.219e-40 ; 0 in True | |mid| 1.832e-45 ; rad 2.219e-40 ; 0 in True | |mid| 1.832e-45 ; rad 2.219e-40 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 52 : angle rad 7.280e-45 ; |mid| 3.564e-45 ; rad 1.352e-40 ; 0 in True | |mid| 3.564e-45 ; rad 1.352e-40 ; 0 in True | |mid| 3.564e-45 ; rad 1.352e-40 ; 0 in True | |mid| 3.564e-45 ; rad 1.352e-40 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 53 : angle rad 1.456e-44 ; |mid| 7.214e-45 ; rad 5.306e-40 ; 0 in True | |mid| 7.214e-45 ; rad 5.306e-40 ; 0 in True | |mid| 7.214e-45 ; rad 5.306e-40 ; 0 in True | |mid| 7.214e-45 ; rad 5.306e-40 ; 0 in True ; PASS
+  TIE THE CONTROL Z₁(0.8, 29.6) 200 j 54 : angle rad 2.912e-44 ; |mid| 1.501e-44 ; rad 1.289e-39 ; 0 in True | |mid| 1.501e-44 ; rad 1.289e-39 ; 0 in True | |mid| 1.501e-44 ; rad 1.289e-39 ; 0 in True | |mid| 1.501e-44 ; rad 1.289e-39 ; 0 in True ; PASS
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.999677841314598 ≥ 0
+  hθ        CERTIFIED -- every point outside the tie and kill sets read or screened: offScore/M ≤ θ
+    hrate j = 14  FAILS   left exp([919458.880258321 +/- 2.97e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 15  FAILS   left exp([919448.322061719 +/- 1.14e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 16  FAILS   left exp([919427.205668515 +/- 9.29e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 17  FAILS   left exp([919384.972882107 +/- 2.56e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 18  FAILS   left exp([919300.507309292 +/- 4.19e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 19  FAILS   left exp([919131.576163660 +/- 2.33e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 20  FAILS   left exp([918793.713872398 +/- 4.65e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 21  FAILS   left exp([918117.989289872 +/- 1.42e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 22  FAILS   left exp([916766.540124821 +/- 3.54e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 23  FAILS   left exp([914063.641794720 +/- 2.24e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 24  FAILS   left exp([908657.845134517 +/- 3.77e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 25  FAILS   left exp([897846.251814110 +/- 3.19e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 26  FAILS   left exp([876223.065173298 +/- 2.94e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 27  FAILS   left exp([832976.691891672 +/- 4.84e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 28  FAILS   left exp([746483.945328422 +/- 3.75e-11]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 29  FAILS   left exp([573498.452201921 +/- 1.45e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 30  FAILS   left exp([227527.465948919 +/- 3.60e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+    hrate j = 31  HOLDS   left exp([-464414.506557084 +/- 2.11e-10]) ; right exp([49.7215997070443 +/- 2.66e-14]) = [3.924789637e+21 +/- 1.58e+11]
+  THE ZERO SIDE at j₀ = 31: [-3.92478963715732e+21 +/- 2.96e+6] -- the dominant`s orbit [-3.92478963715732e+21 +/- 2.96e+6], the other off-line orbits 0, the on-line terms [1.59766395727564e-600991 +/- 2.60e-601006], the points above T 0 ; the ball BELOW 0
+  READING THE CONTROL Z₁(0.8, 29.6): j₀ = 31
+
+  ### THE CONTROL REPRODUCED -- expected j₀ = 31 and the zero side below 0; read j₀ = 31
+
+### THE Q0 LIST: relay data/b681_epstein_zeros_narrowed.json.gz, 146 ordinates, 17 off-line zeros; the base qE0 = [0.953260474794660686250509013567280024290084839 +/- 1e-30] + [16.2902157203903907929631726451914943754673004 +/- 1e-30] i ; T = 150 ; A0Q = 10
+
+== CELL Q0 AT qE0 -- base [0.953260474794660686250509013567280024290084839 +/- 1e-30] + [16.2902157203903907929631726451914943754673004 +/- 1e-30] i -- 200 bits
+  ℓ = baseWidth ρb (Schema/Detector.lean :33) = 1/(4(‖γ(ρb)‖ + 1)) = [0.0144537742815 +/- 2.65e-14] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ* = |ĝ0(γ(ρ*))| = [0.0215642208687 +/- 2.76e-14] > 0, ρ* = [0.953260474794660686250509013567280024290084839 +/- 1e-30] + [16.2902157203903907929631726451914943754673004 +/- 1e-30] i the largest of 17 off-line orbit(s)
+  H.hdom    CERTIFIED -- the dominant`s four scores ρ [0.021564221 +/- 1.32e-10] ; 1 − conj ρ [0.021564221 +/- 1.32e-10] ; conj ρ [0.021564221 +/- 1.32e-10] ; 1 − ρ [0.021564221 +/- 1.32e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36); the other 16 orbit(s), 64 point(s), every score below M in balls; above T = 150 by B1 (below)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the dominant`s orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [14.7674218239 +/- 3.69e-11] ≠ 0
+  B1        the points of Z with |Im ρ| ≥ 150: offScore g0 ρ / M ≤ 2 e^{ℓ/2}/(150 M) = [0.6227927703 +/- 2.87e-11] ; certified on B1 (READ)
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 146, killed 8, screened by the decay bound 0, straddling 0; off-line points killed 0 (the guard); card Xr = 8
+  hA        CERTIFIED -- HCount C.toZeroConfig A0Q BY P3 (Q0Count, a named premise, stated, not proved; open), A0Q = 10; the listed points` own A₀ = 1.00000000000000 ≤ A0Q
+  D = 2·card Xr + 8 = 24 ; J_max = D + 40 = 64 ; cE = [9.824947734 +/- 1.09e-10] ; CV = [18.05166646 +/- 2.47e-9] ; BK = [1.328069201e+15 +/- 2.27e+5] ; BE = [21.64989547 +/- 1.79e-9] ; B = [1.038063224e+18 +/- 2.21e+8]
+  TIE Q0 AT qE0 200 j 24 : angle rad 6.169e-24 ; |mid| 1.125e-27 ; rad 1.849e-21 ; 0 in True | |mid| 1.125e-27 ; rad 1.849e-21 ; 0 in True | |mid| 1.125e-27 ; rad 1.849e-21 ; 0 in True | |mid| 1.125e-27 ; rad 1.849e-21 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 25 : angle rad 1.234e-23 ; |mid| 3.988e-27 ; rad 4.687e-21 ; 0 in True | |mid| 3.988e-27 ; rad 4.687e-21 ; 0 in True | |mid| 3.988e-27 ; rad 4.687e-21 ; 0 in True | |mid| 3.988e-27 ; rad 4.687e-21 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 26 : angle rad 2.468e-23 ; |mid| 2.729e-27 ; rad 1.406e-20 ; 0 in True | |mid| 2.729e-27 ; rad 1.406e-20 ; 0 in True | |mid| 2.729e-27 ; rad 1.406e-20 ; 0 in True | |mid| 2.729e-27 ; rad 1.406e-20 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 27 : angle rad 4.935e-23 ; |mid| 1.365e-27 ; rad 1.470e-20 ; 0 in True | |mid| 1.365e-27 ; rad 1.470e-20 ; 0 in True | |mid| 1.365e-27 ; rad 1.470e-20 ; 0 in True | |mid| 1.365e-27 ; rad 1.470e-20 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 28 : angle rad 9.870e-23 ; |mid| 5.619e-27 ; rad 3.482e-20 ; 0 in True | |mid| 5.619e-27 ; rad 3.482e-20 ; 0 in True | |mid| 5.619e-27 ; rad 3.482e-20 ; 0 in True | |mid| 5.619e-27 ; rad 3.482e-20 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 29 : angle rad 1.974e-22 ; |mid| 2.214e-26 ; rad 8.215e-20 ; 0 in True | |mid| 2.214e-26 ; rad 8.215e-20 ; 0 in True | |mid| 2.214e-26 ; rad 8.215e-20 ; 0 in True | |mid| 2.214e-26 ; rad 8.215e-20 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 30 : angle rad 3.948e-22 ; |mid| 5.450e-27 ; rad 7.244e-20 ; 0 in True | |mid| 5.450e-27 ; rad 7.244e-20 ; 0 in True | |mid| 5.450e-27 ; rad 7.244e-20 ; 0 in True | |mid| 5.450e-27 ; rad 7.244e-20 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 31 : angle rad 7.896e-22 ; |mid| 1.707e-25 ; rad 4.960e-19 ; 0 in True | |mid| 1.707e-25 ; rad 4.960e-19 ; 0 in True | |mid| 1.707e-25 ; rad 4.960e-19 ; 0 in True | |mid| 1.707e-25 ; rad 4.960e-19 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 32 : angle rad 1.579e-21 ; |mid| 3.664e-25 ; rad 3.261e-19 ; 0 in True | |mid| 3.664e-25 ; rad 3.261e-19 ; 0 in True | |mid| 3.664e-25 ; rad 3.261e-19 ; 0 in True | |mid| 3.664e-25 ; rad 3.261e-19 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 33 : angle rad 3.158e-21 ; |mid| 8.446e-25 ; rad 1.681e-18 ; 0 in True | |mid| 8.446e-25 ; rad 1.681e-18 ; 0 in True | |mid| 8.446e-25 ; rad 1.681e-18 ; 0 in True | |mid| 8.446e-25 ; rad 1.681e-18 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 34 : angle rad 6.317e-21 ; |mid| 6.326e-25 ; rad 2.765e-18 ; 0 in True | |mid| 6.326e-25 ; rad 2.765e-18 ; 0 in True | |mid| 6.326e-25 ; rad 2.765e-18 ; 0 in True | |mid| 6.326e-25 ; rad 2.765e-18 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 35 : angle rad 1.263e-20 ; |mid| 1.637e-24 ; rad 4.303e-18 ; 0 in True | |mid| 1.637e-24 ; rad 4.303e-18 ; 0 in True | |mid| 1.637e-24 ; rad 4.303e-18 ; 0 in True | |mid| 1.637e-24 ; rad 4.303e-18 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 36 : angle rad 2.527e-20 ; |mid| 4.455e-24 ; rad 1.053e-17 ; 0 in True | |mid| 4.455e-24 ; rad 1.053e-17 ; 0 in True | |mid| 4.455e-24 ; rad 1.053e-17 ; 0 in True | |mid| 4.455e-24 ; rad 1.053e-17 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 37 : angle rad 5.054e-20 ; |mid| 1.124e-24 ; rad 1.971e-17 ; 0 in True | |mid| 1.124e-24 ; rad 1.971e-17 ; 0 in True | |mid| 1.124e-24 ; rad 1.971e-17 ; 0 in True | |mid| 1.124e-24 ; rad 1.971e-17 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 38 : angle rad 1.011e-19 ; |mid| 3.302e-24 ; rad 1.600e-17 ; 0 in True | |mid| 3.302e-24 ; rad 1.600e-17 ; 0 in True | |mid| 3.302e-24 ; rad 1.600e-17 ; 0 in True | |mid| 3.302e-24 ; rad 1.600e-17 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 39 : angle rad 2.021e-19 ; |mid| 3.294e-24 ; rad 5.759e-17 ; 0 in True | |mid| 3.294e-24 ; rad 5.759e-17 ; 0 in True | |mid| 3.294e-24 ; rad 5.759e-17 ; 0 in True | |mid| 3.294e-24 ; rad 5.759e-17 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 40 : angle rad 4.043e-19 ; |mid| 4.393e-23 ; rad 2.186e-16 ; 0 in True | |mid| 4.393e-23 ; rad 2.186e-16 ; 0 in True | |mid| 4.393e-23 ; rad 2.186e-16 ; 0 in True | |mid| 4.393e-23 ; rad 2.186e-16 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 41 : angle rad 8.086e-19 ; |mid| 1.596e-22 ; rad 4.444e-16 ; 0 in True | |mid| 1.596e-22 ; rad 4.444e-16 ; 0 in True | |mid| 1.596e-22 ; rad 4.444e-16 ; 0 in True | |mid| 1.596e-22 ; rad 4.444e-16 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 42 : angle rad 1.617e-18 ; |mid| 1.799e-22 ; rad 9.169e-16 ; 0 in True | |mid| 1.799e-22 ; rad 9.170e-16 ; 0 in True | |mid| 1.799e-22 ; rad 9.169e-16 ; 0 in True | |mid| 1.799e-22 ; rad 9.170e-16 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 43 : angle rad 3.234e-18 ; |mid| 7.551e-22 ; rad 1.913e-15 ; 0 in True | |mid| 7.551e-22 ; rad 1.913e-15 ; 0 in True | |mid| 7.551e-22 ; rad 1.913e-15 ; 0 in True | |mid| 7.551e-22 ; rad 1.913e-15 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 44 : angle rad 6.469e-18 ; |mid| 4.927e-22 ; rad 3.907e-15 ; 0 in True | |mid| 4.927e-22 ; rad 3.907e-15 ; 0 in True | |mid| 4.927e-22 ; rad 3.907e-15 ; 0 in True | |mid| 4.927e-22 ; rad 3.907e-15 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 45 : angle rad 1.294e-17 ; |mid| 1.458e-21 ; rad 6.296e-15 ; 0 in True | |mid| 1.458e-21 ; rad 6.296e-15 ; 0 in True | |mid| 1.458e-21 ; rad 6.296e-15 ; 0 in True | |mid| 1.458e-21 ; rad 6.296e-15 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 46 : angle rad 2.587e-17 ; |mid| 5.982e-24 ; rad 3.533e-15 ; 0 in True | |mid| 5.982e-24 ; rad 3.533e-15 ; 0 in True | |mid| 5.982e-24 ; rad 3.533e-15 ; 0 in True | |mid| 5.982e-24 ; rad 3.533e-15 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 47 : angle rad 5.175e-17 ; |mid| 9.799e-21 ; rad 3.397e-14 ; 0 in True | |mid| 9.799e-21 ; rad 3.397e-14 ; 0 in True | |mid| 9.799e-21 ; rad 3.397e-14 ; 0 in True | |mid| 9.799e-21 ; rad 3.397e-14 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 48 : angle rad 1.035e-16 ; |mid| 2.248e-20 ; rad 4.359e-14 ; 0 in True | |mid| 2.248e-20 ; rad 4.359e-14 ; 0 in True | |mid| 2.248e-20 ; rad 4.359e-14 ; 0 in True | |mid| 2.248e-20 ; rad 4.359e-14 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 49 : angle rad 2.070e-16 ; |mid| 2.291e-20 ; rad 7.699e-14 ; 0 in True | |mid| 2.291e-20 ; rad 7.699e-14 ; 0 in True | |mid| 2.291e-20 ; rad 7.699e-14 ; 0 in True | |mid| 2.291e-20 ; rad 7.699e-14 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 50 : angle rad 4.140e-16 ; |mid| 4.181e-21 ; rad 6.235e-14 ; 0 in True | |mid| 4.181e-21 ; rad 6.235e-14 ; 0 in True | |mid| 4.181e-21 ; rad 6.235e-14 ; 0 in True | |mid| 4.181e-21 ; rad 6.235e-14 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 51 : angle rad 8.280e-16 ; |mid| 1.933e-19 ; rad 2.332e-13 ; 0 in True | |mid| 1.933e-19 ; rad 2.332e-13 ; 0 in True | |mid| 1.933e-19 ; rad 2.332e-13 ; 0 in True | |mid| 1.933e-19 ; rad 2.332e-13 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 52 : angle rad 1.656e-15 ; |mid| 6.747e-19 ; rad 8.598e-13 ; 0 in True | |mid| 6.747e-19 ; rad 8.598e-13 ; 0 in True | |mid| 6.747e-19 ; rad 8.598e-13 ; 0 in True | |mid| 6.747e-19 ; rad 8.598e-13 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 53 : angle rad 3.312e-15 ; |mid| 7.386e-19 ; rad 1.174e-12 ; 0 in True | |mid| 7.386e-19 ; rad 1.174e-12 ; 0 in True | |mid| 7.386e-19 ; rad 1.174e-12 ; 0 in True | |mid| 7.386e-19 ; rad 1.174e-12 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 54 : angle rad 6.624e-15 ; |mid| 1.141e-18 ; rad 3.121e-12 ; 0 in True | |mid| 1.141e-18 ; rad 3.121e-12 ; 0 in True | |mid| 1.141e-18 ; rad 3.121e-12 ; 0 in True | |mid| 1.141e-18 ; rad 3.121e-12 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 55 : angle rad 1.325e-14 ; |mid| 2.857e-18 ; rad 2.825e-12 ; 0 in True | |mid| 2.857e-18 ; rad 2.825e-12 ; 0 in True | |mid| 2.857e-18 ; rad 2.825e-12 ; 0 in True | |mid| 2.857e-18 ; rad 2.825e-12 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 56 : angle rad 2.650e-14 ; |mid| 2.108e-18 ; rad 1.714e-11 ; 0 in True | |mid| 2.108e-18 ; rad 1.714e-11 ; 0 in True | |mid| 2.108e-18 ; rad 1.714e-11 ; 0 in True | |mid| 2.108e-18 ; rad 1.714e-11 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 57 : angle rad 5.299e-14 ; |mid| 1.258e-17 ; rad 1.217e-11 ; 0 in True | |mid| 1.258e-17 ; rad 1.217e-11 ; 0 in True | |mid| 1.258e-17 ; rad 1.217e-11 ; 0 in True | |mid| 1.258e-17 ; rad 1.217e-11 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 58 : angle rad 1.060e-13 ; |mid| 2.776e-17 ; rad 2.993e-11 ; 0 in True | |mid| 2.776e-17 ; rad 2.993e-11 ; 0 in True | |mid| 2.776e-17 ; rad 2.993e-11 ; 0 in True | |mid| 2.776e-17 ; rad 2.993e-11 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 59 : angle rad 2.120e-13 ; |mid| 2.926e-17 ; rad 1.103e-10 ; 0 in True | |mid| 2.926e-17 ; rad 1.103e-10 ; 0 in True | |mid| 2.926e-17 ; rad 1.103e-10 ; 0 in True | |mid| 2.926e-17 ; rad 1.103e-10 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 60 : angle rad 4.239e-13 ; |mid| 1.888e-17 ; rad 1.477e-10 ; 0 in True | |mid| 1.888e-17 ; rad 1.477e-10 ; 0 in True | |mid| 1.888e-17 ; rad 1.477e-10 ; 0 in True | |mid| 1.888e-17 ; rad 1.477e-10 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 61 : angle rad 8.478e-13 ; |mid| 2.172e-16 ; rad 4.012e-10 ; 0 in True | |mid| 2.172e-16 ; rad 4.012e-10 ; 0 in True | |mid| 2.172e-16 ; rad 4.012e-10 ; 0 in True | |mid| 2.172e-16 ; rad 4.012e-10 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 62 : angle rad 1.696e-12 ; |mid| 1.490e-16 ; rad 3.394e-10 ; 0 in True | |mid| 1.490e-16 ; rad 3.394e-10 ; 0 in True | |mid| 1.490e-16 ; rad 3.394e-10 ; 0 in True | |mid| 1.490e-16 ; rad 3.394e-10 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 63 : angle rad 3.391e-12 ; |mid| 1.003e-16 ; rad 2.251e-09 ; 0 in True | |mid| 1.003e-16 ; rad 2.251e-09 ; 0 in True | |mid| 1.003e-16 ; rad 2.251e-09 ; 0 in True | |mid| 1.003e-16 ; rad 2.251e-09 ; 0 in True ; PASS
+  TIE Q0 AT qE0 200 j 64 : angle rad 6.783e-12 ; |mid| 9.926e-16 ; rad 2.073e-09 ; 0 in True | |mid| 9.926e-16 ; rad 2.073e-09 ; 0 in True | |mid| 9.926e-16 ; rad 2.073e-09 ; 0 in True | |mid| 9.926e-16 ; rad 2.073e-09 ; 0 in True ; PASS
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.998184669760907 ≥ 0
+  hθ        CERTIFIED -- every point outside the tie and kill sets read or screened: offScore/M ≤ θ; the points above T certified on B1 (READ), not a kernel lemma
+    hrate j = 24  FAILS   left exp([864952227.478841 +/- 4.63e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 25  FAILS   left exp([864891259.748736 +/- 1.34e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 26  FAILS   left exp([864769324.288525 +/- 4.75e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 27  FAILS   left exp([864525453.368104 +/- 1.58e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 28  FAILS   left exp([864037711.527262 +/- 4.79e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 29  FAILS   left exp([863062227.845576 +/- 2.52e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 30  FAILS   left exp([861111260.482206 +/- 2.91e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 31  FAILS   left exp([857209325.755465 +/- 3.73e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 32  FAILS   left exp([849405456.301982 +/- 4.64e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 33  FAILS   left exp([833797717.395018 +/- 1.34e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 34  FAILS   left exp([802582239.581089 +/- 4.76e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 35  FAILS   left exp([740151283.953232 +/- 1.59e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 36  FAILS   left exp([615289372.697518 +/- 4.76e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 37  FAILS   left exp([365565550.186088 +/- 2.58e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 38  HOLDS   left exp([-133882094.836770 +/- 2.78e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+  the points above T = 150: |Σ terms| ≤ [8.12012e-113060822100 +/- 2.88e-113060822106], on B1 (READ) and P3 (A0Q = 10.000) -- K = 39, E = 2^(j₀+1) = 2^39
+  THE ZERO SIDE at j₀ = 38: [-7.57097109570452e+39 +/- 4.25e+24] -- the dominant`s orbit [-7.57097109570452e+39 +/- 4.25e+24], the other off-line orbits [1.67760663012969e-2958169308 +/- 1.22e-2958169323], the on-line terms [2.37175081499145e-433814672 +/- 4.92e-433814687], the points above T [+/- 8.13e-113060822100] ; the ball BELOW 0
+  ### the 200-bit reading j₀ = 38 ; triggers: FORCED RUNG (R293) N3: the 400-bit rows of b671`s list read (data/b671_tie_diagnostic.txt :89-:129) -- RE-READ ONCE AT 400 BITS:
+== CELL Q0 AT qE0 -- base [0.953260474794660686250509013567280024290084839 +/- 1e-30] + [16.2902157203903907929631726451914943754673004 +/- 1e-30] i -- 400 bits -- the rung, re-read once
+  ℓ = baseWidth ρb (Schema/Detector.lean :33) = 1/(4(‖γ(ρb)‖ + 1)) = [0.0144537742815 +/- 2.65e-14] ; L = ℓ (Detector.lean :113)
+  H.hev     CERTIFIED -- plateau_even (TwoPropertyWindow.lean :69), the term Detector.lean :114 passes; COMPILED
+  H.hsm     CERTIFIED -- plateau_contDiff (TwoPropertyWindow.lean :60), as Detector.lean :114; COMPILED
+  H.hs      CERTIFIED -- plateau_support_Icc, as Detector.lean :107-:108; COMPILED
+  H.hL      CERTIFIED -- baseWidth_pos (Detector.lean :35); 0 ≤ ℓ; COMPILED
+  H.hM      CERTIFIED -- M = offScore g0 ρ* = |ĝ0(γ(ρ*))| = [0.0215642208687 +/- 2.76e-14] > 0, ρ* = [0.953260474794660686250509013567280024290084839 +/- 1e-30] + [16.2902157203903907929631726451914943754673004 +/- 1e-30] i the largest of 17 off-line orbit(s)
+  H.hdom    CERTIFIED -- the dominant`s four scores ρ [0.021564221 +/- 1.32e-10] ; 1 − conj ρ [0.021564221 +/- 1.32e-10] ; conj ρ [0.021564221 +/- 1.32e-10] ; 1 − ρ [0.021564221 +/- 1.32e-10] each meet M, equal by offScore_reflect (PowerLimit.lean :219) and paperFT_conj_of_real (:36); the other 16 orbit(s), 64 point(s), every score below M in balls; above T = 150 by B1 (below)
+  tieSet    CERTIFIED -- tieSet C g0 M (PowerWindow.lean :398) = the dominant`s orbit, 4 points, mult 1; VF = {v, conj v} (:280), Im v = [14.7674218239 +/- 3.69e-11] ≠ 0
+  B1        the points of Z with |Im ρ| ≥ 150: offScore g0 ρ / M ≤ 2 e^{ℓ/2}/(150 M) = [0.6227927703 +/- 2.87e-11] ; certified on B1 (READ)
+  killSet   CERTIFIED -- killSet C g0 M (PowerWindow.lean :401): zeros read 146, killed 8, screened by the decay bound 0, straddling 0; off-line points killed 0 (the guard); card Xr = 8
+  hA        CERTIFIED -- HCount C.toZeroConfig A0Q BY P3 (Q0Count, a named premise, stated, not proved; open), A0Q = 10; the listed points` own A₀ = 1.00000000000000 ≤ A0Q
+  D = 2·card Xr + 8 = 24 ; J_max = D + 40 = 64 ; cE = [9.824947734 +/- 1.09e-10] ; CV = [18.05166646 +/- 2.47e-9] ; BK = [1.328069201e+15 +/- 2.27e+5] ; BE = [21.64989547 +/- 1.79e-9] ; B = [1.038063224e+18 +/- 2.21e+8]
+  TIE Q0 AT qE0 400 j 24 : angle rad 6.159e-24 ; |mid| 1.125e-27 ; rad 1.840e-21 ; 0 in True | |mid| 1.125e-27 ; rad 1.840e-21 ; 0 in True | |mid| 1.125e-27 ; rad 1.840e-21 ; 0 in True | |mid| 1.125e-27 ; rad 1.840e-21 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 25 : angle rad 1.232e-23 ; |mid| 3.988e-27 ; rad 4.684e-21 ; 0 in True | |mid| 3.988e-27 ; rad 4.684e-21 ; 0 in True | |mid| 3.988e-27 ; rad 4.684e-21 ; 0 in True | |mid| 3.988e-27 ; rad 4.684e-21 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 26 : angle rad 2.464e-23 ; |mid| 2.729e-27 ; rad 1.404e-20 ; 0 in True | |mid| 2.729e-27 ; rad 1.404e-20 ; 0 in True | |mid| 2.729e-27 ; rad 1.404e-20 ; 0 in True | |mid| 2.729e-27 ; rad 1.404e-20 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 27 : angle rad 4.927e-23 ; |mid| 1.365e-27 ; rad 1.468e-20 ; 0 in True | |mid| 1.365e-27 ; rad 1.468e-20 ; 0 in True | |mid| 1.365e-27 ; rad 1.468e-20 ; 0 in True | |mid| 1.365e-27 ; rad 1.468e-20 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 28 : angle rad 9.855e-23 ; |mid| 5.618e-27 ; rad 3.473e-20 ; 0 in True | |mid| 5.618e-27 ; rad 3.473e-20 ; 0 in True | |mid| 5.618e-27 ; rad 3.473e-20 ; 0 in True | |mid| 5.618e-27 ; rad 3.473e-20 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 29 : angle rad 1.971e-22 ; |mid| 2.214e-26 ; rad 8.210e-20 ; 0 in True | |mid| 2.214e-26 ; rad 8.210e-20 ; 0 in True | |mid| 2.214e-26 ; rad 8.210e-20 ; 0 in True | |mid| 2.214e-26 ; rad 8.210e-20 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 30 : angle rad 3.942e-22 ; |mid| 5.447e-27 ; rad 7.229e-20 ; 0 in True | |mid| 5.447e-27 ; rad 7.229e-20 ; 0 in True | |mid| 5.447e-27 ; rad 7.229e-20 ; 0 in True | |mid| 5.447e-27 ; rad 7.229e-20 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 31 : angle rad 7.884e-22 ; |mid| 1.707e-25 ; rad 4.943e-19 ; 0 in True | |mid| 1.707e-25 ; rad 4.943e-19 ; 0 in True | |mid| 1.707e-25 ; rad 4.943e-19 ; 0 in True | |mid| 1.707e-25 ; rad 4.943e-19 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 32 : angle rad 1.577e-21 ; |mid| 3.664e-25 ; rad 3.256e-19 ; 0 in True | |mid| 3.664e-25 ; rad 3.256e-19 ; 0 in True | |mid| 3.664e-25 ; rad 3.256e-19 ; 0 in True | |mid| 3.664e-25 ; rad 3.256e-19 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 33 : angle rad 3.153e-21 ; |mid| 8.446e-25 ; rad 1.678e-18 ; 0 in True | |mid| 8.446e-25 ; rad 1.678e-18 ; 0 in True | |mid| 8.446e-25 ; rad 1.678e-18 ; 0 in True | |mid| 8.446e-25 ; rad 1.678e-18 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 34 : angle rad 6.307e-21 ; |mid| 6.325e-25 ; rad 2.762e-18 ; 0 in True | |mid| 6.325e-25 ; rad 2.763e-18 ; 0 in True | |mid| 6.325e-25 ; rad 2.762e-18 ; 0 in True | |mid| 6.325e-25 ; rad 2.763e-18 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 35 : angle rad 1.261e-20 ; |mid| 1.637e-24 ; rad 4.283e-18 ; 0 in True | |mid| 1.637e-24 ; rad 4.283e-18 ; 0 in True | |mid| 1.637e-24 ; rad 4.283e-18 ; 0 in True | |mid| 1.637e-24 ; rad 4.283e-18 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 36 : angle rad 2.523e-20 ; |mid| 4.455e-24 ; rad 1.052e-17 ; 0 in True | |mid| 4.455e-24 ; rad 1.052e-17 ; 0 in True | |mid| 4.455e-24 ; rad 1.052e-17 ; 0 in True | |mid| 4.455e-24 ; rad 1.052e-17 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 37 : angle rad 5.046e-20 ; |mid| 1.124e-24 ; rad 1.968e-17 ; 0 in True | |mid| 1.124e-24 ; rad 1.968e-17 ; 0 in True | |mid| 1.124e-24 ; rad 1.968e-17 ; 0 in True | |mid| 1.124e-24 ; rad 1.968e-17 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 38 : angle rad 1.009e-19 ; |mid| 3.288e-24 ; rad 1.597e-17 ; 0 in True | |mid| 3.288e-24 ; rad 1.597e-17 ; 0 in True | |mid| 3.288e-24 ; rad 1.597e-17 ; 0 in True | |mid| 3.288e-24 ; rad 1.597e-17 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 39 : angle rad 2.018e-19 ; |mid| 3.293e-24 ; rad 5.755e-17 ; 0 in True | |mid| 3.293e-24 ; rad 5.755e-17 ; 0 in True | |mid| 3.293e-24 ; rad 5.755e-17 ; 0 in True | |mid| 3.293e-24 ; rad 5.755e-17 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 40 : angle rad 4.036e-19 ; |mid| 4.392e-23 ; rad 2.180e-16 ; 0 in True | |mid| 4.392e-23 ; rad 2.180e-16 ; 0 in True | |mid| 4.392e-23 ; rad 2.180e-16 ; 0 in True | |mid| 4.392e-23 ; rad 2.180e-16 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 41 : angle rad 8.073e-19 ; |mid| 1.596e-22 ; rad 4.440e-16 ; 0 in True | |mid| 1.596e-22 ; rad 4.440e-16 ; 0 in True | |mid| 1.596e-22 ; rad 4.440e-16 ; 0 in True | |mid| 1.596e-22 ; rad 4.440e-16 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 42 : angle rad 1.615e-18 ; |mid| 1.799e-22 ; rad 9.162e-16 ; 0 in True | |mid| 1.799e-22 ; rad 9.162e-16 ; 0 in True | |mid| 1.799e-22 ; rad 9.162e-16 ; 0 in True | |mid| 1.799e-22 ; rad 9.162e-16 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 43 : angle rad 3.229e-18 ; |mid| 7.551e-22 ; rad 1.911e-15 ; 0 in True | |mid| 7.551e-22 ; rad 1.911e-15 ; 0 in True | |mid| 7.551e-22 ; rad 1.911e-15 ; 0 in True | |mid| 7.551e-22 ; rad 1.911e-15 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 44 : angle rad 6.458e-18 ; |mid| 4.926e-22 ; rad 3.903e-15 ; 0 in True | |mid| 4.926e-22 ; rad 3.903e-15 ; 0 in True | |mid| 4.926e-22 ; rad 3.903e-15 ; 0 in True | |mid| 4.926e-22 ; rad 3.903e-15 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 45 : angle rad 1.292e-17 ; |mid| 1.458e-21 ; rad 6.288e-15 ; 0 in True | |mid| 1.458e-21 ; rad 6.288e-15 ; 0 in True | |mid| 1.458e-21 ; rad 6.288e-15 ; 0 in True | |mid| 1.458e-21 ; rad 6.288e-15 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 46 : angle rad 2.583e-17 ; |mid| 5.775e-24 ; rad 3.525e-15 ; 0 in True | |mid| 5.775e-24 ; rad 3.526e-15 ; 0 in True | |mid| 5.775e-24 ; rad 3.525e-15 ; 0 in True | |mid| 5.775e-24 ; rad 3.526e-15 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 47 : angle rad 5.167e-17 ; |mid| 9.799e-21 ; rad 3.393e-14 ; 0 in True | |mid| 9.799e-21 ; rad 3.393e-14 ; 0 in True | |mid| 9.799e-21 ; rad 3.393e-14 ; 0 in True | |mid| 9.799e-21 ; rad 3.393e-14 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 48 : angle rad 1.033e-16 ; |mid| 2.247e-20 ; rad 4.357e-14 ; 0 in True | |mid| 2.247e-20 ; rad 4.357e-14 ; 0 in True | |mid| 2.247e-20 ; rad 4.357e-14 ; 0 in True | |mid| 2.247e-20 ; rad 4.357e-14 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 49 : angle rad 2.067e-16 ; |mid| 2.291e-20 ; rad 7.696e-14 ; 0 in True | |mid| 2.291e-20 ; rad 7.696e-14 ; 0 in True | |mid| 2.291e-20 ; rad 7.696e-14 ; 0 in True | |mid| 2.291e-20 ; rad 7.696e-14 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 50 : angle rad 4.133e-16 ; |mid| 4.178e-21 ; rad 6.225e-14 ; 0 in True | |mid| 4.178e-21 ; rad 6.225e-14 ; 0 in True | |mid| 4.178e-21 ; rad 6.225e-14 ; 0 in True | |mid| 4.178e-21 ; rad 6.225e-14 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 51 : angle rad 8.267e-16 ; |mid| 1.933e-19 ; rad 2.331e-13 ; 0 in True | |mid| 1.933e-19 ; rad 2.331e-13 ; 0 in True | |mid| 1.933e-19 ; rad 2.331e-13 ; 0 in True | |mid| 1.933e-19 ; rad 2.331e-13 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 52 : angle rad 1.653e-15 ; |mid| 6.747e-19 ; rad 8.584e-13 ; 0 in True | |mid| 6.747e-19 ; rad 8.584e-13 ; 0 in True | |mid| 6.747e-19 ; rad 8.584e-13 ; 0 in True | |mid| 6.747e-19 ; rad 8.584e-13 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 53 : angle rad 3.307e-15 ; |mid| 7.386e-19 ; rad 1.173e-12 ; 0 in True | |mid| 7.386e-19 ; rad 1.173e-12 ; 0 in True | |mid| 7.386e-19 ; rad 1.173e-12 ; 0 in True | |mid| 7.386e-19 ; rad 1.173e-12 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 54 : angle rad 6.613e-15 ; |mid| 1.141e-18 ; rad 3.119e-12 ; 0 in True | |mid| 1.141e-18 ; rad 3.119e-12 ; 0 in True | |mid| 1.141e-18 ; rad 3.119e-12 ; 0 in True | |mid| 1.141e-18 ; rad 3.119e-12 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 55 : angle rad 1.323e-14 ; |mid| 2.857e-18 ; rad 2.820e-12 ; 0 in True | |mid| 2.857e-18 ; rad 2.820e-12 ; 0 in True | |mid| 2.857e-18 ; rad 2.820e-12 ; 0 in True | |mid| 2.857e-18 ; rad 2.820e-12 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 56 : angle rad 2.645e-14 ; |mid| 2.108e-18 ; rad 1.712e-11 ; 0 in True | |mid| 2.108e-18 ; rad 1.712e-11 ; 0 in True | |mid| 2.108e-18 ; rad 1.712e-11 ; 0 in True | |mid| 2.108e-18 ; rad 1.712e-11 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 57 : angle rad 5.291e-14 ; |mid| 1.258e-17 ; rad 1.217e-11 ; 0 in True | |mid| 1.258e-17 ; rad 1.217e-11 ; 0 in True | |mid| 1.258e-17 ; rad 1.217e-11 ; 0 in True | |mid| 1.258e-17 ; rad 1.217e-11 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 58 : angle rad 1.058e-13 ; |mid| 2.776e-17 ; rad 2.980e-11 ; 0 in True | |mid| 2.776e-17 ; rad 2.980e-11 ; 0 in True | |mid| 2.776e-17 ; rad 2.980e-11 ; 0 in True | |mid| 2.776e-17 ; rad 2.980e-11 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 59 : angle rad 2.116e-13 ; |mid| 2.926e-17 ; rad 1.101e-10 ; 0 in True | |mid| 2.926e-17 ; rad 1.101e-10 ; 0 in True | |mid| 2.926e-17 ; rad 1.101e-10 ; 0 in True | |mid| 2.926e-17 ; rad 1.101e-10 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 60 : angle rad 4.233e-13 ; |mid| 1.888e-17 ; rad 1.471e-10 ; 0 in True | |mid| 1.888e-17 ; rad 1.471e-10 ; 0 in True | |mid| 1.888e-17 ; rad 1.471e-10 ; 0 in True | |mid| 1.888e-17 ; rad 1.471e-10 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 61 : angle rad 8.465e-13 ; |mid| 2.172e-16 ; rad 4.010e-10 ; 0 in True | |mid| 2.172e-16 ; rad 4.010e-10 ; 0 in True | |mid| 2.172e-16 ; rad 4.010e-10 ; 0 in True | |mid| 2.172e-16 ; rad 4.010e-10 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 62 : angle rad 1.693e-12 ; |mid| 1.489e-16 ; rad 3.388e-10 ; 0 in True | |mid| 1.489e-16 ; rad 3.388e-10 ; 0 in True | |mid| 1.489e-16 ; rad 3.388e-10 ; 0 in True | |mid| 1.489e-16 ; rad 3.388e-10 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 63 : angle rad 3.386e-12 ; |mid| 1.003e-16 ; rad 2.249e-09 ; 0 in True | |mid| 1.003e-16 ; rad 2.249e-09 ; 0 in True | |mid| 1.003e-16 ; rad 2.249e-09 ; 0 in True | |mid| 1.003e-16 ; rad 2.249e-09 ; 0 in True ; PASS
+  TIE Q0 AT qE0 400 j 64 : angle rad 6.772e-12 ; |mid| 9.921e-16 ; rad 2.063e-09 ; 0 in True | |mid| 9.921e-16 ; rad 2.063e-09 ; 0 in True | |mid| 9.921e-16 ; rad 2.063e-09 ; 0 in True | |mid| 9.921e-16 ; rad 2.063e-09 ; 0 in True ; PASS
+  hQtie     CERTIFIED -- by coeffs_exist (PowerLimit.lean :686-:704), inputs certified; controls 41 of 41
+  hQb       CERTIFIED -- by coeffs_exist (PowerLimit.lean :705-:731), inputs certified; controls 41 of 41
+  hθ0       CERTIFIED -- θ = 0.998184669760907 ≥ 0
+  hθ        CERTIFIED -- every point outside the tie and kill sets read or screened: offScore/M ≤ θ; the points above T certified on B1 (READ), not a kernel lemma
+    hrate j = 24  FAILS   left exp([864952227.478841 +/- 4.63e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 25  FAILS   left exp([864891259.748736 +/- 1.34e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 26  FAILS   left exp([864769324.288525 +/- 4.75e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 27  FAILS   left exp([864525453.368104 +/- 1.58e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 28  FAILS   left exp([864037711.527262 +/- 4.79e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 29  FAILS   left exp([863062227.845576 +/- 2.52e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 30  FAILS   left exp([861111260.482206 +/- 2.91e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 31  FAILS   left exp([857209325.755465 +/- 3.73e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 32  FAILS   left exp([849405456.301982 +/- 4.64e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 33  FAILS   left exp([833797717.395018 +/- 1.34e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 34  FAILS   left exp([802582239.581089 +/- 4.76e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 35  FAILS   left exp([740151283.953232 +/- 1.59e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 36  FAILS   left exp([615289372.697518 +/- 4.76e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 37  FAILS   left exp([365565550.186088 +/- 2.58e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+    hrate j = 38  HOLDS   left exp([-133882094.836770 +/- 2.78e-7]) ; right exp([91.8251399681171 +/- 3.54e-15]) = [7.570971096e+39 +/- 2.96e+29]
+  the points above T = 150: |Σ terms| ≤ [8.12012e-113060822100 +/- 2.88e-113060822106], on B1 (READ) and P3 (A0Q = 10.000) -- K = 39, E = 2^(j₀+1) = 2^39
+  THE ZERO SIDE at j₀ = 38: [-7.57097109570452e+39 +/- 4.25e+24] -- the dominant`s orbit [-7.57097109570452e+39 +/- 4.25e+24], the other off-line orbits [1.67760663012969e-2958169308 +/- 1.22e-2958169323], the on-line terms [2.37175081499145e-433814672 +/- 4.92e-433814687], the points above T [+/- 8.13e-113060822100] ; the ball BELOW 0
+  READING Q0 AT qE0: j₀ = 38
+
+### the b667 map sha256 011bbe47d528eb170ffcbca6f1ef500d09a517933071fe2313e5719072afe275 after the part (EQUAL) ; powers in the angle form 6766 ; squares by one product of a ball holding 0 0 ; elapsed 46 s

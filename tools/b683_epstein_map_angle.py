@@ -22,6 +22,7 @@ import gzip
 import io
 import json
 import os
+import re
 import sys
 import time
 
@@ -136,6 +137,20 @@ def _rd(name):
     return json.load(io.open(os.path.join(D, name), encoding='utf-8'))
 
 
+def _ball_hrate():
+    """the ball reading's hrate by j at Q0, read from data/b683_map_run.txt: the tool's bank_map banks no hrate key in its JSON (the first hyp
+    run read that absent key and compared 0 j -- the defects bank's entry), so the rows are the run bank's own lines `    hrate j = <j> <word>`
+    after the 400-bit rung's marker, the rung's reading being the one taken."""
+    t = io.open(os.path.join(D, 'b683_map_run.txt'), encoding='utf-8').read().split(NL)
+    k = max(i for i, l in enumerate(t) if 'RE-READ ONCE AT 400 BITS' in l)
+    out = {}
+    for l in t[k:]:
+        mm = re.match(r'^    hrate j = (\d+)\s+(HOLDS|FAILS|OVERLAP)\b', l)
+        if mm:
+            out[int(mm.group(1))] = mm.group(2)
+    return out
+
+
 def hyp(*a):
     m, m77 = _rd('b683_map.json'), _rd('b677_map.json')
     bar = K.BAR
@@ -165,7 +180,7 @@ def hyp(*a):
     # ### H5: b677's instrument-side row (hQtie from coeffs_exist and the orbit identity) against the ball reading, by j
     lab = (m77['q0'].get('labelled') or {})
     lh = dict((h[0], h[1]) for h in lab.get('hrate') or [])
-    bh = dict((h[0], h[1]) for h in (q.get('hrate') or []))
+    bh = _ball_hrate()
     both = sorted(set(lh) & set(bh))
     dis = [(j, lh[j], bh[j]) for j in both if lh[j] != bh[j]]
     lz = (m77['q0'].get('labelled') or {}).get('zero_side') or {}
