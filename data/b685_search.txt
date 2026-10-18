@@ -1,0 +1,89 @@
+b685 -- COMPONENT 2, (R295)(4): THE SEARCH, ROUTE (i) -- AN EXPLICIT ZERO COUNT REACHING Z_Q AT D = −23, h = 3 (2026-10-18)
+
+### rows are candidates: the source (read in this act, its file pinned by sha256), the statement quoted from it, its constants, the object it
+### bounds, its reach to Z_Q, and LOCATED (statement read at the source and quoted) or NOT LOCATED. No result recalled. Queries (web search, no
+### identifier of the author in any request): "explicit upper bound error zero-counting formula Dedekind zeta functions Dirichlet
+### L-functions Trudgian"; "explicit zero counting Hecke L-functions class group characters imaginary quadratic field N(T) explicit
+### constants"; "number of zeros Epstein zeta function binary quadratic form N(T) asymptotic Bombieri Hejhal linear combinations
+### L-functions"; "Hasanalizade Shen Wong "Counting zeros of the Riemann zeta function" arXiv"; "Hasanalizade Shen Wong "Counting zeros of
+### Dedekind zeta functions" arXiv Mathematics of Computation". Each PDF fetched from arxiv.org (or the author's page for (S3)), its text
+### read locally (pdftotext, pypdf; printed, nothing written), its sha256 prefix given; formulas quoted as the text layer prints them.
+
+== THE OBJECT'S SHAPE, FROM A SOURCE READ HERE
+  Lee, "On the Zeros of Epstein Zeta Functions", arXiv:1204.6297v1 (27 Apr 2012), p. 2 (sha256 3a03f046...): "( √−D / 2π )^s Γ(s)E(s, Q) =
+    ( √−D / 2π )^{1−s} Γ(1 − s)E(1 − s, Q)" and "E(s, Q) = w/h(D) Σ_χ χ̄(a_Q)L(s, χ). Here h(D) is the class number, ... Σ_χ is a sum over all
+    characters of the class group, and L(s, χ) is the Hecke L-function". At D = −23 (h = 3, w = 2): Z_Q = (2/3)[ζ_K + L(s, χ) + L(s, χ̄)],
+    K = Q(√−23), χ a cubic class-group character, ζ_K = L(s, χ₀) = ζ(s) L(s, χ_{−23}). A ZERO OF A SUM IS NOT A ZERO OF ITS TERMS: a count
+    of the zeros of each L(s, χ) bounds nothing about the zeros of Z_Q.
+
+== THE CANDIDATES
+  (S1) Trudgian, "An improved upper bound for the error in the zero-counting formulae for Dirichlet L-functions and Dedekind zeta-functions",
+       arXiv:1206.1844v2 (12 Jun 2013; Math. Comp. 84 (2015) 1439-1450 as cited by (S3) [13]) (sha256 50f37681...), Theorem 1, p. 1: "Let T ≥ 1
+       and χ be a primitive nonprincipal character modulo k. Then |N(T, χ) − (T/π) log (kT/2πe)| ≤ 0.315 log kT + 6.455." Object: Dirichlet
+       L(s, χ). REACH TO Z_Q: NONE -- Z_Q's terms are Hecke L-functions over K and Z_Q is their sum. LOCATED (does not reach).
+  (S2) The same, Theorem 2, p. 1: "Let T ≥ 1 and K be a number field with degree n_K = [K : Q] and absolute discriminant d_K. Then |N_K(T) −
+       (T/π) log {d_K (T/2πe)^{n_K}}| ≤ 0.316 {log d_K + n_K log T} + 5.872 n_K + 3.655." Object: ζ_K, N_K(T) counting zeros with 0 < β < 1,
+       |γ| ≤ T. REACH: ζ_K for K = Q(√−23) is one term of Z_Q; Z_Q's zeros are not ζ_K's. And (S3) p. 2: "Regrettably, Trudgian's paper
+       contains an error that renders his proof incomplete ... The same difficulty unfortunately recurs ... in [13, Theorem 2] (devoted to
+       analogous results for Dedekind zeta-functions)". LOCATED (does not reach; its proof flagged by (S3)).
+  (S3) Bennett, Martin, O'Bryant, Rechnitzer, "Counting zeros of Dirichlet L-functions", Math. Comp. 90 (2021) 1455-1482 (author's PDF,
+       sha256 548414b6...), Theorem 1.1, p. 2: "Let χ be a primitive character with conductor q > 1 and let T ≥ 5/7. Set ℓ := log (q(T + 2)/2π).
+       If ℓ ≤ 1.567, then N(T, χ) = 0. If ℓ > 1.567, then |N(T, χ) − ((T/π) log (qT/2πe) − χ(−1)/4)| ≤ 0.22737 ℓ + 2 log(1 + ℓ) − 0.5." Object:
+       Dirichlet L(s, χ). REACH: NONE. LOCATED (does not reach).
+  (S4) Hasanalizade, Shen, Wong, "Counting zeros of Dedekind zeta functions", arXiv:2102.04663v3 (3 May 2021) (sha256 f86bc699...), Theorem 1.1,
+       p. 2: "Given a number field K of degree n_K and with absolute discriminant d_K and r_1 real places, for any T ≥ 1, we have |N_K(T) − (T/π)
+       log (d_K (T/2πe)^{n_K}) + r_1/4| ≤ 0.22737 log (d_K (T + 2)^{n_K}/(2π)^{n_K}) + 23.02528 n_K + 4.51954." Object: ζ_K. REACH: the term ζ_K
+       of Z_Q at d_K = 23, n_K = 2, r_1 = 0; not Z_Q. LOCATED (does not reach).
+  (S5) Grenié, Molteni, "An explicit Chebotarev density theorem under GRH", arXiv:1709.07609v2 (29 Jan 2019) (sha256 a371cdd4...), Appendix A,
+       p. 26: "Let E be a number field. Let χ be a Hecke Größencharakter of E which is primitive and of finite order ... Let N(T, χ) be the
+       number (multiplicity included) of non-trivial zeros ρ (i.e. with Re ρ ∈ (0, 1)) with |Im ρ| ≤ T for L(s, χ). Theorem A.1. Unconditionally,
+       |N(T, χ) − (T/π) log [Q(χ) (T/2πe)^{n_E}] − (−2δ_χ + a_χ − b_χ)/4| ≤ D₁(log Q(χ) + n_E log T) + D′₂ n_E + δ_χ D′₃ when T ≥ T₀, for T₀, D₁,
+       D′₂ and D′₃ as in Table 1" (first row: D₁ 0.230, D′₂ 16.577, D′₃ 1.330 at T₀ = 1). Object: each L(s, χ) -- it reaches each class-group
+       character of Q(√−23) (primitive, finite order, conductor 1, Q(χ) = 23) and so each TERM of Z_Q; not the sum. LOCATED (does not reach).
+  (S6) Zaman, "Explicit estimates for the zeros of Hecke L-functions", arXiv:1502.05679v4 (29 Mar 2016) (sha256 ca1ab8d8...), abstract: "We
+       establish various new and improved explicit results, with effective dependence on K, q and χ, regarding the zeros of the Hecke
+       L-function L(s, χ), such as zero-free regions, Deuring-Heilbronn phenomenon, and zero density estimates"; its Theorems 1.1, 1.3 open
+       "Suppose d_K(Nq)n_K^{n_K} is sufficiently large". No count of zeros in a window or up to T is stated. NOT LOCATED (no explicit count).
+  (S7) Lee, arXiv:1204.6297v1, Theorem 1.3, p. 3: "E(s, Q) has c T + o(T) zeros in any region σ₁ < Re s < σ₂, |Im s| < T, with 1/2 < σ₁ < σ₂,
+       where c ≥ 0 and c is a function of σ₁, σ₂, and Q"; Theorem 1.1 (Voronin) "at least cT zeros"; and the abstract: "These authors give lower
+       bounds for the number of zeros in strips that are of the same order as the more easily proved upper bounds." Object: Z_Q itself. No
+       explicit constant, no window count, no count up to T across the strip. NOT LOCATED (reaches Z_Q; not explicit).
+  (S8) Lee, "On the zeros of Epstein zeta functions near the critical line", arXiv:1811.01613v1 (5 Nov 2018) (sha256 89d82eaf...), abstract:
+       "we estimate the number of zeros of E(s, Q) in the region σ > σ_T(θ) := 1/2 + (log T)^{−θ} and T < t < 2T, to provide its asymptotic
+       formula for fixed 0 < θ < 1 conditionally. Moreover, it is unconditional if the class number of Q is 2 or 3 and 0 < θ < 1/13." Object:
+       Z_Q in a region right of the line; asymptotic only. NOT LOCATED (not explicit, not a full count).
+  (S9) Mukhopadhyay, Rajkumar, Srinivas, "On the zeros of the Epstein zeta function", arXiv:1102.0367v1 (2 Feb 2011) (sha256 0673bc0e...),
+       abstract: "we count the number of consecutive zeros of the Epstein zeta-function, associated to a certain quadratic form, on the critical
+       line with ordinates lying in [0, T], T sufficiently large and which are separated apart by a given positive number V." A count of
+       on-line zeros, a lower bound in kind. NOT LOCATED.
+  (S10) Bombieri-Hejhal, on linear combinations of L-functions sharing a functional equation: read only as (S7) p. 3 describes it ("Assuming
+       the generalized Riemann Hypothesis for L_j(s) and a weak hypothesis about the spacing ... almost all the zeros of F(s) are simple and on
+       the critical line"); its source not read in this act. NOT LOCATED (conditional; no count with constants seen).
+
+== THE ζ BOUNDS FOR CONTROL C1 (read for (R295)(6) C1; they bound ζ, not Z_Q)
+  (Z1) Hasanalizade, Shen, Wong, "Counting zeros of the Riemann zeta function", arXiv:2107.06506v1 (14 Jul 2021) (sha256 3fc4c89f...), Corollary
+       1.2, p. 2: "For any T ≥ e, we have |N(T) − (T/2π) log (T/2πe)| ≤ 0.1038 log T + 0.2573 log log T + 9.3675." N(T) counts the zeros with 0 <
+       β < 1, 0 < γ ≤ T (p. 1). Its Table 1, p. 1, quoting Backlund [1] (1918): "0.1370 0.4430 5.2250 200" (C₁, C₂, C₃, T₀). LOCATED.
+  (Z2) Bellotti, Wong, "Improved estimates for the argument and zero-counting function of the Riemann zeta-function", arXiv:2412.15470v2 (7 Jul
+       2025) (sha256 9299073e...), Theorem 1.1, p. 1: "For every T ≥ e, we have |N(T) − (T/2π) log (T/2πe)| ≤ 0.10076 log T + 0.24460 log log T +
+       8.08344 and |N(T) − (T/2π) log (T/2πe)| ≤ 0.11200 log T + 0.12567 log log T + 3.77417". LOCATED.
+  (Z3) Trudgian, "An improved upper bound for the argument of the Riemann zeta-function on the critical line II", arXiv:1208.5846v2 (sha256
+       274b3a0a...), Corollary 1, p. 2: "For T ≥ T₀ ≥ e, |N(T) − (T/2π) log (T/2πe) − 7/8| ≤ 0.111 log T + 0.275 log log T + 2.450 + 0.2/T₀".
+       (S3) p. 2 names its reference [12] (this paper) among those where "The same difficulty unfortunately recurs". LOCATED (proof flagged).
+
+== THE METHOD'S SOURCES, READ HERE (they bound no Z_Q count; each is cited by a step of data/b685_count_plan.txt)
+  (M1) (S1) Lemma 1 (Jensen's Formula), p. 4; Lemma 2 (Backlund's trick), p. 5; §3.1, p. 6; (2.3)-(2.5), p. 3 (the argument principle on the
+       half rectangle and Stirling's formula with |θ| ≤ 1 from Olver [4, p. 294]); §5 (5.1)-(5.4), p. 11, the Dedekind case with the factor
+       Γ(s)^{r₂}; Lemma 3, p. 12 (the convexity bound for a(s) = (s − 1)ζ_K(s), "Proof. See [5, §7]", Rademacher 1959 -- not read here).
+  (M2) (Z1) Proposition 3.1, p. 5 (the Jensen-integral bound for S_N(c, r), from (S3) [7, Proposition 3.5]); Proposition 3.2 (Backlund's
+       trick), p. 6, with its conditions "If 1 < c < r and 0 < δ < 1/2"; Proposition 4.1 (Phragmén-Lindelöf principle), p. 6, "established by
+       Trudgian [17, Lemma 3]"; the inequality chain in the proof of Theorem 1.3, p. 15 (ζ's growth construction). And (S3) §5.1, before
+       its Proposition 5.4 (Backlund's trick): "The source of the error in [13] is in not tracking the constraints on c and r and how they
+       impact the applicability of 'Backlund's trick'"; its Lemma 5.3, with proof, the functional-equation step (Δ₊ + Δ₋ of the argument
+       bounded by the gamma factor's term).
+  (M3) Mathlib, Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean :398 (the kernel's lake package, read by the Grep tool): "theorem
+       Gamma_mul_Gamma_one_sub (z : ℂ) : Gamma z * Gamma (1 - z) = π / sin (π * z)" -- the reflection formula.
+
+### ### **CANDIDATES 10 ; LOCATED 5 (S1-S5), EACH BOUNDING ONE L-FUNCTION, NONE THE SUM Z_Q ; NOT LOCATED 5 (S6-S10), THE FOUR THAT REACH
+### Z_Q (S7-S10) WITHOUT AN EXPLICIT COUNT ; A LOCATED BOUND REACHING Z_Q WITH EXPLICIT CONSTANTS: NONE -- ROUTE (ii) STANDS. ζ BOUNDS FOR C1:
+### 3 LOCATED (Z1-Z3), (Z3) FLAGGED BY (S3).**

@@ -1,0 +1,74 @@
+b685 -- COMPONENT 2, (R295)(3): P3 -- HCOUNT AT Q0 -- ITS LEAN STATEMENT, ITS INEQUALITY WRITTEN OUT AT Q0, THE CERTIFIED REGION PLACED
+AGAINST IT, AND THE REMAINDER (2026-10-18)
+
+### rows are the hypothesis, its Lean statement and its instantiation at Q0. Written AFTER the search of (4) had begun, against (R295)(3)'s
+### order -- the seat's defect (d), relay data/b685_defects.txt; HCount's statement (RestBound.lean :42-:45) and its inequality at Q0 ("N(t, t +
+### 1) ≤ 10 log(|t| + 3) for every real t") were banked before any search in relay data/b685_readfirst.txt, committed at f89f961b. The kernel read at
+### SIDE-explicit-formula v0.33 (main 95f8dc8) by `git show v0.33:<path>`, no build. The navigator's answer on the three citation misses
+### (relay data/b685_author_answers.txt; defects (a)-(c), relay data/b685_defects.txt) sets how the misses are read here.
+
+== 1. THE HYPOTHESIS AS THE BANKS NAME IT
+  P3 at data/b675_hypotheses.txt :61: "def Q0Count (Z : Zeta23.ZeroConfig) : Prop := HCount Z A0Q" with "def A0Q : ℝ := 10" (Schema/EpsteinQ0.lean
+    :104, :108); :67 "HCount: T-COUNT ASSUMED (P3, A₀Q = 10)". Beside it data/b679_q0_membership.txt :66: "HCount Z 10  ASSUMED -- T-COUNT, as
+    b675 left it". Its status in the kernel, Schema/EpsteinQ0.lean :106: "(P3) THE LOCAL COUNT WITH A NUMBER -- stated, not proved; open."
+  The hA reading that rests on it, data/b683_map_run.txt :176: "BY P3 (Q0Count, a named premise, stated, not proved; open)".
+
+== 2. THE LEAN STATEMENT, QUOTED BY LINE (v0.33)
+  SIDEExplicitFormula/RestBound.lean :42-:45
+      /-- **H-COUNT:** the kernel's local count, `N(t, t + 1) <= A0 log(|t| + 3)` with `A0 >= 1`
+      (the shape of `Zeta23.RvM.zetaZeroConfig_local_count`). -/
+      def HCount (Z : Zeta23.ZeroConfig) (A₀ : ℝ) : Prop :=
+        1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+  SIDEExplicitFormula/Schema/Wide/Config.lean :48-:50 (the same statement over the widened class, side by side)
+      /-- **H-COUNT over the widened class:** `N(t, t + 1) ≤ A₀ log(|t| + 3)` with `A₀ ≥ 1` (RestBound.lean :44's statement). -/
+      def HCount (Z : WideConfig) (A₀ : ℝ) : Prop :=
+        1 ≤ A₀ ∧ ∀ t : ℝ, (N Z t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+  N and its window: Zeta23/Defs.lean :153 "def window (T₁ T₂ : ℝ) : Set ℂ := Z.carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}", :162 "def N (T₁ T₂ :
+    ℝ) : ℕ := ∑ᶠ ρ ∈ Z.window T₁ T₂, Z.mult ρ" -- the count with multiplicity of the points with T₁ < Im ρ ≤ T₂ (Wide.window :43, Wide.N :46 the
+    same definitions over WideConfig).
+  THE CONFIGURATION'S COUNT FIELD: NONE. ZeroConfig (Zeta23/Defs.lean :136-:146) carries carrier, mult, one_le_mult, strip (:142, the closed
+    strip 0 ≤ Re ρ ≤ 1), reflect_mem, mult_reflect, finite_window, and no count; :133-:134: "The quantitative local count N(t+1)−N(t) ≤ A₀
+    log(t+3) is not part of this structure; it is a field of PaperInputs (H-RvM) in Zeta23/Hypotheses.lean." That field, Zeta23/Hypotheses.lean
+    :86: "local_count : ∃ A₀ : ℝ, 1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)".
+  THE CLASS Q0 LIES IN: Q0Count is typed over Zeta23.ZeroConfig, whose closed strip [0, 1] (Defs.lean :142) Q0's configuration falls outside
+    (b678's corrigendum, FINDINGS :8977; data/b675_hypotheses.txt :67, Davenport-Heilbronn zeros with Re ρ > 1 above t = 150). The class it
+    lies in is WideConfig (Config.lean :28-:38, strip -1/2 < Re ρ < 3/2 at :34; data/b679_q0_membership.txt :71 -- strip, reflect,
+    finite_window, one_le_mult HOLDING). The inequality is therefore asked of Q0's zeros in the open strip (-1/2, 3/2), as Wide.HCount states it.
+
+== 3. THE INEQUALITY AT Q0, WRITTEN OUT
+  Z = the zeros ρ of Z_Q with -1/2 < Re ρ < 3/2, with multiplicity -- every zero of the completed function Λ_Q(s) = (2π/√23)^{−s} Γ(s) Z_Q(s)
+    (data/b667_epstein_plan.txt :10). The zeros of Z_Q outside the strip are the real points s = -1, -2, ... where Γ has its poles (Λ_Q has
+    none at σ ≤ -1/2 by the functional equation Λ_Q(s) = Λ_Q(1 − s) and V2 below; Z_Q(0) = -1, data/b679_q0_membership.txt :71); they are
+    not in the carrier.
+  A₀ = 10, so 1 ≤ A₀ holds; the inequality asked: for every real t,
+      N(t, t + 1) := Σ { m_ρ : ρ ∈ Z, t < Im ρ ≤ t + 1 } ≤ 10 log(|t| + 3).
+  The regions the Lean quantifies over: every real t, the window (t, t + 1] in the ordinate, the whole strip in the abscissa. Z_Q has real
+    coefficients, so Λ_Q(conj s) = conj Λ_Q(s) (plan :12) and Z is symmetric under conjugation with equal multiplicity: for t ≤ -1, N(t, t + 1)
+    counts the zeros with ordinate in [u, u + 1), u = -t - 1 ≥ 0, a window at the same height with its ends exchanged, and |t| = u + 1 > u.
+    So the inequality at every real t is read from the closed windows [u, u + 1], u ≥ 0, and the windows meeting (-1, 1).
+
+== 4. THE CERTIFIED REGION PLACED AGAINST IT
+  b667 (data/b667_epstein_counts.txt): R = [−0.5, 1.5] × [0.5, 150], N(R) = 180 (ball [180.0000000 +/- 1e-12], :52), the list in R 180 (C3,
+    :54); the band B = [−0.5, 1.5] × [−0.5, 0.5]: 0 (:56); σ ≥ 3/2 no zero, V2: |Z_Q(s) − 2| ≤ Z_Q(3/2) − 2 = [1.54841378141857 +/- 1.08e-15]
+    < 2 for Re s ≥ 3/2; σ ≤ −1/2 none by the functional equation. The right edge by the (3c) bound (plan section 15 :247-:249).
+  b681 (data/b681_epstein_zeros_narrowed.json.gz, hashes data/b681_epstein_zeros_narrowed_hashes.txt :2-:4): 163 points narrowed to 1e-30
+    (146 ON, 17 OFF), with the 17 partners 1 − conj ρ (equal ordinates) 180 points in the upper half, matching N(R).
+  So every zero of Z with |Im ρ| ≤ 150 is a listed point, its ordinate known to 1e-30. Read from that list (a reading command over the .gz,
+    nothing written):
+      points in the upper half 180 ; the lowest ordinate 1.3088963261727 ; the highest 149.71800758585
+      the largest window count N(t, t + 1) with t + 1 ≤ 150: 4 (t just below 92.1517737189)
+      the narrowest margin 10 log(|t| + 3) − N(t, t + 1) over those windows: 13.607 (t just below 1.3088963262, count 1)
+      the list's own constant max N(t, t + 1)/log(|t| + 3): 0.8781 (beside data/b663_a0_list.txt :5's "A₀ = 1", set by the clause 1 ≤ A₀)
+      the ordinates in (149, 150]: 149.3427459749, 149.7180075858 -- a window with t in (149, 150) holds at most 2 listed points below 150
+  THE LARGEST HEIGHT THE CERTIFICATION COVERS: 150 (R's top edge). HCount's inequality HOLDS at every t with -150 ≤ t ≤ 149 (the window
+    inside |Im| ≤ 150), every window there at most 4 against at least 10 log 3 = 10.99.
+
+== 5. THE REMAINDER -- THE OBJECT OF (R295)(4) AND (5)
+  What HCount asks beyond the certified height: for every t > 149 (and, by the symmetry of section 3, every t < −150),
+      N(t, t + 1) ≤ 10 log(t + 3),
+    the windows with t in (149, 150) counted as at most 2 listed points plus the zeros with 150 < Im ρ ≤ t + 1. No bank lists a zero above
+    150, and Z_Q has zeros off the line there (Davenport-Heilbronn; data/b675_hypotheses.txt :67). The search of (4) looks for a located
+    explicit count reaching Z_Q; the derivation of (5), where none is located, bounds N(t, t + 1) for t ≥ 149 in Backlund's form.
+
+### ### **H1 READING: HCOUNT QUOTED (RestBound.lean :44-:45, Wide.HCount :49-:50) ; THE INEQUALITY AT Q0: N(t, t + 1) ≤ 10 log(|t| + 3) FOR
+### EVERY REAL t ; CERTIFIED TO HEIGHT 150, EVERY WINDOW THERE AT MOST 4, NARROWEST MARGIN 13.607 ; THE REMAINDER: t > 149.**

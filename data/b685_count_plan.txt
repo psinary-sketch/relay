@@ -1,0 +1,124 @@
+b685 -- COMPONENT 3, (R295)(5): THE PLAN -- THE BACKLUND FORM FOR N_Q(T), ITS CONSTANTS' FORM, THE COMPOSITION, THE CONTROLS AND THE PRICE
+(2026-10-18)
+
+### rows are steps, each with its statement, its source (read in this act; the source labels are relay data/b685_search.txt's) and its
+### constants. NO CONSTANT HAS BEEN COMPUTED FOR THIS PLAN: every figure below is read from a bank, cited by path and line, or is a parameter
+### the plan fixes; the constants of section 2 are computed only on the author's word on this plan (N2). Nothing here is a kernel file.
+
+== 0. THE OBJECT
+  N_Q(T) := the number, with multiplicity, of zeros ρ of Z_Q with −1/2 < Re ρ < 3/2 and 0 < Im ρ ≤ T -- the zeros of Λ_Q(s) = (2π/√23)^{−s}
+    Γ(s) Z_Q(s) (relay data/b667_epstein_plan.txt :10) in the upper half-plane; the window count N(t, t + 1) = N_Q(t + 1) − N_Q(t) for t ≥ 0
+    (relay data/b685_p3.txt section 3). Certified: N_Q(150) = 180, no zero with |Im| ≤ 0.5 (data/b667_epstein_counts.txt :52, :56).
+  Sought (R295)(5)(d): N_Q(T) = (T/π) log(√23 T/(2πe)) + C₀ + θ R(T), |θ| ≤ 1, R(T) = a log T + b log log T + c, for T ≥ T₁ = 149, with a, b,
+    c (and C₀) balls; then (6): N(t, t + 1) ≤ 10 log(|t| + 3) for every t ≥ 149.
+
+== 1. THE STEPS
+  (1) THE ARGUMENT PRINCIPLE ON THE HALF PATH. For σ₁ ≥ 3/2 and T not an ordinate, N_Q(T) = (1/π) Δ_P arg Λ_Q, P: ½ + i/2 → σ₁ + i/2 → σ₁ + iT
+      → ½ + iT. Λ_Q's poles (s = 0, 1) lie in the band |Im| ≤ 1/2, below P. Source: (S1) (2.3), p. 3 -- "From Cauchy's theorem and (2.2) one
+      deduces that N(T, χ) = (1/π) Δ_C arg ξ(s, χ)", C "the portion of the boundary of the rectangle in the region σ ≥ ½" -- the same device;
+      for Λ_Q the reflection Λ_Q(1 − conj s) = conj Λ_Q(s) (data/b667_epstein_plan.txt :12) and b667's half path, plan section 4 :87
+      ("N(R) = (1/π) Δ_P arg Λ_Q"). Constants: none.
+  (2) THE MAIN TERM. Δ_P arg (2π/√23)^{−s} = (T − ½) log(√23/2π). Δ_P arg Γ(s) = Im log Γ(½ + iT) − Im log Γ(½ + i/2) (Γ has no zero or pole in
+      σ ≥ ½). Stirling with an explicit remainder, (S1) (2.4), p. 3, from Olver [4, p. 294]: "log Γ(z) = (z − ½) log z − z + ½ log 2π + θ/(6|z|),
+      which is valid for |arg z| ≤ π/2, and in which θ denotes a complex number satisfying |θ| ≤ 1". At z = ½ + iT: Im log Γ(½ + iT) = T log T
+      − T + (T/2) log(1 + 1/(4T²)) + θ′/(6|½ + iT|), |θ′| ≤ 1. Hence (1/π)[Δ arg κ^s + Δ arg Γ] = (T/π) log(√23 T/(2πe)) + c_Γ + e_Γ(T),
+      c_Γ = −(1/π)[½ log(√23/2π) + Im log Γ(½ + i/2)] (a ball, acb lgamma), |e_Γ(T)| ≤ (1/π)[(T/2) log(1 + 1/(4T²)) + 1/(6T)].
+  (3) THE RIGHT EDGE BY THE (3c) BOUND. For σ ≥ 3/2, |Z_Q(s) − 2| ≤ Z_Q(σ) − 2 < 2 -- data/b667_epstein_counts.txt V2 ("a bound in σ alone:
+      |Z_Q(s) − 2| ≤ Z_Q(3/2) − 2 < 2 for Re s ≥ 3/2") and plan section 15 :247-:249; r_Q(n) ≥ 0, so Z_Q(σ) decreases in σ. So Re Z_Q > 0 on
+      σ = σ₁ and |Δ_{σ₁ + i/2 → σ₁ + iT} arg Z_Q| ≤ 2 arcsin((Z_Q(σ₁) − 2)/2). Constant: Z_Q(σ₁) a ball at the real point σ₁, by b667's
+      evaluation route (plan section 2, the Chowla-Selberg form, tools/b667_epstein_certify.py, imported unedited).
+  (4) THE BOTTOM EDGE. Δ arg Z_Q along ½ + i/2 → σ₁ + i/2: a fixed number, a ball by b667's segment route (the route b671 imported,
+      tools/b671_narrow.py :90 `segment`), one segment, its unresolved list printed and required empty. Constant c_B. (It cancels in every
+      window count of (9); it enters N_Q(T)'s C₀ and control C2.)
+  (5) THE TOP EDGE BY BACKLUND'S TRICK. a(s) := (s − 1) Z_Q(s), entire; f_N(s) = ½[a(s + iT)^N + a(s − iT)^N] -- (Z1) (3.1), p. 5, with ζ
+      replaced by Z_Q, as (S1) (5.3), p. 11, does for ζ_K. Source of the trick: (S1) Lemma 2, p. 5, stated for "a complex-valued function
+      F(s)", with its proof (pp. 5-6) and §3.1 (p. 6), read; its repaired form (Z1) Proposition 3.2, p. 6: "Set σ₁ = c + (c − 1/2)²/r and δ = 2c
+      − σ₁ − ½. If 1 < c < r and 0 < δ < ½, then |arg((σ + iT − 1)ζ(σ + iT))|^{1/2}_{σ=σ₁}| ≤ π S_N(c, r)/(2 log(r/(c − 1/2))) + E(T, δ)/2 +
+      π/N + π/(2N) + π/4". (S3) p. 2 names the defect it repairs -- "the various parameters introduced in his proofs need to satisfy certain
+      inequalities, and he incorrectly argued that one of the inequalities was redundant" -- and (S3) §5.1, before its Proposition 5.4
+      (Backlund's trick, the same σ₁ and δ): "The source of the error in [13] is in not tracking the constraints on c and r and how they impact
+      the applicability of 'Backlund's trick'." So the conditions of (Z1) Proposition 3.2 (1 < c < r, 0 < δ < ½) and of Proposition 3.1 (c − r
+      < ½ < 1 < c < σ₁ < c + r) are imposed and printed at the chosen parameters as ball comparisons, none taken as redundant. (Z1)'s longer
+      chain in the proof of its Theorem 1.3, p. 15 ("−½ < c − r < 1 − c < −η < 0 < ¼ ≤ δ ..."), serves ζ's growth construction with c near 1
+      (its Table 2 rows c ≈ 1.04) and has no solution with c ≥ 3/2 (1 − c ≤ −½); it is not imposed: the growth construction here is step (7)'s.
+      At c = 3/2, δ = (c − ½)(1 − (c − ½)/r) < ½ asks r < (c − ½)²/(c − 1) = 2, so r ∈ (3/2, 2) and the circle's left point c − r ∈ (−½, 0)
+      (a reading of the inequalities, no constant). E(T, δ), the factor's term: (S1) (5.4), p. 11, for a(s) = (s − 1)ζ_K(s), "|Δ₊ arg a(s) + Δ₋ arg a(s)|
+      ≤ F(δ, t) + n_K G(0, δ, t)", F and G of (3.13), p. 7, with n_K = 2 -- it reads only the completed form, and Λ_Q is ζ_K's at d_K = 23, r₂ = 1:
+      (S1) (5.1) (d_K/(π^{n_K} 2^{2r₂}))^{s/2} Γ(s) = (√23/2π)^s Γ(s), b667 :10's factor. The transfer of (Z1) Proposition 3.2's statement to
+      a(s) = (s − 1) Z_Q(s): its proof ((S3) Proposition 3.7) is not read in this act; the step rests on (S1) Lemma 2 and §3.1 (read, general
+      F) under (Z1)'s full chain. The bound B(T) on |Δ_top arg a| is that right side; Δ_top arg Z_Q = Δ_top arg a − Δ_top arg(s − 1), |Δ_top
+      arg(s − 1)| ≤ arctan((σ₁ − 1)/T) + arctan(1/(2T)) ((Z1) p. 15).
+  (6) THE JENSEN INTEGRAL. (Z1) Proposition 3.1, p. 5: "lim sup S_{N_m}(c, r) ≤ log((1/√((c − 1)² + T²)) ζ(c)/ζ(2c)) + (1/π) ∫_0^π F_{c,r}(θ) dθ"
+      for F_{c,r}(θ) ≥ (1/N) log |f_N(c + re^{iθ})|; for Z_Q the lower bound at the centre ζ(2c)/ζ(c) ≤ |ζ(c + iT)| (an Euler-product bound)
+      is replaced by |Z_Q(c + iT)| ≥ 2 − (Z_Q(c) − 2) = 4 − Z_Q(c) > 0 for c ≥ 3/2 (step (3)), with Rosser's choice of N, (S1) p. 8 (4.2):
+      "Choose a sequence of N's tending to infinity for which Nψ tends to zero modulo 2π". Jensen's formula itself: (S1) Lemma 1, p. 4.
+      Constants: Z_Q(c) a ball; c ≥ 3/2 forced, so with (5)'s conditions r ∈ (c, (c − ½)²/(c − 1)) and c − r > −½.
+  (7) THE GROWTH BOUND F_{c,r} ON THE CIRCLE (σ ∈ [c − r, c + r] ⊂ (−½, ∞)).
+      (i) σ ≥ 1 + η: |Z_Q(σ + it)| ≤ Z_Q(σ) (r_Q(n) ≥ 0, absolute convergence; the analogue (S1) (5.6) "|ζ_K(s)| ≤ {ζ(σ)}^{n_K}"). Constants:
+          Z_Q at real points of [1 + η, c + r], balls by step (3)'s route.
+      (ii) p ≤ σ ≤ 1 + η, −η ≤ p < 0: the Phragmén-Lindelöf principle, (Z1) Proposition 4.1, p. 6 ("Let a, b, Q be real numbers such that b > a
+          and Q + a > 1 ... Then for a ≤ Re(s) ≤ b, |f(s)| ≤ {A|Q + s|^{α₁} ...}^{(b − Re(s))/(b − a)} {B|Q + s|^{β₁} ...}^{(Re(s) − a)/(b − a)}"),
+          applied to a(s) on [p, 1 + η]: at σ = 1 + η, |a(s)| ≤ Z_Q(1 + η)|Q + s|; at σ = p, the functional equation Z_Q(s) = (2π/√23)^{2s − 1}
+          (Γ(1 − s)/Γ(s)) Z_Q(1 − s) (b667 :10), the reflection Γ(1 − s)/Γ(s) = Γ(1 − s)² sin(πs)/π ((M3) Gamma_mul_Gamma_one_sub), |Γ(1 −
+          s)| by (2) 's Stirling at z = 1 − s (Re z = 1 − p > 0, so |arg z| ≤ π/2), |sin πs| ≤ cosh πt, and |Z_Q(1 − s)| ≤ Z_Q(1 − p): a bound A|Q
+          + s|^{α₁} with α₁ = 2(½ − p) + 1, α₂ = 0, its A and Q printed. The growth hypothesis |f| < C exp(e^{k|t|}): the Chowla-Selberg form's
+          terms (b667 section 2 :26-:33) grow at most exponentially in |t|. (S1) Lemma 3, p. 12, states the same shape for the Dedekind case
+          ("Proof. See [5, §7]", Rademacher, not read here) and is cited beside, not relied on.
+      (iii) between c − r and p (if c − r < p): excluded by choosing c − r ≥ p, as (S1) §4.1 does ("provided that 1 + η − r(½ + η) ≥ p").
+  (8) THE CONSTANTS. R(T) = (1/π)[2 arcsin((Z_Q(σ₁) − 2)/2) + B(T) + arctan((σ₁ − 1)/T) + arctan(1/(2T))] + |e_Γ(T)|, B(T) from (5)-(7) with
+      N → ∞: B(T) = (π/(2 log(r/(c − ½))))[−log(√((c − 1)² + T²)(4 − Z_Q(c))) + (1/π)∫_0^π F_{c,r}(θ)dθ] + E(T, δ)/2 + π/4. The integral splits
+      into the log T part (from α₁ on the arc in σ < 1 + η, and from the |Q + s| factor) and a constant part, so R(T) = a log T + b log log T
+      + c with b = 0 (no log-power enters a convexity-only bound: α₂ = β₂ = 0), a and c balls; C₀ = c_Γ + c_B/π. Arithmetic in python-flint
+      arb at 200 bits; ∫_0^π F_{c,r} by subdivision with each piece bounded above by its interval enclosure (outward rounding), the
+      subdivision count printed. The parameters (c, r, η, p) chosen on a grid to minimise the window bound at t = 150, every chain
+      inequality of (5) checked as a ball comparison.
+  (9) THE WINDOWS. For t ≥ 150: N(t, t + 1) = (1/π)[Δ_{t → t+1}(main) + Δ_{σ₁: t → t+1} arg Z_Q + top(t + 1) − top(t)] -- the bottom edge
+      cancels -- so N(t, t + 1) ≤ W(t) := M(t + 1) − M(t) + |e_Γ(t)| + |e_Γ(t + 1)| + (1/π)[2 arcsin((Z_Q(σ₁) − 2)/2) + B′(t) + B′(t + 1)], B′
+      = B plus the arg(s − 1) terms. For 149 < t < 150: N(t, t + 1) ≤ 2 + N(150, t + 1) (relay data/b685_p3.txt section 4: at most 2 listed
+      points in (149, 150]), N(150, t + 1) bounded by W's form on (150, t + 1].
+
+== 2. THE COMPOSITION, (R295)(6), ON THE AUTHOR'S WORD
+  The margin m(t) = 10 log(t + 3) − W(t) (or − (2 + W_{150}(t)) on (149, 150)) evaluated by interval subdivision on [149, 10⁶], each piece's
+  lower bound printed where it is the narrowest; for t ≥ 10⁶ by the coefficient comparison W(t) ≤ κ₁ log t + κ₀ with κ₁ (= (1/π)(1 + 2·(the
+  log T coefficient of B′)) and κ₀ balls, κ₁ < 10 and m(10⁶) > 0 with m increasing beyond (its derivative bound printed). The certified range
+  −150 ≤ t ≤ 149 (data/b685_p3.txt section 4) and t ≥ 149 meet at 149 with no height uncovered when m > 0 throughout; negative t by the
+  symmetry of data/b685_p3.txt section 3. Banked: data/b685_count.txt (rows are T ranges with the bound, HCount's figure and the margin).
+  A consistency reading beside it (no hypothesis): M(150) + C₀ ± R(150) contains the certified 180.
+
+== 3. THE CONTROLS AND THE HYPOTHESES (R295)(6)
+  (C1) ζ. The same steps for Λ(s) = π^{−s/2} Γ(s/2) ζ(s): main term (T/2π) log(T/2πe) + 7/8; the gamma term (S1) (3.12)-(3.13) with a = 0 and
+       the F of (5.4) for (s − 1)ζ(s); the right edge |Δ arg ζ| ≤ log ζ(σ₁) and the centre's lower bound ζ(2c)/ζ(c) ((Z1) p. 15 and
+       Proposition 3.1 -- for ζ the (3c) form is not available at 3/2, ζ(3/2) − 1 > 1, b667 plan :256); |ζ(σ + it)| ≤ ζ(σ) for σ > 1 and the
+       Phragmén-Lindelöf step with ζ's functional equation ((Z1) (4.7)-(4.8), p. 7). Read against (Z1) Corollary 1.2 (0.1038, 0.2573, 9.3675,
+       T ≥ e) and Backlund's row of (Z1) Table 1 (0.1370, 0.4430, 5.2250, T₀ 200): the derived a_ζ, b_ζ, c_ζ printed beside them, constant by
+       constant. PASS where (i) the derived ζ bound contains N(T) − (T/2π) log(T/2πe) − 7/8 at T = 100, 1000, 10⁴ (N(T) by mpmath's nzeros,
+       its version printed) and (ii) at every sample T in {200, 10³, 10⁴, 10⁶, 10⁹} the derived bound is no sharper than (Z1)'s value -- a
+       convexity-only derivation sharper than a subconvexity one reads as an error; the ratios printed.
+  (C2) PLANTED. κ = √23/2π replaced by κ′ = √23/π (twice the constant) in steps (2) and (5)-(7) alike: at the certified height the interval
+       M′(150) + C₀′ ± R′(150) must exclude 180; the expected shift of the main term (150 − ½) log 2/π = 32.98 printed beside the read
+       disagreement. PASS where 180 lies outside; NOT DISCRIMINATING (H6 REFUTED) where inside.
+  (H1) data/b685_p3.txt sections 2-3. (H2) data/b685_search.txt, every candidate's reach printed. (H3) a, b, c (and C₀) balls, radii printed,
+  each step of section 1 sourced. (H4) m > 0 for every t ≥ 149, the narrowest margin and the meeting height printed. (H5) C1 PASS. (H6) C2 PASS.
+
+== 4. THE PRICE AND THE SPLIT (foreground parts, the split planned here)
+  The tool tools/b685_count.py, written by the Write tool, imports b667's evaluation route and b671's segment route unedited (their sha256
+  printed); its own bank writes, the only ones it makes: data/b685_count.txt, data/b685_count.json, data/b685_count_controls.txt and its part
+  banks data/b685_count_part<k>.json. Each part one foreground call under the 590 s guard, the memory hold read first:
+    (P1) Z_Q at the real points (σ₁, c, 1 + η, 1 − p and a grid on [1 + η, c + r]) and the bottom segment: about 2-4 minutes;
+    (P2) the parameter grid (about 10³ points), each a subdivided integral: about 3-6 minutes, split by grid half if the first half passes 300 s;
+    (P3) the composition on [149, 10⁶] and the coefficient comparison: about 1-3 minutes;
+    (P4) C1 with mpmath's N(T) at 10⁴: about 2-6 minutes;
+    (P5) C2 and the hypotheses: under a minute.
+  Memory under 1 GB. No lean, no kernel byte.
+
+== 5. THE NEXT LEMMA OF SUBSTANCE, PRICED: W-ORD-EPSTEIN-COUNT-LEAN
+  A Lean statement of the derived bound over a configuration given as the zeros of a function with a functional equation of Λ_Q's shape, a
+  right-edge bound |F − 2| < 2 on σ ≥ 3/2 and a growth bound. Read beside it: the vendored ζ local count (Zeta23/RvM/LocalCount.lean :28-:37)
+  runs a Jensen DISC count, not Backlund's trick, through the vendored ZerosBound (FromPNTPlus); the nearest Lean route is that disc count with
+  Z_Q's growth bound in place of ζ's, its A₀ not this act's figure. Price: one research act for the statement over an abstract function (FE,
+  growth, right-edge bound) by the disc route; an instance at Q0 needs Z_Q itself as a Lean function, which Mathlib does not carry -- a
+  further act. Trigger "a research act after b690".
+
+== 6. WHAT STOPS THE ACT AT THIS PLAN
+  No constant is computed before the author's word. If a condition of (5)-(7) has no solution with c ≥ 3/2, the act stops at (P2) and prints
+  the condition. If C1 or C2 fails, or m ≤ 0 at some t, the landing of (R295)(7) for that case.
