@@ -1,0 +1,22 @@
+b681 -- THE HYPOTHESES OF (R291)(7), READ (2026-10-18): rows are hypotheses, each with its reading and the bank line it is read from
+
+  (H1) every one of the 163 points reaches the target half-width 1e-30: HELD -- NARROWED TO 1e-30 163 OF 163 (data/b681_narrow.txt :170;
+       the rows :5-:167, ON 146 at depth 20 in part 1, OFF 17 at depth 20).
+  (H2) each point's certification form is b671's, no point changing form: HELD -- every row "form M-on (b671 M-on)" or "form M-off (b671
+       M-off)", FORMS AS b671`S True (data/b681_narrow.txt :170); no (4a) offset fired and no point stopped (data/b681_narrow_progress.txt,
+       0 POINT rows with an offset, 0 UNRESOLVED-AT-DEPTH).
+  (H3) no part exceeds 600 s and no run is detached: HELD -- 68 parts, the longest 471 s, summed 27,693 s against the plan's 33,172 s of
+       pool time and 72 parts (data/b681_narrow.txt :169-:170; data/b681_narrow_plan.txt == 3); every part a foreground run with its pool
+       terminated and joined; one refusal beneath the hold at part 3's first start (free 2,023 MB), nothing run or written by it, then
+       part 3 on the author's word after memory was freed (free 5,720 MB).
+  (H4) the chain from b671's bank verifies before any point is read, and the new bank's hashes bank is written and committed before the
+       root: the first half HELD -- every route printed b671's gz sha256 51d9e632... and JSON cd3a8ea1... EQUAL TO ITS HASHES BANK before
+       reading (data/b681_narrow.txt :3); the second half read at the root by G-ROOT-BANKS-COMMITTED (data/b681_epstein_zeros_narrowed_hashes.txt,
+       its chain line :4 naming b671's two hashes).
+  (H5) C1's ten ζ zeros narrow to the target width with the same code, and C2 is refused with its line printed: HELD -- C1 10 OF 10
+       NARROWED TO 1e-30 AND INSIDE, C2 REFUSED True (data/b681_narrow_controls.txt :17; C2's sign lines :13-:15, signs [1, 1]).
+  (H6) the Bessel bar as priced holds at every evaluation: HELD -- BESSEL BAR MISSES 0 over the on-line part and the 88,128 off-line units
+       (data/b681_narrow.txt :170; each unit's bar_misses in data/b681_narrow_units.jsonl, banked as data/b681_narrow_units.jsonl.gz,
+       its hashes in data/b681_large_banks.txt).
+
+### ### **H1 HELD ; H2 HELD ; H3 HELD ; H4 HELD AT THE CHAIN (THE COMMIT READ AT THE ROOT) ; H5 HELD ; H6 HELD.**
