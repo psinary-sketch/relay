@@ -628,7 +628,543 @@ def cutdiff(*a):
     print(L[-1])
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, naming=naming, runner=runner, prints=prints, cutdiff=cutdiff)
+# ================================================================================ THE LATE ROUTES (b685's, carried; every row read through READERS)
+import collections                 # noqa: E402
+import b633_record as R3           # noqa: E402
+import edit_route as ER            # noqa: E402
+RELAY = ROOT
+SESSION = 'C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % K.SESSION_ID
+SUBAGENTS = 'C:/Users/echo chamber/.claude/projects/D--/%s/subagents' % K.SESSION_ID
+R3.SP, R3.SESSION, R3.SESSION_ID = SP, SESSION, K.SESSION_ID
+
+
+def capture():
+    rows = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
+    for i, r in enumerate(rows):
+        r['n'] = i + 1
+    return rows
+
+
+LOCAL_LEAN = re.compile(r'(^|[;&|(]\s*|\s)(lake|lean)(\.exe)?\s+(build|env|exe|update|\S+\.lean)')
+QUOTED = re.compile(r'"(?:[^"\\]|\\.)*"|\'[^\']*\'')
+
+
+def local_lean(cmd):
+    """a command runs lean or lake on this host: the pattern read outside quoted strings and outside a gh workflow call."""
+    return 'gh workflow' not in cmd and LOCAL_LEAN.search(QUOTED.sub('""', cmd)) is not None
+
+
+MOVE_OR_DELETE = re.compile(r'\bgit\s+(-C\s+\S+\s+)?(mv|rm)\b|\bgit\s+(-C\s+\S+\s+)?branch\s+-[dD]\b|--delete\b|(^|[;&|]\s*|\s)rm\s+-|Remove'
+                            + r'-Item|\bos\.remove\b')
+
+
+def delete_shape(cmd):
+    """(R296)(5): a delete command names one branch and carries no glob in any half: (the branches it deletes, any glob character)."""
+    c = QUOTED.sub(lambda m: m.group(0).strip('\'"'), cmd)
+    dels = re.findall(r'\bgit\s+(?:-C\s+\S+\s+)?branch\s+-[dD]\s+((?:[^\s&;|]+\s*)+)', c) + \
+        re.findall(r'\bgit\s+(?:-C\s+\S+\s+)?push\s+origin\s+--delete\s+((?:[^\s&;|]+\s*)+)', c)
+    names = [n for d in dels for n in d.split()]
+    return names, [ch for ch in '*?[' if ch in c]
+
+
+IDENT = ('psinary', 'hotmail', 'seale', 'york', 'orcid', '0009-0008')
+
+
+def outbound():
+    """the act's outbound requests other than git: every WebSearch query and every subagent prompt from the ruling's line on, read from the
+    assistant lines of the session transcript, with the author's identifiers searched in each."""
+    out = []
+    for i, o, _st, _sid in _session_rows():
+        if o.get('type') != 'assistant':
+            continue
+        for c in (o.get('message') or {}).get('content') or []:
+            if isinstance(c, dict) and c.get('type') == 'tool_use' and c.get('name') in ('WebSearch', 'Agent', 'WebFetch'):
+                inp = c.get('input') or {}
+                text = inp.get('query') or inp.get('prompt') or inp.get('url') or ''
+                out.append(dict(line=i, tool=c['name'], ts=o.get('timestamp'), text=text))
+    for r in out:
+        r['identifiers'] = [w for w in IDENT if w in r['text'].lower()]
+    return out
+
+
+def commands(*a):
+    rows = capture()
+    if not rows:
+        sys.exit('### THE COMMAND CAPTURE READ NO COMMAND -- NOTHING WRITTEN')
+    hits = ER.scan(rows)
+    lean = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
+    mv = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and MOVE_OR_DELETE.search(QUOTED.sub('""', r['cmd']))]
+    disp = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and re.search(r'(^|&&\s*|;\s*)gh workflow run\b', QUOTED.sub('""', r['cmd']), re.M)]
+    detach = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and re.search(r'Start-Process|\bnohup\b|run_in_background', r['cmd'])]
+    seds = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and re.search(r'(^|[;&|(]\s*|\s)sed\s', QUOTED.sub('""', r['cmd']))]
+    shapes = [(r['n'],) + delete_shape(r['cmd']) for r in mv if delete_shape(r['cmd'])[0]]
+    ob = outbound()
+    L = ['b686 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (%s)' % utc(), '',
+         '### the source: the seat`s session %s from its first user line carrying %r, and its subagents` transcripts' % (K.SESSION_ID, K.ANCHOR),
+         '### commands read: %d' % len(rows), '', '### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (%d):' % len(hits)]
+    for r, o in hits:
+        L += ['  #%d %s %s %s -- %s' % (r['n'], r['ts'], r['src'], r['tool'], '; '.join(k for k, _ in o))] + ['      ' + x for x in r['cmd'].split(NL)]
+    if not hits:
+        L.append('  NONE')
+    L += ['', '### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (%d):' % len(lean)] + (['  #%d %s' % (r['n'], r['cmd'][:200]) for r in lean] or ['  NONE'])
+    L += ['', '### THE RUNNER DISPATCHES (%d):' % len(disp)] + (['  #%d %s' % (r['n'], r['cmd'][:240]) for r in disp] or ['  NONE'])
+    L += ['', '### THE COMMANDS THAT START A DETACHED RUN (%d):' % len(detach)] + (['  #%d %s' % (r['n'], r['cmd'][:240]) for r in detach] or ['  NONE'])
+    L += ['', '### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (%d):' % len(seds)] + (
+        ['  #%d %s' % (r['n'], r['cmd'][:240]) for r in seds] or ['  NONE'])
+    L += ['', '### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (%d):' % len(mv)]
+    for r in mv:
+        L += ['  #%d %s %s' % (r['n'], r['ts'], r['tool'])] + ['      ' + x for x in r['cmd'].split(NL)]
+    if not mv:
+        L.append('  NONE')
+    L += ['', '### THE BRANCH DELETES BY SHAPE ((R296)(5): one branch per command, no glob in any half): ' + '; '.join(
+        '#%d deletes %s, globs %s' % (n, d, gl or 'none') for n, d, gl in shapes)]
+    L += ['', '### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (%d):' % len(ob)]
+    L += ['  line %s | %s | %s | identifiers %s | %s' % (r['line'], r['tool'], r['ts'], r['identifiers'] or 'NONE', ' '.join(r['text'].split())[:200]) for r in ob] or ['  NONE']
+    L += ['', '### EVERY COMMAND (n | time | source | tool | first line, 160 characters):']
+    L += ['  #%d | %s | %s | %s | %s' % (r['n'], r['ts'], r['src'], r['tool'], r['cmd'].split(NL)[0][:160]) for r in rows]
+    L += ['', '### ### **COMMANDS %d ; G-EDIT-ROUTE OFFENCES %d ; LOCAL lean OR lake COMMANDS %d ; DISPATCHES %d ; DETACHED RUNS %d ; sed COMMANDS %d ; '
+              'MOVE OR DELETE COMMANDS %d ; BRANCH DELETES OF ONE BRANCH AND NO GLOB %d OF %d ; OUTBOUND REQUESTS %d, AN IDENTIFIER IN %d.**' % (
+                  len(rows), len(hits), len(lean), len(disp), len(detach), len(seds), len(mv), sum(1 for _n, d, gl in shapes if len(d) == 1 and not gl),
+                  len(shapes), len(ob), sum(1 for r in ob if r['identifiers']))]
+    put_txt('b686_commands.txt', [l.replace('\r', '') for l in L])
+    put_json('b686_commands.json', dict(at=utc(), anchor=K.ANCHOR, rows=rows, offences=[dict(n=r['n'], kinds=[k for k, _ in o]) for r, o in hits],
+                                        local_lean=[r['n'] for r in lean], dispatches=[r['n'] for r in disp], detached=[r['n'] for r in detach],
+                                        seds=[r['n'] for r in seds], moves_deletes=[r['n'] for r in mv],
+                                        delete_shapes=[dict(n=n, deletes=d, globs=gl) for n, d, gl in shapes], outbound=ob))
+    print(L[-1])
+    for r, o in hits:
+        print('  OFFENCE #%d %s: %s' % (r['n'], '; '.join(k for k, _ in o), r['cmd'].split(NL)[0][:200]))
+
+
+def _kerns():
+    import b641_record as R41
+    return list(R41.KERNS_READ) + ['SIDE-window', 'SIDE-trivium', 'SIDE-silence-principle', 'SIDE-bijection', 'SIDE-class-number-anomaly',
+                                   'SIDE-spinor', 'SIDE-li-map']
+
+
+def kernels(*a):
+    ks = list(dict.fromkeys(_kerns()))
+    put_json('b686_kernels_face.json', dict(at=utc(), kernels=R3.kern_state(ks)))
+    print('  kernels read: %d (the named kernel among them, after its merge and tag)' % len(ks))
+
+
+DEFECT_ROW = re.compile(r"^    \(([a-z]'?)\) ")
+
+
+def _defect_short():
+    out = []
+    L = rdn('b686_defects.txt').split(NL)
+    for i, l in enumerate(L):
+        if DEFECT_ROW.match(l):
+            j = i + 1
+            while j < len(L) and L[j].startswith('    ') and not DEFECT_ROW.match(L[j]) and not L[j].startswith('    ###'):
+                j += 1
+            m = re.match(r"^\(([a-z]'?)\) (.*?)\.(?= |$)", ' '.join(x.strip() for x in L[i:j]))
+            if m:
+                out.append(m.group(0)[:-1])
+    return out
+
+
+def defects(*a):
+    t = rdn('b686_defects.txt')
+    ds = [l.strip() for l in t.split(NL) if DEFECT_ROW.match(l)]
+    put_json('b686_defects.json', dict(at=utc(), defects=ds, short=_defect_short()))
+    print('  defects %d' % len(ds))
+
+
+def seal_hashes():
+    import hashlib
+    rec_ = jl('b686_seal_hashes.json').get('tools') or {} if os.path.isfile(os.path.join(D, 'b686_seal_hashes.json')) else {}
+    now = {}
+    for t in K.SEALED:
+        p = os.path.join(ROOT, 'tools', t)
+        now[t] = hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else None
+    out = [(t, 'absent' if (t not in rec_ or now[t] is None) else ('agree' if rec_[t] == now[t] else 'differ')) for t in K.SEALED]
+    return rec_, now, out
+
+
+REPAIRS = [
+    ('THE N4 SCORER READS BANKS AND NOT THE ENTRY (answering b685 defect (f), under (R296)(2); data/b686_rules.txt row (1)): b685`s sealed',
+     '`_n4` (tools/b685_record.py :879-:896) read the landed FINDINGS entry`s head line while `_finding_text` (:969-:1005) composed the entry`s',
+     'scores line from the scores bank. b686`s `_n4` reads the pre-push and post-push suite banks (data/b686_checks.txt,',
+     'data/b686_checks_postpush.txt: the act arm G-ENTRY-SCORES-EQUAL`s row in each) and the scores bank (data/b686_scores.json), and no ledger',
+     'line; the scores route writes the scores bank first, `findings` composes the entry`s scores line from it after, and the bank is not',
+     'written again: the readings that wait on a later bank (N4 on the post-push suite, S2 on the root) stand PENDING there with the bank they',
+     'wait on named, and are read at the close into data/b686_scores_close.json, which no ledger line reads. The diff of the scorer and of the',
+     'entry`s scores line against b685`s sealed copy is printed whole below.'),
+    ('THE STANDING SET FOR b686 (answering no defect: the act`s objects): the standing arms are b685`s face`s (G2) arms less b685`s act arms,',
+     'the twenty rule arms among them; the runner arms read the last merged runs, this act`s named kernel`s after-run; the step-zero arms read',
+     'this act`s banks -- five branches, no remote row.'),
+]
+
+
+def _fn_src(src, name):
+    """a top-level function's source, from its `def` line to the next top-level line; '' where the tool carries no such function."""
+    if ('\ndef %s(' % name) not in src:
+        return ''
+    i = src.index('\ndef %s(' % name) + 1
+    m = re.search(r'\n(?=\S)', src[i + 1:])
+    return src[i:i + 1 + m.start() + 1] if m else src[i:]
+
+
+def repairs(*a):
+    """data/b686_tool_repairs.txt: rows are repairs with the defect they answer. Each tool carried from a sealed b685 copy is read against
+    b685's seal hash (relay data/b685_seal_hashes.json) first, and its diff against that copy counted by hunks; tools/rule_arms.py read
+    against b685's seal record (unedited in this act); the N4 scorer's and the entry's scores-line diff against b685's sealed copy printed whole."""
+    import difflib
+    import hashlib
+    seal = jl('b685_seal_hashes.json').get('tools') or {}
+    rows = []
+    for t0 in ('b685_citation.py', 'b685_closing.py', 'b685_reg_gate.py', 'b685_regspec.py', 'b685_tests.py', 'b685_worklist.py',
+               'b685_record.py', 'b685_checks.py'):
+        t1 = t0.replace('b685_', 'b686_')
+        old, new = os.path.join(T, t0), os.path.join(T, t1)
+        now = hashlib.sha256(open(old, 'rb').read()).hexdigest()
+        d = subprocess.run(['git', 'diff', '--no-index', '--unified=0', old, new], capture_output=True, text=True, encoding='utf-8', errors='replace').stdout
+        rows.append((t0, t1, now, seal.get(t0), len(re.split(r'(?m)^(?=@@ )', d)[1:])))
+    ra_now = hashlib.sha256(open(os.path.join(T, 'rule_arms.py'), 'rb').read()).hexdigest()
+    ra_act = [x for x in ('b685', 'b684', 'b683') if (jl('%s_seal_hashes.json' % x).get('tools') or {}).get('rule_arms.py')][0]
+    seal['rule_arms.py'] = jl('%s_seal_hashes.json' % ra_act)['tools']['rule_arms.py']     # ### b685 sealed none of it; the last record naming it
+    s5, s6 = rd(os.path.join(T, 'b685_record.py')), rd(os.path.join(T, 'b686_record.py'))
+    nd = []
+    for f5, f6 in (('_n4', '_n4'), ('scores', 'scores'), ('_sv', 'scores_line'), ('_finding_text', '_finding_text')):
+        nd += list(difflib.unified_diff(_fn_src(s5, f5).split(NL), _fn_src(s6, f6).split(NL), 'b685_record.py %s (sealed)' % f5,
+                                        'b686_record.py %s' % f6, n=1, lineterm=''))
+    L = ['b686 -- COMPONENT 1 AND COMPONENT 4, (R296)`S FERRY: THE CARRY-TIME READING OF THE TOOLS, AGAINST b685`S SEALED COPIES (%s)' % utc(), '',
+         '### rows are the carried tools: b685`s sealed copy and its seal record; the hunks of the diff to b686`s copy. Every hunk is the act`s own',
+         '### text -- its names, its banks, its sections and its predicates over this act`s banks -- save the repairs below, each with the defect',
+         '### it answers.', '']
+    for t0, t1, now, s, nh in rows:
+        ex = os.path.exists(os.path.join(T, t1))
+        L.append('  %-20s -> %-20s b685 sealed %s ; the seal`s record %s ; %s ; hunks %s' % (t0, t1, now[:16], (s or '### NONE')[:16],
+                                                                                     'AGREE' if s == now else '### DIFFER', nh if ex else 'NOT YET CARRIED'))
+    L.append('  %-20s    the standing instrument, unedited in this act: %s ; the last seal record naming it (%s`s) %s ; %s' % (
+        'rule_arms.py', ra_now[:16], ra_act, (seal.get('rule_arms.py') or '### NONE')[:16], 'AGREE' if seal.get('rule_arms.py') == ra_now else '### DIFFER'))
+    L.append('')
+    for i, r in enumerate(REPAIRS, 1):
+        L += ['  REPAIR %d -- %s' % (i, r[0])] + ['  ' + x for x in r[1:]]
+    L += ['', '### THE DIFF OF THE N4 SCORER, THE SCORES ROUTE AND THE ENTRY`S COMPOSER AGAINST b685`S SEALED COPY (tools/b685_record.py, sha256 %s), '
+          'WHOLE:' % (seal.get('b685_record.py') or '### NONE')[:16]] + ['    ' + l for l in nd]
+    L += ['', '### ### **REPAIRS %d ; THE SEALED COPIES %s ; TOOLS CARRIED %d ; THE SCORER`S DIFF LINES %d.**' % (
+        len(REPAIRS), 'AGREE' if all(s == now for _a, _b, now, s, _n in rows) and seal.get('rule_arms.py') == ra_now else '### DIFFER',
+        sum(1 for r in rows if os.path.exists(os.path.join(T, r[1]))), len(nd))]
+    put_txt('b686_tool_repairs.txt', L)
+    print(L[-1])
+
+
+def root_banks_state(banks, rev='HEAD'):
+    """G-ROOT-BANKS-COMMITTED's reading (standing from (R291)(4)): for every bank the root names, its git status, whether HEAD carries it and
+    whether HEAD's blob equals the working file; HEAD against the remote main (one ls-remote)."""
+    import hashlib
+    head = g(ROOT, 'rev-parse', rev).strip()
+    rem = (g(ROOT, 'ls-remote', 'origin', 'refs/heads/main').split() or [''])[0]
+    rows = []
+    for b in banks:
+        st = g(ROOT, 'status', '--porcelain', '--', b).strip()
+        r = subprocess.run(['git', '-C', ROOT, 'show', '%s:%s' % (head, b)], capture_output=True)
+        p = os.path.join(ROOT, *b.split('/'))
+        now = open(p, 'rb').read() if os.path.exists(p) else None
+        eq = r.returncode == 0 and now is not None and hashlib.sha256(r.stdout).hexdigest() == hashlib.sha256(now).hexdigest()
+        rows.append(dict(bank=b, status=st or 'clean', at_head=r.returncode == 0, equal=eq))
+    return dict(head=head, remote=rem, rows=rows, clean=all(x['status'] == 'clean' and x['equal'] for x in rows) and bool(rows),
+                pushed=bool(head) and head == rem)
+
+
+ROOT_EXCLUDE = re.compile(r'^b686_(defects|scores.*|desk_notes|components|checks.*|lsr.*|exercise.*|findings|trail|closing.*|'
+                          r'act_root.*|root_arm.*|root_banks.*|.*push_out.*|scanfile_.*|seal_check_.*|census_closing|faces_census_closing|pins_closing|'
+                          r'commands|mirror.*)\.?(txt|json|md|)$')
+BINARY = ('.gz', '.png')
+
+
+def root_banks():
+    return sorted(['data/' + f for f in os.listdir(D) if f.startswith('b686_') and os.path.isfile(os.path.join(D, f)) and not ROOT_EXCLUDE.match(f)
+                   and not f.endswith(BINARY)] + list(K.SHARED_APPENDED))
+
+
+def rootbanks(*a):
+    banks = root_banks()
+    s = root_banks_state(banks)
+    L = ['b686 -- G-ROOT-BANKS-COMMITTED`S READING: THE ROOT`S BANKS, READ BEFORE THE ROOT (%s): rows are the banks the root route names -- status ;'
+         ' carried by HEAD ; HEAD`s blob equal to the file' % utc(), '', '### HEAD %s ; the remote main %s ; equal %s' % (s['head'], s['remote'], s['pushed']), '']
+    L += ['  %-52s %-6s at HEAD %-5s equal %s' % (r['bank'], r['status'], r['at_head'], r['equal']) for r in s['rows']]
+    L += ['', '### ### **BANKS %d ; CLEAN AND EQUAL AT HEAD %d ; HEAD THE REMOTE MAIN %s ; READY %s.**' % (
+        len(s['rows']), sum(1 for r in s['rows'] if r['status'] == 'clean' and r['equal']), s['pushed'], s['clean'] and s['pushed'])]
+    put_txt('b686_root_banks.txt', L)
+    put_json('b686_root_banks.json', dict(at=utc(), **s))
+    print(L[-1])
+    return s['clean'] and s['pushed']
+
+
+def root(*a):
+    banks = root_banks()
+    crlf = [b_ for b_ in banks if b'\r\n' in open(os.path.join(ROOT, *b_.split('/')), 'rb').read()]
+    print('  banks named: %d ; the seal bank among them %s ; written with CR LF: %s' % (len(banks), 'data/b686_seal_hashes.json' in banks, crlf or 'none'))
+    if crlf:
+        sys.exit('### A BANK THE ROOT WOULD NAME IS CR LF -- NOTHING WRITTEN')
+    if not rootbanks():
+        sys.exit('### G-ROOT-BANKS-COMMITTED: A NAMED BANK IS NOT COMMITTED AND PUSHED AT HEAD -- NO ROOT')
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'act_root.py'), 'compute', 'b686'] + banks + ([] if 'dry' in a else ['--write']),
+                       capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    print(NL.join(((r.stdout or '') + (r.stderr or '')).rstrip(NL).split(NL)[-4:]))
+    if r.returncode:
+        sys.exit('### act_root.py exit %d' % r.returncode)
+
+
+def root_arm(*a):
+    import tempfile
+    import act_root as AR
+    J = jl('b686_act_root.json')
+    bank_ = [it.split()[0] for it in J['items'] if it.startswith('data/') and not it.split()[0].endswith(BINARY)][0]
+    with tempfile.TemporaryDirectory(prefix='b686_ra_') as tmp:
+        cp_ = os.path.join(tmp, os.path.basename(bank_))
+        b_ = bytearray(open(os.path.join(ROOT, *bank_.split('/')), 'rb').read())
+        b_[0] ^= 0x01
+        open(cp_, 'wb').write(bytes(b_))
+        items2 = [('%s %s' % (bank_, AR.sha256_file(cp_)) if it.split()[0] == bank_ else it) for it in J['items']]
+    r2 = AR.root_of(items2, J['previous'])
+    same = AR.root_of(J['items'], J['previous'])
+    late = []
+    for it in J['items']:
+        p = it.split()
+        if p[0].startswith('data/'):
+            fp = os.path.join(ROOT, *p[0].split('/'))
+            if not os.path.exists(fp) or AR.sha256_file(fp) != p[1]:
+                late.append('%s changed' % p[0])
+            elif os.path.getmtime(fp) > J.get('at_epoch', 0) + AR.ORDER_SLACK:
+                late.append('%s written after the root' % p[0])
+    L = ['b686 -- THE ACT-ROOT ARM`S OFFLINE CONTROL AND THE ROOT ORDER READ LOCALLY (%s)' % utc(), '',
+         '### the root`s time %s ; its recorded commit %s ; banks named %d ; changed or written after the root: %s' % (
+             J.get('at'), (J.get('commit') or {}).get('relay', '?')[:12], len([i for i in J['items'] if i.startswith('data/')]), late or 'NONE'),
+         '### ### **THE RECOMPUTED ROOT EQUALS THE TOOL`S %s ; THE ONE-BYTE CONTROL CHANGES IT %s ; THE ROOT ORDER HOLDS LOCALLY %s.**' % (
+             same == J['root'], r2 != J['root'], not late)]
+    put_txt('b686_root_arm.txt', L)
+    put_json('b686_root_arm.json', dict(at=utc(), bank=bank_, root_copy=r2, root_recomputed=same, root=J['root'], late=late))
+    print(L[-1])
+
+
+def _rows_state(rows):
+    return dict(((r['repo'], r['name']), (r.get('grade'), r.get('profile'), r.get('provenance'))) for r in rows)
+
+
+def table_final(*a):
+    before = _rows_state(json.loads(_show(RELAY, 'HEAD', 'data/terminal_table.json'))['rows'])
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
+    after = _rows_state(json.load(io.open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    L = ['b686 -- THE TERMINAL TABLE REGENERATED, final (%s); exit %d ; against relay HEAD %s' % (utc(), r.returncode, g(RELAY, 'rev-parse', '--short=8', 'HEAD').strip()), '',
+         '### rows %d ; added %d ; gone %d ; moved %d' % (len(after), len(added), len(gone), len(moved))]
+    L += ['    added   %s / %s' % k for k in added[:60]] + ['    gone    %s / %s' % k for k in gone[:60]] + [
+        '    moved   %s / %s : %s -> %s' % (k[0], k[1], before[k], after[k]) for k in moved[:60]]
+    L += ['### ### **ROWS MOVED %d ; ADDED %d ; GONE %d ; GRADE MOVED %d.**' % (len(moved), len(added), len(gone), sum(1 for k in moved if before[k][0] != after[k][0]))]
+    put_txt('b686_table_final.txt', L)
+    put_json('b686_table_final.json', dict(at=utc(), rc=r.returncode, moved=[list(k) for k in moved], added=[list(k) for k in added],
+                                           gone=[list(k) for k in gone], grade_moved=[list(k) for k in moved if before[k][0] != after[k][0]]))
+    print(L[-1])
+
+
+# ================================================================================ THE SCORES: (N1)-(N5) OF THE FERRY, THE SEAT'S (S1)-(S3)
+# ### (R296)(2), data/b686_rules.txt row (1): a scorer reads banks and not the entry; the entry reads the scorer's bank. `scores` writes
+# ### data/b686_scores.json once, before `findings`; a reading that waits on a later bank stands PENDING there, the bank it waits on named, and
+# ### is read at the close by `scores close` into data/b686_scores_close.json, which no ledger line reads.
+NK = ('N1', 'N2', 'N3', 'N4', 'N5')
+SK = ('S1', 'S2', 'S3')
+SCORE_KEYS = NK + SK
+N5_RELAY_DATA = ('act_roots.txt', 'b685_closing_push_out.txt')
+N5_PP = ('FINDINGS.md', 'OPEN_TRAILS.md', K.FOUND)
+ENTRY_ARM = 'G-ENTRY-SCORES-EQUAL'
+ARM_ROW = re.compile(r'^  (G-[A-Z0-9-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(OK|### FAILS|.*)$')
+
+
+def _git_ct(repo, rev):
+    t = g(repo, 'log', '-1', '--format=%ct', rev).strip()
+    return int(t) if t.isdigit() else None
+
+
+def _iso(s):
+    import calendar
+    try:
+        return calendar.timegm(time.strptime(s[:19] + 'Z', '%Y-%m-%dT%H:%M:%SZ'))
+    except Exception:
+        return None
+
+
+def _first_commit(repo, path):
+    """the commit time of the first commit carrying a path (git log --diff-filter=A), or None."""
+    t = g(repo, 'log', '--diff-filter=A', '--format=%ct', '--', path).split()
+    return int(t[-1]) if t else None
+
+
+def _arm_row(bank, arm):
+    """an arm's row in a suite bank: (LIVE, NEG, POS, verdict) or None where the bank or the row is absent."""
+    for l in rdn(bank).split(NL):
+        m = ARM_ROW.match(l)
+        if m and m.group(1) == arm:
+            return m.group(2), m.group(3), m.group(4), m.group(5).strip()
+    return None
+
+
+def _ledger_adds():
+    d = g(PP, 'diff', '--unified=0', K.PRE_PP, '--', 'FINDINGS.md', 'OPEN_TRAILS.md')
+    return NL.join(l[1:] for l in d.split(NL) if l.startswith('+') and not l.startswith('+++'))
+
+
+def _n1():
+    cm = jl('b686_commands.json')
+    ok = bool(cm) and not cm.get('local_lean')
+    return ('HELD' if ok else 'REFUTED'), (
+        'commands of this act that run lean or lake on this host: %s; runner dispatches %d (relay data/b686_commands.txt, %d commands read)' % (
+            cm.get('local_lean') if cm else '### UNREAD', len(cm.get('dispatches') or []), len(cm.get('rows') or [])))
+
+
+def _n2():
+    nj, named = jl('b686_naming.json'), jl('b686_naming.json').get('named')
+    t_name = _first_commit(RELAY, 'data/b686_naming.txt')
+    kwrites = []
+    if named:
+        td = 'D:/' + named
+        base = (jl('b686_kernels_face.json').get('base') or {}).get(named) or ''
+        kwrites = [int(x) for x in g(td, 'log', '--format=%ct', '%s..main' % base if base else 'main', '--since=%s' % K.DATE).split() if x.isdigit()]
+    printed = 'THE RULE, verbatim' in rdn('b686_naming.txt') and 'THE TABLE ROWS, verbatim' in rdn('b686_naming.txt')
+    rows_first = bool(t_name) and (not kwrites or t_name <= min(kwrites))
+    calls = jl('b686_author_answers.json').get('calls') or []
+    t_prompt = _iso(calls[0]['ts']) if calls and calls[0].get('ts') else None
+    t_diff = _first_commit(RELAY, 'data/%s.txt' % K.DIFF_STEM)
+    t_roster = _first_commit(PP, K.FOUND) and int((g(PP, 'log', '-1', '--format=%ct', '%s..HEAD' % K.PRE_PP, '--', K.FOUND).split() or ['0'])[0]) or None
+    cells_first = bool(t_prompt and t_diff and t_diff <= t_prompt) and (t_roster is None or t_roster == 0 or t_prompt < t_roster)
+    t_rep, t_seal = _first_commit(RELAY, 'data/b686_tool_repairs.txt'), _first_commit(RELAY, 'data/b686_seal_hashes.json')
+    rep_first = bool(t_rep) and (t_seal is None or t_rep < t_seal)
+    ok = printed and rows_first and bool(named) and cells_first and rep_first
+    return ('HELD' if ok else 'REFUTED'), (
+        'the order`s line, the rule row and the table rows printed from their banks (relay data/b686_naming.txt): %s, committed before any kernel '
+        'write (%s, the named document %s): %s; the cell diff (relay data/%s.txt) committed and raised as the act`s first prompt before any roster '
+        'write: %s; the scorer`s diff (relay data/b686_tool_repairs.txt) committed before the seal: %s' % (
+            printed, 'kernel writes since the act %d' % len(kwrites), named, rows_first, K.DIFF_STEM, cells_first, rep_first))
+
+
+def _n3():
+    cj, cl = jl('b686_cut.json'), jl('b686_cells.json')
+    db, da = cj.get('distance_before'), cj.get('distance_after')
+    dist = db is not None and da is not None and da <= db
+    hand = cl.get('by_hand')
+    cells = cl != {} and hand == []
+    pe = cj.get('prints_equal')
+    prints_ok = (pe is True) if cj.get('kind') == 'kernel' else True
+    ok = dist and cells and prints_ok
+    return ('HELD' if ok else 'REFUTED'), (
+        'the distance by the b670 method before %s, after %s (relay data/b686_cut.txt): at or below %s; Correspondence cells written by hand: %s '
+        '(relay data/b686_cells.txt -- every changed line of the roster commit one the generator wrote); the named document a %s`s, its prints '
+        'before and after equal line for line: %s' % (db, da, dist, hand if hand is not None else '### UNREAD', cj.get('kind'), pe))
+
+
+def _n4():
+    """(R296)(2): N4 read from the suite banks -- the act arm G-ENTRY-SCORES-EQUAL`s row in the pre-push and the post-push bank, each the
+    comparison of the landed entry`s scores line with the scores bank as the suite read them -- and the scores bank itself; no ledger line."""
+    pre, post = _arm_row('b686_checks.txt', ENTRY_ARM), _arm_row('b686_checks_postpush.txt', ENTRY_ARM)
+    S = jl('b686_scores.json')
+    sb = bool(S) and all(k in S for k in SCORE_KEYS)
+    good = lambda r: r is not None and r[0] == 'PASS' and r[3] == 'OK'   # noqa: E731
+    if post is None:
+        return 'PENDING', ('waits on the post-push suite bank (relay data/b686_checks_postpush.txt); %s`s pre-push row %s; the scores bank '
+                           '(relay data/b686_scores.json) %s' % (ENTRY_ARM, ' '.join(pre) if pre else '### NOT YET RUN', 'written' if sb else '### UNWRITTEN'))
+    ok = sb and good(pre) and good(post)
+    return ('HELD' if ok else 'REFUTED'), (
+        'the entry`s scores line equal to the scores bank`s reading, read by %s in the pre-push suite (%s) and the post-push suite (%s), relay '
+        'data/b686_checks.txt and data/b686_checks_postpush.txt; the scores bank relay data/b686_scores.json %s; N4 read from these banks and no '
+        'ledger line (data/b686_rules.txt row (1))' % (ENTRY_ARM, ' '.join(pre) if pre else '### ABSENT', ' '.join(post), 'written' if sb else '### UNWRITTEN'))
+
+
+def _n5():
+    face = jl('b686_kernels_face.json').get('kernels') or {}
+    named = jl('b686_naming.json').get('named')
+    now = R3.kern_state(list(face)) if face else {}
+    k_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in N5_PP]
+    relay_ch = sorted(set(x for x in (g(RELAY, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(RELAY, 'diff', '--name-only')).split(NL) if x.strip()))
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b686_|audit_b686_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in N5_RELAY_DATA))]
+    kmain = []
+    if named:
+        td = 'D:/' + named
+        base = (jl('b686_kernels_face.json').get('base') or {}).get(named) or ''
+        kmain = [l for l in g(td, 'log', '--first-parent', '--format=%h %s', '%s..main' % base).split(NL) if l.strip()] if base else ['### NO BASE READ']
+        wfile = _show(td, 'main', '.github/workflows/build-module.yml') or ''
+        widents = [w for w in IDENT if w in wfile.lower()]
+    else:
+        widents = []
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    import importlib
+    argv, sys.argv = sys.argv, sys.argv[:1]
+    try:
+        CH = importlib.import_module('b686_checks')
+    finally:
+        sys.argv = argv
+    new_arms = sorted(set(a_[0] for a_ in CH.ARMS) - set(CH.STANDING) - set(K.ACT_ARMS))
+    ob = jl('b686_commands.json').get('outbound') or []
+    ident = [r for r in ob if r.get('identifiers')]
+    pat = [n for n in ('patent', 'Patent', 'PATENT') if n in _ledger_adds()]
+    ok = k_ok and not pp_beyond and not kinds_beyond and not differ and not new_arms and not ident and not pat and not widents
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unpublished); every kernel as the face read it %s, the named kernel %s`s '
+            'main written by the first-parent commits %s alone; standing arms added: %s (the act`s arms over its own banks %d); sealed tools not '
+            'agreeing %s; PLACE-papers beyond FINDINGS, OPEN_TRAILS and the regenerated roster file: %s; relay files of a kind beyond the act`s '
+            'banks and tools, the table, the root list and b685`s push-out bank: %s; "patent" in the lines written: %s; outbound requests: the '
+            'seat`s git reads and pushes at github.com and %d web searches, subagent prompts and fetches (relay data/b686_commands.txt), an '
+            'identifier of the author in %s; in the named kernel`s workflow file %s' % (
+                K.DRAFT, k_ok, named, kmain or 'NONE', new_arms or 'NONE', len(K.ACT_ARMS), differ or 'NONE', pp_beyond or 'NONE',
+                kinds_beyond or 'NONE', pat or 'NONE', len(ob), [r['line'] for r in ident] or 'NONE', widents or 'NONE'))
+
+
+def _s_scores():
+    TF, RA_ = jl('b686_table_final.json'), jl('b686_root_arm.json')
+    _r, _n, sh = seal_hashes()
+    return {
+        'S1': (('HELD' if not TF.get('gone') and not TF.get('grade_moved') else 'REFUTED') if TF else 'PENDING',
+               'the table at the end against relay HEAD`s: moved %s, gone %s, added %s, grade moved %s' % (
+                   len(TF.get('moved') or []), len(TF.get('gone') or []), len(TF.get('added') or []), len(TF.get('grade_moved') or []))
+               if TF else 'waits on the final table (relay data/b686_table_final.json)'),
+        'S2': (('HELD' if RA_.get('root_recomputed') == RA_.get('root') and RA_.get('root_copy') != RA_.get('root') and not RA_.get('late') else 'REFUTED')
+               if RA_ else 'PENDING', 'the root recomputed equal, the one-byte control moving it, the root order holding locally' if RA_
+               else 'waits on the root and its arm (relay data/b686_root_arm.json), computed after the entry'),
+        'S3': ('HELD' if sh and all(v == 'agree' for _t, v in sh) else ('PENDING' if all(v == 'absent' for _t, v in sh) else 'REFUTED'),
+               'the sealed tools` hashes %s' % dict(collections.Counter(v for _t, v in sh))),
+    }
+
+
+def scores(*a):
+    """`scores [dry]` writes data/b686_scores.json ONCE, before the entry (it refuses where the bank exists); `scores close` reads N4 and the
+    readings that waited into data/b686_scores_close.json."""
+    close = 'close' in a
+    S = dict([('N1', _n1()), ('N2', _n2()), ('N3', _n3()), ('N4', _n4()), ('N5', _n5())] + list(_s_scores().items()))
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:700]))
+    if 'dry' in a:
+        return
+    if close:
+        put_json('b686_scores_close.json', dict((k2, list(v)) for k2, v in S.items()))
+        return
+    if os.path.isfile(os.path.join(D, 'b686_scores.json')):
+        sys.exit('### THE SCORES BANK IS WRITTEN ONCE, BEFORE THE ENTRY (data/b686_rules.txt row (1)) -- NOTHING WRITTEN; `scores close` at the close')
+    put_json('b686_scores.json', dict((k2, list(v)) for k2, v in S.items()))
+
+
+def _sv(S, k):
+    return read_score_row(k, S.get(k) or ['?', ''])[1] if S.get(k) else 'PENDING'
+
+
+def scores_line(S):
+    """the entry's scores line, composed from the scores bank alone (the act arm G-ENTRY-SCORES-EQUAL composes it the same way and compares)."""
+    return '**The scores.** ' + ', '.join('%s %s' % (k2, _sv(S, k2)) for k2 in SCORE_KEYS) + '.'
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, naming=naming, runner=runner, prints=prints, cutdiff=cutdiff,
+              commands=commands, kernels=kernels, defects=defects, repairs=repairs, rootbanks=rootbanks, root=root, root_arm=root_arm,
+              table_final=table_final, scores=scores)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

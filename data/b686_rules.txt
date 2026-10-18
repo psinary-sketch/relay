@@ -1,0 +1,10 @@
+b686 -- THE RULES BANKED IN THE ACT, UNDER (R296) (2026-10-18)
+
+### rows are rules, each with its source and its scope.
+
+  (1) A SCORER READS BANKS AND NOT THE ENTRY; THE ENTRY READS THE SCORER'S BANK. A score that the FINDINGS entry prints is computed from the
+      act's banks (for N4: the pre-push and post-push suite banks and the scores bank) and never from the landed entry; the entry's scores
+      line is composed from the scores bank after the scorer runs and before the root, so the order is scorer -> scores bank -> entry -> trail
+      and neither reads what the other has not yet written. Source: (R296)(2), answering b685 defect (f) (relay data/b685_defects.txt :30-:34;
+      the sealed scorer tools/b685_record.py :879-:896 against `_finding_text` :969-:1005). Scope: standing; carried into tools/b686_record.py
+      at carry time (Component 1, the diff in data/b686_tool_repairs.txt).
