@@ -64,7 +64,15 @@ NEXT = ('b684, the re-cut act: the licensed table`s next document, and the resid
         'ACTION reaches them, its ruling then; b685 the research act, W-ORD-EPSTEIN-COUNT its candidate on the author`s placement, the Li-face '
         'test at Q0 becoming unconditional where it lands; b690 the reading act, reading 3')
 
-STANDING_ADDED = ()         # ### filled only on the author's word on (R293)(6)'s prompt
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R293-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-PLAN-BEFORE-RUN', 'G-CHAIN-BEFORE-BALLS', 'G-MAP-ROWS', 'G-ANGLE-POWERS',
+            'G-HYPOTHESES-READ', 'G-ORDER-DISCHARGED', 'G-LANDING-BANKED', 'G-FORCED-RUNG-NAMED', 'G-ARMS-SORTED', 'G-ARMS-ON-WORD',
+            'G-RULES-ARMS-REREAD', 'G-TOOL-REPAIRS', 'G-PARTS-PRERUN', 'G-DEFECTS-LETTERED')
+# ### the author's word on (R293)(6)'s prompt (data/b683_author_answers.txt): twenty standing arms, tools/rule_arms.py's; N5 amended to them
+STANDING_ADDED = ('G-RULE-PAIR-OF-READINGS', 'G-RULE-METHOD-READINESS', 'G-RULE-ROWGEN-REVIEW', 'G-RULE-TRIGGER-T1', 'G-RULE-TRIGGER-T2',
+                  'G-RULE-TRIGGER-T3', 'G-RULE-TRIGGER-T5', 'G-RULE-DETACHED-PRINT', 'G-RULE-MIDACT-AFTER-ROOT', 'G-RULE-CONSUMER-TOLERANCE',
+                  'G-RULE-SCORES-BEFORE-SEAL', 'G-RULE-DISPATCH-PER-TREE', 'G-RULE-WALK-TIP', 'G-RULE-ONE-GIT-WRITE', 'G-RULE-REMOTE-REREAD',
+                  'G-RULE-TIE-BREAK', 'G-RULE-HEAD-LINE-QUOTED', 'G-RULE-CLOSING-DRY', 'G-RULE-LONG-PHASE-SPLIT', 'G-RULE-SUITE-PARTS')
 SHARED_APPENDED = ('data/b670_work_orders.txt',)
 PARTS = ('standing-a', 'standing-b', 'act')          # ### data/b678_rules.txt row 1
 SEALED = ('b683_worklist.py', 'b683_tests.py', 'b683_citation.py', 'b683_record.py', 'b683_checks.py', 'b683_closing.py', 'b683_reg_gate.py',
