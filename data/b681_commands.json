@@ -1,5 +1,5 @@
 {
- "at": "2026-10-18T09:28:36Z",
+ "at": "2026-10-18T09:47:39Z",
  "anchor": "RULING (R291) BEGIN",
  "rows": [
   {
@@ -1072,6 +1072,174 @@
    "src": "seat",
    "cmd": "for r in answers commands kernels defects repairs; do echo \"== $r\"; PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b681_record.py $r 2>&1 | tail -2 | cut -c1-260; done",
    "n": 153
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:28:47.600Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b681_record.py findings dry standin 2>&1 | grep -n \"table cells\\|^## \\|Traceback\\|Error\" | cut -c1-300; PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b681_record.py trail dry standin 2>&1 | grep -n \"table cells\\|Traceback\\|Error\" | cut -c1-300",
+   "n": 154
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:28:53.253Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b681_record.py scores dry 2>&1 | grep \"^  [NS][1-5] \" | cut -c1-500",
+   "n": 155
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:29:08.197Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b681_record.py scores dry 2>&1 | grep \"^  N4 \" | cut -c1-120; git status --short -- data tools | grep -v \"^?? data/_\\|^?? tools/_\" | grep \"b681\\|b670\\|act_root\\| M \"",
+   "n": 156
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:29:19.028Z",
+   "src": "seat",
+   "cmd": "git add data/b681_citation_check.txt data/b681_defects.txt tools/b681_record.py tools/b681_worklist.py data/b681_author_answers.json data/b681_author_answers.txt data/b681_commands.json data/b681_commands.txt data/b681_defects.json data/b681_kernels_face.json data/b681_tool_repairs.txt tools/b681_checks.py tools/b681_closing.py tools/b681_reg_gate.py tools/b681_regspec.py && git commit -q -m \"b681 Component 5: the tools carried from b680's sealed copies (three repairs: act_root.py's corrigendum read, the count arms at HEAD with floors, G-ROOT-BANKS-COMMITTED), the record tool's late routes, the suite in three parts (68 standing, 1 added, 21 act), the gate, the spec, the closing; the answers, commands, kernels face, defects and repairs banks; defect (a)\" && git log --oneline -1",
+   "n": 157
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:29:24.838Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format='%h %s' 21cb2735..HEAD | cut -c1-100; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 6d8b953..HEAD | cut -c1-100",
+   "n": 158
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:30:52.549Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_checks.py --prerun --part act > /dev/null 2>&1; echo \"exit $?\"; grep -n \"### FAILS\\|DEFECTIVE\\|raised\\|### PART\" data/b681_arms_prerun_act.txt | cut -c1-230",
+   "n": 159
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:31:37.505Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_checks.py --prerun --part standing-a > /dev/null 2>&1; echo \"exit $?\"; grep -n \"### FAILS\\|DEFECTIVE\\|raised\\|### PART\" data/b681_arms_prerun_standing-a.txt | cut -c1-120",
+   "n": 160
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:38:25.471Z",
+   "src": "seat",
+   "cmd": "grep -n \"### PART\\|uncovered\\|PRIORBANK\" data/b681_arms_prerun_standing-a.txt | cut -c120-420; PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_checks.py --prerun --part standing-b > /dev/null 2>&1; echo \"exit $?\"; grep -n \"G-\\|### PART\\|reads at commit\" data/b681_arms_prerun_standing-b.txt | cut -c1-250 | tail -5",
+   "n": 161
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:43:21.075Z",
+   "src": "seat",
+   "cmd": "grep -o \"b680 [A-Z]*\" data/b681_arms_prerun_standing-b.txt | head -2; PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_checks.py --combine b681_arms_prerun.txt 2>&1 | head -6 | cut -c1-200; grep -h \"LONGEST PHASE\" data/b681_arms_prerun_*.txt | cut -c1-80",
+   "n": 162
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:43:30.324Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_reg_gate.py > /dev/null 2>&1; echo \"gate exit $?\"; grep -n \"### ### \\|NOT CLEAN\\|missing\\|FIRED\\|Traceback\\|NO VERDICT\" data/b681_reg_gate.txt | cut -c1-220 | head",
+   "n": 163
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:43:54.413Z",
+   "src": "seat",
+   "cmd": "sed -n 1,20p data/b681_reg_gate.txt | cut -c1-220",
+   "n": 164
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:44:03.593Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_reg_gate.py > /dev/null 2>&1; echo \"gate exit $?\"; grep -n \"UNDECLARED\\|GATE VERDICT\" data/b681_reg_gate.txt | cut -c1-200",
+   "n": 165
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:44:28.576Z",
+   "src": "seat",
+   "cmd": "for n in \"b681 closed:\" \"the misses as the bank lists them\" \"(annotated, peeled) ; main\" \"### THE ROOT REPAIR\" \"### THE RUN\" \"ENTRY : table cells NONE ; screens QUIET\" \"TRAIL : table cells NONE ; screens QUIET\"; do printf \"%s: \" \"$n\"; grep -cF \"$n\" data/b681_reg_gate.txt; done; PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_record.py gatebanks 2>&1 | tail -10 | cut -c1-200",
+   "n": 166
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:44:36.448Z",
+   "src": "seat",
+   "cmd": "grep -n \"      line \" data/b681_regspec_run.txt | cut -c1-200",
+   "n": 167
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:44:43.204Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_reg_gate.py > /dev/null 2>&1; echo \"gate exit $?\"; PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_record.py gatebanks 2>&1 | tail -10 | cut -c1-160",
+   "n": 168
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:45:11.374Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b378_lockgate.py b681 data/b681_registration_2026-10-18.txt 2>&1 | grep -E \"GATES READ|VERDICT : LOCK|FAIL\" ; ls data/b681_lockgate*",
+   "n": 169
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:45:17.167Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_seal.py --lock data/b681_registration_2026-10-18.txt 2>&1 | tail -3; PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_seal.py --verify data/b681_registration_2026-10-18.txt 2>&1 | tail -1; PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_checks.py --seal 2>&1 | tail -10",
+   "n": 170
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:45:22.547Z",
+   "src": "seat",
+   "cmd": "git status --short -- data tools | grep -v \"^?? data/_\\|^?? tools/_\" | grep \"b681\\|audit_b681\\| M \" | grep -v \"narrow_units.jsonl$\"",
+   "n": 171
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:45:30.321Z",
+   "src": "seat",
+   "cmd": "git add data/audit_b681_reg_satisfiable.txt data/b681_arms_prerun.txt data/b681_arms_prerun_act.txt data/b681_arms_prerun_standing-a.txt data/b681_arms_prerun_standing-b.txt data/b681_census_stepzero.txt data/b681_faces_census_stepzero.txt data/b681_lockgate.json data/b681_lockgate_notes.txt data/b681_lsr_prerun_act.json data/b681_lsr_prerun_standing-a.json data/b681_lsr_prerun_standing-b.json data/b681_pins_stepzero.txt data/b681_reg_gate.txt data/b681_reg_termscan.txt data/b681_registration_2026-10-18.txt data/b681_regspec_run.txt data/b681_satisfiable.json data/b681_seal_hashes.json && git commit -q -m \"b681 seal: the face locked (6f2dd3b1), the pre-run in three parts (90 arms, 64 passing before the lock, 0 control failures), the gate CLEAR with both dry runs, the spec satisfiable, the lock gate 8 of 8, the sealed tools' hashes (act_root.py among them)\" && git log --oneline -1",
+   "n": 172
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:45:39.850Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b681_record.py table_final 2>&1 | tail -1; git status --short -- data/terminal_table* data/b681_table_final*",
+   "n": 173
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:46:09.586Z",
+   "src": "seat",
+   "cmd": "git add data/b681_table_final.json data/b681_table_final.txt && git commit -q -m \"b681 pre-root: the final table (0 moved), committed before the root ((R291)(4))\" && git log --oneline -1 && git status --short --untracked-files=no",
+   "n": 174
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:46:15.466Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no | head -3; git log --oneline -1 | cut -c1-60 && git branch push-b681-root 6e5741c && PUSH_GATED_LOG=/d/relay/data/b681_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b681-root; echo \"push_gated exit $?\"",
+   "n": 175
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:46:48.157Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git log --oneline -1 | cut -c1-60 && git branch push-b681-root HEAD && PUSH_GATED_LOG=/d/relay/data/b681_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b681-root; echo \"push_gated exit $?\"",
+   "n": 176
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:47:03.750Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b681_record.py root 2>&1 | tail -6 | cut -c1-250; tail -2 data/act_roots.txt | cut -c1-120",
+   "n": 177
   }
  ],
  "offences": [],
