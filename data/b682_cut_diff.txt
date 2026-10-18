@@ -1,0 +1,61 @@
+b682 -- COMPONENT 4, (R292)(5): THE CUT`S DIFF, RESTRICTED TO COMMENT AND DOCSTRING LINES (2026-10-18T12:21:37Z)
+
+### SIDE-bijection 588abc9 (main, the print list) -> cbb5711 (the cut, recut-bijection-b682); files ['SIDEBijection/Theorem.lean'] ; lines added 18, removed 23
+### rows are files: the text with every comment stripped equal before and after ; the control (a one-word code change in the after
+### text) unequal ; the control`s needle present:
+  SIDEBijection/Theorem.lean         CODE EQUAL True ; CONTROL UNEQUAL True ; NEEDLE PRESENT True
+
+### the diff, whole:
+    diff --git a/SIDEBijection/Theorem.lean b/SIDEBijection/Theorem.lean
+    index 21b4ad3..94d911d 100644
+    --- a/SIDEBijection/Theorem.lean
+    +++ b/SIDEBijection/Theorem.lean
+    @@ -37,5 +37,6 @@ For any IDS-amenable system X with formation (n₁, n₂, n₃, n₄):
+    -Statements (a)-(d) are formalized and proved at vanilla Lean 4 level.
+    -Statement (e) — the cardinality equality — requires Fintype machinery
+    -that lives in Mathlib; it is named here as a corollary that follows
+    -when Fintype is available, and is parked for the Mathlib-enabled
+    -extension.
+    +Statement (a) is encoded by `identityOf` being a function; statements
+    +(b) and (c) are assumed as the `IDSSystem` fields `distinctness` and
+    +`noOrphans`, and (d) is proved as their conjunction, at vanilla Lean 4
+    +level.  Statement (e) is not stated in this file (only the instance
+    +total 2 + 3 + 2 + 0 = 7 at `sideIDS`); the cardinality equality would
+    +need Fintype machinery from Mathlib.
+    @@ -130 +131 @@ structure IDSSystem where
+    -/-- **The Identity-Formation Bijection (statement (d)).**
+    +/-- **The Identity-Formation Bijection (statement (d)), hypothesis-assumed.**
+    @@ -132,2 +133,4 @@ structure IDSSystem where
+    -For any IDS-amenable system, the identity-assignment is a bijection at
+    -each formation stage. -/
+    +For any `IDSSystem`, whose fields assume the per-stage
+    +identity-assignment injective (`distinctness`) and surjective
+    +(`noOrphans`), the assignment is a bijection at each stage — the
+    +conjunction of those two fields. -/
+    @@ -185,3 +188,2 @@ directly definable for an arbitrary `Type`; this requires `Fintype`
+    -instances and counting machinery from Mathlib.  Statement (e) is
+    -therefore parked here as a named proposition that becomes a theorem
+    -when Fintype-compatibility is added.
+    +instances and counting machinery from Mathlib.  Statement (e) is not
+    +stated in this file (no named proposition carries it).
+    @@ -189,9 +191,3 @@ when Fintype-compatibility is added.
+    -The structural content of (e) — that the bijection induces a count
+    -equality — is captured by the fact that `Bijective` is the categorical
+    -condition for cardinality equality.  When `Fintype` is in scope,
+    -`Fintype.card_eq_of_bijective` (or its Mathlib name) closes the
+    -remaining gap automatically.
+    -
+    -No content is lost at the structural-skeleton level: statement (d)
+    -already establishes the bijection; statement (e) is its
+    -Fintype-instantiated count form. -/
+    +With `Fintype` in scope it would follow from a per-stage bijection
+    +(`Fintype.card_eq_of_bijective`, or its Mathlib name), which here is
+    +the conjunction of the assumed fields `distinctness` and `noOrphans`. -/
+    @@ -245,3 +241,2 @@ theorem sideIDS_bijection :
+    -/-- The concrete instance carries the seven: its formation total is
+    -2 + 3 + 2 + 0 = 7 — statement (e) at this instance, decidable in vanilla
+    -Lean, no Fintype needed. -/
+    +/-- The concrete instance's formation total is 2 + 3 + 2 + 0 = 7 (`rfl`);
+    +the count of its identity elements, statement (e), is not stated. -/
+
+### ### **FILES 1 ; CODE EQUAL WITH COMMENTS STRIPPED True ; CONTROLS UNEQUAL True ; COMMENT AND DOCSTRING LINES ALONE True.**

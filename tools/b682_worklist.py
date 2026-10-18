@@ -55,6 +55,16 @@ TABLE_BANK, KERNELS_BANK = 'b670_licensed_table.txt', 'b647_table_kernels.txt'
 CUT_SINCE = (('SIDE-window', 'data/b674_cut.txt', 'SIDE-window'), ('SIDE-trivium', 'data/b676_cut.txt', 'SIDE-trivium'),
              ('SIDE-silence-principle', 'data/b678_cut.txt', 'SIDE-silence-principle'))
 
+# ### the named document (data/b682_naming.txt): SIDE-bijection's docstrings, cut in b676's form
+CANDIDATE = 'SIDE-bijection'
+TD = 'D:/SIDE-bijection'
+T_PRE_MAIN, T_LAST_TAG, T_NEXT_TAG = 'a26f6f1', 'v0.2.0', 'v0.2.1'
+T_WORKFLOW, T_MAIN = '914945b', '588abc9'          # ### the workflow and the print list, each committed alone on main
+T_BRANCH, T_CUT = 'recut-bijection-b682', 'cbb5711'
+T_TARGET = 'SIDEBijection'
+T_CUT_FILES = ('SIDEBijection/Theorem.lean',)
+T_RUNS = (39126758989, 39126858721)               # ### before at main, after at the cut tip
+
 NEXT = ('b683, the research act: the map in the angle form over the b681 balls under W-ORD-MAP-ANGLE-FORM, its plan to read '
         'data/b677_map_plan.txt, data/b677_tolerance.txt and data/b681_narrow.txt before any run; W-ORD-EPSTEIN-COUNT the alternative on the '
         'author’s placement; the 24 rules without arms held for the author’s decision')

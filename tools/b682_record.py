@@ -638,8 +638,170 @@ def naming(*a):
     print(NL.join(L[-12:]))
 
 
+# ================================================================================ COMPONENT 4: THE RUNS, THE PRINTS, THE CUT'S DIFF (b678's routes, carried)
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def read_runner_row(r):
+    """a row of data/b682_runner_rows.json: the kernel, its label (before or after), the ref (40 hex), the run id and the gate; returns
+    (label, gate)."""
+    if not isinstance(r, dict) or r.get('label') not in ('before', 'after') or not re.match(r'^[0-9a-f]{40}$', r.get('ref') or '') \
+            or not isinstance(r.get('run_id'), int) or r.get('gate') not in ('DERIVES', 'NOT DERIVES'):
+        raise ValueError('runner row of another shape: %r' % (r,))
+    return r['label'], r['gate']
+
+
+READERS += ['read_runner_row']
+
+
+def runner(*a):
+    """`runner <run id> <ref> <label>`: the named kernel's run read by its id; the artifact listed, downloaded by its id into memory, its sha256
+    against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP; the axioms output
+    of the print step banked whole, every name of the list matched to one printed line. data/b682_runner_<kernel>_<label>.txt,
+    data/b682_axioms_<kernel>_<label>.txt and a row of data/b682_runner_rows.json. Carried from b678_record.py's runner."""
+    import hashlib
+    import io as _io
+    import zipfile
+    run_id, ref, label = int(a[0]), a[1], a[2]
+    repo = 'psinary-sketch/' + K.CANDIDATE
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    row = dict(kernel=K.CANDIDATE, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+               stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+    L = ['b682 -- COMPONENT 4, (R292)(5): THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (K.CANDIDATE, label.upper(), utc()), '',
+         '### the dispatch: at main (the workflow %s, the print list %s), the ref input %s ; the target `%s`' % (K.T_WORKFLOW, K.T_MAIN, ref, K.T_TARGET)]
+    if label == 'before':
+        L.append('### THE PRINT BANK AT MAIN: main %s is the tag %s (%s) with the workflow and print-list commits atop it (%s past %s), no .lean '
+                 'byte changed' % (K.T_MAIN, K.T_LAST_TAG, K.T_PRE_MAIN, g(K.TD, 'rev-list', '--count', '%s..%s' % (K.T_LAST_TAG, K.T_MAIN)).strip(),
+                                   K.T_LAST_TAG))
+    L.append('### the run: id %s ; %s ; status %s ; conclusion %s ; %s to %s' % (run_id, run.get('url'), run.get('status'), run.get('conclusion'),
+                                                                               run.get('createdAt'), run.get('updatedAt')))
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('size_in_bytes'), sha, digest or '### NONE GIVEN', 'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    row['axioms_sha256'] = hashlib.sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    deps = re.findall(r"^'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)", re.sub(r'\n(?=[ \t]*[A-Za-z_.]+[,\]])', ' ', ax), re.M)
+    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+    printed = [n for n, _d in deps]
+    unmatched = [n for n in tg if n not in printed]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d ; the log`s last lines:' % (row['build_exit'], len(row['errors']))] + \
+        ['    ' + l for l in blog.rstrip(NL).split(NL)[-6:]] + [
+          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; axiom-free %d ; '
+          'sorryAx %d ; refused %s' % (len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg),
+                                       sum(1 for _n, d in deps if d.startswith('does not')), sum(1 for _n, d in deps if 'sorryAx' in d),
+                                       T_.get('axioms_refused.txt', '').strip() or 'NONE')]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and not any('sorryAx' in d for _n, d in deps)
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; GATE %s.**' % (
+        run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']), len(deps),
+        len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), row['gate'])]
+    read_runner_row(row)
+    put_txt('b682_runner_%s_%s.txt' % (K.CANDIDATE, label), L)
+    if row['artifact_sha256']:
+        put_txt('b682_axioms_%s_%s.txt' % (K.CANDIDATE, label), ax.split(NL))
+    j = jl('b682_runner_rows.json') if os.path.isfile(os.path.join(D, 'b682_runner_rows.json')) else {}
+    rows = [r for r in (j.get('rows') or []) if r.get('label') != label] + [row]
+    put_json('b682_runner_rows.json', dict(rows=rows))
+    print(NL.join(L))
+
+
+def prints(*a):
+    """the 'before' and 'after' axioms outputs compared line for line (the merge only where they are equal at every line).
+    data/b682_prints_compare.txt."""
+    b, f = rdn('b682_axioms_%s_before.txt' % K.CANDIDATE), rdn('b682_axioms_%s_after.txt' % K.CANDIDATE)
+    if not b or not f:
+        sys.exit('### A PRINT BANK IS MISSING -- NOTHING WRITTEN')
+    bl, fl = b.rstrip(NL).split(NL), f.rstrip(NL).split(NL)
+    diff = [(i + 1, x, y) for i, (x, y) in enumerate(zip(bl, fl)) if x != y] + ([('length', len(bl), len(fl))] if len(bl) != len(fl) else [])
+    L = ['b682 -- COMPONENT 4: THE PRINTS BEFORE AND AFTER THE CUT, LINE FOR LINE (%s)' % utc(), '',
+         '### before: relay data/b682_axioms_%s_before.txt (%s, %d lines) ; after: relay data/b682_axioms_%s_after.txt (%s, %d lines)' % (
+             K.CANDIDATE, K.T_MAIN, len(bl), K.CANDIDATE, K.T_CUT, len(fl)), '### the lines that differ:'] + (['    %s : %s | %s' % d for d in diff] or ['    NONE'])
+    L += ['', '### ### **PRINTS BEFORE %d LINES ; AFTER %d LINES ; DIFFERING %d ; EQUAL LINE FOR LINE %s.**' % (len(bl), len(fl), len(diff), not diff)]
+    put_txt('b682_prints_compare.txt', L)
+    print(L[-1])
+
+
+def _strip_comments(t):
+    """the Lean text with every block comment (nested /- -/, docstrings and module docs included) and every line comment removed, whitespace
+    runs collapsed: what the elaborator reads."""
+    out, i, depth = [], 0, 0
+    while i < len(t):
+        if t.startswith('/-', i):
+            depth, i = depth + 1, i + 2
+            continue
+        if depth and t.startswith('-/', i):
+            depth, i = depth - 1, i + 2
+            continue
+        if not depth and t.startswith('--', i):
+            j = t.find(NL, i)
+            i = len(t) if j < 0 else j
+            continue
+        if not depth:
+            out.append(t[i])
+        i += 1
+    return re.sub(r'\s+', ' ', ''.join(out)).strip()
+
+
+CONTROL_NEEDLE = 'theorem sideIDS_total_seven'
+
+
+def cutdiff(*a):
+    """(R292)(5): the cut's diff (the print-list main to the cut tip), printed whole; the files it touches; each file's text with its comments
+    stripped compared before and after (equal = no line the elaborator reads changed), with a positive control (a one-word code change in
+    the after text must make the comparison unequal). data/b682_cut_diff.txt."""
+    files = g(K.TD, 'diff', '--name-only', K.T_MAIN, K.T_CUT).split()
+    d = g(K.TD, 'diff', '--unified=0', K.T_MAIN, K.T_CUT).replace(chr(13), '')
+    rows = []
+    for f in files:
+        b, n = _show(K.TD, K.T_MAIN, f) or '', _show(K.TD, K.T_CUT, f) or ''
+        eq = _strip_comments(b) == _strip_comments(n)
+        ctl = _strip_comments(b) == _strip_comments(n.replace(CONTROL_NEEDLE, CONTROL_NEEDLE + '_', 1))
+        rows.append((f, eq, ctl, CONTROL_NEEDLE in n))
+    plus = [l for l in d.split(NL) if l.startswith('+') and not l.startswith('+++')]
+    minus = [l for l in d.split(NL) if l.startswith('-') and not l.startswith('---')]
+    L = ['b682 -- COMPONENT 4, (R292)(5): THE CUT`S DIFF, RESTRICTED TO COMMENT AND DOCSTRING LINES (%s)' % utc(), '',
+         '### %s %s (main, the print list) -> %s (the cut, %s); files %s ; lines added %d, removed %d' % (
+             K.CANDIDATE, K.T_MAIN, K.T_CUT, K.T_BRANCH, files, len(plus), len(minus)),
+         '### rows are files: the text with every comment stripped equal before and after ; the control (a one-word code change in the after',
+         '### text) unequal ; the control`s needle present:']
+    L += ['  %-34s CODE EQUAL %s ; CONTROL UNEQUAL %s ; NEEDLE PRESENT %s' % (f, eq, not ctl, nd) for f, eq, ctl, nd in rows]
+    L += ['', '### the diff, whole:'] + ['    ' + l for l in d.rstrip(NL).split(NL)]
+    ok = files == list(K.T_CUT_FILES) and all(eq and not ctl and nd for _f, eq, ctl, nd in rows)
+    L += ['', '### ### **FILES %d ; CODE EQUAL WITH COMMENTS STRIPPED %s ; CONTROLS UNEQUAL %s ; COMMENT AND DOCSTRING LINES ALONE %s.**' % (
+        len(files), all(r[1] for r in rows), all(not r[2] for r in rows), ok)]
+    put_txt('b682_cut_diff.txt', L)
+    print(L[-1])
+
+
 ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers, 'gendry': gendry, 'word': word, 'dist': dist, 'partner': partner,
-          'c3': c3, 'naming': naming}
+          'c3': c3, 'naming': naming, 'runner': runner, 'prints': prints, 'cutdiff': cutdiff}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
