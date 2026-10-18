@@ -30,3 +30,14 @@ b680 -- THE DEFECTS, WRITTEN AS THE ACT RUNS (2026-10-17): THE SUCCESSOR OF data
         (b680_root_list.txt) by python's open().write, where the ferry orders every file the seat writes, scratch files included, through
         the Edit tool or the Write tool; the file was read once to count CR LF banks (0) and not used for the root, whose list was built
         again in the root's own command (relay data/b680_commands.txt at the close).
+    (g) THE SEAT'S: THE PRE-PUSH SUITE NOT RUN. The face's (G2) orders the suite run pre-push at the closing and again post-push; the seat
+        pushed the record (PLACE-papers 6d8b953, relay 75898036) before running it, so no PRE-PUSH reading exists for this act and the
+        closing's pre-push lines read NOT FOUND; the post-push reading in its three parts is the only closing run.
+    (h) THE SEAT'S: ROOT-NAMED BANKS CHANGED AFTER THE ROOT'S RECORDED COMMIT. After the root's prompt the seat re-banked four banks the
+        root names -- data/b670_work_orders.txt (the order's line), data/b680_author_answers.txt and .json (the fourth prompt),
+        data/b680_citation_check.txt (the fourth mid-act check) -- and pushed only data/b680_fig_hashes.txt (relay 42d26968) before the
+        root; the root recorded 42d26968 as its relay commit and hashed the banks as they stood in the working tree, committed later at
+        relay 75898036. tools/act_root.py verify reads every named bank at the recorded commit where that commit carries it (:301-:317,
+        :354-:368), so the chain recomputed at commit reads b680 DISAGREE on those four banks (relay data/b680_checks_postpush_standing-b.txt):
+        G-ACTROOT-VERIFY fails in this act and will fail in every later act's run until the author rules. Not repaired: act_roots.txt is
+        append-only and a second b680 line would break the chain, and no prompt is put after the root. For the author's ruling at b681.
