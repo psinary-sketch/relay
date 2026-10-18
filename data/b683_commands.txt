@@ -1,0 +1,142 @@
+b683 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES (2026-10-18T16:09:35Z)
+
+### the source: the seat`s session df03c73f-520a-4848-85dc-8fada095f008 from its first user line carrying 'RULING (R293) BEGIN', and its subagents` transcripts
+### commands read: 100
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (0):
+  NONE
+
+### THE COMMANDS THAT START A DETACHED RUN (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (9):
+  #22 2026-10-18T14:53:17.594Z Bash
+      git -C D:/relay branch --merged main --list push-b682-root && git -C D:/relay branch -d push-b682-root
+  #23 2026-10-18T14:53:21.014Z Bash
+      git -C D:/relay branch --merged main --list push-b682 && git -C D:/relay branch -d push-b682
+  #24 2026-10-18T14:53:24.416Z Bash
+      git -C D:/relay branch --merged main --list push-b682-closing && git -C D:/relay branch -d push-b682-closing
+  #25 2026-10-18T14:53:28.966Z Bash
+      git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b682-root && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b682-root
+  #26 2026-10-18T14:53:32.341Z Bash
+      git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b682 && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b682
+  #27 2026-10-18T14:53:36.061Z Bash
+      git -C D:/SIDE-bijection branch --merged main --list push-b682-main && git -C D:/SIDE-bijection branch -d push-b682-main
+  #28 2026-10-18T14:53:42.380Z Bash
+      git -C D:/SIDE-bijection branch --merged main --list push-b682-merge && git -C D:/SIDE-bijection branch -d push-b682-merge
+  #29 2026-10-18T14:53:45.801Z Bash
+      git -C D:/SIDE-bijection branch --merged main --list recut-bijection-b682 && git -C D:/SIDE-bijection branch -d recut-bijection-b682
+  #31 2026-10-18T14:53:54.819Z Bash
+      git -C /d/SIDE-bijection branch -r --merged main --list origin/recut-bijection-b682 && git -C /d/SIDE-bijection push origin --delete recut-bijection-b682
+
+### THE BRANCH DELETES BY SHAPE ((R293)(7): one branch per command, no glob in any half): #22 deletes ['push-b682-root'], globs none; #23 deletes ['push-b682'], globs none; #24 deletes ['push-b682-closing'], globs none; #25 deletes ['push-b682-root'], globs none; #26 deletes ['push-b682'], globs none; #27 deletes ['push-b682-main'], globs none; #28 deletes ['push-b682-merge'], globs none; #29 deletes ['recut-bijection-b682'], globs none; #31 deletes ['recut-bijection-b682'], globs none
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-18T14:45:10.847Z | seat | Bash | head -c 600 /d/relay/data/b682_ferry.txt; echo; echo ---; wc -l /d/relay/data/b682_ferry.txt; git -C /d/relay status --short | head; git -C /d/relay log --oneli
+  #2 | 2026-10-18T14:46:08.893Z | seat | Bash | cd /d/relay/data; head -3 b682_closing.txt; echo ---; cat b682_rules.txt; echo ---; wc -l b680_rules_arms.txt b680_arms.txt b677_map_plan.txt b677_map.txt b677_
+  #3 | 2026-10-18T14:46:16.313Z | seat | Bash | cd /d/relay; grep -n "EDIT-ROUTE\|def edit_route\|sed" tools/b682_checks.py | head -30
+  #4 | 2026-10-18T14:46:21.284Z | seat | Bash | cd /d/relay; grep -n "sed\|def scan\|def offence\|re.compile" tools/edit_route.py | head -30
+  #5 | 2026-10-18T14:46:31.992Z | seat | Bash | cd /d/relay/data; cat b680_rules_arms.txt; echo ----; cat b675_rules.txt | cut -c1-300; echo ----; cat b681_epstein_zeros_narrowed_hashes.txt
+  #6 | 2026-10-18T14:46:42.101Z | seat | Bash | cd /d/relay; cat data/b677_map_h.txt | cut -c1-400; echo ----; wc -l tools/b677_epstein_map_angle.py; grep -n "b671_epstein\|json.gz\|Q0_CERT\|def main\|argv\|b
+  #7 | 2026-10-18T14:47:10.856Z | seat | Bash | cd /d/relay/data; python -X utf8 -c "
+  #8 | 2026-10-18T14:47:18.746Z | seat | Bash | cd /d/relay/data; head -6 b671_tie_diagnostic.txt | cut -c1-400; echo ----; tail -5 b677_map.txt | cut -c1-330; echo ----; grep -n "^    ([a-z])" b677_defects.t
+  #9 | 2026-10-18T14:47:28.124Z | seat | Bash | cd /d/relay; grep -n "^STANDING\|^ACT_ARMS\|^STANDING_ADDED" tools/b682_checks.py | head; P=/d/MY-DOwnloads/PLACE-papers; awk 'NR==9138||NR==9140{print NR": "su
+  #10 | 2026-10-18T14:48:45.262Z | seat | Bash | python -X utf8 tools/b683_citation.py check
+  #11 | 2026-10-18T14:48:54.172Z | seat | Bash | python -X utf8 tools/b683_citation.py ferry && tail -3 data/b683_ferry_scan.txt
+  #12 | 2026-10-18T14:49:01.322Z | seat | Bash | head -12 data/b682_readfirst.txt | cut -c1-220 && wc -l data/b682_readfirst.txt && grep -n "rule (S\|def g2_of\|B681_FACE =" tools/b682_checks.py | head
+  #13 | 2026-10-18T14:49:40.146Z | seat | Bash | python -X utf8 tools/b683_citation.py check
+  #14 | 2026-10-18T14:49:48.546Z | seat | Bash | grep -n "def rowgen\|def branches\|def stepzero" -A14 tools/b682_record.py | head -60; ls data/b682_stepzero* data/b682_rowgen* data/b682_tests* 2>/dev/null
+  #15 | 2026-10-18T14:49:53.947Z | seat | Bash | wc -l tools/b682_*.py && grep -n "^import\|^from\|^K = \|^def \|^    '[a-z_]*': " tools/b682_record.py | head -80
+  #16 | 2026-10-18T14:50:59.510Z | seat | Bash | cat data/b682_tests_withheld.json && python -X utf8 tools/b683_tests.py parts && python -X utf8 tools/b683_tests.py mem
+  #17 | 2026-10-18T14:51:07.402Z | seat | Bash | python -X utf8 tools/b683_tests.py parts
+  #18 | 2026-10-18T14:52:40.602Z | seat | Bash | python -X utf8 tools/b683_record.py rowgen
+  #19 | 2026-10-18T14:53:00.973Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|python3|py)(\.exe)?$' } | Select-Object ProcessId, ParentProcessId, Name,
+  #20 | 2026-10-18T14:53:06.990Z | seat | Bash | git add data/b682_closing_push_out.txt && git commit -q -m "b683 step zero: b682's closing push capture committed ((R293)(7))" && git log --oneline -1
+  #21 | 2026-10-18T14:53:10.871Z | seat | Bash | python -X utf8 tools/b683_record.py branches
+  #22 | 2026-10-18T14:53:17.594Z | seat | Bash | git -C D:/relay branch --merged main --list push-b682-root && git -C D:/relay branch -d push-b682-root
+  #23 | 2026-10-18T14:53:21.014Z | seat | Bash | git -C D:/relay branch --merged main --list push-b682 && git -C D:/relay branch -d push-b682
+  #24 | 2026-10-18T14:53:24.416Z | seat | Bash | git -C D:/relay branch --merged main --list push-b682-closing && git -C D:/relay branch -d push-b682-closing
+  #25 | 2026-10-18T14:53:28.966Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b682-root && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b682-root
+  #26 | 2026-10-18T14:53:32.341Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b682 && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b682
+  #27 | 2026-10-18T14:53:36.061Z | seat | Bash | git -C D:/SIDE-bijection branch --merged main --list push-b682-main && git -C D:/SIDE-bijection branch -d push-b682-main
+  #28 | 2026-10-18T14:53:42.380Z | seat | Bash | git -C D:/SIDE-bijection branch --merged main --list push-b682-merge && git -C D:/SIDE-bijection branch -d push-b682-merge
+  #29 | 2026-10-18T14:53:45.801Z | seat | Bash | git -C D:/SIDE-bijection branch --merged main --list recut-bijection-b682 && git -C D:/SIDE-bijection branch -d recut-bijection-b682
+  #30 | 2026-10-18T14:53:50.264Z | seat | Bash | git grep -n -- "push origin --delete\|push origin :" -- 'data/b67*_commands*.txt' 'data/b68*_commands*.txt' | cut -c1-260 | head -8
+  #31 | 2026-10-18T14:53:54.819Z | seat | Bash | git -C /d/SIDE-bijection branch -r --merged main --list origin/recut-bijection-b682 && git -C /d/SIDE-bijection push origin --delete recut-bijection-b682
+  #32 | 2026-10-18T14:54:04.002Z | seat | Bash | python -X utf8 tools/b683_tests.py mem 1 && python -X utf8 tools/b683_tests.py run test_asof.py
+  #33 | 2026-10-18T15:02:02.381Z | seat | Bash | python -X utf8 tools/b683_tests.py mem 2 && python -X utf8 tools/b683_tests.py run test_chain_page.py
+  #34 | 2026-10-18T15:10:45.212Z | seat | Bash | python -X utf8 -c "
+  #35 | 2026-10-18T15:10:52.211Z | seat | Bash | grep -n "NOT CLEAN\|test_chain_page.py " data/b682_tests_stepzero.txt | head -5; git grep -n "title is the variant" -- 'data/b68*.txt' 'data/b67*.txt' | grep -v
+  #36 | 2026-10-18T15:11:00.809Z | seat | Bash | grep -n -i "chain_page\|carried\|not clean" data/b682_stepzero.txt | cut -c1-400 | head -12
+  #37 | 2026-10-18T15:11:07.143Z | seat | Bash | python -X utf8 tools/b683_tests.py mem 3 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_adde
+  #38 | 2026-10-18T15:14:05.243Z | seat | Bash | python -X utf8 tools/b683_tests.py mem 3b && for t in test_chain_page_b630.py test_chain_page_b632.py test_chain_page_b635.py test_chain_page_b638.py test_closi
+  #39 | 2026-10-18T15:16:11.478Z | seat | Bash | python -X utf8 tools/b683_tests.py mem 4 && for t in test_faces_form.py test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py test_li
+  #40 | 2026-10-18T15:19:55.375Z | seat | Bash | python -X utf8 tools/b683_tests.py mem 5 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_names
+  #41 | 2026-10-18T15:24:46.727Z | seat | Bash | python -X utf8 tools/b683_tests.py report | tail -6 && git status --short --untracked-files=no && git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked
+  #42 | 2026-10-18T15:25:12.322Z | seat | Bash | git add data/b683_branches.json data/b683_branches.txt data/b683_citation_check.json data/b683_citation_check.txt data/b683_ferry.txt data/b683_ferry_scan.txt d
+  #43 | 2026-10-18T15:25:17.996Z | seat | Bash | python -X utf8 tools/b683_record.py c1 dry | head -5
+  #44 | 2026-10-18T15:25:22.666Z | seat | Bash | python -X utf8 tools/b683_record.py c1
+  #45 | 2026-10-18T15:25:27.602Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b683 C1: b682 at its weight, as its closing prints ((R293)(1)), FINDINGS :9168" && g
+  #46 | 2026-10-18T15:25:49.648Z | seat | Bash | cd /d/relay && python -X utf8 -c "
+  #47 | 2026-10-18T15:26:32.917Z | seat | Bash | sha256sum tools/b677_epstein_map_angle.py tools/b667_epstein_map_balls.py && git log --oneline -1 -- tools/b677_epstein_map_angle.py && git status --short tools
+  #48 | 2026-10-18T15:26:41.453Z | seat | Bash | grep -o "the tool tools/b677_epstein_map_angle.py sha256 [0-9a-f]*" data/b677_map.txt
+  #49 | 2026-10-18T15:27:43.466Z | seat | Bash | grep -n "^def cell\|rec = dict\|'triggers'" tools/b677_epstein_map_angle.py | head
+  #50 | 2026-10-18T15:27:54.590Z | seat | Bash | python -X utf8 tools/b683_epstein_map_angle.py chain
+  #51 | 2026-10-18T15:28:10.001Z | seat | Bash | python -c "
+  #52 | 2026-10-18T15:29:18.603Z | seat | Bash | awk 'NR==3{print substr($0,1,90)}' data/b677_map.txt; awk 'NR>=536&&NR<=537||NR==615{print NR": "substr($0,1,100)}' tools/b677_epstein_map_angle.py
+  #53 | 2026-10-18T15:29:24.790Z | seat | Bash | git add data/b683_map_plan.txt data/b683_chain.txt tools/b683_epstein_map_angle.py && git commit -q -m "b683 C2: the plan (data/b683_map_plan.txt), the hash cha
+  #54 | 2026-10-18T15:36:32.533Z | seat | Bash | python -X utf8 tools/b683_citation.py answer "ANSWER on the map plan"
+  #55 | 2026-10-18T15:36:46.488Z | seat | Bash | sha256sum tools/b677_epstein_map_angle.py && for r in /d/relay /d/MY-DOwnloads/PLACE-papers /d/SIDE-explicit-formula; do git -C $r cat-file -t b21f6926 2>&1 | h
+  #56 | 2026-10-18T15:37:03.616Z | seat | Bash | python -X utf8 tools/b683_record.py answers
+  #57 | 2026-10-18T15:37:12.119Z | seat | Bash | python -X utf8 tools/b683_epstein_map_angle.py part1 > /dev/null; echo "exit $?"; tail -8 data/b683_map.txt | cut -c1-330; grep -n "READING\|THE CONTROL REPRODU
+  #58 | 2026-10-18T15:38:08.821Z | seat | Bash | python -X utf8 tools/b683_epstein_map_angle.py hyp && sha256sum tools/b677_epstein_map_angle.py tools/b667_epstein_map_balls.py && grep -n "CERTIFIED\|NOT CERTI
+  #59 | 2026-10-18T15:38:26.789Z | seat | Bash | python -X utf8 tools/b683_epstein_map_angle.py hyp | tail -4
+  #60 | 2026-10-18T15:38:41.799Z | seat | Bash | awk 'NR>=282&&NR<=290' data/b670_work_orders.txt | cut -c1-260; awk 'NR==14712{print substr($0,1,1200)}' /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md; wc -l data
+  #61 | 2026-10-18T15:39:06.160Z | seat | Bash | ls data/b677_landing* data/b681_landing* 2>/dev/null; head -12 data/b677_landing.txt 2>/dev/null | cut -c1-250
+  #62 | 2026-10-18T15:39:11.111Z | seat | Bash | head -c 1500 data/b677_landing.json; echo; grep -n "bench" data/b677_map_plan.txt data/b663_epstein_plan.txt | head -5; grep -n -i "bench line" /d/MY-DOwnloads/
+  #63 | 2026-10-18T15:39:38.380Z | seat | Bash | python -X utf8 -c "
+  #64 | 2026-10-18T15:39:57.700Z | seat | Bash | python -X utf8 tools/b683_record.py c3 dry | head -2
+  #65 | 2026-10-18T15:40:02.671Z | seat | Bash | python -X utf8 tools/b683_record.py c3 && tail -3 data/b670_work_orders.txt | cut -c1-200
+  #66 | 2026-10-18T15:40:10.695Z | seat | Bash | git add data/b683_map.txt data/b683_map.json data/b683_map_run.txt data/b683_map_h.txt data/b683_map_h.json data/b683_landing.txt data/b683_landing.json data/b6
+  #67 | 2026-10-18T15:40:16.424Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b683 C3: W-ORD-MAP-ANGLE-FORM DISCHARGED ((R293)(5)), OPEN_TRAILS :14774" && git 
+  #68 | 2026-10-18T15:40:22.854Z | seat | Bash | cd /d/relay/data && for f in b670 b671 b672 b673 b674 b677 b678; do echo "=== $f"; awk 'NR>2' ${f}_rules.txt | cut -c1-600; done 2>/dev/null | head -150
+  #69 | 2026-10-18T15:40:51.792Z | seat | Bash | cd /d/relay && ls data/b670_state* data/b680_state* data/b680_triggers* data/b680_methods* data/b670_methods* data/b680_readings* 2>/dev/null; git grep -l "T1 \
+  #70 | 2026-10-18T15:40:57.864Z | seat | Bash | head -8 data/b680_methods.txt | cut -c1-250; grep -n "^  " data/b680_methods.txt | head -14 | cut -c1-220; grep -n -i "trigger\|T1\b\|T5" data/b680_closing.txt 
+  #71 | 2026-10-18T15:41:06.031Z | seat | Bash | head -1 data/b681_narrow_progress.txt | python -X utf8 -c "import sys,json;l=sys.stdin.read();print(list(json.loads(l.split(' ',1)[1]).keys()))"; awk '{print $1
+  #72 | 2026-10-18T15:41:30.105Z | seat | Bash | git grep -l -i "outside-reader\|outside reader" -- 'data/b6[7-8]*.txt' | head -5; git grep -n -i "three fixed questions" -- data/ | head -3 | cut -c1-200; for n
+  #73 | 2026-10-18T15:43:20.472Z | seat | Bash | ls data/b67[0-3]_rowgen* 2>/dev/null; head -6 data/b680_outside.txt | cut -c1-300; tail -2 data/b680_outside.txt | cut -c1-300
+  #74 | 2026-10-18T15:44:18.590Z | seat | Bash | head -3 data/b679_zeta_walk.txt | cut -c1-200; echo; head -3 data/b679_zeta_walk_46ee9a4.txt | cut -c1-200; git log --format='%h %ad %s' --date=iso -- data/b679
+  #75 | 2026-10-18T15:45:35.834Z | seat | Bash | git add data/b683_arms_sort.txt && git commit -q -m "b683 C4: the sort of the 24 rules without arms -- TRACEABLE 21 (live 15, declaration-only 5, superseded 1),
+  #76 | 2026-10-18T15:48:15.650Z | seat | Bash | python -X utf8 tools/b683_citation.py answer "on (R293)(6), the sort" ; grep -n "^    ([a-z])" data/b680_defects.txt | cut -c1-200; grep -n -i "walk" data/b680_
+  #77 | 2026-10-18T15:48:29.080Z | seat | Bash | python -X utf8 tools/b683_record.py answers
+  #78 | 2026-10-18T15:49:26.611Z | seat | Bash | awk 'NR>=20&&NR<=40' data/b680_closing.txt | cut -c1-330; echo ----; head -20 data/b670_state.txt | cut -c1-260
+  #79 | 2026-10-18T15:50:14.190Z | seat | Bash | grep -n "def capture" -A40 tools/edit_route.py | head -60
+  #80 | 2026-10-18T15:51:12.818Z | seat | Bash | grep -n "^=== \|^    acts\|^    banks\|^    defects" data/b680_methods.txt | awk -F'|' '{print substr($0,1,90)}' | head -40; grep -n "### ### " data/b680_method
+  #81 | 2026-10-18T15:51:24.741Z | seat | Bash | for f in data/b682_runner_SIDE-bijection_before.txt data/b682_runner_SIDE-bijection_after.txt; do head -6 $f | cut -c1-160; done; ls data/b67[3-9]_runner_*_*.tx
+  #82 | 2026-10-18T15:51:35.650Z | seat | Bash | for f in data/b673_runner_*.txt data/b674_runner_*.txt data/b676_runner_*.txt data/b678_runner_*.txt data/b682_runner_*.txt; do printf "%s | %s | %s\n" "$(basen
+  #83 | 2026-10-18T15:51:47.857Z | seat | Bash | grep -n "### ### \|TIED\|NAMED\|^  [0-9 ]*SIDE-\|^    SIDE-" data/b682_naming.txt | cut -c1-220 | head -20; echo ----; grep -c . data/b676_naming.txt data/b678_
+  #84 | 2026-10-18T15:51:55.864Z | seat | Bash | grep -n -i "tie\|b674_rules" data/b678_naming.txt | cut -c1-300 | head; awk 'NR>=8&&NR<=16' data/b678_naming.txt | cut -c1-250
+  #85 | 2026-10-18T15:52:09.220Z | seat | Bash | head -2 data/b671_run2_progress.txt | cut -c1-200; awk '{print $1}' data/b671_run2_progress.txt | sort | uniq -c; grep -h "THE LONGEST PHASE" data/b682_arms_pre
+  #86 | 2026-10-18T15:52:17.641Z | seat | Bash | grep -m2 "^OFF" data/b671_run2_progress.txt | cut -c1-250; grep -m3 "^PART\|^POINT" data/b681_narrow_progress.txt | cut -c1-250; grep -c "^  ### PART" data/b682
+  #87 | 2026-10-18T15:52:25.257Z | seat | Bash | grep -m2 "^OFF" data/b671_run2_progress.txt | cut -c1-300; grep -m1 "^  OFF\|^OFF\| OFF " data/b671_run2_progress.txt | cut -c1-300
+  #88 | 2026-10-18T15:54:45.921Z | seat | Bash | python -X utf8 -c "
+  #89 | 2026-10-18T15:55:07.262Z | seat | Bash | awk 'NR>=20&&NR<=32' data/b670_state.txt | cut -c1-200; grep -l "DISTANCE FROM THE PAIR" data/b6[7-8]?_closing.txt
+  #90 | 2026-10-18T15:55:33.758Z | seat | Bash | python -X utf8 -c "
+  #91 | 2026-10-18T15:55:49.488Z | seat | Bash | python -X utf8 -c "
+  #92 | 2026-10-18T15:56:04.580Z | seat | Bash | python -X utf8 -c "
+  #93 | 2026-10-18T15:56:12.019Z | seat | Bash | python -X utf8 -c "
+  #94 | 2026-10-18T15:56:34.559Z | seat | Bash | python -X utf8 -c "
+  #95 | 2026-10-18T15:57:42.230Z | seat | PowerShell | $p = @(Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|python3|py|bash)(\.exe)?$' }); $p | Select-Object ProcessId, Paren
+  #96 | 2026-10-18T16:00:50.728Z | seat | Bash | python -X utf8 tools/b683_record.py rulesarms && head -40 data/b683_rules_arms.txt | cut -c1-200
+  #97 | 2026-10-18T16:01:03.746Z | seat | Bash | git add tools/rule_arms.py data/b683_rules_arms.txt data/b683_author_answers.txt data/b683_author_answers.json data/b683_citation_check.txt data/b683_stepzero.t
+  #98 | 2026-10-18T16:09:05.624Z | seat | Bash | python -X utf8 -c "
+  #99 | 2026-10-18T16:09:11.898Z | seat | Bash | wc -l -c data/b682_registration_2026-10-18.txt && grep -n "^### \|^## \|^\*\*" data/b682_registration_2026-10-18.txt | cut -c1-150 | head -80
+  #100 | 2026-10-18T16:09:22.293Z | seat | Bash | python -X utf8 tools/b683_record.py repairs && python -X utf8 tools/b683_record.py kernels && python -X utf8 tools/b683_record.py defects && python -X utf8 tool
+
+### ### **COMMANDS 100 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9.**

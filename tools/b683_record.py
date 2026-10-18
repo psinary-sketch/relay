@@ -614,6 +614,10 @@ REPAIRS = [
      'tools/rule_arms.py read tool calls from the api-request-blob lines too (copies without ids, so every call fell into one message); it',
      'reads the assistant lines alone; the consumers reader took a plan title naming the section for the section, and reads the "== n." header;',
      'the naming reader took b200`s sector naming bank, and reads from the rule`s act, b674.'),
+    ('THE SCORE ROUTES` TWO READERS (answering their dry run on the real banks before the seal, data/b672_rules.txt row 3): N2 searched the',
+     'plan for the H3 and H4 quotations line by line and the quotations wrap, so it read False; it reads the plan joined. N4 asked every',
+     'TRACEABLE row for its own trace and failing reading, and the SUPERSEDED row (23) gives its trace as row (24)`s; it reads that row so.',
+     'The same two readers in tools/b683_checks.py (G-PLAN-BEFORE-RUN, G-ARMS-SORTED) repaired alike.'),
 ]
 
 
@@ -854,7 +858,7 @@ def _n1():
 
 
 def _n2():
-    plan = rdn('b683_map_plan.txt')
+    plan = ' '.join(rdn('b683_map_plan.txt').split())          # ### the quotations wrap across the plan's lines
     t_plan, t_run, t_chain = _git_ct(RELAY, PLAN_COMMIT), _bank_ts('b683_map_run.txt'), _bank_ts('b683_chain.txt')
     q3 = 'every hypothesis of zeroSide_neg_at_rate_cfg certifies by name and hrate holds at some j₀ ≤ D' in plan
     q4 = 'prints j₀ = 38 and a zero side below zero, each with its ball' in plan
@@ -890,7 +894,8 @@ def _n4():
     t_prompt = _iso(calls[1]['ts']) if len(calls) > 1 else None
     rows = re.findall(r'^  \((\d+)\)\s+(b\d{3} row \d+)', srt, re.M)
     keys = [k for _n, k in rows]
-    trace_ok = all(('trace:' in blk and 'fails:' in blk) for blk in re.split(r'(?m)^  \(\d+\)', srt)[1:] if 'SORT TRACEABLE' in blk)
+    trace_ok = all(('trace:' in blk and 'fails:' in blk) or ('STATE SUPERSEDED' in blk and re.search(r"its trace is row \(\d+\)'s", blk))
+                   for blk in re.split(r'(?m)^  \(\d+\)', srt)[1:] if 'SORT TRACEABLE' in blk)
     ok = len(rows) == 24 and len(set(keys)) == 24 and trace_ok and bool(t_sort and t_prompt) and t_sort < t_prompt \
         and (t_arms is None or t_prompt < t_arms)
     return ('HELD' if ok else 'REFUTED'), (

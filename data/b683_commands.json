@@ -1,0 +1,786 @@
+{
+ "at": "2026-10-18T16:09:35Z",
+ "anchor": "RULING (R293) BEGIN",
+ "rows": [
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:45:10.847Z",
+   "src": "seat",
+   "cmd": "head -c 600 /d/relay/data/b682_ferry.txt; echo; echo ---; wc -l /d/relay/data/b682_ferry.txt; git -C /d/relay status --short | head; git -C /d/relay log --oneline -3",
+   "n": 1
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:46:08.893Z",
+   "src": "seat",
+   "cmd": "cd /d/relay/data; head -3 b682_closing.txt; echo ---; cat b682_rules.txt; echo ---; wc -l b680_rules_arms.txt b680_arms.txt b677_map_plan.txt b677_map.txt b677_map_h.txt b677_tolerance.txt b677_defects.txt b671_tie_diagnostic.txt b681_narrow.txt b681_epstein_zeros_narrowed_hashes.txt b675_rules.txt; echo ---; sed -n '131p' b663_epstein_plan.txt; echo; sed -n '124,125p' b667_epstein_plan.txt; echo; sed -n '90p' b677_tolerance.txt; grep -n 'MAP-ANGLE-FORM' b670_work_orders.txt; sed -n '14714p' /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-600",
+   "n": 2
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:46:16.313Z",
+   "src": "seat",
+   "cmd": "cd /d/relay; grep -n \"EDIT-ROUTE\\|def edit_route\\|sed\" tools/b682_checks.py | head -30",
+   "n": 3
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:46:21.284Z",
+   "src": "seat",
+   "cmd": "cd /d/relay; grep -n \"sed\\|def scan\\|def offence\\|re.compile\" tools/edit_route.py | head -30",
+   "n": 4
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:46:31.992Z",
+   "src": "seat",
+   "cmd": "cd /d/relay/data; cat b680_rules_arms.txt; echo ----; cat b675_rules.txt | cut -c1-300; echo ----; cat b681_epstein_zeros_narrowed_hashes.txt",
+   "n": 5
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:46:42.101Z",
+   "src": "seat",
+   "cmd": "cd /d/relay; cat data/b677_map_h.txt | cut -c1-400; echo ----; wc -l tools/b677_epstein_map_angle.py; grep -n \"b671_epstein\\|json.gz\\|Q0_CERT\\|def main\\|argv\\|b677_map\\|b677_tol\\|open(\" tools/b677_epstein_map_angle.py | head -40",
+   "n": 6
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:47:10.856Z",
+   "src": "seat",
+   "cmd": "cd /d/relay/data; python -X utf8 -c \"\nimport gzip,json,hashlib\nfor f in ('b671_epstein_zeros_narrowed.json.gz','b681_epstein_zeros_narrowed.json.gz'):\n    raw=open(f,'rb').read(); j=gzip.decompress(raw)\n    d=json.loads(j); print(f, hashlib.sha256(raw).hexdigest()[:16], hashlib.sha256(j).hexdigest()[:16], list(d.keys()), len(d['rows'])); print(' ', d['rows'][0]); print(' ', [r for r in d['rows'] if r['kind']=='OFF'][0])\n\"; head -12 b681_narrow.txt | cut -c1-250; tail -5 b681_narrow.txt | cut -c1-300",
+   "n": 7
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:47:18.746Z",
+   "src": "seat",
+   "cmd": "cd /d/relay/data; head -6 b671_tie_diagnostic.txt | cut -c1-400; echo ----; tail -5 b677_map.txt | cut -c1-330; echo ----; grep -n \"^    ([a-z])\" b677_defects.txt | cut -c1-150; echo ----; head -20 b680_arms.txt | cut -c1-200",
+   "n": 8
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:47:28.124Z",
+   "src": "seat",
+   "cmd": "cd /d/relay; grep -n \"^STANDING\\|^ACT_ARMS\\|^STANDING_ADDED\" tools/b682_checks.py | head; P=/d/MY-DOwnloads/PLACE-papers; awk 'NR==9138||NR==9140{print NR\": \"substr($0,1,120)}' $P/FINDINGS.md; awk 'NR==14694||NR==14714||NR==14742||NR==14744||NR==14746{print NR\": \"substr($0,1,120)}' $P/OPEN_TRAILS.md; wc -l $P/FINDINGS.md $P/OPEN_TRAILS.md; ls tools/test_*.py | wc -l; grep -n \"asof\\|secs\\|PARTS\" tools/b682_tests.py | head -20",
+   "n": 9
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:48:45.262Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_citation.py check",
+   "n": 10
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:48:54.172Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_citation.py ferry && tail -3 data/b683_ferry_scan.txt",
+   "n": 11
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:49:01.322Z",
+   "src": "seat",
+   "cmd": "head -12 data/b682_readfirst.txt | cut -c1-220 && wc -l data/b682_readfirst.txt && grep -n \"rule (S\\|def g2_of\\|B681_FACE =\" tools/b682_checks.py | head",
+   "n": 12
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:49:40.146Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_citation.py check",
+   "n": 13
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:49:48.546Z",
+   "src": "seat",
+   "cmd": "grep -n \"def rowgen\\|def branches\\|def stepzero\" -A14 tools/b682_record.py | head -60; ls data/b682_stepzero* data/b682_rowgen* data/b682_tests* 2>/dev/null",
+   "n": 14
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:49:53.947Z",
+   "src": "seat",
+   "cmd": "wc -l tools/b682_*.py && grep -n \"^import\\|^from\\|^K = \\|^def \\|^    '[a-z_]*': \" tools/b682_record.py | head -80",
+   "n": 15
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:50:59.510Z",
+   "src": "seat",
+   "cmd": "cat data/b682_tests_withheld.json && python -X utf8 tools/b683_tests.py parts && python -X utf8 tools/b683_tests.py mem",
+   "n": 16
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:51:07.402Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_tests.py parts",
+   "n": 17
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:52:40.602Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_record.py rowgen",
+   "n": 18
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-18T14:53:00.973Z",
+   "src": "seat",
+   "cmd": "Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|python3|py)(\\.exe)?$' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={ if ($_.CommandLine) { $_.CommandLine.Substring(0, [Math]::Min(160, $_.CommandLine.Length)) } else { '' } }} | Format-Table -AutoSize -Wrap | Out-String -Width 250; \"tail/lean/lake/python count: \" + @(Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|python3|py)(\\.exe)?$' }).Count",
+   "n": 19
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:06.990Z",
+   "src": "seat",
+   "cmd": "git add data/b682_closing_push_out.txt && git commit -q -m \"b683 step zero: b682's closing push capture committed ((R293)(7))\" && git log --oneline -1",
+   "n": 20
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:10.871Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_record.py branches",
+   "n": 21
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:17.594Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay branch --merged main --list push-b682-root && git -C D:/relay branch -d push-b682-root",
+   "n": 22
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:21.014Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay branch --merged main --list push-b682 && git -C D:/relay branch -d push-b682",
+   "n": 23
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:24.416Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay branch --merged main --list push-b682-closing && git -C D:/relay branch -d push-b682-closing",
+   "n": 24
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:28.966Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b682-root && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b682-root",
+   "n": 25
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:32.341Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b682 && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b682",
+   "n": 26
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:36.061Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-bijection branch --merged main --list push-b682-main && git -C D:/SIDE-bijection branch -d push-b682-main",
+   "n": 27
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:42.380Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-bijection branch --merged main --list push-b682-merge && git -C D:/SIDE-bijection branch -d push-b682-merge",
+   "n": 28
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:45.801Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-bijection branch --merged main --list recut-bijection-b682 && git -C D:/SIDE-bijection branch -d recut-bijection-b682",
+   "n": 29
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:50.264Z",
+   "src": "seat",
+   "cmd": "git grep -n -- \"push origin --delete\\|push origin :\" -- 'data/b67*_commands*.txt' 'data/b68*_commands*.txt' | cut -c1-260 | head -8",
+   "n": 30
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:53:54.819Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-bijection branch -r --merged main --list origin/recut-bijection-b682 && git -C /d/SIDE-bijection push origin --delete recut-bijection-b682",
+   "n": 31
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T14:54:04.002Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_tests.py mem 1 && python -X utf8 tools/b683_tests.py run test_asof.py",
+   "n": 32
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:02:02.381Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_tests.py mem 2 && python -X utf8 tools/b683_tests.py run test_chain_page.py",
+   "n": 33
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:10:45.212Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;j=json.load(open('data/b683_tests_stepzero.json',encoding='utf-8'))['test_chain_page.py']['output']\nL=j.split('\\n'); [print(l[:300]) for l in L if l.startswith('  (9)') or '(9)' in l[:8]]\ni=[k for k,l in enumerate(L) if l.startswith('  (9)')]; print('\\n'.join(x[:300] for x in L[max(0,i[0]-3):i[0]+12]) if i else 'no')\n\"; python -X utf8 -c \"\nimport json;j=json.load(open('data/b682_tests_stepzero.json',encoding='utf-8'))['test_chain_page.py'];print(j['rc'],j['cases'],j['passing'],j['failing'],j['seconds'])\"",
+   "n": 34
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:10:52.211Z",
+   "src": "seat",
+   "cmd": "grep -n \"NOT CLEAN\\|test_chain_page.py \" data/b682_tests_stepzero.txt | head -5; git grep -n \"title is the variant\" -- 'data/b68*.txt' 'data/b67*.txt' | grep -v \"_tests_\" | cut -c1-260 | head -8",
+   "n": 35
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:11:00.809Z",
+   "src": "seat",
+   "cmd": "grep -n -i \"chain_page\\|carried\\|not clean\" data/b682_stepzero.txt | cut -c1-400 | head -12",
+   "n": 36
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:11:07.143Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_tests.py mem 3 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_addenda_writelist.py test_additive_shared_b644.py test_axiom_claim.py test_axiom_claim_b651.py test_banned_terms_backmatter.py test_build_watch_b644.py test_build_watch_b647.py test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py; do python -X utf8 tools/b683_tests.py run $t; done",
+   "n": 37
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:14:05.243Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_tests.py mem 3b && for t in test_chain_page_b630.py test_chain_page_b632.py test_chain_page_b635.py test_chain_page_b638.py test_closing_headline_b634.py test_clusters_served_b651.py test_composer_b646.py test_composer_b647.py test_composer_b649.py test_conversion_b652.py test_correspondence_gen.py test_e0_databinder_b643.py test_e0_existential.py test_e0_rule.py test_edit_route_b646.py; do python -X utf8 tools/b683_tests.py run $t; done",
+   "n": 38
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:16:11.478Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_tests.py mem 4 && for t in test_faces_form.py test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py test_licensed_table_instrument_b652.py test_met_b646.py test_module_header.py test_msplit_b658.py; do python -X utf8 tools/b683_tests.py run $t; done",
+   "n": 39
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:19:55.375Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_tests.py mem 5 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_names_b643.py test_push_gated.sh test_reader_needle_b641.py test_record_findings_b632.py test_registry_tags_b636.py test_row_sort.py test_rowgen_ident.py test_terminal_table_b630.py test_terminal_table_b635.py test_terminal_table_b636.py test_terminal_table_b637.py; do python -X utf8 tools/b683_tests.py run $t; done",
+   "n": 40
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:24:46.727Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_tests.py report | tail -6 && git status --short --untracked-files=no && git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-files=no && git status --short | grep b683 ",
+   "n": 41
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:25:12.322Z",
+   "src": "seat",
+   "cmd": "git add data/b683_branches.json data/b683_branches.txt data/b683_citation_check.json data/b683_citation_check.txt data/b683_ferry.txt data/b683_ferry_scan.txt data/b683_readfirst.txt data/b683_rowgen_stepzero.txt data/b683_tests_stepzero.json data/b683_tests_stepzero.txt data/b683_tests_withheld.json data/b683_stepzero.txt tools/b683_citation.py tools/b683_record.py tools/b683_tests.py tools/b683_worklist.py && git commit -q -m \"b683 step zero: the ferry, the citation check (100 of 100), the readfirst bank, rowgen, the branches (9 deleted), the tests (55; 2 not clean, the standing set)\" && git log --oneline -1",
+   "n": 42
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:25:17.996Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_record.py c1 dry | head -5",
+   "n": 43
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:25:22.666Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_record.py c1",
+   "n": 44
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:25:27.602Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m \"b683 C1: b682 at its weight, as its closing prints ((R293)(1)), FINDINGS :9168\" && git log --oneline -1",
+   "n": 45
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:25:49.648Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 -c \"\nimport json;m=json.load(open('data/b677_map.json',encoding='utf-8'))\nq=m['q0'];print('reading',q['reading'],'hqtie',q['hqtie'],'D',q['D'],'Jmax',q['J_max'],'angle_rad',q.get('angle_rad'))\nprint('certs',[c[:2] if isinstance(c,list) else c for c in q['certs']][:12])\nl=q['labelled'];print('lab reading',l['reading']);print('lab certs',[c[:2] for c in l['certs']]);print('lab hrate',[(h[0],h[1]) for h in l['hrate']]);print('zero',q.get('zero_side'), l.get('zero_side'))\nprint('first',q['first'].keys(), q['first'].get('reading'), q['first'].get('hqtie'))\nr=[x for x in m['rows'] if x['cell']=='Q0 AT qE0' and x['j'] in (24,38,52,53,64)];[print(x['bits'],x['j'],'%.3e'%x['rad'],'%.3e'%x['angle_rad'],x['word']) for x in r]\nprint(m['secs'])\n\"",
+   "n": 46
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:26:32.917Z",
+   "src": "seat",
+   "cmd": "sha256sum tools/b677_epstein_map_angle.py tools/b667_epstein_map_balls.py && git log --oneline -1 -- tools/b677_epstein_map_angle.py && git status --short tools/b677_epstein_map_angle.py && head -3 data/b671_epstein_zeros_narrowed_hashes.txt | cut -c1-200 && python -X utf8 -c \"import flint;print(flint.__version__)\"",
+   "n": 47
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:26:41.453Z",
+   "src": "seat",
+   "cmd": "grep -o \"the tool tools/b677_epstein_map_angle.py sha256 [0-9a-f]*\" data/b677_map.txt",
+   "n": 48
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:27:43.466Z",
+   "src": "seat",
+   "cmd": "grep -n \"^def cell\\|rec = dict\\|'triggers'\" tools/b677_epstein_map_angle.py | head",
+   "n": 49
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:27:54.590Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_epstein_map_angle.py chain",
+   "n": 50
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:28:10.001Z",
+   "src": "seat",
+   "cmd": "python -c \"\nimport math\nbar=2**-20; s=1e-30/1e-24\nfor nm,c in (('upper',2.092e-21),('lower',3.606e-24)):\n    c2=c*s; r=2**65*c2; print(nm,'c %.3e rad64 %.3e ratio %.3e lastpass j %d'%(c2,r,r/bar,math.floor(math.log2(bar/c2))-1))\nfor b,r in ((200,2.051e-3),(400,2.048e-3)): print(b,'measured-scaled rad64 %.3e ratio %.3e'%(r*s,r*s/bar), 'first fail j ~ %.1f'%(53+math.log2(1/s)))\nprint('h_tol64/h %.1f'%(3.162e-28/1e-30), 'bar',bar, 'angle base %.3e'%(1.8355560650069237e-25*s), 'angle64 %.3e'%(6.783e-06*s))\n\"",
+   "n": 51
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:29:18.603Z",
+   "src": "seat",
+   "cmd": "awk 'NR==3{print substr($0,1,90)}' data/b677_map.txt; awk 'NR>=536&&NR<=537||NR==615{print NR\": \"substr($0,1,100)}' tools/b677_epstein_map_angle.py",
+   "n": 52
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:29:24.790Z",
+   "src": "seat",
+   "cmd": "git add data/b683_map_plan.txt data/b683_chain.txt tools/b683_epstein_map_angle.py && git commit -q -m \"b683 C2: the plan (data/b683_map_plan.txt), the hash chain verified before any ball is read (7 of 7), the run's wrapper (b677's map imported unchanged; its four changes named)\" && git log --oneline -1",
+   "n": 53
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:36:32.533Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_citation.py answer \"ANSWER on the map plan\"",
+   "n": 54
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:36:46.488Z",
+   "src": "seat",
+   "cmd": "sha256sum tools/b677_epstein_map_angle.py && for r in /d/relay /d/MY-DOwnloads/PLACE-papers /d/SIDE-explicit-formula; do git -C $r cat-file -t b21f6926 2>&1 | head -1; done; tail -4 data/b683_citation_check.txt | cut -c1-120",
+   "n": 55
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:37:03.616Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_record.py answers",
+   "n": 56
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:37:12.119Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_epstein_map_angle.py part1 > /dev/null; echo \"exit $?\"; tail -8 data/b683_map.txt | cut -c1-330; grep -n \"READING\\|THE CONTROL REPRODUCED\\|NOT REPRODUCED\\|FORCED\\|powers in the angle form\\|THE ZERO SIDE\\|hrate j = \\(3[6-9]\\|4[0-2]\\)\" data/b683_map_run.txt | cut -c1-260 | head -30",
+   "n": 57
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:38:08.821Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_epstein_map_angle.py hyp && sha256sum tools/b677_epstein_map_angle.py tools/b667_epstein_map_balls.py && grep -n \"CERTIFIED\\|NOT CERTIFIED\" data/b683_map_run.txt | awk -F: '$1>164' | cut -c1-160 | head -16",
+   "n": 58
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:38:26.789Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_epstein_map_angle.py hyp | tail -4",
+   "n": 59
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:38:41.799Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=282&&NR<=290' data/b670_work_orders.txt | cut -c1-260; awk 'NR==14712{print substr($0,1,1200)}' /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md; wc -l data/b670_work_orders.txt; grep -n \"def c3\" -A28 tools/b682_record.py | head -40",
+   "n": 60
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:39:06.160Z",
+   "src": "seat",
+   "cmd": "ls data/b677_landing* data/b681_landing* 2>/dev/null; head -12 data/b677_landing.txt 2>/dev/null | cut -c1-250",
+   "n": 61
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:39:11.111Z",
+   "src": "seat",
+   "cmd": "head -c 1500 data/b677_landing.json; echo; grep -n \"bench\" data/b677_map_plan.txt data/b663_epstein_plan.txt | head -5; grep -n -i \"bench line\" /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md | head -3",
+   "n": 62
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:39:38.380Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;q=json.load(open('data/b683_map.json',encoding='utf-8'))['q0'];print([(c[0],c[1]) for c in q['certs']]);print(q['reading'],q['hqtie'],q['first'].get('reading'),q['first'].get('hqtie'))\"",
+   "n": 63
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:39:57.700Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_record.py c3 dry | head -2",
+   "n": 64
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:40:02.671Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_record.py c3 && tail -3 data/b670_work_orders.txt | cut -c1-200",
+   "n": 65
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:40:10.695Z",
+   "src": "seat",
+   "cmd": "git add data/b683_map.txt data/b683_map.json data/b683_map_run.txt data/b683_map_h.txt data/b683_map_h.json data/b683_landing.txt data/b683_landing.json data/b683_defects.txt data/b683_map_plan.txt data/b683_citation_check.txt data/b683_author_answers.txt data/b683_author_answers.json data/b670_work_orders.txt data/b683_chain.txt tools/b683_epstein_map_angle.py tools/b683_record.py && git commit -q -m \"b683 C3: the map over the b681 balls -- controls 123 of 123 PASS, radius at j = 64 2.07e-9 against 9.54e-7; H1-H5 HELD (H3 j0 = 38 on the premise P3); W-ORD-MAP-ANGLE-FORM DISCHARGED; defect (a), the hyp route's key\" && git log --oneline -1",
+   "n": 66
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:40:16.424Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m \"b683 C3: W-ORD-MAP-ANGLE-FORM DISCHARGED ((R293)(5)), OPEN_TRAILS :14774\" && git log --oneline -1",
+   "n": 67
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:40:22.854Z",
+   "src": "seat",
+   "cmd": "cd /d/relay/data && for f in b670 b671 b672 b673 b674 b677 b678; do echo \"=== $f\"; awk 'NR>2' ${f}_rules.txt | cut -c1-600; done 2>/dev/null | head -150",
+   "n": 68
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:40:51.792Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && ls data/b670_state* data/b680_state* data/b680_triggers* data/b680_methods* data/b670_methods* data/b680_readings* 2>/dev/null; git grep -l \"T1 \\|TRIGGER T1\\|T1 --\" -- 'data/b680_*.txt' | head; git grep -n \"READY\\b\" -- data/b680_*.txt | head -3 | cut -c1-200; ls data/*_walk_*.txt | head; ls data/*progress* | tail -3",
+   "n": 69
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:40:57.864Z",
+   "src": "seat",
+   "cmd": "head -8 data/b680_methods.txt | cut -c1-250; grep -n \"^  \" data/b680_methods.txt | head -14 | cut -c1-220; grep -n -i \"trigger\\|T1\\b\\|T5\" data/b680_closing.txt data/b670_state.txt | head -8 | cut -c1-220; head -5 data/b681_narrow_progress.txt | cut -c1-200; ls data/b680_state* data/b680_reading* 2>/dev/null",
+   "n": 70
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:41:06.031Z",
+   "src": "seat",
+   "cmd": "head -1 data/b681_narrow_progress.txt | python -X utf8 -c \"import sys,json;l=sys.stdin.read();print(list(json.loads(l.split(' ',1)[1]).keys()))\"; awk '{print $1}' data/b681_narrow_progress.txt | sort | uniq -c; ls data/b681_*progress* data/b680_*progress* data/b67*_progress* 2>/dev/null",
+   "n": 71
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:41:30.105Z",
+   "src": "seat",
+   "cmd": "git grep -l -i \"outside-reader\\|outside reader\" -- 'data/b6[7-8]*.txt' | head -5; git grep -n -i \"three fixed questions\" -- data/ | head -3 | cut -c1-200; for n in 670 671 672 673 674 675 676 677 678 679 680 681 682 683; do printf \"b$n:%s \" \"$(ls data/b${n}_rowgen_stepzero.txt 2>/dev/null | wc -l)\"; done; echo; ls data/*_walk_*.json data/*_walk*.txt 2>/dev/null | head; grep -n \"G-NODISCLOSURE-PUBLIC'\" tools/b682_checks.py | cut -c1-250",
+   "n": 72
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:43:20.472Z",
+   "src": "seat",
+   "cmd": "ls data/b67[0-3]_rowgen* 2>/dev/null; head -6 data/b680_outside.txt | cut -c1-300; tail -2 data/b680_outside.txt | cut -c1-300",
+   "n": 73
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:44:18.590Z",
+   "src": "seat",
+   "cmd": "head -3 data/b679_zeta_walk.txt | cut -c1-200; echo; head -3 data/b679_zeta_walk_46ee9a4.txt | cut -c1-200; git log --format='%h %ad %s' --date=iso -- data/b679_zeta_walk.txt | head -2 | cut -c1-160; git log --format='%h %ad %s' --date=iso -- data/b679_zeta_walk_46ee9a4.txt | head -2 | cut -c1-160; ls data/b6*_naming.txt",
+   "n": 74
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:45:35.834Z",
+   "src": "seat",
+   "cmd": "git add data/b683_arms_sort.txt && git commit -q -m \"b683 C4: the sort of the 24 rules without arms -- TRACEABLE 21 (live 15, declaration-only 5, superseded 1), PROSE 3; no arm written\" && git log --oneline -1",
+   "n": 75
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:48:15.650Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_citation.py answer \"on (R293)(6), the sort\" ; grep -n \"^    ([a-z])\" data/b680_defects.txt | cut -c1-200; grep -n -i \"walk\" data/b680_defects.txt data/b679_defects.txt | cut -c1-220 | head",
+   "n": 76
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:48:29.080Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_record.py answers",
+   "n": 77
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:49:26.611Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=20&&NR<=40' data/b680_closing.txt | cut -c1-330; echo ----; head -20 data/b670_state.txt | cut -c1-260",
+   "n": 78
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:50:14.190Z",
+   "src": "seat",
+   "cmd": "grep -n \"def capture\" -A40 tools/edit_route.py | head -60",
+   "n": 79
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:51:12.818Z",
+   "src": "seat",
+   "cmd": "grep -n \"^=== \\|^    acts\\|^    banks\\|^    defects\" data/b680_methods.txt | awk -F'|' '{print substr($0,1,90)}' | head -40; grep -n \"### ### \" data/b680_methods.txt | cut -c1-200",
+   "n": 80
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:51:24.741Z",
+   "src": "seat",
+   "cmd": "for f in data/b682_runner_SIDE-bijection_before.txt data/b682_runner_SIDE-bijection_after.txt; do head -6 $f | cut -c1-160; done; ls data/b67[3-9]_runner_*_*.txt data/b68?_runner_*_*.txt 2>/dev/null | head -30",
+   "n": 81
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:51:35.650Z",
+   "src": "seat",
+   "cmd": "for f in data/b673_runner_*.txt data/b674_runner_*.txt data/b676_runner_*.txt data/b678_runner_*.txt data/b682_runner_*.txt; do printf \"%s | %s | %s\\n\" \"$(basename $f)\" \"$(grep -o 'the run: id [0-9]*' $f | head -1)\" \"$(grep -o 'the ref built (out/ref.txt): [0-9a-f]*' $f | head -1 | cut -c30-70)\"; done; ls data/b679_runner* data/b681_runner* 2>/dev/null",
+   "n": 82
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:51:47.857Z",
+   "src": "seat",
+   "cmd": "grep -n \"### ### \\|TIED\\|NAMED\\|^  [0-9 ]*SIDE-\\|^    SIDE-\" data/b682_naming.txt | cut -c1-220 | head -20; echo ----; grep -c . data/b676_naming.txt data/b678_naming.txt; grep -n \"### ### \" data/b676_naming.txt data/b678_naming.txt | cut -c1-260",
+   "n": 83
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:51:55.864Z",
+   "src": "seat",
+   "cmd": "grep -n -i \"tie\\|b674_rules\" data/b678_naming.txt | cut -c1-300 | head; awk 'NR>=8&&NR<=16' data/b678_naming.txt | cut -c1-250",
+   "n": 84
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:52:09.220Z",
+   "src": "seat",
+   "cmd": "head -2 data/b671_run2_progress.txt | cut -c1-200; awk '{print $1}' data/b671_run2_progress.txt | sort | uniq -c; grep -h \"THE LONGEST PHASE\" data/b682_arms_prerun.txt | cut -c1-120; for n in 675 676 677 678 679 680 681 682; do printf \"b$n gate:%s  prerun-parts:%s  postpush-parts:%s\\n\" \"$(grep -c 'THE CLOSING DRY-RUN STEP : CLEAN' data/b${n}_reg_gate.txt 2>/dev/null)\" \"$(grep -c '^  ### PART [a-z-]* : ARMS' data/b${n}_arms_prerun.txt 2>/dev/null)\" \"$(grep -c '^  ### PART [a-z-]* : ARMS' data/b${n}_checks_postpush.txt 2>/dev/null)\"; done",
+   "n": 85
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:52:17.641Z",
+   "src": "seat",
+   "cmd": "grep -m2 \"^OFF\" data/b671_run2_progress.txt | cut -c1-250; grep -m3 \"^PART\\|^POINT\" data/b681_narrow_progress.txt | cut -c1-250; grep -c \"^  ### PART\" data/b682_arms_prerun.txt; grep \"^  ### PART\" data/b682_arms_prerun.txt | head -3",
+   "n": 86
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:52:25.257Z",
+   "src": "seat",
+   "cmd": "grep -m2 \"^OFF\" data/b671_run2_progress.txt | cut -c1-300; grep -m1 \"^  OFF\\|^OFF\\| OFF \" data/b671_run2_progress.txt | cut -c1-300",
+   "n": 87
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:54:45.921Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys,time,copy; sys.path.insert(0,'tools')\nimport rule_arms as RA, b683_worklist as K\nt0=time.time()\nR=RA.sources('b683','C:/Users/echo chamber/.claude/projects/D--/%s.jsonl'%K.SESSION_ID,K.ANCHOR,K.PARTS,None,K.PRE_RELAY,K.PRE_PP)\nprint('sources %.0f s ; calls %d ; decl %d'%(time.time()-t0,len(R['calls']),len(R['decl'])))\nfor nm,reads,pred,plant in RA.ARMS:\n    ok,n,b,note=RA.reading(nm,R); neg=pred(copy.copy(R)); pos=pred(plant(copy.copy(R)))\n    print('%-28s LIVE %-5s NEG %-5s POS %-5s read %d bad %d -- %s'%(nm,ok,neg,pos,n,b,note[:170]))\n\"",
+   "n": 88
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:55:07.262Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=20&&NR<=32' data/b670_state.txt | cut -c1-200; grep -l \"DISTANCE FROM THE PAIR\" data/b6[7-8]?_closing.txt",
+   "n": 89
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:55:33.758Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys,time,copy; sys.path.insert(0,'tools')\nimport rule_arms as RA, b683_worklist as K\nt0=time.time()\nR=RA.sources('b683','C:/Users/echo chamber/.claude/projects/D--/%s.jsonl'%K.SESSION_ID,K.ANCHOR,K.PARTS,None,K.PRE_RELAY,K.PRE_PP)\nprint('sources %.0f s ; calls %d ; decl %d'%(time.time()-t0,len(R['calls']),len(R['decl'])))\nfor nm,reads,pred,plant in RA.ARMS:\n    ok,n,b,note=RA.reading(nm,R); neg=pred(copy.copy(R)); pos=pred(plant(copy.copy(R)))\n    print('%-28s LIVE %-5s NEG %-5s POS %-5s read %d bad %d -- %s'%(nm,ok,neg,pos,n,b,note[:170]))\n\"",
+   "n": 90
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:55:49.488Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys; sys.path.insert(0,'tools')\nimport rule_arms as RA, b683_worklist as K\nrows=RA.transcript('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl'%K.SESSION_ID,K.ANCHOR)\nper={}\nfor c in rows:\n    if RA.GIT_WRITE.search(RA.QUOTED.sub('\\\"\\\"',c['cmd'])): per.setdefault(c['mid'],[]).append(c)\nfor m,cs in per.items():\n    if len(cs)>1:\n        print('MID',m); [print('  ',c['ts'],c['cmd'][:160].replace(chr(10),' | ')) for c in cs]\n\"; grep -n \"CONSUMERS SECTION\" -A12 data/b673_v4v5_plan.txt | cut -c1-200 | head -16",
+   "n": 91
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:56:04.580Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json\nf=open('C:/Users/echo chamber/.claude/projects/D--/df03c73f-520a-4848-85dc-8fada095f008.jsonl',encoding='utf-8')\nn=0\nfor ln in f:\n    j=json.loads(ln)\n    m=j.get('message') or {}\n    if j.get('type')=='assistant' and isinstance(m.get('content'),list) and any(c.get('type')=='tool_use' for c in m['content'] if isinstance(c,dict)):\n        n+=1\n        if n>3: break\n        print(sorted(j.keys())); print(sorted(m.keys()) if isinstance(m,dict) else type(m)); print(j.get('requestId'), m.get('id'), j.get('uuid'), j.get('parentUuid'))\n\"",
+   "n": 92
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:56:12.019Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json\nf=open('C:/Users/echo chamber/.claude/projects/D--/df03c73f-520a-4848-85dc-8fada095f008.jsonl',encoding='utf-8')\nst=False;n=0\nfor ln in f:\n    j=json.loads(ln)\n    if not st:\n        if 'RULING (R293) BEGIN' in ln and j.get('type')=='user' and not j.get('isCompactSummary'): st=True\n        continue\n    m=j.get('message') or {}\n    if isinstance(m.get('content'),list) and any(isinstance(c,dict) and c.get('type')=='tool_use' for c in m['content']):\n        n+=1\n        if n in (1,2,40,41): print(j.get('type'), repr(m.get('id')), j.get('requestId'), j.get('uuid'), [c.get('name') for c in m['content'] if isinstance(c,dict) and c.get('type')=='tool_use'])\nprint(n)\n\"",
+   "n": 93
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T15:56:34.559Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys,time,copy; sys.path.insert(0,'tools')\nimport rule_arms as RA, b683_worklist as K\nR=RA.sources('b683','C:/Users/echo chamber/.claude/projects/D--/%s.jsonl'%K.SESSION_ID,K.ANCHOR,K.PARTS,None,K.PRE_RELAY,K.PRE_PP)\nprint('calls %d'%len(R['calls']))\nfor nm,reads,pred,plant in RA.ARMS:\n    ok,n,b,note=RA.reading(nm,R); neg=pred(copy.copy(R)); pos=pred(plant(copy.copy(R)))\n    if nm in ('G-RULE-CONSUMER-TOLERANCE','G-RULE-ONE-GIT-WRITE','G-RULE-TIE-BREAK','G-RULE-SCORES-BEFORE-SEAL','G-RULE-REMOTE-REREAD'): print('%-28s LIVE %-5s NEG %-5s POS %-5s read %d bad %d -- %s'%(nm,ok,neg,pos,n,b,note[:170]))\nimport edit_route as ER, b682_record as REC\nrows=ER.capture('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl'%K.SESSION_ID,K.ANCHOR,None)\nprint('edit_route capture %d ; offences %s'%(len(rows),[(r['ts'],r['cmd'][:80]) for r,o in ER.scan(rows)]))\n\"",
+   "n": 94
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-18T15:57:42.230Z",
+   "src": "seat",
+   "cmd": "$p = @(Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|python3|py|bash)(\\.exe)?$' }); $p | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={ if ($_.CommandLine) { $_.CommandLine.Substring(0, [Math]::Min(160, $_.CommandLine.Length)) } else { '' } }} | Format-Table -AutoSize -Wrap | Out-String -Width 250; \"tail/lean/lake/python/bash count: \" + $p.Count; (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')",
+   "n": 95
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T16:00:50.728Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_record.py rulesarms && head -40 data/b683_rules_arms.txt | cut -c1-200",
+   "n": 96
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T16:01:03.746Z",
+   "src": "seat",
+   "cmd": "git add tools/rule_arms.py data/b683_rules_arms.txt data/b683_author_answers.txt data/b683_author_answers.json data/b683_citation_check.txt data/b683_stepzero.txt tools/b683_record.py tools/b683_worklist.py && git commit -q -m \"b683 C4: on the author's word, the twenty standing rule arms (tools/rule_arms.py, G-RULE-<name>); the rules-to-arms bank re-read, NONE 3 of 24; the answers banked\" && git log --oneline -1",
+   "n": 97
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T16:09:05.624Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b683_checks as C, b683_worklist as K\nnames=[a[0] for a in C.ARMS]\nprint('arms',len(names),'distinct',len(set(names)))\nst=set(C.STANDING); rest=set(names)-set(K.ACT_ARMS)-set(K.STANDING_ADDED)\nprint('standing(b682 face less act)',len(st),'carried',len(rest&st),'missing',sorted(st-rest),'extra',sorted(rest-st))\nprint('act arms declared',len(K.ACT_ARMS),'missing in suite',sorted(set(K.ACT_ARMS)-set(names)))\nprint('rule arms',len(set(K.STANDING_ADDED)&set(names)))\nprint('INST',len(C.INST), [f for f in C.INST if f.startswith('b683') or f=='rule_arms.py'])\n\"",
+   "n": 98
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T16:09:11.898Z",
+   "src": "seat",
+   "cmd": "wc -l -c data/b682_registration_2026-10-18.txt && grep -n \"^### \\|^## \\|^\\*\\*\" data/b682_registration_2026-10-18.txt | cut -c1-150 | head -80",
+   "n": 99
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T16:09:22.293Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b683_record.py repairs && python -X utf8 tools/b683_record.py kernels && python -X utf8 tools/b683_record.py defects && python -X utf8 tools/b683_record.py commands && head -14 data/b683_tool_repairs.txt | tail -9 | cut -c1-170",
+   "n": 100
+  }
+ ],
+ "offences": [],
+ "local_lean": [],
+ "dispatches": [],
+ "detached": [],
+ "moves_deletes": [
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  31
+ ],
+ "delete_shapes": [
+  {
+   "n": 22,
+   "deletes": [
+    "push-b682-root"
+   ],
+   "globs": []
+  },
+  {
+   "n": 23,
+   "deletes": [
+    "push-b682"
+   ],
+   "globs": []
+  },
+  {
+   "n": 24,
+   "deletes": [
+    "push-b682-closing"
+   ],
+   "globs": []
+  },
+  {
+   "n": 25,
+   "deletes": [
+    "push-b682-root"
+   ],
+   "globs": []
+  },
+  {
+   "n": 26,
+   "deletes": [
+    "push-b682"
+   ],
+   "globs": []
+  },
+  {
+   "n": 27,
+   "deletes": [
+    "push-b682-main"
+   ],
+   "globs": []
+  },
+  {
+   "n": 28,
+   "deletes": [
+    "push-b682-merge"
+   ],
+   "globs": []
+  },
+  {
+   "n": 29,
+   "deletes": [
+    "recut-bijection-b682"
+   ],
+   "globs": []
+  },
+  {
+   "n": 31,
+   "deletes": [
+    "recut-bijection-b682"
+   ],
+   "globs": []
+  }
+ ]
+}
