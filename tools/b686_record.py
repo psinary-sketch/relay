@@ -392,13 +392,13 @@ def _kern_rows():
 
 
 def _cut_figure(t, k):
-    """a kernel's figure after its cut, read from its cut bank: b684's bank carries four kernels, each in its own section, so the section of
-    the kernel is read first (its 'THE DISTANCE BEFORE n, AFTER m' or b684's per-kernel 'DISTANCE n -> m'); a bank of one kernel, its own
-    line."""
+    """a kernel's figure after its cut, read from its cut bank: b684's bank carries four kernels -- the named one's verdict line 'THE
+    DISTANCE BEFORE n, AFTER m' (relay data/b684_cut.txt :44) and the residues' re-read rows '<kernel> before n (<bank>) ; after m' (:78-:79);
+    a bank of one kernel, its own verdict line."""
     m = re.search(r'THE DISTANCE BEFORE (\d+), AFTER (\d+)', t)
     if k == 'SIDE-class-number-anomaly' or 'RESIDUES' not in t:
         return int(m.group(2)) if m else None
-    sec = re.search(r'(?m)^.*\b%s\b.*?(?:DISTANCE|distance)\D*(\d+)\s*(?:->|to|→)\s*(\d+)' % re.escape(k), t)
+    sec = re.search(r'%s before (\d+) \([^)]*\) ; after (\d+)' % re.escape(k), t)
     return int(sec.group(2)) if sec else None
 
 
