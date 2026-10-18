@@ -423,7 +423,47 @@ def word(*a):
          check=[('OPEN_TRAILS.md', ARMS_CENSUS, '**The arms and the rules:**')], dry=dry)
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers, 'gendry': gendry, 'word': word}
+# ================================================================================ COMPONENT 3: THE CORRESPONDENCE DISTANCE BY BOTH METHODS ((R292)(4))
+def dist(*a):
+    """the distance by b670's method (tools/b672_record.py `after`, b670's method over the stable anchors, as b680 read it in
+    tools/b680_readings.py `corr` :122-:150) and by the generator's claim, each route run by import with its bank writers captured in memory
+    so nothing of b670's or b672's is written; printed beside b680's 55 and 0. data/b682_correspondence_<stage>.txt (.json)."""
+    stage = a[0] if a else 'before'
+    import b670_record as B
+    import b672_record as B2
+    s1 = {}
+    B.put_txt = lambda name, lines: s1.__setitem__(name, lines)
+    B.put_json = lambda name, obj: s1.__setitem__(name, obj)
+    B.corr()
+    v1 = [l for l in s1['b670_correspondence.txt'] if l.startswith('### ### **')][-1]
+    s2 = {}
+    B2.put_txt = lambda name, lines: s2.__setitem__(name, lines)
+    B2.put_json = lambda name, obj: s2.__setitem__(name, obj)
+    B2.after()
+    T2 = s2['b672_correspondence_after.txt']
+    vv = [l for l in T2 if l.startswith('### ### **')]
+    m1 = re.search(r'BEHIND (\d+)', v1)
+    m2 = re.search(r'ROWS WITH A COMMIT (\d+) .*? BEHIND (\d+) \(b670', vv[-2]) if len(vv) >= 2 else None
+    m3 = re.search(r'AT THE LEADING CLAUSE \(THE GENERATOR`S CLAIM\) (\d+)', vv[-1]) if vv else None
+    L = ['b682 -- COMPONENT 3, (R292)(4): THE CORRESPONDENCE DISTANCE %s THE GENERATOR`S WRITE, BY b670`S METHOD AND BY THE GENERATOR`S CLAIM (%s)' % (
+        stage.upper(), utc()), '',
+         '### the methods as b680 ran them (tools/b680_readings.py `corr` :122-:150): b670`s (tools/b670_record.py `corr`) by its heading-text',
+         '### reader; b672`s re-read of b670`s method over the stable anchors (tools/b672_record.py `after`), its last two verdicts the distance',
+         '### by b670`s method and at the generator`s claim; each run by import, its bank writers captured, nothing of b670`s or b672`s written.',
+         '### PLACE-papers HEAD %s.' % g(PP, 'rev-parse', '--short', 'HEAD').strip(), '',
+         '### BY b670`S HEADING-TEXT READER: ' + v1,
+         '### BY THE STABLE ANCHORS (b672`s re-read): ' + (vv[-2] if len(vv) >= 2 else '### UNREAD'),
+         '### THE GENERATOR`S CLAIM: ' + (vv[-1] if vv else '### UNREAD'), '',
+         '### ### **%s: BEHIND BY b670`S METHOD %s AGAINST b680`S 55 ; AT THE GENERATOR`S CLAIM %s AGAINST b680`S 0 ; BY b670`S HEADING-TEXT READER %s.**' % (
+             stage.upper(), m2.group(2) if m2 else '### UNREAD', m3.group(1) if m3 else '### UNREAD', m1.group(1) if m1 else '### UNREAD'), '',
+         '### THE ANCHORED RE-READ, WHOLE:'] + T2
+    put_txt('b682_correspondence_%s.txt' % stage, L)
+    put_json('b682_correspondence_%s.json' % stage, dict(at=utc(), behind=int(m2.group(2)) if m2 else None, claim=int(m3.group(1)) if m3 else None,
+                                                       heading_reader=int(m1.group(1)) if m1 else None))
+    print(L[11])
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers, 'gendry': gendry, 'word': word, 'dist': dist}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
