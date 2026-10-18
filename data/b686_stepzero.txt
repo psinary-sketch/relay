@@ -1,0 +1,32 @@
+b686 -- STEP ZERO, COMPONENT 0, UNDER (R296) (2026-10-18)
+
+### rows are the step-zero items in the ferry's order, each with its bank and its reading.
+
+  the session               a new session opens the act (3bd076e1); tools/b686_worklist.py carries its id and no session after it; the
+                            citation helpers (tools/b677_citation.py, imported unchanged) pointed at it by tools/b686_citation.py
+  the ferry                 data/b686_ferry.txt, banked by the Write tool from the paste (13,538 characters), equal to the transcript's text
+                            (tools/b686_citation.py ferry: "equal True ; ferry_scan exit 0"; data/b686_ferry_scan.txt)
+  the citation check        data/b686_citation_check.txt: CITES CHECKED 72 ; OK 72 ; MISSES 0. Its first run printed one miss -- the check's
+                            own row looking for b682's 55 and 0 in data/b682_cut.txt; the ruling names no path for them and
+                            data/b682_correspondence_after.txt :12 banks them ("AFTER: BEHIND BY b670`S METHOD 55 AGAINST b680`S 55 ; AT THE
+                            GENERATOR`S CLAIM 0 AGAINST b680`S 0"); the row's pointer repaired by the Edit tool and the check re-run; no
+                            cite of the ruling or the ferry missed, nothing raised
+  the readfirst bank        data/b686_readfirst.txt, every item of the ferry's list by path and line with its row unit
+  rowgen and constellation  data/b686_rowgen_stepzero.txt: CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19
+  the process listing       tail, lean, lake, python and claude named (Win32_Process by name, 2026-10-18T22:10Z): claude 1 (pid 20504, this
+                            seat), tail 0, lean 0, lake 0, python 0; free memory 4912 MB. No task of this session stopped; no orphan, nothing
+                            stopped by PID
+  the closing capture       data/b685_closing_push_out.txt committed alone at relay 35bca14a
+  the branches              data/b686_branches.txt: 5 named (5 local, 0 remote), every tip read and merged before any delete; deleted by name
+                            in the house form, one branch per command, each command its own message, in sequence: relay push-b685-root
+                            (56999083), push-b685 (ea8e7f49), push-b685-closing (5c051335); PLACE-papers push-b685-root (32be6de), push-b685
+                            (d201ac8); no unnamed branch under the prefix
+  the tests                 data/b686_tests_stepzero.txt: TEST FILES 55 ; RUN 54 ; WITHHELD 1 (test_elab_reader_b634.py, runs lean) ; NOT
+                            CLEAN 2 -- test_chain_page.py (9) and test_chain_page_b638.py (4)-(7), the standing set since b638. Seven
+                            foreground parts, one call per part, the free memory printed before each against the 2,560 MB hold
+                            (tools/b686_tests.py hold): part 1 (5012 MB), test_asof.py alone (4993 MB; 406 s), part 3 (4857 MB),
+                            test_chain_page.py alone (4861 MB; 399 s), part 5 (4926 MB), part 6 (4916 MB), part 7 (4914 MB); no file's
+                            last run (b685's) above 450 s, the two near it run alone; the longest test 406 s; no part moved to the background
+  git status                relay and PLACE-papers tracked changes NONE after the runs; the untracked files untracked (relay 125 untracked
+                            entries, this act's banks and tools among them as written)
+  no build                  no lean, lake or build on this host

@@ -1,0 +1,61 @@
+b686 -- THE READ-FIRST BANK, (R296)(6) AND THE FERRY'S READ-FIRST LIST (2026-10-18)
+
+### rows are items read before anything: the path, the line or lines read, the unit of that bank's rows, and what the act takes from it.
+### The citation check of every cite: relay data/b686_citation_check.txt (72 cites, 72 OK, 0 misses; the check's first run printed one miss,
+### a pointer of the check's own row -- b682's 55 and 0 looked for in data/b682_cut.txt where data/b682_correspondence_after.txt :12 banks
+### them -- the ruling names no path for them; the row repaired and the check re-run before this bank).
+
+  data/b685_closing.txt :1           rows are the closing's lines (210). The head line, quoted: "b685 closed: relay ea8e7f49, PLACE-papers
+                                     d201ac8; suite 108 of 109; root 3f5aa05397b47486…; 3 prompts answered; 6 defects" -- (R296)(1) quotes it
+                                     equal (data/b674_rules.txt row (3)).
+  data/b685_closing_push_out.txt :2-:6   rows are the push tool's capture lines: :4 "ea8e7f49..5c051335  push-b685-closing -> main", :5 "main
+                                     read back at the remote: 5c051335…". Untracked at the act's start; committed at step zero.
+  data/b685_defects.txt :5-:34       rows are defects, as lettered there: (a) the navigator's, a quoted name taken from b679's bank; (b) the
+                                     navigator's, an hA row placed in the hypotheses bank; (c) the navigator's, a count field named on a
+                                     structure that has none; (d) the seat's, the statement bank written after the search began; (e) the
+                                     navigator's, the weight clause without the closing's head line; (f) the seat's, a scorer and the entry
+                                     reading each other (:30-:34) -- the defect (R296)(2) orders repaired at carry.
+  data/b685_count.txt :1-:40         rows are T ranges with the bound, HCount's figure and the margin (section 3), after the parameters and
+                                     conditions (section 1) and the constants (section 2): :23 c = 1.26244217716 ± 1.26e-40; :30 W(150) =
+                                     8.31423262145 against 10 log 153; :35 H3 HELD with a = 0.432571915432 ± 4.33e-41, b = 0; :40 the verdict
+                                     line (H1 HELD, H2 HELD, H3 HELD, H4 NOT SCORABLE, H5 REFUTED, H6 HELD), the composition not run.
+  data/b685_count_controls.txt :1-:19   rows are controls with their expected and read values: (C1) ζ at T = 100, 1000, 10000 (:3-:7), :7 "C1
+                                     FAIL (clause (i) True, clause (ii) False)"; (C2) the planted κ′ = √23/π (:16), its shift 32.985022; the
+                                     consistency row (:17) [176.14425, 183.00280] containing 180; :19 "C1 FAIL ; C2 PASS".
+  data/b685_scores.json :14-:17      rows are scores keyed N1-N5, S1-S3, each [verdict, text]. N4 at :14-:17 HELD, its text "the entry`s head
+                                     line (FINDINGS :9230) states the premise`s status ..." -- read from the landed entry.
+  tools/b685_record.py :879-:896     the sealed N4 scorer `_n4`: :880 reads data/b685_findings.json's entry_line, :882-:888 the landed FINDINGS
+                                     entry's head line. :969 `_finding_text` composes the entry; :970 it reads data/b685_scores.json and :1005
+                                     writes "**The scores.** " from it. The circularity of (f): the entry reads the scores bank, and N4, which
+                                     the scores bank holds, reads the entry. b686's repair: N4 reads the suite banks (pre-push and post-push)
+                                     and the scores bank; the entry's scores line is written from the scores bank after the scorer runs.
+  data/b670_work_orders.txt :274-:275, :294-:295   rows are work orders with their pin, act, status and trigger: :275 W-ORD-EPSTEIN-COUNT
+                                     b680's row (OPEN, :14678); :295 b685's re-dated row "OPEN :14832 readings (i)-(iii) of the line, for a
+                                     continuation act".
+  PLACE-papers OPEN_TRAILS.md :14832  the re-dating line of W-ORD-EPSTEIN-COUNT (:14678): route (i) searched, route (ii) derived, P3 kept as
+                                     stated, its trigger the three readings (i)-(iii) b687 reads ((R296)(8)).
+  data/b682_correspondence_diff.txt :1-:151   the b682 form: rows are cells with before and after (:5 "Rows are cells with before and after
+                                     (the THE DIFF section below: document :line | column | kernel | OLD | NEW)"); :8-:12 the five cells of
+                                     (R292)(2) at FOUNDATIONS :628-:630, v0.2.0 -> v0.2.1. b686's bank takes this form (DIFF_STEM
+                                     b686_correspondence_diff, the generator's `--diff` switch).
+  tools/correspondence_gen.py :1-:37   the generator's docstring: kernel cells from each kernel's current tag; profile cells from the latest
+                                     relay print bank AT THE TAG, b<act>_axioms_<kernel>_<before|after>.txt with its built commit read from the
+                                     companion runner bank's header; `dry [roster] [full]` writes nothing; `run` writes the changed files;
+                                     `--diff <stem>` names the diff banks.
+  data/b684_axioms_SIDE-silence-principle_after.txt :1-:58   the SIDE-silence-principle print bank at v0.2.2: rows are #print axioms lines
+                                     (58); its built commit 675679c (data/b684_runner_SIDE-silence-principle_after.txt :3, the ref input), the
+                                     tree merged at 716b686 = v0.2.2 = main.
+  PLACE-papers phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md :628-:630   rows are Correspondence rows (claim | kernel |
+                                     terminal | profile | status): :628 product formula, :629 distributive law, :630 the four-step chain, each
+                                     kernel cell "SIDE-silence-principle v0.2.1" -- the three cells b684 carried (data/b684_cut.txt :80-:82).
+                                     The ferry names the file without its folder.
+  data/b670_licensed_table.txt :97-:122   rows are licensed-table rows (one agenda document each: OVERREACHES + UNLICENSED at b648 -> at b670,
+                                     its bank): :111 SIDE-li-map 3 -> 3 (data/b647_table_SIDE-li-map.txt), :116 SIDE-spinor 3 -> 3
+                                     (data/b647_table_SIDE-spinor.txt); kernels cut since b670 stand at their cut banks' figures.
+  data/b647_table_kernels.txt :4-:25   rows are kernels (rows | MATCHES | UNDERSTATES | OVERREACHES | UNLICENSED ...), header :4.
+  data/b647_table_SIDE-li-map.txt, data/b647_table_SIDE-spinor.txt   rows are licensed-table rows of the document (41 and 43 lines).
+  data/b674_rules.txt :8-:12         rows are rules: (2) THE TIE-BREAK BEYOND THE COUNT -- equal OVERREACHES and no declared suite failure: the
+                                     greater count of rows outside LICENSED/CITED of any kind, then the larger table.
+  data/b684_cut.txt :72              rows are licensed-table rows with state before and after: "SIDESilencePrinciple/Basic.lean:1 (header)
+                                     introduction :7-:12   CARRIED (R3b)" -- named in b686's cut bank as carried ((R296)(4)).
+  data/b652_ferry.txt :19            the order: "the next kernel by descending count under the same rules, then the companions".
