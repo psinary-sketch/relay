@@ -1,0 +1,48 @@
+====================================================================================================
+b681_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.
+====================================================================================================
+  counter source : b300_regspec.py
+  fixture                                                    got/exp   agree
+  fires: a plain artifact-count prediction                   1/1       YES
+  fires: a spelled numeral                                   1/1       YES
+  quiet: a ceiling, which is a prohibition and not a prediction 0/0       YES
+  quiet: a numeral governing a non-artifact noun             0/0       YES
+  quiet: an act name carrying digits                         0/0       YES
+  quiet: a numeral with no noun beside it                    0/0       YES
+  ### (R263)(3) THE PLANTED ROWS, ONE PER SHAPE A SEALED ROUTE READS, EACH THROUGH THE RECORD TOOL`S READER:
+      score row                                          READ -- ('N3', 'HELD', 'a planted score text')
+      trail head with a backtick possessive              READ -- 3
+      entry title with a backtick possessive             READ -- 3
+      branch row (the branches bank`s shape)             READ -- ('push-b999', 'DELETED')
+      order row (the orders bank`s shape)                READ -- ('W-ORD-PLANTED', 'DISCHARGED', 'pinned by a planted bank')
+      progress row (the progress bank`s shape)           READ -- ('POINT', {'kind': 'OFF', 'idx': 99, 'h': '1e-30', 'reading': 'NARROWED'})
+  ### ### **PLANTED ROWS 6 ; READ 6 ; REFUSED 0.**
+      CONTROL a score row of another shape                                 REFUSED, AS WANTED
+      CONTROL a head the ledger does not carry                             REFUSED, AS WANTED
+      CONTROL a branch row with no side                                    REFUSED, AS WANTED
+      CONTROL an order row with no pin line                                REFUSED, AS WANTED
+      CONTROL a progress POINT row with no half-width                      REFUSED, AS WANTED
+
+  registration : b681_registration_2026-10-18.txt
+  bytes/lines  : 26109 / 232
+  ### ARTIFACT-COUNT PREDICTIONS FOUND : 0
+
+  ### ### **MEASURED OFF THE FACE AND THE BANKS, NOT TYPED:**
+      ARMS         90
+      READINGS     3
+      EXPECT       8
+      BARS         0
+      TESTS        54
+      QUESTIONS    1
+      LINES        3
+      CHAINROWS    57
+      REACHED      163
+      PARTS        68
+      REPAIRS      3
+      CARRIED      0
+
+  clauses emitted : 77
+  ### ### **CLAUSES WITH A NON-ZERO DEMAND : 18**
+  written : b681_satisfiable.json
+====================================================================================================
+### GATE SUBJECT SHA256 : 6f2dd3b1d4d6b8eaeb0c82542406911027f5379ae054c4b46fc458ff2772c4e4  (b681_registration_2026-10-18.txt)
