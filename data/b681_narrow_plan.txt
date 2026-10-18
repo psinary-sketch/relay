@@ -1,0 +1,119 @@
+b681 -- THE PLAN, (R291)(6), BEFORE ANY RUN: Q0'S 163 POINTS NARROWED FROM 1e-24 TO THE MEASURED WIDTH'S TARGET, IN RESUMABLE FOREGROUND PARTS
+(2026-10-18; the b663 form, with the consumers section; rows are quantities, formulas, sources, tolerances and prices)
+
+### read before this plan: data/b681_readfirst.txt (17 items by path and line). The tool: tools/b681_narrow.py, committed alone (relay 16065796).
+
+== 1. THE TARGET HALF-WIDTH ((R291)(6)(i))
+  the measured width: the map in the angle form's consumer tolerance at j = 64, h_tol(64) = 3.162e-28, by its own bisection
+      (data/b677_tolerance.txt :90; the grid's j 64 : h_tol 1e-28, fails at 1e-27, :64; P1 h = 1e-28 PASS j 24-64, :16).
+  the order: W-ORD-EPSTEIN-BALL-WIDTH as b677 re-entered it, "a narrowing act at half-width 1e-28 or finer" (data/b670_work_orders.txt :266;
+      OPEN_TRAILS :14590).
+  the margin, priced from the consumer's measured tolerance in b671's own form (data/b671_narrow_plan.txt :14-:16: "two decimal orders below
+      ..., rounded down to the power of ten"): 3.162e-28 / 100 = 3.162e-30, rounded down to the power of ten:
+  ### W = 1e-30. The halvings from b671's 1e-24: 20 (1e-24 / 2^20 = 9.54e-31 <= 1e-30; 19 would give 1.9e-30).
+  ### the alternative, for the author: W = 1e-28, the order's own figure (a factor 3.16 under h_tol(64), no two-order margin): 14 halvings
+  ### (1e-24 / 2^14 = 6.1e-29). Its price at == 3.
+
+== 2. THE CERTIFICATION FORMS, KEPT AS b671 SET THEM ((R291)(6)(ii))
+  (M-on), the 146 on-line points: the certified sign change of the completed function Λ_Q(½ + it), real on the line (data/b671_narrow_plan.txt
+      section 2 :18, section 3 :29); the interval halved on the certified sign, the imaginary part of every ball read and required to contain 0
+      (tools/b671_narrow.py sign_at :180, the loop of narrow_on :196-:228, re-written in tools/b681_narrow.py on_narrow for W and the start
+      [im ± 1e-24]; the start signs re-read, so the start is certified again and not assumed).
+  (M-off), the 17 off-line points: the square split at its centre into four quarters, each quarter's count by the argument principle over
+      4 sides x 16 segments with b671's carried segment (tools/b671_narrow.py segment :90, square_count :148; b667 edge_arg :284-:294); the
+      quarter at count 1 kept; at a depth whose quarter cannot be read, the (4a) offset -- the split lines moved by a third of the depth's
+      half-width in the coordinate whose line meets the zero, one offset per depth, a depth unread again after it stopping the point at
+      UNRESOLVED-AT-DEPTH (data/b671_narrow_plan.txt section 11 :120-:134; tools/b671_narrow.py :275, :279, :291-:333). Each point's start
+      square [re ± 1e-24] x [im ± 1e-24] has its count read again first and must read 1, as run 3 read its starts.
+  the Bessel bar: 2^-200 (tools/b671_narrow.py :60-:63, the author's word at b671), KEPT. Re-priced for W: its consumer is a sign or a segment
+      enclosure at half-width W, |Z_Q'| · W at the smallest |Z_Q'| b667's banks hold (3.895, data/b667_ball_obstruction.txt :3) = 3.9e-30;
+      2^-200 = 6.2e-61 lies thirty decimal orders beneath it. The ladder 200 -> 400 -> 600 bits unchanged. The precision: 200 bits; the
+      points' ordinates at most 150, so a centre's resolution 150 · 2^-200 = 9e-59, twenty-eight orders under W; b667's point cache keys at 40
+      digits separate the deepest segment ends (1e-31 / 2^16 = 1.5e-36 apart at |s| <= 150).
+  the one change of carried code: b671's _bessel carried into tools/b681_narrow.py with one counting line -- an evaluation whose term radius
+      stays at or above the bar at the ladder's top is counted (H6) -- set into b667's certify by name, as b671 set its own.
+
+== 3. THE PRICE, READ FROM b671'S RUN RECORDS AND NOT ESTIMATED ((R291)(6)(iii))
+  rows are points: seconds per depth = the record's seconds over its depths; the source; at 20 halvings.
+  (M-on) all 146, with C1: run 1 narrowed C1's three and the 146 on-line points by 40 halvings each in 72 s (data/b671_narrow_run1.txt
+      :6351) -- 0.012 s per halving -- so 146 x 20 halvings and C1's ten x 20 about 40 s: ONE PART (the `online` route).
+  (M-off), each point's seconds per depth (run 2 from depth 0: data/b671_narrow_run2.txt :4- and data/b671_narrow_run2_points.jsonl.gz;
+      run 3 from depth 3: data/b671_narrow_run3.txt :45-:209 and data/b671_narrow_run3_depths.jsonl):
+      OFF 0 31 (run 2, 1,246 s / 40) ; OFF 1 102 (4,074 / 40) ; OFF 2 126 (run 3, 4,673 / 37) ; OFF 3 146 (5,825 / 40) ;
+      OFF 4 486 (19,460 / 40) ; OFF 5 250 (9,998 / 40) ; OFF 6 159 (run 3, 5,882 / 37) ; OFF 7 218 (run 3, 8,066 / 37) ;
+      OFF 8 283 (run 3, 10,464 / 37) ; OFF 9 1,409 (56,368 / 40) ; OFF 10 478 (19,109 / 40) ; OFF 11 1,785 (71,388 / 40) ;
+      OFF 12 1,414 (56,551 / 40) ; OFF 13 1,778 (71,123 / 40) ; OFF 14 1,901 (76,051 / 40) ; OFF 15 790 (run 3, 29,232 / 37) ;
+      OFF 16 1,913 (76,514 / 40).
+      the depth-to-depth spread within a point, run 3's lines: medians 112-681 s, the largest single depth 3,407 s (OFF 15) -- so a depth
+      is not a part's unit; a segment is (== 4).
+  ### the total at W = 1e-30: 20 x the sum = 265,376 process-seconds (73.7 hours). The records' seconds were each one point's process
+  ### under up to eight processes on this host's 12 cores, the same contention the parts run under. On PROCS = 8 workers: 33,172 s of
+  ### pool time; at the part's pool deadline of 470 s: 71 OFF-LINE PARTS, with the on-line part 72 PARTS, each under 540 s, about 9.6 hours.
+  ### at the alternative W = 1e-28 (14 halvings): 185,763 process-seconds, 23,220 s of pool time, 50 off-line parts, 51 in all.
+  the start squares' re-reads (one square count each, about a quarter of a depth) and the (4a) offsets' repeated depths are not in the
+      records' figures above; b671's run 3 met one offset per point at most where one was met. The price is printed again against the
+      parts' seconds summed at the bank step (H3).
+
+== 4. THE RESUMABLE FORM ((R291)(6)(iv))
+  the tool: tools/b681_narrow.py, committed alone. Routes, each one foreground run under 540 s: `verify` (the chain, nothing written);
+      `online` (C1, C2, the 146 on-line points); `part` (one off-line part); `status` (nothing written); `bank` (the banks of == 5 and (7)).
+  the unit: one segment of one side of one square, its argument change by b671's segment -- 256 units a depth (4 quarters x 4 sides x 16).
+      A depth's squares are a GRID, appended to data/b681_narrow_units.jsonl when first asked for; each landed unit appended there as it lands
+      (in batches of 32, and the remainder when the pool stops). A square's count is its 64 units' argument balls summed over 2π, exactly as
+      square_count sums edge_arg's (the balls written at 60 digits with their radii and read back as enclosing balls).
+  a part: the chain verified; free memory read against the hold (2,560 MB; a part does not start beneath it, and stops issuing units when a
+      reading every 128 units falls beneath it); the units every live point still lacks, issued to a pool of PROCS = 8 worker processes;
+      results read with a timeout to the pool's deadline (470 s from the part's start); then the pool TERMINATED AND JOINED -- no process
+      left behind, a unit in flight lost and issued again by the next part; every complete grid read into its point's next state by b671's
+      rules and written as a POINT row; a PART row with the part's seconds, units landed and the memory low; then exit.
+  the progress bank: data/b681_narrow_progress.txt, ADDITIVE -- rows are points (POINT: the point, its current half-width and centre, its
+      depth, the part that wrote it, its reading and certification counts), the controls (CONTROL) and the parts (PART). The next part
+      resumes from it and from the units file. No detached run; no run started outside a foreground command.
+  the tool's own bank writes, named: data/b681_narrow_progress.txt, data/b681_narrow_units.jsonl (untracked; banked gzipped under its own
+      name with its hashes, the b671 form, data/b671_large_banks.txt), and at the bank step data/b681_narrow.txt,
+      data/b681_narrow_controls.txt, data/b681_epstein_zeros_narrowed.json.gz, data/b681_epstein_zeros_narrowed_hashes.txt,
+      data/b681_narrow_units.jsonl.gz, data/b681_large_banks.txt.
+
+== 5. THE HASH CHAIN ((R291)(6)(v))
+  data/b671_epstein_zeros_narrowed.json.gz verified at every route before any point is read: its sha256 51d9e6322510b738... and its JSON's
+      cd3a8ea1dcc7660c..., each equal to data/b671_epstein_zeros_narrowed_hashes.txt :2-:3; a difference refuses the route, nothing read.
+  the output: data/b681_epstein_zeros_narrowed.json.gz (gzipped, mtime 0) with data/b681_epstein_zeros_narrowed_hashes.txt -- the JSON's and
+      the .gz's sha256 and byte counts, the .gz's CR LF pairs, and a line naming b671's two hashes it chains from; the root names the hashes
+      bank and data/b681_large_banks.txt, not the .gz (data/b680_rules.txt row (1)); both committed and pushed before the root (G-ROOT-BANKS-
+      COMMITTED, data/b681_rules.txt row (3)).
+
+== 6. THE CONTROLS ((R291)(6)(vi))
+  C1: ζ's zeros n = 1..10 through the completed function Λ(s) = π^{−s/2} Γ(s/2) ζ(s), each start [γ ± 1e-24] about acb.zeta_zero(n)'s
+      midpoint, narrowed by the same loop to W; read: NARROWED, half-width at or below W, the final interval containing the same call's ball.
+  C2: planted -- the midpoint between Q0's adjacent on-line zeros ON 0 and ON 1, [m ± 1e-24]; read: NO SIGN CHANGE, the sign change refusing
+      it, its two sign lines printed.
+  banked as data/b681_narrow_controls.txt (rows are control points with their reading).
+
+== 7. THE CONSUMERS SECTION ((R278)(3), standing; (R291)(6)(vii))
+  data/b681_epstein_zeros_narrowed.json.gz -> the map in the angle form, tools/b677_epstein_map_angle.py, reading the balls by name (:38,
+      q0_list :187) -- in the act that runs it, a copy whose one changed line is the bank's name, as b671's run of b667's map was. Its input
+      tolerance: h_tol(j) per j (data/b677_tolerance.txt :26-:64), h_tol(64) = 3.162e-28 (:90); at W = 1e-30 every j 24-64 within it by two
+      decimal orders. Its radius at j = 64 against the bar as b677 measured it: 2.048e-03 at W = 1e-24 (data/b677_map.txt :132), the bar at
+      the map's 2^-20; at W = 1e-30 the input's contribution to that radius falls by the factor the tolerance's grid reads (P1 rows :16-:24).
+      NOT RUN IN THIS ACT; priced for the next: b677's part 1 took 46 s (data/b677_map.json `secs`), one foreground part.
+  data/b681_narrow_progress.txt -> the next part of this act, and the bank route.
+  data/b681_narrow_units.jsonl -> the next part's assembly of each grid; the bank route (gzipped).
+  data/b681_narrow.txt, data/b681_narrow_controls.txt -> the landing of (R291)(8), the record, the suite's act arms.
+
+== 8. THE HYPOTHESES AS THE RUN READS THEM ((R291)(7))
+  (H1) every one of the 163 points reaches W, read from data/b681_narrow.txt's verdict: NARROWED n OF 163.
+  (H2) each point's form is b671's (ON (M-on), OFF (M-off)), printed per point beside b671's; no point changes form.
+  (H3) every part under 600 s (each planned under 540 s), none detached; the parts' seconds summed and printed against == 3's price.
+  (H4) the chain from b671's bank verifies at every route before any point is read; the new hashes bank written and committed before the root.
+  (H5) C1's ten zeros narrow to W with the same loop, each interval containing its ball; C2 refused, its lines printed.
+  (H6) the Bessel bar holds at every evaluation: the count of evaluations missing it at the ladder's top printed, 0 or the points named.
+
+== 9. THE LANDING ((R291)(8))
+  H1-H6 holding: W-ORD-EPSTEIN-BALL-WIDTH DISCHARGED, the new bank its pin; W-ORD-MAP-ANGLE-FORM's trigger reached, so entered; b671's bank
+      kept as it is, cited beside the new one. H1 failing on some points: the reached widths banked per point, the order kept open with the
+      remaining points and the price to finish them as its trigger, nothing re-run detached. H3 failing: the act stops at the part that
+      failed, its progress bank standing, the price read again. No keystone written.
+
+== 10. WHAT STOPS THE ACT AT THIS PLAN
+  no point is narrowed before the author's word on this plan, raised as one prompt; the plan's target, its alternative and the part count
+  are the prompt's options.
