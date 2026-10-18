@@ -69,7 +69,10 @@ NEXT = ('b683, the research act: the map in the angle form over the b681 balls u
         'data/b677_map_plan.txt, data/b677_tolerance.txt and data/b681_narrow.txt before any run; W-ORD-EPSTEIN-COUNT the alternative on the '
         'author’s placement; the 24 rules without arms held for the author’s decision')
 
-ACT_ARMS = ()               # ### filled at Component 5, each arm run at HEAD and counted before it is declared
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R292-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-RULES-BANKED', 'G-GEN-ALONE', 'G-GEN-PLANTED', 'G-DIFF-BEFORE-WRITE',
+            'G-CELLS-BY-GENERATOR', 'G-DISTANCE-READ', 'G-ORDER-DISCHARGED', 'G-PARTNER-ROWS', 'G-NAMING-BEFORE-CUT', 'G-KERNEL-CUT',
+            'G-TOOL-REPAIRS', 'G-PARTS-PRERUN', 'G-DEFECTS-LETTERED')
 STANDING_ADDED = ()         # ### (R292)'s N5: no standing arm added
 SHARED_APPENDED = ('data/b670_work_orders.txt',)
 PARTS = ('standing-a', 'standing-b', 'act')          # ### data/b678_rules.txt row 1
