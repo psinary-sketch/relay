@@ -294,6 +294,64 @@ def c1(*a):
          check=[('FINDINGS.md', K.B684_ENTRY, '## SIDE-class-number-anomaly re-cut'), ('OPEN_TRAILS.md', K.B684_TRAIL, '### b684')], dry=dry)
 
 
+# ================================================================================ COMPONENT 4: THE LANDING, (R295)(7) AND THE NAVIGATOR'S ANSWER
+ORDERS = 'b670_work_orders.txt'
+ORDER_LINE, ORDER_ACT, ORDER_AGE = 14678, 'b680', 5
+OH = ('*Appended 2026-10-18 by b685 beneath b684’s trail record (:14804), under `(R295)`(7) and the navigator’s answer on the landing -- '
+      '`W-ORD-EPSTEIN-COUNT` (:14678) RE-DATED, P3 KEPT AS STATED:*')
+OB = (' route (i) searched -- 10 candidates, 5 located, each bounding one L-function and none the sum Z_Q (relay data/b685_search.txt); route (ii) '
+      'derived in Backlund’s form (relay data/b685_count_plan.txt, data/b685_count.txt): every condition of the plan’s steps (5)–(7) met at c = 1.7, '
+      'r = 2.05, η = 0.2, the constants in balls a = 0.432571915432 ± 4.33e-41, b = 0, c = 1.26244217716 ± 1.26e-40 for T ≥ 149; the consistency '
+      'reading and C2 as planned (data/b685_count_controls.txt). C1 on ζ by the same steps failed its second clause at T = 100, 1000, 10⁴ -- the '
+      'derived bound (T ≥ 100) sharper than Hasanalizade-Shen-Wong Corollary 1.2 (T ≥ e) at each, which the author’s word reads as the signature '
+      'of a dropped term -- so the act stopped before the composition: H4 NOT SCORABLE, H5 REFUTED as the word reads it; P3 kept “stated, not '
+      'proved” (data/b685_p3_status.txt). The seat’s reading that no term was dropped stands in the controls bank as the seat’s. Trigger, three '
+      'readings for a continuation act, none made in b685: (i) a matched-range comparison -- the ζ instance’s constants re-derived by the same '
+      'steps on T ≥ e and compared at T = e, 10, 100 with Hasanalizade-Shen-Wong Corollary 1.2, Trudgian 2014 and Platt-Trudgian 2021, each '
+      'located and quoted from its source, printed beside the T ≥ 100 comparison; (ii) a direct control on the Jensen step -- at T = 100, 1000 '
+      'and 10⁴ the count of ζ zeros inside the Jensen disc (centre c = 1.7, radius r = 2.05) read from certified zeros against the bound step (6) '
+      'assigns that disc, a disc holding more zeros than its bound refuting the step; (iii) the same for Z_Q at T = 50, 100, 149 from b681’s balls. '
+      'Status OPEN.')
+ORDER_ROW = re.compile(r'^  (W-ORD-[A-Z0-9-]+)\s+:(\d+)\s+(b\d+)\s+(\d+)\s+(OPEN|DISCHARGED|ACTED|NOT STATED|CLOSED)\s+:(\d+)\s+(.+?) \[:(\d+)\]$')
+
+
+def read_order_row(line):
+    """a row of the orders bank: order, entry line, act entered, age in acts, Status, the line of its last mark, the trigger or pin, and that
+    line again; returns (order, Status, mark line)."""
+    m = ORDER_ROW.match(line or '')
+    if not m or m.group(6) != m.group(8):
+        raise ValueError('order row of another shape: %r' % (line,))
+    return m.group(1), m.group(5), int(m.group(6))
+
+
+READERS.append('read_order_row')
+
+
+def c4(*a):
+    """(R295)(7) with the navigator's answer: the re-dating line on OPEN_TRAILS, then its row appended to the orders bank additively ((R254)(2))."""
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', OH, NL + OH + OB + NL)], 'b685_landing.json', 'c4',
+         check=[('OPEN_TRAILS.md', ORDER_LINE, 'W-ORD-EPSTEIN-COUNT'), ('OPEN_TRAILS.md', K.B684_TRAIL, '### b684')], dry=dry)
+    if dry:
+        return
+    ln = jl('b685_landing.json')['lines'][0]['line']
+    rows = ['### Appended 2026-10-18 by b685 under (R295)(7) and the navigator`s answer on the landing (additive, (R254)(2)): W-ORD-EPSTEIN-COUNT '
+            're-dated OPEN, P3 kept as stated; its Status cell filled and its line its mark.',
+            '  %-44s :%d  %s   %-5d %-16s :%d  %s [:%d]' % ('W-ORD-EPSTEIN-COUNT', ORDER_LINE, ORDER_ACT, ORDER_AGE, 'OPEN', ln,
+                                                            'readings (i)-(iii) of the line, for a continuation act', ln)]
+    for r in rows[1:]:
+        read_order_row(r)
+    p = os.path.join(D, ORDERS)
+    old = open(p, 'rb').read()
+    sep = NL if old.endswith(b'\n') else NL + NL
+    new = old + (sep + NL.join(rows) + NL).encode('utf-8')
+    if not new.startswith(old):
+        sys.exit('### THE ORDERS BANK APPEND IS NOT ADDITIVE -- NOTHING WRITTEN')
+    open(p + '.tmp', 'wb').write(new)
+    os.replace(p + '.tmp', p)
+    print('  data/%s appended (%d bytes before, %d after)' % (ORDERS, len(old), len(new)))
+
+
 # ================================================================================ THE ANSWERS BANK (b684's route, carried)
 def _session_rows():
     for sid, anc in ((K.SESSION_ID, K.ANCHOR),) + K.SESSIONS_AFTER:
@@ -379,7 +437,7 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers)
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, c4=c4, answers=answers)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

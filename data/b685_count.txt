@@ -1,0 +1,40 @@
+b685 -- THE COUNT LAW FOR Z_Q AT D = −23 IN BACKLUND`S FORM, ITS CONSTANTS IN BALLS, THE COMPOSITION NOT RUN (C1`s SECOND CLAUSE FAILED) (2026-10-18T20:56:50Z)
+
+### rows are T ranges with the bound, HCount`s figure and the margin (section 3), after the constants (section 2); the plan relay
+### data/b685_count_plan.txt, the author`s word relay data/b685_author_answers.txt; python-flint arb at 200 bits; b667`s route sha256 d7f6bf7f08925634, b671`s
+### segment route sha256 4effcb3e1bb30099, imported unedited. Nothing here is proved or compiled in Lean: constants certified in balls, analytic steps sourced.
+
+== 1. THE PARAMETERS AND THE CONDITIONS (the plan`s steps (5)-(7))
+  c = 1.7, r = 2.05, η = 0.2, p = c − r = -0.350000000000 ± 9.98e-61 ; σ1 = c + (c − ½)²/r = 2.40243902439 ± 4.97e-60 ; δ = 2c − σ1 − ½ = 0.497560975610 ± 5.97e-60 ; ℓ = log(r/(c − ½)) = 0.535518236356 ± 2.01e-60
+  ε = Z_Q(σ1) − 2 ≤ 0.194819933922 ± 0 (< 2) ; |Z_Q(c + iT)| ≥ 4 − Z_Q(c) ≥ 1.11528875607 ± 0 ; log A 2.03039964648 ± 1.14e-59 ; log B 2.03878023633 ± 2.49e-60 ; Q = 1 − 2p 1.70000000000 ± 2.00e-60 ; α1 = 2 − 2p 2.70000000000 ± 2.00e-60
+  condition 1 < c < r                            True
+  condition 0 < δ < ½                            True
+  condition c − r < ½ < 1 < c < σ1 < c + r       True
+  condition c ≥ 3/2 and 4 − Z_Q(c) > 0           True
+  condition σ1 ≥ 3/2 and ε < 2                   True
+  condition p < 0 and 1 − p ≥ 1.02               True
+  parameter sets tried 368, refused by a condition 0 ; the Jensen integral at 2048 θ pieces, every piece`s upper end
+  E(δ, 149), the gamma factor`s and arg(s − 1)`s |Δ₊ + Δ₋|, from (S1) (2.4): 2|x0 − ½|(x0 + δ)δ²/T³ + 4δ²/T + (δ⁴ + 4x0²δ²)/T³ + 2/(3T) + 2(½ + δ)δ²/T³ at x0 = ½ = 0.0111206075450 ± 1.11e-42
+
+== 2. THE CONSTANTS (H3)
+  N_Q(T) = (T/π) log(√23 T/(2πe)) + C₀ + θ R(T), |θ| ≤ 1, R(T) = a log T + b log log T + c for T ≥ 149:
+    a = 0.432571915432 ± 4.33e-41
+    b = 0 (exact: the convexity-only growth bound carries no power of log)
+    c = 1.26244217716 ± 1.26e-40
+    C₀ = (1/π)[−½ log κ − Im log Γ(½ + i/2) + c_B] = 0.977462438857 ± 9.77e-41, c_B = Δ arg Z_Q on ½ + i/2 -> σ1 + i/2 = 2.18499463573 ± 1.13e-54 (segments 423, unresolved NONE)
+  the window: N(t, t + 1) ≤ W(t) = (1/π)[log κ + log(t + 1) + 1/(8t) + 1/(3t) + 2 arcsin(ε/2) + 2 |top(t + 1)|] for t ≥ 150, |top(T)| ≤ (π/(2ℓ))[(1.46330029850 ± 1.46e-40 − 1) log T + 1.38779538819 ± 1.39e-40 − log(4 − Z_Q(c))] + E/2 + arctan((σ1 − 1)/149) + arctan(1/(2·149))
+
+== 3. THE COMPOSITION, (R295)(6) (H4): rows are T ranges -- the bound, HCount`s figure 10 log(|t| + 3), the margin
+  NOT RUN. C1`s second clause failed at p4 (data/b685_count_controls.txt) and the author`s word stops the act before the composition
+  (relay data/b685_author_answers.txt); the navigator`s answer on the landing ran P5 without it. No margin is read and none is claimed: H4
+  NOT SCORABLE. The window bound at one height, read at p2 in the parameter choice and not a composition: W(150) = 8.31423262145 ± 8.31e-40 against 10 log 153.
+
+== 4. THE HYPOTHESES
+  H1 HELD -- data/b685_p3.txt sections 2-3: HCount quoted (RestBound.lean :42-:45, Wide.HCount :48-:50), its inequality at Q0 written out
+  H2 HELD -- data/b685_search.txt: 10 candidates, each with its reach to Z_Q read
+  H3 HELD -- a = 0.432571915432 ± 4.33e-41, b = 0, c = 1.26244217716 ± 1.26e-40, C₀ = 0.977462438857 ± 9.77e-41 (data/b685_count.txt section 2), each step sourced in data/b685_count_plan.txt
+  H4 NOT SCORABLE -- the composition not run: C1`s second clause failed and the author`s word stops the act before it (data/b685_count.txt section 3)
+  H5 REFUTED -- C1 clause (i) True, clause (ii) False, as the author`s word reads them (data/b685_count_controls.txt)
+  H6 HELD -- C2: the planted κ′ = √23/π interval at 150 excludes 180: True (data/b685_count_controls.txt)
+
+### ### **H1-H6 NOT ALL HELD (H1 HELD, H2 HELD, H3 HELD, H4 NOT SCORABLE, H5 REFUTED, H6 HELD) ; a = 0.432572 ± 4.33e-41, b = 0, c = 1.26244 ± 1.26e-40 ; THE COMPOSITION NOT RUN ; C1 FAIL ; C2 PASS ; P3 NOT DERIVED IN THIS ACT.**

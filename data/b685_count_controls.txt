@@ -1,0 +1,19 @@
+b685 -- THE CONTROLS OF (R295)(6) (2026-10-18T20:56:50Z): rows are controls with their expected and read values
+
+  (C1) ζ by the same steps, T ≥ 100: c = 1.5, r = 1.98, η = 0.5 ; the derived a_ζ = 0.228505583833 ± 2.29e-41, b_ζ = 0, c_ζ = 0.800713497357 ± 8.01e-41 ; beside (Z1) Corollary 1.2 (0.1038, 0.2573, 9.3675; T ≥ e) and Backlund`s row (0.1370, 0.4430, 5.2250; T₀ 200)
+      T = 100    | expected: |N(T) − main − 7/8| ≤ R and R + 7/8 ≥ (Z1) | read: N(T) 29 (mpmath 1.3.0), N − main − 7/8 = -0.0023435873 ± 2.34e-43, R = 1.8530206 ± 1.85e-40 -> CONTAINS True ; R + 7/8 = 2.7280206 ± 2.73e-40, (Z1) 10.238460 ± 1.02e-39 -> NOT SHARPER False
+      T = 1000   | expected: |N(T) − main − 7/8| ≤ R and R + 7/8 ≥ (Z1) | read: N(T) 649 (mpmath 1.3.0), N − main − 7/8 = 0.38376469 ± 3.84e-41, R = 2.3791742 ± 2.38e-40 -> CONTAINS True ; R + 7/8 = 3.2541742 ± 3.25e-40, (Z1) 10.581794 ± 1.06e-39 -> NOT SHARPER False
+      T = 10000  | expected: |N(T) − main − 7/8| ≤ R and R + 7/8 ≥ (Z1) | read: N(T) 10142 (mpmath 1.3.0), N − main − 7/8 = -0.96534753 ± 9.65e-41, R = 2.9053277 ± 2.91e-40 -> CONTAINS True ; R + 7/8 = 3.7803277 ± 3.78e-40, (Z1) 10.894823 ± 1.09e-39 -> NOT SHARPER False
+      C1 FAIL (clause (i) True, clause (ii) False), as the author`s word reads it: "a derived bound sharper than a located explicit one is the
+      signature of a dropped term, and is read as a failure of the derivation, not as a gain".
+      THE SEAT`S READING (entered as the seat`s, not as the act`s finding; the navigator`s answer on the landing): the candidate dropped
+      term, (Z1) Proposition 3.2`s "+ π/N + π/(2N) + π/4", read at its source -- Hasanalizade, Shen, Wong, arXiv:2102.04663v3, Lemma 3.6,
+      p. 7, (3.4): "|arctan T/(½ + d) − arctan T/½ + arctan T/(½ − d) − arctan T/½| ... ≤ π/2", the arg(σ + iT) term of ξ_K = s(s − 1)...ζ_K
+      with Z(w) = (w − 1)ζ_K(w), bounded by π/2 and carried as N π/2 into its Proposition 3.7 (p. 8: "+ 1/4 + 1/(2N)"). Λ_Q = κ^s Γ(s) Z_Q(s)
+      and Λ = π^{−s/2} Γ(s/2) ζ(s) carry no factor s; their (s − 1) factor`s |Δ₊ + Δ₋| is bounded by 2(½ + δ)δ²/T³ (E_arg, in E). The seat
+      reads no dropped term; (Z1)`s constant 9.3675 covers T ≥ e (its proof of Corollary 1.2, p. 15, (5.6)), this instance T ≥ 100.
+      What would decide it, for a continuation act (none made here): the trigger of W-ORD-EPSTEIN-COUNT, readings (i)-(iii).
+  (C2) planted κ′ = √23/π in steps (2) and (7) | expected: N_Q(150)`s interval excludes the certified 180, the centre shifted by (150 − ½) log 2/π = 32.985022 ± 8.20e-59 | read: [208.82943 ± 2.09e-38, 216.28766 ± 2.16e-38], the shift 32.985022 ± 3.92e-38 -> PASS
+  (consistency, no hypothesis) the true κ | expected: N_Q(150)`s interval contains 180 | read: [176.14425 ± 1.84e-38, 183.00280 ± 1.91e-38] -> True
+
+### ### **C1 FAIL ; C2 PASS ; THE TRUE INTERVAL CONTAINS 180: True.**
