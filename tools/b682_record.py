@@ -359,7 +359,54 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers}
+# ================================================================================ COMPONENT 2: THE GENERATOR'S DRY RUN, BANKED AS A CELL DIFF ((R292)(3))
+DIFF_ROW = re.compile(r'^    (\S+) :(\d+) \| (kernel|profile|status) \| (SIDE-[a-z0-9-]+) \| OLD (.*) \| NEW (.*)$')
+
+
+def read_diff_row(line):
+    """a row of the generator's diff: document, line, column, kernel, the cell before and after; returns (document, line, column, old, new)."""
+    m = DIFF_ROW.match(line or '')
+    if not m:
+        raise ValueError('diff row of another shape: %r' % ((line or '')[:120],))
+    return m.group(1), int(m.group(2)), m.group(3), m.group(5), m.group(6)
+
+
+READERS += ['read_diff_row']
+
+
+def gendry(*a):
+    """tools/correspondence_gen.py `dry full` over the roster the generator reads (data/b672_roster_read.json, 20 tables), nothing written to any
+    roster file; its whole print banked as data/b682_correspondence_diff.txt, rows the cells with before and after, the figures 20 / 14 beside
+    the ruling's 13 (the navigator's answer on the roster)."""
+    t0 = time.time()
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'correspondence_gen.py'), 'dry', 'full'], capture_output=True, text=True,
+                       encoding='utf-8', errors='replace', cwd=ROOT, timeout=560)
+    out = (r.stdout or '') + (r.stderr or '')
+    full = out.split(NL)
+    k = max(i for i, l in enumerate(full) if l.startswith('b672 -- THE CORRESPONDENCE GENERATOR'))
+    body = [l for l in full[k:] if l != '### DRY: nothing written']
+    rows = [read_diff_row(l) for l in body if DIFF_ROW.match(l)]
+    v = [l for l in body if l.startswith('### ### **TABLES')]
+    tm = re.search(r'TABLES (\d+) ; SHAPED (\d+)', v[0]) if v else None
+    five = [x for x in rows if x[0] == 'FOUNDATIONS_OF_THE_SIDE_PROGRAMME' and x[1] in K.FIVE]
+    L = ['b682 -- COMPONENT 2, (R292)(3): THE CORRESPONDENCE GENERATOR`S DRY RUN AFTER THE READER`S EXTENSION, BANKED AS A CELL DIFF (%s)' % utc(), '',
+         '### tools/correspondence_gen.py at relay %s (the reader extended, committed alone at 60e8de3e) run `dry full` over the roster it reads,' % (
+             g(ROOT, 'rev-parse', '--short=8', 'HEAD').strip()),
+         '### relay data/b672_roster_read.json: TABLES %s ; SHAPED %s (the navigator`s answer on the roster: all 20 tables, 14 in the generator`s' % (
+             tm.group(1) if tm else '?', tm.group(2) if tm else '?'),
+         '### shape and 6 held as NOT IN THE GENERATOR`S SHAPE, beside the ruling`s "13 roster files", a count carried from (R283)(1)); the local',
+         '### clones` tags, no remote call; NOTHING WRITTEN to any roster file. Rows are cells with before and after (the THE DIFF section below:',
+         '### document :line | column | kernel | OLD | NEW); exit %d ; %d s.' % (r.returncode, int(time.time() - t0)), '',
+         '### THE FIVE CELLS OF (R292)(2) (FOUNDATIONS :628-:630), from the diff: %d' % len(five)]
+    L += ['    :%d %s | OLD %s | NEW %s' % (x[1], x[2], x[3][:90], x[4][:90]) for x in five]
+    L += ['', '### THE GENERATOR`S PRINT, WHOLE:'] + body
+    L += ['', '### ### **CELLS CHANGED %d ; THE FIVE CELLS AT FOUNDATIONS :628-:630 %d ; TABLES %s (THE RULING`S 13) ; SHAPED %s ; GENERATOR EXIT %d ; '
+              'NOTHING WRITTEN TO THE ROSTER.**' % (len(rows), len(five), tm.group(1) if tm else '?', tm.group(2) if tm else '?', r.returncode)]
+    put_txt('b682_correspondence_diff.txt', L)
+    print(NL.join(L[8:9 + len(five)] + L[-1:]))
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers, 'gendry': gendry}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

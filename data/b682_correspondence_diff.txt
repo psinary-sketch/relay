@@ -1,0 +1,120 @@
+b682 -- COMPONENT 2, (R292)(3): THE CORRESPONDENCE GENERATOR`S DRY RUN AFTER THE READER`S EXTENSION, BANKED AS A CELL DIFF (2026-10-18T12:04:37Z)
+
+### tools/correspondence_gen.py at relay e86b327b (the reader extended, committed alone at 60e8de3e) run `dry full` over the roster it reads,
+### relay data/b672_roster_read.json: TABLES 20 ; SHAPED 14 (the navigator`s answer on the roster: all 20 tables, 14 in the generator`s
+### shape and 6 held as NOT IN THE GENERATOR`S SHAPE, beside the ruling`s "13 roster files", a count carried from (R283)(1)); the local
+### clones` tags, no remote call; NOTHING WRITTEN to any roster file. Rows are cells with before and after (the THE DIFF section below:
+### document :line | column | kernel | OLD | NEW); exit 0 ; 8 s.
+
+### THE FIVE CELLS OF (R292)(2) (FOUNDATIONS :628-:630), from the diff: 5
+    :628 kernel | OLD SIDE-silence-principle v0.2.0 | NEW SIDE-silence-principle v0.2.1
+    :628 profile | OLD NO PRINT BANK AT v0.2.0 | NEW axiom-free (none)
+    :629 kernel | OLD SIDE-silence-principle v0.2.0 | NEW SIDE-silence-principle v0.2.1
+    :629 profile | OLD NO PRINT BANK AT v0.2.0 | NEW axiom-free (none)
+    :630 kernel | OLD SIDE-silence-principle v0.2.0 (`silence_principle`), v0.2.0 = `667c254` (`Universal.silenc | NEW SIDE-silence-principle v0.2.1 (`silence_principle`), v0.2.0 = `667c254` (`Universal.silenc
+
+### THE GENERATOR`S PRINT, WHOLE:
+b672 -- THE CORRESPONDENCE GENERATOR`S RUN, (R282)(4) (2026-10-18T12:04:33Z): tools/correspondence_gen.py dry
+
+### the prose of every cell is carried unverified by the generator: its claim is the tokens it writes (the kernel clause`s version and
+### commit, the profile token, the leading grade token) and nothing else; a stale stipulation in prose is a cell-refresh item, not the
+### tool`s claim (the navigator`s answer on reading (1)). A withheld document`s cells print as sha256 and length, never as text.
+
+### THE TAGS: one `git ls-remote --tags origin` per repository (kernel ; reading ; tag ; the commit it peels to ; local describe on main)
+    SIDE-archimedean                   READ LOCALLY (DRY)                       v0.1.0    8019d9dfee87 ; local v0.1.0
+    SIDE-bsd-formation-transfer        READ LOCALLY (DRY)                       v0.1.1    34917669160d ; local v0.1.1
+    SIDE-compression                   READ LOCALLY (DRY)                       v0.2.0    e9a5a368d14a ; local v0.2.0
+    SIDE-cosmo                         READ LOCALLY (DRY)                       v0.3.1    ca04c8cf467a ; local v0.3.1
+    SIDE-effects                       READ LOCALLY (DRY)                       v0.1.1    78bbcff533b7 ; local v0.1.1
+    SIDE-frobenius                     READ LOCALLY (DRY)                       v0.1.0    2efe9f2f8655 ; local v0.1.0
+    SIDE-grh-transfer                  READ LOCALLY (DRY)                       v0.5.1    6e149db34ab5 ; local v0.5.1
+    SIDE-kernel                        READ LOCALLY (DRY)                       v1.8      70aba3cd7392 ; local v1.8
+    SIDE-li-map                        NO TAG IN THE LOCAL CLONE (exit 0, 0 refs)            ; local -
+    SIDE-lv-conservation               READ LOCALLY (DRY)                       v0.13.0   8e3bc76cbb32 ; local v0.13.0
+    SIDE-rcurve                        READ LOCALLY (DRY)                       v0.1.0    d5f33b44ef7b ; local v0.1.0
+    SIDE-silence-principle             READ LOCALLY (DRY)                       v0.2.1    96b3098b650e ; local v0.2.1
+    SIDE-simplicity                    READ LOCALLY (DRY)                       v0.1.0    54ba4f38b729 ; local v0.1.0
+    SIDE-spinor                        READ LOCALLY (DRY)                       v0.1.0    b235bc6235b5 ; local v0.1.0
+    SIDE-structural-error-correction   READ LOCALLY (DRY)                       v0.2.3    5476ef356920 ; local v0.2.3
+    SIDE-yang-mills-formation          READ LOCALLY (DRY)                       v0.1.1    73e9e2c3e962 ; local v0.1.1
+
+### THE PRINT BANKS: every relay print bank of a tabled kernel (kernel ; bank ; built commit ; reading ; files differing to the tag ;
+### rows); the first AT THE TAG, newest act first, is the one read
+    SIDE-cosmo                         b666_runner_SIDE-cosmo_run38470740945.txt            6e857af   AT THE TAG                           0     53
+    SIDE-cosmo                         b666_runner_SIDE-cosmo.txt                           1ddeb7c   AT THE TAG                           0     53
+    SIDE-cosmo                         b666_prints_SIDE-cosmo.txt                           1ddeb7c   AT THE TAG                           0     53
+    SIDE-effects                       b664_runner_SIDE-effects.txt                         4c25526   AT THE TAG                           0     34
+    SIDE-effects                       b664_prints_SIDE-effects.txt                         4c25526   AT THE TAG                           0     34
+    SIDE-grh-transfer                  b668_runner_SIDE-grh-transfer.txt                    d487072   AT THE TAG                           0     53
+    SIDE-grh-transfer                  b668_prints_SIDE-grh-transfer.txt                    d487072   AT THE TAG                           0     53
+    SIDE-kernel                        b653_runner_SIDE-kernel.txt                          ee8d21a   AT THE TAG                           0     54
+    SIDE-lv-conservation               b657_runner_SIDE-lv-conservation.txt                 c230e6d   AT THE TAG                           0     8
+    SIDE-lv-conservation               b653_runner_SIDE-lv-conservation.txt                 c35a3a3   FILES DIFFER                         12    8
+    SIDE-silence-principle             b678_axioms_SIDE-silence-principle_after.txt         8829bcc   AT THE TAG                           0     58
+    SIDE-silence-principle             b678_axioms_SIDE-silence-principle_before.txt        6968b6c   FILES DIFFER                         1     58
+    SIDE-structural-error-correction   b659_runner_SIDE-structural-error-correction.txt     17f4acf   AT THE TAG                           0     62
+    SIDE-archimedean                   ### NO PRINT BANK AT v0.1.0
+    SIDE-bsd-formation-transfer        ### NO PRINT BANK AT v0.1.1
+    SIDE-compression                   ### NO PRINT BANK AT v0.2.0
+    SIDE-frobenius                     ### NO PRINT BANK AT v0.1.0
+    SIDE-rcurve                        ### NO PRINT BANK AT v0.1.0
+    SIDE-simplicity                    ### NO PRINT BANK AT v0.1.0
+    SIDE-spinor                        ### NO PRINT BANK AT v0.1.0
+    SIDE-yang-mills-formation          ### NO PRINT BANK AT v0.1.1
+
+### THE TABLES (document ; file ; status ; the table`s lines ; rows ; the cell words and holds)
+    PATHS_TO_THE_CRITICAL_LINE           phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md             SHAPED                         :283-:312 ; rows 28 ; {'NO PRINT BANK': 4, 'NO GRADE TOKEN': 10, 'NOT PRINTED': 11, 'NO TAG': 2, 'GRADE NOT IN THE BANK': 5, 'HELD: DEPOSIT PIN': 1, 'NO KERNEL': 3}
+    SIMPLICITY_OF_RIEMANN_ZEROS          phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md             SHAPED                         :433-:455 ; rows 21 ; {'NO GRADE TOKEN': 10, 'ABSENT': 3, 'NOT PRINTED': 8, 'NO KERNEL': 3, 'NO PRINT BANK': 1, 'MULTI': 1, 'GRADE NOT IN THE BANK': 4}
+    THE_UNCONDITIONAL_SURROUND           phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md             SHAPED                         :179-:195 ; rows 15 ; {'NOT PRINTED': 7, 'NO PROFILE TOKEN': 1, 'NO GRADE TOKEN': 7, 'MULTI': 2, 'GRADE NOT IN THE BANK': 5, 'NO KERNEL': 2}
+    GRH_CASCADE                          phase1.5/spectral/GRH_CASCADE_v0_3_6.md                        SHAPED                         :381-:395 ; rows 13 ; {'GRADE NOT IN THE BANK': 8, 'NOT PRINTED': 2, 'NO KERNEL': 2, 'NO PRINT BANK': 2}
+    R_CURVE_CRITERION                    phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md                    SHAPED                         :349-:362 ; rows 12 ; {'NO PRINT BANK': 1, 'MULTI': 1, 'ABSENT': 3, 'NOT PRINTED': 7, 'GRADE NOT IN THE BANK': 5, 'NO KERNEL': 1}
+    INDEX_ARITY_AT_THE_CRITICAL_LINE     phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md      SHAPED                         :373-:403 ; rows 29 ; {'NO GRADE TOKEN': 8, 'HELD: DEPOSIT PIN': 1, 'NOT PRINTED': 7, 'NO KERNEL': 17, 'NO PROFILE TOKEN': 1}
+    THE_RESIDUE_OF_RH                    phase1.5/proofs/THE_RESIDUE_OF_RH.md                           NOT IN THE GENERATOR`S SHAPE   :99-:112 ; rows 0 ; -
+    ADDITIVE_MULTIPLICATIVE_CONSPIRACY   phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md     SHAPED                         :408-:417 ; rows 8 ; {'GRADE NOT IN THE BANK': 4, 'ABSENT': 1, 'NO PROFILE TOKEN': 4, 'NO GRADE TOKEN': 3}
+    FOUNDATIONS_OF_THE_SIDE_PROGRAMME    phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md SHAPED                         :625-:641 ; rows 15 ; {'GRADE NOT IN THE BANK': 12, 'CELLS CHANGED': 5, 'MULTI': 1, 'NOT PRINTED': 2, 'NO PRINT BANK': 1, 'NO KERNEL': 2}
+    TECHNE_TOOLKIT                       phase1.5/method/TECHNE_TOOLKIT.md                              NOT IN THE GENERATOR`S SHAPE   :505-:516 ; rows 0 ; -
+    SILENCE_STAGES_DEALIGNMENT           phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md                   SHAPED                         :200-:211 ; rows 10 ; {'NOT PRINTED': 2, 'GRADE NOT IN THE BANK': 2, 'NO KERNEL': 2}
+    EXHAUSTIVENESS_LICENSE               phase1.5/method/EXHAUSTIVENESS_LICENSE.md                      SHAPED                         :103-:110 ; rows 6 ; {'NOT PRINTED': 1, 'GRADE NOT IN THE BANK': 6}
+    INVARIANCE_BARRIERS                  phase1.5/method/INVARIANCE_BARRIERS_v1_4.md                    SHAPED                         :501-:516 ; rows 14 ; {'NO GRADE TOKEN': 9, 'NO KERNEL': 5}
+    REPARAMETERIZATION_BARRIERS_v0_1     phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md              SHAPED                         :221-:231 ; rows 9 ; {'NO KERNEL': 7}
+    A_Place_to_Stand                     day1/A_Place_to_Stand.md                                       SHAPED                         :2239-:2251 ; rows 11 ; {'HELD: DEPOSIT PIN': 9, 'NO KERNEL': 2}
+    BALANCE_AND_POSITIVITY               phase1.5/spectral/BALANCE_AND_POSITIVITY.md                    NOT IN THE GENERATOR`S SHAPE   :341-:348 ; rows 0 ; -
+    FACES_OF_H2_AT_FINITE_INSTANCE       phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md                NOT IN THE GENERATOR`S SHAPE   :34-:40 ; rows 0 ; -
+    FACES_LEDGER                         FACES_LEDGER.md                                                NOT IN THE GENERATOR`S SHAPE   :14-:32 ; rows 0 ; -
+    THE_IDENTITY_CHAIN                   phase2/method/THE_IDENTITY_CHAIN.md                            NOT IN THE GENERATOR`S SHAPE   :562-:568 ; rows 0 ; -
+    E_DIFFICULTY_THEOREM                 phase2/method/E_DIFFICULTY_THEOREM_v1_0_4.md                   SHAPED                         :331-:336 ; rows 4 ; {'NO GRADE TOKEN': 4, 'NOT PRINTED': 1}
+
+### THE ONE-COPY PAIRS (the navigator`s answer on the REGISTRY): document ; the roster`s file ; its partner ; the partner`s reading
+    PATHS_TO_THE_CRITICAL_LINE           phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md ; phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 4 LINES
+    SIMPLICITY_OF_RIEMANN_ZEROS          phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md ; phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 6 LINES
+    THE_UNCONDITIONAL_SURROUND           phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md ; phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 4 LINES
+    GRH_CASCADE                          phase1.5/spectral/GRH_CASCADE_v0_3_6.md ; phase1.5/spectral/GRH_CASCADE.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 3 LINES
+    R_CURVE_CRITERION                    phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md ; phase1.5/rcurve/R_CURVE_CRITERION.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 6 LINES
+    INDEX_ARITY_AT_THE_CRITICAL_LINE     phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md ; phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 3 LINES
+    THE_RESIDUE_OF_RH                    phase1.5/proofs/THE_RESIDUE_OF_RH.md ; phase1.5/proofs/THE_RESIDUE_OF_RH_v1_2.md ; IDENTICAL, NOTHING TO WRITE
+    ADDITIVE_MULTIPLICATIVE_CONSPIRACY   phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md ; phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 1 LINES
+    FOUNDATIONS_OF_THE_SIDE_PROGRAMME    phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md ; phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 4 LINES
+    TECHNE_TOOLKIT                       phase1.5/method/TECHNE_TOOLKIT.md ; phase1.5/method/TECHNE_TOOLKIT_v8_3.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 1 LINES
+    SILENCE_STAGES_DEALIGNMENT           phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md ; phase2/quantum/SILENCE_STAGES_DEALIGNMENT_v1_3.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 4 LINES
+    EXHAUSTIVENESS_LICENSE               phase1.5/method/EXHAUSTIVENESS_LICENSE.md ; phase1.5/method/EXHAUSTIVENESS_LICENSE_v0_2.md ; IDENTICAL, NOTHING TO WRITE
+    INVARIANCE_BARRIERS                  phase1.5/method/INVARIANCE_BARRIERS_v1_4.md ; phase1.5/method/INVARIANCE_BARRIERS.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 1 LINES
+    A_Place_to_Stand                     day1/A_Place_to_Stand.md ; day1/A_Place_to_Stand_v5_18.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 1 LINES
+    BALANCE_AND_POSITIVITY               phase1.5/spectral/BALANCE_AND_POSITIVITY.md ; phase1.5/spectral/BALANCE_AND_POSITIVITY_v0_9_5.md ; IDENTICAL, NOTHING TO WRITE
+    FACES_OF_H2_AT_FINITE_INSTANCE       phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md ; phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE_v0_2.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 1 LINES
+    E_DIFFICULTY_THEOREM                 phase2/method/E_DIFFICULTY_THEOREM_v1_0_4.md ; phase2/method/E_DIFFICULTY_THEOREM.md ; NOT WRITTEN: ANCHOR HEADING FOUND 0 TIMES
+
+### THE GRADE TOKENS MOVED DOWNWARD (the navigator`s answer, b672: listed before the write, entered under W-ORD-GRADE-MOVED): document :line ; kernel ; old token -> new token
+    none
+
+### THE DIFF: rows are cells changed (document :line ; column ; kernel ; old ; new)
+    FOUNDATIONS_OF_THE_SIDE_PROGRAMME :628 | kernel | SIDE-silence-principle | OLD SIDE-silence-principle v0.2.0 | NEW SIDE-silence-principle v0.2.1
+    FOUNDATIONS_OF_THE_SIDE_PROGRAMME :628 | profile | SIDE-silence-principle | OLD NO PRINT BANK AT v0.2.0 | NEW axiom-free (none)
+    FOUNDATIONS_OF_THE_SIDE_PROGRAMME :629 | kernel | SIDE-silence-principle | OLD SIDE-silence-principle v0.2.0 | NEW SIDE-silence-principle v0.2.1
+    FOUNDATIONS_OF_THE_SIDE_PROGRAMME :629 | profile | SIDE-silence-principle | OLD NO PRINT BANK AT v0.2.0 | NEW axiom-free (none)
+    FOUNDATIONS_OF_THE_SIDE_PROGRAMME :630 | kernel | SIDE-silence-principle | OLD SIDE-silence-principle v0.2.0 (`silence_principle`), v0.2.0 = `667c254` (`Universal.silence_universal`, absent at v0.1.0, relay `data/b558_cp1b.txt` :386) | NEW SIDE-silence-principle v0.2.1 (`silence_principle`), v0.2.0 = `667c254` (`Universal.silence_universal`, absent at v0.1.0, relay `data/b558_cp1b.txt` :386)
+
+### THE CELL WORDS BY KERNEL: SIDE-archimedean {'NO PRINT BANK': 1}; SIDE-bsd-formation-transfer {'NO PRINT BANK': 1}; SIDE-compression {'NO PRINT BANK': 1}; SIDE-cosmo {'NOT PRINTED': 2}; SIDE-effects {'ABSENT': 1, 'NOT PRINTED': 1}; SIDE-frobenius {'NO PRINT BANK': 1}; SIDE-kernel {'NOT PRINTED': 9, 'ABSENT': 6}; SIDE-lv-conservation {'NOT PRINTED': 36}; SIDE-rcurve {'NO PRINT BANK': 2}; SIDE-simplicity {'NO PRINT BANK': 1}; SIDE-spinor {'NO PRINT BANK': 1}; SIDE-yang-mills-formation {'NO PRINT BANK': 1}
+### ### **TABLES 20 ; SHAPED 14 ; NOT IN THE GENERATOR`S SHAPE 6 ; ANCHOR NOT FOUND 0 ; KERNELS 16 (WITH A TAG 15) ; CELLS CHANGED 5 ; FILES CHANGED 1 ; ABSENT 7 ; NO PRINT BANK 9 ; NOT PRINTED 48 ; HELD: DEPOSIT PIN 11 ; MULTI 5 ; NO TAG 2.**
+
+
+### ### **CELLS CHANGED 5 ; THE FIVE CELLS AT FOUNDATIONS :628-:630 5 ; TABLES 20 (THE RULING`S 13) ; SHAPED 14 ; GENERATOR EXIT 0 ; NOTHING WRITTEN TO THE ROSTER.**
