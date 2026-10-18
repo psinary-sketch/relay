@@ -1,0 +1,46 @@
+b682 -- THE READ-FIRST BANK ((R292)(7)), STEP ZERO (2026-10-18)
+
+### rows are the ferry's read-first items, each cited by path and line with the unit of its rows and what this act reads there.
+
+  data/b681_closing.txt -- rows are closing sections; :1 the head line "b681 closed: relay aa5a33a7, PLACE-papers 837ba79; suite 90 of 90; root
+      13735beb3696824b…; 1 prompt answered; 1 defect" (quoted in the step-zero report, (R292)(1)).
+  data/b681_defects.txt -- rows are defects, as lettered there: (a) :5, the seat's -- the author's word on the pause acted on before its mid-act
+      check; the check run after, VACUOUS (a word naming no path, line or commit).
+  data/b681_narrow.txt -- rows are points with their final half-width and form: :5-:167, OFF 0 to ON 145, each "half-width 1e-30", M-on 146 and
+      M-off 17; :3 the chain from b671's bank (gz sha256 51d9e632...); the verdict at the last line "NARROWED TO 1e-30 163 OF 163 ; ... PARTS 68,
+      27693 s ; THE LONGEST PART 471 s ; BESSEL BAR MISSES 0".
+  data/b670_work_orders.txt -- rows are orders: W-ORD-CORRESPONDENCE-RUNNER-BANKS at :272 (entry OPEN_TRAILS :14648, b679, OPEN, trigger "the
+      re-cut act after b680"), appended by b679 at :271; OPEN_TRAILS :14648 (the order entered beneath the five cells' line) and :14620 (the five
+      Correspondence cells b678 did not write, carried).
+  tools/correspondence_gen.py -- the reader by line: BANK_NAME :462 (a bank named b<act>_runner_<kernel>[_run<id>].txt or b<act>_prints_<kernel>...),
+      BANK_ROW :463 (a row "  <name> ... ['ax', ...]"), parse_bank :466 (the built commit from "#print axioms at", "ref input" or "ref"), read_banks
+      :478 (the latest bank AT THE TAG: built at the tag or an ancestor with no .lean, lean-toolchain or lake-manifest.json differing), the profile
+      cell's word :334 (no bank: NO PRINT BANK AT <tag>); regen_lines :230; main :579.
+  tools/test_correspondence_gen.py -- rows are planted cases: case1 :56 (the tag moved), case2 :80 (a declaration vanished: ABSENT), case3 :91 (no
+      print bank), case4 :106 (a table already at its tag); 137 lines.
+  data/b672_gen_test.txt -- rows are planted cases with their PASS lines; the verdict "PLANTED CASES 4 ; AS WANTED 4 ; PASS" (the b672 form).
+  data/b672_correspondence_diff.txt -- rows are cells changed: the tags :7, the print banks :25, the diff :99 (document :line | column | kernel |
+      OLD | NEW) (the b672 form); 291 lines.
+  data/b674_cut.txt, data/b676_cut.txt, data/b678_cut.txt -- rows are licensed-table rows of the kernel cut; the runner print banks' path form at
+      b674 :19-:20, b676 :24-:27, b678 :28-:31 -- data/<act>_runner_<kernel>_<before|after>.txt (the run, its artifact sha256, "the ref input
+      <40 hex>" :3, "the ref built (out/ref.txt)" :6, the counts, no print row) beside data/<act>_axioms_<kernel>_<before|after>.txt (the raw
+      #print axioms lines "'<name>' does not depend on any axioms" / "'<name>' depends on axioms: [..]"); the tag form b674 :21 "tag v0.5.1
+      peeled at e5b737a", b676 :28 "tag v0.1.1", b678 :33 "tag v0.2.1 ... peeled 96b3098"; the 'after' bank built at the cut's branch tip, the
+      merge a tree-equal commit, the tag on the merge.
+  the runner print banks by path, with their headers -- data/b674_runner_SIDE-window_{before,after}.txt (after: run 38988610526, ref input
+      22bf8401..., 69 terminals printed) with data/b674_axioms_SIDE-window_{before,after}.txt (74 lines); data/b676_runner_SIDE-trivium_{before,
+      after}.txt (after: run 39004541707, ref input db315fe4..., 22 of 22) with data/b676_axioms_SIDE-trivium_{before,after}.txt (22 lines);
+      data/b678_runner_SIDE-silence-principle_{before,after}.txt (after: run 39055212218, ref input 8829bcc8..., 58 of 58) with
+      data/b678_axioms_SIDE-silence-principle_{before,after}.txt (58 lines). SIDE-explicit-formula: data/b673_runner_SIDE-explicit-formula_run<id>.txt
+      (four, the reader's present name form) and data/b679_runner_run<id>.txt (two, no kernel in the name).
+  FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md :628-:630 -- rows are Correspondence rows: :628 product_formula_silent and :629 distributive_law_silent,
+      kernel "SIDE-silence-principle v0.2.0", profile "NO PRINT BANK AT v0.2.0"; :630 the four-step chain, kernel "SIDE-silence-principle v0.2.0
+      (...), v0.2.0 = 667c254 (...)", profile "`[propext]`; axiom-free" (two tokens, MULTI). REGISTRY :205 names the unversioned path
+      (row 1.5f-4); data/b672_one_copy.txt :259-:260 lists it with its versioned copy, the bank's copy of record v0_2_5 (the roster's file, the
+      partner's table differing in 4 lines, so not written).
+  data/b670_licensed_table.txt -- rows are licensed-table rows (per agenda document: OVERREACHES + UNLICENSED at b648 -> now): the kernels'
+      docstrings :101-:131; SIDE-bijection :101 "4 -> 4"; the per-document tables data/b647_table_<kernel>.txt; data/b647_table_kernels.txt :6
+      SIDE-bijection a26f6f1 | 30 rows | OVERREACHES 4; b680's reading data/b680_licensed.txt :29 "4 -> 4 -> 4".
+  data/b674_rules.txt -- rows are rules: (2) at :8, the tie-break beyond the count (equal OVERREACHES and no declared suite failure: rows outside
+      LICENSED/CITED of any kind, then the larger table); b652's order data/b652_ferry.txt :19 ("the next kernel by descending count").
+  data/b681_closing_push_out.txt -- the capture of push-b681-closing (aa5a33a7..f17fef29, read back at the remote); committed at the start.
