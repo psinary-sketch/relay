@@ -47,7 +47,10 @@ NEXT = ('b682, the re-cut act, W-ORD-CORRESPONDENCE-RUNNER-BANKS its trigger rea
         'research act, the map in the angle form over the narrowed balls (W-ORD-MAP-ANGLE-FORM) its candidate, W-ORD-EPSTEIN-COUNT the '
         'alternative on the author’s placement; the 24 rules without arms held for the author’s decision')
 
-ACT_ARMS = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R291-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ROOT-REPAIRED', 'G-RULES-BANKED', 'G-PLAN-BEFORE-RUN', 'G-NARROW-TOOL-ALONE', 'G-ANSWERS-CHECKED',
+            'G-NARROW-REACHED', 'G-PARTS-UNDER-LIMIT', 'G-NARROW-CHAIN', 'G-CONTROLS-READ', 'G-BESSEL-BAR', 'G-ORDERS-LANDED', 'G-TOOL-REPAIRS',
+            'G-PARTS-PRERUN', 'G-DEFECTS-LETTERED')
 STANDING_ADDED = ('G-ROOT-BANKS-COMMITTED',)            # ### (R291)(4): the one standing arm this act adds
 SHARED_APPENDED = ('data/b670_work_orders.txt',)
 PARTS = ('standing-a', 'standing-b', 'act')          # ### data/b678_rules.txt row 1

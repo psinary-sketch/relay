@@ -1,0 +1,189 @@
+b681 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DETACHED RUNS (N3), THE MOVES AND DELETES (2026-10-18T09:28:36Z)
+
+### the source: the seat`s session df03c73f-520a-4848-85dc-8fada095f008 from its first user line carrying 'RULING (R291) BEGIN', and its subagents` transcripts
+### commands read: 153
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (0):
+  NONE
+
+### THE COMMANDS THAT START A DETACHED RUN (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (6):
+  #15 2026-10-18T00:28:03.612Z Bash
+      git -C D:/relay branch --merged main --list push-b680-root && git -C D:/relay branch -d push-b680-root
+  #16 2026-10-18T00:28:06.893Z Bash
+      git -C D:/relay branch --merged main --list push-b680-hashes && git -C D:/relay branch -d push-b680-hashes
+  #17 2026-10-18T00:28:09.839Z Bash
+      git -C D:/relay branch --merged main --list push-b680 && git -C D:/relay branch -d push-b680
+  #18 2026-10-18T00:28:12.964Z Bash
+      git -C D:/relay branch --merged main --list push-b680-closing && git -C D:/relay branch -d push-b680-closing
+  #19 2026-10-18T00:28:16.088Z Bash
+      git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b680-root && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b680-root
+  #20 2026-10-18T00:28:19.257Z Bash
+      git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b680 && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b680
+
+### THE BRANCH DELETES BY SHAPE ((R291)(9): one branch per command, no glob in any half): #15 deletes ['push-b680-root'], globs none; #16 deletes ['push-b680-hashes'], globs none; #17 deletes ['push-b680'], globs none; #18 deletes ['push-b680-closing'], globs none; #19 deletes ['push-b680-root'], globs none; #20 deletes ['push-b680'], globs none
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-18T00:17:16.023Z | seat | Bash | cd /d/relay && git status --short --untracked-files=no | head; tail -2 data/act_roots.txt | cut -c1-200; python -X utf8 -c "
+  #2 | 2026-10-18T00:17:26.980Z | seat | Bash | git grep -l "act_roots" -- tools | grep -v "^tools/b6[0-7][0-9]_\|^tools/b5" ; git grep -n "act_roots\|ROOTS\b\|def last_root" -- tools/act_root.py | cut -c1-16
+  #3 | 2026-10-18T00:17:58.216Z | seat | Bash | sed -n 170,185p tools/act_root.py; git grep -n "act_roots" -- tools/additive_shared.py tools/b680_closing.py tools/b680_citation.py tools/test_act_root.py tools
+  #4 | 2026-10-18T00:18:51.012Z | seat | Bash | for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py; do PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/$t 2>&1 | tail -1
+  #5 | 2026-10-18T00:19:04.947Z | seat | Bash | git diff --stat data/act_roots.txt; python -c "d=open('data/act_roots.txt','rb').read();print(d.count(b'\r'), d.endswith(b'\n'))"; python -X utf8 -c "
+  #6 | 2026-10-18T00:19:14.434Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b680_checks.py --mid b681_chain_verify.txt --part standing-b > /dev/null 2>&1; echo "exit $?"; ls data/b
+  #7 | 2026-10-18T00:24:44.180Z | seat | Bash | for f in data/b680_closing.txt data/b680_defects.txt data/act_roots.txt tools/act_root.py data/b680_rules_arms.txt data/b677_tolerance.txt data/b670_work_orders
+  #8 | 2026-10-18T00:25:40.611Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b681_citation.py check 2>&1 | tail -8 | cut -c1-250; grep -n "MISS " data/b681_citation_check.txt | cut 
+  #9 | 2026-10-18T00:25:53.079Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_citation.py ferry && grep -n "VERDICT" data/b681_ferry_scan.txt | cut -c1-150; tail -c 60 data/b681_ferry.txt
+  #10 | 2026-10-18T00:26:02.350Z | seat | Bash | grep -n "### ### \*\*\|h_tol\|1e-28" data/b677_tolerance.txt | cut -c1-230 | head -20; echo ----; grep -n "^== \|^### [0-9]*\.\|^[0-9][0-9]*\. \|^  *[0-9][0-9]\
+  #11 | 2026-10-18T00:26:06.027Z | seat | Bash | sed -n 44,70p data/b677_tolerance.txt | cut -c1-200; grep -n "### ### " data/b677_tolerance.txt | cut -c1-300; sed -n 6,17p data/b671_narrow_plan.txt | cut -c1-
+  #12 | 2026-10-18T00:27:23.497Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_record.py rowgen 2>&1 | tail -2; PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_record.py branche
+  #13 | 2026-10-18T00:27:54.643Z | seat | PowerShell | $n = @('tail','lean','lake','python','bash'); foreach ($x in $n) { $p = Get-CimInstance Win32_Process -Filter "Name like '$x%'" | Select-Object ProcessId, Name,
+  #14 | 2026-10-18T00:28:00.142Z | seat | Bash | git add data/b680_closing_push_out.txt && git commit -q -m "b681 step zero: data/b680_closing_push_out.txt committed ((R291)(9))" && git log --oneline -1
+  #15 | 2026-10-18T00:28:03.612Z | seat | Bash | git -C D:/relay branch --merged main --list push-b680-root && git -C D:/relay branch -d push-b680-root
+  #16 | 2026-10-18T00:28:06.893Z | seat | Bash | git -C D:/relay branch --merged main --list push-b680-hashes && git -C D:/relay branch -d push-b680-hashes
+  #17 | 2026-10-18T00:28:09.839Z | seat | Bash | git -C D:/relay branch --merged main --list push-b680 && git -C D:/relay branch -d push-b680
+  #18 | 2026-10-18T00:28:12.964Z | seat | Bash | git -C D:/relay branch --merged main --list push-b680-closing && git -C D:/relay branch -d push-b680-closing
+  #19 | 2026-10-18T00:28:16.088Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b680-root && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b680-root
+  #20 | 2026-10-18T00:28:19.257Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b680 && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b680
+  #21 | 2026-10-18T00:28:28.886Z | seat | Bash | cat data/b680_tests_withheld.json
+  #22 | 2026-10-18T00:28:57.725Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py parts | cut -c1-400
+  #23 | 2026-10-18T00:29:01.796Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py parts | awk '{print $1,$2,$3,$4,$5, NF-5" tests"}'
+  #24 | 2026-10-18T00:29:06.767Z | seat | Bash | for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_addenda_writelist.py test_additive_shared_b644.p
+  #25 | 2026-10-18T00:37:27.292Z | seat | Bash | for t in test_chain_page.py test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py; do PYTHONIOENCODING=utf-8 python -X
+  #26 | 2026-10-18T00:45:43.375Z | seat | Bash | for t in $(PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py parts | grep "^PART 3" | cut -d: -f2); do PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_
+  #27 | 2026-10-18T00:53:40.224Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py report > /dev/null; grep -n "TEST FILES\|trees after\|WITHHELD:" data/b681_tests_stepzero.txt | cut -c
+  #28 | 2026-10-18T00:53:49.423Z | seat | Bash | grep -n "^    ([a-h]) " data/b680_defects.txt | cut -c1-90; grep -n "^b680\|^corrigendum" data/act_roots.txt | cut -c1-40; grep -n "^def verify\|^def at_commit\
+  #29 | 2026-10-18T00:53:53.848Z | seat | Bash | head -12 data/b671_large_banks.txt | cut -c1-200; echo ---; head -5 data/b671_run2_progress.txt | cut -c1-200; wc -l data/b671_run2_progress.txt data/b671_narro
+  #30 | 2026-10-18T00:53:59.039Z | seat | Bash | wc -l tools/b671_narrow.py tools/b677_epstein_map_angle.py; grep -n "^def \|^[A-Z_]* = " tools/b671_narrow.py | cut -c1-150
+  #31 | 2026-10-18T00:54:12.860Z | seat | Bash | python -X utf8 -c "
+  #32 | 2026-10-18T00:54:18.806Z | seat | Bash | python -X utf8 -c "
+  #33 | 2026-10-18T00:54:24.334Z | seat | Bash | for f in data/b671_narrow_run1.txt data/b671_narrow_run1b.txt data/b671_narrow_run2.txt data/b671_narrow_run3.txt; do echo "== $f"; grep -n " s\b\|seconds\|took
+  #34 | 2026-10-18T00:54:37.419Z | seat | Bash | python -X utf8 -c "
+  #35 | 2026-10-18T00:54:41.242Z | seat | Bash | sed -n 6351p data/b671_narrow_run1.txt | cut -c1-400; grep -n "host free at end\|run took\| s\.\*\*" data/b671_narrow_run1.txt | tail -3 | cut -c1-200
+  #36 | 2026-10-18T00:55:08.033Z | seat | Bash | grep -n "^def edge_arg" -A22 tools/b667_epstein_certify.py | cut -c1-170; grep -n "^def _pt\|^def _ball\|^def _accepted\|^def _stats\|^PROCS\|^PREC" tools/b667_
+  #37 | 2026-10-18T00:55:17.773Z | seat | Bash | python -X utf8 -c "
+  #38 | 2026-10-18T00:55:45.674Z | seat | Bash | grep -n "^def \|b671_epstein_zeros_narrowed\|^[A-Z_]* = " tools/b677_epstein_map_angle.py | head -40 | cut -c1-170; grep -n "^def \|^[A-Z0-9_]* = " tools/b671_n
+  #39 | 2026-10-18T00:56:10.036Z | seat | Bash | sed -n 4p data/b680_closing_push_out.txt; sed -n 9,10p data/b671_large_banks.txt | cut -c1-120; sed -n 384,390p tools/act_root.py | cut -c1-100
+  #40 | 2026-10-18T00:56:31.113Z | seat | Bash | git add data/act_roots.txt tools/act_root.py data/b681_root_repair.txt data/b681_chain_verify_standing-b.txt data/b681_chain_verify_standing-b.json data/b681_ci
+  #41 | 2026-10-18T00:56:43.533Z | seat | Bash | sed -n "$(grep -n '^WH = ' tools/b680_record.py | cut -d: -f1),+22p" tools/b680_record.py
+  #42 | 2026-10-18T00:57:03.058Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b681_record.py c1 dry 2>&1 | head -3 | cut -c1-300
+  #43 | 2026-10-18T00:57:07.043Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b681_record.py c1 2>&1 | tail -1 | cut -c1-200
+  #44 | 2026-10-18T00:57:19.968Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b681 Component 1, under (R291)(1)-(2): b680 at its weight (FINDINGS :9108), its root
+  #45 | 2026-10-18T00:57:24.507Z | seat | Bash | cd /d/relay && git add tools/b681_record.py data/b681_record_lines.json data/b681_rules.txt data/b681_scanfile_c1.md && git commit -q -m "b681 Component 1: the 
+  #46 | 2026-10-18T00:58:00.353Z | seat | Bash | grep -n "host free\|def free\|psutil\|GlobalMemory\|def _free" tools/b671_narrow.py tools/b667_epstein_certify.py | head -6 | cut -c1-200; tail -12 tools/b671_n
+  #47 | 2026-10-18T00:58:10.362Z | seat | Bash | sed -n 80,100p tools/b667_epstein_certify.py; sed -n 233,250p tools/b667_epstein_certify.py
+  #48 | 2026-10-18T01:01:31.160Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b681_narrow.py verify 2>&1 | tail -2 | cut -c1-200; PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 to
+  #49 | 2026-10-18T01:01:35.711Z | seat | Bash | git add tools/b681_narrow.py && git commit -q -m "b681 Component 2, under (R291)(6)(iv): tools/b681_narrow.py, committed alone" && git log --oneline -1
+  #50 | 2026-10-18T01:01:51.139Z | seat | Bash | python -X utf8 -c "
+  #51 | 2026-10-18T01:02:42.222Z | seat | Bash | sed -n 132p data/b677_map.txt | cut -c1-160; sed -n 3p data/b667_ball_obstruction.txt | cut -c1-160; sed -n 18p data/b671_narrow_plan.txt | cut -c1-80; sed -n 2
+  #52 | 2026-10-18T01:02:47.615Z | seat | Bash | git add data/b681_narrow_plan.txt && git commit -q -m "b681 Component 2, under (R291)(6): the plan -- W 1e-30 (h_tol(64) 3.162e-28 less two orders), forms as b6
+  #53 | 2026-10-18T01:20:43.933Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_citation.py answer "ANSWER on the plan" 2>&1 | tail -6 | cut -c1-200
+  #54 | 2026-10-18T01:20:59.522Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b681_narrow.py verify 2>&1 | tail -1 | cut -c1-60 && git add tools/b681_narrow.py && git commit -q -m "b
+  #55 | 2026-10-18T01:21:08.595Z | seat | Bash | git add data/b681_narrow_plan.txt data/b681_citation_check.txt && git commit -q -m "b681 Component 2: the author's word entered in the plan (== 11), its mid-act
+  #56 | 2026-10-18T01:21:13.051Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 540 python -X utf8 tools/b681_narrow.py online 2>&1 | grep -v "^    " | tail -18 | cut -c1-220
+  #57 | 2026-10-18T01:22:07.180Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | tail -25 | cut -c1-230
+  #58 | 2026-10-18T01:30:07.708Z | seat | PowerShell | @(Get-CimInstance Win32_Process -Filter "Name like 'python%'").Count; "free MB: {0}" -f [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #59 | 2026-10-18T01:30:16.470Z | seat | PowerShell | "free MB: {0}" -f [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -Fi
+  #60 | 2026-10-18T01:30:24.488Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep -v "^  OFF" | tail -8 | cut -c1-300
+  #61 | 2026-10-18T01:32:53.287Z | seat | PowerShell | "free MB: {0}" -f [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+  #62 | 2026-10-18T01:32:58.559Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART\|host free\|UNRESOLVED\|NARROWED at" | cut -c1-260
+  #63 | 2026-10-18T01:40:55.727Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED" | cut -c1-200
+  #64 | 2026-10-18T01:48:52.641Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED" | cut -c1-200
+  #65 | 2026-10-18T01:56:48.317Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED" | cut -c1-200
+  #66 | 2026-10-18T02:04:45.527Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED" | cut -c1-200
+  #67 | 2026-10-18T02:12:41.305Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED" | cut -c1-200
+  #68 | 2026-10-18T02:20:37.067Z | seat | Bash | git add data/b681_narrow_progress.txt && git commit -q -m "b681 Component 3: the progress bank after part 8, committed alone (the navigator's answer on the plan
+  #69 | 2026-10-18T02:20:40.944Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED" | cut -c1-200
+  #70 | 2026-10-18T02:28:36.407Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED" | cut -c1-200
+  #71 | 2026-10-18T02:36:31.929Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED" | cut -c1-200
+  #72 | 2026-10-18T02:44:27.571Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED" | cut -c1-200
+  #73 | 2026-10-18T02:52:23.219Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b681_narrow.py status 2>&1 | tail -20
+  #74 | 2026-10-18T02:52:29.157Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-200
+  #75 | 2026-10-18T03:00:25.383Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-200
+  #76 | 2026-10-18T03:08:22.026Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-200
+  #77 | 2026-10-18T03:16:17.977Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-200
+  #78 | 2026-10-18T03:24:13.348Z | seat | Bash | git add data/b681_narrow_progress.txt && git commit -q -m "b681 Component 3: the progress bank after part 16, committed alone" && git log --oneline -1
+  #79 | 2026-10-18T03:24:17.117Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-200
+  #80 | 2026-10-18T03:32:12.973Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-200
+  #81 | 2026-10-18T03:40:08.500Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-200
+  #82 | 2026-10-18T03:48:04.226Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-200
+  #83 | 2026-10-18T03:56:00.235Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-200
+  #84 | 2026-10-18T04:03:57.091Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-200
+  #85 | 2026-10-18T04:11:53.663Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #86 | 2026-10-18T04:19:52.403Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #87 | 2026-10-18T04:27:48.783Z | seat | Bash | git add data/b681_narrow_progress.txt && git commit -q -m "b681 Component 3: the progress bank after part 24, committed alone" && git log --oneline -1
+  #88 | 2026-10-18T04:27:52.795Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #89 | 2026-10-18T04:35:50.948Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #90 | 2026-10-18T04:43:36.560Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #91 | 2026-10-18T04:51:32.057Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #92 | 2026-10-18T04:59:28.344Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #93 | 2026-10-18T05:07:24.884Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #94 | 2026-10-18T05:15:20.405Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #95 | 2026-10-18T05:23:16.076Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #96 | 2026-10-18T05:31:11.385Z | seat | Bash | git add data/b681_narrow_progress.txt && git commit -q -m "b681 Component 3: the progress bank after part 32, committed alone" && git log --oneline -1
+  #97 | 2026-10-18T05:31:15.182Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #98 | 2026-10-18T05:39:12.510Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220; PYTHON
+  #99 | 2026-10-18T05:47:10.274Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #100 | 2026-10-18T05:55:05.983Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #101 | 2026-10-18T06:03:06.288Z | seat | Bash | python -X utf8 -c "
+  #102 | 2026-10-18T06:03:29.901Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 560 python -X utf8 -c "
+  #103 | 2026-10-18T06:05:21.245Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #104 | 2026-10-18T06:13:16.664Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #105 | 2026-10-18T06:21:12.175Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #106 | 2026-10-18T06:28:06.778Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #107 | 2026-10-18T06:36:01.918Z | seat | Bash | git add data/b681_narrow_progress.txt && git commit -q -m "b681 Component 3: the progress bank after part 40, committed alone" && git log --oneline -1
+  #108 | 2026-10-18T06:36:05.614Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #109 | 2026-10-18T06:44:01.548Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #110 | 2026-10-18T06:51:57.116Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #111 | 2026-10-18T06:59:52.633Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #112 | 2026-10-18T07:03:56.200Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #113 | 2026-10-18T07:11:51.839Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #114 | 2026-10-18T07:19:47.484Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #115 | 2026-10-18T07:26:37.073Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #116 | 2026-10-18T07:34:32.281Z | seat | Bash | git add data/b681_narrow_progress.txt && git commit -q -m "b681 Component 3: the progress bank after part 48, committed alone" && git log --oneline -1
+  #117 | 2026-10-18T07:34:36.019Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #118 | 2026-10-18T07:40:12.625Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #119 | 2026-10-18T07:48:08.212Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #120 | 2026-10-18T07:56:03.796Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #121 | 2026-10-18T07:59:10.143Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #122 | 2026-10-18T08:07:05.491Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #123 | 2026-10-18T08:13:16.742Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #124 | 2026-10-18T08:20:19.730Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #125 | 2026-10-18T08:27:46.202Z | seat | Bash | git add data/b681_narrow_progress.txt && git commit -q -m "b681 Component 3: the progress bank after part 56, committed alone" && git log --oneline -1
+  #126 | 2026-10-18T08:27:49.808Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #127 | 2026-10-18T08:35:38.020Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #128 | 2026-10-18T08:41:57.858Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #129 | 2026-10-18T08:45:04.089Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #130 | 2026-10-18T08:47:48.914Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #131 | 2026-10-18T08:51:33.393Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #132 | 2026-10-18T08:54:34.937Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #133 | 2026-10-18T08:58:06.551Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #134 | 2026-10-18T09:01:29.393Z | seat | Bash | git add data/b681_narrow_progress.txt && git commit -q -m "b681 Component 3: the progress bank after part 64, committed alone" && git log --oneline -1
+  #135 | 2026-10-18T09:01:32.915Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #136 | 2026-10-18T09:05:01.469Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #137 | 2026-10-18T09:08:55.279Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #138 | 2026-10-18T09:12:27.305Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep "PART .* LINE\|\*\*OFF\|BENEATH\|UNRESOLVED\|(4a)" | cut -c1-220
+  #139 | 2026-10-18T09:15:22.457Z | seat | Bash | git add data/b681_narrow_progress.txt && git commit -q -m "b681 Component 3: the progress bank after the last part (68), committed alone -- 163 of 163 narrowed 
+  #140 | 2026-10-18T09:15:28.518Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py bank 2>&1 | tail -3 | cut -c1-260; tail -4 data/b681_narrow.txt | cut -c1-260; cat data/b
+  #141 | 2026-10-18T09:15:40.736Z | seat | Bash | python -X utf8 -c "
+  #142 | 2026-10-18T09:15:44.311Z | seat | Bash | wc -c data/b681_narrow_units.jsonl data/b681_narrow_units.jsonl.gz data/b681_large_banks.txt; grep -c "" data/b681_narrow_controls.txt
+  #143 | 2026-10-18T09:15:51.261Z | seat | Bash | grep -n "### ### \|the parts:\|the chain:" data/b681_narrow.txt | cut -c1-90; grep -n "### ### " data/b681_narrow_controls.txt | cut -c1-90; grep -n "C2 planted
+  #144 | 2026-10-18T09:16:03.504Z | seat | Bash | sed -n 5p data/b681_epstein_zeros_narrowed_hashes.txt | cut -c1-40; sed -n 5p data/b681_narrow.txt | cut -c1-60; sed -n 167p data/b681_narrow.txt | cut -c1-60
+  #145 | 2026-10-18T09:16:10.473Z | seat | Bash | git add data/b681_narrow.txt data/b681_narrow_controls.txt data/b681_epstein_zeros_narrowed.json.gz data/b681_epstein_zeros_narrowed_hashes.txt data/b681_narrow
+  #146 | 2026-10-18T09:16:33.481Z | seat | Bash | sed -n 14588p /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-160; PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b681_record.py c4 dry 2>&1 | he
+  #147 | 2026-10-18T09:16:38.523Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b681_record.py c4 2>&1 | tail -2 | cut -c1-200
+  #148 | 2026-10-18T09:16:43.263Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b681 Component 4, under (R291)(8): W-ORD-EPSTEIN-BALL-WIDTH DISCHARGED (OT :14712
+  #149 | 2026-10-18T09:16:47.145Z | seat | Bash | cd /d/relay && git add tools/b681_record.py data/b670_work_orders.txt data/b681_record_lines_c4.json data/b681_scanfile_c4.md && git commit -q -m "b681 Componen
+  #150 | 2026-10-18T09:17:34.835Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_citation.py answer "on the pause at off-line part 3" 2>&1 | tail -4 | cut -c1-220
+  #151 | 2026-10-18T09:21:05.632Z | seat | Bash | grep -n "def shared_files" -A6 tools/additive_shared.py | head -8; grep -c "" tools/b680_checks.py
+  #152 | 2026-10-18T09:25:57.870Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -c "
+  #153 | 2026-10-18T09:28:31.295Z | seat | Bash | for r in answers commands kernels defects repairs; do echo "== $r"; PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b681_record.py $r 2>&1 | tail -2 | c
+
+### ### **COMMANDS 153 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 6 OF 6.**

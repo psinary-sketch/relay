@@ -1,0 +1,1133 @@
+{
+ "at": "2026-10-18T09:28:36Z",
+ "anchor": "RULING (R291) BEGIN",
+ "rows": [
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:17:16.023Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git status --short --untracked-files=no | head; tail -2 data/act_roots.txt | cut -c1-200; python -X utf8 -c \"\nimport json,hashlib,subprocess\nj=json.load(open('data/b680_act_root.json',encoding='utf-8'))\nprint('commit',j.get('commit'),'root',j['root'][:16])\nfor p in ['data/b670_work_orders.txt','data/b680_author_answers.txt','data/b680_author_answers.json','data/b680_citation_check.txt']:\n    rec=[it.split()[1] for it in j['items'] if it.split()[0]==p][0]\n    for c in ('42d26968','75898036'):\n        b=subprocess.run(['git','show','%s:%s'%(c,p)],capture_output=True).stdout\n        print(p,c,hashlib.sha256(b).hexdigest()==rec, hashlib.sha256(b).hexdigest()[:12], rec[:12])\n\"",
+   "n": 1
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:17:26.980Z",
+   "src": "seat",
+   "cmd": "git grep -l \"act_roots\" -- tools | grep -v \"^tools/b6[0-7][0-9]_\\|^tools/b5\" ; git grep -n \"act_roots\\|ROOTS\\b\\|def last_root\" -- tools/act_root.py | cut -c1-160",
+   "n": 2
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:17:58.216Z",
+   "src": "seat",
+   "cmd": "sed -n 170,185p tools/act_root.py; git grep -n \"act_roots\" -- tools/additive_shared.py tools/b680_closing.py tools/b680_citation.py tools/test_act_root.py tools/test_act_root_commit_b644.py tools/test_act_root_order_b641.py | cut -c1-200; head -3 data/act_roots.txt | cut -c1-200; grep -c \"\" data/act_roots.txt",
+   "n": 3
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:18:51.012Z",
+   "src": "seat",
+   "cmd": "for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py; do PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/$t 2>&1 | tail -1; done",
+   "n": 4
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:19:04.947Z",
+   "src": "seat",
+   "cmd": "git diff --stat data/act_roots.txt; python -c \"d=open('data/act_roots.txt','rb').read();print(d.count(b'\\r'), d.endswith(b'\\n'))\"; python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools');import act_root as A;print(A.last_root()[1], A.last_root()[0][:16]); print(A.corrigenda())\"",
+   "n": 5
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:19:14.434Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b680_checks.py --mid b681_chain_verify.txt --part standing-b > /dev/null 2>&1; echo \"exit $?\"; ls data/b681_chain_verify*; grep -n \"ACT-ROOT CHAIN\\|G-ACTROOT-VERIFY\\|G-SHARED\\|### PART\" data/b681_chain_verify_standing-b.txt | cut -c1-200; grep -o \"b6[0-9][0-9] [A-Z]*\" data/b681_chain_verify_standing-b.txt | sort | uniq -c | awk '{print $3}' | sort | uniq -c",
+   "n": 6
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:24:44.180Z",
+   "src": "seat",
+   "cmd": "for f in data/b680_closing.txt data/b680_defects.txt data/act_roots.txt tools/act_root.py data/b680_rules_arms.txt data/b677_tolerance.txt data/b670_work_orders.txt data/b671_narrow_plan.txt tools/b671_narrow.py data/b671_run2_progress.txt data/b671_narrow_run3_depths.jsonl data/b671_epstein_zeros_narrowed.json.gz data/b671_epstein_zeros_narrowed_hashes.txt data/b671_large_banks.txt data/b667_epstein_plan.txt tools/b677_epstein_map_angle.py data/b680_closing_push_out.txt data/b680_rules.txt data/b675_rules.txt; do [ -e $f ] && echo \"OK $f\" || echo \"MISS $f\"; done; ls data | grep \"b671_.*progress\\|b671_run\"; grep -n \"W-ORD-EPSTEIN-BALL-WIDTH\\|W-ORD-MAP-ANGLE-FORM\" data/b670_work_orders.txt | cut -c1-230",
+   "n": 7
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:25:40.611Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b681_citation.py check 2>&1 | tail -8 | cut -c1-250; grep -n \"MISS \" data/b681_citation_check.txt | cut -c1-250",
+   "n": 8
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:25:53.079Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_citation.py ferry && grep -n \"VERDICT\" data/b681_ferry_scan.txt | cut -c1-150; tail -c 60 data/b681_ferry.txt",
+   "n": 9
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:26:02.350Z",
+   "src": "seat",
+   "cmd": "grep -n \"### ### \\*\\*\\|h_tol\\|1e-28\" data/b677_tolerance.txt | cut -c1-230 | head -20; echo ----; grep -n \"^== \\|^### [0-9]*\\.\\|^[0-9][0-9]*\\. \\|^  *[0-9][0-9]\\. \" data/b671_narrow_plan.txt | cut -c1-160 | head -40",
+   "n": 10
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:26:06.027Z",
+   "src": "seat",
+   "cmd": "sed -n 44,70p data/b677_tolerance.txt | cut -c1-200; grep -n \"### ### \" data/b677_tolerance.txt | cut -c1-300; sed -n 6,17p data/b671_narrow_plan.txt | cut -c1-220",
+   "n": 11
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:27:23.497Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_record.py rowgen 2>&1 | tail -2; PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_record.py branches 2>&1 | tail -12 | cut -c1-200",
+   "n": 12
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-18T00:27:54.643Z",
+   "src": "seat",
+   "cmd": "$n = @('tail','lean','lake','python','bash'); foreach ($x in $n) { $p = Get-CimInstance Win32_Process -Filter \"Name like '$x%'\" | Select-Object ProcessId, Name, CommandLine; \"{0}: {1}\" -f $x, (@($p).Count); $p | ForEach-Object { \"   {0} {1} {2}\" -f $_.ProcessId, $_.Name, (\"\" + $_.CommandLine).Substring(0, [Math]::Min(140, (\"\" + $_.CommandLine).Length)) } }; \"free MB: {0}\" -f [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); (Get-Date).ToUniversalTime().ToString(\"yyyy-MM-ddTHH:mm:ssZ\")",
+   "n": 13
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:28:00.142Z",
+   "src": "seat",
+   "cmd": "git add data/b680_closing_push_out.txt && git commit -q -m \"b681 step zero: data/b680_closing_push_out.txt committed ((R291)(9))\" && git log --oneline -1",
+   "n": 14
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:28:03.612Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay branch --merged main --list push-b680-root && git -C D:/relay branch -d push-b680-root",
+   "n": 15
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:28:06.893Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay branch --merged main --list push-b680-hashes && git -C D:/relay branch -d push-b680-hashes",
+   "n": 16
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:28:09.839Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay branch --merged main --list push-b680 && git -C D:/relay branch -d push-b680",
+   "n": 17
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:28:12.964Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay branch --merged main --list push-b680-closing && git -C D:/relay branch -d push-b680-closing",
+   "n": 18
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:28:16.088Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b680-root && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b680-root",
+   "n": 19
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:28:19.257Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b680 && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b680",
+   "n": 20
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:28:28.886Z",
+   "src": "seat",
+   "cmd": "cat data/b680_tests_withheld.json",
+   "n": 21
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:28:57.725Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py parts | cut -c1-400",
+   "n": 22
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:29:01.796Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py parts | awk '{print $1,$2,$3,$4,$5, NF-5\" tests\"}'",
+   "n": 23
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:29:06.767Z",
+   "src": "seat",
+   "cmd": "for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_addenda_writelist.py test_additive_shared_b644.py test_asof.py test_axiom_claim.py test_axiom_claim_b651.py test_banned_terms_backmatter.py test_build_watch_b644.py test_build_watch_b647.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py run $t | cut -c1-170; done",
+   "n": 24
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:37:27.292Z",
+   "src": "seat",
+   "cmd": "for t in test_chain_page.py test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py run $t | cut -c1-170; done",
+   "n": 25
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:45:43.375Z",
+   "src": "seat",
+   "cmd": "for t in $(PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py parts | grep \"^PART 3\" | cut -d: -f2); do PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py run $t | cut -c22-150; done",
+   "n": 26
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:53:40.224Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_tests.py report > /dev/null; grep -n \"TEST FILES\\|trees after\\|WITHHELD:\" data/b681_tests_stepzero.txt | cut -c1-250",
+   "n": 27
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:53:49.423Z",
+   "src": "seat",
+   "cmd": "grep -n \"^    ([a-h]) \" data/b680_defects.txt | cut -c1-90; grep -n \"^b680\\|^corrigendum\" data/act_roots.txt | cut -c1-40; grep -n \"^def verify\\|^def at_commit\\|^def corrigenda\\|^def last_root\\|^def compute\\|^CORR\" tools/act_root.py; tail -1 data/b680_rules_arms.txt | cut -c1-150; grep -n \"^== 1[1-6]\\.\\|^== [0-9]*\\.\" data/b667_epstein_plan.txt | cut -c1-140; grep -n \"### ### \\|rule\\|RULE\" data/b671_large_banks.txt | head -8 | cut -c1-200",
+   "n": 28
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:53:53.848Z",
+   "src": "seat",
+   "cmd": "head -12 data/b671_large_banks.txt | cut -c1-200; echo ---; head -5 data/b671_run2_progress.txt | cut -c1-200; wc -l data/b671_run2_progress.txt data/b671_narrow_run3_depths.jsonl; head -2 data/b671_narrow_run3_depths.jsonl | cut -c1-300; cat data/b671_epstein_zeros_narrowed_hashes.txt | cut -c1-200",
+   "n": 29
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:53:59.039Z",
+   "src": "seat",
+   "cmd": "wc -l tools/b671_narrow.py tools/b677_epstein_map_angle.py; grep -n \"^def \\|^[A-Z_]* = \" tools/b671_narrow.py | cut -c1-150",
+   "n": 30
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:54:12.860Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json,statistics as S\nd=json.load(open('data/b671_narrow_run1.json',encoding='utf-8')); print(list(d)[:12])\nrows=d.get('rows') or d.get('points') or []\nprint(len(rows), {k:(str(v)[:60]) for k,v in rows[0].items() if k!='lines'})\non=[r for r in rows if r.get('kind')=='ON']\nsec=[r['seconds'] for r in on if 'seconds' in r]; dep=[r['depth'] for r in on]\nprint('ON n',len(on),'sec tot',sum(sec),'median',S.median(sec),'max',max(sec),'depths',set(dep), 'readings', {r['reading'] for r in on})\n\"",
+   "n": 31
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:54:18.806Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json,statistics as S\nd=json.load(open('data/b671_narrow_run1.json',encoding='utf-8'))\non=d['on']; print(type(on), len(on)); r=on[0]; print({k:(str(v)[:70]) for k,v in r.items() if k!='lines'})\nsec=[r['seconds'] for r in on]; print('sec tot',sum(sec),'median',S.median(sec),'max',max(sec),'min',min(sec),{r['reading'] for r in on}, {r['depth'] for r in on})\nprint('c1',[{k:str(v)[:50] for k,v in x.items() if k!='lines'} for x in d['c1']][:1])\n\"; ls data | grep \"b671_narrow_run1b\\|b671_narrow_run2\\.\\|b671_narrow_run3\\.\" ",
+   "n": 32
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:54:24.334Z",
+   "src": "seat",
+   "cmd": "for f in data/b671_narrow_run1.txt data/b671_narrow_run1b.txt data/b671_narrow_run2.txt data/b671_narrow_run3.txt; do echo \"== $f\"; grep -n \" s\\b\\|seconds\\|took\\|### ### \" $f | grep -iv \"depth [0-9]* :\" | head -8 | cut -c1-230; done",
+   "n": 33
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:54:37.419Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json,calendar,time,statistics as S,collections\nrows=[json.loads(l) for l in open('data/b671_narrow_run3_depths.jsonl',encoding='utf-8')]\nby=collections.defaultdict(list)\nfor r in rows: by[r['name']].append(r)\nep=lambda s: calendar.timegm(time.strptime(s,'%Y-%m-%dT%H:%M:%SZ'))\nfor n,rs in by.items():\n    rs.sort(key=lambda r:ep(r['at']))\n    d=[ep(b['at'])-ep(a['at']) for a,b in zip(rs,rs[1:])]\n    segs=[r['segments'] for r in rs]\n    print(n,'depths',rs[0]['depth'],'->',rs[-1]['depth'],'n',len(rs),'sec/depth median',S.median(d),'max',max(d),'last5',d[-5:],'segs median',S.median(segs),'max',max(segs))\n\"; head -3 data/b671_narrow_run1.txt | cut -c1-200; grep -n \"### ### \" data/b671_narrow_run1.txt data/b671_narrow_run1b.txt | cut -c1-200",
+   "n": 34
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:54:41.242Z",
+   "src": "seat",
+   "cmd": "sed -n 6351p data/b671_narrow_run1.txt | cut -c1-400; grep -n \"host free at end\\|run took\\| s\\.\\*\\*\" data/b671_narrow_run1.txt | tail -3 | cut -c1-200",
+   "n": 35
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:55:08.033Z",
+   "src": "seat",
+   "cmd": "grep -n \"^def edge_arg\" -A22 tools/b667_epstein_certify.py | cut -c1-170; grep -n \"^def _pt\\|^def _ball\\|^def _accepted\\|^def _stats\\|^PROCS\\|^PREC\" tools/b667_epstein_certify.py; nproc",
+   "n": 36
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:55:17.773Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport gzip,json,re\nL=gzip.open('data/b671_narrow_run2_points.jsonl.gz','rt',encoding='utf-8').read().split('\\n')\npts={}\nfor l in L:\n    if not l.strip(): continue\n    r=json.loads(l)\n    if r.get('kind')=='OFF': pts[r['idx']]=(r['reading'],r['depth'],r['seconds'])\nt3=open('data/b671_narrow_run3.txt',encoding='utf-8').read()\nr3={int(m.group(1)):int(m.group(2)) for m in re.finditer(r'OFF (\\d+) : NARROWED at depth 40 ; (\\d+) s',t3)}\ntot=0;rows=[]\nfor i in sorted(pts):\n    rd,dp,s=pts[i]\n    if i in r3: spd=r3[i]/37.0; src='run3 %d s / 37 depths'%r3[i]\n    else: spd=s/float(dp); src='run2 %d s / %d depths'%(s,dp)\n    rows.append((i,rd,round(spd),src)); tot+=20*spd\nfor r in rows: print(r)\nprint('n',len(rows),'price 20 halvings CPU s',round(tot), 'hours',round(tot/3600,1))\n\"",
+   "n": 37
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:55:45.674Z",
+   "src": "seat",
+   "cmd": "grep -n \"^def \\|b671_epstein_zeros_narrowed\\|^[A-Z_]* = \" tools/b677_epstein_map_angle.py | head -40 | cut -c1-170; grep -n \"^def \\|^[A-Z0-9_]* = \" tools/b671_narrow.py | sed -n '1,5p' >/dev/null; sed -n 120,150p data/b671_narrow_plan.txt | cut -c1-200",
+   "n": 38
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:56:10.036Z",
+   "src": "seat",
+   "cmd": "sed -n 4p data/b680_closing_push_out.txt; sed -n 9,10p data/b671_large_banks.txt | cut -c1-120; sed -n 384,390p tools/act_root.py | cut -c1-100",
+   "n": 39
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:56:31.113Z",
+   "src": "seat",
+   "cmd": "git add data/act_roots.txt tools/act_root.py data/b681_root_repair.txt data/b681_chain_verify_standing-b.txt data/b681_chain_verify_standing-b.json data/b681_citation_check.txt data/b681_citation_check.json data/b681_ferry.txt data/b681_ferry_scan.txt data/b681_readfirst.txt data/b681_rowgen_stepzero.txt data/b681_branches.txt data/b681_branches.json data/b681_tests_stepzero.txt data/b681_tests_stepzero.json data/b681_tests_withheld.json data/b681_stepzero.txt data/b681_defects.txt tools/b681_worklist.py tools/b681_citation.py tools/b681_tests.py tools/b681_record.py && git commit -q -m \"b681 step zero: the b680 root repaired by a corrigendum row (the four banks equal at 75898036; act_root.py repaired to read it; the chain b624-b680 AGREE 57 of 57), citation check (77, 0 misses), ferry, readfirst, rowgen, branches (6 deleted), tests (55; the standing set)\" && git log --oneline -1",
+   "n": 40
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:56:43.533Z",
+   "src": "seat",
+   "cmd": "sed -n \"$(grep -n '^WH = ' tools/b680_record.py | cut -d: -f1),+22p\" tools/b680_record.py",
+   "n": 41
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:57:03.058Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b681_record.py c1 dry 2>&1 | head -3 | cut -c1-300",
+   "n": 42
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:57:07.043Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b681_record.py c1 2>&1 | tail -1 | cut -c1-200",
+   "n": 43
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:57:19.968Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m \"b681 Component 1, under (R291)(1)-(2): b680 at its weight (FINDINGS :9108), its root repaired by corrigendum\" && git log --oneline -1",
+   "n": 44
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:57:24.507Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git add tools/b681_record.py data/b681_record_lines.json data/b681_rules.txt data/b681_scanfile_c1.md && git commit -q -m \"b681 Component 1: the weight line's landing bank, the c1 and root-banks routes, the rules bank (the corrigendum form, the post-seal prompt, G-ROOT-BANKS-COMMITTED)\" && git log --oneline -1",
+   "n": 45
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:58:00.353Z",
+   "src": "seat",
+   "cmd": "grep -n \"host free\\|def free\\|psutil\\|GlobalMemory\\|def _free\" tools/b671_narrow.py tools/b667_epstein_certify.py | head -6 | cut -c1-200; tail -12 tools/b671_narrow.py | cut -c1-150; python -X utf8 -c \"\nfrom flint import arb,ctx\nctx.prec=200\nx=arb(2).sqrt()/7+arb('1e-40')*arb('[0 +/- 1]')\ns=x.str(60,radius=True); y=arb(s); print(s); print(y.contains(x), y.rad()>=x.rad())\nimport psutil; print('psutil', psutil.virtual_memory().available//2**20)\"",
+   "n": 46
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T00:58:10.362Z",
+   "src": "seat",
+   "cmd": "sed -n 80,100p tools/b667_epstein_certify.py; sed -n 233,250p tools/b667_epstein_certify.py",
+   "n": 47
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:01:31.160Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b681_narrow.py verify 2>&1 | tail -2 | cut -c1-200; PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b681_narrow.py status 2>&1 | tail -5; ls data/b681_narrow* 2>&1 | head",
+   "n": 48
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:01:35.711Z",
+   "src": "seat",
+   "cmd": "git add tools/b681_narrow.py && git commit -q -m \"b681 Component 2, under (R291)(6)(iv): tools/b681_narrow.py, committed alone\" && git log --oneline -1",
+   "n": 49
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:01:51.139Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;d=json.load(open('data/b677_map.json',encoding='utf-8'));print(d.get('secs'))\"; grep -n \"### ### \" data/b677_map_run.txt 2>/dev/null | tail -2 | cut -c1-200; sed -n 13,14p tools/b677_epstein_map_angle.py | cut -c1-200",
+   "n": 50
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:02:42.222Z",
+   "src": "seat",
+   "cmd": "sed -n 132p data/b677_map.txt | cut -c1-160; sed -n 3p data/b667_ball_obstruction.txt | cut -c1-160; sed -n 18p data/b671_narrow_plan.txt | cut -c1-80; sed -n 29p data/b671_narrow_plan.txt | cut -c1-60",
+   "n": 51
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:02:47.615Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_plan.txt && git commit -q -m \"b681 Component 2, under (R291)(6): the plan -- W 1e-30 (h_tol(64) 3.162e-28 less two orders), forms as b671's, the Bessel bar kept at 2^-200, the price 265,376 process-s from b671's records (72 parts), the resumable form, the chain, the controls, the consumers\" && git log --oneline -1",
+   "n": 52
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:20:43.933Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_citation.py answer \"ANSWER on the plan\" 2>&1 | tail -6 | cut -c1-200",
+   "n": 53
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:20:59.522Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b681_narrow.py verify 2>&1 | tail -1 | cut -c1-60 && git add tools/b681_narrow.py && git commit -q -m \"b681 Component 2: tools/b681_narrow.py's part line as the navigator's answer on the plan orders it (the part, the points touched, their half-widths, the seconds, the memory low), committed alone\" && git log --oneline -1",
+   "n": 54
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:21:08.595Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_plan.txt data/b681_citation_check.txt && git commit -q -m \"b681 Component 2: the author's word entered in the plan (== 11), its mid-act check\" && git log --oneline -1",
+   "n": 55
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:21:13.051Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 540 python -X utf8 tools/b681_narrow.py online 2>&1 | grep -v \"^    \" | tail -18 | cut -c1-220",
+   "n": 56
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:22:07.180Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | tail -25 | cut -c1-230",
+   "n": 57
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-18T01:30:07.708Z",
+   "src": "seat",
+   "cmd": "@(Get-CimInstance Win32_Process -Filter \"Name like 'python%'\").Count; \"free MB: {0}\" -f [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)",
+   "n": 58
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-18T01:30:16.470Z",
+   "src": "seat",
+   "cmd": "\"free MB: {0}\" -f [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 8 Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}} | Format-Table -AutoSize | Out-String -Width 120",
+   "n": 59
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:30:24.488Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep -v \"^  OFF\" | tail -8 | cut -c1-300",
+   "n": 60
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-18T01:32:53.287Z",
+   "src": "seat",
+   "cmd": "\"free MB: {0}\" -f [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); (Get-Date).ToUniversalTime().ToString(\"yyyy-MM-ddTHH:mm:ssZ\")",
+   "n": 61
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:32:58.559Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART\\|host free\\|UNRESOLVED\\|NARROWED at\" | cut -c1-260",
+   "n": 62
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:40:55.727Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\" | cut -c1-200",
+   "n": 63
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:48:52.641Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\" | cut -c1-200",
+   "n": 64
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T01:56:48.317Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\" | cut -c1-200",
+   "n": 65
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T02:04:45.527Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\" | cut -c1-200",
+   "n": 66
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T02:12:41.305Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\" | cut -c1-200",
+   "n": 67
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T02:20:37.067Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_progress.txt && git commit -q -m \"b681 Component 3: the progress bank after part 8, committed alone (the navigator's answer on the plan)\" && git log --oneline -1",
+   "n": 68
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T02:20:40.944Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\" | cut -c1-200",
+   "n": 69
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T02:28:36.407Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\" | cut -c1-200",
+   "n": 70
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T02:36:31.929Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\" | cut -c1-200",
+   "n": 71
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T02:44:27.571Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\" | cut -c1-200",
+   "n": 72
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T02:52:23.219Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b681_narrow.py status 2>&1 | tail -20",
+   "n": 73
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T02:52:29.157Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-200",
+   "n": 74
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T03:00:25.383Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-200",
+   "n": 75
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T03:08:22.026Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-200",
+   "n": 76
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T03:16:17.977Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-200",
+   "n": 77
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T03:24:13.348Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_progress.txt && git commit -q -m \"b681 Component 3: the progress bank after part 16, committed alone\" && git log --oneline -1",
+   "n": 78
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T03:24:17.117Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-200",
+   "n": 79
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T03:32:12.973Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-200",
+   "n": 80
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T03:40:08.500Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-200",
+   "n": 81
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T03:48:04.226Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-200",
+   "n": 82
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T03:56:00.235Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-200",
+   "n": 83
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T04:03:57.091Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-200",
+   "n": 84
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T04:11:53.663Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 85
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T04:19:52.403Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 86
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T04:27:48.783Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_progress.txt && git commit -q -m \"b681 Component 3: the progress bank after part 24, committed alone\" && git log --oneline -1",
+   "n": 87
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T04:27:52.795Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 88
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T04:35:50.948Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 89
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T04:43:36.560Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 90
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T04:51:32.057Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 91
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T04:59:28.344Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 92
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T05:07:24.884Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 93
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T05:15:20.405Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 94
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T05:23:16.076Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 95
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T05:31:11.385Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_progress.txt && git commit -q -m \"b681 Component 3: the progress bank after part 32, committed alone\" && git log --oneline -1",
+   "n": 96
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T05:31:15.182Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 97
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T05:39:12.510Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220; PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b681_narrow.py status 2>&1 | grep \"OFF 1[1-6]\"",
+   "n": 98
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T05:47:10.274Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 99
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T05:55:05.983Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 100
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:03:06.288Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json\npts=[json.loads(l[6:]) for l in open('data/b681_narrow_progress.txt',encoding='utf-8') if l.startswith('POINT ')]\np=[r for r in pts if r['kind']=='OFF' and r['idx']==14]\nfor r in p[-4:]: print(r['part'],r['step'],r['reading'],r['depth'],r['counts'],r.get('offset'),r.get('why'))\ng=[json.loads(l[5:]) for l in open('data/b681_narrow_units.jsonl',encoding='utf-8') if l.startswith('GRID ')]\nprint([ (x['step'],x['depth'],x['offset']) for x in g if x['idx']==14][-3:])\nu=[json.loads(l[5:]) for l in open('data/b681_narrow_units.jsonl',encoding='utf-8') if l.startswith('UNIT ') and '\\\"idx\\\": 14' in l]\nlast=max(x['step'] for x in u); us=[x for x in u if x['step']==last]\nprint('step',last,'units',len(us),'None args',sum(1 for x in us if x['arg'] is None), 'max sec', max(x['seconds'] for x in us))\n\"",
+   "n": 101
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:03:29.901Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 560 python -X utf8 -c \"\nimport sys,json,time;sys.path.insert(0,'tools')\nimport b681_narrow as B\ng=[json.loads(l[5:]) for l in open('data/b681_narrow_units.jsonl',encoding='utf-8') if l.startswith('GRID ')]\ngr=[x for x in g if x['idx']==14 and x['step']==5][0]\nhave=set((json.loads(l[5:])['sq'],json.loads(l[5:])['side'],json.loads(l[5:])['seg']) for l in open('data/b681_narrow_units.jsonl',encoding='utf-8') if l.startswith('UNIT ') and '\\\"idx\\\": 14, \\\"step\\\": 5,' in l)\nmiss=[(j,s,k) for j in range(4) for s in range(4) for k in range(16) if (j,s,k) not in have]\nprint('missing',miss, flush=True)\nj,s,k=miss[0]; re_,im_,h_=gr['squares'][j]\nt=time.time(); r=B.task_unit(dict(idx=14,step=5,sq=j,side=s,seg=k,re=re_,im=im_,h=h_))\nprint('unit',miss[0],'seconds',round(time.time()-t),'arg',(r['arg'] or 'None')[:40],'segments',r['segments'],'doublings',r['doublings'],'rung',r['rung'])\n\" 2>&1 | tail -3",
+   "n": 102
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:05:21.245Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 103
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:13:16.664Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 104
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:21:12.175Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 105
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:28:06.778Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 106
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:36:01.918Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_progress.txt && git commit -q -m \"b681 Component 3: the progress bank after part 40, committed alone\" && git log --oneline -1",
+   "n": 107
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:36:05.614Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 108
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:44:01.548Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 109
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:51:57.116Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 110
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T06:59:52.633Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 111
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T07:03:56.200Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 112
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T07:11:51.839Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 113
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T07:19:47.484Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 114
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T07:26:37.073Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 115
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T07:34:32.281Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_progress.txt && git commit -q -m \"b681 Component 3: the progress bank after part 48, committed alone\" && git log --oneline -1",
+   "n": 116
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T07:34:36.019Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 117
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T07:40:12.625Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 118
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T07:48:08.212Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 119
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T07:56:03.796Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 120
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T07:59:10.143Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 121
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:07:05.491Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 122
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:13:16.742Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 123
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:20:19.730Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 124
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:27:46.202Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_progress.txt && git commit -q -m \"b681 Component 3: the progress bank after part 56, committed alone\" && git log --oneline -1",
+   "n": 125
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:27:49.808Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 126
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:35:38.020Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 127
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:41:57.858Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 128
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:45:04.089Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 129
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:47:48.914Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 130
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:51:33.393Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 131
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:54:34.937Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 132
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T08:58:06.551Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 133
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:01:29.393Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_progress.txt && git commit -q -m \"b681 Component 3: the progress bank after part 64, committed alone\" && git log --oneline -1",
+   "n": 134
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:01:32.915Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 135
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:05:01.469Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 136
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:08:55.279Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 137
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:12:27.305Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py part 2>&1 | grep \"PART .* LINE\\|\\*\\*OFF\\|BENEATH\\|UNRESOLVED\\|(4a)\" | cut -c1-220",
+   "n": 138
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:15:22.457Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow_progress.txt && git commit -q -m \"b681 Component 3: the progress bank after the last part (68), committed alone -- 163 of 163 narrowed to 1e-30\" && git log --oneline -1",
+   "n": 139
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:15:28.518Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b681_narrow.py bank 2>&1 | tail -3 | cut -c1-260; tail -4 data/b681_narrow.txt | cut -c1-260; cat data/b681_epstein_zeros_narrowed_hashes.txt | cut -c1-200",
+   "n": 140
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:15:40.736Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json\nP=[json.loads(l[6:]) for l in open('data/b681_narrow_progress.txt',encoding='utf-8') if l.startswith('POINT ')]\nprint('offset rows',sum(1 for r in P if r.get('offset')),'unresolved',sum(1 for r in P if r['reading']=='UNRESOLVED-AT-DEPTH'))\nU=sum(1 for l in open('data/b681_narrow_units.jsonl',encoding='utf-8') if l.startswith('UNIT '))\nG=sum(1 for l in open('data/b681_narrow_units.jsonl',encoding='utf-8') if l.startswith('GRID '))\nprint('units',U,'grids',G)\"; ls -la data/b681_narrow_units.jsonl* data/b681_large_banks.txt | awk '{print $5,$9}'",
+   "n": 141
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:15:44.311Z",
+   "src": "seat",
+   "cmd": "wc -c data/b681_narrow_units.jsonl data/b681_narrow_units.jsonl.gz data/b681_large_banks.txt; grep -c \"\" data/b681_narrow_controls.txt",
+   "n": 142
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:15:51.261Z",
+   "src": "seat",
+   "cmd": "grep -n \"### ### \\|the parts:\\|the chain:\" data/b681_narrow.txt | cut -c1-90; grep -n \"### ### \" data/b681_narrow_controls.txt | cut -c1-90; grep -n \"C2 planted\" data/b681_narrow_controls.txt | cut -c1-60; grep -c \"\" data/b681_narrow.txt",
+   "n": 143
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:16:03.504Z",
+   "src": "seat",
+   "cmd": "sed -n 5p data/b681_epstein_zeros_narrowed_hashes.txt | cut -c1-40; sed -n 5p data/b681_narrow.txt | cut -c1-60; sed -n 167p data/b681_narrow.txt | cut -c1-60",
+   "n": 144
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:16:10.473Z",
+   "src": "seat",
+   "cmd": "git add data/b681_narrow.txt data/b681_narrow_controls.txt data/b681_epstein_zeros_narrowed.json.gz data/b681_epstein_zeros_narrowed_hashes.txt data/b681_narrow_units.jsonl.gz data/b681_large_banks.txt data/b681_hypotheses.txt && git commit -q -m \"b681 Component 3, under (R291)(7): the narrowing banked -- 163 of 163 at 1e-30, forms as b671's, 68 parts (27,693 s, the longest 471 s), C1 10 of 10, C2 refused, Bessel bar misses 0; the narrowed list and its hashes chaining from b671's; the units bank gzipped with its hashes; H1-H6 read\" && git log --oneline -1",
+   "n": 145
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:16:33.481Z",
+   "src": "seat",
+   "cmd": "sed -n 14588p /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-160; PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b681_record.py c4 dry 2>&1 | head -1 | cut -c1-250",
+   "n": 146
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:16:38.523Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b681_record.py c4 2>&1 | tail -2 | cut -c1-200",
+   "n": 147
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:16:43.263Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m \"b681 Component 4, under (R291)(8): W-ORD-EPSTEIN-BALL-WIDTH DISCHARGED (OT :14712), W-ORD-MAP-ANGLE-FORM's trigger reached, so entered (OT :14714)\" && git log --oneline -1",
+   "n": 148
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:16:47.145Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git add tools/b681_record.py data/b670_work_orders.txt data/b681_record_lines_c4.json data/b681_scanfile_c4.md && git commit -q -m \"b681 Component 4: the orders bank's two rows appended (additive), the landing bank, the c4 route\" && git log --oneline -1",
+   "n": 149
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:17:34.835Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b681_citation.py answer \"on the pause at off-line part 3\" 2>&1 | tail -4 | cut -c1-220",
+   "n": 150
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:21:05.632Z",
+   "src": "seat",
+   "cmd": "grep -n \"def shared_files\" -A6 tools/additive_shared.py | head -8; grep -c \"\" tools/b680_checks.py",
+   "n": 151
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:25:57.870Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools');sys.argv=['x']\nimport b681_checks as C, b681_worklist as K\nn=[a[0] for a in C.ARMS]\nprint(len(C.STANDING), len(n), len(set(n)), sorted(set(n)-set(C.STANDING)-set(K.ACT_ARMS)), sorted(set(C.STANDING)-set(n)), sorted(set(K.ACT_ARMS)-set(n)))\"",
+   "n": 152
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T09:28:31.295Z",
+   "src": "seat",
+   "cmd": "for r in answers commands kernels defects repairs; do echo \"== $r\"; PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b681_record.py $r 2>&1 | tail -2 | cut -c1-260; done",
+   "n": 153
+  }
+ ],
+ "offences": [],
+ "local_lean": [],
+ "dispatches": [],
+ "detached": [],
+ "moves_deletes": [
+  15,
+  16,
+  17,
+  18,
+  19,
+  20
+ ],
+ "delete_shapes": [
+  {
+   "n": 15,
+   "deletes": [
+    "push-b680-root"
+   ],
+   "globs": []
+  },
+  {
+   "n": 16,
+   "deletes": [
+    "push-b680-hashes"
+   ],
+   "globs": []
+  },
+  {
+   "n": 17,
+   "deletes": [
+    "push-b680"
+   ],
+   "globs": []
+  },
+  {
+   "n": 18,
+   "deletes": [
+    "push-b680-closing"
+   ],
+   "globs": []
+  },
+  {
+   "n": 19,
+   "deletes": [
+    "push-b680-root"
+   ],
+   "globs": []
+  },
+  {
+   "n": 20,
+   "deletes": [
+    "push-b680"
+   ],
+   "globs": []
+  }
+ ]
+}
