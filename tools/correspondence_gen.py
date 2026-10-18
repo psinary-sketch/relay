@@ -6,7 +6,11 @@ identically, where it carried an identical table before the run -- the navigator
   the kernel cell's leading clause(s) -- version and commit -- from each kernel's current tag (one `git ls-remote --tags` per repository,
       the highest v-tag, the commit it peels to);
   the profile cell's one profile token -- from the kernel's latest relay print bank that is AT THE TAG (built at the tag, or at an ancestor
-      of it with no .lean, lean-toolchain or lake-manifest.json file differing);
+      of it with no .lean, lean-toolchain or lake-manifest.json file differing); a print bank is either b<act>_runner_<kernel>[_run<id>].txt or
+      b<act>_prints_<kernel>... carrying its own rows, or (b682, W-ORD-CORRESPONDENCE-RUNNER-BANKS) the runner print bank as b674, b676 and b678
+      banked it: b<act>_axioms_<kernel>_<before|after>.txt, the raw #print axioms lines, its built commit read from the header of its companion
+      b<act>_runner_<kernel>_<before|after>.txt ("the ref built (out/ref.txt): <40 hex>", else "the ref input <40 hex>"); a print bank at the
+      tag takes precedence over NO PRINT BANK, its verdict for the row's declaration read in the shape below;
   the status cell's leading grade token -- from the grade bank (data/terminal_table.json), with " UNREFRESHED" where the kernel has no print
       bank at its tag.
 Rows are neither added nor removed; names, prose and the table's position are untouched; a table already at its tag is byte-identical.
@@ -25,6 +29,7 @@ Usage:
     python -X utf8 tools/correspondence_gen.py dry [roster.json] [full]   the local clones' tags (no remote call), prints the run (`full`:
                                                                            the whole bank text, diff included), writes nothing
     python -X utf8 tools/correspondence_gen.py run [roster.json]   writes the changed files, data/b672_correspondence_diff.txt and .json
+    ... --diff <stem>   (b682) the run's diff banks named data/<stem>.txt and .json in place of b672's (b672's own banks left as they stand)
 """
 import collections, hashlib, io, json, os, re, subprocess, sys, time
 
@@ -461,9 +466,35 @@ def read_tags(kernels, remote=True):
 
 BANK_NAME = re.compile(r'^b(\d+)_(?:runner|prints)_(SIDE-[a-z0-9-]+?)(?:_run\d+)?\.txt$')
 BANK_ROW = re.compile(r"^  ([A-Za-z_][\w.'′″₀-₉]*)\s+(?:[A-Z][A-Z\\ -]*\s+)?(\[(?:'[^']*'(?:,\s*)?)*\])")
+# ### b682, W-ORD-CORRESPONDENCE-RUNNER-BANKS: the runner print bank as b674, b676 and b678 banked it (relay data/b674_cut.txt :19-:20,
+# ### data/b676_cut.txt :24-:27, data/b678_cut.txt :28-:31): the axioms bank beside its runner bank, one label each, before or after
+AX_NAME = re.compile(r'^b(\d+)_axioms_(SIDE-[a-z0-9-]+?)_(before|after)\.txt$')
+LEAN_ROW = re.compile(r"^'([A-Za-z_][\w.'′″₀-₉]*)' (?:does not depend on any axioms|depends on axioms: \[([^\]]*)\])\s*$")
+REF_BUILT = re.compile(r'the ref built \(out/ref\.txt\): ([0-9a-f]{40})')
+
+
+def parse_runner_bank(path):
+    """a runner print bank of the b674 form: (built commit, {full name: [axioms]}). The prints are the axioms bank's raw #print axioms lines;
+    the built commit is read from the companion runner bank's header (the ref built, else the ref input); None where that bank is absent."""
+    d, f = os.path.split(path)
+    m = AX_NAME.match(f)
+    prints = {}
+    for l in io.open(path, encoding='utf-8', errors='replace').read().split(NL):
+        r = LEAN_ROW.match(l.rstrip('\r'))
+        if r:
+            prints.setdefault(r.group(1), [x.strip() for x in (r.group(2) or '').split(',') if x.strip()])
+    built = None
+    comp = os.path.join(d, 'b%s_runner_%s_%s.txt' % (m.group(1), m.group(2), m.group(3))) if m else ''
+    if comp and os.path.exists(comp):
+        h = io.open(comp, encoding='utf-8', errors='replace').read()
+        b = REF_BUILT.search(h) or re.search(r'ref input ([0-9a-f]{40})', h)
+        built = b.group(1) if b else None
+    return built, prints
 
 
 def parse_bank(path):
+    if AX_NAME.match(os.path.basename(path)):
+        return parse_runner_bank(path)
     t = io.open(path, encoding='utf-8', errors='replace').read()
     m = (re.search(r'#print axioms at ([0-9a-f]{7,40})', t) or re.search(r'ref input ([0-9a-f]{40})', t)
          or re.search(r'\bref ([0-9a-f]{40})', t))
@@ -480,13 +511,13 @@ def read_banks(tags):
     file differing; every bank read is printed with its reading."""
     found = collections.defaultdict(list)
     for f in sorted(os.listdir(D)):
-        m = BANK_NAME.match(f)
+        m = BANK_NAME.match(f) or AX_NAME.match(f)
         if m:
             found[m.group(2)].append((int(m.group(1)), f))
     banks, log = {}, []
     for k in sorted(tags):
         best = None
-        for act, f in sorted(found.get(k, []), reverse=True):
+        for act, f in sorted(found.get(k, []), key=lambda x: (x[0], not x[1].endswith('_before.txt'), x[1]), reverse=True):   # ### an act's 'after' bank before its 'before'
             built, prints = parse_bank(os.path.join(D, f))
             if not tags[k]:
                 log.append((k, f, built, 'KERNEL HAS NO TAG', None, len(prints)))
@@ -685,5 +716,13 @@ if __name__ == '__main__':
     if len(sys.argv) < 2 or sys.argv[1] not in ('dry', 'run'):
         print(__doc__)
         sys.exit(2)
-    rest = [x for x in sys.argv[2:] if x != 'full']
-    main(sys.argv[1], *(rest[:1] or [ROSTER]), full='full' in sys.argv[2:])
+    args = sys.argv[2:]
+    if '--diff' in args:          # ### b682: the run's diff banks under another stem, b672's left as they stand
+        i = args.index('--diff')
+        stem = args[i + 1]
+        if not re.match(r'^b\d+_[a-z_]+$', stem):
+            sys.exit('### --diff takes a bank stem such as b682_correspondence_run -- NOTHING WRITTEN')
+        DIFF_TXT, DIFF_JSON = os.path.join(D, stem + '.txt'), os.path.join(D, stem + '.json')
+        args = args[:i] + args[i + 2:]
+    rest = [x for x in args if x != 'full']
+    main(sys.argv[1], *(rest[:1] or [ROSTER]), full='full' in args)
