@@ -463,7 +463,95 @@ def dist(*a):
     print(L[11])
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers, 'gendry': gendry, 'word': word, 'dist': dist}
+def partner(*a):
+    """the navigator's answer on the roster write: the one-copy partner of FOUNDATIONS, whose table differs, is not written; the difference
+    entered as rows of the diff bank (data/b682_correspondence_diff.txt, appended) with both tables' cells by line, carried under
+    W-ORD-ONE-COPY as a reading, nothing moved."""
+    import correspondence_gen as G
+    t = [x for x in json.load(io.open(os.path.join(D, 'b672_roster_read.json'), encoding='utf-8'))['tables'] if x['doc'] == 'FOUNDATIONS_OF_THE_SIDE_PROGRAMME'][0]
+    A = rd(os.path.join(PP, t['path'])).split(NL)
+    B = rd(os.path.join(PP, t['partner'])).split(NL)
+    fa, fb = G.find_table(A, t), G.find_table(B, t)
+    ta, tb = A[fa[0]:fa[1]], B[fb[0]:fb[1]]
+    rows = []
+    for i in range(max(len(ta), len(tb))):
+        x = ta[i] if i < len(ta) else None
+        y = tb[i] if i < len(tb) else None
+        if x != y:
+            rows.append((fa[0] + 1 + i if x is not None else None, x, fb[0] + 1 + i if y is not None else None, y))
+    L = ['', '### APPENDED %s by the record tool `partner` (the navigator`s answer on the roster write): THE ONE-COPY PARTNER NOT WRITTEN -- %s' % (
+        utc(), t['partner']),
+         '### its table (:%d-:%d) against the roster`s file %s (:%d-:%d), at PLACE-papers HEAD %s after the write; rows are table lines that differ,' % (
+             fb[0] + 1, fb[1], t['path'], fa[0] + 1, fa[1], g(PP, 'rev-parse', '--short', 'HEAD').strip()),
+         '### each with both tables` cells by line; carried under W-ORD-ONE-COPY as a reading, nothing moved:']
+    for la, x, lb, y in rows:
+        L += ['    ROSTER :%s | %s' % (la, x), '    PARTNER :%s | %s' % (lb, y)]
+    L += ['### ### **PARTNER TABLE LINES DIFFERING %d ; WRITTEN 0 ; CARRIED UNDER W-ORD-ONE-COPY.**' % len(rows)]
+    p = os.path.join(D, 'b682_correspondence_diff.txt')
+    old = open(p, 'rb').read()
+    new = old + (NL.join(L) + NL).encode('utf-8')
+    open(p + '.tmp', 'wb').write(new)
+    os.replace(p + '.tmp', p)
+    print(L[-1])
+
+
+# ================================================================================ COMPONENT 3: THE ORDER DISCHARGED ((R292)(4))
+ORDERS = 'b670_work_orders.txt'
+OH = ('*Appended 2026-10-18 by b682 beneath the order’s entry (:14648) and b681’s trail record (:14716), under `(R292)`(4) -- '
+      '`W-ORD-CORRESPONDENCE-RUNNER-BANKS` DISCHARGED:*')
+OB = (' relay tools/correspondence_gen.py’s reader extended to the runner print banks as b674, b676 and b678 banked them (the axioms bank beside '
+      'its runner bank, the built commit read from the runner bank’s header), committed alone (relay 60e8de3e); five planted cases as wanted '
+      '(relay data/b682_gen_test.txt); the generator’s run over the 20 roster tables wrote 5 cells, the five at FOUNDATIONS_OF_THE_SIDE_PROGRAMME '
+      ':628-:630 that b678 carried at :14620 -- the kernel SIDE-silence-principle v0.2.0 to v0.2.1 in the three rows, the profile “NO PRINT BANK '
+      'AT v0.2.0” to “axiom-free (none)” at :628 and :629 from the runner print bank at the tag v0.2.1 (relay '
+      'data/b678_axioms_SIDE-silence-principle_after.txt), the profile at :630 held as two tokens and agreeing with the bank. The distance '
+      'by b670’s method 55 before and after, against b680’s 55 -- the five clauses carry no backticked commit, so that method does not count '
+      'them -- and at the generator’s claim 0 against 0. The partner copy’s differing table not written, carried under `W-ORD-ONE-COPY` as a '
+      'reading. Pin: relay data/b682_correspondence_diff.txt. Status DISCHARGED.')
+
+
+def c3(*a):
+    """(R292)(4): the discharge line on OPEN_TRAILS, then its row appended to the orders bank additively ((R254)(2))."""
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', OH, NL + OH + OB + NL)], 'b682_record_lines_c3.json', 'c3',
+         check=[('OPEN_TRAILS.md', K.ORDER_LINE, 'W-ORD-CORRESPONDENCE-RUNNER-BANKS'), ('OPEN_TRAILS.md', K.B681_TRAIL, '### b681')], dry=dry)
+    if dry:
+        return
+    ln = jl('b682_record_lines_c3.json')['lines'][0]['line']
+    rows = ['### Appended 2026-10-18 by b682 under (R292)(4) (additive, (R254)(2)): W-ORD-CORRESPONDENCE-RUNNER-BANKS DISCHARGED, its pin the diff bank; '
+            'its Status cell filled and its line its pin.',
+            '  %-44s :%d  %s   %-5d %-16s :%d  %s [:%d]' % ('W-ORD-CORRESPONDENCE-RUNNER-BANKS', K.ORDER_LINE, 'b679', 3, 'DISCHARGED', ln,
+                                                            'pinned by data/b682_correspondence_diff.txt', ln)]
+    for r in rows[1:]:
+        read_order_row(r)
+    p = os.path.join(D, ORDERS)
+    old = open(p, 'rb').read()
+    sep = NL if old.endswith(b'\n') else NL + NL
+    new = old + (sep + NL.join(rows) + NL).encode('utf-8')
+    if not new.startswith(old):
+        sys.exit('### THE ORDERS BANK APPEND IS NOT ADDITIVE -- NOTHING WRITTEN')
+    open(p + '.tmp', 'wb').write(new)
+    os.replace(p + '.tmp', p)
+    print('  data/%s appended (%d bytes before, %d after)' % (ORDERS, len(old), len(new)))
+
+
+ORDER_ROW = re.compile(r'^  (W-ORD-[A-Z0-9-]+)\s+:(\d+)\s+(b\d+)\s+(\d+)\s+(OPEN|DISCHARGED|ACTED|NOT STATED|CLOSED)\s+:(\d+)\s+(.+?) \[:(\d+)\]$')
+
+
+def read_order_row(line):
+    """a row of data/b670_work_orders.txt: the order, its entry line, its act, its age, its Status, its status line and its trigger or pin;
+    returns (order, status, trigger)."""
+    m = ORDER_ROW.match(line or '')
+    if not m:
+        raise ValueError('order row of another shape: %r' % ((line or '')[:120],))
+    return m.group(1), m.group(5), m.group(7)
+
+
+READERS += ['read_order_row']
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers, 'gendry': gendry, 'word': word, 'dist': dist, 'partner': partner,
+          'c3': c3}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
