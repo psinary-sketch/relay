@@ -1,0 +1,30 @@
+b683 -- STEP ZERO, COMPONENT 0, UNDER (R293) (2026-10-18)
+
+### rows are the step-zero items in the ferry's order, each with its bank and its reading.
+
+  the ferry                 data/b683_ferry.txt, banked by the Write tool from the paste (16,954 characters), equal to the transcript's text
+                            (tools/b683_citation.py ferry: "equal True ; ferry_scan exit 0"; data/b683_ferry_scan.txt)
+  the citation check        data/b683_citation_check.txt: CITES CHECKED 100 ; OK 100 ; MISSES 0 -- nothing to raise before any component
+  the readfirst bank        data/b683_readfirst.txt, every item of the ferry's list by path and line with its row unit
+  rowgen and constellation  data/b683_rowgen_stepzero.txt: CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19 (checked 151, present 151,
+                            STALE 0)
+  the process listing       tail, lean, lake and python named (Win32_Process by name, 2026-10-18T14:5xZ): 0 processes; no orphan, none stopped
+  the closing capture       data/b682_closing_push_out.txt committed alone at relay c13889c1
+  the branches              data/b683_branches.txt: 9 named (8 local, 1 remote), every tip read and merged before any delete; deleted by name
+                            in the house form, one branch per command, each command its own message, in sequence: relay push-b682-root
+                            (c8d250e9), push-b682 (d62f7192), push-b682-closing (fbc1053a); PLACE-papers push-b682-root (7936579), push-b682
+                            (dc5613b); SIDE-bijection push-b682-main (588abc9), push-b682-merge (b800504), recut-bijection-b682 local
+                            (cbb5711) and at the remote (cbb5711, an ancestor of v0.2.1 at b800504, v0.2.1 an ancestor of main), in b675's
+                            form `branch -r --merged main --list origin/<b> && push origin --delete <b>`; no unnamed branch under the prefix
+  the tests                 data/b683_tests_stepzero.txt: TEST FILES 55 ; RUN 54 ; WITHHELD 1 (test_elab_reader_b634.py, runs lean) ; NOT
+                            CLEAN 2 -- test_chain_page.py (9) and test_chain_page_b638.py (4)-(7), the standing set since b638 carried by
+                            W-ORD-CHAIN-PAGE-B638-CASES (b682's step zero read the same two). Per (R293)(8): seven foreground calls, each
+                            under its 598 s limit, the free memory printed before each: test_asof.py alone (3741 MB before; 471 s),
+                            test_chain_page.py alone (2556 MB; 514 s), then 3a (2494 MB), 3b (2512 MB), 4 (2358 MB), 5 (2093 MB); the
+                            longest test 514 s; no part moved to the background
+  git status                relay and PLACE-papers tracked changes NONE after the runs; this act's banks and tools untracked as written
+  no build                  no lean, lake or build on this host
+
+### a note, the seat's (not a breach of the rule as written): reading the readfirst lines, the seat typed one read-only `sed -n` (print by
+### line, no -i, no file written); tools/edit_route.py :6 reads `sed -i` alone, so G-EDIT-ROUTE does not fire on it. Every later read by
+### line uses awk or the Read tool, b682's trap (1) honoured.

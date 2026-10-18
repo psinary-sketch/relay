@@ -1,0 +1,55 @@
+b683 -- THE READ-FIRST BANK ((R293)(9)), STEP ZERO (2026-10-18)
+
+### rows are the ferry's read-first items, each cited by path and line with the unit of its rows and what this act reads there. The citation
+### check over the ruling and the ferry: data/b683_citation_check.txt (100 cites, 0 misses).
+
+  data/b682_closing.txt -- rows are closing sections; :1 the head line "b682 closed: relay d62f7192, PLACE-papers dc5613b; suite 89 of 90; root
+      4882d95a927d5417…; 2 prompts answered; 5 defects", equal to (R293)(1)'s quotation character for character (the citation check's row).
+  data/b682_defects.txt -- rows are defects, as lettered there: (a) :5 the seat's, five deletes in one message; (b) :11 the seat's, a test part
+      past 600 s (test_asof.py 563 s against 443, 1742 MB free); (c) :17 the navigator's, "the 13 roster files"; (d) :23 the seat's, the naming
+      route sent without its timeout; (e) :28 the seat's, a sed command sent (G-EDIT-ROUTE the declared failure). The ruling's (1) lists (a)-(c)
+      and names (e) in its next sentence; (d) stands in the bank.
+  data/b682_rules.txt -- rows are rules with source and scope: row (1) :5-:10, the author's word verbatim "arms for the traceable ones, the seat
+      sorts them", its reading for this act's ruling (the sort of TRACEABLE and PROSE, no arm before the author sees it).
+  data/b680_rules_arms.txt -- rows are rules with act, row, bank line, arm or NONE: :7-:32 the 26 rule rows, 2 with a standing arm (b670 row 4
+      G-BRANCHES-DELETED, b670 row 5 G-NODISCLOSURE-PUBLIC); :35-:58 the 24 NONE rows; :60 the verdict "WITH A STANDING ARM 2 ; NONE 24".
+  data/b680_arms.txt -- rows are arms with kind (SHAPE or VALUE) and the bank or object read: :7 onward, one per standing arm of b679's suite;
+      the form an arm of (R293)(6) takes (a VALUE arm reads an object's state: a hash, a blob, a remote SHA, a print line, a commit, a tree).
+  data/b677_map_plan.txt -- rows are quantities, formulas, sources and tolerances, by section: 1 :7 the object; 2 :17 the map's quantity at each
+      j, restated from the b667 map by line; 3 :30 the angle form; 4 :47 the tie residual by algebra; 5 :60 the 123 controls; 6 :68 the price of
+      the radius at j = 64 (:76 7.7e-2 to 1.3e-4 against 9.54e-7; :77 the last passing j 47 to 56); 7 :85 the consumers (P1-P3); 8 :106 the
+      hypotheses (H3 :112-:116, H4 :117-:120); 9 :130 the run in parts; 10 :139 what stops the act.
+  data/b677_map.txt -- rows are ties: cell, precision, j, the angle radius, the four residuals' |mid| and radius, rad/bar, the word, b671's word
+      and row; the verdicts at the last four lines: Z₁ 41 PASS (j 14-54); Q0 200 bits PASS 29 (j 24-52), INSTRUMENT 12, the first failing j 53,
+      the radius at j = 64 2.051e-03; 400 bits the same, 2.048e-03; ROWS 123, NONE DROPPED True.
+  data/b677_map_h.txt -- rows are hypotheses with reading and deciding rows: :3 H1 REFUTED (22 of 46 PASS); :4 H2 REFUTED; :5 H3 REFUTED on a
+      failing instrument (hQtie 29 of 41); :6 H4 NOT SCORABLE; :7 H5 HELD (P3); :9 THE LABELLED READING, hQtie from coeffs_exist and the orbit
+      identity, j₀ = 38 and its zero side (the instrument-side row that (R293)(4) H5 compares); :10 the located failure, the first failing j 53.
+  data/b677_tolerance.txt -- rows are the perturbation, the consumer's response and the tolerance read: :90 the verdict "h_tol(38) 3.162e-20 ;
+      h_tol(64) 3.162e-28" -- the b681 width 1e-30 sits 2.5 orders inside h_tol(64) (arithmetic: 3.162e-28 / 1e-30 = 316).
+  data/b677_defects.txt -- rows are defects, as lettered there: (a) :5 the navigator's, the angle form expected to carry j = 64 on the 1e-24
+      balls; (b) :11; (c) :16 a path that does not exist (data/b663_plan.txt); (d) :19 the .json name inside the .gz; (e)-(h) :23-:36 the
+      seat's, among them (f) :28 part 1 run at a text later edited; (i) :39 a glob in a delete's listing half.
+  tools/b677_epstein_map_angle.py -- rows are code lines: :38 Q0_CERT, the balls' bank name (b671's); :82-:90 lg and pw, the angle form; :187-:197
+      q0_list, the bank read; :232-:237 word, the b671 diagnostic's rule; :404-:416 hQtie and the labelled reading past it; :589-:628 part1, the
+      123 rows; :631-:676 bank_map; :567-:574 _put and _putj, the tool's bank writes (b677_-named).
+  data/b671_tie_diagnostic.txt -- rows are controls with reading and rule: :5 the rule (INSTRUMENT, OBJECT, PASS, NEITHER); :7-:47 Z₁ at 200
+      bits; :48-:88 Q0 at 200 bits (INSTRUMENT j 42-64 there, :66-:88); :89-:129 Q0 at 400 bits; 123 rows (the citation check's count).
+  data/b663_epstein_plan.txt :131 -- H3: "at Q0 every hypothesis of zeroSide_neg_at_rate_cfg certifies by name and hrate holds at some j₀ ≤ D
+      + 40 (the index printed)."
+  data/b667_epstein_plan.txt :124-:125 -- H4: "tools/b667_epstein_map_balls.py (b663's script, q0_list's decimal literals replaced by the
+      certified balls, no computation line changed, the diff banked) prints j₀ = 38 and a zero side below zero, each with its ball."
+  data/b681_epstein_zeros_narrowed.json.gz -- rows are points with balls (163: 146 ON, 17 OFF; kind, idx, re, im, h = 1e-30, count 1, form,
+      b671_h), with data/b681_epstein_zeros_narrowed_hashes.txt -- rows are files: :2 the JSON c3b54356..., :3 the .gz f6613564..., :4 the
+      chain from b671's (51d9e632... and cd3a8ea1...).
+  data/b681_narrow.txt -- rows are points with their final half-width, form and parts: :5-:167; :3 the chain read before any narrowing; the
+      verdict at the last line, NARROWED TO 1e-30 163 OF 163.
+  data/b670_work_orders.txt -- rows are orders: W-ORD-MAP-ANGLE-FORM at :265 (b677's append, OPEN, trigger "after W-ORD-EPSTEIN-BALL-WIDTH")
+      and :286 (b681's append, OPEN, entry OPEN_TRAILS :14714, trigger "b683, on the author`s placement"); OPEN_TRAILS :14714 the entry, its
+      price "one foreground part (b677's part 1, 46 s), a copy whose one changed line is the bank's name".
+  tools/b682_checks.py -- rows are code lines: :325 STANDING = b681's face's (G2) arms less b681's act arms -- the arm form a G-RULE-<name> arm
+      joins as a standing arm (name, reads, predicate, plant); :1017-:1018 G-EDIT-ROUTE's row, the form (name, reads, check, positive plant).
+  data/b675_rules.txt row 2 (:9-:11) -- rows are rules with source and scope: "A PRE-RUN'S LONG PHASE SPLITS THE NEXT ONE", a phase over 450 s
+      split into foreground parts at the next act; applied by (R293)(8) to the test files (test_asof.py 563 s at b682 its own part).
+  data/b682_closing_push_out.txt -- rows are the push tool's capture lines: the closing push d62f7192..fbc1053a, read back at the remote
+      fbc1053a; untracked, committed at step zero.
