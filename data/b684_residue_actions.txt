@@ -1,0 +1,53 @@
+b684 -- COMPONENT 3, (R294)(4): THE RE-DERIVED ACTIONS, IN THE b647 ACTION FORM (2026-10-18)
+
+### rows are residues with the old ACTION (relay data/b684_residues.txt, printed and committed first, e9cc3086), the re-derived ACTION and its
+### source rows: the row's reason (the LICENSED reading, relay data/b647_table_<kernel>.txt) and the declarations it cites, read in the
+### kernel's print bank at its tag. Each re-derived ACTION covers the unreached sentence alone; no other sentence of the header is touched.
+
+== R1  SIDE-window -- SIDEWindow/Sawtooth.lean:1 (header), the marker at :17
+  THE REASON (relay data/b647_table_SIDE-window.txt :17), verbatim: "The header marks (a) "COMPILED HERE" and says "WHAT IS COMPILED BELOW IS
+    (a)". That includes S_k relating i and j only when i = j ± k and acting on each residue class as a path-graph adjacency matrix. The file
+    defines no S_k, no relation and no path graph. It compiles only residue-class sizes (chainLens), their sum to M, the odd-chain count and
+    halving arithmetic, each by decide at listed (M,k)."
+  THE PRINT BANK (relay data/b674_axioms_SIDE-window_after.txt, v0.5.1): SIDEWindow.chains_partition (Sawtooth.lean :87, the sums of chainLens
+    to M), SIDEWindow.chain_shape (:95), SIDEWindow.count_is_exact_halving, each "does not depend on any axioms"; chainLens defined at :79.
+  THE RE-DERIVED ACTION: RE-CUT: the marker at :17 "← COMBINATORIAL, COMPILED HERE" reads "← ITS RESIDUE-CLASS SIZES AND THEIR SUM TO M
+    COMPILED HERE (chainLens, chains_partition, by decide at listed (M, k)); THAT S_k ACTS AS A PATH ADJACENCY IS NOT STATED IN LEAN".
+  SOURCE ROWS: data/b647_table_SIDE-window.txt :17 (the reason), :19 (the old ACTION); data/b674_cut.txt :27-:32; the print bank above.
+
+== R2  SIDE-trivium -- Trivium/Bijection.lean:1 (header), the introduction :6-:10 and :23-:25
+  THE REASON (relay data/b647_table_SIDE-trivium.txt :12), verbatim: "... It says the discriminants "generate exactly" the seven nontrivial
+    elements of (Z/2)^3, which no declaration states: only injectivity and nonzeroness of a hand-written table are compiled. It also presents
+    the element-level correspondence as exact, while the README at the commit calls that assignment a canonical-order convention and says only
+    the count identity is compiled. Items 1 and 2 match."
+  THE PRINT BANK (relay data/b676_axioms_SIDE-trivium_after.txt, v0.1.1): Trivium.trivium_theorem (the count identity), Trivium.triviumBijection,
+    Trivium.exponent_triple_injective, Trivium.exponent_triple_nonzero, Trivium.discriminant_values_distinct.
+  THE RE-DERIVED ACTION: RE-CUT: :6-:10 reads "This module formalizes, at the level of two seven-element finite types, the count identity
+    between the seven mechanism classes that govern off-line zero exclusion for ξ(s) and the seven nontrivial quadratic field discriminants over
+    the discriminant set {−1, 2, 3} (trivium_theorem); the element-level pairing below is a canonical-order convention." and :23-:25 reads "The
+    exponent-triple table (the three coordinates read as exponents of {−1, 2, 3} in the squarefree part of d) is injective and avoids (0,0,0)
+    (exponent_triple_injective, exponent_triple_nonzero); that the seven discriminants are exactly the seven nontrivial elements of (ℤ/2)³ is
+    not stated in Lean here."
+  SOURCE ROWS: data/b647_table_SIDE-trivium.txt :12 (the reason), :14 (the old ACTION); data/b676_cut.txt :35-:40; the README at v0.1.1 (:3-:5,
+    the count identity and the convention); the print bank above.
+
+== R3a SIDE-silence-principle -- SIDESilencePrinciple/Basic.lean:417, the bold title at :412
+  THE REASON (relay data/b647_table_SIDE-silence-principle.txt :27), verbatim: "silence_yields_protection proves trivium_d_eff = 2 *
+    num_silent_compartments_trivium - 1 and num = 3 by decide, where trivium_d_eff is defined as exactly that expression and num as the literal 3;
+    the statement restates its own definitions, so "Silence yields Protection" and "the bridge between the Silence Principle and the Formation
+    Distance Theorem" claim more than it carries."
+  THE PRINT BANK (relay data/b678_axioms_SIDE-silence-principle_after.txt, v0.2.1): SIDESilencePrinciple.silence_yields_protection, its print
+    line read there.
+  THE RE-DERIVED ACTION: RE-CUT: the title "**Theorem 8.1 (Silence yields Protection).**" reads "**Theorem 8.1 (the d_eff arithmetic).**",
+    the body (:412-:416, b678's ACTION) left as it stands.
+  SOURCE ROWS: data/b647_table_SIDE-silence-principle.txt :27 (the reason), :29 (the old ACTION); data/b678_cut.txt :52-:57; the print bank.
+
+== R3b SIDE-silence-principle -- SIDESilencePrinciple/Basic.lean:1 (header), the introduction :7-:12 -- CARRIED, NO ACTION, NO BRANCH
+  THE REASON (relay data/b647_table_SIDE-silence-principle.txt :12), verbatim: "Besides silence_universal and the Bool modus ponens, the
+    "verified" items are decide checks on stipulated records and definitions: ..." -- it reads the "This kernel verifies:" list alone, which
+    b678 re-cut (the row MATCHES after, relay data/b678_cut.txt :38). It names no reading of the introduction's statement of the principle.
+  CARRIED, with the reason: an ACTION cannot be written from the row's reason -- the reason speaks of the "verified" list and not of :7-:12,
+    and the row reads MATCHES at v0.2.1; a re-derived sentence here would be the seat's reading, not the row's. No branch is made for it.
+
+### ### **RESIDUES 3 ; ACTIONS RE-DERIVED 3 (R1, R2, R3a) ; CARRIED 1 (R3b, the silence-principle introduction, its reason not reaching it) ;
+### ### BRANCHES TO BE MADE ON THE AUTHOR'S WORD 3 (one per kernel).**
