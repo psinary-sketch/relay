@@ -76,7 +76,7 @@ STANDING_ADDED = ('G-RULE-PAIR-OF-READINGS', 'G-RULE-METHOD-READINESS', 'G-RULE-
 SHARED_APPENDED = ('data/b670_work_orders.txt',)
 PARTS = ('standing-a', 'standing-b', 'act')          # ### data/b678_rules.txt row 1
 SEALED = ('b683_worklist.py', 'b683_tests.py', 'b683_citation.py', 'b683_record.py', 'b683_checks.py', 'b683_closing.py', 'b683_reg_gate.py',
-          'b683_regspec.py', 'b683_epstein_map_angle.py')
+          'b683_regspec.py', 'b683_epstein_map_angle.py', 'rule_arms.py')
 
 
 def show(path, rev=PRE_PP, repo=PP):

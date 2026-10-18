@@ -618,6 +618,9 @@ REPAIRS = [
      'plan for the H3 and H4 quotations line by line and the quotations wrap, so it read False; it reads the plan joined. N4 asked every',
      'TRACEABLE row for its own trace and failing reading, and the SUPERSEDED row (23) gives its trace as row (24)`s; it reads that row so.',
      'The same two readers in tools/b683_checks.py (G-PLAN-BEFORE-RUN, G-ARMS-SORTED) repaired alike.'),
+    ('G-LANDING-BANKED READS THE LANDING BANK`S OWN WORDING (answering the pre-run`s act part, the arm failing on real state): its needle read',
+     '"THE BENCH LINE`S DRAFT" with a backtick where the bank writes an apostrophe; it reads the bank`s word. The act part re-run after it; the',
+     'standing parts run no act arm and stand as run.'),
 ]
 
 

@@ -763,7 +763,7 @@ def order_discharged_ok(S):
 
 def landing_ok(S):
     t = unwrap(S['landing'])
-    return all(x in t for x in ('THE BRANCH TAKEN H1 and H2 HELD -> W-ORD-MAP-ANGLE-FORM DISCHARGED', 'H3 HELD, j₀ = 38', 'P3', 'THE BENCH LINE`S DRAFT',
+    return all(x in t for x in ('THE BRANCH TAKEN H1 and H2 HELD -> W-ORD-MAP-ANGLE-FORM DISCHARGED', 'H3 HELD, j₀ = 38', 'P3', "THE BENCH LINE'S DRAFT",
                                 'THE FACES PAGE untouched'))
 
 
@@ -799,7 +799,7 @@ def rules_arms_ok(S):
 
 
 def repairs_ok(S):
-    return '### ### **REPAIRS 4 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8.**' in S['repairs'] \
+    return '### ### **REPAIRS 5 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8.**' in S['repairs'] \
         and "if c.get('type') == 'tool_use' and c.get('name') in ('Bash', 'PowerShell') and j.get('type') == 'assistant'" in read(os.path.join(T, 'rule_arms.py')) \
         and 'bh = _ball_hrate()' in S['wrapper'] and "NEW_TOOLS = ('rule_arms.py',)" in S['suite']
 
@@ -1093,7 +1093,7 @@ ARMS = [
     ('G-ORDER-DISCHARGED', 'OPEN_TRAILS at the landing bank`s line, found by conv, and the orders bank`s row through the record tool`s reader: DISCHARGED, pinned by the map bank',
      lambda S: order_discharged_ok(S), lambda S: _rl(S, 0, 1, key='rl3')),
     ('G-LANDING-BANKED', 'the landing bank: the branch taken, H3 with its j₀ and the premise P3, the bench line`s draft, the faces page untouched',
-     lambda S: landing_ok(S), lambda S: put(S, 'landing', S['landing'].replace('THE BENCH LINE`S DRAFT', 'x'))),
+     lambda S: landing_ok(S), lambda S: put(S, 'landing', S['landing'].replace("THE BENCH LINE'S DRAFT", 'x'))),
     ('G-FORCED-RUNG-NAMED', 'the run bank, the plan, the wrapper and the face: the rung forced at Q0 named as the ruling`s',
      lambda S: forced_rung_ok(S), lambda S: put(S, 'maprun', S['maprun'].replace('FORCED RUNG (R293) N3', 'x'))),
     ('G-ARMS-SORTED', 'the sort bank and its commit time against the second prompt`s: 24 rules once each, 21 TRACEABLE with trace and failing reading, 3 PROSE, no arm written (N4)',
@@ -1102,8 +1102,8 @@ ARMS = [
      lambda S: arms_on_word_ok(S), lambda S: put(S, 't_arms', 1)),
     ('G-RULES-ARMS-REREAD', 'the rules-to-arms bank re-read: 26 rows, NONE 3 of 24, twenty armed by the word, one through another`s arm',
      lambda S: rules_arms_ok(S), lambda S: put(S, 'rulesarms', S['rulesarms'].replace('NONE NOW 3', 'NONE NOW 4'))),
-    ('G-TOOL-REPAIRS', 'the carry-time bank`s verdict and the repaired code: four repairs, the sealed copies agreeing',
-     lambda S: repairs_ok(S), lambda S: put(S, 'repairs', S['repairs'].replace('REPAIRS 4 ;', 'REPAIRS 0 ;'))),
+    ('G-TOOL-REPAIRS', 'the carry-time bank`s verdict and the repaired code: five repairs, the sealed copies agreeing',
+     lambda S: repairs_ok(S), lambda S: put(S, 'repairs', S['repairs'].replace('REPAIRS 5 ;', 'REPAIRS 0 ;'))),
     ('G-PARTS-PRERUN', 'data/b678_rules.txt row 1 and the pre-run bank`s three parts with their seconds',
      lambda S: parts_ok(S), lambda S: put(S, 'prerun', S['prerun'].replace('PART act', 'PART whole'))),
     ('G-DEFECTS-LETTERED', 'the defects bank read at HEAD: the sealed letters its prefix, consecutive letters, owners the seat or the navigator',
