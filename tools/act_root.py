@@ -41,6 +41,12 @@
 ### CRLF read on any act after b643 (CRLF_LAST) as DISAGREE.
 ### `verify --worktree` (and a stand-in relay that is not a git clone, as the tests' temporary directories are) reads the working tree as
 ### before, with the (R251)(3) time rule; READS_AT holds each act's commit and the count of reads per form.
+### ### **(R291)(2), b681: THE CORRIGENDUM ROW.** A root whose named banks stood re-banked after its recorded commit (b680's defect (h)) is
+### repaired by an appended row, no row edited and the root value kept: "corrigendum <act> <recorded commit> <corrected commit> <root>
+### <bank> ...". The row is not a link of the chain: `last_root` and the chain read past it. `verify` reads the banks it names at the
+### corrected commit in place of the recorded one, and only when the row's act has a chain row, the row's recorded commit is that act's
+### recorded relay commit, the row's root is that act's root, the corrected commit descends from the recorded one, and every bank the row
+### names is a bank the act's root names; a row failing any of these is read as DISAGREE with its reason.
 """
 import hashlib
 import io
@@ -172,10 +178,33 @@ def root_of(items, previous):
     return hashlib.sha256(payload.encode('utf-8')).hexdigest()
 
 
+CORR = 'corrigendum'
+
+
+def _lines():
+    return [l for l in io.open(ROOTS, encoding='utf-8').read().split(NL) if l.strip()] if os.path.exists(ROOTS) else []
+
+
+def corrigenda():
+    """### (R291)(2): {act: [{recorded, corrected, root, banks}]} from the rows opening with `corrigendum`; a row of another shape is kept
+    ### with `bad` set so `verify` reads it as DISAGREE."""
+    out = {}
+    for l in _lines():
+        p = l.split()
+        if p[0] != CORR:
+            continue
+        ok = len(p) >= 6 and all(re.match(r'^[0-9a-f]{7,40}$', x) for x in p[2:4]) and re.match(r'^[0-9a-f]{64}$', p[4]) \
+            and all(b.startswith('data/') for b in p[5:])
+        out.setdefault(p[1] if len(p) > 1 else '?', []).append(
+            dict(recorded=p[2] if len(p) > 2 else '', corrected=p[3] if len(p) > 3 else '', root=p[4] if len(p) > 4 else '',
+                 banks=p[5:], bad=not ok))
+    return out
+
+
 def last_root():
     if not os.path.exists(ROOTS):
         return EMPTY, None
-    ls = [l.split()[:3] for l in io.open(ROOTS, encoding='utf-8').read().split(NL) if l.strip()]
+    ls = [l.split()[:3] for l in _lines() if l.split()[0] != CORR]
     return (ls[-1][1], ls[-1][0]) if ls else (EMPTY, None)
 
 
@@ -326,7 +355,10 @@ def verify(remote=ls_remote, worktree=None):
     READS_AT.clear()
     if not os.path.exists(ROOTS):
         return out
-    rows = [l.split(None, 3) for l in io.open(ROOTS, encoding='utf-8').read().split(NL) if l.strip()]
+    rows = [l.split(None, 3) for l in _lines() if l.split()[0] != CORR]
+    cors = corrigenda()
+    for a_ in sorted(set(cors) - set(r[0] for r in rows)):
+        out.append((CORR + ' ' + a_, 'DISAGREE', ['a corrigendum row for %s, which has no chain row' % a_]))
     prev_expect, prev_heads = EMPTY, None
     for row in rows:
         act, root, prev = row[:3]
@@ -354,7 +386,26 @@ def verify(remote=ls_remote, worktree=None):
         if not worktree:
             commit = (j.get('commit') or {}).get('relay') or ((j.get('reads') or {}).get('heads') or {}).get('relay', '')
             reads_at = at_commit(commit, named) if commit else dict((p, (None, None, None)) for p in named)
-            READS_AT[act] = dict(commit=commit, blob=0, crlf=0, later=0, unread=0)
+            READS_AT[act] = dict(commit=commit, blob=0, crlf=0, later=0, unread=0, corrected=0)
+            for c in cors.get(act, []):
+                bad = []
+                if c['bad']:
+                    bad.append('its row is not of the corrigendum form')
+                if not commit or not (commit.startswith(c['recorded']) or c['recorded'].startswith(commit)):
+                    bad.append('its recorded commit %s is not the root`s %s' % (c['recorded'][:12], (commit or '')[:12]))
+                if c['root'] != root:
+                    bad.append('its root %s is not the act`s %s' % (c['root'][:12], root[:12]))
+                if subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', c['recorded'] or 'x', c['corrected'] or 'x'],
+                                  capture_output=True).returncode != 0:
+                    bad.append('its corrected commit %s does not descend from %s' % (c['corrected'][:12], c['recorded'][:12]))
+                if [b for b in c['banks'] if b not in named]:
+                    bad.append('it names banks the root does not: %s' % [b for b in c['banks'] if b not in named])
+                if bad:
+                    why.append('corrigendum: ' + '; '.join(bad))
+                    continue
+                full = subprocess.run(['git', '-C', ROOT, 'rev-parse', c['corrected']], capture_output=True, text=True).stdout.strip()
+                reads_at.update(at_commit(full, c['banks']))
+                READS_AT[act]['corrected'] += len(c['banks'])
         for it in j['items']:
             parts = it.split()
             if parts[0].startswith('data/') and not worktree:

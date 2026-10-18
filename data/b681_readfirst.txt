@@ -1,0 +1,43 @@
+b681 -- THE READ-FIRST BANK ((R291)(10)), STEP ZERO (2026-10-18)
+
+### rows are the ferry's read-first items, each cited by path and line with the unit of its rows and what this act reads there.
+
+  data/b680_closing.txt -- rows are closing sections; :1 the head line "b680 closed: relay 75898036, PLACE-papers 6d8b953; suite 84 of 88; root
+      764d21d642c8af80…; 4 prompts answered; 8 defects"; the sealed tools AGREE 8 of 8 :14; the pre-push lines NOT FOUND :118-:119 (defect (g)).
+  data/b680_defects.txt -- rows are defects, lettered (a) :5, (b) :9, (c) :13, (d) :18, (e) :26, (f) :29, (g) :33, (h) :36; (a) and (e) the
+      navigator's, the rest the seat's; (h) the root defect this act repairs, (d) the count arms (R291)(3) repairs.
+  data/act_roots.txt -- rows are act roots: act, root, previous root and an optional list note; b680 at :57 (764d21d6..., previous 5046df1d...);
+      from this act the corrigendum row at :58, the form of data/b681_rules.txt row (1), not a link of the chain.
+  tools/act_root.py -- verify by line: corrigenda :188, last_root :204, compute :258, at_commit :330 (a named bank read at the recorded commit
+      where that commit carries it, else at the first later commit that does), verify :349 (the corrigendum read in the loop beneath :384);
+      repaired at carry time under (R291)(2), data/b681_root_repair.txt; the diff in data/b681_tool_repairs.txt.
+  data/b680_rules_arms.txt -- rows are rules with act, row, head and arm or NONE; the verdict at its last line: 26 rows in 8 banks, 2 with a
+      standing arm, NONE 24 (held for the author's decision, (R291)(12)).
+  data/b677_tolerance.txt -- rows are the perturbation, the response and the tolerance: P1 widths :16 (h = 1e-28 PASS j 24-64), h_tol(j) per j
+      :26-:64 (j 64 : h_tol 1e-28, fails at 1e-27), the bisection :66-, the verdict :90 "h_tol(38) 3.162e-20 ; h_tol(64) 3.162e-28".
+  data/b670_work_orders.txt -- rows are orders: W-ORD-EPSTEIN-BALL-WIDTH as b677 re-entered it at :266 (OPEN_TRAILS :14264, OPEN, status
+      :14590, "a narrowing act at half-width 1e-28 or finer"); W-ORD-MAP-ANGLE-FORM at :265 (OPEN, "after W-ORD-EPSTEIN-BALL-WIDTH", :14588).
+  data/b671_narrow_plan.txt -- rows are plan sections: section 1 :6-:17 (the consumer, the transfer 6.1e3, w two decimal orders below the
+      tolerance rounded down to the power of ten); section 10 :108 (the Bessel bar); section 11 :120-:134 (the (4a) offset, a third of the
+      depth's half-width, one offset per depth); section 12 :136-:150 (the progress read, each depth written as it completes).
+  tools/b671_narrow.py -- by line: W :49, H0 :50, DEPTH :51, PREC :52, SEGS_PER_SIDE :54, DOUBLINGS_MAX :55, PROCS :59, BESSEL_BAR_EXP :60
+      (2^-200), segment :90 (the carried count's unit), _bessel :120, square_count :148, lam_q_at :168, sign_at :180, narrow_on :196 ((M-on)),
+      OFFSET_4A :275, _line_meeting :279, narrow_off_4a :291 ((M-off) with (4a)), _depth_out :339; b667's edge_arg (tools/b667_epstein_certify.py
+      :284-:294) splits a side into SEGS_PER_SIDE segments, each by segment.
+  data/b671_run2_progress.txt -- rows are points with their landed depth and seconds (26 lines); data/b671_narrow_run2.txt :4-: rows are points
+      "OFF n : reading at depth d ; seconds ; host free"; data/b671_narrow_run2_points.jsonl.gz rows are points with seconds and depths.
+  data/b671_narrow_run3_depths.jsonl -- rows are depths of a point with their time, segments and doublings per side (190 rows; OFF 2, 6, 7, 8,
+      15 from depth 3 to 40); data/b671_narrow_run3.txt :45-:209 the five points' seconds, :210 the run's 29,234 s.
+  data/b671_epstein_zeros_narrowed.json.gz -- rows are points (kind, idx, re, im, h, count, reading, depth), 163 (ON 146, OFF 17), h 1e-24;
+      data/b671_epstein_zeros_narrowed_hashes.txt :2-:3 the JSON inside sha256 cd3a8ea1dcc7660c... and the .gz sha256 51d9e6322510b738...
+  data/b671_large_banks.txt -- rows are banks with byte counts and sha256: the .gz form (gzipped under its own name, mtime 0) and the rule that a
+      binary bank is reached by the root through its LF hashes bank :9-:10 (and data/b680_rules.txt row (1)).
+  data/b667_epstein_plan.txt -- rows are plan sections: 11 :137 (the author's word), 12 :177 (the obstruction), 13 :196, 14 :217, 15 :241
+      (option 2 with (3b) and (3c)), 16 :267 (the second run's stop); the Bessel acceptance and its amendments read there and at
+      tools/b671_narrow.py :60-:63 (lifted to 2^-200 by the author's word at b671).
+  tools/b677_epstein_map_angle.py -- the consumer, by line: the balls it reads :13, :38 (b671's narrowed bank by name), q0_list :187, the
+      widths P1 :44, the price table :49 (h_need 1.24e-29 for the upper cell); not run in this act ((R291)(6)(vii)).
+  data/b680_closing_push_out.txt -- rows are the push tool's lines; :4 "75898036..21cb2735  push-b680-closing -> main"; committed at step zero
+      (relay c396e208).
+
+### ### **ITEMS 17 ; EACH CITED BY PATH AND LINE ; ABSENT UNDER THE CITED NAME 0.**

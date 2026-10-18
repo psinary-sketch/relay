@@ -1,0 +1,21 @@
+b681 -- STEP ZERO, (R291)(2): THE b680 ROOT REPAIRED BY A CORRIGENDUM ROW (2026-10-18)
+
+### rows are the four banks b680's defect (h) names: the sha256 the b680 root recorded (data/b680_act_root.json items), the bank at the
+### recorded commit 42d26968 and at the corrected commit 75898036, each read by git show and hashed.
+
+  data/b670_work_orders.txt         recorded 6173cf9a2a9e ; at 42d26968 2317c897866d DIFFERS ; at 75898036 6173cf9a2a9e EQUAL
+  data/b680_author_answers.txt      recorded 0061f6a10690 ; at 42d26968 f8a08e9c1139 DIFFERS ; at 75898036 0061f6a10690 EQUAL
+  data/b680_author_answers.json     recorded c6f86ffc8c22 ; at 42d26968 eb8edfca744d DIFFERS ; at 75898036 c6f86ffc8c22 EQUAL
+  data/b680_citation_check.txt      recorded 54b66fa2674f ; at 42d26968 c4e67c564aa7 DIFFERS ; at 75898036 54b66fa2674f EQUAL
+
+### (R291)(2)(ii), every one EQUAL at 75898036: the corrigendum row appended to data/act_roots.txt (one line, no row edited, LF):
+  corrigendum b680 42d26968f808db6bb565c4b99f7e7928d15466ff 75898036cea52ed3c2bb872c4e0c8346941e6e9b 764d21d642c8af80853b34449854914f536908a3b4ea20386ff2b263cb3caa40 data/b670_work_orders.txt data/b680_author_answers.json data/b680_author_answers.txt data/b680_citation_check.txt
+### its form: "corrigendum <act> <recorded commit> <corrected commit> <root> <bank> ..." (data/b681_rules.txt row (1)); not a link of
+### the chain -- tools/act_root.py's last_root reads past it (b681 chains from b680's root as recorded, 764d21d6...), and verify reads the
+### banks it names at the corrected commit after checking the row's act, recorded commit, root, ancestry and banks (tools/act_root.py,
+### repaired at carry time; its diff in data/b681_tool_repairs.txt). The act_root tests after the repair: test_act_root.py 9 of 9,
+### test_act_root_commit_b644.py 5 of 5, test_act_root_order_b641.py 5 of 5.
+### THE CHAIN VERIFIED inside the suite (the ferry: root verifies inside the suite alone): tools/b680_checks.py --mid b681_chain_verify.txt
+### --part standing-b, its bank data/b681_chain_verify_standing-b.txt :10 -- b624 to b680 AGREE, 57 rows, DISAGREE 0; G-ACTROOT-VERIFY PASS.
+
+### ### **BANKS 4 ; EQUAL AT 75898036 4 ; THE CORRIGENDUM ROW APPENDED ; THE CHAIN b624-b680 AGREE 57 OF 57 ; THE ROOT VALUE AS RECORDED.**

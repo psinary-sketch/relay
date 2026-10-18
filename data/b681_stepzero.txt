@@ -1,0 +1,30 @@
+b681 -- STEP ZERO, UNDER (R291) (2026-10-18)
+
+### rows are the ferry's step-zero items, each with its print.
+  the root repair           (R291)(2), before any other bank: the four banks of b680's defect (h) hashed at 75898036, each EQUAL to the
+                            hash b680's root recorded (and each differing at the recorded 42d26968); the corrigendum row appended to
+                            data/act_roots.txt (:58), tools/act_root.py repaired at carry time to read it; the act_root tests 9/9, 5/5,
+                            5/5; the chain verified inside the suite (tools/b680_checks.py --mid, part standing-b): b624 to b680 AGREE,
+                            57 of 57 (data/b681_root_repair.txt, data/b681_chain_verify_standing-b.txt). No prompt: (2)(iii) not reached.
+  the citation check        data/b681_citation_check.txt: CITES CHECKED 77 ; OK 77 ; MISSES 0, run over the ruling and the ferry before
+                            the ferry was banked.
+  the ferry                 data/b681_ferry.txt (19072 characters, received in full, part 1 of 1); data/b681_ferry_scan.txt 0 hits
+  the read-first bank       data/b681_readfirst.txt ((R291)(10)): 17 items by path and line with their row units
+  rowgen and constellation  data/b681_rowgen_stepzero.txt (b670 rules row 3): constellation exit 0, rowgen diff exit 0 over the 19 roster
+                            tables
+  the process listing       2026-10-18T00:27:57Z (names tail, lean, lake, python, bash): none of each; free 5063 MB. No task of this
+                            session stopped; no orphan, nothing stopped by PID.
+  b680's push-out bank      data/b680_closing_push_out.txt committed, relay c396e208
+  the branches deleted      data/b681_branches.txt first (every tip read before any delete; no branch under the push-b680 prefix beyond
+                            the ruling's list); then each by its explicit name, one branch per command and one command per message, in
+                            sequence, no glob, no pipe, no redirect: relay push-b680-root (0dc18a58), push-b680-hashes (42d26968),
+                            push-b680 (75898036), push-b680-closing (21cb2735); PLACE-papers push-b680-root (ca33a6f), push-b680
+                            (6d8b953). No remote branch named.
+  the tests                 data/b681_tests_stepzero.txt: TEST FILES 55 ; RUN 54 ; WITHHELD 1 ; NOT CLEAN 2 (test_chain_page.py (9);
+                            test_chain_page_b638.py (4)-(7)) -- the standing set since b638, carried by W-ORD-CHAIN-PAGE-B638-CASES; the
+                            zeta list in force b680's (data/b680_nodes_zeta.txt); test_elab_reader_b634.py withheld (no lean on this
+                            host); one process per test in the FOREGROUND in three parts each under the 600 s limit (tools/b681_tests.py
+                            parts, by b680's recorded seconds); no detached run
+  git status                relay tracked changes after the runs: data/act_roots.txt and tools/act_root.py (the root repair) alone;
+                            PLACE-papers NONE; this act's banks and tools untracked until their commits
+  no build                  no lean or lake run on this host
