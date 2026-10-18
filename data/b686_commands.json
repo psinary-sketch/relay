@@ -1,5 +1,5 @@
 {
- "at": "2026-10-18T23:21:55Z",
+ "at": "2026-10-18T23:24:26Z",
  "anchor": "RULING (R296) BEGIN",
  "rows": [
   {
@@ -974,6 +974,90 @@
    "src": "seat",
    "cmd": "git add -- data/audit_b686_reg_satisfiable.txt data/b686_arms_prerun.txt data/b686_arms_prerun_act.txt data/b686_arms_prerun_standing-a.txt data/b686_arms_prerun_standing-b.txt data/b686_arms_prerun_standing-c.txt data/b686_census_stepzero.txt data/b686_faces_census_stepzero.txt data/b686_lockgate.json data/b686_lockgate_notes.txt data/b686_lsr_prerun_act.json data/b686_lsr_prerun_standing-a.json data/b686_lsr_prerun_standing-b.json data/b686_lsr_prerun_standing-c.json data/b686_pins_stepzero.txt data/b686_reg_gate.txt data/b686_reg_termscan.txt data/b686_registration_2026-10-18.txt data/b686_regspec_run.txt data/b686_satisfiable.json data/b686_seal_hashes.json && git commit -q -m \"b686 seal: the face locked (ebd17cb3) after Components 0-3, the carry-time reading, the closing's dry run and the dry-run step; the pre-run 110 arms in four parts, one call each, 82 passing, none declared failing on real state; the gate CLEAR; the lock gate 8 of 8; the sealed tools' sha256 recorded\" && git log --oneline -1",
    "n": 139
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:21:54.360Z",
+   "src": "seat",
+   "cmd": "timeout 400 python -X utf8 -B tools/b686_record.py commands && timeout 590 python -X utf8 -B tools/b686_record.py table_final && git status --short --untracked-files=no",
+   "n": 140
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:22:20.691Z",
+   "src": "seat",
+   "cmd": "timeout 400 python -X utf8 -B tools/b686_record.py scores 2>&1 | cut -c1-420",
+   "n": 141
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:22:42.912Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-files=no && timeout 300 python -X utf8 -B tools/b686_record.py findings 2>&1 | tail -2 | cut -c1-300 && grep -n \"^\\*\\*The scores.\\*\\*\" /d/MY-DOwnloads/PLACE-papers/FINDINGS.md | tail -1",
+   "n": 142
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:22:47.908Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers add -- FINDINGS.md && git -C D:/MY-DOwnloads/PLACE-papers commit -q -m \"b686 entry: FINDINGS :9260, SIDE-spinor re-cut, the three FOUNDATIONS cells at v0.2.2 written, the N4 scorer reading banks; its scores line from the scores bank, before the root (data/b686_rules.txt row (1))\" && git -C D:/MY-DOwnloads/PLACE-papers log --oneline -1",
+   "n": 143
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:22:52.142Z",
+   "src": "seat",
+   "cmd": "git status --short | grep -v \"^?? data/_\\|^?? data/audit_b[0-5]\\|^?? data/anthropic\\|^?? =\" | grep \"b686\\|terminal_table\\|M \"",
+   "n": 144
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:22:55.837Z",
+   "src": "seat",
+   "cmd": "git diff --stat -- data/terminal_table.json data/terminal_table.md | tail -3 && git add -- data/b686_findings.json data/b686_scores.json data/b686_table_final.json data/b686_table_final.txt data/terminal_table.json data/terminal_table.md data/b686_commands.json data/b686_commands.txt && git commit -q -m \"b686 pre-root: the final table (0 moved, 0 added, 0 gone, no grade moved), the scores bank written once and the entry's bank (FINDINGS :9260), committed before the root\" && git log --oneline -1",
+   "n": 145
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:23:01.532Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b686-root 9200541 && PUSH_GATED_LOG=/d/relay/data/b686_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b686-root",
+   "n": 146
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:23:30.853Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git branch push-b686-root 3516b105 && PUSH_GATED_LOG=/d/relay/data/b686_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b686-root",
+   "n": 147
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:23:43.083Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b686_record.py root 2>&1 | cut -c1-250",
+   "n": 148
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:24:11.730Z",
+   "src": "seat",
+   "cmd": "timeout 300 python -X utf8 -B tools/b686_record.py root_arm 2>&1 | cut -c1-250",
+   "n": 149
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:24:15.859Z",
+   "src": "seat",
+   "cmd": "timeout 300 python -X utf8 -B tools/b686_record.py trail 2>&1 | tail -2 | cut -c1-300 && git -C /d/MY-DOwnloads/PLACE-papers diff --stat",
+   "n": 150
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:24:20.124Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers add -- OPEN_TRAILS.md && git -C D:/MY-DOwnloads/PLACE-papers commit -q -m \"b686 record: the trail record at OPEN_TRAILS :14862, carrying the act root c51755ee (b686, under (R296))\" && git -C D:/MY-DOwnloads/PLACE-papers log --oneline -1",
+   "n": 151
   }
  ],
  "offences": [],
