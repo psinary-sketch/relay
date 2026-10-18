@@ -1,7 +1,7 @@
-b686 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-18T23:07:55Z)
+b686 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-18T23:21:55Z)
 
 ### the source: the seat`s session 3bd076e1-80b3-48c6-919f-407447a1df25 from its first user line carrying 'RULING (R296) BEGIN', and its subagents` transcripts
-### commands read: 121
+### commands read: 139
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -158,5 +158,23 @@ b686 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #119 | 2026-10-18T23:02:05.446Z | seat | Bash | timeout 300 python -X utf8 tools/b686_record.py findings dry 2>&1 | head -40 | cut -c1-300
   #120 | 2026-10-18T23:07:34.248Z | seat | Bash | python -X utf8 -c "
   #121 | 2026-10-18T23:07:49.715Z | seat | Bash | timeout 120 python -X utf8 tools/b686_record.py repairs && awk 'NR>=6 && NR<=15' data/b686_tool_repairs.txt | cut -c1-170
+  #122 | 2026-10-18T23:07:54.338Z | seat | Bash | timeout 400 python -X utf8 tools/b686_record.py commands && timeout 60 python -X utf8 tools/b686_record.py defects && timeout 120 python -X utf8 tools/b686_regs
+  #123 | 2026-10-18T23:08:01.426Z | seat | Bash | git add -- tools/b686_checks.py tools/b686_closing.py tools/b686_reg_gate.py tools/b686_regspec.py tools/b686_record.py tools/b686_worklist.py data/b686_tool_re
+  #124 | 2026-10-18T23:09:49.936Z | seat | Bash | python -X utf8 -c "
+  #125 | 2026-10-18T23:09:54.568Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --prerun --part act 2>&1 | grep -v "^  ###\|^  -\|^===\|^###" | cut -c1-130
+  #126 | 2026-10-18T23:10:30.589Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --prerun --part standing-a 2>&1 | grep "FAIL\|raised\|PART standing-a\|free memory\|LONGEST" | grep -v "FAIL 
+  #127 | 2026-10-18T23:13:32.867Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --prerun --part standing-c 2>&1 | grep "G-\|PART standing-c\|free memory\|uncovered\|PRIORBANK" | cut -c1-260
+  #128 | 2026-10-18T23:14:14.074Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_checks.py --prerun --part standing-b 2>&1 | grep "G-ACTROOT-VERIFY  \|G-SHARED\|PART standing-b\|free memory\|LONGEST" 
+  #129 | 2026-10-18T23:19:53.329Z | seat | Bash | grep "THE ACT-ROOT CHAIN" data/b686_arms_prerun_standing-b.txt | grep -o "b68[0-9] [A-Z]*[^;]*" | tail -8; timeout 120 python -X utf8 -B tools/b686_checks.py --
+  #130 | 2026-10-18T23:20:00.392Z | seat | Bash | grep -h "free memory at the part" data/b686_arms_prerun_act.txt data/b686_arms_prerun_standing-a.txt data/b686_arms_prerun_standing-c.txt data/b686_arms_prerun_
+  #131 | 2026-10-18T23:20:09.958Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_reg_gate.py 2>&1 | grep -v "^    \|^  \s*$" | cut -c1-260 | head -60
+  #132 | 2026-10-18T23:20:36.072Z | seat | Bash | grep -n "ENTRY :\|TRAIL :\|b686 closed\|THE CITATION\|THE CELLS\|THE CUT \|THE SCORER\|SIDE-spinor  *v0.1.1\|NO VERDICT" data/b686_reg_gate.txt | cut -c1-330
+  #133 | 2026-10-18T23:20:41.251Z | seat | Bash | timeout 590 python -X utf8 -B tools/b686_record.py gatebanks 2>&1 | cut -c1-240
+  #134 | 2026-10-18T23:20:48.276Z | seat | Bash | timeout 400 python -X utf8 -B tools/b686_record.py scores dry 2>&1 | cut -c1-600
+  #135 | 2026-10-18T23:21:13.020Z | seat | Bash | timeout 590 python -X utf8 -B tools/b378_lockgate.py b686 data/b686_registration_2026-10-18.txt 2>&1 | tail -5 | cut -c1-200; echo "exit ${PIPESTATUS[0]}"; ls d
+  #136 | 2026-10-18T23:21:16.715Z | seat | Bash | python -X utf8 -B tools/reg_seal.py --lock data/b686_registration_2026-10-18.txt && python -X utf8 -B tools/b686_checks.py --seal
+  #137 | 2026-10-18T23:21:21.186Z | seat | Bash | git status --short | grep -i "b686" ; git status --short --untracked-files=no
+  #138 | 2026-10-18T23:21:24.898Z | seat | Bash | git ls-files 'data/b685_scanfile*' 'data/b685_lockgate*' 'data/b685_lsr_prerun*' | head; git show --stat --format=%s a08ff652 | head -40 | cut -c1-120
+  #139 | 2026-10-18T23:21:31.333Z | seat | Bash | git add -- data/audit_b686_reg_satisfiable.txt data/b686_arms_prerun.txt data/b686_arms_prerun_act.txt data/b686_arms_prerun_standing-a.txt data/b686_arms_preru
 
-### ### **COMMANDS 121 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 139 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

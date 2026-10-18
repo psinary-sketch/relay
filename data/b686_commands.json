@@ -1,5 +1,5 @@
 {
- "at": "2026-10-18T23:07:55Z",
+ "at": "2026-10-18T23:21:55Z",
  "anchor": "RULING (R296) BEGIN",
  "rows": [
   {
@@ -848,6 +848,132 @@
    "src": "seat",
    "cmd": "timeout 120 python -X utf8 tools/b686_record.py repairs && awk 'NR>=6 && NR<=15' data/b686_tool_repairs.txt | cut -c1-170",
    "n": 121
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:07:54.338Z",
+   "src": "seat",
+   "cmd": "timeout 400 python -X utf8 tools/b686_record.py commands && timeout 60 python -X utf8 tools/b686_record.py defects && timeout 120 python -X utf8 tools/b686_regspec.py 2>&1 | head -22 | cut -c1-200",
+   "n": 122
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:08:01.426Z",
+   "src": "seat",
+   "cmd": "git add -- tools/b686_checks.py tools/b686_closing.py tools/b686_reg_gate.py tools/b686_regspec.py tools/b686_record.py tools/b686_worklist.py data/b686_tool_repairs.txt data/b686_commands.txt data/b686_commands.json data/b686_defects.json data/b686_satisfiable.json && git commit -q -m \"b686 C4: the tools carried from b685's sealed copies (the suite with twenty-one arms over this act's banks, the closing, the gate, the spec, the record's late routes with the N4 scorer reading banks), the carry-time bank (two repairs), the commands and defects banks\" && git log --oneline -1",
+   "n": 123
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:09:49.936Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys,io; sys.path.insert(0,'tools')\nimport registration_gate as RG, b300_regspec as CNT\nF='data/b686_registration_2026-10-18.txt'\nt=io.open(F,encoding='utf-8').read()\ncode,lines=RG.check(F); print('index-query', code); [print('  ',l[:200]) for l in lines if 'FAIL' in l or 'UNREAD' in l or 'MARK' in l][:10]\nprint('bar', RG.bar_floor_check(t)[:2]); print('straddle', RG.straddle_check(t)[0])\nn,h=CNT.count_predictions(t); print('predictions',n,h[:5])\n\"",
+   "n": 124
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:09:54.568Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b686_checks.py --prerun --part act 2>&1 | grep -v \"^  ###\\|^  -\\|^===\\|^###\" | cut -c1-130",
+   "n": 125
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:10:30.589Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b686_checks.py --prerun --part standing-a 2>&1 | grep \"FAIL\\|raised\\|PART standing-a\\|free memory\\|LONGEST\" | grep -v \"FAIL  OK$\" | cut -c1-230",
+   "n": 126
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:13:32.867Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b686_checks.py --prerun --part standing-c 2>&1 | grep \"G-\\|PART standing-c\\|free memory\\|uncovered\\|PRIORBANK\" | cut -c1-260",
+   "n": 127
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:14:14.074Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b686_checks.py --prerun --part standing-b 2>&1 | grep \"G-ACTROOT-VERIFY  \\|G-SHARED\\|PART standing-b\\|free memory\\|LONGEST\" | cut -c1-260",
+   "n": 128
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:19:53.329Z",
+   "src": "seat",
+   "cmd": "grep \"THE ACT-ROOT CHAIN\" data/b686_arms_prerun_standing-b.txt | grep -o \"b68[0-9] [A-Z]*[^;]*\" | tail -8; timeout 120 python -X utf8 -B tools/b686_checks.py --combine b686_arms_prerun.txt 2>&1 | head -12 | cut -c1-260",
+   "n": 129
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:20:00.392Z",
+   "src": "seat",
+   "cmd": "grep -h \"free memory at the part\" data/b686_arms_prerun_act.txt data/b686_arms_prerun_standing-a.txt data/b686_arms_prerun_standing-c.txt data/b686_arms_prerun_standing-b.txt | cut -c1-90; grep -h \"LONGEST PHASE\" data/b686_arms_prerun_*.txt | cut -c1-90",
+   "n": 130
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:20:09.958Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b686_reg_gate.py 2>&1 | grep -v \"^    \\|^  \\s*$\" | cut -c1-260 | head -60",
+   "n": 131
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:20:36.072Z",
+   "src": "seat",
+   "cmd": "grep -n \"ENTRY :\\|TRAIL :\\|b686 closed\\|THE CITATION\\|THE CELLS\\|THE CUT \\|THE SCORER\\|SIDE-spinor  *v0.1.1\\|NO VERDICT\" data/b686_reg_gate.txt | cut -c1-330",
+   "n": 132
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:20:41.251Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b686_record.py gatebanks 2>&1 | cut -c1-240",
+   "n": 133
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:20:48.276Z",
+   "src": "seat",
+   "cmd": "timeout 400 python -X utf8 -B tools/b686_record.py scores dry 2>&1 | cut -c1-600",
+   "n": 134
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:21:13.020Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b378_lockgate.py b686 data/b686_registration_2026-10-18.txt 2>&1 | tail -5 | cut -c1-200; echo \"exit ${PIPESTATUS[0]}\"; ls data/b686_lockgate*; grep -n \"GATES READ\\|LOCK PERMITTED\\|REFUSED\" data/b686_lockgate_notes.txt | cut -c1-200 | head",
+   "n": 135
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:21:16.715Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -B tools/reg_seal.py --lock data/b686_registration_2026-10-18.txt && python -X utf8 -B tools/b686_checks.py --seal",
+   "n": 136
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:21:21.186Z",
+   "src": "seat",
+   "cmd": "git status --short | grep -i \"b686\" ; git status --short --untracked-files=no",
+   "n": 137
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:21:24.898Z",
+   "src": "seat",
+   "cmd": "git ls-files 'data/b685_scanfile*' 'data/b685_lockgate*' 'data/b685_lsr_prerun*' | head; git show --stat --format=%s a08ff652 | head -40 | cut -c1-120",
+   "n": 138
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-18T23:21:31.333Z",
+   "src": "seat",
+   "cmd": "git add -- data/audit_b686_reg_satisfiable.txt data/b686_arms_prerun.txt data/b686_arms_prerun_act.txt data/b686_arms_prerun_standing-a.txt data/b686_arms_prerun_standing-b.txt data/b686_arms_prerun_standing-c.txt data/b686_census_stepzero.txt data/b686_faces_census_stepzero.txt data/b686_lockgate.json data/b686_lockgate_notes.txt data/b686_lsr_prerun_act.json data/b686_lsr_prerun_standing-a.json data/b686_lsr_prerun_standing-b.json data/b686_lsr_prerun_standing-c.json data/b686_pins_stepzero.txt data/b686_reg_gate.txt data/b686_reg_termscan.txt data/b686_registration_2026-10-18.txt data/b686_regspec_run.txt data/b686_satisfiable.json data/b686_seal_hashes.json && git commit -q -m \"b686 seal: the face locked (ebd17cb3) after Components 0-3, the carry-time reading, the closing's dry run and the dry-run step; the pre-run 110 arms in four parts, one call each, 82 passing, none declared failing on real state; the gate CLEAR; the lock gate 8 of 8; the sealed tools' sha256 recorded\" && git log --oneline -1",
+   "n": 139
   }
  ],
  "offences": [],

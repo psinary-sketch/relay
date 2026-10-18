@@ -1973,15 +1973,15 @@
 | `SIDE-simplicity` | `SIDESimplicity.margin_fails_at_threshold` | *none cited* | `54ba4f38b729` | `theorem margin_fails_at_threshold : ¬ (curveDim < curveDim)` | NOT PROFILED | **DERIVES** | rule |   |  | — |
 | `SIDE-simplicity` | `SIDESimplicity.no_tuning` | *none cited* | `54ba4f38b729` | `theorem no_tuning : freeParameters = 0` | NOT PROFILED | **DERIVES** | rule |   |  | — |
 | `SIDE-simplicity` | `SIDESimplicity.transversal_generic_empty` | *none cited* | `54ba4f38b729` | `theorem transversal_generic_empty (curveDim obstrCodim : ℤ)     (hcurve : curveDim = 1) (hcodim : 2 ≤ obstrCodim) :     curveDim - obstrCodim < 0` | NOT PROFILED | **INTERFACES** | cell |  PLACE-papers/archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md:1927 |  | — |
-| `SIDE-spinor` | `SIDESpinor.aperture` | `v0.1.0` | `520abe7a6b7d` | `theorem aperture : (bright_dim : ℚ) / total_dim = 1 / 7` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-spinor` | `SIDESpinor.aperture_decomp` | `v0.1.0` | `520abe7a6b7d` | `theorem aperture_decomp : bright_dim + dark_dim = total_dim` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-spinor` | `SIDESpinor.half_iff_centered_zero` | `v0.1.0` | `520abe7a6b7d` | `theorem half_iff_centered_zero (σ : ℝ) : σ = 1 / 2 ↔ σ - 1 / 2 = 0` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-spinor` | `SIDESpinor.orbit_collapse_iff` | `v0.1.0` | `520abe7a6b7d` | `theorem orbit_collapse_iff (w : ℂ) : Complex.I * w = w ↔ w = 0` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-spinor` | `SIDESpinor.phase_unit` | `v0.1.0` | `520abe7a6b7d` | `theorem phase_unit : Complex.normSq Complex.I = 1` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-spinor` | `SIDESpinor.spectral_volume` | `v0.1.0` | `520abe7a6b7d` | `theorem spectral_volume : v_sqmag.sum = 12` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-spinor` | `SIDESpinor.spinor_forces_half` | `v0.1.0` | `520abe7a6b7d` | `theorem spinor_forces_half (w : ℂ) (h : Complex.I * w = w) : w = 0` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-spinor` | `SIDESpinor.spinor_order_four` | `v0.1.0` | `520abe7a6b7d` | `theorem spinor_order_four : Complex.I ^ 4 = 1` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-spinor` | `SIDESpinor.spinor_sq` | `v0.1.0` | `520abe7a6b7d` | `theorem spinor_sq : Complex.I ^ 2 = -1` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-spinor` | `SIDESpinor.aperture` | `v0.1.0` | `aca59d194a50` | `theorem aperture : (bright_dim : ℚ) / total_dim = 1 / 7` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-spinor` | `SIDESpinor.aperture_decomp` | `v0.1.0` | `aca59d194a50` | `theorem aperture_decomp : bright_dim + dark_dim = total_dim` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-spinor` | `SIDESpinor.half_iff_centered_zero` | `v0.1.0` | `aca59d194a50` | `theorem half_iff_centered_zero (σ : ℝ) : σ = 1 / 2 ↔ σ - 1 / 2 = 0` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-spinor` | `SIDESpinor.orbit_collapse_iff` | `v0.1.0` | `aca59d194a50` | `theorem orbit_collapse_iff (w : ℂ) : Complex.I * w = w ↔ w = 0` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-spinor` | `SIDESpinor.phase_unit` | `v0.1.0` | `aca59d194a50` | `theorem phase_unit : Complex.normSq Complex.I = 1` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-spinor` | `SIDESpinor.spectral_volume` | `v0.1.0` | `aca59d194a50` | `theorem spectral_volume : v_sqmag.sum = 12` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-spinor` | `SIDESpinor.spinor_forces_half` | `v0.1.0` | `aca59d194a50` | `theorem spinor_forces_half (w : ℂ) (h : Complex.I * w = w) : w = 0` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-spinor` | `SIDESpinor.spinor_order_four` | `v0.1.0` | `aca59d194a50` | `theorem spinor_order_four : Complex.I ^ 4 = 1` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-spinor` | `SIDESpinor.spinor_sq` | `v0.1.0` | `aca59d194a50` | `theorem spinor_sq : Complex.I ^ 2 = -1` | NOT PROFILED | **DERIVES** | rule |   |  | — |
 | `SIDE-structural-error-correction` | `DeAlignment.CompletesLine` | *none cited* | `5476ef356920` | `def CompletesLine {P : Type} (F : P → Prop) (L : Line P) : Prop` | does not depend on any axioms | **DEF** | rule |   |  | — |
 | `SIDE-structural-error-correction` | `DeAlignment.Dealigned` | *none cited* | `5476ef356920` | `def Dealigned {P D : Type} {n : Nat} (d : P → D) (lines : Fin n → Line P) : Prop` | does not depend on any axioms | **DEF** | rule |   |  | — |
 | `SIDE-structural-error-correction` | `DeAlignment.DealignedAt` | *none cited* | `5476ef356920` | `def DealignedAt {P D : Type} (d : P → D) (L : Line P) : Prop` | does not depend on any axioms | **DEF** | rule |   |  | — |
