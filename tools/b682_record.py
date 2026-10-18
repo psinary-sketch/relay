@@ -275,7 +275,91 @@ def c1(*a):
          check=[('FINDINGS.md', K.B681_ENTRY, '## The 163 certified zeros'), ('OPEN_TRAILS.md', K.B681_TRAIL, '### b681')], dry=dry)
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1}
+# ================================================================================ THE ANSWERS BANK (b681's route, carried)
+def _session_rows():
+    for sid, anc in ((K.SESSION_ID, K.ANCHOR),) + K.SESSIONS_AFTER:
+        start = None
+        for i, raw in enumerate(io.open('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % sid, encoding='utf-8', errors='replace'), 1):
+            try:
+                o = json.loads(raw)
+            except ValueError:
+                continue
+            if start is None and anc in raw.replace('’', "'") and o.get('type') == 'user' and not o.get('isCompactSummary'):
+                start = i
+            if start is not None:
+                yield i, o, start, sid
+        if start is None and sid != K.SESSION_ID:
+            sys.exit('### THE ANCHOR %r IS NOT A USER LINE OF SESSION %s -- NOTHING WRITTEN' % (anc, sid))
+
+
+def answers(*a):
+    """data/b682_author_answers.txt: every prompt put by the seat in this act (from its ruling's line on), with its options and the answer;
+    every word of the author delivered between BEGIN and END after the ruling, and the author's plain messages, verbatim."""
+    calls, results, words, plain_, start = [], {}, [], [], None
+    for i, o, st, sid in _session_rows():
+        start = st if sid == K.SESSION_ID else start
+        ln = i if sid == K.SESSION_ID else '%s:%d' % (sid[:8], i)
+        m = o.get('message') or {}
+        cs = m.get('content')
+        att = o.get('attachment') or {}
+        texts = []
+        if att.get('type') == 'queued_command' and isinstance(att.get('prompt'), str):
+            texts = [att['prompt']]
+        elif o.get('type') == 'user' and not o.get('isCompactSummary'):
+            texts = [cs] if isinstance(cs, str) else [c.get('text', '') for c in (cs or []) if isinstance(c, dict) and c.get('type') == 'text']
+            for t in texts:
+                if t and not t.lstrip().startswith(('<', 'BEGIN', 'RULING')) and len(t) < 400 and i > st:
+                    plain_.append((ln, t.strip()))
+        texts = [re.sub(r'(?s)^\s*<pasted_content[^>]*>\s*(.*?)\s*</pasted_content[^>]*>\s*$', r'\1', t or '') for t in texts]
+        ask = set(x[1] for x in calls)
+        for c in cs if isinstance(cs, list) else []:
+            if isinstance(c, dict) and c.get('type') == 'tool_use' and c.get('name') == 'AskUserQuestion':
+                calls.append((ln, c['id'], c['input'], o.get('timestamp')))
+                ask.add(c['id'])
+            if isinstance(c, dict) and c.get('type') == 'tool_result' and c.get('tool_use_id') in ask:
+                t = c.get('content')
+                t = ''.join(x.get('text', '') for x in t) if isinstance(t, list) else (t or '')
+                results[c.get('tool_use_id')] = (ln, t, o.get('timestamp'))
+                texts.append(t)
+        for t in texts:
+            for mm in re.finditer(r'(?s)(?:\A\s*|="|="\(for the seat, verbatim\):\s*)BEGIN\s*(.*?)\s*END(?=\s*\Z|")', t or ''):
+                if K.ANCHOR not in mm.group(1) and 'RULING (' not in mm.group(1)[:20]:
+                    words.append((ln, mm.group(1)))
+    if start is None:
+        sys.exit('### THE ANCHOR IS NOT A USER LINE OF THIS SESSION -- NOTHING WRITTEN')
+    L, n = [], 0
+    for i, cid, inp, ts in calls:
+        L.append('### CALL tool-use id %s (session %s, transcript line %s, %s)' % (cid, K.SESSION_ID, i, ts))
+        for k, q in enumerate(inp.get('questions', []), 1):
+            n += 1
+            L.append('### PROMPT %d (%s): %s' % (k, q.get('header'), q.get('question')))
+            for j, op in enumerate(q.get('options', []), 1):
+                L.append('  OPTION %d%s: %s :: %s' % (j, ' [RECOMMENDED]' if '(Recommended)' in op.get('label', '') else '', op.get('label'),
+                                                     op.get('description')))
+        r = results.get(cid, (None, '### NO RESULT', None))
+        L += ['RESULT (transcript line %s, %s): %s' % (r[0], r[2], r[1]), '']
+    W, seen = [], set()
+    for i, w in words:
+        if w in seen:
+            continue
+        seen.add(w)
+        W += ['### THE AUTHOR`S WORD (transcript line %s), BEGIN to END, verbatim:' % i] + w.replace('\r', '').split(NL) + ['']
+    for i, t in plain_:
+        W += ['### THE AUTHOR`S MESSAGE (transcript line %s), verbatim: %s' % (i, t.replace('\r', '').replace(NL, ' ')), '']
+    nw = len([x for x in W if x.startswith('### THE AUTHOR`S WORD')])
+    head = ['### b682 -- THE AUTHOR`S ANSWERS, %d prompt(s) put by the seat in this act (%s), banked verbatim with the options and the recommended '
+            'mark; and %d word(s) of the author delivered between BEGIN and END; the session read: %s from %r (transcript line %d).' % (
+                n, K.DATE, nw, K.SESSION_ID[:8], K.ANCHOR, start), '']
+    if 'dry' in a:
+        print('  prompts: %d ; words: %d (dry: nothing written)' % (n, nw))
+        return
+    put_txt('b682_author_answers.txt', [l.replace('\r', '') for l in head + (L or ['### NONE: no prompt has been put to the author in this act.']) + W])
+    put_json('b682_author_answers.json', dict(at=utc(), calls=[dict(line=i, id=cid, ts=ts, result_ts=(results.get(cid) or (None, None, None))[2])
+                                                               for i, cid, _inp, ts in calls]))
+    print('  prompts banked: %d ; words banked: %d' % (n, nw))
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'answers': answers}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
