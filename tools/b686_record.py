@@ -722,6 +722,72 @@ def dist(*a):
     print(L[11])
 
 
+def partner(*a):
+    """the author's word on (R296)(3): the one-copy partner of FOUNDATIONS, whose table differs, is not written; its differing lines entered by
+    line in the diff bank (data/b686_correspondence_diff.txt, appended) with both tables' cells, carried under W-ORD-ONE-COPY as a reading,
+    nothing moved. Carried from b682_record.py's partner."""
+    import correspondence_gen as G
+    t = [x for x in json.load(io.open(os.path.join(D, 'b672_roster_read.json'), encoding='utf-8'))['tables'] if x['doc'] == 'FOUNDATIONS_OF_THE_SIDE_PROGRAMME'][0]
+    A = rd(os.path.join(PP, t['path'])).split(NL)
+    B = rd(os.path.join(PP, t['partner'])).split(NL)
+    fa, fb = G.find_table(A, t), G.find_table(B, t)
+    ta, tb = A[fa[0]:fa[1]], B[fb[0]:fb[1]]
+    rows = []
+    for i in range(max(len(ta), len(tb))):
+        x = ta[i] if i < len(ta) else None
+        y = tb[i] if i < len(tb) else None
+        if x != y:
+            rows.append((fa[0] + 1 + i if x is not None else None, x, fb[0] + 1 + i if y is not None else None, y))
+    p = os.path.join(D, '%s.txt' % K.DIFF_STEM)
+    old = open(p, 'rb').read()
+    if b'THE ONE-COPY PARTNER NOT WRITTEN' in old:
+        sys.exit('### THE PARTNER ROWS ARE IN THE DIFF BANK ALREADY -- NOTHING WRITTEN')
+    L = ['', '### APPENDED %s by the record tool `partner` (the author`s word on (R296)(3)): THE ONE-COPY PARTNER NOT WRITTEN -- %s' % (
+        utc(), t['partner']),
+         '### its table (:%d-:%d) against the roster`s file %s (:%d-:%d), at PLACE-papers HEAD %s after the write; rows are table lines that differ,' % (
+             fb[0] + 1, fb[1], t['path'], fa[0] + 1, fa[1], g(PP, 'rev-parse', '--short', 'HEAD').strip()),
+         '### each with both tables` cells by line; carried under W-ORD-ONE-COPY as a reading, nothing moved:']
+    for la, x, lb, y in rows:
+        L += ['    ROSTER :%s | %s' % (la, x), '    PARTNER :%s | %s' % (lb, y)]
+    L += ['### ### **PARTNER TABLE LINES DIFFERING %d ; WRITTEN 0 ; CARRIED UNDER W-ORD-ONE-COPY.**' % len(rows)]
+    if STANDIN:
+        sys.exit('### A STAND-IN RUN WRITES NO BANK -- NOTHING WRITTEN')
+    new = old + (NL.join(L) + NL).encode('utf-8')
+    open(p + '.tmp', 'wb').write(new)
+    os.replace(p + '.tmp', p)
+    print(L[-1])
+
+
+def cells(*a):
+    """N3's second clause: the roster commit (the one PLACE-papers commit since the act's start touching the roster file) read line by line --
+    every changed line one the generator's run bank (data/b686_correspondence_run.txt) lists, its new text carrying the generator's NEW cell,
+    no other file in the commit. data/b686_cells.txt (.json)."""
+    shas = g(PP, 'log', '--format=%H', '%s..HEAD' % K.PRE_PP, '--', K.FOUND).split()
+    if len(shas) != 1:
+        sys.exit('### THE ROSTER FILE CARRIES %d COMMITS SINCE THE ACT`S START, NOT ONE -- NOTHING WRITTEN' % len(shas))
+    sha = shas[0]
+    files = g(PP, 'show', '--name-only', '--format=', sha).split()
+    d = g(PP, 'show', '--unified=0', '--format=', sha, '--', K.FOUND).replace(chr(13), '')
+    adds = []
+    for h in re.finditer(r'^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@', d, re.M):
+        start, n = int(h.group(1)), int(h.group(2) or 1)
+        adds += list(range(start, start + n))
+    newl = rd(os.path.join(PP, *K.FOUND.split('/'))).split(NL)
+    gen = [read_diff_row(l) for l in rdn('b686_correspondence_run.txt').split(NL) if DIFF_ROW.match(l)]
+    gl = dict((x[1], x) for x in gen if x[0] == 'FOUNDATIONS_OF_THE_SIDE_PROGRAMME')
+    by_hand = [n for n in adds if n not in gl or gl[n][4] not in newl[n - 1]]
+    L = ['b686 -- COMPONENT 2, (R296)(3): THE ROSTER COMMIT READ AGAINST THE GENERATOR`S RUN BANK, LINE BY LINE (%s)' % utc(), '',
+         '### the commit: PLACE-papers %s (%s) ; files %s' % (sha[:7], g(PP, 'log', '-1', '--format=%s', sha).strip()[:120], files),
+         '### the generator`s run bank: relay data/b686_correspondence_run.txt, %d diff rows, %d at the roster file' % (len(gen), len(gl)),
+         '### rows are changed lines: line | listed by the generator | its NEW cell in the line:']
+    L += ['  :%d | %s | %s' % (n, n in gl, (n in gl and gl[n][4] in newl[n - 1])) for n in adds]
+    L += ['', '### ### **CHANGED LINES %d ; WRITTEN BY THE GENERATOR %d ; BY HAND %d ; FILES IN THE COMMIT %d.**' % (
+        len(adds), len(adds) - len(by_hand), len(by_hand), len(files))]
+    put_txt('b686_cells.txt', L)
+    put_json('b686_cells.json', dict(at=utc(), commit=sha, files=files, changed=adds, by_hand=by_hand, generator_rows=len(gl)))
+    print(L[-1])
+
+
 # ================================================================================ THE LATE ROUTES (b685's, carried; every row read through READERS)
 import collections                 # noqa: E402
 import b633_record as R3           # noqa: E402
@@ -1258,7 +1324,7 @@ def scores_line(S):
 
 ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, naming=naming, runner=runner, prints=prints, cutdiff=cutdiff,
               commands=commands, kernels=kernels, defects=defects, repairs=repairs, rootbanks=rootbanks, root=root, root_arm=root_arm,
-              table_final=table_final, scores=scores, gendry=gendry, dist=dist)
+              table_final=table_final, scores=scores, gendry=gendry, dist=dist, partner=partner, cells=cells)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
