@@ -1,0 +1,121 @@
+b683 -- THE PLAN, (R293)(3), WRITTEN BEFORE ANY RUN (2026-10-18): THE DETECTION MAP IN THE ANGLE FORM OVER THE b681 BALLS (h = 1e-30)
+
+### rows are quantities, formulas, sources, tolerances and prices, carried from data/b677_map_plan.txt by section with every figure re-read
+### for the new width; the read-first bank is data/b683_readfirst.txt. Nothing below is computed by the map: every figure is copied from
+### the bank and line cited beside it, or is arithmetic on those figures, said so. No run before the author's word (raised as one prompt).
+
+== 1. THE OBJECT AND ITS SOURCES (b677's section 1, re-read)
+  The tool:       tools/b677_epstein_map_angle.py, sha256 b21f6926056461a39cd19299ca23433ce3819748bb7739491c765ecbcc52176f -- the text its
+                  bank names (data/b677_map.txt :3, "the tool ... sha256 b21f6926...") -- UNCHANGED, imported as a module by the run's
+                  wrapper tools/b683_epstein_map_angle.py (written by the Write tool), whose changes are named here with their diff:
+                  (i)   THE BALLS: the tool's Q0_CERT (:38) 'b671_epstein_zeros_narrowed.json' -> 'b681_epstein_zeros_narrowed.json', an
+                        assignment on the imported module -- the one changed line OPEN_TRAILS :14714 priced ("a copy whose one changed line
+                        is the bank's name"); q0_list (:187-:197) reads the new bank's rows unchanged (same keys: kind, idx, re, im, h, count).
+                  (ii)  THE BANKS: the tool's own writes _put/_putj (:567-:574) renamed b677_ -> b683_ (a write under any other name stops
+                        the run), and each bank's first line prefixed with this act's name; no b677 bank is touched.
+                  (iii) THE RUNG FORCED AT Q0: the tool re-reads a cell at 400 bits only when its 200-bit reading triggers (:536-:551);
+                        over the new balls no trigger is expected (section 6), so the 400-bit rows of b671's list (data/b671_tie_diagnostic.txt
+                        :89-:129) would go unread and N3 fail. The 200-bit Q0 cell's trigger list carries one named entry, "FORCED RUNG
+                        (R293) N3", so the tool's own rung code runs as written; the reading taken is the 400-bit one, as at b677, the 200-bit
+                        one beside it.
+                  (iv)  THE HYPOTHESES: the wrapper's `hyp` reads (R293)(4)'s H1-H5 (section 8) from data/b683_map.json and data/b677_map.json.
+                  No computation line of the map is changed; the b667 map tools/b667_epstein_map_balls.py (sha256 011bbe47...) and the b677
+                  tool are hashed before any ball is read and after the part, the run refused at a differing text.
+  The balls:      data/b681_epstein_zeros_narrowed.json.gz (163 rows, h = 1e-30; 146 ON by the sign change, 17 OFF by the quarter count;
+                  data/b681_narrow.txt), the JSON inside the .gz.
+  THE HASH CHAIN, VERIFIED BEFORE ANY BALL IS READ (N2): data/b683_chain.txt (2026-10-18T15:27:55Z) -- THE CHAIN VERIFIED ; FILES 7 EQUAL 7:
+                  the b681 JSON c3b54356... and .gz f6613564... against data/b681_epstein_zeros_narrowed_hashes.txt :2-:3; b671's .gz
+                  51d9e632... and JSON cd3a8ea1... against data/b671_epstein_zeros_narrowed_hashes.txt :2-:3 and against the b681 bank's
+                  "chains from" line (:4); the rows 163, 146 ON and 17 OFF, every count 1, every half-width 1e-30. The part re-verifies the
+                  chain in its own process before the map reads a ball, and refuses where it does not.
+  The diagnostic: data/b671_tie_diagnostic.txt (rows are controls; :5 the rule); the order: W-ORD-MAP-ANGLE-FORM, OPEN_TRAILS :14398 (entered
+                  b671), :14714 (its trigger reached at b681), data/b670_work_orders.txt :265, :286.
+
+== 2. THE MAP'S QUANTITY AT EACH j, AS b677 RESTATED IT FROM THE b667 MAP BY LINE (data/b677_map_plan.txt section 2, :17-:28), unchanged
+  ℓ = 1/(4(‖γ(ρb)‖ + 1)); ĝ0(z) = ℓ(2 sin(w/2)/w + R(w)), w = zℓ. The tie points ρ, 1 − conj ρ, conj ρ, 1 − ρ of the dominant ρ* = qE0 as
+  γ = t − i·dl, t + i·dl, −t − i·dl, −t + i·dl (dl = σ − 1/2); M = |ĝ0(γ(ρ*))|; v = (dl + i t)²; nodes v, v̄, v̄, v. kp(w) = Π(w − x) over
+  the killed zeros; F(w) = kp(w)²(1 − cE² w); D = 2·card Xr + 8 = 24; J_max = D + 40 = 64.
+  AT EACH j IN [24, 64]: us = unit(ĝ0) at the four points; pw = us^(2^(j+1)), in the angle form exp(2^(j+1)·log us) (b677's tool :82-:90);
+  ph = unit(F(node))·pw; Yv = −conj ph[0]; r = √Yv; Q = a + bX with b = Im r / Im v, a = Re r − b Re v; res = Q(node)²·ph + 1 at each tie
+  point. THE CONTROL: every res ball contains 0 in both parts and has radius below 2^-20; hQb: |a|, |b| ≤ CV. hQtie certifies when all 41
+  controls pass; THEN hrate at j (the left side base + (2^(j+1) − 2^(D+1))·log θ against log Σ|F(node)|, j₀ the first HOLDS) and the zero side
+  at j₀, each term Q(v)²·F(v)·(ĝ/M)^(2^(j₀+1)), every power in the angle form.
+
+== 3. THE ANGLE FORM (data/b677_map_plan.txt section 3, :30-:45), unchanged
+  Every power zⁿ is exp(n·log z), log z once per ball about the exact point at its midpoint; the one square of a ball holding 0 counted in the
+  tool's TALLY and printed. N2's "no power formed by repeated multiplication" is read on the tool's text (b677's grep, data/b677_map_diff.txt)
+  and on this run's TALLY line (data/b683_map_run.txt: powers in the angle form; squares by one product of a ball holding 0).
+
+== 4. THE TIE RESIDUAL BY ALGEBRA (data/b677_map_plan.txt section 4, :47-:58), unchanged
+  The four residuals are identically 0 at every j for any input values (the orbit identity); the ball residual is 0 plus the instrument's
+  radius, so a failed control is INSTRUMENT by the b671 rule and the controls read the instrument alone. b677's positive control P2 (a shift
+  of one tie point's phase, data/b677_tolerance.txt) showed the control fires on a planted separation; it is not re-run (the ruling's (4)
+  names the 123 rows and H1-H5 alone).
+
+== 5. THE TIES AND THEIR CONTROLS, AS b671 LISTED THEM, EVERY ONE PLANTED AGAIN (N3)
+  The control Z₁(0.8, 29.6) at 200 bits, j = 14..54 (data/b671_tie_diagnostic.txt :7-:47, 41 rows, all PASS at b671 and b677); Q0 at qE0 at
+  200 bits, j = 24..64 (:48-:88; INSTRUMENT j 42-64 at b671, j 53-64 at b677); the 400-bit rung (:89-:129; the same words) -- 123 rows, none
+  dropped, the 400-bit rows read by change (iii). The bank's row, data/b683_map.txt (the tool's bank_map, :631-:676): cell | precision | j |
+  the phase angle's radius | at each of the four tie points the residual's |mid| and radius | the largest radius and rad/bar | the word by
+  the b671 rule | b671's word and row.
+
+== 6. THE PRICE OF THE RADIUS AT j = 64, BEFORE ANY RUN (b677's arithmetic, section 6 :68-:83, re-read for h = 1e-30; arithmetic, said so)
+  b677 priced the angle form's radius per unit exponent c from b671's printed radii at h = 1e-24 (upper 2.09e-21, lower 3.6e-24) and the
+  radius at j as 2^(j+1)·c; every term of the residual's radius is linear in the input width (the transfer rad(log us)/h, b677's
+  data/b677_map.json angle radius 1.836e-25 at h = 1e-24), so the price at h = 1e-30 is b677's scaled by 1e-30 / 1e-24 = 1e-6:
+      c:          2.092e-27 (upper) to 3.606e-30 (lower);
+      j = 64:     2^65·c = 7.718e-08 (upper) to 1.330e-10 (lower), against the bar 2^-20 = 9.537e-07 -- 8.09e-02 to 1.39e-04 of the bar;
+      the last passing j:  67 (upper) to 76 (lower) -- beyond J_max = 64 at either price.
+  BESIDE IT, FROM b677'S MEASUREMENT (not a price): the residual radius b677 measured at j = 64 on the 1e-24 balls, 2.051e-03 at 200 bits and
+  2.048e-03 at 400 (data/b677_map.txt, its verdict lines), scaled by 1e-6: 2.051e-09 and 2.048e-09, 2.15e-03 of the bar; b677's first
+  failing j 53 moves by log2(1e6) = 19.9 to j ≈ 73. And the consumer's measured tolerance h_tol(64) = 3.162e-28 (data/b677_tolerance.txt :90):
+  the b681 width 1e-30 is 316 times inside it.
+  THE PRICE SAYS: over the 1e-30 balls every control passes to j = 64 at either price and by b677's measurement scaled; H1 and H2 are priced
+  to HOLD, the largest radius at j = 64 near 2e-9. The run reads whether they do; where a control still fails the price is wrong by more than
+  two decimal orders and the failure is located by row.
+  The run's time: b677's part 1 ran 46 s with its rung (data/b677_map.json secs 46); this run the same work (the rung forced); one foreground
+  part, expected under 120 s, inside the 540 s the ruling sets.
+
+== 7. THE CONSUMERS SECTION ((R278)(3), standing): each bank's consumers and each consumer's tolerance, MEASURED ON THE CONSUMER
+  THE CONSUMER of the map's output: the tie check (each control asks its residual ball to sit at 0 with radius below 2^-20, the b667 map :349)
+  and through it hrate and the zero side at j₀. Its tolerance was measured on the consumer at b677 (data/b677_tolerance.txt, P1 the width plant):
+  h_tol(38) = 3.162e-20, h_tol(64) = 3.162e-28 (:90); P3 confirmed it at h_tol/3 PASS and 3·h_tol FAIL at j = 38 and 64 (b677's H5 HELD,
+  data/b677_map_h.txt :7). Not re-measured: the width 1e-30 is read against it.
+  The banks' consumers: data/b683_chain.txt -- the part's refusal and N2; data/b683_map.txt -- H1, H2, H5's rows and the landing;
+  data/b683_map_run.txt -- H3 and H4 (the map's own score lines); data/b683_map_h.txt -- the FINDINGS entry, the trail record and
+  W-ORD-MAP-ANGLE-FORM's discharge (its pin data/b683_map.txt); the orders bank's row. No bank here is consumed by a kernel file.
+
+== 8. THE HYPOTHESES AS THE RUN READS THEM ((R293)(4)), EACH WITH ITS REFUTATION BESIDE IT
+  H1  every control that read INSTRUMENT at b671 and b677 (b671: Q0 j 42-64 at both precisions, data/b671_tie_diagnostic.txt :66-:88,
+      :107-:129, 46 rows; b677's 24, j 53-64 at both, a subset) reads PASS over the b681 balls; a control still failing is read by the b671
+      diagnostic's rule (:5), cited by row. REFUTED by any one of those 46 rows printing anything but PASS. Priced to hold (section 6).
+  H2  the radius at j = 64 is below the bar 2^-20 for every tie, the largest printed with its ratio to the bar. REFUTED by any tie's radius
+      at j = 64 at or above the bar.
+  H3  as data/b663_epstein_plan.txt :131 states it, quoted: "at Q0 every hypothesis of zeroSide_neg_at_rate_cfg certifies by name and hrate
+      holds at some j₀ ≤ D + 40 (the index printed)." HELD with its j₀; REFUTED by any hypothesis NOT CERTIFIED (hQtie included) or by no j₀
+      ≤ 64. On a passing instrument (H1 and H2 held) H3 is an object reading about Q0's detection.
+  H4  as data/b667_epstein_plan.txt :124-:125 states it, quoted: "tools/b667_epstein_map_balls.py (b663's script, q0_list's decimal literals
+      replaced by the certified balls, no computation line changed, the diff banked) prints j₀ = 38 and a zero side below zero, each with its
+      ball." By its own criterion SCORABLE when the map reads a j₀, NOT SCORABLE when it reads none; scored HELD by j₀ = 38 and the zero side's
+      ball below 0, REFUTED by a j₀ other than 38 or a zero side not below 0; hQtie printed as controls k of 41.
+  H5  b677's instrument-side row (data/b677_map_h.txt :9: hQtie taken from coeffs_exist, PowerLimit.lean :686-:704, and the orbit identity,
+      not from balls -- j₀ = 38, its zero side [-7.570971096e+39 +/- 3.96e+29], hrate FAILS j 24-37 and HOLDS at 38, data/b677_map.json)
+      agrees with the ball reading at every j where both exist: hrate's word by j, j₀, and the zero side's sign. The disagreements printed by j.
+      REFUTED by any j whose two words differ, or a differing j₀ or sign.
+  THE LANDING BY (R293)(5): H1 and H2 held -> W-ORD-MAP-ANGLE-FORM DISCHARGED, its Status cell filled, data/b683_map.txt its pin; H3 and H4
+  entered as the act's finding whichever way they read (H3 REFUTED on a passing instrument an object finding about Q0's detection, with the
+  j range; H3 HELD with its j₀); the faces page untouched, the bench line's draft for a later act in the landing bank. H1 failing on any
+  control -> the failure located by row, the order kept open with its trigger re-written from the located failure, no object reading taken.
+  No keystone written. The orders bank: W-ORD-MAP-ANGLE-FORM's row appended to data/b670_work_orders.txt with its Status cell (additive).
+
+== 9. THE RUN, IN FOREGROUND PARTS UNDER 540 s (on the author's word)
+  part 1  `python -X utf8 tools/b683_epstein_map_angle.py part1`: the chain re-verified, then the tool's part 1 -- the control Z₁ and Q0 at qE0
+          at 200 bits and the 400-bit rung: the 123 control rows, H1, H2's radius column, H3, H4. Expected under 120 s. Writes
+          data/b683_chain.txt, data/b683_map_run.txt, data/b683_map.txt, data/b683_map.json (the tool's own bank writes, renamed).
+  hyp     `python -X utf8 tools/b683_epstein_map_angle.py hyp`: data/b683_map_h.txt (.json) from the banks. Seconds.
+  No lean, no kernel file written or read, the b667 and b677 maps unedited (their sha256 printed before and after the part).
+
+== 10. WHAT STOPS THE ACT AT THIS PLAN
+  A chain that does not verify stops the part before any ball is read. A run whose control Z₁ is NOT REPRODUCED in the angle form (j₀ = 31,
+  the zero side below 0) stops the act before any Q0 row is read (the tool's own stop, :615-:617). A changed text of the b667 or b677 map
+  stops the part.
