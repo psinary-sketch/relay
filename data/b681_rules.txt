@@ -1,0 +1,19 @@
+b681 -- THE RULES BANKED BY THIS ACT (2026-10-18)
+
+### rows are rules, each with the ruling that makes it and what it governs (b673's form, `  (n) ...`).
+
+  (1) A ROOT WHOSE NAMED BANKS STOOD RE-BANKED AFTER ITS RECORDED COMMIT IS REPAIRED BY A CORRIGENDUM ROW. Its form, appended to
+      data/act_roots.txt with no row edited: "corrigendum <act> <recorded commit> <corrected commit> <root> <bank> ...", the root value as the
+      act recorded it and the banks named those whose recorded hash the corrected commit carries. Not a link of the chain: tools/act_root.py's
+      last_root and the chain read past it, and verify reads the banks it names at the corrected commit only when the row's act has a chain
+      row, its recorded commit is that act's, its root is that act's, the corrected commit descends from the recorded one, and every bank it
+      names is one the act's root names. Where any named bank differs at the corrected commit, no row is written and the author is asked.
+      (R291)(2); first applied at b681 to b680 (data/b681_root_repair.txt).
+  (2) A PROMPT AFTER THE SEAL IS THE ROOT'S ALONE, AND ITS PRINTS GO WHERE THE POST-ROOT PRINTS GO. A prompt raised after the seal is the
+      root prompt alone; its answer and any defect it enters go to the defects bank and to no bank the root names. The suite's count arms
+      (G-ANSWERS-BANKED, G-ANSWERS-CHECKED, G-DEFECTS-LETTERED) read their counts from the banks at HEAD with the sealed figure as a floor,
+      and any post-seal prompt is named on the face. (R291)(3).
+  (3) EVERY BANK A ROOT NAMES IS COMMITTED AND PUSHED AT THE COMMIT THE ROOT RECORDS. At root time every bank the root route names stands
+      committed, the commit the root records is the HEAD at which every named bank stands, git status prints clean for the named list, and
+      the remote main is read equal to HEAD before the root is computed; the reading banked as data/<act>_root_banks.txt, and the standing arm
+      G-ROOT-BANKS-COMMITTED reads it. (R291)(4); the b680 lesson (its defect (h)).

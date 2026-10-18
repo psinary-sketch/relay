@@ -252,7 +252,50 @@ def branches(*a):
     print(NL.join(L[5:]))
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches}
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R291)(1)-(2)
+WH = ('*Appended 2026-10-18 by b681 to b680’s entry (:9078), under `(R291)`(1)-(2) -- b680 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b680_closing.txt), AND ITS ROOT REPAIRED:*')
+WB = (' “b680 closed: relay 75898036, PLACE-papers 6d8b953; suite 84 of 88; root 764d21d642c8af80…; 4 prompts answered; 8 defects” '
+      '(data/b680_closing.txt :1), the closing pushed at relay 21cb2735 (data/b680_closing_push_out.txt :4). The four failing arms named: '
+      'G-ACTROOT-VERIFY on the root defect (h); G-ANSWERS-BANKED, G-ANSWERS-CHECKED and G-DEFECTS-LETTERED on counts fixed at the seal and '
+      'raised by the post-seal root prompt (d); 0 negative-control failures, 0 positive controls passing; no pre-push reading (g). The readings '
+      'beside b670’s: licensed rows 361 against 372; Correspondence 55 behind against 54, the generator’s claim 0 against 0; orders 38 / 49 / 75 '
+      'against 34 / 46 / 69; methods 9 of 12 by b670’s code, 12 with the hand-read cells, against b671’s 11; the ceiling sentence and its '
+      'successor byte-equal at their three sites each; NOT COMPARABLE: print banks held by 1 of the 9 kernels, residues 5 sentences, keystone '
+      'lag 16 of 19 (largest 244, median 96), the outside-reader test; arms 68, SHAPE 39 and VALUE 29; rules 26 in eight banks, 24 with no arm; '
+      'archive-3 HELD at 4565 of 4635 line citations; the faces line through the generator; three figures; the mirror CLEAN with the root '
+      'line; N1–N5 and S1–S3 HELD; eight defects (a)–(h), (a) and (e) the navigator’s. The root repaired at b681’s step zero: the four banks '
+      'of (h) hashed at 75898036 equal to the hashes the root recorded, so a corrigendum row is appended to relay data/act_roots.txt -- the '
+      'root value as recorded, no row edited -- and tools/act_root.py reads it; the chain b624-b680 AGREE, 57 of 57 (relay '
+      'data/b681_root_repair.txt). Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], 'b681_record_lines.json', 'c1', entry=K.B680_ENTRY,
+         check=[('FINDINGS.md', K.B680_ENTRY, '## Reading 2 of 2'), ('OPEN_TRAILS.md', K.B680_TRAIL, '### b680')], dry=dry)
+
+
+# ================================================================================ (R291)(4): THE ROOT'S BANKS COMMITTED, THE READING BEFORE THE ROOT
+def root_banks_state(banks, rev='HEAD'):
+    """(R291)(4), G-ROOT-BANKS-COMMITTED's reading: for every bank the root names, its git status (clean or not), whether HEAD carries it and
+    whether HEAD's blob equals the working file; HEAD against the remote main (one ls-remote). Returns a dict the arm and the route read."""
+    import hashlib
+    head = g(ROOT, 'rev-parse', rev).strip()
+    rem = (g(ROOT, 'ls-remote', 'origin', 'refs/heads/main').split() or [''])[0]
+    rows = []
+    for b in banks:
+        st = g(ROOT, 'status', '--porcelain', '--', b).strip()
+        r = subprocess.run(['git', '-C', ROOT, 'show', '%s:%s' % (head, b)], capture_output=True)
+        p = os.path.join(ROOT, *b.split('/'))
+        now = open(p, 'rb').read() if os.path.exists(p) else None
+        eq = r.returncode == 0 and now is not None and hashlib.sha256(r.stdout).hexdigest() == hashlib.sha256(now).hexdigest()
+        rows.append(dict(bank=b, status=st or 'clean', at_head=r.returncode == 0, equal=eq))
+    return dict(head=head, remote=rem, rows=rows, clean=all(x['status'] == 'clean' and x['equal'] for x in rows) and bool(rows),
+                pushed=bool(head) and head == rem)
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
