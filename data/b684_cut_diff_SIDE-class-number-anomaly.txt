@@ -1,0 +1,37 @@
+b684 -- THE CUT`S DIFF OF SIDE-class-number-anomaly, RESTRICTED TO COMMENT AND DOCSTRING LINES (2026-10-18T18:04:36Z)
+
+### SIDE-class-number-anomaly a66ac37 (main) -> 328a06b (the cut, recut-class-number-anomaly-b684); files ['SIDEClassNumberAnomaly/Basic.lean'] ; lines added 6, removed 14
+### rows are files: the text with every comment stripped equal before and after ; the control (a one-word code change in the after
+### text, 'theorem unique_diagonal') unequal ; the control`s needle present:
+  SIDEClassNumberAnomaly/Basic.lean  CODE EQUAL True ; CONTROL UNEQUAL True ; NEEDLE PRESENT True
+
+### the diff, whole:
+    diff --git a/SIDEClassNumberAnomaly/Basic.lean b/SIDEClassNumberAnomaly/Basic.lean
+    index d880df8..c5462da 100644
+    --- a/SIDEClassNumberAnomaly/Basic.lean
+    +++ b/SIDEClassNumberAnomaly/Basic.lean
+    @@ -102 +102 @@ theorem three_weight_2 :
+    -/-- Theorem 3.3.  Exactly one Trivium field is Hamming weight 3: ℚ(√-6). -/
+    +/-- Theorem 3.3. ℚ(√-6) has Hamming weight 3 (with Theorems 3.1–3.2, the only Trivium field of weight 3). -/
+    @@ -105 +105,2 @@ theorem unique_diagonal : hammingWeight (-6) = 3 := by decide
+    -/-- Theorem 3.4.  Hamming decomposition (3, 3, 1) covers all seven discriminants. -/
+    +/-- Theorem 3.4. The hand-set counts w1Count = 3, w2Count = 3, w3Count = 1 sum to 7 (hamming_decomposition); that they are the weight
+    +counts of the seven discriminants is Theorems 3.1–3.3. -/
+    @@ -148,12 +149,3 @@ theorem disc_24_only_d_eq_pm_6 :
+    -**Theorem 5.1 (Three-Way Distinction).**
+    -
+    -The Trivium field ℚ(√-6) is distinguished from the other six fields by
+    -three a priori independent properties simultaneously:
+    -
+    -  (a) Hamming weight 3 in (ℤ/2)³  — the diagonal vertex
+    -  (b) Class number 2              — the unique non-principal field
+    -  (c) Discriminant magnitude 24   — the level-3 floor of the {2,3}-tower
+    -
+    -These are three projections of the same underlying fact: 6 = 2·3 carries
+    -full {2, 3}-ramification, producing nonzero coordinates in both prime
+    -directions and the −1 sign together.
+    +**Theorem 5.1 (Three-Way Distinction).** ℚ(√-6) carries all three markers at once — class number > 1, Hamming weight 3,
+    +discriminant magnitude 24 (encoded data); that no other Trivium field carries them all is other_six_lack_all_three and
+    +triple_identification_diagonal.
+
+### ### **FILES 1 ; CODE EQUAL WITH COMMENTS STRIPPED True ; CONTROLS UNEQUAL True ; COMMENT AND DOCSTRING LINES ALONE True.**
