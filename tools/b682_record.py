@@ -930,6 +930,10 @@ REPAIRS = [
      'leaves out tools/correspondence_gen.py and tools/test_correspondence_gen.py, which (R292)(3) orders changed, and takes in b681`s tools',
      'and act_root.py (no longer sealed with the act); G-PP-SCOPE reads FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md beside the two ledgers;',
      'the standing runner arms read this act`s merged run, SIDE-bijection`s, the last merged; all declared on the face.'),
+    ('G-WORKFLOW-FILES READS MATHLIB FROM A REQUIRE CLAUSE (answering the pre-run`s failure of that arm on real state): b681`s predicate read',
+     '"mathlib" anywhere in the lakefile, and SIDE-bijection`s lakefile.lean names Mathlib in a comment ("no Mathlib dependency"), so the arm',
+     'demanded a cache step the Mathlib-free workflow rightly lacks; tools/b682_checks.py wf_state now reads a lakefile.lean `require ... mathlib`',
+     'or a lakefile.toml [[require]] block naming it.'),
 ]
 
 

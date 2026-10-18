@@ -66,7 +66,7 @@ COMBINE = '--combine' in sys.argv
 PART = sys.argv[sys.argv.index('--part') + 1] if '--part' in sys.argv and len(sys.argv) > sys.argv.index('--part') + 1 else None
 L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3))
-FLOORS = dict(prompts=2, calls=2, checks=2, defects=(('a', 'SEAT'), ('b', 'SEAT'), ('c', 'NAVIGATOR'), ('d', 'SEAT')))
+FLOORS = dict(prompts=2, calls=2, checks=2, defects=(('a', 'SEAT'), ('b', 'SEAT'), ('c', 'NAVIGATOR'), ('d', 'SEAT'), ('e', 'SEAT')))
 OBJECT_TOOLS = ('correspondence_gen.py', 'test_correspondence_gen.py')      # ### (R292)(3): the act's object, changed by the act
 INST = tuple(t for t in K681.SEALED) + ('b681_narrow.py',) + tuple(t for t in K680.SEALED) + (
     'b680_readings.py', 'b680_rules_index.py', 'b680_fig_tie.py', 'b680_fig_q0.py', 'b680_fig_li.py') + \
@@ -298,7 +298,10 @@ def wf_state():
     t = read_blob(WD, 'main:' + WF)
     pt = read_blob(WD, 'main:' + PT)
     lf = read_blob(WD, 'main:lakefile.toml') + read_blob(WD, 'main:lakefile.lean')
-    return {CANDIDATE: dict(text=t, before=read_blob(WD, '%s:%s' % (K.T_WORKFLOW, WF)), mathlib='mathlib' in lf.lower(),
+    # ### b682's repair: Mathlib required only by a require clause (a lakefile.lean `require ... mathlib`, a lakefile.toml [[require]] block
+    # ### naming it), not by any mention -- SIDE-bijection's lakefile.lean says "no Mathlib dependency" in a comment
+    req = re.search(r'(?im)^\s*require\b[^\n]*mathlib', lf) or re.search(r'(?is)\[\[require\]\][^\[]*name\s*=\s*"mathlib"', lf)
+    return {CANDIDATE: dict(text=t, before=read_blob(WD, '%s:%s' % (K.T_WORKFLOW, WF)), mathlib=bool(req),
                             targets=[l.strip() for l in pt.split(NL) if l.strip()],
                             act_writes=sorted(set(x for x in gs(WD, 'diff', '--name-only', K.T_PRE_MAIN, 'main').split(NL) if x.strip())))}
 
@@ -750,7 +753,7 @@ def kernel_cut_ok(S):
 
 
 def repairs_ok(S):
-    return '### ### **REPAIRS 1 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8.**' in S['repairs'] \
+    return '### ### **REPAIRS 2 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8.**' in S['repairs'] \
         and "rfind('BEGIN', 0, k)" in S['citation_src'] and "B_ARMS = ('G-ACTROOT-VERIFY', 'G-SHARED-ADDITIVE')" in S['suite'] \
         and "OBJECT_TOOLS = ('correspondence_gen.py', 'test_correspondence_gen.py')" in S['suite']
 
@@ -1052,8 +1055,8 @@ ARMS = [
      lambda S: naming_before_cut_ok(S), lambda S: put(S, 't_naming', 10 ** 11)),
     ('G-KERNEL-CUT', 'the cut bank, the prints compared and the cut`s diff: four rows to MATCHES, the prints equal line for line, docstrings alone (N4)',
      lambda S: kernel_cut_ok(S), lambda S: put(S, 'printsc', S['printsc'].replace('EQUAL LINE FOR LINE True', 'EQUAL LINE FOR LINE False'))),
-    ('G-TOOL-REPAIRS', 'the carry-time bank`s verdict and the carried tools` code: one repair, the sealed copies agreeing, the object tools left out of the instruments',
-     lambda S: repairs_ok(S), lambda S: put(S, 'repairs', S['repairs'].replace('REPAIRS 1 ;', 'REPAIRS 0 ;'))),
+    ('G-TOOL-REPAIRS', 'the carry-time bank`s verdict and the carried tools` code: two repairs, the sealed copies agreeing, the object tools left out of the instruments',
+     lambda S: repairs_ok(S), lambda S: put(S, 'repairs', S['repairs'].replace('REPAIRS 2 ;', 'REPAIRS 0 ;'))),
     ('G-PARTS-PRERUN', 'data/b678_rules.txt row 1 and the pre-run bank`s three parts with their seconds',
      lambda S: parts_ok(S), lambda S: put(S, 'prerun', S['prerun'].replace('PART act', 'PART whole'))),
     ('G-DEFECTS-LETTERED', 'the defects bank read at HEAD: the sealed letters its prefix, consecutive letters, owners the seat or the navigator',
