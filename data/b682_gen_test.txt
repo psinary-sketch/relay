@@ -1,0 +1,82 @@
+b672 -- THE CORRESPONDENCE GENERATOR`S PLANTED CASES, (R282)(4): tools/test_correspondence_gen.py over tools/correspondence_gen.py (the fifth case b682`s, under (R292)(3))
+
+### rows are planted cases, each check with its expected and its read value
+### (1) THE TAG MOVED: SIDE-x v0.1.0 = `aaaaaaa` -> tag v0.2.0 at bbbbbbb; the bank prints Mod.thm with [propext]; the grade bank says INTERFACES
+    PASS row 1 rewritten
+         expected '| a claim | SIDE-x v0.2.0 = `bbbbbbb` (carried at y v0.3) | `Mod.thm` | `{propext}` | **INTERFACES** — prose kept. |'
+         read     '| a claim | SIDE-x v0.2.0 = `bbbbbbb` (carried at y v0.3) | `Mod.thm` | `{propext}` | **INTERFACES** — prose kept. |'
+    PASS row 2 (inheriting) rewritten in its own form
+         expected '| inherited | v0.2.0 (`bbbbbbb`) | `Mod.two` | axiom-free | DERIVES |'
+         read     '| inherited | v0.2.0 (`bbbbbbb`) | `Mod.two` | axiom-free | DERIVES |'
+    PASS row 3 (a bold commit alone): the commit in place, the trailing prose and its pin kept
+         expected '| bold pin | SIDE-x **`bbbbbbb`** (re-verified; drafted against v0.0 `ccccccc`) | `Mod.thm` | `{propext}` | INTERFACES |'
+         read     '| bold pin | SIDE-x **`bbbbbbb`** (re-verified; drafted against v0.0 `ccccccc`) | `Mod.thm` | `{propext}` | INTERFACES |'
+    PASS row 4 (declared at the tag, not in the bank): NOT PRINTED AT the tag, the verified profile and its pin kept beside, the commit bare
+         expected '| not printed | SIDE-x v0.2.0 = `bbbbbbb` | `Mod.np` | NOT PRINTED AT v0.2.0 (was `{propext, Quot.sound}` at v0.1.0 = aaaaaaa) | DERIVES |'
+         read     '| not printed | SIDE-x v0.2.0 = `bbbbbbb` | `Mod.np` | NOT PRINTED AT v0.2.0 (was `{propext, Quot.sound}` at v0.1.0 = aaaaaaa) | DERIVES |'
+    PASS lines outside the table untouched; row count equal
+         expected (['# A planted document', '', '### Correspondence', '', 'Prose above the table.', '', '| Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |', '|:--|:--|:--|:--|:--|'], ['', 'Prose beneath the table.'], 14)
+         read     (['# A planted document', '', '### Correspondence', '', 'Prose above the table.', '', '| Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |', '|:--|:--|:--|:--|:--|'], ['', 'Prose beneath the table.'], 14)
+    PASS cells changed 8 (kernel, profile, status of row 1; kernel of row 2; kernel, status of row 3; kernel, profile of row 4)
+         expected 8
+         read     8
+    PASS no blank cell
+         expected True
+         read     True
+### (2) A DECLARATION VANISHED: Mod.gone is not declared at v0.2.0
+    PASS profile reads ABSENT AT v0.2.0; pin and status kept
+         expected '| a claim | SIDE-x v0.1.0 = `aaaaaaa` | `Mod.gone` | ABSENT AT v0.2.0 | **DERIVES** — prose. |'
+         read     '| a claim | SIDE-x v0.1.0 = `aaaaaaa` | `Mod.gone` | ABSENT AT v0.2.0 | **DERIVES** — prose. |'
+    PASS ABSENT counted 1, by kernel
+         expected (1, 1)
+         read     (1, 1)
+    PASS no blank cell
+         expected True
+         read     True
+### (3) A KERNEL WITH NO PRINT BANK: SIDE-z at v0.2.0, the grade bank says DERIVES
+    PASS profile NO PRINT BANK AT v0.2.0; grade DERIVES UNREFRESHED
+         expected '| a claim | SIDE-z v0.2.0 | `Z.thm` | NO PRINT BANK AT v0.2.0 | **DERIVES UNREFRESHED** — prose. |'
+         read     '| a claim | SIDE-z v0.2.0 | `Z.thm` | NO PRINT BANK AT v0.2.0 | **DERIVES UNREFRESHED** — prose. |'
+    PASS the kernel-less row untouched
+         expected '| none | (none) | — | — | Manuscript-resident |'
+         read     '| none | (none) | — | — | Manuscript-resident |'
+    PASS NO PRINT BANK counted 1, by kernel
+         expected (1, 1)
+         read     (1, 1)
+    PASS run again: unchanged (the cell words are idempotent)
+         expected (['# A planted document', '', '### Correspondence', '', 'Prose above the table.', '', '| Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |', '|:--|:--|:--|:--|:--|', '| a claim | SIDE-z v0.2.0 | `Z.thm` | NO PRINT BANK AT v0.2.0 | **DERIVES UNREFRESHED** — prose. |', '| none | (none) | — | — | Manuscript-resident |', '', 'Prose beneath the table.'], 0)
+         read     (['# A planted document', '', '### Correspondence', '', 'Prose above the table.', '', '| Claim | Kernel | Theorem (fully qualified) | Axiom profile | Status |', '|:--|:--|:--|:--|:--|', '| a claim | SIDE-z v0.2.0 | `Z.thm` | NO PRINT BANK AT v0.2.0 | **DERIVES UNREFRESHED** — prose. |', '| none | (none) | — | — | Manuscript-resident |', '', 'Prose beneath the table.'], 0)
+### (4) A TABLE ALREADY AT ITS TAG: the file`s bytes identical, CRLF kept; case (1)`s output run again identical
+    PASS bytes identical
+         expected True
+         read     True
+    PASS the deposit pin and its inheriting row HELD, counted 2
+         expected 2
+         read     2
+    PASS case (1)`s output run again: identical, 0 cells changed
+         expected (True, 0)
+         read     (True, 0)
+### (5) A KERNEL WITH A RUNNER PRINT BANK AT ITS TAG (b682): SIDE-y at v0.3.1, its banks planted in b678`s form -- b999_runner_SIDE-y_after.txt (the header`s ref built) beside b999_axioms_SIDE-y_after.txt (the raw #print axioms lines); Y.gone absent at the tag, Y.thm printed [propext], Y.np declared and not printed
+    PASS the reader takes the axioms bank by its path form, and not the runner bank as a bank of rows
+         expected True
+         read     True
+    PASS the built commit read from the companion runner bank`s header; the prints from the raw lines
+         expected ('ccccccc333333333333333333333333333333333', {'SIDEY.Y.thm': ['propext'], 'SIDEY.Y.other': []})
+         read     ('ccccccc333333333333333333333333333333333', {'SIDEY.Y.thm': ['propext'], 'SIDEY.Y.other': []})
+    PASS a declaration absent at the tag and from the bank reads ABSENT, not NO PRINT BANK
+         expected '| absent | SIDE-y v0.3.0 | `Y.gone` | ABSENT AT v0.3.1 | **DERIVES UNREFRESHED** — prose. |'
+         read     '| absent | SIDE-y v0.3.0 | `Y.gone` | ABSENT AT v0.3.1 | **DERIVES UNREFRESHED** — prose. |'
+    PASS a printed declaration reads the bank`s verdict: the kernel to the tag, the profile the bank`s, UNREFRESHED dropped
+         expected '| printed | SIDE-y v0.3.1 | `Y.thm` | `{propext}` | **DERIVES** — prose. |'
+         read     '| printed | SIDE-y v0.3.1 | `Y.thm` | `{propext}` | **DERIVES** — prose. |'
+    PASS a declaration declared and not printed reads NOT PRINTED AT the tag (b672`s word)
+         expected '| not printed | SIDE-y v0.3.1 | `Y.np` | NOT PRINTED AT v0.3.1 | DERIVES |'
+         read     '| not printed | SIDE-y v0.3.1 | `Y.np` | NOT PRINTED AT v0.3.1 | DERIVES |'
+    PASS the counts: ABSENT 1, NOT PRINTED 1, NO PRINT BANK 0
+         expected (1, 1, 0)
+         read     (1, 1, 0)
+    PASS no blank cell
+         expected True
+         read     True
+
+### ### **PLANTED CASES 5 ; AS WANTED 5 ; PASS**

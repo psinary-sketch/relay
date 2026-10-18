@@ -7,12 +7,16 @@ tools/correspondence_gen.py's regen_lines / regen_bytes with no git, no remote a
   (2) a declaration vanished: the profile token reads ABSENT AT <tag>; the pin and the status are kept.
   (3) a kernel with no print bank: the profile token reads NO PRINT BANK AT <tag>; the grade token carries UNREFRESHED.
   (4) a table already at its tag: the file's bytes identical (CRLF kept), and case (1)'s output run again is identical.
-Each case also checks that no row is gained or lost and no cell is left blank.
+  (5) (b682, W-ORD-CORRESPONDENCE-RUNNER-BANKS) a kernel with a runner print bank at its tag, planted in the form b674, b676 and b678 banked
+      it (an axioms bank beside its runner bank, in a scratch directory) and read by the generator's reader: a declaration absent from the
+      kernel at the tag, and so from the bank, reads ABSENT AT <tag> and not NO PRINT BANK; a printed declaration reads the bank's verdict, the
+      word NO PRINT BANK replaced by it; a declaration declared at the tag and not printed reads NOT PRINTED AT <tag> (b672's word kept).
+Each case also checks that no row is gained or lost and no cell is left blank. Every check prints its expected and its read value (b682).
 
     python -X utf8 tools/test_correspondence_gen.py          prints the cases
-    python -X utf8 tools/test_correspondence_gen.py bank     also writes the print to data/b672_gen_test.txt
+    python -X utf8 tools/test_correspondence_gen.py bank [name]   also writes the print to data/<name> (default b672_gen_test.txt)
 """
-import os, sys
+import os, sys, tempfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import correspondence_gen as G
@@ -47,9 +51,8 @@ OUT = []
 def check(name, got, want):
     ok = got == want
     OUT.append('    %-4s %s' % ('PASS' if ok else 'FAIL', name))
-    if not ok:
-        OUT.append('         got  %r' % (got,))
-        OUT.append('         want %r' % (want,))
+    OUT.append('         expected %r' % (want,))
+    OUT.append('         read     %r' % (got,))
     return ok
 
 
@@ -117,20 +120,58 @@ def case4(L1, c1):
     return ok
 
 
+def case5():
+    OUT.append('### (5) A KERNEL WITH A RUNNER PRINT BANK AT ITS TAG (b682): SIDE-y at v0.3.1, its banks planted in b678`s form -- b999_runner_SIDE-y_after.txt '
+               '(the header`s ref built) beside b999_axioms_SIDE-y_after.txt (the raw #print axioms lines); Y.gone absent at the tag, Y.thm printed '
+               '[propext], Y.np declared and not printed')
+    C_Y = 'c' * 7 + '3' * 33
+    with tempfile.TemporaryDirectory(prefix='b682_case5_') as tmp:
+        open(os.path.join(tmp, 'b999_runner_SIDE-y_after.txt'), 'w', encoding='utf-8').write(
+            'b999 -- COMPONENT 3: THE HOSTED RUNNER FOR SIDE-y, AFTER, READ BY ITS RUN ID\n\n### the dispatch: at main, the ref input %s ; the target `Y`\n'
+            '### the ref built (out/ref.txt): %s leanprover/lean4:v4.29.0-rc8\n' % (C_Y, C_Y))
+        open(os.path.join(tmp, 'b999_axioms_SIDE-y_after.txt'), 'w', encoding='utf-8').write(
+            "'SIDEY.Y.thm' depends on axioms: [propext]\n'SIDEY.Y.other' does not depend on any axioms\n")
+        named = bool(G.AX_NAME.match('b999_axioms_SIDE-y_after.txt')) and not G.BANK_NAME.match('b999_runner_SIDE-y_after.txt')
+        built, prints = G.parse_bank(os.path.join(tmp, 'b999_axioms_SIDE-y_after.txt'))
+    ok = check('the reader takes the axioms bank by its path form, and not the runner bank as a bank of rows', named, True)
+    ok &= check('the built commit read from the companion runner bank`s header; the prints from the raw lines', (built, prints),
+                (C_Y, {'SIDEY.Y.thm': ['propext'], 'SIDEY.Y.other': []}))
+    rows = ['| absent | SIDE-y v0.3.0 | `Y.gone` | NO PRINT BANK AT v0.3.0 | **DERIVES UNREFRESHED** — prose. |',
+            '| printed | SIDE-y v0.3.0 | `Y.thm` | NO PRINT BANK AT v0.3.0 | **DERIVES UNREFRESHED** — prose. |',
+            '| not printed | SIDE-y v0.3.0 | `Y.np` | NO PRINT BANK AT v0.3.0 | DERIVES |']
+    c = ctx({'SIDE-y': ('v0.3.1', C_Y)}, {'SIDE-y': dict(prints=prints)}, {('SIDE-y', 'ccccccc', 'thm'), ('SIDE-y', 'ccccccc', 'np')},
+            {'SIDE-y': {'SIDEY.Y.thm': 'DERIVES', 'SIDEY.Y.np': 'DERIVES'}})
+    L1, r = G.regen_lines(doc(rows), ANCHOR, c, 'planted-5')
+    ok &= check('a declaration absent at the tag and from the bank reads ABSENT, not NO PRINT BANK', L1[8],
+                '| absent | SIDE-y v0.3.0 | `Y.gone` | ABSENT AT v0.3.1 | **DERIVES UNREFRESHED** — prose. |')
+    ok &= check('a printed declaration reads the bank`s verdict: the kernel to the tag, the profile the bank`s, UNREFRESHED dropped', L1[9],
+                '| printed | SIDE-y v0.3.1 | `Y.thm` | `{propext}` | **DERIVES** — prose. |')
+    ok &= check('a declaration declared and not printed reads NOT PRINTED AT the tag (b672`s word)', L1[10],
+                '| not printed | SIDE-y v0.3.1 | `Y.np` | NOT PRINTED AT v0.3.1 | DERIVES |')
+    ok &= check('the counts: ABSENT 1, NOT PRINTED 1, NO PRINT BANK 0', (r['counts']['ABSENT'], r['counts']['NOT PRINTED'], r['counts']['NO PRINT BANK']),
+                (1, 1, 0))
+    ok &= check('no blank cell', cells_ok(L1), True)
+    return ok
+
+
 def main():
-    OUT.append('b672 -- THE CORRESPONDENCE GENERATOR`S PLANTED CASES, (R282)(4): tools/test_correspondence_gen.py over tools/correspondence_gen.py')
+    OUT.append('b672 -- THE CORRESPONDENCE GENERATOR`S PLANTED CASES, (R282)(4): tools/test_correspondence_gen.py over tools/correspondence_gen.py '
+               '(the fifth case b682`s, under (R292)(3))')
     OUT.append('')
+    OUT.append('### rows are planted cases, each check with its expected and its read value')
     ok1, L1, c1 = case1()
-    res = [ok1, case2(), case3(), case4(L1, c1)]
+    res = [ok1, case2(), case3(), case4(L1, c1), case5()]
     n = sum(1 for x in res if x)
     OUT.append('')
-    OUT.append('### ### **PLANTED CASES 4 ; AS WANTED %d ; %s**' % (n, 'PASS' if n == 4 else 'FAIL'))
+    OUT.append('### ### **PLANTED CASES %d ; AS WANTED %d ; %s**' % (len(res), n, 'PASS' if n == len(res) else 'FAIL'))
     print('\n'.join(OUT))
     if 'bank' in sys.argv[1:]:
-        p = os.path.join(G.D, 'b672_gen_test.txt')
+        rest = sys.argv[sys.argv.index('bank') + 1:]
+        name = rest[0] if rest else 'b672_gen_test.txt'
+        p = os.path.join(G.D, name)
         open(p + '.tmp', 'wb').write(('\n'.join(OUT) + '\n').encode('utf-8'))
         os.replace(p + '.tmp', p)
-    sys.exit(0 if n == 4 else 1)
+    sys.exit(0 if n == len(res) else 1)
 
 
 if __name__ == '__main__':
