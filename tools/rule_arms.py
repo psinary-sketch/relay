@@ -241,6 +241,15 @@ def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=N
             if t:
                 runs[(a, kind)] = [(p, int(s)) for p, _n, s in re.findall(r'(?m)^  ### PART ([\w-]+) : ARMS (\d+) ; (\d+) s$', t)]
     R['runs'] = runs
+    # ### b684's carry-time repair (the navigator's answer on the split rule): each act's governing parts read from the rules banks -- the
+    # ### latest rules bank at or before the act whose rows name the suite's standing parts (`standing-<x>`), those parts and the act's
+    # ### part; b678 row 1 (three parts) governs b678-b683, b684 row (1) (four) from b684.
+    gov = []
+    for p in _banks('b*_rules.txt', 678):
+        rows = [r for r in re.split(r'(?m)^  \((?=\d+\) )', _rd(p)) if re.search(r'\bstanding-[a-z]\b', r)]
+        if rows:
+            gov.append((_act_of(p), os.path.basename(p), sorted(set(re.findall(r'\bstanding-[a-z]\b', ' '.join(rows)))) + ['act']))
+    R['governing'] = gov
     pv = _rd(os.path.join(D, 'b%d_arms_prerun.txt' % (n - 1)))
     R['prev_longest'] = max([int(x) for x in re.findall(r'THE LONGEST PHASE (\d+) s', pv)] or [0])
     R['prev_parts'] = len(set(p for p, _s in runs.get((n - 1, 'arms_prerun'), [])))
@@ -395,11 +404,16 @@ def reading(name, R):
         return ok, 1, 0 if ok else 1, 'the previous act`s pre-run`s longest phase %d s (above 450 s: %s) ; its parts %d, this act`s %d%s' % (
             R['prev_longest'], trig, R['prev_parts'], len(set(R['parts'])), '' if trig else ' -- NOT REACHED')
     if name == 'G-RULE-SUITE-PARTS':
-        runs = R['runs']
-        bad = [('b%d' % a, k) for (a, k), ps in runs.items() if sorted(p for p, _s in ps) != sorted(['standing-a', 'standing-b', 'act'])
+        runs, gov = R['runs'], R.get('governing') or []
+
+        def parts_of(a):
+            g_ = [x for x in gov if x[0] <= a]
+            return (g_[-1][2], g_[-1][1]) if g_ else (None, None)
+        bad = [('b%d' % a, k) for (a, k), ps in runs.items() if parts_of(a)[0] is None or sorted(p for p, _s in ps) != sorted(parts_of(a)[0])
                or any(s >= 600 for _p, s in ps)]
-        return bool(runs) and not bad, len(runs), len(bad), 'run banks b678-b%d %d ; without three parts or with a part at or above 600 s %s' % (
-            n, len(runs), bad or 'NONE')
+        return bool(runs) and bool(gov) and not bad, len(runs), len(bad), (
+            'run banks b678-b%d %d, each against its act`s governing parts (%s) ; without them or with a part at or above 600 s %s' % (
+                n, len(runs), '; '.join('%s from b%d: %s' % (b, a, ps) for a, b, ps in gov), bad or 'NONE'))
     raise KeyError(name)
 
 
@@ -455,7 +469,7 @@ ARMS = [
      lambda R: _p(R, 'gates', _with(R['gates'], 675, dict(present=True, clean=False, at=None)))),
     ('G-RULE-LONG-PHASE-SPLIT', 'b675 row 2: the previous act`s pre-run`s longest phase against this act`s parts',
      lambda R: _p(_p(R, 'prev_longest', 500), 'parts', ['x'])),
-    ('G-RULE-SUITE-PARTS', 'b678 row 1 (and b677 row 1 through it): every run bank from b678, its three parts each under 600 s',
+    ('G-RULE-SUITE-PARTS', 'b678 row 1 (and b677 row 1 through it) and b684 row (1): every run bank from b678, against its act`s governing parts from the rules banks, each under 600 s',
      lambda R: _p(R, 'runs', _with(R['runs'], (678, 'planted'), [('standing', 1)]))),
 ]
 ARMS = [(nm, reads, (lambda k: lambda R: reading(k, R)[0])(nm), plant) for nm, reads, plant in ARMS]

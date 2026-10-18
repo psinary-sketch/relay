@@ -1,0 +1,133 @@
+b684 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES (2026-10-18T18:26:57Z)
+
+### the source: the seat`s session df03c73f-520a-4848-85dc-8fada095f008 from its first user line carrying 'RULING (R294) BEGIN', and its subagents` transcripts
+### commands read: 95
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (5):
+  #44 gh workflow run build-module.yml -R psinary-sketch/SIDE-class-number-anomaly --ref main -f ref=a66ac371dc56eb0731fb5f2412eae0246c04c47a -f target=SIDEClassNumberAnomaly && sleep 8 && gh run list -R psinary-sketch/SIDE-class-number-anomaly -
+  #48 gh workflow run build-module.yml -R psinary-sketch/SIDE-class-number-anomaly --ref main -f ref=$(git -C /d/SIDE-class-number-anomaly rev-parse 328a06b) -f target=SIDEClassNumberAnomaly && sleep 8 && gh run list -R psinary-sketch/SIDE-class-
+  #69 gh workflow run build-module.yml -R psinary-sketch/SIDE-window --ref main -f ref=$(git -C /d/SIDE-window rev-parse d3d9213) -f target=SIDEWindow && sleep 8 && gh run list -R psinary-sketch/SIDE-window --workflow build-module.yml --limit 1 -
+  #74 gh workflow run build-module.yml -R psinary-sketch/SIDE-trivium --ref main -f ref=$(git -C /d/SIDE-trivium rev-parse fd42d96) -f target="Trivium Trivium.CardDerived" && sleep 8 && gh run list -R psinary-sketch/SIDE-trivium --workflow build-
+  #78 gh workflow run build-module.yml -R psinary-sketch/SIDE-silence-principle --ref main -f ref=$(git -C /d/SIDE-silence-principle rev-parse 675679c) -f target=SIDESilencePrinciple && sleep 8 && gh run list -R psinary-sketch/SIDE-silence-princi
+
+### THE COMMANDS THAT START A DETACHED RUN (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+  #18 2026-10-18T17:29:00.229Z Bash
+      git -C D:/relay branch --merged main --list push-b683-root && git -C D:/relay branch -d push-b683-root
+  #19 2026-10-18T17:29:04.162Z Bash
+      git -C D:/relay branch --merged main --list push-b683 && git -C D:/relay branch -d push-b683
+  #20 2026-10-18T17:29:07.928Z Bash
+      git -C D:/relay branch --merged main --list push-b683-closing && git -C D:/relay branch -d push-b683-closing
+  #21 2026-10-18T17:29:12.184Z Bash
+      git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b683-root && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b683-root
+  #22 2026-10-18T17:29:17.299Z Bash
+      git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b683 && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b683
+
+### THE BRANCH DELETES BY SHAPE ((R294)(5): one branch per command, no glob in any half): #18 deletes ['push-b683-root'], globs none; #19 deletes ['push-b683'], globs none; #20 deletes ['push-b683-closing'], globs none; #21 deletes ['push-b683-root'], globs none; #22 deletes ['push-b683'], globs none
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-18T17:21:13.596Z | seat | Bash | cd /d/relay/data && for f in b674_cut.txt b676_cut.txt b678_cut.txt; do echo "=== $f $(wc -l < $f)"; grep -n -i "residue\|not reach\|unreached\|RESIDUE\|ACTION"
+  #2 | 2026-10-18T17:21:18.818Z | seat | Bash | awk 'NR>=25&&NR<=34' b674_cut.txt | cut -c1-260; echo ====; awk 'NR>=33&&NR<=44' b676_cut.txt | cut -c1-260; echo ====; awk 'NR>=36&&NR<=60' b678_cut.txt | cut 
+  #3 | 2026-10-18T17:21:38.918Z | seat | Bash | head -8 b647_table_SIDE-window.txt | cut -c1-200; grep -n "Sawtooth.lean:1 " b647_table_SIDE-window.txt | cut -c1-120; grep -n "Bijection.lean:1 " b647_table_SI
+  #4 | 2026-10-18T17:21:44.199Z | seat | Bash | awk 'NR>=81&&NR<=95' b647_table_SIDE-window.txt | cut -c1-400; echo =====; awk 'NR>=37&&NR<=50' b647_table_SIDE-trivium.txt | cut -c1-400
+  #5 | 2026-10-18T17:21:51.967Z | seat | Bash | cd /d/relay && git grep -l "LICENSED reading\|ACTION:" -- 'data/b64*.txt' 'data/b65*.txt' 'data/b67*.txt' | head -20; git grep -n "Sawtooth.lean:1" -- 'data/b64
+  #6 | 2026-10-18T17:21:57.894Z | seat | Bash | cd /d/relay/data && awk 'NR>=15&&NR<=19' b647_table_SIDE-window.txt | cut -c1-900; echo ====; awk 'NR>=10&&NR<=14' b647_table_SIDE-trivium.txt | cut -c1-900; ec
+  #7 | 2026-10-18T17:22:06.490Z | seat | Bash | head -5 b647_table_kernels.txt | cut -c1-200; grep -n "SIDE-class-number-anomaly\|SIDE-li-map\|SIDE-spinor" b647_table_kernels.txt | cut -c1-200; awk 'NR==103||
+  #8 | 2026-10-18T17:22:20.560Z | seat | Bash | cd /d/SIDE-class-number-anomaly && git log --oneline -3 && git tag -l && git status --short | head && git ls-files | head -30 && cat lakefile.* 2>/dev/null | he
+  #9 | 2026-10-18T17:22:40.062Z | seat | Bash | cd /d/SIDE-bijection && git show main:.github/workflows/build-module.yml; git show main:print_targets.txt | head -3; git show main:lakefile.lean 2>/dev/null | h
+  #10 | 2026-10-18T17:23:14.422Z | seat | Bash | cd /d/relay/data && ls b674_axioms_SIDE-window_after.txt b676_axioms_SIDE-trivium_after.txt b678_axioms_SIDE-silence-principle_after.txt; for k in SIDE-window S
+  #11 | 2026-10-18T17:24:36.563Z | seat | Bash | cd /d/relay && python -X utf8 tools/b684_citation.py check && python -X utf8 tools/b684_citation.py ferry
+  #12 | 2026-10-18T17:25:16.217Z | seat | Bash | grep -n "b683\|b682" tools/b683_tests.py
+  #13 | 2026-10-18T17:26:07.351Z | seat | Bash | awk 'NR>=1&&NR<=30' tools/b683_record.py | head -3; grep -n "^def \|^ROUTES\|^WH\|^WB\|^ORDERS\|^OH\|^OB" tools/b683_record.py | head -60
+  #14 | 2026-10-18T17:28:18.869Z | seat | Bash | timeout 590 python -X utf8 tools/b684_record.py rowgen | tail -2
+  #15 | 2026-10-18T17:28:44.101Z | seat | PowerShell | $p = @(Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|python3|py|bash)(\.exe)?$' }); $p | Select-Object ProcessId, Name,
+  #16 | 2026-10-18T17:28:50.392Z | seat | Bash | git add data/b683_closing_push_out.txt && git commit -q -m "b684 step zero: b683's closing push capture committed ((R294)(5))" && git log --oneline -1
+  #17 | 2026-10-18T17:28:54.628Z | seat | Bash | python -X utf8 tools/b684_record.py branches
+  #18 | 2026-10-18T17:29:00.229Z | seat | Bash | git -C D:/relay branch --merged main --list push-b683-root && git -C D:/relay branch -d push-b683-root
+  #19 | 2026-10-18T17:29:04.162Z | seat | Bash | git -C D:/relay branch --merged main --list push-b683 && git -C D:/relay branch -d push-b683
+  #20 | 2026-10-18T17:29:07.928Z | seat | Bash | git -C D:/relay branch --merged main --list push-b683-closing && git -C D:/relay branch -d push-b683-closing
+  #21 | 2026-10-18T17:29:12.184Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b683-root && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b683-root
+  #22 | 2026-10-18T17:29:17.299Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list push-b683 && git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b683
+  #23 | 2026-10-18T17:29:21.367Z | seat | Bash | python -X utf8 tools/b684_tests.py parts
+  #24 | 2026-10-18T17:29:28.886Z | seat | Bash | python -X utf8 tools/b684_tests.py hold 1 && python -X utf8 tools/b684_tests.py run test_asof.py
+  #25 | 2026-10-18T17:37:24.002Z | seat | Bash | python -X utf8 tools/b684_tests.py hold 2 && python -X utf8 tools/b684_tests.py run test_chain_page.py
+  #26 | 2026-10-18T17:45:39.262Z | seat | Bash | python -X utf8 tools/b684_tests.py hold 3 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_add
+  #27 | 2026-10-18T17:50:17.560Z | seat | Bash | python -X utf8 tools/b684_tests.py hold 4 && for t in test_faces_form.py test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py test_l
+  #28 | 2026-10-18T17:54:09.643Z | seat | Bash | python -X utf8 tools/b684_tests.py hold 5 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_name
+  #29 | 2026-10-18T17:58:44.929Z | seat | Bash | git add data/b684_ferry.txt data/b684_ferry_scan.txt data/b684_citation_check.txt data/b684_citation_check.json data/b684_readfirst.txt data/b684_rowgen_stepzer
+  #30 | 2026-10-18T17:59:49.536Z | seat | Bash | python -X utf8 tools/b684_citation.py answer "ANSWER on the split rule"
+  #31 | 2026-10-18T18:00:06.941Z | seat | Bash | python -X utf8 tools/b684_record.py answers && python -X utf8 tools/b684_record.py c1 dry | head -1
+  #32 | 2026-10-18T18:00:16.605Z | seat | Bash | python -X utf8 tools/b684_record.py c1 | tail -1
+  #33 | 2026-10-18T18:00:23.080Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b684 C1: b683 at its weight, as its closing prints ((R294)(1)), FINDINGS :9198" && g
+  #34 | 2026-10-18T18:00:29.614Z | seat | Bash | cd /d/relay && git add data/b684_rules.txt data/b684_defects.txt data/b684_author_answers.txt data/b684_author_answers.json data/b684_citation_check.txt data/b6
+  #35 | 2026-10-18T18:00:36.821Z | seat | Bash | timeout 590 python -X utf8 tools/b684_record.py naming
+  #36 | 2026-10-18T18:01:56.627Z | seat | Bash | git add data/b684_naming.txt data/b684_naming.json && git commit -q -m "b684 C2: the naming bank -- the order, the rule row and the table rows verbatim; SIDE-cl
+  #37 | 2026-10-18T18:02:05.454Z | seat | Bash | cd /d/relay/data && awk 'NR>=8&&NR<=30' b647_table_SIDE-class-number-anomaly.txt | cut -c1-1200
+  #38 | 2026-10-18T18:02:12.263Z | seat | Bash | cd /d/SIDE-class-number-anomaly && wc -l SIDEClassNumberAnomaly/Basic.lean && cat SIDEClassNumberAnomaly.lean && awk 'NR>=98&&NR<=112 || NR>=144&&NR<=162 {print
+  #39 | 2026-10-18T18:02:25.964Z | seat | Bash | cd /d/relay && grep -n "push_gated\|push origin\|gh workflow run\|git tag\|merge" data/b682_commands.txt | grep -v "^.*#.*| seat | Bash | cd /d/relay && python"
+  #40 | 2026-10-18T18:02:28.889Z | seat | Bash | awk 'NR>=139&&NR<=157' data/b682_commands.txt | cut -c60-420
+  #41 | 2026-10-18T18:02:50.817Z | seat | Bash | cd /d/SIDE-class-number-anomaly && git add .github/workflows/build-module.yml && git commit -q -m "build-module: the hand-dispatched build of one ref with #prin
+  #42 | 2026-10-18T18:02:58.971Z | seat | Bash | git add print_targets.txt && git commit -q -m "print_targets: every declaration of SIDEClassNumberAnomaly.Basic, 25 names (b684, under (R294)(3))" && git log --
+  #43 | 2026-10-18T18:03:03.613Z | seat | Bash | git branch push-b684-main a66ac37 && PUSH_GATED_LOG=/d/relay/data/b684_cna_main_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-class-number-anomaly push
+  #44 | 2026-10-18T18:03:11.298Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-class-number-anomaly --ref main -f ref=a66ac371dc56eb0731fb5f2412eae0246c04c47a -f target=SIDEClassNumbe
+  #45 | 2026-10-18T18:03:26.875Z | seat | Bash | git checkout -q -b recut-class-number-anomaly-b684 a66ac37 && git branch --show-current && file SIDEClassNumberAnomaly/Basic.lean
+  #46 | 2026-10-18T18:03:41.231Z | seat | Bash | git diff --stat && git add SIDEClassNumberAnomaly/Basic.lean && git commit -q -m "re-cut: SIDEClassNumberAnomaly/Basic.lean's docstrings :102, :105, :147 to the
+  #47 | 2026-10-18T18:03:46.142Z | seat | Bash | git push origin recut-class-number-anomaly-b684
+  #48 | 2026-10-18T18:03:51.713Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-class-number-anomaly --ref main -f ref=$(git -C /d/SIDE-class-number-anomaly rev-parse 328a06b) -f targe
+  #49 | 2026-10-18T18:04:15.720Z | seat | Bash | cd /d/relay && python -X utf8 tools/b684_record.py runner SIDE-class-number-anomaly 39152381542 a66ac371dc56eb0731fb5f2412eae0246c04c47a before "at main a66ac37
+  #50 | 2026-10-18T18:04:22.599Z | seat | Bash | timeout 500 gh run watch 39152447248 -R psinary-sketch/SIDE-class-number-anomaly --exit-status > /dev/null; echo "watch exit $?"; gh run view 39152447248 -R psi
+  #51 | 2026-10-18T18:04:33.248Z | seat | Bash | python -X utf8 tools/b684_record.py runner SIDE-class-number-anomaly 39152447248 $(git -C /d/SIDE-class-number-anomaly rev-parse 328a06b) after "at the cut 328a
+  #52 | 2026-10-18T18:04:40.844Z | seat | Bash | python -X utf8 -c "
+  #53 | 2026-10-18T18:04:44.974Z | seat | Bash | cd /d/SIDE-class-number-anomaly && git checkout -q main && git merge --no-ff -q -m "merge recut-class-number-anomaly-b684: SIDEClassNumberAnomaly/Basic.lean's d
+  #54 | 2026-10-18T18:04:49.813Z | seat | Bash | git branch push-b684-merge 68df58d && PUSH_GATED_LOG=/d/relay/data/b684_cna_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-class-number-anomaly pu
+  #55 | 2026-10-18T18:05:04.257Z | seat | Bash | cd /d/relay && head -12 data/b682_cut.txt | cut -c1-220; timeout 500 python -X utf8 tools/correspondence_gen.py dry 2>&1 | grep -c "SIDE-class-number-anomaly"; 
+  #56 | 2026-10-18T18:05:46.299Z | seat | Bash | cd /d/SIDE-class-number-anomaly && git grep -n "theorem unique_diagonal\|theorem hamming_decomposition\|theorem three_way_distinction\|Theorem 5.1\|Theorem 3.4\
+  #57 | 2026-10-18T18:05:52.610Z | seat | Bash | cd /d/relay && git add data/b684_cut.txt data/b684_runner_SIDE-class-number-anomaly_before.txt data/b684_runner_SIDE-class-number-anomaly_after.txt data/b684_ax
+  #58 | 2026-10-18T18:06:00.646Z | seat | Bash | cd /d/SIDE-window && git show v0.5.1:SIDEWindow/Sawtooth.lean | awk 'NR<=40{printf "%d: %s\n", NR, $0}'
+  #59 | 2026-10-18T18:06:09.303Z | seat | Bash | cd /d/SIDE-trivium && git show v0.1.1:Trivium/Bijection.lean | awk 'NR<=45{printf "%d: %s\n", NR, $0}'; echo =====; cd /d/SIDE-silence-principle && git show v0.
+  #60 | 2026-10-18T18:06:36.013Z | seat | Bash | cd /d/relay/data && grep -o "'SIDEWindow\.[A-Za-z_0-9.]*'[^\n]*" b674_axioms_SIDE-window_after.txt | grep -i "chain\|odd\|sum\|halv" | head; grep -o "'Trivium\.
+  #61 | 2026-10-18T18:07:01.836Z | seat | Bash | cd /d/relay && git add data/b684_residues.txt && git commit -q -m "b684 C3: the three residues -- each row, its b647 ACTION and the sentences it did not reach, 
+  #62 | 2026-10-18T18:07:29.342Z | seat | Bash | cd /d/SIDE-window && git grep -n "theorem chain_shape\|theorem count_is_exact_halving\|theorem chains_partition" v0.5.1 -- SIDEWindow/Sawtooth.lean
+  #63 | 2026-10-18T18:07:32.826Z | seat | Bash | cd /d/relay && git add data/b684_residue_actions.txt && git commit -q -m "b684 C3: the re-derived ACTIONs (R1 window marker, R2 trivium introduction, R3a silenc
+  #64 | 2026-10-18T18:09:35.338Z | seat | Bash | python -X utf8 tools/b684_citation.py answer "WORD on (R294)(4)"
+  #65 | 2026-10-18T18:09:43.612Z | seat | Bash | python -X utf8 tools/b684_record.py answers && cd /d/SIDE-window && git ls-tree --name-only main .github/workflows/ && git show main:print_targets.txt | wc -l &
+  #66 | 2026-10-18T18:09:52.866Z | seat | Bash | git show main:.github/workflows/build-module.yml | grep -n "print\|Axiom\|inputs\|target" | head -20; git ls-tree --name-only main; head -3 /d/relay/data/b674_r
+  #67 | 2026-10-18T18:10:04.917Z | seat | Bash | git diff --stat && git add SIDEWindow/Sawtooth.lean && git commit -q -m "re-cut: SIDEWindow/Sawtooth.lean's header marker at :17 to its re-derived ACTION (b684,
+  #68 | 2026-10-18T18:10:09.015Z | seat | Bash | git push origin recut-window-b684r
+  #69 | 2026-10-18T18:10:14.737Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-window --ref main -f ref=$(git -C /d/SIDE-window rev-parse d3d9213) -f target=SIDEWindow && sleep 8 && g
+  #70 | 2026-10-18T18:10:29.320Z | seat | Bash | cd /d/SIDE-trivium && git ls-tree --name-only main | tr '\n' ' '; echo; git status --short | head -3; git checkout -q -b recut-trivium-b684r 135be2e && git bran
+  #71 | 2026-10-18T18:10:45.268Z | seat | Bash | file Trivium/Bijection.lean && git diff --stat && git diff | grep -c $'\r' ; git add Trivium/Bijection.lean && git commit -q -m "re-cut: Trivium/Bijection.lean'
+  #72 | 2026-10-18T18:10:52.794Z | seat | Bash | git push origin recut-trivium-b684r 2>&1 | tail -2; grep -o "the target \`[A-Za-z. ]*\`\|target=[A-Za-z]*" /d/relay/data/b676_runner_SIDE-trivium_after.txt /d/r
+  #73 | 2026-10-18T18:10:59.748Z | seat | Bash | cd /d/relay && grep -o "gh workflow run build-module.yml -R psinary-sketch/SIDE-window[^&]*" data/b674_commands.txt | head -2
+  #74 | 2026-10-18T18:11:04.087Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-trivium --ref main -f ref=$(git -C /d/SIDE-trivium rev-parse fd42d96) -f target="Trivium Trivium.CardDer
+  #75 | 2026-10-18T18:11:18.912Z | seat | Bash | cd /d/SIDE-silence-principle && git status --short | head -3; git checkout -q -b recut-silence-principle-b684r 96b3098 && git branch --show-current && file SIDE
+  #76 | 2026-10-18T18:11:25.400Z | seat | Bash | file SIDESilencePrinciple/Basic.lean && git diff --stat && git add SIDESilencePrinciple/Basic.lean && git commit -q -m "re-cut: SIDESilencePrinciple/Basic.lean'
+  #77 | 2026-10-18T18:11:30.338Z | seat | Bash | git push origin recut-silence-principle-b684r 2>&1 | tail -1
+  #78 | 2026-10-18T18:11:31.723Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-silence-principle --ref main -f ref=$(git -C /d/SIDE-silence-principle rev-parse 675679c) -f target=SIDE
+  #79 | 2026-10-18T18:11:49.917Z | seat | Bash | cd /d/relay && python -X utf8 tools/b684_record.py runner SIDE-window 39152923151 $(git -C /d/SIDE-window rev-parse d3d9213) after "at the cut d3d9213 on recut-
+  #80 | 2026-10-18T18:11:59.141Z | seat | Bash | python -X utf8 tools/b684_record.py cutdiff SIDE-window e5b737a d3d9213 recut-window-b684r "theorem chains_partition" SIDEWindow/Sawtooth.lean && timeout 500 gh
+  #81 | 2026-10-18T18:13:10.079Z | seat | Bash | python -X utf8 tools/b684_record.py runner SIDE-trivium 39152991397 $(git -C /d/SIDE-trivium rev-parse fd42d96) after "at the cut fd42d96 on recut-trivium-b684r
+  #82 | 2026-10-18T18:13:19.345Z | seat | Bash | timeout 500 gh run watch 39153027168 -R psinary-sketch/SIDE-silence-principle --exit-status > /dev/null; cd /d/relay && python -X utf8 tools/b684_record.py runn
+  #83 | 2026-10-18T18:13:27.594Z | seat | Bash | cd /d/SIDE-window && git checkout -q main && git merge --no-ff -q -m "merge recut-window-b684r: SIDEWindow/Sawtooth.lean's header marker re-cut (b684, under (R2
+  #84 | 2026-10-18T18:13:31.841Z | seat | Bash | git branch push-b684r-merge b905507 && PUSH_GATED_LOG=/d/relay/data/b684_window_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-window push-b684r-m
+  #85 | 2026-10-18T18:13:42.057Z | seat | Bash | cd /d/SIDE-trivium && git checkout -q main && git merge --no-ff -q -m "merge recut-trivium-b684r: Trivium/Bijection.lean's introduction re-cut (b684, under (R29
+  #86 | 2026-10-18T18:13:46.600Z | seat | Bash | git branch push-b684r-merge 6ede9af && PUSH_GATED_LOG=/d/relay/data/b684_trivium_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-trivium push-b684r
+  #87 | 2026-10-18T18:13:56.355Z | seat | Bash | cd /d/SIDE-silence-principle && git checkout -q main && git merge --no-ff -q -m "merge recut-silence-principle-b684r: SIDESilencePrinciple/Basic.lean's Theorem 
+  #88 | 2026-10-18T18:14:00.839Z | seat | Bash | git branch push-b684r-merge 716b686 && PUSH_GATED_LOG=/d/relay/data/b684_silence_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-silence-principle 
+  #89 | 2026-10-18T18:14:16.826Z | seat | Bash | cd /d/relay && timeout 500 python -X utf8 tools/correspondence_gen.py dry 2>&1 | grep -E "CELLS CHANGED|^    \S+ :[0-9]+ \|" | cut -c1-230 | head -12
+  #90 | 2026-10-18T18:14:49.285Z | seat | Bash | cd /d/SIDE-window && git grep -n "chains_partition :\|THAT S_k ACTS AS" v0.5.2 -- SIDEWindow/Sawtooth.lean; cd /d/SIDE-trivium && git grep -n "stated in Lean he
+  #91 | 2026-10-18T18:14:55.649Z | seat | Bash | cd /d/relay && git add data/b684_cut.txt data/b684_author_answers.txt data/b684_author_answers.json data/b684_citation_check.txt data/b684_runner_rows.json data
+  #92 | 2026-10-18T18:15:15.633Z | seat | Bash | grep -n "runs\[\|R\['runs'\]\|G-RULE-SUITE-PARTS\|def sources" tools/rule_arms.py
+  #93 | 2026-10-18T18:15:34.866Z | seat | Bash | python -X utf8 -c "
+  #94 | 2026-10-18T18:26:44.192Z | seat | Bash | python -X utf8 -c "
+  #95 | 2026-10-18T18:26:49.411Z | seat | Bash | python -X utf8 tools/b684_record.py repairs && python -X utf8 tools/b684_record.py kernels && python -X utf8 tools/b684_record.py defects && python -X utf8 tool
+
+### ### **COMMANDS 95 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 5 ; DETACHED RUNS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5.**

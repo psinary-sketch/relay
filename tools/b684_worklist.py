@@ -59,11 +59,14 @@ NEXT = ('b685, the research act: W-ORD-EPSTEIN-COUNT, the count law for Z_Q that
         '(ii) certified by the argument principle under the (3c) bound, its plan to read data/b675_hypotheses.txt, data/b683_map_h.txt and '
         'data/b667_epstein_plan.txt before any route is chosen; b690 the reading act, reading 3')
 
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R294-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-SPLIT-RULE-BANKED', 'G-NAMING-BEFORE-CUT', 'G-KERNEL-CUT', 'G-RESIDUES-BEFORE-ACTIONS',
+            'G-RESIDUE-CUTS', 'G-RESIDUE-CARRIED', 'G-PRINTS-EQUAL', 'G-TOOL-REPAIRS', 'G-PARTS-PRERUN', 'G-DEFECTS-LETTERED')
 STANDING_ADDED = ()         # ### (R294)'s N5: no standing arm added
 SHARED_APPENDED = ('data/b670_work_orders.txt',)
 PARTS = ('standing-a', 'standing-c', 'standing-b', 'act')     # ### (R294)(2): the standing arms in three parts, the act's in one
 SEALED = ('b684_worklist.py', 'b684_tests.py', 'b684_citation.py', 'b684_record.py', 'b684_checks.py', 'b684_closing.py', 'b684_reg_gate.py',
-          'b684_regspec.py')
+          'b684_regspec.py', 'rule_arms.py')
 
 
 def show(path, rev=PRE_PP, repo=PP):

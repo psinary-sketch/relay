@@ -1,0 +1,68 @@
+b684 -- COMPONENT 4, (R294)`S FERRY: THE CARRY-TIME READING OF THE TOOLS, AGAINST b683`S SEALED COPIES (2026-10-18T18:26:50Z)
+
+### rows are the carried tools: b683`s sealed copy and its seal record; the hunks of the diff to b684`s copy. Every hunk is the act`s own
+### text -- its names, its banks, its sections and its predicates over this act`s banks -- save the repairs below, each with the defect
+### it answers.
+
+  b683_citation.py     -> b684_citation.py     b683 sealed 279ee58552804a2f ; the seal`s record 279ee58552804a2f ; AGREE ; hunks 26
+  b683_closing.py      -> b684_closing.py      b683 sealed 4ec8e7e6bc256154 ; the seal`s record 4ec8e7e6bc256154 ; AGREE ; hunks 31
+  b683_reg_gate.py     -> b684_reg_gate.py     b683 sealed 7312916b6cc75db6 ; the seal`s record 7312916b6cc75db6 ; AGREE ; hunks 6
+  b683_regspec.py      -> b684_regspec.py      b683 sealed 07dfc3f0a69a382d ; the seal`s record 07dfc3f0a69a382d ; AGREE ; hunks 23
+  b683_tests.py        -> b684_tests.py        b683 sealed 5543fbf7206c01c8 ; the seal`s record 5543fbf7206c01c8 ; AGREE ; hunks 13
+  b683_worklist.py     -> b684_worklist.py     b683 sealed 485a2d9a8cacf4ff ; the seal`s record 485a2d9a8cacf4ff ; AGREE ; hunks 13
+  b683_record.py       -> b684_record.py       b683 sealed 6d6fe334aa9de2b6 ; the seal`s record 6d6fe334aa9de2b6 ; AGREE ; hunks 126
+  b683_checks.py       -> b684_checks.py       b683 sealed 0a52b6cc6c213e44 ; the seal`s record 0a52b6cc6c213e44 ; AGREE ; hunks 123
+  rule_arms.py            the standing instrument: b683`s sealed copy at b663c1e2 56c23bbc7570fe50 ; the seal`s record 56c23bbc7570fe50 ; AGREE
+
+  REPAIR 1 -- THE SUITE IN FOUR PARTS (answering (R294)(2) and the navigator`s answer on the split rule; data/b684_rules.txt row (1)): tools/b684_checks.py
+  runs the standing arms in three parts -- standing-a (the three arms at HEAD and the rule arms` trace), standing-c (the written files, the
+  public bytes and the prior banks: G-PRIORBANK-UNCHANGED, G-NODISCLOSURE-PUBLIC, G-WRITELIST-KINDS) and standing-b (the act-root chain
+  and the shared files) -- and the act`s arms in the fourth; each part refuses to start beneath the 2,560 MB hold, the figure printed.
+  REPAIR 2 -- G-RULE-SUITE-PARTS READS EACH ACT`S GOVERNING PARTS (answering the same answer: the arm, sealed at b683, read every run bank for a fixed
+  three): tools/rule_arms.py reads the governing parts from the rules banks -- the latest at or before each act whose rows name the
+  standing parts -- b678 row 1`s three for b678-b683, b684 row (1)`s four from b684; the diff against b683`s sealed copy below.
+  REPAIR 3 -- THE STANDING SET FOR b684 (answering no defect: the act`s objects): the standing arms are b683`s face`s (G2) arms less b683`s act arms,
+  the twenty rule arms among them; the runner arms read the last merged runs, this act`s four kernels` after-runs; G-PP-SCOPE reads the two
+  ledgers alone; the kernel arms read the four kernels` mains as their merges left them.
+
+### THE DIFF OF tools/rule_arms.py AGAINST b683`S SEALED COPY (b663c1e2), WHOLE:
+    diff --git a/tools/rule_arms.py b/tools/rule_arms.py
+    index 223eaf75..8207cf0d 100644
+    --- a/tools/rule_arms.py
+    +++ b/tools/rule_arms.py
+    @@ -243,2 +243,11 @@ def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=N
+         R['runs'] = runs
+    +    # ### b684's carry-time repair (the navigator's answer on the split rule): each act's governing parts read from the rules banks -- the
+    +    # ### latest rules bank at or before the act whose rows name the suite's standing parts (`standing-<x>`), those parts and the act's
+    +    # ### part; b678 row 1 (three parts) governs b678-b683, b684 row (1) (four) from b684.
+    +    gov = []
+    +    for p in _banks('b*_rules.txt', 678):
+    +        rows = [r for r in re.split(r'(?m)^  \((?=\d+\) )', _rd(p)) if re.search(r'\bstanding-[a-z]\b', r)]
+    +        if rows:
+    +            gov.append((_act_of(p), os.path.basename(p), sorted(set(re.findall(r'\bstanding-[a-z]\b', ' '.join(rows)))) + ['act']))
+    +    R['governing'] = gov
+         pv = _rd(os.path.join(D, 'b%d_arms_prerun.txt' % (n - 1)))
+    @@ -397,7 +406,12 @@ def reading(name, R):
+         if name == 'G-RULE-SUITE-PARTS':
+    -        runs = R['runs']
+    -        bad = [('b%d' % a, k) for (a, k), ps in runs.items() if sorted(p for p, _s in ps) != sorted(['standing-a', 'standing-b', 'act'])
+    +        runs, gov = R['runs'], R.get('governing') or []
+    +
+    +        def parts_of(a):
+    +            g_ = [x for x in gov if x[0] <= a]
+    +            return (g_[-1][2], g_[-1][1]) if g_ else (None, None)
+    +        bad = [('b%d' % a, k) for (a, k), ps in runs.items() if parts_of(a)[0] is None or sorted(p for p, _s in ps) != sorted(parts_of(a)[0])
+                    or any(s >= 600 for _p, s in ps)]
+    -        return bool(runs) and not bad, len(runs), len(bad), 'run banks b678-b%d %d ; without three parts or with a part at or above 600 s %s' % (
+    -            n, len(runs), bad or 'NONE')
+    +        return bool(runs) and bool(gov) and not bad, len(runs), len(bad), (
+    +            'run banks b678-b%d %d, each against its act`s governing parts (%s) ; without them or with a part at or above 600 s %s' % (
+    +                n, len(runs), '; '.join('%s from b%d: %s' % (b, a, ps) for a, b, ps in gov), bad or 'NONE'))
+         raise KeyError(name)
+    @@ -457,3 +471,3 @@ ARMS = [
+          lambda R: _p(_p(R, 'prev_longest', 500), 'parts', ['x'])),
+    -    ('G-RULE-SUITE-PARTS', 'b678 row 1 (and b677 row 1 through it): every run bank from b678, its three parts each under 600 s',
+    +    ('G-RULE-SUITE-PARTS', 'b678 row 1 (and b677 row 1 through it) and b684 row (1): every run bank from b678, against its act`s governing parts from the rules banks, each under 600 s',
+          lambda R: _p(R, 'runs', _with(R['runs'], (678, 'planted'), [('standing', 1)]))),
+
+### ### **REPAIRS 3 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8.**
