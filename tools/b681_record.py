@@ -295,7 +295,48 @@ def root_banks_state(banks, rev='HEAD'):
                 pushed=bool(head) and head == rem)
 
 
-ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1}
+# ================================================================================ COMPONENT 4: THE LANDING, (R291)(8)
+ORDERS = 'b670_work_orders.txt'
+LH1 = ('*Appended 2026-10-18 by b681 beneath b680’s trail record (:14682), under `(R291)`(8) -- `W-ORD-EPSTEIN-BALL-WIDTH` DISCHARGED:*')
+LB1 = (' the 163 certified zeros of Q0 narrowed from b671’s half-width 1e-24 to 1e-30 -- the measured h_tol(64) = 3.162e-28 of the map in '
+       'the angle form (relay data/b677_tolerance.txt :90) less two decimal orders -- 163 of 163, each by the certification form b671 used '
+       'for it (146 by the sign change of Λ_Q on the line, 17 by the quarter count, no (4a) offset needed), in 68 resumable foreground parts, '
+       '27,693 s, the longest 471 s, the Bessel bar 2^-200 met at every evaluation; C1 (ten ζ zeros) narrowed and inside, C2 refused (relay '
+       'data/b681_narrow.txt, data/b681_narrow_controls.txt, data/b681_hypotheses.txt). Pin: relay data/b681_epstein_zeros_narrowed.json.gz '
+       'with data/b681_epstein_zeros_narrowed_hashes.txt, chaining from b671’s bank, which stands as it is beside it. Status DISCHARGED.')
+LH2 = ('*Appended 2026-10-18 by b681 beneath it, under `(R291)`(8) -- `W-ORD-MAP-ANGLE-FORM`’s TRIGGER REACHED, SO ENTERED:*')
+LB2 = (' its trigger “after W-ORD-EPSTEIN-BALL-WIDTH” (OPEN_TRAILS :14588) is reached by the discharge above; the map in the angle form '
+       '(relay tools/b677_epstein_map_angle.py) over the narrowed balls is the candidate of b683, the research act, on the author’s placement, '
+       'W-ORD-EPSTEIN-COUNT the alternative; priced at one foreground part (b677’s part 1, 46 s), a copy whose one changed line is the bank’s '
+       'name. Status OPEN, trigger: b683, on the author’s placement.')
+
+
+def c4(*a):
+    """(R291)(8): the two lines on OPEN_TRAILS beneath b680's trail record, then their rows appended to the orders bank additively ((R254)(2))."""
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', LH1, NL + LH1 + LB1 + NL), ('OPEN_TRAILS.md', LH2, NL + LH2 + LB2 + NL)], 'b681_record_lines_c4.json', 'c4',
+         check=[('OPEN_TRAILS.md', K.B680_TRAIL, '### b680')], dry=dry)
+    if dry:
+        return
+    ls = [x['line'] for x in jl('b681_record_lines_c4.json')['lines']]
+    rows = ['### Appended 2026-10-18 by b681 under (R291)(8) (additive, (R254)(2)): W-ORD-EPSTEIN-BALL-WIDTH DISCHARGED, its pin the narrowed bank; '
+            'W-ORD-MAP-ANGLE-FORM`s trigger reached, so entered; each Status cell filled and its line its pin.',
+            '  %-44s :%d  %s   %-5d %-16s :%d  %s [:%d]' % ('W-ORD-EPSTEIN-BALL-WIDTH', 14264, 'b667', 14, 'DISCHARGED', ls[0],
+                                                            'pinned by data/b681_epstein_zeros_narrowed.json.gz', ls[0]),
+            '  %-44s :%d  %s   %-5d %-16s :%d  %s [:%d]' % ('W-ORD-MAP-ANGLE-FORM', 14398, 'b671', 10, 'OPEN', ls[1],
+                                                            'b683, on the author`s placement', ls[1])]
+    p = os.path.join(D, ORDERS)
+    old = open(p, 'rb').read()
+    sep = NL if old.endswith(b'\n') else NL + NL
+    new = old + (sep + NL.join(rows) + NL).encode('utf-8')
+    if not new.startswith(old):
+        sys.exit('### THE ORDERS BANK APPEND IS NOT ADDITIVE -- NOTHING WRITTEN')
+    open(p + '.tmp', 'wb').write(new)
+    os.replace(p + '.tmp', p)
+    print('  data/%s appended (%d bytes before, %d after)' % (ORDERS, len(old), len(new)))
+
+
+ROUTES = {'rowgen': rowgen, 'branches': branches, 'c1': c1, 'c4': c4}
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
