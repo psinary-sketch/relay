@@ -1,0 +1,19 @@
+b691 -- THE QUOTATION SEARCH BEFORE THE MERGE, data/b690_rules.txt row (2), OVER SIDE-explicit-formula (2026-10-19T19:48:07Z)
+
+### the cut: git diff 9da7bc20c123bda971db527d24605b178873dbee..c5aa058f8c37a6716bdbee2c2b95a10426764739 ; the lines it removes or changes 3 ; one needle each, checked to stand in its own removed line; each searched
+### with git grep -n -F at the tip c5aa058f8c37a6716bdbee2c2b95a10426764739 across the kernel`s whole tracked tree. Rows are removed lines: needle | hits (file:line: the quoting
+### line):
+  NUMBER** -- stated, not proved; open         | 0 hit(s) ; case-blind 'with a number** -- stated' 0 hit(s) | removed: /-- **(P3) THE LOCAL COUNT WITH A NUMBER** -- stated, not proved; open. `HCount Z A0Q` (RestBound.le
+  the count) -- each                           | 0 hit(s) ; case-blind 'the count) -- each'       0 hit(s) | removed: /-- **THE Q0 PREMISES**: (P1)-(P3) and (P4) b590's `EpsteinPremises` (the explicit formula, T1-lit, 
+  stated, not proved; open. -/                 | 0 hit(s) ; case-blind 'not proved; open. -/'     0 hit(s) | removed: stated, not proved; open. -/
+
+### THE CONTROL: each needle at the base 9da7bc20c123bda971db527d24605b178873dbee, where the removed line stands (needle ; case-exact hits ; case-blind hits):
+  NUMBER** -- stated, not proved; open         ; 1 ; 1
+  the count) -- each                           ; 1 ; 1
+  stated, not proved; open. -/                 ; 1 ; 1
+### the control FIRES FOR EVERY NEEDLE IN BOTH SHAPES
+
+### THE QUOTING LINES, DISTINCT (file:line): NONE
+### the yields: the case-exact shape 0 hit(s) on 0 line(s) ; the case-blind shape 0 hit(s) on 0 line(s)
+
+### ### **REMOVED OR CHANGED LINES 3 ; NEEDLES SEARCHED 3 IN TWO SHAPES ; QUOTING LINES 0 -- EACH ENTERED AS A RESIDUE.**

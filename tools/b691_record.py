@@ -580,12 +580,19 @@ QUOTE_WIDE = ('equivalence engine', 'structural/logical core', 'P22 Phases', 'mo
               'seven-class', 'shares its bottom step', '19938917', 'conclusive checkpoint', 'decisive (ii)')
 
 
+# ### C4 (4), the EpsteinQ0 docstring re-cut: one needle per removed line, each on the clause the cut removes (not on text it keeps)
+QUOTE_EPSTEIN = ('NUMBER** -- stated, not proved; open', 'the count) -- each', 'stated, not proved; open. -/')
+QUOTE_EPSTEIN_WIDE = ('with a number** -- stated', 'the count) -- each', 'not proved; open. -/')
+QUOTE_SETS = {'quote_rcurve': (QUOTE_NEEDLES, QUOTE_WIDE), 'quote_epstein': (QUOTE_EPSTEIN, QUOTE_EPSTEIN_WIDE)}
+
+
 def quote(*a):
     """`quote <kernel dir> <base> <tip> <bank stem>`: every line the cut removes or changes (the `-` lines of git diff base..tip, comments
     alone) read, one needle of QUOTE_NEEDLES assigned to each by containment and refused where a removed line carries none or a needle stands
     in no removed line; each needle searched with git grep -n -F at the tip across the kernel's whole tracked tree; every hit printed with its
     quoting line and entered as a residue. data/b691_<stem>.txt (.json)."""
     kd, base, tip, stem = a[0], a[1], a[2], a[3]
+    QUOTE_NEEDLES, QUOTE_WIDE = QUOTE_SETS[stem]
     d = g(kd, 'diff', '--unified=0', base, tip)
     removed = [l[1:] for l in d.split(NL) if l.startswith('-') and not l.startswith('---')]
     removed = [l for l in removed if l.strip()]
@@ -621,6 +628,12 @@ def quote(*a):
                                                                                r['line'].strip()[:100]))
         L += ['      %s' % h for h in r['hits_wide']]
     q = sorted(set(h.split(':', 2)[1] + ':' + h.split(':', 3)[2] for _n, h in hits))
+    # ### the positive control (an ABSENT carries a control): each needle, both shapes, at the base, where its removed line still stands
+    ctl = [(r['needle'], len([x for x in g(kd, 'grep', '-n', '-F', r['needle'], base, '--').split(NL) if x.strip()]),
+            len([x for x in g(kd, 'grep', '-n', '-i', '-F', r['wide'], base, '--').split(NL) if x.strip()])) for r in rows]
+    L += ['', '### THE CONTROL: each needle at the base %s, where the removed line stands (needle ; case-exact hits ; case-blind hits):' % base]
+    L += ['  %-44s ; %d ; %d' % c for c in ctl]
+    L += ['### the control %s' % ('FIRES FOR EVERY NEEDLE IN BOTH SHAPES' if all(c[1] and c[2] for c in ctl) else '### DOES NOT FIRE FOR EVERY NEEDLE')]
     L += ['', '### THE QUOTING LINES, DISTINCT (file:line): %s' % (', '.join(q) or 'NONE'),
           '### the yields: the case-exact shape %d hit(s) on %d line(s) ; the case-blind shape %d hit(s) on %d line(s)' % (
               sum(len(r['hits']) for r in rows), len(set(h.split(':', 3)[1] + ':' + h.split(':', 3)[2] for r in rows for h in r['hits'])),
