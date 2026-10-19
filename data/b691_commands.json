@@ -1,5 +1,5 @@
 {
- "at": "2026-10-19T20:22:53Z",
+ "at": "2026-10-19T20:44:01Z",
  "anchor": "RULING (R301) BEGIN",
  "rows": [
   {
@@ -1473,6 +1473,158 @@
    "cmd": "python -X utf8 -m py_compile tools/b691_record.py tools/b691_checks.py tools/b691_closing.py tools/b691_reg_gate.py tools/b691_regspec.py tools/b691_worklist.py && echo COMPILED && python -X utf8 tools/b691_record.py repairs; echo EXIT $?",
    "n": 184,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:22:47.136Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b691_record.py commands; echo EXIT $?",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:23:16.989Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b691_record.py defects; echo EXIT $?",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:23:16.991Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b691_record.py kernels; echo EXIT $?",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:23:28.571Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format='%h %s' 9fc2c81b..HEAD && echo ==== && git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 64936ae..HEAD",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:25:42.553Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b691_checks as C, b691_worklist as K\nnames=[a[0] for a in C.ARMS]; dec=C.g2_names(C.read(C.FACE))\nprint('ARMS', len(names), 'UNIQUE', len(set(names)), 'DECLARED', len(dec))\nprint('NOT DECLARED', sorted(set(names)-set(dec))); print('DECLARED NOT RUN', sorted(set(dec)-set(names)))\nprint('STANDING', len(C.STANDING), 'ACT', len(K.ACT_ARMS), 'ACT NOT IN ARMS', [a for a in K.ACT_ARMS if a not in names])\nprint('STANDING NOT IN ARMS', [a for a in C.STANDING if a not in names])\nfrom collections import Counter; print(Counter(C._part_of(n) for n in names))\n\"",
+   "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:25:50.171Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --prerun --part standing-a; echo EXIT $?",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:29:36.840Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --prerun --part standing-c; echo EXIT $?",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:32:32.785Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --prerun --part standing-b1; echo EXIT $?",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:34:04.300Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --prerun --part standing-b2; echo EXIT $?",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:40:42.675Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --prerun --part act; echo EXIT $?",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:41:33.056Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --combine b691_arms_prerun.txt; echo EXIT $?",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:41:40.577Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b691_record.py armsecs; echo EXIT $?",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:41:48.133Z",
+   "src": "seat",
+   "cmd": "git status --porcelain -- tools/b691_* data/b691_* data/audit_b691_* tools/rule_arms.py tools/correspondence_gen.py",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:42:00.154Z",
+   "src": "seat",
+   "cmd": "git add tools/b691_checks.py tools/b691_closing.py tools/b691_reg_gate.py tools/b691_regspec.py tools/b691_record.py tools/b691_worklist.py data/b691_citation_check.txt data/b691_tool_repairs.txt data/b691_arm_seconds.json data/b691_arm_seconds.txt data/b691_arm_seconds_act.json data/b691_arm_seconds_standing-a.json data/b691_arm_seconds_standing-b1.json data/b691_arm_seconds_standing-b2.json data/b691_arm_seconds_standing-c.json data/b691_arms_prerun.txt data/b691_arms_prerun_act.txt data/b691_arms_prerun_standing-a.txt data/b691_arms_prerun_standing-b1.txt data/b691_arms_prerun_standing-b2.txt data/b691_arms_prerun_standing-c.txt data/b691_commands.json data/b691_commands.txt data/b691_defects.json data/b691_defects.txt data/b691_kernels_face.json data/b691_lsr_prerun_act.json data/b691_lsr_prerun_standing-a.json data/b691_lsr_prerun_standing-b1.json data/b691_lsr_prerun_standing-b2.json data/b691_lsr_prerun_standing-c.json && git commit -q -m \"b691 Component 5, under (R301): the tools carried from b690's sealed copies (checks, closing, gate, spec, the record's late routes) with the carry-time reading (eight repairs; rows 1-3 the three repaired shared tools' diffs); the pre-run in five parts, 121 arms, one failing on real state (G-RULE-ONE-GIT-WRITE, declared); the per-part seconds; the commands, defects and kernels banks\" && git log -1 --format='%h %s'",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:42:29.800Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b691_reg_gate.py; echo EXIT $?",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:43:07.252Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys,io; sys.path.insert(0,'tools')\nimport registration_gate as RG\nt=io.open('data/b691_registration_2026-10-19.txt',encoding='utf-8').read()\nfm,am,nt,nm=RG.bar_floor_check(t); print('FLOOR',fm,'ARM',am,'thr',nt,'multi',nm)\n\"",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:43:12.961Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b691_reg_gate.py > /dev/null; echo EXIT $?",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:43:53.515Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b691_record.py defects; echo EXIT $?",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T20:43:53.739Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b691_record.py commands; echo EXIT $?",
+   "n": 203,
+   "bg": false
   }
  ],
  "offences": [],
@@ -1492,10 +1644,12 @@
  "detached": [],
  "seds": [],
  "null_redirects": [
-  125
+  125,
+  201
  ],
  "redirects": [
-  125
+  125,
+  201
  ],
  "pipes": [
   33,
@@ -1524,7 +1678,9 @@
   168,
   176,
   182,
-  183
+  183,
+  189,
+  200
  ],
  "moves_deletes": [
   12,

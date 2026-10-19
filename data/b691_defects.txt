@@ -11,9 +11,11 @@ b691 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-19)
         v0.34:SIDEExplicitFormula/Schema/Epstein.lean | head -46 | tail -14` (#101, Component 4 (4)), re-read at once by the Read tool at
         Epstein.lean :37-:43 before any use. One interpreter print read a bank's lines, data/b690_r3_orders.txt's 35 rows (Component 4 (5)).
         No file was written by any. The command bank lists them; the rule is the seat's to keep.
-    (b) THE SEAT'S: A REDIRECT ONTO /dev/null. The ferry: "no redirect of any stream in any command, scratch included". The foreground wait on
-        run 39312568167 (SIDE-explicit-formula, after) carried `> /dev/null` to silence the watch's output; the run's conclusion was then read
-        by `gh run view` and the run by its id through the record tool. The command bank lists it.
+    (b) THE SEAT'S: TWO REDIRECTS ONTO /dev/null. The ferry: "no redirect of any stream in any command, scratch included". The foreground
+        wait on run 39312568167 (SIDE-explicit-formula, after) carried `> /dev/null` to silence the watch's output, the run's conclusion then
+        read by `gh run view` and the run by its id through the record tool; and the gate's second run (Component 5, before the lock) carried
+        `> /dev/null`, its record read from the bank it writes (relay data/b691_reg_gate.txt). Neither redirect touched a file the act reads.
+        The command bank lists both.
     (c) THE SEAT'S: TWO GIT WRITES IN ONE MESSAGE, TWICE. The ferry: "one git write per turn"; data/b673_rules.txt row 3. At 18:45:28Z
         (Component 2) and at 19:48:55Z (Component 4 (4): `git checkout main` and `git merge --ff-only` sent as two calls in one message after
         the Epstein merge's push) a message carried two git writes; G-RULE-ONE-GIT-WRITE reads 2 failing at HEAD (relay data/b691_arms_added.txt).

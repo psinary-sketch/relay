@@ -1,7 +1,7 @@
-b691 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T20:22:53Z)
+b691 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T20:44:01Z)
 
 ### the source: the seat`s session 2c300355-703e-4575-81bc-2631a70202cf from its first user line carrying 'RULING (R301) BEGIN', and its subagents` transcripts
-### commands read: 184
+### commands read: 203
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -24,11 +24,13 @@ b691 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
   NONE
 
-### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (1):
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (2):
   #125 2026-10-19T19:38:19.308Z timeout 580 gh run watch 39312568167 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 60 > /dev/null; echo EXIT $?; gh run view 39312568167 -R psinary-sketch/SIDE-explicit-formula --js
+  #201 2026-10-19T20:43:12.961Z python -X utf8 tools/b691_reg_gate.py > /dev/null; echo EXIT $?
 
-### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings -- this act`s defect (b) among them (1):
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings -- this act`s defect (b) among them (2):
   #125 2026-10-19T19:38:19.308Z timeout 580 gh run watch 39312568167 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 60 > /dev/null; echo EXIT $?; gh run view 39312568167 -R psinary-sketch/SIDE-explicit-formula --js
+  #201 2026-10-19T20:43:12.961Z python -X utf8 tools/b691_reg_gate.py > /dev/null; echo EXIT $?
 
 ### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings -- this act`s defect (a) among them (10):
   #33 2026-10-19T18:39:09.939Z cd /d/SIDE-trivium && cat lean-toolchain && grep -n "require\|@" lakefile.lean && cat .github/workflows/build-module.yml && git log --oneline -1 -- .github/workflows/build-module.yml && cat print_targ
@@ -43,7 +45,7 @@ b691 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #170 2026-10-19T20:01:17.594Z git grep -n -E "^import|^from|^ import|^R3|^ER" -- tools/b690_record.py | head -40; git grep -n -E "^import|^from" -- tools/b691_record.py
 
 ### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line -- the reads among them entered as this
-act`s defect (a) where the Read tool would have read the lines (15):
+act`s defect (a) where the Read tool would have read the lines (17):
   #74 2026-10-19T18:58:26.636Z git diff tools/correspondence_gen.py tools/test_correspondence_gen.py | sha256sum; python -X utf8 -I -c "import re,hashlib,subprocess;t=open('data/b691_tool_repairs.txt',encoding='utf-8').read();b=[l for l in t.split(chr
   #75 2026-10-19T18:58:35.453Z python -X utf8 -I -c " import subprocess t=open('data/b691_tool_repairs.txt',encoding='utf-8').read().split(chr(10)) for f in ('tools/correspondence_gen.py','tools/test_correspondence_gen.py'): d=subprocess.run(['git','d
   #76 2026-10-19T18:58:42.296Z python -X utf8 -I -c " import subprocess t=open('data/b691_tool_repairs.txt',encoding='utf-8').read().split(chr(10)) for f in ('tools/correspondence_gen.py','tools/test_correspondence_gen.py'): d=subprocess.run(['git','d
@@ -59,6 +61,8 @@ act`s defect (a) where the Read tool would have read the lines (15):
   #176 2026-10-19T20:04:54.836Z python -X utf8 -I -c " import json j=json.load(open('data/b691_record_lines.json',encoding='utf-8')) for x in j['lines']: print(x['file'], x['line'], x['head'][:400]) "
   #182 2026-10-19T20:21:28.310Z python -X utf8 -I -c " import subprocess t=open('data/b691_tool_repairs.txt',encoding='utf-8').read().split(chr(10)) for f in ('tools/correspondence_gen.py','tools/test_correspondence_gen.py','tools/rule_arms.py'): rev =
   #183 2026-10-19T20:21:46.899Z python -X utf8 -I -c " import subprocess t=open('data/b691_tool_repairs.txt',encoding='utf-8').read().split(chr(10)) for f in ('tools/correspondence_gen.py','tools/test_correspondence_gen.py','tools/rule_arms.py'): args=
+  #189 2026-10-19T20:25:42.553Z python -X utf8 -c " import sys; sys.argv=['x']; sys.path.insert(0,'tools') import b691_checks as C, b691_worklist as K names=[a[0] for a in C.ARMS]; dec=C.g2_names(C.read(C.FACE)) print('ARMS', len(names), 'UNIQUE', len(
+  #200 2026-10-19T20:43:07.252Z python -X utf8 -c " import sys,io; sys.path.insert(0,'tools') import registration_gate as RG t=io.open('data/b691_registration_2026-10-19.txt',encoding='utf-8').read() fm,am,nt,nm=RG.bar_floor_check(t); print('FLOOR',fm,
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #12 2026-10-19T18:10:14.858Z Bash
@@ -262,5 +266,24 @@ act`s defect (a) where the Read tool would have read the lines (15):
   #182 | 2026-10-19T20:21:28.310Z | seat | Bash | python -X utf8 -I -c "
   #183 | 2026-10-19T20:21:46.899Z | seat | Bash | python -X utf8 -I -c "
   #184 | 2026-10-19T20:22:34.341Z | seat | Bash | python -X utf8 -m py_compile tools/b691_record.py tools/b691_checks.py tools/b691_closing.py tools/b691_reg_gate.py tools/b691_regspec.py tools/b691_worklist.py
+  #185 | 2026-10-19T20:22:47.136Z | seat | Bash | python -X utf8 tools/b691_record.py commands; echo EXIT $?
+  #186 | 2026-10-19T20:23:16.989Z | seat | Bash | python -X utf8 tools/b691_record.py defects; echo EXIT $?
+  #187 | 2026-10-19T20:23:16.991Z | seat | Bash | python -X utf8 tools/b691_record.py kernels; echo EXIT $?
+  #188 | 2026-10-19T20:23:28.571Z | seat | Bash | git log --reverse --format='%h %s' 9fc2c81b..HEAD && echo ==== && git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %s' 64936ae..HEAD
+  #189 | 2026-10-19T20:25:42.553Z | seat | Bash | python -X utf8 -c "
+  #190 | 2026-10-19T20:25:50.171Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --prerun --part standing-a; echo EXIT $?
+  #191 | 2026-10-19T20:29:36.840Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --prerun --part standing-c; echo EXIT $?
+  #192 | 2026-10-19T20:32:32.785Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --prerun --part standing-b1; echo EXIT $?
+  #193 | 2026-10-19T20:34:04.300Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --prerun --part standing-b2; echo EXIT $?
+  #194 | 2026-10-19T20:40:42.675Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --prerun --part act; echo EXIT $?
+  #195 | 2026-10-19T20:41:33.056Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_checks.py --combine b691_arms_prerun.txt; echo EXIT $?
+  #196 | 2026-10-19T20:41:40.577Z | seat | Bash | python -X utf8 tools/b691_record.py armsecs; echo EXIT $?
+  #197 | 2026-10-19T20:41:48.133Z | seat | Bash | git status --porcelain -- tools/b691_* data/b691_* data/audit_b691_* tools/rule_arms.py tools/correspondence_gen.py
+  #198 | 2026-10-19T20:42:00.154Z | seat | Bash | git add tools/b691_checks.py tools/b691_closing.py tools/b691_reg_gate.py tools/b691_regspec.py tools/b691_record.py tools/b691_worklist.py data/b691_citation_c
+  #199 | 2026-10-19T20:42:29.800Z | seat | Bash | python -X utf8 tools/b691_reg_gate.py; echo EXIT $?
+  #200 | 2026-10-19T20:43:07.252Z | seat | Bash | python -X utf8 -c "
+  #201 | 2026-10-19T20:43:12.961Z | seat | Bash | python -X utf8 tools/b691_reg_gate.py > /dev/null; echo EXIT $?
+  #202 | 2026-10-19T20:43:53.515Z | seat | Bash | python -X utf8 tools/b691_record.py defects; echo EXIT $?
+  #203 | 2026-10-19T20:43:53.739Z | seat | Bash | python -X utf8 tools/b691_record.py commands; echo EXIT $?
 
-### ### **COMMANDS 184 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 14 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 4 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 10 ; ONE-LINE PROGRAMS 15 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 203 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 14 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 4 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 10 ; ONE-LINE PROGRAMS 17 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
