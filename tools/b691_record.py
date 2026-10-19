@@ -685,6 +685,12 @@ def cut(*a):
           ':%d %s and :%d %s -- SIDE-li-map (:111) %s; CARRIED, their triggers as data/b690_r3_residues.txt names them.' % (
               CUT['licensed_line'] - 1, nb[0].split(' docstrings')[0], CUT['licensed_line'] + 1, nb[1].split(' docstrings')[0],
               'is a neighbour' if li_nb else 'is not among them'),
+          '', '### THE SIDE-kernel ROW`S RESIDUE (the author`s word on the (R301)(3) prompt): PATHS_TO_THE_CRITICAL_LINE_v0_7.md :301, held by the',
+          '### repaired generator as CARRIED AT: VERSION DIFFERS (relay data/b691_correspondence_run.txt): the page`s clause "SIDE-kernel v1.8 = 70aba3c',
+          '### (carried at lv-conservation v0.7.0)" -- v1.8 peels to %s; the carry the carrier cites, SIDE-lv-conservation v0.7.0' % g('D:/SIDE-kernel', 'rev-parse', 'v1.8^{commit}').strip()[:12],
+          '### SIDELvConservation/RegisterPentagon.lean :29, :33, :86, :110, :124, :230 "SIDE-kernel v1.3 = 0bc21c0" -- v1.3 peels to %s.' % g('D:/SIDE-kernel', 'rev-parse', 'v1.3^{commit}').strip()[:12],
+          '###   R-K1  PATHS_TO_THE_CRITICAL_LINE_v0_7.md :301 | CARRIED -- the page`s v1.8 against the carry v1.3 = 0bc21c0; no cell by hand; trigger: the',
+          '###         next re-cut act after b691 or W-ORD-CORRESPONDENCE-BEHIND-SCOPE',
           '', '### THE FACES HEADER`S TAG ((R301)(7)), carried to the next regeneration, no page write: the page`s :3 prints "SIDE-explicit-formula v0.26 =',
           '### `82550e4`"; its source by file and line -- the node list`s pin line relay %s :%s "%s"; tools/chain_page.py :87-:96 `node_pin` (%s),' % (
               K.NODES, ','.join(str(x) for x in pin_ln), nodes[pin_ln[0] - 1] if pin_ln else '### NONE', cpl[86].strip()),
