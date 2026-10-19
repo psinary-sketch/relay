@@ -1,0 +1,63 @@
+b691 -- COMPONENT 4 (4), (R301)(4): THE THREE EpsteinQ0.lean LINES, VERBATIM, PRINTED BEFORE ANY BRANCH (2026-10-19)
+
+### the file: SIDE-explicit-formula SIDEExplicitFormula/Schema/EpsteinQ0.lean at v0.34 = 8fbc27bef051b704ef72fc69a274b8ce8eee41a6 (main = the tag; blob
+### 8bfee81928082358b329b5da30b1d30a30f2749a; the working file clean), read by the Read tool at :100-:114. No branch exists for the act (no
+### recut-epstein-b691); the prompt is raised after this bank.
+
+:106  /-- **(P3) THE LOCAL COUNT WITH A NUMBER** -- stated, not proved; open. `HCount Z A0Q` (RestBound.lean :44-:45): T3 below 150,
+:110  /-- **THE Q0 PREMISES**: (P1)-(P3) and (P4) b590's `EpsteinPremises` (the explicit formula, T1-lit, cited; the count) -- each
+:111  stated, not proved; open. -/
+
+### the successor wording the ruling gives, in place of the stated clause: "derived with certified constants and sourced steps (b685, b687), not compiled"
+### ### **LINES 3 ; FILE CLEAN AT v0.34 ; NO BRANCH.**
+
+### THE AUTHOR`S WORD ON THE (R301)(4) PROMPT (option 3, relay data/b691_author_answers.txt): :96-:115 printed here, and the status of each
+### premise as the docstrings give it, read from the file before any edit (the Read tool, the working file = v0.34):
+:96
+:97   /-- **(P2) THE LIST IS COMPLETE BELOW 150** -- stated, not proved; open. Every point of `Z` with `|Im ρ| < 150` is listed. This
+:98   includes the band `|Im ρ| < 0.5` and `Re ρ` in `(1/2, 0.52)`, which neither census of b326 reads (both start at `t = 0.5`; the
+:99   off-line census at `σ = 0.52`): T3, the bench's census, with those two regions unread. -/
+:100  def Q0Complete (Z : Zeta23.ZeroConfig) : Prop := ∀ ρ ∈ Z.carrier, |ρ.im| < 150 → ρ ∈ q0Points
+:101
+:102  /-- The local count's constant: 10, a round margin above the listed points' own value 1 (relay data/b663_a0_list.txt) for the
+:103  unlisted points above 150. No source line; its reason is that bank. -/
+:104  def A0Q : ℝ := 10
+:105
+:106  /-- **(P3) THE LOCAL COUNT WITH A NUMBER** -- stated, not proved; open. `HCount Z A0Q` (RestBound.lean :44-:45): T3 below 150,
+:107  T4 above it. -/
+:108  def Q0Count (Z : Zeta23.ZeroConfig) : Prop := HCount Z A0Q
+:109
+:110  /-- **THE Q0 PREMISES**: (P1)-(P3) and (P4) b590's `EpsteinPremises` (the explicit formula, T1-lit, cited; the count) -- each
+:111  stated, not proved; open. -/
+:112  structure Q0Premises (Z : Zeta23.ZeroConfig) (rhs : (ℝ → ℂ) → ℂ) : Prop where
+:113    listed : Q0Listed Z
+:114    complete : Q0Complete Z
+:115    count : Q0Count Z
+### and (P1), whose docstring sits at :93-:94, above the printed range:
+:93   /-- **(P1) THE BANKED LIST IS IN THE CONFIGURATION** -- stated, not proved; open. Every listed point is a point of `Z` with
+:94   multiplicity 1: T3, the bench's list (relay data/b326_epstein_zeros.json, data/b326_offline.json), banked, not ball-certified. -/
+
+### THE STATUS OF EACH PREMISE, AS THE DOCSTRINGS GIVE IT:
+###   (P1) Q0Listed   :93  "stated, not proved; open" -- STATED
+###   (P2) Q0Complete :97  "stated, not proved; open" -- STATED
+###   (P3) Q0Count    :106 "stated, not proved; open" -- STATED here; the successor wording the ruling gives (b685, b687)
+###   (P4) EpsteinPremises -- EpsteinQ0.lean :110 gives it as "(the explicit formula, T1-lit, cited; the count)", under :110-:111`s "each stated,
+###        not proved; open"; its own docstring, SIDEExplicitFormula/Schema/Epstein.lean :38-:40 at v0.34, reads other than stated:
+:38   /-- **THE EPSTEIN PREMISES**, the schema's explicit-formula and count fields for `Z_Q` as named premises over a zero
+:39   configuration `Z` and an arithmetic side `rhs`. `ef` -- T1-lit, the explicit formula for `Z_Q` from the literature (Weil
+:40   1952; Bombieri-Lagarias 1999), cited, not compiled. `count` -- T3, the local count read off the bench's zero list. -/
+###        -- `ef` CITED, NOT COMPILED (T1-lit); `count` T3, READ OFF THE BENCH`S LIST. P4 READS OTHER THAN STATED: RAISED BEFORE THE BRANCH, as the
+###        author`s word orders.
+### ### **P1 STATED ; P2 STATED ; P3 STATED (THE RE-CUT`S SUBJECT) ; P4 READS "CITED, NOT COMPILED" (Epstein.lean :40) -- RAISED ; NO BRANCH.**
+
+### THE AUTHOR`S WORD ON THE RAISE (option 1, P4 by its own docstring; confirmed complete with its END on a second prompt, relay
+### data/b691_author_answers.txt): the three successor lines, each beside its original, printed before the branch. Only the stated clause of
+### each line changes; :110 loses its trailing "each", which opens the stated clause; the line count of the docstrings is kept (:106, :110,
+### :111 stay where they are). The apostrophe in "bench's" is the docstring's own straight one (Epstein.lean :40), not the answer's curly one.
+:106 BEFORE  /-- **(P3) THE LOCAL COUNT WITH A NUMBER** -- stated, not proved; open. `HCount Z A0Q` (RestBound.lean :44-:45): T3 below 150,
+:106 AFTER   /-- **(P3) THE LOCAL COUNT WITH A NUMBER** -- derived with certified constants and sourced steps (b685, b687), not compiled. `HCount Z A0Q` (RestBound.lean :44-:45): T3 below 150,
+:110 BEFORE  /-- **THE Q0 PREMISES**: (P1)-(P3) and (P4) b590's `EpsteinPremises` (the explicit formula, T1-lit, cited; the count) -- each
+:110 AFTER   /-- **THE Q0 PREMISES**: (P1)-(P3) and (P4) b590's `EpsteinPremises` (the explicit formula, T1-lit, cited; the count) --
+:111 BEFORE  stated, not proved; open. -/
+:111 AFTER   (P1), (P2) each stated, not proved; open; (P3) derived with certified constants and sourced steps (b685, b687), not compiled; (P4) its explicit formula cited, not compiled, its count T3 read off the bench's zero list. -/
+### ### **SUCCESSOR LINES 3 ; DOCSTRINGS ALONE ; LINE COUNT KEPT ; THE BRANCH NEXT: recut-epstein-b691 FROM v0.34 = 8fbc27b.**
