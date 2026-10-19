@@ -1,0 +1,113 @@
+b687 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T00:33:24Z)
+
+### the source: the seat`s session a90bcdb6-256f-4841-97ff-9638e378446c from its first user line carrying 'RULING (R297) BEGIN', and its subagents` transcripts
+### commands read: 51
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (0):
+  NONE
+
+### THE COMMANDS THAT START A DETACHED RUN (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (5):
+  #4 sed -n 60,220p tools/b686_citation.py
+  #11 sed -n 1,30p tools/b685_count.py && sed -n 124,340p tools/b685_count.py
+  #16 python -X utf8 -c "
+import gzip,json
+j=json.load(gzip.open('data/b681_epstein_zeros_narrowed.json.gz'))
+print(type(j), list(j.keys())[:20] if isinstance(j,dict) else len(j))
+pts=j.get('points') if isinstance(j,dict) else j
+print(len(pts)); 
+  #17 python -X utf8 -c "
+import gzip,json
+j=json.load(gzip.open('data/b681_epstein_zeros_narrowed.json.gz'))
+print({k:j[k] for k in ('w','h0','halvings','prec','source')})
+R=j['rows']; print(len(R)); print(json.dumps(R[0])[:600]); 
+import collec
+  #20 sed -n 360,380p tools/b686_checks.py; sed -n 578,600p tools/b686_checks.py; grep -n "def scan\|def \|sed" tools/edit_route.py | head -30; grep -n "sed\|G-NO-SED\|SED" tools/rule_arms.py data/b685_rules.txt | head
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (9):
+  #32 2026-10-19T00:06:14.735Z Bash
+      git -C /d/relay branch --merged main --list push-b686-root && git -C /d/relay branch -d push-b686-root
+  #33 2026-10-19T00:06:18.473Z Bash
+      git -C /d/relay branch --merged main --list push-b686 && git -C /d/relay branch -d push-b686
+  #34 2026-10-19T00:06:22.419Z Bash
+      git -C /d/relay branch --merged main --list push-b686-closing && git -C /d/relay branch -d push-b686-closing
+  #35 2026-10-19T00:06:26.433Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b686-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b686-root
+  #36 2026-10-19T00:06:30.826Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b686 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b686
+  #37 2026-10-19T00:06:34.604Z Bash
+      git -C /d/SIDE-spinor branch --merged main --list push-b686-main && git -C /d/SIDE-spinor branch -d push-b686-main
+  #38 2026-10-19T00:06:42.865Z Bash
+      git -C /d/SIDE-spinor branch --merged main --list push-b686-merge && git -C /d/SIDE-spinor branch -d push-b686-merge
+  #39 2026-10-19T00:06:46.789Z Bash
+      git -C /d/SIDE-spinor branch --merged main --list recut-spinor-b686 && git -C /d/SIDE-spinor branch -d recut-spinor-b686
+  #40 2026-10-19T00:06:51.515Z Bash
+      git -C /d/SIDE-spinor merge-base --is-ancestor bfaf89e16ca34adc4213530b746b30ec1d0626fe v0.1.1 && git -C /d/SIDE-spinor push origin --delete recut-spinor-b686
+
+### THE BRANCH DELETES BY SHAPE ((R297)(6): one branch per command, no glob in any half): #32 deletes ['push-b686-root'], globs none; #33 deletes ['push-b686'], globs none; #34 deletes ['push-b686-closing'], globs none; #35 deletes ['push-b686-root'], globs none; #36 deletes ['push-b686'], globs none; #37 deletes ['push-b686-main'], globs none; #38 deletes ['push-b686-merge'], globs none; #39 deletes ['recut-spinor-b686'], globs none; #40 deletes ['recut-spinor-b686'], globs none
+
+### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-18T23:56:34.071Z | seat | Bash | cd /d/relay && git status --short | head -30 && git log --oneline -5 && ls tools | grep -E "b68[56]" && ls data | grep -E "^b686" | head -80
+  #2 | 2026-10-18T23:56:40.612Z | seat | Bash | wc -l tools/b686_*.py && ls data | grep -E "^b686" | tail -40 && cat data/b686_closing.txt | head -60
+  #3 | 2026-10-18T23:56:47.324Z | seat | Bash | cat tools/b686_worklist.py && head -60 tools/b686_citation.py
+  #4 | 2026-10-18T23:56:56.221Z | seat | Bash | sed -n 60,220p tools/b686_citation.py
+  #5 | 2026-10-18T23:57:01.153Z | seat | Bash | cat data/b686_stepzero.txt | head -80; grep -n "^def \|usage" tools/b686_record.py | head -80
+  #6 | 2026-10-18T23:57:08.490Z | seat | Bash | ls -la "/c/Users/echo chamber/.claude/projects/D--/" | grep a90bcdb6; ls "/c/Users/echo chamber/.claude/projects/" | head; cd /d/relay && grep -n "def ferry_tex
+  #7 | 2026-10-18T23:57:15.486Z | seat | Bash | head -c 300 data/b686_ferry.txt; echo; echo ----; tail -c 200 data/b686_ferry.txt; echo; cat data/b686_readfirst.txt | head -40
+  #8 | 2026-10-18T23:57:21.061Z | seat | Bash | cat -n data/b686_defects.txt | head -40; echo ====; cat -n data/b685_count_plan.txt
+  #9 | 2026-10-18T23:57:43.519Z | seat | Bash | cat -n data/b685_count.txt; echo ====; cat -n data/b685_count_controls.txt
+  #10 | 2026-10-18T23:57:51.215Z | seat | Bash | wc -l tools/b685_count.py && grep -n "^def \|^    def \|^[A-Z_]* = " tools/b685_count.py | head -80
+  #11 | 2026-10-18T23:57:56.099Z | seat | Bash | sed -n 1,30p tools/b685_count.py && sed -n 124,340p tools/b685_count.py
+  #12 | 2026-10-18T23:58:41.635Z | seat | Bash | cat -n data/b685_search.txt | head -80
+  #13 | 2026-10-18T23:58:52.735Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/" && ls -d */ 2>/dev/null | head; find "/c/Users/echo chamber/.claude/projects/D--/df03c73f-520a-4848-85dc-8fada0
+  #14 | 2026-10-18T23:58:57.551Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/df03c73f-520a-4848-85dc-8fada095f008/tool-results/" && sha256sum *.pdf | cut -c1-8,65-
+  #15 | 2026-10-18T23:59:03.630Z | seat | Bash | cd /d/relay && grep -n "HCount\|10 log" data/b685_p3.txt | head -12; ls -la data/b685_count_part*.json data/b681_epstein_zeros_narrowed* ; cat -n data/b681_epst
+  #16 | 2026-10-18T23:59:10.888Z | seat | Bash | python -X utf8 -c "
+  #17 | 2026-10-18T23:59:17.481Z | seat | Bash | python -X utf8 -c "
+  #18 | 2026-10-18T23:59:24.419Z | seat | Bash | git grep -n "G-EDIT-ROUTE" -- tools | cut -c1-200 | head -20
+  #19 | 2026-10-18T23:59:30.275Z | seat | Bash | grep -n "EDIT-ROUTE\|edit_route\|def cmds\|_cmds\b" tools/b686_checks.py | head -20; grep -n "sed" tools/rule_arms.py | head; grep -n "^def \|^    ('G-" tools/r
+  #20 | 2026-10-18T23:59:35.750Z | seat | Bash | sed -n 360,380p tools/b686_checks.py; sed -n 578,600p tools/b686_checks.py; grep -n "def scan\|def \|sed" tools/edit_route.py | head -30; grep -n "sed\|G-NO-SED
+  #21 | 2026-10-19T00:00:51.182Z | seat | Bash | grep -n "b682\|b686\|R296" tools/b682_citation.py | head -30; grep -n "SESSION\b\|^SESSION\|SESSIONS" tools/b677_citation.py | head
+  #22 | 2026-10-19T00:01:13.806Z | seat | Bash | grep -n "55" data/b686_correspondence_after.txt | head -5; grep -n "15\b.*13\|13.*15" data/b686_naming.txt | head -5; python -X utf8 -c "
+  #23 | 2026-10-19T00:02:25.898Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py ferry && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py check
+  #24 | 2026-10-19T00:02:33.196Z | seat | Bash | cd /d/SIDE-spinor && git ls-tree -r --name-only v0.1.1 | grep -i spinorleg; git grep -n "salt-checked" v0.1.1 -- '*.lean' | head
+  #25 | 2026-10-19T00:02:39.965Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py check
+  #26 | 2026-10-19T00:02:47.950Z | seat | Bash | head -40 data/b685_author_answers.txt | cut -c1-400
+  #27 | 2026-10-19T00:02:56.747Z | seat | Bash | python -X utf8 -c "
+  #28 | 2026-10-19T00:05:28.425Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_record.py rowgen
+  #29 | 2026-10-19T00:05:52.596Z | seat | PowerShell | $names = 'tail.exe','lean.exe','lake.exe','python.exe','claude.exe','bash.exe'; $ps = Get-CimInstance Win32_Process | Where-Object { $names -contains $_.Name };
+  #30 | 2026-10-19T00:06:03.256Z | seat | Bash | git add data/b686_closing_push_out.txt && git commit -q -m "b687 step zero: b686's closing push capture (data/b686_closing_push_out.txt), committed alone under 
+  #31 | 2026-10-19T00:06:08.151Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py branches
+  #32 | 2026-10-19T00:06:14.735Z | seat | Bash | git -C /d/relay branch --merged main --list push-b686-root && git -C /d/relay branch -d push-b686-root
+  #33 | 2026-10-19T00:06:18.473Z | seat | Bash | git -C /d/relay branch --merged main --list push-b686 && git -C /d/relay branch -d push-b686
+  #34 | 2026-10-19T00:06:22.419Z | seat | Bash | git -C /d/relay branch --merged main --list push-b686-closing && git -C /d/relay branch -d push-b686-closing
+  #35 | 2026-10-19T00:06:26.433Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b686-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b686-root
+  #36 | 2026-10-19T00:06:30.826Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b686 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b686
+  #37 | 2026-10-19T00:06:34.604Z | seat | Bash | git -C /d/SIDE-spinor branch --merged main --list push-b686-main && git -C /d/SIDE-spinor branch -d push-b686-main
+  #38 | 2026-10-19T00:06:42.865Z | seat | Bash | git -C /d/SIDE-spinor branch --merged main --list push-b686-merge && git -C /d/SIDE-spinor branch -d push-b686-merge
+  #39 | 2026-10-19T00:06:46.789Z | seat | Bash | git -C /d/SIDE-spinor branch --merged main --list recut-spinor-b686 && git -C /d/SIDE-spinor branch -d recut-spinor-b686
+  #40 | 2026-10-19T00:06:51.515Z | seat | Bash | git -C /d/SIDE-spinor merge-base --is-ancestor bfaf89e16ca34adc4213530b746b30ec1d0626fe v0.1.1 && git -C /d/SIDE-spinor push origin --delete recut-spinor-b686
+  #41 | 2026-10-19T00:07:02.756Z | seat | Bash | cat data/b686_tests_withheld.json; ls tools | grep -c "^test_"
+  #42 | 2026-10-19T00:07:39.172Z | seat | Bash | python -X utf8 tools/b687_tests.py parts
+  #43 | 2026-10-19T00:07:45.588Z | seat | Bash | python -X utf8 tools/b687_tests.py hold 1 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_add
+  #44 | 2026-10-19T00:08:02.130Z | seat | Bash | python -X utf8 tools/b687_tests.py hold 2 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b687_tests.py run test_asof.py
+  #45 | 2026-10-19T00:14:57.835Z | seat | Bash | python -X utf8 tools/b687_tests.py hold 3 && for t in test_axiom_claim.py test_axiom_claim_b651.py test_banned_terms_backmatter.py test_build_watch_b644.py test
+  #46 | 2026-10-19T00:15:42.778Z | seat | Bash | python -X utf8 tools/b687_tests.py hold 4 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b687_tests.py run test_chain_page.py
+  #47 | 2026-10-19T00:22:50.844Z | seat | Bash | python -X utf8 tools/b687_tests.py hold 5 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py test_chain
+  #48 | 2026-10-19T00:26:25.105Z | seat | Bash | python -X utf8 tools/b687_tests.py hold 6 && for t in test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py test_licensed_table_instr
+  #49 | 2026-10-19T00:29:12.351Z | seat | Bash | python -X utf8 tools/b687_tests.py hold 7 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_name
+  #50 | 2026-10-19T00:33:09.560Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b687_tests.py report | tail -6; git status --porcelain --untracked-files=no; git -C /d/MY-DOwnloads/PLACE-papers sta
+  #51 | 2026-10-19T00:33:15.510Z | seat | Bash | git -C /d/SIDE-spinor ls-remote --heads origin; echo "exit $?"
+
+### ### **COMMANDS 51 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 5 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

@@ -1,0 +1,39 @@
+b687 -- STEP ZERO, COMPONENT 0, UNDER (R297) (2026-10-18)
+
+### rows are the step-zero items in the ferry's order, each with its bank and its reading.
+
+  the session               a new session opens the act (a90bcdb6); tools/b687_worklist.py carries its id and no session after it; the
+                            citation helpers (tools/b677_citation.py, imported unchanged) pointed at it by tools/b687_citation.py
+  the ferry                 data/b687_ferry.txt, banked by the Write tool from the paste (17,170 characters), equal to the transcript's text
+                            (tools/b687_citation.py ferry: "equal True ; ferry_scan exit 0"; data/b687_ferry_scan.txt)
+  the citation check        data/b687_citation_check.txt: CITES CHECKED 92 ; OK 90 ; MISSES 2, both the navigator's (data/b687_defects.txt
+                            (b), (c)): tools/rule_arms.py carries no G-EDIT-ROUTE (cited by Component 1); (R297)(2)'s Trudgian 2014 and
+                            Backlund comparisons are not in b685's controls bank (cited by Components 2-3). Both raised to the author before
+                            Component 1. Its first run printed a third miss, the check's own row reading SpinorLeg.lean at the tree's top
+                            (the file is SIDESpinor/SpinorLeg.lean, :21 carrying "(salt-checked)"); the row's path repaired by the Edit tool
+                            and the check re-run; no cite of the ruling or the ferry turned on it
+  the readfirst bank        data/b687_readfirst.txt, every item of the ferry's list by path and line with its row unit
+  rowgen and constellation  data/b687_rowgen_stepzero.txt: CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19
+  the process listing       tail, lean, lake, python and claude named (Win32_Process by name, 2026-10-19T00:05Z): claude 1 (pid 20504, this
+                            seat, the process b686's seat ran in before the context was cleared), tail 0, lean 0, lake 0, python 0, bash 0;
+                            free memory 3603 MB. No task of this session stopped; no orphan, nothing stopped by PID
+  the closing capture       data/b686_closing_push_out.txt committed alone at relay f24bdc16
+  the branches              data/b687_branches.txt: 9 named (8 local, 1 remote), every tip read and merged before any delete; the remote
+                            recut-spinor-b686 at bfaf89e1, an ancestor of SIDE-spinor main aca59d19 = v0.1.1; deleted by name in the house
+                            form, one branch per command, each command its own message, in sequence: relay push-b686-root (3516b105),
+                            push-b686 (b0249275), push-b686-closing (3e547498); PLACE-papers push-b686-root (9200541), push-b686 (9b9a7c6);
+                            SIDE-spinor push-b686-main (254b7bd), push-b686-merge (aca59d1), recut-spinor-b686 (bfaf89e) local, then at the
+                            remote after `merge-base --is-ancestor bfaf89e v0.1.1`. The remote read after: the first ls-remote by URL for the
+                            branch printed empty, re-read alone by `ls-remote --heads origin`: main aca59d19, substrate-spinor-leg 4f5848d6
+                            (not named, KEPT); recut-spinor-b686 absent. No unnamed branch under the push-b686 prefix
+  the tests                 data/b687_tests_stepzero.txt: TEST FILES 55 ; RUN 54 ; WITHHELD 1 (test_elab_reader_b634.py, runs lean) ; NOT
+                            CLEAN 2 -- test_chain_page.py (9) and test_chain_page_b638.py (4)-(7), the standing set since b638. Seven
+                            foreground parts, one call per part, the free memory printed before each against the 2,560 MB hold
+                            (tools/b687_tests.py hold): part 1 (3639 MB), test_asof.py alone (3618 MB; 409 s), part 3 (4136 MB),
+                            test_chain_page.py alone (4079 MB; 420 s), part 5 (4073 MB), part 6 (4049 MB), part 7 (4009 MB); no file's last
+                            run (b686's) above 450 s, the two near it run alone; the longest test 420 s; no part moved to the background
+  the commands              data/b687_commands.txt: 51 commands at step zero, G-EDIT-ROUTE offences 0, sed commands 5 -- the seat's defect
+                            (a) (data/b687_defects.txt); local lean or lake 0; branch deletes 9 of 9 one branch, no glob
+  git status                relay and PLACE-papers tracked changes NONE after the runs; the untracked files untracked (relay 128 untracked
+                            entries, this act's banks and tools among them as written)
+  no build                  no lean, lake or build on this host
