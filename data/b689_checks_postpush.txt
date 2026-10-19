@@ -1,0 +1,248 @@
+========================================================================================================
+b689 -- THE SUITE. ### **POST-PUSH READING.** ### FOUR PARTS SUMMED (data/b684_rules.txt row (1)) (data/b684_rules.txt row (1)) ### every arm exercised on both controls.
+========================================================================================================
+  ### PART standing-a : ARMS 84 ; 201 s
+  ### PART standing-c : ARMS 3 ; 46 s
+  ### PART standing-b : ARMS 2 ; 445 s
+  ### PART act : ARMS 27 ; 66 s
+  ### the parts` seconds summed 758 ; the longest part 445 s, under the 590 s guard True
+  ### ### **ARMS RUN : 116. ### LIVE PASSING : 115. ### LIVE FAILING : 1 ['G-EDIT-ROUTE'].**
+  ### ### **NEGATIVE-CONTROL FAILURES : 0. ### POSITIVE-CONTROL PASSES : 0 .**
+  ### ### **VERDICT : NOT CLEAN**
+========================================================================================================
+
+### THE PART BANK b689_checks_postpush_standing-a.txt, WHOLE:
+========================================================================================================
+b689 -- THE SUITE. ### **POST-PUSH READING.** ### PART standing-a (data/b684_rules.txt row (1)) ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 5278 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 34; the three arms at HEAD 161; the rule arms` trace 2; the written files, the public bytes and the prior banks (not in this part) 3; the act-root chain (not in this part) 0; the shared additive files (not in this part) 0; the table regenerated (not in this part or run) 0
+  ### THE LONGEST PHASE 161 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 116 ; in the suite : 116 ; run in this part : 84
+  ### (R264)(2) THE FREEZE: the standing arms (b688`s face less its own arms, the twenty rule arms among them) 89 ; carried here 89 ; added NONE ; the act`s arms over its own banks ['G-ANSWERS-CHECKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CONSTANTS-BY-ROW', 'G-CONTROLS-PRINTED', 'G-CORRIGENDUM-ENTRY', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FACES-ROWS-HELD', 'G-GRADE-BANKED', 'G-HEADLINE-ARM-REPAIRED', 'G-LANDING-BANKED', 'G-NO-SORRY-BRANCH', 'G-PARTS-PRERUN', 'G-PLAN-SECTION11-FIRST', 'G-PROMPT-BEFORE-LEAN', 'G-Q0-REREAD', 'G-R299-ENTERED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SHARED-ROWS-APPENDED', 'G-TOOL-REPAIRS', 'G-USES-CLASSIFIED'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE TWENTY RULE ARMS, EACH WITH ITS COUNT (tools/rule_arms.py; rows read, rows failing, the reading):
+  ###   G-RULE-PAIR-OF-READINGS      PASS read 0 ; failing 0 ; VACUOUS: no declaration of PAIR OF READINGS in any bank or ledger (the condition now distances [('b670_state.txt', [372, 90, 0, 33]), ('b680_closing.txt', [361])])
+  ###   G-RULE-METHOD-READINESS      PASS read 12 ; failing 0 ; the methods bank b680_methods.txt: rows 12, READY 9, READY against the criteria NONE
+  ###   G-RULE-ROWGEN-REVIEW         PASS read 16 ; failing 0 ; acts b674-b689: banks 16, missing or not exit 0 NONE ; this act`s before its first ledger write True
+  ###   G-RULE-TRIGGER-T1            PASS read 0 ; failing 0 ; VACUOUS: no declaration of T1 in any bank or ledger (the condition now distances [('b670_state.txt', [372, 90, 0, 33]), ('b680_closing.txt', [361])])
+  ###   G-RULE-TRIGGER-T2            PASS read 0 ; failing 0 ; VACUOUS: no declaration of T2 in any bank or ledger (the condition now the outside-reader bank b680_outside.txt: ALL THREE 3 of ENTRIES 7)
+  ###   G-RULE-TRIGGER-T3            PASS read 0 ; failing 0 ; VACUOUS: no declaration of T3 in any bank or ledger (the condition now the methods bank b680_methods.txt: READY 9 of 12)
+  ###   G-RULE-TRIGGER-T5            PASS read 0 ; failing 0 ; VACUOUS: no declaration of T5 in any bank or ledger (the condition now ferry banks carrying a ruling that retires the withholding: NONE)
+  ###   G-RULE-DETACHED-PRINT        PASS read 582 ; failing 0 ; unit rows 582 in ['b681_narrow_progress.txt'] ; without a time 0
+  ###   G-RULE-MIDACT-AFTER-ROOT     PASS read 18 ; failing 0 ; roots read 18 (b672 on) ; mid-act headers after the root in a root-named bank NONE
+  ###   G-RULE-CONSUMER-TOLERANCE    PASS read 6 ; failing 0 ; consumers sections 6 (plan banks b672 on) ; citing no bank NONE
+  ###   G-RULE-SCORES-BEFORE-SEAL    PASS read 5 ; failing 0 ; score-route calls 5, the first 2026-10-19T13:16:45Z ; the seal commit 2026-10-19T13:50:52Z
+  ###   G-RULE-DISPATCH-PER-TREE     PASS read 25 ; failing 0 ; runner banks 25 (b673 on), every run`s built tree read ; two runs of one tree in an act NONE
+  ###   G-RULE-WALK-TIP              PASS read 0 ; failing 0 ; VACUOUS: no walk bank from b684 (the floor); before it, without its tip: ['b679_zeta_walk.txt'] (b680`s defect (c))
+  ###   G-RULE-ONE-GIT-WRITE         PASS read 40 ; failing 0 ; messages carrying a git write 40 ; with more than one NONE
+  ###   G-RULE-REMOTE-REREAD         PASS read 3 ; failing 0 ; ls-remote calls 3 ; naming more than one NONE ; an empty read not re-read alone NONE
+  ###   G-RULE-TIE-BREAK             PASS read 6 ; failing 0 ; naming banks 6, ties 3 ; named against the rule NONE
+  ###   G-RULE-HEAD-LINE-QUOTED      PASS read 1 ; failing 0 ; the previous closing`s :1 'b688 closed: relay 4bee98dc, PLACE-papers c3af808; suite 116' in this ruling`s (1): True
+  ###   G-RULE-CLOSING-DRY           PASS read 15 ; failing 0 ; gate banks b675-b689 read 15 ; without the closing dry-run step CLEAN NONE ; this act`s before the seal True
+  ###   G-RULE-LONG-PHASE-SPLIT      PASS read 1 ; failing 0 ; the previous act`s pre-run`s longest phase 377 s (above 450 s: False) ; its parts 4, this act`s 4 -- NOT REACHED
+  ###   G-RULE-SUITE-PARTS           PASS read 34 ; failing 0 ; run banks b678-b689 34, each against its act`s governing parts (b678_rules.txt from b678: ['standing-a', 'standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s NONE
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-19T13:50:36Z : b689_worklist.py agree; b689_tests.py agree; b689_citation.py agree; b689_record.py agree; b689_checks.py agree; b689_closing.py agree; b689_reg_gate.py agree; b689_regspec.py agree; rule_arms.py agree
+  ### G-EDIT-ROUTE read 203 captured commands of this act and 10 of the previous act after its post-push suite (its own session); offences 1: ["#177 ['R sed in any form (data/b685_rules.txt row (2))']"]
+  ### THE CITATION CHECK: CITES CHECKED 78 ; OK 78 ; MISSES 0 ; THE ARM AT HEAD: [('b688', True, True), ('b689', True, True)] ; SECTION 11: {'equal': True, 'alone': True, 'before': True} ; THE GRADE: {'verbatim': True, 'graded': True, 'before': True, 'c2b': True}
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  ### THE THREE ARMS AT HEAD (seconds 61, 64, 37):
+  ###   G-NO-SORRY-MAIN read 44 kernels` mains, pairs unequal 0; sorry in code 0: none
+  ###   G-AXIOM-CLAIM read 198 claims: CONTRADICTED 0, UNVERIFIABLE 7, VERIFIED 55, UNBOUND 4, MENTION 132
+  ###   G-MODULE-HEADER read 242 headers: OVERREACHES 0 rows 
+  arm                                            LIVE  NEG   POS   verdict
+  --------------------------------------------------------------------------------------------------
+  G-RECEIPT-IN-FULL                              PASS  PASS  FAIL  OK
+  G-SCAN-CLEAN                                   PASS  PASS  FAIL  OK
+  G-PROCS-LISTED                                 PASS  PASS  FAIL  OK
+  G-STEPZERO-TESTS                               PASS  PASS  FAIL  OK
+  G-PUSHOUT-COMMITTED                            PASS  PASS  FAIL  OK
+  G-BRANCHES-DELETED                             PASS  PASS  FAIL  OK
+  G-READFIRST-CITED                              PASS  PASS  FAIL  OK
+  G-ANSWERS-BANKED                               PASS  PASS  FAIL  OK
+  G-LOCAL-BANK-UNTRACKED                         PASS  PASS  FAIL  OK
+  G-EXPORT-UNTRACKED                             PASS  PASS  FAIL  OK
+  G-EDIT-ROUTE                                   FAIL  FAIL  FAIL  ### FAILS
+  G-NO-LOCAL-LEAN                                PASS  PASS  FAIL  OK
+  G-WEIGHT-LINE                                  PASS  PASS  FAIL  OK
+  G-SPEC-PLANTED                                 PASS  PASS  FAIL  OK
+  G-CONVERSION-ONE                               PASS  PASS  FAIL  OK
+  G-WORKFLOW-FILES                               PASS  PASS  FAIL  OK
+  G-RUNNER-READ                                  PASS  PASS  FAIL  OK
+  G-RUNNER-GATE                                  PASS  PASS  FAIL  OK
+  G-MERGES-ON-GATE                               PASS  PASS  FAIL  OK
+  G-NO-SORRY-MAIN                                PASS  PASS  FAIL  OK
+  G-NO-SORRY-MAIN-PLANTED                        PASS  PASS  FAIL  OK
+  G-AXIOM-CLAIM                                  PASS  PASS  FAIL  OK
+  G-AXIOM-CLAIM-PLANTED                          PASS  PASS  FAIL  OK
+  G-MODULE-HEADER                                PASS  PASS  FAIL  OK
+  G-MODULE-HEADER-PLANTED                        PASS  PASS  FAIL  OK
+  G-CONVERSION-TEST                              PASS  PASS  FAIL  OK
+  G-PP-SCOPE                                     PASS  PASS  FAIL  OK
+  G-CURRENTS-UNEDITED                            PASS  PASS  FAIL  OK
+  G-KERNELS-UNTOUCHED                            PASS  PASS  FAIL  OK
+  G-INSTRUMENTS-UNEDITED                         PASS  PASS  FAIL  OK
+  G-FINDINGS-APPEND-ONLY                         PASS  PASS  FAIL  OK
+  G-TRAIL-APPEND-ONLY                            PASS  PASS  FAIL  OK
+  G-OUTSIDE-NAMED-NOWHERE                        PASS  PASS  FAIL  OK
+  G-DELETE-FREE                                  PASS  PASS  FAIL  OK
+  G-PUBLISH-UNCALLED                             PASS  PASS  FAIL  OK
+  G-SEALED-AFTER-COMPONENTS                      PASS  PASS  FAIL  OK
+  G-NOTHING-RAN-AHEAD                            PASS  PASS  FAIL  OK
+  G-LOCKGATE-EIGHT                               PASS  PASS  FAIL  OK
+  G-SEAL-VERIFIES                                PASS  PASS  FAIL  OK
+  G-SEAL-HASHES                                  PASS  PASS  FAIL  OK
+  G-ARMS-PRERUN                                  PASS  PASS  FAIL  OK
+  G-PRIOR-CLOSED-PUSHED                          PASS  PASS  FAIL  OK
+  G-TABLE-FINAL                                  PASS  PASS  FAIL  OK
+  G-ACTROOT-BANKED                               PASS  PASS  FAIL  OK
+  G-ROOT-BANKS-COMMITTED                         PASS  PASS  FAIL  OK
+  G-ACTROOT-LAST                                 PASS  PASS  FAIL  OK
+  G-FINDINGS-ENTRY                               PASS  PASS  FAIL  OK
+  G-TRAIL-RECORD                                 PASS  PASS  FAIL  OK
+  G-TRAIL-CARRIES-ROOT                           PASS  PASS  FAIL  OK
+  G-TRAIL-CARRIES-SEAL                           PASS  PASS  FAIL  OK
+  G-NEXT-ACT-NAMED                               PASS  PASS  FAIL  OK
+  G-N1-SCORED                                    PASS  PASS  FAIL  OK
+  G-N2-SCORED                                    PASS  PASS  FAIL  OK
+  G-N3-SCORED                                    PASS  PASS  FAIL  OK
+  G-N4-SCORED                                    PASS  PASS  FAIL  OK
+  G-N5-SCORED                                    PASS  PASS  FAIL  OK
+  G-SEAT-EXPECTATIONS-SCORED                     PASS  PASS  FAIL  OK
+  G-ARMS-DECLARED-EQ-RUN                         PASS  PASS  FAIL  OK
+  G-ARMS-NO-LIVE-LIMB                            PASS  PASS  FAIL  OK
+  G-MUSTFAIL                                     PASS  PASS  FAIL  OK
+  G-ARTEFACTS-NOT-COMMITTED                      PASS  PASS  FAIL  OK
+  G-PUSHED-PREDICATE-THREE-CLAUSED               PASS  PASS  FAIL  OK
+  G-CLOSING-SENTENCE                             PASS  PASS  FAIL  OK
+  G-LSREMOTE-ONE-PER-REPO                        PASS  PASS  FAIL  OK
+  G-RULE-PAIR-OF-READINGS                        PASS  PASS  FAIL  OK
+  G-RULE-METHOD-READINESS                        PASS  PASS  FAIL  OK
+  G-RULE-ROWGEN-REVIEW                           PASS  PASS  FAIL  OK
+  G-RULE-TRIGGER-T1                              PASS  PASS  FAIL  OK
+  G-RULE-TRIGGER-T2                              PASS  PASS  FAIL  OK
+  G-RULE-TRIGGER-T3                              PASS  PASS  FAIL  OK
+  G-RULE-TRIGGER-T5                              PASS  PASS  FAIL  OK
+  G-RULE-DETACHED-PRINT                          PASS  PASS  FAIL  OK
+  G-RULE-MIDACT-AFTER-ROOT                       PASS  PASS  FAIL  OK
+  G-RULE-CONSUMER-TOLERANCE                      PASS  PASS  FAIL  OK
+  G-RULE-SCORES-BEFORE-SEAL                      PASS  PASS  FAIL  OK
+  G-RULE-DISPATCH-PER-TREE                       PASS  PASS  FAIL  OK
+  G-RULE-WALK-TIP                                PASS  PASS  FAIL  OK
+  G-RULE-ONE-GIT-WRITE                           PASS  PASS  FAIL  OK
+  G-RULE-REMOTE-REREAD                           PASS  PASS  FAIL  OK
+  G-RULE-TIE-BREAK                               PASS  PASS  FAIL  OK
+  G-RULE-HEAD-LINE-QUOTED                        PASS  PASS  FAIL  OK
+  G-RULE-CLOSING-DRY                             PASS  PASS  FAIL  OK
+  G-RULE-LONG-PHASE-SPLIT                        PASS  PASS  FAIL  OK
+  G-RULE-SUITE-PARTS                             PASS  PASS  FAIL  OK
+
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 44 repositories, at most 1 each
+  ### the run took 201 s
+  ### PART standing-a : ARMS 84 ; LIVE PASSING 83 ; LIVE FAILING 1 ["G-EDIT-ROUTE"] ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 201 s
+========================================================================================================
+
+### THE PART BANK b689_checks_postpush_standing-c.txt, WHOLE:
+========================================================================================================
+b689 -- THE SUITE. ### **POST-PUSH READING.** ### PART standing-c (data/b684_rules.txt row (1)) ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 5127 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 37; the three arms at HEAD (not in this part) 0; the rule arms` trace (not in this part) 0; the written files, the public bytes and the prior banks 10; the act-root chain (not in this part) 0; the shared additive files (not in this part) 0; the table regenerated (not in this part or run) 0
+  ### THE LONGEST PHASE 37 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 116 ; in the suite : 116 ; run in this part : 3
+  ### (R264)(2) THE FREEZE: the standing arms (b688`s face less its own arms, the twenty rule arms among them) 89 ; carried here 89 ; added NONE ; the act`s arms over its own banks ['G-ANSWERS-CHECKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CONSTANTS-BY-ROW', 'G-CONTROLS-PRINTED', 'G-CORRIGENDUM-ENTRY', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FACES-ROWS-HELD', 'G-GRADE-BANKED', 'G-HEADLINE-ARM-REPAIRED', 'G-LANDING-BANKED', 'G-NO-SORRY-BRANCH', 'G-PARTS-PRERUN', 'G-PLAN-SECTION11-FIRST', 'G-PROMPT-BEFORE-LEAN', 'G-Q0-REREAD', 'G-R299-ENTERED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SHARED-ROWS-APPENDED', 'G-TOOL-REPAIRS', 'G-USES-CLASSIFIED'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-19T13:50:36Z : b689_worklist.py agree; b689_tests.py agree; b689_citation.py agree; b689_record.py agree; b689_checks.py agree; b689_closing.py agree; b689_reg_gate.py agree; b689_regspec.py agree; rule_arms.py agree
+  ### G-EDIT-ROUTE read 204 captured commands of this act and 10 of the previous act after its post-push suite (its own session); offences 1: ["#177 ['R sed in any form (data/b685_rules.txt row (2))']"]
+  ### THE CITATION CHECK: CITES CHECKED 78 ; OK 78 ; MISSES 0 ; THE ARM AT HEAD: [('b688', True, True), ('b689', True, True)] ; SECTION 11: {'equal': True, 'alone': True, 'before': True} ; THE GRADE: {'verbatim': True, 'graded': True, 'before': True, 'c2b': True}
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  arm                                            LIVE  NEG   POS   verdict
+  --------------------------------------------------------------------------------------------------
+  G-PRIORBANK-UNCHANGED                          PASS  PASS  FAIL  OK
+  G-NODISCLOSURE-PUBLIC                          PASS  PASS  FAIL  OK
+  G-WRITELIST-KINDS                              PASS  PASS  FAIL  OK
+
+  ### tracked files written (98), each against the (W) globs: uncovered NONE
+  ### G-PRIORBANK-UNCHANGED checked 20274 relay data banks tracked at 007d4ead by blob id; changed NONE
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 0 repositories, at most 0 each
+  ### the run took 47 s
+  ### PART standing-c : ARMS 3 ; LIVE PASSING 3 ; LIVE FAILING 0 NONE ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 46 s
+========================================================================================================
+
+### THE PART BANK b689_checks_postpush_standing-b.txt, WHOLE:
+========================================================================================================
+b689 -- THE SUITE. ### **POST-PUSH READING.** ### PART standing-b (data/b684_rules.txt row (1)) ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 5116 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 37; the three arms at HEAD (not in this part) 0; the rule arms` trace (not in this part) 0; the written files, the public bytes and the prior banks (not in this part) 3; the act-root chain 375; the shared additive files 30; the table regenerated (not in this part or run) 0
+  ### THE LONGEST PHASE 375 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 116 ; in the suite : 116 ; run in this part : 2
+  ### (R264)(2) THE FREEZE: the standing arms (b688`s face less its own arms, the twenty rule arms among them) 89 ; carried here 89 ; added NONE ; the act`s arms over its own banks ['G-ANSWERS-CHECKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CONSTANTS-BY-ROW', 'G-CONTROLS-PRINTED', 'G-CORRIGENDUM-ENTRY', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FACES-ROWS-HELD', 'G-GRADE-BANKED', 'G-HEADLINE-ARM-REPAIRED', 'G-LANDING-BANKED', 'G-NO-SORRY-BRANCH', 'G-PARTS-PRERUN', 'G-PLAN-SECTION11-FIRST', 'G-PROMPT-BEFORE-LEAN', 'G-Q0-REREAD', 'G-R299-ENTERED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SHARED-ROWS-APPENDED', 'G-TOOL-REPAIRS', 'G-USES-CLASSIFIED'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE ACT-ROOT CHAIN, recomputed: b624 AGREE; b625 AGREE; b626 AGREE; b627 AGREE; b628 AGREE; b629 AGREE; b630 AGREE; b631 AGREE; b632 AGREE; b633 AGREE; b634 AGREE; b635 AGREE; b636 AGREE; b637 AGREE; b638 AGREE; b639 AGREE; b640 AGREE; b641 AGREE; b642 AGREE; b643 AGREE; b644 AGREE; b645 AGREE; b646 AGREE; b647 AGREE; b648 AGREE; b649 AGREE; b650 AGREE; b651 AGREE; b652 AGREE; b653 AGREE; b654 AGREE; b655 AGREE; b656 AGREE; b657 AGREE; b658 AGREE; b659 AGREE; b660 AGREE; b661 AGREE; b662 AGREE; b663 AGREE; b664 AGREE; b665 AGREE; b666 AGREE; b667 AGREE; b668 AGREE; b669 AGREE; b670 AGREE; b671 AGREE; b672 AGREE; b673 AGREE; b674 AGREE; b675 AGREE; b676 AGREE; b677 AGREE; b678 AGREE; b679 AGREE; b680 AGREE; b681 AGREE; b682 AGREE; b683 AGREE; b684 AGREE; b685 AGREE; b686 AGREE; b687 AGREE; b688 AGREE; b689 AGREE
+  ### the reads at commit, b680: {'commit': '42d26968f808db6bb565c4b99f7e7928d15466ff', 'blob': 68, 'crlf': 0, 'later': 7, 'unread': 0, 'corrected': 4} ; b689: {'commit': 'b46542e54e82df26d960d4f3bdaac27519a2e401', 'blob': 53, 'crlf': 0, 'later': 0, 'unread': 0, 'corrected': 0}
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-19T13:50:36Z : b689_worklist.py agree; b689_tests.py agree; b689_citation.py agree; b689_record.py agree; b689_checks.py agree; b689_closing.py agree; b689_reg_gate.py agree; b689_regspec.py agree; rule_arms.py agree
+  ### G-EDIT-ROUTE read 205 captured commands of this act and 10 of the previous act after its post-push suite (its own session); offences 1: ["#177 ['R sed in any form (data/b685_rules.txt row (2))']"]
+  ### THE CITATION CHECK: CITES CHECKED 78 ; OK 78 ; MISSES 0 ; THE ARM AT HEAD: [('b688', True, True), ('b689', True, True)] ; SECTION 11: {'equal': True, 'alone': True, 'before': True} ; THE GRADE: {'verbatim': True, 'graded': True, 'before': True, 'c2b': True}
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  arm                                            LIVE  NEG   POS   verdict
+  --------------------------------------------------------------------------------------------------
+  G-SHARED-ADDITIVE                              PASS  PASS  FAIL  OK
+  G-ACTROOT-VERIFY                               PASS  PASS  FAIL  OK
+
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 38 repositories, at most 1 each
+  ### the run took 445 s
+  ### PART standing-b : ARMS 2 ; LIVE PASSING 2 ; LIVE FAILING 0 NONE ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 445 s
+========================================================================================================
+
+### THE PART BANK b689_checks_postpush_act.txt, WHOLE:
+========================================================================================================
+b689 -- THE SUITE. ### **POST-PUSH READING.** ### PART act (data/b684_rules.txt row (1)) ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 5186 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 37; the three arms at HEAD (not in this part) 0; the rule arms` trace (not in this part) 0; the written files, the public bytes and the prior banks (not in this part) 3; the act-root chain (not in this part) 0; the shared additive files (not in this part) 0; the table regenerated 26
+  ### THE LONGEST PHASE 37 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 116 ; in the suite : 116 ; run in this part : 27
+  ### (R264)(2) THE FREEZE: the standing arms (b688`s face less its own arms, the twenty rule arms among them) 89 ; carried here 89 ; added NONE ; the act`s arms over its own banks ['G-ANSWERS-CHECKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CONSTANTS-BY-ROW', 'G-CONTROLS-PRINTED', 'G-CORRIGENDUM-ENTRY', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FACES-ROWS-HELD', 'G-GRADE-BANKED', 'G-HEADLINE-ARM-REPAIRED', 'G-LANDING-BANKED', 'G-NO-SORRY-BRANCH', 'G-PARTS-PRERUN', 'G-PLAN-SECTION11-FIRST', 'G-PROMPT-BEFORE-LEAN', 'G-Q0-REREAD', 'G-R299-ENTERED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SHARED-ROWS-APPENDED', 'G-TOOL-REPAIRS', 'G-USES-CLASSIFIED'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-19T13:50:36Z : b689_worklist.py agree; b689_tests.py agree; b689_citation.py agree; b689_record.py agree; b689_checks.py agree; b689_closing.py agree; b689_reg_gate.py agree; b689_regspec.py agree; rule_arms.py agree
+  ### G-EDIT-ROUTE read 206 captured commands of this act and 10 of the previous act after its post-push suite (its own session); offences 1: ["#177 ['R sed in any form (data/b685_rules.txt row (2))']"]
+  ### THE CITATION CHECK: CITES CHECKED 78 ; OK 78 ; MISSES 0 ; THE ARM AT HEAD: [('b688', True, True), ('b689', True, True)] ; SECTION 11: {'equal': True, 'alone': True, 'before': True} ; THE GRADE: {'verbatim': True, 'graded': True, 'before': True, 'c2b': True}
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  arm                                            LIVE  NEG   POS   verdict
+  --------------------------------------------------------------------------------------------------
+  G-DRY-STEP-CLEAN                               PASS  PASS  FAIL  OK
+  G-CLOSING-DRY-STEP                             PASS  PASS  FAIL  OK
+  G-CITATION-CHECKED                             PASS  PASS  FAIL  OK
+  G-R299-ENTERED                                 PASS  PASS  FAIL  OK
+  G-ROWGEN-STEPZERO                              PASS  PASS  FAIL  OK
+  G-BRANCHES-BANKED                              PASS  PASS  FAIL  OK
+  G-DELETES-ONE-BRANCH                           PASS  PASS  FAIL  OK
+  G-ANSWERS-CHECKED                              PASS  PASS  FAIL  OK
+  G-SCORER-READS-BANKS                           PASS  PASS  FAIL  OK
+  G-ENTRY-SCORES-EQUAL                           PASS  PASS  FAIL  OK
+  G-ENTRY-TITLE-FORM                             PASS  PASS  FAIL  OK
+  G-CORRIGENDUM-ENTRY                            PASS  PASS  FAIL  OK
+  G-HEADLINE-ARM-REPAIRED                        PASS  PASS  FAIL  OK
+  G-PLAN-SECTION11-FIRST                         PASS  PASS  FAIL  OK
+  G-USES-CLASSIFIED                              PASS  PASS  FAIL  OK
+  G-PROMPT-BEFORE-LEAN                           PASS  PASS  FAIL  OK
+  G-LANDING-BANKED                               PASS  PASS  FAIL  OK
+  G-GRADE-BANKED                                 PASS  PASS  FAIL  OK
+  G-CONTROLS-PRINTED                             PASS  PASS  FAIL  OK
+  G-NO-SORRY-BRANCH                              PASS  PASS  FAIL  OK
+  G-CONSTANTS-BY-ROW                             PASS  PASS  FAIL  OK
+  G-Q0-REREAD                                    PASS  PASS  FAIL  OK
+  G-FACES-ROWS-HELD                              PASS  PASS  FAIL  OK
+  G-SHARED-ROWS-APPENDED                         PASS  PASS  FAIL  OK
+  G-TOOL-REPAIRS                                 PASS  PASS  FAIL  OK
+  G-PARTS-PRERUN                                 PASS  PASS  FAIL  OK
+  G-DEFECTS-LETTERED                             PASS  PASS  FAIL  OK
+
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 0 repositories, at most 0 each
+  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit 0.
+  ###   rows added 0 ; rows gone 0 ; grade-or-profile changed 0 
+  ### the run took 66 s
+  ### PART act : ARMS 27 ; LIVE PASSING 27 ; LIVE FAILING 0 NONE ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 66 s
+========================================================================================================
+
