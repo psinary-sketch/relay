@@ -1,5 +1,5 @@
 {
- "at": "2026-10-19T13:25:22Z",
+ "at": "2026-10-19T13:52:49Z",
  "anchor": "RULING (R299) BEGIN",
  "rows": [
   {
@@ -1177,9 +1177,272 @@
    "cmd": "python -B -X utf8 -c \"import ast; [ast.parse(open(f,encoding='utf-8').read(), f) for f in ('tools/b689_record.py','tools/b689_worklist.py','tools/b689_checks.py','tools/b689_closing.py','tools/b689_reg_gate.py','tools/b689_regspec.py')]; print('parsed')\" && PYTHONIOENCODING=utf-8 timeout 400 python -B -X utf8 tools/b689_record.py kernels && PYTHONIOENCODING=utf-8 timeout 400 python -B -X utf8 tools/b689_record.py commands 2>&1 | tail -3 | cut -c1-500",
    "n": 147,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:25:28.530Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 100 python -B -X utf8 tools/b689_record.py defects && PYTHONIOENCODING=utf-8 timeout 300 python -B -X utf8 tools/b689_record.py repairs && PYTHONIOENCODING=utf-8 timeout 400 python -B -X utf8 tools/b689_record.py scores dry 2>&1 | cut -c1-900",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:25:40.919Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 400 python -B -X utf8 tools/b689_record.py scores dry 2>&1 | grep \"^  N5\" | cut -c900-1700",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:25:49.595Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 400 python -B -X utf8 -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b689_record as R\nv=R._n5(); print(v[1][900:])\n\"",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:25:58.302Z",
+   "src": "seat",
+   "cmd": "git status --porcelain | grep -E \"b689|rule_arms\" ",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:26:04.474Z",
+   "src": "seat",
+   "cmd": "git add data/b689_stepzero.txt data/b689_tool_repairs.txt tools/b689_record.py tools/b689_worklist.py data/b689_commands.json data/b689_commands.txt data/b689_defects.json data/b689_kernels_face.json tools/b689_checks.py tools/b689_closing.py tools/b689_reg_gate.py tools/b689_regspec.py && git commit -q -m \"b689 C5: the tools carried from b688's sealed copies by the Write tool (the record's late routes with the previous act's window read in b688's own session, the checks with this act's arms, the closing, the gate, the spec), the carry-time reading appended to the repairs bank (five repairs, the sealed copies agreeing, the standing instruments unedited), the kernels face, the command bank (147 commands, offences 0, redirects onto /dev/null 6 as defect (a) counts), the defects JSON; the step-zero bank's process row in the standing arm's words\" && git log --oneline -1",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:26:12.236Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -B -X utf8 -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b689_checks as C, b689_worklist as K\nnames=[a[0] for a in C.ARMS]\nprint(len(names), len(set(names)))\nprint('standing', len(C.STANDING), 'missing standing', sorted(set(C.STANDING)-set(names)))\nprint('beyond', sorted(set(names)-set(C.STANDING)-set(K.ACT_ARMS)))\nprint('act not in suite', sorted(set(K.ACT_ARMS)-set(names)))\nprint(' '.join('\\`%s\\`'%n for n in names))\n\"",
+   "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:28:02.229Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b689_tests.py hold standing-a && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b689_checks.py --prerun --part standing-a | grep -E \"FAIL|raised|PART standing-a :|THE PHASES|declared not|run not\" | cut -c1-260",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:32:12.098Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -B -X utf8 -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b689_checks as C\nw=C.wf_state()\nfor k,v in w.items():\n    t=v['text'].lower()\n    print(k, 'text==before', v['text']==v['before'], 'lakefile', v['lakefile'], 'mathlib', v['mathlib'], 'targets', len(v['targets']), 'printed', v['printed'])\n    print(' act_writes', v['act_writes'], 'want', v['want'])\n    print(' lake env lean out/axioms.lean' in t, 'lake exe cache get' in t, [x for x in C.IDENT_WF if x in t])\n\"",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:32:22.142Z",
+   "src": "seat",
+   "cmd": "grep -n \"def wf_state\" -A 14 tools/b679_checks.py | cut -c1-200; git -C /d/SIDE-explicit-formula log --format=\"%h %ad %s\" --date=short -- .github/workflows/build-module.yml | cut -c1-150",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:32:55.577Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -B -X utf8 tools/b689_record.py repairs && python -X utf8 tools/b689_tests.py hold standing-a && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b689_checks.py --prerun --part standing-a | grep -E \"### FAILS|raised|PART standing-a :\" | cut -c1-400",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:36:16.571Z",
+   "src": "seat",
+   "cmd": "grep -E \"### PART standing-a :|DEFECTIVE\" data/b689_arms_prerun_standing-a.txt | grep -o \"NEGATIVE-CONTROL.*\\|.*DEFECTIVE.*\" | cut -c1-200",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:36:23.156Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b689_tests.py hold standing-c && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b689_checks.py --prerun --part standing-c | grep -E \"### FAILS|DEFECTIVE|raised|uncovered|changed|### PART\" | cut -c1-400",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:40:32.039Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b689_tests.py hold standing-b && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b689_checks.py --prerun --part standing-b | grep -E \"### FAILS|DEFECTIVE|raised|ACT-ROOT CHAIN|### PART\" | cut -c1-500",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:47:27.053Z",
+   "src": "seat",
+   "cmd": "grep -o \"b68[5-9] [A-Z]*[^;]*\" data/b689_arms_prerun_standing-b.txt | head -6",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:47:32.189Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b689_tests.py hold act && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b689_checks.py --prerun --part act | grep -E \"### FAILS|DEFECTIVE|raised|### PART\" | cut -c1-500",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:48:19.260Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b689_tests.py hold act && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b689_checks.py --prerun --part act | grep -E \"### FAILS|DEFECTIVE|raised|### PART\" | cut -c1-500",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:49:04.029Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b689_checks.py --combine b689_arms_prerun.txt | head -10 | cut -c1-300",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:49:25.485Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b689_reg_gate.py | grep -E \"index-query arm exit|FLOOR MISSES|ARM MISSES|UNDECLARED|ENTRY :|TRAIL :|DRY-RUN STEP :|CLOSING DRY-RUN|GATE VERDICT|missing|Traceback|Error\" | cut -c1-300",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:49:56.971Z",
+   "src": "seat",
+   "cmd": "cd \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/2c300355-703e-4575-81bc-2631a70202cf/scratchpad\" && grep -n -E \"DIFFER|NOT AT THE REMOTE|NO VERDICT|### NOT\" b689_closing_dry.txt | cut -c1-200; head -1 b689_closing_dry.txt; grep -n \"peeled\" b689_closing_dry.txt | head -4 | cut -c1-200",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:50:09.760Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b689_record.py gatebanks | cut -c1-260",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:50:18.896Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 -B tools/b689_record.py scores dry | cut -c1-200",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:50:30.702Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b378_lockgate.py b689 data/b689_registration_2026-10-19.txt | tail -12 | cut -c1-240",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:50:35.799Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -B tools/reg_seal.py --lock data/b689_registration_2026-10-19.txt && python -X utf8 -B tools/b689_checks.py --seal",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:50:42.402Z",
+   "src": "seat",
+   "cmd": "git status --porcelain | grep -E \"b689|audit_b689|terminal_table|act_roots|rule_arms\" | cut -c1-90",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:50:50.130Z",
+   "src": "seat",
+   "cmd": "git add data/b689_tool_repairs.txt tools/b689_checks.py tools/b689_closing.py tools/b689_record.py data/audit_b689_reg_satisfiable.txt data/b689_arms_prerun.txt data/b689_arms_prerun_act.txt data/b689_arms_prerun_standing-a.txt data/b689_arms_prerun_standing-b.txt data/b689_arms_prerun_standing-c.txt data/b689_census_stepzero.txt data/b689_faces_census_stepzero.txt data/b689_lockgate.json data/b689_lockgate_notes.txt data/b689_lsr_prerun_act.json data/b689_lsr_prerun_standing-a.json data/b689_lsr_prerun_standing-b.json data/b689_lsr_prerun_standing-c.json data/b689_pins_stepzero.txt data/b689_reg_gate.txt data/b689_reg_termscan.txt data/b689_registration_2026-10-19.txt data/b689_regspec_run.txt data/b689_satisfiable.json data/b689_seal_hashes.json && git commit -q -m \"b689 seal: the face locked after Components 0-4, the carry-time reading (six repairs, the sixth found by the pre-run), the closing's dry run and the dry-run step (gate CLEAR, lock gate 8 of 8); the pre-run in four parts, 116 arms, 87 passing, none failing on real state; the sealed tools' hashes, tools/rule_arms.py among them\" && git log --oneline -1",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:50:58.266Z",
+   "src": "seat",
+   "cmd": "timeout 400 python -X utf8 -B tools/b689_record.py commands | tail -1 | cut -c1-400 && timeout 590 python -X utf8 -B tools/b689_record.py table_final | tail -1",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:51:30.790Z",
+   "src": "seat",
+   "cmd": "timeout 400 python -X utf8 -B tools/b689_record.py scores | cut -c1-160",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:51:40.123Z",
+   "src": "seat",
+   "cmd": "timeout 300 python -X utf8 -B tools/b689_record.py findings dry | head -45 | cut -c1-900",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:52:01.494Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b689_record.py armread",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:52:09.095Z",
+   "src": "seat",
+   "cmd": "timeout 300 python -X utf8 -B tools/b689_record.py findings dry | sed -n 3p 2>/dev/null; echo",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:52:24.990Z",
+   "src": "seat",
+   "cmd": "timeout 300 python -X utf8 -B -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b689_record as R\nrows=R.capture()\nfor r in rows:\n    if R.sed_cmd(r['cmd']) or R.REDIRECT_NULL.search(R.QUOTED.sub('\\\"\\\"', r['cmd'])):\n        print(r['n'], r['ts'], 'SED' if R.sed_cmd(r['cmd']) else 'NULL', r['cmd'][:110])\n\"",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T13:52:39.170Z",
+   "src": "seat",
+   "cmd": "timeout 100 python -X utf8 -B tools/b689_record.py defects && timeout 300 python -X utf8 -B tools/b689_record.py findings dry | head -1 | cut -c1-300",
+   "n": 179,
+   "bg": false
   }
  ],
- "offences": [],
+ "offences": [
+  {
+   "n": 177,
+   "kinds": [
+    "R sed in any form (data/b685_rules.txt row (2))"
+   ]
+  }
+ ],
  "prev": {
   "act": "b688",
   "session": "a90bcdb6-256f-4841-97ff-9638e378446c",
@@ -1191,14 +1454,17 @@
   114
  ],
  "detached": [],
- "seds": [],
+ "seds": [
+  177
+ ],
  "null_redirects": [
   1,
   30,
   81,
   82,
   83,
-  115
+  115,
+  177
  ],
  "moves_deletes": [
   37,
