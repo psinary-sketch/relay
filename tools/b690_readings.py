@@ -332,7 +332,7 @@ B690_RULES = (('b690', 1, 'AFTER THE SEAL, THE ENTRY, THE DRY ENTRY AND THE TRAI
 
 def rules(*a):
     import rule_arms as RA
-    banks = sorted(f for f in os.listdir(D) if re.match(r'^b6(7[4-9]|8\d)_rules\.txt$', f))
+    banks = sorted(f for f in os.listdir(D) if re.match(r'^b6(7[4-9]|8\d|90)_rules\.txt$', f))
     arm_of = {}
     for nm, reads, *_r in RA.ARMS:
         for m in re.finditer(r'\b(b6\d\d) row \(?(\d+)\)?', reads):
@@ -344,6 +344,13 @@ def rules(*a):
             m = RULE_ROW.match(l)
             if m:
                 k = (act, int(m.group(1)))
+                if act == 'b690':
+                    rows.append(dict(act=act, row=k[1], head=m.group(2)[:110], bank='data/%s :%d' % (f, i), arm='NONE',
+                                     how=('by hand: the ruling (R300)(5) -- its arm sorted at b691 by data/b683_arms_sort.txt`s rule, not added this '
+                                          'act' if k[1] in (1, 2) else 'by hand: the ruling (R300)(5) -- the navigator`s rule on the ferry, binding '
+                                          'from b690; no sort ordered, no arm'),
+                                     sort='NOT SORTED (b691)' if k[1] in (1, 2) else 'NOT SORTED (the ruling sorts (1) and (2) alone)'))
+                    continue
                 if k in arm_of:
                     arm, how, sort = ', '.join(arm_of[k]), 'by code (tools/rule_arms.py, the arm`s reads-line naming %s row %d)' % k, 'ARMED'
                 elif k in HAND_ARMS:
@@ -351,7 +358,7 @@ def rules(*a):
                 else:
                     arm, how, sort = 'NONE', 'by hand: %s' % HAND_SORT.get(k, ('UNSORTED', 'no sort recorded'))[1], HAND_SORT.get(k, ('UNSORTED',))[0]
                 rows.append(dict(act=act, row=int(m.group(1)), head=m.group(2)[:110], bank='data/%s :%d' % (f, i), arm=arm, how=how, sort=sort))
-    for act, n, h in B690_RULES:
+    for act, n, h in (B690_RULES if not any(r['act'] == 'b690' for r in rows) else ()):
         rows.append(dict(act=act, row=n, head=h, bank='data/b690_rules.txt (to be banked at Component 3)', arm='NONE',
                          how=('by hand: the ruling (R300)(5) -- its arm sorted at b691 by data/b683_arms_sort.txt`s rule, not added this act' if n in (1, 2)
                               else 'by hand: the ruling (R300)(5) -- the navigator`s rule on the ferry, binding from b690; no sort ordered, no arm'),
