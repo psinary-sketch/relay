@@ -1,0 +1,47 @@
+b692 -- THE READ-FIRST BANK, (R302)(7) AND THE FERRY'S READ-FIRST LIST, READ AT STEP ZERO BEFORE ANY OTHER BANK OF THIS ACT (2026-10-19)
+
+### rows are the ferry's read-first items in its order: the item | path and line | the unit of the bank's rows | what was read there.
+### Each cite is checked at HEAD by tools/b692_citation.py (data/b692_citation_check.txt).
+
+  b691's head line             relay data/b691_closing.txt :1 | rows are the closing's report lines | "b691 closed: relay 62a530c6, PLACE-papers 9a0dc76;
+                               suite 119 of 121; root 7b052f8b5968b799…; 4 prompts answered; 11 defects"
+  the declared failure         relay data/b691_closing.txt :124, :126 (pre-push and post-push LIVE FAILING ['G-RULE-ONE-GIT-WRITE', 'G-RULE-SUITE-PARTS'])
+                               and :244-:245 ("G-RULE-ONE-GIT-WRITE carried failing, as the face declares") | the declared one G-RULE-ONE-GIT-WRITE,
+                               the undeclared one G-RULE-SUITE-PARTS
+  b691's defects               relay data/b691_defects.txt :5-:48 | rows are defects as lettered, (a)-(k), every one the seat's
+  the re-cut                   relay data/b691_cut.txt | rows are the cut's lines, residues and verdict | the document SIDE-rcurve, the distance 2 -> 0, tag
+                               v0.1.1, quoting lines 4 (:15-:18, R-1 to R-4) (:33); the kernel branch recut-rcurve-b691 at :5 -- the other kernel
+                               branches named at data/b691_epstein_cut.txt :23 and data/b691_closing.txt :240-:242, not in the cut bank
+  the generator's pages        relay data/b691_correspondence_run_PATHS.txt :31 ("LINES CHANGED 3") and data/b691_correspondence_run_RCURVE.txt :20
+                               ("LINES CHANGED 1") | rows are the page diffs' lines
+  the Epstein lines            relay data/b691_epstein_lines.txt :51, :57-:60, :63 | rows are EpsteinQ0.lean lines BEFORE and AFTER | three successor
+                               lines, docstrings alone, the tag v0.34.1 (data/b691_epstein_cut.txt :10)
+  the triage                   relay data/b691_orders_triage.txt :151 | rows are orders with dispositions | "ORDERS 35 ; CARRY 11 ;
+                               DISCHARGED-BY-READING 24 ; RETIRE 0" -- no RETIRE row, so (R302)(4)'s second prompt has no row to raise
+  the behind count             relay data/b691_behind.txt :104 | rows are Correspondence rows behind | 57 rows, the claim 1, 19 not generator rows,
+                               the cause SCOPE
+  the arms bank                relay data/b691_arms_added.txt :41 | rows are arms | "ARMS ADDED 4 ... STANDING ARMS NOW 24"
+  the parts pattern            relay tools/rule_arms.py :268 | a tool | `\bstanding-[a-z]\b`, which reads standing-b1 and standing-b2 as nothing
+  the corrigendum's form       relay tools/b678_corrigendum.py :82-:93 (_quote) and tools/b690_corrigendum.py (b690's entry for b689's undeclared
+                               failure in b678's form, data/b690_corrigendum.txt :5-:13) | tools | the corrigenda bank data/b675_corrigenda.txt
+  the circuit spec             relay data/b690_circuit_spec.txt :10-:48 | rows are readings, nine (INPUT, SERIES, TERMINALS, SHORTS, WIDTH, LOAD,
+                               CLAUSE-DOMINANCE, READFIRST-CLOSURE, OUTPUT)
+  the v0.34 print bank         relay data/b691_axioms_SIDE-explicit-formula_after.txt (run 39312568167 at c5aa058, whose tree 0add5a12 is main
+                               e5fcda7's = v0.34.1, v0.34 = 8fbc27b differing by EpsteinQ0 docstrings and twelve print-list names) and
+                               data/b691_prints_SIDE-explicit-formula.txt | rows are terminals with their axioms | the workflow
+                               SIDE-explicit-formula .github/workflows/build-module.yml
+  the faces kernels            relay data/b690_nodes_zeta.txt :94-:164 (rows naming the kernel: SIDE-explicit-formula) and :126 (@corr
+                               SIDE-lv-conservation, residue_irreducible); the faces page THE_CLAUSE_AND_ITS_COMPILED_FACES.md :731 | rows are nodes |
+                               two faces kernels, in the list's order SIDE-explicit-formula then SIDE-lv-conservation (v0.13.0 = 8e3bc76, a workflow,
+                               no print list)
+  b689's dispatch time         relay data/b689_runner_SIDE-explicit-formula_run1.txt :4 | the run's header lines | run 39255737373,
+                               2026-10-19T12:54:35Z to 13:01:29Z, 414 s, b689's one dispatch
+  b518's window bank           relay data/b518_report.txt :2, :127, :260 and data/b518_results.json :713 | rows are cells | "THE TWO-PROPERTY WINDOW";
+                               119 cells verified, "P - PR + A negative beyond B (verified) : NONE" -- cited for (R302)(5)(i), not run
+  the INSTRUMENTS form         PLACE-papers phase1.5/method/INSTRUMENTS.md :472-:474 (the entry form: the heading "## I-<n> — <TITLE> (entered <date> by
+                               <act>, under <ruling>; provenance: OPEN_TRAILS :<line>)" and one paragraph **Reads.** / **Decides.** / **Entered.**);
+                               the last entry I-39 at :480, the footer at :484 | rows are entries
+  b691's closing capture       relay data/b691_closing_push_out.txt | the push tool's capture lines | "62a530c6..f5318624", read back at f5318624;
+                               committed alone at step zero (relay 2fb05eaa)
+
+### ### **ITEMS 18 ; READ AT HEAD 18 ; THE CITATION CHECK OVER THEM IN data/b692_citation_check.txt.**
