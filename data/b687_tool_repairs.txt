@@ -1,17 +1,17 @@
-b687 -- COMPONENT 1 AND COMPONENT 4, (R297)`S FERRY: THE CARRY-TIME READING OF THE TOOLS, AGAINST b686`S SEALED COPIES (2026-10-19T00:39:24Z)
+b687 -- COMPONENT 1 AND COMPONENT 4, (R297)`S FERRY: THE CARRY-TIME READING OF THE TOOLS, AGAINST b686`S SEALED COPIES (2026-10-19T02:24:28Z)
 
 ### rows are repairs with the defect they answer, after the carried tools: b686`s sealed copy and its seal record; the hunks of the diff
 ### to b687`s copy. Every hunk is the act`s own text -- its names, its banks, its sections and its predicates over this act`s banks --
 ### save the repairs below.
 
   b686_citation.py     -> b687_citation.py     b686 sealed c56b5e2952419f16 ; the seal`s record c56b5e2952419f16 ; AGREE ; hunks 28
-  b686_closing.py      -> b687_closing.py      b686 sealed 63f4877f33d98a71 ; the seal`s record 63f4877f33d98a71 ; AGREE ; hunks NOT YET CARRIED
-  b686_reg_gate.py     -> b687_reg_gate.py     b686 sealed f4484cac4e4c4f29 ; the seal`s record f4484cac4e4c4f29 ; AGREE ; hunks NOT YET CARRIED
-  b686_regspec.py      -> b687_regspec.py      b686 sealed e23835843457f74f ; the seal`s record e23835843457f74f ; AGREE ; hunks NOT YET CARRIED
+  b686_closing.py      -> b687_closing.py      b686 sealed 63f4877f33d98a71 ; the seal`s record 63f4877f33d98a71 ; AGREE ; hunks 25
+  b686_reg_gate.py     -> b687_reg_gate.py     b686 sealed f4484cac4e4c4f29 ; the seal`s record f4484cac4e4c4f29 ; AGREE ; hunks 6
+  b686_regspec.py      -> b687_regspec.py      b686 sealed e23835843457f74f ; the seal`s record e23835843457f74f ; AGREE ; hunks 21
   b686_tests.py        -> b687_tests.py        b686 sealed 73eee9a07885df7c ; the seal`s record 73eee9a07885df7c ; AGREE ; hunks 11
   b686_worklist.py     -> b687_worklist.py     b686 sealed 27fc4ec089c48c55 ; the seal`s record 27fc4ec089c48c55 ; AGREE ; hunks 12
-  b686_record.py       -> b687_record.py       b686 sealed 1cd8f2af941b9142 ; the seal`s record 1cd8f2af941b9142 ; AGREE ; hunks 57
-  b686_checks.py       -> b687_checks.py       b686 sealed 8791f5850cee42df ; the seal`s record 8791f5850cee42df ; AGREE ; hunks NOT YET CARRIED
+  b686_record.py       -> b687_record.py       b686 sealed 1cd8f2af941b9142 ; the seal`s record 1cd8f2af941b9142 ; AGREE ; hunks 130
+  b686_checks.py       -> b687_checks.py       b686 sealed 8791f5850cee42df ; the seal`s record 8791f5850cee42df ; AGREE ; hunks 115
   rule_arms.py            the standing instrument, unedited in this act: 04ce62dba4bb4afb ; the last seal record naming it (b684`s) 04ce62dba4bb4afb ; AGREE ; its last commit c268710e 2026-10-18T14:28:23-04:00
   edit_route.py           the standing instrument, unedited in this act: 22b92c8f4440589a ; the last seal record naming it (NONE`s) ### NONE ; AGREE ; its last commit 66497ff1 2026-10-12T11:55:50-04:00 ; read by the tree: the working file equal to HEAD and its last commit before the act True
 
@@ -125,12 +125,13 @@ b687 -- COMPONENT 1 AND COMPONENT 4, (R297)`S FERRY: THE CARRY-TIME READING OF T
     +
     +
     --- b686_checks.py edit_route_ok (sealed)
-    +++ b687_checks.py edit_route_ok (NOT YET CARRIED)
-    @@ -1,5 +0,0 @@
-    -def edit_route_ok(S):
+    +++ b687_checks.py edit_route_ok
+    @@ -1,3 +1,5 @@
+     def edit_route_ok(S):
     -    return bool(S['cmds']) and S['ER'].scan(S['cmds']) == []
-    -
-    -
-    -
+    +    """(R297)(1), the navigator's answer on miss (b): the record tool's one reading over this act's whole capture and the previous act's after
+    +    its post-push suite -- tools/edit_route.py's arms and sed in any form (data/b685_rules.txt row (2))."""
+    +    return bool(S['cmds']) and bool(S['prev_cmds']) and S['REC'].edit_route_offences(S['cmds'] + S['prev_cmds']) == []
+     
 
-### ### **REPAIRS 2 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 4 OF 8 ; THE ARM`S DIFF LINES 102.**
+### ### **REPAIRS 2 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8 OF 8 ; THE ARM`S DIFF LINES 103.**

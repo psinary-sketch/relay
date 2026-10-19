@@ -1,7 +1,7 @@
-b687 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T00:38:16Z)
+b687 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T02:24:29Z)
 
 ### the source: the seat`s session a90bcdb6-256f-4841-97ff-9638e378446c from its first user line carrying 'RULING (R297) BEGIN', and its subagents` transcripts
-### commands read: 63
+### commands read: 120
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (5):
   #4 2026-10-18T23:56:56.221Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -80,8 +80,11 @@ import collec
 
 ### THE BRANCH DELETES BY SHAPE ((R297)(6): one branch per command, no glob in any half): #32 deletes ['push-b686-root'], globs none; #33 deletes ['push-b686'], globs none; #34 deletes ['push-b686-closing'], globs none; #35 deletes ['push-b686-root'], globs none; #36 deletes ['push-b686'], globs none; #37 deletes ['push-b686-main'], globs none; #38 deletes ['push-b686-merge'], globs none; #39 deletes ['recut-spinor-b686'], globs none; #40 deletes ['recut-spinor-b686'], globs none
 
-### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
-  NONE
+### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (4):
+  line 1125 | Agent | 2026-10-19T00:39:52.122Z | identifiers NONE | Fetch https://arxiv.org/abs/2004.09765 and report verbatim: the title, the authors, the version history (v1, v2 ... with dates), the journal reference if shown, and the full abstract text. Do not summ
+  line 1136 | Agent | 2026-10-19T00:40:12.322Z | identifiers NONE | Fetch https://arxiv.org/pdf/2004.09765v1 (a PDF). Report whether the fetch returned the PDF and anything you could read of it, in particular any theorem or corollary bounding |N(T) - (T/2π) log(T/2πe)
+  line 1197 | WebSearch | 2026-10-19T00:41:33.530Z | identifiers NONE | Platt Trudgian "An improved explicit bound on" zeta(1/2+it) arXiv
+  line 1207 | Agent | 2026-10-19T00:41:43.453Z | identifiers NONE | Fetch https://arxiv.org/pdf/1402.3953 (a PDF). Report whether the PDF came back; if any text is readable, quote verbatim any corollary bounding |S(T)| or |N(T) - (T/2π) log(T/2πe) - 7/8| with explicit
 
 ### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
   #1 | 2026-10-18T23:56:34.071Z | seat | Bash | cd /d/relay && git status --short | head -30 && git log --oneline -5 && ls tools | grep -E "b68[56]" && ls data | grep -E "^b686" | head -80
@@ -147,5 +150,62 @@ import collec
   #61 | 2026-10-19T00:37:07.127Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b687 C1: b686 at its weight, FINDINGS :9284 beneath b686's entry (:9260), its closin
   #62 | 2026-10-19T00:37:40.963Z | seat | Bash | cd /d/relay && python -X utf8 -c "
   #63 | 2026-10-19T00:38:14.612Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py commands && grep -n -A3 "PREVIOUS ACT" data/b687_commands.txt | head -12 | cut -c1-200
+  #64 | 2026-10-19T00:39:10.442Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py repairs && head -20 data/b687_tool_repairs.txt | cut -c1-220
+  #65 | 2026-10-19T00:39:22.945Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py repairs && grep -n "edit_route.py  \|rule_arms.py  " data/b687_tool_repairs.txt | cut -c1
+  #66 | 2026-10-19T00:39:30.367Z | seat | Bash | git add data/b687_author_answers.txt data/b687_author_answers.json data/b687_defects.txt data/b687_citation_check.txt data/b687_record_lines.json data/b687_tool
+  #67 | 2026-10-19T00:39:41.092Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/df03c73f-520a-4848-85dc-8fada095f008/tool-results/" && python -I -X utf8 -c "
+  #68 | 2026-10-19T00:40:37.463Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/a90bcdb6-256f-4841-97ff-9638e378446c/tool-results/" && sha256sum webfetch-1792370414664-2ow95v.pdf && python -I -
+  #69 | 2026-10-19T00:40:53.130Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/a90bcdb6-256f-4841-97ff-9638e378446c/tool-results/" && python -I -X utf8 -c "
+  #70 | 2026-10-19T00:41:06.543Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/df03c73f-520a-4848-85dc-8fada095f008/tool-results/" && python -I -X utf8 -c "
+  #71 | 2026-10-19T00:42:04.945Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/a90bcdb6-256f-4841-97ff-9638e378446c/tool-results/" && sha256sum webfetch-1792370506496-1dxit1.pdf && python -I -
+  #72 | 2026-10-19T00:43:12.605Z | seat | Bash | cd /d/relay && python -X utf8 -c "
+  #73 | 2026-10-19T00:43:26.916Z | seat | Bash | grep -n "^def \|^    return" tools/b671_narrow.py | head -30; grep -n "^def " tools/b667_epstein_certify.py | head -30; grep -n "import b667\|import b671\|b667\
+  #74 | 2026-10-19T00:43:33.067Z | seat | Bash | timeout 300 python -X utf8 -c "
+  #75 | 2026-10-19T00:45:33.224Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b687_record.py answers && git add data/b687_plan.txt data/b687_defects.txt data/b687_author_answers.txt 
+  #76 | 2026-10-19T00:52:27.515Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py answer "AUTHOR’S WORD on (R297)(3)–(4)"
+  #77 | 2026-10-19T00:52:31.768Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py answer "on the third located bound"
+  #78 | 2026-10-19T00:52:38.033Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py answer "on the ζ disc parameters"
+  #79 | 2026-10-19T00:52:43.974Z | seat | Bash | tail -c 400 data/b687_citation_check.txt; echo; python -X utf8 -c "
+  #80 | 2026-10-19T00:52:49.915Z | seat | Bash | python -X utf8 -c "
+  #81 | 2026-10-19T00:54:10.172Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py answer "on the tail check"
+  #82 | 2026-10-19T00:54:15.489Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py answer "on the vacuity of (ii)"
+  #83 | 2026-10-19T00:54:23.368Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py answer "the off-line zeros make the inner count a reading"
+  #84 | 2026-10-19T00:54:34.640Z | seat | Bash | tail -4 data/b687_citation_check.txt | cut -c1-200
+  #85 | 2026-10-19T00:54:58.862Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b687_record.py answers && grep -c "THE AUTHOR\`S WORD" data/b687_author_answers.txt
+  #86 | 2026-10-19T00:55:12.122Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b687_record.py answers && grep -n "### NOTE" data/b687_author_answers.txt | cut -c1-260
+  #87 | 2026-10-19T00:55:22.049Z | seat | Bash | git add data/b687_author_answers.txt data/b687_author_answers.json data/b687_citation_check.txt data/b687_defects.txt data/b687_rules.txt tools/b687_record.py &
+  #88 | 2026-10-19T01:00:33.122Z | seat | Bash | python -X utf8 -m pyflakes tools/b687_readings.py 2>&1 | head; python -X utf8 -c "
+  #89 | 2026-10-19T01:00:42.159Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R1 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R1
+  #90 | 2026-10-19T01:01:19.766Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R1 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R1 | grep -n "copy\|a_e\|chosen\|s$"
+  #91 | 2026-10-19T01:01:58.385Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R2 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R2
+  #92 | 2026-10-19T01:02:14.655Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #93 | 2026-10-19T01:13:41.055Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #94 | 2026-10-19T01:20:09.444Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #95 | 2026-10-19T01:25:44.240Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #96 | 2026-10-19T01:36:28.886Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #97 | 2026-10-19T01:44:48.098Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #98 | 2026-10-19T01:49:07.106Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #99 | 2026-10-19T01:51:50.616Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #100 | 2026-10-19T01:58:30.172Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #101 | 2026-10-19T01:59:51.387Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #102 | 2026-10-19T02:02:15.969Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R3 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R3
+  #103 | 2026-10-19T02:02:28.007Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R4 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R4
+  #104 | 2026-10-19T02:02:38.531Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R5 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R5 2>&1 | tail -60
+  #105 | 2026-10-19T02:03:01.232Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R6 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R6 2>&1 | grep -v "the end σ" | tail -40
+  #106 | 2026-10-19T02:03:27.112Z | seat | Bash | grep -n "x²\|x^2\|m² \|Q(m\|Q0 =\|Q₀ =\|\[1, 1, 6\]\|(1, 1, 6)\|2, 1, 3" data/b667_epstein_plan.txt | head -10
+  #107 | 2026-10-19T02:03:55.717Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R6 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R6 2>&1 | grep -v "the end σ" | tail -40
+  #108 | 2026-10-19T02:08:05.303Z | seat | Bash | python -X utf8 tools/b687_tests.py hold R7 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_readings.py R7
+  #109 | 2026-10-19T02:08:34.437Z | seat | Bash | tail -5 data/b670_work_orders.txt | cut -c1-260; cat data/b685_p3_status.txt | head -30
+  #110 | 2026-10-19T02:08:47.388Z | seat | Bash | grep -n "P3\|T-COUNT\|stated, not proved\|ASSUMED" data/b675_hypotheses.txt | cut -c1-230 | head -20; echo ===; grep -n "P3\|T-COUNT\|stated, not proved\|ASSUME
+  #111 | 2026-10-19T02:09:42.095Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py c3 dry 2>&1 | head -3 | cut -c1-300
+  #112 | 2026-10-19T02:09:50.742Z | seat | Bash | git add tools/b687_readings.py tools/b687_record.py data/b687_readings_part1.json data/b687_readings_part2.json data/b687_readings_part3.json data/b687_readings
+  #113 | 2026-10-19T02:09:56.912Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py c3 2>&1 | tail -1 | cut -c1-200; git -C /d/MY-DOwnloads/PLACE-papers diff --stat
+  #114 | 2026-10-19T02:10:03.658Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b687 C3: W-ORD-EPSTEIN-COUNT DISCHARGED-BY-DERIVATION (OPEN_TRAILS :14890), W-ORD
+  #115 | 2026-10-19T02:10:20.811Z | seat | Bash | cd /d/relay && git add data/b670_work_orders.txt data/b687_orders_lines.json tools/b687_worklist.py && git commit -q -m "b687 C3: the orders bank's two rows app
+  #116 | 2026-10-19T02:11:51.700Z | seat | Bash | wc -l data/b686_registration_2026-10-18.txt tools/b686_reg_gate.py tools/b686_regspec.py tools/b686_closing.py && grep -n "^###\|^  ###" data/b686_registration_
+  #117 | 2026-10-19T02:15:20.326Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b687_record.py kernels && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py finding
+  #118 | 2026-10-19T02:16:30.102Z | seat | Bash | grep -o "THE MID-ACT CHECK ([^)]*): the answer carrying '[^']*'" data/b687_citation_check.txt; grep -c "^### PROMPT " data/b687_author_answers.txt; grep -c "^##
+  #119 | 2026-10-19T02:21:50.587Z | seat | Bash | python -X utf8 -c "
+  #120 | 2026-10-19T02:24:26.555Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py repairs && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py command
 
-### ### **COMMANDS 63 ; G-EDIT-ROUTE OFFENCES 5 (SED IN ANY FORM AMONG THEM 5) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 11 COMMANDS, OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 5 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 120 ; G-EDIT-ROUTE OFFENCES 5 (SED IN ANY FORM AMONG THEM 5) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 11 COMMANDS, OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 5 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9 ; OUTBOUND REQUESTS 4, AN IDENTIFIER IN 0.**

@@ -58,7 +58,11 @@ P3_WORDS = ('DERIVED — constants certified in balls, analytic steps sourced by
 NEXT = ('b688, the re-cut act, with the licensed table`s next document and R4 (SpinorLeg.lean :21) re-derived in b684`s form, its ruling then; '
         'b689 the research act, its candidate on (R297)(5)`s landing; b690 the reading act, reading 3')
 
-ACT_ARMS = ()               # ### written at Component 4, after the readings
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R297-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-RULES-BANKED', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-HEAD-STATUS',
+            'G-PLAN-BEFORE-READINGS', 'G-LOCATED-QUOTED', 'G-B685-UNCHANGED', 'G-READINGS-BALLS', 'G-JENSEN-WITHIN', 'G-STEPS-HOLD',
+            'G-CONTROLS-PLANTED', 'G-COMPOSITION-RUN', 'G-P3-STATUS-WORDS', 'G-Q0-REREAD', 'G-ORDERS-MARKED', 'G-TOOL-REPAIRS', 'G-PARTS-PRERUN',
+            'G-DEFECTS-LETTERED')
 STANDING_ADDED = ()         # ### (R297)'s N5: no standing arm added
 SHARED_APPENDED = ('data/b670_work_orders.txt',)    # ### (R297)(5): the two order rows, appended (additive, (R254)(2))
 PARTS = ('standing-a', 'standing-c', 'standing-b', 'act')     # ### data/b684_rules.txt row (1): the standing arms in three parts, the act's in one
