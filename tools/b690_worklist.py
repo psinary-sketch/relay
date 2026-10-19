@@ -42,7 +42,9 @@ DELETE = (('D:/relay', ('push-b689-root', 'push-b689', 'push-b689-closing')),
 DELETE_REMOTE = (('D:/SIDE-explicit-formula', 'strip-free-b689'),)
 
 FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
-NODES, NODES_ROW = 'data/b688_nodes_zeta.txt', 167
+NODES, NODES_ROW = 'data/b688_nodes_zeta.txt', 167   # ### the generator's input list at the page's last write (b688) and the Li face row
+NODES_NEW = 'data/b690_nodes_zeta.txt'               # ### b688's list, :167 replaced by the amended row (data/b689_faces_rows.txt), on the author's word
+PROBE = 'data/b643_probe_out_zeta.txt'               # ### b643's banked probe output: the page re-emitted without elaborating (no lean)
 
 NEXT = ('b691, the re-cut act: the tie between SIDE-archimedean and SIDE-rcurve at 2 broken by b674`s rule read from the bank at that act`s '
         'step zero, rule (2) of data/b690_rules.txt binding, the arms for rules (1) and (2) sorted there; b692 the research act, the author`s '

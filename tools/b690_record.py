@@ -397,7 +397,66 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers)
+# ================================================================================ COMPONENT 2: THE FACES LINE, (R300)(3) AND THE AUTHOR'S WORD (b688's route, carried)
+def faces(*a):
+    """b688's form (tools/b688_record.py :322-:366): the control (b688's list re-emits the committed page byte for byte) and the emission of
+    data/b690_nodes_zeta.txt, both by tools/chain_page.py --from-output data/b643_probe_out_zeta.txt into the scratchpad (no lean); the diff
+    printed; with `write`, the control and the emission clean first, the page written by the generator itself (its --out the page), read
+    back equal to the emission, and the diff banked as data/b690_faces_diff.txt."""
+    import difflib
+    import hashlib
+    page = os.path.join(PP, K.FACES_PAGE)
+    probe = os.path.join(ROOT, *K.PROBE.split('/'))
+
+    def emit(nodes, out):
+        r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'chain_page.py'), '--nodes', os.path.join(ROOT, *nodes.split('/')),
+                            '--probe-dir', SP, '--out', out, '--from-output', probe], capture_output=True, text=True, encoding='utf-8', errors='replace')
+        return r.returncode, ((r.stdout or '') + (r.stderr or '')).strip().split(NL)[-1:]
+    committed = open(page, 'rb').read()
+    head = g(PP, 'show', 'HEAD:' + K.FACES_PAGE).encode('utf-8')
+    cpath, npath = os.path.join(SP, 'b690_faces_control.md'), os.path.join(SP, 'b690_faces_emit.md')
+    rc0, t0 = emit(K.NODES, cpath)
+    ctl = open(cpath, 'rb').read() if os.path.exists(cpath) else b''
+    control = rc0 == 0 and ctl == committed
+    rc1, t1 = emit(K.NODES_NEW, npath)
+    new = open(npath, 'rb').read() if os.path.exists(npath) else b''
+    d = list(difflib.unified_diff(committed.decode('utf-8').split(NL), new.decode('utf-8').split(NL), 'committed', 'b690', n=0, lineterm=''))
+    add = sum(1 for l in d if l.startswith('+') and not l.startswith('+++'))
+    rem = sum(1 for l in d if l.startswith('-') and not l.startswith('---'))
+    # ### beside b688's count, the lines that differ with difflib's autojunk off (a line as common as the blank one is junk to the default
+    # ### matcher, which then reports an equal blank line inside a hunk)
+    ca, cb = committed.decode('utf-8').split(NL), new.decode('utf-8').split(NL)
+    real = [(i1 + 1, i2, j1 + 1, j2) for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, ca, cb, autojunk=False).get_opcodes() if op != 'equal']
+    written, back = False, False
+    if 'write' in a:
+        if not control or rc1 != 0:
+            sys.exit('### THE CONTROL OR THE EMISSION FAILED -- THE PAGE IS NOT WRITTEN')
+        rc2, t2 = emit(K.NODES_NEW, page)
+        written = rc2 == 0
+        back = open(page, 'rb').read() == new
+    old_l = rdn(os.path.basename(K.NODES)).split(NL)
+    new_l = rdn(os.path.basename(K.NODES_NEW)).split(NL)
+    only = [i + 1 for i in range(max(len(old_l), len(new_l))) if (old_l[i:i + 1] or [None]) != (new_l[i:i + 1] or [None])]
+    row = new_l[K.NODES_ROW - 1]
+    L = ['b690 -- COMPONENT 2, (R300)(3): THE FACES LINE THROUGH THE GENERATOR, ON THE AUTHOR`S WORD (%s)' % utc(), '',
+         '### the generator: relay tools/chain_page.py --from-output relay %s (no elaboration; no lean on this host)' % K.PROBE,
+         '### the control: b688`s list (relay %s) re-emits the committed page byte for byte: %s (%d bytes ; exit %d ; the committed page equal to HEAD`s '
+         'blob %s)' % (K.NODES, control, len(ctl), rc0, committed.replace(b'\r\n', b'\n') == head.replace(b'\r\n', b'\n')),
+         '### the new list: relay %s (b688`s %d lines, the lines differing %s -- :%d replaced by the amended row of data/b689_faces_rows.txt, every '
+         'other line unchanged); emitted %d bytes, exit %d, sha256 %s' % (K.NODES_NEW, len(old_l) - 1, only, K.NODES_ROW, len(new), rc1,
+                                                                       hashlib.sha256(new).hexdigest()[:16]),
+         '### the diff, committed page -> b690 emission (lines added %d, removed %d, by b688`s count; with difflib`s autojunk off the lines that '
+         'differ, committed -> b690: %s):' % (add, rem, '; '.join(':%d-:%d -> :%d-:%d' % r for r in real))] + ['    ' + l for l in d] + [
+         '', '### the page written by the generator and read back equal to the emission: %s' % (back if 'write' in a else 'NOT YET (dry)'),
+         '### the row carries "(b689)" after the strip-free phrase, T-COUNT beside P3 and no backtick: %s' % (
+             'unchanged under the strip-free form (b689))' in row and 'T-COUNT (P3) derived' in row and '`' not in row), '',
+         '### ### **CONTROL EQUAL %s ; LINES ADDED %d ; REMOVED %d ; PAGE WRITTEN %s.**' % (control, add, rem, written and back)]
+    if 'write' in a:
+        put_txt('b690_faces_diff.txt', L)
+    print(NL.join(L[2:6] + L[-4:]))
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, faces=faces)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
