@@ -1,0 +1,266 @@
+b691 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T20:22:53Z)
+
+### the source: the seat`s session 2c300355-703e-4575-81bc-2631a70202cf from its first user line carrying 'RULING (R301) BEGIN', and its subagents` transcripts
+### commands read: 184
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b690, this same session 2c300355, from its post-push combine to (R301)`s line): 14 commands from 2026-10-19T17:45:45.645Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (4):
+  #38 gh workflow run build-module.yml -R psinary-sketch/SIDE-rcurve --ref main -f ref=29885e50584afd437128c34c0e587c0cb62593b2 -f target=SIDERCurve
+  #50 git -C /d/SIDE-rcurve rev-parse e3df866 && gh workflow run build-module.yml -R psinary-sketch/SIDE-rcurve --ref main -f ref=$(git -C /d/SIDE-rcurve rev-parse e3df866) -f target=SIDERCurve
+  #115 gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=9da7bc20c123bda971db527d24605b178873dbee -f target="SIDEExplicitFormula.Schema.LiCfg SIDEExplicitFormula.Chi.LiForward SIDEExplicitFormula.Schema.Pow
+  #124 git ls-remote https://github.com/psinary-sketch/SIDE-explicit-formula.git refs/heads/recut-epstein-b691 && gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=c5aa058f8c37a6716bdbee2c2b95a10426764739 -
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (1):
+  #125 2026-10-19T19:38:19.308Z timeout 580 gh run watch 39312568167 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 60 > /dev/null; echo EXIT $?; gh run view 39312568167 -R psinary-sketch/SIDE-explicit-formula --js
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings -- this act`s defect (b) among them (1):
+  #125 2026-10-19T19:38:19.308Z timeout 580 gh run watch 39312568167 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 60 > /dev/null; echo EXIT $?; gh run view 39312568167 -R psinary-sketch/SIDE-explicit-formula --js
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings -- this act`s defect (a) among them (10):
+  #33 2026-10-19T18:39:09.939Z cd /d/SIDE-trivium && cat lean-toolchain && grep -n "require\|@" lakefile.lean && cat .github/workflows/build-module.yml && git log --oneline -1 -- .github/workflows/build-module.yml && cat print_targ
+  #73 2026-10-19T18:57:21.631Z git diff tools/correspondence_gen.py | head -30
+  #87 2026-10-19T19:06:01.767Z cd /d/MY-DOwnloads/PLACE-papers && git rev-parse --short HEAD && git status --porcelain -- phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md && echo CLEAN-
+  #97 2026-10-19T19:15:20.056Z cd /d/SIDE-explicit-formula && git rev-parse --short HEAD && git describe --tags --abbrev=0 main && git ls-files | grep -n EpsteinQ0
+  #101 2026-10-19T19:17:56.651Z git show v0.34:SIDEExplicitFormula/Schema/Epstein.lean | head -46 | tail -14
+  #105 2026-10-19T19:25:53.373Z cd /d/SIDE-explicit-formula && ls .github/workflows/ && git log -1 --format='%h %ad' -- .github/workflows/build-module.yml print_targets.txt && wc -l print_targets.txt && git grep -n -c "EpsteinQ0" ma
+  #106 2026-10-19T19:26:11.909Z git grep -n -e "TARGET" -e "target=" -- tools/b689_record.py tools/b689_worklist.py | head -20; cd /d/SIDE-explicit-formula && git grep -n -E "^(theorem|lemma|def|structure|abbrev|noncomputable def|in
+  #109 2026-10-19T19:27:05.167Z cd /d/relay && ls data | grep -E "^b691_.*push" ; git log --format='%h %s' -8
+  #168 2026-10-19T20:00:12.713Z python -X utf8 -I -c " import json for raw in open('C:/Users/echo chamber/.claude/projects/D--/2c300355-703e-4575-81bc-2631a70202cf.jsonl',encoding='utf-8',errors='replace'): try: o=json.loads(raw) ex
+  #170 2026-10-19T20:01:17.594Z git grep -n -E "^import|^from|^ import|^R3|^ER" -- tools/b690_record.py | head -40; git grep -n -E "^import|^from" -- tools/b691_record.py
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line -- the reads among them entered as this
+act`s defect (a) where the Read tool would have read the lines (15):
+  #74 2026-10-19T18:58:26.636Z git diff tools/correspondence_gen.py tools/test_correspondence_gen.py | sha256sum; python -X utf8 -I -c "import re,hashlib,subprocess;t=open('data/b691_tool_repairs.txt',encoding='utf-8').read();b=[l for l in t.split(chr
+  #75 2026-10-19T18:58:35.453Z python -X utf8 -I -c " import subprocess t=open('data/b691_tool_repairs.txt',encoding='utf-8').read().split(chr(10)) for f in ('tools/correspondence_gen.py','tools/test_correspondence_gen.py'): d=subprocess.run(['git','d
+  #76 2026-10-19T18:58:42.296Z python -X utf8 -I -c " import subprocess t=open('data/b691_tool_repairs.txt',encoding='utf-8').read().split(chr(10)) for f in ('tools/correspondence_gen.py','tools/test_correspondence_gen.py'): d=subprocess.run(['git','d
+  #77 2026-10-19T19:00:02.924Z python -X utf8 -I -c " import json j=json.load(open('data/b690_r3_corr.json',encoding='utf-8')) print(list(j.keys())) for k,v in j.items(): print(k, type(v).__name__, (list(v.keys())[:12] if isinstance(v,dict) else (len(
+  #120 2026-10-19T19:37:05.078Z git diff --numstat && git diff -U0 && python -X utf8 -I -c " import subprocess d=subprocess.run(['git','diff','-U0'],capture_output=True,text=True,encoding='utf-8').stdout.split(chr(10)) plus=[l[1:] for l in d if l.start
+  #122 2026-10-19T19:37:21.531Z cd /d/relay && git grep -n -e "--branch-only" -e "branch only" -e "refs/heads/\$" -- tools/push_gated.sh; python -X utf8 -I -c " import json n=0 for raw in open('C:/Users/echo chamber/.claude/projects/D--/2c300355-703e-4
+  #139 2026-10-19T19:49:20.122Z python -X utf8 -I -c " import json j=json.load(open('data/b690_r3_orders.json',encoding='utf-8')) print(list(j.keys())) for k,v in j.items(): print(k, type(v).__name__, len(v) if hasattr(v,'__len__') and not isinstance(v
+  #140 2026-10-19T19:49:24.506Z python -X utf8 -I -c " import json j=json.load(open('data/b690_r3_orders.json',encoding='utf-8')) print(j['span']); print(j['b680']) for n in j['unsteady_names']: print(n) " && git grep -n -e "unsteady" -- data/b690_r3_o
+  #141 2026-10-19T19:49:44.943Z python -X utf8 -I -c " import json,re j=json.load(open('data/b690_r3_orders.json',encoding='utf-8')) names=set(j['unsteady_names']) for l in open('data/b690_r3_orders.txt',encoding='utf-8'): m=re.match(r'^ (W-ORD-\S+)\s'
+  #160 2026-10-19T19:57:03.646Z python -X utf8 -I -c " import json for a in (680,681,682,683,684,685,686,687,688,689,690): try: j=json.load(open('data/b%d_act_root.json'%a,encoding='utf-8')) except Exception as e: print(a,'NO ROOT',e.__class__.__name__
+  #163 2026-10-19T19:57:32.691Z python -X utf8 -I -c " import json,hashlib j=json.load(open('data/b681_act_root.json',encoding='utf-8')) print([x for x in j['items'] if 'large_banks' in x]) print(hashlib.sha256(open('data/b681_narrow_units.jsonl.gz','r
+  #168 2026-10-19T20:00:12.713Z python -X utf8 -I -c " import json for raw in open('C:/Users/echo chamber/.claude/projects/D--/2c300355-703e-4575-81bc-2631a70202cf.jsonl',encoding='utf-8',errors='replace'): try: o=json.loads(raw) except ValueError: con
+  #176 2026-10-19T20:04:54.836Z python -X utf8 -I -c " import json j=json.load(open('data/b691_record_lines.json',encoding='utf-8')) for x in j['lines']: print(x['file'], x['line'], x['head'][:400]) "
+  #182 2026-10-19T20:21:28.310Z python -X utf8 -I -c " import subprocess t=open('data/b691_tool_repairs.txt',encoding='utf-8').read().split(chr(10)) for f in ('tools/correspondence_gen.py','tools/test_correspondence_gen.py','tools/rule_arms.py'): rev =
+  #183 2026-10-19T20:21:46.899Z python -X utf8 -I -c " import subprocess t=open('data/b691_tool_repairs.txt',encoding='utf-8').read().split(chr(10)) for f in ('tools/correspondence_gen.py','tools/test_correspondence_gen.py','tools/rule_arms.py'): args=
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+  #12 2026-10-19T18:10:14.858Z Bash
+      git -C /d/relay branch -d push-b690-root
+  #13 2026-10-19T18:10:18.881Z Bash
+      git -C /d/relay branch -d push-b690
+  #14 2026-10-19T18:10:23.011Z Bash
+      git -C /d/relay branch -d push-b690-closing
+  #15 2026-10-19T18:10:26.707Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b690-root
+  #16 2026-10-19T18:10:31.026Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b690
+
+### THE BRANCH DELETES BY SHAPE ((R301)(9): one branch per command, no glob in any half): #12 deletes ['push-b690-root'], globs none; #13 deletes ['push-b690'], globs none; #14 deletes ['push-b690-closing'], globs none; #15 deletes ['push-b690-root'], globs none; #16 deletes ['push-b690'], globs none
+
+### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-19T18:03:28.271Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(tail|lean|lake|python|claude|bash)(\.exe)?$' } | Select-Object Name, ProcessId, ParentProcessId
+  #2 | 2026-10-19T18:03:36.553Z | seat | Bash | wc -l tools/b690_citation.py tools/b690_tests.py tools/b690_worklist.py && grep -n "^def \|^ROUTES\|^CITES\|^[A-Z_]* = " tools/b690_citation.py
+  #3 | 2026-10-19T18:05:46.153Z | seat | Bash | cd /d/SIDE-lv-conservation && git ls-tree -r --name-only v0.7.0 && git rev-parse --short v0.7.0^{commit}
+  #4 | 2026-10-19T18:05:50.975Z | seat | Bash | git grep -n "73cee42" v0.7.0 -- SIDELvConservation/RegisterPentagon.lean
+  #5 | 2026-10-19T18:07:07.200Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_citation.py ferry
+  #6 | 2026-10-19T18:07:14.778Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_citation.py check
+  #7 | 2026-10-19T18:07:35.787Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_citation.py check
+  #8 | 2026-10-19T18:08:14.471Z | seat | Bash | wc -l data/b690_defects.txt
+  #9 | 2026-10-19T18:08:24.490Z | seat | Bash | git add data/b690_closing_push_out.txt && git commit -q -m "b691 step zero: b690's closing push capture (data/b690_closing_push_out.txt) committed alone, as (R3
+  #10 | 2026-10-19T18:09:44.494Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py rowgen
+  #11 | 2026-10-19T18:10:08.942Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py branches
+  #12 | 2026-10-19T18:10:14.858Z | seat | Bash | git -C /d/relay branch -d push-b690-root
+  #13 | 2026-10-19T18:10:18.881Z | seat | Bash | git -C /d/relay branch -d push-b690
+  #14 | 2026-10-19T18:10:23.011Z | seat | Bash | git -C /d/relay branch -d push-b690-closing
+  #15 | 2026-10-19T18:10:26.707Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b690-root
+  #16 | 2026-10-19T18:10:31.026Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b690
+  #17 | 2026-10-19T18:11:15.801Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b691_tests.py parts
+  #18 | 2026-10-19T18:11:22.160Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b691_tests.py hold 1 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_tests.py run test_asof.py
+  #19 | 2026-10-19T18:18:49.070Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b691_tests.py hold 2 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_tests.py run test_chain_p
+  #20 | 2026-10-19T18:26:28.253Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b691_tests.py hold 3 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_a
+  #21 | 2026-10-19T18:30:57.377Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b691_tests.py hold 4 && for t in test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py
+  #22 | 2026-10-19T18:33:36.406Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b691_tests.py hold 5 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_
+  #23 | 2026-10-19T18:37:32.392Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b691_tests.py report
+  #24 | 2026-10-19T18:37:54.073Z | seat | Bash | git add data/b691_ferry.txt data/b691_ferry_scan.txt data/b691_citation_check.txt data/b691_citation_check.json data/b691_readfirst.txt data/b691_rowgen_stepzer
+  #25 | 2026-10-19T18:38:00.344Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py c1 dry
+  #26 | 2026-10-19T18:38:05.340Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py c1
+  #27 | 2026-10-19T18:38:12.084Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b691 C1 under (R301)(1): b690 at its weight (FINDINGS :9422), its head line quoted, 
+  #28 | 2026-10-19T18:38:17.047Z | seat | Bash | cd /d/relay && git add data/b691_record_lines.json && git commit -q -m "b691 C1: the weight line's landing bank (FINDINGS :9422, PLACE-papers 77bef05)" && git l
+  #29 | 2026-10-19T18:38:27.299Z | seat | Bash | for k in SIDE-rcurve SIDE-archimedean; do echo "== $k"; git -C /d/$k log --oneline -3 main; git -C /d/$k tag -l; git -C /d/$k ls-tree -r --name-only main; git -
+  #30 | 2026-10-19T18:38:52.581Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py tie
+  #31 | 2026-10-19T18:39:01.441Z | seat | Bash | git add data/b691_tie.txt data/b691_tie.json tools/b691_record.py && git commit -q -m "b691 Component 2, (R301)(2): the tie at 2 -- b674's row (2) printed verba
+  #32 | 2026-10-19T18:39:02.009Z | seat | Bash | cd /d/SIDE-rcurve && cat lakefile.lean lean-toolchain SIDERCurve.lean AxiomCheck.lean && grep -c "" lake-manifest.json
+  #33 | 2026-10-19T18:39:09.939Z | seat | Bash | cd /d/SIDE-trivium && cat lean-toolchain && grep -n "require\|@" lakefile.lean && cat .github/workflows/build-module.yml && git log --oneline -1 -- .github/work
+  #34 | 2026-10-19T18:39:41.569Z | seat | Bash | cd /d/SIDE-rcurve && git add .github/workflows/build-module.yml && git commit -q -m "build-module: a hand-dispatched build of one ref under the 2,560 MB hold, p
+  #35 | 2026-10-19T18:39:50.017Z | seat | Bash | git add print_targets.txt && git commit -q -m "print_targets.txt: the eight declarations of SIDERCurve/Criterion.lean the build prints (b691 under (R301)(2))" &
+  #36 | 2026-10-19T18:39:56.107Z | seat | Bash | git -C /d/SIDE-rcurve branch push-b691-main HEAD && git -C /d/SIDE-rcurve rev-parse --short push-b691-main
+  #37 | 2026-10-19T18:40:00.557Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b691_rcurve_main_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-rcurve push-b691-main
+  #38 | 2026-10-19T18:40:53.405Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-rcurve --ref main -f ref=29885e50584afd437128c34c0e587c0cb62593b2 -f target=SIDERCurve
+  #39 | 2026-10-19T18:41:03.788Z | seat | Bash | timeout 580 gh run watch 39304553046 -R psinary-sketch/SIDE-rcurve --interval 30 --exit-status --compact
+  #40 | 2026-10-19T18:43:18.570Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py runner SIDE-rcurve 39304553046 29885e50584afd437128c34c0e587c0cb62593b2
+  #41 | 2026-10-19T18:43:39.486Z | seat | Bash | git add data/b691_runner_SIDE-rcurve_before.txt data/b691_axioms_SIDE-rcurve_before.txt data/b691_buildlog_SIDE-rcurve_before.txt data/b691_runner_rows.json dat
+  #42 | 2026-10-19T18:43:44.760Z | seat | Bash | git -C /d/SIDE-rcurve checkout -q -b recut-rcurve-b691 main && git -C /d/SIDE-rcurve branch --show-current
+  #43 | 2026-10-19T18:43:55.867Z | seat | Bash | cd /d/SIDE-rcurve && git diff --stat && git diff
+  #44 | 2026-10-19T18:44:02.692Z | seat | Bash | git add SIDERCurve/Criterion.lean && git commit -q -m "recut (b691 under (R301)(2)): SIDERCurve/Criterion.lean's module header and the T1 block to what the file
+  #45 | 2026-10-19T18:44:28.041Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py quote D:/SIDE-rcurve main e3df866 quote_rcurve
+  #46 | 2026-10-19T18:45:04.959Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py quote D:/SIDE-rcurve main e3df866 quote_rcurve
+  #47 | 2026-10-19T18:45:18.101Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py quote D:/SIDE-rcurve main e3df866 quote_rcurve
+  #48 | 2026-10-19T18:45:28.996Z | seat | Bash | git add data/b691_quote_rcurve.txt data/b691_quote_rcurve.json tools/b691_record.py && git commit -q -m "b691 Component 2, data/b690_rules.txt row (2): the quot
+  #49 | 2026-10-19T18:45:29.094Z | seat | Bash | git -C /d/SIDE-rcurve push origin recut-rcurve-b691
+  #50 | 2026-10-19T18:45:43.715Z | seat | Bash | git -C /d/SIDE-rcurve rev-parse e3df866 && gh workflow run build-module.yml -R psinary-sketch/SIDE-rcurve --ref main -f ref=$(git -C /d/SIDE-rcurve rev-parse e3
+  #51 | 2026-10-19T18:45:50.480Z | seat | Bash | timeout 580 gh run watch 39305244594 -R psinary-sketch/SIDE-rcurve --interval 30 --exit-status --compact
+  #52 | 2026-10-19T18:48:01.848Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py runner SIDE-rcurve 39305244594 e3df86670fc77454fbee881bb44eb2917ebf0805 after the afte
+  #53 | 2026-10-19T18:48:10.322Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py prints SIDE-rcurve b691_axioms_SIDE-rcurve_before.txt b691_axioms_SIDE-rcurve_after.tx
+  #54 | 2026-10-19T18:48:21.977Z | seat | Bash | git add data/b691_runner_SIDE-rcurve_after.txt data/b691_axioms_SIDE-rcurve_after.txt data/b691_buildlog_SIDE-rcurve_after.txt data/b691_runner_rows.json data/b
+  #55 | 2026-10-19T18:48:32.247Z | seat | Bash | cd /d/SIDE-rcurve && git checkout -q main && git merge --no-ff -q recut-rcurve-b691 -m "merge recut-rcurve-b691 (b691 under (R301)(2)): Criterion.lean's module 
+  #56 | 2026-10-19T18:48:37.971Z | seat | Bash | git -C /d/SIDE-rcurve branch push-b691-merge HEAD && git -C /d/SIDE-rcurve rev-parse --short push-b691-merge
+  #57 | 2026-10-19T18:48:44.403Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b691_rcurve_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-rcurve push-b691-merge "v0.1.1::v0.1.1 -- b691 under (R301
+  #58 | 2026-10-19T18:49:22.679Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py cut
+  #59 | 2026-10-19T18:49:32.291Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b691_record.py cut
+  #60 | 2026-10-19T18:49:42.040Z | seat | Bash | git add data/b691_cut.txt data/b691_cut.json data/b691_rcurve_merge_push_out.txt tools/b691_record.py && git commit -q -m "b691 Component 2, (R301)(2) and (7): 
+  #61 | 2026-10-19T18:50:48.959Z | seat | Bash | sha256sum tools/correspondence_gen.py && git log -1 --format="%h %cI" -- tools/correspondence_gen.py && git status --short tools/correspondence_gen.py
+  #62 | 2026-10-19T18:52:57.338Z | seat | Bash | python -X utf8 tools/test_correspondence_gen.py; echo EXIT $?
+  #63 | 2026-10-19T18:53:09.882Z | seat | Bash | python -X utf8 tools/test_correspondence_gen.py; echo EXIT $?
+  #64 | 2026-10-19T18:54:22.557Z | seat | Bash | python -X utf8 tools/test_correspondence_gen.py; echo EXIT $?
+  #65 | 2026-10-19T18:54:31.761Z | seat | Bash | python -X utf8 tools/correspondence_gen.py dry full; echo EXIT $?
+  #66 | 2026-10-19T18:54:50.659Z | seat | Bash | cd /d/SIDE-lv-conservation && git grep -n -F SIDE-kernel v0.7.0 -- '*.lean'; echo ===; git grep -n -F SIDE-li-map v0.7.0 -- '*.lean'
+  #67 | 2026-10-19T18:55:37.634Z | seat | Bash | cd /d/relay && python -X utf8 tools/test_correspondence_gen.py bank b691_gen_test.txt; echo EXIT $?
+  #68 | 2026-10-19T18:55:46.559Z | seat | Bash | python -X utf8 tools/correspondence_gen.py dry full; echo EXIT $?
+  #69 | 2026-10-19T18:56:30.850Z | seat | Bash | git rev-parse --short=8 HEAD && git diff --stat && sha256sum tools/correspondence_gen.py tools/test_correspondence_gen.py && git diff tools/correspondence_gen.p
+  #70 | 2026-10-19T18:56:37.689Z | seat | Bash | cd /d/SIDE-lv-conservation && git grep -n -F 73cee42 v0.7.0 -- '*.lean'
+  #71 | 2026-10-19T18:56:47.640Z | seat | Bash | cd /d/relay && python -X utf8 tools/test_correspondence_gen.py bank b691_gen_test.txt; echo EXIT $?; sha256sum tools/correspondence_gen.py data/b691_gen_test.tx
+  #72 | 2026-10-19T18:57:00.676Z | seat | Bash | python -X utf8 tools/correspondence_gen.py dry; echo EXIT $?
+  #73 | 2026-10-19T18:57:21.631Z | seat | Bash | git diff tools/correspondence_gen.py | head -30
+  #74 | 2026-10-19T18:58:26.636Z | seat | Bash | git diff tools/correspondence_gen.py tools/test_correspondence_gen.py | sha256sum; python -X utf8 -I -c "import re,hashlib,subprocess;t=open('data/b691_tool_rep
+  #75 | 2026-10-19T18:58:35.453Z | seat | Bash | python -X utf8 -I -c "
+  #76 | 2026-10-19T18:58:42.296Z | seat | Bash | python -X utf8 -I -c "
+  #77 | 2026-10-19T19:00:02.924Z | seat | Bash | python -X utf8 -I -c "
+  #78 | 2026-10-19T19:01:49.858Z | seat | Bash | python -X utf8 tools/b691_record.py behind dry; echo EXIT $?
+  #79 | 2026-10-19T19:02:09.987Z | seat | Bash | python -X utf8 tools/b691_record.py behind dry; echo EXIT $?
+  #80 | 2026-10-19T19:02:28.616Z | seat | Bash | python -X utf8 tools/b691_record.py behind; echo EXIT $?; ls -la data/b691_behind.txt data/b691_behind.json
+  #81 | 2026-10-19T19:02:43.247Z | seat | Bash | git add tools/correspondence_gen.py tools/test_correspondence_gen.py tools/b691_record.py data/b691_tool_repairs.txt data/b691_correspondence_dry.txt data/b691_
+  #82 | 2026-10-19T19:04:07.407Z | seat | Bash | python -X utf8 tools/b691_citation.py answer "W-ORD-CORRESPONDENCE-BEHIND-SCOPE"; echo EXIT $?
+  #83 | 2026-10-19T19:04:14.387Z | seat | Bash | cd /d/SIDE-kernel && git rev-parse --verify -q 0bc21c0^{commit}; git rev-parse --verify -q v1.3^{commit}; git rev-parse --verify -q v1.8^{commit}
+  #84 | 2026-10-19T19:04:21.308Z | seat | Bash | cd /d/relay && python -X utf8 tools/b691_record.py answers; echo EXIT $?
+  #85 | 2026-10-19T19:04:28.086Z | seat | Bash | ls tools/repair_snapshot.py && python -X utf8 tools/repair_snapshot.py; echo EXIT $?
+  #86 | 2026-10-19T19:05:07.279Z | seat | Bash | git grep -l -e "import repair_snapshot" -e "from repair_snapshot" -- tools
+  #87 | 2026-10-19T19:06:01.767Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git rev-parse --short HEAD && git status --porcelain -- phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md phase1.5/rcurve/R_
+  #88 | 2026-10-19T19:06:27.237Z | seat | Bash | cd /d/relay && python -X utf8 tools/b691_record.py gensnap; echo EXIT $?
+  #89 | 2026-10-19T19:11:12.688Z | seat | Bash | python -X utf8 tools/b691_record.py genrun; echo EXIT $?
+  #90 | 2026-10-19T19:12:24.609Z | seat | Bash | python -X utf8 tools/b691_record.py rundiff; echo EXIT $?
+  #91 | 2026-10-19T19:13:29.578Z | seat | Bash | python -X utf8 tools/b691_record.py behind dry; echo EXIT $?
+  #92 | 2026-10-19T19:14:15.729Z | seat | Bash | python -X utf8 tools/b691_record.py behind; echo EXIT $?
+  #93 | 2026-10-19T19:14:36.556Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md && git commit -q -m "b
+  #94 | 2026-10-19T19:14:41.933Z | seat | Bash | cd /d/relay && git add tools/b691_record.py data/b691_author_answers.txt data/b691_author_answers.json data/b691_gen_snapshot.txt data/b691_gen_live.txt data/b6
+  #95 | 2026-10-19T19:14:57.289Z | seat | Bash | python -X utf8 tools/b691_record.py cut; echo EXIT $?; git diff --stat -- data/b691_cut.txt data/b691_cut.json
+  #96 | 2026-10-19T19:15:10.340Z | seat | Bash | git add tools/b691_record.py data/b691_cut.txt data/b691_cut.json && git commit -q -m "b691 C3: the SIDE-kernel row's residue (:301, v1.8 against the carry v1.3
+  #97 | 2026-10-19T19:15:20.056Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --short HEAD && git describe --tags --abbrev=0 main && git ls-files | grep -n EpsteinQ0
+  #98 | 2026-10-19T19:15:32.210Z | seat | Bash | git rev-parse v0.34^{commit} && git rev-parse v0.34:SIDEExplicitFormula/Schema/EpsteinQ0.lean && git status --porcelain -- SIDEExplicitFormula/Schema/EpsteinQ0.
+  #99 | 2026-10-19T19:17:39.122Z | seat | Bash | cd /d/relay && python -X utf8 tools/b691_citation.py answer "recut-epstein-b691"; echo EXIT $?; python -X utf8 tools/b691_record.py answers; echo EXIT $?
+  #100 | 2026-10-19T19:17:52.839Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n -e "EpsteinPremises" -e "stated, not proved" -e "not compiled" v0.34 -- SIDEExplicitFormula/Schema/Epstein.lean
+  #101 | 2026-10-19T19:17:56.651Z | seat | Bash | git show v0.34:SIDEExplicitFormula/Schema/Epstein.lean | head -46 | tail -14
+  #102 | 2026-10-19T19:24:52.641Z | seat | Bash | cd /d/relay && python -X utf8 tools/b691_citation.py answer "its count T3 read off the bench"; echo EXIT $?; python -X utf8 tools/b691_record.py answers; echo E
+  #103 | 2026-10-19T19:25:25.102Z | seat | Bash | python -X utf8 tools/b691_citation.py answer "P4 by its own docstring, with its count phrase"; echo EXIT $?; python -X utf8 tools/b691_record.py answers; echo E
+  #104 | 2026-10-19T19:25:44.008Z | seat | Bash | git add data/b691_epstein_lines.txt data/b691_author_answers.txt data/b691_author_answers.json && git commit -q -m "b691 C4 (4): the three EpsteinQ0 lines, :96-
+  #105 | 2026-10-19T19:25:53.373Z | seat | Bash | cd /d/SIDE-explicit-formula && ls .github/workflows/ && git log -1 --format='%h %ad' -- .github/workflows/build-module.yml print_targets.txt && wc -l print_targ
+  #106 | 2026-10-19T19:26:11.909Z | seat | Bash | git grep -n -e "TARGET" -e "target=" -- tools/b689_record.py tools/b689_worklist.py | head -20; cd /d/SIDE-explicit-formula && git grep -n -E "^(theorem|lemma|d
+  #107 | 2026-10-19T19:26:43.725Z | seat | Bash | git log -3 --format='%h %s' main -- print_targets.txt .github/workflows/build-module.yml && git log -1 --format='%h %s' main && git rev-parse main origin/main &
+  #108 | 2026-10-19T19:26:52.844Z | seat | Bash | git tag --list "v*.*.*"; git for-each-ref --format='%(refname:short) %(contents:subject)' refs/tags/v0.2* refs/tags/v0.1*
+  #109 | 2026-10-19T19:27:05.167Z | seat | Bash | cd /d/relay && ls data | grep -E "^b691_.*push" ; git log --format='%h %s' -8
+  #110 | 2026-10-19T19:27:13.436Z | seat | Bash | git grep -n -i -e "usage" -e '\$1' -e '\$2' -e '\$3' -e "PUSH_GATED_LOG" -- tools/push_gated.sh
+  #111 | 2026-10-19T19:27:22.692Z | seat | Bash | cd /d/SIDE-explicit-formula && git diff --stat && git checkout -q -b push-b691-epstein-main && git add print_targets.txt && git commit -q -m "b691 under (R301)(
+  #112 | 2026-10-19T19:27:33.954Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b691_epstein_main_push_out.txt bash tools/push_gated.sh /d/SIDE-explicit-formula push-b691-epstein-main; echo EXIT $
+  #113 | 2026-10-19T19:27:43.334Z | seat | Bash | cd /d/SIDE-explicit-formula && git merge -q --ff-only push-b691-epstein-main && git rev-parse HEAD && git status --short --branch
+  #114 | 2026-10-19T19:27:52.691Z | seat | Bash | cd /d/relay && git grep -n -e "SIDEExplicitFormula.Schema.Wide.Config" -- "tools/b679_*.py" "tools/b689_*.py" "data/b679_*.txt" "data/b689_*.txt"
+  #115 | 2026-10-19T19:28:02.559Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=9da7bc20c123bda971db527d24605b178873dbee -f target="SIDEExplicitFormu
+  #116 | 2026-10-19T19:28:08.951Z | seat | Bash | timeout 580 gh run watch 39311224565 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 30; echo EXIT $?
+  #117 | 2026-10-19T19:36:35.119Z | seat | Bash | python -X utf8 tools/b691_record.py runner SIDE-explicit-formula 39311224565 9da7bc20c123bda971db527d24605b178873dbee before "at main 9da7bc2 (build-module.yml)
+  #118 | 2026-10-19T19:36:45.050Z | seat | Bash | git add data/b691_epstein_main_push_out.txt data/b691_runner_SIDE-explicit-formula_before.txt data/b691_axioms_SIDE-explicit-formula_before.txt data/b691_buildl
+  #119 | 2026-10-19T19:36:50.485Z | seat | Bash | cd /d/SIDE-explicit-formula && git checkout -q -b recut-epstein-b691 && git rev-parse --abbrev-ref HEAD && git rev-parse HEAD
+  #120 | 2026-10-19T19:37:05.078Z | seat | Bash | git diff --numstat && git diff -U0 && python -X utf8 -I -c "
+  #121 | 2026-10-19T19:37:12.539Z | seat | Bash | git add SIDEExplicitFormula/Schema/EpsteinQ0.lean && git commit -q -m "b691 under (R301)(4) and the author's word: EpsteinQ0.lean docstrings re-cut -- :106 (P3)
+  #122 | 2026-10-19T19:37:21.531Z | seat | Bash | cd /d/relay && git grep -n -e "--branch-only" -e "branch only" -e "refs/heads/\$" -- tools/push_gated.sh; python -X utf8 -I -c "
+  #123 | 2026-10-19T19:37:27.383Z | seat | Bash | git -C /d/SIDE-explicit-formula push origin recut-epstein-b691
+  #124 | 2026-10-19T19:37:41.238Z | seat | Bash | git ls-remote https://github.com/psinary-sketch/SIDE-explicit-formula.git refs/heads/recut-epstein-b691 && gh workflow run build-module.yml -R psinary-sketch/SI
+  #125 | 2026-10-19T19:38:19.308Z | seat | Bash | timeout 580 gh run watch 39312568167 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 60 > /dev/null; echo EXIT $?; gh run view 39312568167 -R p
+  #126 | 2026-10-19T19:47:38.780Z | seat | Bash | python -X utf8 tools/b691_record.py runner SIDE-explicit-formula 39312568167 c5aa058f8c37a6716bdbee2c2b95a10426764739 after "at main 9da7bc2 (build-module.yml),
+  #127 | 2026-10-19T19:47:47.636Z | seat | Bash | python -X utf8 tools/b691_record.py prints SIDE-explicit-formula b691_axioms_SIDE-explicit-formula_before.txt b691_axioms_SIDE-explicit-formula_after.txt; echo 
+  #128 | 2026-10-19T19:47:52.338Z | seat | Bash | python -X utf8 tools/b691_record.py quote /d/SIDE-explicit-formula 9da7bc20c123bda971db527d24605b178873dbee c5aa058f8c37a6716bdbee2c2b95a10426764739 quote_epste
+  #129 | 2026-10-19T19:48:06.470Z | seat | Bash | python -X utf8 tools/b691_record.py quote /d/SIDE-explicit-formula 9da7bc20c123bda971db527d24605b178873dbee c5aa058f8c37a6716bdbee2c2b95a10426764739 quote_epste
+  #130 | 2026-10-19T19:48:18.538Z | seat | Bash | git add tools/b691_record.py data/b691_runner_SIDE-explicit-formula_after.txt data/b691_axioms_SIDE-explicit-formula_after.txt data/b691_buildlog_SIDE-explicit-
+  #131 | 2026-10-19T19:48:25.376Z | seat | Bash | git -C /d/SIDE-explicit-formula checkout -q -b push-b691-epstein-merge main
+  #132 | 2026-10-19T19:48:27.000Z | seat | Bash | git -C /d/SIDE-explicit-formula merge --no-ff -q recut-epstein-b691 -m "b691 under (R301)(4): merge recut-epstein-b691 -- EpsteinQ0.lean docstrings re-cut (:106
+  #133 | 2026-10-19T19:48:31.319Z | seat | Bash | cd /d/SIDE-explicit-formula && git log -1 --format='%H parents %P' && git rev-parse HEAD^{tree} c5aa058^{tree} && git diff --stat 9da7bc2 HEAD
+  #134 | 2026-10-19T19:48:37.962Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b691_epstein_merge_push_out.txt bash tools/push_gated.sh /d/SIDE-explicit-formula push-b691-epstein-merge "v0.34.1::
+  #135 | 2026-10-19T19:48:54.817Z | seat | Bash | git -C /d/SIDE-explicit-formula checkout -q main
+  #136 | 2026-10-19T19:48:55.446Z | seat | Bash | git -C /d/SIDE-explicit-formula merge -q --ff-only push-b691-epstein-merge
+  #137 | 2026-10-19T19:48:55.658Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse HEAD origin/main && git status --short --branch && git describe --tags --exact-match HEAD && git tag -n1 -l v0.34.1
+  #138 | 2026-10-19T19:49:11.636Z | seat | Bash | cd /d/relay && git add data/b691_epstein_merge_push_out.txt data/b691_epstein_cut.txt && git commit -q -m "b691 C4 (4): the EpsteinQ0 docstring re-cut -- merge 
+  #139 | 2026-10-19T19:49:20.122Z | seat | Bash | python -X utf8 -I -c "
+  #140 | 2026-10-19T19:49:24.506Z | seat | Bash | python -X utf8 -I -c "
+  #141 | 2026-10-19T19:49:44.943Z | seat | Bash | python -X utf8 -I -c "
+  #142 | 2026-10-19T19:50:10.254Z | seat | Bash | python -X utf8 tools/b691_record.py triage_read W-ORD-LI-WEIL-BRIDGE,W-ORD-WEIL-CONVERSE,W-ORD-XI-P7,W-ORD-SEAM-UPSTREAM,W-ORD-REGISTER-DEPTH; echo EXIT $?
+  #143 | 2026-10-19T19:50:29.490Z | seat | Bash | python -X utf8 tools/b691_record.py triage_read W-ORD-DETECTION-REGION,W-ORD-GRH-WEIL,W-ORD-KEIPER-FACE,W-ORD-SIMPLICITY-FACE,W-ORD-PNT-CHI,W-ORD-CONSTELLATION-
+  #144 | 2026-10-19T19:50:47.200Z | seat | Bash | python -X utf8 tools/b691_record.py triage_read W-ORD-SECOND-READER,W-ORD-QUANTIFIER-COLUMN,W-ORD-VENDOR-FINALMULT,W-ORD-SEC-AXIOM-ARTEFACT,W-ORD-E0-INDUCTION,W
+  #145 | 2026-10-19T19:51:27.559Z | seat | Bash | python -X utf8 tools/b691_record.py triage_read W-ORD-PLATT-RUNG,W-ORD-NYMAN-BEURLING-FACE,W-ORD-DEDEKIND-INSTANCE,W-ORD-MARGIN-BENCH,W-ORD-GATE-FROM-ELABORATOR
+  #146 | 2026-10-19T19:51:48.248Z | seat | Bash | python -X utf8 tools/b691_record.py triage_read W-ORD-ZETA23-SERIAL-BUILD,W-ORD-PROBE-HOLD,W-ORD-TABLE-RULE-GRADES,W-ORD-DAY1-PATCH-VERSIONS,W-ORD-STATEMENT-PIN
+  #147 | 2026-10-19T19:52:09.723Z | seat | Bash | git grep -n -i -e "2560" -e "free memory" -e "PROBE-HOLD" -e "MemAvailable" -e "beneath the hold" -- tools/chain_page.py; git log --format='%h %ad %s' --date=sh
+  #148 | 2026-10-19T19:52:16.780Z | seat | Bash | python -X utf8 tools/b691_record.py triage_read W-ORD-EPSTEIN-ZQ,W-ORD-DEDEKIND-RHS-RESTATE,W-ORD-LABEL-READER,W-ORD-SEAM-ROW,W-ORD-STATUS-CELLS,W-ORD-BESSEL-BO
+  #149 | 2026-10-19T19:52:54.047Z | seat | Bash | git grep -n -i -e "BESSEL-BOUND" -e "STATUS-CELLS" -- "data/b68*_closing.txt" "data/b69*_closing.txt" "data/b67[4-9]_closing.txt" "data/b68*_readfirst.txt" "dat
+  #150 | 2026-10-19T19:55:08.804Z | seat | Bash | python -X utf8 tools/b691_record.py triage dry; echo EXIT $?
+  #151 | 2026-10-19T19:55:17.588Z | seat | Bash | python -X utf8 tools/b691_record.py triage dry; echo EXIT $?
+  #152 | 2026-10-19T19:55:23.154Z | seat | Bash | python -X utf8 tools/b691_record.py triage; echo EXIT $?; git add tools/b691_record.py data/b691_orders_triage.txt data/b691_orders_triage.json && git commit -q
+  #153 | 2026-10-19T19:55:31.956Z | seat | Bash | git grep -n -i -e "sort" -e "TRACEABLE" -e "the rule" -- data/b683_arms_sort.txt
+  #154 | 2026-10-19T19:55:43.630Z | seat | Bash | git grep -n -e "^" -- data/b680_rules.txt data/b685_rules.txt data/b690_rules.txt
+  #155 | 2026-10-19T19:55:48.386Z | seat | Bash | git grep -n -E "^def |^ARMS|^[A-Z_]+ = |^    \('G-|argv|^if __name__" -- tools/rule_arms.py
+  #156 | 2026-10-19T19:56:20.912Z | seat | Bash | git grep -n -e "(g)" -- data/b690_defects.txt; git grep -n -E "checks\.py (--prerun|--part|--combine|--rerun)" -- data/b690_commands.txt
+  #157 | 2026-10-19T19:56:39.789Z | seat | Bash | git grep -n -e "rule_arms" -e "RA\." -- tools/b690_checks.py
+  #158 | 2026-10-19T19:56:50.642Z | seat | Bash | git ls-files -- "data/b68*.gz" "data/b69*.gz" "data/b68*.png" "data/b69*.png" "data/b68*.zip" "data/b69*.zip" "data/*hashes*.txt"; echo ===; git grep -n -e "^" 
+  #159 | 2026-10-19T19:56:54.875Z | seat | Bash | git grep -n -e "gz" -- data/b681_epstein_zeros_narrowed_hashes.txt; git grep -c -e "narrow_units" -- "data/b681_*hashes*.txt" "data/b681_act_root.json"
+  #160 | 2026-10-19T19:57:03.646Z | seat | Bash | python -X utf8 -I -c "
+  #161 | 2026-10-19T19:57:12.764Z | seat | Bash | git log --format='%h %ad %s' --date=iso -- data/b681_narrow_units.jsonl.gz
+  #162 | 2026-10-19T19:57:21.521Z | seat | Bash | git grep -n -F "narrow_units.jsonl.gz" -- data tools
+  #163 | 2026-10-19T19:57:32.691Z | seat | Bash | python -X utf8 -I -c "
+  #164 | 2026-10-19T19:59:25.559Z | seat | Bash | python -X utf8 tools/b691_record.py armsrun dry; echo EXIT $?
+  #165 | 2026-10-19T19:59:44.362Z | seat | Bash | python -X utf8 tools/b691_record.py armsrun; echo EXIT $?
+  #166 | 2026-10-19T19:59:54.003Z | seat | Bash | git add tools/rule_arms.py tools/b691_record.py data/b691_arms_sort.txt data/b691_arms_added.txt && git commit -q -m "b691 C4 (6): b680 row 1, b685 row 1 and b6
+  #167 | 2026-10-19T20:00:04.646Z | seat | Bash | git log --format='%h %s' --diff-filter=A -- tools/b690_checks.py tools/b690_closing.py tools/b690_reg_gate.py tools/b690_regspec.py && wc -l tools/b690_checks.p
+  #168 | 2026-10-19T20:00:12.713Z | seat | Bash | python -X utf8 -I -c "
+  #169 | 2026-10-19T20:00:49.659Z | seat | Bash | wc -l tools/b690_record.py tools/b691_record.py tools/b690_worklist.py tools/b691_worklist.py && git grep -n -E "^def |^[A-Z_]+ = |^ROUTES" -- tools/b690_record
+  #170 | 2026-10-19T20:01:17.594Z | seat | Bash | git grep -n -E "^import|^from|^    import|^R3|^ER" -- tools/b690_record.py | head -40; git grep -n -E "^import|^from" -- tools/b691_record.py
+  #171 | 2026-10-19T20:01:43.542Z | seat | Bash | wc -l -c data/b690_registration_2026-10-19.txt
+  #172 | 2026-10-19T20:02:31.207Z | seat | Bash | python -X utf8 tools/b691_record.py order dry; echo EXIT $?
+  #173 | 2026-10-19T20:02:40.548Z | seat | Bash | python -X utf8 tools/b691_record.py order; echo EXIT $?
+  #174 | 2026-10-19T20:02:45.581Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b691 C3: W-ORD-CORRESPONDENCE-BEHIND-SCOPE entered at OPEN_TRAILS :15010 on the a
+  #175 | 2026-10-19T20:02:50.517Z | seat | Bash | cd /d/relay && git add tools/b691_record.py data/b691_orders_lines.json && git commit -q -m "b691 C3: the order route and its landing bank (W-ORD-CORRESPONDENCE
+  #176 | 2026-10-19T20:04:54.836Z | seat | Bash | python -X utf8 -I -c "
+  #177 | 2026-10-19T20:09:16.138Z | seat | Bash | python -X utf8 -m py_compile tools/b691_record.py tools/b691_worklist.py && echo COMPILED && python -X utf8 tools/b691_record.py nonesuch; echo EXIT $?
+  #178 | 2026-10-19T20:09:43.471Z | seat | Bash | git grep -n -e "tested directly" -e "RAISED:" -- data/b690_citation_check.txt data/b689_citation_check.txt data/b691_citation_check.txt
+  #179 | 2026-10-19T20:09:47.774Z | seat | Bash | git grep -n -e "tested directly by the seat" -- "data/b6*_citation_check.txt"
+  #180 | 2026-10-19T20:10:12.921Z | seat | Bash | git grep -n -e "NAMED" -e "### ### " -- data/b691_tie.txt
+  #181 | 2026-10-19T20:19:42.866Z | seat | Bash | git diff 9fc2c81b -- tools/rule_arms.py && git rev-parse 9fc2c81b:tools/rule_arms.py && sha256sum tools/rule_arms.py && git show 9fc2c81b:tools/rule_arms.py | s
+  #182 | 2026-10-19T20:21:28.310Z | seat | Bash | python -X utf8 -I -c "
+  #183 | 2026-10-19T20:21:46.899Z | seat | Bash | python -X utf8 -I -c "
+  #184 | 2026-10-19T20:22:34.341Z | seat | Bash | python -X utf8 -m py_compile tools/b691_record.py tools/b691_checks.py tools/b691_closing.py tools/b691_reg_gate.py tools/b691_regspec.py tools/b691_worklist.py
+
+### ### **COMMANDS 184 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 14 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 4 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 10 ; ONE-LINE PROGRAMS 15 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

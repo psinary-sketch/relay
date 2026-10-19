@@ -220,3 +220,324 @@ index 6a654495..482f148e 100644
      OUT.append('### ### **PLANTED CASES %d ; AS WANTED %d ; %s**' % (len(res), n, 'PASS' if n == len(res) else 'FAIL'))
 
 ### ### **REPAIRS 2 (C3) ; correspondence_gen.py 1aec5d03 ; test_correspondence_gen.py 104a6cf4 ; PLANTED CASES 6 OF 6.**
+
+### ROW 3 -- tools/rule_arms.py: four arms added for the rules the sort admits, and a positive control by a defect
+###   answers: (R301)(6) -- b680 row 1, b685 row 1 and b690 rows (1) and (2) sorted TRACEABLE by data/b683_arms_sort.txt's rule (relay
+###            data/b691_arms_sort.txt); b690's defect (g), the methods bank read empty when indented, as G-RULE-METHOD-READINESS's positive control
+###   before:  blob 8dda41ab at relay 9fc2c81b (sha256 3871f589325d0a96f1c012090f25061069c1eb85064966a26dd5291130426f35)
+###   after:   sha256 7715448acc7db959fd89cc05d6ba9c66260fe6688d39c22b736767a2cb42f17f (blob 711fdd57), committed alone with its banks at relay 4042d1a9
+###   the run: every arm at HEAD -- LIVE on the act's sources, NEG on a copy, POS on its plant -- before the face named any (relay
+###            data/b691_arms_added.txt: the four LIVE PASS, NEG PASS, POS FIRES; the control FIRES); G-RULE-ONE-GIT-WRITE reads 2 failing at HEAD
+###   the diff's blank context lines held empty, as rows 1-2's (the Write tool; 6 such lines here), every other line git diff's own
+diff --git a/tools/rule_arms.py b/tools/rule_arms.py
+index 8dda41ab..711fdd57 100644
+--- a/tools/rule_arms.py
++++ b/tools/rule_arms.py
+@@ -11,6 +11,10 @@ the 5 DECLARATION-ONLY, twenty arms named G-RULE-<name>. The superseded rule (b6
+ ### A declaration, for the five declaration-only arms, is a line of a relay bank or ledger of the form `DECLARED: <state> MET`, the state
+ ### one of PAIR OF READINGS, T1, T2, T3, T5 -- the form a reading act prints when it declares one.
+ ### Written by the Write tool at b683; it reads and writes no bank of its own. Carried by later suites as a standing instrument.
++### b691, (R301)(6): four arms added by the Edit tool for the rules data/b691_arms_sort.txt sorts TRACEABLE by b683's rule -- b680 row 1
++### (G-RULE-BINARY-HASHES), b685 row 1 (G-RULE-SUITE-PART-CALLS), b690 rows (1) and (2) (G-RULE-POSTSEAL-READ, G-RULE-RECUT-QUOTE) -- each
++### run at HEAD and counted before it is declared (data/b691_arms_added.txt); and CONTROLS, a positive control for an arm by a defect that arm
++### caught (b690's (g) for G-RULE-METHOD-READINESS), the methods bank's reader factored as methods_rows for it.
+ """
+ import calendar
+ import glob
+@@ -97,6 +101,26 @@ def transcript(jsonl, anchor):
+     return rows
+
+
++def methods_rows(mt):
++    """a methods bank's rows, by its "=== <method> -- <word>" blocks at the line's start (b690's defect (g): a bank banked indented reads
++    no row here, and G-RULE-METHOD-READINESS fails on it -- the positive control in CONTROLS)."""
++    rows = []
++    for blk in re.split(r'(?m)^(?==== )', mt)[1:]:
++        h = re.match(r'^=== (.*?) -- (READY|NOT READY|NOT YET USED TWICE)\s*$', blk.split(NL)[0])
++        if h:
++            num = lambda k: int((re.search(r'^\s+%s (\d+):' % k, blk, re.M) or [None, -1])[1])   # noqa: E731
++            rows.append(dict(method=h.group(1), word=h.group(2), acts=num('acts'), banks=num('banks'), defects=num('defects')))
++    return rows
++
++
++BINARY_FLOOR = 680          # ### b680 row 1 binds from b680 (its first application data/b680_fig_hashes.txt)
++RECUT_FLOOR = 691           # ### b690 rows (1) and (2) bind from b691
++LEDGER_READ = ('FINDINGS.md', 'OPEN_TRAILS.md', '_scanfile_entry', '_scanfile_trail', 'scanfile_entry', 'scanfile_trail')
++SHELL_FILTER = re.compile(r'(?<![\w.-])(?:sed|awk|grep|head|tail|cat|less|more|cut|tr|sort|uniq|wc)(?![\w.-])')
++REDIRECT = re.compile(r'(?<![<>=\-])(?:\d?>>?|&>)(?!&)')
++SUITE_PART = re.compile(r'_checks\.py\b[^|;&]*?--part\s+(\S+)')
++
++
+ # ================================================================================ THE SOURCES
+ def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=None):
+     """the trace every rule arm reads, read once. `act` 'bNNN'; `parts` the suite's declared parts; `lock_epoch` the face's lock."""
+@@ -126,13 +150,8 @@ def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=N
+     R['outside'] = (os.path.basename(outs[-1]) if outs else None, int(mo.group(1)) if mo else None, int(mo.group(2)) if mo else None)
+     meths = _banks('b*_methods.txt')
+     mt = _rd(meths[-1]) if meths else ''
+-    rows = []
+-    for blk in re.split(r'(?m)^(?==== )', mt)[1:]:
+-        h = re.match(r'^=== (.*?) -- (READY|NOT READY|NOT YET USED TWICE)\s*$', blk.split(NL)[0])
+-        if h:
+-            num = lambda k: int((re.search(r'^\s+%s (\d+):' % k, blk, re.M) or [None, -1])[1])   # noqa: E731
+-            rows.append(dict(method=h.group(1), word=h.group(2), acts=num('acts'), banks=num('banks'), defects=num('defects')))
+-    R['methods'] = (os.path.basename(meths[-1]) if meths else None, rows)
++    R['methods'] = (os.path.basename(meths[-1]) if meths else None, methods_rows(mt))
++    R['methods_text'] = mt
+     R['ferries_retire'] = [os.path.basename(p) for p in _banks('b*_ferry.txt') if re.search(r'WITHHOLDING RULES? (?:ARE )?RETIRED', _rd(p))]
+     # ### row (3): the rowgen banks
+     rg = {}
+@@ -253,6 +272,52 @@ def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=N
+     pv = _rd(os.path.join(D, 'b%d_arms_prerun.txt' % (n - 1)))
+     R['prev_longest'] = max([int(x) for x in re.findall(r'THE LONGEST PHASE (\d+) s', pv)] or [0])
+     R['prev_parts'] = len(set(p for p, _s in runs.get((n - 1, 'arms_prerun'), [])))
++    # ### b680 row 1 (added b691): every tracked binary bank of relay data from b680 -- gz, png, zip -- with its sha256 (of its bytes) and the
++    # ### text banks of its act that its act's root names, each text bank's text
++    import hashlib
++    bins = []
++    for p in sorted(set(_g(ROOT, 'ls-files', '--', 'data/*.gz', 'data/*.png', 'data/*.zip').split(NL)) - {''}):
++        a = _act_of(p)
++        if a is None or a < BINARY_FLOOR:
++            continue
++        try:
++            sha = hashlib.sha256(open(os.path.join(ROOT, *p.split('/')), 'rb').read()).hexdigest()
++        except OSError:
++            sha = None
++        try:
++            items = json.load(io.open(os.path.join(D, 'b%d_act_root.json' % a), encoding='utf-8')).get('items') or []
++        except Exception:
++            items = None
++        named = [it.split()[0] for it in (items or [])]
++        texts = [(b, _rd(os.path.join(ROOT, *b.split('/')))) for b in named if b.endswith('.txt') and os.path.basename(b).startswith('b%d_' % a)]
++        bins.append(dict(path=p, act=a, sha=sha, root=items is not None, in_root=p in named,
++                         carried_by=[b for b, t in texts if p in t and sha and sha in t]))
++    R['binaries'] = bins
++    # ### b690 row (2) (added b691): every quotation-search bank from b691 (data/b<act>_quote_*.json) and the merge of its tip, with the
++    # ### act's cut banks and the residues they enter
++    qs = []
++    for p in _banks('b*_quote_*.json', RECUT_FLOOR):
++        try:
++            q = json.load(io.open(p, encoding='utf-8'))
++        except Exception:
++            q = {}
++        kd, tip, at = q.get('kernel'), q.get('tip') or '', _iso(q.get('at') or '')
++        mg = None
++        if kd and tip:
++            for l in _g(kd, 'log', '--merges', '--format=%H %P %ct', 'main').split(NL):
++                f = l.split()
++                if len(f) >= 4 and f[2].startswith(tip[:7]):
++                    mg = (f[0], int(f[3]))
++        rows = q.get('rows') or []
++        lines = sorted(set('%s :%s' % (h.split(':', 3)[1], h.split(':', 3)[2]) for r in rows for h in (r.get('hits_wide') or [])))
++        a = _act_of(p)
++        cuts = ''.join(_rd(x) for x in _banks('b%d_*cut*.txt' % a, a, a)) + ''.join(_rd(x) for x in _banks('b%d_*cut*.json' % a, a, a))
++        qs.append(dict(bank=os.path.basename(p), act=a, at=at, merge=mg, rows=len(rows),
++                       needled=all(r.get('needle') and r['needle'] in (r.get('line') or '') for r in rows) and bool(rows),
++                       quoting=lines, unentered=[x for x in lines if not re.search(re.escape(x.split(' :')[0]) + r'[^\n]{0,40}?' +
++                                                                                    r'(?:", |\s:?)' + x.split(' :')[1] + r'\b', cuts)]))
++    R['quotes'] = qs
++    R['cut_banks'] = dict((a, len([x for x in _banks('b%d_*cut.txt' % a, a, a)])) for a in range(RECUT_FLOOR, n + 1))
+     return R
+
+
+@@ -416,6 +481,38 @@ def reading(name, R):
+         return bool(runs) and bool(gov) and not bad, len(runs), len(bad), (
+             'run banks b678-b%d %d, each against its act`s governing parts (%s) ; without them or with a part at or above 600 s %s' % (
+                 n, len(runs), '; '.join('%s from b%d: %s' % (b, a, ps) for a, b, ps in gov), bad or 'NONE'))
++    if name == 'G-RULE-BINARY-HASHES':
++        bs = R['binaries']
++        bad = [b['path'] for b in bs if not b['root'] or b['in_root'] or not b['carried_by']]
++        return bool(bs) and not bad, len(bs), len(bad), 'binary banks from b%d %d, each carried by sha256 in a root-named text bank of its act, '\
++            'the root not naming the binary itself ; failing %s' % (BINARY_FLOOR, len(bs), bad or 'NONE')
++    if name == 'G-RULE-SUITE-PART-CALLS':
++        pc = [c for c in R['calls'] if SUITE_PART.search(c['cmd']) or re.search(r'_checks\.py\b[^|;&]*--combine', c['cmd'])]
++        two = [c['ts'] for c in pc if len(SUITE_PART.findall(c['cmd'])) + len(re.findall(r'--combine', c['cmd'])) > 1]
++        per = {}
++        for c in pc:
++            per.setdefault(c['mid'], []).append(c['ts'])
++        shared = [ts[0] for _m, ts in per.items() if len(ts) > 1]
++        return not two and not shared, len(pc), len(two) + len(shared), (
++            'VACUOUS: no suite part or combine call in this act`s shell commands yet' if not pc else
++            'suite part and combine calls %d ; carrying more than one %s ; sharing a message %s' % (len(pc), two or 'NONE', shared or 'NONE'))
++    if name == 'G-RULE-POSTSEAL-READ':
++        sc = R['seal_ct']
++        if R['n'] < RECUT_FLOOR:
++            return True, 0, 0, 'VACUOUS: the rule binds from b%d' % RECUT_FLOOR
++        after = [c for c in R['calls'] if sc and _iso(c['ts']) and _iso(c['ts']) > sc]
++        reads = [c for c in after if any(x in c['cmd'] for x in LEDGER_READ) and '_record.py' not in c['cmd'] and '_checks.py' not in c['cmd']]
++        bad = [c['ts'] for c in reads if SHELL_FILTER.search(QUOTED.sub('""', c['cmd'])) or REDIRECT.search(QUOTED.sub('""', c['cmd']))]
++        return not bad, len(reads), len(bad), ('VACUOUS: the seal not yet made (no `%s seal` commit); the calls read after it 0' % R['act']) if not sc else (
++            'shell calls after the seal %d ; naming the entry, the dry entry or the trail %d ; by a shell filter or a redirect %s' % (
++                len(after), len(reads), bad or 'NONE'))
++    if name == 'G-RULE-RECUT-QUOTE':
++        qs = R['quotes']
++        bad = [q['bank'] for q in qs if not q['needled'] or not q['merge'] or q['at'] is None or q['at'] >= q['merge'][1] or q['unentered']]
++        short = [a for a, c in R['cut_banks'].items() if c > len([q for q in qs if q['act'] == a])]
++        return bool(qs) and not bad and not short, len(qs), len(bad) + len(short), (
++            'quotation-search banks from b%d %d, each removed line needled, the search before its merge, every quoting line entered in a cut bank '
++            'of the act ; failing %s ; acts with more cut banks than searches %s' % (RECUT_FLOOR, len(qs), bad or 'NONE', short or 'NONE'))
+     raise KeyError(name)
+
+
+@@ -473,9 +570,26 @@ ARMS = [
+      lambda R: _p(_p(R, 'prev_longest', 500), 'parts', ['x'])),
+     ('G-RULE-SUITE-PARTS', 'b678 row 1 (and b677 row 1 through it) and b684 row (1): every run bank from b678, against its act`s governing parts from the rules banks, each under 600 s',
+      lambda R: _p(R, 'runs', _with(R['runs'], (678, 'planted'), [('standing', 1)]))),
++    # ### b691, (R301)(6): the four rules data/b691_arms_sort.txt sorts TRACEABLE, each arm run at HEAD and counted before it is declared
++    ('G-RULE-BINARY-HASHES', 'b680 row 1: every tracked binary bank of relay data from b680 (gz, png, zip), its sha256 in a text bank of its act that its act`s root names, the root not naming the binary',
++     lambda R: _p(R, 'binaries', R['binaries'] + [dict(path='data/b999_planted.gz', act=999, sha='0' * 64, root=True, in_root=True, carried_by=[])])),
++    ('G-RULE-SUITE-PART-CALLS', 'b685 row 1: this act`s suite part and combine calls, one part per call and each call its own message',
++     lambda R: _p(R, 'calls', R['calls'] + [dict(mid='planted', tid='p1', ts='x', cmd='python tools/b999_checks.py --prerun --part standing-a && '
++                                                                                    'python tools/b999_checks.py --prerun --part act', out='')])),
++    ('G-RULE-POSTSEAL-READ', 'b690 row (1): this act`s shell calls after its seal commit naming the entry, the dry entry or the trail, none by a shell filter or a redirect',
++     lambda R: _p(_p(R, 'seal_ct', R['seal_ct'] or 1), 'calls', R['calls'] + [dict(mid='planted', tid='p1', ts='2099-01-01T00:00:00Z',
++                                                                                    cmd='sed -n 1p FINDINGS.md > /dev/null', out='')])),
++    ('G-RULE-RECUT-QUOTE', 'b690 row (2): every quotation-search bank from b691, each removed line needled, the search timed before the merge of its tip, every quoting line entered in a cut bank of its act',
++     lambda R: _p(R, 'quotes', R['quotes'] + [dict(bank='planted', act=R['n'], at=10, merge=('x', 5), rows=1, needled=True, quoting=[], unentered=[])])),
+ ]
+ ARMS = [(nm, reads, (lambda k: lambda R: reading(k, R)[0])(nm), plant) for nm, reads, plant in ARMS]
+ NAMES = [a[0] for a in ARMS]
+ RULE_OF = dict(zip(NAMES, ('b670 row 1', 'b670 row 2', 'b670 row 3', 'b671 row 2', 'b671 row 3', 'b671 row 4', 'b671 row 6', 'b671 row 7',
+                            'b672 row 1', 'b672 row 2', 'b672 row 3', 'b673 row 1', 'b673 row 2', 'b673 row 3', 'b674 row 1', 'b674 row 2',
+-                           'b674 row 3', 'b675 row 1', 'b675 row 2', 'b678 row 1')))
++                           'b674 row 3', 'b675 row 1', 'b675 row 2', 'b678 row 1', 'b680 row 1', 'b685 row 1', 'b690 row (1)', 'b690 row (2)')))
++# ### b691, (R301)(6): a positive control for an arm by a defect that arm caught -- (arm, the defect, the plant). b690's defect (g): the latest
++# ### methods bank banked four spaces in reads no row, and G-RULE-METHOD-READINESS fails on it (the pre-run found it so).
++CONTROLS = [
++    ('G-RULE-METHOD-READINESS', 'b690 (g): the latest methods bank re-read with every line four spaces in (relay data/b690_defects.txt :40-:45)',
++     lambda R: _p(R, 'methods', (R['methods'][0], methods_rows(NL.join('    ' + l for l in R.get('methods_text', '').split(NL)))))),
++]
+
+### ### **REPAIRS 3 (C3, C4 (6)) ; correspondence_gen.py 1aec5d03 ; test_correspondence_gen.py 104a6cf4 ; rule_arms.py 7715448a ; PLANTED CASES 6 OF 6 ; THE FOUR ARMS COUNTED AT HEAD.**
+
+
+### THE CARRY-TIME READING OF THE TOOLS (the ferry`s Component 5), AGAINST b690`S SEALED COPIES (2026-10-19T20:22:39Z)
+
+### rows are repairs with the defect or order they answer, after the carried tools: b690`s sealed copy and its seal record; the hunks of
+### the diff to b691`s copy. Every hunk is the act`s own text -- its names, its banks, its sections and its predicates over this act`s
+### banks -- save the repairs below. The three repaired shared tools are rows 1-3 above, each with its diff.
+
+  b690_citation.py     -> b691_citation.py     b690 sealed d414fcf1aae41c75 ; the seal`s record d414fcf1aae41c75 ; AGREE ; hunks 26
+  b690_closing.py      -> b691_closing.py      b690 sealed f5c34ab3d21b9a1a ; the seal`s record f5c34ab3d21b9a1a ; AGREE ; hunks 31
+  b690_reg_gate.py     -> b691_reg_gate.py     b690 sealed 976c7a399436f03d ; the seal`s record 976c7a399436f03d ; AGREE ; hunks 6
+  b690_regspec.py      -> b691_regspec.py      b690 sealed d5b4942f6971fde6 ; the seal`s record d5b4942f6971fde6 ; AGREE ; hunks 21
+  b690_tests.py        -> b691_tests.py        b690 sealed 4813b4887039bd7c ; the seal`s record 4813b4887039bd7c ; AGREE ; hunks 11
+  b690_worklist.py     -> b691_worklist.py     b690 sealed 76e885564f27b5f4 ; the seal`s record 76e885564f27b5f4 ; AGREE ; hunks 13
+  b690_record.py       -> b691_record.py       b690 sealed 61ea42cfb787fbe6 ; the seal`s record 61ea42cfb787fbe6 ; AGREE ; hunks 161
+  b690_checks.py       -> b691_checks.py       b690 sealed 85f2d654000c6ac5 ; the seal`s record 85f2d654000c6ac5 ; AGREE ; hunks 140
+  edit_route.py           the standing instrument, unedited in this act: 22b92c8f4440589a ; at relay 9fc2c81b 22b92c8f4440589a ; the last seal record naming it (NONE`s) ### NONE ; its last commit 66497ff1 2026-10-12T11:55:50-04:00
+  e0_rule.py              the standing instrument, unedited in this act: 1b4fa2b1fe2f5749 ; at relay 9fc2c81b 1b4fa2b1fe2f5749 ; the last seal record naming it (NONE`s) ### NONE ; its last commit 3572f7b6 2026-10-13T10:37:17-04:00
+  b678_corrigendum.py     the standing instrument, unedited in this act: 9676374a1a8c99fa ; at relay 9fc2c81b 9676374a1a8c99fa ; the last seal record naming it (NONE`s) ### NONE ; its last commit 5d3416b8 2026-10-17T13:40:18-04:00
+  chain_page.py           the standing instrument, unedited in this act: 2f4df8163a7b1c5d ; at relay 9fc2c81b 2f4df8163a7b1c5d ; the last seal record naming it (NONE`s) ### NONE ; its last commit 1e073ac3 2026-10-11T15:38:14-04:00
+  b680_readings.py        the standing instrument, unedited in this act: 2634b75023c22f8f ; at relay 9fc2c81b 2634b75023c22f8f ; the last seal record naming it (NONE`s) ### NONE ; its last commit 43909c49 2026-10-17T18:08:32-04:00
+  b670_record.py          the standing instrument, unedited in this act: 08e28c92a253ce97 ; at relay 9fc2c81b 08e28c92a253ce97 ; the last seal record naming it (NONE`s) ### NONE ; its last commit 1cde552b 2026-10-14T17:34:27-04:00
+  b672_record.py          the standing instrument, unedited in this act: 30a39db6fc35565e ; at relay 9fc2c81b 30a39db6fc35565e ; the last seal record naming it (NONE`s) ### NONE ; its last commit e06d2f25 2026-10-16T13:26:39-04:00
+  repair_snapshot.py      the standing instrument, unedited in this act: 53cc85685ec7ca27 ; at relay 9fc2c81b 53cc85685ec7ca27 ; the last seal record naming it (NONE`s) ### NONE ; its last commit cf09c22a 2026-09-11T10:03:15-04:00
+
+  REPAIR 1 -- THE STANDING SET FOR b691 (answering (R301)(6)): the standing arms are b690`s face`s (G2) arms less b690`s act arms, the twenty rule arms
+  among them, and the four rule arms (R301)(6) adds through tools/rule_arms.py, each counted at HEAD before the face named it
+  (tools/b691_worklist.py STANDING_ADDED; relay data/b691_arms_added.txt).
+  REPAIR 2 -- FIVE PARTS (answering (R301)(8) and b690`s closing (i): standing-b ran 463 s): standing-b split at its midpoint -- standing-b1 the shared
+  additive files (G-SHARED-ADDITIVE), standing-b2 the act-root chain (G-ACTROOT-VERIFY) -- the two arms falling either side of it (relay
+  data/b691_readfirst.txt, the seconds bank row); NEED, _part_of and the combine read five parts (tools/b691_worklist.py PARTS).
+  REPAIR 3 -- THE REPAIRED SHARED TOOLS OUT OF THE INSTRUMENTS READ UNEDITED (answering (R301)(3) and (6)): tools/correspondence_gen.py, its test and
+  tools/rule_arms.py are this act`s repairs, each diff banked above (rows 1-3); G-INSTRUMENTS-UNEDITED reads every other instrument, b690`s
+  sealed tools and tools/repair_snapshot.py (the generator`s snapshot run) among them, before, working tree and HEAD.
+  REPAIR 4 -- THE FACES PAGE BACK AMONG THE FILES READ UNEDITED (answering (R301)(7): the header`s tag carried, no page write): CURRENTS takes
+  THE_CLAUSE_AND_ITS_COMPILED_FACES.md back as b689`s had it; G-PP-SCOPE allows FINDINGS, OPEN_TRAILS and the two pages the generator wrote
+  on the author`s word (tools/b691_worklist.py PP_WRITTEN).
+  REPAIR 5 -- THE STEP-ZERO TESTS` SET (answering the carried argument): G-STEPZERO-TESTS reads the step-zero bank`s failing set -- test_chain_page.py
+  (9) against b690`s list, the list the page names, and test_chain_page_b638.py (4)-(7) -- as the bank recorded it.
+  REPAIR 6 -- THE PREVIOUS ACT`S WINDOW IN THIS SAME SESSION (answering no defect: this act continues b690`s session): G-EDIT-ROUTE`s previous-act window
+  reads b690`s capture after its post-push suite -- from the call that combined b690`s post-push parts to (R301)`s line -- in session 2c300355.
+  REPAIR 7 -- THE RUNNER ARMS OVER THIS ACT`S TWO MERGES (answering (R301)(2) and (4): two kernels built, cut and merged): MERGES names both, each with its
+  files; G-RUNNER-READ reads four rows through this act`s reader, each before run at the main its merge sits on and each after run at the
+  built tip; G-RUNNER-GATE four gate readings; G-MERGES-ON-GATE two merges; G-WORKFLOW-FILES each kernel`s print list against its after-print
+  bank (tools/b691_record.py `_deps`).
+  REPAIR 8 -- THE COMMAND BANK LISTS EVERY REDIRECT AND EVERY PIPE INTO A SHELL FILTER (answering this act`s defects (a) and (b)): beside sed, the
+  /dev/null redirect and the one-line programs, the command bank lists every command carrying a redirect of any stream and every command
+  piping into head, tail, wc, grep and the like, read outside quoted strings; the spec measures both off it.
+
+### THE DIFF OF THE REPAIRED READINGS AGAINST b690`S SEALED COPIES (tools/b690_record.py sha256 61ea42cfb787fbe6, tools/b690_checks.py sha256 85f2d654000c6ac5), WHOLE:
+    --- b690_record.py prev_capture (sealed)
+    +++ b691_record.py prev_capture
+    @@ -1,5 +1,5 @@
+     def prev_capture():
+    -    """G-EDIT-ROUTE's window over the previous act (b687's repair; b690's reading, the same session): b689's capture AFTER ITS POST-PUSH
+    -    SUITE -- every command of this session from the call that combined b689's post-push parts into data/b689_checks_postpush.txt to the
+    -    first user line of (R300), b689's closing's commands among them; this act's own capture starts at that line."""
+    +    """G-EDIT-ROUTE's window over the previous act (b687's repair; b691's reading, the same session): b690's capture AFTER ITS POST-PUSH
+    +    SUITE -- every command of this session from the call that combined b690's post-push parts into data/b690_checks_postpush.txt to the
+    +    first user line of (R301), b690's closing's commands among them; this act's own capture starts at that line."""
+         rows = ER.capture(SESSION, PREV_ANCHOR, SUBAGENTS)
+    --- b690_checks.py tests_ok (sealed)
+    +++ b691_checks.py tests_ok
+    @@ -5,3 +5,3 @@
+         return bool(names) and sorted(j) == sorted(set(names) - {'test_elab_reader_b634.py'}) and nf == STEPZERO_FAILING \
+    -        and 'b688_nodes_zeta.txt' in (j.get('test_chain_page.py') or {}).get('args', []) \
+    +        and 'b690_nodes_zeta.txt' in (j.get('test_chain_page.py') or {}).get('args', []) \
+             and 'test_elab_reader_b634.py' in S['withheld'] \
+    --- b690_checks.py branches_ok (sealed)
+    +++ b691_checks.py branches_ok
+    @@ -1,3 +1,3 @@
+     def branches_ok(S):
+    -    """the three repositories' local branch lists by the ruling's names, the remote branch's remote-tracking list, and the branches bank."""
+    +    """the two repositories' local branch lists by the ruling's names (no remote branch named), and the branches bank."""
+         z = S['branchest']
+    @@ -5,4 +5,4 @@
+         rem = dict((r, sorted(x.strip() for x in v.split(NL) if x.strip())) for r, v in S['remote_lists'].items())
+    -    return all(v == [] for v in left.values()) and len(left) == 3 and all(v == [] for v in rem.values()) and len(rem) == 1 \
+    -        and all(b in z for b in NAMED_LOCAL) and 'BRANCHES 8 (LOCAL 7, REMOTE 1) ; MERGED 8 ; TO BE DELETED 8 ; UNNAMED OF b689 0' in unwrap(z)
+    +    return all(v == [] for v in left.values()) and len(left) == 2 and all(v == [] for v in rem.values()) and len(rem) == 0 \
+    +        and all(b in z for b in NAMED_LOCAL) and 'BRANCHES 5 (LOCAL 5, REMOTE 0) ; MERGED 5 ; TO BE DELETED 5 ; UNNAMED OF b690 0' in unwrap(z)
+     
+    --- b690_checks.py _part_of (sealed)
+    +++ b691_checks.py _part_of
+    @@ -3,4 +3,6 @@
+             return 'act'
+    -    if name in B_ARMS:
+    -        return 'standing-b'
+    +    if name in B1_ARMS:
+    +        return 'standing-b1'
+    +    if name in B2_ARMS:
+    +        return 'standing-b2'
+         if name in C_ARMS:
+    --- b690_checks.py runner_ok (sealed)
+    +++ b691_checks.py runner_ok
+    @@ -1,11 +1,17 @@
+     def runner_ok(S):
+    -    import b689_record as REC9
+    +    """this act's four runs through its record tool's reader: each before run at the main the merge sits on, each after run at the built tip,
+    +    success, the artifact's sha256, the memory low above the hold."""
+    +    import b691_record as REC
+         rows = S['runner'].get('rows') or []
+    -    tips = dict((k, gs('D:/' + k, 'rev-parse', tip)) for k, _p, tip, *_r in MERGES)
+    +    want = {}
+    +    for k, pre, tip, *_r in MERGES:
+    +        want[(k, 'before')] = gs('D:/' + k, 'rev-parse', pre)
+    +        want[(k, 'after')] = gs('D:/' + k, 'rev-parse', tip)
+         try:
+             for r in rows:
+    -            REC9.read_runner_row(r)
+    +            REC.read_runner_row(r)
+         except Exception:
+             return False
+    -    return len(rows) == 1 and all(r['ref'] == tips.get(r['kernel']) for r in rows) \
+    +    return len(rows) == 4 and sorted((r['kernel'], r['label']) for r in rows) == sorted(want) \
+    +        and all(r['ref'] == want.get((r['kernel'], r['label'])) for r in rows) \
+             and all(r['conclusion'] == 'success' and r['artifact_sha256'] and r['mem_low'] is not None and r['mem_low'] >= K.HOLD and not r['stopped']
+    --- b690_checks.py CURRENTS (sealed)
+    +++ b691_checks.py CURRENTS
+    @@ -1,3 +1,3 @@
+     CURRENTS = ('ERRATA.md', 'SPIRAL_MAP.md', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md',
+    -            'phase2/method/THE_KEYSTONE_CENSUS_v0_8.md', 'day1/A_Place_to_Stand_v5_18.md',
+    +            'phase2/method/THE_KEYSTONE_CENSUS_v0_8.md', 'day1/A_Place_to_Stand_v5_18.md', 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md',
+                 'THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md', 'day1/ONE_PAGE_PROOF.md', 'phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md',
+    --- b690_checks.py NEED (sealed)
+    +++ b691_checks.py NEED
+    @@ -1,2 +1,2 @@
+    -NEED = {'standing-a': ('live', 'rules'), 'standing-c': ('written',), 'standing-b': ('chain', 'additive'), 'act': ()}
+    +NEED = {'standing-a': ('live', 'rules'), 'standing-c': ('written',), 'standing-b1': ('additive',), 'standing-b2': ('chain',), 'act': ()}
+     
+
+### ### **REPAIRS 8 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8 OF 8 ; THE STANDING INSTRUMENTS UNEDITED True ; THE REPAIRED SHARED TOOLS 3, EACH ITS DIFF BANKED True ; THE REPAIRED READINGS` DIFF LINES 80.**
