@@ -1,5 +1,5 @@
 {
- "at": "2026-10-19T02:24:29Z",
+ "at": "2026-10-19T02:44:28Z",
  "anchor": "RULING (R297) BEGIN",
  "rows": [
   {
@@ -841,6 +841,160 @@
    "src": "seat",
    "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py repairs && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py commands | head -3",
    "n": 120
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:24:52.276Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b687_closing.py dry 2>&1 | tail -22 | cut -c1-260",
+   "n": 121
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:25:16.994Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b687_closing.py dry 2>&1 | grep -E \"THE READINGS|    \\(i|    \\(ii|    \\(iv|controls|composition|THE LANDING|re-reading|hypotheses|b687 closed\" | cut -c1-260",
+   "n": 122
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:25:44.283Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b687_record.py defects && git add tools/b687_checks.py tools/b687_closing.py tools/b687_reg_gate.py tools/b687_regspec.py tools/b687_record.py tools/b687_worklist.py data/b687_tool_repairs.txt data/b687_commands.txt data/b687_commands.json data/b687_defects.json data/b687_kernels_face.json && git commit -q -m \"b687 C4: the tools carried from b686's sealed copies (the suite with twenty-six arms over this act's banks and G-EDIT-ROUTE's reading repaired, the closing, the gate, the spec, the record's late routes), the carry-time bank (two repairs, eight tools), the commands, defects and kernels banks\" && git log --oneline -1",
+   "n": 123
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:27:32.204Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b687_tests.py hold standing-a && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b687_checks.py --prerun --part standing-a 2>&1 | grep -E \"FAIL|raised|PART standing-a|free memory|LONGEST|declared|G-EDIT-ROUTE read\" | cut -c1-220",
+   "n": 124
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:30:33.993Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b687_tests.py hold standing-c && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b687_checks.py --prerun --part standing-c 2>&1 | grep -E \"G-|PART standing-c|free memory|uncovered|PRIORBANK|LONGEST\" | cut -c1-260",
+   "n": 125
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:31:15.685Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b687_tests.py hold standing-b && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b687_checks.py --prerun --part standing-b 2>&1 | grep -E \"G-ACTROOT-VERIFY  |G-SHARED|PART standing-b|free memory|LONGEST|THE ACT-ROOT CHAIN\" | cut -c1-400",
+   "n": 126
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:37:02.557Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b687_tests.py hold act && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b687_checks.py --prerun --part act 2>&1 | grep -E \"^  G-|raised|PART act|free memory\" | cut -c1-200",
+   "n": 127
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:37:45.314Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nt=open('data/b687_steps.txt',encoding='utf-8').read().split(chr(10))\nrows=[l for l in t if l.startswith(('  ζ ','  Z_Q '))]\nprint(len(rows)); bad=[l for l in rows if not (l.count('±')>=3 and '| margin ' in l)]; print(len(bad)); print(bad[:2])\nd=[l for f in ('data/b687_jensen_zeta.txt','data/b687_jensen_q0.txt') for l in open(f,encoding='utf-8').read().split(chr(10)) if l.startswith('  T = ')]\nprint(len(d)); print([l[:200] for l in d if not ('±' in l and 'margin' in l)][:2])\n\"",
+   "n": 128
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:37:57.805Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py scores dry 2>&1 | cut -c1-330",
+   "n": 129
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:38:17.748Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b687_tests.py hold standing-a && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b687_checks.py --prerun --part standing-a 2>&1 | grep -E \"PART standing-a :|G-CLOSING-SENTENCE|G-EDIT-ROUTE  \" | cut -c1-600",
+   "n": 130
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:41:17.235Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b687_tests.py hold act && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b687_checks.py --prerun --part act 2>&1 | grep -E \"PART act :\" | cut -c1-600",
+   "n": 131
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:41:52.103Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b687_checks.py --combine b687_arms_prerun.txt",
+   "n": 132
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:42:05.361Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_reg_gate.py 2>&1 | grep -E \"index-query arm exit|FLOOR MISSES|ARM MISSES|UNDECLARED|ENTRY :|TRAIL :|DRY-RUN STEP :|CLOSING DRY-RUN STEP :|GATE VERDICT|missing\" | cut -c1-300",
+   "n": 133
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:42:41.718Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_reg_gate.py 2>&1 | grep -E \"index-query arm exit|FLOOR MISSES|ARM MISSES|UNDECLARED|ENTRY :|TRAIL :|DRY-RUN STEP :|GATE VERDICT\" | cut -c1-300",
+   "n": 134
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:43:18.724Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b687_record.py gatebanks 2>&1 | cut -c1-260",
+   "n": 135
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:43:27.579Z",
+   "src": "seat",
+   "cmd": "grep -E \"lockgate|reg_seal|checks.py --seal\" data/b686_commands.txt | grep \"^  #\" | cut -c1-300 | head -8",
+   "n": 136
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:43:32.959Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b378_lockgate.py b687 data/b687_registration_2026-10-19.txt 2>&1 | tail -6 | cut -c1-220; ls data | grep \"b687_lockgate\"",
+   "n": 137
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:43:40.834Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -B tools/reg_seal.py --lock data/b687_registration_2026-10-19.txt && python -X utf8 -B tools/b687_checks.py --seal",
+   "n": 138
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:43:49.384Z",
+   "src": "seat",
+   "cmd": "git status --porcelain | grep -E \"b687|audit_b687|terminal_table\" ",
+   "n": 139
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:43:59.327Z",
+   "src": "seat",
+   "cmd": "git add tools/b687_checks.py tools/b687_closing.py tools/b687_record.py data/audit_b687_reg_satisfiable.txt data/b687_arms_prerun.txt data/b687_arms_prerun_act.txt data/b687_arms_prerun_standing-a.txt data/b687_arms_prerun_standing-b.txt data/b687_arms_prerun_standing-c.txt data/b687_census_stepzero.txt data/b687_faces_census_stepzero.txt data/b687_lockgate.json data/b687_lockgate_notes.txt data/b687_lsr_prerun_act.json data/b687_lsr_prerun_standing-a.json data/b687_lsr_prerun_standing-b.json data/b687_lsr_prerun_standing-c.json data/b687_pins_stepzero.txt data/b687_reg_gate.txt data/b687_reg_termscan.txt data/b687_registration_2026-10-19.txt data/b687_regspec_run.txt data/b687_satisfiable.json data/b687_scanfile_c1.md data/b687_scanfile_c3.md data/b687_seal_hashes.json && git commit -q -m \"b687 seal: the face locked (2bc39cdc) after Components 0-3, the carry-time reading, the closing's dry run and the dry-run step; the pre-run 115 arms in four parts, one call each, 86 passing, G-EDIT-ROUTE declared failing on real state; the gate CLEAR; the lock gate 8 of 8; the sealed tools' sha256 recorded\" && git log --oneline -1",
+   "n": 140
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:44:12.498Z",
+   "src": "seat",
+   "cmd": "grep -E \"push_gated|push-b686|git push\" data/b686_commands.txt | grep \"^  #\" | cut -c1-330 | head -20",
+   "n": 141
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:44:18.666Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json\nj=json.load(open('data/b686_commands.json',encoding='utf-8'))\nfor r in j['rows']:\n    if r['n'] in (139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175):\n        print(r['n'], r['cmd'][:260].replace(chr(10),' | '))\n\"",
+   "n": 142
   }
  ],
  "offences": [
