@@ -1,0 +1,707 @@
+b692 -- THE DEPENDENCY-CIRCUIT READING OF SIDE-explicit-formula AT v0.34.1 (tip 4313875), (R302)(3)(b), BY tools/circuit_read.py (2026-10-19T23:31:19Z)
+
+### the bank: relay data/b692_circuit_SIDE-explicit-formula_v0.34.1_4313875.jsonl.gz ; record lines 3365, the header`s count 3365 ; distinct names 3362 ; programme modules 179 ; records outside the kernel`s own libraries 0
+### names recorded twice (one constant listed under two modules, its closure, axioms and type class equal): RHLinalg.posIndex.congr_simp in Zeta23.LinAlg.Inertia and Zeta23.LinAlg.RankTrace; SIDEExplicitFormula.LiWeil.liTerm.eq_1 in SIDEExplicitFormula.Schema.LiConverseCfg and SIDEExplicitFormula.ResidueDischarge; Zeta23.reflect.eq_1 in Zeta23.Tail and Zeta23.RvM.Halving
+### the bars: relay data/b692_circuit_bars.txt (FEW = 5 ; the main theorem SIDEExplicitFormula.B321.h2_sign_iff_rh)
+
+## SERIES -- the main theorem`s closure over the own names in dependency order (each after every name in its own closure); rows: the
+## position | the name | module:line | its chain length.
+   names 576 ; the longest chain 26
+       1  AnalyticOn.norm_le_of_norm_le_on_sphere                                Zeta23.FromPNTPlus.StrongPNTPrefix:61  chain 1
+       2  B1                                                                     Zeta23.FromPNTPlus.EulerMaclaurin:55  chain 1
+       3  Complex.cpow_inv_tendsto                                               Zeta23.FromPNTPlus.ZetaBounds:780  chain 1
+       4  Complex.cpow_tendsto                                                   Zeta23.FromPNTPlus.ZetaBounds:772  chain 1
+       5  Complex.inv_re_add_im                                                  Zeta23.FromPNTPlus.ResidueCalcOnRectangles:439  chain 1
+       6  Complex.one_div_cpow_eq                                                Zeta23.FromPNTPlus.ZetaBounds:569  chain 1
+       7  DifferentiableAt.comp_ofReal                                           Zeta23.FromPNTPlus.Auxiliary:68  chain 1
+       8  Finset.Ioc_eq_Ico.match_1_3                                            Zeta23.FromPNTPlus.ZetaBounds:None  chain 1
+       9  Finset.Ioc_eq_Ico.match_1_5                                            Zeta23.FromPNTPlus.ZetaBounds:None  chain 1
+      10  HIntegral                                                              Zeta23.FromPNTPlus.ResidueCalcOnRectangles:59  chain 1
+      11  HasDerivAt_cpow_over_var                                               Zeta23.FromPNTPlus.ZetaBounds:1079  chain 1
+      12  HasDerivAt_neg_cpow_over2                                              Zeta23.FromPNTPlus.ZetaBounds:1074  chain 1
+      13  HolomorphicOn                                                          Zeta23.FromPNTPlus.ResidueCalcOnRectangles:129  chain 1
+      14  HolomorphicOn_riemannZeta0.match_1_1                                   Zeta23.FromPNTPlus.ZetaBounds:None  chain 1
+      15  IsBigO_to_BddAbove                                                     Zeta23.FromPNTPlus.ResidueCalcOnRectangles:584  chain 1
+      16  LogOfAnalyticFunction                                                  Zeta23.FromPNTPlus.StrongPNTPrefix:152  chain 1
+      17  RectangleBorder                                                        Zeta23.FromPNTPlus.Rectangle:63  chain 1
+      18  RectangleBorderIntegrable                                              Zeta23.FromPNTPlus.ResidueCalcOnRectangles:179  chain 1
+      19  SIDEExplicitFormula.B321.aeval_X_sq_comp                               SIDEExplicitFormula.PowerLimit:312  chain 1
+      20  SIDEExplicitFormula.B321.aeval_conj                                    SIDEExplicitFormula.PowerLimit:306  chain 1
+      21  SIDEExplicitFormula.B321.aeval_real                                    SIDEExplicitFormula.PowerLimit:303  chain 1
+      22  SIDEExplicitFormula.B321.b321Norm                                      SIDEExplicitFormula.B321Identity:40  chain 1
+      23  SIDEExplicitFormula.B321.ceil_weight                                   SIDEExplicitFormula.PowerLimit:787  chain 1
+      24  SIDEExplicitFormula.B321.coeffList                                     SIDEExplicitFormula.PowerLimit:342  chain 1
+      25  SIDEExplicitFormula.B321.hasCompactSupport_of_Icc                      SIDEExplicitFormula.DecayBound:24  chain 1
+      26  SIDEExplicitFormula.B321.hasDerivAt_expIz                              SIDEExplicitFormula.TwoPropertyWindow:202  chain 1
+      27  SIDEExplicitFormula.B321.paperFT_power.match_1_1                       SIDEExplicitFormula.PowerWindow:None  chain 1
+      28  SIDEExplicitFormula.B321.phiC                                          SIDEExplicitFormula.PairTerm:43  chain 1
+      29  SIDEExplicitFormula.B321.phiC_exp_integrable                           SIDEExplicitFormula.PairTerm:129  chain 1
+      30  SIDEExplicitFormula.B321.plateau                                       SIDEExplicitFormula.TwoPropertyWindow:51  chain 1
+      31  SIDEExplicitFormula.B321.polyCoef                                      SIDEExplicitFormula.PowerWindow:159  chain 1
+      32  SIDEExplicitFormula.B321.poly_norm_le                                  SIDEExplicitFormula.PowerLimit:643  chain 1
+      33  SIDEExplicitFormula.B321.power.match_1                                 SIDEExplicitFormula.PowerWindow:None  chain 1
+      34  SIDEExplicitFormula.B321.power_contDiff.match_1_1                      SIDEExplicitFormula.PowerWindow:None  chain 1
+      35  SIDEExplicitFormula.B321.power_even.match_1_1                          SIDEExplicitFormula.PowerWindow:None  chain 1
+      36  SIDEExplicitFormula.B321.power_support.match_1_1                       SIDEExplicitFormula.PowerWindow:None  chain 1
+      37  SIDEExplicitFormula.B321.primeSum                                      SIDEExplicitFormula.B321Identity:32  chain 1
+      38  SIDEExplicitFormula.B321.real_even_interpolant                         SIDEExplicitFormula.PowerWindow:424  chain 1
+      39  SIDEExplicitFormula.B321.sqrtC                                         SIDEExplicitFormula.PowerLimit:544  chain 1
+      40  SIDEExplicitFormula.B321.summable_zeta3                                SIDEExplicitFormula.RestBound:177  chain 1
+      41  SIDEExplicitFormula.B321.support_deriv_Icc                             SIDEExplicitFormula.DecayBound:30  chain 1
+      42  SIDEExplicitFormula.B321.vOf                                           SIDEExplicitFormula.PowerLimit:145  chain 1
+      43  SIDEExplicitFormula.B321.zeta3Sum                                      SIDEExplicitFormula.RestBound:50  chain 1
+      44  SIDEExplicitFormula.B321.zeta_zero_re_nonpos                           SIDEExplicitFormula.Seam:24  chain 1
+      45  Set.left_not_mem_uIoo.match_1_1                                        Zeta23.FromPNTPlus.Rectangle:None  chain 1
+      46  Set.right_not_mem_uIoo.match_1_1                                       Zeta23.FromPNTPlus.Rectangle:None  chain 1
+      47  SetOfZeros                                                             Zeta23.FromPNTPlus.StrongPNTPrefix:222  chain 1
+      48  VIntegral                                                              Zeta23.FromPNTPlus.ResidueCalcOnRectangles:62  chain 1
+      49  ZeroFactor                                                             Zeta23.FromPNTPlus.StrongPNTPrefix:235  chain 1
+      50  Zeta23.Analytic.rectangleIntegral'_mul_logDeriv_of_poles.match_1_5     Zeta23.Analytic.RectangleLogDeriv:None  chain 1
+      51  Zeta23.DigammaSeries.harmonic_cast_eq                                  Zeta23.GammaFacts.Series:138  chain 1
+      52  Zeta23.DigammaSeries.norm_natCast_add_one                              Zeta23.GammaFacts.Series:61  chain 1
+      53  Zeta23.DigammaSeries.summable_wBound                                   Zeta23.GammaFacts.Series:105  chain 1
+      54  Zeta23.DigammaSeries.wTerm                                             Zeta23.GammaFacts.Series:53  chain 1
+      55  Zeta23.EF.cintegral_conj                                               Zeta23.ExplicitFormula:121  chain 1
+      56  Zeta23.EF.cintegral_const_mul                                          Zeta23.ExplicitFormula:115  chain 1
+      57  Zeta23.EF.cintegral_mul_const                                          Zeta23.ExplicitFormula:118  chain 1
+      58  Zeta23.EF.continuous_fourier_of_integrable                             Zeta23.ExplicitFormula.Bridge:81  chain 1
+      59  Zeta23.EF.exists_abs_le_of_hasCompactSupport                           Zeta23.ExplicitFormula.Bridge:48  chain 1
+      60  Zeta23.EF.gammaBracket                                                 Zeta23.ExplicitFormula:77  chain 1
+      61  Zeta23.EF.tilde                                                        Zeta23.ExplicitFormula:63  chain 1
+      62  Zeta23.IsNontrivialZero                                                Zeta23.Statement:48  chain 1
+      63  Zeta23.RvM.analyticAt_completedRiemannZeta                             Zeta23.RvM.CountByIntegral:48  chain 1
+      64  Zeta23.RvM.analyticOnNhd_riemannZeta                                   Zeta23.RvM.ZetaGrowth:58  chain 1
+      65  Zeta23.RvM.completedRiemannZeta_eq_Gammaℝ_mul                          Zeta23.RvM.CountByIntegral:57  chain 1
+      66  Zeta23.RvM.gfun                                                        Zeta23.RvM.LocalCount:63  chain 1
+      67  Zeta23.RvM.norm_riemannZeta_sub_one_le                                 Zeta23.RvM.ZetaGrowth:166  chain 1
+      68  Zeta23.RvM.one_third_lt_two_sub_pi_sq_div_six                          Zeta23.RvM.ZetaGrowth:226  chain 1
+      69  Zeta23.Stirling.differentiableAt_digamma                               Zeta23.Analytic.Stirling:44  chain 1
+      70  Zeta23.StirlingVert.abs_im_le_norm_add                                 Zeta23.GammaFacts.StirlingVert:58  chain 1
+      71  Zeta23.StirlingVert.eps                                                Zeta23.GammaFacts.StirlingVert:109  chain 1
+      72  Zeta23.StirlingVert.intervalIntegral_mul_const_C                       Zeta23.GammaFacts.StirlingVert:48  chain 1
+      73  Zeta23.StirlingVert.inv_add_expand                                     Zeta23.GammaFacts.StirlingVert:100  chain 1
+      74  Zeta23.StirlingVert.natp1_le_norm                                      Zeta23.GammaFacts.StirlingVert:197  chain 1
+      75  Zeta23.StirlingVert.natp1_re_pos                                       Zeta23.GammaFacts.StirlingVert:188  chain 1
+      76  Zeta23.StirlingVert.norm_sq_natp1_ge                                   Zeta23.GammaFacts.StirlingVert:277  chain 1
+      77  Zeta23.StirlingVert.re_add_pos                                         Zeta23.GammaFacts.StirlingVert:63  chain 1
+      78  Zeta23.StirlingVert.rho                                                Zeta23.GammaFacts.StirlingVert:219  chain 1
+      79  Zeta23.Tail.sum_mult_le_of_windows                                     Zeta23.Tail.Count:409  chain 1
+      80  Zeta23.WeilEF.abs_im_sub_le_norm_sub                                   Zeta23.WeilEF.GoodHeights:95  chain 1
+      81  Zeta23.WeilEF.analyticAt_riemannZeta                                   Zeta23.WeilEF.XiLogDeriv:76  chain 1
+      82  Zeta23.WeilEF.completedZeta_eventuallyEq_mul                           Zeta23.WeilEF.XiLogDeriv:66  chain 1
+      83  Zeta23.WeilEF.corner_re_im                                             Zeta23.WeilEF.FullLineAssembly:38  chain 1
+      84  Zeta23.WeilEF.differentiableAt_Gammaℝ                                  Zeta23.WeilEF.XiLogDeriv:45  chain 1
+      85  Zeta23.WeilEF.exists_far_point                                         Zeta23.WeilEF.GoodHeights:44  chain 1
+      86  Zeta23.WeilEF.im_mem_of_mem_closedBall                                 Zeta23.WeilEF.GoodHeights:109  chain 1
+      87  Zeta23.WeilEF.integrable_line                                          Zeta23.WeilEF.VerticalLine:429  chain 1
+      88  Zeta23.WeilEF.inv_two_pi_I_mul_I                                       Zeta23.WeilEF.FullLineAssembly:44  chain 1
+      89  Zeta23.WeilEF.key                                                      Zeta23.WeilEF.ZeroSummability:97  chain 1
+      90  Zeta23.WeilEF.logDeriv_Gammaℝ                                          Zeta23.WeilEF.GammaRBracket:68  chain 1
+      91  Zeta23.WeilEF.logDeriv_completedZeta_one_sub                           Zeta23.WeilEF.XiLogDeriv:93  chain 1
+      92  Zeta23.WeilEF.logDeriv_zero_prod                                       Zeta23.WeilEF.Landau:91  chain 1
+      93  Zeta23.WeilEF.log_two_add_div_le                                       Zeta23.WeilEF.VerticalLine:567  chain 1
+      94  Zeta23.WeilEF.log_two_add_le                                           Zeta23.WeilEF.FullLine:172  chain 1
+      95  Zeta23.WeilEF.norm_logDeriv_zeta_le_of_one_lt_re                       Zeta23.WeilEF.FullLine:106  chain 1
+      96  Zeta23.WeilEF.one_add_sq_ge                                            Zeta23.WeilEF.ZeroSummability:106  chain 1
+      97  Zeta23.WeilEF.one_sub_cast                                             Zeta23.WeilEF.FullLine:341  chain 1
+      98  Zeta23.WeilEF.tilt                                                     Zeta23.WeilEF.VerticalLine:56  chain 1
+      99  Zeta23.WeilEF.totalWeight                                              Zeta23.WeilEF.ZeroSummability:92  chain 1
+     100  Zeta23.WeilEF.weight_le                                                Zeta23.WeilEF.ZeroSummability:55  chain 1
+     101  Zeta23.gammaOf                                                         Zeta23.Defs:119  chain 1
+     102  Zeta23.hasCompactSupport_of_support_subset_abs                         Zeta23.Poisson.PaperFT:143  chain 1
+     103  Zeta23.isConnected_compl_one                                           Zeta23.Statement.Seam:51  chain 1
+     104  Zeta23.norm_cexp_I_mul                                                 Zeta23.Poisson.PaperFT:83  chain 1
+     105  Zeta23.paperFT                                                         Zeta23.Defs:58  chain 1
+     106  Zeta23.reflect                                                         Zeta23.Defs:123  chain 1
+     107  Zeta23.riemannZeta_analyticOnNhd_compl_one                             Zeta23.Statement.Seam:45  chain 1
+     108  Zeta23.tsupport_subset_of_support_subset_abs                           Zeta23.Poisson.PaperFT:149  chain 1
+     109  Zeta23.zeroMult                                                        Zeta23.Statement:56  chain 1
+     110  ZetaSum_aux1_1                                                         Zeta23.FromPNTPlus.ZetaBounds:667  chain 1
+     111  ZetaSum_aux1_1'                                                        Zeta23.FromPNTPlus.ZetaBounds:664  chain 1
+     112  ZetaSum_aux1_3                                                         Zeta23.FromPNTPlus.ZetaBounds:682  chain 1
+     113  ZetaSum_aux1_4'                                                        Zeta23.FromPNTPlus.ZetaBounds:685  chain 1
+     114  ZetaSum_aux1φderiv                                                     Zeta23.FromPNTPlus.ZetaBounds:616  chain 1
+     115  _private.Zeta23.ZetaReflect.0.Zeta23.Efac                              Zeta23.ZetaReflect:178  chain 1
+     116  _private.Zeta23.ZetaReflect.0.Zeta23.tendsto_conj_nhds                 Zeta23.ZetaReflect:118  chain 1
+     117  _private.Zeta23.ZetaReflect.0.Zeta23.two_pi_ne_zero'                   Zeta23.ZetaReflect:182  chain 1
+     118  _private.Zeta23.ZetaReflect.0.Zeta23.zeta_conj_of_one_lt_re            Zeta23.ZetaReflect:56  chain 1
+     119  analyticAt_finset_prod_sub_pow                                         Zeta23.FromPNTPlus.StrongPNTPrefix:277  chain 1
+     120  borelCaratheodory'                                                     Zeta23.FromPNTPlus.StrongPNTPrefix:79  chain 1
+     121  cauchy_formula_deriv                                                   Zeta23.FromPNTPlus.StrongPNTPrefix:100  chain 1
+     122  div_cpow_eq_cpow_neg                                                   Zeta23.FromPNTPlus.ZetaBounds:58  chain 1
+     123  div_rpow_eq_rpow_neg                                                   Zeta23.FromPNTPlus.ZetaBounds:64  chain 1
+     124  finsetSum_tendsto_tsum                                                 Zeta23.FromPNTPlus.ZetaBounds:760  chain 1
+     125  integrable_log_over_pow                                                Zeta23.FromPNTPlus.ZetaBounds:910  chain 1
+     126  integral_const_div_sq_add_sq                                           Zeta23.FromPNTPlus.ResidueCalcOnRectangles:463  chain 1
+     127  integral_deriv_mul_add_const                                           Zeta23.FromPNTPlus.EulerMaclaurin:69  chain 1
+     128  isOpen_aux                                                             Zeta23.FromPNTPlus.ZetaBounds:905  chain 1
+     129  isPathConnected_aux                                                    Zeta23.FromPNTPlus.ZetaBounds:1123  chain 1
+     130  measurable_floor_add_half_sub                                          Zeta23.FromPNTPlus.ZetaBounds:710  chain 1
+     131  rectangle_mem_nhds_iff                                                 Zeta23.FromPNTPlus.Rectangle:207  chain 1
+     132  riemannZeta0                                                           Zeta23.FromPNTPlus.ZetaBounds:548  chain 1
+     133  sq_add_sq_ne_zero                                                      Zeta23.FromPNTPlus.ResidueCalcOnRectangles:443  chain 1
+     134  xpos_of_uIcc                                                           Zeta23.FromPNTPlus.ZetaBounds:595  chain 1
+     135  ζ₀'                                                                    Zeta23.FromPNTPlus.ZetaBounds:1067  chain 1
+     136  HolomorphicOn_riemannZeta                                              Zeta23.FromPNTPlus.ZetaBounds:1117  chain 2
+     137  Real.differentiableAt_cpow_const_of_ne                                 Zeta23.FromPNTPlus.ZetaBounds:564  chain 2
+     138  SIDEExplicitFormula.B321.fixed_poly_bound                              SIDEExplicitFormula.PowerLimit:658  chain 2
+     139  SIDEExplicitFormula.B321.gammaOf_im'                                   SIDEExplicitFormula.RestBound:145  chain 2
+     140  SIDEExplicitFormula.B321.gammaOf_re'                                   SIDEExplicitFormula.RestBound:140  chain 2
+     141  SIDEExplicitFormula.B321.ibp_step                                      SIDEExplicitFormula.TwoPropertyWindow:210  chain 2
+     142  SIDEExplicitFormula.B321.norm_sqrtC                                    SIDEExplicitFormula.PowerLimit:555  chain 2
+     143  SIDEExplicitFormula.B321.paperFT_growth                                SIDEExplicitFormula.GrowthBound:21  chain 2
+     144  SIDEExplicitFormula.B321.plateau_contDiff                              SIDEExplicitFormula.TwoPropertyWindow:59  chain 2
+     145  SIDEExplicitFormula.B321.plateau_eq_one                                SIDEExplicitFormula.TwoPropertyWindow:89  chain 2
+     146  SIDEExplicitFormula.B321.plateau_even                                  SIDEExplicitFormula.TwoPropertyWindow:68  chain 2
+     147  SIDEExplicitFormula.B321.plateau_hasCompactSupport                     SIDEExplicitFormula.TwoPropertyWindow:75  chain 2
+     148  SIDEExplicitFormula.B321.plateau_nonneg                                SIDEExplicitFormula.PowerWindow:261  chain 2
+     149  SIDEExplicitFormula.B321.plateau_support_Icc                           SIDEExplicitFormula.PowerWindow:247  chain 2
+     150  SIDEExplicitFormula.B321.poleTerm                                      SIDEExplicitFormula.B321Identity:28  chain 2
+     151  SIDEExplicitFormula.B321.polyEvalFull                                  SIDEExplicitFormula.PowerLimit:59  chain 2
+     152  SIDEExplicitFormula.B321.polyOpFull                                    SIDEExplicitFormula.PowerLimit:55  chain 2
+     153  SIDEExplicitFormula.B321.reflect_im                                    SIDEExplicitFormula.PowerLimit:200  chain 2
+     154  SIDEExplicitFormula.B321.reflect_re                                    SIDEExplicitFormula.PowerLimit:197  chain 2
+     155  SIDEExplicitFormula.B321.sqrtC_sq                                      SIDEExplicitFormula.PowerLimit:547  chain 2
+     156  SIDEExplicitFormula.B321.support_iteratedDeriv_Icc                     SIDEExplicitFormula.DecayBound:34  chain 2
+     157  SIDEExplicitFormula.B321.vOf_im                                        SIDEExplicitFormula.PowerLimit:176  chain 2
+     158  SIDEExplicitFormula.B321.vOf_re                                        SIDEExplicitFormula.PowerLimit:170  chain 2
+     159  SIDEExplicitFormula.B321.wOf                                           SIDEExplicitFormula.PowerLimit:148  chain 2
+     160  Set.left_not_mem_uIoo                                                  Zeta23.FromPNTPlus.Rectangle:114  chain 2
+     161  Set.right_not_mem_uIoo                                                 Zeta23.FromPNTPlus.Rectangle:117  chain 2
+     162  Zeta23.DigammaSeries.one_add_wTerm                                     Zeta23.GammaFacts.Series:56  chain 2
+     163  Zeta23.DigammaSeries.summable_digamma_series                           Zeta23.GammaFacts.Series:313  chain 2
+     164  Zeta23.EF.continuous_tilde                                             Zeta23.ExplicitFormula:175  chain 2
+     165  Zeta23.EF.hasCompactSupport_tilde                                      Zeta23.ExplicitFormula:178  chain 2
+     166  Zeta23.EF.paperFT_ofReal_eq_fourier                                    Zeta23.ExplicitFormula:125  chain 2
+     167  Zeta23.EF.weilTest                                                     Zeta23.ExplicitFormula:66  chain 2
+     168  Zeta23.IsNontrivialZero.not_trivial                                    Zeta23.Statement:140  chain 2
+     169  Zeta23.RvM.comp_affine_analyticAt                                      Zeta23.RvM.LocalCount:66  chain 2
+     170  Zeta23.RvM.completedRiemannZeta_eq_zero_iff_of_re_pos                  Zeta23.RvM.CountByIntegral:62  chain 2
+     171  Zeta23.RvM.norm_riemannZeta_ge_of_two_le_re                            Zeta23.RvM.ZetaGrowth:213  chain 2
+     172  Zeta23.RvM.norm_riemannZeta_le_of_two_le_re                            Zeta23.RvM.ZetaGrowth:242  chain 2
+     173  Zeta23.StirlingVert.add_mem_slitPlane                                  Zeta23.GammaFacts.StirlingVert:66  chain 2
+     174  Zeta23.StirlingVert.add_ne_zero                                        Zeta23.GammaFacts.StirlingVert:70  chain 2
+     175  Zeta23.StirlingVert.inv_norm_sq_le_telescope                           Zeta23.GammaFacts.StirlingVert:285  chain 2
+     176  Zeta23.StirlingVert.natp1_ne_zero                                      Zeta23.GammaFacts.StirlingVert:191  chain 2
+     177  Zeta23.StirlingVert.summable_inv_norm_sq                               Zeta23.GammaFacts.StirlingVert:320  chain 2
+     178  Zeta23.StirlingVert.tendsto_inv_natp1                                  Zeta23.GammaFacts.StirlingVert:433  chain 2
+     179  Zeta23.Tail.LocalCount                                                 Zeta23.Tail.Basic:73  chain 1
+     180  Zeta23.Tail.LocalCount.mk                                              Zeta23.Tail.Basic:82  chain 1
+     181  Zeta23.WeilEF.Hfn                                                      Zeta23.WeilEF.VerticalLine:53  chain 2
+     182  Zeta23.WeilEF.analyticAt_Gammaℝ                                        Zeta23.WeilEF.XiLogDeriv:60  chain 2
+     183  Zeta23.WeilEF.continuous_logDeriv_zeta_line                            Zeta23.WeilEF.FullLine:132  chain 2
+     184  Zeta23.WeilEF.finite_SetOfZeros                                        Zeta23.WeilEF.Landau:329  chain 2
+     185  Zeta23.WeilEF.gammaOf_im                                               Zeta23.WeilEF.ZeroSummability:39  chain 2
+     186  Zeta23.WeilEF.gammaOf_re                                               Zeta23.WeilEF.ZeroSummability:36  chain 2
+     187  Zeta23.WeilEF.isNontrivialZero_of_mem_closedBall                       Zeta23.WeilEF.GoodHeights:98  chain 2
+     188  Zeta23.WeilEF.key_lt                                                   Zeta23.WeilEF.ZeroSummability:100  chain 2
+     189  Zeta23.WeilEF.le_key_add_one                                           Zeta23.WeilEF.ZeroSummability:103  chain 2
+     190  Zeta23.WeilEF.summable_weight                                          Zeta23.WeilEF.ZeroSummability:82  chain 2
+     191  Zeta23.WeilEF.tilt_contDiff                                            Zeta23.WeilEF.VerticalLine:59  chain 2
+     192  Zeta23.WeilEF.tilt_hasCompactSupport                                   Zeta23.WeilEF.VerticalLine:65  chain 2
+     193  Zeta23.WeilEF.vertical_line_shift                                      Zeta23.WeilEF.VerticalLine:440  chain 2
+     194  Zeta23.norm_cexp_I_mul_le                                              Zeta23.Poisson.PaperFT:88  chain 2
+     195  Zeta23.paperFT_def                                                     Zeta23.Poisson.PaperFT:43  chain 2
+     196  Zeta23.reflect_im                                                      Zeta23.RvM.Halving:43  chain 2
+     197  Zeta23.reflect_re                                                      Zeta23.RvM.Halving:42  chain 2
+     198  Zeta23.reflect_reflect                                                 Zeta23.RvM.Halving:45  chain 2
+     199  Zeta23.riemannZeta_conj                                                Zeta23.ZetaReflect:77  chain 2
+     200  Zeta23.zerosIn                                                         Zeta23.Statement:61  chain 2
+     201  ZetaSum_aux1_5b                                                        Zeta23.FromPNTPlus.ZetaBounds:703  chain 2
+     202  ZetaSum_aux1_5c                                                        Zeta23.FromPNTPlus.ZetaBounds:715  chain 2
+     203  ZetaSum_aux2a                                                          Zeta23.FromPNTPlus.ZetaBounds:787  chain 2
+     204  _private.Zeta23.ZetaReflect.0.Zeta23.analyticAt_conj_conj              Zeta23.ZetaReflect:123  chain 2
+     205  abs_B1_le_half                                                         Zeta23.FromPNTPlus.EulerMaclaurin:63  chain 2
+     206  aestronglyMeasurable_B1                                                Zeta23.FromPNTPlus.EulerMaclaurin:58  chain 2
+     207  continuous_self_div_sq_add_sq                                          Zeta23.FromPNTPlus.ResidueCalcOnRectangles:446  chain 2
+     208  finiteSetOfZeros_mono                                                  Zeta23.FromPNTPlus.StrongPNTPrefix:224  chain 2
+     209  mapsTo_rectangleBorder_left_im                                         Zeta23.FromPNTPlus.Rectangle:238  chain 2
+     210  mapsTo_rectangleBorder_left_re                                         Zeta23.FromPNTPlus.Rectangle:228  chain 2
+     211  mapsTo_rectangleBorder_right_im                                        Zeta23.FromPNTPlus.Rectangle:243  chain 2
+     212  mapsTo_rectangleBorder_right_re                                        Zeta23.FromPNTPlus.Rectangle:233  chain 2
+     213  rectangleBorder_disjoint_singleton                                     Zeta23.FromPNTPlus.Rectangle:182  chain 2
+     214  rectangleBorder_subset_rectangle                                       Zeta23.FromPNTPlus.Rectangle:162  chain 2
+     215  Cf                                                                     Zeta23.FromPNTPlus.StrongPNTPrefix:269  chain 2
+     216  DerivativeBound                                                        Zeta23.FromPNTPlus.StrongPNTPrefix:110  chain 2
+     217  Finset.Ioc_eq_Ico                                                      Zeta23.FromPNTPlus.ZetaBounds:751  chain 2
+     218  RectangleIntegral                                                      Zeta23.FromPNTPlus.ResidueCalcOnRectangles:78  chain 2
+     219  SIDEExplicitFormula.B321.archTerm                                      SIDEExplicitFormula.B321Identity:36  chain 2
+     220  SIDEExplicitFormula.B321.classK                                        SIDEExplicitFormula.H2Sign:22  chain 3
+     221  SIDEExplicitFormula.B321.norm_wOf                                      SIDEExplicitFormula.PowerLimit:160  chain 3
+     222  SIDEExplicitFormula.B321.paperFT_ofReal_conj                           SIDEExplicitFormula.PairTerm:79  chain 2
+     223  SIDEExplicitFormula.B321.phiC_FT_neg                                   SIDEExplicitFormula.PairTerm:166  chain 2
+     224  SIDEExplicitFormula.B321.polyOpFull_contDiff                           SIDEExplicitFormula.PowerLimit:94  chain 3
+     225  SIDEExplicitFormula.B321.vOf_real_of_on                                SIDEExplicitFormula.PowerLimit:362  chain 3
+     226  SIDEExplicitFormula.B321.vOf_reflect                                   SIDEExplicitFormula.PowerLimit:210  chain 2
+     227  SIDEExplicitFormula.B321.wOf_eq                                        SIDEExplicitFormula.PowerLimit:151  chain 3
+     228  SIDEExplicitFormula.B321.weilTest_ofReal_even                          SIDEExplicitFormula.TwoPropertyWindow:176  chain 3
+     229  Set.ne_left_of_mem_uIoo                                                Zeta23.FromPNTPlus.Rectangle:120  chain 3
+     230  Set.ne_right_of_mem_uIoo                                               Zeta23.FromPNTPlus.Rectangle:123  chain 3
+     231  ZeroFactorization                                                      Zeta23.FromPNTPlus.StrongPNTPrefix:242  chain 2
+     232  Zeta23.DigammaSeries.inv_gammaSeq_eq                                   Zeta23.GammaFacts.Series:145  chain 3
+     233  Zeta23.DigammaSeries.logDeriv_one_add_wTerm                            Zeta23.GammaFacts.Series:264  chain 3
+     234  Zeta23.DigammaSeries.norm_wTerm_le                                     Zeta23.GammaFacts.Series:65  chain 2
+     235  Zeta23.EF.integrable_paperFT_ofReal                                    Zeta23.ExplicitFormula:139  chain 3
+     236  Zeta23.EF.literatureRHS                                                Zeta23.ExplicitFormula:82  chain 2
+     237  Zeta23.EF.paper_inversion                                              Zeta23.ExplicitFormula:147  chain 3
+     238  Zeta23.RH_implies_on_line                                              Zeta23.Statement:152  chain 3
+     239  Zeta23.RvM.analyticOrderNatAt_completedRiemannZeta                     Zeta23.RvM.CountByIntegral:95  chain 2
+     240  Zeta23.RvM.completedRiemannZeta_ne_zero_of_one_le_re                   Zeta23.RvM.CountByIntegral:69  chain 3
+     241  Zeta23.StirlingVert.hasDerivAt_log_add                                 Zeta23.GammaFacts.StirlingVert:75  chain 3
+     242  Zeta23.StirlingVert.sum_inv_norm_sq_le                                 Zeta23.GammaFacts.StirlingVert:301  chain 3
+     243  Zeta23.Tail.LocalCount.one_le                                          Zeta23.Tail.Basic:83  chain 2
+     244  Zeta23.Tail.LocalCount.window                                          Zeta23.Tail.Basic:84  chain 2
+     245  Zeta23.WeilEF.Fline                                                    Zeta23.WeilEF.FullLine:337  chain 3
+     246  Zeta23.WeilEF.Hfn_apply                                                Zeta23.WeilEF.FullLine:45  chain 3
+     247  Zeta23.WeilEF.abs_gammaOf_im_le                                        Zeta23.WeilEF.ZeroSummability:49  chain 3
+     248  Zeta23.WeilEF.abs_im_le_norm_gammaOf                                   Zeta23.WeilEF.ZeroSummability:42  chain 3
+     249  Zeta23.WeilEF.continuous_logDeriv_Gammaℝ_line                          Zeta23.WeilEF.FullLine:198  chain 2
+     250  Zeta23.WeilEF.differentiable_paperFT                                   Zeta23.WeilEF.VerticalLine:511  chain 2
+     251  Zeta23.WeilEF.logDeriv_completedZeta                                   Zeta23.WeilEF.XiLogDeriv:82  chain 2
+     252  Zeta23.ZeroConfig                                                      Zeta23.Defs:126  chain 2
+     253  Zeta23.ZeroConfig.mk                                                   Zeta23.Defs:136  chain 2
+     254  Zeta23.analyticOrderAt_conj_conj                                       Zeta23.ZetaReflect:131  chain 3
+     255  Zeta23.analyticOrderAt_riemannZeta_ne_top                              Zeta23.Statement.Seam:55  chain 2
+     256  Zeta23.paperFT_deriv                                                   Zeta23.Poisson.PaperFT:108  chain 3
+     257  Zeta23.reflect_injective                                               Zeta23.RvM.Halving:48  chain 3
+     258  Zeta23.riemannZeta_zeros_locallyFinite                                 Zeta23.Statement.Seam:78  chain 2
+     259  ZetaSum_aux1_2                                                         Zeta23.FromPNTPlus.ZetaBounds:670  chain 2
+     260  ZetaSum_aux1_4                                                         Zeta23.FromPNTPlus.ZetaBounds:691  chain 2
+     261  ZetaSum_aux1_5a                                                        Zeta23.FromPNTPlus.ZetaBounds:697  chain 2
+     262  ZetaSum_aux1derivφCont                                                 Zeta23.FromPNTPlus.ZetaBounds:634  chain 2
+     263  ZetaSum_aux1φDiff                                                      Zeta23.FromPNTPlus.ZetaBounds:610  chain 3
+     264  ZetaSum_aux1₁                                                          Zeta23.FromPNTPlus.ZetaBounds:600  chain 2
+     265  _private.Zeta23.ZetaReflect.0.Zeta23.Efac_ne_zero                      Zeta23.ZetaReflect:186  chain 2
+     266  _private.Zeta23.ZetaReflect.0.Zeta23.analyticAt_Efac                   Zeta23.ZetaReflect:215  chain 2
+     267  integrableOn_of_Zeta0_fun                                              Zeta23.FromPNTPlus.ZetaBounds:802  chain 3
+     268  integral_self_div_sq_add_sq                                            Zeta23.FromPNTPlus.ResidueCalcOnRectangles:450  chain 3
+     269  riemannZeta0_apply                                                     Zeta23.FromPNTPlus.ZetaBounds:557  chain 2
+     270  BlaschkeB                                                              Zeta23.FromPNTPlus.StrongPNTPrefix:340  chain 3
+     271  BorelCaratheodoryDeriv                                                 Zeta23.FromPNTPlus.StrongPNTPrefix:136  chain 3
+     272  RectangleIntegral'                                                     Zeta23.FromPNTPlus.ResidueCalcOnRectangles:84  chain 3
+     273  RectangleIntegral.translate                                            Zeta23.FromPNTPlus.ResidueCalcOnRectangles:429  chain 3
+     274  SIDEExplicitFormula.B321.offScore                                      SIDEExplicitFormula.PowerWindow:327  chain 2
+     275  SIDEExplicitFormula.B321.paperFT_conj_of_real                          SIDEExplicitFormula.PowerLimit:35  chain 3
+     276  SIDEExplicitFormula.B321.paperFT_neg_of_even                           SIDEExplicitFormula.PowerLimit:40  chain 3
+     277  SIDEExplicitFormula.B321.paperFT_sum                                   SIDEExplicitFormula.PowerWindow:168  chain 2
+     278  SIDEExplicitFormula.B321.polyEvalFull_coeffList                        SIDEExplicitFormula.PowerLimit:345  chain 3
+     279  SIDEExplicitFormula.B321.selfConv                                      SIDEExplicitFormula.PowerWindow:61  chain 3
+     280  SIDEExplicitFormula.B321.weilTest_phiC                                 SIDEExplicitFormula.PowerWindow:64  chain 3
+     281  Zeta23.EF.paperFT_tilde                                                Zeta23.ExplicitFormula:195  chain 2
+     282  Zeta23.EF.weilTest_contDiff                                            Zeta23.ExplicitFormula:254  chain 3
+     283  Zeta23.EF.weilTest_hasCompactSupport                                   Zeta23.ExplicitFormula:261  chain 3
+     284  Zeta23.Ncount                                                          Zeta23.Statement:64  chain 3
+     285  Zeta23.RvM.completedRiemannZeta_ne_zero_of_re_nonpos                   Zeta23.RvM.CountByIntegral:74  chain 4
+     286  Zeta23.RvM.gfun_analyticAt                                             Zeta23.RvM.LocalCount:72  chain 3
+     287  Zeta23.RvM.riemannZeta_zeros_finite_of_isCompact                       Zeta23.RvM.LocalCount:53  chain 3
+     288  Zeta23.RvM.zeta_lower_bound_two                                        Zeta23.RvM.ZetaGrowth:231  chain 3
+     289  Zeta23.StirlingVert.inv_natp1_sq_eq                                    Zeta23.GammaFacts.StirlingVert:222  chain 3
+     290  Zeta23.StirlingVert.norm_rho_le                                        Zeta23.GammaFacts.StirlingVert:234  chain 3
+     291  Zeta23.StirlingVert.tendsto_harmonic_sub_clog                          Zeta23.GammaFacts.StirlingVert:389  chain 3
+     292  Zeta23.StirlingVert.tsum_inv_norm_sq_le                                Zeta23.GammaFacts.StirlingVert:354  chain 4
+     293  Zeta23.Tail.LocalCount.A₀_pos                                          Zeta23.Tail.Basic:87  chain 3
+     294  Zeta23.WeilEF.Hfn_line                                                 Zeta23.WeilEF.VerticalLine:69  chain 3
+     295  Zeta23.WeilEF.integrable_mul_logDeriv_zeta_of_decay                    Zeta23.WeilEF.FullLine:149  chain 3
+     296  Zeta23.WeilEF.logDeriv_completedZeta_line                              Zeta23.WeilEF.FullLine:352  chain 3
+     297  Zeta23.ZeroConfig.carrier                                              Zeta23.Defs:138  chain 3
+     298  Zeta23.ZeroConfig.mult                                                 Zeta23.Defs:140  chain 3
+     299  Zeta23.paperFT_deriv_deriv                                             Zeta23.Poisson.PaperFT:134  chain 4
+     300  integrableOn_of_Zeta0_fun_log                                          Zeta23.FromPNTPlus.ZetaBounds:946  chain 3
+     301  intervalIntegrable_deriv_mul_B1                                        Zeta23.FromPNTPlus.EulerMaclaurin:82  chain 3
+     302  HolomorphicOn.vanishesOnRectangle                                      Zeta23.FromPNTPlus.ResidueCalcOnRectangles:145  chain 3
+     303  RectangleBorderIntegrable.add                                          Zeta23.FromPNTPlus.ResidueCalcOnRectangles:185  chain 3
+     304  RectangleIntegral_congr                                                Zeta23.FromPNTPlus.ResidueCalcOnRectangles:152  chain 3
+     305  SIDEExplicitFormula.B321.paperFT_conj_of_real_even                     SIDEExplicitFormula.PowerWindow:32  chain 3
+     306  SIDEExplicitFormula.B321.paperFT_iteratedDeriv                         SIDEExplicitFormula.DecayBound:45  chain 3
+     307  SIDEExplicitFormula.B321.paperFT_of_sq_eq                              SIDEExplicitFormula.PowerLimit:224  chain 4
+     308  SIDEExplicitFormula.B321.polyOpFull_support                            SIDEExplicitFormula.PowerLimit:82  chain 3
+     309  SIDEExplicitFormula.B321.wOf_sq                                        SIDEExplicitFormula.PowerLimit:155  chain 4
+     310  Zeta23.DigammaSeries.summable_norm_wTerm                               Zeta23.GammaFacts.Series:123  chain 3
+     311  Zeta23.RvM.analyticOrderNatAt_gfun                                     Zeta23.RvM.LocalCount:78  chain 3
+     312  Zeta23.StirlingVert.integral_inv_add_eq_log_sub                        Zeta23.GammaFacts.StirlingVert:83  chain 4
+     313  Zeta23.StirlingVert.norm_eps_le                                        Zeta23.GammaFacts.StirlingVert:151  chain 3
+     314  Zeta23.WeilEF.Hfn_mirror                                               Zeta23.WeilEF.Main:37  chain 4
+     315  Zeta23.WeilEF.continuous_Hfn_line                                      Zeta23.WeilEF.FullLine:99  chain 3
+     316  Zeta23.WeilEF.f_eq_prod_mul_Cf                                         Zeta23.WeilEF.Landau:75  chain 3
+     317  Zeta23.WeilEF.integrand_eq_tsum                                        Zeta23.WeilEF.VerticalLine:98  chain 4
+     318  Zeta23.ZeroConfig.finite_window                                        Zeta23.Defs:146  chain 4
+     319  Zeta23.ZeroConfig.reflect_mem                                          Zeta23.Defs:143  chain 4
+     320  Zeta23.ZeroConfig.strip                                                Zeta23.Defs:142  chain 4
+     321  Zeta23.ZeroConfig.window                                               Zeta23.Defs:152  chain 4
+     322  Zeta23.ZetaSeam                                                        Zeta23.Statement:85  chain 2
+     323  Zeta23.ZetaSeam.mk                                                     Zeta23.Statement:91  chain 2
+     324  Zeta23.analyticOrderAt_zeta_one_sub                                    Zeta23.ZetaReflect:238  chain 3
+     325  Zeta23.norm_paperFT_le                                                 Zeta23.Poisson.PaperFT:95  chain 3
+     326  Zeta23.zeta_reflect_zero                                               Zeta23.ZetaReflect:293  chain 3
+     327  ZetaSum_aux3                                                           Zeta23.FromPNTPlus.ZetaBounds:790  chain 3
+     328  BlaschkeOfZero                                                         Zeta23.FromPNTPlus.StrongPNTPrefix:364  chain 4
+     329  CfAnalytic                                                             Zeta23.FromPNTPlus.StrongPNTPrefix:289  chain 3
+     330  RectangleIntegral.translate'                                           Zeta23.FromPNTPlus.ResidueCalcOnRectangles:435  chain 4
+     331  SIDEExplicitFormula.B321.gammaOf_sq                                    SIDEExplicitFormula.PowerLimit:164  chain 5
+     332  SIDEExplicitFormula.B321.paperFT_conj_eq                               SIDEExplicitFormula.PowerLimit:215  chain 4
+     333  SIDEExplicitFormula.B321.phiC_selfConv                                 SIDEExplicitFormula.PowerWindow:86  chain 4
+     334  SIDEExplicitFormula.B321.plateau_integral_pos                          SIDEExplicitFormula.PowerWindow:264  chain 3
+     335  SIDEExplicitFormula.B321.power                                         SIDEExplicitFormula.PowerWindow:120  chain 4
+     336  SIDEExplicitFormula.B321.selfConv_contDiff                             SIDEExplicitFormula.PowerWindow:112  chain 4
+     337  SIDEExplicitFormula.B321.selfConv_eq                                   SIDEExplicitFormula.PowerWindow:82  chain 4
+     338  SIDEExplicitFormula.B321.selfConv_even                                 SIDEExplicitFormula.PowerWindow:91  chain 4
+     339  Zeta23.DigammaSeries.multipliable_one_add_wTerm                        Zeta23.GammaFacts.Series:133  chain 4
+     340  Zeta23.StirlingVert.integral_inv_add_eq                                Zeta23.GammaFacts.StirlingVert:113  chain 3
+     341  Zeta23.StirlingVert.norm_eps_natp1_le                                  Zeta23.GammaFacts.StirlingVert:245  chain 4
+     342  Zeta23.StirlingVert.norm_eps_zero_le                                   Zeta23.GammaFacts.StirlingVert:486  chain 4
+     343  Zeta23.WeilEF.Cf_ne_zero                                               Zeta23.WeilEF.Landau:45  chain 3
+     344  Zeta23.WeilEF.completedZeta_zeros_strip                                Zeta23.WeilEF.XiLogDeriv:109  chain 3
+     345  Zeta23.ZeroConfig.mult_reflect                                         Zeta23.Defs:144  chain 4
+     346  Zeta23.ZeroConfig.one_le_mult                                          Zeta23.Defs:141  chain 4
+     347  Zeta23.ZetaSeam.finite_window                                          Zeta23.Statement:99  chain 3
+     348  Zeta23.ZetaSeam.finite_window_holds                                    Zeta23.Statement.Seam:106  chain 3
+     349  Zeta23.ZetaSeam.mult_reflect                                           Zeta23.Statement:97  chain 3
+     350  Zeta23.ZetaSeam.one_le_mult                                            Zeta23.Statement:93  chain 3
+     351  Zeta23.ZetaSeam.reflect_zero                                           Zeta23.Statement:95  chain 3
+     352  Zeta23.analyticOrderAt_zeta_conj                                       Zeta23.ZetaReflect:159  chain 4
+     353  ZetaSum_aux1_5d                                                        Zeta23.FromPNTPlus.ZetaBounds:723  chain 3
+     354  hasDerivAt_Zeta0Integral                                               Zeta23.FromPNTPlus.ZetaBounds:977  chain 4
+     355  integral_const_div_self_add_im                                         Zeta23.FromPNTPlus.ResidueCalcOnRectangles:473  chain 4
+     356  integral_deriv_mul_floor_add_one                                       Zeta23.FromPNTPlus.EulerMaclaurin:92  chain 4
+     357  ContinuousOn.rectangleBorder_integrable                                Zeta23.FromPNTPlus.ResidueCalcOnRectangles:197  chain 3
+     358  RectangleIntegral'_congr                                               Zeta23.FromPNTPlus.ResidueCalcOnRectangles:162  chain 4
+     359  SIDEExplicitFormula.B321.gammaOf_reflect                               SIDEExplicitFormula.PowerLimit:204  chain 3
+     360  SIDEExplicitFormula.B321.selfConv_support                              SIDEExplicitFormula.PowerWindow:94  chain 5
+     361  Zeta23.StirlingVert.summable_norm_rho                                  Zeta23.GammaFacts.StirlingVert:341  chain 4
+     362  Zeta23.StirlingVert.summable_rho                                       Zeta23.GammaFacts.StirlingVert:329  chain 4
+     363  Zeta23.WeilEF.continuous_Hfn_reflect                                   Zeta23.WeilEF.FullLine:344  chain 4
+     364  Zeta23.ZeroConfig.N                                                    Zeta23.Defs:161  chain 5
+     365  Zeta23.ZeroConfig.window_finite                                        Zeta23.Defs.Counting:36  chain 5
+     366  Zeta23.ZetaSeam.one_le_mult_holds                                      Zeta23.Statement.Seam:65  chain 3
+     367  integral_const_div_re_add_self                                         Zeta23.FromPNTPlus.ResidueCalcOnRectangles:496  chain 5
+     368  sum_eq_integral_add_integral_deriv                                     Zeta23.FromPNTPlus.EulerMaclaurin:108  chain 5
+     369  SIDEExplicitFormula.B321.HCount                                        SIDEExplicitFormula.RestBound:42  chain 6
+     370  Zeta23.ZeroConfig.reflect_mem_window                                   Zeta23.RvM.Halving:55  chain 5
+     371  ZetaSum_aux1_5                                                         Zeta23.FromPNTPlus.ZetaBounds:733  chain 4
+     372  sum_eq_int_deriv                                                       Zeta23.FromPNTPlus.ZetaBounds:574  chain 6
+     373  BlaschkeAnalytic                                                       Zeta23.FromPNTPlus.StrongPNTPrefix:345  chain 4
+     374  SIDEExplicitFormula.B321.fiber_count                                   SIDEExplicitFormula.RestBound:191  chain 6
+     375  SIDEExplicitFormula.B321.h2_sign                                       SIDEExplicitFormula.H2Sign:28  chain 4
+     376  SIDEExplicitFormula.B321.killSet                                       SIDEExplicitFormula.PowerWindow:400  chain 4
+     377  SIDEExplicitFormula.B321.pwWindow                                      SIDEExplicitFormula.PowerLimit:104  chain 5
+     378  SIDEExplicitFormula.B321.tieSet                                        SIDEExplicitFormula.PowerWindow:397  chain 4
+     379  Zeta23.StirlingVert.summable_eps                                       Zeta23.GammaFacts.StirlingVert:334  chain 5
+     380  Zeta23.StirlingVert.summable_norm_eps                                  Zeta23.GammaFacts.StirlingVert:347  chain 5
+     381  Zeta23.ZeroConfig.finsum_mult_mono                                     Zeta23.Defs.Counting:50  chain 6
+     382  SIDEExplicitFormula.B321.PWSetup                                       SIDEExplicitFormula.PowerLimit:244  chain 4
+     383  SIDEExplicitFormula.B321.PWSetup.mk                                    SIDEExplicitFormula.PowerLimit:245  chain 4
+     384  SIDEExplicitFormula.B321.classK_of_real_even                           SIDEExplicitFormula.PowerWindow:51  chain 4
+     385  SIDEExplicitFormula.B321.h2_sign_imp_rh                                SIDEExplicitFormula.RHChain:75  chain 5
+     386  SIDEExplicitFormula.B321.kWindow                                       SIDEExplicitFormula.PowerLimit:107  chain 6
+     387  SIDEExplicitFormula.B321.paperFT_decay                                 SIDEExplicitFormula.DecayBound:61  chain 4
+     388  SIDEExplicitFormula.B321.power_even                                    SIDEExplicitFormula.PowerWindow:125  chain 5
+     389  Zeta23.DigammaSeries.inv_gamma_eq_prod                                 Zeta23.GammaFacts.Series:223  chain 5
+     390  Zeta23.EF.EF_lit                                                       Zeta23.ExplicitFormula:92  chain 4
+     391  Zeta23.EF.paperFT_weilTest                                             Zeta23.ExplicitFormula:204  chain 3
+     392  Zeta23.StirlingVert.inv_natp1_eq                                       Zeta23.GammaFacts.StirlingVert:205  chain 5
+     393  Zeta23.StirlingVert.log_one_add_sub_log                                Zeta23.GammaFacts.StirlingVert:478  chain 5
+     394  Zeta23.WeilEF.completedZeta_ne_zero_on_horizontals                     Zeta23.WeilEF.FullLine:302  chain 4
+     395  Zeta23.norm_paperFT_mul_sq_le                                          Zeta23.Poisson.PaperFT:153  chain 5
+     396  not_mem_rectangleBorder_of_rectangle_mem_nhds                          Zeta23.FromPNTPlus.Rectangle:272  chain 4
+     397  DiskBound                                                              Zeta23.FromPNTPlus.StrongPNTPrefix:405  chain 5
+     398  ResidueTheoremAtOrigin'                                                Zeta23.FromPNTPlus.ResidueCalcOnRectangles:514  chain 6
+     399  SIDEExplicitFormula.B321.Aw                                            SIDEExplicitFormula.PowerLimit:799  chain 5
+     400  SIDEExplicitFormula.B321.PWSetup.hL                                    SIDEExplicitFormula.PowerLimit:249  chain 5
+     401  SIDEExplicitFormula.B321.PWSetup.hM                                    SIDEExplicitFormula.PowerLimit:250  chain 5
+     402  SIDEExplicitFormula.B321.PWSetup.hdom                                  SIDEExplicitFormula.PowerLimit:251  chain 5
+     403  SIDEExplicitFormula.B321.PWSetup.hev                                   SIDEExplicitFormula.PowerLimit:246  chain 5
+     404  SIDEExplicitFormula.B321.PWSetup.hs                                    SIDEExplicitFormula.PowerLimit:248  chain 5
+     405  SIDEExplicitFormula.B321.PWSetup.hsm                                   SIDEExplicitFormula.PowerLimit:247  chain 5
+     406  SIDEExplicitFormula.B321.base_nonzero_at                               SIDEExplicitFormula.PowerWindow:272  chain 4
+     407  SIDEExplicitFormula.B321.paperFT_decay_zero                            SIDEExplicitFormula.DecayBound:97  chain 5
+     408  SIDEExplicitFormula.B321.power_support                                 SIDEExplicitFormula.PowerWindow:129  chain 6
+     409  Zeta23.Tail.LocalCount.ofWindowCount                                   Zeta23.Tail:132  chain 6
+     410  Zeta23.WeilEF.logDeriv_split                                           Zeta23.WeilEF.Landau:102  chain 4
+     411  Zeta23.norm_paperFT_le_div                                             Zeta23.Poisson.PaperFT:171  chain 6
+     412  HasDerivAtZeta0                                                        Zeta23.FromPNTPlus.ZetaBounds:1095  chain 5
+     413  SIDEExplicitFormula.B321.Aw_nonneg                                     SIDEExplicitFormula.PowerLimit:802  chain 6
+     414  SIDEExplicitFormula.B321.PWSetup.c4                                    SIDEExplicitFormula.PowerLimit:255  chain 6
+     415  Zeta23.EF.norm_fourier_mul_one_add_sq_le                               Zeta23.ExplicitFormula.Bridge:56  chain 6
+     416  Zeta23.StirlingVert.norm_tsum_rho_le                                   Zeta23.GammaFacts.StirlingVert:358  chain 5
+     417  Zeta23.WeilEF.norm_paperFT_le_uniform                                  Zeta23.WeilEF.VerticalLine:593  chain 7
+     418  Zeta23.zetaZeros                                                       Zeta23.Statement:101  chain 4
+     419  SIDEExplicitFormula.B321.gHat_ne                                       SIDEExplicitFormula.PowerLimit:428  chain 6
+     420  SIDEExplicitFormula.B321.rep                                           SIDEExplicitFormula.PowerLimit:509  chain 5
+     421  SIDEExplicitFormula.B321.weighted_finite_bound                         SIDEExplicitFormula.PowerLimit:878  chain 7
+     422  ZerosBound                                                             Zeta23.FromPNTPlus.StrongPNTPrefix:481  chain 6
+     423  Zeta23.DigammaSeries.hasSum_digamma_series                             Zeta23.GammaFacts.Series:362  chain 6
+     424  Zeta23.ZetaSeam.of_reflect                                             Zeta23.Statement.Seam:122  chain 4
+     425  SIDEExplicitFormula.B321.paperFT_polyOpFull                            SIDEExplicitFormula.PowerLimit:62  chain 4
+     426  SIDEExplicitFormula.B321.weighted_summable                             SIDEExplicitFormula.PowerLimit:934  chain 8
+     427  SIDEExplicitFormula.B321.zero_term_real                                SIDEExplicitFormula.PowerLimit:45  chain 4
+     428  Zeta23.StirlingVert.norm_tsum_eps_le                                   Zeta23.GammaFacts.StirlingVert:372  chain 6
+     429  Zeta23.WeilEF.digamma_conj                                             Zeta23.WeilEF.GammaRBracket:43  chain 7
+     430  ZetaBnd_aux1a                                                          Zeta23.FromPNTPlus.ZetaBounds:741  chain 5
+     431  HolomorphicOn_riemannZeta0                                             Zeta23.FromPNTPlus.ZetaBounds:1112  chain 6
+     432  SIDEExplicitFormula.B321.offScore_reflect                              SIDEExplicitFormula.PowerLimit:219  chain 5
+     433  SIDEExplicitFormula.B321.zero_term_sq                                  SIDEExplicitFormula.PowerWindow:37  chain 4
+     434  Zeta23.EF.integrable_fourier_of_contDiff_two                           Zeta23.ExplicitFormula.Bridge:84  chain 7
+     435  Zeta23.StirlingVert.partial_sum_eq                                     Zeta23.GammaFacts.StirlingVert:251  chain 6
+     436  Zeta23.WeilEF.norm_Hfn_le                                              Zeta23.WeilEF.FullLine:52  chain 7
+     437  Zeta23.zeta_mult_reflect                                               Zeta23.ZetaReflect:329  chain 5
+     438  ResidueTheoremInRectangle                                              Zeta23.FromPNTPlus.ResidueCalcOnRectangles:536  chain 7
+     439  SIDEExplicitFormula.B321.power_contDiff                                SIDEExplicitFormula.PowerWindow:140  chain 7
+     440  Zeta23.WeilEF.gammaR_bracket                                           Zeta23.WeilEF.GammaRBracket:111  chain 8
+     441  Zeta23.zetaZeros_window                                                Zeta23.Statement:120  chain 5
+     442  ZetaBnd_aux1b                                                          Zeta23.FromPNTPlus.ZetaBounds:843  chain 6
+     443  ZetaSum_aux1                                                           Zeta23.FromPNTPlus.ZetaBounds:642  chain 7
+     444  SIDEExplicitFormula.B321.pwWindow_support                              SIDEExplicitFormula.PowerLimit:116  chain 7
+     445  Zeta23.ZeroConfig.N_le_two_mul_half                                    Zeta23.RvM.Halving:58  chain 7
+     446  Zeta23.WeilEF.line_integral_swap                                       Zeta23.WeilEF.VerticalLine:176  chain 8
+     447  Zeta23.WeilEF.norm_logDeriv_Cf_le                                      Zeta23.WeilEF.Landau:142  chain 7
+     448  Zeta23.WeilEF.tilted_inversion                                         Zeta23.WeilEF.VerticalLine:83  chain 8
+     449  Zeta23.WeilEF.verticals_eq                                             Zeta23.WeilEF.FullLine:383  chain 5
+     450  Zeta23.zetaZeros_N                                                     Zeta23.Statement:123  chain 6
+     451  SIDEExplicitFormula.B321.off_finite_above                              SIDEExplicitFormula.PowerWindow:330  chain 5
+     452  SIDEExplicitFormula.B321.pwWindow_contDiff                             SIDEExplicitFormula.PowerLimit:111  chain 8
+     453  SIDEExplicitFormula.B321.tie_reflect                                   SIDEExplicitFormula.PowerLimit:230  chain 6
+     454  SIDEExplicitFormula.B321.dominant_exists                               SIDEExplicitFormula.PowerWindow:367  chain 6
+     455  Zeta23.WeilEF.integrable_Hfn_mul_logDeriv_zeta                         Zeta23.WeilEF.FullLine:164  chain 8
+     456  Zeta23.WeilEF.per_n_line_integral                                      Zeta23.WeilEF.VerticalLine:113  chain 9
+     457  Zeta23.WeilEF.zero_sum_inv_sq_gen                                      Zeta23.WeilEF.ZeroSummability:119  chain 7
+     458  SIDEExplicitFormula.B321.killSet_finite                                SIDEExplicitFormula.PowerWindow:407  chain 6
+     459  SIDEExplicitFormula.B321.tieSet_finite                                 SIDEExplicitFormula.PowerWindow:403  chain 6
+     460  Zeta23.WeilEF.logDeriv_partial_fraction_unit                           Zeta23.WeilEF.Landau:312  chain 8
+     461  Zeta23.WeilEF.logDeriv_partial_fraction_disk                           Zeta23.WeilEF.Landau:360  chain 9
+     462  Zeta23.zetaSeam                                                        Zeta23.Statement.SeamClosed:37  chain 6
+     463  Zeta23.WeilEF.prime_side_line                                          Zeta23.WeilEF.VerticalLine:236  chain 10
+     464  ZetaSum_aux2                                                           Zeta23.FromPNTPlus.ZetaBounds:813  chain 8
+     465  SIDEExplicitFormula.B321.PWSetup.kfin                                  SIDEExplicitFormula.PowerLimit:259  chain 7
+     466  SIDEExplicitFormula.B321.PWSetup.tfin                                  SIDEExplicitFormula.PowerLimit:257  chain 7
+     467  SIDEExplicitFormula.B321.KF                                            SIDEExplicitFormula.PowerLimit:264  chain 8
+     468  SIDEExplicitFormula.B321.TF                                            SIDEExplicitFormula.PowerLimit:261  chain 8
+     469  SIDEExplicitFormula.B321.plateau_dominant                              SIDEExplicitFormula.PowerWindow:384  chain 7
+     470  SIDEExplicitFormula.B321.zero_weight                                   SIDEExplicitFormula.PowerLimit:808  chain 7
+     471  SIDEExplicitFormula.B321.cE                                            SIDEExplicitFormula.PowerLimit:273  chain 9
+     472  SIDEExplicitFormula.B321.kWindow_classK                                SIDEExplicitFormula.PowerLimit:120  chain 9
+     473  SIDEExplicitFormula.B321.mem_KF                                        SIDEExplicitFormula.PowerLimit:284  chain 9
+     474  SIDEExplicitFormula.B321.mem_TF                                        SIDEExplicitFormula.PowerLimit:282  chain 9
+     475  SIDEExplicitFormula.B321.Ep                                            SIDEExplicitFormula.PowerLimit:276  chain 10
+     476  SIDEExplicitFormula.B321.VF                                            SIDEExplicitFormula.PowerLimit:279  chain 9
+     477  SIDEExplicitFormula.B321.Xr                                            SIDEExplicitFormula.PowerLimit:267  chain 9
+     478  SIDEExplicitFormula.B321.cE_pos                                        SIDEExplicitFormula.PowerLimit:286  chain 10
+     479  SIDEExplicitFormula.B321.paperFT_power                                 SIDEExplicitFormula.PowerWindow:145  chain 8
+     480  SIDEExplicitFormula.B321.Kp                                            SIDEExplicitFormula.PowerLimit:270  chain 10
+     481  SIDEExplicitFormula.B321.aeval_Ep                                      SIDEExplicitFormula.PowerLimit:320  chain 11
+     482  SIDEExplicitFormula.B321.cE_big                                        SIDEExplicitFormula.PowerLimit:291  chain 10
+     483  Zeta23.zetaZeroConfig                                                  Zeta23.Statement.SeamClosed:40  chain 7
+     484  SIDEExplicitFormula.B321.Ep_prod                                       SIDEExplicitFormula.PowerLimit:325  chain 12
+     485  SIDEExplicitFormula.B321.rep_spec                                      SIDEExplicitFormula.PowerLimit:513  chain 10
+     486  SIDEExplicitFormula.B321.rh_strip                                      SIDEExplicitFormula.PowerWindow:482  chain 8
+     487  Zeta23.zetaZeroConfig_carrier                                          Zeta23.Statement.SeamClosed:44  chain 8
+     488  SIDEExplicitFormula.B321.rh_strip_imp_rh                               SIDEExplicitFormula.PowerWindow:492  chain 9
+     489  Zeta23.RvM.NhalfR                                                      Zeta23.RvM.LocalCount:108  chain 8
+     490  Zeta23.WeilEF.EF_zero_sum_summable_gen                                 Zeta23.WeilEF.ZeroSummability:177  chain 8
+     491  SIDEExplicitFormula.B321.Kp_kill                                       SIDEExplicitFormula.PowerLimit:368  chain 11
+     492  Zeta23.Analytic.residueTheorem_finset                                  Zeta23.Analytic.RectangleLogDeriv:46  chain 8
+     493  Zeta23.StirlingVert.digamma_eq                                         Zeta23.GammaFacts.StirlingVert:446  chain 7
+     494  Zeta23.WeilEF.card_le_sum_mult                                         Zeta23.WeilEF.GoodHeights:162  chain 8
+     495  SIDEExplicitFormula.B321.Efac_ne                                       SIDEExplicitFormula.PowerLimit:402  chain 11
+     496  SIDEExplicitFormula.B321.Kp_tie_ne                                     SIDEExplicitFormula.PowerLimit:377  chain 11
+     497  SIDEExplicitFormula.B321.zeroSide                                      SIDEExplicitFormula.B321Identity:23  chain 8
+     498  SIDEExplicitFormula.B321.Nf                                            SIDEExplicitFormula.PowerLimit:444  chain 11
+     499  SIDEExplicitFormula.B321.Xval                                          SIDEExplicitFormula.PowerLimit:436  chain 11
+     500  SIDEExplicitFormula.B321.rh_strip_imp_rh_holds                         SIDEExplicitFormula.Seam:83  chain 10
+     501  Zeta23.Analytic.rectangleIntegral'_mul_logDeriv_of_poles               Zeta23.Analytic.RectangleLogDeriv:180  chain 9
+     502  SIDEExplicitFormula.B321.Pof                                           SIDEExplicitFormula.PowerLimit:316  chain 11
+     503  SIDEExplicitFormula.B321.XV                                            SIDEExplicitFormula.PowerLimit:522  chain 12
+     504  SIDEExplicitFormula.B321.Xval_norm                                     SIDEExplicitFormula.PowerLimit:447  chain 12
+     505  SIDEExplicitFormula.B321.Pof_eval                                      SIDEExplicitFormula.PowerLimit:330  chain 12
+     506  SIDEExplicitFormula.B321.Yv                                            SIDEExplicitFormula.PowerLimit:559  chain 13
+     507  Zeta23.WeilEF.sum_mult_six_windows                                     Zeta23.WeilEF.GoodHeights:115  chain 8
+     508  Zeta23.zetaZeroConfig_N                                                Zeta23.Statement.SeamClosed:47  chain 8
+     509  Zeta0EqZeta                                                            Zeta23.FromPNTPlus.ZetaBounds:1178  chain 9
+     510  SIDEExplicitFormula.B321.rT                                            SIDEExplicitFormula.PowerLimit:589  chain 14
+     511  SIDEExplicitFormula.B321.Pof_prod                                      SIDEExplicitFormula.PowerLimit:336  chain 13
+     512  Zeta23.RvM.count_small                                                 Zeta23.RvM.LocalCount:270  chain 9
+     513  SIDEExplicitFormula.B321.Nf_pos                                        SIDEExplicitFormula.PowerLimit:454  chain 12
+     514  SIDEExplicitFormula.B321.VF_conj                                       SIDEExplicitFormula.PowerLimit:634  chain 11
+     515  Zeta23.StirlingVert.digamma_stirling                                   Zeta23.GammaFacts.StirlingVert:497  chain 8
+     516  SIDEExplicitFormula.B321.Xval_ne                                       SIDEExplicitFormula.PowerLimit:441  chain 12
+     517  Zeta23.WeilEF.digamma_growth_strip                                     Zeta23.WeilEF.VerticalLine:258  chain 9
+     518  Zeta23.WeilEF.norm_logDeriv_Gammaℝ_le                                  Zeta23.WeilEF.VerticalLine:625  chain 10
+     519  SIDEExplicitFormula.B321.XV_node                                       SIDEExplicitFormula.PowerLimit:525  chain 13
+     520  SIDEExplicitFormula.B321.kWindow_term                                  SIDEExplicitFormula.PowerLimit:126  chain 9
+     521  SIDEExplicitFormula.B321.zeroSideNeg                                   SIDEExplicitFormula.PowerLimit:1158  chain 9
+     522  SIDEExplicitFormula.B321.XV_ne                                         SIDEExplicitFormula.PowerLimit:562  chain 13
+     523  SIDEExplicitFormula.B321.Xval_real_neg                                 SIDEExplicitFormula.PowerLimit:457  chain 12
+     524  Zeta23.WeilEF.integrable_mul_logDeriv_Gammaℝ_of_decay                  Zeta23.WeilEF.FullLine:225  chain 10
+     525  SIDEExplicitFormula.B321.Yv_mul                                        SIDEExplicitFormula.PowerLimit:576  chain 14
+     526  SIDEExplicitFormula.B321.norm_Yv                                       SIDEExplicitFormula.PowerLimit:565  chain 14
+     527  SIDEExplicitFormula.B321.Yv_ne                                         SIDEExplicitFormula.PowerLimit:570  chain 15
+     528  Zeta23.RvM.norm_riemannZeta_le_of_re_pos                               Zeta23.RvM.ZetaGrowth:68  chain 10
+     529  Zeta23.RvM.riemannZeta_linear_growth                                   Zeta23.RvM.ZetaGrowth:92  chain 11
+     530  Zeta23.RvM.zeta_growth_right_at                                        Zeta23.RvM.ZetaGrowth:132  chain 11
+     531  SIDEExplicitFormula.B321.rT_norm                                       SIDEExplicitFormula.PowerLimit:615  chain 15
+     532  Zeta23.RvM.zeta_growth                                                 Zeta23.RvM.ZetaGrowth:116  chain 12
+     533  Zeta23.RvM.zeta_growth_right                                           Zeta23.RvM.ZetaGrowth:159  chain 12
+     534  Zeta23.RvM.zeta_growth_quarter                                         Zeta23.RvM.ZetaGrowth:122  chain 13
+     535  SIDEExplicitFormula.B321.rT_sq_mul                                     SIDEExplicitFormula.PowerLimit:624  chain 16
+     536  SIDEExplicitFormula.B321.sT                                            SIDEExplicitFormula.PowerLimit:1071  chain 9
+     537  SIDEExplicitFormula.B321.XV_conj                                       SIDEExplicitFormula.PowerLimit:535  chain 14
+     538  SIDEExplicitFormula.B321.mem_sT                                        SIDEExplicitFormula.PowerLimit:1075  chain 10
+     539  SIDEExplicitFormula.B321.Yv_conj                                       SIDEExplicitFormula.PowerLimit:585  chain 15
+     540  SIDEExplicitFormula.B321.rT_conj                                       SIDEExplicitFormula.PowerLimit:594  chain 16
+     541  Zeta23.WeilEF.horizontal_vanish                                        Zeta23.WeilEF.Horizontal:42  chain 10
+     542  Zeta23.WeilEF.gamma_line_shift                                         Zeta23.WeilEF.VerticalLine:656  chain 11
+     543  Zeta23.WeilEF.integrable_Hfn_mul_logDeriv_Gammaℝ                       Zeta23.WeilEF.FullLine:288  chain 11
+     544  Zeta23.WeilEF.rectangle_identity                                       Zeta23.WeilEF.Contour:43  chain 10
+     545  Zeta23.WeilEF.integrable_Fline                                         Zeta23.WeilEF.FullLine:361  chain 11
+     546  SIDEExplicitFormula.B321.fR                                            SIDEExplicitFormula.PowerLimit:963  chain 12
+     547  Zeta23.WeilEF.tendsto_interval_Fline                                   Zeta23.WeilEF.FullLine:430  chain 12
+     548  SIDEExplicitFormula.B321.rest_term_small                               SIDEExplicitFormula.PowerLimit:763  chain 12
+     549  Zeta23.WeilEF.zeta_logDeriv_partial_fraction                           Zeta23.WeilEF.Landau:524  chain 14
+     550  SIDEExplicitFormula.B321.coeffs_exist                                  SIDEExplicitFormula.PowerLimit:670  chain 17
+     551  SIDEExplicitFormula.B321.term_eq                                       SIDEExplicitFormula.PowerLimit:735  chain 14
+     552  SIDEExplicitFormula.B321.tie_term_neg                                  SIDEExplicitFormula.PowerLimit:748  chain 15
+     553  SIDEExplicitFormula.B321.kill_term_zero                                SIDEExplicitFormula.PowerLimit:755  chain 15
+     554  Zeta23.RvM.half_count_large                                            Zeta23.RvM.LocalCount:111  chain 13
+     555  SIDEExplicitFormula.B321.fR_norm_le                                    SIDEExplicitFormula.PowerLimit:969  chain 13
+     556  Zeta23.RvM.zeta_local_zero_count                                       Zeta23.RvM.LocalCount:280  chain 14
+     557  Zeta23.RvM.zetaZeroConfig_local_count                                  Zeta23.RvM.LocalCount:309  chain 15
+     558  SIDEExplicitFormula.B321.fR_bound                                      SIDEExplicitFormula.PowerLimit:986  chain 16
+     559  Zeta23.WeilEF.EF_zero_sum_summable                                     Zeta23.WeilEF.ZeroSummability:255  chain 15
+     560  Zeta23.WeilEF.zero_sum_limit                                           Zeta23.WeilEF.ZeroSumLimit:40  chain 16
+     561  Zeta23.WeilEF.good_heights_at                                          Zeta23.WeilEF.GoodHeights:171  chain 16
+     562  SIDEExplicitFormula.B321.dominant_summable                             SIDEExplicitFormula.PowerLimit:947  chain 16
+     563  Zeta23.WeilEF.good_heights                                             Zeta23.WeilEF.GoodHeights:343  chain 17
+     564  SIDEExplicitFormula.B321.rest_tendsto_zero                             SIDEExplicitFormula.PowerLimit:1023  chain 17
+     565  SIDEExplicitFormula.B321.zeroSide_eventually_neg                       SIDEExplicitFormula.PowerLimit:1081  chain 18
+     566  SIDEExplicitFormula.B321.zeroSideNeg_holds                             SIDEExplicitFormula.PowerLimit:1163  chain 19
+     567  Zeta23.WeilEF.full_line_identity                                       Zeta23.WeilEF.FullLineAssembly:51  chain 18
+     568  Zeta23.WeilEF.EF_lit_zeta                                              Zeta23.WeilEF.Main:56  chain 19
+     569  Zeta23.WeilEF.EF_lit_zetaZeroConfig                                    Zeta23.WeilEF.Main:284  chain 20
+     570  SIDEExplicitFormula.B321.b321_identity                                 SIDEExplicitFormula.B321Identity:43  chain 21
+     571  SIDEExplicitFormula.B321.rh_imp_h2_sign                                SIDEExplicitFormula.RHChain:22  chain 22
+     572  SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of                       SIDEExplicitFormula.PowerLimit:1165  chain 22
+     573  SIDEExplicitFormula.B321.h2_sign_imp_rh_strip                          SIDEExplicitFormula.PowerLimit:1192  chain 23
+     574  SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam                        SIDEExplicitFormula.PowerLimit:1235  chain 24
+     575  SIDEExplicitFormula.B321.h2_sign_imp_rh_holds                          SIDEExplicitFormula.Seam:97  chain 25
+     576  SIDEExplicitFormula.B321.h2_sign_iff_rh                                SIDEExplicitFormula.Seam:100  chain 26
+
+## SERIES -- THE LONGEST CHAIN (26 names), from the deepest to the main theorem:
+   B1  (Zeta23.FromPNTPlus.EulerMaclaurin:55)
+   aestronglyMeasurable_B1  (Zeta23.FromPNTPlus.EulerMaclaurin:58)
+   intervalIntegrable_deriv_mul_B1  (Zeta23.FromPNTPlus.EulerMaclaurin:82)
+   integral_deriv_mul_floor_add_one  (Zeta23.FromPNTPlus.EulerMaclaurin:92)
+   sum_eq_integral_add_integral_deriv  (Zeta23.FromPNTPlus.EulerMaclaurin:108)
+   sum_eq_int_deriv  (Zeta23.FromPNTPlus.ZetaBounds:574)
+   ZetaSum_aux1  (Zeta23.FromPNTPlus.ZetaBounds:642)
+   ZetaSum_aux2  (Zeta23.FromPNTPlus.ZetaBounds:813)
+   Zeta0EqZeta  (Zeta23.FromPNTPlus.ZetaBounds:1178)
+   Zeta23.RvM.norm_riemannZeta_le_of_re_pos  (Zeta23.RvM.ZetaGrowth:68)
+   Zeta23.RvM.zeta_growth_right_at  (Zeta23.RvM.ZetaGrowth:132)
+   Zeta23.RvM.zeta_growth_right  (Zeta23.RvM.ZetaGrowth:159)
+   Zeta23.RvM.half_count_large  (Zeta23.RvM.LocalCount:111)
+   Zeta23.RvM.zeta_local_zero_count  (Zeta23.RvM.LocalCount:280)
+   Zeta23.RvM.zetaZeroConfig_local_count  (Zeta23.RvM.LocalCount:309)
+   Zeta23.WeilEF.good_heights_at  (Zeta23.WeilEF.GoodHeights:171)
+   Zeta23.WeilEF.good_heights  (Zeta23.WeilEF.GoodHeights:343)
+   Zeta23.WeilEF.full_line_identity  (Zeta23.WeilEF.FullLineAssembly:51)
+   Zeta23.WeilEF.EF_lit_zeta  (Zeta23.WeilEF.Main:56)
+   Zeta23.WeilEF.EF_lit_zetaZeroConfig  (Zeta23.WeilEF.Main:284)
+   SIDEExplicitFormula.B321.b321_identity  (SIDEExplicitFormula.B321Identity:43)
+   SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of  (SIDEExplicitFormula.PowerLimit:1165)
+   SIDEExplicitFormula.B321.h2_sign_imp_rh_strip  (SIDEExplicitFormula.PowerLimit:1192)
+   SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam  (SIDEExplicitFormula.PowerLimit:1235)
+   SIDEExplicitFormula.B321.h2_sign_imp_rh_holds  (SIDEExplicitFormula.Seam:97)
+   SIDEExplicitFormula.B321.h2_sign_iff_rh  (SIDEExplicitFormula.Seam:100)
+
+## TERMINALS -- the main theorem`s binders that name a premise, and the axioms in its closure beyond the standard three; rows are terminals.
+   PREMISE  NONE (the type`s binders 0)
+   AXIOM    NONE beyond the standard three (the axioms ['propext', 'Classical.choice', 'Quot.sound'])
+
+## SHORTS -- every record whose axioms carry sorryAx, with the first record on its path that uses sorryAx directly; rows are shorts.
+   SHORTS 0
+
+## WIDTH -- theorem pairs of one type class whose closures over the own names meet in at most FEW = 5 names; rows are pairs: meet |
+## the one | the other. Every same-type theorem pair 41 ; at or under the bar 25.
+     0 | EntireLog.entire_has_entire_log_of_no_zeros (FunctionsOfOneComplexVariable.EntireLog:47) | entire_has_entire_log_of_no_zeros (Hadamard.Basic:2722)
+     0 | SIDEExplicitFormula.GRHWeil.one_third_lt_two_sub_pi_sq_div_six' (SIDEExplicitFormula.Chi.ZetaGrowth:163) | Zeta23.RvM.one_third_lt_two_sub_pi_sq_div_six (Zeta23.RvM.ZetaGrowth:226)
+     0 | SIDEExplicitFormula.GRHWeil.pi_sq_div_six_sub_one_lt_one' (SIDEExplicitFormula.Chi.ZetaGrowth:158) | Zeta23.RvM.pi_sq_div_six_sub_one_lt_one (Zeta23.RvM.ZetaGrowth:208)
+     0 | SIDEExplicitFormula.Keiper.differentiableAt_Gammaℝ (SIDEExplicitFormula.KeiperIdentities:214) | Zeta23.WeilEF.differentiableAt_Gammaℝ (Zeta23.WeilEF.XiLogDeriv:45)
+     0 | Zeta23.EF.cintegral_const_mul (Zeta23.ExplicitFormula:115) | Zeta23.integral_const_mul_C (Zeta23.Poisson.PaperFT:50)
+     0 | Zeta23.EF.cintegral_mul_const (Zeta23.ExplicitFormula:118) | Zeta23.integral_mul_const_C (Zeta23.Poisson.PaperFT:53)
+     0 | Zeta23.WeilEF.analyticAt_riemannZeta (Zeta23.WeilEF.XiLogDeriv:76) | analyticAt_riemannZeta (Zeta23.FromPNTPlus.ZetaBounds:184)
+     1 | Hadamard.weierstrass_E_zero (Hadamard.Basic:399) | Hadamard.weierstrass_E_zero' (Hadamard.Theorem:36)
+     1 | LiCriterion.xi_entire (Lc.LiCriterion.Basic:1262) | SIDEExplicitFormula.Keiper.differentiable_riemannXi (SIDEExplicitFormula.KeiperIdentities:104)
+     1 | SIDEExplicitFormula.B321.gammaOf_re' (SIDEExplicitFormula.RestBound:140) | Zeta23.WeilEF.gammaOf_re (Zeta23.WeilEF.ZeroSummability:36)
+     1 | SIDEExplicitFormula.B321.reflect_im (SIDEExplicitFormula.PowerLimit:200) | Zeta23.Tail.reflect_im (Zeta23.Tail:505)
+     1 | SIDEExplicitFormula.B321.reflect_im (SIDEExplicitFormula.PowerLimit:200) | Zeta23.reflect_im (Zeta23.RvM.Halving:43)
+     1 | SIDEExplicitFormula.B321.reflect_re (SIDEExplicitFormula.PowerLimit:197) | Zeta23.reflect_re (Zeta23.RvM.Halving:42)
+     1 | SIDEExplicitFormula.Product.reflect_reflect (SIDEExplicitFormula.Product:30) | Zeta23.Tail.reflect_reflect (Zeta23.Tail:507)
+     1 | SIDEExplicitFormula.Product.reflect_reflect (SIDEExplicitFormula.Product:30) | Zeta23.reflect_reflect (Zeta23.RvM.Halving:45)
+     1 | Zeta23.EF.paperFT_ofReal_eq_fourier (Zeta23.ExplicitFormula:125) | Zeta23.paperFT_ofReal_eq_fourier (Zeta23.Poisson.PaperFT:56)
+     1 | Zeta23.Tail.reflect_im (Zeta23.Tail:505) | Zeta23.reflect_im (Zeta23.RvM.Halving:43)
+     1 | Zeta23.Tail.reflect_reflect (Zeta23.Tail:507) | Zeta23.reflect_reflect (Zeta23.RvM.Halving:45)
+     2 | Hadamard.OrderOne.weierstrass_E_one_eq_zero_iff (Hadamard.OrderOne.LogDeriv:41) | Hadamard.weierstrass_E_one_eq_zero_iff (Hadamard.Basic:436)
+     2 | Hadamard.OrderOne.weierstrass_E_one_eq_zero_iff (Hadamard.OrderOne.LogDeriv:41) | _private.Lc.LiCriterion.Basic.0.LiCriterion.weierstrass_E_one_eq_zero_iff (Lc.LiCriterion.Basic:1965)
+     2 | Hadamard.OrderOne.weierstrass_E_one_ne_zero (Hadamard.OrderOne.LogDeriv:55) | Hadamard.weierstrass_E_one_ne_zero (Hadamard.Basic:455)
+     2 | Hadamard.weierstrass_E_one_eq_zero_iff (Hadamard.Basic:436) | _private.Lc.LiCriterion.Basic.0.LiCriterion.weierstrass_E_one_eq_zero_iff (Lc.LiCriterion.Basic:1965)
+     2 | SIDEExplicitFormula.B321.gammaOf_reflect (SIDEExplicitFormula.PowerLimit:204) | Zeta23.Tail.gammaOf_reflect (Zeta23.Tail:509)
+     2 | SIDEExplicitFormula.B321.paperFT_neg_of_even (SIDEExplicitFormula.PowerLimit:40) | SIDEExplicitFormula.B321.phiC_FT_neg (SIDEExplicitFormula.PairTerm:166)
+     3 | SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_satisfiable (SIDEExplicitFormula.SaltCheckKeiper:67) | SIDEExplicitFormula.KeiperBounds.stieltjes_zero_coarse (SIDEExplicitFormula.KeiperBounds:123)
+
+## WIDTH -- every same-type theorem pair with its meet (the bar`s context):
+     0 | EntireLog.entire_has_entire_log_of_no_zeros | entire_has_entire_log_of_no_zeros
+     0 | SIDEExplicitFormula.GRHWeil.one_third_lt_two_sub_pi_sq_div_six' | Zeta23.RvM.one_third_lt_two_sub_pi_sq_div_six
+     0 | SIDEExplicitFormula.GRHWeil.pi_sq_div_six_sub_one_lt_one' | Zeta23.RvM.pi_sq_div_six_sub_one_lt_one
+     0 | SIDEExplicitFormula.Keiper.differentiableAt_Gammaℝ | Zeta23.WeilEF.differentiableAt_Gammaℝ
+     0 | Zeta23.EF.cintegral_const_mul | Zeta23.integral_const_mul_C
+     0 | Zeta23.EF.cintegral_mul_const | Zeta23.integral_mul_const_C
+     0 | Zeta23.WeilEF.analyticAt_riemannZeta | analyticAt_riemannZeta
+     1 | Hadamard.weierstrass_E_zero | Hadamard.weierstrass_E_zero'
+     1 | LiCriterion.xi_entire | SIDEExplicitFormula.Keiper.differentiable_riemannXi
+     1 | SIDEExplicitFormula.B321.gammaOf_re' | Zeta23.WeilEF.gammaOf_re
+     1 | SIDEExplicitFormula.B321.reflect_im | Zeta23.Tail.reflect_im
+     1 | SIDEExplicitFormula.B321.reflect_im | Zeta23.reflect_im
+     1 | SIDEExplicitFormula.B321.reflect_re | Zeta23.reflect_re
+     1 | SIDEExplicitFormula.Product.reflect_reflect | Zeta23.Tail.reflect_reflect
+     1 | SIDEExplicitFormula.Product.reflect_reflect | Zeta23.reflect_reflect
+     1 | Zeta23.EF.paperFT_ofReal_eq_fourier | Zeta23.paperFT_ofReal_eq_fourier
+     1 | Zeta23.Tail.reflect_im | Zeta23.reflect_im
+     1 | Zeta23.Tail.reflect_reflect | Zeta23.reflect_reflect
+     2 | Hadamard.OrderOne.weierstrass_E_one_eq_zero_iff | Hadamard.weierstrass_E_one_eq_zero_iff
+     2 | Hadamard.OrderOne.weierstrass_E_one_eq_zero_iff | _private.Lc.LiCriterion.Basic.0.LiCriterion.weierstrass_E_one_eq_zero_iff
+     2 | Hadamard.OrderOne.weierstrass_E_one_ne_zero | Hadamard.weierstrass_E_one_ne_zero
+     2 | Hadamard.weierstrass_E_one_eq_zero_iff | _private.Lc.LiCriterion.Basic.0.LiCriterion.weierstrass_E_one_eq_zero_iff
+     2 | SIDEExplicitFormula.B321.gammaOf_reflect | Zeta23.Tail.gammaOf_reflect
+     2 | SIDEExplicitFormula.B321.paperFT_neg_of_even | SIDEExplicitFormula.B321.phiC_FT_neg
+     3 | SIDEExplicitFormula.Keiper.SaltCheck.bounds_form_satisfiable | SIDEExplicitFormula.KeiperBounds.stieltjes_zero_coarse
+     9 | SIDEExplicitFormula.SaltCheckNonvacuity.eulerFactorPremise_witness | SIDEExplicitFormula.Schema.Family.eulerFactorPremise_three
+    18 | Hadamard.borel_caratheodory_point | LZCBorelCaratheodory.borel_caratheodory_point
+    18 | SIDEExplicitFormula.Keiper.SaltCheck.keiperTaylor_zero_holds | SIDEExplicitFormula.Keiper.keiperTaylor_zero
+    25 | LiCriterion.XiGrowth.riemannXi_hasFiniteOrder | LiCriterion.xi_hasFiniteOrder
+    30 | SIDEExplicitFormula.SaltCheckNonvacuity.zetaSeam_witness | Zeta23.zetaSeam
+    34 | LiCriterion.XiGrowth.riemannXi_order_le_one | LiCriterion.xi_order_le_one
+    34 | SIDEExplicitFormula.SaltCheckNonvacuity.windowObligations_witness | SIDEExplicitFormula.Schema.PlateauRamp.windowObligations_holds
+    68 | SIDEExplicitFormula.LiWeil.symPair_bound | SIDEExplicitFormula.SaltCheckNonvacuity.symPairBound_witness
+    73 | LiCriterion.li_pos_implies_rh | LiCriterion.positivity_implies_RH
+    92 | LiCriterion.li_criterion_from_sum_formula | LiCriterion.li_equiv_from_sum_formula
+   150 | LiCriterion.li_criterion_equiv | LiCriterion.li_criterion_equiv_of_standard_hypotheses
+   237 | SIDEExplicitFormula.Schema.q0_not_h2_sign_cfg | SIDEExplicitFormula.Schema.q0_not_h2_sign_cfg_rhoE
+   330 | SIDEExplicitFormula.B321.zeroSideNeg_holds | SIDEExplicitFormula.SaltCheckNonvacuity.zeroSideNeg_witness
+   410 | SIDEExplicitFormula.SaltCheckNonvacuity.trivialSummandPremise'_witness' | SIDEExplicitFormula.Schema.Dedekind.trivialSummandPremise'_witness
+   487 | SIDEExplicitFormula.KeiperSign.SaltCheck.liCoeff_one_pos_holds | SIDEExplicitFormula.KeiperSign.liCoeff_one_pos
+   579 | SIDEExplicitFormula.Schema.Dedekind.dedekind_three | SIDEExplicitFormula.Schema.Dedekind.dedekind_three_v026
+
+## LOAD -- each own name by the count of records whose closure carries it, the twelve highest; * marks the main theorem`s closure.
+     825 * Zeta23.reflect
+     716 * Zeta23.ZeroConfig.mk
+     716 * Zeta23.ZeroConfig
+     683 * Zeta23.paperFT
+     673 * Zeta23.ZeroConfig.carrier
+     527 * Zeta23.gammaOf
+     523 * Zeta23.ZeroConfig.mult
+     480 * Zeta23.ZeroConfig.window
+     397 * Zeta23.ZeroConfig.N
+     341 * Zeta23.ZeroConfig.finite_window
+     303 * _private.Zeta23.ZetaReflect.0.Zeta23.tendsto_conj_nhds
+     302 * _private.Zeta23.ZetaReflect.0.Zeta23.analyticAt_conj_conj
+
+### ### **RECORDS 3362 ; SERIES 576 NAMES, THE LONGEST CHAIN 26 ; TERMINALS: PREMISES 0, AXIOMS BEYOND THE STANDARD THREE 0 ; SHORTS 0 ; WIDTH: SAME-TYPE THEOREM PAIRS 41, AT OR UNDER FEW = 5: 25 ; LOAD`S THREE HIGHEST Zeta23.reflect (825), Zeta23.ZeroConfig.mk (716), Zeta23.ZeroConfig (716).**

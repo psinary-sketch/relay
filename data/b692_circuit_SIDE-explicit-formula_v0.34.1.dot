@@ -1,0 +1,49 @@
+digraph circuit {
+  rankdir=TB; node [shape=box, fontsize=10];
+  // the series: the longest chain
+  "B1" -> "aestronglyMeasurable_B1";
+  "aestronglyMeasurable_B1" -> "intervalIntegrable_deriv_mul_B1";
+  "intervalIntegrable_deriv_mul_B1" -> "integral_deriv_mul_floor_add_one";
+  "integral_deriv_mul_floor_add_one" -> "sum_eq_integral_add_integral_deriv";
+  "sum_eq_integral_add_integral_deriv" -> "sum_eq_int_deriv";
+  "sum_eq_int_deriv" -> "ZetaSum_aux1";
+  "ZetaSum_aux1" -> "ZetaSum_aux2";
+  "ZetaSum_aux2" -> "Zeta0EqZeta";
+  "Zeta0EqZeta" -> "Zeta23.RvM.norm_riemannZeta_le_of_re_pos";
+  "Zeta23.RvM.norm_riemannZeta_le_of_re_pos" -> "Zeta23.RvM.zeta_growth_right_at";
+  "Zeta23.RvM.zeta_growth_right_at" -> "Zeta23.RvM.zeta_growth_right";
+  "Zeta23.RvM.zeta_growth_right" -> "Zeta23.RvM.half_count_large";
+  "Zeta23.RvM.half_count_large" -> "Zeta23.RvM.zeta_local_zero_count";
+  "Zeta23.RvM.zeta_local_zero_count" -> "Zeta23.RvM.zetaZeroConfig_local_count";
+  "Zeta23.RvM.zetaZeroConfig_local_count" -> "Zeta23.WeilEF.good_heights_at";
+  "Zeta23.WeilEF.good_heights_at" -> "Zeta23.WeilEF.good_heights";
+  "Zeta23.WeilEF.good_heights" -> "Zeta23.WeilEF.full_line_identity";
+  "Zeta23.WeilEF.full_line_identity" -> "Zeta23.WeilEF.EF_lit_zeta";
+  "Zeta23.WeilEF.EF_lit_zeta" -> "Zeta23.WeilEF.EF_lit_zetaZeroConfig";
+  "Zeta23.WeilEF.EF_lit_zetaZeroConfig" -> "SIDEExplicitFormula.B321.b321_identity";
+  "SIDEExplicitFormula.B321.b321_identity" -> "SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of";
+  "SIDEExplicitFormula.B321.h2_sign_imp_rh_strip_of" -> "SIDEExplicitFormula.B321.h2_sign_imp_rh_strip";
+  "SIDEExplicitFormula.B321.h2_sign_imp_rh_strip" -> "SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam";
+  "SIDEExplicitFormula.B321.h2_sign_imp_rh_of_seam" -> "SIDEExplicitFormula.B321.h2_sign_imp_rh_holds";
+  "SIDEExplicitFormula.B321.h2_sign_imp_rh_holds" -> "SIDEExplicitFormula.B321.h2_sign_iff_rh";
+  subgraph cluster_w0 { label="parallel, meet 0"; rank=same; "EntireLog.entire_has_entire_log_of_no_zeros"; "entire_has_entire_log_of_no_zeros"; }
+  subgraph cluster_w1 { label="parallel, meet 0"; rank=same; "SIDEExplicitFormula.GRHWeil.one_third_lt_two_sub_pi_sq_div_six'"; "Zeta23.RvM.one_third_lt_two_sub_pi_sq_div_six"; }
+  subgraph cluster_w2 { label="parallel, meet 0"; rank=same; "SIDEExplicitFormula.GRHWeil.pi_sq_div_six_sub_one_lt_one'"; "Zeta23.RvM.pi_sq_div_six_sub_one_lt_one"; }
+  subgraph cluster_w3 { label="parallel, meet 0"; rank=same; "SIDEExplicitFormula.Keiper.differentiableAt_Gammaℝ"; "Zeta23.WeilEF.differentiableAt_Gammaℝ"; }
+  subgraph cluster_w4 { label="parallel, meet 0"; rank=same; "Zeta23.EF.cintegral_const_mul"; "Zeta23.integral_const_mul_C"; }
+  subgraph cluster_w5 { label="parallel, meet 0"; rank=same; "Zeta23.EF.cintegral_mul_const"; "Zeta23.integral_mul_const_C"; }
+  subgraph cluster_w6 { label="parallel, meet 0"; rank=same; "Zeta23.WeilEF.analyticAt_riemannZeta"; "analyticAt_riemannZeta"; }
+  subgraph cluster_w7 { label="parallel, meet 1"; rank=same; "Hadamard.weierstrass_E_zero"; "Hadamard.weierstrass_E_zero'"; }
+  subgraph cluster_w8 { label="parallel, meet 1"; rank=same; "LiCriterion.xi_entire"; "SIDEExplicitFormula.Keiper.differentiable_riemannXi"; }
+  subgraph cluster_w9 { label="parallel, meet 1"; rank=same; "SIDEExplicitFormula.B321.gammaOf_re'"; "Zeta23.WeilEF.gammaOf_re"; }
+  subgraph cluster_w10 { label="parallel, meet 1"; rank=same; "SIDEExplicitFormula.B321.reflect_im"; "Zeta23.Tail.reflect_im"; }
+  subgraph cluster_w11 { label="parallel, meet 1"; rank=same; "SIDEExplicitFormula.B321.reflect_im"; "Zeta23.reflect_im"; }
+  subgraph cluster_w12 { label="parallel, meet 1"; rank=same; "SIDEExplicitFormula.B321.reflect_re"; "Zeta23.reflect_re"; }
+  subgraph cluster_w13 { label="parallel, meet 1"; rank=same; "SIDEExplicitFormula.Product.reflect_reflect"; "Zeta23.Tail.reflect_reflect"; }
+  subgraph cluster_w14 { label="parallel, meet 1"; rank=same; "SIDEExplicitFormula.Product.reflect_reflect"; "Zeta23.reflect_reflect"; }
+  subgraph cluster_w15 { label="parallel, meet 1"; rank=same; "Zeta23.EF.paperFT_ofReal_eq_fourier"; "Zeta23.paperFT_ofReal_eq_fourier"; }
+  subgraph cluster_w16 { label="parallel, meet 1"; rank=same; "Zeta23.Tail.reflect_im"; "Zeta23.reflect_im"; }
+  subgraph cluster_w17 { label="parallel, meet 1"; rank=same; "Zeta23.Tail.reflect_reflect"; "Zeta23.reflect_reflect"; }
+  subgraph cluster_w18 { label="parallel, meet 2"; rank=same; "Hadamard.OrderOne.weierstrass_E_one_eq_zero_iff"; "Hadamard.weierstrass_E_one_eq_zero_iff"; }
+  subgraph cluster_w19 { label="parallel, meet 2"; rank=same; "Hadamard.OrderOne.weierstrass_E_one_eq_zero_iff"; "_private.Lc.LiCriterion.Basic.0.LiCriterion.weierstrass_E_one_eq_zero_iff"; }
+}
