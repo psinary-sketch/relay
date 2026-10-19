@@ -1,0 +1,31 @@
+b688 -- COMPONENT 4, (R298)(5): THE RE-DERIVED ACTION FOR R4, IN THE b647 ACTION FORM (b684's form, relay data/b684_residue_actions.txt) (2026-10-19)
+
+### the row is the residue with its old ACTION (relay data/b686_cut.txt :42-:46, :51-:53, printed before any branch), the re-derived ACTION
+### and its source rows: the row's reason (the LICENSED reading, relay data/b647_table_SIDE-spinor.txt) and the declarations it cites, read in
+### the kernel's print bank at its tag v0.1.1. The re-derived ACTION covers the unreached sentence alone; no other sentence of the header is
+### touched.
+
+== R4  SIDE-spinor -- SIDESpinor/SpinorLeg.lean:1 (header), the closing sentence at :21
+  THE UNREACHED SENTENCE (SIDE-spinor v0.1.1 = aca59d1, SIDESpinor/SpinorLeg.lean :20-:21), verbatim: "The two routes share no nontrivial
+    lemma: Route A never touches ℂ or the twist; Route B never touches g, ‖v‖², or ζ. In each, −1 is DERIVED, not typed (salt-checked)."
+  THE OLD ACTION (relay data/b647_table_SIDE-spinor.txt :24), verbatim: "RE-CUT: Route B (this file; Mathlib / ℂ): with the quarter-twist read
+    as T = i on the weight-½ spinor line, the file derives T² = −1 from i² = −1, and W⁴ = −1 for any complex W with W² = T, witnessed by ζ₈ =
+    (1+i)/√2; the metaplectic lift of S and W⁴ = −Id are the reading, not compiled, and no salt-check is carried in the repository." --
+    applied at b686 to Route B's bullet (:15-:18 at v0.1.1); it does not reach :21 (relay data/b686_cut.txt :44-:46).
+  THE REASON (relay data/b647_table_SIDE-spinor.txt :22), the clause that reaches :21, verbatim: "... and that -1 is "salt-checked". ... No
+    salt-check file exists at the commit: git grep salt hits only :20, and the tree holds AxiomCheck.lean and SpinorLegAxioms.lean only.
+    Route A's file does carry -g(2,3) = -1 and normSq = 12; zeta(-1) = -1/12 is classical."
+  THE TREE AT v0.1.1 (git grep -n -i salt, bounded to the tag): SpinorLeg.lean :18 (the cut Route B bullet, "no salt-check is carried in the
+    repository") and :21 alone; the tracked files hold AxiomCheck.lean and SpinorLegAxioms.lean and no salt-check file -- the reason holds at
+    the tag as at 520abe7.
+  THE PRINT BANK (relay data/b686_axioms_SIDE-spinor_after.txt, v0.1.1): SIDESpinorLeg.spinor_signature (SpinorLeg.lean :34, T ^ 2 = -1),
+    SIDESpinorLeg.quarter_twist_order_four (:37), SIDESpinorLeg.metaplectic_cocycle (:43), SIDESpinorLeg.spinor_leg_derives_neg_one (:64),
+    each "[propext, Classical.choice, Quot.sound]" -- Route B's −1 derived, no sorryAx; Route A's at SIDE-spinor-calibration 1d219d8
+    (FrobeniusCalibration.lean :86 normSq_val, :93 calibration_is_neg_frobenius, both by decide), the reason's CITED rows. The words
+    "DERIVED, not typed" stand on both; the parenthesis alone claims a check the repository does not carry.
+  THE RE-DERIVED ACTION: RE-CUT: the closing sentence at :21 reads "In each, −1 is DERIVED, not typed." -- the parenthesis "(salt-checked)"
+    struck, every other character of :20-:21 as it stands.
+  SOURCE ROWS: data/b647_table_SIDE-spinor.txt :22 (the reason), :24 (the old ACTION); data/b686_cut.txt :42-:46, :51-:53; the print bank
+    above; SIDE-spinor-calibration@1d219d8 FrobeniusCalibration.lean :86, :93.
+
+### ### **RESIDUES 1 ; ACTIONS RE-DERIVED 1 (R4) ; CARRIED 0 ; BRANCHES TO BE MADE ON THE AUTHOR'S WORD 1 (recut-spinor-b688r).**
