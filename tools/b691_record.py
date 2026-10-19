@@ -1064,6 +1064,77 @@ def triage(*a):
     put_json('b691_orders_triage.json', dict(at=utc(), rows=out, counts=dict(cnt)))
 
 
+# ================================================================================ COMPONENT 4 (6): THE RULES SORTED, THE ARMS ADDED, (R301)(6)
+SORT_RULES = (('b680 row 1', 'b680_rules.txt', 5, 'G-RULE-BINARY-HASHES', 'TRACEABLE', 'LIVE',
+               'the tracked binary banks of relay data from b680 (gz, png, zip), their bytes`s sha256, and the text banks each act`s root names',
+               'a binary bank whose sha256 no root-named text bank of its act carries, or a root naming the binary itself'),
+              ('b685 row 1', 'b685_rules.txt', 5, 'G-RULE-SUITE-PART-CALLS', 'TRACEABLE', 'LIVE',
+               'the act`s own shell calls in its session transcript, by assistant message: each suite part (`--part <p>`) and combine (`--combine`) call',
+               'a call carrying two parts (or a part and a combine), or two such calls in one message'),
+              ('b690 row (1)', 'b690_rules.txt', 6, 'G-RULE-POSTSEAL-READ', 'TRACEABLE', 'LIVE',
+               'the act`s own shell calls timed after its `<act> seal` commit that name FINDINGS, OPEN_TRAILS or the entry and trail scan files',
+               'such a call through a shell filter (sed, awk, grep, head, tail, cat and the like) or with a redirect'),
+              ('b690 row (2)', 'b690_rules.txt', 9, 'G-RULE-RECUT-QUOTE', 'TRACEABLE', 'LIVE',
+               'the quotation-search banks from b691 (data/b<act>_quote_*.json: the removed lines, their needles, the hits), the kernel`s merge of '
+               'the cut`s tip and its time, the act`s cut banks',
+               'a removed line without its needle, a search timed at or after the merge, a quoting line no cut bank of the act enters, or an act '
+               'with more cut banks than searches'))
+
+
+def armsrun(*a):
+    """data/b691_arms_sort.txt and data/b691_arms_added.txt: the sort's words printed from data/b683_arms_sort.txt (:3-:9) before any rule is
+    sorted; each of the four rules read from its own bank and line, sorted; the arms the sort admits run at HEAD through tools/rule_arms.py
+    (LIVE on the act's sources, NEG on an unmutated copy, POS on its plant), each counted before it is declared; b690 (g) as the positive
+    control of the arm that caught it; every standing arm's reading at HEAD printed beside."""
+    import copy
+    import rule_arms as RA
+    sw = rdn('b683_arms_sort.txt').split(NL)[2:9]
+    L = ['b691 -- COMPONENT 4 (6), (R301)(6): THE FOUR RULES SORTED BY b683`S RULE (%s)' % utc(), '',
+         '### THE SORT`S WORDS, printed from relay data/b683_arms_sort.txt :3-:9 before any rule is sorted:'] + ['    ' + l for l in sw] + ['']
+    for rid, bank, ln, arm, sort, state, trace, fails in SORT_RULES:
+        head = rdn(bank).split(NL)[ln - 1].strip()
+        L += ['  %s  (relay data/%s :%d) %s' % (rid, bank, ln, head[:150]),
+              '       SORT %s ; STATE %s' % (sort, state), '       trace: %s' % trace, '       fails: %s' % fails, '       arm: %s' % arm]
+    L += ['', '### ### **RULES 4 ; TRACEABLE 4 (LIVE 4) ; PROSE 0 ; ARMS ADMITTED 4.**']
+    sess = 'C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % K.SESSION_ID
+    R = RA.sources('b691', sess, K.ANCHOR, K.PARTS, None, K.PRE_RELAY, K.PRE_PP)
+    new = [x[3] for x in SORT_RULES]
+    A = ['b691 -- COMPONENT 4 (6): THE ARMS ADDED TO THE STANDING SET, EACH RUN AT HEAD AND COUNTED BEFORE IT IS DECLARED (%s)' % utc(), '',
+         '### tools/rule_arms.py at sha256 %s (relay HEAD %s, the arms added by the Edit tool); the sources read once for b691 (RA.sources: banks, the'
+         % (__import__('hashlib').sha256(open(os.path.join(T, 'rule_arms.py'), 'rb').read()).hexdigest()[:16], g(ROOT, 'rev-parse', '--short=8', 'HEAD').strip()),
+         '### tree, this session`s transcript from the ruling`s anchor). LIVE: the arm on the act`s sources ; NEG: on an unmutated copy ; POS: on its',
+         '### plant, wanted to fail. Rows are arms: name | LIVE (rows read, rows failing, the reading) | NEG | POS.', '']
+    ok_all = True
+    for nm, reads, pred, plant in RA.ARMS:
+        if nm not in new:
+            continue
+        okL, n_, b_, note = RA.reading(nm, R)
+        neg = pred(copy.deepcopy(R))
+        pos = not pred(plant(copy.deepcopy(R)))
+        ok_all &= okL and neg and pos
+        A += ['  %-26s | LIVE %s (rows %d, failing %d) %s | NEG %s | POS %s' % (nm, 'PASS' if okL else 'FAIL', n_, b_, note, 'PASS' if neg else 'FAIL',
+                                                                             'FIRES' if pos else '### DOES NOT FIRE')]
+    A += ['', '### THE POSITIVE CONTROL BY A DEFECT (RA.CONTROLS): arm | the defect | the arm on the planted case, wanted to fail:']
+    for nm, why, plant in RA.CONTROLS:
+        pr = dict((x[0], x[2]) for x in RA.ARMS)[nm]
+        fires = not pr(plant(copy.deepcopy(R)))
+        okL = pr(R)
+        ok_all &= fires and okL
+        A += ['  %-26s | %s | LIVE %s ; THE CONTROL %s (%s)' % (nm, why, 'PASS' if okL else 'FAIL', 'FIRES' if fires else '### DOES NOT FIRE',
+                                                              RA.reading(nm, plant(copy.deepcopy(R)))[3])]
+    A += ['', '### EVERY STANDING ARM AT HEAD (the twenty and the four), its count:']
+    for nm in RA.NAMES:
+        okL, n_, b_, note = RA.reading(nm, R)
+        A.append('  %-26s %-8s rows %-4d failing %-3d %s' % (nm, 'PASS' if okL else 'FAIL', n_, b_, note[:150]))
+    A += ['', '### ### **ARMS ADDED 4 ; EACH LIVE, NEG AND POS AS WANTED %s ; THE DEFECT CONTROL 1, FIRING %s ; STANDING ARMS NOW %d.**' % (
+        ok_all, ok_all, len(RA.NAMES))]
+    print(NL.join(L[-1:] + A))
+    if 'dry' in a:
+        return
+    put_txt('b691_arms_sort.txt', L)
+    put_txt('b691_arms_added.txt', A)
+
+
 # ================================================================================ COMPONENT 3: THE RUN, the author's word on the (R301)(3) prompt (option 1)
 GEN_PAGES = (('PATHS', 'phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md'), ('RCURVE', 'phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md'))
 GEN_STEM = 'b691_correspondence_run'
@@ -1126,7 +1197,7 @@ def rundiff(*a):
 
 
 ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, tie=tie, runner=runner, prints=prints, quote=quote, cut=cut, behind=behind,
-              gensnap=gensnap, genrun=genrun, rundiff=rundiff, triage_read=triage_read, triage=triage)
+              gensnap=gensnap, genrun=genrun, rundiff=rundiff, triage_read=triage_read, triage=triage, armsrun=armsrun)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

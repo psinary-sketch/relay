@@ -11,6 +11,10 @@ the 5 DECLARATION-ONLY, twenty arms named G-RULE-<name>. The superseded rule (b6
 ### A declaration, for the five declaration-only arms, is a line of a relay bank or ledger of the form `DECLARED: <state> MET`, the state
 ### one of PAIR OF READINGS, T1, T2, T3, T5 -- the form a reading act prints when it declares one.
 ### Written by the Write tool at b683; it reads and writes no bank of its own. Carried by later suites as a standing instrument.
+### b691, (R301)(6): four arms added by the Edit tool for the rules data/b691_arms_sort.txt sorts TRACEABLE by b683's rule -- b680 row 1
+### (G-RULE-BINARY-HASHES), b685 row 1 (G-RULE-SUITE-PART-CALLS), b690 rows (1) and (2) (G-RULE-POSTSEAL-READ, G-RULE-RECUT-QUOTE) -- each
+### run at HEAD and counted before it is declared (data/b691_arms_added.txt); and CONTROLS, a positive control for an arm by a defect that arm
+### caught (b690's (g) for G-RULE-METHOD-READINESS), the methods bank's reader factored as methods_rows for it.
 """
 import calendar
 import glob
@@ -97,6 +101,26 @@ def transcript(jsonl, anchor):
     return rows
 
 
+def methods_rows(mt):
+    """a methods bank's rows, by its "=== <method> -- <word>" blocks at the line's start (b690's defect (g): a bank banked indented reads
+    no row here, and G-RULE-METHOD-READINESS fails on it -- the positive control in CONTROLS)."""
+    rows = []
+    for blk in re.split(r'(?m)^(?==== )', mt)[1:]:
+        h = re.match(r'^=== (.*?) -- (READY|NOT READY|NOT YET USED TWICE)\s*$', blk.split(NL)[0])
+        if h:
+            num = lambda k: int((re.search(r'^\s+%s (\d+):' % k, blk, re.M) or [None, -1])[1])   # noqa: E731
+            rows.append(dict(method=h.group(1), word=h.group(2), acts=num('acts'), banks=num('banks'), defects=num('defects')))
+    return rows
+
+
+BINARY_FLOOR = 680          # ### b680 row 1 binds from b680 (its first application data/b680_fig_hashes.txt)
+RECUT_FLOOR = 691           # ### b690 rows (1) and (2) bind from b691
+LEDGER_READ = ('FINDINGS.md', 'OPEN_TRAILS.md', '_scanfile_entry', '_scanfile_trail', 'scanfile_entry', 'scanfile_trail')
+SHELL_FILTER = re.compile(r'(?<![\w.-])(?:sed|awk|grep|head|tail|cat|less|more|cut|tr|sort|uniq|wc)(?![\w.-])')
+REDIRECT = re.compile(r'(?<![<>=\-])(?:\d?>>?|&>)(?!&)')
+SUITE_PART = re.compile(r'_checks\.py\b[^|;&]*?--part\s+(\S+)')
+
+
 # ================================================================================ THE SOURCES
 def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=None):
     """the trace every rule arm reads, read once. `act` 'bNNN'; `parts` the suite's declared parts; `lock_epoch` the face's lock."""
@@ -126,13 +150,8 @@ def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=N
     R['outside'] = (os.path.basename(outs[-1]) if outs else None, int(mo.group(1)) if mo else None, int(mo.group(2)) if mo else None)
     meths = _banks('b*_methods.txt')
     mt = _rd(meths[-1]) if meths else ''
-    rows = []
-    for blk in re.split(r'(?m)^(?==== )', mt)[1:]:
-        h = re.match(r'^=== (.*?) -- (READY|NOT READY|NOT YET USED TWICE)\s*$', blk.split(NL)[0])
-        if h:
-            num = lambda k: int((re.search(r'^\s+%s (\d+):' % k, blk, re.M) or [None, -1])[1])   # noqa: E731
-            rows.append(dict(method=h.group(1), word=h.group(2), acts=num('acts'), banks=num('banks'), defects=num('defects')))
-    R['methods'] = (os.path.basename(meths[-1]) if meths else None, rows)
+    R['methods'] = (os.path.basename(meths[-1]) if meths else None, methods_rows(mt))
+    R['methods_text'] = mt
     R['ferries_retire'] = [os.path.basename(p) for p in _banks('b*_ferry.txt') if re.search(r'WITHHOLDING RULES? (?:ARE )?RETIRED', _rd(p))]
     # ### row (3): the rowgen banks
     rg = {}
@@ -253,6 +272,52 @@ def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=N
     pv = _rd(os.path.join(D, 'b%d_arms_prerun.txt' % (n - 1)))
     R['prev_longest'] = max([int(x) for x in re.findall(r'THE LONGEST PHASE (\d+) s', pv)] or [0])
     R['prev_parts'] = len(set(p for p, _s in runs.get((n - 1, 'arms_prerun'), [])))
+    # ### b680 row 1 (added b691): every tracked binary bank of relay data from b680 -- gz, png, zip -- with its sha256 (of its bytes) and the
+    # ### text banks of its act that its act's root names, each text bank's text
+    import hashlib
+    bins = []
+    for p in sorted(set(_g(ROOT, 'ls-files', '--', 'data/*.gz', 'data/*.png', 'data/*.zip').split(NL)) - {''}):
+        a = _act_of(p)
+        if a is None or a < BINARY_FLOOR:
+            continue
+        try:
+            sha = hashlib.sha256(open(os.path.join(ROOT, *p.split('/')), 'rb').read()).hexdigest()
+        except OSError:
+            sha = None
+        try:
+            items = json.load(io.open(os.path.join(D, 'b%d_act_root.json' % a), encoding='utf-8')).get('items') or []
+        except Exception:
+            items = None
+        named = [it.split()[0] for it in (items or [])]
+        texts = [(b, _rd(os.path.join(ROOT, *b.split('/')))) for b in named if b.endswith('.txt') and os.path.basename(b).startswith('b%d_' % a)]
+        bins.append(dict(path=p, act=a, sha=sha, root=items is not None, in_root=p in named,
+                         carried_by=[b for b, t in texts if p in t and sha and sha in t]))
+    R['binaries'] = bins
+    # ### b690 row (2) (added b691): every quotation-search bank from b691 (data/b<act>_quote_*.json) and the merge of its tip, with the
+    # ### act's cut banks and the residues they enter
+    qs = []
+    for p in _banks('b*_quote_*.json', RECUT_FLOOR):
+        try:
+            q = json.load(io.open(p, encoding='utf-8'))
+        except Exception:
+            q = {}
+        kd, tip, at = q.get('kernel'), q.get('tip') or '', _iso(q.get('at') or '')
+        mg = None
+        if kd and tip:
+            for l in _g(kd, 'log', '--merges', '--format=%H %P %ct', 'main').split(NL):
+                f = l.split()
+                if len(f) >= 4 and f[2].startswith(tip[:7]):
+                    mg = (f[0], int(f[3]))
+        rows = q.get('rows') or []
+        lines = sorted(set('%s :%s' % (h.split(':', 3)[1], h.split(':', 3)[2]) for r in rows for h in (r.get('hits_wide') or [])))
+        a = _act_of(p)
+        cuts = ''.join(_rd(x) for x in _banks('b%d_*cut*.txt' % a, a, a)) + ''.join(_rd(x) for x in _banks('b%d_*cut*.json' % a, a, a))
+        qs.append(dict(bank=os.path.basename(p), act=a, at=at, merge=mg, rows=len(rows),
+                       needled=all(r.get('needle') and r['needle'] in (r.get('line') or '') for r in rows) and bool(rows),
+                       quoting=lines, unentered=[x for x in lines if not re.search(re.escape(x.split(' :')[0]) + r'[^\n]{0,40}?' +
+                                                                                    r'(?:", |\s:?)' + x.split(' :')[1] + r'\b', cuts)]))
+    R['quotes'] = qs
+    R['cut_banks'] = dict((a, len([x for x in _banks('b%d_*cut.txt' % a, a, a)])) for a in range(RECUT_FLOOR, n + 1))
     return R
 
 
@@ -416,6 +481,38 @@ def reading(name, R):
         return bool(runs) and bool(gov) and not bad, len(runs), len(bad), (
             'run banks b678-b%d %d, each against its act`s governing parts (%s) ; without them or with a part at or above 600 s %s' % (
                 n, len(runs), '; '.join('%s from b%d: %s' % (b, a, ps) for a, b, ps in gov), bad or 'NONE'))
+    if name == 'G-RULE-BINARY-HASHES':
+        bs = R['binaries']
+        bad = [b['path'] for b in bs if not b['root'] or b['in_root'] or not b['carried_by']]
+        return bool(bs) and not bad, len(bs), len(bad), 'binary banks from b%d %d, each carried by sha256 in a root-named text bank of its act, '\
+            'the root not naming the binary itself ; failing %s' % (BINARY_FLOOR, len(bs), bad or 'NONE')
+    if name == 'G-RULE-SUITE-PART-CALLS':
+        pc = [c for c in R['calls'] if SUITE_PART.search(c['cmd']) or re.search(r'_checks\.py\b[^|;&]*--combine', c['cmd'])]
+        two = [c['ts'] for c in pc if len(SUITE_PART.findall(c['cmd'])) + len(re.findall(r'--combine', c['cmd'])) > 1]
+        per = {}
+        for c in pc:
+            per.setdefault(c['mid'], []).append(c['ts'])
+        shared = [ts[0] for _m, ts in per.items() if len(ts) > 1]
+        return not two and not shared, len(pc), len(two) + len(shared), (
+            'VACUOUS: no suite part or combine call in this act`s shell commands yet' if not pc else
+            'suite part and combine calls %d ; carrying more than one %s ; sharing a message %s' % (len(pc), two or 'NONE', shared or 'NONE'))
+    if name == 'G-RULE-POSTSEAL-READ':
+        sc = R['seal_ct']
+        if R['n'] < RECUT_FLOOR:
+            return True, 0, 0, 'VACUOUS: the rule binds from b%d' % RECUT_FLOOR
+        after = [c for c in R['calls'] if sc and _iso(c['ts']) and _iso(c['ts']) > sc]
+        reads = [c for c in after if any(x in c['cmd'] for x in LEDGER_READ) and '_record.py' not in c['cmd'] and '_checks.py' not in c['cmd']]
+        bad = [c['ts'] for c in reads if SHELL_FILTER.search(QUOTED.sub('""', c['cmd'])) or REDIRECT.search(QUOTED.sub('""', c['cmd']))]
+        return not bad, len(reads), len(bad), ('VACUOUS: the seal not yet made (no `%s seal` commit); the calls read after it 0' % R['act']) if not sc else (
+            'shell calls after the seal %d ; naming the entry, the dry entry or the trail %d ; by a shell filter or a redirect %s' % (
+                len(after), len(reads), bad or 'NONE'))
+    if name == 'G-RULE-RECUT-QUOTE':
+        qs = R['quotes']
+        bad = [q['bank'] for q in qs if not q['needled'] or not q['merge'] or q['at'] is None or q['at'] >= q['merge'][1] or q['unentered']]
+        short = [a for a, c in R['cut_banks'].items() if c > len([q for q in qs if q['act'] == a])]
+        return bool(qs) and not bad and not short, len(qs), len(bad) + len(short), (
+            'quotation-search banks from b%d %d, each removed line needled, the search before its merge, every quoting line entered in a cut bank '
+            'of the act ; failing %s ; acts with more cut banks than searches %s' % (RECUT_FLOOR, len(qs), bad or 'NONE', short or 'NONE'))
     raise KeyError(name)
 
 
@@ -473,9 +570,26 @@ ARMS = [
      lambda R: _p(_p(R, 'prev_longest', 500), 'parts', ['x'])),
     ('G-RULE-SUITE-PARTS', 'b678 row 1 (and b677 row 1 through it) and b684 row (1): every run bank from b678, against its act`s governing parts from the rules banks, each under 600 s',
      lambda R: _p(R, 'runs', _with(R['runs'], (678, 'planted'), [('standing', 1)]))),
+    # ### b691, (R301)(6): the four rules data/b691_arms_sort.txt sorts TRACEABLE, each arm run at HEAD and counted before it is declared
+    ('G-RULE-BINARY-HASHES', 'b680 row 1: every tracked binary bank of relay data from b680 (gz, png, zip), its sha256 in a text bank of its act that its act`s root names, the root not naming the binary',
+     lambda R: _p(R, 'binaries', R['binaries'] + [dict(path='data/b999_planted.gz', act=999, sha='0' * 64, root=True, in_root=True, carried_by=[])])),
+    ('G-RULE-SUITE-PART-CALLS', 'b685 row 1: this act`s suite part and combine calls, one part per call and each call its own message',
+     lambda R: _p(R, 'calls', R['calls'] + [dict(mid='planted', tid='p1', ts='x', cmd='python tools/b999_checks.py --prerun --part standing-a && '
+                                                                                    'python tools/b999_checks.py --prerun --part act', out='')])),
+    ('G-RULE-POSTSEAL-READ', 'b690 row (1): this act`s shell calls after its seal commit naming the entry, the dry entry or the trail, none by a shell filter or a redirect',
+     lambda R: _p(_p(R, 'seal_ct', R['seal_ct'] or 1), 'calls', R['calls'] + [dict(mid='planted', tid='p1', ts='2099-01-01T00:00:00Z',
+                                                                                    cmd='sed -n 1p FINDINGS.md > /dev/null', out='')])),
+    ('G-RULE-RECUT-QUOTE', 'b690 row (2): every quotation-search bank from b691, each removed line needled, the search timed before the merge of its tip, every quoting line entered in a cut bank of its act',
+     lambda R: _p(R, 'quotes', R['quotes'] + [dict(bank='planted', act=R['n'], at=10, merge=('x', 5), rows=1, needled=True, quoting=[], unentered=[])])),
 ]
 ARMS = [(nm, reads, (lambda k: lambda R: reading(k, R)[0])(nm), plant) for nm, reads, plant in ARMS]
 NAMES = [a[0] for a in ARMS]
 RULE_OF = dict(zip(NAMES, ('b670 row 1', 'b670 row 2', 'b670 row 3', 'b671 row 2', 'b671 row 3', 'b671 row 4', 'b671 row 6', 'b671 row 7',
                            'b672 row 1', 'b672 row 2', 'b672 row 3', 'b673 row 1', 'b673 row 2', 'b673 row 3', 'b674 row 1', 'b674 row 2',
-                           'b674 row 3', 'b675 row 1', 'b675 row 2', 'b678 row 1')))
+                           'b674 row 3', 'b675 row 1', 'b675 row 2', 'b678 row 1', 'b680 row 1', 'b685 row 1', 'b690 row (1)', 'b690 row (2)')))
+# ### b691, (R301)(6): a positive control for an arm by a defect that arm caught -- (arm, the defect, the plant). b690's defect (g): the latest
+# ### methods bank banked four spaces in reads no row, and G-RULE-METHOD-READINESS fails on it (the pre-run found it so).
+CONTROLS = [
+    ('G-RULE-METHOD-READINESS', 'b690 (g): the latest methods bank re-read with every line four spaces in (relay data/b690_defects.txt :40-:45)',
+     lambda R: _p(R, 'methods', (R['methods'][0], methods_rows(NL.join('    ' + l for l in R.get('methods_text', '').split(NL)))))),
+]

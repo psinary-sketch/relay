@@ -1,0 +1,33 @@
+b691 -- COMPONENT 4 (6), (R301)(6): THE FOUR RULES SORTED BY b683`S RULE (2026-10-19T19:59:45Z)
+
+### THE SORT`S WORDS, printed from relay data/b683_arms_sort.txt :3-:9 before any rule is sorted:
+    ### rows are rules: act and row (data/b680_rules_arms.txt :35-:58, each NONE there) ; the rule's head ; its SORT ; for a TRACEABLE rule the trace
+    ### a suite would read and the reading that would fail ; its STATE NOW -- LIVE (the trace exists now and the arm can fail on present data),
+    ### DECLARATION-ONLY (the rule defines a state the author declares; its trace is a declaration no bank yet carries, so its arm would read
+    ### VACUOUS until one is made) or SUPERSEDED. Under the author's word of 2026-10-18 (data/b682_rules.txt row (1)): "arms for the traceable
+    ### ones, the seat sorts them". TRACEABLE -- its breach leaves a trace a suite can read in a bank, a push or delete capture, a progress bank,
+    ### a hashes bank, the tree or the remote; PROSE -- its breach leaves no such trace. Each rule's text read from its own bank and line. NO ARM
+    ### IS WRITTEN BEFORE THE AUTHOR'S WORD ON THE PROMPT (N4).
+
+  b680 row 1  (relay data/b680_rules.txt :5) (1) A BINARY BANK IS ROOTED THROUGH A TEXT HASHES BANK. A binary bank -- gz, png, or any file whose bytes carry CR LF by format -- is
+       SORT TRACEABLE ; STATE LIVE
+       trace: the tracked binary banks of relay data from b680 (gz, png, zip), their bytes`s sha256, and the text banks each act`s root names
+       fails: a binary bank whose sha256 no root-named text bank of its act carries, or a root naming the binary itself
+       arm: G-RULE-BINARY-HASHES
+  b685 row 1  (relay data/b685_rules.txt :5) (1) ONE CALL PER SUITE PART, EACH ITS OWN MESSAGE. Every suite part -- of the pre-run, the pre-push or the post-push run -- is sent as its own
+       SORT TRACEABLE ; STATE LIVE
+       trace: the act`s own shell calls in its session transcript, by assistant message: each suite part (`--part <p>`) and combine (`--combine`) call
+       fails: a call carrying two parts (or a part and a combine), or two such calls in one message
+       arm: G-RULE-SUITE-PART-CALLS
+  b690 row (1)  (relay data/b690_rules.txt :6) (1) AFTER THE SEAL, THE ENTRY, THE DRY ENTRY AND THE TRAIL ARE READ THROUGH THE READ TOOL OR THE RECORD TOOL'S OWN PRINT. By no shell filter
+       SORT TRACEABLE ; STATE LIVE
+       trace: the act`s own shell calls timed after its `<act> seal` commit that name FINDINGS, OPEN_TRAILS or the entry and trail scan files
+       fails: such a call through a shell filter (sed, awk, grep, head, tail, cat and the like) or with a redirect
+       arm: G-RULE-POSTSEAL-READ
+  b690 row (2)  (relay data/b690_rules.txt :9) (2) AT A RE-CUT, EACH LINE THE CUT REMOVES OR CHANGES HAS A DISTINCTIVE SUBSTRING SEARCHED WITH GIT GREP ACROSS THE KERNEL'S SOURCE TREE BEFORE THE ME
+       SORT TRACEABLE ; STATE LIVE
+       trace: the quotation-search banks from b691 (data/b<act>_quote_*.json: the removed lines, their needles, the hits), the kernel`s merge of the cut`s tip and its time, the act`s cut banks
+       fails: a removed line without its needle, a search timed at or after the merge, a quoting line no cut bank of the act enters, or an act with more cut banks than searches
+       arm: G-RULE-RECUT-QUOTE
+
+### ### **RULES 4 ; TRACEABLE 4 (LIVE 4) ; PROSE 0 ; ARMS ADMITTED 4.**
