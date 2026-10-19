@@ -62,7 +62,7 @@ NEXT = ('b689, the research act: the strip-free form of the Li converse -- the w
 
 ACT_ARMS = ()               # ### written at Component 5
 STANDING_ADDED = ()         # ### (R298)'s N5: no standing arm added
-SHARED_APPENDED = ()
+SHARED_APPENDED = ('data/b687_plan.txt',)    # ### (R298)(2): the row beneath naming the lattice route (additive, (R254)(2))
 PARTS = ('standing-a', 'standing-c', 'standing-b', 'act')     # ### data/b684_rules.txt row (1)
 SEALED = ('b688_worklist.py', 'b688_tests.py', 'b688_citation.py', 'b688_record.py', 'b688_checks.py', 'b688_closing.py', 'b688_reg_gate.py',
           'b688_regspec.py')
