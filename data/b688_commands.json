@@ -1,5 +1,5 @@
 {
- "at": "2026-10-19T05:54:04Z",
+ "at": "2026-10-19T06:42:32Z",
  "anchor": "RULING (R298) BEGIN",
  "rows": [
   {
@@ -1336,6 +1336,310 @@
    "src": "seat",
    "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b688_record.py commands 2>&1 | tail -1 | cut -c1-330; grep -A3 \"START A DETACHED RUN\" data/b688_commands.txt | cut -c1-120",
    "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T05:53:58.253Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b688_record.py commands 2>&1 | tail -1 | cut -c1-330; grep -A3 \"START A DETACHED RUN\" data/b688_commands.txt | cut -c1-120",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T05:54:48.046Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=294 && NR<=330' tools/b687_record.py; grep -n \"W-ORD-EPSTEIN-COUNT\" data/b670_work_orders.txt | cut -c1-250; tail -5 data/b670_work_orders.txt | cut -c1-250",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T05:55:02.212Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && wc -l OPEN_TRAILS.md FINDINGS.md && grep -n \"^### b687 —\\|^\\*Appended 2026-10-19 by b687\\|^\\*Appended 2026-10-19 by b688\" OPEN_TRAILS.md | cut -c1-140; tail -c 300 OPEN_TRAILS.md",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T05:55:33.425Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b688_record.py order dry 2>&1 | head -3 | cut -c1-300",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T05:55:45.120Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b688_record.py order 2>&1 | tail -2 | cut -c1-300; git -C /d/MY-DOwnloads/PLACE-papers diff --stat",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T05:55:52.135Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add -- OPEN_TRAILS.md && git commit -q -m \"b688 C3: W-ORD-CORRESPONDENCE-CARRIED-AT entered (OPEN_TRAILS :14922) on the author's word at the third prompt -- the generator's carried-at cells to read the carrying kernel's source at its version; trigger before any generator run that writes a page\" && git log -1 --format=%h",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T05:55:58.442Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && tail -c 200 data/b670_work_orders.txt | od -c | tail -3",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T05:56:12.191Z",
+   "src": "seat",
+   "cmd": "git diff --numstat -- data/b670_work_orders.txt data/b670_licensed_table.txt data/b687_plan.txt; git diff de011ebd --numstat -- data/b670_licensed_table.txt data/b687_plan.txt",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T05:56:18.863Z",
+   "src": "seat",
+   "cmd": "git add data/b670_work_orders.txt data/b688_orders_lines.json && git commit -q -m \"b688 C3: the orders bank's row appended (additive) for W-ORD-CORRESPONDENCE-CARRIED-AT at OPEN_TRAILS :14922, and the order line's bank\" && git log -1 --format=%h",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:00:48.343Z",
+   "src": "seat",
+   "cmd": "python -B -X utf8 -c \"import ast,sys; [ast.parse(open(f,encoding='utf-8').read(), f) for f in ('tools/b688_record.py','tools/b688_worklist.py')]; print('parsed')\"",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:01:46.861Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=61 && NR<=65' tools/b687_worklist.py; python -B -X utf8 -c \"\nimport json; j=json.load(open('data/b688_runner_rows.json',encoding='utf-8')); print(len(j['rows'])); print(sorted(j['rows'][0].keys())); print([(r['kernel'],r['label'],r['ref'][:8]) for r in j['rows']])\"; python -B -X utf8 -c \"\nimport json; j=json.load(open('data/b688_tests_stepzero.json',encoding='utf-8')); print(len(j)); print([(k,v['failing']) for k,v in j.items() if v['rc'] or v['failing']])\"",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:09:45.536Z",
+   "src": "seat",
+   "cmd": "python -B -X utf8 -c \"import ast; [ast.parse(open(f,encoding='utf-8').read(), f) for f in ('tools/b688_checks.py','tools/b688_closing.py','tools/b688_reg_gate.py','tools/b688_regspec.py','tools/b688_record.py','tools/b688_worklist.py')]; print('parsed 6')\"",
+   "n": 179,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:09:51.024Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 400 python -B -X utf8 tools/b688_record.py kernels 2>&1 | tail -2; PYTHONIOENCODING=utf-8 timeout 200 python -B -X utf8 tools/b688_record.py repairs 2>&1 | tail -2; PYTHONIOENCODING=utf-8 timeout 100 python -B -X utf8 tools/b688_record.py defects 2>&1 | tail -1",
+   "n": 180,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:10:24.242Z",
+   "src": "seat",
+   "cmd": "for k in SIDE-li-map SIDE-spinor; do echo \"$k: $(git -C /d/$k branch --show-current) | $(git -C /d/$k status --porcelain --untracked-files=no | wc -l) | $(git -C /d/$k branch --format='%(refname:short)' | tr '\\n' ' ')\"; done",
+   "n": 181,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:10:33.366Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=151 && NR<=152' data/b687_registration_2026-10-19.txt",
+   "n": 182,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:10:51.642Z",
+   "src": "seat",
+   "cmd": "git add tools/b688_record.py tools/b688_worklist.py tools/b688_checks.py tools/b688_closing.py tools/b688_reg_gate.py tools/b688_regspec.py data/b688_tool_repairs.txt data/b688_kernels_face.json data/b688_defects.txt data/b688_defects.json data/b688_commands.txt data/b688_commands.json && git commit -q -m \"b688 C5: the tools carried from b687's sealed copies by the Write tool (record's late routes, checks, closing, gate, spec), the carry-time bank (four repairs, the detached-run reader among them), the kernels face, the defects (a)-(e) and the command bank\" && git log -1 --format=%h",
+   "n": 183,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:10:59.745Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 200 python -B -X utf8 -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b688_checks as C, b688_worklist as K\nn=[a[0] for a in C.ARMS]; print(len(n), len(set(n)), len(C.STANDING))\nprint('NOT STANDING NOR ACT:', sorted(set(n)-set(C.STANDING)-set(K.ACT_ARMS)))\nprint('STANDING NOT CARRIED:', sorted(set(C.STANDING)-set(n)))\nprint(' '.join('\\`%s\\`'%x for x in n))\n\" 2>&1 | tail -6",
+   "n": 184,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:12:50.328Z",
+   "src": "seat",
+   "cmd": "python -B -X utf8 tools/b688_tests.py mem 2>&1 | tail -2",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-19T06:12:56.558Z",
+   "src": "seat",
+   "cmd": "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 12 Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}} | Format-Table -AutoSize | Out-String -Width 120",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:13:19.119Z",
+   "src": "seat",
+   "cmd": "end=$((SECONDS+540)); until python -B -X utf8 tools/b688_tests.py hold standing-a > /dev/null 2>&1 || [ $SECONDS -ge $end ]; do sleep 20; done; python -B -X utf8 tools/b688_tests.py mem 2>&1 | tail -1",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:18:32.446Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold standing-a && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b688_checks.py --prerun --part standing-a 2>&1 | grep -E \"FAIL|raised|PART standing-a :|free memory|declared not|run not declared\" | grep -v \"PASS  PASS  FAIL  OK$\" | cut -c1-260",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:25:11.763Z",
+   "src": "seat",
+   "cmd": "grep -n \"HEAD-LINE-QUOTED\\|def _head_line\\|head_quoted\\|closing_head\" tools/rule_arms.py | head; ",
+   "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:25:16.666Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=380 && NR<=400' tools/rule_arms.py; grep -n \"'ruling1'\\|ruling1 =\\|def _ruling1\\|ruling_one\" tools/rule_arms.py | head",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:25:23.117Z",
+   "src": "seat",
+   "cmd": "grep -n -A6 \"^(1)\" data/b688_ferry.txt | head -12; grep -n -A4 \"^(1)\" data/b687_ferry.txt | head -6",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:25:38.851Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold standing-c && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b688_checks.py --prerun --part standing-c 2>&1 | grep -E \"FAIL|raised|PART standing-c :|free memory|uncovered|changed\" | grep -v \"PASS  PASS  FAIL  OK$\" | cut -c1-400",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:31:47.903Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold standing-b && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b688_checks.py --prerun --part standing-b 2>&1 | grep -E \"FAIL|raised|PART standing-b :|free memory|ACT-ROOT CHAIN|PHASES\" | grep -v \"PASS  PASS  FAIL  OK$\" | cut -c1-300",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:39:32.246Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold act && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b688_checks.py --prerun --part act 2>&1 | grep -E \"FAIL|raised|PART act :|free memory|THE ROUTE\" | grep -v \"PASS  PASS  FAIL  OK$\" | cut -c1-300",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:40:14.676Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b688_checks.py --combine b688_arms_prerun.txt 2>&1 | head -10 | cut -c1-260",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:40:39.858Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b688_reg_gate.py 2>&1 | grep -E \"index-query arm exit|FLOOR MISSES|ARM MISSES|UNDECLARED|ENTRY :|TRAIL :|DRY-RUN STEP|GATE VERDICT|table cells|Error|raised|Traceback|NOT|missing\" | cut -c1-330",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:41:11.157Z",
+   "src": "seat",
+   "cmd": "cd \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/a90bcdb6-256f-4841-97ff-9638e378446c/scratchpad\" && grep -n -E \"DIFFER|NOT AT THE REMOTE|NO VERDICT|### NOT\" b688_closing_dry.txt | cut -c1-200; grep -n -E \"SIDE-li-map|SIDE-spinor \" b688_closing_dry.txt | cut -c1-200 | head -8",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:41:18.118Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && grep -n \" peeled \" \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/a90bcdb6-256f-4841-97ff-9638e378446c/scratchpad/b688_closing_dry.txt\" | cut -c1-200 | head -5; grep -c \"AGREE\" \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/a90bcdb6-256f-4841-97ff-9638e378446c/scratchpad/b688_closing_dry.txt\"",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:41:24.067Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b688_record.py gatebanks 2>&1 | cut -c1-260",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:41:34.075Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 -B tools/b688_record.py scores dry 2>&1 | cut -c1-700",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:41:43.776Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 -B -c \"\nimport sys; sys.argv=['x']; sys.path.insert(0,'tools')\nimport b688_record as R\nv=R._n5(); print(v[0]); print(v[1][700:])\" 2>&1 | cut -c1-900",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:41:54.290Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b378_lockgate.py b688 data/b688_registration_2026-10-19.txt 2>&1 | tail -8 | cut -c1-240",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:42:01.686Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -B tools/reg_seal.py --lock data/b688_registration_2026-10-19.txt && python -X utf8 -B tools/b688_checks.py --seal",
+   "n": 203,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:42:07.540Z",
+   "src": "seat",
+   "cmd": "git status --porcelain | grep -E \"b688|audit_b688|terminal_table|act_roots|b670_|b687_\" ",
+   "n": 204,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T06:42:15.538Z",
+   "src": "seat",
+   "cmd": "git add data/audit_b688_reg_satisfiable.txt data/b688_arms_prerun.txt data/b688_arms_prerun_act.txt data/b688_arms_prerun_standing-a.txt data/b688_arms_prerun_standing-b.txt data/b688_arms_prerun_standing-c.txt data/b688_census_stepzero.txt data/b688_faces_census_stepzero.txt data/b688_lockgate.json data/b688_lockgate_notes.txt data/b688_lsr_prerun_act.json data/b688_lsr_prerun_standing-a.json data/b688_lsr_prerun_standing-b.json data/b688_lsr_prerun_standing-c.json data/b688_pins_stepzero.txt data/b688_reg_gate.txt data/b688_reg_termscan.txt data/b688_registration_2026-10-19.txt data/b688_regspec_run.txt data/b688_satisfiable.json data/b688_seal_hashes.json && git commit -q -m \"b688 seal: the face locked after Components 0-4, the carry-time reading, the closing's dry run and the dry-run step (gate CLEAR, lock gate 8 of 8); the pre-run in four parts, 117 arms, G-RULE-HEAD-LINE-QUOTED declared; the sealed tools' hashes\" && git log -1 --format=%h",
+   "n": 205,
    "bg": false
   }
  ],
