@@ -1,0 +1,171 @@
+b687 -- COMPONENT 2, (R297)(3)-(4): THE PLAN -- FOUR READINGS OF THE b685 DERIVATION, EACH A REFUTATION TEST AT A NAMED STEP; THE CONTROLS;
+THE HYPOTHESES; THE PRICE AND THE SPLIT (2026-10-19)
+
+### rows are readings with their inputs, their expected form and their refutation condition (sections 2-5), after the located bounds (section
+### 1); then the controls, the hypotheses, the landing's reading of (R297)(5), the tool and its parts. NO READING HAS BEEN MADE FOR THIS PLAN:
+### every figure below is read from a bank or a pinned source, cited by path and line or page, or is a parameter the plan fixes. No constant
+### of b685 is changed (N2): the derivation's routes are imported from tools/b685_count.py unedited (its sha256 printed) and its banks
+### data/b685_count_part1/2/4.json read, never written.
+
+== 0. THE OBJECT UNDER TEST (data/b685_count_plan.txt :33-:71; data/b685_count.txt :8-:25; data/b685_count_controls.txt :3)
+  Z_Q (T ≥ 149): c = 1.7, r = 2.05, η = 0.2, p = c − r = −0.35, σ₁ = 2.40243902439, δ = 0.497560975610, ℓ = log(r/(c − ½)) = 0.535518236356;
+    a = 0.432571915432, b = 0, c = 1.26244217716 (data/b685_count.txt :8, :21-:23).
+  ζ (T ≥ 100): c = 1.5, r = 1.98, η = 0.5, σ₁ = 2.00505050505, δ = 0.494949494949, ℓ = 0.683096844706; a_ζ = 0.228505583833, c_ζ =
+    0.800713497357 (data/b685_count_controls.txt :3; data/b685_count_part4.json).
+  The quantity every reading tests: S(T) := (Ic − 1) log T + Ir − log L, the derivation's bound on (1/π)∫_0^π F_T(θ)dθ − log|a(c + iT)|
+    (tools/b685_count.py :205-:211 topq, :321-:329 Rz), with L the centre's lower bound (Z_Q: 4 − Z_Q(c), :191; ζ: ζ(2c)/ζ(c), :310) -- the
+    right side of Jensen's formula as step (6) bounds it.
+
+== 1. THE LOCATED BOUNDS, READ AND QUOTED FROM THEIR PINNED SOURCES (N2), each PDF read locally by pypdf, its sha256 given
+  (Z1) Hasanalizade, Shen, Wong, "Counting zeros of the Riemann zeta function", arXiv:2107.06506v1 (sha256 3fc4c89f..., b685's session
+       tool-results webfetch-1792354542505-ayyjqd.pdf), Corollary 1.2, p. 2: "For any T ≥ e, we have |N(T) − T/2π log(T/2πe)| ≤ 0.1038 log T +
+       0.2573 log log T + 9.3675. (1.5)" -- NO 7/8 inside the modulus. Its Table 1, p. 1, Backlund [1] (1918): "0.1370 0.4430 5.2250 200"
+       (C₁, C₂, C₃, T₀; the same form, no 7/8). Beside it, (Z2) Bellotti-Wong arXiv:2412.15470v2 (sha256 9299073e...), p. 2, footnote 1:
+       "there is a typo in [HSW22] regarding the constant C3. The value 9.3675 is now substituted with 9.4925" -- both printed.
+  (Z3) Trudgian, "An improved upper bound for the argument of the Riemann zeta-function on the critical line II", arXiv:1208.5846v2 (sha256
+       274b3a0a14d79400..., webfetch-1792354372035-ccd4rx.pdf), Corollary 1, p. 2: "For T ≥ T0 ≥ e |N(T) − T/2π log T/2πe − 7/8| ≤ 0.111 log T +
+       0.275 log log T + 2.450 + 0.2/T0." At matched range (a bound for every T ≥ e) T₀ = e. (Z2) p. 2, footnote 1, and (S3) p. 2 flag an error
+       in its proof; (Z2) footnote 2: "This, together with Platt's computation of S(T) as stated in (1.2), assures that Trudgian's bound
+       [Tru14] and all the explicit results relying on it remain valid." Printed beside the figure.
+  (PT) PLATT-TRUDGIAN. The paper of 2021 the ruling names -- Platt, Trudgian, "The Riemann hypothesis is true up to 3·10¹²", arXiv:2004.09765v1
+       (sha256 3362f66af9fa9373..., this session's tool-results webfetch-1792370414664-2ow95v.pdf; Bull. Lond. Math. Soc. 53.3 (2021) 792-797 as
+       (Z2) [PT21] cites it) -- STATES NO BOUND ON N(T) OR S(T): its Theorem 1 is the verification to 3·10¹², its Corollary 1 bounds ψ, θ and
+       π − li (p. 3), its Corollary 2 the de Bruijn-Newman constant (p. 5); a search of its eight pages for "S(T", "N(T", "log log" and "7/8"
+       finds none. NOT LOCATED AS NAMED. The bound the trigger's figures belong to is Platt-Trudgian 2015: "An improved explicit bound on
+       |ζ(1/2 + it)|", arXiv:1402.3953v2 (sha256 97d9e70994b46f6a..., this session's tool-results webfetch-1792370506496-1dxit1.pdf; J. Number
+       Theory 147 (2015) 842-851), Corollary 1, p. 2: "If T ≥ e, then |S(T)| ≤ 0.110 log T + 0.290 log log T + 2.290." -- (Z1) p. 3 quotes it as
+       "Platt and Trudgian [11] ... for T ≥ e, |S(T)| ≤ 0.110 log T + 0.290 log log T + 2.290", and (Z2) Table 1 lists "Platt-Trudgian [PT15]
+       (2015) 0.1100 0.2900 3.165 e" in the N(T) form. Converted to the 7/8 form by (Z3)'s (2.5), p. 3: "|N(T) − ... − 7/8| ≤ ... ≤ 0.2/T +
+       |S(T)|". The prompt asks which the act reads (question 2). (Z2) p. 8 notes [PT15]'s proof "relies on [Tru14]".
+  Beside all: Platt's computation, (Z2) p. 3 (1.2): "|S(T)| ≤ 2.5167 for 0 ≤ T ≤ 30610046000" (also (Z1) p. 2 (1.7)) -- the true error at
+  every height of this act is below every bound compared; a bound sharper than a located one is not thereby false.
+
+== 2. READING (i): THE ζ INSTANCE AT MATCHED RANGE, T ≥ e (inputs: data/b685_count_part4.json's route; tools/b685_count.py :288-:394)
+  Inputs: params_z (:296), conditions_z (:313), jensen (:154), E_gamma (:137), E_arg (:144), imported unedited; the parameter grid PAR_C_Z
+    (:45) and p4's r grid and η grid (:337-:345) as b685 searched them; the one change is T_MIN_Z = 100 → e in Rz's three places (:324,
+    :325, :326) and in the Jensen integral's T, by a copy of Rz taking T_min as an argument (the copy printed beside :321-:329 in the bank).
+    The conditions of steps (5)-(7) printed at the chosen parameters, and one more the move to T = e asks: E_gamma's |log(1 + u)| ≤ 2|u| needs
+    |u| ≤ ½ at y = T_min/2 (tools/b685_count.py :138-:141) -- printed as a ball comparison; where it fails at e the reading stops at that
+    condition and prints it (no repair).
+  Expected form: a_e, b_e = 0, c_e balls, R_e(T) = e_θ + (log ζ(σ₁) + top(T))/π, printed beside a_ζ, c_ζ (T ≥ 100). The comparison bank
+    data/b687_matched.txt, rows are heights with each bound's value: at T = e, 10, 100 (matched range) and at T = 100, 1000, 10⁴ (b685's
+    heights, the navigator's answer on miss (c)): R_e(T) and R_100(T) (where T ≥ 100) in the 7/8 form; HSW 9.3675 and 9.4925 and
+    Backlund's row (T ≥ 200 only: 1000, 10⁴) against R + 7/8 (their form carries no 7/8); Trudgian 2014 with T₀ = e and the PT bound of
+    question 2 against R; each figure a ball with its radius and the located statement's line beside it; at each row SHARPER or NOT SHARPER
+    against each bound, and the row's reading "sharper than every located bound" True or False.
+  Refutation condition: none of the derivation itself -- the reading feeds H1 and the landing. A failing condition of (5)-(7) at T ≥ e is
+    printed and the reading stopped there.
+
+== 3. READING (ii): THE JENSEN DISC FOR ζ, T = 100, 1000, 10⁴ (data/b685_count_plan.txt :55-:59; tools/b685_count.py :154-:175)
+  The disc: centre z₀ = c + iT, outer radius r, inner radius c − ½ (ℓ = log(r/(c − ½)), plan :36, :72-:73). Jensen's formula for a(s) = (s −
+    1)ζ(s) ((S1) Lemma 1, p. 4): J(T) := Σ_{|ρ − z₀| < r} log(r/|ρ − z₀|) = (1/2π)∫_0^{2π} log|a(z₀ + re^{iθ})|dθ − log|a(z₀)|, and n(c − ½)·ℓ ≤
+    J(T). Step (6) bounds the right side by S(T) (section 0). So the step assigns the inner disc the bound n(c − ½) ≤ S(T)/ℓ, and the whole
+    left side the bound J(T) ≤ S(T).
+  Inputs: certified zeros by the C1 form of b681 (data/b681_narrow_controls.txt :3-:12): acb.zeta_zero(n) (python-flint 0.9.0, arb's
+    rigorous n-th zero), every ball with its radius, each confirmed by a sign change of the completed function Λ at its ball's ends
+    (tools/b671_narrow.py :174 lam_z_at, :180 sign_at, imported unedited); the index range found by bisection on zeta_zero(n) so that every
+    zero with |γ − T| ≤ r + 0.1 is listed and the neighbours outside printed (completeness from arb's indexing: zeta_zero(n) is the n-th
+    zero by count). S(T) at the derivation's parameters.
+  Expected form: data/b687_jensen_zeta.txt, rows are heights with the certified count in the inner disc, the step's bound S(T)/ℓ and the
+    margin; beside each, J(T) from the certified zeros against S(T) and its margin; every figure a ball.
+  THE INNER DISC FOR ζ IS VACUOUS AS A TEST: every listed zero lies on σ = ½ (arb's zeros are on the line), and |½ + iγ − (c + iT)| ≥ c − ½
+    with equality only at γ = T, so the inner count is 0 at every height not an ordinate, whatever step (6) says. Printed in the same line
+    as the verdict (VACUOUS). The non-vacuous readings of the same step are J(T) ≤ S(T) and the inner radii ρ' ∈ {1.4, 1.6, 1.8} (n(ρ') ≤
+    S(T)/log(r/ρ')) -- question 4.
+  THE PARAMETERS FOR ζ: the ruling names c = 1.7, r = 2.05 (Z_Q's); b685's ζ instance ran at c = 1.5, r = 1.98, η = 0.5 (data/b685_count_controls.txt
+    :3). The reading is made at both, the derivation's own first (it tests the ζ bound b685 banked) and the ruling's beside it (S(T) by the
+    same route at 1.7, 2.05 with ζ's η = 0.5 and its conditions printed) -- question 3.
+  Refutation condition: a height where n(c − ½) > S(T)/ℓ, or J(T) > S(T), or (question 4) n(ρ') > S(T)/log(r/ρ') -- step (6) REFUTED at
+    that height with the figures.
+
+== 4. READING (iii): THE JENSEN DISC FOR Z_Q, T = 50, 100, 149 (data/b681_epstein_zeros_narrowed.json.gz through its hashes bank)
+  Inputs: the 163 balls (ON 146, OFF 17; h = 1e-30), their hashes verified first against data/b681_epstein_zeros_narrowed_hashes.txt
+    :2-:3; the 17 partners 1 − conj ρ of the OFF points added (b667's 180 = 146 + 17 + 17); no zero has Re ≥ 3/2 (the (3c) bound, b667 V2)
+    and none Re ≤ −½ (its partner would have Re ≥ 3/2), so the strip's zeros are all. Disc membership decided by a ball comparison of
+    |ρ − z₀|² with r'² carrying each ball's radius; a zero whose comparison straddles is printed UNDECIDED and the reading stops there.
+    THE HEIGHT 149: the outer disc reaches t = 151.05 and the inner t = 150.2, past the certified 150. The band (150, 151.5] × [−½, 3/2] (the
+    doubled disc of C1 reaching t = 151.4 included) is counted by b667's argument principle on its boundary (tools/b667_epstein_certify.py
+    :258 segment, :301 square_count, through tools/b671_narrow.py's carried factor, imported unedited), its count and any zero located there
+    printed; with count 0 the disc reading at 149 is complete; with count > 0 the zeros are located by b681's narrowing route
+    (tools/b671_narrow.py :232 narrow_off, unedited) before the disc is read.
+  Expected form: data/b687_jensen_q0.txt, rows are heights with the certified count in the inner disc, S(T)/ℓ and the margin; J(T) against
+    S(T) beside; the zeros inside printed by ball. Not vacuous: an OFF zero with Re near 0.95 lies in the inner disc when |γ − T| <
+    √((c − ½)² − (c − Re)²) ≈ 0.94 -- the count may be positive.
+  Refutation condition: as reading (ii), for Z_Q -- step (6) REFUTED at that height.
+
+== 5. READING (iv): EVERY INTERMEDIATE INEQUALITY OF STEPS (5)-(7) AT THE SAMPLE HEIGHTS (ζ: 100, 1000, 10⁴ at the derivation's c = 1.5, r =
+   1.98, η = 0.5; Z_Q: 50, 100, 149 at c = 1.7, r = 2.05, η = 0.2), the bound side and the computed side each a ball, every margin printed
+  (iv-1) THE RIGHT EDGE (step (3)): Z_Q |arg Z_Q(σ₁ + iT)| ≤ arcsin(ε/2), ε = Z_Q(σ₁) − 2 (:9, :191); ζ |arg ζ(σ₁ + iT)| ≤ log ζ(σ₁) (:311).
+         Computed: the principal argument of the value (Re > 0 there, printed).
+  (iv-2) THE ARGUMENT OF Γ (step (5), E): |Δ₊ + Δ₋| of Im log Γ at x₀ ± d + iy and x₀ + iy against E_gamma (:137) -- Z_Q x₀ = ½, d = δ,
+         y = T; ζ x₀ = ¼, d = δ/2, y = T/2 (:323) -- and |Δ₊ + Δ₋| of arg(s − 1) against E_arg (:144). Computed: acb lgamma's imaginary parts
+         and the arguments directly. Beside them, Stirling's remainder e_Γ: |Im log Γ(½ + iT) − (T log T − T + (T/2) log(1 + 1/(4T²)))| ≤
+         1/(6|½ + iT|) (plan :23-:24; ζ at ¼ + iT/2).
+  (iv-3) THE PHRAGMÉN-LINDELÖF BOUND (step (7)(ii)): at points s = c + re^{iθ} + iT of the circle with σ ∈ [p, 1 + η], |a(s)| ≤ A^λ B^{1−λ}
+         |Q + s|^{coef}, λ = (1 + η − σ)/(1 + η − p), coef = 1 + λ(α₁ − 1) (:159-:162), for both s and its partner c + re^{−iθ} + iT;
+         and its two ends -- at σ = p by the functional equation (A|Q + s|^{α₁}) and at σ = 1 + η (B|Q + s|).
+  (iv-4) THE BOUND ON |a(s)| ON THE CIRCLE (step (7)(i) and the envelope): log|a(s)| ≤ coef(θ) log T + rest(θ, T) -- the envelope jensen
+         sums (:154-:175), at its rest's T -- at every sampled θ, both sides; and |Z(s)| ≤ Z(σ) at points with σ ≥ 1 + η.
+  (iv-5) THE BOUND AT THE JENSEN CENTRE (step (6)): |a(c + iT)| ≥ |c − 1 + iT| · L (L = 4 − Z_Q(c), ζ(2c)/ζ(c)) -- and its log against the
+         −log T − log L the S(T) form uses (:208).
+  (iv-6) THE TOP EDGE (step (5)'s result): |Δ arg a(σ + iT)| from σ₁ to ½ against top(T) (:205-:211, :321-:329): the computed side by b667's
+         segment route (tools/b667_epstein_certify.py :258, unedited) along [½ + iT, σ₁ + iT] for Z_Q and the same route with ζ for ζ, its
+         unresolved list required empty. The composite test of Backlund's trick at that height.
+  Sampling: θ at the jensen route's 2048 piece midpoints for ζ (each evaluation ~1 ms) and at 128 of them (every 16th) for Z_Q (~0.04 s
+    each), both partners; the narrowest margin of each inequality at each height printed with its θ.
+  Expected form: data/b687_steps.txt, rows are steps with height, bound, computed value and margin (each a ball).
+  Refutation condition: a step whose computed side exceeds its bound at a sampled point (its ball's lower end above the bound's upper end)
+    REFUTES that step by name; a straddling comparison is printed UNDECIDED, not a pass.
+
+== 6. THE CONTROLS ((R297)(4)), banked as data/b687_controls.txt (rows are controls with expected and read values)
+  (C1) THE PLANTED DISC: the same centre, the radius doubled -- outer 2r, inner 2(c − ½) (ℓ unchanged) -- for ζ at 100, 1000, 10⁴ and Z_Q
+       at 50, 100, 149. The derivation's bound by the same route at the doubled circle (p = c − 2r; the functional-equation end at σ = p, its
+       A from Z(1 − p) by the grid's upper bound -- Z decreasing on (1, ∞) -- and α₁ = 2(½ − p) + 1 (Z_Q), 3/2 − p (ζ)). Expected: the bound
+       S₂(T)/ℓ above S(T)/ℓ, and the certified inner count above the undoubled one (ζ: the zeros with |γ − T| ≤ √3(c − ½) ≈ 2.08 at c = 1.7,
+       ≈ 1.73 at c = 1.5 -- at least one at each height by N(T)'s density, read not assumed). PASS where both grow at every height.
+  (C2) THE PLANTED Γ-ARGUMENT: (iv-2)'s inequality with the second difference's Δ₋ sign reversed (|Δ₊ − Δ₋| of Im log Γ, a first difference
+       of size about 2d·arg(x₀ + iy) ≈ π d) against the same E_gamma. Expected: FAIL at every sampled height, for ζ and Z_Q (E is about 10⁻²,
+       the planted side about 1.5). PASS of the control where it fails at all six.
+
+== 7. THE HYPOTHESES ((R297)(4)), each read from a printed line
+  (H1) the T ≥ e constants a_e, b_e, c_e printed and compared at e, 10, 100 with the three located bounds (data/b687_matched.txt).
+  (H2) at every sampled height the certified count in the Jensen disc is at or below the step's bound, ζ and Z_Q (sections 3-4; with the
+       VACUOUS reading named for ζ's inner disc, and J(T) ≤ S(T) read beside it).
+  (H3) every intermediate inequality holds at every sampled height, its margin printed (section 5).
+  (H4) C1 and C2 read as planted (section 6).
+  (H5) where H2 and H3 hold and H1 reads the T ≥ e bound as NOT sharper than every located bound at each of e, 10, 100 -- read as: at each
+       of the three heights at least one located bound is at or below the derived one -- the composition of b685's (6) (data/b685_count_plan.txt
+       :84-:90: the margin m(t) = 10 log(t + 3) − W(t) by interval subdivision on [149, 10⁶] and the coefficient comparison beyond, W from
+       tools/b685_count.py :214 W_window unedited, the window (149, 150) by 2 + W_150) is run, banked as data/b687_composition.txt, HCount's
+       inequality read at every t > 149 and the narrowest margin printed. Where its condition does not hold, H5 is NOT RUN with the reason.
+
+== 8. THE LANDING, AS (R297)(5) READS (no keystone; the faces page untouched; nothing claimed about ζ beyond the controls)
+  H1-H5 hold: P3 re-entered in data/b687_p3_status.txt in (R297)(5)'s words; data/b687_q0_reread.txt (the Q0 results of b675
+    (data/b675_hypotheses.txt), b679 (data/b679_q0_membership.txt), b683 (data/b683_landing.txt) re-read with that status); W-ORD-EPSTEIN-COUNT
+    DISCHARGED-BY-DERIVATION, pins data/b685_count.txt and data/b687_steps.txt; W-ORD-EPSTEIN-COUNT-LEAN entered, trigger "a research act
+    after b690" -- on OPEN_TRAILS and as rows appended to data/b670_work_orders.txt (additive, (R254)(2)).
+  H2 or H3 fails: the step named, REFUTED at that step with height and figures, P3 kept as stated, the order OPEN with the step as trigger.
+  H2 and H3 hold, H1 reads the bound still sharper than every located bound at a sampled height: the composition not run, P3 kept, the
+    four readings the finding, and one prompt with the figures side by side, options "accept the derivation at T ≥ 100 on the readings" and
+    "hold P3 until an outside reading"; nothing written before the answer.
+
+== 9. THE TOOL, ITS BANKS AND ITS PARTS (foreground, each one call under the 590 s guard, the memory hold read first; no lean)
+  tools/b687_readings.py, written by the Write tool, importing tools/b685_count.py, tools/b667_epstein_certify.py and tools/b671_narrow.py
+  unedited (their sha256 printed); its bank writes, the only ones: data/b687_readings_part<k>.json, data/b687_matched.txt,
+  data/b687_jensen_zeta.txt, data/b687_jensen_q0.txt, data/b687_steps.txt, data/b687_controls.txt, data/b687_composition.txt (H5 only)
+  and data/b687_readings.json; python-flint arb at 200 bits (b685's PREC), Z_Q at b667's rungs.
+    (R1) reading (i): the T ≥ e parameter search (b685's grid, 1344 sets at b685 in 25 s) and the matched bank -- about 1-2 minutes;
+    (R2) reading (ii): ζ zeros at three heights (about 30 per height at 10⁴ by N's density, 30 ms each), S(T) at both parameter sets, J(T),
+         the inner radii, C1 for ζ -- about 1-3 minutes;
+    (R3) the band (150, 151.5] × [−½, 3/2] by the argument principle -- about 2-10 minutes (b667 counted 180 squares in 12,903 s on 8
+         workers at h = 1e-12; one box of perimeter 7 at the default subdivision far fewer points); split by edge if the first edge passes
+         300 s;
+    (R4) reading (iii) and C1 for Z_Q -- under 2 minutes;
+    (R5) reading (iv) for ζ (2048 θ × 2 × 3 heights, about 12,000 evaluations) and C2 -- about 1-3 minutes;
+    (R6) reading (iv) for Z_Q (128 θ × 2 × 3 heights plus the top-edge segments) and C2 -- about 2-6 minutes;
+    (R7) the hypotheses, the banks and, where H5's condition holds, the composition (about 900 pieces at ratio 1.01) -- about 1-3 minutes.
+  Memory under 1 GB.
+
+== 10. WHAT STOPS THE ACT AT THIS PLAN
+  No reading is made before the author's word on this plan. A straddling ball (an UNDECIDED comparison) stops its reading at that point and
+  is printed. A REFUTED step lands per section 8 with no repair in this act.
