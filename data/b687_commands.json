@@ -1,5 +1,5 @@
 {
- "at": "2026-10-19T02:47:11Z",
+ "at": "2026-10-19T03:10:36Z",
  "anchor": "RULING (R297) BEGIN",
  "rows": [
   {
@@ -1072,6 +1072,132 @@
    "src": "seat",
    "cmd": "git -C D:/MY-DOwnloads/PLACE-papers add -- OPEN_TRAILS.md && git -C D:/MY-DOwnloads/PLACE-papers commit -q -m \"b687 record: the trail record at OPEN_TRAILS :14894, carrying the act root 898a4100 (b687, under (R297))\" && git -C D:/MY-DOwnloads/PLACE-papers log --oneline -1",
    "n": 153
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:47:08.939Z",
+   "src": "seat",
+   "cmd": "timeout 60 python -X utf8 -B tools/b687_record.py defects && timeout 60 python -X utf8 -B tools/b687_record.py desk && timeout 60 python -X utf8 -B tools/b687_record.py components && timeout 400 python -X utf8 -B tools/b687_record.py commands | head -1 | cut -c1-120 && git status --short | grep -E \"b687|act_roots\"",
+   "n": 154
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:47:18.693Z",
+   "src": "seat",
+   "cmd": "git add -- data/act_roots.txt data/b687_commands.json data/b687_commands.txt data/b687_defects.json data/b687_act_root.json data/b687_act_root.txt data/b687_components.txt data/b687_desk_notes.txt data/b687_pp_root_push_out.txt data/b687_relay_root_push_out.txt data/b687_root_arm.json data/b687_root_arm.txt data/b687_root_banks.json data/b687_root_banks.txt data/b687_scanfile_entry.md data/b687_scanfile_trail.md data/b687_trail.json && git commit -q -m \"b687 record: the act root 898a4100 appended last, chained from b686's, every named bank committed and pushed at ed11dc9a (G-ROOT-BANKS-COMMITTED's reading); its offline control; the trail (OPEN_TRAILS :14894); the components, the desk; the pre-root push captures\" && git log --oneline -1",
+   "n": 155
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:47:27.197Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b687_checks.py --part standing-a 2>&1 | grep -E \"FAIL|raised|PART standing-a :|free memory\" | grep -v \"FAIL  OK$\" | cut -c1-260",
+   "n": 156
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:50:28.316Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b687_checks.py --part standing-c 2>&1 | grep -E \"FAIL|raised|PART standing-c :|free memory|uncovered\" | grep -v \"FAIL  OK$\" | cut -c1-260",
+   "n": 157
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:51:10.630Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b687_checks.py --part standing-b 2>&1 | grep -E \"FAIL|raised|PART standing-b :|free memory\" | grep -v \"FAIL  OK$\" | cut -c1-260",
+   "n": 158
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:57:05.381Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b687_checks.py --part act 2>&1 | grep -E \"FAIL|raised|PART act :|free memory|GENERATOR|rows added\" | grep -v \"FAIL  OK$\" | cut -c1-260",
+   "n": 159
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:58:02.953Z",
+   "src": "seat",
+   "cmd": "timeout 120 python -X utf8 -B tools/b687_checks.py --combine b687_checks.txt 2>&1 | head -12 | cut -c1-220; git status --short --untracked-files=no",
+   "n": 160
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:58:09.192Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git branch push-b687 51d3aac && PUSH_GATED_LOG=/d/relay/data/b687_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b687",
+   "n": 161
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:58:40.134Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git branch push-b687 24b23df1 && PUSH_GATED_LOG=/d/relay/data/b687_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b687",
+   "n": 162
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T02:58:51.262Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b687_checks.py --part standing-a 2>&1 | grep -E \"READING|FAIL|raised|PART standing-a :|free memory\" | grep -v \"FAIL  OK$\" | cut -c1-200",
+   "n": 163
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:01:53.106Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b687_checks.py --part standing-c 2>&1 | grep -E \"READING|FAIL|raised|PART standing-c :|free memory\" | grep -v \"FAIL  OK$\" | cut -c1-200",
+   "n": 164
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:02:35.715Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b687_checks.py --part standing-b 2>&1 | grep -E \"READING|FAIL|raised|PART standing-b :|free memory\" | grep -v \"FAIL  OK$\" | cut -c1-200",
+   "n": 165
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:08:30.154Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b687_checks.py --part act 2>&1 | grep -E \"READING|FAIL|raised|PART act :|free memory\" | grep -v \"FAIL  OK$\" | cut -c1-200",
+   "n": 166
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:09:28.670Z",
+   "src": "seat",
+   "cmd": "timeout 120 python -X utf8 -B tools/b687_checks.py --combine b687_checks_postpush.txt 2>&1 | head -9 | cut -c1-200",
+   "n": 167
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:09:36.859Z",
+   "src": "seat",
+   "cmd": "timeout 400 python -X utf8 -B tools/b687_record.py scores close 2>&1 | cut -c1-260",
+   "n": 168
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:09:50.301Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b687_record.py mbuild 2>&1 | tail -6 | cut -c1-200",
+   "n": 169
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:10:14.855Z",
+   "src": "seat",
+   "cmd": "timeout 300 python -X utf8 -B tools/b687_record.py mroot 2>&1 | cut -c1-250",
+   "n": 170
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:10:22.072Z",
+   "src": "seat",
+   "cmd": "timeout 400 python -X utf8 -B tools/b687_record.py mverify 2>&1 | tail -6 | cut -c1-220 && timeout 200 python -X utf8 -B tools/b687_record.py mbank 2>&1 | cut -c1-220",
+   "n": 171
   }
  ],
  "offences": [
