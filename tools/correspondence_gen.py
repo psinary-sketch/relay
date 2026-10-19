@@ -232,6 +232,52 @@ def clause_at_tag(toks, tag, commit):
     return True
 
 
+# ### b691, (R301)(3), W-ORD-CORRESPONDENCE-CARRIED-AT: a clause followed in its kernel cell by "(carried at <kernel> <version>)" pins the
+# ### carried kernel at the commit the CARRYING kernel's source cites at that version, not at the carried kernel's current tag (the b688 case:
+# ### "SIDE-li-map = 73cee42 (carried at lv-conservation v0.7.0)", SIDE-lv-conservation v0.7.0's RegisterPentagon.lean :44, :157, :241
+# ### citing 73cee42). The pin is read by git grep at the version tag over the carrying kernel's *.lean, on the lines naming the carried
+# ### kernel; every 7-40 hex token there resolved as a commit of the carried kernel; one commit read is the carry, none or more than one leaves
+# ### the clause as it stands, counted CARRIED AT: UNREAD; a clause whose own version token peels elsewhere than the carry is held as it
+# ### stands, counted CARRIED AT: VERSION DIFFERS and listed. A line wrapped from the kernel's name (RegisterPentagon.lean :43-:44) is not
+# ### read; the b688 carry reads from :157 and :241.
+CARRIED = re.compile(r'^[`*]*\s*\(carried at `?([a-z][a-z0-9-]*)`? `?(v\d+(?:\.\d+)*)`?\)')
+_CARRY = {}
+
+
+def read_carry(carrier, version, k):
+    """The commit of k that the carrying kernel's *.lean cites at the version tag (git grep over the carrier's clone, every 7-40 hex token
+    on a line naming k resolved in k's clone); '' where none or more than one commit is cited."""
+    key = (carrier, version, k)
+    if key not in _CARRY:
+        _rc, out = git(KD + carrier, 'grep', '-n', '-F', k, version, '--', '*.lean')
+        full = set()
+        for l in out.split(NL):
+            for h in re.findall(r'(?<![0-9a-f])([0-9a-f]{7,40})(?![0-9a-zA-Z])', l.split(':', 3)[-1] if l.count(':') >= 3 else l):
+                rc, f = git(KD + k, 'rev-parse', '--verify', '-q', h + '^{commit}')
+                if rc == 0 and f.strip():
+                    full.add(f.strip())
+        _CARRY[key] = full.pop() if len(full) == 1 else ''
+    return _CARRY[key]
+
+
+def read_peel(k, ver):
+    """The commit k's version tag peels to in k's clone; '' where the tag is not there."""
+    rc, f = git(KD + k, 'rev-parse', '--verify', '-q', ver + '^{commit}')
+    return f.strip() if rc == 0 else ''
+
+
+def carried_pin(kc, toks, k, reader):
+    """The carry of a clause: None where no "(carried at <kernel> <version>)" follows the clause's tokens; else (the commit the carrying
+    kernel's source cites for k at that version by the reader, or '' where it cites none or several, the carrying kernel, the version)."""
+    if not toks:
+        return None
+    m = CARRIED.match(kc[max(e for _s, e, _kind, _t in toks):])
+    if not m:
+        return None
+    carrier = m.group(1) if m.group(1).startswith('SIDE-') else 'SIDE-' + m.group(1)
+    return reader(carrier, m.group(2), k), carrier, m.group(2)
+
+
 def regen_lines(lines, anchor, ctx, doc=''):
     """One table regenerated. `lines` without their endings; `anchor` dict(heading, header); `ctx` the sources:
         tags      {kernel: (tag, commit40)} -- a kernel absent or None has no tag
@@ -329,6 +375,25 @@ def regen_lines(lines, anchor, ctx, doc=''):
                 continue
             kt, kcm = ctx['tags'][k]
             if not any(ctx['present'](k, kcm, d) for d in decls):
+                continue
+            carry = carried_pin(kc, toks, k, ctx.get('carry') or read_carry)
+            if carry is not None:
+                # ### b691: a carried clause keeps (or takes) the carrying source's commit; its version token is the carrier's, untouched
+                if not carry[0]:
+                    res['counts']['CARRIED AT: UNREAD'] += 1
+                    continue
+                # ### a clause whose own version does not peel to the carry is held as it stands: a commit written beside it would pair
+                # ### one version with another version's commit (the b691 dry: SIDE-kernel v1.8 beside the carry's v1.3 = 0bc21c0)
+                vt = [t for t in toks if t[2] == 'ver']
+                if vt and (ctx.get('peel') or read_peel)(k, vt[0][3]) != carry[0]:
+                    res['counts']['CARRIED AT: VERSION DIFFERS'] += 1
+                    res.setdefault('carry_held', []).append(dict(line=i + 1, kernel=k, version=vt[0][3], carrier=carry[1],
+                                                                 at=carry[2], carry=carry[0]))
+                    continue
+                res['counts']['CARRIED AT'] += 1
+                hx = [t for t in toks if t[2] == 'hex']
+                if hx:
+                    new_kc = rewrite_clause_tokens(new_kc, hx, kt, carry[0])
                 continue
             if not clause_at_tag(toks, kt, kcm):
                 new_kc = rewrite_clause_tokens(new_kc, toks, kt, kcm)
@@ -678,6 +743,11 @@ def main(mode, roster_path=ROSTER, full=False):
                     c['doc'], c['line'], c['column'], c['kernel'], sha(c['old'])[:16], len(c['old']), sha(c['new'])[:16], len(c['new'])))
             else:
                 L.append('    %s :%d | %s | %s | OLD %s | NEW %s' % (c['doc'], c['line'], c['column'], c['kernel'], c['old'], c['new']))
+    L += ['', '### THE CARRIED-AT CLAUSES (b691, (R301)(3)): read from the carrying source; CARRIED AT %d ; CARRIED AT: UNREAD %d ; CARRIED AT: '
+              'VERSION DIFFERS %d, each held as it stands (document :line ; kernel ; the clause`s version ; carried at ; the carry the source cites)'
+          % (tot['CARRIED AT'], tot['CARRIED AT: UNREAD'], tot['CARRIED AT: VERSION DIFFERS'])]
+    L += ['    %s :%d ; %s ; %s ; %s %s ; %s' % (r['doc'], h['line'], h['kernel'], h['version'], h['carrier'], h['at'], h['carry'][:12])
+          for r in results for h in r.get('carry_held', [])] or ['    none held']
     L += ['', '### THE CELL WORDS BY KERNEL: ' + '; '.join('%s %s' % (k, dict(c)) for k, c in sorted(byk.items())) if byk else '### THE CELL WORDS BY KERNEL: none']
     shaped = sum(1 for r in results if r['status'] == 'SHAPED')
     L += ['### ### **TABLES %d ; SHAPED %d ; NOT IN THE GENERATOR`S SHAPE %d ; ANCHOR NOT FOUND %d ; KERNELS %d (WITH A TAG %d) ; CELLS CHANGED %d ; '

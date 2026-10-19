@@ -11,6 +11,9 @@ tools/correspondence_gen.py's regen_lines / regen_bytes with no git, no remote a
       it (an axioms bank beside its runner bank, in a scratch directory) and read by the generator's reader: a declaration absent from the
       kernel at the tag, and so from the bank, reads ABSENT AT <tag> and not NO PRINT BANK; a printed declaration reads the bank's verdict, the
       word NO PRINT BANK replaced by it; a declaration declared at the tag and not printed reads NOT PRINTED AT <tag> (b672's word kept).
+  (6) (b691, (R301)(3)) a clause carried at another kernel's version: its commit read from the carrying source (planted as a reader), kept
+      when it stands at the carry, set to the carry when it does not, held as it stands when the carrier cites none; case (1)'s row 1, carried
+      at a planted y that cites none, is held there since b691.
 Each case also checks that no row is gained or lost and no cell is left blank. Every check prints its expected and its read value (b682).
 
     python -X utf8 tools/test_correspondence_gen.py          prints the cases
@@ -33,8 +36,12 @@ def doc(rows):
     return ['# A planted document', '', HEAD, '', 'Prose above the table.', '', HDR, SEP] + rows + ['', 'Prose beneath the table.']
 
 
-def ctx(tags, banks, present_set, grades):
-    return dict(tags=tags, banks=banks, grades=grades, present=lambda k, c, n: (k, c[:7], n.split('.')[-1]) in present_set)
+def ctx(tags, banks, present_set, grades, carries=None, peels=None):
+    # ### b691: the carrying sources planted as {(carrier, version, kernel): commit}; a carry not planted reads '' (the source cites none);
+    # ### the version tags planted as {(kernel, version): commit}
+    return dict(tags=tags, banks=banks, grades=grades, present=lambda k, c, n: (k, c[:7], n.split('.')[-1]) in present_set,
+                carry=lambda carrier, v, k: (carries or {}).get((carrier, v, k), ''),
+                peel=lambda k, v: (peels or {}).get((k, v), ''))
 
 
 def cells_ok(lines):
@@ -67,15 +74,19 @@ def case1():
             {'SIDE-x': {'X.Mod.thm': 'INTERFACES', 'X.Mod.two': 'DERIVES'}})
     L0 = doc(rows)
     L1, r = G.regen_lines(L0, ANCHOR, c, 'planted-1')
-    ok = check('row 1 rewritten', L1[8], '| a claim | SIDE-x v0.2.0 = `bbbbbbb` (carried at y v0.3) | `Mod.thm` | `{propext}` | **INTERFACES** — prose kept. |')
+    # ### b691 (R301)(3): row 1's clause is carried at y v0.3, and the planted SIDE-y cites no SIDE-x commit there, so its pin is held as it
+    # ### stands (CARRIED AT: UNREAD) and the profile and grade follow the bank; before b691 the clause went to SIDE-x's tag
+    ok = check('row 1: the carried clause held (its carrier cites none), profile and grade rewritten', L1[8],
+               '| a claim | SIDE-x v0.1.0 = `aaaaaaa` (carried at y v0.3) | `Mod.thm` | `{propext}` | **INTERFACES** — prose kept. |')
+    ok &= check('CARRIED AT: UNREAD counted 1', r['counts']['CARRIED AT: UNREAD'], 1)
     ok &= check('row 2 (inheriting) rewritten in its own form', L1[9], '| inherited | v0.2.0 (`bbbbbbb`) | `Mod.two` | axiom-free | DERIVES |')
     ok &= check('row 3 (a bold commit alone): the commit in place, the trailing prose and its pin kept', L1[10],
                 '| bold pin | SIDE-x **`bbbbbbb`** (re-verified; drafted against v0.0 `ccccccc`) | `Mod.thm` | `{propext}` | INTERFACES |')
     ok &= check('row 4 (declared at the tag, not in the bank): NOT PRINTED AT the tag, the verified profile and its pin kept beside, the commit bare',
                 L1[11], '| not printed | SIDE-x v0.2.0 = `bbbbbbb` | `Mod.np` | NOT PRINTED AT v0.2.0 (was `{propext, Quot.sound}` at v0.1.0 = aaaaaaa) | DERIVES |')
     ok &= check('lines outside the table untouched; row count equal', (L1[:8], L1[12:], len(L1)), (L0[:8], L0[12:], len(L0)))
-    ok &= check('cells changed 8 (kernel, profile, status of row 1; kernel of row 2; kernel, status of row 3; kernel, profile of row 4)',
-                r['counts']['CELLS CHANGED'], 8)
+    ok &= check('cells changed 7 (profile, status of row 1; kernel of row 2; kernel, status of row 3; kernel, profile of row 4)',
+                r['counts']['CELLS CHANGED'], 7)
     ok &= check('no blank cell', cells_ok(L1), True)
     return ok, L1, c
 
@@ -154,13 +165,40 @@ def case5():
     return ok
 
 
+def case6():
+    OUT.append('### (6) A CLAUSE CARRIED AT ANOTHER KERNEL`S VERSION (b691, (R301)(3)): SIDE-x tagged v0.2.0 at bbbbbbb; SIDE-lv v0.7.0`s source '
+               'cites SIDE-x at ddddddd (the b688 case: SIDE-li-map = 73cee42 carried at lv-conservation v0.7.0)')
+    C_D = 'd' * 7 + '4' * 33
+    rows = ['| at its carry | SIDE-x = `ddddddd` (carried at lv v0.7.0) | `Mod.thm` | `{propext}` | DERIVES |',
+            '| off its carry | SIDE-x = `eeeeeee` (carried at lv v0.7.0) | `Mod.thm` | `{propext}` | DERIVES |',
+            '| unread carry | SIDE-x = `fffffff` (carried at w v0.1) | `Mod.thm` | `{propext}` | DERIVES |',
+            '| versioned at its carry | SIDE-x v0.1.0 = `eeeeeee` (carried at lv v0.7.0) | `Mod.thm` | `{propext}` | DERIVES |',
+            '| version off its carry | SIDE-x v0.2.0 = `bbbbbbb` (carried at lv v0.7.0) | `Mod.thm` | `{propext}` | DERIVES |']
+    c = ctx({'SIDE-x': ('v0.2.0', C_NEW)}, {'SIDE-x': dict(prints={'X.Mod.thm': ['propext']})}, {('SIDE-x', 'bbbbbbb', 'thm')},
+            {'SIDE-x': {'X.Mod.thm': 'DERIVES'}}, {('SIDE-lv', 'v0.7.0', 'SIDE-x'): C_D}, {('SIDE-x', 'v0.1.0'): C_D, ('SIDE-x', 'v0.2.0'): C_NEW})
+    L1, r = G.regen_lines(doc(rows), ANCHOR, c, 'planted-6')
+    ok = check('a clause at its carry kept: the carrier`s commit, not the tag`s', L1[8], rows[0])
+    ok &= check('a clause off its carry takes the carrier`s commit at the cited length; the carry words untouched', L1[9],
+                '| off its carry | SIDE-x = `ddddddd` (carried at lv v0.7.0) | `Mod.thm` | `{propext}` | DERIVES |')
+    ok &= check('a carry the carrier does not cite held as it stands', L1[10], rows[2])
+    ok &= check('a versioned clause whose version peels to the carry: the commit set to the carry, the version kept', L1[11],
+                '| versioned at its carry | SIDE-x v0.1.0 = `ddddddd` (carried at lv v0.7.0) | `Mod.thm` | `{propext}` | DERIVES |')
+    ok &= check('a versioned clause whose version does not peel to the carry held as it stands, listed', (L1[12], len(r.get('carry_held', []))),
+                (rows[4], 1))
+    ok &= check('the counts: CARRIED AT 3, CARRIED AT: UNREAD 1, CARRIED AT: VERSION DIFFERS 1, CELLS CHANGED 2',
+                (r['counts']['CARRIED AT'], r['counts']['CARRIED AT: UNREAD'], r['counts']['CARRIED AT: VERSION DIFFERS'],
+                 r['counts']['CELLS CHANGED']), (3, 1, 1, 2))
+    ok &= check('no blank cell', cells_ok(L1), True)
+    return ok
+
+
 def main():
     OUT.append('b672 -- THE CORRESPONDENCE GENERATOR`S PLANTED CASES, (R282)(4): tools/test_correspondence_gen.py over tools/correspondence_gen.py '
                '(the fifth case b682`s, under (R292)(3))')
     OUT.append('')
     OUT.append('### rows are planted cases, each check with its expected and its read value')
     ok1, L1, c1 = case1()
-    res = [ok1, case2(), case3(), case4(L1, c1), case5()]
+    res = [ok1, case2(), case3(), case4(L1, c1), case5(), case6()]
     n = sum(1 for x in res if x)
     OUT.append('')
     OUT.append('### ### **PLANTED CASES %d ; AS WANTED %d ; %s**' % (len(res), n, 'PASS' if n == len(res) else 'FAIL'))

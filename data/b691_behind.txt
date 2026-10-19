@@ -1,0 +1,98 @@
+b691 -- COMPONENT 3, (R301)(3): THE GENERATOR`S "BEHIND" AGAINST READING 3`S 57, ROW BY ROW (2026-10-19T19:02:37Z)
+
+### rows: reading 3`s BEHIND rows as banked (relay data/b690_r3_corr.txt :37-:165, b672_record.after by import, 2026-10-19T15:29:42Z), each with
+### the generator`s reading beside: the repaired generator`s dry (tools/correspondence_gen.py at sha256 1aec5d03dde5dd8a, regen_bytes over the roster
+### data/b672_roster_read.json, the tags read locally by read_tags(remote=False) :496-:512, nothing written) and the generator bank reading 3`s
+### cause column read (relay data/b672_correspondence_diff.json, 2026-10-16T16:29:58Z). A withheld document`s rows by count.
+
+### WHAT EACH COUNTS AGAINST, BY LINE OF EACH TOOL:
+###   reading 3 (tools/b672_record.py after): every backticked commit in the row, in every cell (:473 HEX7, :514), each resolved in the
+###     document`s kernels (:519) and set against that kernel`s local tag on main (:524-:528, `_ltag`); the row BEHIND if any one commit is
+###     behind (:530); over b670`s span, past the table proper (:506, :510; :535 HISTORICAL) and over the tables not in the generator`s shape
+###     (:533-:534 NOT IN SHAPE); its cause column read from the generator`s bank of 2026-10-16 (:492, :508, :537), not from a fresh reading.
+###   the generator (tools/correspondence_gen.py): the kernel cell`s leading clause alone -- its version and commit tokens (parse_kernel_cell
+###     :153-:196) -- against the clause`s own kernel`s highest v-tag (read_tags :496, ls-remote on a run, the local clone on a dry), in the
+###     shaped tables within the table proper (find_table :138); a row held, absent, untagged or without a declaration is not read for the
+###     clause (regen_lines :332-:369); a clause at its tag is left (clause_at_tag :224, the loop :373-:399); a carried clause reads its carry
+###     (:379-:397, this act`s repair). Prose and other cells are carried unverified (its own header line, b672).
+
+### THE ROWS (document :line ; reading 3`s cause ; reading 3`s commits ; the generator, fresh ; the generator`s 2026-10-16 bank, reading 3`s input):
+    PATHS_TO_THE_CRITICAL_LINE :292 ; NO TAG ; 73cee42 SIDE-li-map BEHIND NO TAG AT OR BEFORE IT ; PRINTED ; KERNEL CELL WRITTEN BY THE DRY (THE LEADING CLAUSE BEHIND ITS TAG) ; NO TAG
+    PATHS_TO_THE_CRITICAL_LINE :298 ; HELD: DEPOSIT PIN ; 21433177 - UNRESOLVED - ; 19b7d1e SIDE-explicit-formula BEHIND v0.11 ; 5c72cad SIDE-explicit-formula BEHIND v0.2 ; HELD: DEPOSIT PIN ; KERNEL CELL NOT WRITTEN ; HELD: DEPOSIT PIN
+    PATHS_TO_THE_CRITICAL_LINE :299 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 19b7d1e SIDE-explicit-formula BEHIND v0.11 ; 5c72cad SIDE-explicit-formula BEHIND v0.2 ; NOT PRINTED ; KERNEL CELL NOT WRITTEN ; NOT PRINTED
+    PATHS_TO_THE_CRITICAL_LINE :301 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; baed4df SIDE-explicit-formula BEHIND v0.1 ; PRINTED ; KERNEL CELL HELD: CARRIED AT, VERSION DIFFERS ; PRINTED
+    PATHS_TO_THE_CRITICAL_LINE :308 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 93c27ec SIDE-lv-conservation BEHIND v0.10.0 ; NOT PRINTED ; KERNEL CELL NOT WRITTEN ; NOT PRINTED
+    PATHS_TO_THE_CRITICAL_LINE :310 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; f18e143 SIDE-kernel BEHIND v1.1 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    PATHS_TO_THE_CRITICAL_LINE :326 ; HISTORICAL ; 0e5233f SIDE-kernel BEHIND v1.5 ; e4ea219 SIDE-kernel BEHIND v1.4 ; 5be31be SIDE-kernel BEHIND v1.4 ; 691295b SIDE-kernel BEHIND v1.5 ; NOT A GENERATOR ROW: PAST THE TABLE :283-:312 ; NOT A ROW OF THE BANK
+    PATHS_TO_THE_CRITICAL_LINE :327 ; HISTORICAL ; 0e5233f SIDE-kernel BEHIND v1.5 ; NOT A GENERATOR ROW: PAST THE TABLE :283-:312 ; NOT A ROW OF THE BANK
+    PATHS_TO_THE_CRITICAL_LINE :328 ; HISTORICAL ; 0e5233f SIDE-kernel BEHIND v1.5 ; baed4df SIDE-explicit-formula BEHIND v0.1 ; NOT A GENERATOR ROW: PAST THE TABLE :283-:312 ; NOT A ROW OF THE BANK
+    PATHS_TO_THE_CRITICAL_LINE :329 ; HISTORICAL ; e3d08b6 SIDE-lv-conservation BEHIND v0.9.0 ; 19b7d1e SIDE-explicit-formula BEHIND v0.11 ; 5c72cad SIDE-explicit-formula BEHIND v0.2 ; NOT A GENERATOR ROW: PAST THE TABLE :283-:312 ; NOT A ROW OF THE BANK
+    PATHS_TO_THE_CRITICAL_LINE :330 ; HISTORICAL ; e3d08b6 SIDE-lv-conservation BEHIND v0.9.0 ; NOT A GENERATOR ROW: PAST THE TABLE :283-:312 ; NOT A ROW OF THE BANK
+    PATHS_TO_THE_CRITICAL_LINE :331 ; HISTORICAL ; e3d08b6 SIDE-lv-conservation BEHIND v0.9.0 ; 5e932f97 - UNRESOLVED - ; 93c27ec SIDE-lv-conservation BEHIND v0.10.0 ; NOT A GENERATOR ROW: PAST THE TABLE :283-:312 ; NOT A ROW OF THE BANK
+    PATHS_TO_THE_CRITICAL_LINE :332 ; HISTORICAL ; d5f33b4 SIDE-rcurve AT THE TAG v0.1.0 ; 5c72cad SIDE-explicit-formula BEHIND v0.2 ; NOT A GENERATOR ROW: PAST THE TABLE :283-:312 ; NOT A ROW OF THE BANK
+    PATHS_TO_THE_CRITICAL_LINE :334 ; HISTORICAL ; 858cbf6 SIDE-grh-transfer* BEHIND v0.5.0 ; NOT A GENERATOR ROW: PAST THE TABLE :283-:312 ; NOT A ROW OF THE BANK
+    PATHS_TO_THE_CRITICAL_LINE :386 ; HISTORICAL ; 6efa9e5 SIDE-lv-conservation BEHIND v0.8.0 ; NOT A GENERATOR ROW: PAST THE TABLE :283-:312 ; NOT A ROW OF THE BANK
+    PATHS_TO_THE_CRITICAL_LINE :387 ; HISTORICAL ; e5a5a83 SIDE-explicit-formula BEHIND v0.9 ; 6efa9e5 SIDE-lv-conservation BEHIND v0.8.0 ; NOT A GENERATOR ROW: PAST THE TABLE :283-:312 ; NOT A ROW OF THE BANK
+    SIMPLICITY_OF_RIEMANN_ZEROS :435 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 78f9b5a SIDE-kernel BEHIND v1.4 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    SIMPLICITY_OF_RIEMANN_ZEROS :437 ; ABSENT ; 27a3ae7 SIDE-kernel OFF THE TAG`S LINE v1.5 ; 691295b SIDE-kernel BEHIND v1.5 ; ABSENT ; KERNEL CELL NOT WRITTEN ; ABSENT
+    SIMPLICITY_OF_RIEMANN_ZEROS :452 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; f18e143 SIDE-kernel BEHIND v1.1 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    SIMPLICITY_OF_RIEMANN_ZEROS :454 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 8e3bc76 SIDE-lv-conservation AT THE TAG v0.13.0 ; 2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; NOT PRINTED ; KERNEL CELL NOT WRITTEN ; NOT PRINTED
+    THE_UNCONDITIONAL_SURROUND :185 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 691295b SIDE-kernel BEHIND v1.5 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    THE_UNCONDITIONAL_SURROUND :187 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; f18e143 SIDE-kernel BEHIND v1.1 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    THE_UNCONDITIONAL_SURROUND :189 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 5c72cad SIDE-explicit-formula BEHIND v0.2 ; NO KERNEL ; KERNEL CELL NOT WRITTEN ; NO KERNEL
+    THE_UNCONDITIONAL_SURROUND :190 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 8e3bc76 SIDE-lv-conservation AT THE TAG v0.13.0 ; 19b7d1e SIDE-explicit-formula BEHIND v0.11 ; 5c72cad SIDE-explicit-formula BEHIND v0.2 ; NOT PRINTED ; KERNEL CELL NOT WRITTEN ; NOT PRINTED
+    THE_UNCONDITIONAL_SURROUND :191 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 8e3bc76 SIDE-lv-conservation AT THE TAG v0.13.0 ; 2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; NOT PRINTED ; KERNEL CELL NOT WRITTEN ; NOT PRINTED
+    THE_UNCONDITIONAL_SURROUND :193 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 8e3bc76 SIDE-lv-conservation AT THE TAG v0.13.0 ; 93c27ec SIDE-lv-conservation BEHIND v0.10.0 ; NOT PRINTED ; KERNEL CELL NOT WRITTEN ; NOT PRINTED
+    GRH_CASCADE :390 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 78bbcff SIDE-effects AT THE TAG v0.1.1 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    GRH_CASCADE :395 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 78bbcff SIDE-effects AT THE TAG v0.1.1 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    R_CURVE_CRITERION :353 ; ABSENT ; 27a3ae7 SIDE-kernel OFF THE TAG`S LINE v1.5 ; 01e5633 SIDE-kernel OFF THE TAG`S LINE v1.5 ; 691295b SIDE-kernel BEHIND v1.5 ; ABSENT ; KERNEL CELL NOT WRITTEN ; ABSENT
+    R_CURVE_CRITERION :359 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 8e3bc76 SIDE-lv-conservation AT THE TAG v0.13.0 ; 19b7d1e SIDE-explicit-formula BEHIND v0.11 ; 5c72cad SIDE-explicit-formula BEHIND v0.2 ; NOT PRINTED ; KERNEL CELL NOT WRITTEN ; NOT PRINTED
+    R_CURVE_CRITERION :362 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 5c72cad SIDE-explicit-formula BEHIND v0.2 ; NO KERNEL ; KERNEL CELL NOT WRITTEN ; NO KERNEL
+    INDEX_ARITY_AT_THE_CRITICAL_LINE :375 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 70aba3c SIDE-kernel AT THE TAG v1.8 ; baed4df SIDE-explicit-formula BEHIND v0.1 ; 5c72cad SIDE-explicit-formula BEHIND v0.2 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    INDEX_ARITY_AT_THE_CRITICAL_LINE :376 ; HELD: DEPOSIT PIN ; 93c27ec SIDE-lv-conservation BEHIND v0.10.0 ; HELD: DEPOSIT PIN ; KERNEL CELL NOT WRITTEN ; HELD: DEPOSIT PIN
+    INDEX_ARITY_AT_THE_CRITICAL_LINE :379 ; BEHIND IN CARRIED PROSE (THE KERNEL CELL`S TRAILING TEXT) ; 8e3bc76 SIDE-lv-conservation AT THE TAG v0.13.0 ; 2f71068 SIDE-lv-conservation BEHIND v0.11.0 ; NOT PRINTED ; KERNEL CELL NOT WRITTEN ; NOT PRINTED
+    INDEX_ARITY_AT_THE_CRITICAL_LINE :387 ; BEHIND IN CARRIED PROSE (THE KERNEL CELL`S TRAILING TEXT) ; 8e3bc76 SIDE-lv-conservation AT THE TAG v0.13.0 ; 2f71068 SIDE-lv-conservation BEHIND v0.11.0 ; NOT PRINTED ; KERNEL CELL NOT WRITTEN ; NOT PRINTED
+    ADDITIVE_MULTIPLICATIVE_CONSPIRACY :410 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 78bbcff SIDE-effects AT THE TAG v0.1.1 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    ADDITIVE_MULTIPLICATIVE_CONSPIRACY :412 ; ABSENT ; c66f3c5 SIDE-effects BEHIND phase-1.5-module-1-v2 ; ABSENT ; KERNEL CELL NOT WRITTEN ; ABSENT
+    ADDITIVE_MULTIPLICATIVE_CONSPIRACY :416 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; f374174 SIDE-kernel BEHIND v1.4 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    ADDITIVE_MULTIPLICATIVE_CONSPIRACY :448 ; HISTORICAL ; c66f3c5 SIDE-effects BEHIND phase-1.5-module-1-v2 ; a27415d SIDE-effects BEHIND phase-1.5-module-1-v2 ; NOT A GENERATOR ROW: PAST THE TABLE :408-:417 ; NOT A ROW OF THE BANK
+    FOUNDATIONS_OF_THE_SIDE_PROGRAMME :630 ; BEHIND IN CARRIED PROSE (THE KERNEL CELL`S TRAILING TEXT) ; 667c254 SIDE-silence-principle BEHIND v0.2.0 ; PRINTED ; KERNEL CELL NOT WRITTEN ; NO PRINT BANK
+    TECHNE_TOOLKIT (withheld) ; NOT IN SHAPE ; BY COUNT ; WITHHELD: BY COUNT (THE TABLE NOT IN THE GENERATOR`S SHAPE: NOT IN THE GENERATOR`S SHAPE) ; -
+    TECHNE_TOOLKIT (withheld) ; NOT IN SHAPE ; BY COUNT ; WITHHELD: BY COUNT (THE TABLE NOT IN THE GENERATOR`S SHAPE: NOT IN THE GENERATOR`S SHAPE) ; -
+    INVARIANCE_BARRIERS :503 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 70aba3c SIDE-kernel AT THE TAG v1.8 ; baed4df SIDE-explicit-formula BEHIND v0.1 ; 5c72cad SIDE-explicit-formula BEHIND v0.2 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    REPARAMETERIZATION_BARRIERS_v0_1 :223 ; BEHIND IN CARRIED PROSE (THE KERNEL CELL`S TRAILING TEXT) ; 70aba3c SIDE-kernel AT THE TAG v1.8 ; 2957e7d SIDE-kernel BEHIND v1.7 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    REPARAMETERIZATION_BARRIERS_v0_1 :224 ; BEHIND IN CARRIED PROSE (THE KERNEL CELL`S TRAILING TEXT) ; 70aba3c SIDE-kernel AT THE TAG v1.8 ; 2957e7d SIDE-kernel BEHIND v1.7 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+    A_Place_to_Stand :2241 ; HELD: DEPOSIT PIN ; 0e5233f SIDE-kernel BEHIND v1.5 ; 5e668b4 SIDE-kernel BEHIND v1.7 ; HELD: DEPOSIT PIN ; KERNEL CELL NOT WRITTEN ; HELD: DEPOSIT PIN
+    A_Place_to_Stand :2248 ; HELD: DEPOSIT PIN ; 2f71068 SIDE-lv-conservation* BEHIND v0.11.0 ; 2d86182 SIDE-lv-conservation* BEHIND v0.7.0 ; HELD: DEPOSIT PIN ; KERNEL CELL NOT WRITTEN ; HELD: DEPOSIT PIN
+    A_Place_to_Stand :2249 ; HELD: DEPOSIT PIN ; 6efa9e5 SIDE-lv-conservation* BEHIND v0.8.0 ; HELD: DEPOSIT PIN ; KERNEL CELL NOT WRITTEN ; HELD: DEPOSIT PIN
+    BALANCE_AND_POSITIVITY :343 ; NOT IN SHAPE ; 73cee42 SIDE-li-map BEHIND NO TAG AT OR BEFORE IT ; NOT A GENERATOR ROW: THE TABLE NOT IN THE GENERATOR`S SHAPE ; TABLE NOT IN THE GENERATOR`S SHAPE
+    BALANCE_AND_POSITIVITY :344 ; NOT IN SHAPE ; c8e3d31 SIDE-lv-conservation BEHIND v0.2.0 ; NOT A GENERATOR ROW: THE TABLE NOT IN THE GENERATOR`S SHAPE ; TABLE NOT IN THE GENERATOR`S SHAPE
+    BALANCE_AND_POSITIVITY :345 ; NOT IN SHAPE ; c80bdc2 SIDE-lv-conservation BEHIND v0.6.0 ; 2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; 1767bd6 SIDE-lv-conservation BEHIND v0.5.0 ; bc4751e SIDE-lv-conservation BEHIND v0.5.1 ; 21433177 - UNRESOLVED - ; NOT A GENERATOR ROW: THE TABLE NOT IN THE GENERATOR`S SHAPE ; TABLE NOT IN THE GENERATOR`S SHAPE
+    BALANCE_AND_POSITIVITY :346 ; NOT IN SHAPE ; b1407b2 SIDE-kernel* BEHIND v1.2 ; NOT A GENERATOR ROW: THE TABLE NOT IN THE GENERATOR`S SHAPE ; TABLE NOT IN THE GENERATOR`S SHAPE
+    FACES_LEDGER :16 ; NOT IN SHAPE ; 2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; 0bc21c0 SIDE-kernel BEHIND v1.3 ; NOT A GENERATOR ROW: THE TABLE NOT IN THE GENERATOR`S SHAPE ; TABLE NOT IN THE GENERATOR`S SHAPE
+    FACES_LEDGER :17 ; NOT IN SHAPE ; 0bc21c0 SIDE-kernel BEHIND v1.3 ; NOT A GENERATOR ROW: THE TABLE NOT IN THE GENERATOR`S SHAPE ; TABLE NOT IN THE GENERATOR`S SHAPE
+    FACES_LEDGER :19 ; NOT IN SHAPE ; 2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; e3d08b6 SIDE-lv-conservation BEHIND v0.9.0 ; NOT A GENERATOR ROW: THE TABLE NOT IN THE GENERATOR`S SHAPE ; TABLE NOT IN THE GENERATOR`S SHAPE
+    FACES_LEDGER :27 ; NOT IN SHAPE ; 2d86182 SIDE-lv-conservation BEHIND v0.7.0 ; 6efa9e5 SIDE-lv-conservation BEHIND v0.8.0 ; 73cee42 SIDE-li-map BEHIND NO TAG AT OR BEFORE IT ; NOT A GENERATOR ROW: THE TABLE NOT IN THE GENERATOR`S SHAPE ; TABLE NOT IN THE GENERATOR`S SHAPE
+    E_DIFFICULTY_THEOREM :335 ; BEHIND IN CARRIED PROSE (ANOTHER CELL) ; 70aba3c SIDE-kernel* AT THE TAG v1.8 ; e0a8ba0 SIDE-kernel* BEHIND v1.1 ; f374174 SIDE-kernel* BEHIND v1.4 ; PRINTED ; KERNEL CELL NOT WRITTEN ; PRINTED
+
+### THE ROWS BY READING 3`S CAUSE AND THE GENERATOR`S READING:
+    ABSENT                                                     ABSENT                                                       3
+    BEHIND IN CARRIED PROSE (ANOTHER CELL)                     NO KERNEL                                                    2
+    BEHIND IN CARRIED PROSE (ANOTHER CELL)                     NOT PRINTED                                                  7
+    BEHIND IN CARRIED PROSE (ANOTHER CELL)                     PRINTED                                                      13
+    BEHIND IN CARRIED PROSE (THE KERNEL CELL`S TRAILING TEXT)  NOT PRINTED                                                  2
+    BEHIND IN CARRIED PROSE (THE KERNEL CELL`S TRAILING TEXT)  PRINTED                                                      3
+    HELD: DEPOSIT PIN                                          HELD                                                         5
+    HISTORICAL                                                 NOT A GENERATOR ROW                                          11
+    NO TAG                                                     GENERATOR`S CLAIM: BEHIND AT THE LEADING CLAUSE              1
+    NOT IN SHAPE                                               NOT A GENERATOR ROW                                          8
+    NOT IN SHAPE                                               WITHHELD                                                     2
+
+### THE CAUSE: SCOPE, NOT INPUTS. The two tools count different things against the same kind of reference (a kernel`s tag): reading 3
+### every commit anywhere in a row over a wider span, the generator the leading clause in the shaped table proper. The 57 are rows the
+### generator does not claim -- carried prose, held, historical, unshaped, absent -- save the rows it writes at the leading clause, 1 here,
+### which reading 3`s cause column could not see because it read the generator`s 2026-10-16 bank (b672_record.py :492, :508, :537), not a
+### fresh reading. The generator compares to the kernels` tags (read_tags :496), not to its inputs; the (R301)(3) repair of the count by a
+### tags bank from ls-remote therefore does not apply, and none is taken.
+
+### ### **ROWS 57 (READ 57) ; THE GENERATOR`S CLAIM AMONG THEM 1 ; NOT A GENERATOR ROW 19 ; A GENERATOR ROW NOT CLAIMED 35 ; WITHHELD 2 ; THE CAUSE: SCOPE (THE LEADING CLAUSE AGAINST EVERY COMMIT IN THE ROW), AND READING 3`S CAUSE COLUMN READ FROM THE GENERATOR`S 2026-10-16 BANK.**

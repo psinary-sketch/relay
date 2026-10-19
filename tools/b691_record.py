@@ -698,7 +698,119 @@ def cut(*a):
     print(NL.join(L))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, tie=tie, runner=runner, prints=prints, quote=quote, cut=cut)
+R3_ROW = re.compile(r'^    :(\d+)\s+BEHIND\s+(BEHIND IN CARRIED PROSE \(THE KERNEL CELL`S TRAILING TEXT\)) (\S.*)$|^    :(\d+)\s+BEHIND\s+(\S.+?)\s{2,}(\S.*)$')
+R3_DOC = re.compile(r'^=== (\S+)\s+(\S+) :(\d+)-:(\d+) \(span to :(\d+)\) (.+?) ; rows with a commit (\d+) ; (.*)$')
+WITHHELD_DOCS = ('TECHNE_TOOLKIT',)
+
+
+def _r3_rows():
+    """Reading 3's BEHIND rows as banked (relay data/b690_r3_corr.txt, b672_record.after's re-read): [(doc, line or None, cause, pins)], a
+    withheld document's rows by count (line None)."""
+    rows, doc, out = [], None, rdn('b690_r3_corr.txt').split(NL)
+    a = out.index('### THE ROWS WITH A COMMIT (document :line ; reading ; cause ; each commit, its kernel, its reading, its tag); a withheld document`s rows by count')
+    for l in out[a + 1:]:
+        if l.startswith('### THE ROWS BY READING AND CAUSE'):
+            break
+        m = R3_DOC.match(l)
+        if m:
+            doc = m.group(1)
+            if doc in WITHHELD_DOCS:
+                n = int((re.search(r"'BEHIND': (\d+)", m.group(8)) or [0, 0])[1])
+                rows += [(doc, None, 'NOT IN SHAPE', 'WITHHELD: BY COUNT')] * n
+            continue
+        m = R3_ROW.match(l)
+        if m:
+            ln, why, pins = (m.group(1), m.group(2), m.group(3)) if m.group(1) else (m.group(4), m.group(5), m.group(6))
+            rows.append((doc, int(ln), why.strip(), pins.strip()))
+    return rows
+
+
+def behind(*a):
+    """data/b691_behind.txt (.json), (R301)(3): reading 3's 57 BEHIND rows (relay data/b690_r3_corr.txt) each with the generator's reading
+    beside -- the repaired generator's dry over the roster (tools/correspondence_gen.py regen_bytes, its dry ctx: local tags, the print and
+    grade banks, nothing written), and the generator bank reading 3's cause column read (relay data/b672_correspondence_diff.json,
+    tools/b672_record.py :492, :508, :537); what each tool counts against, by line of each tool; the cause."""
+    sys.path.insert(0, T)
+    import correspondence_gen as CG
+    r3 = _r3_rows()
+    ro = json.load(io.open(CG.ROSTER, encoding='utf-8'))
+    tags, _tl = CG.read_tags(CG.kernels_of(ro), remote=False)
+    banks, _bl = CG.read_banks(tags)
+    ctx = dict(tags=tags, banks=banks, grades=CG.read_grades(), present=CG.present)
+    stale = dict((t['doc'], t) for t in jl('b672_correspondence_diff.json')['tables'])
+    gen = {}
+    for t in ro['tables']:
+        b = open(os.path.join(PP, t['path']), 'rb').read()
+        _nb, res = CG.regen_bytes(b, t, ctx, t['doc'])
+        gen[t['doc']] = dict(status=res.get('status'), span=res.get('span'), rows=dict((r['line'], r) for r in res['rows']),
+                             kernel=set(c['line'] for c in res['changes'] if c['column'] == 'kernel'),
+                             held=dict((h['line'], h) for h in res.get('carry_held', [])))
+    import collections
+    rows, cat = [], collections.Counter()
+    for doc, ln, why, pins in r3:
+        G = gen.get(doc) or {}
+        st = stale.get(doc) or {}
+        sr = dict((r['line'], r.get('reading')) for r in st.get('rows', []))
+        if ln is None:
+            gr = 'WITHHELD: BY COUNT (THE TABLE NOT IN THE GENERATOR`S SHAPE: %s)' % G.get('status')
+        elif G.get('status') != 'SHAPED':
+            gr = 'NOT A GENERATOR ROW: THE TABLE %s' % G.get('status')
+        elif ln not in G['rows']:
+            gr = 'NOT A GENERATOR ROW: PAST THE TABLE :%d-:%d' % tuple(G['span'] or (0, 0))
+        else:
+            r = G['rows'][ln]
+            kc = ('KERNEL CELL WRITTEN BY THE DRY (THE LEADING CLAUSE BEHIND ITS TAG)' if ln in G['kernel'] else
+                  'KERNEL CELL HELD: CARRIED AT, VERSION DIFFERS' if ln in G['held'] else 'KERNEL CELL NOT WRITTEN')
+            gr = '%s ; %s' % (r.get('reading') or 'READ', kc)
+        sg = ('-' if ln is None else (sr.get(ln) or ('NOT A ROW OF THE BANK' if st.get('status') == 'SHAPED' else 'TABLE %s' % st.get('status'))))
+        claim = ln is not None and ln in G.get('kernel', ())
+        rows.append(dict(doc=doc, line=ln, r3_cause=why, pins=pins, generator=gr, stale=sg, claim=claim))
+        cat[(why, gr.split(' ;')[0].split(':')[0] if not claim else 'GENERATOR`S CLAIM: BEHIND AT THE LEADING CLAUSE')] += 1
+    n_claim = sum(1 for r in rows if r['claim'])
+    L = ['b691 -- COMPONENT 3, (R301)(3): THE GENERATOR`S "BEHIND" AGAINST READING 3`S 57, ROW BY ROW (%s)' % utc(), '',
+         '### rows: reading 3`s BEHIND rows as banked (relay data/b690_r3_corr.txt :37-:165, b672_record.after by import, 2026-10-19T15:29:42Z), each with',
+         '### the generator`s reading beside: the repaired generator`s dry (tools/correspondence_gen.py at sha256 %s, regen_bytes over the roster'
+         % __import__('hashlib').sha256(open(os.path.join(T, 'correspondence_gen.py'), 'rb').read()).hexdigest()[:16],
+         '### data/b672_roster_read.json, the tags read locally by read_tags(remote=False) :496-:512, nothing written) and the generator bank reading 3`s',
+         '### cause column read (relay data/b672_correspondence_diff.json, %s). A withheld document`s rows by count.' % jl('b672_correspondence_diff.json').get('at'),
+         '',
+         '### WHAT EACH COUNTS AGAINST, BY LINE OF EACH TOOL:',
+         '###   reading 3 (tools/b672_record.py after): every backticked commit in the row, in every cell (:473 HEX7, :514), each resolved in the',
+         '###     document`s kernels (:519) and set against that kernel`s local tag on main (:524-:528, `_ltag`); the row BEHIND if any one commit is',
+         '###     behind (:530); over b670`s span, past the table proper (:506, :510; :535 HISTORICAL) and over the tables not in the generator`s shape',
+         '###     (:533-:534 NOT IN SHAPE); its cause column read from the generator`s bank of 2026-10-16 (:492, :508, :537), not from a fresh reading.',
+         '###   the generator (tools/correspondence_gen.py): the kernel cell`s leading clause alone -- its version and commit tokens (parse_kernel_cell',
+         '###     :153-:196) -- against the clause`s own kernel`s highest v-tag (read_tags :496, ls-remote on a run, the local clone on a dry), in the',
+         '###     shaped tables within the table proper (find_table :138); a row held, absent, untagged or without a declaration is not read for the',
+         '###     clause (regen_lines :332-:369); a clause at its tag is left (clause_at_tag :224, the loop :373-:399); a carried clause reads its carry',
+         '###     (:379-:397, this act`s repair). Prose and other cells are carried unverified (its own header line, b672).',
+         '',
+         '### THE ROWS (document :line ; reading 3`s cause ; reading 3`s commits ; the generator, fresh ; the generator`s 2026-10-16 bank, reading 3`s input):']
+    for r in rows:
+        L.append('    %s %s ; %s ; %s ; %s ; %s' % (r['doc'], ':%d' % r['line'] if r['line'] else '(withheld)', r['r3_cause'],
+                                                 r['pins'] if r['doc'] not in WITHHELD_DOCS else 'BY COUNT', r['generator'], r['stale']))
+    L += ['', '### THE ROWS BY READING 3`S CAUSE AND THE GENERATOR`S READING:'] + ['    %-58s %-60s %d' % (k[0], k[1], v) for k, v in sorted(cat.items())]
+    L += ['', '### THE CAUSE: SCOPE, NOT INPUTS. The two tools count different things against the same kind of reference (a kernel`s tag): reading 3',
+          '### every commit anywhere in a row over a wider span, the generator the leading clause in the shaped table proper. The 57 are rows the',
+          '### generator does not claim -- carried prose, held, historical, unshaped, absent -- save the rows it writes at the leading clause, %d here,' % n_claim,
+          '### which reading 3`s cause column could not see because it read the generator`s 2026-10-16 bank (b672_record.py :492, :508, :537), not a',
+          '### fresh reading. The generator compares to the kernels` tags (read_tags :496), not to its inputs; the (R301)(3) repair of the count by a',
+          '### tags bank from ls-remote therefore does not apply, and none is taken.',
+          '', '### ### **ROWS 57 (READ %d) ; THE GENERATOR`S CLAIM AMONG THEM %d ; NOT A GENERATOR ROW %d ; A GENERATOR ROW NOT CLAIMED %d ; WITHHELD %d ; '
+          'THE CAUSE: SCOPE (THE LEADING CLAUSE AGAINST EVERY COMMIT IN THE ROW), AND READING 3`S CAUSE COLUMN READ FROM THE GENERATOR`S 2026-10-16 BANK.**' % (
+              len(rows), n_claim, sum(1 for r in rows if r['generator'].startswith('NOT A GENERATOR ROW')),
+              sum(1 for r in rows if r['line'] and not r['claim'] and not r['generator'].startswith('NOT A GENERATOR ROW')),
+              sum(1 for r in rows if r['line'] is None))]
+    if len(rows) != 57:
+        L.append('### REFUSED: READING 3`S ROWS READ %d, NOT 57' % len(rows))
+    print(NL.join(L))
+    if 'dry' in a:
+        return
+    put_txt('b691_behind.txt', L)
+    put_json('b691_behind.json', dict(at=utc(), rows=rows, claim=n_claim, causes={'%s | %s' % k: v for k, v in cat.items()}))
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, tie=tie, runner=runner, prints=prints, quote=quote, cut=cut, behind=behind)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

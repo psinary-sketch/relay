@@ -1,0 +1,41 @@
+b691 -- THE CORRESPONDENCE GENERATOR'S DRY DIFF AFTER THE CARRIED-AT REPAIR, under (R301)(3), BESIDE b688's TWO DRIES (2026-10-19)
+
+### the run: `python -X utf8 tools/correspondence_gen.py dry full` at relay HEAD 6d57ad83 with tools/correspondence_gen.py repaired (data/b691_tool_repairs.txt
+### row 1; the dry at sha256 fd681256..., 2026-10-19T18:55:50Z; re-run at the final sha256 1aec5d03..., a comment-only edit, 2026-10-19T18:57:04Z,
+### its summary line identical); its summary line "TABLES 20 ; SHAPED 14 ; NOT IN THE GENERATOR`S SHAPE 6 ; ANCHOR NOT FOUND 0 ; KERNELS 16 (WITH
+### A TAG 16) ; CELLS CHANGED 8 ; FILES CHANGED 2 ; ABSENT 7 ; NO PRINT BANK 6 ; NOT PRINTED 48 ; HELD: DEPOSIT PIN 11 ; MULTI 6 ; NO TAG 0." and
+### "DRY: nothing written". Tags read locally (dry). The generator's line numbers are the roster file's own: phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md
+### :288, :290, :292, :301, :302 read by the Read tool; b688's "four above" was the partner PATHS_TO_THE_CRITICAL_LINE.md's numbering (b688 dry :5).
+
+### THE DIFF, verbatim (document :line | column | kernel | OLD | NEW):
+    PATHS_TO_THE_CRITICAL_LINE :288 | kernel | SIDE-rcurve | OLD SIDE-rcurve v0.1.0 | NEW SIDE-rcurve v0.1.1
+    PATHS_TO_THE_CRITICAL_LINE :288 | profile | SIDE-rcurve | OLD NO PRINT BANK AT v0.1.0 | NEW `{propext, Classical.choice, Quot.sound}`
+    PATHS_TO_THE_CRITICAL_LINE :290 | kernel | SIDE-spinor | OLD SIDE-spinor v0.1.0 | NEW SIDE-spinor v0.1.2
+    PATHS_TO_THE_CRITICAL_LINE :290 | profile | SIDE-spinor | OLD NO PRINT BANK AT v0.1.0 | NEW `{propext, Classical.choice, Quot.sound}`
+    PATHS_TO_THE_CRITICAL_LINE :290 | status | SIDE-spinor | OLD **DERIVES UNREFRESHED** — of the *model* statement `(w : ℂ) (h : Complex.I * w = w) : w = 0`, unconditional over ℂ. **STIPULATIONS, printed — TWO: (i) that `w` IS the centred coordinate `σ - ½`; (ii) that `i·w = w` IS the orbit-collapse condition.** Neither is compiled; the σ = ½ reading additionally routes through `half_iff_centered_zero : σ = 1/2 ↔ σ - 1/2 = 0`, itself an arithmetic tautology. Shortfall to "orbit collapse forces σ = 1/2": **2 clauses.** *Sentence corrected + re-celled 2026-08-09.* | NEW **DERIVES** — of the *model* statement `(w : ℂ) (h : Complex.I * w = w) : w = 0`, unconditional over ℂ. **STIPULATIONS, printed — TWO: (i) that `w` IS the centred coordinate `σ - ½`; (ii) that `i·w = w` IS the orbit-collapse condition.** Neither is compiled; the σ = ½ reading additionally routes through `half_iff_centered_zero : σ = 1/2 ↔ σ - 1/2 = 0`, itself an arithmetic tautology. Shortfall to "orbit collapse forces σ = 1/2": **2 clauses.** *Sentence corrected + re-celled 2026-08-09.*
+    PATHS_TO_THE_CRITICAL_LINE :292 | kernel | SIDE-li-map | OLD SIDE-li-map (pin `73cee42`) | NEW SIDE-li-map (pin `9e02bc0`)
+    R_CURVE_CRITERION :351 | kernel | SIDE-rcurve | OLD SIDE-rcurve v0.1.0 = `d5f33b4` | NEW SIDE-rcurve v0.1.1 = `54c9040`
+    R_CURVE_CRITERION :351 | status | SIDE-rcurve | OLD **INTERFACES UNREFRESHED** — the equivalence engine is compiled; the monotonicity *closure* is research-reach | NEW **INTERFACES** — the equivalence engine is compiled; the monotonicity *closure* is research-reach
+
+### THE CARRIED-AT CLAUSES, verbatim from the dry:
+### THE CARRIED-AT CLAUSES (b691, (R301)(3)): read from the carrying source; CARRIED AT 1 ; CARRIED AT: UNREAD 0 ; CARRIED AT: VERSION DIFFERS 1, each held as it stands (document :line ; kernel ; the clause`s version ; carried at ; the carry the source cites)
+    PATHS_TO_THE_CRITICAL_LINE :301 ; SIDE-kernel ; v1.8 ; SIDE-lv-conservation v0.7.0 ; 0bc21c06454a
+###   the CARRIED AT 1 is :302, "SIDE-li-map = 73cee42 (carried at lv-conservation v0.7.0)" (file :302, read by the Read tool): the carry read is
+###   73cee42 (SIDE-lv-conservation v0.7.0, SIDELvConservation/RegisterPentagon.lean :157 and :241; :44 wrapped), the clause already at it,
+###   so no cell is written and the row leaves the diff. The VERSION DIFFERS row is :301, "SIDE-kernel v1.8 = 70aba3c (carried at
+###   lv-conservation v0.7.0)": the carrier cites "SIDE-kernel v1.3 = 0bc21c0" (RegisterPentagon.lean :29, :33, :86, :110, :124, :230 at v0.7.0)
+###   and the clause's own version v1.8 peels to 70aba3c; held as it stands and entered here, no cell by hand. Before the repair it read at
+###   SIDE-kernel's tag v1.8 = 70aba3c and was not in the b688 diff; after, it is held and listed (a cell-refresh item for the author).
+
+### BESIDE b688's TWO DRIES (data/b688_correspondence_dry.txt :8-:12, data/b688_correspondence_dry_2.txt :10-:14): the five held rows, row by row
+###   (cell ; b688 first dry NEW ; b688 second dry NEW ; b691 dry NEW)
+    :290 kernel  SIDE-spinor  ; SIDE-spinor v0.1.1 ; SIDE-spinor v0.1.2 ; SIDE-spinor v0.1.2 (as the second)
+    :290 profile SIDE-spinor  ; `{propext, Classical.choice, Quot.sound}` ; the same ; the same
+    :290 status  SIDE-spinor  ; **DERIVES** — ... (UNREFRESHED dropped) ; the same ; the same
+    :292 kernel  SIDE-li-map  ; SIDE-li-map (pin `9e02bc0`) ; the same ; the same (a leading clause at SIDE-li-map's tag v0.1.1 = 9e02bc0, no carry named)
+    :302 kernel  SIDE-li-map  ; SIDE-li-map = 9e02bc0 (carried at lv-conservation v0.7.0) ; the same ; NOT IN THE DIFF: the clause reads 73cee42, the carry
+###   new in b691's dry, not among b688's five: :288 kernel and profile (SIDE-rcurve v0.1.0 -> v0.1.1, this act's C2 tag, and its print bank
+###   data/b691_axioms_SIDE-rcurve_after.txt AT THE TAG); R_CURVE_CRITERION :351 kernel and status (the same tag, UNREFRESHED dropped).
+###   NO PRINT BANK 8 -> 6 since b688 (SIDE-spinor's and SIDE-rcurve's banks); FILES CHANGED 1 -> 2 (R_CURVE_CRITERION_v0_2_2.md).
+
+### ### **ROWS 8 ; b688`s FIVE: FOUR IN THE DIFF AS AT b688`s SECOND, THE :302 CELL READ AT THE CARRY 73cee42 AND OUT OF THE DIFF ; NEW 4 (SIDE-rcurve v0.1.1) ; CARRIED AT 1 ; VERSION DIFFERS 1 HELD (:301) ; WRITTEN 0.**
