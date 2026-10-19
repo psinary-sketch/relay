@@ -701,6 +701,7 @@ def cut(*a):
 R3_ROW = re.compile(r'^    :(\d+)\s+BEHIND\s+(BEHIND IN CARRIED PROSE \(THE KERNEL CELL`S TRAILING TEXT\)) (\S.*)$|^    :(\d+)\s+BEHIND\s+(\S.+?)\s{2,}(\S.*)$')
 R3_DOC = re.compile(r'^=== (\S+)\s+(\S+) :(\d+)-:(\d+) \(span to :(\d+)\) (.+?) ; rows with a commit (\d+) ; (.*)$')
 WITHHELD_DOCS = ('TECHNE_TOOLKIT',)
+BEHIND_AT = '77bef05'          # ### PLACE-papers before the generator's run (the C1 landing commit; the two pages written after it, uncommitted)
 
 
 def _r3_rows():
@@ -732,7 +733,37 @@ def behind(*a):
     tools/b672_record.py :492, :508, :537); what each tool counts against, by line of each tool; the cause."""
     sys.path.insert(0, T)
     import correspondence_gen as CG
+    import b672_record as B
     r3 = _r3_rows()
+    # ### the author's word (the (R301)(3) answer): the withheld rows named by line with the reason withheld -- re-read now by b672_record.after's
+    # ### own resolution (:514-:531, its helpers _has, _ltag, _anc imported), the lines and readings printed, the cells' text not (withheld)
+    wl = {}
+    ro0 = dict((t['doc'], t) for t in jl('b672_roster_read.json')['tables'])
+    b670 = dict((t['doc'], t) for t in jl('b670_correspondence.json')['tables'])
+    for wd in WITHHELD_DOCS:
+        t = ro0[wd]
+        L0 = (_show(PP, BEHIND_AT, t['path']) or '').split(NL)
+        ft = CG.find_table(L0, t)
+        j, e = ft
+        end = b670[wd]['end'] if wd in b670 and b670[wd].get('end') else e
+        for i in range(j + 1, max(end, e)):
+            pins = B.HEX7.findall(L0[i]) if L0[i].lstrip().startswith('|') else []
+            sts = []
+            for q in pins:
+                hit = [k for k in t['kernels'] if B._has(k, q)] or [k for k in B.ALLK if k not in t['kernels'] and B._has(k, q)]
+                if not hit:
+                    sts.append('UNRESOLVED')
+                    continue
+                tc = B._ltag(hit[0])[1]
+                sts.append('NO TAG' if not tc else ('AT THE TAG' if B._anc('D:/' + hit[0], tc, q) else ('BEHIND' if B._anc('D:/' + hit[0], q, tc) else 'OFF')))
+            if 'BEHIND' in sts:
+                wl.setdefault(wd, []).append(i + 1)
+    for wd, lns in wl.items():
+        k = 0
+        for n, x in enumerate(r3):
+            if x[0] == wd and x[1] is None and k < len(lns):
+                r3[n] = (wd, lns[k], x[2], 'WITHHELD: %d commit(s), not printed' % 0)
+                k += 1
     ro = json.load(io.open(CG.ROSTER, encoding='utf-8'))
     tags, _tl = CG.read_tags(CG.kernels_of(ro), remote=False)
     banks, _bl = CG.read_banks(tags)
@@ -740,7 +771,9 @@ def behind(*a):
     stale = dict((t['doc'], t) for t in jl('b672_correspondence_diff.json')['tables'])
     gen = {}
     for t in ro['tables']:
-        b = open(os.path.join(PP, t['path']), 'rb').read()
+        # ### the pages as they stood before the generator's run (PLACE-papers BEHIND_AT): the reconciliation is the pre-write reading the
+        # ### (R301)(3) prompt carried; the post-write figure is printed beside it, not in its place
+        b = (_show(PP, BEHIND_AT, t['path']) or '').encode('utf-8') if 'after-write' not in a else open(os.path.join(PP, t['path']), 'rb').read()
         _nb, res = CG.regen_bytes(b, t, ctx, t['doc'])
         gen[t['doc']] = dict(status=res.get('status'), span=res.get('span'), rows=dict((r['line'], r) for r in res['rows']),
                              kernel=set(c['line'] for c in res['changes'] if c['column'] == 'kernel'),
@@ -751,8 +784,9 @@ def behind(*a):
         G = gen.get(doc) or {}
         st = stale.get(doc) or {}
         sr = dict((r['line'], r.get('reading')) for r in st.get('rows', []))
-        if ln is None:
-            gr = 'WITHHELD: BY COUNT (THE TABLE NOT IN THE GENERATOR`S SHAPE: %s)' % G.get('status')
+        if doc in WITHHELD_DOCS:
+            gr = ('WITHHELD -- THE DOCUMENT IS WITHHELD (b672_record.py :293 WITHHELD; a withheld document`s cells print as sha256 and length, never as '
+                  'text, correspondence_gen`s header); THE TABLE %s' % G.get('status')) + ('' if ln else ' ; ### ITS LINE NOT RE-READ')
         elif G.get('status') != 'SHAPED':
             gr = 'NOT A GENERATOR ROW: THE TABLE %s' % G.get('status')
         elif ln not in G['rows']:
@@ -765,14 +799,23 @@ def behind(*a):
         sg = ('-' if ln is None else (sr.get(ln) or ('NOT A ROW OF THE BANK' if st.get('status') == 'SHAPED' else 'TABLE %s' % st.get('status'))))
         claim = ln is not None and ln in G.get('kernel', ())
         rows.append(dict(doc=doc, line=ln, r3_cause=why, pins=pins, generator=gr, stale=sg, claim=claim))
-        cat[(why, gr.split(' ;')[0].split(':')[0] if not claim else 'GENERATOR`S CLAIM: BEHIND AT THE LEADING CLAUSE')] += 1
+        cat[(why, 'WITHHELD' if doc in WITHHELD_DOCS else (gr.split(' ;')[0].split(':')[0] if not claim else 'GENERATOR`S CLAIM: BEHIND AT THE LEADING CLAUSE'))] += 1
     n_claim = sum(1 for r in rows if r['claim'])
+    # ### beside it, the claimed rows read again on the pages as the generator's run left them (the working tree)
+    after_claim = 0
+    for t in ro['tables']:
+        if not any(r['claim'] and r['doc'] == t['doc'] for r in rows):
+            continue
+        _nb, res2 = CG.regen_bytes(open(os.path.join(PP, t['path']), 'rb').read(), t, ctx, t['doc'])
+        k2 = set(c['line'] for c in res2['changes'] if c['column'] == 'kernel')
+        after_claim += sum(1 for r in rows if r['claim'] and r['doc'] == t['doc'] and r['line'] in k2)
     L = ['b691 -- COMPONENT 3, (R301)(3): THE GENERATOR`S "BEHIND" AGAINST READING 3`S 57, ROW BY ROW (%s)' % utc(), '',
          '### rows: reading 3`s BEHIND rows as banked (relay data/b690_r3_corr.txt :37-:165, b672_record.after by import, 2026-10-19T15:29:42Z), each with',
          '### the generator`s reading beside: the repaired generator`s dry (tools/correspondence_gen.py at sha256 %s, regen_bytes over the roster'
          % __import__('hashlib').sha256(open(os.path.join(T, 'correspondence_gen.py'), 'rb').read()).hexdigest()[:16],
          '### data/b672_roster_read.json, the tags read locally by read_tags(remote=False) :496-:512, nothing written) and the generator bank reading 3`s',
-         '### cause column read (relay data/b672_correspondence_diff.json, %s). A withheld document`s rows by count.' % jl('b672_correspondence_diff.json').get('at'),
+         '### cause column read (relay data/b672_correspondence_diff.json, %s). A withheld document`s rows by line, their commits not printed.'
+         % jl('b672_correspondence_diff.json').get('at'),
          '',
          '### WHAT EACH COUNTS AGAINST, BY LINE OF EACH TOOL:',
          '###   reading 3 (tools/b672_record.py after): every backticked commit in the row, in every cell (:473 HEX7, :514), each resolved in the',
@@ -787,8 +830,8 @@ def behind(*a):
          '',
          '### THE ROWS (document :line ; reading 3`s cause ; reading 3`s commits ; the generator, fresh ; the generator`s 2026-10-16 bank, reading 3`s input):']
     for r in rows:
-        L.append('    %s %s ; %s ; %s ; %s ; %s' % (r['doc'], ':%d' % r['line'] if r['line'] else '(withheld)', r['r3_cause'],
-                                                 r['pins'] if r['doc'] not in WITHHELD_DOCS else 'BY COUNT', r['generator'], r['stale']))
+        L.append('    %s %s ; %s ; %s ; %s ; %s' % (r['doc'], ':%d' % r['line'] if r['line'] else '(withheld, line not re-read)', r['r3_cause'],
+                                                 r['pins'] if r['doc'] not in WITHHELD_DOCS else 'COMMITS NOT PRINTED (WITHHELD)', r['generator'], r['stale']))
     L += ['', '### THE ROWS BY READING 3`S CAUSE AND THE GENERATOR`S READING:'] + ['    %-58s %-60s %d' % (k[0], k[1], v) for k, v in sorted(cat.items())]
     L += ['', '### THE CAUSE: SCOPE, NOT INPUTS. The two tools count different things against the same kind of reference (a kernel`s tag): reading 3',
           '### every commit anywhere in a row over a wider span, the generator the leading clause in the shaped table proper. The 57 are rows the',
@@ -796,11 +839,20 @@ def behind(*a):
           '### which reading 3`s cause column could not see because it read the generator`s 2026-10-16 bank (b672_record.py :492, :508, :537), not a',
           '### fresh reading. The generator compares to the kernels` tags (read_tags :496), not to its inputs; the (R301)(3) repair of the count by a',
           '### tags bank from ls-remote therefore does not apply, and none is taken.',
+          '### the pages read at PLACE-papers %s, before the generator`s run (the author`s word, option 1); the claimed rows read again on the pages the' % BEHIND_AT,
+          '### run wrote: THE GENERATOR`S CLAIM AFTER THE WRITE %d of %d.' % (after_claim, n_claim),
           '', '### ### **ROWS 57 (READ %d) ; THE GENERATOR`S CLAIM AMONG THEM %d ; NOT A GENERATOR ROW %d ; A GENERATOR ROW NOT CLAIMED %d ; WITHHELD %d ; '
           'THE CAUSE: SCOPE (THE LEADING CLAUSE AGAINST EVERY COMMIT IN THE ROW), AND READING 3`S CAUSE COLUMN READ FROM THE GENERATOR`S 2026-10-16 BANK.**' % (
               len(rows), n_claim, sum(1 for r in rows if r['generator'].startswith('NOT A GENERATOR ROW')),
-              sum(1 for r in rows if r['line'] and not r['claim'] and not r['generator'].startswith('NOT A GENERATOR ROW')),
-              sum(1 for r in rows if r['line'] is None))]
+              sum(1 for r in rows if r['doc'] not in WITHHELD_DOCS and not r['claim'] and not r['generator'].startswith('NOT A GENERATOR ROW')),
+              sum(1 for r in rows if r['doc'] in WITHHELD_DOCS))]
+    L.insert(L.index('### THE ROWS BY READING 3`S CAUSE AND THE GENERATOR`S READING:') - 1, '')
+    L[L.index('### THE ROWS BY READING 3`S CAUSE AND THE GENERATOR`S READING:') - 1:L.index('### THE ROWS BY READING 3`S CAUSE AND THE GENERATOR`S READING:') - 1] = [
+        '### THE WITHHELD ROWS (the author`s word): %s -- re-read at HEAD by b672_record.after`s resolution (:514-:531), %d BEHIND against reading 3`s %d; the'
+        % ('; '.join('%s :%d' % (r['doc'], r['line']) for r in rows if r['doc'] in WITHHELD_DOCS and r['line']) or 'NONE RE-READ',
+           sum(len(v) for v in wl.values()), sum(1 for r in rows if r['doc'] in WITHHELD_DOCS)),
+        '### reason withheld: the document is withheld (b672_record.py :293), its cells printed as sha256 and length, never as text; its table is not',
+        '### in the generator`s shape, so neither row is a generator row.']
     if len(rows) != 57:
         L.append('### REFUSED: READING 3`S ROWS READ %d, NOT 57' % len(rows))
     print(NL.join(L))
@@ -810,7 +862,69 @@ def behind(*a):
     put_json('b691_behind.json', dict(at=utc(), rows=rows, claim=n_claim, causes={'%s | %s' % k: v for k, v in cat.items()}))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, tie=tie, runner=runner, prints=prints, quote=quote, cut=cut, behind=behind)
+# ================================================================================ COMPONENT 3: THE RUN, the author's word on the (R301)(3) prompt (option 1)
+GEN_PAGES = (('PATHS', 'phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md'), ('RCURVE', 'phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md'))
+GEN_STEM = 'b691_correspondence_run'
+
+
+def gensnap(*a):
+    """data/b691_gen_snapshot.txt: the repaired generator's first run against a captured snapshot (tools/repair_snapshot.py, b417): the dry,
+    from a sandbox copy of relay's tools with the roster and the grade bank copied beside; every write inside the sandbox CONTAINED, every
+    live write in the watch set ESCAPED and restored. A dry: no page write by code; the snapshot shows it."""
+    import repair_snapshot as RS
+    r = RS.snapshot(os.path.join('tools', 'correspondence_gen.py'), with_data=('data/b672_roster_read.json', 'data/terminal_table.json'), args=['dry'])
+    L = ['b691 -- COMPONENT 3: THE REPAIRED GENERATOR AGAINST A SNAPSHOT, BEFORE ITS RUN (%s)' % utc(), ''] + RS.report(r)
+    L += ['', '### the sandbox`s dry, its last line: %s' % ((r['stdout'].strip().split(NL) or ['-'])[-1][:200])]
+    L += ['### ### **SNAPSHOT: EXIT %d ; ESCAPED %d ; STILL DIFFERING %d.**' % (r['rc'], len(r['escaped']), len(r['still_files']))]
+    print(NL.join(L))
+    if 'dry' not in a:
+        put_txt('b691_gen_snapshot.txt', L)
+
+
+def genrun(*a):
+    """data/b691_gen_live.txt: the generator's run where it lives (tools/repair_snapshot.py live), the pages the dry names written by the
+    generator's own write alone, its diff banks under data/b691_correspondence_run.* permitted; every other change in the watch set restored
+    or named. One ls-remote per repository, in sequence, inside the generator (read_tags)."""
+    import repair_snapshot as RS
+    permit = (GEN_STEM + '.txt', GEN_STEM + '.json')
+    r = RS.live(os.path.join('tools', 'correspondence_gen.py'), permit=permit, args=['run', 'full', '--diff', GEN_STEM])
+    L = ['b691 -- COMPONENT 3: THE GENERATOR`S RUN, LIVE, UNDER THE AUTHOR`S WORD (OPTION 1) (%s)' % utc(), ''] + RS.report(r)
+    out = r['stdout'].strip().split(NL)
+    L += ['', '### the run`s own lines (its summary, its tags, its write):'] + [l for l in out if l.startswith(('### ### **', '### WRITTEN', '### REFUSED'))
+                                                                          or 'ls-remote' in l[:60] or (l.startswith('    SIDE-') and ' ; local ' in l)]
+    L += ['### ### **LIVE: EXIT %d ; CHANGES %d ; PERMITTED %d ; RESTORED %d ; NAMED %d ; STILL DIFFERING %d.**' % (
+        r['rc'], len(r['changes']), len(r['permitted']), len(r['restored']), len(r['named']), len(r['still_files']))]
+    print(NL.join(L))
+    print(NL.join(out[-12:]))
+    put_txt('b691_gen_live.txt', L)
+
+
+def rundiff(*a):
+    """data/b691_correspondence_run_PATHS.txt and _RCURVE.txt: each page's diff as the generator wrote it (git diff in PLACE-papers, the page
+    alone, against its HEAD), the :301 hold printed beside in the PATHS bank, the generator's run diff bank cited."""
+    rt = rdn(GEN_STEM + '.txt').split(NL)
+    ca = next((n for n, l in enumerate(rt) if l.startswith('### THE CARRIED-AT CLAUSES')), None)
+    held_lines = [l.strip() for l in rt[ca + 1:] if l.startswith('    ')][:20] if ca is not None else []
+    held_lines = held_lines[:next((n for n, l in enumerate(rt[ca + 1:]) if not l.startswith('    ')), len(held_lines))] if ca is not None else []
+    for lab, path in GEN_PAGES:
+        d = g(PP, 'diff', '--', path)
+        L = ['b691 -- COMPONENT 3: THE GENERATOR`S WRITE TO %s, ITS DIFF (%s)' % (path, utc()), '',
+             '### written by tools/correspondence_gen.py run alone (relay data/b691_gen_live.txt), its run bank relay data/%s.txt; the diff `git diff -- %s`' % (GEN_STEM, path),
+             '### at PLACE-papers %s, before the page commit; the lines changed:' % g(PP, 'rev-parse', '--short', 'HEAD').strip(), '']
+        L += d.rstrip(NL).split(NL) if d.strip() else ['### NO DIFF: THE PAGE AS IT WAS']
+        nch = sum(1 for l in d.split(NL) if l.startswith('+') and not l.startswith('+++'))
+        if lab == 'PATHS':
+            L += ['', '### :301 HELD, VERSION DIFFERS (the author`s word): the page`s clause "SIDE-kernel v1.8 = 70aba3c (carried at lv-conservation v0.7.0)"; the',
+                  '### carry the carrier cites, SIDE-lv-conservation v0.7.0 RegisterPentagon.lean "SIDE-kernel v1.3 = 0bc21c0"; v1.3 peels to 0bc21c06454a in',
+                  '### SIDE-kernel, v1.8 to 70aba3cd7392. Carried as a residue of the SIDE-kernel row (data/b691_cut.txt).',
+                  '### the run`s own hold rows (relay data/%s.txt, THE CARRIED-AT CLAUSES): %s' % (GEN_STEM, '; '.join(held_lines) or 'NOT IN THE RUN BANK')]
+        L += ['', '### ### **%s: LINES CHANGED %d.**' % (path, nch)]
+        print(NL.join(L))
+        put_txt('b691_correspondence_run_%s.txt' % lab, L)
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, tie=tie, runner=runner, prints=prints, quote=quote, cut=cut, behind=behind,
+              gensnap=gensnap, genrun=genrun, rundiff=rundiff)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

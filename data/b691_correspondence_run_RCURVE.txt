@@ -1,0 +1,20 @@
+b691 -- COMPONENT 3: THE GENERATOR`S WRITE TO phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md, ITS DIFF (2026-10-19T19:12:25Z)
+
+### written by tools/correspondence_gen.py run alone (relay data/b691_gen_live.txt), its run bank relay data/b691_correspondence_run.txt; the diff `git diff -- phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md`
+### at PLACE-papers 77bef05, before the page commit; the lines changed:
+
+diff --git a/phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md b/phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md
+index 1ecd369..860241b 100644
+--- a/phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md
++++ b/phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md
+@@ -348,7 +348,7 @@ The compiled structure behind the criterion, graded (DERIVES / INTERFACES-with-n
+ 
+ | Claim | Kernel / pin | Terminal | `#print axioms` | Grade |
+ |:---|:---|:---|:---|:---|
+-| R-curve equivalence: V-monotonicity ⟺ RH (Ch. 2–3) | SIDE-rcurve v0.1.0 = `d5f33b4` | `SIDERCurve.monotone_unique_zero` | `{propext, Classical.choice, Quot.sound}` *(profile re-verified 2026-07-25, AxiomCheck print; `online_zero_codim_one`/`offline_zero_codim_two` axiom-free)* | **INTERFACES UNREFRESHED** — the equivalence engine is compiled; the monotonicity *closure* is research-reach |
++| R-curve equivalence: V-monotonicity ⟺ RH (Ch. 2–3) | SIDE-rcurve v0.1.1 = `54c9040` | `SIDERCurve.monotone_unique_zero` | `{propext, Classical.choice, Quot.sound}` *(profile re-verified 2026-07-25, AxiomCheck print; `online_zero_codim_one`/`offline_zero_codim_two` axiom-free)* | **INTERFACES** — the equivalence engine is compiled; the monotonicity *closure* is research-reach |
+ | Derivative-level catalogue — per-class grade of excluding ξ(ρ)=ξ′(ρ)=0 (only C₁ derives) | SIDE-kernel branch `derivative-engine` at `27a3ae7` (an ancestor three commits behind its head `01e5633`, `Kernel/DerivativeEngine.lean` unchanged) (held, not deposited) | `SIDEDerivative.exactly_c1_derives` | ABSENT AT v1.8 | **DERIVES** — the honest count, not an exclusion verdict ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |
+ | C₁ derivative reduction — double zero ⇔ Im ξ′(ρ)=0 on the line | SIDE-kernel branch `derivative-engine` at `27a3ae7` (an ancestor three commits behind its head `01e5633`, `Kernel/DerivativeEngine.lean` unchanged) | `SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero` | ABSENT AT v1.8 | **DERIVES** — consumes the perpendicular crossing; `spectral_cannon` @ `691295b` wired ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |
+ | The joint step — not-double ⇔ transversality (uniform = simplicity) | SIDE-kernel branch `derivative-engine` at `27a3ae7` (an ancestor three commits behind its head `01e5633`, `Kernel/DerivativeEngine.lean` unchanged) | `SIDEDerivative.no_onLine_double_iff_transversal` | ABSENT AT v1.8 | **INTERFACES** — the derivative h2 = simplicity, named premise ### **BRANCH-RESIDENT: this terminal is on `SIDE-kernel/derivative-engine` and is ABSENT FROM `main`; it is not citable from a default branch, and no printed axiom profile sits on that ref (b397).** |
+
+### ### **phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md: LINES CHANGED 1.**
