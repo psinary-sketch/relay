@@ -1,0 +1,185 @@
+b688 -- COMPONENT 5, (R298)`S FERRY: THE CARRY-TIME READING OF THE TOOLS, AGAINST b687`S SEALED COPIES (2026-10-19T06:10:16Z)
+
+### rows are repairs with the defect they answer, after the carried tools: b687`s sealed copy and its seal record; the hunks of the diff
+### to b688`s copy. Every hunk is the act`s own text -- its names, its banks, its sections and its predicates over this act`s banks --
+### save the repairs below.
+
+  b687_citation.py     -> b688_citation.py     b687 sealed b15ec4bd055f0a96 ; the seal`s record b15ec4bd055f0a96 ; AGREE ; hunks 25
+  b687_closing.py      -> b688_closing.py      b687 sealed 281774dff76c1acc ; the seal`s record 281774dff76c1acc ; AGREE ; hunks 31
+  b687_reg_gate.py     -> b688_reg_gate.py     b687 sealed d51c5abdb632e33a ; the seal`s record d51c5abdb632e33a ; AGREE ; hunks 6
+  b687_regspec.py      -> b688_regspec.py      b687 sealed e83499f55f4dd550 ; the seal`s record e83499f55f4dd550 ; AGREE ; hunks 22
+  b687_tests.py        -> b688_tests.py        b687 sealed ca0fe53811a04ddd ; the seal`s record ca0fe53811a04ddd ; AGREE ; hunks 11
+  b687_worklist.py     -> b688_worklist.py     b687 sealed c30376ee2eb4dd16 ; the seal`s record c30376ee2eb4dd16 ; AGREE ; hunks 12
+  b687_record.py       -> b688_record.py       b687 sealed 04f7c20fbfbf0a2f ; the seal`s record 04f7c20fbfbf0a2f ; AGREE ; hunks 153
+  b687_checks.py       -> b688_checks.py       b687 sealed 0c22ab35a04b1a32 ; the seal`s record 0c22ab35a04b1a32 ; AGREE ; hunks 150
+  rule_arms.py            the standing instrument, unedited in this act: 04ce62dba4bb4afb ; the last seal record naming it (b684`s) 04ce62dba4bb4afb ; AGREE ; its last commit c268710e 2026-10-18T14:28:23-04:00
+  edit_route.py           the standing instrument, unedited in this act: 22b92c8f4440589a ; the last seal record naming it (NONE`s) ### NONE ; AGREE ; its last commit 66497ff1 2026-10-12T11:55:50-04:00 ; read by the tree: the working file equal to HEAD and its last commit before the act True
+
+  REPAIR 1 -- THE DETACHED-RUN READER (answering this act`s defect (e)): the command bank`s detached list (carried from b687) read the command`s text
+  for Start-Process, nohup or the word run_in_background, and so counted 0 of the act`s two calls sent with the tool`s run_in_background
+  parameter; and read inside quoted strings it took the seat`s own search for that word as a third. b688`s reading, in the shared writer
+  (tools/b688_record.py `capture`, `_bg_calls`, `commands`): every captured row carries the call`s parameter as `bg`; the detached list
+  is the rows with `bg` or the words read outside quoted strings. The bank prints DETACHED RUNS 2 (#32, #68). No arm reads the list; the
+  defect is entered, not declared on the face.
+  REPAIR 2 -- THE STANDING SET FOR b688 (answering no defect: the act`s objects): the standing arms are b687`s face`s (G2) arms less b687`s act arms, the
+  twenty rule arms among them, no standing arm added; the runner arms read this act`s runs -- SIDE-li-map before (39203745715) and after
+  (39203874870), SIDE-spinor after (39206102962) with b686`s after bank at v0.1.1 as its before -- and its merges, 9e02bc0 v0.1.1 and
+  7e570ee v0.1.2; the step-zero arms read this act`s banks -- five branches, all local.
+  REPAIR 3 -- G-WORKFLOW-FILES READ IN EACH KERNEL`S OWN FORM (answering no defect: a kernel of another dependency form): b687`s predicate wanted
+  `lake env lean out/axioms.lean` and a 15-name list of SIDE-spinor`s alone; SIDE-li-map has no lakefile, and its workflow (7d20a4c) runs
+  the plain-lean path of SIDE-global-section`s, `LEAN_PATH=build lean out/Axioms.lean`. b688`s predicate reads every kernel the act
+  merged, each against its own form (the lake path where a lakefile requires Mathlib, the plain path where there is no lakefile), its
+  print list`s length against the act`s print bank for that kernel, and the files the act wrote on main against MERGES. The diff is
+  printed whole below.
+  REPAIR 4 -- THE FACES PAGE AND G-PP-SCOPE, G-CURRENTS-UNEDITED (answering no defect: the ruling writes the page): (R298)(3) and the author`s word
+  regenerate THE_CLAUSE_AND_ITS_COMPILED_FACES.md through the generator, so the page leaves CURRENTS (the files read unedited) and joins
+  the PLACE-papers files G-PP-SCOPE allows (tools/b688_worklist.py PP_WRITTEN); G-FACES-REGENERATED reads the page`s write by the
+  generator. The diff is printed whole below.
+
+### THE DIFF OF THE REPAIRED READINGS AGAINST b687`S SEALED COPIES (tools/b687_record.py sha256 04f7c20fbfbf0a2f, tools/b687_checks.py sha256 0c22ab35a04b1a32), WHOLE:
+    --- b687_record.py capture (sealed)
+    +++ b688_record.py capture
+    @@ -2,4 +2,6 @@
+         rows = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
+    +    bg = _bg_calls()
+         for i, r in enumerate(rows):
+             r['n'] = i + 1
+    +        r['bg'] = (r.get('ts'), r.get('cmd')) in bg
+         return rows
+    --- b687_record.py (none) (sealed)
+    +++ b688_record.py _bg_calls
+    @@ -0,0 +1,14 @@
+    +def _bg_calls():
+    +    """### b688's repair (defect (e)): the calls the seat sent with the tool's run_in_background parameter, from the ruling's line on -- a
+    +    parameter of the call, not a word of its command, so a reader of the command text alone counts none of them. {(timestamp, command)}."""
+    +    out = set()
+    +    for _i, o, _st, _sid in _session_rows():
+    +        if o.get('type') != 'assistant':
+    +            continue
+    +        for c in (o.get('message') or {}).get('content') or []:
+    +            if isinstance(c, dict) and c.get('type') == 'tool_use' and (c.get('input') or {}).get('run_in_background'):
+    +                out.add((o.get('timestamp'), (c.get('input') or {}).get('command')))
+    +    return out
+    +
+    +
+    +
+    --- b687_record.py commands (sealed)
+    +++ b688_record.py commands
+    @@ -7,6 +7,6 @@
+         phits = edit_route_offences(prev)
+    -    lean =[r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
+    +    lean = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
+         mv = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and MOVE_OR_DELETE.search(QUOTED.sub('""', r['cmd']))]
+         disp = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and re.search(r'(^|&&\s*|;\s*)gh workflow run\b', QUOTED.sub('""', r['cmd']), re.M)]
+    -    detach = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and re.search(r'Start-Process|\bnohup\b|run_in_background', r['cmd'])]
+    +    detach = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and (r.get('bg') or re.search(r'Start-Process|\bnohup\b|run_in_background', QUOTED.sub('""', r['cmd'])))]
+         seds = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and sed_cmd(r['cmd'])]
+    @@ -14,3 +14,3 @@
+         ob = outbound()
+    -    L = ['b687 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (%s)' % utc(), '',
+    +    L = ['b688 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (%s)' % utc(), '',
+              '### the source: the seat`s session %s from its first user line carrying %r, and its subagents` transcripts' % (K.SESSION_ID, K.ANCHOR),
+    @@ -21,4 +21,4 @@
+             L.append('  NONE')
+    -    L += ['', '### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE ((R297)(1), the repaired window): %s commands of session %s from %s, '
+    -              'its offences printed whole (%d):' % (len(prev), PREV_SESSION[:8], prev[0]['ts'] if prev else '-', len(phits))]
+    +    L += ['', '### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b687`s repaired window): %s commands of session %s from %s to (R298)`s '
+    +              'line, its offences printed whole (%d):' % (len(prev), K.SESSION_ID[:8], prev[0]['ts'] if prev else '-', len(phits))]
+         for r, o in phits:
+    @@ -29,3 +29,4 @@
+         L += ['', '### THE RUNNER DISPATCHES (%d):' % len(disp)] + (['  #%d %s' % (r['n'], r['cmd'][:240]) for r in disp] or ['  NONE'])
+    -    L += ['', '### THE COMMANDS THAT START A DETACHED RUN (%d):' % len(detach)] + (['  #%d %s' % (r['n'], r['cmd'][:240]) for r in detach] or ['  NONE'])
+    +    L += ['', '### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (b688`s repair) (%d):' % len(
+    +        detach)] + (['  #%d %s%s' % (r['n'], '[run_in_background] ' if r.get('bg') else '', r['cmd'][:240]) for r in detach] or ['  NONE'])
+         L += ['', '### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (%d):' % len(seds)] + (
+    @@ -37,3 +38,3 @@
+             L.append('  NONE')
+    -    L += ['', '### THE BRANCH DELETES BY SHAPE ((R297)(6): one branch per command, no glob in any half): ' + ('; '.join(
+    +    L += ['', '### THE BRANCH DELETES BY SHAPE ((R298)(6): one branch per command, no glob in any half): ' + ('; '.join(
+             '#%d deletes %s, globs %s' % (n, d, gl or 'none') for n, d, gl in shapes) or 'NONE')]
+    @@ -49,5 +50,5 @@
+                       len(shapes), len(ob), sum(1 for r in ob if r['identifiers']))]
+    -    put_txt('b687_commands.txt', [l.replace('\r', '') for l in L])
+    -    put_json('b687_commands.json', dict(at=utc(), anchor=K.ANCHOR, rows=rows, offences=[dict(n=r['n'], kinds=[k for k, _ in o]) for r, o in hits],
+    -                                        prev=dict(act=PREV_ACT, session=PREV_SESSION, rows=len(prev),
+    +    put_txt('b688_commands.txt', [l.replace('\r', '') for l in L])
+    +    put_json('b688_commands.json', dict(at=utc(), anchor=K.ANCHOR, rows=rows, offences=[dict(n=r['n'], kinds=[k for k, _ in o]) for r, o in hits],
+    +                                        prev=dict(act=PREV_ACT, session=K.SESSION_ID, rows=len(prev),
+                                                       offences=[dict(n=r['n'], ts=r['ts'], kinds=[k for k, _ in o]) for r, o in phits]),
+    @@ -59,4 +60,4 @@
+             print('  OFFENCE #%d %s: %s' % (r['n'], '; '.join(k for k, _ in o), r['cmd'].split(NL)[0][:200]))
+    -    for r in seds:
+    -        print('  sed #%d: %s' % (r['n'], r['cmd'].split(NL)[0][:200]))
+    +    for r, o in phits:
+    +        print('  PREVIOUS-ACT OFFENCE #%s %s: %s' % (r['n'], '; '.join(k for k, _ in o), r['cmd'].split(NL)[0][:200]))
+     
+    --- b687_checks.py wf_state (sealed)
+    +++ b688_checks.py wf_state
+    @@ -1,10 +1,17 @@
+     def wf_state():
+    -    td = 'D:/' + SPN
+    -    t = read_blob(td, 'main:' + WF)
+    -    pt = read_blob(td, 'main:' + PT)
+    -    lf = read_blob(td, 'main:lakefile.toml') + read_blob(td, 'main:lakefile.lean')
+    -    req = re.search(r'(?im)^\s*require\b[^\n]*mathlib', lf) or re.search(r'(?is)\[\[require\]\][^\[]*name\s*=\s*"mathlib"', lf)
+    -    return {SPN: dict(text=t, before=read_blob(td, '%s:%s' % (SPN_WORKFLOW, WF)), mathlib=bool(req),
+    -                      targets=[l.strip() for l in pt.split(NL) if l.strip()],
+    -                      act_writes=sorted(set(x for x in gs(td, 'diff', '--name-only', SPN_PRE, 'main').split(NL) if x.strip())))}
+    +    """b688's repair (relay data/b688_tool_repairs.txt REPAIR 3): every kernel the act merged, its workflow at main against the workflow at its
+    +    own first commit, its dependency form read from its tree (a lakefile requiring Mathlib, or no lakefile), its print list against the act's
+    +    print bank for it, and the files the act wrote on main since the main before the act."""
+    +    out = {}
+    +    for k, _pre, _tip, _merge, _tag, before, files in MERGES:
+    +        td = 'D:/' + k
+    +        t = read_blob(td, 'main:' + WF)
+    +        first = (gs(td, 'log', '--diff-filter=A', '--format=%h', '--', WF).split() or [''])[-1]
+    +        lf = read_blob(td, 'main:lakefile.toml') + read_blob(td, 'main:lakefile.lean')
+    +        req = re.search(r'(?im)^\s*require\b[^\n]*mathlib', lf) or re.search(r'(?is)\[\[require\]\][^\[]*name\s*=\s*"mathlib"', lf)
+    +        pt = read_blob(td, 'main:' + PT)
+    +        out[k] = dict(text=t, before=read_blob(td, '%s:%s' % (first, WF)) if first else '', lakefile=bool(lf.strip()), mathlib=bool(req),
+    +                      targets=[l.strip() for l in pt.split(NL) if l.strip()], printed=_prints_count(k),
+    +                      act_writes=sorted(set(x for x in gs(td, 'diff', '--name-only', before, 'main').split(NL) if x.strip())), want=sorted(files))
+    +    return out
+     
+    --- b687_checks.py wf_ok (sealed)
+    +++ b688_checks.py wf_ok
+    @@ -1,2 +1,4 @@
+     def wf_ok(S):
+    +    """b688's repair: each merged kernel read in its own dependency form -- the lake path and the cache step where a lakefile requires Mathlib,
+    +    the plain-lean path where there is no lakefile."""
+         for k, v in S['wf'].items():
+    @@ -5,9 +7,14 @@
+                 return False
+    -        if any(w in t for w in ('secrets.', 'psinary', 'seale', 'york', 'hotmail', 'orcid', '0009-0008')):
+    +        if any(w in t for w in IDENT_WF):
+                 return False
+    -        if 'workflow_dispatch' not in t or 'hold_mb: "2560"' not in t or 'print_targets.txt' not in t or 'lake env lean out/axioms.lean' not in t \
+    -                or (('lake exe cache get' in t) != v['mathlib']) or len(v['targets']) != 15 \
+    -                or v['act_writes'] != ['.github/workflows/build-module.yml', 'SIDESpinor/Spinor.lean', 'SIDESpinor/SpinorLeg.lean', 'print_targets.txt']:
+    +        if 'workflow_dispatch' not in t or 'hold_mb: "2560"' not in t or 'print_targets.txt' not in t:
+                 return False
+    -    return len(S['wf']) == 1
+    +        if v['lakefile']:
+    +            if 'lake env lean out/axioms.lean' not in t or (('lake exe cache get' in t) != v['mathlib']):
+    +                return False
+    +        elif 'lean_path=build lean out/axioms.lean' not in t or 'lake build' in t or 'lake env' in t:
+    +            return False
+    +        if len(v['targets']) != v['printed'] or v['act_writes'] != v['want']:
+    +            return False
+    +    return sorted(S['wf']) == sorted(k for k, *_r in MERGES)
+     
+    --- b687_checks.py corpus_scope (sealed)
+    +++ b688_checks.py corpus_scope
+    @@ -1,2 +1,3 @@
+     def corpus_scope(S):
+    +    """b688's repair: PLACE-papers' changed files against the ledgers and the faces page the generator regenerates under (R298)(3)."""
+         return S['pp_changed'] == S['pp_allowed']
+    --- b687_checks.py CURRENTS (sealed)
+    +++ b688_checks.py CURRENTS
+    @@ -3,3 +3,3 @@
+                 'THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md', 'day1/ONE_PAGE_PROOF.md', 'phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md',
+    -            'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md', 'README.md', 'REGISTRY.md', 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md',
+    +            'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md', 'README.md', 'REGISTRY.md',
+                 'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md', 'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md')
+
+### ### **REPAIRS 4 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8 OF 8 ; THE REPAIRED READINGS` DIFF LINES 144.**

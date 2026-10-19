@@ -22,3 +22,12 @@ b688 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-19)
     (d) THE SEAT'S: MIXED LINE NUMBERING IN A PROMPT. The third prompt named the SIDE-li-map cells by the file's lines (:288, :298) and the
         SIDE-spinor cells by the generator's (:290, "generator numbering"); the generator's own numbers run four above the file's
         (data/b688_correspondence_dry.txt states both). The author's answer acted on the cells, not the numbers; nothing was written on them.
+    (e) THE SEAT'S: TWO WAITS SENT TO THE BACKGROUND, AND A READER THAT COULD NOT SEE THEM. The ferry: "a run expected to exceed it split into
+        foreground parts rather than detached". Two calls went with the tool's run_in_background parameter (relay data/b688_commands.txt, its
+        detached list): #32 at 03:58Z, a loop waiting on the memory hold before step zero's test part 5 (the part itself then ran in the
+        foreground, at 4929 MB), and #68 at 05:17Z, a loop waiting on SIDE-li-map's run 39203745715 to complete (the run read after by its id
+        in the foreground). Neither ran the act's work; both were waits, and the ferry asks for foreground parts. The command bank's
+        detached reader (carried from b687) read the command's text for Start-Process, nohup or the word run_in_background, so it printed
+        DETACHED RUNS 0 for both: the parameter is not a word of the command. Repaired at carry in tools/b688_record.py (`_bg_calls`, the
+        capture's `bg` flag, the text read outside quoted strings), banked in data/b688_tool_repairs.txt; the bank now prints DETACHED RUNS 2.
+        Later waits run in the foreground (`gh run watch` under a timeout).
