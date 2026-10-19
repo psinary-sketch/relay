@@ -456,7 +456,24 @@ def faces(*a):
     print(NL.join(L[2:6] + L[-4:]))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, faces=faces)
+# ================================================================================ COMPONENT 3: THE ORDER, (R300)(4) (b688's route, carried)
+OH = ('*Appended 2026-10-19 by b690 beneath b689’s trail record (:14952), under `(R300)`(4) -- `W-ORD-CIRCUIT-READING` ENTERED:*')
+OB = (' the dependency-circuit reading, an instrument on the author’s word, specified at b690 (relay data/b690_circuit_spec.txt): for a kernel at '
+      'a tag, each declaration’s transitive constant closure emitted by a runner step from the kernel’s environment (INPUT, a gz beside a text '
+      'hashes bank), read as SERIES, TERMINALS, SHORTS, WIDTH, LOAD and CLAUSE-DOMINANCE -- the last across the faces kernels, whether the '
+      'clause’s compiled face lies in the closure of each main theorem -- with READFIRST-CLOSURE on the author’s word at b690’s faces prompt '
+      '(a ruling and ferry text in place of a theorem, its cited banks closed transitively, output as a readfirst bank), and OUTPUT a DOT bank '
+      'rendered to PNG beside its hashes bank. No tool, Lean file or runner step written at b690; the INSTRUMENTS page unedited until the build '
+      'act. Trigger: the research act after b691. Status OPEN.')
+
+
+def order(*a):
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', OH, NL + OH + OB + NL)], 'b690_orders_lines.json', 'order', entry=K.B689_TRAIL,
+         check=[('OPEN_TRAILS.md', K.B689_TRAIL, '### b689 — lane two')], dry=dry)
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, faces=faces, order=order)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
