@@ -1,0 +1,69 @@
+b690 -- COMPONENT 2, (R300)(3): READING 3, THE READINGS GATHERED (2026-10-19)
+
+### rows are readings: the reading | its tool or "by hand" | its value at b690 | b680's value beside, where reading 2 took the same reading.
+### Every tool figure below was printed by its route (tools/b690_readings.py <route>, each one foreground process) and banked in its own bank
+### (data/b690_r3_<route>.txt and .json, committed at relay d23e0d1b) before this bank was written; this bank is the seat's, by the Write tool,
+### each figure copied from the verdict line of the bank it names. The hand rows say what the hand read and where.
+
+  (1)  rows outside LICENSED or CITED, over the 33 agenda documents | tool: b690_readings.py licensed (b670's licensed and agenda routes by
+       import, the cut banks since b670 by line) | 345 ; documents at zero 18 | b680: 361 ; at zero 11 (data/b680_licensed.txt)
+       by hand, the difference: 361 - 345 = 16 = the cuts since b680, SIDE-bijection 4, SIDE-class-number-anomaly 3, SIDE-li-map 3, SIDE-spinor
+       3, SIDE-silence-principle 1, SIDE-trivium 1, SIDE-window 1 (data/b690_r3_licensed.txt :8-:14); the seven are the seven new zeros.
+  (2)  the roster tables by constellation mode and rowgen diff | tool: b670's route, its lines re-banked (data/b690_r3_licensed.txt :39) |
+       19 tables ; actionable 12 ; rowgen STALE 0, unmapped 136 | b680: the same route (data/b680_licensed.txt)
+  (3)  Correspondence rows behind their kernel's current tag, by b670's method over the stable anchors | tool: b690_readings.py corr
+       (b672's `after` by import) | 57 of 114 rows with a commit | b680: 55 of 114 (data/b680_correspondence.txt :11)
+       by hand, the difference: b680's two NO TAG rows (data/b680_correspondence.txt :178-:179) read BEHIND now (data/b690_r3_corr.txt, BEHIND
+       NO TAG 1 and NOT IN SHAPE 10 against b680's NOT IN SHAPE 9): kernels tagged since b680, no row newly lagging.
+  (4)  Correspondence rows behind at the leading clause, the generator's claim | tool: the same route | 0 | b680: 0
+  (5)  Correspondence by b670's heading-text reader | tool: b690_readings.py corr (b670's `corr` by import) | 10 behind | b680: 10
+  (6)  Correspondence cells held unwritten | by hand: data/b688_correspondence_dry_2.txt "WRITTEN 0 ; HELD 5", no cell written since b686 |
+       5 | b680: not taken (the held five entered at b688)
+  (7)  the ceiling sentence | tool: b690_readings.py ceiling (b680's route by import) | equal at three placements, one hash ; the successor
+       byte-equal at its sites True | b680: the same, True
+  (8)  the orders at OPEN_TRAILS | tool: b690_readings.py orders (b670's queue reader by import, the age from 690) | 165 ; open 38 ; done 52 ;
+       no status 75 ; discharged 16 | b680: 162 ; 38 ; 49 ; 75 (data/b680_orders.txt :248)
+       entered this span (b681-b689): 2 -- W-ORD-EPSTEIN-COUNT-LEAN (b687), W-ORD-CORRESPONDENCE-CARRIED-AT (b688); by hand, the third of the
+       three new orders: W-ORD-LEDGER-SPLIT-RESOLVER (OPEN_TRAILS :14680), entered at b680 after b680's reading (absent from data/b680_orders.txt)
+  (9)  open orders older than ten acts without a trigger met or re-dated (b670's predicate, tools/b670_record.py :926) | tool: the same route,
+       the age from 690 | 35 (b670's route's own print, aged from 670 by its :898, reads 33 -- both banked) | b680: 34, aged from 680
+  (10) the methods census | tool: b690_readings.py methods (b680's route by import) | READY 9 of 12 by b670's code ; 12 of 12 with the hand-read
+       cells | b680: 9 ; 12
+  (11) the keystone lag | tool: b690_readings.py lag (b680's route by import) | 19 keystones ; lag read 16 ; lagging 16 ; median 105 ; maximum
+       244 (A_Place_to_Stand) | b680: median 96 ; maximum 244 ; lagging 16 (data/b680_lag.txt :29)
+       per keystone: data/b690_r3_lag.txt :6-:24; the median moved with the kernel commits of b682-b689 (SIDE-explicit-formula 8fbc27b at b689
+       the object of five keystones).
+  (12) the residues | by hand, each row's needle read on its bank line by code (b690_readings.py residues) | 7 ; APPLIED 4 (R1, R2, R3a, R4) ;
+       CARRIED 3 -- R3b (SIDE-silence-principle Basic.lean :7-:12; trigger: the next re-cut of that kernel, or a census naming an ACTION),
+       LM-i (SIDE-li-map PrimeLedgerPositivity.lean :29-:31; trigger: the next re-cut of SIDE-li-map), LM-ii (PrimeLedgerPositivity.lean
+       :51-:54, NonnegStream; trigger: the same) ; b689 left none (no re-cut) | b680: 5 sentences in 3 documents, all carried
+       (data/b680_residues.txt)
+  (13) the rules census, every rules bank b674-b688 and b690's three | tool for the rows tools/rule_arms.py names, by hand for the rest
+       (b690_readings.py rules) | 21 rules ; with an arm 13 (by code 8, by hand 5) ; traceable without an arm 3 (b680 row 1, b685 row 1, b688
+       row 1) ; prose 3 (b682 row 1, b687 row 1, b690 row 3) ; not yet sorted 2 (b690 rows 1, 2: b691's) | b680: "rules without arms 24"
+       over the rules banks b670-b680 (data/b680_rules_arms.txt) -- another set, not compared
+       by hand, the row count: 18 banked rows (a second shape, `^\s*\(\d+\)` over the twelve banks, also 18) and b690's three.
+  (14) the arms census by act | tool: b690_readings.py arms (each sealed face's (G2) block, each worklist's ACT_ARMS) | at b689 116 declared ;
+       standing 89 ; act-local 27 | b680: 88 declared ; standing 68 ; act-local 20 (the same census, its b680 row)
+  (15) the standing arms' seconds | tool: b689's post-push parts' footers | standing-a 84 arms 201 s ; standing-c 3 arms 46 s ; standing-b 2 arms
+       445 s (its act-root chain phase 375 s) ; act 27 arms 66 s | b680: not taken
+       the per-arm seconds at HEAD: Component 4, this act's suite clocking each arm at its pre-run (data/b690_arm_seconds.json), the three
+       slowest named in the entry.
+  (16) P3 at Q0 across the corpus | tool: b690_readings.py p3 (git grep at HEAD over PLACE-papers' *.md and all 44 D:/SIDE-* kernels' *.lean)
+       | 73 hits ; at Q0 naming P3 25 -- outside the ledgers 3: STILL READING STATED 2 (SIDE-explicit-formula Schema/EpsteinQ0.lean :106, P3's
+       own docstring "stated, not proved; open"; :110-:111, the Q0Premises docstring "(P1)-(P3) and (P4) ... each stated, not proved; open",
+       a sentence wrapped through the grep's line and read whole), DERIVED 1 (THE_CLAUSE_AND_ITS_COMPILED_FACES.md :733, "the local count
+       T-COUNT (P3) derived with certified constants and sourced steps (b685, b687), not compiled") ; in the ledgers 22 (STATED 18, DERIVED 1,
+       NAMED 3), records at their acts | b680: not taken
+       P3's status of record: DERIVED, not compiled (data/b687_p3_status.txt :35). By hand: the two kernel lines read stated against it; the
+       kernel is not edited by a reading act -- each is a candidate for W-ORD-EPSTEIN-COUNT-LEAN's act, entered here as a reading, not an action.
+  (17) W-ORD-ONE-COPY, the FOUNDATIONS partner table | tool: b690_readings.py onecopy (b686's partner route, its reading) | 13 lines differing
+       | b686: 13 (data/b686_correspondence_diff.txt :151) ; unchanged
+  (18) the pair rule (data/b670_rules.txt :5-:7) | tool: b690_readings.py pair, from (1), (3), (7), (9) | its four conditions met at both b680
+       and b690: 1 of 4 -- licensed (345, the condition 0) NOT MET, Correspondence (57, the condition 0) NOT MET, ceiling MET, the queue steady
+       (35, the condition 0) NOT MET | b680: figures beside b670's, no verdict on the condition (FINDINGS :9080)
+  (19) the faces successor row (data/b689_faces_rows.txt) | the prompt of (R300)(3), raised after this bank | -- | --
+
+### ### **READING 3: 345 ROWS OUTSIDE LICENSED OR CITED (b680 361) ; CORRESPONDENCE 57 BEHIND (b680 55), THE CLAIM 0 ; ORDERS 165, OPEN 38 ;
+### KEYSTONE LAG MEDIAN 105 (b680 96) ; RESIDUES 7, CARRIED 3 ; RULES 21 WITH ARMS 13 ; P3 AT Q0 NAMED AT 3 LINES OUTSIDE THE LEDGERS, 2 STILL
+### READING STATED ; ONE-COPY 13 ; THE PAIR RULE 1 OF 4.**
