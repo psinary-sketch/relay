@@ -1,7 +1,7 @@
-b687 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T02:44:28Z)
+b687 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T02:47:11Z)
 
 ### the source: the seat`s session a90bcdb6-256f-4841-97ff-9638e378446c from its first user line carrying 'RULING (R297) BEGIN', and its subagents` transcripts
-### commands read: 142
+### commands read: 153
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (5):
   #4 2026-10-18T23:56:56.221Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -229,5 +229,16 @@ import collec
   #140 | 2026-10-19T02:43:59.327Z | seat | Bash | git add tools/b687_checks.py tools/b687_closing.py tools/b687_record.py data/audit_b687_reg_satisfiable.txt data/b687_arms_prerun.txt data/b687_arms_prerun_act.
   #141 | 2026-10-19T02:44:12.498Z | seat | Bash | grep -E "push_gated|push-b686|git push" data/b686_commands.txt | grep "^  #" | cut -c1-330 | head -20
   #142 | 2026-10-19T02:44:18.666Z | seat | Bash | python -X utf8 -c "
+  #143 | 2026-10-19T02:44:26.606Z | seat | Bash | timeout 400 python -X utf8 -B tools/b687_record.py commands | head -1 | cut -c1-200 && timeout 590 python -X utf8 -B tools/b687_record.py table_final && git sta
+  #144 | 2026-10-19T02:44:55.034Z | seat | Bash | timeout 400 python -X utf8 -B tools/b687_record.py scores 2>&1 | cut -c1-300
+  #145 | 2026-10-19T02:45:08.302Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-files=no && cd /d/relay && timeout 300 python -X utf8 -B tools/b687_record.py findings 2>&1 | tai
+  #146 | 2026-10-19T02:45:15.728Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers add -- FINDINGS.md && git -C D:/MY-DOwnloads/PLACE-papers commit -q -m "b687 entry: FINDINGS :9286, the b685 derivation test
+  #147 | 2026-10-19T02:45:21.694Z | seat | Bash | git add -- data/b687_findings.json data/b687_scores.json data/b687_table_final.json data/b687_table_final.txt data/b687_commands.json data/b687_commands.txt && 
+  #148 | 2026-10-19T02:45:27.965Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git branch push-b687-root f82b1e6 && PUSH_GATED_LOG=/d/relay/data/b687_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh
+  #149 | 2026-10-19T02:46:01.646Z | seat | Bash | cd /d/relay && git branch push-b687-root ed11dc9a && PUSH_GATED_LOG=/d/relay/data/b687_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b
+  #150 | 2026-10-19T02:46:17.865Z | seat | Bash | timeout 590 python -X utf8 -B tools/b687_record.py root 2>&1 | cut -c1-250
+  #151 | 2026-10-19T02:46:47.518Z | seat | Bash | timeout 300 python -X utf8 -B tools/b687_record.py root_arm 2>&1 | cut -c1-250
+  #152 | 2026-10-19T02:46:57.132Z | seat | Bash | timeout 300 python -X utf8 -B tools/b687_record.py trail 2>&1 | tail -2 | cut -c1-300 && git -C /d/MY-DOwnloads/PLACE-papers diff --stat
+  #153 | 2026-10-19T02:47:02.961Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers add -- OPEN_TRAILS.md && git -C D:/MY-DOwnloads/PLACE-papers commit -q -m "b687 record: the trail record at OPEN_TRAILS :148
 
-### ### **COMMANDS 142 ; G-EDIT-ROUTE OFFENCES 5 (SED IN ANY FORM AMONG THEM 5) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 11 COMMANDS, OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 5 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9 ; OUTBOUND REQUESTS 4, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 153 ; G-EDIT-ROUTE OFFENCES 5 (SED IN ANY FORM AMONG THEM 5) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 11 COMMANDS, OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 5 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9 ; OUTBOUND REQUESTS 4, AN IDENTIFIER IN 0.**
