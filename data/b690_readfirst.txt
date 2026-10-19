@@ -1,0 +1,39 @@
+b690 -- THE READ-FIRST BANK, (R300)(7) AND THE FERRY'S READ-FIRST LIST, READ AT STEP ZERO BEFORE ANY OTHER BANK OF THIS ACT (2026-10-19)
+
+### rows are the ferry's read-first items in its order: the item | path and line | the unit of the bank's rows | what was read there.
+### Each cite is checked at HEAD by tools/b690_citation.py (data/b690_citation_check.txt, its rows "ferry read-first").
+
+  b689's head line             relay data/b689_closing.txt :1 | rows are the closing's report lines | "b689 closed: relay c975b150, PLACE-papers a5b86a5;
+                               suite 115 of 116; root 7b2d6772a03792f6…; 2 prompts answered; 5 defects"
+  b689's defects               relay data/b689_defects.txt :5-:43 | rows are defects as lettered, (a)-(e), (c) the navigator's | (e) at :38: "sed TYPED
+                               IN A READING COMMAND, WITH A REDIRECT ONTO /dev/null, AFTER THE SEAL"; its command by the command bank's line: relay
+                               data/b689_commands.txt :238 (#177, 2026-10-19T13:52:09Z), its offence row :7
+  b689's faces rows            relay data/b689_faces_rows.txt :12-:13 (the current row, b688's node list :167 verbatim), :15-:16 (the successor,
+                               drafted and held) | rows are the two rows
+  b689's Q0 re-read            relay data/b689_q0_reread.txt | rows are hypotheses with their status under each form | ten rows; under the strip-free
+                               form holding 5, ρ ≠ 0 on b679's Z_Q(0) = −1 alone
+  reading 2's banks            reading 2 has no single bank: tools/b680_readings.py banked one per reading -- relay data/b680_licensed.txt,
+                               data/b680_correspondence.txt, data/b680_ceiling.txt, data/b680_orders.txt, data/b680_methods.txt, data/b680_kernels9.txt,
+                               data/b680_residues.txt, data/b680_lag.txt, data/b680_outside.txt | rows are each reading's rows, its verdict the last
+                               `### ### **` line; tools/b680_readings.py :81-:398, its routes running b670's by import
+  the rules and arms banks     relay data/b680_rules_arms.txt (rows are rules with their arm or NONE) and data/b683_arms_sort.txt :6-:8 (the sort rule:
+                               TRACEABLE -- its breach leaves a trace a suite can read; PROSE -- it leaves none), its rows :11 onward
+  the rules banks b674-b689    relay data/b674_rules.txt, b675, b677, b678, b680, b681, b682, b684, b685, b686, b687, b688 (_rules.txt) | rows are rules
+                               by number; no rules bank at b676, b679, b683 (whose rules-to-arms bank is data/b683_rules_arms.txt) or b689
+  the residue rows             relay data/b686_cut.txt :49 (R3b, SIDESilencePrinciple/Basic.lean :7-:12, CARRIED) and :51 (R4, applied at b688);
+                               data/b688_cut.txt :58-:66 (the two SIDE-li-map residues, :60 PrimeLedgerPositivity.lean :29-:31 and :64 :51-:54) | rows
+                               are residues
+  the corrigendum tool         relay tools/b678_corrigendum.py :82-:93 (_quote), :143-:167 (dry | land); its form carried at b689 by
+                               tools/b689_corrigendum.py (b678's helper imported unchanged) | a tool, its routes
+  the generator                relay tools/correspondence_gen.py | a tool; its partner reading read live at b686 (data/b686_correspondence_diff.txt :154,
+                               "the tables differ in 13 lines")
+  the licensed-table reading   relay tools/licensed_table.py (the review pass's instrument, b645) and tools/b670_record.py `licensed` :587-:655 with
+                               `agenda` :550-:584 (the reading-1/2 method, CUT_BANKS :521-:531) | tools
+  the faces kernels            the faces page :3 names relay data/b688_nodes_zeta.txt; its rows naming kernels :5, :87, :126, :145, :165, :167
+                               (SIDE-explicit-formula; :126 SIDE-lv-conservation beside it) | rows are declarations in dependency order
+  the instruments page         PLACE-papers phase1.5/method/INSTRUMENTS.md :13-:25, entry I-1: a "## I-n — <name>" head, then **Purpose.**,
+                               **Pipeline.**, **Inputs/Outputs**, **Known range limits.** -- read for the form, unedited | entries
+  b689's closing capture       relay data/b689_closing_push_out.txt | the push tool's capture lines | "c975b150..c8afcb43", read back at c8afcb43;
+                               untracked, committed alone at step zero
+
+### ### **ITEMS 14 ; READ AT HEAD 14 ; THE CITATION CHECK OVER THEM CLEAN (data/b690_citation_check.txt).**

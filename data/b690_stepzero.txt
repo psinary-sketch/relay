@@ -1,0 +1,39 @@
+b690 -- STEP ZERO, COMPONENT 0, UNDER (R300) (2026-10-19)
+
+### rows are the step-zero items in the ferry's order, each with its bank and its reading.
+
+  the session               the act continues b689's session (2c300355); tools/b690_worklist.py anchors at (R300)'s line, so the capture, the
+                            answers and the citation helpers read from it; the edit route's previous-act window is b689's capture from its
+                            post-push combine to that line, in this same session
+  the paste                 received in full before anything ran: one part, "part 1 of 1", BEGIN and END present, the ruling's BEGIN and END and the
+                            ferry's BEGIN and END present (the seat's first reply)
+  the ferry                 data/b690_ferry.txt, banked by the Write tool from the paste, equal to the transcript's text (tools/b690_citation.py
+                            ferry: "17685 characters ; ... equal True ; ferry_scan exit 0"; data/b690_ferry_scan.txt)
+  the citation check        data/b690_citation_check.txt: "CITES CHECKED 91 ; OK 91 ; MISSES 0". Before it was banked the seat tightened one of
+                            its own rows (W-ORD-ONE-COPY's 13 differing lines, read at data/b686_correspondence_diff.txt :154 by its sentence,
+                            where the first form passed on any "13" in a bank) and re-ran it; no miss of the ruling or the ferry; nothing raised
+  the readfirst bank        data/b690_readfirst.txt, every item of the ferry's list by path and line with its row unit (14 items); reading 2 has no
+                            single bank -- b680_readings.py banked one per reading, each named there
+  rowgen and constellation  data/b690_rowgen_stepzero.txt: "CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19."
+  the process listing       tail, lean, lake, python and claude named, bash beside them (Win32_Process by name, 2026-10-19T14:43:31Z, before any
+                            bank write): claude 1 (pid 41404, parent 40456, this seat), tail 0, lean 0, lake 0, python 0, bash 0; free memory
+                            5004 MB. One seat. No task of this session stopped; no orphan, nothing stopped by PID
+  the closing capture       data/b689_closing_push_out.txt committed alone at relay 9854aad2
+  the branches              data/b690_branches.txt: 8 named (7 local, 1 remote), every tip read and merged before any delete, the remote by its
+                            remote-tracking ref after a fetch and one ls-remote; deleted by name in the house form, one branch per command, each
+                            command its own message, in sequence: relay push-b689-root (b46542e5), push-b689 (c975b150), push-b689-closing
+                            (c8afcb43); PLACE-papers push-b689-root (a3d277f), push-b689 (a5b86a5); SIDE-explicit-formula push-b689-merge
+                            (8fbc27b), strip-free-b689 local (0b39a5f) and at the remote (`git push origin --delete strip-free-b689` after
+                            `git branch -r --merged main --list origin/strip-free-b689`); the remote read back empty and re-read alone with main
+                            as its control (main 8fbc27b, the branch absent). No unnamed branch of b689
+  the tests                 data/b690_tests_stepzero.txt (tools/b690_tests.py's report): "TEST FILES 55 ; RUN 54 ; WITHHELD 1 ; NOT CLEAN 2"; the
+                            withheld test test_elab_reader_b634.py (runs lean); the standing failures alone -- test_chain_page.py (9) against the
+                            list the page names (b688_nodes_zeta.txt, b689's repair carried) and test_chain_page_b638.py (4)-(7), the set since
+                            b638. Six foreground parts, one call per part, the free memory printed before each against the 2,560 MB hold: part 1
+                            test_asof.py alone (4930 MB, 505 s), part 2 (5062 MB), part 3 test_chain_page.py alone (5059 MB, 455 s), part 4
+                            (5110 MB), part 5 (5298 MB), part 6 (5268 MB); no part moved to the background
+  the commands              data/b690_commands.txt at Component 4: no sed, no redirect of any stream and no shell filter over a file's lines in
+                            this act's commands; no local lean or lake; no runner dispatched; branch deletes one branch each, no glob
+  git status                relay and PLACE-papers tracked changes NONE after the runs (data/b690_tests_stepzero.txt); the untracked files
+                            untracked
+  no build                  no lean, lake, build or runner dispatch on this host or from it
