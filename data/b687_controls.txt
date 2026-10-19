@@ -1,0 +1,24 @@
+b687 -- THE CONTROLS OF (R297)(4) (2026-10-19T02:08:06Z): rows are controls with their expected and read values
+
+  (C1) derivation T = 100    | expected: the doubled disc`s bound and inner count both grow | read: bound 5.53300 ± 5.53e-40 (was 3.37232 ± 1.24e-39), count 2 (was 0) -> AS PLANTED
+  (C1) derivation T = 1000   | expected: the doubled disc`s bound and inner count both grow | read: bound 8.71139 ± 8.71e-40 (was 4.42463 ± 1.78e-39), count 3 (was 0) -> AS PLANTED
+  (C1) derivation T = 10000  | expected: the doubled disc`s bound and inner count both grow | read: bound 11.8898 ± 1.19e-39 (was 5.47693 ± 2.33e-39), count 4 (was 0) -> AS PLANTED
+  (C1) ruling     T = 100    | expected: the doubled disc`s bound and inner count both grow | read: bound 6.46926 ± 6.47e-40 (was 3.73830 ± 3.74e-40), count 2 (was 0) -> AS PLANTED
+  (C1) ruling     T = 1000   | expected: the doubled disc`s bound and inner count both grow | read: bound 10.3302 ± 1.03e-39 (was 4.83690 ± 4.84e-40), count 3 (was 0) -> AS PLANTED
+  (C1) ruling     T = 10000  | expected: the doubled disc`s bound and inner count both grow | read: bound 14.1911 ± 1.42e-39 (was 5.93549 ± 5.94e-40), count 5 (was 0) -> AS PLANTED
+  (C1) Z_Q        T = 50     | expected: the doubled disc`s bound and inner count both grow | read: bound 14.2158 ± 1.42e-39 (was 5.84625 ± 5.85e-40), count 4 (was 0) -> AS PLANTED
+  (C1) Z_Q        T = 100    | expected: the doubled disc`s bound and inner count both grow | read: bound 16.2310 ± 1.62e-39 (was 6.39025 ± 6.39e-40), count 6 (was 0) -> AS PLANTED
+  (C1) Z_Q        T = 149    | expected: the doubled disc`s bound and inner count both grow | read: bound 17.4412 ± 1.74e-39 (was 6.71688 ± 2.30e-39), count 6 (was 0) -> AS PLANTED
+       the doubled circle lies outside the derivation`s conditions (the conditions at 2r: ζ [[['1 < c < r', True], ['0 < δ < ½', False], ['c − r < ½ < 1 < c < σ1 < c + r', True], ['−½ ≤ p < 0 ((Z1) (4.8))', False]], [['1 < c < r', True], ['0 < δ < ½', False], ['c − r < ½ < 1 < c < σ1 < c + r', True], ['−½ ≤ p < 0 ((Z1) (4.8))', False]]] ; Z_Q [['1 < c < r', True], ['0 < δ < ½', False], ['c − r < ½ < 1 < c < σ1 < c + r', True], ['c ≥ 3/2 and 4 − Z_Q(c) > 0', True], ['σ1 ≥ 3/2 and ε < 2', True], ['p < 0 and 1 − p ≥ 1.02', True]]): its bound is the route`s value there
+  (C2) ζ    T = 100    | expected: |Δ₊ − Δ₋| of Im log Γ (Δ₋`s sign reversed) above E_gamma | read: 0.779940 ± 7.80e-41 against 0.0182331 ± 1.82e-42 -> FAILS AS PLANTED
+  (C2) ζ    T = 1000   | expected: |Δ₊ − Δ₋| of Im log Γ (Δ₋`s sign reversed) above E_gamma | read: 0.777712 ± 7.78e-41 against 0.0182331 ± 1.82e-42 -> FAILS AS PLANTED
+  (C2) ζ    T = 10000  | expected: |Δ₊ − Δ₋| of Im log Γ (Δ₋`s sign reversed) above E_gamma | read: 0.777490 ± 7.77e-41 against 0.0182331 ± 1.82e-42 -> FAILS AS PLANTED
+  (C2) Z_Q  T = 50     | expected: |Δ₊ − Δ₋| of Im log Γ (Δ₋`s sign reversed) above E_gamma | read: 1.56313 ± 1.56e-40 against 0.0331412 ± 3.31e-42 -> FAILS AS PLANTED
+  (C2) Z_Q  T = 100    | expected: |Δ₊ − Δ₋| of Im log Γ (Δ₋`s sign reversed) above E_gamma | read: 1.56313 ± 1.56e-40 against 0.0165697 ± 1.66e-42 -> FAILS AS PLANTED
+  (C2) Z_Q  T = 149    | expected: |Δ₊ − Δ₋| of Im log Γ (Δ₋`s sign reversed) above E_gamma | read: 1.56313 ± 1.56e-40 against 0.0111205 ± 1.11e-42 -> FAILS AS PLANTED
+  (route) the lattice sum against b667`s at 2.4 + 50i | expected: the balls overlap | read: lattice 2.039496317 ± 3.39e-5 -0.05337536641 ± 3.39e-5, b667 2.039496304 ± 2.04e-40 -0.05337538791 ± 5.34e-42 -> True
+  (route) the lattice sum against b667`s at 2.45 + 149i | expected: the balls overlap | read: lattice 2.000265661 ± 2.18e-5 0.01859339306 ± 2.18e-5, b667 2.000265675 ± 2.00e-40 0.01859339153 ± 1.86e-42 -> True
+  (route) the lattice sum against b667`s at 2.5 + 0i | expected: the balls overlap | read: lattice 2.161146901 ± 1.40e-5 0 ± 1.40e-5, b667 2.161148733 ± 2.16e-40 0 ± 1.30e-80 -> True
+  (copies) rz_at equals Rz at T_MIN 100: True ; topq_at equals topq at T_MIN 149: True
+
+### ### **C1 AS PLANTED ; C2 AS PLANTED ; THE LATTICE ROUTE AGREES.**

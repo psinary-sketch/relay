@@ -1,0 +1,36 @@
+b687 -- P3'S STATUS AFTER THE ACT, THE SUCCESSOR BANK OF data/b685_p3_status.txt, UNDER (R297)(5) AS THE AUTHOR'S WORD AMENDS IT
+(data/b687_rules.txt row (1)) (2026-10-19)
+
+### rows are the premise, its status before this act, its status after it, and the lines that decide it.
+
+  P3 (Q0Count := HCount Z A0Q, A0Q := 10; Schema/EpsteinQ0.lean :104-:108; data/b675_hypotheses.txt :61, :64)
+    BEFORE: "stated, not proved; open" -- b685 kept it as stated (data/b685_p3_status.txt).
+    AFTER:  DERIVED — constants certified in balls, analytic steps sourced by line, intermediate inequalities checked against computed values
+            at sample heights, the ζ instance inside the located bounds at matched range, not compiled.
+    WHY (each reading cited to its bank; H1-H5 in data/b687_readings.json):
+      the constants: b685's, unchanged -- a = 0.432571915432 ± 4.33e-41, b = 0, c = 1.26244217716 ± 1.26e-40 for T ≥ 149 (data/b685_count.txt
+        :21-:23), every analytic step sourced by line in data/b685_count_plan.txt :15-:82.
+      (H2) the Jensen step (6): J(T) ≤ S(T) and n(ρ′) ≤ S(T)/log(r/ρ′) at ρ′ = 1.4, 1.6, 1.8 hold at every sampled height -- ζ at T = 100,
+        1000, 10⁴ at the derivation's c = 1.5, r = 1.98 and at the ruling's 1.7, 2.05 (data/b687_jensen_zeta.txt), Z_Q at T = 50, 100, 149
+        from b681's balls, their partners and the band (150, 151.59] counted by b667's argument principle (data/b687_jensen_q0.txt); the
+        literal inner-disc count 0 at every height, VACUOUS for ζ (data/b687_defects.txt (f)).
+      (H3) every intermediate inequality of steps (3), (5)-(7) holds at the sampled heights: 114 of 114 (ζ 57, Z_Q 57), each margin printed
+        (data/b687_steps.txt); the narrowest, the envelope on the circle, 0.0577 (Z_Q, T = 149).
+      (H4) C1 and C2 read as planted (data/b687_controls.txt).
+      (H1) the ζ instance at matched range: a_e = 0.218287209229, b_e = 0, c_e = 1.73142622655 for T ≥ e (data/b687_matched.txt section 1),
+        at or below every located bound at e, 10, 100 (and at 1000, 10⁴) -- Hasanalizade-Shen-Wong Cor 1.2 (9.3675, and 9.4925 as Bellotti-Wong
+        correct it), Trudgian 2014 Cor 1, Platt-Trudgian 2015 Cor 1 (in the place of the "Platt-Trudgian 2021" the ruling names, which states
+        no such bound: data/b687_defects.txt (d)) and Backlund's row; entered as a reading beside the readings, not a bar (data/b687_rules.txt
+        row (1)), with the crossover heights -- Platt-Trudgian 2015 below the derived T ≥ e bound beyond T ≈ 1.28e5, Trudgian 2014 beyond
+        ≈ 1.44e6, HSW beyond ≈ 5.9e29 (data/b687_matched.txt section 4). Platt's computation |S(T)| ≤ 2.5167 for 0 ≤ T ≤ 3.06e10 lies below
+        every bound compared (data/b687_plan.txt section 1).
+      (H5) the composition of b685's (6) run: HCount's inequality N(t, t + 1) ≤ 10 log(|t| + 3) holds at every t > 149, the narrowest margin
+        41.9785 on [150, 151.5], κ1 = 1.18345 < 10 beyond 10⁶, no height uncovered; with the certified range −150 ≤ t ≤ 149
+        (data/b685_p3.txt section 4) it meets at 149 (data/b687_composition.txt).
+    WHAT THE STATUS IS NOT: a Lean statement; no kernel file carries it; the Lean form is W-ORD-EPSTEIN-COUNT-LEAN's, a research act after
+      b690. The readings are refutation tests at sampled heights and the composition is interval arithmetic over b685's sourced steps.
+    THE SEAT'S ADDITIONS THE AUTHOR READS (data/b687_defects.txt (g), (h)): the band's resumable squares and its zeros located by b671's
+      (M-on) form; the lattice route for Z_Q at σ > 2.5, checked against b667's at three points.
+
+### ### **P3: DERIVED — constants certified in balls, analytic steps sourced by line, intermediate inequalities checked against computed values at
+### sample heights, the ζ instance inside the located bounds at matched range, not compiled.**

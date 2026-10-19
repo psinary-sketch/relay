@@ -1,0 +1,49 @@
+b687 -- READING (ii): THE JENSEN DISC OF THE DERIVATION FOR ζ (2026-10-19T02:08:06Z)
+
+### rows are heights with the certified count, the step`s bound and the margin (and the ratio of bound to count, so a loose step reads as loose);
+### Jensen`s formula for a(s) = (s − 1)ζ(s) on the disc |s − (c + iT)| < r: J(T) = (1/2π)∫log|a| − log|a(z₀)| ≤ S(T) by steps (6)-(7), and n(ρ′)
+### log(r/ρ′) ≤ J(T). Zeros by acb.zeta_zero(n), each sign-checked by the completed function across [mid ± 1e-20] (b681`s C1 form).
+
+== DERIVATION SET: c = 1.5, r = 1.98, η = 0.5 ; conditions [['1 < c < r', True], ['0 < δ < ½', True], ['c − r < ½ < 1 < c < σ1 < c + r', True], ['−½ ≤ p < 0 ((Z1) (4.8))', True]] ; (1/π)∫coef 1.3121829 ± 2.62e-40 ; (1/π)∫rest 0.089740027 ± 1.79e-41 (THE BOUND UNDER TEST, b685`s banked integral)
+  T = 100    | inner radius 1: certified count 0 | the step`s bound S/ℓ 3.37232 ± 1.24e-39 | margin 3.37232 ± 1.24e-39 | ratio bound/count count 0 | HOLDS -- VACUOUS (every zero on σ = ½; the disc meets the line at one point)
+             | the Jensen sum J(T) = Σ log(r/|ρ − z₀|) 0.43218858 ± 9.76e-21 over 2 zeros | the step`s bound S(T) 2.3036211 ± 8.44e-40 | margin 1.87143 ± 9.76e-21 | ratio 5.330 ± 1.20e-19 | HOLDS
+             | ρ′ = 1.4: count 0 | bound S/log(r/ρ′) 6.64587 ± 2.43e-39 | ratio count 0 | HOLDS
+             | ρ′ = 1.6: count 1 | bound S/log(r/ρ′) 10.8104 ± 3.96e-39 | ratio 10.81 ± 3.96e-39 | HOLDS
+             | ρ′ = 1.8: count 2 | bound S/log(r/ρ′) 24.1697 ± 8.85e-39 | ratio 12.08 ± 4.43e-39 | HOLDS
+  T = 1000   | inner radius 1: certified count 0 | the step`s bound S/ℓ 4.42463 ± 1.78e-39 | margin 4.42463 ± 1.78e-39 | ratio bound/count count 0 | HOLDS -- VACUOUS (every zero on σ = ½; the disc meets the line at one point)
+             | the Jensen sum J(T) = Σ log(r/|ρ − z₀|) 1.0770397 ± 1.17e-20 over 3 zeros | the step`s bound S(T) 3.0224487 ± 1.22e-39 | margin 1.94541 ± 1.17e-20 | ratio 2.806 ± 3.05e-20 | HOLDS
+             | ρ′ = 1.4: count 1 | bound S/log(r/ρ′) 8.71966 ± 3.51e-39 | ratio 8.720 ± 3.51e-39 | HOLDS
+             | ρ′ = 1.6: count 2 | bound S/log(r/ρ′) 14.1837 ± 5.71e-39 | ratio 7.092 ± 2.86e-39 | HOLDS
+             | ρ′ = 1.8: count 3 | bound S/log(r/ρ′) 31.7117 ± 1.28e-38 | ratio 10.57 ± 4.26e-39 | HOLDS
+  T = 10000  | inner radius 1: certified count 0 | the step`s bound S/ℓ 5.47693 ± 2.33e-39 | margin 5.47693 ± 2.33e-39 | ratio bound/count count 0 | HOLDS -- VACUOUS (every zero on σ = ½; the disc meets the line at one point)
+             | the Jensen sum J(T) = Σ log(r/|ρ − z₀|) 1.8263673 ± 1.52e-20 over 4 zeros | the step`s bound S(T) 3.7412764 ± 1.59e-39 | margin 1.91491 ± 1.52e-20 | ratio 2.048 ± 1.70e-20 | HOLDS
+             | ρ′ = 1.4: count 3 | bound S/log(r/ρ′) 10.7935 ± 4.59e-39 | ratio 3.598 ± 1.53e-39 | HOLDS
+             | ρ′ = 1.6: count 4 | bound S/log(r/ρ′) 17.5570 ± 7.47e-39 | ratio 4.389 ± 1.87e-39 | HOLDS
+             | ρ′ = 1.8: count 4 | bound S/log(r/ρ′) 39.2537 ± 1.67e-38 | ratio 9.813 ± 4.18e-39 | HOLDS
+
+== RULING SET: c = 1.7, r = 2.05, η = 0.5 ; conditions [['1 < c < r', True], ['0 < δ < ½', True], ['c − r < ½ < 1 < c < σ1 < c + r', True], ['−½ ≤ p < 0 ((Z1) (4.8))', True]] ; (1/π)∫coef 1.2555031 ± 1.26e-40 ; (1/π)∫rest 0.23521994 ± 2.35e-41 (the ruling`s figures, a second reading and not the test)
+  T = 100    | inner radius 1.2: certified count 0 | the step`s bound S/ℓ 3.73830 ± 3.74e-40 | margin 3.73830 ± 3.74e-40 | ratio bound/count count 0 | HOLDS -- VACUOUS (every zero on σ = ½; the disc meets the line at one point)
+             | the Jensen sum J(T) = Σ log(r/|ρ − z₀|) 0.34185415 ± 8.31e-21 over 2 zeros | the step`s bound S(T) 2.0019293 ± 2.00e-40 | margin 1.66008 ± 8.31e-21 | ratio 5.856 ± 1.42e-19 | HOLDS
+             | ρ′ = 1.4: count 0 | bound S/log(r/ρ′) 5.24934 ± 5.25e-40 | ratio count 0 | HOLDS
+             | ρ′ = 1.6: count 0 | bound S/log(r/ρ′) 8.07763 ± 8.08e-40 | ratio count 0 | HOLDS
+             | ρ′ = 1.8: count 2 | bound S/log(r/ρ′) 15.3932 ± 1.54e-39 | ratio 7.697 ± 7.70e-40 | HOLDS
+  T = 1000   | inner radius 1.2: certified count 0 | the step`s bound S/ℓ 4.83690 ± 4.84e-40 | margin 4.83690 ± 4.84e-40 | ratio bound/count count 0 | HOLDS -- VACUOUS (every zero on σ = ½; the disc meets the line at one point)
+             | the Jensen sum J(T) = Σ log(r/|ρ − z₀|) 0.84788571 ± 9.71e-21 over 3 zeros | the step`s bound S(T) 2.5902468 ± 2.59e-40 | margin 1.74236 ± 9.71e-21 | ratio 3.055 ± 3.50e-20 | HOLDS
+             | ρ′ = 1.4: count 1 | bound S/log(r/ρ′) 6.79200 ± 6.79e-40 | ratio 6.792 ± 6.79e-40 | HOLDS
+             | ρ′ = 1.6: count 1 | bound S/log(r/ρ′) 10.4514 ± 1.05e-39 | ratio 10.45 ± 1.05e-39 | HOLDS
+             | ρ′ = 1.8: count 2 | bound S/log(r/ρ′) 19.9168 ± 1.99e-39 | ratio 9.958 ± 9.96e-40 | HOLDS
+  T = 10000  | inner radius 1.2: certified count 0 | the step`s bound S/ℓ 5.93549 ± 5.94e-40 | margin 5.93549 ± 5.94e-40 | ratio bound/count count 0 | HOLDS -- VACUOUS (every zero on σ = ½; the disc meets the line at one point)
+             | the Jensen sum J(T) = Σ log(r/|ρ − z₀|) 1.4552927 ± 1.21e-20 over 4 zeros | the step`s bound S(T) 3.1785643 ± 3.18e-40 | margin 1.72327 ± 1.21e-20 | ratio 2.184 ± 1.82e-20 | HOLDS
+             | ρ′ = 1.4: count 2 | bound S/log(r/ρ′) 8.33465 ± 8.33e-40 | ratio 4.167 ± 4.17e-40 | HOLDS
+             | ρ′ = 1.6: count 3 | bound S/log(r/ρ′) 12.8253 ± 1.28e-39 | ratio 4.275 ± 4.28e-40 | HOLDS
+             | ρ′ = 1.8: count 4 | bound S/log(r/ρ′) 24.4405 ± 2.44e-39 | ratio 6.110 ± 6.11e-40 | HOLDS
+
+== THE ZEROS READ (n | γ | the certified interval | signs at its ends)
+  near T|R = 100|3.96 : 29 98.831194218194 ± 9.88e-39 ; 30 101.31785100573 ± 1.01e-38 ; 31 103.72553804048 ± 1.04e-38 ; outside neighbours [28, 95.87063422824531], [32, 105.44662305232609]
+  near T|R = 1000|3.96 : 646 996.20533616430 ± 9.96e-38 ; 647 997.51193475194 ± 9.98e-38 ; 648 998.82754713693 ± 9.99e-38 ; 649 999.79157155741 ± 1.00e-37 ; 650 1001.3494826378 ± 1.00e-37 ; 651 1002.4043054884 ± 1.00e-37 ; 652 1003.2678081795 ± 1.00e-37 ; outside neighbours [645, 994.4045905710944], [653, 1004.6750441211728]
+  near T|R = 10000|3.96 : 10140 9996.5569339621 ± 1.00e-36 ; 10141 9998.0948603350 ± 1.00e-36 ; 10142 9998.8503970897 ± 1.00e-36 ; 10143 10000.065345415 ± 1.00e-36 ; 10144 10000.651847324 ± 1.00e-36 ; 10145 10000.918178956 ± 1.00e-36 ; 10146 10002.279122273 ± 1.00e-36 ; 10147 10002.980327512 ± 1.00e-36 ; 10148 10004.047053828 ± 1.00e-36 ; outside neighbours [10139, 9995.877231960972], [10149, 10004.679404166065]
+  near T|R = 100|4.1 : 28 95.870634228245 ± 9.59e-39 ; 29 98.831194218194 ± 9.88e-39 ; 30 101.31785100573 ± 1.01e-38 ; 31 103.72553804048 ± 1.04e-38 ; outside neighbours [27, 94.65134404051989], [32, 105.44662305232609]
+  near T|R = 1000|4.1 : 646 996.20533616430 ± 9.96e-38 ; 647 997.51193475194 ± 9.98e-38 ; 648 998.82754713693 ± 9.99e-38 ; 649 999.79157155741 ± 1.00e-37 ; 650 1001.3494826378 ± 1.00e-37 ; 651 1002.4043054884 ± 1.00e-37 ; 652 1003.2678081795 ± 1.00e-37 ; outside neighbours [645, 994.4045905710944], [653, 1004.6750441211728]
+  near T|R = 10000|4.1 : 10139 9995.8772319610 ± 1.00e-36 ; 10140 9996.5569339621 ± 1.00e-36 ; 10141 9998.0948603350 ± 1.00e-36 ; 10142 9998.8503970897 ± 1.00e-36 ; 10143 10000.065345415 ± 1.00e-36 ; 10144 10000.651847324 ± 1.00e-36 ; 10145 10000.918178956 ± 1.00e-36 ; 10146 10002.279122273 ± 1.00e-36 ; 10147 10002.980327512 ± 1.00e-36 ; 10148 10004.047053828 ± 1.00e-36 ; outside neighbours [10138, 9995.190600851283], [10149, 10004.679404166065]
+
+### ### **ζ: EVERY DISC READING HOLDS (J(T) ≤ S(T) and the three radii at 100, 1000, 10⁴, both sets) ; THE INNER COUNT 0 AT EVERY HEIGHT -- VACUOUS.**

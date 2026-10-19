@@ -1,0 +1,15 @@
+b687 -- THE COMPOSITION OF b685`S (6), RUN ON H2, H3 AND H4 (data/b687_rules.txt row (1)) (2026-10-19T02:08:06Z)
+
+### rows are T ranges -- the bound, HCount`s figure 10 log(|t| + 3), the margin; tools/b685_count.py :394-:449 p3`s lines with its gate on C1`s
+### second clause struck; W_window and topq imported unedited; b685`s constants from data/b685_count_part1/2.json, unchanged.
+
+  t = 149 (certified)                            | bound 2 | HCount 50.2388052085 ± 5.02e-39 | margin 48.2388052085 ± 4.82e-39
+  149 < t < 150 (straddle)                       | bound 10.3142326215 ± 2.66e-39 | HCount 50.2388052085 ± 5.02e-39 | margin 39.9245725870 ± 5.62e-39
+  t in [150, 151.5] (the piece holding 150)      | bound 8.32592114667 ± 2.47e-39 | HCount 50.3043792139 ± 5.03e-39 | margin 41.9784580673 ± 5.83e-39
+  t in [993.464, 1003.4] (the piece holding 1000) | bound 10.5558901569 ± 3.20e-39 | HCount 69.0421334196 ± 6.90e-39 | margin 58.4862432626 ± 8.00e-39
+  t in [991256, 1e+06] (the piece holding 1000000) | bound 18.7255601876 ± 5.91e-39 | HCount 138.067307948 ± 1.38e-38 | margin 119.341747760 ± 1.60e-38
+  t ≥ 10⁶ (coefficient form)                     | bound κ1 log(t + 1) + κ0, κ1 1.18345371705 ± 2.73e-40, κ0 2.37554168145 ± 2.59e-40 | HCount 10 log(t + 3) | margin 119.429555392 ± 1.60e-38
+  the scan pieces 885 ; THE NARROWEST MARGIN 41.9784580673 ± 5.83e-39 on [150, 151.5] (W ≤ 8.32592114667 ± 2.47e-39) ; negative t by the symmetry of data/b685_p3.txt section 3
+  THE MEETING HEIGHT 149: the certified range −150 ≤ t ≤ 149 (data/b685_p3.txt section 4) and the derived t ≥ 149 ; NO HEIGHT UNCOVERED: True
+
+### ### **HCOUNT`S INEQUALITY N(t, t + 1) ≤ 10 log(|t| + 3) AT EVERY t > 149: True ; THE NARROWEST MARGIN 41.9785 ± 5.83e-39.**

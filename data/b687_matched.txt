@@ -1,0 +1,83 @@
+b687 -- READING (i): THE ζ INSTANCE AT MATCHED RANGE, T ≥ e, AGAINST THE LOCATED BOUNDS (2026-10-19T02:08:06Z)
+
+### rows are heights with each bound`s value: the derived bound in each located bound`s own form (with 7/8 inside the modulus for Trudgian and
+### Platt-Trudgian, without it -- the derived R + 7/8 -- for HSW and Backlund), the located value, their ratio and the reading; every figure a ball.
+### The derivation: tools/b685_count.py`s steps imported unedited (sha256 1cf1b47358e9272d), T_MIN_Z read as e by the copy rz_at (equal to Rz at b685`s T_MIN 100: True).
+
+== 1. THE CONSTANTS
+  T ≥ e : chosen c = 1.4, r = 1.88, η = 0.5 of 1344 sets (0 refused) ; a_e = 0.218287209229 ± 2.18e-41 ; b_e = 0 ; c_e = 1.73142622655 ± 1.73e-40
+  T ≥ 100 (b685, data/b685_count_controls.txt :3) : a_ζ = 0.228505583833 ± 4.57e-41 ; b_ζ = 0 ; c_ζ = 0.800713497357 ± 1.60e-40
+  condition 1 < c < r                                      True
+  condition 0 < δ < ½                                      True
+  condition c − r < ½ < 1 < c < σ1 < c + r                 True
+  condition −½ ≤ p < 0 ((Z1) (4.8))                        True
+  condition E_gamma at y = e/2: x0 ≥ d                     True
+  condition E_gamma at y = e/2: ((x0 + d)/y)² ≤ ½          True
+
+== 2. THE LOCATED BOUNDS, AS QUOTED (relay data/b687_plan.txt section 1)
+  HSW       (Z1) HSW arXiv:2107.06506v1 Corollary 1.2, p. 2 (1.5): "|N(T) − T/2π log(T/2πe)| ≤ 0.1038 log T + 0.2573 log log T + 9.3675", T ≥ e
+  HSW_BW    (Z2) Bellotti-Wong arXiv:2412.15470v2 p. 2 footnote 1: "The value 9.3675 is now substituted with 9.4925"
+  TR14      (Z3) Trudgian arXiv:1208.5846v2 Corollary 1, p. 2: "For T ≥ T0 ≥ e |N(T) − T/2π log T/2πe − 7/8| ≤ 0.111 log T + 0.275 log log T + 2.450 + 0.2/T0", T0 = e
+  PT15      (PT) Platt-Trudgian arXiv:1402.3953v2 Corollary 1, p. 2: "If T ≥ e, then |S(T)| ≤ 0.110 log T + 0.290 log log T + 2.290", + 0.2/T by (Z3) (2.5), p. 3
+  BACKLUND  (Z1) Table 1, p. 1, Backlund [1] (1918): "0.1370 0.4430 5.2250 200"
+  PT21 (arXiv:2004.09765v1, sha256 3362f66a...): NOT LOCATED AS NAMED -- no bound on N(T) or S(T) (data/b687_defects.txt (d))
+
+== 3. THE ROWS (derived | located | ratio | reading; |e the T ≥ e bound, |100 b685`s T ≥ 100 bound)
+  T = e     R_e 1.949713436 ± 1.95e-40
+      HSW|e         derived 2.8247134 ± 2.82e-40 | located 9.4713000 ± 9.47e-40 | ratio 0.298239 ± 2.98e-41 | SHARPER
+      HSW_BW|e      derived 2.8247134 ± 2.82e-40 | located 9.5963000 ± 9.60e-40 | ratio 0.294354 ± 2.94e-41 | SHARPER
+      TR14|e        derived 1.9497134 ± 1.95e-40 | located 2.6345759 ± 2.63e-40 | ratio 0.740048 ± 7.40e-41 | SHARPER
+      PT15|e        derived 1.9497134 ± 1.95e-40 | located 2.4735759 ± 2.47e-40 | ratio 0.788217 ± 7.88e-41 | SHARPER
+      SHARPER THAN EVERY LOCATED BOUND (the T ≥ e bound): True
+  T = 10    R_e 2.234051101 ± 2.23e-40
+      HSW|e         derived 3.1090511 ± 3.11e-40 | located 9.8211049 ± 9.82e-40 | ratio 0.316568 ± 3.17e-41 | SHARPER
+      HSW_BW|e      derived 3.1090511 ± 3.11e-40 | located 9.9461049 ± 9.95e-40 | ratio 0.312590 ± 3.13e-41 | SHARPER
+      TR14|e        derived 2.2340511 ± 2.23e-40 | located 3.0085218 ± 3.01e-40 | ratio 0.742574 ± 7.43e-41 | SHARPER
+      PT15|e        derived 2.2340511 ± 2.23e-40 | located 2.8051538 ± 2.81e-40 | ratio 0.796409 ± 7.96e-41 | SHARPER
+      SHARPER THAN EVERY LOCATED BOUND (the T ≥ e bound): True
+  T = 100   R_e 2.736675974 ± 2.74e-40 ; R_100 1.853020599 ± 6.34e-40
+      HSW|e         derived 3.6116760 ± 3.61e-40 | located 10.238460 ± 1.02e-39 | ratio 0.352756 ± 3.53e-41 | SHARPER
+      HSW|100       derived 2.7280206 ± 7.22e-40 | located 10.238460 ± 1.02e-39 | ratio 0.266448 ± 7.05e-41 | SHARPER
+      HSW_BW|e      derived 3.6116760 ± 3.61e-40 | located 10.363460 ± 1.04e-39 | ratio 0.348501 ± 3.49e-41 | SHARPER
+      HSW_BW|100    derived 2.7280206 ± 7.22e-40 | located 10.363460 ± 1.04e-39 | ratio 0.263235 ± 6.96e-41 | SHARPER
+      TR14|e        derived 2.7366760 ± 2.74e-40 | located 3.4547242 ± 3.45e-40 | ratio 0.792155 ± 7.92e-41 | SHARPER
+      TR14|100      derived 1.8530206 ± 6.34e-40 | located 3.4547242 ± 3.45e-40 | ratio 0.536373 ± 1.84e-40 | SHARPER
+      PT15|e        derived 2.7366760 ± 2.74e-40 | located 3.2414508 ± 3.24e-40 | ratio 0.844275 ± 8.44e-41 | SHARPER
+      PT15|100      derived 1.8530206 ± 6.34e-40 | located 3.2414508 ± 3.24e-40 | ratio 0.571664 ± 1.96e-40 | SHARPER
+      SHARPER THAN EVERY LOCATED BOUND (the T ≥ e bound): True
+  T = 1000  R_e 3.239300848 ± 3.24e-40 ; R_100 2.379174150 ± 9.08e-40
+      HSW|e         derived 4.1143008 ± 4.11e-40 | located 10.581794 ± 1.06e-39 | ratio 0.388809 ± 3.89e-41 | SHARPER
+      HSW|100       derived 3.2541742 ± 9.95e-40 | located 10.581794 ± 1.06e-39 | ratio 0.307526 ± 9.41e-41 | SHARPER
+      HSW_BW|e      derived 4.1143008 ± 4.11e-40 | located 10.706794 ± 1.07e-39 | ratio 0.384270 ± 3.84e-41 | SHARPER
+      HSW_BW|100    derived 3.2541742 ± 9.95e-40 | located 10.706794 ± 1.07e-39 | ratio 0.303935 ± 9.30e-41 | SHARPER
+      TR14|e        derived 3.2393008 ± 3.24e-40 | located 3.8218140 ± 3.82e-40 | ratio 0.847582 ± 8.48e-41 | SHARPER
+      TR14|100      derived 2.3791742 ± 9.08e-40 | located 3.8218140 ± 3.82e-40 | ratio 0.622525 ± 2.38e-40 | SHARPER
+      PT15|e        derived 3.2393008 ± 3.24e-40 | located 3.6105201 ± 3.61e-40 | ratio 0.897184 ± 8.97e-41 | SHARPER
+      PT15|100      derived 2.3791742 ± 9.08e-40 | located 3.6105201 ± 3.61e-40 | ratio 0.658956 ± 2.51e-40 | SHARPER
+      BACKLUND|e    derived 4.1143008 ± 4.11e-40 | located 7.0275241 ± 7.03e-40 | ratio 0.585455 ± 5.85e-41 | SHARPER
+      BACKLUND|100  derived 3.2541742 ± 9.95e-40 | located 7.0275241 ± 7.03e-40 | ratio 0.463061 ± 1.42e-40 | SHARPER
+      SHARPER THAN EVERY LOCATED BOUND (the T ≥ e bound): True
+  T = 10000 R_e 3.741925722 ± 3.74e-40 ; R_100 2.905327701 ± 1.18e-39
+      HSW|e         derived 4.6169257 ± 4.62e-40 | located 10.894823 ± 1.09e-39 | ratio 0.423772 ± 4.24e-41 | SHARPER
+      HSW|100       derived 3.7803277 ± 1.27e-39 | located 10.894823 ± 1.09e-39 | ratio 0.346984 ± 1.17e-40 | SHARPER
+      HSW_BW|e      derived 4.6169257 ± 4.62e-40 | located 11.019823 ± 1.10e-39 | ratio 0.418965 ± 4.19e-41 | SHARPER
+      HSW_BW|100    derived 3.7803277 ± 1.27e-39 | located 11.019823 ± 1.10e-39 | ratio 0.343048 ± 1.15e-40 | SHARPER
+      TR14|e        derived 3.7419257 ± 3.74e-40 | located 4.1565135 ± 4.16e-40 | ratio 0.900256 ± 9.00e-41 | SHARPER
+      TR14|100      derived 2.9053277 ± 1.18e-39 | located 4.1565135 ± 4.16e-40 | ratio 0.698982 ± 2.84e-40 | SHARPER
+      PT15|e        derived 3.7419257 ± 3.74e-40 | located 3.9470522 ± 3.95e-40 | ratio 0.948030 ± 9.48e-41 | SHARPER
+      PT15|100      derived 2.9053277 ± 1.18e-39 | located 3.9470522 ± 3.95e-40 | ratio 0.736075 ± 2.99e-40 | SHARPER
+      BACKLUND|e    derived 4.6169257 ± 4.62e-40 | located 7.4704214 ± 7.47e-40 | ratio 0.618027 ± 6.18e-41 | SHARPER
+      BACKLUND|100  derived 3.7803277 ± 1.27e-39 | located 7.4704214 ± 7.47e-40 | ratio 0.506039 ± 1.70e-40 | SHARPER
+      SHARPER THAN EVERY LOCATED BOUND (the T ≥ e bound): True
+
+== 4. THE CROSSOVERS (data/b687_rules.txt row (1)): the height beyond which each located bound stays below the derived one
+  HSW|e         T* = 5.93937e+29
+  HSW|100       T* = 3.97984e+30
+  HSW_BW|e      T* = 1.8359e+30
+  HSW_BW|100    T* = 1.11743e+31
+  TR14|e        T* = 1.44094e+06
+  TR14|100      T* = 3.19085e+09
+  PT15|e        T* = 127847
+  PT15|100      T* = 4.32015e+08
+
+### ### **a_e = 0.218287 ± 2.18e-41, b_e = 0, c_e = 1.73143 ± 1.73e-40 (T ≥ e) ; SHARPER THAN EVERY LOCATED BOUND AT e, 10, 100: True ; THE NEAREST CROSSOVER 127847.0 (PT15|e).**

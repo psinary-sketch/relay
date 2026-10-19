@@ -297,6 +297,35 @@ def c1(*a):
          check=[('FINDINGS.md', K.B686_ENTRY, '## '), ('OPEN_TRAILS.md', K.B686_TRAIL, '### b686')], dry=dry)
 
 
+# ================================================================================ COMPONENT 3: THE ORDERS, (R297)(5) AS AMENDED (data/b687_rules.txt row (1))
+OH1 = ('*Appended 2026-10-19 by b687 beneath b686’s trail record (:14862), under `(R297)`(5) as the author’s word amends it -- '
+       '`W-ORD-EPSTEIN-COUNT` (:14678; re-dated :14832) DISCHARGED-BY-DERIVATION:*')
+OB1 = (' the four readings of its trigger made (relay data/b687_plan.txt; the author’s word on it, data/b687_author_answers.txt): (i) the ζ '
+       'instance re-derived by b685’s steps on T ≥ e, a_e = 0.218287, b_e = 0, c_e = 1.731426, at or below Hasanalizade-Shen-Wong Cor 1.2 (9.3675; '
+       '9.4925 as Bellotti-Wong correct it), Trudgian 2014 Cor 1, Platt-Trudgian 2015 Cor 1 and Backlund’s row at T = e, 10, 100, 1000, 10⁴, '
+       'entered as a reading with its crossover heights (Platt-Trudgian 2015 below it beyond T ≈ 1.28e5; data/b687_matched.txt); (ii)-(iii) the '
+       'Jensen step (6): J(T) ≤ S(T) and the counts at ρ′ = 1.4, 1.6, 1.8 within their bounds for ζ at T = 100, 1000, 10⁴ and for Z_Q at T = 50, '
+       '100, 149 (data/b687_jensen_zeta.txt, data/b687_jensen_q0.txt), the literal inner count vacuous for ζ; (iv) 114 of 114 intermediate '
+       'inequalities of steps (3), (5)-(7) holding with their margins (data/b687_steps.txt); C1 and C2 as planted (data/b687_controls.txt); '
+       'the composition of b685’s (6) run: HCount’s N(t, t + 1) ≤ 10 log(|t| + 3) at every t > 149, the narrowest margin 41.98 '
+       '(data/b687_composition.txt). P3: DERIVED — constants certified in balls, analytic steps sourced by line, intermediate inequalities '
+       'checked against computed values at sample heights, the ζ instance inside the located bounds at matched range, not compiled '
+       '(data/b687_p3_status.txt); the Q0 results of b675, b679, b683 re-read with it (data/b687_q0_reread.txt). Pins: data/b685_count.txt, '
+       'data/b687_steps.txt. Status DISCHARGED-BY-DERIVATION.')
+OH2 = ('*Appended 2026-10-19 by b687 beneath the line above, under `(R297)`(5) -- `W-ORD-EPSTEIN-COUNT-LEAN` ENTERED:*')
+OB2 = (' a Lean statement of the derived count bound over a configuration given as the zeros of a function with a functional equation of '
+       'Λ_Q’s shape, a right-edge bound and a growth bound, by the Jensen disc route the vendored ζ local count runs (Zeta23/RvM/LocalCount.lean '
+       ':28-:37); its instance at Q0 needs Z_Q as a Lean function, a further act (relay data/b685_count_plan.txt section 5). Trigger “a research '
+       'act after b690”. Status OPEN.')
+
+
+def c3(*a):
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', OH1, NL + OH1 + OB1 + NL), ('OPEN_TRAILS.md', OH2, NL + OH2 + OB2 + NL)], 'b687_orders_lines.json', 'c3',
+         entry=K.ORDER_LINE, check=[('OPEN_TRAILS.md', K.ORDER_LINE, '`W-ORD-EPSTEIN-COUNT` (:14678) RE-DATED'), ('OPEN_TRAILS.md', K.B686_TRAIL, '### b686')],
+         dry=dry)
+
+
 # ================================================================================ THE ANSWERS BANK (b686's route, carried)
 def _session_rows():
     for sid, anc in ((K.SESSION_ID, K.ANCHOR),) + K.SESSIONS_AFTER:
@@ -658,7 +687,7 @@ def repairs(*a):
     print(L[-1])
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, commands=commands, defects=defects, repairs=repairs)
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, c3=c3, answers=answers, commands=commands, defects=defects, repairs=repairs)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

@@ -1,0 +1,25 @@
+b687 -- THE Q0 RESULTS OF b675, b679 AND b683 RE-READ WITH P3'S STATUS AFTER THIS ACT, UNDER (R297)(5) (2026-10-19)
+
+### rows are the results that carry P3 (T-COUNT, Q0Count := HCount Z A0Q, A0Q := 10), each with the line that names P3, its reading as banked,
+### and its reading with "DERIVED — ..., not compiled" (data/b687_p3_status.txt) in the place of "stated, not proved". Nothing in a prior bank is
+### edited; each result's other premises are read as their own banks state them, unchanged.
+
+  b675 (data/b675_hypotheses.txt :61-:67)
+    as banked: "T-COUNT ... P3 at Q0 ... 'stated, not proved; open'. CARRIED AS AN ASSUMPTION OF THE BENCH ON THE FACE, NOT AS A THEOREM" (:61,
+      :64); the bench's every tail bound under T-COUNT; the verdict line :67 "HCount: T-COUNT ASSUMED (P3, A₀Q = 10)".
+    re-read: T-COUNT carried as P3 DERIVED (not compiled) -- the bench's tail bounds (n* 63676 were HStrip to hold; n_obs 10034 under
+      T-COUNT) rest on a derived count and no longer on an assumed one. HStrip FOR Q0's CONFIGURATION still FAILS (Davenport-Heilbronn,
+      above t = 150, :67): the bound at v0.32 not applicable, unchanged by P3's status.
+  b679 (data/b679_q0_membership.txt :13, :66, :71)
+    as banked: "HCount Z 10  ASSUMED -- T-COUNT, as b675 left it" (:66); the verdict :71 "HOLDING 5 (strip, reflect, finite_window,
+      one_le_mult, HExcl) ; ASSUMED 1 (HCount, T-COUNT) ; NOT WRITTEN 1 (the Lean instance)".
+    re-read: HCount Z 10 DERIVED (not compiled) at Q0's class (Wide.HCount, data/b685_p3.txt :24) -- Q0's membership in WideConfig reads
+      six of seven hypotheses held or derived, none assumed; the Lean instance NOT WRITTEN, unchanged.
+  b683 (data/b683_landing.txt :14-:16, :31-:33)
+    as banked: every hypothesis of zeroSide_neg_at_rate_cfg certified by name, "hA by the named premise P3 (Q0Count, stated, not proved)";
+      "Conditional on P3; unconditional only where" (:31-:33); hrate at j₀ = 38, the zero side [-7.5709710957e+39 +/- 2.4e+23] below 0.
+    re-read: hA by P3 DERIVED (not compiled); the map's reading conditional on a derived premise in place of a stated one. No kernel
+      line, keystone or faces-page line written on it (R297)(5).
+
+### ### **RE-READ 3 (b675, b679, b683) ; P3 IN EACH: "stated, not proved" -> "DERIVED — ..., not compiled" ; NO PRIOR BANK EDITED ; NO KEYSTONE
+### WRITTEN.**
