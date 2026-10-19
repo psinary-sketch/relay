@@ -1,0 +1,44 @@
+b689 -- COMPONENT 3, (R299)(4): THE LANDINGS ON strip-free-b689, READ FROM THE RUNNER (2026-10-19)
+
+### rows are declarations with their landing: the full name | the gate | file:line at the branch tip 0b39a5f | the axioms the runner
+### printed. The runner: run 39255737373, ref 0b39a5fe71216c27657a651b57b76075ba6684ec, the artifact's sha256 0a817bdf... AGREE with the
+### platform's digest before any reading (relay data/b689_runner_SIDE-explicit-formula_run1.txt); one tree state, one dispatch.
+
+  SIDEExplicitFormula.Schema.Wide.rest_term_le_ne_zero            DERIVES  SIDEExplicitFormula/Schema/Wide/StripFree.lean:31   [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.remainder_le_ne_zero            DERIVES  SIDEExplicitFormula/Schema/Wide/StripFree.lean:75   [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.exists_dominant_point_ne_zero   DERIVES  SIDEExplicitFormula/Schema/Wide/StripFree.lean:101  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.powerSum_re_ge_split            DERIVES  SIDEExplicitFormula/Schema/Wide/StripFree.lean:117  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online_ne_zero DERIVES SIDEExplicitFormula/Schema/Wide/StripFree.lean:157  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.c2_ne_zero                      DERIVES  SIDEExplicitFormula/Schema/Wide/StripFree.lean:294  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.c2_w_eq_one                     DERIVES  SIDEExplicitFormula/Schema/Wide/StripFree.lean:303  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.c2_liCoeff_one_neg              DERIVES  SIDEExplicitFormula/Schema/Wide/StripFree.lean:312  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.c3_real_segment                 DERIVES  SIDEExplicitFormula/Schema/Wide/StripFree.lean:336  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.c2b_not_ne_zero                 DERIVES  SIDEExplicitFormula/Schema/Wide/StripFree.lean:341  [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.Wide.c2b_lesson                      DERIVES  SIDEExplicitFormula/Schema/Wide/StripFree.lean:346  [propext, Classical.choice, Quot.sound]
+
+### v0.33'S 49 TERMINALS: each printed after, the same line by name (relay data/b689_prints_SIDE-explicit-formula.txt, "BEFORE 49 TERMINALS ;
+### EACH PRINTED AFTER True ; DIFFERING 0 ; NEW 11 ; EQUAL BY NAME True"), against b679's run 39064453563 (data/b679_axioms_run39064453563.txt).
+### THE BUILD: exit 0, error lines 0, the memory low 12670 MB above the hold, no STOP; the new file's warnings 7 -- push_neg deprecated
+### (:147, :161, :200, as v0.33's own at Converse.lean :234), and c2_w_eq_one's `first` block, whose first alternative closed the goal, its
+### second and third alternatives (:308, :309) never executed (four linter lines); no warning names sorry.
+
+### THE CONTROLS, READ FROM THE RUNNER'S PRINT (the plan == 5):
+  C2 UNDER THE STRIP-FREE FORM: Wide.c2_ne_zero DERIVES -- C2 {−1/4, 5/4} meets the hypothesis ρ ≠ 0; Wide.c2_w_eq_one DERIVES -- its
+    dominant point −1/4 is the w = 1 point at R = 5; Wide.c2_liCoeff_one_neg DERIVES -- λ₁(C2) < 0.
+  C3, THE REAL SEGMENT: Wide.c3_real_segment DERIVES -- the configuration with a real point in (−1/2, 0) meets the strip-free set, fails
+    v0.33's HExcl (c2_not_excl), sits at w = 1 and carries a negative coefficient: the form admits what v0.33 excluded, and the theorem's
+    contrapositive holds there.
+  C2b UNDER THE STRIP-FREE FORM (the author's word: "the control that fails the hypothesis ρ ≠ 0 at the point 0"): Wide.c2b_not_ne_zero
+    DERIVES -- C2b {0, 1} fails ρ ≠ 0 at 0; Wide.c2b_lesson DERIVES -- with that failure, every coefficient nonnegative and 1 off the line
+    (v0.33's c2b_nonneg_offline, printed unchanged): the b679 lesson, that the exclusion of 0 is necessary, lives in the hypothesis ρ ≠ 0.
+
+### THE PLAN AGAINST THE LANDING (data/b689_plan.txt):
+  the names, the statements and the profile as planned (== 3, == 5, == 6): 11 of 11 landed, each at the standard three.
+  ONE DEPARTURE, READ AND ENTERED: the plan's == 3 row named "the root module's import list (one import appended)". The root module
+  SIDEExplicitFormula.lean is one line, `import Zeta23.WeilEF.Main`, unchanged since 52d8cf9 (v0); b679 appended nothing to it either
+  (its target list named the modules, data/b679_runner_run39064453563.txt :3). The branch leaves it unedited; the target names
+  SIDEExplicitFormula.Schema.Wide.StripFree. One write fewer than planned; nothing else departs.
+  THE OBSTRUCTION COUNT: planned 0 ; landed 0 -- no sorry on the branch (git grep -c sorry over the new file 0; the runner's sorryAx 0).
+
+### ### **LANDED 11 OF 11 DERIVES AT THE STANDARD THREE ; v0.33'S 49 EQUAL BY NAME ; ONE TREE STATE, ONE DISPATCH ; OBSTRUCTIONS 0 ; THE GATE
+### CLEAN ; THE GRADE INTERFACES ON THE NAMED PREMISE Wide.HCount (data/b689_grade.txt).**

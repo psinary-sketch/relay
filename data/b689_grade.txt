@@ -1,0 +1,28 @@
+b689 -- THE GRADE OF THE MAIN THEOREM, READ FROM ITS STATEMENT, AND THE SALT-CHECK, (R299)(4) (2026-10-19T13:03:44Z)
+
+### rows are the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and the
+### salt-check`s clauses with their readings. The statement: SIDE-explicit-formula 0b39a5f, SIDEExplicitFormula/Schema/Wide/StripFree.lean :157-:158 (the branch strip-free-b689):
+
+    theorem li_nonneg_cfg_imp_online_ne_zero (Z : WideConfig) {A₀ : ℝ} (hc : HCount Z A₀) (hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0) :
+        (∀ n : ℕ, 0 ≤ liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2 := by
+
+### THE BINDERS, READ BY HAND (the seat`s reading, before the check):
+  Z    : WideConfig                   the object: a structure (Schema/Wide/Config.lean :28), data, no hypothesis
+  A₀   : ℝ                            a real parameter, implicit, no hypothesis
+  hc   : HCount Z A₀                  A NAMED PROP OF A KERNEL MODULE (def HCount, Schema/Wide/Config.lean :49): a premise passed through -- the E0 rule (1)
+  hnz  : ∀ ρ ∈ Z.carrier, ρ ≠ 0       a membership and an inequality on the object`s own carrier: a domain condition -- the E0 rule (2)
+  THE GRADE READ FROM THE STATEMENT: INTERFACES ON THE NAMED PREMISE hc : HCount Z A₀ (Wide.HCount); the domain condition hnz is no premise.
+
+### THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (tools/b689_record.py E0_EXTENSION, the shared file not edited) with WideConfig (data, SIDE-explicit-formula SIDEExplicitFormula/Schema/Wide/Config.lean :28), HCount (prop, SIDE-explicit-formula SIDEExplicitFormula/Schema/Wide/Config.lean :49), HExcl (prop, SIDE-explicit-formula SIDEExplicitFormula/Schema/Wide/Config.lean :54):
+  E0 GRADE INTERFACES ; its reason: hc : HCount Z A₀ ; the hypotheses it read: [('hc', 'HCount Z A₀'), ('hnz', '∀ ρ ∈ Z.carrier, ρ ≠ 0')]
+  THE HAND READING AND THE CHECK AGREE
+
+### THE SALT-CHECK (REGISTRY.md :544, the E0 salt-check), clause by clause:
+  no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion '(∀ n : ℕ, 0 ≤ liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2': as a predicate on WideConfig it is false at C2b, every coefficient nonnegative with 1 off the line (c2b_lesson, DERIVES in the run); its consequent is false at C2 too, where the implication holds because λ₁ < 0 (c2_liCoeff_one_neg)
+  no X = X                                                PASS -- the conclusion`s equation ρ.re = 1 / 2 compares two different terms
+  no hypothesis that is the claim                         PASS -- the hypotheses ['hc', 'hnz'] say nothing of Re ρ = 1/2; the empty configuration and every on-line one meet them
+  no fabricated witness                                   PASS -- the conclusion constructs nothing
+  hypotheses named                                        PASS -- hc : HCount Z A₀, hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0
+  #print axioms profiled after the first three            PASS -- run 39255737373: ['propext', 'Classical.choice', 'Quot.sound']
+
+### ### **THE STATEMENT AT StripFree.lean :157 ; GRADE INTERFACES ON hc : HCount Z A₀ (READ BY HAND) ; THE E0 CHECK INTERFACES, AGREE ; SALT-CHECK PASS ; PROFILE ['propext', 'Classical.choice', 'Quot.sound'].**

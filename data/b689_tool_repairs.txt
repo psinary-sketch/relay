@@ -47,5 +47,24 @@ b689 -- THE TOOL REPAIRS, (R299)(2) AND THE FERRY'S COMPONENT 5 (2026-10-19)
       ITS READING: test_chain_page.py re-run alone against the page's own list, data/b689_tests_b688list.txt: failing (9) alone, the standing
       case since b638.
 
-### ### **REPAIRS 2 ; TO A SHARED TOOL 1 (tools/rule_arms.py, G-RULE-HEAD-LINE-QUOTED, in the author's form) ; THE ARM AT HEAD b688 OK, b689 OK ;
-### THE PLANTED CASE FIRES ON BOTH.**
+  (3) tools/b689_record.py :556-:560 (E0_EXTENSION) and :582 (its one use, in the `grade` route) -- THIS ACT'S TOOL, NOT THE SHARED ONE:
+      the E0 grader's lexicon extended at run time with the three heads it lacks
+      THE DEFECT ANSWERED: relay tools/e0_rule.py's LEXICON lists no WideConfig, HCount or HExcl, so its grade() raised BinderUnclassed on
+      v0.33's S5' and on the planned statement ("explicit Z : WideConfig (a bare name no lexicon lists (WideConfig))", the plan's read,
+      data/b689_plan.txt == 6). The shared file is not edited ((R299)'s N5: the (R299)(2) repair is the one edit to a shared tool): its blob
+      at HEAD and in the working tree 54a44f2b, equal.
+      THE AUTHOR'S WORD (the answer to the plan's prompt, data/b689_author_answers.txt): "the E0 grader’s lexicon extension shown as a diff of
+      this act’s tool (not the shared one) and banked in data/b689_tool_repairs.txt, and the grade entered in data/b689_grade.txt from the
+      statement of Wide.li_nonneg_cfg_imp_online_ne_zero verbatim, the lexicon a check on that reading and not its source."
+      THE EDIT, AS A DIFF (git diff -U0 tools/b689_record.py against relay b2b09ce4, the lines of the extension and its use):
+        +# ### the E0 rule's lexicon, extended at run time in THIS tool (relay tools/e0_rule.py not edited), with the three heads it lacks, each at its
+        +# ### declaration at v0.33 (95f8dc8)
+        +E0_EXTENSION = {'WideConfig': ('data', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/Wide/Config.lean :28'),
+        +                'HCount': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/Wide/Config.lean :49'),
+        +                'HExcl': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/Wide/Config.lean :54')}
+        +    E.LEXICON.update(E0_EXTENSION)
+      ITS READING: data/b689_grade.txt -- the grade read by hand from the statement first (INTERFACES on hc : HCount Z A₀, hnz a domain
+      condition), then the shared rule's grade() with the extension as the check: "THE E0 CHECK INTERFACES, AGREE".
+
+### ### **REPAIRS 3 ; TO A SHARED TOOL 1 (tools/rule_arms.py, G-RULE-HEAD-LINE-QUOTED, in the author's form) ; THE ARM AT HEAD b688 OK, b689 OK ;
+### THE PLANTED CASE FIRES ON BOTH ; THE E0 LEXICON EXTENDED IN THIS ACT'S TOOL ALONE, THE SHARED GRADER UNEDITED.**

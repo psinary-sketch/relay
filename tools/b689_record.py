@@ -423,7 +423,201 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, armread=armread, answers=answers)
+# ================================================================================ THE RUNS AND THE PRINTS (b688's routes, carried; per terminal)
+STD3 = ('Classical.choice', 'Quot.sound', 'propext')
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def _deps(ax):
+    """the axioms output read per terminal: [(name, [axioms] or None for 'does not depend on any axioms')], wrapped lists rejoined."""
+    out = []
+    for n, d in re.findall(r"^'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)",
+                           re.sub(r'\n(?=[ \t]*[A-Za-z_.]+[,\]])', ' ', ax), re.M):
+        out.append((n, [x.strip() for x in d.split('[', 1)[1].rstrip(']').split(',') if x.strip()] if d.startswith('depends') else []))
+    return out
+
+
+def runner(*a):
+    """`runner <kernel> <run id> <ref> <label> <note...>`: the kernel's run read by its id; the artifact listed, downloaded by its id into
+    memory, its sha256 against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP;
+    the axioms output of the print step banked whole, every name of the list matched to one printed line, each terminal's axioms read against
+    the standard three. data/b689_runner_<kernel>_<label>.txt, data/b689_axioms_<kernel>_<label>.txt and a row of data/b689_runner_rows.json.
+    Carried from b688_record.py's runner, the per-terminal reading added."""
+    import hashlib
+    import io as _io
+    import zipfile
+    kernel, run_id, ref, label, note = a[0], int(a[1]), a[2], a[3], ' '.join(a[4:])
+    repo = 'psinary-sketch/' + kernel
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    row = dict(kernel=kernel, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+               stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+    L = ['b689 -- THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (kernel, label.upper(), utc()), '',
+         '### the dispatch: %s ; the ref input %s' % (note, ref),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+             run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    row['axioms_sha256'] = hashlib.sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    deps = _deps(ax)
+    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+    printed = [n for n, _d in deps]
+    unmatched = [n for n in tg if n not in printed]
+    outside = [(n, d) for n, d in deps if not set(d) <= set(STD3)]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d:' % (row['build_exit'], len(row['errors']))] + ['    ' + l for l in row['errors'][:40]] + [
+          '### the log`s last lines:'] + ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + [
+          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; axiom-free %d ; '
+          'sorryAx %d ; outside the standard three %d ; refused %s' % (
+              len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg), sum(1 for _n, d in deps if not d),
+              sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### rows are terminals: name | the axioms printed | within the standard three:']
+    L += ['  %-62s %s %s' % (n, d, 'STD3' if set(d) <= set(STD3) else '### OUTSIDE') for n, d in deps]
+    L += ['  %-62s ### NOT PRINTED' % n for n in unmatched]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and not outside
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; '
+          'OUTSIDE THE STANDARD THREE %d ; GATE %s.**' % (
+              run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']),
+              len(deps), len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), row['gate'])]
+    read_runner_row(row)
+    put_txt('b689_runner_%s_%s.txt' % (kernel, label), L)
+    if row['artifact_sha256']:
+        put_txt('b689_axioms_%s_%s.txt' % (kernel, label), ax.split(NL) if ax else ['### EMPTY'])
+        put_txt('b689_buildlog_%s_%s.txt' % (kernel, label), blog.rstrip(NL).split(NL))
+    j = jl('b689_runner_rows.json') if os.path.isfile(os.path.join(D, 'b689_runner_rows.json')) else {}
+    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (kernel, label)] + [row]
+    put_json('b689_runner_rows.json', dict(rows=rows))
+    print(NL.join(L[:14] + L[-3:]))
+
+
+def prints(*a):
+    """`prints <kernel> <before bank> <after bank>`: the 'before' terminals' printed lines compared with the same names' lines in the 'after'
+    bank, line for line by name (the after bank prints more names; the new ones are listed apart). data/b689_prints_<kernel>.txt."""
+    kernel, bb, ab = a[0], a[1], a[2]
+    b, f = rdn(bb), rdn(ab)
+    if not b or not f:
+        sys.exit('### A PRINT BANK IS MISSING -- NOTHING WRITTEN')
+    bd, fd = dict(_deps(b)), dict(_deps(f))
+    diff = [(n, bd[n], fd.get(n)) for n in bd if fd.get(n) != bd[n]]
+    new = [n for n in fd if n not in bd]
+    L = ['b689 -- THE PRINTS OF %s: v0.33`S TERMINALS BEFORE AND AFTER THE BRANCH, BY NAME (%s)' % (kernel, utc()), '',
+         '### before: relay data/%s (%d terminals) ; after: relay data/%s (%d terminals) ; rows are the terminals that differ:' % (bb, len(bd), ab, len(fd))] + (
+             ['    %s : %s | %s' % d for d in diff] or ['    NONE']) + ['### the names printed after and not before (the branch`s new names): %d' % len(new)] + [
+             '    %s %s' % (n, fd[n]) for n in new]
+    L += ['', '### ### **BEFORE %d TERMINALS ; EACH PRINTED AFTER %s ; DIFFERING %d ; NEW %d ; EQUAL BY NAME %s.**' % (
+        len(bd), all(n in fd for n in bd), len(diff), len(new), not diff)]
+    put_txt('b689_prints_%s.txt' % kernel, L)
+    print(L[-1])
+
+
+# ================================================================================ THE GRADE AND THE SALT-CHECK, (R299)(4) AND THE AUTHOR'S WORD AT THE SECOND PROMPT
+MAIN = 'li_nonneg_cfg_imp_online_ne_zero'
+MAIN_FILE = 'SIDEExplicitFormula/Schema/Wide/StripFree.lean'
+# ### the seat's reading of the statement's binders, by hand, BEFORE the E0 check (the author's word: the lexicon is a check on that reading
+# ### and not its source): each binder, its class and the line that decides it
+HAND = (('Z', 'WideConfig', 'the object: a structure (Schema/Wide/Config.lean :28), data, no hypothesis'),
+        ('A₀', 'ℝ', 'a real parameter, implicit, no hypothesis'),
+        ('hc', 'HCount Z A₀', 'A NAMED PROP OF A KERNEL MODULE (def HCount, Schema/Wide/Config.lean :49): a premise passed through -- the E0 rule (1)'),
+        ('hnz', '∀ ρ ∈ Z.carrier, ρ ≠ 0', 'a membership and an inequality on the object`s own carrier: a domain condition -- the E0 rule (2)'))
+HAND_GRADE = 'INTERFACES'
+HAND_PREMISE = 'hc : HCount Z A₀'
+# ### the E0 rule's lexicon, extended at run time in THIS tool (relay tools/e0_rule.py not edited), with the three heads it lacks, each at its
+# ### declaration at v0.33 (95f8dc8)
+E0_EXTENSION = {'WideConfig': ('data', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/Wide/Config.lean :28'),
+                'HCount': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/Wide/Config.lean :49'),
+                'HExcl': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/Wide/Config.lean :54')}
+
+
+def _statement(rev, path, name):
+    """the theorem's statement verbatim from the file at rev: its declaration line through the `:=` that opens its proof; and its header (the
+    text between the name and that `:=`)."""
+    src = _show(K.KERNEL, rev, path) or ''
+    L = src.split(NL)
+    i = next(k for k, l in enumerate(L) if l.startswith('theorem %s ' % name))
+    j = next(k for k in range(i, len(L)) if ':= by' in L[k] or L[k].rstrip().endswith(':='))
+    st = NL.join(L[i:j + 1])
+    head = st.split('theorem %s' % name, 1)[1].rsplit(':=', 1)[0]
+    return i + 1, j + 1, st, head
+
+
+def grade(*a):
+    """`grade <rev>`: data/b689_grade.txt -- the main theorem's statement verbatim from the branch at rev, the seat's reading of its binders by
+    hand and the grade it gives, then the shared E0 rule's grade as the check (its lexicon extended here), the two compared; the salt-check of
+    REGISTRY.md :544 read on the statement, each clause with its reading; the runner's print of the statement's name."""
+    import e0_rule as E
+    rev = a[0]
+    i, j, st, head = _statement(rev, MAIN_FILE, MAIN)
+    E.LEXICON.update(E0_EXTENSION)
+    eg, why, read = E.grade(head, 'theorem')
+    rows = jl('b689_runner_rows.json').get('rows') or []
+    run = next((r for r in rows if r.get('ref', '').startswith(rev[:7])), None)
+    ax = rdn('b689_axioms_SIDE-explicit-formula_%s.txt' % run['label']) if run else ''
+    prof = dict(_deps(ax)).get('SIDEExplicitFormula.Schema.Wide.' + MAIN)
+    concl = E.conclusion(E.statement_only(head)) or ''
+    salt = [('no True-typed conclusion, no uniformly-True predicate', not re.search(r'\bTrue\b', concl),
+             'the conclusion %r: as a predicate on WideConfig it is false at C2b, every coefficient nonnegative with 1 off the line (c2b_lesson, '
+             'DERIVES in the run); its consequent is false at C2 too, where the implication holds because λ₁ < 0 (c2_liCoeff_one_neg)' % concl.strip()),
+            ('no X = X', not re.search(r'\b(\w+)\s*=\s*\1\b', concl), 'the conclusion`s equation ρ.re = 1 / 2 compares two different terms'),
+            ('no hypothesis that is the claim', all('re = 1 / 2' not in t for _n, t in read),
+             'the hypotheses %s say nothing of Re ρ = 1/2; the empty configuration and every on-line one meet them' % [n for n, _t in read]),
+            ('no fabricated witness', '∃' not in concl, 'the conclusion constructs nothing'),
+            ('hypotheses named', all(n for n, _t in read), ', '.join('%s : %s' % x for x in read)),
+            ('#print axioms profiled after the first three', prof is not None and set(prof) <= set(STD3),
+             'run %s: %s' % (run['run_id'] if run else '### NO RUN', prof))]
+    L = ['b689 -- THE GRADE OF THE MAIN THEOREM, READ FROM ITS STATEMENT, AND THE SALT-CHECK, (R299)(4) (%s)' % utc(), '',
+         '### rows are the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and the',
+         '### salt-check`s clauses with their readings. The statement: SIDE-explicit-formula %s, %s :%d-:%d (the branch strip-free-b689):' % (
+             rev[:7], MAIN_FILE, i, j), '']
+    L += ['    ' + l for l in st.split(NL)]
+    L += ['', '### THE BINDERS, READ BY HAND (the seat`s reading, before the check):']
+    L += ['  %-4s : %-28s %s' % b for b in HAND]
+    L += ['  THE GRADE READ FROM THE STATEMENT: %s ON THE NAMED PREMISE %s (Wide.HCount); the domain condition hnz is no premise.' % (HAND_GRADE, HAND_PREMISE),
+          '', '### THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (tools/b689_record.py E0_EXTENSION, '
+          'the shared file not edited) with %s:' % ', '.join('%s (%s, %s)' % (k, v[0], v[1]) for k, v in E0_EXTENSION.items()),
+          '  E0 GRADE %s ; its reason: %s ; the hypotheses it read: %s' % (eg, why, read),
+          '  THE HAND READING AND THE CHECK %s' % ('AGREE' if eg == HAND_GRADE and why == HAND_PREMISE else '### DIFFER'),
+          '', '### THE SALT-CHECK (REGISTRY.md :544, the E0 salt-check), clause by clause:']
+    L += ['  %-55s %s -- %s' % (c, 'PASS' if ok else '### FAIL', how) for c, ok, how in salt]
+    L += ['', '### ### **THE STATEMENT AT %s :%d ; GRADE %s ON %s (READ BY HAND) ; THE E0 CHECK %s, %s ; SALT-CHECK %s ; PROFILE %s.**' % (
+        MAIN_FILE.rsplit('/', 1)[1], i, HAND_GRADE, HAND_PREMISE, eg, 'AGREE' if eg == HAND_GRADE and why == HAND_PREMISE else '### DIFFER',
+        'PASS' if all(ok for _c, ok, _h in salt) else '### FAIL', prof)]
+    put_txt('b689_grade.txt', L)
+    print(NL.join(L[-12:]))
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, armread=armread, answers=answers, runner=runner, prints=prints, grade=grade)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
