@@ -1,0 +1,168 @@
+b690 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T16:33:00Z)
+
+### the source: the seat`s session 2c300355-703e-4575-81bc-2631a70202cf from its first user line carrying 'RULING (R300) BEGIN', and its subagents` transcripts
+### commands read: 101
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b689, this same session 2c300355, from its post-push combine to (R300)`s line): 10 commands from 2026-10-19T14:22:53.453Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (0):
+  NONE
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line -- the reads among them entered as this
+act`s defect (a) where the Read tool would have read the lines (12):
+  #4 2026-10-19T14:46:00.707Z python -X utf8 -c " import re,collections L=open('data/b688_nodes_zeta.txt',encoding='utf-8').read().split(chr(10)) print(len(L)); print(L[0][:200]); print(L[1][:200]) c=collections.Counter() for i,l in enumerate(L,1): f
+  #21 2026-10-19T14:52:20.004Z python -X utf8 -c " s=open('tools/b689_tests.py',encoding='utf-8').read() print(s.count('b689'), s.count('b688')) "
+  #37 2026-10-19T15:23:46.871Z python -X utf8 -c " import sys; sys.path.insert(0,'tools') import rule_arms as RA for nm, reads, *_ in RA.ARMS: print(nm, '|', reads[:110]) "
+  #69 2026-10-19T16:03:08.148Z PYTHONIOENCODING=utf-8 python -X utf8 -B -c " import difflib, io L = io.open('data/b689_faces_rows.txt', encoding='utf-8').read().split(chr(10)) a, b = L[12].split(), L[15].split() print('input words', len(a), '; success
+  #71 2026-10-19T16:07:43.289Z PYTHONIOENCODING=utf-8 python -X utf8 -B -c " import io L = io.open('data/b689_faces_rows.txt', encoding='utf-8').read().split(chr(10)) s = L[15] old = ', unchanged under the strip-free form' print('occurrences', s.count
+  #72 2026-10-19T16:08:14.003Z PYTHONIOENCODING=utf-8 python -X utf8 -B -c " import hashlib b = open('data/b688_nodes_zeta.txt','rb').read() print('bytes', len(b), 'CR', b.count(b'\r'), 'LF', b.count(b'\n'), 'ends LF', b.endswith(b'\n'), 'BOM', b.star
+  #73 2026-10-19T16:09:21.222Z PYTHONIOENCODING=utf-8 python -X utf8 -B -c " import io a = open('data/b688_nodes_zeta.txt','rb').read() b = open('data/b690_nodes_zeta.txt','rb').read() print('b690 bytes', len(b), 'CR', b.count(b'\r'), 'LF', b.count(b'
+  #75 2026-10-19T16:13:16.500Z PYTHONIOENCODING=utf-8 python -X utf8 -B -c " import difflib, sys sys.path.insert(0, 'tools') import b690_worklist as K a = open('D:/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md', encoding='utf-8').read
+  #76 2026-10-19T16:13:24.364Z PYTHONIOENCODING=utf-8 python -X utf8 -B -c " import sys sys.path.insert(0, 'tools') import b690_worklist as K a = open('D:/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md', 'rb').read().split(b'\n') b = o
+  #80 2026-10-19T16:19:34.483Z PYTHONIOENCODING=utf-8 python -X utf8 -B -c " import zipfile, re z = zipfile.ZipFile('D:/MY-DOwnloads/mirror-refresh-2026-10-19-b689.zip') n = [x for x in z.namelist() if x.endswith('THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
+  #88 2026-10-19T16:22:43.667Z cd /d/MY-DOwnloads/PLACE-papers && PYTHONIOENCODING=utf-8 python -X utf8 -B -c " L = open('OPEN_TRAILS.md', encoding='utf-8').read().split(chr(10)) print('lines', len(L)) print(14952, L[14951][:120]) for i in range(len(L
+  #100 2026-10-19T16:26:54.634Z PYTHONIOENCODING=utf-8 python -X utf8 -B -c " import json j = json.load(open('data/b690_tests_stepzero.json', encoding='utf-8')) print(type(j).__name__, len(j)) print({n: (x['rc'], x['failing'], x.get('args')) for n, x i
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (8):
+  #11 2026-10-19T14:51:25.390Z Bash
+      git -C /d/relay branch --merged main --list push-b689-root && git -C /d/relay branch -d push-b689-root
+  #12 2026-10-19T14:51:29.309Z Bash
+      git -C /d/relay branch --merged main --list push-b689 && git -C /d/relay branch -d push-b689
+  #13 2026-10-19T14:51:33.387Z Bash
+      git -C /d/relay branch --merged main --list push-b689-closing && git -C /d/relay branch -d push-b689-closing
+  #14 2026-10-19T14:51:37.847Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b689-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b689-root
+  #15 2026-10-19T14:51:41.962Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b689 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b689
+  #16 2026-10-19T14:51:46.315Z Bash
+      git -C /d/SIDE-explicit-formula branch --merged main --list push-b689-merge && git -C /d/SIDE-explicit-formula branch -d push-b689-merge
+  #17 2026-10-19T14:51:50.682Z Bash
+      git -C /d/SIDE-explicit-formula branch --merged main --list strip-free-b689 && git -C /d/SIDE-explicit-formula branch -d strip-free-b689
+  #18 2026-10-19T14:51:54.802Z Bash
+      git -C /d/SIDE-explicit-formula branch -r --merged main --list origin/strip-free-b689 && git -C /d/SIDE-explicit-formula push origin --delete strip-free-b689
+
+### THE BRANCH DELETES BY SHAPE ((R300)(6): one branch per command, no glob in any half): #11 deletes ['push-b689-root'], globs none; #12 deletes ['push-b689'], globs none; #13 deletes ['push-b689-closing'], globs none; #14 deletes ['push-b689-root'], globs none; #15 deletes ['push-b689'], globs none; #16 deletes ['push-b689-merge'], globs none; #17 deletes ['strip-free-b689'], globs none; #18 deletes ['strip-free-b689'], globs none
+
+### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-19T14:43:30.221Z | seat | PowerShell | $names = 'tail.exe','lean.exe','lake.exe','python.exe','claude.exe','bash.exe'; Get-CimInstance Win32_Process | Where-Object { $names -contains $_.Name } | Sele
+  #2 | 2026-10-19T14:44:03.519Z | seat | Bash | ls data/b6*_rules.txt data/b680_*reading* data/b680_state* data/b680_rules* data/b683_*sort* data/b683_rules_arms* data/b670_state.txt
+  #3 | 2026-10-19T14:44:08.482Z | seat | Bash | ls data/b680_*.txt
+  #4 | 2026-10-19T14:46:00.707Z | seat | Bash | python -X utf8 -c "
+  #5 | 2026-10-19T14:48:28.672Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_citation.py ferry && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_citation.py check
+  #6 | 2026-10-19T14:48:48.876Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_citation.py check
+  #7 | 2026-10-19T14:49:14.008Z | seat | Bash | wc -l data/b689_defects.txt data/b688_cut.txt
+  #8 | 2026-10-19T14:50:51.342Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b690_record.py rowgen
+  #9 | 2026-10-19T14:51:09.201Z | seat | Bash | git add data/b689_closing_push_out.txt && git commit -q -m "b690 step zero: b689's closing push capture (data/b689_closing_push_out.txt) committed alone, as (R3
+  #10 | 2026-10-19T14:51:17.381Z | seat | Bash | git -C /d/SIDE-explicit-formula fetch -q origin && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_record.py branches
+  #11 | 2026-10-19T14:51:25.390Z | seat | Bash | git -C /d/relay branch --merged main --list push-b689-root && git -C /d/relay branch -d push-b689-root
+  #12 | 2026-10-19T14:51:29.309Z | seat | Bash | git -C /d/relay branch --merged main --list push-b689 && git -C /d/relay branch -d push-b689
+  #13 | 2026-10-19T14:51:33.387Z | seat | Bash | git -C /d/relay branch --merged main --list push-b689-closing && git -C /d/relay branch -d push-b689-closing
+  #14 | 2026-10-19T14:51:37.847Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b689-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b689-root
+  #15 | 2026-10-19T14:51:41.962Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b689 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b689
+  #16 | 2026-10-19T14:51:46.315Z | seat | Bash | git -C /d/SIDE-explicit-formula branch --merged main --list push-b689-merge && git -C /d/SIDE-explicit-formula branch -d push-b689-merge
+  #17 | 2026-10-19T14:51:50.682Z | seat | Bash | git -C /d/SIDE-explicit-formula branch --merged main --list strip-free-b689 && git -C /d/SIDE-explicit-formula branch -d strip-free-b689
+  #18 | 2026-10-19T14:51:54.802Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -r --merged main --list origin/strip-free-b689 && git -C /d/SIDE-explicit-formula push origin --delete strip-free-b689
+  #19 | 2026-10-19T14:52:08.362Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote origin refs/heads/strip-free-b689
+  #20 | 2026-10-19T14:52:13.313Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote origin refs/heads/strip-free-b689 refs/heads/main
+  #21 | 2026-10-19T14:52:20.004Z | seat | Bash | python -X utf8 -c "
+  #22 | 2026-10-19T14:53:00.353Z | seat | Bash | python -X utf8 tools/b690_tests.py parts
+  #23 | 2026-10-19T14:53:06.799Z | seat | Bash | python -X utf8 tools/b690_tests.py hold 1 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b690_tests.py run test_asof.py
+  #24 | 2026-10-19T15:01:39.043Z | seat | Bash | python -X utf8 tools/b690_tests.py hold 2 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_add
+  #25 | 2026-10-19T15:02:35.817Z | seat | Bash | python -X utf8 tools/b690_tests.py hold 3 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b690_tests.py run test_chain_page.py
+  #26 | 2026-10-19T15:10:19.502Z | seat | Bash | python -X utf8 tools/b690_tests.py hold 4 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py test_chain
+  #27 | 2026-10-19T15:14:10.197Z | seat | Bash | python -X utf8 tools/b690_tests.py hold 5 && for t in test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py test_licensed_table_instr
+  #28 | 2026-10-19T15:17:01.084Z | seat | Bash | python -X utf8 tools/b690_tests.py hold 6 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_name
+  #29 | 2026-10-19T15:21:18.400Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b690_tests.py report
+  #30 | 2026-10-19T15:21:38.668Z | seat | Bash | git add tools/b690_worklist.py tools/b690_tests.py tools/b690_citation.py tools/b690_record.py data/b690_ferry.txt data/b690_ferry_scan.txt data/b690_citation_c
+  #31 | 2026-10-19T15:21:48.830Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_record.py c1 dry
+  #32 | 2026-10-19T15:21:53.994Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_record.py c1
+  #33 | 2026-10-19T15:22:36.390Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_corrigendum.py dry
+  #34 | 2026-10-19T15:22:45.982Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_corrigendum.py land
+  #35 | 2026-10-19T15:22:57.989Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --porcelain --untracked-files=no && git add FINDINGS.md && git commit -q -m "b690 C1 under (R300)(1)-(2): b689 at 
+  #36 | 2026-10-19T15:23:04.391Z | seat | Bash | cd /d/relay && git add data/b675_corrigenda.txt tools/b690_corrigendum.py data/b690_corrigendum.txt data/b690_corrigendum.json data/b690_corrigendum_landing.jso
+  #37 | 2026-10-19T15:23:46.871Z | seat | Bash | python -X utf8 -c "
+  #38 | 2026-10-19T15:26:30.151Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py licensed
+  #39 | 2026-10-19T15:27:53.189Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py licensed
+  #40 | 2026-10-19T15:28:18.874Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py corr
+  #41 | 2026-10-19T15:30:01.866Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py ceiling
+  #42 | 2026-10-19T15:30:07.341Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py ceiling
+  #43 | 2026-10-19T15:30:10.823Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py orders
+  #44 | 2026-10-19T15:30:19.725Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py orders
+  #45 | 2026-10-19T15:30:36.834Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py methods
+  #46 | 2026-10-19T15:30:40.464Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py lag
+  #47 | 2026-10-19T15:30:51.928Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py residues
+  #48 | 2026-10-19T15:31:01.999Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py residues
+  #49 | 2026-10-19T15:31:05.722Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py rules
+  #50 | 2026-10-19T15:31:22.201Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py rules
+  #51 | 2026-10-19T15:31:25.739Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py arms
+  #52 | 2026-10-19T15:31:43.865Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py arms
+  #53 | 2026-10-19T15:31:59.915Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py p3
+  #54 | 2026-10-19T15:32:25.382Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py p3
+  #55 | 2026-10-19T15:32:57.681Z | seat | Bash | ls data/b687_p3* data/b687_*status* data/b685_p3_status.txt
+  #56 | 2026-10-19T15:33:33.927Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py p3
+  #57 | 2026-10-19T15:34:07.421Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py p3
+  #58 | 2026-10-19T15:34:19.191Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py onecopy
+  #59 | 2026-10-19T15:34:27.037Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py pair
+  #60 | 2026-10-19T15:34:32.515Z | seat | Bash | ls data/b680_pair* data/b680_readings* data/b680_reading2*
+  #61 | 2026-10-19T15:35:28.184Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py orders
+  #62 | 2026-10-19T15:35:59.202Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py orders
+  #63 | 2026-10-19T15:36:07.765Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py orders
+  #64 | 2026-10-19T15:36:12.280Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py pair
+  #65 | 2026-10-19T15:36:16.894Z | seat | Bash | ls data/b690_r3_* && git status --short
+  #66 | 2026-10-19T15:36:25.231Z | seat | Bash | git add tools/b690_readings.py data/b690_r3_arms.json data/b690_r3_arms.txt data/b690_r3_ceiling.json data/b690_r3_ceiling.txt data/b690_r3_corr.json data/b690_
+  #67 | 2026-10-19T15:37:20.492Z | seat | Bash | git add data/b690_reading3.txt && git commit -q -m "b690 Component 2, (R300)(3): data/b690_reading3.txt, the readings gathered with their tools, hand rows and b
+  #68 | 2026-10-19T16:02:58.947Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_citation.py answer "enter it in data/b690_reading3.txt as a header-currency row"
+  #69 | 2026-10-19T16:03:08.148Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B -c "
+  #70 | 2026-10-19T16:07:27.346Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_citation.py answer "a seventh reading, READFIRST-CLOSURE"
+  #71 | 2026-10-19T16:07:43.289Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B -c "
+  #72 | 2026-10-19T16:08:14.003Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B -c "
+  #73 | 2026-10-19T16:09:21.222Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B -c "
+  #74 | 2026-10-19T16:10:06.858Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py faces
+  #75 | 2026-10-19T16:13:16.500Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B -c "
+  #76 | 2026-10-19T16:13:24.364Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B -c "
+  #77 | 2026-10-19T16:13:42.472Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py faces
+  #78 | 2026-10-19T16:16:00.392Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py faces write
+  #79 | 2026-10-19T16:19:23.027Z | seat | Bash | ls data/b689_mirror* && git -C /d/MY-DOwnloads/PLACE-papers status --short
+  #80 | 2026-10-19T16:19:34.483Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B -c "
+  #81 | 2026-10-19T16:20:12.234Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add THE_CLAUSE_AND_ITS_COMPILED_FACES.md && git commit -q -m "b690 Component 2, (R300)(3): the faces page regenerated by 
+  #82 | 2026-10-19T16:20:21.428Z | seat | Bash | cd /d/relay && git add data/b690_nodes_zeta.txt data/b690_faces_diff.txt data/b689_faces_rows.txt data/b690_reading3.txt tools/b690_record.py tools/b690_worklis
+  #83 | 2026-10-19T16:21:19.817Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py rules
+  #84 | 2026-10-19T16:21:32.697Z | seat | Bash | git add tools/b690_readings.py data/b690_r3_rules.txt data/b690_r3_rules.json data/b690_reading3.txt && git commit -q -m "b690 Component 2, (R300)(3): the rules
+  #85 | 2026-10-19T16:22:15.007Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py answers
+  #86 | 2026-10-19T16:22:28.000Z | seat | Bash | git add data/b690_circuit_spec.txt && git commit -q -m "b690 Component 3, (R300)(4): data/b690_circuit_spec.txt, the dependency-circuit reading specified -- INP
+  #87 | 2026-10-19T16:22:32.998Z | seat | Bash | git add data/b690_author_answers.txt data/b690_author_answers.json && git commit -q -m "b690: data/b690_author_answers.txt, the prompts of (R300)(3) and the aut
+  #88 | 2026-10-19T16:22:43.667Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && PYTHONIOENCODING=utf-8 python -X utf8 -B -c "
+  #89 | 2026-10-19T16:22:54.172Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py order dry
+  #90 | 2026-10-19T16:23:01.068Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py order
+  #91 | 2026-10-19T16:23:08.160Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b690 Component 3, (R300)(4): W-ORD-CIRCUIT-READING entered beneath b689's trail r
+  #92 | 2026-10-19T16:23:39.135Z | seat | Bash | cd /d/relay && git add data/b690_rules.txt && git commit -q -m "b690 Component 3, (R300)(5): data/b690_rules.txt, three rules with their source defects and the 
+  #93 | 2026-10-19T16:23:53.165Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py rules
+  #94 | 2026-10-19T16:24:07.620Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py rules
+  #95 | 2026-10-19T16:24:13.120Z | seat | Bash | git add data/b690_rules.txt tools/b690_readings.py data/b690_r3_rules.txt data/b690_r3_rules.json && git commit -q -m "b690 Component 3: the rules census reads 
+  #96 | 2026-10-19T16:24:19.070Z | seat | Bash | git status --short tools/b690_record.py data/b690_orders_lines.json
+  #97 | 2026-10-19T16:24:22.814Z | seat | Bash | git add tools/b690_record.py data/b690_orders_lines.json && git commit -q -m "b690 Component 3, (R300)(4): the record tool's order route and its landing bank (O
+  #98 | 2026-10-19T16:24:29.995Z | seat | Bash | wc -l tools/b689_record.py tools/b689_checks.py tools/b689_closing.py tools/b689_reg_gate.py tools/b689_regspec.py tools/b689_worklist.py tools/b690_record.py t
+  #99 | 2026-10-19T16:26:43.090Z | seat | Bash | git log --reverse --format="%h %cI %s" c8afcb43..HEAD && git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format="%h %cI %s" a5b86a5..HEAD
+  #100 | 2026-10-19T16:26:54.634Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B -c "
+  #101 | 2026-10-19T16:32:56.381Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py commands
+
+### ### **COMMANDS 101 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 10 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; ONE-LINE PROGRAMS 12 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 8 OF 8 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

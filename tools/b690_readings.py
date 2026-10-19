@@ -240,8 +240,9 @@ def methods(*a):
     lines, obj = store['b680_methods']
     b80 = jn('b680_methods.json')
     L = ['b690 -- COMPONENT 2 (v), (R300)(3): THE METHODS CENSUS, READING 3, BY b680`S ROUTE (b670`s table and its hand-read cells) (%s)' % utc(), '',
-         HEAD, '### the method: tools/b680_readings.py `methods` (:212-:247), run by import, its writer captured; its lines re-banked whole:'] + \
-        ['    ' + l for l in lines] + ['', '### ### **BY b670`S CODE READY %s OF 12 ; WITH THE HAND-READ CELLS READY %s OF 12 -- AGAINST b680`S %s AND %s.**' % (
+         HEAD, '### the method: tools/b680_readings.py `methods` (:212-:247), run by import, its writer captured; its lines re-banked whole and',
+         '### unindented, as b680`s bank carries them, so the readers of "the latest methods bank" (tools/rule_arms.py :127-:135) read its rows:'] + \
+        list(lines) + ['', '### ### **BY b670`S CODE READY %s OF 12 ; WITH THE HAND-READ CELLS READY %s OF 12 -- AGAINST b680`S %s AND %s.**' % (
             obj.get('ready_code'), obj.get('ready'), b80.get('ready_code'), b80.get('ready'))]
     put('b690_r3_methods', L, dict(at=utc(), ready_code=obj.get('ready_code'), ready=obj.get('ready'), b680=dict(ready_code=b80.get('ready_code'), ready=b80.get('ready'))))
     print(L[-1])

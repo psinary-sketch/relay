@@ -1,0 +1,204 @@
+b690 -- THE TOOL REPAIRS OF THE ACT (2026-10-19)
+
+### rows are repairs with the defect they answer. No shared tool is repaired in this act (tools/b690_worklist.py REPAIRED_TOOLS empty): the
+### repairs below are the carried tools' own, read against b689's sealed copies by the record tool's `repairs` route, its section beneath.
+### The act's new tools -- tools/b690_readings.py (reading 3) and tools/b690_corrigendum.py (b678's form) -- are written by the Write tool
+### and corrected by the Edit tool before their banks are committed (data/b690_defects.txt (b)-(c)); neither is sealed, neither is shared.
+
+
+### THE CARRY-TIME READING OF THE TOOLS (the ferry`s Component 4), AGAINST b689`S SEALED COPIES (2026-10-19T17:09:16Z)
+
+### rows are repairs with the defect they answer, after the carried tools: b689`s sealed copy and its seal record; the hunks of the diff
+### to b690`s copy. Every hunk is the act`s own text -- its names, its banks, its sections and its predicates over this act`s banks --
+### save the repairs below.
+
+  b689_citation.py     -> b690_citation.py     b689 sealed 714332ac73400653 ; the seal`s record 714332ac73400653 ; AGREE ; hunks 25
+  b689_closing.py      -> b690_closing.py      b689 sealed 94089fb7404e80fc ; the seal`s record 94089fb7404e80fc ; AGREE ; hunks 28
+  b689_reg_gate.py     -> b690_reg_gate.py     b689 sealed 9ed2fb713572bcb4 ; the seal`s record 9ed2fb713572bcb4 ; AGREE ; hunks 6
+  b689_regspec.py      -> b690_regspec.py      b689 sealed 83fb56c7915c32a2 ; the seal`s record 83fb56c7915c32a2 ; AGREE ; hunks 23
+  b689_tests.py        -> b690_tests.py        b689 sealed 589917313d4a9af3 ; the seal`s record 589917313d4a9af3 ; AGREE ; hunks 11
+  b689_worklist.py     -> b690_worklist.py     b689 sealed 795e741e824cbe5d ; the seal`s record 795e741e824cbe5d ; AGREE ; hunks 14
+  b689_record.py       -> b690_record.py       b689 sealed 68ff61cd0707ff34 ; the seal`s record 68ff61cd0707ff34 ; AGREE ; hunks 150
+  b689_checks.py       -> b690_checks.py       b689 sealed 6364dcfa446f4d7c ; the seal`s record 6364dcfa446f4d7c ; AGREE ; hunks 143
+  rule_arms.py            the standing instrument, unedited in this act: 3871f589325d0a96 ; at relay c8afcb43 3871f589325d0a96 ; the last seal record naming it (b689`s) 3871f589325d0a96 ; its last commit b2b09ce4 2026-10-19T08:40:58-04:00
+  edit_route.py           the standing instrument, unedited in this act: 22b92c8f4440589a ; at relay c8afcb43 22b92c8f4440589a ; the last seal record naming it (NONE`s) ### NONE ; its last commit 66497ff1 2026-10-12T11:55:50-04:00
+  e0_rule.py              the standing instrument, unedited in this act: 1b4fa2b1fe2f5749 ; at relay c8afcb43 1b4fa2b1fe2f5749 ; the last seal record naming it (NONE`s) ### NONE ; its last commit 3572f7b6 2026-10-13T10:37:17-04:00
+  b678_corrigendum.py     the standing instrument, unedited in this act: 9676374a1a8c99fa ; at relay c8afcb43 9676374a1a8c99fa ; the last seal record naming it (NONE`s) ### NONE ; its last commit 5d3416b8 2026-10-17T13:40:18-04:00
+  chain_page.py           the standing instrument, unedited in this act: 2f4df8163a7b1c5d ; at relay c8afcb43 2f4df8163a7b1c5d ; the last seal record naming it (NONE`s) ### NONE ; its last commit 1e073ac3 2026-10-11T15:38:14-04:00
+  b680_readings.py        the standing instrument, unedited in this act: 2634b75023c22f8f ; at relay c8afcb43 2634b75023c22f8f ; the last seal record naming it (NONE`s) ### NONE ; its last commit 43909c49 2026-10-17T18:08:32-04:00
+  b670_record.py          the standing instrument, unedited in this act: 08e28c92a253ce97 ; at relay c8afcb43 08e28c92a253ce97 ; the last seal record naming it (NONE`s) ### NONE ; its last commit 1cde552b 2026-10-14T17:34:27-04:00
+  b672_record.py          the standing instrument, unedited in this act: 30a39db6fc35565e ; at relay c8afcb43 30a39db6fc35565e ; the last seal record naming it (NONE`s) ### NONE ; its last commit e06d2f25 2026-10-16T13:26:39-04:00
+  correspondence_gen.py   the standing instrument, unedited in this act: d41f6fa8505591a3 ; at relay c8afcb43 d41f6fa8505591a3 ; the last seal record naming it (NONE`s) ### NONE ; its last commit 60e8de3e 2026-10-18T08:04:01-04:00
+
+  REPAIR 1 -- THE STANDING SET FOR b690 (answering no defect: the act`s objects): the standing arms are b689`s face`s (G2) arms less b689`s act arms,
+  the twenty rule arms among them, no standing arm added; the runner arms read the last merged run -- b689`s run and its merge (8fbc27b,
+  v0.34) on SIDE-explicit-formula -- as b685`s suite read b684`s, no run in this act; the step-zero arms read eight branches in three
+  repositories, seven local and one remote; the count arms` floors are this act`s (two prompts in two calls, two mid-act checks, the
+  defects as lettered at the seal).
+  REPAIR 2 -- THE STEP-ZERO TESTS` SET (answering the carried argument): G-STEPZERO-TESTS reads the step-zero bank`s failing set -- test_chain_page.py
+  (9) against b688`s list, the list the page named at step zero, and test_chain_page_b638.py (4)-(7), the standing cases since b638; no
+  re-run against another list is needed, the run`s list being the page`s.
+  REPAIR 3 -- THE FACES PAGE OUT OF THE FILES READ UNEDITED (answering no defect: (R300)(3) and the author`s word regenerate it): CURRENTS loses
+  THE_CLAUSE_AND_ITS_COMPILED_FACES.md, as b688 took it out to regenerate it; G-PP-SCOPE allows FINDINGS, OPEN_TRAILS and the page
+  (tools/b690_worklist.py PP_WRITTEN).
+  REPAIR 4 -- THE PREVIOUS ACT`S WINDOW IN THIS SAME SESSION (answering no defect: this act continues b689`s session): G-EDIT-ROUTE`s previous-act
+  window reads b689`s capture after its post-push suite -- from the call that combined b689`s post-push parts to (R300)`s line, in
+  session 2c300355 -- the window b688`s form read before b689 moved to a new session (tools/b690_record.py `prev_capture`).
+  REPAIR 5 -- b689`S FACES ROWS BANK AMONG THE SHARED ADDITIVE FILES (answering no defect: the author`s two answers at the prompt of (R300)(3) order
+  the word-level diff, the tail and the amended row written beneath its two rows): G-PRIORBANK-UNCHANGED reads every relay bank tracked
+  before the act but the shared appended files; data/b689_faces_rows.txt joins data/b675_corrigenda.txt there, each read as a prefix
+  extension carrying b690`s rows (tools/b690_worklist.py SHARED_APPENDED; G-SHARED-ROWS-APPENDED).
+  REPAIR 6 -- THE PER-ARM CLOCK (answering (R300)(3)`s reading, the standing arms` seconds at HEAD by part: no suite before this act clocked an arm by
+  itself, b689`s parts banking their phases): tools/b690_checks.py clocks each arm`s three readings -- LIVE, NEG, POS -- and banks
+  data/b690_arm_seconds_<part>.json at the pre-run, the shared phases beside; the record tool`s `armsecs` gathers the four into
+  data/b690_arm_seconds.txt, the three slowest named.
+  REPAIR 7 -- tools/rule_arms.py BACK AMONG THE STANDING INSTRUMENTS (answering no defect: no shared tool is repaired in this act): b689 sealed it with
+  its act after (R299)(2)`s repair; here REPAIRED_TOOLS is empty and G-INSTRUMENTS-UNEDITED reads it, before, working tree and HEAD.
+  REPAIR 8 -- THE COMMAND BANK NAMES ONE-LINE PROGRAMS (answering this act`s defect (a)): beside the edit route`s offences, the command bank lists every
+  command that runs python -c, so the reads it made through an interpreter`s print, where the Read tool would have read the lines, are
+  counted by the bank and not by recollection; no arm reads them.
+
+### THE DIFF OF THE REPAIRED READINGS AGAINST b689`S SEALED COPIES (tools/b689_record.py sha256 68ff61cd0707ff34, tools/b689_checks.py sha256 6364dcfa446f4d7c), WHOLE:
+    --- b689_record.py prev_capture (sealed)
+    +++ b690_record.py prev_capture
+    @@ -1,10 +1,11 @@
+     def prev_capture():
+    -    """G-EDIT-ROUTE's window over the previous act (b687's repair, carried; b689's reading, a new session): b688's capture AFTER ITS POST-PUSH
+    -    SUITE -- every command of b688's session (a90bcdb6) from the call that combined b688's post-push parts into data/b688_checks_postpush.txt
+    -    to that session's end, its closing's commands among them; this act runs in a session of its own."""
+    -    rows = ER.capture(PREV_SESSION, PREV_ANCHOR, PREV_SUBAGENTS)
+    +    """G-EDIT-ROUTE's window over the previous act (b687's repair; b690's reading, the same session): b689's capture AFTER ITS POST-PUSH
+    +    SUITE -- every command of this session from the call that combined b689's post-push parts into data/b689_checks_postpush.txt to the
+    +    first user line of (R300), b689's closing's commands among them; this act's own capture starts at that line."""
+    +    rows = ER.capture(SESSION, PREV_ANCHOR, SUBAGENTS)
+    +    end = _anchor_ts(K.ANCHOR)
+         first = [r['ts'] for r in rows if '%s_checks_postpush' % PREV_ACT in r['cmd'] and '--combine' in r['cmd']]
+    -    if not first:
+    -        sys.exit('### THE PREVIOUS ACT`S POST-PUSH COMBINE IS NOT IN ITS SESSION`S CAPTURE -- NOTHING READ')
+    -    out = [dict(r, src='%s %s' % (PREV_ACT, r['src'])) for r in rows if first[0] <= r['ts']]
+    +    if not first or not end:
+    +        sys.exit('### THE PREVIOUS ACT`S POST-PUSH COMBINE OR THIS ACT`S ANCHOR IS NOT IN THE SESSION`S CAPTURE -- NOTHING READ')
+    +    out = [dict(r, src='%s %s' % (PREV_ACT, r['src'])) for r in rows if first[0] <= r['ts'] < end]
+         for i, r in enumerate(out):
+    --- b689_checks.py tests_ok (sealed)
+    +++ b690_checks.py tests_ok
+    @@ -4,5 +4,4 @@
+         nf = dict((n, x['failing']) for n, x in j.items() if x['rc'] != 0 or x['failing'])
+    -    nf2 = dict((n, x['failing']) for n, x in (S['tests2'] or {}).items() if x['rc'] != 0 or x['failing'])
+         return bool(names) and sorted(j) == sorted(set(names) - {'test_elab_reader_b634.py'}) and nf == STEPZERO_FAILING \
+    -        and nf2 == RERUN_FAILING and 'b688_nodes_zeta.txt' in ((S['tests2'] or {}).get('test_chain_page.py') or {}).get('args', []) \
+    +        and 'b688_nodes_zeta.txt' in (j.get('test_chain_page.py') or {}).get('args', []) \
+             and 'test_elab_reader_b634.py' in S['withheld'] \
+    --- b689_checks.py branches_ok (sealed)
+    +++ b690_checks.py branches_ok
+    @@ -1,8 +1,8 @@
+     def branches_ok(S):
+    -    """b689's repair (REPAIR 2): the four repositories' LOCAL branch lists by the ruling's names -- the recut branches stand at their remotes,
+    -    the ruling naming no remote branch -- and the branches bank."""
+    +    """the three repositories' local branch lists by the ruling's names, the remote branch's remote-tracking list, and the branches bank."""
+         z = S['branchest']
+         left = dict((r, sorted(x.strip() for x in v.split(NL) if x.strip())) for r, v in S['branch_lists'].items())
+    -    return all(v == [] for v in left.values()) and len(left) == 4 and all(b in z for b in NAMED_LOCAL) \
+    -        and 'BRANCHES 10 (LOCAL 10, REMOTE 0) ; MERGED 10 ; TO BE DELETED 10 ; UNNAMED OF b688 0' in z
+    +    rem = dict((r, sorted(x.strip() for x in v.split(NL) if x.strip())) for r, v in S['remote_lists'].items())
+    +    return all(v == [] for v in left.values()) and len(left) == 3 and all(v == [] for v in rem.values()) and len(rem) == 1 \
+    +        and all(b in z for b in NAMED_LOCAL) and 'BRANCHES 8 (LOCAL 7, REMOTE 1) ; MERGED 8 ; TO BE DELETED 8 ; UNNAMED OF b689 0' in unwrap(z)
+     
+    --- b689_checks.py main (sealed)
+    +++ b690_checks.py main
+    @@ -16,3 +16,3 @@
+         rec('=' * 104)
+    -    rec('b689 -- THE SUITE. ### **%s READING.** ### PART %s (data/b684_rules.txt row (1)) ### every arm exercised on both controls.' % (
+    +    rec('b690 -- THE SUITE. ### **%s READING.** ### PART %s (data/b684_rules.txt row (1)) ### every arm exercised on both controls.' % (
+             'PRE-SEAL (R202)(3)' if PRERUN else 'MID-ACT' if MID else 'POST-PUSH' if pushed else 'PRE-PUSH', PART))
+    @@ -40,3 +40,3 @@
+             rec('  ### run not declared : %s' % sorted(set(names) - set(declared)))
+    -    rec('  ### (R264)(2) THE FREEZE: the standing arms (b688`s face less its own arms, the twenty rule arms among them) %d ; carried here %d ; added %s ; '
+    +    rec('  ### (R264)(2) THE FREEZE: the standing arms (b689`s face less its own arms, the twenty rule arms among them) %d ; carried here %d ; added %s ; '
+             'the act`s arms over its own banks %s ; arms beyond both %s' % (len(S['standing']), len(set(names) & set(S['standing'])), list(K.STANDING_ADDED) or 'NONE',
+    @@ -53,3 +53,3 @@
+             rec('  ### THE ACT-ROOT CHAIN, recomputed: %s' % ('; '.join('%s %s%s' % (a, v, (' (' + '; '.join(w) + ')') if w else '') for a, v, w in av) or 'no act rooted'))
+    -        rec('  ### the reads at commit, b680: %s ; b689: %s' % (S['ar_reads'].get('b680'), S['ar_reads'].get('b689')))
+    +        rec('  ### the reads at commit, b680: %s ; b690: %s' % (S['ar_reads'].get('b680'), S['ar_reads'].get('b690')))
+         sj = S['sealj'].get('tools') or {}
+    @@ -58,9 +58,8 @@
+         off = S['REC'].edit_route_offences(S['cmds'] + S['prev_cmds'])
+    -    rec('  ### G-EDIT-ROUTE read %d captured commands of this act and %d of the previous act after its post-push suite (its own session); offences %d: %s' % (
+    +    rec('  ### G-EDIT-ROUTE read %d captured commands of this act and %d of the previous act after its post-push suite (this same session); offences %d: %s' % (
+             len(S['cmds']), len(S['prev_cmds']), len(off), ['#%s %s' % (r['n'], [k for k, _ in o]) for r, o in off] or 'none'))
+         mc = re.search(r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES \d+', S['citation'])
+    -    rec('  ### THE CITATION CHECK: %s ; THE ARM AT HEAD: %s ; SECTION 11: %s ; THE GRADE: %s' % (
+    -        mc.group(0) if mc else '### NOT READ', S['armread'], dict((k, v) for k, v in S['s11'].items() if k in ('equal', 'alone', 'before')),
+    -        dict((k, v) for k, v in S['gradestate'].items() if k != 'lines')))
+    -    rec('  ### PLACE-papers` changed files %d against the allowed %d (the two ledgers): beyond %s' % (
+    +    rec('  ### THE CITATION CHECK: %s ; READING 3`S ORDER: %s ; P3: %s ; THE SPEC: %s ; THE FACES LINE: %s' % (
+    +        mc.group(0) if mc else '### NOT READ', S['rorder'], S['p3state'], S['specstate'], S['facesstate']))
+    +    rec('  ### PLACE-papers` changed files %d against the allowed %d (the two ledgers and the faces page): beyond %s' % (
+             len(S['pp_changed']), len(S['pp_allowed']), sorted(set(S['pp_changed']) - set(S['pp_allowed'])) or 'NONE'))
+    @@ -76,5 +75,5 @@
+                                                                                  ['%s %s:%s' % (x.get('kernel'), x.get('file'), x.get('line')) for x in lv['mh']][:6] or ''))
+    -    rec('  %-46s %-5s %-5s %-5s %s' % ('arm', 'LIVE', 'NEG', 'POS', 'verdict'))
+    -    rec('  ' + '-' * 98)
+    -    fail, defective, negfail, EX = [], [], 0, {}
+    +    rec('  %-46s %-5s %-5s %-5s %-8s %s' % ('arm', 'LIVE', 'NEG', 'POS', 'secs', 'verdict'))
+    +    rec('  ' + '-' * 106)
+    +    fail, defective, negfail, EX, SECS = [], [], 0, {}, {}
+         for name, reads, pred, pos in arms:
+    @@ -82,2 +81,3 @@
+                 S['no_live_limb'] = not defective
+    +        ta = time.time()      # ### (R300)(3): the arm's three readings clocked
+             try:
+    @@ -96,2 +96,3 @@
+                 posv = False
+    +        SECS[name] = round(time.time() - ta, 4)
+             if not live:
+    @@ -102,5 +103,5 @@
+                 defective.append(name)
+    -        EX[name] = dict(live=live, neg=neg, pos=posv, reads=reads)
+    -        rec('  %-46s %-5s %-5s %-5s %s' % (name, 'PASS' if live else 'FAIL', 'PASS' if neg else 'FAIL', 'PASS' if posv else 'FAIL',
+    -                                           'OK' if (live and neg and not posv) else ('### POS PASSES -- DEFECTIVE' if posv else '### FAILS')))
+    +        EX[name] = dict(live=live, neg=neg, pos=posv, reads=reads, secs=SECS[name])
+    +        rec('  %-46s %-5s %-5s %-5s %-8.3f %s' % (name, 'PASS' if live else 'FAIL', 'PASS' if neg else 'FAIL', 'PASS' if posv else 'FAIL', SECS[name],
+    +                                                 'OK' if (live and neg and not posv) else ('### POS PASSES -- DEFECTIVE' if posv else '### FAILS')))
+         rec('')
+    @@ -117,2 +118,3 @@
+         secs = time.time() - t_start
+    +    rec('  ### the arms` own seconds summed %.1f, the slowest %s' % (sum(SECS.values()), ', '.join('%s %.2f' % kv for kv in sorted(SECS.items(), key=lambda x: -x[1])[:3])))
+         rec('  ### the run took %.0f s' % secs)
+    @@ -124,3 +126,3 @@
+         out = _write(_part_name(base, PART), L)
+    -    lp = os.path.join(D, _part_name(base, PART).replace('b689_arms_prerun', 'b689_lsr_prerun').replace('b689_checks', 'b689_lsr').replace('.txt', '.json'))
+    +    lp = os.path.join(D, _part_name(base, PART).replace('b690_arms_prerun', 'b690_lsr_prerun').replace('b690_checks', 'b690_lsr').replace('.txt', '.json'))
+         lb = (json.dumps(dict(run=os.path.basename(out), lsr=lsr), indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    @@ -128,5 +130,12 @@
+         os.replace(lp + '.tmp', lp)
+    +    if PRERUN:
+    +        sb = (json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), part=PART, arms=SECS,
+    +                              phases=dict((k, round(v, 1)) for k, v in S['phase_secs'].items()), run_secs=round(secs, 1)),
+    +                         indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    +        sp = os.path.join(D, 'b690_arm_seconds_%s.json' % PART)
+    +        open(sp + '.tmp', 'wb').write(sb)
+    +        os.replace(sp + '.tmp', sp)
+         if not (RERUN or PRERUN or MID):
+             ej = (json.dumps(dict(exercise=EX, run=len(arms), live_failing=fail, defective=defective, neg_failures=negfail), indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    -        p = os.path.join(D, 'b689_exercise_%s.json' % PART)
+    +        p = os.path.join(D, 'b690_exercise_%s.json' % PART)
+             open(p + '.tmp', 'wb').write(ej)
+    --- b689_checks.py CURRENTS (sealed)
+    +++ b690_checks.py CURRENTS
+    @@ -4,4 +4,3 @@
+                 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md', 'README.md', 'REGISTRY.md',
+    -            'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md', 'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md',
+    -            'THE_CLAUSE_AND_ITS_COMPILED_FACES.md')
+    +            'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md', 'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md')
+     
+    --- b689_checks.py STEPZERO_FAILING (sealed)
+    +++ b690_checks.py STEPZERO_FAILING
+    @@ -1,2 +1,4 @@
+    -STEPZERO_FAILING = {'test_chain_page.py': ['(1)', '(9)', '(14)'], 'test_chain_page_b638.py': ['(4)', '(5)', '(6)', '(7)']}
+    +STEPZERO_FAILING = {'test_chain_page.py': ['(9)'], 'test_chain_page_b638.py': ['(4)', '(5)', '(6)', '(7)']}
+     
+    +
+    +
+
+### ### **REPAIRS 8 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8 OF 8 ; THE STANDING INSTRUMENTS UNEDITED True ; A REPAIRED SHARED TOOL NONE ; THE REPAIRED READINGS` DIFF LINES 141.**

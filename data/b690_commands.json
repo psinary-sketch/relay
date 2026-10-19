@@ -1,0 +1,909 @@
+{
+ "at": "2026-10-19T16:33:00Z",
+ "anchor": "RULING (R300) BEGIN",
+ "rows": [
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-19T14:43:30.221Z",
+   "src": "seat",
+   "cmd": "$names = 'tail.exe','lean.exe','lake.exe','python.exe','claude.exe','bash.exe'; Get-CimInstance Win32_Process | Where-Object { $names -contains $_.Name } | Select-Object ProcessId,ParentProcessId,Name | Format-Table -AutoSize; \"free MB: \" + [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); (Get-Date).ToUniversalTime().ToString('s')",
+   "n": 1,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:44:03.519Z",
+   "src": "seat",
+   "cmd": "ls data/b6*_rules.txt data/b680_*reading* data/b680_state* data/b680_rules* data/b683_*sort* data/b683_rules_arms* data/b670_state.txt",
+   "n": 2,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:44:08.482Z",
+   "src": "seat",
+   "cmd": "ls data/b680_*.txt",
+   "n": 3,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:46:00.707Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport re,collections\nL=open('data/b688_nodes_zeta.txt',encoding='utf-8').read().split(chr(10))\nprint(len(L)); print(L[0][:200]); print(L[1][:200])\nc=collections.Counter()\nfor i,l in enumerate(L,1):\n    for m in re.findall(r'SIDE-[a-z][\\w-]+', l): c[m]+=1\nprint(c.most_common(30))\n\"",
+   "n": 4,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:48:28.672Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_citation.py ferry && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_citation.py check",
+   "n": 5,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:48:48.876Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_citation.py check",
+   "n": 6,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:49:14.008Z",
+   "src": "seat",
+   "cmd": "wc -l data/b689_defects.txt data/b688_cut.txt",
+   "n": 7,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:50:51.342Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b690_record.py rowgen",
+   "n": 8,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:51:09.201Z",
+   "src": "seat",
+   "cmd": "git add data/b689_closing_push_out.txt && git commit -q -m \"b690 step zero: b689's closing push capture (data/b689_closing_push_out.txt) committed alone, as (R300)(6) orders\" && git log --oneline -1",
+   "n": 9,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:51:17.381Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula fetch -q origin && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_record.py branches",
+   "n": 10,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:51:25.390Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b689-root && git -C /d/relay branch -d push-b689-root",
+   "n": 11,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:51:29.309Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b689 && git -C /d/relay branch -d push-b689",
+   "n": 12,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:51:33.387Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b689-closing && git -C /d/relay branch -d push-b689-closing",
+   "n": 13,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:51:37.847Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b689-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b689-root",
+   "n": 14,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:51:41.962Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b689 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b689",
+   "n": 15,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:51:46.315Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula branch --merged main --list push-b689-merge && git -C /d/SIDE-explicit-formula branch -d push-b689-merge",
+   "n": 16,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:51:50.682Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula branch --merged main --list strip-free-b689 && git -C /d/SIDE-explicit-formula branch -d strip-free-b689",
+   "n": 17,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:51:54.802Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula branch -r --merged main --list origin/strip-free-b689 && git -C /d/SIDE-explicit-formula push origin --delete strip-free-b689",
+   "n": 18,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:52:08.362Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula ls-remote origin refs/heads/strip-free-b689",
+   "n": 19,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:52:13.313Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula ls-remote origin refs/heads/strip-free-b689 refs/heads/main",
+   "n": 20,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:52:20.004Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\ns=open('tools/b689_tests.py',encoding='utf-8').read()\nprint(s.count('b689'), s.count('b688'))\n\"",
+   "n": 21,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:53:00.353Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b690_tests.py parts",
+   "n": 22,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T14:53:06.799Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b690_tests.py hold 1 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b690_tests.py run test_asof.py",
+   "n": 23,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:01:39.043Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b690_tests.py hold 2 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_addenda_writelist.py test_additive_shared_b644.py test_axiom_claim.py test_axiom_claim_b651.py test_banned_terms_backmatter.py test_build_watch_b644.py test_build_watch_b647.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b690_tests.py run $t; done",
+   "n": 24,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:02:35.817Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b690_tests.py hold 3 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b690_tests.py run test_chain_page.py",
+   "n": 25,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:10:19.502Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b690_tests.py hold 4 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py test_chain_page_b632.py test_chain_page_b635.py test_chain_page_b638.py test_closing_headline_b634.py test_clusters_served_b651.py test_composer_b646.py test_composer_b647.py test_composer_b649.py test_conversion_b652.py test_correspondence_gen.py test_e0_databinder_b643.py test_e0_existential.py test_e0_rule.py test_edit_route_b646.py test_faces_form.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b690_tests.py run $t; done",
+   "n": 26,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:14:10.197Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b690_tests.py hold 5 && for t in test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py test_licensed_table_instrument_b652.py test_met_b646.py test_module_header.py test_msplit_b658.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b690_tests.py run $t; done",
+   "n": 27,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:17:01.084Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b690_tests.py hold 6 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_names_b643.py test_push_gated.sh test_reader_needle_b641.py test_record_findings_b632.py test_registry_tags_b636.py test_row_sort.py test_rowgen_ident.py test_terminal_table_b630.py test_terminal_table_b635.py test_terminal_table_b636.py test_terminal_table_b637.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b690_tests.py run $t; done",
+   "n": 28,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:21:18.400Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b690_tests.py report",
+   "n": 29,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:21:38.668Z",
+   "src": "seat",
+   "cmd": "git add tools/b690_worklist.py tools/b690_tests.py tools/b690_citation.py tools/b690_record.py data/b690_ferry.txt data/b690_ferry_scan.txt data/b690_citation_check.txt data/b690_citation_check.json data/b690_readfirst.txt data/b690_rowgen_stepzero.txt data/b690_branches.txt data/b690_branches.json data/b690_tests_stepzero.json data/b690_tests_stepzero.txt data/b690_tests_withheld.json data/b690_stepzero.txt && git commit -q -m \"b690 step zero under (R300): the ferry banked equal to the transcript, the citation check 91 of 91, the readfirst bank, rowgen and constellation exits 0, the eight branches banked and deleted by name (strip-free-b689 local and remote, one command each), the tests 54 run (the standing failures alone), the step-zero bank; the act's worklist, tests, citation and record tools (stage one)\" && git log --oneline -1",
+   "n": 30,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:21:48.830Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_record.py c1 dry",
+   "n": 31,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:21:53.994Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_record.py c1",
+   "n": 32,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:22:36.390Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_corrigendum.py dry",
+   "n": 33,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:22:45.982Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b690_corrigendum.py land",
+   "n": 34,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:22:57.989Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --porcelain --untracked-files=no && git add FINDINGS.md && git commit -q -m \"b690 C1 under (R300)(1)-(2): b689 at its weight (FINDINGS :9382); b689's undeclared post-seal failure entered by the generated corrigendum entry (FINDINGS :9384): G-EDIT-ROUTE failing pre-push and post-push after the lock, the count 115 of 116, the sealed face unedited\" && git log --oneline -1",
+   "n": 35,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:23:04.391Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git add data/b675_corrigenda.txt tools/b690_corrigendum.py data/b690_corrigendum.txt data/b690_corrigendum.json data/b690_corrigendum_landing.json data/b690_record_lines.json data/b690_scanfile_c1.md data/b690_scanfile_corrigendum.md && git commit -q -m \"b690 C1 under (R300)(1)-(2): the weight line's and the corrigendum's landing banks (FINDINGS :9382, :9384), the corrigendum tool in b678's form and its bank, the corrigenda bank's row (4)\" && git log --oneline -1",
+   "n": 36,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:23:46.871Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys; sys.path.insert(0,'tools')\nimport rule_arms as RA\nfor nm, reads, *_ in RA.ARMS: print(nm, '|', reads[:110])\n\"",
+   "n": 37,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:26:30.151Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py licensed",
+   "n": 38,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:27:53.189Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py licensed",
+   "n": 39,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:28:18.874Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py corr",
+   "n": 40,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:30:01.866Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py ceiling",
+   "n": 41,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:30:07.341Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py ceiling",
+   "n": 42,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:30:10.823Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py orders",
+   "n": 43,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:30:19.725Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py orders",
+   "n": 44,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:30:36.834Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py methods",
+   "n": 45,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:30:40.464Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py lag",
+   "n": 46,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:30:51.928Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py residues",
+   "n": 47,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:31:01.999Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py residues",
+   "n": 48,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:31:05.722Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py rules",
+   "n": 49,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:31:22.201Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py rules",
+   "n": 50,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:31:25.739Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py arms",
+   "n": 51,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:31:43.865Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py arms",
+   "n": 52,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:31:59.915Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py p3",
+   "n": 53,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:32:25.382Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py p3",
+   "n": 54,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:32:57.681Z",
+   "src": "seat",
+   "cmd": "ls data/b687_p3* data/b687_*status* data/b685_p3_status.txt",
+   "n": 55,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:33:33.927Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py p3",
+   "n": 56,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:34:07.421Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py p3",
+   "n": 57,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:34:19.191Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py onecopy",
+   "n": 58,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:34:27.037Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py pair",
+   "n": 59,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:34:32.515Z",
+   "src": "seat",
+   "cmd": "ls data/b680_pair* data/b680_readings* data/b680_reading2*",
+   "n": 60,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:35:28.184Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py orders",
+   "n": 61,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:35:59.202Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py orders",
+   "n": 62,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:36:07.765Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py orders",
+   "n": 63,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:36:12.280Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py pair",
+   "n": 64,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:36:16.894Z",
+   "src": "seat",
+   "cmd": "ls data/b690_r3_* && git status --short",
+   "n": 65,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:36:25.231Z",
+   "src": "seat",
+   "cmd": "git add tools/b690_readings.py data/b690_r3_arms.json data/b690_r3_arms.txt data/b690_r3_ceiling.json data/b690_r3_ceiling.txt data/b690_r3_corr.json data/b690_r3_corr.txt data/b690_r3_lag.json data/b690_r3_lag.txt data/b690_r3_licensed.json data/b690_r3_licensed.txt data/b690_r3_methods.json data/b690_r3_methods.txt data/b690_r3_onecopy.json data/b690_r3_onecopy.txt data/b690_r3_orders.json data/b690_r3_orders.txt data/b690_r3_p3.json data/b690_r3_p3.txt data/b690_r3_pair.json data/b690_r3_pair.txt data/b690_r3_residues.json data/b690_r3_residues.txt data/b690_r3_rules.json data/b690_r3_rules.txt && git commit -q -m \"b690 Component 2, (R300)(3): reading 3 by tool -- tools/b690_readings.py and its twelve banks (licensed, corr, ceiling, orders, methods, lag, residues, rules, arms, p3, onecopy, pair), committed before the aggregate bank\" && git log -1 --format=%h%x20%s",
+   "n": 66,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T15:37:20.492Z",
+   "src": "seat",
+   "cmd": "git add data/b690_reading3.txt && git commit -q -m \"b690 Component 2, (R300)(3): data/b690_reading3.txt, the readings gathered with their tools, hand rows and b680's figures beside\" && git log -1 --format=%h",
+   "n": 67,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:02:58.947Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_citation.py answer \"enter it in data/b690_reading3.txt as a header-currency row\"",
+   "n": 68,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:03:08.148Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -B -c \"\nimport difflib, io\nL = io.open('data/b689_faces_rows.txt', encoding='utf-8').read().split(chr(10))\na, b = L[12].split(), L[15].split()\nprint('input words', len(a), '; successor words', len(b))\nfor op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes():\n    if op != 'equal':\n        print('%-8s input w%d-w%d %r -> successor w%d-w%d %r' % (op, i1 + 1, i2, ' '.join(a[i1:i2]), j1 + 1, j2, ' '.join(b[j1:j2])))\nkey = 'before the bound' + chr(39) + 's onset'\nta, tb = L[12][L[12].index(key):], L[15][L[15].index(key):]\nprint('TAIL input    :', ta)\nprint('TAIL successor:', tb)\nprint('TAIL IDENTICAL:', ta == tb)\n\"",
+   "n": 69,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:07:27.346Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_citation.py answer \"a seventh reading, READFIRST-CLOSURE\"",
+   "n": 70,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:07:43.289Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -B -c \"\nimport io\nL = io.open('data/b689_faces_rows.txt', encoding='utf-8').read().split(chr(10))\ns = L[15]\nold = ', unchanged under the strip-free form'\nprint('occurrences', s.count(old))\nn = s.replace(old, old + ' (b689)')\nprint(n)\nprint('length', len(s), '->', len(n))\n\"",
+   "n": 71,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:08:14.003Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -B -c \"\nimport hashlib\nb = open('data/b688_nodes_zeta.txt','rb').read()\nprint('bytes', len(b), 'CR', b.count(b'\\r'), 'LF', b.count(b'\\n'), 'ends LF', b.endswith(b'\\n'), 'BOM', b.startswith(b'\\xef\\xbb\\xbf'), 'sha256', hashlib.sha256(b).hexdigest()[:16])\n\" && git -C /d/relay ls-files --eol data/b688_nodes_zeta.txt",
+   "n": 72,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:09:21.222Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -B -c \"\nimport io\na = open('data/b688_nodes_zeta.txt','rb').read()\nb = open('data/b690_nodes_zeta.txt','rb').read()\nprint('b690 bytes', len(b), 'CR', b.count(b'\\r'), 'LF', b.count(b'\\n'), 'ends LF', b.endswith(b'\\n'), 'BOM', b.startswith(b'\\xef\\xbb\\xbf'))\nA, B = a.decode('utf-8').split('\\n'), b.decode('utf-8').split('\\n')\nprint('lines', len(A), len(B))\ndiff = [i + 1 for i in range(max(len(A), len(B))) if (A[i] if i < len(A) else None) != (B[i] if i < len(B) else None)]\nprint('lines differing', diff)\nR = io.open('data/b689_faces_rows.txt', encoding='utf-8').read().split('\\n')\namend = [l for i, l in enumerate(R) if i > 0 and R[i - 1].startswith('== THE AMENDED ROW')]\nbuilt = R[15].replace(', unchanged under the strip-free form', ', unchanged under the strip-free form (b689)')\nprint('the amended row in the rows bank equals the code-built row:', amend == [built])\nprint(':167 equals the amended row:', B[166] == built)\n\"",
+   "n": 73,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:10:06.858Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py faces",
+   "n": 74,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:13:16.500Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -B -c \"\nimport difflib, sys\nsys.path.insert(0, 'tools')\nimport b690_worklist as K\na = open('D:/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md', encoding='utf-8').read().split(chr(10))\nb = open(K.SP + '/b690_faces_emit.md', encoding='utf-8').read().split(chr(10))\nfor l in difflib.unified_diff(a, b, 'committed', 'b690', n=0, lineterm=''):\n    print(l[:260])\n\"",
+   "n": 75,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:13:24.364Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -B -c \"\nimport sys\nsys.path.insert(0, 'tools')\nimport b690_worklist as K\na = open('D:/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md', 'rb').read().split(b'\\n')\nb = open(K.SP + '/b690_faces_emit.md', 'rb').read().split(b'\\n')\nprint('lines', len(a), len(b))\nfor i in (732, 733, 734):\n    print(i + 1, 'committed', len(a[i]), repr(a[i][-120:]))\n    print(i + 1, 'b690     ', len(b[i]), repr(b[i][-120:]))\n\"",
+   "n": 76,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:13:42.472Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py faces",
+   "n": 77,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:16:00.392Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py faces write",
+   "n": 78,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:19:23.027Z",
+   "src": "seat",
+   "cmd": "ls data/b689_mirror* && git -C /d/MY-DOwnloads/PLACE-papers status --short",
+   "n": 79,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:19:34.483Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -B -c \"\nimport zipfile, re\nz = zipfile.ZipFile('D:/MY-DOwnloads/mirror-refresh-2026-10-19-b689.zip')\nn = [x for x in z.namelist() if x.endswith('THE_CLAUSE_AND_ITS_COMPILED_FACES.md')]\nprint('entries', n)\nt = z.read(n[0]).decode('utf-8').replace(chr(13), '').split(chr(10))\ns = t[2]\nprint('mirror :3 length', len(s))\nfor m in re.finditer(r'v0\\.\\d+[^;.)]{0,40}', s):\n    print('  ', m.group(0))\np = open('D:/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md', encoding='utf-8').read().split(chr(10))[2]\nprint('page :3 now equal to the mirror :3 but the list name:', p.replace('b690_nodes_zeta', 'b688_nodes_zeta') == s)\n\"",
+   "n": 80,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:20:12.234Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add THE_CLAUSE_AND_ITS_COMPILED_FACES.md && git commit -q -m \"b690 Component 2, (R300)(3): the faces page regenerated by relay tools/chain_page.py from data/b690_nodes_zeta.txt on the author's word -- the Li face at Q0 at v0.34 (relay data/b690_faces_diff.txt)\" && git log -1 --format=%h",
+   "n": 81,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:20:21.428Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git add data/b690_nodes_zeta.txt data/b690_faces_diff.txt data/b689_faces_rows.txt data/b690_reading3.txt tools/b690_record.py tools/b690_worklist.py && git commit -q -m \"b690 Component 2, (R300)(3): the faces line regenerated on the author's word -- the rows bank's diff, tail and amended row, data/b690_nodes_zeta.txt, data/b690_faces_diff.txt (PLACE-papers 24b7bf7); reading 3 rows (19)-(20), the header-currency reading\" && git log -1 --format=%h",
+   "n": 82,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:21:19.817Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py rules",
+   "n": 83,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:21:32.697Z",
+   "src": "seat",
+   "cmd": "git add tools/b690_readings.py data/b690_r3_rules.txt data/b690_r3_rules.json data/b690_reading3.txt && git commit -q -m \"b690 Component 2, (R300)(3): the rules census in the ruling's words (PROSE / VACUOUS, b683's SORT and STATE), re-run; reading 3 row (13) to match\" && git log -1 --format=%h",
+   "n": 84,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:22:15.007Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py answers",
+   "n": 85,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:22:28.000Z",
+   "src": "seat",
+   "cmd": "git add data/b690_circuit_spec.txt && git commit -q -m \"b690 Component 3, (R300)(4): data/b690_circuit_spec.txt, the dependency-circuit reading specified -- INPUT, SERIES, TERMINALS, SHORTS, WIDTH, LOAD, CLAUSE-DOMINANCE, READFIRST-CLOSURE (the author's word), OUTPUT; no tool written\" && git log -1 --format=%h",
+   "n": 86,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:22:32.998Z",
+   "src": "seat",
+   "cmd": "git add data/b690_author_answers.txt data/b690_author_answers.json && git commit -q -m \"b690: data/b690_author_answers.txt, the prompts of (R300)(3) and the author's two answers, banked verbatim by the record tool\" && git log -1 --format=%h",
+   "n": 87,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:22:43.667Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && PYTHONIOENCODING=utf-8 python -X utf8 -B -c \"\nL = open('OPEN_TRAILS.md', encoding='utf-8').read().split(chr(10))\nprint('lines', len(L))\nprint(14952, L[14951][:120])\nfor i in range(len(L) - 6, len(L)):\n    print(i + 1, L[i][:140])\n\"",
+   "n": 88,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:22:54.172Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py order dry",
+   "n": 89,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:23:01.068Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py order",
+   "n": 90,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:23:08.160Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m \"b690 Component 3, (R300)(4): W-ORD-CIRCUIT-READING entered beneath b689's trail record (OPEN_TRAILS :14980), trigger the research act after b691\" && git log -1 --format=%h",
+   "n": 91,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:23:39.135Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git add data/b690_rules.txt && git commit -q -m \"b690 Component 3, (R300)(5): data/b690_rules.txt, three rules with their source defects and the acts they bind from; no arm added\" && git log -1 --format=%h",
+   "n": 92,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:23:53.165Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py rules",
+   "n": 93,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:24:07.620Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_readings.py rules",
+   "n": 94,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:24:13.120Z",
+   "src": "seat",
+   "cmd": "git add data/b690_rules.txt tools/b690_readings.py data/b690_r3_rules.txt data/b690_r3_rules.json && git commit -q -m \"b690 Component 3: the rules census reads data/b690_rules.txt by code (row (2)'s head set on one line, as the other banks keep theirs); 21 rules\" && git log -1 --format=%h",
+   "n": 95,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:24:19.070Z",
+   "src": "seat",
+   "cmd": "git status --short tools/b690_record.py data/b690_orders_lines.json",
+   "n": 96,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:24:22.814Z",
+   "src": "seat",
+   "cmd": "git add tools/b690_record.py data/b690_orders_lines.json && git commit -q -m \"b690 Component 3, (R300)(4): the record tool's order route and its landing bank (OPEN_TRAILS :14980, PLACE-papers 288337a)\" && git log -1 --format=%h",
+   "n": 97,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:24:29.995Z",
+   "src": "seat",
+   "cmd": "wc -l tools/b689_record.py tools/b689_checks.py tools/b689_closing.py tools/b689_reg_gate.py tools/b689_regspec.py tools/b689_worklist.py tools/b690_record.py tools/b690_worklist.py",
+   "n": 98,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:26:43.090Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format=\"%h %cI %s\" c8afcb43..HEAD && git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format=\"%h %cI %s\" a5b86a5..HEAD",
+   "n": 99,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:26:54.634Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 -B -c \"\nimport json\nj = json.load(open('data/b690_tests_stepzero.json', encoding='utf-8'))\nprint(type(j).__name__, len(j))\nprint({n: (x['rc'], x['failing'], x.get('args')) for n, x in j.items() if x['rc'] != 0 or x['failing']})\n\" && git status --short data/b690_citation_check.txt data/b690_citation_check.json",
+   "n": 100,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T16:32:56.381Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b690_record.py commands",
+   "n": 101,
+   "bg": false
+  }
+ ],
+ "offences": [],
+ "prev": {
+  "act": "b689",
+  "session": "2c300355-703e-4575-81bc-2631a70202cf",
+  "rows": 10,
+  "offences": []
+ },
+ "local_lean": [],
+ "dispatches": [],
+ "detached": [],
+ "seds": [],
+ "null_redirects": [],
+ "py_programs": [
+  4,
+  21,
+  37,
+  69,
+  71,
+  72,
+  73,
+  75,
+  76,
+  80,
+  88,
+  100
+ ],
+ "moves_deletes": [
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18
+ ],
+ "delete_shapes": [
+  {
+   "n": 11,
+   "deletes": [
+    "push-b689-root"
+   ],
+   "globs": []
+  },
+  {
+   "n": 12,
+   "deletes": [
+    "push-b689"
+   ],
+   "globs": []
+  },
+  {
+   "n": 13,
+   "deletes": [
+    "push-b689-closing"
+   ],
+   "globs": []
+  },
+  {
+   "n": 14,
+   "deletes": [
+    "push-b689-root"
+   ],
+   "globs": []
+  },
+  {
+   "n": 15,
+   "deletes": [
+    "push-b689"
+   ],
+   "globs": []
+  },
+  {
+   "n": 16,
+   "deletes": [
+    "push-b689-merge"
+   ],
+   "globs": []
+  },
+  {
+   "n": 17,
+   "deletes": [
+    "strip-free-b689"
+   ],
+   "globs": []
+  },
+  {
+   "n": 18,
+   "deletes": [
+    "strip-free-b689"
+   ],
+   "globs": []
+  }
+ ],
+ "outbound": []
+}
