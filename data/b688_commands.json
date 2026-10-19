@@ -1,0 +1,307 @@
+{
+ "at": "2026-10-19T04:09:39Z",
+ "anchor": "RULING (R298) BEGIN",
+ "rows": [
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:31:08.446Z",
+   "src": "seat",
+   "cmd": "grep -n \"Li\\b\\|Q0\\|T-COUNT\" /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md | cut -c1-260 | head -20; echo ===; grep -n \"def main\\|sys.argv\\|nodes_zeta\\|probe_out\" tools/chain_page.py | head -20; ls data | grep -E \"nodes_zeta|nodes_chi\" ",
+   "n": 1
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:31:13.830Z",
+   "src": "seat",
+   "cmd": "grep -n \"Q0\\|T-COUNT\\|Epstein\\|Z_Q\" data/b680_nodes_zeta.txt | cut -c1-400 | head; echo ===; grep -n \"T-COUNT\\|Q0\\|Epstein\" /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md | cut -c1-400 | head",
+   "n": 2
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:31:19.728Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=1 && NR<=4' data/b680_nodes_zeta.txt | cut -c1-600; echo; awk 'NR==167' data/b680_nodes_zeta.txt; echo ===; grep -n \"Wide.li_nonneg_cfg_imp_online\" /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md | cut -c1-80; wc -l /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md",
+   "n": 3
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:31:27.204Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && grep -c \"T-COUNT named\" THE_CLAUSE_AND_ITS_COMPILED_FACES.md; grep -o \"b680, through the node list.\\{0,60\\}\" THE_CLAUSE_AND_ITS_COMPILED_FACES.md | head -3; git log --oneline -3 -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md; awk 'NR==733' THE_CLAUSE_AND_ITS_COMPILED_FACES.md | wc -c; grep -n \"b649_nodes\\|b680_nodes\\|ZL\\b\" /d/relay/tools/test_chain_page.py | head -5",
+   "n": 4
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:31:33.821Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && grep -n \"chain_page.py\" data/b680_commands.txt data/b674_commands.txt 2>/dev/null | cut -c1-400 | head -8; ls data | grep -E \"^b680_faces|^b674_faces|b643_probe_out_zeta\"",
+   "n": 5
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:31:40.054Z",
+   "src": "seat",
+   "cmd": "head -30 data/b680_faces_diff.txt | cut -c1-300; grep -c \"\" data/b680_faces_diff.txt",
+   "n": 6
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:31:53.898Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=8 && NR<=12' data/b674_rules.txt; echo ===; grep -n \"R4\\|SpinorLeg\" data/b686_cut.txt | cut -c1-400; echo ===; grep -n \"SIDE-li-map\\|SIDE-archimedean\\|SIDE-rcurve\" data/b670_licensed_table.txt | cut -c1-200 | head -10; ls data | grep -E \"b647_table_SIDE-(li-map|archimedean|rcurve)\"; ls data | grep -E \"b686_prints|b686_axioms_SIDE-spinor\"",
+   "n": 7
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:32:05.019Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=88 && NR<=125' data/b670_licensed_table.txt | cut -c1-140; echo ===; awk 'NR>=40 && NR<=56' data/b686_cut.txt | cut -c1-260",
+   "n": 8
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:33:35.748Z",
+   "src": "seat",
+   "cmd": "grep -n \"Z_Q .*(iv-4)\" data/b687_steps.txt | cut -c1-60; grep -n \"Z_Q .*(iv-4)\" data/b687_steps.txt | grep -o \"σ [0-9.]*\\|θ \\[[0-9.]*\" | head; grep -n \"def zq_lattice\\|LAT_N =\\|LAT_LAMBDA =\\|def Zval\\|lattice_check\\|zq_lattice(s)\" tools/b687_readings.py | head; grep -n \"^    (g)\\|^    (h)\" data/b687_defects.txt; grep -n \"^== \\|^  [0-9]\\+\\.\\|T4\\|2.5\\|σ − ½\" data/b667_epstein_plan.txt | head -30",
+   "n": 9
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:33:44.639Z",
+   "src": "seat",
+   "cmd": "awk 'NR==69||NR==70||NR==88||NR==89||NR==107||NR==108' data/b687_steps.txt | grep -o \"computed [^|]*|.*\" | cut -c1-200; grep -n \"3d\\|μ| ≤ 2\\||μ|≤2\" data/b667_epstein_plan.txt | cut -c1-160 | head -5; awk 'NR>=150 && NR<=156' tools/b667_epstein_certify.py",
+   "n": 10
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:35:08.181Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b688_citation.py ferry && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b688_citation.py check",
+   "n": 11
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:35:15.708Z",
+   "src": "seat",
+   "cmd": "grep -n \"T\\* = \" data/b687_matched.txt | cut -c1-80",
+   "n": 12
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:35:23.731Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b688_citation.py check",
+   "n": 13
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:35:31.353Z",
+   "src": "seat",
+   "cmd": "cat data/b647_table_SIDE-li-map.txt | cut -c1-330; echo ===; git -C /d/SIDE-spinor show v0.1.1:SIDESpinor/SpinorLeg.lean | head -30",
+   "n": 14
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:38:04.896Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b688_record.py rowgen | tail -1",
+   "n": 15
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-19T03:38:21.419Z",
+   "src": "seat",
+   "cmd": "$names = 'tail.exe','lean.exe','lake.exe','python.exe','claude.exe','bash.exe'; $ps = Get-CimInstance Win32_Process | Where-Object { $names -contains $_.Name }; foreach ($n in $names) { $c = @($ps | Where-Object { $_.Name -eq $n }).Count; \"$n $c\" }; $ps | Where-Object { $_.Name -ne 'bash.exe' } | Select-Object ProcessId, ParentProcessId, Name | Format-Table -AutoSize | Out-String -Width 200; $os = Get-CimInstance Win32_OperatingSystem; \"free MB \" + [int]($os.FreePhysicalMemory/1024); (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mmZ')",
+   "n": 16
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:38:27.327Z",
+   "src": "seat",
+   "cmd": "git add data/b687_closing_push_out.txt && git commit -q -m \"b688 step zero: b687's closing push capture (data/b687_closing_push_out.txt), committed alone under (R298)(6)\" && git log --oneline -1",
+   "n": 17
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:38:28.184Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b688_record.py branches",
+   "n": 18
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:38:33.644Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b687-root && git -C /d/relay branch -d push-b687-root",
+   "n": 19
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:38:37.919Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b687 && git -C /d/relay branch -d push-b687",
+   "n": 20
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:38:42.196Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b687-closing && git -C /d/relay branch -d push-b687-closing",
+   "n": 21
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:38:46.395Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b687-root && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b687-root",
+   "n": 22
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:38:51.117Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b687 && git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b687",
+   "n": 23
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:38:56.150Z",
+   "src": "seat",
+   "cmd": "grep -n \"b687\\|b686\" tools/b687_tests.py | cut -c1-160",
+   "n": 24
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:39:33.840Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py parts | cut -c1-80",
+   "n": 25
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:39:40.246Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold 1 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_addenda_writelist.py test_additive_shared_b644.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b688_tests.py run $t | cut -c1-140; done",
+   "n": 26
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:39:54.152Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold 2 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b688_tests.py run test_asof.py | cut -c1-140",
+   "n": 27
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:48:20.634Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold 3 && for t in test_axiom_claim.py test_axiom_claim_b651.py test_banned_terms_backmatter.py test_build_watch_b644.py test_build_watch_b647.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b688_tests.py run $t | cut -c1-140; done",
+   "n": 28
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:49:09.730Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold 4 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b688_tests.py run test_chain_page.py | cut -c1-140",
+   "n": 29
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:57:58.377Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold 5 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py test_chain_page_b632.py test_chain_page_b635.py test_chain_page_b638.py test_closing_headline_b634.py test_clusters_served_b651.py test_composer_b646.py test_composer_b647.py test_composer_b649.py test_conversion_b652.py test_correspondence_gen.py test_e0_databinder_b643.py test_e0_existential.py test_e0_rule.py test_edit_route_b646.py test_faces_form.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b688_tests.py run $t | cut -c1-130; done",
+   "n": 30
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-19T03:58:05.829Z",
+   "src": "seat",
+   "cmd": "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 8 Id, ProcessName, @{n='MB';e={[int]($_.WorkingSet64/1MB)}} | Format-Table -AutoSize | Out-String; $os = Get-CimInstance Win32_OperatingSystem; \"free MB \" + [int]($os.FreePhysicalMemory/1024)",
+   "n": 31
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:58:31.028Z",
+   "src": "seat",
+   "cmd": "until python -X utf8 tools/b688_tests.py hold 5 >/dev/null 2>&1; do sleep 30; done; python -X utf8 tools/b688_tests.py mem 5",
+   "n": 32
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T03:59:07.725Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold 5 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py test_chain_page_b632.py test_chain_page_b635.py test_chain_page_b638.py test_closing_headline_b634.py test_clusters_served_b651.py test_composer_b646.py test_composer_b647.py test_composer_b649.py test_conversion_b652.py test_correspondence_gen.py test_e0_databinder_b643.py test_e0_existential.py test_e0_rule.py test_edit_route_b646.py test_faces_form.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b688_tests.py run $t | cut -c1-130; done",
+   "n": 33
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T04:03:02.132Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold 6 && for t in test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py test_licensed_table_instrument_b652.py test_met_b646.py test_module_header.py test_msplit_b658.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b688_tests.py run $t | cut -c1-130; done",
+   "n": 34
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T04:05:40.587Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b688_tests.py hold 7 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_names_b643.py test_push_gated.sh test_reader_needle_b641.py test_record_findings_b632.py test_registry_tags_b636.py test_row_sort.py test_rowgen_ident.py test_terminal_table_b630.py test_terminal_table_b635.py test_terminal_table_b636.py test_terminal_table_b637.py test_elab_reader_b634.py; do PYTHONIOENCODING=utf-8 python -X utf8 tools/b688_tests.py run $t | cut -c1-130; done",
+   "n": 35
+  }
+ ],
+ "offences": [],
+ "prev": {
+  "act": "b687",
+  "session": "a90bcdb6-256f-4841-97ff-9638e378446c",
+  "rows": 9,
+  "offences": []
+ },
+ "local_lean": [],
+ "dispatches": [],
+ "detached": [],
+ "seds": [],
+ "moves_deletes": [
+  19,
+  20,
+  21,
+  22,
+  23
+ ],
+ "delete_shapes": [
+  {
+   "n": 19,
+   "deletes": [
+    "push-b687-root"
+   ],
+   "globs": []
+  },
+  {
+   "n": 20,
+   "deletes": [
+    "push-b687"
+   ],
+   "globs": []
+  },
+  {
+   "n": 21,
+   "deletes": [
+    "push-b687-closing"
+   ],
+   "globs": []
+  },
+  {
+   "n": 22,
+   "deletes": [
+    "push-b687-root"
+   ],
+   "globs": []
+  },
+  {
+   "n": 23,
+   "deletes": [
+    "push-b687"
+   ],
+   "globs": []
+  }
+ ],
+ "outbound": []
+}

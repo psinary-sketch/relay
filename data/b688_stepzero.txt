@@ -1,0 +1,36 @@
+b688 -- STEP ZERO, COMPONENT 0, UNDER (R298) (2026-10-19)
+
+### rows are the step-zero items in the ferry's order, each with its bank and its reading.
+
+  the session               the act continues b687's session (a90bcdb6); tools/b688_worklist.py anchors at (R298)'s line, so the capture,
+                            the answers and the citation helpers read from it; the edit route's previous-act window is b687's capture from
+                            its post-push combine to that line
+  the ferry                 data/b688_ferry.txt, banked by the Write tool from the paste, equal to the transcript's text
+                            (tools/b688_citation.py ferry: "equal True ; ferry_scan exit 0"; data/b688_ferry_scan.txt)
+  the citation check        data/b688_citation_check.txt: its verdict line; no miss of the ruling or the ferry, nothing raised. Its first
+                            run printed one miss of the check's own row (the crossover rows read with one space too many against
+                            data/b687_matched.txt's padding, :74-:80); the row repaired by the Edit tool and the check re-run
+  the readfirst bank        data/b688_readfirst.txt, every item of the ferry's list by path and line with its row unit
+  rowgen and constellation  data/b688_rowgen_stepzero.txt: its verdict line, both exits 0
+  the process listing       tail, lean, lake, python and claude named (Win32_Process by name, 2026-10-19T03:38Z): claude 1 (pid 20504, this
+                            seat), tail 0, lean 0, lake 0, python 0, bash 0; free memory 3983 MB. No task of this session stopped; no orphan,
+                            nothing stopped by PID
+  the closing capture       data/b687_closing_push_out.txt committed alone at relay af3b77d7
+  the branches              data/b688_branches.txt: 5 named, every tip read and merged before any delete; deleted by name in the house form,
+                            one branch per command, each command its own message, in sequence: relay push-b687-root (ed11dc9a), push-b687
+                            (24b23df1), push-b687-closing (de011ebd); PLACE-papers push-b687-root (f82b1e6), push-b687 (51d3aac); no unnamed
+                            branch under the prefix
+  the tests                 data/b688_tests_stepzero.txt (tools/b688_tests.py's report): :62 its verdict line; :34 the withheld test
+                            (test_elab_reader_b634.py, runs lean); :60 the longest test, test_asof.py at :9; the standing issues of
+                            test_chain_page_b638.py named by case at :22 ((4)-(7)), beside test_chain_page.py's (9) at :15 -- the set since
+                            b638. Seven foreground parts, one call per part, the free memory printed before each against the 2,560 MB hold
+                            (tools/b688_tests.py hold): part 1 (4002 MB), test_asof.py alone (3882 MB), part 3 (5418 MB), test_chain_page.py
+                            alone (4806 MB), part 5 refused at 2160 MB (the hold's exit 3, the author's browser holding the memory, nothing of
+                            this act stopped) and run at 4929 MB after the author closed tabs, part 6 (4597 MB), part 7 (4714 MB); no part
+                            moved to the background. test_asof.py (:9) and test_chain_page.py (:15) each ran above 450 s alone in their own
+                            parts -- their next runs are planned alone by the parts route
+  the commands              data/b688_commands.txt: G-EDIT-ROUTE offences 0 in this act and in b687's window after its post-push suite; no
+                            sed command; no local lean or lake; branch deletes one branch each, no glob
+  git status                relay and PLACE-papers tracked changes NONE after the runs (data/b688_tests_stepzero.txt :59); the untracked files
+                            untracked (relay 128 untracked entries, this act's banks and tools among them as written)
+  no build                  no lean, lake or build on this host

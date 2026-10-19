@@ -1,0 +1,51 @@
+b688 -- THE READ-FIRST BANK, (R298)(7) AND THE FERRY'S READ-FIRST LIST (2026-10-19)
+
+### rows are items read before anything: the path, the line or lines read, the unit of that bank's rows, and what the act takes from it.
+### The citation check of every cite: relay data/b688_citation_check.txt (76 cites, 76 OK, 0 misses; the check's first run printed one miss,
+### the check's own row reading the crossover rows with one space too many against the bank's padding; the row repaired and the check re-run --
+### no cite of the ruling or the ferry turned on it).
+
+  data/b687_closing.txt :1           rows are the closing's lines. The head line, quoted: "b687 closed: relay 24b23df1, PLACE-papers 51d3aac;
+                                     suite 114 of 115; root 898a41008e25cfe2…; 7 prompts answered; 8 defects" -- (R298)(1) quotes it equal.
+  data/b687_closing_push_out.txt     rows are the push tool's capture lines: "24b23df1..de011ebd  push-b687-closing -> main", "main read back
+                                     at the remote: de011ebd…". Untracked at the act's start; committed at step zero.
+  data/b687_defects.txt :48-:66      rows are defects, as lettered there: (g) :48-:56, the seat's -- R3 priced at minutes, the band counted in
+                                     ten calls, the guard stopping two before any bank was lost; (h) :57-:66, the seat's -- the lattice route
+                                     for Z_Q at σ > 2.5, added where b667's route stops, checked at three points.
+  data/b687_p3_status.txt :8-:9      rows are the premise and its statuses: AFTER, "DERIVED — constants certified in balls, analytic steps
+                                     sourced by line, intermediate inequalities checked against computed values at sample heights, the ζ
+                                     instance inside the located bounds at matched range, not compiled" (the words wrap :8-:9).
+  data/b687_q0_reread.txt            rows are the three results that carry P3 (b675, b679, b683), each re-read with the new status.
+  data/b687_steps.txt :69, :70, :88, :89, :107, :108   rows are steps with height, bound, computed value and margin: the six Z_Q (iv-4) rows
+                                     -- the envelope and |Z(s)| ≤ Z(σ) at T = 50, 100, 149 -- whose narrowest points lie at σ > 2.5 (σ 2.92,
+                                     3.53, 3.32, 3.59, 2.53, 2.53) and whose computed sides are the lattice route's balls (radii 1.1e-9 to
+                                     1.1e-5, the tail bound). These are the rows that consumed the route.
+  tools/b687_readings.py :168-:203   the lattice route by line: :168 LAT_N = 60, :169 LAT_LAMBDA = 0.95 (≤ 3.5 − √6.5), :173 zq_lattice (the
+                                     sum over max(|m|, |n|) ≤ N of Q0(m, n)^{−s}, the tail 8 λ^{−σ} N^{2−2σ}/(2σ − 2) as a radius), :196 Zval
+                                     (the route taken where σ > 2.5); :773-:783 the three-point check against b667's route.
+  data/b667_epstein_plan.txt sections 2, 11.2, 16   rows are the plan's sections: section 2 (:22-:54) the Chowla-Selberg route, T1-T3 Arb
+                                     balls and T4 bounded; section 11.2 (:142-:157) T4's derivation from DLMF 10.32.9; section 16 (:267-:285)
+                                     T4 restated for |μ| ≤ 2 under (R277)(3d) -- so the route covers |σ − ½| ≤ 2, σ ≤ 2.5, its guard at
+                                     tools/b667_epstein_certify.py :152-:153.
+  data/b680_nodes_zeta.txt :167      the generator's input as the tool read it at the page's last write (the page's :3 names it; b649's list is
+                                     two writes earlier): rows are nodes, glossary and backmatter records. :167 is the Li face at Q0's
+                                     backmatter row, "... Q0 = x² + xy + 6y² meets the class on its certified balls, the (3c) bound and its real
+                                     segment, the local count assumed, and b675's certified negative coefficient (n_obs = 10034, before the
+                                     bound's onset n*' = 63676) is a test of the kernel's bound against a certified object, T-COUNT named --
+                                     not a theorem about Q0." Its form at b680 (data/b680_faces_diff.txt): the control re-emits the committed
+                                     page byte for byte, the new list emits, the diff banked, the page written by the generator.
+  tools/chain_page.py :26            its usage: `--nodes <nodes.txt> --probe-dir <dir> --out <page.md> --from-output <probe_out.txt>`, the probe
+                                     relay data/b643_probe_out_zeta.txt (no elaboration, no lean on this host).
+  data/b670_licensed_table.txt :88-:122   rows are licensed-table rows, one per agenda document, OVERREACHES + UNLICENSED at b648 -> now: :111
+                                     "SIDE-li-map docstrings (read at b515e6b) 3 -> 3"; :100 SIDE-archimedean 2; :113 SIDE-rcurve 2; the cut
+                                     documents read at their cut banks.
+  data/b647_table_SIDE-li-map.txt    rows are licensed-table rows of the document: 13 rows, 10 MATCHES, 3 OVERREACHES (LiLinearMap.lean:1,
+                                     :54; PrimeLedgerPositivity.lean:3), each with its STATED, LICENSED, CITED and ACTION.
+  data/b674_rules.txt :8-:11         rows are rules: (2) THE TIE-BREAK BEYOND THE COUNT -- equal OVERREACHES and no declared suite failure, the
+                                     greater count of any kind, then the larger table.
+  data/b686_cut.txt :42-:46, :51-:53   rows are licensed-table rows with state before and after and pin: :42-:46 SpinorLeg.lean:1, CUT IN PART,
+                                     the ACTION verbatim on Route B's bullet (:15-:18 of the file); R4 :51-:53, "(salt-checked)" in the head's
+                                     closing sentence :21, CARRIED, the row's LICENSED reading "No salt-check file exists at the commit".
+  SIDE-spinor's print bank at v0.1.1 relay data/b686_axioms_SIDE-spinor_after.txt (the after run at bfaf89e, the tree merged at aca59d1 =
+                                     v0.1.1) and relay data/b686_prints_SIDE-spinor.txt (15 prints equal line for line).
+  tools/correspondence_gen.py        the Correspondence generator (b672), its `--diff <stem>` route; read for (R298)(4) where a paper is cut.
