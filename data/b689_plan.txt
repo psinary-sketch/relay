@@ -21,3 +21,174 @@ b689 -- THE PLAN OF (R299)(3): THE STRIP-FREE FORM OF THE LI CONVERSE, READ FROM
     such a line, the reading made from the completed function's values in balls on that interval and banked (Component 4, the membership
     bank). The band count of == 5 (data/b667_epstein_counts.txt :56) stands beside it as the certified count, not as the route.
 == S11 END
+
+### THE PLAN ROWS, WRITTEN AFTER SECTION 11 WAS COMMITTED ALONE (relay f89a2d22). Every kernel line is read by git show at SIDE-explicit-formula
+### v0.33 (95f8dc8, the tag peeled); every Mathlib name by git grep at the kernel's pin de5ce8a9 (.lake/packages/mathlib HEAD).
+
+== 1. THE HYPOTHESIS SET OF THE STRIP-FREE STATEMENT, EACH WITH ITS SOURCE LINE
+  THE READING OF THE RULING'S CLAUSE: (R299)(3) names "the hypothesis ρ ≠ 0 alone in place of HExcl’s (−1/2, 0] half where section 11 so
+  names it; where section 11 names the hypothesis set otherwise, section 11’s set, verbatim". Section 11 names it at :227 (S11 line 4):
+  "S5'' over WideConfig with ρ ≠ 0 alone (HExcl's (-1/2, 0) half dropped)". HExcl (Config.lean :54) is two halves (b679 plan == 1 :45-:52):
+  the half at {0} and the half on (-1/2, 0); on a carrier point, "ρ ≠ 0" IS the half at {0} (a point of im 0 and re 0 is 0). So the ruling's
+  "(−1/2, 0]" and section 11's "(-1/2, 0)" give one set: the {0} half kept as ρ ≠ 0, the open half dropped. Section 11's set governs, verbatim.
+  THE SET (four binders; the conclusion's antecedent is the conclusion's):
+    (h1) Z : WideConfig            -- S11 :227 "over WideConfig"; the structure v0.33 SIDEExplicitFormula/Schema/Wide/Config.lean :28 (its
+                                      strip field the open (-1/2, 3/2), reflect_mem, mult_reflect, one_le_mult, finite_window), unchanged.
+    (h2) {A₀ : ℝ} (hc : HCount Z A₀) -- S5''s, carried from S5' (v0.33 Converse.lean :191, "(hc : HCount Z A₀)"; Config.lean :49); section 11
+                                      names S5'' as S5' with the one hypothesis changed, so the count stands. The uses that read it: none of
+                                      the 22 (the count enters through liCoeff_summable and summable_rest, b676 :41 APART).
+    (h3) (hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0) -- S11 :227 "ρ ≠ 0 alone"; the uses that need it: data/b676_strip_uses.txt :10, :16, :22, :28 (each
+                                      "NEEDS: ρ ≠ 0 alone" / "σ ≠ 0 alone" / "x ≠ 0 alone").
+    NOT IN THE SET: HExcl and its half on (-1/2, 0) (S11 :227 "dropped"); no HStrip-like binder (the open strip is the field, b679 == 1 :59).
+  THE SPLIT THAT REPLACES THE DROPPED HALF (S11 :227-:231): the dominant set D splits at w = 1 into D₁ = {x ∈ D : wD R x = 1} -- at most one
+  point, since wD R is injective on D (v0.33 Converse.lean :272, hinj) -- and D₂ its complement. The seat writes the split with Finset.erase at
+  the one point (Finset.add_sum_erase) in place of the filter lemmas section 11 names (Finset.filter_union_filter_neg_eq,
+  Finset.sum_filter_add_sum_filter_not): the same split, D₁ being one point or empty; read as the seat's choice, beside section 11's names.
+
+== 2. THE 22 STRIP USES CLASSIFIED AGAINST THE STRIP-FREE FORM (rows are uses: data/b676_strip_uses.txt row | file :line | class | why)
+   DISCHARGED = closed by the new hypothesis set as stated (h1's field or h3), in a v0.33 declaration reused unchanged or in its copy's
+   unchanged line; RE-PROVED = the declaration that carries it is re-proved under the set, by name; OBSTRUCTED = no route under the set.
+   V5 (LiRemainder.lean at v0.32; v0.33's widened copies in Schema/Wide/Remainder.lean), 12 rows:
+    :9  LiRemainder.lean :84  DISCHARGED  v0.33 Wide.liTerm_re_abs_le_pow (Remainder.lean) takes ρ ≠ 0 and the field's -1/2 < Re < 3/2 as
+                                          binders and reads no HExcl; reused unchanged, h3 and h1 supplying them
+    :10 LiRemainder.lean :88  DISCHARGED  ρ ≠ 0 is h3
+    :11 LiRemainder.lean :94  DISCHARGED  inside v0.33's Wide.liTerm_re_abs_le_pow (|Re ρ| kept, no sign), reused unchanged
+    :12 LiRemainder.lean :95  DISCHARGED  the constant 3/2 from h1's field, inside the same lemma, reused unchanged
+    :13 LiRemainder.lean :125 RE-PROVED   Wide.rest_term_le_ne_zero: v0.33's Wide.rest_term_le (Remainder.lean :66) with hx : HExcl Z replaced
+                                          by hnz; its one HExcl read (:72, ne_zero_of_excl hx hmem) becomes hnz ρ hmem
+    :14 LiRemainder.lean :130 DISCHARGED  Z.strip ρ hmem, h1's field, as at v0.33 (Remainder.lean :71), in the copy unchanged
+    :15 LiRemainder.lean :131 DISCHARGED  v0.33's Wide.liTerm_re_abs_le_pow applied with h3's ρ ≠ 0, in the copy unchanged
+    :16 LiRemainder.lean :134 DISCHARGED  ρ ≠ 0 is h3 (hnz ρ hmem)
+    :17 LiRemainder.lean :147 DISCHARGED  h1's field, as at v0.33
+    :18 LiRemainder.lean :150 DISCHARGED  v0.33's constant (normSq γ ≤ Im² + 1) from h1's field, in the copy unchanged
+    :19 LiRemainder.lean :175 RE-PROVED   Wide.remainder_le_ne_zero: v0.33's Wide.remainder_le (Remainder.lean :112) with hnz, its witness and
+                                          constant 2(2 + 2(1 + s)²)·Σ m/(1 + |γ|²) unchanged
+    :20 LiRemainder.lean :185 RE-PROVED   inside Wide.remainder_le_ne_zero: Wide.rest_term_le_ne_zero Z hnz hs1 n ρ.2.1 ρ.2.2
+   THE COMPOSITION (LiConverseCfg.lean at v0.32; v0.33's widened copies in Schema/Wide/Converse.lean), 10 rows:
+    :21 LiConverseCfg.lean :53  RE-PROVED   Wide.exists_dominant_point_ne_zero: v0.33's Wide.exists_dominant_point (Converse.lean :95) with hnz
+    :22 LiConverseCfg.lean :57  DISCHARGED  σ ≠ 0 is h3, at ρ and at reflect ρ (v0.33's two reads :98, :100 become hnz ρ hρ, hnz _ hmem)
+    :23 LiConverseCfg.lean :89  DISCHARGED  v0.33's Wide.dominant_finite reads h1's field and no HExcl; reused unchanged
+    :24 LiConverseCfg.lean :94  DISCHARGED  inside v0.33's Wide.dominant_finite (K = 2/(r² - 1)), reused unchanged
+    :25 LiConverseCfg.lean :157 RE-PROVED   Wide.li_nonneg_cfg_imp_online_ne_zero, the main theorem (== 6)
+    :26 LiConverseCfg.lean :164 RE-PROVED   inside it: Wide.exists_dominant_point_ne_zero Z hnz hρ1 hoff
+    :27 LiConverseCfg.lean :216 RE-PROVED   inside it: nothing is read at a dominant point -- the step this use fed (w ≠ 1 on D, v0.33
+                                          Converse.lean :247-:271) is replaced by the split (row :29)
+    :28 LiConverseCfg.lean :219 DISCHARGED  x ≠ 0 is h3 where read; the split asks nothing of x beyond its membership in D
+    :29 LiConverseCfg.lean :231 RE-PROVED   by the split at w = 1 (S11 :227-:231): Wide.powerSum_re_ge_split gives a c > 0 and, past every N, an
+                                          n with c ≤ Re Σ_D m wⁿ -- c = Σ_D m²/(4 Σ_D m) where no point of D has w = 1 (V4 on D, as v0.33);
+                                          where one point x₁ has w = 1, Re Σ_D m wⁿ = m(x₁) + Re Σ_{D \ x₁} m wⁿ, with c = 1 if D \ x₁ is empty
+                                          and c = Σ m²/(4 Σ m) over D \ x₁ (V4 there, w ≠ 1 by injectivity) otherwise; the composition's line
+                                          then reads with that c (v0.33 :283-:349 in form). NOT OBSTRUCTED
+    :30 LiConverseCfg.lean :244 RE-PROVED   inside the main theorem: Wide.remainder_le_ne_zero Z hc hnz hs1
+   THE COUNT: 22 of 22 classified ; DISCHARGED 13 (:9, :10, :11, :12, :14, :15, :16, :17, :18, :22, :23, :24, :28) ; RE-PROVED 9 (:13, :19,
+   :20, :21, :25, :26, :27, :29, :30) ; OBSTRUCTED 0. Off the two files (b676 :41 APART): v0.33's Wide.liCoeff_summable and Wide.summable_rest
+   read no HExcl and are reused unchanged.
+
+== 3. THE DECLARATIONS TO BE WRITTEN: ONE NEW FILE, SIDEExplicitFormula/Schema/Wide/StripFree.lean (namespace SIDEExplicitFormula.Schema.Wide),
+   beside Wide's three; no v0.33 file edited except the root module's import list (one import appended) and print_targets.txt (eleven names
+   appended); every v0.33 name untouched; `theorem`, never `lemma` (SPIRAL_MAP section 7 rule 9)
+    theorem Wide.rest_term_le_ne_zero (Z : WideConfig) (hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0) {s : ℝ} (hs1 : 1 < s) (n : ℕ) {ρ : ℂ}
+      (hmem : ρ ∈ Z.carrier) (hlt : ‖1 - ρ⁻¹‖ < s) : (v0.33 Wide.rest_term_le's conclusion, verbatim)
+    theorem Wide.remainder_le_ne_zero (Z : WideConfig) {A₀ : ℝ} (hc : HCount Z A₀) (hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0) {s : ℝ} (hs1 : 1 < s) :
+      (v0.33 Wide.remainder_le's conclusion, verbatim)
+    theorem Wide.exists_dominant_point_ne_zero (Z : WideConfig) (hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0) {ρ : ℂ} (hρ : ρ ∈ Z.carrier)
+      (hoff : ρ.re ≠ 1 / 2) : ∃ ρ' ∈ Z.carrier, 1 < ‖1 - ρ'⁻¹‖
+    theorem Wide.powerSum_re_ge_split (s : Finset ℂ) (w : ℂ → ℂ) (m : ℂ → ℕ) (hs : s.Nonempty) (hw : ∀ x ∈ s, ‖w x‖ = 1)
+      (hinj : Set.InjOn w s) (hm : ∀ x ∈ s, 1 ≤ m x) : ∃ c : ℝ, 0 < c ∧ ∀ N : ℕ, ∃ n ≥ N, c ≤ (∑ x ∈ s, (m x : ℂ) * w x ^ n).re
+      -- (V4) with the hypothesis w ≠ 1 removed: the split of row :29, by cases on a point with w = 1 (V4 = Schema/PowerSum.lean's
+      powerSum_re_ge_infinitely and powerSum_consts, used as they stand)
+    theorem Wide.li_nonneg_cfg_imp_online_ne_zero (== 6), its proof v0.33's S5' (Converse.lean :191-:349) with hex replaced by hnz, the hw1
+      block (:247-:271) removed and powerSum_consts / powerSum_re_ge_infinitely (:280-:281, :298) replaced by Wide.powerSum_re_ge_split
+    the controls of == 5: Wide.c2_ne_zero, Wide.c2_w_eq_one, Wide.c2_liCoeff_one_neg, Wide.c3_real_segment, Wide.c2b_not_ne_zero, Wide.c2b_lesson
+   THE BRANCH'S OTHER WRITES: SIDEExplicitFormula.lean's import list (import SIDEExplicitFormula.Schema.Wide.StripFree appended);
+   print_targets.txt extended by the eleven names; nothing else. Estimated 330-380 lines, the copies three quarters of it.
+
+== 4. THE MATHLIB NAMES AT THE PIN NEW TO THIS ACT'S STEPS (git grep -n -E "(theorem|lemma) +name" HEAD -- Mathlib/ in .lake/packages/mathlib
+   at de5ce8a9; a name generated by @[to_additive] read at its multiplicative source)
+      Finset.add_sum_erase        @[to_additive] of Finset.mul_prod_erase, Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean:741
+                                  "(f a * ∏ x ∈ s.erase a, f x) = ∏ x ∈ s, f x" (its docstring names Finset.add_sum_erase)
+      Finset.sum_pair             @[to_additive] of Finset.prod_pair, same file :85-:86, "(h : a ≠ b) : (∏ x ∈ ({a, b} : Finset ι), f x) = f a * f b"
+      Finset.sum_empty            @[to_additive (attr := simp)] of Finset.prod_empty, Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean:378-:379
+      Finset.mem_of_mem_erase     Mathlib/Data/Finset/Erase.lean:65 ; Finset.ne_of_mem_erase :63 ; Finset.erase_subset :89
+      Finset.not_nonempty_iff_eq_empty  Mathlib/Data/Finset/Empty.lean:150 ; Finset.coe_subset Mathlib/Data/Finset/Defs.lean:233
+      Finset.mem_insert_self, Finset.mem_insert_of_mem, Finset.mem_singleton_self  Mathlib/Data/Finset/Insert.lean:369, :372, :83
+      Set.InjOn.mono              Mathlib/Data/Set/Function.lean:275 ; Set.mem_insert_iff, Set.mem_singleton_iff Mathlib/Data/Set/Insert.lean:70, :160
+      Complex.ofReal_inv          Mathlib/Data/Complex/Basic.lean:693 ; Complex.ofReal_injective :103 ; Complex.ofReal_re :89 ; Complex.ofReal_zero :134
+      sub_sub_cancel              @[to_additive (attr := simp)] of div_div_cancel, Mathlib/Algebra/Group/Basic.lean:929-:930
+    NOT USED: Function.Injective.ne (no theorem line under Mathlib/Logic/ at the pin by this grep; the control's a ≠ b is closed by
+      Complex.ofReal_injective and norm_num instead).
+    COMPILED AT v0.33 AND REUSED AS THERE: every name of the copied proofs (Converse.lean, Remainder.lean), Set.indicator_of_mem,
+      Set.indicator_of_notMem, tsum_eq_sum, div_eq_one_iff_eq, Complex.ofReal_ne_zero, Set.mem_insert, Set.mem_insert_of_mem, Set.mem_singleton.
+    SEARCHES 19 ; FOUND 18 ; NOT FOUND 1 (Function.Injective.ne, not used).
+
+== 5. THE CONTROLS RE-STATED UNDER THE STRIP-FREE FORM, WITH THE EXPECTED READING OF EACH
+  C2 {−1/4, 5/4} (v0.33 c2Config, Converse.lean :359; its print data/b679_runner_run39064453563.txt :66): at v0.33 the control on the
+    hypothesis -- c2_not_excl, C2 fails HExcl at −1/4. UNDER THE STRIP-FREE FORM C2 MEETS h3: both points are nonzero. EXPECTED READING:
+      theorem Wide.c2_ne_zero : ∀ ρ ∈ c2Config.carrier, ρ ≠ 0                              -- DERIVES at the standard three
+      theorem Wide.c2_w_eq_one : wD 5 ((-1 / 4 : ℝ) : ℂ) = 1                                 -- C2's dominant point (R = 5) is the w = 1 point
+      theorem Wide.c2_liCoeff_one_neg : liCoeff c2Config 1 < 0                               -- λ₁(C2) = (−1/4)⁻¹ + (5/4)⁻¹ = −16/5
+    read together: the strip-free form admits C2, which v0.33 excluded; its dominant set {−1/4} is exactly D₁ (D₂ empty, the split's c = 1
+    branch); and its first coefficient is negative, as the theorem's contrapositive requires of a configuration with a point off the line.
+  THE CONTROL THE PLAN ADDS FOR THE REAL SEGMENT, C3 -- one printed line that the real segment (−1/2, 0) is now admitted:
+      theorem Wide.c3_real_segment : (∀ ρ ∈ c2Config.carrier, ρ ≠ 0) ∧ ¬ HExcl c2Config ∧ wD 5 ((-1 / 4 : ℝ) : ℂ) = 1 ∧ liCoeff c2Config 1 < 0
+    -- the configuration with a real point in (−1/2, 0) (section 11's consumer, S11 line 10) meets the strip-free set, fails v0.33's, sits at
+    w = 1, and carries a negative coefficient. HCount at C2 is not stated in Lean (a finite carrier); the control reads the conclusion's
+    contrapositive directly and does not apply the theorem.
+  C2b {0, 1} (v0.33 c2bConfig, Converse.lean :381; c2b_nonneg_offline :396, its print :68): every coefficient nonnegative with 1 off the line.
+    UNDER THE STRIP-FREE FORM C2b FAILS h3 (0 is a point). EXPECTED READING:
+      theorem Wide.c2b_not_ne_zero : ¬ ∀ ρ ∈ c2bConfig.carrier, ρ ≠ 0                       -- DERIVES
+      theorem Wide.c2b_lesson : (¬ ∀ ρ ∈ c2bConfig.carrier, ρ ≠ 0) ∧ (∀ n : ℕ, 0 ≤ liCoeff c2bConfig n) ∧ ∃ ρ ∈ c2bConfig.carrier, ρ.re ≠ 1 / 2
+    C2b'S LESSON SURVIVES IN h3 (hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0): the exclusion of 0 is necessary -- a configuration admitting 0 has every
+    coefficient nonnegative and a point off the line -- and h3 is the hypothesis that carries it (b679's (H6b), S11 line 2).
+
+== 6. THE EXPECTED STATEMENT, AXIOM PROFILE, SALT-CHECK AND GRADE
+  THE MAIN THEOREM, by name SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online_ne_zero:
+      theorem li_nonneg_cfg_imp_online_ne_zero (Z : WideConfig) {A₀ : ℝ} (hc : HCount Z A₀) (hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0) :
+          (∀ n : ℕ, 0 ≤ liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2
+  THE EXPECTED AXIOM PROFILE at #print axioms: [propext, Classical.choice, Quot.sound] -- the standard three, for the main theorem and for each
+    of the ten other new names (v0.33's S5' prints the same three, data/b679_axioms_run39064453563.txt).
+  THE SALT-CHECK ON THE STATEMENT (REGISTRY.md :544, the E0 salt-check): the conclusion is no True-typed term and no uniformly-True predicate
+    (∀ ρ ∈ Z.carrier, ρ.re = 1 / 2 is false at C2 and C2b); no X = X; no hypothesis is the claim (hnz and hc say nothing of Re ρ = 1/2, and
+    the empty configuration and every on-line one meet them); no witness is constructed; the hypotheses are named (hc, hnz); the profile is
+    taken after these. Expected to PASS; read again on the landed statement from the runner's artifact.
+  THE GRADE, READ FROM THE STATEMENT by the shared E0 rule (relay tools/e0_rule.py, its rule (1): INTERFACES when an explicit hypothesis
+    binder is a named Prop of a kernel module, DERIVES when the only binders are domain conditions), its lexicon extended at run time in this
+    act's tool with the three heads it lacks -- WideConfig (data, Config.lean :28), HCount (prop, Config.lean :49), HExcl (prop, Config.lean
+    :54) -- and the shared file not edited: hc : HCount Z A₀ a named premise; hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0 a domain condition (≠ and ∈ on
+    the object's own carrier). EXPECTED GRADE: INTERFACES ON THE NAMED PREMISE Wide.HCount -- one of the two grades (R299)(4) admits for the
+    merge. (The same reading of v0.33's S5' gives PREDICATE-UNLISTED for hex : HExcl Z, the rule's table not having met HExcl; printed beside.)
+
+== 7. THE CONSTANTS UNDER THE NEW FORM (for (R299)(4)'s re-read; rows of data/b679_onset.txt compared by row)
+    the remainder's factor 2(2 + 2(1 + s)²)   -- Wide.remainder_le_ne_zero's witness, the copy's: EXPECTED EQUAL
+    K, R, s                                   -- the bench's (data/b675_li_constants.json): the form moves none: EXPECTED EQUAL
+    c                                         -- the split lemma's c: at Q0's bench the dominant set has Σ_D m = 2 with w = e^{±iθ},
+                                                 neither 1 (2cos(nθ), data/b679_onset.txt), so the branch with no w = 1 point is taken and
+                                                 c = Σ_D m²/(4 Σ_D m) = 1/4 as at v0.33. The w = 1 point would be x = 1/(1 − R) ≈ −586 at
+                                                 R ≈ 1.0017, outside the strip: no D₁ at Q0. EXPECTED EQUAL
+    C', n*'                                   -- EXPECTED EQUAL: 63676, recomputed in Arb balls from the same rows
+    n_obs                                     -- 10034 (data/b675_li_bench.txt :848), unchanged
+
+== 8. THE RUNNER, ONE TREE STATE PER DISPATCH (no lean or lake on this host)
+  The branch strip-free-b689 cut from main at v0.33's commit read back by peeled SHA (95f8dc8); the new file and the two edits by the Write tool
+  and the Edit tool; pushed to the remote alone; .github/workflows/build-module.yml dispatched at main with the branch tip as the ref and b679's
+  nine modules plus SIDEExplicitFormula.Schema.Wide.StripFree as the target, once per tree state, read by its run id; the artifact's sha256
+  compared with the platform's digest before any reading; the gate per terminal (DERIVES at ['Classical.choice', 'Quot.sound', 'propext'], or
+  the error line by file and line); v0.33's 49 prints compared line for line with b679's run bank. A build error is a tree state to repair by
+  the Edit tool and dispatch again; a step the seat cannot close is a sorry: the branch held unmerged, data/b689_obstruction.txt (the sorry's
+  location, the goal verbatim, the hypothesis it wants), a work-order with trigger "the research act after b690", no sorry on main.
+
+== 9. THE OBSTRUCTION COUNT: 0 -- no use of the 22 is OBSTRUCTED under the set; row :29, the one step v0.33 closed by HExcl's open half, is
+   RE-PROVED by section 11's split. The count is the plan's reading, not compiled: the runner reads it.
+
+== 10. THE CONSUMERS ((R278)(3), standing): each bank the act writes from this plan, its consumers, each consumer's tolerance
+  data/b689_plan.txt       -- consumers: the author's word; the branch's Lean (every statement of == 3, == 5, == 6); tolerance: none.
+  data/b689_grade.txt      -- the statement verbatim beside its grade; consumers: the merge, the FINDINGS title; tolerance: none.
+  data/b689_runner_*.txt   -- the gate per terminal; consumers: the grade, the merge, N3, N4; tolerance: the printed axioms against the
+                              standard three.
+  data/b689_constants.txt  -- the rows of == 7 under the new form beside v0.33's; consumers: (R299)(4)'s re-read; tolerance: the balls' radii.
+  data/b689_q0_reread.txt  -- Component 4; consumers: b690's reading, the faces successor row; tolerance: none.
+
+### ### **THE SET: WideConfig, HCount Z A₀, ∀ ρ ∈ Z.carrier, ρ ≠ 0 (HExcl's open half dropped, the dominant set split at w = 1) ; USES 22 OF 22
+### CLASSIFIED (DISCHARGED 13, RE-PROVED 9, OBSTRUCTED 0) ; ONE NEW FILE, ELEVEN NAMES ; CONTROLS C2, C3 (THE REAL SEGMENT), C2b ; THE MAIN
+### THEOREM Wide.li_nonneg_cfg_imp_online_ne_zero ; EXPECTED [propext, Classical.choice, Quot.sound] ; EXPECTED GRADE INTERFACES ON THE NAMED
+### PREMISE Wide.HCount ; NO LEAN WRITTEN.**
