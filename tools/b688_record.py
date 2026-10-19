@@ -300,6 +300,54 @@ def c1(*a):
          check=[('FINDINGS.md', K.B687_ENTRY, '## The b685 derivation tested'), ('OPEN_TRAILS.md', K.B687_TRAIL, '### b687')], dry=dry)
 
 
+# ================================================================================ COMPONENT 2: THE FACES LINE, (R298)(3) AND THE AUTHOR'S WORD
+def faces(*a):
+    """b680's form: the control (b680's list re-emits the committed page byte for byte), the emission of data/b688_nodes_zeta.txt, both by
+    tools/chain_page.py --from-output data/b643_probe_out_zeta.txt into the scratchpad (no lean); the diff banked as data/b688_faces_diff.txt;
+    with `write`, the page written by the generator itself (its --out the page) and read back equal to the emission."""
+    import difflib
+    import hashlib
+    page = os.path.join(PP, K.FACES_PAGE)
+    probe = os.path.join(ROOT, *K.PROBE.split('/'))
+
+    def emit(nodes, out):
+        r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'chain_page.py'), '--nodes', os.path.join(ROOT, *nodes.split('/')),
+                            '--probe-dir', SP, '--out', out, '--from-output', probe], capture_output=True, text=True, encoding='utf-8', errors='replace')
+        return r.returncode, ((r.stdout or '') + (r.stderr or '')).strip().split(NL)[-1:]
+    committed = open(page, 'rb').read()
+    head = g(PP, 'show', 'HEAD:' + K.FACES_PAGE).encode('utf-8')
+    cpath, npath = os.path.join(SP, 'b688_faces_control.md'), os.path.join(SP, 'b688_faces_emit.md')
+    rc0, t0 = emit(K.NODES_PRE, cpath)
+    ctl = open(cpath, 'rb').read() if os.path.exists(cpath) else b''
+    control = rc0 == 0 and ctl == committed
+    rc1, t1 = emit('data/b688_nodes_zeta.txt', npath)
+    new = open(npath, 'rb').read() if os.path.exists(npath) else b''
+    d = list(difflib.unified_diff(committed.decode('utf-8').split(NL), new.decode('utf-8').split(NL), 'committed', 'b688', n=0, lineterm=''))
+    add = sum(1 for l in d if l.startswith('+') and not l.startswith('+++'))
+    rem = sum(1 for l in d if l.startswith('-') and not l.startswith('---'))
+    written, back = False, False
+    if 'write' in a:
+        if not control or rc1 != 0:
+            sys.exit('### THE CONTROL OR THE EMISSION FAILED -- THE PAGE IS NOT WRITTEN')
+        rc2, t2 = emit('data/b688_nodes_zeta.txt', page)
+        written = rc2 == 0
+        back = open(page, 'rb').read() == new
+    row = rd(os.path.join(ROOT, 'data', 'b688_nodes_zeta.txt')).split(NL)[K.NODES_ROW - 1]
+    L = ['b688 -- COMPONENT 2, (R298)(3): THE FACES LINE THROUGH THE GENERATOR, ON THE AUTHOR`S WORD (%s)' % utc(), '',
+         '### the generator: relay tools/chain_page.py --from-output relay %s (no elaboration; no lean on this host)' % K.PROBE,
+         '### the control: b680`s list (relay %s) re-emits the committed page byte for byte: %s (%d bytes ; exit %d ; the committed page equal to HEAD`s '
+         'blob %s)' % (K.NODES_PRE, control, len(ctl), rc0, committed.replace(b'\r\n', b'\n') == head.replace(b'\r\n', b'\n')),
+         '### the new list: relay data/b688_nodes_zeta.txt (b680`s 172 lines, :167 replaced by the amended row, every other line unchanged); emitted '
+         '%d bytes, exit %d, sha256 %s' % (len(new), rc1, hashlib.sha256(new).hexdigest()[:16]),
+         '### the diff, committed page -> b688 emission (lines added %d, removed %d):' % (add, rem)] + ['    ' + l for l in d] + [
+         '', '### the page written by the generator and read back equal to the emission: %s' % (back if 'write' in a else 'NOT YET (dry)'),
+         '### the row carries T-COUNT beside P3 and no backtick: %s' % ('T-COUNT (P3) derived' in row and '`' not in row), '',
+         '### ### **CONTROL EQUAL %s ; LINES ADDED %d ; REMOVED %d ; PAGE WRITTEN %s.**' % (control, add, rem, written and back)]
+    if 'write' in a:
+        put_txt('b688_faces_diff.txt', L)
+    print(NL.join(L[2:6] + L[-4:]))
+
+
 # ================================================================================ THE ANSWERS BANK (b687's route, carried)
 def _session_rows():
     for sid, anc in ((K.SESSION_ID, K.ANCHOR),) + K.SESSIONS_AFTER:
@@ -583,7 +631,7 @@ def defects(*a):
     print('  defects %d' % len(ds))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, commands=commands, defects=defects)
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, faces=faces, answers=answers, commands=commands, defects=defects)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
