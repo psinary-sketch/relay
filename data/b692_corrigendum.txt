@@ -1,0 +1,18 @@
+b692 -- THE CORRIGENDUM, (R302)(2): b691`S TWO ITEMS AFTER THE ROOT, LETTERED (l) AND (m), ANSWERED BY ONE GENERATED FINDINGS ENTRY IN b678`s FORM
+
+### rows are the corrected line and the lines that correct it, each read from its bank by line; the sealed face is not rewritten.
+
+  THE FACE`S DECLARATION   relay data/b691_registration_2026-10-19.txt :63 | ### ### **THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:** `G-RULE-ONE-GIT-WRITE`.
+  THE LOCK                 relay data/b691_registration_2026-10-19.txt :290 | ### locked at (UTC) : 2026-10-19T20:44:42Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+  (l) PRE-PUSH             relay data/b691_checks.txt :10 | ### ### **ARMS RUN : 121. ### LIVE PASSING : 119. ### LIVE FAILING : 2 ['G-RULE-ONE-GIT-WRITE', 'G-RULE-SUITE-PARTS'].**
+  (l) POST-PUSH            relay data/b691_checks_postpush.txt :10 | ### ### **ARMS RUN : 121. ### LIVE PASSING : 119. ### LIVE FAILING : 2 ['G-RULE-ONE-GIT-WRITE', 'G-RULE-SUITE-PARTS'].**
+  (l) THE ARM, PRE-PUSH    relay data/b691_checks_standing-a.txt :30 | read 39 ; failing 1
+  (l) THE ARM, POST-PUSH   relay data/b691_checks_postpush_standing-a.txt :30 | read 40 ; failing 2
+  (l) THE PATTERN          relay tools/rule_arms.py :268 | rows = [r for r in re.split(r'(?m)^  \((?=\d+\) )', _rd(p)) if re.search(r'\bstanding-[a-z]\b', r)]
+  (l) THE PARTS            relay data/b691_arms_prerun.txt | standing-a, standing-c, standing-b1, standing-b2, act
+  (m) THE FIRST SUBJECT    PLACE-papers cb6b7ef | b691 trail under (R301): the record at OPEN_TRAILS :15012, carrying act root b691 7b052f8b5968b799
+  (m) THE PUSHED SUBJECT   PLACE-papers 9a0dc76 | b691 record, under (R301): the trail record carrying the root 7b052f8b (OPEN_TRAILS :15012)
+  (m) THE TREE, THE PARENT 26892785243f6581cb1a4e79aa1418466f4da0b6 (both), 6bd571ac2c543f26b2859ef0a346c1191bf5cf6c (both)
+  THE COUNT AS IT STANDS   relay data/b691_closing.txt :1 | b691 closed: relay 62a530c6, PLACE-papers 9a0dc76; suite 119 of 121; root 7b052f8b5968b799…; 4 prompts answered; 11 defects
+
+### ### **THE FACE DECLARES G-RULE-ONE-GIT-WRITE ALONE ; (l) G-RULE-SUITE-PARTS FAILS PRE-PUSH AND POST-PUSH, ITS PATTERN AT rule_arms.py :268 ; (m) cb6b7ef -> 9a0dc76, THE TREE UNCHANGED ; THE COUNT 119 OF 121 ; THE ENTRY AT FINDINGS :9456.**

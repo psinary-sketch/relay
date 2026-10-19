@@ -1,0 +1,52 @@
+b692 -- THE TOOL REPAIRS OF THE ACT, UNDER (R302)(2) AND THE FERRY'S COMPONENT 5 (2026-10-19)
+
+### rows are repairs, each with the defect or order it answers, the tool, its blob before and after, and the diff verbatim. A carry-time
+### repair to this act's own tools (carried from b691's sealed copies) is appended at Component 5 as its own row.
+
+  ROW 1  tools/rule_arms.py, the one edit to a shared tool this act ((R302)(2); N5). ANSWERS b691's defect (l) (the corrigendum at FINDINGS.md
+         :9456): G-RULE-SUITE-PARTS read the five-part names standing-b1 and standing-b2 as no part. THE FORM: V2 on the author's word at the
+         (R302)(2) prompt (relay data/b692_author_answers.txt, prompt 2) -- the pattern widened at :268 and :270 to standing-<letter> or
+         standing-<letter><digit>, and the comparison at :479 reading a governing part as met by itself or by its numbered halves, the halves
+         the split data/b684_rules.txt row (1) orders and no other numbering, never both; "the ruling's V1 wording amended by this answer".
+         THE REASON: relay data/b692_parts_probe.txt, the three forms read in memory with the tool unedited -- V0 and V1 FAIL b691's three run
+         banks (41 read, 3 failing) and a planted five-part b692 run (42 read, 4 failing), the governing lists the same under both (no rules
+         bank names standing-b1 or standing-b2); V2 PASSES both (0 failing). AFTER THE EDIT, AT HEAD (relay data/b692_parts_after.txt): b691's
+         banks PASS (read 41, failing 0), the planted five-part b692 run PASS (read 42, failing 0), the arm's planted control FAIL (read 42,
+         failing 1, b678 planted), as wanted; this act's own run banks read by the suite's pre-run, its count printed there.
+         BLOB BEFORE 711fdd57b897620c98625fe71694280fc4dedc74 (relay 4042d1a9) ; AFTER 3f183f15d44c16fb0d4961f6ea57765c92f35481.
+         THE DIFF (git diff tools/rule_arms.py, verbatim):
+diff --git a/tools/rule_arms.py b/tools/rule_arms.py
+index 711fdd57..3f183f15 100644
+--- a/tools/rule_arms.py
++++ b/tools/rule_arms.py
+@@ -265,9 +265,9 @@ def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=N
+     # ### part; b678 row 1 (three parts) governs b678-b683, b684 row (1) (four) from b684.
+     gov = []
+     for p in _banks('b*_rules.txt', 678):
+-        rows = [r for r in re.split(r'(?m)^  \((?=\d+\) )', _rd(p)) if re.search(r'\bstanding-[a-z]\b', r)]
++        rows = [r for r in re.split(r'(?m)^  \((?=\d+\) )', _rd(p)) if re.search(r'\bstanding-[a-z][0-9]?\b', r)]
+         if rows:
+-            gov.append((_act_of(p), os.path.basename(p), sorted(set(re.findall(r'\bstanding-[a-z]\b', ' '.join(rows)))) + ['act']))
++            gov.append((_act_of(p), os.path.basename(p), sorted(set(re.findall(r'\bstanding-[a-z][0-9]?\b', ' '.join(rows)))) + ['act']))
+     R['governing'] = gov
+     pv = _rd(os.path.join(D, 'b%d_arms_prerun.txt' % (n - 1)))
+     R['prev_longest'] = max([int(x) for x in re.findall(r'THE LONGEST PHASE (\d+) s', pv)] or [0])
+@@ -476,7 +476,15 @@ def reading(name, R):
+         def parts_of(a):
+             g_ = [x for x in gov if x[0] <= a]
+             return (g_[-1][2], g_[-1][1]) if g_ else (None, None)
+-        bad = [('b%d' % a, k) for (a, k), ps in runs.items() if parts_of(a)[0] is None or sorted(p for p, _s in ps) != sorted(parts_of(a)[0])
++
++        def met(run, gp):
++            # ### b692, (R302)(2) on the author's word: a governing part is met by itself or by its numbered halves (standing-b by
++            # ### standing-b1 and standing-b2, the split data/b684_rules.txt row (1) orders) and by no other numbering; never both.
++            fam = {}
++            for p in run:
++                fam.setdefault(re.sub(r'(?<=^standing-[a-z])[0-9]$', '', p), []).append(p)
++            return sorted(fam) == sorted(gp) and all(v == [k] or (len(v) >= 2 and len(set(v)) == len(v) and k not in v) for k, v in fam.items())
++        bad = [('b%d' % a, k) for (a, k), ps in runs.items() if parts_of(a)[0] is None or not met([p for p, _s in ps], parts_of(a)[0])
+                or any(s >= 600 for _p, s in ps)]
+         return bool(runs) and bool(gov) and not bad, len(runs), len(bad), (
+             'run banks b678-b%d %d, each against its act`s governing parts (%s) ; without them or with a part at or above 600 s %s' % (
+
+### ### **REPAIRS 1 SO FAR (THE SHARED TOOL'S, ON THE AUTHOR'S WORD) ; b691'S BANKS PASS AT HEAD ; THE PLANTED CONTROL FIRES ; THE CARRY-TIME ROWS AT COMPONENT 5.**

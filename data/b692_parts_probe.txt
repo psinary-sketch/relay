@@ -1,0 +1,21 @@
+b692 -- (R302)(2): THE SUITE-PARTS ARM READ IN MEMORY BEFORE ITS REPAIR IS MADE, tools/rule_arms.py UNEDITED
+
+### rows are forms of the arm: the form | the governing lists it reads | its verdict over b691`s real run banks | over the same with a
+### planted b692 run in the five parts this act runs.
+
+  V0 the arm as it stands
+      governing: b678_rules.txt from b678: ['standing-a', 'standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']
+      over b691`s banks: FAIL (read 41, failing 3) -- , 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s [('b691', 'arms_prerun'), ('b691', 'checks'), ('b691', 'checks_postpush')]
+      with a planted five-part b692 run: FAIL (read 42, failing 4)
+
+  V1 the pattern widened alone
+      governing: b678_rules.txt from b678: ['standing-a', 'standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']
+      over b691`s banks: FAIL (read 41, failing 3) -- , 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s [('b691', 'arms_prerun'), ('b691', 'checks'), ('b691', 'checks_postpush')]
+      with a planted five-part b692 run: FAIL (read 42, failing 4)
+
+  V2 the pattern widened, the parts read by family
+      governing: b678_rules.txt from b678: ['standing-a', 'standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']
+      over b691`s banks: PASS (read 41, failing 0) -- run banks 41 ; failing NONE
+      with a planted five-part b692 run: PASS (read 42, failing 0)
+
+### ### **THE RULING`S REPAIR ALONE (V1) READS THE SAME GOVERNING LISTS AS V0: NO RULES BANK NAMES standing-b1 OR standing-b2, SO b691`S BANKS AND A FIVE-PART b692 RUN STILL FAIL; V2 READS THEM AS THE SPLIT OF standing-b.**

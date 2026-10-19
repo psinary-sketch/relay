@@ -1,0 +1,49 @@
+{
+ "at": "2026-10-19T22:20:18Z",
+ "entry_line": 9456,
+ "title": "## Corrigendum to b691’s face (relay data/b691_registration_2026-10-19.txt): G-RULE-SUITE-PARTS failed after the seal, undeclared; the trail commit’s subject amended before its push",
+ "decl": [
+  63,
+  "### ### **THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:** `G-RULE-ONE-GIT-WRITE`."
+ ],
+ "lock": [
+  290,
+  "### locked at (UTC) : 2026-10-19T20:44:42Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written."
+ ],
+ "pre": [
+  10,
+  "  ### ### **ARMS RUN : 121. ### LIVE PASSING : 119. ### LIVE FAILING : 2 ['G-RULE-ONE-GIT-WRITE', 'G-RULE-SUITE-PARTS'].**"
+ ],
+ "post": [
+  10,
+  "  ### ### **ARMS RUN : 121. ### LIVE PASSING : 119. ### LIVE FAILING : 2 ['G-RULE-ONE-GIT-WRITE', 'G-RULE-SUITE-PARTS'].**"
+ ],
+ "arm": {
+  "pre": [
+   30,
+   "  ###   G-RULE-SUITE-PARTS           FAIL read 39 ; failing 1 ; run banks b678-b691 39, each against its act`s governing parts (b678_rules.txt from b678: ['standing-a', 'standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s [('b691'"
+  ],
+  "post": [
+   30,
+   "  ###   G-RULE-SUITE-PARTS           FAIL read 40 ; failing 2 ; run banks b678-b691 40, each against its act`s governing parts (b678_rules.txt from b678: ['standing-a', 'standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s [('b691'"
+  ]
+ },
+ "pattern": "rows = [r for r in re.split(r'(?m)^  \\((?=\\d+\\) )', _rd(p)) if re.search(r'\\bstanding-[a-z]\\b', r)]",
+ "parts": [
+  "standing-a",
+  "standing-c",
+  "standing-b1",
+  "standing-b2",
+  "act"
+ ],
+ "amend": {
+  "old": "cb6b7ef",
+  "new": "9a0dc76",
+  "tree": "26892785243f6581cb1a4e79aa1418466f4da0b6",
+  "parent": "6bd571ac2c543f26b2859ef0a346c1191bf5cf6c"
+ },
+ "count": [
+  119,
+  121
+ ]
+}

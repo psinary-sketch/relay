@@ -373,7 +373,35 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers)
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R302)(1)
+WH = ('*Appended 2026-10-19 by b692 to b691’s entry (:9424), under `(R302)`(1) -- b691 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b691_closing.txt):*')
+WB = (' “b691 closed: relay 62a530c6, PLACE-papers 9a0dc76; suite 119 of 121; root 7b052f8b5968b799…; 4 prompts answered; 11 defects” '
+      '(data/b691_closing.txt :1), the closing f5318624 pushed and read back at relay main (data/b691_closing_push_out.txt). The re-cut: '
+      'SIDE-rcurve, rows outside LICENSED or CITED 2 to 0, tag v0.1.1, the quotation search’s four quoting lines (SIDE-rcurve README.md :3, :9, '
+      ':11, :19) each carried as a residue, R-1 to R-4 (data/b691_cut.txt :15-:18, :33). The generator’s run on the author’s word: two pages, '
+      'phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md 3 lines changed and phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md 1 '
+      '(data/b691_correspondence_run_PATHS.txt :31, data/b691_correspondence_run_RCURVE.txt :20); the :301 clause held as VERSION DIFFERS, '
+      'SIDE-kernel v1.8 against the carry v1.3 = 0bc21c0, a residue for the SIDE-kernel row. The EpsteinQ0 docstrings re-cut: three lines, :106 '
+      'and :110-:111, docstrings alone, v0.34.1 = e5fcda7, v0.34 unmoved (data/b691_epstein_lines.txt :63, data/b691_epstein_cut.txt :10). The '
+      'stale orders: 35 triaged, CARRY 11, DISCHARGED-BY-READING 24, RETIRE 0 (data/b691_orders_triage.txt :151). Four rule arms added under '
+      '`(R301)`(6), G-RULE-BINARY-HASHES, G-RULE-SUITE-PART-CALLS, G-RULE-POSTSEAL-READ and G-RULE-RECUT-QUOTE (data/b691_arms_added.txt :41). '
+      'The failure the face declares: G-RULE-ONE-GIT-WRITE (data/b691_closing.txt :244-:245). Eleven defects, every one the seat’s '
+      '(data/b691_defects.txt :5-:48): (a) reads through a shell filter or an interpreter’s print; (b) two redirects onto /dev/null; (c) two git '
+      'writes in one message, twice; (d) the cut branches pushed outside the push tool; (e) the carried-at repair’s first form pairing one version '
+      'with another version’s commit; (f) the behind route’s first forms; (g) the quotation search’s first forms; (h) the mid-act check’s commit '
+      'scope; (i) step zero’s own rows; (j) the cut route’s duplicate keyword; (k) the banked diff’s blank context lines. The two items after the '
+      'root are entered by the corrigendum beneath, lettered (l) and (m). Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], 'b692_record_lines.json', 'c1', entry=K.B691_ENTRY,
+         check=[('FINDINGS.md', K.B691_ENTRY, '## SIDE-rcurve re-cut: 2 rows outside LICENSED/CITED to 0'), ('OPEN_TRAILS.md', K.B691_TRAIL, '### b691')],
+         dry=dry)
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1)
 
 if __name__ == '__main__':
     r = sys.argv[1] if len(sys.argv) > 1 else ''

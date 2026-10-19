@@ -265,9 +265,9 @@ def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=N
     # ### part; b678 row 1 (three parts) governs b678-b683, b684 row (1) (four) from b684.
     gov = []
     for p in _banks('b*_rules.txt', 678):
-        rows = [r for r in re.split(r'(?m)^  \((?=\d+\) )', _rd(p)) if re.search(r'\bstanding-[a-z]\b', r)]
+        rows = [r for r in re.split(r'(?m)^  \((?=\d+\) )', _rd(p)) if re.search(r'\bstanding-[a-z][0-9]?\b', r)]
         if rows:
-            gov.append((_act_of(p), os.path.basename(p), sorted(set(re.findall(r'\bstanding-[a-z]\b', ' '.join(rows)))) + ['act']))
+            gov.append((_act_of(p), os.path.basename(p), sorted(set(re.findall(r'\bstanding-[a-z][0-9]?\b', ' '.join(rows)))) + ['act']))
     R['governing'] = gov
     pv = _rd(os.path.join(D, 'b%d_arms_prerun.txt' % (n - 1)))
     R['prev_longest'] = max([int(x) for x in re.findall(r'THE LONGEST PHASE (\d+) s', pv)] or [0])
@@ -476,7 +476,15 @@ def reading(name, R):
         def parts_of(a):
             g_ = [x for x in gov if x[0] <= a]
             return (g_[-1][2], g_[-1][1]) if g_ else (None, None)
-        bad = [('b%d' % a, k) for (a, k), ps in runs.items() if parts_of(a)[0] is None or sorted(p for p, _s in ps) != sorted(parts_of(a)[0])
+
+        def met(run, gp):
+            # ### b692, (R302)(2) on the author's word: a governing part is met by itself or by its numbered halves (standing-b by
+            # ### standing-b1 and standing-b2, the split data/b684_rules.txt row (1) orders) and by no other numbering; never both.
+            fam = {}
+            for p in run:
+                fam.setdefault(re.sub(r'(?<=^standing-[a-z])[0-9]$', '', p), []).append(p)
+            return sorted(fam) == sorted(gp) and all(v == [k] or (len(v) >= 2 and len(set(v)) == len(v) and k not in v) for k, v in fam.items())
+        bad = [('b%d' % a, k) for (a, k), ps in runs.items() if parts_of(a)[0] is None or not met([p for p, _s in ps], parts_of(a)[0])
                or any(s >= 600 for _p, s in ps)]
         return bool(runs) and bool(gov) and not bad, len(runs), len(bad), (
             'run banks b678-b%d %d, each against its act`s governing parts (%s) ; without them or with a part at or above 600 s %s' % (
