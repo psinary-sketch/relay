@@ -191,7 +191,19 @@ def read_runner_row(r):
     return r['kernel'], r['label'], r['gate']
 
 
-READERS = ['read_score_row', 'read_head', 'read_branch_row', 'read_runner_row']
+TRIAGE_WORDS = ('CARRY', 'DISCHARGED-BY-READING', 'RETIRE')
+
+
+def read_triage_row(r):
+    """a row of data/b691_orders_triage.json: the order's name (W-ORD-...), its OPEN_TRAILS line (an int), the trigger as written (non-empty),
+    and a disposition (one of TRIAGE_WORDS) with its ground; returns (name, line, disposition, ground)."""
+    if not isinstance(r, dict) or not re.match(r'^W-ORD-[A-Z0-9-]+$', r.get('name') or '') or not isinstance(r.get('line'), int) \
+            or not (r.get('trigger') or '').strip() or r.get('disposition') not in TRIAGE_WORDS or not (r.get('ground') or '').strip():
+        raise ValueError('triage row of another shape: %r' % (str(r)[:120],))
+    return r['name'], r['line'], r['disposition'], r['ground']
+
+
+READERS = ['read_score_row', 'read_head', 'read_branch_row', 'read_runner_row', 'read_triage_row']
 
 
 # ================================================================================ STEP ZERO: ROWGEN DIFF AND CONSTELLATION MODE (b670's route, carried)
@@ -600,7 +612,88 @@ def prints(*a):
     print(L[-1])
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, dispatch=dispatch, runner=runner, prints=prints)
+# ================================================================================ COMPONENT 4: THE TRIAGE RAISED BY CLASS, (R302)(4)
+def triage_counts(*a):
+    """data/b691_orders_triage.json read row by row: the counts per disposition class, the RETIRE rows by name and reason, each class's rows by
+    name and OPEN_TRAILS line, beside the bank's own verdict (data/b691_orders_triage.txt :151). data/b692_triage_counts.txt."""
+    j = jl('b691_orders_triage.json')
+    rows = [read_triage_row(r) for r in (j.get('rows') or [])]
+    by = dict((w, [r for r in rows if r[2] == w]) for w in TRIAGE_WORDS)
+    verdict = rdn('b691_orders_triage.txt').split(NL)[150] if len(rdn('b691_orders_triage.txt').split(NL)) > 150 else ''
+    L = ['b692 -- COMPONENT 4, (R302)(4): THE STALE-ORDERS TRIAGE RAISED BY CLASS (%s)' % utc(), '',
+         '### the bank: relay data/b691_orders_triage.json, rows %d, each read through read_triage_row; its verdict at data/b691_orders_triage.txt :151:' % len(rows),
+         '###   ' + verdict.strip(), '',
+         '### THE COUNTS PER CLASS: ' + ' ; '.join('%s %d' % (w, len(by[w])) for w in TRIAGE_WORDS), '',
+         '### THE RETIRE ROWS, BY NAME AND REASON:'] + (['  %s (OPEN_TRAILS :%d) -- %s' % (n, ln, gr) for n, ln, _d, gr in by['RETIRE']] or ['  NONE'])
+    for w in ('CARRY', 'DISCHARGED-BY-READING'):
+        L += ['', '### %s (%d), by name and OPEN_TRAILS line:' % (w, len(by[w]))] + ['  %s :%d' % (n, ln) for n, ln, _d, _g in by[w]]
+    L += ['', '### ### **ORDERS %d ; CARRY %d ; DISCHARGED-BY-READING %d ; RETIRE %d ; THE BANK`S VERDICT EQUAL %s.**' % (
+        len(rows), len(by['CARRY']), len(by['DISCHARGED-BY-READING']), len(by['RETIRE']),
+        ('ORDERS %d ; CARRY %d ; DISCHARGED-BY-READING %d ; RETIRE %d' % (len(rows), len(by['CARRY']), len(by['DISCHARGED-BY-READING']), len(by['RETIRE']))) in verdict)]
+    put_txt('b692_triage_counts.txt', L)
+    print(NL.join(L[:12] + L[-1:]))
+
+
+CITE_AT = re.compile(r'(?:PLACE-papers |relay )?((?:FINDINGS|OPEN_TRAILS)\.md|data/[\w.+-]+\.(?:txt|json|md)) :(\d+)(?: \("([^"]+)"\))?')
+
+
+def _orders_plan():
+    """each triage row with its line in data/b691_orders_triage.txt and the author's check at the (R302)(4) prompt applied: a
+    DISCHARGED-BY-READING row whose reading cites a bank by path and line (its quoted words standing at that line now) is written as
+    discharged; one that does not is written as CARRY with the trigger its row gives. Returns [(row, triage line, written disposition, why)]."""
+    j = jl('b691_orders_triage.json')
+    tl = rdn('b691_orders_triage.txt').split(NL)
+    plan = []
+    for r in j.get('rows') or []:
+        n, ln, d, gr = read_triage_row(r)
+        at = [i + 1 for i, l in enumerate(tl) if l.startswith('  %s ' % n)]
+        why, w = '', d
+        if d == 'DISCHARGED-BY-READING':
+            m = CITE_AT.search(gr)
+            if not m:
+                tm = re.search(r'(?:relay )?(tools/[\w.+-]+\.py :\d+)', gr)
+                w, why = 'CARRY', ('its reading cites a tool by path and line (%s) and no bank' % tm.group(1)) if tm else \
+                    'its reading cites no bank by path and line'
+            else:
+                f, k, q = m.group(1), int(m.group(2)), m.group(3)
+                path = os.path.join(PP, f) if f.endswith('.md') and not f.startswith('data/') else os.path.join(D, f[len('data/'):])
+                line_ = (rd(path).split(NL) + [''] * k)[k - 1]
+                if q and q not in line_:
+                    w, why = 'CARRY', 'its reading`s words do not stand at %s :%d now' % (f, k)
+                else:
+                    why = 'its reading cited at %s :%d%s' % (f, k, ', its words standing there' if q else '')
+        plan.append((r, at[0] if at else None, w, why))
+    return plan
+
+
+def orders(*a):
+    """`orders [dry]`: (R302)(4) on the author's word -- one OPEN_TRAILS entry per triage row, each citing its row by line in relay
+    data/b691_orders_triage.txt; the demoted count printed before any entry lands; data/b692_orders_lines.json."""
+    plan = _orders_plan()
+    dem = [(r['name'], why) for r, _t, w, why in plan if r['disposition'] == 'DISCHARGED-BY-READING' and w == 'CARRY']
+    print('  ### THE AUTHOR`S CHECK BEFORE THE WRITES: DISCHARGED-BY-READING rows %d ; demoted to CARRY %d %s' % (
+        sum(1 for r, _t, _w, _y in plan if r['disposition'] == 'DISCHARGED-BY-READING'), len(dem), dem or ''))
+    if any(t is None for _r, t, _w, _y in plan):
+        sys.exit('### A TRIAGE ROW HAS NO LINE IN THE BANK -- NOTHING WRITTEN')
+    items = []
+    for r, t, w, why in plan:
+        head = '*Appended 2026-10-19 by b692 under `(R302)`(4) and the author’s word at its prompt -- `%s` %s (relay data/b691_orders_triage.txt :%d):*' % (
+            r['name'], 'CARRIED' if w == 'CARRY' else 'DISCHARGED BY READING', t)
+        trig = r['trigger'].strip()
+        if w == 'CARRY':
+            body = (' the order entered at OPEN_TRAILS :%d stands open, its trigger as written: “%s”; %s. Ground: %s%s. Status OPEN.' % (
+                r['line'], trig, ('it can still fire -- ' + r['why'].strip()) if r.get('can_fire') else ('its row reads it cannot fire as written -- '
+                                                                                                      + r['why'].strip()), r['ground'].strip(),
+                (' (a DISCHARGED-BY-READING row written as CARRY on the author’s check: %s)' % why) if r['disposition'] != 'CARRY' else ''))
+        else:
+            body = (' the order entered at OPEN_TRAILS :%d is discharged by the reading %s (%s); its trigger as written: “%s”. Status DISCHARGED.' % (
+                r['line'], r['ground'].strip(), why, trig))
+        items.append(('OPEN_TRAILS.md', head, NL + head + body + NL))
+    land(items, 'b692_orders_lines.json', 'order', entry=None, dry='dry' in a)
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, dispatch=dispatch, runner=runner, prints=prints, triage_counts=triage_counts,
+              orders=orders)
 
 if __name__ == '__main__':
     r = sys.argv[1] if len(sys.argv) > 1 else ''
