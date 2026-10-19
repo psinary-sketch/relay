@@ -387,7 +387,9 @@ def reading(name, R):
     if name == 'G-RULE-HEAD-LINE-QUOTED':
         h = R['prev_head'].strip()
         m = re.search(r'^\(1\)(.*?)(?=^\(2\))', R['ferry'], re.M | re.S)
-        ok = bool(h) and bool(m) and h in m.group(1)
+        # ### b689, (R299)(2) as the author's word amends it: every whitespace character and line break removed from both strings, no space
+        # ### retained, so a quote pasted over lines -- broken after a hyphen or not -- reads (data/b689_tool_repairs.txt)
+        ok = bool(h) and bool(m) and ''.join(h.split()) in ''.join(m.group(1).split())
         return ok, 1, 0 if ok else 1, 'the previous closing`s :1 %r in this ruling`s (1): %s' % (h[:60], ok)
     if name == 'G-RULE-CLOSING-DRY':
         gb = R['gates']

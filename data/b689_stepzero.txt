@@ -42,8 +42,9 @@ b689 -- STEP ZERO, COMPONENT 0, UNDER (R299) (2026-10-19)
                             [test_chain_page.py ['(9)']]" -- the standing (9) alone, beside test_chain_page_b638.py's standing (4)-(7). Both runs
                             banked; the first is not overwritten
   the commands              data/b689_commands.txt at Component 5: no sed command in this act; no local lean or lake; branch deletes one branch
-                            each, no glob. One reading command carried a redirect to /dev/null (a `git show ... > /dev/null` before a numbered
-                            read of Wide/Converse.lean): no file written; entered in the defects bank as the seat's
+                            each, no glob. Two reading commands carried a redirect to /dev/null -- `ls /d/relay 2>/dev/null | head -30` at
+                            11:41:04Z and `git show ... > /dev/null` at 11:55:39Z, before a numbered read of Wide/Converse.lean: no file written;
+                            entered in the defects bank as the seat's (corrected from "one" after the commit at c66fa378, by a transcript read)
   git status                relay and PLACE-papers tracked changes NONE after the runs (data/b689_tests_stepzero.txt); the untracked files
                             untracked (relay 134 untracked entries, this act's banks and tools among them as written)
   no build                  no lean, lake or build on this host

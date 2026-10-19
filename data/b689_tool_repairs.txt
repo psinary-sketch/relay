@@ -1,0 +1,51 @@
+b689 -- THE TOOL REPAIRS, (R299)(2) AND THE FERRY'S COMPONENT 5 (2026-10-19)
+
+### rows are repairs with the defect they answer: the tool by path and line | the defect answered | the edit as a diff | its reading at HEAD
+### before and after. The one edit to a shared tool this act is row (1) ((R299)'s N5); row (2) is a carried argument in this act's own tool.
+
+  (1) tools/rule_arms.py :387-:393, the arm G-RULE-HEAD-LINE-QUOTED (a shared tool; blob before 8207cf0d, after 8dda41ab)
+      THE DEFECT ANSWERED: b688's suite failed this arm pre-push and post-push (data/b688_checks.txt, data/b688_checks_postpush.txt, "LIVE
+      FAILING : 1 ['G-RULE-HEAD-LINE-QUOTED']"): the arm matched the previous closing's :1 as one unbroken substring of the ruling's (1), and
+      b688's ferry carried the quote over line breaks. The second cause, found by this repair's run: b688's ferry broke the quote directly after
+      a hyphen ("PLACE-" / "papers", data/b688_ferry.txt), so a break collapsed to one space reads "PLACE- papers" -- THE NAVIGATOR'S DEFECT,
+      entered in data/b689_defects.txt.
+      THE RULED FORM, (R299)(2): "the arm to compare the quoted head line and the closing’s :1 after collapsing each run of whitespace and line
+      breaks to one space". Applied first; its reading at HEAD (tools/b689_record.py armread, before the prompt of 12:38Z):
+        b688 : the arm FAILS (count 1, failing 1) -- 'b687 closed: relay 24b23df1, PLACE-papers 51d3aac; suite 114' in this ruling`s (1): False
+        b689 : the arm PASSES (count 1, failing 0) -- 'b688 closed: relay 4bee98dc, PLACE-papers c3af808; suite 116' in this ruling`s (1): True
+      The ruled form could not meet the ruling's own expectation ("to show the repair reads b688's quote OK"); raised as one prompt
+      (data/b689_author_answers.txt), the answer checked under (R278)(4) before it was acted on (data/b689_citation_check.txt, "ANSWER CITES
+      CHECKED 2 ; OK 2 ; MISSES 0").
+      THE AUTHOR'S WORD, STANDING IN PLACE OF THE RULED WORDING (verbatim, data/b689_author_answers.txt): "Option 4, amending (R299)(2): the arm
+      compares the quoted head line and the closing’s :1 after removing every whitespace character and line break from both strings, no space
+      retained. The ruled wording “collapsed to one space” is struck and this stands as the author’s word, banked beside it in
+      data/b689_tool_repairs.txt with the reason: the navigator’s b688 ferry broke the quote after a hyphen, so the ruled form could not meet the
+      ruling’s own expectation. Run at HEAD against b688’s ferry bank and this act’s, both printed; the navigator’s defect entered in
+      data/b689_defects.txt."
+      THE EDIT, AS A DIFF (git diff tools/rule_arms.py against relay HEAD c268710e's blob 8207cf0d):
+        @@ -387,7 +387,9 @@ def reading(name, R):
+             if name == 'G-RULE-HEAD-LINE-QUOTED':
+                 h = R['prev_head'].strip()
+                 m = re.search(r'^\(1\)(.*?)(?=^\(2\))', R['ferry'], re.M | re.S)
+        -        ok = bool(h) and bool(m) and h in m.group(1)
+        +        # ### b689, (R299)(2) as the author's word amends it: every whitespace character and line break removed from both strings, no space
+        +        # ### retained, so a quote pasted over lines -- broken after a hyphen or not -- reads (data/b689_tool_repairs.txt)
+        +        ok = bool(h) and bool(m) and ''.join(h.split()) in ''.join(m.group(1).split())
+                 return ok, 1, 0 if ok else 1, 'the previous closing`s :1 %r in this ruling`s (1): %s' % (h[:60], ok)
+      ITS READING AT HEAD AFTER THE AUTHOR'S FORM (tools/b689_record.py armread, rule_arms.reading imported, not copied):
+        b688 : the arm PASSES (count 1, failing 0) -- 'b687 closed: relay 24b23df1, PLACE-papers 51d3aac; suite 114' in this ruling`s (1): True
+        b689 : the arm PASSES (count 1, failing 0) -- 'b688 closed: relay 4bee98dc, PLACE-papers c3af808; suite 116' in this ruling`s (1): True
+        the planted case (rule_arms.py :468-:469, the head line with " planted" appended) FIRES on both.
+      THE COUNTS: b688 before 0 of 1, under the ruled form 0 of 1, under the author's form 1 of 1; b689 1 of 1 under all three.
+
+  (2) tools/b689_tests.py :33, ZL, the ζ list test_chain_page.py and test_g_chain_page.py are given (this act's tool, carried from
+      tools/b688_tests.py :33)
+      THE DEFECT ANSWERED: the carried argument named data/b680_nodes_zeta.txt; the faces page names data/b688_nodes_zeta.txt at its :3 since
+      b688 regenerated it at C2 (PLACE-papers 4035e17), after b688's step-zero tests had run, so test_chain_page.py's (1) and (14) compared the
+      page with what a list it no longer comes from generates (data/b689_tests_stepzero.txt: failing (1), (9), (14)).
+      THE EDIT: - ZL, ZP = os.path.join(D, 'b680_nodes_zeta.txt'), ...  + ZL, ZP = os.path.join(D, 'b688_nodes_zeta.txt'), ... (with its comment).
+      ITS READING: test_chain_page.py re-run alone against the page's own list, data/b689_tests_b688list.txt: failing (9) alone, the standing
+      case since b638.
+
+### ### **REPAIRS 2 ; TO A SHARED TOOL 1 (tools/rule_arms.py, G-RULE-HEAD-LINE-QUOTED, in the author's form) ; THE ARM AT HEAD b688 OK, b689 OK ;
+### THE PLANTED CASE FIRES ON BOTH.**
