@@ -1,0 +1,202 @@
+{
+ "at": "2026-10-19T15:31:23Z",
+ "rows": [
+  {
+   "act": "b674",
+   "row": 1,
+   "head": "AN EMPTY REMOTE READ IS RE-READ ALONE",
+   "bank": "data/b674_rules.txt :5",
+   "arm": "G-RULE-REMOTE-REREAD",
+   "how": "by code (tools/rule_arms.py, the arm`s reads-line naming b674 row 1)",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b674",
+   "row": 2,
+   "head": "THE TIE-BREAK BEYOND THE COUNT",
+   "bank": "data/b674_rules.txt :8",
+   "arm": "G-RULE-TIE-BREAK",
+   "how": "by code (tools/rule_arms.py, the arm`s reads-line naming b674 row 2)",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b674",
+   "row": 3,
+   "head": "THE RULING QUOTES THE CLOSING'S HEAD LINE",
+   "bank": "data/b674_rules.txt :12",
+   "arm": "G-RULE-HEAD-LINE-QUOTED",
+   "how": "by code (tools/rule_arms.py, the arm`s reads-line naming b674 row 3)",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b675",
+   "row": 1,
+   "head": "THE CLOSING TOOL'S DRY RUN, A GATE STEP",
+   "bank": "data/b675_rules.txt :5",
+   "arm": "G-RULE-CLOSING-DRY",
+   "how": "by code (tools/rule_arms.py, the arm`s reads-line naming b675 row 1)",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b675",
+   "row": 2,
+   "head": "A PRE-RUN'S LONG PHASE SPLITS THE NEXT ONE",
+   "bank": "data/b675_rules.txt :9",
+   "arm": "G-RULE-LONG-PHASE-SPLIT",
+   "how": "by code (tools/rule_arms.py, the arm`s reads-line naming b675 row 2)",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b677",
+   "row": 1,
+   "head": "THE SUITE IN TWO FOREGROUND PARTS",
+   "bank": "data/b677_rules.txt :5",
+   "arm": "G-RULE-SUITE-PARTS",
+   "how": "by code (tools/rule_arms.py, the arm`s reads-line naming b677 row 1)",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b678",
+   "row": 1,
+   "head": "THE STANDING ARMS IN TWO FOREGROUND PARTS, THE ACT`S IN ONE",
+   "bank": "data/b678_rules.txt :5",
+   "arm": "G-RULE-SUITE-PARTS",
+   "how": "by code (tools/rule_arms.py, the arm`s reads-line naming b678 row 1)",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b680",
+   "row": 1,
+   "head": "A BINARY BANK IS ROOTED THROUGH A TEXT HASHES BANK",
+   "bank": "data/b680_rules.txt :5",
+   "arm": "NONE",
+   "how": "by hand: a binary bank beside its text hashes bank -- the root`s items show it; no arm reads it",
+   "sort": "TRACEABLE"
+  },
+  {
+   "act": "b681",
+   "row": 1,
+   "head": "A ROOT WHOSE NAMED BANKS STOOD RE-BANKED AFTER ITS RECORDED COMMIT IS REPAIRED BY A CORRIGENDUM ROW",
+   "bank": "data/b681_rules.txt :5",
+   "arm": "G-ACTROOT-VERIFY",
+   "how": "by hand: standing: the chain read through the corrigendum row",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b681",
+   "row": 2,
+   "head": "A PROMPT AFTER THE SEAL IS THE ROOT'S ALONE, AND ITS PRINTS GO WHERE THE POST-ROOT PRINTS GO",
+   "bank": "data/b681_rules.txt :12",
+   "arm": "G-ANSWERS-BANKED",
+   "how": "by hand: standing: a call after the lock named on the face",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b681",
+   "row": 3,
+   "head": "EVERY BANK A ROOT NAMES IS COMMITTED AND PUSHED AT THE COMMIT THE ROOT RECORDS",
+   "bank": "data/b681_rules.txt :16",
+   "arm": "G-ROOT-BANKS-COMMITTED",
+   "how": "by hand: standing from (R291)(4)",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b682",
+   "row": 1,
+   "head": "THE AUTHOR'S WORD ON THE RULES WITHOUT ARMS, verbatim: \"arms for the traceable ones, the seat sorts them\"",
+   "bank": "data/b682_rules.txt :5",
+   "arm": "NONE",
+   "how": "by hand: the author`s word ordering arms for the traceable rules; done by b683`s twenty arms",
+   "sort": "PROSE"
+  },
+  {
+   "act": "b684",
+   "row": 1,
+   "head": "A SUITE PART OVER 450 s SPLITS THE NEXT RUN",
+   "bank": "data/b684_rules.txt :5",
+   "arm": "G-RULE-SUITE-PARTS",
+   "how": "by code (tools/rule_arms.py, the arm`s reads-line naming b684 row 1)",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b685",
+   "row": 1,
+   "head": "ONE CALL PER SUITE PART, EACH ITS OWN MESSAGE",
+   "bank": "data/b685_rules.txt :5",
+   "arm": "NONE",
+   "how": "by hand: one call per suite part, each its own message -- the command capture shows it; no arm reads it",
+   "sort": "TRACEABLE"
+  },
+  {
+   "act": "b685",
+   "row": 2,
+   "head": "SED IN NO COMMAND, A READING ONE INCLUDED",
+   "bank": "data/b685_rules.txt :9",
+   "arm": "G-EDIT-ROUTE",
+   "how": "by hand: standing: sed in any form read beside edit_route.py`s arms (b687`s repair)",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b686",
+   "row": 1,
+   "head": "A SCORER READS BANKS AND NOT THE ENTRY; THE ENTRY READS THE SCORER'S BANK",
+   "bank": "data/b686_rules.txt :5",
+   "arm": "G-SCORER-READS-BANKS, G-ENTRY-SCORES-EQUAL",
+   "how": "by hand: act-local at every act since b686",
+   "sort": "ARMED"
+  },
+  {
+   "act": "b687",
+   "row": 1,
+   "head": "THE LANDING'S THIRD CASE STRUCK; SHARPNESS AT A SAMPLED HEIGHT NO LONGER BY ITSELF A BAR",
+   "bank": "data/b687_rules.txt :5",
+   "arm": "NONE",
+   "how": "by hand: the author`s amendment of a landing criterion; it orders a reading, not an act a bank shows",
+   "sort": "PROSE"
+  },
+  {
+   "act": "b688",
+   "row": 1,
+   "head": "A BAND COUNTED BY THE ARGUMENT PRINCIPLE IS PRICED FROM b667'S RUN RECORD BEFORE IT IS RUN",
+   "bank": "data/b688_rules.txt :5",
+   "arm": "NONE",
+   "how": "by hand: a band priced from b667`s run record before it runs -- a plan bank`s row shows it; no arm reads it",
+   "sort": "TRACEABLE"
+  },
+  {
+   "act": "b690",
+   "row": 1,
+   "head": "AFTER THE SEAL, THE ENTRY, THE DRY ENTRY AND THE TRAIL READ THROUGH THE READ TOOL OR THE RECORD TOOL`S PRINT",
+   "bank": "data/b690_rules.txt (to be banked at Component 3)",
+   "arm": "NONE",
+   "how": "by hand: the ruling (R300)(5) -- its arm sorted at b691 by data/b683_arms_sort.txt`s rule, not added this act",
+   "sort": "NOT SORTED (b691)"
+  },
+  {
+   "act": "b690",
+   "row": 2,
+   "head": "AT A RE-CUT, EACH LINE THE CUT REMOVES OR CHANGES SEARCHED ACROSS THE KERNEL`S SOURCE TREE",
+   "bank": "data/b690_rules.txt (to be banked at Component 3)",
+   "arm": "NONE",
+   "how": "by hand: the ruling (R300)(5) -- its arm sorted at b691 by data/b683_arms_sort.txt`s rule, not added this act",
+   "sort": "NOT SORTED (b691)"
+  },
+  {
+   "act": "b690",
+   "row": 3,
+   "head": "THE NAVIGATOR`S: A FERRY ON LONG LINES, NO QUOTED LINE BROKEN BY A HARD WRAP",
+   "bank": "data/b690_rules.txt (to be banked at Component 3)",
+   "arm": "NONE",
+   "how": "by hand: the ruling (R300)(5) -- the navigator`s rule on the ferry; the seat`s ferry check reads it, no arm",
+   "sort": "PROSE (the navigator`s, binding the ferry)"
+  }
+ ],
+ "counts": {
+  "ARMED": 13,
+  "TRACEABLE": 3,
+  "PROSE": 2,
+  "NOT SORTED (b691)": 2,
+  "PROSE (the navigator`s, binding the ferry)": 1
+ },
+ "armed": 13
+}

@@ -1,0 +1,17 @@
+b690 -- COMPONENT 2 (vii), (R300)(3): THE RESIDUES CENSUS, READING 3 (2026-10-19T15:31:03Z)
+
+### READING 3 (b690, under (R300)(3)). b680 took reading 2 (tools/b680_readings.py, its banks data/b680_<name>.txt); b670 reading 1. Each figure below is the tool`s where a tool reads it, the seat`s hand where none does, and says which.
+### by hand: the residues the cut banks name, each with its state (APPLIED with its tag, or CARRIED with its reason) and its trigger; by
+### code: each row`s needle read on its bank line. b680`s census (data/b680_residues.txt, five sentences in three documents, all then
+### carried) is the row set R1-R3b; R4 entered at b686; LM-i and LM-ii at b688. Rows are residues:
+  R1    SIDE-window              APPLIED at b684 (v0.5.2) | data/b684_cut.txt :58 (needle True) | SIDEWindow/Sawtooth.lean :17 marker | trigger: none -- applied
+  R2    SIDE-trivium             APPLIED at b684 (v0.1.2) | data/b684_cut.txt :63 (needle True) | Trivium/Bijection.lean :8 and :23 | trigger: none -- applied
+  R3a   SIDE-silence-principle   APPLIED at b684 (v0.2.2) | data/b684_cut.txt :68 (needle True) | SIDESilencePrinciple/Basic.lean :412, Theorem 8.1`s title | trigger: none -- applied
+  R3b   SIDE-silence-principle   CARRIED (its row`s reason does not reach it) | data/b686_cut.txt :49 (needle True) | SIDESilencePrinciple/Basic.lean :7-:12, the introduction`s statement of the principle | trigger: the next re-cut of SIDE-silence-principle, or a reading census that names an ACTION for it
+  R4    SIDE-spinor              APPLIED at b688 (v0.1.2) | data/b688_residue_actions.txt :49 (needle True) | SIDESpinor/SpinorLeg.lean :21 "(salt-checked)" | trigger: none -- applied
+  LM-i  SIDE-li-map              CARRIED (the ACTIONs applied verbatim, not extended) | data/b688_cut.txt :60 (needle True) | PrimeLedgerPositivity.lean :29-:31, the survey note`s quotation of a removed line of LiLinearMap.lean | trigger: the next re-cut of SIDE-li-map; from b691 data/b690_rules.txt row (2) would have found it at the cut
+  LM-ii SIDE-li-map              CARRIED (the ACTIONs applied verbatim, not extended) | data/b688_cut.txt :64 (needle True) | PrimeLedgerPositivity.lean :51-:54, NonnegStream`s docstring naming the real-valued Λ as an instance of an integer stream | trigger: the next re-cut of SIDE-li-map
+
+### any residue b689 left: b689 cut nothing: its Lean was a new file beside Wide`s (data/b689_landing.txt), no re-cut, so no residue
+
+### ### **RESIDUES 7 ; APPLIED 4 ; CARRIED 3 (R3b, LM-i, LM-ii) ; EVERY NEEDLE READ True ; b680: 5 SENTENCES CARRIED (data/b680_residues.txt).**

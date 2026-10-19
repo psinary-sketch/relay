@@ -1,0 +1,81 @@
+{
+ "at": "2026-10-19T15:31:03Z",
+ "rows": [
+  {
+   "id": "R1",
+   "kernel": "SIDE-window",
+   "what": "SIDEWindow/Sawtooth.lean :17 marker",
+   "state": "APPLIED at b684 (v0.5.2)",
+   "bank": "data/b684_cut.txt",
+   "line": 58,
+   "read": true,
+   "trigger": "none -- applied"
+  },
+  {
+   "id": "R2",
+   "kernel": "SIDE-trivium",
+   "what": "Trivium/Bijection.lean :8 and :23",
+   "state": "APPLIED at b684 (v0.1.2)",
+   "bank": "data/b684_cut.txt",
+   "line": 63,
+   "read": true,
+   "trigger": "none -- applied"
+  },
+  {
+   "id": "R3a",
+   "kernel": "SIDE-silence-principle",
+   "what": "SIDESilencePrinciple/Basic.lean :412, Theorem 8.1`s title",
+   "state": "APPLIED at b684 (v0.2.2)",
+   "bank": "data/b684_cut.txt",
+   "line": 68,
+   "read": true,
+   "trigger": "none -- applied"
+  },
+  {
+   "id": "R3b",
+   "kernel": "SIDE-silence-principle",
+   "what": "SIDESilencePrinciple/Basic.lean :7-:12, the introduction`s statement of the principle",
+   "state": "CARRIED (its row`s reason does not reach it)",
+   "bank": "data/b686_cut.txt",
+   "line": 49,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-silence-principle, or a reading census that names an ACTION for it"
+  },
+  {
+   "id": "R4",
+   "kernel": "SIDE-spinor",
+   "what": "SIDESpinor/SpinorLeg.lean :21 \"(salt-checked)\"",
+   "state": "APPLIED at b688 (v0.1.2)",
+   "bank": "data/b688_residue_actions.txt",
+   "line": 49,
+   "read": true,
+   "trigger": "none -- applied"
+  },
+  {
+   "id": "LM-i",
+   "kernel": "SIDE-li-map",
+   "what": "PrimeLedgerPositivity.lean :29-:31, the survey note`s quotation of a removed line of LiLinearMap.lean",
+   "state": "CARRIED (the ACTIONs applied verbatim, not extended)",
+   "bank": "data/b688_cut.txt",
+   "line": 60,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-li-map; from b691 data/b690_rules.txt row (2) would have found it at the cut"
+  },
+  {
+   "id": "LM-ii",
+   "kernel": "SIDE-li-map",
+   "what": "PrimeLedgerPositivity.lean :51-:54, NonnegStream`s docstring naming the real-valued Λ as an instance of an integer stream",
+   "state": "CARRIED (the ACTIONs applied verbatim, not extended)",
+   "bank": "data/b688_cut.txt",
+   "line": 64,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-li-map"
+  }
+ ],
+ "carried": [
+  "R3b",
+  "LM-i",
+  "LM-ii"
+ ],
+ "b689": "b689 cut nothing: its Lean was a new file beside Wide`s (data/b689_landing.txt), no re-cut, so no residue"
+}
