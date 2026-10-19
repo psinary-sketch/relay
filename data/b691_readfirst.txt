@@ -1,0 +1,41 @@
+b691 -- THE READ-FIRST BANK, (R301)(10) AND THE FERRY'S READ-FIRST LIST, READ AT STEP ZERO BEFORE ANY OTHER BANK OF THIS ACT (2026-10-19)
+
+### rows are the ferry's read-first items in its order: the item | path and line | the unit of the bank's rows | what was read there.
+### Each cite is checked at HEAD by tools/b691_citation.py (data/b691_citation_check.txt).
+
+  b690's head line             relay data/b690_closing.txt :1 | rows are the closing's report lines | "b690 closed: relay 55e34098, PLACE-papers 64936ae;
+                               suite 114 of 114; root 422989da790bc2ed…; 2 prompts answered; 7 defects"
+  b690's defects               relay data/b690_defects.txt :5-:45 | rows are defects as lettered, (a)-(g); (e) and (f) the navigator's, (g) the methods
+                               bank indented, caught by the pre-run
+  reading 3                    relay data/b690_reading3.txt | rows are readings (1)-(20) and (15b) | the Correspondence row (3) at :14, the orders row
+                               (9) at :28, the rules row (13) at :41, the P3 row (16) at :56 (EpsteinQ0.lean :106 and :110-:111 still stated)
+  b690's rules                 relay data/b690_rules.txt :6, :9, :13 | rows are rules, three | (1) post-seal reads, from b691; (2) the quotation search
+                               at a re-cut, from b691; (3) the navigator's ferry form, from b690
+  the circuit spec             relay data/b690_circuit_spec.txt | rows are readings, nine (INPUT ... OUTPUT, READFIRST-CLOSURE the seventh)
+  the seconds bank             relay data/b690_arm_seconds.txt :93-:94 | rows are standing arms with seconds | standing-b carries two arms,
+                               G-SHARED-ADDITIVE and G-ACTROOT-VERIFY, each 0.000 s; the part's seconds are its phases (relay
+                               data/b690_arms_prerun_standing-b.txt :5: the act-root chain 387 s, the shared additive files 37 s) -- the midpoint
+                               falls between the two arms, so standing-b splits into standing-b1 (the shared additive files) and standing-b2
+                               (the act-root chain)
+  the licensed table           relay data/b670_licensed_table.txt :100 (SIDE-archimedean, 2 -> 2) and :113 (SIDE-rcurve, 2 -> 2) | rows are agenda
+                               documents with their rows outside LICENSED or CITED
+  the per-document tables      relay data/b647_table_SIDE-archimedean.txt :29 ("ROWS 6 ; MATCHES 4 ; UNDERSTATES 0 ; OVERREACHES 2") and
+                               data/b647_table_SIDE-rcurve.txt :30 ("ROWS 7 ; MATCHES 5 ; UNDERSTATES 0 ; OVERREACHES 2") | rows are docstring rows
+                               with their verdicts
+  the tie-break rule           relay data/b674_rules.txt :8-:11 | rows are rules | row (2), THE TIE-BREAK BEYOND THE COUNT
+  the sort rule                relay data/b683_arms_sort.txt :3-:8 | rows are rules with their SORT and STATE | TRACEABLE / PROSE, LIVE /
+                               DECLARATION-ONLY / SUPERSEDED, in its own words
+  the rule arms                relay tools/rule_arms.py | a tool: ARMS (:430 on), each (name, the rule's bank row, predicate, plant); the methods
+                               bank read at :127-:135
+  the generator                relay tools/correspondence_gen.py | a tool | the kernel cell's clauses parsed at :153-:196, rewritten to the carried
+                               kernel's tag at :199-:210 and :325-:337 (no branch for a "carried at" clause); it counts no "behind" -- the claim 0 is
+                               b672's re-read of its output, rows behind AT THE LEADING CLAUSE (relay tools/b672_record.py :546, :560, :600)
+  the held cells               relay data/b688_correspondence_dry.txt :12 (the :298 cell, the generator's :302, NEW SIDE-li-map = 9e02bc0 "carried at
+                               lv-conservation v0.7.0") and data/b688_correspondence_dry_2.txt ("WRITTEN 0 ; HELD 5") | rows are cells
+  the order                    PLACE-papers OPEN_TRAILS.md :14922 | W-ORD-CORRESPONDENCE-CARRIED-AT, its trigger "at the latest the next re-cut act"
+  the stale orders             relay data/b690_r3_orders.json (unsteady 35, unsteady_names) and data/b690_r3_orders.txt | rows are orders with their
+                               entry line, act, age and status
+  b690's closing capture       relay data/b690_closing_push_out.txt | the push tool's capture lines | "55e34098..9fc2c81b", read back at 9fc2c81b;
+                               untracked, committed alone at step zero
+
+### ### **ITEMS 16 ; READ AT HEAD 16 ; THE CITATION CHECK OVER THEM CLEAN (data/b691_citation_check.txt).**

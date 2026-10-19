@@ -1,0 +1,34 @@
+b691 -- STEP ZERO, COMPONENT 0, UNDER (R301) (2026-10-19)
+
+### rows are the step-zero items in the ferry's order, each with its bank and its reading.
+
+  the session               the act continues the session of b689 and b690 (2c300355); tools/b691_worklist.py anchors at (R301)'s line, so the
+                            capture, the answers and the citation helpers read from it; the edit route's previous-act window is b690's capture
+                            from its post-push combine to that line, in this same session
+  the paste                 received in full before anything ran: BEGIN, the ruling's BEGIN and END, the ferry's BEGIN and END, part 1 of 1
+  the ferry                 data/b691_ferry.txt, banked by the Write tool from the paste, equal to the transcript's text (tools/b691_citation.py
+                            ferry: "18516 characters ; ... equal True ; ferry_scan exit 0"; data/b691_ferry_scan.txt)
+  the citation check        data/b691_citation_check.txt: "CITES CHECKED 85 ; OK 85 ; MISSES 0". Its first run printed two misses, both the check's
+                            own rows: the reading-3 verdict needle written short of the bank's words ("345 ROWS OUTSIDE LICENSED OR CITED (b680
+                            361)") and b690's rule (2) read at :8 where it stands at :9; the rows repaired and the check re-run; no miss of the
+                            ruling or the ferry; nothing raised
+  the readfirst bank        data/b691_readfirst.txt, every item of the ferry's list by path and line with its row unit (16 items); its b690
+                            defects range written :5-:62 before the bank's length was read, corrected to :5-:45 before any commit
+  rowgen and constellation  data/b691_rowgen_stepzero.txt: "CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19."
+  the process listing       tail, lean, lake, python and claude named, bash beside them (Win32_Process by name, 2026-10-19T18:03:31Z, before any
+                            bank write): claude 1 (pid 41404, parent 40456, this seat), tail 0, lean 0, lake 0, python 0, bash 0; free memory
+                            5260 MB. One seat. No task of this session stopped; no orphan, nothing stopped by PID
+  the closing capture       data/b690_closing_push_out.txt committed alone at relay 73b0185b
+  the branches              data/b691_branches.txt: 5 named (5 local), every tip read and merged before any delete; deleted by name in the house
+                            form, one branch per command, each command its own message, in sequence: relay push-b690-root (d2f72455), push-b690
+                            (55e34098), push-b690-closing (9fc2c81b); PLACE-papers push-b690-root (3d105a0), push-b690 (64936ae). No unnamed
+                            branch of b690
+  the tests                 data/b691_tests_stepzero.txt (tools/b691_tests.py's report): "TEST FILES 55 ; RUN 54 ; WITHHELD 1 ; NOT CLEAN 2"; the
+                            withheld test test_elab_reader_b634.py (runs lean); the standing failures alone -- test_chain_page.py (9) against the
+                            list the page names (b690_nodes_zeta.txt) and test_chain_page_b638.py (4)-(7). Five foreground parts, one call per
+                            part, the free memory printed before each against the 2,560 MB hold: part 1 test_asof.py alone (5502 MB, 440 s), part
+                            2 test_chain_page.py alone (5372 MB, 449 s), part 3 (5579 MB), part 4 (5476 MB), part 5 (5475 MB); no part moved to
+                            the background
+  git status                relay and PLACE-papers tracked changes NONE after the runs (data/b691_tests_stepzero.txt); the untracked files
+                            untracked
+  no build                  no lean, lake, build or runner dispatch on this host or from it at step zero
