@@ -1,0 +1,43 @@
+b689 -- COMPONENT 4, (R299)(5): Q0 RE-READ AGAINST THE STRIP-FREE HYPOTHESIS SET, AFTER COMPONENT 3 CLOSED AT v0.34 (2026-10-19)
+
+### rows are hypotheses with their status under each form: the hypothesis | under v0.33's form (WideConfig with HExcl; relay
+### data/b679_q0_membership.txt, its rows) | under the strip-free form (WideConfig, HCount, ρ ≠ 0 for every point; SIDE-explicit-formula v0.34
+### 8fbc27b, Wide.li_nonneg_cfg_imp_online_ne_zero, relay data/b689_grade.txt) | what decides it, by bank and row. A reading of banks, lines
+### and balls, not a Lean instance: the kernel has no Lean term for Λ_Q's zero set (Schema/EpsteinQ0.lean :112-:116), and none is written.
+### Q0 = x² + xy + 6y² (data/b667_epstein_plan.txt :8); its configuration the zeros of Λ_Q(s) = (2π/√23)^{-s} Γ(s) Z_Q(s) (:10).
+
+  the open strip (-1/2, 3/2)       v0.33: HOLDS            strip-free: HOLDS (the same field)
+                                   (3c)'s ball [1.54841378141857 +/- 1.08e-15] below 2 (data/b667_epstein_counts.txt :34), so |Z_Q(s) - 2| < 2 and no zero
+                                   at Re s ≥ 3/2; Λ_Q(s) = Λ_Q(1 - s) none at Re s ≤ -1/2; the 163 certified balls inside (data/b679_q0_membership.txt :6-:10)
+  reflect_mem, mult_reflect        v0.33: HOLDS            strip-free: HOLDS (the same fields)
+                                   Λ_Q(1 - conj s) = conj Λ_Q(s) (data/b667_epstein_plan.txt :12), at every height
+  finite_window                    v0.33: HOLDS below 150 by count, above 150 under T-COUNT     strip-free: the same
+                                   N(R) = 180 (data/b667_epstein_counts.txt :52); above 150 the unit-window count of P3, now DERIVED, not compiled
+  one_le_mult                      v0.33: HOLDS            strip-free: HOLDS (the same field)
+                                   every certified ball's count 1 (163 of 163); a multiplicity, by definition, above 150
+  HExcl (no real point in          v0.33: HOLDS -- b679's check (i)-(iv)        strip-free: NOT IN THE SET (its open half dropped; plan == 1)
+    (-1/2, 0])                     (i) Z_Q > 0 for real σ > 1; (ii) Γ < 0 on (-1, 0), so Z_Q < 0 on (-1/2, 0); (iii) Z_Q(0) = -1.0000000000000000000;
+                                   (iv) 35 balls on [-1/2, 0], every one negative and excluding 0 (data/b679_q0_membership.txt :16-:65, the verdict line :71)
+  ρ ≠ 0 for every point            v0.33: implied by HExcl (its half at 0, ne_zero_of_excl)    strip-free: HOLDS, ON LESS
+    (the strip-free set's h3)      0 is no zero of Λ_Q: at s = 0 Γ(s) has its pole and Z_Q(0) = -1 ≠ 0 (b679's (iii) alone), so Λ_Q has a pole at
+                                   0, not a zero; the 35 balls of (iv) and the sign route (i)-(ii) are no longer needed for this hypothesis. Beside
+                                   it, (iv)'s ball at [-0.001953125, 0] excludes 0 (data/b679_q0_membership.txt :61, its last ball row)
+  the real segment (-1/2, 0)       v0.33: required free of points (HExcl's open half)           strip-free: NOT REQUIRED
+                                   the form admits a real point there (C3, Wide.c3_real_segment, DERIVES at v0.34); at Q0 none stands (b679's (ii),
+                                   (iv)), and at Q0's bench R the split's w = 1 point x = 1/(1 - R) ≈ -585.98 lies outside the strip
+                                   (data/b689_constants.txt) -- the strip-free form asks less of Q0 and Q0 still gives the more
+  HCount Z 10 (P3, T-COUNT)        v0.33: ASSUMED at b679 (data/b679_q0_membership.txt :66, its HCount row); DERIVED since b687, not compiled
+                                   strip-free: the same premise (hc : HCount Z A₀, the named premise the grade reads), DERIVED, not compiled
+                                   data/b687_p3_status.txt :8 "DERIVED — constants certified in balls, analytic steps sourced by line, intermediate
+                                   inequalities checked against computed values at sample heights, the ζ instance inside the located bounds at
+                                   matched range, not compiled"; its Lean form W-ORD-EPSTEIN-COUNT-LEAN (OPEN_TRAILS :14892), trigger "a research act
+                                   after b690"
+  the constants and n*'            v0.33: n*' 63676 (data/b679_onset.txt)                       strip-free: n*' 63676, 8 of 8 rows equal
+                                   the split's branch at Q0 has no w = 1 point (θ certified apart from 0), so c = 1/4 as at v0.33 (data/b689_constants.txt)
+  a Lean instance                  v0.33: NOT WRITTEN      strip-free: NOT WRITTEN
+                                   the kernel's Q0 premises are over an abstract configuration (Schema/EpsteinQ0.lean :112-:116)
+
+### ### **ROWS READ 10 ; UNDER v0.33 HOLDING 6 (STRIP, REFLECT, FINITE_WINDOW, ONE_LE_MULT, HExcl, ρ ≠ 0 BY HExcl), THE REAL SEGMENT REQUIRED AND
+### FREE, HCount DERIVED, n*' 63676, NOT WRITTEN 1 ; UNDER THE STRIP-FREE FORM HOLDING 5 (STRIP, REFLECT, FINITE_WINDOW, ONE_LE_MULT, ρ ≠ 0 ON
+### b679's (iii) ALONE), NOT IN THE SET 1 (HExcl), NOT REQUIRED 1 (THE REAL SEGMENT), HCount DERIVED (NOT COMPILED), n*' 63676 UNCHANGED, NOT
+### WRITTEN 1 ; THE FACES LINE AT Q0 NOT TOUCHED (ITS SUCCESSOR ROW DRAFTED IN data/b689_faces_rows.txt FOR b690).**
