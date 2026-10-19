@@ -367,6 +367,12 @@ def answers(*a):
             continue
         seen.add(w)
         W += ['### THE AUTHOR`S WORD (transcript line %s), BEGIN to END, verbatim:' % i] + w.replace('\r', '').split(NL) + ['']
+    for cid, (i, t, _ts) in results.items():      # ### a word opened by BEGIN with no END after it: noted, its text read in the RESULT line above
+        for mm in re.finditer(r'="BEGIN(?:(?!END").)*?"(?=, "|\.\s|$)', t or '', re.S):
+            if not re.search(r'END"\s*$', mm.group(0)):
+                W += ['### NOTE (transcript line %s): a word opened by BEGIN and carrying NO END marker -- %r ... %r; the seat asked before acting '
+                      '(the tail check), and the navigator`s answer reads it complete as received, the END dropped by the paste. Its text is the '
+                      'RESULT line above.' % (i, mm.group(0)[2:80], mm.group(0)[-60:]), '']
     for i, t in plain_:
         W += ['### THE AUTHOR`S MESSAGE (transcript line %s), verbatim: %s' % (i, t.replace('\r', '').replace(NL, ' ')), '']
     nw = len([x for x in W if x.startswith('### THE AUTHOR`S WORD')])
