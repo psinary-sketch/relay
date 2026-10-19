@@ -881,6 +881,25 @@ def behind(*a):
     put_json('b691_behind.json', dict(at=utc(), rows=rows, claim=n_claim, causes={'%s | %s' % k: v for k, v in cat.items()}))
 
 
+# ================================================================================ COMPONENT 3: THE ORDER THE AUTHOR'S WORD ENTERS (b690's route, carried)
+OH = ('*Appended 2026-10-19 by b691 beneath b690’s trail record (:14982), under `(R301)`(3) and the author’s word at its prompt -- '
+      '`W-ORD-CORRESPONDENCE-BEHIND-SCOPE` ENTERED:*')
+OB = (' the generator’s claim and reading 3’s behind count read different things against the same kind of reference (relay data/b691_behind.txt, '
+      '57 rows, the cause SCOPE: the leading clause against every commit in the row, and reading 3’s cause column read from the generator’s '
+      '2026-10-16 bank). Two parts: (1) the behind count to compare the leading clause alone against the kernel’s current tag, not every '
+      'commit in the row; (2) the 19 rows reading 3 counted that are not generator rows -- 11 past their table (HISTORICAL) and 8 in tables '
+      'not in the generator’s shape, listed by page and line in relay data/b691_behind.txt -- each brought under the generator or marked on '
+      'its page as a hand cell; the two withheld rows (TECHNE_TOOLKIT :511, :513) named by line there, withheld as their document is. No '
+      'count edit at b691: the ruling’s repair of the count by a tags bank applies to an inputs-against-tags cause, and this cause is scope. '
+      'Trigger: the next re-cut act after b691. Status OPEN.')
+
+
+def order(*a):
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', OH, NL + OH + OB + NL)], 'b691_orders_lines.json', 'order', entry=K.B690_TRAIL,
+         check=[('OPEN_TRAILS.md', K.B690_TRAIL, '### b690 — lane two')], dry=dry)
+
+
 # ================================================================================ COMPONENT 4 (5): THE STALE ORDERS TRIAGED, (R301)(5) -- no ledger written
 TRIG = re.compile(r'\*\*Trigger:?\*\*:?\s*(.+?)(?:\s*$|(?<=[.”"])\s+(?=\*\*|\*[A-Z]))')
 
@@ -1197,7 +1216,7 @@ def rundiff(*a):
 
 
 ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, tie=tie, runner=runner, prints=prints, quote=quote, cut=cut, behind=behind,
-              gensnap=gensnap, genrun=genrun, rundiff=rundiff, triage_read=triage_read, triage=triage, armsrun=armsrun)
+              gensnap=gensnap, genrun=genrun, rundiff=rundiff, triage_read=triage_read, triage=triage, armsrun=armsrun, order=order)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
