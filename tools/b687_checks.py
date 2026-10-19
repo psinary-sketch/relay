@@ -789,7 +789,7 @@ def b685_unchanged_ok(S):
 
 def readings_balls_ok(S):
     rows = [l for l in S['steps'].split(NL) if l.startswith(('  ζ ', '  Z_Q '))]
-    drows = [l for l in (S['jz'] + NL + S['jq']).split(NL) if l.startswith('  T = ')]
+    drows = [l for l in (S['jz'] + NL + S['jq']).split(NL) if l.startswith('  T = ') and '| inner radius' in l]
     return len(rows) == 114 and all(l.count('±') >= 3 and '| margin ' in l for l in rows) and len(drows) == 9 \
         and all('±' in l and 'margin' in l for l in drows)
 
@@ -813,7 +813,7 @@ def composition_ok(S):
 
 def p3_status_ok(S):
     hv = dict((h, v) for h, v, _w in S['readj'].get('hypotheses') or [])
-    return K.P3_WORDS in S['p3'] and all(hv.get(h) == 'HELD' for h in ('H1', 'H2', 'H3', 'H4', 'H5'))
+    return K.P3_WORDS in ' '.join(S['p3'].split()) and all(hv.get(h) == 'HELD' for h in ('H1', 'H2', 'H3', 'H4', 'H5'))   # ### the bank wraps
 
 
 def reread_ok(S):

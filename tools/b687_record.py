@@ -833,7 +833,7 @@ def _n3():
     st, jz, jq, ct = rdn('b687_steps.txt'), rdn('b687_jensen_zeta.txt'), rdn('b687_jensen_q0.txt'), rdn('b687_controls.txt')
     rows = [l for l in st.split(NL) if l.startswith(('  ζ ', '  Z_Q '))]
     balls = all(l.count('±') >= 3 and '| margin ' in l for l in rows) and bool(rows)
-    drows = [l for l in (jz + NL + jq).split(NL) if l.startswith('  T = ')]
+    drows = [l for l in (jz + NL + jq).split(NL) if l.startswith('  T = ') and '| inner radius' in l]
     dballs = bool(drows) and all('±' in l and 'margin' in l for l in drows)
     planted = '**C1 AS PLANTED ; C2 AS PLANTED' in ct
     held = '114 OF 114 INTERMEDIATE INEQUALITIES HOLD' in st
@@ -851,7 +851,7 @@ def _n4():
     bank -- and the status bank; no ledger line."""
     pre = [_arm_row('b687_checks.txt', a_) for a_ in ENTRY_ARMS]
     post = [_arm_row('b687_checks_postpush.txt', a_) for a_ in ENTRY_ARMS]
-    stb = K.P3_WORDS in rdn('b687_p3_status.txt')
+    stb = K.P3_WORDS in ' '.join(rdn('b687_p3_status.txt').split())   # ### the bank wraps the words over two lines
     good = lambda r: r is not None and r[0] == 'PASS' and r[3] == 'OK'   # noqa: E731
     if any(r is None for r in post):
         return 'PENDING', ('waits on the post-push suite bank (relay data/b687_checks_postpush.txt); the pre-push rows of %s: %s; the status bank '

@@ -318,8 +318,8 @@ def main():
                                     r'REPOS HARD-FAILING : \d+'),
           '    no kernel main written ; no runner dispatch ; no lean or lake run on this host ; no worktree made or removed ; no file deleted ; the',
           '    branches (R297)(6) names deleted at step zero, one per command and each its own message, the remote one after its ancestry was read ;',
-          '    b628`s local intake bank, the navigator`s export, b671`s uncompressed points file and b681`s units file untracked ; no identifier of',
-          '    the author in any outbound request ; no secret added ; the seat`s plain requests to github.com (its git reads and pushes), to',
+          '    b628`s local intake bank, the navigator`s export, b671`s uncompressed points file and b681`s units file untracked ;',
+          '    no identifier of the author in any outbound request ; no secret added ; the seat`s plain requests to github.com (its git reads and pushes), to',
           '    arxiv.org (two PDFs and one abstract page, by its subagents` fetches) and one web search the act`s only outbound calls ; the deposit route untouched,',
           '    publish never called ; FINDINGS and OPEN_TRAILS appended ; data/act_roots.txt and the orders bank appended ; no README, REGISTRY,',
           '    FOUNDATIONS or faces-page byte ; the mirror zip written outside every repository ; nothing of TECHNE or any patent written', '']
