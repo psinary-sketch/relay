@@ -1,10 +1,36 @@
-b687 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T00:33:24Z)
+b687 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T00:38:16Z)
 
 ### the source: the seat`s session a90bcdb6-256f-4841-97ff-9638e378446c from its first user line carrying 'RULING (R297) BEGIN', and its subagents` transcripts
-### commands read: 51
+### commands read: 63
 
-### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
-  NONE
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (5):
+  #4 2026-10-18T23:56:56.221Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n 60,220p tools/b686_citation.py
+  #11 2026-10-18T23:57:56.099Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n 1,30p tools/b685_count.py && sed -n 124,340p tools/b685_count.py
+  #16 2026-10-18T23:59:10.888Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      python -X utf8 -c "
+      import gzip,json
+      j=json.load(gzip.open('data/b681_epstein_zeros_narrowed.json.gz'))
+      print(type(j), list(j.keys())[:20] if isinstance(j,dict) else len(j))
+      pts=j.get('points') if isinstance(j,dict) else j
+      print(len(pts)); print(pts[0]); print([p for p in pts if p.get('kind','')!='ON'][:2] if isinstance(pts[0],dict) else '')
+      "; grep -n "W-ORD-EPSTEIN-COUNT" data/b670_work_orders.txt | head; sed -n 14832p /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c1-900
+  #17 2026-10-18T23:59:17.481Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      python -X utf8 -c "
+      import gzip,json
+      j=json.load(gzip.open('data/b681_epstein_zeros_narrowed.json.gz'))
+      print({k:j[k] for k in ('w','h0','halvings','prec','source')})
+      R=j['rows']; print(len(R)); print(json.dumps(R[0])[:600]); 
+      import collections; print(collections.Counter(r.get('kind', r.get('status','?')) for r in R))
+      print([json.dumps(r)[:300] for r in R if 'OFF' in json.dumps(r)][:2])
+      "; sed -n 14832p /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | cut -c900-2500; grep -n "G-EDIT-ROUTE" tools/rule_arms.py | head
+  #20 2026-10-18T23:59:35.750Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n 360,380p tools/b686_checks.py; sed -n 578,600p tools/b686_checks.py; grep -n "def scan\|def \|sed" tools/edit_route.py | head -30; grep -n "sed\|G-NO-SED\|SED" tools/rule_arms.py data/b685_rules.txt | head
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE ((R297)(1), the repaired window): 11 commands of session 3bd076e1 from 2026-10-18T23:46:45.487Z, its offences printed whole (1):
+  #p1 2026-10-18T23:46:45.487Z b686 seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      timeout 120 python -X utf8 -B tools/b686_checks.py --combine b686_checks_postpush.txt 2>&1 | sed -n 0p; timeout 120 python -X utf8 -B tools/b686_checks.py --combine b686_checks_postpush.txt 2>&1 | head -9 | cut -c1-200
 
 ### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
   NONE
@@ -109,5 +135,17 @@ import collec
   #49 | 2026-10-19T00:29:12.351Z | seat | Bash | python -X utf8 tools/b687_tests.py hold 7 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_name
   #50 | 2026-10-19T00:33:09.560Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b687_tests.py report | tail -6; git status --porcelain --untracked-files=no; git -C /d/MY-DOwnloads/PLACE-papers sta
   #51 | 2026-10-19T00:33:15.510Z | seat | Bash | git -C /d/SIDE-spinor ls-remote --heads origin; echo "exit $?"
+  #52 | 2026-10-19T00:33:23.428Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py commands
+  #53 | 2026-10-19T00:34:02.001Z | seat | Bash | git add data/b687_ferry.txt data/b687_ferry_scan.txt data/b687_citation_check.txt data/b687_citation_check.json data/b687_readfirst.txt data/b687_rowgen_stepzer
+  #54 | 2026-10-19T00:36:07.447Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py answer "on miss (b), under (R297)(1)"
+  #55 | 2026-10-19T00:36:13.124Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_citation.py answer "on miss (c), under (R297)(2)"
+  #56 | 2026-10-19T00:36:23.541Z | seat | Bash | grep -n "274b3a0a" data/b685_search.txt | cut -c1-120; sha256sum "/c/Users/echo chamber/.claude/projects/D--/df03c73f-520a-4848-85dc-8fada095f008/tool-results/w
+  #57 | 2026-10-19T00:36:42.182Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py answers && head -3 data/b687_author_answers.txt | cut -c1-250
+  #58 | 2026-10-19T00:36:51.127Z | seat | Bash | awk 'NR>=9258 && NR<=9262 {print NR": "substr($0,1,160)}' /d/MY-DOwnloads/PLACE-papers/FINDINGS.md; awk 'NR==14862 {print NR": "substr($0,1,120)}' /d/MY-DOwnloa
+  #59 | 2026-10-19T00:36:55.484Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py c1 dry 2>&1 | head -8 | cut -c1-300
+  #60 | 2026-10-19T00:37:01.831Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py c1 2>&1 | tail -2 | cut -c1-300; git -C /d/MY-DOwnloads/PLACE-papers diff --stat
+  #61 | 2026-10-19T00:37:07.127Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b687 C1: b686 at its weight, FINDINGS :9284 beneath b686's entry (:9260), its closin
+  #62 | 2026-10-19T00:37:40.963Z | seat | Bash | cd /d/relay && python -X utf8 -c "
+  #63 | 2026-10-19T00:38:14.612Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b687_record.py commands && grep -n -A3 "PREVIOUS ACT" data/b687_commands.txt | head -12 | cut -c1-200
 
-### ### **COMMANDS 51 ; G-EDIT-ROUTE OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 5 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 63 ; G-EDIT-ROUTE OFFENCES 5 (SED IN ANY FORM AMONG THEM 5) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 11 COMMANDS, OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 5 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 9 OF 9 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

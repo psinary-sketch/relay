@@ -412,6 +412,38 @@ def sed_cmd(cmd):
     return SED.search(QUOTED.sub('""', cmd)) is not None
 
 
+PREV_ACT, PREV_SESSION, PREV_ANCHOR = 'b686', '3bd076e1-80b3-48c6-919f-407447a1df25', 'RULING (R296) BEGIN'
+SED_KIND = 'R sed in any form (data/b685_rules.txt row (2))'
+
+
+def prev_capture():
+    """(R297)(1), the carry-time repair of G-EDIT-ROUTE's reading (the navigator's answer on miss (b), option 1): the previous act's capture
+    AFTER ITS POST-PUSH SUITE -- every command of b686's session (and its subagents) timestamped at or after the call that combined its
+    post-push parts into data/b686_checks_postpush.txt, the closing's commands among them -- read at this act's step zero."""
+    rows = ER.capture('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % PREV_SESSION, PREV_ANCHOR,
+                      'C:/Users/echo chamber/.claude/projects/D--/%s/subagents' % PREV_SESSION)
+    first = [r['ts'] for r in rows if '%s_checks_postpush' % PREV_ACT in r['cmd'] and '--combine' in r['cmd']]
+    if not first:
+        sys.exit('### THE PREVIOUS ACT`S POST-PUSH COMBINE IS NOT IN ITS CAPTURE -- NOTHING READ')
+    out = [dict(r, src='%s %s' % (PREV_ACT, r['src'])) for r in rows if r['ts'] >= first[0]]
+    for i, r in enumerate(out):
+        r['n'] = 'p%d' % (i + 1)
+    return out
+
+
+def edit_route_offences(rows):
+    """the arm's offences, repaired: tools/edit_route.py's arms (unchanged) and, beside them, sed in any form (data/b685_rules.txt row (2)),
+    read outside quoted strings; [(row, [(kind, text)])] for the offending rows."""
+    out = []
+    for r in rows:
+        o = list(ER.offences(r['cmd']))
+        if r['tool'] in ('Bash', 'PowerShell') and sed_cmd(r['cmd']) and not any(k.startswith('S sed') for k, _ in o):
+            o.append((SED_KIND, r['cmd'].split(NL)[0][:120]))
+        if o:
+            out.append((r, o))
+    return out
+
+
 MOVE_OR_DELETE = re.compile(r'\bgit\s+(-C\s+\S+\s+)?(mv|rm)\b|\bgit\s+(-C\s+\S+\s+)?branch\s+-[dD]\b|--delete\b|(^|[;&|]\s*|\s)rm\s+-|Remove'
                             + r'-Item|\bos\.remove\b')
 
@@ -449,8 +481,10 @@ def commands(*a):
     rows = capture()
     if not rows:
         sys.exit('### THE COMMAND CAPTURE READ NO COMMAND -- NOTHING WRITTEN')
-    hits = ER.scan(rows)
-    lean = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
+    hits = edit_route_offences(rows)
+    prev = prev_capture()
+    phits = edit_route_offences(prev)
+    lean =[r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
     mv = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and MOVE_OR_DELETE.search(QUOTED.sub('""', r['cmd']))]
     disp = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and re.search(r'(^|&&\s*|;\s*)gh workflow run\b', QUOTED.sub('""', r['cmd']), re.M)]
     detach = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and re.search(r'Start-Process|\bnohup\b|run_in_background', r['cmd'])]
@@ -463,6 +497,12 @@ def commands(*a):
     for r, o in hits:
         L += ['  #%d %s %s %s -- %s' % (r['n'], r['ts'], r['src'], r['tool'], '; '.join(k for k, _ in o))] + ['      ' + x for x in r['cmd'].split(NL)]
     if not hits:
+        L.append('  NONE')
+    L += ['', '### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE ((R297)(1), the repaired window): %s commands of session %s from %s, '
+              'its offences printed whole (%d):' % (len(prev), PREV_SESSION[:8], prev[0]['ts'] if prev else '-', len(phits))]
+    for r, o in phits:
+        L += ['  #%s %s %s %s -- %s' % (r['n'], r['ts'], r['src'], r['tool'], '; '.join(k for k, _ in o))] + ['      ' + x for x in r['cmd'].split(NL)]
+    if not phits:
         L.append('  NONE')
     L += ['', '### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (%d):' % len(lean)] + (['  #%d %s' % (r['n'], r['cmd'][:200]) for r in lean] or ['  NONE'])
     L += ['', '### THE RUNNER DISPATCHES (%d):' % len(disp)] + (['  #%d %s' % (r['n'], r['cmd'][:240]) for r in disp] or ['  NONE'])
@@ -480,12 +520,16 @@ def commands(*a):
     L += ['  line %s | %s | %s | identifiers %s | %s' % (r['line'], r['tool'], r['ts'], r['identifiers'] or 'NONE', ' '.join(r['text'].split())[:200]) for r in ob] or ['  NONE']
     L += ['', '### EVERY COMMAND (n | time | source | tool | first line, 160 characters):']
     L += ['  #%d | %s | %s | %s | %s' % (r['n'], r['ts'], r['src'], r['tool'], r['cmd'].split(NL)[0][:160]) for r in rows]
-    L += ['', '### ### **COMMANDS %d ; G-EDIT-ROUTE OFFENCES %d ; LOCAL lean OR lake COMMANDS %d ; DISPATCHES %d ; DETACHED RUNS %d ; sed COMMANDS %d ; '
+    L += ['', '### ### **COMMANDS %d ; G-EDIT-ROUTE OFFENCES %d (SED IN ANY FORM AMONG THEM %d) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE %d '
+              'COMMANDS, OFFENCES %d ; LOCAL lean OR lake COMMANDS %d ; DISPATCHES %d ; DETACHED RUNS %d ; sed COMMANDS %d ; '
               'MOVE OR DELETE COMMANDS %d ; BRANCH DELETES OF ONE BRANCH AND NO GLOB %d OF %d ; OUTBOUND REQUESTS %d, AN IDENTIFIER IN %d.**' % (
-                  len(rows), len(hits), len(lean), len(disp), len(detach), len(seds), len(mv), sum(1 for _n, d, gl in shapes if len(d) == 1 and not gl),
+                  len(rows), len(hits), sum(1 for _r, o in hits if any(k == SED_KIND or k.startswith('S sed') for k, _ in o)), len(prev), len(phits),
+                  len(lean), len(disp), len(detach), len(seds), len(mv), sum(1 for _n, d, gl in shapes if len(d) == 1 and not gl),
                   len(shapes), len(ob), sum(1 for r in ob if r['identifiers']))]
     put_txt('b687_commands.txt', [l.replace('\r', '') for l in L])
     put_json('b687_commands.json', dict(at=utc(), anchor=K.ANCHOR, rows=rows, offences=[dict(n=r['n'], kinds=[k for k, _ in o]) for r, o in hits],
+                                        prev=dict(act=PREV_ACT, session=PREV_SESSION, rows=len(prev),
+                                                  offences=[dict(n=r['n'], ts=r['ts'], kinds=[k for k, _ in o]) for r, o in phits]),
                                         local_lean=[r['n'] for r in lean], dispatches=[r['n'] for r in disp], detached=[r['n'] for r in detach],
                                         seds=[r['n'] for r in seds], moves_deletes=[r['n'] for r in mv],
                                         delete_shapes=[dict(n=n, deletes=d, globs=gl) for n, d, gl in shapes], outbound=ob))
@@ -520,7 +564,95 @@ def defects(*a):
     print('  defects %d' % len(ds))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, commands=commands, defects=defects)
+# ================================================================================ THE CARRY-TIME READING ((R297)(1); Component 1 and Component 4)
+REPAIRS = [
+    ('G-EDIT-ROUTE`S READING EXTENDED (answering b686 defect (b) and this act`s (a), under (R297)(1) and the navigator`s answer on miss (b),',
+     'option 1; relay data/b687_author_answers.txt): b686`s arm (tools/b686_checks.py :1045, predicate `edit_route_ok` :582-:583) read',
+     'ER.scan over its own act`s capture alone, and tools/edit_route.py`s (S) arm reads `sed -i` alone -- so b686`s combine piped into',
+     '`sed -n 0p` after its post-push suite, and this act`s five `sed -n` reads, were no offence. b687`s reading, written once in the shared',
+     'writer (tools/b687_record.py `prev_capture`, `edit_route_offences`) and read by both the command bank and the arm: (1) the WINDOW -- this',
+     'act`s whole capture through the closing, and the previous act`s capture from the call that combined its post-push parts on (its',
+     'closing`s commands among them), read at step zero; (2) the OFFENCES -- tools/edit_route.py`s arms unchanged, and beside them sed in any',
+     'form (data/b685_rules.txt row (2)), read outside quoted strings. The arm then FAILS for b687 on defect (a) (five commands) and reads',
+     'b686`s (b) in the previous act`s window; it is declared on the face by name, and the capture is not trimmed. The diff of the',
+     'command bank`s reading and of the arm`s predicate against b686`s sealed copies is printed whole below.'),
+    ('THE STANDING SET FOR b687 (answering no defect: the act`s objects): the standing arms are b686`s face`s (G2) arms less b686`s act arms,',
+     'the twenty rule arms among them; the runner arms read the last merged runs (b686`s SIDE-spinor runs; this act dispatches none); the',
+     'step-zero arms read this act`s banks -- nine branches, one remote row.'),
+]
+
+
+def _fn_src(src, name):
+    """a top-level function's source, from its `def` line to the next top-level line; '' where the tool carries no such function."""
+    if ('\ndef %s(' % name) not in src:
+        return ''
+    i = src.index('\ndef %s(' % name) + 1
+    m = re.search(r'\n(?=\S)', src[i + 1:])
+    return src[i:i + 1 + m.start() + 1] if m else src[i:]
+
+
+def repairs(*a):
+    """data/b687_tool_repairs.txt: rows are repairs with the defect they answer. Each tool carried from a sealed b686 copy is read against
+    b686's seal hash (relay data/b686_seal_hashes.json) first, and its diff against that copy counted by hunks (NOT YET CARRIED where the
+    act has not written it); tools/rule_arms.py and tools/edit_route.py read against the last seal record naming them (unedited in this act);
+    the arm's reading's diff against b686's sealed copies printed whole."""
+    import difflib
+    import hashlib
+    seal = jl('b686_seal_hashes.json').get('tools') or {}
+    rows = []
+    for t0 in ('b686_citation.py', 'b686_closing.py', 'b686_reg_gate.py', 'b686_regspec.py', 'b686_tests.py', 'b686_worklist.py',
+               'b686_record.py', 'b686_checks.py'):
+        t1 = t0.replace('b686_', 'b687_')
+        old, new = os.path.join(T, t0), os.path.join(T, t1)
+        now = hashlib.sha256(open(old, 'rb').read()).hexdigest()
+        ex = os.path.exists(new)
+        d = subprocess.run(['git', 'diff', '--no-index', '--unified=0', old, new], capture_output=True, text=True, encoding='utf-8',
+                           errors='replace').stdout if ex else ''
+        rows.append((t0, t1, now, seal.get(t0), len(re.split(r'(?m)^(?=@@ )', d)[1:]), ex))
+    inst = {}
+    for t in ('rule_arms.py', 'edit_route.py'):
+        nowh = hashlib.sha256(open(os.path.join(T, t), 'rb').read()).hexdigest()
+        acts = [x for x in ('b686', 'b685', 'b684', 'b683', 'b682', 'b681') if (jl('%s_seal_hashes.json' % x).get('tools') or {}).get(t)]
+        inst[t] = (nowh, acts[0] if acts else None, (jl('%s_seal_hashes.json' % acts[0])['tools'][t]) if acts else None,
+                   g(ROOT, 'log', '-1', '--format=%h %cI', '--', 'tools/' + t).strip())
+    s6r, s7r = rd(os.path.join(T, 'b686_record.py')), rd(os.path.join(T, 'b687_record.py'))
+    s6c, s7c = rd(os.path.join(T, 'b686_checks.py')), rd(os.path.join(T, 'b687_checks.py'))
+    nd = []
+    for (a6, f6), (a7, f7), s6, s7 in ((('b686_record.py', 'commands'), ('b687_record.py', 'commands'), s6r, s7r),
+                                       (('b686_record.py', '(none)'), ('b687_record.py', 'prev_capture'), s6r, s7r),
+                                       (('b686_record.py', '(none)'), ('b687_record.py', 'edit_route_offences'), s6r, s7r),
+                                       (('b686_checks.py', 'edit_route_ok'), ('b687_checks.py', 'edit_route_ok'), s6c, s7c)):
+        nd += list(difflib.unified_diff(_fn_src(s6, f6).split(NL) if f6 != '(none)' else [], _fn_src(s7, f7).split(NL) if s7 else [],
+                                        '%s %s (sealed)' % (a6, f6), '%s %s%s' % (a7, f7, '' if s7 else ' (NOT YET CARRIED)'), n=1, lineterm=''))
+    L = ['b687 -- COMPONENT 1 AND COMPONENT 4, (R297)`S FERRY: THE CARRY-TIME READING OF THE TOOLS, AGAINST b686`S SEALED COPIES (%s)' % utc(), '',
+         '### rows are repairs with the defect they answer, after the carried tools: b686`s sealed copy and its seal record; the hunks of the diff',
+         '### to b687`s copy. Every hunk is the act`s own text -- its names, its banks, its sections and its predicates over this act`s banks --',
+         '### save the repairs below.', '']
+    for t0, t1, now, s, nh, ex in rows:
+        L.append('  %-20s -> %-20s b686 sealed %s ; the seal`s record %s ; %s ; hunks %s' % (t0, t1, now[:16], (s or '### NONE')[:16],
+                                                                                     'AGREE' if s == now else '### DIFFER', nh if ex else 'NOT YET CARRIED'))
+    for t, (nowh, act, sh, last) in inst.items():
+        clean = grc(ROOT, 'diff', '--quiet', 'HEAD', '--', 'tools/' + t) == 0 and grc(ROOT, 'merge-base', '--is-ancestor', last.split()[0], K.PRE_RELAY) == 0
+        if sh is None:      # ### no seal record names it: unedited read as the working file equal to HEAD, its last commit before the act
+            inst[t] = (nowh, act, nowh if clean else None, last)
+        L.append('  %-20s    the standing instrument, unedited in this act: %s ; the last seal record naming it (%s`s) %s ; %s ; its last commit %s%s' % (
+            t, nowh[:16], act or 'NONE', (sh or '### NONE')[:16], 'AGREE' if inst[t][2] == nowh else '### DIFFER', last,
+            (' ; read by the tree: the working file equal to HEAD and its last commit before the act %s' % clean) if sh is None else ''))
+    L.append('')
+    for i, r in enumerate(REPAIRS, 1):
+        L += ['  REPAIR %d -- %s' % (i, r[0])] + ['  ' + x for x in r[1:]]
+    L += ['', '### THE DIFF OF THE COMMAND BANK`S READING AND OF THE ARM`S PREDICATE AGAINST b686`S SEALED COPIES (tools/b686_record.py sha256 %s, '
+          'tools/b686_checks.py sha256 %s), WHOLE:' % ((seal.get('b686_record.py') or '### NONE')[:16], (seal.get('b686_checks.py') or '### NONE')[:16])]
+    L += ['    ' + l for l in nd]
+    carried = sum(1 for r in rows if r[5])
+    L += ['', '### ### **REPAIRS %d ; THE SEALED COPIES %s ; TOOLS CARRIED %d OF %d ; THE ARM`S DIFF LINES %d.**' % (
+        len(REPAIRS), 'AGREE' if all(s == now for _a, _b, now, s, _n, _e in rows) and all(v[0] == v[2] for v in inst.values()) else '### DIFFER',
+        carried, len(rows), len(nd))]
+    put_txt('b687_tool_repairs.txt', L)
+    print(L[-1])
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, commands=commands, defects=defects, repairs=repairs)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

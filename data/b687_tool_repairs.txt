@@ -1,0 +1,136 @@
+b687 -- COMPONENT 1 AND COMPONENT 4, (R297)`S FERRY: THE CARRY-TIME READING OF THE TOOLS, AGAINST b686`S SEALED COPIES (2026-10-19T00:39:24Z)
+
+### rows are repairs with the defect they answer, after the carried tools: b686`s sealed copy and its seal record; the hunks of the diff
+### to b687`s copy. Every hunk is the act`s own text -- its names, its banks, its sections and its predicates over this act`s banks --
+### save the repairs below.
+
+  b686_citation.py     -> b687_citation.py     b686 sealed c56b5e2952419f16 ; the seal`s record c56b5e2952419f16 ; AGREE ; hunks 28
+  b686_closing.py      -> b687_closing.py      b686 sealed 63f4877f33d98a71 ; the seal`s record 63f4877f33d98a71 ; AGREE ; hunks NOT YET CARRIED
+  b686_reg_gate.py     -> b687_reg_gate.py     b686 sealed f4484cac4e4c4f29 ; the seal`s record f4484cac4e4c4f29 ; AGREE ; hunks NOT YET CARRIED
+  b686_regspec.py      -> b687_regspec.py      b686 sealed e23835843457f74f ; the seal`s record e23835843457f74f ; AGREE ; hunks NOT YET CARRIED
+  b686_tests.py        -> b687_tests.py        b686 sealed 73eee9a07885df7c ; the seal`s record 73eee9a07885df7c ; AGREE ; hunks 11
+  b686_worklist.py     -> b687_worklist.py     b686 sealed 27fc4ec089c48c55 ; the seal`s record 27fc4ec089c48c55 ; AGREE ; hunks 12
+  b686_record.py       -> b687_record.py       b686 sealed 1cd8f2af941b9142 ; the seal`s record 1cd8f2af941b9142 ; AGREE ; hunks 57
+  b686_checks.py       -> b687_checks.py       b686 sealed 8791f5850cee42df ; the seal`s record 8791f5850cee42df ; AGREE ; hunks NOT YET CARRIED
+  rule_arms.py            the standing instrument, unedited in this act: 04ce62dba4bb4afb ; the last seal record naming it (b684`s) 04ce62dba4bb4afb ; AGREE ; its last commit c268710e 2026-10-18T14:28:23-04:00
+  edit_route.py           the standing instrument, unedited in this act: 22b92c8f4440589a ; the last seal record naming it (NONE`s) ### NONE ; AGREE ; its last commit 66497ff1 2026-10-12T11:55:50-04:00 ; read by the tree: the working file equal to HEAD and its last commit before the act True
+
+  REPAIR 1 -- G-EDIT-ROUTE`S READING EXTENDED (answering b686 defect (b) and this act`s (a), under (R297)(1) and the navigator`s answer on miss (b),
+  option 1; relay data/b687_author_answers.txt): b686`s arm (tools/b686_checks.py :1045, predicate `edit_route_ok` :582-:583) read
+  ER.scan over its own act`s capture alone, and tools/edit_route.py`s (S) arm reads `sed -i` alone -- so b686`s combine piped into
+  `sed -n 0p` after its post-push suite, and this act`s five `sed -n` reads, were no offence. b687`s reading, written once in the shared
+  writer (tools/b687_record.py `prev_capture`, `edit_route_offences`) and read by both the command bank and the arm: (1) the WINDOW -- this
+  act`s whole capture through the closing, and the previous act`s capture from the call that combined its post-push parts on (its
+  closing`s commands among them), read at step zero; (2) the OFFENCES -- tools/edit_route.py`s arms unchanged, and beside them sed in any
+  form (data/b685_rules.txt row (2)), read outside quoted strings. The arm then FAILS for b687 on defect (a) (five commands) and reads
+  b686`s (b) in the previous act`s window; it is declared on the face by name, and the capture is not trimmed. The diff of the
+  command bank`s reading and of the arm`s predicate against b686`s sealed copies is printed whole below.
+  REPAIR 2 -- THE STANDING SET FOR b687 (answering no defect: the act`s objects): the standing arms are b686`s face`s (G2) arms less b686`s act arms,
+  the twenty rule arms among them; the runner arms read the last merged runs (b686`s SIDE-spinor runs; this act dispatches none); the
+  step-zero arms read this act`s banks -- nine branches, one remote row.
+
+### THE DIFF OF THE COMMAND BANK`S READING AND OF THE ARM`S PREDICATE AGAINST b686`S SEALED COPIES (tools/b686_record.py sha256 1cd8f2af941b9142, tools/b686_checks.py sha256 8791f5850cee42df), WHOLE:
+    --- b686_record.py commands (sealed)
+    +++ b687_record.py commands
+    @@ -4,4 +4,6 @@
+             sys.exit('### THE COMMAND CAPTURE READ NO COMMAND -- NOTHING WRITTEN')
+    -    hits = ER.scan(rows)
+    -    lean = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
+    +    hits = edit_route_offences(rows)
+    +    prev = prev_capture()
+    +    phits = edit_route_offences(prev)
+    +    lean =[r for r in rows if r['tool'] in ('Bash', 'PowerShell') and local_lean(r['cmd'])]
+         mv = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and MOVE_OR_DELETE.search(QUOTED.sub('""', r['cmd']))]
+    @@ -9,6 +11,6 @@
+         detach = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and re.search(r'Start-Process|\bnohup\b|run_in_background', r['cmd'])]
+    -    seds = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and re.search(r'(^|[;&|(]\s*|\s)sed\s', QUOTED.sub('""', r['cmd']))]
+    +    seds = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and sed_cmd(r['cmd'])]
+         shapes = [(r['n'],) + delete_shape(r['cmd']) for r in mv if delete_shape(r['cmd'])[0]]
+         ob = outbound()
+    -    L = ['b686 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (%s)' % utc(), '',
+    +    L = ['b687 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (%s)' % utc(), '',
+              '### the source: the seat`s session %s from its first user line carrying %r, and its subagents` transcripts' % (K.SESSION_ID, K.ANCHOR),
+    @@ -18,2 +20,8 @@
+         if not hits:
+    +        L.append('  NONE')
+    +    L += ['', '### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE ((R297)(1), the repaired window): %s commands of session %s from %s, '
+    +              'its offences printed whole (%d):' % (len(prev), PREV_SESSION[:8], prev[0]['ts'] if prev else '-', len(phits))]
+    +    for r, o in phits:
+    +        L += ['  #%s %s %s %s -- %s' % (r['n'], r['ts'], r['src'], r['tool'], '; '.join(k for k, _ in o))] + ['      ' + x for x in r['cmd'].split(NL)]
+    +    if not phits:
+             L.append('  NONE')
+    @@ -29,4 +37,4 @@
+             L.append('  NONE')
+    -    L += ['', '### THE BRANCH DELETES BY SHAPE ((R296)(5): one branch per command, no glob in any half): ' + '; '.join(
+    -        '#%d deletes %s, globs %s' % (n, d, gl or 'none') for n, d, gl in shapes)]
+    +    L += ['', '### THE BRANCH DELETES BY SHAPE ((R297)(6): one branch per command, no glob in any half): ' + ('; '.join(
+    +        '#%d deletes %s, globs %s' % (n, d, gl or 'none') for n, d, gl in shapes) or 'NONE')]
+         L += ['', '### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (%d):' % len(ob)]
+    @@ -35,8 +43,12 @@
+         L += ['  #%d | %s | %s | %s | %s' % (r['n'], r['ts'], r['src'], r['tool'], r['cmd'].split(NL)[0][:160]) for r in rows]
+    -    L += ['', '### ### **COMMANDS %d ; G-EDIT-ROUTE OFFENCES %d ; LOCAL lean OR lake COMMANDS %d ; DISPATCHES %d ; DETACHED RUNS %d ; sed COMMANDS %d ; '
+    +    L += ['', '### ### **COMMANDS %d ; G-EDIT-ROUTE OFFENCES %d (SED IN ANY FORM AMONG THEM %d) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE %d '
+    +              'COMMANDS, OFFENCES %d ; LOCAL lean OR lake COMMANDS %d ; DISPATCHES %d ; DETACHED RUNS %d ; sed COMMANDS %d ; '
+                   'MOVE OR DELETE COMMANDS %d ; BRANCH DELETES OF ONE BRANCH AND NO GLOB %d OF %d ; OUTBOUND REQUESTS %d, AN IDENTIFIER IN %d.**' % (
+    -                  len(rows), len(hits), len(lean), len(disp), len(detach), len(seds), len(mv), sum(1 for _n, d, gl in shapes if len(d) == 1 and not gl),
+    +                  len(rows), len(hits), sum(1 for _r, o in hits if any(k == SED_KIND or k.startswith('S sed') for k, _ in o)), len(prev), len(phits),
+    +                  len(lean), len(disp), len(detach), len(seds), len(mv), sum(1 for _n, d, gl in shapes if len(d) == 1 and not gl),
+                       len(shapes), len(ob), sum(1 for r in ob if r['identifiers']))]
+    -    put_txt('b686_commands.txt', [l.replace('\r', '') for l in L])
+    -    put_json('b686_commands.json', dict(at=utc(), anchor=K.ANCHOR, rows=rows, offences=[dict(n=r['n'], kinds=[k for k, _ in o]) for r, o in hits],
+    +    put_txt('b687_commands.txt', [l.replace('\r', '') for l in L])
+    +    put_json('b687_commands.json', dict(at=utc(), anchor=K.ANCHOR, rows=rows, offences=[dict(n=r['n'], kinds=[k for k, _ in o]) for r, o in hits],
+    +                                        prev=dict(act=PREV_ACT, session=PREV_SESSION, rows=len(prev),
+    +                                                  offences=[dict(n=r['n'], ts=r['ts'], kinds=[k for k, _ in o]) for r, o in phits]),
+                                             local_lean=[r['n'] for r in lean], dispatches=[r['n'] for r in disp], detached=[r['n'] for r in detach],
+    @@ -47,2 +59,4 @@
+             print('  OFFENCE #%d %s: %s' % (r['n'], '; '.join(k for k, _ in o), r['cmd'].split(NL)[0][:200]))
+    +    for r in seds:
+    +        print('  sed #%d: %s' % (r['n'], r['cmd'].split(NL)[0][:200]))
+     
+    --- b686_record.py (none) (sealed)
+    +++ b687_record.py prev_capture
+    @@ -0,0 +1,16 @@
+    +def prev_capture():
+    +    """(R297)(1), the carry-time repair of G-EDIT-ROUTE's reading (the navigator's answer on miss (b), option 1): the previous act's capture
+    +    AFTER ITS POST-PUSH SUITE -- every command of b686's session (and its subagents) timestamped at or after the call that combined its
+    +    post-push parts into data/b686_checks_postpush.txt, the closing's commands among them -- read at this act's step zero."""
+    +    rows = ER.capture('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % PREV_SESSION, PREV_ANCHOR,
+    +                      'C:/Users/echo chamber/.claude/projects/D--/%s/subagents' % PREV_SESSION)
+    +    first = [r['ts'] for r in rows if '%s_checks_postpush' % PREV_ACT in r['cmd'] and '--combine' in r['cmd']]
+    +    if not first:
+    +        sys.exit('### THE PREVIOUS ACT`S POST-PUSH COMBINE IS NOT IN ITS CAPTURE -- NOTHING READ')
+    +    out = [dict(r, src='%s %s' % (PREV_ACT, r['src'])) for r in rows if r['ts'] >= first[0]]
+    +    for i, r in enumerate(out):
+    +        r['n'] = 'p%d' % (i + 1)
+    +    return out
+    +
+    +
+    +
+    --- b686_record.py (none) (sealed)
+    +++ b687_record.py edit_route_offences
+    @@ -0,0 +1,14 @@
+    +def edit_route_offences(rows):
+    +    """the arm's offences, repaired: tools/edit_route.py's arms (unchanged) and, beside them, sed in any form (data/b685_rules.txt row (2)),
+    +    read outside quoted strings; [(row, [(kind, text)])] for the offending rows."""
+    +    out = []
+    +    for r in rows:
+    +        o = list(ER.offences(r['cmd']))
+    +        if r['tool'] in ('Bash', 'PowerShell') and sed_cmd(r['cmd']) and not any(k.startswith('S sed') for k, _ in o):
+    +            o.append((SED_KIND, r['cmd'].split(NL)[0][:120]))
+    +        if o:
+    +            out.append((r, o))
+    +    return out
+    +
+    +
+    +
+    --- b686_checks.py edit_route_ok (sealed)
+    +++ b687_checks.py edit_route_ok (NOT YET CARRIED)
+    @@ -1,5 +0,0 @@
+    -def edit_route_ok(S):
+    -    return bool(S['cmds']) and S['ER'].scan(S['cmds']) == []
+    -
+    -
+    -
+
+### ### **REPAIRS 2 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 4 OF 8 ; THE ARM`S DIFF LINES 102.**
