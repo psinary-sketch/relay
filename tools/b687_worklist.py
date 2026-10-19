@@ -60,7 +60,7 @@ NEXT = ('b688, the re-cut act, with the licensed table`s next document and R4 (S
 
 ACT_ARMS = ()               # ### written at Component 4, after the readings
 STANDING_ADDED = ()         # ### (R297)'s N5: no standing arm added
-SHARED_APPENDED = ()
+SHARED_APPENDED = ('data/b670_work_orders.txt',)    # ### (R297)(5): the two order rows, appended (additive, (R254)(2))
 PARTS = ('standing-a', 'standing-c', 'standing-b', 'act')     # ### data/b684_rules.txt row (1): the standing arms in three parts, the act's in one
 SEALED = ('b687_worklist.py', 'b687_tests.py', 'b687_citation.py', 'b687_record.py', 'b687_checks.py', 'b687_closing.py', 'b687_reg_gate.py',
           'b687_regspec.py')
