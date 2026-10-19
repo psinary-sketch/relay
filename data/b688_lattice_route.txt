@@ -1,0 +1,55 @@
+b688 -- COMPONENT 1, (R298)(2): THE LATTICE-SUM ROUTE FOR Z_Q AT σ > 2.5, ENTERED ON ITS CHECK (2026-10-19)
+
+### rows are the route's steps, each with its statement and its source, then the three-point check against b667's route with both values as
+### balls, then the rows of relay data/b687_steps.txt that consumed it. The route is the seat's addition at b687 (relay data/b687_defects.txt
+### (h), :57-:66), carried in tools/b687_readings.py :168-:203; nothing here edits it, and no figure of b687 is recomputed here.
+
+== 1. THE STEPS
+  (1) THE FUNCTION. Z_Q(s) = Σ_{(m,n) ≠ (0,0)} Q0(m, n)^{−s}, Q0 = m² + mn + 6n² (disc −23). Source: relay data/b667_epstein_plan.txt :8
+      ("Q0 = x² + xy + 6y² ... Z_Q(s) = Σ_{(m,n) ≠ (0,0)} Q(m,n)^{−s}"); the series converges absolutely for σ > 1, Q0 being positive definite.
+  (2) THE BOX. The sum over max(|m|, |n|) ≤ N, N = 60, evaluated term by term as Arb balls at 200 bits, the terms grouped by the value of Q0
+      (tools/b687_readings.py :168 LAT_N, :178-:185). Source: the definition (1); no step of approximation.
+  (3) THE SHELL COUNT. The lattice points with max(|m|, |n|) = k number exactly 8k for k ≥ 1 ((2k + 1)² − (2k − 1)²). Source: elementary
+      counting -- THE SEAT'S, no published source located in this act.
+  (4) THE FORM'S LOWER BOUND. Q0(m, n) = (m, n) M (m, n)ᵀ with M = [[1, ½], [½, 6]], whose least eigenvalue is 7/2 − √(25/4 + 1/4) = 3.5 −
+      √6.5 = 0.950490...; by the Rayleigh quotient Q0(m, n) ≥ λ_min (m² + n²) ≥ 0.95 k² on the k-th shell (m² + n² ≥ k²). λ = 0.95 is taken
+      (tools/b687_readings.py :169 LAT_LAMBDA). Source: elementary linear algebra (the Rayleigh quotient of a symmetric matrix) -- THE SEAT'S
+      reading, no published source located in this act.
+  (5) THE TAIL. |Σ_{max > N} Q0^{−s}| ≤ Σ_{k > N} 8k (λ k²)^{−σ} = 8 λ^{−σ} Σ_{k > N} k^{1 − 2σ} ≤ 8 λ^{−σ} ∫_N^∞ x^{1 − 2σ} dx = 8 λ^{−σ}
+      N^{2 − 2σ}/(2σ − 2), for σ > 1, k^{1−2σ} decreasing (the integral comparison). Source: steps (3)-(4) and the integral test --
+      THE SEAT'S OWN BOUND: no published source for this bound was located in this act.
+  (6) THE TAIL ACROSS THE BALL. The bound is 8 N² (λ N²)^{−σ}/(2σ − 2), decreasing in σ because λ N² = 3420 > 1; it is read at the lower
+      end of σ's ball and added to the value as a radius in both the real and the imaginary part (tools/b687_readings.py :186-:192). Source:
+      step (5).
+  (7) THE RANGE. The route is taken where σ's upper end exceeds 2.5 (tools/b687_readings.py :196-:201), the edge of b667's Chowla-Selberg
+      route, whose T4 bound needs |σ − ½| ≤ 2 (relay data/b667_epstein_plan.txt section 16, :267-:285; the guard at
+      tools/b667_epstein_certify.py :152-:153); it refuses σ ≤ 2 (:186-:187).
+  THE STATUS OF THE TAIL BOUND: steps (3)-(5) are elementary and written out above, and no published source for them was located in this act.
+  The bound is entered as the seat's own, and every row that consumed it (section 3) is marked as resting on it.
+
+== 2. THE THREE-POINT CHECK AGAINST b667's ROUTE (relay data/b687_readings_part6.json `lattice_check`; data/b687_controls.txt (route) rows)
+  rows are points s, each value a ball (midpoint ± radius) for the real and the imaginary part:
+  s = 2.4 + 50i   lattice  Re 2.03949631746026505220 ± 3.39e-5 ; Im −0.0533753664102769760562 ± 3.39e-5
+                  b667     Re 2.03949630357594404969 ± 6.38e-59 ; Im −0.0533753879106026043575 ± 5.27e-59   -> OVERLAP True
+  s = 2.45 + 149i lattice  Re 2.00026566107112124145 ± 2.18e-5 ; Im 0.0185933930645561537858 ± 2.18e-5
+                  b667     Re 2.00026567488907869387 ± 2.29e-58 ; Im 0.0185933915345375242129 ± 2.17e-58   -> OVERLAP True
+  s = 2.5         lattice  Re 2.16114690130342339403 ± 1.40e-5 ; Im 0 ± 1.40e-5
+                  b667     Re 2.16114873341790979873 ± 9.67e-60 ; Im 0 ± 1.30e-80                          -> OVERLAP True
+  The differences of the midpoints (1.4e-8, 1.4e-8 and 1.8e-6 in the real part) lie inside the lattice route's radius at each point. The
+  check reads the route's sum and its normalisation (no factor ½ or w) against an independent route; it does not test the tail bound's
+  sharpness, only that its radius covers the difference at σ ≤ 2.5.
+
+== 3. THE ROWS THAT CONSUMED THE ROUTE (relay data/b687_steps.txt; reading (iv) for Z_Q, part R6), EACH RESTING ON THE SEAT'S OWN BOUND
+  :69   Z_Q T 50   (iv-4) the envelope on the circle        the narrowest point θ 0.933427 (σ 2.92), its computed side ± 1.82e-7
+  :70   Z_Q T 50   (iv-4) |Z(s)| ≤ Z(σ) for σ ≥ 1 + η        the narrowest point σ 3.53040, ± 1.91e-9
+  :88   Z_Q T 100  (iv-4) the envelope on the circle        the narrowest point θ 0.663447 (σ 3.32), ± 6.04e-9
+  :89   Z_Q T 100  (iv-4) |Z(s)| ≤ Z(σ) for σ ≥ 1 + η        the narrowest point σ 3.59335, ± 1.11e-9
+  :107  Z_Q T 149  (iv-4) the envelope on the circle        the narrowest point θ 1.15432 (σ 2.53), ± 5.43e-6
+  :108  Z_Q T 149  (iv-4) |Z(s)| ≤ Z(σ) for σ ≥ 1 + η        the narrowest point σ 2.52931, ± 1.11e-5
+  Every sampled point of these six readings with σ > 2.5 was read through the route, and the narrowest point of each lies there. Their margins
+  (0.058 to 0.15) stand against radii at most 1.1e-5. No other row of the bank read the route (the (iv-3) and (iv-5) rows lie at σ ≤ 1.2
+  and 1.7; the right edge at σ₁ = 2.402).
+
+### ### **THE ROUTE`S STEPS 7 ; SOURCED 3 (the function, the box, the range) ; THE SEAT`S OWN 4 (the shell count, the form`s bound, the tail,
+### its reading across the ball) ;
+### THE THREE-POINT CHECK OVERLAP 3 OF 3 ; THE ROWS THAT CONSUMED IT 6, EACH RESTING ON THE SEAT`S OWN BOUND.**
