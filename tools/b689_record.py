@@ -1554,6 +1554,11 @@ REPAIRS = [
      'b687`s repair, read b688`s capture after its post-push suite in this same session; b688 ran in session a90bcdb6 and this act in',
      '2c300355, so `prev_capture` reads a90bcdb6 from b688`s post-push combine to that session`s end (tools/b689_record.py), and the',
      'command bank names the redirects onto /dev/null beside the edit route`s offences (defect (a)), no arm reading them.'),
+    ('G-WORKFLOW-FILES READ AGAINST THE MAIN BEFORE THE ACT (answering no defect: a kernel whose workflow the act did not write): b688`s',
+     'predicate compared each merged kernel`s workflow with the workflow at its own first commit, true of SIDE-li-map`s, written at b688;',
+     'SIDE-explicit-formula`s workflow (7317db4, b654) took a later edit (f18ab7e, b658) before this act, so the first commit is not its state',
+     'before the act. b689`s `wf_state` reads the workflow at the main before the act where the act wrote none -- b679`s reading of this',
+     'kernel (tools/b679_checks.py `wf_state`, W_PRE_MAIN) -- and at its first commit where the act wrote it. Found by the pre-run.'),
 ]
 CARRY_HEAD = '### THE CARRY-TIME READING OF THE TOOLS (the ferry`s Component 5), AGAINST b688`S SEALED COPIES'
 
@@ -1602,7 +1607,8 @@ def repairs(*a):
     nd = []
     for (a8, f8), (a9, f9), s8, s9 in ((('b688_record.py', 'prev_capture'), ('b689_record.py', 'prev_capture'), s8r, s9r),
                                        (('b688_checks.py', 'tests_ok'), ('b689_checks.py', 'tests_ok'), s8c, s9c),
-                                       (('b688_checks.py', 'branches_ok'), ('b689_checks.py', 'branches_ok'), s8c, s9c)):
+                                       (('b688_checks.py', 'branches_ok'), ('b689_checks.py', 'branches_ok'), s8c, s9c),
+                                       (('b688_checks.py', 'wf_state'), ('b689_checks.py', 'wf_state'), s8c, s9c)):
         nd += list(difflib.unified_diff(_fn_src(s8, f8).split(NL), _fn_src(s9, f9).split(NL) if s9 else [],
                                         '%s %s (sealed)' % (a8, f8), '%s %s%s' % (a9, f9, '' if s9 else ' (NOT YET CARRIED)'), n=1, lineterm=''))
     for c in ('CURRENTS', 'STEPZERO_FAILING'):

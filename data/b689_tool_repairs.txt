@@ -70,7 +70,7 @@ b689 -- THE TOOL REPAIRS, (R299)(2) AND THE FERRY'S COMPONENT 5 (2026-10-19)
 ### THE PLANTED CASE FIRES ON BOTH ; THE E0 LEXICON EXTENDED IN THIS ACT'S TOOL ALONE, THE SHARED GRADER UNEDITED.**
 
 
-### THE CARRY-TIME READING OF THE TOOLS (the ferry`s Component 5), AGAINST b688`S SEALED COPIES (2026-10-19T13:25:31Z)
+### THE CARRY-TIME READING OF THE TOOLS (the ferry`s Component 5), AGAINST b688`S SEALED COPIES (2026-10-19T13:32:57Z)
 
 ### rows are repairs with the defect they answer, after the carried tools: b688`s sealed copy and its seal record; the hunks of the diff
 ### to b689`s copy. Every hunk is the act`s own text -- its names, its banks, its sections and its predicates over this act`s banks --
@@ -83,7 +83,7 @@ b689 -- THE TOOL REPAIRS, (R299)(2) AND THE FERRY'S COMPONENT 5 (2026-10-19)
   b688_tests.py        -> b689_tests.py        b688 sealed ed53544dc2471b91 ; the seal`s record ed53544dc2471b91 ; AGREE ; hunks 12
   b688_worklist.py     -> b689_worklist.py     b688 sealed be6a6370e3246e9c ; the seal`s record be6a6370e3246e9c ; AGREE ; hunks 16
   b688_record.py       -> b689_record.py       b688 sealed b3987f2e77b9d1a0 ; the seal`s record b3987f2e77b9d1a0 ; AGREE ; hunks 152
-  b688_checks.py       -> b689_checks.py       b688 sealed 8e258bb20242352e ; the seal`s record 8e258bb20242352e ; AGREE ; hunks 141
+  b688_checks.py       -> b689_checks.py       b688 sealed 8e258bb20242352e ; the seal`s record 8e258bb20242352e ; AGREE ; hunks 142
   rule_arms.py            THE REPAIRED SHARED TOOL, sealed with this act: 3871f589325d0a96 ; at relay 007d4ead 04ce62dba4bb4afb ; the last seal record naming it (b684`s) 04ce62dba4bb4afb ; its last commit b2b09ce4 2026-10-19T08:40:58-04:00
   edit_route.py           the standing instrument, unedited in this act: 22b92c8f4440589a ; at relay 007d4ead 22b92c8f4440589a ; the last seal record naming it (NONE`s) ### NONE ; its last commit 66497ff1 2026-10-12T11:55:50-04:00
   e0_rule.py              the standing instrument, unedited in this act: 1b4fa2b1fe2f5749 ; at relay 007d4ead 1b4fa2b1fe2f5749 ; the last seal record naming it (NONE`s) ### NONE ; its last commit 3572f7b6 2026-10-13T10:37:17-04:00
@@ -108,6 +108,11 @@ b689 -- THE TOOL REPAIRS, (R299)(2) AND THE FERRY'S COMPONENT 5 (2026-10-19)
   b687`s repair, read b688`s capture after its post-push suite in this same session; b688 ran in session a90bcdb6 and this act in
   2c300355, so `prev_capture` reads a90bcdb6 from b688`s post-push combine to that session`s end (tools/b689_record.py), and the
   command bank names the redirects onto /dev/null beside the edit route`s offences (defect (a)), no arm reading them.
+  REPAIR 6 -- G-WORKFLOW-FILES READ AGAINST THE MAIN BEFORE THE ACT (answering no defect: a kernel whose workflow the act did not write): b688`s
+  predicate compared each merged kernel`s workflow with the workflow at its own first commit, true of SIDE-li-map`s, written at b688;
+  SIDE-explicit-formula`s workflow (7317db4, b654) took a later edit (f18ab7e, b658) before this act, so the first commit is not its state
+  before the act. b689`s `wf_state` reads the workflow at the main before the act where the act wrote none -- b679`s reading of this
+  kernel (tools/b679_checks.py `wf_state`, W_PRE_MAIN) -- and at its first commit where the act wrote it. Found by the pre-run.
 
 ### THE DIFF OF THE REPAIRED READINGS AGAINST b688`S SEALED COPIES (tools/b688_record.py sha256 b3987f2e77b9d1a0, tools/b688_checks.py sha256 8e258bb20242352e), WHOLE:
     --- b688_record.py prev_capture (sealed)
@@ -152,6 +157,23 @@ b689 -- THE TOOL REPAIRS, (R299)(2) AND THE FERRY'S COMPONENT 5 (2026-10-19)
     +    return all(v == [] for v in left.values()) and len(left) == 4 and all(b in z for b in NAMED_LOCAL) \
     +        and 'BRANCHES 10 (LOCAL 10, REMOTE 0) ; MERGED 10 ; TO BE DELETED 10 ; UNNAMED OF b688 0' in z
      
+    --- b688_checks.py wf_state (sealed)
+    +++ b689_checks.py wf_state
+    @@ -1,5 +1,6 @@
+     def wf_state():
+    -    """b688's repair (relay data/b688_tool_repairs.txt REPAIR 3): every kernel the act merged, its workflow at main against the workflow at its
+    -    own first commit, its dependency form read from its tree (a lakefile requiring Mathlib, or no lakefile), its print list against the act's
+    -    print bank for it, and the files the act wrote on main since the main before the act."""
+    +    """b688's reading, carried, with b689's repair (REPAIR 6): every kernel the act merged, its workflow at main against the workflow at the main
+    +    before the act where the act wrote no workflow (b679's reading of this kernel) -- and against its own first commit where the act wrote it
+    +    (b688's) --, its dependency form read from its tree (a lakefile requiring Mathlib, or no lakefile), its print list against the act's print
+    +    bank for it, and the files the act wrote on main since the main before the act."""
+         out = {}
+    @@ -8,3 +9,3 @@
+             t = read_blob(td, 'main:' + WF)
+    -        first = (gs(td, 'log', '--diff-filter=A', '--format=%h', '--', WF).split() or [''])[-1]
+    +        first = (gs(td, 'log', '--diff-filter=A', '--format=%h', '--', WF).split() or [''])[-1] if WF in files else before
+             lf = read_blob(td, 'main:lakefile.toml') + read_blob(td, 'main:lakefile.lean')
     --- b688_checks.py CURRENTS (sealed)
     +++ b689_checks.py CURRENTS
     @@ -4,3 +4,4 @@
@@ -169,4 +191,4 @@ b689 -- THE TOOL REPAIRS, (R299)(2) AND THE FERRY'S COMPONENT 5 (2026-10-19)
     -
     -
 
-### ### **REPAIRS 5 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8 OF 8 ; THE STANDING INSTRUMENTS UNEDITED True ; THE REPAIRED SHARED TOOL 1 ; THE REPAIRED READINGS` DIFF LINES 58.**
+### ### **REPAIRS 6 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8 OF 8 ; THE STANDING INSTRUMENTS UNEDITED True ; THE REPAIRED SHARED TOOL 1 ; THE REPAIRED READINGS` DIFF LINES 75.**

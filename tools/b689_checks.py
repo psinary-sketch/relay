@@ -330,14 +330,15 @@ def _prints_count(k):
 
 
 def wf_state():
-    """b688's reading, carried: every kernel the act merged, its workflow at main against the workflow at its own first commit, its dependency
-    form read from its tree (a lakefile requiring Mathlib, or no lakefile), its print list against the act's print bank for it, and the files
-    the act wrote on main since the main before the act."""
+    """b688's reading, carried, with b689's repair (REPAIR 6): every kernel the act merged, its workflow at main against the workflow at the main
+    before the act where the act wrote no workflow (b679's reading of this kernel) -- and against its own first commit where the act wrote it
+    (b688's) --, its dependency form read from its tree (a lakefile requiring Mathlib, or no lakefile), its print list against the act's print
+    bank for it, and the files the act wrote on main since the main before the act."""
     out = {}
     for k, _pre, _tip, _merge, _tag, before, files in MERGES:
         td = 'D:/' + k
         t = read_blob(td, 'main:' + WF)
-        first = (gs(td, 'log', '--diff-filter=A', '--format=%h', '--', WF).split() or [''])[-1]
+        first = (gs(td, 'log', '--diff-filter=A', '--format=%h', '--', WF).split() or [''])[-1] if WF in files else before
         lf = read_blob(td, 'main:lakefile.toml') + read_blob(td, 'main:lakefile.lean')
         req = re.search(r'(?im)^\s*require\b[^\n]*mathlib', lf) or re.search(r'(?is)\[\[require\]\][^\[]*name\s*=\s*"mathlib"', lf)
         pt = read_blob(td, 'main:' + PT)
@@ -910,7 +911,7 @@ def shared_rows_ok(S):
 
 
 def repairs_ok(S):
-    return '### ### **REPAIRS 5 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8 OF 8 ; THE STANDING INSTRUMENTS UNEDITED True ; THE REPAIRED SHARED TOOL 1' in S['repairs'] \
+    return '### ### **REPAIRS 6 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8 OF 8 ; THE STANDING INSTRUMENTS UNEDITED True ; THE REPAIRED SHARED TOOL 1' in S['repairs'] \
         and 'REPAIRS 3 ; TO A SHARED TOOL 1' in S['repairs']
 
 
@@ -1238,8 +1239,8 @@ ARMS = [
      lambda S: faces_held_ok(S), lambda S: put(S, 'pp_changed', S['pp_changed'] + [FACES_PAGE])),
     ('G-SHARED-ROWS-APPENDED', 'the corrigenda bank: before, working tree and HEAD, a prefix extension carrying b689`s row',
      lambda S: shared_rows_ok(S), lambda S: _mut(S, 'shared', lambda d: d.update({'data/b675_corrigenda.txt': (b'a', b'b', b'b')}))),
-    ('G-TOOL-REPAIRS', 'the repairs bank`s two verdicts: three repairs, the shared one in the author`s form; the carry-time reading, five repairs, the sealed copies agreeing, eight tools carried, the standing instruments unedited',
-     lambda S: repairs_ok(S), lambda S: put(S, 'repairs', S['repairs'].replace('REPAIRS 5 ;', 'REPAIRS 0 ;'))),
+    ('G-TOOL-REPAIRS', 'the repairs bank`s two verdicts: three repairs, the shared one in the author`s form; the carry-time reading, six repairs, the sealed copies agreeing, eight tools carried, the standing instruments unedited',
+     lambda S: repairs_ok(S), lambda S: put(S, 'repairs', S['repairs'].replace('REPAIRS 6 ;', 'REPAIRS 0 ;'))),
     ('G-PARTS-PRERUN', 'data/b684_rules.txt row (1) and the pre-run bank`s four parts with their seconds',
      lambda S: parts_ok(S), lambda S: put(S, 'prerun', S['prerun'].replace('PART standing-c', 'PART standing-x'))),
     ('G-DEFECTS-LETTERED', 'the defects bank read at HEAD: the sealed letters its prefix, consecutive letters, owners the seat or the navigator',
