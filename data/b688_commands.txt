@@ -1,7 +1,7 @@
-b688 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T06:42:32Z)
+b688 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T07:14:02Z)
 
 ### the source: the seat`s session a90bcdb6-256f-4841-97ff-9638e378446c from its first user line carrying 'RULING (R298) BEGIN', and its subagents` transcripts
-### commands read: 205
+### commands read: 241
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -247,5 +247,41 @@ b688 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #203 | 2026-10-19T06:42:01.686Z | seat | Bash | python -X utf8 -B tools/reg_seal.py --lock data/b688_registration_2026-10-19.txt && python -X utf8 -B tools/b688_checks.py --seal
   #204 | 2026-10-19T06:42:07.540Z | seat | Bash | git status --porcelain | grep -E "b688|audit_b688|terminal_table|act_roots|b670_|b687_" 
   #205 | 2026-10-19T06:42:15.538Z | seat | Bash | git add data/audit_b688_reg_satisfiable.txt data/b688_arms_prerun.txt data/b688_arms_prerun_act.txt data/b688_arms_prerun_standing-a.txt data/b688_arms_prerun_s
+  #206 | 2026-10-19T06:42:26.830Z | seat | Bash | timeout 400 python -X utf8 -B tools/b688_record.py commands 2>&1 | tail -1 | cut -c1-200 && timeout 590 python -X utf8 -B tools/b688_record.py table_final 2>&1 
+  #207 | 2026-10-19T06:43:12.656Z | seat | Bash | timeout 400 python -X utf8 -B tools/b688_record.py scores 2>&1 | cut -c1-160
+  #208 | 2026-10-19T06:43:23.545Z | seat | Bash | timeout 300 python -X utf8 -B tools/b688_record.py findings dry 2>&1 | head -40 | cut -c1-600
+  #209 | 2026-10-19T06:43:52.873Z | seat | Bash | timeout 100 python -X utf8 -B tools/b688_record.py defects && timeout 300 python -X utf8 -B tools/b688_record.py findings 2>&1 | tail -1 && git -C /d/MY-DOwnloa
+  #210 | 2026-10-19T06:44:01.334Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add -- FINDINGS.md && git commit -q -m "b688 entry: FINDINGS :9314, SIDE-li-map re-cut 3 to 0 (v0.1.1), R4 applied (SIDE-
+  #211 | 2026-10-19T06:44:07.537Z | seat | Bash | cd /d/relay && git add -- data/b688_findings.json data/b688_scores.json data/b688_table_final.json data/b688_table_final.txt data/b688_commands.json data/b688_c
+  #212 | 2026-10-19T06:44:18.458Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch push-b688-root 8deb161 && git -C D:/MY-DOwnloads/PLACE-papers rev-parse --short push-b688-root
+  #213 | 2026-10-19T06:44:22.934Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b688_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b688-root
+  #214 | 2026-10-19T06:44:56.206Z | seat | Bash | git -C D:/relay branch push-b688-root e7f08271 && git -C D:/relay rev-parse --short=8 push-b688-root
+  #215 | 2026-10-19T06:45:00.003Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b688_relay_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b688-root
+  #216 | 2026-10-19T06:45:14.747Z | seat | Bash | timeout 590 python -X utf8 -B tools/b688_record.py root dry 2>&1 | cut -c1-250
+  #217 | 2026-10-19T06:45:47.689Z | seat | Bash | timeout 590 python -X utf8 -B tools/b688_record.py root 2>&1 | tail -2 | cut -c1-250
+  #218 | 2026-10-19T06:46:18.779Z | seat | Bash | timeout 300 python -X utf8 -B tools/b688_record.py root_arm 2>&1 | tail -1 | cut -c1-250 && timeout 300 python -X utf8 -B tools/b688_record.py trail dry 2>&1 | 
+  #219 | 2026-10-19T06:46:24.726Z | seat | Bash | timeout 300 python -X utf8 -B tools/b688_record.py trail 2>&1 | tail -1 && git -C /d/MY-DOwnloads/PLACE-papers diff --stat
+  #220 | 2026-10-19T06:46:31.829Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add -- OPEN_TRAILS.md && git commit -q -m "b688 record: the trail record at OPEN_TRAILS :14924 carrying the act root f168
+  #221 | 2026-10-19T06:46:38.049Z | seat | Bash | cd /d/relay && timeout 60 python -X utf8 -B tools/b688_record.py defects && timeout 60 python -X utf8 -B tools/b688_record.py desk && timeout 60 python -X utf8 
+  #222 | 2026-10-19T06:46:46.095Z | seat | Bash | git add -- data/act_roots.txt data/b688_defects.json data/b688_act_root.json data/b688_act_root.txt data/b688_components.txt data/b688_desk_notes.txt data/b688_
+  #223 | 2026-10-19T06:46:58.261Z | seat | Bash | python -X utf8 tools/b688_tests.py hold standing-a && timeout 590 python -X utf8 -B tools/b688_checks.py --part standing-a 2>&1 | grep -E "FAIL|raised|PART stan
+  #224 | 2026-10-19T06:50:13.326Z | seat | Bash | python -X utf8 tools/b688_tests.py hold standing-c && timeout 590 python -X utf8 -B tools/b688_checks.py --part standing-c 2>&1 | grep -E "FAIL|raised|PART stan
+  #225 | 2026-10-19T06:51:55.685Z | seat | Bash | python -X utf8 tools/b688_tests.py hold standing-b && timeout 590 python -X utf8 -B tools/b688_checks.py --part standing-b 2>&1 | grep -E "FAIL|raised|PART stan
+  #226 | 2026-10-19T06:58:24.292Z | seat | Bash | python -X utf8 tools/b688_tests.py hold act && timeout 590 python -X utf8 -B tools/b688_checks.py --part act 2>&1 | grep -E "FAIL|raised|PART act :|free memory|
+  #227 | 2026-10-19T06:59:28.521Z | seat | Bash | timeout 120 python -X utf8 -B tools/b688_checks.py --combine b688_checks.txt 2>&1 | head -9 | cut -c1-220; git status --short --untracked-files=no
+  #228 | 2026-10-19T06:59:39.323Z | seat | Bash | for c in ed11dc9a 24b23df1 de011ebd; do git log -1 --format="%h %s" $c | cut -c1-150; git show --name-only --format= $c | head -30 | tr '\n' ' '; echo; done
+  #229 | 2026-10-19T06:59:49.624Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch push-b688 c3af808 && git -C D:/MY-DOwnloads/PLACE-papers rev-parse --short push-b688
+  #230 | 2026-10-19T06:59:54.372Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b688_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b688
+  #231 | 2026-10-19T07:00:25.807Z | seat | Bash | git -C D:/relay branch push-b688 4bee98dc && git -C D:/relay rev-parse --short=8 push-b688
+  #232 | 2026-10-19T07:00:31.486Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b688_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b688
+  #233 | 2026-10-19T07:00:44.829Z | seat | Bash | python -X utf8 tools/b688_tests.py hold standing-a && timeout 590 python -X utf8 -B tools/b688_checks.py --part standing-a 2>&1 | grep -E "READING|FAIL|raised|P
+  #234 | 2026-10-19T07:03:52.930Z | seat | Bash | python -X utf8 tools/b688_tests.py hold standing-c && timeout 590 python -X utf8 -B tools/b688_checks.py --part standing-c 2>&1 | grep -E "READING|FAIL|raised|P
+  #235 | 2026-10-19T07:04:41.185Z | seat | Bash | python -X utf8 tools/b688_tests.py hold standing-b && timeout 590 python -X utf8 -B tools/b688_checks.py --part standing-b 2>&1 | grep -E "READING|FAIL|raised|P
+  #236 | 2026-10-19T07:11:12.810Z | seat | Bash | python -X utf8 tools/b688_tests.py hold act && timeout 590 python -X utf8 -B tools/b688_checks.py --part act 2>&1 | grep -E "READING|FAIL|raised|PART act :|free
+  #237 | 2026-10-19T07:12:16.945Z | seat | Bash | timeout 120 python -X utf8 -B tools/b688_checks.py --combine b688_checks_postpush.txt 2>&1 | head -8 | cut -c1-200 && timeout 400 python -X utf8 -B tools/b688_r
+  #238 | 2026-10-19T07:12:26.824Z | seat | Bash | timeout 590 python -X utf8 -B tools/b688_record.py mbuild 2>&1 | tail -6 | cut -c1-200
+  #239 | 2026-10-19T07:13:12.610Z | seat | Bash | timeout 300 python -X utf8 -B tools/b688_record.py mroot 2>&1 | cut -c1-250 && timeout 400 python -X utf8 -B tools/b688_record.py mverify 2>&1 | tail -6 | cut -
+  #240 | 2026-10-19T07:13:23.679Z | seat | Bash | timeout 590 python -X utf8 -B tools/b688_closing.py > /dev/null 2>&1; head -1 data/b688_closing.txt; grep -n -E "AGREE [0-9]+ of|DIFFER|### NOT|NO VERDICT" data
+  #241 | 2026-10-19T07:13:49.300Z | seat | Bash | git status --porcelain | grep -v "^?? data/b688_scanfile" | grep -E "b688|terminal_table" | cut -c1-80
 
-### ### **COMMANDS 205 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 9 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 2 ; sed COMMANDS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 241 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 9 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 2 ; sed COMMANDS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
