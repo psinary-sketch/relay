@@ -1,0 +1,55 @@
+{
+ "at": "2026-10-19T18:49:33Z",
+ "kernel": "SIDE-rcurve",
+ "rows": [
+  {
+   "row": "SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:1",
+   "file": "SIDERCurve/Criterion.lean",
+   "line": 1,
+   "verdict": "OVERREACHES",
+   "action": "Compiles elementary lemmas used by the R-curve criterion -- a strictly monotone real function vanishes at most once, alpha^2/beta + beta = (alpha^2 + beta^2)/beta, Re((alpha + beta i)/(V i)) = beta/V, n/beta > 0 for positive n and beta, and a defined codimension count; neither RH <-> monotonicity nor Re(xi'/xi) > 0 is stated here, and the SIDE closure it rests on (catalogue exhaustiveness, Conservation) is the open clause.",
+   "applied": true
+  },
+  {
+   "row": "SIDE-rcurve@d5f33b4:SIDERCurve/Criterion.lean:26",
+   "file": "SIDERCurve/Criterion.lean",
+   "line": 26,
+   "verdict": "OVERREACHES",
+   "action": "The elementary half of the (ii) => (i) step: a strictly monotone V is injective, so it vanishes at most once.",
+   "applied": true
+  }
+ ],
+ "before": 2,
+ "after": 0,
+ "residues": [
+  [
+   "README.md",
+   3,
+   "Lean 4 kernel — the R-Curve **equivalence engine**, checkpoint 1.2-D."
+  ],
+  [
+   "README.md",
+   9,
+   "Verifies the structural/logical core of the **proven** Equivalence Chain (R_CURVE_CRITERION_v0_1, consolidating P22 Phases 1-66): RH iff V strictly monotone on every R-curve in {sigma > 1/2}."
+  ],
+  [
+   "README.md",
+   11,
+   "- `monotone_unique_zero` / `second_zero_breaks_monotone` — the decisive (ii) implies (i) step: a strictly monotone V has at most one zero, so a second (off-line) zero is impossible."
+  ],
+  [
+   "README.md",
+   19,
+   "The positivity Re(xi'/xi) > 0 that drives the monotonicity is **closed**, not a reach. The Effective Dominance Theorem (Phase-66 SIDE closure) excludes off-line zeros from the seven-class catalogue, sealed by Conservation of Spectra, so every Hadamard term is positive. The route shares its bottom step (off-line-zero exclusion) with the deposited SIDE proof (Zenodo 10.5281/zenodo.19938917): this kernel verifies the equivalence machinery; the deposited proof supplies the exclusion. The Feb-2026 \"~1% landscape margin\" framing is superseded."
+  ]
+ ],
+ "li_neighbour": false,
+ "pin_lines": [
+  81
+ ],
+ "main": "54c9040",
+ "tip": "e3df866",
+ "tag": "v0.1.1",
+ "run_before": 39304553046,
+ "run_after": 39305244594
+}

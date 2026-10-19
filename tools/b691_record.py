@@ -632,7 +632,73 @@ def quote(*a):
     print(NL.join(L))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, tie=tie, runner=runner, prints=prints, quote=quote)
+# ================================================================================ COMPONENT 2: THE CUT BANK, (R301)(2) AND (7)
+CUT = dict(kernel='SIDE-rcurve', table='b647_table_SIDE-rcurve.txt', base='d5f33b4', main='54c9040', tip='e3df866', tag='v0.1.1', prior='v0.1.0',
+           workflow='bb14e89', targets='29885e5', before=39304553046, after=39305244594, licensed_line=113)
+
+
+def _norm(t):
+    return ' '.join(t.replace('--', ' ').replace('—', ' ').split())
+
+
+def cut(*a):
+    """data/b691_cut.txt (.json): the document named by the tie (data/b691_tie.txt); the commits on its main (the workflow and the print list
+    alone, the cut on recut-rcurve-b691, the merge, the tag); the before and after runs and the prints; the distance before and after by the
+    b670 method -- each non-MATCHES row of its b647 table read whole, its ACTION's text (the words after `RE-CUT:`) searched, whitespace
+    normalized, in the file at the merge; the quotation search's quoting lines each entered as a residue with its line; SIDE-li-map's two
+    residues carried (the cut document not its neighbour in the table); the faces header's tag source cited by file and line ((R301)(7))."""
+    k = CUT['kernel']
+    kd = 'D:/' + k
+    tb = rdn(CUT['table'])
+    blocks = re.findall(r'(?ms)^  (%s@\w+:(\S+):(\d+)) \| (OVERREACHES|UNDERSTATES|UNLICENSED) \|.*?\n      ACTION   RE-CUT: (.*?)$' % re.escape(k), tb)
+    rows = []
+    for rid, f, ln, verdict, action in blocks:
+        src = _show(kd, CUT['main'], f) or ''
+        ok = _norm(action) in _norm(src)
+        rows.append(dict(row=rid, file=f, line=int(ln), verdict=verdict, action=action.strip(), applied=ok))
+    before = len(rows)
+    after = sum(1 for r in rows if not r['applied'])
+    q = jl('b691_quote_rcurve.json')
+    qlines = sorted(set((h.split(':')[1], int(h.split(':')[2]), h.split(':', 3)[3]) for _n, h in q.get('hits') or []), key=lambda x: (x[0], x[1]))
+    lt = rdn('b670_licensed_table.txt').split(NL)
+    nb = [lt[CUT['licensed_line'] - 2].strip()[:60], lt[CUT['licensed_line']].strip()[:60]]
+    li_nb = any('SIDE-li-map' in x for x in nb)
+    nodes = rdn(os.path.basename(K.NODES)).split(NL)
+    pin_ln = [i + 1 for i, l in enumerate(nodes) if l.startswith('# pin: ')]
+    cpl = rd(os.path.join(T, 'chain_page.py')).split(NL)
+    L = ['b691 -- COMPONENT 2, (R301)(2) AND (7): THE RE-CUT OF %s, ITS DISTANCE, ITS RESIDUES (%s)' % (k, utc()), '',
+         '### the document: %s, named by b674`s row (2) (relay data/b691_tie.txt: the counts of any kind equal at 2, the larger table 7 rows)' % k,
+         '### the commits on its main: the workflow %s alone, the print list %s alone (the Mathlib form, carried from SIDE-trivium`s dd587f9); the cut %s'
+         % (CUT['workflow'], CUT['targets'], CUT['tip']),
+         '### on recut-rcurve-b691 (comments only: the module header and the T1 block, the two ACTIONs verbatim); the merge %s by --no-ff, the merged' % CUT['main'],
+         '### tree the built tree; the tag %s peeled to the merge, its message naming the prior tag %s = %s (relay data/b691_rcurve_merge_push_out.txt)' % (
+             CUT['tag'], CUT['prior'], CUT['base']),
+         '### the runs: before %d at main 29885e5, after %d at the tip %s, both DERIVES 8 of 8 at the standard three; the prints equal line for line'
+         % (CUT['before'], CUT['after'], CUT['tip']),
+         '### (relay data/b691_runner_SIDE-rcurve_before.txt, _after.txt, data/b691_prints_SIDE-rcurve.txt)', '',
+         '### THE DISTANCE BY THE b670 METHOD: each non-MATCHES row of relay data/%s, its ACTION`s text searched in the file at %s:' % (CUT['table'], CUT['main'])]
+    L += ['  %s | %s | ACTION applied %s | %s' % (r['row'], r['verdict'], r['applied'], r['action'][:100]) for r in rows]
+    L += ['', '### THE RESIDUES (data/b690_rules.txt row (2); relay data/b691_quote_rcurve.txt, two shapes): each quoting line, the line verbatim:']
+    L += ['  R-%d  %s :%d | CARRIED -- a README line, outside the docstring rows the cut reaches; trigger: the next re-cut of %s or a README pass '
+          '| %s' % (i, f, ln, k, t[:180]) for i, (f, ln, t) in enumerate(qlines, 1)]
+    L += ['', '### SIDE-li-map`s two residues (relay data/b688_cut.txt :60, :64): the cut document`s neighbours in relay data/b670_licensed_table.txt are '
+          ':%d %s and :%d %s -- SIDE-li-map (:111) %s; CARRIED, their triggers as data/b690_r3_residues.txt names them.' % (
+              CUT['licensed_line'] - 1, nb[0].split(' docstrings')[0], CUT['licensed_line'] + 1, nb[1].split(' docstrings')[0],
+              'is a neighbour' if li_nb else 'is not among them'),
+          '', '### THE FACES HEADER`S TAG ((R301)(7)), carried to the next regeneration, no page write: the page`s :3 prints "SIDE-explicit-formula v0.26 =',
+          '### `82550e4`"; its source by file and line -- the node list`s pin line relay %s :%s "%s"; tools/chain_page.py :87-:96 `node_pin` (%s),' % (
+              K.NODES, ','.join(str(x) for x in pin_ln), nodes[pin_ln[0] - 1] if pin_ln else '### NONE', cpl[86].strip()),
+          '### :894-:899 in `build` (%s), :795-:801 the head (%s).' % (cpl[893].strip()[:60], cpl[797].strip()[:70]),
+          '', '### ### **%s RE-CUT: THE DISTANCE BEFORE %d, AFTER %d ; TAG %s ; PRINTS EQUAL ; QUOTING LINES %d, EACH A RESIDUE CARRIED ; SIDE-li-map`S '
+          'TWO CARRIED.**' % (k, before, after, CUT['tag'], len(qlines))]
+    put_txt('b691_cut.txt', L)
+    put_json('b691_cut.json', dict(at=utc(), kernel=k, rows=rows, before=before, after=after, residues=[list(x) for x in qlines], li_neighbour=li_nb,
+                                   pin_lines=pin_ln, main=CUT['main'], tip=CUT['tip'], tag=CUT['tag'], run_before=CUT['before'],
+                                   run_after=CUT['after']))
+    print(NL.join(L))
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, tie=tie, runner=runner, prints=prints, quote=quote, cut=cut)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
