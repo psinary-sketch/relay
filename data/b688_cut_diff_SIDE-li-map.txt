@@ -1,0 +1,45 @@
+b688 -- THE CUT`S DIFF OF SIDE-li-map, RESTRICTED TO COMMENT AND DOCSTRING LINES (2026-10-19T05:19:26Z)
+
+### SIDE-li-map 74906c9 (main) -> e8bd373 (the cut, recut-li-map-b688); files ['LiLinearMap.lean', 'PrimeLedgerPositivity.lean'] ; lines added 12, removed 11
+### rows are files: the text with every comment stripped equal before and after ; the control (a one-word code change in the after
+### text, 'theorem') unequal ; the control`s needle present:
+  LiLinearMap.lean                   CODE EQUAL True ; CONTROL UNEQUAL True ; NEEDLE PRESENT True
+  PrimeLedgerPositivity.lean         CODE EQUAL True ; CONTROL UNEQUAL True ; NEEDLE PRESENT True
+
+### the diff, whole:
+    diff --git a/LiLinearMap.lean b/LiLinearMap.lean
+    index f90ab90..0558440 100644
+    --- a/LiLinearMap.lean
+    +++ b/LiLinearMap.lean
+    @@ -8,7 +8,4 @@ Li's coefficients arise from Taylor coefficients η_j of log ξ at s = 1 via
+    -This file certifies the map's LINEARITY over the coefficient stream — the
+    -formal content of channel additivity: for any decomposition of log ξ into
+    -channels with coefficient streams η^A, η^Z,
+    -  λ_n = λ_A(n) + λ_Z(n)   for every n
+    -(THE_SINGLE_INDEFINITE_TERM §III; FINDINGS F.2026-07-09-g).
+    -The analytic identification of η with actual Taylor coefficients of log ξ
+    -is the manuscript/Mathlib leg; this kernel carries the algebra.
+    +This file certifies the Li map's linearity over integer-valued coefficient
+    +streams (Nat -> Int): lambda(eta + eta')_n = lambda(eta)_n + lambda(eta')_n
+    +for every n; the real Taylor coefficients of log xi, and the identification
+    +of eta with them, are outside this kernel.
+    @@ -54,2 +51,4 @@ def lam (η : Nat → Int) (n : Nat) : Int :=
+    -/-- CHANNEL ADDITIVITY: the Li map is additive in the coefficient stream.
+    -    Instance: λ_n = λ_A(n) + λ_Z(n) for the archimedean / pole+Euler split. -/
+    +/-- CHANNEL ADDITIVITY over integer streams: the Li map is additive in an
+    +    integer-valued coefficient stream; the archimedean / pole+Euler split, whose
+    +    coefficients are real, is the intended reading and is not an instance
+    +    compiled here. -/
+    diff --git a/PrimeLedgerPositivity.lean b/PrimeLedgerPositivity.lean
+    index c0536db..395a234 100644
+    --- a/PrimeLedgerPositivity.lean
+    +++ b/PrimeLedgerPositivity.lean
+    @@ -15,2 +15,4 @@ presented as reaching the center."
+    -That is: this file compiles the PRIME-LEDGER POSITIVITY ingredient — von
+    -Mangoldt Λ(n) ≥ 0, the arithmetic shadow of the Euler product. Classically this
+    +That is: this file compiles the kernel-altitude shadow of the prime-ledger
+    +positivity ingredient -- a pointwise-nonnegative integer stream yields a
+    +nonnegative Li value (lam_nonneg_of_nonneg) -- not von Mangoldt Lambda(n) >= 0
+    +itself, which no declaration here states. Classically this
+
+### ### **FILES 2 ; CODE EQUAL WITH COMMENTS STRIPPED True ; CONTROLS UNEQUAL True ; COMMENT AND DOCSTRING LINES ALONE True.**

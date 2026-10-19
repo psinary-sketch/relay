@@ -1,0 +1,19 @@
+b688 -- THE CORRESPONDENCE GENERATOR'S DRY DIFF, HELD (under (R298)(4) and the author's word at the third prompt, 2026-10-19T05:31Z) (2026-10-19)
+
+### the run: `python -X utf8 tools/correspondence_gen.py dry full` at relay HEAD 44835e94 plus the untracked C3 banks, the roster data/b672_roster_read.json; its summary line
+### "TABLES 20 ; SHAPED 14 ; NOT IN THE GENERATOR`S SHAPE 6 ; ANCHOR NOT FOUND 0 ; KERNELS 16 (WITH A TAG 16) ; CELLS CHANGED 5 ; FILES CHANGED 1 ; ABSENT 7 ; NO PRINT BANK 8 ; NOT PRINTED 48 ; HELD: DEPOSIT PIN 11 ; MULTI 6 ; NO TAG 0." and "DRY: nothing written".
+### the generator's line numbers are its own reading; the cells sit at the file's :286 (spinor), :288 and :298 (li-map) of phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md at PLACE-papers 4035e17, four lines above the generator's numbers.
+
+### THE FIVE ROWS, verbatim (document :line | column | kernel | OLD | NEW):
+    PATHS_TO_THE_CRITICAL_LINE :290 | kernel | SIDE-spinor | OLD SIDE-spinor v0.1.0 | NEW SIDE-spinor v0.1.1
+    PATHS_TO_THE_CRITICAL_LINE :290 | profile | SIDE-spinor | OLD NO PRINT BANK AT v0.1.0 | NEW `{propext, Classical.choice, Quot.sound}`
+    PATHS_TO_THE_CRITICAL_LINE :290 | status | SIDE-spinor | OLD **DERIVES UNREFRESHED** — of the *model* statement `(w : ℂ) (h : Complex.I * w = w) : w = 0`, unconditional over ℂ. **STIPULATIONS, printed — TWO: (i) that `w` IS the centred coordinate `σ - ½`; (ii) that `i·w = w` IS the orbit-collapse condition.** Neither is compiled; the σ = ½ reading additionally routes through `half_iff_centered_zero : σ = 1/2 ↔ σ - 1/2 = 0`, itself an arithmetic tautology. Shortfall to "orbit collapse forces σ = 1/2": **2 clauses.** *Sentence corrected + re-celled 2026-08-09.* | NEW **DERIVES** — of the *model* statement `(w : ℂ) (h : Complex.I * w = w) : w = 0`, unconditional over ℂ. **STIPULATIONS, printed — TWO: (i) that `w` IS the centred coordinate `σ - ½`; (ii) that `i·w = w` IS the orbit-collapse condition.** Neither is compiled; the σ = ½ reading additionally routes through `half_iff_centered_zero : σ = 1/2 ↔ σ - 1/2 = 0`, itself an arithmetic tautology. Shortfall to "orbit collapse forces σ = 1/2": **2 clauses.** *Sentence corrected + re-celled 2026-08-09.*
+    PATHS_TO_THE_CRITICAL_LINE :292 | kernel | SIDE-li-map | OLD SIDE-li-map (pin `73cee42`) | NEW SIDE-li-map (pin `9e02bc0`)
+    PATHS_TO_THE_CRITICAL_LINE :302 | kernel | SIDE-li-map | OLD SIDE-li-map = 73cee42 (carried at lv-conservation v0.7.0) | NEW SIDE-li-map = 9e02bc0 (carried at lv-conservation v0.7.0)
+
+### THE WRITE HELD (the author's word, option 1): no generator run, no page write. The reason: the :302 row's NEW cell would read 9e02bc0 as
+### carried at lv-conservation v0.7.0, false -- SIDE-lv-conservation v0.7.0's SIDELvConservation/RegisterPentagon.lean :44, :157, :241 carry
+### 73cee42 (git grep at the tag); and the three :290 rows are SIDE-spinor's, outside the author's word for SIDE-li-map, with C4 able to tag
+### v0.1.2. The repair is OPEN_TRAILS work-order W-ORD-CORRESPONDENCE-CARRIED-AT (entered at C6). A second dry run after C4 closes is banked
+### beside this one as data/b688_correspondence_dry_2.txt.
+### ### **ROWS 5 ; SIDE-li-map 2 ; SIDE-spinor 3 ; WRITTEN 0 ; HELD 5.**
