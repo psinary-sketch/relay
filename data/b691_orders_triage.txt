@@ -1,0 +1,151 @@
+b691 -- COMPONENT 4 (5), (R301)(5): THE STALE ORDERS TRIAGED (2026-10-19T19:55:23Z)
+
+### the orders: reading 3`s 35 (relay data/b690_r3_orders.json unsteady_names; b670`s steadiness predicate, tools/b670_record.py :926, the age
+### from 690: open, older than ten acts, the status neither a trigger met nor a re-dating). Each row: the order and its OPEN_TRAILS line, the
+### entering act and its status as reading 3 read them; the trigger as written (its words standing at the cited line, checked by this tool);
+### whether it can still fire and why; the disposition -- CARRY, DISCHARGED-BY-READING (the reading cited by path and line, its words
+### checked there) or RETIRE (its reason). The dispositions are the seat`s hand-read of every line naming each order in OPEN_TRAILS and
+### FINDINGS (tools/b691_record.py triage_read). No ledger written; raised at b692.
+
+  W-ORD-LI-WEIL-BRIDGE           OPEN_TRAILS :3548   b324  age 366 status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :4638): trigger is **THE AUTHOR’S WORD**
+      CAN STILL FIRE: YES -- the trigger is the author`s word, which can be given at any act; priced in lemmas at b550-b553 (OPEN_TRAILS :11203-:11290) and not attempted since
+      DISPOSITION: CARRY -- PLACE-papers OPEN_TRAILS.md :11136 ("its trigger stays THE AUTHOR")
+  W-ORD-WEIL-CONVERSE            OPEN_TRAILS :10146  b515  age 175 status 'OPEN'
+      TRIGGER (PLACE-papers FINDINGS.md :4489): the kernel lane after this fold; (d) first
+      CAN STILL FIRE: NO -- the lane ran: (d) b517, f1 b524, f2 b529, f3 b530, f4 b533-b534
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :4719 ("CLOSED, the seam rh_strip_imp_rh")
+  W-ORD-XI-P7                    OPEN_TRAILS :10431  b524  age 166 status 'OPEN'
+      TRIGGER (PLACE-papers FINDINGS.md :4581): the next opening of the numerical lane
+      CAN STILL FIRE: NO -- the numerical act ran at b526
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :4717 ("CLOSED at b526")
+  W-ORD-SEAM-UPSTREAM            OPEN_TRAILS :10960  b537  age 153 status 'OPEN'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :10974): Trigger: the author`s word.
+      CAN STILL FIRE: YES -- the author`s word, not given since b537; housekeeping when it fires (OPEN_TRAILS :11415)
+      DISPOSITION: CARRY -- PLACE-papers OPEN_TRAILS.md :11428 ("trigger the author")
+  W-ORD-REGISTER-DEPTH           OPEN_TRAILS :10960  b537  age 153 status 'OPEN'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :10984): Trigger: the act after b537, unless the author rules otherwise.
+      CAN STILL FIRE: NO -- a one-shot trigger, fired: the act after b537 was b538, which ran the read
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers OPEN_TRAILS.md :10999 ("W-ORD-REGISTER-DEPTH under (R148)")
+  W-ORD-DETECTION-REGION         OPEN_TRAILS :11151  b547  age 143 status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :11521): Research grade; queued, not an act.
+      CAN STILL FIRE: YES -- research grade, re-scoped at b560 on the measured obstacle (E2), (E3) entered at b590; the queue holds it (the act after b558 named it, FINDINGS :8329 still re-reads it)
+      DISPOSITION: CARRY -- PLACE-papers FINDINGS.md :8329 ("W-ORD-DETECTION-REGION (OPEN_TRAILS :11151, :11512)")
+  W-ORD-GRH-WEIL                 OPEN_TRAILS :11373  b555  age 135 status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :11415): (c) W-ORD-GRH-WEIL, 31 items
+      CAN STILL FIRE: NO -- its place in the queue was taken: closed at b574 on its landing, its remainders entered beside it each with the author`s word as trigger
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers OPEN_TRAILS.md :11794 ("CLOSED AT ITS LANDING")
+  W-ORD-KEIPER-FACE              OPEN_TRAILS :11704  b568  age 122 status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :11704): **W-ORD-LI-THREE-WAY’s agreement**
+      CAN STILL FIRE: YES -- the author placed it in the research order at b660-b661 (OPEN_TRAILS :14104), after the v0.19 and v0.26 Keiper statements; not acted since
+      DISPOSITION: CARRY -- PLACE-papers OPEN_TRAILS.md :14104 ("then W-ORD-KEIPER-FACE (:11704)")
+  W-ORD-SIMPLICITY-FACE          OPEN_TRAILS :12012  b584  age 106 status 'Not started'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12018): **Trigger:** the author’s word. **SIMPLICITY_OF_RIEMANN_ZEROS’ edition is HELD
+      CAN STILL FIRE: NO -- the word was given and the face landed at b596 (v0.17); its b631 registry item rides at W-ORD-NYMAN-BEURLING-FACE (:13163)
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers OPEN_TRAILS.md :12272 ("has landed at b596")
+  W-ORD-PNT-CHI                  OPEN_TRAILS :12020  b584  age 106 status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12024): **Off the critical path. Trigger:** the author’s word.
+      CAN STILL FIRE: YES -- the author`s word, not given since b584
+      DISPOSITION: CARRY -- PLACE-papers FINDINGS.md :6620 ("each priced and not started, trigger the author")
+  W-ORD-CONSTELLATION-RERUN      OPEN_TRAILS :12090  b587  age 103 status 'STARTED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12096): **Trigger:** before CP-8, or the author’s word sooner.
+      CAN STILL FIRE: NO -- started and landed at b589
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers OPEN_TRAILS.md :12128 ("STARTED AND LANDED")
+  W-ORD-SECOND-READER            OPEN_TRAILS :12212  b593  age 97  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12212): PRICED, NOT STARTED, trigger the author’s word, its form fixed now
+      CAN STILL FIRE: NO -- its named batch (:12542) ran at b620; the form has since been the house practice (FINDINGS :7701, :7921, :7995)
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7422 ("## The second reader over the monograph")
+  W-ORD-QUANTIFIER-COLUMN        OPEN_TRAILS :12266  b596  age 94  status 'HELD'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12270): one line in each page’s head naming the column. **Trigger:** the author’s word.
+      CAN STILL FIRE: NO -- the generator landed at b622 with DENSITY
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7470 ("W-ORD-QUANTIFIER-COLUMN with DENSITY")
+  W-ORD-VENDOR-FINALMULT         OPEN_TRAILS :12290  b597  age 93  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12294): Off the critical path. **Trigger:** the author’s word.
+      CAN STILL FIRE: YES -- route (b) taken at b628; route (a), the port, stays priced and not started on the author`s word
+      DISPOSITION: CARRY -- PLACE-papers OPEN_TRAILS.md :13061 ("route (a), the port, stays priced and not started")
+  W-ORD-SEC-AXIOM-ARTEFACT       OPEN_TRAILS :12330  b599  age 91  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12334): **Trigger:** the author’s word. **Reason:** a T2 grade
+      CAN STILL FIRE: NO -- the artefact landed at b623, v0.2.2
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7498 ("W-ORD-SEC-AXIOM-ARTEFACT")
+  W-ORD-E0-INDUCTION             OPEN_TRAILS :12436  b604  age 86  status 'priced, not started'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12444): W-ORD-E0-INDUCTION, priced, not started, the author’s word its trigger
+      CAN STILL FIRE: NO -- the clause landed at b624 in tools/e0_rule.py with its test
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7516 ("W-ORD-E0-INDUCTION")
+  W-ORD-TAG-REMOTES              OPEN_TRAILS :12597  b611  age 79  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12597): W-ORD-TAG-REMOTES, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD
+      CAN STILL FIRE: NO -- acted at b623: nine cited tags pushed and read back, three recorded local
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7496 ("H57a HOLDS")
+  W-ORD-PLATT-RUNG               OPEN_TRAILS :12891  b623  age 67  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12891): W-ORD-PLATT-RUNG, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD
+      CAN STILL FIRE: NO -- the rung landed at b626, v0.22
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7567 ("W-ORD-PLATT-RUNG")
+  W-ORD-NYMAN-BEURLING-FACE      OPEN_TRAILS :12893  b623  age 67  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12893): W-ORD-NYMAN-BEURLING-FACE, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD
+      CAN STILL FIRE: NO -- the face landed at b629, v0.24; its b630-b631 registry items (:13131, :13161, :13163) ride under it, registry-read, not asserted
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7639 ("SIDE-explicit-formula v0.24")
+  W-ORD-DEDEKIND-INSTANCE        OPEN_TRAILS :12895  b623  age 67  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12895): W-ORD-DEDEKIND-INSTANCE, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD
+      CAN STILL FIRE: NO -- the instance landed at b631, v0.25
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7683 ("SIDE-explicit-formula v0.25")
+  W-ORD-MARGIN-BENCH             OPEN_TRAILS :12897  b623  age 67  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :12897): W-ORD-MARGIN-BENCH, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD
+      CAN STILL FIRE: NO -- the bench ran at b627
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7591 ("W-ORD-MARGIN-BENCH")
+  W-ORD-GATE-FROM-ELABORATOR     OPEN_TRAILS :13000  b626  age 64  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13000): **Trigger:** the author’s word; the finding of relay data/b625_section_vars.txt
+      CAN STILL FIRE: NO -- the elaborated reader ran at b634 over SIDE-explicit-formula and at b637 over both kernels (OPEN_TRAILS :13339)
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7751 ("W-ORD-GATE-FROM-ELABORATOR")
+  W-ORD-BINDER-GRAMMAR           OPEN_TRAILS :13002  b626  age 64  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13002): **Trigger:** the author’s word. Not started.
+      CAN STILL FIRE: NO -- the grammar landed at b637
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7833 ("## The binder grammar")
+  W-ORD-ZETA23-SERIAL-BUILD      OPEN_TRAILS :13065  b628  age 62  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13065): W-ORD-ZETA23-SERIAL-BUILD, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD
+      CAN STILL FIRE: YES -- the author`s word, not given since b628; the clone and cache kept at b629 (:13095)
+      DISPOSITION: CARRY -- PLACE-papers OPEN_TRAILS.md :13095 ("THE CLONE AND THE CACHE, KEPT")
+  W-ORD-PROBE-HOLD               OPEN_TRAILS :13119  b629  age 61  status 'priced and not started'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13119): W-ORD-PROBE-HOLD, entered here by the author’s answer to prompt 3, priced and not started, trigger the author’s word
+      CAN STILL FIRE: NO -- the edit landed at b630 (relay 9b01204d) with its test
+      DISPOSITION: DISCHARGED-BY-READING -- relay tools/chain_page.py :919 ("W-ORD-PROBE-HOLD")
+  W-ORD-TABLE-RULE-GRADES        OPEN_TRAILS :13133  b630  age 60  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13133): W-ORD-TABLE-RULE-GRADES, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD
+      CAN STILL FIRE: NO -- the rule`s grades applied at b633 with the second reader, the table committed (FINDINGS :7701)
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7705 ("W-ORD-TABLE-RULE-GRADES")
+  W-ORD-DAY1-PATCH-VERSIONS      OPEN_TRAILS :13397  b639  age 51  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13397): W-ORD-DAY1-PATCH-VERSIONS, PRICED, NOT STARTED, TRIGGER THE AUTHOR’S WORD
+      CAN STILL FIRE: NO -- the seven companions labelled under (R254)(7)
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :8039 ("the seven companions labelled")
+  W-ORD-STATEMENT-PIN            OPEN_TRAILS :13487  b641  age 49  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13487): TRIGGER THE NEXT NEW LOAD-BEARING DECLARATION, ACTED ON THE AUTHOR’S WORD
+      CAN STILL FIRE: YES -- its first clause met at every kernel act since b641 that added a load-bearing declaration (v0.27, v0.28, v0.29, v0.32-v0.34 among them) and not acted, its second clause the author`s word, not given
+      DISPOSITION: CARRY -- PLACE-papers FINDINGS.md :7951 ("W-ORD-STATEMENT-PIN priced at two acts")
+  W-ORD-PLATEAURAMP-DOCSTRING    OPEN_TRAILS :13491  b641  age 49  status 'NOT STARTED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13491): TRIGGER THE FIRST UNDERSTATES ROW OF THE REVIEW PASS
+      CAN STILL FIRE: NO -- acted at b642, v0.26
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7973 ("W-ORD-PLATEAURAMP-DOCSTRING acted")
+  W-ORD-EPSTEIN-ZQ               OPEN_TRAILS :13493  b641  age 49  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13493): TRIGGER A RULING TO BUILD IT
+      CAN STILL FIRE: NO -- the ruling came at b663 and the instance was built at Q0 on named premises, v0.29; the count field passed to W-ORD-EPSTEIN-COUNT and W-ORD-EPSTEIN-COUNT-LEAN
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :8537 ("The Epstein instance at Q0 on four named premises")
+  W-ORD-DEDEKIND-RHS-RESTATE     OPEN_TRAILS :13495  b641  age 49  status 'NOT STARTED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13495): TRIGGER THE PROVING ACT
+      CAN STILL FIRE: NO -- the proving act was b642: the premise restated with a witness, dedekind_rhs re-proved, v0.26
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :7965 ("dedekind_rhs re-proved")
+  W-ORD-LABEL-READER             OPEN_TRAILS :13605  b644  age 46  status 'NOT STARTED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13605): TRIGGER THE NEXT EDITION ACT
+      CAN STILL FIRE: YES -- no act since b644 is recorded acting it by name (no later line of OPEN_TRAILS or FINDINGS names it); the next edition act can
+      DISPOSITION: CARRY -- PLACE-papers FINDINGS.md :8059 ("W-ORD-LABEL-READER entered")
+  W-ORD-SEAM-ROW                 OPEN_TRAILS :13844  b650  age 40  status 'STAYS'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :13846): Trigger: grown, by this act’s reading.
+      CAN STILL FIRE: NO -- acted at b651
+      DISPOSITION: DISCHARGED-BY-READING -- PLACE-papers FINDINGS.md :8233 ("W-ORD-SEAM-ROW acted")
+  W-ORD-STATUS-CELLS             OPEN_TRAILS :14350  b670  age 20  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :14356): **Trigger:** the next re-cut act’s step zero.
+      CAN STILL FIRE: YES -- by its words it fired at the step zero of every re-cut act since b670, this act among them, and was not acted (reading 3 counts 75 orders without a status word, relay data/b690_r3_orders.json); it can fire at the next re-cut act`s step zero
+      DISPOSITION: CARRY -- PLACE-papers FINDINGS.md :8747 ("W-ORD-STATUS-CELLS entered (:14350)")
+  W-ORD-BESSEL-BOUND-TIGHTEN     OPEN_TRAILS :14388  b671  age 19  status 'PRICED'
+      TRIGGER (PLACE-papers OPEN_TRAILS.md :14394): **Trigger:** the next act that counts on Q0 after b671.
+      CAN STILL FIRE: YES -- by its words it fired at the acts after b671 that counted on Q0 and is not recorded acted (no later line of OPEN_TRAILS or FINDINGS names it); the next count act on Q0 (W-ORD-EPSTEIN-COUNT-LEAN) can take it
+      DISPOSITION: CARRY -- PLACE-papers FINDINGS.md :8767 ("W-ORD-BESSEL-BOUND-TIGHTEN")
+
+### ### **ORDERS 35 ; CARRY 11 ; DISCHARGED-BY-READING 24 ; RETIRE 0 ; EVERY TRIGGER AND GROUND STANDING AT ITS LINE ; NO LEDGER WRITTEN.**

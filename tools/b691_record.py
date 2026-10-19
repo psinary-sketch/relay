@@ -881,6 +881,189 @@ def behind(*a):
     put_json('b691_behind.json', dict(at=utc(), rows=rows, claim=n_claim, causes={'%s | %s' % k: v for k, v in cat.items()}))
 
 
+# ================================================================================ COMPONENT 4 (5): THE STALE ORDERS TRIAGED, (R301)(5) -- no ledger written
+TRIG = re.compile(r'\*\*Trigger:?\*\*:?\s*(.+?)(?:\s*$|(?<=[.”"])\s+(?=\*\*|\*[A-Z]))')
+
+
+def _order_rows():
+    """reading 3's 35 (relay data/b690_r3_orders.json unsteady_names), each with its entry line and act and status read from data/b690_r3_orders.txt."""
+    j = jl('b690_r3_orders.json')
+    names = j['unsteady_names']
+    rows = {}
+    for l in rdn('b690_r3_orders.txt').split(NL):
+        m = re.match(r'^  (W-ORD-\S+)\s+:(\d+)\s+(b\d+)\s+(\d+)\s+(.+?)\s+:(\d+)\s*$', l)
+        if m and m.group(1) in names:
+            rows[m.group(1)] = dict(name=m.group(1), line=int(m.group(2)), act=m.group(3), age=int(m.group(4)), status=m.group(5).strip(),
+                                    at=int(m.group(6)))
+    return [rows[n] for n in names if n in rows], [n for n in names if n not in rows]
+
+
+def triage_read(*a):
+    """The read before any disposition (printed, not banked): each order's entry line at OPEN_TRAILS (its trigger as written, by the
+    **Trigger:** clause), and every later line of OPEN_TRAILS and FINDINGS that names it, with the text around the name."""
+    rows, miss = _order_rows()
+    ot = rd(OT).split(NL)
+    fi = rd(FIND).split(NL)
+    sel = a[0].split(',') if a else None
+    for r in rows:
+        if sel and r['name'] not in sel:
+            continue
+        el = ot[r['line'] - 1]
+        hit = [n for n, l in enumerate(ot) if r['name'] in l]
+        # ### the entry line: the first line naming the order with its bold definition
+        tm = re.search(r'\*\*Trigger:?\*\*:?\s*(.{0,400})', el)
+        print('=== %s :%d %s age %d status %r at :%d' % (r['name'], r['line'], r['act'], r['age'], r['status'], r['at']))
+        print('    ENTRY :%d (%d chars): %s' % (r['line'], len(el), el[:300]))
+        print('    TRIGGER AS WRITTEN: %s' % (tm.group(1) if tm else '### NO **Trigger:** CLAUSE ON THE ENTRY LINE'))
+        for n in hit:
+            if n + 1 == r['line']:
+                continue
+            l = ot[n]
+            k = l.index(r['name'])
+            print('    OT :%d  ...%s...' % (n + 1, l[max(0, k - 120):k + 220].replace(NL, ' ')))
+        for n, l in enumerate(fi):
+            if r['name'] in l:
+                k = l.index(r['name'])
+                print('    FI :%d  ...%s...' % (n + 1, l[max(0, k - 120):k + 220]))
+    print('### ORDERS %d ; NOT FOUND IN THE BANK %s' % (len(rows), miss or 'NONE'))
+
+
+# ### the seat's hand-read dispositions (the read: triage_read's print over all 35): name -> (the trigger's file, line, its words as written --
+# ### a needle that must stand at that line; can it still fire; why; the disposition; its ground's file, line and a needle that must stand there)
+_A = 'the author’s word'
+TRIAGE = {
+    'W-ORD-LI-WEIL-BRIDGE': ('OT', 4638, 'trigger is **THE AUTHOR’S WORD**', True, 'the trigger is the author`s word, which can be given at any act; '
+        'priced in lemmas at b550-b553 (OPEN_TRAILS :11203-:11290) and not attempted since', 'CARRY', 'OT', 11136, 'its trigger stays THE AUTHOR'),
+    'W-ORD-WEIL-CONVERSE': ('FI', 4489, 'the kernel lane after this fold; (d) first', False, 'the lane ran: (d) b517, f1 b524, f2 b529, f3 b530, '
+        'f4 b533-b534', 'DISCHARGED-BY-READING', 'FI', 4719, 'CLOSED, the seam rh_strip_imp_rh'),
+    'W-ORD-XI-P7': ('FI', 4581, 'the next opening of the numerical lane', False, 'the numerical act ran at b526', 'DISCHARGED-BY-READING', 'FI', 4717,
+        'CLOSED at b526'),
+    'W-ORD-SEAM-UPSTREAM': ('OT', 10974, 'Trigger: the author`s word.', True, 'the author`s word, not given since b537; housekeeping when it fires '
+        '(OPEN_TRAILS :11415)', 'CARRY', 'OT', 11428, 'trigger the author'),
+    'W-ORD-REGISTER-DEPTH': ('OT', 10984, 'Trigger: the act after b537, unless the author rules otherwise.', False, 'a one-shot trigger, fired: the '
+        'act after b537 was b538, which ran the read', 'DISCHARGED-BY-READING', 'OT', 10999, 'W-ORD-REGISTER-DEPTH under (R148)'),
+    'W-ORD-DETECTION-REGION': ('OT', 11521, 'Research grade; queued, not an act.', True, 'research grade, re-scoped at b560 on the measured '
+        'obstacle (E2), (E3) entered at b590; the queue holds it (the act after b558 named it, FINDINGS :8329 still re-reads it)', 'CARRY',
+        'FI', 8329, 'W-ORD-DETECTION-REGION (OPEN_TRAILS :11151, :11512)'),
+    'W-ORD-GRH-WEIL': ('OT', 11415, '(c) W-ORD-GRH-WEIL, 31 items', False, 'its place in the queue was taken: closed at b574 on its landing, its '
+        'remainders entered beside it each with the author`s word as trigger', 'DISCHARGED-BY-READING', 'OT', 11794, 'CLOSED AT ITS LANDING'),
+    'W-ORD-KEIPER-FACE': ('OT', 11704, '**W-ORD-LI-THREE-WAY’s agreement**', True, 'the author placed it in the research order at b660-b661 '
+        '(OPEN_TRAILS :14104), after the v0.19 and v0.26 Keiper statements; not acted since', 'CARRY', 'OT', 14104, 'then W-ORD-KEIPER-FACE (:11704)'),
+    'W-ORD-SIMPLICITY-FACE': ('OT', 12018, '**Trigger:** the author’s word. **SIMPLICITY_OF_RIEMANN_ZEROS’ edition is HELD', False, 'the word was '
+        'given and the face landed at b596 (v0.17); its b631 registry item rides at W-ORD-NYMAN-BEURLING-FACE (:13163)', 'DISCHARGED-BY-READING',
+        'OT', 12272, 'has landed at b596'),
+    'W-ORD-PNT-CHI': ('OT', 12024, '**Off the critical path. Trigger:** the author’s word.', True, 'the author`s word, not given since b584',
+        'CARRY', 'FI', 6620, 'each priced and not started, trigger the author'),
+    'W-ORD-CONSTELLATION-RERUN': ('OT', 12096, '**Trigger:** before CP-8, or the author’s word sooner.', False, 'started and landed at b589',
+        'DISCHARGED-BY-READING', 'OT', 12128, 'STARTED AND LANDED'),
+    'W-ORD-SECOND-READER': ('OT', 12212, 'PRICED, NOT STARTED, trigger the author’s word, its form fixed now', False, 'its named batch (:12542) '
+        'ran at b620; the form has since been the house practice (FINDINGS :7701, :7921, :7995)', 'DISCHARGED-BY-READING', 'FI', 7422,
+        '## The second reader over the monograph'),
+    'W-ORD-QUANTIFIER-COLUMN': ('OT', 12270, 'one line in each page’s head naming the column. **Trigger:** the author’s word.', False,
+        'the generator landed at b622 with DENSITY', 'DISCHARGED-BY-READING', 'FI', 7470, 'W-ORD-QUANTIFIER-COLUMN with DENSITY'),
+    'W-ORD-VENDOR-FINALMULT': ('OT', 12294, 'Off the critical path. **Trigger:** the author’s word.', True, 'route (b) taken at b628; route (a), '
+        'the port, stays priced and not started on the author`s word', 'CARRY', 'OT', 13061, 'route (a), the port, stays priced and not started'),
+    'W-ORD-SEC-AXIOM-ARTEFACT': ('OT', 12334, '**Trigger:** the author’s word. **Reason:** a T2 grade', False, 'the artefact landed at b623, '
+        'v0.2.2', 'DISCHARGED-BY-READING', 'FI', 7498, 'W-ORD-SEC-AXIOM-ARTEFACT'),
+    'W-ORD-E0-INDUCTION': ('OT', 12444, 'W-ORD-E0-INDUCTION, priced, not started, the author’s word its trigger', False, 'the clause landed at b624 '
+        'in tools/e0_rule.py with its test', 'DISCHARGED-BY-READING', 'FI', 7516, 'W-ORD-E0-INDUCTION'),
+    'W-ORD-TAG-REMOTES': ('OT', 12597, 'W-ORD-TAG-REMOTES, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD', False, 'acted at b623: nine '
+        'cited tags pushed and read back, three recorded local', 'DISCHARGED-BY-READING', 'FI', 7496, 'H57a HOLDS'),
+    'W-ORD-PLATT-RUNG': ('OT', 12891, 'W-ORD-PLATT-RUNG, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD', False, 'the rung landed at b626, '
+        'v0.22', 'DISCHARGED-BY-READING', 'FI', 7567, 'W-ORD-PLATT-RUNG'),
+    'W-ORD-NYMAN-BEURLING-FACE': ('OT', 12893, 'W-ORD-NYMAN-BEURLING-FACE, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD', False, 'the face '
+        'landed at b629, v0.24; its b630-b631 registry items (:13131, :13161, :13163) ride under it, registry-read, not asserted',
+        'DISCHARGED-BY-READING', 'FI', 7639, 'SIDE-explicit-formula v0.24'),
+    'W-ORD-DEDEKIND-INSTANCE': ('OT', 12895, 'W-ORD-DEDEKIND-INSTANCE, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD', False, 'the instance '
+        'landed at b631, v0.25', 'DISCHARGED-BY-READING', 'FI', 7683, 'SIDE-explicit-formula v0.25'),
+    'W-ORD-MARGIN-BENCH': ('OT', 12897, 'W-ORD-MARGIN-BENCH, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD', False, 'the bench ran at b627',
+        'DISCHARGED-BY-READING', 'FI', 7591, 'W-ORD-MARGIN-BENCH'),
+    'W-ORD-GATE-FROM-ELABORATOR': ('OT', 13000, '**Trigger:** the author’s word; the finding of relay data/b625_section_vars.txt', False,
+        'the elaborated reader ran at b634 over SIDE-explicit-formula and at b637 over both kernels (OPEN_TRAILS :13339)', 'DISCHARGED-BY-READING',
+        'FI', 7751, 'W-ORD-GATE-FROM-ELABORATOR'),
+    'W-ORD-BINDER-GRAMMAR': ('OT', 13002, '**Trigger:** the author’s word. Not started.', False, 'the grammar landed at b637', 'DISCHARGED-BY-READING',
+        'FI', 7833, '## The binder grammar'),
+    'W-ORD-ZETA23-SERIAL-BUILD': ('OT', 13065, 'W-ORD-ZETA23-SERIAL-BUILD, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD', True, 'the author`s '
+        'word, not given since b628; the clone and cache kept at b629 (:13095)', 'CARRY', 'OT', 13095, 'THE CLONE AND THE CACHE, KEPT'),
+    'W-ORD-PROBE-HOLD': ('OT', 13119, 'W-ORD-PROBE-HOLD, entered here by the author’s answer to prompt 3, priced and not started, trigger the author’s word',
+        False, 'the edit landed at b630 (relay 9b01204d) with its test', 'DISCHARGED-BY-READING', 'RT', 919, 'W-ORD-PROBE-HOLD'),
+    'W-ORD-TABLE-RULE-GRADES': ('OT', 13133, 'W-ORD-TABLE-RULE-GRADES, PRICED, NOT STARTED, THE TRIGGER THE AUTHOR’S WORD', False, 'the rule`s grades '
+        'applied at b633 with the second reader, the table committed (FINDINGS :7701)', 'DISCHARGED-BY-READING', 'FI', 7705, 'W-ORD-TABLE-RULE-GRADES'),
+    'W-ORD-DAY1-PATCH-VERSIONS': ('OT', 13397, 'W-ORD-DAY1-PATCH-VERSIONS, PRICED, NOT STARTED, TRIGGER THE AUTHOR’S WORD', False, 'the seven companions '
+        'labelled under (R254)(7)', 'DISCHARGED-BY-READING', 'FI', 8039, 'the seven companions labelled'),
+    'W-ORD-STATEMENT-PIN': ('OT', 13487, 'TRIGGER THE NEXT NEW LOAD-BEARING DECLARATION, ACTED ON THE AUTHOR’S WORD', True, 'its first clause met '
+        'at every kernel act since b641 that added a load-bearing declaration (v0.27, v0.28, v0.29, v0.32-v0.34 among them) and not acted, its '
+        'second clause the author`s word, not given', 'CARRY', 'FI', 7951, 'W-ORD-STATEMENT-PIN priced at two acts'),
+    'W-ORD-PLATEAURAMP-DOCSTRING': ('OT', 13491, 'TRIGGER THE FIRST UNDERSTATES ROW OF THE REVIEW PASS', False, 'acted at b642, v0.26',
+        'DISCHARGED-BY-READING', 'FI', 7973, 'W-ORD-PLATEAURAMP-DOCSTRING acted'),
+    'W-ORD-EPSTEIN-ZQ': ('OT', 13493, 'TRIGGER A RULING TO BUILD IT', False, 'the ruling came at b663 and the instance was built at Q0 on named '
+        'premises, v0.29; the count field passed to W-ORD-EPSTEIN-COUNT and W-ORD-EPSTEIN-COUNT-LEAN', 'DISCHARGED-BY-READING', 'FI', 8537,
+        'The Epstein instance at Q0 on four named premises'),
+    'W-ORD-DEDEKIND-RHS-RESTATE': ('OT', 13495, 'TRIGGER THE PROVING ACT', False, 'the proving act was b642: the premise restated with a witness, '
+        'dedekind_rhs re-proved, v0.26', 'DISCHARGED-BY-READING', 'FI', 7965, 'dedekind_rhs re-proved'),
+    'W-ORD-LABEL-READER': ('OT', 13605, 'TRIGGER THE NEXT EDITION ACT', True, 'no act since b644 is recorded acting it by name (no later line of '
+        'OPEN_TRAILS or FINDINGS names it); the next edition act can', 'CARRY', 'FI', 8059, 'W-ORD-LABEL-READER entered'),
+    'W-ORD-SEAM-ROW': ('OT', 13846, 'Trigger: grown, by this act’s reading.', False, 'acted at b651', 'DISCHARGED-BY-READING', 'FI', 8233,
+        'W-ORD-SEAM-ROW acted'),
+    'W-ORD-STATUS-CELLS': ('OT', 14356, '**Trigger:** the next re-cut act’s step zero.', True, 'by its words it fired at the step zero of every '
+        're-cut act since b670, this act among them, and was not acted (reading 3 counts 75 orders without a status word, relay '
+        'data/b690_r3_orders.json); it can fire at the next re-cut act`s step zero', 'CARRY', 'FI', 8747, 'W-ORD-STATUS-CELLS entered (:14350)'),
+    'W-ORD-BESSEL-BOUND-TIGHTEN': ('OT', 14394, '**Trigger:** the next act that counts on Q0 after b671.', True, 'by its words it fired at the '
+        'acts after b671 that counted on Q0 and is not recorded acted (no later line of OPEN_TRAILS or FINDINGS names it); the next count act on '
+        'Q0 (W-ORD-EPSTEIN-COUNT-LEAN) can take it', 'CARRY', 'FI', 8767, 'W-ORD-BESSEL-BOUND-TIGHTEN'),
+}
+
+
+def triage(*a):
+    """data/b691_orders_triage.txt (.json), (R301)(5): reading 3's 35 open orders older than ten acts without a trigger met or a re-dating, each
+    with its OPEN_TRAILS line and entering act (reading 3's bank), its trigger as written (a needle standing at the cited line), whether it can
+    still fire and why, and its disposition with its ground (a needle standing at the cited line); each row through read_triage_row. No ledger
+    is written; the bank is raised at b692."""
+    rows, miss = _order_rows()
+    src = {'OT': rd(OT).split(NL), 'FI': rd(FIND).split(NL), 'RT': rd(os.path.join(T, 'chain_page.py')).split(NL)}
+    name_of = {'OT': 'PLACE-papers OPEN_TRAILS.md', 'FI': 'PLACE-papers FINDINGS.md', 'RT': 'relay tools/chain_page.py'}
+    bad, out = [], []
+    for r in rows:
+        t = TRIAGE.get(r['name'])
+        if t is None:
+            bad.append('%s: NO DISPOSITION' % r['name'])
+            continue
+        tf, tl, tn, cf, why, dsp, gf, gl, gn = t
+        if tn not in src[tf][tl - 1]:
+            bad.append('%s: THE TRIGGER %r NOT AT %s :%d' % (r['name'], tn, tf, tl))
+        if gn not in src[gf][gl - 1]:
+            bad.append('%s: THE GROUND %r NOT AT %s :%d' % (r['name'], gn, gf, gl))
+        row = dict(name=r['name'], line=r['line'], act=r['act'], age=r['age'], status=r['status'], trigger=tn,
+                   trigger_at='%s :%d' % (name_of[tf], tl), can_fire=cf, why=why, disposition=dsp, ground='%s :%d ("%s")' % (name_of[gf], gl, gn))
+        read_triage_row(row)
+        out.append(row)
+    extra = [n for n in TRIAGE if n not in [r['name'] for r in rows]]
+    if bad or miss or extra:
+        sys.exit('### REFUSED -- NOTHING WRITTEN:\n  ' + '\n  '.join(bad + ['NOT IN READING 3`S BANK: %s' % miss] * bool(miss) +
+                                                                  ['A DISPOSITION FOR NO ORDER: %s' % extra] * bool(extra)))
+    import collections
+    cnt = collections.Counter(r['disposition'] for r in out)
+    L = ['b691 -- COMPONENT 4 (5), (R301)(5): THE STALE ORDERS TRIAGED (%s)' % utc(), '',
+         '### the orders: reading 3`s 35 (relay data/b690_r3_orders.json unsteady_names; b670`s steadiness predicate, tools/b670_record.py :926, the age',
+         '### from 690: open, older than ten acts, the status neither a trigger met nor a re-dating). Each row: the order and its OPEN_TRAILS line, the',
+         '### entering act and its status as reading 3 read them; the trigger as written (its words standing at the cited line, checked by this tool);',
+         '### whether it can still fire and why; the disposition -- CARRY, DISCHARGED-BY-READING (the reading cited by path and line, its words',
+         '### checked there) or RETIRE (its reason). The dispositions are the seat`s hand-read of every line naming each order in OPEN_TRAILS and',
+         '### FINDINGS (tools/b691_record.py triage_read). No ledger written; raised at b692.', '']
+    for r in out:
+        L += ['  %-30s OPEN_TRAILS :%-6d %-5s age %-3d status %r' % (r['name'], r['line'], r['act'], r['age'], r['status']),
+              '      TRIGGER (%s): %s' % (r['trigger_at'], r['trigger']),
+              '      CAN STILL FIRE: %s -- %s' % ('YES' if r['can_fire'] else 'NO', r['why']),
+              '      DISPOSITION: %s -- %s' % (r['disposition'], r['ground'])]
+    L += ['', '### ### **ORDERS %d ; CARRY %d ; DISCHARGED-BY-READING %d ; RETIRE %d ; EVERY TRIGGER AND GROUND STANDING AT ITS LINE ; NO LEDGER '
+          'WRITTEN.**' % (len(out), cnt['CARRY'], cnt['DISCHARGED-BY-READING'], cnt['RETIRE'])]
+    print(NL.join(L[-1:]))
+    if 'dry' in a:
+        return
+    put_txt('b691_orders_triage.txt', L)
+    put_json('b691_orders_triage.json', dict(at=utc(), rows=out, counts=dict(cnt)))
+
+
 # ================================================================================ COMPONENT 3: THE RUN, the author's word on the (R301)(3) prompt (option 1)
 GEN_PAGES = (('PATHS', 'phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md'), ('RCURVE', 'phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md'))
 GEN_STEM = 'b691_correspondence_run'
@@ -943,7 +1126,7 @@ def rundiff(*a):
 
 
 ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, tie=tie, runner=runner, prints=prints, quote=quote, cut=cut, behind=behind,
-              gensnap=gensnap, genrun=genrun, rundiff=rundiff)
+              gensnap=gensnap, genrun=genrun, rundiff=rundiff, triage_read=triage_read, triage=triage)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
