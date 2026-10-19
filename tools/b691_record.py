@@ -390,7 +390,60 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers)
+# ================================================================================ COMPONENT 2: THE TIE, (R301)(2) -- the rule and the rows printed before any naming
+TIE_DOCS = (('SIDE-archimedean', 100, 'b647_table_SIDE-archimedean.txt'), ('SIDE-rcurve', 113, 'b647_table_SIDE-rcurve.txt'))
+
+
+def tie(*a):
+    """data/b674_rules.txt row (2) printed verbatim (:8-:11), then each tied document's row of data/b670_licensed_table.txt and the verdict of
+    its per-document table, read by line; the rule applied clause by clause in its own order -- equal OVERREACHES; a declared suite failure
+    (b690's face, its declaration line); the count of rows outside LICENSED/CITED of any kind (UNDERSTATES counted); the larger table -- and
+    only then the document named. data/b691_tie.txt (.json)."""
+    rl = rdn('b674_rules.txt').split(NL)[7:11]
+    if not rl or not rl[0].startswith('  (2) THE TIE-BREAK BEYOND THE COUNT'):
+        sys.exit('### data/b674_rules.txt :8 DOES NOT CARRY ROW (2) -- NOTHING WRITTEN')
+    lt = rdn('b670_licensed_table.txt').split(NL)
+    face = rdn(os.path.basename(K.B690_FACE))
+    decl = re.search(r'THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:\*\* ([^.]*)\.', face)
+    docs = []
+    for k, ln, tb in TIE_DOCS:
+        row = lt[ln - 1]
+        if not row.startswith('  %s docstrings' % k):
+            sys.exit('### data/b670_licensed_table.txt :%d IS NOT %s`s ROW -- NOTHING WRITTEN' % (ln, k))
+        t = rdn(tb)
+        v = re.search(r'ROWS (\d+) ; MATCHES (\d+) ; UNDERSTATES (\d+) ; OVERREACHES (\d+) ; UNLICENSED (\d+)', t)
+        vl = [l for l in t.split(NL) if l.startswith('### ### **%s: ROWS' % k)]
+        docs.append(dict(kernel=k, line=ln, row=row.strip(), table=tb, verdict=vl[0] if vl else '', rows=int(v.group(1)), under=int(v.group(3)),
+                         over=int(v.group(4)), unlic=int(v.group(5)), failing=bool(decl and k in decl.group(1))))
+    L = ['b691 -- COMPONENT 2, (R301)(2): THE TIE AT 2 AND b674`S TIE-BREAK RULE, PRINTED BEFORE EITHER DOCUMENT IS NAMED (%s)' % utc(), '',
+         '### THE RULE, VERBATIM FROM relay data/b674_rules.txt :8-:11:'] + ['  ' + l for l in rl] + [
+         '', '### THE TABLE ROWS, VERBATIM (relay data/b670_licensed_table.txt), AND EACH DOCUMENT`S TABLE VERDICT:']
+    for d in docs:
+        L += ['  :%d  %s' % (d['line'], d['row']), '       relay data/%s: %s' % (d['table'], d['verdict'])]
+    steps = []
+    a_, b_ = docs
+    steps.append(('equal OVERREACHES counts', a_['over'] == b_['over'], '%s %d, %s %d' % (a_['kernel'], a_['over'], b_['kernel'], b_['over'])))
+    steps.append(('neither carries a declared suite failure (b690`s face, its declaration: %s)' % (decl.group(1) if decl else '### UNREAD'),
+                  not a_['failing'] and not b_['failing'], 'NONE named' if not (a_['failing'] or b_['failing']) else 'named'))
+    anyk = lambda d: d['over'] + d['under'] + d['unlic']   # noqa: E731
+    steps.append(('the count of rows outside LICENSED/CITED of any kind (UNDERSTATES counted)', None,
+                  '%s %d, %s %d' % (a_['kernel'], anyk(a_), b_['kernel'], anyk(b_))))
+    if anyk(a_) != anyk(b_):
+        cut, why = (a_ if anyk(a_) > anyk(b_) else b_), 'the greater count of any kind'
+    elif a_['rows'] != b_['rows']:
+        cut, why = (a_ if a_['rows'] > b_['rows'] else b_), 'the counts of any kind equal; the larger table (%s %d rows, %s %d)' % (
+            a_['kernel'], a_['rows'], b_['kernel'], b_['rows'])
+    else:
+        cut, why = None, 'the counts and the tables equal -- the rule does not decide; raised'
+    L += ['', '### THE RULE APPLIED, CLAUSE BY CLAUSE IN ITS OWN ORDER:'] + ['  %s: %s (%s)' % (s, '' if ok is None else ok, w) for s, ok, w in steps] + [
+        '  the larger table: %s' % why,
+        '', '### ### **THE TIE BROKEN BY b674`S ROW (2): %s IS CUT -- %s.**' % (cut['kernel'] if cut else '### NONE', why)]
+    put_txt('b691_tie.txt', L)
+    put_json('b691_tie.json', dict(at=utc(), rule=rl, docs=docs, cut=cut['kernel'] if cut else None, why=why))
+    print(NL.join(L))
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, c1=c1, answers=answers, tie=tie)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
