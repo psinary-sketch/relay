@@ -1,0 +1,49 @@
+b692 -- COMPONENT 2, (R302)(3)(a): THE CLOSURE STEP ON THE HOSTED RUNNER (2026-10-19)
+
+### rows are the step's objects in the order they were made: the commits on SIDE-explicit-formula's main, the runs read by their ids, the
+### prints compared, the price kept, the banks. No lean on this host; one dispatch per tree state, each run read by its id, each artifact's
+### sha256 equal to the platform's digest before any reading was taken from it.
+
+  THE SCRIPT AND THE STEP   SIDE-explicit-formula main, three commits, each the script or the step alone (b676's form; no source module, no tag):
+                              ccec1ba  CircuitClosure.lean at the root (imported by no module) and the workflow's closure step (build-module.yml)
+                              59a867c  the script's record count typed as Nat (run 39337850198's refusal: the numeral unified with MessageData)
+                              4313875  the script's command without the heartbeat ceiling (run 39339047763: 2617 records, then the one command's
+                                       200000 heartbeats ran out at whnf, a runtime exception no tryCatch takes)
+                            each pushed by tools/push_gated.sh and read back at the remote (relay data/b692_closure_main_push_out.txt,
+                            data/b692_closure_main_2_push_out.txt, data/b692_closure_main_3_push_out.txt)
+  THE TRAVERSAL             Lean.collectAxioms per programme constant (the traversal #print axioms makes) and, widened, the same traversal (a
+                            constant's type; a definition's, theorem's or opaque's value; an inductive's constructors) collecting every
+                            programme constant reached -- a programme module one not of Lean, Mathlib or their libraries; the traversal stops at
+                            the library's edge, since a library constant reaches no programme constant. Each record: name, module, kind, line,
+                            type class (alpha-equivalent types share one), type hash, axioms, binders (name, Prop or not, the programme
+                            constants the binder's type names), closure (programme names, internal auxiliaries traversed and not listed)
+  THE BEFORE PRINTS         main e5fcda7's tree 0add5a12 = c5aa058's, built by b691's run 39312568167 (relay data/b691_axioms_SIDE-explicit-formula_after.txt,
+                            72 terminals); no dispatch repeated a tree state
+  RUN 1  39337850198        at ccec1ba (tree d0eddc03), the target the kernel's 179 modules; 22:51:46Z to 23:01:51Z, 605 s; success; artifact
+                            12228321842 sha256 360a566a... AGREE; build exit 0; 72 of 72 printed, the standard three alone; the closure step
+                            REFUSED (relay data/b692_closurelog_SIDE-explicit-formula_after.txt: three errors from one line); prints equal line
+                            for line to the before bank
+  RUN 2  39339047763        at 59a867c (tree c4f6cc6b); 23:02:43Z to 23:11:46Z, 543 s; success; artifact 12228412627 sha256 17bc7bb0... AGREE;
+                            72 of 72 printed; the closure step wrote 2617 records and no header, then the heartbeat ceiling (relay
+                            data/b692_closurelog_SIDE-explicit-formula_after2.txt); its partial bank kept under its own tip (relay
+                            data/b692_circuit_SIDE-explicit-formula_v0.34.1_59a867c.jsonl.gz and _hashes.txt), not read by the reader
+  RUN 3  39340192180        at 4313875 (tree 58a8bbe3); 23:13:20Z to 23:23:52Z, 632 s; success; artifact 12228264471 sha256 19df2b6b... AGREE;
+                            build exit 0; memory low 12647 MB; 72 of 72 printed, the standard three alone, sorryAx 0; the closure step's log
+                            "closure records 3365 ; programme modules 179"; THE CLOSURE BANK relay
+                            data/b692_circuit_SIDE-explicit-formula_v0.34.1_4313875.jsonl.gz (323431 bytes, sha256 cc812a2f...), its text hashes
+                            bank data/b692_circuit_SIDE-explicit-formula_v0.34.1_4313875_hashes.txt; records 3365, the header's count 3365,
+                            programme modules 179 (every module of the target; no library module among them)
+  THE PRINTS                relay data/b692_prints_SIDE-explicit-formula.txt: the before bank's 72 terminals against run 3's, "EACH PRINTED AFTER
+                            True ; DIFFERING 0 ; NEW 0 ; EQUAL LINE FOR LINE True" (run 1's the same)
+  THE MODULES               git diff e5fcda7 4313875: .github/workflows/build-module.yml (+17) and CircuitClosure.lean (+97) alone; over
+                            SIDEExplicitFormula, Zeta23, Vendored, print_targets.txt and lakefile.toml EMPTY; no tag at ccec1ba, 59a867c or
+                            4313875; v0.34 = 8fbc27b and v0.34.1 = e5fcda7 unmoved
+  THE TAG IN THE NAME       the tip 4313875 carries v0.34.1's tree beside the script; the ruling's "at v0.34" read as the kernel's main, whose
+                            tag is v0.34.1 (EpsteinQ0 docstrings and twelve print-list names since v0.34), the bank named v0.34.1
+  THE PRICE                 4 dispatches x 414 s = 1656 s (relay data/b692_stepzero.txt); the faces kernels' runs' own times: 605 + 543 + 632
+                            = 1780 s, passing the price at SIDE-explicit-formula, the first faces kernel; ### THE STEP STOPS AFTER IT; the faces
+                            kernel not reached, SIDE-lv-conservation (relay data/b690_nodes_zeta.txt :126; the faces page :731), carried to
+                            b694 by name ((R302)(9)); the shorts control's dispatch of (R302)(3)(b) is its own order, run at Component 3
+
+### ### **THE STEP ON SIDE-explicit-formula: 3 COMMITS, 3 RUNS, THE THIRD WHOLE -- RECORDS 3365, PROGRAMME MODULES 179 ; PRINTS EQUAL LINE FOR LINE ;
+### THE MODULES UNTOUCHED, NO TAG ; THE PRICE 1656 s PASSED AT 1780 s ; SIDE-lv-conservation CARRIED TO b694.**

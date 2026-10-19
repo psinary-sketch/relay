@@ -401,7 +401,206 @@ def c1(*a):
          dry=dry)
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1)
+# ================================================================================ COMPONENT 2: THE CLOSURE STEP ON THE RUNNER, (R302)(3)(a)
+STD3 = ('propext', 'Classical.choice', 'Quot.sound')
+# ### each kernel's libraries as its lakefile gives them: (the tree path, the module prefix the path maps to); a module is a .lean file under
+# ### the path, its name the path's dotted form under the library's srcDir
+LIBS = {'SIDE-explicit-formula': (('SIDEExplicitFormula/', ''), ('Zeta23/', ''), ('Vendored/Bulka/Lc/', 'Vendored/Bulka/'),
+                                  ('Vendored/Bulka/Hadamard/', 'Vendored/Bulka/'), ('Vendored/Bulka/FunctionsOfOneComplexVariable/', 'Vendored/Bulka/'))}
+
+
+def target_of(kernel, rev):
+    """every module of the kernel's libraries at rev, read from git's tree listing (no filter), dotted under each library's srcDir."""
+    mods = []
+    for path, src in LIBS[kernel]:
+        for f in g('D:/' + kernel, 'ls-tree', '-r', '--name-only', rev, '--', path).split(NL):
+            f = f.strip()
+            if f.endswith('.lean'):
+                mods.append(f[len(src):-len('.lean')].replace('/', '.'))
+    return mods
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def dispatch(*a):
+    """`dispatch <kernel> <ref sha> <label> [dry]`: ONE dispatch of build-module.yml at main with the ref input, the target every module of
+    the kernel's libraries at the ref; refused where data/b692_dispatches.json already carries the ref's tree (one dispatch per tree state).
+    The run id read from the run list (the newest workflow_dispatch run created after the dispatch); a row banked."""
+    kernel, ref, label = a[0], a[1], a[2]
+    repo = 'psinary-sketch/' + kernel
+    full = g('D:/' + kernel, 'rev-parse', ref).strip()
+    tree = g('D:/' + kernel, 'rev-parse', full + '^{tree}').strip()
+    j = jl('b692_dispatches.json') if os.path.isfile(os.path.join(D, 'b692_dispatches.json')) else {}
+    rows = j.get('rows') or []
+    seen = [r for r in rows if r.get('tree') == tree] + [dict(tree=tree, run_id=39312568167)] * (tree == '0add5a12761f111d502ed95452f84b28a467f33a')
+    if seen:
+        sys.exit('### THE TREE %s IS ALREADY BUILT (run %s) -- NOT DISPATCHED' % (tree[:12], seen[0].get('run_id')))
+    mods = target_of(kernel, full)
+    target = ' '.join(mods)
+    print('  kernel %s ; ref %s ; tree %s ; modules %d ; target %d characters' % (kernel, full, tree, len(mods), len(target)))
+    if 'dry' in a:
+        return
+    t0 = utc()
+    rc, out, err = _gh('workflow', 'run', 'build-module.yml', '-R', repo, '--ref', 'main', '-f', 'ref=' + full, '-f', 'target=' + target)
+    if rc != 0:
+        sys.exit('### THE DISPATCH REFUSED: %s' % err[-400:])
+    run_id = None
+    for _i in range(12):
+        time.sleep(5)
+        rc, out, err = _gh('run', 'list', '-R', repo, '--workflow', 'build-module.yml', '--event', 'workflow_dispatch', '--limit', '5', '--json',
+                           'databaseId,createdAt,status')
+        new = [r for r in json.loads(out or b'[]') if r.get('createdAt', '') >= t0]
+        if new:
+            run_id = sorted(new, key=lambda r: r['createdAt'])[-1]['databaseId']
+            break
+    rows.append(dict(kernel=kernel, label=label, ref=full, tree=tree, modules=len(mods), dispatched=t0, run_id=run_id))
+    put_json('b692_dispatches.json', dict(rows=rows))
+    print('  dispatched %s ; run id %s' % (t0, run_id))
+
+
+def _deps(ax):
+    """the axioms output read per terminal: [(name, [axioms] or None for 'does not depend on any axioms')], wrapped lists rejoined."""
+    out = []
+    for n, d in re.findall(r"^'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)",
+                           re.sub(r'\n(?=[ \t]*[A-Za-z_.]+[,\]])', ' ', ax), re.M):
+        out.append((n, [x.strip() for x in d.split('[', 1)[1].rstrip(']').split(',') if x.strip()] if d.startswith('depends') else []))
+    return out
+
+
+def runner(*a):
+    """`runner <kernel> <run id> <ref> <label> <tag> <note...>`: the kernel's run read by its id; the artifact listed, downloaded by its id into
+    memory, its sha256 against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP;
+    the axioms output of the print step banked whole, every name of the list matched to one printed line; the closure step's out/closure.jsonl.gz
+    banked as a binary bank data/b692_circuit_<kernel>_<tag>_<tip>.jsonl.gz beside its text hashes bank (data/b680_rules.txt row (1)).
+    data/b692_runner_<kernel>_<label>.txt, data/b692_axioms_<kernel>_<label>.txt and a row of data/b692_runner_rows.json."""
+    import gzip
+    import hashlib
+    import io as _io
+    import zipfile
+    kernel, run_id, ref, label, tag, note = a[0], int(a[1]), a[2], a[3], a[4], ' '.join(a[5:])
+    repo = 'psinary-sketch/' + kernel
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    row = dict(kernel=kernel, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+               stopped=False, build_exit=None, errors=[], axioms_sha256=None, closure=None)
+    L = ['b692 -- THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (kernel, label.upper(), utc()), '',
+         '### the dispatch: %s ; the ref input %s' % (note, ref),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+             run.get('updatedAt'))]
+    T_, B_ = {}, {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    B_[n] = z.read(n)
+                    if not n.endswith('.gz'):
+                        T_[n] = B_[n].decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    row['axioms_sha256'] = hashlib.sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    deps = _deps(ax)
+    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+    printed = [n for n, _d in deps]
+    unmatched = [n for n in tg if n not in printed]
+    outside = [(n, d) for n, d in deps if not set(d) <= set(STD3)]
+    clog = T_.get('closure_log.txt', '').rstrip(NL)
+    gzb = B_.get('closure.jsonl.gz')
+    cl_rows, cl_head = 0, {}
+    if gzb:
+        txt = gzip.decompress(gzb).decode('utf-8')
+        lines = [l for l in txt.split(NL) if l.strip()]
+        cl_head = json.loads(lines[-1]) if lines and '"header"' in lines[-1] else {}
+        cl_rows = len(lines) - (1 if cl_head else 0)
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d:' % (row['build_exit'], len(row['errors']))] + ['    ' + l for l in row['errors'][:40]] + [
+          '### the log`s last lines:'] + ['    ' + l for l in blog.rstrip(NL).split(NL)[-6:]] + [
+          '### the closure step: its log`s last lines:'] + ['    ' + l for l in clog.split(NL)[-8:]] + [
+          '### the closure bank: %s' % (('out/closure.jsonl.gz %d bytes, sha256 %s ; records %d ; the header`s count %s ; programme modules %d' % (
+              len(gzb), hashlib.sha256(gzb).hexdigest(), cl_rows, cl_head.get('records'), len(cl_head.get('modules') or []))) if gzb else '### NONE IN THE ARTIFACT'),
+          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; axiom-free %d ; '
+          'sorryAx %d ; outside the standard three %d ; refused %s' % (
+              len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg), sum(1 for _n, d in deps if not d),
+              sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### rows are terminals: name | the axioms printed | within the standard three:']
+    L += ['  %-62s %s %s' % (n, d, 'STD3' if set(d) <= set(STD3) else '### OUTSIDE') for n, d in deps]
+    L += ['  %-62s ### NOT PRINTED' % n for n in unmatched]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and not outside
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    tip = (run.get('headSha') and ref[:7]) or ref[:7]
+    if gzb and row['artifact_sha256']:
+        stem = 'b692_circuit_%s_%s_%s' % (kernel, tag, tip)
+        p = os.path.join(D, stem + '.jsonl.gz')
+        open(p + '.tmp', 'wb').write(gzb)
+        os.replace(p + '.tmp', p)
+        row['closure'] = dict(bank=stem + '.jsonl.gz', sha256=hashlib.sha256(gzb).hexdigest(), bytes=len(gzb), records=cl_rows)
+        put_txt(stem + '_hashes.txt', [
+            'b692 -- THE CLOSURE BANK`S HASHES, %s AT %s (the tip %s), BY THE RUNNER (%s)' % (kernel, tag, ref, utc()), '',
+            '### rows are binary banks this text bank roots (data/b680_rules.txt row (1)): the bank | sha256 | bytes | the run | the artifact.',
+            '  data/%s.jsonl.gz | %s | %d | run %d | artifact %s sha256 %s' % (stem, row['closure']['sha256'], len(gzb), run_id, art.get('id'),
+                                                                            row['artifact_sha256']),
+            '', '### ### **RECORDS %d ; THE HEADER`S COUNT %s ; PROGRAMME MODULES %d ; THE REF %s.**' % (
+                cl_rows, cl_head.get('records'), len(cl_head.get('modules') or []), ref)])
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; '
+          'OUTSIDE THE STANDARD THREE %d ; CLOSURE RECORDS %d ; GATE %s.**' % (
+              run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']),
+              len(deps), len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), cl_rows, row['gate'])]
+    read_runner_row(row)
+    put_txt('b692_runner_%s_%s.txt' % (kernel, label), L)
+    if row['artifact_sha256']:
+        put_txt('b692_axioms_%s_%s.txt' % (kernel, label), ax.split(NL) if ax else ['### EMPTY'])
+        put_txt('b692_buildlog_%s_%s.txt' % (kernel, label), blog.rstrip(NL).split(NL))
+        put_txt('b692_closurelog_%s_%s.txt' % (kernel, label), clog.split(NL) if clog else ['### EMPTY'])
+    j = jl('b692_runner_rows.json') if os.path.isfile(os.path.join(D, 'b692_runner_rows.json')) else {}
+    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (kernel, label)] + [row]
+    put_json('b692_runner_rows.json', dict(rows=rows))
+    print(NL.join(L[:8] + [l for l in L if l.startswith('### the closure')] + L[-1:]))
+
+
+def prints(*a):
+    """`prints <kernel> <before bank> <after bank>`: the 'before' terminals' printed lines compared with the same names' lines in the 'after'
+    bank, line for line by name; the raw axioms banks compared byte for byte beside. data/b692_prints_<kernel>.txt."""
+    kernel, bb, ab = a[0], a[1], a[2]
+    b, f = rdn(bb), rdn(ab)
+    if not b or not f:
+        sys.exit('### A PRINT BANK IS MISSING -- NOTHING WRITTEN')
+    bd, fd = dict(_deps(b)), dict(_deps(f))
+    diff = [(n, bd[n], fd.get(n)) for n in bd if fd.get(n) != bd[n]]
+    new = [n for n in fd if n not in bd]
+    L = ['b692 -- THE PRINTS OF %s BEFORE AND AFTER THE CLOSURE STEP, BY NAME AND LINE FOR LINE (%s)' % (kernel, utc()), '',
+         '### before: relay data/%s (%d terminals) ; after: relay data/%s (%d terminals) ; the two banks equal line for line: %s ; rows are the '
+         'terminals that differ:' % (bb, len(bd), ab, len(fd), b == f)] + (['    %s : %s | %s' % d for d in diff] or ['    NONE']) + [
+        '### the names printed after and not before: %d' % len(new)] + ['    %s %s' % (n, fd[n]) for n in new]
+    L += ['', '### ### **BEFORE %d TERMINALS ; EACH PRINTED AFTER %s ; DIFFERING %d ; NEW %d ; EQUAL LINE FOR LINE %s.**' % (
+        len(bd), all(n in fd for n in bd), len(diff), len(new), b == f)]
+    put_txt('b692_prints_%s.txt' % kernel, L)
+    print(L[-1])
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, dispatch=dispatch, runner=runner, prints=prints)
 
 if __name__ == '__main__':
     r = sys.argv[1] if len(sys.argv) > 1 else ''
