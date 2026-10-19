@@ -1,5 +1,5 @@
 {
- "at": "2026-10-19T15:31:23Z",
+ "at": "2026-10-19T16:21:21Z",
  "rows": [
   {
    "act": "b674",
@@ -70,8 +70,8 @@
    "head": "A BINARY BANK IS ROOTED THROUGH A TEXT HASHES BANK",
    "bank": "data/b680_rules.txt :5",
    "arm": "NONE",
-   "how": "by hand: a binary bank beside its text hashes bank -- the root`s items show it; no arm reads it",
-   "sort": "TRACEABLE"
+   "how": "by hand: a binary bank beside its text hashes bank -- the root`s items show it at every act; no arm reads it",
+   "sort": "TRACEABLE, LIVE"
   },
   {
    "act": "b681",
@@ -124,8 +124,8 @@
    "head": "ONE CALL PER SUITE PART, EACH ITS OWN MESSAGE",
    "bank": "data/b685_rules.txt :5",
    "arm": "NONE",
-   "how": "by hand: one call per suite part, each its own message -- the command capture shows it; no arm reads it",
-   "sort": "TRACEABLE"
+   "how": "by hand: one call per suite part, each its own message -- the command capture shows it at every act; no arm reads it",
+   "sort": "TRACEABLE, LIVE"
   },
   {
    "act": "b685",
@@ -160,8 +160,8 @@
    "head": "A BAND COUNTED BY THE ARGUMENT PRINCIPLE IS PRICED FROM b667'S RUN RECORD BEFORE IT IS RUN",
    "bank": "data/b688_rules.txt :5",
    "arm": "NONE",
-   "how": "by hand: a band priced from b667`s run record before it runs -- a plan bank`s row shows it; no arm reads it",
-   "sort": "TRACEABLE"
+   "how": "by hand: a band priced from b667`s run record before it runs -- a plan bank`s row would show it; no band counted by the argument principle since b688, so an arm would read VACUOUS until one is",
+   "sort": "TRACEABLE, VACUOUS"
   },
   {
    "act": "b690",
@@ -187,16 +187,17 @@
    "head": "THE NAVIGATOR`S: A FERRY ON LONG LINES, NO QUOTED LINE BROKEN BY A HARD WRAP",
    "bank": "data/b690_rules.txt (to be banked at Component 3)",
    "arm": "NONE",
-   "how": "by hand: the ruling (R300)(5) -- the navigator`s rule on the ferry; the seat`s ferry check reads it, no arm",
-   "sort": "PROSE (the navigator`s, binding the ferry)"
+   "how": "by hand: the ruling (R300)(5) -- the navigator`s rule on the ferry, binding from b690; no sort ordered, no arm",
+   "sort": "NOT SORTED (the ruling sorts (1) and (2) alone)"
   }
  ],
  "counts": {
   "ARMED": 13,
-  "TRACEABLE": 3,
+  "TRACEABLE, LIVE": 2,
   "PROSE": 2,
+  "TRACEABLE, VACUOUS": 1,
   "NOT SORTED (b691)": 2,
-  "PROSE (the navigator`s, binding the ferry)": 1
+  "NOT SORTED (the ruling sorts (1) and (2) alone)": 1
  },
  "armed": 13
 }

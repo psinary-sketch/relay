@@ -319,11 +319,12 @@ HAND_ARMS = {('b681', 1): ('G-ACTROOT-VERIFY', 'standing: the chain read through
              ('b681', 3): ('G-ROOT-BANKS-COMMITTED', 'standing from (R291)(4)'),
              ('b685', 2): ('G-EDIT-ROUTE', 'standing: sed in any form read beside edit_route.py`s arms (b687`s repair)'),
              ('b686', 1): ('G-SCORER-READS-BANKS, G-ENTRY-SCORES-EQUAL', 'act-local at every act since b686')}
-HAND_SORT = {('b680', 1): ('TRACEABLE', 'a binary bank beside its text hashes bank -- the root`s items show it; no arm reads it'),
+HAND_SORT = {('b680', 1): ('TRACEABLE, LIVE', 'a binary bank beside its text hashes bank -- the root`s items show it at every act; no arm reads it'),
              ('b682', 1): ('PROSE', 'the author`s word ordering arms for the traceable rules; done by b683`s twenty arms'),
-             ('b685', 1): ('TRACEABLE', 'one call per suite part, each its own message -- the command capture shows it; no arm reads it'),
+             ('b685', 1): ('TRACEABLE, LIVE', 'one call per suite part, each its own message -- the command capture shows it at every act; no arm reads it'),
              ('b687', 1): ('PROSE', 'the author`s amendment of a landing criterion; it orders a reading, not an act a bank shows'),
-             ('b688', 1): ('TRACEABLE', 'a band priced from b667`s run record before it runs -- a plan bank`s row shows it; no arm reads it')}
+             ('b688', 1): ('TRACEABLE, VACUOUS', 'a band priced from b667`s run record before it runs -- a plan bank`s row would show it; no band counted '
+                           'by the argument principle since b688, so an arm would read VACUOUS until one is')}
 B690_RULES = (('b690', 1, 'AFTER THE SEAL, THE ENTRY, THE DRY ENTRY AND THE TRAIL READ THROUGH THE READ TOOL OR THE RECORD TOOL`S PRINT'),
               ('b690', 2, 'AT A RE-CUT, EACH LINE THE CUT REMOVES OR CHANGES SEARCHED ACROSS THE KERNEL`S SOURCE TREE'),
               ('b690', 3, 'THE NAVIGATOR`S: A FERRY ON LONG LINES, NO QUOTED LINE BROKEN BY A HARD WRAP'))
@@ -353,18 +354,24 @@ def rules(*a):
     for act, n, h in B690_RULES:
         rows.append(dict(act=act, row=n, head=h, bank='data/b690_rules.txt (to be banked at Component 3)', arm='NONE',
                          how=('by hand: the ruling (R300)(5) -- its arm sorted at b691 by data/b683_arms_sort.txt`s rule, not added this act' if n in (1, 2)
-                              else 'by hand: the ruling (R300)(5) -- the navigator`s rule on the ferry; the seat`s ferry check reads it, no arm'),
-                         sort='NOT SORTED (b691)' if n in (1, 2) else 'PROSE (the navigator`s, binding the ferry)'))
+                              else 'by hand: the ruling (R300)(5) -- the navigator`s rule on the ferry, binding from b690; no sort ordered, no arm'),
+                         sort='NOT SORTED (b691)' if n in (1, 2) else 'NOT SORTED (the ruling sorts (1) and (2) alone)'))
     c = collections.Counter(r['sort'] for r in rows)
     L = ['b690 -- COMPONENT 2 (viii), (R300)(3): THE RULES CENSUS OVER EVERY RULES BANK b674 THROUGH b690 (%s)' % utc(), '', HEAD,
          '### the banks: %s (no rules bank at b676, b679, b683 or b689); b690`s three rules from (R300)(5), banked at Component 3. Each rule`s arm' % ', '.join(banks),
          '### by code where tools/rule_arms.py names its bank row; by hand where a harness arm reads it (HAND_ARMS) or none does (HAND_SORT, the sort',
-         '### of data/b683_arms_sort.txt :6-:8). Rows are rules:']
+         '### of data/b683_arms_sort.txt :3-:8, its SORT TRACEABLE or PROSE and its STATE LIVE or DECLARATION-ONLY, an arm reading VACUOUS). The',
+         '### ruling`s words, "each rule`s arm or its PROSE/VACUOUS sort": an unarmed rule is PROSE, or TRACEABLE and VACUOUS; a TRACEABLE rule',
+         '### whose trace is LIVE and that has no arm fits neither word, and is named so below. Rows are rules:']
     L += ['  %s row (%d) %-110s | %s | %s | %s | %s' % (r['act'], r['row'], r['head'], r['bank'], r['sort'], r['arm'], r['how']) for r in rows]
     armed = [r for r in rows if r['sort'] == 'ARMED']
-    L += ['', '### ### **RULES %d ; WITH AN ARM %d (BY CODE %d, BY HAND %d) ; TRACEABLE WITHOUT AN ARM %d ; PROSE %d ; NOT YET SORTED %d.**' % (
+    live = [r for r in rows if r['sort'] == 'TRACEABLE, LIVE']
+    L += ['', '### TRACEABLE, LIVE AND WITHOUT AN ARM -- neither PROSE nor VACUOUS in the ruling`s words: %s' % (
+        ', '.join('%s row (%d)' % (r['act'], r['row']) for r in live) or 'NONE'),
+          '', '### ### **RULES %d ; WITH AN ARM %d (BY CODE %d, BY HAND %d) ; PROSE %d ; TRACEABLE AND VACUOUS %d ; TRACEABLE, LIVE AND WITHOUT AN ARM %d ; '
+          'NOT YET SORTED %d.**' % (
         len(rows), len(armed), sum(1 for r in armed if r['how'].startswith('by code')), sum(1 for r in armed if r['how'].startswith('by hand')),
-        c['TRACEABLE'], sum(v for k, v in c.items() if k.startswith('PROSE')), c['NOT SORTED (b691)'] + c['UNSORTED'])]
+        c['PROSE'], c['TRACEABLE, VACUOUS'], len(live), sum(v for k, v in c.items() if k.startswith('NOT SORTED')) + c['UNSORTED'])]
     put('b690_r3_rules', L, dict(at=utc(), rows=rows, counts=dict(c), armed=len(armed)))
     print(L[-1])
 
