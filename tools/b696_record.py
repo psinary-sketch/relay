@@ -159,6 +159,109 @@ def land(items, bank, tag, entry=None, check=(), expect_cells=(), dry=True):
     print('  ' + ' ; '.join('%s :%s' % (x['file'], x['line']) for x in out))
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R306)(1)
+WH = ('*Appended 2026-10-20 by b696 to b695’s entry (:9592), under `(R306)`(1) -- b695 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b695_closing.txt):*')
+WB = (' “b695 closed: relay aa70ac82, PLACE-papers 5ed6e31; suite 121 of 122; root a84059769e7dd478…; 2 prompts answered; 4 defects” '
+      '(data/b695_closing.txt :1), the closing a0478dee pushed and read back at relay main (data/b695_closing_push_out.txt :5). b694’s weight '
+      'line at FINDINGS :9578 and the corrigendum for (k) and (l) at :9580, the corrigenda bank appended at rows (9) and (10), the sealed face and '
+      'the hashes bank unedited. The re-cut: SIDE-interfaces named by b652’s order and b674’s rule read in its written order -- OVERREACHES, then '
+      'rows of any kind, then the larger table -- three kernels at one row outside, decided at step (iii), six rows to five; the reading '
+      'accepted, the rule’s order as banked governing over the row count alone (data/b695_tie.txt :43-:47). The root module’s header bullets '
+      'carrying the table’s ACTION verbatim at 69b143b, comment lines alone; the workflow 9b4c484 and the print list 58854f0 alone on main; runs '
+      '39487947819 and 39488049232 DERIVES, the 11 prints equal line for line; the quotation search finding 4 quoting lines, each carried as it '
+      'stands; merged --no-ff at c8bd217, tagged v0.2.1 naming v0.2; the distance 1 to 0; no Correspondence cell naming the kernel '
+      '(data/b695_cut.txt :4-:9, :24). The Weil-face line regenerated on the author’s two words, the caveat checked character for character and '
+      'the autocorrelation written h ⋆ h~, the control differing from the page by the one carried INSTRUMENTS.md keystone row, the line at the '
+      'faces page’s :734; N4 scored not met as worded and met in substance. W-ORD-WITNESS-TAIL-BALLS’s trigger re-read at OPEN_TRAILS :15198; '
+      'CORRESPONDENCE-DOMINANCE the eleventh spec row, W-ORD-H2-BRIDGE annotated at :15200. The suite 121 of 122 before and after the push, '
+      'G-RULE-BINARY-HASHES declared on the face, reading b694’s PNG against its frozen hashes bank (data/b695_closing.txt :105-:108); N1-N3, N5 '
+      'and S1-S3 HELD (data/b695_scores_close.json); the sealed tools 9 of 9 (data/b695_closing.txt :15); the root a8405976 over 74 banks '
+      '(data/b695_root_banks.txt); mirror-refresh-2026-10-20-b695.zip CLEAN with the root line. Four defects: (a) the seat’s deletes before the '
+      'citation check, (b) the corrigendum tool’s earlier form repaired before landing, (c) the navigator’s N4 wording, (d) the N3 scorer’s '
+      'earlier form caught by the pre-run (data/b695_defects.txt :6-:27). Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B695_ENTRY,
+         check=[('FINDINGS.md', K.B695_ENTRY, '## SIDE-interfaces re-cut: 1 row outside LICENSED/CITED to 0'),
+                ('OPEN_TRAILS.md', K.B695_TRAIL, '### b695')], dry=dry)
+
+
+# ================================================================================ COMPONENT 1: THE ARM REPAIR RUN AT HEAD, (R306)(2)
+def armrun(*a):
+    """G-RULE-BINARY-HASHES as repaired in tools/rule_arms.py, run at HEAD over this act's sources: (i) the live reading, b694's PNG read
+    through the corrigenda bank's row (9); (ii) b694's (k) with the corrigenda withheld (CONTROLS) -- wanted FAIL; (iii) a planted frozen row
+    naming another path with no corrigendum -- wanted FAIL; (iv) the same planted row with a corrigendum citing its bank and line, the path as
+    it stands and the equal sha256 -- wanted OK; (v) the arm's own plant (a binary the root names itself) -- wanted FAIL. Each print counted.
+    data/b696_arm_binary.txt (.json)."""
+    import rule_arms as RA
+    nm = 'G-RULE-BINARY-HASHES'
+    S = RA.sources(ACT, 'C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % K.SESSION_ID, K.ANCHOR, K.PARTS, None, K.PRE_RELAY, K.PRE_PP)
+    plant_b = dict(path='data/b999_planted.png', act=999, sha='1' * 64, root=True, in_root=False, carried_by=[],
+                   frozen=[('data/b999_planted_hashes.txt', 4, 'data/b998_planted.png | ' + '1' * 64)])
+    plant_c = dict(row=99, bank='data/b999_planted_hashes.txt', line=4, path='data/b999_planted.png', sha='1' * 64, at=999)
+    ctl = [p for n_, _r, p in RA.CONTROLS if n_ == nm]
+    own = [p for n_, _r, _f, p in RA.ARMS if n_ == nm][0]
+    cases = [('(i) LIVE at HEAD', S, True),
+             ('(ii) b694 (k), the corrigenda withheld (CONTROLS)', ctl[0](S) if ctl else None, False),
+             ('(iii) a planted frozen row naming another path, no corrigendum', RA._p(S, 'binaries', S['binaries'] + [plant_b]), False),
+             ('(iv) the planted row with its corrigendum', RA._p(RA._p(S, 'binaries', S['binaries'] + [plant_b]), 'corrigenda', S['corrigenda'] + [plant_c]), True),
+             ('(v) the arm`s own plant (the root naming a binary)', own(S), False)]
+    rows, L = [], ['%s -- (R306)(2): G-RULE-BINARY-HASHES AS REPAIRED, RUN AT HEAD %s (%s)' % (ACT, g(ROOT, 'rev-parse', '--short=8', 'HEAD').strip(), utc()), '',
+                   '### rows are runs: the case | wanted | read (OK or FAIL) | rows read | rows failing | AS WANTED ; the arm`s print beneath each.',
+                   '### the corrigenda bank`s rows read: %s' % ['(%d) %s :%d -> %s %s' % (c['row'], c['bank'], c['line'], c['path'], c['sha'][:16]) for c in S['corrigenda']], '']
+    for lab, R_, want in cases:
+        ok, n_, b_, note = RA.reading(nm, R_) if R_ is not None else (None, 0, 0, '### NO CONTROL')
+        rows.append(dict(case=lab, want='OK' if want else 'FAIL', read='OK' if ok else 'FAIL', rows=n_, failing=b_, as_wanted=bool(ok) == want, note=note))
+        L += ['  %-62s | wanted %-4s | read %-4s | rows %3d | failing %d | AS WANTED %s' % (lab, 'OK' if want else 'FAIL', 'OK' if ok else 'FAIL', n_, b_,
+                                                                                         bool(ok) == want), '      ' + note]
+    L += ['', '### ### **CASES %d ; AS WANTED %d ; THE LIVE READING %s ; b694`S PNG BY CORRIGENDUM %s ; THE FROZEN ROW WITH NO CORRIGENDUM FAILS %s.**' % (
+        len(rows), sum(r['as_wanted'] for r in rows), rows[0]['read'], 'OK BY CORRIGENDUM' in rows[0]['note'] and 'b694_circuit' in rows[0]['note'],
+        rows[1]['read'] == 'FAIL' and rows[2]['read'] == 'FAIL')]
+    if 'dry' in a:
+        print(NL.join(L))
+        return
+    put_txt('%s_arm_binary.txt' % ACT, L)
+    put_json('%s_arm_binary.json' % ACT, dict(at=utc(), head=g(ROOT, 'rev-parse', 'HEAD').strip(), rows=rows, corrigenda=S['corrigenda']))
+    print(NL.join(L))
+
+
+# ================================================================================ THE REPAIRS BANK: (R306)(2) AND THE CARRY-TIME READING
+REPAIR_BASE = '7b791453'     # ### relay HEAD before the repair (step zero's commit): tools/rule_arms.py as b691 left it
+
+
+def repairs(*a):
+    """data/b696_tool_repairs.txt: rows are repairs with the defect or order they answer, each diff beneath its row (unified, the file at
+    REPAIR_BASE against the working tree). Row (1) is (R306)(2)'s, the one edit to a shared tool; carry-time repairs to this act's own tools
+    are added as rows by Component 4."""
+    import difflib
+    old = _show(ROOT, REPAIR_BASE, 'tools/rule_arms.py') or ''
+    new = rd(os.path.join(T, 'rule_arms.py'))
+    d1 = list(difflib.unified_diff(old.split(NL), new.split(NL), 'tools/rule_arms.py at relay %s' % REPAIR_BASE, 'tools/rule_arms.py (b696)', lineterm=''))
+    ab = _vl('%s_arm_binary.txt' % ACT)
+    L = ['%s -- THE REPAIRS: (R306)(2), THE ONE EDIT TO A SHARED TOOL, AND THE CARRY-TIME READING (%s)' % (ACT, utc()), '',
+         '### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its',
+         '### row, written by this route (difflib over the file, relay at %s against the working tree).' % REPAIR_BASE, '',
+         '  (1) tools/rule_arms.py G-RULE-BINARY-HASHES (a shared tool, by the Edit tool) -- ANSWERS (R306)(2) and b694`s defect (k) (relay',
+         '      data/b694_defects.txt :43-:51; data/b695_defects.txt; FINDINGS :9580): b694`s circuit figure`s hashes bank, frozen and root-named,',
+         '      names its PNG under b692`s path at :4, so the arm failed on it in every act since. THE FORM: sources() keeps, for each binary, the',
+         '      rows of its act`s root-named text banks carrying its sha256 (its frozen rows) and reads the corrigenda bank`s rows of the form',
+         '      "(N) relay data/<bank> :<line>, ... THE CORRECTION: the file stands as data/<path>, sha256 <64 hex>" across their wrapped lines;',
+         '      reading() reads a binary with no carrying bank OK where a corrigendum row cites one of its frozen rows by bank and line, names its',
+         '      path as it stands and its equal sha256, the correction printed beside the frozen row; with no such row it fails as before.',
+         '      CONTROLS gains b694 (k) with the corrigenda withheld. Run at HEAD (relay data/b696_arm_binary.txt): %s' % ab.strip('#* '), '']
+    L += ['      ' + l for l in d1] + ['']
+    L += ['### ### **REPAIRS 1 ; THE SHARED TOOL EDITED tools/rule_arms.py, ONE ARM AND ONE CONTROL ; DIFF LINES %d ; NO FROZEN BANK EDITED.**' % len(d1)]
+    put_txt('%s_tool_repairs.txt' % ACT, L)
+    print(L[-1])
+
+
+def _vl(name):
+    return ([x for x in rdn(name).split(NL) if x.startswith('### ### **')] or ['### NOT READ'])[-1]
+
+
 # ================================================================================ THE READERS, ONE PER ROW SHAPE A ROUTE READS ((R263)(3))
 BRANCH_FATES = ('DELETED', 'KEPT', 'RAISED')
 
@@ -386,7 +489,7 @@ def defects(*a):
 
 
 # ================================================================================ THE ROUTES
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects)
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, armrun=armrun, repairs=repairs)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

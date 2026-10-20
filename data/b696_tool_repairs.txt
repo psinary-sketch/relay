@@ -1,0 +1,102 @@
+b696 -- THE REPAIRS: (R306)(2), THE ONE EDIT TO A SHARED TOOL, AND THE CARRY-TIME READING (2026-10-20T22:48:05Z)
+
+### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
+### row, written by this route (difflib over the file, relay at 7b791453 against the working tree).
+
+  (1) tools/rule_arms.py G-RULE-BINARY-HASHES (a shared tool, by the Edit tool) -- ANSWERS (R306)(2) and b694`s defect (k) (relay
+      data/b694_defects.txt :43-:51; data/b695_defects.txt; FINDINGS :9580): b694`s circuit figure`s hashes bank, frozen and root-named,
+      names its PNG under b692`s path at :4, so the arm failed on it in every act since. THE FORM: sources() keeps, for each binary, the
+      rows of its act`s root-named text banks carrying its sha256 (its frozen rows) and reads the corrigenda bank`s rows of the form
+      "(N) relay data/<bank> :<line>, ... THE CORRECTION: the file stands as data/<path>, sha256 <64 hex>" across their wrapped lines;
+      reading() reads a binary with no carrying bank OK where a corrigendum row cites one of its frozen rows by bank and line, names its
+      path as it stands and its equal sha256, the correction printed beside the frozen row; with no such row it fails as before.
+      CONTROLS gains b694 (k) with the corrigenda withheld. Run at HEAD (relay data/b696_arm_binary.txt): CASES 5 ; AS WANTED 5 ; THE LIVE READING OK ; b694`S PNG BY CORRIGENDUM True ; THE FROZEN ROW WITH NO CORRIGENDUM FAILS True.
+
+      --- tools/rule_arms.py at relay 7b791453
+      +++ tools/rule_arms.py (b696)
+      @@ -15,6 +15,10 @@
+       ### (G-RULE-BINARY-HASHES), b685 row 1 (G-RULE-SUITE-PART-CALLS), b690 rows (1) and (2) (G-RULE-POSTSEAL-READ, G-RULE-RECUT-QUOTE) -- each
+       ### run at HEAD and counted before it is declared (data/b691_arms_added.txt); and CONTROLS, a positive control for an arm by a defect that arm
+       ### caught (b690's (g) for G-RULE-METHOD-READINESS), the methods bank's reader factored as methods_rows for it.
+      +### b696, (R306)(2): G-RULE-BINARY-HASHES repaired by the Edit tool to read a corrigendum for a frozen row -- a binary whose root-named text
+      +### bank carries its sha256 on a row naming another path reads OK where the corrigenda bank (data/b675_corrigenda.txt) carries a row citing
+      +### that bank and line with the corrected path and the equal sha256, the correction printed beside the frozen row; with no such row it fails
+      +### as before (b694's (k) its positive control in CONTROLS, the corrigendum withheld). The diff banked in data/b696_tool_repairs.txt.
+       """
+       import calendar
+       import glob
+      @@ -114,6 +118,31 @@
+       
+       
+       BINARY_FLOOR = 680          # ### b680 row 1 binds from b680 (its first application data/b680_fig_hashes.txt)
+      +CORRIGENDA = 'b675_corrigenda.txt'   # ### b696, (R306)(2): the corrigenda bank a frozen hashes row is corrected by
+      +
+      +
+      +def corrigenda_rows(t):
+      +    """the corrigenda bank's rows that correct a binary's path: each row `  (N) relay data/<bank> :<line>, ...` read whole across its wrapped
+      +    lines, carrying `THE CORRECTION: the file stands as data/<path>, sha256 <64 hex>`; returns [dict(row, bank, line, path, sha, at)]."""
+      +    out, L = [], t.split(NL)
+      +    for i, l in enumerate(L):
+      +        m = re.match(r'^  \((\d+)\) relay (data/\S+?) :(\d+)\b', l)
+      +        if not m:
+      +            continue
+      +        j = i + 1
+      +        while j < len(L) and L[j].startswith('      ') and not re.match(r'^  \(\d+\) ', L[j]):
+      +            j += 1
+      +        whole = ' '.join(x.strip() for x in L[i:j])
+      +        c = re.search(r'THE CORRECTION: the file stands as (data/[^\s,;]+),? sha256 ([0-9a-f]{64})\b', whole)
+      +        if c:
+      +            out.append(dict(row=int(m.group(1)), bank=m.group(2), line=int(m.group(3)), path=c.group(1), sha=c.group(2), at=i + 1))
+      +    return out
+      +
+      +
+      +def corrected(b, corr):
+      +    """the corrigendum rows that correct binary `b`: citing a root-named text bank of its act and the line carrying its sha256 (a frozen row),
+      +    naming its path as it stands and its equal sha256."""
+      +    return [c for c in corr if c['path'] == b['path'] and c['sha'] == b['sha'] and any((fb, fi) == (c['bank'], c['line']) for fb, fi, _l in b.get('frozen') or [])]
+       RECUT_FLOOR = 691           # ### b690 rows (1) and (2) bind from b691
+       LEDGER_READ = ('FINDINGS.md', 'OPEN_TRAILS.md', '_scanfile_entry', '_scanfile_trail', 'scanfile_entry', 'scanfile_trail')
+       SHELL_FILTER = re.compile(r'(?<![\w.-])(?:sed|awk|grep|head|tail|cat|less|more|cut|tr|sort|uniq|wc)(?![\w.-])')
+      @@ -291,8 +320,10 @@
+               named = [it.split()[0] for it in (items or [])]
+               texts = [(b, _rd(os.path.join(ROOT, *b.split('/')))) for b in named if b.endswith('.txt') and os.path.basename(b).startswith('b%d_' % a)]
+               bins.append(dict(path=p, act=a, sha=sha, root=items is not None, in_root=p in named,
+      -                         carried_by=[b for b, t in texts if p in t and sha and sha in t]))
+      +                         carried_by=[b for b, t in texts if p in t and sha and sha in t],
+      +                         frozen=[(b, i, l.strip()) for b, t in texts for i, l in enumerate(t.split(NL), 1) if sha and sha in l]))
+           R['binaries'] = bins
+      +    R['corrigenda'] = corrigenda_rows(_rd(os.path.join(D, CORRIGENDA)))
+           # ### b690 row (2) (added b691): every quotation-search bank from b691 (data/b<act>_quote_*.json) and the merge of its tip, with the
+           # ### act's cut banks and the residues they enter
+           qs = []
+      @@ -491,9 +522,17 @@
+                       n, len(runs), '; '.join('%s from b%d: %s' % (b, a, ps) for a, b, ps in gov), bad or 'NONE'))
+           if name == 'G-RULE-BINARY-HASHES':
+               bs = R['binaries']
+      -        bad = [b['path'] for b in bs if not b['root'] or b['in_root'] or not b['carried_by']]
+      +        corr = R.get('corrigenda') or []
+      +        byc = [(b, corrected(b, corr)) for b in bs if b['root'] and not b['in_root'] and not b['carried_by']]
+      +        byc = [(b, cs) for b, cs in byc if cs]
+      +        okc = set(b['path'] for b, _cs in byc)
+      +        bad = [b['path'] for b in bs if not b['root'] or b['in_root'] or not (b['carried_by'] or b['path'] in okc)]
+      +        beside = ['%s OK BY CORRIGENDUM -- the frozen row %s :%d as written %r ; the correction data/%s row (%d) :%d, the file standing as %s, '
+      +                  'sha256 %s equal' % (b['path'], c['bank'], c['line'], next(l for fb, fi, l in b['frozen'] if (fb, fi) == (c['bank'], c['line']))[:90],
+      +                                       CORRIGENDA, c['row'], c['at'], c['path'], c['sha'][:16]) for b, cs in byc for c in cs[:1]]
+               return bool(bs) and not bad, len(bs), len(bad), 'binary banks from b%d %d, each carried by sha256 in a root-named text bank of its act, '\
+      -            'the root not naming the binary itself ; failing %s' % (BINARY_FLOOR, len(bs), bad or 'NONE')
+      +            'the root not naming the binary itself, or its frozen row corrected by a corrigendum (%d: %s) ; failing %s' % (
+      +                BINARY_FLOOR, len(bs), len(beside), ' ; '.join(beside) or 'NONE', bad or 'NONE')
+           if name == 'G-RULE-SUITE-PART-CALLS':
+               pc = [c for c in R['calls'] if SUITE_PART.search(c['cmd']) or re.search(r'_checks\.py\b[^|;&]*--combine', c['cmd'])]
+               two = [c['ts'] for c in pc if len(SUITE_PART.findall(c['cmd'])) + len(re.findall(r'--combine', c['cmd'])) > 1]
+      @@ -600,5 +639,8 @@
+       CONTROLS = [
+           ('G-RULE-METHOD-READINESS', 'b690 (g): the latest methods bank re-read with every line four spaces in (relay data/b690_defects.txt :40-:45)',
+            lambda R: _p(R, 'methods', (R['methods'][0], methods_rows(NL.join('    ' + l for l in R.get('methods_text', '').split(NL)))))),
+      +    # ### b696, (R306)(2): b694's (k) -- its circuit figure's hashes bank naming the PNG under b692's path -- read with the corrigendum withheld
+      +    ('G-RULE-BINARY-HASHES', 'b694 (k): the frozen row with no corrigendum -- the corrigenda bank`s rows withheld (relay data/b694_defects.txt :43-:51)',
+      +     lambda R: _p(R, 'corrigenda', [])),
+       ]
+       
+
+### ### **REPAIRS 1 ; THE SHARED TOOL EDITED tools/rule_arms.py, ONE ARM AND ONE CONTROL ; DIFF LINES 86 ; NO FROZEN BANK EDITED.**
