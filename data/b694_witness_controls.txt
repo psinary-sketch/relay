@@ -1,0 +1,37 @@
+b694 -- THE WITNESS`S CONTROLS, (R304)(4) AND THE PLAN`S (6) (2026-10-20T17:39:54Z)
+
+### rows are controls: C1 zeta at matched widths (the identical k, before any Q0 reading); C2 b518`s family re-read; C3 the identity;
+### T1 the tolerance rung; T2 the planted shifts. Each value a ball.
+
+  C1 | N | 16   | S_zeta 275.75697854482 +- 2.08e-17 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -2.36e-13 +- 2.08e-17)
+  C1 | N | 24   | S_zeta 140.15388918999 +- 4.05e-18 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -3.76e-14 +- 4.05e-18)
+  C1 | N | 32   | S_zeta 81.044543105490 +- 1.43e-18 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -1.37e-14 +- 1.43e-18)
+  C1 | N | 48   | S_zeta 33.781440118806 +- 3.80e-19 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -2.54e-15 +- 3.80e-19)
+  C1 | N | 64   | S_zeta 16.776777418462 +- 1.61e-19 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -1.28e-15 +- 1.61e-19)
+  C1 | N | 96   | S_zeta 5.5315173256725 +- 5.26e-20 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -6.25e-16 +- 5.26e-20)
+  C1 | N | 128  | S_zeta 2.2854378581084 +- 2.53e-20 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -2.06e-16 +- 2.53e-20)
+  C1 | N | 192  | S_zeta 0.56300570140600 +- 9.64e-21 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -9.51e-17 +- 9.64e-21)
+  C1 | C | 16   | S_zeta 0.064094287607029 +- 1.23e-30 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -2.90e-22 +- 1.23e-30)
+  C1 | C | 24   | S_zeta 0.032587433223737 +- 2.09e-30 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -4.60e-23 +- 2.09e-30)
+  C1 | C | 32   | S_zeta 0.018843924694708 +- 2.60e-30 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -1.35e-23 +- 2.60e-30)
+  C1 | C | 48   | S_zeta 0.0078546423153662 +- 3.17e-30 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -2.70e-24 +- 3.17e-30)
+  C1 | C | 64   | S_zeta 0.0039008279791438 +- 4.77e-30 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -1.53e-24 +- 4.77e-30)
+  C1 | C | 96   | S_zeta 0.0012861526478586 +- 4.45e-30 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -7.60e-25 +- 4.45e-30)
+  C1 | C | 128  | S_zeta 0.00053139393907843 +- 7.61e-30 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -2.29e-25 +- 7.61e-30)
+  C1 | C | 192  | S_zeta 0.00013089036458001 +- 9.58e-30 | NONNEGATIVE BEYOND ITS BOUND | identity AGREE (Z - S -1.16e-25 +- 9.58e-30)
+  C1 | b518`s zeta control cited: VERIFIED-EST 95 of 119 (relay data/b518_report.txt :253)
+
+  C2 | b518`s family at its own gamma_0 16.290216, a 14.106736: S 681.32261344334 +- 3.64e-17, wholly above 0 True ; b518`s float Z 681.322615776695 with B 5.34e-08: MEETS False ; the identity on
+     | this window: Z - S -9.83e-13 +- 3.64e-17 (tail 1.19e-03) AGREE True ; Z - b518`s Z -2.333e-6 +- 1.02e-24: b518`s float figure carried an offset its B did not bound; its sign stands
+     | (data/b518_report.txt :125-:127 positive at every width; re-read positive at its widest).
+
+  C3 | the identity at every cell: 34 of 34 AGREE (Q0 and zeta, both families, and C2`s window)
+
+  T1 | at a = 32 (the narrowest margin), S at 256 bits -7.7752874967979090851 +- 1.43e-18 inside the 128-bit ball False: AS WRITTEN, NOT AS WANTED ; the midpoints differ by
+     | 9.136e-33, the balls overlap True, each radius the archimedean tail bound 1.4319e-18 (a float bound added as radius, the same at both precisions):
+     | the plan`s containment cannot hold where the precision-free tail dominates both radii.
+
+  T2 | the planted shifts at a = 32: S moved to 3 radii above 0 reads NONNEGATIVE BEYOND ITS BOUND (the decision moved: True) ; S moved by a third of a radius reads NEGATIVE BEYOND ITS BOUND
+     | (the decision unmoved: True).
+
+### ### **C1 16 OF 16 NONNEGATIVE BEYOND THE BOUND ; C2 POSITIVE, b518`S FLOAT OFF BY 2.33e-6 ; C3 34 OF 34 AGREE ; T1 NOT AS WANTED (OVERLAP TRUE, MIDPOINTS WITHIN 9.1e-33) ; T2 AS WANTED True.**

@@ -116,6 +116,9 @@ def env(*a):
     import mpmath
     print('  python %s ; python-flint %s ; mpmath %s ; acb.integral %s ; acb.digamma %s' % (
         sys.version.split()[0], flint.__version__, mpmath.__version__, hasattr(flint.acb, 'integral'), hasattr(flint.acb, 'digamma')))
+    print('  acb: sinc %s, zeta_zero %s, zeta_zeros %s ; acb_poly: derivative %s, integral %s, __call__ %s ; arb: log %s, sqrt %s' % tuple(
+        hasattr(o, m) for o, m in ((flint.acb, 'sinc'), (flint.acb, 'zeta_zero'), (flint.acb, 'zeta_zeros'), (flint.acb_poly, 'derivative'),
+                                   (flint.acb_poly, 'integral'), (flint.acb_poly, '__call__'), (flint.arb, 'log'), (flint.arb, 'sqrt'))))
     return 0
 
 
