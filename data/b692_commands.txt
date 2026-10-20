@@ -1,0 +1,202 @@
+b692 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T23:57:11Z)
+
+### the source: the seat`s session 2c300355-703e-4575-81bc-2631a70202cf from its first user line carrying 'RULING (R302) BEGIN', and its subagents` transcripts
+### commands read: 127
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b691, this same session 2c300355, from its post-push combine to (R302)`s line): 15 commands from 2026-10-19T21:23:57.169Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES, BY THE RECORD TOOL`S dispatch ROUTE (4):
+  #62 PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py dispatch SIDE-explicit-formula ccec1ba after; echo EXIT $?
+  #71 PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py dispatch SIDE-explicit-formula 59a867c after2; echo EXIT $?
+  #78 PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py dispatch SIDE-explicit-formula 4313875 after3; echo EXIT $?
+  #101 cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py dispatch SIDE-explicit-formula 5866ff2 shorts; echo EXIT $?
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings -- this act`s defect (a) among them (1):
+  #3 2026-10-19T21:40:51.276Z cd /d/SIDE-explicit-formula && git rev-parse main main^{tree} c5aa058^{tree} v0.34^{commit} && git diff --stat v0.34 main && git ls-tree --name-only main .github/workflows/ && cd /d/SIDE-lv-conservati
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (2):
+  #86 2026-10-19T23:27:21.889Z command -v dot; python -X utf8 -c "import PIL; print(PIL.__version__)"; echo EXIT $?
+  #113 2026-10-19T23:43:10.410Z python -X utf8 -c "a=open('data/b690_circuit_spec.txt',encoding='utf-8').read().split(chr(10))[9:48]; b=open('data/b692_circuit_spec.txt',encoding='utf-8').read().split(chr(10)); i=b.index(a[0]); print('nine rows equal',
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (13):
+  #14 2026-10-19T21:46:58.960Z Bash
+      git -C /d/relay branch -d push-b691-root
+  #15 2026-10-19T21:47:01.913Z Bash
+      git -C /d/relay branch -d push-b691
+  #16 2026-10-19T21:47:05.001Z Bash
+      git -C /d/relay branch -d push-b691-closing
+  #17 2026-10-19T21:47:08.436Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b691-root
+  #18 2026-10-19T21:47:11.693Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b691
+  #21 2026-10-19T21:48:49.936Z Bash
+      git -C /d/SIDE-rcurve branch -d push-b691-main
+  #22 2026-10-19T21:48:53.626Z Bash
+      git -C /d/SIDE-rcurve branch -d push-b691-merge
+  #23 2026-10-19T21:49:00.240Z Bash
+      git -C /d/SIDE-rcurve branch -d recut-rcurve-b691
+  #24 2026-10-19T21:49:03.934Z Bash
+      git -C /d/SIDE-rcurve push origin --delete recut-rcurve-b691
+  #25 2026-10-19T21:49:12.934Z Bash
+      git -C /d/SIDE-explicit-formula branch -d push-b691-epstein-main
+  #26 2026-10-19T21:49:17.533Z Bash
+      git -C /d/SIDE-explicit-formula branch -d push-b691-epstein-merge
+  #27 2026-10-19T21:49:22.943Z Bash
+      git -C /d/SIDE-explicit-formula branch -d recut-epstein-b691
+  #28 2026-10-19T21:49:26.635Z Bash
+      git -C /d/SIDE-explicit-formula push origin --delete recut-epstein-b691
+
+### THE BRANCH DELETES BY SHAPE ((R302)(6): one branch per command, no glob in any half): #14 deletes ['push-b691-root'], globs none; #15 deletes ['push-b691'], globs none; #16 deletes ['push-b691-closing'], globs none; #17 deletes ['push-b691-root'], globs none; #18 deletes ['push-b691'], globs none; #21 deletes ['push-b691-main'], globs none; #22 deletes ['push-b691-merge'], globs none; #23 deletes ['recut-rcurve-b691'], globs none; #24 deletes ['recut-rcurve-b691'], globs none; #25 deletes ['push-b691-epstein-main'], globs none; #26 deletes ['push-b691-epstein-merge'], globs none; #27 deletes ['recut-epstein-b691'], globs none; #28 deletes ['recut-epstein-b691'], globs none
+
+### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-19T21:38:46.768Z | seat | Bash | git status --short --untracked-files=no && git add data/b691_closing_push_out.txt && git commit -m "b692 step zero: b691's closing push capture (data/b691_closi
+  #2 | 2026-10-19T21:38:59.712Z | seat | Bash | wc -l tools/b691_worklist.py tools/b691_citation.py tools/b691_tests.py tools/b691_record.py tools/b691_checks.py tools/b691_closing.py tools/b691_reg_gate.py t
+  #3 | 2026-10-19T21:40:51.276Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse main main^{tree} c5aa058^{tree} v0.34^{commit} && git diff --stat v0.34 main && git ls-tree --name-only main .githu
+  #4 | 2026-10-19T21:41:09.640Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git log --oneline -3 -- phase1.5/method/INSTRUMENTS.md && wc -l phase1.5/method/INSTRUMENTS.md
+  #5 | 2026-10-19T21:41:49.886Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n -E "(theorem|def|structure|lemma) (li_nonneg_cfg_imp_online_ne_zero|HCount|h2_sign_iff_rh|li_nonneg_imp_rh_native|pos
+  #6 | 2026-10-19T21:41:53.928Z | seat | Bash | git grep -n -E "theorem positivity_implies_RH\b" main && git ls-tree -d --name-only main
+  #7 | 2026-10-19T21:42:07.329Z | seat | Bash | cd /d/relay && wc -l data/b691_closing.txt data/b691_defects.txt data/b691_cut.txt data/b691_correspondence_run_PATHS.txt data/b691_correspondence_run_RCURVE.tx
+  #8 | 2026-10-19T21:44:14.840Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_citation.py ferry; echo EXIT $?
+  #9 | 2026-10-19T21:44:20.628Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_citation.py check; echo EXIT $?
+  #10 | 2026-10-19T21:44:41.887Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_citation.py check; echo EXIT $?
+  #11 | 2026-10-19T21:46:21.033Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py rowgen; echo EXIT $?
+  #12 | 2026-10-19T21:46:40.673Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='claude.exe' OR Name='tail.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='bash.exe'" -Prop
+  #13 | 2026-10-19T21:46:48.149Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py branches; echo EXIT $?
+  #14 | 2026-10-19T21:46:58.960Z | seat | Bash | git -C /d/relay branch -d push-b691-root
+  #15 | 2026-10-19T21:47:01.913Z | seat | Bash | git -C /d/relay branch -d push-b691
+  #16 | 2026-10-19T21:47:05.001Z | seat | Bash | git -C /d/relay branch -d push-b691-closing
+  #17 | 2026-10-19T21:47:08.436Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b691-root
+  #18 | 2026-10-19T21:47:11.693Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b691
+  #19 | 2026-10-19T21:48:15.206Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_citation.py answer "delete all eight, each named here"; echo EXIT $?
+  #20 | 2026-10-19T21:48:24.953Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py answers; echo EXIT $?
+  #21 | 2026-10-19T21:48:49.936Z | seat | Bash | git -C /d/SIDE-rcurve branch -d push-b691-main
+  #22 | 2026-10-19T21:48:53.626Z | seat | Bash | git -C /d/SIDE-rcurve branch -d push-b691-merge
+  #23 | 2026-10-19T21:49:00.240Z | seat | Bash | git -C /d/SIDE-rcurve branch -d recut-rcurve-b691
+  #24 | 2026-10-19T21:49:03.934Z | seat | Bash | git -C /d/SIDE-rcurve push origin --delete recut-rcurve-b691
+  #25 | 2026-10-19T21:49:12.934Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -d push-b691-epstein-main
+  #26 | 2026-10-19T21:49:17.533Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -d push-b691-epstein-merge
+  #27 | 2026-10-19T21:49:22.943Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -d recut-epstein-b691
+  #28 | 2026-10-19T21:49:26.635Z | seat | Bash | git -C /d/SIDE-explicit-formula push origin --delete recut-epstein-b691
+  #29 | 2026-10-19T21:50:35.403Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b692_tests.py parts
+  #30 | 2026-10-19T21:50:40.093Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b692_tests.py hold 1 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_a
+  #31 | 2026-10-19T21:50:53.306Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b692_tests.py hold 2 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_tests.py run test_asof.py
+  #32 | 2026-10-19T21:58:20.791Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b692_tests.py hold 3 && for t in test_axiom_claim.py test_axiom_claim_b651.py test_banned_terms_backmatter.py tes
+  #33 | 2026-10-19T21:59:05.699Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b692_tests.py hold 4 && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_tests.py run test_chain_p
+  #34 | 2026-10-19T22:06:36.646Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b692_tests.py hold 5 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_cha
+  #35 | 2026-10-19T22:10:14.394Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b692_tests.py hold 6 && for t in test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py
+  #36 | 2026-10-19T22:12:59.674Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b692_tests.py hold 7 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_
+  #37 | 2026-10-19T22:17:01.783Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b692_tests.py report
+  #38 | 2026-10-19T22:17:13.190Z | seat | Bash | git diff --stat && git status --short --untracked-files=no && git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-files=no
+  #39 | 2026-10-19T22:17:50.649Z | seat | Bash | git add data/b692_ferry.txt data/b692_ferry_scan.txt data/b692_readfirst.txt data/b692_citation_check.txt data/b692_citation_check.json data/b692_rowgen_stepzer
+  #40 | 2026-10-19T22:18:40.474Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py c1 dry; echo EXIT $?
+  #41 | 2026-10-19T22:18:50.618Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py c1; echo EXIT $?
+  #42 | 2026-10-19T22:19:44.824Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_corrigendum.py dry; echo EXIT $?
+  #43 | 2026-10-19T22:19:55.409Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_corrigendum.py dry; echo EXIT $?
+  #44 | 2026-10-19T22:20:11.881Z | seat | Bash | git add data/b692_rules.txt && git commit -m "b692 C1 (R302)(2): data/b692_rules.txt, one rule -- a commit made after the seal that fails an arm is left as it s
+  #45 | 2026-10-19T22:20:16.988Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_corrigendum.py land; echo EXIT $?
+  #46 | 2026-10-19T22:21:57.047Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_parts_probe.py; echo EXIT $?
+  #47 | 2026-10-19T22:43:03.559Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_citation.py answer "the pattern widened at :268 and :270 and the comparison at :479"; echo EXIT $?
+  #48 | 2026-10-19T22:43:18.453Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py answers && git hash-object tools/rule_arms.py && git log -1 --format=%h -- tools/rule_arms.py
+  #49 | 2026-10-19T22:43:32.166Z | seat | Bash | git diff tools/rule_arms.py && git hash-object tools/rule_arms.py && git diff --no-color tools/rule_arms.py --output=C:/Users/ECHOCH~1/AppData/Local/Temp/claude
+  #50 | 2026-10-19T22:43:53.302Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_parts_probe.py after; echo EXIT $?
+  #51 | 2026-10-19T22:44:31.763Z | seat | Bash | git add tools/rule_arms.py tools/b692_corrigendum.py tools/b692_parts_probe.py tools/b692_record.py data/b692_record_lines.json data/b692_corrigendum.txt data/b
+  #52 | 2026-10-19T22:44:37.262Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no && git commit -m "b692 C1 under (R302)(1)-(2): b691 at its weight (FINDINGS :9454); t
+  #53 | 2026-10-19T22:44:42.992Z | seat | Bash | cd /d/SIDE-explicit-formula && git show main:.github/workflows/build-module.yml
+  #54 | 2026-10-19T22:44:58.308Z | seat | Bash | git show main:lakefile.lean && git show main:lean-toolchain && git show main:SIDEExplicitFormula.lean && git ls-tree --name-only main
+  #55 | 2026-10-19T22:45:01.808Z | seat | Bash | git ls-tree --name-only main && git show main:lakefile.toml && git show main:lean-toolchain
+  #56 | 2026-10-19T22:45:11.158Z | seat | Bash | git show main:SIDEExplicitFormula.lean && git show main:AxiomCheckEpstein.lean && git ls-tree -r --name-only main SIDEExplicitFormula Zeta23 Vendored/Bulka/Lc V
+  #57 | 2026-10-19T22:49:27.285Z | seat | Bash | git status --short && git add CircuitClosure.lean .github/workflows/build-module.yml && git commit -m "b692 (R302)(3)(a): CircuitClosure.lean at the root, impor
+  #58 | 2026-10-19T22:49:32.662Z | seat | Bash | git -C /d/SIDE-explicit-formula branch push-b692-closure HEAD
+  #59 | 2026-10-19T22:49:36.219Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b692_closure_main_push_out.txt bash tools/push_gated.sh /d/SIDE-explicit-formula push-b692-closure; echo EXIT $?
+  #60 | 2026-10-19T22:50:21.691Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-tree -r --name-only main -- SIDEExplicitFormula Zeta23 Vendored/Bulka
+  #61 | 2026-10-19T22:51:26.936Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py dispatch SIDE-explicit-formula ccec1ba after dry; echo EXIT $?
+  #62 | 2026-10-19T22:51:43.647Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py dispatch SIDE-explicit-formula ccec1ba after; echo EXIT $?
+  #63 | 2026-10-19T22:51:56.332Z | seat | Bash | timeout 580 gh run watch 39337850198 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 120 --compact; echo EXIT $?
+  #64 | 2026-10-19T23:01:46.187Z | seat | Bash | cd /d/SIDE-lv-conservation && git status --short && git show main:lean-toolchain && git show main:lakefile.lean && git show main:.github/workflows/build-module.
+  #65 | 2026-10-19T23:01:53.799Z | seat | Bash | timeout 580 gh run watch 39337850198 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 180 --compact; echo EXIT $?
+  #66 | 2026-10-19T23:01:58.900Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py runner SIDE-explicit-formula 39337850198 ccec1ba21396478529ac5cfb23241ad91
+  #67 | 2026-10-19T23:02:18.102Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py prints SIDE-explicit-formula b691_axioms_SIDE-explicit-formula_after.txt b692_axioms_SIDE-explicit-fo
+  #68 | 2026-10-19T23:02:23.250Z | seat | Bash | cd /d/SIDE-explicit-formula && git status --short && git add CircuitClosure.lean && git commit -m "b692 (R302)(3)(a): CircuitClosure.lean's record count typed a
+  #69 | 2026-10-19T23:02:29.157Z | seat | Bash | git -C /d/SIDE-explicit-formula branch push-b692-closure-2 HEAD
+  #70 | 2026-10-19T23:02:32.462Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b692_closure_main_2_push_out.txt bash tools/push_gated.sh /d/SIDE-explicit-formula push-b692-closure-2; echo EXIT $?
+  #71 | 2026-10-19T23:02:41.139Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py dispatch SIDE-explicit-formula 59a867c after2; echo EXIT $?
+  #72 | 2026-10-19T23:02:52.951Z | seat | Bash | timeout 580 gh run watch 39339047763 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 240 --compact; echo EXIT $?
+  #73 | 2026-10-19T23:12:37.399Z | seat | Bash | timeout 580 gh run watch 39339047763 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 120 --compact; echo EXIT $?
+  #74 | 2026-10-19T23:12:42.178Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py runner SIDE-explicit-formula 39339047763 59a867cbc398901cd06279a873d333df2e684ab9 after2 
+  #75 | 2026-10-19T23:13:02.196Z | seat | Bash | cd /d/SIDE-explicit-formula && git status --short && git add CircuitClosure.lean && git commit -m "b692 (R302)(3)(a): CircuitClosure.lean's command run without 
+  #76 | 2026-10-19T23:13:05.886Z | seat | Bash | git -C /d/SIDE-explicit-formula branch push-b692-closure-3 HEAD
+  #77 | 2026-10-19T23:13:09.382Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b692_closure_main_3_push_out.txt bash tools/push_gated.sh /d/SIDE-explicit-formula push-b692-closure-3; echo EXIT $?
+  #78 | 2026-10-19T23:13:18.540Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py dispatch SIDE-explicit-formula 4313875 after3; echo EXIT $?
+  #79 | 2026-10-19T23:13:32.833Z | seat | Bash | timeout 580 gh run watch 39340192180 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 270 --compact; echo EXIT $?
+  #80 | 2026-10-19T23:23:17.266Z | seat | Bash | timeout 580 gh run watch 39340192180 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 120 --compact; echo EXIT $?
+  #81 | 2026-10-19T23:25:24.357Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py runner SIDE-explicit-formula 39340192180 4313875100616fcdf86f712f5133cf6562476578 after3 
+  #82 | 2026-10-19T23:25:34.624Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py prints SIDE-explicit-formula b691_axioms_SIDE-explicit-formula_after.txt b692_axioms_SIDE-explicit-fo
+  #83 | 2026-10-19T23:25:41.205Z | seat | Bash | cd /d/SIDE-explicit-formula && git diff --stat e5fcda7 4313875 && git diff --stat e5fcda7 4313875 -- SIDEExplicitFormula Zeta23 Vendored print_targets.txt lakef
+  #84 | 2026-10-19T23:26:11.190Z | seat | Bash | cd /d/relay && git status --short -- data/b692_* tools/b692_*
+  #85 | 2026-10-19T23:26:20.691Z | seat | Bash | git add data/b692_citation_check.txt tools/b692_record.py data/b692_axioms_SIDE-explicit-formula_after.txt data/b692_axioms_SIDE-explicit-formula_after2.txt dat
+  #86 | 2026-10-19T23:27:21.889Z | seat | Bash | command -v dot; python -X utf8 -c "import PIL; print(PIL.__version__)"; echo EXIT $?
+  #87 | 2026-10-19T23:30:13.185Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py read b692_circuit_SIDE-explicit-formula_v0.34.1_4313875.jsonl.gz SIDE-explicit-formul
+  #88 | 2026-10-19T23:30:30.453Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py read b692_circuit_SIDE-explicit-formula_v0.34.1_4313875.jsonl.gz SIDE-explicit-formul
+  #89 | 2026-10-19T23:31:18.790Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py read b692_circuit_SIDE-explicit-formula_v0.34.1_4313875.jsonl.gz SIDE-explicit-formul
+  #90 | 2026-10-19T23:31:25.229Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py dominance b692_circuit_SIDE-explicit-formula_v0.34.1_4313875.jsonl.gz SIDE-explicit-f
+  #91 | 2026-10-19T23:31:33.920Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py controls b692_circuit_SIDE-explicit-formula_v0.34.1_4313875.jsonl.gz SIDE-explicit-fo
+  #92 | 2026-10-19T23:31:41.372Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -c h2_sign_iff_rh main -- print_targets.txt; echo EXIT $?
+  #93 | 2026-10-19T23:31:53.263Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py controls b692_circuit_SIDE-explicit-formula_v0.34.1_4313875.jsonl.gz SIDE-explicit-fo
+  #94 | 2026-10-19T23:32:08.089Z | seat | Bash | wc -l tools/push_gated.sh && git log --oneline -3 -- tools/push_gated.sh
+  #95 | 2026-10-19T23:33:32.670Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_citation.py answer "the plain branch push as this act" && PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_reco
+  #96 | 2026-10-19T23:33:41.645Z | seat | Bash | git -C /d/SIDE-explicit-formula checkout -b circuit-shorts-control-b692
+  #97 | 2026-10-19T23:33:44.593Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --abbrev-ref HEAD && wc -l SIDEExplicitFormula/Seam.lean
+  #98 | 2026-10-19T23:33:56.097Z | seat | Bash | git status --short && git add SIDEExplicitFormula/Seam.lean && git commit -m "b692 (R302)(3)(b): the shorts control -- a planted sorry (B321.circuit_shorts_cont
+  #99 | 2026-10-19T23:34:00.488Z | seat | Bash | git -C /d/SIDE-explicit-formula push origin circuit-shorts-control-b692
+  #100 | 2026-10-19T23:34:07.072Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote origin refs/heads/circuit-shorts-control-b692; git -C /d/SIDE-explicit-formula rev-parse HEAD
+  #101 | 2026-10-19T23:34:17.200Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py dispatch SIDE-explicit-formula 5866ff2 shorts; echo EXIT $?
+  #102 | 2026-10-19T23:34:30.229Z | seat | Bash | git -C /d/SIDE-explicit-formula checkout main
+  #103 | 2026-10-19T23:34:35.539Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py readfirst b692_ferry.txt b692_readfirst.txt; echo EXIT $?
+  #104 | 2026-10-19T23:36:51.011Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py readfirst b692_ferry.txt b692_readfirst.txt; echo EXIT $?
+  #105 | 2026-10-19T23:37:07.534Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py suiteload 673 691; echo EXIT $?
+  #106 | 2026-10-19T23:37:32.553Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py suiteload 673 691; echo EXIT $?
+  #107 | 2026-10-19T23:37:48.457Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py suiteload 673 691; echo EXIT $?
+  #108 | 2026-10-19T23:38:09.318Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py suiteload 673 691; echo EXIT $?
+  #109 | 2026-10-19T23:38:19.353Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py suiteload 673 691; echo EXIT $?
+  #110 | 2026-10-19T23:38:23.507Z | seat | Bash | timeout 580 gh run watch 39342395110 -R psinary-sketch/SIDE-explicit-formula --exit-status --interval 120 --compact; echo EXIT $?
+  #111 | 2026-10-19T23:42:31.890Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py runner SIDE-explicit-formula 39342395110 5866ff203a08925689bc35964b9c1d71f0742a57 shorts 
+  #112 | 2026-10-19T23:42:39.263Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/circuit_read.py shorts b692_circuit_SIDE-explicit-formula_shorts-control_5866ff2.jsonl.gz SIDE-explic
+  #113 | 2026-10-19T23:43:10.410Z | seat | Bash | python -X utf8 -c "a=open('data/b690_circuit_spec.txt',encoding='utf-8').read().split(chr(10))[9:48]; b=open('data/b692_circuit_spec.txt',encoding='utf-8').read
+  #114 | 2026-10-19T23:43:14.462Z | seat | Bash | git add data/b692_circuit_spec.txt && git commit -m "b692 C3 (R302)(3)(d): data/b692_circuit_spec.txt -- b690's nine rows byte for byte (its :10-:48 at this ban
+  #115 | 2026-10-19T23:43:34.307Z | seat | Bash | git status --short -- data/b692_* tools/b692_* tools/circuit_read.py
+  #116 | 2026-10-19T23:43:43.325Z | seat | Bash | git add data/b692_author_answers.json data/b692_author_answers.txt data/b692_citation_check.txt data/b692_dispatches.json data/b692_runner_rows.json data/b692_a
+  #117 | 2026-10-19T23:43:59.026Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git diff --stat && git diff phase1.5/method/INSTRUMENTS.md
+  #118 | 2026-10-19T23:44:14.134Z | seat | Bash | git diff --stat && git hash-object phase1.5/method/INSTRUMENTS.md && git rev-parse HEAD:phase1.5/method/INSTRUMENTS.md
+  #119 | 2026-10-19T23:44:32.608Z | seat | Bash | git commit -m "b692 C4 (R302)(3)(e): INSTRUMENTS.md I-40, the dependency-circuit reading, in the page's own entry form beneath I-16..I-39's footer, by the Edit 
+  #120 | 2026-10-19T23:44:52.357Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py triage_counts; echo EXIT $?
+  #121 | 2026-10-19T23:45:46.511Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_citation.py answer "each of the 24 DISCHARGED-BY-READING rows carries its reading" && PYTHONIOENCODING=utf-8 py
+  #122 | 2026-10-19T23:46:26.702Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py orders dry; echo EXIT $?
+  #123 | 2026-10-19T23:46:41.244Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py orders; echo EXIT $?
+  #124 | 2026-10-19T23:46:54.675Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no && git commit -m "b692 C4 (R302)(4) on the author's word: the 35 stale orders written
+  #125 | 2026-10-19T23:47:00.130Z | seat | Bash | cd /d/relay && git add tools/b692_record.py data/b692_instruments_diff.txt data/b692_triage_counts.txt data/b692_orders_lines.json data/b692_author_answers.txt 
+  #126 | 2026-10-19T23:52:15.632Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -c -E "\bclassK\b" main -- SIDEExplicitFormula Zeta23 && git grep -n -E "def classK|structure classK|classK :=|classK \(
+  #127 | 2026-10-19T23:56:58.207Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py commands; echo EXIT $?
+
+### ### **COMMANDS 127 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 15 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 4 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; ONE-LINE PROGRAMS 2 ; MOVE OR DELETE COMMANDS 13 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 13 OF 13 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

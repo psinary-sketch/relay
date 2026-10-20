@@ -50,3 +50,147 @@ index 711fdd57..3f183f15 100644
              'run banks b678-b%d %d, each against its act`s governing parts (%s) ; without them or with a part at or above 600 s %s' % (
 
 ### ### **REPAIRS 1 SO FAR (THE SHARED TOOL'S, ON THE AUTHOR'S WORD) ; b691'S BANKS PASS AT HEAD ; THE PLANTED CONTROL FIRES ; THE CARRY-TIME ROWS AT COMPONENT 5.**
+
+
+### THE CARRY-TIME READING OF THE TOOLS (the ferry`s Component 5), AGAINST b691`S SEALED COPIES (2026-10-20T00:07:18Z)
+
+### rows are repairs with the defect or order they answer, after the carried tools: b691`s sealed copy and its seal record; the hunks of
+### the diff to b692`s copy. Every hunk is the act`s own text -- its names, its banks, its sections and its predicates over this act`s
+### banks -- save the repairs below. The repaired shared tool is row 1 above, with its diff.
+
+  b691_citation.py     -> b692_citation.py     b691 sealed 0da6f2114c6fb9e5 ; the seal`s record 0da6f2114c6fb9e5 ; AGREE ; hunks 23
+  b691_closing.py      -> b692_closing.py      b691 sealed 0f3e19df587d6e0d ; the seal`s record 0f3e19df587d6e0d ; AGREE ; hunks 33
+  b691_reg_gate.py     -> b692_reg_gate.py     b691 sealed 2a97bafa871d9a82 ; the seal`s record 2a97bafa871d9a82 ; AGREE ; hunks 6
+  b691_regspec.py      -> b692_regspec.py      b691 sealed d1bec7af74b3f3f6 ; the seal`s record d1bec7af74b3f3f6 ; AGREE ; hunks 23
+  b691_tests.py        -> b692_tests.py        b691 sealed a852398234c1359f ; the seal`s record a852398234c1359f ; AGREE ; hunks 10
+  b691_worklist.py     -> b692_worklist.py     b691 sealed 3b6917a6950f96eb ; the seal`s record 3b6917a6950f96eb ; AGREE ; hunks 12
+  b691_record.py       -> b692_record.py       b691 sealed 693001be38ae72ec ; the seal`s record 693001be38ae72ec ; AGREE ; hunks 189
+  b691_checks.py       -> b692_checks.py       b691 sealed 1f0a996b8605d6e0 ; the seal`s record 1f0a996b8605d6e0 ; AGREE ; hunks 149
+  edit_route.py           the standing instrument, unedited in this act: 22b92c8f4440589a ; at relay f5318624 22b92c8f4440589a ; the last seal record naming it (NONE`s) ### NONE ; its last commit 66497ff1 2026-10-12T11:55:50-04:00
+  e0_rule.py              the standing instrument, unedited in this act: 1b4fa2b1fe2f5749 ; at relay f5318624 1b4fa2b1fe2f5749 ; the last seal record naming it (NONE`s) ### NONE ; its last commit 3572f7b6 2026-10-13T10:37:17-04:00
+  b678_corrigendum.py     the standing instrument, unedited in this act: 9676374a1a8c99fa ; at relay f5318624 9676374a1a8c99fa ; the last seal record naming it (NONE`s) ### NONE ; its last commit 5d3416b8 2026-10-17T13:40:18-04:00
+  chain_page.py           the standing instrument, unedited in this act: 2f4df8163a7b1c5d ; at relay f5318624 2f4df8163a7b1c5d ; the last seal record naming it (NONE`s) ### NONE ; its last commit 1e073ac3 2026-10-11T15:38:14-04:00
+  b670_record.py          the standing instrument, unedited in this act: 08e28c92a253ce97 ; at relay f5318624 08e28c92a253ce97 ; the last seal record naming it (NONE`s) ### NONE ; its last commit 1cde552b 2026-10-14T17:34:27-04:00
+  b672_record.py          the standing instrument, unedited in this act: 30a39db6fc35565e ; at relay f5318624 30a39db6fc35565e ; the last seal record naming it (NONE`s) ### NONE ; its last commit e06d2f25 2026-10-16T13:26:39-04:00
+  repair_snapshot.py      the standing instrument, unedited in this act: 53cc85685ec7ca27 ; at relay f5318624 53cc85685ec7ca27 ; the last seal record naming it (NONE`s) ### NONE ; its last commit cf09c22a 2026-09-11T10:03:15-04:00
+  correspondence_gen.py   the standing instrument, unedited in this act: 1aec5d03dde5dd8a ; at relay f5318624 1aec5d03dde5dd8a ; the last seal record naming it (NONE`s) ### NONE ; its last commit a101f97f 2026-10-19T15:02:44-04:00
+
+  REPAIR 1 -- THE STANDING SET FOR b692 (answering (R302)(2) and N5: no standing arm added): the standing arms are b691`s face`s (G2) arms less b691`s
+  act arms, the twenty-four rule arms of tools/rule_arms.py among them; STANDING_ADDED empty (tools/b692_worklist.py).
+  REPAIR 2 -- THE PARTS ARM`S REPAIR READ BY THE SUITE (answering (R302)(2)): tools/rule_arms.py is this act`s one repaired shared tool, its diff row 1
+  above; G-INSTRUMENTS-UNEDITED reads every other instrument unedited, correspondence_gen.py and its test (b691`s repairs) back among them;
+  rule_arms.py is sealed with this act`s tools (tools/b692_worklist.py SEALED), its hash compared at the close (N5).
+  REPAIR 3 -- THE READER A SEALED TOOL (answering (R302)(3)(b)): tools/circuit_read.py, new this act, sealed with the act`s tools; G-CONVERSION-ONE and
+  G-DELETE-FREE read the b692 tools and the repaired tool as before.
+  REPAIR 4 -- THE RUNNER ARMS OVER THIS ACT`S FOUR RUNS AND NO MERGE (answering (R302)(3)(a)-(b): the closure step on main, no cut, no tag): G-RUNNER-READ
+  reads four rows -- after, after2, after3 at the closure step`s three commits and shorts at the scratch branch`s tip -- each at its own
+  ref; G-RUNNER-GATE four gate readings; G-MERGES-ON-GATE reads SIDE-explicit-formula`s main at the third closure commit, no merge and no
+  tag there, v0.34 and v0.34.1 unmoved; G-WORKFLOW-FILES reads the workflow at main equal to the one the act wrote at ccec1ba, the closure
+  step in it, the print list against the third run`s print bank.
+  REPAIR 5 -- THE PLACE-papers SCOPE (answering (R302)(3)(e) and (4)): G-PP-SCOPE allows FINDINGS, OPEN_TRAILS and INSTRUMENTS.md; the faces page among
+  the files read unedited (CURRENTS).
+  REPAIR 6 -- THE PREVIOUS ACT`S WINDOW IN THIS SAME SESSION: G-EDIT-ROUTE`s previous-act window reads b691`s capture after its post-push suite -- from the
+  call that combined b691`s post-push parts to (R302)`s line -- in session 2c300355.
+  REPAIR 7 -- THE STEP-ZERO TESTS` SET: G-STEPZERO-TESTS reads the step-zero bank`s failing set -- test_chain_page.py (9) and test_chain_page_b638.py
+  (4)-(7) -- as the bank recorded it, against the tests tracked at relay f5318624.
+  REPAIR 8 -- THE BRANCHES ARMS OVER THIRTEEN DELETES (answering (R302)(6) and the author`s word at its prompt): G-BRANCHES-DELETED reads the five
+  names gone from relay and PLACE-papers and the eight kernel branches gone from SIDE-rcurve and SIDE-explicit-formula, local and remote;
+  G-DELETES-ONE-BRANCH reads thirteen deletes of one branch each, no glob; the scratch branch circuit-shorts-control-b692 deleted at the close
+  and read by the closing.
+
+### THE DIFF OF THE REPAIRED READINGS AGAINST b691`S SEALED COPIES (tools/b691_record.py sha256 693001be38ae72ec, tools/b691_checks.py sha256 1f0a996b8605d6e0), WHOLE:
+    --- b691_record.py prev_capture (sealed)
+    +++ b692_record.py prev_capture
+    @@ -1,5 +1,4 @@
+     def prev_capture():
+    -    """G-EDIT-ROUTE's window over the previous act (b687's repair; b691's reading, the same session): b690's capture AFTER ITS POST-PUSH
+    -    SUITE -- every command of this session from the call that combined b690's post-push parts into data/b690_checks_postpush.txt to the
+    -    first user line of (R301), b690's closing's commands among them; this act's own capture starts at that line."""
+    +    """G-EDIT-ROUTE's window over the previous act (b687's repair; the same session): b691's capture AFTER ITS POST-PUSH SUITE -- every
+    +    command from the call that combined b691's post-push parts into data/b691_checks_postpush.txt to the first user line of (R302)."""
+         rows = ER.capture(SESSION, PREV_ANCHOR, SUBAGENTS)
+    --- b691_checks.py branches_ok (sealed)
+    +++ b692_checks.py branches_ok
+    @@ -1,8 +1,9 @@
+     def branches_ok(S):
+    -    """the two repositories' local branch lists by the ruling's names (no remote branch named), and the branches bank."""
+    +    """the five names gone from relay and PLACE-papers, the eight kernel branches gone from SIDE-rcurve and SIDE-explicit-formula (local and
+    +    the remote-tracking refs), and the branches bank's verdict."""
+         z = S['branchest']
+         left = dict((r, sorted(x.strip() for x in v.split(NL) if x.strip())) for r, v in S['branch_lists'].items())
+    -    rem = dict((r, sorted(x.strip() for x in v.split(NL) if x.strip())) for r, v in S['remote_lists'].items())
+    -    return all(v == [] for v in left.values()) and len(left) == 2 and all(v == [] for v in rem.values()) and len(rem) == 0 \
+    -        and all(b in z for b in NAMED_LOCAL) and 'BRANCHES 5 (LOCAL 5, REMOTE 0) ; MERGED 5 ; TO BE DELETED 5 ; UNNAMED OF b690 0' in unwrap(z)
+    +    kleft = dict((r, v.strip()) for r, v in S['kbranch_lists'].items())
+    +    return all(v == [] for v in left.values()) and len(left) == 2 and all(v == '' for v in kleft.values()) and len(kleft) == 8 \
+    +        and all(b in z for b in NAMED_LOCAL) and 'NAMED 5 (MERGED 5) ; KERNEL BRANCHES 8 (MERGED 8), RAISED ; UNNAMED OF b691 0' in unwrap(z)
+     
+    --- b691_checks.py runner_ok (sealed)
+    +++ b692_checks.py runner_ok
+    @@ -1,10 +1,7 @@
+     def runner_ok(S):
+    -    """this act's four runs through its record tool's reader: each before run at the main the merge sits on, each after run at the built tip,
+    -    success, the artifact's sha256, the memory low above the hold."""
+    -    import b691_record as REC
+    +    """this act's four runs through its record tool's reader: each at its own ref, success, the artifact's sha256, the memory low above the
+    +    hold."""
+    +    import b692_record as REC
+         rows = S['runner'].get('rows') or []
+    -    want = {}
+    -    for k, pre, tip, *_r in MERGES:
+    -        want[(k, 'before')] = gs('D:/' + k, 'rev-parse', pre)
+    -        want[(k, 'after')] = gs('D:/' + k, 'rev-parse', tip)
+    +    want = dict((lab, gs(EF, 'rev-parse', ref)) for lab, ref in K.RUNNER_LABELS)
+         try:
+    @@ -14,4 +11,3 @@
+             return False
+    -    return len(rows) == 4 and sorted((r['kernel'], r['label']) for r in rows) == sorted(want) \
+    -        and all(r['ref'] == want.get((r['kernel'], r['label'])) for r in rows) \
+    +    return len(rows) == 4 and sorted(r['label'] for r in rows) == sorted(want) and all(r['kernel'] == K.EF and r['ref'] == want[r['label']] for r in rows) \
+             and all(r['conclusion'] == 'success' and r['artifact_sha256'] and r['mem_low'] is not None and r['mem_low'] >= K.HOLD and not r['stopped']
+    --- b691_checks.py merges_ok (sealed)
+    +++ b692_checks.py merges_ok
+    @@ -1,7 +1,6 @@
+     def merges_ok(S):
+    -    for k, m in S['merges'].items():
+    -        pre, tip, merge, tag = m['want']
+    -        if m['main'] != merge or m['parents'] != [pre, tip] or m['tree_main'] != m['tree_built'] or m['tags'].get(tag) != merge:
+    -            return False
+    -    return len(S['merges']) == 2
+    +    """this act made no merge and no tag: SIDE-explicit-formula's main at the third closure commit, its first-parent line the three closure
+    +    commits from the main before the act, no tag at any of them, v0.34 and v0.34.1 unmoved."""
+    +    m = S['mainst']
+    +    return m['main'] == K.EF_TIP and m['line'] == list(K.CLOSURE_COMMITS) and not m['tags'] and m['v034'] == '8fbc27b' and m['v0341'] == K.EF_BEFORE
+     
+    --- b691_checks.py wf_ok (sealed)
+    +++ b692_checks.py wf_ok
+    @@ -1,16 +1,12 @@
+     def wf_ok(S):
+    -    """b688's reading, carried: each merged kernel read in its own dependency form -- the lake path and the cache step where a lakefile
+    -    requires Mathlib, the plain-lean path where there is no lakefile."""
+    +    """the one kernel workflow the act wrote: at main equal to the act's own write, no author identifier, no secret, the hold, the lake path
+    +    and the cache step its lakefile's Mathlib requires, the print step over its list, the closure step, the files the act wrote on main."""
+         for k, v in S['wf'].items():
+             t = v['text'].lower()
+    -        if not v['text'] or v['text'] != v['before']:
+    +        if not v['text'] or v['text'] != v['before'] or any(w in t for w in IDENT_WF):
+                 return False
+    -        if any(w in t for w in IDENT_WF):
+    +        if 'workflow_dispatch' not in t or 'hold_mb: "2560"' not in t or 'print_targets.txt' not in t or 'circuitclosure.lean' not in t \
+    +                or 'out/closure.jsonl' not in t:
+                 return False
+    -        if 'workflow_dispatch' not in t or 'hold_mb: "2560"' not in t or 'print_targets.txt' not in t:
+    -            return False
+    -        if v['lakefile']:
+    -            if 'lake env lean out/axioms.lean' not in t or (('lake exe cache get' in t) != v['mathlib']):
+    -                return False
+    -        elif 'lean_path=build lean out/axioms.lean' not in t or 'lake build' in t or 'lake env' in t:
+    +        if not v['lakefile'] or 'lake env lean out/axioms.lean' not in t or (('lake exe cache get' in t) != v['mathlib']):
+                 return False
+    @@ -18,3 +14,3 @@
+                 return False
+    -    return sorted(S['wf']) == sorted(k for k, *_r in MERGES)
+    +    return sorted(S['wf']) == [K.EF]
+     
+
+### ### **REPAIRS 8 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 8 OF 8 ; THE STANDING INSTRUMENTS UNEDITED True ; THE REPAIRED SHARED TOOL 1, ITS DIFF BANKED True ; THE REPAIRED READINGS` DIFF LINES 93.**
