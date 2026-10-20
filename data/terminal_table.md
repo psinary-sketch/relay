@@ -5,11 +5,11 @@
 
 | repo | name | pin | HEAD | statement | profile | grade | provenance | act:line | conflict | E/I (b544) |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-| `SIDE-archimedean` | `SIDEArchimedean.archimedean_forces_half` | *none cited* | `8019d9dfee87` | `theorem archimedean_forces_half (σ : ℚ) (h : fe_reflect σ = σ) : σ = 1 / 2` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-archimedean` | `SIDEArchimedean.archimedean_identifies_half` | *none cited* | `8019d9dfee87` | `theorem archimedean_identifies_half (σ : ℚ) :     fe_reflect σ = σ ↔ focus_codim σ = 1` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-archimedean` | `SIDEArchimedean.fe_reflect_fixed_iff` | *none cited* | `8019d9dfee87` | `theorem fe_reflect_fixed_iff (σ : ℚ) : fe_reflect σ = σ ↔ σ = 1 / 2` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-archimedean` | `SIDEArchimedean.focus_codim_eq_one_iff` | *none cited* | `8019d9dfee87` | `theorem focus_codim_eq_one_iff (σ : ℚ) : focus_codim σ = 1 ↔ σ = 1 / 2` | NOT PROFILED | **DERIVES** | rule |   |  | — |
-| `SIDE-archimedean` | `SIDEArchimedean.theta_weight_doubles_to_one` | *none cited* | `8019d9dfee87` | `theorem theta_weight_doubles_to_one : 2 * theta_weight = 1` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-archimedean` | `SIDEArchimedean.archimedean_forces_half` | *none cited* | `fcecc454077c` | `theorem archimedean_forces_half (σ : ℚ) (h : fe_reflect σ = σ) : σ = 1 / 2` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-archimedean` | `SIDEArchimedean.archimedean_identifies_half` | *none cited* | `fcecc454077c` | `theorem archimedean_identifies_half (σ : ℚ) :     fe_reflect σ = σ ↔ focus_codim σ = 1` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-archimedean` | `SIDEArchimedean.fe_reflect_fixed_iff` | *none cited* | `fcecc454077c` | `theorem fe_reflect_fixed_iff (σ : ℚ) : fe_reflect σ = σ ↔ σ = 1 / 2` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-archimedean` | `SIDEArchimedean.focus_codim_eq_one_iff` | *none cited* | `fcecc454077c` | `theorem focus_codim_eq_one_iff (σ : ℚ) : focus_codim σ = 1 ↔ σ = 1 / 2` | NOT PROFILED | **DERIVES** | rule |   |  | — |
+| `SIDE-archimedean` | `SIDEArchimedean.theta_weight_doubles_to_one` | *none cited* | `fcecc454077c` | `theorem theta_weight_doubles_to_one : 2 * theta_weight = 1` | NOT PROFILED | **DERIVES** | rule |   |  | — |
 | `SIDE-bijection` | `SIDEBijection.identity_formation_bijection` | *none cited* | `b800504350f0` | `theorem identity_formation_bijection (S : IDSSystem) :     ∀ stage : Fin 4, Bijective (S.identityOf stage)` | NOT PROFILED | **CONFLICT** | cell |  PLACE-papers/REGISTRY.md:608 | INTERFACES / SHELL | — |
 | `SIDE-carrier-spec` | `SIDECarrierSpec.Grading.archPart_separates_nothing_new` | `v0.4.1` | `dd54a6163c17` | `theorem archPart_separates_nothing_new (spec : CarrierSpec C F E P) (φ : F →+ ℝ)     (hfactor : ∀ a : C, spec.archPart a = φ (spec.finPart a)) (a b : C)     (h …` | NOT PROFILED | **DERIVES** | rule |   |  | — |
 | `SIDE-carrier-spec` | `SIDECarrierSpec.Grading.arch_independent_excludes_factoring` | `v0.4.1` | `dd54a6163c17` | `theorem arch_independent_excludes_factoring {D : Type u} [AddCommMonoid D] {F' : Type v}     [AddCommMonoid F'] (finPart : D →+ F') (archPart : D →+ ℝ)     (hin…` | NOT PROFILED | **DERIVES** | rule |   |  | — |
