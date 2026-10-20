@@ -1,0 +1,49 @@
+{
+ "at": "2026-10-20T02:49:09Z",
+ "kernel": "SIDE-archimedean",
+ "rows": [
+  {
+   "row": "SIDE-archimedean@8019d9d:SIDEArchimedean/Reflection.lean:1",
+   "file": "SIDEArchimedean/Reflection.lean",
+   "line": 1,
+   "verdict": "OVERREACHES",
+   "action": "An IDENTIFICATION kernel over ℚ: it proves that the fixed point of the reflection σ ↦ 1 − σ is σ = 1/2 and that a codimension count defined to be 1 exactly at σ = 1/2 picks out the same point; the path n² → θ → √ transformation → ξ(s) = ξ(1−s) → Focus is the reading, not stated in this file, and it does not prove RH.",
+   "applied": true
+  },
+  {
+   "row": "SIDE-archimedean@8019d9d:SIDEArchimedean/Reflection.lean:58",
+   "file": "SIDEArchimedean/Reflection.lean",
+   "line": 58,
+   "verdict": "OVERREACHES",
+   "action": "The headline identification: the fixed point of the functional-equation reflection σ ↦ 1 − σ (over ℚ) is σ = 1/2.",
+   "applied": true
+  }
+ ],
+ "before": 2,
+ "after": 0,
+ "residues": [
+  [
+   "README.md",
+   15,
+   "- `archimedean_forces_half` — the headline: the Archimedean FE structure forces sigma = 1/2."
+  ],
+  [
+   "README.md",
+   19,
+   "An **identification kernel** — same status as Voice1 (Euler balance), Voice6 (spectral), and SIDE-frobenius (indicial). It verifies the Archimedean machinery *points at* sigma = 1/2. It does **not** prove RH on its own; that requires the exhaustive mechanism catalogue (Ostrowski + Conservation)."
+  ],
+  [
+   "SIDEArchimedean/Reflection.lean",
+   39,
+   "zero needs one real equation, not two (codim 2 → 1). Off the line a"
+  ]
+ ],
+ "main": "fcecc45",
+ "tip": "2bd9cc8",
+ "tag": "v0.1.1",
+ "tag_peel": "fcecc454077cb8e5d91fdf473d7e8f28754c3462",
+ "merged_tree": "47f959e228a39fa2990005f0d5f6d54a9553bdb3",
+ "built_tree": "47f959e228a39fa2990005f0d5f6d54a9553bdb3",
+ "run_before": 39360158384,
+ "run_after": 39360543605
+}

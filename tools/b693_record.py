@@ -675,6 +675,84 @@ def quote(*a):
     print(NL.join(L))
 
 
+# ================================================================================ COMPONENT 2: THE CUT BANK, (R303)(3) (b691's route, carried)
+CUT = dict(kernel='SIDE-archimedean', table='b647_table_SIDE-archimedean.txt', base='8019d9d', main='fcecc45', tip='2bd9cc8', tag='v0.1.1',
+           prior='v0.1.0', workflow='79a8527', targets='7769d0e', before=39360158384, after=39360543605)
+# ### each quoting line's reading, by hand after the search (data/b693_quote_archimedean.txt): (file, line) -> its disposition
+RESIDUE_READ = {
+    ('README.md', 15): 'CARRIED -- a README line quoting the removed headline docstring ("the Archimedean FE structure forces sigma = 1/2"), '
+                       'outside the docstring rows the cut reaches; trigger: the next re-cut of SIDE-archimedean or a README pass',
+    ('README.md', 19): 'CARRIED -- a README line quoting the removed header ("verifies the Archimedean machinery *points at* sigma = 1/2", the '
+                       'status as Voice1, the exhaustive mechanism catalogue), outside the docstring rows the cut reaches; trigger: the next '
+                       're-cut of SIDE-archimedean or a README pass',
+    ('SIDEArchimedean/Reflection.lean', 39): 'CARRIED AS IT STANDS -- the T3 block`s own kept line (its "(codim 2 → 1)" the defined count), a '
+                                             'MATCHES row at b647 (data/b647_table_SIDE-archimedean.txt :25, Reflection.lean :40 at 8019d9d), '
+                                             'not a quote of the removed claim; the second shape`s needle "codim 2 → 1" meets it',
+}
+
+
+def _norm(t):
+    return ' '.join(t.replace('--', ' ').replace('—', ' ').split())
+
+
+def cut(*a):
+    """data/b693_cut.txt (.json): the document named by data/b693_tie.txt; the commits on its main (the workflow and the print list alone, the
+    cut on recut-archimedean-b693, the merge, the tag); the before and after runs and the prints; the distance before and after by the b670
+    method -- each non-MATCHES row of its b647 table read whole, its ACTION's text (the words after `RE-CUT:`) searched, whitespace normalized,
+    in the file at the merge; the quotation search's quoting lines each entered as a residue with its line and its reading; the generator's
+    dry reading (cells held); the :301 residue read where the cut document carries it."""
+    k = CUT['kernel']
+    kd = 'D:/' + k
+    tb = rdn(CUT['table'])
+    blocks = re.findall(r'(?ms)^  (%s@\w+:(\S+):(\d+)) \| (OVERREACHES|UNDERSTATES|UNLICENSED) \|.*?\n      ACTION   RE-CUT: (.*?)$' % re.escape(k), tb)
+    rows = []
+    for rid, f, ln, verdict, action in blocks:
+        src = _show(kd, CUT['main'], f) or ''
+        ok = _norm(action) in _norm(src)
+        rows.append(dict(row=rid, file=f, line=int(ln), verdict=verdict, action=action.strip(), applied=ok))
+    before = len(rows)
+    after = sum(1 for r in rows if not r['applied'])
+    q = jl('b693_quote_archimedean.json')
+    qlines = sorted(set((h.split(':')[1], int(h.split(':')[2]), h.split(':', 3)[3]) for _n, h in q.get('hits') or []), key=lambda x: (x[0], x[1]))
+    unread = [(f, ln) for f, ln, _t in qlines if (f, ln) not in RESIDUE_READ]
+    if unread:
+        sys.exit('### A QUOTING LINE WITHOUT ITS HAND READING %s -- NOTHING WRITTEN' % unread)
+    tie_v = vl_ = ([x for x in rdn('b693_tie.txt').split(NL) if x.startswith('### ### **')] or ['### NOT READ'])[-1]
+    cd = ([x for x in rdn('b693_correspondence_dry.txt').split(NL) if x.startswith('### ### **')] or ['### NOT READ'])[-1]
+    tag_peel = g(kd, 'rev-parse', CUT['tag'] + '^{commit}').strip()
+    prior_peel = g(kd, 'rev-parse', CUT['prior'] + '^{commit}').strip()
+    mt, tt = g(kd, 'rev-parse', CUT['main'] + '^{tree}').strip(), g(kd, 'rev-parse', CUT['tip'] + '^{tree}').strip()
+    L = ['b693 -- COMPONENT 2, (R303)(3): THE RE-CUT OF %s, ITS DISTANCE, ITS RESIDUES (%s)' % (k, utc()), '',
+         '### the document: %s, named by b652`s order alone at the top count (relay data/b693_tie.txt: %s)' % (k, tie_v.strip('#* ')),
+         '### the commits on its main: the workflow %s alone, the print list %s alone (the Mathlib form, carried from SIDE-rcurve`s bb14e89); the cut %s'
+         % (CUT['workflow'], CUT['targets'], CUT['tip']),
+         '### on recut-archimedean-b693 (comments only: the module header and the headline docstring, the two ACTIONs verbatim), pushed alone by',
+         '### push_gated`s branch mode named --scratch (relay data/b693_archimedean_cut_push_out.txt); the merge %s by --no-ff, the merged tree %s the'
+         % (CUT['main'], mt[:12]),
+         '### built tree %s (%s); the tag %s peeled to %s, its message naming the prior tag %s = %s (relay data/b693_archimedean_merge_push_out.txt)' % (
+             tt[:12], 'EQUAL' if mt == tt else '### DIFFER', CUT['tag'], tag_peel[:12], CUT['prior'], prior_peel[:7]),
+         '### the runs: before %d at main %s, after %d at the tip %s, both DERIVES 5 of 5 at the standard three; the prints equal line for line'
+         % (CUT['before'], CUT['targets'], CUT['after'], CUT['tip']),
+         '### (relay data/b693_runner_SIDE-archimedean_before.txt, _after.txt, data/b693_prints_SIDE-archimedean.txt)', '',
+         '### THE DISTANCE BY THE b670 METHOD: each non-MATCHES row of relay data/%s, its ACTION`s text searched in the file at %s:' % (CUT['table'], CUT['main'])]
+    L += ['  %s | %s | ACTION applied %s | %s' % (r['row'], r['verdict'], r['applied'], r['action'][:100]) for r in rows]
+    L += ['', '### THE RESIDUES (data/b690_rules.txt row (2); relay data/b693_quote_archimedean.txt, two shapes): each quoting line, the line verbatim,',
+          '### its reading by hand:']
+    L += ['  R-%d  %s :%d | %s | %s' % (i, f, ln, RESIDUE_READ[(f, ln)], t[:180]) for i, (f, ln, t) in enumerate(qlines, 1)]
+    L += ['', '### THE CORRESPONDENCE CELLS (relay data/b693_correspondence_dry.txt, the generator run dry): %s' % cd.strip('#* '),
+          '', '### THE SIDE-kernel ROW`S RESIDUE OF b691 (R-K1, relay data/b691_cut.txt :22-:27), read where the cut document carries it:',
+          '### PATHS_TO_THE_CRITICAL_LINE_v0_7.md :301 names SIDE-kernel v1.8 (carried at lv-conservation v0.7.0), not SIDE-archimedean; the cut',
+          '### document does not carry it; CARRIED, held by the generator as CARRIED AT: VERSION DIFFERS (relay data/b693_correspondence_dry.txt).',
+          '### b691`s residues R-1 to R-4 (SIDE-rcurve README.md :3, :9, :11, :19) carried as b691`s closing names them.',
+          '', '### ### **%s RE-CUT: THE DISTANCE BEFORE %d, AFTER %d ; TAG %s ; PRINTS EQUAL ; QUOTING LINES %d, EACH A RESIDUE CARRIED ; THE '
+          'CORRESPONDENCE CELLS HELD ; THE :301 RESIDUE CARRIED.**' % (k, before, after, CUT['tag'], len(qlines))]
+    put_txt('b693_cut.txt', L)
+    put_json('b693_cut.json', dict(at=utc(), kernel=k, rows=rows, before=before, after=after, residues=[list(x) for x in qlines], main=CUT['main'],
+                                   tip=CUT['tip'], tag=CUT['tag'], tag_peel=tag_peel, merged_tree=mt, built_tree=tt, run_before=CUT['before'],
+                                   run_after=CUT['after']))
+    print(NL.join(L))
+
+
 # ================================================================================ THE DEFECTS BANK (b692's route and its row reader, carried)
 DEFECT_ROW = re.compile(r"^    \(([a-z]'?)\) ")
 
@@ -700,7 +778,7 @@ def defects(*a):
     print('  defects %d' % len(ds))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, defects=defects, tie=tie, dispatch=dispatch, runner=runner, prints=prints, quote=quote)
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, defects=defects, tie=tie, dispatch=dispatch, runner=runner, prints=prints, quote=quote, cut=cut)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
