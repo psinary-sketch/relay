@@ -154,6 +154,39 @@ def land(items, bank, tag, entry=None, check=(), expect_cells=(), dry=True):
     print('  ' + ' ; '.join('%s :%s' % (x['file'], x['line']) for x in out))
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R305)(1)
+WH = ('*Appended 2026-10-20 by b695 to b694’s entry (:9548), under `(R305)`(1) -- b694 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b694_closing.txt):*')
+WB = (' “b694 closed: relay 0c1287a2, PLACE-papers 4a21fa9; suite 122 of 124; root 012ffed645f69af6…; 6 prompts answered; 12 defects” '
+      '(data/b694_closing.txt :1), the closing 6e451686 pushed and read back at relay main (data/b694_closing_push_out.txt :5). The Weil-face '
+      'witness at Q0 FOUND on b518’s notched window carried to wider widths: P − PR + A for Z_Q at the off-line zero ρ₀ = 0.95326… + 16.29021…i '
+      'negative beyond its bound at every width from a = 32 to a = 192, the narrowest margin at a = 32, −7.7752874967979 ± 1.43e-18, positive '
+      'at 14.1, 16 and 24 (data/b694_witness.txt :12-:20, :34); the identity control agreeing at all 34 cells over 182 certified zeros, |Z − S| '
+      'between 3e-25 and 1e-12 (:8, :12-:28); the ζ control nonnegative beyond its bound at all 16 cells, read before any Q0 value; the centred '
+      'family positive at every width as the phase reading predicted (:21-:28). The caveats as entered: the archimedean and zero-side tail '
+      'bounds float bounds with a safety factor, some 18 orders beneath the margin, not balls (W-ORD-WITNESS-TAIL-BALLS, OPEN_TRAILS :15166); '
+      'the zero tail resting on P3, derived and not compiled; nothing of the kernel; T1 the control’s wording defect, the midpoints agreeing to '
+      '9e-33; b518’s float figure 2.33e-6 off against its 5.34e-8 bound, the identity holding on that window (W-ORD-B518-FLOAT, :15168). The '
+      'closure step on SIDE-lv-conservation at d38f3e8, run 39465780735, its eight terminals at the standard three, prints equal, no module '
+      'touched, no tag (data/b694_runner_SIDE-lv-conservation_after.txt :30); CLAUSE-DOMINANCE 1 of 2 faces kernels, SIDE-explicit-formula '
+      'holding and SIDE-lv-conservation absent, its lakefile forbidding dependence on sister kernels, the clause reaching it through the faces '
+      'page’s Correspondence row (data/b694_circuit_dominance.txt :7-:8, :12). b693’s weight line at :9540, the corrigendum at :9542, the deletes '
+      'rule (data/b694_rules.txt row (1)), the closing tool’s look-up keyed to one form with its seeded control (data/b694_lookup_control.txt). '
+      'The suite 123 of 124 before the push and 122 of 124 after, NOT CLEAN, neither failure declared: (k) G-RULE-BINARY-HASHES on the circuit '
+      'figure’s hashes bank naming its PNG under b692’s path, (l) G-RULE-ONE-GIT-WRITE on three git writes in one message at 18:38:58Z, all '
+      'landed and read back, nothing rewritten, left as they stand under data/b692_rules.txt row (1) (data/b694_defects.txt :43, :52; the '
+      'corrigendum beneath). All eight scores HELD (data/b694_scores_close.json); the sealed tools 11 of 11 (data/b694_closing.txt :17); the '
+      'root 012ffed6 over 77 banks (data/act_roots.txt :72); mirror-refresh-2026-10-20-b694.zip CLEAN with the root line. Twelve defects '
+      '(a)-(l), (c)-(g) and (j) the navigator’s. Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B694_ENTRY,
+         check=[('FINDINGS.md', K.B694_ENTRY, '## The Weil-face witness at Q0 on the notched window'),
+                ('OPEN_TRAILS.md', K.B694_TRAIL, '### b694')], dry=dry)
+
+
 # ================================================================================ THE READERS, ONE PER ROW SHAPE A ROUTE READS ((R263)(3))
 BRANCH_FATES = ('DELETED', 'KEPT', 'RAISED')
 
@@ -321,7 +354,7 @@ def answers(*a):
 
 
 # ================================================================================ THE ROUTES
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers)
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

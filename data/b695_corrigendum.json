@@ -1,0 +1,33 @@
+{
+ "at": "2026-10-20T19:54:42Z",
+ "entry_line": 9580,
+ "title": "## Corrigendum to b694’s face and closing record (relay data/b694_registration_2026-10-20.txt, data/b694_closing.txt): two arms failing after the seal, undeclared -- G-RULE-BINARY-HASHES and G-RULE-ONE-GIT-WRITE",
+ "png": "data/b694_circuit_SIDE-lv-conservation_v0.13.0.png",
+ "png_sha256": "148025d53c948b89696afe35c035e4655cd7a2a0b9a3b548eb722ee0d710c918",
+ "as_written": "data/b692_circuit_SIDE-lv-conservation_v0.13.0.png",
+ "message": {
+  "ts": "2026-10-20T18:38:58.994Z",
+  "id": "msg_011CgDyaWoDrQZwE5g8zra8K",
+  "uses": [
+   {
+    "line": 2942,
+    "ts": "2026-10-20T18:38:58.994Z",
+    "command": "PUSH_GATED_LOG=/d/relay/data/b694_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b694"
+   },
+   {
+    "line": 2943,
+    "ts": "2026-10-20T18:39:00.081Z",
+    "command": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b694 4a21fa9"
+   },
+   {
+    "line": 2944,
+    "ts": "2026-10-20T18:39:00.856Z",
+    "command": "PUSH_GATED_LOG=/d/relay/data/b694_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b694"
+   }
+  ]
+ },
+ "readbacks": {
+  "relay": "0c1287a256d958c7bb320e184d3788726f342a8e",
+  "pp": "4a21fa9d8391fa4d1536c4173886d126874c03c3"
+ }
+}
