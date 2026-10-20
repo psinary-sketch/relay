@@ -1488,7 +1488,7 @@ def _n3():
     qv = _vl('%s_quote_interfaces.txt' % ACT)
     quote_ok = bool(q_t) and bool(m_t) and q_t < m_t and re.search(r'QUOTING LINES \d+', qv) is not None
     pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
-    cells_ok = all(x in ('FINDINGS.md', 'OPEN_TRAILS.md', K.FACES_PAGE) for x in pp_ch)
+    cells_ok = all(x in K.PP_WRITTEN for x in pp_ch)
     ok = dist and pr and quote_ok and cells_ok
     return ('HELD' if ok else 'REFUTED'), (
         'the distance by the b670 method before %s, after %s (relay data/b695_cut.json): at or below %s; the before and after prints equal line for '
