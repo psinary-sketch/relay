@@ -354,7 +354,45 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers)
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R303)(1)
+WH = ('*Appended 2026-10-19 by b693 to b692’s entry (:9462), under `(R303)`(1) -- b692 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b692_closing.txt):*')
+WB = (' “b692 closed: relay cb41d267, PLACE-papers 62b632f; suite 123 of 123; root f0fd28492c58f143…; 4 prompts answered; 13 defects” '
+      '(data/b692_closing.txt :1), the closing 1749abbb pushed and read back at relay main (data/b692_closing_push_out.txt). The suite 123 of 123 '
+      'before and after the push, every control behaving (data/b692_checks.txt, data/b692_checks_postpush.txt); the eight scores HELD '
+      '(data/b692_scores_close.json); the root f0fd2849 over 88 banks (data/act_roots.txt, data/b692_act_root.json); the entry at FINDINGS '
+      ':9462, the trail at OPEN_TRAILS :15110 carrying the root; the face locked after the gate CLEAR and the lock gate’s 8 of 8, no arm '
+      'declared failing (data/b692_reg_gate.txt, data/b692_lockgate_notes.txt :65); the sealed tools 12 of 12 at the close (data/b692_closing.txt '
+      ':18); mirror-refresh-2026-10-19-b692.zip CLEAN with the root line (data/b692_mirror_verify.txt, data/b692_mirror.txt); the scratch branch '
+      'circuit-shorts-control-b692 deleted local and remote, the local delete by -D, the branch merged at no point (data/b692_closing.txt :224). '
+      'The dependency-circuit reading at SIDE-explicit-formula v0.34.1: CLAUSE-DOMINANCE 1 of 1 faces kernels reached, SIDE-explicit-formula '
+      'IN, the clause’s face in the closures of 2 of the 9 faces the page names, SIDE-lv-conservation not reached and carried to b694 '
+      '(data/b692_circuit_dominance.txt :21, data/b692_closure_step.txt); SERIES of h2_sign_iff_rh 576 names, the longest chain 26; SHORTS 0; '
+      'WIDTH 41 same-type theorem pairs, 25 meeting in at most FEW = 5 names; LOAD led by Zeta23.reflect (825), Zeta23.ZeroConfig.mk (716) '
+      'and Zeta23.ZeroConfig (716) (data/b692_circuit_SIDE-explicit-formula_v0.34.1.txt :707); READFIRST-CLOSURE against the hand list, 23 '
+      'lines differ (data/b692_readfirst_diff.txt :31); SUITE-LOAD, 11 of 24 rule arms reading a source defect, the factor 1.53 '
+      '(data/b692_suite_load.txt :59); the tenth row in data/b692_circuit_spec.txt :46. The triage, on the author’s answer amending the '
+      'ruling’s figures (data/b693_author_answers.txt, prompt 1): the classes as triaged CARRY 11, DISCHARGED-BY-READING 24, RETIRE 0 '
+      '(data/b692_triage_counts.txt :6); the entries as written CARRIED 12, DISCHARGED BY READING 23, RETIRED 0 (OPEN_TRAILS :15040-:15108), '
+      'one row demoted, W-ORD-PROBE-HOLD, on the author’s check because its reading cites a tool by path and line (tools/chain_page.py :919) and '
+      'no bank (OPEN_TRAILS :15088). Thirteen defects (data/b692_defects.txt :5-:60): (a) a listing read through a shell filter; (b) the closure '
+      'script’s first form refused on the runner; (c) its second form under the heartbeat ceiling; (d) the reader’s first forms; (e) a file '
+      'write routed through git’s own option; (f) the citation check’s own row; (g) the ferry bank’s first write; (h) the corrigendum route’s '
+      'first dry; (i) the shorts branch pushed outside the push tool, a ruled exception on the author’s word; (j) the navigator’s, the parts '
+      'repair as worded unable to meet its own test; (k) the navigator’s, h2_sign_iff_rh not on the print list; (l) a score read through an '
+      'interpreter’s print before the lock; (m) two needles of the sealed record tool mis-reading their banks, its two figures entered by the '
+      'corrigendum beneath. The closing record’s carried-forward row (i) reads “(a)-(k)”, a fixed string in the closing tool '
+      '(data/b692_closing.txt :258, tools/b692_closing.py :115), repaired at this act’s carry. Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], 'b693_record_lines.json', 'c1', entry=K.B692_ENTRY,
+         check=[('FINDINGS.md', K.B692_ENTRY, '## The dependency-circuit reading at SIDE-explicit-formula v0.34.1'),
+                ('OPEN_TRAILS.md', K.B692_TRAIL, '### b692')], dry=dry)
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

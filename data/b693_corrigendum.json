@@ -1,0 +1,31 @@
+{
+ "at": "2026-10-20T02:29:40Z",
+ "entry_line": 9500,
+ "title": "## Corrigendum to b692’s entry (FINDINGS :9462): LOAD’s three highest and the SUITE-LOAD factor, two figures the sealed record tool mis-read",
+ "load": "Zeta23.reflect (825), Zeta23.ZeroConfig.mk (716), Zeta23.ZeroConfig (716)",
+ "factor": "1.53",
+ "printed": {
+  "load": 9476,
+  "factor": 9482
+ },
+ "banks": {
+  "reading": [
+   "b692_circuit_SIDE-explicit-formula_v0.34.1.txt",
+   707
+  ],
+  "suite_load": [
+   "b692_suite_load.txt",
+   59
+  ]
+ },
+ "needles": {
+  "load": [
+   1349,
+   "ld = re.search(r'LOAD`S THREE HIGHEST ([^.]*)\\.\\*\\*', rb)"
+  ],
+  "factor": [
+   1352,
+   "sl = re.search(r'DEFECTS PER ACT ([\\d.]+) -> ([\\d.]+) AS ARMS ([\\d.]+) -> ([\\d.]+) ; THE FACTOR ([\\d.]+)', rdn('b692_suite_load.txt'))"
+  ]
+ }
+}
