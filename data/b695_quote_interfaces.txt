@@ -1,0 +1,25 @@
+b695 -- THE QUOTATION SEARCH BEFORE THE MERGE, data/b690_rules.txt row (2), OVER SIDE-interfaces (2026-10-20T19:59:21Z)
+
+### the cut: git diff 58854f0..69b143b ; the lines it removes or changes 4 ; one needle each, checked to stand in its own removed line; each searched
+### with git grep -n -F at the tip 69b143b across the kernel`s whole tracked tree. Rows are removed lines: needle | hits (file:line: the quoting
+### line):
+  per-parameter κ vector over a Formation      | 0 hit(s) ; case-blind 'vector over a formation'  0 hit(s) | removed: * ConservationProfile P(I): per-parameter κ vector over a Formation.
+  every non-trivial interface                  | 0 hit(s) ; case-blind 'non-trivial interface'    4 hit(s) | removed: * Connection Requires Structure: every non-trivial interface
+      69b143b:Interfaces/ConnectionRequiresStructure.lean:9:-- A non-trivial interface: not all parameters are dark.
+      69b143b:Interfaces/ConnectionRequiresStructure.lean:20:-- A non-trivial interface produces at least one structural witness,
+      69b143b:Interfaces/InterfaceSplit.lean:13:      "For any non-trivial interface f : A → B with d observable parameters,
+      69b143b:README.md:59:- `connection_requires_structure` — Under the INTERFACETS bimodality hypothesis (every parameter has κ < 0.45 or κ ≥ 0.75), any non-trivial interface produces at least one structural witness. Not all dark, plus bimodality, forces structure.
+  in a determined system has a structural witness | 0 hit(s) ; case-blind 'determined system'        0 hit(s) | removed: in a determined system has a structural witness.
+  no mechanism for θ → κ(θ) = 0                | 0 hit(s) ; case-blind 'κ(θ) = 0'                 0 hit(s) | removed: * Parametric Mechanism Theorem: no mechanism for θ → κ(θ) = 0.
+
+### THE CONTROL: each needle at the base 58854f0, where the removed line stands (needle ; case-exact hits ; case-blind hits):
+  per-parameter κ vector over a Formation      ; 1 ; 1
+  every non-trivial interface                  ; 1 ; 5
+  in a determined system has a structural witness ; 1 ; 1
+  no mechanism for θ → κ(θ) = 0                ; 1 ; 1
+### the control FIRES FOR EVERY NEEDLE IN BOTH SHAPES
+
+### THE QUOTING LINES, DISTINCT (file:line): Interfaces/ConnectionRequiresStructure.lean:20, Interfaces/ConnectionRequiresStructure.lean:9, Interfaces/InterfaceSplit.lean:13, README.md:59
+### the yields: the case-exact shape 0 hit(s) on 0 line(s) ; the case-blind shape 4 hit(s) on 4 line(s)
+
+### ### **REMOVED OR CHANGED LINES 4 ; NEEDLES SEARCHED 4 IN TWO SHAPES ; QUOTING LINES 4 -- EACH ENTERED AS A RESIDUE.**

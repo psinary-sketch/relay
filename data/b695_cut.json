@@ -1,0 +1,47 @@
+{
+ "at": "2026-10-20T20:02:04Z",
+ "kernel": "SIDE-interfaces",
+ "rows": [
+  {
+   "row": "SIDE-interfaces@cbdcd5f:Interfaces.lean:1",
+   "file": "Interfaces.lean",
+   "line": 1,
+   "verdict": "OVERREACHES",
+   "action": "* ConservationProfile P: a per-parameter kappa vector over a finite parameter type. * Connection Requires Structure: under the INTERFACETS bimodality hypothesis (every kappa < 0.45 or >= 0.75), a profile that is not all dark has a structural witness (kappa >= 0.75). * Parametric Mechanism Theorem: if no A-side change moves the observable, kappa = 0.",
+   "applied": true,
+   "applied_at_base": false
+  }
+ ],
+ "before": 1,
+ "after": 0,
+ "residues": [
+  [
+   "Interfaces/ConnectionRequiresStructure.lean",
+   9,
+   "-- A non-trivial interface: not all parameters are dark."
+  ],
+  [
+   "Interfaces/ConnectionRequiresStructure.lean",
+   20,
+   "-- A non-trivial interface produces at least one structural witness,"
+  ],
+  [
+   "Interfaces/InterfaceSplit.lean",
+   13,
+   "      \"For any non-trivial interface f : A → B with d observable parameters,"
+  ],
+  [
+   "README.md",
+   59,
+   "- `connection_requires_structure` — Under the INTERFACETS bimodality hypothesis (every parameter has κ < 0.45 or κ ≥ 0.75), any non-trivial interface produces at least one structural witness. Not all dark, plus bimodality, forces structure."
+  ]
+ ],
+ "main": "c8bd217",
+ "tip": "69b143b",
+ "tag": "v0.2.1",
+ "tag_peel": "c8bd217af5fff8904f012988ca770224aa4b0ebf",
+ "merged_tree": "6d2b2fb393213dec9d594bb11f559ba69a7ead19",
+ "built_tree": "6d2b2fb393213dec9d594bb11f559ba69a7ead19",
+ "run_before": 39487947819,
+ "run_after": 39488049232
+}
