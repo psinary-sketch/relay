@@ -84,6 +84,96 @@ def grc(repo, *a):
     return subprocess.run(['git', '-C', repo] + list(a), capture_output=True, text=True, encoding='utf-8', errors='replace').returncode
 
 
+# ================================================================================ THE GUARDED LANDING (b652's, its scan files b694's)
+def screens(items, tag, dry):
+    import b633_record as R3
+    import b641_record as R41
+    allt = ''.join(t for _f, _h, t in items)
+    cells = sum((R3.predict_cells(t, f) for f, _h, t in items), [])
+    nd, _n = R3._nd(allt)
+    p = os.path.join(SP if dry else D, '%s_scanfile_%s.md' % (ACT, tag))
+    R3._write(p, allt.encode('utf-8'))
+    sc = R3._scan(p)
+    clean = R3._clean(sc)
+    ticks = odd_lines(allt)
+    unread = [x for x in ('### NOT', 'None', ' ? ', '`?`') if x in allt]
+    outside = [n for n in R41.OAI_NEEDLES if n in allt]
+    stems = [s for s in ('gap', 'blind') if re.search(r'\b' + s, allt, re.I)]
+    print('  table cells: %s ; no-disclosure hits: %s ; scanner %s ; odd backticks by line: %s ; unread figures: %s ; outside names: %s ; '
+          'stems: %s' % (cells or 'NONE', nd, 'CLEAN' if clean else 'NOT CLEAN', ticks or 'NONE', unread or 'NONE', outside or 'NONE',
+                         stems or 'NONE'))
+    if not clean:
+        print(sc[-1500:])
+    fired = bool(any(nd.values()) or not clean or ticks or unread or outside or stems)
+    return [tuple(c) for c in cells], fired
+
+
+def land(items, bank, tag, entry=None, check=(), expect_cells=(), dry=True):
+    for f, ln, needle in check:
+        L = rd(FIND if f == 'FINDINGS.md' else OT).split(NL)
+        if needle not in L[ln - 1]:
+            sys.exit('### %s :%d DOES NOT CARRY %r -- NOTHING WRITTEN' % (f, ln, needle))
+    items = [(f, h, conv(t)) for f, h, t in items]
+    cells, fired = screens(items, tag, dry)
+    if dry:
+        for f, h, t in items:
+            print('----', f, NL + t)
+        return
+    if cells != [tuple(x) for x in expect_cells] or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    n = {'FINDINGS.md': len(rd(FIND).split(NL)), 'OPEN_TRAILS.md': len(rd(OT).split(NL))}
+    want = {}
+    for f, h, t in items:
+        want[h] = n[f] + 1 if rd(FIND if f == 'FINDINGS.md' else OT).endswith(NL) else n[f] + 2
+        n[f] += len(t.strip(NL).split(NL)) + 1
+    for f, h, _t in items:
+        guard_absent(FIND if f == 'FINDINGS.md' else OT, h)
+    out = []
+    for f, h, t in items:
+        path = FIND if f == 'FINDINGS.md' else OT
+        r = append_to(path, t)
+        got = line_of(path, h)
+        out.append(dict(file=f, head=h, line=got, append=r))
+        if got != want[h]:
+            put_json(bank, dict(entry=entry, lines=out, at=utc(), stopped=True))
+            sys.exit('### %s LANDED AT :%s, NOT :%d -- STOPPED' % (h[:60], got, want[h]))
+    put_json(bank, dict(entry=entry, lines=out, at=utc()))
+    print('  ' + ' ; '.join('%s :%s' % (x['file'], x['line']) for x in out))
+
+
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R304)(1)
+WH = ('*Appended 2026-10-20 by b694 to b693’s entry (:9506), under `(R304)`(1) -- b693 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b693_closing.txt):*')
+WB = (' “b693 closed: relay a96d5c38, PLACE-papers dba03d2; suite 121 of 122; root eb2323dc6295a480…; 4 prompts answered; 8 defects” '
+      '(data/b693_closing.txt :1), the closing 48ca2540 pushed and read back at relay main (data/b693_closing_push_out.txt :5). The host rebooted '
+      'between relay 0574078e (Components 0-3 done) and 91c2df0c (the resume bank, data/b693_resume.txt, committed alone), entered as an event; '
+      'the act resumed from the tree and the banks in a new session and ran Components 4-5 after it. The four mid-act answers carried out: '
+      'b692’s weight line with both triage figures (FINDINGS :9498); the closing tool reading its defects range from the bank, “(a)–(m)” on '
+      'b692’s (data/b693_range_exercise.txt); the chain split by act, standing-b2 over b624-b658 carrying no arm and standing-b3 over b659-b693 '
+      'running G-ACTROOT-VERIFY once over both halves, the boundary b658 -> b659 equal in both, the whole-chain control 70 of 70 AGREE and the '
+      'three verdicts equal (data/b693_chain_control.txt); push-b693-root pushed alone by push_gated’s branch mode and read back at 59de04e1, '
+      'main pushed from it (data/b693_root_branch_push_out.txt :9, data/b693_root_push_out.txt). The re-cut: SIDE-archimedean, 2 rows outside '
+      'LICENSED/CITED to 0, tag v0.1.1, prints equal, 3 quoting lines each a residue carried (data/b693_cut.txt :28). The suite 121 of 122 before '
+      'and after the push, G-DELETES-ONE-BRANCH failing all act and declared on the face, each of step zero’s eight deletes chained with '
+      '“; echo EXIT $?” (data/b693_checks.txt, data/b693_checks_postpush.txt; data/b693_defects.txt (f) :33). The closing’s push-b693-root row '
+      'printed ABSENT (data/b693_closing.txt :226) where ls-remote showed the branch at 59de04e1: the sealed closing tool looked the remote up '
+      'under D:\\relay while its reads were stored under D:/relay (data/b693_defects.txt (h) :47; the corrigendum beneath). A transient empty '
+      'remote read of SIDE-fano-darkness at the post-push standing-a run’s opening read, read directly and alone, entered as an event, the part '
+      're-run alone. Eight defects (a)-(h) (data/b693_defects.txt :7-:54): (a) the faces page the generator now lists differently, found at '
+      'step zero; (b) the navigator’s, two misses of the ruling; (c) stream redirects at the resume; (d) listings through a shell filter; (e) a '
+      'bank read through an interpreter’s print; (f) the chained deletes; (g) three first forms of the carried suite and record tool caught by '
+      'their own pre-run and repaired before the seal; (h) the closing row. The root eb2323dc over 71 banks (data/act_roots.txt); the entry at '
+      'FINDINGS :9506 and the trail at OPEN_TRAILS :15138 carrying the root; the sealed tools 15 of 15 at the close (data/b693_closing.txt :21); '
+      'mirror-refresh-2026-10-19-b693.zip CLEAN with the root line (data/b693_closing.txt :43). Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B693_ENTRY,
+         check=[('FINDINGS.md', K.B693_ENTRY, '## SIDE-archimedean re-cut: 2 rows outside LICENSED/CITED to 0, v0.1.1'),
+                ('OPEN_TRAILS.md', K.B693_TRAIL, '### b693')], dry=dry)
+
+
 # ================================================================================ THE READERS, ONE PER ROW SHAPE A ROUTE READS ((R263)(3))
 BRANCH_FATES = ('DELETED', 'KEPT', 'RAISED')
 
@@ -271,7 +361,59 @@ def answers(*a):
     print('  prompts banked: %d ; words banked: %d' % (n, nw))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers)
+# ================================================================================ THE CARRY-TIME REPAIRS BANK ((R304)(2))
+def _fn_src(src, name):
+    """a top-level def's source, from its `def` line to the next top-level statement."""
+    L = src.split(NL)
+    i = next((k for k, l in enumerate(L) if l.startswith('def %s(' % name)), None)
+    if i is None:
+        return []
+    j = next((k for k in range(i + 1, len(L)) if L[k] and not L[k].startswith((' ', '#', ')'))), len(L))
+    while j > i and not L[j - 1].strip():
+        j -= 1
+    return L[i:j]
+
+
+REPAIR_FNS = ('repo_key', '_ls', 'read_remotes', 'remote_refs', 'remote_tag')
+
+
+def repairs(*a):
+    """data/b694_tool_repairs.txt: rows are repairs with the defect they answer; each diff beneath its row (difflib, unified, over the functions
+    the repair touches, b693's sealed copy against this act's), and the row that printed ABSENT beside its repaired form."""
+    import difflib
+    import hashlib
+    old, new = rd(os.path.join(T, 'b693_closing.py')), rd(os.path.join(T, 'b694_closing.py'))
+    ob, nb = [hashlib.sha256(open(os.path.join(T, n), 'rb').read()).hexdigest()[:16] for n in ('b693_closing.py', 'b694_closing.py')]
+    sealed = (jl('b693_seal_hashes.json').get('tools') or {}).get('b693_closing.py', '')
+    o_lines, n_lines = [], []
+    for f in REPAIR_FNS:
+        o_lines += _fn_src(old, f) + ['']
+        n_lines += _fn_src(new, f) + ['']
+    o_row = [l for l in old.split(NL) if 'push-b693-root' in l and 'remote_refs' in l]
+    n_row = [l for l in new.split(NL) if 'push-b693-root' in l and 'remote_refs' in l]
+    diff = list(difflib.unified_diff(o_lines + o_row, n_lines + n_row, 'tools/b693_closing.py (the look-up, sealed %s)' % sealed[:16],
+                                     'tools/b694_closing.py (the look-up, this act)', lineterm=''))
+    lc = rdn('b694_lookup_control.txt')
+    ctl = re.findall(r'(?m)^### ### \*\*(.*)\*\*$', lc)
+    L = ['%s -- THE CARRY-TIME REPAIRS, UNDER (R304)(2) AND THE AUTHOR`S ANSWERS AT PROMPTS 1 AND 6 (%s)' % (ACT, utc()), '',
+         '### rows are repairs with the defect they answer: the tool ; the blob before -> after ; what it answers ; the form ; the reading.',
+         '### Each diff beneath its row, written by this route (difflib over the functions the repair touches).', '',
+         '  (1) tools/b694_closing.py, carried from tools/b693_closing.py (sha256 %s, its seal %s; this act`s copy %s) -- ANSWERS b693 (h) (relay' % (
+             ob, 'AGREE' if sealed[:16] == ob else '### DIFFER', nb),
+         '      data/b693_defects.txt :47-:54): the sealed closing`s row asked the remote reads for D:\\relay (its ROOT, by os.path) where they were',
+         '      stored under D:/relay, and printed push-b693-root ABSENT (data/b693_closing.txt :226). THE FORM (the author`s answer at prompt 1): one',
+         '      key, repo_key(), \'D:/\' + the path below the drive, applied at the store (read_remotes) and at every look-up (remote_refs,',
+         '      remote_tag), so D:\\relay, D:/relay and /d/relay (the push tool`s capture form) resolve to one key; the rest of the tool b693`s',
+         '      form with b694`s act text. THE READING (data/b694_lookup_control.txt, the author`s answer at prompt 6): %s.' % (ctl[-1].rstrip('.') if ctl else '### NOT RUN'),
+         '']
+    L += ['      ' + l for l in diff]
+    L += ['', '### ### **REPAIRS 1 ; THE CLOSING TOOL`S LOOK-UP UNDER ONE KEY ; THE SEALED b693 COPY %s ; DIFF LINES %d ; THE CONTROL AS WANTED %s.**' % (
+        'AGREE' if sealed[:16] == ob else '### DIFFER', len(diff), 'THE CONTROL AS WANTED True' in lc)]
+    put_txt('%s_tool_repairs.txt' % ACT, L)
+    print(NL.join(L[-1:]))
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, repairs=repairs, c1=c1)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

@@ -1,0 +1,14 @@
+b694 -- THE CORRIGENDUM, (R304)(2): b693`S CLOSING ROW FOR push-b693-root, ITS DEFECT (h), ANSWERED BY ONE GENERATED FINDINGS ENTRY IN b678`s FORM
+
+### rows are the corrected line and the lines that correct it, each read from its bank by line; the closing record is not rewritten.
+
+  AS PRINTED              relay data/b693_closing.txt :226 | relay push-b693-root             remote ABSENT ; ### ABSENT (the branch mode`s exercise, left for b694 on the author`s word)
+  THE BRANCH              relay data/b693_root_branch_push_out.txt :9 | read back at the remote: 59de04e1d351277413f01d9e5b16357e64266769
+  THE STORE`S KEY         relay tools/b693_closing.py :270 | the reads stored under 'D:/' + the repository name
+  THE LOOK-UP             relay tools/b693_closing.py :176 | the dict get by the path as passed
+  THE ROW`S CALL          relay tools/b693_closing.py :294, ROOT at :24 | remote_refs(ROOT), ROOT D:\relay
+  THE DEFECT              relay data/b693_defects.txt :47 | (h)
+  THE REPAIR              relay data/b694_tool_repairs.txt :6 | one key, repo_key(), at the store and at every look-up
+  THE CONTROL             relay data/b694_lookup_control.txt | THE THREE SPELLINGS ONE KEY ; THE SEEDED STORE STANDS AT 59de04e1 UNDER EACH True ; THE LIVE READ GONE True ; THE OLD KEY ABSENT True ; THE CONTROL AS WANTED True
+
+### ### **push-b693-root STOOD AT 59de04e1 AT b693`S CLOSE ; THE CLOSING RECORD UNEDITED ; THE ENTRY AT FINDINGS :9542.**

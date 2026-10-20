@@ -54,3 +54,11 @@ b675 -- STEP ZERO, (R285)(1): THE CORRIGENDA TO b674'S CLOSING (2026-10-16)
       (data/b692_circuit_SIDE-explicit-formula_v0.34.1.txt :707); the factor is 1.53 (data/b692_suite_load.txt :59). The cause: the sealed
       record tool's needles at tools/b692_record.py :1349 and :1352. Lettered b692's defect (m) (data/b692_defects.txt :53). The sealed entry is
       not edited; the generated corrigendum entry stands at FINDINGS.md :9500 (tools/b693_corrigendum.py, data/b693_corrigendum.txt).
+
+### appended by b694, 2026-10-20, under (R304)(2) (additive, (R254)(2)); the rows above unchanged.
+  (8) relay data/b693_closing.txt :226, b693's closing record, as printed: "relay push-b693-root remote ABSENT ; ### ABSENT".
+      THE CORRECTION: the branch stood at 59de04e1 at b693's close (data/b693_root_branch_push_out.txt :9). The cause: the sealed closing tool
+      stored its reads under 'D:/' + the repository name (tools/b693_closing.py :270) and the row looked up under ROOT, D:\relay (:24, :294).
+      Lettered b693's defect (h) (data/b693_defects.txt :47); repaired at b694's carry, one key at the store and every look-up
+      (data/b694_tool_repairs.txt row (1), data/b694_lookup_control.txt). The closing record is not edited; the generated corrigendum entry
+      stands at FINDINGS.md :9542 (tools/b694_corrigendum.py, data/b694_corrigendum.txt).

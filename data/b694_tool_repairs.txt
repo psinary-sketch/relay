@@ -1,0 +1,62 @@
+b694 -- THE CARRY-TIME REPAIRS, UNDER (R304)(2) AND THE AUTHOR`S ANSWERS AT PROMPTS 1 AND 6 (2026-10-20T17:19:55Z)
+
+### rows are repairs with the defect they answer: the tool ; the blob before -> after ; what it answers ; the form ; the reading.
+### Each diff beneath its row, written by this route (difflib over the functions the repair touches).
+
+  (1) tools/b694_closing.py, carried from tools/b693_closing.py (sha256 c398d4492f056c60, its seal AGREE; this act`s copy 6ea70c1d4db5a6d1) -- ANSWERS b693 (h) (relay
+      data/b693_defects.txt :47-:54): the sealed closing`s row asked the remote reads for D:\relay (its ROOT, by os.path) where they were
+      stored under D:/relay, and printed push-b693-root ABSENT (data/b693_closing.txt :226). THE FORM (the author`s answer at prompt 1): one
+      key, repo_key(), 'D:/' + the path below the drive, applied at the store (read_remotes) and at every look-up (remote_refs,
+      remote_tag), so D:\relay, D:/relay and /d/relay (the push tool`s capture form) resolve to one key; the rest of the tool b693`s
+      form with b694`s act text. THE READING (data/b694_lookup_control.txt, the author`s answer at prompt 6): THE THREE SPELLINGS ONE KEY ; THE SEEDED STORE STANDS AT 59de04e1 UNDER EACH True ; THE LIVE READ GONE True ; THE OLD KEY ABSENT True ; THE CONTROL AS WANTED True.
+
+      --- tools/b693_closing.py (the look-up, sealed c398d4492f056c60)
+      +++ tools/b694_closing.py (the look-up, this act)
+      @@ -1,3 +1,14 @@
+      +def repo_key(p):
+      +    """### (R304)(2), the carry-time repair: the one key every remote read is stored and looked up under -- 'D:/' + the repository's path below
+      +    ### the drive, its separators forward. D:\\relay, D:/relay, d:/relay and /d/relay all give 'D:/relay'."""
+      +    s = str(p).replace('\\', '/')
+      +    m = re.match(r'^/([a-zA-Z])/(.*)$', s)
+      +    if m:
+      +        s = '%s:/%s' % (m.group(1), m.group(2))
+      +    m = re.match(r'^([a-zA-Z]):/*(.*)$', s)
+      +    if m:
+      +        s = '%s:/%s' % (m.group(1).upper(), m.group(2))
+      +    return s.rstrip('/')
+       
+       def _ls(p):
+           out = g(p, 'ls-remote', 'origin')
+      @@ -5,18 +16,18 @@
+       
+       def read_remotes(paths):
+           """### carried from b674's repair: one ls-remote per repository, one call at a time, in sequence; every read that returns empty is re-read
+      -    ### alone after the pass and before any row is declared, and the re-read printed (relay data/b674_rules.txt row 1)."""
+      +    ### alone after the pass and before any row is declared, and the re-read printed (relay data/b674_rules.txt row 1). Stored under repo_key."""
+           for p in paths:
+      -        if p not in _REMOTE:
+      -            _REMOTE[p] = _ls(p)
+      +        if repo_key(p) not in _REMOTE:
+      +            _REMOTE[repo_key(p)] = _ls(p)
+           for p in paths:
+      -        if 'refs/heads/main' not in _REMOTE[p]:
+      +        if 'refs/heads/main' not in _REMOTE[repo_key(p)]:
+                   again = _ls(p)
+                   REREAD.append('%s : first read empty ; re-read alone: %s' % (os.path.basename(p), 'refs read' if 'refs/heads/main' in again else '### EMPTY AGAIN'))
+      -            _REMOTE[p] = again
+      +            _REMOTE[repo_key(p)] = again
+       
+       def remote_refs(p):
+      -    return _REMOTE.get(p, {})
+      +    return _REMOTE.get(repo_key(p), {})
+       
+       def remote_tag(p, t):
+           r = remote_refs(p)
+      @@ -26,4 +37,5 @@
+               return r['refs/tags/%s' % t], 'lightweight, its own line'
+           return '', '### NOT AT THE REMOTE'
+       
+      +        rb = remote_refs(s).get('refs/heads/push-b693-root', '')
+           rb = remote_refs(ROOT).get('refs/heads/push-b693-root', '')
+
+### ### **REPAIRS 1 ; THE CLOSING TOOL`S LOOK-UP UNDER ONE KEY ; THE SEALED b693 COPY AGREE ; DIFF LINES 48 ; THE CONTROL AS WANTED True.**
