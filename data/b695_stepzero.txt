@@ -1,0 +1,26 @@
+b695 -- STEP ZERO UNDER (R305): WHAT RAN, IN THE ORDER IT RAN (2026-10-20)
+
+### rows are step zero's items as run: the item | the bank or the command | the reading. The order as run departs from the ferry's written
+### order (data/b695_defects.txt (a)).
+
+  the process listing          PowerShell Get-CimInstance, names matching tail|lean|lake|python|claude|node | one claude (pid 20816), no tail, lean, lake or
+                               python process, no orphan; the host's free memory 6997 MB
+  the ferry banked             data/b695_ferry.txt by the Write tool | 16933 characters, equal to the transcript's text; ferry_scan exit 0
+                               (data/b695_ferry_scan.txt)
+  b694's push-out bank         relay 12c223b1, committed alone | data/b694_closing_push_out.txt, main read back at 6e451686
+  the branches                 data/b695_branches.txt (.json) | six named, each listed --merged; the three remotes read (no b694 branch on any);
+                               six deleted by name, one per command, each its own message, nothing chained after any
+  the citation check           data/b695_citation_check.txt (.json) | CITES CHECKED 87 ; OK 87 ; MISSES 0
+  the readfirst bank           data/b695_readfirst.txt by hand ; data/b695_readfirst_closure.txt and data/b695_readfirst_diff.txt by
+                               tools/circuit_read.py readfirst | ITEMS 10979 ; CITED BY THE TEXT 25 ; THE HAND LIST 29 PATHS ; LINES DIFFERING 18
+  rowgen and constellation     data/b695_rowgen_stepzero.txt | CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19 ; STALE 0
+  the tests                    data/b695_tests_stepzero.txt (.json) | 55 files ; 54 run, each its own process in the foreground, in seven parts each
+                               after the hold printed (6870-7328 MB free) ; 1 withheld (test_elab_reader_b634.py, it runs lean) ; NOT CLEAN 3, each as
+                               at b694's step zero (data/b694_tests_stepzero.txt :15, :36): test_chain_page.py (1), (9), (14) ; test_chain_page_b638.py
+                               (4)-(7) ; test_g_chain_page.py (1) -- the faces page carried to its next regeneration ; the longest 405 s (test_asof.py)
+  the trees                    git status | relay tracked changes NONE ; PLACE-papers tracked changes NONE ; the untracked locals untracked
+                               (data/b628_intake_crank_v0_5.txt, data/b647_navigator_memory.txt, data/b671_narrow_run2_points.jsonl,
+                               data/b681_narrow_units.jsonl, data/b694_witness_units.jsonl)
+  no build                     no lean or lake process on this host
+
+### ### **STEP ZERO DONE: CITES 87 OF 87 OK ; BRANCHES 6 DELETED ; TESTS 54 RUN, 3 NOT CLEAN AS CARRIED ; NO BUILD ON THIS HOST.**

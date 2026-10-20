@@ -1,0 +1,55 @@
+b695 -- THE READ-FIRST BANK, (R305)(7) AND THE FERRY'S READ-FIRST LIST, READ AT STEP ZERO (2026-10-20)
+
+### rows are the ferry's read-first items in its order: the item | path and line | the unit of the bank's rows | what was read there.
+### Each cite is checked at HEAD by tools/b695_citation.py (data/b695_citation_check.txt, 87 of 87 OK). The branches were deleted before this
+### bank was written (data/b695_branches.txt; data/b695_defects.txt (a)).
+
+  b694's head line             relay data/b694_closing.txt :1 | rows are the closing's report lines | "b694 closed: relay 0c1287a2, PLACE-papers 4a21fa9;
+                               suite 122 of 124; root 012ffed645f69af6…; 6 prompts answered; 12 defects"; the sealed tools AGREE 11 of 11 at :17
+  b694's defects               relay data/b694_defects.txt :7-:58 | rows are defects as lettered, (a)-(l); events beneath | (k) at :43-:51, the circuit
+                               figure's hashes bank naming its PNG under b692's path; (l) at :52-:58, the relay push, PLACE-papers' branch and
+                               PLACE-papers' push sent as three parallel calls in one message at 18:38:58Z, all landed and read back
+  the witness                  relay data/b694_witness.txt :12-:28 | rows are widths: family | a | P | PR | A | S | the bound | the reading | the margin |
+                               the phase | the identity | N at 14.106736, 16, 24 NONNEGATIVE, at 32-192 NEGATIVE (a = 32: S -7.7752874967979 +- 1.43e-18,
+                               :15); C at 16-192 NONNEGATIVE (:21-:28); :8 the zero side over 182 zeros below 151.59; :34 the verdict
+  the witness plan             relay data/b694_witness_plan.txt :70 | rows are the plan's numbered parts | the family b518's notched B-spline window,
+                               a from 16 to 192, eight widths, terms in balls at 128 bits, controls C1-C3, raised before any term
+  the concentration            relay data/b694_witness_concentration.txt :16 | rows are readings of h^ on the line | h^ zero at gamma_0 (the notch), its
+                               peaks flanking it; not peaked at gamma_0
+  the dominance                relay data/b694_circuit_dominance.txt :7, :8, :12 | rows are faces kernels | :7 SIDE-explicit-formula HOLDS through
+                               h2_sign; :8 SIDE-lv-conservation ABSENT, enters through none, its row citing data/b690_nodes_zeta.txt :126 (@corr
+                               SIDE-lv-conservation | residue_irreducible); :12 CLAUSE-DOMINANCE 1 OF 2
+  the drafted faces row        relay data/b694_faces_rows.txt :8-:16 (the row), :17-:19 (its sources) | rows are drafted backmatter rows | one row,
+                               DRAFTED, NOT WRITTEN, held for the author's word; "the Weil face at Q0 (SIDE-explicit-formula v0.34, ...)"
+  the Li-face line at Q0       relay data/b690_nodes_zeta.txt :167 | rows are node-list lines (kernel rows, @corr rows, # backmatter rows) | "# backmatter:
+                               *(Appended under the author's word on (R290)(2), ...)* the Li face over the widened class (SIDE-explicit-formula v0.34)
+                               ... -- not a theorem about Q0."; the last backmatter row, :168 opens the glossary
+  the circuit spec             relay data/b692_circuit_spec.txt :7-:52 | rows are the instrument's readings | ten rows: INPUT, SERIES, TERMINALS, SHORTS,
+                               WIDTH, LOAD, CLAUSE-DOMINANCE (:31-:35), READFIRST-CLOSURE, OUTPUT, SUITE-LOAD; :54 "ROWS 10"
+  the orders                   PLACE-papers OPEN_TRAILS :15166 (W-ORD-WITNESS-TAIL-BALLS, trigger "before any faces-page row carrying the witness is
+                               regenerated", OPEN), :15168 (W-ORD-B518-FLOAT, trigger "the reading act b700", OPEN), :10257 (W-ORD-H2-BRIDGE, filed
+                               under (R128)(2): "SIDE-kernel's ConservationHypothesis and h2_sign are not yet one object"; cross-referenced at :13431)
+                               | rows are trail lines | the three orders the act reads and annotates
+  the circuit figure's hashes  relay data/b694_circuit_SIDE-lv-conservation_v0.13.0_png_hashes.txt :4 | rows are binary banks the text bank roots |
+                               "data/b692_circuit_SIDE-lv-conservation_v0.13.0.png | 148025d5... | 21249 | data/b692_..._v0.13.0.dot (sha256 85a45db7...)";
+                               the file stands as data/b694_circuit_SIDE-lv-conservation_v0.13.0.png, sha256 148025d53c948b89696afe35c035e4655cd7a2a0b9a3b548eb722ee0d710c918
+                               (the DOT data/b694_..._v0.13.0.dot, sha256 85a45db7d42b7ee102aaeb7caf9ec58e1fe460b60ca8ed06e502ee61ad89df87)
+  the licensed table           relay data/b670_licensed_table.txt :86, :123 | rows are licensed-table rows (roster tables, then agenda documents) | the
+                               b670 method; its successor reading 3, relay data/b690_r3_licensed.txt :41-:76 (rows are agenda documents: b648 -> b680 -> b690),
+                               and the cut banks since (b691 SIDE-rcurve, b693 SIDE-archimedean 2 -> 0, data/b693_cut.txt): SIDE-interfaces (:61),
+                               SIDE-simplicity (:67) and SIDE-substrate-cluster (:70) at 1, every other kernel at 0
+  the per-document tables      relay data/b647_table_SIDE-interfaces.txt :24 (ROWS 6 ; OVERREACHES 1), data/b647_table_SIDE-simplicity.txt :23 (ROWS 5 ;
+                               OVERREACHES 1), data/b647_table_SIDE-substrate-cluster.txt :96 (ROWS 78 ; OVERREACHES 0 ; UNLICENSED 1) | rows are
+                               docstring rows, each to one verdict | the counts b674's rule reads
+  the tie-break rule           relay data/b674_rules.txt :8-:11 | rows are rules | (2) THE TIE-BREAK BEYOND THE COUNT: equal OVERREACHES counts, then the
+                               rows outside LICENSED/CITED of any kind, then the larger table
+  rule (2)                     relay data/b690_rules.txt :9-:12 | rows are rules | each line the cut removes or changes, a distinctive substring git-grepped
+                               across the kernel's source tree before the merge, every hit a residue
+  the commit rule              relay data/b692_rules.txt :5-:8 | rows are rules | a commit made after the seal that fails an arm is left as it stands
+  the deletes rule             relay data/b694_rules.txt :6-:8 | rows are rules | a delete command stands alone in its message, nothing chained after it
+  the Correspondence generator relay tools/correspondence_gen.py :247 (read_carry), :389 and :747 (CARRIED AT: VERSION DIFFERS) | a tool's source | the
+                               carried-at cells read from the carrying source, as repaired at b691
+  the page generator           relay tools/chain_page.py :134 (backmatter_of), :793 (emit), :1027 (main) | a tool's source | the backmatter channel the
+                               Weil-face line enters by, where the word is regenerate
+  b694's closing push-out      relay data/b694_closing_push_out.txt :5 | rows are the push tool's capture lines | "main read back at the remote:
+                               6e451686..."; committed alone at step zero, relay 12c223b1
