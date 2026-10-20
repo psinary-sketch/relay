@@ -52,3 +52,9 @@ b693 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-20)
                         2c300355 to 88ac42e2 (one seat after it, claude pid 20816). Nothing was lost: every bank of C0-C3 committed before it,
                         no file of the act uncommitted but the record tool's two scan files; the act resumed from C4 under the author's
                         resume order.
+  A TRANSIENT REMOTE    the post-push suite's first standing-a run (2026-10-20, after relay a96d5c38 and PLACE-papers dba03d2 were pushed)
+  READ                  read SIDE-fano-darkness's remote twice -- its first `git ls-remote origin` came back without a ref and the shared
+                        helper re-read it alone (tools/b616_claims.py remote_refs, the ferry's "an empty read re-read alone") -- so
+                        G-LSREMOTE-ONE-PER-REPO counted 2 and failed: 88 arms, 87 passing, 228 s, the other 43 repositories read once.
+                        Read directly and alone at once: `git ls-remote origin refs/heads/main` returned 0f6ce5b, the clone's main. The
+                        part was re-run alone and its bank is the re-run's; this row keeps the first run's figures.

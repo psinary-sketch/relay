@@ -1,5 +1,5 @@
 {
- "at": "2026-10-20T15:09:50Z",
+ "at": "2026-10-20T16:20:30Z",
  "anchor": "RULING (R303) BEGIN",
  "sessions_after": [
   [
@@ -1103,6 +1103,598 @@
    "cmd": "timeout 590 python -X utf8 -B tools/b693_record.py commands; echo \"exit $?\"",
    "n": 137,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:09:54.565Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_record.py defects; echo \"exit $?\"; python -X utf8 -B tools/b693_record.py kernels; echo \"exit $?\"",
+   "n": 138,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:10:20.462Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_record.py repairs; echo \"exit $?\"",
+   "n": 139,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:12:54.677Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --prerun --part standing-a; echo \"exit $?\"",
+   "n": 140,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:17:15.943Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --prerun --part standing-c; echo \"exit $?\"",
+   "n": 141,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:21:55.999Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --prerun --part standing-b1; echo \"exit $?\"",
+   "n": 142,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:23:20.038Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --prerun --part standing-b2; echo \"exit $?\"",
+   "n": 143,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:29:36.246Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --prerun --part standing-b3; echo \"exit $?\"",
+   "n": 144,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:31:20.301Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --prerun --part act; echo \"exit $?\"",
+   "n": 145,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:32:26.360Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_record.py defects; echo \"exit $?\"",
+   "n": 146,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:32:29.649Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --prerun --part act; echo \"exit $?\"",
+   "n": 147,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:33:04.287Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_checks.py --combine b693_arms_prerun.txt; echo \"exit $?\"",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:33:07.257Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_record.py armsecs; echo \"exit $?\"",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:33:12.670Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git status --porcelain=v1 -uall -- tools data/b693_* data/b692_* data/b675_corrigenda.txt data/act_roots.txt",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:33:23.801Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git add -- tools/b693_worklist.py tools/b693_record.py tools/b693_checks.py tools/b693_closing.py tools/b693_regspec.py tools/b693_reg_gate.py data/b693_author_answers.json data/b693_author_answers.txt data/b693_tool_repairs.txt data/b693_arm_seconds.json data/b693_arm_seconds.txt data/b693_arm_seconds_act.json data/b693_arm_seconds_standing-a.json data/b693_arm_seconds_standing-b1.json data/b693_arm_seconds_standing-b2.json data/b693_arm_seconds_standing-b3.json data/b693_arm_seconds_standing-c.json data/b693_arms_prerun.txt data/b693_arms_prerun_act.txt data/b693_arms_prerun_standing-a.txt data/b693_arms_prerun_standing-b1.txt data/b693_arms_prerun_standing-b2.txt data/b693_arms_prerun_standing-b3.txt data/b693_arms_prerun_standing-c.txt data/b693_chain_half_a_arms_prerun.json data/b693_chain_half_b_arms_prerun.json data/b693_commands.json data/b693_commands.txt data/b693_defects.json data/b693_defects.txt data/b693_kernels_face.json data/b693_lsr_prerun_act.json data/b693_lsr_prerun_standing-a.json data/b693_lsr_prerun_standing-b1.json data/b693_lsr_prerun_standing-b2.json data/b693_lsr_prerun_standing-b3.json data/b693_lsr_prerun_standing-c.json && git commit -q -m \"b693 C4 under (R303), after the resume: the tools carried from b692's sealed copies -- the suite in six parts with the act-root chain split by act (standing-b2 b624-b658 banked, no arm; standing-b3 b659-b693 and G-ACTROOT-VERIFY over both; --chain-control once), the record tool's late routes reading both sessions, the gate and the spec -- with the carry-time reading (ten repairs beneath rows (1)-(7), the delete reader reading a variable as a variable); the answers bank with the resume order among the author's words; the commands, defects (a)-(g) and kernels banks; the pre-run in six parts, 122 arms, 87 passing, the 35 failing each awaiting the gate, seal, scores, entry, root, trail, branch-mode push or chain control but G-DELETES-ONE-BRANCH, failing on real state (defect (f)); the per-part seconds\" && git log -1 --format=%h",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:33:43.625Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_reg_gate.py; echo \"exit $?\"",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:34:14.637Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_record.py gatebanks; echo \"exit $?\"",
+   "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:34:28.548Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_reg_gate.py; echo \"exit $?\"",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:34:55.904Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_record.py gatebanks; echo \"exit $?\"",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:35:03.719Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_record.py scores dry; echo \"exit $?\"",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:35:21.217Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b378_lockgate.py b693 data/b693_registration_2026-10-19.txt; echo \"exit $?\"",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:35:24.858Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/reg_seal.py --lock data/b693_registration_2026-10-19.txt; echo \"exit $?\"",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:35:27.863Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --seal; echo \"exit $?\"",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:35:32.115Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git status --porcelain=v1 -uall -- data/b693_* data/audit_b693_* tools/b693_*",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:35:36.217Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git add -- data/audit_b693_reg_satisfiable.txt data/b693_census_stepzero.txt data/b693_faces_census_stepzero.txt data/b693_lockgate.json data/b693_lockgate_notes.txt data/b693_pins_stepzero.txt data/b693_reg_gate.txt data/b693_reg_termscan.txt data/b693_registration_2026-10-19.txt data/b693_regspec_run.txt data/b693_satisfiable.json data/b693_seal_hashes.json && git commit -q -m \"b693 seal: the face locked (sha256 4b51cad4...) after the gate CLEAR with both dry runs, the spec (no count prediction), the satisfiability audit, the banned-term scan, the step-zero censuses and pins and the lock gate's 8 of 8; the sealed tools' hashes (15, the five repaired shared tools among them); G-DELETES-ONE-BRANCH declared on the face, failing on real state (defect (f))\" && git log -1 --format=%h",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:35:55.231Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git log --reverse --format='%h %ci %s' 0938a543..1749abbb; git ls-files -- 'data/b692_*push_out*'; git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format='%h %ci %s' 90a3293..62b632f",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:36:07.669Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_record.py scores; echo \"exit $?\"",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:36:20.853Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_record.py findings dry; echo \"exit $?\"",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:36:26.145Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_record.py findings; echo \"exit $?\"",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:36:31.541Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git show --stat --format=%h c44e3b50; git show --stat --format=%h d95009e6",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:36:42.301Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_record.py table_final; echo \"exit $?\"",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:37:10.850Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git status --porcelain=v1 -- data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json data/b693_scores.json data/b693_findings.json data/b693_table_final.json data/b693_table_final.txt data/b693_defects.json data/b693_defects.txt",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:37:14.006Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git add -- data/b693_scores.json data/b693_findings.json data/b693_table_final.json data/b693_table_final.txt data/terminal_table.json data/terminal_table.md && git commit -q -m \"b693 pre-root: the scores bank (written once before the entry, N1-N5 HELD, S3 HELD), the final table (no row moved, added or gone, no grade moved), the findings landing bank (FINDINGS :9506)\" && git log -1 --format=%h",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:37:18.434Z",
+   "src": "88ac42e2 seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --porcelain=v1 -- FINDINGS.md OPEN_TRAILS.md && git add -- FINDINGS.md && git commit -q -m \"b693 entry under (R303): SIDE-archimedean re-cut, 2 rows outside LICENSED/CITED to 0, v0.1.1; b692's LOAD figures by corrigendum; push_gated.sh branch mode; the closing tool's defects range read from the bank (FINDINGS :9506)\" && git log -1 --format=%h",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:37:25.867Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b693-root 29a35c4 && git -C /d/MY-DOwnloads/PLACE-papers rev-parse --short push-b693-root",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:37:28.526Z",
+   "src": "88ac42e2 seat",
+   "cmd": "cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b693_pp_root_push_out.txt bash tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b693-root; echo \"exit $?\"",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:37:59.443Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git -C /d/relay branch push-b693-root 59de04e1 && git -C /d/relay rev-parse --short=8 push-b693-root",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:38:02.242Z",
+   "src": "88ac42e2 seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b693_root_branch_push_out.txt bash tools/push_gated.sh /d/relay --branch push-b693-root; echo \"exit $?\"",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:38:12.654Z",
+   "src": "88ac42e2 seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b693_root_push_out.txt bash tools/push_gated.sh /d/relay push-b693-root; echo \"exit $?\"",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:38:23.992Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_record.py root dry; echo \"exit $?\"",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:39:01.254Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_record.py root; echo \"exit $?\"",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:39:35.327Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_record.py root_arm; echo \"exit $?\"",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:39:37.959Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_record.py trail dry; echo \"exit $?\"",
+   "n": 179,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:39:41.254Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_record.py trail; echo \"exit $?\"",
+   "n": 180,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:39:45.250Z",
+   "src": "88ac42e2 seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --porcelain=v1 -- FINDINGS.md OPEN_TRAILS.md && git add -- OPEN_TRAILS.md && git commit -q -m \"b693 record, under (R303): the trail record carrying the root eb2323dc (OPEN_TRAILS :15138)\" && git log -1 --format=%h",
+   "n": 181,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:39:48.945Z",
+   "src": "88ac42e2 seat",
+   "cmd": "cd /d/relay && python -X utf8 -B tools/b693_record.py desk; echo \"exit $?\"; python -X utf8 -B tools/b693_record.py components; echo \"exit $?\"",
+   "n": 182,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:39:51.997Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git status --porcelain=v1 -uall -- data/act_roots.txt data/b693_* | grep -v scanfile",
+   "n": 183,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:40:01.121Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_record.py defects; echo \"exit $?\"; python -X utf8 -B tools/b693_record.py desk; echo \"exit $?\"",
+   "n": 184,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:40:08.166Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git add -- data/act_roots.txt data/b693_act_root.json data/b693_act_root.txt data/b693_components.txt data/b693_desk_notes.txt data/b693_pp_root_push_out.txt data/b693_root_arm.json data/b693_root_arm.txt data/b693_root_banks.json data/b693_root_banks.txt data/b693_root_branch_push_out.txt data/b693_root_push_out.txt data/b693_trail.json data/b693_defects.txt data/b693_defects.json && git commit -q -m \"b693 record under (R303): act root b693 eb2323dc6295a480 (banks 71, previous f0fd2849); the root's control; the trail at OPEN_TRAILS :15138 (PLACE-papers dba03d2); the desk; the components; the pre-root captures -- push-b693-root pushed alone by push_gated's branch mode and read back, then main from it (relay 59de04e1), PLACE-papers 29a35c4; defect (d) extended\" && git log -1 --format=%h",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:40:12.532Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-a; echo \"exit $?\"",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:43:15.554Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-c; echo \"exit $?\"",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:43:59.295Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-b1; echo \"exit $?\"",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:45:07.956Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-b2; echo \"exit $?\"",
+   "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:51:10.020Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-b3; echo \"exit $?\"",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:52:54.947Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --chain-control checks; echo \"exit $?\"",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T15:59:10.977Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part act; echo \"exit $?\"",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:00:12.470Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_checks.py --combine b693_checks.txt; echo \"exit $?\"",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:00:16.536Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git show --stat --format=%h cb41d267; git status --porcelain=v1 -uall -- data/b693_* data/terminal_table* data/act_roots.txt",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:00:22.438Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git add -- data/b693_chain_control.json data/b693_chain_control.txt data/b693_chain_half_a_checks.json data/b693_chain_half_b_checks.json data/b693_checks.txt data/b693_checks_act.txt data/b693_checks_standing-a.txt data/b693_checks_standing-b1.txt data/b693_checks_standing-b2.txt data/b693_checks_standing-b3.txt data/b693_checks_standing-c.txt data/b693_exercise.json data/b693_exercise_act.json data/b693_exercise_standing-a.json data/b693_exercise_standing-b1.json data/b693_exercise_standing-b2.json data/b693_exercise_standing-b3.json data/b693_exercise_standing-c.json data/b693_lsr_act.json data/b693_lsr_standing-a.json data/b693_lsr_standing-b1.json data/b693_lsr_standing-b2.json data/b693_lsr_standing-b3.json data/b693_lsr_standing-c.json && git commit -q -m \"b693 record: the pre-push suite in six parts, 122 arms, 121 passing, every control behaving, the one failing G-DELETES-ONE-BRANCH as declared on the face (standing-a 178 s, standing-c 40 s, standing-b1 65 s, standing-b2 357 s, standing-b3 98 s, act 58 s); the chain by act, b624-b658 and b659-b693 AGREE, the boundary equal; the whole-chain control once, 70 of 70 AGREE, the three equal\" && git log -1 --format=%h",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:00:28.058Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git -C /d/relay branch push-b693 a96d5c38 && git -C /d/relay rev-parse --short=8 push-b693",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:00:30.781Z",
+   "src": "88ac42e2 seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b693_relay_push_out.txt bash tools/push_gated.sh /d/relay push-b693; echo \"exit $?\"",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:00:40.687Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b693 dba03d2 && git -C /d/MY-DOwnloads/PLACE-papers rev-parse --short push-b693",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:00:43.944Z",
+   "src": "88ac42e2 seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b693_pp_push_out.txt bash tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b693; echo \"exit $?\"",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:01:20.165Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-a --rerun-postpush b693_checks_postpush.txt; echo \"exit $?\"",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:05:20.196Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git grep -n -A12 '^def remote_refs' -- tools/b616_claims.py",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:05:31.680Z",
+   "src": "88ac42e2 seat",
+   "cmd": "git -C /d/SIDE-fano-darkness ls-remote origin refs/heads/main; echo \"exit $?\"",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:05:39.695Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-a --rerun-postpush b693_checks_postpush.txt; echo \"exit $?\"",
+   "n": 203,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:08:48.578Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-c --rerun-postpush b693_checks_postpush.txt; echo \"exit $?\"",
+   "n": 204,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:09:40.648Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-b1 --rerun-postpush b693_checks_postpush.txt; echo \"exit $?\"",
+   "n": 205,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:10:53.994Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-b2 --rerun-postpush b693_checks_postpush.txt; echo \"exit $?\"",
+   "n": 206,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:17:28.757Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part standing-b3 --rerun-postpush b693_checks_postpush.txt; echo \"exit $?\"",
+   "n": 207,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:19:13.037Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_checks.py --part act --rerun-postpush b693_checks_postpush.txt; echo \"exit $?\"",
+   "n": 208,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:20:02.146Z",
+   "src": "88ac42e2 seat",
+   "cmd": "python -X utf8 -B tools/b693_checks.py --combine b693_checks_postpush.txt; echo \"exit $?\"",
+   "n": 209,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:20:06.937Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_record.py scores close; echo \"exit $?\"",
+   "n": 210,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T16:20:16.885Z",
+   "src": "88ac42e2 seat",
+   "cmd": "timeout 590 python -X utf8 -B tools/b693_record.py commands; echo \"exit $?\"; python -X utf8 -B tools/b693_record.py desk; echo \"exit $?\"",
+   "n": 211,
+   "bg": false
   }
  ],
  "offences": [],
@@ -1147,7 +1739,8 @@
   125,
   126,
   127,
-  128
+  128,
+  183
  ],
  "py_programs": [
   128
