@@ -27,8 +27,8 @@
 ### their written order -- the commit of b694`s push-out bank and the six deletes before the citation check -- entered as defect (a). The
 ### citation check ran over the ruling and the ferry: 87 cites, no miss. At Component 3 the faces rows were printed and raised as one prompt;
 ### on the author`s word the check was printed before any write and one spelling amended; the control`s one-line difference was raised as a
-### second prompt before any page write and answered; each answer was checked before it was acted on. Defects (a)-(c) are entered
-### (`b695_defects.txt`), the seat`s (a) and (b), the navigator`s (c); two events beneath.
+### second prompt before any page write and answered; each answer was checked before it was acted on. Defects (a)-(d) are entered
+### (`b695_defects.txt`), the seat`s (a), (b) and (d), the navigator`s (c); two events beneath.
 ### ### **COMPONENT 0 RAN AHEAD OF THIS SEAL:** relay 12c223b -- b694`s closing push-out bank, committed alone; the six branches deleted by
 ### name, one per command, each its own message, nothing chained after any; relay e0d83d7 -- the ferry and its scan, the citation check, the
 ### readfirst bank and the closure reader`s diff, the rowgen bank, the branches bank, the step-zero tests (test_elab_reader_b634.py withheld:
@@ -45,16 +45,29 @@
 ### data/b695_nodes_zeta.txt on the author`s words, the two trail lines (OPEN_TRAILS :15198, :15200); relay 1b6994b -- the answers banked and
 ### checked, the check printed before any write, the node list, the control`s bank, the faces diff, the trail-lines bank, defects (b) and (c).
 ### ### **COMPONENT 4 BEFORE THIS SEAL:** relay 41d77ea -- the suite, gate, spec and closing carried from b694`s, the record tool`s late routes,
-### the repairs bank, the command bank, the defects json and the kernels face; relay PRERUNCOMMIT -- the pre-run`s six parts and their combined
-### bank, the per-part seconds; this face.
+### the repairs bank, the command bank, the defects json and the kernels face; relay acedd66 -- the pre-run`s six parts and their combined
+### bank, the per-part seconds, the N3 scorer`s first form repaired (defect (d)); this face.
 ### Before this seal the seat wrote this act`s tools by the Write tool then the Edit tool: `b695_worklist.py`, `b695_tests.py`,
 ### `b695_citation.py`, `b695_record.py`, `b695_corrigendum.py`, `b695_checks.py`, `b695_closing.py`, `b695_reg_gate.py` and `b695_regspec.py`;
 ### SIDE-interfaces` workflow, print list and root-module header by the Write and Edit tools; no shared tool edited; nothing copied into tools/.
 ### Under the standing line of (R202)(3), the suite ran at HEAD with `--prerun` before this seal, in its six foreground parts, each its own
 ### call in its own message: every arm declared in (G2) ran there and its count is printed in `b695_arms_prerun.txt`, the arms reading the
 ### gate`s record, the lock, the seal, the scores, the entry, the table, the root and the trail not yet written failing there.
-### ### **THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:** DECLAREDFAILING.
-### PRERUNFIGURES
+### ### **THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:** `G-RULE-BINARY-HASHES`.
+### `G-RULE-BINARY-HASHES` reads every binary bank from b680 on as carried only where a root-named text bank of its act names its own path
+### beside its sha256 (tools/rule_arms.py :294); one fails, b694`s circuit PNG, its hashes bank naming it under b692`s path -- b694`s defect
+### (k), left as it stands under data/b692_rules.txt row (1) and corrected by this act`s generated corrigendum (FINDINGS :9580, relay
+### data/b695_corrigendum.txt); the act`s own arm `G-BINARY-ROWS-READ` reads the same banks and passes on that one failure. The arm fails all
+### act, pre-push and post-push alike -- SIDE-INVARIANT.
+### The pre-run`s bank: 122 arms, 91 passing, 0 negative-control failures, 0 positive controls passing; its parts act 26 s, standing-a 171 s,
+### standing-c 32 s, standing-b1 61 s, standing-b2 360 s and standing-b3 95 s, each its own call in the foreground under the 590 s guard
+### (`timeout 590`) and each started at or above the 2,560 MB hold (the free memory at the starts 6834, 6879, 6864, 6892, 6861 and 6794 MB).
+### The 31 failing: `G-RULE-BINARY-HASHES` on real state, declared above; the other 30 each read the gate`s record, the lock, the seal, the
+### scores, the entry, the table, the root and its banks, the trail, the pre-run`s own combined bank or the per-part seconds gathered from it,
+### none yet written -- `G-ACTROOT-VERIFY` reads the chain through b695, not yet rooted; `G-R305-ENTERED` reads the trail;
+### `G-RULE-SCORES-BEFORE-SEAL` reads the dry scores run and the seal commit. The chain`s halves at the pre-run: b624-b658 AGREE in standing-b2
+### and b659-b694 AGREE in standing-b3, the boundary b658 -> b659 equal in both (relay data/b695_chain_half_a_arms_prerun.json,
+### data/b695_chain_half_b_arms_prerun.json).
 ### POST-SEAL PROMPTS NAMED: NONE
 ### `G-DRY-STEP-CLEAN` and `G-CLOSING-DRY-STEP` read the gate`s record, written by the gate after the pre-run, so they fail inside the
 ### pre-run and pass in every later run -- SIDE-INVARIANT. The standing test failures at step zero, test_chain_page_b638.py cases (4)-(7),
@@ -78,7 +91,7 @@
 ### on the author`s word at prompt 2 the page written with b693 (a)`s carried keystone row, N4 entered as not met as worded and met in
 ### substance, the navigator`s wording the defect.
 ### (iv) (R305)(5): the eleventh row beneath b692`s ten, a spec row, no tool.
-### (v) the count arms` floors set at the seal: two prompts in two calls, two mid-act checks, the defects (a)-(c) as lettered.
+### (v) the count arms` floors set at the seal: two prompts in two calls, two mid-act checks, the defects (a)-(d) as lettered.
 ### THE READINGS OF THE ORDER, DECLARED IN ADVANCE:
 ### **READING (1) -- COMPONENTS 0-3.** Done (section (0)); the banks as listed there.
 ### **READING (2) -- COMPONENT 4: THE CARRY-TIME READING, THE CLOSING`S DRY RUN, THE DRY-RUN STEP, THE SEAL AND THE SUITE.** This face, its
@@ -262,3 +275,10 @@
 ### Every file the seat writes is written through the Edit tool or the Write tool; none by sed, a redirect, a heredoc or an interpreter`s
 ### write call, the tools` own bank writes excepted.
 ### ### **AND NOTHING IN THIS ACT IS A STATEMENT THAT RH OR GRH HOLDS OR LOCATES ANY ZERO.**
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : a78b1684bcb0c1f683ee53f3b9bb070fc0194319dc75f013436bd40c511af4f4
+### bytes locked : 29599
+### locked at (UTC) : 2026-10-20T21:16:27Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b695_registration_2026-10-20.txt`.**
+====================================================================================================

@@ -62,7 +62,7 @@ COMBINE = '--combine' in sys.argv
 PART = sys.argv[sys.argv.index('--part') + 1] if '--part' in sys.argv and len(sys.argv) > sys.argv.index('--part') + 1 else None
 L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3))
-FLOORS = dict(prompts=2, calls=2, checks=2, defects=(('a', 'SEAT'), ('b', 'SEAT'), ('c', 'NAVIGATOR')))
+FLOORS = dict(prompts=2, calls=2, checks=2, defects=(('a', 'SEAT'), ('b', 'SEAT'), ('c', 'NAVIGATOR'), ('d', 'SEAT')))
 REPAIRED_TOOLS = K.REPAIRED_TOOLS
 NEW_TOOLS = K.NEW_TOOLS
 # ### the instruments read unedited: b694's list, b693's and b694's sealed tools among them, less this act's sealed tools
