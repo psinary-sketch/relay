@@ -253,8 +253,23 @@ def answer(needle, *a):
     ns['answer'](needle)
 
 
+def word(needle, *a):
+    """(R278)(4) on an author's word delivered as a bare BEGIN ... END paste (no answer marker in the text): the same check as `answer`, the
+    session's user texts read through b677's helper unchanged, each text opening with BEGIN marked as the author's word for the route's test."""
+    import b682_citation as P
+    base = C._user_texts
+
+    def marked(*k, **kw):
+        return [("THE AUTHOR'S WORD " + t) if (t or '').lstrip().startswith(('BEGIN', '<pasted_content')) and 'END' in (t or '') else t
+                for t in base(*k, **kw)]
+
+    C._user_texts = marked
+    P.C._user_texts = marked
+    answer(needle)
+
+
 if __name__ == '__main__':
-    fn = {'check': check, 'ferry': ferry, 'answer': answer}.get(sys.argv[1] if len(sys.argv) > 1 else '')
+    fn = {'check': check, 'ferry': ferry, 'answer': answer, 'word': word}.get(sys.argv[1] if len(sys.argv) > 1 else '')
     if fn is None:
         print('usage: b694_citation.py check | ferry | answer <needle>')
         sys.exit(2)

@@ -1,0 +1,218 @@
+b694 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-20T17:52:47Z)
+
+### the source: the seat`s session b97f6790-cfa6-43ae-aa06-9d3a07249ec4 from its first user line carrying 'RULING (R304) BEGIN', with its subagents` transcripts
+### commands read: 153
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b693, the session 88ac42e2, from its post-push combine to the session`s end): 17 commands from 2026-10-20T16:20:02.146Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES, BY THE RECORD TOOL`S dispatch ROUTE (1):
+  #103 PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py dispatch SIDE-lv-conservation d38f3e8 after SIDELvConservation
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings -- this act`s defect (a) among them (1):
+  #1 2026-10-20T16:30:37.789Z git -C /d/relay ls-files tools | grep -E 'b69[0-3]' ; git -C /d/relay status --short
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (10):
+  #24 2026-10-20T16:42:39.411Z Bash
+      git -C /d/relay branch -d push-b693-root
+  #25 2026-10-20T16:42:41.657Z Bash
+      git -C /d/relay push origin --delete push-b693-root
+  #26 2026-10-20T16:42:46.866Z Bash
+      git -C /d/relay branch -d push-b693
+  #27 2026-10-20T16:42:49.185Z Bash
+      git -C /d/relay branch -d push-b693-closing
+  #28 2026-10-20T16:42:54.382Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b693-root
+  #29 2026-10-20T16:42:56.696Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b693
+  #30 2026-10-20T16:42:59.806Z Bash
+      git -C /d/SIDE-archimedean branch -d push-b693-archimedean-main
+  #31 2026-10-20T16:43:02.232Z Bash
+      git -C /d/SIDE-archimedean branch -d push-b693-archimedean-merge
+  #32 2026-10-20T16:43:04.737Z Bash
+      git -C /d/SIDE-archimedean branch -d recut-archimedean-b693
+  #33 2026-10-20T16:43:07.256Z Bash
+      git -C /d/SIDE-archimedean push origin --delete recut-archimedean-b693
+
+### THE BRANCH DELETES BY SHAPE ((R304)(5) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #24 deletes ['push-b693-root'], halves 1, globs none, variables none, chained after False; #25 deletes ['push-b693-root'], halves 1, globs none, variables none, chained after False; #26 deletes ['push-b693'], halves 1, globs none, variables none, chained after False; #27 deletes ['push-b693-closing'], halves 1, globs none, variables none, chained after False; #28 deletes ['push-b693-root'], halves 1, globs none, variables none, chained after False; #29 deletes ['push-b693'], halves 1, globs none, variables none, chained after False; #30 deletes ['push-b693-archimedean-main'], halves 1, globs none, variables none, chained after False; #31 deletes ['push-b693-archimedean-merge'], halves 1, globs none, variables none, chained after False; #32 deletes ['recut-archimedean-b693'], halves 1, globs none, variables none, chained after False; #33 deletes ['recut-archimedean-b693'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-20T16:30:37.789Z | seat | Bash | git -C /d/relay ls-files tools | grep -E 'b69[0-3]' ; git -C /d/relay status --short
+  #2 | 2026-10-20T16:30:44.700Z | seat | Bash | wc -l /d/relay/tools/b693_worklist.py /d/relay/tools/b693_checks.py /d/relay/tools/b693_record.py /d/relay/tools/b693_closing.py /d/relay/tools/b693_citation.py
+  #3 | 2026-10-20T16:31:00.640Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'claude|lean|lake|python|tail|bash' } | Select-Object ProcessId, ParentProcessId, Name, CreationDa
+  #4 | 2026-10-20T16:31:10.121Z | seat | Bash | ls -la "/c/Users/echo chamber/.claude/projects/D--/b97f6790-cfa6-43ae-aa06-9d3a07249ec4.jsonl"; git -C /d/relay log --oneline -5; git -C /d/relay branch --list 
+  #5 | 2026-10-20T16:31:35.961Z | seat | Bash | git -C /d/relay ls-files "data/b692_circuit*" "data/b692_closure*" "data/b693_cut*" "data/b693_tool_repairs*" "data/b681_epstein_zeros_narrowed*" "data/b677_tol
+  #6 | 2026-10-20T16:31:49.960Z | seat | Bash | git -C /d/SIDE-explicit-formula show v0.34:SIDEExplicitFormula/H2Sign.lean
+  #7 | 2026-10-20T16:31:57.155Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -E "def (archTerm|primeSum|poleTerm|weilTest)" v0.34 -- SIDEExplicitFormula Zeta23
+  #8 | 2026-10-20T16:31:59.537Z | seat | Bash | git -C /d/SIDE-explicit-formula show v0.34:SIDEExplicitFormula/B321Identity.lean
+  #9 | 2026-10-20T16:32:51.362Z | seat | Bash | git -C /d/relay ls-files "tools/b518*" "tools/b51[0-7]*" "tools/b321*" "tools/b675*" "tools/b677*" "tools/b681*" "tools/b667*"
+  #10 | 2026-10-20T16:32:53.895Z | seat | Bash | wc -l /d/relay/tools/b518_window.py /d/relay/tools/b514_window.py /d/relay/tools/b515_window.py /d/relay/tools/b675_li_bench.py
+  #11 | 2026-10-20T16:34:38.579Z | seat | Bash | git -C /d/relay ls-files "data/b693_registration*" "data/b693_rowgen*" "data/b693_tests_stepzero*" "data/b693_branches*"
+  #12 | 2026-10-20T16:34:39.259Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log --oneline -3
+  #13 | 2026-10-20T16:38:23.080Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py ferry
+  #14 | 2026-10-20T16:38:26.975Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py check
+  #15 | 2026-10-20T16:38:37.136Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py check
+  #16 | 2026-10-20T16:38:52.859Z | seat | Bash | wc -l data/b675_li_bench.txt data/b518_cells.jsonl data/b693_cut.txt data/b693_tool_repairs.txt
+  #17 | 2026-10-20T16:39:22.919Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_witness.py zeros
+  #18 | 2026-10-20T16:40:01.860Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/circuit_read.py readfirst b694_ferry.txt b694_readfirst.txt
+  #19 | 2026-10-20T16:42:00.298Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py rowgen
+  #20 | 2026-10-20T16:42:20.171Z | seat | PowerShell | $p = Get-CimInstance Win32_Process; foreach ($n in 'claude','tail','lean','lake','python','bash') { $m = @($p | Where-Object { $_.Name -match "^$n(\.exe)?$" });
+  #21 | 2026-10-20T16:42:27.029Z | seat | Bash | git -C /d/relay add data/b693_closing_push_out.txt
+  #22 | 2026-10-20T16:42:29.593Z | seat | Bash | git -C /d/relay commit -m "b694 step zero under (R304)(5): b693's closing push-out bank (push-b693-closing, main read back at 48ca2540), committed alone"
+  #23 | 2026-10-20T16:42:32.694Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py branches
+  #24 | 2026-10-20T16:42:39.411Z | seat | Bash | git -C /d/relay branch -d push-b693-root
+  #25 | 2026-10-20T16:42:41.657Z | seat | Bash | git -C /d/relay push origin --delete push-b693-root
+  #26 | 2026-10-20T16:42:46.866Z | seat | Bash | git -C /d/relay branch -d push-b693
+  #27 | 2026-10-20T16:42:49.185Z | seat | Bash | git -C /d/relay branch -d push-b693-closing
+  #28 | 2026-10-20T16:42:54.382Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b693-root
+  #29 | 2026-10-20T16:42:56.696Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b693
+  #30 | 2026-10-20T16:42:59.806Z | seat | Bash | git -C /d/SIDE-archimedean branch -d push-b693-archimedean-main
+  #31 | 2026-10-20T16:43:02.232Z | seat | Bash | git -C /d/SIDE-archimedean branch -d push-b693-archimedean-merge
+  #32 | 2026-10-20T16:43:04.737Z | seat | Bash | git -C /d/SIDE-archimedean branch -d recut-archimedean-b693
+  #33 | 2026-10-20T16:43:07.256Z | seat | Bash | git -C /d/SIDE-archimedean push origin --delete recut-archimedean-b693
+  #34 | 2026-10-20T16:43:20.886Z | seat | Bash | git -C /d/relay add data/b694_rules.txt
+  #35 | 2026-10-20T16:43:23.569Z | seat | Bash | git -C /d/relay commit -m "b694 step zero under (R304)(2): data/b694_rules.txt row (1), a delete command alone in its message with nothing chained after it (sou
+  #36 | 2026-10-20T16:44:04.778Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_tests.py parts
+  #37 | 2026-10-20T16:44:10.680Z | seat | Bash | P="python -X utf8 tools/b694_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 1 && $P run test_act_root.py && $P run test_act_root_commit_b644.py && $P run tes
+  #38 | 2026-10-20T16:44:22.923Z | seat | Bash | P="python -X utf8 tools/b694_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 2 && $P run test_asof.py
+  #39 | 2026-10-20T16:51:29.274Z | seat | Bash | P="python -X utf8 tools/b694_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 3 && $P run test_axiom_claim.py && $P run test_axiom_claim_b651.py && $P run test
+  #40 | 2026-10-20T16:51:30.020Z | seat | Bash | P="python -X utf8 tools/b694_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 4 && $P run test_chain_page.py
+  #41 | 2026-10-20T16:58:35.198Z | seat | Bash | P="python -X utf8 tools/b694_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 5 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b62
+  #42 | 2026-10-20T17:01:39.872Z | seat | Bash | P="python -X utf8 tools/b694_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 6 && for t in test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_
+  #43 | 2026-10-20T17:01:41.601Z | seat | Bash | P="python -X utf8 tools/b694_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 7 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py 
+  #44 | 2026-10-20T17:07:21.317Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_tests.py report
+  #45 | 2026-10-20T17:07:25.659Z | seat | Bash | git -C /d/relay status --porcelain --untracked-files=no
+  #46 | 2026-10-20T17:07:26.502Z | seat | Bash | git -C /d/relay ls-files data/b628_intake_crank_v0_5.txt data/b647_navigator_memory.txt data/b671_narrow_run2_points.jsonl data/b681_narrow_units.jsonl
+  #47 | 2026-10-20T17:07:26.973Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers status --porcelain --untracked-files=no
+  #48 | 2026-10-20T17:08:44.667Z | seat | Bash | git -C /d/relay grep -n -E "qd_base|qd_half|def .*kern|log\(math.sqrt\(23\)|sqrt\(23\)|digamma|psi" -- "tools/b504*" tools/carto_atlas.py tools/b325_epstein.py
+  #49 | 2026-10-20T17:08:51.503Z | seat | Bash | git -C /d/relay grep -n -A 22 "def kernel_q_derived" -- tools/b326_windows.py
+  #50 | 2026-10-20T17:09:23.131Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_witness.py env
+  #51 | 2026-10-20T17:10:26.669Z | seat | Bash | git -C /d/relay add data/b694_ferry.txt data/b694_ferry_scan.txt data/b694_citation_check.txt data/b694_citation_check.json data/b694_readfirst.txt data/b694_re
+  #52 | 2026-10-20T17:10:31.914Z | seat | Bash | git -C /d/relay commit -m "b694 step zero under (R304): the ferry banked and scanned; the citation check, 88 cites, 4 misses of the ruling raised before their c
+  #53 | 2026-10-20T17:14:07.218Z | seat | Bash | git -C /d/relay grep -n -A 40 "def answer(needle" -- tools/b682_citation.py
+  #54 | 2026-10-20T17:14:12.297Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py answers
+  #55 | 2026-10-20T17:14:15.528Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py answer "three spellings resolving to one key"
+  #56 | 2026-10-20T17:14:18.391Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py answer "CLAUSE-DOMINANCE then read over both faces kernels"
+  #57 | 2026-10-20T17:14:18.958Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py answer "a width at which it fails is read as no reading"
+  #58 | 2026-10-20T17:14:19.641Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py answer "the plan is amended to centre"
+  #59 | 2026-10-20T17:14:44.284Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_witness.py concentration
+  #60 | 2026-10-20T17:14:58.935Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_witness.py concentration
+  #61 | 2026-10-20T17:15:16.338Z | seat | Bash | git -C /d/relay add data/b694_author_answers.txt data/b694_author_answers.json data/b694_citation_check.txt data/b694_witness_concentration.txt data/b694_witnes
+  #62 | 2026-10-20T17:15:24.528Z | seat | Bash | git -C /d/relay commit -m "b694 C0 under (R304): the four answers banked and each checked ((R278)(4): 1, 3 and 1 cites OK, the fourth VACUOUS); on answer 4 the 
+  #63 | 2026-10-20T17:16:33.240Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py answers
+  #64 | 2026-10-20T17:16:33.276Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py answer "the navigator’s amendment entered as a miss"
+  #65 | 2026-10-20T17:16:36.174Z | seat | Bash | git -C /d/relay add data/b694_author_answers.txt data/b694_author_answers.json data/b694_citation_check.txt
+  #66 | 2026-10-20T17:16:39.551Z | seat | Bash | git -C /d/relay commit -m "b694 C0 under (R304)(4): the author's answer on the amendment banked and checked (1 cite OK) -- both families on one ladder, the notc
+  #67 | 2026-10-20T17:16:51.304Z | seat | Bash | git -C /d/relay ls-files "data/b693_lsr*" "data/b693_closing*" "data/b693_remote*"
+  #68 | 2026-10-20T17:17:43.029Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py answers
+  #69 | 2026-10-20T17:17:43.278Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py answer "entered as a shared miss"
+  #70 | 2026-10-20T17:19:25.962Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_closing.py lookup
+  #71 | 2026-10-20T17:19:48.260Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py repairs
+  #72 | 2026-10-20T17:19:55.344Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py repairs
+  #73 | 2026-10-20T17:20:33.902Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py c1 dry
+  #74 | 2026-10-20T17:20:38.063Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py c1
+  #75 | 2026-10-20T17:21:10.566Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_corrigendum.py dry
+  #76 | 2026-10-20T17:21:16.274Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_corrigendum.py dry
+  #77 | 2026-10-20T17:21:19.468Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_corrigendum.py land
+  #78 | 2026-10-20T17:21:26.626Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers diff --stat
+  #79 | 2026-10-20T17:21:30.490Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b694 C1 under (R304)(1)-(2): b693 at its weight (FINDINGS :9540); the generated corrigendum for b693's closing ro
+  #80 | 2026-10-20T17:21:34.435Z | seat | Bash | git -C /d/relay add tools/b694_closing.py tools/b694_corrigendum.py tools/b694_record.py data/b694_lookup_control.txt data/b694_tool_repairs.txt data/b694_recor
+  #81 | 2026-10-20T17:21:38.942Z | seat | Bash | git -C /d/relay commit -m "b694 C1 under (R304)(1)-(2): the closing tool's look-up repaired under one key (data/b694_tool_repairs.txt row (1)), its control on b
+  #82 | 2026-10-20T17:21:43.570Z | seat | Bash | git -C /d/SIDE-lv-conservation log --oneline -3
+  #83 | 2026-10-20T17:21:44.129Z | seat | Bash | git -C /d/SIDE-lv-conservation ls-tree --name-only HEAD
+  #84 | 2026-10-20T17:21:44.419Z | seat | Bash | git -C /d/SIDE-explicit-formula show 4313875 --stat
+  #85 | 2026-10-20T17:21:47.356Z | seat | Bash | git -C /d/SIDE-explicit-formula show 4313875:CircuitClosure.lean
+  #86 | 2026-10-20T17:21:48.135Z | seat | Bash | git -C /d/SIDE-explicit-formula diff e5fcda7 4313875 -- .github/workflows/build-module.yml
+  #87 | 2026-10-20T17:21:48.411Z | seat | Bash | git -C /d/SIDE-lv-conservation ls-tree -r --name-only HEAD .github
+  #88 | 2026-10-20T17:21:50.814Z | seat | Bash | git -C /d/SIDE-lv-conservation show HEAD:.github/workflows/build-module.yml
+  #89 | 2026-10-20T17:22:03.599Z | seat | Bash | git -C /d/SIDE-lv-conservation show HEAD:lakefile.lean
+  #90 | 2026-10-20T17:22:04.075Z | seat | Bash | git -C /d/SIDE-lv-conservation grep -n -E "theorem residue_irreducible|SIDEExplicitFormula|h2_sign" HEAD -- SIDELvConservation
+  #91 | 2026-10-20T17:22:15.972Z | seat | Bash | git -C /d/relay grep -n -E "closure\.jsonl|_hashes\.txt|def runner|def closure" -- tools/b692_record.py
+  #92 | 2026-10-20T17:22:24.783Z | seat | Bash | git -C /d/SIDE-lv-conservation rev-parse 8e3bc76^{tree} c230e6d^{tree}
+  #93 | 2026-10-20T17:22:24.810Z | seat | Bash | git -C /d/relay grep -l -e "38305820585" -- "data/b65*"
+  #94 | 2026-10-20T17:22:45.308Z | seat | Bash | git -C /d/SIDE-lv-conservation status --porcelain
+  #95 | 2026-10-20T17:22:45.334Z | seat | Bash | git -C /d/SIDE-lv-conservation ls-files SIDELvConservation
+  #96 | 2026-10-20T17:22:45.338Z | seat | Bash | git -C /d/SIDE-lv-conservation branch --show-current
+  #97 | 2026-10-20T17:23:14.993Z | seat | Bash | git -C /d/SIDE-lv-conservation add CircuitClosure.lean .github/workflows/build-module.yml
+  #98 | 2026-10-20T17:23:15.372Z | seat | Bash | git -C /d/SIDE-lv-conservation diff --cached --stat
+  #99 | 2026-10-20T17:23:18.711Z | seat | Bash | git -C /d/SIDE-lv-conservation commit -m "b694 (R304)(3), in (R302)(3)(a)'s form: CircuitClosure.lean at the root (imported by no module; SIDE-explicit-formula'
+  #100 | 2026-10-20T17:23:21.391Z | seat | Bash | git -C /d/SIDE-lv-conservation branch push-b694-lv-closure d38f3e8
+  #101 | 2026-10-20T17:23:24.489Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b694_lv_closure_main_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-lv-conservation push-b694-lv-closure
+  #102 | 2026-10-20T17:24:13.945Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py dispatch SIDE-lv-conservation d38f3e8 after SIDELvConservation dry
+  #103 | 2026-10-20T17:24:17.731Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py dispatch SIDE-lv-conservation d38f3e8 after SIDELvConservation
+  #104 | 2026-10-20T17:25:37.827Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py runstatus SIDE-lv-conservation 39465780735
+  #105 | 2026-10-20T17:26:24.757Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_witness.py env
+  #106 | 2026-10-20T17:29:25.998Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py runstatus SIDE-lv-conservation 39465780735
+  #107 | 2026-10-20T17:29:31.808Z | seat | Bash | git -C /d/relay grep -n -E "^def (read|dominance|controls)\(|^    \"\"\"|sys.argv|FACES|faces" -- tools/circuit_read.py
+  #108 | 2026-10-20T17:29:48.493Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py runstatus SIDE-lv-conservation 39465780735
+  #109 | 2026-10-20T17:29:52.742Z | seat | Bash | git -C /d/relay grep -n -A 12 -E "^def (load|put|own)\(" -- tools/circuit_read.py
+  #110 | 2026-10-20T17:29:55.265Z | seat | Bash | git -C /d/relay grep -n -B 2 -A 6 "^LIBS" -- tools/circuit_read.py
+  #111 | 2026-10-20T17:30:23.833Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py runstatus SIDE-lv-conservation 39465780735
+  #112 | 2026-10-20T17:30:31.591Z | seat | Bash | timeout 580 gh run watch 39465780735 -R psinary-sketch/SIDE-lv-conservation --interval 30 --exit-status
+  #113 | 2026-10-20T17:32:41.803Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py runner SIDE-lv-conservation 39465780735 d38f3e8c99c3431c604bcba13210042df7748859 after v0.13.0 "the o
+  #114 | 2026-10-20T17:32:49.900Z | seat | Bash | git -C /d/SIDE-lv-conservation diff --stat 8e3bc76 d38f3e8 -- SIDELvConservation lakefile.lean lean-toolchain lake-manifest.json AxiomCheck.lean AxiomCheck_pair
+  #115 | 2026-10-20T17:32:49.938Z | seat | Bash | git -C /d/SIDE-lv-conservation tag --points-at d38f3e8
+  #116 | 2026-10-20T17:32:50.446Z | seat | Bash | git -C /d/SIDE-lv-conservation rev-parse v0.13.0^{commit}
+  #117 | 2026-10-20T17:33:04.688Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py prints
+  #118 | 2026-10-20T17:33:09.405Z | seat | Bash | git -C /d/SIDE-lv-conservation grep -n -E "^namespace|^end |^theorem residue_irreducible" d38f3e8 -- SIDELvConservation/ZeroActingPartial.lean
+  #119 | 2026-10-20T17:33:12.700Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py circuit b694_circuit_SIDE-lv-conservation_v0.13.0_d38f3e8.jsonl.gz SIDE-lv-conservation v0.13.0 d38f3
+  #120 | 2026-10-20T17:33:16.919Z | seat | Bash | git -C /d/relay status --porcelain
+  #121 | 2026-10-20T17:33:20.558Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py dominance b694_circuit_SIDE-lv-conservation_v0.13.0_d38f3e8.jsonl.gz
+  #122 | 2026-10-20T17:34:00.746Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py readings
+  #123 | 2026-10-20T17:34:21.394Z | seat | Bash | git -C /d/relay add data/b694_closure_step.txt data/b694_axioms_SIDE-lv-conservation_after.txt data/b694_circuit_SIDE-lv-conservation_v0.13.0.dot data/b694_circ
+  #124 | 2026-10-20T17:34:26.350Z | seat | Bash | git -C /d/relay commit -m "b694 C2 under (R304)(3): the closure step on SIDE-lv-conservation (d38f3e8, the script and the step alone; run 39465780735 DERIVES, a
+  #125 | 2026-10-20T17:34:30.220Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py classk N
+  #126 | 2026-10-20T17:34:48.576Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py classk C
+  #127 | 2026-10-20T17:34:54.939Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py zeta N 16
+  #128 | 2026-10-20T17:35:24.801Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py zeta N 16
+  #129 | 2026-10-20T17:35:33.197Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py identity zeta N 16
+  #130 | 2026-10-20T17:35:40.641Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py zeta N
+  #131 | 2026-10-20T17:35:58.409Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py zeta C
+  #132 | 2026-10-20T17:36:13.217Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py q0 N
+  #133 | 2026-10-20T17:37:08.173Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py c2
+  #134 | 2026-10-20T17:37:29.445Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py identity_c2
+  #135 | 2026-10-20T17:37:41.941Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py identity q0 N
+  #136 | 2026-10-20T17:37:56.246Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py q0 C
+  #137 | 2026-10-20T17:38:12.456Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py identity q0 C
+  #138 | 2026-10-20T17:38:12.521Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py identity zeta N
+  #139 | 2026-10-20T17:38:12.845Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py identity zeta C
+  #140 | 2026-10-20T17:38:36.786Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py rung N 32
+  #141 | 2026-10-20T17:39:04.934Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py rung_read
+  #142 | 2026-10-20T17:39:53.149Z | seat | Bash | timeout 590 python -X utf8 tools/b694_witness_terms.py bank
+  #143 | 2026-10-20T17:40:20.874Z | seat | Bash | git -C /d/relay add data/b694_witness.txt data/b694_witness_controls.txt data/b694_witness.json.gz data/b694_witness_hashes.txt data/b694_faces_rows.txt tools/b
+  #144 | 2026-10-20T17:40:25.947Z | seat | Bash | git -C /d/relay commit -m "b694 C3 under (R304)(4), on the author's word: the Weil-face witness at Q0 FOUND -- b518's notched window, P - PR + A for Z_Q negativ
+  #145 | 2026-10-20T17:45:28.632Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py answers
+  #146 | 2026-10-20T17:45:28.690Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py answer "W-ORD-WITNESS-TAIL-BALLS"
+  #147 | 2026-10-20T17:45:41.928Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_citation.py word "W-ORD-WITNESS-TAIL-BALLS"
+  #148 | 2026-10-20T17:46:27.301Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py standing
+  #149 | 2026-10-20T17:46:43.110Z | seat | Bash | git -C /d/relay grep -n -c "" -- data/b670_work_orders.txt
+  #150 | 2026-10-20T17:47:03.496Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py orders dry
+  #151 | 2026-10-20T17:47:08.339Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py orders
+  #152 | 2026-10-20T17:47:15.311Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b694 C3 under the author's word on (R304): W-ORD-WITNESS-TAIL-BALLS (OPEN_TRAILS :15166) and W-ORD-B518-FLOAT (:1
+  #153 | 2026-10-20T17:48:51.049Z | seat | Bash | git -C /d/relay log --format=%h --reverse 48ca2540..HEAD
+
+### ### **COMMANDS 153 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 10 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 10 OF 10 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

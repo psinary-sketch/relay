@@ -87,6 +87,12 @@ def vline(text):
     return m[-1].rstrip('.') if m else '### NO VERDICT LINE'
 
 
+def vtail(text):
+    """a verdict that a bank wraps over two `### ` lines: the last bold line joined from its `### ### **` opening to its `**`."""
+    m = re.findall(r'(?ms)^### ### \*\*(.*?)\*\*\s*$', text or '')
+    return ' '.join(m[-1].replace('###', ' ').split()).rstrip('.') if m else '### NO VERDICT LINE'
+
+
 def verdict(text, pat):
     m = re.search(pat, text)
     return m.group(0) if m else '### NOT FOUND'
@@ -126,14 +132,8 @@ def defects_row(act, item='i'):
     return '    (%s) The defects %s for the next ruling%s.' % (item, _span([x for x, _l in rows]), (', ' + ' and '.join(tail)) if tail else '')
 
 
-CARRIED_FIXED = [
-    '    (a) ### **THE NEXT ACT, (R304)(8)**: b695, the re-cut act: the licensed table`s next document by b652`s order and b674`s tie-break, rule (2)',
-    '        of data/b690_rules.txt binding; b696 the research act: W-ORD-EPSTEIN-COUNT-LEAN or the regularity-uses bank on the author`s word.',
-]
-
-
 def carried():
-    return CARRIED_FIXED + [defects_row('b694', 'g')]
+    return CARRIED_FIXED[:-1] + [defects_row('b694', 'g')] + CARRIED_FIXED[-1:]
 
 
 # ================================================================================ THE REMOTE READS, ONE KEY ((R304)(2), THE REPAIR)
@@ -305,8 +305,41 @@ def scores_at_close():
 TITLE_LINE = ('b694 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND TWENTY-ONE, THE RESEARCH ACT: b693 AT ITS WEIGHT; THE CLOSING '
               'TOOL`S LOOKUP REPAIRED; THE DELETES RULE BANKED; THE CIRCUIT READING OVER THE CARRIED FACES KERNELS; THE WEIL-FACE WITNESS AT Q0, '
               'UNDER (R304).**')
-ACT_SECTIONS = []          # ### (title, [(label, bank)]) rows, filled at Component 4
-KERNEL_LINES = []          # ### the kernel-mains paragraph, filled at Component 4
+ACT_SECTIONS = [
+    ('THE CIRCUIT READING ((R304)(3))', [('the closure step', 'b694_closure_step.txt'), ('the dominance', 'b694_circuit_dominance.txt'),
+                                         ('the readings again', 'b694_circuit_readings.txt')]),
+    ('THE WITNESS AT Q0 ((R304)(4))', [('the plan', 'b694_witness_plan.txt'), ('the amendment', 'b694_witness_plan_amendment.txt'),
+                                       ('the concentration', 'b694_witness_concentration.txt'), ('the reading', 'b694_witness.txt'),
+                                       ('the controls', 'b694_witness_controls.txt')]),
+]
+KERNEL_LINES = [
+    '    kernel mains written: SIDE-lv-conservation alone -- the closure step d38f3e8 (CircuitClosure.lean at the root and the workflow`s',
+    '    closure step) alone on main by push_gated.sh ; no source module, no Zeta23 or vendored byte ; no tag ; the runner dispatched once, read',
+    '    by its run id with its artifact`s sha256 checked first ; no lean or lake run on this host ; no worktree made or removed ; no file',
+    '    deleted ; the ten (R304)(5) branches deleted at step zero by name, one per command and each its own message, nothing chained after any ;',
+    '    b628`s local intake bank, the navigator`s export, b671`s uncompressed points file, b681`s units file and the witness`s units file',
+    '    untracked ;',
+    '    no identifier of the author in any outbound request or workflow file ; no secret added ; the seat`s plain requests to github.com (its git reads and pushes, its',
+    '    one dispatch and its run and artifact reads) the act`s only outbound calls ; the deposit route untouched, publish never called ;',
+    '    FINDINGS and OPEN_TRAILS appended ; data/act_roots.txt, the corrigenda bank and the orders bank appended ; no shared tool edited, the',
+    '    carry-time repair in this act`s closing tool ; no README, REGISTRY or FOUNDATIONS byte ; no Correspondence cell ; no faces-page byte, the',
+    '    witness`s row drafted and held ; the mirror zip written outside every repository ; nothing of TECHNE or any patent written',
+]
+CARRIED_FIXED = [
+    '    (a) ### **THE NEXT ACT, (R304)(8)**: b695, the re-cut act: the licensed table`s next document by b652`s order and b674`s tie-break, rule (2)',
+    '        of data/b690_rules.txt binding; the witness`s faces row (relay data/b694_faces_rows.txt) raised there; b696 the research act:',
+    '        W-ORD-EPSTEIN-COUNT-LEAN or the regularity-uses bank on the author`s word.',
+    '    (b) The orders entered: W-ORD-WITNESS-TAIL-BALLS (OPEN_TRAILS :15166, before any faces-page row carrying the witness is regenerated) and',
+    '        W-ORD-B518-FLOAT (OPEN_TRAILS :15168, the reading act b700).',
+    '    (c) The faces page (THE_CLAUSE_AND_ITS_COMPILED_FACES.md) carried to its next regeneration, as b693 carried it (test_chain_page.py (1), (14),',
+    '        test_g_chain_page.py (1)).',
+    '    (d) b628`s full intake bank, the navigator`s export, b671`s uncompressed points file, b681`s units file and data/b694_witness_units.jsonl stay',
+    '        local and untracked (the witness`s units carried whole in data/b694_witness.json.gz).',
+    '    (e) The act root of b694 is relay data/act_roots.txt`s last line, chained from b693`s root; the mirror export carries it in MANIFEST.',
+    '    (f) Branches left for the next act`s step zero: the push-b694* branches of relay and PLACE-papers; SIDE-lv-conservation push-b694-lv-closure',
+    '        (local).',
+    '    (h) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
+]
 
 
 def main():
@@ -377,7 +410,9 @@ def main():
     L += ['### THE CORRIGENDUM AND THE REPAIR ((R304)(2)): the corrigendum (relay data/b694_corrigendum.txt): ' + vline(rd('b694_corrigendum.txt')),
           '    the look-up`s control (relay data/b694_lookup_control.txt): ' + vline(rd('b694_lookup_control.txt')), '']
     for title, rows in ACT_SECTIONS:
-        L += ['### %s: ' % title + ' ; '.join('%s (relay data/%s): %s' % (lab, bk, vline(rd(bk))) for lab, bk in rows), '']
+        L += ['### %s:' % title] + ['    %s (relay data/%s): %s' % (lab, bk, vtail(rd(bk))) for lab, bk in rows] + ['']
+    L += ['### THE KERNELS: the face`s reading of the kernels (relay data/b694_kernels_face.json): %d kernels read before the seal' % len(
+        jl('b694_kernels_face.json').get('kernels') or {}), '']
     L += ['### THE ROOT`S BANKS (relay data/b694_root_banks.txt): ' + (
         vline(rd('b694_root_banks.txt')) if rd('b694_root_banks.txt') else 'TO BE READ AT THE ROOT, before it is computed'), '']
     L += ['### THE MIRROR (relay data/b694_mirror.txt, the b670 form, after the root and the last PLACE-papers push): ' + mirror_line(), '']
