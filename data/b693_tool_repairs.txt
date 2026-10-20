@@ -1,0 +1,62 @@
+b693 -- THE CARRY-TIME REPAIRS, UNDER (R303)(2), (4) AND THE FERRY'S COMPONENT 4 (2026-10-19)
+
+### rows are repairs with the defect or order they answer: the tool ; the blob before -> after ; what it answers ; the form ; the reading.
+### Each diff beneath its row, as `git diff` printed it, banked by the Write tool.
+
+  (1) tools/circuit_read.py, e866b190 -> 53bbe581 (b692's sealed copy -> this act's) -- ANSWERS (R303)(6) (the READFIRST-CLOSURE reader run over
+      this ruling and ferry) and the overwrite it would have made: the readfirst route wrote data/b692_readfirst_closure.txt and
+      data/b692_readfirst_diff.txt by fixed names, both root-named banks of b692 (data/b692_act_root.json). THE FORM: the act read from the
+      ferry bank's name (bNNN_ferry.txt -> bNNN), the two banks and their head lines named by it; a b692 run names b692's banks as before; the
+      other routes untouched. THE READING: run at step zero over data/b693_ferry.txt and data/b693_readfirst.txt, it wrote
+      data/b693_readfirst_closure.txt and data/b693_readfirst_diff.txt; b692's two banks unchanged (git status, step zero).
+
+diff --git a/tools/circuit_read.py b/tools/circuit_read.py
+index e866b190..53bbe581 100644
+--- a/tools/circuit_read.py
++++ b/tools/circuit_read.py
+@@ -393,6 +393,9 @@ def resolve(p):
+
+
+ def readfirst(ferry, hand):
++    # ### b693, (R303)(6), a carry-time repair: the banks are named by the act of the ferry bank read (bNNN_ferry.txt -> bNNN), so a later act's
++    # ### run writes its own banks and never the build act's (b692's names fixed here would have overwritten b692's root-named banks)
++    act = re.match(r'(b\d+)_', os.path.basename(ferry)).group(1)
+     ft = rd(os.path.join(D, ferry) if not os.path.isabs(ferry) else ferry).split(NL)
+     seen, order = {}, []
+     frontier = []
+@@ -425,7 +428,7 @@ def readfirst(ferry, hand):
+         for p in CITE.findall(l):
+             if p not in hand_paths:
+                 hand_paths.append(p)
+-    L = ['b692 -- READFIRST-CLOSURE ON THE RULING AND FERRY (relay data/%s), (R302)(3)(c), BY tools/circuit_read.py (%s)' % (ferry, utc()), '',
++    L = ['%s -- READFIRST-CLOSURE ON THE RULING AND FERRY (relay data/%s), BY tools/circuit_read.py (%s)' % (act, ferry, utc()), '',
+          '### rows are items in the b688 form: the path | resolved or not | the depth (0 cited by the text itself) | the line that cites it | the',
+          '### unit of the bank`s rows and what the act takes from it (left for the seat`s hand). The ledgers, the hand list it is diffed against',
+          '### and the reader itself are listed and not followed.', '']
+@@ -434,14 +437,14 @@ def readfirst(ferry, hand):
+         L.append('  %-70s %-10s depth %d | cited at %s | -- | --' % (p, 'RESOLVED' if resolve(p) else 'UNRESOLVED', dep, by))
+     L += ['', '### ### **ITEMS %d ; CITED BY THE TEXT ITSELF %d ; RESOLVED %d ; THE DEEPEST %d.**' % (
+         len(order), len(direct), sum(1 for p in order if resolve(p)), max([v[0] for v in seen.values()] or [0]))]
+-    put('b692_readfirst_closure.txt', L)
++    put('%s_readfirst_closure.txt' % act, L)
+     key = lambda p: os.path.normcase(resolve(p) or p)   # noqa: E731  ### one file under two spellings is one path
+     dk, hk = set(key(p) for p in direct), set(key(p) for p in hand_paths)
+     only_hand = [p for p in hand_paths if key(p) not in dk]
+     only_text = [p for p in direct if key(p) not in hk]
+     in_closure = [p for p in only_hand if p in seen]
+-    M = ['b692 -- READFIRST-CLOSURE AGAINST THE HAND LIST, (R302)(3)(c): THE TWO LISTS DIFFED (%s)' % utc(), '',
+-         '### the hand list: relay data/%s (paths %d) ; the computed list: relay data/b692_readfirst_closure.txt (cited by the text itself %d ; the' % (hand, len(hand_paths), len(direct)),
++    M = ['%s -- READFIRST-CLOSURE AGAINST THE HAND LIST: THE TWO LISTS DIFFED (%s)' % (act, utc()), '',
++         '### the hand list: relay data/%s (paths %d) ; the computed list: relay data/%s_readfirst_closure.txt (cited by the text itself %d ; the' % (hand, len(hand_paths), act, len(direct)),
+          '### closure %d). Rows: < a path the hand list carries and the text does not cite by path ; > a path the text cites and the hand list' % len(order),
+          '### does not carry. No bank is rewritten by this reading.', '']
+     M += ['  < %-68s %s' % (p, ('in the closure at depth %d, cited at %s' % seen[p]) if p in seen else 'outside the closure') for p in only_hand]
+@@ -449,7 +452,7 @@ def readfirst(ferry, hand):
+     M += ['', '### ### **THE HAND LIST %d PATHS ; THE TEXT CITES %d ; BOTH %d ; LINES DIFFERING %d (HAND ONLY %d, OF WHICH IN THE CLOSURE %d ; TEXT ONLY %d).**' % (
+         len(hand_paths), len(direct), len([p for p in hand_paths if key(p) in dk]), len(only_hand) + len(only_text), len(only_hand), len(in_closure),
+         len(only_text))]
+-    put('b692_readfirst_diff.txt', M)
++    put('%s_readfirst_diff.txt' % act, M)
+     print(NL.join(L[-1:] + M[-1:]))
+
+

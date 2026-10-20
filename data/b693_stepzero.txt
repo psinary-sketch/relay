@@ -1,0 +1,54 @@
+b693 -- STEP ZERO, COMPONENT 0, UNDER (R303) (2026-10-19)
+
+### rows are the step-zero items in the ferry's order, each with its bank and its reading.
+
+  the session               the act continues the session of b689-b692 (2c300355); tools/b693_worklist.py anchors at (R303)'s line, so the
+                            capture, the answers and the citation helpers read from it
+  the paste                 received in full before anything ran: BEGIN, the ruling's BEGIN and END, the ferry's BEGIN and END, part 1 of 1
+  the closing capture       data/b692_closing_push_out.txt committed alone at relay 0a98bd1c, the act's first git write
+  the ferry                 data/b693_ferry.txt, banked by the Write tool from the paste, equal to the transcript's text (tools/b693_citation.py
+                            ferry: "15135 characters ; the transcript`s text 15135 characters ; equal True ; ferry_scan exit 0";
+                            data/b693_ferry_scan.txt)
+  the citation check        data/b693_citation_check.txt: "CITES CHECKED 89 ; OK 87 ; MISSES 2". Its first run printed three misses, one the
+                            check's own row: the candidates row looked for "Weil" where the bank writes "THE WEIL-FACE WITNESS AT Q0" in capitals
+                            (data/b692_candidates_priced.txt :6, :18); the row repaired and the check re-run before it was banked. The two
+                            misses of the ruling, both cited by Component 1, raised before it: (i) (R303)(1)'s "the triage written to OPEN_TRAILS
+                            as CARRY 11 and DISCHARGED-BY-READING 24" -- 11 and 24 are the triage bank's classes (data/b692_triage_counts.txt :6);
+                            the entries written were CARRIED 12 and DISCHARGED BY READING 23, one row demoted on the author's check
+                            (W-ORD-PROBE-HOLD); (ii) (R303)(2) and the ferry's "the record tool's carried-forward row" -- the fixed "(a)-(k)" is
+                            the closing tool's (tools/b692_closing.py :115, printed at data/b692_closing.txt :258), and tools/b692_record.py carries
+                            no such row
+  the readfirst bank        data/b693_readfirst.txt, every item of the ferry's list by path and line with its row unit (17 items)
+  the closure reader        tools/circuit_read.py readfirst over data/b693_ferry.txt beside the hand list (data/b693_readfirst_closure.txt,
+                            data/b693_readfirst_diff.txt): "ITEMS 10595 ; CITED BY THE TEXT ITSELF 21 ; RESOLVED 10417 ; THE DEEPEST 3" and
+                            "THE HAND LIST 26 PATHS ; THE TEXT CITES 21 ; BOTH 15 ; LINES DIFFERING 17 (HAND ONLY 11, OF WHICH IN THE CLOSURE 10 ;
+                            TEXT ONLY 6)"; the hand list stands as the bank this act. Before the run the reader's readfirst route was repaired at
+                            carry time: its two banks' names were b692's fixed strings, so a run for b693 would have overwritten b692's
+                            root-named banks data/b692_readfirst_closure.txt and data/b692_readfirst_diff.txt; the names now follow the ferry
+                            bank's act (bNNN_ferry.txt -> bNNN); b692's two banks unchanged (git status), the diff to data/b693_tool_repairs.txt
+  rowgen and constellation  data/b693_rowgen_stepzero.txt: "CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19."
+  the process listing       tail, lean, lake, python and claude named, bash beside them (Win32_Process by name through its own filter,
+                            2026-10-20T01:38:59Z, before any bank write but the ferry, the citation, the readfirst and the closure banks): claude 1
+                            (pid 41404, parent 40456, this seat), tail 0, lean 0, lake 0, python 0, bash 0; free memory 4491 MB. One seat. No task
+                            of this session stopped; no orphan, nothing stopped by PID
+  the branches              data/b693_branches.txt: the eight (R303)(5) names, every tip read and --merged listing each before any delete; deleted
+                            by name in the house form, one branch per command, each command its own message, in sequence: relay push-b692-root
+                            (c44e3b50), push-b692 (cb41d267), push-b692-closing (1749abbb); PLACE-papers push-b692-root (3a97db9), push-b692
+                            (62b632f); SIDE-explicit-formula push-b692-closure (ccec1ba), push-b692-closure-2 (59a867c), push-b692-closure-3
+                            (4313875). No unnamed branch of b692
+  the tests                 data/b693_tests_stepzero.txt (tools/b693_tests.py's report): "TEST FILES 55 ; RUN 54 ; WITHHELD 1 ; NOT CLEAN 3"; the
+                            withheld test test_elab_reader_b634.py (runs lean). The standing failures as at b692: test_chain_page.py (9) and
+                            test_chain_page_b638.py (4)-(7). THREE CASES NEW SINCE b692's STEP ZERO: test_chain_page.py (1) and (14) and
+                            test_g_chain_page.py (1), each "the page byte-identical to the generated page". The seat's reading of the cause, by
+                            git grep: tools/chain_page.py :783-:786 lists every PLACE-papers .md at HEAD naming a node, the ledgers, README,
+                            REGISTRY and the two pages excepted; b692's I-40 (phase1.5/method/INSTRUMENTS.md :488) names h2_sign_iff_rh, which
+                            INSTRUMENTS.md did not before b692 (git grep at 9a0dc76: no line), so the generator now lists a file the page, last
+                            regenerated at b690, does not. The page is not this act's to write ((R303)'s N5); entered as a defect and carried to
+                            the page's next regeneration with its header tag (data/b691_cut.txt :29-:31). Seven foreground parts, one call per
+                            part, the free memory printed before each against the 2,560 MB hold: part 1 (4547 MB), part 2 test_asof.py alone
+                            (4503 MB, 444 s), part 3 (4481 MB), part 4 test_chain_page.py alone (4453 MB, 442 s), part 5 (4463 MB), part 6 (4449
+                            MB), part 7 (4487 MB); no part moved to the background
+  git status                PLACE-papers tracked changes NONE; relay tracked changes data/terminal_table_prior.json and _run.txt (b692's post-push
+                            suite's regeneration, as b692 carried them) and tools/circuit_read.py (the repair above); the untracked files untracked
+                            (data/b628_intake_crank_v0_5.txt and data/b647_navigator_memory.txt not in git's index)
+  no build                  no lean, lake, build or runner dispatch on this host or from it at step zero

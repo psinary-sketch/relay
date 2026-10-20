@@ -1,0 +1,50 @@
+b693 -- THE READ-FIRST BANK, (R303)(6) AND THE FERRY'S READ-FIRST LIST, READ AT STEP ZERO BEFORE ANY OTHER BANK OF THIS ACT (2026-10-19)
+
+### rows are the ferry's read-first items in its order: the item | path and line | the unit of the bank's rows | what was read there.
+### Each cite is checked at HEAD by tools/b693_citation.py (data/b693_citation_check.txt).
+
+  b692's head line             relay data/b692_closing.txt :1 | rows are the closing's report lines | "b692 closed: relay cb41d267, PLACE-papers 62b632f;
+                               suite 123 of 123; root f0fd28492c58f143…; 4 prompts answered; 13 defects"
+  b692's defects               relay data/b692_defects.txt :5-:60 | rows are defects as lettered, (a)-(m); (m) at :53-:60 with the correct figures at
+                               :55-:56 and :59-:60 -- LOAD's three highest Zeta23.reflect (825), Zeta23.ZeroConfig.mk (716), Zeta23.ZeroConfig (716);
+                               the factor 1.53 -- against the entry's "LOAD led by ." and "1.53. --"
+  the circuit banks            relay data/b692_circuit_SIDE-explicit-formula_v0.34.1.txt :707 | rows are records and reading lines | SERIES 576 names,
+                               the longest chain 26 ; SHORTS 0 ; WIDTH 41 same-type pairs, 25 at FEW = 5 ; LOAD Zeta23.reflect (825),
+                               Zeta23.ZeroConfig.mk (716), Zeta23.ZeroConfig (716)
+                               relay data/b692_circuit_dominance.txt :21 | rows are faces kernels | CLAUSE-DOMINANCE 1 OF 1 FACES KERNELS REACHED
+                               (SIDE-explicit-formula IN) ; 1 NOT REACHED (SIDE-lv-conservation) ; the face in 2 of 9 faces
+                               relay data/b692_circuit_controls.txt :11 | rows are controls | SHORTS 0 on the bank, the planted copy one short
+                               relay data/b692_readfirst_diff.txt :31 | rows are paths, < hand only, > text only | LINES DIFFERING 23 (hand only 13,
+                               of which in the closure 11 ; text only 10)
+                               relay data/b692_suite_load.txt :59 | rows are rule arms | 11 of 24 with a source read ; THE FACTOR 1.53
+                               relay data/b692_circuit_bars.txt | rows are bars | FEW = 5, banked before the run
+  the circuit spec             relay data/b692_circuit_spec.txt :7-:46 | rows are readings, ten (INPUT, SERIES, TERMINALS, SHORTS, WIDTH, LOAD,
+                               CLAUSE-DOMINANCE, READFIRST-CLOSURE, OUTPUT, SUITE-LOAD beneath at :46)
+  the parts probe              relay data/b692_parts_probe.txt :16, :21 | rows are variants of the arm (V0, V1, V2) against the run banks | V2 reads
+                               standing-b1 and standing-b2 as the split of standing-b
+  the tool repairs             relay data/b692_tool_repairs.txt :5-:13 | rows are repairs with the defect or order they answer | row 1, the V2 repair
+                               of tools/rule_arms.py, its diff beneath
+  the carried-forward row      relay tools/b692_closing.py :115 | a tool's source | '    (i) The defects (a)-(k) for the next ruling, ...' -- a
+                               fixed string in the CLOSING tool, printed at data/b692_closing.txt :258; tools/b692_record.py carries no such row
+                               (the ruling names the record tool: data/b693_citation_check.txt, a miss raised)
+  the push tool                relay tools/push_gated.sh :4 (usage: <repo> <push-branch> [tag[::message] ...]) and :44 (the existing-tag mode,
+                               b623) | a tool's source | two modes, main (with tags) and existing tag; no branch mode
+  the V2 comparison            relay tools/rule_arms.py :480-:486 (`met`) | a tool's source | a family met by itself or by two or more distinct
+                               numbered parts (`len(v) >= 2`), the comment saying halves
+  the licensed table           relay data/b670_licensed_table.txt :89-:123 (B. PER AGENDA DOCUMENT, b648 -> now) and :285 (b688's pin row) | rows
+                               are licensed-table rows | the per-document tables named in each row's bracket (data/b647_table_<kernel>.txt);
+                               the cuts since b670 in their cut banks
+  the tie-break rule           relay data/b674_rules.txt :8-:11 | rows are rules | (2) THE TIE-BREAK BEYOND THE COUNT; b652's order at
+                               data/b652_ferry.txt :19 ("the next kernel by descending count under the same rules, then the companions")
+  the quotation rule           relay data/b690_rules.txt :9 | rows are rules | (2) a line the re-cut removes that has a distinctive substring
+                               searched with git grep before the merge
+  the split rule               relay data/b684_rules.txt :5-:12 | rows are rules | (1) A SUITE PART OVER 450 s SPLITS THE NEXT RUN, each part
+                               under 540 s; b692's standing-b2 461 s at its pre-run (data/b692_arms_prerun_standing-b2.txt, its footer)
+  the :301 residue             relay data/b691_cut.txt :22-:27 | rows are the cut's lines and residues | R-K1, PATHS_TO_THE_CRITICAL_LINE_v0_7.md :301,
+                               the page's v1.8 against the carry v1.3 = 0bc21c0, CARRIED
+  the generator                relay tools/correspondence_gen.py :241-:247 (read_carry), :389 (CARRIED AT: VERSION DIFFERS) | a tool's source |
+                               the carried-at cells read from the carrying source, as repaired at b691
+  b692's closing capture       relay data/b692_closing_push_out.txt | the push tool's capture lines | "cb41d267..1749abbb", read back at 1749abbb;
+                               committed alone at step zero (relay 0a98bd1c)
+
+### ### **ITEMS 17 ; READ AT HEAD 17 ; THE CITATION CHECK OVER THEM IN data/b693_citation_check.txt.**
