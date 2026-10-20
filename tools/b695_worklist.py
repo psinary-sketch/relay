@@ -41,6 +41,10 @@ DELETE = (('D:/relay', ('push-b694', 'push-b694-root', 'push-b694-closing')),
 DELETE_REMOTE = ()          # ### none stood on a remote (the three ls-remote reads at step zero)
 
 FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
+NODES = 'data/b690_nodes_zeta.txt'                    # ### the list the page names at :3 since b690 (the control's list)
+NODES_NEW = 'data/b695_nodes_zeta.txt'                # ### b690's list with the successor beneath :167, on the author's word at prompt 1
+NODES_ROW = 168                                       # ### the successor's line in the new list
+PROBE = 'data/b643_probe_out_zeta.txt'                # ### b643's banked probe output: the page re-emitted without elaborating (no lean)
 
 PARTS = ('standing-a', 'standing-c', 'standing-b1', 'standing-b2', 'standing-b3', 'act')     # ### six parts, as b693 drew them
 # ### the chain halves as b693 drew them, b695 added to the second

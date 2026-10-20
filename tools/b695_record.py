@@ -615,6 +615,143 @@ def cut(*a):
     print(NL.join(L))
 
 
+# ================================================================================ COMPONENT 3: THE FACES ROW, (R305)(4) AND THE AUTHOR'S WORD AT PROMPT 1
+CAVEAT_OPEN = 'tail bounds float with a safety factor, not balls (W-ORD-WITNESS-TAIL-BALLS)'
+TAIL_FROM = 'negative beyond its bound at a = 32'
+
+
+def facescheck(*a):
+    """the author's word at prompt 1 (data/b695_author_answers.txt): one check printed before any write -- the successor's tail, from
+    "negative beyond its bound at a = 32" to its end (data/b695_faces_rows.txt :19), against (R305)(4)'s caveat as the banked ruling words it
+    (data/b695_ferry.txt, the quotation opening with the caveat's first words), character for character; and the glossary's spelling of the
+    autocorrelation (THE_CLAUSE_AND_ITS_COMPILED_FACES.md, the classK entry) against the row's. data/b695_faces_check.txt."""
+    fl = rdn('b695_ferry.txt').split(NL)
+    fi = [i for i, l in enumerate(fl, 1) if CAVEAT_OPEN in l]
+    m = re.search(r'“(%s.*?)”' % re.escape(CAVEAT_OPEN), fl[fi[0] - 1]) if len(fi) == 1 else None
+    rows = rdn('b695_faces_rows.txt').split(NL)
+    row = rows[18] if len(rows) > 18 else ''
+    tail = row[row.index(TAIL_FROM):] if TAIL_FROM in row else ''
+    cav = m.group(1) if m else ''
+    carries = bool(cav) and (cav + '.') in tail and tail.endswith(cav + '.')
+    page = rd(os.path.join(PP, K.FACES_PAGE)).split(NL)
+    gl = [(i, l) for i, l in enumerate(page, 1) if l.startswith('- **classK**')]
+    gspell = re.search(r'of the form (\S+ \S+ \S+) with', gl[0][1]).group(1) if len(gl) == 1 else ''
+    rspell = re.search(r'k = (\S+ \S+ \S+) with h even', row).group(1) if re.search(r'k = (\S+ \S+ \S+) with h even', row) else ''
+    L = ['b695 -- COMPONENT 3, (R305)(4): THE CHECK THE AUTHOR`S WORD AT PROMPT 1 ORDERS, PRINTED BEFORE ANY WRITE (%s)' % utc(), '',
+         '### the caveat as (R305)(4) words it, read from relay data/b695_ferry.txt :%s (the quotation opening %r):' % (fi[0] if fi else '?', CAVEAT_OPEN),
+         '    ' + cav,
+         '### the successor`s tail, from %r to its end, read from relay data/b695_faces_rows.txt :19:' % TAIL_FROM,
+         '    ' + tail,
+         '### the tail ends with the caveat character for character, its closing period the line`s own: %s ; the caveat`s characters (U+2019 %d, U+2014 %d) '
+         'equal in both: %s' % (carries, cav.count('’'), cav.count('—'), cav.count('’') == tail.count('’') and cav.count('—') == tail.count('—')),
+         '', '### the autocorrelation: the glossary writes %r (PLACE-papers %s :%s, the classK entry) ; the row writes %r -> amended to the glossary`s'
+         % (gspell, K.FACES_PAGE, gl[0][0] if gl else '?', rspell),
+         '### spelling as the author`s word orders, that one spelling and nothing else', '',
+         '### ### **THE CAVEAT CARRIED VERBATIM %s ; THE GLOSSARY`S SPELLING %r, THE ROW`S %r.**' % (carries, gspell, rspell)]
+    if 'dry' in a:
+        print(NL.join(L))
+        return
+    put_txt('b695_faces_check.txt', L)
+    print(NL.join(L))
+
+
+CARRIED_ROW = '| keystone naming a node | `phase1.5/method/INSTRUMENTS.md` |'   # ### b693 (a)'s carried row (data/b693_defects.txt :7-:11)
+
+
+def faces(*a):
+    """b690's form (tools/b690_record.py :401-:456), carried: the control (b690's list re-emits the committed page byte for byte) and the
+    emission of data/b695_nodes_zeta.txt, both by tools/chain_page.py --from-output data/b643_probe_out_zeta.txt into the scratchpad (no
+    lean); the diff printed; with `write`, the control and the emission clean first, the page written by the generator itself (its --out the
+    page), read back equal to the emission, and the diff banked as data/b695_faces_diff.txt."""
+    import difflib
+    import hashlib
+    page = os.path.join(PP, K.FACES_PAGE)
+    probe = os.path.join(ROOT, *K.PROBE.split('/'))
+
+    def emit(nodes, out):
+        r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'chain_page.py'), '--nodes', os.path.join(ROOT, *nodes.split('/')),
+                            '--probe-dir', SP, '--out', out, '--from-output', probe], capture_output=True, text=True, encoding='utf-8', errors='replace')
+        return r.returncode, ((r.stdout or '') + (r.stderr or '')).strip().split(NL)[-1:]
+    committed = open(page, 'rb').read()
+    head = g(PP, 'show', 'HEAD:' + K.FACES_PAGE).encode('utf-8')
+    cpath, npath = os.path.join(SP, 'b695_faces_control.md'), os.path.join(SP, 'b695_faces_emit.md')
+    rc0, t0 = emit(K.NODES, cpath)
+    ctl = open(cpath, 'rb').read() if os.path.exists(cpath) else b''
+    control = rc0 == 0 and ctl == committed
+    rc1, t1 = emit(K.NODES_NEW, npath)
+    new = open(npath, 'rb').read() if os.path.exists(npath) else b''
+    d = list(difflib.unified_diff(committed.decode('utf-8').split(NL), new.decode('utf-8').split(NL), 'committed', 'b695', n=0, lineterm=''))
+    add = sum(1 for l in d if l.startswith('+') and not l.startswith('+++'))
+    rem = sum(1 for l in d if l.startswith('-') and not l.startswith('---'))
+    ca, cb = committed.decode('utf-8').split(NL), new.decode('utf-8').split(NL)
+    real = [(i1 + 1, i2, j1 + 1, j2) for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, ca, cb, autojunk=False).get_opcodes() if op != 'equal']
+    written, back = False, False
+    # ### the author's word at prompt 2 (data/b695_author_answers.txt): regenerate with the row, where the control's emission differs from the
+    # ### committed page in the one keystone row b693 (a) carried and in nothing else; `withrow` names that word, and is refused otherwise
+    cl = ctl.decode('utf-8').split(NL)
+    cops = [(op, i1, i2, j1, j2) for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, ca, cl, autojunk=False).get_opcodes() if op != 'equal']
+    carried_only = len(cops) == 1 and cops[0][0] == 'insert' and cl[cops[0][3]:cops[0][4]] == [CARRIED_ROW]
+    if 'write' in a:
+        if rc1 != 0 or not (control or ('withrow' in a and carried_only)):
+            sys.exit('### THE CONTROL OR THE EMISSION FAILED -- THE PAGE IS NOT WRITTEN (control %s ; the one carried row alone %s)' % (control, carried_only))
+        rc2, t2 = emit(K.NODES_NEW, page)
+        written = rc2 == 0
+        back = open(page, 'rb').read() == new
+    old_l = rdn(os.path.basename(K.NODES)).split(NL)
+    new_l = rdn(os.path.basename(K.NODES_NEW)).split(NL)
+    row = new_l[K.NODES_ROW - 1]
+    cav = 'tail bounds float with a safety factor, not balls (W-ORD-WITNESS-TAIL-BALLS); the zero tail on P3, derived and not compiled; a ' \
+          'numerical reading at a certified object, consistent with Weil’s criterion at an instance with zeros off the line — not a theorem about Q0'
+    L = ['b695 -- COMPONENT 3, (R305)(4): THE WEIL-FACE LINE THROUGH THE GENERATOR, ON THE AUTHOR`S WORD AT PROMPT 1 (%s)' % utc(), '',
+         '### the generator: relay tools/chain_page.py --from-output relay %s (no elaboration; no lean on this host)' % K.PROBE,
+         '### the control: b690`s list (relay %s) re-emits the committed page byte for byte: %s (%d bytes ; exit %d ; the committed page equal to HEAD`s '
+         'blob %s)' % (K.NODES, control, len(ctl), rc0, committed.replace(b'\r\n', b'\n') == head.replace(b'\r\n', b'\n')),
+         '### the control`s differences from the committed page: %s ; the one keystone row b693 (a) carried and nothing else: %s (relay '
+         'data/b695_faces_control.txt; the author`s word at prompt 2: regenerate with the row, N4 not met as worded and met in substance)' % (
+             '; '.join('%s :%d-:%d -> :%d-:%d %r' % (op, i1 + 1, i2, j1 + 1, j2, cl[j1:j2]) for op, i1, i2, j1, j2 in cops) or 'NONE', carried_only),
+         '### the new list: relay %s (b690`s %d lines and one more, the successor at :%d beneath the Li-face line, every other line unchanged); '
+         'emitted %d bytes, exit %d, sha256 %s' % (K.NODES_NEW, len(old_l) - 1, K.NODES_ROW, len(new), rc1, hashlib.sha256(new).hexdigest()[:16]),
+         '### the diff, committed page -> b695 emission (lines added %d, removed %d; with difflib`s autojunk off the lines that differ, committed -> '
+         'b695: %s):' % (add, rem, '; '.join(':%d-:%d -> :%d-:%d' % r for r in real))] + ['    ' + l for l in d] + [
+         '', '### the page written by the generator and read back equal to the emission: %s' % (back if 'write' in a else 'NOT YET (dry)'),
+         '### the row carries (R305)(4)`s caveat verbatim, the glossary`s h ⋆ h~ and no backtick: %s ; the page carries the caveat verbatim: %s' % (
+             cav in row and 'h ⋆ h~' in row and '`' not in row, cav in new.decode('utf-8')), '',
+         '### the three lines of the diff, each by its cause: :3 the list`s name (b690 -> b695) ; :193 b693 (a)`s carried keystone row, taken up at '
+         'this regeneration ; :733 -> :734 the backmatter paragraph, the Weil-face line appended (R305)(4)', '',
+         '### ### **CONTROL EQUAL %s (ITS ONE DIFFERENCE THE CARRIED ROW %s) ; LINES ADDED %d ; REMOVED %d ; PAGE WRITTEN %s.**' % (
+             control, carried_only, add, rem, written and back)]
+    if 'write' in a:
+        put_txt('b695_faces_diff.txt', L)
+    print(NL.join(L[2:6] + L[-5:]))
+
+
+# ================================================================================ COMPONENT 3: THE TRAIL LINES, (R305)(4)-(5)
+OH1 = ('*Appended 2026-10-20 by b695 beneath `W-ORD-WITNESS-TAIL-BALLS` (:15166), under `(R305)`(4) -- THE TRIGGER RE-READ, THE LINE ABOVE '
+       'UNCHANGED:*')
+OB1 = (' the trigger “before any faces-page row carrying the witness is regenerated” is re-read as “before the tail-bound caveat is removed '
+       'from the row”. The Weil-face line at Q0 was regenerated at b695 on the author’s word (PLACE-papers THE_CLAUSE_AND_ITS_COMPILED_FACES.md '
+       ':734, from relay data/b695_nodes_zeta.txt :168; data/b695_faces_diff.txt) carrying the caveat “tail bounds float with a safety factor, '
+       'not balls (W-ORD-WITNESS-TAIL-BALLS)” verbatim; the order’s work -- the archimedean and zero-side tail bounds as arb balls, the '
+       'witness re-read -- is the condition for removing that caveat, not for the row. Status OPEN.')
+OH2 = ('*Appended 2026-10-20 by b695 beneath `W-ORD-H2-BRIDGE` (:10257), under `(R305)`(5) -- THE b694 READING, BY PATH AND LINE:*')
+OB2 = (' CLAUSE-DOMINANCE read at b694 over the faces kernels the page names: SIDE-explicit-formula HOLDS, the clause’s compiled face h2_sign in '
+       'its main theorem’s closure; SIDE-lv-conservation ABSENT, its main theorem’s closure (27 names of 608 records) not holding the clause, its '
+       'lakefile forbidding dependence on a sister kernel, the clause reaching it only through the faces page’s Correspondence row (relay '
+       'data/b694_circuit_dominance.txt :7-:8, :12; data/b690_nodes_zeta.txt :126). The eleventh row of the circuit specification, '
+       'CORRESPONDENCE-DOMINANCE (relay data/b695_circuit_spec.txt :53-:64), ties that ABSENT to this order as one question: whether a kernel’s '
+       'compiled face is the clause’s statement under the Correspondence row, by statement identity read from both print banks, '
+       'HOLDS-BY-CORRESPONDENCE or DIFFERS with the differing binder named -- a spec row, no tool built.')
+
+
+def trails(*a):
+    """the trigger re-read beneath W-ORD-WITNESS-TAIL-BALLS's line and the b694 reading beneath W-ORD-H2-BRIDGE's, through the guarded
+    landing; data/b695_trail_lines.json."""
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', OH1, NL + OH1 + OB1 + NL), ('OPEN_TRAILS.md', OH2, NL + OH2 + OB2 + NL)], '%s_trail_lines.json' % ACT, 'c3trail',
+         check=[('OPEN_TRAILS.md', 15166, 'W-ORD-WITNESS-TAIL-BALLS'), ('OPEN_TRAILS.md', 10257, 'W-ORD-H2-BRIDGE'),
+                ('OPEN_TRAILS.md', K.B694_TRAIL, '### b694')], dry=dry)
+
+
 # ================================================================================ THE READERS, ONE PER ROW SHAPE A ROUTE READS ((R263)(3))
 BRANCH_FATES = ('DELETED', 'KEPT', 'RAISED')
 
@@ -783,7 +920,7 @@ def answers(*a):
 
 # ================================================================================ THE ROUTES
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, tie=tie, dispatch=dispatch, runstatus=runstatus, runner=runner,
-              prints=prints, quote=quote, cut=cut)
+              prints=prints, quote=quote, cut=cut, facescheck=facescheck, faces=faces, trails=trails)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

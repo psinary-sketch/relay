@@ -1,0 +1,22 @@
+b695 -- COMPONENT 3, (R305)(4): THE CONTROL BEFORE THE PAGE WRITE -- b690's LIST DOES NOT RE-EMIT THE COMMITTED PAGE BYTE FOR BYTE (2026-10-20)
+
+### the route: `tools/b695_record.py faces` (dry), tools/chain_page.py --from-output data/b643_probe_out_zeta.txt into the scratchpad, no
+### lean; nothing written to the page. Rows are the two emissions against the committed page (PLACE-papers THE_CLAUSE_AND_ITS_COMPILED_FACES.md,
+### 122944 bytes, equal to HEAD's blob), read by `git diff --no-index --unified=0`:
+
+  THE CONTROL   b690's list (relay data/b690_nodes_zeta.txt) -> exit 0 ; BYTE FOR BYTE False ; one line differs, added at :193:
+                "| keystone naming a node | `phase1.5/method/INSTRUMENTS.md` |" -- the generator now lists INSTRUMENTS.md among the
+                keystones naming a node (b692's I-40, INSTRUMENTS.md :488, names h2_sign_iff_rh; tools/chain_page.py :783-:786), which the page,
+                last regenerated at b690, does not carry. b693 found it at its step zero and carried it "to the page's next regeneration"
+                (relay data/b693_defects.txt (a) :7-:11); the step-zero tests carry it as test_chain_page.py (1), (14) and
+                test_g_chain_page.py (1) (relay data/b695_tests_stepzero.txt).
+  THE EMISSION  b695's list (relay data/b695_nodes_zeta.txt) -> exit 0 ; 124025 bytes ; three lines differ from the committed page:
+                :3 the list named, data/b690_nodes_zeta.txt -> data/b695_nodes_zeta.txt ; :193 the INSTRUMENTS.md keystone row added (the
+                control's one line) ; :733 -> :734 the backmatter paragraph, the Weil-face line appended after the Li-face line, carrying
+                (R305)(4)'s caveat verbatim and the glossary's h ⋆ h~.
+
+### (R305)(4) and N4 order the control to re-emit the current page byte for byte before the generator writes. It does not, by the one keystone
+### row b693 carried; the page is NOT written, and the question is raised before any page write (the author's word at prompt 1 was given
+### before the control ran).
+
+### ### **CONTROL BYTE FOR BYTE False (ONE LINE, THE INSTRUMENTS.md KEYSTONE ROW b693 CARRIED) ; THE PAGE NOT WRITTEN ; RAISED.**
