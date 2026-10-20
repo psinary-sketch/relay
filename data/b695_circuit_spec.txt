@@ -1,0 +1,67 @@
+b695 -- COMPONENT 3, (R305)(5): THE DEPENDENCY-CIRCUIT READING'S SPECIFICATION, b692's TEN ROWS UNCHANGED AND AN ELEVENTH BENEATH (2026-10-20)
+
+### rows are the instrument's readings, each with the kernel object it reads from and the form of its output: the ten rows of relay
+### data/b692_circuit_spec.txt :7-:52, every byte of them unchanged, and CORRESPONDENCE-DOMINANCE appended beneath under (R305)(5). A spec
+### row, no tool this act; the reading that ties CLAUSE-DOMINANCE's ABSENT (relay data/b694_circuit_dominance.txt :8) to W-ORD-H2-BRIDGE.
+
+  INPUT             reads: the kernel's Lean environment at the tag, after its build on the hosted runner (no lean on this host) -- for each
+                    declaration of the kernel's own names, its transitive constant closure: the traversal #print axioms makes (CollectAxioms over
+                    each constant's type and value), widened to collect every constant reached and not only the axioms.
+                    output: one runner step's artifact, a gz of one record per declaration (name, module, kind, the closure as names), banked as
+                    data/bNNN_circuit_<kernel>_<tag>.json.gz beside a text hashes bank (data/bNNN_circuit_<kernel>_<tag>_hashes.txt: the gz's
+                    sha256 and bytes, the runner run id, the tag's commit), the binary rooted through the text bank (data/b680_rules.txt row (1)).
+  SERIES            reads: INPUT's closure of the kernel's main theorem, restricted to the kernel's own names.
+                    output: the restricted closure in dependency order (each name after every name its value consumes), one name per line with
+                    its module:line, in a text bank; the count of names and the longest chain's length beside.
+  TERMINALS         reads: the main theorem's type (its Prop binders) and INPUT's closure of it.
+                    output: the binders that name a premise -- HCount, HExcl, the clause's compiled face, or any other named Prop of the kernel's
+                    own names -- each with its binder name and type as #print gives it; and every axiom in the closure beyond the standard three,
+                    by name; a text bank, rows are terminals.
+  SHORTS            reads: INPUT's closure of every declaration.
+                    output: each declaration whose closure contains sorryAx, by name and module:line, with the first declaration on its path that
+                    uses sorryAx directly; a text bank, rows are shorts; "SHORTS 0" printed where there are none, with a control (a planted sorry
+                    in a scratch copy of the gz's records, read as one short) so a 0 is not a reader that cannot find its needle.
+  WIDTH             reads: the types of the kernel's declarations and INPUT's closures over its own names.
+                    output: the pairs of declarations with the same type (syntactic equality of the elaborated type, up to the names of bound
+                    variables) whose closures over the kernel's own names meet in few or no nodes, the meet's size printed per pair; the count of
+                    such pairs and their names; a text bank, rows are pairs. The bar "few" is the build act's to name and bank before the run.
+  LOAD              reads: INPUT's closures of every declaration.
+                    output: for each of the kernel's own names, the number of the kernel's declarations whose closure contains it; a text bank,
+                    rows are names sorted by load, the main theorem's closure marked.
+  CLAUSE-DOMINANCE  reads: INPUT for each of the faces kernels (the kernels the faces page names, at their tags) and the clause's compiled face
+                    (the declaration the clause compiles to, named by the faces page's node list).
+                    output: for each faces kernel, whether the clause's compiled face lies in the closure of its main theorem (IN or NOT IN, with
+                    the path where IN); the count over the faces -- the reading that turns "a single located clause" from a sentence into a
+                    computed property over the faces; a text bank, rows are kernels.
+  READFIRST-CLOSURE reads: a ruling and ferry text (a banked ferry, data/bNNN_ferry.txt) in place of a theorem, and the relay and PLACE-papers
+                    trees at HEAD -- no kernel object; the seventh reading, on the author's word at this act's faces tail prompt.
+                    output: the set of banks and tools the text cites by path, and the banks those cite by path, transitively, each item with
+                    the line that cites it (citing file :line, the cited path); the closure printed as a readfirst bank in the b688 form
+                    (data/b688_readfirst.txt: rows are items, the path, the line or lines read, the unit of that bank's rows, what the act takes
+                    from it -- the last two left for the seat's hand); the reading that lets the readfirst bank be computed rather than
+                    hand-written.
+  OUTPUT            reads: SERIES, TERMINALS, SHORTS and WIDTH's banks for one kernel at one tag.
+                    output: a DOT bank (data/bNNN_circuit_<kernel>_<tag>.dot) rendered to PNG beside the hashes bank -- series drawn as a chain,
+                    parallel pairs side by side, terminals as open ends, shorts marked; the PNG binary rooted through the text hashes bank.
+  SUITE-LOAD        reads: the suite's arms -- the standing rule arms of tools/rule_arms.py with the rules banks' rows they read (each row's
+                    Source line) -- and the defects-per-act series b673-b691 (the lettered rows of data/bNNN_defects.txt, and the arms each act's
+                    pre-push suite ran) -- no kernel object; the tenth reading, appended under (R302)(3)(d).
+                    output: for each standing arm the defect classes it alone would catch (the lettered defects its rule's row cites and no
+                    other arm's rule cites), and, from the series, the factor by which defects per act fell as arms were added (a ratio of
+                    means over the series' halves, printed as a ratio and not a fit); a text bank (data/bNNN_suite_load.txt), rows are arms,
+                    then acts. A reading: no arm added by it.
+  CORRESPONDENCE-DOMINANCE
+                    reads: for a faces kernel whose closure cannot hold the clause by its lakefile (CLAUSE-DOMINANCE ABSENT, the kernel barred from
+                    depending on a sister kernel), the faces page's Correspondence row naming it (the node list's @corr record, cited by line) and
+                    two print banks -- the kernel's own, its compiled face as #print sig gives it, and the clause's, h2_sign's #print sig at the
+                    tag the page names; the eleventh reading, appended under (R305)(5).
+                    output: for each such kernel, HOLDS-BY-CORRESPONDENCE where the face's statement is the clause's statement by statement
+                    identity (syntactic equality of the two printed signatures, up to the names of bound variables), DIFFERS otherwise with the
+                    first differing binder named (its name and type in each print); the Correspondence row cited by line beside each verdict; a
+                    text bank, rows are kernels. The reading that ties CLAUSE-DOMINANCE's ABSENT (b694: SIDE-lv-conservation, relay
+                    data/b694_circuit_dominance.txt :8, the clause reaching it through data/b690_nodes_zeta.txt :126) to W-ORD-H2-BRIDGE
+                    ((R128)(2), OPEN_TRAILS :10257 -- SIDE-kernel's ConservationHypothesis and h2_sign not yet one object) as one question: a
+                    kernel whose face DIFFERS is a bridge still to be built. A spec row; no tool this act.
+
+### ### **READINGS 9 (SERIES, TERMINALS, SHORTS, WIDTH, LOAD, CLAUSE-DOMINANCE, READFIRST-CLOSURE, SUITE-LOAD, CORRESPONDENCE-DOMINANCE) BETWEEN INPUT
+### AND OUTPUT ; ROWS 11 ; THE TEN OF b692 UNCHANGED ; CORRESPONDENCE-DOMINANCE THE ELEVENTH, BENEATH.**
