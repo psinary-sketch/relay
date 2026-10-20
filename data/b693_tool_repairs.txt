@@ -60,3 +60,51 @@ index e866b190..53bbe581 100644
      print(NL.join(L[-1:] + M[-1:]))
 
 
+  (2) tools/b693_closing.py, carried from tools/b692_closing.py (0089e27a -> e964d39f at Component 1) -- ANSWERS (R303)(2) on the author's
+      word (data/b693_author_answers.txt, prompt 2; the ruling's "record tool" amended to the closing tool, the fixed string being the closing
+      tool's: tools/b692_closing.py :115, printed at data/b692_closing.txt :258). THE FORM: the carried-forward defects row computed by
+      `defects_row(act)`, its letters read from relay data/<act>_defects.txt through the record tool's existing defect-row reader
+      (tools/b693_record.py DEFECT_ROW, carried from tools/b692_record.py :891), each row's kind read from its own head (A RULED EXCEPTION ;
+      THE NAVIGATOR'S); `defects-row <act>` prints it. The rest of the file is the act's text, carried by the Write tool (b692 -> b693 names,
+      the sections this act's components make), no other logic changed. THE READING: data/b693_range_exercise.txt -- b692's bank read as
+      "(a)–(m) ... (i) the ruled exception and (j)–(k) the navigator`s", the control b691's as "(a)–(k)". The logic hunk:
+
+-    '    (i) The defects (a)-(k) for the next ruling, (i) the ruled exception and (j)-(k) the navigator`s for the author`s strike.',
+-]
++def defects_row(act, item='i'):
++    """### the carried-forward defects row, its letters read from relay data/<act>_defects.txt through the record tool's defect-row reader
++    ### (tools/b693_record.py DEFECT_ROW), each row's kind read from its own head: a ruled exception, the navigator's, the seat's."""
++    import b693_record as REC
++    L = rd('%s_defects.txt' % act).split(NL)
++    rows = [(REC.DEFECT_ROW.match(l).group(1), l) for l in L if REC.DEFECT_ROW.match(l)]
++    if not rows:
++        return '    (%s) The defects: ### NO LETTERED ROW IN relay data/%s_defects.txt.' % (item, act)
++    ruled = [x for x, l in rows if 'A RULED EXCEPTION' in l]
++    nav = [x for x, l in rows if re.match(r"^    \([a-z]'?\) THE NAVIGATOR'S", l)]
++    tail = []
++    if ruled:
++        tail.append('%s the ruled exception%s' % (_span(ruled), '' if len(ruled) == 1 else 's'))
++    if nav:
++        tail.append('%s the navigator`s for the author`s strike' % _span(nav))
++    return '    (%s) The defects %s for the next ruling%s.' % (item, _span([x for x, _l in rows]), (', ' + ' and '.join(tail)) if tail else '')
++
++
++def carried():
++    return CARRIED_FIXED + [defects_row('b693', 'g')]
+
+  (3) tools/push_gated.sh, d7c39c5b -> e7410053 -- ANSWERS (R303)(2) and closes b691's defect (d) (the cut branches pushed by a plain `git
+      push`, data/b691_defects.txt :24); b692's exception (i) stands as entered. THE FORM: the branch mode, `push_gated.sh <repo> --branch
+      <branch> [--scratch]`: one branch pushed alone to refs/heads/<branch> at origin, never forced, with the capture the main and
+      existing-tag modes have (PUSH_GATED_LOG, the capture block before every mode); refused with nothing pushed where the branch is not in
+      the clone (exit 11) or not merged into main unless the call names it a scratch branch by --scratch (exit 12); a refused push exit 3; the
+      read-back by ls-remote, unequal exit 4. The main and existing-tag modes unchanged. THE READING: tools/test_push_gated.sh, cases N-R
+      added beside A-M, "52 of 52 checks as wanted -- PASS" (40 before, every one still passing); the mode exercised once on push-b693-root
+      at the pre-root push, its capture read back (data/b693_branch_mode.txt), on the author's word (prompt 4).
+
+  (4) tools/test_push_gated.sh, 3e8b2fb9 -> 9ec495a3 -- the branch mode's test, cases N (merged, with the capture), O (not merged, refused 12),
+      P (named scratch, pushed), Q (absent, refused 11), R (push refused, 3), in the test's own throwaway repositories.
+
+  The diffs of rows (3) and (4): `git diff d7c39c5b e7410053` and `git diff 3e8b2fb9 9ec495a3` over the two blobs, carried in full by
+  relay data/b693_branch_mode.txt beside the mode's exercise.
+
+

@@ -15,6 +15,7 @@
 #   F  NAME::MESSAGE              -> exit 0; the tag's message is MESSAGE
 #   G-I (R179)(5) the table check over a clone named PLACE-papers (see the cases below)
 #   J-M (b623) the existing-tag mode: a tag the clone carries pushed as it stands (see the cases below)
+#   N-R (b693) the branch mode: one branch pushed alone, merged or named a scratch branch (see the cases below)
 set -uo pipefail
 
 SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/push_gated.sh"
@@ -164,6 +165,52 @@ mk M; c="$W/M"
 bash "$SCRIPT" "$c/work" --existing-tag vN >"$c/out.txt" 2>&1; rc=$?
 check "M exit" 10 "$rc"
 check "M NO tag at the remote" no "$(has_remote_tag "$c" vN)"
+
+# ### b693, THE BRANCH MODE ((R303)(2), b691's defect (d)): one branch pushed alone under its own name, read back, no main push.
+#   N  a branch merged into main, with the capture -> exit 0; the remote's branch = its tip; the remote main unmoved; the
+#      capture carries the read-back line
+#   O  a branch not merged, no --scratch           -> exit 12; nothing at the remote under its name
+#   P  the same branch named a scratch branch      -> exit 0; the remote's branch = its tip; the remote main unmoved
+#   Q  a branch the clone does not carry           -> exit 11
+#   R  the branch push refused (pre-receive exit 1) -> exit 3; nothing at the remote under its name
+has_remote_branch() { [ -n "$(git -C "$1/work" ls-remote origin "refs/heads/$2")" ] && echo yes || echo no; }
+echo "### CASE N -- the branch mode, a merged branch, with the capture"
+mk N; c="$W/N"
+G -C "$c/work" commit -q --allow-empty -m ahead
+G -C "$c/work" branch m main
+before=$(git -C "$c/work" ls-remote origin refs/heads/main | cut -f1)
+PUSH_GATED_LOG="$c/capture.txt" bash "$SCRIPT" "$c/work" --branch m >"$c/out.txt" 2>&1; rc=$?
+check "N exit" 0 "$rc"
+check "N the remote's branch = its tip" "$(git -C "$c/work" rev-parse m)" "$(git -C "$c/work" ls-remote origin refs/heads/m | cut -f1)"
+check "N remote main unmoved" "$before" "$(git -C "$c/work" ls-remote origin refs/heads/main | cut -f1)"
+check "N the capture carries the read-back" yes "$(grep -q 'branch m read back at the remote' "$c/capture.txt" && echo yes || echo no)"
+
+echo "### CASE O -- the branch mode, a branch not merged, no --scratch"
+mk O; c="$W/O"
+bash "$SCRIPT" "$c/work" --branch push-t >"$c/out.txt" 2>&1; rc=$?
+check "O exit" 12 "$rc"
+check "O NOTHING at the remote under its name" no "$(has_remote_branch "$c" push-t)"
+
+echo "### CASE P -- the branch mode, the same branch named a scratch branch"
+mk P; c="$W/P"
+before=$(git -C "$c/work" ls-remote origin refs/heads/main | cut -f1)
+bash "$SCRIPT" "$c/work" --branch push-t --scratch >"$c/out.txt" 2>&1; rc=$?
+check "P exit" 0 "$rc"
+check "P the remote's branch = its tip" "$(git -C "$c/work" rev-parse push-t)" "$(git -C "$c/work" ls-remote origin refs/heads/push-t | cut -f1)"
+check "P remote main unmoved" "$before" "$(git -C "$c/work" ls-remote origin refs/heads/main | cut -f1)"
+
+echo "### CASE Q -- the branch mode, a branch the clone does not carry"
+mk Q; c="$W/Q"
+bash "$SCRIPT" "$c/work" --branch absent >"$c/out.txt" 2>&1; rc=$?
+check "Q exit" 11 "$rc"
+
+echo "### CASE R -- the branch mode, the push refused (the remote's pre-receive hook exits 1)"
+mk R; c="$W/R"
+G -C "$c/work" branch m main
+printf '#!/bin/sh\nexit 1\n' >"$c/origin.git/hooks/pre-receive"; chmod +x "$c/origin.git/hooks/pre-receive"
+bash "$SCRIPT" "$c/work" --branch m >"$c/out.txt" 2>&1; rc=$?
+check "R exit" 3 "$rc"
+check "R NOTHING at the remote under its name" no "$(has_remote_branch "$c" m)"
 
 echo "### ### **$pass of $total checks as wanted -- $([ "$pass" -eq "$total" ] && echo PASS || echo FAIL)**"
 [ "$pass" -eq "$total" ]

@@ -1,0 +1,155 @@
+b693 -- (R303)(2): tools/push_gated.sh's BRANCH MODE, ITS DIFF, ITS TEST AND ITS ONE EXERCISE (2026-10-19)
+
+### rows are the mode's readings: the diff (relay data/b693_tool_repairs.txt rows (3)-(4)) ; the test ; the exercise on push-b693-root at the
+### pre-root push, on the author's word (data/b693_author_answers.txt prompt 4), its capture read back by ls-remote. The remote copy
+### origin/push-b693-root is left standing for b694's step-zero list.
+
+  THE TEST   bash tools/test_push_gated.sh at Component 1, after the edit and before any commit of it: cases A-M as before and N-R new, "52 of 52 checks as wanted --
+             PASS" -- N a merged branch pushed alone with the capture carrying the read-back, the remote main unmoved; O a branch not merged
+             refused 12, nothing at the remote; P the same named scratch pushed; Q an absent branch refused 11; R a refused push 3
+  THE EXERCISE  ### TO BE RUN AT THE PRE-ROOT PUSH: push-b693-root by the branch mode, then main from it by the main mode
+
+### THE DIFFS, AS `git diff` PRINTED THEM:
+diff --git a/tools/push_gated.sh b/tools/push_gated.sh
+index d7c39c5b..e7410053 100644
+--- a/tools/push_gated.sh
++++ b/tools/push_gated.sh
+@@ -3,6 +3,7 @@
+ #
+ # usage: push_gated.sh <repo> <push-branch> [tag[::message] ...]
+ #        push_gated.sh <repo> --existing-tag <tag>        (b623: one tag the clone carries, pushed as it stands)
++#        push_gated.sh <repo> --branch <branch> [--scratch]   (b693: one branch pushed alone to its remote, read back)
+ #
+ # b560's defect (e): a chained command piped `git push origin main` through `tail`; the pre-push hook refused the push,
+ # the pipe returned tail's status, and the chain went on to push the tag, so the remote carried a tag peeled to a commit
+@@ -15,7 +16,9 @@
+ # Exit codes: 0 all pushed and read back; 2 usage; 3 main push refused; 4 main read-back unequal; 5 a tag push refused;
+ # 6 a tag read-back unequal; 7 a tag argument refused before any push (the tag already exists, locally or at the
+ # remote); 8 the tag could not be made; 9 (R179)(5) the table check refused a PLACE-papers push; 10 (the existing-tag
+-# mode) the tag is not in the clone. The script prints one line per step; it deletes nothing.
++# mode) the tag is not in the clone; 11 (the branch mode) the branch is not in the clone; 12 (the branch mode) the branch is
++# not merged into main and the call does not name it a scratch branch. In the branch mode 3 is the branch push refused and
++# 4 the branch's read-back unequal. The script prints one line per step; it deletes nothing.
+ #
+ # ### THE TAG IS MADE HERE, (R178)(3), b567's defect (g): the seat made the annotated tag v0.10 by hand before main was
+ # ### read back. From b568 the script MAKES every tag it is given -- annotated, at the SHA it has just read back at the
+@@ -84,6 +87,53 @@ if [ "$branch" = "--existing-tag" ]; then
+   exit 0
+ fi
+
++# ### THE BRANCH MODE, b693, (R303)(2), closing b691's defect (d) (cut branches pushed by a plain `git push`): one branch pushed
++# ### ALONE to its remote under the same name, with the capture the main and existing-tag modes have -- no main push, no tag,
++# ### nothing forced.   usage: push_gated.sh <repo> --branch <branch> [--scratch]   (one branch per call)
++# ###   (1) the branch must exist locally (exit 11 otherwise); a refusal pushes nothing;
++# ###   (2) its tip must be merged into the clone's main (an ancestor of main) unless the call names it a scratch branch by
++# ###       --scratch (exit 12 otherwise, nothing pushed);
++# ###   (3) refs/heads/<branch> is pushed to refs/heads/<branch> at origin, never forced, its status never through a pipe (exit 3
++# ###       if refused);
++# ###   (4) the remote's refs/heads/<branch> is read back by ls-remote and compared with the local tip (exit 4 if unequal).
++if [ "$branch" = "--branch" ]; then
++  if [ "$#" -lt 1 ] || [ "$#" -gt 2 ] || { [ "$#" -eq 2 ] && [ "$2" != "--scratch" ]; }; then
++    echo "push_gated: usage: push_gated.sh <repo> --branch <branch> [--scratch] (one branch per call)" >&2
++    exit 2
++  fi
++  b="$1"
++  scratch=0
++  if [ "$#" -eq 2 ]; then scratch=1; fi
++  if ! git -C "$repo" rev-parse -q --verify "refs/heads/$b" >/dev/null; then
++    echo "push_gated: REFUSED -- branch $b does not exist locally; the branch mode pushes only a branch the clone carries. NOTHING IS PUSHED" >&2
++    exit 11
++  fi
++  btip=$(git -C "$repo" rev-parse "refs/heads/$b")
++  merged=0
++  if git -C "$repo" merge-base --is-ancestor "$btip" main; then merged=1; fi
++  if [ "$merged" -ne 1 ] && [ "$scratch" -ne 1 ]; then
++    echo "push_gated: REFUSED -- branch $b (tip $btip) is not merged into main and the call does not name it a scratch branch (--scratch). NOTHING IS PUSHED" >&2
++    exit 12
++  fi
++  echo "push_gated: repo $repo ; branch mode ; branch $b ; tip $btip ; merged into main $merged ; scratch $scratch ; no main push"
++  set +e
++  git -C "$repo" push origin "refs/heads/$b:refs/heads/$b"
++  rc=$?
++  set -e
++  if [ "$rc" -ne 0 ]; then
++    echo "push_gated: BRANCH PUSH REFUSED ($b, exit $rc)" >&2
++    exit 3
++  fi
++  remote_btip=$(git -C "$repo" ls-remote origin "refs/heads/$b" | cut -f1)
++  echo "push_gated: branch $b read back at the remote: $remote_btip"
++  if [ "$remote_btip" != "$btip" ]; then
++    echo "push_gated: BRANCH READ-BACK UNEQUAL ($remote_btip != $btip)" >&2
++    exit 4
++  fi
++  echo "push_gated: DONE -- branch $b pushed alone and read back"
++  exit 0
++fi
++
+ case "$branch" in
+   push-*|repair-*) ;;
+   *) echo "push_gated: REFUSED -- <push-branch> must be push-* or repair-* (Rule 4.10): $branch" >&2; exit 2;;
+diff --git a/tools/test_push_gated.sh b/tools/test_push_gated.sh
+index 3e8b2fb9..9ec495a3 100644
+--- a/tools/test_push_gated.sh
++++ b/tools/test_push_gated.sh
+@@ -15,6 +15,7 @@
+ #   F  NAME::MESSAGE              -> exit 0; the tag's message is MESSAGE
+ #   G-I (R179)(5) the table check over a clone named PLACE-papers (see the cases below)
+ #   J-M (b623) the existing-tag mode: a tag the clone carries pushed as it stands (see the cases below)
++#   N-R (b693) the branch mode: one branch pushed alone, merged or named a scratch branch (see the cases below)
+ set -uo pipefail
+
+ SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/push_gated.sh"
+@@ -165,5 +166,51 @@ bash "$SCRIPT" "$c/work" --existing-tag vN >"$c/out.txt" 2>&1; rc=$?
+ check "M exit" 10 "$rc"
+ check "M NO tag at the remote" no "$(has_remote_tag "$c" vN)"
+
++# ### b693, THE BRANCH MODE ((R303)(2), b691's defect (d)): one branch pushed alone under its own name, read back, no main push.
++#   N  a branch merged into main, with the capture -> exit 0; the remote's branch = its tip; the remote main unmoved; the
++#      capture carries the read-back line
++#   O  a branch not merged, no --scratch           -> exit 12; nothing at the remote under its name
++#   P  the same branch named a scratch branch      -> exit 0; the remote's branch = its tip; the remote main unmoved
++#   Q  a branch the clone does not carry           -> exit 11
++#   R  the branch push refused (pre-receive exit 1) -> exit 3; nothing at the remote under its name
++has_remote_branch() { [ -n "$(git -C "$1/work" ls-remote origin "refs/heads/$2")" ] && echo yes || echo no; }
++echo "### CASE N -- the branch mode, a merged branch, with the capture"
++mk N; c="$W/N"
++G -C "$c/work" commit -q --allow-empty -m ahead
++G -C "$c/work" branch m main
++before=$(git -C "$c/work" ls-remote origin refs/heads/main | cut -f1)
++PUSH_GATED_LOG="$c/capture.txt" bash "$SCRIPT" "$c/work" --branch m >"$c/out.txt" 2>&1; rc=$?
++check "N exit" 0 "$rc"
++check "N the remote's branch = its tip" "$(git -C "$c/work" rev-parse m)" "$(git -C "$c/work" ls-remote origin refs/heads/m | cut -f1)"
++check "N remote main unmoved" "$before" "$(git -C "$c/work" ls-remote origin refs/heads/main | cut -f1)"
++check "N the capture carries the read-back" yes "$(grep -q 'branch m read back at the remote' "$c/capture.txt" && echo yes || echo no)"
++
++echo "### CASE O -- the branch mode, a branch not merged, no --scratch"
++mk O; c="$W/O"
++bash "$SCRIPT" "$c/work" --branch push-t >"$c/out.txt" 2>&1; rc=$?
++check "O exit" 12 "$rc"
++check "O NOTHING at the remote under its name" no "$(has_remote_branch "$c" push-t)"
++
++echo "### CASE P -- the branch mode, the same branch named a scratch branch"
++mk P; c="$W/P"
++before=$(git -C "$c/work" ls-remote origin refs/heads/main | cut -f1)
++bash "$SCRIPT" "$c/work" --branch push-t --scratch >"$c/out.txt" 2>&1; rc=$?
++check "P exit" 0 "$rc"
++check "P the remote's branch = its tip" "$(git -C "$c/work" rev-parse push-t)" "$(git -C "$c/work" ls-remote origin refs/heads/push-t | cut -f1)"
++check "P remote main unmoved" "$before" "$(git -C "$c/work" ls-remote origin refs/heads/main | cut -f1)"
++
++echo "### CASE Q -- the branch mode, a branch the clone does not carry"
++mk Q; c="$W/Q"
++bash "$SCRIPT" "$c/work" --branch absent >"$c/out.txt" 2>&1; rc=$?
++check "Q exit" 11 "$rc"
++
++echo "### CASE R -- the branch mode, the push refused (the remote's pre-receive hook exits 1)"
++mk R; c="$W/R"
++G -C "$c/work" branch m main
++printf '#!/bin/sh\nexit 1\n' >"$c/origin.git/hooks/pre-receive"; chmod +x "$c/origin.git/hooks/pre-receive"
++bash "$SCRIPT" "$c/work" --branch m >"$c/out.txt" 2>&1; rc=$?
++check "R exit" 3 "$rc"
++check "R NOTHING at the remote under its name" no "$(has_remote_branch "$c" m)"
++
+ echo "### ### **$pass of $total checks as wanted -- $([ "$pass" -eq "$total" ] && echo PASS || echo FAIL)**"
+ [ "$pass" -eq "$total" ]
+
+### ### **THE TEST 52 OF 52 ; THE EXERCISE TO BE RUN AT THE PRE-ROOT PUSH.**

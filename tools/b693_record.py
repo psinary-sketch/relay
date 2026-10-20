@@ -183,15 +183,7 @@ def read_branch_row(r):
     return r['branch'], r['fate']
 
 
-def read_defect_row(r):
-    """a lettered row of a defects bank: four spaces, a letter in parentheses, one space, its head in capitals; returns the letter."""
-    m = re.match(r'^    \(([a-z])\) (THE [A-Z]|[A-Z])', r or '')
-    if not m:
-        raise ValueError('defect row of another shape: %r' % ((r or '')[:60],))
-    return m.group(1)
-
-
-READERS = ['read_score_row', 'read_head', 'read_branch_row', 'read_defect_row']
+READERS = ['read_score_row', 'read_head', 'read_branch_row']
 
 
 # ================================================================================ STEP ZERO: ROWGEN DIFF AND CONSTELLATION MODE (b670's route, carried)
@@ -392,7 +384,32 @@ def c1(*a):
                 ('OPEN_TRAILS.md', K.B692_TRAIL, '### b692')], dry=dry)
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1)
+# ================================================================================ THE DEFECTS BANK (b692's route and its row reader, carried)
+DEFECT_ROW = re.compile(r"^    \(([a-z]'?)\) ")
+
+
+def _defect_short(act='b693'):
+    out = []
+    L = rdn('%s_defects.txt' % act).split(NL)
+    for i, l in enumerate(L):
+        if DEFECT_ROW.match(l):
+            j = i + 1
+            while j < len(L) and L[j].startswith('    ') and not DEFECT_ROW.match(L[j]) and not L[j].startswith('    ###'):
+                j += 1
+            m = re.match(r"^\(([a-z]'?)\) (.*?)\.(?= |$)", ' '.join(x.strip() for x in L[i:j]))
+            if m:
+                out.append(m.group(0)[:-1])
+    return out
+
+
+def defects(*a):
+    t = rdn('b693_defects.txt')
+    ds = [l.strip() for l in t.split(NL) if DEFECT_ROW.match(l)]
+    put_json('b693_defects.json', dict(at=utc(), defects=ds, short=_defect_short()))
+    print('  defects %d' % len(ds))
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, defects=defects)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

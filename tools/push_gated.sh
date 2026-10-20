@@ -3,6 +3,7 @@
 #
 # usage: push_gated.sh <repo> <push-branch> [tag[::message] ...]
 #        push_gated.sh <repo> --existing-tag <tag>        (b623: one tag the clone carries, pushed as it stands)
+#        push_gated.sh <repo> --branch <branch> [--scratch]   (b693: one branch pushed alone to its remote, read back)
 #
 # b560's defect (e): a chained command piped `git push origin main` through `tail`; the pre-push hook refused the push,
 # the pipe returned tail's status, and the chain went on to push the tag, so the remote carried a tag peeled to a commit
@@ -15,7 +16,9 @@
 # Exit codes: 0 all pushed and read back; 2 usage; 3 main push refused; 4 main read-back unequal; 5 a tag push refused;
 # 6 a tag read-back unequal; 7 a tag argument refused before any push (the tag already exists, locally or at the
 # remote); 8 the tag could not be made; 9 (R179)(5) the table check refused a PLACE-papers push; 10 (the existing-tag
-# mode) the tag is not in the clone. The script prints one line per step; it deletes nothing.
+# mode) the tag is not in the clone; 11 (the branch mode) the branch is not in the clone; 12 (the branch mode) the branch is
+# not merged into main and the call does not name it a scratch branch. In the branch mode 3 is the branch push refused and
+# 4 the branch's read-back unequal. The script prints one line per step; it deletes nothing.
 #
 # ### THE TAG IS MADE HERE, (R178)(3), b567's defect (g): the seat made the annotated tag v0.10 by hand before main was
 # ### read back. From b568 the script MAKES every tag it is given -- annotated, at the SHA it has just read back at the
@@ -81,6 +84,53 @@ if [ "$branch" = "--existing-tag" ]; then
     exit 6
   fi
   echo "push_gated: DONE -- existing tag $tag pushed as it stands and read back"
+  exit 0
+fi
+
+# ### THE BRANCH MODE, b693, (R303)(2), closing b691's defect (d) (cut branches pushed by a plain `git push`): one branch pushed
+# ### ALONE to its remote under the same name, with the capture the main and existing-tag modes have -- no main push, no tag,
+# ### nothing forced.   usage: push_gated.sh <repo> --branch <branch> [--scratch]   (one branch per call)
+# ###   (1) the branch must exist locally (exit 11 otherwise); a refusal pushes nothing;
+# ###   (2) its tip must be merged into the clone's main (an ancestor of main) unless the call names it a scratch branch by
+# ###       --scratch (exit 12 otherwise, nothing pushed);
+# ###   (3) refs/heads/<branch> is pushed to refs/heads/<branch> at origin, never forced, its status never through a pipe (exit 3
+# ###       if refused);
+# ###   (4) the remote's refs/heads/<branch> is read back by ls-remote and compared with the local tip (exit 4 if unequal).
+if [ "$branch" = "--branch" ]; then
+  if [ "$#" -lt 1 ] || [ "$#" -gt 2 ] || { [ "$#" -eq 2 ] && [ "$2" != "--scratch" ]; }; then
+    echo "push_gated: usage: push_gated.sh <repo> --branch <branch> [--scratch] (one branch per call)" >&2
+    exit 2
+  fi
+  b="$1"
+  scratch=0
+  if [ "$#" -eq 2 ]; then scratch=1; fi
+  if ! git -C "$repo" rev-parse -q --verify "refs/heads/$b" >/dev/null; then
+    echo "push_gated: REFUSED -- branch $b does not exist locally; the branch mode pushes only a branch the clone carries. NOTHING IS PUSHED" >&2
+    exit 11
+  fi
+  btip=$(git -C "$repo" rev-parse "refs/heads/$b")
+  merged=0
+  if git -C "$repo" merge-base --is-ancestor "$btip" main; then merged=1; fi
+  if [ "$merged" -ne 1 ] && [ "$scratch" -ne 1 ]; then
+    echo "push_gated: REFUSED -- branch $b (tip $btip) is not merged into main and the call does not name it a scratch branch (--scratch). NOTHING IS PUSHED" >&2
+    exit 12
+  fi
+  echo "push_gated: repo $repo ; branch mode ; branch $b ; tip $btip ; merged into main $merged ; scratch $scratch ; no main push"
+  set +e
+  git -C "$repo" push origin "refs/heads/$b:refs/heads/$b"
+  rc=$?
+  set -e
+  if [ "$rc" -ne 0 ]; then
+    echo "push_gated: BRANCH PUSH REFUSED ($b, exit $rc)" >&2
+    exit 3
+  fi
+  remote_btip=$(git -C "$repo" ls-remote origin "refs/heads/$b" | cut -f1)
+  echo "push_gated: branch $b read back at the remote: $remote_btip"
+  if [ "$remote_btip" != "$btip" ]; then
+    echo "push_gated: BRANCH READ-BACK UNEQUAL ($remote_btip != $btip)" >&2
+    exit 4
+  fi
+  echo "push_gated: DONE -- branch $b pushed alone and read back"
   exit 0
 fi
 
