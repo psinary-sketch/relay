@@ -1,0 +1,82 @@
+b694 -- THE DEPENDENCY-CIRCUIT READING OF SIDE-lv-conservation AT v0.13.0 (tip d38f3e8), (R302)(3)(b), BY tools/circuit_read.py (2026-10-20T17:33:13Z) [the reader imported unchanged by tools/b694_record.py, its banks named for b694]
+
+### the bank: relay data/b694_circuit_SIDE-lv-conservation_v0.13.0_d38f3e8.jsonl.gz ; record lines 608, the header`s count 608 ; distinct names 608 ; programme modules 25 ; records outside the kernel`s own libraries 0
+### names recorded twice (one constant listed under two modules, its closure, axioms and type class equal): NONE
+### the bars: relay data/b692_circuit_bars.txt (FEW = 5 ; the main theorem SIDELvConservation.RegisterPentagon.residue_irreducible)
+
+## SERIES -- the main theorem`s closure over the own names in dependency order (each after every name in its own closure); rows: the
+## position | the name | module:line | its chain length.
+   names 28 ; the longest chain 7
+       1  SIDELvConservation.PartialPositivity.NontrivialZero                    SIDELvConservation.PartialPositivity:41  chain 1
+       2  SIDELvConservation.PartialPositivity.N₀                                SIDELvConservation.PartialPositivity:79  chain 1
+       3  SIDELvConservation.RegisterPentagon.Register4_channelInequality        SIDELvConservation.RegisterPentagon:156  chain 1
+       4  SIDELvConservation.RegisterPentagon.Register4_channelInequality_upTo   SIDELvConservation.ZeroActingPartial:29  chain 1
+       5  SIDELvConservation.RegisterPentagon.Register4_positivity               SIDELvConservation.RegisterPentagon:149  chain 1
+       6  SIDELvConservation.RegisterPentagon.certifiedInputSpectrum             SIDELvConservation.RegisterPentagon:293  chain 1
+       7  SIDELvConservation.RegisterPentagon.is_xi_zero                         SIDELvConservation.RegisterPentagon:116  chain 1
+       8  SIDELvConservation.PartialPositivity.VerifiedZerosTo                   SIDELvConservation.PartialPositivity:72  chain 2
+       9  SIDELvConservation.PartialPositivity.blTerm                            SIDELvConservation.PartialPositivity:44  chain 2
+      10  SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip        SIDELvConservation.RegisterPentagon:305  chain 2
+      11  SIDELvConservation.RegisterPentagon.RealizesXiZeros                    SIDELvConservation.RegisterPentagon:298  chain 2
+      12  SIDELvConservation.RegisterPentagon.Register5_output_HilbertPolya      SIDELvConservation.RegisterPentagon:169  chain 2
+      13  SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp             SIDELvConservation.PartialPositivity:83  chain 3
+      14  SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine           SIDELvConservation.PartialPositivity:48  chain 3
+      15  SIDELvConservation.RegisterPentagon.PartialChannelInequality           SIDELvConservation.ZeroActingPartial:33  chain 2
+      16  SIDELvConservation.RegisterPentagon.PartialChannelInequality.mk        SIDELvConservation.ZeroActingPartial:35  chain 2
+      17  SIDELvConservation.PartialPositivity.TailBoundPremise                  SIDELvConservation.PartialPositivity:127  chain 3
+      18  SIDELvConservation.RegisterPentagon.partialChannelInequality_of_positivity SIDELvConservation.ZeroActingPartial:52  chain 3
+      19  SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing   SIDELvConservation.RegisterPentagon:314  chain 3
+      20  SIDELvConservation.RegisterPentagon.ZeroActingPairing                  SIDELvConservation.ZeroActingPairing:33  chain 3
+      21  SIDELvConservation.RegisterPentagon.ZeroActingPairing.mk               SIDELvConservation.ZeroActingPairing:37  chain 3
+      22  SIDELvConservation.PartialPositivity.partialPositivity_finiteRange     SIDELvConservation.PartialPositivity:134  chain 4
+      23  SIDELvConservation.RegisterPentagon.ZeroActingPairing.yieldsInequality SIDELvConservation.ZeroActingPairing:45  chain 4
+      24  SIDELvConservation.RegisterPentagon.ZeroActingPairing.zeroActing       SIDELvConservation.ZeroActingPairing:41  chain 4
+      25  SIDELvConservation.RegisterPentagon.zeroActingPairing_to_channelInequality SIDELvConservation.ZeroActingPairing:54  chain 5
+      26  SIDELvConservation.RegisterPentagon.zeroActingPairing_to_RH            SIDELvConservation.ZeroActingPairing:61  chain 6
+      27  SIDELvConservation.RegisterPentagon.certifiedPartialInhabitant         SIDELvConservation.ZeroActingPartial:61  chain 5
+      28  SIDELvConservation.RegisterPentagon.residue_irreducible                SIDELvConservation.ZeroActingPartial:107  chain 7
+
+## SERIES -- THE LONGEST CHAIN (7 names), from the deepest to the main theorem:
+   SIDELvConservation.RegisterPentagon.is_xi_zero  (SIDELvConservation.RegisterPentagon:116)
+   SIDELvConservation.RegisterPentagon.Register5_output_HilbertPolya  (SIDELvConservation.RegisterPentagon:169)
+   SIDELvConservation.RegisterPentagon.ZeroActingPairing.mk  (SIDELvConservation.ZeroActingPairing:37)
+   SIDELvConservation.RegisterPentagon.ZeroActingPairing.zeroActing  (SIDELvConservation.ZeroActingPairing:41)
+   SIDELvConservation.RegisterPentagon.zeroActingPairing_to_channelInequality  (SIDELvConservation.ZeroActingPairing:54)
+   SIDELvConservation.RegisterPentagon.zeroActingPairing_to_RH  (SIDELvConservation.ZeroActingPairing:61)
+   SIDELvConservation.RegisterPentagon.residue_irreducible  (SIDELvConservation.ZeroActingPartial:107)
+
+## TERMINALS -- the main theorem`s binders that name a premise, and the axioms in its closure beyond the standard three; rows are terminals.
+   PREMISE  hZero : names SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip
+   PREMISE  hV : names SIDELvConservation.PartialPositivity.VerifiedZerosTo
+   PREMISE  hEF : names SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp
+   PREMISE  hTail : names SIDELvConservation.PartialPositivity.TailBoundPremise
+   PREMISE  inequalityToPositivity : names SIDELvConservation.RegisterPentagon.Register4_channelInequality, SIDELvConservation.RegisterPentagon.Register4_positivity
+   PREMISE  liCriterion : names SIDELvConservation.RegisterPentagon.Register4_positivity
+   AXIOM    NONE beyond the standard three (the axioms ['propext', 'Quot.sound', 'Classical.choice'])
+
+## SHORTS -- every record whose axioms carry sorryAx, with the first record on its path that uses sorryAx directly; rows are shorts.
+   SHORTS 0
+
+## WIDTH -- theorem pairs of one type class whose closures over the own names meet in at most FEW = 5 names; rows are pairs: meet |
+## the one | the other. Every same-type theorem pair 2 ; at or under the bar 1.
+     4 | SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing (SIDELvConservation.RegisterPentagon:314) | SIDELvConservation.RegisterPentagon.distinctFromInput_discharged (SIDELvConservation.ZeroActingPairing:73)
+
+## WIDTH -- every same-type theorem pair with its meet (the bar`s context):
+     4 | SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing | SIDELvConservation.RegisterPentagon.distinctFromInput_discharged
+    13 | SIDELvConservation.PartialPositivity.lowFinset_mem_iff | SIDELvConservation.PartialPositivity.mem_lowFinset
+
+## LOAD -- each own name by the count of records whose closure carries it, the twelve highest; * marks the main theorem`s closure.
+      34   SIDELvConservation.T3.Coupling
+      33 * SIDELvConservation.RegisterPentagon.is_xi_zero
+      33   SIDELvConservation.RegisterPentagon.RealizesWhat.location
+      33   SIDELvConservation.RegisterPentagon.RealizesWhat.distanceMarker
+      33   SIDELvConservation.RegisterPentagon.RealizesWhat.zeroSpectrum
+      33   SIDELvConservation.RegisterPentagon.RealizesWhat.wrongSpectrum
+      33   SIDELvConservation.RegisterPentagon.RealizesWhat
+      33   SIDELvConservation.RegisterPentagon.RealizesWhat.inputSurround
+      31   SIDELvConservation.RegisterPentagon.PairingClause.eulerConsuming
+      31   SIDELvConservation.RegisterPentagon.PairingClause.zeroActing
+      31   SIDELvConservation.RegisterPentagon.PairingClause.distinctFromInput
+      31   SIDELvConservation.RegisterPentagon.PairingClause
+
+### ### **RECORDS 608 ; SERIES 28 NAMES, THE LONGEST CHAIN 7 ; TERMINALS: PREMISES 6, AXIOMS BEYOND THE STANDARD THREE 0 ; SHORTS 0 ; WIDTH: SAME-TYPE THEOREM PAIRS 2, AT OR UNDER FEW = 5: 1 ; LOAD`S THREE HIGHEST SIDELvConservation.T3.Coupling (34), SIDELvConservation.RegisterPentagon.is_xi_zero (33), SIDELvConservation.RegisterPentagon.RealizesWhat.location (33).**

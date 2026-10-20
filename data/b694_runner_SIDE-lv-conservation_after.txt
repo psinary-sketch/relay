@@ -1,0 +1,30 @@
+b694 -- THE HOSTED RUNNER FOR SIDE-lv-conservation, AFTER, READ BY ITS RUN ID (2026-10-20T17:32:43Z)
+
+### the dispatch: the one dispatch of the closure step's tree (e76aaa20), at main with the ref input, target SIDELvConservation ; the ref input d38f3e8c99c3431c604bcba13210042df7748859
+### the run: id 39465780735 ; https://github.com/psinary-sketch/SIDE-lv-conservation/actions/runs/39465780735 ; status completed ; conclusion success ; head d38f3e8c99c3431c604bcba13210042df7748859 on main ; 2026-10-20T17:24:20Z to 2026-10-20T17:32:23Z
+### the artifact: id 12285007820 ; build-module-39465780735 ; 32691 bytes ; sha256 90fdd3f4b46fadbb48045df111bad026d71d242ac2b85de0f11944e4a90852cc ; the platform`s digest 90fdd3f4b46fadbb48045df111bad026d71d242ac2b85de0f11944e4a90852cc ; AGREE
+### the ref built (out/ref.txt): d38f3e8c99c3431c604bcba13210042df7748859 leanprover/lean4:v4.29.1
+### the memory log: LOW 12703 MB ; the hold 2560 ; STOP lines False
+### the build: exit 0 ; error lines 0:
+### the log`s last lines:
+    info: SIDELvConservation/AxiomCheck_v0_10_0.lean:35:0: 'SIDELvConservation.T3.T3prime_shared_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+    info: SIDELvConservation/AxiomCheck_v0_10_0.lean:36:0: 'SIDELvConservation.T3.T3doubleprime_general_commutation_fails' depends on axioms: [propext,
+     Classical.choice,
+     Quot.sound]
+    info: SIDELvConservation/AxiomCheck_v0_10_0.lean:37:0: 'SIDELvConservation.C7_finite_type_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+    Build completed successfully (8273 jobs).
+### the closure step: its log`s last lines:
+    closure records 608 ; programme modules 25
+### the closure bank: out/closure.jsonl.gz 24602 bytes, sha256 bb729091b11bbea2adb76711f49a0d8286d9fea457d369855f170ea042e14ced ; records 608 ; the header`s count 608 ; programme modules 25
+### the print step: the list (.github/workflows/build-module.yml`s #print axioms lines at the ref) 8 names ; terminals printed 8 ; every name printed once True ; axiom-free 0 ; sorryAx 0 ; outside the standard three 0
+### rows are terminals: name | the axioms printed | within the standard three:
+  SIDELvConservation.T3.ZeroLoc                                  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDELvConservation.T3.PerClassExcludes                         ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDELvConservation.T3.CombinationsExclude                      ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDELvConservation.T3.T3a_zeroLoc_is_function_of_Phi           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDELvConservation.T3.T3b_joint_witness_gives_combinations_exclude ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDELvConservation.T3.T3_perClass_to_combinations              ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDELvConservation.T3.T3prime_shared_witness                   ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDELvConservation.T3.T3doubleprime_general_commutation_fails  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+
+### ### **RUN 39465780735 (after) ; CONCLUSION success ; ARTIFACT AGREE ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS PRINTED 8 OF 8 ; SORRYAX 0 ; OUTSIDE THE STANDARD THREE 0 ; CLOSURE RECORDS 608 ; GATE DERIVES.**

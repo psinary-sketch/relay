@@ -1,0 +1,18 @@
+digraph circuit {
+  rankdir=TB; node [shape=box, fontsize=10];
+  // the series: the longest chain
+  "SIDELvConservation.RegisterPentagon.is_xi_zero" -> "SIDELvConservation.RegisterPentagon.Register5_output_HilbertPolya";
+  "SIDELvConservation.RegisterPentagon.Register5_output_HilbertPolya" -> "SIDELvConservation.RegisterPentagon.ZeroActingPairing.mk";
+  "SIDELvConservation.RegisterPentagon.ZeroActingPairing.mk" -> "SIDELvConservation.RegisterPentagon.ZeroActingPairing.zeroActing";
+  "SIDELvConservation.RegisterPentagon.ZeroActingPairing.zeroActing" -> "SIDELvConservation.RegisterPentagon.zeroActingPairing_to_channelInequality";
+  "SIDELvConservation.RegisterPentagon.zeroActingPairing_to_channelInequality" -> "SIDELvConservation.RegisterPentagon.zeroActingPairing_to_RH";
+  "SIDELvConservation.RegisterPentagon.zeroActingPairing_to_RH" -> "SIDELvConservation.RegisterPentagon.residue_irreducible";
+  subgraph cluster_w0 { label="parallel, meet 4"; rank=same; "SIDELvConservation.RegisterPentagon.certifiedInput_not_zeroRealizing"; "SIDELvConservation.RegisterPentagon.distinctFromInput_discharged"; }
+  "open:SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip" [shape=plaintext, label="NontrivialZeroExistsInStrip (open)"]; "open:SIDELvConservation.RegisterPentagon.NontrivialZeroExistsInStrip" -> "SIDELvConservation.RegisterPentagon.residue_irreducible";
+  "open:SIDELvConservation.PartialPositivity.VerifiedZerosTo" [shape=plaintext, label="VerifiedZerosTo (open)"]; "open:SIDELvConservation.PartialPositivity.VerifiedZerosTo" -> "SIDELvConservation.RegisterPentagon.residue_irreducible";
+  "open:SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp" [shape=plaintext, label="ExplicitFormulaDecomp (open)"]; "open:SIDELvConservation.PartialPositivity.ExplicitFormulaDecomp" -> "SIDELvConservation.RegisterPentagon.residue_irreducible";
+  "open:SIDELvConservation.PartialPositivity.TailBoundPremise" [shape=plaintext, label="TailBoundPremise (open)"]; "open:SIDELvConservation.PartialPositivity.TailBoundPremise" -> "SIDELvConservation.RegisterPentagon.residue_irreducible";
+  "open:SIDELvConservation.RegisterPentagon.Register4_channelInequality" [shape=plaintext, label="Register4_channelInequality (open)"]; "open:SIDELvConservation.RegisterPentagon.Register4_channelInequality" -> "SIDELvConservation.RegisterPentagon.residue_irreducible";
+  "open:SIDELvConservation.RegisterPentagon.Register4_positivity" [shape=plaintext, label="Register4_positivity (open)"]; "open:SIDELvConservation.RegisterPentagon.Register4_positivity" -> "SIDELvConservation.RegisterPentagon.residue_irreducible";
+  "open:SIDELvConservation.RegisterPentagon.Register4_positivity" [shape=plaintext, label="Register4_positivity (open)"]; "open:SIDELvConservation.RegisterPentagon.Register4_positivity" -> "SIDELvConservation.RegisterPentagon.residue_irreducible";
+}
