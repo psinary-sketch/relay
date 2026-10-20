@@ -1,7 +1,7 @@
-b692 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-19T23:57:11Z)
+b692 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-20T00:36:18Z)
 
 ### the source: the seat`s session 2c300355-703e-4575-81bc-2631a70202cf from its first user line carrying 'RULING (R302) BEGIN', and its subagents` transcripts
-### commands read: 127
+### commands read: 153
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -33,9 +33,10 @@ b692 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings -- this act`s defect (a) among them (1):
   #3 2026-10-19T21:40:51.276Z cd /d/SIDE-explicit-formula && git rev-parse main main^{tree} c5aa058^{tree} v0.34^{commit} && git diff --stat v0.34 main && git ls-tree --name-only main .github/workflows/ && cd /d/SIDE-lv-conservati
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (2):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (3):
   #86 2026-10-19T23:27:21.889Z command -v dot; python -X utf8 -c "import PIL; print(PIL.__version__)"; echo EXIT $?
   #113 2026-10-19T23:43:10.410Z python -X utf8 -c "a=open('data/b690_circuit_spec.txt',encoding='utf-8').read().split(chr(10))[9:48]; b=open('data/b692_circuit_spec.txt',encoding='utf-8').read().split(chr(10)); i=b.index(a[0]); print('nine rows equal',
+  #148 2026-10-20T00:35:15.603Z cd /d/relay/tools && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B -c "import sys; sys.argv=['b692_record.py','x']; import b692_record as R; v=R._n5(); print(v[0]); print(v[1][880:])"; echo EXIT $?
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (13):
   #14 2026-10-19T21:46:58.960Z Bash
@@ -198,5 +199,31 @@ b692 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #125 | 2026-10-19T23:47:00.130Z | seat | Bash | cd /d/relay && git add tools/b692_record.py data/b692_instruments_diff.txt data/b692_triage_counts.txt data/b692_orders_lines.json data/b692_author_answers.txt 
   #126 | 2026-10-19T23:52:15.632Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -c -E "\bclassK\b" main -- SIDEExplicitFormula Zeta23 && git grep -n -E "def classK|structure classK|classK :=|classK \(
   #127 | 2026-10-19T23:56:58.207Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py commands; echo EXIT $?
+  #128 | 2026-10-19T23:57:21.005Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py defects && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py kernels; echo EXIT 
+  #129 | 2026-10-20T00:07:14.037Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py repairs; echo EXIT $?
+  #130 | 2026-10-20T00:09:17.602Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part standing-a; echo EXIT $?
+  #131 | 2026-10-20T00:14:11.698Z | seat | Bash | for f in b690_corrigendum.py b690_readings.py b689_corrigendum.py b689_constants.py b687_readings.py b685_count.py b683_epstein_map_angle.py correspondence_gen.
+  #132 | 2026-10-20T00:14:18.904Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part standing-a; echo EXIT $?
+  #133 | 2026-10-20T00:18:05.802Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part standing-c; echo EXIT $?
+  #134 | 2026-10-20T00:20:56.408Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part standing-b1; echo EXIT $?
+  #135 | 2026-10-20T00:22:12.686Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part standing-b2; echo EXIT $?
+  #136 | 2026-10-20T00:30:11.670Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part act; echo EXIT $?
+  #137 | 2026-10-20T00:30:55.527Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --combine b692_arms_prerun.txt; echo EXIT $?
+  #138 | 2026-10-20T00:32:23.487Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_record.py armsecs; echo EXIT $?
+  #139 | 2026-10-20T00:32:31.422Z | seat | Bash | git status --porcelain --untracked-files=all; echo EXIT $?
+  #140 | 2026-10-20T00:32:36.032Z | seat | Bash | git ls-files data/b691_lsr_prerun_act.json data/b691_arm_seconds_act.json data/b691_arms_prerun_act.txt data/terminal_table.json data/b691_kernels_face.json dat
+  #141 | 2026-10-20T00:32:41.963Z | seat | Bash | git log --format=%h%x20%s -n 40 --grep=b691; echo EXIT $?
+  #142 | 2026-10-20T00:32:45.550Z | seat | Bash | git show --stat --format=%h 37fbff08; echo EXIT $?
+  #143 | 2026-10-20T00:32:53.482Z | seat | Bash | git add data/b692_arm_seconds.json data/b692_arm_seconds.txt data/b692_arm_seconds_act.json data/b692_arm_seconds_standing-a.json data/b692_arm_seconds_standing
+  #144 | 2026-10-20T00:33:00.041Z | seat | Bash | git commit -q -m "b692 Component 5, under (R302): the tools carried from b691's sealed copies (checks, closing, gate, spec, the record's late routes) with the c
+  #145 | 2026-10-20T00:33:53.633Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_reg_gate.py; echo EXIT $?
+  #146 | 2026-10-20T00:34:25.602Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_record.py gatebanks; echo EXIT $?
+  #147 | 2026-10-20T00:34:33.861Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_record.py scores dry; echo EXIT $?
+  #148 | 2026-10-20T00:35:15.603Z | seat | Bash | cd /d/relay/tools && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B -c "import sys; sys.argv=['b692_record.py','x']; import b692_record as R; v=R._n5(); p
+  #149 | 2026-10-20T00:35:41.381Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b378_lockgate.py b692 data/b692_registration_2026-10-19.txt; echo EXIT $?
+  #150 | 2026-10-20T00:35:46.448Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/reg_seal.py --lock data/b692_registration_2026-10-19.txt; echo EXIT $?
+  #151 | 2026-10-20T00:35:51.837Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --seal; echo EXIT $?
+  #152 | 2026-10-20T00:35:58.462Z | seat | Bash | git show --stat --format=%h 454520b5; echo EXIT $?
+  #153 | 2026-10-20T00:36:05.579Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_record.py commands; echo EXIT $?
 
-### ### **COMMANDS 127 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 15 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 4 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; ONE-LINE PROGRAMS 2 ; MOVE OR DELETE COMMANDS 13 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 13 OF 13 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 153 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 15 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 4 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; ONE-LINE PROGRAMS 3 ; MOVE OR DELETE COMMANDS 13 ; BRANCH DELETES OF ONE BRANCH AND NO GLOB 13 OF 13 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

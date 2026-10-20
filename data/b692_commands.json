@@ -1,5 +1,5 @@
 {
- "at": "2026-10-19T23:57:11Z",
+ "at": "2026-10-20T00:36:18Z",
  "anchor": "RULING (R302) BEGIN",
  "rows": [
   {
@@ -1017,6 +1017,214 @@
    "cmd": "cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py commands; echo EXIT $?",
    "n": 127,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-19T23:57:21.005Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b692_record.py defects && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py kernels; echo EXIT $?",
+   "n": 128,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:07:14.037Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b692_record.py repairs; echo EXIT $?",
+   "n": 129,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:09:17.602Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part standing-a; echo EXIT $?",
+   "n": 130,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:14:11.698Z",
+   "src": "seat",
+   "cmd": "for f in b690_corrigendum.py b690_readings.py b689_corrigendum.py b689_constants.py b687_readings.py b685_count.py b683_epstein_map_angle.py correspondence_gen.py test_correspondence_gen.py b681_narrow.py b680_readings.py b680_rules_index.py b680_fig_tie.py b680_fig_q0.py b680_fig_li.py b679_q0_membership.py b679_onset.py b678_corrigendum.py b677_epstein_map_angle.py b675_li_bench.py; do git cat-file -e f5318624:tools/$f || echo MISSING $f; done; echo DONE",
+   "n": 131,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:14:18.904Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part standing-a; echo EXIT $?",
+   "n": 132,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:18:05.802Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part standing-c; echo EXIT $?",
+   "n": 133,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:20:56.408Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part standing-b1; echo EXIT $?",
+   "n": 134,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:22:12.686Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part standing-b2; echo EXIT $?",
+   "n": 135,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:30:11.670Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --prerun --part act; echo EXIT $?",
+   "n": 136,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:30:55.527Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --combine b692_arms_prerun.txt; echo EXIT $?",
+   "n": 137,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:32:23.487Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_record.py armsecs; echo EXIT $?",
+   "n": 138,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:32:31.422Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all; echo EXIT $?",
+   "n": 139,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:32:36.032Z",
+   "src": "seat",
+   "cmd": "git ls-files data/b691_lsr_prerun_act.json data/b691_arm_seconds_act.json data/b691_arms_prerun_act.txt data/terminal_table.json data/b691_kernels_face.json data/b691_commands.json; echo EXIT $?",
+   "n": 140,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:32:41.963Z",
+   "src": "seat",
+   "cmd": "git log --format=%h%x20%s -n 40 --grep=b691; echo EXIT $?",
+   "n": 141,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:32:45.550Z",
+   "src": "seat",
+   "cmd": "git show --stat --format=%h 37fbff08; echo EXIT $?",
+   "n": 142,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:32:53.482Z",
+   "src": "seat",
+   "cmd": "git add data/b692_arm_seconds.json data/b692_arm_seconds.txt data/b692_arm_seconds_act.json data/b692_arm_seconds_standing-a.json data/b692_arm_seconds_standing-b1.json data/b692_arm_seconds_standing-b2.json data/b692_arm_seconds_standing-c.json data/b692_arms_prerun.txt data/b692_arms_prerun_act.txt data/b692_arms_prerun_standing-a.txt data/b692_arms_prerun_standing-b1.txt data/b692_arms_prerun_standing-b2.txt data/b692_arms_prerun_standing-c.txt data/b692_candidates_priced.txt data/b692_commands.json data/b692_commands.txt data/b692_defects.json data/b692_defects.txt data/b692_kernels_face.json data/b692_lsr_prerun_act.json data/b692_lsr_prerun_standing-a.json data/b692_lsr_prerun_standing-b1.json data/b692_lsr_prerun_standing-b2.json data/b692_lsr_prerun_standing-c.json data/b692_tool_repairs.txt tools/b692_checks.py tools/b692_closing.py tools/b692_record.py tools/b692_reg_gate.py tools/b692_regspec.py tools/b692_worklist.py; echo EXIT $?",
+   "n": 143,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:33:00.041Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b692 Component 5, under (R302): the tools carried from b691's sealed copies (checks, closing, gate, spec, the record's late routes) with the carry-time reading (eight repairs, AGREE 8 of 8); the candidates priced for W-ORD-EPSTEIN-COUNT-LEAN; the pre-run in five parts, 123 arms, 92 passing, the 31 failing each awaiting the lock, seal, scores, entry or root, none on real state (standing-a 210 s, standing-c 166 s, standing-b1 71 s, standing-b2 461 s, act 35 s); the per-arm seconds; the commands, defects (a)-(k) and kernels banks\" && git log -1 --format=%H; echo EXIT $?",
+   "n": 144,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:33:53.633Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_reg_gate.py; echo EXIT $?",
+   "n": 145,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:34:25.602Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_record.py gatebanks; echo EXIT $?",
+   "n": 146,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:34:33.861Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_record.py scores dry; echo EXIT $?",
+   "n": 147,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:35:15.603Z",
+   "src": "seat",
+   "cmd": "cd /d/relay/tools && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B -c \"import sys; sys.argv=['b692_record.py','x']; import b692_record as R; v=R._n5(); print(v[0]); print(v[1][880:])\"; echo EXIT $?",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:35:41.381Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b378_lockgate.py b692 data/b692_registration_2026-10-19.txt; echo EXIT $?",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:35:46.448Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/reg_seal.py --lock data/b692_registration_2026-10-19.txt; echo EXIT $?",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:35:51.837Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_checks.py --seal; echo EXIT $?",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:35:58.462Z",
+   "src": "seat",
+   "cmd": "git show --stat --format=%h 454520b5; echo EXIT $?",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T00:36:05.579Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/b692_record.py commands; echo EXIT $?",
+   "n": 153,
+   "bg": false
   }
  ],
  "offences": [],
@@ -1042,7 +1250,8 @@
  ],
  "py_programs": [
   86,
-  113
+  113,
+  148
  ],
  "moves_deletes": [
   14,
