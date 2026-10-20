@@ -1,0 +1,41 @@
+b693 -- THE QUOTATION SEARCH BEFORE THE MERGE, data/b690_rules.txt row (2), OVER SIDE-archimedean (2026-10-20T02:44:03Z)
+
+### the cut: git diff 7769d0e..2bd9cc8 ; the lines it removes or changes 11 ; one needle each, checked to stand in its own removed line; each searched
+### with git grep -n -F at the tip 2bd9cc8 across the kernel`s whole tracked tree. Rows are removed lines: needle | hits (file:line: the quoting
+### line):
+  The Archimedean / √ IDENTIFICATION           | 0 hit(s) ; case-blind 'archimedean / √ identification' 0 hit(s) | removed: The Archimedean / √ IDENTIFICATION of σ = 1/2.
+  An IDENTIFICATION kernel — same              | 0 hit(s) ; case-blind 'identification kernel — same' 0 hit(s) | removed: (PATHS_TO_THE_CRITICAL_LINE). An IDENTIFICATION kernel — same
+  status as Voice1 (Euler balance)             | 1 hit(s) ; case-blind 'Voice1 (Euler balance)'   1 hit(s) | removed: status as Voice1 (Euler balance), Voice6 (spectral), and the
+      2bd9cc8:README.md:19:An **identification kernel** — same status as Voice1 (Euler balance), Voice6 (spectral), and SIDE-frobenius (indicial). It verifies the Archimedean machinery *points at* sigma = 1/2. It does **not** prove RH on its own; that requires the exhaustive mechanism catalogue (Ostrowski + Conservation).
+  verifies the Archimedean machinery           | 1 hit(s) ; case-blind 'Archimedean machinery'    1 hit(s) | removed: Frobenius checkpoint: it verifies the Archimedean machinery
+      2bd9cc8:README.md:19:An **identification kernel** — same status as Voice1 (Euler balance), Voice6 (spectral), and SIDE-frobenius (indicial). It verifies the Archimedean machinery *points at* sigma = 1/2. It does **not** prove RH on its own; that requires the exhaustive mechanism catalogue (Ostrowski + Conservation).
+  POINTS at σ = 1/2. It does NOT prove RH      | 0 hit(s) ; case-blind 'prove RH on its own'      1 hit(s) | removed: POINTS at σ = 1/2. It does NOT prove RH on its own — that needs
+      2bd9cc8:README.md:19:An **identification kernel** — same status as Voice1 (Euler balance), Voice6 (spectral), and SIDE-frobenius (indicial). It verifies the Archimedean machinery *points at* sigma = 1/2. It does **not** prove RH on its own; that requires the exhaustive mechanism catalogue (Ostrowski + Conservation).
+  the exhaustive mechanism catalogue           | 1 hit(s) ; case-blind 'exhaustive mechanism catalogue' 1 hit(s) | removed: the exhaustive mechanism catalogue.
+      2bd9cc8:README.md:19:An **identification kernel** — same status as Voice1 (Euler balance), Voice6 (spectral), and SIDE-frobenius (indicial). It verifies the Archimedean machinery *points at* sigma = 1/2. It does **not** prove RH on its own; that requires the exhaustive mechanism catalogue (Ostrowski + Conservation).
+  The path: n² → θ(τ)                          | 0 hit(s) ; case-blind '√ transformation θ(−1/τ)' 0 hit(s) | removed: The path: n² → θ(τ) → the √ transformation θ(−1/τ) = √(−iτ)·θ(τ)
+  → Focus (ξ real on the                       | 0 hit(s) ; case-blind 'focus (ξ real'            0 hit(s) | removed: → the functional equation ξ(s) = ξ(1−s) → Focus (ξ real on the
+  critical line, codim 2 → 1)                  | 0 hit(s) ; case-blind 'codim 2 → 1'              1 hit(s) | removed: critical line, codim 2 → 1) at σ = 1/2.
+      2bd9cc8:SIDEArchimedean/Reflection.lean:39:zero needs one real equation, not two (codim 2 → 1). Off the line a
+  the Archimedean functional-equation          | 0 hit(s) ; case-blind 'archimedean functional-equation' 0 hit(s) | removed: /-- The headline identification: the Archimedean functional-equation
+  structure forces σ = 1/2                     | 0 hit(s) ; case-blind 'structure forces'         1 hit(s) | removed: structure forces σ = 1/2. -/
+      2bd9cc8:README.md:15:- `archimedean_forces_half` — the headline: the Archimedean FE structure forces sigma = 1/2.
+
+### THE CONTROL: each needle at the base 7769d0e, where the removed line stands (needle ; case-exact hits ; case-blind hits):
+  The Archimedean / √ IDENTIFICATION           ; 1 ; 1
+  An IDENTIFICATION kernel — same              ; 1 ; 1
+  status as Voice1 (Euler balance)             ; 2 ; 2
+  verifies the Archimedean machinery           ; 2 ; 2
+  POINTS at σ = 1/2. It does NOT prove RH      ; 1 ; 2
+  the exhaustive mechanism catalogue           ; 2 ; 2
+  The path: n² → θ(τ)                          ; 1 ; 1
+  → Focus (ξ real on the                       ; 1 ; 1
+  critical line, codim 2 → 1)                  ; 1 ; 2
+  the Archimedean functional-equation          ; 1 ; 1
+  structure forces σ = 1/2                     ; 1 ; 2
+### the control FIRES FOR EVERY NEEDLE IN BOTH SHAPES
+
+### THE QUOTING LINES, DISTINCT (file:line): README.md:15, README.md:19, SIDEArchimedean/Reflection.lean:39
+### the yields: the case-exact shape 3 hit(s) on 1 line(s) ; the case-blind shape 6 hit(s) on 3 line(s)
+
+### ### **REMOVED OR CHANGED LINES 11 ; NEEDLES SEARCHED 11 IN TWO SHAPES ; QUOTING LINES 3 -- EACH ENTERED AS A RESIDUE.**

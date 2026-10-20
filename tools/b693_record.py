@@ -602,6 +602,79 @@ def prints(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 2: THE QUOTATION SEARCH, data/b690_rules.txt row (2) (b691's route, carried)
+# ### one distinctive substring per removed or changed line of the cut, each checked to stand in its own removed line before it is searched
+QUOTE_NEEDLES = ('The Archimedean / √ IDENTIFICATION', 'An IDENTIFICATION kernel — same', 'status as Voice1 (Euler balance)',
+                 'verifies the Archimedean machinery', 'POINTS at σ = 1/2. It does NOT prove RH', 'the exhaustive mechanism catalogue',
+                 'The path: n² → θ(τ)', '→ Focus (ξ real on the', 'critical line, codim 2 → 1)', 'the Archimedean functional-equation',
+                 'structure forces σ = 1/2')
+# ### the second shape, case-blind and shorter (b690's lesson: a case-exact needle misses a quote re-set in bold or another case), one per
+# ### removed line by case-blind containment; both shapes' yields printed
+QUOTE_WIDE = ('archimedean / √ identification', 'identification kernel — same', 'Voice1 (Euler balance)', 'Archimedean machinery',
+              'prove RH on its own', 'exhaustive mechanism catalogue', '√ transformation θ(−1/τ)', 'focus (ξ real', 'codim 2 → 1',
+              'archimedean functional-equation', 'structure forces')
+QUOTE_SETS = {'quote_archimedean': (QUOTE_NEEDLES, QUOTE_WIDE)}
+
+
+def quote(*a):
+    """`quote <kernel dir> <base> <tip> <bank stem>`: every line the cut removes or changes (the `-` lines of git diff base..tip, comments
+    alone) read, one needle of the set assigned to each by containment and refused where a removed line carries none or a needle stands
+    in no removed line; each needle searched with git grep -n -F at the tip across the kernel's whole tracked tree, in two shapes; every hit
+    printed with its quoting line and entered as a residue; the control at the base. data/b693_<stem>.txt (.json)."""
+    kd, base, tip, stem = a[0], a[1], a[2], a[3]
+    needles, wide = QUOTE_SETS[stem]
+    d = g(kd, 'diff', '--unified=0', base, tip)
+    removed = [l[1:].rstrip(chr(13)) for l in d.split(NL) if l.startswith('-') and not l.startswith('---')]
+    removed = [l for l in removed if l.strip()]
+    rows, unassigned = [], []
+    for l in removed:
+        nd = [n for n in needles if n in l]
+        if not nd:
+            unassigned.append(l)
+        rows.append(dict(line=l, needle=nd[0] if nd else None))
+    unused = [n for n in needles if not any(n in r['line'] for r in rows)]
+    if unassigned or unused:
+        sys.exit('### A REMOVED LINE WITHOUT A NEEDLE %s OR A NEEDLE IN NO REMOVED LINE %s -- NOTHING WRITTEN' % (unassigned, unused))
+    for r in rows:
+        w = [n for n in wide if n.lower() in r['line'].lower()]
+        r['wide'] = w[0] if w else None
+    wu = [n for n in wide if not any(n.lower() in r['line'].lower() for r in rows)]
+    if any(r['wide'] is None for r in rows) or wu:
+        sys.exit('### THE SECOND SHAPE: A REMOVED LINE WITHOUT A NEEDLE OR A NEEDLE IN NO REMOVED LINE %s -- NOTHING WRITTEN' % wu)
+    hits = []
+    for r in rows:
+        out = g(kd, 'grep', '-n', '-F', r['needle'], tip, '--')
+        r['hits'] = [x for x in out.split(NL) if x.strip()]
+        out2 = g(kd, 'grep', '-n', '-i', '-F', r['wide'], tip, '--')
+        r['hits_wide'] = [x for x in out2.split(NL) if x.strip()]
+        hits += [(r['wide'], h) for h in r['hits_wide']]
+    L = ['b693 -- THE QUOTATION SEARCH BEFORE THE MERGE, data/b690_rules.txt row (2), OVER %s (%s)' % (os.path.basename(kd), utc()), '',
+         '### the cut: git diff %s..%s ; the lines it removes or changes %d ; one needle each, checked to stand in its own removed line; each searched' % (
+             base, tip, len(rows)),
+         '### with git grep -n -F at the tip %s across the kernel`s whole tracked tree. Rows are removed lines: needle | hits (file:line: the quoting' % tip,
+         '### line):']
+    for r in rows:
+        L.append('  %-44s | %d hit(s) ; case-blind %-26r %d hit(s) | removed: %s' % (r['needle'], len(r['hits']), r['wide'], len(r['hits_wide']),
+                                                                               r['line'].strip()[:100]))
+        L += ['      %s' % h for h in r['hits_wide']]
+    q = sorted(set(h.split(':', 2)[1] + ':' + h.split(':', 3)[2] for _n, h in hits))
+    # ### the positive control (an ABSENT carries a control): each needle, both shapes, at the base, where its removed line still stands
+    ctl = [(r['needle'], len([x for x in g(kd, 'grep', '-n', '-F', r['needle'], base, '--').split(NL) if x.strip()]),
+            len([x for x in g(kd, 'grep', '-n', '-i', '-F', r['wide'], base, '--').split(NL) if x.strip()])) for r in rows]
+    L += ['', '### THE CONTROL: each needle at the base %s, where the removed line stands (needle ; case-exact hits ; case-blind hits):' % base]
+    L += ['  %-44s ; %d ; %d' % c for c in ctl]
+    L += ['### the control %s' % ('FIRES FOR EVERY NEEDLE IN BOTH SHAPES' if all(c[1] and c[2] for c in ctl) else '### DOES NOT FIRE FOR EVERY NEEDLE')]
+    L += ['', '### THE QUOTING LINES, DISTINCT (file:line): %s' % (', '.join(q) or 'NONE'),
+          '### the yields: the case-exact shape %d hit(s) on %d line(s) ; the case-blind shape %d hit(s) on %d line(s)' % (
+              sum(len(r['hits']) for r in rows), len(set(h.split(':', 3)[1] + ':' + h.split(':', 3)[2] for r in rows for h in r['hits'])),
+              len(hits), len(q)),
+          '', '### ### **REMOVED OR CHANGED LINES %d ; NEEDLES SEARCHED %d IN TWO SHAPES ; QUOTING LINES %d -- EACH ENTERED AS A RESIDUE.**' % (
+              len(rows), len(rows), len(q))]
+    put_txt('b693_%s.txt' % stem, L)
+    put_json('b693_%s.json' % stem, dict(at=utc(), kernel=kd, base=base, tip=tip, rows=rows, hits=[list(h) for h in hits]))
+    print(NL.join(L))
+
+
 # ================================================================================ THE DEFECTS BANK (b692's route and its row reader, carried)
 DEFECT_ROW = re.compile(r"^    \(([a-z]'?)\) ")
 
@@ -627,7 +700,7 @@ def defects(*a):
     print('  defects %d' % len(ds))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, defects=defects, tie=tie, dispatch=dispatch, runner=runner, prints=prints)
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, defects=defects, tie=tie, dispatch=dispatch, runner=runner, prints=prints, quote=quote)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
