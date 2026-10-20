@@ -384,6 +384,224 @@ def c1(*a):
                 ('OPEN_TRAILS.md', K.B692_TRAIL, '### b692')], dry=dry)
 
 
+# ================================================================================ COMPONENT 2: THE NAMING, (R303)(3) (b691's tie route, carried)
+LICENSED_NOW = 'b690_r3_licensed.txt'      # ### reading 3's per-document rows, b648 -> b680 -> b690
+KROW = re.compile(r'^  (SIDE-[\w-]+) docstrings \(read at (\w+)\)\s+(\d+) ->\s+(\d+) ->\s+(\d+)\s+\[(.*?)\]')
+
+
+def tie(*a):
+    """data/b674_rules.txt row (2) printed verbatim (:8-:11) and b652's order (data/b652_ferry.txt :19) verbatim; then every kernel row of
+    reading 3's licensed table (relay data/b690_r3_licensed.txt, b648 -> b680 -> b690) by line, each kernel cut since b690 replaced by its cut
+    bank's line (b691: SIDE-rcurve, data/b691_cut.txt :33); the kernels by descending count; the tie rule applied only where two stand at the
+    top count; and only then the document named. data/b693_tie.txt (.json)."""
+    rl = rdn('b674_rules.txt').split(NL)[7:11]
+    if not rl or not rl[0].startswith('  (2) THE TIE-BREAK BEYOND THE COUNT'):
+        sys.exit('### data/b674_rules.txt :8 DOES NOT CARRY ROW (2) -- NOTHING WRITTEN')
+    order = rdn('b652_ferry.txt').split(NL)[18]
+    if 'the next kernel by descending count' not in order:
+        sys.exit('### data/b652_ferry.txt :19 DOES NOT CARRY b652`s ORDER -- NOTHING WRITTEN')
+    lt = rdn(LICENSED_NOW).split(NL)
+    cb = rdn('b691_cut.txt').split(NL)
+    rc_ = re.search(r'SIDE-rcurve RE-CUT: THE DISTANCE BEFORE (\d+), AFTER (\d+)', cb[32] if len(cb) > 32 else '')
+    if not rc_:
+        sys.exit('### data/b691_cut.txt :33 DOES NOT CARRY SIDE-rcurve`s DISTANCE -- NOTHING WRITTEN')
+    rows = []
+    for i, l in enumerate(lt, 1):
+        m = KROW.match(l)
+        if m:
+            k, now, src = m.group(1), int(m.group(5)), 'relay data/%s :%d' % (LICENSED_NOW, i)
+            if k == 'SIDE-rcurve':
+                now, src = int(rc_.group(2)), 'relay data/b691_cut.txt :33 (cut at b691, THE DISTANCE BEFORE %s, AFTER %s)' % rc_.groups()
+            rows.append(dict(kernel=k, line=i, row=l.strip(), now=now, source=src, table=m.group(6).split(' ')[0].replace('data/', '')))
+    rows.sort(key=lambda r: -r['now'])
+    top = [r for r in rows if r['now'] == rows[0]['now']] if rows and rows[0]['now'] > 0 else []
+    named = top[0] if len(top) == 1 else None
+    vl = ''
+    if named:
+        t = rdn(named['table'])
+        vl = ([x for x in t.split(NL) if x.startswith('### ### **%s: ROWS' % named['kernel'])] or [''])[0]
+    L = ['b693 -- COMPONENT 2, (R303)(3): THE LICENSED TABLE`S NEXT DOCUMENT, b652`S ORDER AND b674`S TIE-BREAK RULE PRINTED BEFORE IT IS NAMED (%s)' % utc(), '',
+         '### b652`S ORDER, VERBATIM FROM relay data/b652_ferry.txt :19:', '    ' + order, '',
+         '### b674`S TIE-BREAK RULE, VERBATIM FROM relay data/b674_rules.txt :8-:11:'] + ['  ' + l for l in rl] + [
+         '', '### THE KERNEL ROWS, VERBATIM (reading 3, relay data/%s, b648 -> b680 -> b690), A KERNEL CUT SINCE b690 BY ITS CUT BANK; rows are'
+         % LICENSED_NOW, '### kernels: the count now | the row | the source of the count now, in descending count:']
+    L += ['  %3d | %s | %s' % (r['now'], r['row'], r['source']) for r in rows]
+    L += ['', '### THE ORDER APPLIED: the top count %s ; the kernels standing at it %s ; b674`s rule %s' % (
+        rows[0]['now'] if rows else '### NONE', [r['kernel'] for r in top] or 'NONE',
+        'NOT REACHED (one document at the top count, no tie)' if len(top) == 1 else ('REACHED: %d documents tied -- raised' % len(top))),
+          '### the named document`s table (relay data/%s): %s' % (named['table'], vl) if named else '### NO DOCUMENT NAMED',
+          '', '### ### **THE NEXT DOCUMENT BY b652`S ORDER: %s AT %s, ALONE AT THE TOP COUNT ; b674`S TIE-BREAK NOT REACHED.**' % (
+              named['kernel'], named['now']) if named else '### ### **NO DOCUMENT NAMED -- RAISED.**']
+    put_txt('b693_tie.txt', L)
+    put_json('b693_tie.json', dict(at=utc(), rule=rl, order=order, rows=rows, named=named['kernel'] if named else None))
+    print(NL.join(L))
+
+
+# ================================================================================ THE DISPATCH, THE RUNS AND THE PRINTS (b692's and b691's routes, carried)
+STD3 = ('Classical.choice', 'Quot.sound', 'propext')
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def dispatch(*a):
+    """`dispatch <kernel> <ref sha> <label> <target> [dry]`: ONE dispatch of build-module.yml at main with the ref input and the lake target;
+    refused where data/b693_dispatches.json already carries the ref's tree (one dispatch per tree state). The run id read from the run list
+    (the newest workflow_dispatch run created after the dispatch); a row banked."""
+    kernel, ref, label, target = a[0], a[1], a[2], a[3]
+    repo = 'psinary-sketch/' + kernel
+    full = g('D:/' + kernel, 'rev-parse', ref).strip()
+    tree = g('D:/' + kernel, 'rev-parse', full + '^{tree}').strip()
+    j = jl('b693_dispatches.json') if os.path.isfile(os.path.join(D, 'b693_dispatches.json')) else {}
+    rows = j.get('rows') or []
+    seen = [r for r in rows if r.get('tree') == tree]
+    if seen:
+        sys.exit('### THE TREE %s IS ALREADY BUILT (run %s) -- NOT DISPATCHED' % (tree[:12], seen[0].get('run_id')))
+    if not re.match(r'^[A-Za-z0-9_. ]+$', target):
+        sys.exit('### THE TARGET %r IS OUTSIDE THE LAKE GRAMMAR -- NOT DISPATCHED' % target)
+    print('  kernel %s ; ref %s ; tree %s ; target %s' % (kernel, full, tree, target))
+    if 'dry' in a[4:]:
+        return
+    t0 = utc()
+    rc, out, err = _gh('workflow', 'run', 'build-module.yml', '-R', repo, '--ref', 'main', '-f', 'ref=' + full, '-f', 'target=' + target)
+    if rc != 0:
+        sys.exit('### THE DISPATCH REFUSED: %s' % err[-400:])
+    run_id = None
+    for _i in range(12):
+        time.sleep(5)
+        rc, out, err = _gh('run', 'list', '-R', repo, '--workflow', 'build-module.yml', '--event', 'workflow_dispatch', '--limit', '5', '--json',
+                           'databaseId,createdAt,status')
+        new = [r for r in json.loads(out or b'[]') if r.get('createdAt', '') >= t0]
+        if new:
+            run_id = sorted(new, key=lambda r: r['createdAt'])[-1]['databaseId']
+            break
+    rows.append(dict(kernel=kernel, label=label, ref=full, tree=tree, target=target, dispatched=t0, run_id=run_id))
+    put_json('b693_dispatches.json', dict(rows=rows))
+    print('  dispatched %s ; run id %s' % (t0, run_id))
+
+
+def _deps(ax):
+    """the axioms output read per terminal: [(name, [axioms] or None for 'does not depend on any axioms')], wrapped lists rejoined."""
+    out = []
+    for n, d in re.findall(r"^'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)",
+                           re.sub(r'\n(?=[ \t]*[A-Za-z_.]+[,\]])', ' ', ax), re.M):
+        out.append((n, [x.strip() for x in d.split('[', 1)[1].rstrip(']').split(',') if x.strip()] if d.startswith('depends') else []))
+    return out
+
+
+def read_runner_row(r):
+    """a row of data/b693_runner_rows.json: the kernel, its label, the ref (40 hex), the run id and the gate; returns (kernel, label, gate)."""
+    if not isinstance(r, dict) or not re.match(r'^SIDE-[\w-]+$', r.get('kernel') or '') or not re.match(r'^[\w-]+$', r.get('label') or '') \
+            or not re.match(r'^[0-9a-f]{40}$', r.get('ref') or '') or not isinstance(r.get('run_id'), int) or r.get('gate') not in ('DERIVES', 'NOT DERIVES'):
+        raise ValueError('runner row of another shape: %r' % (r,))
+    return r['kernel'], r['label'], r['gate']
+
+
+READERS.append('read_runner_row')
+
+
+def runner(*a):
+    """`runner <kernel> <run id> <ref> <label> <note...>`: the kernel's run read by its id; the artifact listed, downloaded by its id into
+    memory, its sha256 against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP;
+    the axioms output of the print step banked whole, every name of the list matched to one printed line, each terminal's axioms read against
+    the standard three. data/b693_runner_<kernel>_<label>.txt, data/b693_axioms_<kernel>_<label>.txt and a row of data/b693_runner_rows.json."""
+    import hashlib
+    import io as _io
+    import zipfile
+    kernel, run_id, ref, label, note = a[0], int(a[1]), a[2], a[3], ' '.join(a[4:])
+    repo = 'psinary-sketch/' + kernel
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    row = dict(kernel=kernel, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+               stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+    L = ['b693 -- THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (kernel, label.upper(), utc()), '',
+         '### the dispatch: %s ; the ref input %s' % (note, ref),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+             run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    row['axioms_sha256'] = hashlib.sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    deps = _deps(ax)
+    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+    printed = [n for n, _d in deps]
+    unmatched = [n for n in tg if n not in printed]
+    outside = [(n, d) for n, d in deps if not set(d) <= set(STD3)]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d:' % (row['build_exit'], len(row['errors']))] + ['    ' + l for l in row['errors'][:40]] + [
+          '### the log`s last lines:'] + ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + [
+          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; axiom-free %d ; '
+          'sorryAx %d ; outside the standard three %d ; refused %s' % (
+              len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg), sum(1 for _n, d in deps if not d),
+              sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### rows are terminals: name | the axioms printed | within the standard three:']
+    L += ['  %-62s %s %s' % (n, d, 'STD3' if set(d) <= set(STD3) else '### OUTSIDE') for n, d in deps]
+    L += ['  %-62s ### NOT PRINTED' % n for n in unmatched]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and not outside
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; '
+          'OUTSIDE THE STANDARD THREE %d ; GATE %s.**' % (
+              run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']),
+              len(deps), len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), row['gate'])]
+    read_runner_row(row)
+    put_txt('b693_runner_%s_%s.txt' % (kernel, label), L)
+    if row['artifact_sha256']:
+        put_txt('b693_axioms_%s_%s.txt' % (kernel, label), ax.split(NL) if ax else ['### EMPTY'])
+        put_txt('b693_buildlog_%s_%s.txt' % (kernel, label), blog.rstrip(NL).split(NL))
+    j = jl('b693_runner_rows.json') if os.path.isfile(os.path.join(D, 'b693_runner_rows.json')) else {}
+    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (kernel, label)] + [row]
+    put_json('b693_runner_rows.json', dict(rows=rows))
+    print(NL.join(L[:14] + L[-3:]))
+
+
+def prints(*a):
+    """`prints <kernel> <before bank> <after bank>`: the 'before' terminals' printed lines compared with the same names' lines in the 'after'
+    bank, line for line by name; the raw axioms banks compared byte for byte beside. data/b693_prints_<kernel>.txt."""
+    kernel, bb, ab = a[0], a[1], a[2]
+    b, f = rdn(bb), rdn(ab)
+    if not b or not f:
+        sys.exit('### A PRINT BANK IS MISSING -- NOTHING WRITTEN')
+    bd, fd = dict(_deps(b)), dict(_deps(f))
+    diff = [(n, bd[n], fd.get(n)) for n in bd if fd.get(n) != bd[n]]
+    new = [n for n in fd if n not in bd]
+    L = ['b693 -- THE PRINTS OF %s BEFORE AND AFTER THE CUT, BY NAME AND LINE FOR LINE (%s)' % (kernel, utc()), '',
+         '### before: relay data/%s (%d terminals) ; after: relay data/%s (%d terminals) ; the two banks equal line for line: %s ; rows are the '
+         'terminals that differ:' % (bb, len(bd), ab, len(fd), b == f)] + (['    %s : %s | %s' % d for d in diff] or ['    NONE']) + [
+        '### the names printed after and not before: %d' % len(new)] + ['    %s %s' % (n, fd[n]) for n in new]
+    L += ['', '### ### **BEFORE %d TERMINALS ; EACH PRINTED AFTER %s ; DIFFERING %d ; NEW %d ; EQUAL LINE FOR LINE %s.**' % (
+        len(bd), all(n in fd for n in bd), len(diff), len(new), b == f)]
+    put_txt('b693_prints_%s.txt' % kernel, L)
+    print(L[-1])
+
+
 # ================================================================================ THE DEFECTS BANK (b692's route and its row reader, carried)
 DEFECT_ROW = re.compile(r"^    \(([a-z]'?)\) ")
 
@@ -409,7 +627,7 @@ def defects(*a):
     print('  defects %d' % len(ds))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, defects=defects)
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, c1=c1, defects=defects, tie=tie, dispatch=dispatch, runner=runner, prints=prints)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
