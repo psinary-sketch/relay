@@ -1,0 +1,64 @@
+b694 -- THE READ-FIRST BANK, (R304)(6) AND THE FERRY'S READ-FIRST LIST, READ AT STEP ZERO BEFORE ANY OTHER BANK OF THIS ACT (2026-10-20)
+
+### rows are the ferry's read-first items in its order: the item | path and line | the unit of the bank's rows | what was read there.
+### Each cite is checked at HEAD by tools/b694_citation.py (data/b694_citation_check.txt).
+
+  b693's head line             relay data/b693_closing.txt :1 | rows are the closing's report lines | "b693 closed: relay a96d5c38, PLACE-papers dba03d2;
+                               suite 121 of 122; root eb2323dc6295a480…; 4 prompts answered; 8 defects"
+  the push-b693-root row       relay data/b693_closing.txt :226 | the same | "relay push-b693-root remote ABSENT ; ### ABSENT (the branch mode`s exercise,
+                               left for b694 on the author`s word)"; the branch read back at 59de04e1 (data/b693_root_branch_push_out.txt :9)
+  b693's defects               relay data/b693_defects.txt :7-:54 | rows are defects as lettered, (a)-(h); events beneath at :123-:135 (THE HOST REBOOT,
+                               A TRANSIENT REMOTE READ) | (f) at :33-:39, the eight deletes as `git -C <repo> branch -d <branch>; echo EXIT $?`;
+                               (h) at :47-:54, the sealed closing's row asking the reads for `D:\relay` where they were stored under `D:/relay`
+  the cut                      relay data/b693_cut.txt :12-:13, :17-:19, :28 | rows are the distance rows, then the residues | SIDE-archimedean 2 -> 0,
+                               v0.1.1, quoting lines 3 (R-1 README :15, R-2 README :19 carried; R-3 Reflection.lean :39 carried as it stands)
+  the tool repairs             relay data/b693_tool_repairs.txt :6-:11 and beneath | rows are repairs with the defect or order they answer, each
+                               diff beneath its row | the form this act's repairs bank takes
+  the closing's look-up        relay tools/b693_closing.py :175-:176 (remote_refs, a dict look-up by the path as passed), :294 (the row's
+                               remote_refs(ROOT), ROOT from os.path at :24, `D:\relay`), :270 and :274 (the reads stored under 'D:/' + the repo
+                               name), :157-:172 (_ls, read_remotes) | a tool's source | the key the row asks with is not the key the reads were stored under
+  the push tool's path form    relay tools/push_gated.sh :35 (repo="$1"), :118 and :144 (the capture's "push_gated: repo $repo"), the repo as the
+                               caller passes it | a tool's source | the captures store `/d/relay` (data/b693_root_branch_push_out.txt :2) -- not
+                               `D:/relay`, the form the closing's reads are stored under (a miss of the ruling, raised)
+  the circuit spec             relay data/b692_circuit_spec.txt :7-:52 | rows are readings, ten | CLAUSE-DOMINANCE at :31-:35 reads "INPUT for each of
+                               the faces kernels (the kernels the faces page names, at their tags)"; THE BANK CARRIES NO CARRIED ROW AND NAMES NO
+                               KERNEL (a miss of the ruling, raised): the carried kernel is named at data/b692_closure_step.txt :44-:46 ("the faces
+                               kernel not reached, SIDE-lv-conservation ... carried to b694 by name") and data/b692_circuit_dominance.txt :7
+  CLAUSE-DOMINANCE             relay data/b692_circuit_dominance.txt :6-:7, :21 | rows are faces kernels | SIDE-explicit-formula IN by
+                               h2_sign_iff_rh -> h2_sign; SIDE-lv-conservation NOT REACHED; CLAUSE-DOMINANCE 1 OF 1 FACES KERNELS REACHED
+  WIDTH                        relay data/b692_circuit_SIDE-explicit-formula_v0.34.1.txt :622-:648 | rows are pairs: meet | the one | the other |
+                               41 same-type theorem pairs, 25 at or under FEW = 5
+  LOAD                         relay data/b692_circuit_SIDE-explicit-formula_v0.34.1.txt :693, :707 | rows are names by load, the twelve highest |
+                               Zeta23.reflect (825), Zeta23.ZeroConfig.mk (716), Zeta23.ZeroConfig (716)
+  the reader                   relay tools/circuit_read.py | a tool's source | the routes over a closure gz (the readings) and `readfirst`, its
+                               banks named by the ferry bank's act since b693's repair
+  the faces kernels            relay data/b690_nodes_zeta.txt :94-:164 | rows are nodes: name | source | note | SIDE-explicit-formula's kernel nodes
+                               (:94 classK, :95 h2_sign, the clause's compiled face) and SIDE-lv-conservation by its correspondence row :126
+                               ("@corr SIDE-lv-conservation | residue_irreducible | INTERFACES ..."): TWO FACES KERNELS
+  the balls                    relay data/b681_epstein_zeros_narrowed_hashes.txt :2-:3 | rows are files | the json sha256 c3b54356..., the gz
+                               f6613564...; the json's rows read through the hashes into data/b694_witness_zeros.txt | rows are zeros as balls |
+                               OFF 0 :5: sigma 0.953260474794660686... , t 16.290215720390390792..., half-width 1e-30, beta - 1/2 = 0.4532604747946...
+                               +- 1e-30; 17 off-line rows, every one NARROWED
+  the tolerance                relay data/b677_tolerance.txt :90 | rows are planted widths and their readings, the summary at :90 | "P1 WIDTHS 19 ;
+                               h_tol(38) 3.162e-20 ; h_tol(64) 3.162e-28 ; P2 SHIFT 1e-12 FIRES True ; P2 QUARTER-RADIUS SHIFT AS UNPLANTED True ;
+                               P3 AS PLANTED" -- the discipline: the tolerance measured at the ruled precision, a plant above it fires, one below it
+                               does not
+  classK and h2_sign           SIDE-explicit-formula v0.34:SIDEExplicitFormula/H2Sign.lean :22-:27 (classK, the def at :24: even, ContDiff R 2, compact
+                               support, k = EF.weilTest h h with h ContDiff R 2 and compactly supported), :29 h2_sign's docstring, :30-:31 the def
+                               (0 <= poleTerm k - primeSum k + archTerm k for every k in classK) | a kernel's source
+  the three terms              SIDE-explicit-formula v0.34:SIDEExplicitFormula/B321Identity.lean :28-:29 (poleTerm, paperFT k (i/2) + paperFT k (-i/2)),
+                               :32-:34 (primeSum, SUM Lambda(n) n^(-1/2) 2 k(log n)), :36-:38 (archTerm, (1/2pi) INT paperFT k r * EF.gammaBracket r dr,
+                               its bracket zeta's Re psi(1/4 + i r/2) - log pi) | a kernel's source | H2Sign.lean defines none of the three (a miss
+                               of the ruling, raised)
+  b675's Li-face bank          relay data/b675_li_bench.txt (851 lines; rows are coefficients n with the ball and the sign) and data/b675_closing.txt :26
+                               | the form: one numerical act on this host, no Lean, no runner, balls with their radii; the price: six foreground parts,
+                               16 + 18 + 36 + 75 + 52 + 53 s (data/b675_closing.txt :28)
+  b518's window                relay data/b518_cells.jsonl (119 rows; rows are widths a with each object's terms) and data/b518_report.txt :5-:130 (Q0,
+                               rows are widths) | "P - PR + A negative beyond B (verified) : NONE ; positive 119" (:127); the pair OFF-LINE negative at
+                               119 cells, pair / rest from -2.574e-01 to -1.045e-04 (:129); the zeta control VERIFIED-EST 95 of 119 (:253);
+                               the window tools/b518_window.py :4-:8 (h = (gamma_0^2 + D^2)(cos(gamma_0 u) phi), phi the order-6 B-spline on
+                               [-log a, log a]), in floats
+  b693's closing capture       relay data/b693_closing_push_out.txt :2, :5 | the push tool's capture lines | push-b693-closing at 48ca2540, "main read back
+                               at the remote: 48ca2540..."; to be committed alone at step zero
+
+### ### **ITEMS 21 ; READ AT HEAD 21 ; THE CITATION CHECK OVER THEM IN data/b694_citation_check.txt.**

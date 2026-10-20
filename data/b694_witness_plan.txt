@@ -1,0 +1,71 @@
+b694 -- THE WEIL-FACE WITNESS AT Q0: THE PLAN, (R304)(4), WRITTEN AT STEP ZERO BEFORE ANY TERM IS COMPUTED (2026-10-20)
+
+### rows are the plan's sections, each with the source it reads. Raised as one prompt with the options (R304)(4) gives, verbatim. Nothing in
+### this bank is a computed term: the figures quoted are banked figures, each cited by path and line. Nothing here is claimed of the kernel.
+
+  (1) THE ZERO      rho_0 = beta_0 + i gamma_0, b681's off-line ball OFF 0 (relay data/b694_witness_zeros.txt :5, read through
+                    data/b681_epstein_zeros_narrowed_hashes.txt :2-:3): sigma 0.953260474794660686250509013567280024290084839,
+                    t 16.2902157203903907929631726451914943754673004, the square's half-width 1e-30; beta_0 - 1/2 = 0.4532604747946606862505...
+                    +- 1e-30, so beta_0 /= 1/2 by 4.5e29 half-widths. THE RULE, printed before any sum: the lowest ordinate among the 17 off-line
+                    balls, which is also the largest beta - 1/2 among them (OFF 12's 0.4515 the next); b514's and b518's pair (tools/b514_window.py
+                    :29, "Q0's zero at 0.95326 + 16.29022 i").
+  (2) THE FAMILY    b518's two-property window carried past b518's widest width (tools/b518_window.py :4-:8, :37-:63):
+                      h_a(u) = (gamma_0^2 + d^2/du^2) [cos(gamma_0 u) phi_a(u)],  phi_a(u) = N_6((u + L)/s) / s,  L = log a,  s = L/3,
+                    N_6 the cardinal B-spline of order 6 (degree 5, C^4 at its knots); gamma_0 the ball's centre to 40 digits, a fixed parameter
+                    of the window. In the kernel's transform (paperFT): h_a^(z) = (gamma_0^2 - z^2) (sinc((z - gamma_0) L/6)^6 + sinc((z + gamma_0)
+                    L/6)^6) / 2, zero at z = gamma_0. k_a = h_a * h_a~ = h_a * h_a (h_a real and even), k_a^ = (h_a^)^2. h even, C^2, compactly
+                    supported (on [-L, L]), concentrated at gamma_0 by the cosine. THE WIDTH PARAMETER a, the ladder 16, 24, 32, 48, 64, 96, 128,
+                    192 (L 2.77 to 5.26; the support of k_a [-2L, 2L], the prime sum to n <= a^2 <= 36864); b518's widest a = 14.106736 re-read
+                    beside it (control C2).
+                    WHY THIS FAMILY, READ FROM b518's BANK (no new computation): at Q0 b518's off-line pair term held near -220 to -236 across
+                    its 119 widths while the rest fell, 3.320397e+03 at a = 7 to 9.174797e+02 at a = 14.106736 (relay data/b518_report.txt :51,
+                    :125); the pair / rest ratio reached -2.574e-01 at the widest (:129). The ladder above continues that direction to where the
+                    rest may fall below the pair. A reading, not a prediction counted.
+  (3) classK        each k_a's membership printed BEFORE its terms (H2Sign.lean :22-:27 at v0.34, the def at :24), as balls:
+                      even        |k(x) - k(-x)| at 8 sample points, each ball containing 0 (h even by construction)
+                      C^2         the jumps of h's derivatives D0, D1, D2 across each of the 7 knots, each ball containing 0; D3's jump printed
+                                  beside (nonzero: h is C^2 and not C^3 there)
+                      compact     h supported in [-L, L], k in [-2L, 2L], by construction (the B-spline's support), printed with L
+                      the form    k = weilTest h h = h * h~ with h~(x) = conj h(-x) = h(x): k(x) by the exact piecewise convolution checked
+                                  against the inverse transform of (h^)^2 at the same sample points (b518's fixture route, tools/b518_window.py
+                                  :141-:182, in balls)
+  (4) THE TERMS     in certified arithmetic (python-flint 0.9.0, arb/acb balls, 128 bits; the tolerance rung 256 bits, section (6)):
+                      P(k)  = k^(i/2) + k^(-i/2), the closed form (B321Identity.lean :28-:29 at v0.34)
+                      PR(k) = SUM_{2 <= n <= a^2} Lambda_Q(n) n^(-1/2) 2 k(log n) (the even form, :32-:34), Lambda_Q the coefficients of -Z_Q'/Z_Q
+                              by Dirichlet inversion of r_Q / 2 (tools/b325_epstein.py :73-:103's recursion, in balls; checked against b325's
+                              LAMQ floats for n <= 4096); k(log n) by the exact piecewise convolution (polynomial times exponential, closed-form
+                              antiderivatives) in balls; the sum over every n the support reaches, n <= a^2
+                      A(k)  = (1/2 pi) INT k^(r) [2 Re psi(1/2 + i r) - 2 log(2 pi / sqrt 23)] dr -- the kernel's form (B321Identity.lean
+                              :36-:38) with Z_Q's own bracket, 2 Re(gamma_Q'/gamma_Q) for Lambda_Q(s) = (sqrt 23 / 2 pi)^s Gamma(s) Z_Q(s)
+                              (tools/b326_windows.py :220-:228; tools/b325_epstein.py :9-:13); acb.integral (rigorous) over [0, R], R = 4000, the
+                              integrand even and doubled; the tail beyond R bounded by b518's majorant (tools/b518_window.py :66-:73) times
+                              |bracket| <= 2 log r + 2
+                    THE SUM S = P - PR + A AND ITS BOUND: S as a ball; THE BOUND its radius, every arithmetic, integration and tail error inside
+                    it. Per width the three terms, S, the bound and the reading printed, each value as a ball.
+  (5) THE READING   FOUND at width a where S's ball lies wholly below 0: the margin m = -S, a ball, its lower end above 0, printed with the
+                    width; else NOT FOUND, with the narrowest margin (the width whose S is least) and that width printed. A sentence about the
+                    computation; nothing claimed of the kernel either way.
+  (6) THE CONTROLS  C1  ZETA AT MATCHED WIDTHS, before any Q0 reading is entered: the identical k_a (the same gamma_0 = 16.2902157...,
+                        the same ladder) with zeta's terms -- Lambda and the bracket Re psi(1/4 + i r/2) - log pi (B321Identity.lean :36);
+                        wanted: S_zeta nonnegative beyond its bound (the ball wholly above 0) at every width, the easy direction at a
+                        configuration with every zero on the line; b518's xi control VERIFIED-EST 95 of 119 cited (data/b518_report.txt :253).
+                    C2  b518's TWO-PROPERTY FAMILY AT Q0 RE-READ as the family that found none: the Q0 sum at b518's widest a = 14.106736 in
+                        balls against b518's float +6.813226e+02, |r| 6.82e-13, B 5.34e-08 (data/b518_report.txt :125, :127): wanted, the
+                        ball meeting b518's interval and wholly above 0.
+                    C3  THE IDENTITY AT EACH WIDTH (the instrument's normalization): the zero side Z = SUM k^(gamma_rho) from the banked zeros --
+                        Q0: b326's on-line ordinates (data/b326_epstein_zeros.json, complete below 150) and b681's 17 off-line balls with
+                        their images; zeta: arb's zeros below the same height -- with b518's majorant beyond (tools/b518_window.py :76-:82);
+                        wanted |Z - S| within the tail and the radii. A check on the instrument, not a reading.
+                    THE TOLERANCE DISCIPLINE (data/b677_tolerance.txt :90's form): T1 at the width of the narrowest margin, S at 256 bits
+                        inside S at 128 bits; T2 a planted shift of S by 3 x its radius moves the reading's decision, one by a third of the
+                        radius does not.
+  (7) THE PRICE     b675's form (data/b675_closing.txt :26-:28, six foreground parts, 16 to 75 s each): estimated four to eight foreground
+                    parts under the 590 s guard, resumable per width (one cell per width appended to an untracked units file); the
+                    banks data/b694_witness.txt (rows are widths with the three terms, the sum, the bound and the reading, each a ball),
+                    data/b694_witness.json.gz beside data/b694_witness_hashes.txt, data/b694_witness_controls.txt. No Lean, no runner.
+  (8) THE OPTIONS   (R304)(4), verbatim: "run as written" / "run to the narrowest margin and stop" / "hold".
+                    "run as written": the eight widths, C1 first, then Q0, C2, C3 and the tolerance rung. "run to the narrowest margin and
+                    stop": the same ladder upward, stopping at the first width that reads FOUND, or at the width after which S stops falling.
+
+### ### **THE ZERO OFF 0 (beta_0 - 1/2 = 0.45326 +- 1e-30) ; THE FAMILY b518's NOTCHED B-SPLINE WINDOW, a FROM 16 TO 192, EIGHT WIDTHS ;
+### THE TERMS IN BALLS AT 128 BITS ; CONTROLS C1 (ZETA, THE SAME k), C2 (b518 RE-READ), C3 (THE IDENTITY) ; RAISED BEFORE ANY TERM.**
