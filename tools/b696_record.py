@@ -228,6 +228,59 @@ def armrun(*a):
     print(NL.join(L))
 
 
+# ================================================================================ COMPONENT 3: THE FACES ROW, (R306)(4) -- DRAFTED AND HELD
+CAVEAT_OLD = 'tail bounds float with a safety factor, not balls (W-ORD-WITNESS-TAIL-BALLS); the zero tail on P3, derived and not compiled'
+CAVEAT_NEW = 'tail bounds as certified balls (b696), the zero tail on P3, derived and not compiled'
+NODES_SRC, NODES_ROW = 'b695_nodes_zeta.txt', 168
+
+
+def facesrow(*a):
+    """(R306)(4), the order discharged (data/b696_witness_balls.txt): the Weil-face line of relay data/b695_nodes_zeta.txt :168 printed as it
+    stands; the successor drafted with the tail-bound caveat replaced by (R306)(4)'s words, read from the banked ruling (data/b696_ferry.txt),
+    the remainder unchanged; the check printed (the old caveat once, the new once, every other character equal); held for b697's regeneration
+    prompt. Nothing is written to a node list or a page. data/b696_faces_rows.txt."""
+    import difflib
+    wv = _vl('%s_witness_balls.txt' % ACT)
+    if 'THE ORDER DISCHARGED' not in wv:
+        sys.exit('### THE ORDER IS NOT DISCHARGED (%s) -- NO SUCCESSOR DRAFTED ((R306)(4))' % wv)
+    fl = [l for l in rdn('b696_ferry.txt').split(NL) if l.startswith('(4) THE FACES ROW')]
+    m = re.search(r'“(tail bounds as certified balls.*?)”', fl[0]) if len(fl) == 1 else None
+    if not m or m.group(1) != CAVEAT_NEW:
+        sys.exit('### (R306)(4)`s CAVEAT AS BANKED %r IS NOT THE ROUTE`S %r -- NOTHING WRITTEN' % (m and m.group(1), CAVEAT_NEW))
+    row = rdn(NODES_SRC).split(NL)[NODES_ROW - 1]
+    page = rd(os.path.join(PP, K.FACES_PAGE)).split(NL)
+    if row.count(CAVEAT_OLD) != 1:
+        sys.exit('### THE ROW CARRIES THE OLD CAVEAT %d TIMES -- NOTHING WRITTEN' % row.count(CAVEAT_OLD))
+    new = row.replace(CAVEAT_OLD, CAVEAT_NEW)
+    i = row.index(CAVEAT_OLD)
+    same = new[:i] == row[:i] and new[i + len(CAVEAT_NEW):] == row[i + len(CAVEAT_OLD):]
+    on_page = [k for k, l in enumerate(page, 1) if CAVEAT_OLD in l]
+    d = list(difflib.unified_diff(row.split('; '), new.split('; '), 'data/b695_nodes_zeta.txt :168 (split at "; ")', 'the successor (split at "; ")',
+                                  n=0, lineterm=''))
+    L = ['%s -- COMPONENT 3, (R306)(4): THE WEIL-FACE LINE`S SUCCESSOR, DRAFTED AND HELD FOR b697`S REGENERATION PROMPT (%s)' % (ACT, utc()), '',
+         '### the order: %s' % wv.strip('#* '),
+         '### rows are drafted node-list rows: (A) the row as it stands, (B) the successor, (C) the check. Nothing written to a node list or a page.', '',
+         '  (A) THE ROW AS IT STANDS, relay data/%s :%d (the page carries it at PLACE-papers %s :%s):' % (NODES_SRC, NODES_ROW, K.FACES_PAGE,
+                                                                                                         ', :'.join(str(k) for k in on_page) or '### NONE'),
+         row, '',
+         '  (B) THE SUCCESSOR, DRAFTED, NOT WRITTEN, HELD FOR b697 -- the tail-bound caveat replaced by (R306)(4)`s words (relay data/b696_ferry.txt,',
+         '      (4)), the remainder of the row unchanged:',
+         new, '',
+         '  (C) THE CHECK: the old caveat in the row %d time(s) ; the new caveat in the successor %d time(s) ; every character outside the caveat equal %s ;' % (
+             row.count(CAVEAT_OLD), new.count(CAVEAT_NEW), same),
+         '      the diff, the row split at "; ":'] + ['      ' + l for l in d] + [
+         '', '  ### THE SEAT`S NOTE FOR THE AUTHOR, beside the draft and not in it: the remainder unchanged carries b694`s margin "-7.7752874967979 ±',
+         '      1.43e-18", whose radius was the float tail; with the ball the margin at a = 32 reads 7.7752874967979 +- 3.68e-23',
+         '      (relay data/b696_witness_balls.txt :14). The row`s radius is left as (R306)(4) orders, raised for b697`s prompt.', '',
+         '### ### **THE ORDER DISCHARGED ; ONE SUCCESSOR DRAFTED, HELD FOR b697 ; THE CAVEAT REPLACED ONCE, THE REST EQUAL %s ; NOTHING WRITTEN TO A NODE '
+         'LIST OR A PAGE.**' % same]
+    if 'dry' in a:
+        print(NL.join(L))
+        return
+    put_txt('%s_faces_rows.txt' % ACT, L)
+    print(NL.join(L[-8:]))
+
+
 # ================================================================================ THE REPAIRS BANK: (R306)(2) AND THE CARRY-TIME READING
 REPAIR_BASE = '7b791453'     # ### relay HEAD before the repair (step zero's commit): tools/rule_arms.py as b691 left it
 
@@ -489,7 +542,7 @@ def defects(*a):
 
 
 # ================================================================================ THE ROUTES
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, armrun=armrun, repairs=repairs)
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, armrun=armrun, repairs=repairs, facesrow=facesrow)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
