@@ -177,3 +177,322 @@ index 5b8b3d74..d10756fc 100644
          if not worktree:
 
 
+### THE CARRY-TIME READING OF THE TOOLS (the ferry`s Component 4), AGAINST b692`S SEALED COPIES (2026-10-20T15:10:30Z)
+
+### rows are repairs with the defect or order they answer, after the carried tools: b692`s sealed copy and its seal record; the hunks of
+### the diff to b693`s copy. Every hunk is the act`s own text -- its names, its banks, its sections and its predicates over this act`s
+### banks -- save the repairs below. The repaired shared tools are rows (1)-(7) above, each with its diff.
+
+  b692_citation.py       -> b693_citation.py       b692 sealed 3bc90c51b7dd6f7c ; the seal`s record 3bc90c51b7dd6f7c ; AGREE ; hunks 23
+  b692_closing.py        -> b693_closing.py        b692 sealed bcce49476bf1f02a ; the seal`s record bcce49476bf1f02a ; AGREE ; hunks 28
+  b692_reg_gate.py       -> b693_reg_gate.py       b692 sealed 814ebd4452dfa9eb ; the seal`s record 814ebd4452dfa9eb ; AGREE ; hunks 6
+  b692_regspec.py        -> b693_regspec.py        b692 sealed 1e03a17ab41f7d01 ; the seal`s record 1e03a17ab41f7d01 ; AGREE ; hunks 23
+  b692_tests.py          -> b693_tests.py          b692 sealed d2d2b1edaf81c95f ; the seal`s record d2d2b1edaf81c95f ; AGREE ; hunks 10
+  b692_worklist.py       -> b693_worklist.py       b692 sealed b4f083de2fcaac17 ; the seal`s record b4f083de2fcaac17 ; AGREE ; hunks 15
+  b692_record.py         -> b693_record.py         b692 sealed a65e96b8594e9633 ; the seal`s record a65e96b8594e9633 ; AGREE ; hunks 179
+  b692_checks.py         -> b693_checks.py         b692 sealed b42a2329176553bc ; the seal`s record b42a2329176553bc ; AGREE ; hunks 161
+  b692_corrigendum.py    -> b693_corrigendum.py    b692 sealed ee6e8e72969ea90b ; the seal`s record ee6e8e72969ea90b ; AGREE ; hunks 14
+  b692_parts_probe.py    -> b693_parts_probe.py    b692 sealed add2261b1af47d1a ; the seal`s record add2261b1af47d1a ; AGREE ; hunks 8
+  edit_route.py           the standing instrument, unedited in this act: 22b92c8f4440589a ; at relay 1749abbb 22b92c8f4440589a ; the last seal record naming it (NONE`s) ### NONE ; its last commit 66497ff1 2026-10-12T11:55:50-04:00
+  e0_rule.py              the standing instrument, unedited in this act: 1b4fa2b1fe2f5749 ; at relay 1749abbb 1b4fa2b1fe2f5749 ; the last seal record naming it (NONE`s) ### NONE ; its last commit 3572f7b6 2026-10-13T10:37:17-04:00
+  b678_corrigendum.py     the standing instrument, unedited in this act: 9676374a1a8c99fa ; at relay 1749abbb 9676374a1a8c99fa ; the last seal record naming it (NONE`s) ### NONE ; its last commit 5d3416b8 2026-10-17T13:40:18-04:00
+  chain_page.py           the standing instrument, unedited in this act: 2f4df8163a7b1c5d ; at relay 1749abbb 2f4df8163a7b1c5d ; the last seal record naming it (NONE`s) ### NONE ; its last commit 1e073ac3 2026-10-11T15:38:14-04:00
+  b670_record.py          the standing instrument, unedited in this act: 08e28c92a253ce97 ; at relay 1749abbb 08e28c92a253ce97 ; the last seal record naming it (NONE`s) ### NONE ; its last commit 1cde552b 2026-10-14T17:34:27-04:00
+  b672_record.py          the standing instrument, unedited in this act: 30a39db6fc35565e ; at relay 1749abbb 30a39db6fc35565e ; the last seal record naming it (NONE`s) ### NONE ; its last commit e06d2f25 2026-10-16T13:26:39-04:00
+  repair_snapshot.py      the standing instrument, unedited in this act: 53cc85685ec7ca27 ; at relay 1749abbb 53cc85685ec7ca27 ; the last seal record naming it (NONE`s) ### NONE ; its last commit cf09c22a 2026-09-11T10:03:15-04:00
+  correspondence_gen.py   the standing instrument, unedited in this act: 1aec5d03dde5dd8a ; at relay 1749abbb 1aec5d03dde5dd8a ; the last seal record naming it (NONE`s) ### NONE ; its last commit a101f97f 2026-10-19T15:02:44-04:00
+  rule_arms.py            the standing instrument, unedited in this act: ae9f20814f49ed30 ; at relay 1749abbb ae9f20814f49ed30 ; the last seal record naming it (b692`s) ae9f20814f49ed30 ; its last commit 6eb0f91a 2026-10-19T18:44:33-04:00
+
+  REPAIR 1 -- THE STANDING SET FOR b693 (answering N5: no standing arm added): the standing arms are b692`s face`s (G2) arms less b692`s act arms, the
+  twenty-four rule arms of tools/rule_arms.py among them; STANDING_ADDED empty (tools/b693_worklist.py).
+  REPAIR 2 -- THE SIX PARTS AND THE CHAIN SPLIT (answering (R303)(4) and the author`s word at prompt 3): standing-b2 verifies b624-b658 through
+  act_root.verify(acts=...) (row 6 above) and banks its verdicts with the boundary link read from data/act_roots.txt, carrying no arm;
+  standing-b3 verifies b659-b693, prints the same link, and runs G-ACTROOT-VERIFY once over both halves` banked verdicts, the first
+  half`s bank read at the same HEAD; `--chain-control` runs the whole chain once in the old form beside the pre-push halves, this act alone,
+  and banks the three verdicts equal or not (data/b693_chain_control.txt).
+  REPAIR 3 -- THE REPAIRED SHARED TOOLS SEALED (answering N5): circuit_read.py (row 1), push_gated.sh and its test (rows 3-4), act_root.py and its
+  test (rows 6-7) sealed with the act`s tools (tools/b693_worklist.py SEALED), their hashes compared at the close; G-INSTRUMENTS-UNEDITED
+  reads every other instrument unedited, rule_arms.py (b692`s repair, unedited this act, row 5) back among them.
+  REPAIR 4 -- THE RUNNER ARMS OVER THIS ACT`S TWO RUNS AND ONE MERGE (answering (R303)(3)): G-RUNNER-READ reads the before run at the print list`s
+  commit and the after run at the cut`s tip; G-RUNNER-GATE their gate readings; G-MERGES-ON-GATE reads SIDE-archimedean`s main at the
+  merge, its first parent the print list`s commit, its second the gated tip, the tag v0.1.1 peeled to the merge and v0.1.0 unmoved;
+  G-WORKFLOW-FILES reads the workflow at main equal to the one the act wrote at 79a8527, its print list against the after run`s bank.
+  REPAIR 5 -- THE PLACE-papers SCOPE (answering N5): G-PP-SCOPE allows FINDINGS and OPEN_TRAILS alone; no Correspondence cell, no INSTRUMENTS line.
+  REPAIR 6 -- THE ACT`S TRANSCRIPT IN TWO SESSIONS (the reboot, between relay 0574078e and 91c2df0c): the command capture, the answers route and the
+  rule arms` call trace read the first session from (R303)`s line and the resume session from the resume order`s line, joined by time;
+  tools/edit_route.py and tools/rule_arms.py are called once per session, unedited. G-EDIT-ROUTE`s previous-act window reads b692`s
+  capture after its post-push suite in the first session.
+  REPAIR 7 -- THE STEP-ZERO TESTS` SET: G-STEPZERO-TESTS reads the step-zero bank`s failing set -- test_chain_page.py (1), (9), (14),
+  test_chain_page_b638.py (4)-(7) and test_g_chain_page.py (1) -- as the bank recorded it, against the tests tracked at relay 1749abbb.
+  REPAIR 8 -- THE BRANCHES ARMS OVER EIGHT DELETES (answering (R303)(5)): G-BRANCHES-DELETED reads the eight names gone from relay, PLACE-papers and
+  SIDE-explicit-formula; G-DELETES-ONE-BRANCH reads eight deletes of one branch each, no glob.
+  REPAIR 9 -- THE CLOSING TOOL`S ROWS FOR THIS ACT`S KERNEL: SIDE-archimedean added to its repositories and its tags v0.1.1 and v0.1.0 to its tag
+  rows; its carried-forward row (e) names the re-cut`s branches left for b694 beside push-b693-root; its closing sentence carried in the
+  tool as b692`s was, in this act`s words -- act text, the range repair of row 2 untouched.
+  REPAIR 10 -- THE DELETE READER READS A VARIABLE AS A VARIABLE (answering the ferry`s "no variable, no glob in any half" and this act`s defect (f)):
+  tools/b693_record.py delete_shape, carried from b692`s, read the `?` of `$?` as a glob; it now returns the shell variables of a delete
+  command beside its globs and its halves, the command bank printing each, and G-DELETES-ONE-BRANCH reads no glob and no variable. Step
+  zero`s eight deletes, each chained to `echo EXIT $?`, read 0 of 8 -- the arm fails on real state and is declared.
+
+### THE DIFF OF THE REPAIRED READINGS AGAINST b692`S SEALED COPIES (tools/b692_record.py sha256 a65e96b8594e9633, tools/b692_checks.py sha256 b42a2329176553bc), WHOLE:
+    --- b692_record.py capture (sealed)
+    +++ b693_record.py capture
+    @@ -1,3 +1,10 @@
+     def capture():
+    -    rows = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
+    +    """every Bash and PowerShell command of the act: each session read from its own anchor by edit_route's capture, joined by time, numbered."""
+    +    rows = []
+    +    for path, anc, sub in SESSIONS:
+    +        got = ER.capture(path, anc, sub)
+    +        if not got and path != SESSION:
+    +            sys.exit('### THE RESUME SESSION`S ANCHOR %r READ NO COMMAND -- NOTHING READ' % anc)
+    +        rows += [dict(r, src=('%s %s' % (os.path.basename(path)[:8], r['src'])) if path != SESSION else r['src']) for r in got]
+    +    rows.sort(key=lambda r: r['ts'])
+         bg = _bg_calls()
+    --- b692_checks.py sources (sealed)
+    +++ b693_checks.py sources
+    @@ -2,5 +2,5 @@
+         """the sources the arms read; `need` (by part) names the heavy phases this part computes: 'live' (the three arms at HEAD), 'rules' (the
+    -    rule arms' trace), 'written' (the written files, the public bytes, the prior banks), 'chain' (the act-root chain), 'additive' (the shared
+    -    files)."""
+    -    import b692_record as REC
+    +    rule arms' trace), 'written' (the written files, the public bytes, the prior banks), 'chain_a' and 'chain_b' (the act-root chain's two
+    +    halves), 'additive' (the shared files)."""
+    +    import b693_record as REC
+         import b616_record as R6
+    @@ -10,10 +10,10 @@
+         face = read(FACE)
+    -    lockn = sorted(f for f in os.listdir(D) if f.startswith('b692_lockgate_notes'))
+    -    tools = sorted(os.path.join(T, f) for f in os.listdir(T) if (f.startswith('b692_') and f.endswith('.py')) or f in REPAIRED_TOOLS or f in NEW_TOOLS)
+    +    lockn = sorted(f for f in os.listdir(D) if f.startswith('b693_lockgate_notes'))
+    +    tools = sorted(os.path.join(T, f) for f in os.listdir(T) if (f.startswith('b693_') and f.endswith('.py')) or f in REPAIRED_TOOLS or f in NEW_TOOLS)
+         local = os.path.join(ROOT, *K.LOCAL_BANK.split('/'))
+    -    cit = jl('b692_citation_check.json')
+    +    cit = jl('b693_citation_check.json')
+         t0 = time.time()
+         S = dict(
+    -        REC=REC, ER=ER, face=face, ferry=rd('b692_ferry.txt'), scan=rd('b692_ferry_scan.txt'), stepz=rd('b692_stepzero.txt'),
+    -        readfirst=rd('b692_readfirst.txt'), defects=rd('b692_defects.txt'),
+    +        REC=REC, ER=ER, face=face, ferry=rd('b693_ferry.txt'), scan=rd('b693_ferry_scan.txt'), stepz=rd('b693_stepzero.txt'),
+    +        readfirst=rd('b693_readfirst.txt'), defects=rd('b693_defects.txt'),
+             lock=read(os.path.join(D, lockn[-1])) if lockn else '', lock_epoch=utc_epoch(face, 'locked at (UTC)'),
+    @@ -21,38 +21,34 @@
+                                 encoding='utf-8', errors='replace').stdout,
+    -        answers=rd('b692_author_answers.txt'), answersj=jl('b692_author_answers.json'), prerun=rd('b692_arms_prerun.txt'), rl=jl('b692_record_lines.json'),
+    -        tests=jl('b692_tests_stepzero.json'), testst=rd('b692_tests_stepzero.txt'), withheld=jl('b692_tests_withheld.json'),
+    +        answers=rd('b693_author_answers.txt'), answersj=jl('b693_author_answers.json'), prerun=rd('b693_arms_prerun.txt'), rl=jl('b693_record_lines.json'),
+    +        tests=jl('b693_tests_stepzero.json'), testst=rd('b693_tests_stepzero.txt'), withheld=jl('b693_tests_withheld.json'),
+             tracked_tests=sorted(os.path.basename(x) for x in gs(ROOT, 'ls-tree', '--name-only', PRE['relay'], 'tools/').split(NL)
+                                  if re.match(r'^test_.*\.(py|sh)$', os.path.basename(x))),
+    -        sealj=jl('b692_seal_hashes.json'), sealnow=sealed_now(), cmds=capture_now(), prev_cmds=prev_now(), cmdj=jl('b692_commands.json'),
+    -        cmdt=rd('b692_commands.txt'),
+    -        planted={t: run_test(t) for t in TESTS}, spec=spec_planted(), conv_bad=conv_alone(), suite=read(os.path.join(T, 'b692_checks.py')),
+    +        sealj=jl('b693_seal_hashes.json'), sealnow=sealed_now(), cmds=capture_now(), prev_cmds=prev_now(), cmdj=jl('b693_commands.json'),
+    +        cmdt=rd('b693_commands.txt'),
+    +        planted={t: run_test(t) for t in TESTS}, spec=spec_planted(), conv_bad=conv_alone(), suite=read(os.path.join(T, 'b693_checks.py')),
+             citation=rd(K.CITATION_BANK), cit_at=iso_epoch(cit.get('at') or ''), cit_misses=cit.get('misses') or [],
+    -        gate=rd('b692_reg_gate.txt'), rowgen=rd('b692_rowgen_stepzero.txt'),
+    -        branchj=jl('b692_branches.json'), branchest=rd('b692_branches.txt'),
+    +        gate=rd('b693_reg_gate.txt'), rowgen=rd('b693_rowgen_stepzero.txt'),
+    +        branchj=jl('b693_branches.json'), branchest=rd('b693_branches.txt'),
+             branch_lists=dict((repo, gs(repo, 'branch', '--list', *bs)) for repo, bs in K.DELETE),
+    -        kbranch_lists=dict(('%s %s %s' % (r_, b_, w_), gs(r_, 'branch', '--list', b_) if w_ == 'local' else gs(r_, 'branch', '-r', '--list', 'origin/' + b_))
+    -                           for r_, b_, w_ in REC.KERNEL_BRANCHES),
+    -        repairs=rd('b692_tool_repairs.txt'), rec_src=read(os.path.join(T, 'b692_record.py')),
+    -        corr=rd('b692_corrigendum.txt'), corrj=jl('b692_corrigendum.json'), corrigenda=rd('b675_corrigenda.txt'),
+    -        parts_probe=rd('b692_parts_probe.txt'), parts_after=rd('b692_parts_after.txt'),
+    -        rule_blob=gs(ROOT, 'hash-object', os.path.join(T, 'rule_arms.py')), rules=rd('b692_rules.txt'),
+    -        closure_step=rd('b692_closure_step.txt'), prints_ef=rd('b692_prints_SIDE-explicit-formula.txt'), gz=_gz_state(),
+    -        reading=rd(K.READING_BANK), bars=rd('b692_circuit_bars.txt'), reader_src=read(os.path.join(T, 'circuit_read.py')),
+    -        dominance=rd('b692_circuit_dominance.txt'), controls=rd('b692_circuit_controls.txt'), shorts_branch=rd('b692_circuit_shorts_branch.txt'),
+    -        rf_diff=rd('b692_readfirst_diff.txt'), rf_closure=rd('b692_readfirst_closure.txt'),
+    -        rf_hand_now=blob(ROOT, 'HEAD:data/b692_readfirst.txt'), rf_hand_z=blob(ROOT, '0215ccf9:data/b692_readfirst.txt'),
+    -        spec_now=rd('b692_circuit_spec.txt'), spec_old=rd('b690_circuit_spec.txt'), suite_load=rd('b692_suite_load.txt'),
+    -        inst_diff=rd('b692_instruments_diff.txt'),
+    -        inst_pp=gs(PP, 'diff', '--unified=0', PRE['pp'], 'HEAD', '--', 'phase1.5/method/INSTRUMENTS.md'),
+    -        triage_counts=rd('b692_triage_counts.txt'), olines=jl('b692_orders_lines.json'), shorts_push=rd('b692_shorts_push_out.txt'),
+    -        price_z=rd('b692_stepzero.txt'), candidates=rd('b692_candidates_priced.txt'),
+    -        asec=jl('b692_arm_seconds.json'), asect=rd('b692_arm_seconds.txt'),
+    +        repairs=rd('b693_tool_repairs.txt'), rec_src=read(os.path.join(T, 'b693_record.py')), closing_src=read(os.path.join(T, 'b693_closing.py')),
+    +        corr=rd('b693_corrigendum.txt'), corrland=jl('b693_corrigendum_landing.json'), corrigenda=rd('b675_corrigenda.txt'),
+    +        d692=rd('b692_defects.txt'), range_ex=rd('b693_range_exercise.txt'), branch_mode=rd('b693_branch_mode.txt'),
+    +        push_blob=gs(ROOT, 'hash-object', os.path.join(T, 'push_gated.sh')), push_src=read(os.path.join(T, 'push_gated.sh')),
+    +        ar_blob=gs(ROOT, 'hash-object', os.path.join(T, 'act_root.py')), rule_blob=gs(ROOT, 'hash-object', os.path.join(T, 'rule_arms.py')),
+    +        root_push=rd('b693_root_push_out.txt'), root_branch_push=rd('b693_root_branch_push_out.txt'),
+    +        tie=rd('b693_tie.txt'), cut=rd('b693_cut.txt'), cutj=jl('b693_cut.json'), quote=rd('b693_quote_archimedean.txt'),
+    +        prints_arch=rd('b693_prints_SIDE-archimedean.txt'), cells=rd('b693_correspondence_dry.txt'),
+    +        rf_diff=rd('b693_readfirst_diff.txt'), rf_hand_now=blob(ROOT, 'HEAD:data/b693_readfirst.txt'), rf_hand_z=blob(ROOT, '1d1a9fc3:data/b693_readfirst.txt'),
+    +        parts_probe=rd('b693_parts_probe.txt'), chain_control=rd('b693_chain_control.txt'), resume=rd('b693_resume.txt'),
+    +        asec=jl('b693_arm_seconds.json'), asect=rd('b693_arm_seconds.txt'),
+             shared=dict((p, (cr0(blob(ROOT, '%s:%s' % (PRE['relay'], p))), cr0(raw(os.path.join(ROOT, *p.split('/')))), cr0(blob(ROOT, 'HEAD:' + p))))
+                         for p in K.SHARED_APPENDED),
+    -        t=dict(c1=_ct(PP, K.C1_PP), arm=_ct(ROOT, K.C1_RELAY), orders=_ct(PP, K.ORDERS_PP), shorts=_ct(EF, K.SHORTS_TIP),
+    -               read=_ct(ROOT, K.READ_RELAY)),
+    -        files=dict(rules=files_of(ROOT, K.RULES_COMMIT), spec=files_of(ROOT, K.SPEC_COMMIT), inst=files_of(PP, K.INSTRUMENTS_PP),
+    -                   orders=files_of(PP, K.ORDERS_PP), read=files_of(ROOT, K.READ_RELAY)),
+    +        t=dict(c1=_ct(PP, K.C1_PP), answers=_ct(ROOT, K.ANSWERS_RELAY), repairs=_ct(ROOT, K.REPAIRS_RELAY), tie=_ct(ROOT, K.TIE_RELAY),
+    +               named=_ct(ARCH, K.ARCH_WF), quote=_ct(ROOT, K.CUTRUN_RELAY), merge=_ct(ARCH, K.ARCH_MERGE), parts=_ct(ROOT, K.PARTS_RELAY),
+    +               resume=_ct(ROOT, K.RESUME_RELAY)),
+    +        files=dict(tie=files_of(ROOT, K.TIE_RELAY), quote=files_of(ROOT, K.CUTRUN_RELAY), cut=files_of(ROOT, K.CUT_RELAY), parts=files_of(ROOT, K.PARTS_RELAY),
+    +                   resume=files_of(ROOT, K.RESUME_RELAY), stepzero=files_of(ROOT, '1d1a9fc3')),
+    +        resume_parent=gs(ROOT, 'log', '-1', '--format=%p', '--abbrev=8', K.RESUME_RELAY),
+             standing=STANDING, wf=wf_state(), runner=jl(K.RUNNER_ROWS),
+    -        rbanks=dict(('%s_%s' % (r.get('kernel'), r.get('label')), rd('b692_runner_%s_%s.txt' % (r.get('kernel'), r.get('label'))))
+    +        rbanks=dict(('%s_%s' % (r.get('kernel'), r.get('label')), rd('b693_runner_%s_%s.txt' % (r.get('kernel'), r.get('label'))))
+                         for r in jl(K.RUNNER_ROWS).get('rows') or []),
+    @@ -61,7 +57,6 @@
+             export_index=gs(ROOT, 'ls-files', '--', EXPORT), export_status=gs(ROOT, 'status', '--porcelain', '--', EXPORT),
+    -        closing_src=read(os.path.join(T, 'b692_closing.py')),
+             local_present=os.path.exists(local), local_log=gs(ROOT, 'log', '--all', '--format=%h', '--', K.LOCAL_BANK),
+             local_index=gs(ROOT, 'ls-files', '--', K.LOCAL_BANK), local_status=gs(ROOT, 'status', '--porcelain', '--', K.LOCAL_BANK),
+    -        arj=jl('b692_act_root.json'), arj0=jl('b691_act_root.json'), art=rd('b692_act_root.txt'), rootsf=rd('act_roots.txt'),
+    -        rootbanks=jl('b692_root_banks.json'),
+    +        arj=jl('b693_act_root.json'), arj0=jl('b692_act_root.json'), art=rd('b693_act_root.txt'), rootsf=rd('act_roots.txt'),
+    +        rootbanks=jl('b693_root_banks.json'),
+             pushout=(files_of(ROOT, K.STEPZERO), subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', K.STEPZERO, 'HEAD']).returncode == 0),
+    @@ -73,7 +68,7 @@
+             fi_pre=cr0(blob(PP, PRE['pp'] + ':FINDINGS.md')), fi_now=cr0(raw(os.path.join(PP, 'FINDINGS.md'))),
+    -        kern_face=(jl('b692_kernels_face.json').get('kernels') or {}), kerns_read=list(dict.fromkeys(REC._kerns())),
+    +        kern_face=(jl('b693_kernels_face.json').get('kernels') or {}), kerns_read=list(dict.fromkeys(REC._kerns())),
+             tools=tools, tooltext={f: strip_prose(read(f)) for f in tools},
+             artefacts=gs(ROOT, 'ls-files', 'data/anthropic-zeta23'),
+    -        mustfail=not os.path.exists(os.path.join(D, 'b692_mustnotexist.txt')),
+    -        fj=jl('b692_findings.json'), tj=jl('b692_trail.json'), sc=jl('b692_scores.json'), desk=rd('b692_desk_notes.txt'), tfj=jl('b692_table_final.json'),
+    +        mustfail=not os.path.exists(os.path.join(D, 'b693_mustnotexist.txt')),
+    +        fj=jl('b693_findings.json'), tj=jl('b693_trail.json'), sc=jl('b693_scores.json'), desk=rd('b693_desk_notes.txt'), tfj=jl('b693_table_final.json'),
+             lsr=None,
+    @@ -91,3 +86,9 @@
+         t1 = time.time()
+    -    S['ra'] = RA.sources('b692', SESSION, K.ANCHOR, K.PARTS, S['lock_epoch'], PRE['relay'], PRE['pp']) if 'rules' in need else {}
+    +    if 'rules' in need:
+    +        S['ra'] = RA.sources('b693', SESSION, K.ANCHOR, K.PARTS, S['lock_epoch'], PRE['relay'], PRE['pp'])
+    +        # ### the resume session's calls beside the first session's (the reboot): the shared reader called once more, unedited
+    +        for path, anc in SESSIONS_AFTER:
+    +            S['ra']['calls'] = sorted(S['ra']['calls'] + (RA.transcript(path, anc) if os.path.exists(path) else []), key=lambda c: c['ts'])
+    +    else:
+    +        S['ra'] = {}
+         S['phase_secs']['the rule arms` trace' + ('' if 'rules' in need else ' (not in this part)')] = time.time() - t1
+    @@ -106,3 +107,3 @@
+             for f in sorted(os.listdir(D)):
+    -            if f.startswith(('b692_', 'audit_b692_')) and os.path.isfile(os.path.join(D, f)) and not f.endswith(('.gz', '.png', '.jsonl')):
+    +            if f.startswith(('b693_', 'audit_b693_')) and os.path.isfile(os.path.join(D, f)) and not f.endswith(('.gz', '.png', '.jsonl')):
+                     pub.append(read(os.path.join(D, f)))
+    @@ -139,11 +140,9 @@
+         S['order_slack'] = AR.ORDER_SLACK
+    -    if 'chain' in need:
+    -        try:
+    -            S['ar_verify'] = AR.verify(remote=KC0.remote_refs)
+    -            S['ar_reads'] = dict(AR.READS_AT)
+    -        except Exception as e:
+    -            S['ar_verify'], S['ar_reads'] = [('raised', type(e).__name__, [])], {}
+    -    else:
+    -        S['ar_verify'], S['ar_reads'] = [], {}
+    -    S['phase_secs']['the act-root chain' + ('' if 'chain' in need else ' (not in this part)')] = time.time() - t1
+    +    S['boundary'] = boundary()
+    +    S['ar_verify'], S['ar_reads'], S['half_a'] = [], {}, {}
+    +    if 'chain_a' in need:
+    +        S['ar_verify'], S['ar_reads'] = half_verify(0)
+    +    if 'chain_b' in need:
+    +        S['ar_verify'], S['ar_reads'] = half_verify(1)
+    +    S['phase_secs']['the act-root chain`s half' + ('' if ('chain_a' in need or 'chain_b' in need) else ' (not in this part)')] = time.time() - t1
+         t1 = time.time()
+    --- b692_checks.py verify_ok (sealed)
+    +++ b693_checks.py verify_ok
+    @@ -1,6 +1,12 @@
+     def verify_ok(S):
+    -    v = S['ar_verify'] or []
+    -    r = S['ar_reads'].get('b692') or {}
+    -    return [x[0] for x in v] == ['b%d' % i for i in range(624, 693)] and all(x[1] == 'AGREE' for x in v) and r.get('crlf') == 0 \
+    -        and (S['ar_reads'].get('b680') or {}).get('corrected') == 4
+    +    """G-ACTROOT-VERIFY, counted once in standing-b3 (the author's word): the first half's verdicts banked by standing-b2 at this same HEAD, the
+    +    second half's computed here, together b624 to b693 AGREE; the boundary link equal in both halves' reading; b680 read through its
+    +    corrigendum row (4 banks); b693 written LF."""
+    +    ha = S['half_a'] or {}
+    +    v = [tuple(x[:2]) for x in (ha.get('acts') or [])] + [tuple(x[:2]) for x in (S['ar_verify'] or [])]
+    +    r = dict(ha.get('reads') or {}, **(S['ar_reads'] or {}))
+    +    return ha.get('head') == gs(ROOT, 'rev-parse', 'HEAD') and [x[0] for x in v] == ['b%d' % i for i in range(624, 694)] \
+    +        and all(x[1] == 'AGREE' for x in v) and (r.get('b693') or {}).get('crlf') == 0 and (r.get('b680') or {}).get('corrected') == 4 \
+    +        and (ha.get('boundary') or {}).get('equal') is True and S['boundary'].get('equal') is True \
+    +        and (ha.get('boundary') or {}).get('root') == S['boundary'].get('root')
+     
+    --- b692_checks.py runner_ok (sealed)
+    +++ b693_checks.py runner_ok
+    @@ -1,7 +1,7 @@
+     def runner_ok(S):
+    -    """this act's four runs through its record tool's reader: each at its own ref, success, the artifact's sha256, the memory low above the
+    +    """this act's two runs through its record tool's reader: each at its own ref, success, the artifact's sha256, the memory low above the
+         hold."""
+    -    import b692_record as REC
+    +    import b693_record as REC
+         rows = S['runner'].get('rows') or []
+    -    want = dict((lab, gs(EF, 'rev-parse', ref)) for lab, ref in K.RUNNER_LABELS)
+    +    want = dict((lab, gs(ARCH, 'rev-parse', ref)) for lab, ref in K.RUNNER_LABELS)
+         try:
+    @@ -11,3 +11,3 @@
+             return False
+    -    return len(rows) == 4 and sorted(r['label'] for r in rows) == sorted(want) and all(r['kernel'] == K.EF and r['ref'] == want[r['label']] for r in rows) \
+    +    return len(rows) == 2 and sorted(r['label'] for r in rows) == sorted(want) and all(r['kernel'] == K.ARCH and r['ref'] == want[r['label']] for r in rows) \
+             and all(r['conclusion'] == 'success' and r['artifact_sha256'] and r['mem_low'] is not None and r['mem_low'] >= K.HOLD and not r['stopped']
+    --- b692_checks.py merges_ok (sealed)
+    +++ b693_checks.py merges_ok
+    @@ -1,6 +1,8 @@
+     def merges_ok(S):
+    -    """this act made no merge and no tag: SIDE-explicit-formula's main at the third closure commit, its first-parent line the three closure
+    -    commits from the main before the act, no tag at any of them, v0.34 and v0.34.1 unmoved."""
+    +    """this act's one merge: SIDE-archimedean's main at the merge, its first parent the print list's commit and its second the gated tip (the
+    +    after run's ref), the merged tree the built tree, the tag v0.1.1 peeled to the merge and v0.1.0 unmoved, no other tag."""
+         m = S['mainst']
+    -    return m['main'] == K.EF_TIP and m['line'] == list(K.CLOSURE_COMMITS) and not m['tags'] and m['v034'] == '8fbc27b' and m['v0341'] == K.EF_BEFORE
+    +    after = [r for r in (S['runner'].get('rows') or []) if r.get('label') == 'after']
+    +    return m['main'] == K.ARCH_MERGE and m['parents'] == [K.ARCH_PT, K.ARCH_CUT] and bool(after) and after[0]['ref'].startswith(K.ARCH_CUT) \
+    +        and m['trees'][0] == m['trees'][1] and m['tag'] == K.ARCH_MERGE and m['prior'] == K.ARCH_BEFORE and m['tags'] == [K.ARCH_TAG]
+     
+    --- b692_checks.py wf_ok (sealed)
+    +++ b693_checks.py wf_ok
+    @@ -2,3 +2,3 @@
+         """the one kernel workflow the act wrote: at main equal to the act's own write, no author identifier, no secret, the hold, the lake path
+    -    and the cache step its lakefile's Mathlib requires, the print step over its list, the closure step, the files the act wrote on main."""
+    +    and the cache step its lakefile's Mathlib requires, the print step over its list, the files the act wrote on main."""
+         for k, v in S['wf'].items():
+    @@ -7,4 +7,3 @@
+                 return False
+    -        if 'workflow_dispatch' not in t or 'hold_mb: "2560"' not in t or 'print_targets.txt' not in t or 'circuitclosure.lean' not in t \
+    -                or 'out/closure.jsonl' not in t:
+    +        if 'workflow_dispatch' not in t or 'hold_mb: "2560"' not in t or 'print_targets.txt' not in t:
+                 return False
+    @@ -14,3 +13,3 @@
+                 return False
+    -    return sorted(S['wf']) == [K.EF]
+    +    return sorted(S['wf']) == [K.ARCH]
+     
+    --- b692_checks.py _part_of (sealed)
+    +++ b693_checks.py _part_of
+    @@ -7,2 +7,4 @@
+             return 'standing-b2'
+    +    if name in B3_ARMS:
+    +        return 'standing-b3'
+         if name in C_ARMS:
+    --- b692_checks.py CURRENTS (sealed)
+    +++ b693_checks.py CURRENTS
+    @@ -4,3 +4,4 @@
+                 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md', 'README.md', 'REGISTRY.md',
+    -            'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md', 'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md')
+    +            'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md', 'phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md',
+    +            'phase1.5/method/INSTRUMENTS.md', 'phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md', 'phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md')
+     
+    --- b692_checks.py NEED (sealed)
+    +++ b693_checks.py NEED
+    @@ -1,2 +1,3 @@
+    -NEED = {'standing-a': ('live', 'rules'), 'standing-c': ('written',), 'standing-b1': ('additive',), 'standing-b2': ('chain',), 'act': ()}
+    +NEED = {'standing-a': ('live', 'rules'), 'standing-c': ('written',), 'standing-b1': ('additive',), 'standing-b2': ('chain_a',),
+    +        'standing-b3': ('chain_b',), 'act': ()}
+     
+    --- b692_checks.py STEPZERO_FAILING (sealed)
+    +++ b693_checks.py STEPZERO_FAILING
+    @@ -1,2 +1,3 @@
+    -STEPZERO_FAILING = {'test_chain_page.py': ['(9)'], 'test_chain_page_b638.py': ['(4)', '(5)', '(6)', '(7)']}
+    +STEPZERO_FAILING = {'test_chain_page.py': ['(1)', '(9)', '(14)'], 'test_chain_page_b638.py': ['(4)', '(5)', '(6)', '(7)'],
+    +                    'test_g_chain_page.py': ['(1)']}
+     
+
+### ### **REPAIRS 10 ; THE SEALED COPIES AGREE ; TOOLS CARRIED 10 OF 10 ; THE STANDING INSTRUMENTS UNEDITED True ; THE REPAIRED SHARED TOOLS` ROWS ABOVE 7 ; THE REPAIRED READINGS` DIFF LINES 259.**

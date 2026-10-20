@@ -38,14 +38,14 @@ REPOS = ['relay', 'MY-DOwnloads/PLACE-papers', 'SIDE-global-section', 'SIDE-expl
          'SIDE-bsd-multiplicity', 'SIDE-t7-topology-cmb', 'SIDE-local-cosmic-interface', 'SIDE-quaternionic-dark-sector', 'SIDE-spinor',
          'SIDE-bijection', 'SIDE-class-coupling', 'SIDE-coupling', 'SIDE-formation-arithmetic', 'SIDE-meta', 'SIDE-orchestrator',
          'SIDE-structural-error-correction', 'SIDE-carrier-spec', 'SIDE-grh-transfer', 'SIDE-window', 'SIDE-class-number-anomaly',
-         'SIDE-li-map', 'SIDE-rcurve']
+         'SIDE-li-map', 'SIDE-rcurve', 'SIDE-archimedean']
 SEC, SEC_BRANCH, SEC_TAG = 'D:/SIDE-structural-error-correction', 'sec-axiom-b623', 'v0.2.2'
 KEPT = ['detection-region-b559', 'li-weil-b561', 'grh-weil-b562', 'li-weil-b563', 'grh-weil-b564', 'vendor-bulka-backport-b566',
         'vendor-bulka-forward-b566', 'residue-discharge-b567', 'grh-weil-b567', 'grh-weil-b569', 'grh-weil-b569-held', 'grh-weil-b570',
         'grh-weil-b571', 'grh-weil-b572', 'grh-weil-b573', 'epstein-b590', 'simplicity-b596', 'product-b600', 'doubling-keiper-b601',
         'sign-window-b602', 'family-b603', 'platt-b626', 'cite-b628', 'nb-b629', 'dedekind-b631']
 QUARANTINE = ['SIDE-kernel', 'SIDE-lv-conservation']
-TAGS = [('SIDE-explicit-formula', 'v0.34.1'), ('SIDE-explicit-formula', 'v0.34'), ('SIDE-rcurve', 'v0.1.1'), ('SIDE-rcurve', 'v0.1.0'),
+TAGS = [('SIDE-archimedean', 'v0.1.1'), ('SIDE-archimedean', 'v0.1.0'), ('SIDE-explicit-formula', 'v0.34.1'), ('SIDE-explicit-formula', 'v0.34'), ('SIDE-rcurve', 'v0.1.1'), ('SIDE-rcurve', 'v0.1.0'),
         ('SIDE-li-map', 'v0.1.1'), ('SIDE-spinor', 'v0.1.2'), ('SIDE-class-number-anomaly', 'v0.2.1'), ('SIDE-window', 'v0.5.2'),
         ('SIDE-trivium', 'v0.1.2'), ('SIDE-silence-principle', 'v0.2.2'), ('SIDE-bijection', 'v0.2.1'), ('SIDE-grh-transfer', 'v0.5.1'),
         ('SIDE-cosmo', 'v0.3.1'), ('SIDE-effects', 'v0.1.1'), ('SIDE-carrier-spec', 'v0.4.2'), ('SIDE-structural-error-correction', 'v0.2.3'),
@@ -140,7 +140,8 @@ CARRIED_FIXED = [
     '    (c) b628`s full intake bank, the navigator`s export, b671`s uncompressed points file and b681`s units file stay local and untracked.',
     '    (d) The act root of b693 is relay data/act_roots.txt`s last line, chained from b692`s root; the mirror export carries it in MANIFEST.',
     '    (e) Branches left for the next act`s step zero: the push-b693* branches of relay and PLACE-papers; relay origin/push-b693-root, the',
-    '        branch mode`s exercise, standing at the remote on the author`s word (relay data/b693_author_answers.txt, prompt 4).',
+    '        branch mode`s exercise, standing at the remote on the author`s word (relay data/b693_author_answers.txt, prompt 4); SIDE-archimedean',
+    '        push-b693-archimedean-main and push-b693-archimedean-merge (local) and recut-archimedean-b693 (local and remote), the re-cut`s.',
     '    (f) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
 ]
 
@@ -331,7 +332,8 @@ def main():
     L += ['### THE RE-CUT ((R303)(3)): the naming (relay data/b693_tie.txt): ' + vline(rd('b693_tie.txt')),
           '    the cut (relay data/b693_cut.txt): ' + vline(rd('b693_cut.txt')), '']
     L += ['### THE PARTS ((R303)(4)): the probe (relay data/b693_parts_probe.txt): ' + vline(rd('b693_parts_probe.txt')),
-          '    the whole-chain control (relay data/b693_chain_control.txt): ' + vline(rd('b693_chain_control.txt')), '']
+          '    the whole-chain control (relay data/b693_chain_control.txt): ' + (vline(rd('b693_chain_control.txt')) if rd('b693_chain_control.txt')
+                                                                             else 'TO BE RUN ONCE, beside the pre-push halves'), '']
     L += ['### THE KERNELS:',
           '    the face`s reading of the kernels (relay data/b693_kernels_face.json): %d kernels read before the seal' % len(
               (jl('b693_kernels_face.json').get('kernels') or {})),
@@ -359,7 +361,18 @@ def main():
                                                r'TOTAL MISSING : \d+')),
           '    pins : %s' % verdict(rd('b693_pins_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b693_pins_closing.txt'), encoding='utf-8').read(),
                                     r'REPOS HARD-FAILING : \d+')]
-    L += ['    ' + l for l in rd('b693_close_sentence.txt').rstrip(NL).split(NL) if l.strip()] + ['']
+    L += ['    kernel mains written: SIDE-archimedean alone -- the workflow 79a8527 and the print list 7769d0e each alone on main, the cut 2bd9cc8',
+          '    on recut-archimedean-b693 (comments only) and its merge fcecc45 by --no-ff, tagged v0.1.1 naming v0.1.0 ; no source logic, no Zeta23',
+          '    or vendored byte ; the runner dispatched twice, once per tree state, each read by its run id with its artifact`s sha256 checked first ;',
+          '    no lean or lake run on this host ; no worktree made or removed ; no file deleted ; the eight (R303)(5) branches deleted at step zero by',
+          '    name, one per command and each its own message ; b628`s local intake bank, the navigator`s export, b671`s uncompressed points file and',
+          '    b681`s units file untracked ;',
+          '    no identifier of the author in any outbound request or workflow file ; no secret added ; the seat`s plain requests to github.com (its git reads and pushes, its',
+          '    two dispatches and its run and artifact reads) the act`s only outbound calls ; the deposit route untouched, publish never called ;',
+          '    FINDINGS and OPEN_TRAILS appended ; data/act_roots.txt and the corrigenda bank appended ; the shared tools edited at carry time',
+          '    circuit_read.py, push_gated.sh with its test and act_root.py with its test, each diff banked ; no README, REGISTRY or FOUNDATIONS',
+          '    byte ; no Correspondence cell ; no faces-page byte ; the mirror zip written outside every repository ; nothing of TECHNE or any',
+          '    patent written ; the host rebooted after Component 3, the act resumed from the banks in a new session (relay data/b693_resume.txt)', '']
     L += ['### CARRIED FORWARD.'] + carried() + ['=' * 104]
     b = (NL.join(L) + NL).encode('utf-8')
     p = os.path.join(OUTD, 'b693_closing_dry.txt' if DRY else 'b693_closing.txt')
