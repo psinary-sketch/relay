@@ -45,7 +45,7 @@
 ### the Q0 terms, b518`s family re-read, the identity at every cell, the tolerance rung, the banks, the drafted faces row; PLACE-papers
 ### 2980de1 -- the two orders the author`s word enters (OPEN_TRAILS :15166, :15168).
 ### ### **COMPONENT 4 BEFORE THIS SEAL:** relay 23f40cb -- the orders` bank rows, the defects, the command bank, the kernels face, the closing,
-### record, gate, spec and suite carried from b693`s; relay PLACEHOLDER-C4B -- the pre-run`s six parts and their combined bank, the per-part
+### record, gate, spec and suite carried from b693`s; relay 044c820 -- the pre-run`s six parts and their combined bank, the per-part
 ### seconds; this face.
 ### Before this seal the seat wrote this act`s tools by the Write tool then the Edit tool: `b694_worklist.py`, `b694_tests.py`,
 ### `b694_citation.py`, `b694_record.py`, `b694_checks.py`, `b694_closing.py`, `b694_reg_gate.py`, `b694_regspec.py`, `b694_corrigendum.py`,
@@ -54,8 +54,16 @@
 ### Under the standing line of (R202)(3), the suite ran at HEAD with `--prerun` before this seal, in its six foreground parts, each its own
 ### call in its own message: every arm declared in (G2) ran there and its count is printed in `b694_arms_prerun.txt`, the arms reading the
 ### gate`s record, the lock, the seal, the scores, the entry, the table, the root and the trail not yet written failing there.
-### ### **THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:** PLACEHOLDER-DECLARED.
-### PLACEHOLDER-PRERUN
+### ### **THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:** NONE.
+### The pre-run`s bank: 124 arms, 93 passing, 0 negative-control failures, 0 positive controls passing; its parts standing-a 183 s,
+### standing-c 152 s, standing-b1 57 s, standing-b2 380 s, standing-b3 87 s and act 23 s, each its own call in the foreground under the 590 s
+### guard (`timeout 590`) and each started at or above the 2,560 MB hold (the free memory at the starts 7029, 7118, 7035, 7110, 6907 and 6926
+### MB). The 31 failing each read the gate`s record, the lock, the seal, the scores, the entry, the table, the root and its banks, the trail,
+### the pre-run`s own combined bank or the per-part seconds gathered from it, none yet written -- `G-ACTROOT-VERIFY` reads the chain through
+### b694, not yet rooted; `G-RULE-BINARY-HASHES` reads each binary bank carried by a text bank the act`s root names, the root not yet
+### computed; `G-R304-ENTERED` reads the trail; `G-RULE-SCORES-BEFORE-SEAL` reads the dry scores run and the seal commit. The chain`s halves at
+### the pre-run: b624-b658 AGREE in standing-b2 and b659-b693 AGREE in standing-b3, the boundary b658 -> b659 equal in both (relay
+### data/b694_chain_half_a_arms_prerun.json, data/b694_chain_half_b_arms_prerun.json).
 ### POST-SEAL PROMPTS NAMED: NONE
 ### `G-DRY-STEP-CLEAN` and `G-CLOSING-DRY-STEP` read the gate`s record, written by the gate after the pre-run, so they fail inside the
 ### pre-run and pass in every later run -- SIDE-INVARIANT. The standing test failures at step zero, test_chain_page_b638.py cases (4)-(7),
@@ -258,3 +266,10 @@
 ### writes is written through the Edit tool or the Write tool; none by sed, a redirect, a heredoc or an interpreter`s write call, the tools`
 ### own bank writes excepted.
 ### ### **AND NOTHING IN THIS ACT IS A STATEMENT THAT RH OR GRH HOLDS OR LOCATES ANY ZERO.**
+====================================================================================================
+### THE REGISTRATION LOCK (emitted by tools/reg_seal.py; do not retype).
+### sha256 of every byte ABOVE this block : d71e7c1ffb0d3f9b2aa849b3ddbef69f18317f684535b12325264abb0e63230b
+### bytes locked : 28768
+### locked at (UTC) : 2026-10-20T18:21:11Z   ### NOT COVERED BY THE HASH ABOVE; it records when this block was written.
+### ### **RECOMPUTE WITH `python tools/reg_seal.py --verify b694_registration_2026-10-20.txt`.**
+====================================================================================================

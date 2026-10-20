@@ -69,11 +69,23 @@ def put_txt(name, lines):
     os.replace(p + '.tmp', p)
 
 
+def _standins():
+    """(R267)(2), standing: the stand-ins a dry run reads for the banks not yet written before the lock -- every value marked as a stand-in,
+    none a number any bank carries; a stand-in run writes no bank (b693's, carried)."""
+    sk = ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3')
+    return {
+        'b694_scores.json': dict((k, ['NOT SCORED', 'a stand-in for the dry run']) for k in sk),
+        'b694_findings.json': dict(entry_line=99999, title='stand-in'),
+        'b694_trail.json': dict(line=99999),
+        'b694_act_root.json': dict(root='0' * 64, previous='eb2323dc' + '0' * 56, reads=dict(heads=['x'], tags=['x'], banks=['x'])),
+    }
+
+
 def jl(name):
     try:
         return json.load(io.open(os.path.join(D, name), encoding='utf-8'))
     except Exception:
-        return {}
+        return _standins().get(name, {}) if STANDIN else {}
 
 
 def g(repo, *a):

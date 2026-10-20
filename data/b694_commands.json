@@ -1,5 +1,5 @@
 {
- "at": "2026-10-20T17:52:47Z",
+ "at": "2026-10-20T18:21:19Z",
  "anchor": "RULING (R304) BEGIN",
  "rows": [
   {
@@ -1224,6 +1224,206 @@
    "src": "seat",
    "cmd": "git -C /d/relay log --format=%h --reverse 48ca2540..HEAD",
    "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T17:52:46.584Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py defects",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T17:52:47.334Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py commands",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T17:52:52.173Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py kernels",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T17:55:40.057Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_closing.py dry",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:01:49.452Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add tools/b694_record.py tools/b694_citation.py tools/b694_worklist.py tools/b694_closing.py tools/b694_reg_gate.py tools/b694_regspec.py tools/b694_checks.py data/b694_defects.txt data/b694_defects.json data/b694_commands.txt data/b694_commands.json data/b694_kernels_face.json data/b694_orders_lines.json data/b694_scanfile_order.md data/b670_work_orders.txt data/b694_author_answers.txt data/b694_author_answers.json data/b694_citation_check.txt",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:01:53.906Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b694 C4 under (R304) and the author's word after C3: the orders' bank rows (W-ORD-WITNESS-TAIL-BALLS, W-ORD-B518-FLOAT); the word checked by the citation tool's word route; the defects (a)-(j) lettered as the word lists them; the command bank and the kernels face; the closing, record, gate, spec and suite carried from b693's\"",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:03:40.597Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b694_checks.py --prerun --part standing-a",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:06:58.801Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b694_checks.py --prerun --part standing-c",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:09:34.828Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b694_checks.py --prerun --part standing-b1",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:10:35.806Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b694_checks.py --prerun --part standing-b2",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:17:00.730Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b694_checks.py --prerun --part standing-b3",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:18:32.494Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b694_checks.py --prerun --part act",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:19:00.249Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_checks.py --combine b694_arms_prerun.txt",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:19:02.856Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py armsecs",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:19:10.919Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b694_registration_2026-10-20.txt data/b694_arms_prerun.txt data/b694_arms_prerun_standing-a.txt data/b694_arms_prerun_standing-c.txt data/b694_arms_prerun_standing-b1.txt data/b694_arms_prerun_standing-b2.txt data/b694_arms_prerun_standing-b3.txt data/b694_arms_prerun_act.txt data/b694_lsr_prerun_standing-a.json data/b694_lsr_prerun_standing-c.json data/b694_lsr_prerun_standing-b1.json data/b694_lsr_prerun_standing-b2.json data/b694_lsr_prerun_standing-b3.json data/b694_lsr_prerun_act.json data/b694_arm_seconds.txt data/b694_arm_seconds.json data/b694_arm_seconds_standing-a.json data/b694_arm_seconds_standing-c.json data/b694_arm_seconds_standing-b1.json data/b694_arm_seconds_standing-b2.json data/b694_arm_seconds_standing-b3.json data/b694_arm_seconds_act.json data/b694_chain_half_a_arms_prerun.json data/b694_chain_half_b_arms_prerun.json",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:19:15.591Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b694 C4 under (R304): the pre-run in six parts (124 arms, 93 passing, every control behaving; the 31 failing read banks not yet written -- the gate, the lock, the seal, the scores, the entry, the trail, the table, the root -- none on real state); the per-part seconds (93 standing arms clocked); the chain's halves b624-b658 and b659-b693 AGREE; the face, its placeholders to fill before the lock\"",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:19:25.640Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b694_reg_gate.py",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:20:00.816Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b694_reg_gate.py",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:20:30.022Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_record.py findings dry standin",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:20:39.463Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b694_record.py gatebanks",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:20:46.377Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b694_record.py scores dry",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:21:00.069Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"sys.argv|def main|usage\" -- tools/b378_lockgate.py",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:21:06.661Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b378_lockgate.py b694 data/b694_registration_2026-10-20.txt",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:21:10.988Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_seal.py --lock data/b694_registration_2026-10-20.txt",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T18:21:13.732Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b694_checks.py --seal",
+   "n": 178,
    "bg": false
   }
  ],
