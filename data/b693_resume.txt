@@ -1,0 +1,230 @@
+b693 -- THE RESUME AFTER A HOST REBOOT, UNDER (R303) (2026-10-20T14:46:31Z)
+
+### rows are the ferry's components (data/b693_ferry.txt :29-:39) and the four mid-act answers (data/b693_author_answers.txt), each with its
+### state read from the tree and the banks: DONE with the commit ; PARTIAL with the uncommitted paths ; NOT STARTED. Beneath them, the
+### readings the state was read from. Nothing is re-run that a bank shows done.
+
+### THE COMPONENTS
+
+  C0 STEP ZERO          DONE  relay 0a98bd1c (data/b692_closing_push_out.txt alone), 1d1a9fc3 (data/b693_stepzero.txt, the ferry, citation,
+                              readfirst, closure diff, rowgen, branches, tests, tools/circuit_read.py repair row 1)
+  C1 RECORD LINES,      DONE  relay 91156d5d (b692's weight line FINDINGS :9498 and the corrigendum FINDINGS :9500 at PLACE-papers 45c6e16,
+     CORRIGENDUM,             tools/b693_corrigendum.py), be2d7e90 (tools/b693_closing.py defects_row, tools/push_gated.sh branch mode,
+     REPAIRS                  data/b693_branch_mode.txt, data/b693_range_exercise.txt; data/b693_tool_repairs.txt rows 2-4). The branch mode's
+                              one exercise is ruled to the pre-root push on push-b693-root (answer (iv)), so it falls in C5, NOT STARTED there
+  C2 THE RE-CUT         DONE  relay c26a17f0 (data/b693_tie.txt), e9e50187 (before print bank, run 39360158384), cb654a48 (cut 2bd9cc8 on
+                              recut-archimedean-b693, quotation search, run 39360543605), 13946343 (data/b693_cut.txt, merge fcecc45, tag v0.1.1,
+                              generator dry). SIDE-archimedean main fcecc45 = origin/main (0 0), tag v0.1.1 at fcecc45
+  C3 THE PARTS          DONE  relay 0574078e (data/b693_parts_probe.txt, no repair of tools/rule_arms.py, row 5; tools/act_root.py verify(acts=)
+                              and tools/test_act_root.py case (10), rows 6-7)
+  C4 SEAL AND SUITE     NOT STARTED  no tools/b693_checks.py, gate, spec or scores tool; no data/b693_chain_control.txt; no defects bank; the
+                              closing tool exists from C1 (tools/b693_closing.py, committed be2d7e90) and is not yet dry-run
+  C5 RECORD AND MIRROR  NOT STARTED  relay 10 commits ahead of origin/main, PLACE-papers 1 (45c6e16) ahead; no entry, trail, root or mirror;
+                              push-b693-root not yet made (local or remote)
+
+### THE FOUR MID-ACT ANSWERS (banked verbatim at relay 602b88c3, data/b693_author_answers.txt :19-:28; the resume's pasted wording equal to
+### them in substance, each checked again now, one answer per check, per (R278)(4))
+
+  (i)   the triage figures both     DONE  relay 91156d5d / PLACE-papers 45c6e16. CHECK OK: FINDINGS :9498 carries CARRY 11,
+                                          DISCHARGED-BY-READING 24, RETIRE 0 (data/b692_triage_counts.txt :6, read: ":6 THE COUNTS PER CLASS: CARRY 11
+                                          ; DISCHARGED-BY-READING 24 ; RETIRE 0") and CARRIED 12, DISCHARGED BY READING 23 (OPEN_TRAILS :15040-:15108),
+                                          the demotion W-ORD-PROBE-HOLD with its reason (OPEN_TRAILS :15088: "cites a tool by path and line
+                                          (tools/chain_page.py :919) and no bank")
+  (ii)  the range repair in the     DONE  relay be2d7e90. CHECK OK: data/b693_range_exercise.txt :7 "(i) The defects (a)–(m) for the next ruling,
+        closing tool                      (i) the ruled exception and (j)–(k) the navigator`s for the author`s strike.", the control b691 :9 "(a)–(k)";
+                                          the record tool unedited for it (data/b693_tool_repairs.txt row 2)
+  (iii) the standing-b split by act PARTIAL  the tool half DONE at relay 0574078e (tools/act_root.py 5b8b3d74 -> d10756fc, diff banked,
+                                          data/b693_tool_repairs.txt :117-:177); the suite half -- standing-b2 verifying b624-b658 with no arm,
+                                          standing-b3 b659-b693 with G-ACTROOT-VERIFY once over both, the boundary printed by both, the whole-chain
+                                          control beside them (data/b693_chain_control.txt) -- falls in C4, NOT STARTED; no file of it uncommitted.
+                                          CHECK OK: the boundary link read from data/act_roots.txt: :35 b658 root 4804e20cb265..., :36 b659 previous
+                                          4804e20cb265..., equal
+  (iv)  push-b693-root by the       NOT STARTED  falls in C5 (the pre-root push). CHECK OK on the tool: tools/push_gated.sh :6, :92-:101 the branch
+        branch mode                       mode, committed be2d7e90; push-b693-root absent locally (git branch --list) -- the remote half VACUOUS,
+                                          no ls-remote read at the resume
+
+### THE READINGS
+
+  the paste                 received in full: BEGIN and END, one part
+  the process listing       2026-10-20 (PowerShell Get-Process by name): tail 0, lean 0, lake 0, python 0; Win32_Process at 14:46:31Z: claude 1
+                            (pid 20816, parent 17944), node 0, bash 0, python 0, lean 0, lake 0, tail 0. One seat. The host booted
+                            2026-10-20 10:38:18 (local); the session is new, 88ac42e2 (the pre-reboot session 2c300355)
+  the free memory           5880 MB against the 2,560 MB hold
+  git status, relay         tracked changes: data/terminal_table_prior.json and data/terminal_table_run.txt (both mtime 2026-10-19 20:59:42,
+                            before step zero; b692's post-push suite's regeneration, carried as data/b693_stepzero.txt :51 reads); untracked 147
+                            paths, every one listed beneath with its mtime; of this act's only data/b693_scanfile_c1.md (22:29:36) and
+                            data/b693_scanfile_corrigendum.md (22:29:40), the record tool's scan files, untracked as every act's before them.
+                            None committed at the resume
+  git status, PLACE-papers  main 45c6e16; tracked changes NONE; untracked .githooks/pre-push.b304-backup (2026-09-08 11:42:37),
+                            internal/BLOB_SENSITIVITY_2026-08-29.md (2026-08-29 20:43:03)
+  git status, kernel trees  44 SIDE-* trees on main, tracked changes NONE in every one; untracked only SIDE-global-section
+                            .githooks/pre-push.b304-backup (2026-09-08 11:42:18). SIDE-archimedean main fcecc45 (2026-10-19 22:47:13), local
+                            branches push-b693-archimedean-main, push-b693-archimedean-merge, recut-archimedean-b693 and
+                            origin/recut-archimedean-b693; SIDE-explicit-formula main 4313875
+  git log -5, relay         0574078e C3 ; 13946343 C2 ; cb654a48 C2 ; e9e50187 C2 ; c26a17f0 C2. The last commit before the reboot 0574078e
+                            (b693 C3). Since step zero 1d1a9fc3: 602b88c3, 91156d5d, be2d7e90, c26a17f0, e9e50187, cb654a48, 13946343, 0574078e
+  the act's banks           data/b693_* and tools/b693_*: every one committed (its last commit by `git log -1`) but the two scan files above:
+                            0a98bd1c/1d1a9fc3 ferry, ferry_scan, citation_check.json, readfirst, readfirst_closure, readfirst_diff,
+                            rowgen_stepzero, branches, stepzero, tests_stepzero, tests_withheld, tools/b693_citation.py, b693_tests.py,
+                            b693_worklist.py ; 602b88c3 author_answers, citation_check.txt ; 91156d5d corrigendum, corrigendum_landing,
+                            record_lines, tools/b693_corrigendum.py ; be2d7e90 branch_mode, range_exercise, tools/b693_closing.py ; c26a17f0
+                            tie ; e9e50187 archimedean_main_push_out, axioms/buildlog/runner _before ; cb654a48 archimedean_cut_push_out,
+                            axioms/buildlog/runner _after, dispatches, prints_SIDE-archimedean, quote_archimedean, runner_rows ; 13946343
+                            archimedean_merge_push_out, correspondence_dry, cut, tools/b693_record.py ; 0574078e parts_probe, tool_repairs,
+                            tools/b693_parts_probe.py
+  the act continues         from C4, the earliest component not DONE; no PARTIAL component has uncommitted files to read
+
+### THE RELAY LISTING, every tracked change and untracked file by path with its mtime (local time), as git status printed them
+
+     M  2026-10-19 20:59:42  data/terminal_table_prior.json
+     M  2026-10-19 20:59:42  data/terminal_table_run.txt
+    ??  2026-09-24 14:18:38  =
+    ??  2026-09-09 16:30:46  data/_b389_probe/api
+    ??  2026-09-09 16:33:19  data/_b389_probe/ctrl
+    ??  2026-09-09 16:31:47  data/_b389_probe/doi
+    ??  2026-09-09 16:33:26  data/_b389_probe/gh1
+    ??  2026-09-09 16:33:26  data/_b389_probe/gh2
+    ??  2026-09-09 16:33:26  data/_b389_probe/gh3
+    ??  2026-09-09 16:33:18  data/_b389_probe/oaig
+    ??  2026-09-09 16:32:48  data/_b389_probe/oaii
+    ??  2026-09-09 16:31:16  data/_b389_probe/page
+    ??  2026-09-09 16:32:17  data/_b389_probe/search
+    ??  2026-09-22 19:09:25  data/_b484_survey_stdout.txt
+    ??  2026-09-22 22:45:23  data/_b486_out.txt
+    ??  2026-09-22 00:46:19  data/anthropic-zeta23/SHA256SUMS.txt
+    ??  2026-09-22 00:46:17  data/anthropic-zeta23/alpoge_furman_2608.13637.pdf
+    ??  2026-09-22 00:46:17  data/anthropic-zeta23/anthropic_informal_note.pdf
+    ??  2026-09-22 00:46:14  data/anthropic-zeta23/claude_methodology_note.pdf
+    ??  2026-09-22 00:46:15  data/anthropic-zeta23/claude_paper_2026-08-11.pdf
+    ??  2026-09-22 00:46:16  data/anthropic-zeta23/claude_transcripts.pdf
+    ??  2026-09-22 00:46:19  data/anthropic-zeta23/formal-math.HEAD.txt
+    ??  2026-09-22 00:46:19  data/anthropic-zeta23/formal-math/
+    ??  2026-09-06 19:50:30  data/audit_b346_commit_selfcheck_r2.txt
+    ??  2026-09-06 19:50:50  data/audit_b346_commit_selfcheck_r3.txt
+    ??  2026-09-06 20:23:28  data/audit_b347_commit_selfcheck_r2.txt
+    ??  2026-09-06 20:49:16  data/audit_b348_commit_selfcheck_r2.txt
+    ??  2026-09-06 20:49:40  data/audit_b348_commit_selfcheck_r3.txt
+    ??  2026-09-06 21:31:24  data/audit_b349_commit_selfcheck_r2.txt
+    ??  2026-09-08 11:43:21  data/audit_b371_commit_selfcheck_r3.txt
+    ??  2026-09-08 11:52:57  data/audit_b371_commit_selfcheck_r4.txt
+    ??  2026-09-12 19:27:40  data/audit_b443_reg_satisfiable.txt
+    ??  2026-09-23 12:53:24  data/audit_b494_reg_banned_terms.txt
+    ??  2026-09-23 12:53:35  data/audit_b494_reg_satisfiable.txt
+    ??  2026-09-25 20:08:54  data/audit_b541_reg_satisfiable.txt
+    ??  2026-09-25 21:09:16  data/audit_b542_reg_satisfiable.txt
+    ??  2026-09-25 23:21:48  data/audit_b543_reg_satisfiable.txt
+    ??  2026-09-26 00:11:33  data/audit_b544_reg_satisfiable.txt
+    ??  2026-09-26 13:19:19  data/audit_b545_reg_satisfiable.txt
+    ??  2026-09-26 14:10:43  data/audit_b546_reg_satisfiable.txt
+    ??  2026-09-26 16:15:33  data/audit_b547_reg_satisfiable.txt
+    ??  2026-09-26 16:45:59  data/audit_b548_reg_satisfiable.txt
+    ??  2026-09-26 20:54:55  data/audit_b549_reg_satisfiable.txt
+    ??  2026-09-26 22:49:29  data/audit_b550_reg_satisfiable.txt
+    ??  2026-09-27 11:53:45  data/audit_b551_reg_satisfiable.txt
+    ??  2026-09-27 21:20:41  data/audit_b552_reg_satisfiable.txt
+    ??  2026-09-27 22:51:52  data/audit_b553_reg_satisfiable.txt
+    ??  2026-09-28 11:59:04  data/audit_b554_reg_satisfiable.txt
+    ??  2026-09-28 16:18:14  data/audit_b555_reg_satisfiable.txt
+    ??  2026-09-28 20:41:14  data/audit_b556_reg_satisfiable.txt
+    ??  2026-09-28 23:23:06  data/audit_b557_reg_satisfiable.txt
+    ??  2026-08-29 20:44:13  data/b259_blob_sensitivity.txt
+    ??  2026-09-10 19:37:36  data/b363_census_run4.txt
+    ??  2026-09-08 10:33:29  data/b363_span_notes3.txt
+    ??  2026-09-11 00:51:48  data/b371_hookpath_notes5.txt
+    ??  2026-09-11 00:53:33  data/b371_hookpath_notes6.txt
+    ??  2026-09-11 00:53:53  data/b371_hookpath_notes7.txt
+    ??  2026-09-11 00:54:17  data/b371_hookpath_notes8.txt
+    ??  2026-09-10 11:29:55  data/b373_pins_notes5.txt
+    ??  2026-09-12 02:57:50  data/b373_pins_notes6.txt
+    ??  2026-09-12 11:16:56  data/b373_pins_notes7.txt
+    ??  2026-09-12 11:19:45  data/b373_pins_notes8.txt
+    ??  2026-09-12 16:39:05  data/b373_pins_notes9.txt
+    ??  2026-09-11 00:41:54  data/b386_components_notes2.txt
+    ??  2026-09-11 00:43:20  data/b386_components_notes3.txt
+    ??  2026-09-11 00:42:22  data/b386_extract_notes3.txt
+    ??  2026-09-11 00:43:45  data/b386_extract_notes4.txt
+    ??  2026-09-10 21:30:52  data/b412_registration_2026-09-10.txt
+    ??  2026-09-10 22:07:54  data/b413_registration_2026-09-10.txt
+    ??  2026-09-10 22:54:57  data/b414_registration_2026-09-10.txt
+    ??  2026-09-10 23:50:19  data/b415_registration_2026-09-10.txt
+    ??  2026-09-11 00:48:07  data/b416_registration_2026-09-11.txt
+    ??  2026-09-11 10:07:15  data/b417_pins_final.txt
+    ??  2026-09-11 11:39:28  data/b418_pins_final.txt
+    ??  2026-09-11 12:38:59  data/b419_pins_final.txt
+    ??  2026-09-11 14:52:14  data/b420_pins_final.txt
+    ??  2026-09-11 15:29:15  data/b421_pins_final.txt
+    ??  2026-09-11 16:02:24  data/b422_pins_final.txt
+    ??  2026-09-11 16:51:46  data/b423_pins_final.txt
+    ??  2026-09-11 17:16:34  data/b424_pins_final.txt
+    ??  2026-09-11 17:35:00  data/b425_pins_final.txt
+    ??  2026-09-12 04:25:44  data/b431_cache.log
+    ??  2026-09-12 19:21:44  data/b443_census_stepzero.txt
+    ??  2026-09-12 19:25:38  data/b443_extract.txt
+    ??  2026-09-12 19:21:44  data/b443_faces_census_stepzero.txt
+    ??  2026-09-12 19:21:38  data/b443_ferry.txt
+    ??  2026-09-12 19:21:44  data/b443_ferry_scan.txt
+    ??  2026-09-12 19:27:40  data/b443_lockgate.json
+    ??  2026-09-12 19:27:40  data/b443_lockgate_notes.txt
+    ??  2026-09-12 19:21:47  data/b443_pins_stepzero.txt
+    ??  2026-09-12 19:27:40  data/b443_reg_gate.txt
+    ??  2026-09-12 19:27:40  data/b443_reg_termscan.txt
+    ??  2026-09-12 19:27:41  data/b443_registration_2026-09-12.txt
+    ??  2026-09-12 19:27:40  data/b443_regspec_run.txt
+    ??  2026-09-12 19:27:28  data/b443_satisfiable.json
+    ??  2026-09-22 17:53:59  data/b477_entries.jsonl
+    ??  2026-09-22 17:53:59  data/b477_gram.log
+    ??  2026-09-23 14:17:43  data/b495_printaxioms.lean
+    ??  2026-09-23 17:38:46  data/b498_printaxioms.lean
+    ??  2026-09-25 17:12:43  data/b536_push_PLACE-papers.txt
+    ??  2026-09-25 17:12:48  data/b536_push_SIDE-global-section.txt
+    ??  2026-09-25 17:12:53  data/b536_push_relay.txt
+    ??  2026-10-05 16:49:01  data/b628_intake_crank_v0_5.txt
+    ??  2026-10-10 16:25:05  data/b647_navigator_memory.txt
+    ??  2026-10-15 21:45:05  data/b671_narrow_run2_points.jsonl
+    ??  2026-10-18 05:15:18  data/b681_narrow_units.jsonl
+    ??  2026-10-18 16:09:14  data/b685_scanfile_c1.md
+    ??  2026-10-18 16:58:20  data/b685_scanfile_c4.md
+    ??  2026-10-18 17:34:14  data/b685_scanfile_entry.md
+    ??  2026-10-18 17:34:37  data/b685_scanfile_trail.md
+    ??  2026-10-18 18:39:34  data/b686_scanfile_c1.md
+    ??  2026-10-18 19:22:44  data/b686_scanfile_entry.md
+    ??  2026-10-18 19:24:16  data/b686_scanfile_trail.md
+    ??  2026-10-19 00:15:24  data/b688_scanfile_c1.md
+    ??  2026-10-19 02:43:54  data/b688_scanfile_entry.md
+    ??  2026-10-19 01:55:46  data/b688_scanfile_order.md
+    ??  2026-10-19 02:46:25  data/b688_scanfile_trail.md
+    ??  2026-10-19 13:13:46  data/b690_scanfile_entry.md
+    ??  2026-10-19 12:23:01  data/b690_scanfile_order.md
+    ??  2026-10-19 13:17:03  data/b690_scanfile_trail.md
+    ??  2026-10-19 14:38:06  data/b691_scanfile_c1.md
+    ??  2026-10-19 16:45:57  data/b691_scanfile_entry.md
+    ??  2026-10-19 16:02:41  data/b691_scanfile_order.md
+    ??  2026-10-19 16:48:55  data/b691_scanfile_trail.md
+    ??  2026-10-19 18:18:51  data/b692_scanfile_c1.md
+    ??  2026-10-19 18:20:17  data/b692_scanfile_corrigendum.md
+    ??  2026-10-19 20:38:34  data/b692_scanfile_entry.md
+    ??  2026-10-19 19:46:42  data/b692_scanfile_order.md
+    ??  2026-10-19 20:41:51  data/b692_scanfile_trail.md
+    ??  2026-10-19 22:29:36  data/b693_scanfile_c1.md
+    ??  2026-10-19 22:29:40  data/b693_scanfile_corrigendum.md
+    ??  2026-09-12 02:26:30  records.json
+    ??  2026-09-23 13:00:58  tools/_a494.txt
+    ??  2026-09-23 14:07:05  tools/_a495.txt
+    ??  2026-09-23 14:57:20  tools/_a496.txt
+    ??  2026-09-23 15:25:32  tools/_a497.txt
+    ??  2026-09-23 10:51:43  tools/_b491_head.py
+    ??  2026-09-23 12:59:45  tools/_h494.txt
+    ??  2026-09-23 14:06:24  tools/_h495.txt
+    ??  2026-09-23 14:50:28  tools/_h496.txt
+    ??  2026-09-23 15:29:39  tools/_h497.txt
+    ??  2026-09-23 13:04:16  tools/_t494.txt
+    ??  2026-09-23 14:06:34  tools/_t495.txt
+    ??  2026-09-23 14:52:17  tools/_t496.txt
+    ??  2026-09-23 15:24:54  tools/_t497.txt
+    ??  2026-09-12 09:45:18  tools/b433_sections.txt
+    ??  2026-09-12 19:25:35  tools/b443_extract.py
+    ??  2026-09-12 19:27:28  tools/b443_reg_gate.py
+    ??  2026-09-12 19:27:28  tools/b443_regspec.py
+
+### ### **COMPONENTS DONE 4 (C0-C3) ; PARTIAL 0 ; NOT STARTED 2 (C4, C5) ; ANSWERS DONE 2 (i, ii), PARTIAL 1 (iii, its suite half in C4), NOT
+### STARTED 1 (iv, in C5) ; CHECKS 4 OF 4 OK, (iv)'s remote half VACUOUS ; THE ACT CONTINUES FROM C4.**
