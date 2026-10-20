@@ -1,0 +1,201 @@
+b695 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-20T20:58:35Z)
+
+### the source: the seat`s session b97f6790-cfa6-43ae-aa06-9d3a07249ec4 from its first user line carrying 'RULING (R305) BEGIN', with its subagents` transcripts
+### commands read: 143
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b694, this same session b97f6790, from its post-push combine to this act`s anchor): 25 commands from 2026-10-20T18:53:28.628Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES, BY THE RECORD TOOL`S dispatch ROUTE (2):
+  #81 PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py dispatch SIDE-interfaces 58854f0 before Interfaces
+  #88 PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py dispatch SIDE-interfaces 69b143b after Interfaces
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (6):
+  #13 2026-10-20T19:21:15.502Z Bash
+      git -C /d/relay branch -d push-b694
+  #14 2026-10-20T19:21:17.832Z Bash
+      git -C /d/relay branch -d push-b694-root
+  #15 2026-10-20T19:21:20.171Z Bash
+      git -C /d/relay branch -d push-b694-closing
+  #16 2026-10-20T19:21:22.433Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b694
+  #17 2026-10-20T19:21:25.032Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b694-root
+  #18 2026-10-20T19:21:27.389Z Bash
+      git -C /d/SIDE-lv-conservation branch -d push-b694-lv-closure
+
+### THE BRANCH DELETES BY SHAPE ((R305)(6) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #13 deletes ['push-b694'], halves 1, globs none, variables none, chained after False; #14 deletes ['push-b694-root'], halves 1, globs none, variables none, chained after False; #15 deletes ['push-b694-closing'], halves 1, globs none, variables none, chained after False; #16 deletes ['push-b694'], halves 1, globs none, variables none, chained after False; #17 deletes ['push-b694-root'], halves 1, globs none, variables none, chained after False; #18 deletes ['push-b694-lv-closure'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-20T19:19:54.405Z | seat | Bash | git -C /d/relay log --format=%h%x20%s -3
+  #2 | 2026-10-20T19:19:54.947Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log --format=%h%x20%s -2
+  #3 | 2026-10-20T19:19:56.518Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|claude|node' } | Select-Object ProcessId, Name, CommandLine | Format-Table 
+  #4 | 2026-10-20T19:20:02.572Z | seat | Bash | git -C /d/relay ls-files tools/b694_*
+  #5 | 2026-10-20T19:20:51.812Z | seat | Bash | git -C /d/relay add data/b694_closing_push_out.txt
+  #6 | 2026-10-20T19:20:54.611Z | seat | Bash | git -C /d/relay commit -m "b695 step zero under (R305)(6): b694's closing push-out bank (push-b694-closing, main read back at 6e451686), committed alone"
+  #7 | 2026-10-20T19:21:03.058Z | seat | Bash | git -C /d/relay branch --merged main --list push-b694*
+  #8 | 2026-10-20T19:21:03.469Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b694*
+  #9 | 2026-10-20T19:21:03.953Z | seat | Bash | git -C /d/SIDE-lv-conservation branch --merged main --list push-b694*
+  #10 | 2026-10-20T19:21:06.766Z | seat | Bash | git -C /d/relay ls-remote --heads origin
+  #11 | 2026-10-20T19:21:09.428Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers ls-remote --heads origin
+  #12 | 2026-10-20T19:21:12.701Z | seat | Bash | git -C /d/SIDE-lv-conservation ls-remote --heads origin
+  #13 | 2026-10-20T19:21:15.502Z | seat | Bash | git -C /d/relay branch -d push-b694
+  #14 | 2026-10-20T19:21:17.832Z | seat | Bash | git -C /d/relay branch -d push-b694-root
+  #15 | 2026-10-20T19:21:20.171Z | seat | Bash | git -C /d/relay branch -d push-b694-closing
+  #16 | 2026-10-20T19:21:22.433Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b694
+  #17 | 2026-10-20T19:21:25.032Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b694-root
+  #18 | 2026-10-20T19:21:27.389Z | seat | Bash | git -C /d/SIDE-lv-conservation branch -d push-b694-lv-closure
+  #19 | 2026-10-20T19:21:33.485Z | seat | Bash | wc -l /d/relay/tools/b694_worklist.py /d/relay/tools/b694_citation.py /d/relay/tools/b694_record.py /d/relay/tools/b694_checks.py /d/relay/tools/b694_closing.py
+  #20 | 2026-10-20T19:21:43.097Z | seat | Bash | git -C /d/relay grep -n -E "^def (naming|tiebreak|tie|cut|quote|quotation|distance|recut|workflow|printlist|runner|merge)\b" -- tools/b693_record.py tools/b691_
+  #21 | 2026-10-20T19:22:45.659Z | seat | Bash | git -C /d/SIDE-interfaces log --format=%h%x20%s -5 main
+  #22 | 2026-10-20T19:22:45.812Z | seat | Bash | git -C /d/SIDE-interfaces ls-tree -r --name-only main
+  #23 | 2026-10-20T19:22:46.272Z | seat | Bash | git -C /d/SIDE-interfaces tag --list
+  #24 | 2026-10-20T19:23:03.848Z | seat | Bash | git -C /d/relay grep -n -E "^b694 |W-ORD-H2-BRIDGE|R128" -- data/act_roots.txt data/b675_corrigenda.txt
+  #25 | 2026-10-20T19:23:07.664Z | seat | Bash | sha256sum /d/relay/data/b694_circuit_SIDE-lv-conservation_v0.13.0.png /d/relay/data/b694_circuit_SIDE-lv-conservation_v0.13.0.dot
+  #26 | 2026-10-20T19:23:08.875Z | seat | Bash | git -C /d/relay ls-files data/b670_licensed_table.txt data/b676_cut.txt data/b652_ferry.txt tools/correspondence_gen.py tools/chain_page.py data/b694_checks.txt
+  #27 | 2026-10-20T19:24:46.814Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_citation.py ferry
+  #28 | 2026-10-20T19:24:50.333Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_citation.py check dry
+  #29 | 2026-10-20T19:24:55.234Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_citation.py check
+  #30 | 2026-10-20T19:25:11.720Z | seat | Bash | git -C /d/relay grep -n -E "^def (backmatter_of|main|emit|render)|^def read_carry|VERSION DIFFERS" -- tools/chain_page.py tools/correspondence_gen.py
+  #31 | 2026-10-20T19:25:38.310Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/circuit_read.py readfirst b695_ferry.txt b695_readfirst.txt
+  #32 | 2026-10-20T19:27:28.174Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py branches
+  #33 | 2026-10-20T19:27:35.388Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py rowgen
+  #34 | 2026-10-20T19:28:27.586Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_tests.py parts
+  #35 | 2026-10-20T19:28:41.233Z | seat | Bash | P="python -X utf8 tools/b695_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 1 && $P run test_act_root.py && $P run test_act_root_commit_b644.py && $P run tes
+  #36 | 2026-10-20T19:28:52.878Z | seat | Bash | P="python -X utf8 tools/b695_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 2 && $P run test_asof.py
+  #37 | 2026-10-20T19:35:45.719Z | seat | Bash | P="python -X utf8 tools/b695_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 3 && $P run test_axiom_claim.py && $P run test_axiom_claim_b651.py && $P run test
+  #38 | 2026-10-20T19:36:28.022Z | seat | Bash | P="python -X utf8 tools/b695_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 4 && $P run test_chain_page.py
+  #39 | 2026-10-20T19:42:58.800Z | seat | Bash | P="python -X utf8 tools/b695_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 5 && $P run test_chain_page_b592.py && $P run test_chain_page_b596.py && $P run t
+  #40 | 2026-10-20T19:45:47.347Z | seat | Bash | P="python -X utf8 tools/b695_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 5b && $P run test_e0_databinder_b643.py && $P run test_e0_existential.py && $P ru
+  #41 | 2026-10-20T19:48:33.158Z | seat | Bash | P="python -X utf8 tools/b695_tests.py"; export PYTHONIOENCODING=utf-8; $P hold 6 && $P run test_name_b649.py && $P run test_name_patterns_b636.py && $P run test
+  #42 | 2026-10-20T19:52:11.277Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_tests.py report
+  #43 | 2026-10-20T19:52:17.556Z | seat | Bash | git -C /d/relay status --short data/b628_intake_crank_v0_5.txt data/b647_navigator_memory.txt data/b671_narrow_run2_points.jsonl data/b681_narrow_units.jsonl da
+  #44 | 2026-10-20T19:52:17.946Z | seat | Bash | git -C /d/relay status --porcelain --untracked-files=no
+  #45 | 2026-10-20T19:52:39.139Z | seat | Bash | git -C /d/relay add data/b695_ferry.txt data/b695_ferry_scan.txt data/b695_citation_check.txt data/b695_citation_check.json data/b695_branches.txt data/b695_bra
+  #46 | 2026-10-20T19:52:44.007Z | seat | Bash | git -C /d/relay commit -m "b695 step zero under (R305): the ferry banked and scanned; the citation check, 87 cites, 0 misses; the readfirst bank and the closure
+  #47 | 2026-10-20T19:52:54.625Z | seat | Bash | git -C /d/relay grep -n -E "G-RULE-BINARY-HASHES +FAIL|G-RULE-ONE-GIT-WRITE +FAIL" -- data/b694_checks_standing-a.txt data/b694_checks_postpush_standing-a.txt
+  #48 | 2026-10-20T19:53:01.600Z | seat | Bash | git -C /d/relay grep -n -E "^  \([0-9]+\)" -- data/b675_corrigenda.txt
+  #49 | 2026-10-20T19:53:56.480Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_corrigendum.py dry
+  #50 | 2026-10-20T19:54:10.942Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_corrigendum.py dry
+  #51 | 2026-10-20T19:54:32.965Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py c1 dry
+  #52 | 2026-10-20T19:54:37.835Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py c1
+  #53 | 2026-10-20T19:54:41.228Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_corrigendum.py land
+  #54 | 2026-10-20T19:54:51.833Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers diff --stat
+  #55 | 2026-10-20T19:54:55.128Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md
+  #56 | 2026-10-20T19:54:58.205Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b695 C1 under (R305)(1)-(2): b694 at its weight (FINDINGS :9578); the generated corrigendum for b694's two post-s
+  #57 | 2026-10-20T19:55:01.073Z | seat | Bash | git -C /d/relay add tools/b695_corrigendum.py tools/b695_record.py data/b695_corrigendum.txt data/b695_corrigendum.json data/b695_corrigendum_landing.json data/
+  #58 | 2026-10-20T19:55:04.658Z | seat | Bash | git -C /d/relay commit -m "b695 C1 under (R305)(1)-(2): b694's weight line (FINDINGS :9578, PLACE-papers 52093a9); the generated corrigendum for b694's defects 
+  #59 | 2026-10-20T19:55:08.419Z | seat | Bash | git -C /d/relay show --stat --format= 254ef39f
+  #60 | 2026-10-20T19:55:26.319Z | seat | Bash | git -C /d/relay grep -n "RE-CUT: THE DISTANCE BEFORE" -- data/b693_cut.txt data/b691_cut.txt
+  #61 | 2026-10-20T19:55:54.877Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py tie
+  #62 | 2026-10-20T19:56:00.941Z | seat | Bash | git -C /d/SIDE-interfaces show main:lakefile.lean
+  #63 | 2026-10-20T19:56:01.515Z | seat | Bash | git -C /d/SIDE-interfaces show main:.github/workflows/build.yml
+  #64 | 2026-10-20T19:56:01.933Z | seat | Bash | git -C /d/SIDE-interfaces show main:lean-toolchain
+  #65 | 2026-10-20T19:56:02.495Z | seat | Bash | git -C /d/SIDE-interfaces status --short --branch
+  #66 | 2026-10-20T19:56:06.959Z | seat | Bash | git -C /d/SIDE-archimedean show 79a8527:.github/workflows/build-module.yml
+  #67 | 2026-10-20T19:56:07.378Z | seat | Bash | git -C /d/SIDE-archimedean show --stat --format=%h%x20%s 79a8527 7769d0e
+  #68 | 2026-10-20T19:56:16.731Z | seat | Bash | git -C /d/SIDE-interfaces grep -n -E "^(theorem|lemma|def|structure|noncomputable def|abbrev|instance|class|import)" main -- "*.lean"
+  #69 | 2026-10-20T19:56:16.763Z | seat | Bash | git -C /d/SIDE-interfaces for-each-ref --format="%(refname:short) %(objecttype) %(*objectname:short) %(objectname:short)" refs/tags
+  #70 | 2026-10-20T19:56:20.661Z | seat | Bash | git -C /d/SIDE-interfaces grep -n -E "^(namespace|end |section|open )" main -- "*.lean"
+  #71 | 2026-10-20T19:56:20.979Z | seat | Bash | git -C /d/SIDE-interfaces show main:Interfaces.lean
+  #72 | 2026-10-20T19:56:34.436Z | seat | Bash | git -C /d/SIDE-interfaces grep -n -E "^\s*(private|protected|@\[)|^\s+theorem " main -- "*.lean"
+  #73 | 2026-10-20T19:56:54.189Z | seat | Bash | git -C /d/SIDE-interfaces diff --no-index --stat /dev/null /d/SIDE-interfaces/.github/workflows/build-module.yml
+  #74 | 2026-10-20T19:56:58.103Z | seat | Bash | git -C /d/SIDE-interfaces add .github/workflows/build-module.yml
+  #75 | 2026-10-20T19:57:01.078Z | seat | Bash | git -C /d/SIDE-interfaces commit -m "build-module: a hand-dispatched build of one ref under the 2,560 MB hold, printing #print axioms for the names in print_tar
+  #76 | 2026-10-20T19:57:05.635Z | seat | Bash | git -C /d/SIDE-interfaces add print_targets.txt
+  #77 | 2026-10-20T19:57:08.801Z | seat | Bash | git -C /d/SIDE-interfaces commit -m "print_targets.txt: the eleven theorems of SIDE-interfaces the build prints, Interfaces/ and Kernel/InFormation.lean (b695 u
+  #78 | 2026-10-20T19:57:12.468Z | seat | Bash | git -C /d/SIDE-interfaces branch push-b695-interfaces-main 58854f0
+  #79 | 2026-10-20T19:57:15.249Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b695_interfaces_main_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-interfaces push-b695-interfaces-main
+  #80 | 2026-10-20T19:58:00.618Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py dispatch SIDE-interfaces 58854f0 before Interfaces dry
+  #81 | 2026-10-20T19:58:05.001Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py dispatch SIDE-interfaces 58854f0 before Interfaces
+  #82 | 2026-10-20T19:58:16.694Z | seat | Bash | git -C /d/SIDE-interfaces switch -c recut-interfaces-b695 58854f0
+  #83 | 2026-10-20T19:58:25.071Z | seat | Bash | git -C /d/SIDE-interfaces diff
+  #84 | 2026-10-20T19:58:29.139Z | seat | Bash | git -C /d/SIDE-interfaces show main:Interfaces/ConnectionRequiresStructure.lean
+  #85 | 2026-10-20T19:58:31.753Z | seat | Bash | git -C /d/SIDE-interfaces add Interfaces.lean
+  #86 | 2026-10-20T19:58:35.082Z | seat | Bash | git -C /d/SIDE-interfaces commit -m "Interfaces.lean header: the three bullets re-cut to the declarations' own reach, the ACTION of data/b647_table_SIDE-interfa
+  #87 | 2026-10-20T19:58:42.585Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b695_interfaces_cut_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-interfaces --branch recut-interfaces-b695 --scratch
+  #88 | 2026-10-20T19:58:49.036Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py dispatch SIDE-interfaces 69b143b after Interfaces
+  #89 | 2026-10-20T19:59:20.611Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py quote D:/SIDE-interfaces 58854f0 69b143b quote_interfaces
+  #90 | 2026-10-20T19:59:29.381Z | seat | Bash | git -C /d/SIDE-interfaces show 69b143b:Interfaces/InterfaceSplit.lean
+  #91 | 2026-10-20T19:59:33.749Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39487947819
+  #92 | 2026-10-20T20:00:12.818Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39487947819
+  #93 | 2026-10-20T20:00:17.969Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runner SIDE-interfaces 39487947819 58854f0b9e3d7b2a224b470020a0aaa69503ea31 before the be
+  #94 | 2026-10-20T20:00:23.631Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39488049232
+  #95 | 2026-10-20T20:00:29.845Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39488049232
+  #96 | 2026-10-20T20:00:37.623Z | seat | Bash | git -C /d/relay grep -n -E "chain_page\.py" -- data/b690_commands.txt data/b688_commands.txt
+  #97 | 2026-10-20T20:00:40.611Z | seat | Bash | git -C /d/relay grep -n -E "chain_page|def faces|def page" -- tools/b690_record.py tools/b688_record.py
+  #98 | 2026-10-20T20:00:46.178Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39488049232
+  #99 | 2026-10-20T20:01:00.985Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39488049232
+  #100 | 2026-10-20T20:01:05.344Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runner SIDE-interfaces 39488049232 69b143b31069191acb9cbeae1d102f5acd76d338 after the aft
+  #101 | 2026-10-20T20:01:10.603Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py prints SIDE-interfaces b695_axioms_SIDE-interfaces_before.txt b695_axioms_SIDE-interfaces
+  #102 | 2026-10-20T20:01:14.819Z | seat | Bash | git -C /d/SIDE-interfaces switch main
+  #103 | 2026-10-20T20:01:18.083Z | seat | Bash | git -C /d/SIDE-interfaces merge --no-ff recut-interfaces-b695 -m "Merge recut-interfaces-b695: the root module's header re-cut to the declarations' own reach (b
+  #104 | 2026-10-20T20:01:20.725Z | seat | Bash | git -C /d/SIDE-interfaces log --format=%h%x20%p%x20%s -1 main
+  #105 | 2026-10-20T20:01:24.459Z | seat | Bash | git -C /d/SIDE-interfaces branch push-b695-interfaces-merge c8bd217
+  #106 | 2026-10-20T20:01:28.095Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b695_interfaces_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-interfaces push-b695-interfaces-merge "v0.2.1::v0.2.1:
+  #107 | 2026-10-20T20:01:38.726Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/correspondence_gen.py dry data/b672_roster_read.json full
+  #108 | 2026-10-20T20:02:02.592Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py cut
+  #109 | 2026-10-20T20:02:10.048Z | seat | Bash | git -C /d/relay status --short data/b695_tie.txt data/b695_tie.json data/b695_dispatches.json data/b695_runner_rows.json data/b695_runner_SIDE-interfaces_before
+  #110 | 2026-10-20T20:02:14.425Z | seat | Bash | git -C /d/relay add data/b695_tie.txt data/b695_tie.json data/b695_dispatches.json data/b695_runner_rows.json data/b695_runner_SIDE-interfaces_before.txt data/b
+  #111 | 2026-10-20T20:02:19.405Z | seat | Bash | git -C /d/relay commit -m "b695 C2 under (R305)(3): the order and b674's tie-break printed before the name -- three kernels at 1, SIDE-interfaces and SIDE-simpl
+  #112 | 2026-10-20T20:03:02.042Z | seat | Bash | git -C /d/relay add data/b695_faces_rows.txt
+  #113 | 2026-10-20T20:03:05.179Z | seat | Bash | git -C /d/relay commit -m "b695 C3 under (R305)(4): the faces rows printed before any page is touched -- b694's drafted row, the Li-face line at Q0 as the page 
+  #114 | 2026-10-20T20:30:27.812Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py answers
+  #115 | 2026-10-20T20:30:31.064Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_citation.py answer "Option 1, regenerate, on one check printed before any write"
+  #116 | 2026-10-20T20:31:01.985Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py facescheck
+  #117 | 2026-10-20T20:31:14.056Z | seat | Bash | wc -l -c /d/relay/data/b690_nodes_zeta.txt; file /d/relay/data/b690_nodes_zeta.txt; git -C /d/relay ls-files --eol data/b690_nodes_zeta.txt
+  #118 | 2026-10-20T20:32:23.721Z | seat | Bash | git -C /d/relay diff --no-index --stat data/b690_nodes_zeta.txt data/b695_nodes_zeta.txt
+  #119 | 2026-10-20T20:32:28.787Z | seat | Bash | git -C /d/relay grep -n -E "^(PROBE|NODES|NODES_NEW|NODES_ROW) " -- tools/b690_worklist.py
+  #120 | 2026-10-20T20:32:49.799Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py faces
+  #121 | 2026-10-20T20:34:46.579Z | seat | Bash | git -C /d/relay diff --no-index --no-color --unified=0 /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md C:/Users/ECHOCH~1/AppData/Local/Temp/cl
+  #122 | 2026-10-20T20:35:03.282Z | seat | Bash | git -C /d/relay diff --no-index --no-color --unified=0 --stat /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md C:/Users/ECHOCH~1/AppData/Local/
+  #123 | 2026-10-20T20:35:04.440Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers grep -n -E "^\| keystone|INSTRUMENTS" -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md
+  #124 | 2026-10-20T20:36:50.314Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py answers
+  #125 | 2026-10-20T20:36:53.591Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_citation.py answer "Option 1, regenerate with the row, on the reading the control bank already show
+  #126 | 2026-10-20T20:37:10.716Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py faces
+  #127 | 2026-10-20T20:39:03.574Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py faces write withrow
+  #128 | 2026-10-20T20:42:22.025Z | seat | Bash | git -C /d/relay diff --no-index --no-color --unified=0 data/b692_circuit_spec.txt data/b695_circuit_spec.txt
+  #129 | 2026-10-20T20:42:25.550Z | seat | Bash | git -C /d/relay add data/b695_circuit_spec.txt
+  #130 | 2026-10-20T20:42:29.011Z | seat | Bash | git -C /d/relay commit -m "b695 C3 under (R305)(5): data/b695_circuit_spec.txt, b692's ten rows unchanged and the eleventh beneath, CORRESPONDENCE-DOMINANCE (HO
+  #131 | 2026-10-20T20:42:34.768Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers grep -n -c "the Weil face at Q0" -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md
+  #132 | 2026-10-20T20:42:38.436Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers grep -n -o "the Weil face at Q0 (SIDE-explicit-formula v0.34" -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md
+  #133 | 2026-10-20T20:42:52.640Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py trails dry
+  #134 | 2026-10-20T20:42:56.985Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py trails
+  #135 | 2026-10-20T20:43:01.823Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add THE_CLAUSE_AND_ITS_COMPILED_FACES.md OPEN_TRAILS.md
+  #136 | 2026-10-20T20:43:06.016Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b695 C3 under (R305)(4)-(5) and the author's words at prompts 1 and 2: the faces page regenerated by tools/chain_
+  #137 | 2026-10-20T20:43:23.077Z | seat | Bash | git -C /d/relay status --short
+  #138 | 2026-10-20T20:43:26.706Z | seat | Bash | git -C /d/relay add data/b695_citation_check.txt data/b695_defects.txt data/b695_faces_rows.txt data/b695_author_answers.json data/b695_author_answers.txt data/
+  #139 | 2026-10-20T20:43:31.219Z | seat | Bash | git -C /d/relay commit -m "b695 C3 under (R305)(4)-(5): the author's words at prompts 1 and 2 banked and each checked (2 cites OK; the second VACUOUS); the chec
+  #140 | 2026-10-20T20:44:13.464Z | seat | Bash | git -C /d/relay grep -n -E "^def (wf_state|main_state|wf_ok|runner_ok|gate_ok|merges_ok|kern_now)\b|^WF, |^ARCH|^RC_" -- tools/b693_checks.py
+  #141 | 2026-10-20T20:45:07.166Z | seat | Bash | wc -l /d/relay/data/b694_registration_2026-10-20.txt /d/relay/tools/b694_reg_gate.py /d/relay/tools/b694_regspec.py /d/relay/tools/b694_closing.py
+  #142 | 2026-10-20T20:52:07.342Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py standing
+  #143 | 2026-10-20T20:58:28.526Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py repairs
+
+### ### **COMMANDS 143 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 25 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

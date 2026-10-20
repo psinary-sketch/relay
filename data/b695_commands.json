@@ -1,0 +1,1239 @@
+{
+ "at": "2026-10-20T20:58:35Z",
+ "anchor": "RULING (R305) BEGIN",
+ "rows": [
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:19:54.405Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay log --format=%h%x20%s -3",
+   "n": 1,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:19:54.947Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers log --format=%h%x20%s -2",
+   "n": 2,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-20T19:19:56.518Z",
+   "src": "seat",
+   "cmd": "Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'tail|lean|lake|python|claude|node' } | Select-Object ProcessId, Name, CommandLine | Format-Table -AutoSize -Wrap; \"free MB: \" + [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)",
+   "n": 3,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:20:02.572Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay ls-files tools/b694_*",
+   "n": 4,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:20:51.812Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b694_closing_push_out.txt",
+   "n": 5,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:20:54.611Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 step zero under (R305)(6): b694's closing push-out bank (push-b694-closing, main read back at 6e451686), committed alone\"",
+   "n": 6,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:03.058Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b694*",
+   "n": 7,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:03.469Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b694*",
+   "n": 8,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:03.953Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-lv-conservation branch --merged main --list push-b694*",
+   "n": 9,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:06.766Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay ls-remote --heads origin",
+   "n": 10,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:09.428Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers ls-remote --heads origin",
+   "n": 11,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:12.701Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-lv-conservation ls-remote --heads origin",
+   "n": 12,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:15.502Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b694",
+   "n": 13,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:17.832Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b694-root",
+   "n": 14,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:20.171Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b694-closing",
+   "n": 15,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:22.433Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b694",
+   "n": 16,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:25.032Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b694-root",
+   "n": 17,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:27.389Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-lv-conservation branch -d push-b694-lv-closure",
+   "n": 18,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:33.485Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/tools/b694_worklist.py /d/relay/tools/b694_citation.py /d/relay/tools/b694_record.py /d/relay/tools/b694_checks.py /d/relay/tools/b694_closing.py /d/relay/tools/b694_reg_gate.py /d/relay/tools/b694_regspec.py /d/relay/tools/b694_tests.py /d/relay/tools/b694_corrigendum.py",
+   "n": 19,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:21:43.097Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"^def (naming|tiebreak|tie|cut|quote|quotation|distance|recut|workflow|printlist|runner|merge)\\b\" -- tools/b693_record.py tools/b691_record.py tools/b688_record.py",
+   "n": 20,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:22:45.659Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces log --format=%h%x20%s -5 main",
+   "n": 21,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:22:45.812Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces ls-tree -r --name-only main",
+   "n": 22,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:22:46.272Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces tag --list",
+   "n": 23,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:23:03.848Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"^b694 |W-ORD-H2-BRIDGE|R128\" -- data/act_roots.txt data/b675_corrigenda.txt",
+   "n": 24,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:23:07.664Z",
+   "src": "seat",
+   "cmd": "sha256sum /d/relay/data/b694_circuit_SIDE-lv-conservation_v0.13.0.png /d/relay/data/b694_circuit_SIDE-lv-conservation_v0.13.0.dot",
+   "n": 25,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:23:08.875Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay ls-files data/b670_licensed_table.txt data/b676_cut.txt data/b652_ferry.txt tools/correspondence_gen.py tools/chain_page.py data/b694_checks.txt data/b694_checks_postpush.txt data/b694_scores_close.json data/b694_rules.txt",
+   "n": 26,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:24:46.814Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_citation.py ferry",
+   "n": 27,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:24:50.333Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_citation.py check dry",
+   "n": 28,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:24:55.234Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_citation.py check",
+   "n": 29,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:25:11.720Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"^def (backmatter_of|main|emit|render)|^def read_carry|VERSION DIFFERS\" -- tools/chain_page.py tools/correspondence_gen.py",
+   "n": 30,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:25:38.310Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/circuit_read.py readfirst b695_ferry.txt b695_readfirst.txt",
+   "n": 31,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:27:28.174Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py branches",
+   "n": 32,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:27:35.388Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py rowgen",
+   "n": 33,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:28:27.586Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_tests.py parts",
+   "n": 34,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:28:41.233Z",
+   "src": "seat",
+   "cmd": "P=\"python -X utf8 tools/b695_tests.py\"; export PYTHONIOENCODING=utf-8; $P hold 1 && $P run test_act_root.py && $P run test_act_root_commit_b644.py && $P run test_act_root_order_b641.py && $P run test_addenda_licence.py && $P run test_addenda_writelist.py && $P run test_additive_shared_b644.py",
+   "n": 35,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:28:52.878Z",
+   "src": "seat",
+   "cmd": "P=\"python -X utf8 tools/b695_tests.py\"; export PYTHONIOENCODING=utf-8; $P hold 2 && $P run test_asof.py",
+   "n": 36,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:35:45.719Z",
+   "src": "seat",
+   "cmd": "P=\"python -X utf8 tools/b695_tests.py\"; export PYTHONIOENCODING=utf-8; $P hold 3 && $P run test_axiom_claim.py && $P run test_axiom_claim_b651.py && $P run test_banned_terms_backmatter.py && $P run test_build_watch_b644.py && $P run test_build_watch_b647.py",
+   "n": 37,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:36:28.022Z",
+   "src": "seat",
+   "cmd": "P=\"python -X utf8 tools/b695_tests.py\"; export PYTHONIOENCODING=utf-8; $P hold 4 && $P run test_chain_page.py",
+   "n": 38,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:42:58.800Z",
+   "src": "seat",
+   "cmd": "P=\"python -X utf8 tools/b695_tests.py\"; export PYTHONIOENCODING=utf-8; $P hold 5 && $P run test_chain_page_b592.py && $P run test_chain_page_b596.py && $P run test_chain_page_b629.py && $P run test_chain_page_b630.py && $P run test_chain_page_b632.py && $P run test_chain_page_b635.py && $P run test_chain_page_b638.py && $P run test_closing_headline_b634.py && $P run test_clusters_served_b651.py && $P run test_composer_b646.py && $P run test_composer_b647.py && $P run test_composer_b649.py && $P run test_conversion_b652.py && $P run test_correspondence_gen.py",
+   "n": 39,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:45:47.347Z",
+   "src": "seat",
+   "cmd": "P=\"python -X utf8 tools/b695_tests.py\"; export PYTHONIOENCODING=utf-8; $P hold 5b && $P run test_e0_databinder_b643.py && $P run test_e0_existential.py && $P run test_e0_rule.py && $P run test_edit_route_b646.py && $P run test_faces_form.py && $P run test_g_chain_page.py && $P run test_glossary_supersede_b651.py && $P run test_licensed_table_b645.py && $P run test_licensed_table_instrument_b652.py && $P run test_met_b646.py && $P run test_module_header.py && $P run test_msplit_b658.py",
+   "n": 40,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:48:33.158Z",
+   "src": "seat",
+   "cmd": "P=\"python -X utf8 tools/b695_tests.py\"; export PYTHONIOENCODING=utf-8; $P hold 6 && $P run test_name_b649.py && $P run test_name_patterns_b636.py && $P run test_no_sorry_main.py && $P run test_premise_status.py && $P run test_primed_names_b643.py && $P run test_push_gated.sh && $P run test_reader_needle_b641.py && $P run test_record_findings_b632.py && $P run test_registry_tags_b636.py && $P run test_row_sort.py && $P run test_rowgen_ident.py && $P run test_terminal_table_b630.py && $P run test_terminal_table_b635.py && $P run test_terminal_table_b636.py && $P run test_terminal_table_b637.py && $P run test_elab_reader_b634.py",
+   "n": 41,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:52:11.277Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_tests.py report",
+   "n": 42,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:52:17.556Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short data/b628_intake_crank_v0_5.txt data/b647_navigator_memory.txt data/b671_narrow_run2_points.jsonl data/b681_narrow_units.jsonl data/b694_witness_units.jsonl tools/b695_worklist.py tools/b695_citation.py tools/b695_record.py tools/b695_tests.py data/b695_ferry.txt",
+   "n": 43,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:52:17.946Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --porcelain --untracked-files=no",
+   "n": 44,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:52:39.139Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b695_ferry.txt data/b695_ferry_scan.txt data/b695_citation_check.txt data/b695_citation_check.json data/b695_branches.txt data/b695_branches.json data/b695_readfirst.txt data/b695_readfirst_closure.txt data/b695_readfirst_diff.txt data/b695_rowgen_stepzero.txt data/b695_tests_stepzero.txt data/b695_tests_stepzero.json data/b695_tests_withheld.json data/b695_stepzero.txt data/b695_defects.txt tools/b695_worklist.py tools/b695_citation.py tools/b695_record.py tools/b695_tests.py",
+   "n": 45,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:52:44.007Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 step zero under (R305): the ferry banked and scanned; the citation check, 87 cites, 0 misses; the readfirst bank and the closure reader's diff (18 lines differ); rowgen and constellation (19 tables, STALE 0); the six branches listed --merged and deleted one per message, run before the check (defect (a)); the tests (55 files, 54 run, 3 not clean as at b694); the step-zero tools\"",
+   "n": 46,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:52:54.625Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"G-RULE-BINARY-HASHES +FAIL|G-RULE-ONE-GIT-WRITE +FAIL\" -- data/b694_checks_standing-a.txt data/b694_checks_postpush_standing-a.txt",
+   "n": 47,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:53:01.600Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"^  \\([0-9]+\\)\" -- data/b675_corrigenda.txt",
+   "n": 48,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:53:56.480Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_corrigendum.py dry",
+   "n": 49,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:54:10.942Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_corrigendum.py dry",
+   "n": 50,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:54:32.965Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py c1 dry",
+   "n": 51,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:54:37.835Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py c1",
+   "n": 52,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:54:41.228Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_corrigendum.py land",
+   "n": 53,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:54:51.833Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers diff --stat",
+   "n": 54,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:54:55.128Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md",
+   "n": 55,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:54:58.205Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers commit -m \"b695 C1 under (R305)(1)-(2): b694 at its weight (FINDINGS :9578); the generated corrigendum for b694's two post-seal failures, G-RULE-BINARY-HASHES and G-RULE-ONE-GIT-WRITE (FINDINGS :9580)\"",
+   "n": 56,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:55:01.073Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add tools/b695_corrigendum.py tools/b695_record.py data/b695_corrigendum.txt data/b695_corrigendum.json data/b695_corrigendum_landing.json data/b695_record_lines.json data/b675_corrigenda.txt",
+   "n": 57,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:55:04.658Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 C1 under (R305)(1)-(2): b694's weight line (FINDINGS :9578, PLACE-papers 52093a9); the generated corrigendum for b694's defects (k) and (l), G-RULE-BINARY-HASHES and G-RULE-ONE-GIT-WRITE failing after the seal undeclared (FINDINGS :9580, tools/b695_corrigendum.py); the corrigenda bank rows (9) and (10)\"",
+   "n": 58,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:55:08.419Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay show --stat --format= 254ef39f",
+   "n": 59,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:55:26.319Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n \"RE-CUT: THE DISTANCE BEFORE\" -- data/b693_cut.txt data/b691_cut.txt",
+   "n": 60,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:55:54.877Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py tie",
+   "n": 61,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:00.941Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces show main:lakefile.lean",
+   "n": 62,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:01.515Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces show main:.github/workflows/build.yml",
+   "n": 63,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:01.933Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces show main:lean-toolchain",
+   "n": 64,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:02.495Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces status --short --branch",
+   "n": 65,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:06.959Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-archimedean show 79a8527:.github/workflows/build-module.yml",
+   "n": 66,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:07.378Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-archimedean show --stat --format=%h%x20%s 79a8527 7769d0e",
+   "n": 67,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:16.731Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces grep -n -E \"^(theorem|lemma|def|structure|noncomputable def|abbrev|instance|class|import)\" main -- \"*.lean\"",
+   "n": 68,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:16.763Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces for-each-ref --format=\"%(refname:short) %(objecttype) %(*objectname:short) %(objectname:short)\" refs/tags",
+   "n": 69,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:20.661Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces grep -n -E \"^(namespace|end |section|open )\" main -- \"*.lean\"",
+   "n": 70,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:20.979Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces show main:Interfaces.lean",
+   "n": 71,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:34.436Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces grep -n -E \"^\\s*(private|protected|@\\[)|^\\s+theorem \" main -- \"*.lean\"",
+   "n": 72,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:54.189Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces diff --no-index --stat /dev/null /d/SIDE-interfaces/.github/workflows/build-module.yml",
+   "n": 73,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:56:58.103Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces add .github/workflows/build-module.yml",
+   "n": 74,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:57:01.078Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces commit -m \"build-module: a hand-dispatched build of one ref under the 2,560 MB hold, printing #print axioms for the names in print_targets.txt (the Mathlib form, carried from SIDE-archimedean's 79a8527; b695 under (R305)(3))\"",
+   "n": 75,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:57:05.635Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces add print_targets.txt",
+   "n": 76,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:57:08.801Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces commit -m \"print_targets.txt: the eleven theorems of SIDE-interfaces the build prints, Interfaces/ and Kernel/InFormation.lean (b695 under (R305)(3))\"",
+   "n": 77,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:57:12.468Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces branch push-b695-interfaces-main 58854f0",
+   "n": 78,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:57:15.249Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b695_interfaces_main_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-interfaces push-b695-interfaces-main",
+   "n": 79,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:58:00.618Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py dispatch SIDE-interfaces 58854f0 before Interfaces dry",
+   "n": 80,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:58:05.001Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py dispatch SIDE-interfaces 58854f0 before Interfaces",
+   "n": 81,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:58:16.694Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces switch -c recut-interfaces-b695 58854f0",
+   "n": 82,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:58:25.071Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces diff",
+   "n": 83,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:58:29.139Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces show main:Interfaces/ConnectionRequiresStructure.lean",
+   "n": 84,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:58:31.753Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces add Interfaces.lean",
+   "n": 85,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:58:35.082Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces commit -m \"Interfaces.lean header: the three bullets re-cut to the declarations' own reach, the ACTION of data/b647_table_SIDE-interfaces.txt :14 verbatim -- ConservationProfile over a finite parameter type, Connection Requires Structure under the bimodality hypothesis, the Parametric Mechanism Theorem as kappa = 0 (comments only; b695 under (R305)(3))\"",
+   "n": 86,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:58:42.585Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b695_interfaces_cut_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-interfaces --branch recut-interfaces-b695 --scratch",
+   "n": 87,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:58:49.036Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py dispatch SIDE-interfaces 69b143b after Interfaces",
+   "n": 88,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:59:20.611Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py quote D:/SIDE-interfaces 58854f0 69b143b quote_interfaces",
+   "n": 89,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:59:29.381Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces show 69b143b:Interfaces/InterfaceSplit.lean",
+   "n": 90,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T19:59:33.749Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39487947819",
+   "n": 91,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:00:12.818Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39487947819",
+   "n": 92,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:00:17.969Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runner SIDE-interfaces 39487947819 58854f0b9e3d7b2a224b470020a0aaa69503ea31 before the before build at main 58854f0, the print list on main",
+   "n": 93,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:00:23.631Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39488049232",
+   "n": 94,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:00:29.845Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39488049232",
+   "n": 95,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:00:37.623Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"chain_page\\.py\" -- data/b690_commands.txt data/b688_commands.txt",
+   "n": 96,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:00:40.611Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"chain_page|def faces|def page\" -- tools/b690_record.py tools/b688_record.py",
+   "n": 97,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:00:46.178Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39488049232",
+   "n": 98,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:01:00.985Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runstatus SIDE-interfaces 39488049232",
+   "n": 99,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:01:05.344Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py runner SIDE-interfaces 39488049232 69b143b31069191acb9cbeae1d102f5acd76d338 after the after build at the cut tip 69b143b on recut-interfaces-b695",
+   "n": 100,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:01:10.603Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py prints SIDE-interfaces b695_axioms_SIDE-interfaces_before.txt b695_axioms_SIDE-interfaces_after.txt",
+   "n": 101,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:01:14.819Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces switch main",
+   "n": 102,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:01:18.083Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces merge --no-ff recut-interfaces-b695 -m \"Merge recut-interfaces-b695: the root module's header re-cut to the declarations' own reach (b695 under (R305)(3); the quotation search before the merge, data/b695_quote_interfaces.txt; prints equal, runs 39487947819 and 39488049232)\"",
+   "n": 103,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:01:20.725Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces log --format=%h%x20%p%x20%s -1 main",
+   "n": 104,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:01:24.459Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-interfaces branch push-b695-interfaces-merge c8bd217",
+   "n": 105,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:01:28.095Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b695_interfaces_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-interfaces push-b695-interfaces-merge \"v0.2.1::v0.2.1: the root module's header re-cut to the declarations' own reach, comments only (b695 under (R305)(3)); the prior tag v0.2\"",
+   "n": 106,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:01:38.726Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/correspondence_gen.py dry data/b672_roster_read.json full",
+   "n": 107,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:02:02.592Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py cut",
+   "n": 108,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:02:10.048Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short data/b695_tie.txt data/b695_tie.json data/b695_dispatches.json data/b695_runner_rows.json data/b695_runner_SIDE-interfaces_before.txt data/b695_runner_SIDE-interfaces_after.txt data/b695_axioms_SIDE-interfaces_before.txt data/b695_axioms_SIDE-interfaces_after.txt data/b695_buildlog_SIDE-interfaces_before.txt data/b695_buildlog_SIDE-interfaces_after.txt data/b695_prints_SIDE-interfaces.txt data/b695_quote_interfaces.txt data/b695_quote_interfaces.json data/b695_cut.txt data/b695_cut.json data/b695_correspondence_dry.txt data/b695_interfaces_main_push_out.txt data/b695_interfaces_cut_push_out.txt data/b695_interfaces_merge_push_out.txt tools/b695_record.py",
+   "n": 109,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:02:14.425Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b695_tie.txt data/b695_tie.json data/b695_dispatches.json data/b695_runner_rows.json data/b695_runner_SIDE-interfaces_before.txt data/b695_runner_SIDE-interfaces_after.txt data/b695_axioms_SIDE-interfaces_before.txt data/b695_axioms_SIDE-interfaces_after.txt data/b695_buildlog_SIDE-interfaces_before.txt data/b695_buildlog_SIDE-interfaces_after.txt data/b695_prints_SIDE-interfaces.txt data/b695_quote_interfaces.txt data/b695_quote_interfaces.json data/b695_cut.txt data/b695_cut.json data/b695_correspondence_dry.txt data/b695_interfaces_main_push_out.txt data/b695_interfaces_cut_push_out.txt data/b695_interfaces_merge_push_out.txt tools/b695_record.py",
+   "n": 110,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:02:19.405Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 C2 under (R305)(3): the order and b674's tie-break printed before the name -- three kernels at 1, SIDE-interfaces and SIDE-simplicity at 1 OVERREACHES, equal of any kind, the larger table SIDE-interfaces (6 rows to 5); the workflow 9b4c484 and print list 58854f0 alone on main; runs 39487947819 before and 39488049232 after, DERIVES 11 of 11, prints equal; the cut 69b143b on recut-interfaces-b695, the quotation search before the merge (4 quoting lines, each a residue carried as it stands); the merge c8bd217 --no-ff, tag v0.2.1 naming v0.2; the distance 1 to 0; no Correspondence cell names the kernel\"",
+   "n": 111,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:03:02.042Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b695_faces_rows.txt",
+   "n": 112,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:03:05.179Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 C3 under (R305)(4): the faces rows printed before any page is touched -- b694's drafted row, the Li-face line at Q0 as the page carries it (data/b690_nodes_zeta.txt :167), and the successor drafted beneath it with (R305)(4)'s caveat verbatim; raised as one prompt, nothing written to a node list or the page\"",
+   "n": 113,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:30:27.812Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py answers",
+   "n": 114,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:30:31.064Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_citation.py answer \"Option 1, regenerate, on one check printed before any write\"",
+   "n": 115,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:31:01.985Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py facescheck",
+   "n": 116,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:31:14.056Z",
+   "src": "seat",
+   "cmd": "wc -l -c /d/relay/data/b690_nodes_zeta.txt; file /d/relay/data/b690_nodes_zeta.txt; git -C /d/relay ls-files --eol data/b690_nodes_zeta.txt",
+   "n": 117,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:32:23.721Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay diff --no-index --stat data/b690_nodes_zeta.txt data/b695_nodes_zeta.txt",
+   "n": 118,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:32:28.787Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"^(PROBE|NODES|NODES_NEW|NODES_ROW) \" -- tools/b690_worklist.py",
+   "n": 119,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:32:49.799Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py faces",
+   "n": 120,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:34:46.579Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay diff --no-index --no-color --unified=0 /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/b97f6790-cfa6-43ae-aa06-9d3a07249ec4/scratchpad/b695_faces_control.md",
+   "n": 121,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:35:03.282Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay diff --no-index --no-color --unified=0 --stat /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/b97f6790-cfa6-43ae-aa06-9d3a07249ec4/scratchpad/b695_faces_emit.md",
+   "n": 122,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:35:04.440Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers grep -n -E \"^\\| keystone|INSTRUMENTS\" -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md",
+   "n": 123,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:36:50.314Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py answers",
+   "n": 124,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:36:53.591Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_citation.py answer \"Option 1, regenerate with the row, on the reading the control bank already shows\"",
+   "n": 125,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:37:10.716Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py faces",
+   "n": 126,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:39:03.574Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py faces write withrow",
+   "n": 127,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:42:22.025Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay diff --no-index --no-color --unified=0 data/b692_circuit_spec.txt data/b695_circuit_spec.txt",
+   "n": 128,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:42:25.550Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b695_circuit_spec.txt",
+   "n": 129,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:42:29.011Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 C3 under (R305)(5): data/b695_circuit_spec.txt, b692's ten rows unchanged and the eleventh beneath, CORRESPONDENCE-DOMINANCE (HOLDS-BY-CORRESPONDENCE / DIFFERS by statement identity read from both print banks; the reading tying CLAUSE-DOMINANCE's ABSENT to W-ORD-H2-BRIDGE), a spec row, no tool; committed alone\"",
+   "n": 130,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:42:34.768Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers grep -n -c \"the Weil face at Q0\" -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md",
+   "n": 131,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:42:38.436Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers grep -n -o \"the Weil face at Q0 (SIDE-explicit-formula v0.34\" -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md",
+   "n": 132,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:42:52.640Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py trails dry",
+   "n": 133,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:42:56.985Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py trails",
+   "n": 134,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:43:01.823Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers add THE_CLAUSE_AND_ITS_COMPILED_FACES.md OPEN_TRAILS.md",
+   "n": 135,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:43:06.016Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers commit -m \"b695 C3 under (R305)(4)-(5) and the author's words at prompts 1 and 2: the faces page regenerated by tools/chain_page.py from relay data/b695_nodes_zeta.txt -- the Weil-face line at Q0 beneath the Li-face line (:734), its caveat verbatim, h ⋆ h~ as the glossary writes it; b693 (a)'s carried keystone row taken up (:193); the list named (:3); W-ORD-WITNESS-TAIL-BALLS's trigger re-read beneath its line (OPEN_TRAILS :15198); W-ORD-H2-BRIDGE annotated with the b694 reading (:15200)\"",
+   "n": 136,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:43:23.077Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short",
+   "n": 137,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:43:26.706Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b695_citation_check.txt data/b695_defects.txt data/b695_faces_rows.txt data/b695_author_answers.json data/b695_author_answers.txt data/b695_faces_check.txt data/b695_faces_control.txt data/b695_faces_diff.txt data/b695_nodes_zeta.txt data/b695_trail_lines.json tools/b695_record.py tools/b695_worklist.py",
+   "n": 138,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:43:31.219Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 C3 under (R305)(4)-(5): the author's words at prompts 1 and 2 banked and each checked (2 cites OK; the second VACUOUS); the check printed before any write (the caveat carried verbatim; h * h amended to the glossary's h ⋆ h~); data/b695_nodes_zeta.txt, b690's list and the successor beneath :167; the control's one difference the INSTRUMENTS.md keystone row b693 (a) carried; the page regenerated with the row (PLACE-papers c354650, :734), the diff banked; the two trail lines (OPEN_TRAILS :15198, :15200); defects (b) and (c)\"",
+   "n": 139,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:44:13.464Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"^def (wf_state|main_state|wf_ok|runner_ok|gate_ok|merges_ok|kern_now)\\b|^WF, |^ARCH|^RC_\" -- tools/b693_checks.py",
+   "n": 140,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:45:07.166Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/b694_registration_2026-10-20.txt /d/relay/tools/b694_reg_gate.py /d/relay/tools/b694_regspec.py /d/relay/tools/b694_closing.py",
+   "n": 141,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:52:07.342Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py standing",
+   "n": 142,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:58:28.526Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py repairs",
+   "n": 143,
+   "bg": false
+  }
+ ],
+ "offences": [],
+ "prev": {
+  "act": "b694",
+  "session": "b97f6790-cfa6-43ae-aa06-9d3a07249ec4",
+  "rows": 25,
+  "offences": []
+ },
+ "local_lean": [],
+ "dispatches": [
+  81,
+  88
+ ],
+ "detached": [],
+ "seds": [],
+ "null_redirects": [],
+ "redirects": [],
+ "pipes": [],
+ "py_programs": [],
+ "moves_deletes": [
+  13,
+  14,
+  15,
+  16,
+  17,
+  18
+ ],
+ "delete_shapes": [
+  {
+   "n": 13,
+   "deletes": [
+    "push-b694"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 14,
+   "deletes": [
+    "push-b694-root"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 15,
+   "deletes": [
+    "push-b694-closing"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 16,
+   "deletes": [
+    "push-b694"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 17,
+   "deletes": [
+    "push-b694-root"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 18,
+   "deletes": [
+    "push-b694-lv-closure"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  }
+ ],
+ "outbound": []
+}

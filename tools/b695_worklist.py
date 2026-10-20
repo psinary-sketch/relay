@@ -56,10 +56,32 @@ KERNEL_DIR = 'D:/SIDE-interfaces'
 PRIOR_TAG, NEXT_TAG = 'v0.2', 'v0.2.1'
 KERNEL_TABLE = 'b647_table_SIDE-interfaces.txt'
 
-SEALED = ()
+# ### the commits, in order (relay unless named)
+STEPZERO = '12c223b1'        # ### b694's closing push-out bank, alone
+STEPZERO_BANKS = 'e0d83d74'  # ### the step-zero banks and tools
+C1_RELAY, C1_PP = '254ef39f', '52093a9'
+C2_RELAY = '74aa4b9d'
+C3_ROWS = 'a5d64b5d'         # ### the faces rows printed, before the prompt
+C3_SPEC = '0e85a627'         # ### the spec bank, alone
+C3_RELAY, C3_PP = '1b6994b6', 'c354650'
+WEIGHT_LINE, CORRIGENDUM_LINE = 9578, 9580
+TRAIL_LINES = (15198, 15200)
+KI_BEFORE, KI_WF, KI_PT, KI_CUT, KI_MERGE = 'cbdcd5f', '9b4c484', '58854f0', '69b143b', 'c8bd217'
+KI_PRIOR_PEEL = '1728796'    # ### v0.2 peeled (an annotated tag one commit before the main the act found)
+RUNNER_LABELS = (('before', KI_PT), ('after', KI_CUT))
+RUNS = (39487947819, 39488049232)
+
+SEALED = ('b695_worklist.py', 'b695_tests.py', 'b695_citation.py', 'b695_record.py', 'b695_checks.py', 'b695_closing.py', 'b695_reg_gate.py',
+          'b695_regspec.py', 'b695_corrigendum.py')
 REPAIRED_TOOLS = ()
 NEW_TOOLS = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R305-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-CORRIGENDUM-ENTERED',
+            'G-TIE-PRINTED-FIRST', 'G-RECUT-DISTANCE', 'G-QUOTE-BEFORE-MERGE', 'G-RESIDUES-READ', 'G-PRINTS-EQUAL', 'G-CELLS-HELD',
+            'G-FACES-ROWS-PRINTED', 'G-FACES-CHECKED', 'G-PAGE-REGENERATED', 'G-TRAIL-LINES-LANDED', 'G-SPEC-ELEVENTH', 'G-READFIRST-DIFF-BANKED',
+            'G-TOOL-REPAIRS', 'G-PARTS-PRERUN', 'G-ARM-SECONDS-BANKED', 'G-DEFECTS-LETTERED', 'G-BINARY-ROWS-READ')
 STANDING_ADDED = ()          # ### no standing arm added this act (N5)
-PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')
+SHARED_APPENDED = ('data/b675_corrigenda.txt',)   # ### rows (9) and (10); additive per (R254)(2)
+PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md')   # ### the page on the author's words at prompts 1 and 2
 NEXT = ('b696, the research act, on the author`s word at its ruling among W-ORD-WITNESS-TAIL-BALLS, the regularity-uses bank, '
         'CORRESPONDENCE-DOMINANCE`s build and W-ORD-EPSTEIN-COUNT-LEAN; b697 the re-cut act')
