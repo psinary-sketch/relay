@@ -1,0 +1,101 @@
+b696 -- THE WITNESS'S TAIL BOUNDS AS CERTIFIED BALLS: THE PLAN, (R306)(3), WRITTEN AT STEP ZERO BEFORE ANY TERM IS COMPUTED (2026-10-20)
+
+### rows are the plan's sections, each with the source it reads by path and line. Raised as one prompt with the options (R306)(3) gives,
+### verbatim. Nothing in this bank is a computed term; the figures quoted are banked figures, each cited. Nothing here is claimed of the kernel.
+
+  (1) WHAT b694 BOUNDED AND WHERE IT ENTERS (relay tools/b694_witness_terms.py, by line)
+                    THE ARCHIMEDEAN TAIL: A(k) is acb.integral over [0, R] doubled, R = R_INT = 4000 (:54, :370-:376); the part beyond R is
+                    tail_bound (:266-:284), a float sum with the majorant constants 1.2 and 4/s, the bracket bounded by 2 log r + 2 on the
+                    unsourced line |psi(1/2 + i r)| <= log r + 1/r (:269), times 1.01 (:284). It enters THE SUM'S RADIUS: A = ... + arb(0, tb)
+                    (:376), S = P - PR + A (:387); at a = 32 it is S's whole radius, 1.43e-18 (data/b694_witness_controls.txt :31).
+                    THE ZERO-SIDE TAIL: zero_tail (:462-:479), the zeros above T0 = ZETA_T = 151.59 (:57, :493), a float sum over unit intervals
+                    with Q0's count 10 log(m + 4) and zeta's HSW count, times 1.01 twice (:478-:479). It enters THE IDENTITY'S TOLERANCE, not
+                    the sum's radius: agree = (Z - S + arb(0, tl)).contains(0) (:505-:507; C2's window :569-:571); the identity gates the
+                    reading -- a width whose identity is not met carries no reading (:626-:628).
+                    THEREFORE, read against (R306)(3)(c)'s wording "the two tails replacing the float bounds ... in the sum's radius": the
+                    archimedean ball replaces the float in the sum's radius; the zero-tail ball replaces the float in the identity's tolerance,
+                    which decides whether a width carries a reading at all. Both are re-read; the rows print each where it enters.
+
+  (2) (a) THE ARCHIMEDEAN TAIL AS A BALL
+                    THE SOURCE, banked before this plan: NIST DLMF section 5.11 (relay data/b696_source_dlmf_5_11.txt; the page's sha256 in
+                    its :2), (5.11.2) at :105-:107, psi(z) ~ ln z - 1/(2z) - SUM_k B_2k / (2k z^2k); THE REMAINDER BOUND at :393-:399: "If the sums
+                    in the expansions (5.11.1) and (5.11.2) are terminated at k = n - 1 ... If z is complex, then the remainder terms are bounded
+                    in magnitude by sec^(2n)(ph z / 2) for (5.11.1), and sec^(2n+1)(ph z / 2) for (5.11.2), times the first neglected terms."
+                    Taken at n = 1 (the sum empty): |psi(z) - ln z + 1/(2z)| <= sec^3(ph z / 2) |B_2| / (2 |z|^2) = sec^3(ph z / 2) / (12 |z|^2)
+                    <= 2 sqrt 2 / (12 |z|^2) for Re z > 0 (|ph z| < pi/2, sec(ph z / 2) < sqrt 2).
+                    THE BRACKET (tools/b694_witness_terms.py :362-:367), for real r >= R:
+                      Q0:   2 Re psi(1/2 + i r) - 2 log(2 pi / sqrt 23); z = 1/2 + i r, |z| >= r, Re ln z = (1/2) ln(r^2 + 1/4) <= ln r + 1/(8 r^2):
+                            |bracket| <= 2 ln r + beta_Q, beta_Q = 2 |ln(2 pi / sqrt 23)| + 1/R + (1/4 + sqrt 2 / 3) / R^2
+                      zeta: Re psi(1/4 + i r/2) - ln pi; z = 1/4 + i r/2, |z| >= r/2, Re ln z <= ln r - ln 2 + 1/(8 r^2):
+                            |bracket| <= ln r + beta_Z, beta_Z = ln(pi / 2) + 1/R + (1/8 + 2 sqrt 2 / 3) / R^2
+                    THE TRANSFORM (:126-:136; s = L/3, :110-:111): on the real line |sinc w| <= 1/|w| (|sin x| <= 1); for r >= R > g0,
+                    |r - g0| >= theta r with theta = 1 - g0/R, |r + g0| >= r, so |h^(r)| <= r^2 (2/(theta s r))^6 (N; |g0^2 - r^2| <= r^2) or
+                    (2/(theta s r))^6 (C), and |k^(r)| = |h^(r)|^2 <= (2/(theta s))^12 r^-p, p = 8 (N), 12 (C).
+                    THE BALL: the tail (1/2pi) INT_{|r| > R} |k^| |bracket| dr <= (1/pi) (2/(theta s))^12 R^(1-p) [alpha (ln R/(p-1) + 1/(p-1)^2)
+                    + beta/(p-1)], alpha = 2, beta = beta_Q at Q0; alpha = 1, beta = beta_Z at zeta -- every constant an arb ball at the
+                    working precision, the closed form evaluated in arb with no float and no safety factor; the ball [0 +- tail] added to A
+                    where b694 added the float.
+                    TWO HEIGHTS: R = 4000 (b694's) and R = 8000, each family, every width; the predicted factor 2^(1-p) times the ratio of the
+                    bracketed terms, printed beside the computed ratio of the radii.
+
+  (3) (b) THE ZERO-SIDE TAIL AS A BALL, ON P3
+                    THE COUNT LAW: N_Q(T) = (T/pi) log(sqrt 23 T / (2 pi e)) + C0 + theta R(T), |theta| <= 1, R(T) = a log T + b log log T + c for
+                    T >= 149 (relay data/b685_count.txt :20), a = 0.432571915432 +- 4.33e-41 (:21), b = 0 (:22), c = 1.26244217716 +- 1.26e-40
+                    (:23), taken as those balls; N_Q counts zeros with -1/2 < Re rho < 3/2, 0 < Im rho <= T, with multiplicity
+                    (data/b685_count_plan.txt :9). STATUS: P3 DERIVED -- constants certified in balls, analytic steps sourced, not compiled
+                    (data/b687_p3_status.txt :8-:12, :35).
+                    THE UNIT COUNT, u >= 149: N_Q(u + 1) - N_Q(u) <= M(u + 1) - M(u) + R(u + 1) + R(u) <= M'(u + 1) + 2 R(u + 1), M the main term
+                    (convex: M'' = 1/(pi T) > 0), M'(T) = (1/pi) ln(sqrt 23 T / (2 pi)).
+                    THE TERM BOUND: each zero rho = 1/2 + delta + i gamma, gamma > T0, enters the zero side as 2 Re k^(gamma - i delta)
+                    (:454-:459), |delta| < 1 in N_Q's strip (:463); with w = (z -+ g0) s/2, |sin w| <= cosh(Im w) <= e^(s/2), |w| >= theta' gamma s/2,
+                    theta' = 1 - g0/T0: |k^(gamma - i delta)| <= [(gamma^2 + 1 + g0^2) e^(3s) (2/(theta' s gamma))^6]^2 (N; without the polynomial
+                    factor, C), decreasing in gamma, so read at each interval's left end.
+                    THE BALL: SUM over the unit intervals [T0 + j, T0 + j + 1], j < 4000, of the count times 2 times the term bound, in arb;
+                    the rest by the integral of the decreasing majorant from T0 + 3999, in closed form (ln(u + 1) <= ln u + 1/U; u^2 + 1 + g0^2
+                    <= u^2 (1 + (1 + g0^2)/U^2)), in arb.
+                    ZETA'S (C1's identity): the count by HSW Corollary 1.2 as quoted at relay data/b685_search.txt :65-:66 ("For any T >= e ...
+                    |N(T) - (T/2pi) log(T/2pi e)| <= 0.1038 log T + 0.2573 log log T + 9.3675", N counting 0 < beta < 1), so |delta| < 1/2 and
+                    e^(s/4) in place of e^(s/2); the unit count M_Z'(u + 1) + 2 E(u + 1), M_Z'(T) = (1/2pi) ln(T/2pi); log log T <= log T in the
+                    remainder alone. No hypothesis on zeta's zeros above T0 is used.
+                    THE ONE PREMISE: the Q0 zero-tail ball rests on P3's count law (DERIVED, not compiled), stated in the bank beside every
+                    radius it gives. Carried, not new, and named as b694 named it: the banked zero list complete below 151.59 (data/b694_witness.txt :8).
+                    TWO HEIGHTS: T0 = 151.59 (tools/b694_witness_terms.py :57) and T0 = 303.18, each family, every width; the predicted factor
+                    (the leading T0^-7 log T0 for N, T0^-11 log T0 for C) printed beside the computed ratio. The tail at 303.18 is the bound's
+                    own scaling: no zero list reaches it and the identity is read at 151.59 alone.
+
+  (4) (c) THE RE-READ AT EVERY WIDTH
+                    Every row of data/b694_witness.txt (:12-:28: N at 14.106736 and the eight widths 16-192, C at 16-192) recomputed at 128 bits
+                    through b694's window, prime sum and integral, imported unchanged (tools/b694_witness_terms.py :106-:179, :291-:358, :370-:374),
+                    the archimedean float replaced by (a)'s ball; the identity read with (b)'s ball. ROWS ARE WIDTHS: family | a | S | the old
+                    radius (b694) | the new radius | the archimedean tail ball | the zero tail ball | the identity | the reading at b694 and now.
+                    FOUND or NOT FOUND per width as before.
+
+  (5) (d) T1 RE-WORDED, AND T2
+                    T1 (i)   each tail ball's radius at the two heights with the factor its bound predicts (N3);
+                       (ii)  at a = 32 (the narrowest margin), S with R = 8000: the integral over [4000, 8000] computed and read inside the
+                             R = 4000 tail ball -- the bound tested against the integral it bounds -- and S at 8000 inside S at 4000;
+                       (iii) at a = 32, S at 128 and 256 bits: the midpoints agree within the 256-bit ball (b694's T1 failed only on
+                             containment, the float tail dominating both radii: data/b694_witness_controls.txt :30-:32).
+                    T2 as before: S moved to 3 radii above 0 moves the decision; moved by a third of a radius does not.
+
+  (6) (e) THE CONTROLS WITH THE BALL TAILS
+                    C1 zeta at matched widths (both families, the eight widths) with (a)'s ball, read nonnegative beyond its radius at every
+                    width BEFORE any Q0 term (the guard of tools/b694_witness_terms.py :412-:417, carried); C3 the identity at every cell (Q0 and
+                    zeta, both families, and C2's window) with (b)'s ball; C2 b518's family at its own gamma_0 re-read with (a)'s ball.
+
+  (7) THE PRICE     b694's cells ran 1 to 3 s each and the 256-bit rung 6 s (data/b694_witness_units.jsonl, the "seconds" field); the run
+                    in foreground parts under the 590 s guard, resumable per cell (one unit per cell, appended to the untracked
+                    data/b696_witness_balls_units.jsonl): (p1) the tail balls at both heights; (p2) C1 zeta; (p3) Q0 and C2; (p4) C3; (p5) T1 at
+                    a = 32; (p6) the banks. Banks: data/b696_witness_balls.txt (rows are widths), data/b696_witness_balls_controls.txt,
+                    data/b696_witness_balls.json.gz beside data/b696_witness_balls_hashes.txt (data/b680_rules.txt row (1)). No Lean, no runner.
+                    The tool: tools/b696_witness_balls.py, new, importing b694's tool unedited.
+
+  (8) THE DISCHARGE (R306)(3): the order discharged where every width that read FOUND at b694 (32, 48, 64, 96, 128, 192;
+                    data/b694_witness.txt :34) reads FOUND with the ball radius; else the width that changed named and the order carried.
+
+  (9) THE OPTIONS   (R306)(3), verbatim: "run as written" / "run (a) alone" / "hold".
+                    "run as written": (p1)-(p6) above. "run (a) alone": the archimedean ball alone -- S re-read with it at every width, the
+                    identity read with b694's float zero tail, printed as such -- and the order carried for (b).
+
+### ### **THE ARCHIMEDEAN TAIL FROM DLMF (5.11.2) AND ITS REMAINDER BOUND (data/b696_source_dlmf_5_11.txt :393-:399), INTO THE SUM'S RADIUS ;
+### THE ZERO TAIL ON P3 (data/b685_count.txt :21, :23 ; data/b687_p3_status.txt), INTO THE IDENTITY'S TOLERANCE ; TWO HEIGHTS EACH ; RAISED BEFORE ANY TERM.**
