@@ -1,5 +1,5 @@
 {
- "at": "2026-10-20T20:58:35Z",
+ "at": "2026-10-20T21:48:19Z",
  "anchor": "RULING (R305) BEGIN",
  "rows": [
   {
@@ -1144,6 +1144,614 @@
    "src": "seat",
    "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py repairs",
    "n": 143,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:58:34.603Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py commands",
+   "n": 144,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:58:41.141Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py defects",
+   "n": 145,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:58:41.963Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py kernels",
+   "n": 146,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:58:59.203Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add tools/b695_record.py tools/b695_worklist.py tools/b695_checks.py tools/b695_closing.py tools/b695_reg_gate.py tools/b695_regspec.py data/b695_tool_repairs.txt data/b695_commands.txt data/b695_commands.json data/b695_defects.json data/b695_kernels_face.json data/b695_stepzero.txt",
+   "n": 147,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T20:59:03.317Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 C4 under (R305): the suite, gate, spec and closing carried from b694's with this act's names, banks and arms (93 standing, 29 the act's); the record tool's late routes; the carry-time reading (two repairs to carried routes, data/b695_tool_repairs.txt); the command bank (143 commands, no offence; b694's window bounded at this act's anchor); the defects json and the kernels face; the step-zero bank's process row in the listing's form\"",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:00:51.805Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --prerun --part act",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:01:30.558Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --prerun --part act",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:02:01.572Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --prerun --part standing-a",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:05:03.884Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --prerun --part standing-c",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:05:39.702Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --prerun --part standing-b1",
+   "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:06:45.104Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --prerun --part standing-b2",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:12:50.140Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --prerun --part standing-b3",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:14:29.729Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --combine b695_arms_prerun.txt",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:14:34.954Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py armsecs",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:14:40.583Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short data/b695_arms_prerun.txt data/b695_arms_prerun_act.txt data/b695_arms_prerun_standing-a.txt data/b695_arms_prerun_standing-b1.txt data/b695_arms_prerun_standing-b2.txt data/b695_arms_prerun_standing-b3.txt data/b695_arms_prerun_standing-c.txt data/b695_arm_seconds.json data/b695_arm_seconds.txt data/b695_arm_seconds_act.json data/b695_arm_seconds_standing-a.json data/b695_arm_seconds_standing-b1.json data/b695_arm_seconds_standing-b2.json data/b695_arm_seconds_standing-b3.json data/b695_arm_seconds_standing-c.json data/b695_chain_half_a_arms_prerun.json data/b695_chain_half_b_arms_prerun.json data/b695_lsr_prerun_act.json data/b695_lsr_prerun_standing-a.json data/b695_lsr_prerun_standing-b1.json data/b695_lsr_prerun_standing-b2.json data/b695_lsr_prerun_standing-b3.json data/b695_lsr_prerun_standing-c.json data/b695_registration_2026-10-20.txt tools/b695_record.py",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:14:47.726Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add tools/b695_record.py data/b695_registration_2026-10-20.txt data/b695_arms_prerun.txt data/b695_arms_prerun_act.txt data/b695_arms_prerun_standing-a.txt data/b695_arms_prerun_standing-b1.txt data/b695_arms_prerun_standing-b2.txt data/b695_arms_prerun_standing-b3.txt data/b695_arms_prerun_standing-c.txt data/b695_arm_seconds.json data/b695_arm_seconds.txt data/b695_arm_seconds_act.json data/b695_arm_seconds_standing-a.json data/b695_arm_seconds_standing-b1.json data/b695_arm_seconds_standing-b2.json data/b695_arm_seconds_standing-b3.json data/b695_arm_seconds_standing-c.json data/b695_chain_half_a_arms_prerun.json data/b695_chain_half_b_arms_prerun.json data/b695_lsr_prerun_act.json data/b695_lsr_prerun_standing-a.json data/b695_lsr_prerun_standing-b1.json data/b695_lsr_prerun_standing-b2.json data/b695_lsr_prerun_standing-b3.json data/b695_lsr_prerun_standing-c.json",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:14:53.125Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 C4 under (R305): the pre-run in six parts (122 arms, 91 passing, every control behaving; 30 of the 31 failing read banks not yet written -- the gate, the lock, the seal, the scores, the entry, the trail, the table, the root -- and G-RULE-BINARY-HASHES on b694's PNG, carried); the per-part seconds (93 standing arms clocked); the chain's halves b624-b658 and b659-b694 AGREE; the face, its placeholders to fill before the lock; the N3 scorer's first form, caught by its own pre-run, repaired\"",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:15:06.523Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py defects",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:15:26.618Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_reg_gate.py",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:15:58.656Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py gatebanks",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:16:05.965Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py scores dry",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:16:24.013Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b378_lockgate.py b695 data/b695_registration_2026-10-20.txt",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:16:27.314Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/reg_seal.py --lock data/b695_registration_2026-10-20.txt",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:16:30.470Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --seal",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:16:35.934Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short tools/b695_checks.py data/b695_registration_2026-10-20.txt data/b695_seal_hashes.json data/b695_lockgate.json data/b695_lockgate_notes.txt data/b695_reg_gate.txt data/b695_reg_termscan.txt data/b695_regspec_run.txt data/b695_satisfiable.json data/audit_b695_reg_satisfiable.txt data/b695_census_stepzero.txt data/b695_faces_census_stepzero.txt data/b695_pins_stepzero.txt data/b695_defects.txt data/b695_defects.json",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:16:39.573Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add tools/b695_checks.py data/b695_registration_2026-10-20.txt data/b695_seal_hashes.json data/b695_lockgate.json data/b695_lockgate_notes.txt data/b695_reg_gate.txt data/b695_reg_termscan.txt data/b695_regspec_run.txt data/b695_satisfiable.json data/audit_b695_reg_satisfiable.txt data/b695_census_stepzero.txt data/b695_faces_census_stepzero.txt data/b695_pins_stepzero.txt data/b695_defects.txt data/b695_defects.json",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:16:43.810Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 seal, under (R305): the face locked (sha256 a78b1684) after the gate CLEAR with both dry-run steps CLEAN and the lock gate's 8 of 8; G-RULE-BINARY-HASHES declared on the face, failing on real state on b694's PNG (its corrigendum this act's); the sealed tools' hashes recorded (9); the gate banks, the censuses and pins; defect (d), the N3 scorer's first form, caught by the pre-run; the defects floor at (a)-(d)\"",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:16:52.192Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py scores",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:03.535Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py table_final",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:28.985Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py findings dry",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:33.209Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py findings",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:38.004Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short --untracked-files=no",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:38.658Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short data/b695_scores.json data/b695_table_final.json data/b695_table_final.txt data/b695_findings.json data/terminal_table.json data/terminal_table.md",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:41.447Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b695_scores.json data/b695_table_final.json data/b695_table_final.txt data/b695_findings.json data/terminal_table.json data/terminal_table.md",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:44.774Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 pre-root: the scores bank (written once before the entry, N1-N3 and N5 HELD, N4 NOT MET AS WORDED; MET IN SUBSTANCE, S3 HELD), the final table (no row moved, added or gone, no grade moved), the findings landing bank (FINDINGS :9592)\"",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:47.855Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md",
+   "n": 179,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:51.089Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers commit -m \"b695 entry under (R305): SIDE-interfaces re-cut, 1 row outside LICENSED/CITED to 0, v0.2.1; the Weil-face line at Q0 regenerated with its caveats; CORRESPONDENCE-DOMINANCE specified; b694's post-seal failures by corrigendum (FINDINGS :9592)\"",
+   "n": 180,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:55.055Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch push-b695-root 5a19a8ce",
+   "n": 181,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:17:58.072Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b695_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b695-root",
+   "n": 182,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:18:08.219Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b695-root c416449",
+   "n": 183,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:18:11.395Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b695_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b695-root",
+   "n": 184,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:18:45.374Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py root",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:19:16.782Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py root_arm",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:19:20.671Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py trail dry",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:19:23.886Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py trail",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:19:27.988Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py desk",
+   "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:19:28.267Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py components",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:19:35.387Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/act_roots.txt data/b695_act_root.json data/b695_act_root.txt data/b695_root_arm.json data/b695_root_arm.txt data/b695_root_banks.json data/b695_root_banks.txt data/b695_trail.json data/b695_desk_notes.txt data/b695_components.txt data/b695_root_push_out.txt data/b695_pp_root_push_out.txt",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:19:38.786Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 record under (R305): act root b695 a84059769e7dd478 (banks 74, previous 012ffed6); the root's control; the trail at OPEN_TRAILS :15202; the desk; the components; the pre-root captures (relay 5a19a8ce, PLACE-papers c416449)\"",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:19:41.773Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers add OPEN_TRAILS.md",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:19:44.811Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers commit -m \"b695 record, under (R305): the trail record carrying the root a8405976 (OPEN_TRAILS :15202)\"",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:19:49.217Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --part standing-a",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:22:45.567Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --part standing-c",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:23:25.049Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --part standing-b1",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:24:33.813Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --part standing-b2",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:30:54.855Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --part standing-b3",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:32:40.103Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --part act",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:33:42.801Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --combine b695_checks.txt",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:33:49.492Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json data/b695_checks.txt data/b695_checks_act.txt data/b695_checks_standing-a.txt data/b695_checks_standing-b1.txt data/b695_checks_standing-b2.txt data/b695_checks_standing-b3.txt data/b695_checks_standing-c.txt data/b695_exercise.json data/b695_exercise_act.json data/b695_exercise_standing-a.json data/b695_exercise_standing-b1.json data/b695_exercise_standing-b2.json data/b695_exercise_standing-b3.json data/b695_exercise_standing-c.json data/b695_lsr_act.json data/b695_lsr_standing-a.json data/b695_lsr_standing-b1.json data/b695_lsr_standing-b2.json data/b695_lsr_standing-b3.json data/b695_lsr_standing-c.json data/b695_chain_half_a_checks.json data/b695_chain_half_b_checks.json",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:33:54.516Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay log --format=%h%x20%s -3 -- data/terminal_table_prior.json",
+   "n": 203,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:34:00.217Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/terminal_table_prior.json data/b695_chain_half_a_checks.json data/b695_chain_half_b_checks.json data/b695_checks.txt data/b695_checks_act.txt data/b695_checks_standing-a.txt data/b695_checks_standing-b1.txt data/b695_checks_standing-b2.txt data/b695_checks_standing-b3.txt data/b695_checks_standing-c.txt data/b695_exercise.json data/b695_exercise_act.json data/b695_exercise_standing-a.json data/b695_exercise_standing-b1.json data/b695_exercise_standing-b2.json data/b695_exercise_standing-b3.json data/b695_exercise_standing-c.json data/b695_lsr_act.json data/b695_lsr_standing-a.json data/b695_lsr_standing-b1.json data/b695_lsr_standing-b2.json data/b695_lsr_standing-b3.json data/b695_lsr_standing-c.json",
+   "n": 204,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:34:04.385Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b695 record: the pre-push suite in six parts, 122 arms, 121 passing, every control behaving; the one failing G-RULE-BINARY-HASHES as declared on the face (b694's PNG, its corrigendum this act's); the chain by act, b624-b658 and b659-b695 AGREE, the boundary equal (standing-a 172 s, standing-c 36 s, standing-b1 65 s, standing-b2 369 s, standing-b3 101 s, act 53 s)\"",
+   "n": 205,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:34:08.476Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch push-b695 aa70ac82",
+   "n": 206,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:34:11.347Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b695_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b695",
+   "n": 207,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:34:20.205Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b695 5ed6e31",
+   "n": 208,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:34:23.111Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b695_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b695",
+   "n": 209,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:34:55.184Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --rerun-postpush b695_checks_postpush.txt --part standing-a",
+   "n": 210,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:37:53.547Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --rerun-postpush b695_checks_postpush.txt --part standing-c",
+   "n": 211,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:38:33.483Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --rerun-postpush b695_checks_postpush.txt --part standing-b1",
+   "n": 212,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:39:41.657Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --rerun-postpush b695_checks_postpush.txt --part standing-b2",
+   "n": 213,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:45:47.070Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --rerun-postpush b695_checks_postpush.txt --part standing-b3",
+   "n": 214,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:47:28.443Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --rerun-postpush b695_checks_postpush.txt --part act",
+   "n": 215,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:48:02.054Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_checks.py --combine b695_checks_postpush.txt",
+   "n": 216,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:48:05.127Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py scores close",
+   "n": 217,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:48:16.878Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py desk",
+   "n": 218,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-20T21:48:17.512Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b695_record.py commands",
+   "n": 219,
    "bg": false
   }
  ],
