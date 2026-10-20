@@ -1,4 +1,4 @@
-b696 -- THE REPAIRS: (R306)(2), THE ONE EDIT TO A SHARED TOOL, AND THE CARRY-TIME READING (2026-10-20T22:48:05Z)
+b696 -- THE REPAIRS: (R306)(2), THE ONE EDIT TO A SHARED TOOL, AND THE CARRY-TIME READING (2026-10-20T23:04:54Z)
 
 ### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
 ### row, written by this route (difflib over the file, relay at 7b791453 against the working tree).
@@ -99,4 +99,99 @@ b696 -- THE REPAIRS: (R306)(2), THE ONE EDIT TO A SHARED TOOL, AND THE CARRY-TIM
        ]
        
 
-### ### **REPAIRS 1 ; THE SHARED TOOL EDITED tools/rule_arms.py, ONE ARM AND ONE CONTROL ; DIFF LINES 86 ; NO FROZEN BANK EDITED.**
+  (2) tools/b696_record.py branches, carried from tools/b695_record.py -- ANSWERS b695`s defect (a) (relay data/b695_defects.txt :6-:11):
+      b695 deleted its branches before its citation check and rebuilt their tips from git`s delete replies. THE FORM: `branches before`
+      banks every named branch`s tip, its ancestry in main and the remotes` heads before any delete; `branches` reads each fate after the
+      deletes against the tips banked before, the one remote delete among them.
+
+      --- tools/b695_record.py branches (sealed at b695)
+      +++ tools/b696_record.py branches (this act)
+      @@ -1,21 +1,46 @@
+       def branches(*a):
+      -    """data/b695_branches.json from data/b695_branches.txt's rows: each branch (R305)(6) names, its tip as git's delete reply gave it, resolved
+      -    to 40 hex; merged into main read again as the tip's ancestry; fate DELETED."""
+      +    """`branches before`: data/b696_branches_before.json -- every branch (R306)(5) names, its tip resolved to 40 hex, merged into main by
+      +    ancestry, and the remote's heads read once per repository; written before any delete. `branches`: data/b696_branches.txt (.json) -- each
+      +    branch's fate read now (absent locally, or absent at the remote for the one remote delete) against the tips banked before."""
+      +    if a and a[0] == 'before':
+      +        rows, remotes = [], {}
+      +        for repo, bs in K.DELETE:
+      +            remotes[repo] = _remote_heads(repo)
+      +            for b in bs:
+      +                tip = g(repo, 'rev-parse', '--verify', '--quiet', 'refs/heads/%s^{commit}' % b).strip()
+      +                merged = bool(tip) and grc(repo, 'merge-base', '--is-ancestor', tip, 'main') == 0
+      +                rows.append(dict(repo=repo, branch=b, where='local', tip=tip, merged=merged, at_remote=remotes[repo].get(b)))
+      +        for repo, b in K.DELETE_REMOTE:
+      +            tip = remotes.get(repo, {}).get(b, '')
+      +            merged = bool(tip) and grc(repo, 'merge-base', '--is-ancestor', tip, 'main') == 0
+      +            rows.append(dict(repo=repo, branch=b, where='remote', tip=tip, merged=merged, at_remote=tip))
+      +        put_json('%s_branches_before.json' % ACT, dict(at=utc(), rows=rows, remotes=remotes))
+      +        for r in rows:
+      +            print('  %-18s %-28s %-6s %s merged %s at the remote %s' % (os.path.basename(r['repo']), r['branch'], r['where'], (r['tip'] or '### NONE')[:12],
+      +                                                                       r['merged'], (r['at_remote'] or 'no')[:12]))
+      +        return
+      +    before = jl('%s_branches_before.json' % ACT).get('rows') or []
+      +    if not before:
+      +        sys.exit('### data/b696_branches_before.json IS NOT WRITTEN -- NOTHING READ')
+           rows = []
+      -    t = rdn('b695_branches.txt')
+      -    for repo, bs in K.DELETE:
+      -        for b in bs:
+      -            m = re.search(r'branch -d %s \| Deleted branch %s \(was ([0-9a-f]{7,40})\)\.' % (re.escape(b), re.escape(b)),
+      -                          NL.join(l for l in t.split(NL) if os.path.basename(repo).split('-')[0] in l or repo.split('/')[-1] in l))
+      -            short = m.group(1) if m else ''
+      -            tip = g(repo, 'rev-parse', '--verify', '--quiet', short + '^{commit}').strip() if short else ''
+      -            merged = bool(tip) and grc(repo, 'merge-base', '--is-ancestor', tip, 'main') == 0
+      -            local_now = bool(g(repo, 'branch', '--list', b).strip())
+      -            rows.append(dict(repo=repo, branch=b, where='local', tip=tip, merged=merged, fate='DELETED' if not local_now else 'KEPT'))
+      +    for r in before:
+      +        if r['where'] == 'local':
+      +            gone = not g(r['repo'], 'branch', '--list', r['branch']).strip()
+      +        else:
+      +            gone = r['branch'] not in _remote_heads(r['repo'])
+      +        rows.append(dict(repo=r['repo'], branch=r['branch'], where=r['where'], tip=r['tip'], merged=r['merged'], fate='DELETED' if gone else 'KEPT'))
+           for r in rows:
+               read_branch_row(r)
+      +    L = ['%s -- STEP ZERO, (R306)(5): THE BRANCHES, READ BEFORE ANY DELETE AND AFTER (%s)' % (ACT, utc()), '',
+      +         '### rows are branches: repository | branch | where | the tip before the delete (data/b696_branches_before.json, read before any delete) |',
+      +         '### merged into main by ancestry | the fate read now. Each delete one branch per command, each its own message, nothing chained after.']
+      +    L += ['  %-18s | %-28s | %-6s | %s | merged %s | %s' % (os.path.basename(r['repo']), r['branch'], r['where'], r['tip'], r['merged'], r['fate'])
+      +          for r in rows]
+      +    L += ['', '### ### **BRANCHES NAMED %d ; DELETED %d ; KEPT %d ; EVERY TIP MERGED %s.**' % (
+      +        len(rows), sum(1 for r in rows if r['fate'] == 'DELETED'), sum(1 for r in rows if r['fate'] == 'KEPT'), all(r['merged'] for r in rows))]
+      +    put_txt('%s_branches.txt' % ACT, L)
+           put_json('%s_branches.json' % ACT, dict(at=utc(), rows=rows, extra=[]))
+      -    print(NL.join('  %-24s %-24s %s merged %s %s' % (os.path.basename(r['repo']), r['branch'], r['tip'][:12], r['merged'], r['fate']) for r in rows))
+      +    print(NL.join(L[4:]))
+       
+       
+      -# ================================================================================ THE ANSWERS BANK (b694's route, carried)
+      +# ================================================================================ THE ANSWERS BANK (b695's route, carried)
+
+  (3) tools/b696_record.py outbound, carried from tools/b695_record.py -- ANSWERS N5`s "no identifier of the author in any outbound
+      request": this act`s one request outside the session`s tools is tools/b696_tails_source.py`s fetch of NIST DLMF section 5.11.
+      THE FORM: that request read from the tool`s own source (its URL and its one header) and counted among the outbound requests.
+
+      --- tools/b695_record.py outbound (sealed at b695)
+      +++ tools/b696_record.py outbound (this act)
+      @@ -1,4 +1,6 @@
+       def outbound():
+      +    """the outbound requests other than git: the session's web searches, subagent prompts and fetches; and the one request a tool of this act
+      +    makes, tools/b696_tails_source.py's fetch of NIST DLMF section 5.11, read from the tool's own source (its URL and its one header)."""
+           out = []
+           for i, o, _st, _sid in _session_rows():
+               if o.get('type') != 'assistant':
+      @@ -8,6 +10,11 @@
+                       inp = c.get('input') or {}
+                       text = inp.get('query') or inp.get('prompt') or inp.get('url') or ''
+                       out.append(dict(line=i, tool=c['name'], ts=o.get('timestamp'), text=text))
+      +    src = rd(os.path.join(T, 'b696_tails_source.py'))
+      +    m = re.search(r"^URL = '([^']+)'", src, re.M)
+      +    h = re.search(r"headers=(\{[^}]*\})", src)
+      +    out.append(dict(line='-', tool='tools/b696_tails_source.py (urllib)', ts=jl('%s_author_answers.json' % ACT).get('at') or '-',
+      +                    text='%s %s' % (m.group(1) if m else '### NO URL', h.group(1) if h else '### NO HEADER')))
+           for r in out:
+               r['identifiers'] = [w for w in IDENT if w in r['text'].lower()]
+           return out
+
+### ### **REPAIRS 3 ; THE SHARED TOOL EDITED tools/rule_arms.py, ONE ARM AND ONE CONTROL ; TWO CARRIED ROUTES OF THE RECORD TOOL ; DIFF LINES 170 ; NO FROZEN BANK EDITED.**

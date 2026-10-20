@@ -1,0 +1,149 @@
+b696 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-20T23:03:13Z)
+
+### the source: the seat`s session b97f6790-cfa6-43ae-aa06-9d3a07249ec4 from its first user line carrying 'RULING (R306) BEGIN', with its subagents` transcripts
+### commands read: 86
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b695, this same session b97f6790, from its post-push combine to this act`s anchor): 16 commands from 2026-10-20T21:48:02.054Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (0):
+  NONE
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (9):
+  #30 2026-10-20T22:18:22.000Z Bash
+      git -C /d/relay branch -d push-b695
+  #31 2026-10-20T22:18:24.131Z Bash
+      git -C /d/relay branch -d push-b695-root
+  #32 2026-10-20T22:18:26.324Z Bash
+      git -C /d/relay branch -d push-b695-closing
+  #33 2026-10-20T22:18:28.479Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b695
+  #34 2026-10-20T22:18:30.794Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b695-root
+  #35 2026-10-20T22:18:33.133Z Bash
+      git -C /d/SIDE-interfaces branch -d push-b695-interfaces-main
+  #36 2026-10-20T22:18:35.579Z Bash
+      git -C /d/SIDE-interfaces branch -d push-b695-interfaces-merge
+  #37 2026-10-20T22:18:37.750Z Bash
+      git -C /d/SIDE-interfaces branch -d recut-interfaces-b695
+  #38 2026-10-20T22:18:39.916Z Bash
+      git -C /d/SIDE-interfaces push origin --delete recut-interfaces-b695
+
+### THE BRANCH DELETES BY SHAPE ((R306)(5) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #30 deletes ['push-b695'], halves 1, globs none, variables none, chained after False; #31 deletes ['push-b695-root'], halves 1, globs none, variables none, chained after False; #32 deletes ['push-b695-closing'], halves 1, globs none, variables none, chained after False; #33 deletes ['push-b695'], halves 1, globs none, variables none, chained after False; #34 deletes ['push-b695-root'], halves 1, globs none, variables none, chained after False; #35 deletes ['push-b695-interfaces-main'], halves 1, globs none, variables none, chained after False; #36 deletes ['push-b695-interfaces-merge'], halves 1, globs none, variables none, chained after False; #37 deletes ['recut-interfaces-b695'], halves 1, globs none, variables none, chained after False; #38 deletes ['recut-interfaces-b695'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches, and the tails source`s one fetch), each with the author`s identifiers found in it (1):
+  line - | tools/b696_tails_source.py (urllib) | - | identifiers NONE | https://dlmf.nist.gov/5.11 {'User-Agent': 'Mozilla/5.0'}
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-20T22:01:21.963Z | seat | Bash | git -C /d/relay grep -n -E "def tail_bound|def zero_tail|4000|1\.01|151\.59|R_TRUNC|RMAX|safety" -- tools/b694_witness_terms.py tools/b694_witness.py
+  #2 | 2026-10-20T22:01:22.915Z | seat | Bash | git -C /d/relay grep -n -E "^  \((9|10)\)" -- data/b675_corrigenda.txt
+  #3 | 2026-10-20T22:01:23.690Z | seat | Bash | git -C /d/relay grep -n -E "BINARY|binar" -- tools/rule_arms.py
+  #4 | 2026-10-20T22:01:33.273Z | seat | Bash | git -C /d/relay grep -n -i -E "a = |c = |10 log|0\.432572|1\.262442|C_0|constants" -- data/b685_count.txt
+  #5 | 2026-10-20T22:01:34.238Z | seat | Bash | git -C /d/relay grep -n -i -E "height|151|149|150" -- data/b681_epstein_zeros_narrowed_hashes.txt data/b687_p3_status.txt
+  #6 | 2026-10-20T22:03:33.053Z | seat | PowerShell | git -C D:/relay ls-files data/b681*hash* data/b681*narrowed*
+  #7 | 2026-10-20T22:04:55.538Z | seat | PowerShell | python -X utf8 tools/b696_citation.py ferry
+  #8 | 2026-10-20T22:04:59.022Z | seat | PowerShell | python -X utf8 tools/b696_citation.py check dry
+  #9 | 2026-10-20T22:05:07.421Z | seat | PowerShell | python -X utf8 tools/b696_citation.py check
+  #10 | 2026-10-20T22:05:12.493Z | seat | PowerShell | git -C D:/relay ls-files data/b69*prompt* data/b68*prompt*
+  #11 | 2026-10-20T22:07:06.428Z | seat | PowerShell | python -X utf8 tools/b696_citation.py word "the height lives in the tool"
+  #12 | 2026-10-20T22:07:09.584Z | seat | PowerShell | python -X utf8 tools/b696_citation.py word "the page’s line number was carried onto the node list"
+  #13 | 2026-10-20T22:07:59.833Z | seat | PowerShell | git -C D:/relay grep -l -i -E "DLMF|digamma remainder|5\.11\.2|Binet" -- data tools
+  #14 | 2026-10-20T22:09:04.613Z | seat | PowerShell | Get-Item D:/relay/data/b694_witness_units.jsonl, D:/relay/data/b694_witness.json.gz | Select-Object Name, Length, LastWriteTime
+  #15 | 2026-10-20T22:09:38.900Z | seat | PowerShell | python -X utf8 tools/b696_tails_source.py fetch
+  #16 | 2026-10-20T22:09:46.919Z | seat | PowerShell | python -X utf8 tools/b696_tails_source.py fetch
+  #17 | 2026-10-20T22:10:02.173Z | seat | PowerShell | git -C D:/relay grep -n -F "0.1038" -- data/b687_plan.txt data/b687_matched.txt data/b685_search.txt data/b685_count_plan.txt
+  #18 | 2026-10-20T22:14:40.406Z | seat | PowerShell | python -X utf8 tools/b696_citation.py word "each printed once with their lines before the first ball"
+  #19 | 2026-10-20T22:15:16.233Z | seat | PowerShell | python -X utf8 tools/circuit_read.py readfirst b696_ferry.txt b696_readfirst.txt
+  #20 | 2026-10-20T22:15:51.016Z | seat | PowerShell | git -C D:/relay status --short --untracked-files=all -- data/b696_* tools/b696_*
+  #21 | 2026-10-20T22:16:07.840Z | seat | PowerShell | foreach ($f in 'b695_record','b695_checks','b695_closing','b695_reg_gate','b695_regspec','b695_tests','b695_corrigendum') { $p = "D:/relay/tools/$f.py"; "{0} {1
+  #22 | 2026-10-20T22:17:39.887Z | seat | PowerShell | python -X utf8 tools/b696_record.py rowgen
+  #23 | 2026-10-20T22:18:00.140Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='tail.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='claude.exe' OR Name='node.exe'" | Sel
+  #24 | 2026-10-20T22:18:04.083Z | seat | Bash | git -C /d/relay add data/b695_closing_push_out.txt
+  #25 | 2026-10-20T22:18:06.534Z | seat | Bash | git -C /d/relay commit -m "b696 step zero under (R306)(5): b695's closing push-out bank (push-b695-closing, main read back at a0478dee), committed alone"
+  #26 | 2026-10-20T22:18:09.361Z | seat | Bash | git -C /d/relay branch --merged main --list push-b695*
+  #27 | 2026-10-20T22:18:10.113Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b695*
+  #28 | 2026-10-20T22:18:10.780Z | seat | Bash | git -C /d/SIDE-interfaces branch --merged main --list *b695*
+  #29 | 2026-10-20T22:18:14.815Z | seat | PowerShell | python -X utf8 tools/b696_record.py branches before
+  #30 | 2026-10-20T22:18:22.000Z | seat | Bash | git -C /d/relay branch -d push-b695
+  #31 | 2026-10-20T22:18:24.131Z | seat | Bash | git -C /d/relay branch -d push-b695-root
+  #32 | 2026-10-20T22:18:26.324Z | seat | Bash | git -C /d/relay branch -d push-b695-closing
+  #33 | 2026-10-20T22:18:28.479Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b695
+  #34 | 2026-10-20T22:18:30.794Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b695-root
+  #35 | 2026-10-20T22:18:33.133Z | seat | Bash | git -C /d/SIDE-interfaces branch -d push-b695-interfaces-main
+  #36 | 2026-10-20T22:18:35.579Z | seat | Bash | git -C /d/SIDE-interfaces branch -d push-b695-interfaces-merge
+  #37 | 2026-10-20T22:18:37.750Z | seat | Bash | git -C /d/SIDE-interfaces branch -d recut-interfaces-b695
+  #38 | 2026-10-20T22:18:39.916Z | seat | Bash | git -C /d/SIDE-interfaces push origin --delete recut-interfaces-b695
+  #39 | 2026-10-20T22:18:44.173Z | seat | PowerShell | python -X utf8 tools/b696_record.py branches
+  #40 | 2026-10-20T22:19:27.258Z | seat | PowerShell | python -X utf8 tools/b696_tests.py parts
+  #41 | 2026-10-20T22:19:35.537Z | seat | Bash | python -X utf8 tools/b696_tests.py hold 1 && python -X utf8 tools/b696_tests.py run test_act_root.py && python -X utf8 tools/b696_tests.py run test_act_root_com
+  #42 | 2026-10-20T22:19:46.986Z | seat | Bash | python -X utf8 tools/b696_tests.py hold 2 && python -X utf8 tools/b696_tests.py run test_asof.py
+  #43 | 2026-10-20T22:26:59.067Z | seat | Bash | python -X utf8 tools/b696_tests.py hold 3 && python -X utf8 tools/b696_tests.py run test_axiom_claim.py && python -X utf8 tools/b696_tests.py run test_axiom_cla
+  #44 | 2026-10-20T22:27:41.418Z | seat | Bash | python -X utf8 tools/b696_tests.py hold 4 && python -X utf8 tools/b696_tests.py run test_chain_page.py
+  #45 | 2026-10-20T22:34:10.941Z | seat | Bash | python -X utf8 tools/b696_tests.py hold 5 && python -X utf8 tools/b696_tests.py run test_chain_page_b592.py && python -X utf8 tools/b696_tests.py run test_chain
+  #46 | 2026-10-20T22:36:56.212Z | seat | Bash | python -X utf8 tools/b696_tests.py hold 5b && python -X utf8 tools/b696_tests.py run test_composer_b647.py && python -X utf8 tools/b696_tests.py run test_compos
+  #47 | 2026-10-20T22:37:26.257Z | seat | Bash | python -X utf8 tools/b696_tests.py hold 6 && python -X utf8 tools/b696_tests.py run test_g_chain_page.py && python -X utf8 tools/b696_tests.py run test_glossary
+  #48 | 2026-10-20T22:39:50.182Z | seat | Bash | python -X utf8 tools/b696_tests.py hold 7 && python -X utf8 tools/b696_tests.py run test_name_b649.py && python -X utf8 tools/b696_tests.py run test_name_patter
+  #49 | 2026-10-20T22:44:22.867Z | seat | PowerShell | python -X utf8 tools/b696_tests.py report
+  #50 | 2026-10-20T22:44:38.533Z | seat | Bash | git -C /d/relay status --short
+  #51 | 2026-10-20T22:44:38.578Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers status --short
+  #52 | 2026-10-20T22:44:57.159Z | seat | Bash | git -C /d/relay add data/b696_ferry.txt data/b696_ferry_scan.txt data/b696_citation_check.txt data/b696_citation_check.json data/b696_readfirst.txt data/b696_re
+  #53 | 2026-10-20T22:45:02.094Z | seat | Bash | git -C /d/relay commit -m "b696 step zero under (R306): the citation check (88 of 90, two misses raised and answered), the readfirst bank and its closure diff, 
+  #54 | 2026-10-20T22:45:35.659Z | seat | PowerShell | python -X utf8 tools/b696_record.py c1 dry
+  #55 | 2026-10-20T22:45:40.509Z | seat | PowerShell | python -X utf8 tools/b696_record.py c1
+  #56 | 2026-10-20T22:47:06.072Z | seat | PowerShell | python -X utf8 tools/b696_record.py armrun dry
+  #57 | 2026-10-20T22:47:43.880Z | seat | PowerShell | python -X utf8 tools/b696_record.py armrun
+  #58 | 2026-10-20T22:48:03.455Z | seat | PowerShell | python -X utf8 tools/b696_record.py repairs
+  #59 | 2026-10-20T22:48:09.792Z | seat | Bash | git -C /d/relay status --short --untracked-files=no
+  #60 | 2026-10-20T22:48:12.328Z | seat | Bash | git -C /d/relay add tools/rule_arms.py tools/b696_record.py data/b696_arm_binary.txt data/b696_arm_binary.json data/b696_tool_repairs.txt data/b696_record_lines
+  #61 | 2026-10-20T22:48:15.473Z | seat | Bash | git -C /d/relay commit -m "b696 Component 1 under (R306)(1)-(2): b695's weight line at FINDINGS :9622; G-RULE-BINARY-HASHES in tools/rule_arms.py repaired to re
+  #62 | 2026-10-20T22:53:05.216Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py tails
+  #63 | 2026-10-20T22:53:16.244Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py zeta N
+  #64 | 2026-10-20T22:53:37.388Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py zeta C
+  #65 | 2026-10-20T22:53:50.819Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py q0 N
+  #66 | 2026-10-20T22:54:14.775Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py q0 C
+  #67 | 2026-10-20T22:54:28.439Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py c2
+  #68 | 2026-10-20T22:54:35.090Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py identity zeta N
+  #69 | 2026-10-20T22:54:38.327Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py identity zeta C
+  #70 | 2026-10-20T22:54:41.666Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py identity q0 N
+  #71 | 2026-10-20T22:54:45.033Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py identity q0 C
+  #72 | 2026-10-20T22:54:48.507Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py identity_c2
+  #73 | 2026-10-20T22:54:53.032Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py t1
+  #74 | 2026-10-20T22:55:06.216Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py bank
+  #75 | 2026-10-20T22:55:11.418Z | seat | PowerShell | python -X utf8 tools/b696_witness_balls.py bank
+  #76 | 2026-10-20T22:55:24.011Z | seat | PowerShell | git -C D:/relay check-attr -a -- data/b696_witness_balls.json.gz; git -C D:/relay config --get core.autocrlf; git -C D:/relay grep -n -F "CR LF pairs in the .gz
+  #77 | 2026-10-20T22:55:57.242Z | seat | PowerShell | python -X utf8 tools/b696_record.py facesrow dry
+  #78 | 2026-10-20T22:56:03.304Z | seat | PowerShell | python -X utf8 tools/b696_record.py facesrow
+  #79 | 2026-10-20T22:56:07.978Z | seat | Bash | git -C /d/relay add tools/b696_witness_balls.py tools/b696_record.py data/b696_witness_balls.txt data/b696_witness_balls_controls.txt data/b696_witness_balls.js
+  #80 | 2026-10-20T22:56:11.436Z | seat | Bash | git -C /d/relay commit -m "b696 Components 2-3 under (R306)(3)-(4): the witness's two tail bounds as certified balls (DLMF 5.11.2's remainder; P3's count law), 
+  #81 | 2026-10-20T22:56:15.209Z | seat | PowerShell | $h = (Get-FileHash D:/relay/data/b696_witness_balls.json.gz -Algorithm SHA256).Hash.ToLower(); $b = git -C D:/relay rev-parse HEAD:data/b696_witness_balls.json.
+  #82 | 2026-10-20T22:56:23.241Z | seat | PowerShell | git -C D:/relay cat-file -s HEAD:data/b696_witness_balls.json.gz; (Get-Item D:/relay/data/b696_witness_balls.json.gz).Length
+  #83 | 2026-10-20T22:56:49.644Z | seat | PowerShell | git -C D:/relay grep -n -E "def (runner_ok|wf_ok|merges_ok|gate_ok)" -- tools/b690_checks.py tools/b692_checks.py tools/b694_checks.py tools/b689_checks.py tool
+  #84 | 2026-10-20T22:58:27.580Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-files=no
+  #85 | 2026-10-20T22:58:30.050Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md
+  #86 | 2026-10-20T22:58:32.529Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b696 Component 1 under (R306)(1): b695 at its weight (FINDINGS :9622)"
+
+### ### **COMMANDS 86 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 9 OF 9 ; OUTBOUND REQUESTS 1, AN IDENTIFIER IN 0.**

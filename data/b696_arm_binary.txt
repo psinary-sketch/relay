@@ -1,9 +1,10 @@
-b696 -- (R306)(2): G-RULE-BINARY-HASHES AS REPAIRED, RUN AT HEAD 7b791453 (2026-10-20T22:47:48Z)
+b696 -- (R306)(2): G-RULE-BINARY-HASHES AS REPAIRED, RUN AT HEAD 6a18568f (2026-10-20T23:05:25Z)
 
 ### rows are runs: the case | wanted | read (OK or FAIL) | rows read | rows failing | AS WANTED ; the arm`s print beneath each.
 ### the corrigenda bank`s rows read: ['(9) data/b694_circuit_SIDE-lv-conservation_v0.13.0_png_hashes.txt :4 -> data/b694_circuit_SIDE-lv-conservation_v0.13.0.png 148025d53c948b89']
+### the binaries of the acts already rooted, b680 to b695: 12 ; this act`s own, read by the suite after its root: ['data/b696_witness_balls.json.gz']
 
-  (i) LIVE at HEAD                                               | wanted OK   | read OK   | rows  12 | failing 0 | AS WANTED True
+  (i) LIVE at HEAD, the rooted acts` binaries                    | wanted OK   | read OK   | rows  12 | failing 0 | AS WANTED True
       binary banks from b680 12, each carried by sha256 in a root-named text bank of its act, the root not naming the binary itself, or its frozen row corrected by a corrigendum (1: data/b694_circuit_SIDE-lv-conservation_v0.13.0.png OK BY CORRIGENDUM -- the frozen row data/b694_circuit_SIDE-lv-conservation_v0.13.0_png_hashes.txt :4 as written 'data/b692_circuit_SIDE-lv-conservation_v0.13.0.png | 148025d53c948b89696afe35c035e4655cd7a' ; the correction data/b675_corrigenda.txt row (9) :67, the file standing as data/b694_circuit_SIDE-lv-conservation_v0.13.0.png, sha256 148025d53c948b89 equal) ; failing NONE
   (ii) b694 (k), the corrigenda withheld (CONTROLS)              | wanted FAIL | read FAIL | rows  12 | failing 1 | AS WANTED True
       binary banks from b680 12, each carried by sha256 in a root-named text bank of its act, the root not naming the binary itself, or its frozen row corrected by a corrigendum (0: NONE) ; failing ['data/b694_circuit_SIDE-lv-conservation_v0.13.0.png']
