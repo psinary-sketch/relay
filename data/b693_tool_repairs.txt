@@ -107,4 +107,73 @@ index e866b190..53bbe581 100644
   The diffs of rows (3) and (4): `git diff d7c39c5b e7410053` and `git diff 3e8b2fb9 9ec495a3` over the two blobs, carried in full by
   relay data/b693_branch_mode.txt beside the mode's exercise.
 
+  (5) tools/rule_arms.py, 3f183f15 (b692's sealed copy) -- NOT REPAIRED. (R303)(4) orders the parts arm's family comparison repaired WHERE IT
+      READS NUMBERED HALVES ALONE. Read in memory before the suite (tools/b693_parts_probe.py, the tool imported unedited; relay
+      data/b693_parts_probe.txt): `met` (:480-:486) meets a governing part by itself or by TWO OR MORE distinct numbered parts of its family
+      (`len(v) >= 2`), never both -- a six-part run with standing-b1, -b2 and -b3 PASSES; a family read both whole and split FAILS; a part at
+      600 s FAILS; the arm's planted control FAILS; b692's real banks PASS. The condition is not met; the comment at :481-:482 names the halves,
+      b692's case, and is left as sealed.
+
+  (6) tools/act_root.py, 5b8b3d74 -> d10756fc -- ANSWERS (R303)(4) on the author's word (data/b693_author_answers.txt, prompt 3: the chain split
+      by act). THE FORM: `verify(..., acts=None)` -- where `acts` is given, only those acts are read at commit and reported; every row before
+      them is still walked for the chain's link, so the first act of a range checks its previous against the line before it in
+      data/act_roots.txt; a corrigendum row or a missing bank outside the range is not reported. `acts=None` reads exactly as before (the CLI
+      `verify` passes none). THE READING: tools/test_act_root.py case (10) on a four-act fixture chain broken at its third link -- the halves
+      {t201, t202} AGREE, AGREE and {t203, t204} DISAGREE (its link), AGREE, together equal to the whole -- "10 of 10"; test_act_root_commit_b644.py
+      "5 of 5" and test_act_root_order_b641.py "5 of 5" unchanged. In the suite (tools/b693_checks.py): standing-b2 verifies b624-b658 and banks
+      the verdicts, carrying no arm; standing-b3 verifies b659-b693 and runs G-ACTROOT-VERIFY once over both halves' verdicts; the whole chain
+      verified once, this act alone, as the author's control (data/b693_chain_control.txt), its verdict beside the halves', the three equal.
+
+  (7) tools/test_act_root.py, cab4c911 -> 7a9a4c55 -- case (10) above, in the test's own temporary directory.
+
+diff --git a/tools/act_root.py b/tools/act_root.py
+index 5b8b3d74..d10756fc 100644
+--- a/tools/act_root.py
++++ b/tools/act_root.py
+@@ -346,9 +346,12 @@ def at_commit(commit, paths):
+                  if p in where else (None, None, None)) for p in paths)
+
+
+-def verify(remote=ls_remote, worktree=None):
++def verify(remote=ls_remote, worktree=None, acts=None):
+     """### every act of data/act_roots.txt recomputed: [(act, verdict, reasons)]; (R254)(2): the banks read at each root's recorded commit
+-    ### (worktree=None reads at commit in a clone and the working tree in a stand-in; worktree=True reads the working tree)."""
++    ### (worktree=None reads at commit in a clone and the working tree in a stand-in; worktree=True reads the working tree).
++    ### b693, (R303)(4) on the author's word (the chain split by act): `acts`, where given, is the set of acts verified; every row before them
++    ### is still walked for the chain's link (each row's previous against the line before), so the first act of a range checks its link
++    ### to the act before it, read from data/act_roots.txt; a row outside the range is neither read at commit nor reported."""
+     out = []
+     if worktree is None:
+         worktree = not is_clone()
+@@ -358,7 +361,8 @@ def verify(remote=ls_remote, worktree=None):
+     rows = [l.split(None, 3) for l in _lines() if l.split()[0] != CORR]
+     cors = corrigenda()
+     for a_ in sorted(set(cors) - set(r[0] for r in rows)):
+-        out.append((CORR + ' ' + a_, 'DISAGREE', ['a corrigendum row for %s, which has no chain row' % a_]))
++        if acts is None or a_ in acts:
++            out.append((CORR + ' ' + a_, 'DISAGREE', ['a corrigendum row for %s, which has no chain row' % a_]))
+     prev_expect, prev_heads = EMPTY, None
+     for row in rows:
+         act, root, prev = row[:3]
+@@ -366,7 +370,8 @@ def verify(remote=ls_remote, worktree=None):
+         why = []
+         jp = os.path.join(D, '%s_act_root.json' % act)
+         if not os.path.exists(jp):
+-            out.append((act, 'DISAGREE', ['no bank data/%s_act_root.json' % act]))
++            if acts is None or act in acts:
++                out.append((act, 'DISAGREE', ['no bank data/%s_act_root.json' % act]))
+             prev_expect = root
+             continue
+         j = json.load(io.open(jp, encoding='utf-8'))
+@@ -381,6 +386,9 @@ def verify(remote=ls_remote, worktree=None):
+             if note != want:
+                 why.append('the line`s note %r, the heads gained %r' % (note, want))
+         prev_heads = heads
++        if acts is not None and act not in acts:
++            prev_expect = root
++            continue
+         at_epoch = j.get('at_epoch')
+         named = [it.split()[0] for it in j['items'] if it.split()[0].startswith('data/')]
+         if not worktree:
+
 

@@ -1,0 +1,25 @@
+b693 -- (R303)(4): THE SUITE-PARTS ARM`S FAMILY COMPARISON READ IN MEMORY BEFORE THE SUITE, tools/rule_arms.py UNEDITED (blob 3f183f15)
+
+### the comparison as it stands, verbatim (tools/rule_arms.py :480-:486):
+    :480         def met(run, gp):
+    :481             # ### b692, (R302)(2) on the author's word: a governing part is met by itself or by its numbered halves (standing-b by
+    :482             # ### standing-b1 and standing-b2, the split data/b684_rules.txt row (1) orders) and by no other numbering; never both.
+    :483             fam = {}
+    :484             for p in run:
+    :485                 fam.setdefault(re.sub(r'(?<=^standing-[a-z])[0-9]$', '', p), []).append(p)
+    :486             return sorted(fam) == sorted(gp) and all(v == [k] or (len(v) >= 2 and len(set(v)) == len(v) and k not in v) for k, v in fam.items())
+
+### rows are states the arm reads: the state | its verdict | read | failing | wanted | as wanted | the arm`s own reading.
+
+  b692`s real run banks and every earlier act`s              PASS ; read 44 ; failing 0 ; wanted PASS ; as wanted True -- standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s NONE
+  P1 the six parts this act runs                             PASS ; read 45 ; failing 0 ; wanted PASS ; as wanted True -- standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s NONE
+  P2 the five parts of b692 (the halves)                     PASS ; read 45 ; failing 0 ; wanted PASS ; as wanted True -- standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s NONE
+  P3 standing-b beside its own numbered part standing-b1     FAIL ; read 45 ; failing 1 ; wanted FAIL ; as wanted True -- b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s [('b693', 'arms_prerun')]
+  P4 the six, standing-b3 at 600 s                           FAIL ; read 45 ; failing 1 ; wanted FAIL ; as wanted True -- b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s [('b693', 'arms_prerun')]
+  the arm`s planted control (rule_arms.ARMS)                 FAIL ; read 45 ; failing 1 ; wanted FAIL ; as wanted True -- ']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s [('b678', 'planted')]
+
+### THE READING: the comparison groups a part by its family (`standing-<letter>` with one trailing digit dropped) and meets a
+### governing part by itself or by TWO OR MORE distinct numbered parts of its family (`len(v) >= 2`), never both -- any numbered
+### subdivision, not the halves alone; its comment (:481-:482) names the halves, b692`s case. NO REPAIR: the six-part run reads PASS as the comparison stands.
+
+### ### **THE SIX-PART RUN PASS ; THE FIVE PASS ; A FAMILY READ BOTH WHOLE AND SPLIT FAIL ; A PART AT 600 s FAIL ; THE PLANTED CONTROL FAIL ; EVERY STATE AS WANTED True ; NO REPAIR, THE COMPARISON READS ANY NUMBERED SUBDIVISION.**

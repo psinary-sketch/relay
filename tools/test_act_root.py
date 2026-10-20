@@ -17,6 +17,10 @@
 ### b634, (R244)(4) -- the census path at v0.5; b638, (R248)(5) -- at v0.6:
 ###   (9) the census the root reads is THE_KEYSTONE_CENSUS_v0_6.md, present at PLACE-papers HEAD, and its kernel column yields a
 ###       non-empty list every name of which is a SIDE- repository; the list read at v0.5 by the same reader is printed beside it.
+### b693, (R303)(4) -- the chain split by act (the author's word):
+###   (10) on a four-act chain whose third line names a wrong previous root (fresh temporary directory), verify over the first two acts
+###        reads them alone, AGREE; over the last two reads them alone, the third DISAGREE by its link to the second (read from the roots
+###        file though the second is outside the range) and the fourth AGREE; the two halves together equal the whole chain's reading.
 ### Nothing in relay is written. Usage: python tools/test_act_root.py
 """
 import hashlib
@@ -117,6 +121,27 @@ def main():
     want('(9) the census path is v0.6 and its kernel column reads %d kernels (v0.5 by the same reader %d; gained %s, lost %s)' % (
          len(ck6), len(ck5), sorted(set(ck6) - set(ck5)) or 'none', sorted(set(ck5) - set(ck6)) or 'none'),
          AR.CENSUS == 'phase2/method/THE_KEYSTONE_CENSUS_v0_6.md' and bool(ck6) and all(k.startswith('SIDE-') for k in ck6))
+    d = tempfile.mkdtemp()
+    save = (AR.D, AR.ROOTS, AR.ROOT)
+    try:
+        AR.D, AR.ROOTS, AR.ROOT = d, os.path.join(d, 'act_roots.txt'), d
+        prev, lines = EMPTY, []
+        for act in ('t201', 't202', 't203', 't204'):
+            p_ = 'e' * 64 if act == 't203' else prev
+            r = AR.root_of([], p_)
+            json.dump(dict(act=act, root=r, previous=p_, items=[]), open(os.path.join(d, '%s_act_root.json' % act), 'w'))
+            lines.append('%s %s %s' % (act, r, p_))
+            prev = r
+        open(AR.ROOTS, 'w').write('\n'.join(lines) + '\n')
+        h1 = AR.verify(remote=lambda p: {}, acts={'t201', 't202'})
+        h2 = AR.verify(remote=lambda p: {}, acts={'t203', 't204'})
+        wh = AR.verify(remote=lambda p: {})
+    finally:
+        AR.D, AR.ROOTS, AR.ROOT = save
+    vv = lambda v: [(x[0], x[1]) for x in v]   # noqa: E731
+    want('(10) the chain split by act: halves %s and %s, the whole %s, the third`s reason %s' % (vv(h1), vv(h2), vv(wh), (h2[0][2] if h2 else ['-'])[:1]),
+         vv(h1) == [('t201', 'AGREE'), ('t202', 'AGREE')] and vv(h2) == [('t203', 'DISAGREE'), ('t204', 'AGREE')] and vv(h1) + vv(h2) == vv(wh)
+         and bool(h2) and any('the chain: previous' in w for w in h2[0][2]))
     n = sum(res)
     print('### ### **%d of %d cases as wanted -- %s**' % (n, len(res), 'PASS' if n == len(res) else 'FAIL'))
     return 0 if n == len(res) else 1

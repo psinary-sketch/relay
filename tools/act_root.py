@@ -346,9 +346,12 @@ def at_commit(commit, paths):
                  if p in where else (None, None, None)) for p in paths)
 
 
-def verify(remote=ls_remote, worktree=None):
+def verify(remote=ls_remote, worktree=None, acts=None):
     """### every act of data/act_roots.txt recomputed: [(act, verdict, reasons)]; (R254)(2): the banks read at each root's recorded commit
-    ### (worktree=None reads at commit in a clone and the working tree in a stand-in; worktree=True reads the working tree)."""
+    ### (worktree=None reads at commit in a clone and the working tree in a stand-in; worktree=True reads the working tree).
+    ### b693, (R303)(4) on the author's word (the chain split by act): `acts`, where given, is the set of acts verified; every row before them
+    ### is still walked for the chain's link (each row's previous against the line before), so the first act of a range checks its link
+    ### to the act before it, read from data/act_roots.txt; a row outside the range is neither read at commit nor reported."""
     out = []
     if worktree is None:
         worktree = not is_clone()
@@ -358,7 +361,8 @@ def verify(remote=ls_remote, worktree=None):
     rows = [l.split(None, 3) for l in _lines() if l.split()[0] != CORR]
     cors = corrigenda()
     for a_ in sorted(set(cors) - set(r[0] for r in rows)):
-        out.append((CORR + ' ' + a_, 'DISAGREE', ['a corrigendum row for %s, which has no chain row' % a_]))
+        if acts is None or a_ in acts:
+            out.append((CORR + ' ' + a_, 'DISAGREE', ['a corrigendum row for %s, which has no chain row' % a_]))
     prev_expect, prev_heads = EMPTY, None
     for row in rows:
         act, root, prev = row[:3]
@@ -366,7 +370,8 @@ def verify(remote=ls_remote, worktree=None):
         why = []
         jp = os.path.join(D, '%s_act_root.json' % act)
         if not os.path.exists(jp):
-            out.append((act, 'DISAGREE', ['no bank data/%s_act_root.json' % act]))
+            if acts is None or act in acts:
+                out.append((act, 'DISAGREE', ['no bank data/%s_act_root.json' % act]))
             prev_expect = root
             continue
         j = json.load(io.open(jp, encoding='utf-8'))
@@ -381,6 +386,9 @@ def verify(remote=ls_remote, worktree=None):
             if note != want:
                 why.append('the line`s note %r, the heads gained %r' % (note, want))
         prev_heads = heads
+        if acts is not None and act not in acts:
+            prev_expect = root
+            continue
         at_epoch = j.get('at_epoch')
         named = [it.split()[0] for it in j['items'] if it.split()[0].startswith('data/')]
         if not worktree:
