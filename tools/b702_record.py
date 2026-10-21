@@ -360,7 +360,282 @@ def repairs(*a):
     print(NL.join(L) if 'dry' in a else L[-1])
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, defshort=defshort, c1=c1, guard=guard, repairs=repairs)
+# ================================================================================ COMPONENT 2: THE NAMING, (R312)(3) (b699's tie route, rewritten for the kinds)
+ROW4 = re.compile(r'^  (\S.*?)\s+(\d+) ->\s+(\d+) ->\s+(\d+) ->\s+(\d+)\s+\[(.*?)\]$')
+CSUM = re.compile(r'^### ### \*\*([\w-]+): CLAIMS (\d+) ; SKIPPED LINES \d+ ; MATCHES (\d+) ; UNDERSTATES (\d+) ; OVERREACHES (\d+) ; UNLICENSED (\d+) ;')
+
+
+def read_companion_sum(l):
+    """a companion's table summary line (data/b646_table_<companion>.txt): returns (name, claims, matches, understates, overreaches, unlicensed)."""
+    m = CSUM.match(l or '')
+    if not m:
+        raise ValueError('companion table summary of another shape: %r' % (l,))
+    return (m.group(1),) + tuple(int(x) for x in m.groups()[1:])
+
+
+READERS += ['read_companion_sum']
+
+
+def _kinds():
+    out = {}
+    for l in rdn(K.KINDS).split(NL):
+        p = [x.strip() for x in l.split('|')]
+        if len(p) == 7 and p[1] in ('monograph', 'companion', 'page', 'kernel', 'h2 row'):
+            out[p[0]] = p[1]
+    return out
+
+
+def tie(*a):
+    """b652's order (data/b652_ferry.txt :19) and b674's rule (data/b674_rules.txt :8-:11) printed verbatim first; then every agenda row of
+    reading 4 (data/b700_r4_licensed.txt :52-:84, b648 -> b680 -> b690 -> b700) with its kind from data/b648_recut_order.txt; the kernels by
+    descending count; where the top kernel count is 0 the order passes to the companions, read by descending count; at the top count b674's
+    rule applied in its written order, each step printed; and only then the document named. data/b702_tie.txt (.json)."""
+    order = rdn('b652_ferry.txt').split(NL)[K.ORDER_LINE - 1]
+    if 'the next kernel by descending count under the same rules, then the companions' not in order:
+        sys.exit('### data/b652_ferry.txt :%d DOES NOT CARRY b652`s ORDER -- NOTHING WRITTEN' % K.ORDER_LINE)
+    rl = rdn('b674_rules.txt').split(NL)[K.RULE_LINES[0] - 1:K.RULE_LINES[1]]
+    if not rl or not rl[0].startswith('  (2) THE TIE-BREAK BEYOND THE COUNT'):
+        sys.exit('### data/b674_rules.txt :%d DOES NOT CARRY ROW (2) -- NOTHING WRITTEN' % K.RULE_LINES[0])
+    kinds = _kinds()
+    rows = []
+    for i, l in enumerate(rdn(K.LICENSED_NOW).split(NL), 1):
+        m = ROW4.match(l)
+        if m:
+            doc = m.group(1).strip()
+            rows.append(dict(document=doc, kind=kinds.get(doc, '### NO KIND'), line=i, row=l.strip(), now=int(m.group(5)), source=m.group(6)))
+    unk = [r['document'] for r in rows if r['kind'] == '### NO KIND']
+    if len(rows) != 33 or unk:
+        sys.exit('### READING 4 READ AS %d ROWS, KINDS MISSING FOR %s -- NOTHING WRITTEN' % (len(rows), unk))
+    kern = sorted([r for r in rows if r['kind'] == 'kernel'], key=lambda r: -r['now'])
+    comp = sorted([r for r in rows if r['kind'] == 'companion'], key=lambda r: -r['now'])
+    ktop = kern[0]['now'] if kern else 0
+    pool = kern if ktop > 0 else comp
+    top = [r for r in pool if r['now'] == pool[0]['now']] if pool and pool[0]['now'] > 0 else []
+    for r in top:
+        if r['kind'] == 'companion':
+            sl = [x for x in rdn(os.path.basename(r['source'])).split(NL) if x.startswith('### ### **') and ': CLAIMS ' in x]
+            _n, cl, mt, us, ov, ul = read_companion_sum(sl[0] if sl else '')
+            r.update(table_rows=cl, overreaches=ov, unlicensed=ul, understates=us, any_kind=us + ov + ul, summary=sl[0] if sl else '',
+                     name=_n, path=r['document'].split(' (')[0])
+    steps, cand = [], list(top)
+    if len(cand) > 1:
+        mo = max(r['overreaches'] for r in cand)
+        steps.append('(i) THE OVERREACHES COUNTS: %s ; the greatest %d ; standing %s' % (
+            ', '.join('%s %d' % (r['document'], r['overreaches']) for r in cand), mo, [r['document'] for r in cand if r['overreaches'] == mo]))
+        cand = [r for r in cand if r['overreaches'] == mo]
+    if len(cand) > 1:
+        ma = max(r['any_kind'] for r in cand)
+        steps.append('(ii) EQUAL OVERREACHES: THE ROWS OUTSIDE LICENSED/CITED OF ANY KIND (UNDERSTATES COUNTED): %s ; the greatest %d ; standing %s' % (
+            ', '.join('%s %d' % (r['document'], r['any_kind']) for r in cand), ma, [r['document'] for r in cand if r['any_kind'] == ma]))
+        cand = [r for r in cand if r['any_kind'] == ma]
+    if len(cand) > 1:
+        mr = max(r['table_rows'] for r in cand)
+        steps.append('(iii) EQUAL OF ANY KIND: THE LARGER TABLE: %s ; the largest %d ; standing %s' % (
+            ', '.join('%s %d claims' % (r['document'], r['table_rows']) for r in cand), mr, [r['document'] for r in cand if r['table_rows'] == mr]))
+        cand = [r for r in cand if r['table_rows'] == mr]
+    named = cand[0] if len(cand) == 1 else None
+    L = ['%s -- COMPONENT 2, (R312)(3): THE LICENSED TABLE`S NEXT DOCUMENT, b652`S ORDER AND b674`S TIE-BREAK RULE PRINTED BEFORE IT IS NAMED (%s)' % (ACT, utc()), '',
+         '### b652`S ORDER, VERBATIM FROM relay data/b652_ferry.txt :%d:' % K.ORDER_LINE, '    ' + order, '',
+         '### b674`S TIE-BREAK RULE, VERBATIM FROM relay data/b674_rules.txt :%d-:%d:' % K.RULE_LINES] + rl + [
+         '', '### THE AGENDA`S ROWS, VERBATIM (reading 4, relay data/%s, b648 -> b680 -> b690 -> b700), EACH WITH ITS KIND FROM relay data/%s;'
+         % (K.LICENSED_NOW, K.KINDS), '### rows are documents: the count now | the kind | the row (its line):']
+    L += ['  %3d | %-9s | %s (:%d)' % (r['now'], r['kind'], r['row'], r['line']) for r in rows]
+    L += ['', '### THE KERNELS BY DESCENDING COUNT: the top count %d ; kernels at 0 %d of %d -- %s' % (
+        ktop, sum(1 for r in kern if r['now'] == 0), len(kern),
+        'the order passes to the companions ("then the companions")' if ktop == 0 else 'the order stays with the kernels')]
+    if ktop == 0:
+        L += ['### THE COMPANIONS BY DESCENDING COUNT: %s' % '; '.join('%s %d' % (r['document'], r['now']) for r in comp)]
+    L += ['### THE TOP COUNT %s ; the documents standing at it %s ; b674`s rule %s' % (
+        pool[0]['now'] if pool else '### NONE', [r['document'] for r in top] or 'NONE',
+        'NOT REACHED (one document at the top count, no tie)' if len(top) == 1 else 'REACHED: %d documents at the top count' % len(top))]
+    L += ['### the tables of the documents at the top count, their summary lines verbatim:'] + ['    relay %s : %s' % (r['source'], r.get('summary', ''))
+                                                                                                for r in top]
+    L += ['### b674`s rule, step by step in its written order:'] + (['    ' + s for s in steps] or ['    NOT REACHED: no step taken'])
+    L += ['', '### ### **THE NEXT DOCUMENT BY b652`S ORDER AND b674`S TIE-BREAK: %s (A COMPANION ; THE TOP COUNT %d, %d DOCUMENT%s AT IT ; %s ; '
+          'THE NEXT BY COUNT %s).**' % (named['document'], named['now'], len(top), '' if len(top) == 1 else 'S',
+                                         'DECIDED AT STEP %s' % ['(i)', '(ii)', '(iii)'][len(steps) - 1] if steps else 'NO TIE',
+                                         '; '.join('%s %d' % (r['document'], r['now']) for r in pool if r not in top and r['now'] == max(
+                                             [x['now'] for x in pool if x not in top] or [0]))) if named else '### ### **NO DOCUMENT NAMED -- RAISED.**']
+    if 'dry' in a:
+        print(NL.join(L))
+        return
+    put_txt('%s_tie.txt' % ACT, L)
+    put_json('%s_tie.json' % ACT, dict(at=utc(), rule=rl, order=order, rows=rows, steps=steps, kernels_top=ktop,
+                                       named=named.get('name') if named else None, path=named.get('path') if named else None))
+    print(NL.join(L))
+
+
+# ================================================================================ COMPONENT 2: THE QUOTATION SEARCH BEFORE THE COMMIT (data/b690_rules.txt row (2))
+# ### one needle per line the cut removes or changes, checked to stand in its own removed line before it is searched; the second shape shorter
+# ### and case-insensitive. A paper has no merge: the search runs over PLACE-papers' tracked working tree after the edits and before the cut's
+# ### commit; the control at HEAD (the base), where every removed line stands.
+QUOTE_NEEDLES = (
+    ('The formation count is machine-checked in Lean 4', 'formation count is machine-checked'),
+    ('The distributive interface is likewise spectrally inert', 'likewise spectrally inert'),
+    ('qualify as essential and universal', 'qualify as essential'),       # ### tightened once: 'essential and universal' hit 25 lines of the term
+    ('All four summands of the formation now have domain Ostrowskis', 'now have domain ostrowskis'),   # ### tightened once: 'domain ostrowskis' hit 40
+    ('no class, however defined, produces off-line zeros', 'independent empirical evidence for exhaustiveness'),
+    ('| ξ(s) | Ostrowski + Tate + algebra + bipartition | 7 | This work |', 'ostrowski + tate + algebra + bipartition | 7'),
+    ('is the catalogue on which the proof of Theorem (RH) rests', 'the proof follows as a syllogism'),
+    ('The formation count and supporting infrastructure are compiled', 'supporting infrastructure are compiled'),
+    ('Seven per-class identifications of σ = 1/2', 'per-class identifications of'),
+    ('135+ theorems in the core subset', 'core subset relevant to this paper'),
+    ('five bridge files compile against Mathlib in a separate project', 'five bridge files compile'),
+    ('This paper develops one component of a proof of Theorem (RH)', 'one component of a proof of theorem (rh)'),
+    ('no pair of classes produces the coincidence an off-line zero would need', 'coincidence an off-line zero would need'),
+)
+
+
+def _removed_lines(base_text, now_text):
+    import difflib
+    a, b = base_text.split(NL), now_text.split(NL)
+    out = []
+    for tag, i1, i2, _j1, _j2 in difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes():
+        if tag in ('replace', 'delete'):
+            out += [(i + 1, a[i]) for i in range(i1, i2) if a[i].strip()]
+    return out
+
+
+def quote(*a):
+    """data/b702_quote.txt (.json): every line the cut removes or changes (difflib, autojunk off, the base blob at PLACE-papers HEAD against the
+    working tree), one needle each by containment, refused where a removed line carries none or a needle stands in no removed line; each needle
+    searched with git grep -n -F across PLACE-papers' tracked working tree in two shapes; every hit printed with its quoting line and entered as a
+    residue; the control at HEAD. Run after the edits and before the cut's commit."""
+    base = _show(PP, 'HEAD', K.CUT_DOC) or ''
+    now = rd(os.path.join(PP, *K.CUT_DOC.split('/'))).replace('\r', '')
+    removed = _removed_lines(base.replace('\r', ''), now)
+    rows, unassigned = [], []
+    for ln, l in removed:
+        nd = [(n, w) for n, w in QUOTE_NEEDLES if n in l]
+        if len(nd) != 1:
+            unassigned.append((ln, len(nd)))
+            continue
+        n, w = nd[0]
+        if w.lower() not in l.lower():
+            unassigned.append((ln, 'second shape'))
+        rows.append(dict(base_line=ln, line=l, needle=n, wide=w))
+    unused = [n for n, _w in QUOTE_NEEDLES if not any(r['needle'] == n for r in rows)]
+    if unassigned or unused:
+        sys.exit('### A REMOVED LINE WITHOUT EXACTLY ONE NEEDLE %s OR A NEEDLE IN NO REMOVED LINE %s -- NOTHING WRITTEN' % (unassigned, unused))
+    hits = []
+    for r in rows:
+        r['hits'] = [x for x in g(PP, 'grep', '-n', '-F', r['needle'], '--').split(NL) if x.strip()]
+        r['hits_wide'] = [x for x in g(PP, 'grep', '-n', '-i', '-F', r['wide'], '--').split(NL) if x.strip()]
+        r['control'] = (len([x for x in g(PP, 'grep', '-n', '-F', r['needle'], 'HEAD', '--').split(NL) if x.strip()]),
+                        len([x for x in g(PP, 'grep', '-n', '-i', '-F', r['wide'], 'HEAD', '--').split(NL) if x.strip()]))
+        hits += [h for h in r['hits_wide'] if h not in hits]
+        hits += [h for h in r['hits'] if h not in hits]
+    q = sorted(set((h.split(':', 2)[0], int(h.split(':', 2)[1])) for h in hits))
+    L = ['%s -- THE QUOTATION SEARCH BEFORE THE CUT`S COMMIT, data/b690_rules.txt row (2), OVER PLACE-papers (%s)' % (ACT, utc()), '',
+         '### the cut: %s, the base its blob at PLACE-papers HEAD %s against the working tree (difflib, autojunk off); the lines it removes or changes %d ;'
+         % (K.CUT_DOC, g(PP, 'rev-parse', '--short=7', 'HEAD').strip(), len(rows)),
+         '### one needle each, checked to stand in its own removed line; each searched with git grep -n -F across the tracked working tree. Rows are',
+         '### removed lines: the base line | needle | hits ; the second shape | hits | the removed line (its head):']
+    for r in rows:
+        L.append('  :%-4d %-60r %d hit(s) ; %-46r %d hit(s) | %s' % (r['base_line'], r['needle'][:60], len(r['hits']), r['wide'], len(r['hits_wide']),
+                                                                    r['line'].strip()[:90]))
+        L += ['      %s' % h[:220] for h in sorted(set(r['hits'] + r['hits_wide']))]
+    L += ['', '### THE CONTROL: each needle at HEAD (the base), where the removed line stands (base line ; case-exact hits ; case-insensitive hits):']
+    L += ['  :%-4d ; %d ; %d' % (r['base_line'], r['control'][0], r['control'][1]) for r in rows]
+    L += ['### the control %s' % ('FIRES FOR EVERY NEEDLE IN BOTH SHAPES' if all(r['control'][0] and r['control'][1] for r in rows) else '### DOES NOT FIRE FOR EVERY NEEDLE')]
+    L += ['', '### THE QUOTING LINES, DISTINCT (file :line): %s' % (', '.join('%s :%d' % x for x in q) or 'NONE'),
+          '### the yields: the case-exact shape %d hit(s) ; the case-insensitive shape %d hit(s) ; distinct lines %d' % (
+              sum(len(r['hits']) for r in rows), sum(len(r['hits_wide']) for r in rows), len(q)),
+          '', '### ### **REMOVED OR CHANGED LINES %d ; NEEDLES SEARCHED %d IN TWO SHAPES ; QUOTING LINES %d -- EACH ENTERED AS A RESIDUE.**' % (
+              len(rows), len(rows), len(q))]
+    if 'dry' in a:
+        print(NL.join(L))
+        return
+    put_txt('%s_quote.txt' % ACT, L)
+    put_json('%s_quote.json' % ACT, dict(at=utc(), document=K.CUT_DOC, base=g(PP, 'rev-parse', 'HEAD').strip(), rows=rows, quoting=[list(x) for x in q]))
+    print(NL.join(L))
+
+
+# ================================================================================ COMPONENT 2: THE CUT'S DISTANCE BY THE b670 METHOD ((R312)(3), N3)
+FULL_ROW = re.compile(r'^  :(\d+) (OVERREACHES|UNLICENSED|UNDERSTATES) -- STATED "(.*)"$')
+# ### N3: no Correspondence cell by hand -- the two rows standing in the paper's Correspondence table (base :280-:285), the paper off the
+# ### roster so no generator writes its cells; held, each named with its reason, and counted in the distance after
+HELD = {282: 'a cell of the paper`s Correspondence table (base :280-:285); N3: no Correspondence cell by hand, and the paper is off the 19-table '
+             'roster, so no generator writes it',
+        283: 'a cell of the paper`s Correspondence table (base :280-:285); N3: no Correspondence cell by hand, and the paper is off the 19-table '
+             'roster, so no generator writes it'}
+STALE = ((7, 'the record line of v3.3.1 (b644): "The text otherwise stands as it stood." -- stale once the cut lands; the ruling orders the cut on '
+             'the rows alone, so it is named here and not written'),
+         (272, 'the Correspondence heading: "ADDITIVE ONLY: no claim, argument, or sentence above this line is altered" -- stale once the cut lands; '
+               'named here and not written'))
+
+
+def _norm(t):
+    return ' '.join((t or '').split())
+
+
+def cut(*a):
+    """data/b702_cut.txt (.json): each non-MATCHES row of the paper's table (data/b646_table_Seven_Mechanism_Classes.txt, the full rows), its
+    STATED text searched whitespace-normalized in the document at the base (PLACE-papers HEAD before the cut's commit, or the commit's parent
+    once committed) and now (the working tree); a row met where its text no longer stands; the distance the rows not met. The table's pinned
+    sha256 checked against the base first. The residues from data/b702_quote.json; the two held cells and the two stale record lines named."""
+    import hashlib
+    tl = rdn(K.CUT_TABLE).split(NL)
+    pin = re.search(r'at (\w+), (\d+) lines, sha256 (\w+)', tl[2])
+    committed = bool(K.CUT_COMMIT)
+    base_rev = (K.CUT_COMMIT + '^') if committed else 'HEAD'
+    base = (_show(PP, base_rev, K.CUT_DOC) or '').replace('\r', '')
+    now = rd(os.path.join(PP, *K.CUT_DOC.split('/'))).replace('\r', '')
+    sha = hashlib.sha256(base.encode('utf-8')).hexdigest()
+    if not pin or pin.group(3) != sha:
+        sys.exit('### THE TABLE`S PIN %s IS NOT THE BASE`S sha256 %s -- NOTHING WRITTEN' % (pin and pin.group(3), sha))
+    i0 = tl.index('### THE ROWS READING OVERREACHES OR UNLICENSED, IN FULL:')
+    rows = []
+    for i in range(i0 + 1, len(tl)):
+        m = FULL_ROW.match(tl[i])
+        if not m:
+            continue
+        act = tl[i + 2].strip() if i + 2 < len(tl) else ''
+        ln, verdict, q = int(m.group(1)), m.group(2), m.group(3)
+        sb, sn = _norm(q) in _norm(base), _norm(q) in _norm(now)
+        rows.append(dict(line=ln, verdict=verdict, quote=q, action=act[:160], table_line=i + 1, applied=ln not in HELD, held=HELD.get(ln),
+                         met_at_base=not sb, met_at_head=not sn))
+    before = sum(1 for r in rows if not r['met_at_base'])
+    after = sum(1 for r in rows if not r['met_at_head'])
+    qj = jl('%s_quote.json' % ACT)
+    residues = [list(x) for x in (qj.get('quoting') or [])]
+    L = ['%s -- COMPONENT 2, (R312)(3): THE RE-CUT OF %s, ITS DISTANCE, ITS RESIDUES (%s)' % (ACT, K.CUT_DOC, utc()), '',
+         '### the document: %s (v3.3.1), named by b652`s order passing to the companions at every kernel 0, one document at the top count 24, b674`s'
+         % K.CUT_DOC, '### rule printed and not reached (relay data/b702_tie.txt). Its table: relay data/%s, pinned at %s, %s lines, sha256 %s =' % (
+             K.CUT_TABLE, pin.group(1), pin.group(2), pin.group(3)[:16]),
+         '### the base`s (PLACE-papers %s). The cut: each non-MATCHES row`s ACTION applied by the Edit tool, the paper`s own straight apostrophes kept; ' % base_rev,
+         '### no tag moves for a paper (data/b698_rules.txt row (1) not reached); nothing moved or renamed.', '',
+         '### THE DISTANCE BY THE b670 METHOD: each non-MATCHES row`s STATED text searched whitespace-normalized in the document at the base and now,',
+         '### the row met where it no longer stands. Rows: base line | verdict | applied or HELD | stands at the base | stands now | the STATED text:']
+    for r in rows:
+        L.append('  :%-4d | %-11s | %-7s | base %-5s | now %-5s | %s' % (r['line'], r['verdict'], 'applied' if r['applied'] else 'HELD', not r['met_at_base'],
+                                                                         not r['met_at_head'], r['quote'][:110]))
+        if r['held']:
+            L.append('        HELD: %s' % r['held'])
+    L += ['', '### THE RESIDUES (data/b690_rules.txt row (2); relay data/b702_quote.txt, two shapes, the search run before the cut`s commit): each quoting',
+          '### line, file :line. The second shape tightened once at two needles (:142 "essential and universal" 25 hits -> "qualify as essential" 2;',
+          '### :155 "domain ostrowskis" 40 hits -> "now have domain ostrowskis" 2), every line of the tightened yield read by hand: the paper`s frozen',
+          '### copies (outputs/DEPOSITED-v1.1.2, archive/2026-08-27-trim-backfill), the monograph`s eleven-programme sentence (v5.18 :996 and its',
+          '### earlier copies) and the five companions` closing sentence the cut changed at :265 (each carried by its own table):']
+    L += ['  %s :%d' % (f, n) for f, n in residues]
+    L += ['', '### THE RECORD LINES THE CUT MAKES STALE, NAMED AND NOT WRITTEN:'] + ['  :%d %s' % s for s in STALE]
+    L += ['', '### ### **%s RE-CUT: THE DISTANCE BEFORE %d, AFTER %d ; ROWS APPLIED %d, MET %d ; HELD %d (CORRESPONDENCE CELLS) ; QUOTING LINES %d ; '
+          'STALE RECORD LINES %d ; NO TAG ; NOTHING MOVED.**' % (K.CUT_NAME, before, after, sum(1 for r in rows if r['applied']),
+                                                                 sum(1 for r in rows if r['applied'] and r['met_at_head']), len(HELD), len(residues), len(STALE))]
+    ok = len(rows) == 24 and before == 24 and all(r['met_at_head'] for r in rows if r['applied']) and all(not r['met_at_head'] for r in rows if not r['applied'])
+    if not ok:
+        L[-1] = '### ### **THE CUT IS NOT AS READ: rows %d, before %d, after %d -- SEE ABOVE**' % (len(rows), before, after)
+    if 'dry' in a or not ok:
+        print(NL.join(L))
+        return
+    put_txt('%s_cut.txt' % ACT, L)
+    put_json('%s_cut.json' % ACT, dict(at=utc(), document=K.CUT_DOC, base=base_rev, before=before, after=after, applied=before - after, rows=rows,
+                                       residues=residues, stale=[list(s) for s in STALE], held=sorted(HELD)))
+    print(NL.join(L))
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, defshort=defshort, c1=c1, guard=guard, repairs=repairs, tie=tie,
+              quote=quote, cut=cut)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

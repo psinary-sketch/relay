@@ -1,0 +1,474 @@
+{
+ "at": "2026-10-21T20:48:57Z",
+ "document": "day1/Seven_Mechanism_Classes.md",
+ "base": "HEAD",
+ "before": 24,
+ "after": 2,
+ "applied": 22,
+ "rows": [
+  {
+   "line": 19,
+   "verdict": "OVERREACHES",
+   "quote": "The formation count is machine-checked in Lean 4: `SIDEKernel.formation` and `SIDEKernel.formation_count`",
+   "action": "ACTION RE-CUT: The formation count is machine-checked in Lean 4: `SIDEKernel.formation` and `SIDEKernel.formation_count` -- say the kernel checks the arithmetic",
+   "table_line": 258,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 129,
+   "verdict": "OVERREACHES",
+   "quote": "The distributive interface is likewise spectrally inert for zero locations.",
+   "action": "ACTION RE-CUT: The distributive interface is likewise spectrally inert for zero locations. -- state the registers at their depths: R1 false as stated, R2 RH res",
+   "table_line": 261,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 142,
+   "verdict": "OVERREACHES",
+   "quote": "qualify as essential and universal (each acts identically across configurations by construction)",
+   "action": "ACTION RE-CUT: qualify as essential and universal (each acts identically across configurations by construction) -- state the registers at their depths: R1 false",
+   "table_line": 264,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 142,
+   "verdict": "OVERREACHES",
+   "quote": "The universal theorem forces κ = 0 for both, giving n₄ = 0.",
+   "action": "ACTION RE-CUT: The universal theorem forces κ = 0 for both, giving n₄ = 0. -- state the registers at their depths: R1 false as stated, R2 RH restated, R4 equiva",
+   "table_line": 267,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 155,
+   "verdict": "OVERREACHES",
+   "quote": "thesis and Lean-verified) is equally rigorous",
+   "action": "ACTION RE-CUT: thesis and Lean-verified) is equally rigorous -- say conservation_of_spectra states (1 : ℚ)^s = 1; the n₄ = 0 reading is the paper’s argument, no",
+   "table_line": 270,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 155,
+   "verdict": "OVERREACHES",
+   "quote": "the distributive law is an interface, proved spectrally inert (n₄ = 0)",
+   "action": "ACTION RE-CUT: the distributive law is an interface, proved spectrally inert (n₄ = 0) -- state the registers at their depths: R1 false as stated, R2 RH restated",
+   "table_line": 273,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 155,
+   "verdict": "OVERREACHES",
+   "quote": "All four summands of the formation now have domain Ostrowskis.",
+   "action": "ACTION RE-CUT: All four summands of the formation now have domain Ostrowskis. -- say the kernel counts a defined type (Fintype.card MechanismClass = 7); that ev",
+   "table_line": 276,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 159,
+   "verdict": "OVERREACHES",
+   "quote": "the per-class check shows that no class, however defined, produces off-line zeros",
+   "action": "ACTION RE-CUT: the per-class check shows that no class, however defined, produces off-line zeros -- name the terminals for what they state: ConservationBridge’s",
+   "table_line": 279,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 159,
+   "verdict": "OVERREACHES",
+   "quote": "This search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski.",
+   "action": "ACTION RE-CUT: This search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski -- say the kernel counts",
+   "table_line": 282,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 194,
+   "verdict": "OVERREACHES",
+   "quote": "| ξ(s) | Ostrowski + Tate + algebra + bipartition | 7 | This work |",
+   "action": "ACTION RE-CUT: | ξ(s) | Ostrowski + Tate + algebra + bipartition | 7 | This work | -- say the kernel counts a defined type (Fintype.card MechanismClass = 7); th",
+   "table_line": 285,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 199,
+   "verdict": "OVERREACHES",
+   "quote": "In each case, the completeness theorem certifies that the catalogue is exhaustive.",
+   "action": "ACTION RE-CUT: In each case, the completeness theorem certifies that the catalogue is exhaustive. -- say the kernel counts a defined type (Fintype.card Mechanis",
+   "table_line": 288,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 199,
+   "verdict": "OVERREACHES",
+   "quote": "The proof follows as a syllogism: all structural consequences are catalogued, each is checked individually, none produces the excluded property.",
+   "action": "ACTION RE-CUT: The proof follows as a syllogism: all structural consequences are catalogued, each is checked individually, none produce -- state RH as equivalen",
+   "table_line": 291,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 199,
+   "verdict": "OVERREACHES",
+   "quote": "it is certified by Tate",
+   "action": "ACTION RE-CUT: it is certified by Tate -- state the registers at their depths: R1 false as stated, R2 RH restated, R4 equivalent to RH, R5’s output a theorem",
+   "table_line": 294,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 199,
+   "verdict": "OVERREACHES",
+   "quote": "in five equivalent registers (*A Place to Stand* §27.3)",
+   "action": "ACTION RE-CUT: in five equivalent registers (*A Place to Stand* §27.3) -- state the registers at their depths: R1 false as stated, R2 RH restated, R4 equivalent",
+   "table_line": 297,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 199,
+   "verdict": "OVERREACHES",
+   "quote": "is the catalogue on which the proof of Theorem (RH) rests",
+   "action": "ACTION RE-CUT: is the catalogue on which the proof of Theorem (RH) rests -- state RH as equivalent to the one open clause h2_sign (h2_sign_iff_rh, Seam.lean :10",
+   "table_line": 300,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 203,
+   "verdict": "OVERREACHES",
+   "quote": "The formation count and supporting infrastructure are compiled in Lean 4 against Mathlib",
+   "action": "ACTION RE-CUT: The formation count and supporting infrastructure are compiled in Lean 4 against Mathlib -- say the kernel checks the arithmetic 2 + 3 + 2 + 0 = ",
+   "table_line": 303,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 212,
+   "verdict": "UNLICENSED",
+   "quote": "Seven per-class identifications of σ = 1/2",
+   "action": "ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence",
+   "table_line": 306,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 217,
+   "verdict": "UNLICENSED",
+   "quote": "135+ theorems in the core subset relevant to this paper",
+   "action": "ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence",
+   "table_line": 309,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 217,
+   "verdict": "UNLICENSED",
+   "quote": "zero `sorry`, zero custom axioms",
+   "action": "ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence",
+   "table_line": 312,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 219,
+   "verdict": "UNLICENSED",
+   "quote": "five bridge files compile against Mathlib in a separate project",
+   "action": "ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence",
+   "table_line": 315,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 265,
+   "verdict": "OVERREACHES",
+   "quote": "This paper develops one component of a proof of Theorem (RH)",
+   "action": "ACTION RE-CUT: This paper develops one component of a proof of Theorem (RH) -- state RH as equivalent to the one open clause h2_sign (h2_sign_iff_rh, Seam.lean ",
+   "table_line": 318,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 276,
+   "verdict": "OVERREACHES",
+   "quote": "and that no pair of classes produces the coincidence an off-line zero would need",
+   "action": "ACTION RE-CUT: and that no pair of classes produces the coincidence an off-line zero would need -- name the terminals for what they state: ConservationBridge’s ",
+   "table_line": 321,
+   "applied": true,
+   "held": null,
+   "met_at_base": false,
+   "met_at_head": true
+  },
+  {
+   "line": 282,
+   "verdict": "UNLICENSED",
+   "quote": "**WORKING-HEAD `v1.7` = `5e668b4`, `main`**",
+   "action": "ACTION RETIRE TO ERRATA: asserted with no kernel and no citation reaching it (statement-grade); the companion`s next edition carries no such sentence",
+   "table_line": 324,
+   "applied": false,
+   "held": "a cell of the paper`s Correspondence table (base :280-:285); N3: no Correspondence cell by hand, and the paper is off the 19-table roster, so no generator writes it",
+   "met_at_base": false,
+   "met_at_head": false
+  },
+  {
+   "line": 283,
+   "verdict": "OVERREACHES",
+   "quote": "| no pair of classes produces the coincidence | same | `techne_kernel_cross_exclusion.all_pairs_excluded`",
+   "action": "ACTION RE-CUT: | no pair of classes produces the coincidence | same | `techne_kernel_cross_exclusion.all_pairs_excluded` -- name the terminals for what they sta",
+   "table_line": 327,
+   "applied": false,
+   "held": "a cell of the paper`s Correspondence table (base :280-:285); N3: no Correspondence cell by hand, and the paper is off the 19-table roster, so no generator writes it",
+   "met_at_base": false,
+   "met_at_head": false
+  }
+ ],
+ "residues": [
+  [
+   "archive/2026-08-27-trim-backfill/Exhaustive_Enumeration.md",
+   146
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   125
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   138
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   151
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   155
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   190
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   195
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   199
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   208
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   213
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   215
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   261
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Silence_of_Foundations.md",
+   191
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   159
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Third_Identity_Element.md",
+   227
+  ],
+  [
+   "day1/A_Place_to_Stand.md",
+   991
+  ],
+  [
+   "day1/A_Place_to_Stand_v5_14.md",
+   992
+  ],
+  [
+   "day1/A_Place_to_Stand_v5_15.md",
+   993
+  ],
+  [
+   "day1/A_Place_to_Stand_v5_16.md",
+   994
+  ],
+  [
+   "day1/A_Place_to_Stand_v5_17.md",
+   995
+  ],
+  [
+   "day1/A_Place_to_Stand_v5_18.md",
+   996
+  ],
+  [
+   "day1/Exhaustive_Enumeration.md",
+   148
+  ],
+  [
+   "day1/Silence_of_Foundations.md",
+   193
+  ],
+  [
+   "day1/Spectral_Inertness.md",
+   161
+  ],
+  [
+   "day1/Third_Identity_Element.md",
+   233
+  ],
+  [
+   "day1/Which_Structure_Confines.md",
+   163
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md",
+   989
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Exhaustive_Enumeration.md",
+   146
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   15
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   125
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   138
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   151
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   155
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   190
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   195
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   199
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   208
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   213
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   215
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   261
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md",
+   191
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   159
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Third_Identity_Element.md",
+   227
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md",
+   161
+  ],
+  [
+   "outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md",
+   963
+  ],
+  [
+   "outputs/v54_deposit_line.md",
+   963
+  ]
+ ],
+ "stale": [
+  [
+   7,
+   "the record line of v3.3.1 (b644): \"The text otherwise stands as it stood.\" -- stale once the cut lands; the ruling orders the cut on the rows alone, so it is named here and not written"
+  ],
+  [
+   272,
+   "the Correspondence heading: \"ADDITIVE ONLY: no claim, argument, or sentence above this line is altered\" -- stale once the cut lands; named here and not written"
+  ]
+ ],
+ "held": [
+  282,
+  283
+ ]
+}

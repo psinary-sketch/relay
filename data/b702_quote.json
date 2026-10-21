@@ -1,0 +1,456 @@
+{
+ "at": "2026-10-21T20:48:04Z",
+ "document": "day1/Seven_Mechanism_Classes.md",
+ "base": "c10b11765b795ec50822ca7eacae3f79aeb35e03",
+ "rows": [
+  {
+   "base_line": 19,
+   "line": "The completed Riemann zeta function ξ(s) is built from the specification n² → θ → ξ through three stages: input from ℤ's structure, transformation through the places of ℚ, and output as an entire function. We classify the structural consequences of this specification relevant to zero locations into exactly seven mechanism classes, with formation (n₁, n₂, n₃, n₄) = (2, 3, 2, 0). *(Full derivation of the {2,3} object: `THE_SUBSTRATE.md` §(ii).)* Each summand is determined by an independent classification theorem: n₁ = 2 from the two algebraic structures on ℤ (additive group and multiplicative monoid with unique factorization), n₂ = 3 from Ostrowski's classification of the places of ℚ (1916), n₃ = 2 from the local–global bipartition of entire function theory, and n₄ = 0 from the spectral inertness of both interfaces (proved from Tate's thesis). The formation count is machine-checked in Lean 4: `SIDEKernel.formation` and `SIDEKernel.formation_count` (SIDE-kernel v1.3 = `0bc21c0`), reporting no axioms at all (the earlier `native_decide` tactic, which introduces a compiler-trust axiom, was eliminated corpus-wide in favour of `decide` at v1.2 — see ERRATA E-2026-07-12-1). A skeptic runs `lake build` and `#print axioms`.",
+   "needle": "The formation count is machine-checked in Lean 4",
+   "wide": "formation count is machine-checked",
+   "hits": [
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:15:The completed Riemann zeta function ξ(s) is built from the specification n² → θ → ξ through three stages: input from ℤ's structure, transformation through the places of ℚ, and output as an entire function. We classify the structural consequences of this specification relevant to zero locations into exactly seven mechanism classes, with formation (n₁, n₂, n₃, n₄) = (2, 3, 2, 0). Each summand is determined by an independent classification theorem: n₁ = 2 from the two algebraic structures on ℤ (additive group and multiplicative monoid with unique factorization), n₂ = 3 from Ostrowski's classification of the places of ℚ (1916), n₃ = 2 from the local–global bipartition of entire function theory, and n₄ = 0 from the spectral inertness of both interfaces (proved from Tate's thesis). The formation count is machine-checked in Lean 4: `SIDEKernel.formation` and `SIDEKernel.formation_count` (SIDE-kernel v1.3 = `0bc21c0`), reporting no axioms at all (the earlier `native_decide` tactic, which introduces a compiler-trust axiom, was eliminated corpus-wide in favour of `decide` at v1.2 — see ERRATA E-2026-07-12-1). A skeptic runs `lake build` and `#print axioms`."
+   ],
+   "hits_wide": [
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:15:The completed Riemann zeta function ξ(s) is built from the specification n² → θ → ξ through three stages: input from ℤ's structure, transformation through the places of ℚ, and output as an entire function. We classify the structural consequences of this specification relevant to zero locations into exactly seven mechanism classes, with formation (n₁, n₂, n₃, n₄) = (2, 3, 2, 0). Each summand is determined by an independent classification theorem: n₁ = 2 from the two algebraic structures on ℤ (additive group and multiplicative monoid with unique factorization), n₂ = 3 from Ostrowski's classification of the places of ℚ (1916), n₃ = 2 from the local–global bipartition of entire function theory, and n₄ = 0 from the spectral inertness of both interfaces (proved from Tate's thesis). The formation count is machine-checked in Lean 4: `SIDEKernel.formation` and `SIDEKernel.formation_count` (SIDE-kernel v1.3 = `0bc21c0`), reporting no axioms at all (the earlier `native_decide` tactic, which introduces a compiler-trust axiom, was eliminated corpus-wide in favour of `decide` at v1.2 — see ERRATA E-2026-07-12-1). A skeptic runs `lake build` and `#print axioms`."
+   ],
+   "control": [
+    2,
+    2
+   ]
+  },
+  {
+   "base_line": 129,
+   "line": "**Internal (distributive law).** The distributive law a(b+c) = ab+ac couples additive and multiplicative structures. Classical sieve methods operate through this coupling, transmitting density information but not placement information. The distributive interface is likewise spectrally inert for zero locations.",
+   "needle": "The distributive interface is likewise spectrally inert",
+   "wide": "likewise spectrally inert",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:125:**Internal (distributive law).** The distributive law a(b+c) = ab+ac couples additive and multiplicative structures. Classical sieve methods operate through this coupling, transmitting density information but not placement information. The distributive interface is likewise spectrally inert for zero locations.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:125:**Internal (distributive law).** The distributive law a(b+c) = ab+ac couples additive and multiplicative structures. Classical sieve methods operate through this coupling, transmitting density information but not placement information. The distributive interface is likewise spectrally inert for zero locations."
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:125:**Internal (distributive law).** The distributive law a(b+c) = ab+ac couples additive and multiplicative structures. Classical sieve methods operate through this coupling, transmitting density information but not placement information. The distributive interface is likewise spectrally inert for zero locations.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:125:**Internal (distributive law).** The distributive law a(b+c) = ab+ac couples additive and multiplicative structures. Classical sieve methods operate through this coupling, transmitting density information but not placement information. The distributive interface is likewise spectrally inert for zero locations."
+   ],
+   "control": [
+    3,
+    3
+   ]
+  },
+  {
+   "base_line": 142,
+   "line": "The compilation of silence_universal in Kernel/SilenceTheorem.lean establishes that every universal interface has κ = 0. The two interfaces relevant to ξ(s) — the product formula and the distributive law — qualify as essential and universal (each acts identically across configurations by construction). The universal theorem forces κ = 0 for both, giving n₄ = 0.",
+   "needle": "qualify as essential and universal",
+   "wide": "qualify as essential",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:138:The compilation of silence_universal in Kernel/SilenceTheorem.lean establishes that every universal interface has κ = 0. The two interfaces relevant to ξ(s) — the product formula and the distributive law — qualify as essential and universal (each acts identically across configurations by construction). The universal theorem forces κ = 0 for both, giving n₄ = 0.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:138:The compilation of silence_universal in Kernel/SilenceTheorem.lean establishes that every universal interface has κ = 0. The two interfaces relevant to ξ(s) — the product formula and the distributive law — qualify as essential and universal (each acts identically across configurations by construction). The universal theorem forces κ = 0 for both, giving n₄ = 0."
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:138:The compilation of silence_universal in Kernel/SilenceTheorem.lean establishes that every universal interface has κ = 0. The two interfaces relevant to ξ(s) — the product formula and the distributive law — qualify as essential and universal (each acts identically across configurations by construction). The universal theorem forces κ = 0 for both, giving n₄ = 0.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:138:The compilation of silence_universal in Kernel/SilenceTheorem.lean establishes that every universal interface has κ = 0. The two interfaces relevant to ξ(s) — the product formula and the distributive law — qualify as essential and universal (each acts identically across configurations by construction). The universal theorem forces κ = 0 for both, giving n₄ = 0."
+   ],
+   "control": [
+    3,
+    3
+   ]
+  },
+  {
+   "base_line": 155,
+   "line": "The exhaustiveness rests on four results, each supported by a classification theorem or structural fact. The strongest component is n₂ = 3: Ostrowski's classification is a completeness theorem, and a fourth transformation-stage class would require a place of ℚ that Ostrowski proved does not exist. The component n₄ = 0 (spectral inertness, proved from Tate's thesis and Lean-verified) is equally rigorous. The component n₃ = 2 rests on three classical results: elliptic regularity, the Identity Theorem, and Cartan's Theorem B (H¹(ℂ, 𝒪) = 0), which together classify the structural scales of holomorphic functions into exactly two. The component n₁ = 2 follows from the specification's structure: the construction n² → θ → ξ accesses ℤ through exactly two algebraic channels (additive and multiplicative); the ordering enters through the archimedean place (already counted in n₂); the distributive law is an interface, proved spectrally inert (n₄ = 0). All four summands of the formation now have domain Ostrowskis.",
+   "needle": "All four summands of the formation now have domain Ostrowskis",
+   "wide": "now have domain ostrowskis",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:151:The exhaustiveness rests on four results, each supported by a classification theorem or structural fact. The strongest component is n₂ = 3: Ostrowski's classification is a completeness theorem, and a fourth transformation-stage class would require a place of ℚ that Ostrowski proved does not exist. The component n₄ = 0 (spectral inertness, proved from Tate's thesis and Lean-verified) is equally rigorous. The component n₃ = 2 rests on three classical results: elliptic regularity, the Identity Theorem, and Cartan's Theorem B (H¹(ℂ, 𝒪) = 0), which together classify the structural scales of holomorphic functions into exactly two. The component n₁ = 2 follows from the specification's structure: the construction n² → θ → ξ accesses ℤ through exactly two algebraic channels (additive and multiplicative); the ordering enters through the archimedean place (already counted in n₂); the distributive law is an interface, proved spectrally inert (n₄ = 0). All four summands of the formation now have domain Ostrowskis.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:151:The exhaustiveness rests on four results, each supported by a classification theorem or structural fact. The strongest component is n₂ = 3: Ostrowski's classification is a completeness theorem, and a fourth transformation-stage class would require a place of ℚ that Ostrowski proved does not exist. The component n₄ = 0 (spectral inertness, proved from Tate's thesis and Lean-verified) is equally rigorous. The component n₃ = 2 rests on three classical results: elliptic regularity, the Identity Theorem, and Cartan's Theorem B (H¹(ℂ, 𝒪) = 0), which together classify the structural scales of holomorphic functions into exactly two. The component n₁ = 2 follows from the specification's structure: the construction n² → θ → ξ accesses ℤ through exactly two algebraic channels (additive and multiplicative); the ordering enters through the archimedean place (already counted in n₂); the distributive law is an interface, proved spectrally inert (n₄ = 0). All four summands of the formation now have domain Ostrowskis."
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:151:The exhaustiveness rests on four results, each supported by a classification theorem or structural fact. The strongest component is n₂ = 3: Ostrowski's classification is a completeness theorem, and a fourth transformation-stage class would require a place of ℚ that Ostrowski proved does not exist. The component n₄ = 0 (spectral inertness, proved from Tate's thesis and Lean-verified) is equally rigorous. The component n₃ = 2 rests on three classical results: elliptic regularity, the Identity Theorem, and Cartan's Theorem B (H¹(ℂ, 𝒪) = 0), which together classify the structural scales of holomorphic functions into exactly two. The component n₁ = 2 follows from the specification's structure: the construction n² → θ → ξ accesses ℤ through exactly two algebraic channels (additive and multiplicative); the ordering enters through the archimedean place (already counted in n₂); the distributive law is an interface, proved spectrally inert (n₄ = 0). All four summands of the formation now have domain Ostrowskis.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:151:The exhaustiveness rests on four results, each supported by a classification theorem or structural fact. The strongest component is n₂ = 3: Ostrowski's classification is a completeness theorem, and a fourth transformation-stage class would require a place of ℚ that Ostrowski proved does not exist. The component n₄ = 0 (spectral inertness, proved from Tate's thesis and Lean-verified) is equally rigorous. The component n₃ = 2 rests on three classical results: elliptic regularity, the Identity Theorem, and Cartan's Theorem B (H¹(ℂ, 𝒪) = 0), which together classify the structural scales of holomorphic functions into exactly two. The component n₁ = 2 follows from the specification's structure: the construction n² → θ → ξ accesses ℤ through exactly two algebraic channels (additive and multiplicative); the ordering enters through the archimedean place (already counted in n₂); the distributive law is an interface, proved spectrally inert (n₄ = 0). All four summands of the formation now have domain Ostrowskis."
+   ],
+   "control": [
+    3,
+    3
+   ]
+  },
+  {
+   "base_line": 159,
+   "line": "The conclusion does not depend on the specific decomposition into seven classes. Whether one parses the specification into 7, 8, or 10 classes — separating unique factorization from multiplicative structure, or analytic continuation from local analyticity — the per-class check shows that no class, however defined, produces off-line zeros. What matters is the exhaustiveness (Ostrowski guarantees no place of ℚ is missed) and the per-class exclusion, not the count itself. Eleven major research programmes in analytic number theory (listed in the companion monograph, §15.6) — including the Selberg trace formula, random matrix theory, the Langlands programme, and Connes' spectral triples (Connes 2026) — have been tested as potential sources of an eighth class; each decomposes into combinations of C₁–C₇. This search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski.",
+   "needle": "no class, however defined, produces off-line zeros",
+   "wide": "independent empirical evidence for exhaustiveness",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:155:The conclusion does not depend on the specific decomposition into seven classes. Whether one parses the specification into 7, 8, or 10 classes — separating unique factorization from multiplicative structure, or analytic continuation from local analyticity — the per-class check shows that no class, however defined, produces off-line zeros. What matters is the exhaustiveness (Ostrowski guarantees no place of ℚ is missed) and the per-class exclusion, not the count itself. Eleven major research programmes in analytic number theory (listed in the companion monograph, §15.6) — including the Selberg trace formula, random matrix theory, the Langlands programme, and Connes' spectral triples (Connes 2026) — have been tested as potential sources of an eighth class; each decomposes into combinations of C₁–C₇. This search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:155:The conclusion does not depend on the specific decomposition into seven classes. Whether one parses the specification into 7, 8, or 10 classes — separating unique factorization from multiplicative structure, or analytic continuation from local analyticity — the per-class check shows that no class, however defined, produces off-line zeros. What matters is the exhaustiveness (Ostrowski guarantees no place of ℚ is missed) and the per-class exclusion, not the count itself. Eleven major research programmes in analytic number theory (listed in the companion monograph, §15.6) — including the Selberg trace formula, random matrix theory, the Langlands programme, and Connes' spectral triples (Connes 2026) — have been tested as potential sources of an eighth class; each decomposes into combinations of C₁–C₇. This search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski."
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:155:The conclusion does not depend on the specific decomposition into seven classes. Whether one parses the specification into 7, 8, or 10 classes — separating unique factorization from multiplicative structure, or analytic continuation from local analyticity — the per-class check shows that no class, however defined, produces off-line zeros. What matters is the exhaustiveness (Ostrowski guarantees no place of ℚ is missed) and the per-class exclusion, not the count itself. Eleven major research programmes in analytic number theory (listed in the companion monograph, §15.6) — including the Selberg trace formula, random matrix theory, the Langlands programme, and Connes' spectral triples (Connes 2026) — have been tested as potential sources of an eighth class; each decomposes into combinations of C₁–C₇. This search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski.",
+    "day1/A_Place_to_Stand.md:991:Every programme accesses the specification through some combination of C₁–C₇. None introduces genuinely new structural input. The eleven-programme search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski. Conservation of Spectra explains why: every tool that touches ξ must enter through ℚ's field structure — through the additive, multiplicative, or distributive channel — which means through some combination of C₁–C₇ or through a dark interface.",
+    "day1/A_Place_to_Stand_v5_14.md:992:Every programme accesses the specification through some combination of C₁–C₇. None introduces genuinely new structural input. The eleven-programme search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski. Conservation of Spectra explains why: every tool that touches ξ must enter through ℚ's field structure — through the additive, multiplicative, or distributive channel — which means through some combination of C₁–C₇ or through a dark interface.",
+    "day1/A_Place_to_Stand_v5_15.md:993:Every programme accesses the specification through some combination of C₁–C₇. None introduces genuinely new structural input. The eleven-programme search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski. Conservation of Spectra explains why: every tool that touches ξ must enter through ℚ's field structure — through the additive, multiplicative, or distributive channel — which means through some combination of C₁–C₇ or through a dark interface.",
+    "day1/A_Place_to_Stand_v5_16.md:994:Every programme accesses the specification through some combination of C₁–C₇. None introduces genuinely new structural input. The eleven-programme search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski. Conservation of Spectra explains why: every tool that touches ξ must enter through ℚ's field structure — through the additive, multiplicative, or distributive channel — which means through some combination of C₁–C₇ or through a dark interface.",
+    "day1/A_Place_to_Stand_v5_17.md:995:Every programme accesses the specification through some combination of C₁–C₇. None introduces genuinely new structural input. The eleven-programme search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski. Conservation of Spectra explains why: every tool that touches ξ must enter through ℚ's field structure — through the additive, multiplicative, or distributive channel — which means through some combination of C₁–C₇ or through a dark interface.",
+    "day1/A_Place_to_Stand_v5_18.md:996:Every programme accesses the specification through some combination of C₁–C₇. None introduces genuinely new structural input. The eleven-programme search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski. Conservation of Spectra explains why: every tool that touches ξ must enter through ℚ's field structure — through the additive, multiplicative, or distributive channel — which means through some combination of C₁–C₇ or through a dark interface.",
+    "outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md:989:Every programme accesses the specification through some combination of C₁–C₇. None introduces genuinely new structural input. The eleven-programme search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski. Conservation of Spectra explains why: every tool that touches ξ must enter through ℚ's field structure — through the additive, multiplicative, or distributive channel — which means through some combination of C₁–C₇ or through a dark interface.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:155:The conclusion does not depend on the specific decomposition into seven classes. Whether one parses the specification into 7, 8, or 10 classes — separating unique factorization from multiplicative structure, or analytic continuation from local analyticity — the per-class check shows that no class, however defined, produces off-line zeros. What matters is the exhaustiveness (Ostrowski guarantees no place of ℚ is missed) and the per-class exclusion, not the count itself. Eleven major research programmes in analytic number theory (listed in the companion monograph, §15.6) — including the Selberg trace formula, random matrix theory, the Langlands programme, and Connes' spectral triples (Connes 2026) — have been tested as potential sources of an eighth class; each decomposes into combinations of C₁–C₇. This search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski.",
+    "outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md:963:Every programme accesses the specification through some combination of C₁–C₇. None introduces genuinely new structural input. The eleven-programme search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski. Conservation of Spectra explains why: every tool that touches ξ must enter through ℚ's field structure — through the additive, multiplicative, or distributive channel — which means through some combination of C₁–C₇ or through a dark interface.",
+    "outputs/v54_deposit_line.md:963:Every programme accesses the specification through some combination of C₁–C₇. None introduces genuinely new structural input. The eleven-programme search is independent empirical evidence for exhaustiveness, complementing the deductive certification by Ostrowski. Conservation of Spectra explains why: every tool that touches ξ must enter through ℚ's field structure — through the additive, multiplicative, or distributive channel — which means through some combination of C₁–C₇ or through a dark interface."
+   ],
+   "control": [
+    3,
+    12
+   ]
+  },
+  {
+   "base_line": 194,
+   "line": "| ξ(s) | Ostrowski + Tate + algebra + bipartition | 7 | This work |",
+   "needle": "| ξ(s) | Ostrowski + Tate + algebra + bipartition | 7 | This work |",
+   "wide": "ostrowski + tate + algebra + bipartition | 7",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:190:| ξ(s) | Ostrowski + Tate + algebra + bipartition | 7 | This work |",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:190:| ξ(s) | Ostrowski + Tate + algebra + bipartition | 7 | This work |"
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:190:| ξ(s) | Ostrowski + Tate + algebra + bipartition | 7 | This work |",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:190:| ξ(s) | Ostrowski + Tate + algebra + bipartition | 7 | This work |"
+   ],
+   "control": [
+    3,
+    3
+   ]
+  },
+  {
+   "base_line": 199,
+   "line": "In each case, the completeness theorem certifies that the catalogue is exhaustive. The proof follows as a syllogism: all structural consequences are catalogued, each is checked individually, none produces the excluded property. The syllogism's one premise is the inter-class conservation step — that the couplings between classes (product formula, distributive law) carry no s-dependent information, so per-class exclusion reflects to all-combinations exclusion (the n₄ = 0 material above); it is certified by Tate's thesis and named as the proof's single premise in five equivalent registers (*A Place to Stand* §27.3). The formation count (2,3,2,0) = 7 for ξ(s) is the catalogue on which the proof of Theorem (RH) rests.",
+   "needle": "is the catalogue on which the proof of Theorem (RH) rests",
+   "wide": "the proof follows as a syllogism",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:195:In each case, the completeness theorem certifies that the catalogue is exhaustive. The proof follows as a syllogism: all structural consequences are catalogued, each is checked individually, none produces the excluded property. The formation count (2,3,2,0) = 7 for ξ(s) is the catalogue on which the proof of Theorem (RH) rests.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:195:In each case, the completeness theorem certifies that the catalogue is exhaustive. The proof follows as a syllogism: all structural consequences are catalogued, each is checked individually, none produces the excluded property. The syllogism's one premise is the inter-class conservation step — that the couplings between classes (product formula, distributive law) carry no s-dependent information, so per-class exclusion reflects to all-combinations exclusion (the n₄ = 0 material above); it is certified by Tate's thesis and named as the proof's single premise in five equivalent registers (*A Place to Stand* §27.3). The formation count (2,3,2,0) = 7 for ξ(s) is the catalogue on which the proof of Theorem (RH) rests."
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:195:In each case, the completeness theorem certifies that the catalogue is exhaustive. The proof follows as a syllogism: all structural consequences are catalogued, each is checked individually, none produces the excluded property. The formation count (2,3,2,0) = 7 for ξ(s) is the catalogue on which the proof of Theorem (RH) rests.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:195:In each case, the completeness theorem certifies that the catalogue is exhaustive. The proof follows as a syllogism: all structural consequences are catalogued, each is checked individually, none produces the excluded property. The syllogism's one premise is the inter-class conservation step — that the couplings between classes (product formula, distributive law) carry no s-dependent information, so per-class exclusion reflects to all-combinations exclusion (the n₄ = 0 material above); it is certified by Tate's thesis and named as the proof's single premise in five equivalent registers (*A Place to Stand* §27.3). The formation count (2,3,2,0) = 7 for ξ(s) is the catalogue on which the proof of Theorem (RH) rests."
+   ],
+   "control": [
+    3,
+    3
+   ]
+  },
+  {
+   "base_line": 203,
+   "line": "The formation count and supporting infrastructure are compiled in Lean 4 against Mathlib (Mathlib Community 2024):",
+   "needle": "The formation count and supporting infrastructure are compiled",
+   "wide": "supporting infrastructure are compiled",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:199:The formation count and supporting infrastructure are compiled in Lean 4 against Mathlib (Mathlib Community 2024):",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:199:The formation count and supporting infrastructure are compiled in Lean 4 against Mathlib (Mathlib Community 2024):"
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:199:The formation count and supporting infrastructure are compiled in Lean 4 against Mathlib (Mathlib Community 2024):",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:199:The formation count and supporting infrastructure are compiled in Lean 4 against Mathlib (Mathlib Community 2024):"
+   ],
+   "control": [
+    3,
+    3
+   ]
+  },
+  {
+   "base_line": 212,
+   "line": "| `Voice1`–`Voice7` | Seven per-class identifications of σ = 1/2 | 0/0 each |",
+   "needle": "Seven per-class identifications of σ = 1/2",
+   "wide": "per-class identifications of",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:208:| `Voice1`–`Voice7` | Seven per-class identifications of σ = 1/2 | 0/0 each |",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:208:| `Voice1`–`Voice7` | Seven per-class identifications of σ = 1/2 | 0/0 each |"
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:208:| `Voice1`–`Voice7` | Seven per-class identifications of σ = 1/2 | 0/0 each |",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:208:| `Voice1`–`Voice7` | Seven per-class identifications of σ = 1/2 | 0/0 each |"
+   ],
+   "control": [
+    3,
+    3
+   ]
+  },
+  {
+   "base_line": 217,
+   "line": "Total: 63 files, 135+ theorems in the core subset relevant to this paper (of 587 theorems, lemmas, and definitions in the sorry-free core of the full programme kernel), zero `sorry`, zero custom axioms.",
+   "needle": "135+ theorems in the core subset",
+   "wide": "core subset relevant to this paper",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:213:Total: 63 files, 135+ theorems in the core subset relevant to this paper (of 587 theorems, lemmas, and definitions in the sorry-free core of the full programme kernel), zero `sorry`, zero custom axioms.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:213:Total: 63 files, 135+ theorems in the core subset relevant to this paper (of 587 theorems, lemmas, and definitions in the sorry-free core of the full programme kernel), zero `sorry`, zero custom axioms."
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:213:Total: 63 files, 135+ theorems in the core subset relevant to this paper (of 587 theorems, lemmas, and definitions in the sorry-free core of the full programme kernel), zero `sorry`, zero custom axioms.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:213:Total: 63 files, 135+ theorems in the core subset relevant to this paper (of 587 theorems, lemmas, and definitions in the sorry-free core of the full programme kernel), zero `sorry`, zero custom axioms."
+   ],
+   "control": [
+    3,
+    3
+   ]
+  },
+  {
+   "base_line": 219,
+   "line": "In addition, five bridge files compile against Mathlib in a separate project, grounding the kernel's abstract types in Mathlib's proved infrastructure. `OstrowskiBridge.lean` re-exports `Rat.AbsoluteValue.equiv_real_or_padic` as the kernel's exhaustiveness certificate. `TheBridgeComplete.lean` proves `StructuralExhaustiveness` unconditionally by composing Ostrowski (from Mathlib), seven mechanism classes (`Fintype.card = 7`, by `decide` since v1.2), and per-class exclusion — the Route-1 terminal `structural_exhaustiveness_proved` at SIDE-kernel v1.3 = `0bc21c0`, `#print axioms` = `{propext, Classical.choice, Quot.sound}` (Lean core plus Mathlib, no custom axioms).",
+   "needle": "five bridge files compile against Mathlib in a separate project",
+   "wide": "five bridge files compile",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:215:In addition, five bridge files compile against Mathlib in a separate project, grounding the kernel's abstract types in Mathlib's proved infrastructure. `OstrowskiBridge.lean` re-exports `Rat.AbsoluteValue.equiv_real_or_padic` as the kernel's exhaustiveness certificate. `TheBridgeComplete.lean` proves `StructuralExhaustiveness` unconditionally by composing Ostrowski (from Mathlib), seven mechanism classes (`Fintype.card = 7` by `native_decide`), and per-class exclusion. Both compile with zero `sorry`, zero axioms.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:215:In addition, five bridge files compile against Mathlib in a separate project, grounding the kernel's abstract types in Mathlib's proved infrastructure. `OstrowskiBridge.lean` re-exports `Rat.AbsoluteValue.equiv_real_or_padic` as the kernel's exhaustiveness certificate. `TheBridgeComplete.lean` proves `StructuralExhaustiveness` unconditionally by composing Ostrowski (from Mathlib), seven mechanism classes (`Fintype.card = 7`, by `decide` since v1.2), and per-class exclusion — the Route-1 terminal `structural_exhaustiveness_proved` at SIDE-kernel v1.3 = `0bc21c0`, `#print axioms` = `{propext, Classical.choice, Quot.sound}` (Lean core plus Mathlib, no custom axioms)."
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:215:In addition, five bridge files compile against Mathlib in a separate project, grounding the kernel's abstract types in Mathlib's proved infrastructure. `OstrowskiBridge.lean` re-exports `Rat.AbsoluteValue.equiv_real_or_padic` as the kernel's exhaustiveness certificate. `TheBridgeComplete.lean` proves `StructuralExhaustiveness` unconditionally by composing Ostrowski (from Mathlib), seven mechanism classes (`Fintype.card = 7` by `native_decide`), and per-class exclusion. Both compile with zero `sorry`, zero axioms.",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:215:In addition, five bridge files compile against Mathlib in a separate project, grounding the kernel's abstract types in Mathlib's proved infrastructure. `OstrowskiBridge.lean` re-exports `Rat.AbsoluteValue.equiv_real_or_padic` as the kernel's exhaustiveness certificate. `TheBridgeComplete.lean` proves `StructuralExhaustiveness` unconditionally by composing Ostrowski (from Mathlib), seven mechanism classes (`Fintype.card = 7`, by `decide` since v1.2), and per-class exclusion — the Route-1 terminal `structural_exhaustiveness_proved` at SIDE-kernel v1.3 = `0bc21c0`, `#print axioms` = `{propext, Classical.choice, Quot.sound}` (Lean core plus Mathlib, no custom axioms)."
+   ],
+   "control": [
+    3,
+    3
+   ]
+  },
+  {
+   "base_line": 265,
+   "line": " This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+   "needle": "This paper develops one component of a proof of Theorem (RH)",
+   "wide": "one component of a proof of theorem (rh)",
+   "hits": [
+    "archive/2026-08-27-trim-backfill/Exhaustive_Enumeration.md:146: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:261: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "archive/2026-08-27-trim-backfill/Silence_of_Foundations.md:191: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "archive/2026-08-27-trim-backfill/Spectral_Inertness.md:159: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "archive/2026-08-27-trim-backfill/Third_Identity_Element.md:227: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "day1/Exhaustive_Enumeration.md:148: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "day1/Silence_of_Foundations.md:193: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "day1/Spectral_Inertness.md:161: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "day1/Third_Identity_Element.md:233: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "day1/Which_Structure_Confines.md:163: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Exhaustive_Enumeration.md:146: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:261: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md:191: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:159: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Third_Identity_Element.md:227: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md:161: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026)."
+   ],
+   "hits_wide": [
+    "archive/2026-08-27-trim-backfill/Exhaustive_Enumeration.md:146: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:261: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "archive/2026-08-27-trim-backfill/Silence_of_Foundations.md:191: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "archive/2026-08-27-trim-backfill/Spectral_Inertness.md:159: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "archive/2026-08-27-trim-backfill/Third_Identity_Element.md:227: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "day1/Exhaustive_Enumeration.md:148: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "day1/Silence_of_Foundations.md:193: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "day1/Spectral_Inertness.md:161: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "day1/Third_Identity_Element.md:233: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "day1/Which_Structure_Confines.md:163: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Exhaustive_Enumeration.md:146: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:261: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md:191: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:159: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Third_Identity_Element.md:227: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md:161: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026)."
+   ],
+   "control": [
+    17,
+    17
+   ]
+  },
+  {
+   "base_line": 276,
+   "line": "This paper enumerates the seven structural sources of zero-location information in the specification of the completed zeta function, and proves the enumeration is complete by four classical classification theorems. Its kernel does one job: it verifies that the four stages count 2 + 3 + 2 + 0 = 7, and that no pair of classes produces the coincidence an off-line zero would need.",
+   "needle": "no pair of classes produces the coincidence an off-line zero would need",
+   "wide": "coincidence an off-line zero would need",
+   "hits": [],
+   "hits_wide": [],
+   "control": [
+    1,
+    1
+   ]
+  }
+ ],
+ "quoting": [
+  [
+   "archive/2026-08-27-trim-backfill/Exhaustive_Enumeration.md",
+   146
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   125
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   138
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   151
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   155
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   190
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   195
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   199
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   208
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   213
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   215
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   261
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Silence_of_Foundations.md",
+   191
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   159
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Third_Identity_Element.md",
+   227
+  ],
+  [
+   "day1/A_Place_to_Stand.md",
+   991
+  ],
+  [
+   "day1/A_Place_to_Stand_v5_14.md",
+   992
+  ],
+  [
+   "day1/A_Place_to_Stand_v5_15.md",
+   993
+  ],
+  [
+   "day1/A_Place_to_Stand_v5_16.md",
+   994
+  ],
+  [
+   "day1/A_Place_to_Stand_v5_17.md",
+   995
+  ],
+  [
+   "day1/A_Place_to_Stand_v5_18.md",
+   996
+  ],
+  [
+   "day1/Exhaustive_Enumeration.md",
+   148
+  ],
+  [
+   "day1/Silence_of_Foundations.md",
+   193
+  ],
+  [
+   "day1/Spectral_Inertness.md",
+   161
+  ],
+  [
+   "day1/Third_Identity_Element.md",
+   233
+  ],
+  [
+   "day1/Which_Structure_Confines.md",
+   163
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md",
+   989
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Exhaustive_Enumeration.md",
+   146
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   15
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   125
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   138
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   151
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   155
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   190
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   195
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   199
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   208
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   213
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   215
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   261
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md",
+   191
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   159
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Third_Identity_Element.md",
+   227
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md",
+   161
+  ],
+  [
+   "outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md",
+   963
+  ],
+  [
+   "outputs/v54_deposit_line.md",
+   963
+  ]
+ ]
+}

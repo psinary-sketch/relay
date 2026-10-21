@@ -97,8 +97,11 @@ B701_TRAIL_HEAD = ('### b701 — lane two, act one hundred and twenty-eight, the
                    'and the faces joined through RH (v0.35)')
 # ### the components' commits, filled as each lands (one git write per message); the cut's document named by the tie bank, after the rule and the
 # ### order are printed (N2) -- empty until then
-C1_RELAY = C1_PP = C2_RELAY = C2_PP = C3_RELAY = C3_PP = C4_RELAY = ''
-CUT_DOC = CUT_NAME = CUT_COMMIT = ''
+C1_RELAY, C1_PP = '37be08e8', 'c10b117'
+C2_RELAY = C2_PP = C3_RELAY = C3_PP = C4_RELAY = ''
+CUT_DOC, CUT_NAME = 'day1/Seven_Mechanism_Classes.md', 'Seven_Mechanism_Classes'   # ### named by data/b702_tie.txt (20:43:20Z)
+CUT_TABLE = 'b646_table_Seven_Mechanism_Classes.txt'
+CUT_COMMIT = 'a1d5d59'      # ### PLACE-papers: the cut, the document alone (its subject's "17" is defect (c); the bank's 18)
 SEALED = ('b702_worklist.py', 'b702_tests.py', 'b702_citation.py', 'b702_record.py', 'b702_checks.py', 'b702_closing.py', 'b702_reg_gate.py',
           'b702_regspec.py', 'b702_corrigendum.py')
 REPAIRED_TOOLS = ()
