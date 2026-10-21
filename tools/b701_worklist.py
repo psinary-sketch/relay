@@ -55,9 +55,9 @@ EF_MAIN_BEFORE = '4313875100616fcdf86f712f5133cf6562476578'   # ### main before 
 LV_V0130 = '8e3bc76cbb326739deaf3e034d9069d82d2407ec'    # ### SIDE-lv-conservation v0.13.0 peeled
 BRIDGE_BRANCH, WIDEN_BRANCH = 'bridge-b701', 'widening-b701'
 BRIDGE_TAG, WIDEN_TAG = 'v0.35', 'v0.36'
-BRIDGE_FILE = 'SIDEExplicitFormula/H2Bridge.lean'
-BRIDGE_NAMES = ('SIDEExplicitFormula.H2Bridge.h2_sign_iff_register4_positivity_liCoeff',
-                'SIDEExplicitFormula.H2Bridge.h2_sign_imp_pairing_rh')
+BRIDGE_FILE = 'SIDEExplicitFormula/RegisterBridge.lean'   # ### the plan's name H2Bridge.lean was an existing module's (defect (f)); the bridge sits in a new file
+BRIDGE_NAMES = ('SIDEExplicitFormula.RegisterBridge.h2_sign_iff_register4_positivity_liCoeff',
+                'SIDEExplicitFormula.RegisterBridge.h2_sign_imp_pairing_rh')
 WIDEN_FILE = 'SIDEExplicitFormula/H2SignWide.lean'
 
 # ### stage two (Component 4, by the Edit tool): the commits in order, the sealed tools and the act's arms.

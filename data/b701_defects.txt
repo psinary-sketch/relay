@@ -1,0 +1,50 @@
+b701 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-21)
+
+### rows are defects, each lettered by the time it was found, with whose it is, what the rule says, what was done and the repair or the entry.
+### Events that are not defects are entered beneath, unlettered.
+
+    (a) THE SEAT'S: THREE WHOLE READS OF FILES OF TWO HUNDRED LINES OR MORE AT THE OPENING. data/b698_rules.txt row (2): the Read tool reads a
+        file whole where it is under two hundred lines, and by offset and limit otherwise. At transcript line 41 (15:11:59Z) the seat read the
+        state memory file project_state_cp4_cp5_b559_b576.md (509 lines) with neither offset nor limit (the tool capped the print at 45 lines);
+        at transcript line 60 (15:12:08Z) data/b700_closing.txt (247 lines) whole; at transcript line 319 (15:19:02Z) data/b667_epstein_plan.txt
+        (291 lines) with a limit and no offset. Entered by line (data/b701_read_calls.txt); every later read of a long file by offset and limit.
+    (b) THE SEAT'S: THE CITATION CHECK'S BANK REWRITTEN AFTER THE FIRST DELETE. (R311)(6) and the ferry's Component 0: the citation check
+        before any delete, its print banked. The check was run before any delete (a dry run, then two real runs, the seat's own needles corrected
+        between them -- data/b701_commands.txt #9 dry, #11, #13 and #18 real); after the five deletes it was run twice more (#28 at 15:34:09Z
+        and #31 at 15:37:49Z) to
+        correct three further needles of the seat's -- the push-out bank's state, the face's hash through the lock notes, the branch rows and
+        the HEAD row made to read the banked pre-delete state -- so that the bank committed at step zero is the fifth print, not the one taken
+        before the deletes. No cite read differently for it: the two misses that stand are the ruling's, read the same in every print; the
+        seat's needle corrections are listed in data/b701_stepzero.txt. Entered.
+    (c) THE SEAT'S: A PIPE INTO A SHELL FILTER AND A REDIRECT ONTO /dev/null IN TWO READS OF MATHLIB. The ferry: files read "not through a shell
+        filter"; "no redirect of any stream in any command, scratch included". data/b701_commands.txt #29 (15:34:18Z) piped a git grep over
+        Mathlib's L-series names into `head -40`; #33 (15:41:23Z) redirected a git grep's stderr with `2>/dev/null` while listing files that might
+        not exist at the pin. Both reads were re-taken without the pipe and the redirect (#30, #35 and #39); nothing was written by either. Entered.
+
+    (d) THE NAVIGATOR'S: THE BRANCH BASE "FROM v0.34'S COMMIT". (R311)(2) cuts bridge-b701 from v0.34's commit (8fbc27b) read back by peeled
+        SHA; SIDE-explicit-formula main stands at 4313875, two commits past it (v0.34.1 = e5fcda7, b691's re-cut with print_targets.txt +12
+        names; 4313875, b692's closure), and the plan names "from main" (data/b699_bridge_plan.txt :83). Read as a miss by the citation check
+        (data/b701_citation_check.txt), raised before Component 2; the author's answer: cut from main's tip read back by SHA, v0.34 an
+        ancestor read back by peeled SHA beside it, tag v0.35 naming v0.34.1 as the prior tag -- "b689's form was written when main stood at
+        the tag, and main has moved twice since". Entered as the navigator's, for the author's strike.
+    (e) THE NAVIGATOR'S: li_nonneg_iff_rh NAMED AS THE COMPOSED THEOREM. (R311)(2) composes the bridge "from h2_sign_iff_rh and li_nonneg_iff_rh
+        as the plan's S1 names them"; the plan's S1 (data/b699_bridge_plan.txt :67-:69) composes register4_positivity_liCoeff_iff_rh
+        (PageConverses.lean :32), beneath which li_nonneg_iff_rh stands through liCoeff_zero (ResidueDischarge.lean :41-:46). Read as a miss,
+        raised before Component 2; the author's answer: the plan's S1 as written, the docstring naming li_nonneg_iff_rh as the theorem beneath
+        -- "the plan had the exact name and I wrote the one beneath it". Entered as the navigator's, for the author's strike.
+
+    (f) THE SEAT'S: AN EXISTING KERNEL MODULE OVERWRITTEN BY THE WRITE TOOL. (R311)(2): "the existing names untouched"; the plan named the
+        bridge's module SIDEExplicitFormula/H2Bridge.lean (data/b699_bridge_plan.txt :82), and that path was already b532's module (the
+        conservation-hypothesis bridge, conservationHypothesis, balance_lemma, ch_iff_rh, ch_imp_h2_sign, h2_sign_imp_ch, imported by
+        PowerWindow/Seam). The seat wrote the bridge over it without reading the path first, and committed the overwrite on bridge-b701
+        (90b225d, "29 insertions, 82 deletions" in the commit's own count, read only after the commit). Repaired on the branch by a second
+        commit: the original restored from the base's blob through the Write tool and read equal by git diff against 4313875; the bridge
+        moved to the new module SIDEExplicitFormula/RegisterBridge.lean (namespace RegisterBridge), its two names in print_targets.txt; no
+        amend; the dispatched tree state the repaired one; the overwriting commit stays in the branch's history. Entered.
+
+### EVENTS, NOT DEFECTS:
+    - THE SESSION. The author's /clear closed b700's continuation session b858e03f and opened this one (e5bcf1d0) in the same claude process
+      (pid 16980); the act's anchor is (R311)'s line in this session; one seat (tail, lean, lake, python 0 at step zero).
+    - THE TWO MISSES OF THE CITATION CHECK, the ruling's, raised before Component 2 as one prompt of two questions: (i) the branch base "from
+      v0.34's commit" (8fbc27b) against main's tip 4313875 and the plan's "from main" (data/b699_bridge_plan.txt :83); (ii) "li_nonneg_iff_rh as the
+      plan's S1 names them" against the plan's S1, which composes register4_positivity_liCoeff_iff_rh (PageConverses.lean :32).

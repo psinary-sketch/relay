@@ -1,0 +1,57 @@
+b701 -- THE RESTATEMENT READ BY THE CORRESPONDENCE READER BEFORE THE BRIDGE THEOREM IS WRITTEN, (R311)(2), N2 (2026-10-21T16:23:28Z)
+
+### the reader: relay tools/circuit_correspondence.py, imported unedited (from_signature, from_pi, compare; spec relay data/b695_circuit_spec.txt
+### :53-:64). Rows are binders aligned by position: position | the first statement`s binder | the second`s | AGREE or DIFFERS | why (namespaces
+### stripped, bound names read by position). A Prop-valued definition is read as its binders and its body; SOURCE AGAINST SOURCE: the hosted
+### print step prints #print axioms alone, so neither definition has a hosted #print sig (b698`s reading of lv`s face, the same fallback).
+
+== THE CONTROLS, PRINTED BEFORE THE REAL READING
+  (C1) the restatement against itself: HOLDS-BY-CORRESPONDENCE
+       1          | (lam : ℕ → ℝ)                            | (lam : ℕ → ℝ)                            | AGREE
+       2          | (n : ℕ)                                  | (n : ℕ)                                  | AGREE
+       3          | 1 ≤ n (unnamed hypothesis)               | 1 ≤ n (unnamed hypothesis)               | AGREE
+       conclusion | 0 ≤ lam n                                | 0 ≤ lam n                                | AGREE
+  (C2) the restatement against a planted lv statement, binder 1`s type ℕ → ℝ changed to ℕ → ℤ: DIFFERS at binder 1
+       1          | (lam : ℕ → ℝ)                            | (lam : ℕ → ℤ)                            | DIFFERS
+       2          | (n : ℕ)                                  | (n : ℕ)                                  | AGREE
+       3          | 1 ≤ n (unnamed hypothesis)               | 1 ≤ n (unnamed hypothesis)               | AGREE
+       conclusion | 0 ≤ lam n                                | 0 ≤ lam n                                | AGREE
+  ### ### **CONTROLS: C1 HOLDS AT EVERY BINDER True ; C2 DIFFERS AT THE PLANTED BINDER (1) AND THERE ALONE True.**
+
+== THE SOURCES
+  the restatement: SIDE-explicit-formula main SIDEExplicitFormula/ResidueDischarge.lean :30-:31 (4313875), source text:
+      def Register4_positivity (lam : ℕ → ℝ) : Prop :=
+        ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n
+  lv-conservation`s statement: SIDE-lv-conservation v0.13.0 = 8e3bc76 SIDELvConservation/RegisterPentagon.lean :153-:154, source text (b698 read the face at ZeroActingPartial.lean :111-:121):
+      def Register4_positivity (lam : ℕ → ℝ) : Prop :=
+        ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n
+  the face`s binder 13 (ZeroActingPartial.lean, residue_irreducible): (liCriterion : Register4_positivity lam → RiemannHypothesis) ; at lam := LiCoeff: Register4_positivity LiCoeff → RiemannHypothesis
+  K4: SIDE-explicit-formula main SIDEExplicitFormula/ResidueDischarge.lean :41-:41: Register4_positivity LiCoeff → RiemannHypothesis
+
+== READING 1: THE RESTATEMENT (SIDE-explicit-formula, SOURCE) AGAINST Register4_positivity (SIDE-lv-conservation, SOURCE) -- binders 3 against 3
+  binder 1   | restatement: (lam : ℕ → ℝ)
+             | lv: (lam : ℕ → ℝ)
+             | AGREE | kind and type equal up to bound names
+  binder 2   | restatement: (n : ℕ)
+             | lv: (n : ℕ)
+             | AGREE | kind and type equal up to bound names
+  binder 3   | restatement: 1 ≤ n (unnamed hypothesis)
+             | lv: 1 ≤ n (unnamed hypothesis)
+             | AGREE | kind and type equal up to bound names
+  conclusion | restatement: 0 ≤ lam n
+             | lv: 0 ≤ lam n
+             | AGREE | equal up to bound names
+
+== READING 2: K4 (SIDE-explicit-formula) AGAINST THE FACE`S BINDER 13 AT lam := LiCoeff (SIDE-lv-conservation)
+  binder 1   | K4: Register4_positivity LiCoeff (unnamed hypothesis)
+             | binder 13: Register4_positivity LiCoeff (unnamed hypothesis)
+             | AGREE | kind and type equal up to bound names
+  conclusion | K4: RiemannHypothesis
+             | binder 13: RiemannHypothesis
+             | AGREE | equal up to bound names
+
+== READING 3: b698`S DIRECT READING RE-RUN -- h2_sign (PRINT, relay data/b643_probe_out_zeta.txt :43-:52) AGAINST residue_irreducible (SOURCE)
+  DIFFERS at binder 1: h2_sign`s (k : ℝ → ℂ) against residue_irreducible`s {lam_A : ℕ → ℝ}
+  AGREE 0 ; DIFFERS 14 of 14 rows -- unchanged from data/b698_correspondence_dominance.txt :76-:77
+
+### ### **THE RESTATEMENT AGAINST lv-CONSERVATION`S STATEMENT: HOLDS-BY-CORRESPONDENCE AT EVERY BINDER (3 BINDERS AND THE CONCLUSION) ; K4 AGAINST THE FACE`S BINDER 13 AT lam := LiCoeff: HOLDS-BY-CORRESPONDENCE ; b698`S DIFFERS AT BINDER 1 LOCATED IN THE RESTATEMENT AND CLOSED: THE CLAUSE REACHES THE FACE AT BINDER 13 THROUGH THE RESTATED PREDICATE, THE JOIN TO BE COMPILED AS S1 ; CONTROLS C1 True, C2 True ; THE THEOREM MAY BE WRITTEN True.**

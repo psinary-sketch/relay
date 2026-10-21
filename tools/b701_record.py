@@ -406,9 +406,347 @@ def c1(*a):
          check=[('FINDINGS.md', K.B700_ENTRY, '## Reading 4: 338 rows outside license'), ('OPEN_TRAILS.md', K.B700_TRAIL, '### b700')], dry=dry)
 
 
+# ================================================================================ COMPONENT 2: THE RESTATEMENT READ BY THE CORRESPONDENCE READER, (R311)(2), N2
+import circuit_correspondence as CC   # noqa: E402  ### the reader, imported unedited (its own main writes b698's banks; not called)
+EF, LV = K.EF_DIR, K.LV_DIR
+EF_RESTATE = ('SIDEExplicitFormula/ResidueDischarge.lean', 'Register4_positivity')
+LV_STATE = ('SIDELvConservation/RegisterPentagon.lean', 'Register4_positivity')
+EF_K4 = ('SIDEExplicitFormula/ResidueDischarge.lean', 'register4_positivity_liCoeff_imp_rh')
+
+
+def _def_sig(src, name):
+    """a `def NAME <binders> : Prop := <body>` read as a statement for the reader: '<binders> : <body>' (the Prop-valued definition's binders and
+    its body as the proposition), with its line span."""
+    L = src.split(NL)
+    i = next(k for k, l in enumerate(L) if l.startswith('def %s ' % name) or l.startswith('def %s(' % name))
+    j = next(k for k in range(i, len(L)) if ':=' in L[k])
+    m = j
+    while m + 1 < len(L) and L[m + 1].startswith('  ') and L[m + 1].strip():
+        m += 1
+    head = ' '.join(NL.join(L[i:j + 1]).split('def %s' % name, 1)[1].rsplit(':=', 1)[0].split())
+    body = ' '.join((NL.join(L[j:m + 1]).split(':=', 1)[1]).split())
+    # ### the source writes `∀ n : ℕ,` where #print writes `∀ (n : ℕ),`: the one bracketing the reader's from_pi reads, applied to both sides alike
+    body = re.sub(r'∀ ([^(){}\[\]∀,]+?) : ([^,]+?),', r'∀ (\1 : \2),', body)
+    binders = head.rsplit(': Prop', 1)[0].strip()
+    return i + 1, m + 1, '%s : %s' % (binders, body), NL.join(L[i:m + 1])
+
+
+def _thm_sig(src, name):
+    L = src.split(NL)
+    i = next(k for k, l in enumerate(L) if l.startswith('theorem %s ' % name))
+    j = next(k for k in range(i, len(L)) if ':= by' in L[k] or L[k].rstrip().endswith(':='))
+    st = NL.join(L[i:j + 1])
+    head = st.split('theorem %s' % name, 1)[1].rsplit(':=', 1)[0]
+    return i + 1, j + 1, ' '.join(head.split()).lstrip(': ').strip(), st
+
+
+def _show_rows(rows, a_name, b_name):
+    out = []
+    for r in rows:
+        if r[0] == 'conclusion':
+            out += ['  conclusion | %s: %s' % (a_name, r[1]), '             | %s: %s' % (b_name, r[2]), '             | %s | %s' % (r[3], r[4])]
+        else:
+            out += ['  binder %-3s | %s: %s' % (r[0], a_name, CC.show_binder(r[1])), '             | %s: %s' % (b_name, CC.show_binder(r[2])),
+                    '             | %s | %s' % (r[3], r[4])]
+    return out
+
+
+def corr(*a):
+    """`corr` (before the theorem is written) / `corr after <tag> <run id>` (the CLAUSE-DOMINANCE re-read after the merge): the restatement
+    SIDEExplicitFormula.ResidueDischarge.Register4_positivity (source text at the kernel's main, the hosted print step printing axioms alone) read
+    by tools/circuit_correspondence.py against SIDE-lv-conservation's Register4_positivity at v0.13.0 (source text at the tag, as b698 read the
+    face), binder by binder; the K4 theorem against the face's binder 13 at lam := LiCoeff; and b698's direct reading (h2_sign against
+    residue_irreducible) re-run. Controls first. data/b701_correspondence_restatement.txt (.json) / data/b701_clause_dominance.txt (.json)."""
+    after = bool(a) and a[0] == 'after'
+    tag, run_id = (a[1], a[2]) if after and len(a) > 2 else ('', '')
+    ef_rev = tag if after else 'main'
+    ei, ej, esig, etext = _def_sig(_show(EF, ef_rev, EF_RESTATE[0]), EF_RESTATE[1])
+    li, lj, lsig, ltext = _def_sig(_show(LV, K.LV_V0130, LV_STATE[0]), LV_STATE[1])
+    A = CC.from_signature(esig) + ('SIDE-explicit-formula',)
+    B = CC.from_signature(lsig) + ('SIDE-lv-conservation',)
+    # ### the controls
+    r1, v1 = CC.compare(A, A)
+    planted = (list(B[0]), B[1], B[2])
+    planted[0][0] = (planted[0][0][0], planted[0][0][1], 'ℕ → ℤ')
+    r2, v2 = CC.compare(A, tuple(planted))
+    c1_ok = v1 == 'HOLDS-BY-CORRESPONDENCE' and all(r[3] == 'AGREE' for r in r1)
+    c2_ok = v2 == 'DIFFERS at binder 1' and [r[3] for r in r2] == ['DIFFERS'] + ['AGREE'] * (len(r2) - 1)
+    # ### reading 1: the restatement against lv's statement
+    rows, v = CC.compare(A, B)
+    # ### reading 2: K4 against the face's binder 13 at lam := LiCoeff
+    fi_, fj_, fsig = CC.lv_source()
+    F = CC.from_signature(fsig)
+    b13 = F[0][12]
+    b13t = re.sub(r'(?<![\w.])lam(?![\w])', 'LiCoeff', b13[2])
+    ki, kj, ksig, ktext = _thm_sig(_show(EF, ef_rev, EF_K4[0]), EF_K4[1])
+    K4 = CC.from_pi(ksig) + ('SIDE-explicit-formula',)
+    B13 = CC.from_pi(b13t) + ('SIDE-lv-conservation',)
+    rows2, vb = CC.compare(K4, B13)
+    # ### reading 3: b698's direct reading, re-run
+    a1, b1_, stmt, value = CC.h2_print()
+    H2 = CC.from_pi(value) + ('SIDE-explicit-formula',)
+    FR = F + ('SIDE-lv-conservation',)
+    rows3, v3 = CC.compare(H2, FR)
+    fd = next((r for r in rows3 if r[3] == 'DIFFERS'), None)
+    bridge = ''
+    if after:
+        bi, bj, bsig, btext = _thm_sig(_show(EF, ef_rev, K.BRIDGE_FILE), K.BRIDGE_NAMES[0].rsplit('.', 1)[1])
+        rr = [r for r in (jl('%s_runner_rows.json' % ACT).get('rows') or []) if str(r.get('run_id')) == str(run_id)]
+        bridge = 'the bridge theorem %s at %s %s :%d-:%d: %s -- its run %s %s' % (K.BRIDGE_NAMES[0], tag, K.BRIDGE_FILE, bi, bj, bsig, run_id,
+                                                                                   rr[0].get('gate') if rr else '### NO RUNNER ROW')
+    name = '%s_clause_dominance' % ACT if after else '%s_correspondence_restatement' % ACT
+    L = ['%s -- %s (%s)' % (ACT, ('CLAUSE-DOMINANCE RE-READ BY CORRESPONDENCE OVER BOTH FACES` KERNELS AFTER THE BRIDGE, (R311)(2)' if after else
+                                'THE RESTATEMENT READ BY THE CORRESPONDENCE READER BEFORE THE BRIDGE THEOREM IS WRITTEN, (R311)(2), N2'), utc()), '',
+         '### the reader: relay tools/circuit_correspondence.py, imported unedited (from_signature, from_pi, compare; spec relay data/b695_circuit_spec.txt',
+         '### :53-:64). Rows are binders aligned by position: position | the first statement`s binder | the second`s | AGREE or DIFFERS | why (namespaces',
+         '### stripped, bound names read by position). A Prop-valued definition is read as its binders and its body; SOURCE AGAINST SOURCE: the hosted',
+         '### print step prints #print axioms alone, so neither definition has a hosted #print sig (b698`s reading of lv`s face, the same fallback).', '',
+         '== THE CONTROLS, PRINTED BEFORE THE REAL READING',
+         '  (C1) the restatement against itself: %s' % v1]
+    L += ['       %-10s | %-40s | %-40s | %s' % (r[0], CC.show_binder(r[1]) if r[0] != 'conclusion' else r[1][:40], CC.show_binder(r[2]) if r[0] != 'conclusion' else r[2][:40], r[3]) for r in r1]
+    L += ['  (C2) the restatement against a planted lv statement, binder 1`s type ℕ → ℝ changed to ℕ → ℤ: %s' % v2]
+    L += ['       %-10s | %-40s | %-40s | %s' % (r[0], CC.show_binder(r[1]) if r[0] != 'conclusion' else r[1][:40], CC.show_binder(r[2]) if r[0] != 'conclusion' else r[2][:40], r[3]) for r in r2]
+    L += ['  ### ### **CONTROLS: C1 HOLDS AT EVERY BINDER %s ; C2 DIFFERS AT THE PLANTED BINDER (1) AND THERE ALONE %s.**' % (c1_ok, c2_ok), '',
+          '== THE SOURCES',
+          '  the restatement: SIDE-explicit-formula %s %s :%d-:%d (%s), source text:' % (ef_rev, EF_RESTATE[0], ei, ej, g(EF, 'rev-parse', '--short=7', ef_rev).strip())]
+    L += ['      ' + x for x in etext.split(NL)]
+    L += ['  lv-conservation`s statement: SIDE-lv-conservation v0.13.0 = %s %s :%d-:%d, source text (b698 read the face at ZeroActingPartial.lean :%d-:%d):' % (
+        K.LV_V0130[:7], LV_STATE[0], li, lj, fi_, fj_)]
+    L += ['      ' + x for x in ltext.split(NL)]
+    L += ['  the face`s binder 13 (ZeroActingPartial.lean, residue_irreducible): %s ; at lam := LiCoeff: %s' % (CC.show_binder(b13), b13t),
+          '  K4: SIDE-explicit-formula %s %s :%d-:%d: %s' % (ef_rev, EF_K4[0], ki, kj, ksig)]
+    if bridge:
+        L += ['  ' + bridge]
+    L += ['', '== READING 1: THE RESTATEMENT (SIDE-explicit-formula, SOURCE) AGAINST Register4_positivity (SIDE-lv-conservation, SOURCE) -- binders %d against %d' % (len(A[0]), len(B[0]))]
+    L += _show_rows(rows, 'restatement', 'lv')
+    L += ['', '== READING 2: K4 (SIDE-explicit-formula) AGAINST THE FACE`S BINDER 13 AT lam := LiCoeff (SIDE-lv-conservation)']
+    L += _show_rows(rows2, 'K4', 'binder 13')
+    L += ['', '== READING 3: b698`S DIRECT READING RE-RUN -- h2_sign (PRINT, relay data/b643_probe_out_zeta.txt :%d-:%d) AGAINST residue_irreducible (SOURCE)' % (a1, b1_)]
+    L += ['  %s' % ('%s: h2_sign`s %s against residue_irreducible`s %s' % (v3, CC.show_binder(fd[1]), CC.show_binder(fd[2])) if fd is not None and fd[0] != 'conclusion' else v3),
+          '  AGREE %d ; DIFFERS %d of %d rows -- unchanged from data/b698_correspondence_dominance.txt :76-:77' % (
+              sum(1 for r in rows3 if r[3] == 'AGREE'), sum(1 for r in rows3 if r[3] != 'AGREE'), len(rows3))]
+    holds = v == 'HOLDS-BY-CORRESPONDENCE' and vb == 'HOLDS-BY-CORRESPONDENCE'
+    if after:
+        verdict = ('CLAUSE-DOMINANCE BY CORRESPONDENCE OVER BOTH FACES` KERNELS: 2 OF 2 THROUGH THE RESTATEMENT -- THE RESTATEMENT AGAINST lv`S STATEMENT %s ; '
+                   'K4 AGAINST BINDER 13 AT lam := LiCoeff %s ; THE JOIN h2_sign ↔ Register4_positivity LiCoeff COMPILED AT %s ; THE DIRECT READING OF THE TWO '
+                   'STATEMENTS %s AS b698 READ IT ; CONTROLS C1 %s, C2 %s' % (v, vb, tag, v3, c1_ok, c2_ok)) if holds else (
+                   'CLAUSE-DOMINANCE BY CORRESPONDENCE: THE RESTATEMENT %s ; K4 AGAINST BINDER 13 %s ; CONTROLS C1 %s, C2 %s' % (v, vb, c1_ok, c2_ok))
+    else:
+        verdict = ('THE RESTATEMENT AGAINST lv-CONSERVATION`S STATEMENT: %s AT EVERY BINDER (%d BINDERS AND THE CONCLUSION) ; K4 AGAINST THE FACE`S BINDER 13 AT '
+                   'lam := LiCoeff: %s ; b698`S DIFFERS AT BINDER 1 LOCATED IN THE RESTATEMENT AND CLOSED: THE CLAUSE REACHES THE FACE AT BINDER 13 THROUGH THE '
+                   'RESTATED PREDICATE, THE JOIN TO BE COMPILED AS S1 ; CONTROLS C1 %s, C2 %s ; THE THEOREM MAY BE WRITTEN %s' % (
+                       v, len(A[0]), vb, c1_ok, c2_ok, holds and c1_ok and c2_ok)) if holds else (
+                   'THE RESTATEMENT AGAINST lv-CONSERVATION`S STATEMENT: %s ; K4 AGAINST BINDER 13: %s ; THE ACT STOPS HERE WITH THE READING BANKED (N2) ; CONTROLS '
+                   'C1 %s, C2 %s' % (v, vb, c1_ok, c2_ok))
+    L += ['', '### ### **%s.**' % verdict]
+    put_txt('%s.txt' % name, L)
+    put_json('%s.json' % name, dict(at=utc(), reading1=v, reading2=vb, reading3=v3, controls=dict(c1=c1_ok, c2=c2_ok), holds=holds, after=after, tag=tag, run_id=run_id,
+                                    rows1=[[r[0], CC.show_binder(r[1]) if r[0] != 'conclusion' else r[1], CC.show_binder(r[2]) if r[0] != 'conclusion' else r[2], r[3], r[4]] for r in rows],
+                                    rows2=[[r[0], CC.show_binder(r[1]) if r[0] != 'conclusion' else r[1], CC.show_binder(r[2]) if r[0] != 'conclusion' else r[2], r[3], r[4]] for r in rows2]))
+    print(NL.join(L[6:9] + L[-1:]))
+    if not (holds and c1_ok and c2_ok) and not after:
+        sys.exit(1)
+
+
+# ================================================================================ COMPONENT 2: THE ORDERS' ANNOTATION ON THE AUTHOR'S WORD AT THE DISCHARGE PROMPT, (R311)(2)
+ORDER_H = ('*Appended 2026-10-21 by b701 beneath `W-ORD-H2-BRIDGE-THEOREM` (:15334; `W-ORD-H2-BRIDGE` :10257, annotated at :15200 and :15294), under '
+           '`(R311)`(2) and the author’s word at the discharge prompt -- THE ORDERS **`W-ORD-H2-BRIDGE`** AND **`W-ORD-H2-BRIDGE-THEOREM`** DISCHARGED:*')
+ORDER_B = (' the bridge compiled at SIDE-explicit-formula v0.35 = d4e046a (SIDEExplicitFormula/RegisterBridge.lean, merged from bridge-b701 on the '
+           'gate’s reading): h2_sign_iff_register4_positivity_liCoeff, h2_sign ↔ Register4_positivity LiCoeff := h2_sign_iff_rh.trans '
+           'register4_positivity_liCoeff_iff_rh.symm, the hosted run 39635057369 DERIVES (the artifact’s sha256 agreeing with the platform’s digest, 74 '
+           'of 74 terminals at the standard three), the grade read from the statement DERIVES with every salt-check passed (relay data/b701_grade.txt). '
+           'The reader’s readings (relay data/b701_correspondence_restatement.txt, before the theorem was written; data/b701_clause_dominance.txt, after '
+           'the merge): the restatement ResidueDischarge.Register4_positivity against SIDE-lv-conservation v0.13.0’s Register4_positivity '
+           'HOLDS-BY-CORRESPONDENCE at every binder, K4 against the face’s binder 13 at lam := LiCoeff HOLDS-BY-CORRESPONDENCE, CLAUSE-DOMINANCE by '
+           'correspondence 2 of 2 through the restatement; the direct reading of h2_sign against residue_irreducible DIFFERS at binder 1 as b698 read '
+           'it. In the author’s words: the join is an equivalence compiled through RH between h2_sign and the register face as restated in '
+           'SIDE-explicit-formula, the restatement reading HOLDS-BY-CORRESPONDENCE against lv-conservation’s statement at every binder, and not an '
+           'object-to-object translation, the direct reading at binder 1 standing as b698 read it; and lv-conservation’s own kernel still holds no '
+           'import of the bridge, its lakefile forbidding it, so for that kernel the link remains the faces page’s Correspondence row, now pointing at '
+           'a compiled theorem by tag (the successor row drafted in relay data/b701_faces_rows.txt, held for b702’s regeneration prompt). Status '
+           'DISCHARGED.')
+
+
+def order(*a):
+    """the orders' annotation at OPEN_TRAILS on the author's word (discharge): landed by the guarded route beneath W-ORD-H2-BRIDGE-THEOREM's line;
+    refuses where the readings' banks do not carry their verdicts."""
+    cd = rdn('%s_clause_dominance.txt' % ACT)
+    gr = rdn('%s_grade.txt' % ACT)
+    if '2 OF 2 THROUGH THE RESTATEMENT' not in cd or 'EVERY SALT-CHECK PASSED True' not in gr or 'v0.35' not in cd:
+        sys.exit('### THE READINGS` BANKS DO NOT CARRY THEIR VERDICTS -- NOTHING WRITTEN')
+    land([('OPEN_TRAILS.md', ORDER_H, NL + ORDER_H + ORDER_B + NL)], '%s_order_line.json' % ACT, 'order', entry=10257,
+         check=[('OPEN_TRAILS.md', 10257, '(2) **`W-ORD-H2-BRIDGE`**'), ('OPEN_TRAILS.md', K.BRIDGE_ORDER, 'beneath `W-ORD-H2-BRIDGE`')],
+         dry='dry' in a)
+
+
+# ================================================================================ COMPONENTS 2-3: THE DISPATCH, THE RUNNER, THE PRINTS (b698's routes; the runner's text with this act's name)
+dispatch, runstatus = R.dispatch, R.runstatus
+STD3 = ('Classical.choice', 'Quot.sound', 'propext')
+
+
+def runner(*a):
+    """`runner <kernel> <run id> <ref> <label> <note...>`: b698's route carried by copy with this act's name in its bank text (b699's trap 3)."""
+    import hashlib
+    import io as _io
+    import zipfile
+    kernel, run_id, ref, label, note = a[0], int(a[1]), a[2], a[3], ' '.join(a[4:])
+    repo = 'psinary-sketch/' + kernel
+    rc, out, err = R._gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = R._gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    row = dict(kernel=kernel, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+               stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+    L = ['%s -- THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (ACT, kernel, label.upper(), utc()), '',
+         '### the dispatch: %s ; the ref input %s' % (note, ref),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+             run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    row['axioms_sha256'] = hashlib.sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    deps = _deps(ax)
+    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+    printed = [n for n, _d in deps]
+    unmatched = [n for n in tg if n not in printed]
+    outside = [(n, d) for n, d in deps if not set(d) <= set(STD3)]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d:' % (row['build_exit'], len(row['errors']))] + ['    ' + l for l in row['errors'][:40]] + [
+          '### the log`s last lines:'] + ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + [
+          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; axiom-free %d ; '
+          'sorryAx %d ; outside the standard three %d ; refused %s' % (
+              len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg), sum(1 for _n, d in deps if not d),
+              sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### rows are terminals: name | the axioms printed | within the standard three:']
+    L += ['  %-62s %s %s' % (n, d, 'STD3' if set(d) <= set(STD3) else '### OUTSIDE') for n, d in deps]
+    L += ['  %-62s ### NOT PRINTED' % n for n in unmatched]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and not outside
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; '
+          'OUTSIDE THE STANDARD THREE %d ; GATE %s.**' % (
+              run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']),
+              len(deps), len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), row['gate'])]
+    read_runner_row(row)
+    put_txt('%s_runner_%s_%s.txt' % (ACT, kernel, label), L)
+    if row['artifact_sha256']:
+        put_txt('%s_axioms_%s_%s.txt' % (ACT, kernel, label), ax.split(NL) if ax else ['### EMPTY'])
+        put_txt('%s_buildlog_%s_%s.txt' % (ACT, kernel, label), blog.rstrip(NL).split(NL))
+    j = jl('%s_runner_rows.json' % ACT) if os.path.isfile(os.path.join(D, '%s_runner_rows.json' % ACT)) else {}
+    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (kernel, label)] + [row]
+    put_json('%s_runner_rows.json' % ACT, dict(rows=rows))
+    print(NL.join(L[:14] + L[-3:]))
+
+
+def prints(*a):
+    """`prints <kernel> <before bank> <after bank> <stem>`: the 'before' terminals' lines compared with the same names' lines in the 'after' bank
+    by name; the new names listed apart (b689's form). data/b701_prints_<stem>.txt."""
+    kernel, bb, ab, stem = a[0], a[1], a[2], a[3]
+    b, f = rdn(bb), rdn(ab)
+    if not b or not f:
+        sys.exit('### A PRINT BANK IS MISSING -- NOTHING WRITTEN')
+    bd, fd = dict(_deps(b)), dict(_deps(f))
+    diff = [(n, bd[n], fd.get(n)) for n in bd if fd.get(n) != bd[n]]
+    new = [n for n in fd if n not in bd]
+    L = ['%s -- THE PRINTS OF %s: THE TERMINALS PRINTED BEFORE AND AFTER THE BRANCH, BY NAME (%s)' % (ACT, kernel, utc()), '',
+         '### before: relay data/%s (%d terminals) ; after: relay data/%s (%d terminals) ; rows are the terminals that differ:' % (bb, len(bd), ab, len(fd))] + (
+             ['    %s : %s | %s' % d for d in diff] or ['    NONE']) + ['### the names printed after and not before (the branch`s new names): %d' % len(new)] + [
+             '    %s %s' % (n, fd[n]) for n in new]
+    L += ['', '### ### **BEFORE %d TERMINALS ; EACH PRINTED AFTER %s ; DIFFERING %d ; NEW %d ; EQUAL BY NAME %s.**' % (
+        len(bd), all(n in fd for n in bd), len(diff), len(new), not diff)]
+    put_txt('%s_prints_%s.txt' % (ACT, stem), L)
+    print(L[-1])
+
+
+# ================================================================================ COMPONENTS 2-3: THE GRADE AND THE SALT-CHECK (b689's route, generalized by name)
+# ### the seat's reading of each statement's binders by hand, BEFORE the E0 check (b689's form): name -> (file, [(binder, class, why)], grade, premise)
+GRADES = {
+    'h2_sign_iff_register4_positivity_liCoeff': (K.BRIDGE_FILE, 'SIDEExplicitFormula.RegisterBridge.', [],
+                                                 'DERIVES', 'NONE (no binder; an equivalence of two closed propositions of this kernel)'),
+    'h2_sign_imp_pairing_rh': (K.BRIDGE_FILE, 'SIDEExplicitFormula.RegisterBridge.',
+                               [('Pairing', '(ℕ → ℝ) → (ℕ → ℝ) → (ℕ → ℝ) → Prop', 'a predicate on two channels and a ledger, data: lv`s ZeroActingPairing left free'),
+                                ('lam_A lam_Z', 'ℕ → ℝ', 'two real sequences, data, no hypothesis')],
+                               'DERIVES', 'NONE (h2_sign is the antecedent inside the stated implication, not a binder; S2 adds nothing beyond S1)'),
+}
+E0_EXTENSION = {'h2_sign': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :29'),
+                'Register4_positivity': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/ResidueDischarge.lean :30'),
+                'RiemannHypothesis': ('prop', 'Mathlib RiemannHypothesis'),
+                'ZeroActingPairing': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/H2Bridge.lean (restated from SIDE-lv-conservation v0.13.0)')}
+
+
+def grade(*a):
+    """`grade <rev> <stem> <name> [<name> ...]`: data/b701_grade_<stem>.txt -- each theorem's statement verbatim from the branch at rev, the seat's
+    reading of its binders by hand and the grade it gives, the shared E0 rule's grade as the check (its lexicon extended here, the shared file not
+    edited), the salt-check of REGISTRY.md :544 clause by clause, the runner's print of the name."""
+    import e0_rule as E
+    rev, stem, names = a[0], a[1], list(a[2:])
+    E.LEXICON.update(E0_EXTENSION)
+    rows_ = jl('%s_runner_rows.json' % ACT).get('rows') or []
+    run = next((r for r in rows_ if (r.get('ref') or '').startswith(g(EF, 'rev-parse', rev).strip()[:7])), None)
+    ax = rdn('%s_axioms_%s_%s.txt' % (ACT, run['kernel'], run['label'])) if run else ''
+    AX = dict(_deps(ax))
+    L = ['%s -- THE GRADE OF EACH THEOREM, READ FROM ITS STATEMENT, AND THE SALT-CHECK, (R311)(2)-(3) (%s)' % (ACT, utc()), '',
+         '### rows are, per theorem: the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and',
+         '### the salt-check`s clauses with their readings. The statements at SIDE-explicit-formula %s (%s); the profile from run %s.' % (
+             rev[:7], g(EF, 'rev-parse', '--short=7', rev).strip(), run['run_id'] if run else '### NO RUN'), '']
+    allok, summ = True, []
+    for name in names:
+        fpath, ns, hand, hgrade, hprem = GRADES[name]
+        i, j, head, st = _thm_sig(_show(EF, rev, fpath), name)
+        eg, why, read = E.grade(' ' + head + ' ', 'theorem')
+        prof = AX.get(ns + name)
+        concl = E.conclusion(E.statement_only(' ' + head + ' ')) or head
+        salt = [('no True-typed conclusion, no uniformly-True predicate', not re.search(r'\bTrue\b', concl), 'the conclusion %r is an iff or an implication between named Props of two kernels, neither True' % concl.strip()[:80]),
+                ('no X = X', not re.search(r'\b(\w+)\s*=\s*\1\b', concl), 'no equation in the conclusion'),
+                ('no hypothesis that is the claim', all(concl.strip() not in (t or '') for _n, t in read) if read else True, 'hypotheses %s' % ([n for n, _t in read] or 'none')),
+                ('no fabricated witness', '∃' not in concl, 'the conclusion constructs nothing'),
+                ('hypotheses named', all(n for n, _t in read) if read else True, ', '.join('%s : %s' % x for x in read) or 'no binder'),
+                ('#print axioms profiled after the first three', prof is not None and set(prof) <= set(STD3), 'run %s: %s' % (run['run_id'] if run else '### NO RUN', prof))]
+        ok = all(s[1] for s in salt)
+        allok = allok and ok
+        L += ['== %s (%s :%d-:%d):' % (name, fpath, i, j)] + ['    ' + l for l in st.split(NL)]
+        L += ['  THE BINDERS, READ BY HAND (the seat`s reading, before the check): %s' % ('NONE -- a closed statement' if not hand else '')]
+        L += ['    %-12s : %-28s %s' % b for b in hand]
+        L += ['  THE GRADE READ FROM THE STATEMENT: %s ; THE NAMED PREMISE: %s' % (hgrade, hprem),
+              '  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):',
+              '    E0 GRADE %s ; its reason: %s ; the hypotheses it read: %s' % (eg, why, read),
+              '    THE HAND READING AND THE CHECK %s' % ('AGREE' if eg == hgrade else '### DIFFER (%s against %s)' % (hgrade, eg)),
+              '  THE SALT-CHECK (REGISTRY.md :544), clause by clause:']
+        L += ['    %-55s %s -- %s' % (c, 'PASS' if ok_ else '### FAIL', how) for c, ok_, how in salt]
+        L += ['  PROFILE %s ; SALT-CHECK %s' % (prof, 'PASS' if ok else '### FAIL'), '']
+        summ.append('%s GRADE %s (E0 %s) SALT %s PROFILE %s' % (name, hgrade, eg, 'PASS' if ok else 'FAIL', 'STD3' if prof is not None and set(prof) <= set(STD3) else prof))
+    L += ['### ### **THEOREMS %d ; %s ; EVERY SALT-CHECK PASSED %s.**' % (len(names), ' ; '.join(summ), allok)]
+    put_txt(('%s_grade.txt' % ACT) if stem == 'bridge' else ('%s_grade_%s.txt' % (ACT, stem)), L)   # ### (R311)(2) names data/b701_grade.txt for the bridge
+    print(NL.join(L[-3:]))
+
+
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, defshort=defshort, commands=commands, reads=reads,
               rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final, c1=c1, kernels=kernels, standing=standing,
-              armsecs=armsecs, desk=desk, gatebanks=gatebanks, mbuild=mbuild, mroot=mroot, mverify=mverify)
+              armsecs=armsecs, desk=desk, gatebanks=gatebanks, mbuild=mbuild, mroot=mroot, mverify=mverify, corr=corr, dispatch=dispatch,
+              runstatus=runstatus, runner=runner, prints=prints, grade=grade, order=order)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

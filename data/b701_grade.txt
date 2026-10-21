@@ -1,0 +1,41 @@
+b701 -- THE GRADE OF EACH THEOREM, READ FROM ITS STATEMENT, AND THE SALT-CHECK, (R311)(2)-(3) (2026-10-21T16:43:35Z)
+
+### rows are, per theorem: the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and
+### the salt-check`s clauses with their readings. The statements at SIDE-explicit-formula bridge- (58186bb); the profile from run 39635057369.
+
+== h2_sign_iff_register4_positivity_liCoeff (SIDEExplicitFormula/RegisterBridge.lean :34-:34):
+    theorem h2_sign_iff_register4_positivity_liCoeff : h2_sign ↔ Register4_positivity LiCoeff :=
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): NONE -- a closed statement
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (no binder; an equivalence of two closed propositions of this kernel)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'h2_sign ↔ Register4_positivity LiCoeff' is an iff or an implication between named Props of two kernels, neither True
+    no X = X                                                PASS -- no equation in the conclusion
+    no hypothesis that is the claim                         PASS -- hypotheses none
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- no binder
+    #print axioms profiled after the first three            PASS -- run 39635057369: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== h2_sign_imp_pairing_rh (SIDEExplicitFormula/RegisterBridge.lean :39-:40):
+    theorem h2_sign_imp_pairing_rh (Pairing : (ℕ → ℝ) → (ℕ → ℝ) → (ℕ → ℝ) → Prop) (lam_A lam_Z : ℕ → ℝ) :
+        h2_sign → ∀ ledger : ℕ → ℝ, Pairing lam_A lam_Z ledger → RiemannHypothesis :=
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    Pairing      : (ℕ → ℝ) → (ℕ → ℝ) → (ℕ → ℝ) → Prop a predicate on two channels and a ledger, data: lv`s ZeroActingPairing left free
+    lam_A lam_Z  : ℕ → ℝ                        two real sequences, data, no hypothesis
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (h2_sign is the antecedent inside the stated implication, not a binder; S2 adds nothing beyond S1)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'h2_sign → ∀ ledger : ℕ → ℝ, Pairing lam_A lam_Z ledger → RiemannHypothesis' is an iff or an implication between named Props of two kernels, neither True
+    no X = X                                                PASS -- no equation in the conclusion
+    no hypothesis that is the claim                         PASS -- hypotheses none
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- no binder
+    #print axioms profiled after the first three            PASS -- run 39635057369: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+### ### **THEOREMS 2 ; h2_sign_iff_register4_positivity_liCoeff GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; h2_sign_imp_pairing_rh GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; EVERY SALT-CHECK PASSED True.**
