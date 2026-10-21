@@ -77,13 +77,35 @@ def _defect_short(act):
 R._defect_short = _defect_short    # ### the carried function rebound to the repaired one: a call without the act now refuses
 
 
+CLOSING_DEFECT = re.compile(r"and \(([a-z])\), (THE [A-Z']+), entered here[^:]*: (.*?) -- ")
+
+
+def closing_defects(act):
+    """(R310)(2) on the author's answer at b700 (Option 1): the defects an act's closing enters in its (g) line and not in its defects bank --
+    b699's (d), entered there on the author's word at the root's prompt. Returns [(row, 'data/<act>_closing.txt :<first>-:<last>')]."""
+    L = rdn('%s_closing.txt' % act).split(NL)
+    i = next((k for k, l in enumerate(L) if l.startswith('    (g) ')), None)
+    if i is None:
+        return []
+    j = i + 1
+    while j < len(L) and L[j].startswith('        '):
+        j += 1
+    text = ' '.join(x.strip() for x in L[i:j])
+    return [('(%s) %s: %s' % (m.group(1), m.group(2), m.group(3)), 'data/%s_closing.txt :%d-:%d' % (act, i + 1, j))
+            for m in CLOSING_DEFECT.finditer(text)]
+
+
 def defshort(*a):
-    """the repair's dry run: `defshort <act>` prints the act's lettered defects as the trail route composes them; writes nothing."""
+    """the repair's dry run: `defshort <act>` prints the act's lettered defects as the trail route composes them -- the defects bank by the
+    repaired reader (its act at the call), then any defect the closing's (g) line enters outside the bank, each row with its source; writes
+    nothing."""
     act = a[0] if a else ''
-    out = _defect_short(act)
-    for s in out:
-        print('  ' + s)
-    print('### ### **%s: DEFECTS READ %d FROM data/%s_defects.txt.**' % (act, len(out), act))
+    out = [(s, 'data/%s_defects.txt' % act) for s in _defect_short(act)]
+    nb = len(out)
+    out += closing_defects(act)
+    for s, src in out:
+        print('  %s   [%s]' % (s, src))
+    print('### ### **%s: DEFECTS %d -- FROM data/%s_defects.txt %d, FROM THE CLOSING`S (g) LINE %d.**' % (act, len(out), act, nb, len(out) - nb))
 
 
 # ================================================================================ STEP ZERO: ROWGEN, ANSWERS (b698's routes, carried)
@@ -267,8 +289,93 @@ R.ROOT_EXCLUDE = re.compile(r'^b700_(defects|scores.*|desk_notes|components|chec
 root_banks, rootbanks, root, root_arm, table_final = R.root_banks, R.rootbanks, R.root, R.root_arm, R.table_final
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R310)(1)
+WH = ('*Appended 2026-10-21 by b700 to b699’s entry (:9726), under `(R310)`(1) -- b699 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b699_closing.txt):*')
+WB = (' “b699 closed: relay 144cc457, PLACE-papers 049855a; suite 121 of 121; root 4f7afcb30a75e63c…; 4 prompts answered; 3 defects” '
+      '(data/b699_closing.txt :1), the closing 85dd43d7 pushed and read back at relay main (data/b699_closing_push_out.txt :5); the head '
+      'line undercounting on both counts -- five prompts put, the fifth, at the trail, after the answers bank’s one write; four defects, (d) '
+      'in the closing’s (g) line alone (:240-:244) -- each count corrected by b700’s generated corrigendum (FINDINGS :9752). b698’s weight '
+      'line at :9710 and its corrigendum at :9712 naming the two pre-lock commits 2d19edd3 and 069778f6 by hash, the answers bank’s bytes '
+      'equal to the root’s row, ONE-COPY 6 stored and 18 counted, corrigenda rows (11)-(13). SIDE-substrate-cluster re-cut alone at the top '
+      'count, b674’s tie-break printed and not reached: T7Labeling.lean :19-:20 retired to the errata, comment lines alone, both runs DERIVES '
+      'with the prints equal line for line, 0 quoting lines, merged at 0c98a9a and tagged v0.4.1 naming v0.4, the distance 1 to 0 '
+      '(data/b699_cut.txt :40); no roster table naming the kernel, nothing written, THE_TWO_THREE_SUBSTRATE’s pinned rows entered as a '
+      'roster-currency row for b700. The SIDE-archimedean cells written by the generator alone at PATHS_TO_THE_CRITICAL_LINE_v0_7 :285 '
+      '(v0.1.1, the profile, DERIVES); the partner copy differing in 24 lines against the 4 stored, entered beneath W-ORD-ONE-COPY '
+      '(OPEN_TRAILS :15332). W-ORD-H2-BRIDGE-THEOREM entered at :15334, priced in data/b699_bridge_plan.txt with all 14 binders and their '
+      'translations -- at binder 1 no translation object to object in either kernel; S1, h2_sign ↔ Register4_positivity LiCoeff, DERIVES '
+      'expected through RH by two theorems v0.34 already compiles; one dispatch; nothing compiled. Suite 121 of 121 pre- and post-push, 93 '
+      'standing and 28 act arms, every control behaving, section (0) naming every pre-lock commit by hash; all eight scores HELD '
+      '(data/b699_scores_close.json); mirror-refresh-2026-10-21-b699.zip CLEAN with the root line. Four defects, all the seat’s -- (a) a '
+      'pipe in an opening read, (b) two banks read through the shell’s grep, (c) a glob in the --list branch listings before the deletes '
+      '(data/b699_defects.txt :6-:20), (d) the trail at OPEN_TRAILS :15336 listing b698’s four defects for b699’s, from a default bound at '
+      'import in b698_record._defect_short carried by reference in the sealed b699_record, landed as composed on the author’s word; the '
+      'navigator’s claim that the defects bank is root-named read as wrong, the root naming the answers and citation banks and not the '
+      'defects bank (the corrigendum’s (e)). Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B699_ENTRY,
+         check=[('FINDINGS.md', K.B699_ENTRY, '## SIDE-substrate-cluster re-cut: 1 row outside LICENSED/CITED to 0, v0.4.1'),
+                ('OPEN_TRAILS.md', K.B699_TRAIL, '### b699')], dry=dry)
+
+
+# ================================================================================ THE REPAIRS ((R310)(2) and the carry-time reading)
+REPAIR_ROWS = [      # ### (text, carried tool, carried function, this act's tool, this act's function)
+    ('(1) tools/b700_record.py _defect_short, carried from tools/b698_record.py _defect_short (sealed at b698, :367) -- ANSWERS b699`s defect '
+     '(d) under (R310)(2): the act PASSED AT THE CALL and not bound at import (`act=ACT` bound \'b698\' when b698_record was imported, and '
+     'b699`s sealed trail route, calling it with no argument, landed b698`s four defects); no default, a malformed act refused; b698`s '
+     'function rebound to this one, so a carried call that omits the act refuses instead of reading another act`s bank. The row reader '
+     'split out as read_defect_row, its text unchanged.', 'b698_record.py', '_defect_short', 'b700_record.py', '_defect_short'),
+    ('(2) tools/b700_record.py closing_defects and defshort, new -- ANSWERS (R310)(2) on the author`s answer at b700 (Option 1): the dry run '
+     'reads the defects bank by the repaired reader and then the defects a closing`s (g) line enters outside the bank, each row with its '
+     'source.', None, None, 'b700_record.py', 'closing_defects'),
+    ('(3) tools/b700_record.py prev_capture, carried from tools/b699_record.py prev_capture -- ANSWERS the session: b699 ran in this act`s own '
+     'session (c677eaf2), so the previous act`s window is the same-session form: b699`s capture from the call that combined its post-push '
+     'parts to this act`s anchor.', 'b699_record.py', 'prev_capture', 'b700_record.py', 'prev_capture'),
+    ('(4) tools/b700_corrigendum.py compose, carried from tools/b699_corrigendum.py compose -- ANSWERS (R310)(2): b699`s trail Defects line, '
+     'its head line`s two counts and the navigator`s root-named claim, each read from its bank.', 'b699_corrigendum.py', 'compose',
+     'b700_corrigendum.py', 'compose'),
+]
+
+
+def repairs(*a):
+    """data/b700_tool_repairs.txt: the repairs, each with the defect or order it answers, its diff written by this route (difflib over the
+    carried function's source at relay HEAD against this act's), and the (R310)(2) repair's dry run on b699's bank beneath its row."""
+    import difflib
+    import io
+    import contextlib
+    L = ['%s -- THE REPAIRS: (R310)(2) AND THE CARRY-TIME READING (%s)' % (ACT, utc()), '',
+         '### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its',
+         '### row, written by this route (difflib over the function`s source, relay HEAD`s carried tool against this act`s).', '']
+    n = 0
+    for text, src_tool, fn, new_tool, new_fn in REPAIR_ROWS:
+        old = R._fn_src(_show(ROOT, 'HEAD', 'tools/' + src_tool) or '', fn).split(NL) if src_tool else []
+        new = R._fn_src(rd(os.path.join(T, new_tool)), new_fn).split(NL)
+        if new_fn == 'closing_defects':
+            new += [''] + R._fn_src(rd(os.path.join(T, new_tool)), 'defshort').split(NL)
+        d = list(difflib.unified_diff(old, new, ('tools/%s %s (sealed)' % (src_tool, fn)) if src_tool else '(none)',
+                                      'tools/%s %s (this act)' % (new_tool, new_fn), lineterm=''))
+        n += len(d)
+        L += ['  ' + text, ''] + ['      ' + x for x in d] + ['']
+        if new_fn == '_defect_short':
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                defshort('b699')
+            L += ['  ### ITS DRY RUN ON b699`S BANK, `python -X utf8 tools/b700_record.py defshort b699` (the author`s answer at b700, Option 1: '
+                  'the bank by the repaired reader, then the closing`s (g) line as a second, named source):'] + [
+                      '      ' + x for x in buf.getvalue().rstrip(NL).split(NL)] + ['']
+    L += ['### ### **REPAIRS %d ; THE ONE EDIT TO A SHARED ROUTE (R310)(2)`S, IN THIS ACT`S TOOL, b698`S SEALED TOOL UNEDITED ; DIFF LINES %d ; THE DRY '
+          'RUN ON b699`S BANK PRINTING FOUR (3 FROM THE BANK, 1 FROM THE CLOSING LINE) ; NO FROZEN BANK EDITED.**' % (len(REPAIR_ROWS), n)]
+    if 'dry' not in a:
+        put_txt('%s_tool_repairs.txt' % ACT, L)
+    print(L[-1])
+
+
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, defshort=defshort, commands=commands, reads=reads,
-              rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final)
+              rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final, c1=c1, repairs=repairs)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

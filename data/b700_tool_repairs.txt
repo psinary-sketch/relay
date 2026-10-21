@@ -1,0 +1,195 @@
+b700 -- THE REPAIRS: (R310)(2) AND THE CARRY-TIME READING (2026-10-21T10:02:16Z)
+
+### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
+### row, written by this route (difflib over the function`s source, relay HEAD`s carried tool against this act`s).
+
+  (1) tools/b700_record.py _defect_short, carried from tools/b698_record.py _defect_short (sealed at b698, :367) -- ANSWERS b699`s defect (d) under (R310)(2): the act PASSED AT THE CALL and not bound at import (`act=ACT` bound 'b698' when b698_record was imported, and b699`s sealed trail route, calling it with no argument, landed b698`s four defects); no default, a malformed act refused; b698`s function rebound to this one, so a carried call that omits the act refuses instead of reading another act`s bank. The row reader split out as read_defect_row, its text unchanged.
+
+      --- tools/b698_record.py _defect_short (sealed)
+      +++ tools/b700_record.py _defect_short (this act)
+      @@ -1,15 +1,10 @@
+      -def _defect_short(act=ACT):
+      -    out = []
+      +def _defect_short(act):
+      +    """(R310)(2): b698_record._defect_short with its act PASSED AT THE CALL -- no default, so nothing is bound at import; the bank read is
+      +    data/<act>_defects.txt for the act the caller names."""
+      +    if not re.match(r'^b\d{3}$', act or ''):
+      +        raise ValueError('### _defect_short NEEDS THE ACT AT THE CALL, read %r' % (act,))
+           L = rdn('%s_defects.txt' % act).split(NL)
+      -    for i, l in enumerate(L):
+      -        if DEFECT_ROW.match(l):
+      -            j = i + 1
+      -            while j < len(L) and L[j].startswith('    ') and not DEFECT_ROW.match(L[j]) and not L[j].startswith('    ###'):
+      -                j += 1
+      -            m = re.match(r"^\(([a-z]'?)\) (.*?)\.(?= |$)", ' '.join(x.strip() for x in L[i:j]))
+      -            if m:
+      -                out.append(m.group(0)[:-1])
+      -    return out
+      +    return [s for s in (read_defect_row(L, i) for i, l in enumerate(L) if DEFECT_ROW.match(l)) if s]
+       
+       
+       
+
+  ### ITS DRY RUN ON b699`S BANK, `python -X utf8 tools/b700_record.py defshort b699` (the author`s answer at b700, Option 1: the bank by the repaired reader, then the closing`s (g) line as a second, named source):
+        (a) THE SEAT'S: A PIPE IN A READ AT THE ACT'S OPENING   [data/b699_defects.txt]
+        (b) THE SEAT'S: TWO BANKS READ THROUGH THE SHELL'S grep   [data/b699_defects.txt]
+        (c) THE SEAT'S: A GLOB IN THE BRANCH LISTINGS   [data/b699_defects.txt]
+        (d) THE SEAT'S: the trail record at OPEN_TRAILS :15336 carries b698's four defects in its Defects line in place of b699's   [data/b699_closing.txt :240-:244]
+      ### ### **b699: DEFECTS 4 -- FROM data/b699_defects.txt 3, FROM THE CLOSING`S (g) LINE 1.**
+
+  (2) tools/b700_record.py closing_defects and defshort, new -- ANSWERS (R310)(2) on the author`s answer at b700 (Option 1): the dry run reads the defects bank by the repaired reader and then the defects a closing`s (g) line enters outside the bank, each row with its source.
+
+      --- (none)
+      +++ tools/b700_record.py closing_defects (this act)
+      @@ -0,0 +1,31 @@
+      +def closing_defects(act):
+      +    """(R310)(2) on the author's answer at b700 (Option 1): the defects an act's closing enters in its (g) line and not in its defects bank --
+      +    b699's (d), entered there on the author's word at the root's prompt. Returns [(row, 'data/<act>_closing.txt :<first>-:<last>')]."""
+      +    L = rdn('%s_closing.txt' % act).split(NL)
+      +    i = next((k for k, l in enumerate(L) if l.startswith('    (g) ')), None)
+      +    if i is None:
+      +        return []
+      +    j = i + 1
+      +    while j < len(L) and L[j].startswith('        '):
+      +        j += 1
+      +    text = ' '.join(x.strip() for x in L[i:j])
+      +    return [('(%s) %s: %s' % (m.group(1), m.group(2), m.group(3)), 'data/%s_closing.txt :%d-:%d' % (act, i + 1, j))
+      +            for m in CLOSING_DEFECT.finditer(text)]
+      +
+      +
+      +
+      +
+      +def defshort(*a):
+      +    """the repair's dry run: `defshort <act>` prints the act's lettered defects as the trail route composes them -- the defects bank by the
+      +    repaired reader (its act at the call), then any defect the closing's (g) line enters outside the bank, each row with its source; writes
+      +    nothing."""
+      +    act = a[0] if a else ''
+      +    out = [(s, 'data/%s_defects.txt' % act) for s in _defect_short(act)]
+      +    nb = len(out)
+      +    out += closing_defects(act)
+      +    for s, src in out:
+      +        print('  %s   [%s]' % (s, src))
+      +    print('### ### **%s: DEFECTS %d -- FROM data/%s_defects.txt %d, FROM THE CLOSING`S (g) LINE %d.**' % (act, len(out), act, nb, len(out) - nb))
+      +
+      +
+      +
+
+  (3) tools/b700_record.py prev_capture, carried from tools/b699_record.py prev_capture -- ANSWERS the session: b699 ran in this act`s own session (c677eaf2), so the previous act`s window is the same-session form: b699`s capture from the call that combined its post-push parts to this act`s anchor.
+
+      --- tools/b699_record.py prev_capture (sealed)
+      +++ tools/b700_record.py prev_capture (this act)
+      @@ -1,12 +1,12 @@
+       def prev_capture():
+      -    """G-EDIT-ROUTE's window over the previous act, same-session form: b698's capture AFTER ITS POST-PUSH SUITE -- every command of this session
+      -    from the call that combined b698's post-push parts into data/b698_checks_postpush.txt to the first user line carrying (R309)'s anchor."""
+      -    rows = ER.capture(SESSION, K698.ANCHOR, SUBAGENTS)
+      -    first = [r['ts'] for r in rows if 'b698_checks_postpush' in r['cmd'] and '--combine' in r['cmd']]
+      +    """G-EDIT-ROUTE's window over the previous act, same-session form: b699's capture AFTER ITS POST-PUSH SUITE -- every command of this session
+      +    from the call that combined b699's post-push parts into data/b699_checks_postpush.txt to the first user line carrying (R310)'s anchor."""
+      +    rows = ER.capture(SESSION, K699.ANCHOR, SUBAGENTS)
+      +    first = [r['ts'] for r in rows if 'b699_checks_postpush' in r['cmd'] and '--combine' in r['cmd']]
+           end = R._anchor_ts(K.ANCHOR)
+           if not first or not end:
+               sys.exit('### THE PREVIOUS ACT`S POST-PUSH COMBINE OR THIS ACT`S ANCHOR IS NOT IN THE SESSION -- NOTHING READ')
+      -    out = [dict(r, src='b698 %s' % r['src']) for r in rows if first[0] <= r['ts'] < end]
+      +    out = [dict(r, src='%s %s' % (PREV, r['src'])) for r in rows if first[0] <= r['ts'] < end]
+           for i, r in enumerate(out):
+               r['n'] = 'p%d' % (i + 1)
+           return out
+
+  (4) tools/b700_corrigendum.py compose, carried from tools/b699_corrigendum.py compose -- ANSWERS (R310)(2): b699`s trail Defects line, its head line`s two counts and the navigator`s root-named claim, each read from its bank.
+
+      --- tools/b699_corrigendum.py compose (sealed)
+      +++ tools/b700_corrigendum.py compose (this act)
+      @@ -1,52 +1,42 @@
+       def compose():
+      -    face = os.path.join(ROOT, *K.B698_FACE.split('/'))
+      -    ft = C78.rd(face)
+      -    f0 = at(face, lambda l: 'WHAT RAN AHEAD OF THIS SEAL, DECLARED' in l)
+      -    f5 = at(face, lambda l: 'COMPONENT 5 BEFORE THIS SEAL:** relay 50986eb' in l)
+      -    fd = at(face, lambda l: 'THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:** NONE.' in l)
+      -    lk = re.search(r'locked at \(UTC\)[^0-9]*(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)', ft)
+      -    lock = calendar.timegm(time.strptime(lk.group(1), '%Y-%m-%dT%H:%M:%SZ')) if lk else None
+      -    want = "ARMS RUN : 123. ### LIVE PASSING : 122. ### LIVE FAILING : 1 ['G-NOTHING-RAN-AHEAD']"
+      -    cpre = at(os.path.join(D, 'b698_checks.txt'), lambda l: want in l)
+      -    cpost = at(os.path.join(D, 'b698_checks_postpush.txt'), lambda l: want in l)
+      -    apre = at(os.path.join(D, 'b698_checks_standing-a.txt'), lambda l: l.startswith('  G-NOTHING-RAN-AHEAD') and 'FAIL' in l)
+      -    apost = at(os.path.join(D, 'b698_checks_postpush_standing-a.txt'), lambda l: l.startswith('  G-NOTHING-RAN-AHEAD') and 'FAIL' in l)
+      -    test = at(os.path.join(T, 'b698_checks.py'), lambda l: "all(h[:7] in S['face'] for h, s, t in S['rlog'] + S['plog'] if t <= S['lock_epoch'])" in l)
+      -    miss, seen = [], 0
+      -    for repo, k in ((ROOT, 'relay'), (PP, 'pp')):
+      -        for l in git(repo, 'log', '--reverse', '--format=%H %ct %s', '%s..%s' % (PRE[k], PREPUSH[k])).split(NL):
+      -            if not l.strip():
+      -                continue
+      -            h, ct, s = l.split(' ', 2)
+      -            if lock is not None and int(ct) <= lock:
+      -                seen += 1
+      -                if h[:7] not in ft:
+      -                    miss.append(dict(repo=k, hash=h, time=iso(int(ct)), subject=s))
+      -    dc = at(os.path.join(D, 'b698_defects.txt'), lambda l: l.startswith("    (c) THE SEAT'S"))
+      -    dd = at(os.path.join(D, 'b698_defects.txt'), lambda l: l.startswith("    (d) THE SEAT'S"))
+      -    da = at(os.path.join(D, 'b698_defects.txt'), lambda l: l.startswith("    (a) THE SEAT'S"))
+      -    rj = json.loads(C78.rd(os.path.join(D, 'b698_act_root.json')))
+      -    rrow = at(os.path.join(D, 'b698_act_root.json'), lambda l: l.strip().startswith('"%s ' % ANS))
+      -    rsha = rrow[0][1].strip().strip('",').split(' ')[1] if len(rrow) == 1 else None
+      -    now = hashlib.sha256(open(os.path.join(ROOT, *ANS.split('/')), 'rb').read()).hexdigest()
+      -    blob = hashlib.sha256(subprocess.run(['git', '-C', ROOT, 'show', 'HEAD:' + ANS], capture_output=True).stdout).hexdigest()
+      -    last = git(ROOT, 'log', '-1', '--format=%h %cI', '--', ANS).strip()
+      -    mtime = iso(int(os.path.getmtime(os.path.join(ROOT, *ANS.split('/')))))
+      -    rline = at(os.path.join(D, 'act_roots.txt'), lambda l: l.startswith('b698 '))
+      -    roster = at(os.path.join(D, 'b698_roster_simplicity.json'), lambda l: '"partner_lines_differing": 6' in l)
+      -    oc = at(os.path.join(D, 'b698_onecopy.txt'), lambda l: 'THE TWO TABLES DIFFER IN 18 LINES (the generator`s reading: 6)' in l)
+      -    ok = all(len(x) == 1 for x in (f0, f5, fd, cpre, cpost, apre, apost, test, dc, dd, da, rrow, rline, roster, oc)) and lock is not None \
+      -        and [m['hash'][:7] for m in miss] == ['2d19edd', '069778f'] and rsha == now == blob and rj.get('root', '').startswith('1db80825') \
+      -        and rline[0][1].split()[1] == rj['root'] and mtime > rj.get('at', '')
+      +    ot = C78.rd(OT).split(NL)
+      +    head = K.B699_TRAIL
+      +    if not ot[head - 1].startswith('### b699 '):
+      +        sys.exit('### OPEN_TRAILS :%d IS NOT b699`S TRAIL -- NOTHING WRITTEN' % head)
+      +    end = next((i for i in range(head, len(ot)) if ot[i].startswith('### b')), len(ot))
+      +    dl = [(i + 1, ot[i]) for i in range(head - 1, end) if ot[i].startswith('**Defects** (relay data/b699_defects.txt):')]
+      +    pl = [(i + 1, ot[i]) for i in range(head - 1, end) if ot[i].startswith('**Prompts to the author:**')]
+      +    four99 = [(s, 'data/b699_defects.txt') for s in REC._defect_short('b699')] + REC.closing_defects('b699')
+      +    four98 = REC._defect_short('b698')
+      +    landed = re.findall(r'\(([a-z])\) ([^;]+?)(?:;|\.$)', dl[0][1].split(':', 1)[1].strip()) if len(dl) == 1 else []
+      +    carries98 = [('(%s) %s' % (k, v.strip())) for k, v in landed] == four98
+      +    cl = C78.rd(os.path.join(D, 'b699_closing.txt')).split(NL)
+      +    hl = cl[0]
+      +    hm = re.search(r'; (\d+) prompts? answered; (\d+) defects?$', hl)
+      +    gl = [(i + 1, l) for i, l in enumerate(cl) if l.startswith('    (g) The defects (a)')]
+      +    prompts = at(os.path.join(D, 'b699_author_answers.txt'), lambda l: l.startswith('### PROMPT '))
+      +    calls = len(json.loads(C78.rd(os.path.join(D, 'b699_author_answers.json')) or '{}').get('calls') or [])
+      +    chk = at(os.path.join(D, 'b699_defects.txt'), lambda l: l.startswith('### (R278)(4) THE MID-ACT CHECK (') and 'land as composed' in l)
+      +    ckt = re.search(r'CHECK \((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)', chk[0][1]).group(1) if len(chk) == 1 else ''
+      +    dfl = at(os.path.join(D, 'b699_defects.txt'), lambda l: re.match(r"^    \([a-z]\) ", l) is not None)
+      +    rj = json.loads(C78.rd(os.path.join(D, 'b699_act_root.json')))
+      +    items = [it.split()[0] for it in rj.get('items') or [] if it.startswith('data/')]
+      +    named = dict((b, b in items) for b in ('data/b699_author_answers.txt', 'data/b699_author_answers.json', 'data/b699_citation_check.txt',
+      +                                          'data/b699_citation_check.json', 'data/b699_defects.txt', 'data/b699_defects.json'))
+      +    rx = at(os.path.join(T, 'b699_record.py'), lambda l: l.startswith("R.ROOT_EXCLUDE = re.compile(r'^b699_(defects|"))
+      +    rl = at(os.path.join(D, 'act_roots.txt'), lambda l: l.startswith('b699 '))
+      +    fy = at(os.path.join(D, 'b700_ferry.txt'), lambda l: "the navigator’s claim that the defects bank is root-named read as wrong" in l)
+      +    ok = (len(dl) == 1 and len(pl) == 1 and carries98 and len(four99) == 4 and hm and (int(hm.group(1)), int(hm.group(2))) == (4, 3)
+      +          and len(gl) == 1 and len(prompts) == 4 and len(chk) == 1 and ckt > rj.get('at', '') and len(dfl) == 3
+      +          and named['data/b699_author_answers.txt'] and named['data/b699_citation_check.txt'] and not named['data/b699_defects.txt']
+      +          and len(rx) == 1 and len(rl) == 1 and rl[0][1].split()[1] == rj.get('root') and len(fy) == 1)
+           if not ok:
+      -        sys.exit('### A SOURCE LINE IS NOT AS READ (face %d/%d/%d, lock %s, counts %d/%d, arm %d/%d, test %d, missing %s, defects %d/%d/%d, root row %d, '
+      -                 'sha root %s now %s blob %s, mtime %s root at %s, roster %d, onecopy %d) -- NOTHING WRITTEN' % (
+      -                     len(f0), len(f5), len(fd), lk and lk.group(1), len(cpre), len(cpost), len(apre), len(apost), len(test),
+      -                     [m['hash'][:7] for m in miss], len(dc), len(dd), len(da), len(rrow), (rsha or '')[:12], now[:12], blob[:12], mtime,
+      -                     rj.get('at'), len(roster), len(oc)))
+      -    return dict(f0=f0[0][0], f5=f5[0][0], fd=fd[0], lock=lk.group(1), seen=seen, cpre=cpre[0][0], cpost=cpost[0][0], apre=apre[0][0],
+      -                apost=apost[0][0], test=test[0][0], miss=miss, dc=dc[0][0], dd=dd[0][0], da=da[0][0], rrow=rrow[0][0], sha=now, last=last,
+      -                mtime=mtime, root=rj['root'], root_at=rj['at'], rline=rline[0][0], roster=roster[0][0], oc=oc[0][0])
+      +        sys.exit('### A SOURCE LINE IS NOT AS READ (defects line %d, prompts line %d, carries b698`s %s, b699`s four %d, head %s, (g) %d, prompts %d, '
+      +                 'check %d at %s against the root at %s, bank rows %d, named %s, exclusion %d, root row %d, ferry %d) -- NOTHING WRITTEN' % (
+      +                     len(dl), len(pl), carries98, len(four99), hm and hm.groups(), len(gl), len(prompts), len(chk), ckt, rj.get('at'), len(dfl),
+      +                     named, len(rx), len(rl), len(fy)))
+      +    return dict(head=head, dl=dl[0], pl=pl[0], four99=four99, four98=four98, hl=hl, gl=gl[0][0], prompts=len(prompts), calls=calls,
+      +                chk=chk[0][0], ckt=ckt, root=rj['root'], root_at=rj['at'], items=len(items), named=named, rx=rx[0][0], rl=rl[0][0], fy=fy[0][0])
+       
+       
+       
+
+### ### **REPAIRS 4 ; THE ONE EDIT TO A SHARED ROUTE (R310)(2)`S, IN THIS ACT`S TOOL, b698`S SEALED TOOL UNEDITED ; DIFF LINES 170 ; THE DRY RUN ON b699`S BANK PRINTING FOUR (3 FROM THE BANK, 1 FROM THE CLOSING LINE) ; NO FROZEN BANK EDITED.**
