@@ -193,6 +193,74 @@ def c1(*a):
                 ('OPEN_TRAILS.md', K.B696_TRAIL, '### b696')], dry=dry)
 
 
+# ================================================================================ COMPONENT 2: THE FACES ROW, (R307)(2)
+RADIUS_OLD, RADIUS_NEW = '± 1.43e-18', '± 3.68e-23'
+CAVEAT_B696 = ('tail bounds as certified balls (b696), the zero tail on P3, derived and not compiled; a numerical reading at a certified object, '
+               'consistent with Weil’s criterion at an instance with zeros off the line — not a theorem about Q0')
+HEAD_OLD = ("*(Appended under the author's word on (R305)(4), 2026-10-20, b695, drafted under (R304)(4), 2026-10-20, b694, through the node "
+            "list's backmatter record.)*")
+HEAD_NEW = ("*(Appended under the author's word on (R305)(4), 2026-10-20, b695, drafted under (R304)(4), 2026-10-20, b694, regenerated under the "
+            "author's word on (R307)(2), 2026-10-21, b697, drafted under (R306)(4), 2026-10-20, b696, through the node list's backmatter record.)*")
+
+
+def _caveat_new():
+    """(R307)(2)'s caveat, read from the banked ruling (data/b697_ferry.txt), the quotation opening "tail bounds as certified balls (b696);"."""
+    fl = [l for l in rdn('b697_ferry.txt').split(NL) if l.startswith('(2) THE WEIL-FACE ROW')]
+    m = re.search(r'“(tail bounds as certified balls \(b696\);.*?)”', fl[0]) if len(fl) == 1 else None
+    return m.group(1) if m else ''
+
+
+def successor():
+    """the row as (R307)(2) orders it: b696's successor (data/b696_faces_rows.txt :11) with the radius read from the a = 32 row and the caveat
+    read from the ruling; the node list's head extended in b688's form (the regeneration and the drafting named)."""
+    fr = rdn('b696_faces_rows.txt').split(NL)
+    s = fr[10]
+    cav = _caveat_new()
+    out = s.replace(RADIUS_OLD, RADIUS_NEW).replace(CAVEAT_B696, cav).replace(HEAD_OLD, HEAD_NEW)
+    return s, out, cav
+
+
+def facesrows(*a):
+    """(R307)(2): the page's line :734 and the node list's :168; b696's successor verbatim; the two readings -- the radius against
+    data/b696_witness_balls.txt :14, the caveat against data/b696_tails_plan.txt :12-:14 -- and the row they give, printed before any page
+    is touched. data/b697_faces_rows.txt."""
+    page = rd(os.path.join(PP, K.FACES_PAGE)).split(NL)
+    nz = rdn('b695_nodes_zeta.txt').split(NL)
+    wb = rdn('b696_witness_balls.txt').split(NL)
+    tp = rdn('b696_tails_plan.txt').split(NL)
+    s, new, cav = successor()
+    r32 = wb[13]
+    m = re.search(r'S -?([\d.]+) \+- ([\d.e-]+)', r32)
+    radius_ok = bool(m) and m.group(2) == RADIUS_NEW.split()[1] and s.count(RADIUS_OLD) == 1
+    cav_ok = bool(cav) and s.count(CAVEAT_B696) == 1 and new.count(cav) == 1
+    head_ok = s.count(HEAD_OLD) == 1
+    L = ['%s -- COMPONENT 2, (R307)(2): THE WEIL-FACE ROW, BOTH ROWS AND THE TWO READINGS, PRINTED BEFORE ANY PAGE IS TOUCHED (%s)' % (ACT, utc()), '',
+         '### rows are face rows: (A) the line as the page carries it, (B) b696`s successor verbatim, (C) the two readings, (D) the row they give.', '',
+         '  (A) THE LINE AS THE PAGE CARRIES IT, PLACE-papers %s :734 (from relay data/b695_nodes_zeta.txt :168, equal %s):' % (
+             K.FACES_PAGE, nz[167].startswith('# backmatter:') and nz[167][len('# backmatter: '):] in page[733]),
+         page[733], '',
+         '  (B) b696`S SUCCESSOR, VERBATIM, relay data/b696_faces_rows.txt :11:', s, '',
+         '  (C) THE TWO READINGS:',
+         '      (i) THE RADIUS: the successor`s unchanged remainder carries %r ; the a = 32 row (relay data/b696_witness_balls.txt :14) reads the' % RADIUS_OLD,
+         '          margin %s with the ball radius %s -> %r, the replacement the author`s word at (R307)(2) ; the old figure once in the row %s' % (
+              m.group(1) if m else '?', m.group(2) if m else '?', RADIUS_NEW, radius_ok),
+         '      (ii) THE CAVEAT: (R306)(4)`s words %r read against b696`s plan note (relay data/b696_tails_plan.txt :12-:14: "It enters THE' % CAVEAT_B696[:60],
+         '          IDENTITY`S TOLERANCE, not the sum`s radius ... the identity gates the reading") -> the caveat as (R307)(2) words it, read from',
+         '          relay data/b697_ferry.txt (2): %r ; (R306)(4)`s caveat once in the row and the new once in (D) %s' % (cav, cav_ok),
+         '      (iii) THE HEAD, the seat`s, in b688`s form (data/b690_nodes_zeta.txt :167): the backmatter record`s head names the regeneration',
+         '          and the drafting ("regenerated under the author`s word on (R307)(2), 2026-10-21, b697, drafted under (R306)(4), 2026-10-20,',
+         '          b696"), its old form once in the row %s -- raised with the row, strikeable' % head_ok, '',
+         '  (D) THE ROW THE READINGS GIVE, for data/b697_nodes_zeta.txt :168 where the word is regenerate:', new, '',
+         '### the plan`s note, verbatim (relay data/b696_tails_plan.txt :12-:14):'] + ['    ' + x.strip() for x in tp[11:14]] + [
+         '', '### ### **ROWS PRINTED 4 (A, B, C, D) ; THE RADIUS %s -> %s %s ; THE CAVEAT READ FROM (R307)(2) %s ; THE HEAD IN b688`S FORM %s ; NO PAGE '
+         'TOUCHED.**' % (RADIUS_OLD, RADIUS_NEW, radius_ok, cav_ok, head_ok)]
+    if 'dry' in a:
+        print(NL.join(L))
+        return
+    put_txt('%s_faces_rows.txt' % ACT, L)
+    print(NL.join(L))
+
+
 # ================================================================================ THE READERS, ONE PER ROW SHAPE A ROUTE READS ((R263)(3))
 BRANCH_FATES = ('DELETED', 'KEPT', 'RAISED')
 
@@ -417,7 +485,7 @@ def defects(*a):
 
 
 # ================================================================================ THE ROUTES
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1)
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, facesrows=facesrows)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
