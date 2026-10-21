@@ -579,6 +579,46 @@ def order(*a):
          dry='dry' in a)
 
 
+# ================================================================================ COMPONENT 3: THE WORK-ORDER ON THE AUTHOR'S WORD AT THE WIDENING PROMPT, (R311)(3)
+WORD_H = ('*Appended 2026-10-21 by b701 beneath `W-ORD-H2-BRIDGE-THEOREM` (:15334) and its discharge (:15406), under `(R311)`(3) and the author’s '
+          'word at the widening prompt -- THE ORDER **`W-ORD-EXPLICIT-FORMULA-C1`**, ENTERED:*')
+WORD_B = (' the vendored explicit formula’s C² binder as the one obstruction to RH → h2_sign’ on classK’ (the class of relay data/b701_widening_plan.txt, '
+          'written at SIDE-explicit-formula widening-b701 = 8a4ab68, SIDEExplicitFormula/H2SignWide.lean, the branch held unmerged -- see the order '
+          'beneath): Zeta23.EF.EF_lit (Zeta23/ExplicitFormula.lean :98) quantifies '
+          'over ContDiff ℝ 2 k, and 40 binder lines in Zeta23 (WeilEF 22 in 7 files, ExplicitFormula.lean 6, ExplicitFormula/Bridge.lean 5, '
+          'Poisson/PaperFT.lean 3, ZeroSummability 2, Hypotheses 2) and 18 in SIDEExplicitFormula/Chi (10 files) thread it from the leaves P3 '
+          '(norm_paperFT_le_div, Poisson/PaperFT.lean :172) and P6 (integrable_fourier_of_contDiff_two, ExplicitFormula/Bridge.lean :85) to EF_lit_zeta '
+          '(WeilEF/Main.lean :67-:286); a classK’ window of acDeriv regularity does not enter it. The re-port it would take: the two by-parts lemmas '
+          'under acDeriv first -- paperFT (deriv k) z = −(iz)⁻¹ paperFT g z by Fubini over the compact support, and the acDeriv copies of P3 and P6 -- '
+          'then every declaration on the path copied under the acDeriv binder in the programme’s namespace, the vendored files unedited; priced from '
+          'the binder count at 7 dispatches at the least (4 module sets for Zeta23’s twelve files, 3 for Chi’s ten, each a tree state compiling at its '
+          'first dispatch), the by-parts lemmas within the first. What the branch states meanwhile, as written and not yet compiled (relay '
+          'data/b701_widening.txt): h2_sign’ → h2_sign and h2_sign’ → RiemannHypothesis, and the W3 equivalence h2_sign_sum ↔ RiemannHypothesis; the W1 '
+          'converse RiemannHypothesis → h2_sign’ stands unstated, no sorry. Trigger: a research act after b703. Status OPEN.')
+HELD_H = ('*Appended 2026-10-21 by b701 beneath `W-ORD-EXPLICIT-FORMULA-C1`, under `(R311)`(3) and N4 (a held branch has its obstruction banked and a '
+          'work-order with a trigger) -- THE ORDER **`W-ORD-CLASSK-WIDENING-HELD`**, ENTERED:*')
+HELD_B = (' the widening branch SIDE-explicit-formula widening-b701 = 8a4ab68 (SIDEExplicitFormula/H2SignWide.lean, 154 lines; print_targets.txt +15) '
+          'held unmerged: its one dispatch, run 39639157961, built every other module and failed at H2SignWide.lean :59:42 -- the FTC step of '
+          'acDeriv_of_contDiff_two passes le_rfl where ContDiff.differentiable takes n ≠ 0 at the kernel’s Mathlib pin de5ce8a9 (the error verbatim '
+          'and the one-token repair, `one_ne_zero` in place of `le_rfl`, in relay data/b701_obstruction.txt); N1’s two dispatches spent and (R311)(3)’s '
+          'one dispatch for the widening, so no third dispatch, no merge, no v0.36, nothing reaching main, no sorry anywhere. THE ORDER: the repair by '
+          'the Edit tool as one commit on widening-b701, one dispatch at the new tip read by its id with the artifact by sha256; on GATE DERIVES the '
+          'fifteen names’ grades read from their statements into relay data/b701_grade_widening.txt’s successor, merge --no-ff on the gate’s reading '
+          'alone, tag v0.36 naming v0.35 as the prior tag and read back by peeled SHA, then the glossary row of relay data/b701_glossary_rows.txt for '
+          'the author’s word. Price 1 dispatch. Trigger: the research act after b702. Status OPEN.')
+
+
+def worder(*a):
+    """the two orders at OPEN_TRAILS -- W-ORD-EXPLICIT-FORMULA-C1 on the author's word at the widening prompt, and W-ORD-CLASSK-WIDENING-HELD for the
+    held branch (N4) -- landed by the guarded route beneath W-ORD-H2-BRIDGE-THEOREM's line; refuses where the obstruction bank is not written."""
+    ob = rdn('%s_obstruction.txt' % ACT)
+    if 'GOAL' not in ob or 'TRIGGER' not in ob or 'NOT DERIVES' not in ob:
+        sys.exit('### THE OBSTRUCTION BANK DOES NOT CARRY THE GOAL AND THE TRIGGER -- NOTHING WRITTEN')
+    land([('OPEN_TRAILS.md', WORD_H, NL + WORD_H + WORD_B + NL), ('OPEN_TRAILS.md', HELD_H, NL + HELD_H + HELD_B + NL)], '%s_worder_line.json' % ACT,
+         'worder', entry=K.BRIDGE_ORDER, check=[('OPEN_TRAILS.md', K.BRIDGE_ORDER, 'W-ORD-H2-BRIDGE-THEOREM'), ('OPEN_TRAILS.md', 15406, 'DISCHARGED')],
+         dry='dry' in a)
+
+
 # ================================================================================ COMPONENTS 2-3: THE DISPATCH, THE RUNNER, THE PRINTS (b698's routes; the runner's text with this act's name)
 dispatch, runstatus = R.dispatch, R.runstatus
 STD3 = ('Classical.choice', 'Quot.sound', 'propext')
@@ -691,7 +731,19 @@ GRADES = {
                                 ('lam_A lam_Z', 'ℕ → ℝ', 'two real sequences, data, no hypothesis')],
                                'DERIVES', 'NONE (h2_sign is the antecedent inside the stated implication, not a binder; S2 adds nothing beyond S1)'),
 }
+GRADES.update({
+    "classK_subset_classK'": (K.WIDEN_FILE, 'SIDEExplicitFormula.B321.', [('k', 'ℝ → ℂ', 'the window, data'), ('hk', 'classK k', 'the inclusion`s antecedent, a Prop of this kernel (H2Sign.lean :24): the control`s hypothesis')],
+                             'DERIVES', 'NONE (an inclusion of classes; hk the antecedent of the stated inclusion)'),
+    "h2_sign'_imp_h2_sign": (K.WIDEN_FILE, 'SIDEExplicitFormula.B321.', [], 'DERIVES', 'NONE (no binder; an implication between two closed propositions of this kernel)'),
+    "h2_sign'_imp_rh": (K.WIDEN_FILE, 'SIDEExplicitFormula.B321.', [], 'DERIVES', 'NONE (no binder)'),
+    'rh_imp_h2_sign_sum': (K.WIDEN_FILE, 'SIDEExplicitFormula.B321.', [], 'DERIVES', 'NONE (no binder; RH the antecedent of the stated implication)'),
+    'h2_sign_sum_iff_rh': (K.WIDEN_FILE, 'SIDEExplicitFormula.B321.', [], 'DERIVES', 'NONE (no binder; an equivalence of two closed propositions)'),
+})
 E0_EXTENSION = {'h2_sign': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :29'),
+                'classK': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :24'),
+                "classK'": ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/H2SignWide.lean'),
+                "h2_sign'": ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/H2SignWide.lean'),
+                'h2_sign_sum': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/H2SignWide.lean'),
                 'Register4_positivity': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/ResidueDischarge.lean :30'),
                 'RiemannHypothesis': ('prop', 'Mathlib RiemannHypothesis'),
                 'ZeroActingPairing': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/H2Bridge.lean (restated from SIDE-lv-conservation v0.13.0)')}
@@ -743,10 +795,507 @@ def grade(*a):
     print(NL.join(L[-3:]))
 
 
+# ================================================================================ THE REPAIRS (the carry-time reading, the ferry's Component 4)
+REPAIR_ROWS = [      # ### (text, carried tool, carried function, this act's tool, this act's function)
+    ('(1) tools/b701_record.py, the import-time constants rebound at the carry -- ANSWERS b699`s traps 2 and 4 (relay memory, b699 (R309)): '
+     'b698_record binds SESSION, SUBAGENTS, the previous act`s window (PREV_*), FACE, the mirror names and ROOT_EXCLUDE at import; b699 and b700 '
+     'ran in b698`s session and read the right file by coincidence; this act runs in a new session (e5bcf1d0), so each is rebound here by name, '
+     'and _anchor_ts (its session a default bound at definition) is wrapped to read this act`s session.', None, None, 'b701_record.py', '_anchor_ts'),
+    ('(2) tools/b701_record.py corr, new -- ANSWERS (R311)(2) and N2: the restatement read by tools/circuit_correspondence.py (imported unedited) '
+     'against lv-conservation`s statement before the theorem is written, a Prop-valued definition read as its binders and its body, the source `∀ n : ℕ,` '
+     'bracketed as #print writes it on both sides alike; the controls first; the CLAUSE-DOMINANCE re-read after the merge by the same route.',
+     None, None, 'b701_record.py', 'corr'),
+    ('(3) tools/b701_record.py runner and prints, carried from tools/b698_record.py by copy -- ANSWERS b699`s trap 3: b698`s runner and prints '
+     'write "b698 --" into their bank text; carried by copy with the act`s name read from ACT (the dispatch route carried by reference, its text '
+     'generic).', 'b698_record.py', 'runner', 'b701_record.py', 'runner'),
+    ('(4) tools/b701_record.py grade, carried from tools/b689_record.py grade and generalized by name -- ANSWERS (R311)(2)-(3), N3: each theorem`s '
+     'statement verbatim with the seat`s hand reading of its binders, the E0 check, the salt-check and the runner`s profile, for the bridge`s two '
+     'names (data/b701_grade.txt, the ruling`s name) and the widening`s (data/b701_grade_widening.txt).', 'b689_record.py', 'grade', 'b701_record.py', 'grade'),
+    ('(5) tools/b701_checks.py, the standing runner arms re-pointed -- ANSWERS the kernel this act writes: G-WORKFLOW-FILES, G-RUNNER-READ, '
+     'G-RUNNER-GATE and G-MERGES-ON-GATE read THIS act`s runs and merges at SIDE-explicit-formula (b689`s and b691`s form), the merged runs through '
+     'the record tool`s reader; the act part reads SIDE-explicit-formula`s remote once (G-TAGS-READ-BACK) where the standing-a part already reads it '
+     'through G-NO-SORRY-MAIN (OPEN_TRAILS :12703, one per repository per part).', None, None, 'b701_checks.py', 'act_merges'),
+]
+
+
+def repairs(*a):
+    """data/b701_tool_repairs.txt: the carry-time repairs, each with the defect or order it answers, its diff written by this route (difflib over the
+    carried function's source at relay HEAD against this act's)."""
+    import difflib
+    L = ['%s -- THE CARRY-TIME READING: THE REPAIRS (%s)' % (ACT, utc()), '',
+         '### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its',
+         '### row, written by this route (difflib over the function`s source, relay HEAD`s carried tool against this act`s).', '']
+    n = 0
+    for text, src_tool, fn, new_tool, new_fn in REPAIR_ROWS:
+        old = R._fn_src(_show(ROOT, 'HEAD', 'tools/' + src_tool) or '', fn).split(NL) if src_tool else []
+        new = R._fn_src(rd(os.path.join(T, new_tool)), new_fn).split(NL)
+        d = list(difflib.unified_diff(old, new, ('tools/%s %s (sealed)' % (src_tool, fn)) if src_tool else '(none)',
+                                      'tools/%s %s (this act)' % (new_tool, new_fn), lineterm=''))
+        n += len(d)
+        L += ['  ' + text, ''] + ['      ' + x for x in d] + ['']
+    L += ['### ### **REPAIRS %d ; NO SHARED TOOL EDITED ; DIFF LINES %d ; NO FROZEN BANK EDITED.**' % (len(REPAIR_ROWS), n)]
+    if 'dry' not in a:
+        put_txt('%s_tool_repairs.txt' % ACT, L)
+    print(L[-1])
+
+
+# ================================================================================ THE SCORES: (N1)-(N5) OF (R311)'S FERRY, THE SEAT'S (S1)-(S3)
+# ### data/b686_rules.txt row (1), standing: a scorer reads banks and commits and not the entry; the entry reads the scorer's bank. `scores`
+# ### writes data/b701_scores.json once, before `findings`; a reading that waits on a later bank stands PENDING there and is read at the close.
+NK, SK, SCORE_KEYS = R.NK, R.SK, R.SCORE_KEYS
+N5_RELAY_DATA = ('act_roots.txt', 'b700_closing_push_out.txt')
+N5_RELAY_TOOLS = ()
+_kernels_moved, _s_scores = R._kernels_moved, R._s_scores
+
+
+def _merges():
+    out, prev = [], K.EF_MAIN_BEFORE
+    for tag in (K.BRIDGE_TAG, K.WIDEN_TAG):
+        m = g(EF, 'rev-parse', '--verify', '--quiet', 'refs/tags/%s^{commit}' % tag).strip()
+        if m:
+            out.append(dict(tag=tag, merge=m, prev=prev, ct=int(g(EF, 'log', '-1', '--format=%ct', m).strip() or 0),
+                            parents=g(EF, 'log', '-1', '--format=%P', m).split()))
+            prev = m
+    return out
+
+
+def _branch_first_ct(br):
+    tip = g(EF, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + br).strip()
+    if not tip:
+        return None
+    cs = [l for l in g(EF, 'log', '--reverse', '--format=%ct', '%s..%s' % (K.EF_MAIN_BEFORE, tip)).split(NL) if l.strip().isdigit()]
+    return int(cs[0]) if cs else None
+
+
+def _n1():
+    """N1: no lean process on this host; two dispatches at the most, one per branch tip, SIDE-explicit-formula alone, each artifact by sha256."""
+    cm = jl('%s_commands.json' % ACT)
+    dj = jl('%s_dispatches.json' % ACT).get('rows') or []
+    rr = jl('%s_runner_rows.json' % ACT).get('rows') or []
+    tips = set(x for x in (g(EF, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b).strip() for b in (K.BRIDGE_BRANCH, K.WIDEN_BRANCH)) if x)
+    ok = bool(cm) and not cm.get('local_lean') and 0 < len(dj) <= 2 and len(cm.get('dispatches') or []) == len(dj) \
+        and all(r.get('kernel') == K.KERNEL and r.get('ref') in tips for r in dj) and len(set(r.get('tree') for r in dj)) == len(dj) \
+        and len(rr) == len(dj) and all(r.get('artifact_sha256') for r in rr)
+    return ('HELD' if ok else 'REFUTED'), (
+        'commands of this act that run lean or lake on this host: %s; dispatches %d (relay data/b701_dispatches.json: %s), each at a branch tip of '
+        'this act, SIDE-explicit-formula alone, one per tree; runs read %d, every artifact`s sha256 agreeing with the platform`s digest before any '
+        'reading: %s' % (cm.get('local_lean') if cm else 'unread', len(dj), '; '.join('%s %s run %s' % (r.get('label'), (r.get('ref') or '')[:7], r.get('run_id')) for r in dj) or 'NONE',
+                         len(rr), all(r.get('artifact_sha256') for r in rr) and len(rr) == len(dj)))
+
+
+def _n2():
+    """N2: the correspondence reader HOLDS at every binder before the bridge theorem was written; the widening plan banked and raised before any
+    Lean file for it existed."""
+    cj = jl('%s_correspondence_restatement.json' % ACT)
+    cat = _iso_epoch(cj.get('at') or '')
+    fb, fw = _branch_first_ct(K.BRIDGE_BRANCH), _branch_first_ct(K.WIDEN_BRANCH)
+    pw = _git_ct(ROOT, K.PLAN_WIDEN) if K.PLAN_WIDEN else None
+    calls = jl('%s_author_answers.json' % ACT).get('calls') or []
+    ans = rdn('%s_author_answers.txt' % ACT)
+    raised = ('(Widening)' in ans) and bool(calls)
+    wts = [_iso_epoch((c.get('result_ts') or '')[:19] + 'Z') for c in calls]
+    before_lean = (fw is None) or (bool(pw) and pw < fw and raised and any(t and t < fw for t in wts))
+    holds = cj.get('holds') is True and cj.get('reading1') == 'HOLDS-BY-CORRESPONDENCE' and cj.get('reading2') == 'HOLDS-BY-CORRESPONDENCE' \
+        and (cj.get('controls') or {}).get('c1') is True and (cj.get('controls') or {}).get('c2') is True
+    ok = holds and bool(cat) and bool(fb) and cat < fb and before_lean
+    return ('HELD' if ok else 'REFUTED'), (
+        'the restatement against lv-conservation`s statement %s, K4 against binder 13 %s, controls C1 %s C2 %s (relay data/b701_correspondence_restatement.json '
+        'at %s), the bridge branch`s first commit at %s, the reading before it: %s; the widening plan committed at %s (relay %s), the widening branch`s '
+        'first commit at %s, the plan before it and raised before it: %s' % (
+            cj.get('reading1'), cj.get('reading2'), (cj.get('controls') or {}).get('c1'), (cj.get('controls') or {}).get('c2'), cj.get('at'),
+            R.time.strftime('%Y-%m-%dT%H:%M:%SZ', R.time.gmtime(fb)) if fb else '-', bool(cat) and bool(fb) and cat < fb,
+            R.time.strftime('%Y-%m-%dT%H:%M:%SZ', R.time.gmtime(pw)) if pw else '-', K.PLAN_WIDEN,
+            R.time.strftime('%Y-%m-%dT%H:%M:%SZ', R.time.gmtime(fw)) if fw else 'no widening branch', before_lean))
+
+
+def _n3():
+    """N3: every new name prints the standard three; each grade read from the statement and banked before its merge; the controls of (R311)(3)
+    print from the runner."""
+    rr = jl('%s_runner_rows.json' % ACT).get('rows') or []
+    AX = {}
+    for r in rr:
+        AX.update(dict(_deps(rdn('%s_axioms_%s_%s.txt' % (ACT, r.get('kernel'), r.get('label'))))))
+    ms = _merges()
+    names = list(K.BRIDGE_NAMES) + (list(K.WIDEN_NAMES) if any(m['tag'] == K.WIDEN_TAG for m in ms) else [])
+    std = all(n in AX and AX[n] and set(AX[n]) <= set(STD3) for n in names)
+    gb = g(ROOT, 'log', '--diff-filter=A', '--format=%ct', '--', 'data/%s_grade.txt' % ACT).split()
+    gw = g(ROOT, 'log', '--diff-filter=A', '--format=%ct', '--', 'data/%s_grade_widening.txt' % ACT).split()
+    before = []
+    for m in ms:
+        t = (gb if m['tag'] == K.BRIDGE_TAG else gw)
+        bank = rdn('%s_grade.txt' % ACT) if m['tag'] == K.BRIDGE_TAG else rdn('%s_grade_widening.txt' % ACT)
+        before.append((m['tag'], bool(t) and t[-1].isdigit() and int(t[-1]) < m['ct'] and 'EVERY SALT-CHECK PASSED True' in bank and '### DIFFER' not in bank))
+    controls = ["SIDEExplicitFormula.B321.classK_subset_classK'", "SIDEExplicitFormula.B321.h2_sign'_imp_h2_sign", "SIDEExplicitFormula.B321.h2_sign'_imp_rh",
+                'SIDEExplicitFormula.B321.h2_sign_sum_iff_rh']
+    cprint = all(c in AX for c in controls) if any(m['tag'] == K.WIDEN_TAG for m in ms) else 'no widening merged'
+    ok = std and bool(ms) and all(b for _t, b in before) and (cprint is True or cprint == 'no widening merged')
+    return ('HELD' if ok else 'REFUTED'), (
+        'new names %d, each printed at the standard three in its run`s axioms bank: %s; the grade banks added before their merges: %s; the controls '
+        'of (R311)(3) printed by the runner (classK ⊆ classK`, h2_sign` → h2_sign, h2_sign` → RH, h2_sign_sum ↔ RH): %s' % (len(names), std, before, cprint))
+
+
+def _n4():
+    """N4: no sorry reaches main; a held branch has its obstruction banked; v0.35 and v0.36 read back by peeled SHA at the remote."""
+    sorry = g(EF, 'grep', '-n', '-w', 'sorry', 'main', '--', 'SIDEExplicitFormula/*.lean').strip()
+    ms = _merges()
+    refs = {}
+    for l in g(EF, 'ls-remote', 'origin').split(NL):
+        if '\t' in l:
+            sha, ref = l.split('\t', 1)
+            refs[ref.strip()] = sha.strip()
+    back = [(m['tag'], refs.get('refs/tags/%s^{}' % m['tag']) == m['merge']) for m in ms]
+    held = g(EF, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.WIDEN_BRANCH).strip() and not any(m['tag'] == K.WIDEN_TAG for m in ms)
+    obs = rdn('%s_obstruction.txt' % ACT)
+    held_ok = (not held) or ('GOAL' in obs and 'TRIGGER' in obs)
+    ok = not sorry and bool(ms) and all(b for _t, b in back) and held_ok and refs.get('refs/heads/main') == g(EF, 'rev-parse', 'main').strip()
+    return ('HELD' if ok else 'REFUTED'), (
+        'sorry in SIDEExplicitFormula/*.lean at main: %s; the tags read back by peeled SHA at the remote: %s; the remote main the local main: %s; a held '
+        'branch with its obstruction banked: %s' % (sorry or 'NONE', back, refs.get('refs/heads/main') == g(EF, 'rev-parse', 'main').strip(),
+                                                    'no branch held' if not held else held_ok))
+
+
+def _n5():
+    import rule_arms as RA
+    import b633_record as R3
+    face = jl('%s_kernels_face.json' % ACT).get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    k_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    t0, moved, tags = _kernels_moved()
+    ms = _merges()
+    ef_line = [h for h in g(EF, 'log', '--first-parent', '--format=%h', K.EF_MAIN_BEFORE + '..main').split() if h]
+    moved_other = [(k, h) for k, h in moved if k != K.KERNEL]
+    moved_ef_ok = sorted(ef_line) == sorted(m['merge'][:7] for m in ms) and all(len(m['parents']) == 2 for m in ms)
+    tags_other = [(k, t) for k, t in tags if not (k == K.KERNEL and t in (K.BRIDGE_TAG, K.WIDEN_TAG))]
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in K.PP_WRITTEN]
+    relay_ch = sorted(set(x for x in (g(ROOT, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(ROOT, 'diff', '--name-only')).split(NL) if x.strip()))
+    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not re.match(r'^tools/b701_', x) and x not in N5_RELAY_TOOLS]
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b701_|audit_b701_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in N5_RELAY_DATA) or x in N5_RELAY_TOOLS)]
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    arms_added = sorted(set(RA.NAMES) - set(K.STANDING_ADDED) - set(R._g2_of(os.path.join(ROOT, *K.B700_FACE.split('/')))))
+    lock = _iso_epoch((re.search(r'locked at \(UTC\) : (\S+)', rd(FACE)) or [None, ''])[1])
+    amended = (_amended_after(ROOT, lock) + _amended_after(PP, lock) + _amended_after(EF, lock)) if lock else []
+    ob = jl('%s_commands.json' % ACT).get('outbound') or []
+    ident = [r for r in ob if r.get('identifiers')]
+    pat = [n for n in ('patent', 'Patent', 'PATENT') if n in _ledger_adds()]
+    chained = [d['n'] for d in (jl('%s_commands.json' % ACT).get('delete_shapes') or []) if d.get('chained')]
+    gw_ok, gw_note = _one_git_write()
+    gl = R.rd(os.path.join(D, 'glossary.txt')) == _show(ROOT, K.PRE_RELAY, 'data/glossary.txt')
+    ok = k_ok and not moved_other and moved_ef_ok and not tags_other and not pp_beyond and not kinds_beyond and not shared_tools and not differ \
+        and not arms_added and not amended and not ident and not pat and not chained and gw_ok and gl
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unpublished); every kernel as the face read it: %s; kernel mains moved since the '
+            'act began: SIDE-explicit-formula by its merges alone %s (%s), others %s; tags made beyond v0.35 and v0.36: %s; no standing arm added: %s; '
+            'shared tools edited: %s; sealed tools not agreeing: %s; commits amended after the seal: %s; deletes with anything chained after: %s; one git '
+            'write per message (G-RULE-ONE-GIT-WRITE`s reading: %s): %s; PLACE-papers beyond the two ledgers: %s; relay files of a kind beyond the act`s '
+            'banks and tools, the table, the root list and b700`s push-out bank: %s; the glossary unedited: %s; "patent" in the lines written: %s; outbound '
+            'requests other than git and gh %d, an identifier of the author in %s' % (
+                K.DRAFT, k_ok, moved_ef_ok, ' '.join(ef_line) or 'NONE', moved_other or 'NONE', tags_other or 'NONE', arms_added or 'NONE', shared_tools or 'NONE',
+                differ or 'NONE', amended or 'NONE', chained or 'NONE', gw_note, gw_ok, pp_beyond or 'NONE', kinds_beyond or 'NONE', gl, pat or 'NONE', len(ob),
+                [r['line'] for r in ident] or 'NONE'))
+
+
+def scores(*a):
+    """`scores [dry]` writes data/b701_scores.json ONCE, before the entry (it refuses where the bank exists); `scores close` reads the readings
+    that waited into data/b701_scores_close.json."""
+    close = 'close' in a
+    S = dict([('N1', _n1()), ('N2', _n2()), ('N3', _n3()), ('N4', _n4()), ('N5', _n5())] + list(_s_scores().items()))
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:900]))
+    if 'dry' in a:
+        return
+    if close:
+        put_json('%s_scores_close.json' % ACT, dict((k2, list(v)) for k2, v in S.items()))
+        return
+    if os.path.isfile(os.path.join(D, '%s_scores.json' % ACT)):
+        sys.exit('### THE SCORES BANK IS WRITTEN ONCE, BEFORE THE ENTRY (data/b686_rules.txt row (1)) -- NOTHING WRITTEN; `scores close` at the close')
+    put_json('%s_scores.json' % ACT, dict((k2, list(v)) for k2, v in S.items()))
+
+
+_sv, scores_line = R._sv, R.scores_line
+
+
+# ================================================================================ THE RECORD: THE ENTRY BEFORE THE ROOT, THE TRAIL CARRYING IT
+def TRAIL_HEAD():
+    w = '(v0.36)' if g(EF, 'tag', '-l', K.WIDEN_TAG).strip() else 'on a branch held at the gate`s reading (no v0.36)'
+    return ('### b701 — lane two, act one hundred and twenty-eight, the research act under (R311): b700 at its weight; the bridge compiled and the faces '
+            'joined through RH (v0.35); classK widened to classK` %s; the Epstein count`s opening step planned' % w)
+
+
+R.TRAIL_HEAD = TRAIL_HEAD
+_calls, _rl_lines = R._calls, R._rl_lines
+
+
+def _figs():
+    """the figures the title and the entry carry, each read from its bank."""
+    ms = _merges()
+    rr = dict((r.get('label'), r) for r in jl('%s_runner_rows.json' % ACT).get('rows') or [])
+    cd = jl('%s_clause_dominance.json' % ACT)
+    gb, gw = rdn('%s_grade.txt' % ACT), rdn('%s_grade_widening.txt' % ACT)
+    ep = rdn('%s_epstein_plan.txt' % ACT)
+    pm = re.search(r'THE OPENING STEP (\d+) DISPATCH, THE WHOLE (\d+) AT THE LEAST', ' '.join(ep.split()))
+    wm = next((m for m in ms if m['tag'] == K.WIDEN_TAG), None)
+    return dict(bridge_tag=K.BRIDGE_TAG if any(m['tag'] == K.BRIDGE_TAG for m in ms) else 'NOT MERGED', bridge_merge=next((m['merge'][:7] for m in ms if m['tag'] == K.BRIDGE_TAG), '-'),
+                bridge_run=(rr.get('run1') or {}).get('run_id', '-'), bridge_gate=(rr.get('run1') or {}).get('gate', '-'),
+                bridge_grade='DERIVES' if 'h2_sign_iff_register4_positivity_liCoeff GRADE DERIVES' in gb else '-',
+                cd='2 of 2 through the restatement' if '2 OF 2 THROUGH THE RESTATEMENT' in rdn('%s_clause_dominance.txt' % ACT) else (cd.get('reading1') or '-'),
+                widen_tag=K.WIDEN_TAG if wm else ('held' if g(EF, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.WIDEN_BRANCH).strip() else 'not run'),
+                widen_merge=wm['merge'][:7] if wm else '-', widen_run=(rr.get('run2') or {}).get('run_id', '-'), widen_gate=(rr.get('run2') or {}).get('gate', '-'),
+                widen_grade='DERIVES' if 'EVERY SALT-CHECK PASSED True' in gw and 'GRADE DERIVES' in gw and '### DIFFER' not in gw else '-',
+                epstein_open=pm.group(1) if pm else '-', epstein_all=pm.group(2) if pm else '-',
+                order_line=(jl('%s_order_line.json' % ACT).get('lines') or [{}])[0].get('line', '-'),
+                worder_line=(jl('%s_worder_line.json' % ACT).get('lines') or [{}])[0].get('line', '-'),
+                held_line=((jl('%s_worder_line.json' % ACT).get('lines') or []) + [{}, {}])[1].get('line', '-'),
+                corr_rows=len(jl('%s_correspondence_restatement.json' % ACT).get('rows1') or []))
+
+
+def _title():
+    f = _figs()
+    if f['widen_tag'] == K.WIDEN_TAG:
+        w = ('classK widened to classK’ compiled, %s, %s — h2_sign’ → RH and the W3 equivalence h2_sign_sum ↔ RH, the W1 converse unstated' % (
+            f['widen_tag'], f['widen_grade']))
+    elif f['widen_tag'] == 'held':
+        w = ('classK widened to classK’ held at H2SignWide.lean :59 (ContDiff.differentiable’s hypothesis at the pin), one dispatch, h2_sign’ → RH '
+             'and the W3 equivalence h2_sign_sum ↔ RH written and not compiled, the W1 converse unstated')
+    else:
+        w = 'classK widened to classK’ not run'
+    return ('## The bridge h2_sign ↔ Register4_positivity LiCoeff compiled, %s, %s, CLAUSE-DOMINANCE by correspondence %s; %s; the Epstein count’s '
+            'opening step priced at %s dispatch' % (f['bridge_tag'], f['bridge_grade'], f['cd'], w, f['epstein_open']))
+
+
+def _finding_text():
+    """the FINDINGS entry, composed before the root: its scores line from the scores bank alone (data/b686_rules.txt row (1)); the root is
+    carried by the trail record."""
+    S = jl('%s_scores.json' % ACT)
+    f = _figs()
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+    checks = len(re.findall(r'^### \(R278\)\(4\) THE MID-ACT CHECK ', rdn(K.CITATION_BANK), re.M))
+    held = f['widen_tag'] == 'held'
+    wsum = (('The class was widened to classK’ on the branch widening-b701, held unmerged: its one dispatch failed at one token (H2SignWide.lean :59, '
+             'ContDiff.differentiable’s hypothesis n ≠ 0 at the pin, le_rfl written), so nothing of the widening is compiled this act; what the branch '
+             'states is h2_sign’ → h2_sign and h2_sign’ → RH, and the W3 equivalence h2_sign_sum ↔ RH over finite sums of autocorrelations, the repair '
+             'and the one dispatch it costs entered as the order W-ORD-CLASSK-WIDENING-HELD; the W1 converse is not stated, the vendored explicit '
+             'formula’s C² binder standing in its way, entered as the order W-ORD-EXPLICIT-FORMULA-C1.') if held else
+            ('The class was widened to classK’ (%s): what compiles is h2_sign’ → h2_sign and h2_sign’ → RH, and the W3 equivalence h2_sign_sum ↔ RH '
+             'over finite sums of autocorrelations; the W1 converse is not stated, the vendored explicit formula’s C² binder standing in its way, entered '
+             'as the order W-ORD-EXPLICIT-FORMULA-C1.' % f['widen_tag']))
+    wpara = (('**The widening** (`(R311)`(3), N4): the plan in b689’s form raised before any Lean, the author’s word "run as written"; widening-b701 from '
+              'v0.35’s commit, H2SignWide.lean: acDeriv, classK’, h2_sign’, classKsum, h2_sign_sum; the nesting classK ⊆ classKsum ⊆ classK’; h2_sign’ → '
+              'h2_sign and h2_sign’ → RH; paperFT_finset_sum and the W3 equivalence h2_sign_sum ↔ RH -- each written, none compiled: the one dispatch, '
+              'run %s %s, built every other module and stopped at H2SignWide.lean :59:42, le_rfl where ContDiff.differentiable takes n ≠ 0 at Mathlib '
+              'de5ce8a9 (the error verbatim, the goal and the one-token repair in relay data/b701_obstruction.txt); N1’s two dispatches spent, the branch '
+              'is held unmerged at 8a4ab68 with no v0.36, no grade read, no sorry anywhere, the order W-ORD-CLASSK-WIDENING-HELD (OPEN_TRAILS :%s) priced '
+              'at 1 dispatch with the trigger "the research act after b702". The W1 converse RH → h2_sign’ not stated: the explicit formula’s C² binder '
+              '(40 lines in Zeta23, 18 in Chi) is the obstruction, entered as W-ORD-EXPLICIT-FORMULA-C1 (OPEN_TRAILS :%s) priced at 7 dispatches at the '
+              'least; the glossary’s classK’ row drafted and held.' % (f['widen_run'], f['widen_gate'], f['held_line'], f['worder_line'])) if held else
+             ('**The widening** (`(R311)`(3)): the plan in b689’s form raised before any Lean, the author’s word "run as written"; widening-b701 from v0.35’s '
+              'commit, H2SignWide.lean: acDeriv, classK’, h2_sign’, classKsum, h2_sign_sum; the nesting classK ⊆ classKsum ⊆ classK’; h2_sign’ → h2_sign and '
+              'h2_sign’ → RH; paperFT_finset_sum and the W3 equivalence h2_sign_sum ↔ RH; one dispatch, run %s %s; the grade %s; merged at %s, tag %s read back. '
+              'The W1 converse RH → h2_sign’ not stated: the explicit formula’s C² binder (40 lines in Zeta23, 18 in Chi) is the obstruction, entered as '
+              'W-ORD-EXPLICIT-FORMULA-C1 (OPEN_TRAILS :%s) priced at 7 dispatches at the least; the glossary’s classK’ row drafted and held.' % (
+                  f['widen_run'], f['widen_gate'], f['widen_grade'], f['widen_merge'], f['widen_tag'], f['worder_line'])))
+    e = ['', _title(), '',
+         'Two theorems SIDE-explicit-formula already compiled meet at RiemannHypothesis, and the meeting is now a theorem: h2_sign, Weil positivity on '
+         'classK, is equivalent to the restated register-four positivity of the Li coefficients (%s, run %s %s, grade %s). The restatement reads '
+         'HOLDS-BY-CORRESPONDENCE at every binder against SIDE-lv-conservation’s own statement, so the clause reaches the register face at its binder 13 '
+         'through the restated predicate -- a join through RH, not a translation of objects; the direct reading of the two faces’ statements still '
+         'differs at binder 1 as b698 read it. %s The Epstein count’s opening step is priced at %s dispatch, the whole at '
+         '%s at the least.' % (f['bridge_tag'], f['bridge_run'], f['bridge_gate'], f['bridge_grade'], wsum, f['epstein_open'], f['epstein_all']), '',
+         '*Filed at b701 on the author’s ruling `(R311)` and the author’s words at its prompts; %d question%s put. Banks: relay `data/b701_correspondence_restatement.txt`, '
+         '`data/b701_clause_dominance.txt`, `data/b701_grade.txt`, `data/b701_grade_widening.txt`, `data/b701_runner_rows.json`, `data/b701_widening_plan.txt`, '
+         '`data/b701_widening.txt`, `data/b701_epstein_plan.txt`, `data/b701_faces_rows.txt`, `data/b701_glossary_rows.txt`.*' % (n_ans, '' if n_ans == 1 else 's'), '',
+         '**The correspondence reading** (`(R311)`(2), N2): before the theorem was written, the reader (tools/circuit_correspondence.py, imported '
+         'unedited) read ResidueDischarge.Register4_positivity against SIDE-lv-conservation v0.13.0’s RegisterPentagon.Register4_positivity -- %s rows, '
+         'the binders and the conclusion, every one AGREE -- and K4 against the face’s binder 13 at lam := LiCoeff, AGREE; the controls behaved; b698’s '
+         'DIFFERS at binder 1 is thereby located in the restatement and closed.' % f['corr_rows'], '',
+         '**The bridge** (`(R311)`(2)): branch bridge-b701 from main’s tip (v0.34 an ancestor, the author’s word on the ruling’s base), RegisterBridge.lean '
+         '(the plan’s module name H2Bridge.lean was b532’s module -- overwritten, restored byte for byte, defect (f)); S1 h2_sign_iff_register4_positivity_liCoeff '
+         ':= h2_sign_iff_rh.trans register4_positivity_liCoeff_iff_rh.symm and S2 the face’s third conjunct’s shape under a free pairing predicate; one '
+         'dispatch, run %s %s, the artifact by sha256, 74 of 74 terminals at the standard three, the prints of the 72 names before equal by name; the grade '
+         'read from the statements %s, the E0 check agreeing, every salt-check PASS; merged --no-ff at %s, tag %s read back by peeled SHA; '
+         'CLAUSE-DOMINANCE re-read by correspondence %s; W-ORD-H2-BRIDGE and W-ORD-H2-BRIDGE-THEOREM discharged on the author’s word (OPEN_TRAILS :%s); the '
+         'faces page’s lv-conservation row given a successor naming the bridge by tag, held for b702.' % (
+             f['bridge_run'], f['bridge_gate'], f['bridge_grade'], f['bridge_merge'], f['bridge_tag'], f['cd'], f['order_line']), '',
+         wpara, '',
+         '**The Epstein count’s opening step** (`(R311)`(4)): Z_Q as a Lean object in the kernel’s vocabulary -- the form, rQ, ZQ as an LSeries, the '
+         'continuation and functional equation as a stated premise structure with the gamma factor (√23/2π)^s Γ(s), the zero configuration, the '
+         'logarithmic derivative’s coefficients by recursion -- the explicit formula’s three terms with Z_Q’s bracket and the identity as a stated premise, '
+         'the count HCount (zqConfig) A0Q as the target; steps (1)-(9) mapped to lemmas (absent 3, present 2, writable 3, premise 2); the opening step '
+         '%s dispatch, the whole %s at the least; raised at b703.' % (f['epstein_open'], f['epstein_all']), '',
+         '**The citation check** (the gate step from b662): %s cites checked at HEAD, %s OK, %s missed -- the two the ruling’s, each raised before '
+         'Component 2 and answered; %d answer check%s, each before its answer was acted on.' % (
+             cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
+         scores_line(S), '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): this act compiles what b699 priced and b698 located -- the translation at binder 1 that no '
+         'kernel carries becomes a join through RH at the restated predicate -- and tests b698’s regularity columns against the kernel’s binders, where '
+         'the leaves’ sketches hold and the path’s C² binder does not yield. It is re-read by b702’s re-cut (the faces row, the glossary row) and by b703 '
+         '(the Epstein count’s opening step). It strengthens the programme’s offering of a located clause: the clause’s reach into a second kernel’s face '
+         'is now a compiled equivalence read by correspondence, and the widening’s reach is stated to the binder that stops it.', '',
+         '**Carried to:** b702 (the faces successor row, the glossary row, the re-cut); b703 (the Epstein count’s opening step%s); W-ORD-EXPLICIT-FORMULA-C1 '
+         '(the W1 converse’s re-port); W-ORD-ONE-COPY; W-ORD-CORRESPONDENCE-BEHIND-SCOPE; W-ORD-B518-FLOAT; the draft held at v5.' % (
+             '; W-ORD-CLASSK-WIDENING-HELD, the held branch’s one-token repair and its one dispatch' if held else ''), '',
+         '**Next.** %s.' % K.NEXT, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
+    return _title(), NL.join(e)
+
+
+FOR_AUTHOR = ('(1) the restatement read as its binders and its body, SOURCE AGAINST SOURCE, the hosted print step printing axioms alone; (2) the bridge’s '
+              'module renamed RegisterBridge.lean after the plan’s name collided with b532’s module; (3) S2 stated under a free pairing predicate, '
+              'lv-conservation’s ZeroActingPairing not restated; (4) the widening’s W1 converse not stated and entered as an order, on the author’s word; '
+              '(5) the W3 sub-class classKsum stated beside classK’ as the part the rows close; (6) the Epstein plan’s premise structures for the '
+              'continuation, the functional equation and the identity, stated and not discharged; (7) the three navigator misses and the seat’s six '
+              'defects as lettered')
+
+
+def _trail_text():
+    S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
+    fj = jl('%s_findings.json' % ACT)
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    _r, _n, sh = seal_hashes()
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    f = _figs()
+    held = f['widen_tag'] == 'held'
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R311) ratified.** (1) b700 at its weight. (2) The bridge compiled. (3) The widening planned and built%s. (4) The Epstein count’s opening '
+             'step planned. (5) The branches. (6) The readfirst bank. (7) The draft held at v5. (8) The acts after.' % (
+                 ', its branch held at the gate`s reading' if held else ''), '',
+             '**Entered:** FINDINGS.md:%s (b700`s weight), :%s (the entry); OPEN_TRAILS.md:%s (the orders discharged), :%s (W-ORD-EXPLICIT-FORMULA-C1)%s; this record.' % (
+                 c1_[0], fj.get('entry_line'), f['order_line'], f['worder_line'], (', :%s (W-ORD-CLASSK-WIDENING-HELD)' % f['held_line']) if held else ''), '',
+             '**Act root:** b701 `%s` (previous `%s`, b700`s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF '
+             'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b701_author_answers.txt); the root`s own prompt, its '
+             'answer in the closing line.' % (n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
+             '**The bridge:** h2_sign ↔ Register4_positivity LiCoeff at SIDE-explicit-formula %s = %s, run %s %s, grade %s; the restatement '
+             'HOLDS-BY-CORRESPONDENCE at every binder; CLAUSE-DOMINANCE by correspondence %s (relay data/b701_grade.txt, data/b701_correspondence_restatement.txt, '
+             'data/b701_clause_dominance.txt).' % (f['bridge_tag'], f['bridge_merge'], f['bridge_run'], f['bridge_gate'], f['bridge_grade'], f['cd']), '',
+             (('**The widening:** classK` on widening-b701 = 8a4ab68, HELD UNMERGED: run %s %s at H2SignWide.lean :59 (ContDiff.differentiable`s hypothesis '
+               'at the pin, one token), no v0.36, no grade read, nothing of it at main; h2_sign` → RH and h2_sign_sum ↔ RH written and not compiled, RH → '
+               'h2_sign` unstated at the explicit formula`s C² binder (relay data/b701_widening_plan.txt, data/b701_widening.txt, data/b701_obstruction.txt).' % (
+                   f['widen_run'], f['widen_gate'])) if held else
+              ('**The widening:** classK` at %s = %s, run %s %s, grade %s; h2_sign` → RH and h2_sign_sum ↔ RH compiled, RH → h2_sign` unstated at the '
+               'explicit formula`s C² binder (relay data/b701_widening_plan.txt, data/b701_widening.txt, data/b701_grade_widening.txt).' % (
+                   f['widen_tag'], f['widen_merge'], f['widen_run'], f['widen_gate'], f['widen_grade']))), '',
+             '**The Epstein plan:** the opening step %s dispatch, the whole %s at the least (relay data/b701_epstein_plan.txt), raised at b703.' % (f['epstein_open'], f['epstein_all']), '',
+             ('**The kernels:** SIDE-explicit-formula written by one merge and one tag (v0.35) on the gate`s reading, the widening branch held unmerged; no '
+              'other kernel; no lean or lake on this host; two dispatches.' if held else
+              '**The kernels:** SIDE-explicit-formula written by two merges and two tags on the gate`s reading; no other kernel; no lean or lake on this host; '
+              'two dispatches.'), '',
+             '**The mirror:** the export made after this root in the b670 form, its name in the closing (relay data/b701_closing.txt).', '',
+             '**The open orders:** `W-ORD-EXPLICIT-FORMULA-C1` (the W1 converse`s re-port); %s`W-ORD-EPSTEIN-COUNT-LEAN` (b703); `W-ORD-ONE-COPY`; '
+             '`W-ORD-CORRESPONDENCE-BEHIND-SCOPE`; `W-ORD-B518-FLOAT`.' % ('`W-ORD-CLASSK-WIDENING-HELD` (the held branch`s repair, 1 dispatch); ' if held else ''), '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % FOR_AUTHOR, '',
+             '**Defects** (relay data/b701_defects.txt): %s.' % ('; '.join(_defect_short(ACT)) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in NK + SK) + '.** (the scores bank; the readings that waited, at the close)', '',
+             '**Next:** %s.' % K.NEXT, '']
+    return NL.join(rows_)
+
+
+def components(*a):
+    S, fj, tj, J = (jl(n_) for n_ in ('%s_scores.json' % ACT, '%s_findings.json' % ACT, '%s_trail.json' % ACT, '%s_act_root.json' % ACT))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    f = _figs()
+    L = ['%s -- THE COMPONENTS, BANKED UNDER (R311).' % ACT, '',
+         '### COMPONENT 0 : the citation check (data/b701_citation_check.txt), step zero (data/b701_ferry.txt, data/b701_readfirst.txt, '
+         'data/b701_stepzero.txt, data/b701_tests_stepzero.txt, data/b701_rowgen_stepzero.txt, data/b701_branches.txt, data/b701_widening_plan.txt, '
+         'data/b701_epstein_plan.txt) ; N1 %s' % S['N1'][0],
+         '### COMPONENT 1 : b700`s weight FINDINGS :%s' % c1_[0],
+         '### COMPONENT 2 : the restatement read (data/b701_correspondence_restatement.txt) ; the bridge %s (data/b701_runner_rows.json, data/b701_grade.txt, '
+         'data/b701_clause_dominance.txt, data/b701_faces_rows.txt) ; the orders discharged OPEN_TRAILS :%s ; N2 %s' % (f['bridge_tag'], f['order_line'], S['N2'][0]),
+         '### COMPONENT 3 : the widening %s (data/b701_widening.txt, data/b701_grade_widening.txt, data/b701_glossary_rows.txt) ; W-ORD-EXPLICIT-FORMULA-C1 '
+         'OPEN_TRAILS :%s ; N3 %s ; N4 %s' % (f['widen_tag'], f['worder_line'], S['N3'][0], S['N4'][0]),
+         '### COMPONENT 4 : the carry-time reading (data/b701_tool_repairs.txt), the dry-run steps (data/b701_reg_gate.txt), the seal '
+         '(data/b701_seal_hashes.json), the suite in six parts, the per-part seconds (data/b701_arm_seconds.txt) ; S3 %s' % S['S3'][0],
+         '### COMPONENT 5 : FINDINGS :%s ; the root %s ; OPEN_TRAILS :%s ; the mirror after the root ; N5 %s' % (
+             fj.get('entry_line'), (J.get('root') or '')[:16], tj.get('line'), S['N5'][0])]
+    put_txt('%s_components.txt' % ACT, L)
+    print(NL.join(L[2:]))
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = R.conv(e)
+    dry = 'dry' in a
+    cells_, fired = R.screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells_)
+        return
+    if not os.path.isfile(os.path.join(D, '%s_scores.json' % ACT)):
+        sys.exit('### THE SCORES BANK IS NOT WRITTEN -- THE ENTRY READS IT (data/b686_rules.txt row (1)) -- NOTHING WRITTEN')
+    if cells_ or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = R._land_one(FIND, t, e, '%s_findings.json' % ACT, dict(title=t))
+    j = jl('%s_findings.json' % ACT)
+    j['entry_line'] = ln
+    put_json('%s_findings.json' % ACT, j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = R.conv(_trail_text())
+    dry = 'dry' in a
+    cells_, fired = R.screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells_)
+        return
+    if cells_ or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = R._land_one(OT, TRAIL_HEAD(), e, '%s_trail.json' % ACT, {})
+    print('  OPEN_TRAILS record :%s' % ln)
+
+
+def _trail_defects(text):
+    m = re.search(r'^\*\*Defects\*\* \(relay data/%s_defects\.txt\): (.*)\.$' % ACT, text, re.M)
+    return m.group(1) if m else None
+
+
+def drycheck(*a):
+    """(R267)(2), STANDING FROM b657: the FINDINGS entry and the trail record composed as the record tool composes them, converted by conv and run
+    through the screens their landing runs, the needles the face names read in each; and the trail's Defects line read against the defects bank
+    (the ferry's Component 4). Writes no bank."""
+    face = rd(a[0] if a and not a[0] == 'standin' else FACE)
+    ok = True
+    for which, (head, text) in (('ENTRY', _finding_text()), ('TRAIL', (TRAIL_HEAD(), _trail_text()))):
+        t = R.conv(text)
+        print('  %s (the screens):' % which)
+        cells_, fired = R.screens([('FINDINGS.md' if which == 'ENTRY' else 'OPEN_TRAILS.md', head, t)], 'dry_' + which.lower(), True)
+        nd = R._face_needles(face, which)
+        miss = [n for n in nd if n not in t]
+        clean = not cells_ and not fired and nd and not miss
+        if which == 'TRAIL':
+            got = _trail_defects(text)
+            want = '; '.join(_defect_short(ACT)) or 'none'
+            eq = got == want
+            print('  THE TRAIL`S DEFECTS LINE: %s' % got)
+            print('  THE DEFECTS BANK`S ROWS (relay data/%s_defects.txt, by the repaired reader): %s' % (ACT, want))
+            print('  ### THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK %s' % eq)
+            clean = clean and eq
+        ok = ok and clean
+        print('  %s : table cells %s ; screens %s ; the face`s needles %d, found %d%s ; %s' % (
+            which, cells_ or 'NONE', 'FIRED' if fired else 'QUIET', len(nd), len(nd) - len(miss), (' -- missing %s' % miss) if miss else '',
+            'CLEAN' if clean else 'NOT CLEAN'))
+    print('  ### ### **DRY-RUN STEP : %s**' % ('CLEAN' if ok else 'NOT CLEAN'))
+    if not ok:
+        sys.exit(1)
+
+
+mbank = R.mbank
+
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, defshort=defshort, commands=commands, reads=reads,
               rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final, c1=c1, kernels=kernels, standing=standing,
-              armsecs=armsecs, desk=desk, gatebanks=gatebanks, mbuild=mbuild, mroot=mroot, mverify=mverify, corr=corr, dispatch=dispatch,
-              runstatus=runstatus, runner=runner, prints=prints, grade=grade, order=order)
+              armsecs=armsecs, desk=desk, gatebanks=gatebanks, mbuild=mbuild, mroot=mroot, mverify=mverify, mbank=mbank, corr=corr, dispatch=dispatch,
+              runstatus=runstatus, runner=runner, prints=prints, grade=grade, order=order, worder=worder, repairs=repairs, scores=scores,
+              components=components, findings=findings, trail=trail, drycheck=drycheck)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

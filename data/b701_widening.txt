@@ -1,0 +1,35 @@
+b701 -- COMPONENT 3, (R311)(3): THE classK WIDENING AS RUN -- WHICH DIRECTION IS WRITTEN AND WHICH IS NOT, WHAT COMPILED AND WHAT DID NOT, IN THE AUTHOR'S WORDS (2026-10-21)
+
+### the author's word at the widening prompt (relay data/b701_author_answers.txt): "Option 1, run as written, with the W1 converse's reason entered as
+### a work-order and not a note ... The widening's bank states which direction compiles and which does not in those words". Rows are directions and
+### outcomes, each by its bank.
+
+== THE DIRECTIONS, AS THE FILE STATES THEM (SIDE-explicit-formula widening-b701 at 8a4ab68, SIDEExplicitFormula/H2SignWide.lean)
+  h2_sign' → h2_sign              WRITTEN (h2_sign'_imp_h2_sign, by the inclusion classK ⊆ classK')              -- direction (C2), the restriction
+  h2_sign' → RiemannHypothesis    WRITTEN (h2_sign'_imp_rh, through h2_sign_iff_rh)                              -- the "else" half of (C3)
+  h2_sign_sum ↔ RiemannHypothesis WRITTEN (h2_sign_sum_iff_rh: rh_imp_h2_sign_sum by RHChain's argument over a finite sum of autocorrelations, the
+                                  zero term Σ_i |ĥ_i(γ)|² by paperFT_finset_sum and paperFT_weilTest; h2_sign_sum_imp_h2_sign by the inclusion
+                                  classK ⊆ classKsum)                                                             -- the W3 equivalence, the part the rows close
+  RiemannHypothesis → h2_sign'    NOT STATED -- the W1 converse. THE REASON: the vendored explicit formula binds ContDiff ℝ 2 k (Zeta23.EF.EF_lit,
+                                  Zeta23/ExplicitFormula.lean :98; 40 binder lines in Zeta23 and 18 in SIDEExplicitFormula/Chi thread it from the
+                                  leaves P3 and P6 to EF_lit_zeta), so a classK' window of acDeriv regularity does not enter it; entered as the
+                                  order W-ORD-EXPLICIT-FORMULA-C1 (OPEN_TRAILS, this act) priced at 7 dispatches at the least. No sorry.
+
+== WHAT COMPILED AND WHAT DID NOT
+  THE ONE DISPATCH at the branch tip (run 39639157961, relay data/b701_runner_SIDE-explicit-formula_run2.txt): BUILD EXIT 1 ; GATE NOT DERIVES --
+  one error, H2SignWide.lean :59:42, the FTC step of acDeriv_of_contDiff_two passing le_rfl where ContDiff.differentiable wants n ≠ 0 at the
+  kernel's Mathlib pin (relay data/b701_obstruction.txt, the error verbatim and the one-token repair). Every other module of the target built
+  (3877 jobs); the print step did not run, so NO NAME OF THE WIDENING IS COMPILED OR PRINTED THIS ACT -- neither direction above is a theorem of
+  main; nothing reached main; no v0.36. N1's two dispatches are spent (run1 the bridge, run2 this), and (R311)(3) prices the widening at one, so
+  the branch is HELD UNMERGED with its obstruction banked and the work-order W-ORD-CLASSK-WIDENING-HELD entered (trigger: the research act after
+  b702). The grade bank data/b701_grade_widening.txt is not written: a grade is read from a statement the runner printed, and none was.
+
+== THE CONTROLS OF (R311)(3), AS WRITTEN (none printed by the runner this act)
+  (C1) classK ⊆ classK'           classK_subset_classK' -- written, its proof through acDeriv_of_contDiff_two (the failing step) and Fin.sum_univ_one
+  (C2) h2_sign' → h2_sign         h2_sign'_imp_h2_sign -- written, one line
+  (C3) h2_sign' ↔ RH              NOT CLOSED by the plan's rows for W1 ∪ W3; its "else" half h2_sign' → RH written; the W3 equivalence written beside
+  (C4) the nesting                classK_subset_classKsum, classKsum_subset_classK' -- written
+
+### ### **DIRECTIONS WRITTEN 3 (h2_sign' → h2_sign, h2_sign' → RH, h2_sign_sum ↔ RH) ; NOT STATED 1 (RH → h2_sign', THE EXPLICIT FORMULA`S C² BINDER,
+### W-ORD-EXPLICIT-FORMULA-C1) ; COMPILED THIS ACT 0 -- THE ONE DISPATCH GATE NOT DERIVES AT H2SignWide.lean :59 ; THE BRANCH HELD, NO v0.36 ;
+### THE WORK-ORDER W-ORD-CLASSK-WIDENING-HELD.**

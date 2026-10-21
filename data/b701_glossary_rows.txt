@@ -1,0 +1,17 @@
+b701 -- COMPONENT 3, (R311)(3): THE GLOSSARY'S classK' ENTRY, DRAFTED AND HELD FOR THE AUTHOR'S WORD AT A LATER ACT (2026-10-21)
+
+### the glossary: relay data/glossary.txt, rows tab-separated: term | the definition in words | the source by file and line. The classK entry
+### (:12) stands as it is; nothing is written to the glossary this act. The draft names the class as the branch states it; the branch is held
+### unmerged (relay data/b701_obstruction.txt), so the source cell names the branch tip and not a tag, and the row waits for v0.36.
+
+  (A) THE classK ENTRY AS IT STANDS, relay data/glossary.txt :12:
+classK	the admissible test windows: functions k on the reals that are even, twice continuously differentiable and compactly supported, and of the form h ⋆ h~ with h twice continuously differentiable and compactly supported	SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :22-:26
+
+  (B) THE classK' ENTRY, DRAFTED, NOT WRITTEN:
+classK'	the wider class of test windows (W1 ∪ W3 of b698's regularity reading): functions k on the reals that are even, once continuously differentiable with a derivative that is an indefinite integral of an absolutely integrable function (acDeriv), compactly supported, and finite sums Σ_i h_i ⋆ h_i~ of such h_i; classK ⊆ classKsum ⊆ classK', classKsum the sub-class with twice continuously differentiable summands	SIDE-explicit-formula widening-b701 = 8a4ab68 SIDEExplicitFormula/H2SignWide.lean :28-:35 (held unmerged, relay data/b701_obstruction.txt; the tag v0.36 on the work-order)
+
+  (C) THE SEAT'S NOTE FOR THE AUTHOR, beside the draft and not in it: the entry's source cell should name the tag once W-ORD-CLASSK-WIDENING-HELD is
+      discharged (v0.36); the companion rows h2_sign' ("h2 on classK'", H2SignWide.lean :38-:39) and h2_sign_sum ("h2 on the W3 sub-class", :48-:49)
+      are the author's to add or withhold.
+
+### ### **ONE ENTRY DRAFTED, HELD ; THE GLOSSARY UNEDITED ; THE SOURCE CELL NAMES THE HELD BRANCH`S TIP, THE TAG PENDING.**

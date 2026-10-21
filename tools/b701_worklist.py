@@ -59,15 +59,23 @@ BRIDGE_FILE = 'SIDEExplicitFormula/RegisterBridge.lean'   # ### the plan's name 
 BRIDGE_NAMES = ('SIDEExplicitFormula.RegisterBridge.h2_sign_iff_register4_positivity_liCoeff',
                 'SIDEExplicitFormula.RegisterBridge.h2_sign_imp_pairing_rh')
 WIDEN_FILE = 'SIDEExplicitFormula/H2SignWide.lean'
+WIDEN_NAMES = tuple('SIDEExplicitFormula.B321.' + n for n in ('acDeriv', "classK'", "h2_sign'", 'classKsum', 'h2_sign_sum', 'acDeriv_of_contDiff_two',
+                                                              "classK_subset_classK'", 'classK_subset_classKsum', "classKsum_subset_classK'",
+                                                              "h2_sign'_imp_h2_sign", "h2_sign'_imp_rh", 'paperFT_finset_sum', 'rh_imp_h2_sign_sum',
+                                                              'h2_sign_sum_imp_h2_sign', 'h2_sign_sum_iff_rh'))
+BRIDGE_TIP = '58186bb7296167458c447a6bddfca763047fe399'    # ### bridge-b701's tip (its first commit 90b225d the overwrite of defect (f), the second the repair)
+BRIDGE_MERGE = 'd4e046adbb84a53c489015a97cf3d996af8164ac'  # ### v0.35
+WIDEN_TIP = '8a4ab683d045532eeebd1829b708469b86d6553d'     # ### widening-b701's tip
+WIDEN_MERGE = ''                                           # ### v0.36, on the gate's reading (stage two)
 
 # ### stage two (Component 4, by the Edit tool): the commits in order, the sealed tools and the act's arms.
-STEPZERO = ''                # ### b700's closing push-out bank, alone
-STEPZERO_BANKS = ''          # ### the step-zero banks and tools
-PLAN_WIDEN, PLAN_EPSTEIN = '', ''   # ### the two plans, each committed alone
-C1_RELAY, C1_PP = '', ''
-C2_RELAY = ''
-C3_RELAY = ''
-WEIGHT_LINE = 0
+STEPZERO = '66f64517'        # ### b700's closing push-out bank, alone
+STEPZERO_BANKS = 'cdede231'  # ### the step-zero banks and tools
+PLAN_WIDEN, PLAN_EPSTEIN = '706f1422', '32c02585'   # ### the two plans, each committed alone
+C1_RELAY, C1_PP = '5958fb35', '23fdaf5'
+C2_RELAY, C2_PP = 'c67fc619', 'ead27e7'
+C3_RELAY, C3_PP = '', ''
+WEIGHT_LINE, ORDER_LINE = 9796, 15406
 B700_TRAIL_HEAD = ('### b700 — lane two, act one hundred and twenty-seven, the reading act under (R310): b699 at its weight; the trail`s Defects '
                    'line, the head line`s counts and the root-named claim by corrigendum; reading 4 with five readings added; the slate for b701 priced')
 
@@ -75,7 +83,12 @@ SEALED = ('b701_worklist.py', 'b701_tests.py', 'b701_citation.py', 'b701_record.
           'b701_regspec.py')
 REPAIRED_TOOLS = ()
 NEW_TOOLS = ()
-ACT_ARMS = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R311-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM',
+            'G-CORR-BEFORE-THEOREM', 'G-PLAN-BEFORE-LEAN', 'G-DISPATCH-PER-BRANCH', 'G-PRINTS-STD3', 'G-GRADE-BEFORE-MERGE', 'G-TAGS-READ-BACK',
+            'G-CLAUSE-DOMINANCE-REREAD', 'G-FACES-ROW-HELD', 'G-WIDENING-OUTCOME', 'G-GLOSSARY-ROW-HELD', 'G-EPSTEIN-PLAN-PRICED',
+            'G-KERNEL-WRITES-NAMED', 'G-READFIRST-DIFF-BANKED', 'G-TOOL-REPAIRS', 'G-PARTS-PRERUN', 'G-ARM-SECONDS-BANKED', 'G-DEFECTS-LETTERED',
+            'G-READ-RULE', 'G-TRAIL-DEFECTS-EQUAL')
 STANDING_ADDED = ()          # ### no standing arm added this act (N5)
 SHARED_APPENDED = ()
 PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')

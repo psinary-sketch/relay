@@ -1,0 +1,49 @@
+b701 -- COMPONENT 3, (R311)(3), N4: THE WIDENING BRANCH HELD UNMERGED -- THE OBSTRUCTION, VERBATIM, AND THE WORK-ORDER WITH ITS TRIGGER (2026-10-21)
+
+### the branch: SIDE-explicit-formula widening-b701, tip 8a4ab683d045532eeebd1829b708469b86d6553d (pushed alone, read back; relay
+### data/b701_widening_branch_push_out.txt), one commit past v0.35 = d4e046a: SIDEExplicitFormula/H2SignWide.lean (154 lines) and
+### print_targets.txt (+15 names). ONE DISPATCH at its tip: run 39639157961 (relay data/b701_runner_SIDE-explicit-formula_run2.txt), the
+### artifact's sha256 agreeing with the platform's digest, the memory low 12852 MB above the hold, BUILD EXIT 1 ; GATE NOT DERIVES. N1 allows two
+### dispatches this act and both are spent (run1 the bridge, run2 this); (R311)(3) prices the widening at one dispatch and orders that a branch
+### the gate refuses is held unmerged with its obstruction banked -- so no third dispatch, no merge, no v0.36, nothing reaching main.
+
+== THE OBSTRUCTION (relay data/b701_buildlog_SIDE-explicit-formula_run2.txt :435-:442), VERBATIM:
+    error: SIDEExplicitFormula/H2SignWide.lean:59:42: Application type mismatch: The argument
+      le_rfl
+    has type
+      ?m.147 ≤ ?m.147
+    but is expected to have type
+      ?m.149 y x✝ ≠ 0
+    in the application
+      ContDiff.differentiable (ContDiff.deriv' ?m.134) le_rfl
+
+== THE GOAL AT THE FAILING STEP (the declaration acDeriv_of_contDiff_two, H2SignWide.lean :51-:61; the step at :58-:59):
+    theorem acDeriv_of_contDiff_two {f : ℝ → ℂ} (hf : ContDiff ℝ 2 f) (hs : HasCompactSupport f) : acDeriv f
+    GOAL: ∀ y ∈ Set.uIcc 0 x, DifferentiableAt ℝ (deriv f) y   -- the hdiff argument of intervalIntegral.integral_deriv_eq_sub', supplied as
+          (fun y _ => (hf.deriv'.differentiable le_rfl) y)
+    THE CAUSE: at Mathlib de5ce8a9 (the kernel's pin) ContDiff.differentiable takes (hn : n ≠ 0), not (hn : 1 ≤ n); the seat wrote le_rfl from the
+          older signature. The kernel's own files pass `by norm_num` there (Zeta23/Poisson/PaperFT.lean :112, `(hf.differentiable (by norm_num) x)`).
+    THE REPAIR (one token, not applied this act): `(hf.deriv'.differentiable one_ne_zero) y` -- or `(hf.deriv'.differentiable (by norm_num)) y` in
+          the kernel's own form. Nothing else in the file failed: the log carries one error at :59 and one warning at :68 (an unused simp argument,
+          Fin.sum_univ_one -- simp closes the Fin 1 sum by sum_const alone; the argument may be dropped).
+
+== WHAT THE BRANCH STATES (H2SignWide.lean), EACH READ AS WRITTEN AND NOT COMPILED:
+    acDeriv, classK' (W1 ∪ W3), h2_sign', classKsum (W3), h2_sign_sum -- 5 definitions
+    acDeriv_of_contDiff_two (the failing step), classK_subset_classK', classK_subset_classKsum, classKsum_subset_classK' -- the nesting
+    h2_sign'_imp_h2_sign, h2_sign'_imp_rh -- (C2) and the "else" half of (C3): h2_sign' → h2_sign, h2_sign' → RiemannHypothesis
+    paperFT_finset_sum, rh_imp_h2_sign_sum, h2_sign_sum_imp_h2_sign, h2_sign_sum_iff_rh -- the W3 equivalence
+    NOT STATED, as the plan orders: RiemannHypothesis → h2_sign' (the W1 converse), its obstruction the vendored explicit formula's C² binder --
+          the order W-ORD-EXPLICIT-FORMULA-C1 (OPEN_TRAILS, this act, on the author's word).
+    No sorry in the file; the print step did not run (NOT RUN: the build did not complete), so no name of the branch is printed this act.
+
+== THE WORK-ORDER: W-ORD-CLASSK-WIDENING-HELD (OPEN_TRAILS, this act)
+    THE ORDER: apply the one-token repair at H2SignWide.lean :59 on widening-b701 (one commit, by the Edit tool), dispatch once at the new tip,
+          read the run by its id with the artifact by sha256; on GATE DERIVES read the fifteen names' grades from their statements
+          (relay tools/b701_record.py grade, the bank data/b701_grade_widening.txt), merge --no-ff into main on the gate's reading alone, tag
+          v0.36 naming v0.35 as the prior tag, read back by peeled SHA; then the glossary row of relay data/b701_glossary_rows.txt for the author's word.
+    THE PRICE: 1 dispatch (the one tree state, compiling at its first dispatch if the repair is the file's only fault, as the log reads).
+    TRIGGER: the research act after b702 (relay data/b701_widening_plan.txt section 7's words), b703 or the first research act after it.
+
+### ### **THE BRANCH widening-b701 HELD UNMERGED AT 8a4ab68 ; ONE DISPATCH, RUN 39639157961, GATE NOT DERIVES ; THE OBSTRUCTION H2SignWide.lean :59
+### ContDiff.differentiable`s HYPOTHESIS n ≠ 0 AT THE PIN, le_rfl WRITTEN ; THE REPAIR ONE TOKEN, NOT APPLIED THIS ACT ; NO v0.36 ; NOTHING REACHED MAIN ;
+### THE WORK-ORDER W-ORD-CLASSK-WIDENING-HELD WITH ITS TRIGGER.**

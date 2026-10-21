@@ -1,0 +1,112 @@
+b701 -- THE HOSTED RUNNER FOR SIDE-explicit-formula, RUN2, READ BY ITS RUN ID (2026-10-21T17:03:48Z)
+
+### the dispatch: at main d4e046a (build-module.yml), target b691's eleven modules, SIDEExplicitFormula.RegisterBridge and SIDEExplicitFormula.H2SignWide, the branch widening-b701's one tree state ; the ref input 8a4ab683d045532eeebd1829b708469b86d6553d
+### the run: id 39639157961 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/39639157961 ; status completed ; conclusion success ; head d4e046adbb84a53c489015a97cf3d996af8164ac on main ; 2026-10-21T16:55:38Z to 2026-10-21T17:03:35Z
+### the artifact: id 12364697662 ; build-module-39639157961 ; 10987 bytes ; sha256 fb6040b5c67271022e1864ad1a302966f25a2f8950095e12700a16c36a4923d9 ; the platform`s digest fb6040b5c67271022e1864ad1a302966f25a2f8950095e12700a16c36a4923d9 ; AGREE
+### the ref built (out/ref.txt): 8a4ab683d045532eeebd1829b708469b86d6553d leanprover/lean4:v4.34.0-rc1
+### the memory log: LOW 12852 MB ; the hold 2560 ; STOP lines False
+### the build: exit 1 ; error lines 2:
+    error: SIDEExplicitFormula/H2SignWide.lean:59:42: Application type mismatch: The argument
+    error: build failed
+### the log`s last lines:
+    warning: SIDEExplicitFormula/Schema/RateIndexCfg.lean:167:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+    warning: SIDEExplicitFormula/Schema/RateIndexCfg.lean:206:38: `if_pos` has been deprecated: Use `ite_eq_left` instead
+    ⚠ [3877/3877] Built SIDEExplicitFormula.Schema.EpsteinQ0 (2.4s)
+    warning: SIDEExplicitFormula/Schema/EpsteinQ0.lean:86:16: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    warning: SIDEExplicitFormula/Schema/EpsteinQ0.lean:90:16: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+    Some required targets logged failures:
+    - SIDEExplicitFormula.H2SignWide
+    error: build failed
+### the print step: the list (out/print_targets.txt) 89 names ; terminals printed 0 ; every name printed once False ; axiom-free 0 ; sorryAx 0 ; outside the standard three 0 ; refused NONE
+### rows are terminals: name | the axioms printed | within the standard three:
+  SIDEExplicitFormula.Schema.liCoeffCfg                          ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg               ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liCoeffCfg_summable                 ### NOT PRINTED
+  SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg        ### NOT PRINTED
+  SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi          ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_lt_norm_sub_one_of_re_lt_half  ### NOT PRINTED
+  SIDEExplicitFormula.Schema.one_lt_norm_one_sub_inv             ### NOT PRINTED
+  SIDEExplicitFormula.Schema.exists_dominant_point               ### NOT PRINTED
+  SIDEExplicitFormula.Schema.dominant_finite                     ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_geom_sum_le                    ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_sum_powerSum_le                ### NOT PRINTED
+  SIDEExplicitFormula.Schema.norm_window_le                      ### NOT PRINTED
+  SIDEExplicitFormula.Schema.powerSum_window_sq_ge               ### NOT PRINTED
+  SIDEExplicitFormula.Schema.exists_ge_of_mean_sq                ### NOT PRINTED
+  SIDEExplicitFormula.Schema.powerSum_re_ge_infinitely           ### NOT PRINTED
+  SIDEExplicitFormula.Schema.powerSum_re_le_neg_infinitely       ### NOT PRINTED
+  SIDEExplicitFormula.Schema.one_sub_pow_expand                  ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liTerm_re_abs_le_pow                ### NOT PRINTED
+  SIDEExplicitFormula.Schema.summable_rest                       ### NOT PRINTED
+  SIDEExplicitFormula.Schema.rest_term_le                        ### NOT PRINTED
+  SIDEExplicitFormula.Schema.remainder_le                        ### NOT PRINTED
+  SIDEExplicitFormula.Schema.liCoeffCfg_eq_indicator             ### NOT PRINTED
+  SIDEExplicitFormula.Schema.sum_gL_dom                          ### NOT PRINTED
+  SIDEExplicitFormula.Schema.li_nonneg_cfg_imp_online            ### NOT PRINTED
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_imp_grh_chi          ### NOT PRINTED
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_iff_grh_chi          ### NOT PRINTED
+  SIDEExplicitFormula.LiConverseNative.li_nonneg_imp_rh_native   ### NOT PRINTED
+  SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh         ### NOT PRINTED
+  LiCriterion.positivity_implies_RH                              ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.ne_zero_of_excl                ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.localCount_ofWindowCount       ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.zero_sum_inv_sq_wide           ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.liTerm_re_abs_le_pow           ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.summable_rest                  ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.rest_term_le                   ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.remainder_le                   ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.liCoeff                        ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.liCoeff_summable               ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.exists_dominant_point          ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.dominant_finite                ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.liCoeff_eq_indicator           ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.summable_indicator_gL          ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.sum_gL_dom                     ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online       ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.reflect_ofReal                 ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.c2Config                       ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.c2_not_excl                    ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.c2bConfig                      ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.c2b_nonneg_offline             ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.rest_term_le_ne_zero           ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.remainder_le_ne_zero           ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.exists_dominant_point_ne_zero  ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.powerSum_re_ge_split           ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online_ne_zero ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.c2_ne_zero                     ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.c2_w_eq_one                    ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.c2_liCoeff_one_neg             ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.c3_real_segment                ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.c2b_not_ne_zero                ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Wide.c2b_lesson                     ### NOT PRINTED
+  SIDEExplicitFormula.Schema.qE0_re_ne_half                      ### NOT PRINTED
+  SIDEExplicitFormula.Schema.qE0_mem                             ### NOT PRINTED
+  SIDEExplicitFormula.Schema.rhoE_mem                            ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Q0Count                             ### NOT PRINTED
+  SIDEExplicitFormula.Schema.Q0Premises                          ### NOT PRINTED
+  SIDEExplicitFormula.Schema.q0_target_false                     ### NOT PRINTED
+  SIDEExplicitFormula.Schema.q0_h2_iff_target                    ### NOT PRINTED
+  SIDEExplicitFormula.Schema.q0_not_h2_sign_cfg                  ### NOT PRINTED
+  SIDEExplicitFormula.Schema.q0_not_h2_sign_cfg_rhoE             ### NOT PRINTED
+  SIDEExplicitFormula.Schema.q0_detector                         ### NOT PRINTED
+  SIDEExplicitFormula.Schema.q0_hA                               ### NOT PRINTED
+  SIDEExplicitFormula.Schema.q0_rate                             ### NOT PRINTED
+  SIDEExplicitFormula.RegisterBridge.h2_sign_iff_register4_positivity_liCoeff ### NOT PRINTED
+  SIDEExplicitFormula.RegisterBridge.h2_sign_imp_pairing_rh      ### NOT PRINTED
+  SIDEExplicitFormula.B321.acDeriv                               ### NOT PRINTED
+  SIDEExplicitFormula.B321.classK'                               ### NOT PRINTED
+  SIDEExplicitFormula.B321.h2_sign'                              ### NOT PRINTED
+  SIDEExplicitFormula.B321.classKsum                             ### NOT PRINTED
+  SIDEExplicitFormula.B321.h2_sign_sum                           ### NOT PRINTED
+  SIDEExplicitFormula.B321.acDeriv_of_contDiff_two               ### NOT PRINTED
+  SIDEExplicitFormula.B321.classK_subset_classK'                 ### NOT PRINTED
+  SIDEExplicitFormula.B321.classK_subset_classKsum               ### NOT PRINTED
+  SIDEExplicitFormula.B321.classKsum_subset_classK'              ### NOT PRINTED
+  SIDEExplicitFormula.B321.h2_sign'_imp_h2_sign                  ### NOT PRINTED
+  SIDEExplicitFormula.B321.h2_sign'_imp_rh                       ### NOT PRINTED
+  SIDEExplicitFormula.B321.paperFT_finset_sum                    ### NOT PRINTED
+  SIDEExplicitFormula.B321.rh_imp_h2_sign_sum                    ### NOT PRINTED
+  SIDEExplicitFormula.B321.h2_sign_sum_imp_h2_sign               ### NOT PRINTED
+  SIDEExplicitFormula.B321.h2_sign_sum_iff_rh                    ### NOT PRINTED
+
+### ### **RUN 39639157961 (run2) ; CONCLUSION success ; ARTIFACT AGREE ; BUILD EXIT 1 ; ERROR LINES 2 ; TERMINALS PRINTED 0 OF 89 ; SORRYAX 0 ; OUTSIDE THE STANDARD THREE 0 ; GATE NOT DERIVES.**
