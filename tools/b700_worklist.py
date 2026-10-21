@@ -20,7 +20,7 @@ SP = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/%s/scratchpad' % SESSION_I
 HOLD = 2560
 ANCHOR = 'RULING (R310) BEGIN'
 TAIL = 'FERRY END (part 1 of 1)'
-SESSIONS_AFTER = ()
+SESSIONS_AFTER = (('b858e03f-d343-4bf2-9bb6-16946a3c8a59', 'RESUME b700 after a host reboot'),)   # ### the continuation after the host reboot (b671's form)
 DRAFT = '23228113'
 LOCAL_BANK = 'data/b628_intake_crank_v0_5.txt'
 EXPORT = 'data/b647_navigator_memory.txt'
@@ -43,3 +43,29 @@ FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
 PARTS = ('standing-a', 'standing-c', 'standing-b1', 'standing-b2', 'standing-b3', 'act')
 CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b700'))
 EF_DIR = 'D:/SIDE-explicit-formula'
+
+# ### stage two (Component 4, by the Edit tool): the commits in order, the sealed tools and the act's arms. No kernel is written and no runner
+# ### dispatched this act; the standing runner arms read the last merged run, b699's (tools/b699_worklist.py's KERNEL fields, b690's precedent).
+KERNEL = None                # ### no kernel written this act (N5)
+STEPZERO = 'c4fc9c7d'        # ### b699's closing push-out bank, alone
+STEPZERO_BANKS = '7c705c52'  # ### the step-zero banks and tools
+C1_RELAY, C1_PP = '9e25dc7d', '6b09574'
+C2_RELAY = '3038fd33'
+C3_RELAY = '20284cfe'
+CORR_LINE, WEIGHT_LINE = 9752, 9766
+
+SEALED = ('b700_worklist.py', 'b700_tests.py', 'b700_citation.py', 'b700_record.py', 'b700_checks.py', 'b700_closing.py', 'b700_reg_gate.py',
+          'b700_regspec.py', 'b700_corrigendum.py', 'b700_readings.py')
+REPAIRED_TOOLS = ()
+NEW_TOOLS = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R310-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM',
+            'G-CORRIGENDUM-ENTERED', 'G-CORRIGENDA-ROWS', 'G-DEFSHORT-AT-CALL', 'G-TRAIL-DEFECTS-EQUAL', 'G-READING4-BANKED',
+            'G-DEFECTS-BY-CLASS', 'G-TAGS-BY-LSREMOTE', 'G-ONECOPY-BY-LINE', 'G-SLATE-PRICED', 'G-READFIRST-DIFF-BANKED', 'G-TOOL-REPAIRS',
+            'G-PARTS-PRERUN', 'G-ARM-SECONDS-BANKED', 'G-DEFECTS-LETTERED', 'G-READ-RULE')
+STANDING_ADDED = ()          # ### no standing arm added this act (N5)
+SHARED_APPENDED = ('data/b675_corrigenda.txt',)   # ### (R310)(2): rows (14)-(16) appended beneath it, every line above unchanged
+PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')
+NEXT = ('b701, the research act, on the author`s word among W-ORD-H2-BRIDGE-THEOREM (one dispatch), W-ORD-EPSTEIN-COUNT-LEAN (six dispatches at the '
+        'least) and the classK widening to W1 ∪ W3 (one dispatch in b689`s form), the bridge theorem`s one dispatch able to share the act with either '
+        'of the others where the author so says; b702 the re-cut act')

@@ -23,6 +23,15 @@ import b677_citation as C   # noqa: E402  ### the helpers, imported unchanged
 import b700_worklist as K   # noqa: E402
 
 C.SESSION = 'C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % K.SESSION_ID
+
+
+def continuation_sessions():
+    """the act's continuation sessions (K.SESSIONS_AFTER, b671's form) as transcript paths, read by b677's helpers after the seat's session:
+    the answers given after the host reboot are read in the session that received them."""
+    return tuple('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % sid for sid, _anc in K.SESSIONS_AFTER)
+
+
+C.SESSIONS_AFTER = continuation_sessions()
 NL = chr(10)
 PP = C.PP
 C.ANCHOR, C.TAIL = K.ANCHOR, K.TAIL

@@ -1,4 +1,4 @@
-b700 -- THE REPAIRS: (R310)(2) AND THE CARRY-TIME READING (2026-10-21T10:02:16Z)
+b700 -- THE REPAIRS: (R310)(2) AND THE CARRY-TIME READING (2026-10-21T13:32:59Z)
 
 ### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
 ### row, written by this route (difflib over the function`s source, relay HEAD`s carried tool against this act`s).
@@ -192,4 +192,65 @@ b700 -- THE REPAIRS: (R310)(2) AND THE CARRY-TIME READING (2026-10-21T10:02:16Z)
        
        
 
-### ### **REPAIRS 4 ; THE ONE EDIT TO A SHARED ROUTE (R310)(2)`S, IN THIS ACT`S TOOL, b698`S SEALED TOOL UNEDITED ; DIFF LINES 170 ; THE DRY RUN ON b699`S BANK PRINTING FOUR (3 FROM THE BANK, 1 FROM THE CLOSING LINE) ; NO FROZEN BANK EDITED.**
+  (5) tools/b700_record.py capture, carried from tools/b698_record.py capture -- ANSWERS the session change after the host reboot, on the author`s word (b671`s form): the continuation b858e03f named in the worklist`s SESSIONS_AFTER with its anchor "RESUME b700 after a host reboot", its commands read from that anchor and labelled by the session, a continuation reading no command refused.
+
+      --- tools/b698_record.py capture (sealed)
+      +++ tools/b700_record.py capture (this act)
+      @@ -1,7 +1,14 @@
+       def capture():
+      +    """b698's capture with the act's continuation sessions (K.SESSIONS_AFTER, b671's form): the seat's session from K.ANCHOR, then each
+      +    continuation from its own anchor, its source labelled by the session; a continuation that reads no command refuses."""
+           rows = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
+      +    for sid, anc in K.SESSIONS_AFTER:
+      +        more = ER.capture('%s/%s.jsonl' % (PROJ, sid), anc, '%s/%s/subagents' % (PROJ, sid))
+      +        if not more:
+      +            sys.exit('### THE CONTINUATION SESSION %s READ NO COMMAND (the anchor %r not found as a user line) -- NOTHING WRITTEN' % (sid, anc))
+      +        rows += [dict(r, src=r['src'] + ' ' + sid[:8]) for r in more]
+           rows.sort(key=lambda r: r['ts'])
+      -    bg = _bg_calls()
+      +    bg = R._bg_calls()
+           for i, r in enumerate(rows):
+               r['n'] = i + 1
+               r['bg'] = (r.get('ts'), r.get('cmd')) in bg
+
+  (6) tools/b700_record.py reads, carried from tools/b698_record.py reads -- ANSWERS the same: the Read calls of both sessions (b698`s _session_rows already walks SESSIONS_AFTER at b698_record.py :275), a continuation`s transcript line labelled by its session. The answers route needs no diff: it reads through the same _session_rows.
+
+      --- tools/b698_record.py reads (sealed)
+      +++ tools/b700_record.py reads (this act)
+      @@ -1,16 +1,16 @@
+       def reads(*a):
+      -    """data/b698_rules.txt row (2), binding from b698: the Read tool reads a file whole where the file is under two hundred lines, and by
+      -    offset and limit otherwise. Every Read call of the seat since the anchor, read from the session by assistant message, the file's line
+      -    count read now beside it; a whole read of a file of two hundred lines or more is an offence. data/b698_read_calls.txt."""
+      +    """b698's route (data/b698_rules.txt row (2)) over the seat's session and its continuations: a continuation's transcript line labelled by
+      +    its session (b698's answers form), the rule and the bank unchanged."""
+           rows = []
+      -    for i, o, _st, _sid in _session_rows():
+      +    for i, o, _st, sid in R._session_rows():
+               if o.get('type') != 'assistant':
+                   continue
+               for c in (o.get('message') or {}).get('content') or []:
+                   if isinstance(c, dict) and c.get('type') == 'tool_use' and c.get('name') == 'Read':
+                       inp = c.get('input') or {}
+                       p = inp.get('file_path') or ''
+      -                rows.append(dict(line=i, ts=o.get('timestamp'), path=p, offset='offset' in inp, limit='limit' in inp, lines=_lines_now(p)))
+      +                rows.append(dict(line=i if sid == K.SESSION_ID else '%s:%d' % (sid[:8], i), ts=o.get('timestamp'), path=p, offset='offset' in inp,
+      +                                 limit='limit' in inp, lines=R._lines_now(p)))
+           whole = [r for r in rows if not (r['offset'] and r['limit'])]
+           bad = [r for r in whole if r['lines'] is None or r['lines'] >= 200]
+           L = ['%s -- THE READ CALLS SINCE THE ANCHOR, BY data/b698_rules.txt ROW (2) (%s)' % (ACT, utc()), '',
+
+  (7) tools/b700_citation.py continuation_sessions, new -- ANSWERS the same for the (R278)(4) check: b677`s helpers read C.SESSIONS_AFTER after the seat`s session, so the answers given after the reboot are read in the session that received them; made before the check on the author`s word that ordered the repair, which could not otherwise read it.
+
+      --- (none)
+      +++ tools/b700_citation.py continuation_sessions (this act)
+      @@ -0,0 +1,7 @@
+      +def continuation_sessions():
+      +    """the act's continuation sessions (K.SESSIONS_AFTER, b671's form) as transcript paths, read by b677's helpers after the seat's session:
+      +    the answers given after the host reboot are read in the session that received them."""
+      +    return tuple('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % sid for sid, _anc in K.SESSIONS_AFTER)
+      +
+      +
+      +
+
+### ### **REPAIRS 7 ; THE ONE EDIT TO A SHARED ROUTE (R310)(2)`S, IN THIS ACT`S TOOL, b698`S SEALED TOOL UNEDITED ; DIFF LINES 222 ; THE DRY RUN ON b699`S BANK PRINTING FOUR (3 FROM THE BANK, 1 FROM THE CLOSING LINE) ; NO FROZEN BANK EDITED.**
