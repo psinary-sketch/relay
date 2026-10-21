@@ -1,0 +1,77 @@
+b698 -- CORRESPONDENCE-DOMINANCE BUILT AND READ, (R308)(3): THE CLAUSE`S REACH INTO SIDE-lv-conservation THROUGH THE FACES PAGE`S CORRESPONDENCE ROW, BY STATEMENT IDENTITY (2026-10-21T04:15:05Z)
+
+### the reader: relay tools/circuit_correspondence.py (spec: relay data/b695_circuit_spec.txt :53-:64). Rows are binders aligned by position:
+### position | h2_sign`s binder | the face`s binder | AGREE or DIFFERS | why (namespaces stripped, bound names read by position).
+
+== THE CONTROLS, PRINTED BEFORE THE REAL READING
+  (C1) h2_sign against itself (relay data/b643_probe_out_zeta.txt :43-:52): HOLDS-BY-CORRESPONDENCE
+       1          | (k : ℝ → ℂ)                              | (k : ℝ → ℂ)                              | AGREE
+       2          | SIDEExplicitFormula.B321.classK k (unnamed hypothesis) | SIDEExplicitFormula.B321.classK k (unnamed hypothesis) | AGREE
+       conclusion | 0 ≤ SIDEExplicitFormula.B321.poleTerm k  | 0 ≤ SIDEExplicitFormula.B321.poleTerm k  | AGREE
+  (C2) h2_sign against a planted statement, binder 1`s type ℝ → ℂ changed to ℝ → ℝ: DIFFERS at binder 1
+       1          | (k : ℝ → ℂ)                              | (k : ℝ → ℝ)                              | DIFFERS
+       2          | SIDEExplicitFormula.B321.classK k (unnamed hypothesis) | SIDEExplicitFormula.B321.classK k (unnamed hypothesis) | AGREE
+       conclusion | 0 ≤ SIDEExplicitFormula.B321.poleTerm k  | 0 ≤ SIDEExplicitFormula.B321.poleTerm k  | AGREE
+  ### ### **CONTROLS: C1 HOLDS AT EVERY BINDER True ; C2 DIFFERS AT THE PLANTED BINDER (1) AND THERE ALONE True.**
+
+== THE SOURCES
+  the Correspondence row: relay data/b690_nodes_zeta.txt :126 -- @corr SIDE-lv-conservation | residue_irreducible | INTERFACES (PLACE-papers phase1.5/proofs/THE_RESIDUE_OF_RH.md:108) | T1-lit (THE_RESIDUE_OF_RH.md:228) | liCriterion discharged at λ := LiCoeff by SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh, SIDE-explicit-formula v0.10 = 6baed63
+                          PLACE-papers THE_CLAUSE_AND_ITS_COMPILED_FACES.md :732 (the row`s line in the page)
+  h2_sign: its #print at SIDE-explicit-formula v0.26 = 82550e4, the faces page`s generator input, relay data/b643_probe_out_zeta.txt :43-:52 (the author`s answer 2, option 1); the further reading -- every programme name the print carries, the file defining it at v0.34, that file byte for byte from v0.26 to v0.34:
+      archTerm   SIDEExplicitFormula/B321Identity.lean :37 -- identical True
+      classK     SIDEExplicitFormula/H2Sign.lean :24 -- identical True
+      h2_sign    SIDEExplicitFormula/H2Sign.lean :29 -- identical True
+      poleTerm   SIDEExplicitFormula/B321Identity.lean :29 -- identical True
+      primeSum   SIDEExplicitFormula/B321Identity.lean :33 -- identical True
+      lean-toolchain identical True
+      lake-manifest.json identical True
+      ### EVERY FILE IDENTICAL True: the probe`s print stands for v0.34
+  SIDE-lv-conservation`s face: residue_irreducible at v0.13.0 = 8e3bc76, SIDELvConservation/ZeroActingPartial.lean :111-:121
+      the dispatch reading (answer 1): the workflow at v0.13.0 prints ZeroLoc, PerClassExcludes, CombinationsExclude, T3a_zeroLoc_is_function_of_Phi, T3b_joint_witness_gives_combinations_exclude, T3_perClass_to_combinations, T3prime_shared_witness, T3doubleprime_general_commutation_fails by #print axioms alone ; a step printing residue_irreducible`s signature False ; CircuitClosure.lean at the tag False (main`s closure step banks names, not statements) -- A HOSTED RUN AT v0.13.0 CANNOT PRINT IT: the fallback, SOURCE TEXT at v0.13.0 (git show), the verdict qualified SOURCE AGAINST PRINT; no runner dispatched
+
+== THE READING: h2_sign (SIDE-explicit-formula, PRINT) AGAINST residue_irreducible (SIDE-lv-conservation, SOURCE TEXT) -- binders 2 against 13
+  binder 1   | h2_sign: (k : ℝ → ℂ)
+             | residue_irreducible: {lam_A : ℕ → ℝ}
+             | DIFFERS | kind explicit against implicit; type 'ℝ → ℂ' against 'ℕ → ℝ'
+  binder 2   | h2_sign: SIDEExplicitFormula.B321.classK k (unnamed hypothesis)
+             | residue_irreducible: {lam_Z : ℕ → ℝ}
+             | DIFFERS | kind explicit against implicit; type 'classK #1' against 'ℕ → ℝ'
+  binder 3   | h2_sign: --
+             | residue_irreducible: {lam : ℕ → ℝ}
+             | DIFFERS | no binder at this position on the first side
+  binder 4   | h2_sign: --
+             | residue_irreducible: {low : Finset NontrivialZero}
+             | DIFFERS | no binder at this position on the first side
+  binder 5   | h2_sign: --
+             | residue_irreducible: {tail : ℕ → ℝ}
+             | DIFFERS | no binder at this position on the first side
+  binder 6   | h2_sign: --
+             | residue_irreducible: {T : ℝ}
+             | DIFFERS | no binder at this position on the first side
+  binder 7   | h2_sign: --
+             | residue_irreducible: (hZero : NontrivialZeroExistsInStrip)
+             | DIFFERS | no binder at this position on the first side
+  binder 8   | h2_sign: --
+             | residue_irreducible: (hdecomp : ∀ n, lam n = lam_A n + lam_Z n)
+             | DIFFERS | no binder at this position on the first side
+  binder 9   | h2_sign: --
+             | residue_irreducible: (hV : VerifiedZerosTo T)
+             | DIFFERS | no binder at this position on the first side
+  binder 10  | h2_sign: --
+             | residue_irreducible: (hEF : ExplicitFormulaDecomp lam low tail T)
+             | DIFFERS | no binder at this position on the first side
+  binder 11  | h2_sign: --
+             | residue_irreducible: (hTail : TailBoundPremise low tail T)
+             | DIFFERS | no binder at this position on the first side
+  binder 12  | h2_sign: --
+             | residue_irreducible: (inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam)
+             | DIFFERS | no binder at this position on the first side
+  binder 13  | h2_sign: --
+             | residue_irreducible: (liCriterion : Register4_positivity lam → RiemannHypothesis)
+             | DIFFERS | no binder at this position on the first side
+  conclusion | h2_sign: 0 ≤ SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k
+             | residue_irreducible: (¬ RealizesXiZeros certifiedInputSpectrum) ∧ PartialChannelInequality lam_A lam_Z (N₀ T) ∧ (∀ ledger : ℕ → ℝ, ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis)
+             | DIFFERS | '0 ≤ poleTerm #1 - primeSum #1 + archTerm #1' against '(¬ RealizesXiZeros certifiedInputSpectrum) ∧ PartialChannelInequality #1 #2 (N₀ #6) ∧ (∀ ledger : ℕ → ℝ, ZeroActingPairing #1 #2 ledger → RiemannHypothesis)'
+
+### the summary follows the rows: AGREE 0 ; DIFFERS 14 of 14 rows (binders and the conclusion).
+### ### **CORRESPONDENCE-DOMINANCE, SIDE-lv-conservation: DIFFERS at binder 1: h2_sign`s (k : ℝ → ℂ) against residue_irreducible`s {lam_A : ℕ → ℝ} (SOURCE AGAINST PRINT) ; CONTROLS C1 True, C2 True ; CLAUSE-DOMINANCE: 1 OF 2 BY CLOSURE ; DIFFERS at binder 1: h2_sign`s (k : ℝ → ℂ) against residue_irreducible`s {lam_A : ℕ → ℝ} BY CORRESPONDENCE.**

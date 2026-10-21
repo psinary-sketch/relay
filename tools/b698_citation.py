@@ -271,6 +271,9 @@ def answer(needle, *a):
     import b682_citation as P
     P.C.ANCHOR = P.ANCHOR = ANCHOR
     P.C.SESSION = C.SESSION
+    # ### b698: the commit reach widened to the kernels this act reads (the first check of the lv answer read 8e3bc76, SIDE-lv-conservation's
+    # ### v0.13.0, as a miss because b682's REPOS lacks that repository); b682's tool unedited
+    P.REPOS = tuple(P.REPOS) + tuple(r for r in (K.LV_DIR, K.EF_DIR, K.KERNEL_DIR) if r not in P.REPOS)
     P.act_root_line, P.D = act_root_line, D
     P.after_root = lambda: bool(act_root_line('b698'))
     src = open(os.path.join(T, 'b682_citation.py'), encoding='utf-8').read()

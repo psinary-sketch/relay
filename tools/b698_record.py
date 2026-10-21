@@ -418,7 +418,38 @@ def c1(*a):
                 ('OPEN_TRAILS.md', K.B697_TRAIL, '### b697')], dry=dry)
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1)
+# ================================================================================ COMPONENT 2: W-ORD-H2-BRIDGE READ AGAINST THE RESULT, (R308)(3)
+BH = ('*Appended 2026-10-21 by b698 beneath `W-ORD-H2-BRIDGE` (:10257, annotated at :15200), under `(R308)`(3) -- CORRESPONDENCE-DOMINANCE '
+      'READ, DIFFERS; THE BINDER NAMED IS THE BRIDGE’S OPEN OBJECT:*')
+
+
+def _bridge_text():
+    j = jl('%s_correspondence_dominance.json' % ACT)
+    v = j.get('verdict') or ''
+    if not v.startswith('DIFFERS at binder 1') or not (j.get('controls') or {}).get('c1') or not (j.get('controls') or {}).get('c2'):
+        sys.exit('### THE DOMINANCE BANK DOES NOT READ DIFFERS AT BINDER 1 WITH BOTH CONTROLS -- NOTHING WRITTEN (%r)' % v[:80])
+    return (' the reader relay tools/circuit_correspondence.py, run at b698 on the author’s two answers to the citation misses '
+            '(data/b698_author_answers.txt), compared h2_sign’s statement -- its print at SIDE-explicit-formula v0.26 (data/b643_probe_out_zeta.txt '
+            ':43-:52), every file defining a name it carries byte-identical to v0.34 -- with SIDE-lv-conservation’s compiled face residue_irreducible '
+            'as its source writes it at v0.13.0 (ZeroActingPartial.lean :111-:121; no hosted run at that tag can print it), the two kernels’ '
+            'namespaces stripped and the binders aligned by position. Its controls first: h2_sign against itself reading HOLDS at every binder, a '
+            'planted statement with binder 1’s type changed reading DIFFERS there alone. The reading, source against print: DIFFERS at binder 1 -- '
+            'h2_sign’s explicit (k : ℝ → ℂ), a test window ranging over classK, against residue_irreducible’s implicit {lam_A : ℕ → ℝ}, a '
+            'sequence; 2 binders against 13, and the conclusions differing, 0 of 14 rows agreeing (data/b698_correspondence_dominance.txt). '
+            'CLAUSE-DOMINANCE reads 1 of 2 by closure and DIFFERS at binder 1 by correspondence. The bridge’s open object, as the reading names '
+            'it: a statement joining the clause’s quantifier over test windows k in classK to the sequence quantifiers the face carries -- the '
+            'row’s own reach runs through the face’s last binder, liCriterion : Register4_positivity lam → RiemannHypothesis, discharged at '
+            'λ := LiCoeff by register4_positivity_liCoeff_imp_rh (data/b690_nodes_zeta.txt :126), a Li-coefficient form and not h2_sign’s. '
+            'Status OPEN.')
+
+
+def bridge(*a):
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', BH, NL + BH + _bridge_text() + NL)], '%s_bridge_line.json' % ACT, 'bridge', entry=10257,
+         check=[('OPEN_TRAILS.md', 10257, '(2) **`W-ORD-H2-BRIDGE`**'), ('OPEN_TRAILS.md', 15200, 'beneath `W-ORD-H2-BRIDGE` (:10257)')], dry=dry)
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, bridge=bridge)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

@@ -1,0 +1,123 @@
+{
+ "at": "2026-10-21T04:15:06Z",
+ "verdict": "DIFFERS at binder 1: h2_sign`s (k : ℝ → ℂ) against residue_irreducible`s {lam_A : ℕ → ℝ}",
+ "controls": {
+  "c1": true,
+  "c2": true
+ },
+ "ef_identical": true,
+ "dispatch": {
+  "prints": [
+   "SIDELvConservation.T3.ZeroLoc",
+   "SIDELvConservation.T3.PerClassExcludes",
+   "SIDELvConservation.T3.CombinationsExclude",
+   "SIDELvConservation.T3.T3a_zeroLoc_is_function_of_Phi",
+   "SIDELvConservation.T3.T3b_joint_witness_gives_combinations_exclude",
+   "SIDELvConservation.T3.T3_perClass_to_combinations",
+   "SIDELvConservation.T3.T3prime_shared_witness",
+   "SIDELvConservation.T3.T3doubleprime_general_commutation_fails"
+  ],
+  "sig_step": false,
+  "closure_file_at_tag": false
+ },
+ "rows": [
+  [
+   "1",
+   "(k : ℝ → ℂ)",
+   "{lam_A : ℕ → ℝ}",
+   "DIFFERS",
+   "kind explicit against implicit; type 'ℝ → ℂ' against 'ℕ → ℝ'"
+  ],
+  [
+   "2",
+   "SIDEExplicitFormula.B321.classK k (unnamed hypothesis)",
+   "{lam_Z : ℕ → ℝ}",
+   "DIFFERS",
+   "kind explicit against implicit; type 'classK #1' against 'ℕ → ℝ'"
+  ],
+  [
+   "3",
+   "--",
+   "{lam : ℕ → ℝ}",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "4",
+   "--",
+   "{low : Finset NontrivialZero}",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "5",
+   "--",
+   "{tail : ℕ → ℝ}",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "6",
+   "--",
+   "{T : ℝ}",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "7",
+   "--",
+   "(hZero : NontrivialZeroExistsInStrip)",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "8",
+   "--",
+   "(hdecomp : ∀ n, lam n = lam_A n + lam_Z n)",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "9",
+   "--",
+   "(hV : VerifiedZerosTo T)",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "10",
+   "--",
+   "(hEF : ExplicitFormulaDecomp lam low tail T)",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "11",
+   "--",
+   "(hTail : TailBoundPremise low tail T)",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "12",
+   "--",
+   "(inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam)",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "13",
+   "--",
+   "(liCriterion : Register4_positivity lam → RiemannHypothesis)",
+   "DIFFERS",
+   "no binder at this position on the first side"
+  ],
+  [
+   "conclusion",
+   "0 ≤ SIDEExplicitFormula.B321.poleTerm k - SIDEExplicitFormula.B321.primeSum k + SIDEExplicitFormula.B321.archTerm k",
+   "(¬ RealizesXiZeros certifiedInputSpectrum) ∧ PartialChannelInequality lam_A lam_Z (N₀ T) ∧ (∀ ledger : ℕ → ℝ, ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis)",
+   "DIFFERS",
+   "'0 ≤ poleTerm #1 - primeSum #1 + archTerm #1' against '(¬ RealizesXiZeros certifiedInputSpectrum) ∧ PartialChannelInequality #1 #2 (N₀ #6) ∧ (∀ ledger : ℕ → ℝ, ZeroActingPairing #1 #2 ledger → RiemannHypothesis)'"
+  ]
+ ]
+}
