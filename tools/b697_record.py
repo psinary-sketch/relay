@@ -163,6 +163,36 @@ def land(items, bank, tag, entry=None, check=(), expect_cells=(), dry=True):
     print('  ' + ' ; '.join('%s :%s' % (x['file'], x['line']) for x in out))
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R307)(1)
+WH = ('*Appended 2026-10-21 by b697 to b696’s entry (:9624), under `(R307)`(1) -- b696 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b696_closing.txt):*')
+WB = (' “b696 closed: relay 564e9bb9, PLACE-papers 345da1a; suite 118 of 118; root 8d5b3d9d32ec5804…; 3 prompts answered; 4 defects” '
+      '(data/b696_closing.txt :1), the closing 77b55588 pushed and read back at relay main (data/b696_closing_push_out.txt :5). '
+      'W-ORD-WITNESS-TAIL-BALLS DISCHARGED: the archimedean tail a certified ball from DLMF (5.11.2) and its remainder bound, fetched, banked '
+      'and cited by line (data/b696_source_dlmf_5_11.txt :393-:399), 3.68e-23 at a = 32 where b694’s float bound was 1.43e-18; the zero tail a '
+      'certified ball on P3’s count law with b685’s constants a and c as balls, P3 named as its one premise, 4.02e-9 at a = 32 where the float '
+      'was 2.41e-4, entering the identity’s tolerance that gates each width’s reading and not the sum’s radius (data/b696_witness_balls.txt '
+      ':14; data/b696_tails_plan.txt :6-:17); every width b694 read FOUND reading FOUND with the ball radius, a = 32 to 192, the narrowest '
+      'margin at a = 32, −7.7752874967979 ± 3.68e-23 (:33); the ζ control nonnegative at 16 of 16 widths before any Q0 term, the identity at '
+      '34 of 34 cells, every tail ball shrinking with its height as its bound predicts at 33 of 33, T1 as re-worded holding '
+      '(data/b696_witness_balls_controls.txt). G-RULE-BINARY-HASHES reading a frozen row as carried where a corrigendum covers it, b694’s PNG '
+      'through corrigenda row (9), the planted row with no corrigendum failing, 5 of 5 (data/b696_arm_binary.txt), the one shared-tool edit '
+      'sealed with the act. The faces successor drafted and held, the seat noting beside it that the unchanged remainder still carries b694’s '
+      '“± 1.43e-18” (data/b696_faces_rows.txt :11, :22). The suite 118 of 118 before and after the push, every control behaving, no failure '
+      'carried; all eight scores HELD (data/b696_scores_close.json); the sealed tools 11 of 11 (data/b696_closing.txt :17); the root 8d5b3d9d '
+      'over 56 banks; no lean on the host, no runner dispatched; mirror-refresh-2026-10-20-b696.zip CLEAN with the root line. Four defects, '
+      '(a)-(c) the navigator’s -- the height row b681’s hashes bank does not carry, the page’s line number cited on the node list, the zero '
+      'tail written into the sum’s radius -- and (d) the seat’s bank-route KeyError, repaired before any bank was written '
+      '(data/b696_defects.txt :6-:31). Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B696_ENTRY,
+         check=[('FINDINGS.md', K.B696_ENTRY, '## The Weil-face witness at Q0 with its tail bounds as certified balls'),
+                ('OPEN_TRAILS.md', K.B696_TRAIL, '### b696')], dry=dry)
+
+
 # ================================================================================ THE READERS, ONE PER ROW SHAPE A ROUTE READS ((R263)(3))
 BRANCH_FATES = ('DELETED', 'KEPT', 'RAISED')
 
@@ -387,7 +417,7 @@ def defects(*a):
 
 
 # ================================================================================ THE ROUTES
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects)
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
