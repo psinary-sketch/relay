@@ -1,12 +1,12 @@
-b702 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T21:31:35Z)
+b702 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T22:39:49Z)
 
 ### the source: the seat`s session e5bcf1d0-1e8c-4ad1-a048-b35048cad0b6 from its first user line carrying 'RULING (R312) BEGIN', with its subagents` transcripts
-### commands read: 151
+### commands read: 231
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
 
-### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b701, session e5bcf1d0): 166 commands from 2026-10-21T18:39:14.733Z, its offences printed whole (0):
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b701, session e5bcf1d0): 246 commands from 2026-10-21T18:39:14.733Z, its offences printed whole (0):
   NONE
 
 ### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
@@ -211,5 +211,85 @@ b702 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #149 | 2026-10-21T21:30:14.636Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_closing.py dry
   #150 | 2026-10-21T21:31:03.708Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py commands dry
   #151 | 2026-10-21T21:31:04.575Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py reads dry
+  #152 | 2026-10-21T21:31:31.494Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py commands
+  #153 | 2026-10-21T21:31:32.396Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py reads
+  #154 | 2026-10-21T21:31:33.348Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py kernels
+  #155 | 2026-10-21T21:31:34.218Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py defects
+  #156 | 2026-10-21T21:33:52.122Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part standing-a
+  #157 | 2026-10-21T21:39:20.769Z | seat | Bash | wc -l /d/relay/tools/rule_arms.py
+  #158 | 2026-10-21T21:39:55.022Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part standing-c
+  #159 | 2026-10-21T21:44:36.376Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part standing-b1
+  #160 | 2026-10-21T21:47:03.237Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part standing-b2
+  #161 | 2026-10-21T21:55:18.330Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part standing-b3
+  #162 | 2026-10-21T21:58:29.163Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part act
+  #163 | 2026-10-21T22:01:04.724Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py repairs
+  #164 | 2026-10-21T22:01:10.474Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part act
+  #165 | 2026-10-21T22:02:48.156Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_checks.py --combine b702_arms_prerun.txt
+  #166 | 2026-10-21T22:02:55.755Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py armsecs
+  #167 | 2026-10-21T22:03:37.565Z | seat | Bash | git -C /d/relay status --porcelain -- tools/b702_* data/b702_*
+  #168 | 2026-10-21T22:03:46.706Z | seat | Bash | git -C /d/relay add data/b702_defects.txt data/b702_tool_repairs.txt tools/b702_checks.py tools/b702_record.py tools/b702_worklist.py tools/b702_closing.py tool
+  #169 | 2026-10-21T22:03:54.021Z | seat | Bash | git -C /d/relay commit -q -m "b702 Component 5 under (R312): the suite, gate, spec and closing carried from b701's, the record tool's late routes, the scorers a
+  #170 | 2026-10-21T22:03:58.760Z | seat | Bash | git -C /d/relay log -1 --format=%h
+  #171 | 2026-10-21T22:04:05.507Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_reg_gate.py
+  #172 | 2026-10-21T22:04:48.539Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_reg_gate.py
+  #173 | 2026-10-21T22:05:19.517Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_regspec.py
+  #174 | 2026-10-21T22:05:34.291Z | seat | Bash | ls /d/relay/data/audit_b701_reg_banned_terms.txt /d/relay/data/audit_b701_reg_satisfiable.txt /d/relay/data/b701_lockgate.json /d/relay/data/b701_lockgate_notes
+  #175 | 2026-10-21T22:05:41.725Z | seat | Bash | ls /d/relay/data/audit_b701_*
+  #176 | 2026-10-21T22:05:47.591Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/reg_satisfiable.py data/b702_satisfiable.json --emit b702
+  #177 | 2026-10-21T22:06:08.136Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/banned_terms.py --new data/b702_registration_2026-10-21.txt
+  #178 | 2026-10-21T22:06:09.420Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/banned_terms.py --diff D:/MY-DOwnloads/PLACE-papers 1e3fda0
+  #179 | 2026-10-21T22:06:17.150Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py scores dry
+  #180 | 2026-10-21T22:06:43.308Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py scores dry
+  #181 | 2026-10-21T22:07:19.541Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py repairs
+  #182 | 2026-10-21T22:07:28.426Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py repairs
+  #183 | 2026-10-21T22:07:37.230Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_regspec.py
+  #184 | 2026-10-21T22:07:43.727Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/reg_satisfiable.py data/b702_satisfiable.json --emit b702
+  #185 | 2026-10-21T22:08:24.818Z | seat | Bash | git -C /d/relay add data/b702_reg_gate.txt data/b702_satisfiable.json data/audit_b702_reg_satisfiable.txt data/b702_tool_repairs.txt tools/b702_record.py tools/
+  #186 | 2026-10-21T22:08:26.641Z | seat | Bash | git -C /d/relay commit -q -m "b702 Component 5 under (R312): the gate's record (CLEAR: the dry-run step CLEAN, the trail's Defects and Resolved lines equal to t
+  #187 | 2026-10-21T22:08:34.698Z | seat | Bash | git -C /d/relay log -1 --format=%h
+  #188 | 2026-10-21T22:08:41.498Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_reg_gate.py
+  #189 | 2026-10-21T22:09:16.141Z | seat | Bash | wc -l /d/relay/tools/b378_lockgate.py /d/relay/tools/gate_hash.py /d/relay/data/b701_lockgate_notes.txt
+  #190 | 2026-10-21T22:09:47.089Z | seat | Bash | wc -l /d/relay/tools/b698_record.py
+  #191 | 2026-10-21T22:10:00.630Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_record.py gatebanks
+  #192 | 2026-10-21T22:10:35.924Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b378_lockgate.py b702 data/b702_registration_2026-10-21.txt
+  #193 | 2026-10-21T22:10:49.487Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/reg_seal.py --lock data/b702_registration_2026-10-21.txt
+  #194 | 2026-10-21T22:10:55.134Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_checks.py --seal
+  #195 | 2026-10-21T22:11:04.278Z | seat | Bash | git -C /d/relay status --porcelain --untracked-files=all -- data/b702_* data/audit_b702_* tools/b702_*
+  #196 | 2026-10-21T22:11:26.187Z | seat | Bash | git -C /d/relay add data/audit_b702_reg_satisfiable.txt data/b702_reg_gate.txt data/b702_registration_2026-10-21.txt data/b702_census_stepzero.txt data/b702_fac
+  #197 | 2026-10-21T22:11:33.132Z | seat | Bash | git -C /d/relay commit -q -m "b702 seal under (R312): the face locked at sha256 7e3dc4bc (30665 bytes), the lock gate 8 of 8 (LOCK PERMITTED), the four face-sub
+  #198 | 2026-10-21T22:11:49.671Z | seat | Bash | ls /d/relay/data/b701_*push_out*
+  #199 | 2026-10-21T22:12:17.827Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py scores
+  #200 | 2026-10-21T22:12:35.674Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py desk
+  #201 | 2026-10-21T22:12:36.571Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py findings dry
+  #202 | 2026-10-21T22:12:43.889Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py findings
+  #203 | 2026-10-21T22:12:44.700Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py table_final
+  #204 | 2026-10-21T22:13:14.346Z | seat | Bash | git -C /d/relay status --porcelain --untracked-files=all -- data/ tools/b702_*
+  #205 | 2026-10-21T22:13:21.393Z | seat | Bash | git -C /d/relay add data/b702_desk_notes.txt data/b702_findings.json data/b702_scores.json data/b702_table_final.json data/b702_table_final.txt
+  #206 | 2026-10-21T22:13:22.631Z | seat | Bash | git -C /d/relay commit -q -m "b702 pre-root under (R312): the scores bank written once before the entry (N1-N5 HELD, S3 HELD, S1-S2 waiting on the table and the
+  #207 | 2026-10-21T22:13:28.761Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md
+  #208 | 2026-10-21T22:13:30.046Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -q -m "b702 entry under (R312): Seven Mechanism Classes re-cut, 24 rows outside LICENSED/CITED to 2; the faces page's
+  #209 | 2026-10-21T22:13:37.758Z | seat | Bash | git -C /d/relay branch push-b702-root
+  #210 | 2026-10-21T22:13:43.237Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b702_root_push_out.txt timeout 500 bash tools/push_gated.sh /d/relay push-b702-root
+  #211 | 2026-10-21T22:13:57.055Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch push-b702-root
+  #212 | 2026-10-21T22:14:08.906Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && PUSH_GATED_LOG=/d/relay/data/b702_pp_root_push_out.txt timeout 500 bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-pa
+  #213 | 2026-10-21T22:14:49.636Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers rev-parse 561fb350c8ff726e23a9731b0bbe516903c51e98:README.md d5f8a03:README.md
+  #214 | 2026-10-21T22:15:00.734Z | seat | Bash | git -C /d/relay add data/b702_readme_readback.txt data/b702_root_push_out.txt data/b702_pp_root_push_out.txt
+  #215 | 2026-10-21T22:15:14.632Z | seat | Bash | git -C /d/relay commit -q -m "b702 pre-root under (R312)(5): the README read back at the remote by its blob SHA (c72e8edb, equal to its commit's), and the two p
+  #216 | 2026-10-21T22:15:22.039Z | seat | Bash | git -C /d/relay branch push-b702-root2
+  #217 | 2026-10-21T22:15:27.347Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b702_root2_push_out.txt timeout 500 bash tools/push_gated.sh /d/relay push-b702-root2
+  #218 | 2026-10-21T22:15:42.204Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py root dry
+  #219 | 2026-10-21T22:16:17.307Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py root
+  #220 | 2026-10-21T22:16:49.088Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py root_arm
+  #221 | 2026-10-21T22:20:11.805Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py answer "Root: 1, close"
+  #222 | 2026-10-21T22:20:19.241Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py trail dry
+  #223 | 2026-10-21T22:20:48.648Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py trail
+  #224 | 2026-10-21T22:21:06.905Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py components
+  #225 | 2026-10-21T22:21:15.712Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part standing-a
+  #226 | 2026-10-21T22:24:38.020Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part standing-c
+  #227 | 2026-10-21T22:25:46.451Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part standing-b1
+  #228 | 2026-10-21T22:27:54.646Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part standing-b2
+  #229 | 2026-10-21T22:35:13.188Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part standing-b3
+  #230 | 2026-10-21T22:37:40.255Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part act
+  #231 | 2026-10-21T22:39:41.634Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py reads
 
-### ### **COMMANDS 151 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 166 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 8 OF 8 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 231 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 246 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 8 OF 8 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

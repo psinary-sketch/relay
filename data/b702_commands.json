@@ -1,5 +1,5 @@
 {
- "at": "2026-10-21T21:31:35Z",
+ "at": "2026-10-21T22:39:49Z",
  "anchor": "RULING (R312) BEGIN",
  "rows": [
   {
@@ -1209,13 +1209,653 @@
    "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py reads dry",
    "n": 151,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:31:31.494Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py commands",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:31:32.396Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py reads",
+   "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:31:33.348Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py kernels",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:31:34.218Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py defects",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:33:52.122Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part standing-a",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:39:20.769Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/tools/rule_arms.py",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:39:55.022Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part standing-c",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:44:36.376Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part standing-b1",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:47:03.237Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part standing-b2",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:55:18.330Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part standing-b3",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T21:58:29.163Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part act",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:01:04.724Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py repairs",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:01:10.474Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --prerun --part act",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:02:48.156Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_checks.py --combine b702_arms_prerun.txt",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:02:55.755Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py armsecs",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:03:37.565Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --porcelain -- tools/b702_* data/b702_*",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:03:46.706Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b702_defects.txt data/b702_tool_repairs.txt tools/b702_checks.py tools/b702_record.py tools/b702_worklist.py tools/b702_closing.py tools/b702_reg_gate.py tools/b702_regspec.py data/b702_registration_2026-10-21.txt data/b702_arm_seconds.json data/b702_arm_seconds.txt data/b702_arm_seconds_act.json data/b702_arm_seconds_standing-a.json data/b702_arm_seconds_standing-b1.json data/b702_arm_seconds_standing-b2.json data/b702_arm_seconds_standing-b3.json data/b702_arm_seconds_standing-c.json data/b702_arms_prerun.txt data/b702_arms_prerun_act.txt data/b702_arms_prerun_standing-a.txt data/b702_arms_prerun_standing-b1.txt data/b702_arms_prerun_standing-b2.txt data/b702_arms_prerun_standing-b3.txt data/b702_arms_prerun_standing-c.txt data/b702_chain_half_a_arms_prerun.json data/b702_chain_half_b_arms_prerun.json data/b702_commands.json data/b702_commands.txt data/b702_defects.json data/b702_exercise_act.json data/b702_exercise_standing-a.json data/b702_exercise_standing-b1.json data/b702_exercise_standing-b2.json data/b702_exercise_standing-b3.json data/b702_exercise_standing-c.json data/b702_kernels_face.json data/b702_lsr_prerun_act.json data/b702_lsr_prerun_standing-a.json data/b702_lsr_prerun_standing-b1.json data/b702_lsr_prerun_standing-b2.json data/b702_lsr_prerun_standing-b3.json data/b702_lsr_prerun_standing-c.json data/b702_read_calls.txt",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:03:54.021Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b702 Component 5 under (R312): the suite, gate, spec and closing carried from b701's, the record tool's late routes, the scorers and the record; the repairs bank with row (3) (seven of the act's own arms in their first form, read by the first act-part pre-run and corrected); the kernels face, the read calls, the command bank, the defects bank with (h); this face; the pre-run in six parts (127 arms, 92 passing, G-RULE-RECUT-QUOTE failing on real state and declared carried, the other 34 reading banks not yet written), its combined bank, the per-part seconds, the chain halves\"",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:03:58.760Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay log -1 --format=%h",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:04:05.507Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_reg_gate.py",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:04:48.539Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_reg_gate.py",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:05:19.517Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_regspec.py",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:05:34.291Z",
+   "src": "seat",
+   "cmd": "ls /d/relay/data/audit_b701_reg_banned_terms.txt /d/relay/data/audit_b701_reg_satisfiable.txt /d/relay/data/b701_lockgate.json /d/relay/data/b701_lockgate_notes.txt",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:05:41.725Z",
+   "src": "seat",
+   "cmd": "ls /d/relay/data/audit_b701_*",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:05:47.591Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/reg_satisfiable.py data/b702_satisfiable.json --emit b702",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:06:08.136Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/banned_terms.py --new data/b702_registration_2026-10-21.txt",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:06:09.420Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/banned_terms.py --diff D:/MY-DOwnloads/PLACE-papers 1e3fda0",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:06:17.150Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py scores dry",
+   "n": 179,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:06:43.308Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py scores dry",
+   "n": 180,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:07:19.541Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py repairs",
+   "n": 181,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:07:28.426Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py repairs",
+   "n": 182,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:07:37.230Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_regspec.py",
+   "n": 183,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:07:43.727Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/reg_satisfiable.py data/b702_satisfiable.json --emit b702",
+   "n": 184,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:08:24.818Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b702_reg_gate.txt data/b702_satisfiable.json data/audit_b702_reg_satisfiable.txt data/b702_tool_repairs.txt tools/b702_record.py tools/b702_checks.py data/b702_registration_2026-10-21.txt",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:08:26.641Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b702 Component 5 under (R312): the gate's record (CLEAR: the dry-run step CLEAN, the trail's Defects and Resolved lines equal to the bank, the closing's dry run CLEAN), the satisfiability spec and its audit (jointly satisfiable, 101 clauses), the repairs bank's row (4) (N2's prompt-time reader corrected after the scores' first dry run), the record tool and the suite at their sealed state, this face before its lock\"",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:08:34.698Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay log -1 --format=%h",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:08:41.498Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_reg_gate.py",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:09:16.141Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/tools/b378_lockgate.py /d/relay/tools/gate_hash.py /d/relay/data/b701_lockgate_notes.txt",
+   "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:09:47.089Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/tools/b698_record.py",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:10:00.630Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_record.py gatebanks",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:10:35.924Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b378_lockgate.py b702 data/b702_registration_2026-10-21.txt",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:10:49.487Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/reg_seal.py --lock data/b702_registration_2026-10-21.txt",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:10:55.134Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_checks.py --seal",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:11:04.278Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --porcelain --untracked-files=all -- data/b702_* data/audit_b702_* tools/b702_*",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:11:26.187Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/audit_b702_reg_satisfiable.txt data/b702_reg_gate.txt data/b702_registration_2026-10-21.txt data/b702_census_stepzero.txt data/b702_faces_census_stepzero.txt data/b702_lockgate.json data/b702_lockgate_notes.txt data/b702_pins_stepzero.txt data/b702_reg_termscan.txt data/b702_regspec_run.txt data/b702_seal_hashes.json",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:11:33.132Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b702 seal under (R312): the face locked at sha256 7e3dc4bc (30665 bytes), the lock gate 8 of 8 (LOCK PERMITTED), the four face-subject records stamped, the step-zero censuses and pins, the term scan and the spec run, the sealed tools' hashes recorded (nine)\"",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:11:49.671Z",
+   "src": "seat",
+   "cmd": "ls /d/relay/data/b701_*push_out*",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:12:17.827Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py scores",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:12:35.674Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py desk",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:12:36.571Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py findings dry",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:12:43.889Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py findings",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:12:44.700Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py table_final",
+   "n": 203,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:13:14.346Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --porcelain --untracked-files=all -- data/ tools/b702_*",
+   "n": 204,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:13:21.393Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b702_desk_notes.txt data/b702_findings.json data/b702_scores.json data/b702_table_final.json data/b702_table_final.txt",
+   "n": 205,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:13:22.631Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b702 pre-root under (R312): the scores bank written once before the entry (N1-N5 HELD, S3 HELD, S1-S2 waiting on the table and the root), the desk notes, the findings bank (FINDINGS :9840), the final table (no row moved, added or gone, no grade moved)\"",
+   "n": 206,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:13:28.761Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md",
+   "n": 207,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:13:30.046Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers commit -q -m \"b702 entry under (R312): Seven Mechanism Classes re-cut, 24 rows outside LICENSED/CITED to 2; the faces page's lv-conservation row regenerated with the bridge by tag; the README's currency lines and ceiling append applied; W-ORD-PAPER-PARTNER-COPIES in place of ONE-COPY, resolution (iii); b701's undeclared failures by corrigendum (FINDINGS :9840)\"",
+   "n": 208,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:13:37.758Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch push-b702-root",
+   "n": 209,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:13:43.237Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b702_root_push_out.txt timeout 500 bash tools/push_gated.sh /d/relay push-b702-root",
+   "n": 210,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:13:57.055Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b702-root",
+   "n": 211,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:14:08.906Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && PUSH_GATED_LOG=/d/relay/data/b702_pp_root_push_out.txt timeout 500 bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b702-root",
+   "n": 212,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:14:49.636Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers rev-parse 561fb350c8ff726e23a9731b0bbe516903c51e98:README.md d5f8a03:README.md",
+   "n": 213,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:15:00.734Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b702_readme_readback.txt data/b702_root_push_out.txt data/b702_pp_root_push_out.txt",
+   "n": 214,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:15:14.632Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b702 pre-root under (R312)(5): the README read back at the remote by its blob SHA (c72e8edb, equal to its commit's), and the two pre-root push captures\"",
+   "n": 215,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:15:22.039Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch push-b702-root2",
+   "n": 216,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:15:27.347Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b702_root2_push_out.txt timeout 500 bash tools/push_gated.sh /d/relay push-b702-root2",
+   "n": 217,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:15:42.204Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py root dry",
+   "n": 218,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:16:17.307Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py root",
+   "n": 219,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:16:49.088Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py root_arm",
+   "n": 220,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:20:11.805Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py answer \"Root: 1, close\"",
+   "n": 221,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:20:19.241Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py trail dry",
+   "n": 222,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:20:48.648Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py trail",
+   "n": 223,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:21:06.905Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py components",
+   "n": 224,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:21:15.712Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part standing-a",
+   "n": 225,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:24:38.020Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part standing-c",
+   "n": 226,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:25:46.451Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part standing-b1",
+   "n": 227,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:27:54.646Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part standing-b2",
+   "n": 228,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:35:13.188Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part standing-b3",
+   "n": 229,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:37:40.255Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b702_checks.py --part act",
+   "n": 230,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T22:39:41.634Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py reads",
+   "n": 231,
+   "bg": false
   }
  ],
  "offences": [],
  "prev": {
   "act": "b701",
   "session": "e5bcf1d0-1e8c-4ad1-a048-b35048cad0b6",
-  "rows": 166,
+  "rows": 246,
   "offences": []
  },
  "local_lean": [],
