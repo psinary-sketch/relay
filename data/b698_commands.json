@@ -1,5 +1,5 @@
 {
- "at": "2026-10-21T04:51:34Z",
+ "at": "2026-10-21T05:09:48Z",
  "anchor": "RULING (R308) BEGIN",
  "rows": [
   {
@@ -1088,6 +1088,142 @@
    "src": "seat",
    "cmd": "git add tools/b698_record.py tools/b698_worklist.py data/b698_read_calls.txt && git commit -q -m \"b698 Component 5 under (R308): the record tool's late routes carried from b697's (the command bank with b697's window read from its own session, b689's form; the read rule's reading, data/b698_rules.txt row (2); the scorers N1-N5 to (R308)'s ferry; the entry, the trail, the gate's banks and the mirror), and the worklist's stage two\" && git log --oneline -1",
    "n": 136,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T04:51:32.541Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py commands",
+   "n": 137,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T04:51:56.297Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py repairs && python -X utf8 tools/b698_record.py defects && python -X utf8 tools/b698_record.py kernels",
+   "n": 138,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T04:52:03.222Z",
+   "src": "seat",
+   "cmd": "wc -l data/b697_registration_2026-10-21.txt data/b697_lockgate_notes.txt && git log --format=\"%h %s\" -1 -- data/b697_registration_2026-10-21.txt",
+   "n": 139,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T04:54:05.095Z",
+   "src": "seat",
+   "cmd": "git add tools/b698_checks.py tools/b698_closing.py tools/b698_reg_gate.py tools/b698_regspec.py tools/b698_record.py data/b698_defects.txt data/b698_defects.json data/b698_commands.txt data/b698_commands.json data/b698_kernels_face.json data/b698_tool_repairs.txt data/b698_registration_2026-10-21.txt && git commit -q -m \"b698 Component 5 under (R308): the suite, gate, spec and closing carried from b697's; the repairs bank (three carried routes, each by what it answers), the defects (a)-(b), the command bank, the kernels face; this face\" && git log --oneline -1",
+   "n": 140,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T04:54:09.557Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --prerun --part act",
+   "n": 141,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T04:54:48.051Z",
+   "src": "seat",
+   "cmd": "git add tools/b698_checks.py && git commit -q -m \"b698 Component 5: G-ACTION-BEFORE-PROMPT and G-CELL-REGENERATED read the answers bank's calls by call, not by prompt (the two misses shared the first call); the first act-part pre-run read them failing on real state, corrected before the seal\" && git log --oneline -1",
+   "n": 142,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T04:54:52.258Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --prerun --part act",
+   "n": 143,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T04:55:23.432Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --prerun --part standing-a",
+   "n": 144,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T04:58:28.060Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --prerun --part standing-c",
+   "n": 145,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T04:59:05.390Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --prerun --part standing-b1",
+   "n": 146,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:00:16.127Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --prerun --part standing-b2",
+   "n": 147,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:06:36.611Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --prerun --part standing-b3",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:08:23.573Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_checks.py --combine b698_arms_prerun.txt",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:08:27.144Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py armsecs",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:08:48.763Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py defects && git add data/b698_arms_prerun*.txt data/b698_lsr_prerun_*.json data/b698_arm_seconds*.json data/b698_arm_seconds.txt data/b698_chain_half_a_arms_prerun.json data/b698_chain_half_b_arms_prerun.json data/b698_registration_2026-10-21.txt data/b698_defects.txt data/b698_defects.json && git commit -q -m \"b698 Component 5: the pre-run in six foreground parts (123 arms, 94 passing, the 29 failing each reading a bank not yet written), the combined bank, the per-part seconds (93 of 93 standing arms clocked), the chain halves; the face's pre-run figures; the defects bank's event (the act part's first run)\" && git log --oneline -1",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:08:55.828Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_reg_gate.py",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:09:37.819Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_record.py gatebanks",
+   "n": 153,
    "bg": false
   }
  ],
