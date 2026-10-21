@@ -98,7 +98,10 @@ B701_TRAIL_HEAD = ('### b701 — lane two, act one hundred and twenty-eight, the
 # ### the components' commits, filled as each lands (one git write per message); the cut's document named by the tie bank, after the rule and the
 # ### order are printed (N2) -- empty until then
 C1_RELAY, C1_PP = '37be08e8', 'c10b117'
-C2_RELAY = C2_PP = C3_RELAY = C3_PP = C4_RELAY = ''
+C2_RELAY, C2_PP = '9b74ba29', 'a1d5d59'
+C3_PP = '76fddd5'            # ### OPEN_TRAILS's two orders; beside it the faces page 65a8367 and the README d5f8a03, each alone
+FACES_COMMIT, README_COMMIT = '65a8367', 'd5f8a03'
+C3_RELAY = C4_RELAY = ''
 CUT_DOC, CUT_NAME = 'day1/Seven_Mechanism_Classes.md', 'Seven_Mechanism_Classes'   # ### named by data/b702_tie.txt (20:43:20Z)
 CUT_TABLE = 'b646_table_Seven_Mechanism_Classes.txt'
 CUT_COMMIT = 'a1d5d59'      # ### PLACE-papers: the cut, the document alone (its subject's "17" is defect (c); the bank's 18)
@@ -109,7 +112,7 @@ NEW_TOOLS = ()
 ACT_ARMS = ()
 STANDING_ADDED = ()          # ### no standing arm added this act (N5)
 SHARED_APPENDED = ('data/b675_corrigenda.txt',)
-PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')
+PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'README.md', 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md', 'day1/Seven_Mechanism_Classes.md')
 NEXT = ('b703, the research act: W-ORD-CLASSK-WIDENING-HELD taken up (the one-token repair on widening-b701, one dispatch, merge and tag v0.36 on '
         'the gate`s reading) and the Epstein count`s opening step from data/b701_epstein_plan.txt, one dispatch, each fact about Z_Q the step '
         'states rather than proves named as a premise at INTERFACES; b704 the re-cut act with W-ORD-FACES-PROBE-CURRENT; b710 the reading act, '

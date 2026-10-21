@@ -1047,9 +1047,12 @@ def faces_ok(S):
         return False
     if j['outcome'] == 'held':
         return pre is not None and pre == now == head and 'HELD' in S['facest']
+    # ### the author's word on the raise (2026-10-21T21:12Z): three lines -- :3 replaced, :191 inserted (the cut a1d5d59's Placement row), the
+    # ### row replaced: five diff lines, two removed and three added
     d = [l for l in S['faces_diff'].split(NL) if l.startswith(('-', '+')) and not l.startswith(('---', '+++'))]
-    return j.get('control') is True and pre is not None and now == head and now != pre and len(d) == 4 and K.FACES_HEADER_TAG in (now or b'').decode('utf-8', 'replace') \
-        and j.get('changed_lines') == 2 and 'b702_nodes_zeta.txt' in S['nodes'] or (j.get('changed_lines') == 2 and j.get('control') is True and now == head)
+    return j.get('control') is True and pre is not None and now == head and now != pre and len(d) == 5 \
+        and sum(1 for l in d if l.startswith('+')) == 3 and K.FACES_HEADER_TAG in (now or b'').decode('utf-8', 'replace') \
+        and j.get('changed') == [3, K.FACES_ROW_LINE] and '| keystone naming a node | `day1/Seven_Mechanism_Classes.md` |' in (now or b'').decode('utf-8', 'replace')
 
 
 def faces_order_ok(S):

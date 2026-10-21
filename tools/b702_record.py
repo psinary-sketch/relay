@@ -634,8 +634,194 @@ def cut(*a):
     print(NL.join(L))
 
 
+# ================================================================================ COMPONENT 3: THE FACES ROW ON THE AUTHOR'S WORD "regenerate" ((R312)(4); b697's form)
+PROBE_OUT = 'b643_probe_out_zeta.txt'
+THIRD_LINE = 191
+THIRD_TEXT = '| keystone naming a node | `day1/Seven_Mechanism_Classes.md` |'
+
+
+def _gen(nodes, out):
+    pd = os.path.join(K.SP, 'faces-b702')
+    os.makedirs(pd, exist_ok=True)
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'chain_page.py'), '--nodes', os.path.join(D, nodes), '--probe-dir', pd,
+                        '--out', out, '--from-output', os.path.join(D, PROBE_OUT)], capture_output=True, text=True, encoding='utf-8', errors='replace',
+                       cwd=ROOT)
+    return r.returncode, (r.stdout or '') + (r.stderr or '')
+
+
+def faces(*a):
+    """data/b702_faces.txt (.json) and data/b702_faces_diff.txt: the new list checked against b697's (every line equal but :126, which is b701's
+    successor, data/b701_faces_rows.txt :14); the control (tools/chain_page.py --from-output on b697's list re-emitting the page byte for byte,
+    its sha256 printed beside the file's); the new emission diffed against the page; the page written by the generator only where the lines
+    differing are :3 and :732 alone. `dry`: nothing written to the page."""
+    import hashlib
+    import difflib
+    old = rdn(K.NODES_LIST).split(NL)
+    new = rdn('b702_nodes_zeta.txt').split(NL)
+    succ = rdn('b701_faces_rows.txt').split(NL)[13]
+    diff_lines = [i + 1 for i in range(max(len(old), len(new))) if (old[i] if i < len(old) else None) != (new[i] if i < len(new) else None)]
+    if diff_lines != [K.NODES_ROW] or new[K.NODES_ROW - 1] != succ or not succ.startswith(old[K.NODES_ROW - 1]):
+        sys.exit('### THE NEW LIST IS NOT b697`S WITH :126 THE SUCCESSOR (lines differing %s) -- NOTHING WRITTEN' % diff_lines)
+    page = os.path.join(PP, K.FACES_PAGE)
+    pb = open(page, 'rb').read()
+    hb = (_show(PP, 'HEAD', K.FACES_PAGE) or '').encode('utf-8')
+    sp = os.path.join(K.SP, 'faces-b702')
+    c_out, n_out = os.path.join(sp, 'control.md'), os.path.join(sp, 'new.md')
+    rc0, o0 = _gen(K.NODES_LIST, c_out)
+    cb = open(c_out, 'rb').read() if os.path.exists(c_out) else b''
+    control = rc0 == 0 and cb == pb
+    rc1, o1 = _gen('b702_nodes_zeta.txt', n_out)
+    nb = open(n_out, 'rb').read() if os.path.exists(n_out) else b''
+    a_, b_ = pb.decode('utf-8').split(NL), nb.decode('utf-8').split(NL)
+    ops = [op for op in difflib.SequenceMatcher(None, a_, b_, autojunk=False).get_opcodes() if op[0] != 'equal']
+    changed = sorted(set(i + 1 for t, i1, i2, _j1, _j2 in ops for i in range(i1, i2)))
+    same_shape = all(t == 'replace' and i2 - i1 == j2 - j1 for t, i1, i2, j1, j2 in ops)
+    ud = list(difflib.unified_diff(a_, b_, 'committed', 'b702', n=0, lineterm=''))
+    # ### the author's word on the raise (2026-10-21T21:12Z, "regenerate, three lines"): the control is b697's list re-emitting the page plus the
+    # ### one Placement line the cut a1d5d59 propagates (:191), that line alone; the new emission's opcodes exactly :3 replaced, :191 inserted,
+    # ### the row replaced
+    c_ = cb.decode('utf-8').split(NL)
+    cops0 = [op for op in difflib.SequenceMatcher(None, a_, c_, autojunk=False).get_opcodes() if op[0] != 'equal']
+    third = c_[THIRD_LINE - 1] if len(c_) >= THIRD_LINE else ''
+    control_plus = rc0 == 0 and [(t, i1, i2, j1, j2) for t, i1, i2, j1, j2 in cops0] == [('insert', THIRD_LINE - 1, THIRD_LINE - 1, THIRD_LINE - 1, THIRD_LINE)] \
+        and third == THIRD_TEXT and len(cb) - len(pb) == len((third + NL).encode('utf-8'))
+    want_ops = [('replace', 2, 3, 2, 3), ('insert', THIRD_LINE - 1, THIRD_LINE - 1, THIRD_LINE - 1, THIRD_LINE),
+                ('replace', K.FACES_ROW_LINE - 1, K.FACES_ROW_LINE, K.FACES_ROW_LINE, K.FACES_ROW_LINE + 1)]
+    same_shape = [tuple(op) for op in ops] == want_ops
+    control = control_plus
+    ok = control and rc1 == 0 and same_shape and K.FACES_HEADER_TAG in nb.decode('utf-8').split(NL)[2]
+    wrote = False
+    if ok and 'dry' not in a:
+        rc2, o2 = _gen('b702_nodes_zeta.txt', page)
+        wrote = rc2 == 0 and open(page, 'rb').read() == nb
+    L = ['%s -- COMPONENT 3, (R312)(4): THE lv-CONSERVATION ROW THROUGH THE GENERATOR, ON THE AUTHOR`S WORD "regenerate" (%s)' % (ACT, utc()), '',
+         '### the generator: relay tools/chain_page.py --from-output relay data/%s (no elaboration; no lean on this host)' % PROBE_OUT,
+         '### the new list: relay data/b702_nodes_zeta.txt, written by the Write tool -- every line of data/%s but :%d, which is data/b701_faces_rows.txt :14 '
+         '(the successor) ; lines differing %s ; the row as it stood a prefix of the successor True' % (K.NODES_LIST, K.NODES_ROW, diff_lines),
+         '### the control: b697`s list re-emits the page plus the one Placement line the cut a1d5d59 propagates (:%d "%s"), that line alone: %s '
+         '(exit %d ; %d bytes against the page`s %d, the difference %d bytes, the line with its newline %d bytes ; sha256 %s against the file`s %s ; the '
+         'file equal to HEAD`s blob %s)' % (THIRD_LINE, THIRD_TEXT, control, rc0, len(cb), len(pb), len(cb) - len(pb), len((THIRD_TEXT + NL).encode('utf-8')),
+                                            hashlib.sha256(cb).hexdigest()[:16], hashlib.sha256(pb).hexdigest()[:16], pb == hb),
+         '### the third line`s cause, on the author`s word (2026-10-21T21:12Z): this act`s cut (PLACE-papers a1d5d59) wrote h2_sign_iff_rh and ch_iff_rh '
+         'into day1/Seven_Mechanism_Classes.md at its :199 and :265, and the generator lists every keystone naming a node -- the cut propagating as '
+         'designed, not drift',
+         '### the new emission: exit %d, %d bytes, sha256 %s ; the page`s lines replaced %s, and :%d inserted (the third line) -- the three the author`s '
+         'word names: :3 the list`s name, :%d the Placement row, :%d the row (now :%d) ; the opcodes exactly those %s ; the header tag "%s" kept %s' % (
+             rc1, len(nb), hashlib.sha256(nb).hexdigest()[:16], [':%d' % x for x in changed], THIRD_LINE, THIRD_LINE, K.FACES_ROW_LINE, K.FACES_ROW_LINE + 1,
+             same_shape, K.FACES_HEADER_TAG,
+             K.FACES_HEADER_TAG in nb.decode('utf-8').split(NL)[2]),
+         '### the diff (relay data/b702_faces_diff.txt)', '',
+         '### the page written by the generator and read back equal to the emission: %s' % (wrote if 'dry' not in a else 'NOT WRITTEN (dry)'), '',
+         '### ### **CONTROL THE PAGE PLUS THE THIRD LINE ALONE %s ; LINES CHANGED THREE (:3 REPLACED, :%d INSERTED, :%d REPLACED) %s ; PAGE WRITTEN %s.**' % (
+             control, THIRD_LINE, K.FACES_ROW_LINE, same_shape, wrote if 'dry' not in a else 'dry')]
+    if not ok:
+        L.append('### ### **A LINE BEYOND :3 AND :%d DIFFERS OR THE CONTROL FAILED -- RAISED, NOTHING WRITTEN TO THE PAGE.** %s' % (K.FACES_ROW_LINE, (o0 + o1)[-400:]))
+    c_ = cb.decode('utf-8').split(NL)
+    cops = [op for op in difflib.SequenceMatcher(None, a_, c_, autojunk=False).get_opcodes() if op[0] != 'equal']
+    L += ['', '### THE CONTROL`S OWN DIFF AGAINST THE PAGE (b697`s list now, committed -> control), by opcode: %s' % (
+        '; '.join('%s :%d-:%d -> :%d-:%d' % (t, i1 + 1, i2, j1 + 1, j2) for t, i1, i2, j1, j2 in cops) or 'NONE')]
+    for t, i1, i2, j1, j2 in cops:
+        L += ['    - :%d %s' % (i + 1, a_[i][:300]) for i in range(i1, i2)] + ['    + :%d %s' % (j + 1, c_[j][:300]) for j in range(j1, j2)]
+    L += ['### THE NEW EMISSION`S OPCODES AGAINST THE PAGE: %s' % '; '.join('%s :%d-:%d -> :%d-:%d' % (t, i1 + 1, i2, j1 + 1, j2) for t, i1, i2, j1, j2 in ops)]
+    print(NL.join(L))
+    print(NL.join(ud)[:1500])
+    if 'dry' in a:
+        return
+    put_txt('%s_faces_diff.txt' % ACT, ud)
+    put_txt('%s_faces.txt' % ACT, L)
+    put_json('%s_faces.json' % ACT, dict(at=utc(), outcome='regenerated' if wrote else 'not written', control=control, changed_lines=len(changed),
+                                         changed=changed, page_sha=hashlib.sha256(open(page, 'rb').read()).hexdigest(), prompt_at='2026-10-21T20:52:17Z'))
+
+
+# ================================================================================ COMPONENT 3: THE README ON THE AUTHOR'S WORD "apply, sharpened append" ((R312)(5))
+README_READS = (('SIDE-window', 'refs/tags/v0.5.2^{}', 'b9055074f9653ed825b32baadbef49ff958bf438'),
+                ('SIDE-effects', 'refs/heads/main', '78bbcff533b7273b2d26accd0726b126c961e401'),
+                ('SIDE-explicit-formula', 'refs/tags/v0.35^{}', 'd4e046adbb84a53c489015a97cf3d996af8164ac'))   # ### one ls-remote each, 21:18Z, in sequence
+
+
+def readme(*a):
+    """data/b702_readme.txt (.json) and data/b702_readme_diff.txt: the README's edits by the Edit tool against its blob at PLACE-papers HEAD (difflib,
+    autojunk off), the three currency values re-read before the edits (one ls-remote each, in sequence, as the author's word orders), the
+    sharpened append beneath :131 as the sentence of record and the drafted form not taken; REGISTRY not written (no README row; the author's word)."""
+    import difflib
+    base = (_show(PP, 'HEAD', 'README.md') or '').replace('\r', '').split(NL)
+    now = rd(os.path.join(PP, 'README.md')).replace('\r', '').split(NL)
+    ud = list(difflib.unified_diff(base, now, 'README.md at HEAD', 'README.md (b702)', n=0, lineterm=''))
+    ops = [op for op in difflib.SequenceMatcher(None, base, now, autojunk=False).get_opcodes() if op[0] != 'equal']
+    rg = g(PP, 'status', '--porcelain', '--', 'REGISTRY.md').strip()
+    L = ['%s -- COMPONENT 3, (R312)(5): THE README ON THE AUTHOR`S WORD "apply, with the sharpened append" (%s)' % (ACT, utc()), '',
+         '### the currency values re-read before the edits, one ls-remote of each repository in sequence (the author`s word): ' +
+         '; '.join('%s %s = %s' % (r, ref, sha[:7]) for r, ref, sha in README_READS) + ' -- each equal to relay data/b702_c3_print.txt',
+         '### the edits by the Edit tool, the named values alone: :18 SIDE-window `v0.5.0` (working head `aacb415`) -> `v0.5.2` (`b905507`); :18 SIDE-effects '
+         '(`afa9ccf`) -> (`78bbcff`); :160 SIDE-explicit-formula **v0.21** (`1d5d4dd`) -> **v0.35** (`d4e046a`); the audit caveat at :18 kept as written',
+         '### the append beneath :131: the sharpened form of the author`s mid-act words (B), the author`s sentence of record, its words verbatim in the '
+         'README`s form (italics, the ruling ids and the hash in backticks, straight apostrophes), <the date applied> written 2026-10-21; the drafted '
+         'form (relay data/b702_readme_currency.txt :23) NOT TAKEN',
+         '### REGISTRY.md not written (no README row; adding one needs its own ruling, the author`s word): its status %s' % (rg or 'clean'),
+         '### the opcodes against HEAD: %s' % '; '.join('%s :%d-:%d -> :%d-:%d' % (t, i1 + 1, i2, j1 + 1, j2) for t, i1, i2, j1, j2 in ops),
+         '### the diff: relay data/b702_readme_diff.txt', '',
+         '### ### **README APPLIED: CURRENCY LINES 2 (:18, :160) ; THE SHARPENED APPEND BENEATH :131 ; REGISTRY UNWRITTEN ; THE README`S OWN LAST COMMIT THE '
+         'CURRENCY, AS MANIFEST READS IT AT THE NEXT EXPORT.**']
+    print(NL.join(L))
+    print(NL.join(ud)[:1200])
+    if 'dry' in a:
+        return
+    put_txt('%s_readme_diff.txt' % ACT, ud)
+    put_txt('%s_readme.txt' % ACT, L)
+    put_json('%s_readme.json' % ACT, dict(at=utc(), outcome='applied', form='sharpened', prompt_at='2026-10-21T20:52:17Z', reads=[list(r) for r in README_READS],
+                                          ops=[list(op) for op in ops]))
+
+
+# ================================================================================ COMPONENT 3: THE TWO ORDERS OF (R312)(4) AND (6), APPENDED TO OPEN_TRAILS
+FP_H = ('*Appended 2026-10-21 by b702 beneath `W-ORD-CLASSK-WIDENING-HELD` (:15410), under `(R312)`(4) and the author’s word at the faces prompt -- '
+        'THE ORDER **`W-ORD-FACES-PROBE-CURRENT`**, ENTERED:*')
+FP_B = (' the faces page (PLACE-papers THE_CLAUSE_AND_ITS_COMPILED_FACES.md) regenerated at b702 by relay tools/chain_page.py --from-output on b643’s '
+        'banked probe, from relay data/b702_nodes_zeta.txt (PLACE-papers 65a8367: the lv-conservation row carrying the bridge '
+        'h2_sign_iff_register4_positivity_liCoeff by tag v0.35 = d4e046a, and the Placement row for day1/Seven_Mechanism_Classes.md that the cut a1d5d59 '
+        'propagated; relay data/b702_faces.txt), its header still naming SIDE-explicit-formula v0.26 = `82550e4`. THE ORDER: the chain’s `#print sig` '
+        're-probed at v0.35 on one dispatch, the page regenerated from the new probe with every changed line named with its cause, the diff reviewed '
+        'before the commit. Price one dispatch and one review of the diff. Trigger: the re-cut act b704. Status OPEN.')
+PC_H = ('*Appended 2026-10-21 by b702 in place of `W-ORD-ONE-COPY` (:14386; its trigger re-written at :14450; read at :15296 and :15332), under '
+        '`(R312)`(6) and the author’s word at the partner-copies prompt -- THE ORDER **`W-ORD-PAPER-PARTNER-COPIES`**, ENTERED:*')
+PC_B = (' the object: for each roster paper, the unversioned file REGISTRY names as the file of record and its versioned copy. The condition: which '
+        'copy the generator and the re-cut acts write, and which copy the Project mirror and the keystone census read. The unit of every figure here: '
+        'lines differing between the two copies of one paper. Reading 4’s counts (relay data/b700_reading4.txt :66-:76): 17 pairs; 131 lines '
+        'differing; by cause a regenerated cell 123, a hand edit 8, a re-cut 0, an archive-split artefact 0 -- the figures the disposition is priced '
+        'from. The three resolutions raised as one prompt with their prices (relay data/b702_c3_print.txt): (i) the versioned copies the files of '
+        'record; (ii) both partners written at each write; (iii) the unversioned copy retired and the versioned one renamed in place. THE DISPOSITION, '
+        'the author’s word: (iii), rename in place. At that act, for each of the 17 pairs: the 8 hand-edited lines read side by side first, each '
+        'entered as carried by the versioned side, carried by the unversioned side, or both differing and raised; the generator run once over the 123 '
+        'regenerated-cell lines into the versioned copy; the pair diffed to zero; the unversioned copy retired to archive/ by git mv with its history, '
+        'and the versioned copy renamed by git mv to the unversioned name; REGISTRY’s row keeping the version as its tag, so the readers and the 102 '
+        'standing reader hits keep their names; each paper one commit, each commit alone; the Project mirror’s roster names changed at the next mirror '
+        'sort after b706, entered there. Nothing moved, renamed or written to a paper at b702. Trigger: the re-cut act b706. Status OPEN.')
+PCO_H = '*Appended 2026-10-21 by b702 beneath `W-ORD-ONE-COPY` (:14386), under `(R312)`(6):*'
+PCO_B = (' the order `W-ORD-ONE-COPY` (:14386; its trigger at :14450; its readings at :15296 and :15332) stands as written, superseded by '
+         'W-ORD-PAPER-PARTNER-COPIES (entered directly above, its disposition (iii) on the author’s word, trigger the re-cut act b706).')
+
+
+def c3orders(*a):
+    """OPEN_TRAILS: W-ORD-FACES-PROBE-CURRENT ((R312)(4)), then W-ORD-PAPER-PARTNER-COPIES with the old order's line annotated superseded beneath it
+    ((R312)(6)), appended through the guarded landing; data/b702_partners.txt (.json) the disposition as the author's word gives it."""
+    dry = 'dry' in a
+    chk = [('OPEN_TRAILS.md', 14386, '*Appended 2026-10-14 by b671 under `(R281)`(8)'), ('OPEN_TRAILS.md', 15410, '*Appended 2026-10-21 by b701 beneath `W-ORD-EXPLICIT-FORMULA-C1`')]
+    land([('OPEN_TRAILS.md', FP_H, NL + FP_H + FP_B + NL)], '%s_faces_order_line.json' % ACT, 'faces_order', entry=None, check=chk, dry=dry)
+    land([('OPEN_TRAILS.md', PC_H, NL + PC_H + PC_B + NL), ('OPEN_TRAILS.md', PCO_H, NL + PCO_H + PCO_B + NL)], '%s_partners_line.json' % ACT,
+         'partners', entry=None, check=chk, dry=dry)
+    if dry:
+        return
+    L = ['%s -- COMPONENT 3, (R312)(6): W-ORD-PAPER-PARTNER-COPIES, THE DISPOSITION ON THE AUTHOR`S WORD (%s)' % (ACT, utc()), '',
+         '### the three resolutions raised as one prompt (relay data/b702_c3_print.txt, the prompt at 2026-10-21T20:52:17Z; data/b702_author_answers.txt);',
+         '### the author`s word: (iii), rename in place, trigger "the re-cut act b706"; the order landed at OPEN_TRAILS (data/b702_partners_line.json),',
+         '### the old line annotated superseded beneath it; nothing moved, renamed or written to a paper.', '',
+         '### ### **RESOLUTION (iii) ; TRIGGER THE RE-CUT ACT b706 ; 17 PAIRS, 131 LINES (123 REGENERATED, 8 BY HAND) ; NOTHING MOVED.**']
+    put_txt('%s_partners.txt' % ACT, L)
+    put_json('%s_partners.json' % ACT, dict(at=utc(), resolution='(iii)', trigger='the re-cut act b706', prompt_at='2026-10-21T20:52:17Z'))
+    print(L[-1])
+
+
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, defshort=defshort, c1=c1, guard=guard, repairs=repairs, tie=tie,
-              quote=quote, cut=cut)
+              quote=quote, cut=cut, faces=faces, readme=readme, c3orders=c3orders)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
