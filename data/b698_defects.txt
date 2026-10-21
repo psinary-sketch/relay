@@ -30,3 +30,6 @@ b698 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-21)
       act, indexed the answers bank's calls by prompt, and the two citation-miss prompts shared the first call, so the README prompt is the
       second call and the stale-cell prompt the third. Corrected before the seal (relay 5d9f37c) and the part re-run at that HEAD
       (04:54:52Z), both passing.
+    - The first root call read SIDE-substrate-cluster's remote main empty (a transient ls-remote) and act_root.py refused, nothing written;
+      the remote re-read alone returned main 2e76426, equal to the local, and the root re-run, its value equal to the dry run's
+      (1db80825...).
