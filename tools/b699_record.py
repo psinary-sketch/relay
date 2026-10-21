@@ -72,7 +72,40 @@ def branches(*a):
     print(NL.join(L[4:]))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects)
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R309)(1)
+WH = ('*Appended 2026-10-21 by b699 to b698’s entry (:9684), under `(R309)`(1) -- b698 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b698_closing.txt):*')
+WB = (' “b698 closed: relay f19eccc4, PLACE-papers 1a8d8d1; suite 122 of 123; root 1db808250727b615…; 4 prompts answered; 4 defects” '
+      '(data/b698_closing.txt :1), the closing 14a0cb57 pushed and read back at relay main (data/b698_closing_push_out.txt :5). '
+      'CORRESPONDENCE-DOMINANCE built as tools/circuit_correspondence.py, its controls passing first -- h2_sign against itself HOLDS at every '
+      'binder, the planted binder caught (data/b698_correspondence_dominance.txt :77); the real reading DIFFERS at binder 1, none of the 14 rows '
+      'agreeing (:76), the SIDE-lv-conservation side read as SOURCE TEXT at v0.13.0 = 8e3bc76 by the answer’s fallback since no hosted run at '
+      'that tag could print residue_irreducible, the verdict qualified as source against print; W-ORD-H2-BRIDGE annotated beneath with binder 1 '
+      'named as its open object (OPEN_TRAILS :15294); CLAUSE-DOMINANCE 1 of 2 by closure, DIFFERS at binder 1 by correspondence. The '
+      'regularity-uses bank at 17 uses, no Lean: W1 (C¹ with absolutely integrable second derivative) 11 DISCHARGED / 6 RE-PROVED / 0 '
+      'OBSTRUCTED, W2 (even C² of rapid decay without compact support) 6 / 4 / 7, W3 (finite sums of autocorrelations) 13 / 4 / 0 '
+      '(data/b698_regularity_uses.txt :85), W1 and W3 together named as the wider class for the author’s word (:87). SIDE-simplicity README :9 '
+      're-cut and tagged v0.1.2 naming v0.1.1 (peeled 967f747); SIMPLICITY_OF_RIEMANN_ZEROS :441 rewritten by the generator alone on the '
+      'one-table roster; the partner copy’s differing lines entered beneath W-ORD-ONE-COPY (OPEN_TRAILS :15296), the generator’s stored figure 6 '
+      'against the count 18 (data/b698_onecopy.txt :61). Two rules banked (data/b698_rules.txt :6, :10), row (1) binding from b699, row (2) '
+      'bound at b698; the arithmetic plan’s row appended; b697’s weight line written (FINDINGS :9682). All eight scores HELD '
+      '(data/b698_scores_close.json); the suite 122 of 123 before and after the push, G-NOTHING-RAN-AHEAD failing undeclared -- section (0) of '
+      'the sealed face naming relay 2d19edd and 069778f in words and not by hash (data/b698_checks.txt :11, data/b698_checks_postpush.txt :11), '
+      'answered by the generated corrigendum; the root 1db80825; no lean on the host; mirror-refresh-2026-10-21-b698.zip CLEAN with the root '
+      'line. Four defects, all the seat’s -- (a) the stale-cell prompt quoting the stored figure 6 without a recount, (b) eight piped reads, one '
+      'whole read of a 505-line file and two whole git blobs against the read rule, (c) the two face hashes left undeclared, (d) the record step '
+      're-run after the root rewriting the answers bank’s timestamp line, restored by the Edit tool to the committed bytes with its write time '
+      'later than the root’s (data/b698_defects.txt :6-:32). Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B698_ENTRY,
+         check=[('FINDINGS.md', K.B698_ENTRY, '## CLAUSE-DOMINANCE by closure and by correspondence: 1 of 2 by closure'),
+                ('OPEN_TRAILS.md', K.B698_TRAIL, '### b698')], dry=dry)
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

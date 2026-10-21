@@ -78,3 +78,22 @@ b675 -- STEP ZERO, (R285)(1): THE CORRIGENDA TO b674'S CLOSING (2026-10-16)
       (data/b694_checks_postpush_standing-a.txt :24; data/b694_relay_push_out.txt :5, data/b694_pp_push_out.txt :8). The count as it stands:
       122 of 124 (data/b694_closing.txt :1). Lettered b694's defect (l) (data/b694_defects.txt :52); the commits left as they stand under
       data/b692_rules.txt row (1). The sealed face is not edited; the generated corrigendum entry stands at FINDINGS.md :9580.
+
+### appended by b699, 2026-10-21, under (R309)(2) (additive, (R254)(2)); the rows above unchanged.
+  (11) relay data/b698_registration_2026-10-21.txt :59, b698's face, as sealed: "THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE
+      LOCK, BY NAME:** NONE."
+      THE CORRECTION: one arm failed on real state after the lock, undeclared -- G-NOTHING-RAN-AHEAD, pre-push and post-push ("ARMS RUN : 123.
+      ### LIVE PASSING : 122. ### LIVE FAILING : 1 ['G-NOTHING-RAN-AHEAD']", data/b698_checks.txt :11, data/b698_checks_postpush.txt :11),
+      its test at tools/b698_checks.py :1348 reading two commits before the lock (05:10:05Z) not on the face by hash: relay 2d19edd3 and
+      relay 069778f6, named in words at the face's :50. The count as it stands: 122 of 123 (data/b698_closing.txt :1). Lettered b698's
+      defect (c) (data/b698_defects.txt :20). The sealed face is not edited; the generated corrigendum entry stands at FINDINGS.md :9712
+      (tools/b699_corrigendum.py, data/b699_corrigendum.txt).
+  (12) relay data/b698_author_answers.json, a root-named bank, its write time 2026-10-21T05:48:02Z after the root's (05:14:32Z).
+      THE CORRECTION: an event and not a change of bytes -- the answers route re-run after the root rewrote its timestamp line and the Edit
+      tool restored it; its sha256 0ec52b366c042a95... equals the blob at HEAD and the root bank's row (data/b698_act_root.json :95); the root
+      1db80825... unchanged (data/act_roots.txt :76). Lettered b698's defect (d) (data/b698_defects.txt :26). The generated corrigendum entry
+      stands at FINDINGS.md :9712.
+  (13) relay data/b698_roster_simplicity.json :38, the roster field b698's prompt and the generator's print carried: "partner_lines_differing": 6.
+      THE CORRECTION: the two SIMPLICITY_OF_RIEMANN_ZEROS tables differ in 18 lines, counted line by line by the generator's own table finder
+      (data/b698_onecopy.txt :61); the field is b672's, stored and not recounted. Lettered b698's defect (a) (data/b698_defects.txt :6). The
+      roster is not edited; the generated corrigendum entry stands at FINDINGS.md :9712.
