@@ -1,0 +1,87 @@
+b698 -- COMPONENT 3, (R308)(4): THE REGULARITY USES OF classK IN SIDE-explicit-formula AT v0.34 (8fbc27b), READ AND CLASSIFIED, NO LEAN WRITTEN (2026-10-21)
+
+### the hypothesis: SIDEExplicitFormula/H2Sign.lean :24-:26 "def classK (k : ℝ → ℂ) : Prop := (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧
+### HasCompactSupport k ∧ ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h" -- four hypotheses: EVEN, C2 (k and h),
+### COMPACT SUPPORT (k and h), THE FORM h ⋆ h~.
+### the uses: located by git grep bounded to the kernel's source tree at v0.34 (every line naming classK; every destructuring of a classK
+### hypothesis -- `obtain ⟨..⟩ := hk`, `hk.2.2.1`, `unfold classK at`), each read by line in the working tree (equal to v0.34 at every file
+### read; only Schema/EpsteinQ0.lean's docstrings differ). A USE is a line where a component of a classK hypothesis is consumed to close a step.
+### the candidate classes, each a column, as the seat reads them -- each varies the hypothesis it names and keeps the other three:
+###   W1 "C¹ with absolutely integrable second derivative": k and h C¹ with absolutely continuous derivative and k'', h'' absolutely integrable,
+###      in place of C²; even, compact support and the form kept.
+###   W2 "even C² of rapid decay without compact support": k and h C² with k, h and their first two derivatives of rapid decay, in place of
+###      compact support; even, C² and the form kept.
+###   W3 "finite sums of autocorrelations": k = Σ_{i ≤ m} h_i ⋆ h_i~, each h_i C² and compactly supported, in place of one h ⋆ h~; even, C² and
+###      compact support of k kept.
+### THE WIDER CLASS NAMED, AS THE SEAT READS THE USES: W1 AND W3 TOGETHER -- even, compactly supported finite sums of autocorrelations of C¹
+### functions with absolutely continuous derivative and absolutely integrable second derivative: no use OBSTRUCTED in either column (the counts
+### below), and the sketches compose (each summand's transform bounded by (s1), the zero terms summed by (s2)); W2 OBSTRUCTED at the explicit
+### formula's strip, at the prime sum and at the detection join.
+### verdicts: DISCHARGED where the step closes under the class as the kernel's proof stands; RE-PROVED (sN) where it closes by the one-line
+### proof sketched beneath; OBSTRUCTED (oN) where it does not, the obstruction named beneath. Directions: FORWARD (RH or the strip form to
+### positivity, an arbitrary k of the class destructured) and CONVERSE (positivity to the strip form, the class's membership PRODUCED for a
+### constructed window -- kWindow_classK, smooth and compactly supported -- so the window lies in every candidate class).
+### rows are uses: file :line | the line at v0.34 | the declaration | the hypothesis consumed | the step it closes | W1 | W2 | W3
+
+== THE USES (SIDEExplicitFormula/, the programme's modules)
+  U1  B321Identity.lean :47 | obtain ⟨-, h⟩ := Zeta23.WeilEF.EF_lit_zetaZeroConfig k hk hs | b321_identity | C2, COMPACT SUPPORT | the explicit formula at k (ζ), the vendored path beneath | RE-PROVED (s1) | OBSTRUCTED (o1) | DISCHARGED
+  U2  B321Identity.lean :53 | rw [he, two_mul] | b321_identity | EVEN | the prime channel k(log n) + k(-log n) read as 2 k(log n) | DISCHARGED | DISCHARGED | DISCHARGED
+  U3  RHChain.lean :27 | have hid := b321_identity (Zeta23.EF.weilTest h h) hc hs he | rh_imp_h2_sign (FORWARD; destructured at :26) | C2, COMPACT SUPPORT, EVEN | the identity Z = P - PR + A at k | RE-PROVED (s1) | OBSTRUCTED (o1) | DISCHARGED
+  U4  RHChain.lean :52 | rw [Zeta23.EF.paperFT_weilTest hh.continuous hh.continuous hhs hhs, hcj, | rh_imp_h2_sign (FORWARD) | THE FORM (rfl at :26), h's C2 read as continuity, h's COMPACT SUPPORT | each zero term m_ρ |ĥ(γ_ρ)|² on the line, so the zero side is nonnegative | DISCHARGED | RE-PROVED (s3) | RE-PROVED (s2)
+  U5  Schema/Config.lean :49 | C.ef k hk hs he | zeroSide_cfg_eq | C2, COMPACT SUPPORT, EVEN | the configuration's field ef, its explicit formula at k | RE-PROVED (s4) | OBSTRUCTED (o1) | DISCHARGED
+  U6  Schema/Config.lean :55 | rw [← zeroSide_cfg_eq C hc hs he] | online_imp_h2_sign_cfg (FORWARD; destructured at :54) | C2, COMPACT SUPPORT, EVEN | the identity over the structure at k | RE-PROVED (s4) | OBSTRUCTED (o1) | DISCHARGED
+  U7  Schema/Config.lean :67 | rw [Zeta23.EF.paperFT_weilTest hh.continuous hh.continuous hhs hhs, hcj, | online_imp_h2_sign_cfg (FORWARD) | THE FORM, h's C2 as continuity, h's COMPACT SUPPORT | each zero term nonnegative on the line | DISCHARGED | RE-PROVED (s3) | RE-PROVED (s2)
+  U8  Schema/Converse.lean :255 | rw [← zeroSide_cfg_eq C hc hs he] at hsign | h2_sign_cfg_imp_online (CONVERSE; the window produced at :252, destructured at :254) | C2, COMPACT SUPPORT, EVEN of the window | the identity at the window, its zero side negative | DISCHARGED | DISCHARGED | DISCHARGED
+  U9  PowerLimit.lean :1185 | have hid := b321_identity _ hc hs he | h2_sign_imp_rh_strip_of (CONVERSE; produced at :1182, destructured at :1184) | C2, COMPACT SUPPORT, EVEN of the window | the identity at the window | DISCHARGED | DISCHARGED | DISCHARGED
+  U10 PowerLimit.lean :1200 | have hid := b321_identity (Zeta23.EF.weilTest h h) hc hs he | rh_strip_imp_h2_sign (FORWARD; destructured at :1199) | C2, COMPACT SUPPORT, EVEN | the identity at k | RE-PROVED (s1) | OBSTRUCTED (o1) | DISCHARGED
+  U11 PowerLimit.lean :1220 | rw [Zeta23.EF.paperFT_weilTest hh.continuous hh.continuous hhs hhs, hcj, | rh_strip_imp_h2_sign (FORWARD) | THE FORM, h's C2 as continuity, h's COMPACT SUPPORT | each zero term nonnegative on the line | DISCHARGED | RE-PROVED (s3) | RE-PROVED (s2)
+  U12 DetectionRegion.lean :39 | obtain ⟨r, hr⟩ := hk.2.2.1.isCompact.isBounded.subset_closedBall (0 : ℝ) | upto_all_imp_h2_sign | COMPACT SUPPORT | the window vanishes outside [-r, r], so the finite positivity at L₀ = r applies (:40) | DISCHARGED | OBSTRUCTED (o2) | DISCHARGED
+  U13 Chi/CriterionForward.lean :53 | rw [← zeroSide_chi_eq hχ h1 hc hs] | rh_strip_chi_imp_h2_sign_chi (FORWARD; destructured at :52, evenness unused) | C2, COMPACT SUPPORT | the χ identity at k, the χ path beneath (Chi/CriterionForward.lean :37) | RE-PROVED (s1) | OBSTRUCTED (o1) | DISCHARGED
+  U14 Chi/CriterionForward.lean :65 | rw [Zeta23.EF.paperFT_weilTest hh.continuous hh.continuous hhs hhs, hcj, | rh_strip_chi_imp_h2_sign_chi (FORWARD) | THE FORM, h's C2 as continuity, h's COMPACT SUPPORT | each zero term nonnegative on the line | DISCHARGED | RE-PROVED (s3) | RE-PROVED (s2)
+  U15 Chi/CriterionConverse.lean :259 | rw [← zeroSide_chi_eq hχ h1 hc hs] at hsign | h2_sign_chi_imp_rh_strip_chi (CONVERSE; produced at :256, destructured at :258) | C2, COMPACT SUPPORT of the window | the χ identity at the window | DISCHARGED | DISCHARGED | DISCHARGED
+  U16 Schema/Detector.lean :126 | rw [← zeroSide_cfg_eq C hc hs he] at hsign | not_h2_sign_cfg_of_offline (CONVERSE; produced by detector at :123, destructured at :125) | C2, COMPACT SUPPORT, EVEN of the window | the identity at the window | DISCHARGED | DISCHARGED | DISCHARGED
+  U17 Schema/PlateauRamp.lean :220 | exact hE.ef _ hc hs he | epstein_ef_at_window (the window produced through WindowInClassK, unfolded at :218, destructured at :219) | C2, COMPACT SUPPORT, EVEN of the window | the Epstein premises' field ef at the window | DISCHARGED | DISCHARGED | DISCHARGED
+
+== THE SKETCHES (RE-PROVED, one line each)
+  (s1) THE DECAY BY PARTS: the explicit formula consumes C2 at two leaves -- the 1/|z|² decay of paperFT k on the strip by two integrations by parts (Zeta23/WeilEF/FullLine.lean :88) and the tilted window's Fourier integrability for the inversion (Zeta23/WeilEF/VerticalLine.lean :91) -- and both bounds hold with ‖k''‖₁ for a compactly supported C¹ k whose derivative is absolutely continuous, by the same two integrations by parts; the rest of the path reads continuity (C¹ gives it) and the reflection k(-u) (the class is closed under it).
+  (s2) THE FORM BY LINEARITY: paperFT is additive, so for k = Σ h_i ⋆ h_i~ the zero term at a real ordinate is Σ |ĥ_i(γ)|² ≥ 0, by paperFT_weilTest (Zeta23/ExplicitFormula.lean :205) at each summand.
+  (s3) THE FORM FOR INTEGRABLE h: paperFT_weilTest reads h's continuity and compact support for the transform of h ⋆ h~; for a C² h of rapid decay (integrable) the transform at a real ordinate is |ĥ(γ)|² by the convolution theorem for integrable functions.
+  (s4) THE FIELD RESTATED: WeilConfig's field ef takes C2, compact support and evenness as its domain; restated over W1 it is a premise of the structure, supplied at ζ and χ by (s1).
+
+== THE OBSTRUCTIONS (OBSTRUCTED, each named)
+  (o1) THE STRIP: the explicit formula moves the vertical line from Re s = c in (1, 3/2] to 1 - c and bounds paperFT k on -1 ≤ Re s ≤ 2 by exp(|Im z| B) (‖k‖₁ + ‖k''‖₁) / (1 + t²), B the support bound (Zeta23/WeilEF/FullLine.lean :55, :60, :70-:71); paperFT k is entire because k is compactly supported (Zeta23/WeilEF/VerticalLine.lean :513-:529), and the prime side's tilted inversion integrates e^(bu) k(u) at b = c - 1/2 (VerticalLine.lean :84-:92). Rapid decay gives no support bound and does not make e^(|u|) k(u) integrable -- a window decaying as e^(-|u|^(1/2)) (smoothed at 0) is of rapid decay with e^(|u|) k(u) not integrable -- so neither the strip bound nor the inversion is reached. A class of exponential decay at a rate above 3/2 would meet both; it is not W2.
+  (o2) THE SUPPORT BOUND: upto_all_imp_h2_sign takes r from compact support (:39); a window of rapid decay vanishes outside no [-r, r], so h2_sign_upto's premise (∀ u, L₀ < |u| → k u = 0) is unmet at every L₀ and the join h2_sign ↔ ∀ L₀, h2_sign_upto L₀ (:47) does not reach it.
+  (o3) THE PRIME SUM: Σ Λ(n) n^(-1/2) k(log n) is a finite sum for a compactly supported k (Zeta23/WeilEF/Main.lean :211-:213; Chi/Main.lean :409-:411); for k of rapid decay the terms are Λ(n) n^(-1/2) O((log n)^(-N)) and Σ Λ(n) n^(-1/2) (log n)^(-N) diverges at every N; summability needs k(u) = O(e^(-(1/2 + ε) u)).
+
+== THE PATH BENEATH U1, U3, U5, U6, U10 (THE ζ EXPLICIT FORMULA, VENDORED Zeta23) AND U13 (THE χ EXPLICIT FORMULA, Chi/): THE LEAVES WHERE C2
+== AND COMPACT SUPPORT ARE CONSUMED, read by line; counted apart from the uses above (P-rows; the lines between pass hk and hkc on unchanged)
+  P1  Zeta23/ExplicitFormula/Bridge.lean :51 | obtain ⟨R, hR⟩ := hkc.isCompact.isBounded.subset_closedBall 0 | exists_abs_le_of_hasCompactSupport | COMPACT SUPPORT | the support bound every majorant below reads | DISCHARGED | OBSTRUCTED (o1) | DISCHARGED
+  P2  Zeta23/WeilEF/FullLine.lean :59 | have hki : Integrable k := hk.continuous.integrable_of_hasCompactSupport hkc | norm_Hfn_le | C2 as continuity, COMPACT SUPPORT | k integrable | DISCHARGED | RE-PROVED (s5) | DISCHARGED
+  P3  Zeta23/WeilEF/FullLine.lean :88 | have h2 := Zeta23.norm_paperFT_le_div hk hsupp hz0 | norm_Hfn_le | C2, COMPACT SUPPORT (hsupp, :57) | ‖paperFT k z‖ ≤ e^(|Im z| B) ‖k''‖₁ / ‖z‖² on the strip | RE-PROVED (s1) | OBSTRUCTED (o1) | DISCHARGED
+  P4  Zeta23/WeilEF/VerticalLine.lean :516 | obtain ⟨Λ₁, hΛ₁⟩ := Zeta23.EF.exists_abs_le_of_hasCompactSupport hkc | differentiable_paperFT | COMPACT SUPPORT | paperFT k entire, dominated by e^((‖z₀‖ + 1) Λ) (:520) | DISCHARGED | OBSTRUCTED (o1) | DISCHARGED
+  P5  Zeta23/WeilEF/VerticalLine.lean :90 | hcont.integrable_of_hasCompactSupport (tilt_hasCompactSupport hkc b) | tilted_inversion | COMPACT SUPPORT | e^(bu) k(u) integrable | DISCHARGED | OBSTRUCTED (o1) | DISCHARGED
+  P6  Zeta23/WeilEF/VerticalLine.lean :91 | have hF := Zeta23.EF.integrable_fourier_of_contDiff_two (tilt_contDiff hk b) | tilted_inversion | C2, COMPACT SUPPORT (:92) | the tilted transform integrable, so the inversion holds | RE-PROVED (s1) | OBSTRUCTED (o1) | DISCHARGED
+  P7  Zeta23/WeilEF/Main.lean :73 | have hkneg2 : ContDiff ℝ 2 (fun u : ℝ => k (-u)) := hk.comp contDiff_neg | EF_lit_zeta | C2 | the reflection C2 | RE-PROVED (s6) | DISCHARGED | DISCHARGED
+  P8  Zeta23/WeilEF/Main.lean :75 | have := hkc.comp_homeomorph (Homeomorph.neg ℝ) | EF_lit_zeta | COMPACT SUPPORT | the reflection compactly supported | DISCHARGED | RE-PROVED (s6) | DISCHARGED
+  P9  Zeta23/WeilEF/Main.lean :211 | obtain ⟨B₁, hB₁⟩ := Zeta23.EF.exists_abs_le_of_hasCompactSupport hkc | EF_lit_zeta | COMPACT SUPPORT | the two prime sums finite, so summable | DISCHARGED | OBSTRUCTED (o3) | DISCHARGED
+  P10 Zeta23/WeilEF/VerticalLine.lean :683 | obtain ⟨Lam₁, hLam₁⟩ := Zeta23.EF.exists_abs_le_of_hasCompactSupport hkc | gamma_line_shift | COMPACT SUPPORT | the archimedean line shift's majorant (with ‖k''‖₁, :688) | DISCHARGED | OBSTRUCTED (o1) | DISCHARGED
+  P11 Zeta23/WeilEF/VerticalLine.lean :687 | have hki : Integrable k := hk.continuous.integrable_of_hasCompactSupport hkc | gamma_line_shift | C2 as continuity, COMPACT SUPPORT | k integrable | DISCHARGED | RE-PROVED (s5) | DISCHARGED
+  P12 Zeta23/WeilEF/ZeroSummability.lean :186 | obtain ⟨r, hr⟩ := hkc.isCompact.isBounded.subset_closedBall 0 | EF_zero_sum_summable_gen | COMPACT SUPPORT | ‖h(γ_ρ)‖ ≤ e^(Λ/2) ‖k''‖₁ / ‖γ_ρ‖² at |Im γ_ρ| < 1/2 (:178), the zero sum summable | DISCHARGED | OBSTRUCTED (o1) | DISCHARGED
+  P13 Chi/Main.lean :275 | have hkneg2 : ContDiff ℝ 2 (fun u : ℝ => k (-u)) := hk.comp contDiff_neg | EF_lit_chi_holds | C2 | the reflection C2 | RE-PROVED (s6) | DISCHARGED | DISCHARGED
+  P14 Chi/Main.lean :276 | have hknegc : HasCompactSupport (fun u : ℝ => k (-u)) := hkc.comp_homeomorph (Homeomorph.neg ℝ) | EF_lit_chi_holds | COMPACT SUPPORT | the reflection compactly supported | DISCHARGED | RE-PROVED (s6) | DISCHARGED
+  P15 Chi/Main.lean :409 | obtain ⟨B₁, hB₁⟩ := Zeta23.EF.exists_abs_le_of_hasCompactSupport hkc | EF_lit_chi_holds | COMPACT SUPPORT | the χ prime sums finite, so summable (:410-:411) | DISCHARGED | OBSTRUCTED (o3) | DISCHARGED
+  P16 Chi/VerticalLine.lean :251 | obtain ⟨Lam₁, hLam₁⟩ := Zeta23.EF.exists_abs_le_of_hasCompactSupport hkc | gamma_line_shift_chi | COMPACT SUPPORT | the χ archimedean line shift's majorant | DISCHARGED | OBSTRUCTED (o1) | DISCHARGED
+  P17 Chi/VerticalLine.lean :255 | have hki : Integrable k := hk.continuous.integrable_of_hasCompactSupport hkc | gamma_line_shift_chi | C2 as continuity, COMPACT SUPPORT | k integrable | DISCHARGED | RE-PROVED (s5) | DISCHARGED
+  (s5) INTEGRABILITY FROM DECAY: a continuous function of rapid decay is integrable on ℝ, |k(u)| ≤ C (1 + u²)^(-1).
+  (s6) THE REFLECTION: each class is closed under u ↦ -u (C¹ with absolutely continuous derivative and integrable second derivative; rapid decay of k and its first two derivatives), so the reflection carries the hypothesis.
+
+== NOT USES: THE OTHER CODE LINES NAMING classK (named, not counted)
+  PRODUCERS (classK proved for a constructed window): PowerLimit.lean :121-:123 (kWindow_classK), PowerWindow.lean :52-:53 (classK_of_real_even), TwoPropertyWindow.lean :191-:192 (kWin_classK), Schema/PlateauRamp.lean :158 and :203 (the window in classK, by classK_of_real_even), Schema/Detector.lean :116 (the detector's window, by kWindow_classK)
+  STATEMENTS (classK as a quantifier's guard or a conclusion's conjunct): H2Sign.lean :24 (the definition), :30 (h2_sign), :34 (h2_sign_aim); GRHWeil.lean :76; Schema/Config.lean :41; DetectionRegion.lean :30; Registers.lean :39; Schema/Detector.lean :100; Schema/Epstein.lean :64; Schema/EpsteinQ0.lean :147
+  THE MEMBERSHIP CONSUMED WHOLE (h2 applied at a k of the class; under a wider class the CONVERSE applications read a classK window, which lies in each candidate class): Chi/CriterionConverse.lean :257, Schema/Converse.lean :253, Schema/Detector.lean :124, PowerLimit.lean :1183 (converse, at a produced window); DetectionRegion.lean :33, :40, H2Sign.lean :37, Registers.lean :49 (passed through)
+  A NAMESAKE (the name, not the hypothesis): PowerLimit.lean :392 hk.2.1 -- hk : ρ' ∈ killSet Z g0 M (:386), not classK
+
+### THE COUNTS PER COLUMN (relay data/b698_regularity_counts.txt, read back from the rows by read_use_row; each column's sum equal to its rows):
+###   the uses, 17 rows:  W1 DISCHARGED 11, RE-PROVED 6, OBSTRUCTED 0 ; W2 DISCHARGED 6, RE-PROVED 4, OBSTRUCTED 7 ; W3 DISCHARGED 13, RE-PROVED 4, OBSTRUCTED 0
+###   the path, 17 rows:  W1 DISCHARGED 13, RE-PROVED 4, OBSTRUCTED 0 ; W2 DISCHARGED 2, RE-PROVED 5, OBSTRUCTED 10 ; W3 DISCHARGED 17, RE-PROVED 0, OBSTRUCTED 0
+### ### **USES 17, PATH LEAVES 17 ; W1 AND W3 OBSTRUCTED AT NONE ; W2 OBSTRUCTED AT 7 USES AND 10 LEAVES (THE STRIP, THE SUPPORT BOUND, THE PRIME SUM) ; THE WIDER CLASS NAMED: W1 AND W3 TOGETHER ; NO LEAN WRITTEN.**

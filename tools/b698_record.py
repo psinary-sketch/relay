@@ -449,7 +449,111 @@ def bridge(*a):
          check=[('OPEN_TRAILS.md', 10257, '(2) **`W-ORD-H2-BRIDGE`**'), ('OPEN_TRAILS.md', 15200, 'beneath `W-ORD-H2-BRIDGE` (:10257)')], dry=dry)
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, bridge=bridge)
+# ================================================================================ COMPONENT 3: THE REGULARITY-USES BANK READ BACK, (R308)(4)
+USE_ROW = re.compile(r'^  ([UP]\d+) +(\S+\.lean) :(\d+) \| (.*?) \| (.*?) \| (.*?) \| (.*?) \| (DISCHARGED|RE-PROVED \(s\d\)|OBSTRUCTED \(o\d\)) \| '
+                     r'(DISCHARGED|RE-PROVED \(s\d\)|OBSTRUCTED \(o\d\)) \| (DISCHARGED|RE-PROVED \(s\d\)|OBSTRUCTED \(o\d\))$')
+VERDICTS = ('DISCHARGED', 'RE-PROVED', 'OBSTRUCTED')
+
+
+def read_use_row(l):
+    """a row of data/b698_regularity_uses.txt: id | file :line | the line | the declaration | the hypothesis | the step | W1 | W2 | W3; returns
+    (id, path, line, text, (W1, W2, W3)) with each verdict's word."""
+    m = USE_ROW.match(l)
+    if not m:
+        raise ValueError('use row of another shape: %r' % l[:100])
+    return m.group(1), m.group(2), int(m.group(3)), m.group(4), tuple(m.group(k).split(' (')[0] for k in (8, 9, 10))
+
+
+READERS.append('read_use_row')
+
+
+def uses(*a):
+    """data/b698_regularity_counts.txt: every row of the uses bank read by read_use_row; its quoted line compared with the file's line at v0.34
+    (git show, whitespace collapsed); the count per column for the U-rows and the P-rows; and the completeness read -- every code line of
+    SIDEExplicitFormula/ at v0.34 naming classK or destructuring a classK hypothesis cited by the bank (file :line), comment lines apart."""
+    t = rdn('%s_regularity_uses.txt' % ACT)
+    rows = [read_use_row(l) for l in t.split(NL) if re.match(r'^  [UP]\d+ ', l)]
+    src = {}
+    bad = []
+    for rid, f, ln, text, _v in rows:
+        path = (f if f.startswith('Zeta23/') else 'SIDEExplicitFormula/' + f)
+        if path not in src:
+            src[path] = (_show(K.EF_DIR, K.EF_TAG, path) or '').split(NL)
+        L = src[path]
+        have = ' '.join(L[ln - 1].split()) if 0 < ln <= len(L) else ''
+        if ' '.join(text.split()) != have:
+            bad.append((rid, f, ln, have[:90]))
+    out = ['%s -- COMPONENT 3, (R308)(4): THE REGULARITY-USES BANK READ BACK BY ITS ROW READER (%s)' % (ACT, utc()), '',
+           '### the bank: relay data/%s_regularity_uses.txt ; each row`s quoted line compared with its file`s line at SIDE-explicit-formula %s '
+           '(git show), whitespace collapsed ; rows are counts.' % (ACT, K.EF_TAG), '']
+    for kind, nm in (('U', 'THE USES (SIDEExplicitFormula/)'), ('P', 'THE PATH (the two explicit formulas` leaves)')):
+        rs = [r for r in rows if r[0].startswith(kind)]
+        out.append('  %s: rows %d' % (nm, len(rs)))
+        for j, col in enumerate(('W1 C¹ with absolutely integrable second derivative', 'W2 even C² of rapid decay without compact support',
+                                 'W3 finite sums of autocorrelations')):
+            c = dict((v, sum(1 for r in rs if r[4][j] == v)) for v in VERDICTS)
+            out.append('    %-52s DISCHARGED %2d ; RE-PROVED %2d ; OBSTRUCTED %2d ; sum %d (= rows %s)' % (
+                col, c['DISCHARGED'], c['RE-PROVED'], c['OBSTRUCTED'], sum(c.values()), sum(c.values()) == len(rs)))
+    rc_ = subprocess.run(['git', '-C', K.EF_DIR, 'grep', '-n', '-E', r'classK|⟩ := hk$|hk\.2\.2\.1|classK at hk', K.EF_TAG, '--',
+                          'SIDEExplicitFormula/*.lean'], capture_output=True)
+    code, prose = [], 0
+    for l in rc_.stdout.decode('utf-8', 'replace').replace(chr(13), '').split(NL):
+        m = re.match(r'^[^:]+:SIDEExplicitFormula/(.+?):(\d+):(.*)$', l)
+        if not m:
+            continue
+        body = m.group(3).strip()
+        if body.startswith(('/-', '--', '*', '`')) or not re.search(r'classK|hk', body.split('--')[0]) or _is_comment(m.group(1), int(m.group(2))):
+            prose += 1
+            continue
+        code.append((m.group(1), int(m.group(2))))
+    cited = set()
+    for f, a_, b_ in re.findall(r'(\S+\.lean) :(\d+)(?:-:(\d+))?', t):
+        for n in range(int(a_), int(b_ or a_) + 1):
+            cited.add((f, n))
+    for l in t.split(NL):
+        if re.match(r'^  [UP]\d+ ', l):
+            f0 = l.split()[1]
+            for n in re.findall(r'(?<![\w.]) ?:(\d+)\b', l.split('|', 1)[1]):
+                cited.add((f0, int(n)))
+    for blk in re.findall(r'(?m)^  (?:PRODUCERS|STATEMENTS|THE MEMBERSHIP CONSUMED WHOLE|A NAMESAKE)[^\n]*', t):
+        cur = None
+        for tok in re.findall(r'(\S+\.lean) :(\d+)(?:-:(\d+))?|, :(\d+)(?:-:(\d+))?| and :(\d+)', blk):
+            if tok[0]:
+                cur = tok[0]
+                rng = (int(tok[1]), int(tok[2] or tok[1]))
+            else:
+                n0 = tok[3] or tok[5]
+                rng = (int(n0), int(tok[4] or n0))
+            for n in range(rng[0], rng[1] + 1):
+                cited.add((cur, n))
+    unl = [c for c in code if c not in cited]
+    out += ['', '  QUOTED LINES EQUAL TO THE FILE AT %s: %d of %d%s' % (K.EF_TAG, len(rows) - len(bad), len(rows), (' -- differing ' + '; '.join(
+        '%s %s :%d (%s)' % x for x in bad)) if bad else ''),
+            '  THE COMPLETENESS READ: code lines of SIDEExplicitFormula/ naming classK or destructuring a classK hypothesis %d ; cited by the bank %d ; '
+            'unlisted %s ; comment and docstring lines %d' % (len(code), len(code) - len(unl), ['%s :%d' % u for u in unl] or 'NONE', prose)]
+    us = [r for r in rows if r[0].startswith('U')]
+    ob = [j for j in range(3) if any(r[4][j] == 'OBSTRUCTED' for r in us)]
+    out += ['', '### ### **USES %d (SIDEExplicitFormula/) AND PATH LEAVES %d ; W1 %s ; W2 %s ; W3 %s ; QUOTES EQUAL %d OF %d ; UNLISTED %d ; NO LEAN WRITTEN.**' % (
+        len(us), len(rows) - len(us), *['%d/%d/%d' % tuple(sum(1 for r in us if r[4][j] == v) for v in VERDICTS) for j in range(3)],
+        len(rows) - len(bad), len(rows), len(unl))]
+    if 'dry' not in a:
+        put_txt('%s_regularity_counts.txt' % ACT, out)
+    print(NL.join(out))
+    return ob
+
+
+def _is_comment(f, n):
+    """the line n of SIDEExplicitFormula/<f> at the tag lies inside a /- ... -/ block."""
+    L = (_show(K.EF_DIR, K.EF_TAG, 'SIDEExplicitFormula/' + f) or '').split(NL)
+    depth = 0
+    for i, l in enumerate(L[:n], 1):
+        if i == n:
+            return depth > 0 or l.strip().startswith(('/-', '--'))
+        depth += l.count('/-') - l.count('-/')
+    return False
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, bridge=bridge, uses=uses)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
