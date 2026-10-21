@@ -31,3 +31,8 @@ b699 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-21)
     - The record tool's kernels route first recursed on its own rebinding and refused before any write; repaired and re-run.
     - The after-run's first runner call was refused by the shell (an apostrophe in its note), nothing run; re-sent without it.
     - test_asof.py ran 515 s at step zero, its own part, within the 600 s limit (its b698 run 400 s).
+    - The first pre-run of standing-a (07:27:28Z) read G-CLOSING-SENTENCE failing on real state: the act's closing tool wrapped the sentence the
+      arm reads over two lines. Corrected before the seal (relay b25f20a1) and the part re-run at that HEAD (07:31:23Z), the arm passing.
+    - The first pre-run of the act part (07:45:29Z) read G-READ-RULE's positive control passing: with no whole read to enter, the carried
+      control mutated nothing the predicate reads. Pointed at the read bank's offence count before the seal (relay 54d2c5e5) and the part
+      re-run at that HEAD (07:46:15Z), every control behaving.
