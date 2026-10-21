@@ -1,7 +1,7 @@
-b696 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-20T23:03:13Z)
+b696 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T00:16:30Z)
 
 ### the source: the seat`s session b97f6790-cfa6-43ae-aa06-9d3a07249ec4 from its first user line carrying 'RULING (R306) BEGIN', with its subagents` transcripts
-### commands read: 86
+### commands read: 161
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -56,7 +56,7 @@ b696 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE BRANCH DELETES BY SHAPE ((R306)(5) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #30 deletes ['push-b695'], halves 1, globs none, variables none, chained after False; #31 deletes ['push-b695-root'], halves 1, globs none, variables none, chained after False; #32 deletes ['push-b695-closing'], halves 1, globs none, variables none, chained after False; #33 deletes ['push-b695'], halves 1, globs none, variables none, chained after False; #34 deletes ['push-b695-root'], halves 1, globs none, variables none, chained after False; #35 deletes ['push-b695-interfaces-main'], halves 1, globs none, variables none, chained after False; #36 deletes ['push-b695-interfaces-merge'], halves 1, globs none, variables none, chained after False; #37 deletes ['recut-interfaces-b695'], halves 1, globs none, variables none, chained after False; #38 deletes ['recut-interfaces-b695'], halves 1, globs none, variables none, chained after False
 
 ### THE OUTBOUND REQUESTS OTHER THAN git (web searches, subagent prompts and fetches, and the tails source`s one fetch), each with the author`s identifiers found in it (1):
-  line - | tools/b696_tails_source.py (urllib) | - | identifiers NONE | https://dlmf.nist.gov/5.11 {'User-Agent': 'Mozilla/5.0'}
+  line - | tools/b696_tails_source.py (urllib) | 2026-10-20T23:03:28Z | identifiers NONE | https://dlmf.nist.gov/5.11 {'User-Agent': 'Mozilla/5.0'}
 
 ### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
   #1 | 2026-10-20T22:01:21.963Z | seat | Bash | git -C /d/relay grep -n -E "def tail_bound|def zero_tail|4000|1\.01|151\.59|R_TRUNC|RMAX|safety" -- tools/b694_witness_terms.py tools/b694_witness.py
@@ -145,5 +145,80 @@ b696 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #84 | 2026-10-20T22:58:27.580Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-files=no
   #85 | 2026-10-20T22:58:30.050Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md
   #86 | 2026-10-20T22:58:32.529Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b696 Component 1 under (R306)(1): b695 at its weight (FINDINGS :9622)"
+  #87 | 2026-10-20T23:03:11.564Z | seat | PowerShell | python -X utf8 tools/b696_record.py commands
+  #88 | 2026-10-20T23:03:16.594Z | seat | PowerShell | python -X utf8 tools/b696_record.py kernels
+  #89 | 2026-10-20T23:03:27.329Z | seat | PowerShell | python -X utf8 tools/b696_record.py answers
+  #90 | 2026-10-20T23:03:30.515Z | seat | PowerShell | python -X utf8 tools/b696_record.py defects
+  #91 | 2026-10-20T23:04:53.193Z | seat | PowerShell | python -X utf8 tools/b696_record.py repairs
+  #92 | 2026-10-20T23:04:56.846Z | seat | PowerShell | python -X utf8 tools/b696_record.py armrun
+  #93 | 2026-10-20T23:05:20.987Z | seat | PowerShell | python -X utf8 tools/b696_record.py armrun
+  #94 | 2026-10-20T23:15:56.549Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --prerun --part act
+  #95 | 2026-10-20T23:17:15.998Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --prerun --part standing-a
+  #96 | 2026-10-20T23:22:07.370Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --prerun --part standing-c
+  #97 | 2026-10-20T23:26:02.944Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --prerun --part standing-b1
+  #98 | 2026-10-20T23:27:56.781Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --prerun --part standing-b2
+  #99 | 2026-10-20T23:34:56.553Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --prerun --part standing-b3
+  #100 | 2026-10-20T23:36:54.722Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --combine b696_arms_prerun.txt
+  #101 | 2026-10-20T23:37:03.955Z | seat | PowerShell | python -X utf8 tools/b696_record.py armsecs
+  #102 | 2026-10-20T23:37:11.923Z | seat | Bash | git -C /d/relay status --short --untracked-files=all -- data/b696_* tools/b696_* tools/rule_arms.py data/audit_b696_*
+  #103 | 2026-10-20T23:37:21.658Z | seat | Bash | git -C /d/relay add data/b696_arm_binary.json data/b696_arm_binary.txt data/b696_stepzero.txt data/b696_tool_repairs.txt tools/b696_record.py tools/b696_worklis
+  #104 | 2026-10-20T23:37:28.727Z | seat | Bash | git -C /d/relay commit -m "b696 Component 4 before the seal: the suite, gate, spec and closing carried from b695, the record tool's late routes, the repairs ban
+  #105 | 2026-10-20T23:37:53.203Z | seat | PowerShell | python -X utf8 tools/b696_reg_gate.py
+  #106 | 2026-10-20T23:39:06.300Z | seat | PowerShell | python -X utf8 tools/b696_record.py gatebanks
+  #107 | 2026-10-20T23:39:19.402Z | seat | PowerShell | python -X utf8 tools/b696_record.py scores dry
+  #108 | 2026-10-20T23:39:57.701Z | seat | PowerShell | python -X utf8 tools/b378_lockgate.py b696 data/b696_registration_2026-10-20.txt
+  #109 | 2026-10-20T23:40:04.028Z | seat | PowerShell | python -X utf8 tools/reg_seal.py --lock data/b696_registration_2026-10-20.txt
+  #110 | 2026-10-20T23:40:09.847Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --seal
+  #111 | 2026-10-20T23:40:16.674Z | seat | Bash | git -C /d/relay status --short --untracked-files=all -- data/b696_* data/audit_b696_* tools/b696_* tools/rule_arms.py
+  #112 | 2026-10-20T23:40:25.534Z | seat | Bash | git -C /d/relay add data/b696_registration_2026-10-20.txt data/audit_b696_reg_satisfiable.txt data/b696_census_stepzero.txt data/b696_faces_census_stepzero.txt 
+  #113 | 2026-10-20T23:40:48.331Z | seat | Bash | git -C /d/relay commit -m "b696 seal, under (R306): the face locked (sha256 d219fa88) after the gate CLEAR with both dry-run steps CLEAN and the lock gate's 8 o
+  #114 | 2026-10-20T23:40:53.330Z | seat | PowerShell | python -X utf8 tools/b696_record.py scores
+  #115 | 2026-10-20T23:41:13.133Z | seat | PowerShell | python -X utf8 tools/b696_record.py table_final
+  #116 | 2026-10-20T23:41:44.110Z | seat | PowerShell | python -X utf8 tools/b696_record.py findings dry
+  #117 | 2026-10-20T23:41:50.914Z | seat | PowerShell | python -X utf8 tools/b696_record.py findings
+  #118 | 2026-10-20T23:41:59.358Z | seat | Bash | git -C /d/relay status --short --untracked-files=all -- data/ tools/b696_* tools/rule_arms.py
+  #119 | 2026-10-20T23:42:05.990Z | seat | Bash | git -C /d/relay add data/b696_findings.json data/b696_scores.json data/b696_table_final.json data/b696_table_final.txt
+  #120 | 2026-10-20T23:42:11.384Z | seat | Bash | git -C /d/relay commit -m "b696 pre-root: the scores bank (written once before the entry, N1-N5 HELD, S3 HELD), the final table (0 moved, 0 gone), the findings 
+  #121 | 2026-10-20T23:42:16.362Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md
+  #122 | 2026-10-20T23:42:21.363Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b696 entry under (R306): the Weil-face witness at Q0 with its tail bounds as certified balls, FOUND at every widt
+  #123 | 2026-10-20T23:42:28.724Z | seat | Bash | git -C /d/relay branch push-b696-root bfd50942
+  #124 | 2026-10-20T23:42:33.838Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b696_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b696-root
+  #125 | 2026-10-20T23:42:47.651Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch push-b696-root 28e6c60
+  #126 | 2026-10-20T23:42:53.444Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b696_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b696-root
+  #127 | 2026-10-20T23:43:26.887Z | seat | PowerShell | python -X utf8 tools/b696_record.py root
+  #128 | 2026-10-20T23:43:59.538Z | seat | PowerShell | python -X utf8 tools/b696_record.py root_arm
+  #129 | 2026-10-20T23:44:03.124Z | seat | PowerShell | python -X utf8 tools/b696_record.py trail dry
+  #130 | 2026-10-20T23:44:06.299Z | seat | PowerShell | python -X utf8 tools/b696_record.py trail
+  #131 | 2026-10-20T23:44:09.614Z | seat | PowerShell | python -X utf8 tools/b696_record.py desk
+  #132 | 2026-10-20T23:44:12.538Z | seat | PowerShell | python -X utf8 tools/b696_record.py components
+  #133 | 2026-10-20T23:44:26.325Z | seat | Bash | git -C /d/relay status --short --untracked-files=all -- data/act_roots.txt data/b696_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior
+  #134 | 2026-10-20T23:44:29.356Z | seat | Bash | git -C /d/relay add data/act_roots.txt data/b696_act_root.json data/b696_act_root.txt data/b696_components.txt data/b696_desk_notes.txt data/b696_pp_root_push_o
+  #135 | 2026-10-20T23:44:33.329Z | seat | Bash | git -C /d/relay commit -m "b696 record under (R306): act root b696 8d5b3d9d32ec5804 (banks 56, previous a8405976); the root's control; the trail at OPEN_TRAILS 
+  #136 | 2026-10-20T23:44:35.900Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add OPEN_TRAILS.md
+  #137 | 2026-10-20T23:44:38.269Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b696 record, under (R306): the trail record carrying the root 8d5b3d9d (OPEN_TRAILS :15230)"
+  #138 | 2026-10-20T23:44:41.062Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --part standing-a
+  #139 | 2026-10-20T23:48:23.773Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --part standing-c
+  #140 | 2026-10-20T23:49:09.336Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --part standing-b1
+  #141 | 2026-10-20T23:50:25.030Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --part standing-b2
+  #142 | 2026-10-20T23:56:39.108Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --part standing-b3
+  #143 | 2026-10-20T23:58:32.971Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --part act
+  #144 | 2026-10-20T23:59:34.205Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --combine b696_checks.txt
+  #145 | 2026-10-20T23:59:39.704Z | seat | Bash | git -C /d/relay status --short --untracked-files=all -- data/b696_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal
+  #146 | 2026-10-20T23:59:43.729Z | seat | Bash | git -C /d/relay add data/b696_chain_half_a_checks.json data/b696_chain_half_b_checks.json data/b696_checks.txt data/b696_checks_act.txt data/b696_checks_standin
+  #147 | 2026-10-20T23:59:47.345Z | seat | Bash | git -C /d/relay commit -m "b696 record: the pre-push suite in six parts, 118 arms, 118 passing, every control behaving, no failure carried (G-RULE-BINARY-HASHES
+  #148 | 2026-10-20T23:59:49.866Z | seat | Bash | git -C /d/relay branch push-b696 564e9bb9
+  #149 | 2026-10-20T23:59:52.388Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b696_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b696
+  #150 | 2026-10-21T00:00:01.347Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch push-b696 345da1a
+  #151 | 2026-10-21T00:00:04.420Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b696_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b696
+  #152 | 2026-10-21T00:00:33.191Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --rerun-postpush b696_checks_postpush.txt --part standing-a
+  #153 | 2026-10-21T00:04:16.574Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --rerun-postpush b696_checks_postpush.txt --part standing-c
+  #154 | 2026-10-21T00:05:01.965Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --rerun-postpush b696_checks_postpush.txt --part standing-b1
+  #155 | 2026-10-21T00:06:17.749Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --rerun-postpush b696_checks_postpush.txt --part standing-b2
+  #156 | 2026-10-21T00:13:25.404Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --rerun-postpush b696_checks_postpush.txt --part standing-b3
+  #157 | 2026-10-21T00:15:21.229Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --rerun-postpush b696_checks_postpush.txt --part act
+  #158 | 2026-10-21T00:16:06.176Z | seat | PowerShell | python -X utf8 tools/b696_checks.py --combine b696_checks_postpush.txt
+  #159 | 2026-10-21T00:16:12.379Z | seat | PowerShell | python -X utf8 tools/b696_record.py scores close
+  #160 | 2026-10-21T00:16:27.642Z | seat | PowerShell | python -X utf8 tools/b696_record.py desk
+  #161 | 2026-10-21T00:16:28.241Z | seat | PowerShell | python -X utf8 tools/b696_record.py commands
 
-### ### **COMMANDS 86 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 9 OF 9 ; OUTBOUND REQUESTS 1, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 161 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 9 OF 9 ; OUTBOUND REQUESTS 1, AN IDENTIFIER IN 0.**
