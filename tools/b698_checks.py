@@ -887,8 +887,8 @@ def uses_ok(S):
 
 def action_first_ok(S):
     """(R308)(5): the README ACTION drafted and committed before its prompt was put, the prompt before the cut's commit on SIDE-simplicity."""
-    calls = S['answersj'].get('calls') or []
-    p = iso_epoch((calls[2].get('ts') or '')[:19] + 'Z') if len(calls) > 2 else None
+    calls = S['answersj'].get('calls') or []      # ### calls, not prompts: the two misses shared the first call, the README prompt is the second
+    p = iso_epoch((calls[1].get('ts') or '')[:19] + 'Z') if len(calls) > 1 else None
     return 'data/b698_residue_actions.txt' in S['files']['action'] and bool(p) and bool(S['t'].get('action')) and bool(S['t'].get('cut')) \
         and S['t']['action'] < p < S['t']['cut'] and 'THE SUCCESSOR LINE, whole:' in S['actions']
 
@@ -913,8 +913,8 @@ def quote_first_ok(S):
 def cell_ok(S):
     """(R308)(5), on the word "run": the dry run after the tag committed before the prompt, the prompt before the page's commit, the page alone
     written by the generator, its :441 carrying v0.1.2."""
-    calls = S['answersj'].get('calls') or []
-    p = iso_epoch((calls[3].get('ts') or '')[:19] + 'Z') if len(calls) > 3 else None
+    calls = S['answersj'].get('calls') or []      # ### the stale-cell prompt is the third call
+    p = iso_epoch((calls[2].get('ts') or '')[:19] + 'Z') if len(calls) > 2 else None
     pl = S['page_simp'].split(NL)
     return 'data/b698_correspondence_dry_after.txt' in S['files']['dry_after'] and bool(p) and S['t']['dry_after'] < p < S['t']['cellpp'] \
         and S['files']['cellpp'] == ['phase1.5/simplicity/' + K.STALE_PAGE] and 'THE PAGE ALONE True' in S['page_diff'] \
