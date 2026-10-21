@@ -101,7 +101,9 @@ C1_RELAY, C1_PP = '37be08e8', 'c10b117'
 C2_RELAY, C2_PP = '9b74ba29', 'a1d5d59'
 C3_PP = '76fddd5'            # ### OPEN_TRAILS's two orders; beside it the faces page 65a8367 and the README d5f8a03, each alone
 FACES_COMMIT, README_COMMIT = '65a8367', 'd5f8a03'
-C3_RELAY = C4_RELAY = ''
+C3_RELAY = '86f73fd0'
+C4_PP = 'e860fba'            # ### OPEN_TRAILS's four orders (:15450-:15456)
+C4_RELAY = ''
 CUT_DOC, CUT_NAME = 'day1/Seven_Mechanism_Classes.md', 'Seven_Mechanism_Classes'   # ### named by data/b702_tie.txt (20:43:20Z)
 CUT_TABLE = 'b646_table_Seven_Mechanism_Classes.txt'
 CUT_COMMIT = 'a1d5d59'      # ### PLACE-papers: the cut, the document alone (its subject's "17" is defect (c); the bank's 18)

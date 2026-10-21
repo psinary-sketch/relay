@@ -820,8 +820,51 @@ def c3orders(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 4: THE ORDERS OF (R312)(7) AND OF THE AUTHOR'S MID-ACT WORDS (A)-(C)
+SC_H = ('*Appended 2026-10-21 by b702 beneath `W-ORD-PAPER-PARTNER-COPIES` (:15446), under `(R312)`(7) -- THE ORDER **`W-ORD-STANDING-CLAUSES-BANK`**, '
+        'ENTERED:*')
+SC_B = (' the ferry’s standing procedural paragraph banked once as a versioned rules bank that the ferry names by version and the arms read, the '
+        'paragraph then carried by reference and its deltas alone. Priced by the readers of the ferry’s text today: relay tools/ferry_scan.py’s scan '
+        'and its standing-clauses citation (:697-:703; on this ferry “cited none ; current 2”, relay data/b702_ferry_scan.txt), the suite’s '
+        'G-RECEIPT-IN-FULL over the banked ferry, and the citation tool’s check over the ruling and the ferry (relay tools/b702_citation.py) -- one '
+        'bank written once and those three readers pointed at its version; no arm added. Trigger: the reading act b710. Status OPEN.')
+LJ_H = ('*Appended 2026-10-21 by b702 beside `W-ORD-STANDING-CLAUSES-BANK` (directly above), under the author’s mid-act words of 2026-10-21 (A), '
+        '“ordering the closure join” -- THE ORDER **`W-ORD-LV-CLOSURE-JOIN`**, ENTERED:*')
+LJ_B = (' the object: a third kernel requiring SIDE-explicit-formula and SIDE-lv-conservation at one shared Lean and Mathlib pin and stating '
+        'h2_sign ↔ Register4_positivity LiCoeff against lv-conservation’s own declaration of Register4_positivity, so that the join is read by Lean’s '
+        'closure and not by the correspondence reader. The condition: lv-conservation’s deposited v0.10.0 = 93c27ec and its lakefile unchanged, the '
+        'third kernel the one place both are required. The price: unknown until read. The opening step, at b703’s step zero, a read and no build: '
+        'each kernel’s lean-toolchain and lake-manifest.json at its current tag read through the Read tool, the Lean versions and Mathlib revisions '
+        'printed side by side, and the pin-alignment price stated in dispatches with its cause by line. Nothing built and no lakefile edited for it at '
+        'b702. Trigger: the research act b703. Status OPEN.')
+KH_H = ('*Appended 2026-10-21 by b702, under the author’s mid-act words of 2026-10-21 (B), “advance the prose with beauty and clarity sharpening '
+        'conclusions and results” -- THE ORDER **`W-ORD-KEYSTONE-HEADS`**, ENTERED:*')
+KH_B = (' at each re-cut act from b704, beside the cut, the cut document’s opening paragraph redrafted to state its results as results at the '
+        'ceiling, each sentence carrying its terminal by tag or its status by name, drafted as the author’s sentence for the author’s strike and '
+        'written on the word. Priced at one paragraph per re-cut act. At b702 the word applied to the prose b702 writes alone (the README’s '
+        'sharpened append; the FINDINGS entry’s head line); no paper’s prose written for this order. Trigger: the re-cut act b704. Status OPEN.')
+SA_H = ('*Appended 2026-10-21 by b702, under the author’s mid-act words of 2026-10-21 (C) and N5 (no standing arm added at b702) -- THE ORDER '
+        '**`W-ORD-STANDING-ARMS-B703`**, ENTERED:*')
+SA_B = (' four standing arms added at b703 on the author’s word “add needed arms”, each a reading arm that prints its figure every act and fails on a '
+        'regression from the previous act’s figure, not on the figure itself: G-CORRESPONDENCE-CURRENCY (every roster paper’s Correspondence rows read '
+        'against REGISTRY’s current tag and the print bank at the cited tag, one line per paper -- rows current, behind, at a moved tag with a changed '
+        'statement; fails when the changed-statement count rises); G-README-CURRENCY (the PLACE-papers README’s tags and counts read against ls-remote; '
+        'fails when a stale line is added); G-PARTNER-COPIES (lines differing between the two copies of each roster paper; fails when the total rises, '
+        'until W-ORD-PAPER-PARTNER-COPIES is resolved); G-SISTER-PINS (each kernel’s lean-toolchain and Mathlib revision printed beside the '
+        'federation’s; fails when a kernel the faces page names moves pin without a ruling). G-BINDER-PROVENANCE enters when its tool exists, under '
+        '`(R312)`(7) (relay data/b702_circuit_spec.txt, the twelfth row). Trigger: the research act b703. Status OPEN.')
+
+
+def orders(*a):
+    """OPEN_TRAILS: W-ORD-STANDING-CLAUSES-BANK ((R312)(7)), then the author's three of the mid-act words -- W-ORD-LV-CLOSURE-JOIN (A),
+    W-ORD-KEYSTONE-HEADS (B), W-ORD-STANDING-ARMS-B703 (C) -- appended through the guarded landing, in that order."""
+    land([('OPEN_TRAILS.md', SC_H, NL + SC_H + SC_B + NL), ('OPEN_TRAILS.md', LJ_H, NL + LJ_H + LJ_B + NL), ('OPEN_TRAILS.md', KH_H, NL + KH_H + KH_B + NL),
+          ('OPEN_TRAILS.md', SA_H, NL + SA_H + SA_B + NL)], '%s_orders_line.json' % ACT, 'orders', entry=None,
+         check=[('OPEN_TRAILS.md', 15446, '*Appended 2026-10-21 by b702 in place of `W-ORD-ONE-COPY`')], dry='dry' in a)
+
+
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, defshort=defshort, c1=c1, guard=guard, repairs=repairs, tie=tie,
-              quote=quote, cut=cut, faces=faces, readme=readme, c3orders=c3orders)
+              quote=quote, cut=cut, faces=faces, readme=readme, c3orders=c3orders, orders=orders)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
