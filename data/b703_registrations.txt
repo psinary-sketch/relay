@@ -1,0 +1,55 @@
+b703 -- STEP ZERO, (R313)(6): THE REGISTRATIONS, WRITTEN BEFORE ANY NUMBER IS COMPUTED (2026-10-21)
+
+### rows are registrations, each with its hypothesis, falsifier, control, the act that computes it and the order it serves, in (R313)(6)'s
+### words. Written by the Write tool at step zero and committed alone before the reader of (i) is written or run (N4); nothing in this bank
+### is a number read from a bank of zeros -- the two figures it carries (163 and ρ₀'s real part) are the ruling's, stated by b681's entry
+### (relay data/b681_findings.json :2) and b671's control bank (data/b671_epstein_control_narrowed.txt :51), and no row of the zeros bank
+### was read by this act (the between-acts read of data/b681_narrow.txt :5-:40 is lettered (a) in data/b703_defects.txt: rows of the
+### narrowing bank, no real part among them).
+
+  (i) W-ORD-Q0-BAND-CONTROL -- COMPUTED AT b703 (a count).
+      THE READER: tools/b703_q0_zeros_read.py, a named reader, its writes to data/b703_q0_band.txt alone; it opens
+          data/b681_epstein_zeros_narrowed.json.gz only after the gz's sha256 equals data/b681_epstein_zeros_narrowed_hashes.txt :3 and the
+          JSON's equals :2; it prints the bank's keys, its row count, its off-line and on-line counts, and for the off-line rows the counts of
+          real parts in the bins (1/2, 0.6], (0.6, 0.75], (0.75, 7/8], (7/8, 1), with the lowest-height zero in (1/2, 7/8] if any. No witness
+          computed this act.
+      HYPOTHESIS: the bank holds a certified off-line zero of Q0 with 1/2 < Re ρ ≤ 7/8.
+      FALSIFIER: none in the bank -- its height range then printed and the strip-locate instrument I-1 priced beyond it.
+      CONTROL: the reader's row count equals the stated 163, and its row for ρ₀ reads Re 0.95326047479466068625 to the bank's digits.
+      THE ORDER IT SERVES: W-ORD-Q0-BAND-CONTROL ((R313)(6)(i)); its result feeds (ii)'s band witness at b705.
+
+  (ii) THE DETECTION LAW -- COMPUTED AT b705.
+      THE QUANTITY: for an off-line zero ρ = β + it with β > 1/2, r(ρ) = log|1 − 1/(1 − β + it)|, which is (2β − 1)/(2t²) to leading order.
+          For each off-line pair, the Li coefficients of the configuration of Q0's certified on-line zeros with P3's tail and that pair alone (the
+          on-line terms nonnegative by blTerm_nonneg_of_onLine), n*(ρ) the least n at which the coefficient is negative.
+      HYPOTHESIS (THE PREDICTION): n*(ρ) = L₀ / r(ρ) within the factor range [0.67, 1.5], L₀ calibrated at ρ₀ as r(ρ₀) × n*(ρ₀).
+      FALSIFIER: any pair's n* outside the range.
+      CONTROLS: the configuration at ρ₀ computed by b675's route reproducing b675's figure; ζ's coefficients nonnegative through the largest
+          predicted n*.
+      BESIDE IT, WHERE (i) FINDS A BAND ZERO: the notched Weil window of b518 at that zero, computed at b705; its falsifier a nonnegative
+          reading at every width 32 to 192; its control the centred window and the ζ windows.
+      THE ORDER IT SERVES: none named by (R313)(6)(ii); registered under the ruling's number for b705's ruling to name.
+
+  (iii) W-ORD-QUASI-RH-FIELD-WATCH -- WRITTEN WHEN THE MANUSCRIPTS ARE IN HAND (no act named; not this act).
+      THE RECORD: the I-5 field-watch record (relay: PLACE-papers phase1.5/method/INSTRUMENTS.md :74-:91, the record form (a)-(d) as the
+          inaugural entry :113-:117 writes it) on the claimed zero-free half-plane for ζ and the Dirichlet L-functions (7/8, and the 11/12
+          companion).
+      THE REGISTERED QUESTION: at which step, by page and line, the argument spends multiplicativity (the Euler product, the bounded coefficients
+          μ(n)χ(n) of the reciprocal, a Hecke eigenproperty).
+      CONTROL, THE DAVENPORT–HEILBRONN DISCRIMINATOR: the step must fail for Q0, whose ρ₀ lies at Re 0.953.
+      VERDICT FORM: WATCH or DISMISSED with its clause (INSTRUMENTS.md :91's grades).
+      BESIDE IT, AT STATEMENT GRADE: whether a quantitative Nyman–Beurling statement encodes a zero-free half-plane, read against rh_iff_nb
+          (SIDE-explicit-formula v0.24) and its premise NymanBeurlingPremise; the literature read before any statement is drafted; no claim.
+      THE ORDER IT SERVES: W-ORD-QUASI-RH-FIELD-WATCH ((R313)(6)(iii)).
+
+  (iv) THE COVER AXIS AT THE CLAUSE -- COMPUTED AT b705.
+      THE SOURCE: W-SIGN-7, closed 2026-07-27 (OPEN_TRAILS archive-2 :2089, the loom archive :2671-:2825), read whole at step zero and banked
+          as relay data/b703_wsign7.txt; W-FAMILY (:2091) TWO-with-shared-root.
+      THE RANKING: the I-6 ranking (INSTRUMENTS.md :126-:146) at Weil positivity on classK -- axis (b) scored from W-SIGN-7 as a wall that moved
+          (narrowed to one clause), the other five axes at statement grade; the product a ranking, not an attempt.
+      ENTERED IN THIS ACT'S FINDINGS ENTRY: W-SIGN-7's Epstein arm closed at "no accessible explicit ordinates" for x² + xy + 6y² with
+          own-computation as an unblock path, and that path met by b671-b681's certified zeros.
+      THE ORDER IT SERVES: none named by (R313)(6)(iv); registered under the ruling's number for b705's ruling to name.
+
+### ### **REGISTRATIONS 4 ; COMPUTED AT b703 1 ((i), A COUNT) ; AT b705 2 ((ii), (iv)) ; WHEN THE MANUSCRIPTS ARE IN HAND 1 ((iii)) ; NO NUMBER
+### COMPUTED BEFORE THIS BANK ; COMMITTED ALONE BEFORE THE READER IS WRITTEN.**
