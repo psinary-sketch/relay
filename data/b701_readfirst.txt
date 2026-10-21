@@ -1,0 +1,66 @@
+b701 -- THE READ-FIRST BANK, (R311)(6) AND THE FERRY'S READ-FIRST LIST, READ AT STEP ZERO (2026-10-21)
+
+### rows are the ferry's read-first items in its order: the item | path and line | the unit of the bank's rows | what was read there.
+### Each cite is checked at HEAD by tools/b701_citation.py (data/b701_citation_check.txt, run before any other step and before any delete;
+### the first real run read 5 misses, three of them the seat's own needles -- the reading-4 section headings, the face's hash read as a commit,
+### the closing's two writes read as two commits -- corrected in the act's tool and the check re-run; the two misses that stand are the
+### ruling's and are raised before Component 2).
+
+  b700's head line             relay data/b700_closing.txt :1 | rows are the closing's report lines | "b700 closed: relay ac29fa81, PLACE-papers 71b23ac;
+                               suite 118 of 119; root 6f32698e1c7c0d9e…; 2 prompts answered; 2 defects" -- equal to (R311)(1)'s quote character for
+                               character after whitespace is removed
+  b700's defects               relay data/b700_defects.txt :6-:20 | rows are defects as lettered, (a)-(b), both the seat's; events beneath (:22-:39);
+                               the root prompt's (R278)(4) check at :41-:43, VACUOUS | (a) the resume's shell reads, pipes, redirects and one sed,
+                               (b) two whole reads of files of 200 lines or more before the reboot, entered late
+  reading 4                    relay data/b700_reading4.txt :3 (the unit), :8-:76 (rows (1)-(16)), the five added sections (a) :78, (b) :90, (c) :102,
+                               (d) :112, (e) :121 | rows are readings with their tool or "by hand" | 338 outside; Correspondence 58 behind by b670's
+                               method, 0 by the generator's; defects 185 in 18 classes, 17 standing sources; ONE-COPY 131 lines; CLAUSE-DOMINANCE 1 of
+                               2 by closure, DIFFERS at binder 1 by correspondence; the regularity counts beside the bridge's price (:121-:123)
+  the slate                    relay data/b700_slate.txt :9-:16 (the bridge), :18-:39 (the Epstein count), :41-:52 (the widening), :54-:55 (the
+                               verdict) | rows are orders with their plan's source, what is carried, what is written and the price | the bridge 1
+                               dispatch; the Epstein count 6 dispatches at the least, Z_Q not yet in Lean; the widening 1 dispatch in b689's form
+  the bridge plan              relay data/b699_bridge_plan.txt :22 (section 1), :23-:29 (binder 1), :67-:69 (S1), :72-:74 (S2), :81-:86 (the price),
+                               :83 (the branch "from main") | rows are binders | S1 h2_sign ↔ Register4_positivity LiCoeff := B321.h2_sign_iff_rh.trans
+                               PageConverses.register4_positivity_liCoeff_iff_rh.symm; DERIVES expected; PRICE 1 DISPATCH
+  binder 1 of b698             relay data/b698_correspondence_dominance.txt :33-:35 | rows are binders aligned by position | h2_sign's (k : ℝ → ℂ)
+                               against residue_irreducible's {lam_A : ℕ → ℝ}: DIFFERS, kind explicit against implicit; the verdict :77 (1 OF 2 BY
+                               CLOSURE; DIFFERS at binder 1 BY CORRESPONDENCE)
+  the regularity uses          relay data/b698_regularity_uses.txt :27-:43 (U1-U17), :46-:49 (s1-s4), :58-:74 (P1-P17), :75-:76 (s5, s6), :85 (the
+                               uses' counts), :86 (the path's) | rows are uses: file :line, the line, the declaration, the hypothesis consumed, the
+                               step, W1, W2, W3 | uses W1 11/6/0, W3 13/4/0; path W1 13/4/0, W3 17/0/0; RE-PROVED under W1 ∪ W3: 10 uses (U1, U3,
+                               U5, U6, U10, U13 by s1; U4, U7, U11, U14 by s2) and 4 path leaves (P3, P6 by s1; P7, P13 by s6)
+  the correspondence reader    relay tools/circuit_correspondence.py :114 (from_pi), :134 (from_signature), :150 (normal), :166 (compare), :240
+                               (lv_source), :260 (main) | a tool's source | compares two statements as binders and a conclusion by position after the
+                               kernels' namespaces are stripped; HOLDS-BY-CORRESPONDENCE or DIFFERS at the first binder
+  the v0.34 print bank         relay data/terminal_table.md :142 (h2_sign_iff_rh, DERIVES, the standard three), :681 (li_nonneg_iff_rh); relay
+                               data/b689_axioms_SIDE-explicit-formula_run1.txt :32 (li_nonneg_iff_rh, run 39255737373 at v0.34's branch tip) | rows are
+                               terminals with their axioms | both at [propext, Classical.choice, Quot.sound]; h2_sign_iff_rh is not in print_targets.txt
+                               (its print is the closure's, data/b692_circuit_SIDE-explicit-formula_v0.34.1.txt)
+  H2Sign.lean                  SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :22-:26 (classK), :28-:30 (h2_sign) | a kernel's source | classK:
+                               even, ContDiff ℝ 2, HasCompactSupport, ∃ h C² compactly supported with k = Zeta23.EF.weilTest h h; h2_sign: ∀ k, classK k →
+                               0 ≤ poleTerm k - primeSum k + archTerm k
+  lv's Register4_positivity    SIDE-lv-conservation v0.13.0 = 8e3bc76 SIDELvConservation/RegisterPentagon.lean :153-:154 (git show at the tag) | a kernel's
+                               source | def Register4_positivity (lam : ℕ → ℝ) : Prop := ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n; the face b698 read:
+                               ZeroActingPartial.lean :111-:121, its binder 13 liCriterion : Register4_positivity lam → RiemannHypothesis; the
+                               restatement SIDE-explicit-formula ResidueDischarge.lean :30-:31, its body the same
+  the Correspondence row       relay data/b690_nodes_zeta.txt :126 | rows are the faces page's nodes | @corr SIDE-lv-conservation | residue_irreducible |
+                               INTERFACES | T1-lit | liCriterion discharged at λ := LiCoeff by register4_positivity_liCoeff_imp_rh, v0.10 = 6baed63
+  the glossary                 relay data/glossary.txt :12 (classK), :11 (h2_sign), :13 (h2_sign_iff_rh) | rows are terms with their definition and
+                               source | classK: even, twice continuously differentiable, compactly supported, of the form h ⋆ h~
+  the count                    relay data/b685_count.txt :3 (the unit), :7-:17 (the parameters), :19-:25 (the constants in balls), :27-:30 (the
+                               composition NOT RUN at b685) | rows are T ranges after the constants | a = 0.432571915432, b = 0, c = 1.26244217716 for
+                               T ≥ 149, C₀ = 0.977462438857
+  the steps                    relay data/b687_steps.txt :3 (the unit), :7-:120 (ζ at 100, 1000, 10⁴; Z_Q at 50, 100, 149) | rows are steps with
+                               height, bound, computed value and margin | (iv-1) the right edge, (iv-2) Γ and (s − 1) and Stirling, (iv-3)
+                               Phragmén-Lindelöf and the ends, (iv-4) the envelope and |Z(s)| ≤ Z(σ), (iv-5) the centre, (iv-6) the top edge; 114/114 HOLDS
+  P3's status                  relay data/b687_p3_status.txt :4 (the unit), :6-:9 (P3, BEFORE, AFTER), :10-:29 (H1-H5), :30-:31 (not a Lean statement;
+                               the Lean form W-ORD-EPSTEIN-COUNT-LEAN's), :35-:36 (the verdict) | rows are the premise with its readings | DERIVED, not
+                               compiled
+  Z_Q's bracket                relay tools/b326_windows.py :220-:229 (kernel_q_derived) | a tool's source | 2 Re psi(1/2 + i u) - 2 log(2 pi / sqrt 23),
+                               the archimedean bracket of Z_Q's explicit formula on the line
+  b689's form                  relay data/b689_plan.txt :3 (the unit), :28-:46 (the hypothesis set with sources), :48-:85 (the uses classified), :87-:104
+                               (the declarations to be written), :124-:142 (the controls), :144-:159 (the expected statement, profile, salt-check and
+                               grade), :171-:178 (the runner, one tree state per dispatch), :180-:181 (the obstruction count), :183-:189 (the consumers)
+                               | rows are statements, uses, priced facts and their sources, by section
+  b700's closing push-out      relay data/b700_closing_push_out.txt :5 | rows are the push tool's capture lines | "main read back at the remote:
+                               5623191ee4b0..."; untracked, to be committed alone at step zero

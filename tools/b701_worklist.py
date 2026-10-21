@@ -1,0 +1,84 @@
+# -*- coding: utf-8 -*-
+"""b701_worklist.py -- THE ACT'S DATA, UNDER (R311). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+
+### ### b701: LANE TWO, ACT ONE HUNDRED AND TWENTY-EIGHT, THE RESEARCH ACT -- b700 AT ITS WEIGHT; THE BRIDGE COMPILED AND THE FACES JOINED
+### THROUGH RH; THE classK WIDENING PLANNED, RAISED, AND ON THE AUTHOR'S WORD BUILT; THE EPSTEIN COUNT'S OPENING STEP PLANNED. No lean on this
+### host; the hosted runner at SIDE-explicit-formula dispatched once per branch tip, two at the most (N1). Written whole by the Write tool from
+### b700_worklist.py's form (stage one: step zero; stage two, Component 4, by the Edit tool). The act runs in a NEW session (e5bcf1d0), the
+### same claude process (pid 16980) b700's continuation ran in, after the author's /clear; the anchor is (R311)'s line.
+"""
+import os
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+D = os.path.join(ROOT, 'data')
+NL = chr(10)
+PP = 'D:/MY-DOwnloads/PLACE-papers'
+PRE_PP = '71b23ac'          # ### PLACE-papers main before the act (b700's record, pushed)
+PRE_RELAY = '5623191e'      # ### relay main before the act (b700's closing, pushed)
+DATE = '2026-10-21'
+SESSION_ID = 'e5bcf1d0-1e8c-4ad1-a048-b35048cad0b6'
+SP = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/%s/scratchpad' % SESSION_ID
+HOLD = 2560
+ANCHOR = 'RULING (R311) BEGIN'
+TAIL = 'FERRY END (part 1 of 1)'
+SESSIONS_AFTER = ()         # ### one session so far (b671's form holds a continuation here if one comes)
+DRAFT = '23228113'
+LOCAL_BANK = 'data/b628_intake_crank_v0_5.txt'
+EXPORT = 'data/b647_navigator_memory.txt'
+TABLE_FILES = ['terminal_table.md', 'terminal_table.json', 'terminal_table_prior.json', 'terminal_table_run.txt', 'terminal_table_diff.json']
+CITATION_BANK = 'b701_citation_check.txt'
+
+# ### the ledger lines this act's record lines are placed by
+B700_ENTRY = 9768           # ### FINDINGS: b700's entry head
+B700_TRAIL = 15370          # ### OPEN_TRAILS: b700's trail record
+B700_FACE = 'data/b700_registration_2026-10-21.txt'
+MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-10-21-b700.zip'
+BRIDGE_ORDER = 15334        # ### OPEN_TRAILS: W-ORD-H2-BRIDGE-THEOREM (b699)
+
+# ### the branches step zero deletes ((R311)(5)), one per command, each its own message, in sequence, nothing chained after any
+DELETE = (('D:/relay', ('push-b700', 'push-b700-root', 'push-b700-closing')),
+          ('D:/MY-DOwnloads/PLACE-papers', ('push-b700', 'push-b700-root')))
+DELETE_REMOTE = ()
+
+FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
+PARTS = ('standing-a', 'standing-c', 'standing-b1', 'standing-b2', 'standing-b3', 'act')
+CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b701'))
+
+# ### THE KERNEL THIS ACT WRITES (N1, N5): SIDE-explicit-formula, on two branches, each built once at its tip by the hosted runner
+KERNEL = 'SIDE-explicit-formula'
+KERNEL_DIR = 'D:/SIDE-explicit-formula'
+EF_DIR = KERNEL_DIR
+LV_DIR = 'D:/SIDE-lv-conservation'
+EF_V034 = '8fbc27bef051b704ef72fc69a274b8ce8eee41a6'     # ### v0.34 peeled (the bridge plan's base, (R311)(2))
+EF_V0341 = 'e5fcda7b08f1b6185ceed9464515b39349a606f8'    # ### v0.34.1 peeled (b691's EpsteinQ0 re-cut)
+EF_MAIN_BEFORE = '4313875100616fcdf86f712f5133cf6562476578'   # ### main before the act (b692's closure commit), local and remote
+LV_V0130 = '8e3bc76cbb326739deaf3e034d9069d82d2407ec'    # ### SIDE-lv-conservation v0.13.0 peeled
+BRIDGE_BRANCH, WIDEN_BRANCH = 'bridge-b701', 'widening-b701'
+BRIDGE_TAG, WIDEN_TAG = 'v0.35', 'v0.36'
+BRIDGE_FILE = 'SIDEExplicitFormula/H2Bridge.lean'
+BRIDGE_NAMES = ('SIDEExplicitFormula.H2Bridge.h2_sign_iff_register4_positivity_liCoeff',
+                'SIDEExplicitFormula.H2Bridge.h2_sign_imp_pairing_rh')
+WIDEN_FILE = 'SIDEExplicitFormula/H2SignWide.lean'
+
+# ### stage two (Component 4, by the Edit tool): the commits in order, the sealed tools and the act's arms.
+STEPZERO = ''                # ### b700's closing push-out bank, alone
+STEPZERO_BANKS = ''          # ### the step-zero banks and tools
+PLAN_WIDEN, PLAN_EPSTEIN = '', ''   # ### the two plans, each committed alone
+C1_RELAY, C1_PP = '', ''
+C2_RELAY = ''
+C3_RELAY = ''
+WEIGHT_LINE = 0
+B700_TRAIL_HEAD = ('### b700 — lane two, act one hundred and twenty-seven, the reading act under (R310): b699 at its weight; the trail`s Defects '
+                   'line, the head line`s counts and the root-named claim by corrigendum; reading 4 with five readings added; the slate for b701 priced')
+
+SEALED = ('b701_worklist.py', 'b701_tests.py', 'b701_citation.py', 'b701_record.py', 'b701_checks.py', 'b701_closing.py', 'b701_reg_gate.py',
+          'b701_regspec.py')
+REPAIRED_TOOLS = ()
+NEW_TOOLS = ()
+ACT_ARMS = ()
+STANDING_ADDED = ()          # ### no standing arm added this act (N5)
+SHARED_APPENDED = ()
+PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')
+NEXT = ('b702, the re-cut act: the licensed table`s next document by b652`s order and b674`s rule, rule (2) of data/b690_rules.txt and row (1) of '
+        'data/b698_rules.txt binding, the faces rows of (R311)(2) and the glossary row of (R311)(3) raised there; b703 the research act, the Epstein '
+        'count`s opening step on the author`s word from data/b701_epstein_plan.txt')
