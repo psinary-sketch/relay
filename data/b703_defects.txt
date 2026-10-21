@@ -1,0 +1,26 @@
+b703 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-21)
+
+### rows are defects, each lettered by the time it was found, with whose it is, what the rule says, what was done and the repair or the entry.
+### Events that are not defects are entered beneath, unlettered.
+
+    (a) THE SEAT'S: ROWS OF THE NARROWING BANK READ BETWEEN THE ACTS WHILE A STATED COUNT WAS SOUGHT. The author's between-acts word: "No row
+        is read or computed from it: the band count is registered in b703's ruling before anything is computed." Looking for a stated row count
+        of b681's zeros bank, the seat read relay data/b681_narrow.txt :1-:40 through the Read tool; :5-:40 are rows of the narrowing bank (OFF
+        0-16, ON 0-18: form, NARROWED, half-width 1e-30, depth 20, parts), no ordinate and no real part among them; nothing computed from them.
+        Raised by the seat in the between-acts report; lettered here on (R313)(2); the registration of (R313)(6) unaffected since no real part
+        was seen. The count of record came from b681's entry (data/b681_findings.json :2).
+    (b) THE SEAT'S: A FILE'S CONTENT READ THROUGH THE SHELL TO COUNT ITS LINES. The ferry's clause: files read through the Read tool, and not
+        through a shell filter or an interpreter's print. To find the readfirst route's call form the seat ran PowerShell
+        `(Get-Content -LiteralPath 'D:\relay\tools\circuit_read.py' | Measure-Object -Line).Lines` beside the file's length -- the file's content
+        read in the shell (and its count, 480, short of the Read tool's 537 lines). No bank was written from it; the route was then read through
+        the Read tool (:379-:456, :531-:537); every later size read from the directory listing alone.
+    (c) THE SEAT'S: A CITATION ROW THAT COULD NOT FIRE. (R313)(4) cites "the branch the plan names"; the check's row for it printed the plan's
+        lines carrying the word "branch" ([103]) and passed on the price line alone, so the cite read OK where the plan names the module
+        (SIDEExplicitFormula/Schema/EpsteinZQ.lean, :72) and no branch (:103 "no sorry on any branch"). Found by the seat's own read of the plan
+        for the readfirst bank; raised before Component 2 as the ruling's miss (data/b703_stepzero.txt); the banked check not rewritten.
+
+### EVENTS, UNLETTERED
+    the Read tool refused a second whole read of data/b702_defects.txt at the readfirst reads (unchanged since its read at the start of the
+    between-acts reads); the readfirst bank names that read.
+    test part 1 ran under `export PYTHONIOENCODING=utf-8` inside its one call, where every other call carries the variable as a prefix; the
+    shell's environment outside the call untouched.
