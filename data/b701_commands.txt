@@ -1,7 +1,7 @@
-b701 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T17:13:59Z)
+b701 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T18:02:18Z)
 
 ### the source: the seat`s session e5bcf1d0-1e8c-4ad1-a048-b35048cad0b6 from its first user line carrying 'RULING (R311) BEGIN', with its subagents` transcripts
-### commands read: 146
+### commands read: 217
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -211,5 +211,76 @@ b701 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #144 | 2026-10-21T17:13:26.616Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py standing
   #145 | 2026-10-21T17:13:27.882Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py commands dry
   #146 | 2026-10-21T17:13:29.090Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py reads dry
+  #147 | 2026-10-21T17:13:50.180Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py commands
+  #148 | 2026-10-21T17:13:51.451Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py answers
+  #149 | 2026-10-21T17:13:52.654Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py reads
+  #150 | 2026-10-21T17:13:53.969Z | seat | Bash | wc -l /d/relay/data/b700_registration_2026-10-21.txt /d/relay/data/b701_defects.txt /d/relay/tools/b701_reg_gate.py
+  #151 | 2026-10-21T17:16:58.020Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py defects && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701
+  #152 | 2026-10-21T17:17:13.509Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b701_checks.py /d/relay/tools/b701_closing.py /d/relay/tools/b701_reg_gate.py /d/relay/tools/b701_regspec.py /d/rela
+  #153 | 2026-10-21T17:19:55.944Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py drycheck /d/relay/data/b701_registration_2026-10-21.txt standin
+  #154 | 2026-10-21T17:20:17.086Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py drycheck /d/relay/data/b701_registration_2026-10-21.txt standin
+  #155 | 2026-10-21T17:20:39.132Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py drycheck /d/relay/data/b701_registration_2026-10-21.txt standin
+  #156 | 2026-10-21T17:20:46.848Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py findings dry
+  #157 | 2026-10-21T17:20:48.082Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_closing.py dry
+  #158 | 2026-10-21T17:20:49.083Z | seat | Bash | git -C /d/relay status --short --untracked-files=all -- data/b701_* tools/b701_* data/audit_b701_*
+  #159 | 2026-10-21T17:21:51.362Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b701_record.py && git -C /d/relay add data/b701_defects.txt data/b701_defects.json tools/b701_record.py tools/b701_w
+  #160 | 2026-10-21T17:22:00.308Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_checks.py --prerun --part standing-a
+  #161 | 2026-10-21T17:26:07.934Z | seat | Bash | git -C /d/SIDE-explicit-formula log -1 --format='%H %P %ct' d4e046a && git -C /d/SIDE-explicit-formula tag -l -n9 v0.35 && git -C /d/SIDE-explicit-formula rev-p
+  #162 | 2026-10-21T17:26:34.102Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -w sorry main -- 'SIDEExplicitFormula/*.lean'
+  #163 | 2026-10-21T17:27:39.922Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b701_checks.py /d/relay/tools/b701_record.py /d/relay/tools/b701_worklist.py && PYTHONIOENCODING=utf-8 timeout 300 p
+  #164 | 2026-10-21T17:27:52.752Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_checks.py --prerun --part standing-a
+  #165 | 2026-10-21T17:31:08.904Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_checks.py --prerun --part standing-c
+  #166 | 2026-10-21T17:34:15.635Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_checks.py --prerun --part standing-b1
+  #167 | 2026-10-21T17:35:55.989Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_checks.py --prerun --part standing-b2
+  #168 | 2026-10-21T17:43:03.412Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_checks.py --prerun --part standing-b3
+  #169 | 2026-10-21T17:45:18.454Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_checks.py --prerun --part act
+  #170 | 2026-10-21T17:48:10.863Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b701_checks.py /d/relay/tools/b701_record.py && echo COMPILED
+  #171 | 2026-10-21T17:48:27.274Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b701_record.py && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py repairs
+  #172 | 2026-10-21T17:48:29.265Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/e5bcf1d0-1e8c-4ad1-a048-b35048cad0b6/scratchpad/b701_debug
+  #173 | 2026-10-21T17:49:53.626Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b701_checks.py /d/relay/tools/b701_record.py && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b70
+  #174 | 2026-10-21T17:49:54.878Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_checks.py --prerun --part act
+  #175 | 2026-10-21T17:51:04.776Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_checks.py --combine b701_arms_prerun.txt && PYTHONIOENCODING=utf-8 timeout 300 python -X u
+  #176 | 2026-10-21T17:51:11.326Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py armsecs
+  #177 | 2026-10-21T17:51:24.371Z | seat | Bash | git -C /d/relay status --short --untracked-files=all -- data/b701_* tools/b701_* data/audit_b701_*
+  #178 | 2026-10-21T17:51:35.189Z | seat | Bash | git -C /d/relay add data/b701_registration_2026-10-21.txt data/b701_tool_repairs.txt tools/b701_checks.py tools/b701_record.py tools/b701_worklist.py data/b701_
+  #179 | 2026-10-21T17:51:47.333Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_reg_gate.py
+  #180 | 2026-10-21T17:52:38.668Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_reg_gate.py
+  #181 | 2026-10-21T17:53:16.758Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py gatebanks
+  #182 | 2026-10-21T17:53:18.058Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py scores dry
+  #183 | 2026-10-21T17:54:05.255Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b701_record.py && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py scores dry
+  #184 | 2026-10-21T17:55:48.111Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b701_record.py && git -C /d/relay status --short --untracked-files=all -- data/b701_* tools/b701_* data/audit_b701_*
+  #185 | 2026-10-21T17:55:58.986Z | seat | Bash | git -C /d/relay add data/b701_registration_2026-10-21.txt tools/b701_record.py data/audit_b701_reg_satisfiable.txt data/b701_census_stepzero.txt data/b701_faces
+  #186 | 2026-10-21T17:56:00.305Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py scores dry
+  #187 | 2026-10-21T17:56:34.682Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_reg_gate.py
+  #188 | 2026-10-21T17:56:35.927Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py gatebanks
+  #189 | 2026-10-21T17:57:21.804Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_reg_gate.py
+  #190 | 2026-10-21T17:57:23.042Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py gatebanks
+  #191 | 2026-10-21T17:57:57.410Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b378_lockgate.py b701 data/b701_registration_2026-10-21.txt
+  #192 | 2026-10-21T17:58:04.879Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b378_lockgate.py b701 data/b701_registration_2026-10-21.txt
+  #193 | 2026-10-21T17:58:08.771Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/reg_seal.py --lock data/b701_registration_2026-10-21.txt
+  #194 | 2026-10-21T17:58:12.133Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_checks.py --seal
+  #195 | 2026-10-21T17:58:13.443Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/reg_seal.py --verify b701_registration_2026-10-21.txt
+  #196 | 2026-10-21T17:58:14.422Z | seat | Bash | git -C /d/relay status --short --untracked-files=all -- data/b701_* tools/b701_* data/audit_b701_*
+  #197 | 2026-10-21T17:58:20.085Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/reg_seal.py --verify data/b701_registration_2026-10-21.txt
+  #198 | 2026-10-21T17:58:23.858Z | seat | Bash | git -C /d/relay add data/audit_b701_reg_satisfiable.txt data/b701_pins_stepzero.txt data/b701_reg_gate.txt data/b701_reg_termscan.txt data/b701_registration_202
+  #199 | 2026-10-21T17:58:35.783Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py scores
+  #200 | 2026-10-21T17:59:10.419Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py table_final
+  #201 | 2026-10-21T17:59:11.567Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py findings
+  #202 | 2026-10-21T17:59:43.417Z | seat | Bash | git -C /d/relay status --short --untracked-files=all -- data/b701_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal
+  #203 | 2026-10-21T17:59:49.995Z | seat | Bash | git -C "/d/MY-DOwnloads/PLACE-papers" add FINDINGS.md && git -C "/d/MY-DOwnloads/PLACE-papers" commit -q -m "b701 entry under (R311): the bridge h2_sign <-> Reg
+  #204 | 2026-10-21T17:59:55.071Z | seat | Bash | git -C /d/relay branch push-b701-root cdb0f984 && git -C /d/relay rev-parse push-b701-root main
+  #205 | 2026-10-21T17:59:57.989Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b701_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b701-root
+  #206 | 2026-10-21T18:00:08.678Z | seat | Bash | git -C "/d/MY-DOwnloads/PLACE-papers" branch push-b701-root 20a97b8 && git -C "/d/MY-DOwnloads/PLACE-papers" rev-parse push-b701-root main
+  #207 | 2026-10-21T18:00:11.609Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b701_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh "/d/MY-DOwnloads/PLACE-papers" push-b701-root
+  #208 | 2026-10-21T18:00:44.749Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py root dry
+  #209 | 2026-10-21T18:01:20.444Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py root
+  #210 | 2026-10-21T18:01:21.674Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py root_arm
+  #211 | 2026-10-21T18:01:55.223Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py trail dry
+  #212 | 2026-10-21T18:01:56.436Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py trail
+  #213 | 2026-10-21T18:02:11.930Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py desk
+  #214 | 2026-10-21T18:02:12.987Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py components
+  #215 | 2026-10-21T18:02:14.337Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b701_record.py commands
+  #216 | 2026-10-21T18:02:15.621Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b701_record.py reads
+  #217 | 2026-10-21T18:02:17.001Z | seat | Bash | git -C /d/relay status --short --untracked-files=all -- data/act_roots.txt data/b701_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior
 
-### ### **COMMANDS 146 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 18 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 10 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 217 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 18 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 10 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
