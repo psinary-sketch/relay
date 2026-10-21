@@ -1,0 +1,57 @@
+b672 -- THE CORRESPONDENCE GENERATOR`S RUN, (R282)(4) (2026-10-21T07:03:27Z): tools/correspondence_gen.py run
+
+### the prose of every cell is carried unverified by the generator: its claim is the tokens it writes (the kernel clause`s version and
+### commit, the profile token, the leading grade token) and nothing else; a stale stipulation in prose is a cell-refresh item, not the
+### tool`s claim (the navigator`s answer on reading (1)). A withheld document`s cells print as sha256 and length, never as text.
+
+### THE TAGS: one `git ls-remote --tags origin` per repository (kernel ; reading ; tag ; the commit it peels to ; local describe on main)
+    SIDE-archimedean                   READ                                     v0.1.1    fcecc454077c ; local v0.1.1
+    SIDE-frobenius                     READ                                     v0.1.0    2efe9f2f8655 ; local v0.1.0
+    SIDE-kernel                        READ                                     v1.8      70aba3cd7392 ; local v1.8
+    SIDE-li-map                        READ                                     v0.1.1    9e02bc0010f1 ; local v0.1.1
+    SIDE-lv-conservation               READ                                     v0.13.0   8e3bc76cbb32 ; local v0.13.0
+    SIDE-rcurve                        READ                                     v0.1.1    54c9040709cf ; local v0.1.1
+    SIDE-spinor                        READ                                     v0.1.2    7e570eeddb57 ; local v0.1.2
+
+### THE PRINT BANKS: every relay print bank of a tabled kernel (kernel ; bank ; built commit ; reading ; files differing to the tag ;
+### rows); the first AT THE TAG, newest act first, is the one read
+    SIDE-archimedean                   b693_prints_SIDE-archimedean.txt                     -         NO BUILT COMMIT                      -     0
+    SIDE-archimedean                   b693_axioms_SIDE-archimedean_after.txt               2bd9cc8   AT THE TAG                           0     5
+    SIDE-archimedean                   b693_axioms_SIDE-archimedean_before.txt              7769d0e   FILES DIFFER                         1     5
+    SIDE-kernel                        b653_runner_SIDE-kernel.txt                          ee8d21a   AT THE TAG                           0     54
+    SIDE-li-map                        b688_prints_SIDE-li-map.txt                          -         NO BUILT COMMIT                      -     0
+    SIDE-li-map                        b688_axioms_SIDE-li-map_after.txt                    e8bd373   AT THE TAG                           0     14
+    SIDE-li-map                        b688_axioms_SIDE-li-map_before.txt                   74906c9   FILES DIFFER                         2     14
+    SIDE-lv-conservation               b694_prints_SIDE-lv-conservation.txt                 -         NO BUILT COMMIT                      -     0
+    SIDE-lv-conservation               b694_axioms_SIDE-lv-conservation_after.txt           d38f3e8   NOT AN ANCESTOR                      1     6
+    SIDE-lv-conservation               b657_runner_SIDE-lv-conservation.txt                 c230e6d   AT THE TAG                           0     8
+    SIDE-lv-conservation               b653_runner_SIDE-lv-conservation.txt                 c35a3a3   FILES DIFFER                         12    8
+    SIDE-rcurve                        b691_prints_SIDE-rcurve.txt                          -         NO BUILT COMMIT                      -     0
+    SIDE-rcurve                        b691_axioms_SIDE-rcurve_after.txt                    e3df866   AT THE TAG                           0     8
+    SIDE-rcurve                        b691_axioms_SIDE-rcurve_before.txt                   29885e5   FILES DIFFER                         1     8
+    SIDE-spinor                        b688_prints_SIDE-spinor.txt                          -         NO BUILT COMMIT                      -     0
+    SIDE-spinor                        b688_axioms_SIDE-spinor_after.txt                    20d6392   AT THE TAG                           0     15
+    SIDE-spinor                        b686_prints_SIDE-spinor.txt                          -         NO BUILT COMMIT                      -     0
+    SIDE-spinor                        b686_axioms_SIDE-spinor_after.txt                    bfaf89e   FILES DIFFER                         1     15
+    SIDE-spinor                        b686_axioms_SIDE-spinor_before.txt                   254b7bd   FILES DIFFER                         2     15
+    SIDE-frobenius                     ### NO PRINT BANK AT v0.1.0
+
+### THE TABLES (document ; file ; status ; the table`s lines ; rows ; the cell words and holds)
+    PATHS_TO_THE_CRITICAL_LINE           phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md             SHAPED                         :283-:312 ; rows 28 ; {'CELLS CHANGED': 3, 'NO GRADE TOKEN': 11, 'NO PRINT BANK': 1, 'NOT PRINTED': 11, 'GRADE NOT IN THE BANK': 6, 'HELD: DEPOSIT PIN': 1, 'CARRIED AT: VERSION DIFFERS': 1, 'CARRIED AT': 1, 'MULTI': 1, 'NO KERNEL': 3}
+
+### THE ONE-COPY PAIRS (the navigator`s answer on the REGISTRY): document ; the roster`s file ; its partner ; the partner`s reading
+    PATHS_TO_THE_CRITICAL_LINE           phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md ; phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 4 LINES
+
+### THE GRADE TOKENS MOVED DOWNWARD (the navigator`s answer, b672: listed before the write, entered under W-ORD-GRADE-MOVED): document :line ; kernel ; old token -> new token
+    none
+
+### THE DIFF: rows are cells changed (document :line ; column ; kernel ; old ; new)
+    PATHS_TO_THE_CRITICAL_LINE :285 | kernel | SIDE-archimedean | OLD SIDE-archimedean v0.1.0 | NEW SIDE-archimedean v0.1.1
+    PATHS_TO_THE_CRITICAL_LINE :285 | profile | SIDE-archimedean | OLD NO PRINT BANK AT v0.1.0 | NEW `{propext, Classical.choice, Quot.sound}`
+    PATHS_TO_THE_CRITICAL_LINE :285 | status | SIDE-archimedean | OLD **DERIVES UNREFRESHED** — of the *model* statement: with `fe_reflect σ := 1 - σ` over ℚ, `1 - σ = σ → σ = 1/2`, unconditional. **STIPULATION, printed: that `fe_reflect` IS ξ's functional-equation reflection is carried by the identifier, not compiled — the identification is manuscript-resident.** Shortfall to "the FE structure forces σ = 1/2": **1 clause.** *Re-celled 2026-08-09; "Compiled (identification kernel)" retired — no fourth grade.* | NEW **DERIVES** — of the *model* statement: with `fe_reflect σ := 1 - σ` over ℚ, `1 - σ = σ → σ = 1/2`, unconditional. **STIPULATION, printed: that `fe_reflect` IS ξ's functional-equation reflection is carried by the identifier, not compiled — the identification is manuscript-resident.** Shortfall to "the FE structure forces σ = 1/2": **1 clause.** *Re-celled 2026-08-09; "Compiled (identification kernel)" retired — no fourth grade.*
+
+### THE CARRIED-AT CLAUSES (b691, (R301)(3)): read from the carrying source; CARRIED AT 1 ; CARRIED AT: UNREAD 0 ; CARRIED AT: VERSION DIFFERS 1, each held as it stands (document :line ; kernel ; the clause`s version ; carried at ; the carry the source cites)
+    PATHS_TO_THE_CRITICAL_LINE :301 ; SIDE-kernel ; v1.8 ; SIDE-lv-conservation v0.7.0 ; 0bc21c06454a
+
+### THE CELL WORDS BY KERNEL: SIDE-frobenius {'NO PRINT BANK': 1}; SIDE-kernel {'NOT PRINTED': 1}; SIDE-lv-conservation {'NOT PRINTED': 10}
+### ### **TABLES 1 ; SHAPED 1 ; NOT IN THE GENERATOR`S SHAPE 0 ; ANCHOR NOT FOUND 0 ; KERNELS 7 (WITH A TAG 7) ; CELLS CHANGED 3 ; FILES CHANGED 1 ; ABSENT 0 ; NO PRINT BANK 1 ; NOT PRINTED 11 ; HELD: DEPOSIT PIN 1 ; MULTI 1 ; NO TAG 0.**

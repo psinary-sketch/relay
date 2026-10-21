@@ -1,0 +1,368 @@
+{
+ "at": "2026-10-21T07:03:27Z",
+ "tags": {
+  "SIDE-archimedean": [
+   "v0.1.1",
+   "fcecc454077cb8e5d91fdf473d7e8f28754c3462"
+  ],
+  "SIDE-frobenius": [
+   "v0.1.0",
+   "2efe9f2f865583b8d35c9106d883cd6a45d3d158"
+  ],
+  "SIDE-kernel": [
+   "v1.8",
+   "70aba3cd739270e354278a8b4eb439f5349e5495"
+  ],
+  "SIDE-li-map": [
+   "v0.1.1",
+   "9e02bc0010f18d24689df8230e821c61ed4a970e"
+  ],
+  "SIDE-lv-conservation": [
+   "v0.13.0",
+   "8e3bc76cbb326739deaf3e034d9069d82d2407ec"
+  ],
+  "SIDE-rcurve": [
+   "v0.1.1",
+   "54c9040709cf7ad42270534f532939bae231ca80"
+  ],
+  "SIDE-spinor": [
+   "v0.1.2",
+   "7e570eeddb57d9ab8c21bfc0b97adbe638ad5095"
+  ]
+ },
+ "banks": {
+  "SIDE-archimedean": {
+   "file": "b693_axioms_SIDE-archimedean_after.txt",
+   "built": "2bd9cc824cb1f82dbaa5805767e66852c9fe633d",
+   "diff": 0
+  },
+  "SIDE-frobenius": null,
+  "SIDE-kernel": {
+   "file": "b653_runner_SIDE-kernel.txt",
+   "built": "ee8d21a18a9ae0936523551d0bef773f56f409e1",
+   "diff": 0
+  },
+  "SIDE-li-map": {
+   "file": "b688_axioms_SIDE-li-map_after.txt",
+   "built": "e8bd373a25debe8b14d1d065d25ff49f84baf146",
+   "diff": 0
+  },
+  "SIDE-lv-conservation": {
+   "file": "b657_runner_SIDE-lv-conservation.txt",
+   "built": "c230e6d8b02a3330eaec4d2e213fa5e905be13a8",
+   "diff": 0
+  },
+  "SIDE-rcurve": {
+   "file": "b691_axioms_SIDE-rcurve_after.txt",
+   "built": "e3df86670fc77454fbee881bb44eb2917ebf0805",
+   "diff": 0
+  },
+  "SIDE-spinor": {
+   "file": "b688_axioms_SIDE-spinor_after.txt",
+   "built": "20d63920f7aa905bd7e9e31dac0487de9054f929",
+   "diff": 0
+  }
+ },
+ "tables": [
+  {
+   "doc": "PATHS_TO_THE_CRITICAL_LINE",
+   "path": "phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md",
+   "status": "SHAPED",
+   "span": [
+    283,
+    312
+   ],
+   "counts": {
+    "CELLS CHANGED": 3,
+    "NO GRADE TOKEN": 11,
+    "NO PRINT BANK": 1,
+    "NOT PRINTED": 11,
+    "GRADE NOT IN THE BANK": 6,
+    "HELD: DEPOSIT PIN": 1,
+    "CARRIED AT: VERSION DIFFERS": 1,
+    "CARRIED AT": 1,
+    "MULTI": 1,
+    "NO KERNEL": 3
+   },
+   "rows": [
+    {
+     "line": 285,
+     "kernels": [
+      "SIDE-archimedean"
+     ],
+     "declaration": "SIDEArchimedean.archimedean_forces_half",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 286,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "techne_kernel_voice1.balance_theorem",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 287,
+     "kernels": [
+      "SIDE-frobenius"
+     ],
+     "declaration": "SIDEFrobenius.indicial_forces_half",
+     "reading": "NO PRINT BANK"
+    },
+    {
+     "line": 288,
+     "kernels": [
+      "SIDE-rcurve"
+     ],
+     "declaration": "SIDERCurve.monotone_unique_zero",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 289,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 290,
+     "kernels": [
+      "SIDE-spinor"
+     ],
+     "declaration": "SIDESpinor.spinor_forces_half",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 291,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.C5_input_at_Phi",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 292,
+     "kernels": [
+      "SIDE-li-map"
+     ],
+     "declaration": "LiLinearMap.lam_add",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 293,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "PoissonExhaustion.gate_e_exhaustive_derived",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 294,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "structural_exhaustiveness_proved",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 295,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "ProductFormula.conservation_of_spectra",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 296,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 297,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.T3.T3prime_shared_witness",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 298,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "reading": "HELD: DEPOSIT PIN"
+    },
+    {
+     "line": 299,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "RegisterPentagon.goalState_of_h1_h2",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 300,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "RegisterPentagon.R5_input_at_Phi",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 301,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "ConservationBridge.riemann_hypothesis",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 302,
+     "kernels": [
+      "SIDE-li-map"
+     ],
+     "declaration": "LiLinearMap.lam_add",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 303,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "RegisterPentagon.R4_positivity_to_RH",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 304,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "RegisterPentagon.R1_universality_to_goal",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 305,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "RegisterPentagon.R5_output_HilbertPolya_to_RH",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 306,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "RegisterPentagon.certifiedInput_not_zeroRealizing",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 307,
+     "kernels": [],
+     "reading": "NO KERNEL"
+    },
+    {
+     "line": 308,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "PartialPositivity.partialPositivity_finiteRange",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 309,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "SIDEKernel.formation",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 310,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "CartanBridge.formation_n_3_eq_two",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 311,
+     "kernels": [],
+     "reading": "NO KERNEL"
+    },
+    {
+     "line": 312,
+     "kernels": [],
+     "reading": "NO KERNEL"
+    }
+   ],
+   "changes": [
+    {
+     "doc": "PATHS_TO_THE_CRITICAL_LINE",
+     "line": 285,
+     "column": "kernel",
+     "kernel": "SIDE-archimedean",
+     "old": "SIDE-archimedean v0.1.0",
+     "new": "SIDE-archimedean v0.1.1"
+    },
+    {
+     "doc": "PATHS_TO_THE_CRITICAL_LINE",
+     "line": 285,
+     "column": "profile",
+     "kernel": "SIDE-archimedean",
+     "old": "NO PRINT BANK AT v0.1.0",
+     "new": "`{propext, Classical.choice, Quot.sound}`"
+    },
+    {
+     "doc": "PATHS_TO_THE_CRITICAL_LINE",
+     "line": 285,
+     "column": "status",
+     "kernel": "SIDE-archimedean",
+     "old": "**DERIVES UNREFRESHED** — of the *model* statement: with `fe_reflect σ := 1 - σ` over ℚ, `1 - σ = σ → σ = 1/2`, unconditional. **STIPULATION, printed: that `fe_reflect` IS ξ's functional-equation reflection is carried by the identifier, not compiled — the identification is manuscript-resident.** Shortfall to \"the FE structure forces σ = 1/2\": **1 clause.** *Re-celled 2026-08-09; \"Compiled (identification kernel)\" retired — no fourth grade.*",
+     "new": "**DERIVES** — of the *model* statement: with `fe_reflect σ := 1 - σ` over ℚ, `1 - σ = σ → σ = 1/2`, unconditional. **STIPULATION, printed: that `fe_reflect` IS ξ's functional-equation reflection is carried by the identifier, not compiled — the identification is manuscript-resident.** Shortfall to \"the FE structure forces σ = 1/2\": **1 clause.** *Re-celled 2026-08-09; \"Compiled (identification kernel)\" retired — no fourth grade.*"
+    }
+   ]
+  }
+ ],
+ "counts": {
+  "CELLS CHANGED": 3,
+  "NO GRADE TOKEN": 11,
+  "NO PRINT BANK": 1,
+  "NOT PRINTED": 11,
+  "GRADE NOT IN THE BANK": 6,
+  "HELD: DEPOSIT PIN": 1,
+  "CARRIED AT: VERSION DIFFERS": 1,
+  "CARRIED AT": 1,
+  "MULTI": 1,
+  "NO KERNEL": 3
+ },
+ "by_kernel": {
+  "SIDE-frobenius": {
+   "NO PRINT BANK": 1
+  },
+  "SIDE-lv-conservation": {
+   "NOT PRINTED": 10
+  },
+  "SIDE-kernel": {
+   "NOT PRINTED": 1
+  }
+ },
+ "files": [
+  "D:/MY-DOwnloads/PLACE-papers\\phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md"
+ ],
+ "grade_down": [],
+ "pairs": [
+  {
+   "doc": "PATHS_TO_THE_CRITICAL_LINE",
+   "path": "phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md",
+   "partner": "phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
+   "cells": 0,
+   "written": false,
+   "reason": "NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 4 LINES"
+  }
+ ]
+}

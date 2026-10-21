@@ -428,7 +428,7 @@ def cells(*a):
     L += ['', '### THE DIFF ON THE WHOLE ROSTER, verbatim:']
     L += diff2 or ['    NONE']
     L += ['### its verdict line, verbatim:'] + pick(o2, '### ### **TABLES')
-    mine = [l for l in diff1 + diff2 if '| %s |' % kernel in l]
+    mine = list(dict.fromkeys(l for l in diff1 + diff2 if '| %s |' % kernel in l))   # ### distinct cells: the two runs print the same cell twice
     L += ['', '### ### **ROSTER TABLES NAMING %s %d ; CELLS NAMING IT THE GENERATOR WOULD CHANGE %d ; ON THE ONE-KERNEL ROSTER CELLS CHANGED %d ; ON '
               'THE WHOLE ROSTER %d ; NOTHING WRITTEN.**' % (kernel, tables_naming, len(mine), len(diff1), len(diff2))]
     put_txt('%s_correspondence_dry_%s.txt' % (ACT, stem), L)
@@ -542,12 +542,82 @@ def cut(*a):
     print(NL.join(L))
 
 
+# ================================================================================ COMPONENT 3: THE PARTNER COPY, (R309)(4) (b698's onecopy route, generalized)
+ONECOPY_H = ('*Appended 2026-10-21 by b699 beneath `W-ORD-ONE-COPY` (:14386, its trigger re-written at :14450; b698’s reading at :15296), under '
+             '`(R309)`(4) and the author’s word on the archimedean cells -- THE PATHS PARTNER COPY, THIS ACT’S READING:*')
+
+
+def _table_diff(t, rev):
+    import correspondence_gen as CG
+    import difflib
+    A = (_show(PP, rev, t['path']) or '').split(NL)
+    B = (_show(PP, rev, t['partner']) or '').split(NL)
+    fa, fb = CG.find_table(A, t), CG.find_table(B, t)
+    if isinstance(fa, str) or isinstance(fb, str):
+        sys.exit('### A TABLE NOT FOUND AT %s: %r ; %r -- NOTHING WRITTEN' % (rev, fa, fb))
+    ta, tb = A[fa[0]:fa[1]], B[fb[0]:fb[1]]
+    rows = []
+    for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, ta, tb, autojunk=False).get_opcodes():
+        if tag == 'equal':
+            continue
+        for k in range(max(i2 - i1, j2 - j1)):
+            ia, ib = (i1 + k if i1 + k < i2 else None), (j1 + k if j1 + k < j2 else None)
+            rows.append(dict(op=tag, a=(fa[0] + ia + 1) if ia is not None else None, b=(fb[0] + ib + 1) if ib is not None else None,
+                             ta=ta[ia] if ia is not None else '', tb=tb[ib] if ib is not None else ''))
+    return fa, fb, rows
+
+
+def onecopy(*a):
+    """data/b699_onecopy.txt: the PATHS_TO_THE_CRITICAL_LINE table and its partner copy's, each found by the generator's own find_table with
+    the roster's anchor (data/b699_roster_archimedean.json), at the commit before the generator's write and at PLACE-papers HEAD after it; the
+    lines that differ, each with its line in both files, the count re-taken against the roster's stored field; the partner's SIDE-archimedean
+    line read whole; and `onecopy land [dry]` -- the reading entered beneath W-ORD-ONE-COPY through the guarded landing."""
+    t = jl('%s_roster_archimedean.json' % ACT)['tables'][0]
+    head = g(PP, 'rev-parse', '--short=7', 'HEAD').strip()
+    wrote = g(PP, 'log', '-1', '--format=%h', '--', t['path']).strip()
+    prior = g(PP, 'rev-parse', '--short=7', wrote + '~1').strip()
+    fa, fb, rows = _table_diff(t, 'HEAD')
+    _fa0, _fb0, rows0 = _table_diff(t, prior)
+    B = (_show(PP, 'HEAD', t['partner']) or '').split(NL)
+    pl = [(i + 1, l) for i, l in enumerate(B) if '| SIDE-archimedean v' in l]
+    if len(pl) != 1:
+        sys.exit('### THE PARTNER DOES NOT CARRY ONE SIDE-archimedean LINE (%d) -- NOTHING WRITTEN' % len(pl))
+    stored = t.get('partner_lines_differing')
+    if 'land' in a:
+        n = len(rows)
+        body = (' the generator, run on the author’s word at b699 on a one-table roster (relay data/b699_roster_archimedean.json), wrote '
+                'PATHS_TO_THE_CRITICAL_LINE_v0_7.md :285 alone -- the three SIDE-archimedean cells held since b693, kernel v0.1.0 to v0.1.1, '
+                'profile, status -- and left its partner copy PATHS_TO_THE_CRITICAL_LINE.md unwritten; the partner’s :%d still carries '
+                'SIDE-archimedean v0.1.0. Read line by line at PLACE-papers %s after the write, by the generator’s own table finder (relay '
+                'data/b699_onecopy.txt), the two copies’ Correspondence tables differ in %d lines -- %d at %s before the write: the copy’s %s '
+                'against the partner’s %s. The roster’s stored field partner_lines_differing reads %s (b672’s); the count here is re-taken, not '
+                'carried. The reading is this act’s; neither copy is moved by it and the one copy of record stays the order’s question. Status '
+                'OPEN.' % (pl[0][0], head, n, len(rows0), prior, ', '.join(':%s' % r['a'] for r in rows), ', '.join(':%s' % r['b'] for r in rows), stored))
+        land([('OPEN_TRAILS.md', ONECOPY_H, NL + ONECOPY_H + body + NL)], '%s_onecopy_line.json' % ACT, 'onecopy', entry=14386,
+             check=[('OPEN_TRAILS.md', 14386, '**`W-ORD-ONE-COPY`**'), ('OPEN_TRAILS.md', 14450, '**`W-ORD-ONE-COPY`**')], dry='dry' in a)
+        return
+    L = ['%s -- COMPONENT 3, (R309)(4) AND THE AUTHOR`S WORD ON "run": THE PATHS PARTNER COPY`S DIFFERING LINES, READ AT PLACE-papers HEAD %s (%s)' % (
+        ACT, head, utc()), '',
+         '### the tables: %s :%d-:%d and its partner %s :%d-:%d, each found by tools/correspondence_gen.py`s find_table with the roster`s anchor;'
+         % (t['path'], fa[0] + 1, fa[1], t['partner'], fb[0] + 1, fb[1]),
+         '### compared line by line (SequenceMatcher, autojunk off), at HEAD %s and at %s, the commit before the generator`s write %s. Rows are'
+         % (head, prior, wrote),
+         '### differing lines at HEAD: op | the copy`s line | the partner`s line | the two texts.', '',
+         '### the partner`s SIDE-archimedean line, whole: %s :%d' % (t['partner'], pl[0][0]), '    ' + pl[0][1], '']
+    for r in rows:
+        L += ['  %-8s | :%-4s | :%-4s' % (r['op'], r['a'] or '-', r['b'] or '-'), '      copy:    ' + r['ta'], '      partner: ' + r['tb']]
+    L += ['', '### ### **THE TWO TABLES DIFFER IN %d LINES AT HEAD, %d BEFORE THE WRITE (the roster`s stored field: %s) ; NEITHER COPY MOVED BY '
+              'THIS READING.**' % (len(rows), len(rows0), stored)]
+    put_txt('%s_onecopy.txt' % ACT, L)
+    print(NL.join(L))
+
+
 def _vl_(name):
     return ([x for x in rdn(name).split(NL) if x.startswith('### ### **')] or ['### NOT READ'])[-1]
 
 
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, tie=tie, dispatch=dispatch, runstatus=runstatus,
-              runner=runner, prints=prints, quote=quote, cells=cells, cut=cut)
+              runner=runner, prints=prints, quote=quote, cells=cells, cut=cut, onecopy=onecopy)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
