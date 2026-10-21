@@ -1,0 +1,21 @@
+b697 -- THE QUOTATION SEARCH BEFORE THE MERGE, data/b690_rules.txt row (2), OVER SIDE-simplicity (2026-10-21T01:56:15Z)
+
+### the cut: git diff 55e25b1..b491ac5 ; the lines it removes or changes 3 ; one needle each, checked to stand in its own removed line; each searched
+### with git grep -n -F at the tip b491ac5 across the kernel`s whole tracked tree. Rows are removed lines: needle | hits (file:line: the quoting
+### line):
+  and Section III (trace-formula               | 1 hit(s) ; case-blind 'and section iii'          1 hit(s) | removed: Section I.2 (perpendicular crossing) and Section III (trace-formula
+      b491ac5:README.md:9:Representative kernel for the Simplicity cluster (keystone: SIMPLICITY_OF_RIEMANN_ZEROS_v1_0). It carries the part of that keystone NOT already in the deposited SIDE-kernel. Section I.2 (perpendicular crossing) and Section III (trace-formula closing logic) are already proved in SIDE-kernel (PerpendicularCrossing.lean: perpendicular_gradients, multiplicity_from_identity, simplicity_from_trace_structure). This kernel formalizes the Section II dimensional / logical skeleton:
+  are already proved in the deposited          | 0 hit(s) ; case-blind 'already proved'           1 hit(s) | removed: closing logic) are already proved in the deposited SIDE-kernel
+      b491ac5:README.md:9:Representative kernel for the Simplicity cluster (keystone: SIMPLICITY_OF_RIEMANN_ZEROS_v1_0). It carries the part of that keystone NOT already in the deposited SIDE-kernel. Section I.2 (perpendicular crossing) and Section III (trace-formula closing logic) are already proved in SIDE-kernel (PerpendicularCrossing.lean: perpendicular_gradients, multiplicity_from_identity, simplicity_from_trace_structure). This kernel formalizes the Section II dimensional / logical skeleton:
+  (PerpendicularCrossing.lean). This kernel    | 0 hit(s) ; case-blind 'perpendicularcrossing.lean).' 0 hit(s) | removed: (PerpendicularCrossing.lean). This kernel carries the Section II
+
+### THE CONTROL: each needle at the base 55e25b1, where the removed line stands (needle ; case-exact hits ; case-blind hits):
+  and Section III (trace-formula               ; 2 ; 2
+  are already proved in the deposited          ; 1 ; 2
+  (PerpendicularCrossing.lean). This kernel    ; 1 ; 1
+### the control FIRES FOR EVERY NEEDLE IN BOTH SHAPES
+
+### THE QUOTING LINES, DISTINCT (file:line): README.md:9
+### the yields: the case-exact shape 1 hit(s) on 1 line(s) ; the case-blind shape 2 hit(s) on 1 line(s)
+
+### ### **REMOVED OR CHANGED LINES 3 ; NEEDLES SEARCHED 3 IN TWO SHAPES ; QUOTING LINES 1 -- EACH ENTERED AS A RESIDUE.**
