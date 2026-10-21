@@ -60,9 +60,12 @@ R.ROOT_EXCLUDE = re.compile(r'^b701_(defects|scores.*|desk_notes|components|chec
                             r'commands|mirror.*|close_sentence|read_calls)\.?(txt|json|md|jsonl|)$')
 
 
+_R_anchor_ts = R._anchor_ts   # ### the original, captured before the rebinding beneath (the wrapper calling R._anchor_ts recursed at `scores dry`)
+
+
 def _anchor_ts(anchor, session=None):
     """b698's _anchor_ts bound its session at definition (b699's trap 1): this one reads this act's session unless another is named."""
-    return R._anchor_ts(anchor, session or SESSION)
+    return _R_anchor_ts(anchor, session or SESSION)
 
 
 R._anchor_ts = _anchor_ts
@@ -868,7 +871,13 @@ def repairs(*a):
 NK, SK, SCORE_KEYS = R.NK, R.SK, R.SCORE_KEYS
 N5_RELAY_DATA = ('act_roots.txt', 'b700_closing_push_out.txt')
 N5_RELAY_TOOLS = ()
-_kernels_moved, _s_scores = R._kernels_moved, R._s_scores
+_kernels_moved = R._kernels_moved
+
+
+def _s_scores():
+    """R's seat scores (S1-S3) read this act's banks through ACT; their PENDING texts name b698's bank files as literals (b699's trap 4), so the
+    texts are re-named here and nothing else changes."""
+    return dict((k, (v[0], v[1].replace('b698_', ACT + '_'))) for k, v in R._s_scores().items())
 
 
 def _merges():
