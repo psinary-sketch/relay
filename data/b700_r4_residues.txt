@@ -1,0 +1,29 @@
+b700 -- COMPONENT 2 (7), (R310)(3): THE RESIDUES CENSUS, READING 4 (2026-10-21T10:13:56Z)
+
+### READING 4 (b700, under (R310)(3)). b690 took reading 3 (tools/b690_readings.py, its banks data/b690_r3_<name>.txt), b680 reading 2 (data/b680_<name>.txt), b670 reading 1. Each figure below is the tool`s where a tool reads it, the seat`s hand where none does, and says which.
+### by hand: every residue the cut banks name, b690`s seven (data/b690_r3_residues.txt) and those of the cuts since (b691, b693, b695, b697, b699),
+### each with ACTION APPLIED (its tag) or CARRIED (its reason) and its trigger; by code: each row`s needle read on its bank line. Rows are residues:
+  R1         SIDE-window              ACTION APPLIED  APPLIED at b684 (v0.5.2) | data/b684_cut.txt :58 (needle True) | SIDEWindow/Sawtooth.lean :17 marker | trigger: none -- applied
+  R2         SIDE-trivium             ACTION APPLIED  APPLIED at b684 (v0.1.2) | data/b684_cut.txt :63 (needle True) | Trivium/Bijection.lean :8 and :23 | trigger: none -- applied
+  R3a        SIDE-silence-principle   ACTION APPLIED  APPLIED at b684 (v0.2.2) | data/b684_cut.txt :68 (needle True) | SIDESilencePrinciple/Basic.lean :412, Theorem 8.1`s title | trigger: none -- applied
+  R3b        SIDE-silence-principle   CARRIED         CARRIED (its row`s reason does not reach it) | data/b686_cut.txt :49 (needle True) | SIDESilencePrinciple/Basic.lean :7-:12, the introduction`s statement of the principle | trigger: the next re-cut of SIDE-silence-principle, or a reading census that names an ACTION for it
+  R4         SIDE-spinor              ACTION APPLIED  APPLIED at b688 (v0.1.2) | data/b688_residue_actions.txt :49 (needle True) | SIDESpinor/SpinorLeg.lean :21 "(salt-checked)" | trigger: none -- applied
+  LM-i       SIDE-li-map              CARRIED         CARRIED (the ACTIONs applied verbatim, not extended) | data/b688_cut.txt :60 (needle True) | PrimeLedgerPositivity.lean :29-:31, the survey note`s quotation of a removed line of LiLinearMap.lean | trigger: the next re-cut of SIDE-li-map; from b691 data/b690_rules.txt row (2) would have found it at the cut
+  LM-ii      SIDE-li-map              CARRIED         CARRIED (the ACTIONs applied verbatim, not extended) | data/b688_cut.txt :64 (needle True) | PrimeLedgerPositivity.lean :51-:54, NonnegStream`s docstring naming the real-valued Λ as an instance of an integer stream | trigger: the next re-cut of SIDE-li-map
+  b691 R-1   SIDE-rcurve              CARRIED         CARRIED (a README line outside the docstring rows the cut reaches) | data/b691_cut.txt :15 (needle True) | README.md :3 | trigger: the next re-cut of SIDE-rcurve or a README pass
+  b691 R-2   SIDE-rcurve              CARRIED         CARRIED (as R-1) | data/b691_cut.txt :16 (needle True) | README.md :9 | trigger: the next re-cut of SIDE-rcurve or a README pass
+  b691 R-3   SIDE-rcurve              CARRIED         CARRIED (as R-1) | data/b691_cut.txt :17 (needle True) | README.md :11 | trigger: the next re-cut of SIDE-rcurve or a README pass
+  b691 R-4   SIDE-rcurve              CARRIED         CARRIED (as R-1) | data/b691_cut.txt :18 (needle True) | README.md :19 | trigger: the next re-cut of SIDE-rcurve or a README pass
+  b691 R-K1  SIDE-kernel              CARRIED         CARRIED (held as CARRIED AT: VERSION DIFFERS; read again at b693) | data/b693_cut.txt :25 (needle True) | PATHS_TO_THE_CRITICAL_LINE_v0_7.md :301, v1.8 against the carry v1.3 = 0bc21c0 | trigger: the next re-cut act after b691 or W-ORD-CORRESPONDENCE-BEHIND-SCOPE
+  b693 R-1   SIDE-archimedean         CARRIED         CARRIED (a README line quoting the removed headline docstring) | data/b693_cut.txt :17 (needle True) | README.md :15 | trigger: the next re-cut of SIDE-archimedean or a README pass
+  b693 R-2   SIDE-archimedean         CARRIED         CARRIED (a README line quoting the removed header) | data/b693_cut.txt :18 (needle True) | README.md :19 | trigger: the next re-cut of SIDE-archimedean or a README pass
+  b693 R-3   SIDE-archimedean         CARRIED         CARRIED AS IT STANDS (the kept line, a MATCHES row, not a quote) | data/b693_cut.txt :19 (needle True) | SIDEArchimedean/Reflection.lean :39 | trigger: none named -- carried as it stands
+  b695 R-1   SIDE-interfaces          CARRIED         CARRIED AS IT STANDS (the def`s own body) | data/b695_cut.txt :17 (needle True) | Interfaces/ConnectionRequiresStructure.lean :9 | trigger: none named -- carried as it stands
+  b695 R-2   SIDE-interfaces          CARRIED         CARRIED AS IT STANDS (the theorem`s own hypothesis) | data/b695_cut.txt :18 (needle True) | Interfaces/ConnectionRequiresStructure.lean :20 | trigger: none named -- carried as it stands
+  b695 R-3   SIDE-interfaces          CARRIED         CARRIED AS IT STANDS (a different claim, a MATCHES row) | data/b695_cut.txt :19 (needle True) | Interfaces/InterfaceSplit.lean :13 | trigger: none named -- carried as it stands
+  b695 R-4   SIDE-interfaces          CARRIED         CARRIED AS IT STANDS (the theorem`s own reach; outside the docstring rows) | data/b695_cut.txt :20 (needle True) | README.md :59 | trigger: none named -- carried as it stands
+  b697 R-1   SIDE-simplicity          ACTION APPLIED  APPLIED at b698 (v0.1.2) | data/b698_readme_cut.txt :15 (needle True) | README.md :9 | trigger: none -- applied
+
+### b699`s cut: REMOVED OR CHANGED LINES 2 ; QUOTING LINES 0 (data/b699_cut.txt :17) -- no residue
+
+### ### **RESIDUES 20 (b690 7, b680 5) ; ACTION APPLIED 5 ; CARRIED 15 ; EVERY NEEDLE READ True.**

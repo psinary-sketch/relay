@@ -1,0 +1,249 @@
+{
+ "at": "2026-10-21T10:13:56Z",
+ "rows": [
+  {
+   "id": "R1",
+   "kernel": "SIDE-window",
+   "what": "SIDEWindow/Sawtooth.lean :17 marker",
+   "state": "APPLIED at b684 (v0.5.2)",
+   "bank": "data/b684_cut.txt",
+   "line": 58,
+   "read": true,
+   "trigger": "none -- applied",
+   "word": "ACTION APPLIED"
+  },
+  {
+   "id": "R2",
+   "kernel": "SIDE-trivium",
+   "what": "Trivium/Bijection.lean :8 and :23",
+   "state": "APPLIED at b684 (v0.1.2)",
+   "bank": "data/b684_cut.txt",
+   "line": 63,
+   "read": true,
+   "trigger": "none -- applied",
+   "word": "ACTION APPLIED"
+  },
+  {
+   "id": "R3a",
+   "kernel": "SIDE-silence-principle",
+   "what": "SIDESilencePrinciple/Basic.lean :412, Theorem 8.1`s title",
+   "state": "APPLIED at b684 (v0.2.2)",
+   "bank": "data/b684_cut.txt",
+   "line": 68,
+   "read": true,
+   "trigger": "none -- applied",
+   "word": "ACTION APPLIED"
+  },
+  {
+   "id": "R3b",
+   "kernel": "SIDE-silence-principle",
+   "what": "SIDESilencePrinciple/Basic.lean :7-:12, the introduction`s statement of the principle",
+   "state": "CARRIED (its row`s reason does not reach it)",
+   "bank": "data/b686_cut.txt",
+   "line": 49,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-silence-principle, or a reading census that names an ACTION for it",
+   "word": "CARRIED"
+  },
+  {
+   "id": "R4",
+   "kernel": "SIDE-spinor",
+   "what": "SIDESpinor/SpinorLeg.lean :21 \"(salt-checked)\"",
+   "state": "APPLIED at b688 (v0.1.2)",
+   "bank": "data/b688_residue_actions.txt",
+   "line": 49,
+   "read": true,
+   "trigger": "none -- applied",
+   "word": "ACTION APPLIED"
+  },
+  {
+   "id": "LM-i",
+   "kernel": "SIDE-li-map",
+   "what": "PrimeLedgerPositivity.lean :29-:31, the survey note`s quotation of a removed line of LiLinearMap.lean",
+   "state": "CARRIED (the ACTIONs applied verbatim, not extended)",
+   "bank": "data/b688_cut.txt",
+   "line": 60,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-li-map; from b691 data/b690_rules.txt row (2) would have found it at the cut",
+   "word": "CARRIED"
+  },
+  {
+   "id": "LM-ii",
+   "kernel": "SIDE-li-map",
+   "what": "PrimeLedgerPositivity.lean :51-:54, NonnegStream`s docstring naming the real-valued Λ as an instance of an integer stream",
+   "state": "CARRIED (the ACTIONs applied verbatim, not extended)",
+   "bank": "data/b688_cut.txt",
+   "line": 64,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-li-map",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b691 R-1",
+   "kernel": "SIDE-rcurve",
+   "what": "README.md :3",
+   "state": "CARRIED (a README line outside the docstring rows the cut reaches)",
+   "bank": "data/b691_cut.txt",
+   "line": 15,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-rcurve or a README pass",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b691 R-2",
+   "kernel": "SIDE-rcurve",
+   "what": "README.md :9",
+   "state": "CARRIED (as R-1)",
+   "bank": "data/b691_cut.txt",
+   "line": 16,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-rcurve or a README pass",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b691 R-3",
+   "kernel": "SIDE-rcurve",
+   "what": "README.md :11",
+   "state": "CARRIED (as R-1)",
+   "bank": "data/b691_cut.txt",
+   "line": 17,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-rcurve or a README pass",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b691 R-4",
+   "kernel": "SIDE-rcurve",
+   "what": "README.md :19",
+   "state": "CARRIED (as R-1)",
+   "bank": "data/b691_cut.txt",
+   "line": 18,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-rcurve or a README pass",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b691 R-K1",
+   "kernel": "SIDE-kernel",
+   "what": "PATHS_TO_THE_CRITICAL_LINE_v0_7.md :301, v1.8 against the carry v1.3 = 0bc21c0",
+   "state": "CARRIED (held as CARRIED AT: VERSION DIFFERS; read again at b693)",
+   "bank": "data/b693_cut.txt",
+   "line": 25,
+   "read": true,
+   "trigger": "the next re-cut act after b691 or W-ORD-CORRESPONDENCE-BEHIND-SCOPE",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b693 R-1",
+   "kernel": "SIDE-archimedean",
+   "what": "README.md :15",
+   "state": "CARRIED (a README line quoting the removed headline docstring)",
+   "bank": "data/b693_cut.txt",
+   "line": 17,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-archimedean or a README pass",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b693 R-2",
+   "kernel": "SIDE-archimedean",
+   "what": "README.md :19",
+   "state": "CARRIED (a README line quoting the removed header)",
+   "bank": "data/b693_cut.txt",
+   "line": 18,
+   "read": true,
+   "trigger": "the next re-cut of SIDE-archimedean or a README pass",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b693 R-3",
+   "kernel": "SIDE-archimedean",
+   "what": "SIDEArchimedean/Reflection.lean :39",
+   "state": "CARRIED AS IT STANDS (the kept line, a MATCHES row, not a quote)",
+   "bank": "data/b693_cut.txt",
+   "line": 19,
+   "read": true,
+   "trigger": "none named -- carried as it stands",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b695 R-1",
+   "kernel": "SIDE-interfaces",
+   "what": "Interfaces/ConnectionRequiresStructure.lean :9",
+   "state": "CARRIED AS IT STANDS (the def`s own body)",
+   "bank": "data/b695_cut.txt",
+   "line": 17,
+   "read": true,
+   "trigger": "none named -- carried as it stands",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b695 R-2",
+   "kernel": "SIDE-interfaces",
+   "what": "Interfaces/ConnectionRequiresStructure.lean :20",
+   "state": "CARRIED AS IT STANDS (the theorem`s own hypothesis)",
+   "bank": "data/b695_cut.txt",
+   "line": 18,
+   "read": true,
+   "trigger": "none named -- carried as it stands",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b695 R-3",
+   "kernel": "SIDE-interfaces",
+   "what": "Interfaces/InterfaceSplit.lean :13",
+   "state": "CARRIED AS IT STANDS (a different claim, a MATCHES row)",
+   "bank": "data/b695_cut.txt",
+   "line": 19,
+   "read": true,
+   "trigger": "none named -- carried as it stands",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b695 R-4",
+   "kernel": "SIDE-interfaces",
+   "what": "README.md :59",
+   "state": "CARRIED AS IT STANDS (the theorem`s own reach; outside the docstring rows)",
+   "bank": "data/b695_cut.txt",
+   "line": 20,
+   "read": true,
+   "trigger": "none named -- carried as it stands",
+   "word": "CARRIED"
+  },
+  {
+   "id": "b697 R-1",
+   "kernel": "SIDE-simplicity",
+   "what": "README.md :9",
+   "state": "APPLIED at b698 (v0.1.2)",
+   "bank": "data/b698_readme_cut.txt",
+   "line": 15,
+   "read": true,
+   "trigger": "none -- applied",
+   "word": "ACTION APPLIED"
+  }
+ ],
+ "carried": [
+  "R3b",
+  "LM-i",
+  "LM-ii",
+  "b691 R-1",
+  "b691 R-2",
+  "b691 R-3",
+  "b691 R-4",
+  "b691 R-K1",
+  "b693 R-1",
+  "b693 R-2",
+  "b693 R-3",
+  "b695 R-1",
+  "b695 R-2",
+  "b695 R-3",
+  "b695 R-4"
+ ],
+ "applied": [
+  "R1",
+  "R2",
+  "R3a",
+  "R4",
+  "b697 R-1"
+ ]
+}
