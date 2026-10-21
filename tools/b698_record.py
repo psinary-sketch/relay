@@ -616,7 +616,7 @@ def cells(*a):
     simp = [l for l in diff1 if 'SIDE-simplicity' in l]
     L += ['', '### ### **CELLS NAMING SIDE-simplicity THE GENERATOR WOULD CHANGE %d (%s) ; ON THE ONE-TABLE ROSTER CELLS CHANGED %d ; ON THE WHOLE '
               'ROSTER %d ; NOTHING WRITTEN.**' % (len(simp), '; '.join(l.strip() for l in simp) or 'NONE', len(diff1), len(diff2))]
-    put_txt('%s_correspondence_dry.txt' % ACT, L)
+    put_txt('%s_correspondence_dry%s.txt' % (ACT, '_after' if 'after' in a else ''), L)
     print(NL.join(L))
 
 
