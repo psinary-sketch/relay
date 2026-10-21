@@ -13,3 +13,12 @@ b698 -- COMPONENT 4, (R308)(5): THE README RE-CUT OF SIDE-simplicity ON THE AUTH
 ### the successor line of relay data/b698_residue_actions.txt, whitespace collapsed, equal to the merged line: True
 
 ### ### **SIDE-simplicity README :9 RE-CUT: THE ACTION APPLIED True ; RUN 39544136831 DERIVES ; PRINTS EQUAL True ; QUOTING LINES LEFT 0 ; TAG v0.1.2 AT THE MERGE True.**
+
+### THE CELLS HELD SINCE b693, NAMED ON THE AUTHOR`S WORD ON "run" (data/b698_author_answers.txt): the whole roster`s dry run after the
+### tag (data/b698_correspondence_dry_after.txt) moves three SIDE-archimedean cells at PLACE-papers PATHS_TO_THE_CRITICAL_LINE :285,
+### held at b693, b695 and b697; data/b698_rules.txt row (1) regenerates them at b699`s step (rows are cells, the generator`s lines with
+### each cell`s old and new text cut at 90 characters):
+  PATHS_TO_THE_CRITICAL_LINE :285 | kernel | SIDE-archimedean | OLD SIDE-archimedean v0.1.0 | NEW SIDE-archimedean v0.1.1
+  PATHS_TO_THE_CRITICAL_LINE :285 | profile | SIDE-archimedean | OLD NO PRINT BANK AT v0.1.0 | NEW `{propext, Classical.choice, Quot.sound}`
+  PATHS_TO_THE_CRITICAL_LINE :285 | status | SIDE-archimedean | OLD **DERIVES UNREFRESHED** — of the *model* statement: with `fe_reflect σ := 1 - σ` over  | NEW **DERIVES** — of the *model* statement: with `fe_reflect σ := 1 - σ` over ℚ, `1 - σ = 
+### ### **THE CELLS HELD SINCE b693: 3, AT PATHS_TO_THE_CRITICAL_LINE :285 (kernel, profile, status), FOR b699 BY RULE (1).**

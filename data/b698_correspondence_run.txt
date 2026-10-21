@@ -1,0 +1,44 @@
+b672 -- THE CORRESPONDENCE GENERATOR`S RUN, (R282)(4) (2026-10-21T04:31:51Z): tools/correspondence_gen.py run
+
+### the prose of every cell is carried unverified by the generator: its claim is the tokens it writes (the kernel clause`s version and
+### commit, the profile token, the leading grade token) and nothing else; a stale stipulation in prose is a cell-refresh item, not the
+### tool`s claim (the navigator`s answer on reading (1)). A withheld document`s cells print as sha256 and length, never as text.
+
+### THE TAGS: one `git ls-remote --tags origin` per repository (kernel ; reading ; tag ; the commit it peels to ; local describe on main)
+    SIDE-grh-transfer                  READ                                     v0.5.1    6e149db34ab5 ; local v0.5.1
+    SIDE-kernel                        READ                                     v1.8      70aba3cd7392 ; local v1.8
+    SIDE-lv-conservation               READ                                     v0.13.0   8e3bc76cbb32 ; local v0.13.0
+    SIDE-simplicity                    READ                                     v0.1.2    967f747c4365 ; local v0.1.2
+
+### THE PRINT BANKS: every relay print bank of a tabled kernel (kernel ; bank ; built commit ; reading ; files differing to the tag ;
+### rows); the first AT THE TAG, newest act first, is the one read
+    SIDE-grh-transfer                  b668_runner_SIDE-grh-transfer.txt                    d487072   AT THE TAG                           0     53
+    SIDE-grh-transfer                  b668_prints_SIDE-grh-transfer.txt                    d487072   AT THE TAG                           0     53
+    SIDE-kernel                        b653_runner_SIDE-kernel.txt                          ee8d21a   AT THE TAG                           0     54
+    SIDE-lv-conservation               b694_prints_SIDE-lv-conservation.txt                 -         NO BUILT COMMIT                      -     0
+    SIDE-lv-conservation               b694_axioms_SIDE-lv-conservation_after.txt           d38f3e8   NOT AN ANCESTOR                      1     6
+    SIDE-lv-conservation               b657_runner_SIDE-lv-conservation.txt                 c230e6d   AT THE TAG                           0     8
+    SIDE-lv-conservation               b653_runner_SIDE-lv-conservation.txt                 c35a3a3   FILES DIFFER                         12    8
+    SIDE-simplicity                    b698_prints_SIDE-simplicity.txt                      -         NO BUILT COMMIT                      -     0
+    SIDE-simplicity                    b698_axioms_SIDE-simplicity_after.txt                049d17f   AT THE TAG                           0     5
+    SIDE-simplicity                    b697_prints_SIDE-simplicity.txt                      -         NO BUILT COMMIT                      -     0
+    SIDE-simplicity                    b697_axioms_SIDE-simplicity_after.txt                b491ac5   AT THE TAG                           0     5
+    SIDE-simplicity                    b697_axioms_SIDE-simplicity_before.txt               55e25b1   FILES DIFFER                         1     5
+
+### THE TABLES (document ; file ; status ; the table`s lines ; rows ; the cell words and holds)
+    SIMPLICITY_OF_RIEMANN_ZEROS          phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md             SHAPED                         :433-:455 ; rows 21 ; {'NO GRADE TOKEN': 10, 'ABSENT': 3, 'NOT PRINTED': 8, 'NO KERNEL': 3, 'MULTI': 1, 'CELLS CHANGED': 1, 'GRADE NOT IN THE BANK': 4}
+
+### THE ONE-COPY PAIRS (the navigator`s answer on the REGISTRY): document ; the roster`s file ; its partner ; the partner`s reading
+    SIMPLICITY_OF_RIEMANN_ZEROS          phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md ; phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md ; NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 6 LINES
+
+### THE GRADE TOKENS MOVED DOWNWARD (the navigator`s answer, b672: listed before the write, entered under W-ORD-GRADE-MOVED): document :line ; kernel ; old token -> new token
+    none
+
+### THE DIFF: rows are cells changed (document :line ; column ; kernel ; old ; new)
+    SIMPLICITY_OF_RIEMANN_ZEROS :441 | kernel | SIDE-simplicity | OLD SIDE-simplicity v0.1.0 | NEW SIDE-simplicity v0.1.2
+
+### THE CARRIED-AT CLAUSES (b691, (R301)(3)): read from the carrying source; CARRIED AT 0 ; CARRIED AT: UNREAD 0 ; CARRIED AT: VERSION DIFFERS 0, each held as it stands (document :line ; kernel ; the clause`s version ; carried at ; the carry the source cites)
+    none held
+
+### THE CELL WORDS BY KERNEL: SIDE-kernel {'ABSENT': 3, 'NOT PRINTED': 2}; SIDE-lv-conservation {'NOT PRINTED': 6}
+### ### **TABLES 1 ; SHAPED 1 ; NOT IN THE GENERATOR`S SHAPE 0 ; ANCHOR NOT FOUND 0 ; KERNELS 4 (WITH A TAG 4) ; CELLS CHANGED 1 ; FILES CHANGED 1 ; ABSENT 3 ; NO PRINT BANK 0 ; NOT PRINTED 8 ; HELD: DEPOSIT PIN 0 ; MULTI 1 ; NO TAG 0.**

@@ -1,0 +1,267 @@
+{
+ "at": "2026-10-21T04:31:51Z",
+ "tags": {
+  "SIDE-grh-transfer": [
+   "v0.5.1",
+   "6e149db34ab56f4283e7f735e953eab23a436ae5"
+  ],
+  "SIDE-kernel": [
+   "v1.8",
+   "70aba3cd739270e354278a8b4eb439f5349e5495"
+  ],
+  "SIDE-lv-conservation": [
+   "v0.13.0",
+   "8e3bc76cbb326739deaf3e034d9069d82d2407ec"
+  ],
+  "SIDE-simplicity": [
+   "v0.1.2",
+   "967f747c4365be27197f812c0f9773ed9c32ae33"
+  ]
+ },
+ "banks": {
+  "SIDE-grh-transfer": {
+   "file": "b668_runner_SIDE-grh-transfer.txt",
+   "built": "d487072543ddd8c09376fd424678b524aba06c93",
+   "diff": 0
+  },
+  "SIDE-kernel": {
+   "file": "b653_runner_SIDE-kernel.txt",
+   "built": "ee8d21a18a9ae0936523551d0bef773f56f409e1",
+   "diff": 0
+  },
+  "SIDE-lv-conservation": {
+   "file": "b657_runner_SIDE-lv-conservation.txt",
+   "built": "c230e6d8b02a3330eaec4d2e213fa5e905be13a8",
+   "diff": 0
+  },
+  "SIDE-simplicity": {
+   "file": "b698_axioms_SIDE-simplicity_after.txt",
+   "built": "049d17f6e589d51f0d79342e92a70f4a6256bcd3",
+   "diff": 0
+  }
+ },
+ "tables": [
+  {
+   "doc": "SIMPLICITY_OF_RIEMANN_ZEROS",
+   "path": "phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md",
+   "status": "SHAPED",
+   "span": [
+    433,
+    455
+   ],
+   "counts": {
+    "NO GRADE TOKEN": 10,
+    "ABSENT": 3,
+    "NOT PRINTED": 8,
+    "NO KERNEL": 3,
+    "MULTI": 1,
+    "CELLS CHANGED": 1,
+    "GRADE NOT IN THE BANK": 4
+   },
+   "rows": [
+    {
+     "line": 435,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "SpectralCannonFull.spectral_cannon",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 436,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "SIDEDerivative.exactly_c1_derives",
+     "reading": "ABSENT"
+    },
+    {
+     "line": 437,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "SIDEDerivative.onLine_doubleZero_iff_imDeriv_zero",
+     "reading": "ABSENT"
+    },
+    {
+     "line": 438,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "SIDEDerivative.no_onLine_double_iff_transversal",
+     "reading": "ABSENT"
+    },
+    {
+     "line": 439,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "PerpendicularCrossing.perpendicular_gradients",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 440,
+     "kernels": [],
+     "reading": "NO KERNEL"
+    },
+    {
+     "line": 441,
+     "kernels": [
+      "SIDE-simplicity"
+     ],
+     "declaration": "SIDESimplicity.transversal_generic_empty",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 442,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "PerpendicularCrossing.simplicity_from_trace_structure",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 443,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 444,
+     "kernels": [],
+     "reading": "NO KERNEL"
+    },
+    {
+     "line": 445,
+     "kernels": [],
+     "reading": "NO KERNEL"
+    },
+    {
+     "line": 446,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.PartialPositivity.partialPositivity_finiteRange",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 447,
+     "kernels": [
+      "SIDE-kernel",
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "ProductFormula.conservation_of_spectra",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 448,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.T3.T3doubleprime_general_commutation_fails",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 449,
+     "kernels": [
+      "SIDE-grh-transfer"
+     ],
+     "declaration": "SIDEGRHTransfer.grh_structural_exhaustiveness_proved",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 450,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.exists_norm_completedLFunction_le_exp",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 451,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "SIDEKernel.formation",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 452,
+     "kernels": [
+      "SIDE-kernel"
+     ],
+     "declaration": "CartanBridge.formation_n_3_eq_two",
+     "reading": "PRINTED"
+    },
+    {
+     "line": 453,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.h1_complete_at_Phi",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 454,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.RegisterPentagon.goalState_of_h1_h2",
+     "reading": "NOT PRINTED"
+    },
+    {
+     "line": 455,
+     "kernels": [
+      "SIDE-lv-conservation"
+     ],
+     "declaration": "SIDELvConservation.C7_finite_type_false",
+     "reading": "NOT PRINTED"
+    }
+   ],
+   "changes": [
+    {
+     "doc": "SIMPLICITY_OF_RIEMANN_ZEROS",
+     "line": 441,
+     "column": "kernel",
+     "kernel": "SIDE-simplicity",
+     "old": "SIDE-simplicity v0.1.0",
+     "new": "SIDE-simplicity v0.1.2"
+    }
+   ]
+  }
+ ],
+ "counts": {
+  "NO GRADE TOKEN": 10,
+  "ABSENT": 3,
+  "NOT PRINTED": 8,
+  "NO KERNEL": 3,
+  "MULTI": 1,
+  "CELLS CHANGED": 1,
+  "GRADE NOT IN THE BANK": 4
+ },
+ "by_kernel": {
+  "SIDE-kernel": {
+   "ABSENT": 3,
+   "NOT PRINTED": 2
+  },
+  "SIDE-lv-conservation": {
+   "NOT PRINTED": 6
+  }
+ },
+ "files": [
+  "D:/MY-DOwnloads/PLACE-papers\\phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md"
+ ],
+ "grade_down": [],
+ "pairs": [
+  {
+   "doc": "SIMPLICITY_OF_RIEMANN_ZEROS",
+   "path": "phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md",
+   "partner": "phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md",
+   "cells": 0,
+   "written": false,
+   "reason": "NOT WRITTEN: THE PARTNER`S TABLE DIFFERS IN 6 LINES"
+  }
+ ]
+}

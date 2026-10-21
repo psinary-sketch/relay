@@ -918,8 +918,79 @@ def readmecut(*a):
     print(NL.join(L))
 
 
+# ================================================================================ COMPONENT 4: THE AUTHOR'S WORD ON "run", ITS TWO ENTRIES
+ONECOPY_H = ('*Appended 2026-10-21 by b698 beneath `W-ORD-ONE-COPY` (:14386, its trigger re-written at :14450), under `(R308)`(5) and the '
+             'author’s word on the stale cell -- THE PARTNER COPY’S DIFFERING LINES, THIS ACT’S READING:*')
+
+
+def onecopy(*a):
+    """data/b698_onecopy.txt: the SIMPLICITY_OF_RIEMANN_ZEROS table and its partner copy's, each found by the generator's own find_table with
+    the roster's anchor (data/b698_roster_simplicity.json), at PLACE-papers HEAD after the cell was written; the lines that differ, each with its
+    line in both files; and `onecopy land [dry]` -- the reading entered beneath W-ORD-ONE-COPY through the guarded landing."""
+    import correspondence_gen as CG
+    t = jl(ROSTER_ONE)['tables'][0]
+    A = (_show(PP, 'HEAD', t['path']) or '').split(NL)
+    B = (_show(PP, 'HEAD', t['partner']) or '').split(NL)
+    fa, fb = CG.find_table(A, t), CG.find_table(B, t)
+    if isinstance(fa, str) or isinstance(fb, str):
+        sys.exit('### A TABLE NOT FOUND: %r ; %r -- NOTHING WRITTEN' % (fa, fb))
+    ta, tb = A[fa[0]:fa[1]], B[fb[0]:fb[1]]
+    import difflib
+    ops = difflib.SequenceMatcher(None, ta, tb, autojunk=False).get_opcodes()
+    rows = []
+    for tag, i1, i2, j1, j2 in ops:
+        if tag == 'equal':
+            continue
+        for k in range(max(i2 - i1, j2 - j1)):
+            ia, ib = (i1 + k if i1 + k < i2 else None), (j1 + k if j1 + k < j2 else None)
+            rows.append(dict(op=tag, a=(fa[0] + ia + 1) if ia is not None else None, b=(fb[0] + ib + 1) if ib is not None else None,
+                             ta=ta[ia] if ia is not None else '', tb=tb[ib] if ib is not None else ''))
+    if 'land' in a:
+        n = len(rows)
+        body = (' the generator, run on the author’s word at b698 on a one-table roster, wrote SIMPLICITY_OF_RIEMANN_ZEROS.md :441 alone and left '
+                'its partner copy SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md unwritten. Read line by line at PLACE-papers HEAD after the write, by the '
+                'generator’s own table finder (relay data/b698_onecopy.txt), the two copies’ Correspondence tables differ in %d lines -- %d before '
+                'the write, :441 now among them: the copy’s %s against the partner’s %s, the partner citing older kernel versions and carrying '
+                'longer status cells. The figure 6 the generator prints, and the seat’s prompt carried, is b672’s roster field '
+                'partner_lines_differing, stored at b672 and not recounted (relay data/b698_defects.txt). The reading is this act’s; neither copy '
+                'is moved by it and the one copy of record stays the order’s question. Status OPEN.' % (
+                    n, n - 1, ', '.join(':%s' % r['a'] for r in rows), ', '.join(':%s' % r['b'] for r in rows)))
+        land([('OPEN_TRAILS.md', ONECOPY_H, NL + ONECOPY_H + body + NL)], '%s_onecopy_line.json' % ACT, 'onecopy', entry=14386,
+             check=[('OPEN_TRAILS.md', 14386, '**`W-ORD-ONE-COPY`**'), ('OPEN_TRAILS.md', 14450, '**`W-ORD-ONE-COPY`**')], dry='dry' in a)
+        return
+    L = ['%s -- COMPONENT 4, (R308)(5) AND THE AUTHOR`S WORD ON "run": THE PARTNER COPY`S DIFFERING LINES, READ AT PLACE-papers HEAD %s (%s)' % (
+        ACT, g(PP, 'rev-parse', '--short=7', 'HEAD').strip(), utc()), '',
+         '### the tables: %s :%d-:%d and its partner %s :%d-:%d, each found by tools/correspondence_gen.py`s find_table with the roster`s anchor;'
+         % (t['path'], fa[0] + 1, fa[1], t['partner'], fb[0] + 1, fb[1]),
+         '### compared line by line (SequenceMatcher, autojunk off). Rows are differing lines: op | the copy`s line | the partner`s line | the two texts.', '']
+    for r in rows:
+        L += ['  %-8s | :%-4s | :%-4s' % (r['op'], r['a'] or '-', r['b'] or '-'), '      copy:    ' + r['ta'], '      partner: ' + r['tb']]
+    L += ['', '### ### **THE TWO TABLES DIFFER IN %d LINES (the generator`s reading: 6) ; NEITHER COPY MOVED BY THIS READING.**' % len(rows)]
+    put_txt('%s_onecopy.txt' % ACT, L)
+    print(NL.join(L))
+
+
+def heldcells(*a):
+    """the three SIDE-archimedean cells the whole roster's dry run would move (data/b698_correspondence_dry_after.txt), named in the cut bank
+    (data/b698_readme_cut.txt) as the cells data/b698_rules.txt row (1) regenerates at b699's step, on the author's word; appended beneath the
+    bank's verdict line by this route alone."""
+    dry = [l.strip() for l in rdn('%s_correspondence_dry_after.txt' % ACT).split(NL) if l.startswith('    PATHS_TO_THE_CRITICAL_LINE :285 |')]
+    cut = rdn('%s_readme_cut.txt' % ACT)
+    if len(dry) != 3 or 'THE CELLS HELD SINCE b693' in cut:
+        sys.exit('### NOT THREE HELD CELLS (%d), OR ALREADY NAMED -- NOTHING WRITTEN' % len(dry))
+    add = ['', '### THE CELLS HELD SINCE b693, NAMED ON THE AUTHOR`S WORD ON "run" (data/b698_author_answers.txt): the whole roster`s dry run after the',
+           '### tag (data/b698_correspondence_dry_after.txt) moves three SIDE-archimedean cells at PLACE-papers PATHS_TO_THE_CRITICAL_LINE :285,',
+           '### held at b693, b695 and b697; data/b698_rules.txt row (1) regenerates them at b699`s step (rows are cells, the generator`s lines with',
+           '### each cell`s old and new text cut at 90 characters):']
+    add += ['  ' + ' | '.join(x[:90] for x in l.split(' | ')) for l in dry]
+    add += ['### ### **THE CELLS HELD SINCE b693: 3, AT PATHS_TO_THE_CRITICAL_LINE :285 (kernel, profile, status), FOR b699 BY RULE (1).**']
+    put_txt('%s_readme_cut.txt' % ACT, cut.rstrip(NL).split(NL) + add)
+    print(NL.join(add))
+
+
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, bridge=bridge, uses=uses, cells=cells,
-              dispatch=dispatch, runstatus=runstatus, runner=runner, prints=prints, quote=quote, readmecut=readmecut)
+              dispatch=dispatch, runstatus=runstatus, runner=runner, prints=prints, quote=quote, readmecut=readmecut, onecopy=onecopy,
+              heldcells=heldcells)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
