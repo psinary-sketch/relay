@@ -1,7 +1,7 @@
-b700 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T13:48:30Z)
+b700 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T14:19:24Z)
 
 ### the source: the seat`s session c677eaf2-5ebd-414d-85fe-7a54a52c47cd from its first user line carrying 'RULING (R310) BEGIN', with its subagents` transcripts; the continuation b858e03f from its first user line carrying 'RESUME b700 after a host reboot'
-### commands read: 148
+### commands read: 203
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #129 2026-10-21T13:01:06.185Z seat b858e03f Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -234,5 +234,60 @@ b700 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #146 | 2026-10-21T13:47:53.206Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py reads
   #147 | 2026-10-21T13:48:12.462Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py answers
   #148 | 2026-10-21T13:48:26.243Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py defects
+  #149 | 2026-10-21T13:48:29.022Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_record.py commands
+  #150 | 2026-10-21T13:50:22.467Z | seat b858e03f | Bash | python -X utf8 -m py_compile tools/b700_checks.py tools/b700_closing.py tools/b700_reg_gate.py tools/b700_regspec.py tools/b700_record.py tools/b700_worklist.py
+  #151 | 2026-10-21T13:50:25.564Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py drycheck data/b700_registration_2026-10-21.txt standin
+  #152 | 2026-10-21T13:50:41.235Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py drycheck data/b700_registration_2026-10-21.txt standin
+  #153 | 2026-10-21T13:50:47.000Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py findings dry
+  #154 | 2026-10-21T13:50:55.307Z | seat b858e03f | Bash | git -C /d/relay status --short --untracked-files=all -- data/b700_* tools/b700_* data/b675_corrigenda.txt
+  #155 | 2026-10-21T13:50:59.596Z | seat b858e03f | Bash | git -C /d/relay add data/b700_defects.txt data/b700_stepzero.txt data/b700_tool_repairs.txt tools/b700_record.py tools/b700_worklist.py data/b700_author_answers
+  #156 | 2026-10-21T13:51:03.319Z | seat b858e03f | Bash | git -C /d/relay commit -m "b700 Component 4 under (R310): the suite, gate, spec and closing carried from b699's with repairs (8)-(9), the record tool's late rou
+  #157 | 2026-10-21T13:51:07.715Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_checks.py --prerun --part standing-a
+  #158 | 2026-10-21T13:55:25.439Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_checks.py --prerun --part standing-c
+  #159 | 2026-10-21T14:00:07.339Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_checks.py --prerun --part standing-b1
+  #160 | 2026-10-21T14:01:29.497Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_checks.py --prerun --part standing-b2
+  #161 | 2026-10-21T14:08:29.683Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_checks.py --prerun --part standing-b3
+  #162 | 2026-10-21T14:10:29.525Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_checks.py --prerun --part act
+  #163 | 2026-10-21T14:11:26.603Z | seat b858e03f | Bash | git -C /d/relay add data/b700_defects.txt
+  #164 | 2026-10-21T14:11:29.632Z | seat b858e03f | Bash | git -C /d/relay commit -m "b700 Component 4 under (R310): the defects bank re-wrapped so each transcript-line needle G-READ-RULE reads stands on one line (the f
+  #165 | 2026-10-21T14:11:32.592Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_checks.py --prerun --part act
+  #166 | 2026-10-21T14:12:12.562Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_checks.py --combine b700_arms_prerun.txt
+  #167 | 2026-10-21T14:12:15.282Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py armsecs
+  #168 | 2026-10-21T14:12:19.221Z | seat b858e03f | Bash | git -C /d/relay status --short --untracked-files=all -- data/b700_* tools/b700_*
+  #169 | 2026-10-21T14:12:23.864Z | seat b858e03f | Bash | git -C /d/relay add data/b700_arm_seconds.json data/b700_arm_seconds.txt data/b700_arm_seconds_act.json data/b700_arm_seconds_standing-a.json data/b700_arm_seco
+  #170 | 2026-10-21T14:12:27.457Z | seat b858e03f | Bash | git -C /d/relay commit -m "b700 Component 4 under (R310): the pre-run in six parts, 119 arms, 86 passing, 0 negative-control failures, 0 positive controls passi
+  #171 | 2026-10-21T14:12:49.110Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_reg_gate.py
+  #172 | 2026-10-21T14:13:19.474Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_record.py gatebanks
+  #173 | 2026-10-21T14:13:26.539Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_record.py scores dry
+  #174 | 2026-10-21T14:14:08.803Z | seat b858e03f | Bash | git -C /d/relay status --short --untracked-files=all -- data/b700_* data/audit_b700_*
+  #175 | 2026-10-21T14:14:12.704Z | seat b858e03f | Bash | git -C /d/relay add data/b700_registration_2026-10-21.txt data/audit_b700_reg_satisfiable.txt data/b700_census_stepzero.txt data/b700_faces_census_stepzero.txt 
+  #176 | 2026-10-21T14:14:15.978Z | seat b858e03f | Bash | git -C /d/relay commit -m "b700 Component 4 under (R310): the gate's record before the lock -- the dry-run step CLEAN with the trail's Defects line equal to the
+  #177 | 2026-10-21T14:14:22.840Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_reg_gate.py
+  #178 | 2026-10-21T14:14:48.547Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_record.py gatebanks
+  #179 | 2026-10-21T14:14:55.052Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b378_lockgate.py b700 data/b700_registration_2026-10-21.txt
+  #180 | 2026-10-21T14:14:58.094Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/reg_seal.py --lock data/b700_registration_2026-10-21.txt
+  #181 | 2026-10-21T14:15:01.078Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_checks.py --seal
+  #182 | 2026-10-21T14:15:04.810Z | seat b858e03f | Bash | git -C /d/relay status --short --untracked-files=all -- data/b700_* data/audit_b700_*
+  #183 | 2026-10-21T14:15:07.985Z | seat b858e03f | Bash | git -C /d/relay add data/audit_b700_reg_satisfiable.txt data/b700_pins_stepzero.txt data/b700_reg_gate.txt data/b700_reg_termscan.txt data/b700_registration_202
+  #184 | 2026-10-21T14:15:10.922Z | seat b858e03f | Bash | git -C /d/relay commit -m "b700 seal under (R310): the face locked (sha256 ec20ccf2, 29321 bytes), the lock gate 8 of 8 PERMITTED, the gate records stamped agai
+  #185 | 2026-10-21T14:15:38.382Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_record.py scores
+  #186 | 2026-10-21T14:16:08.611Z | seat b858e03f | Bash | timeout 590 python -X utf8 tools/b700_record.py table_final
+  #187 | 2026-10-21T14:16:43.487Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py findings
+  #188 | 2026-10-21T14:16:51.651Z | seat b858e03f | Bash | git -C /d/relay status --short --untracked-files=all -- data/b700_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal
+  #189 | 2026-10-21T14:16:54.185Z | seat b858e03f | Bash | git -C /d/relay add data/b700_findings.json data/b700_scores.json data/b700_table_final.json data/b700_table_final.txt
+  #190 | 2026-10-21T14:16:56.854Z | seat b858e03f | Bash | git -C /d/relay commit -m "b700 pre-root: the scores bank (written once, before the entry), the findings landing bank (FINDINGS :9768), the final table (0 moved
+  #191 | 2026-10-21T14:16:59.560Z | seat b858e03f | Bash | git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md
+  #192 | 2026-10-21T14:17:02.788Z | seat b858e03f | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b700 entry under (R310): Reading 4 -- 338 rows outside license, Correspondence behind 58 by b670's method and 0 b
+  #193 | 2026-10-21T14:17:05.494Z | seat b858e03f | Bash | git -C /d/relay branch push-b700-root 14b2a6f6
+  #194 | 2026-10-21T14:17:08.281Z | seat b858e03f | Bash | PUSH_GATED_LOG=/d/relay/data/b700_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b700-root
+  #195 | 2026-10-21T14:17:19.097Z | seat b858e03f | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch push-b700-root 8943108
+  #196 | 2026-10-21T14:17:21.853Z | seat b858e03f | Bash | PUSH_GATED_LOG=/d/relay/data/b700_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b700-root
+  #197 | 2026-10-21T14:17:53.006Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py root dry
+  #198 | 2026-10-21T14:18:27.403Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py root
+  #199 | 2026-10-21T14:18:59.229Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py root_arm
+  #200 | 2026-10-21T14:19:03.042Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py trail dry
+  #201 | 2026-10-21T14:19:07.375Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py trail
+  #202 | 2026-10-21T14:19:18.783Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py desk
+  #203 | 2026-10-21T14:19:18.853Z | seat b858e03f | Bash | timeout 300 python -X utf8 tools/b700_record.py components
 
-### ### **COMMANDS 148 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 14 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 8 ; PIPES OF ANY KIND 15 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 9 OF 9 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 203 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 14 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 8 ; PIPES OF ANY KIND 15 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 9 OF 9 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

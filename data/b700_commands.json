@@ -1,5 +1,5 @@
 {
- "at": "2026-10-21T13:48:30Z",
+ "at": "2026-10-21T14:19:24Z",
  "anchor": "RULING (R310) BEGIN",
  "rows": [
   {
@@ -1184,6 +1184,446 @@
    "src": "seat b858e03f",
    "cmd": "timeout 300 python -X utf8 tools/b700_record.py defects",
    "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T13:48:29.022Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_record.py commands",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T13:50:22.467Z",
+   "src": "seat b858e03f",
+   "cmd": "python -X utf8 -m py_compile tools/b700_checks.py tools/b700_closing.py tools/b700_reg_gate.py tools/b700_regspec.py tools/b700_record.py tools/b700_worklist.py tools/b700_citation.py && echo COMPILED",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T13:50:25.564Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py drycheck data/b700_registration_2026-10-21.txt standin",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T13:50:41.235Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py drycheck data/b700_registration_2026-10-21.txt standin",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T13:50:47.000Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py findings dry",
+   "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T13:50:55.307Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay status --short --untracked-files=all -- data/b700_* tools/b700_* data/b675_corrigenda.txt",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T13:50:59.596Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay add data/b700_defects.txt data/b700_stepzero.txt data/b700_tool_repairs.txt tools/b700_record.py tools/b700_worklist.py data/b700_author_answers.json data/b700_author_answers.txt data/b700_commands.json data/b700_commands.txt data/b700_defects.json data/b700_kernels_face.json data/b700_read_calls.txt data/b700_registration_2026-10-21.txt tools/b700_checks.py tools/b700_closing.py tools/b700_reg_gate.py tools/b700_regspec.py",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T13:51:03.319Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay commit -m \"b700 Component 4 under (R310): the suite, gate, spec and closing carried from b699's with repairs (8)-(9), the record tool's late routes, the repairs bank, the kernels face, the read calls and the command bank over both sessions, the answers bank, the defects (a)-(b) and this face\"",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T13:51:07.715Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --prerun --part standing-a",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T13:55:25.439Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --prerun --part standing-c",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:00:07.339Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --prerun --part standing-b1",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:01:29.497Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --prerun --part standing-b2",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:08:29.683Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --prerun --part standing-b3",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:10:29.525Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --prerun --part act",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:11:26.603Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay add data/b700_defects.txt",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:11:29.632Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay commit -m \"b700 Component 4 under (R310): the defects bank re-wrapped so each transcript-line needle G-READ-RULE reads stands on one line (the first act-part pre-run read it failing on real state), corrected before the seal\"",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:11:32.592Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --prerun --part act",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:12:12.562Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_checks.py --combine b700_arms_prerun.txt",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:12:15.282Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py armsecs",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:12:19.221Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay status --short --untracked-files=all -- data/b700_* tools/b700_*",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:12:23.864Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay add data/b700_arm_seconds.json data/b700_arm_seconds.txt data/b700_arm_seconds_act.json data/b700_arm_seconds_standing-a.json data/b700_arm_seconds_standing-b1.json data/b700_arm_seconds_standing-b2.json data/b700_arm_seconds_standing-b3.json data/b700_arm_seconds_standing-c.json data/b700_arms_prerun.txt data/b700_arms_prerun_act.txt data/b700_arms_prerun_standing-a.txt data/b700_arms_prerun_standing-b1.txt data/b700_arms_prerun_standing-b2.txt data/b700_arms_prerun_standing-b3.txt data/b700_arms_prerun_standing-c.txt data/b700_chain_half_a_arms_prerun.json data/b700_chain_half_b_arms_prerun.json data/b700_lsr_prerun_act.json data/b700_lsr_prerun_standing-a.json data/b700_lsr_prerun_standing-b1.json data/b700_lsr_prerun_standing-b2.json data/b700_lsr_prerun_standing-b3.json data/b700_lsr_prerun_standing-c.json",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:12:27.457Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay commit -m \"b700 Component 4 under (R310): the pre-run in six parts, 119 arms, 86 passing, 0 negative-control failures, 0 positive controls passing; the combined bank, the per-part seconds, the chain halves\"",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:12:49.110Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_reg_gate.py",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:13:19.474Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_record.py gatebanks",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:13:26.539Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_record.py scores dry",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:14:08.803Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay status --short --untracked-files=all -- data/b700_* data/audit_b700_*",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:14:12.704Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay add data/b700_registration_2026-10-21.txt data/audit_b700_reg_satisfiable.txt data/b700_census_stepzero.txt data/b700_faces_census_stepzero.txt data/b700_pins_stepzero.txt data/b700_reg_gate.txt data/b700_reg_termscan.txt data/b700_regspec_run.txt data/b700_satisfiable.json",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:14:15.978Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay commit -m \"b700 Component 4 under (R310): the gate's record before the lock -- the dry-run step CLEAN with the trail's Defects line equal to the defects bank, the closing's dry run CLEAN, GATE CLEAR; the term scan, the spec, the satisfiability audit, the step-zero censuses and pins; section (0) filled\"",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:14:22.840Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_reg_gate.py",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:14:48.547Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_record.py gatebanks",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:14:55.052Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b378_lockgate.py b700 data/b700_registration_2026-10-21.txt",
+   "n": 179,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:14:58.094Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/reg_seal.py --lock data/b700_registration_2026-10-21.txt",
+   "n": 180,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:15:01.078Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_checks.py --seal",
+   "n": 181,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:15:04.810Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay status --short --untracked-files=all -- data/b700_* data/audit_b700_*",
+   "n": 182,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:15:07.985Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay add data/audit_b700_reg_satisfiable.txt data/b700_pins_stepzero.txt data/b700_reg_gate.txt data/b700_reg_termscan.txt data/b700_registration_2026-10-21.txt data/b700_regspec_run.txt data/b700_lockgate.json data/b700_lockgate_notes.txt data/b700_seal_hashes.json",
+   "n": 183,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:15:10.922Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay commit -m \"b700 seal under (R310): the face locked (sha256 ec20ccf2, 29321 bytes), the lock gate 8 of 8 PERMITTED, the gate records stamped against the locked face, the ten sealed tools' hashes recorded\"",
+   "n": 184,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:15:38.382Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_record.py scores",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:16:08.611Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_record.py table_final",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:16:43.487Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py findings",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:16:51.651Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay status --short --untracked-files=all -- data/b700_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:16:54.185Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay add data/b700_findings.json data/b700_scores.json data/b700_table_final.json data/b700_table_final.txt",
+   "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:16:56.854Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay commit -m \"b700 pre-root: the scores bank (written once, before the entry), the findings landing bank (FINDINGS :9768), the final table (0 moved, 0 gone)\"",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:16:59.560Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:17:02.788Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers commit -m \"b700 entry under (R310): Reading 4 -- 338 rows outside license, Correspondence behind 58 by b670's method and 0 by the generator's count, defects by class with 17 standing sources, ONE-COPY 131 lines by cause, 35 papers outside the roster (FINDINGS :9768)\"",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:17:05.494Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay branch push-b700-root 14b2a6f6",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:17:08.281Z",
+   "src": "seat b858e03f",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b700_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b700-root",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:17:19.097Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b700-root 8943108",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:17:21.853Z",
+   "src": "seat b858e03f",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b700_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b700-root",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:17:53.006Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py root dry",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:18:27.403Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py root",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:18:59.229Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py root_arm",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:03.042Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py trail dry",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:07.375Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py trail",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:18.783Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py desk",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:18.853Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py components",
+   "n": 203,
    "bg": false
   }
  ],
