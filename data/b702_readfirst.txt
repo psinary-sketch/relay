@@ -1,0 +1,43 @@
+b702 -- STEP ZERO, (R312)(9): THE READ-FIRST BANK, EACH ITEM BY PATH AND LINE WITH THE UNIT OF ITS ROWS AND WHAT THE ACT TAKES FROM IT (2026-10-21)
+
+### rows are items: the path | the line or lines read | the unit of that bank's rows | what the act takes from it. Written by the Write tool at
+### step zero before any delete; the closure reader (tools/circuit_read.py readfirst) run beside it, its list diffed against this one
+### (data/b702_readfirst_closure.txt, data/b702_readfirst_diff.txt). Every line number below was read through the Read tool this act.
+
+  relay data/b701_closing.txt | :1 ; :244-:261 | the closing's sections; (a)-(h) the carried-forward rows | the head line for (R312)(1)'s quote (equal character for character) and the weight line; the carried rows (f) the branches, (g) the defects, (h) the push-out bank
+  relay data/b701_defects.txt | :6-:50 | rows are defects as lettered, (a)-(g); the events beneath | the lettering the corrigendum continues at (h)-(k); the trail's Defects line it must equal
+  relay data/b701_tool_repairs.txt | :6, :18, :122, :153, :246, :271, :298, :305, :328 ; :347 | rows are repairs (nine), each with the defect it answers and its diff | the carry-time form for data/b702_tool_repairs.txt; rows (6)-(9) the repairs the pre-run forced
+  relay data/b701_obstruction.txt | :11-:18 ; :26 ; :39-:45 | the obstruction verbatim, the goal, the repair, the work-order | widening-b701 = 8a4ab68 kept, local and remote; b703's price (1 dispatch) and trigger
+  relay data/b701_faces_rows.txt | :10 ; :14 ; :16-:22 | rows are drafted node-list rows: (A) as it stands, (B) the successor, (C) the check | the successor the faces prompt prints verbatim beside the page's line
+  relay data/b701_grade.txt | :41 | rows are theorems: the grade, E0, the salt-check | DERIVES for the weight line and the successor row
+  relay data/b701_correspondence_restatement.txt | :57 | rows are binders with their readings | HOLDS-BY-CORRESPONDENCE at every binder, for the weight line and the faces row
+  relay data/b701_clause_dominance.txt | :58 | rows are faces kernels | 2 of 2 through the restatement, for the weight line
+  PLACE-papers OPEN_TRAILS.md | :15406 ; :15408 ; :15410 ; :15412-:15440 (:15436 the Resolved line) | lines are ledger records | the orders b701 entered; the trail record whose Resolved line miscounts (the corrigendum); where this act's orders land
+  PLACE-papers OPEN_TRAILS.md | :14386 ; :14450 ; :15296 ; :15332 | lines are ledger records | W-ORD-ONE-COPY as entered, its trigger re-written, the two readings beneath it -- the old line to annotate "superseded"
+  relay data/b700_reading4.txt | :66-:76 ; :90-:100 | rows are readings, each with its tool or "by hand" | row (18): 17 pairs, 131 lines differing -- by cause a regenerated cell 123, a hand edit 8, a re-cut 0, an archive-split artefact 0 (the partner-copies order's figures); (b) the roster-currency rows
+  relay data/b695_circuit_spec.txt | :7-:64 ; :53 ; :66-:67 | rows are the instrument's readings | the eleven rows carried unchanged; the twelfth's form
+  PLACE-papers README.md | :15-:18 ; :113-:131 ; :160 ; :185-:187 | lines of the front door (188 lines) | the currency lines (:18 SIDE-window v0.5.0 aacb415, SIDE-effects afa9ccf; :160 v5.18, v0.21 1d5d4dd); the appends (:127 (R284)(3) before :129 (R232)(3); :131 (R245)(5)(ii) the last in reading order) -- the ruling's :184/:188 raised
+  PLACE-papers REGISTRY.md | :83 ; :87 ; :948-:950 | rows are papers; the ceiling lines | d1-1 at v5.13 against the README's v5.18; d1-5 Seven Mechanism Classes v3.3 READY; no README row (raised)
+  relay data/b690_nodes_zeta.txt | :126 | rows are node-list records (@corr the Correspondence rows) | the row the successor extends
+  relay data/b697_nodes_zeta.txt | :126 | rows are node-list records (the page's list at HEAD) | the list data/b702_nodes_zeta.txt is written from, on the word
+  PLACE-papers THE_CLAUSE_AND_ITS_COMPILED_FACES.md | :3 ; :732 | lines of the generated page | the header tag v0.26 = 82550e4 (unchanged by this write); the row the regeneration changes -- two lines expected
+  relay tools/b700_checks.py | :1669-:1676 | lines of b700's suite tool | the PRERUN guard as b700 had it
+  relay tools/b701_checks.py | :1782-:1786 | lines of b701's suite tool | the write without the guard -- restored at carry time, the diff banked
+  relay data/b670_licensed_table.txt | :4-:58 ; :66-:86 ; :89-:123 | rows are documents (the 19 roster tables; the 33 agenda documents) | the agenda and the b670 method
+  relay data/b700_r4_licensed.txt | :7-:11 ; :52-:84 ; :88 | rows are agenda documents, b648 -> b680 -> b690 -> b700 | the counts now: every kernel at 0 (DOCUMENTS AT ZERO 23), the companions 5-24, the monograph 217
+  relay data/b648_recut_order.txt | :4-:36 ; :38 | rows are documents with kind, OVERREACHES, UNLICENSED, together, bytes, bank | the kinds: the seven companions (:5-:11) b652's order passes to
+  relay data/b652_ferry.txt | :19 | the ruling's line | b652's order: "the next kernel by descending count under the same rules, then the companions"
+  relay data/b674_rules.txt | :8-:11 | rows are rules | the tie-break beyond the count, printed verbatim before the document is named
+  relay data/b690_rules.txt | :9 | rows are rules | row (2): the quotation search before the merge
+  relay data/b698_rules.txt | :6 | rows are rules | row (1): a tag move regenerates the cells (no tag moves for a paper's cut)
+  relay data/b646_table_Seven_Mechanism_Classes.txt | :3 ; :9-:329 ; :331 | rows are claims: line, grade, stated-as, terminal, route, VERDICT, the quote, the ACTION | the 24 non-MATCHES rows (OVERREACHES 19, UNLICENSED 5) the cut applies by their ACTIONs
+  relay data/b699_tie.txt ; data/b699_cut.txt | :1-:43 ; :12-:15 | the forms | the tie bank's and the cut bank's forms; the b670 method as applied
+  relay data/b672_one_copy.txt | :3 ; :9-:14 | rows are the 25 documents with their copies, readers and last commits | the pairs the partner-copies order names
+  relay data/b675_corrigenda.txt | :113 | rows are corrigenda | row (16) the last; row (17) this act's
+  relay tools/b700_corrigendum.py | :1-:70 | the tool | b678's form by import, carried as tools/b702_corrigendum.py
+  relay data/b701_closing_push_out.txt | the capture | the push tool's capture | committed alone at the start (main read back at 613847d6)
+  relay data/b701_read_calls.txt ; data/b701_commands.txt ; data/b701_checks_postpush.txt | :54 ; the counts ; the verdict | banks | the four unlettered items' evidence (the fourth whole read; the redirect-and-pipe diagnostic is after b701's root, in the transcript; G-ACTROOT-LAST)
+  relay tools/chain_page.py ; relay tools/circuit_read.py | the tools | generators and readers | the faces regeneration and its control; the readfirst closure
+  relay data/b701_epstein_plan.txt | :163 | the price line | b703's naming
+
+### ### **ITEMS 34 ; EVERY LINE READ THROUGH THE READ TOOL ; THE RULING`S MISSES 2 (README :184/:188 against :127/:131 ; REGISTRY`S README ROW ABSENT), RAISED BEFORE COMPONENT 3.**
