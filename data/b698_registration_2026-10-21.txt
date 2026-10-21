@@ -57,7 +57,16 @@
 ### call in its own message: every arm declared in (G2) ran there and its count is printed in `b698_arms_prerun.txt`, the arms reading the
 ### gate`s record, the lock, the seal, the scores, the entry, the table, the root and the trail not yet written failing there.
 ### ### **THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:** NONE.
-### PRERUN-FIGURES
+### The pre-run`s bank: 123 arms, 94 passing, 0 negative-control failures, 0 positive controls passing; its parts act 26 s, standing-a 179 s,
+### standing-c 32 s, standing-b1 67 s, standing-b2 375 s and standing-b3 102 s, each its own call in the foreground under the 590 s guard and
+### each started at or above the 2,560 MB hold (the free memory at the starts 3914, 3917, 3673, 3685, 3750 and 3614 MB).
+### The 29 failing each read the gate`s record, the lock, the seal, the scores, the entry, the table, the root and its banks, the trail, the
+### pre-run`s own combined bank or the per-part seconds gathered from it, none yet written -- `G-ACTROOT-VERIFY` reads the chain through b698,
+### not yet rooted; `G-R308-ENTERED` reads the trail. None fails on real state, and none is carried. The act part ran twice: its first run
+### read `G-ACTION-BEFORE-PROMPT` and `G-CELL-REGENERATED` failing on real state, each indexing the answers bank by prompt where the bank lists
+### calls; both corrected before the seal (relay 5d9f37c) and the part re-run at that HEAD, both passing (the defects bank`s event).
+### The chain`s halves at the pre-run: b624-b658 AGREE in standing-b2 and b659-b697 AGREE in standing-b3, the boundary b658 -> b659 equal in
+### both (relay data/b698_chain_half_a_arms_prerun.json, data/b698_chain_half_b_arms_prerun.json).
 ### POST-SEAL PROMPTS NAMED: NONE
 ### `G-DRY-STEP-CLEAN` and `G-CLOSING-DRY-STEP` read the gate`s record, written by the gate after the pre-run, so they fail inside the
 ### pre-run and pass in every later run -- SIDE-INVARIANT. The standing test failures at step zero, test_chain_page_b638.py cases (4)-(7) and
