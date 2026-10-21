@@ -1,0 +1,1068 @@
+{
+ "at": "2026-10-21T02:26:28Z",
+ "anchor": "RULING (R307) BEGIN",
+ "rows": [
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T00:47:49.189Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -l -F \"10034\" -- \"data/b675_*\"",
+   "n": 1,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T00:48:58.400Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_citation.py ferry",
+   "n": 2,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T00:49:03.033Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_citation.py check dry",
+   "n": 3,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T00:49:08.037Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_citation.py check",
+   "n": 4,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T00:49:15.613Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -E \"^def (backmatter_of|emit|main|read_carry)\\b\" -- tools/chain_page.py tools/correspondence_gen.py",
+   "n": 5,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T00:49:32.832Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/circuit_read.py readfirst b697_ferry.txt b697_readfirst.txt",
+   "n": 6,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T00:51:27.943Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py rowgen",
+   "n": 7,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T00:53:41.797Z",
+   "src": "seat",
+   "cmd": "Get-CimInstance Win32_Process -Filter \"Name='tail.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='claude.exe' OR Name='node.exe'\" | Select-Object ProcessId, ParentProcessId, Name, CommandLine | Format-List; \"free MB: {0}\" -f [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024)",
+   "n": 8,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:55:01.898Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b696_closing_push_out.txt",
+   "n": 9,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:55:08.073Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b697 step zero under (R307)(5): b696's closing push-out bank (push-b696-closing, main read back at 77b55588), committed alone\"",
+   "n": 10,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:55:16.450Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main --list push-b696*",
+   "n": 11,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:55:16.846Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b696*",
+   "n": 12,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T00:55:17.560Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py branches before",
+   "n": 13,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:55:25.750Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b696",
+   "n": 14,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:55:32.477Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b696-root",
+   "n": 15,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:55:37.753Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b696-closing",
+   "n": 16,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:55:44.199Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b696",
+   "n": 17,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:55:49.064Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b696-root",
+   "n": 18,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T00:55:55.379Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py branches",
+   "n": 19,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:56:45.832Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_tests.py hold 1 && python -X utf8 tools/b697_tests.py run test_act_root.py && python -X utf8 tools/b697_tests.py run test_act_root_commit_b644.py && python -X utf8 tools/b697_tests.py run test_act_root_order_b641.py && python -X utf8 tools/b697_tests.py run test_addenda_licence.py && python -X utf8 tools/b697_tests.py run test_addenda_writelist.py && python -X utf8 tools/b697_tests.py run test_additive_shared_b644.py && python -X utf8 tools/b697_tests.py run test_axiom_claim.py && python -X utf8 tools/b697_tests.py run test_axiom_claim_b651.py && python -X utf8 tools/b697_tests.py run test_banned_terms_backmatter.py && python -X utf8 tools/b697_tests.py run test_build_watch_b644.py && python -X utf8 tools/b697_tests.py run test_build_watch_b647.py",
+   "n": 20,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T00:57:41.928Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_tests.py hold 2 && python -X utf8 tools/b697_tests.py run test_asof.py",
+   "n": 21,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:06:30.198Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_tests.py hold 4 && python -X utf8 tools/b697_tests.py run test_chain_page.py",
+   "n": 22,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:13:02.345Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_tests.py hold 5 && python -X utf8 tools/b697_tests.py run test_chain_page_b592.py && python -X utf8 tools/b697_tests.py run test_chain_page_b596.py && python -X utf8 tools/b697_tests.py run test_chain_page_b629.py && python -X utf8 tools/b697_tests.py run test_chain_page_b630.py && python -X utf8 tools/b697_tests.py run test_chain_page_b632.py && python -X utf8 tools/b697_tests.py run test_chain_page_b635.py && python -X utf8 tools/b697_tests.py run test_chain_page_b638.py && python -X utf8 tools/b697_tests.py run test_closing_headline_b634.py && python -X utf8 tools/b697_tests.py run test_clusters_served_b651.py && python -X utf8 tools/b697_tests.py run test_composer_b646.py && python -X utf8 tools/b697_tests.py run test_composer_b647.py && python -X utf8 tools/b697_tests.py run test_composer_b649.py && python -X utf8 tools/b697_tests.py run test_conversion_b652.py && python -X utf8 tools/b697_tests.py run test_correspondence_gen.py && python -X utf8 tools/b697_tests.py run test_e0_databinder_b643.py && python -X utf8 tools/b697_tests.py run test_e0_existential.py && python -X utf8 tools/b697_tests.py run test_e0_rule.py && python -X utf8 tools/b697_tests.py run test_edit_route_b646.py && python -X utf8 tools/b697_tests.py run test_faces_form.py",
+   "n": 23,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:16:15.662Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_tests.py hold 6 && python -X utf8 tools/b697_tests.py run test_g_chain_page.py && python -X utf8 tools/b697_tests.py run test_glossary_supersede_b651.py && python -X utf8 tools/b697_tests.py run test_licensed_table_b645.py && python -X utf8 tools/b697_tests.py run test_licensed_table_instrument_b652.py && python -X utf8 tools/b697_tests.py run test_met_b646.py && python -X utf8 tools/b697_tests.py run test_module_header.py && python -X utf8 tools/b697_tests.py run test_msplit_b658.py",
+   "n": 24,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:18:39.045Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_tests.py hold 7 && python -X utf8 tools/b697_tests.py run test_name_b649.py && python -X utf8 tools/b697_tests.py run test_name_patterns_b636.py && python -X utf8 tools/b697_tests.py run test_no_sorry_main.py && python -X utf8 tools/b697_tests.py run test_premise_status.py && python -X utf8 tools/b697_tests.py run test_primed_names_b643.py && python -X utf8 tools/b697_tests.py run test_push_gated.sh && python -X utf8 tools/b697_tests.py run test_reader_needle_b641.py && python -X utf8 tools/b697_tests.py run test_record_findings_b632.py && python -X utf8 tools/b697_tests.py run test_registry_tags_b636.py && python -X utf8 tools/b697_tests.py run test_row_sort.py && python -X utf8 tools/b697_tests.py run test_rowgen_ident.py && python -X utf8 tools/b697_tests.py run test_terminal_table_b630.py && python -X utf8 tools/b697_tests.py run test_terminal_table_b635.py && python -X utf8 tools/b697_tests.py run test_terminal_table_b636.py && python -X utf8 tools/b697_tests.py run test_terminal_table_b637.py",
+   "n": 25,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:22:16.713Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_tests.py report",
+   "n": 26,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:22:30.291Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b697_ferry.txt data/b697_ferry_scan.txt data/b697_citation_check.txt data/b697_citation_check.json data/b697_readfirst.txt data/b697_readfirst_closure.txt data/b697_readfirst_diff.txt data/b697_rowgen_stepzero.txt data/b697_branches_before.json data/b697_branches.txt data/b697_branches.json data/b697_tests_stepzero.txt data/b697_tests_stepzero.json data/b697_tests_withheld.json data/b697_stepzero.txt tools/b697_worklist.py tools/b697_citation.py tools/b697_record.py tools/b697_tests.py",
+   "n": 27,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:22:34.387Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b697 step zero under (R307): the citation check (75 of 75), the readfirst bank and its closure diff, rowgen, the five branches banked before and after their deletes, the tests (54 run, 2 not clean as carried)\"",
+   "n": 28,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:22:51.010Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py c1 dry",
+   "n": 29,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:22:55.080Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py c1",
+   "n": 30,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:22:59.011Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md",
+   "n": 31,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:23:01.738Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers commit -m \"b697 Component 1 under (R307)(1): b696 at its weight (FINDINGS :9652)\"",
+   "n": 32,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:23:04.135Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add tools/b697_record.py data/b697_record_lines.json",
+   "n": 33,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:23:06.978Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b697 Component 1 under (R307)(1): b696's weight line at FINDINGS :9652, the record-lines bank and the record tool's c1 route\"",
+   "n": 34,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:23:44.434Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py facesrows dry",
+   "n": 35,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:23:53.063Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py facesrows",
+   "n": 36,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:23:56.212Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b697_faces_rows.txt tools/b697_record.py",
+   "n": 37,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:23:59.022Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b697 Component 2 under (R307)(2): the Weil-face rows and the two readings printed before any page is touched (data/b697_faces_rows.txt), before the prompt\"",
+   "n": 38,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:37:12.232Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_citation.py word \"with (iii) accepted on one reading\"",
+   "n": 39,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:37:23.783Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers log -1 --format=\"%h %cI %ad %s\" --date=iso-strict-local c354650",
+   "n": 40,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:37:24.580Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers log -1 --format=\"%h %cI %s\" 4035e17",
+   "n": 41,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:37:25.548Z",
+   "src": "seat",
+   "cmd": "Get-ChildItem D:/MY-DOwnloads -Filter \"mirror-refresh-2026-10-*-b6*.zip\" | Select-Object Name, LastWriteTime",
+   "n": 42,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:38:24.062Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py nodes",
+   "n": 43,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:39:26.721Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py faces dry",
+   "n": 44,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:42:19.683Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py faces dry",
+   "n": 45,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:45:00.275Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py faces dry",
+   "n": 46,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:47:32.185Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py faces write",
+   "n": 47,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:51:21.986Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py answers",
+   "n": 48,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:51:27.723Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add tools/b697_record.py data/b697_faces_date.txt data/b697_nodes_zeta.txt data/b697_faces_diff.txt data/b697_author_answers.txt data/b697_author_answers.json; git -C D:/relay status --short --untracked-files=no",
+   "n": 49,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:51:32.460Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay diff --stat -- data/b697_citation_check.txt; git -C D:/relay diff -U0 -- data/b697_citation_check.txt",
+   "n": 50,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:51:35.848Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b697_citation_check.txt; git -C D:/relay diff --cached --name-only",
+   "n": 51,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:51:39.519Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b697 C2: the Weil-face line regenerated on the author's word at the faces prompt -- the date reading, data/b697_nodes_zeta.txt (:168 replaced by (D)), the diff (:3, :734), the answer check and the answers bank\"; git -C D:/relay log -1 --format=\"%h %s\"",
+   "n": 52,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:51:42.963Z",
+   "src": "seat",
+   "cmd": "git -C D:/PLACE-papers status --short --untracked-files=no",
+   "n": 53,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:51:47.874Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers status --short --untracked-files=no",
+   "n": 54,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:51:50.778Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers add THE_CLAUSE_AND_ITS_COMPILED_FACES.md",
+   "n": 55,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:51:55.579Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers commit -q -m \"b697 C2: the Weil-face line at Q0 regenerated by tools/chain_page.py from relay data/b697_nodes_zeta.txt on the author's word at (R307)(2) -- radius ± 3.68e-23, the identity's gate named; lines :3 and :734\"; git -C D:/MY-DOwnloads/PLACE-papers log -1 --format=\"%h %s\"",
+   "n": 56,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:52:40.516Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py tie dry",
+   "n": 57,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:52:45.737Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py tie",
+   "n": 58,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:52:52.909Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity log --oneline -8 --decorate; git -C D:/SIDE-simplicity tag -l; git -C D:/SIDE-simplicity status --short; git -C D:/SIDE-simplicity ls-files; git -C D:/SIDE-simplicity remote -v",
+   "n": 59,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:52:59.292Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-interfaces log --oneline -6 --decorate; git -C D:/SIDE-interfaces show --stat --format=\"%h %s\" 9b4c484 58854f0",
+   "n": 60,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:53:39.355Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity add .github/workflows/build-module.yml; git -C D:/SIDE-simplicity status --short",
+   "n": 61,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:53:43.110Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity commit -q -m \"build-module: a hand-dispatched build of one ref under the 2,560 MB hold, printing #print axioms for the names in print_targets.txt (the Mathlib form, carried from SIDE-interfaces' 9b4c484; b697 under (R307)(3))\"; git -C D:/SIDE-simplicity log -1 --format=\"%h %s\"",
+   "n": 62,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:53:46.699Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity add print_targets.txt; git -C D:/SIDE-simplicity status --short",
+   "n": 63,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:53:50.176Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity commit -q -m \"print_targets.txt: the five theorems of SIDE-simplicity the build prints, SIDESimplicity/Codimension.lean (b697 under (R307)(3))\"; git -C D:/SIDE-simplicity log -1 --format=\"%h %s\"",
+   "n": 64,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:53:53.345Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity branch push-b697-simplicity-main 55e25b1",
+   "n": 65,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:53:57.986Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b697_simplicity_main_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-simplicity push-b697-simplicity-main",
+   "n": 66,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:54:44.368Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py dispatch SIDE-simplicity 55e25b1 before SIDESimplicity dry",
+   "n": 67,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:54:48.669Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py dispatch SIDE-simplicity 55e25b1 before SIDESimplicity",
+   "n": 68,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:55:00.275Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity switch -q -c recut-simplicity-b697 55e25b1; git -C D:/SIDE-simplicity branch --show-current",
+   "n": 69,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:55:17.227Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity grep -n -i -E \"already proved|perpendicular|Section III|Section I\\.2\" 55e25b1 --",
+   "n": 70,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:55:25.460Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity diff",
+   "n": 71,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:55:30.405Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity add SIDESimplicity/Codimension.lean; git -C D:/SIDE-simplicity status --short",
+   "n": 72,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:55:34.505Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity commit -q -m \"Codimension.lean header: Section I.2 and Section III re-cut to what SIDE-kernel compiles, the ACTION of data/b647_table_SIDE-simplicity.txt :14 verbatim -- Section III a premise-taking schema, Section I.2 only the ring identity perpendicular_gradients, its geometry resting on the simplicity axiom (comments only; b697 under (R307)(3))\"; git -C D:/SIDE-simplicity log -1 --format=\"%h %s\"",
+   "n": 73,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:55:38.079Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b697_simplicity_cut_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-simplicity --branch recut-simplicity-b697 --scratch",
+   "n": 74,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:55:43.359Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py dispatch SIDE-simplicity b491ac5 after SIDESimplicity",
+   "n": 75,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:56:13.638Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py quote D:/SIDE-simplicity 55e25b1 b491ac5 quote_simplicity",
+   "n": 76,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:56:22.786Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530030132",
+   "n": 77,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:57:01.025Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530030132; python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146",
+   "n": 78,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:57:07.952Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py runner SIDE-simplicity 39530030132 55e25b19f5b2e3bcb396ddceb7db20553f29343a before the before run at main 55e25b1, the workflow and the print list alone",
+   "n": 79,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:57:13.308Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146",
+   "n": 80,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:57:22.119Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146",
+   "n": 81,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:57:26.652Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146",
+   "n": 82,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:57:32.016Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146",
+   "n": 83,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:57:37.576Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146; Get-Date -AsUTC -Format o",
+   "n": 84,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:57:43.619Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146; (Get-Date).ToUniversalTime().ToString('o')",
+   "n": 85,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:57:49.378Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py runner SIDE-simplicity 39530116146 b491ac5e3fc5505b0fcfea6205c2c20f871604a0 after the after run at the cut tip b491ac5 on recut-simplicity-b697",
+   "n": 86,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:57:57.584Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py prints SIDE-simplicity b697_axioms_SIDE-simplicity_before.txt b697_axioms_SIDE-simplicity_after.txt",
+   "n": 87,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:58:03.395Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity switch -q main; git -C D:/SIDE-simplicity branch --show-current",
+   "n": 88,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:58:10.421Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity merge -q --no-ff recut-simplicity-b697 -m \"Merge recut-simplicity-b697: the module header's Section I.2 and Section III re-cut to what SIDE-kernel compiles (b697 under (R307)(3); the quotation search before the merge, data/b697_quote_simplicity.txt; prints equal, runs 39530030132 and 39530116146)\"; git -C D:/SIDE-simplicity log --format=\"%h %p %s\" -1 main",
+   "n": 89,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:58:15.131Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-simplicity branch push-b697-simplicity-merge 53df27f",
+   "n": 90,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:58:27.910Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-interfaces tag -l --format=\"%(contents:subject)\" v0.2.1",
+   "n": 91,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:58:36.163Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b697_simplicity_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-simplicity push-b697-simplicity-merge \"v0.1.1::v0.1.1: the module header's Section I.2 and Section III re-cut to what SIDE-kernel compiles, comments only (b697 under (R307)(3)); the prior tag v0.1.0\"",
+   "n": 92,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T01:58:49.894Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/correspondence_gen.py dry data/b672_roster_read.json full",
+   "n": 93,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:59:16.990Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py cut dry",
+   "n": 94,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:59:24.834Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py cut",
+   "n": 95,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:59:25.380Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short",
+   "n": 96,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:59:33.605Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay ls-files data/b695_interfaces_main_push_out.txt data/b695_interfaces_cut_push_out.txt data/b695_interfaces_merge_push_out.txt data/b695_buildlog_SIDE-interfaces_before.txt data/b695_correspondence_dry.txt",
+   "n": 97,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:59:40.347Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add tools/b697_record.py data/b697_tie.txt data/b697_tie.json data/b697_dispatches.json data/b697_runner_rows.json data/b697_runner_SIDE-simplicity_before.txt data/b697_runner_SIDE-simplicity_after.txt data/b697_axioms_SIDE-simplicity_before.txt data/b697_axioms_SIDE-simplicity_after.txt data/b697_buildlog_SIDE-simplicity_before.txt data/b697_buildlog_SIDE-simplicity_after.txt data/b697_prints_SIDE-simplicity.txt data/b697_quote_simplicity.txt data/b697_quote_simplicity.json data/b697_correspondence_dry.txt data/b697_cut.txt data/b697_cut.json data/b697_simplicity_main_push_out.txt data/b697_simplicity_cut_push_out.txt data/b697_simplicity_merge_push_out.txt; git -C D:/relay diff --cached --name-only",
+   "n": 98,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T01:59:48.386Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b697 C3 under (R307)(3): the order and b674's tie-break printed before the name -- SIDE-simplicity and SIDE-substrate-cluster at 1, SIDE-simplicity at step (i), OVERREACHES 1 to 0; the re-cut on recut-simplicity-b697, prints equal (runs 39530030132, 39530116146), the quotation search before the merge (1 quoting line, README.md :9, a residue carried and named), merge 53df27f, tag v0.1.1 naming v0.1.0; the distance 1 to 0; the Correspondence cells held (one this act's, SIMPLICITY_OF_RIEMANN_ZEROS :441)\"; git -C D:/relay log -1 --format=\"%h\"",
+   "n": 99,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:00:29.204Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay ls-files \"data/b675_*\"; git -C D:/relay grep -n -F \"arith_limit_nonneg_iff_rh\" -- README.md",
+   "n": 100,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:00:42.089Z",
+   "src": "seat",
+   "cmd": "foreach ($k in 'SIDE-explicit-formula','SIDE-kernel','SIDE-li-map','SIDE-lv-conservation') { git -C \"D:/$k\" grep -n -F \"arith_limit_nonneg_iff_rh\" main -- README.md }",
+   "n": 101,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:00:49.011Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-explicit-formula grep -n -E \"arith_limit|ArithLimit|arithmetic limit\" main -- README.md; git -C D:/MY-DOwnloads/PLACE-papers grep -n -E \"arith_limit_nonneg_iff_rh\" -- README.md",
+   "n": 102,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:00:55.800Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-explicit-formula grep -n -E \"arith_limit_nonneg_iff_rh|def arithLimit|ArithLimit|arithmetic_limit|arithLimit\" main -- \"*.lean\"",
+   "n": 103,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:01:00.867Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-explicit-formula rev-parse --short main; git -C D:/SIDE-explicit-formula describe --tags main",
+   "n": 104,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:01:28.226Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-explicit-formula grep -n -E \"def literatureRHS|def symMember|theorem li_identity_sym|structure TestFn|def archTerm|def primeTerm|def poleTerm|literatureRHS \\(\" main -- \"*.lean\"",
+   "n": 105,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:02:26.992Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -i -E \"von Mangoldt|Lambda_Q|Λ_Q\\(m\\)|Λ_Q\\(n\\)|r_Q|representation number\" -- data/b694_witness_plan.txt data/b696_tails_plan.txt data/b667_epstein_plan.txt data/b694_witness.txt data/b696_witness_balls.txt",
+   "n": 106,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:02:38.625Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-explicit-formula grep -n -E \"def blSmooth|def blPoly|def blKernel|def liPoly|def blP \" main -- \"*.lean\"",
+   "n": 107,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:03:19.366Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -i -E \"seconds| s \\(|phase|LAMQ|n <= a\\^2|36864\" -- data/b694_witness.txt data/b696_witness_balls.txt data/b694_closing.txt data/b696_closing.txt",
+   "n": 108,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:03:25.576Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -i -E \"foreground|part [0-9]|[0-9]+ s\\b\" -- data/b694_closing.txt data/b675_closing.txt",
+   "n": 109,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:03:55.046Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay ls-files data/b327_source_text.txt; git -C D:/relay grep -n -E \"\\(1\\.11\\)|\\(4\\.6\\)|S0\\(n\\)|S_0\\(n\\)|S∞\\(n\\)|arithmetic formula\" -- data/b327_source_text.txt",
+   "n": 110,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:04:19.914Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers grep -n -E \"KEIPER *=|^ *1: *'?0\\.0230957|0\\.02309570\" -- internal/bench/li_bench.py",
+   "n": 111,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:04:47.711Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -E \"10034\" -- data/b675_closing.txt data/b675_li_bench.txt data/b675_li_readings.txt",
+   "n": 112,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:06:05.964Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b697_arith_plan.txt; git -C D:/relay diff --cached --name-only",
+   "n": 113,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:06:11.935Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b697 C4 under (R307)(4): the arithmetic-limit face at Q0 priced, not run -- Route A from Z_Q's own von Mangoldt coefficients at 3 foreground parts for n <= 2, not priceable at the siblings' scale (the prime sum reaching e^(4n)); Route B (Lagarias Lemma 4.2) offered; controls at zeta; nothing computed\"; git -C D:/relay log -1 --format=\"%h\"",
+   "n": 114,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:06:24.033Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay ls-files \"tools/b696_*\" \"tools/b695_*\"; git -C D:/relay ls-files \"data/b696_*\" | Measure-Object | Select-Object -ExpandProperty Count",
+   "n": 115,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:06:34.580Z",
+   "src": "seat",
+   "cmd": "foreach ($f in 'b696_checks.py','b696_closing.py','b696_reg_gate.py','b696_regspec.py','b696_record.py','b696_worklist.py') { $n = (Get-Content \"D:/relay/tools/$f\" | Measure-Object -Line).Lines; \"$f $n\" }",
+   "n": 116,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:08:02.172Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -E \"^def |^[A-Z_]+ = |^ROUTES\" -- tools/b696_record.py",
+   "n": 117,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:08:56.542Z",
+   "src": "seat",
+   "cmd": "(Get-Content D:/relay/data/b696_registration_2026-10-20.txt | Measure-Object -Line).Lines; (Get-Content D:/relay/tools/b696_closing.py | Measure-Object -Line).Lines",
+   "n": 118,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:15:13.875Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay log --reverse --format=\"%h %s\" 77b55588..HEAD; git -C D:/MY-DOwnloads/PLACE-papers log --reverse --format=\"%h %s\" 345da1a..HEAD",
+   "n": 119,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:25:19.939Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py; python -X utf8 tools/b697_record.py reads dry; python -X utf8 tools/b697_record.py repairs dry",
+   "n": 120,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:25:57.956Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py reads",
+   "n": 121,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:26:13.068Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py defects; python -X utf8 tools/b697_record.py repairs",
+   "n": 122,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:26:22.531Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py kernels; python -X utf8 tools/b697_record.py commands",
+   "n": 123,
+   "bg": false
+  }
+ ],
+ "offences": [],
+ "prev": {
+  "act": "b696",
+  "session": "b97f6790-cfa6-43ae-aa06-9d3a07249ec4",
+  "rows": 17,
+  "offences": []
+ },
+ "local_lean": [],
+ "dispatches": [
+  68,
+  75
+ ],
+ "detached": [],
+ "seds": [],
+ "null_redirects": [],
+ "redirects": [],
+ "pipes": [],
+ "py_programs": [],
+ "moves_deletes": [
+  14,
+  15,
+  16,
+  17,
+  18
+ ],
+ "delete_shapes": [
+  {
+   "n": 14,
+   "deletes": [
+    "push-b696"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 15,
+   "deletes": [
+    "push-b696-root"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 16,
+   "deletes": [
+    "push-b696-closing"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 17,
+   "deletes": [
+    "push-b696"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 18,
+   "deletes": [
+    "push-b696-root"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  }
+ ],
+ "outbound": []
+}

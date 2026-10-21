@@ -1,0 +1,179 @@
+b697 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T02:26:28Z)
+
+### the source: the seat`s session b97f6790-cfa6-43ae-aa06-9d3a07249ec4 from its first user line carrying 'RULING (R307) BEGIN', with its subagents` transcripts
+### commands read: 123
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b696, this same session b97f6790, from its post-push combine to this act`s anchor): 17 commands from 2026-10-21T00:16:06.176Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES, ONE PER TREE STATE (relay data/b697_dispatches.json) (2):
+  #68 python -X utf8 tools/b697_record.py dispatch SIDE-simplicity 55e25b1 before SIDESimplicity
+  #75 python -X utf8 tools/b697_record.py dispatch SIDE-simplicity b491ac5 after SIDESimplicity
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+  #14 2026-10-21T00:55:25.750Z Bash
+      git -C /d/relay branch -d push-b696
+  #15 2026-10-21T00:55:32.477Z Bash
+      git -C /d/relay branch -d push-b696-root
+  #16 2026-10-21T00:55:37.753Z Bash
+      git -C /d/relay branch -d push-b696-closing
+  #17 2026-10-21T00:55:44.199Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b696
+  #18 2026-10-21T00:55:49.064Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b696-root
+
+### THE BRANCH DELETES BY SHAPE ((R307)(5) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #14 deletes ['push-b696'], halves 1, globs none, variables none, chained after False; #15 deletes ['push-b696-root'], halves 1, globs none, variables none, chained after False; #16 deletes ['push-b696-closing'], halves 1, globs none, variables none, chained after False; #17 deletes ['push-b696'], halves 1, globs none, variables none, chained after False; #18 deletes ['push-b696-root'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-21T00:47:49.189Z | seat | PowerShell | git -C D:/relay grep -l -F "10034" -- "data/b675_*"
+  #2 | 2026-10-21T00:48:58.400Z | seat | PowerShell | python -X utf8 tools/b697_citation.py ferry
+  #3 | 2026-10-21T00:49:03.033Z | seat | PowerShell | python -X utf8 tools/b697_citation.py check dry
+  #4 | 2026-10-21T00:49:08.037Z | seat | PowerShell | python -X utf8 tools/b697_citation.py check
+  #5 | 2026-10-21T00:49:15.613Z | seat | PowerShell | git -C D:/relay grep -n -E "^def (backmatter_of|emit|main|read_carry)\b" -- tools/chain_page.py tools/correspondence_gen.py
+  #6 | 2026-10-21T00:49:32.832Z | seat | PowerShell | python -X utf8 tools/circuit_read.py readfirst b697_ferry.txt b697_readfirst.txt
+  #7 | 2026-10-21T00:51:27.943Z | seat | PowerShell | python -X utf8 tools/b697_record.py rowgen
+  #8 | 2026-10-21T00:53:41.797Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='tail.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='claude.exe' OR Name='node.exe'" | Sel
+  #9 | 2026-10-21T00:55:01.898Z | seat | Bash | git -C /d/relay add data/b696_closing_push_out.txt
+  #10 | 2026-10-21T00:55:08.073Z | seat | Bash | git -C /d/relay commit -m "b697 step zero under (R307)(5): b696's closing push-out bank (push-b696-closing, main read back at 77b55588), committed alone"
+  #11 | 2026-10-21T00:55:16.450Z | seat | Bash | git -C /d/relay branch --merged main --list push-b696*
+  #12 | 2026-10-21T00:55:16.846Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list push-b696*
+  #13 | 2026-10-21T00:55:17.560Z | seat | PowerShell | python -X utf8 tools/b697_record.py branches before
+  #14 | 2026-10-21T00:55:25.750Z | seat | Bash | git -C /d/relay branch -d push-b696
+  #15 | 2026-10-21T00:55:32.477Z | seat | Bash | git -C /d/relay branch -d push-b696-root
+  #16 | 2026-10-21T00:55:37.753Z | seat | Bash | git -C /d/relay branch -d push-b696-closing
+  #17 | 2026-10-21T00:55:44.199Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b696
+  #18 | 2026-10-21T00:55:49.064Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b696-root
+  #19 | 2026-10-21T00:55:55.379Z | seat | PowerShell | python -X utf8 tools/b697_record.py branches
+  #20 | 2026-10-21T00:56:45.832Z | seat | Bash | python -X utf8 tools/b697_tests.py hold 1 && python -X utf8 tools/b697_tests.py run test_act_root.py && python -X utf8 tools/b697_tests.py run test_act_root_com
+  #21 | 2026-10-21T00:57:41.928Z | seat | Bash | python -X utf8 tools/b697_tests.py hold 2 && python -X utf8 tools/b697_tests.py run test_asof.py
+  #22 | 2026-10-21T01:06:30.198Z | seat | Bash | python -X utf8 tools/b697_tests.py hold 4 && python -X utf8 tools/b697_tests.py run test_chain_page.py
+  #23 | 2026-10-21T01:13:02.345Z | seat | Bash | python -X utf8 tools/b697_tests.py hold 5 && python -X utf8 tools/b697_tests.py run test_chain_page_b592.py && python -X utf8 tools/b697_tests.py run test_chain
+  #24 | 2026-10-21T01:16:15.662Z | seat | Bash | python -X utf8 tools/b697_tests.py hold 6 && python -X utf8 tools/b697_tests.py run test_g_chain_page.py && python -X utf8 tools/b697_tests.py run test_glossary
+  #25 | 2026-10-21T01:18:39.045Z | seat | Bash | python -X utf8 tools/b697_tests.py hold 7 && python -X utf8 tools/b697_tests.py run test_name_b649.py && python -X utf8 tools/b697_tests.py run test_name_patter
+  #26 | 2026-10-21T01:22:16.713Z | seat | PowerShell | python -X utf8 tools/b697_tests.py report
+  #27 | 2026-10-21T01:22:30.291Z | seat | Bash | git -C /d/relay add data/b697_ferry.txt data/b697_ferry_scan.txt data/b697_citation_check.txt data/b697_citation_check.json data/b697_readfirst.txt data/b697_re
+  #28 | 2026-10-21T01:22:34.387Z | seat | Bash | git -C /d/relay commit -m "b697 step zero under (R307): the citation check (75 of 75), the readfirst bank and its closure diff, rowgen, the five branches banked
+  #29 | 2026-10-21T01:22:51.010Z | seat | PowerShell | python -X utf8 tools/b697_record.py c1 dry
+  #30 | 2026-10-21T01:22:55.080Z | seat | PowerShell | python -X utf8 tools/b697_record.py c1
+  #31 | 2026-10-21T01:22:59.011Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md
+  #32 | 2026-10-21T01:23:01.738Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b697 Component 1 under (R307)(1): b696 at its weight (FINDINGS :9652)"
+  #33 | 2026-10-21T01:23:04.135Z | seat | Bash | git -C /d/relay add tools/b697_record.py data/b697_record_lines.json
+  #34 | 2026-10-21T01:23:06.978Z | seat | Bash | git -C /d/relay commit -m "b697 Component 1 under (R307)(1): b696's weight line at FINDINGS :9652, the record-lines bank and the record tool's c1 route"
+  #35 | 2026-10-21T01:23:44.434Z | seat | PowerShell | python -X utf8 tools/b697_record.py facesrows dry
+  #36 | 2026-10-21T01:23:53.063Z | seat | PowerShell | python -X utf8 tools/b697_record.py facesrows
+  #37 | 2026-10-21T01:23:56.212Z | seat | Bash | git -C /d/relay add data/b697_faces_rows.txt tools/b697_record.py
+  #38 | 2026-10-21T01:23:59.022Z | seat | Bash | git -C /d/relay commit -m "b697 Component 2 under (R307)(2): the Weil-face rows and the two readings printed before any page is touched (data/b697_faces_rows.tx
+  #39 | 2026-10-21T01:37:12.232Z | seat | PowerShell | python -X utf8 tools/b697_citation.py word "with (iii) accepted on one reading"
+  #40 | 2026-10-21T01:37:23.783Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log -1 --format="%h %cI %ad %s" --date=iso-strict-local c354650
+  #41 | 2026-10-21T01:37:24.580Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log -1 --format="%h %cI %s" 4035e17
+  #42 | 2026-10-21T01:37:25.548Z | seat | PowerShell | Get-ChildItem D:/MY-DOwnloads -Filter "mirror-refresh-2026-10-*-b6*.zip" | Select-Object Name, LastWriteTime
+  #43 | 2026-10-21T01:38:24.062Z | seat | PowerShell | python -X utf8 tools/b697_record.py nodes
+  #44 | 2026-10-21T01:39:26.721Z | seat | PowerShell | python -X utf8 tools/b697_record.py faces dry
+  #45 | 2026-10-21T01:42:19.683Z | seat | PowerShell | python -X utf8 tools/b697_record.py faces dry
+  #46 | 2026-10-21T01:45:00.275Z | seat | PowerShell | python -X utf8 tools/b697_record.py faces dry
+  #47 | 2026-10-21T01:47:32.185Z | seat | PowerShell | python -X utf8 tools/b697_record.py faces write
+  #48 | 2026-10-21T01:51:21.986Z | seat | PowerShell | python -X utf8 tools/b697_record.py answers
+  #49 | 2026-10-21T01:51:27.723Z | seat | PowerShell | git -C D:/relay add tools/b697_record.py data/b697_faces_date.txt data/b697_nodes_zeta.txt data/b697_faces_diff.txt data/b697_author_answers.txt data/b697_autho
+  #50 | 2026-10-21T01:51:32.460Z | seat | PowerShell | git -C D:/relay diff --stat -- data/b697_citation_check.txt; git -C D:/relay diff -U0 -- data/b697_citation_check.txt
+  #51 | 2026-10-21T01:51:35.848Z | seat | PowerShell | git -C D:/relay add data/b697_citation_check.txt; git -C D:/relay diff --cached --name-only
+  #52 | 2026-10-21T01:51:39.519Z | seat | PowerShell | git -C D:/relay commit -q -m "b697 C2: the Weil-face line regenerated on the author's word at the faces prompt -- the date reading, data/b697_nodes_zeta.txt (:1
+  #53 | 2026-10-21T01:51:42.963Z | seat | PowerShell | git -C D:/PLACE-papers status --short --untracked-files=no
+  #54 | 2026-10-21T01:51:47.874Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers status --short --untracked-files=no
+  #55 | 2026-10-21T01:51:50.778Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers add THE_CLAUSE_AND_ITS_COMPILED_FACES.md
+  #56 | 2026-10-21T01:51:55.579Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers commit -q -m "b697 C2: the Weil-face line at Q0 regenerated by tools/chain_page.py from relay data/b697_nodes_zeta.txt on th
+  #57 | 2026-10-21T01:52:40.516Z | seat | PowerShell | python -X utf8 tools/b697_record.py tie dry
+  #58 | 2026-10-21T01:52:45.737Z | seat | PowerShell | python -X utf8 tools/b697_record.py tie
+  #59 | 2026-10-21T01:52:52.909Z | seat | PowerShell | git -C D:/SIDE-simplicity log --oneline -8 --decorate; git -C D:/SIDE-simplicity tag -l; git -C D:/SIDE-simplicity status --short; git -C D:/SIDE-simplicity ls-
+  #60 | 2026-10-21T01:52:59.292Z | seat | PowerShell | git -C D:/SIDE-interfaces log --oneline -6 --decorate; git -C D:/SIDE-interfaces show --stat --format="%h %s" 9b4c484 58854f0
+  #61 | 2026-10-21T01:53:39.355Z | seat | PowerShell | git -C D:/SIDE-simplicity add .github/workflows/build-module.yml; git -C D:/SIDE-simplicity status --short
+  #62 | 2026-10-21T01:53:43.110Z | seat | PowerShell | git -C D:/SIDE-simplicity commit -q -m "build-module: a hand-dispatched build of one ref under the 2,560 MB hold, printing #print axioms for the names in print_
+  #63 | 2026-10-21T01:53:46.699Z | seat | PowerShell | git -C D:/SIDE-simplicity add print_targets.txt; git -C D:/SIDE-simplicity status --short
+  #64 | 2026-10-21T01:53:50.176Z | seat | PowerShell | git -C D:/SIDE-simplicity commit -q -m "print_targets.txt: the five theorems of SIDE-simplicity the build prints, SIDESimplicity/Codimension.lean (b697 under (R
+  #65 | 2026-10-21T01:53:53.345Z | seat | PowerShell | git -C D:/SIDE-simplicity branch push-b697-simplicity-main 55e25b1
+  #66 | 2026-10-21T01:53:57.986Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b697_simplicity_main_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-simplicity push-b697-simplicity-main
+  #67 | 2026-10-21T01:54:44.368Z | seat | PowerShell | python -X utf8 tools/b697_record.py dispatch SIDE-simplicity 55e25b1 before SIDESimplicity dry
+  #68 | 2026-10-21T01:54:48.669Z | seat | PowerShell | python -X utf8 tools/b697_record.py dispatch SIDE-simplicity 55e25b1 before SIDESimplicity
+  #69 | 2026-10-21T01:55:00.275Z | seat | PowerShell | git -C D:/SIDE-simplicity switch -q -c recut-simplicity-b697 55e25b1; git -C D:/SIDE-simplicity branch --show-current
+  #70 | 2026-10-21T01:55:17.227Z | seat | PowerShell | git -C D:/SIDE-simplicity grep -n -i -E "already proved|perpendicular|Section III|Section I\.2" 55e25b1 --
+  #71 | 2026-10-21T01:55:25.460Z | seat | PowerShell | git -C D:/SIDE-simplicity diff
+  #72 | 2026-10-21T01:55:30.405Z | seat | PowerShell | git -C D:/SIDE-simplicity add SIDESimplicity/Codimension.lean; git -C D:/SIDE-simplicity status --short
+  #73 | 2026-10-21T01:55:34.505Z | seat | PowerShell | git -C D:/SIDE-simplicity commit -q -m "Codimension.lean header: Section I.2 and Section III re-cut to what SIDE-kernel compiles, the ACTION of data/b647_table_
+  #74 | 2026-10-21T01:55:38.079Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b697_simplicity_cut_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-simplicity --branch recut-simplicity-b697 --scratch
+  #75 | 2026-10-21T01:55:43.359Z | seat | PowerShell | python -X utf8 tools/b697_record.py dispatch SIDE-simplicity b491ac5 after SIDESimplicity
+  #76 | 2026-10-21T01:56:13.638Z | seat | PowerShell | python -X utf8 tools/b697_record.py quote D:/SIDE-simplicity 55e25b1 b491ac5 quote_simplicity
+  #77 | 2026-10-21T01:56:22.786Z | seat | PowerShell | python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530030132
+  #78 | 2026-10-21T01:57:01.025Z | seat | PowerShell | python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530030132; python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146
+  #79 | 2026-10-21T01:57:07.952Z | seat | PowerShell | python -X utf8 tools/b697_record.py runner SIDE-simplicity 39530030132 55e25b19f5b2e3bcb396ddceb7db20553f29343a before the before run at main 55e25b1, the workf
+  #80 | 2026-10-21T01:57:13.308Z | seat | PowerShell | python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146
+  #81 | 2026-10-21T01:57:22.119Z | seat | PowerShell | python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146
+  #82 | 2026-10-21T01:57:26.652Z | seat | PowerShell | python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146
+  #83 | 2026-10-21T01:57:32.016Z | seat | PowerShell | python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146
+  #84 | 2026-10-21T01:57:37.576Z | seat | PowerShell | python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146; Get-Date -AsUTC -Format o
+  #85 | 2026-10-21T01:57:43.619Z | seat | PowerShell | python -X utf8 tools/b697_record.py runstatus SIDE-simplicity 39530116146; (Get-Date).ToUniversalTime().ToString('o')
+  #86 | 2026-10-21T01:57:49.378Z | seat | PowerShell | python -X utf8 tools/b697_record.py runner SIDE-simplicity 39530116146 b491ac5e3fc5505b0fcfea6205c2c20f871604a0 after the after run at the cut tip b491ac5 on re
+  #87 | 2026-10-21T01:57:57.584Z | seat | PowerShell | python -X utf8 tools/b697_record.py prints SIDE-simplicity b697_axioms_SIDE-simplicity_before.txt b697_axioms_SIDE-simplicity_after.txt
+  #88 | 2026-10-21T01:58:03.395Z | seat | PowerShell | git -C D:/SIDE-simplicity switch -q main; git -C D:/SIDE-simplicity branch --show-current
+  #89 | 2026-10-21T01:58:10.421Z | seat | PowerShell | git -C D:/SIDE-simplicity merge -q --no-ff recut-simplicity-b697 -m "Merge recut-simplicity-b697: the module header's Section I.2 and Section III re-cut to what
+  #90 | 2026-10-21T01:58:15.131Z | seat | PowerShell | git -C D:/SIDE-simplicity branch push-b697-simplicity-merge 53df27f
+  #91 | 2026-10-21T01:58:27.910Z | seat | PowerShell | git -C D:/SIDE-interfaces tag -l --format="%(contents:subject)" v0.2.1
+  #92 | 2026-10-21T01:58:36.163Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b697_simplicity_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-simplicity push-b697-simplicity-merge "v0.1.1::v0.1.1:
+  #93 | 2026-10-21T01:58:49.894Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 -B tools/correspondence_gen.py dry data/b672_roster_read.json full
+  #94 | 2026-10-21T01:59:16.990Z | seat | PowerShell | python -X utf8 tools/b697_record.py cut dry
+  #95 | 2026-10-21T01:59:24.834Z | seat | PowerShell | python -X utf8 tools/b697_record.py cut
+  #96 | 2026-10-21T01:59:25.380Z | seat | PowerShell | git -C D:/relay status --short
+  #97 | 2026-10-21T01:59:33.605Z | seat | PowerShell | git -C D:/relay ls-files data/b695_interfaces_main_push_out.txt data/b695_interfaces_cut_push_out.txt data/b695_interfaces_merge_push_out.txt data/b695_buildlog
+  #98 | 2026-10-21T01:59:40.347Z | seat | PowerShell | git -C D:/relay add tools/b697_record.py data/b697_tie.txt data/b697_tie.json data/b697_dispatches.json data/b697_runner_rows.json data/b697_runner_SIDE-simplic
+  #99 | 2026-10-21T01:59:48.386Z | seat | PowerShell | git -C D:/relay commit -q -m "b697 C3 under (R307)(3): the order and b674's tie-break printed before the name -- SIDE-simplicity and SIDE-substrate-cluster at 1
+  #100 | 2026-10-21T02:00:29.204Z | seat | PowerShell | git -C D:/relay ls-files "data/b675_*"; git -C D:/relay grep -n -F "arith_limit_nonneg_iff_rh" -- README.md
+  #101 | 2026-10-21T02:00:42.089Z | seat | PowerShell | foreach ($k in 'SIDE-explicit-formula','SIDE-kernel','SIDE-li-map','SIDE-lv-conservation') { git -C "D:/$k" grep -n -F "arith_limit_nonneg_iff_rh" main -- READM
+  #102 | 2026-10-21T02:00:49.011Z | seat | PowerShell | git -C D:/SIDE-explicit-formula grep -n -E "arith_limit|ArithLimit|arithmetic limit" main -- README.md; git -C D:/MY-DOwnloads/PLACE-papers grep -n -E "arith_li
+  #103 | 2026-10-21T02:00:55.800Z | seat | PowerShell | git -C D:/SIDE-explicit-formula grep -n -E "arith_limit_nonneg_iff_rh|def arithLimit|ArithLimit|arithmetic_limit|arithLimit" main -- "*.lean"
+  #104 | 2026-10-21T02:01:00.867Z | seat | PowerShell | git -C D:/SIDE-explicit-formula rev-parse --short main; git -C D:/SIDE-explicit-formula describe --tags main
+  #105 | 2026-10-21T02:01:28.226Z | seat | PowerShell | git -C D:/SIDE-explicit-formula grep -n -E "def literatureRHS|def symMember|theorem li_identity_sym|structure TestFn|def archTerm|def primeTerm|def poleTerm|lit
+  #106 | 2026-10-21T02:02:26.992Z | seat | PowerShell | git -C D:/relay grep -n -i -E "von Mangoldt|Lambda_Q|Λ_Q\(m\)|Λ_Q\(n\)|r_Q|representation number" -- data/b694_witness_plan.txt data/b696_tails_plan.txt data/b6
+  #107 | 2026-10-21T02:02:38.625Z | seat | PowerShell | git -C D:/SIDE-explicit-formula grep -n -E "def blSmooth|def blPoly|def blKernel|def liPoly|def blP " main -- "*.lean"
+  #108 | 2026-10-21T02:03:19.366Z | seat | PowerShell | git -C D:/relay grep -n -i -E "seconds| s \(|phase|LAMQ|n <= a\^2|36864" -- data/b694_witness.txt data/b696_witness_balls.txt data/b694_closing.txt data/b696_cl
+  #109 | 2026-10-21T02:03:25.576Z | seat | PowerShell | git -C D:/relay grep -n -i -E "foreground|part [0-9]|[0-9]+ s\b" -- data/b694_closing.txt data/b675_closing.txt
+  #110 | 2026-10-21T02:03:55.046Z | seat | PowerShell | git -C D:/relay ls-files data/b327_source_text.txt; git -C D:/relay grep -n -E "\(1\.11\)|\(4\.6\)|S0\(n\)|S_0\(n\)|S∞\(n\)|arithmetic formula" -- data/b327_sou
+  #111 | 2026-10-21T02:04:19.914Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers grep -n -E "KEIPER *=|^ *1: *'?0\.0230957|0\.02309570" -- internal/bench/li_bench.py
+  #112 | 2026-10-21T02:04:47.711Z | seat | PowerShell | git -C D:/relay grep -n -E "10034" -- data/b675_closing.txt data/b675_li_bench.txt data/b675_li_readings.txt
+  #113 | 2026-10-21T02:06:05.964Z | seat | PowerShell | git -C D:/relay add data/b697_arith_plan.txt; git -C D:/relay diff --cached --name-only
+  #114 | 2026-10-21T02:06:11.935Z | seat | PowerShell | git -C D:/relay commit -q -m "b697 C4 under (R307)(4): the arithmetic-limit face at Q0 priced, not run -- Route A from Z_Q's own von Mangoldt coefficients at 3 
+  #115 | 2026-10-21T02:06:24.033Z | seat | PowerShell | git -C D:/relay ls-files "tools/b696_*" "tools/b695_*"; git -C D:/relay ls-files "data/b696_*" | Measure-Object | Select-Object -ExpandProperty Count
+  #116 | 2026-10-21T02:06:34.580Z | seat | PowerShell | foreach ($f in 'b696_checks.py','b696_closing.py','b696_reg_gate.py','b696_regspec.py','b696_record.py','b696_worklist.py') { $n = (Get-Content "D:/relay/tools/
+  #117 | 2026-10-21T02:08:02.172Z | seat | PowerShell | git -C D:/relay grep -n -E "^def |^[A-Z_]+ = |^ROUTES" -- tools/b696_record.py
+  #118 | 2026-10-21T02:08:56.542Z | seat | PowerShell | (Get-Content D:/relay/data/b696_registration_2026-10-20.txt | Measure-Object -Line).Lines; (Get-Content D:/relay/tools/b696_closing.py | Measure-Object -Line).L
+  #119 | 2026-10-21T02:15:13.875Z | seat | PowerShell | git -C D:/relay log --reverse --format="%h %s" 77b55588..HEAD; git -C D:/MY-DOwnloads/PLACE-papers log --reverse --format="%h %s" 345da1a..HEAD
+  #120 | 2026-10-21T02:25:19.939Z | seat | PowerShell | python -X utf8 tools/b697_record.py; python -X utf8 tools/b697_record.py reads dry; python -X utf8 tools/b697_record.py repairs dry
+  #121 | 2026-10-21T02:25:57.956Z | seat | PowerShell | python -X utf8 tools/b697_record.py reads
+  #122 | 2026-10-21T02:26:13.068Z | seat | PowerShell | python -X utf8 tools/b697_record.py defects; python -X utf8 tools/b697_record.py repairs
+  #123 | 2026-10-21T02:26:22.531Z | seat | PowerShell | python -X utf8 tools/b697_record.py kernels; python -X utf8 tools/b697_record.py commands
+
+### ### **COMMANDS 123 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

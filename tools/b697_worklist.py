@@ -3,7 +3,8 @@
 
 ### ### b697: LANE TWO, ACT ONE HUNDRED AND TWENTY-FOUR, THE RE-CUT ACT -- b696 AT ITS WEIGHT; THE WEIL-FACE ROW RAISED WITH ITS BALL
 ### RADIUS AND ITS CAVEAT REPLACED; THE NEXT DOCUMENT CUT UNDER THE QUOTATION RULE; THE THIRD FACE PRICED. No lean on this host; the runner
-### dispatched once per tree state. Written whole by the Write tool from b696_worklist.py's form (stage one: step zero).
+### dispatched once per tree state. Written whole by the Write tool from b696_worklist.py's form (stage one: step zero; stage two, Component 5,
+### by the Edit tool: the re-cut's kernel, commits and runs, the commits in order, the sealed tools and the act's arms).
 ### The act continues session b97f6790 (claude pid 20816), the session b694-b696 closed in; the anchor is (R307)'s line.
 """
 import os
@@ -45,10 +46,37 @@ PROBE = 'data/b643_probe_out_zeta.txt'
 PARTS = ('standing-a', 'standing-c', 'standing-b1', 'standing-b2', 'standing-b3', 'act')
 CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b697'))
 
-SEALED = ()
+# ### stage two (Component 5): the re-cut of Component 3
+KERNEL = 'SIDE-simplicity'
+KERNEL_DIR = 'D:/SIDE-simplicity'
+PRIOR_TAG, NEXT_TAG = 'v0.1.0', 'v0.1.1'
+KERNEL_TABLE = 'b647_table_SIDE-simplicity.txt'
+KI_BEFORE, KI_WF, KI_PT, KI_CUT, KI_MERGE = '54ba4f3', 'ff395c5', '55e25b1', 'b491ac5', '53df27f'
+KI_PRIOR_PEEL = '54ba4f3'    # ### v0.1.0 peeled: the main the act found
+RUNNER_LABELS = (('before', KI_PT), ('after', KI_CUT))
+RUNS = (39530030132, 39530116146)
+
+# ### the commits, in order (relay unless named)
+STEPZERO = '06392029'        # ### b696's closing push-out bank, alone
+STEPZERO_BANKS = '8cf06d7c'  # ### the step-zero banks and tools
+C1_RELAY, C1_PP = 'e0a69b05', '48c0309'
+C2_ROWS = '2feda3ef'         # ### the faces rows and the two readings printed, before the prompt
+C2_RELAY, C2_PP = '9ce38c78', '7e423df'
+C3_RELAY = '4fd48e1d'
+C4_RELAY = 'd8e44f7a'        # ### the arithmetic-limit plan, alone
+WEIGHT_LINE = 9652
+
+SEALED = ('b697_worklist.py', 'b697_tests.py', 'b697_citation.py', 'b697_record.py', 'b697_checks.py', 'b697_closing.py', 'b697_reg_gate.py',
+          'b697_regspec.py')
 REPAIRED_TOOLS = ()
 NEW_TOOLS = ()
-STANDING_ADDED = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R307-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM',
+            'G-FACES-ROWS-PRINTED', 'G-FACES-DATE-READ', 'G-PAGE-REGENERATED', 'G-TIE-PRINTED-FIRST', 'G-RECUT-DISTANCE', 'G-QUOTE-BEFORE-MERGE',
+            'G-RESIDUES-READ', 'G-PRINTS-EQUAL', 'G-CELLS-HELD', 'G-ARITH-PLAN-ALONE', 'G-READFIRST-DIFF-BANKED', 'G-TOOL-REPAIRS',
+            'G-PARTS-PRERUN', 'G-ARM-SECONDS-BANKED', 'G-DEFECTS-LETTERED', 'G-BINARY-ROWS-READ')
+STANDING_ADDED = ()          # ### no standing arm added this act (N5)
+SHARED_APPENDED = ()         # ### no shared data file appended by this act but data/act_roots.txt (the root tool's)
 PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md')
 NEXT = ('b698, the research act, on the author`s word among the arithmetic-limit face at Q0, the regularity-uses bank, CORRESPONDENCE-DOMINANCE`s '
         'build and W-ORD-EPSTEIN-COUNT-LEAN; b699 the re-cut act; b700 the reading act, reading 4, with the defects-by-class reading added')

@@ -1,0 +1,25 @@
+b697 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-21)
+
+### rows are defects, each lettered by the time it was found, with whose it is, what the rule says, what was done and the repair or the entry.
+### Events that are not defects are entered beneath, unlettered.
+
+    (a) THE SEAT'S: A CARRIED DIFF THAT COUNTED AN EQUAL LINE. The faces route carried from tools/b695_record.py built its banked diff with
+        difflib.unified_diff, whose matcher junks the page's frequent blank line; the equal blank :735 was drawn into the :734 hunk, and the
+        dry run printed lines added 3, removed 3 for a change of two lines while the autojunk-free opcodes named :3 and :734 alone. Found on
+        the dry run before any write; the route repaired to build the diff from SequenceMatcher(autojunk=False)'s opcodes, the dry run re-run
+        (2 added, 2 removed), then the page written (relay data/b697_tool_repairs.txt row (1); data/b697_faces_diff.txt).
+    (b) THE SEAT'S: LINES READ WITHOUT THE OFFSET AND LIMIT THE FERRY NAMES. The ferry: "lines read through the Read tool with offset and limit
+        and not through a shell filter or an interpreter's print". Eighteen of the seat's sixty Read calls since (R307)'s line read a file whole,
+        without both (relay data/b697_read_calls.txt, each by transcript line and path); and while finding (a) the faces route's dry run was
+        made to print the diff's lines, each cut at 90 characters, through the tool's own print. No shell filter read a line. Entered; every
+        read from here on with offset and limit.
+    (c) THE SEAT'S: LONG TURNS BETWEEN READS AND BANK WRITES. The ferry's procedural line: "turns kept short between reads and bank writes". At
+        Components 3 and 5 the seat read the carried tools whole across long stretches -- b696's suite, record, closing, gate and spec tools and
+        b695's act arms -- before the first write, and the host asked three times for a word to the author in between. Entered; the carry read
+        in parts with a bank write between.
+
+### EVENTS, NOT DEFECTS:
+    - A git status read was first sent at D:/PLACE-papers, a path that does not exist (exit 128, nothing read or written); re-sent at
+      D:/MY-DOwnloads/PLACE-papers, the repository's path.
+    - A PowerShell read of the UTC time used a parameter Windows PowerShell 5.1 lacks (Get-Date -AsUTC); re-read through ToUniversalTime().
+    - The runner's after-run status was read five times in the foreground before it completed; no wait was backgrounded.
