@@ -23,3 +23,6 @@ b697 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-21)
       D:/MY-DOwnloads/PLACE-papers, the repository's path.
     - A PowerShell read of the UTC time used a parameter Windows PowerShell 5.1 lacks (Get-Date -AsUTC); re-read through ToUniversalTime().
     - The runner's after-run status was read five times in the foreground before it completed; no wait was backgrounded.
+    - The first pre-run of the act part (02:29:06Z) read G-FACES-ROWS-PRINTED as failing: the arm, written this act, wanted the rows bank's
+      commit to carry that bank alone, and 2feda3e carried it beside the record tool's route that wrote it. The ferry's N2 asks the rows
+      printed before any page; the arm corrected before the seal (relay 8f9eee8) and the part re-run at that HEAD (02:30:10Z), the arm passing.
