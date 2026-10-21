@@ -1,0 +1,184 @@
+b701 -- THE PLAN OF (R311)(3): THE classK WIDENING TO W1 ∪ W3 IN b689'S FORM, READ FROM data/b698_regularity_uses.txt AND RAISED AS ONE PROMPT BEFORE ANY LEAN (2026-10-21)
+
+### No Lean has been written for this plan and none runs on this host. Rows are statements, uses, priced facts and their sources, by section
+### (data/b689_plan.txt's form). Every kernel line is read in the working tree of SIDE-explicit-formula at main 4313875 (every file named here
+### equal to v0.34's, data/b698_regularity_uses.txt :7); every Mathlib name by git grep at the kernel's pin de5ce8a9 (.lake/packages/mathlib HEAD).
+
+== 1. THE CLASS, STATED AS (R311)(3) NAMES IT, EACH CLAUSE WITH ITS SOURCE ROW
+  THE RULING'S WORDS: "the wider class classK’ — functions k on the reals that are even, C¹ with absolutely integrable second derivative,
+  compactly supported, and finite sums of autocorrelations h ⋆ h~ of such h".
+  THE CLAUSES AND THEIR ROWS (data/b698_regularity_uses.txt):
+    (c1) EVEN                      -- kept from classK (H2Sign.lean :25); its one use U2 (:28), the prime channel k(log n) + k(−log n) read as
+                                      2 k(log n): DISCHARGED in every column.
+    (c2) C¹ WITH ABSOLUTELY INTEGRABLE SECOND DERIVATIVE -- the W1 column's head (:10-:11): "k and h C¹ with absolutely continuous derivative
+                                      and k'', h'' absolutely integrable, in place of C²". IN LEAN: ContDiff ℝ 1 k and a g : ℝ → ℂ, Integrable g,
+                                      with deriv k x = deriv k 0 + ∫ t in 0..x, g t for every x (the derivative an indefinite integral of an
+                                      integrable function -- the absolutely continuous derivative with g its second derivative almost
+                                      everywhere; no Mathlib predicate names absolute continuity, so the class carries the indefinite-integral
+                                      form, the seat's reading).
+    (c3) COMPACTLY SUPPORTED       -- kept from classK (:25); the uses that read it: U12 (:38) and the path's P1, P4, P5, P9, P10, P12, P15,
+                                      P16 (the support bound every majorant reads): DISCHARGED in W1 and W3.
+    (c4) FINITE SUMS OF AUTOCORRELATIONS h ⋆ h~ OF SUCH h -- the W3 column's head (:14-:15): "k = Σ_{i ≤ m} h_i ⋆ h_i~, each h_i C² and
+                                      compactly supported, in place of one h ⋆ h~"; under the union each h_i of (c2)'s regularity and
+                                      compactly supported. IN LEAN: ∃ (m : ℕ) (h : Fin m → ℝ → ℂ), (∀ i, <h i of (c2) and (c3)>) ∧
+                                      k = ∑ i, Zeta23.EF.weilTest (h i) (h i) (weilTest: Zeta23/ExplicitFormula.lean :68, f ⋆ tilde g).
+  THE DEFINITION TO BE WRITTEN (SIDEExplicitFormula/H2SignWide.lean, namespace SIDEExplicitFormula.B321, beside H2Sign.lean, which is not edited):
+    def acDeriv (f : ℝ → ℂ) : Prop := ContDiff ℝ 1 f ∧ ∃ g : ℝ → ℂ, Integrable g ∧ ∀ x : ℝ, deriv f x = deriv f 0 + ∫ t in (0:ℝ)..x, g t
+    def classK' (k : ℝ → ℂ) : Prop :=
+      (∀ x : ℝ, k (-x) = k x) ∧ acDeriv k ∧ HasCompactSupport k ∧
+        ∃ (m : ℕ) (h : Fin m → ℝ → ℂ), (∀ i, acDeriv (h i) ∧ HasCompactSupport (h i)) ∧ k = ∑ i, Zeta23.EF.weilTest (h i) (h i)
+  THE STATEMENT h2_sign' ON classK':
+    def h2_sign' : Prop := ∀ k : ℝ → ℂ, classK' k → 0 ≤ poleTerm k - primeSum k + archTerm k
+  THE W3 SUB-CLASS, STATED BESIDE (the part of the union the plan's rows close, section 4):
+    def classKsum (k : ℝ → ℂ) : Prop :=
+      (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧
+        ∃ (m : ℕ) (h : Fin m → ℝ → ℂ), (∀ i, ContDiff ℝ 2 (h i) ∧ HasCompactSupport (h i)) ∧ k = ∑ i, Zeta23.EF.weilTest (h i) (h i)
+    def h2_sign_sum : Prop := ∀ k : ℝ → ℂ, classKsum k → 0 ≤ poleTerm k - primeSum k + archTerm k
+  Every existing name (classK, h2_sign, h2_sign_aim, h2_sign_iff_rh and the rest) untouched.
+
+== 2. THE USES THE PROOF RE-PROVES, EACH WITH THE ONE-LINE PROOF THE BANK SKETCHED (data/b698_regularity_uses.txt), AND THE SEAT'S READING
+   OF WHAT THE SKETCH REACHES IN THE KERNEL AS IT STANDS (every other use of the 17 and leaf of the 17 is DISCHARGED in both columns)
+  THE 10 USES RE-PROVED UNDER W1 ∪ W3:
+    U1  B321Identity.lean :47   | EF_lit_zetaZeroConfig k hk hs            | (s1) the decay by parts with ‖k''‖₁ for a C¹ k with absolutely continuous
+                                  derivative | THE SEAT'S READING: the sketch re-proves the two LEAVES (P3, P6); the use itself applies the vendored
+                                  EF_lit_zetaZeroConfig (Zeta23/WeilEF/Main.lean :286), whose statement EF_lit (Zeta23/ExplicitFormula.lean :97-:100)
+                                  binds `ContDiff ℝ 2 k` -- a W1 window does not enter it. UNDER W3 ALONE (a C² sum): DISCHARGED, the sum C² and
+                                  compactly supported.
+    U3  RHChain.lean :27        | b321_identity (weilTest h h) hc hs he     | (s1) | the same: b321_identity (B321Identity.lean :44) binds hk : ContDiff ℝ 2 k
+                                  and consumes U1. W3 alone: DISCHARGED at k = Σ weilTest (h i) (h i), C² and compactly supported.
+    U5  Schema/Config.lean :49  | C.ef k hk hs he                           | (s4) WeilConfig's field ef restated over the class | THE SEAT'S READING:
+                                  WeilConfig's field ef (Schema/Config.lean :24-:31) binds C² as its domain; restating it over W1 is a NEW
+                                  structure (WeilConfig'), its ζ instance supplied by (s1) -- which is U1's obstruction again. W3 alone: DISCHARGED.
+    U6  Schema/Config.lean :55  | zeroSide_cfg_eq C hc hs he                | (s4) | as U5.
+    U10 PowerLimit.lean :1200   | b321_identity (weilTest h h) hc hs he     | (s1) | as U3.
+    U13 Chi/CriterionForward.lean :53 | zeroSide_chi_eq hχ h1 hc hs         | (s1) | the χ path beneath (Chi/CriterionForward.lean :37) binds C² in
+                                  18 lines over 10 files (git grep -c "ContDiff ℝ 2" SIDEExplicitFormula/Chi at main). W3 alone: DISCHARGED.
+    U4  RHChain.lean :52        | paperFT_weilTest hh.continuous hh.continuous hhs hhs | (s2) the form by linearity: paperFT is additive, so for k = Σ
+                                  h_i ⋆ h_i~ the zero term at a real ordinate is Σ |ĥ_i(γ)|² ≥ 0, by paperFT_weilTest at each summand | THE SEAT'S
+                                  READING: REACHED. paperFT (∑ i, f i) z = ∑ i, paperFT (f i) z by MeasureTheory.integral_finset_sum over the
+                                  integrands f i u * cexp (I z u), each integrable (continuous with compact support: weilTest_hasCompactSupport
+                                  :261, weilTest_contDiff :254 for C² h; for acDeriv h, continuity from ContDiff ℝ 1 and the convolution's
+                                  continuity); then paperFT_weilTest (:205, continuity and compact support alone) at each summand and
+                                  Complex.mul_conj, Complex.normSq_nonneg, Finset.sum_nonneg. The sketch holds under W1 ∪ W3 and under W3.
+    U7  Schema/Config.lean :67  | the same                                   | (s2) | as U4, over the structure.
+    U11 PowerLimit.lean :1220   | the same                                   | (s2) | as U4.
+    U14 Chi/CriterionForward.lean :65 | the same                             | (s2) | as U4, the χ zero side.
+  THE 4 PATH LEAVES RE-PROVED UNDER W1 ∪ W3:
+    P3  Zeta23/WeilEF/FullLine.lean :88 | norm_paperFT_le_div hk hsupp hz0  | (s1) | THE SEAT'S READING: norm_paperFT_le_div (Zeta23/Poisson/PaperFT.lean
+                                  :172) rests on paperFT_deriv_deriv (:135, C²) over paperFT_deriv (:109, which needs ContDiff ℝ 1 alone and
+                                  HasCompactSupport). For acDeriv k the second step is paperFT (deriv k) z = −(I z)⁻¹ paperFT g z with g the
+                                  indefinite-integral density: ∫ (c + ∫_0^u g) e^{izu} du by Fubini (MeasureTheory.integral_integral_swap over
+                                  the compact support) -- about 80-120 lines, a NEW lemma, REACHED in the programme's namespace (Zeta23 not
+                                  edited); it then feeds norm_Hfn_le's copy (FullLine.lean :53) -- a copy of the vendored theorem under the
+                                  new binder, 45 lines; and that copy feeds nothing unless the chain above it is copied too (section 5).
+    P6  Zeta23/WeilEF/VerticalLine.lean :91 | integrable_fourier_of_contDiff_two (tilt_contDiff hk b) | (s1) | THE SEAT'S READING: the leaf
+                                  (Zeta23/ExplicitFormula/Bridge.lean :85) rests on norm_fourier_mul_one_add_sq_le (:58, C²); its acDeriv copy
+                                  follows P3's new lemma; the tilt e^{bu} k(u) keeps acDeriv (a product with a smooth factor). REACHED as a copy;
+                                  it feeds tilted_inversion's copy (VerticalLine.lean :84), which feeds the prime side's chain (section 5).
+    P7  Zeta23/WeilEF/Main.lean :73 | hk.comp contDiff_neg (the reflection C²) | (s6) each class is closed under u ↦ −u | REACHED: ContDiff ℝ 1
+                                  (k ∘ neg) by ContDiff.comp contDiff_neg; the indefinite-integral form by the substitution t ↦ −t
+                                  (intervalIntegral.integral_comp_neg). Inside EF_lit_zeta's proof -- a copy (section 5).
+    P13 Chi/Main.lean :275      | the same for χ                            | (s6) | as P7, inside EF_lit_chi_holds's proof -- a copy.
+  THE OBSTRUCTION THE ROWS DID NOT COUNT (the seat's reading, entered for the author): b698's columns classified the LEAVES where C² is
+  consumed (:6-:8, :56-:57) and read the lines between as passing hk on unchanged. In Lean the lines between are DECLARATIONS WITH C² AS A
+  BINDER: at main, git grep -c "ContDiff ℝ 2" reads Zeta23/WeilEF 22 lines in 7 files (FullLine 8, VerticalLine 9, Contour 1, FullLineAssembly 1,
+  Horizontal 1, Main 1, ZeroSumLimit 1), Zeta23/ExplicitFormula.lean 6, ExplicitFormula/Bridge.lean 5, ZeroSummability 2, Hypotheses 2,
+  Poisson/PaperFT 3 (40 in all), and SIDEExplicitFormula/Chi 18 in 10 files. EF_lit itself (ExplicitFormula.lean :98) quantifies over
+  ContDiff ℝ 2 k. A W1 window reaches the explicit formula only through copies of every declaration on the path from the leaves to
+  EF_lit_zeta (Main.lean :67-:286) under the acDeriv binder, the vendored files unedited -- a re-port, not a re-proof of 14 rows; it is not
+  priced at one dispatch by any bank, and it is not what (R311)(3) orders. The plan therefore closes h2_sign' ↔ RH where the rows close it
+  (W3, section 4) and states h2_sign' → h2_sign with the reason for the rest, as (R311)(3)'s "else" clause orders.
+
+== 3. THE CONTROLS OF (R311)(3), WITH THE EXPECTED READING OF EACH
+  (C1) classK ⊆ classK', A COMPILED LEMMA:
+       theorem classK_subset_classK' {k : ℝ → ℂ} (hk : classK k) : classK' k
+       -- C² gives C¹ (ContDiff.of_le); g := deriv (deriv k), continuous with compact support (ContDiff.deriv', ContDiff.continuous_deriv,
+       HasCompactSupport.deriv) hence integrable (Continuous.integrable_of_hasCompactSupport); the indefinite-integral form by
+       intervalIntegral.integral_deriv_eq_sub' on deriv k (differentiable everywhere, its derivative continuous); m := 1, h 0 := h, the sum
+       over Fin 1 by Fin.sum_univ_one. EXPECTED: DERIVES at the standard three.
+  (C2) h2_sign' → h2_sign BY RESTRICTION:
+       theorem h2_sign'_imp_h2_sign : h2_sign' → h2_sign := fun H k hk => H k (classK_subset_classK' hk)
+       EXPECTED: DERIVES.
+  (C3) h2_sign' ↔ RH "through the existing equivalence where the plan's rows close it, else h2_sign' → h2_sign alone with the reason":
+       the rows close it for the W3 sub-class and not for W1 (section 2's obstruction). SO:
+       theorem h2_sign'_imp_rh : h2_sign' → RiemannHypothesis := fun H => h2_sign_iff_rh.mp (h2_sign'_imp_h2_sign H)     -- DERIVES
+       and the converse RH → h2_sign' NOT STATED, with the reason entered as section 2's obstruction (a W1 window does not enter EF_lit's
+       binder); in its place the W3 equivalence, section 4. No sorry: what is not reached is not stated.
+  CONTROL (C4), THE SEAT'S, FOR THE READER: classK' is not vacuous -- classK_subset_classK' at the kernel's own window kWindow_classK
+  (PowerLimit.lean :121-:123) prints a member; and classKsum ⊆ classK' (theorem classKsum_subset_classK') with classK ⊆ classKsum
+  (theorem classK_subset_classKsum, m := 1): the three classes nest.
+
+== 4. THE W3 EQUIVALENCE, THE PART THE ROWS CLOSE (U4, U7, U11, U14 by (s2); U1, U3, U5, U6, U10, U13 DISCHARGED under W3; the leaves all
+   DISCHARGED under W3, :86)
+    theorem paperFT_finset_sum (s : Finset ι) (f : ι → ℝ → ℂ) (hf : ∀ i ∈ s, Continuous (f i)) (hs : ∀ i ∈ s, HasCompactSupport (f i)) (z : ℂ) :
+        Zeta23.paperFT (fun u => ∑ i ∈ s, f i u) z = ∑ i ∈ s, Zeta23.paperFT (f i) z
+      -- paperFT_def (Zeta23/Poisson/PaperFT.lean :43) and MeasureTheory.integral_finset_sum, each integrand integrable
+    theorem rh_imp_h2_sign_sum : RiemannHypothesis → h2_sign_sum
+      -- RHChain.lean :24-:62's argument: b321_identity at the C² compactly supported even sum (its identity Z = P − PR + A), the zero side
+      Σ'_ρ m_ρ paperFT k (γ_ρ) with paperFT k (γ_ρ) = Σ_i |paperFT (h i) (γ_ρ)|² by paperFT_finset_sum, paperFT_weilTest (continuity and compact
+      support of each h i) and Complex.mul_conj at the real γ_ρ (RH_implies_on_line), each term ≥ 0 (Complex.normSq_nonneg, Finset.sum_nonneg),
+      the tsum ≥ 0 (tsum_nonneg).
+    theorem h2_sign_sum_imp_h2_sign : h2_sign_sum → h2_sign := fun H k hk => H k (classK_subset_classKsum hk)
+    theorem h2_sign_sum_iff_rh : h2_sign_sum ↔ RiemannHypothesis := ⟨fun H => h2_sign_iff_rh.mp (h2_sign_sum_imp_h2_sign H), rh_imp_h2_sign_sum⟩
+  EXPECTED: DERIVES at the standard three, each. The one step the seat cannot read from a compiled line beforehand is paperFT_finset_sum's
+  integrability side conditions (the convolution's continuity and compact support, weilTest_contDiff :254 and weilTest_hasCompactSupport :261).
+
+== 5. THE DECLARATIONS TO BE WRITTEN: ONE NEW FILE, SIDEExplicitFormula/H2SignWide.lean (namespace SIDEExplicitFormula.B321), importing
+   SIDEExplicitFormula.Seam (for h2_sign_iff_rh) and nothing else new; no existing file edited but the root module's import list (one import
+   appended) and print_targets.txt (the new names appended); `theorem`, never `lemma` (SPIRAL_MAP section 7 rule 9)
+    acDeriv, classK', h2_sign', classKsum, h2_sign_sum                                             -- 5 definitions
+    classK_subset_classK', classK_subset_classKsum, classKsum_subset_classK'                        -- the nesting (C1, C4)
+    h2_sign'_imp_h2_sign, h2_sign'_imp_rh                                                           -- (C2), (C3)'s "else" half
+    paperFT_finset_sum, rh_imp_h2_sign_sum, h2_sign_sum_imp_h2_sign, h2_sign_sum_iff_rh              -- section 4
+    kWindow_mem_classK' (the non-vacuity print at the kernel's window)                              -- (C4)
+   Estimated 180-240 lines. NOT WRITTEN THIS ACT: the acDeriv copies of P3 and P6 (section 2) and the re-port they would feed -- W-ORD material
+   for a later ruling, named in section 8.
+
+== 6. THE EXPECTED STATEMENT, AXIOM PROFILE, SALT-CHECK AND GRADE
+  THE MAIN STATEMENTS, by name: SIDEExplicitFormula.B321.h2_sign'_imp_rh and SIDEExplicitFormula.B321.h2_sign_sum_iff_rh.
+  THE EXPECTED AXIOM PROFILE at #print axioms: [propext, Classical.choice, Quot.sound] for every new name (h2_sign_iff_rh prints the three,
+    relay data/terminal_table.md :142).
+  THE SALT-CHECK (REGISTRY.md :544): no True-typed conclusion (h2_sign' is false where h2_sign is, by (C2)); no X = X; no hypothesis is the
+    claim (h2_sign' and h2_sign are different Props, the inclusion compiled); no witness constructed by the theorems (the non-vacuity print is
+    a separate control); hypotheses named. Expected to PASS; read again on the landed statements from the runner's artifact.
+  THE GRADE, read from the statements by the shared E0 rule (relay tools/e0_rule.py): no binder is a named Prop of a kernel module -- h2_sign',
+    h2_sign_sum and RiemannHypothesis are the targets, not premises. EXPECTED GRADE: DERIVES for every theorem.
+
+== 7. THE RUNNER, ONE TREE STATE PER DISPATCH (no lean or lake on this host; N1: two dispatches at the most this act, one per branch tip)
+  The branch widening-b701 cut from v0.35's commit after (R311)(2) merges, read back by peeled SHA; the new file and the two edits by the Write
+  tool and the Edit tool; pushed by the push tool in branch mode; .github/workflows/build-module.yml dispatched at main with the branch tip as
+  the ref and the target SIDEExplicitFormula.H2SignWide beside the bridge's module (the print step imports each target), once per tree state,
+  read by its run id; the artifact's sha256 compared with the platform's digest before any reading; the gate per terminal (DERIVES at the
+  standard three, or the error line by file and line); the prints of the names already printed compared line for line. A build error is a
+  tree state to repair by the Edit tool and dispatch again (each a dispatch more, each counted against N1's two); a step the seat cannot close
+  is a sorry: the branch held unmerged, data/b701_obstruction.txt (the sorry's location, the goal verbatim, the hypothesis it wants), a
+  work-order with trigger "the research act after b702", no sorry on main.
+
+== 8. THE OBSTRUCTION COUNT AND THE PRICE
+  OBSTRUCTED under the plan as section 5 writes it: 0 (nothing stated is unreached). NOT STATED, with the reason: RH → h2_sign' (the W1 half's
+  converse), section 2 -- the vendored explicit formula's C² binder; its re-port priced by the seat at NOT ONE DISPATCH: 40 binder lines in
+  Zeta23 and 18 in Chi to copy under acDeriv, the two new by-parts lemmas first; a W-ORD for a later ruling (W-ORD-CLASSK-W1-REPORT, drafted
+  only if the author so says). PRICE OF THE PLAN AS WRITTEN: 1 DISPATCH in b689's form (one module set, one run at the branch tip), holding
+  only if section 4's four theorems compile in one tree state; each failing tree state one dispatch more (N1 allows one more this act).
+
+== 9. THE CONSUMERS ((R278)(3), standing)
+  data/b701_widening_plan.txt  -- consumers: the author's word; the branch's Lean (every statement of sections 1, 3, 4, 5); tolerance: none.
+  data/b701_grade.txt          -- the statements verbatim beside their grades (the bridge's and the widening's); consumers: the merge, the
+                                  FINDINGS title; tolerance: none.
+  data/b701_runner_*.txt       -- the gate per terminal; consumers: the grade, the merge, N3, N4; tolerance: the printed axioms against the
+                                  standard three.
+  data/b701_glossary_rows.txt  -- the classK' entry drafted for a later act's word; consumers: the author; tolerance: none.
+
+== 10. THE OPTIONS, FOR THE ONE PROMPT ((R311)(3))
+  "run as written"                 -- sections 1, 3, 4, 5 on widening-b701: classK' (W1 ∪ W3) with h2_sign' → h2_sign and h2_sign' → RH compiled,
+                                      the W3 equivalence h2_sign_sum ↔ RH compiled, the W1 converse not stated with its reason banked; one dispatch;
+                                      merge and tag v0.36 on the gate's reading.
+  "run to the obstruction and stop" -- the same file with RH → h2_sign' STATED and its proof attempted to the C² binder, the sorry's goal
+                                      banked verbatim in data/b701_obstruction.txt and the branch held unmerged, no v0.36 (N4).
+  "hold"                           -- nothing written; the plan stands for a later ruling.
+
+### ### **THE CLASS: EVEN, C¹ WITH AN ABSOLUTELY INTEGRABLE SECOND DERIVATIVE (acDeriv), COMPACTLY SUPPORTED, A FINITE SUM OF AUTOCORRELATIONS OF SUCH
+### h ; USES RE-PROVED 10 AND PATH LEAVES 4 READ -- (s2) REACHED AT ALL FOUR, (s6) AT BOTH, (s1) AND (s4) REACHED AT THE LEAVES AND NOT PAST THE
+### VENDORED C² BINDER (40 LINES IN Zeta23, 18 IN Chi) ; CONTROLS classK ⊆ classK' AND h2_sign' → h2_sign COMPILED, h2_sign' → RH COMPILED, THE
+### W3 EQUIVALENCE h2_sign_sum ↔ RH COMPILED, RH → h2_sign' NOT STATED WITH ITS REASON ; EXPECTED [propext, Classical.choice, Quot.sound] ;
+### EXPECTED GRADE DERIVES ; PRICE 1 DISPATCH ; NO LEAN WRITTEN.**
