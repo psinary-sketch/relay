@@ -322,6 +322,40 @@ def c1(*a):
                 ('OPEN_TRAILS.md', K.B699_TRAIL, '### b699')], dry=dry)
 
 
+# ================================================================================ COMPONENT 3: THE SLATE FOR b701, (R310)(4)
+SLATE_SOURCES = (   # ### (the slate's figure, the bank, the needle on its line, the line)
+    ('the bridge`s price, 1 dispatch', 'b699_bridge_plan.txt', 'PRICE: 1 dispatch', 85),
+    ('the bridge`s statement S1 and its grade', 'b699_bridge_plan.txt', 'S1  theorem', 67),
+    ('P3 DERIVED, not compiled', 'b687_p3_status.txt', 'P3: DERIVED', 35),
+    ('the count`s steps (1)-(9)', 'b685_count_plan.txt', '== 1. THE STEPS', 15),
+    ('the constants in balls', 'b685_count.txt', 'a = 0.432571915432', 21),
+    ('the RE-PROVED rows by column', 'b698_regularity_uses.txt', 'W1 DISCHARGED 11, RE-PROVED 6, OBSTRUCTED 0', 85),
+    ('b689`s form: one run at the branch tip', 'b689_runner_rows.json', '"label": "run1"', 5),
+)
+
+
+def slate(*a):
+    """Component 3: the slate banked at step zero (data/b700_slate.txt) printed whole, each figure it cites re-read at its source line first;
+    data/b700_slate_check.txt. Nothing compiled."""
+    rows = []
+    for what, bank, nd, ln in SLATE_SOURCES:
+        L0 = rdn(bank).split(NL)
+        rows.append((what, bank, ln, nd in (L0[ln - 1] if len(L0) >= ln else '')))
+    s = rdn('%s_slate.txt' % ACT).split(NL)
+    vi = next((i for i, l in enumerate(s) if l.startswith('### ### **')), None)
+    v = [' '.join(x.replace('### ### **', '').replace('### ###', '').strip() for x in s[vi:] if x.startswith('### ###'))] if vi is not None else []
+    L = ['%s -- COMPONENT 3, (R310)(4): THE SLATE FOR b701 PRINTED FROM ITS BANKS, EACH SOURCE RE-READ AT ITS LINE (%s)' % (ACT, utc()), '',
+         '### rows are the slate`s sources: the figure | the bank :line | read there:']
+    L += ['  %-44s | data/%s :%d | %s' % (w, b, ln, ok) for w, b, ln, ok in rows]
+    L += ['', '### THE SLATE, AS BANKED AT STEP ZERO (relay data/%s_slate.txt), ITS ORDERS:' % ACT]
+    L += [l for l in s if l.startswith('== ') or l.lstrip().startswith('PRICE')]
+    L += ['', '### ### **SOURCES %d, READ AT THEIR LINES %d ; %s.**' % (
+        len(rows), sum(1 for r in rows if r[3]), (v[-1] if v else '### NO VERDICT').replace('### ### **', '').rstrip('*').rstrip('.'))]
+    if 'dry' not in a:
+        put_txt('%s_slate_check.txt' % ACT, L)
+    print(NL.join(L[3:]))
+
+
 # ================================================================================ THE REPAIRS ((R310)(2) and the carry-time reading)
 REPAIR_ROWS = [      # ### (text, carried tool, carried function, this act's tool, this act's function)
     ('(1) tools/b700_record.py _defect_short, carried from tools/b698_record.py _defect_short (sealed at b698, :367) -- ANSWERS b699`s defect '
@@ -375,7 +409,7 @@ def repairs(*a):
 
 
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, defshort=defshort, commands=commands, reads=reads,
-              rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final, c1=c1, repairs=repairs)
+              rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final, c1=c1, repairs=repairs, slate=slate)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
