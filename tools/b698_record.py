@@ -385,7 +385,40 @@ def defects(*a):
     print('  defects %d' % len(ds))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects)
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R308)(1)
+WH = ('*Appended 2026-10-21 by b698 to b697’s entry (:9654), under `(R308)`(1) -- b697 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b697_closing.txt):*')
+WB = (' “b697 closed: relay 5d4932b5, PLACE-papers f5a4a6e; suite 120 of 120; root afc141e1f2179e86…; 1 prompt answered; 3 defects” '
+      '(data/b697_closing.txt :1), the closing dcce6eed pushed and read back at relay main (data/b697_closing_push_out.txt :5). The Weil-face '
+      'line at Q0 regenerated on the author’s word, its head’s date read as the act’s opening UTC date, the convention the earlier rows and the '
+      'mirror names follow (data/b697_faces_date.txt :23); b695’s list re-emitting the committed page byte for byte before any write, the new '
+      'list replacing :168 alone, the page differing at :3 and :734 alone (data/b697_faces_diff.txt :20), the row carrying ± 3.68e-23 and the '
+      'caveat in (R307)(2)’s words. SIDE-simplicity re-cut, tied with SIDE-substrate-cluster at the top count and named by b674’s rule at its '
+      'OVERREACHES step, 1 against 0 (data/b697_tie.txt :44); the module header’s comment lines alone cut, the ACTION verbatim; the runs '
+      '39530030132 and 39530116146 on the hosted runner with the five terminals printing equal line for line (data/b697_cut.txt :9); merged at '
+      '53df27f and tagged v0.1.1 naming v0.1.0; the distance 1 to 0 (:13, :21). The quotation search found one quoting line, SIDE-simplicity '
+      'README.md :9 restating the old claim (“Section I.2 … and Section III … are already proved in SIDE-kernel”), outside the table’s rows, '
+      'carried as a residue and named (:17); one Correspondence cell made stale by the tag, SIMPLICITY_OF_RIEMANN_ZEROS :441 with the kernel '
+      'token v0.1.0, held because the order regenerated cells for a paper’s cut alone (:19; data/b697_correspondence_dry.txt :32). The third '
+      'face priced and not run: by li_identity_sym the arithmetic limit at n is λ_n read from the prime side, blPoly a Laguerre polynomial so '
+      'the prime sum must reach m ≈ e^(4n); Route A at 3 foreground parts for n ≤ 2 and not priceable at the siblings’ n ≈ 10^4; Route B '
+      '(Lagarias’s Lemma 4.2), the seat’s addition, priceable at n in the tens alone (data/b697_arith_plan.txt :40-:48, :112). The suite 120 of '
+      '120 before and after the push, every control behaving (data/b697_checks.txt, data/b697_checks_postpush.txt); all eight scores HELD '
+      '(data/b697_scores_close.json); the sealed tools 8 of 8 (data/b697_closing.txt :14); the root afc141e1 over 69 banks; no lean on the '
+      'host; mirror-refresh-2026-10-21-b697.zip CLEAN with the root line. Three defects, all the seat’s -- (a) the carried faces route '
+      'miscounting its diff, caught in the dry run and repaired before the page write, (b) 18 of 60 Read calls reading a file whole '
+      '(data/b697_read_calls.txt :23), (c) long turns between reads and bank writes -- and one event beneath, an act arm stricter than the '
+      'ferry failing the pre-run on real state and corrected before the seal (data/b697_defects.txt :6-:19, :26-:28). Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B697_ENTRY,
+         check=[('FINDINGS.md', K.B697_ENTRY, '## SIDE-simplicity re-cut: 1 row outside LICENSED/CITED to 0, v0.1.1'),
+                ('OPEN_TRAILS.md', K.B697_TRAIL, '### b697')], dry=dry)
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
