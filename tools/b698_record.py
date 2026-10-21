@@ -620,7 +620,306 @@ def cells(*a):
     print(NL.join(L))
 
 
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, bridge=bridge, uses=uses, cells=cells)
+# ================================================================================ COMPONENT 4: THE README RE-CUT ON THE AUTHOR'S WORD (b697's routes, carried)
+STD3 = ('Classical.choice', 'Quot.sound', 'propext')
+
+
+def _gh(*a):
+    r = subprocess.run(['gh'] + list(a), capture_output=True)
+    return r.returncode, r.stdout, r.stderr.decode('utf-8', 'replace')
+
+
+def dispatch(*a):
+    """`dispatch <kernel> <ref sha> <label> <target> [dry]`: ONE dispatch of build-module.yml at main with the ref input and the lake target;
+    refused where data/b698_dispatches.json already carries the ref's tree (one dispatch per tree state). The run id read from the run list
+    (the newest workflow_dispatch run created after the dispatch); a row banked."""
+    kernel, ref, label, target = a[0], a[1], a[2], a[3]
+    repo = 'psinary-sketch/' + kernel
+    full = g('D:/' + kernel, 'rev-parse', ref).strip()
+    tree = g('D:/' + kernel, 'rev-parse', full + '^{tree}').strip()
+    j = jl('%s_dispatches.json' % ACT) if os.path.isfile(os.path.join(D, '%s_dispatches.json' % ACT)) else {}
+    rows = j.get('rows') or []
+    seen = [r for r in rows if r.get('tree') == tree]
+    if seen:
+        sys.exit('### THE TREE %s IS ALREADY BUILT (run %s) -- NOT DISPATCHED' % (tree[:12], seen[0].get('run_id')))
+    if not re.match(r'^[A-Za-z0-9_. ]+$', target):
+        sys.exit('### THE TARGET %r IS OUTSIDE THE LAKE GRAMMAR -- NOT DISPATCHED' % target)
+    print('  kernel %s ; ref %s ; tree %s ; target %s' % (kernel, full, tree, target))
+    if 'dry' in a[4:]:
+        return
+    t0 = utc()
+    rc, out, err = _gh('workflow', 'run', 'build-module.yml', '-R', repo, '--ref', 'main', '-f', 'ref=' + full, '-f', 'target=' + target)
+    if rc != 0:
+        sys.exit('### THE DISPATCH REFUSED: %s' % err[-400:])
+    run_id = None
+    for _i in range(12):
+        time.sleep(5)
+        rc, out, err = _gh('run', 'list', '-R', repo, '--workflow', 'build-module.yml', '--event', 'workflow_dispatch', '--limit', '5', '--json',
+                           'databaseId,createdAt,status')
+        new = [r for r in json.loads(out or b'[]') if r.get('createdAt', '') >= t0]
+        if new:
+            run_id = sorted(new, key=lambda r: r['createdAt'])[-1]['databaseId']
+            break
+    rows.append(dict(kernel=kernel, label=label, ref=full, tree=tree, target=target, dispatched=t0, run_id=run_id))
+    put_json('%s_dispatches.json' % ACT, dict(rows=rows))
+    print('  dispatched %s ; run id %s' % (t0, run_id))
+
+
+def runstatus(*a):
+    """`runstatus <kernel> <run id>`: the run's status and conclusion, read once (a foreground read, no wait)."""
+    rc, out, err = _gh('run', 'view', a[1], '-R', 'psinary-sketch/' + a[0], '--json', 'status,conclusion,updatedAt,headSha')
+    print('  %s' % (out.decode('utf-8', 'replace').strip() or err.strip()))
+
+
+def _deps(ax):
+    """the axioms output read per terminal: [(name, [axioms] or None for 'does not depend on any axioms')], wrapped lists rejoined."""
+    out = []
+    for n, d in re.findall(r"^'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)",
+                           re.sub(r'\n(?=[ \t]*[A-Za-z_.]+[,\]])', ' ', ax), re.M):
+        out.append((n, [x.strip() for x in d.split('[', 1)[1].rstrip(']').split(',') if x.strip()] if d.startswith('depends') else []))
+    return out
+
+
+def read_runner_row(r):
+    """a row of data/b698_runner_rows.json: the kernel, its label, the ref (40 hex), the run id and the gate; returns (kernel, label, gate)."""
+    if not isinstance(r, dict) or not re.match(r'^SIDE-[\w-]+$', r.get('kernel') or '') or not re.match(r'^[\w-]+$', r.get('label') or '') \
+            or not re.match(r'^[0-9a-f]{40}$', r.get('ref') or '') or not isinstance(r.get('run_id'), int) or r.get('gate') not in ('DERIVES', 'NOT DERIVES'):
+        raise ValueError('runner row of another shape: %r' % (r,))
+    return r['kernel'], r['label'], r['gate']
+
+
+READERS.append('read_runner_row')
+
+
+def runner(*a):
+    """`runner <kernel> <run id> <ref> <label> <note...>`: the kernel's run read by its id; the artifact listed, downloaded by its id into
+    memory, its sha256 against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP;
+    the axioms output of the print step banked whole, every name of the list matched to one printed line, each terminal's axioms read against
+    the standard three. data/b698_runner_<kernel>_<label>.txt, data/b698_axioms_<kernel>_<label>.txt and a row of data/b698_runner_rows.json."""
+    import hashlib
+    import io as _io
+    import zipfile
+    kernel, run_id, ref, label, note = a[0], int(a[1]), a[2], a[3], ' '.join(a[4:])
+    repo = 'psinary-sketch/' + kernel
+    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    row = dict(kernel=kernel, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+               stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+    L = ['b698 -- THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (kernel, label.upper(), utc()), '',
+         '### the dispatch: %s ; the ref input %s' % (note, ref),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+             run.get('updatedAt'))]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    row['axioms_sha256'] = hashlib.sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    deps = _deps(ax)
+    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+    printed = [n for n, _d in deps]
+    unmatched = [n for n in tg if n not in printed]
+    outside = [(n, d) for n, d in deps if not set(d) <= set(STD3)]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d:' % (row['build_exit'], len(row['errors']))] + ['    ' + l for l in row['errors'][:40]] + [
+          '### the log`s last lines:'] + ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + [
+          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; axiom-free %d ; '
+          'sorryAx %d ; outside the standard three %d ; refused %s' % (
+              len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg), sum(1 for _n, d in deps if not d),
+              sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### rows are terminals: name | the axioms printed | within the standard three:']
+    L += ['  %-62s %s %s' % (n, d, 'STD3' if set(d) <= set(STD3) else '### OUTSIDE') for n, d in deps]
+    L += ['  %-62s ### NOT PRINTED' % n for n in unmatched]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and not outside
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; '
+          'OUTSIDE THE STANDARD THREE %d ; GATE %s.**' % (
+              run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']),
+              len(deps), len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), row['gate'])]
+    read_runner_row(row)
+    put_txt('%s_runner_%s_%s.txt' % (ACT, kernel, label), L)
+    if row['artifact_sha256']:
+        put_txt('%s_axioms_%s_%s.txt' % (ACT, kernel, label), ax.split(NL) if ax else ['### EMPTY'])
+        put_txt('%s_buildlog_%s_%s.txt' % (ACT, kernel, label), blog.rstrip(NL).split(NL))
+    j = jl('%s_runner_rows.json' % ACT) if os.path.isfile(os.path.join(D, '%s_runner_rows.json' % ACT)) else {}
+    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (kernel, label)] + [row]
+    put_json('%s_runner_rows.json' % ACT, dict(rows=rows))
+    print(NL.join(L[:14] + L[-3:]))
+
+
+def prints(*a):
+    """`prints <kernel> <before bank> <after bank>`: the 'before' terminals' printed lines compared with the same names' lines in the 'after'
+    bank, line for line by name; the raw axioms banks compared byte for byte beside. data/b698_prints_<kernel>.txt."""
+    kernel, bb, ab = a[0], a[1], a[2]
+    b, f = rdn(bb), rdn(ab)
+    if not b or not f:
+        sys.exit('### A PRINT BANK IS MISSING -- NOTHING WRITTEN')
+    bd, fd = dict(_deps(b)), dict(_deps(f))
+    diff = [(n, bd[n], fd.get(n)) for n in bd if fd.get(n) != bd[n]]
+    new = [n for n in fd if n not in bd]
+    L = ['b698 -- THE PRINTS OF %s BEFORE AND AFTER THE README RE-CUT, BY NAME AND LINE FOR LINE (%s)' % (kernel, utc()), '',
+         '### before: relay data/%s (%d terminals) ; after: relay data/%s (%d terminals) ; the two banks equal line for line: %s ; rows are the '
+         'terminals that differ:' % (bb, len(bd), ab, len(fd), b == f)] + (['    %s : %s | %s' % d for d in diff] or ['    NONE']) + [
+        '### the names printed after and not before: %d' % len(new)] + ['    %s %s' % (n, fd[n]) for n in new]
+    L += ['', '### ### **BEFORE %d TERMINALS ; EACH PRINTED AFTER %s ; DIFFERING %d ; NEW %d ; EQUAL LINE FOR LINE %s.**' % (
+        len(bd), all(n in fd for n in bd), len(diff), len(new), b == f)]
+    put_txt('%s_prints_%s.txt' % (ACT, kernel), L)
+    print(L[-1])
+
+
+# ### the quotation search, data/b690_rules.txt row (2): one distinctive substring per removed or changed line of the README cut (README.md :9
+# ### at 53df27f), checked to stand in its own removed line before it is searched; the second shape case-insensitive and shorter
+QUOTE_NEEDLES = ('are already proved in SIDE-kernel',)
+QUOTE_WIDE = ('already proved',)
+QUOTE_SETS = {'quote_simplicity_readme': (QUOTE_NEEDLES, QUOTE_WIDE)}
+
+
+def quote(*a):
+    """`quote <kernel dir> <base> <tip> <bank stem>`: every line the cut removes or changes (the `-` lines of git diff base..tip) read, one
+    needle of the set assigned to each by containment and refused where a removed line carries none or a needle stands in no removed line;
+    each needle searched with git grep -n -F at the tip across the kernel's whole tracked tree, in two shapes; every hit printed with its
+    quoting line and entered as a residue; the control at the base. data/b698_<stem>.txt (.json)."""
+    kd, base, tip, stem = a[0], a[1], a[2], a[3]
+    needles, wide = QUOTE_SETS[stem]
+    d = g(kd, 'diff', '--unified=0', base, tip)
+    removed = [l[1:].rstrip(chr(13)) for l in d.split(NL) if l.startswith('-') and not l.startswith('---')]
+    removed = [l for l in removed if l.strip()]
+    rows, unassigned = [], []
+    for l in removed:
+        nd = [n for n in needles if n in l]
+        if not nd:
+            unassigned.append(l)
+        rows.append(dict(line=l, needle=nd[0] if nd else None))
+    unused = [n for n in needles if not any(n in r['line'] for r in rows)]
+    if unassigned or unused:
+        sys.exit('### A REMOVED LINE WITHOUT A NEEDLE %s OR A NEEDLE IN NO REMOVED LINE %s -- NOTHING WRITTEN' % (unassigned, unused))
+    for r in rows:
+        w = [n for n in wide if n.lower() in r['line'].lower()]
+        r['wide'] = w[0] if w else None
+    wu = [n for n in wide if not any(n.lower() in r['line'].lower() for r in rows)]
+    if any(r['wide'] is None for r in rows) or wu:
+        sys.exit('### THE SECOND SHAPE: A REMOVED LINE WITHOUT A NEEDLE OR A NEEDLE IN NO REMOVED LINE %s -- NOTHING WRITTEN' % wu)
+    hits = []
+    for r in rows:
+        out = g(kd, 'grep', '-n', '-F', r['needle'], tip, '--')
+        r['hits'] = [x for x in out.split(NL) if x.strip()]
+        out2 = g(kd, 'grep', '-n', '-i', '-F', r['wide'], tip, '--')
+        r['hits_wide'] = [x for x in out2.split(NL) if x.strip()]
+        hits += [(r['wide'], h) for h in r['hits_wide']]
+    L = ['b698 -- THE QUOTATION SEARCH BEFORE THE MERGE, data/b690_rules.txt row (2), OVER %s (%s)' % (os.path.basename(kd), utc()), '',
+         '### the cut: git diff %s..%s ; the lines it removes or changes %d ; one needle each, checked to stand in its own removed line; each searched' % (
+             base, tip, len(rows)),
+         '### with git grep -n -F at the tip %s across the kernel`s whole tracked tree. Rows are removed lines: needle | hits (file:line: the quoting' % tip,
+         '### line):']
+    for r in rows:
+        L.append('  %-44s | %d hit(s) ; case-insensitive %-26r %d hit(s) | removed: %s' % (r['needle'], len(r['hits']), r['wide'], len(r['hits_wide']),
+                                                                                    r['line'].strip()[:100]))
+        L += ['      %s' % h for h in r['hits_wide']]
+    q = sorted(set(h.split(':', 2)[1] + ':' + h.split(':', 3)[2] for _n, h in hits))
+    ctl = [(r['needle'], len([x for x in g(kd, 'grep', '-n', '-F', r['needle'], base, '--').split(NL) if x.strip()]),
+            len([x for x in g(kd, 'grep', '-n', '-i', '-F', r['wide'], base, '--').split(NL) if x.strip()])) for r in rows]
+    L += ['', '### THE CONTROL: each needle at the base %s, where the removed line stands (needle ; case-exact hits ; case-insensitive hits):' % base]
+    L += ['  %-44s ; %d ; %d' % c for c in ctl]
+    L += ['### the control %s' % ('FIRES FOR EVERY NEEDLE IN BOTH SHAPES' if all(c[1] and c[2] for c in ctl) else '### DOES NOT FIRE FOR EVERY NEEDLE')]
+    L += ['', '### THE QUOTING LINES, DISTINCT (file:line): %s' % (', '.join(q) or 'NONE'),
+          '### the yields: the case-exact shape %d hit(s) on %d line(s) ; the case-insensitive shape %d hit(s) on %d line(s)' % (
+              sum(len(r['hits']) for r in rows), len(set(h.split(':', 3)[1] + ':' + h.split(':', 3)[2] for r in rows for h in r['hits'])),
+              len(hits), len(q)),
+          '', '### ### **REMOVED OR CHANGED LINES %d ; NEEDLES SEARCHED %d IN TWO SHAPES ; QUOTING LINES %d -- EACH ENTERED AS A RESIDUE.**' % (
+              len(rows), len(rows), len(q))]
+    put_txt('%s_%s.txt' % (ACT, stem), L)
+    put_json('%s_%s.json' % (ACT, stem), dict(at=utc(), kernel=kd, base=base, tip=tip, rows=rows, hits=[list(h) for h in hits]))
+    print(NL.join(L))
+
+
+RECUT = dict(kernel='SIDE-simplicity', base='53df27f', branch='recut-simplicity-readme-b698', tag='v0.1.2', prior='v0.1.1', file='README.md',
+             line=9, prints_before='b697_axioms_SIDE-simplicity_after.txt', prints_after='b698_axioms_SIDE-simplicity_after.txt')
+
+
+def readmecut(*a):
+    """data/b698_readme_cut.txt (.json): the README re-cut on the author's word -- the branch and its one commit, the line before and after
+    (git show at the base and at the merge), the run and the prints, the quotation search, the merge (parents, merged tree against the built
+    tree), the tag peeled and its message naming the prior tag."""
+    k = RECUT['kernel']
+    kd = 'D:/' + k
+    rr = [r for r in (jl('%s_runner_rows.json' % ACT).get('rows') or []) if r.get('kernel') == k]
+    if len(rr) != 1:
+        sys.exit('### THE RUNNER ROWS DO NOT CARRY ONE SIDE-simplicity RUN -- NOTHING WRITTEN')
+    tip = rr[0]['ref']
+    mainc = g(kd, 'rev-parse', 'main').strip()
+    parents = g(kd, 'rev-list', '--parents', '-n', '1', mainc).split()
+    mt, tt = g(kd, 'rev-parse', mainc + '^{tree}').strip(), g(kd, 'rev-parse', tip + '^{tree}').strip()
+    tag_peel = g(kd, 'rev-parse', '--verify', '--quiet', RECUT['tag'] + '^{commit}').strip()
+    tag_msg = g(kd, 'tag', '-l', '--format=%(contents:subject)', RECUT['tag']).strip()
+    prior_peel = g(kd, 'rev-parse', RECUT['prior'] + '^{commit}').strip()
+    l0 = ((_show(kd, RECUT['base'], RECUT['file']) or '').split(NL) + [''] * 20)[RECUT['line'] - 1]
+    l1 = ((_show(kd, mainc, RECUT['file']) or '').split(NL) + [''] * 20)[RECUT['line'] - 1]
+    act = [x for x in rdn('%s_residue_actions.txt' % ACT).split(NL)]
+    i = next((n for n, x in enumerate(act) if x.strip().startswith('THE SUCCESSOR LINE, whole:')), None)
+    want = ''
+    if i is not None:
+        j = i + 1
+        blk = [act[i].split('whole:', 1)[1]]
+        while j < len(act) and act[j].startswith('    ') and not act[j].strip().startswith('SOURCE ROWS'):
+            blk.append(act[j])
+            j += 1
+        want = ' '.join(' '.join(blk).split()).strip('"')
+    pv = _vl('%s_prints_%s.txt' % (ACT, k))
+    qv = _vl('%s_quote_simplicity_readme.txt' % ACT)
+    others = [l for l in g(kd, 'diff', '--name-only', RECUT['base'], mainc).split(NL) if l.strip()]
+    L = ['b698 -- COMPONENT 4, (R308)(5): THE README RE-CUT OF %s ON THE AUTHOR`S WORD "apply" (%s)' % (k, utc()), '',
+         '### the branch %s from main %s, its one commit %s (README.md alone), pushed alone by push_gated`s branch mode named --scratch (relay '
+         'data/b698_simplicity_cut_push_out.txt)' % (RECUT['branch'], RECUT['base'], tip[:7]),
+         '### the run: %d at the tip (relay data/b698_runner_%s_after.txt), gate %s; the prints against b697`s after-run at b491ac5: %s' % (
+             rr[0]['run_id'], k, rr[0]['gate'], pv.strip('#* ')),
+         '### the quotation search (relay data/b698_quote_simplicity_readme.txt): %s' % qv.strip('#* '),
+         '### the merge %s by --no-ff, its parents %s, the merged tree %s the built tree %s (%s); the files the merge changes from the base: %s' % (
+             mainc[:7], ' '.join(p[:7] for p in parents[1:]), mt[:12], tt[:12], 'EQUAL' if mt == tt else '### DIFFER', others),
+         '### the tag %s peeled to %s (%s), its message %r naming the prior tag %s = %s (relay data/b698_simplicity_merge_push_out.txt)' % (
+             RECUT['tag'], tag_peel[:12] or '### ABSENT', 'THE MERGE' if tag_peel == mainc else '### NOT THE MERGE', tag_msg, RECUT['prior'], prior_peel[:7]),
+         '', '### README.md :9 at the base %s, verbatim:' % RECUT['base'], '    ' + l0,
+         '### README.md :9 at the merge %s, verbatim:' % mainc[:7], '    ' + l1,
+         '### the successor line of relay data/b698_residue_actions.txt, whitespace collapsed, equal to the merged line: %s' % (want == ' '.join(l1.split()))]
+    ok = want == ' '.join(l1.split()) and mt == tt and tag_peel == mainc and others == [RECUT['file']] and 'EQUAL LINE FOR LINE True' in pv \
+        and 'QUOTING LINES 0' in qv and rr[0]['gate'] == 'DERIVES'
+    L += ['', '### ### **SIDE-simplicity README :9 RE-CUT: THE ACTION APPLIED %s ; RUN %d %s ; PRINTS EQUAL %s ; QUOTING LINES LEFT %s ; TAG %s AT THE MERGE %s.**' % (
+        want == ' '.join(l1.split()), rr[0]['run_id'], rr[0]['gate'], 'EQUAL LINE FOR LINE True' in pv, (re.findall(r'QUOTING LINES (\d+)', qv) or ['?'])[0],
+        RECUT['tag'], ok)]
+    if 'dry' in a:
+        print(NL.join(L))
+        return
+    put_txt('%s_readme_cut.txt' % ACT, L)
+    put_json('%s_readme_cut.json' % ACT, dict(at=utc(), kernel=k, tip=tip, merge=mainc, parents=parents[1:], merged_tree=mt, built_tree=tt,
+                                              tag=RECUT['tag'], tag_peel=tag_peel, prior_peel=prior_peel, line_before=l0, line_after=l1, ok=ok))
+    print(NL.join(L))
+
+
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, bridge=bridge, uses=uses, cells=cells,
+              dispatch=dispatch, runstatus=runstatus, runner=runner, prints=prints, quote=quote, readmecut=readmecut)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
