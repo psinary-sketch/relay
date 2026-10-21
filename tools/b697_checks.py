@@ -839,13 +839,13 @@ def entry_title_ok(S):
 
 
 def faces_rows_ok(S):
-    """N2: both rows and the two readings printed in the faces-rows bank, committed alone before the prompt was put and before the page was
-    written."""
+    """N2: both rows and the two readings printed in the faces-rows bank, committed (beside the record tool's route that wrote it) before the
+    prompt was put and before the page was written."""
     fr = S['faces_rows']
     calls = S['answersj'].get('calls') or []
     pt = iso_epoch((calls[0].get('ts') or '')[:19] + 'Z') if calls else None
     return all(x in fr for x in ('  (A) THE LINE AS THE PAGE CARRIES IT', '  (B) b696`S SUCCESSOR, VERBATIM', '  (C) THE TWO READINGS:',
-                                 '  (D) THE ROW THE READINGS GIVE')) and 'NO PAGE TOUCHED' in fr and S['files']['c2rows'] == ['data/b697_faces_rows.txt'] \
+                                 '  (D) THE ROW THE READINGS GIVE')) and 'NO PAGE TOUCHED' in fr and 'data/b697_faces_rows.txt' in S['files']['c2rows'] \
         and bool(S['t'].get('c2rows')) and bool(pt) and bool(S['t'].get('c2pp')) and S['t']['c2rows'] < pt < S['t']['c2pp']
 
 
@@ -1236,7 +1236,7 @@ ARMS = [
      lambda S: entry_scores_ok(S), lambda S: _mut(S, 'sc', lambda d: d.update(N1=['REFUTED', 'planted']))),
     ('G-ENTRY-TITLE-FORM', 'FINDINGS at the findings bank`s line and the record tool`s title from the cut bank: the ferry`s form adjusted to what the act did',
      lambda S: entry_title_ok(S), lambda S: put(S, 'find', S['find'].replace('to 0, v0.1.1;', 'to 1, v0.1.1;'))),
-    ('G-FACES-ROWS-PRINTED', 'the faces-rows bank, its commit and the prompt`s time: both rows and the two readings printed and committed alone before the prompt and before the page was written (N2)',
+    ('G-FACES-ROWS-PRINTED', 'the faces-rows bank, its commit and the prompt`s time: both rows and the two readings printed and committed before the prompt and before the page was written (N2)',
      lambda S: faces_rows_ok(S), lambda S: put(S, 't', dict(S['t'], c2rows=10 ** 11))),
     ('G-FACES-DATE-READ', 'the date bank, the new node list`s row and Component 2`s commit: the convention read and banked beside the row, the head carrying the act`s opening UTC date (the author`s word at the prompt)',
      lambda S: faces_date_ok(S), lambda S: put(S, 'faces_date', S['faces_date'].replace('THIS ROW 2026-10-21 (b697)', 'THIS ROW 2026-10-20 (b697)'))),
