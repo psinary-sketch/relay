@@ -1,0 +1,206 @@
+b698 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T04:51:34Z)
+
+### the source: the seat`s session c677eaf2-5ebd-414d-85fe-7a54a52c47cd from its first user line carrying 'RULING (R308) BEGIN', with its subagents` transcripts
+### commands read: 136
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b697, its own session b97f6790, from its post-push combine to that session`s end): 16 commands from 2026-10-21T03:17:11.761Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES, ONE PER TREE STATE (relay data/b698_dispatches.json) (1):
+  #91 python -X utf8 tools/b698_record.py dispatch SIDE-simplicity 049d17f after SIDESimplicity
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (8):
+  #1 2026-10-21T03:32:33.024Z cd /d/relay && git status --short | head -30 && git log --oneline -5 && ls tools | grep -E "b69[5-7]" && ls data | grep -E "^b697"
+  #3 2026-10-21T03:32:52.552Z git grep -n -E "^def |^ '[a-z_]+': |^CMDS|^if __name__" -- tools/b697_record.py | head -150
+  #4 2026-10-21T03:33:00.787Z git grep -n -i "ferry\.txt\|_ferry'\|readfirst\|stepzero\|procs\b" -- tools/b697_*.py | head -40; git log --format="%h %s" -12 --skip=5 | cut -c1-200
+  #5 2026-10-21T03:33:05.146Z git show --stat --format="%B" 8cf06d7c | cut -c1-250
+  #6 2026-10-21T03:33:17.915Z git grep -n -A22 "def ferry_text\|def _user_texts" -- tools/b677_citation.py | head -70
+  #12 2026-10-21T03:35:06.685Z git ls-tree -r --name-only v0.34 | grep -i "h2sign" ; git grep -n -i "h2sign\|H2Sign.lean" -- /d/relay/data/glossary.txt; cd /d/relay && git grep -n "H2Sign" -- data/glossary.txt
+  #14 2026-10-21T03:35:40.269Z cd /d/relay && git ls-files "data/*print*" | grep -i -E "lv|explicit|efor|_ef" ; git ls-files "data/*runner_SIDE-lv*" "data/*runner_SIDE-explicit*" "data/*axioms_SIDE-explicit*" "data/*axioms_SIDE-lv*
+  #51 2026-10-21T04:07:47.996Z git add data/b698_branches.json data/b698_branches.txt data/b698_branches_before.json data/b698_citation_check.json data/b698_citation_check.txt data/b698_ferry.txt data/b698_ferry_scan.txt data/b698_
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (9):
+  #28 2026-10-21T03:41:26.226Z Bash
+      git -C /d/relay branch -d push-b697
+  #29 2026-10-21T03:41:28.536Z Bash
+      git -C /d/relay branch -d push-b697-root
+  #30 2026-10-21T03:41:30.829Z Bash
+      git -C /d/relay branch -d push-b697-closing
+  #31 2026-10-21T03:41:33.330Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b697
+  #32 2026-10-21T03:41:35.775Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b697-root
+  #33 2026-10-21T03:41:38.511Z Bash
+      git -C /d/SIDE-simplicity branch -d push-b697-simplicity-main
+  #34 2026-10-21T03:41:41.443Z Bash
+      git -C /d/SIDE-simplicity branch -d push-b697-simplicity-merge
+  #35 2026-10-21T03:41:43.868Z Bash
+      git -C /d/SIDE-simplicity branch -d recut-simplicity-b697
+  #36 2026-10-21T03:41:46.393Z Bash
+      git -C /d/SIDE-simplicity push origin --delete recut-simplicity-b697
+
+### THE BRANCH DELETES BY SHAPE ((R308)(7) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #28 deletes ['push-b697'], halves 1, globs none, variables none, chained after False; #29 deletes ['push-b697-root'], halves 1, globs none, variables none, chained after False; #30 deletes ['push-b697-closing'], halves 1, globs none, variables none, chained after False; #31 deletes ['push-b697'], halves 1, globs none, variables none, chained after False; #32 deletes ['push-b697-root'], halves 1, globs none, variables none, chained after False; #33 deletes ['push-b697-simplicity-main'], halves 1, globs none, variables none, chained after False; #34 deletes ['push-b697-simplicity-merge'], halves 1, globs none, variables none, chained after False; #35 deletes ['recut-simplicity-b697'], halves 1, globs none, variables none, chained after False; #36 deletes ['recut-simplicity-b697'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-21T03:32:33.024Z | seat | Bash | cd /d/relay && git status --short | head -30 && git log --oneline -5 && ls tools | grep -E "b69[5-7]" && ls data | grep -E "^b697"
+  #2 | 2026-10-21T03:32:37.851Z | seat | Bash | wc -l tools/b697_*.py tools/b696_*.py && git branch --list "push-b697*" && date -u
+  #3 | 2026-10-21T03:32:52.552Z | seat | Bash | git grep -n -E "^def |^    '[a-z_]+': |^CMDS|^if __name__" -- tools/b697_record.py | head -150
+  #4 | 2026-10-21T03:33:00.787Z | seat | Bash | git grep -n -i "ferry\.txt\|_ferry'\|readfirst\|stepzero\|procs\b" -- tools/b697_*.py | head -40; git log --format="%h %s" -12 --skip=5 | cut -c1-200
+  #5 | 2026-10-21T03:33:05.146Z | seat | Bash | git show --stat --format="%B" 8cf06d7c | cut -c1-250
+  #6 | 2026-10-21T03:33:17.915Z | seat | Bash | git grep -n -A22 "def ferry_text\|def _user_texts" -- tools/b677_citation.py | head -70
+  #7 | 2026-10-21T03:33:24.005Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(claude|tail|lean|lake|python|node)(\.exe)?$' } | Select-Object ProcessId, ParentProcessId, Name
+  #8 | 2026-10-21T03:34:22.872Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git log --oneline -3 && git status --short && git branch --list "push-b69*" && cd /d/SIDE-simplicity && git branch -a && git 
+  #9 | 2026-10-21T03:34:40.931Z | seat | Bash | cd /d/relay && wc -l data/b697_closing.txt data/b697_defects.txt data/b697_cut.txt data/b697_arith_plan.txt data/b697_read_calls.txt data/b695_circuit_spec.txt 
+  #10 | 2026-10-21T03:34:56.052Z | seat | Bash | cd /d/SIDE-lv-conservation && git log --oneline -3 && git tag -l && git grep -n "residue_irreducible" -- "*.lean" "*.txt" "*.md"
+  #11 | 2026-10-21T03:35:02.321Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --short v0.34^{commit} && git log --oneline -1 && git grep -n "h2_sign" v0.34 -- "*.lean" "print_targets.txt"
+  #12 | 2026-10-21T03:35:06.685Z | seat | Bash | git ls-tree -r --name-only v0.34 | grep -i "h2sign" ; git grep -n -i "h2sign\|H2Sign.lean" -- /d/relay/data/glossary.txt; cd /d/relay && git grep -n "H2Sign" --
+  #13 | 2026-10-21T03:35:10.667Z | seat | Bash | cd /d/SIDE-explicit-formula && git show v0.34:SIDEExplicitFormula/H2Sign.lean
+  #14 | 2026-10-21T03:35:40.269Z | seat | Bash | cd /d/relay && git ls-files "data/*print*" | grep -i -E "lv|explicit|efor|_ef" ; git ls-files "data/*runner_SIDE-lv*" "data/*runner_SIDE-explicit*" "data/*axiom
+  #15 | 2026-10-21T03:35:44.322Z | seat | Bash | wc -l data/b694_prints_SIDE-lv-conservation.txt data/b689_prints_SIDE-explicit-formula.txt data/b691_prints_SIDE-explicit-formula.txt data/b692_prints_SIDE-expl
+  #16 | 2026-10-21T03:36:22.964Z | seat | Bash | wc -l data/b647_table_SIDE-simplicity.txt && cd /d/SIDE-simplicity && wc -l README.md
+  #17 | 2026-10-21T03:36:42.718Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --short v0.26^{commit} && git diff --stat v0.26 v0.34 -- SIDEExplicitFormula/H2Sign.lean && echo "H2Sign diff above
+  #18 | 2026-10-21T03:37:08.385Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git ls-files "*SIMPLICITY_OF_RIEMANN_ZEROS*" && cd /d/relay && git grep -n "^(8)" -- data/b697_ferry.txt && git grep -n "### 
+  #19 | 2026-10-21T03:39:01.298Z | seat | Bash | python -X utf8 tools/b698_citation.py ferry && python -X utf8 tools/b698_citation.py check dry
+  #20 | 2026-10-21T03:39:05.912Z | seat | Bash | python -X utf8 tools/b698_citation.py check
+  #21 | 2026-10-21T03:39:38.402Z | seat | Bash | python -X utf8 tools/circuit_read.py readfirst b698_ferry.txt b698_readfirst.txt
+  #22 | 2026-10-21T03:40:56.364Z | seat | Bash | python -X utf8 tools/b698_record.py rowgen
+  #23 | 2026-10-21T03:41:10.786Z | seat | Bash | git add data/b697_closing_push_out.txt && git commit -q -m "b698 step zero under (R308)(7): b697's closing push-out bank (push-b697-closing, main read back at d
+  #24 | 2026-10-21T03:41:14.151Z | seat | Bash | python -X utf8 tools/b698_record.py branches before
+  #25 | 2026-10-21T03:41:19.042Z | seat | Bash | git -C /d/relay branch --merged main --list "push-b697*"
+  #26 | 2026-10-21T03:41:21.572Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list "push-b697*"
+  #27 | 2026-10-21T03:41:23.927Z | seat | Bash | git -C /d/SIDE-simplicity branch -a --merged main
+  #28 | 2026-10-21T03:41:26.226Z | seat | Bash | git -C /d/relay branch -d push-b697
+  #29 | 2026-10-21T03:41:28.536Z | seat | Bash | git -C /d/relay branch -d push-b697-root
+  #30 | 2026-10-21T03:41:30.829Z | seat | Bash | git -C /d/relay branch -d push-b697-closing
+  #31 | 2026-10-21T03:41:33.330Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b697
+  #32 | 2026-10-21T03:41:35.775Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b697-root
+  #33 | 2026-10-21T03:41:38.511Z | seat | Bash | git -C /d/SIDE-simplicity branch -d push-b697-simplicity-main
+  #34 | 2026-10-21T03:41:41.443Z | seat | Bash | git -C /d/SIDE-simplicity branch -d push-b697-simplicity-merge
+  #35 | 2026-10-21T03:41:43.868Z | seat | Bash | git -C /d/SIDE-simplicity branch -d recut-simplicity-b697
+  #36 | 2026-10-21T03:41:46.393Z | seat | Bash | git -C /d/SIDE-simplicity push origin --delete recut-simplicity-b697
+  #37 | 2026-10-21T03:41:50.363Z | seat | Bash | python -X utf8 tools/b698_record.py branches
+  #38 | 2026-10-21T03:42:05.893Z | seat | Bash | git add data/b698_rules.txt && git commit -q -m "b698 step zero under (R308)(5)-(6): data/b698_rules.txt, committed alone -- (1) a kernel's tag move regenerates
+  #39 | 2026-10-21T03:42:48.976Z | seat | Bash | python -X utf8 tools/b698_tests.py parts
+  #40 | 2026-10-21T03:42:54.772Z | seat | Bash | python -X utf8 tools/b698_tests.py hold 1 && python -X utf8 tools/b698_tests.py run test_act_root.py && python -X utf8 tools/b698_tests.py run test_act_root_com
+  #41 | 2026-10-21T03:43:06.375Z | seat | Bash | python -X utf8 tools/b698_tests.py hold 2 && python -X utf8 tools/b698_tests.py run test_asof.py
+  #42 | 2026-10-21T03:49:51.866Z | seat | Bash | python -X utf8 tools/b698_tests.py hold 3 && python -X utf8 tools/b698_tests.py run test_axiom_claim.py && python -X utf8 tools/b698_tests.py run test_axiom_cla
+  #43 | 2026-10-21T03:50:34.562Z | seat | Bash | python -X utf8 tools/b698_tests.py hold 4 && python -X utf8 tools/b698_tests.py run test_chain_page.py
+  #44 | 2026-10-21T03:57:30.948Z | seat | Bash | python -X utf8 tools/b698_tests.py hold 5 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py test_chain
+  #45 | 2026-10-21T04:01:00.374Z | seat | Bash | python -X utf8 tools/b698_tests.py hold 6 && for t in test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py test_licensed_table_instr
+  #46 | 2026-10-21T04:03:37.644Z | seat | Bash | python -X utf8 tools/b698_tests.py hold 7 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_status.py test_primed_name
+  #47 | 2026-10-21T04:07:17.310Z | seat | Bash | python -X utf8 tools/b698_tests.py report && git status --short --untracked-files=no && git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-files=no 
+  #48 | 2026-10-21T04:07:22.323Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(claude|tail|lean|lake|python|node)(\.exe)?$' } | Select-Object ProcessId, ParentProcessId, Name
+  #49 | 2026-10-21T04:07:26.688Z | seat | Bash | git grep -n "### ### \*\*" -- data/b698_readfirst_diff.txt data/b698_readfirst_closure.txt && git ls-files --others --exclude-standard -- "data/b698_*" "tools/b
+  #50 | 2026-10-21T04:07:30.473Z | seat | Bash | git status --short -- data tools
+  #51 | 2026-10-21T04:07:47.996Z | seat | Bash | git add data/b698_branches.json data/b698_branches.txt data/b698_branches_before.json data/b698_citation_check.json data/b698_citation_check.txt data/b698_ferry
+  #52 | 2026-10-21T04:07:52.477Z | seat | Bash | git commit -q -m "b698 step zero under (R308): the citation check (98 cites, 94 OK, 4 misses on two objects -- the print banks (R308)(3) names -- raised before 
+  #53 | 2026-10-21T04:08:47.542Z | seat | Bash | python -X utf8 tools/b698_record.py c1 dry
+  #54 | 2026-10-21T04:08:50.538Z | seat | Bash | python -X utf8 tools/b698_record.py c1
+  #55 | 2026-10-21T04:09:12.543Z | seat | Bash | git add data/b698_record_lines.json data/b697_arith_plan.txt tools/b698_record.py && git commit -q -m "b698 Component 1 under (R308)(1)-(2): b697's weight line 
+  #56 | 2026-10-21T04:09:16.233Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b698 C1 under (R308)(1): b697 at its weight, as its closing prints (FINDINGS :9682)"
+  #57 | 2026-10-21T04:09:30.061Z | seat | Bash | cd /d/SIDE-lv-conservation && git rev-parse --short v0.13.0^{commit} && git diff --quiet v0.13.0 HEAD -- SIDELvConservation/ZeroActingPartial.lean && echo "Zero
+  #58 | 2026-10-21T04:12:19.841Z | seat | Bash | cd /d/relay && python -X utf8 tools/b698_citation.py answer "one hosted run on SIDE-lv-conservation at v0.13.0"
+  #59 | 2026-10-21T04:12:36.987Z | seat | Bash | python -X utf8 tools/b698_citation.py answer "one hosted run on SIDE-lv-conservation at v0.13.0"
+  #60 | 2026-10-21T04:12:40.455Z | seat | Bash | python -X utf8 tools/b698_citation.py answer "Option 1, on one further reading printed beside it"
+  #61 | 2026-10-21T04:12:46.326Z | seat | Bash | cd /d/SIDE-lv-conservation && git ls-tree -r --name-only v0.13.0 -- .github && echo "--- main:" && git ls-tree -r --name-only HEAD -- .github && git log --oneli
+  #62 | 2026-10-21T04:12:49.085Z | seat | Bash | git show v0.13.0:.github/workflows/build-module.yml
+  #63 | 2026-10-21T04:12:55.145Z | seat | Bash | git diff v0.13.0 HEAD -- .github/workflows/build-module.yml
+  #64 | 2026-10-21T04:13:08.712Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n -E "^(noncomputable )?def (poleTerm|primeSum|archTerm|classK|weilTest)\b" v0.34 -- "*.lean" && git grep -n -E "^(nonc
+  #65 | 2026-10-21T04:14:50.821Z | seat | Bash | cd /d/relay && python -X utf8 tools/circuit_correspondence.py dry
+  #66 | 2026-10-21T04:15:04.853Z | seat | Bash | python -X utf8 tools/circuit_correspondence.py
+  #67 | 2026-10-21T04:15:26.014Z | seat | Bash | python -X utf8 tools/b698_record.py bridge dry
+  #68 | 2026-10-21T04:15:31.190Z | seat | Bash | python -X utf8 tools/b698_record.py answers && python -X utf8 tools/b698_record.py bridge
+  #69 | 2026-10-21T04:15:37.100Z | seat | Bash | git add tools/circuit_correspondence.py tools/b698_citation.py tools/b698_record.py data/b698_correspondence_dominance.txt data/b698_correspondence_dominance.js
+  #70 | 2026-10-21T04:15:41.416Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b698 C2 under (R308)(3): CORRESPONDENCE-DOMINANCE read, DIFFERS at binder 1 (sour
+  #71 | 2026-10-21T04:15:47.057Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -c "classK" v0.34 -- "SIDEExplicitFormula/*.lean" "Zeta23/*.lean" "*.lean"
+  #72 | 2026-10-21T04:15:52.200Z | seat | Bash | git grep -n "classK" v0.34 -- "SIDEExplicitFormula/*.lean"
+  #73 | 2026-10-21T04:16:03.570Z | seat | Bash | git grep -n -E "hk\.[12]|hK\.[12]|hk\.(even|cd|cs)|:= hk\b|⟩ := hk|rcases hk|obtain .* hk\b|cases hk|hk\.2\.2|unfold classK|classK at|\.2\.2\.2|\.2\.2\.1" v0.34
+  #74 | 2026-10-21T04:16:21.140Z | seat | Bash | git status --short --untracked-files=no && git diff --stat v0.34 HEAD -- SIDEExplicitFormula Zeta23
+  #75 | 2026-10-21T04:16:47.812Z | seat | Bash | git grep -n -E "theorem EF_lit_zetaZeroConfig|theorem paperFT_weilTest|lemma paperFT_weilTest|theorem norm_Hfn_le|lemma norm_Hfn_le|theorem horizontal_vanish\b|
+  #76 | 2026-10-21T04:18:14.656Z | seat | Bash | git grep -n -E "theorem zeroSide_chi_eq|theorem EF_lit_zeta\b|theorem EF_lit_chi|hkc\b" v0.34 -- "SIDEExplicitFormula/Chi/*.lean" "Zeta23/WeilEF/*.lean" "Zeta23
+  #77 | 2026-10-21T04:19:01.586Z | seat | Bash | git grep -n -E "h2 _ hk|h k hk|h2 k hk|h r k hk|\(hF a|hF _|admissible" v0.34 -- "SIDEExplicitFormula/*.lean"
+  #78 | 2026-10-21T04:22:25.946Z | seat | Bash | cd /d/relay && python -X utf8 tools/b698_record.py uses dry
+  #79 | 2026-10-21T04:22:39.952Z | seat | Bash | python -X utf8 tools/b698_record.py uses dry
+  #80 | 2026-10-21T04:22:56.742Z | seat | Bash | python -X utf8 tools/b698_record.py uses
+  #81 | 2026-10-21T04:23:08.573Z | seat | Bash | git add data/b698_regularity_uses.txt data/b698_regularity_counts.txt tools/b698_record.py && git commit -q -m "b698 Component 3 under (R308)(4): the regularity
+  #82 | 2026-10-21T04:24:04.078Z | seat | Bash | python -X utf8 tools/b698_record.py cells dry
+  #83 | 2026-10-21T04:24:23.134Z | seat | Bash | python -X utf8 tools/b698_record.py cells dry
+  #84 | 2026-10-21T04:24:58.767Z | seat | Bash | git add data/b698_residue_actions.txt data/b698_correspondence_dry.txt data/b698_roster_simplicity.json tools/b698_record.py && git commit -q -m "b698 Component
+  #85 | 2026-10-21T04:25:52.269Z | seat | Bash | python -X utf8 tools/b698_citation.py answer "Option 1, apply: recut-simplicity-readme-b698"
+  #86 | 2026-10-21T04:27:04.622Z | seat | Bash | git -C /d/SIDE-simplicity switch -q -c recut-simplicity-readme-b698 53df27f && git -C /d/SIDE-simplicity branch --show-current
+  #87 | 2026-10-21T04:27:09.567Z | seat | Bash | git -C /d/SIDE-simplicity diff --stat && git -C /d/SIDE-simplicity diff --word-diff=plain -U0
+  #88 | 2026-10-21T04:27:15.609Z | seat | Bash | git -C /d/SIDE-simplicity add README.md && git -C /d/SIDE-simplicity commit -q -m "README.md :9: Section I.2 and Section III re-cut to what SIDE-kernel compiles
+  #89 | 2026-10-21T04:27:19.345Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b698_simplicity_cut_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-simplicity --branch recut-simplicity-readme-b698 --scrat
+  #90 | 2026-10-21T04:27:25.005Z | seat | Bash | python -X utf8 tools/b698_record.py dispatch SIDE-simplicity 049d17f after SIDESimplicity dry
+  #91 | 2026-10-21T04:27:28.141Z | seat | Bash | python -X utf8 tools/b698_record.py dispatch SIDE-simplicity 049d17f after SIDESimplicity
+  #92 | 2026-10-21T04:27:38.720Z | seat | Bash | python -X utf8 tools/b698_record.py quote D:/SIDE-simplicity 53df27f 049d17f quote_simplicity_readme
+  #93 | 2026-10-21T04:27:43.043Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #94 | 2026-10-21T04:27:48.357Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #95 | 2026-10-21T04:27:54.082Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #96 | 2026-10-21T04:28:01.205Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #97 | 2026-10-21T04:28:25.687Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #98 | 2026-10-21T04:28:34.952Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #99 | 2026-10-21T04:28:38.877Z | seat | Bash | gh run view 39544136831 -R psinary-sketch/SIDE-simplicity --json jobs --jq ".jobs[].steps[] | [.name, .status, .conclusion] | @tsv"
+  #100 | 2026-10-21T04:28:50.240Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #101 | 2026-10-21T04:28:57.110Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #102 | 2026-10-21T04:29:08.606Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #103 | 2026-10-21T04:29:12.495Z | seat | Bash | gh run view 39544136831 -R psinary-sketch/SIDE-simplicity --json jobs --jq ".jobs[].steps[] | [.name, .status, .conclusion, .startedAt] | @tsv"; date -u
+  #104 | 2026-10-21T04:29:19.132Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #105 | 2026-10-21T04:29:25.237Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #106 | 2026-10-21T04:29:32.706Z | seat | Bash | python -X utf8 tools/b698_record.py runstatus SIDE-simplicity 39544136831
+  #107 | 2026-10-21T04:29:37.949Z | seat | Bash | python -X utf8 tools/b698_record.py runner SIDE-simplicity 39544136831 049d17f6e589d51f0d79342e92a70f4a6256bcd3 after the run at the README cut tip 049d17f on r
+  #108 | 2026-10-21T04:29:42.946Z | seat | Bash | python -X utf8 tools/b698_record.py prints SIDE-simplicity b697_axioms_SIDE-simplicity_after.txt b698_axioms_SIDE-simplicity_after.txt
+  #109 | 2026-10-21T04:29:46.246Z | seat | Bash | git -C /d/SIDE-simplicity switch -q main && git -C /d/SIDE-simplicity branch --show-current && git -C /d/SIDE-simplicity log --oneline -1
+  #110 | 2026-10-21T04:29:50.372Z | seat | Bash | git -C /d/SIDE-simplicity merge -q --no-ff recut-simplicity-readme-b698 -m "Merge recut-simplicity-readme-b698: README.md :9 re-cut to what SIDE-kernel compiles
+  #111 | 2026-10-21T04:29:53.454Z | seat | Bash | git -C /d/SIDE-simplicity branch push-b698-simplicity-merge 967f747 && git -C /d/SIDE-simplicity branch --list "push-b698*"
+  #112 | 2026-10-21T04:29:57.087Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b698_simplicity_merge_push_out.txt bash /d/relay/tools/push_gated.sh /d/SIDE-simplicity push-b698-simplicity-merge "v0.1.2::v0.1.2:
+  #113 | 2026-10-21T04:30:05.362Z | seat | Bash | python -X utf8 tools/b698_record.py readmecut
+  #114 | 2026-10-21T04:30:11.894Z | seat | Bash | git add tools/b698_record.py data/b698_dispatches.json data/b698_runner_rows.json data/b698_runner_SIDE-simplicity_after.txt data/b698_axioms_SIDE-simplicity_af
+  #115 | 2026-10-21T04:30:19.835Z | seat | Bash | python -X utf8 tools/b698_record.py cells dry after
+  #116 | 2026-10-21T04:30:33.962Z | seat | Bash | git add tools/b698_record.py data/b698_correspondence_dry_after.txt && git status --short --untracked-files=no && git commit -q -m "b698 C4 under (R308)(5), bef
+  #117 | 2026-10-21T04:31:41.924Z | seat | Bash | python -X utf8 tools/b698_citation.py answer "Option 1, run: the generator alone writes :441"
+  #118 | 2026-10-21T04:31:47.850Z | seat | Bash | python -X utf8 tools/b698_record.py cells run
+  #119 | 2026-10-21T04:31:57.096Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short --untracked-files=no && git add phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md && git commit -q -m "b6
+  #120 | 2026-10-21T04:32:06.882Z | seat | Bash | git grep -n -o -E "^.{0,40}\*\*\`W-ORD-ONE-COPY\`\*\*.{0,200}|beneath \`W-ORD-ONE-COPY\` \(:[0-9]+\).{0,80}" HEAD -- OPEN_TRAILS.md
+  #121 | 2026-10-21T04:32:10.146Z | seat | Bash | git grep -n -o -E ".{0,60}W-ORD-ONE-COPY.{0,60}" HEAD -- OPEN_TRAILS.md
+  #122 | 2026-10-21T04:32:41.898Z | seat | Bash | cd /d/relay && python -X utf8 tools/b698_record.py onecopy
+  #123 | 2026-10-21T04:33:18.850Z | seat | Bash | python -X utf8 tools/b698_record.py onecopy land dry
+  #124 | 2026-10-21T04:33:23.241Z | seat | Bash | python -X utf8 tools/b698_record.py onecopy land && python -X utf8 tools/b698_record.py heldcells
+  #125 | 2026-10-21T04:33:31.303Z | seat | Bash | python -X utf8 tools/b698_record.py answers && git add tools/b698_record.py data/b698_correspondence_run.txt data/b698_correspondence_run.json data/b698_corresp
+  #126 | 2026-10-21T04:33:36.470Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b698 C4 under (R308)(5) and the author's word on the stale cell: the partner copy
+  #127 | 2026-10-21T04:33:53.432Z | seat | Bash | cd /d/relay && git grep -n -A14 "def prev_capture" -- tools/b687_record.py tools/b689_record.py tools/b672_record.py
+  #128 | 2026-10-21T04:34:10.411Z | seat | Bash | git grep -n -E "PIPES INTO A SHELL FILTER|REDIRECTS OF ANY STREAM|ONE-LINE PROGRAMS" -- tools/rule_arms.py tools/b697_checks.py
+  #129 | 2026-10-21T04:35:16.684Z | seat | Bash | python -X utf8 tools/b698_record.py commands dry && python -X utf8 tools/b698_record.py reads dry
+  #130 | 2026-10-21T04:35:24.388Z | seat | Bash | python -X utf8 tools/b698_record.py reads
+  #131 | 2026-10-21T04:36:14.724Z | seat | Bash | python -X utf8 tools/b698_record.py standing
+  #132 | 2026-10-21T04:39:59.516Z | seat | Bash | python -X utf8 tools/b698_record.py scores dry
+  #133 | 2026-10-21T04:40:09.793Z | seat | Bash | python -X utf8 tools/b698_record.py findings dry
+  #134 | 2026-10-21T04:40:24.637Z | seat | Bash | python -X utf8 tools/b698_record.py trail dry
+  #135 | 2026-10-21T04:40:32.665Z | seat | Bash | python -X utf8 tools/b698_record.py trail dry standin
+  #136 | 2026-10-21T04:40:39.036Z | seat | Bash | git add tools/b698_record.py tools/b698_worklist.py data/b698_read_calls.txt && git commit -q -m "b698 Component 5 under (R308): the record tool's late routes c
+
+### ### **COMMANDS 136 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 8 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 9 OF 9 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

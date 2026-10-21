@@ -1,0 +1,99 @@
+b698 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-21T04:51:56Z)
+
+### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
+### row, written by this route (difflib over the function`s source, relay HEAD`s carried tool against this act`s).
+
+  (1) tools/b698_record.py prev_capture, carried from tools/b697_record.py prev_capture (sealed at b697) -- ANSWERS the session change: b697 ran in its own session (b97f6790) and this act opens a new one (c677eaf2), so the previous act`s window can no longer end at this act`s anchor in the same file. THE FORM: b689`s for a new session (tools/b689_record.py prev_capture) -- b697`s capture read from its own session file and subagents, from the call that combined its post-push parts to that session`s end.
+
+      --- tools/b697_record.py prev_capture (sealed)
+      +++ tools/b698_record.py prev_capture (this act)
+      @@ -1,12 +1,12 @@
+       def prev_capture():
+      -    """G-EDIT-ROUTE's window over the previous act: b696, in this same session, from the call that combined its post-push parts into
+      -    data/b696_checks_postpush.txt to the user line carrying this act's anchor (b695's repair (1), carried)."""
+      -    rows = ER.capture(SESSION, PREV_ANCHOR, SUBAGENTS)
+      +    """G-EDIT-ROUTE's window over the previous act (b689's form, carried for a new session): b697's capture AFTER ITS POST-PUSH SUITE -- every
+      +    command of b697's session (b97f6790) from the call that combined b697's post-push parts into data/b697_checks_postpush.txt to that
+      +    session's end, its closing's commands among them; this act runs in a session of its own."""
+      +    rows = ER.capture(PREV_SESSION_PATH, PREV_ANCHOR, PREV_SUBAGENTS)
+           first = [r['ts'] for r in rows if '%s_checks_postpush' % PREV_ACT in r['cmd'] and '--combine' in r['cmd']]
+      -    end = _anchor_ts(K.ANCHOR)
+      -    if not first or not end:
+      -        sys.exit('### THE PREVIOUS ACT`S POST-PUSH COMBINE OR THIS ACT`S ANCHOR IS NOT IN THE SESSION`S CAPTURE -- NOTHING READ')
+      -    out = [dict(r, src='%s %s' % (PREV_ACT, r['src'])) for r in rows if first[0] <= r['ts'] < end]
+      +    if not first:
+      +        sys.exit('### THE PREVIOUS ACT`S POST-PUSH COMBINE IS NOT IN ITS SESSION`S CAPTURE -- NOTHING READ')
+      +    out = [dict(r, src='%s %s' % (PREV_ACT, r['src'])) for r in rows if first[0] <= r['ts']]
+           for i, r in enumerate(out):
+               r['n'] = 'p%d' % (i + 1)
+           return out
+
+  (2) tools/b698_record.py reads, carried from tools/b697_record.py reads -- ANSWERS data/b698_rules.txt row (2), binding from b698: a whole read is an offence only where the file is two hundred lines or more. THE FORM: each Read call`s file line count read beside it, the offences named by transcript line.
+
+      --- tools/b697_record.py reads (sealed)
+      +++ tools/b698_record.py reads (this act)
+      @@ -1,6 +1,7 @@
+       def reads(*a):
+      -    """the ferry: "lines read through the Read tool with offset and limit". Every Read call of the seat since the anchor, with and without its
+      -    offset and limit, read from the session by assistant message; data/b697_read_calls.txt. The reading for defect (b)."""
+      +    """data/b698_rules.txt row (2), binding from b698: the Read tool reads a file whole where the file is under two hundred lines, and by
+      +    offset and limit otherwise. Every Read call of the seat since the anchor, read from the session by assistant message, the file's line
+      +    count read now beside it; a whole read of a file of two hundred lines or more is an offence. data/b698_read_calls.txt."""
+           rows = []
+           for i, o, _st, _sid in _session_rows():
+               if o.get('type') != 'assistant':
+      @@ -8,15 +9,19 @@
+               for c in (o.get('message') or {}).get('content') or []:
+                   if isinstance(c, dict) and c.get('type') == 'tool_use' and c.get('name') == 'Read':
+                       inp = c.get('input') or {}
+      -                rows.append(dict(line=i, ts=o.get('timestamp'), path=inp.get('file_path') or '', offset='offset' in inp, limit='limit' in inp))
+      +                p = inp.get('file_path') or ''
+      +                rows.append(dict(line=i, ts=o.get('timestamp'), path=p, offset='offset' in inp, limit='limit' in inp, lines=_lines_now(p)))
+           whole = [r for r in rows if not (r['offset'] and r['limit'])]
+      -    L = ['%s -- THE READ CALLS SINCE THE ANCHOR, WITH AND WITHOUT OFFSET AND LIMIT (%s)' % (ACT, utc()), '',
+      -         '### the ferry: "lines read through the Read tool with offset and limit". Rows are Read calls without both: transcript line | time | path']
+      -    L += ['  %s | %s | %s' % (r['line'], r['ts'], r['path']) for r in whole] or ['  NONE']
+      -    L += ['', '### ### **READ CALLS %d ; WITH OFFSET AND LIMIT %d ; WITHOUT BOTH %d.**' % (len(rows), len(rows) - len(whole), len(whole))]
+      +    bad = [r for r in whole if r['lines'] is None or r['lines'] >= 200]
+      +    L = ['%s -- THE READ CALLS SINCE THE ANCHOR, BY data/b698_rules.txt ROW (2) (%s)' % (ACT, utc()), '',
+      +         '### the rule: whole where the file is under two hundred lines, by offset and limit otherwise. Rows are Read calls without both offset and',
+      +         '### limit: transcript line | time | the file`s lines read now | WITHIN THE RULE or ### AN OFFENCE | path']
+      +    L += ['  %s | %s | %s | %s | %s' % (r['line'], r['ts'], r['lines'], '### AN OFFENCE' if r in bad else 'WITHIN THE RULE', r['path']) for r in whole] or ['  NONE']
+      +    L += ['', '### ### **READ CALLS %d ; WITH OFFSET AND LIMIT %d ; WHOLE %d ; WHOLE OF A FILE OF 200 LINES OR MORE %d.**' % (
+      +        len(rows), len(rows) - len(whole), len(whole), len(bad))]
+           if 'dry' not in a:
+               put_txt('%s_read_calls.txt' % ACT, L)
+      -    print(L[-1])
+      +    print(NL.join(L[-1 - len(bad):]) if bad else L[-1])
+       
+       
+       
+
+  (3) tools/b698_citation.py answer, carried from tools/b697_citation.py answer -- ANSWERS the first mid-act check of the author`s answer on the lv print, which read SIDE-lv-conservation`s commit 8e3bc76 as a miss because b682`s answer route checks commits in its REPOS alone. THE FORM: b682`s REPOS widened in this act`s tool to the act`s kernels (SIDE-lv-conservation, SIDE-explicit-formula, SIDE-simplicity); b682`s tool unedited.
+
+      --- tools/b697_citation.py answer (sealed)
+      +++ tools/b698_citation.py answer (this act)
+      @@ -1,14 +1,17 @@
+       def answer(needle, *a):
+      -    """(R278)(4): b682's route, imported, with its act names pointed at b697."""
+      +    """(R278)(4): b682's route, imported, with its act names pointed at b698."""
+           import b682_citation as P
+           P.C.ANCHOR = P.ANCHOR = ANCHOR
+           P.C.SESSION = C.SESSION
+      +    # ### b698: the commit reach widened to the kernels this act reads (the first check of the lv answer read 8e3bc76, SIDE-lv-conservation's
+      +    # ### v0.13.0, as a miss because b682's REPOS lacks that repository); b682's tool unedited
+      +    P.REPOS = tuple(P.REPOS) + tuple(r for r in (K.LV_DIR, K.EF_DIR, K.KERNEL_DIR) if r not in P.REPOS)
+           P.act_root_line, P.D = act_root_line, D
+      -    P.after_root = lambda: bool(act_root_line('b697'))
+      +    P.after_root = lambda: bool(act_root_line('b698'))
+           src = open(os.path.join(T, 'b682_citation.py'), encoding='utf-8').read()
+      -    body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b697')
+      +    body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b698')
+           ns = dict(vars(P))
+      -    exec(compile(body, 'b682_citation.answer (b697)', 'exec'), ns)
+      +    exec(compile(body, 'b682_citation.answer (b698)', 'exec'), ns)
+           ns['answer'](needle)
+       
+       
+
+### ### **REPAIRS 3 ; NO SHARED TOOL EDITED ; DIFF LINES 84 ; NO FROZEN BANK EDITED.**

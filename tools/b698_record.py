@@ -2058,7 +2058,20 @@ def _fn_src(src, name):
     return src[i:i + 1 + m.start() + 1] if m else src[i:]
 
 
-REPAIR_ROWS = []      # ### filled at Component 5, after the carry: (text, carried tool, carried function, this act's tool)
+REPAIR_ROWS = [      # ### (text, carried tool, carried function, this act's tool)
+    ('(1) tools/b698_record.py prev_capture, carried from tools/b697_record.py prev_capture (sealed at b697) -- ANSWERS the session change: b697 '
+     'ran in its own session (b97f6790) and this act opens a new one (c677eaf2), so the previous act`s window can no longer end at this act`s '
+     'anchor in the same file. THE FORM: b689`s for a new session (tools/b689_record.py prev_capture) -- b697`s capture read from its own '
+     'session file and subagents, from the call that combined its post-push parts to that session`s end.', 'b697_record.py', 'prev_capture',
+     'b698_record.py'),
+    ('(2) tools/b698_record.py reads, carried from tools/b697_record.py reads -- ANSWERS data/b698_rules.txt row (2), binding from b698: a whole '
+     'read is an offence only where the file is two hundred lines or more. THE FORM: each Read call`s file line count read beside it, the '
+     'offences named by transcript line.', 'b697_record.py', 'reads', 'b698_record.py'),
+    ('(3) tools/b698_citation.py answer, carried from tools/b697_citation.py answer -- ANSWERS the first mid-act check of the author`s answer on '
+     'the lv print, which read SIDE-lv-conservation`s commit 8e3bc76 as a miss because b682`s answer route checks commits in its REPOS alone. '
+     'THE FORM: b682`s REPOS widened in this act`s tool to the act`s kernels (SIDE-lv-conservation, SIDE-explicit-formula, SIDE-simplicity); '
+     'b682`s tool unedited.', 'b697_citation.py', 'answer', 'b698_citation.py'),
+]
 
 
 def repairs(*a):
