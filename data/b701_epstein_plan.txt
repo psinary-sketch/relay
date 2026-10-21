@@ -1,0 +1,163 @@
+b701 -- THE PLAN OF (R311)(4): THE EPSTEIN COUNT'S OPENING STEP -- Z_Q AS A LEAN OBJECT IN SIDE-explicit-formula'S VOCABULARY, ITS EXPLICIT FORMULA'S THREE TERMS, THE COUNT STATEMENT, THE DERIVATION'S STEPS MAPPED TO LEMMAS; PLANNED AND PRICED, NOT RUN (2026-10-21)
+
+### rows are the steps with their source by line and the price in dispatches. Nothing here is compiled; no lean on this host; no dispatch
+### made for it; raised at b703's ruling for the author's word. Every kernel line is read at SIDE-explicit-formula main 4313875; every Mathlib
+### name by git grep at the kernel's pin de5ce8a9; every figure from the bank it names.
+
+== 0. WHAT STANDS (the count's status and the kernel's vocabulary)
+  P3 at Q0: DERIVED, not compiled -- constants certified in balls, analytic steps sourced by line, intermediate inequalities checked at sample
+    heights (data/b687_p3_status.txt :35-:36); its Lean form W-ORD-EPSTEIN-COUNT-LEAN's (:30-:31).
+  THE STATEMENT AS COMPILED: Schema/EpsteinQ0.lean :104 `def A0Q : ℝ := 10`, :108 `def Q0Count (Z : Zeta23.ZeroConfig) : Prop := HCount Z A0Q`,
+    HCount (RestBound.lean :44-:45) `1 ≤ A₀ ∧ ∀ t : ℝ, (Z.N t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)` -- over an ABSTRACT zero configuration Z
+    (Zeta23/Defs.lean :136-:146: carrier, mult, one_le_mult, strip, reflect_mem, mult_reflect, finite_window). No Lean definition of Z_Q or
+    of its zero configuration stands in the kernel: Schema/Epstein.lean :6-:17 names Z_Q in prose and states its explicit formula and count
+    as NAMED PREMISES (EpsteinPremises :41-:44, `ef` with an abstract `rhs`, `count` existential) over an abstract Z.
+  THE OPENING STEP (R311)(4): Z_Q as an object, the explicit formula's three terms WRITTEN OUT for it (rhs no longer abstract), the count
+    statement HCount Z_Q A0Q as the kernel's HCount reads it -- so that every later step proves a statement about a named object.
+  MATHLIB AT THE PIN: no Epstein zeta function and no Hecke L-function of a class-group character (Schema/Epstein.lean :7-:8, re-read: git grep
+    -l -i epstein over Mathlib/ at de5ce8a9 lists no file); LSeries (NumberTheory/LSeries/Basic.lean :164, with LSeriesSummable :178,
+    LSeriesHasSum :217, abscissaOfAbsConv and its bounds in Convergence.lean, LSeries_add in Linearity.lean :45, convolution and derivative files);
+    NumberField.dedekindZeta (NumberField/DedekindZeta.lean :47: the L-series of the ideal-counting coefficients, with its residue at 1 and the
+    class number formula; no continuation and no functional equation at the pin); completedRiemannZeta_one_sub (LSeries/RiemannZeta.lean :106)
+    and riemannZeta_one_sub (:178) for ζ alone; jacobiTheta₂_functional_equation (ModularForms/JacobiTheta/TwoVariable.lean :465) -- the
+    one-variable theta; Complex.Gamma_mul_Gamma_one_sub (the reflection); MeromorphicOn.circleAverage_log_norm (Jensen, Analysis/Complex/
+    JensenFormula.lean :309, the slate's reading); PhragmenLindelof.vertical_strip (PhragmenLindelof.lean :275).
+
+== 1. Z_Q AS A LEAN OBJECT (M1 of the slate, data/b700_slate.txt :33), IN THE KERNEL'S VOCABULARY
+  (1a) THE FORM. Q0 = x² + xy + 6y², disc −23, h(−23) = 3 (data/b667_epstein_plan.txt :8). IN LEAN: `def Q0 (m n : ℤ) : ℤ := m ^ 2 + m * n + 6 * n ^ 2`;
+       positive definite: 4 Q0 m n = (2 m + n)² + 23 n² (a `theorem four_mul_Q0`), so Q0 m n = k bounds |n| ≤ k and |m| ≤ 2 k (a `theorem
+       Q0_eq_bound`) -- the solution set of Q0 m n = k lies in a box and is a Finset.
+       EXPECTED STATUS: WRITABLE, DERIVES (integer arithmetic; nlinarith / omega). PRICE: in M1's dispatch.
+  (1b) THE COEFFICIENTS. r_Q(k) = #{(m, n) ≠ (0, 0) : Q0(m, n) = k}, b326's normalisation r_Q(1) = 2 (data/b667_epstein_plan.txt :9). IN LEAN:
+       `def rQ (k : ℕ) : ℕ := ((Finset.Icc (-(2 * k : ℤ)) (2 * k) ×ˢ Finset.Icc (-(k : ℤ)) k).filter (fun p => Q0 p.1 p.2 = k)).card` for k ≥ 1
+       (rQ 0 := 0, the origin excluded), with `theorem rQ_one : rQ 1 = 2` by decide and `theorem rQ_eq_card` identifying it with the solution
+       count by (1a)'s box bound. CONTROL: rQ 1 = 2, rQ 2 = 0, rQ 4 = 2, rQ 6 = 4 (the first coefficients, computable by decide; checked against
+       tools/b326_zeros.py :103-:121's normalisation before the dispatch).
+       EXPECTED STATUS: WRITABLE, DERIVES. PRICE: in M1's dispatch.
+  (1c) THE DIRICHLET SERIES. `def ZQ (s : ℂ) : ℂ := LSeries (fun k => (rQ k : ℂ)) s` (Mathlib LSeries, :164; LSeries returns 0 where the series
+       is not summable, so ZQ is Z_Q on Re s > 1 only). Summability: rQ k ≤ (4 k + 1) (2 k + 1) crudely, so LSeriesSummable for Re s > 3 by
+       LSeries.abscissaOfAbsConv_le_of_le_const_mul_rpow (Convergence.lean :87); the true abscissa 1 (Σ_{k ≤ x} rQ k ~ (2π/√23) x) NOT reached
+       by that bound -- a `theorem ZQ_summable_of_three_lt_re` is what compiles; `ZQ_summable_of_one_lt_re` needs the lattice count's asymptotic
+       (absent) and is a NAMED PREMISE at this step. The evaluation route (the Chowla-Selberg form, data/b667_epstein_plan.txt :22-:32) is not
+       written in Lean: it is the bench's, not the object's.
+       EXPECTED STATUS: WRITABLE for Re s > 3; PREMISE for 1 < Re s ≤ 3. PRICE: in M1's dispatch.
+  (1d) THE CONTINUATION AND THE FUNCTIONAL EQUATION, STATED. Λ_Q(s) = (2π/√23)^{−s} Γ(s) Z_Q(s), Λ_Q(s) = Λ_Q(1 − s) (data/b667_epstein_plan.txt
+       :10-:12, by Poisson summation over the lattice of Q's matrix [[2, 1], [1, 12]]); the gamma factor (√23/2π)^s Γ(s) ((R311)(4); b685's (S1)
+       (5.1) with d_K = 23, r₂ = 1, data/b685_count_plan.txt :45-:47). IN LEAN, AS A STATED FACT (the kernel's form for premises, Schema/
+       EpsteinQ0.lean :93-:100 Q0Listed, Q0Complete):
+         `structure ZQ_continuation where` -- a Prop-structure over a function `zq : ℂ → ℂ`:
+           agrees : ∀ s, 1 < s.re → zq s = ZQ s
+           meromorphic : MeromorphicOn zq Set.univ, with poles at 0 and 1 alone (simple at 1, residue 2π/√23 -- the residue stated, not used)
+           functional_equation : ∀ s, (2 * π / √23 : ℂ) ^ (-s) * Gamma s * zq s = (2 * π / √23 : ℂ) ^ (-(1 - s)) * Gamma (1 - s) * zq (1 - s)
+           real_on_real : ∀ x : ℝ, (zq x).im = 0 (so Λ_Q(conj s) = conj Λ_Q(s), the reflection of :12)
+       Mathlib at the pin compiles the functional equation for ζ (completedRiemannZeta_one_sub) and the theta functional equation for
+       jacobiTheta₂; the two-variable theta of a binary form and its Mellin transform are ABSENT, so the Poisson route to (1d) is not writable
+       in one module.
+       EXPECTED STATUS: STATED (a premise structure), DERIVES for the structure's own trivial lemmas; the discharge of the structure a later
+       W-ORD (the theta of Q0, Mellin, the FE) -- NOT PRICED here beyond "absent". PRICE: the statement in M1's dispatch.
+  (1e) THE ZERO CONFIGURATION. Given `zq` with `ZQ_continuation zq`: `def zqConfig (zq) (h : ZQ_continuation zq) : Zeta23.ZeroConfig` with
+       carrier := {ρ | zq ρ = 0 ∧ 0 ≤ ρ.re ∧ ρ.re ≤ 1}, mult := analyticOrderNat at ρ (from h.meromorphic away from the poles), one_le_mult from
+       zq ρ = 0 and analyticity, strip by the carrier, reflect_mem and mult_reflect from the functional equation and real_on_real (the
+       reflection ρ ↦ 1 − conj ρ), finite_window from the identity theorem on a compact window (the zeros of a nonzero analytic function are
+       isolated: Mathlib AnalyticOnNhd.eqOn_zero_of_preconnected_of_frequently_eq_zero and the finiteness of an isolated set in a compact).
+       EXPECTED STATUS: WRITABLE under the premise structure, DERIVES; the finite_window field the longest (about 60 lines). PRICE: in M1's dispatch.
+  (1f) THE LOGARITHMIC DERIVATIVE'S COEFFICIENTS (the prime channel's). Z_Q is no Euler product (Schema/Epstein.lean :8: a combination of Hecke
+       L-functions), so its prime channel is the Dirichlet series of −Z_Q'/Z_Q, whose coefficients c_Q(n) are fixed by the recursion
+       a(n) log n = Σ_{d | n} a(d) c_Q(n/d) with a = rQ, a(1) = 2: c_Q(1) = 0 and c_Q(n) = (1/2)(a(n) log n − Σ_{d | n, d < n} a(d) c_Q(n/d)).
+       IN LEAN: `def cQ : ℕ → ℝ` by strong recursion on n over Nat.divisors; `theorem LSeries_cQ_eq` -- Σ c_Q(n) n^{−s} = −ZQ'(s)/ZQ(s) on Re s ≥ 3/2,
+       where |ZQ(s) − 2| ≤ ZQ(σ) − 2 < 2 (b685's (3c), data/b685_count_plan.txt :26-:29) keeps ZQ ≠ 0 and the log's series convergent:
+       the coefficient identity from LSeries convolution (Convolution.lean :142) and the derivative (Deriv.lean :45, :105); the convergence
+       of the log's series on Re s ≥ 3/2 a NAMED PREMISE at this step (its proof is the (3c) bound plus the Dirichlet-series logarithm, absent).
+       EXPECTED STATUS: the recursion WRITABLE, DERIVES; the identity PREMISE. PRICE: in M1's dispatch.
+  M1's PRICE: 1 DISPATCH (one module SIDEExplicitFormula/Schema/EpsteinZQ.lean, importing Schema.EpsteinQ0 and Mathlib's LSeries files; 300-400
+    lines; the Finset box bound and the finite_window field the risks).
+
+== 2. THE EXPLICIT FORMULA'S THREE TERMS FOR Z_Q, AS B321Identity GIVES THEM (B321Identity.lean :23-:38) WITH Z_Q'S BRACKET
+  THE ζ FORM (B321Identity.lean): zeroSide k = Σ'_ρ m_ρ paperFT k (gammaOf ρ) ; poleTerm k = paperFT k (I/2) + paperFT k (−I/2) ;
+    primeSum k = Σ'_n (Λ(n)/√n) · 2 k(log n) ; archTerm k = (1/2π) ∫ paperFT k r · gammaBracket r dr, gammaBracket r = Re ψ(1/4 + ir/2) − log π
+    (Zeta23/ExplicitFormula.lean :77-:79; the factor Γ_ℝ(s) = π^{−s/2} Γ(s/2)); b321_identity (:44-:46): zeroSide k = b321Norm (poleTerm k −
+    primeSum k + archTerm k) for even C² compactly supported k, DERIVED from EF_lit_zetaZeroConfig.
+  THE Z_Q FORM, each term in the kernel's objects:
+    (2a) zeroSideQ k := Σ'_ρ : (zqConfig).carrier, (mult ρ : ℂ) * paperFT k (gammaOf ρ)           -- the schema's zeroSide_cfg (Schema/Config.lean :37-:38)
+    (2b) poleTermQ k := paperFT k (I/2) + paperFT k (−I/2)                                         -- Λ_Q's two simple poles at 0 and 1, as ζ's (the
+                                                                                                    residue does not enter the pole term)
+    (2c) primeTermQ k := Σ'_n, ((cQ n / Real.sqrt n : ℝ) : ℂ) * (2 * k (Real.log n))                -- Λ replaced by cQ (1f), the even form kept
+    (2d) archTermQ k := (1/(2π)) ∫ r, paperFT k r * (bracketQ r : ℂ), bracketQ r := 2 Re ψ(1/2 + ir) − 2 log(2π/√23)
+                                                                                                    -- Z_Q's bracket, b326's derived kernel
+                                                                                                    (tools/b326_windows.py :220-:228 kernel_q_derived:
+                                                                                                    `2 Re psi(1/2 + i u) - 2 log(2 pi / sqrt23)`), from the
+                                                                                                    gamma factor (√23/2π)^s Γ(s): Γ'/Γ at s = 1/2 + ir on
+                                                                                                    both sides of the line plus 2 log(√23/2π)
+    (2e) THE IDENTITY, STATED: zeroSideQ k = poleTermQ k − primeTermQ k + archTermQ k for every even C² compactly supported k -- T1-lit
+         (Weil 1952; Bombieri-Lagarias 1999, Schema/Epstein.lean :10-:12) INSTANTIATED: EpsteinPremises' `ef` with rhs := poleTermQ − primeTermQ +
+         archTermQ, no longer an abstract rhs. Its proof would re-run Zeta23/WeilEF's contour chain for Λ_Q (full_line_identity, prime_side_line,
+         gamma_line_shift, EF_zero_sum_summable; Main.lean :60-:66's assembly), each step ζ-specific through logDeriv_completedZeta and Γ_ℝ --
+         ABSENT for Λ_Q; stated here as the premise it is.
+  EXPECTED STATUS: (2a)-(2d) WRITABLE, definitions; (2e) PREMISE (a structure field), its Lean discharge a W-ORD beyond this plan. PRICE: in M1's
+    dispatch (the definitions and the premise structure `ZQ_explicitFormula`).
+
+== 3. THE COUNT STATEMENT, AS THE KERNEL'S HCount READS IT
+  `theorem zq_count (zq) (h : ZQ_continuation zq) : HCount (zqConfig zq h) A0Q` -- i.e. 1 ≤ 10 ∧ ∀ t, N(t, t + 1) ≤ 10 log(|t| + 3) with N the
+  configuration's window count (Zeta23/Defs.lean ZeroConfig.N) -- THE TARGET of W-ORD-EPSTEIN-COUNT-LEAN; it discharges Q0Premises' `count`
+  field (Schema/EpsteinQ0.lean :115) at Z := zqConfig. Its proof is sections 4-5's modules M2-M6; at the opening step it is STATED as the
+  theorem to come, not written (no sorry on any branch: the statement enters as a named premise `ZQ_count_premise` beside (1d), or is not
+  written until M6 -- the author's word at b703).
+
+== 4. THE DERIVATION'S STEPS (data/b685_count_plan.txt :15-:82, their inequalities checked in data/b687_steps.txt), EACH MAPPED TO A LEMMA
+   WITH ITS EXPECTED STATUS (rows: the step | its source | the lemma | what the kernel or Mathlib carries | expected status | module)
+  (1) THE ARGUMENT PRINCIPLE ON THE HALF PATH   | data/b685_count_plan.txt :16-:20 ; data/b687_steps.txt (iv-6) the top edge at every height |
+      N_Q(T) = (1/π) Δ_P arg Λ_Q over ½ + i/2 → σ₁ + i/2 → σ₁ + iT → ½ + iT | Mathlib at the pin: no argument principle on a contour (the
+      slate's search, data/b700_slate.txt :30); the kernel: zeta_local_zero_count (Zeta23/RvM/LocalCount.lean :282) counts ζ's zeros by a
+      Jensen-type route with NO Stirling, EXISTENTIAL (∃ A₀) -- its transfer gives ∃ A₀ and not A0Q := 10 | ABSENT: to be written (the winding
+      number of Λ_Q along the rectangle by the logarithmic derivative's integral, Mathlib's `Complex.circleIntegral`/`intervalIntegral` and the
+      residue theorem for a rectangle are not at the pin in a contour form) | M2, 1 dispatch at the least, the largest analytic module
+  (2) THE MAIN TERM, STIRLING WITH REMAINDER     | :21-:25 ; (iv-2) Stirling |Im log Γ(½ + iT) − (T log T − T)| | Mathlib: Stirling for Real.Gamma
+      (Mathlib/Analysis/SpecialFunctions/Stirling.lean, real argument), no complex log Γ with the remainder θ/(6|z|) (Olver); the kernel:
+      digamma_stirling (Zeta23/GammaFacts/StirlingVert.lean :499, the digamma's, on vertical lines) -- the derivation wants log Γ's remainder, not
+      the digamma's (data/b700_slate.txt :26-:28) | ABSENT: to be written | M3, 1 dispatch
+  (3) THE RIGHT EDGE BY THE (3c) BOUND          | :26-:29 ; (iv-1) the right edge, 6 heights HOLDS | |Z_Q(s) − 2| ≤ Z_Q(σ) − 2 < 2 for σ ≥ 3/2 |
+      WRITABLE from (1c): the tail Σ_{k ≥ 2} rQ k k^{−s} bounded in norm by the real series at σ, LSeries term norms (Basic.lean) | WRITABLE,
+      DERIVES for Re s > 3 where ZQ is the compiled series; on 3/2 ≤ Re s ≤ 3 through the summability premise of (1c) | M1
+  (4) THE BOTTOM EDGE, A BALL                   | :30-:32 ; data/b685_count.txt :24 c_B = 2.18499463573 ± 1.13e-54 | Δ arg Z_Q along ½ + i/2 → σ₁ + i/2 |
+      a certified number, python-flint arb (b667's segment route) -- its certificate stays outside Lean (data/b700_slate.txt :36-:37) | NAMED
+      PREMISE with its rational bounds; cancels in every window count of (9) | M6
+  (5) THE TOP EDGE BY BACKLUND'S TRICK          | :33-:54 ; (iv-6) the top edge | f_N(s) = ½[a(s + iT)^N + a(s − iT)^N], (Z1) Proposition 3.2's
+      bound with E(T, δ) and the conditions 1 < c < r, 0 < δ < ½ | Mathlib: nothing of the trick; its ingredients Jensen (6) and the reflection
+      Γ(s) Γ(1 − s) (Complex.Gamma_mul_Gamma_one_sub) present | ABSENT: to be written, on (6) | M4, 1 dispatch
+  (6) THE JENSEN INTEGRAL                       | :55-:59 ; (iv-5) the centre, 6 heights HOLDS | Jensen's formula on the disc of centre c + iT
+      radius r | Mathlib: MeromorphicOn.circleAverage_log_norm (JensenFormula.lean :309) and AnalyticOnNhd.sum_divisor_le (:391) -- the slate's
+      reading | PRESENT: to be applied | M5
+  (7) THE GROWTH BOUND ON THE CIRCLE            | :60-:71 ; (iv-3) Phragmén-Lindelöf and the ends, (iv-4) the envelope and |Z(s)| ≤ Z(σ) |
+      (i) |Z_Q(σ + it)| ≤ Z_Q(σ) for σ ≥ 1 + η: WRITABLE from (1c) as (3); (ii) PhragmenLindelof.vertical_strip (:275) PRESENT, applied to a(s) =
+      (s − 1) Z_Q(s) on [p, 1 + η] with the functional equation (1d) and the reflection Γ(1 − s)/Γ(s) = Γ(1 − s)² sin(πs)/π (Complex.Gamma_mul_
+      Gamma_one_sub) and (2)'s Stirling at 1 − s; (iii) c − r ≥ p chosen | (i) WRITABLE ; (ii) PRESENT to be applied, on (2) | M5
+  (8) THE CONSTANTS                             | :72-:78 ; data/b685_count.txt :19-:25 a = 0.432571915432 ± 4.33e-41, b = 0, c = 1.26244217716 ±
+      1.26e-40, C₀ = 0.977462438857 ± 9.77e-41 | R(T) = a log T + b log log T + c from (3), (5)-(7) at c = 1.7, r = 2.05, η = 0.2 | the balls'
+      certificates (python-flint arb at 200 bits) outside Lean; in Lean the constants enter as RATIONAL BOUNDS a ≤ 0.4326, c ≤ 1.2625 with the
+      Jensen integral's enclosure a NAMED PREMISE (its 2048-piece subdivision not re-run in Lean) | PREMISE with bounds | M6
+  (9) THE WINDOWS AND THE COMPOSITION           | :79-:82, :84-:90 ; data/b687_composition.txt (narrowest margin 41.9785 on [150, 151.5], κ₁ =
+      1.18345 < 10 beyond 10⁶, data/b687_p3_status.txt :27-:29) | N(t, t + 1) ≤ W(t) ≤ 10 log(|t| + 3) for t ≥ 149; −150 ≤ t ≤ 149 from the
+      certified list (P1)-(P2) | WRITABLE as real inequalities from (8)'s bounds (nlinarith / interval reasoning in Lean over the explicit W;
+      the interval subdivision of [149, 10⁶] as a finite case split or a monotonicity argument -- the seat's reading: a monotonicity argument on
+      m(t) = 10 log(t + 3) − W(t) with its derivative bound, data/b685_count_plan.txt :87) and the certified range −150 ≤ t ≤ 149 resting on
+      (P1)-(P2), each stated, not proved (Schema/EpsteinQ0.lean :95, :100) | WRITABLE on premises | M6, 1 dispatch
+
+== 5. THE PRICE IN DISPATCHES (one per tree state, each compiling at its first dispatch; data/b673_rules.txt row 1)
+  M1 Z_Q the object (sections 1-3: Q0, rQ, ZQ, the continuation and functional-equation premise structure, zqConfig, cQ, the three terms and the
+     identity premise, the count statement)                                                          1 dispatch   THE OPENING STEP, (R311)(4)
+  M2 the argument principle on the half path (step (1))                                               1 at the least (the largest; not bounded above by any bank)
+  M3 log Γ's Stirling with an explicit complex remainder (step (2))                                   1
+  M4 Backlund's trick at the plan's conditions (step (5))                                             1
+  M5 the Jensen and Phragmén-Lindelöf steps on Mathlib's two theorems (steps (6)-(7))                 1
+  M6 the constants as rational bounds on named premises and the composition (steps (4), (8), (9))     1
+  TOTAL 6 DISPATCHES AT THE LEAST (data/b700_slate.txt :38-:39's price, unchanged by this plan); THE OPENING STEP ALONE 1 DISPATCH. P3 stays
+  DERIVED, not compiled, until M1-M6 merge; after M1 alone the count is a statement about a named object, with (1d), (1f) and (2e) its premises.
+
+== 6. THE CONSUMERS ((R278)(3), standing)
+  data/b701_epstein_plan.txt -- consumers: b703's ruling (the author's word on M1); tolerance: none.
+  The glossary and the ledgers: nothing written from this plan this act.
+
+### ### **Z_Q AS AN OBJECT: Q0, rQ, ZQ AS AN LSeries, THE CONTINUATION AND FUNCTIONAL EQUATION STATED AS A PREMISE STRUCTURE WITH THE GAMMA FACTOR
+### (√23/2π)^s Γ(s), zqConfig, cQ BY RECURSION ; THE THREE TERMS WRITTEN OUT WITH Z_Q'S BRACKET 2 Re ψ(1/2 + ir) − 2 log(2π/√23), THE IDENTITY A
+### STATED PREMISE ; THE COUNT HCount (zqConfig) A0Q AS THE TARGET ; STEPS (1)-(9) MAPPED: ABSENT 3 (M2, M3, M4), PRESENT 2 (JENSEN, PL), WRITABLE 3,
+### PREMISE 2 ; PRICE: THE OPENING STEP 1 DISPATCH, THE WHOLE 6 AT THE LEAST ; NOTHING COMPILED.**
