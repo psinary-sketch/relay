@@ -51,3 +51,38 @@ KERNEL = 'SIDE-simplicity'
 KERNEL_DIR = 'D:/SIDE-simplicity'
 PRIOR_TAG, NEXT_TAG = 'v0.1.1', 'v0.1.2'
 STALE_PAGE, STALE_LINE = 'SIMPLICITY_OF_RIEMANN_ZEROS.md', 441
+
+# ### stage two (Component 5): the README re-cut of Component 4, on the author's word "apply"
+KI_BEFORE, KI_CUT, KI_MERGE = '53df27f', '049d17f', '967f747'
+KI_PRIOR_PEEL = '53df27f'    # ### v0.1.1 peeled: the main the act found
+RUNS = (39544136831,)
+
+# ### the commits, in order (relay unless named)
+STEPZERO = '6592bdb5'        # ### b697's closing push-out bank, alone
+RULES = '7d9d8508'           # ### data/b698_rules.txt, alone
+STEPZERO_BANKS = '4ee0457a'  # ### the step-zero banks and tools
+C1_RELAY, C1_PP = 'b6bcd36e', 'eb2048a'
+C2_RELAY, C2_PP = 'b5a0158d', 'f699bfd'
+C3_RELAY = '9db71bf7'
+C4_ACTION = 'c85c900f'       # ### the README ACTION and the first dry run, before the README prompt
+C4_CUT = 'ad0b0cf7'          # ### the README re-cut's banks, after the merge and tag
+C4_DRY_AFTER = '7ba1b79c'    # ### the dry run after the tag, before the stale-cell prompt
+C4_CELL, C4_CELL_PP, C4_ONECOPY_PP = 'c9fd4234', '7206710', '7c770d2'
+WEIGHT_LINE = 9682
+BRIDGE_LINE, ONECOPY_LINE = 15294, 15296
+
+SEALED = ('b698_worklist.py', 'b698_tests.py', 'b698_citation.py', 'b698_record.py', 'b698_checks.py', 'b698_closing.py', 'b698_reg_gate.py',
+          'b698_regspec.py', 'circuit_correspondence.py')
+REPAIRED_TOOLS = ()
+NEW_TOOLS = ('circuit_correspondence.py',)
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R308-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-RULES-ALONE', 'G-ANSWERS-CHECKED', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM',
+            'G-PLAN-ROW-APPENDED', 'G-DOMINANCE-CONTROLS-FIRST', 'G-DOMINANCE-ROWS', 'G-BRIDGE-ENTERED', 'G-USES-COUNTED', 'G-ACTION-BEFORE-PROMPT',
+            'G-README-RECUT', 'G-PRINTS-EQUAL', 'G-QUOTE-BEFORE-MERGE', 'G-CELL-REGENERATED', 'G-ONECOPY-ENTERED', 'G-HELD-CELLS-NAMED',
+            'G-READFIRST-DIFF-BANKED', 'G-TOOL-REPAIRS', 'G-PARTS-PRERUN', 'G-ARM-SECONDS-BANKED', 'G-DEFECTS-LETTERED', 'G-READ-RULE')
+STANDING_ADDED = ()          # ### no standing arm added this act (N5)
+SHARED_APPENDED = ('data/b697_arith_plan.txt',)   # ### (R308)(2): the plan's row appended beneath it, every line above unchanged
+PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md')
+NEXT = ('b699, the re-cut act: the licensed table`s next document by b652`s order and b674`s rule in its written order, rule (2) of '
+        'data/b690_rules.txt and row (1) of data/b698_rules.txt binding; b700 the reading act, reading 4, with the regularity bank and the '
+        'defects-by-class reading; b701 the research act on the author`s word, W-ORD-EPSTEIN-COUNT-LEAN or a wider class from the regularity bank')
