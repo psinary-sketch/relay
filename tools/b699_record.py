@@ -612,12 +612,39 @@ def onecopy(*a):
     print(NL.join(L))
 
 
+# ================================================================================ COMPONENT 3: W-ORD-H2-BRIDGE-THEOREM, (R309)(5)
+BRIDGE_H = ('*Appended 2026-10-21 by b699 beneath `W-ORD-H2-BRIDGE` (:10257, annotated at :15200, its open object named at :15294), under '
+            '`(R309)`(5) -- THE ORDER **`W-ORD-H2-BRIDGE-THEOREM`**, PRICED AND NOT RUN:*')
+BRIDGE_B = (' the translation at binder 1 between residue_irreducible’s object and h2_sign’s, and a statement between the two faces under it, '
+            'as a Lean statement to be compiled on a branch of SIDE-explicit-formula with SIDE-lv-conservation’s statement restated there '
+            '(SIDE-explicit-formula’s lakefile requires no SIDE-lv-conservation). Priced in relay data/b699_bridge_plan.txt, its 14 binders each '
+            'printed with the translation it needs before any statement: at binder 1 no translation object to object stands in either kernel -- '
+            'no map from a test window k to a sequence lam_A -- and the two faces join at the level of their targets, through '
+            'RiemannHypothesis, at lam := LiCoeff, by two theorems SIDE-explicit-formula v0.34 already compiles: h2_sign_iff_rh (Seam.lean :101) '
+            'and register4_positivity_liCoeff_iff_rh (PageConverses.lean :32), the latter beside the face’s own discharge of its last binder, '
+            'register4_positivity_liCoeff_imp_rh (ResidueDischarge.lean :41). The expected statement S1, h2_sign ↔ Register4_positivity '
+            'LiCoeff, an equivalence of the two faces’ targets and not a translation of objects, DERIVES expected; S2, h2_sign giving the face’s '
+            'third conjunct, an implication empty beyond S1; a join without RH between the faces not priced, for want of a window k_n in classK '
+            'with W(k_n) = λ_n in either kernel and of the classK widening it would need. The price: one module on a branch of '
+            'SIDE-explicit-formula, one dispatch at its tip; nothing compiled this act. Raised for the author’s word at b701’s ruling beside '
+            'W-ORD-EPSTEIN-COUNT-LEAN and the classK widening to W1 ∪ W3. Status OPEN.')
+
+
+def bridge(*a):
+    p = rdn('%s_bridge_plan.txt' % ACT)
+    if 'BINDERS 14 PRINTED WITH THEIR TRANSLATIONS BEFORE ANY STATEMENT' not in p or 'NOTHING COMPILED' not in p:
+        sys.exit('### THE PLAN BANK DOES NOT CARRY ITS VERDICT -- NOTHING WRITTEN')
+    land([('OPEN_TRAILS.md', BRIDGE_H, NL + BRIDGE_H + BRIDGE_B + NL)], '%s_bridge_line.json' % ACT, 'bridge', entry=10257,
+         check=[('OPEN_TRAILS.md', 10257, '(2) **`W-ORD-H2-BRIDGE`**'), ('OPEN_TRAILS.md', K.B698_BRIDGE_LINE, 'beneath `W-ORD-H2-BRIDGE`')],
+         dry='dry' in a)
+
+
 def _vl_(name):
     return ([x for x in rdn(name).split(NL) if x.startswith('### ### **')] or ['### NOT READ'])[-1]
 
 
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, tie=tie, dispatch=dispatch, runstatus=runstatus,
-              runner=runner, prints=prints, quote=quote, cells=cells, cut=cut, onecopy=onecopy)
+              runner=runner, prints=prints, quote=quote, cells=cells, cut=cut, onecopy=onecopy, bridge=bridge)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
