@@ -1124,7 +1124,7 @@ def readfirst_diff_ok(S):
         and 'data/b702_readfirst_diff.txt' in S['files']['stepzero'] and S['rf_hand_now'] is not None and S['rf_hand_now'] == S['rf_hand_z']
 
 
-REPAIRS_WANT = 3
+REPAIRS_WANT = 4
 
 
 def repairs_ok(S):

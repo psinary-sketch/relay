@@ -336,6 +336,10 @@ REPAIR_ROWS = [
      'call); answers_checked_ok keyed "Faces", "README" and "Partner" where the checks` needles read "faces", "README: 1" and "PARTNER-COPIES: 3". '
      'Each corrected before the seal and the part re-run; the positive controls unchanged.', None, None,
      ('b702_checks.py', ('corrigendum_ok', 'cut_ok', 'faces_ok', 'readme_ok', 'citation_ok', '_kernel_prompt_ts', 'answers_checked_ok'))),
+    ('(4) tools/b702_record.py _call_ts, N2`s reader of the Component 3 prompt`s time -- ANSWERS the score routes` first dry run, after the gate and before the seal, '
+     'which read N2 REFUTED: the reader looked for the prompt`s header in the answers json, which carries no question text, so the prompt`s time '
+     'read as absent; it now takes the call`s id from the answers bank`s text, where the call names its prompts, and the time from the json by that '
+     'id. Corrected before the seal; the scores dry run again, N2 HELD.', None, None, ('b702_record.py', ('_call_ts',))),
 ]
 
 
@@ -1096,9 +1100,17 @@ def _write_ts(name):
     return None
 
 
-def _call_ts(needle):
+def _call_ts(header):
+    """the time of the call that put the prompt whose header is `header`: the answers bank's text names the call's id above its prompts, and
+    the answers json gives that id's time (the json carries no question text)."""
+    t = rdn('%s_author_answers.txt' % ACT)
+    cid = None
+    for blk in re.split(r'(?m)^(?=### CALL tool-use id )', t):
+        m = re.match(r'### CALL tool-use id (\S+) ', blk)
+        if m and re.search(r'^### PROMPT \d+ \(%s\)' % re.escape(header), blk, re.M):
+            cid = m.group(1)
     for c in jl('%s_author_answers.json' % ACT).get('calls') or []:
-        if needle in json.dumps(c, ensure_ascii=False):
+        if cid and c.get('id') == cid:
             return _iso_epoch((c.get('ts') or '')[:19] + 'Z')
     return None
 

@@ -1,4 +1,4 @@
-b702 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-21T22:01:05Z)
+b702 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-21T22:07:29Z)
 
 ### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
 ### row, written by this route (difflib over the block`s or the function`s source, relay HEAD`s sealed tool against this act`s).
@@ -263,4 +263,26 @@ b702 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-21T22:01:05Z)
       +
       +
 
-### ### **REPAIRS 3 ; NO SHARED TOOL EDITED ; DIFF LINES 242 ; NO FROZEN BANK EDITED.**
+  (4) tools/b702_record.py _call_ts, N2`s reader of the Component 3 prompt`s time -- ANSWERS the score routes` first dry run, after the gate and before the seal, which read N2 REFUTED: the reader looked for the prompt`s header in the answers json, which carries no question text, so the prompt`s time read as absent; it now takes the call`s id from the answers bank`s text, where the call names its prompts, and the time from the json by that id. Corrected before the seal; the scores dry run again, N2 HELD.
+
+      --- (none)
+      +++ tools/b702_record.py _call_ts (this act)
+      @@ -0,0 +1,16 @@
+      +def _call_ts(header):
+      +    """the time of the call that put the prompt whose header is `header`: the answers bank's text names the call's id above its prompts, and
+      +    the answers json gives that id's time (the json carries no question text)."""
+      +    t = rdn('%s_author_answers.txt' % ACT)
+      +    cid = None
+      +    for blk in re.split(r'(?m)^(?=### CALL tool-use id )', t):
+      +        m = re.match(r'### CALL tool-use id (\S+) ', blk)
+      +        if m and re.search(r'^### PROMPT \d+ \(%s\)' % re.escape(header), blk, re.M):
+      +            cid = m.group(1)
+      +    for c in jl('%s_author_answers.json' % ACT).get('calls') or []:
+      +        if cid and c.get('id') == cid:
+      +            return _iso_epoch((c.get('ts') or '')[:19] + 'Z')
+      +    return None
+      +
+      +
+      +
+
+### ### **REPAIRS 4 ; NO SHARED TOOL EDITED ; DIFF LINES 261 ; NO FROZEN BANK EDITED.**
