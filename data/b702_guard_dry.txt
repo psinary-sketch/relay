@@ -1,0 +1,15 @@
+b702 -- COMPONENT 1, (R312)(2): THE PRERUN GUARD RESTORED, ITS DRY RUN (2026-10-21T20:40:40Z)
+
+### the suite`s `--guard-dry` run in its own process, writing nothing; its print verbatim beneath. The guard: tools/b702_checks.py :1875 `if PRERUN:`,
+### the line above the per-part seconds write at :1876 -- as tools/b700_checks.py :1669 had it; tools/b701_checks.py :1782 wrote it unguarded.
+### The diff against b701`s writer block: data/b702_tool_repairs.txt row (1).
+
+### THE PRINT, VERBATIM (exit 0):
+  MODE prerun    | the part`s banks: data/b702_arms_prerun_<part>.txt, data/b702_lsr_prerun_<part>.json, data/b702_exercise_<part>.json | the per-part seconds bank: data/b702_arm_seconds_<part>.json
+  MODE pre-push  | the part`s banks: data/b702_checks_<part>.txt, data/b702_lsr_<part>.json, data/b702_exercise_<part>.json | the per-part seconds bank: NONE
+  MODE post-push | the part`s banks: data/b702_checks_postpush_<part>.txt, data/b702_lsr_postpush_<part>.json, data/b702_exercise_<part>.json | the per-part seconds bank: NONE
+  ### POST-ROOT PATH WRITES NONE of the root-named per-part seconds banks: the pre-push and post-push modes write no data/b702_arm_seconds_<part>.json
+
+### THE WRITES BY MODE, READ FROM THE SUITE`S writer_plan: prerun ['data/b702_arm_seconds_<part>.json']; pre-push NONE; post-push NONE
+
+### ### **THE GUARD RESTORED ; THE POST-ROOT PATH WRITES NONE OF THE PER-PART SECONDS BANKS ; THE PRE-RUN WRITES THEM ALONE**

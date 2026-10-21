@@ -89,8 +89,16 @@ ORDER_LINE = 19             # ### data/b652_ferry.txt :19
 RULE_LINES = (8, 11)        # ### data/b674_rules.txt :8-:11
 
 # ### stage two (Component 5, by the Edit tool): the commits in order, the sealed tools and the act's arms.
-STEPZERO = ''               # ### b701's closing push-out bank, alone
-STEPZERO_BANKS = ''
+STEPZERO = '57943576'       # ### b701's closing push-out bank, alone
+STEPZERO_BANKS = '2ae9a564' # ### the step-zero banks and the act's stage-one tools
+README_BANK = '7c0129a9'    # ### data/b702_readme_currency.txt, committed alone ((R312)(5))
+SPEC_BANK = '2c1861f5'      # ### data/b702_circuit_spec.txt, committed alone ((R312)(7))
+B701_TRAIL_HEAD = ('### b701 — lane two, act one hundred and twenty-eight, the research act under (R311): b700 at its weight; the bridge compiled '
+                   'and the faces joined through RH (v0.35)')
+# ### the components' commits, filled as each lands (one git write per message); the cut's document named by the tie bank, after the rule and the
+# ### order are printed (N2) -- empty until then
+C1_RELAY = C1_PP = C2_RELAY = C2_PP = C3_RELAY = C3_PP = C4_RELAY = ''
+CUT_DOC = CUT_NAME = CUT_COMMIT = ''
 SEALED = ('b702_worklist.py', 'b702_tests.py', 'b702_citation.py', 'b702_record.py', 'b702_checks.py', 'b702_closing.py', 'b702_reg_gate.py',
           'b702_regspec.py', 'b702_corrigendum.py')
 REPAIRED_TOOLS = ()

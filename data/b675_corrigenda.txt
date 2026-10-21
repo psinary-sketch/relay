@@ -114,3 +114,23 @@ b675 -- STEP ZERO, (R285)(1): THE CORRIGENDA TO b674'S CLOSING (2026-10-16)
       THE CORRECTION: b699's root names 77 banks (data/b699_act_root.json), the answers and citation banks among them and the defects bank
       not -- tools/b699_record.py :806 excludes `defects` by name; the root 4f7afcb3... unchanged (data/act_roots.txt :77). Lettered the
       navigator's (e). The generated corrigendum entry stands at FINDINGS.md :9752.
+  (17) b701's face, data/b701_registration_2026-10-21.txt :74: "THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:
+      NONE." THE CORRECTION: two arms failed on real state -- G-READ-RULE pre-push and post-push, G-ACTROOT-LAST post-push (data/b701_checks.txt
+      :11, 122 of 123; data/b701_checks_postpush.txt :11, 121 of 123), each declared in a commit's subject alone (relay 17e1b5c6, 2ab9ff3c,
+      613847d6). The face is not edited. The generated corrigendum entry stands at FINDINGS.md :9826.
+  (18) b701's defects bank, data/b701_defects.txt :6-:50 (seven rows (a)-(g)): the fourth whole read of a long file not lettered. THE
+      CORRECTION: lettered (h), THE SEAT'S -- relay data/audit_b701_reg_satisfiable.txt, 219 lines, read with a limit and no offset at
+      transcript line 3016 (17:53:52Z, data/b701_read_calls.txt :54), the cause of G-READ-RULE's failure. The bank is not edited. The generated
+      corrigendum entry stands at FINDINGS.md :9826.
+  (19) b701's command bank, data/b701_commands.txt (REDIRECTS OF ANY STREAM 1): a diagnostic carrying "2>&1 | head -c 0" after the root not
+      entered. THE CORRECTION: lettered (i), THE SEAT'S -- transcript line 3468 (18:20:38Z), after the root (18:01:28Z) and after the command
+      bank's write (18:02:18Z), so in no b701 bank; it stands in b702's capture of the previous act's window. The generated corrigendum entry
+      stands at FINDINGS.md :9826.
+  (20) b701's suite tool, tools/b701_checks.py :1782-:1786: the per-part seconds write carried without b700's guard (tools/b700_checks.py
+      :1669, `if PRERUN:`). THE CORRECTION: lettered (j), THE SEAT'S -- the pre-push run rewrote the six root-named banks
+      data/b701_arm_seconds_<part>.json after the root (18:26:10Z-18:39:03Z), the cause of G-ACTROOT-LAST's failure post-push
+      (data/b701_checks_postpush.txt :107); the guard restored at b702's carry (data/b702_tool_repairs.txt row (1)). The sealed tool is not
+      edited. The generated corrigendum entry stands at FINDINGS.md :9826.
+  (21) b701's trail record, PLACE-papers OPEN_TRAILS.md :15436, the Resolved line's (7): "the three navigator misses and the seat's six defects
+      as lettered". THE CORRECTION: lettered (k), THE SEAT'S -- data/b701_defects.txt letters seven, the navigator's two ((d), (e)) and the
+      seat's five; the figures of record are two and five. The trail is not edited. The generated corrigendum entry stands at FINDINGS.md :9826.

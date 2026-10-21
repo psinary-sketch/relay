@@ -1,0 +1,131 @@
+b702 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-21T20:40:52Z)
+
+### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
+### row, written by this route (difflib over the block`s or the function`s source, relay HEAD`s sealed tool against this act`s).
+
+  (1) tools/b702_checks.py, the writer block`s per-part seconds write under `if PRERUN:` -- ANSWERS (R312)(2) and b701`s defect (j) (relay data/b702_corrigendum.txt; data/b675_corrigenda.txt row (20)): b701`s carry dropped b700`s guard (tools/b700_checks.py :1669), so its pre-push run rewrote six root-named banks after the root and G-ACTROOT-LAST failed post-push. The guard restored; writer_plan and the `--guard-dry` route new, printing for each run mode what the block would write (data/b702_guard_dry.txt). The block`s diff against b701`s, then the two new functions.
+
+      --- tools/b701_checks.py the writer block (sealed)
+      +++ tools/b702_checks.py the writer block (this act)
+      @@ -1,17 +1,20 @@
+           out = _write(_part_name(base, PART), L)
+      -    lp = os.path.join(D, _part_name(base, PART).replace('b701_arms_prerun', 'b701_lsr_prerun').replace('b701_checks', 'b701_lsr').replace('.txt', '.json'))
+      +    lp = os.path.join(D, _part_name(base, PART).replace('b702_arms_prerun', 'b702_lsr_prerun').replace('b702_checks', 'b702_lsr').replace('.txt', '.json'))
+           lb = (json.dumps(dict(run=os.path.basename(out), lsr=lsr), indent=1, ensure_ascii=False) + NL).encode('utf-8')
+           with open(lp + '.tmp', 'wb') as fh:
+               fh.write(lb)
+           os.replace(lp + '.tmp', lp)
+           ex = dict(exercise=EX, run=len(arms), live_failing=fail, defective=defective, neg_failures=negfail, part=PART)
+      -    ep = os.path.join(D, 'b701_exercise_%s.json' % PART)
+      +    ep = os.path.join(D, 'b702_exercise_%s.json' % PART)
+           with open(ep + '.tmp', 'wb') as fh:
+               fh.write((json.dumps(ex, indent=1, ensure_ascii=False) + NL).encode('utf-8'))
+           os.replace(ep + '.tmp', ep)
+      -    sp = os.path.join(D, 'b701_arm_seconds_%s.json' % PART)
+      -    with open(sp + '.tmp', 'wb') as fh:
+      -        fh.write((json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), part=PART, arms=SECS, phases=S['phase_secs'], run_secs=int(secs)),
+      -                             indent=1, ensure_ascii=False) + NL).encode('utf-8'))
+      -    os.replace(sp + '.tmp', sp)
+      +    # ### (R312)(2): THE GUARD RESTORED -- the per-part seconds bank (root-named, gathered by the record tool's armsecs before the seal) is
+      +    # ### written by the pre-run alone, as tools/b700_checks.py :1669 had it; the pre-push and post-push runs write no root-named bank (N4)
+      +    if PRERUN:
+      +        sp = os.path.join(D, 'b702_arm_seconds_%s.json' % PART)
+      +        with open(sp + '.tmp', 'wb') as fh:
+      +            fh.write((json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), part=PART, arms=SECS, phases=S['phase_secs'], run_secs=int(secs)),
+      +                                 indent=1, ensure_ascii=False) + NL).encode('utf-8'))
+      +        os.replace(sp + '.tmp', sp)
+           print('  written: %s' % os.path.basename(out))
+
+      --- (none)
+      +++ tools/b702_checks.py writer_plan (this act)
+      @@ -0,0 +1,12 @@
+      +def writer_plan(prerun, rerun, mid, pushed):
+      +    """(R312)(2): the banks the writer block at the end of a part would write, by mode -- the part bank and the ls-remote bank in every mode,
+      +    the exercise bank in every mode, the per-part seconds bank under `if PRERUN:` alone. Read by `--guard-dry`; the writer block beneath follows
+      +    this plan exactly (the arm G-GUARD-RESTORED reads the block's own text)."""
+      +    base = 'b702_arms_prerun.txt' if prerun else ('b702_checks_postpush.txt' if (rerun or pushed) else 'b702_checks.txt')
+      +    out = [('data/' + _part_name(base, '<part>')), ('data/' + _part_name(base, '<part>').replace('b702_arms_prerun', 'b702_lsr_prerun').replace('b702_checks', 'b702_lsr').replace('.txt', '.json')),
+      +           'data/b702_exercise_<part>.json']
+      +    seconds = ['data/b702_arm_seconds_<part>.json'] if prerun else []
+      +    return out, seconds
+      +
+      +
+      +
+
+      --- (none)
+      +++ tools/b702_checks.py guard_dry (this act)
+      @@ -0,0 +1,10 @@
+      +def guard_dry():
+      +    """the dry run of (R312)(2): for each run mode, what the writer block would write; nothing written by this route, the record tool banks it."""
+      +    for mode, args in (('prerun', (True, False, False, False)), ('pre-push', (False, False, False, False)), ('post-push', (False, True, False, True))):
+      +        out, seconds = writer_plan(*args)
+      +        print('  MODE %-9s | the part`s banks: %s | the per-part seconds bank: %s' % (mode, ', '.join(out), ', '.join(seconds) or 'NONE'))
+      +    print('  ### POST-ROOT PATH WRITES NONE of the root-named per-part seconds banks: the pre-push and post-push modes write no data/b702_arm_seconds_<part>.json')
+      +    return 0
+      +
+      +
+      +
+
+  (2) tools/b702_record.py, the answers route -- ANSWERS the author`s mid-act words of 2026-10-21 (transcript line 4681): b698`s matcher reads a BEGIN only at a text`s start or after `="`, and the paste carries a lead line before its BEGIN, so the route banked one word where two were given. b698`s route runs unedited; midact_words then reads every user text carrying the mid-act lead, cut from its line-initial BEGIN to its last line-initial END, its parts named by their line-initial heads, appended verbatim.
+
+      --- (none)
+      +++ tools/b702_record.py midact_words (this act)
+      @@ -0,0 +1,28 @@
+      +def midact_words():
+      +    """the author's mid-act words delivered as a paste with a lead line before BEGIN (b698's route reads a BEGIN only at the text's start): every
+      +    user text of this session after the anchor carrying MIDACT, cut from its first line-initial BEGIN to its last line-initial END, its parts named
+      +    by their line-initial heads (RESUME. and (A)-(Z))."""
+      +    out, seen = [], set()
+      +    for i, o, st, sid in R._session_rows():
+      +        if o.get('type') != 'user' or o.get('isCompactSummary') or i <= st:
+      +            continue
+      +        cs = (o.get('message') or {}).get('content')
+      +        texts = [cs] if isinstance(cs, str) else [c.get('text', '') for c in (cs or []) if isinstance(c, dict) and c.get('type') == 'text']
+      +        for t in texts:
+      +            t = (t or '').replace('\r', '')
+      +            if MIDACT not in t:
+      +                continue
+      +            b = re.search(r'(?m)^BEGIN$', t)
+      +            e = [m for m in re.finditer(r'(?m)^END$', t)]
+      +            if not b or not e or e[-1].start() < b.end():
+      +                continue
+      +            w = t[b.end():e[-1].start()].strip(NL)
+      +            if w in seen:
+      +                continue
+      +            seen.add(w)
+      +            parts = [m.group(1).rstrip('.') for m in (PART_HEAD.match(l) for l in w.split(NL)) if m]
+      +            out.append((i, o.get('timestamp'), w, parts))
+      +    return out
+      +
+      +
+      +
+
+      --- (none)
+      +++ tools/b702_record.py answers (this act)
+      @@ -0,0 +1,24 @@
+      +def answers(*a):
+      +    """b698's route, then the mid-act words b698's matcher cannot see appended verbatim, each with its parts named (the author's paste of
+      +    2026-10-21: "banked in the act's answers bank verbatim with this paste's three parts named")."""
+      +    mw = midact_words()
+      +    if 'dry' in a:
+      +        R.answers(*a)
+      +        for i, ts, w, parts in mw:
+      +            print('  mid-act word at transcript line %s (%s): %d characters ; parts %s' % (i, ts, len(w), parts))
+      +        return
+      +    R.answers(*a)
+      +    t = rdn('%s_author_answers.txt' % ACT).rstrip(NL)
+      +    L = t.split(NL)
+      +    m = re.search(r'and (\d+) word\(s\) of the author', L[0])
+      +    if mw and m:
+      +        L[0] = L[0].replace(m.group(0), 'and %d word(s) of the author' % (int(m.group(1)) + len(mw)))
+      +    for i, ts, w, parts in mw:
+      +        named = [p for p in parts if p.startswith('(')]
+      +        L += ['', '### THE AUTHOR`S WORD, MID-ACT (transcript line %s, %s), answers to no raised prompt, BEGIN to END, verbatim; its lead RESUME '
+      +              'and its %d parts named: %s' % (i, ts, len(named), '; '.join(named))] + w.split(NL)
+      +    put_txt('%s_author_answers.txt' % ACT, L + [''])
+      +    print('  mid-act words appended %d: %s' % (len(mw), ['line %s, parts %s' % (i, p) for i, _t, _w, p in mw]))
+      +
+      +
+      +
+
+### ### **REPAIRS 2 ; NO SHARED TOOL EDITED ; DIFF LINES 116 ; NO FROZEN BANK EDITED.**
