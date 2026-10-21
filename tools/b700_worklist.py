@@ -16,7 +16,7 @@ PRE_PP = '049855a'          # ### PLACE-papers main before the act (b699's recor
 PRE_RELAY = '85dd43d7'      # ### relay main before the act (b699's closing, pushed)
 DATE = '2026-10-21'
 SESSION_ID = 'c677eaf2-5ebd-414d-85fe-7a54a52c47cd'
-SP = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/%s/scratchpad' % SESSION_ID
+SP = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/%s/scratchpad' % 'b858e03f-d343-4bf2-9bb6-16946a3c8a59'   # ### the continuation`s scratchpad
 HOLD = 2560
 ANCHOR = 'RULING (R310) BEGIN'
 TAIL = 'FERRY END (part 1 of 1)'
@@ -53,6 +53,10 @@ C1_RELAY, C1_PP = '9e25dc7d', '6b09574'
 C2_RELAY = '3038fd33'
 C3_RELAY = '20284cfe'
 CORR_LINE, WEIGHT_LINE = 9752, 9766
+# ### the host reboot (data/b700_defects.txt's event): the last commit before it C3_RELAY, the first after it the resume bank alone
+RESUME, DEFECTS0, C4_SESSION = '7862fab8', '5d7c075b', 'a7a85b41'
+B699_TRAIL_HEAD = ('### b699 — lane two, act one hundred and twenty-six, the re-cut act under (R309): b698 at its weight; the undeclared failure and '
+                   'the post-root rewrite by corrigendum; SIDE-substrate-cluster re-cut; the SIDE-archimedean cells regenerated; the bridge priced')
 
 SEALED = ('b700_worklist.py', 'b700_tests.py', 'b700_citation.py', 'b700_record.py', 'b700_checks.py', 'b700_closing.py', 'b700_reg_gate.py',
           'b700_regspec.py', 'b700_corrigendum.py', 'b700_readings.py')

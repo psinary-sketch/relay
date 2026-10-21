@@ -32,8 +32,9 @@ conv = R.conv                      # ### (R262)(2): the one conversion, b652's, 
 PP, FIND, OT = R.PP, R.FIND, R.OT
 utc, rd, rdn, put_json, put_txt, jl, g, grc, land, _show = R.utc, R.rd, R.rdn, R.put_json, R.put_txt, R.jl, R.g, R.grc, R.land, R._show
 
-READERS = ['read_branch_row', 'read_defect_row']
+READERS = ['read_branch_row', 'read_defect_row', 'read_runner_row']
 read_branch_row = R.read_branch_row
+read_runner_row, _deps = R.read_runner_row, R._deps   # ### the standing runner arms read b699's runs (no runner this act) through b698's reader
 
 
 def _standins():
@@ -433,6 +434,12 @@ REPAIR_ROWS = [      # ### (text, carried tool, carried function, this act's too
     ('(7) tools/b700_citation.py continuation_sessions, new -- ANSWERS the same for the (R278)(4) check: b677`s helpers read C.SESSIONS_AFTER '
      'after the seat`s session, so the answers given after the reboot are read in the session that received them; made before the check on the '
      'author`s word that ordered the repair, which could not otherwise read it.', None, None, 'b700_citation.py', 'continuation_sessions'),
+    ('(8) tools/b700_checks.py ra_sources, new -- ANSWERS the session change for the rule arms: tools/rule_arms.py`s sources read one session`s '
+     'transcript; the suite extends their call trace by the continuation`s through rule_arms.transcript, from its own anchor, so the rule arms '
+     'read the calls made after the reboot; tools/rule_arms.py unedited.', None, None, 'b700_checks.py', 'ra_sources'),
+    ('(9) tools/b700_closing.py head_line, carried from tools/b699_closing.py head_line -- ANSWERS (R310)(2), b699`s head line undercounting on '
+     'both counts: the prompts the answers bank`s rows plus one for the root`s prompt, its answer in the closing line (N4); the defects the defects '
+     'bank`s lettered rows read now, not a stored count.', 'b699_closing.py', 'head_line', 'b700_closing.py', 'head_line'),
 ]
 
 
@@ -797,12 +804,13 @@ def _finding_text():
     return _title(), NL.join(e)
 
 
-FOR_AUTHOR = ('(1) the Correspondence`s hand count read as b691`s scope categories over b670`s BEHIND rows, the generator`s count its fresh dry; '
-              '(2) the rules census`s rows read by a second shape joining a wrapped head, the sorts in the sort rule`s own words; (3) the one-copy '
-              'causes read from each line`s two commits, the generator`s word on the whole subject and the re-cut and archive words on its head; '
+FOR_AUTHOR = ('(1) the Correspondence’s hand count read as b691’s scope categories over b670’s BEHIND rows, the generator’s count its fresh dry; '
+              '(2) the rules census’s rows read by a second shape joining a wrapped head, the sorts in the sort rule’s own words; (3) the one-copy '
+              'causes read from each line’s two commits, the generator’s word on the whole subject and the re-cut and archive words on its head; '
               '(4) the roster-currency rows resolved to the tracked files outside outputs/, the MANIFEST naming basenames alone; (5) a line naming an '
-              'older tag counted, not judged, the superseded copies set apart; (6) the defects` classes the seat`s hand sort, each class`s answer '
-              'named with the act it answered from; (7) the Epstein count priced at six dispatches at the least, Z_Q not yet in Lean')
+              'older tag counted, not judged, the superseded copies set apart; (6) the defects’ classes the seat’s hand sort, each class’s answer '
+              'named with the act it answered from; (7) the Epstein count priced at six dispatches at the least, Z_Q not yet in Lean; (8) the act '
+              'resumed after a host reboot in a second session, named as its continuation on the author’s word')
 
 
 def _trail_text():

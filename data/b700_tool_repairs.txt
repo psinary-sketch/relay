@@ -1,4 +1,4 @@
-b700 -- THE REPAIRS: (R310)(2) AND THE CARRY-TIME READING (2026-10-21T13:32:59Z)
+b700 -- THE REPAIRS: (R310)(2) AND THE CARRY-TIME READING (2026-10-21T13:47:39Z)
 
 ### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
 ### row, written by this route (difflib over the function`s source, relay HEAD`s carried tool against this act`s).
@@ -253,4 +253,48 @@ b700 -- THE REPAIRS: (R310)(2) AND THE CARRY-TIME READING (2026-10-21T13:32:59Z)
       +
       +
 
-### ### **REPAIRS 7 ; THE ONE EDIT TO A SHARED ROUTE (R310)(2)`S, IN THIS ACT`S TOOL, b698`S SEALED TOOL UNEDITED ; DIFF LINES 222 ; THE DRY RUN ON b699`S BANK PRINTING FOUR (3 FROM THE BANK, 1 FROM THE CLOSING LINE) ; NO FROZEN BANK EDITED.**
+  (8) tools/b700_checks.py ra_sources, new -- ANSWERS the session change for the rule arms: tools/rule_arms.py`s sources read one session`s transcript; the suite extends their call trace by the continuation`s through rule_arms.transcript, from its own anchor, so the rule arms read the calls made after the reboot; tools/rule_arms.py unedited.
+
+      --- (none)
+      +++ tools/b700_checks.py ra_sources (this act)
+      @@ -0,0 +1,11 @@
+      +def ra_sources(lock):
+      +    """the carry-time repair (8): tools/rule_arms.py's sources over the seat's session from (R310)'s anchor, its call trace extended by each
+      +    continuation session's (K.SESSIONS_AFTER) from its own anchor through rule_arms.transcript -- the act resumed after the host reboot in a
+      +    second session, whose calls the rule arms read too; tools/rule_arms.py unedited."""
+      +    R_ = RA.sources('b700', SESSION, K.ANCHOR, K.PARTS, lock, PRE['relay'], PRE['pp'])
+      +    for sid, anc in K.SESSIONS_AFTER:
+      +        R_['calls'] = list(R_.get('calls') or []) + RA.transcript('%s/%s.jsonl' % (PROJ, sid), anc)
+      +    return R_
+      +
+      +
+      +
+
+  (9) tools/b700_closing.py head_line, carried from tools/b699_closing.py head_line -- ANSWERS (R310)(2), b699`s head line undercounting on both counts: the prompts the answers bank`s rows plus one for the root`s prompt, its answer in the closing line (N4); the defects the defects bank`s lettered rows read now, not a stored count.
+
+      --- tools/b699_closing.py head_line (sealed)
+      +++ tools/b700_closing.py head_line (this act)
+      @@ -1,4 +1,7 @@
+       def head_line(dd=None, act=ACT):
+      +    """the closing's head line. (R310)(2)'s repair: the prompts the answers bank's rows plus one for the root's prompt, its answer in the closing
+      +    line (b699 printed the bank's rows alone, 4 for 5 put); the defects the defects bank's lettered rows read now (b699 printed a stored count
+      +    that missed the (g) line's (d))."""
+           dd = dd or D
+       
+           def _t(n):
+      @@ -26,11 +29,8 @@
+               root = json.loads(_t('%s_act_root.json' % act))['root'][:16] + '…'
+           except Exception:
+               root = '### NOT READ'
+      -    k = len(re.findall(r'^### PROMPT ', _t('%s_author_answers.txt' % act), re.M))
+      -    try:
+      -        d = len(json.loads(_t('%s_defects.json' % act)).get('defects') or [])
+      -    except Exception:
+      -        d = 0
+      +    k = len(re.findall(r'^### PROMPT ', _t('%s_author_answers.txt' % act), re.M)) + 1
+      +    d = len([l for l in _t('%s_defects.txt' % act).split(NL) if DEFECT_ROW.match(l)])
+           return '%s closed: %s; %s; root %s; %d prompt%s answered; %d defect%s' % (act, ', '.join(parts), suite, root, k, '' if k == 1 else 's',
+                                                                                    d, '' if d == 1 else 's')
+       
+
+### ### **REPAIRS 9 ; THE ONE EDIT TO A SHARED ROUTE (R310)(2)`S, IN THIS ACT`S TOOL, b698`S SEALED TOOL UNEDITED ; DIFF LINES 260 ; THE DRY RUN ON b699`S BANK PRINTING FOUR (3 FROM THE BANK, 1 FROM THE CLOSING LINE) ; NO FROZEN BANK EDITED.**
