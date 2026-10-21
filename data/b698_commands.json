@@ -1,5 +1,5 @@
 {
- "at": "2026-10-21T05:09:48Z",
+ "at": "2026-10-21T05:48:24Z",
  "anchor": "RULING (R308) BEGIN",
  "rows": [
   {
@@ -1225,6 +1225,406 @@
    "cmd": "timeout 590 python -X utf8 tools/b698_record.py gatebanks",
    "n": 153,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:09:47.077Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py commands && timeout 590 python -X utf8 tools/b698_record.py scores dry",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:10:02.131Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b378_lockgate.py b698 data/b698_registration_2026-10-21.txt",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:10:05.392Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b698_registration_2026-10-21.txt",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:10:08.585Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_checks.py --seal",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:10:13.213Z",
+   "src": "seat",
+   "cmd": "git status --short -- data/b698_* data/audit_b698_* tools/b698_* tools/circuit_correspondence.py",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:10:18.421Z",
+   "src": "seat",
+   "cmd": "git add data/b698_commands.json data/b698_commands.txt data/b698_registration_2026-10-21.txt data/audit_b698_reg_satisfiable.txt data/b698_census_stepzero.txt data/b698_faces_census_stepzero.txt data/b698_lockgate.json data/b698_lockgate_notes.txt data/b698_pins_stepzero.txt data/b698_reg_gate.txt data/b698_reg_termscan.txt data/b698_regspec_run.txt data/b698_satisfiable.json data/b698_seal_hashes.json && git commit -q -m \"b698 seal, under (R308): the face locked (sha256 1f72d512) after the gate CLEAR with both dry-run steps CLEAN and the lock gate's 8 of 8; the sealed tools' hashes recorded (9 tools); the spec, the term scan, the satisfiability audit, the step-zero censuses and pins; the command bank\" && git log --oneline -1",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:10:32.402Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_record.py scores",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:10:43.927Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_record.py table_final",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:11:08.852Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py findings dry",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:11:12.862Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py findings",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:11:16.762Z",
+   "src": "seat",
+   "cmd": "git status --short --untracked-files=all -- data/b698_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:11:22.775Z",
+   "src": "seat",
+   "cmd": "git add data/b698_findings.json data/b698_scores.json data/b698_table_final.json data/b698_table_final.txt && git commit -q -m \"b698 pre-root: the scores bank (written once before the entry, N1-N5 HELD, S3 HELD), the final table (0 moved, 0 gone), the findings bank (FINDINGS :9684)\" && git log --oneline -1",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:11:27.548Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m \"b698 entry under (R308): CLAUSE-DOMINANCE 1 of 2 by closure, DIFFERS at binder 1 by correspondence; the regularity uses of classK in SIDE-explicit-formula, 17 uses, W1 11/6/0, W2 6/4/7, W3 13/4/0; SIDE-simplicity README :9 re-cut, v0.1.2; the stale cell regenerated (FINDINGS :9684)\" && git log --oneline -1",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:11:30.768Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch push-b698-root a8512a9f",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:11:34.367Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b698_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b698-root",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:11:46.511Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b698-root 3606a45",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:11:50.909Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b698_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b698-root",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:12:24.207Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b698_record.py root dry",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:13:05.987Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py root",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:14:21.507Z",
+   "src": "seat",
+   "cmd": "git status --short -- data/act_roots.txt data/b698_act_root.json data/b698_act_root.txt && git -C /d/SIDE-substrate-cluster ls-remote origin refs/heads/main",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:14:25.124Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py root",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:15:02.171Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py root_arm && python -X utf8 tools/b698_record.py trail dry",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:15:06.233Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py trail && python -X utf8 tools/b698_record.py desk && python -X utf8 tools/b698_record.py components",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:15:14.995Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_record.py defects && git status --short --untracked-files=all -- data/act_roots.txt data/b698_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:15:20.170Z",
+   "src": "seat",
+   "cmd": "git add data/act_roots.txt data/b698_defects.json data/b698_defects.txt data/terminal_table.json data/terminal_table.md data/b698_act_root.json data/b698_act_root.txt data/b698_components.txt data/b698_desk_notes.txt data/b698_pp_root_push_out.txt data/b698_root_arm.json data/b698_root_arm.txt data/b698_root_banks.json data/b698_root_banks.txt data/b698_root_push_out.txt data/b698_trail.json && git commit -q -m \"b698 record under (R308): act root b698 1db808250727b615 (banks 74, previous afc141e1); the root's control; the trail at OPEN_TRAILS :15298; the desk, the components, the root's push captures, the table, the defects' events\" && git log --oneline -1",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:15:26.108Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m \"b698 record, under (R308): the trail record carrying the root 1db80825 (OPEN_TRAILS :15298)\" && git log --oneline -1 && git status --short --untracked-files=no",
+   "n": 179,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:15:35.982Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && timeout 590 python -X utf8 tools/b698_checks.py --part standing-a",
+   "n": 180,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:19:04.112Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b698_record.py defects && timeout 590 python -X utf8 tools/b698_checks.py --part standing-c",
+   "n": 181,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:19:44.570Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --part standing-b1",
+   "n": 182,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:21:42.580Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --part standing-b2",
+   "n": 183,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:28:07.736Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --part standing-b3",
+   "n": 184,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:29:53.026Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --part act",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:30:46.824Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_checks.py --combine b698_checks.txt",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:30:51.586Z",
+   "src": "seat",
+   "cmd": "git status --short --untracked-files=all -- data/b698_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:30:57.466Z",
+   "src": "seat",
+   "cmd": "git add data/b698_defects.json data/b698_defects.txt data/terminal_table_prior.json data/b698_chain_half_a_checks.json data/b698_chain_half_b_checks.json data/b698_checks.txt data/b698_checks_act.txt data/b698_checks_standing-a.txt data/b698_checks_standing-b1.txt data/b698_checks_standing-b2.txt data/b698_checks_standing-b3.txt data/b698_checks_standing-c.txt data/b698_exercise.json data/b698_exercise_act.json data/b698_exercise_standing-a.json data/b698_exercise_standing-b1.json data/b698_exercise_standing-b2.json data/b698_exercise_standing-b3.json data/b698_exercise_standing-c.json data/b698_lsr_act.json data/b698_lsr_standing-a.json data/b698_lsr_standing-b1.json data/b698_lsr_standing-b2.json data/b698_lsr_standing-b3.json data/b698_lsr_standing-c.json && git commit -q -m \"b698 record: the pre-push suite in six parts, 123 arms, 122 passing, every control behaving; G-NOTHING-RAN-AHEAD failing on real state, undeclared on the sealed face (defect (c): two pre-lock commits not named by hash); the table regenerated by the suite (0 added, 0 gone, 0 changed)\" && git log --oneline -1",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:31:01.901Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch push-b698 f19eccc4",
+   "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:31:05.158Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b698_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b698",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:31:15.549Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b698 1a8d8d1",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:31:18.634Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b698_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b698",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:31:47.586Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part standing-a",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:34:40.824Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part standing-c",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:35:21.374Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part standing-b1",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:36:37.387Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part standing-b2",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:43:56.817Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part standing-b3",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:46:09.099Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part act",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:46:45.495Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b698_checks.py --combine b698_checks_postpush.txt",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:46:49.545Z",
+   "src": "seat",
+   "cmd": "timeout 590 python -X utf8 tools/b698_record.py scores close && python -X utf8 tools/b698_record.py desk && python -X utf8 tools/b698_record.py answers && python -X utf8 tools/b698_record.py reads && python -X utf8 tools/b698_record.py commands",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:47:47.194Z",
+   "src": "seat",
+   "cmd": "git status --short -- data/b698_author_answers.txt data/b698_author_answers.json && git diff --stat -- data/b698_author_answers.txt data/b698_author_answers.json",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:47:54.620Z",
+   "src": "seat",
+   "cmd": "git diff -U0 -- data/b698_author_answers.json",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T05:48:01.727Z",
+   "src": "seat",
+   "cmd": "git status --short -- data/b698_author_answers.json data/b698_author_answers.txt && grep -c \"b698_author_answers.json\" data/b698_act_root.json && python -X utf8 -c \"print('noop')\" ",
+   "n": 203,
+   "bg": false
   }
  ],
  "offences": [],
@@ -1252,7 +1652,9 @@
   14,
   51
  ],
- "py_programs": [],
+ "py_programs": [
+  203
+ ],
  "moves_deletes": [
   28,
   29,

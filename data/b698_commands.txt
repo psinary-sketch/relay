@@ -1,7 +1,7 @@
-b698 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T05:09:48Z)
+b698 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T05:48:24Z)
 
 ### the source: the seat`s session c677eaf2-5ebd-414d-85fe-7a54a52c47cd from its first user line carrying 'RULING (R308) BEGIN', with its subagents` transcripts
-### commands read: 153
+### commands read: 203
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -37,8 +37,8 @@ b698 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #14 2026-10-21T03:35:40.269Z cd /d/relay && git ls-files "data/*print*" | grep -i -E "lv|explicit|efor|_ef" ; git ls-files "data/*runner_SIDE-lv*" "data/*runner_SIDE-explicit*" "data/*axioms_SIDE-explicit*" "data/*axioms_SIDE-lv*
   #51 2026-10-21T04:07:47.996Z git add data/b698_branches.json data/b698_branches.txt data/b698_branches_before.json data/b698_citation_check.json data/b698_citation_check.txt data/b698_ferry.txt data/b698_ferry_scan.txt data/b698_
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
-  NONE
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (1):
+  #203 2026-10-21T05:48:01.727Z git status --short -- data/b698_author_answers.json data/b698_author_answers.txt && grep -c "b698_author_answers.json" data/b698_act_root.json && python -X utf8 -c "print('noop')"
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (9):
   #28 2026-10-21T03:41:26.226Z Bash
@@ -219,5 +219,55 @@ b698 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #151 | 2026-10-21T05:08:48.763Z | seat | Bash | python -X utf8 tools/b698_record.py defects && git add data/b698_arms_prerun*.txt data/b698_lsr_prerun_*.json data/b698_arm_seconds*.json data/b698_arm_seconds.
   #152 | 2026-10-21T05:08:55.828Z | seat | Bash | timeout 590 python -X utf8 tools/b698_reg_gate.py
   #153 | 2026-10-21T05:09:37.819Z | seat | Bash | timeout 590 python -X utf8 tools/b698_record.py gatebanks
+  #154 | 2026-10-21T05:09:47.077Z | seat | Bash | python -X utf8 tools/b698_record.py commands && timeout 590 python -X utf8 tools/b698_record.py scores dry
+  #155 | 2026-10-21T05:10:02.131Z | seat | Bash | python -X utf8 tools/b378_lockgate.py b698 data/b698_registration_2026-10-21.txt
+  #156 | 2026-10-21T05:10:05.392Z | seat | Bash | python -X utf8 tools/reg_seal.py --lock data/b698_registration_2026-10-21.txt
+  #157 | 2026-10-21T05:10:08.585Z | seat | Bash | python -X utf8 tools/b698_checks.py --seal
+  #158 | 2026-10-21T05:10:13.213Z | seat | Bash | git status --short -- data/b698_* data/audit_b698_* tools/b698_* tools/circuit_correspondence.py
+  #159 | 2026-10-21T05:10:18.421Z | seat | Bash | git add data/b698_commands.json data/b698_commands.txt data/b698_registration_2026-10-21.txt data/audit_b698_reg_satisfiable.txt data/b698_census_stepzero.txt d
+  #160 | 2026-10-21T05:10:32.402Z | seat | Bash | timeout 590 python -X utf8 tools/b698_record.py scores
+  #161 | 2026-10-21T05:10:43.927Z | seat | Bash | timeout 590 python -X utf8 tools/b698_record.py table_final
+  #162 | 2026-10-21T05:11:08.852Z | seat | Bash | python -X utf8 tools/b698_record.py findings dry
+  #163 | 2026-10-21T05:11:12.862Z | seat | Bash | python -X utf8 tools/b698_record.py findings
+  #164 | 2026-10-21T05:11:16.762Z | seat | Bash | git status --short --untracked-files=all -- data/b698_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.t
+  #165 | 2026-10-21T05:11:22.775Z | seat | Bash | git add data/b698_findings.json data/b698_scores.json data/b698_table_final.json data/b698_table_final.txt && git commit -q -m "b698 pre-root: the scores bank (
+  #166 | 2026-10-21T05:11:27.548Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b698 entry under (R308): CLAUSE-DOMINANCE 1 of 2 by closure, DIFFERS at binder 1 by 
+  #167 | 2026-10-21T05:11:30.768Z | seat | Bash | git -C /d/relay branch push-b698-root a8512a9f
+  #168 | 2026-10-21T05:11:34.367Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b698_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b698-root
+  #169 | 2026-10-21T05:11:46.511Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch push-b698-root 3606a45
+  #170 | 2026-10-21T05:11:50.909Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b698_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b698-root
+  #171 | 2026-10-21T05:12:24.207Z | seat | Bash | cd /d/relay && python -X utf8 tools/b698_record.py root dry
+  #172 | 2026-10-21T05:13:05.987Z | seat | Bash | python -X utf8 tools/b698_record.py root
+  #173 | 2026-10-21T05:14:21.507Z | seat | Bash | git status --short -- data/act_roots.txt data/b698_act_root.json data/b698_act_root.txt && git -C /d/SIDE-substrate-cluster ls-remote origin refs/heads/main
+  #174 | 2026-10-21T05:14:25.124Z | seat | Bash | python -X utf8 tools/b698_record.py root
+  #175 | 2026-10-21T05:15:02.171Z | seat | Bash | python -X utf8 tools/b698_record.py root_arm && python -X utf8 tools/b698_record.py trail dry
+  #176 | 2026-10-21T05:15:06.233Z | seat | Bash | python -X utf8 tools/b698_record.py trail && python -X utf8 tools/b698_record.py desk && python -X utf8 tools/b698_record.py components
+  #177 | 2026-10-21T05:15:14.995Z | seat | Bash | python -X utf8 tools/b698_record.py defects && git status --short --untracked-files=all -- data/act_roots.txt data/b698_* data/terminal_table.json data/terminal
+  #178 | 2026-10-21T05:15:20.170Z | seat | Bash | git add data/act_roots.txt data/b698_defects.json data/b698_defects.txt data/terminal_table.json data/terminal_table.md data/b698_act_root.json data/b698_act_ro
+  #179 | 2026-10-21T05:15:26.108Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b698 record, under (R308): the trail record carrying the root 1db80825 (OPEN_TRAI
+  #180 | 2026-10-21T05:15:35.982Z | seat | Bash | cd /d/relay && timeout 590 python -X utf8 tools/b698_checks.py --part standing-a
+  #181 | 2026-10-21T05:19:04.112Z | seat | Bash | cd /d/relay && python -X utf8 tools/b698_record.py defects && timeout 590 python -X utf8 tools/b698_checks.py --part standing-c
+  #182 | 2026-10-21T05:19:44.570Z | seat | Bash | timeout 590 python -X utf8 tools/b698_checks.py --part standing-b1
+  #183 | 2026-10-21T05:21:42.580Z | seat | Bash | timeout 590 python -X utf8 tools/b698_checks.py --part standing-b2
+  #184 | 2026-10-21T05:28:07.736Z | seat | Bash | timeout 590 python -X utf8 tools/b698_checks.py --part standing-b3
+  #185 | 2026-10-21T05:29:53.026Z | seat | Bash | timeout 590 python -X utf8 tools/b698_checks.py --part act
+  #186 | 2026-10-21T05:30:46.824Z | seat | Bash | python -X utf8 tools/b698_checks.py --combine b698_checks.txt
+  #187 | 2026-10-21T05:30:51.586Z | seat | Bash | git status --short --untracked-files=all -- data/b698_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.t
+  #188 | 2026-10-21T05:30:57.466Z | seat | Bash | git add data/b698_defects.json data/b698_defects.txt data/terminal_table_prior.json data/b698_chain_half_a_checks.json data/b698_chain_half_b_checks.json data/b
+  #189 | 2026-10-21T05:31:01.901Z | seat | Bash | git -C /d/relay branch push-b698 f19eccc4
+  #190 | 2026-10-21T05:31:05.158Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b698_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b698
+  #191 | 2026-10-21T05:31:15.549Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch push-b698 1a8d8d1
+  #192 | 2026-10-21T05:31:18.634Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b698_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b698
+  #193 | 2026-10-21T05:31:47.586Z | seat | Bash | timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part standing-a
+  #194 | 2026-10-21T05:34:40.824Z | seat | Bash | timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part standing-c
+  #195 | 2026-10-21T05:35:21.374Z | seat | Bash | timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part standing-b1
+  #196 | 2026-10-21T05:36:37.387Z | seat | Bash | timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part standing-b2
+  #197 | 2026-10-21T05:43:56.817Z | seat | Bash | timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part standing-b3
+  #198 | 2026-10-21T05:46:09.099Z | seat | Bash | timeout 590 python -X utf8 tools/b698_checks.py --rerun-postpush b698_checks_postpush.txt --part act
+  #199 | 2026-10-21T05:46:45.495Z | seat | Bash | python -X utf8 tools/b698_checks.py --combine b698_checks_postpush.txt
+  #200 | 2026-10-21T05:46:49.545Z | seat | Bash | timeout 590 python -X utf8 tools/b698_record.py scores close && python -X utf8 tools/b698_record.py desk && python -X utf8 tools/b698_record.py answers && pytho
+  #201 | 2026-10-21T05:47:47.194Z | seat | Bash | git status --short -- data/b698_author_answers.txt data/b698_author_answers.json && git diff --stat -- data/b698_author_answers.txt data/b698_author_answers.jso
+  #202 | 2026-10-21T05:47:54.620Z | seat | Bash | git diff -U0 -- data/b698_author_answers.json
+  #203 | 2026-10-21T05:48:01.727Z | seat | Bash | git status --short -- data/b698_author_answers.json data/b698_author_answers.txt && grep -c "b698_author_answers.json" data/b698_act_root.json && python -X utf8
 
-### ### **COMMANDS 153 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 8 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 9 OF 9 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 203 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 8 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 9 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 9 OF 9 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
