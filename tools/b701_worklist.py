@@ -76,8 +76,9 @@ C1_RELAY, C1_PP = '5958fb35', '23fdaf5'
 C2_RELAY, C2_PP = 'c67fc619', 'ead27e7'
 C3_RELAY, C3_PP = 'e3bb2ce9', 'ae22b0a'
 WEIGHT_LINE, ORDER_LINE = 9796, 15406
-B700_TRAIL_HEAD = ('### b700 — lane two, act one hundred and twenty-seven, the reading act under (R310): b699 at its weight; the trail`s Defects '
-                   'line, the head line`s counts and the root-named claim by corrigendum; reading 4 with five readings added; the slate for b701 priced')
+B700_TRAIL_HEAD = ('### b700 — lane two, act one hundred and twenty-seven, the reading act under (R310): b699 at its weight; the trail’s Defects '
+                   'line, the head line’s counts and the root-named claim by corrigendum; reading 4 with five readings added; the slate for b701 priced')
+# ### the landed head as OPEN_TRAILS :15370 carries it, the apostrophes ’ (conv`s form); the backtick form failed G-PRIOR-CLOSED-PUSHED at the first pre-run
 
 SEALED = ('b701_worklist.py', 'b701_tests.py', 'b701_citation.py', 'b701_record.py', 'b701_checks.py', 'b701_closing.py', 'b701_reg_gate.py',
           'b701_regspec.py')

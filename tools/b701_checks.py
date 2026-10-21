@@ -369,6 +369,18 @@ def wf_state():
                            want=want)}
 
 
+def _ef_sorry_code():
+    """`sorry` tokens OUTSIDE comments and strings in every module under SIDEExplicitFormula/ at main, through tools/no_sorry_main.py's lean_code
+    (carry-time repair (6)): the raw `git grep -w sorry` the carried predicate used reads eleven docstring lines on this kernel's main ("0 sorry,
+    0 native_decide"; DetectionRegion.lean :7-:8) and would refuse a main that carries no sorry in code -- the raw-text trap of b699's rule."""
+    import no_sorry_main as NSM
+    out = []
+    for f in gs(KI, 'ls-tree', '-r', '--name-only', 'main', '--', 'SIDEExplicitFormula').split(NL):
+        if f.strip().endswith('.lean'):
+            out += ['%s:%d: %s' % (f.strip(), ln, t.strip()) for ln, t in NSM.sorry_hits(read_blob(KI, 'main:' + f.strip()))]
+    return NL.join(out)
+
+
 def g2_of(path):
     t = read(path)
     try:
@@ -454,7 +466,10 @@ def _branch_first_ct(br):
     tip = gs(KI, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + br)
     if not tip:
         return None
-    cs = [l for l in gs(KI, 'log', '--reverse', '--format=%ct', '%s..%s' % (K.EF_MAIN_BEFORE, tip)).split(NL) if l.strip().isdigit()]
+    # ### carry-time repair (9): each branch past ITS OWN BASE -- the bridge past the main before the act, the widening past v0.35`s merge (the
+    # ### plan cuts it from v0.35); past the main before the act, the widening`s range opened with the bridge`s commits
+    base = K.BRIDGE_MERGE if (br == K.WIDEN_BRANCH and K.BRIDGE_MERGE) else K.EF_MAIN_BEFORE
+    cs = [l for l in gs(KI, 'log', '--reverse', '--format=%ct', '%s..%s' % (base, tip)).split(NL) if l.strip().isdigit()]
     return int(cs[0]) if cs else None
 
 
@@ -515,7 +530,7 @@ def sources(need=()):
                 gs(KI, 'log', '--reverse', '--first-parent', '--format=%H %ct %s', K.EF_MAIN_BEFORE + '..main').split(NL) if l.strip()],
         ef_branch_first=dict((br, _branch_first_ct(br)) for br in (K.BRIDGE_BRANCH, K.WIDEN_BRANCH)),
         ef_branch_tips=dict((br, gs(KI, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + br)) for br in (K.BRIDGE_BRANCH, K.WIDEN_BRANCH)),
-        ef_sorry=gs(KI, 'grep', '-n', '-w', 'sorry', 'main', '--', 'SIDEExplicitFormula/*.lean'),
+        ef_sorry=_ef_sorry_code(),
         ef_remote={},
         rf_diff=rd('b701_readfirst_diff.txt'), rf_hand_now=blob(ROOT, 'HEAD:data/b701_readfirst.txt'),
         rf_hand_z=blob(ROOT, '%s:data/b701_readfirst.txt' % K.STEPZERO_BANKS) if K.STEPZERO_BANKS else None,
@@ -988,7 +1003,11 @@ def grade_before_merge_ok(S):
         m = next((x for x in S['merges'] if x['tag'] == tag), None)
         if m is None:
             continue
-        ok = ok and bool(bank) and 'EVERY SALT-CHECK PASSED True' in bank and '### DIFFER' not in bank and bool(at) and at < m['ct'] and 'theorem ' in bank
+        # ### carry-time repair (8): "banked before its merge" is the bank`s own written-at stamp (its head line) against the merge`s commit time;
+        # ### the bank`s first commit (at) must exist, and it follows the merge in the same component`s commit (one git write per message)
+        stamp = iso_epoch((re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)', bank.split(NL)[0] if bank else '') or [None, ''])[1])
+        ok = ok and bool(bank) and 'EVERY SALT-CHECK PASSED True' in bank and '### DIFFER' not in bank and bool(at) and bool(stamp) and stamp < m['ct'] \
+            and 'theorem ' in bank
     return ok and bool(S['merges'])
 
 
@@ -1063,7 +1082,7 @@ def readfirst_diff_ok(S):
         and 'data/b701_readfirst_diff.txt' in S['files']['stepzero'] and S['rf_hand_now'] is not None and S['rf_hand_now'] == S['rf_hand_z']
 
 
-REPAIRS_WANT = 5
+REPAIRS_WANT = 9
 
 
 def repairs_ok(S):
@@ -1348,9 +1367,9 @@ ARMS = [
     ('G-DISPATCH-PER-BRANCH', 'the dispatches bank, the runner rows through the record tool`s reader and the command bank: two at the most, SIDE-explicit-formula alone, one per tree at a branch tip of this act, each artifact`s sha256 read (N1)',
      lambda S: dispatch_ok(S), lambda S: _mut(S, 'dispj', lambda d: d['rows'].append(dict(d['rows'][0], tree='x', ref='0' * 40)) if d.get('rows') else d.update(rows=[1, 2, 3]))),
     ('G-PRINTS-STD3', 'the axioms banks of this act`s runs: every new name printed at the standard three (N3)',
-     lambda S: prints_std3_ok(S), lambda S: put(S, 'axioms', dict((k, v.replace("'propext'", "'sorryAx'")) for k, v in S['axioms'].items()))),
+     lambda S: prints_std3_ok(S), lambda S: put(S, 'axioms', dict((k, v.replace('propext', 'sorryAx')) for k, v in S['axioms'].items()))),
     ('G-GRADE-BEFORE-MERGE', 'the grade banks` first commits against the merges` commit times, each statement verbatim with its grade, every salt-check passed, the hand reading and the E0 check agreeing (N3)',
-     lambda S: grade_before_merge_ok(S), lambda S: put(S, 't', dict(S['t'], gbridge=4102444800))),
+     lambda S: grade_before_merge_ok(S), lambda S: put(S, 'gbridge', S['gbridge'].replace('(2026-10-21T', '(2099-10-21T', 1))),
     ('G-TAGS-READ-BACK', 'one ls-remote of SIDE-explicit-formula in this part: v0.35 (and v0.36) peeled at the remote equal to the local merge, the remote main the local main (N4)',
      lambda S: tags_readback_ok(S), lambda S: put(S, 'ef_remote', dict(S['ef_remote'], **{'refs/tags/%s^{}' % K.BRIDGE_TAG: '0' * 40}))),
     ('G-CLAUSE-DOMINANCE-REREAD', 'the CLAUSE-DOMINANCE bank re-read after the merge: by correspondence 2 of 2 through the restatement, the tag and the run named ((R311)(2))',
@@ -1358,7 +1377,8 @@ ARMS = [
     ('G-FACES-ROW-HELD', 'the faces successor row drafted into relay data/b701_faces_rows.txt naming the bridge by tag, the page unedited (G-CURRENTS-UNEDITED), held for b702',
      lambda S: faces_row_ok(S), lambda S: put(S, 'faces_rows', '')),
     ('G-WIDENING-OUTCOME', 'the widening`s outcome by its banks: merged with its run DERIVES and its grade, or held with the obstruction banked (the goal verbatim, a trigger) and no v0.36, or not run on the word ((R311)(3), N4)',
-     lambda S: widening_ok(S), lambda S: put(S, 'gwiden', '') if any(m['tag'] == K.WIDEN_TAG for m in S['merges']) else put(S, 'answers', '')),
+     lambda S: widening_ok(S), lambda S: put(S, 'gwiden', '') if any(m['tag'] == K.WIDEN_TAG for m in S['merges']) else (
+         put(S, 'obstruction', '') if S['ef_branch_tips'].get(K.WIDEN_BRANCH) else put(S, 'answers', ''))),
     ('G-GLOSSARY-ROW-HELD', 'relay data/glossary.txt before, now and at HEAD unedited; the classK’ row drafted into relay data/b701_glossary_rows.txt where the widening merged',
      lambda S: glossary_ok(S), lambda S: put(S, 'glossary_tri', (b'x', b'y', b'y'))),
     ('G-EPSTEIN-PLAN-PRICED', 'the Epstein plan bank and its commit: the opening step priced at 1 dispatch and the whole at 6 at the least, nothing compiled, committed alone ((R311)(4))',

@@ -1,4 +1,4 @@
-b701 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-21T17:13:30Z)
+b701 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-21T17:49:55Z)
 
 ### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
 ### row, written by this route (difflib over the function`s source, relay HEAD`s carried tool against this act`s).
@@ -268,4 +268,80 @@ b701 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-21T17:13:30Z)
       +
       +
 
-### ### **REPAIRS 5 ; NO SHARED TOOL EDITED ; DIFF LINES 250 ; NO FROZEN BANK EDITED.**
+  (6) tools/b701_checks.py merges_ok`s sorry reading and tools/b701_record.py _n4`s, through tools/no_sorry_main.py`s lean_code -- ANSWERS the first pre-run (standing-a, 17:22Z): G-MERGES-ON-GATE failed on real state because the carried predicate (b689`s form, written against SIDE-substrate-cluster) read `git grep -w sorry` over main`s modules as text, and SIDE-explicit-formula`s main carries eleven docstring lines saying "0 sorry, 0 native_decide" and DetectionRegion.lean :7-:8 naming a held branch`s sorry; no sorry stands in code (G-NO-SORRY-MAIN PASS in the same part). Both readers now blank comments and strings before the token is sought, as the standing arm does (the raw-text trap, relay memory b699 (R309)); the arm`s negative control unchanged.
+
+      --- tools/b700_checks.py merges_ok (sealed)
+      +++ tools/b701_checks.py _ef_sorry_code (this act)
+      @@ -1,11 +1,13 @@
+      -def merges_ok(S):
+      -    """the last merge (b699's): SIDE-substrate-cluster's main at the merge, its parents the print list's commit and the gated tip, the merged
+      -    tree the built tree, v0.4.1 at the merge naming v0.4, no other tag; unmoved by this act."""
+      -    m = S['mainst']
+      -    after = [r for r in (S['runner'].get('rows') or []) if r.get('label') == 'after']
+      -    return m['main'] == K699.KI_MERGE and m['parents'] == [K699.KI_PT, K699.KI_CUT] and bool(after) and after[0]['ref'].startswith(K699.KI_CUT) \
+      -        and m['trees'][0] == m['trees'][1] and m['tag'] == K699.KI_MERGE and m['prior'] == K699.KI_PRIOR_PEEL and m['tags'] == [K699.NEXT_TAG] \
+      -        and 'v0.4' in m['tagmsg'] and m['files'][K699.KI_CUT] == [CUT_FILE] and m['files'][K699.KI_WF] == [WF] and m['files'][K699.KI_PT] == [PT]
+      +def _ef_sorry_code():
+      +    """`sorry` tokens OUTSIDE comments and strings in every module under SIDEExplicitFormula/ at main, through tools/no_sorry_main.py's lean_code
+      +    (carry-time repair (6)): the raw `git grep -w sorry` the carried predicate used reads eleven docstring lines on this kernel's main ("0 sorry,
+      +    0 native_decide"; DetectionRegion.lean :7-:8) and would refuse a main that carries no sorry in code -- the raw-text trap of b699's rule."""
+      +    import no_sorry_main as NSM
+      +    out = []
+      +    for f in gs(KI, 'ls-tree', '-r', '--name-only', 'main', '--', 'SIDEExplicitFormula').split(NL):
+      +        if f.strip().endswith('.lean'):
+      +            out += ['%s:%d: %s' % (f.strip(), ln, t.strip()) for ln, t in NSM.sorry_hits(read_blob(KI, 'main:' + f.strip()))]
+      +    return NL.join(out)
+       
+       
+       
+
+  (7) tools/b701_worklist.py B700_TRAIL_HEAD in conv`s form -- ANSWERS the first pre-run: G-PRIOR-CLOSED-PUSHED failed on real state because the head of b700`s trail was carried into the worklist with backtick apostrophes while OPEN_TRAILS :15370 carries ’ (the one conversion, b652); the constant now reads as the ledger does, the arm`s predicate unchanged.
+
+      --- (none)
+      +++ tools/b701_worklist.py B700_TRAIL_HEAD (this act)
+      @@ -0,0 +1 @@
+      +
+
+  (8) tools/b701_checks.py grade_before_merge_ok and tools/b701_record.py _n3, the grade bank`s written-at stamp -- ANSWERS the first act-part pre-run (17:45Z): G-GRADE-BEFORE-MERGE failed on real state because the carried predicate read the grade bank`s FIRST COMMIT against the merge`s commit time, and this act`s grade bank (written 16:43:35Z, before the merge d4e046a at 16:43:50Z) was committed with Component 2 (c67fc619, 16:48Z) after the merge -- one git write per message put the merge first. (R311)(2) and N3 say "banked before its merge"; the bank`s own head-line stamp is the banking, so both readers now read that stamp against the merge`s time and still require the bank`s commit to exist; the positive control moves the stamp to 2099 (an arm stricter than the rule, relay memory b697). The same act-part run read two positive controls not biting -- G-PRINTS-STD3`s quoted needle and G-WIDENING-OUTCOME`s answers mutation on the held path -- repaired beside it.
+
+      --- (none)
+      +++ tools/b701_checks.py grade_before_merge_ok (this act)
+      @@ -0,0 +1,17 @@
+      +def grade_before_merge_ok(S):
+      +    """N3: each theorem's grade read from the statement and banked with it before any merge: the bridge's grade bank added before v0.35's
+      +    merge, the widening's before v0.36's (where merged); every salt-check passed; the hand reading and the E0 check agreeing."""
+      +    ok = True
+      +    for tag, bank, at in ((K.BRIDGE_TAG, S['gbridge'], S['t'].get('gbridge')), (K.WIDEN_TAG, S['gwiden'], S['t'].get('gwiden'))):
+      +        m = next((x for x in S['merges'] if x['tag'] == tag), None)
+      +        if m is None:
+      +            continue
+      +        # ### carry-time repair (8): "banked before its merge" is the bank`s own written-at stamp (its head line) against the merge`s commit time;
+      +        # ### the bank`s first commit (at) must exist, and it follows the merge in the same component`s commit (one git write per message)
+      +        stamp = iso_epoch((re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)', bank.split(NL)[0] if bank else '') or [None, ''])[1])
+      +        ok = ok and bool(bank) and 'EVERY SALT-CHECK PASSED True' in bank and '### DIFFER' not in bank and bool(at) and bool(stamp) and stamp < m['ct'] \
+      +            and 'theorem ' in bank
+      +    return ok and bool(S['merges'])
+      +
+      +
+      +
+
+  (9) tools/b701_checks.py _branch_first_ct and tools/b701_record.py _branch_first_ct, each branch past its own base -- ANSWERS the first act-part pre-run: G-ANSWERS-CHECKED failed on real state because the carried reader took every branch`s first commit past THE MAIN BEFORE THE ACT, and widening-b701 is cut from v0.35`s merge, so its range opened with the bridge`s commits (16:25:52Z) and the widening answer (checked 16:53:56Z, the branch`s own first commit 16:55:17Z) read as acted on before it was checked; _n2 reads the same figure for N2. The widening`s base is now v0.35`s merge (K.BRIDGE_MERGE), the bridge`s the main before the act; the controls unchanged.
+
+      --- (none)
+      +++ tools/b701_checks.py _branch_first_ct (this act)
+      @@ -0,0 +1,13 @@
+      +def _branch_first_ct(br):
+      +    """the commit time of the first commit on a branch past the main before the act (None where the branch is absent or empty)."""
+      +    tip = gs(KI, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + br)
+      +    if not tip:
+      +        return None
+      +    # ### carry-time repair (9): each branch past ITS OWN BASE -- the bridge past the main before the act, the widening past v0.35`s merge (the
+      +    # ### plan cuts it from v0.35); past the main before the act, the widening`s range opened with the bridge`s commits
+      +    base = K.BRIDGE_MERGE if (br == K.WIDEN_BRANCH and K.BRIDGE_MERGE) else K.EF_MAIN_BEFORE
+      +    cs = [l for l in gs(KI, 'log', '--reverse', '--format=%ct', '%s..%s' % (base, tip)).split(NL) if l.strip().isdigit()]
+      +    return int(cs[0]) if cs else None
+      +
+      +
+      +
+
+### ### **REPAIRS 9 ; NO SHARED TOOL EDITED ; DIFF LINES 314 ; NO FROZEN BANK EDITED.**

@@ -815,6 +815,29 @@ REPAIR_ROWS = [      # ### (text, carried tool, carried function, this act's too
      'G-RUNNER-GATE and G-MERGES-ON-GATE read THIS act`s runs and merges at SIDE-explicit-formula (b689`s and b691`s form), the merged runs through '
      'the record tool`s reader; the act part reads SIDE-explicit-formula`s remote once (G-TAGS-READ-BACK) where the standing-a part already reads it '
      'through G-NO-SORRY-MAIN (OPEN_TRAILS :12703, one per repository per part).', None, None, 'b701_checks.py', 'act_merges'),
+    ('(6) tools/b701_checks.py merges_ok`s sorry reading and tools/b701_record.py _n4`s, through tools/no_sorry_main.py`s lean_code -- ANSWERS the '
+     'first pre-run (standing-a, 17:22Z): G-MERGES-ON-GATE failed on real state because the carried predicate (b689`s form, written against '
+     'SIDE-substrate-cluster) read `git grep -w sorry` over main`s modules as text, and SIDE-explicit-formula`s main carries eleven docstring lines '
+     'saying "0 sorry, 0 native_decide" and DetectionRegion.lean :7-:8 naming a held branch`s sorry; no sorry stands in code (G-NO-SORRY-MAIN PASS in '
+     'the same part). Both readers now blank comments and strings before the token is sought, as the standing arm does (the raw-text trap, relay '
+     'memory b699 (R309)); the arm`s negative control unchanged.', 'b700_checks.py', 'merges_ok', 'b701_checks.py', '_ef_sorry_code'),
+    ('(7) tools/b701_worklist.py B700_TRAIL_HEAD in conv`s form -- ANSWERS the first pre-run: G-PRIOR-CLOSED-PUSHED failed on real state because the '
+     'head of b700`s trail was carried into the worklist with backtick apostrophes while OPEN_TRAILS :15370 carries ’ (the one conversion, b652); '
+     'the constant now reads as the ledger does, the arm`s predicate unchanged.', None, None, 'b701_worklist.py', 'B700_TRAIL_HEAD'),
+    ('(8) tools/b701_checks.py grade_before_merge_ok and tools/b701_record.py _n3, the grade bank`s written-at stamp -- ANSWERS the first act-part '
+     'pre-run (17:45Z): G-GRADE-BEFORE-MERGE failed on real state because the carried predicate read the grade bank`s FIRST COMMIT against the '
+     'merge`s commit time, and this act`s grade bank (written 16:43:35Z, before the merge d4e046a at 16:43:50Z) was committed with Component 2 '
+     '(c67fc619, 16:48Z) after the merge -- one git write per message put the merge first. (R311)(2) and N3 say "banked before its merge"; the bank`s '
+     'own head-line stamp is the banking, so both readers now read that stamp against the merge`s time and still require the bank`s commit to exist; '
+     'the positive control moves the stamp to 2099 (an arm stricter than the rule, relay memory b697). The same act-part run read two positive '
+     'controls not biting -- G-PRINTS-STD3`s quoted needle and G-WIDENING-OUTCOME`s answers mutation on the held path -- repaired beside it.',
+     None, None, 'b701_checks.py', 'grade_before_merge_ok'),
+    ('(9) tools/b701_checks.py _branch_first_ct and tools/b701_record.py _branch_first_ct, each branch past its own base -- ANSWERS the first '
+     'act-part pre-run: G-ANSWERS-CHECKED failed on real state because the carried reader took every branch`s first commit past THE MAIN BEFORE THE '
+     'ACT, and widening-b701 is cut from v0.35`s merge, so its range opened with the bridge`s commits (16:25:52Z) and the widening answer (checked '
+     '16:53:56Z, the branch`s own first commit 16:55:17Z) read as acted on before it was checked; _n2 reads the same figure for N2. The widening`s '
+     'base is now v0.35`s merge (K.BRIDGE_MERGE), the bridge`s the main before the act; the controls unchanged.', None, None, 'b701_checks.py',
+     '_branch_first_ct'),
 ]
 
 
@@ -863,7 +886,9 @@ def _branch_first_ct(br):
     tip = g(EF, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + br).strip()
     if not tip:
         return None
-    cs = [l for l in g(EF, 'log', '--reverse', '--format=%ct', '%s..%s' % (K.EF_MAIN_BEFORE, tip)).split(NL) if l.strip().isdigit()]
+    # ### carry-time repair (9): each branch past ITS OWN BASE (the widening past v0.35`s merge, as the plan cuts it)
+    base = K.BRIDGE_MERGE if (br == K.WIDEN_BRANCH and K.BRIDGE_MERGE) else K.EF_MAIN_BEFORE
+    cs = [l for l in g(EF, 'log', '--reverse', '--format=%ct', '%s..%s' % (base, tip)).split(NL) if l.strip().isdigit()]
     return int(cs[0]) if cs else None
 
 
@@ -924,7 +949,11 @@ def _n3():
     for m in ms:
         t = (gb if m['tag'] == K.BRIDGE_TAG else gw)
         bank = rdn('%s_grade.txt' % ACT) if m['tag'] == K.BRIDGE_TAG else rdn('%s_grade_widening.txt' % ACT)
-        before.append((m['tag'], bool(t) and t[-1].isdigit() and int(t[-1]) < m['ct'] and 'EVERY SALT-CHECK PASSED True' in bank and '### DIFFER' not in bank))
+        # ### carry-time repair (8): "banked before its merge" read off the bank`s own written-at stamp (its head line) against the merge`s commit
+        # ### time; the bank`s first commit must exist (it follows the merge in the component`s one commit)
+        stamp = _iso_epoch((re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)', bank.split(NL)[0] if bank else '') or [None, ''])[1])
+        before.append((m['tag'], bool(t) and t[-1].isdigit() and bool(stamp) and stamp < m['ct'] and 'EVERY SALT-CHECK PASSED True' in bank
+                       and '### DIFFER' not in bank))
     controls = ["SIDEExplicitFormula.B321.classK_subset_classK'", "SIDEExplicitFormula.B321.h2_sign'_imp_h2_sign", "SIDEExplicitFormula.B321.h2_sign'_imp_rh",
                 'SIDEExplicitFormula.B321.h2_sign_sum_iff_rh']
     cprint = all(c in AX for c in controls) if any(m['tag'] == K.WIDEN_TAG for m in ms) else 'no widening merged'
@@ -936,7 +965,9 @@ def _n3():
 
 def _n4():
     """N4: no sorry reaches main; a held branch has its obstruction banked; v0.35 and v0.36 read back by peeled SHA at the remote."""
-    sorry = g(EF, 'grep', '-n', '-w', 'sorry', 'main', '--', 'SIDEExplicitFormula/*.lean').strip()
+    import no_sorry_main as NSM   # ### carry-time repair (6): sorry tokens in CODE, comments and strings blanked -- main's docstrings say "0 sorry"
+    sorry = NL.join('%s:%d: %s' % (f.strip(), ln, t.strip()) for f in g(EF, 'ls-tree', '-r', '--name-only', 'main', '--', 'SIDEExplicitFormula').split(NL)
+                    if f.strip().endswith('.lean') for ln, t in NSM.sorry_hits(g(EF, 'show', 'main:' + f.strip()))).strip()
     ms = _merges()
     refs = {}
     for l in g(EF, 'ls-remote', 'origin').split(NL):
