@@ -1,5 +1,5 @@
 {
- "at": "2026-10-21T02:26:28Z",
+ "at": "2026-10-21T03:17:35Z",
  "anchor": "RULING (R307) BEGIN",
  "rows": [
   {
@@ -984,6 +984,590 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b697_record.py kernels; python -X utf8 tools/b697_record.py commands",
    "n": 123,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:28:42.626Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_checks.py; python -X utf8 tools/b697_closing.py defects-row b697",
+   "n": 124,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:28:50.481Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add tools/b697_worklist.py tools/b697_record.py tools/b697_checks.py tools/b697_closing.py tools/b697_reg_gate.py tools/b697_regspec.py data/b697_registration_2026-10-21.txt data/b697_defects.txt data/b697_defects.json data/b697_tool_repairs.txt data/b697_read_calls.txt data/b697_commands.txt data/b697_commands.json data/b697_kernels_face.json; git -C D:/relay diff --cached --name-only; git -C D:/relay status --short --untracked-files=no",
+   "n": 125,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:28:56.981Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b697 Component 5 under (R307): the suite, gate, spec and closing carried from b696's, the record tool's late routes, the worklist's stage two; the repairs bank (one carried route), the read-calls bank, the defects (a)-(c), the command bank and the kernels face; the face\"; git -C D:/relay log -1 --format=\"%h\"",
+   "n": 126,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:29:05.715Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part act",
+   "n": 127,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:29:42.090Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay show --name-only --format=\"%h %ct %cI\" 2feda3ef; git -C D:/MY-DOwnloads/PLACE-papers log -1 --format=\"%h %ct %cI\" 7e423df",
+   "n": 128,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:29:57.268Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add tools/b697_checks.py; git -C D:/relay diff --cached --stat",
+   "n": 129,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:30:04.447Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b697 Component 5: G-FACES-ROWS-PRINTED reads the rows bank in its commit beside the record tool's route, not alone (the ferry's N2 asks the rows printed before any page; the first pre-run read the commit's two files as a failure)\"; git -C D:/relay log -1 --format=\"%h\"",
+   "n": 130,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:30:10.167Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part act",
+   "n": 131,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:30:44.674Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part standing-a",
+   "n": 132,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:33:40.154Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part standing-c",
+   "n": 133,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:34:19.563Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part standing-b1",
+   "n": 134,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:35:30.576Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part standing-b2",
+   "n": 135,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:41:29.730Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part standing-b3",
+   "n": 136,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:43:09.678Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --combine b697_arms_prerun.txt",
+   "n": 137,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:43:12.528Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py armsecs",
+   "n": 138,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:43:20.578Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py defects; git -C D:/relay status --short",
+   "n": 139,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:43:27.034Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b697_defects.txt data/b697_defects.json data/b697_arm_seconds.json data/b697_arm_seconds.txt data/b697_arm_seconds_act.json data/b697_arm_seconds_standing-a.json data/b697_arm_seconds_standing-b1.json data/b697_arm_seconds_standing-b2.json data/b697_arm_seconds_standing-b3.json data/b697_arm_seconds_standing-c.json data/b697_arms_prerun.txt data/b697_arms_prerun_act.txt data/b697_arms_prerun_standing-a.txt data/b697_arms_prerun_standing-b1.txt data/b697_arms_prerun_standing-b2.txt data/b697_arms_prerun_standing-b3.txt data/b697_arms_prerun_standing-c.txt data/b697_chain_half_a_arms_prerun.json data/b697_chain_half_b_arms_prerun.json data/b697_lsr_prerun_act.json data/b697_lsr_prerun_standing-a.json data/b697_lsr_prerun_standing-b1.json data/b697_lsr_prerun_standing-b2.json data/b697_lsr_prerun_standing-b3.json data/b697_lsr_prerun_standing-c.json; git -C D:/relay diff --cached --name-only",
+   "n": 140,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:43:32.209Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b697 Component 5: the pre-run in six foreground parts (120 arms, 89 passing, the 31 failing each reading a bank not yet written), the combined bank, the per-part seconds (93 of 93 standing arms clocked), the chain halves; the defects bank's event for the arm corrected before the seal\"; git -C D:/relay log -1 --format=\"%h\"",
+   "n": 141,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:43:48.410Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_reg_gate.py",
+   "n": 142,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:44:16.018Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_record.py gatebanks",
+   "n": 143,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:44:22.911Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_record.py scores dry",
+   "n": 144,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:44:44.804Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b378_lockgate.py b697 data/b697_registration_2026-10-21.txt",
+   "n": 145,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:44:48.076Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b697_registration_2026-10-21.txt",
+   "n": 146,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:44:51.262Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_checks.py --seal",
+   "n": 147,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:44:56.177Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short --untracked-files=all -- data/b697_* data/audit_b697_* tools/b697_*",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:45:00.247Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b697_registration_2026-10-21.txt data/audit_b697_reg_satisfiable.txt data/b697_census_stepzero.txt data/b697_faces_census_stepzero.txt data/b697_lockgate.json data/b697_lockgate_notes.txt data/b697_pins_stepzero.txt data/b697_reg_gate.txt data/b697_reg_termscan.txt data/b697_regspec_run.txt data/b697_satisfiable.json data/b697_seal_hashes.json; git -C D:/relay diff --cached --name-only",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:45:04.758Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b697 seal, under (R307): the face locked (sha256 c60453c8) after the gate CLEAR with both dry-run steps CLEAN and the lock gate's 8 of 8; the sealed tools' hashes recorded (8 tools); the spec, the term scan, the satisfiability audit, the step-zero censuses and pins\"; git -C D:/relay log -1 --format=\"%h\"",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:45:14.546Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py scores",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:45:28.018Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py table_final",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:45:53.480Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py findings dry",
+   "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:45:57.200Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py findings",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:46:00.909Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short --untracked-files=all -- data/b697_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:46:06.104Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b697_findings.json data/b697_scores.json data/b697_table_final.json data/b697_table_final.txt; git -C D:/relay diff --cached --name-only",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:46:09.895Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b697 pre-root: the scores bank (written once before the entry, N1-N5 HELD, S3 HELD), the final table (0 moved, 0 gone), the findings bank (FINDINGS :9654)\"; git -C D:/relay log -1 --format=\"%h\"",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:46:13.662Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers add FINDINGS.md; git -C D:/MY-DOwnloads/PLACE-papers status --short --untracked-files=no",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:46:17.881Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers commit -q -m \"b697 entry under (R307): SIDE-simplicity re-cut, 1 row outside LICENSED/CITED to 0, v0.1.1; the Weil-face line at Q0 regenerated with its ball radius and the identity's gate named; the arithmetic-limit face at Q0 priced (FINDINGS :9654)\"; git -C D:/MY-DOwnloads/PLACE-papers log -1 --format=\"%h\"",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:46:20.968Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay branch push-b697-root 2c7a782c",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:46:24.312Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b697_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b697-root",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:46:34.663Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers branch push-b697-root cb9550d",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:46:38.067Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b697_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b697-root",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:47:09.564Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py root",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:47:43.562Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py root_arm",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:47:44.158Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py trail dry",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:47:48.857Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py trail",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:47:49.489Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py desk; python -X utf8 tools/b697_record.py components",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:47:54.547Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short --untracked-files=all -- data/act_roots.txt data/b697_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:47:58.490Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/act_roots.txt data/terminal_table.json data/terminal_table.md data/b697_act_root.json data/b697_act_root.txt data/b697_components.txt data/b697_desk_notes.txt data/b697_pp_root_push_out.txt data/b697_root_arm.json data/b697_root_arm.txt data/b697_root_banks.json data/b697_root_banks.txt data/b697_root_push_out.txt data/b697_trail.json; git -C D:/relay diff --cached --name-only",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:48:02.801Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b697 record under (R307): act root b697 afc141e1f2179e86 (banks 69, previous 8d5b3d9d); the root's control; the trail at OPEN_TRAILS :15260; the desk, the components, the root's push captures, the table\"; git -C D:/relay log -1 --format=\"%h\"",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:48:08.131Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers add OPEN_TRAILS.md; git -C D:/MY-DOwnloads/PLACE-papers status --short --untracked-files=no",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T02:48:11.776Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers commit -q -m \"b697 record, under (R307): the trail record carrying the root afc141e1 (OPEN_TRAILS :15260)\"; git -C D:/MY-DOwnloads/PLACE-papers log -1 --format=\"%h\"",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:48:15.332Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part standing-a",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:51:06.862Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part standing-c",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:51:46.149Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part standing-b1",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:52:56.736Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part standing-b2",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T02:59:08.295Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part standing-b3",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:00:53.463Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part act",
+   "n": 179,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:01:51.159Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --combine b697_checks.txt",
+   "n": 180,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T03:01:58.379Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short --untracked-files=all -- data/b697_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json",
+   "n": 181,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T03:02:05.839Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/terminal_table_prior.json data/b697_chain_half_a_checks.json data/b697_chain_half_b_checks.json data/b697_checks.txt data/b697_checks_act.txt data/b697_checks_standing-a.txt data/b697_checks_standing-b1.txt data/b697_checks_standing-b2.txt data/b697_checks_standing-b3.txt data/b697_checks_standing-c.txt data/b697_exercise.json data/b697_exercise_act.json data/b697_exercise_standing-a.json data/b697_exercise_standing-b1.json data/b697_exercise_standing-b2.json data/b697_exercise_standing-b3.json data/b697_exercise_standing-c.json data/b697_lsr_act.json data/b697_lsr_standing-a.json data/b697_lsr_standing-b1.json data/b697_lsr_standing-b2.json data/b697_lsr_standing-b3.json data/b697_lsr_standing-c.json; git -C D:/relay diff --cached --name-only",
+   "n": 182,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T03:02:14.000Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b697 record: the pre-push suite in six parts, 120 arms, 120 passing, every control behaving, no failure carried; the table regenerated by the suite (0 added, 0 gone, 0 changed)\"; git -C D:/relay log -1 --format=\"%h\"",
+   "n": 183,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T03:02:19.745Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay branch push-b697 5d4932b5",
+   "n": 184,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:02:28.019Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b697_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b697",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T03:02:40.561Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers branch push-b697 f5a4a6e",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:02:47.351Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b697_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b697",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:03:29.334Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part standing-a",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:06:26.453Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part standing-c",
+   "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:07:09.083Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part standing-b1",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:08:21.837Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part standing-b2",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:14:48.938Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part standing-b3",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:16:36.163Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part act",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T03:17:11.761Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --combine b697_checks_postpush.txt",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T03:17:21.384Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py scores close",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-21T03:17:21.984Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b697_record.py desk; python -X utf8 tools/b697_record.py commands",
+   "n": 196,
    "bg": false
   }
  ],

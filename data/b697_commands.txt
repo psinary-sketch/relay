@@ -1,7 +1,7 @@
-b697 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T02:26:28Z)
+b697 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T03:17:35Z)
 
 ### the source: the seat`s session b97f6790-cfa6-43ae-aa06-9d3a07249ec4 from its first user line carrying 'RULING (R307) BEGIN', with its subagents` transcripts
-### commands read: 123
+### commands read: 196
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -175,5 +175,78 @@ b697 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #121 | 2026-10-21T02:25:57.956Z | seat | PowerShell | python -X utf8 tools/b697_record.py reads
   #122 | 2026-10-21T02:26:13.068Z | seat | PowerShell | python -X utf8 tools/b697_record.py defects; python -X utf8 tools/b697_record.py repairs
   #123 | 2026-10-21T02:26:22.531Z | seat | PowerShell | python -X utf8 tools/b697_record.py kernels; python -X utf8 tools/b697_record.py commands
+  #124 | 2026-10-21T02:28:42.626Z | seat | PowerShell | python -X utf8 tools/b697_checks.py; python -X utf8 tools/b697_closing.py defects-row b697
+  #125 | 2026-10-21T02:28:50.481Z | seat | PowerShell | git -C D:/relay add tools/b697_worklist.py tools/b697_record.py tools/b697_checks.py tools/b697_closing.py tools/b697_reg_gate.py tools/b697_regspec.py data/b69
+  #126 | 2026-10-21T02:28:56.981Z | seat | PowerShell | git -C D:/relay commit -q -m "b697 Component 5 under (R307): the suite, gate, spec and closing carried from b696's, the record tool's late routes, the worklist'
+  #127 | 2026-10-21T02:29:05.715Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part act
+  #128 | 2026-10-21T02:29:42.090Z | seat | PowerShell | git -C D:/relay show --name-only --format="%h %ct %cI" 2feda3ef; git -C D:/MY-DOwnloads/PLACE-papers log -1 --format="%h %ct %cI" 7e423df
+  #129 | 2026-10-21T02:29:57.268Z | seat | PowerShell | git -C D:/relay add tools/b697_checks.py; git -C D:/relay diff --cached --stat
+  #130 | 2026-10-21T02:30:04.447Z | seat | PowerShell | git -C D:/relay commit -q -m "b697 Component 5: G-FACES-ROWS-PRINTED reads the rows bank in its commit beside the record tool's route, not alone (the ferry's N2
+  #131 | 2026-10-21T02:30:10.167Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part act
+  #132 | 2026-10-21T02:30:44.674Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part standing-a
+  #133 | 2026-10-21T02:33:40.154Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part standing-c
+  #134 | 2026-10-21T02:34:19.563Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part standing-b1
+  #135 | 2026-10-21T02:35:30.576Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part standing-b2
+  #136 | 2026-10-21T02:41:29.730Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --prerun --part standing-b3
+  #137 | 2026-10-21T02:43:09.678Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --combine b697_arms_prerun.txt
+  #138 | 2026-10-21T02:43:12.528Z | seat | PowerShell | python -X utf8 tools/b697_record.py armsecs
+  #139 | 2026-10-21T02:43:20.578Z | seat | PowerShell | python -X utf8 tools/b697_record.py defects; git -C D:/relay status --short
+  #140 | 2026-10-21T02:43:27.034Z | seat | PowerShell | git -C D:/relay add data/b697_defects.txt data/b697_defects.json data/b697_arm_seconds.json data/b697_arm_seconds.txt data/b697_arm_seconds_act.json data/b697_a
+  #141 | 2026-10-21T02:43:32.209Z | seat | PowerShell | git -C D:/relay commit -q -m "b697 Component 5: the pre-run in six foreground parts (120 arms, 89 passing, the 31 failing each reading a bank not yet written), 
+  #142 | 2026-10-21T02:43:48.410Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_reg_gate.py
+  #143 | 2026-10-21T02:44:16.018Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_record.py gatebanks
+  #144 | 2026-10-21T02:44:22.911Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_record.py scores dry
+  #145 | 2026-10-21T02:44:44.804Z | seat | PowerShell | python -X utf8 tools/b378_lockgate.py b697 data/b697_registration_2026-10-21.txt
+  #146 | 2026-10-21T02:44:48.076Z | seat | PowerShell | python -X utf8 tools/reg_seal.py --lock data/b697_registration_2026-10-21.txt
+  #147 | 2026-10-21T02:44:51.262Z | seat | PowerShell | python -X utf8 tools/b697_checks.py --seal
+  #148 | 2026-10-21T02:44:56.177Z | seat | PowerShell | git -C D:/relay status --short --untracked-files=all -- data/b697_* data/audit_b697_* tools/b697_*
+  #149 | 2026-10-21T02:45:00.247Z | seat | PowerShell | git -C D:/relay add data/b697_registration_2026-10-21.txt data/audit_b697_reg_satisfiable.txt data/b697_census_stepzero.txt data/b697_faces_census_stepzero.txt 
+  #150 | 2026-10-21T02:45:04.758Z | seat | PowerShell | git -C D:/relay commit -q -m "b697 seal, under (R307): the face locked (sha256 c60453c8) after the gate CLEAR with both dry-run steps CLEAN and the lock gate's 
+  #151 | 2026-10-21T02:45:14.546Z | seat | PowerShell | python -X utf8 tools/b697_record.py scores
+  #152 | 2026-10-21T02:45:28.018Z | seat | PowerShell | python -X utf8 tools/b697_record.py table_final
+  #153 | 2026-10-21T02:45:53.480Z | seat | PowerShell | python -X utf8 tools/b697_record.py findings dry
+  #154 | 2026-10-21T02:45:57.200Z | seat | PowerShell | python -X utf8 tools/b697_record.py findings
+  #155 | 2026-10-21T02:46:00.909Z | seat | PowerShell | git -C D:/relay status --short --untracked-files=all -- data/b697_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal
+  #156 | 2026-10-21T02:46:06.104Z | seat | PowerShell | git -C D:/relay add data/b697_findings.json data/b697_scores.json data/b697_table_final.json data/b697_table_final.txt; git -C D:/relay diff --cached --name-onl
+  #157 | 2026-10-21T02:46:09.895Z | seat | PowerShell | git -C D:/relay commit -q -m "b697 pre-root: the scores bank (written once before the entry, N1-N5 HELD, S3 HELD), the final table (0 moved, 0 gone), the findin
+  #158 | 2026-10-21T02:46:13.662Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers add FINDINGS.md; git -C D:/MY-DOwnloads/PLACE-papers status --short --untracked-files=no
+  #159 | 2026-10-21T02:46:17.881Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers commit -q -m "b697 entry under (R307): SIDE-simplicity re-cut, 1 row outside LICENSED/CITED to 0, v0.1.1; the Weil-face line
+  #160 | 2026-10-21T02:46:20.968Z | seat | PowerShell | git -C D:/relay branch push-b697-root 2c7a782c
+  #161 | 2026-10-21T02:46:24.312Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b697_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b697-root
+  #162 | 2026-10-21T02:46:34.663Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch push-b697-root cb9550d
+  #163 | 2026-10-21T02:46:38.067Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b697_pp_root_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b697-root
+  #164 | 2026-10-21T02:47:09.564Z | seat | PowerShell | python -X utf8 tools/b697_record.py root
+  #165 | 2026-10-21T02:47:43.562Z | seat | PowerShell | python -X utf8 tools/b697_record.py root_arm
+  #166 | 2026-10-21T02:47:44.158Z | seat | PowerShell | python -X utf8 tools/b697_record.py trail dry
+  #167 | 2026-10-21T02:47:48.857Z | seat | PowerShell | python -X utf8 tools/b697_record.py trail
+  #168 | 2026-10-21T02:47:49.489Z | seat | PowerShell | python -X utf8 tools/b697_record.py desk; python -X utf8 tools/b697_record.py components
+  #169 | 2026-10-21T02:47:54.547Z | seat | PowerShell | git -C D:/relay status --short --untracked-files=all -- data/act_roots.txt data/b697_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior
+  #170 | 2026-10-21T02:47:58.490Z | seat | PowerShell | git -C D:/relay add data/act_roots.txt data/terminal_table.json data/terminal_table.md data/b697_act_root.json data/b697_act_root.txt data/b697_components.txt d
+  #171 | 2026-10-21T02:48:02.801Z | seat | PowerShell | git -C D:/relay commit -q -m "b697 record under (R307): act root b697 afc141e1f2179e86 (banks 69, previous 8d5b3d9d); the root's control; the trail at OPEN_TRAI
+  #172 | 2026-10-21T02:48:08.131Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers add OPEN_TRAILS.md; git -C D:/MY-DOwnloads/PLACE-papers status --short --untracked-files=no
+  #173 | 2026-10-21T02:48:11.776Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers commit -q -m "b697 record, under (R307): the trail record carrying the root afc141e1 (OPEN_TRAILS :15260)"; git -C D:/MY-DOw
+  #174 | 2026-10-21T02:48:15.332Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part standing-a
+  #175 | 2026-10-21T02:51:06.862Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part standing-c
+  #176 | 2026-10-21T02:51:46.149Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part standing-b1
+  #177 | 2026-10-21T02:52:56.736Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part standing-b2
+  #178 | 2026-10-21T02:59:08.295Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part standing-b3
+  #179 | 2026-10-21T03:00:53.463Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --part act
+  #180 | 2026-10-21T03:01:51.159Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --combine b697_checks.txt
+  #181 | 2026-10-21T03:01:58.379Z | seat | PowerShell | git -C D:/relay status --short --untracked-files=all -- data/b697_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal
+  #182 | 2026-10-21T03:02:05.839Z | seat | PowerShell | git -C D:/relay add data/terminal_table_prior.json data/b697_chain_half_a_checks.json data/b697_chain_half_b_checks.json data/b697_checks.txt data/b697_checks_a
+  #183 | 2026-10-21T03:02:14.000Z | seat | PowerShell | git -C D:/relay commit -q -m "b697 record: the pre-push suite in six parts, 120 arms, 120 passing, every control behaving, no failure carried; the table regener
+  #184 | 2026-10-21T03:02:19.745Z | seat | PowerShell | git -C D:/relay branch push-b697 5d4932b5
+  #185 | 2026-10-21T03:02:28.019Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b697_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b697
+  #186 | 2026-10-21T03:02:40.561Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch push-b697 f5a4a6e
+  #187 | 2026-10-21T03:02:47.351Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b697_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b697
+  #188 | 2026-10-21T03:03:29.334Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part standing-a
+  #189 | 2026-10-21T03:06:26.453Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part standing-c
+  #190 | 2026-10-21T03:07:09.083Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part standing-b1
+  #191 | 2026-10-21T03:08:21.837Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part standing-b2
+  #192 | 2026-10-21T03:14:48.938Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part standing-b3
+  #193 | 2026-10-21T03:16:36.163Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --rerun-postpush b697_checks_postpush.txt --part act
+  #194 | 2026-10-21T03:17:11.761Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b697_checks.py --combine b697_checks_postpush.txt
+  #195 | 2026-10-21T03:17:21.384Z | seat | PowerShell | python -X utf8 tools/b697_record.py scores close
+  #196 | 2026-10-21T03:17:21.984Z | seat | PowerShell | python -X utf8 tools/b697_record.py desk; python -X utf8 tools/b697_record.py commands
 
-### ### **COMMANDS 123 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 196 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
