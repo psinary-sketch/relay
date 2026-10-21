@@ -1,0 +1,112 @@
+b697 -- THE PLAN OF (R307)(4): THE ARITHMETIC-LIMIT FACE AT Q0 PRICED -- ITS STEPS WITH THEIR SOURCES BY LINE, THE CONTROLS AT ZETA, THE
+PRICE IN FOREGROUND PARTS; NOT RUN (2026-10-21)
+
+### Nothing for the third face has been computed for this plan: no term, no sum, no coefficient and no timing (N5). Every figure here is read
+### from a bank or a line (cited by path and line), or is derived by algebra in the plan and marked DERIVED. Rows are the plan's steps, each
+### with its source; section 6 is the price. Raised for the author's word at b698's ruling beside the regularity-uses bank,
+### CORRESPONDENCE-DOMINANCE's build and W-ORD-EPSTEIN-COUNT-LEAN ((R307)(4)); no prompt in this act.
+
+== 0. THE FACE, AS THE KERNEL STATES IT
+  The face: arithmetic-limit positivity, "the non-negativity of the Bombieri–Lagarias arithmetic limits, compiled as equivalent to RH
+  (arith_limit_nonneg_iff_rh), the third face of the one open clause" (relay data/glossary.txt :16; PLACE-papers README.md :121).
+  The statement: SIDE-explicit-formula 4313875 (v0.34.1-3), SIDEExplicitFormula/LiCriterionBridge.lean :191-:201 -- for every n and every L,
+  Tendsto (fun δ => EF.literatureRHS (symMember n δ)) (𝓝[>] 0) (𝓝 L) → 0 ≤ L.re, iff RiemannHypothesis. Its proof (:194-:201) reads the
+  limit as LiCoeff n by li_identity_sym (SIDEExplicitFormula/LiWeilSym.lean :1218-:1219): THE ARITHMETIC LIMIT AT n IS λ_n, the same
+  number as the Li face's, reached from the prime side of the explicit formula.
+  The pieces: EF.literatureRHS k = paperFT k (i/2) + paperFT k (−i/2) − Σ' Λ(m) m^(−1/2) (k(log m) + k(−log m)) + (1/2π) ∫ paperFT k r ·
+  gammaBracket r dr (Zeta23/ExplicitFormula.lean :86-:90; the bracket :80); symMember n δ u = symCut δ u · blSmooth n u (LiWeilSym.lean :51),
+  symCut δ u = st(1/2 − u/δ) · st(δu + 2) (:48), 1 on [−1/δ, −δ/2] and 0 left of −2/δ (:9-:10); blSmooth n u = e^(u/2) blPoly n u
+  (SIDEExplicitFormula/LiWeil.lean :298), blPoly n y = Σ_{j<n} C(n, j+1) y^j / j! (:295).
+  WHAT THE KERNEL DOES NOT GIVE AT Q0: li_identity_sym is over zetaZeroConfig, the zeros of Mathlib's riemannZeta; Z_Q's zero set is carried
+  by no ZeroConfig (ZeroConfig.strip, Zeta23/Defs.lean :142; Davenport–Heilbronn above t = 150, relay data/b675_li_plan.txt :145). At Q0 the
+  limit's existence and its equality with λ_n are not compiled; the plan reads them through the identity at each member (step 4), as b694's
+  C3 read the Weil face's (relay data/b694_witness_plan.txt :55-:58).
+
+== 1. THE OBJECT AND ITS COEFFICIENTS
+  (1a) Q0 = x² + xy + 6y², disc −23; Z_Q(s) = Σ_{k≥1} r_Q(k) k^(−s), r_Q(1) = 2 (relay data/b667_epstein_plan.txt :8-:9); Λ_Q(s) =
+       (√23/2π)^s Γ(s) Z_Q(s) = Λ_Q(1 − s) (relay data/b694_witness_plan.txt :39; data/b667_epstein_plan.txt :10).
+  (1b) THE VON MANGOLDT COEFFICIENTS: Λ_Q(m), the coefficients of −Z_Q'/Z_Q, by Dirichlet inversion of r_Q/2 (tools/b325_epstein.py :73-:103,
+       in balls; b694's route, relay data/b694_witness_plan.txt :34-:36, checked there against b325's LAMQ floats for m ≤ 4096). They are not
+       supported on prime powers (Z_Q has no Euler product) and are not O(m^ε) (zeros with Re ρ > 1 above t = 150).
+  (1c) THE ARCHIMEDEAN BRACKET at Q0: 2 Re ψ(1/2 + ir) − 2 log(2π/√23), for Γ(s) in place of Γ_ℝ (relay data/b694_witness_plan.txt :38-:39,
+       tools/b326_windows.py :220-:228); the pole terms h(±i/2) as at ζ (Λ_Q's poles at s = 0, 1).
+
+== 2. THE QUANTITY (ROUTE A, AS (R307)(4) WRITES IT: FROM Z_Q'S OWN VON MANGOLDT COEFFICIENTS)
+  L_n(δ) = P_n(δ) − PR_n(δ) + A_n(δ), Z_Q's literature right-hand side at symMember n δ: P the pole terms, PR = Σ_m Λ_Q(m) m^(−1/2) ·
+  (k(log m) + k(−log m)) over the m the member's support reaches, A the bracket's integral (1c), each a ball at 256 bits (b694's terms, relay
+  data/b694_witness_plan.txt :32-:44, with the member in place of k_a). The face's reading: the limit as δ → 0⁺, a negative beyond its bound
+  wanted at the siblings -- the Li face's n_obs = 10034 (relay data/b675_li_bench.txt :848) and the Weil face's a = 32 (relay
+  data/b696_witness_balls.txt :14).
+  THE SUPPORT, THE DECISIVE LINE (DERIVED, by the definition alone): with m' = n − 1 and α = 1, the Laguerre polynomial L_{m'}^{(α)}(x) =
+  Σ_{j≤m'} C(m' + α, m' − j) (−x)^j / j! has C(n, n − 1 − j) = C(n, j + 1), so blPoly n (−X) = L_{n−1}^{(1)}(X) and the member's profile on
+  u = −X < 0 is e^(−X/2) L_{n−1}^{(1)}(X). That Laguerre function oscillates with slowly varying amplitude over 0 < X < about 4n and decays
+  only beyond (the standard turning point of the Laguerre functions -- NOT READ THIS ACT; its source to be pinned, and the reading checked by
+  algebra at small n, before b698 runs anything). The term k(−log m) reaches m up to about e^(4n): the prime sum PR_n needs Λ_Q(m) for
+  m ≲ e^(4n), and δ ≲ 1/(2n) before the left cut at −2/δ leaves the oscillatory region.
+  AT THE SIBLING: n = 10034 needs m ≲ e^(40136), about 10^(17430). ROUTE A AT THE LI SIBLING IS NOT PRICEABLE IN ANY NUMBER OF FOREGROUND
+  PARTS. Its reach: Λ_Q to M = 10^6 (log M ≈ 13.8) reaches n ≤ 2 with the decay's margin and n = 3 at its edge (4n = 12); to M = 10^7,
+  n = 3 with margin; to M = 10^8, n ≤ 4.
+
+== 3. THE SECOND ROUTE (ROUTE B, OFFERED, STRIKEABLE -- the seat's reading of the pinned source, not (R307)(4)'s words)
+  Lagarias, arXiv:math/0404394v4 (pinned, sha256 86f3d3c4…; text layer relay data/b327_source_text.txt), Lemma 4.2: λ_n = S∞(n) − S_f(n) + δ
+  (:955-:957), S∞(n) = Σ_{j=1}^n C(n, j) τ_{j−1} (:959-:965), S_f(n) = Σ_{j=1}^n C(n, j) η_{j−1} (:967-:973), the η_j the Taylor coefficients
+  at s = 0 of −L'/L(s + 1) − δ/s (Definition 4.2, :945-:950). For Z_Q (no Euler product; not an automorphic L-function of that paper, so the
+  lemma's form is CARRIED by the same derivation, not cited as proved for Z_Q): η_j from the Laurent expansion of Z_Q at s = 1, τ_j from
+  Γ(s) and the conductor. The η_j are functionals of Λ_Q (each a regularized Σ Λ_Q(m)(log m)^j / m), computed through Z_Q's analytic
+  continuation and not through the prime sum.
+  ITS COST (DERIVED, an order of magnitude): S_f(n) is a sum of terms up to C(n, n/2) ≈ 2^n / √(πn/2) that cancels to a small number
+  (for ζ, |S_f(n)| < 20 over n ≤ 3300, the Maślanka reading the source reports at :154-:159), so the η_j are wanted to about n·log10 2
+  decimal digits beyond the answer's: about 3020 digits at n = 10034, and every η_j for j < n. Z_Q's Taylor coefficients at s = 1 to order
+  10^4 at about 10^4 bits through the Chowla–Selberg form need the Bessel K_{s−1/2} terms' expansion in their order to the same depth
+  (b667's evaluator works at fixed s, relay data/b667_epstein_plan.txt); no route at that depth is banked. Estimated not priceable in the
+  foreground at the sibling; priceable at n in the tens.
+
+== 4. THE STEPS, IN ORDER, WITH THEIR SOURCES (Route A, at the n it reaches; Route B's steps if the word keeps it)
+  A1  Λ_Q(m), m ≤ M, by (1b)'s recursion in balls; checked against b325's LAMQ floats for m ≤ 4096 (data/b694_witness_plan.txt :35-:36).
+  A2  for n = 1, 2 (and 3 if M ≥ 10^7): the members symMember n δ on the ladder δ = 1/(2n)·2^(−j), j = 0..3; k(±log m) by the closed form on
+      the flat part and acb.integral on the two transition intervals of st (Real.smoothTransition; LiWeilSym.lean :47-:48); the transform
+      paperFT at i/2, −i/2 and on the r-grid of the bracket's integral (b694's A(k), data/b694_witness_plan.txt :38-:42).
+  A3  L_n(δ) = P − PR + A as a ball per δ; THE IDENTITY AT EACH MEMBER: the zero side Σ_ρ m_ρ paperFT(member)(γ_ρ) from the banked zeros
+      (b326's on-line ordinates, data/b326_epstein_zeros.json, and b681's 17 off-line balls with their images), its tail under T-COUNT
+      (Schema/EpsteinQ0.lean :104, :108, as data/b675_li_plan.txt :50-:53), wanted |zero side − L_n(δ)| within the tail and the radii (b694's
+      C3, data/b694_witness_plan.txt :55-:58).
+  A4  THE LIMIT'S BOUND: |L_n(δ) − λ_n| ≤ Σ_ρ m_ρ |paperFT(member)(γ_ρ) − liTerm n ρ| over the same zeros and tail, per δ; the reading at the
+      smallest δ: λ_n's ball by the arithmetic side, compared with the zero side's P_n + U_n at the same n (data/b675_li_bench.txt; λ_n ≤
+      P_n + U_n under T-COUNT, data/b675_li_plan.txt :72-:73).
+  B1-B3 (Route B, if kept): Z_Q's Laurent coefficients at s = 1 to order n_B; η_j and τ_j by power-series log-derivative; λ_n by (4.6)-(4.8)
+      at n ≤ n_B, compared with A4's λ_1, λ_2 and with the zero side.
+
+== 5. THE CONTROLS AT ZETA, CONCRETE
+  C1  THE SAME MEMBERS AT ZETA, before any Q0 reading is entered: Λ the von Mangoldt function, the bracket gammaBracket (ExplicitFormula.lean
+      :80), the members of A2 unchanged; wanted λ_1 and λ_2 within their bounds of the literature values λ_1 = 0.0230957089662, λ_2 =
+      0.0923457352914 (PLACE-papers internal/bench/li_bench.py :77, the KEIPER dict -- n = 1, 2 only: that dict disagrees with the keystone's
+      literature column at n = 3 and n = 5, filed at b327), and λ_1 against its closed form 1 + γ/2 − (1/2) log 4π (DERIVED from (4.6) at
+      n = 1 with the pole term; ≈ 0.0230957, agreeing with the dict to its digits).
+  C2  THE LIMIT FORM AT ZETA: at each δ of the ladder, |L_n(δ) − λ_n| at zeta read against li_identity_sym's limit (LiWeilSym.lean :1218),
+      the kernel's own statement there -- the convergence rate in δ printed, so that Q0's ladder is read against a rate the kernel's instance
+      shows.
+  C3  λ_1 AT Q0 BY THE KRONECKER LIMIT FORMULA (offered): λ_1 = (ξ_Q'/ξ_Q)(1), ξ_Q = s(s − 1)Λ_Q(s), = 1 + log(√23/2π) − γ + C_0/R, R = 2π/√23
+      the residue of Z_Q at s = 1 and C_0 its constant term (DERIVED; C_0 by Kronecker's first limit formula, its source to be pinned) -- a
+      closed form at Q0 against which A4's λ_1 is checked.
+
+== 6. THE PRICE IN FOREGROUND PARTS (the 590 s guard; no detached run; the figures are estimates from banked forms, no timing taken)
+  THE FORM: b675's six foreground parts, 16 to 75 s each (data/b694_witness_plan.txt :62, citing data/b675_closing.txt :26-:28); b694's prime
+  sum to m ≤ 36864 inside its parts (data/b694_witness_plan.txt :18, :62-:65).
+  ROUTE A, AT THE n IT REACHES (n ≤ 3):
+    part 1  A1 to M = 10^6 (the recursion O(M log M), about 1.4·10^7 ball operations), the ζ control's Λ beside it        -- 1 part
+    part 2  A2-A3 for n = 1, 2 at Q0 and at zeta (four δ each; the r-integral of A per member, b694's A(k) form)         -- 1 part
+    part 3  A4 and C1-C2; the comparison with the zero side                                                              -- 1 part
+    part 4  (n = 3 only) A1 extended to M = 10^7, A2-A4 at n = 3                                                          -- 1 to 3 parts
+  ROUTE A AT THE SIBLINGS' SCALE (n ≈ 10^4): NOT PRICEABLE -- the prime sum's reach e^(4n) (section 2).
+  ROUTE B: at n in the tens, 1 to 2 parts beyond Route A's; at the sibling n = 10034, NOT PRICEABLE in the foreground (section 3).
+  THE BANKS IT WOULD WRITE (named, none written): data/b698_arith_lambda.txt (rows are (n, δ) with P, PR, A, L_n(δ), the identity's
+  difference and the bound, each a ball), data/b698_arith_controls.txt (rows are the controls' n with value and literature figure).
+
+== 7. WHAT THE PRICE MEANS FOR THE FACE, ENTERED FOR THE AUTHOR'S WORD AT b698
+  At the n Route A reaches (n ≤ 3), the Li face's own bench reads P_n + U_n NONNEG below 10034 (data/b675_li_readings.txt :23-:24), an upper
+  bound that decides no sign there; a negative beyond its bound is not expected at n ≤ 3, so Route A's reading there is the identity at Q0's
+  prime side (the arithmetic λ_1, λ_2 against the zero side and C3), not a witness. A witness on the arithmetic side at the sibling's n is
+  not reachable by either route as priced. The options for the word: run Route A at n ≤ 2 (three parts) as the face's identity reading; run
+  Route A and Route B to n in the tens; or hold the face at this price.
+
+### ### **ROUTE A (Z_Q'S OWN VON MANGOLDT COEFFICIENTS): PRICED AT 3 FOREGROUND PARTS FOR n ≤ 2, 4 TO 6 FOR n ≤ 3 ; AT THE SIBLINGS' SCALE (n ≈ 10^4) NOT PRICEABLE, THE PRIME SUM REACHING e^(4n) ; ROUTE B (LAGARIAS LEMMA 4.2) OFFERED, PRICEABLE AT n IN THE TENS ; CONTROLS AT ZETA C1-C2, C3 AT Q0 ; NOTHING COMPUTED ; NOT RUN.**
