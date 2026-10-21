@@ -1,0 +1,46 @@
+b698 -- THE READ-FIRST BANK, (R308)(8) AND THE FERRY'S READ-FIRST LIST, READ AT STEP ZERO (2026-10-21)
+
+### rows are the ferry's read-first items in its order: the item | path and line | the unit of the bank's rows | what was read there.
+### Each cite is checked at HEAD by tools/b698_citation.py (data/b698_citation_check.txt, 98 cites, 94 OK, 4 MISSES on two objects, run
+### before any other step and before any delete; the misses raised to the author before Component 2).
+
+  b697's head line             relay data/b697_closing.txt :1 | rows are the closing's report lines | "b697 closed: relay 5d4932b5, PLACE-papers f5a4a6e;
+                               suite 120 of 120; root afc141e1f2179e86…; 1 prompt answered; 3 defects"; the sealed tools AGREE 8 of 8 at :14
+  b697's defects               relay data/b697_defects.txt :6-:19 | rows are defects as lettered, (a)-(c); events beneath (:21-:28) | (a) the carried
+                               faces diff counting an equal line, (b) 18 of 60 Read calls without offset and limit, (c) long turns -- all the seat's;
+                               the event at :26-:28, the act arm stricter than the ferry
+  b697's cut                   relay data/b697_cut.txt :17 (the quoting line R-1, README.md :9), :19 (the held cell, SIMPLICITY_OF_RIEMANN_ZEROS :441,
+                               v0.1.0 -> v0.1.1) | rows are the cut's readings and residues | the residue carried as it stands, the cell held
+  the arithmetic plan          relay data/b697_arith_plan.txt :34-:48 (Route A), :50-:62 (Route B), :92-:103 (the price), :112 (the summary) | rows are the
+                               plan's numbered sections | Route A 3 parts for n <= 2, not priceable at n ~ 10^4 (the prime sum to e^(4n)); Route B
+                               (Lagarias Lemma 4.2) priceable at n in the tens
+  b697's read calls            relay data/b697_read_calls.txt :4-:21, :23 | rows are Read calls without both offset and limit | 18 of 60
+  the spec's eleventh row      relay data/b695_circuit_spec.txt :53-:64 | rows are the instrument's readings | CORRESPONDENCE-DOMINANCE: the faces
+                               kernel's compiled face against h2_sign's #print sig, by statement identity up to bound names; HOLDS-BY-CORRESPONDENCE
+                               or DIFFERS at the first differing binder
+  the Correspondence row       relay data/b690_nodes_zeta.txt :126 ; PLACE-papers THE_CLAUSE_AND_ITS_COMPILED_FACES.md :732 | node-list lines ; page lines |
+                               "@corr SIDE-lv-conservation | residue_irreducible | INTERFACES ... | liCriterion discharged at λ := LiCoeff by
+                               SIDEExplicitFormula.ResidueDischarge.register4_positivity_liCoeff_imp_rh, SIDE-explicit-formula v0.10 = 6baed63": the
+                               compiled face residue_irreducible; the row names no SIDE-lv-conservation tag (MISS, raised)
+  lv-conservation's prints     relay data/b694_prints_SIDE-lv-conservation.txt :7-:14 ; data/b694_axioms_SIDE-lv-conservation_after.txt :1-:12 | rows are
+                               terminals (axiom profiles) | the eight T3 terminals' axioms at d38f3e8; residue_irreducible not printed; its statement
+                               in source SIDE-lv-conservation SIDELvConservation/ZeroActingPartial.lean :111-:121 (v0.13.0 = 8e3bc76) (MISS, raised)
+  explicit-formula's prints    relay data/b689_prints_SIDE-explicit-formula.txt (v0.34's new terminals, axioms) ; h2_sign's #print in the generator's probe
+                               relay data/b643_probe_out_zeta.txt :43-:52 (at v0.26 = 82550e4) | rows are probe cells (@@BEGIN .. @@END) | "def
+                               SIDEExplicitFormula.B321.h2_sign : Prop := ∀ (k : ℝ → ℂ), SIDEExplicitFormula.B321.classK k → 0 ≤ poleTerm k -
+                               primeSum k + archTerm k"; H2Sign.lean unchanged v0.26 to v0.34 (MISS on "at v0.34", raised)
+  H2Sign.lean                  SIDE-explicit-formula v0.34 = 8fbc27b SIDEExplicitFormula/H2Sign.lean :22-:26 (classK), :28-:29 (h2_sign) | source lines |
+                               classK: even, ContDiff ℝ 2, HasCompactSupport, k = weilTest h h with h ContDiff ℝ 2 and compactly supported
+  W-ORD-H2-BRIDGE              PLACE-papers OPEN_TRAILS.md :10257 ((R128)(2)) and :15200 (b695's annotation) | ledger lines | "SIDE-kernel's
+                               ConservationHypothesis and h2_sign are not yet one object"; :15200 ties CLAUSE-DOMINANCE's ABSENT to the order
+  the uses template            relay data/b676_strip_uses.txt :6 (the unit), :9-:30 (the uses), :46 (the summary) | rows are uses: file :line | the
+                               line | the declaration | what is consumed | the step | the bound the step needs | the reading on the wider class
+  b684's ACTION form           relay data/b684_residue_actions.txt :7-:16 | rows are residues: the reason verbatim, the print bank, the re-derived
+                               ACTION, the source rows | the form for data/b698_residue_actions.txt
+  the SIDE-simplicity row      relay data/b670_licensed_table.txt :115 ; data/b647_table_SIDE-simplicity.txt :12 (LICENSED), :14 (ACTION) | licensed-table
+                               rows ; the table's verdict rows | the claim at its ceiling: Section III compiled as a premise-taking schema in
+                               SIDE-kernel, Section I.2 only the ring identity perpendicular_gradients
+  the Correspondence generator relay tools/correspondence_gen.py :247 (read_carry), :675 (main) | a tool's source
+  the circuit reader           relay tools/circuit_read.py (readfirst) | a tool's source
+  b697's closing push-out      relay data/b697_closing_push_out.txt :5 | rows are the push tool's capture lines | "main read back at the remote:
+                               dcce6eed..."; to be committed alone at step zero

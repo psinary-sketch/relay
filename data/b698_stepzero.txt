@@ -1,0 +1,36 @@
+b698 -- STEP ZERO UNDER (R308): WHAT RAN, IN THE ORDER IT RAN (2026-10-21)
+
+### rows are step zero's items as run: the item | the bank or the command | the reading. The order as run is the ferry's written order,
+### the citation check before any other step and before any delete ((R308)(8)).
+
+  the ferry banked             data/b698_ferry.txt by the Write tool | 18134 characters, equal to the transcript's text; ferry_scan exit 0
+                               (data/b698_ferry_scan.txt)
+  the citation check           data/b698_citation_check.txt (.json), run before any other step | CITES CHECKED 98 ; OK 94 ; MISSES 4 -- two objects,
+                               each cited twice (read-first and (R308)(3)): SIDE-lv-conservation's print bank at the tag the row names (the row
+                               names no lv-conservation tag; no bank prints residue_irreducible's statement) and SIDE-explicit-formula's print bank
+                               at v0.34 for h2_sign (the v0.34 banks are axioms banks; the generator's probe prints h2_sign at v0.26, H2Sign.lean
+                               unchanged to v0.34); raised to the author before Component 2
+  the readfirst bank           data/b698_readfirst.txt by the Write tool ; data/b698_readfirst_closure.txt and data/b698_readfirst_diff.txt by
+                               tools/circuit_read.py readfirst | ITEMS 11289 ; CITED BY THE TEXT 24 ; THE HAND LIST 24 PATHS ; BOTH 14 ; LINES
+                               DIFFERING 20
+  rowgen and constellation     data/b698_rowgen_stepzero.txt | CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19 ; STALE 0
+  the process listing          tail, lean, lake, python and claude named, node beside them (Win32_Process by name, PowerShell Get-CimInstance, before
+                               any write and again after the tests): claude 1 (pid 20816, this seat; the session c677eaf2 new in the process b697
+                               closed in), tail 0, lean 0, lake 0, python 0, node 0; free memory 7512 MB before, 4279 MB after. One seat. No task
+                               of this session stopped; no orphan, nothing stopped by PID
+  b697's push-out bank         relay 6592bdb5, committed alone | data/b697_closing_push_out.txt, main read back at dcce6eed
+  the branches                 data/b698_branches_before.json (written before any delete: each tip, merged by ancestry, the three remotes read once
+                               each) ; `git branch --merged main` listed per repository ; data/b698_branches.txt (.json) after | nine named, each
+                               listed --merged; nine deleted by name (eight local, one remote), one per command, each its own message, nothing
+                               chained after any
+  the rules bank               relay 7d9d8508, committed alone | data/b698_rules.txt rows (1) (binds from b699) and (2) (binds from b698)
+  the tests                    data/b698_tests_stepzero.txt (.json) | 55 files ; 54 run, each its own process in the foreground, in seven parts each
+                               after the hold printed (4191-7689 MB free) ; 1 withheld (test_elab_reader_b634.py, it runs lean) ; NOT CLEAN 2, each
+                               carried from b697's step zero (data/b697_stepzero.txt :22): test_chain_page.py (9) ; test_chain_page_b638.py (4)-(7) ;
+                               the longest 410 s (test_chain_page.py) ; no file's last run above 450 s
+  the trees                    git status | relay tracked changes NONE ; PLACE-papers tracked changes NONE ; the untracked locals untracked
+                               (data/b628_intake_crank_v0_5.txt, data/b647_navigator_memory.txt, data/b671_narrow_run2_points.jsonl,
+                               data/b681_narrow_units.jsonl, data/b694_witness_units.jsonl, data/b696_witness_balls_units.jsonl)
+  no build                     no lean or lake process on this host
+
+### ### **STEP ZERO DONE: CITES 98, 94 OK, 4 MISSES ON TWO OBJECTS RAISED ; BRANCHES 9 DELETED ; TESTS 54 RUN, 2 NOT CLEAN AS CARRIED ; NO BUILD ON THIS HOST.**
