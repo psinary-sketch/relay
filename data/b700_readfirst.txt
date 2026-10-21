@@ -1,0 +1,56 @@
+b700 -- THE READ-FIRST BANK, (R310)(6) AND THE FERRY'S READ-FIRST LIST, READ AT STEP ZERO (2026-10-21)
+
+### rows are the ferry's read-first items in its order: the item | path and line | the unit of the bank's rows | what was read there.
+### Each cite is checked at HEAD by tools/b700_citation.py (data/b700_citation_check.txt, 108 cites, 108 OK, 0 MISSES, run before any other
+### step and before any delete; the dry run's two misses were the seat's own needles reading the empty element after a bank's last newline,
+### corrected in the act's tool before the bank was written).
+
+  b699's head line             relay data/b699_closing.txt :1 | rows are the closing's report lines | "b699 closed: relay 144cc457, PLACE-papers 049855a;
+                               suite 121 of 121; root 4f7afcb30a75e63c…; 4 prompts answered; 3 defects"
+  b699's defects line          relay data/b699_closing.txt :240-:244 ((g)) | the closing's report lines | the defects (a)-(c) for the next ruling; and
+                               (d), THE SEAT'S, entered there on the author's word and not in the defects bank: the trail at OPEN_TRAILS :15336
+                               carrying b698's four defects, the default bound at import in b698_record._defect_short (act=ACT, 'b698')
+  b699's defects               relay data/b699_defects.txt :6-:20 | rows are defects as lettered, (a)-(c); events beneath (:22-:38); the root
+                               prompt's (R278)(4) check at :40-:42, VACUOUS | (a) a pipe in a read at the act's opening, (b) two banks read through
+                               the shell's grep, (c) a glob in the branch listings -- all the seat's
+  the one-copy reading         PLACE-papers OPEN_TRAILS.md :15332 | ledger lines | PATHS_TO_THE_CRITICAL_LINE_v0_7 against its partner: 24 lines differ,
+                               the stored field partner_lines_differing 4; status OPEN
+  the bridge order             PLACE-papers OPEN_TRAILS.md :15334 | ledger lines | W-ORD-H2-BRIDGE-THEOREM, S1 h2_sign ↔ Register4_positivity LiCoeff
+                               DERIVES expected, one dispatch; status OPEN
+  b699's trail                 PLACE-papers OPEN_TRAILS.md :15336 (head), :15364 (its Defects line) | ledger lines | the Defects line lists b698's
+                               four ((a) a figure in a prompt not recounted ... (d) a root-named bank rewritten after the root) in place of b699's
+  the bridge plan              relay data/b699_bridge_plan.txt :9-:20 (what the kernels carry, K1-K5), :22 (section 1, the binders), :23-:29
+                               (binder 1), :67 (S1), :85 (the price), :88 (the verdict) | rows are binders | 14 rows (13 binders and the
+                               conclusion); binder 1 no translation object to object; S1 an equivalence, DERIVES expected; PRICE 1 DISPATCH
+  the regularity uses          relay data/b698_regularity_uses.txt :85 (the uses), :86 (the path), :87 (the verdict) | the per-column counts by line |
+                               uses: W1 11/6/0, W2 6/4/7, W3 13/4/0 (DISCHARGED/RE-PROVED/OBSTRUCTED) ; path: W1 13/4/0, W2 2/5/10, W3 17/0/0
+  P3's status                  relay data/b687_p3_status.txt :6-:9 (P3, BEFORE, AFTER), :10-:29 (the steps H1-H5), :35-:36 (the verdict) | rows are
+                               the premise with its readings | DERIVED, not compiled; the Lean form W-ORD-EPSTEIN-COUNT-LEAN's (:30-:31)
+  the count                    relay data/b685_count.txt :7-:17 (section 1, the parameters), :19-:25 (section 2, the constants), :27-:30 (section 3,
+                               the composition NOT RUN), :32-:38 (the hypotheses) | rows are T ranges after the constants | a = 0.432571915432,
+                               b = 0, c = 1.26244217716 for T ≥ 149; the composition run at b687 (data/b687_composition.txt)
+  reading 3                    relay data/b690_reading3.txt :3 (the unit), :8-:68 (rows (1)-(18)), :72-:96 (the appended (19), (20), (15b)), :98-:100
+                               (the verdict) | rows are readings | 345 outside; 57 behind; orders 165, open 38; lag median 105; residues 7; rules 21
+                               with arms 13; ONE-COPY 13; the pair rule 1 of 4
+  reading 2                    relay data/b680_licensed.txt, b680_correspondence.txt, b680_orders.txt, b680_lag.txt, b680_ceiling.txt,
+                               b680_methods.txt, b680_residues.txt, b680_rules_arms.txt -- no single reading-2 bank; reading 3 names these per row
+                               | rows are each bank's readings
+  the defects banks            relay data/b673_defects.txt through data/b699_defects.txt, 27 banks | rows are defects as lettered
+  the rules banks              relay data/b674_rules.txt, b675, b677, b678, b680, b681, b682, b684, b685, b686, b687, b688, b690, b692, b694,
+                               b698 -- 16 banks of the 26 acts b674-b699 (the other ten acts banked no rules) | rows are rules
+  the sort rule                relay data/b683_arms_sort.txt :3-:9 (the sort's words: SORT TRACEABLE or PROSE ; STATE LIVE, DECLARATION-ONLY or
+                               SUPERSEDED), :11-:115 (24 rows), :117-:118 (the verdict) | rows are rules
+  the record tool's            relay tools/b698_record.py :367 (`def _defect_short(act=ACT):`, the default bound at import), :384 (its call in the
+  defect_short                 defects route), carried by reference at tools/b699_record.py :786 | a tool's source
+  the root's named banks       relay tools/b698_record.py :1285-:1287 (ROOT_EXCLUDE), :1291-:1293 (root_banks: every data/<act>_* file not excluded
+                               and not binary, with the worklist's SHARED_APPENDED); tools/b699_record.py :806-:808 (b699's ROOT_EXCLUDE, the
+                               defects bank among the excluded) ; the list as computed: relay data/b699_act_root.json items (77 banks, the answers and
+                               citation banks named, the defects bank not) | a tool's source ; rows are banks
+  b672's generator roster      relay data/b672_roster_read.json | roster tables
+  the mirror roster            D:/MY-DOwnloads/mirror-refresh-2026-10-21-b699.zip, its MANIFEST.md | rows are the exported files
+  the circuit readings         relay data/b692_circuit_spec.txt, b692_circuit_bars.txt, b692_circuit_controls.txt, b692_circuit_dominance.txt,
+                               b692_circuit_shorts_branch.txt, b692_circuit_SIDE-explicit-formula_v0.34.1.txt (and its four hashes banks);
+                               data/b694_circuit_dominance.txt; data/b698_correspondence_dominance.txt :33-:74 (binders), :76-:77 | rows are readings
+  the Correspondence generator relay tools/correspondence_gen.py :247 (read_carry), :675 (main) | a tool's source
+  b699's closing push-out      relay data/b699_closing_push_out.txt :5 | rows are the push tool's capture lines | "main read back at the remote:
+                               85dd43d784c0..."; untracked, to be committed alone at step zero

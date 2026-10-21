@@ -1,0 +1,34 @@
+b700 -- STEP ZERO UNDER (R310): WHAT RAN, IN THE ORDER IT RAN (2026-10-21)
+
+### rows are step zero's items as run: the item | the bank or the command | the reading. The order as run is the ferry's written order,
+### the citation check before any other step and before any delete ((R310)(6)).
+
+  the ferry banked             data/b700_ferry.txt by the Write tool | 18519 characters, equal to the transcript's text; ferry_scan exit 0
+                               (data/b700_ferry_scan.txt)
+  the citation check           data/b700_citation_check.txt (.json), run before any other step | CITES CHECKED 108 ; OK 108 ; MISSES 0 (a dry run first
+                               read 2: both the seat's own needles reading the empty element after a bank's last newline, data/b699_cut.txt :40 and
+                               data/b699_bridge_plan.txt :88, corrected in the act's tool before the bank was written)
+  the readfirst bank           data/b700_readfirst.txt by the Write tool ; data/b700_readfirst_closure.txt and data/b700_readfirst_diff.txt by
+                               tools/circuit_read.py readfirst | ITEMS 11501 ; CITED BY THE TEXT 18 ; THE HAND LIST 24 PATHS ; BOTH 13 ; LINES
+                               DIFFERING 16 (HAND ONLY 11, OF WHICH IN THE CLOSURE 10 ; TEXT ONLY 5: this act's three banks to be written and the
+                               two rules banks Component 4 cites)
+  rowgen and constellation     data/b700_rowgen_stepzero.txt | CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19 ; STALE 0
+  the process listing          tail, lean, lake and python named (Win32_Process by name, PowerShell Get-CimInstance, before any write) | tail 0,
+                               lean 0, lake 0, python 0 ; free memory 8028 MB. No task of this session stopped; no orphan, nothing stopped by PID
+  b699's push-out bank         relay c4fc9c7d, committed alone | data/b699_closing_push_out.txt, main read back at 85dd43d7
+  the branches                 data/b700_branches_before.json (written before any delete: each tip, merged by ancestry, the remotes read once
+                               each) ; `git branch --merged main` listed per repository with no --list and no pattern ; data/b700_branches.txt
+                               (.json) after | nine named, each listed --merged; nine deleted by name (eight local, one remote), one per command,
+                               each its own message, nothing chained after any
+  the slate for b701           data/b700_slate.txt by the Write tool | W-ORD-H2-BRIDGE-THEOREM 1 dispatch ; W-ORD-EPSTEIN-COUNT-LEAN 6 dispatches at
+                               the least, Z_Q not yet in Lean ; classK to W1 ∪ W3 1 dispatch in b689's form, 10 uses and 4 path leaves re-proved
+  the tests                    data/b700_tests_stepzero.txt (.json) | 55 files ; 54 run, each its own process in the foreground, in six parts each
+                               after the hold printed (7641-7835 MB free) ; 1 withheld (test_elab_reader_b634.py, it runs lean) ; NOT CLEAN 2, each
+                               carried from b699's step zero (data/b699_tests_stepzero.txt :62): test_chain_page.py (9) ; test_chain_page_b638.py
+                               (4)-(7) ; the longest 376 s (test_chain_page.py) ; test_asof.py its own part (planned at b699's 515 s, ran 372 s)
+  the trees                    git status | relay tracked changes NONE ; PLACE-papers tracked changes NONE ; the untracked locals untracked
+                               (data/b628_intake_crank_v0_5.txt, data/b647_navigator_memory.txt, data/b671_narrow_run2_points.jsonl,
+                               data/b681_narrow_units.jsonl, data/b694_witness_units.jsonl, data/b696_witness_balls_units.jsonl)
+  no build                     no lean or lake process on this host
+
+### ### **STEP ZERO DONE: CITES 108, 108 OK, 0 MISSES ; BRANCHES 9 DELETED ; SLATE PRICED ; TESTS 54 RUN, 2 NOT CLEAN AS CARRIED ; NO BUILD ON THIS HOST.**

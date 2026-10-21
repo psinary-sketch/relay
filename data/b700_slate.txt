@@ -1,0 +1,55 @@
+b700 -- STEP ZERO, (R310)(4): THE SLATE FOR b701, PRICED BY THE SEAT AND PRINTED; NOTHING COMPILED (2026-10-21)
+
+### rows are orders: the order | its plan's source by path and line | what the kernels and Mathlib already carry (read by git grep bounded to
+### SIDE-explicit-formula's source tree and to its vendored Mathlib's Mathlib/ tree) | what is to be written | the price in dispatches (one
+### dispatch per tree state, b673 row 1; the price is the count of tree states the plan needs if each compiles at its first dispatch, the
+### b689 form's own record: one module set, one run at the branch tip, data/b689_runner_rows.json run1, DERIVES). Nothing here is compiled;
+### no lean on this host; no dispatch made for it.
+
+== 1. W-ORD-H2-BRIDGE-THEOREM (PLACE-papers OPEN_TRAILS :15334)
+  plan      relay data/b699_bridge_plan.txt :9-:20 (K1-K5), :22-:29 (binder 1), :67 (S1), :85-:86 (the price), :88 (the verdict)
+  carried   SIDE-explicit-formula v0.34: h2_sign_iff_rh (Seam.lean :101), register4_positivity_liCoeff_iff_rh (PageConverses.lean :32),
+            register4_positivity_liCoeff_imp_rh (ResidueDischarge.lean :41), LiCoeff (LiWeil.lean :243)
+  written   one module SIDEExplicitFormula/H2Bridge.lean carrying S1 (h2_sign ↔ Register4_positivity LiCoeff, composing K1 and K2 through
+            RiemannHypothesis) and S2 (h2_sign giving the face's third conjunct), its two names added to print_targets.txt
+  grade     S1 DERIVES expected (an equivalence of the two faces' targets, not a translation of objects); S2 an implication empty beyond S1
+  PRICE     1 DISPATCH (the plan's :85) ; 0 runs on this host
+
+== 2. W-ORD-EPSTEIN-COUNT-LEAN (P3's Lean form)
+  plan      relay data/b687_p3_status.txt :6-:9 (P3 DERIVED, not compiled), :10-:29 (H1-H5), :30-:31 (the Lean form this order's);
+            data/b685_count_plan.txt :15-:82 (steps (1)-(9)), :84-:90 (the composition); data/b685_count.txt :19-:25 (the constants in balls)
+  the statement as compiled: Schema/EpsteinQ0.lean :104 `A0Q : ℝ := 10`, :108 `Q0Count Z := HCount Z A0Q` over an ABSTRACT Zeta23.ZeroConfig
+            Z; no Lean definition of Z_Q or of its zero configuration stands in the kernel -- the count is a premise of the structure (:115),
+            so its Lean form needs Z := the zero configuration of a compiled Z_Q before any step proves HCount of it
+  carried   Mathlib (vendored): Jensen's formula MeromorphicOn.circleAverage_log_norm (Mathlib/Analysis/Complex/JensenFormula.lean :309),
+            AnalyticOnNhd.sum_divisor_le (:391) -- step (6); Phragmén-Lindelöf PhragmenLindelof.vertical_strip (PhragmenLindelof.lean :275)
+            -- step (7)(ii). The kernel (vendored Zeta23): digamma_stirling (Zeta23/GammaFacts/StirlingVert.lean :499), on vertical lines
+            -- the Stirling of step (2) wants log Γ's remainder θ/(6|z|), not the digamma's; zeta_local_zero_count (Zeta23/RvM/LocalCount.lean
+            :282), ζ's count by a Jensen-type route with NO Stirling -- but EXISTENTIAL, ∃ A₀ ≥ 1, so its transfer to Z_Q gives ∃ A₀ and does
+            not reach A0Q := 10.
+  absent    (by the searches above, Mathlib/ and the kernel's SIDEExplicitFormula/ and Zeta23/ trees): the argument principle on a contour
+            (step (1)); Stirling for log Γ with an explicit complex remainder (step (2)); Backlund's trick (step (5)); Z_Q, its continuation
+            and its functional equation (the object, section 0 of the plan)
+  written   six modules, one tree state each at the least: (M1) Z_Q, its continuation and functional equation, and its zero configuration ;
+            (M2) the argument principle on the half path ; (M3) log Γ's Stirling with remainder ; (M4) Backlund's trick at the plan's
+            conditions ; (M5) the Jensen and Phragmén-Lindelöf steps (6)-(7) on Mathlib's two ; (M6) the constants and the composition (9),
+            the balls entering as rational bounds whose certificates (python-flint arb, data/b685_count.txt) stay outside Lean as named
+            premises, and the certified range -150 <= t <= 149 resting on (P1)-(P2), each itself stated, not proved
+  PRICE     6 DISPATCHES AT THE LEAST (one per module's tree state, each compiling at its first dispatch) ; M1 the largest and not priced
+            beyond its one dispatch by any bank ; P3 stays DERIVED, not compiled, until M1-M6 merge ; 0 runs on this host
+
+== 3. THE classK WIDENING TO W1 ∪ W3, IN b689'S FORM (plan, the author's word, the build on a branch, one run at its tip)
+  plan      relay data/b698_regularity_uses.txt :16-:19 (the class named), :27-:43 (U1-U17), :46-:49 (s1-s4), :58-:74 (P1-P17), :75-:76 (s5,
+            s6), :85-:86 (the counts)
+  RE-PROVED rows (the price's base): W1 uses 6 -- U1, U3, U10, U13 by (s1), U5, U6 by (s4) ; W1 path 4 -- P3, P6 by (s1), P7, P13 by (s6) ;
+            W3 uses 4 -- U4, U7, U11, U14 by (s2) ; W3 path 0. Under W1 ∪ W3 together: 10 uses and 4 path leaves to re-prove, by 4 sketch
+            families (s1, s2, s4, s6) ; OBSTRUCTED 0 in either column.
+  written   the class's definition beside classK (classK kept); one lemma family per sketch -- (s1) the decay by parts with ‖k''‖₁ for a C¹ k
+            with absolutely continuous derivative, (s2) paperFT's additivity over a finite sum of autocorrelations, (s4) WeilConfig's field
+            restated over the class, (s6) the reflection; the two vendored leaves P3 (Zeta23/WeilEF/FullLine.lean :88) and P6
+            (VerticalLine.lean :91) restated in the programme's namespace, the vendored files not edited (LocalCount.lean :11-:13's rule)
+  PRICE     1 DISPATCH IN b689'S FORM (the module set on one branch, one run at its tip), the count holding only if the four families
+            compile in one tree state ; each failing tree state one dispatch more ; 0 runs on this host
+
+### ### **SLATE FOR b701: W-ORD-H2-BRIDGE-THEOREM 1 DISPATCH ; W-ORD-EPSTEIN-COUNT-LEAN 6 DISPATCHES AT THE LEAST, Z_Q NOT YET IN LEAN ;
+### ### classK TO W1 ∪ W3 1 DISPATCH IN b689'S FORM, 10 USES AND 4 PATH LEAVES RE-PROVED ; NOTHING COMPILED.**
