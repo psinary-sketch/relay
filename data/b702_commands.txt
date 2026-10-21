@@ -1,0 +1,215 @@
+b702 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-21T21:31:35Z)
+
+### the source: the seat`s session e5bcf1d0-1e8c-4ad1-a048-b35048cad0b6 from its first user line carrying 'RULING (R312) BEGIN', with its subagents` transcripts
+### commands read: 151
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b701, session e5bcf1d0): 166 commands from 2026-10-21T18:39:14.733Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (none ordered this act: N1, a runner for a kernel re-cut alone) (0):
+  NONE
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (1):
+  #14 2026-10-21T19:32:55.117Z Get-CimInstance Win32_Process -Filter "Name='claude.exe' OR Name='tail.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='python3.exe' OR Name='node.exe'" | Select-Object Process
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (8):
+  #26 2026-10-21T19:43:09.490Z Bash
+      git -C /d/relay branch -d push-b701
+  #27 2026-10-21T19:43:12.182Z Bash
+      git -C /d/relay branch -d push-b701-root
+  #28 2026-10-21T19:43:15.046Z Bash
+      git -C /d/relay branch -d push-b701-closing
+  #29 2026-10-21T19:43:18.263Z Bash
+      git -C "/d/MY-DOwnloads/PLACE-papers" branch -d push-b701
+  #30 2026-10-21T19:43:21.088Z Bash
+      git -C "/d/MY-DOwnloads/PLACE-papers" branch -d push-b701-root
+  #31 2026-10-21T19:43:24.315Z Bash
+      git -C /d/SIDE-explicit-formula branch -d bridge-b701
+  #32 2026-10-21T19:43:27.991Z Bash
+      git -C /d/SIDE-explicit-formula push origin --delete bridge-b701
+  #33 2026-10-21T19:43:32.824Z Bash
+      git -C /d/SIDE-explicit-formula branch -d push-b701-bridge
+
+### THE BRANCH DELETES BY SHAPE ((R312)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #26 deletes ['push-b701'], halves 1, globs none, variables none, chained after False; #27 deletes ['push-b701-root'], halves 1, globs none, variables none, chained after False; #28 deletes ['push-b701-closing'], halves 1, globs none, variables none, chained after False; #29 deletes ['push-b701'], halves 1, globs none, variables none, chained after False; #30 deletes ['push-b701-root'], halves 1, globs none, variables none, chained after False; #31 deletes ['bridge-b701'], halves 1, globs none, variables none, chained after False; #32 deletes ['bridge-b701'], halves 1, globs none, variables none, chained after False; #33 deletes ['push-b701-bridge'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-21T19:19:11.675Z | seat | Bash | wc -l /d/relay/data/b701_ferry.txt /d/relay/tools/b701_worklist.py /d/relay/tools/b701_citation.py /d/relay/tools/b701_tests.py && git -C /d/relay log -1 --form
+  #2 | 2026-10-21T19:20:35.097Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/ferry_scan.py data/b702_ferry.txt
+  #3 | 2026-10-21T19:20:37.183Z | seat | Bash | git -C /d/relay status --short --untracked-files=no && git -C "/d/MY-DOwnloads/PLACE-papers" rev-parse main origin/main && git -C /d/relay rev-parse main origin
+  #4 | 2026-10-21T19:21:21.897Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote --heads origin && git -C /d/SIDE-explicit-formula branch --list && git -C /d/relay branch --merged main && git -C "/d/
+  #5 | 2026-10-21T19:21:24.391Z | seat | Bash | wc -l /d/relay/data/b670_licensed_table.txt /d/relay/data/b700_reading4.txt "/d/MY-DOwnloads/PLACE-papers/README.md" "/d/MY-DOwnloads/PLACE-papers/REGISTRY.md" 
+  #6 | 2026-10-21T19:23:13.689Z | seat | Bash | ls /d/relay/data/b670_* /d/relay/data/b700_r4_* /d/relay/data/b699_tie* /d/relay/data/b697_tie* /d/relay/data/b695_tie* /d/relay/data/b652_*
+  #7 | 2026-10-21T19:23:53.936Z | seat | Bash | ls -d /d/SIDE-window /d/SIDE-effects && git -C /d/SIDE-window ls-remote --tags origin
+  #8 | 2026-10-21T19:24:00.184Z | seat | Bash | ls /d/relay/data/b699_cut* /d/relay/data/b697_cut* /d/relay/data/b699_quote* /d/relay/data/b699_prints* /d/relay/data/b699_runner* /d/relay/data/b699_distance* 
+  #9 | 2026-10-21T19:25:40.612Z | seat | Bash | git -C /d/SIDE-effects ls-remote origin refs/heads/main refs/tags/*
+  #10 | 2026-10-21T19:25:46.121Z | seat | Bash | ls -l /d/relay/tools/chain_page.py /d/relay/tools/b700_corrigendum.py /d/relay/tools/b699_corrigendum.py /d/relay/data/b700_r4_faces.txt /d/relay/data/b672_one_
+  #11 | 2026-10-21T19:31:18.700Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b702_worklist.py /d/relay/tools/b702_citation.py && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools
+  #12 | 2026-10-21T19:31:28.389Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b702_citation.py && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b702_citation.py check dry
+  #13 | 2026-10-21T19:32:03.885Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b702_citation.py && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b702_citation.py check
+  #14 | 2026-10-21T19:32:55.117Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='claude.exe' OR Name='tail.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='python3.exe' OR 
+  #15 | 2026-10-21T19:34:18.568Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/circuit_read.py readfirst b702_ferry.txt b702_readfirst.txt
+  #16 | 2026-10-21T19:34:20.112Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b702_record.py && PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 /d/relay/tools/b702_record.py rowgen
+  #17 | 2026-10-21T19:34:21.331Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b702_record.py branches before
+  #18 | 2026-10-21T19:34:22.813Z | seat | Bash | git -C /d/relay add data/b701_closing_push_out.txt && git -C /d/relay commit -q -m "b702 step zero under (R312)(8): b701's closing push-out bank committed alone
+  #19 | 2026-10-21T19:35:34.393Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote --tags origin
+  #20 | 2026-10-21T19:35:35.343Z | seat | Bash | ls -d /d/SIDE-kernel && git -C /d/SIDE-kernel ls-remote --tags origin
+  #21 | 2026-10-21T19:35:37.578Z | seat | Bash | git -C /d/relay show HEAD~1:tools/b701_tests.py --stat --format='%h' && wc -l /d/relay/data/b701_closing_push_out.txt
+  #22 | 2026-10-21T19:40:58.616Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b702_citation.py word "Kernel branches, (R312)(8): 1"
+  #23 | 2026-10-21T19:43:04.162Z | seat | Bash | git -C /d/relay branch --merged main
+  #24 | 2026-10-21T19:43:05.149Z | seat | Bash | git -C "/d/MY-DOwnloads/PLACE-papers" branch --merged main
+  #25 | 2026-10-21T19:43:05.928Z | seat | Bash | git -C /d/SIDE-explicit-formula branch --merged main
+  #26 | 2026-10-21T19:43:09.490Z | seat | Bash | git -C /d/relay branch -d push-b701
+  #27 | 2026-10-21T19:43:12.182Z | seat | Bash | git -C /d/relay branch -d push-b701-root
+  #28 | 2026-10-21T19:43:15.046Z | seat | Bash | git -C /d/relay branch -d push-b701-closing
+  #29 | 2026-10-21T19:43:18.263Z | seat | Bash | git -C "/d/MY-DOwnloads/PLACE-papers" branch -d push-b701
+  #30 | 2026-10-21T19:43:21.088Z | seat | Bash | git -C "/d/MY-DOwnloads/PLACE-papers" branch -d push-b701-root
+  #31 | 2026-10-21T19:43:24.315Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -d bridge-b701
+  #32 | 2026-10-21T19:43:27.991Z | seat | Bash | git -C /d/SIDE-explicit-formula push origin --delete bridge-b701
+  #33 | 2026-10-21T19:43:32.824Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -d push-b701-bridge
+  #34 | 2026-10-21T19:43:48.923Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote origin
+  #35 | 2026-10-21T19:43:58.600Z | seat | Bash | git -C /d/relay add data/b702_readme_currency.txt && git -C /d/relay commit -q -m "b702 step zero under (R312)(5): the README's currency lines listed and commit
+  #36 | 2026-10-21T19:43:59.707Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b702_tests.py && python -X utf8 /d/relay/tools/b702_tests.py parts
+  #37 | 2026-10-21T19:44:13.728Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b702_record.py && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b702_record.py branches
+  #38 | 2026-10-21T19:44:16.222Z | seat | Bash | git -C /d/relay add data/b702_circuit_spec.txt && git -C /d/relay commit -q -m "b702 step zero under (R312)(7): the circuit specification's twelfth row, BINDER-
+  #39 | 2026-10-21T19:44:18.178Z | seat | Bash | python -X utf8 tools/b702_tests.py hold 1 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_addenda_licence.py test_add
+  #40 | 2026-10-21T19:44:32.915Z | seat | Bash | python -X utf8 tools/b702_tests.py hold 2 && python -X utf8 tools/b702_tests.py run test_asof.py
+  #41 | 2026-10-21T19:51:01.085Z | seat | Bash | python -X utf8 tools/b702_tests.py hold 3 && for t in test_axiom_claim.py test_axiom_claim_b651.py test_banned_terms_backmatter.py test_build_watch_b644.py test
+  #42 | 2026-10-21T19:51:44.163Z | seat | Bash | python -X utf8 tools/b702_tests.py hold 4 && python -X utf8 tools/b702_tests.py run test_chain_page.py
+  #43 | 2026-10-21T19:57:45.267Z | seat | Bash | python -X utf8 tools/b702_tests.py hold 5 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_page_b630.py test_chain
+  #44 | 2026-10-21T20:00:46.445Z | seat | Bash | python -X utf8 tools/b702_tests.py hold 6 && for t in test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py test_licensed_table_instr
+  #45 | 2026-10-21T20:05:46.281Z | seat | Bash | python -X utf8 tools/b702_tests.py hold 7 && for t in test_push_gated.sh test_reader_needle_b641.py test_record_findings_b632.py test_registry_tags_b636.py test
+  #46 | 2026-10-21T20:06:28.263Z | seat | Bash | python -X utf8 tools/b702_tests.py report
+  #47 | 2026-10-21T20:06:30.868Z | seat | Bash | git -C /d/relay status --short --untracked-files=no && git -C "/d/MY-DOwnloads/PLACE-papers" status --short --untracked-files=no && git -C /d/relay status --sho
+  #48 | 2026-10-21T20:07:09.339Z | seat | Bash | git -C /d/relay add data/b702_branches.json data/b702_branches.txt data/b702_branches_before.json data/b702_citation_check.json data/b702_citation_check.txt dat
+  #49 | 2026-10-21T20:08:49.428Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b702_record.py && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b702_record.py c1 dry
+  #50 | 2026-10-21T20:09:08.902Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b702_record.py c1
+  #51 | 2026-10-21T20:11:20.226Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b702_corrigendum.py && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b702_corrigendum.py dry
+  #52 | 2026-10-21T20:11:47.232Z | seat | Bash | python -X utf8 -m py_compile /d/relay/tools/b702_corrigendum.py && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b702_corrigendum.py dry
+  #53 | 2026-10-21T20:12:16.669Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 /d/relay/tools/b702_corrigendum.py land
+  #54 | 2026-10-21T20:34:00.314Z | seat | Bash | git -C /d/relay status --porcelain --untracked-files=all
+  #55 | 2026-10-21T20:34:00.381Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers status --porcelain --untracked-files=all
+  #56 | 2026-10-21T20:34:00.476Z | seat | Bash | git -C /d/SIDE-explicit-formula status --porcelain --untracked-files=all
+  #57 | 2026-10-21T20:34:01.329Z | seat | Bash | sha256sum /d/relay/tools/b702_checks.py /d/relay/tools/b702_corrigendum.py /d/relay/tools/b702_record.py
+  #58 | 2026-10-21T20:34:02.269Z | seat | Bash | wc -l /d/relay/tools/b702_checks.py /d/relay/tools/b702_corrigendum.py /d/relay/tools/b702_record.py /d/relay/data/b702_readfirst.txt /d/relay/data/b702_citatio
+  #59 | 2026-10-21T20:35:35.353Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py word "RESUME. The act stopped at Component 1"
+  #60 | 2026-10-21T20:35:41.119Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py word "(A) THE CLOSURE JOIN, ORDERED"
+  #61 | 2026-10-21T20:35:42.178Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py word "(B) THE PROSE"
+  #62 | 2026-10-21T20:35:43.147Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py word "(C) THE ARMS"
+  #63 | 2026-10-21T20:36:02.946Z | seat | Bash | git -C /d/SIDE-lv-conservation rev-parse --short=7 "v0.10.0^{commit}"
+  #64 | 2026-10-21T20:36:19.644Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py answers dry
+  #65 | 2026-10-21T20:36:51.120Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py answers dry
+  #66 | 2026-10-21T20:37:02.875Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py answers
+  #67 | 2026-10-21T20:37:24.753Z | seat | Bash | git -C /d/relay log --format="%h %ad %s" --date=format:%H:%M:%S 613847d6..HEAD
+  #68 | 2026-10-21T20:37:24.793Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log --format="%h %s" 1e3fda0..HEAD
+  #69 | 2026-10-21T20:39:25.444Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py guard dry
+  #70 | 2026-10-21T20:39:47.088Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py guard dry
+  #71 | 2026-10-21T20:40:38.939Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py guard
+  #72 | 2026-10-21T20:40:39.833Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py repairs dry
+  #73 | 2026-10-21T20:40:51.923Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py repairs
+  #74 | 2026-10-21T20:41:19.845Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py defshort b702
+  #75 | 2026-10-21T20:41:48.093Z | seat | Bash | git -C /d/relay add tools/b702_record.py tools/b702_checks.py tools/b702_corrigendum.py tools/b702_worklist.py data/b702_record_lines.json data/b702_corrigendum
+  #76 | 2026-10-21T20:41:48.399Z | seat | Bash | git -C /d/relay status --porcelain --untracked-files=no
+  #77 | 2026-10-21T20:41:56.106Z | seat | Bash | git -C /d/relay commit -q -m "b702 Component 1 under (R312)(1)-(2): b701 at its weight (FINDINGS :9824); the generated corrigendum entry (FINDINGS :9826) declar
+  #78 | 2026-10-21T20:42:00.013Z | seat | Bash | git -C /d/relay log -1 --format=%h
+  #79 | 2026-10-21T20:42:03.644Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md
+  #80 | 2026-10-21T20:42:08.295Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -q -m "b702 Component 1 under (R312)(1)-(2): b701 at its weight beneath its entry (FINDINGS :9824), and the generated
+  #81 | 2026-10-21T20:42:11.654Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log -1 --format=%h
+  #82 | 2026-10-21T20:43:15.158Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py tie dry
+  #83 | 2026-10-21T20:43:20.312Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py tie
+  #84 | 2026-10-21T20:43:30.361Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log --format="%h %ad %s" --date=short -- day1/Seven_Mechanism_Classes.md
+  #85 | 2026-10-21T20:43:30.836Z | seat | Bash | wc -l /d/MY-DOwnloads/PLACE-papers/day1/Seven_Mechanism_Classes.md
+  #86 | 2026-10-21T20:43:57.167Z | seat | Bash | sha256sum /d/MY-DOwnloads/PLACE-papers/day1/Seven_Mechanism_Classes.md
+  #87 | 2026-10-21T20:47:19.330Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py quote dry
+  #88 | 2026-10-21T20:47:47.720Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py quote dry
+  #89 | 2026-10-21T20:48:00.006Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py quote
+  #90 | 2026-10-21T20:48:48.634Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py cut dry
+  #91 | 2026-10-21T20:48:56.702Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py cut
+  #92 | 2026-10-21T20:49:08.201Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add day1/Seven_Mechanism_Classes.md
+  #93 | 2026-10-21T20:49:14.116Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -q -m "b702 Component 2 under (R312)(3): day1/Seven_Mechanism_Classes.md (v3.3.1) re-cut by the b670 method on its ta
+  #94 | 2026-10-21T20:49:29.959Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log -1 --format=%h --name-only
+  #95 | 2026-10-21T20:49:50.828Z | seat | Bash | git -C /d/relay add tools/b702_record.py tools/b702_worklist.py data/b702_tie.txt data/b702_tie.json data/b702_quote.txt data/b702_quote.json data/b702_cut.txt 
+  #96 | 2026-10-21T20:49:51.360Z | seat | Bash | git -C /d/relay status --porcelain --untracked-files=no
+  #97 | 2026-10-21T20:50:00.614Z | seat | Bash | git -C /d/relay commit -q -m "b702 Component 2 under (R312)(3): the tie bank (b652's order and b674's rule printed verbatim before the document is named; every 
+  #98 | 2026-10-21T20:50:04.397Z | seat | Bash | git -C /d/relay log -1 --format=%h
+  #99 | 2026-10-21T20:50:20.484Z | seat | Bash | wc -l /d/relay/data/b702_ferry.txt /d/relay/data/b701_faces_rows.txt /d/relay/data/b702_readme_currency.txt /d/relay/data/b700_reading4.txt
+  #100 | 2026-10-21T20:50:34.194Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -F "li_nonneg_cfg_imp_online_ne_zero" v0.34 -- SIDEExplicitFormula
+  #101 | 2026-10-21T20:50:35.120Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -F "theorem h2_sign_iff_register4_positivity_liCoeff" v0.35 -- SIDEExplicitFormula
+  #102 | 2026-10-21T20:59:54.652Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py answer "(R312)(5) citation misses: 1, read :127/:131, no row"
+  #103 | 2026-10-21T21:00:04.454Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py answer "(R312)(4) faces row: 1, regenerate"
+  #104 | 2026-10-21T21:00:12.106Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py answer "(R312)(5) the README: 1, apply, with the sharpened append"
+  #105 | 2026-10-21T21:00:20.368Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py answer "(R312)(6) W-ORD-PAPER-PARTNER-COPIES: 3, (iii), rename in place"
+  #106 | 2026-10-21T21:01:01.304Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py word "(R312)(4)–(6) answers, the author’s, one per check"
+  #107 | 2026-10-21T21:01:20.437Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py answers
+  #108 | 2026-10-21T21:02:13.138Z | seat | Bash | wc -l /d/relay/tools/chain_page.py /d/relay/data/b697_nodes_zeta.txt
+  #109 | 2026-10-21T21:02:26.982Z | seat | Bash | ls /d/relay/data/b697_faces* /d/relay/data/b680_faces* /d/relay/data/b643_*probe* 2>&1
+  #110 | 2026-10-21T21:02:38.247Z | seat | Bash | wc -l /d/relay/data/b697_faces_diff.txt /d/relay/data/b697_faces_rows.txt
+  #111 | 2026-10-21T21:04:43.437Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py faces dry
+  #112 | 2026-10-21T21:06:51.186Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py faces dry
+  #113 | 2026-10-21T21:08:52.634Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py faces
+  #114 | 2026-10-21T21:12:19.451Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_citation.py answer "(R312)(4) faces line: 1, regenerate, three lines"
+  #115 | 2026-10-21T21:12:45.910Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py faces dry
+  #116 | 2026-10-21T21:14:50.120Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py faces
+  #117 | 2026-10-21T21:17:30.414Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers diff --numstat
+  #118 | 2026-10-21T21:17:34.677Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add THE_CLAUSE_AND_ITS_COMPILED_FACES.md
+  #119 | 2026-10-21T21:17:43.457Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -q -m "b702 Component 3 under (R312)(4) and the author's word (regenerate; then regenerate, three lines): THE_CLAUSE_
+  #120 | 2026-10-21T21:17:49.713Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log -1 --format=%h
+  #121 | 2026-10-21T21:17:56.740Z | seat | Bash | git -C /d/SIDE-window ls-remote --tags origin v0.5.2 "v0.5.2^{}"
+  #122 | 2026-10-21T21:18:00.682Z | seat | Bash | git -C /d/SIDE-effects ls-remote origin refs/heads/main
+  #123 | 2026-10-21T21:18:04.858Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote --tags origin v0.35 "v0.35^{}"
+  #124 | 2026-10-21T21:18:57.287Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py readme
+  #125 | 2026-10-21T21:19:02.627Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add README.md
+  #126 | 2026-10-21T21:19:08.094Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -q -m "b702 Component 3 under (R312)(5) and the author's word (apply, with the sharpened append): README.md's currenc
+  #127 | 2026-10-21T21:19:11.570Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log -1 --format="%h %T"
+  #128 | 2026-10-21T21:20:07.110Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py c3orders dry
+  #129 | 2026-10-21T21:20:12.753Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py c3orders
+  #130 | 2026-10-21T21:20:21.575Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add OPEN_TRAILS.md
+  #131 | 2026-10-21T21:20:27.514Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -q -m "b702 Component 3 under (R312)(4) and (6): W-ORD-FACES-PROBE-CURRENT entered (OPEN_TRAILS :15444; the re-probe 
+  #132 | 2026-10-21T21:20:31.171Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log -1 --format=%h
+  #133 | 2026-10-21T21:20:36.073Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py answers
+  #134 | 2026-10-21T21:20:46.466Z | seat | Bash | git -C /d/relay add tools/b702_record.py tools/b702_checks.py tools/b702_worklist.py data/b702_c3_print.txt data/b702_author_answers.txt data/b702_author_answer
+  #135 | 2026-10-21T21:20:46.922Z | seat | Bash | git -C /d/relay status --porcelain --untracked-files=no
+  #136 | 2026-10-21T21:20:53.561Z | seat | Bash | git -C /d/relay commit -q -m "b702 Component 3 under (R312)(4)-(6): the four questions printed before their prompt (data/b702_c3_print.txt) and answered -- the 
+  #137 | 2026-10-21T21:20:57.006Z | seat | Bash | git -C /d/relay log -1 --format=%h
+  #138 | 2026-10-21T21:21:07.165Z | seat | Bash | wc -l /d/relay/data/b702_ferry_scan.txt
+  #139 | 2026-10-21T21:21:33.741Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py orders dry
+  #140 | 2026-10-21T21:21:40.276Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py orders
+  #141 | 2026-10-21T21:21:46.027Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add OPEN_TRAILS.md
+  #142 | 2026-10-21T21:21:51.722Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -q -m "b702 Component 4 under (R312)(7) and the author's mid-act words (A)-(C): W-ORD-STANDING-CLAUSES-BANK entered a
+  #143 | 2026-10-21T21:21:55.275Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log -1 --format=%h
+  #144 | 2026-10-21T21:22:02.807Z | seat | Bash | git -C /d/relay add tools/b702_record.py tools/b702_worklist.py data/b702_orders_line.json
+  #145 | 2026-10-21T21:22:07.620Z | seat | Bash | git -C /d/relay commit -q -m "b702 Component 4 under (R312)(7) and the author's mid-act words (A)-(C): the four orders' landing bank (PLACE-papers e860fba, OPEN
+  #146 | 2026-10-21T21:22:11.258Z | seat | Bash | git -C /d/relay log -1 --format=%h
+  #147 | 2026-10-21T21:22:39.003Z | seat | Bash | wc -l /d/relay/tools/b701_record.py /d/relay/tools/b701_closing.py /d/relay/tools/b701_reg_gate.py /d/relay/tools/b701_regspec.py /d/relay/tools/b701_worklist.p
+  #148 | 2026-10-21T21:26:21.972Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b702_record.py standing
+  #149 | 2026-10-21T21:30:14.636Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_closing.py dry
+  #150 | 2026-10-21T21:31:03.708Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py commands dry
+  #151 | 2026-10-21T21:31:04.575Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b702_record.py reads dry
+
+### ### **COMMANDS 151 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 166 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 8 OF 8 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

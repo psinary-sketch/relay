@@ -328,6 +328,14 @@ REPAIR_ROWS = [
      'a BEGIN only at a text`s start or after `="`, and the paste carries a lead line before its BEGIN, so the route banked one word where two were '
      'given. b698`s route runs unedited; midact_words then reads every user text carrying the mid-act lead, cut from its line-initial BEGIN to its '
      'last line-initial END, its parts named by their line-initial heads, appended verbatim.', None, None, ('b702_record.py', ('midact_words', 'answers'))),
+    ('(3) tools/b702_checks.py, six of the act`s own arms in their first form -- ANSWERS the first act-part pre-run (2026-10-21T21:58Z, relay '
+     'data/b702_arms_prerun_act.txt), which read them failing on real state: corrigendum_ok, cut_ok, faces_ok and readme_ok unpacked tri()`s '
+     '(the working tree, the base, HEAD) in the wrong order; corrigendum_ok read "FINDINGS.md :n" where its bank writes "FINDINGS :n"; readme_ok '
+     'read "(R312)(5)" where the README writes "`(R312)`(5)"; citation_ok carried placeholder headers for the misses` prompt (MISS_HEADERS, '
+     'its header "R312(5) cites"); _kernel_prompt_ts looked for the question in a calls bank that carries none (the answers bank`s text names the '
+     'call); answers_checked_ok keyed "Faces", "README" and "Partner" where the checks` needles read "faces", "README: 1" and "PARTNER-COPIES: 3". '
+     'Each corrected before the seal and the part re-run; the positive controls unchanged.', None, None,
+     ('b702_checks.py', ('corrigendum_ok', 'cut_ok', 'faces_ok', 'readme_ok', 'citation_ok', '_kernel_prompt_ts', 'answers_checked_ok'))),
 ]
 
 
@@ -863,8 +871,628 @@ def orders(*a):
          check=[('OPEN_TRAILS.md', 15446, '*Appended 2026-10-21 by b702 in place of `W-ORD-ONE-COPY`')], dry='dry' in a)
 
 
+# ================================================================================ THE LATE ROUTES (b701's, carried with b702's names)
+import edit_route as ER            # noqa: E402
+
+EF = K.KERNEL_DIR
+
+
+def capture():
+    """b701's capture: the seat's session from K.ANCHOR, then each continuation (K.SESSIONS_AFTER) from its own anchor."""
+    rows = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
+    for sid, anc in K.SESSIONS_AFTER:
+        more = ER.capture('%s/%s.jsonl' % (PROJ, sid), anc, '%s/%s/subagents' % (PROJ, sid))
+        if not more:
+            sys.exit('### THE CONTINUATION SESSION %s READ NO COMMAND (the anchor %r not found as a user line) -- NOTHING WRITTEN' % (sid, anc))
+        rows += [dict(r, src=r['src'] + ' ' + sid[:8]) for r in more]
+    rows.sort(key=lambda r: r['ts'])
+    bg = R._bg_calls()
+    for i, r in enumerate(rows):
+        r['n'] = i + 1
+        r['bg'] = (r.get('ts'), r.get('cmd')) in bg
+    return rows
+
+
+R.capture = capture
+prev_capture = R.prev_capture
+
+
+def reads(*a):
+    """b701's route (data/b698_rules.txt row (2)) over the seat's session from the anchor."""
+    rows = []
+    for i, o, _st, sid in R._session_rows():
+        if o.get('type') != 'assistant':
+            continue
+        for c in (o.get('message') or {}).get('content') or []:
+            if isinstance(c, dict) and c.get('type') == 'tool_use' and c.get('name') == 'Read':
+                inp = c.get('input') or {}
+                p = inp.get('file_path') or ''
+                rows.append(dict(line=i if sid == K.SESSION_ID else '%s:%d' % (sid[:8], i), ts=o.get('timestamp'), path=p, offset='offset' in inp,
+                                 limit='limit' in inp, lines=R._lines_now(p)))
+    whole = [r for r in rows if not (r['offset'] and r['limit'])]
+    bad = [r for r in whole if r['lines'] is None or r['lines'] >= 200]
+    L = ['%s -- THE READ CALLS SINCE THE ANCHOR, BY data/b698_rules.txt ROW (2) (%s)' % (ACT, utc()), '',
+         '### the rule: whole where the file is under two hundred lines, by offset and limit otherwise. Rows are Read calls without both offset and',
+         '### limit: transcript line | time | the file`s lines read now | WITHIN THE RULE or ### AN OFFENCE | path']
+    L += ['  %s | %s | %s | %s | %s' % (r['line'], r['ts'], r['lines'], '### AN OFFENCE' if r in bad else 'WITHIN THE RULE', r['path']) for r in whole] or ['  NONE']
+    L += ['', '### ### **READ CALLS %d ; WITH OFFSET AND LIMIT %d ; WHOLE %d ; WHOLE OF A FILE OF 200 LINES OR MORE %d.**' % (
+        len(rows), len(rows) - len(whole), len(whole), len(bad))]
+    if 'dry' not in a:
+        put_txt('%s_read_calls.txt' % ACT, L)
+    print(NL.join(L[-1 - len(bad):]) if bad else L[-1])
+    for r in bad:
+        print('  OFFENCE transcript line %s %s %s lines' % (r['line'], r['path'], r['lines']))
+
+
+R.reads = reads
+edit_route_offences = R.edit_route_offences
+QUOTED, REDIRECT_NULL, REDIRECT_ANY, PIPE_FILTER, PY_PRINT_READ, MOVE_OR_DELETE, SED_KIND = (
+    R.QUOTED, R.REDIRECT_NULL, R.REDIRECT_ANY, R.PIPE_FILTER, R.PY_PRINT_READ, R.MOVE_OR_DELETE, R.SED_KIND)
+local_lean, delete_shape, chained_after, seal_hashes, root_banks_state = R.local_lean, R.delete_shape, R.chained_after, R.seal_hashes, R.root_banks_state
+root_banks, rootbanks, root, root_arm, table_final = R.root_banks, R.rootbanks, R.root, R.root_arm, R.table_final
+_iso_epoch, _git_ct, _files_of, _ledger_adds, _amended_after = R._iso_epoch, R._git_ct, R._files_of, R._ledger_adds, R._amended_after
+
+
+def commands(*a):
+    """b701's route with b702's names: the act's command capture, G-EDIT-ROUTE's reading over it and over the previous act's window, the
+    local lean reading (N1), the dispatches (none ordered: a paper is the table's next document), the detached runs, sed, the redirects, the pipes,
+    the one-line programs, the moves and deletes by shape, the outbound requests. data/b702_commands.txt (.json)."""
+    rows = capture()
+    if not rows:
+        sys.exit('### THE COMMAND CAPTURE READ NO COMMAND -- NOTHING WRITTEN')
+    hits = edit_route_offences(rows)
+    prev = prev_capture()
+    phits = edit_route_offences(prev)
+    sh_ = [r for r in rows if r['tool'] in ('Bash', 'PowerShell')]
+    lean = [r for r in sh_ if local_lean(r['cmd'])]
+    mv = [r for r in sh_ if MOVE_OR_DELETE.search(QUOTED.sub('""', r['cmd']))]
+    disp = [r for r in sh_ if re.search(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py dispatch\b(?![^\n]*\bdry\b)', QUOTED.sub('""', r['cmd']), re.M)]
+    detach = [r for r in sh_ if (r.get('bg') or re.search(r'Start-Process|\bnohup\b|run_in_background', QUOTED.sub('""', r['cmd'])))]
+    seds = [r for r in sh_ if R.sed_cmd(r['cmd'])]
+    nulls = [r for r in sh_ if REDIRECT_NULL.search(QUOTED.sub('""', r['cmd']))]
+    redir = [r for r in sh_ if REDIRECT_ANY.search(QUOTED.sub('""', r['cmd']))]
+    pipes = [r for r in sh_ if PIPE_FILTER.search(QUOTED.sub('""', r['cmd']))]
+    anypipe = [r for r in sh_ if '|' in QUOTED.sub('""', r['cmd']).replace('||', '')]
+    pyreads = [r for r in sh_ if PY_PRINT_READ.search(r['cmd'])]
+    shapes = [(r['n'],) + delete_shape(r['cmd']) for r in mv if delete_shape(r['cmd'])[0]]
+    chained = [r['n'] for r in mv if delete_shape(r['cmd'])[0] and chained_after(r['cmd'])]
+    halves = dict((r['n'], len([x for x in re.split(r'&&|\|\||;|\|', QUOTED.sub('""', r['cmd'])) if x.strip()])) for r in mv)
+    ob = R.outbound()
+    L = ['%s -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (%s)' % (ACT, utc()), '',
+         '### the source: the seat`s session %s from its first user line carrying %r, with its subagents` transcripts%s' % (
+             K.SESSION_ID, K.ANCHOR, ''.join('; the continuation %s from its first user line carrying %r' % (s[:8], a_) for s, a_ in K.SESSIONS_AFTER)),
+         '### commands read: %d' % len(rows), '', '### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (%d):' % len(hits)]
+    for r, o in hits:
+        L += ['  #%d %s %s %s -- %s' % (r['n'], r['ts'], r['src'], r['tool'], '; '.join(k for k, _ in o))] + ['      ' + x for x in r['cmd'].split(NL)]
+    if not hits:
+        L.append('  NONE')
+    L += ['', '### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (%s, session %s): %d commands from %s, its offences printed whole (%d):' % (
+        PREV, R.PREV_SESSION[:8], len(prev), prev[0]['ts'] if prev else '-', len(phits))]
+    for r, o in phits:
+        L += ['  #%s %s %s %s -- %s' % (r['n'], r['ts'], r['src'], r['tool'], '; '.join(k for k, _ in o))] + ['      ' + x for x in r['cmd'].split(NL)]
+    if not phits:
+        L.append('  NONE')
+    L += ['', '### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (%d):' % len(lean)] + (['  #%d %s' % (r['n'], r['cmd'][:200]) for r in lean] or ['  NONE'])
+    L += ['', '### THE RUNNER DISPATCHES (none ordered this act: N1, a runner for a kernel re-cut alone) (%d):' % len(disp)] + (
+        ['  #%d %s' % (r['n'], r['cmd'][:240]) for r in disp] or ['  NONE'])
+    L += ['', '### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (%d):' % len(
+        detach)] + (['  #%d %s%s' % (r['n'], '[run_in_background] ' if r.get('bg') else '', r['cmd'][:240]) for r in detach] or ['  NONE'])
+    L += ['', '### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (%d):' % len(seds)] + (
+        ['  #%d %s' % (r['n'], r['cmd'][:240]) for r in seds] or ['  NONE'])
+    L += ['', '### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (%d):' % len(nulls)] + (
+        ['  #%d %s %s' % (r['n'], r['ts'], r['cmd'].split(NL)[0][:200]) for r in nulls] or ['  NONE'])
+    L += ['', '### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (%d):' % len(redir)] + (
+        ['  #%d %s %s' % (r['n'], r['ts'], ' '.join(r['cmd'].split())[:200]) for r in redir] or ['  NONE'])
+    L += ['', '### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (%d):' % len(pipes)] + (
+        ['  #%d %s %s' % (r['n'], r['ts'], ' '.join(r['cmd'].split())[:200]) for r in pipes] or ['  NONE'])
+    L += ['', '### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (%d):' % len(anypipe)] + (
+        ['  #%d %s %s' % (r['n'], r['ts'], ' '.join(r['cmd'].split())[:200]) for r in anypipe] or ['  NONE'])
+    L += ['', '### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (%d):' % len(pyreads)] + (
+        ['  #%d %s %s' % (r['n'], r['ts'], ' '.join(r['cmd'].split())[:220]) for r in pyreads] or ['  NONE'])
+    L += ['', '### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (%d):' % len(mv)]
+    for r in mv:
+        L += ['  #%d %s %s' % (r['n'], r['ts'], r['tool'])] + ['      ' + x for x in r['cmd'].split(NL)]
+    if not mv:
+        L.append('  NONE')
+    L += ['', '### THE BRANCH DELETES BY SHAPE ((R312)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, '
+              'nothing chained after): ' + ('; '.join('#%d deletes %s, halves %d, globs %s, variables %s, chained after %s' % (
+                  n, d, halves.get(n, 0), gl or 'none', vs or 'none', n in chained) for n, d, gl, vs in shapes) or 'NONE')]
+    L += ['', '### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found '
+              'in it (%d):' % len(ob)]
+    L += ['  line %s | %s | %s | identifiers %s | %s' % (r['line'], r['tool'], r['ts'], r['identifiers'] or 'NONE', ' '.join(r['text'].split())[:200]) for r in ob] or ['  NONE']
+    L += ['', '### EVERY COMMAND (n | time | source | tool | first line, 160 characters):']
+    L += ['  #%d | %s | %s | %s | %s' % (r['n'], r['ts'], r['src'], r['tool'], r['cmd'].split(NL)[0][:160]) for r in rows]
+    good = sum(1 for n, d, gl, vs in shapes if len(d) == 1 and not gl and not vs and n not in chained)
+    L += ['', '### ### **COMMANDS %d ; G-EDIT-ROUTE OFFENCES %d (SED IN ANY FORM AMONG THEM %d) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE %d '
+              'COMMANDS, OFFENCES %d ; LOCAL lean OR lake COMMANDS %d ; DISPATCHES %d ; DETACHED RUNS %d ; sed COMMANDS %d ; REDIRECTS ONTO /dev/null %d ; '
+              'REDIRECTS OF ANY STREAM %d ; PIPES INTO A SHELL FILTER %d ; PIPES OF ANY KIND %d ; ONE-LINE PROGRAMS %d ; MOVE OR DELETE COMMANDS %d ; '
+              'BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER %d OF %d ; OUTBOUND REQUESTS %d, AN IDENTIFIER IN %d.**' % (
+                  len(rows), len(hits), sum(1 for _r, o in hits if any(k == SED_KIND or k.startswith('S sed') for k, _ in o)), len(prev), len(phits),
+                  len(lean), len(disp), len(detach), len(seds), len(nulls), len(redir), len(pipes), len(anypipe), len(pyreads), len(mv), good,
+                  len(shapes), len(ob), sum(1 for r in ob if r['identifiers']))]
+    if 'dry' in a:
+        print(L[-1])
+        for r, o in hits:
+            print('  OFFENCE #%d %s: %s' % (r['n'], '; '.join(k for k, _ in o), r['cmd'].split(NL)[0][:200]))
+        return
+    put_txt('%s_commands.txt' % ACT, [l.replace('\r', '') for l in L])
+    put_json('%s_commands.json' % ACT, dict(at=utc(), anchor=K.ANCHOR, rows=rows,
+                                           offences=[dict(n=r['n'], kinds=[k for k, _ in o]) for r, o in hits],
+                                           prev=dict(act=PREV, session=R.PREV_SESSION, rows=len(prev),
+                                                     offences=[dict(n=r['n'], ts=r['ts'], kinds=[k for k, _ in o]) for r, o in phits]),
+                                           local_lean=[r['n'] for r in lean], dispatches=[r['n'] for r in disp], detached=[r['n'] for r in detach],
+                                           seds=[r['n'] for r in seds], null_redirects=[r['n'] for r in nulls], redirects=[r['n'] for r in redir],
+                                           pipes=[r['n'] for r in pipes], any_pipes=[r['n'] for r in anypipe], py_programs=[r['n'] for r in pyreads],
+                                           moves_deletes=[r['n'] for r in mv],
+                                           delete_shapes=[dict(n=n, deletes=d, globs=gl, variables=vs, halves=halves.get(n), chained=n in chained)
+                                                          for n, d, gl, vs in shapes],
+                                           outbound=ob))
+    print(L[-1])
+    for r, o in hits:
+        print('  OFFENCE #%d %s: %s' % (r['n'], '; '.join(k for k, _ in o), r['cmd'].split(NL)[0][:200]))
+    for r, o in phits:
+        print('  PREVIOUS-ACT OFFENCE #%s %s: %s' % (r['n'], '; '.join(k for k, _ in o), r['cmd'].split(NL)[0][:200]))
+
+
+_KERNS_698 = R._kerns
+
+
+def _kerns():
+    return _KERNS_698() + ['SIDE-substrate-cluster']     # ### b700's list, carried by b701, carried
+
+
+R._kerns = _kerns
+
+
+def kernels(*a):
+    ks = list(dict.fromkeys(_kerns()))
+    import b633_record as R3
+    put_json('%s_kernels_face.json' % ACT, dict(at=utc(), kernels=R3.kern_state(ks)))
+    print('  kernels read: %d (no kernel written by this act; read after step zero`s deletes)' % len(ks))
+
+
+def _standing():
+    return sorted(set(R._g2_of(os.path.join(ROOT, *K.B701_FACE.split('/')))) - set(K701.ACT_ARMS))
+
+
+R._standing = _standing
+
+
+def standing(*a):
+    st = _standing()
+    print('  STANDING %d: %s' % (len(st), ' '.join(st)))
+
+
+armsecs = R.armsecs
+desk, gatebanks, mbuild, mroot, mverify, mbank = R.desk, R.gatebanks, R.mbuild, R.mroot, R.mverify, R.mbank
+
+
+def _one_git_write():
+    return R._one_git_write()
+
+
+# ================================================================================ THE SCORES: (N1)-(N5) OF (R312)'S FERRY, THE SEAT'S (S1)-(S3)
+# ### data/b686_rules.txt row (1), standing: a scorer reads banks and commits and not the entry; the entry reads the scorer's bank. `scores`
+# ### writes data/b702_scores.json once, before `findings`; a reading that waits on a later bank stands PENDING there and is read at the close.
+NK, SK, SCORE_KEYS = R.NK, R.SK, R.SCORE_KEYS
+N5_RELAY_DATA = ('act_roots.txt', 'b701_closing_push_out.txt', 'b675_corrigenda.txt')
+N5_RELAY_TOOLS = ()
+_kernels_moved = R._kernels_moved
+
+
+def _s_scores():
+    return dict((k, (v[0], v[1].replace('b698_', ACT + '_'))) for k, v in R._s_scores().items())
+
+
+def _write_ts(name):
+    """the time of the seat's first Write call onto a relay bank of this name, from the transcript (a bank with no stamp of its own)."""
+    for i, o, _st, _sid in R._session_rows():
+        if o.get('type') != 'assistant':
+            continue
+        for c in (o.get('message') or {}).get('content') or []:
+            if isinstance(c, dict) and c.get('type') == 'tool_use' and c.get('name') == 'Write' and \
+                    (c.get('input') or {}).get('file_path', '').replace('\\', '/').endswith('/data/' + name):
+                return _iso_epoch((o.get('timestamp') or '')[:19] + 'Z')
+    return None
+
+
+def _call_ts(needle):
+    for c in jl('%s_author_answers.json' % ACT).get('calls') or []:
+        if needle in json.dumps(c, ensure_ascii=False):
+            return _iso_epoch((c.get('ts') or '')[:19] + 'Z')
+    return None
+
+
+def _n1():
+    """N1: no lean process on this host; no runner dispatched -- a paper is the table's next document, so no kernel re-cut runs."""
+    cm = jl('%s_commands.json' % ACT)
+    ok = bool(cm) and not cm.get('local_lean') and not cm.get('dispatches')
+    return ('HELD' if ok else 'REFUTED'), (
+        'commands of this act that run lean or lake on this host: %s; runner dispatches: %s (relay data/b702_commands.json); the document a paper '
+        '(relay data/b702_tie.json named %s)' % (cm.get('local_lean') if cm else 'unread', cm.get('dispatches') if cm else 'unread',
+                                                 jl('%s_tie.json' % ACT).get('named')))
+
+
+def _n2():
+    """N2: the tie-break rule and the table rows printed from banks before the document is named (the tie bank's own order, its time before
+    the cut bank's); the faces row, the README rows and the three resolutions printed before their prompt (the print bank's Write before the
+    Component 3 call)."""
+    tt, tj, cj = rdn('%s_tie.txt' % ACT), jl('%s_tie.json' % ACT), jl('%s_cut.json' % ACT)
+    named = tt.find('THE NEXT DOCUMENT BY b652`S ORDER')
+    order_ok = 0 <= tt.find('b652`S ORDER, VERBATIM') < named and 0 <= tt.find('THE TIE-BREAK BEYOND THE COUNT') < named and 0 <= tt.find('THE AGENDA`S ROWS') < named
+    t_tie, t_cut = _iso_epoch(tj.get('at') or ''), _iso_epoch(cj.get('at') or '')
+    pw, pc = _write_ts('%s_c3_print.txt' % ACT), _call_ts('Partners')
+    ok = order_ok and bool(t_tie) and bool(t_cut) and t_tie < t_cut and bool(pw) and bool(pc) and pw < pc
+    return ('HELD' if ok else 'REFUTED'), (
+        'relay data/b702_tie.txt prints b652`s order, b674`s rule and the agenda`s rows before naming the document: %s; the tie bank at %s before the '
+        'cut bank at %s: %s; the Component 3 print bank written at %s before its prompt at %s: %s' % (
+            order_ok, tj.get('at'), cj.get('at'), bool(t_tie and t_cut and t_tie < t_cut),
+            R.time.strftime('%Y-%m-%dT%H:%M:%SZ', R.time.gmtime(pw)) if pw else '-', R.time.strftime('%Y-%m-%dT%H:%M:%SZ', R.time.gmtime(pc)) if pc else '-',
+            bool(pw and pc and pw < pc)))
+
+
+def _n3():
+    """N3: the distance after the cut at or below the distance before; the quotation search before the cut's commit with its hit count printed;
+    no Correspondence cell written by hand (the cut's two cells held; the faces page by the generator)."""
+    cj, qj, fj = jl('%s_cut.json' % ACT), jl('%s_quote.json' % ACT), jl('%s_faces.json' % ACT)
+    qt = rdn('%s_quote.txt' % ACT)
+    qm = re.search(r'REMOVED OR CHANGED LINES (\d+) ; NEEDLES SEARCHED (\d+) IN TWO SHAPES ; QUOTING LINES (\d+)', qt)
+    cut_ct = _git_ct(PP, K.CUT_COMMIT) if K.CUT_COMMIT else None
+    q_at = _iso_epoch(qj.get('at') or '')
+    dist = isinstance(cj.get('before'), int) and isinstance(cj.get('after'), int) and cj['after'] <= cj['before']
+    cells = cj.get('held') == [282, 283] and fj.get('control') is True and fj.get('outcome') == 'regenerated'
+    ok = dist and bool(qm) and bool(q_at) and bool(cut_ct) and q_at < cut_ct and cells
+    return ('HELD' if ok else 'REFUTED'), (
+        'the distance by the b670 method %s -> %s (relay data/b702_cut.json); the quotation search at %s before the cut`s commit %s: %s, its count '
+        'printed: %s; the Correspondence cells held %s and the faces page written by the generator (control %s, %s): no cell by hand %s' % (
+            cj.get('before'), cj.get('after'), qj.get('at'), K.CUT_COMMIT, bool(q_at and cut_ct and q_at < cut_ct), qm.group(0) if qm else 'NONE',
+            cj.get('held'), fj.get('control'), fj.get('outcome'), cells))
+
+
+def _n4():
+    """N4: the guard's dry run prints no write on the post-root path; the trail's Defects and Resolved lines equal the defects bank before the seal
+    (the gate's dry-run record); widening-b701 stands, local and remote."""
+    gj = jl('%s_guard_dry.json' % ACT)
+    w = gj.get('writes') or {}
+    gate = rdn('%s_reg_gate.txt' % ACT)
+    eq = 'THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK True' in gate and 'THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK True' in gate
+    refs = {}
+    for l in g(EF, 'ls-remote', 'origin').split(NL):
+        if '\t' in l:
+            sha, ref = l.split('\t', 1)
+            refs[ref.strip()] = sha.strip()
+    local = g(EF, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.WIDEN_BRANCH).strip()
+    stands = local == K.WIDEN_TIP and refs.get('refs/heads/' + K.WIDEN_BRANCH) == K.WIDEN_TIP
+    ok = w.get('pre-push') == [] and w.get('post-push') == [] and eq and stands
+    return ('HELD' if ok else 'REFUTED'), (
+        'the guard`s dry run (relay data/b702_guard_dry.json): pre-push writes %s, post-push %s; the gate`s dry run printing the trail`s Defects and '
+        'Resolved lines equal to the bank: %s; widening-b701 local %s, remote %s: stands %s' % (
+            w.get('pre-push'), w.get('post-push'), eq, local[:7] or 'ABSENT', (refs.get('refs/heads/' + K.WIDEN_BRANCH) or 'ABSENT')[:7], stands))
+
+
+def _n5():
+    import rule_arms as RA
+    import b633_record as R3
+    face = jl('%s_kernels_face.json' % ACT).get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    k_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    t0, moved, tags = _kernels_moved()
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in K.PP_WRITTEN]
+    renames = [l for l in g(PP, 'diff', '--name-status', '-M', K.PRE_PP, 'HEAD').split(NL) if l[:1] in ('R', 'D')]
+    relay_ch = sorted(set(x for x in (g(ROOT, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(ROOT, 'diff', '--name-only')).split(NL) if x.strip()))
+    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not re.match(r'^tools/b702_', x) and x not in N5_RELAY_TOOLS]
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b702_|audit_b702_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in N5_RELAY_DATA) or x in N5_RELAY_TOOLS)]
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    arms_added = sorted(set(RA.NAMES) - set(K.STANDING_ADDED) - set(R._g2_of(os.path.join(ROOT, *K.B701_FACE.split('/')))))
+    lock = _iso_epoch((re.search(r'locked at \(UTC\) : (\S+)', rd(FACE)) or [None, ''])[1])
+    amended = (_amended_after(ROOT, lock) + _amended_after(PP, lock) + _amended_after(EF, lock)) if lock else []
+    ob = jl('%s_commands.json' % ACT).get('outbound') or []
+    ident = [r for r in ob if r.get('identifiers')]
+    chained = [d['n'] for d in (jl('%s_commands.json' % ACT).get('delete_shapes') or []) if d.get('chained')]
+    gw_ok, gw_note = _one_git_write()
+    gl = R.rd(os.path.join(D, 'glossary.txt')) == _show(ROOT, K.PRE_RELAY, 'data/glossary.txt')
+    ok = k_ok and not moved and not tags and not pp_beyond and not renames and not kinds_beyond and not shared_tools and not differ \
+        and not arms_added and not amended and not ident and not chained and gw_ok and gl
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unpublished); every kernel as the face read it: %s; kernel mains moved since the '
+            'act began: %s; tags made: %s; no standing arm added: %s; shared tools edited: %s; sealed tools not agreeing: %s; commits amended after the '
+            'seal: %s; deletes with anything chained after: %s; one git write per message (%s): %s; PLACE-papers beyond the named files: %s; papers moved '
+            'or renamed: %s; relay files of a kind beyond the act`s banks and tools, the table, the root list, the corrigenda bank and b701`s push-out '
+            'bank: %s; the glossary unedited: %s; outbound requests other than git and gh %d, an identifier of the author in %s' % (
+                K.DRAFT, k_ok, moved or 'NONE', tags or 'NONE', arms_added or 'NONE', shared_tools or 'NONE', differ or 'NONE', amended or 'NONE',
+                chained or 'NONE', gw_note, gw_ok, pp_beyond or 'NONE', renames or 'NONE', kinds_beyond or 'NONE', gl, len(ob), [r['line'] for r in ident] or 'NONE'))
+
+
+def scores(*a):
+    """`scores [dry]` writes data/b702_scores.json ONCE, before the entry (it refuses where the bank exists); `scores close` reads the readings
+    that waited into data/b702_scores_close.json."""
+    close = 'close' in a
+    S = dict([('N1', _n1()), ('N2', _n2()), ('N3', _n3()), ('N4', _n4()), ('N5', _n5())] + list(_s_scores().items()))
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:900]))
+    if 'dry' in a:
+        return
+    if close:
+        put_json('%s_scores_close.json' % ACT, dict((k2, list(v)) for k2, v in S.items()))
+        return
+    if os.path.isfile(os.path.join(D, '%s_scores.json' % ACT)):
+        sys.exit('### THE SCORES BANK IS WRITTEN ONCE, BEFORE THE ENTRY (data/b686_rules.txt row (1)) -- NOTHING WRITTEN; `scores close` at the close')
+    put_json('%s_scores.json' % ACT, dict((k2, list(v)) for k2, v in S.items()))
+
+
+_sv, scores_line = R._sv, R.scores_line
+_calls, _rl_lines = R._calls, R._rl_lines
+NUM = ('none', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
+       'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty')
+
+
+def num_word(n):
+    return NUM[n] if 0 <= n < len(NUM) else str(n)
+
+
+# ================================================================================ THE RECORD: THE ENTRY BEFORE THE ROOT, THE TRAIL CARRYING IT
+def TRAIL_HEAD():
+    return ('### b702 — lane two, act one hundred and twenty-nine, the re-cut act under (R312): b701 at its weight; its undeclared failures and '
+            'unlettered items by corrigendum, the guard restored; Seven Mechanism Classes re-cut; the faces row, the README and the partner copies on the '
+            'author’s word; five orders and a spec row entered')
+
+
+R.TRAIL_HEAD = TRAIL_HEAD
+
+
+def _figs():
+    cj, fj_, rj, pj = jl('%s_cut.json' % ACT), jl('%s_faces.json' % ACT), jl('%s_readme.json' % ACT), jl('%s_partners.json' % ACT)
+    co = jl('%s_corrigendum.json' % ACT)
+    ol = [x.get('line') for x in jl('%s_orders_line.json' % ACT).get('lines') or []]
+    pl = [x.get('line') for x in jl('%s_partners_line.json' % ACT).get('lines') or []]
+    fo = [x.get('line') for x in jl('%s_faces_order_line.json' % ACT).get('lines') or []]
+    qm = re.search(r'QUOTING LINES (\d+)', rdn('%s_quote.txt' % ACT))
+    return dict(before=cj.get('before', '-'), after=cj.get('after', '-'), applied=sum(1 for r in cj.get('rows') or [] if r.get('applied')),
+                faces='regenerated with the bridge by tag' if fj_.get('outcome') == 'regenerated' else 'held',
+                readme='applied' if rj.get('outcome') == 'applied' else 'held', resolution=pj.get('resolution', 'held'),
+                corr_line=co.get('entry_line', '-'), quoting=qm.group(1) if qm else '-', orders=ol + ['-'] * 4, partners=pl + ['-'] * 2,
+                faces_order=(fo + ['-'])[0])
+
+
+def _title():
+    f = _figs()
+    return ('## Seven Mechanism Classes re-cut: %s rows outside LICENSED/CITED to %s; the faces page’s lv-conservation row %s; the README’s currency lines '
+            'and ceiling append %s; W-ORD-PAPER-PARTNER-COPIES in place of ONE-COPY, resolution %s; b701’s undeclared failures by corrigendum' % (
+                f['before'], f['after'], f['faces'], f['readme'], f['resolution']))
+
+
+def _owners_now():
+    rows = _defect_short(ACT)
+    nav = [r for r in rows if "THE NAVIGATOR'S" in r]
+    return rows, nav
+
+
+def _for_author():
+    rows, nav = _owners_now()
+    seat = len(rows) - len(nav)
+    letters = ', '.join(re.match(r'^\(([a-z])\)', r).group(0) for r in nav)
+    return ('(1) the cut’s two Correspondence cells (base :282, :283) held under N3, the paper off the roster with no generator to write them, so the '
+            'distance after is 2; (2) the paper’s record lines :7 and :272, stale once the cut landed, named and not written, the ruling ordering the cut '
+            'on the rows alone; (3) the README’s SIDE-effects value changed alone, without the “, v0.1.1” the drafted edit list carried, on the author’s '
+            'word “the named values and nothing else”; (4) the sharpened append written in the README’s own form, italics, backticked rule ids and hash, '
+            'straight apostrophes, its words verbatim; (5) the faces page’s third line, the Placement row the cut propagated, raised before the commit and '
+            'written on the author’s word; (6) the first question’s selected option “Hold the README” governed by its BEGIN-END word and the author’s '
+            'confirming line; (7) the old ONE-COPY order annotated by a line appended beneath it, OPEN_TRAILS being append-only; (8) the %s navigator %s '
+            '(%s) and the seat’s %s defect%s as lettered' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', letters, num_word(seat),
+                                                            '' if seat == 1 else 's'))
+
+
+def _finding_text():
+    """the FINDINGS entry, composed before the root: its head line the result sentence (the author's mid-act words (B)); its scores line from the
+    scores bank alone (data/b686_rules.txt row (1)); the root carried by the trail record."""
+    S = jl('%s_scores.json' % ACT)
+    f = _figs()
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+    checks = len(re.findall(r'^### \(R278\)\(4\) THE MID-ACT CHECK ', rdn(K.CITATION_BANK), re.M))
+    rows, nav = _owners_now()
+    e = ['', _title(), '',
+         'Seven Mechanism Classes (day1/, v3.3.1) now states what the kernel checks and what stays open: its formation count is the kernel’s arithmetic '
+         '2 + 3 + 2 + 0 = 7, the classification behind it the paper’s argument, the inter-class conservation step open at its registers, and RH '
+         'equivalent to the one open clause h2_sign rather than proved -- %s of its %s rows outside LICENSED/CITED cut by the b670 method, %s left, both '
+         'cells of its Correspondence table held because no generator writes them. The faces page’s lv-conservation row now names the bridge by tag '
+         '(h2_sign_iff_register4_positivity_liCoeff, SIDE-explicit-formula v0.35 = d4e046a), and the page carries a third changed line, the Placement row '
+         'the cut propagated; the README’s three stale tags are current and its ceiling append joins the two faces kernels in the author’s sharpened '
+         'sentence; b701’s two undeclared suite failures and four unlettered items stand corrected by a generated corrigendum.' % (
+             f['applied'], f['before'], f['after']), '',
+         '*Filed at b702 on the author’s ruling `(R312)`, the author’s mid-act words of 2026-10-21 and the author’s words at its prompts; %d question%s '
+         'put. Banks: relay `data/b702_tie.txt`, `data/b702_quote.txt`, `data/b702_cut.txt`, `data/b702_faces.txt`, `data/b702_readme.txt`, '
+         '`data/b702_partners.txt`, `data/b702_corrigendum.txt`, `data/b702_guard_dry.txt`, `data/b702_tool_repairs.txt`.*' % (n_ans, '' if n_ans == 1 else 's'), '',
+         '**The corrigendum** (`(R312)`(1)-(2)): b701 entered at its weight (FINDINGS :%s); the generated entry at FINDINGS :%s declares G-READ-RULE and '
+         'G-ACTROOT-LAST with their causes by line, letters the four items (h)-(k) and corrects the trail’s Resolved line to two navigator misses and five '
+         'seat defects; the corrigenda bank appended at rows (17)-(21); the sealed face, the trail and the root-named banks unedited.' % (c1_[0], f['corr_line']), '',
+         '**The guard** (`(R312)`(2), N4): the suite’s per-part seconds write restored under `if PRERUN:` as b700 had it; its dry run prints no write on '
+         'the pre-push or post-push path (relay data/b702_guard_dry.txt), the diff in the repairs bank’s row (1).', '',
+         '**The re-cut** (`(R312)`(3), N2, N3): every kernel at 0, b652’s order passed to the companions; Seven Mechanism Classes at 24, alone at the top, '
+         'b674’s rule printed and not reached; the paper cut on its table’s rows alone by the Edit tool (PLACE-papers a1d5d59), %s rows applied and met, '
+         'the distance %s to %s; the quotation search before the commit, two shapes, %s quoting lines each a residue (the paper’s frozen copies, the '
+         'monograph’s eleven-programme sentence, the five companions’ shared closing sentence); no tag, nothing moved.' % (
+             f['applied'], f['before'], f['after'], f['quoting']), '',
+         '**The faces row** (`(R312)`(4)): the page regenerated by the generator from a node list whose :126 is b701’s successor (PLACE-papers 65a8367): '
+         'three lines -- the list’s name, the Placement row for Seven Mechanism Classes (the cut naming h2_sign_iff_rh and ch_iff_rh), the row; the control '
+         'b697’s list re-emitting the page plus that one line; the header tag v0.26 kept; W-ORD-FACES-PROBE-CURRENT entered (OPEN_TRAILS :%s).' % f['faces_order'], '',
+         '**The README** (`(R312)`(5)): the citation misses read on the author’s word (:127/:131; no REGISTRY row); three stale tags re-read by '
+         'ls-remote and edited, the sharpened ceiling append beneath :131 (PLACE-papers d5f8a03); REGISTRY unwritten; the About field drafted for the '
+         'author to set.', '',
+         '**The partner copies** (`(R312)`(6)): W-ORD-PAPER-PARTNER-COPIES in place of ONE-COPY (OPEN_TRAILS :%s, the old line annotated at :%s), 17 pairs '
+         'and 131 lines by cause; the disposition %s, rename in place, trigger the re-cut act b706; nothing moved.' % (f['partners'][0], f['partners'][1],
+                                                                                                                       f['resolution']), '',
+         '**The orders** (`(R312)`(7) and the author’s mid-act words): the spec’s twelfth row BINDER-PROVENANCE (relay data/b702_circuit_spec.txt); '
+         'W-ORD-STANDING-CLAUSES-BANK (:%s), W-ORD-LV-CLOSURE-JOIN (:%s), W-ORD-KEYSTONE-HEADS (:%s) and W-ORD-STANDING-ARMS-B703 (:%s); the act arms '
+         'G-POSTROOT-WRITES-NONE and G-TRAIL-LINES-EQUAL-DEFECTS in the suite; no standing arm added.' % tuple(f['orders'][:4]), '',
+         '**The citation check** (the gate step from b662): %s cites checked at HEAD, %s OK, %s missed -- the ruling’s two, raised before Component 3 and '
+         'answered; %d answer check%s, each before its answer was acted on.' % (
+             cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
+         scores_line(S), '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): this act’s cut is read by its own page -- the faces page lists the cut paper as a keystone naming '
+         'a node the moment the paper names one -- and it re-reads b701’s bridge into the corpus’s front door. It strengthens the programme’s offering of a '
+         'located clause: a companion that read as a proof now reads as a catalogue beside one open clause, and the join across both faces kernels is '
+         'stated where a reader first arrives.', '',
+         '**Carried to:** b703 (W-ORD-CLASSK-WIDENING-HELD, the Epstein count’s opening step, W-ORD-LV-CLOSURE-JOIN, W-ORD-STANDING-ARMS-B703); b704 '
+         '(W-ORD-FACES-PROBE-CURRENT, W-ORD-KEYSTONE-HEADS); b706 (W-ORD-PAPER-PARTNER-COPIES); b710 (W-ORD-STANDING-CLAUSES-BANK, reading 5); the draft '
+         'held at v5.', '',
+         '**Next.** %s.' % K.NEXT, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
+    return _title(), NL.join(e)
+
+
+def _trail_text():
+    S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
+    fj = jl('%s_findings.json' % ACT)
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    _r, _n, sh = seal_hashes()
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    f = _figs()
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R312) ratified.** (1) b701 at its weight. (2) The corrigendum and the guard. (3) The re-cut. (4) The faces row. (5) The README. (6) The '
+             'partner copies. (7) The twelfth spec row and the standing-clauses order. (8) The branches. (9) The readfirst bank. (10) The draft held at v5. '
+             '(11) The acts after.', '',
+             '**Entered:** FINDINGS.md:%s (b701`s weight), :%s (the corrigendum), :%s (the entry); OPEN_TRAILS.md:%s (W-ORD-FACES-PROBE-CURRENT), :%s '
+             '(W-ORD-PAPER-PARTNER-COPIES), :%s (ONE-COPY superseded), :%s-:%s (the four orders); this record.' % (
+                 c1_[0], f['corr_line'], fj.get('entry_line'), f['faces_order'], f['partners'][0], f['partners'][1], f['orders'][0], f['orders'][3]), '',
+             '**Act root:** b702 `%s` (previous `%s`, b701`s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF '
+             'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b702_author_answers.txt); the root`s own prompt, its '
+             'answer in the closing line.' % (n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
+             '**The re-cut:** day1/Seven_Mechanism_Classes.md, %s to %s rows outside LICENSED/CITED, %s quoting lines as residues, two cells held (relay '
+             'data/b702_cut.txt; PLACE-papers a1d5d59).' % (f['before'], f['after'], f['quoting']), '',
+             '**The faces row:** %s, three lines (PLACE-papers 65a8367; relay data/b702_faces.txt).' % f['faces'], '',
+             '**The README:** %s, the sharpened append (PLACE-papers d5f8a03; relay data/b702_readme.txt).' % f['readme'], '',
+             '**The partner copies:** W-ORD-PAPER-PARTNER-COPIES, resolution %s, trigger the re-cut act b706.' % f['resolution'], '',
+             '**The kernels:** none written; no lean or lake on this host; no dispatch; widening-b701 = 8a4ab68 standing, local and remote.', '',
+             '**The mirror:** the export made after this root in the b670 form, its name in the closing (relay data/b702_closing.txt).', '',
+             '**The open orders:** `W-ORD-CLASSK-WIDENING-HELD`; `W-ORD-EXPLICIT-FORMULA-C1`; `W-ORD-EPSTEIN-COUNT-LEAN`; `W-ORD-FACES-PROBE-CURRENT`; '
+             '`W-ORD-PAPER-PARTNER-COPIES`; `W-ORD-STANDING-CLAUSES-BANK`; `W-ORD-LV-CLOSURE-JOIN`; `W-ORD-KEYSTONE-HEADS`; `W-ORD-STANDING-ARMS-B703`.', '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % _for_author(), '',
+             '**Defects** (relay data/b702_defects.txt): %s.' % ('; '.join(_defect_short(ACT)) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in NK + SK) + '.** (the scores bank; the readings that waited, at the close)', '',
+             '**Next:** %s.' % K.NEXT, '']
+    return NL.join(rows_)
+
+
+def components(*a):
+    S, fj, tj, J = (jl(n_) for n_ in ('%s_scores.json' % ACT, '%s_findings.json' % ACT, '%s_trail.json' % ACT, '%s_act_root.json' % ACT))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    f = _figs()
+    L = ['%s -- THE COMPONENTS, BANKED UNDER (R312).' % ACT, '',
+         '### COMPONENT 0 : the citation check (data/b702_citation_check.txt), step zero (data/b702_ferry.txt, data/b702_readfirst.txt, data/b702_stepzero.txt, '
+         'data/b702_tests_stepzero.txt, data/b702_rowgen_stepzero.txt, data/b702_branches.txt, data/b702_readme_currency.txt, data/b702_circuit_spec.txt) ; '
+         'the resume (data/b702_resume.txt) ; N1 %s' % S['N1'][0],
+         '### COMPONENT 1 : b701`s weight FINDINGS :%s ; the corrigendum FINDINGS :%s ; the guard (data/b702_guard_dry.txt, data/b702_tool_repairs.txt) ; N4 %s' % (
+             c1_[0], f['corr_line'], S['N4'][0]),
+         '### COMPONENT 2 : the tie (data/b702_tie.txt), the quotation search (data/b702_quote.txt), the cut (data/b702_cut.txt), %s -> %s ; N2 %s ; N3 %s' % (
+             f['before'], f['after'], S['N2'][0], S['N3'][0]),
+         '### COMPONENT 3 : the faces row %s (data/b702_faces.txt) ; the README %s (data/b702_readme.txt) ; the partner copies %s (data/b702_partners.txt) ; '
+         'OPEN_TRAILS :%s, :%s, :%s' % (f['faces'], f['readme'], f['resolution'], f['faces_order'], f['partners'][0], f['partners'][1]),
+         '### COMPONENT 4 : the spec`s twelfth row (data/b702_circuit_spec.txt) ; the four orders OPEN_TRAILS :%s-:%s' % (f['orders'][0], f['orders'][3]),
+         '### COMPONENT 5 : the carry-time reading (data/b702_tool_repairs.txt), the dry-run steps (data/b702_reg_gate.txt), the seal '
+         '(data/b702_seal_hashes.json), the suite in six parts, the per-part seconds (data/b702_arm_seconds.txt) ; S3 %s' % S['S3'][0],
+         '### COMPONENT 6 : FINDINGS :%s ; the root %s ; OPEN_TRAILS :%s ; the mirror after the root ; N5 %s' % (
+             fj.get('entry_line'), (J.get('root') or '')[:16], tj.get('line'), S['N5'][0])]
+    put_txt('%s_components.txt' % ACT, L)
+    print(NL.join(L[2:]))
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = R.conv(e)
+    dry = 'dry' in a
+    cells_, fired = R.screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells_)
+        return
+    if not os.path.isfile(os.path.join(D, '%s_scores.json' % ACT)):
+        sys.exit('### THE SCORES BANK IS NOT WRITTEN -- THE ENTRY READS IT (data/b686_rules.txt row (1)) -- NOTHING WRITTEN')
+    if cells_ or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = R._land_one(FIND, t, e, '%s_findings.json' % ACT, dict(title=t))
+    j = jl('%s_findings.json' % ACT)
+    j['entry_line'] = ln
+    put_json('%s_findings.json' % ACT, j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = R.conv(_trail_text())
+    dry = 'dry' in a
+    cells_, fired = R.screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells_)
+        return
+    if cells_ or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = R._land_one(OT, TRAIL_HEAD(), e, '%s_trail.json' % ACT, {})
+    print('  OPEN_TRAILS record :%s' % ln)
+
+
+def _trail_defects(text):
+    m = re.search(r'^\*\*Defects\*\* \(relay data/%s_defects\.txt\): (.*)\.$' % ACT, text, re.M)
+    return m.group(1) if m else None
+
+
+def _trail_resolved(text):
+    m = re.search(r'^\*\*Resolved by the seat, for the author’s strike:\*\* .*\((\d+)\) the (\w+) navigator (?:miss|misses)(?: \(\([a-z]\)(?:, \([a-z]\))*\))? '
+                  r'and the seat’s (\w+) defects? as lettered\.$', text, re.M)
+    return (m.group(2), m.group(3)) if m else None
+
+
+def drycheck(*a):
+    """(R267)(2), STANDING FROM b657: the FINDINGS entry and the trail record composed as the record tool composes them, converted by conv and run
+    through the screens their landing runs, the needles the face names read in each; the trail's Defects line AND its Resolved line read against
+    the defects bank (the ferry's Component 5; b701's defect (k)). Writes no bank."""
+    face = rd(a[0] if a and not a[0] == 'standin' else FACE)
+    ok = True
+    for which, (head, text) in (('ENTRY', _finding_text()), ('TRAIL', (TRAIL_HEAD(), _trail_text()))):
+        t = R.conv(text)
+        print('  %s (the screens):' % which)
+        cells_, fired = R.screens([('FINDINGS.md' if which == 'ENTRY' else 'OPEN_TRAILS.md', head, t)], 'dry_' + which.lower(), True)
+        nd = R._face_needles(face, which)
+        miss = [n for n in nd if n not in t]
+        clean = not cells_ and not fired and nd and not miss
+        if which == 'TRAIL':
+            got = _trail_defects(text)
+            want = '; '.join(_defect_short(ACT)) or 'none'
+            eq = got == want
+            print('  THE TRAIL`S DEFECTS LINE: %s' % got)
+            print('  THE DEFECTS BANK`S ROWS (relay data/%s_defects.txt, by the repaired reader): %s' % (ACT, want))
+            print('  ### THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK %s' % eq)
+            rows, nav = _owners_now()
+            gr = _trail_resolved(t)
+            wr = (num_word(len(nav)), num_word(len(rows) - len(nav)))
+            eqr = gr == wr
+            print('  THE TRAIL`S RESOLVED LINE`S COUNTS: %s ; THE BANK`S OWNERS (navigator, seat): %s' % (gr, wr))
+            print('  ### THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK %s' % eqr)
+            clean = clean and eq and eqr
+        ok = ok and clean
+        print('  %s : table cells %s ; screens %s ; the face`s needles %d, found %d%s ; %s' % (
+            which, cells_ or 'NONE', 'FIRED' if fired else 'QUIET', len(nd), len(nd) - len(miss), (' -- missing %s' % miss) if miss else '',
+            'CLEAN' if clean else 'NOT CLEAN'))
+    print('  ### ### **DRY-RUN STEP : %s**' % ('CLEAN' if ok else 'NOT CLEAN'))
+    if not ok:
+        sys.exit(1)
+
+
 ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, defshort=defshort, c1=c1, guard=guard, repairs=repairs, tie=tie,
-              quote=quote, cut=cut, faces=faces, readme=readme, c3orders=c3orders, orders=orders)
+              quote=quote, cut=cut, faces=faces, readme=readme, c3orders=c3orders, orders=orders, commands=commands, reads=reads, rootbanks=rootbanks,
+              root=root, root_arm=root_arm, table_final=table_final, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
+              mbuild=mbuild, mroot=mroot, mverify=mverify, mbank=mbank, scores=scores, components=components, findings=findings, trail=trail,
+              drycheck=drycheck)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
