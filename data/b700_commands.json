@@ -1,5 +1,5 @@
 {
- "at": "2026-10-21T14:19:24Z",
+ "at": "2026-10-21T14:56:37Z",
  "anchor": "RULING (R310) BEGIN",
  "rows": [
   {
@@ -1624,6 +1624,318 @@
    "src": "seat b858e03f",
    "cmd": "timeout 300 python -X utf8 tools/b700_record.py components",
    "n": 203,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:22.339Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_record.py commands",
+   "n": 204,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:22.849Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py reads",
+   "n": 205,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:31.193Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay status --short --untracked-files=all -- data/act_roots.txt data/b700_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json",
+   "n": 206,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:34.743Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay add data/act_roots.txt data/b700_commands.json data/b700_commands.txt data/b700_read_calls.txt data/b700_act_root.json data/b700_act_root.txt data/b700_components.txt data/b700_desk_notes.txt data/b700_pp_root_push_out.txt data/b700_root_arm.json data/b700_root_arm.txt data/b700_root_banks.json data/b700_root_banks.txt data/b700_root_push_out.txt data/b700_trail.json",
+   "n": 207,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:38.593Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay commit -m \"b700 root under (R310): act root 6f32698e (previous 4f7afcb3, b699's), 93 banks named, each committed and pushed at 14b2a6f6; its arm (recomputed equal, the one-byte control moving it, the order holding); the trail bank (OPEN_TRAILS :15370), the desk, the components, the commands and read calls, the pre-root push captures\"",
+   "n": 208,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:41.815Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers add OPEN_TRAILS.md",
+   "n": 209,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:44.761Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers commit -m \"b700 record, under (R310): the trail record carrying the root 6f32698e (OPEN_TRAILS :15370)\"",
+   "n": 210,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:19:47.674Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --part standing-a",
+   "n": 211,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:22:52.608Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --part standing-c",
+   "n": 212,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:23:42.724Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --part standing-b1",
+   "n": 213,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:25:10.567Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --part standing-b2",
+   "n": 214,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:32:13.191Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --part standing-b3",
+   "n": 215,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:34:17.006Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --part act",
+   "n": 216,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:35:20.886Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_checks.py --combine b700_checks.txt",
+   "n": 217,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:35:25.978Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay status --short --untracked-files=all -- data/b700_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json",
+   "n": 218,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:35:32.189Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay add data/b700_chain_half_a_checks.json data/b700_chain_half_b_checks.json data/b700_checks.txt data/b700_checks_act.txt data/b700_checks_standing-a.txt data/b700_checks_standing-b1.txt data/b700_checks_standing-b2.txt data/b700_checks_standing-b3.txt data/b700_checks_standing-c.txt data/b700_exercise.json data/b700_exercise_act.json data/b700_exercise_standing-a.json data/b700_exercise_standing-b1.json data/b700_exercise_standing-b2.json data/b700_exercise_standing-b3.json data/b700_exercise_standing-c.json data/b700_lsr_act.json data/b700_lsr_standing-a.json data/b700_lsr_standing-b1.json data/b700_lsr_standing-b2.json data/b700_lsr_standing-b3.json data/b700_lsr_standing-c.json",
+   "n": 219,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:35:35.859Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay commit -m \"b700 record under (R310): the pre-push suite in six parts, 119 arms, 118 passing, G-EDIT-ROUTE failing as declared before the lock (the sed of defect (a)), 0 negative-control failures, 0 positive controls passing; the chain b624-b700 AGREE\"",
+   "n": 220,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:35:38.518Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay branch push-b700 ac29fa81",
+   "n": 221,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:35:41.132Z",
+   "src": "seat b858e03f",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b700_relay_push_out.txt bash /d/relay/tools/push_gated.sh /d/relay push-b700",
+   "n": 222,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:35:50.200Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b700 71b23ac",
+   "n": 223,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:35:52.957Z",
+   "src": "seat b858e03f",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b700_pp_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b700",
+   "n": 224,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:36:23.193Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --rerun-postpush b700_checks_postpush.txt --part standing-a",
+   "n": 225,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:39:29.708Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --rerun-postpush b700_checks_postpush.txt --part standing-c",
+   "n": 226,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:40:21.679Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --rerun-postpush b700_checks_postpush.txt --part standing-b1",
+   "n": 227,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:41:52.809Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --rerun-postpush b700_checks_postpush.txt --part standing-b2",
+   "n": 228,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:49:10.536Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --rerun-postpush b700_checks_postpush.txt --part standing-b3",
+   "n": 229,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:51:14.764Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_checks.py --rerun-postpush b700_checks_postpush.txt --part act",
+   "n": 230,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:51:58.977Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_checks.py --combine b700_checks_postpush.txt",
+   "n": 231,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:53:12.634Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_citation.py answer \"Option 1: W-ORD-H2-BRIDGE-THEOREM and the classK widening\"",
+   "n": 232,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:53:32.398Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_record.py scores close",
+   "n": 233,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:54:05.025Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_record.py mbuild",
+   "n": 234,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:54:43.251Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py mroot",
+   "n": 235,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:54:48.247Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py mverify",
+   "n": 236,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:54:52.310Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py mbank",
+   "n": 237,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:54:55.686Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_closing.py",
+   "n": 238,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:55:22.705Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_record.py scores close",
+   "n": 239,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:55:47.631Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 300 python -X utf8 tools/b700_record.py desk",
+   "n": 240,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:55:50.542Z",
+   "src": "seat b858e03f",
+   "cmd": "timeout 590 python -X utf8 tools/b700_closing.py",
+   "n": 241,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-21T14:56:30.338Z",
+   "src": "seat b858e03f",
+   "cmd": "git -C /d/relay status --short --untracked-files=all -- data/b700_* data/terminal_table.json data/terminal_table.md data/terminal_table_prior.json data/terminal_table_run.txt data/terminal_table_diff.json",
+   "n": 242,
    "bg": false
   }
  ],
