@@ -1,0 +1,271 @@
+b701 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-21T17:13:30Z)
+
+### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
+### row, written by this route (difflib over the function`s source, relay HEAD`s carried tool against this act`s).
+
+  (1) tools/b701_record.py, the import-time constants rebound at the carry -- ANSWERS b699`s traps 2 and 4 (relay memory, b699 (R309)): b698_record binds SESSION, SUBAGENTS, the previous act`s window (PREV_*), FACE, the mirror names and ROOT_EXCLUDE at import; b699 and b700 ran in b698`s session and read the right file by coincidence; this act runs in a new session (e5bcf1d0), so each is rebound here by name, and _anchor_ts (its session a default bound at definition) is wrapped to read this act`s session.
+
+      --- (none)
+      +++ tools/b701_record.py _anchor_ts (this act)
+      @@ -0,0 +1,6 @@
+      +def _anchor_ts(anchor, session=None):
+      +    """b698's _anchor_ts bound its session at definition (b699's trap 1): this one reads this act's session unless another is named."""
+      +    return R._anchor_ts(anchor, session or SESSION)
+      +
+      +
+      +
+
+  (2) tools/b701_record.py corr, new -- ANSWERS (R311)(2) and N2: the restatement read by tools/circuit_correspondence.py (imported unedited) against lv-conservation`s statement before the theorem is written, a Prop-valued definition read as its binders and its body, the source `∀ n : ℕ,` bracketed as #print writes it on both sides alike; the controls first; the CLAUSE-DOMINANCE re-read after the merge by the same route.
+
+      --- (none)
+      +++ tools/b701_record.py corr (this act)
+      @@ -0,0 +1,98 @@
+      +def corr(*a):
+      +    """`corr` (before the theorem is written) / `corr after <tag> <run id>` (the CLAUSE-DOMINANCE re-read after the merge): the restatement
+      +    SIDEExplicitFormula.ResidueDischarge.Register4_positivity (source text at the kernel's main, the hosted print step printing axioms alone) read
+      +    by tools/circuit_correspondence.py against SIDE-lv-conservation's Register4_positivity at v0.13.0 (source text at the tag, as b698 read the
+      +    face), binder by binder; the K4 theorem against the face's binder 13 at lam := LiCoeff; and b698's direct reading (h2_sign against
+      +    residue_irreducible) re-run. Controls first. data/b701_correspondence_restatement.txt (.json) / data/b701_clause_dominance.txt (.json)."""
+      +    after = bool(a) and a[0] == 'after'
+      +    tag, run_id = (a[1], a[2]) if after and len(a) > 2 else ('', '')
+      +    ef_rev = tag if after else 'main'
+      +    ei, ej, esig, etext = _def_sig(_show(EF, ef_rev, EF_RESTATE[0]), EF_RESTATE[1])
+      +    li, lj, lsig, ltext = _def_sig(_show(LV, K.LV_V0130, LV_STATE[0]), LV_STATE[1])
+      +    A = CC.from_signature(esig) + ('SIDE-explicit-formula',)
+      +    B = CC.from_signature(lsig) + ('SIDE-lv-conservation',)
+      +    # ### the controls
+      +    r1, v1 = CC.compare(A, A)
+      +    planted = (list(B[0]), B[1], B[2])
+      +    planted[0][0] = (planted[0][0][0], planted[0][0][1], 'ℕ → ℤ')
+      +    r2, v2 = CC.compare(A, tuple(planted))
+      +    c1_ok = v1 == 'HOLDS-BY-CORRESPONDENCE' and all(r[3] == 'AGREE' for r in r1)
+      +    c2_ok = v2 == 'DIFFERS at binder 1' and [r[3] for r in r2] == ['DIFFERS'] + ['AGREE'] * (len(r2) - 1)
+      +    # ### reading 1: the restatement against lv's statement
+      +    rows, v = CC.compare(A, B)
+      +    # ### reading 2: K4 against the face's binder 13 at lam := LiCoeff
+      +    fi_, fj_, fsig = CC.lv_source()
+      +    F = CC.from_signature(fsig)
+      +    b13 = F[0][12]
+      +    b13t = re.sub(r'(?<![\w.])lam(?![\w])', 'LiCoeff', b13[2])
+      +    ki, kj, ksig, ktext = _thm_sig(_show(EF, ef_rev, EF_K4[0]), EF_K4[1])
+      +    K4 = CC.from_pi(ksig) + ('SIDE-explicit-formula',)
+      +    B13 = CC.from_pi(b13t) + ('SIDE-lv-conservation',)
+      +    rows2, vb = CC.compare(K4, B13)
+      +    # ### reading 3: b698's direct reading, re-run
+      +    a1, b1_, stmt, value = CC.h2_print()
+      +    H2 = CC.from_pi(value) + ('SIDE-explicit-formula',)
+      +    FR = F + ('SIDE-lv-conservation',)
+      +    rows3, v3 = CC.compare(H2, FR)
+      +    fd = next((r for r in rows3 if r[3] == 'DIFFERS'), None)
+      +    bridge = ''
+      +    if after:
+      +        bi, bj, bsig, btext = _thm_sig(_show(EF, ef_rev, K.BRIDGE_FILE), K.BRIDGE_NAMES[0].rsplit('.', 1)[1])
+      +        rr = [r for r in (jl('%s_runner_rows.json' % ACT).get('rows') or []) if str(r.get('run_id')) == str(run_id)]
+      +        bridge = 'the bridge theorem %s at %s %s :%d-:%d: %s -- its run %s %s' % (K.BRIDGE_NAMES[0], tag, K.BRIDGE_FILE, bi, bj, bsig, run_id,
+      +                                                                                   rr[0].get('gate') if rr else '### NO RUNNER ROW')
+      +    name = '%s_clause_dominance' % ACT if after else '%s_correspondence_restatement' % ACT
+      +    L = ['%s -- %s (%s)' % (ACT, ('CLAUSE-DOMINANCE RE-READ BY CORRESPONDENCE OVER BOTH FACES` KERNELS AFTER THE BRIDGE, (R311)(2)' if after else
+      +                                'THE RESTATEMENT READ BY THE CORRESPONDENCE READER BEFORE THE BRIDGE THEOREM IS WRITTEN, (R311)(2), N2'), utc()), '',
+      +         '### the reader: relay tools/circuit_correspondence.py, imported unedited (from_signature, from_pi, compare; spec relay data/b695_circuit_spec.txt',
+      +         '### :53-:64). Rows are binders aligned by position: position | the first statement`s binder | the second`s | AGREE or DIFFERS | why (namespaces',
+      +         '### stripped, bound names read by position). A Prop-valued definition is read as its binders and its body; SOURCE AGAINST SOURCE: the hosted',
+      +         '### print step prints #print axioms alone, so neither definition has a hosted #print sig (b698`s reading of lv`s face, the same fallback).', '',
+      +         '== THE CONTROLS, PRINTED BEFORE THE REAL READING',
+      +         '  (C1) the restatement against itself: %s' % v1]
+      +    L += ['       %-10s | %-40s | %-40s | %s' % (r[0], CC.show_binder(r[1]) if r[0] != 'conclusion' else r[1][:40], CC.show_binder(r[2]) if r[0] != 'conclusion' else r[2][:40], r[3]) for r in r1]
+      +    L += ['  (C2) the restatement against a planted lv statement, binder 1`s type ℕ → ℝ changed to ℕ → ℤ: %s' % v2]
+      +    L += ['       %-10s | %-40s | %-40s | %s' % (r[0], CC.show_binder(r[1]) if r[0] != 'conclusion' else r[1][:40], CC.show_binder(r[2]) if r[0] != 'conclusion' else r[2][:40], r[3]) for r in r2]
+      +    L += ['  ### ### **CONTROLS: C1 HOLDS AT EVERY BINDER %s ; C2 DIFFERS AT THE PLANTED BINDER (1) AND THERE ALONE %s.**' % (c1_ok, c2_ok), '',
+      +          '== THE SOURCES',
+      +          '  the restatement: SIDE-explicit-formula %s %s :%d-:%d (%s), source text:' % (ef_rev, EF_RESTATE[0], ei, ej, g(EF, 'rev-parse', '--short=7', ef_rev).strip())]
+      +    L += ['      ' + x for x in etext.split(NL)]
+      +    L += ['  lv-conservation`s statement: SIDE-lv-conservation v0.13.0 = %s %s :%d-:%d, source text (b698 read the face at ZeroActingPartial.lean :%d-:%d):' % (
+      +        K.LV_V0130[:7], LV_STATE[0], li, lj, fi_, fj_)]
+      +    L += ['      ' + x for x in ltext.split(NL)]
+      +    L += ['  the face`s binder 13 (ZeroActingPartial.lean, residue_irreducible): %s ; at lam := LiCoeff: %s' % (CC.show_binder(b13), b13t),
+      +          '  K4: SIDE-explicit-formula %s %s :%d-:%d: %s' % (ef_rev, EF_K4[0], ki, kj, ksig)]
+      +    if bridge:
+      +        L += ['  ' + bridge]
+      +    L += ['', '== READING 1: THE RESTATEMENT (SIDE-explicit-formula, SOURCE) AGAINST Register4_positivity (SIDE-lv-conservation, SOURCE) -- binders %d against %d' % (len(A[0]), len(B[0]))]
+      +    L += _show_rows(rows, 'restatement', 'lv')
+      +    L += ['', '== READING 2: K4 (SIDE-explicit-formula) AGAINST THE FACE`S BINDER 13 AT lam := LiCoeff (SIDE-lv-conservation)']
+      +    L += _show_rows(rows2, 'K4', 'binder 13')
+      +    L += ['', '== READING 3: b698`S DIRECT READING RE-RUN -- h2_sign (PRINT, relay data/b643_probe_out_zeta.txt :%d-:%d) AGAINST residue_irreducible (SOURCE)' % (a1, b1_)]
+      +    L += ['  %s' % ('%s: h2_sign`s %s against residue_irreducible`s %s' % (v3, CC.show_binder(fd[1]), CC.show_binder(fd[2])) if fd is not None and fd[0] != 'conclusion' else v3),
+      +          '  AGREE %d ; DIFFERS %d of %d rows -- unchanged from data/b698_correspondence_dominance.txt :76-:77' % (
+      +              sum(1 for r in rows3 if r[3] == 'AGREE'), sum(1 for r in rows3 if r[3] != 'AGREE'), len(rows3))]
+      +    holds = v == 'HOLDS-BY-CORRESPONDENCE' and vb == 'HOLDS-BY-CORRESPONDENCE'
+      +    if after:
+      +        verdict = ('CLAUSE-DOMINANCE BY CORRESPONDENCE OVER BOTH FACES` KERNELS: 2 OF 2 THROUGH THE RESTATEMENT -- THE RESTATEMENT AGAINST lv`S STATEMENT %s ; '
+      +                   'K4 AGAINST BINDER 13 AT lam := LiCoeff %s ; THE JOIN h2_sign ↔ Register4_positivity LiCoeff COMPILED AT %s ; THE DIRECT READING OF THE TWO '
+      +                   'STATEMENTS %s AS b698 READ IT ; CONTROLS C1 %s, C2 %s' % (v, vb, tag, v3, c1_ok, c2_ok)) if holds else (
+      +                   'CLAUSE-DOMINANCE BY CORRESPONDENCE: THE RESTATEMENT %s ; K4 AGAINST BINDER 13 %s ; CONTROLS C1 %s, C2 %s' % (v, vb, c1_ok, c2_ok))
+      +    else:
+      +        verdict = ('THE RESTATEMENT AGAINST lv-CONSERVATION`S STATEMENT: %s AT EVERY BINDER (%d BINDERS AND THE CONCLUSION) ; K4 AGAINST THE FACE`S BINDER 13 AT '
+      +                   'lam := LiCoeff: %s ; b698`S DIFFERS AT BINDER 1 LOCATED IN THE RESTATEMENT AND CLOSED: THE CLAUSE REACHES THE FACE AT BINDER 13 THROUGH THE '
+      +                   'RESTATED PREDICATE, THE JOIN TO BE COMPILED AS S1 ; CONTROLS C1 %s, C2 %s ; THE THEOREM MAY BE WRITTEN %s' % (
+      +                       v, len(A[0]), vb, c1_ok, c2_ok, holds and c1_ok and c2_ok)) if holds else (
+      +                   'THE RESTATEMENT AGAINST lv-CONSERVATION`S STATEMENT: %s ; K4 AGAINST BINDER 13: %s ; THE ACT STOPS HERE WITH THE READING BANKED (N2) ; CONTROLS '
+      +                   'C1 %s, C2 %s' % (v, vb, c1_ok, c2_ok))
+      +    L += ['', '### ### **%s.**' % verdict]
+      +    put_txt('%s.txt' % name, L)
+      +    put_json('%s.json' % name, dict(at=utc(), reading1=v, reading2=vb, reading3=v3, controls=dict(c1=c1_ok, c2=c2_ok), holds=holds, after=after, tag=tag, run_id=run_id,
+      +                                    rows1=[[r[0], CC.show_binder(r[1]) if r[0] != 'conclusion' else r[1], CC.show_binder(r[2]) if r[0] != 'conclusion' else r[2], r[3], r[4]] for r in rows],
+      +                                    rows2=[[r[0], CC.show_binder(r[1]) if r[0] != 'conclusion' else r[1], CC.show_binder(r[2]) if r[0] != 'conclusion' else r[2], r[3], r[4]] for r in rows2]))
+      +    print(NL.join(L[6:9] + L[-1:]))
+      +    if not (holds and c1_ok and c2_ok) and not after:
+      +        sys.exit(1)
+      +
+      +
+      +
+
+  (3) tools/b701_record.py runner and prints, carried from tools/b698_record.py by copy -- ANSWERS b699`s trap 3: b698`s runner and prints write "b698 --" into their bank text; carried by copy with the act`s name read from ACT (the dispatch route carried by reference, its text generic).
+
+      --- tools/b698_record.py runner (sealed)
+      +++ tools/b701_record.py runner (this act)
+      @@ -1,21 +1,18 @@
+       def runner(*a):
+      -    """`runner <kernel> <run id> <ref> <label> <note...>`: the kernel's run read by its id; the artifact listed, downloaded by its id into
+      -    memory, its sha256 against the platform's digest BEFORE any reading; the build's exit and error lines, the memory log's low and any STOP;
+      -    the axioms output of the print step banked whole, every name of the list matched to one printed line, each terminal's axioms read against
+      -    the standard three. data/b698_runner_<kernel>_<label>.txt, data/b698_axioms_<kernel>_<label>.txt and a row of data/b698_runner_rows.json."""
+      +    """`runner <kernel> <run id> <ref> <label> <note...>`: b698's route carried by copy with this act's name in its bank text (b699's trap 3)."""
+           import hashlib
+           import io as _io
+           import zipfile
+           kernel, run_id, ref, label, note = a[0], int(a[1]), a[2], a[3], ' '.join(a[4:])
+           repo = 'psinary-sketch/' + kernel
+      -    rc, out, err = _gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+      +    rc, out, err = R._gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+           run = json.loads(out or b'{}')
+      -    rc, out, err = _gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+      +    rc, out, err = R._gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+           arts = (json.loads(out or b'{}').get('artifacts') or [])
+           art = arts[0] if arts else {}
+           row = dict(kernel=kernel, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+                      stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+      -    L = ['b698 -- THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (kernel, label.upper(), utc()), '',
+      +    L = ['%s -- THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (ACT, kernel, label.upper(), utc()), '',
+                '### the dispatch: %s ; the ref input %s' % (note, ref),
+                '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+                    run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+
+  (4) tools/b701_record.py grade, carried from tools/b689_record.py grade and generalized by name -- ANSWERS (R311)(2)-(3), N3: each theorem`s statement verbatim with the seat`s hand reading of its binders, the E0 check, the salt-check and the runner`s profile, for the bridge`s two names (data/b701_grade.txt, the ruling`s name) and the widening`s (data/b701_grade_widening.txt).
+
+      --- tools/b689_record.py grade (sealed)
+      +++ tools/b701_record.py grade (this act)
+      @@ -1,46 +1,47 @@
+       def grade(*a):
+      -    """`grade <rev>`: data/b689_grade.txt -- the main theorem's statement verbatim from the branch at rev, the seat's reading of its binders by
+      -    hand and the grade it gives, then the shared E0 rule's grade as the check (its lexicon extended here), the two compared; the salt-check of
+      -    REGISTRY.md :544 read on the statement, each clause with its reading; the runner's print of the statement's name."""
+      +    """`grade <rev> <stem> <name> [<name> ...]`: data/b701_grade_<stem>.txt -- each theorem's statement verbatim from the branch at rev, the seat's
+      +    reading of its binders by hand and the grade it gives, the shared E0 rule's grade as the check (its lexicon extended here, the shared file not
+      +    edited), the salt-check of REGISTRY.md :544 clause by clause, the runner's print of the name."""
+           import e0_rule as E
+      -    rev = a[0]
+      -    i, j, st, head = _statement(rev, MAIN_FILE, MAIN)
+      +    rev, stem, names = a[0], a[1], list(a[2:])
+           E.LEXICON.update(E0_EXTENSION)
+      -    eg, why, read = E.grade(head, 'theorem')
+      -    rows = jl('b689_runner_rows.json').get('rows') or []
+      -    run = next((r for r in rows if r.get('ref', '').startswith(rev[:7])), None)
+      -    ax = rdn('b689_axioms_SIDE-explicit-formula_%s.txt' % run['label']) if run else ''
+      -    prof = dict(_deps(ax)).get('SIDEExplicitFormula.Schema.Wide.' + MAIN)
+      -    concl = E.conclusion(E.statement_only(head)) or ''
+      -    salt = [('no True-typed conclusion, no uniformly-True predicate', not re.search(r'\bTrue\b', concl),
+      -             'the conclusion %r: as a predicate on WideConfig it is false at C2b, every coefficient nonnegative with 1 off the line (c2b_lesson, '
+      -             'DERIVES in the run); its consequent is false at C2 too, where the implication holds because λ₁ < 0 (c2_liCoeff_one_neg)' % concl.strip()),
+      -            ('no X = X', not re.search(r'\b(\w+)\s*=\s*\1\b', concl), 'the conclusion`s equation ρ.re = 1 / 2 compares two different terms'),
+      -            ('no hypothesis that is the claim', all('re = 1 / 2' not in t for _n, t in read),
+      -             'the hypotheses %s say nothing of Re ρ = 1/2; the empty configuration and every on-line one meet them' % [n for n, _t in read]),
+      -            ('no fabricated witness', '∃' not in concl, 'the conclusion constructs nothing'),
+      -            ('hypotheses named', all(n for n, _t in read), ', '.join('%s : %s' % x for x in read)),
+      -            ('#print axioms profiled after the first three', prof is not None and set(prof) <= set(STD3),
+      -             'run %s: %s' % (run['run_id'] if run else '### NO RUN', prof))]
+      -    L = ['b689 -- THE GRADE OF THE MAIN THEOREM, READ FROM ITS STATEMENT, AND THE SALT-CHECK, (R299)(4) (%s)' % utc(), '',
+      -         '### rows are the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and the',
+      -         '### salt-check`s clauses with their readings. The statement: SIDE-explicit-formula %s, %s :%d-:%d (the branch strip-free-b689):' % (
+      -             rev[:7], MAIN_FILE, i, j), '']
+      -    L += ['    ' + l for l in st.split(NL)]
+      -    L += ['', '### THE BINDERS, READ BY HAND (the seat`s reading, before the check):']
+      -    L += ['  %-4s : %-28s %s' % b for b in HAND]
+      -    L += ['  THE GRADE READ FROM THE STATEMENT: %s ON THE NAMED PREMISE %s (Wide.HCount); the domain condition hnz is no premise.' % (HAND_GRADE, HAND_PREMISE),
+      -          '', '### THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (tools/b689_record.py E0_EXTENSION, '
+      -          'the shared file not edited) with %s:' % ', '.join('%s (%s, %s)' % (k, v[0], v[1]) for k, v in E0_EXTENSION.items()),
+      -          '  E0 GRADE %s ; its reason: %s ; the hypotheses it read: %s' % (eg, why, read),
+      -          '  THE HAND READING AND THE CHECK %s' % ('AGREE' if eg == HAND_GRADE and why == HAND_PREMISE else '### DIFFER'),
+      -          '', '### THE SALT-CHECK (REGISTRY.md :544, the E0 salt-check), clause by clause:']
+      -    L += ['  %-55s %s -- %s' % (c, 'PASS' if ok else '### FAIL', how) for c, ok, how in salt]
+      -    L += ['', '### ### **THE STATEMENT AT %s :%d ; GRADE %s ON %s (READ BY HAND) ; THE E0 CHECK %s, %s ; SALT-CHECK %s ; PROFILE %s.**' % (
+      -        MAIN_FILE.rsplit('/', 1)[1], i, HAND_GRADE, HAND_PREMISE, eg, 'AGREE' if eg == HAND_GRADE and why == HAND_PREMISE else '### DIFFER',
+      -        'PASS' if all(ok for _c, ok, _h in salt) else '### FAIL', prof)]
+      -    put_txt('b689_grade.txt', L)
+      -    print(NL.join(L[-12:]))
+      +    rows_ = jl('%s_runner_rows.json' % ACT).get('rows') or []
+      +    run = next((r for r in rows_ if (r.get('ref') or '').startswith(g(EF, 'rev-parse', rev).strip()[:7])), None)
+      +    ax = rdn('%s_axioms_%s_%s.txt' % (ACT, run['kernel'], run['label'])) if run else ''
+      +    AX = dict(_deps(ax))
+      +    L = ['%s -- THE GRADE OF EACH THEOREM, READ FROM ITS STATEMENT, AND THE SALT-CHECK, (R311)(2)-(3) (%s)' % (ACT, utc()), '',
+      +         '### rows are, per theorem: the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and',
+      +         '### the salt-check`s clauses with their readings. The statements at SIDE-explicit-formula %s (%s); the profile from run %s.' % (
+      +             rev[:7], g(EF, 'rev-parse', '--short=7', rev).strip(), run['run_id'] if run else '### NO RUN'), '']
+      +    allok, summ = True, []
+      +    for name in names:
+      +        fpath, ns, hand, hgrade, hprem = GRADES[name]
+      +        i, j, head, st = _thm_sig(_show(EF, rev, fpath), name)
+      +        eg, why, read = E.grade(' ' + head + ' ', 'theorem')
+      +        prof = AX.get(ns + name)
+      +        concl = E.conclusion(E.statement_only(' ' + head + ' ')) or head
+      +        salt = [('no True-typed conclusion, no uniformly-True predicate', not re.search(r'\bTrue\b', concl), 'the conclusion %r is an iff or an implication between named Props of two kernels, neither True' % concl.strip()[:80]),
+      +                ('no X = X', not re.search(r'\b(\w+)\s*=\s*\1\b', concl), 'no equation in the conclusion'),
+      +                ('no hypothesis that is the claim', all(concl.strip() not in (t or '') for _n, t in read) if read else True, 'hypotheses %s' % ([n for n, _t in read] or 'none')),
+      +                ('no fabricated witness', '∃' not in concl, 'the conclusion constructs nothing'),
+      +                ('hypotheses named', all(n for n, _t in read) if read else True, ', '.join('%s : %s' % x for x in read) or 'no binder'),
+      +                ('#print axioms profiled after the first three', prof is not None and set(prof) <= set(STD3), 'run %s: %s' % (run['run_id'] if run else '### NO RUN', prof))]
+      +        ok = all(s[1] for s in salt)
+      +        allok = allok and ok
+      +        L += ['== %s (%s :%d-:%d):' % (name, fpath, i, j)] + ['    ' + l for l in st.split(NL)]
+      +        L += ['  THE BINDERS, READ BY HAND (the seat`s reading, before the check): %s' % ('NONE -- a closed statement' if not hand else '')]
+      +        L += ['    %-12s : %-28s %s' % b for b in hand]
+      +        L += ['  THE GRADE READ FROM THE STATEMENT: %s ; THE NAMED PREMISE: %s' % (hgrade, hprem),
+      +              '  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):',
+      +              '    E0 GRADE %s ; its reason: %s ; the hypotheses it read: %s' % (eg, why, read),
+      +              '    THE HAND READING AND THE CHECK %s' % ('AGREE' if eg == hgrade else '### DIFFER (%s against %s)' % (hgrade, eg)),
+      +              '  THE SALT-CHECK (REGISTRY.md :544), clause by clause:']
+      +        L += ['    %-55s %s -- %s' % (c, 'PASS' if ok_ else '### FAIL', how) for c, ok_, how in salt]
+      +        L += ['  PROFILE %s ; SALT-CHECK %s' % (prof, 'PASS' if ok else '### FAIL'), '']
+      +        summ.append('%s GRADE %s (E0 %s) SALT %s PROFILE %s' % (name, hgrade, eg, 'PASS' if ok else 'FAIL', 'STD3' if prof is not None and set(prof) <= set(STD3) else prof))
+      +    L += ['### ### **THEOREMS %d ; %s ; EVERY SALT-CHECK PASSED %s.**' % (len(names), ' ; '.join(summ), allok)]
+      +    put_txt(('%s_grade.txt' % ACT) if stem == 'bridge' else ('%s_grade_%s.txt' % (ACT, stem)), L)   # ### (R311)(2) names data/b701_grade.txt for the bridge
+      +    print(NL.join(L[-3:]))
+       
+       
+       
+
+  (5) tools/b701_checks.py, the standing runner arms re-pointed -- ANSWERS the kernel this act writes: G-WORKFLOW-FILES, G-RUNNER-READ, G-RUNNER-GATE and G-MERGES-ON-GATE read THIS act`s runs and merges at SIDE-explicit-formula (b689`s and b691`s form), the merged runs through the record tool`s reader; the act part reads SIDE-explicit-formula`s remote once (G-TAGS-READ-BACK) where the standing-a part already reads it through G-NO-SORRY-MAIN (OPEN_TRAILS :12703, one per repository per part).
+
+      --- (none)
+      +++ tools/b701_checks.py act_merges (this act)
+      @@ -0,0 +1,19 @@
+      +def act_merges():
+      +    """this act's merges at SIDE-explicit-formula: for each tag made (v0.35; v0.36 on the word) the merge commit it peels to, its parents, the
+      +    merged tree against the branch tip's, the tag's message, the files the merge changed against the main before it."""
+      +    out = []
+      +    prev_main = K.EF_MAIN_BEFORE
+      +    for tag, br in ((K.BRIDGE_TAG, K.BRIDGE_BRANCH), (K.WIDEN_TAG, K.WIDEN_BRANCH)):
+      +        m = _tag_peel(tag)
+      +        if not m:
+      +            continue
+      +        tip = gs(KI, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + br)
+      +        out.append(dict(tag=tag, branch=br, merge=m, parents=gs(KI, 'log', '-1', '--format=%P', m).split(), tip=tip, prev_main=prev_main,
+      +                        trees=(gs(KI, 'rev-parse', m + '^{tree}'), gs(KI, 'rev-parse', tip + '^{tree}') if tip else ''),
+      +                        tagmsg=gs(KI, 'tag', '-l', '-n9', tag), files=sorted(x for x in gs(KI, 'diff', '--name-only', prev_main, m).split(NL) if x.strip()),
+      +                        ct=int(gs(KI, 'log', '-1', '--format=%ct', m) or 0)))
+      +        prev_main = m
+      +    return out
+      +
+      +
+      +
+
+### ### **REPAIRS 5 ; NO SHARED TOOL EDITED ; DIFF LINES 250 ; NO FROZEN BANK EDITED.**

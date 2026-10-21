@@ -74,7 +74,7 @@ STEPZERO_BANKS = 'cdede231'  # ### the step-zero banks and tools
 PLAN_WIDEN, PLAN_EPSTEIN = '706f1422', '32c02585'   # ### the two plans, each committed alone
 C1_RELAY, C1_PP = '5958fb35', '23fdaf5'
 C2_RELAY, C2_PP = 'c67fc619', 'ead27e7'
-C3_RELAY, C3_PP = '', ''
+C3_RELAY, C3_PP = 'e3bb2ce9', 'ae22b0a'
 WEIGHT_LINE, ORDER_LINE = 9796, 15406
 B700_TRAIL_HEAD = ('### b700 — lane two, act one hundred and twenty-seven, the reading act under (R310): b699 at its weight; the trail`s Defects '
                    'line, the head line`s counts and the root-named claim by corrigendum; reading 4 with five readings added; the slate for b701 priced')

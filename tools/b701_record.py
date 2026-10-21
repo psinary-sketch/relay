@@ -1021,9 +1021,9 @@ _sv, scores_line = R._sv, R.scores_line
 
 # ================================================================================ THE RECORD: THE ENTRY BEFORE THE ROOT, THE TRAIL CARRYING IT
 def TRAIL_HEAD():
-    w = '(v0.36)' if g(EF, 'tag', '-l', K.WIDEN_TAG).strip() else 'on a branch held at the gate`s reading (no v0.36)'
+    w = '(v0.36)' if g(EF, 'tag', '-l', K.WIDEN_TAG).strip() else 'on its branch, held at the gate reading (no v0.36)'
     return ('### b701 — lane two, act one hundred and twenty-eight, the research act under (R311): b700 at its weight; the bridge compiled and the faces '
-            'joined through RH (v0.35); classK widened to classK` %s; the Epstein count`s opening step planned' % w)
+            'joined through RH (v0.35); classK widened to classK’ %s; the Epstein count`s opening step planned' % w)
 
 
 R.TRAIL_HEAD = TRAIL_HEAD
@@ -1108,8 +1108,9 @@ def _finding_text():
          'differs at binder 1 as b698 read it. %s The Epstein count’s opening step is priced at %s dispatch, the whole at '
          '%s at the least.' % (f['bridge_tag'], f['bridge_run'], f['bridge_gate'], f['bridge_grade'], wsum, f['epstein_open'], f['epstein_all']), '',
          '*Filed at b701 on the author’s ruling `(R311)` and the author’s words at its prompts; %d question%s put. Banks: relay `data/b701_correspondence_restatement.txt`, '
-         '`data/b701_clause_dominance.txt`, `data/b701_grade.txt`, `data/b701_grade_widening.txt`, `data/b701_runner_rows.json`, `data/b701_widening_plan.txt`, '
-         '`data/b701_widening.txt`, `data/b701_epstein_plan.txt`, `data/b701_faces_rows.txt`, `data/b701_glossary_rows.txt`.*' % (n_ans, '' if n_ans == 1 else 's'), '',
+         '`data/b701_clause_dominance.txt`, `data/b701_grade.txt`, %s`data/b701_runner_rows.json`, `data/b701_widening_plan.txt`, '
+         '`data/b701_widening.txt`, `data/b701_epstein_plan.txt`, `data/b701_faces_rows.txt`, `data/b701_glossary_rows.txt`.*' % (
+             n_ans, '' if n_ans == 1 else 's', '`data/b701_obstruction.txt`, ' if held else '`data/b701_grade_widening.txt`, '), '',
          '**The correspondence reading** (`(R311)`(2), N2): before the theorem was written, the reader (tools/circuit_correspondence.py, imported '
          'unedited) read ResidueDischarge.Register4_positivity against SIDE-lv-conservation v0.13.0’s RegisterPentagon.Register4_positivity -- %s rows, '
          'the binders and the conclusion, every one AGREE -- and K4 against the face’s binder 13 at lam := LiCoeff, AGREE; the controls behaved; b698’s '
@@ -1174,11 +1175,11 @@ def _trail_text():
              '**The bridge:** h2_sign ↔ Register4_positivity LiCoeff at SIDE-explicit-formula %s = %s, run %s %s, grade %s; the restatement '
              'HOLDS-BY-CORRESPONDENCE at every binder; CLAUSE-DOMINANCE by correspondence %s (relay data/b701_grade.txt, data/b701_correspondence_restatement.txt, '
              'data/b701_clause_dominance.txt).' % (f['bridge_tag'], f['bridge_merge'], f['bridge_run'], f['bridge_gate'], f['bridge_grade'], f['cd']), '',
-             (('**The widening:** classK` on widening-b701 = 8a4ab68, HELD UNMERGED: run %s %s at H2SignWide.lean :59 (ContDiff.differentiable`s hypothesis '
-               'at the pin, one token), no v0.36, no grade read, nothing of it at main; h2_sign` → RH and h2_sign_sum ↔ RH written and not compiled, RH → '
-               'h2_sign` unstated at the explicit formula`s C² binder (relay data/b701_widening_plan.txt, data/b701_widening.txt, data/b701_obstruction.txt).' % (
+             (('**The widening:** classK’ on widening-b701 = 8a4ab68, HELD UNMERGED: run %s %s at H2SignWide.lean :59 (ContDiff.differentiable`s hypothesis '
+               'at the pin, one token), no v0.36, no grade read, nothing of it at main; h2_sign’ → RH and h2_sign_sum ↔ RH written and not compiled, RH → '
+               'h2_sign’ unstated at the explicit formula`s C² binder (relay data/b701_widening_plan.txt, data/b701_widening.txt, data/b701_obstruction.txt).' % (
                    f['widen_run'], f['widen_gate'])) if held else
-              ('**The widening:** classK` at %s = %s, run %s %s, grade %s; h2_sign` → RH and h2_sign_sum ↔ RH compiled, RH → h2_sign` unstated at the '
+              ('**The widening:** classK’ at %s = %s, run %s %s, grade %s; h2_sign’ → RH and h2_sign_sum ↔ RH compiled, RH → h2_sign’ unstated at the '
                'explicit formula`s C² binder (relay data/b701_widening_plan.txt, data/b701_widening.txt, data/b701_grade_widening.txt).' % (
                    f['widen_tag'], f['widen_merge'], f['widen_run'], f['widen_gate'], f['widen_grade']))), '',
              '**The Epstein plan:** the opening step %s dispatch, the whole %s at the least (relay data/b701_epstein_plan.txt), raised at b703.' % (f['epstein_open'], f['epstein_all']), '',
