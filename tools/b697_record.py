@@ -261,6 +261,92 @@ def facesrows(*a):
     print(NL.join(L))
 
 
+def nodes(*a):
+    """the author's word at the faces prompt (regenerate): data/b697_nodes_zeta.txt -- b695's list with :168 replaced by (D) of
+    data/b697_faces_rows.txt and nothing else; refused unless every other line is equal and (D) is the route's own successor()."""
+    old = rdn('b695_nodes_zeta.txt').split(NL)
+    fr = rdn('%s_faces_rows.txt' % ACT).split(NL)
+    d = [l for i, l in enumerate(fr) if i > 0 and fr[i - 1].startswith('  (D) THE ROW THE READINGS GIVE')]
+    _s, new, _c = successor()
+    if len(d) != 1 or d[0] != new or not old[K.NODES_ROW - 1].startswith('# backmatter:') or 'the Weil face at Q0' not in old[K.NODES_ROW - 1]:
+        sys.exit('### (D) IS NOT THE ROUTE`S SUCCESSOR OR :168 IS NOT THE WEIL-FACE ROW -- NOTHING WRITTEN')
+    out = old[:K.NODES_ROW - 1] + [new] + old[K.NODES_ROW:]
+    diff = [i + 1 for i in range(len(old)) if old[i] != out[i]]
+    if diff != [K.NODES_ROW] or len(out) != len(old):
+        sys.exit('### THE NEW LIST DIFFERS BEYOND :168 %s -- NOTHING WRITTEN' % diff)
+    if 'dry' in a:
+        print('  the new list: %d lines, differing from b695`s at %s' % (len(out), diff))
+        return
+    p = os.path.join(D, os.path.basename(K.NODES_NEW))
+    with open(p + '.tmp', 'wb') as fh:
+        fh.write(NL.join(out).encode('utf-8'))
+    os.replace(p + '.tmp', p)
+    print('  written %s: %d lines, differing from b695`s at %s' % (K.NODES_NEW, len(out), diff))
+
+
+def faces(*a):
+    """b695's form (tools/b695_record.py faces), carried without the carried-row allowance: the control (b695's list re-emits the committed
+    page byte for byte) and the emission of data/b697_nodes_zeta.txt, both by tools/chain_page.py --from-output data/b643_probe_out_zeta.txt
+    into the scratchpad (no lean); the diff printed; with `write`, the control and the emission clean first, the page written by the generator
+    itself (its --out the page), read back equal to the emission, and the diff banked as data/b697_faces_diff.txt."""
+    import difflib
+    import hashlib
+    page = os.path.join(PP, K.FACES_PAGE)
+    probe = os.path.join(ROOT, *K.PROBE.split('/'))
+
+    def emit(nodes_, out):
+        r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'chain_page.py'), '--nodes', os.path.join(ROOT, *nodes_.split('/')),
+                            '--probe-dir', SP, '--out', out, '--from-output', probe], capture_output=True, text=True, encoding='utf-8', errors='replace')
+        return r.returncode, ((r.stdout or '') + (r.stderr or '')).strip().split(NL)[-1:]
+    committed = open(page, 'rb').read()
+    head = (_show(PP, 'HEAD', K.FACES_PAGE) or '').encode('utf-8')
+    cpath, npath = os.path.join(SP, 'b697_faces_control.md'), os.path.join(SP, 'b697_faces_emit.md')
+    rc0, t0 = emit(K.NODES, cpath)
+    ctl = open(cpath, 'rb').read() if os.path.exists(cpath) else b''
+    control = rc0 == 0 and ctl == committed
+    rc1, t1 = emit(K.NODES_NEW, npath)
+    new = open(npath, 'rb').read() if os.path.exists(npath) else b''
+    ca, cb = committed.decode('utf-8').split(NL), new.decode('utf-8').split(NL)
+    # the diff from the matcher without autojunk: unified_diff's own matcher junks the page's frequent blank line and pulled the equal :735
+    # into the :734 hunk (a dry run printed lines added 3, removed 3 for a two-line change)
+    ops = [o for o in difflib.SequenceMatcher(None, ca, cb, autojunk=False).get_opcodes() if o[0] != 'equal']
+    real = [(i1 + 1, i2, j1 + 1, j2) for op, i1, i2, j1, j2 in ops]
+    d = ['--- committed', '+++ b697']
+    for op, i1, i2, j1, j2 in ops:
+        d += ['@@ -%d,%d +%d,%d @@' % (i1 + 1, i2 - i1, j1 + 1, j2 - j1)] + ['-' + l for l in ca[i1:i2]] + ['+' + l for l in cb[j1:j2]]
+    add = sum(j2 - j1 for op, i1, i2, j1, j2 in ops)
+    rem = sum(i2 - i1 for op, i1, i2, j1, j2 in ops)
+    changed = sorted(set(i for i in range(min(len(ca), len(cb))) if ca[i] != cb[i]))
+    written, back = False, False
+    if 'write' in a:
+        if rc1 != 0 or not control:
+            sys.exit('### THE CONTROL OR THE EMISSION FAILED -- THE PAGE IS NOT WRITTEN (control %s ; emission exit %d)' % (control, rc1))
+        rc2, t2 = emit(K.NODES_NEW, page)
+        written = rc2 == 0
+        back = open(page, 'rb').read() == new
+    _s, row, cav = successor()
+    L = ['b697 -- COMPONENT 2, (R307)(2): THE WEIL-FACE LINE THROUGH THE GENERATOR, ON THE AUTHOR`S WORD AT THE FACES PROMPT (%s)' % utc(), '',
+         '### the generator: relay tools/chain_page.py --from-output relay %s (no elaboration; no lean on this host)' % K.PROBE,
+         '### the control: b695`s list (relay %s) re-emits the committed page byte for byte: %s (%d bytes ; exit %d ; the committed page equal to HEAD`s '
+         'blob %s)' % (K.NODES, control, len(ctl), rc0, committed.replace(b'\r\n', b'\n') == head.replace(b'\r\n', b'\n')),
+         '### the new list: relay %s (b695`s with :168 replaced, data/b697_faces_rows.txt (D)); emitted %d bytes, exit %d, sha256 %s' % (
+             K.NODES_NEW, len(new), rc1, hashlib.sha256(new).hexdigest()[:16]),
+         '### the lines that differ, committed -> b697, by number: %s (expected :3, the list`s name, and :734, the backmatter line) ; lines added %d, '
+         'removed %d ; the opcodes %s' % ([':%d' % (i + 1) for i in changed], add, rem, '; '.join(':%d-:%d -> :%d-:%d' % r for r in real))] + [
+         '### the diff:'] + ['    ' + l for l in d] + [
+         '', '### the page written by the generator and read back equal to the emission: %s' % (back if 'write' in a else 'NOT YET (dry)'),
+         '### the page carries the row`s radius %s and (R307)(2)`s caveat verbatim: %s ; the page no longer carries "%s": %s' % (
+             RADIUS_NEW, RADIUS_NEW in new.decode('utf-8') and cav in new.decode('utf-8'), RADIUS_OLD, RADIUS_OLD not in new.decode('utf-8')), '',
+         '### ### **CONTROL EQUAL %s ; LINES DIFFERING %s ; PAGE WRITTEN %s.**' % (control, ', '.join(':%d' % (i + 1) for i in changed) or 'NONE',
+                                                                               written and back)]
+    if 'write' in a:
+        put_txt('%s_faces_diff.txt' % ACT, L)
+    print(NL.join(L[2:6] + L[-5:]))
+    print('  the diff`s lines, each cut at 90 characters (%d lines):' % len(d))
+    for l in d:
+        print('    %r' % l[:90])
+
+
 # ================================================================================ THE READERS, ONE PER ROW SHAPE A ROUTE READS ((R263)(3))
 BRANCH_FATES = ('DELETED', 'KEPT', 'RAISED')
 
@@ -485,7 +571,7 @@ def defects(*a):
 
 
 # ================================================================================ THE ROUTES
-ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, facesrows=facesrows)
+ROUTES = dict(rowgen=rowgen, branches=branches, answers=answers, defects=defects, c1=c1, facesrows=facesrows, nodes=nodes, faces=faces)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
