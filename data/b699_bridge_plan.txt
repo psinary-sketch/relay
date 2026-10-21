@@ -1,0 +1,88 @@
+b699 -- THE BRIDGE PRICED, (R309)(5): W-ORD-H2-BRIDGE-THEOREM, THE TRANSLATION AT BINDER 1 AND THE STATEMENT BETWEEN THE TWO FACES, PLANNED AND NOT RUN (2026-10-21)
+
+### rows are the binders of b698's reading (relay data/b698_correspondence_dominance.txt :33-:74, h2_sign's print at SIDE-explicit-formula
+### v0.26 = 82550e4, every defining file identical to v0.34, against residue_irreducible's source at SIDE-lv-conservation v0.13.0 = 8e3bc76,
+### ZeroActingPartial.lean :111-:121), each with: the two types side by side | the translation it needs | its role in the expected statement |
+### the expected grade | the price in dispatches. Section 1 prints every binder with its translation before section 2 writes any statement.
+### Nothing here is compiled; no lean on this host; no dispatch made for it.
+
+== 0. WHAT THE KERNELS ALREADY CARRY (SIDE-explicit-formula v0.34, read by git grep bounded to its source tree)
+  (K1) SIDEExplicitFormula/Seam.lean :101            `theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis` (namespace SIDEExplicitFormula.B321)
+                                                     relay data/terminal_table.md :142: DERIVES, depends on axioms [propext, Classical.choice, Quot.sound]
+  (K2) SIDEExplicitFormula/PageConverses.lean :32    `theorem register4_positivity_liCoeff_iff_rh : Register4_positivity LiCoeff ↔ RiemannHypothesis`
+                                                     (namespace SIDEExplicitFormula.PageConverses) ; relay data/terminal_table.md :810: DERIVES, NOT PROFILED
+  (K3) SIDEExplicitFormula/ResidueDischarge.lean :30 `def Register4_positivity (lam : ℕ → ℝ) : Prop := ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n` -- lv's
+                                                     predicate restated in SIDE-explicit-formula (the two kernels share no toolchain, :9)
+  (K4) SIDEExplicitFormula/ResidueDischarge.lean :41 `theorem register4_positivity_liCoeff_imp_rh : Register4_positivity LiCoeff → RiemannHypothesis`
+                                                     -- the Correspondence row's own discharge of binder 13 at λ := LiCoeff (data/b690_nodes_zeta.txt :126)
+  (K5) SIDEExplicitFormula/LiWeil.lean :243          `def LiCoeff (n : ℕ) : ℝ` -- the programme's Li coefficients, a sum over the zero configuration
+  The import: SIDE-explicit-formula's lakefile requires no SIDE-lv-conservation (data/b699_citation_check.txt, ruling (5)); lv's statements
+  are restated on the SIDE-explicit-formula side, as (K3) already restates Register4_positivity.
+
+== 1. THE BINDERS, EACH WITH THE TRANSLATION IT NEEDS (14 rows: 13 binders and the conclusion)
+  binder 1   | h2_sign: (k : ℝ → ℂ)                         | residue_irreducible: {lam_A : ℕ → ℝ}
+             | THE TRANSLATION: none object to object -- no map k ↦ lam_A stands in either kernel. The bridge translates at the level of the
+             | two propositions: the clause's ∀ k ∈ classK, 0 ≤ W(k) against lv's positivity of a sequence at lam := LiCoeff, joined through
+             | RiemannHypothesis by (K1) and (K2). lam_A itself is a channel part of lam (binder 8) and is left free by that join.
+             | ROLE: the open object b698 named; met by S1 through RH, not by a test-window-to-sequence map | GRADE: DERIVES expected for S1 |
+             | a direct map k ↦ lam (a window per n with W(k_n) = λ_n) NOT PRICED: no such window is compiled, and the classK hypotheses it
+             | would leave are the widening W-ORD names (data/b698_regularity_uses.txt :87, W2 obstructed at 7 uses) | PRICE: 0 beyond S1
+  binder 2   | h2_sign: classK k (unnamed hypothesis)       | residue_irreducible: {lam_Z : ℕ → ℝ}
+             | THE TRANSLATION: none -- classK k stays the clause's own hypothesis inside h2_sign; lam_Z, the zero channel, is left free
+             | ROLE: carried unchanged inside h2_sign | GRADE: -- | PRICE: 0
+  binder 3   | h2_sign: --                                   | residue_irreducible: {lam : ℕ → ℝ}
+             | THE TRANSLATION: lam := LiCoeff (K5), the instantiation the Correspondence row itself makes at binder 13
+             | ROLE: the sequence S1 states its positivity of | GRADE: DERIVES (a definition) | PRICE: 0
+  binder 4   | h2_sign: --                                   | residue_irreducible: {low : Finset NontrivialZero}
+             | THE TRANSLATION: none needed -- the verified-zero data feed only the face's second conjunct (finite-range channel inequality)
+             | ROLE: outside S1 | GRADE: -- | PRICE: 0
+  binder 5   | h2_sign: --                                   | residue_irreducible: {tail : ℕ → ℝ}
+             | THE TRANSLATION: none needed (as binder 4) | ROLE: outside S1 | GRADE: -- | PRICE: 0
+  binder 6   | h2_sign: --                                   | residue_irreducible: {T : ℝ}
+             | THE TRANSLATION: none needed (as binder 4) | ROLE: outside S1 | GRADE: -- | PRICE: 0
+  binder 7   | h2_sign: --                                   | residue_irreducible: (hZero : NontrivialZeroExistsInStrip)
+             | THE TRANSLATION: none needed -- it feeds the first conjunct, ¬ RealizesXiZeros certifiedInputSpectrum
+             | ROLE: outside S1 | GRADE: -- | PRICE: 0
+  binder 8   | h2_sign: --                                   | residue_irreducible: (hdecomp : ∀ n, lam n = lam_A n + lam_Z n)
+             | THE TRANSLATION: none needed -- S1 fixes lam and leaves its two channels free | ROLE: outside S1 | GRADE: -- | PRICE: 0
+  binder 9   | h2_sign: --                                   | residue_irreducible: (hV : VerifiedZerosTo T)
+             | THE TRANSLATION: none needed (as binder 4) | ROLE: outside S1 | GRADE: -- | PRICE: 0
+  binder 10  | h2_sign: --                                   | residue_irreducible: (hEF : ExplicitFormulaDecomp lam low tail T)
+             | THE TRANSLATION: none needed (as binder 4) | ROLE: outside S1 | GRADE: -- | PRICE: 0
+  binder 11  | h2_sign: --                                   | residue_irreducible: (hTail : TailBoundPremise low tail T)
+             | THE TRANSLATION: none needed (as binder 4) | ROLE: outside S1 | GRADE: -- | PRICE: 0
+  binder 12  | h2_sign: --                                   | residue_irreducible: (inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam)
+             | THE TRANSLATION: none needed -- S1 states Register4_positivity LiCoeff directly, not through the channel inequality
+             | ROLE: outside S1 | GRADE: -- | PRICE: 0
+  binder 13  | h2_sign: --                                   | residue_irreducible: (liCriterion : Register4_positivity lam → RiemannHypothesis)
+             | THE TRANSLATION: lam := LiCoeff, discharged by (K4) -- the binder the face reaches the clause through (data/b690_nodes_zeta.txt :126)
+             | ROLE: the forward half of S1's join | GRADE: DERIVES (K4, compiled) | PRICE: 0
+  conclusion | h2_sign: 0 ≤ poleTerm k - primeSum k + archTerm k
+             | residue_irreducible: (¬ RealizesXiZeros certifiedInputSpectrum) ∧ PartialChannelInequality lam_A lam_Z (N₀ T) ∧ (∀ ledger : ℕ → ℝ, ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis)
+             | THE TRANSLATION: the third conjunct's target, RiemannHypothesis, is the common term: h2_sign ↔ RiemannHypothesis by (K1); the
+             | first two conjuncts are not reached by h2_sign
+             | ROLE: S2 | GRADE: DERIVES expected, and empty of content beyond S1 (its consequent is RH, which h2_sign gives alone) | PRICE: with S1
+
+== 2. THE EXPECTED STATEMENTS, ON A BRANCH OF SIDE-explicit-formula (lv's statements restated there; not compiled this act)
+  S1  theorem h2_sign_iff_register4_positivity_liCoeff :
+          SIDEExplicitFormula.B321.h2_sign ↔ SIDEExplicitFormula.ResidueDischarge.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff :=
+        B321.h2_sign_iff_rh.trans PageConverses.register4_positivity_liCoeff_iff_rh.symm
+      -- AN EQUIVALENCE OF THE TWO FACES' TARGETS UNDER lam := LiCoeff, JOINED THROUGH RH; not a translation of objects
+      expected grade: DERIVES, axioms within the standard three if (K2) prints so (it is NOT PROFILED in the terminal table; S1's print reads it)
+  S2  theorem h2_sign_imp_pairing_rh (lam_A lam_Z : ℕ → ℝ) (h : SIDEExplicitFormula.B321.h2_sign) :
+          ∀ ledger : ℕ → ℝ, ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis :=
+        fun _ _ => B321.h2_sign_iff_rh.mp h
+      -- ZeroActingPairing restated from SIDE-lv-conservation v0.13.0 ZeroActingPartial.lean beside it; the implication is the trivial one
+      expected grade: DERIVES ; recorded as adding nothing beyond S1 and (K1)
+  NOT PRICED: a statement joining the two faces without RH between them -- a window k_n ∈ classK with W(k_n) = λ_n for each n -- for want of
+      such a window in either kernel and of the classK widening it would need (W-ORD-EPSTEIN-COUNT-LEAN and the classK widening to W1 ∪ W3 stand
+      beside this order for b701's ruling).
+
+== 3. THE PRICE
+  one module, SIDEExplicitFormula/H2Bridge.lean, importing Seam, PageConverses and ResidueDischarge, carrying S1, S2 and the restated
+  ZeroActingPairing; its two names added to print_targets.txt; on recut-explicit-formula-h2bridge from main; ONE DISPATCH at the branch tip
+  (one tree state), read by its run id, the artifact by sha256 before any reading; the 'before' print bank needed for no existing name (the
+  module adds names and changes none). PRICE: 1 dispatch ; 0 runs on this host ; the cost of one SIDE-explicit-formula build of the
+  module's imports under the 2,560 MB hold.
+
+### ### **BINDERS 14 PRINTED WITH THEIR TRANSLATIONS BEFORE ANY STATEMENT ; THE TRANSLATION AT BINDER 1: NONE OBJECT TO OBJECT, THE JOIN THROUGH RH AT lam := LiCoeff ; S1 AN EQUIVALENCE, DERIVES EXPECTED ; S2 AN IMPLICATION, EMPTY BEYOND S1 ; A DIRECT JOIN NOT PRICED ; PRICE 1 DISPATCH ; NOTHING COMPILED.**
