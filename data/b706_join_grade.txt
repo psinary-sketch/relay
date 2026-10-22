@@ -1,0 +1,31 @@
+b706 -- COMPONENT 3, (R316)(4) as (R315)(5) specified the grade: THE GRADE OF faces_join, READ FROM ITS STATEMENT, WITH E0 AND THE SALT-CHECK BESIDE IT (2026-10-22T20:46:12Z)
+
+### rows are, per theorem: the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and
+### the salt-check`s clauses with their readings. The statement at SIDE-faces-join b37a7b6; the profile from run 39850337262 (gate NOT DERIVES); the lakefile re-ordered, mathlib last
+### (data/b706_join_lakefile.txt), Lake`s hint at data/b705_art_SIDE-faces-join_join_cache_log.txt :21.
+
+== faces_join (FacesJoin.lean :29-:31):
+    theorem faces_join :
+        SIDEExplicitFormula.B321.h2_sign ↔
+          SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff :=
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): NONE -- a closed statement
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (no binder; an equivalence of two closed propositions, each kernel`s own, through Mathlib`s RiemannHypothesis)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (JOIN_E0; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate                                 PASS -- the conclusion 'SIDEExplicitFormula.B321.h2_sign ↔ SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.L'
+    no X = X                                                                              PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                                                       PASS -- hypotheses none
+    no fabricated witness                                                                 PASS -- the conclusion constructs nothing
+    hypotheses named                                                                      PASS -- no binder
+    #print axioms profiled after the first three                                          ### FAIL -- run 39850337262: None
+    the terminal states lv-conservation`s own declaration, no restatement in the module (N3) PASS -- the right-hand side names SIDELvConservation.RegisterPentagon.Register4_positivity; the module defines no Register4_positivity
+  PROFILE None ; SALT-CHECK ### FAIL
+
+== THE JOIN HELD: the run`s gate NOT DERIVES ; the build`s error lines, by line (relay data/b706_buildlog_SIDE-faces-join_join.txt):
+    error: SIDELvConservation/GammaBounds.lean:177:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+    error: build failed
+   (R316)(4): on any failure, the error banked by line and the join held, no second dispatch.
+
+### ### **THEOREMS 1 ; faces_join GRADE DERIVES (E0 DERIVES) SALT FAIL PROFILE None ; THE GATE NOT DERIVES ; THE JOIN HELD ; EVERY SALT-CHECK PASSED AND EVERY CHECK AGREEING False.**

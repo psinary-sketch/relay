@@ -1,0 +1,71 @@
+b706 -- (R316)(6): tools/correspondence_gen.py EDITED BY THE EDIT TOOL, THE DIFF AGAINST HEAD (69 lines) (2026-10-22T20:37:57Z)
+
+diff --git a/tools/correspondence_gen.py b/tools/correspondence_gen.py
+index 78d4e628..f81dcab1 100644
+--- a/tools/correspondence_gen.py
++++ b/tools/correspondence_gen.py
+@@ -38,7 +38,7 @@ D = os.path.join(ROOT, 'data')
+ PP = 'D:/MY-DOwnloads/PLACE-papers'
+ KD = 'D:/'
+ NL = '\n'
+-ROSTER = os.path.join(D, 'b672_roster_read.json')
++ROSTER = os.path.join(D, 'b706_roster_read.json')   # ### b706, (R316)(3): b672's 20 tables at their unversioned names, the files of record after the renames (b672's roster names versioned paths retired to archive/)
+ DIFF_TXT = os.path.join(D, 'b672_correspondence_diff.txt')
+ DIFF_JSON = os.path.join(D, 'b672_correspondence_diff.json')
+ GRADES = os.path.join(D, 'terminal_table.json')
+@@ -60,6 +60,11 @@ PTOK = re.compile(r'`\{[^`}]*\}`|`\[[^`\]]*\]`|axiom-free(?: \((?:none|both)\))?
+ GTOK = re.compile(r'^((?:###\s*)?(?:\*\*)?)(' + '|'.join(VOCAB) + r')( UNREFRESHED)?(?![\w-])')
+ IDENT = re.compile(r"`([A-Za-z_][\w.'′″₀-₉]*)`")
+ HELD_PIN = re.compile(r'DEPOSIT-PIN|\bDOI\b')
++# ### b706, (R316)(6), W-ORD-CORRESPONDENCE-EF-REACH: the citation form in which the papers name a kernel OUTSIDE the kernel cell -- in a claim,
++# ### terminal or status cell -- `(name, SIDE-explicit-formula [at the page's pin] vX = `sha`)` (the 11 table lines of relay data/b704_cells_reach.txt).
++# ### Read for the kernels a table reaches (kernels_of) and for the mention counts (cite_mentions, printed by the run); never rewritten: the regen
++# ### functions read the kernel cell alone, as before, so every re-emission is byte-identical to the unedited generator's (relay data/b706_generator_reach.txt).
++CITE_FORM = re.compile(r'(SIDE-[a-z0-9]+(?:-[a-z0-9]+)*)(?:\s+at the (?:ζ )?page[’\']s pin)?\s+`?(v\d+(?:\.\d+)*)`?\s*=\s*`?([0-9a-f]{7,40})`?')
+ # ### the navigator's answer on the NOT PRINTED cells (b672): the word keeps what was verified -- "NOT PRINTED AT <tag> (was <old profile> at
+ # ### <old version = commit>)", the old pin from the row's kernel cell before the rewrite, the commit bare (a backticked commit in a row is a
+ # ### pin to reading (ii)). The parenthetical is skipped when the cell's profile tokens are counted, so a re-run leaves the cell as it stands.
+@@ -647,9 +652,34 @@ def kernels_of(roster):
+             sp = spans(l)
+             if len(sp) > cols['kernel']:
+                 ks.update(KNAME.findall(cell(l, sp[cols['kernel']])))
++            ks.update(k for k, _v, _c in CITE_FORM.findall(l))   # ### b706: a kernel named in the citation form in any cell is reached too
+     return ks
+ 
+ 
++def cite_mentions(roster):
++    """b706, (R316)(6): per kernel, the table cells and lines carrying the citation form outside the kernel cell -- {kernel: dict(cells, lines)}."""
++    out = {}
++    for t in roster['tables']:
++        b = open(os.path.join(PP, t['path']), 'rb').read().decode('utf-8').replace('\r\n', '\n').split('\n')
++        ft = find_table(b, t)
++        if isinstance(ft, str):
++            continue
++        cols = columns(b[ft[0]])
++        for l in b[ft[0] + 1:ft[1]]:
++            sp = spans(l)
++            seen_line = set()
++            for i, s in enumerate(sp):
++                if cols['kernel'] is not None and i == cols['kernel']:
++                    continue
++                ks = set(k for k, _v, _c in CITE_FORM.findall(cell(l, s)))
++                for k in ks:
++                    out.setdefault(k, dict(cells=0, lines=0))['cells'] += 1
++                seen_line |= ks
++            for k in seen_line:
++                out[k]['lines'] += 1
++    return out
++
++
+ def sha(s):
+     return hashlib.sha256(s.encode('utf-8')).hexdigest()
+ 
+@@ -720,6 +750,8 @@ def main(mode, roster_path=ROSTER, full=False):
+          '### tool`s claim (the navigator`s answer on reading (1)). A withheld document`s cells print as sha256 and length, never as text.', '',
+          '### THE TAGS: one `git ls-remote --tags origin` per repository (kernel ; reading ; tag ; the commit it peels to ; local describe on main)']
+     L += ['    %-34s %-40s %-9s %s ; local %s' % (k, rd, tg, c[:12], loc or '-') for k, rd, tg, c, loc in tlog]
++    cm = cite_mentions(roster)
++    L += ['### THE CITATION-FORM MENTIONS OUTSIDE THE KERNEL CELL (b706, (R316)(6)): ' + ('; '.join('%s cells %d lines %d' % (k, v['cells'], v['lines']) for k, v in sorted(cm.items())) or 'none')]
+     L += ['', '### THE PRINT BANKS: every relay print bank of a tabled kernel (kernel ; bank ; built commit ; reading ; files differing to the tag ;',
+           '### rows); the first AT THE TAG, newest act first, is the one read']
+     L += ['    %-34s %-52s %-9s %-36s %-5s %s' % (k, f, (b or '-')[:7], rd, '-' if nd is None else nd, n) for k, f, b, rd, nd, n in blog]

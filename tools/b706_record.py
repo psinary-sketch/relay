@@ -1041,12 +1041,338 @@ def readers(*a):
     print(NL.join(L[-3:]))
 
 
+# ================================================================================ COMPONENT 3: THE JOIN'S MANIFEST, (R316)(4) (b705's routes carried, the lakefile re-ordered)
+KI = K.KERNEL_DIR
+JOIN_FILES = ('lean-toolchain', 'lakefile.toml', 'FacesJoin.lean', 'print_targets.txt', '.github/workflows/build-module.yml', 'README.md', '.gitignore')
+
+
+def _blob_sha(repo, rev, path):
+    return g(repo, 'rev-parse', '%s:%s' % (rev, path)).strip()
+
+
+def joinlake(*a):
+    """data/b706_join_lakefile.txt: the join kernel's lakefile as edited by the Edit tool, printed WHOLE before the commit ((R316)(4) and the
+    author's word: SIDEExplicitFormula, sideLvConservation, mathlib LAST, each at its same revision), its diff against 732c1b49's by line, the
+    requires' order read from the text, and Lake's hint line cited from the run's artifact bank (data/b705_art_SIDE-faces-join_join_cache_log.txt
+    :21); no lake-manifest.json at the root."""
+    import difflib
+    now = rd(os.path.join(KI, 'lakefile.toml')).replace(chr(13), '')
+    old = (_show(KI, K.JOIN_TIP_B705, 'lakefile.toml') or '').replace(chr(13), '')
+    def requires(text):
+        """the [[require]] blocks in order: [(name, rev)] -- the block's own lines alone, not the package's or a lib's name line."""
+        out = []
+        for blk in re.split(r'(?m)^\[\[require\]\]\s*$', text)[1:]:
+            body = re.split(r'(?m)^\[', blk)[0]
+            nm = re.search(r'(?m)^name = "([^"]+)"', body)
+            rv = re.search(r'(?m)^rev = "([0-9a-f]{40})"', body)
+            out.append((nm.group(1) if nm else '?', rv.group(1) if rv else ''))
+        return out
+    names = [n for n, _r in requires(now)]
+    revs = dict(requires(now))
+    old_revs = dict(requires(old))
+    hint = rdn('b705_art_SIDE-faces-join_join_cache_log.txt').split(NL)
+    hl = next((i + 1 for i, l in enumerate(hint) if 'Try putting `require mathlib` last' in l), 0)
+    d = list(difflib.unified_diff(old.split(NL), now.split(NL), 'lakefile.toml at 732c1b49', 'lakefile.toml (this act, the working tree)', lineterm=''))
+    manifest = os.path.exists(os.path.join(KI, 'lake-manifest.json'))
+    L = ['%s -- COMPONENT 3, (R316)(4) AND THE AUTHOR`S WORD: THE JOIN KERNEL`S LAKEFILE RE-ORDERED, PRINTED WHOLE BEFORE THE COMMIT (%s)' % (ACT, utc()), '',
+         '### the requires in order: %s ; each at its revision %s ; the same revisions as at 732c1b49 %s ; mathlib LAST %s ; a lake-manifest.json at the root %s' % (
+             names, dict((k, v[:8]) for k, v in revs.items()), revs == old_revs, names[-1:] == ['mathlib'], manifest),
+         '### Lake`s hint, data/b705_art_SIDE-faces-join_join_cache_log.txt :%d: %s' % (hl, hint[hl - 1].strip() if hl else '### NOT FOUND'), '',
+         '### THE LAKEFILE, WHOLE:'] + ['    ' + x for x in now.rstrip(NL).split(NL)] + ['', '### THE DIFF AGAINST 732c1b49 (%d lines):' % len(d)] + ['    ' + x for x in d]
+    L += ['', '### ### **REQUIRES %d IN ORDER %s ; REVISIONS UNCHANGED %s ; MATHLIB LAST %s ; NO MANIFEST ON THIS HOST %s ; THE HINT CITED AT :%d.**' % (
+        len(names), ' > '.join(names), revs == old_revs, names[-1:] == ['mathlib'], not manifest, hl)]
+    put_txt('%s_join_lakefile.txt' % ACT, L)
+    put_json('%s_join_lakefile.json' % ACT, dict(at=utc(), order=names, revs=revs, unchanged=revs == old_revs, mathlib_last=names[-1:] == ['mathlib'], manifest=manifest, hint_line=hl))
+    print(NL.join(L[2:4] + L[-1:]))
+
+
+def joinfiles(*a):
+    """data/b706_join_files.txt: the join kernel's files at its commit, printed whole before the push, each with its blob id; the workflow's blob
+    against SIDE-explicit-formula's at v0.37 (carried verbatim at b705; this act's workflow commit on SIDE-explicit-formula's main is not
+    carried into the join); the pins and the three requirements read from the lakefile; no identifier of the author in any file."""
+    import b706_checks as C6
+    tip = g(KI, 'rev-parse', 'HEAD').strip()
+    L = ['%s -- COMPONENT 3, (R316)(4): THE JOIN KERNEL %s AT ITS COMMIT %s, ITS FILES PRINTED BEFORE THE PUSH (%s)' % (ACT, K.KERNEL, tip[:7], utc()), '',
+         '### rows are files at the commit: the path | its blob id | its bytes; each printed whole beneath. The workflow as b705 carried it from',
+         '### SIDE-explicit-formula`s build-module.yml at v0.37 (blob %s); the lakefile requiring SIDEExplicitFormula at v0.37 = %s, sideLvConservation' % (
+             _blob_sha(K.EF_DIR, K.EF_V037, '.github/workflows/build-module.yml')[:12], K.EF_V037[:7]),
+         '### at v0.10.0 = %s and Mathlib at explicit-formula`s pin LAST, by git revision; nothing of either kernel edited.' % K.LV_V0100[:7], '']
+    ident = []
+    for f in JOIN_FILES:
+        t = _show(KI, tip, f) or ''
+        hits = [w for w in C6.IDENT_WF if w in t.lower() and not (w == 'psinary' and f in ('lakefile.toml',))]
+        ident += [(f, w) for w in hits]
+        L += ['  %-40s blob %s ; %d bytes%s' % (f, _blob_sha(KI, tip, f)[:12], len(t.encode('utf-8')), (' ; ### IDENTIFIER NEEDLE %s' % hits) if hits else '')]
+    for f in JOIN_FILES:
+        t = _show(KI, tip, f) or ''
+        L += ['', '=== %s' % f] + ['    ' + x for x in t.rstrip(NL).split(NL)]
+    wf_eq = _blob_sha(KI, tip, '.github/workflows/build-module.yml') == _blob_sha(K.EF_DIR, K.EF_V037, '.github/workflows/build-module.yml')
+    lf = _show(KI, tip, 'lakefile.toml') or ''
+    names = [re.search(r'(?m)^name = "([^"]+)"', re.split(r'(?m)^\[', b)[0]).group(1) for b in re.split(r'(?m)^\[\[require\]\]\s*$', lf)[1:]
+             if re.search(r'(?m)^name = "([^"]+)"', re.split(r'(?m)^\[', b)[0])]
+    pins = ('rev = "%s"' % K.EF_MATHLIB in lf, 'rev = "%s"' % K.EF_V037 in lf, 'rev = "%s"' % K.LV_V0100 in lf, (_show(KI, tip, 'lean-toolchain') or '').strip() == K.EF_LEAN)
+    L += ['', '### ### **FILES %d AT %s ; THE WORKFLOW`S BLOB EQUAL TO SIDE-explicit-formula`S AT v0.37 %s ; MATHLIB %s, SIDE-explicit-formula v0.37 %s, SIDE-lv-conservation v0.10.0 %s REQUIRED BY REVISION, '
+          'IN THE ORDER %s ; THE TOOLCHAIN v4.34.0-rc1 %s ; IDENTIFIER NEEDLES IN THE WORKFLOW OR THE MODULE %s.**' % (
+              len(JOIN_FILES), tip[:7], wf_eq, pins[0], pins[1], pins[2], ' > '.join(names), pins[3], [x for x in ident if x[0] in ('.github/workflows/build-module.yml', 'FacesJoin.lean')] or 'NONE')]
+    put_txt('%s_join_files.txt' % ACT, L)
+    put_json('%s_join_files.json' % ACT, dict(at=utc(), tip=tip, workflow_equal=wf_eq, pins=list(pins), order=names, blobs=dict((f, _blob_sha(KI, tip, f)) for f in JOIN_FILES)))
+    print(NL.join(L[:12] + L[-1:]))
+
+
+def artfile(*a):
+    """`artfile <kernel> <run id> <label> <name> [<name> ...]`: a named file of the run's artifact, read only after the artifact's sha256 equals
+    the banked one (data/b706_runner_rows.json, the row read by its id) and the platform's digest; banked as data/b706_art_<kernel>_<label>_<name>.txt."""
+    import hashlib
+    import io as _io
+    import zipfile
+    kernel, run_id, label, names = a[0], int(a[1]), a[2], list(a[3:])
+    repo = 'psinary-sketch/' + kernel
+    row = next((r for r in (jl('%s_runner_rows.json' % ACT).get('rows') or []) if r.get('kernel') == kernel and r.get('run_id') == run_id), None)
+    if not row or not row.get('artifact_sha256'):
+        sys.exit('### THE RUN IS NOT BANKED WITH AN ARTIFACT SHA256 -- NOTHING READ')
+    rc, out, err = R._gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    art = (json.loads(out or b'{}').get('artifacts') or [{}])[0]
+    rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+    sha = hashlib.sha256(rz.stdout).hexdigest()
+    if sha != row['artifact_sha256'] or sha != (art.get('digest') or '').replace('sha256:', ''):
+        sys.exit('### THE ARTIFACT`S SHA256 %s IS NOT THE BANKED %s -- NOTHING READ' % (sha[:16], row['artifact_sha256'][:16]))
+    with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+        have = z.namelist()
+        for n in names:
+            t = z.read(n).decode('utf-8', 'replace').replace(chr(13), '') if n in have else '### NOT IN THE ARTIFACT (%s)' % have
+            L = ['%s -- THE RUN %d (%s, %s) ARTIFACT`S %s, READ AFTER THE ARTIFACT`S SHA256 %s AGREED WITH THE BANKED AND THE PLATFORM`S (%s)' % (ACT, run_id, kernel, label, n, sha[:16], utc()), ''] + t.rstrip(NL).split(NL)
+            put_txt('%s_art_%s_%s_%s.txt' % (ACT, kernel, label, n.replace('/', '_').replace('.', '_')), L)
+            print(NL.join(L))
+
+
+JOIN_GRADES = P5.JOIN_GRADES
+JOIN_E0 = P5.JOIN_E0
+
+
+def joingrade(*a):
+    """`joingrade <label>`: data/b706_join_grade.txt (.json) -- b705's route carried (its readers P3._thm_sig, P3._self_eq imported): faces_join's
+    statement verbatim from the kernel at its commit, the seat's reading of its binders (none) and the grade, the shared E0 rule's grade as the
+    check, the salt-check of REGISTRY.md :544 clause by clause, the runner's print of the name; on a run that is not DERIVES, the build's error
+    lines printed by line and the join HELD; Lake's hint cited by its line in b705's artifact bank where the cause recurs."""
+    import e0_rule as E
+    label = a[0] if a else 'join'
+    E.LEXICON.update(JOIN_E0)
+    rows_ = jl('%s_runner_rows.json' % ACT).get('rows') or []
+    run = next((r for r in reversed(rows_) if r.get('kernel') == K.KERNEL and r.get('label') == label), None)
+    ax = rdn('%s_axioms_%s_%s.txt' % (ACT, K.KERNEL, label)) if run else ''
+    AX = dict(_deps(ax))
+    tip = g(KI, 'rev-parse', 'HEAD').strip()
+    L = ['%s -- COMPONENT 3, (R316)(4) as (R315)(5) specified the grade: THE GRADE OF faces_join, READ FROM ITS STATEMENT, WITH E0 AND THE SALT-CHECK BESIDE IT (%s)' % (ACT, utc()), '',
+         '### rows are, per theorem: the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and',
+         '### the salt-check`s clauses with their readings. The statement at %s %s; the profile from run %s (gate %s); the lakefile re-ordered, mathlib last' % (
+             K.KERNEL, tip[:7], run['run_id'] if run else '### NO RUN', run['gate'] if run else '-'),
+         '### (data/b706_join_lakefile.txt), Lake`s hint at data/b705_art_SIDE-faces-join_join_cache_log.txt :21.', '']
+    allok, summ = True, []
+    for name, (fpath, ns, hand, hgrade, hprem) in JOIN_GRADES.items():
+        i, j, head, st = P3._thm_sig(_show(KI, tip, fpath), name)
+        eg, why, read = E.grade(' ' + head + ' ', 'theorem')
+        prof = AX.get(ns + name)
+        concl = E.conclusion(E.statement_only(' ' + head + ' ')) or head
+        salt = [('no True-typed conclusion, no uniformly-True predicate', not re.search(r'\bTrue\b', concl), 'the conclusion %r' % concl.strip()[:120]),
+                ('no X = X', not P3._self_eq(concl), 'no equation of a term with itself in the conclusion (its two whole sides compared)'),
+                ('no hypothesis that is the claim', all(concl.strip() not in (t or '') for _n, t in read) if read else True, 'hypotheses %s' % ([n for n, _t in read] or 'none')),
+                ('no fabricated witness', '∃' not in concl, 'the conclusion constructs nothing' if '∃' not in concl else 'an existential in the conclusion'),
+                ('hypotheses named', all(n for n, _t in read) if read else True, ', '.join('%s : %s' % x for x in read) or 'no binder'),
+                ('#print axioms profiled after the first three', prof is not None and set(prof) <= set(STD3), 'run %s: %s' % (run['run_id'] if run else '### NO RUN', prof)),
+                ('the terminal states lv-conservation`s own declaration, no restatement in the module (N3)',
+                 'SIDELvConservation.RegisterPentagon.Register4_positivity' in head and 'def Register4_positivity' not in (_show(KI, tip, fpath) or ''),
+                 'the right-hand side names SIDELvConservation.RegisterPentagon.Register4_positivity; the module defines no Register4_positivity')]
+        ok = all(s[1] for s in salt)
+        allok = allok and ok and eg == hgrade
+        L += ['== %s (%s :%d-:%d):' % (name, fpath, i, j)] + ['    ' + l for l in st.split(NL)]
+        L += ['  THE BINDERS, READ BY HAND (the seat`s reading, before the check): %s' % ('NONE -- a closed statement' if not hand else '')]
+        L += ['    %-12s : %-34s %s' % b for b in hand]
+        L += ['  THE GRADE READ FROM THE STATEMENT: %s ; THE NAMED PREMISE: %s' % (hgrade, hprem),
+              '  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (JOIN_E0; the shared file not edited):',
+              '    E0 GRADE %s ; its reason: %s ; the hypotheses it read: %s' % (eg, why, read),
+              '    THE HAND READING AND THE CHECK %s' % ('AGREE' if eg == hgrade else '### DIFFER (%s against %s)' % (hgrade, eg)),
+              '  THE SALT-CHECK (REGISTRY.md :544), clause by clause:']
+        L += ['    %-85s %s -- %s' % (c, 'PASS' if ok_ else '### FAIL', how) for c, ok_, how in salt]
+        L += ['  PROFILE %s ; SALT-CHECK %s' % (prof, 'PASS' if ok else '### FAIL'), '']
+        summ.append('%s GRADE %s (E0 %s) SALT %s PROFILE %s' % (name, hgrade, eg, 'PASS' if ok else 'FAIL', 'STD3' if prof is not None and set(prof) <= set(STD3) else prof))
+    gate = (run or {}).get('gate')
+    held = gate != 'DERIVES'
+    if held:
+        L += ['== THE JOIN HELD: the run`s gate %s ; the build`s error lines, by line (relay data/%s_buildlog_%s_%s.txt):' % (gate, ACT, K.KERNEL, label)]
+        L += ['    ' + x for x in ((run or {}).get('errors') or ['### NO RUN READ'])[:60]]
+        L += ['   (R316)(4): on any failure, the error banked by line and the join held, no second dispatch.', '']
+    L += ['### ### **THEOREMS %d ; %s ; THE GATE %s ; THE JOIN %s ; EVERY SALT-CHECK PASSED AND EVERY CHECK AGREEING %s.**' % (
+        len(JOIN_GRADES), ' ; '.join(summ), gate or '### NO RUN', 'HELD' if held else 'DERIVES AT THE STANDARD THREE', allok)]
+    put_txt('%s_join_grade.txt' % ACT, L)
+    put_json('%s_join_grade.json' % ACT, dict(at=utc(), tip=tip, run=run['run_id'] if run else None, gate=gate, held=held, ok=allok and not held, rows=summ))
+    print(NL.join(L[-4:]))
+
+
+# ================================================================================ COMPONENT 3: THE GENERATOR'S ROSTER AFTER THE RENAMES, (R316)(3) and (6)
+def roster706(*a):
+    """data/b706_roster_read.json (.txt): the generator's roster after the renames -- b672's 20 tables, each at the unversioned name (the file
+    of record after (R316)(3)), its anchor unchanged, no partner; each table found by its anchor at that name. The generator and the figures
+    tool read this roster from b706 on (tools/correspondence_gen.py ROSTER, the edit under (R316)(6) with its cause; the sealed figures tool's
+    ROSTER rebound at the suite)."""
+    import correspondence_gen as CG
+    j = jl('b672_roster_read.json')
+    out, L = [], ['%s -- COMPONENT 3: THE GENERATOR`S ROSTER AFTER THE RENAMES OF (R316)(3) (%s)' % (ACT, utc()), '',
+                  '### rows are the 20 tables of data/b672_roster_read.json, each at its unversioned name, the file of record after the rename; the anchor as b672',
+                  '### read it; the table found by that anchor now. No partner: the one copy.', '']
+    for t in (j.get('tables') or []):
+        p, q = t.get('path'), t.get('partner')
+        hv = t.get('highest_versioned')
+        unv = p if (not q or q == p) else ((q if hv == p else p) if hv in (p, q) else p)
+        a_ = dict((k, v) for k, v in t.items() if k not in ('partner', 'partner_found', 'partner_identical', 'partner_lines_differing', 'found_b670', 'found_record', 'same_table', 'rows', 'rows_differing'))
+        a_.update(b670_path=p, path=unv, highest_versioned=unv, renamed_at_b706=(unv != p))
+        x = rd(os.path.join(PP, *unv.split('/'))).replace(chr(13), '').split(NL)
+        r = CG.find_table(x, t)
+        a_['found'] = [r[0] + 1, r[1]] if isinstance(r, tuple) else r
+        out.append(a_)
+        L.append('  %-36s %-70s renamed %-5s found %s' % (t['doc'], unv, a_['renamed_at_b706'], a_['found']))
+    L += ['', '### ### **TABLES %d ; RENAMED AT b706 %d ; FOUND BY THE ANCHOR %d.**' % (len(out), sum(1 for a_ in out if a_['renamed_at_b706']), sum(1 for a_ in out if isinstance(a_['found'], list)))]
+    put_txt('%s_roster_read.txt' % ACT, L)
+    put_json('%s_roster_read.json' % ACT, dict(at=utc(), from_roster='b672_roster_read.json', tables=out))
+    print(L[-1])
+
+
+# ================================================================================ COMPONENT 3: THE WORKFLOW'S PROBE STEP, (R316)(5)
+WF = '.github/workflows/build-module.yml'
+
+
+def wfstep(*a):
+    """data/b706_workflow_step.txt (.json): SIDE-explicit-formula's build-module.yml as edited by the Edit tool, printed WHOLE before the commit,
+    its diff against main (git diff), the new step's place read from the text (after the print step, before the closure), its separate
+    artifact, and the identifier needles (none)."""
+    import b706_checks as C6
+    EF = K.EF_DIR
+    now = rd(os.path.join(EF, WF)).replace(chr(13), '')
+    before = (_show(EF, 'main', WF) or '').replace(chr(13), '')
+    diff = subprocess.run(['git', '-C', EF, 'diff', '--', WF], capture_output=True).stdout.decode('utf-8', 'replace').replace(chr(13), '').rstrip(NL).split(NL)
+    ls = now.split(NL)
+    step = lambda s: next((i + 1 for i, l in enumerate(ls) if l.strip().lstrip('- ') == s), 0)   # noqa: E731  ### a step line reads `- name: ...`
+    i_print = step('name: Axioms of the named terminals')
+    i_probe = step("name: Chain probe of the ref's root ChainProbe.lean")
+    i_close = step("name: Constant closure of the kernel's own declarations")
+    i_up = step("name: Upload the chain probe's artifact, separate from the run's")
+    sep = 'name: chain-probe-${{ github.run_id }}' in now and 'path: probe/' in now
+    ident = [w for w in C6.IDENT_WF if w in now.lower()]
+    L = ['%s -- COMPONENT 3, (R316)(5), W-ORD-WORKFLOW-PROBE-STEP: SIDE-explicit-formula`s build-module.yml WITH ITS PROBE STEP, PRINTED WHOLE BEFORE THE COMMIT (%s)' % (ACT, utc()), '',
+         '### the step: `Chain probe of the ref`s root ChainProbe.lean` at :%d, after the print step (:%d) and before the closure (:%d), run when the ref carries' % (i_probe, i_print, i_close),
+         '### ChainProbe.lean at the root; its output probe/chainprobe.txt uploaded as a SEPARATE artifact chain-probe-<run id> by the step at :%d (%s); identifier' % (i_up, sep),
+         '### needles in the file: %s. The edit by the Edit tool; main before the edit %s.' % (ident or 'NONE', g(EF, 'rev-parse', '--short', 'main').strip()), '',
+         '### THE WORKFLOW, WHOLE:'] + ['    ' + x for x in now.rstrip(NL).split(NL)] + ['', '### THE DIFF AGAINST main (%d lines):' % len(diff)] + ['    ' + x for x in diff]
+    ok = 0 < i_print < i_probe < i_close and sep and not ident and now != before
+    L += ['', '### ### **THE PROBE STEP AT :%d, AFTER THE PRINT STEP :%d AND BEFORE THE CLOSURE :%d ; A SEPARATE ARTIFACT %s ; IDENTIFIER NEEDLES %s ; DIFF LINES %d ; AS ORDERED %s.**' % (
+        i_probe, i_print, i_close, sep, ident or 'NONE', len(diff), ok)]
+    put_txt('%s_workflow_step.txt' % ACT, L)
+    put_json('%s_workflow_step.json' % ACT, dict(at=utc(), probe_line=i_probe, print_line=i_print, closure_line=i_close, upload_line=i_up, separate=sep, ident=ident,
+                                                diff_lines=len(diff), ok=ok, main_before=g(EF, 'rev-parse', 'main').strip()))
+    print(NL.join(L[2:5] + L[-1:]))
+
+
+# ================================================================================ COMPONENT 3: THE GENERATOR'S REACH, (R316)(6)
+CITE_FORM = re.compile(r'(SIDE-[a-z0-9]+(?:-[a-z0-9]+)*)(?:\s+at the (?:ζ )?page[’\']s pin)?\s+`?(v\d+(?:\.\d+)*)`?\s*=\s*`?([0-9a-f]{7,40})`?')
+
+
+def genreach(*a):
+    """`genreach forms`: the citation forms of the 11 table lines of data/b704_cells_reach.txt printed before the edit (data/b706_generator_forms.txt).
+    `genreach`: after the edit -- the generator's dry run over data/b706_roster_read.json printing SIDE-explicit-formula among its parsed kernels
+    with its cell count; THE CONTROL: the generator as committed at HEAD (its blob loaded as a module, unedited) and as edited both run over the
+    roster's tables with one set of sources, every re-emitted file compared byte for byte, the diff empty; G-CORRESPONDENCE-CURRENCY's reach:
+    how many counted rows name each parsed kernel. data/b706_generator_reach.txt (.json), data/b706_generator_diff.txt."""
+    import correspondence_gen as CG
+    if a and a[0] == 'forms':
+        cre = rdn('b704_cells_reach.txt').split(NL)
+        L = ['%s -- COMPONENT 3, (R316)(6): THE CELL FORMS IN WHICH THE 11 TABLE LINES NAME SIDE-explicit-formula, PRINTED FROM data/b704_cells_reach.txt BEFORE THE EDIT (%s)' % (ACT, utc()), '',
+             '### rows are the table lines (data/b704_cells_reach.txt, "the line:" rows): the paper :line | each citation-form mention (kernel, version, commit) read by the form',
+             '### `(name, SIDE-explicit-formula [at the page`s pin] vX = `sha`)`, the regex CITE_FORM the generator gains.', '']
+        seen = set()
+        n_m = 0
+        for i, l in enumerate(cre):
+            if l.strip().startswith('the line:') and i > 0:
+                head = cre[i - 1].strip().split(' | ')
+                key = (head[0], head[1]) if len(head) > 1 else (str(i), '')
+                if key in seen:
+                    continue
+                seen.add(key)
+                ms = [(k, v, c) for k, v, c in CITE_FORM.findall(l) if k == 'SIDE-explicit-formula']
+                n_m += len(ms)
+                L.append('  %-36s %-60s %s' % (key[0], key[1], ms or '(no citation-form mention of SIDE-explicit-formula; the kernel named otherwise)'))
+        L += ['', '### ### **TABLE LINES %d ; CITATION-FORM MENTIONS OF SIDE-explicit-formula %d.**' % (len(seen), n_m)]
+        put_txt('%s_generator_forms.txt' % ACT, L)
+        print(NL.join(L[5:]))
+        return
+    import importlib.util
+    roster = jl('b706_roster_read.json')
+    # ### the generator at HEAD, unedited, loaded from its blob as a module of its own (the working tree holds the edit)
+    src_head = _show(ROOT, 'HEAD', 'tools/correspondence_gen.py') or ''
+    spec = importlib.util.spec_from_loader('correspondence_gen_head', loader=None, origin=os.path.join(T, 'correspondence_gen.py'))
+    OLD = importlib.util.module_from_spec(spec)
+    OLD.__file__ = os.path.join(T, 'correspondence_gen.py')
+    exec(compile(src_head, 'tools/correspondence_gen.py@HEAD', 'exec'), OLD.__dict__)
+    ks_new = CG.kernels_of(roster)
+    ks_old = OLD.kernels_of(roster)
+    tags, tlog = CG.read_tags(ks_new, remote=False)
+    banks, blog = CG.read_banks(tags)
+    ctx = dict(tags=tags, banks=banks, grades=CG.read_grades(), present=CG.present)
+    rows, equal_all = [], True
+    for t in roster['tables']:
+        p = os.path.join(PP, *t['path'].split('/'))
+        b = open(p, 'rb').read()
+        nb_old, r_old = OLD.regen_bytes(b, t, ctx, t['doc'])
+        nb_new, r_new = CG.regen_bytes(b, t, ctx, t['doc'])
+        eq = nb_old == nb_new
+        equal_all = equal_all and eq
+        rows.append(dict(doc=t['doc'], path=t['path'], status=r_new.get('status'), cells_old=r_old['counts']['CELLS CHANGED'], cells_new=r_new['counts']['CELLS CHANGED'], equal=eq))
+    # ### the reach: per kernel the rows naming it in the kernel cell and the citation-form mentions in any cell
+    reach = {}
+    for t in roster['tables']:
+        p = os.path.join(PP, *t['path'].split('/'))
+        x = open(p, 'rb').read().decode('utf-8').replace('\r\n', '\n').split('\n')
+        ft = CG.find_table(x, t)
+        if isinstance(ft, str):
+            continue
+        cols = CG.columns(x[ft[0]])
+        for l in x[ft[0] + 1:ft[1]]:
+            if CG.SEP_ROW.match(l):
+                continue
+            sp = CG.spans(l)
+            named = set()
+            if cols['kernel'] is not None and len(sp) > cols['kernel']:
+                named |= set(k for k, _t in CG.parse_kernel_cell(CG.cell(l, sp[cols['kernel']])) if k)
+            cited = set(k for k, _v, _c in CITE_FORM.findall(l))
+            for k in named:
+                reach.setdefault(k, dict(kernel_cell=0, cited=0))['kernel_cell'] += 1
+            for k in cited:
+                reach.setdefault(k, dict(kernel_cell=0, cited=0))['cited'] += 1
+    dry = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'correspondence_gen.py'), 'dry', os.path.join(D, 'b706_roster_read.json')],
+                         capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=ROOT)
+    dtxt = ((dry.stdout or '') + (dry.stderr or '')).replace(chr(13), '').rstrip(NL).split(NL)
+    gdiff = subprocess.run(['git', '-C', ROOT, 'diff', '--', 'tools/correspondence_gen.py'], capture_output=True).stdout.decode('utf-8', 'replace').replace(chr(13), '').rstrip(NL).split(NL)
+    put_txt('%s_generator_diff.txt' % ACT, ['%s -- (R316)(6): tools/correspondence_gen.py EDITED BY THE EDIT TOOL, THE DIFF AGAINST HEAD (%d lines) (%s)' % (ACT, len(gdiff), utc()), ''] + gdiff)
+    L = ['%s -- COMPONENT 3, (R316)(6), W-ORD-CORRESPONDENCE-EF-REACH: THE GENERATOR`S PARSER EXTENDED TO THE CITATION FORM, ITS DRY RUN, THE BYTE-FOR-BYTE CONTROL, THE REACH (%s)' % (ACT, utc()), '',
+         '### the roster: data/b706_roster_read.json (the 20 tables at the unversioned names after (R316)(3)). The edit: tools/correspondence_gen.py CITE_FORM and',
+         '### kernels_of reading every cell`s citation-form mentions, ROSTER pointed at b706`s roster (its cause the renames), the regen functions untouched',
+         '### (data/b706_generator_diff.txt). The parsed kernels before the edit %d, after %d: %s.' % (len(ks_old), len(ks_new), sorted(set(ks_new) - set(ks_old)) or 'NONE ADDED'), '',
+         '### THE DRY RUN AFTER THE EDIT (tools/correspondence_gen.py dry data/b706_roster_read.json, exit %d), its print:' % dry.returncode] + ['    ' + x for x in dtxt]
+    L += ['', '### THE CONTROL: every roster table re-emitted by the generator at HEAD (unedited) and as edited, from one set of sources, compared byte for byte:']
+    L += ['  %-36s %-66s %-28s cells old %d new %d ; EQUAL %s' % (r['doc'], r['path'], r['status'], r['cells_old'], r['cells_new'], r['equal']) for r in rows]
+    L += ['', '### THE REACH (G-CORRESPONDENCE-CURRENCY): rows naming each parsed kernel in the kernel cell | citation-form mentions in any cell:']
+    L += ['  %-36s kernel cell %3d | cited %3d' % (k, v['kernel_cell'], v['cited']) for k, v in sorted(reach.items())]
+    L += ['', '### ### **PARSED KERNELS %d (SIDE-explicit-formula AMONG THEM %s, ITS CITATION-FORM CELLS %d) ; THE CONTROL: TABLES %d, EVERY RE-EMISSION EQUAL BYTE FOR BYTE %s ; THE DRY RUN EXIT %d.**' % (
+        len(ks_new), 'SIDE-explicit-formula' in ks_new, (reach.get('SIDE-explicit-formula') or {}).get('cited', 0), len(rows), equal_all, dry.returncode)]
+    put_txt('%s_generator_reach.txt' % ACT, L)
+    put_json('%s_generator_reach.json' % ACT, dict(at=utc(), kernels_old=sorted(ks_old), kernels_new=sorted(ks_new), control=rows, equal=equal_all, reach=reach, dry_exit=dry.returncode))
+    print(NL.join(L[2:5] + L[-1:]))
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, rootexclude=rootexclude, armsort=armsort, c1=c1,
               repairs=repairs, repairctl=repairctl, rootdry=rootdry, pairs=pairs, partners_read=partners_read, partners_regen=partners_regen,
-              registry_rows=registry_rows, readers=readers)
+              registry_rows=registry_rows, readers=readers, joinlake=joinlake, joinfiles=joinfiles, artfile=artfile, joingrade=joingrade, roster706=roster706, wfstep=wfstep, genreach=genreach)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

@@ -1,0 +1,101 @@
+b706 -- COMPONENT 3, (R316)(6), W-ORD-CORRESPONDENCE-EF-REACH: THE GENERATOR`S PARSER EXTENDED TO THE CITATION FORM, ITS DRY RUN, THE BYTE-FOR-BYTE CONTROL, THE REACH (2026-10-22T20:37:57Z)
+
+### the roster: data/b706_roster_read.json (the 20 tables at the unversioned names after (R316)(3)). The edit: tools/correspondence_gen.py CITE_FORM and
+### kernels_of reading every cell`s citation-form mentions, ROSTER pointed at b706`s roster (its cause the renames), the regen functions untouched
+### (data/b706_generator_diff.txt). The parsed kernels before the edit 16, after 17: ['SIDE-explicit-formula'].
+
+### THE DRY RUN AFTER THE EDIT (tools/correspondence_gen.py dry data/b706_roster_read.json, exit 0), its print:
+    b672 -- THE CORRESPONDENCE GENERATOR`S RUN, (R282)(4) (2026-10-22T20:37:52Z): tools/correspondence_gen.py dry
+    
+    ### the prose of every cell is carried unverified by the generator: its claim is the tokens it writes (the kernel clause`s version and
+    ### commit, the profile token, the leading grade token) and nothing else; a stale stipulation in prose is a cell-refresh item, not the
+    ### tool`s claim (the navigator`s answer on reading (1)). A withheld document`s cells print as sha256 and length, never as text.
+    
+    ### THE TAGS: one `git ls-remote --tags origin` per repository (kernel ; reading ; tag ; the commit it peels to ; local describe on main)
+    ### THE CITATION-FORM MENTIONS OUTSIDE THE KERNEL CELL (b706, (R316)(6)): SIDE-explicit-formula cells 13 lines 13; SIDE-kernel cells 3 lines 3; SIDE-lv-conservation cells 4 lines 4
+    
+    ### THE PRINT BANKS: every relay print bank of a tabled kernel (kernel ; bank ; built commit ; reading ; files differing to the tag ;
+    ### rows); the first AT THE TAG, newest act first, is the one read
+        SIDE-bsd-formation-transfer        ### NO PRINT BANK AT v0.1.1
+        SIDE-compression                   ### NO PRINT BANK AT v0.2.0
+        SIDE-frobenius                     ### NO PRINT BANK AT v0.1.0
+        SIDE-yang-mills-formation          ### NO PRINT BANK AT v0.1.1
+    
+    ### THE TABLES (document ; file ; status ; the table`s lines ; rows ; the cell words and holds)
+        PATHS_TO_THE_CRITICAL_LINE           phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md                  SHAPED                         :283-:312 ; rows 28 ; {'NO GRADE TOKEN': 11, 'NO PRINT BANK': 1, 'NOT PRINTED': 11, 'GRADE NOT IN THE BANK': 6, 'HELD: DEPOSIT PIN': 1, 'CARRIED AT: VERSION DIFFERS': 1, 'CARRIED AT': 1, 'MULTI': 1, 'NO KERNEL': 3}
+        SIMPLICITY_OF_RIEMANN_ZEROS          phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md             SHAPED                         :437-:459 ; rows 21 ; {'NO GRADE TOKEN': 10, 'ABSENT': 3, 'NOT PRINTED': 8, 'NO KERNEL': 3, 'MULTI': 1, 'GRADE NOT IN THE BANK': 4}
+        THE_UNCONDITIONAL_SURROUND           phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md                  SHAPED                         :179-:195 ; rows 15 ; {'NOT PRINTED': 7, 'NO PROFILE TOKEN': 1, 'NO GRADE TOKEN': 7, 'MULTI': 2, 'GRADE NOT IN THE BANK': 5, 'NO KERNEL': 2}
+        GRH_CASCADE                          phase1.5/spectral/GRH_CASCADE.md                               SHAPED                         :381-:395 ; rows 13 ; {'GRADE NOT IN THE BANK': 8, 'NOT PRINTED': 2, 'NO KERNEL': 2, 'NO PRINT BANK': 2}
+        R_CURVE_CRITERION                    phase1.5/rcurve/R_CURVE_CRITERION.md                           SHAPED                         :349-:362 ; rows 12 ; {'MULTI': 1, 'ABSENT': 3, 'NOT PRINTED': 7, 'GRADE NOT IN THE BANK': 5, 'NO KERNEL': 1}
+        INDEX_ARITY_AT_THE_CRITICAL_LINE     phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md            SHAPED                         :373-:403 ; rows 29 ; {'NO GRADE TOKEN': 8, 'HELD: DEPOSIT PIN': 1, 'NOT PRINTED': 7, 'NO KERNEL': 17, 'NO PROFILE TOKEN': 1}
+        THE_RESIDUE_OF_RH                    phase1.5/proofs/THE_RESIDUE_OF_RH.md                           NOT IN THE GENERATOR`S SHAPE   :103-:116 ; rows 0 ; -
+        ADDITIVE_MULTIPLICATIVE_CONSPIRACY   phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md            SHAPED                         :408-:417 ; rows 8 ; {'GRADE NOT IN THE BANK': 4, 'ABSENT': 1, 'NO PROFILE TOKEN': 4, 'NO GRADE TOKEN': 3}
+        FOUNDATIONS_OF_THE_SIDE_PROGRAMME    phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md       SHAPED                         :625-:641 ; rows 15 ; {'GRADE NOT IN THE BANK': 12, 'MULTI': 1, 'NOT PRINTED': 2, 'NO PRINT BANK': 1, 'NO KERNEL': 2}
+        TECHNE_TOOLKIT                       phase1.5/method/TECHNE_TOOLKIT.md                              NOT IN THE GENERATOR`S SHAPE   :508-:519 ; rows 0 ; -
+        SILENCE_STAGES_DEALIGNMENT           phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md                   SHAPED                         :204-:215 ; rows 10 ; {'NO PROFILE TOKEN': 2, 'NO GRADE TOKEN': 2}
+        EXHAUSTIVENESS_LICENSE               phase1.5/method/EXHAUSTIVENESS_LICENSE.md                      SHAPED                         :107-:114 ; rows 6 ; {'NOT PRINTED': 1, 'GRADE NOT IN THE BANK': 6}
+        INVARIANCE_BARRIERS                  phase1.5/method/INVARIANCE_BARRIERS.md                         SHAPED                         :501-:516 ; rows 14 ; {'NO GRADE TOKEN': 9, 'NO KERNEL': 5}
+        REPARAMETERIZATION_BARRIERS_v0_1     phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md              SHAPED                         :221-:231 ; rows 9 ; {'NO KERNEL': 7}
+        A_Place_to_Stand                     day1/A_Place_to_Stand.md                                       SHAPED                         :2258-:2270 ; rows 11 ; {'ROW WITH TOO FEW CELLS': 1, 'INHERITS AN UNREAD ROW': 6, 'HELD: DEPOSIT PIN': 2, 'NO KERNEL': 2}
+        BALANCE_AND_POSITIVITY               phase1.5/spectral/BALANCE_AND_POSITIVITY.md                    NOT IN THE GENERATOR`S SHAPE   :346-:353 ; rows 0 ; -
+        FACES_OF_H2_AT_FINITE_INSTANCE       phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md                NOT IN THE GENERATOR`S SHAPE   :36-:42 ; rows 0 ; -
+        FACES_LEDGER                         FACES_LEDGER.md                                                NOT IN THE GENERATOR`S SHAPE   :14-:32 ; rows 0 ; -
+        THE_IDENTITY_CHAIN                   phase2/method/THE_IDENTITY_CHAIN.md                            NOT IN THE GENERATOR`S SHAPE   :562-:568 ; rows 0 ; -
+        E_DIFFICULTY_THEOREM                 phase2/method/E_DIFFICULTY_THEOREM.md                          SHAPED                         :331-:336 ; rows 4 ; {'NO GRADE TOKEN': 4, 'NOT PRINTED': 1}
+    
+    ### THE ONE-COPY PAIRS (the navigator`s answer on the REGISTRY): document ; the roster`s file ; its partner ; the partner`s reading
+        none
+    
+    ### THE GRADE TOKENS MOVED DOWNWARD (the navigator`s answer, b672: listed before the write, entered under W-ORD-GRADE-MOVED): document :line ; kernel ; old token -> new token
+        none
+    
+    ### THE DIFF: rows are cells changed (document :line ; column ; kernel ; old ; new)
+    
+    ### THE CARRIED-AT CLAUSES (b691, (R301)(3)): read from the carrying source; CARRIED AT 1 ; CARRIED AT: UNREAD 0 ; CARRIED AT: VERSION DIFFERS 1, each held as it stands (document :line ; kernel ; the clause`s version ; carried at ; the carry the source cites)
+    
+    ### THE CELL WORDS BY KERNEL: SIDE-bsd-formation-transfer {'NO PRINT BANK': 1}; SIDE-compression {'NO PRINT BANK': 1}; SIDE-effects {'ABSENT': 1, 'NOT PRINTED': 1}; SIDE-frobenius {'NO PRINT BANK': 1}; SIDE-kernel {'NOT PRINTED': 9, 'ABSENT': 6}; SIDE-lv-conservation {'NOT PRINTED': 36}; SIDE-yang-mills-formation {'NO PRINT BANK': 1}
+    ### ### **TABLES 20 ; SHAPED 14 ; NOT IN THE GENERATOR`S SHAPE 6 ; ANCHOR NOT FOUND 0 ; KERNELS 17 (WITH A TAG 17) ; CELLS CHANGED 0 ; FILES CHANGED 0 ; ABSENT 7 ; NO PRINT BANK 4 ; NOT PRINTED 46 ; HELD: DEPOSIT PIN 4 ; MULTI 6 ; NO TAG 0.**
+    ### DRY: nothing written
+
+### THE CONTROL: every roster table re-emitted by the generator at HEAD (unedited) and as edited, from one set of sources, compared byte for byte:
+  PATHS_TO_THE_CRITICAL_LINE           phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md                      SHAPED                       cells old 0 new 0 ; EQUAL True
+  SIMPLICITY_OF_RIEMANN_ZEROS          phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md                 SHAPED                       cells old 0 new 0 ; EQUAL True
+  THE_UNCONDITIONAL_SURROUND           phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md                      SHAPED                       cells old 0 new 0 ; EQUAL True
+  GRH_CASCADE                          phase1.5/spectral/GRH_CASCADE.md                                   SHAPED                       cells old 0 new 0 ; EQUAL True
+  R_CURVE_CRITERION                    phase1.5/rcurve/R_CURVE_CRITERION.md                               SHAPED                       cells old 0 new 0 ; EQUAL True
+  INDEX_ARITY_AT_THE_CRITICAL_LINE     phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md                SHAPED                       cells old 0 new 0 ; EQUAL True
+  THE_RESIDUE_OF_RH                    phase1.5/proofs/THE_RESIDUE_OF_RH.md                               NOT IN THE GENERATOR`S SHAPE cells old 0 new 0 ; EQUAL True
+  ADDITIVE_MULTIPLICATIVE_CONSPIRACY   phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md                SHAPED                       cells old 0 new 0 ; EQUAL True
+  FOUNDATIONS_OF_THE_SIDE_PROGRAMME    phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md           SHAPED                       cells old 0 new 0 ; EQUAL True
+  TECHNE_TOOLKIT                       phase1.5/method/TECHNE_TOOLKIT.md                                  NOT IN THE GENERATOR`S SHAPE cells old 0 new 0 ; EQUAL True
+  SILENCE_STAGES_DEALIGNMENT           phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md                       SHAPED                       cells old 0 new 0 ; EQUAL True
+  EXHAUSTIVENESS_LICENSE               phase1.5/method/EXHAUSTIVENESS_LICENSE.md                          SHAPED                       cells old 0 new 0 ; EQUAL True
+  INVARIANCE_BARRIERS                  phase1.5/method/INVARIANCE_BARRIERS.md                             SHAPED                       cells old 0 new 0 ; EQUAL True
+  REPARAMETERIZATION_BARRIERS_v0_1     phase2/method/REPARAMETERIZATION_BARRIERS_v0_1.md                  SHAPED                       cells old 0 new 0 ; EQUAL True
+  A_Place_to_Stand                     day1/A_Place_to_Stand.md                                           SHAPED                       cells old 0 new 0 ; EQUAL True
+  BALANCE_AND_POSITIVITY               phase1.5/spectral/BALANCE_AND_POSITIVITY.md                        NOT IN THE GENERATOR`S SHAPE cells old 0 new 0 ; EQUAL True
+  FACES_OF_H2_AT_FINITE_INSTANCE       phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md                    NOT IN THE GENERATOR`S SHAPE cells old 0 new 0 ; EQUAL True
+  FACES_LEDGER                         FACES_LEDGER.md                                                    NOT IN THE GENERATOR`S SHAPE cells old 0 new 0 ; EQUAL True
+  THE_IDENTITY_CHAIN                   phase2/method/THE_IDENTITY_CHAIN.md                                NOT IN THE GENERATOR`S SHAPE cells old 0 new 0 ; EQUAL True
+  E_DIFFICULTY_THEOREM                 phase2/method/E_DIFFICULTY_THEOREM.md                              SHAPED                       cells old 0 new 0 ; EQUAL True
+
+### THE REACH (G-CORRESPONDENCE-CURRENCY): rows naming each parsed kernel in the kernel cell | citation-form mentions in any cell:
+  SIDE-archimedean                     kernel cell   1 | cited   0
+  SIDE-bsd-formation-transfer          kernel cell   1 | cited   0
+  SIDE-compression                     kernel cell   1 | cited   0
+  SIDE-cosmo                           kernel cell   2 | cited   0
+  SIDE-effects                         kernel cell  14 | cited   0
+  SIDE-explicit-formula                kernel cell   0 | cited  13
+  SIDE-frobenius                       kernel cell   1 | cited   0
+  SIDE-grh-transfer                    kernel cell   4 | cited   0
+  SIDE-kernel                          kernel cell  59 | cited  20
+  SIDE-li-map                          kernel cell   2 | cited   0
+  SIDE-lv-conservation                 kernel cell  45 | cited  39
+  SIDE-rcurve                          kernel cell   2 | cited   1
+  SIDE-silence-principle               kernel cell   3 | cited   0
+  SIDE-simplicity                      kernel cell   1 | cited   0
+  SIDE-spinor                          kernel cell   1 | cited   0
+  SIDE-structural-error-correction     kernel cell   3 | cited   0
+  SIDE-yang-mills-formation            kernel cell   1 | cited   0
+
+### ### **PARSED KERNELS 17 (SIDE-explicit-formula AMONG THEM True, ITS CITATION-FORM CELLS 13) ; THE CONTROL: TABLES 20, EVERY RE-EMISSION EQUAL BYTE FOR BYTE True ; THE DRY RUN EXIT 0.**
