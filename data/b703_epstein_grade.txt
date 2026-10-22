@@ -1,0 +1,188 @@
+b703 -- THE GRADE OF EACH THEOREM, READ FROM ITS STATEMENT, AND THE SALT-CHECK, (R313)(3)-(4) (2026-10-22T01:18:09Z)
+
+### rows are, per theorem: the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and
+### the salt-check`s clauses with their readings. The statements at SIDE-explicit-formula 5f8961b (5f8961b); the profile from run 39703864050 (gate DERIVES).
+
+== four_mul_Q0form (SIDEExplicitFormula/Schema/EpsteinZQ.lean :48-:48):
+    theorem four_mul_Q0form (m n : ℤ) : 4 * Q0form m n = (2 * m + n) ^ 2 + 23 * n ^ 2 := by
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    m n          : ℤ                                  data
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (an identity of integers)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion '4 * Q0form m n = (2 * m + n) ^ 2 + 23 * n ^ 2'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses none
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- no binder
+    #print axioms profiled after the first three            PASS -- run 39703864050: ['propext']
+  PROFILE ['propext'] ; SALT-CHECK PASS
+
+== Q0form_nonneg (SIDEExplicitFormula/Schema/EpsteinZQ.lean :53-:53):
+    theorem Q0form_nonneg (m n : ℤ) : 0 ≤ Q0form m n := by
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    m n          : ℤ                                  data
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (an inequality of integers)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion '0 ≤ Q0form m n'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses none
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- no binder
+    #print axioms profiled after the first three            PASS -- run 39703864050: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== rQ_zero (SIDEExplicitFormula/Schema/EpsteinZQ.lean :64-:64):
+    theorem rQ_zero : rQ 0 = 0 := by
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): NONE -- a closed statement
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (no binder; the definition`s value at 0)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'rQ 0 = 0'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses none
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- no binder
+    #print axioms profiled after the first three            PASS -- run 39703864050: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== zqZeros_ne_zero (SIDEExplicitFormula/Schema/EpsteinZQ.lean :145-:145):
+    theorem zqZeros_ne_zero {zq : ℂ → ℂ} {Z : WideConfig} (h : ZQZeros zq Z) : ∀ ρ ∈ Z.carrier, ρ ≠ 0 := by
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    zq           : ℂ → ℂ                              data
+    Z            : WideConfig                         data
+    h            : ZQZeros zq Z                       a structure of premises about the configuration of Λ_Q`s zeros, not derived
+  THE GRADE READ FROM THE STATEMENT: INTERFACES ; THE NAMED PREMISE: ZQZeros zq Z (EpsteinZQ.lean, (Z2)): the carrier is Λ_Q`s zeros, the multiplicities their orders -- stated, not proved; open
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE INTERFACES ; its reason: h : ZQZeros zq Z ; the hypotheses it read: [('h', 'ZQZeros zq Z')]
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion '∀ ρ ∈ Z.carrier, ρ ≠ 0'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses ['h']
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- h : ZQZeros zq Z
+    #print axioms profiled after the first three            PASS -- run 39703864050: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== zq_count (SIDEExplicitFormula/Schema/EpsteinZQ.lean :153-:153):
+    theorem zq_count {zq : ℂ → ℂ} {Z : WideConfig} {c : ℕ → ℝ} (h : ZQPremises zq Z c) : Wide.HCount Z A0Q :=
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    zq           : ℂ → ℂ                              data
+    Z            : WideConfig                         data
+    c            : ℕ → ℝ                              data
+    h            : ZQPremises zq Z c                  the bundle of premises
+  THE GRADE READ FROM THE STATEMENT: INTERFACES ; THE NAMED PREMISE: ZQPremises zq Z c (EpsteinZQ.lean, the bundle): the continuation and functional equation, the zeros of Λ_Q as Z, the log-derivative series, the explicit formula and Wide.HCount Z A0Q -- each stated, not proved; open
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE INTERFACES ; its reason: h : ZQPremises zq Z c ; the hypotheses it read: [('h', 'ZQPremises zq Z c')]
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'Wide.HCount Z A0Q'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses ['h']
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- h : ZQPremises zq Z c
+    #print axioms profiled after the first three            PASS -- run 39703864050: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== zq_explicit_formula (SIDEExplicitFormula/Schema/EpsteinZQ.lean :157-:159):
+    theorem zq_explicit_formula {zq : ℂ → ℂ} {Z : WideConfig} {c : ℕ → ℝ} (h : ZQPremises zq Z c) (k : ℝ → ℂ)
+        (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k) (he : ∀ x : ℝ, k (-x) = k x) :
+        zeroSideQ Z k = poleTerm k - primeTermQ c k + archTermQ k :=
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    zq           : ℂ → ℂ                              data
+    Z            : WideConfig                         data
+    c            : ℕ → ℝ                              data
+    h            : ZQPremises zq Z c                  the bundle of premises
+    k            : ℝ → ℂ                              the window, data
+    hk hs he     : ContDiff ℝ 2 k, HasCompactSupport k, k even class restrictions on k
+  THE GRADE READ FROM THE STATEMENT: INTERFACES ; THE NAMED PREMISE: ZQPremises zq Z c (EpsteinZQ.lean, the bundle): the continuation and functional equation, the zeros of Λ_Q as Z, the log-derivative series, the explicit formula and Wide.HCount Z A0Q -- each stated, not proved; open
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE INTERFACES ; its reason: h : ZQPremises zq Z c ; the hypotheses it read: [('h', 'ZQPremises zq Z c'), ('hk', 'ContDiff ℝ 2 k'), ('hs', 'HasCompactSupport k'), ('he', '∀ x : ℝ, k (-x) = k x')]
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'zeroSideQ Z k = poleTerm k - primeTermQ c k + archTermQ k'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses ['h', 'hk', 'hs', 'he']
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- h : ZQPremises zq Z c, hk : ContDiff ℝ 2 k, hs : HasCompactSupport k, he : ∀ x : ℝ, k (-x) = k x
+    #print axioms profiled after the first three            PASS -- run 39703864050: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== zq_li_nonneg_imp_online (SIDEExplicitFormula/Schema/EpsteinZQ.lean :164-:165):
+    theorem zq_li_nonneg_imp_online {zq : ℂ → ℂ} {Z : WideConfig} {c : ℕ → ℝ} (h : ZQPremises zq Z c) :
+        (∀ n : ℕ, 0 ≤ Wide.liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2 :=
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    zq           : ℂ → ℂ                              data
+    Z            : WideConfig                         data
+    c            : ℕ → ℝ                              data
+    h            : ZQPremises zq Z c                  the bundle of premises
+  THE GRADE READ FROM THE STATEMENT: INTERFACES ; THE NAMED PREMISE: ZQPremises zq Z c (EpsteinZQ.lean, the bundle): the continuation and functional equation, the zeros of Λ_Q as Z, the log-derivative series, the explicit formula and Wide.HCount Z A0Q -- each stated, not proved; open
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE INTERFACES ; its reason: h : ZQPremises zq Z c ; the hypotheses it read: [('h', 'ZQPremises zq Z c')]
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion '(∀ n : ℕ, 0 ≤ Wide.liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses ['h']
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- h : ZQPremises zq Z c
+    #print axioms profiled after the first three            PASS -- run 39703864050: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== THE NAMED PREMISES, EACH STATEMENT VERBATIM BESIDE ITS NAME ((R313)(4)), with the zero set it names:
+  LambdaQZeros (SIDEExplicitFormula/Schema/EpsteinZQ.lean :92-:93), profile ['propext', 'Classical.choice', 'Quot.sound']:
+      def LambdaQZeros (zq : ℂ → ℂ) : Set ℂ :=
+        {ρ : ℂ | ρ ≠ 0 ∧ ρ ≠ 1 ∧ (∀ n : ℕ, ρ ≠ -((n : ℂ) + 1)) ∧ zq ρ = 0}
+  ZQContinuation (SIDEExplicitFormula/Schema/EpsteinZQ.lean :80-:86), profile ['propext', 'Classical.choice', 'Quot.sound']:
+      structure ZQContinuation (zq : ℂ → ℂ) : Prop where
+        summable : ∀ s : ℂ, 1 < s.re → LSeriesSummable (fun k => (rQ k : ℂ)) s
+        agrees : ∀ s : ℂ, 1 < s.re → zq s = ZQ s
+        holomorphic : DifferentiableOn ℂ zq {s : ℂ | s ≠ 1}
+        functional_equation : ∀ s : ℂ, 0 < s.re → s.re < 1 →
+          qBase ^ (-s) * Complex.Gamma s * zq s = qBase ^ (-(1 - s)) * Complex.Gamma (1 - s) * zq (1 - s)
+        real_on_real : ∀ x : ℝ, x ≠ 1 → (zq (x : ℂ)).im = 0
+  ZQZeros (SIDEExplicitFormula/Schema/EpsteinZQ.lean :99-:101), profile ['propext', 'Classical.choice', 'Quot.sound']:
+      structure ZQZeros (zq : ℂ → ℂ) (Z : WideConfig) : Prop where
+        carrier_eq : Z.carrier = LambdaQZeros zq
+        mult_order : ∀ ρ ∈ Z.carrier, ∃ g : ℂ → ℂ, AnalyticAt ℂ g ρ ∧ g ρ ≠ 0 ∧ ∀ᶠ z in nhds ρ, zq z = (z - ρ) ^ Z.mult ρ * g z
+  ZQExplicitFormula (SIDEExplicitFormula/Schema/EpsteinZQ.lean :127-:129), profile ['propext', 'Classical.choice', 'Quot.sound']:
+      structure ZQExplicitFormula (Z : WideConfig) (c : ℕ → ℝ) : Prop where
+        ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+          zeroSideQ Z k = poleTerm k - primeTermQ c k + archTermQ k
+  ZQPremises (SIDEExplicitFormula/Schema/EpsteinZQ.lean :137-:142), profile ['propext', 'Classical.choice', 'Quot.sound']:
+      structure ZQPremises (zq : ℂ → ℂ) (Z : WideConfig) (c : ℕ → ℝ) : Prop where
+        continuation : ZQContinuation zq
+        zeros : ZQZeros zq Z
+        logDeriv : ∀ s : ℂ, 3 / 2 ≤ s.re → LSeries (fun n => (c n : ℂ)) s = -(deriv zq s / zq s)
+        explicitFormula : ZQExplicitFormula Z c
+        count : Wide.HCount Z A0Q
+
+== THE STRIP-FREE CONFIGURATION THE PREMISES RANGE OVER (the author`s word at the zero-sum prompt): WideConfig`s fields at v0.35,
+   read through the Read tool before the module was written (SIDEExplicitFormula/Schema/Wide/Config.lean :28-:38):
+      structure WideConfig where
+        /-- the set of distinct points -/
+        carrier : Set ℂ
+        /-- multiplicity (value irrelevant off carrier) -/
+        mult : ℂ → ℕ
+        one_le_mult : ∀ ρ ∈ carrier, 1 ≤ mult ρ
+        strip : ∀ ρ ∈ carrier, -1 / 2 < ρ.re ∧ ρ.re < 3 / 2
+        reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier
+        mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ
+        /-- local finiteness in the ordinate -/
+        finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+
+   it carries Λ_Q`s zeros: none on Re s >= 3/2 (|Z_Q(s) - 2| <= Z_Q(3/2) - 2 < 2, relay data/b685_count_plan.txt :26-:27), none on
+   Re s <= -1/2 by the reflection, the trivial zeros at -1, -2, ... outside; the residue: b590`s EpsteinPremises (Schema/Epstein.lean
+   :41-:44) sums the closed strip alone, which Davenport-Heilbronn makes false for Z_Q -- no link to it stated.
+
+### the definitions printed beside (no grade: a definition states nothing): Q0form ['propext']; rQ ['propext', 'Classical.choice', 'Quot.sound']; ZQ ['propext', 'Classical.choice', 'Quot.sound']; qBase ['propext', 'Classical.choice', 'Quot.sound']; LambdaQZeros ['propext', 'Classical.choice', 'Quot.sound']; zeroSideQ ['propext', 'Classical.choice', 'Quot.sound']; primeTermQ ['propext', 'Classical.choice', 'Quot.sound']; bracketQ ['propext', 'Classical.choice', 'Quot.sound']; archTermQ ['propext', 'Classical.choice', 'Quot.sound']; ZQContinuation ['propext', 'Classical.choice', 'Quot.sound']; ZQZeros ['propext', 'Classical.choice', 'Quot.sound']; ZQExplicitFormula ['propext', 'Classical.choice', 'Quot.sound']; ZQPremises ['propext', 'Classical.choice', 'Quot.sound']
+
+### ### **THEOREMS 7 ; four_mul_Q0form GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; Q0form_nonneg GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; rQ_zero GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; zqZeros_ne_zero GRADE INTERFACES (E0 INTERFACES) SALT PASS PROFILE STD3 ; zq_count GRADE INTERFACES (E0 INTERFACES) SALT PASS PROFILE STD3 ; zq_explicit_formula GRADE INTERFACES (E0 INTERFACES) SALT PASS PROFILE STD3 ; zq_li_nonneg_imp_online GRADE INTERFACES (E0 INTERFACES) SALT PASS PROFILE STD3 ; EVERY SALT-CHECK PASSED AND EVERY CHECK AGREEING True.**

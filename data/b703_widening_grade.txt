@@ -1,0 +1,210 @@
+b703 -- THE GRADE OF EACH THEOREM, READ FROM ITS STATEMENT, AND THE SALT-CHECK, (R313)(3)-(4) (2026-10-22T01:18:10Z)
+
+### rows are, per theorem: the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and
+### the salt-check`s clauses with their readings. The statements at SIDE-explicit-formula aa9a543 (aa9a543); the profile from run 39700585515 (gate DERIVES).
+
+== acDeriv_of_contDiff_two (SIDEExplicitFormula/H2SignWide.lean :53-:53):
+    theorem acDeriv_of_contDiff_two {f : ℝ → ℂ} (hf : ContDiff ℝ 2 f) (hs : HasCompactSupport f) : acDeriv f := by
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    f            : ℝ → ℂ                              the function, data
+    hf           : ContDiff ℝ 2 f                     Mathlib`s predicate, the antecedent of the stated implication
+    hs           : HasCompactSupport f                Mathlib`s predicate, the antecedent
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (a general lemma: C² with compact support gives acDeriv; its hypotheses Mathlib`s, the antecedents of what is stated)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: domain conditions only: hf : ContDiff ℝ 2 f, hs : HasCompactSupport f ; the hypotheses it read: [('hf', 'ContDiff ℝ 2 f'), ('hs', 'HasCompactSupport f')]
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'acDeriv f'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses ['hf', 'hs']
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- hf : ContDiff ℝ 2 f, hs : HasCompactSupport f
+    #print axioms profiled after the first three            PASS -- run 39700585515: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== classK_subset_classK' (SIDEExplicitFormula/H2SignWide.lean :64-:64):
+    theorem classK_subset_classK' {k : ℝ → ℂ} (hk : classK k) : classK' k := by
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    k            : ℝ → ℂ                              the window, data
+    hk           : classK k                           the inclusion`s antecedent (H2Sign.lean :24)
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (an inclusion of classes; hk the antecedent of the stated inclusion)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE PREDICATE-UNLISTED ; its reason: hk : classK k ; the hypotheses it read: [('hk', 'classK k')]
+    THE HAND READING AND THE CHECK ### DIFFER (DERIVES against PREDICATE-UNLISTED)
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion "classK' k"
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses ['hk']
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- hk : classK k
+    #print axioms profiled after the first three            PASS -- run 39700585515: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== classK_subset_classKsum (SIDEExplicitFormula/H2SignWide.lean :71-:71):
+    theorem classK_subset_classKsum {k : ℝ → ℂ} (hk : classK k) : classKsum k := by
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    k            : ℝ → ℂ                              the window, data
+    hk           : classK k                           the inclusion`s antecedent
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (an inclusion of classes)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE PREDICATE-UNLISTED ; its reason: hk : classK k ; the hypotheses it read: [('hk', 'classK k')]
+    THE HAND READING AND THE CHECK ### DIFFER (DERIVES against PREDICATE-UNLISTED)
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'classKsum k'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses ['hk']
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- hk : classK k
+    #print axioms profiled after the first three            PASS -- run 39700585515: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== classKsum_subset_classK' (SIDEExplicitFormula/H2SignWide.lean :78-:78):
+    theorem classKsum_subset_classK' {k : ℝ → ℂ} (hk : classKsum k) : classK' k := by
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    k            : ℝ → ℂ                              the window, data
+    hk           : classKsum k                        the inclusion`s antecedent (H2SignWide.lean :43)
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (an inclusion of classes)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE PREDICATE-UNLISTED ; its reason: hk : classKsum k ; the hypotheses it read: [('hk', 'classKsum k')]
+    THE HAND READING AND THE CHECK ### DIFFER (DERIVES against PREDICATE-UNLISTED)
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion "classK' k"
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses ['hk']
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- hk : classKsum k
+    #print axioms profiled after the first three            PASS -- run 39700585515: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== h2_sign'_imp_h2_sign (SIDEExplicitFormula/H2SignWide.lean :83-:83):
+    theorem h2_sign'_imp_h2_sign : h2_sign' → h2_sign := fun H k hk => H k (classK_subset_classK' hk)
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): NONE -- a closed statement
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (no binder; an implication between two closed propositions of this kernel)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion "h2_sign' → h2_sign"
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses none
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- no binder
+    #print axioms profiled after the first three            PASS -- run 39700585515: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== h2_sign'_imp_rh (SIDEExplicitFormula/H2SignWide.lean :86-:86):
+    theorem h2_sign'_imp_rh : h2_sign' → RiemannHypothesis := fun H => h2_sign_iff_rh.mp (h2_sign'_imp_h2_sign H)
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): NONE -- a closed statement
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (no binder; h2_sign` the antecedent, RH the consequent)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion "h2_sign' → RiemannHypothesis"
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses none
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- no binder
+    #print axioms profiled after the first three            PASS -- run 39700585515: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== paperFT_finset_sum (SIDEExplicitFormula/H2SignWide.lean :89-:91):
+    theorem paperFT_finset_sum {ι : Type*} (s : Finset ι) (f : ι → ℝ → ℂ) (hf : ∀ i ∈ s, Continuous (f i))
+        (hs : ∀ i ∈ s, HasCompactSupport (f i)) (z : ℂ) :
+        Zeta23.paperFT (fun u => ∑ i ∈ s, f i u) z = ∑ i ∈ s, Zeta23.paperFT (f i) z := by
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): 
+    ι            : Type*                              the index type, data
+    s            : Finset ι                           data
+    f            : ι → ℝ → ℂ                          data
+    hf           : ∀ i ∈ s, Continuous (f i)          a hypothesis, not discharged in the theorem`s closure (discharged at its use, :131-:133)
+    hs           : ∀ i ∈ s, HasCompactSupport (f i)   a hypothesis, not discharged in the theorem`s closure
+    z            : ℂ                                  data
+  THE GRADE READ FROM THE STATEMENT: INTERFACES ; THE NAMED PREMISE: hf : ∀ i ∈ s, Continuous (f i) and hs : ∀ i ∈ s, HasCompactSupport (f i) -- on the author`s word at the classK` prompt (2026-10-22T01:03Z): a binder that is a hypothesis not discharged in the theorem`s closure is its premise; the first hand reading DERIVES withdrawn
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE INTERFACES ; its reason: hf : ∀ i ∈ s, Continuous (f i), hs : ∀ i ∈ s, HasCompactSupport (f i) ; the hypotheses it read: [('hf', '∀ i ∈ s, Continuous (f i)'), ('hs', '∀ i ∈ s, HasCompactSupport (f i)')]
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'Zeta23.paperFT (fun u => ∑ i ∈ s, f i u) z = ∑ i ∈ s, Zeta23.paperFT (f i) z'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses ['hf', 'hs']
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- hf : ∀ i ∈ s, Continuous (f i), hs : ∀ i ∈ s, HasCompactSupport (f i)
+    #print axioms profiled after the first three            PASS -- run 39700585515: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== rh_imp_h2_sign_sum (SIDEExplicitFormula/H2SignWide.lean :103-:103):
+    theorem rh_imp_h2_sign_sum : RiemannHypothesis → h2_sign_sum := by
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): NONE -- a closed statement
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (no binder; RH the antecedent of the stated implication)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'RiemannHypothesis → h2_sign_sum'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses none
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- no binder
+    #print axioms profiled after the first three            PASS -- run 39700585515: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== h2_sign_sum_imp_h2_sign (SIDEExplicitFormula/H2SignWide.lean :147-:147):
+    theorem h2_sign_sum_imp_h2_sign : h2_sign_sum → h2_sign := fun H k hk => H k (classK_subset_classKsum hk)
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): NONE -- a closed statement
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (no binder)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'h2_sign_sum → h2_sign'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses none
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- no binder
+    #print axioms profiled after the first three            PASS -- run 39700585515: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== h2_sign_sum_iff_rh (SIDEExplicitFormula/H2SignWide.lean :150-:150):
+    theorem h2_sign_sum_iff_rh : h2_sign_sum ↔ RiemannHypothesis :=
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): NONE -- a closed statement
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (no binder; an equivalence of two closed propositions)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (E0_EXTENSION; the shared file not edited):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate   PASS -- the conclusion 'h2_sign_sum ↔ RiemannHypothesis'
+    no X = X                                                PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                         PASS -- hypotheses none
+    no fabricated witness                                   PASS -- the conclusion constructs nothing
+    hypotheses named                                        PASS -- no binder
+    #print axioms profiled after the first three            PASS -- run 39700585515: ['propext', 'Classical.choice', 'Quot.sound']
+  PROFILE ['propext', 'Classical.choice', 'Quot.sound'] ; SALT-CHECK PASS
+
+== THE E0 DIVERGENCE, FOUR ROWS (the author`s word at the classK` prompt, 2026-10-22T01:03Z): each theorem`s statement whole with its
+   binders, E0`s grade and its reason by line in relay tools/e0_rule.py, the hand grade and its ground.
+  (1) classK_subset_classK' (SIDEExplicitFormula/H2SignWide.lean :64-:64): theorem classK_subset_classK' {k : ℝ → ℂ} (hk : classK k) : classK' k
+      binders: k : ℝ → ℂ; hk : classK k
+      E0 PREDICATE-UNLISTED -- PREDICATE-UNLISTED: (R243)(2) (tools/e0_rule.py :298-:307) -- the binder`s type a named predicate applied to the statement`s own quantified variable k, the name neither a RESTRICTIONS head (:278-:295) nor in MET (:308-:315), so _named_on_quantified (:330-:354) returns it and unlisted_case (:319-:322) reads it; the shared lexicon`s extension in this tool (E0_EXTENSION) does not reach MET -- E0`s list not yet holding the predicate, and not a reading of the statement
+      THE HAND GRADE DERIVES -- the binder restricts the universally quantified window k to the class the inclusion is about, its conclusion naming k: a class restriction, (R180)(2)(f) and (R235)(2)(iii) (tools/e0_rule.py :34-:36, :258-:262); no named premise of a fixed kernel object
+      THE TWO READINGS DIFFER: the hand grade stands, E0`s outcome beside it
+  (2) classK_subset_classKsum (SIDEExplicitFormula/H2SignWide.lean :71-:71): theorem classK_subset_classKsum {k : ℝ → ℂ} (hk : classK k) : classKsum k
+      binders: k : ℝ → ℂ; hk : classK k
+      E0 PREDICATE-UNLISTED -- PREDICATE-UNLISTED: (R243)(2) (tools/e0_rule.py :298-:307) -- the binder`s type a named predicate applied to the statement`s own quantified variable k, the name neither a RESTRICTIONS head (:278-:295) nor in MET (:308-:315), so _named_on_quantified (:330-:354) returns it and unlisted_case (:319-:322) reads it; the shared lexicon`s extension in this tool (E0_EXTENSION) does not reach MET -- E0`s list not yet holding the predicate, and not a reading of the statement
+      THE HAND GRADE DERIVES -- the binder restricts the universally quantified window k to the class the inclusion is about, its conclusion naming k: a class restriction, (R180)(2)(f) and (R235)(2)(iii) (tools/e0_rule.py :34-:36, :258-:262); no named premise of a fixed kernel object
+      THE TWO READINGS DIFFER: the hand grade stands, E0`s outcome beside it
+  (3) classKsum_subset_classK' (SIDEExplicitFormula/H2SignWide.lean :78-:78): theorem classKsum_subset_classK' {k : ℝ → ℂ} (hk : classKsum k) : classK' k
+      binders: k : ℝ → ℂ; hk : classKsum k
+      E0 PREDICATE-UNLISTED -- PREDICATE-UNLISTED: (R243)(2) (tools/e0_rule.py :298-:307) -- the binder`s type a named predicate applied to the statement`s own quantified variable k, the name neither a RESTRICTIONS head (:278-:295) nor in MET (:308-:315), so _named_on_quantified (:330-:354) returns it and unlisted_case (:319-:322) reads it; the shared lexicon`s extension in this tool (E0_EXTENSION) does not reach MET -- E0`s list not yet holding the predicate, and not a reading of the statement
+      THE HAND GRADE DERIVES -- the binder restricts the universally quantified window k to the class the inclusion is about, its conclusion naming k: a class restriction, (R180)(2)(f) and (R235)(2)(iii) (tools/e0_rule.py :34-:36, :258-:262); no named premise of a fixed kernel object
+      THE TWO READINGS DIFFER: the hand grade stands, E0`s outcome beside it
+  (4) paperFT_finset_sum (SIDEExplicitFormula/H2SignWide.lean :89-:91): theorem paperFT_finset_sum {ι : Type*} (s : Finset ι) (f : ι → ℝ → ℂ) (hf : ∀ i ∈ s, Continuous (f i)) (hs : ∀ i ∈ s, HasCompactSupport (f i)) (z : ℂ) : Zeta23.paperFT (fun u => ∑ i ∈ s, f i u) z = ∑ i ∈ s, Zeta23.paperFT (f i) z
+      binders: ι : Type*; s : Finset ι; f : ι → ℝ → ℂ; hf : ∀ i ∈ s, Continuous (f i); hs : ∀ i ∈ s, HasCompactSupport (f i); z : ℂ
+      E0 INTERFACES -- INTERFACES: domain_case (tools/e0_rule.py :407-:412) finds no domain form -- strip_range (:380-:386) reads each binder`s body, Continuous (f i) and HasCompactSupport (f i); CLASS_PREDS_B625 (:275-:276) takes a bare variable as its last token and (f i) ends in a parenthesis, class_case (:174-:179, CLASS_PREDS :91) lists neither on an application; so both read as hypotheses that are premises
+      THE HAND GRADE INTERFACES -- INTERFACES on hf and hs, on the author`s word: each is a hypothesis of the lemma, not data and not discharged in its own closure (the closure takes them as hypotheses; their discharge is at the use in rh_imp_h2_sign_sum, H2SignWide.lean :131-:133, by weilTest_contDiff and weilTest_hasCompactSupport); the first hand reading DERIVES withdrawn
+      THE TWO READINGS AGREE
+  THE ORDER FOR b705: MET (tools/e0_rule.py :308-:315) extended by ruling with classK and classKsum (and classK` and acDeriv, the
+  widened class`s own predicates) -- W-ORD-E0-MET-CLASSK, entered at OPEN_TRAILS; e0_rule.py not edited this act.
+
+### the definitions printed beside (no grade: a definition states nothing): SIDEExplicitFormula.B321.acDeriv ['propext', 'Classical.choice', 'Quot.sound']; SIDEExplicitFormula.B321.classK' ['propext', 'Classical.choice', 'Quot.sound']; SIDEExplicitFormula.B321.h2_sign' ['propext', 'Classical.choice', 'Quot.sound']; SIDEExplicitFormula.B321.classKsum ['propext', 'Classical.choice', 'Quot.sound']; SIDEExplicitFormula.B321.h2_sign_sum ['propext', 'Classical.choice', 'Quot.sound']
+
+### ### **THEOREMS 10 ; acDeriv_of_contDiff_two GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; classK_subset_classK' GRADE DERIVES (E0 PREDICATE-UNLISTED) SALT PASS PROFILE STD3 ; classK_subset_classKsum GRADE DERIVES (E0 PREDICATE-UNLISTED) SALT PASS PROFILE STD3 ; classKsum_subset_classK' GRADE DERIVES (E0 PREDICATE-UNLISTED) SALT PASS PROFILE STD3 ; h2_sign'_imp_h2_sign GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; h2_sign'_imp_rh GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; paperFT_finset_sum GRADE INTERFACES (E0 INTERFACES) SALT PASS PROFILE STD3 ; rh_imp_h2_sign_sum GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; h2_sign_sum_imp_h2_sign GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; h2_sign_sum_iff_rh GRADE DERIVES (E0 DERIVES) SALT PASS PROFILE STD3 ; EVERY SALT-CHECK PASSED AND EVERY CHECK AGREEING False.**

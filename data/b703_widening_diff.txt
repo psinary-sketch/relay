@@ -1,0 +1,26 @@
+b703 -- COMPONENT 2, (R313)(3): THE WIDENING`S REPAIR, ITS DIFF (2026-10-22T01:20:44Z)
+
+### SIDE-explicit-formula widening-b701 8a4ab68 -> aa9a543 (the one commit, by the Edit tool); files touched ['SIDEExplicitFormula/H2SignWide.lean']
+
+### the unified diff (git diff -U0):
+    diff --git a/SIDEExplicitFormula/H2SignWide.lean b/SIDEExplicitFormula/H2SignWide.lean
+    index a892082..0ff5c25 100644
+    --- a/SIDEExplicitFormula/H2SignWide.lean
+    +++ b/SIDEExplicitFormula/H2SignWide.lean
+    @@ -59 +59 @@ theorem acDeriv_of_contDiff_two {f : ℝ → ℂ} (hf : ContDiff ℝ 2 f) (hs :
+    -    (fun y _ => (hf.deriv'.differentiable le_rfl) y) ((hf.deriv'.continuous_deriv le_rfl).continuousOn)
+    +    (fun y _ => (hf.deriv'.differentiable one_ne_zero) y) ((hf.deriv'.continuous_deriv le_rfl).continuousOn)
+
+### the word diff (git diff --word-diff=porcelain -U0):
+    diff --git a/SIDEExplicitFormula/H2SignWide.lean b/SIDEExplicitFormula/H2SignWide.lean
+    index a892082..0ff5c25 100644
+    --- a/SIDEExplicitFormula/H2SignWide.lean
+    +++ b/SIDEExplicitFormula/H2SignWide.lean
+    @@ -59 +59 @@ theorem acDeriv_of_contDiff_two {f : ℝ → ℂ} (hf : ContDiff ℝ 2 f) (hs :
+         (fun y _ => (hf.deriv'.differentiable 
+    -le_rfl)
+    +one_ne_zero)
+      y) ((hf.deriv'.continuous_deriv le_rfl).continuousOn)
+    ~
+
+### ### **ONE FILE ; ONE LINE (:59) ; ONE TOKEN: le_rfl -> one_ne_zero (the argument ContDiff.differentiable takes for n ≠ 0) ; NOTHING ELSE TOUCHED: True.**

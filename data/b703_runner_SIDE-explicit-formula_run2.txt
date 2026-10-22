@@ -1,0 +1,130 @@
+b703 -- THE HOSTED RUNNER FOR SIDE-explicit-formula, RUN2, READ BY ITS RUN ID (2026-10-22T01:17:37Z)
+
+### the dispatch: at main dfadc8c = v0.36 (build-module.yml), target the widening's thirteen modules and SIDEExplicitFormula.Schema.EpsteinZQ, epstein-b703's one tree state; N1's second dispatch ; the ref input 5f8961b00191957d67b960fd760ce5013e412d2a
+### the run: id 39703864050 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/39703864050 ; status completed ; conclusion success ; head dfadc8cb6b361e81a92eade7bbafd996c3ca974d on main ; 2026-10-22T01:07:43Z to 2026-10-22T01:17:17Z
+### the artifact: id 12394312128 ; build-module-39703864050 ; 249368 bytes ; sha256 fb5e11d998e9b9932cdbf45fb4479cfdd3d714b90df6612d36954c0027dbb7ce ; the platform`s digest fb5e11d998e9b9932cdbf45fb4479cfdd3d714b90df6612d36954c0027dbb7ce ; AGREE
+### the ref built (out/ref.txt): 5f8961b00191957d67b960fd760ce5013e412d2a leanprover/lean4:v4.34.0-rc1
+### the memory log: LOW 12855 MB ; the hold 2560 ; STOP lines False
+### the build: exit 0 ; error lines 0:
+### the log`s last lines:
+    ⚠ [3878/3878] Built SIDEExplicitFormula.Schema.EpsteinZQ (2.4s)
+    warning: SIDEExplicitFormula/Schema/EpsteinZQ.lean:150:6: this tactic is never executed
+    
+    Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+    warning: SIDEExplicitFormula/Schema/EpsteinZQ.lean:150:6: Unused tactic linter: `(simp only [LambdaQZeros, Set.mem_setOf_eq] at hρ; exact hρ.1)` does nothing
+    
+    Note: This linter can be disabled with `set_option linter.unusedTactic false`
+    Build completed successfully (3878 jobs).
+### the print step: the list (out/print_targets.txt) 109 names ; terminals printed 109 ; every name printed once True ; axiom-free 0 ; sorryAx 0 ; outside the standard three 0 ; refused NONE
+### rows are terminals: name | the axioms printed | within the standard three:
+  SIDEExplicitFormula.Schema.liCoeffCfg                          ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.liCoeff_eq_liCoeffCfg               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.liCoeffCfg_summable                 ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.online_imp_liCoeffCfg_nonneg        ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.GRHWeil.grh_chi_imp_li_nonneg_chi          ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.norm_lt_norm_sub_one_of_re_lt_half  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.one_lt_norm_one_sub_inv             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.exists_dominant_point               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.dominant_finite                     ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.norm_geom_sum_le                    ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.norm_sum_powerSum_le                ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.norm_window_le                      ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.powerSum_window_sq_ge               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.exists_ge_of_mean_sq                ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.powerSum_re_ge_infinitely           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.powerSum_re_le_neg_infinitely       ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.one_sub_pow_expand                  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.liTerm_re_abs_le_pow                ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.summable_rest                       ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.rest_term_le                        ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.remainder_le                        ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.liCoeffCfg_eq_indicator             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.sum_gL_dom                          ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.li_nonneg_cfg_imp_online            ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_imp_grh_chi          ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.GRHWeil.li_nonneg_chi_iff_grh_chi          ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.LiConverseNative.li_nonneg_imp_rh_native   ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.LiCriterionBridge.li_nonneg_iff_rh         ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  LiCriterion.positivity_implies_RH                              ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.ne_zero_of_excl                ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.localCount_ofWindowCount       ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.zero_sum_inv_sq_wide           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.liTerm_re_abs_le_pow           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.summable_rest                  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.rest_term_le                   ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.remainder_le                   ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.liCoeff                        ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.liCoeff_summable               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.exists_dominant_point          ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.dominant_finite                ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.liCoeff_eq_indicator           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.summable_indicator_gL          ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.sum_gL_dom                     ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online       ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.reflect_ofReal                 ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.c2Config                       ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.c2_not_excl                    ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.c2bConfig                      ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.c2b_nonneg_offline             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.rest_term_le_ne_zero           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.remainder_le_ne_zero           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.exists_dominant_point_ne_zero  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.powerSum_re_ge_split           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online_ne_zero ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.c2_ne_zero                     ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.c2_w_eq_one                    ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.c2_liCoeff_one_neg             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.c3_real_segment                ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.c2b_not_ne_zero                ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Wide.c2b_lesson                     ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.qE0_re_ne_half                      ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.qE0_mem                             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.rhoE_mem                            ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Q0Count                             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Q0Premises                          ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.q0_target_false                     ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.q0_h2_iff_target                    ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.q0_not_h2_sign_cfg                  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.q0_not_h2_sign_cfg_rhoE             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.q0_detector                         ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.q0_hA                               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.q0_rate                             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.RegisterBridge.h2_sign_iff_register4_positivity_liCoeff ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.RegisterBridge.h2_sign_imp_pairing_rh      ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.acDeriv                               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.classK'                               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.h2_sign'                              ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.classKsum                             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.h2_sign_sum                           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.acDeriv_of_contDiff_two               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.classK_subset_classK'                 ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.classK_subset_classKsum               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.classKsum_subset_classK'              ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.h2_sign'_imp_h2_sign                  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.h2_sign'_imp_rh                       ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.paperFT_finset_sum                    ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.rh_imp_h2_sign_sum                    ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.h2_sign_sum_imp_h2_sign               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.B321.h2_sign_sum_iff_rh                    ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.Q0form                              ['propext'] STD3
+  SIDEExplicitFormula.Schema.four_mul_Q0form                     ['propext'] STD3
+  SIDEExplicitFormula.Schema.Q0form_nonneg                       ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.rQ                                  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.rQ_zero                             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.ZQ                                  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.qBase                               ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.ZQContinuation                      ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.LambdaQZeros                        ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.ZQZeros                             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.zeroSideQ                           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.primeTermQ                          ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.bracketQ                            ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.archTermQ                           ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.ZQExplicitFormula                   ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.ZQPremises                          ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.zqZeros_ne_zero                     ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.zq_count                            ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.zq_explicit_formula                 ['propext', 'Classical.choice', 'Quot.sound'] STD3
+  SIDEExplicitFormula.Schema.zq_li_nonneg_imp_online             ['propext', 'Classical.choice', 'Quot.sound'] STD3
+
+### ### **RUN 39703864050 (run2) ; CONCLUSION success ; ARTIFACT AGREE ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS PRINTED 109 OF 109 ; SORRYAX 0 ; OUTSIDE THE STANDARD THREE 0 ; GATE DERIVES.**
