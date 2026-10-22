@@ -1,0 +1,39 @@
+==============================================================================
+MIRROR VERIFICATION -- ALL THREE CLAUSES (b142; clause 3 added b183)
+  archive: D:/MY-DOwnloads/mirror-refresh-2026-10-22-b706.zip
+==============================================================================
+
+--- CLAUSE 1: THE ARCHIVE AGAINST ITS OWN MANIFEST ---
+  files in archive (excl MANIFEST) : 66
+  rows parsed from MANIFEST        : 66
+  md5 / byte mismatches            : 0
+  CLAUSE 1 : CLEAN
+
+--- CLAUSE 2: THE BUILD'S SOURCE HEAD AGAINST ls-remote ---
+  manifest declares source HEAD    : c9e0086
+  ls-remote origin/main              : c9e00860b2993d8182618064f41f985ece0e0860
+  CLAUSE 2 : CLEAN -- they agree
+
+--- CLAUSE 3: THE ARCHIVE'S CONTENTS AGAINST THE ROSTER ---
+  roster entries (source paths) : 83
+  archive files (excl MANIFEST) : 66
+  in roster, MISSING from archive : 17
+  in archive, NOT in roster       : 0
+      MISSING : ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md
+      MISSING : A_Place_to_Stand_v5_18.md
+      MISSING : BALANCE_AND_POSITIVITY_v0_9_5.md
+      MISSING : EXHAUSTIVENESS_LICENSE_v0_2.md
+      MISSING : E_DIFFICULTY_THEOREM_v1_0_4.md
+      MISSING : FACES_OF_H2_AT_FINITE_INSTANCE_v0_2.md
+      MISSING : FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md
+      MISSING : GRH_CASCADE_v0_3_6.md
+  ### CLAUSE 3 : NOT CLEAN -- HARD FAILURE.
+  ### THE ARCHIVE DOES NOT MATCH THE ROSTER, and this is exactly the
+  ### b182 case that clauses 1 and 2 both passed.
+
+  ### VERDICT: NOT CLEAN
+  ### NO CLAUSE ALONE IS THE VERIFICATION; THE LAW REQUIRES ALL THREE.
+  ### clause 1 is the archive against ITSELF, clause 2 is the pin, and
+  ### clause 3 is the archive against the ROSTER -- ### THE ONLY ONE OF THE
+  ### THREE THAT CAN SEE A FILE THAT NEVER ENTERED THE STAGING DIRECTORY.
+### exit 1
