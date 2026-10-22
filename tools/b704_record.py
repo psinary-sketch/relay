@@ -196,6 +196,85 @@ def c1(*a):
 EF = K.KERNEL_DIR
 dispatch, runstatus = R.dispatch, R.runstatus
 STD3 = P3.STD3
+runner = P3.runner                 # ### b703's runner by copy, its names read at the call from b703's module: rebound below
+NODES_B704 = os.path.join(D, 'b704_nodes_zeta.txt')
+NODES_B702 = os.path.join(D, 'b702_nodes_zeta.txt')
+CANDIDATES = ('SIDEExplicitFormula.B321.h2_sign_sum_iff_rh', "SIDEExplicitFormula.B321.h2_sign'_imp_rh")   # ### (R314)(3), the node prompt
+PROBE_BRANCH = 'probe-b704'
+
+
+def nodesdiff(*a):
+    """data/b704_nodes_diff.txt: b704's list against b702's, line for line (difflib, autojunk off) -- every row unchanged but its tag."""
+    import difflib
+    old = rd(NODES_B702).replace(chr(13), '').split(NL)
+    new = rd(NODES_B704).replace(chr(13), '').split(NL)
+    sm = difflib.SequenceMatcher(None, old, new, autojunk=False)
+    L = ['%s -- (R314)(3): THE NODE LIST`S SUCCESSOR AGAINST b702`S, LINE FOR LINE (%s)' % (ACT, utc()), '',
+         '### rows are the opcodes of the two lists (difflib, autojunk off): the kind | b702`s lines | b704`s lines | the lines. Every row of',
+         '### b702`s list unchanged but its tag is the order; the head`s comment block is b704`s own.', '']
+    ch = []
+    for op, i1, i2, j1, j2 in sm.get_opcodes():
+        if op == 'equal':
+            continue
+        ch.append((op, i1, i2, j1, j2))
+        L += ['  %s | :%d-:%d | :%d-:%d' % (op, i1 + 1, i2, j1 + 1, j2)] + ['      - %s' % x for x in old[i1:i2]] + ['      + %s' % x for x in new[j1:j2]]
+    rec_old = [x for x in old if x and not x.startswith('#')]
+    rec_new = [x for x in new if x and not x.startswith('#')]
+    pins = ([x for x in old if x.startswith('# pin:')], [x for x in new if x.startswith('# pin:')])
+    comm = [c for c in ch if not all(x.startswith('#') for x in new[c[3]:c[4]] + old[c[1]:c[2]])]
+    L += ['', '### ### **RECORD LINES b702 %d ; b704 %d ; EQUAL %s ; THE PIN %s -> %s ; CHANGES OUTSIDE COMMENT LINES %d.**' % (
+        len(rec_old), len(rec_new), rec_old == rec_new, pins[0], pins[1], len(comm))]
+    if 'dry' not in a:
+        put_txt('%s_nodes_diff.txt' % ACT, L)
+    print(NL.join(L[-1:]))
+
+
+def _probe_parts():
+    """chain_page's own selection at the b704 list's pin: (names, corr_names, watch, the probe's module imports)."""
+    import chain_page as CP
+    CP.VARIANT = None
+    CP.PIN_TAG, CP.PIN = CP.node_pin(NODES_B704)
+    nodes, _drops, _corr, marks = CP.read_nodes(NODES_B704)
+    names = [x['name'] for x in nodes]
+    corr = CP.corr_select(CP.record_rows(), names, marks, None)
+    return CP, names, corr, ['SIDEExplicitFormula.RegisterDepth']
+
+
+def probe(*a):
+    """`probe [dry]`: the probe text by tools/chain_page.py's probe_text at the b704 list's pin (v0.37), its cells the list's names, the two
+    candidate nodes of (R314)(3) and the Correspondence names, the node set the list's names and the candidates -- written in run_probe's form
+    (chain_page.py :268-:271) as the root CircuitClosure.lean of the probe branch's working tree, which must be checked out at probe-b704 cut
+    from v0.37 with no tracked change. data/b704_probe.txt: the text's sha256, its cells, the lake target (the probe's own module imports)."""
+    import hashlib
+    CP, names, corr, watch = _probe_parts()
+    br = g(EF, 'rev-parse', '--abbrev-ref', 'HEAD').strip()
+    base = g(EF, 'rev-parse', 'HEAD').strip()
+    dirty = g(EF, 'status', '--porcelain', '--untracked-files=no').strip()
+    cells = names + [c for c in CANDIDATES if c not in names] + corr
+    text = CP.probe_text(cells, names + [c for c in CANDIDATES if c not in names], watch)
+    mods = [l.split()[1] for l in CP.probe_imports().split(NL) if l.startswith('import ')]
+    target = ' '.join(mods)
+    sha = hashlib.sha256(text.encode('utf-8')).hexdigest()
+    ok = br == PROBE_BRANCH and base == K.EF_V037 and not dirty and CP.PIN == K.EF_V037
+    L = ['%s -- (R314)(3): THE FACES PROBE, ITS TEXT BY THE GENERATOR AND ITS TARGET (%s)' % (ACT, utc()), '',
+         '### the generator: relay tools/chain_page.py probe_text at the list relay data/b704_nodes_zeta.txt (pin %s = %s); the kernel checkout %s at %s,' % (
+             CP.PIN_TAG, (CP.PIN or '')[:7], br, base[:7]),
+         '### tracked changes %s. The text is written in run_probe`s form as the probe branch`s root CircuitClosure.lean; the workflow`s closure' % (dirty or 'NONE'),
+         '### step (build-module.yml :98-:111) prepends one import per target module and runs it, its output out/closure_log.txt.',
+         '  cells %d (the list`s names %d ; the candidates %d ; the Correspondence names %d) ; the node set %d ; the watch %s' % (
+             len(cells), len(names), len([c for c in CANDIDATES if c not in names]), len(corr), len(names) + len([c for c in CANDIDATES if c not in names]), watch),
+         '  the text: %d bytes ; %d lines ; sha256 %s' % (len(text.encode('utf-8')), text.count(NL), sha),
+         '  the lake target (the probe`s module imports at the pin, %d): %s' % (len(mods), target),
+         '', '### ### **THE PROBE TEXT %s ; sha256 %s ; CELLS %d ; TARGET MODULES %d ; THE CHECKOUT AT %s %s.**' % (
+             'WRITTEN' if ok and 'dry' not in a else ('NOT WRITTEN (dry)' if ok else '### NOT WRITTEN, THE CHECKOUT NOT AS ORDERED'), sha[:16], len(cells),
+             len(mods), PROBE_BRANCH, 'FROM v0.37' if ok else '### NOT AS ORDERED')]
+    if ok and 'dry' not in a:
+        import io as _io
+        _io.open(os.path.join(EF, 'CircuitClosure.lean'), 'w', encoding='utf-8', newline=NL).write(text)
+        put_txt('%s_probe.txt' % ACT, L)
+        put_json('%s_probe.json' % ACT, dict(at=utc(), sha256=sha, cells=cells, nodes=names, candidates=list(CANDIDATES), corr=corr, target=target,
+                                            pin=CP.PIN, branch=br, base=base))
+    print(NL.join(L[-3:]))
 
 
 # ================================================================================ STEP ZERO: THE READ RULE'S SORT, (R314)(2)
@@ -345,15 +424,385 @@ def reads(*a):
 
 def names(*a):
     """the functions of an imported record module (b698's by default) with the line each opens at -- names and numbers, no source printed."""
+    import importlib
     import inspect
-    mod = {'b698': R, 'b703': P3}.get(a[0] if a else 'b698', R)
+    mod = {'b698': R, 'b703': P3}.get(a[0] if a else 'b698') or importlib.import_module(a[0])
     for n, f in sorted(vars(mod).items(), key=lambda kv: inspect.getsourcelines(kv[1])[1] if inspect.isfunction(kv[1]) and kv[1].__module__ == mod.__name__ else 0):
         if inspect.isfunction(f) and f.__module__ == mod.__name__:
             print('  %-28s :%d' % (n, inspect.getsourcelines(f)[1]))
 
 
-ROUTES = dict(names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch, runstatus=runstatus,
-              readsort=readsort, c1=c1, reads=reads)
+def probeview(*a):
+    """`probeview <run id>`: the probe's run read by its id; the artifact downloaded into memory and its sha256 compared with the platform's
+    digest BEFORE any reading; out/closure_log.txt banked whole as data/b704_probe_out_zeta.txt (the probe output), the build log and the
+    axioms output beside it; the output parsed by chain_page's own parser, every cell of the probe named or missing; each name's axioms
+    compared with b703's two run banks (data/b703_axioms_SIDE-explicit-formula_run1r.txt, _run2.txt) for every name both carry (N2).
+    data/b704_runner_SIDE-explicit-formula_probe.txt (.json)."""
+    import hashlib
+    import io as _io
+    import zipfile
+    import chain_page as CP
+    run_id = int(a[0])
+    repo = 'psinary-sketch/' + K.KERNEL
+    rc, out, err = R._gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event')
+    run = json.loads(out or b'{}')
+    rc, out, err = R._gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    art = arts[0] if arts else {}
+    pj = jl('%s_probe.json' % ACT)
+    L = ['%s -- THE FACES PROBE ON THE HOSTED RUNNER, READ BY ITS RUN ID (%s)' % (ACT, utc()), '',
+         '### the probe: relay data/b704_probe.txt (the generator`s text sha256 %s, %d cells) as the root CircuitClosure.lean of %s at %s, its' % (
+             (pj.get('sha256') or '')[:16], len(pj.get('cells') or []), PROBE_BRANCH, g(EF, 'rev-parse', PROBE_BRANCH).strip()[:7]),
+         '### modules` tree v0.37`s (the branch`s one commit changes that file alone; relay data/b704_probe_diff.txt)',
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'), run.get('updatedAt'))]
+    T_ = {}
+    sha = None
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        agree = bool(digest) and digest == sha
+        L.append('### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN', 'AGREE' if agree else '### NOTHING READ FROM IT'))
+        if agree:
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+        else:
+            sha = None
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip() or None
+    berr = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    clog = T_.get('closure_log.txt', '')
+    cells, perr = CP.parse(clog)
+    want = pj.get('cells') or []
+    missing = [n for n in want if n not in cells or cells[n].get('missing')]
+    ax_prev = {}
+    for b in ('b703_axioms_SIDE-explicit-formula_run1r.txt', 'b703_axioms_SIDE-explicit-formula_run2.txt'):
+        for n, d in _deps(rdn(b)):
+            ax_prev[n] = (sorted(d), b)
+    both = [n for n in want if n in ax_prev and n in cells and not cells[n].get('missing')]
+    diff = [n for n in both if sorted(cells[n].get('axioms') or []) != ax_prev[n][0]]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (low[-1] if low else None, K.HOLD, any(l.startswith('STOP ') for l in mem.split(NL))),
+          '### the build: exit %s ; error lines %d' % (bexit, len(berr))] + ['    ' + l for l in berr[:20]] + [
+          '### the closure step (the probe): out/closure_log.txt %d bytes ; error lines %d ; cells parsed %d ; cells wanted %d ; missing %d' % (
+              len(clog), len(perr), len(cells), len(want), len(missing))] + ['    ' + l for l in perr[:20]] + [
+          '### the missing cells: %s' % (missing or 'NONE'),
+          '### N2: the names both this probe and b703`s two runs print (%d): axioms equal %d ; differing %d %s' % (len(both), len(both) - len(diff), len(diff), diff or '')]
+    ok = run.get('conclusion') == 'success' and sha and bexit == '0' and not berr and not perr and not missing
+    L += ['', '### ### **RUN %s (probe) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; PROBE CELLS %d OF %d ; MISSING %d ; N2 EQUAL %d OF %d ; '
+          'THE PROBE %s.**' % (run_id, run.get('conclusion'), 'AGREE' if sha else '### UNREAD', bexit, len(berr) + len(perr), len(want) - len(missing),
+                               len(want), len(missing), len(both) - len(diff), len(both), 'READ' if ok else '### NOT READ WHOLE -- THE PAGE HOLDS')]
+    put_txt('%s_runner_%s_probe.txt' % (ACT, K.KERNEL), L)
+    put_json('%s_runner_%s_probe.json' % (ACT, K.KERNEL), dict(at=utc(), run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=sha,
+                                                               build_exit=bexit, missing=missing, n2_both=len(both), n2_diff=diff, ok=bool(ok)))
+    if sha:
+        put_txt('%s_probe_out_zeta.txt' % ACT, clog.rstrip(NL).split(NL))
+        put_txt('%s_buildlog_%s_probe.txt' % (ACT, K.KERNEL), blog.rstrip(NL).split(NL))
+        put_txt('%s_axioms_%s_probe.txt' % (ACT, K.KERNEL), (T_.get('axioms.txt', '').rstrip(NL) or '### EMPTY').split(NL))
+    print(NL.join(L[:8] + L[-6:]))
+
+
+def probediff(*a):
+    """data/b704_probe_diff.txt: the probe branch's commit against v0.37, by path (git diff --stat, name-status) -- one path, the root file."""
+    tip = g(EF, 'rev-parse', PROBE_BRANCH).strip()
+    ns = [l for l in g(EF, 'diff', '--name-status', K.EF_V037, tip).split(NL) if l.strip()]
+    st = [l for l in g(EF, 'diff', '--stat', K.EF_V037, tip).split(NL) if l.strip()]
+    L = ['%s -- (R314)(3): THE PROBE BRANCH`S DIFF AGAINST v0.37 (%s)' % (ACT, utc()), '',
+         '### %s = %s against v0.37 = %s; rows are paths changed (git diff --name-status), then the stat.' % (PROBE_BRANCH, tip[:7], K.EF_V037[:7]), '']
+    L += ['  ' + l for l in ns] + [''] + ['  ' + l for l in st]
+    ok = ns == ['M\tCircuitClosure.lean']
+    L += ['', '### ### **PATHS CHANGED %d ; THE ONE PATH THE ROOT FILE CircuitClosure.lean %s ; THE MODULES` TREE v0.37`S %s.**' % (len(ns), ok, ok)]
+    if 'dry' not in a:
+        put_txt('%s_probe_diff.txt' % ACT, L)
+    print(NL.join(L[-1:]))
+
+
+def _vkey(v):
+    return tuple(int(x) for x in v.lstrip('v').split('.'))
+
+
+def efcells(*a):
+    """data/b704_correspondence_dry.txt: (R314)(4)'s dry run. The generator run dry over the roster (its verdict line read from its own print),
+    and beside it the reader over every roster table, located by the generator's own find_table and anchor: each table line naming
+    SIDE-explicit-formula, the column it sits in by the header (the generator's `columns`), the kernel cell's clauses as the generator parses
+    them (parse_kernel_cell), the version tokens beside the name, and whether that version is behind v0.37 -- the count of cells and the
+    papers they sit in. Nothing written but this bank."""
+    import correspondence_gen as CG
+    gen = subprocess.run([sys.executable, '-X', 'utf8', '-B', os.path.join(T, 'correspondence_gen.py'), 'dry', os.path.join(D, 'b672_roster_read.json'), 'full'],
+                         capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=ROOT)
+    gv = [l for l in gen.stdout.split(NL) if l.startswith('### ### **TABLES')]
+    tabled = sorted(set(re.findall(r'^    (SIDE-[\w-]+)\s+READ LOCALLY', gen.stdout, re.M)))
+    ro = jl('b672_roster_read.json').get('tables') or []
+    rows, per = [], {}
+    for t in ro:
+        if t.get('withheld'):
+            continue
+        p = os.path.join(PP, t['path'])
+        lines = (rd(p) or '').replace(chr(13), '').split(NL)
+        ft = CG.find_table(lines, t)
+        if isinstance(ft, str):
+            rows.append((t['doc'], t['path'], 0, '### ' + ft, '', '', '', ''))
+            continue
+        i0, i1 = ft
+        cols = CG.columns(lines[i0])
+        sp_h = CG.spans(lines[i0])
+        for i in range(i0 + 1, i1):
+            l = lines[i]
+            if 'explicit-formula' not in l or CG.SEP_ROW.match(l):
+                continue
+            sp = CG.spans(l)
+            where = [k for k, c in (('kernel', cols['kernel']), ('terminal', cols['terminal']), ('profile', cols['profile']), ('status', cols['status']))
+                     if c is not None and c < len(sp) and 'explicit-formula' in CG.cell(l, sp[c])]
+            other = [n for n in range(len(sp)) if 'explicit-formula' in CG.cell(l, sp[n]) and n not in [cols[k] for k in ('kernel', 'terminal', 'profile', 'status')]]
+            kc = CG.cell(l, sp[cols['kernel']]) if cols['kernel'] is not None and cols['kernel'] < len(sp) else ''
+            parsed = [(k, [x[3] for x in toks]) for k, toks in CG.parse_kernel_cell(kc)] if kc else []
+            vers = sorted(set(re.findall(r'explicit-formula`?\*?\*?\s*(?:at\s+)?`?(v\d+(?:\.\d+)*)', l)))
+            behind = [v for v in vers if _vkey(v) < _vkey('v0.37')]
+            rows.append((t['doc'], t['path'], i + 1, ','.join(where + ['col%d' % n for n in other]), parsed, vers, behind,
+                         'BEHIND v0.37' if behind else ('AT v0.37' if 'v0.37' in vers else 'NO VERSION BESIDE THE NAME')))
+            if behind:
+                per[t['doc']] = per.get(t['doc'], 0) + 1
+    L = ['%s -- COMPONENT 3, (R314)(4): THE CORRESPONDENCE CELLS NAMING SIDE-explicit-formula, THE GENERATOR`S DRY RUN AND THE READER BESIDE IT (%s)' % (ACT, utc()), '',
+         '### the generator: `python -X utf8 -B tools/correspondence_gen.py dry data/b672_roster_read.json` (exit %d), the local clones` tags, nothing' % gen.returncode,
+         '### written; its verdict, verbatim: %s' % (gv[0] if gv else '### NOT PRINTED'),
+         '### the kernels it tables (a kernel cell it parses in a shaped table, %d): %s' % (len(tabled), ', '.join(tabled)),
+         '### SIDE-explicit-formula among them: %s' % ('SIDE-explicit-formula' in tabled), '',
+         '### THE READER: rows are table lines naming SIDE-explicit-formula: document | file :line | the column(s) carrying the name | the kernel',
+         '### cell as the generator parses it | the versions beside the name | the reading against v0.37.']
+    L += ['  %s | %s :%s | %s | %s | %s | %s' % (r[0], r[1], r[2], r[3] or '-', r[4] or '-', r[5] or '-', r[7]) for r in rows] or ['  NONE']
+    nb = sum(1 for r in rows if r[7] == 'BEHIND v0.37')
+    L += ['', '### THE CELLS BEHIND v0.37 BY PAPER: %s' % (', '.join('%s %d' % kv for kv in sorted(per.items())) or 'NONE'),
+          '### ### **TABLE LINES NAMING SIDE-explicit-formula %d ; BEHIND v0.37 %d IN %d PAPERS ; IN A KERNEL CELL THE GENERATOR PARSES %d ; THE GENERATOR`S '
+          'CELLS CHANGED %s ; NOTHING WRITTEN.**' % (
+              len([r for r in rows if r[2]]), nb, len(per), sum(1 for r in rows if 'kernel' in (r[3] or '') and any(k == 'SIDE-explicit-formula' for k, _ in (r[4] or []))),
+              (re.search(r'CELLS CHANGED (\d+)', gv[0]).group(1) if gv else '?'))]
+    if 'dry' not in a:
+        put_txt('%s_correspondence_dry.txt' % ACT, L)
+    print(NL.join(L[2:6] + L[8:]))
+
+
+def cands(*a):
+    """data/b704_nodes_prompt.txt: the two candidate nodes of (R314)(3) as the probe prints them (chain_page's parser over
+    data/b704_probe_out_zeta.txt): kind, module :line, the statement, the axioms, the nodes each consumes; and whether any node of the list
+    consumes either (so a page at the probe alone reads the same cells as one with them)."""
+    import chain_page as CP
+    cells, errs = CP.parse(rdn('b704_probe_out_zeta.txt'))
+    _CP, names, _corr, _w = _probe_parts()
+    L = ['%s -- COMPONENT 2, (R314)(3): THE TWO NODE ADDITIONS AS THE PROBE PRINTS THEM, FOR THE PROMPT (%s)' % (ACT, utc()), '',
+         '### the probe: run 39721668586 (relay data/b704_runner_SIDE-explicit-formula_probe.txt), its output relay data/b704_probe_out_zeta.txt parsed by',
+         '### relay tools/chain_page.py`s parser; rows are the candidates: kind | module :line | the statement (#print sig) | axioms | consumes.', '']
+    for n in CANDIDATES:
+        c = cells.get(n) or {}
+        L += ['  %s' % n, '      %s | %s :%s | %s' % (c.get('kind'), c.get('module'), c.get('line'), c.get('axioms_text')),
+              '      statement: %s' % c.get('statement'), '      consumes: %s' % (c.get('consumes') or 'NONE')]
+    users = [(n, [x for x in (cells.get(n) or {}).get('consumes') or [] if x in CANDIDATES]) for n in names]
+    users = [(n, x) for n, x in users if x]
+    L += ['', '### the list`s nodes consuming a candidate: %s' % (users or 'NONE'),
+          '### ### **CANDIDATES %d ; PRINTED %d ; AT THE STANDARD THREE %d ; THE LIST`S NODES CONSUMING EITHER %d.**' % (
+              len(CANDIDATES), sum(1 for n in CANDIDATES if n in cells and not cells[n].get('missing')),
+              sum(1 for n in CANDIDATES if set((cells.get(n) or {}).get('axioms') or ['x']) <= set(STD3)), len(users))]
+    if 'dry' not in a:
+        put_txt('%s_nodes_prompt.txt' % ACT, L)
+    print(NL.join(L[4:]))
+
+
+SCR = K.SP
+PAGE_NEW = os.path.join(SCR, 'faces_b704.md')
+PAGE_CTL = os.path.join(SCR, 'faces_b702_now.md')
+
+
+def _ops(a_, b_):
+    import difflib
+    return [o for o in difflib.SequenceMatcher(None, a_, b_, autojunk=False).get_opcodes() if o[0] != 'equal']
+
+
+def facesraw(*a):
+    """a print only: the committed page (PLACE-papers HEAD) against the control (b702's list from b643's probe, regenerated now) and against
+    the new page (b704's list from b704's probe), each changed line shown short -- for the cause rules of facesdiff. Writes nothing."""
+    C = (_show(PP, 'HEAD', K.FACES_PAGE) or '').replace(chr(13), '').split(NL)
+    O = rd(PAGE_CTL).replace(chr(13), '').split(NL)
+    N = rd(PAGE_NEW).replace(chr(13), '').split(NL)
+    for lab, x, y in (('COMMITTED -> CONTROL', C, O), ('CONTROL -> NEW', O, N)):
+        ops = _ops(x, y)
+        print('=== %s : %d opcodes' % (lab, len(ops)))
+        for op, i1, i2, j1, j2 in ops:
+            print('  %s :%d-:%d -> :%d-:%d' % (op, i1 + 1, i2, j1 + 1, j2))
+            for l in x[i1:i2]:
+                print('     - %s' % l[:150])
+            for l in y[j1:j2]:
+                print('     + %s' % l[:150])
+
+
+def facesdiff(*a):
+    """data/b704_faces_diff.txt: (R314)(3), every line of the page the regeneration changes, named with its cause. The committed page (PLACE-papers
+    HEAD) against the new page by the generator (b704's list from b704's probe, run 39721668586); the control page (b702's list from b643's probe,
+    regenerated now by the same generator) separates what changed before this act's probe from what the probe and the list change. A line no
+    cause rule names prints ### NO CAUSE and holds the write."""
+    C = (_show(PP, 'HEAD', K.FACES_PAGE) or '').replace(chr(13), '').split(NL)
+    O = rd(PAGE_CTL).replace(chr(13), '').split(NL)
+    N = rd(PAGE_NEW).replace(chr(13), '').split(NL)
+    co = _ops(C, O)
+    o_new = set(l for op, i1, i2, j1, j2 in co for l in O[j1:j2])
+    gl = rdn('glossary.txt').split(NL)
+    rows = []
+    for op, i1, i2, j1, j2 in _ops(C, N):
+        for k, l in enumerate(N[j1:j2]):
+            if l in o_new and l.startswith("- **classK'**"):
+                gi = next((i + 1 for i, x in enumerate(gl) if x.startswith("classK'\t")), 0)
+                cause = ('THE GLOSSARY`S classK` ROW, appended at b703 on the author`s word (relay data/glossary.txt :%d), carried into the page`s '
+                         'glossary block by the generator (the list`s `# glossary` line) -- present in the control page too: the change '
+                         'test_chain_page.py (1), (14) and test_g_chain_page.py (1) read at step zero' % gi)
+            elif j1 + k + 1 == 3 and 'b704_nodes_zeta.txt' in l:
+                cause = 'THE LIST AND ITS PIN, (R314)(3): b702`s list -> b704`s (relay data/b704_nodes_zeta.txt, every row unchanged but its tag)'
+            elif any('`%s`' % c in l for c in CANDIDATES):
+                cause = 'A NODE ADDITION, (R314)(3) and the author`s word ("regenerate with both nodes"), its cells from probe run 39721668586'
+            else:
+                cause = '### NO CAUSE'
+            rows.append((op, j1 + k + 1, (C[i1 + k] if op == 'replace' and i1 + k < i2 else None), l, cause))
+        if op in ('replace', 'delete') and (i2 - i1) > (j2 - j1):
+            for k in range(j2 - j1, i2 - i1):
+                rows.append(('delete', None, C[i1 + k], None, '### NO CAUSE'))
+    hdr = [l for l in N[:6] if 'v0.37' in l]
+    L = ['%s -- COMPONENT 2, (R314)(3): THE FACES PAGE REGENERATED FROM THE PROBE AT v0.37, EVERY CHANGED LINE WITH ITS CAUSE (%s)' % (ACT, utc()), '',
+         '### the page: PLACE-papers %s at HEAD (%d lines) against the generator`s page from relay data/b704_nodes_zeta.txt and relay' % (K.FACES_PAGE, len(C)),
+         '### data/b704_probe_out_zeta.txt (run 39721668586; %d lines). The control: b702`s list from b643`s probe regenerated now (%d lines),' % (len(N), len(O)),
+         '### differing from the committed page in %d line(s) before any change of this act. No cell is written by hand. Rows are changed lines:' % sum(max(i2 - i1, j2 - j1) for _o, i1, i2, j1, j2 in co),
+         '### the kind | the new page`s line | the committed line it replaces | the new line | the cause.', '']
+    for op, ln, old, new, cause in rows:
+        L += ['  %s | :%s | %s' % (op, ln, cause)]
+        if old is not None:
+            L.append('      - %s' % old)
+        if new is not None:
+            L.append('      + %s' % new)
+    bycause = {}
+    for r in rows:
+        key = r[4].split(',')[0].split(' (')[0]
+        bycause[key] = bycause.get(key, 0) + 1
+    nc = sum(1 for r in rows if r[4].startswith('### NO CAUSE'))
+    L += ['', '### THE HEADER: %s' % ('the page`s head names v0.37 at :%d' % (N.index(hdr[0]) + 1) if hdr else '### THE HEAD DOES NOT NAME v0.37'),
+          '### THE CHANGED LINES BY CAUSE: %s' % '; '.join('%s %d' % kv for kv in sorted(bycause.items())),
+          '### ### **CHANGED LINES %d ; WITH A CAUSE %d ; WITHOUT %d ; NODES %d -> %d ; THE HEAD AT v0.37 %s.**' % (
+              len(rows), len(rows) - nc, nc, len([l for l in C if re.match(r'^\d+\. `', l)]), len([l for l in N if re.match(r'^\d+\. `', l)]), bool(hdr))]
+    if 'dry' not in a:
+        put_txt('%s_faces_diff.txt' % ACT, L)
+        put_json('%s_faces_diff.json' % ACT, dict(at=utc(), rows=[dict(kind=r[0], line=r[1], cause=r[4]) for r in rows], by_cause=bycause, no_cause=nc,
+                                                 head_v037=bool(hdr)))
+    print(NL.join(L[6:]))
+
+
+def runwait(*a):
+    """`runwait <kernel> <run id> [seconds]`: the run's status read every 30 s in the FOREGROUND until it completes or the seconds pass (at most
+    560, under the 590 s guard); each read printed. No wait is backgrounded."""
+    end = time.time() + min(int(a[2]) if len(a) > 2 else 540, 560)
+    while True:
+        rc, out, err = R._gh('run', 'view', a[1], '-R', 'psinary-sketch/' + a[0], '--json', 'status,conclusion,updatedAt')
+        j = json.loads(out or b'{}')
+        print('  %s  status %s ; conclusion %s ; updated %s' % (utc(), j.get('status'), j.get('conclusion') or '-', j.get('updatedAt')), flush=True)
+        if j.get('status') == 'completed' or time.time() + 30 > end:
+            return
+        time.sleep(30)
+
+
+SUMMARY = re.compile(r'^### ### \*\*(\S+): CLAIMS (\d+) ; SKIPPED LINES (\d+) ; MATCHES (\d+) ; UNDERSTATES (\d+) ; OVERREACHES (\d+) ; UNLICENSED (\d+)')
+
+
+def tie(*a):
+    """data/b704_tie.txt: (R314)(7), the licensed table's next document -- b652's order and b674's tie-break rule printed verbatim before the
+    document is named; the agenda's rows as b702's tie bank read them (data/b702_tie.txt, reading 4), b702's cut entered from its own bank
+    (data/b702_cut.json); the documents at the top count, each table's summary line verbatim, each document's sha256 at PLACE-papers HEAD
+    against its table's read; b674's rule step by step in its written order."""
+    import hashlib
+    f52 = rdn('b652_ferry.txt').split(NL)
+    r74 = rdn('b674_rules.txt').split(NL)
+    t02 = rdn('b702_tie.txt').split(NL)
+    cut = jl('b702_cut.json')
+    rows = []
+    for i, l in enumerate(t02, 1):
+        m = re.match(r'^\s+(\d+) \| (\w[\w ]*?)\s+\| (.*)$', l)
+        if m:
+            rows.append(dict(line=i, count=int(m.group(1)), kind=m.group(2).strip(), row=m.group(3)))
+    for r in rows:
+        if r['row'].startswith('day1/Seven_Mechanism_Classes.md') and cut.get('after') is not None:
+            r['count_b702'], r['count'] = r['count'], cut['after']
+    kern = [r for r in rows if r['kind'] == 'kernel']
+    comp = sorted([r for r in rows if r['kind'] == 'companion'], key=lambda r: -r['count'])
+    top = comp[0]['count'] if comp else None
+    at_top = [r for r in comp if r['count'] == top]
+    L = ['%s -- COMPONENT 4, (R314)(7): THE LICENSED TABLE`S NEXT DOCUMENT, b652`S ORDER AND b674`S TIE-BREAK RULE PRINTED BEFORE IT IS NAMED (%s)' % (ACT, utc()), '',
+         '### b652`S ORDER, VERBATIM FROM relay data/b652_ferry.txt :19:', '    ' + f52[18].strip(), '',
+         '### b674`S TIE-BREAK RULE, VERBATIM FROM relay data/b674_rules.txt :8-:11:'] + [r74[k] for k in range(7, 11)] + ['',
+         '### THE AGENDA`S ROWS, VERBATIM FROM b702`S TIE BANK (relay data/b702_tie.txt :14-:46, reading 4), b702`S CUT ENTERED FROM relay data/b702_cut.json',
+         '### (day1/Seven_Mechanism_Classes.md %s -> %s); rows are documents: the count now | the kind | the row (its line in b702`s bank):' % (cut.get('before'), cut.get('after'))]
+    L += ['  %4d | %-9s | %s (b702_tie :%d)%s' % (r['count'], r['kind'], r['row'], r['line'], ('   ### b702`s cut: %d -> %d' % (r['count_b702'], r['count'])) if 'count_b702' in r else '')
+          for r in rows]
+    L += ['', '### THE KERNELS BY DESCENDING COUNT: the top count %s ; kernels at 0 %d of %d -- the order passes to the companions ("then the companions")' % (
+        max([r['count'] for r in kern] or [0]), sum(1 for r in kern if r['count'] == 0), len(kern)),
+          '### THE COMPANIONS BY DESCENDING COUNT: %s' % '; '.join('%s %d' % (r['row'].split('   ')[0].split(' (v')[0] + (' (v' + r['row'].split(' (v')[1].split(')')[0] + ')' if ' (v' in r['row'] else ''), r['count']) for r in comp),
+          '### THE TOP COUNT %s ; the documents standing at it %d' % (top, len(at_top)), '### the tables of the documents at the top count, their summary lines verbatim, and the document at HEAD against the table`s read:']
+    tabs = []
+    for r in at_top:
+        tb = re.search(r'\[data/(b646_table_\w+\.txt)\]', r['row'])
+        tl = rdn(tb.group(1)).split(NL) if tb else []
+        sm = next((SUMMARY.match(x) for x in tl if SUMMARY.match(x)), None)
+        dm = re.search(r'PLACE-papers (\S+) at (\w+), (\d+) lines, sha256 ([0-9a-f]{64})', NL.join(tl[:4]))
+        doc = dm.group(1) if dm else '?'
+        head_sha = hashlib.sha256((_show(PP, 'HEAD', doc) or '').encode('utf-8')).hexdigest() if dm else ''
+        x = dict(row=r, bank=tb.group(1) if tb else None, summary=sm.group(0) if sm else '### NO SUMMARY LINE', doc=doc,
+                 claims=int(sm.group(2)) if sm else 0, und=int(sm.group(5)) if sm else 0, over=int(sm.group(6)) if sm else 0,
+                 unl=int(sm.group(7)) if sm else 0, read_sha=dm.group(4) if dm else '', head_sha=head_sha)
+        x['outside'] = x['over'] + x['unl'] + x['und']
+        tabs.append(x)
+        L += ['    relay data/%s : %s' % (x['bank'], x['summary']),
+              '      the document %s: sha256 at the table`s read %s ; at PLACE-papers HEAD %s ; %s' % (
+                  doc, x['read_sha'][:16], head_sha[:16], 'UNMOVED' if x['read_sha'] == head_sha else '### MOVED SINCE ITS READ')]
+    L += ['### b674`s rule, step by step in its written order:']
+    pick = None
+    if len(tabs) == 1:
+        pick = tabs[0]
+        L.append('    NOT REACHED: one document at the top count')
+    elif tabs:
+        ov = sorted(set(t['over'] for t in tabs))
+        L.append('    (i) the OVERREACHES counts: %s -- %s' % (', '.join('%s %d' % (t['doc'], t['over']) for t in tabs), 'EQUAL' if len(ov) == 1 else 'NOT EQUAL'))
+        if len(ov) > 1:
+            mx = max(t['over'] for t in tabs)
+            cand = [t for t in tabs if t['over'] == mx]
+            L.append('        the rule`s condition (equal OVERREACHES) not met: the greater OVERREACHES count %d stands first' % mx)
+        else:
+            cand = tabs
+        L.append('    (ii) a declared suite failure on either document: NONE (no arm of b703`s suite names either; data/b703_checks.txt)')
+        if len(cand) > 1:
+            mo = max(t['outside'] for t in cand)
+            L.append('    (iii) the rows outside LICENSED/CITED of any kind (OVERREACHES + UNLICENSED + UNDERSTATES): %s' % ', '.join(
+                '%s %d (%d + %d + %d)' % (t['doc'], t['outside'], t['over'], t['unl'], t['und']) for t in cand))
+            c2 = [t for t in cand if t['outside'] == mo]
+            if len(c2) > 1:
+                mc = max(t['claims'] for t in c2)
+                L.append('    (iv) the larger table (CLAIMS): %s' % ', '.join('%s %d' % (t['doc'], t['claims']) for t in c2))
+                c2 = [t for t in c2 if t['claims'] == mc]
+            cand = c2
+        pick = cand[0] if len(cand) == 1 else None
+        if pick is None:
+            L.append('    ### THE RULE ENDS IN A TIE -- RAISED, NOTHING NAMED')
+    nxt = [r for r in comp if r['count'] < (top or 0)][:2]
+    L += ['', '### ### **THE NEXT DOCUMENT BY b652`S ORDER AND b674`S TIE-BREAK: %s (A COMPANION ; THE TOP COUNT %s, %d DOCUMENTS AT IT ; %s ; THE NEXT BY COUNT %s).**' % (
+        pick['doc'] if pick else '### NONE NAMED', top, len(at_top), 'b674`S RULE APPLIED' if len(tabs) > 1 else 'NO TIE',
+        '; '.join('%s %d' % (r['row'].split('   ')[0].strip(), r['count']) for r in nxt))]
+    if 'dry' not in a:
+        put_txt('%s_tie.txt' % ACT, L)
+        put_json('%s_tie.json' % ACT, dict(at=utc(), top=top, at_top=[t['doc'] for t in tabs], pick=pick['doc'] if pick else None,
+                                          tables=[dict((k, v) for k, v in t.items() if k != 'row') for t in tabs]))
+    print(NL.join(L))
+
+
+ROUTES = dict(names=names, defshort=defshort, probeview=probeview, probediff=probediff, efcells=efcells, tie=tie, runwait=runwait, cands=cands, facesraw=facesraw, facesdiff=facesdiff, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch, runstatus=runstatus,
+              readsort=readsort, c1=c1, reads=reads, nodesdiff=nodesdiff, probe=probe)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
