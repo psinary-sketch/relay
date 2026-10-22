@@ -894,6 +894,137 @@ def orders(*a):
                 ('OPEN_TRAILS.md', K.ORDER_E0, '*Appended 2026-10-22 by b703, under the author’s word at the classK’ prompt')], dry=dry)
 
 
+# ================================================================================ COMPONENT 4: THE RE-CUT OF day1/ONE_PAGE_PROOF.md ((R314)(7))
+CUT_DOC = 'day1/ONE_PAGE_PROOF.md'
+CUT_TABLE = 'b646_table_ONE_PAGE_PROOF.txt'
+# ### the lines the cut changes, each with one case-exact needle and one wider case-insensitive needle (the two shapes of b702's search)
+QUOTE_LINES = [
+    (13, '**Theorem.** All nontrivial zeros of the Riemann zeta function', 'all nontrivial zeros of the riemann zeta function lie on re(s) = 1/2.'),
+    (27, 'Four certifications, each from classical mathematics', 'four certifications, each from classical'),
+    (34, 'Tate 1950, Lean-verified', 'conservation of spectra | tate 1950, lean-verified'),
+    (38, 'If an off-line zero existed, some mechanism would produce it.', 'with everything surrounding it machine-checked'),
+    (40, 'Therefore all nontrivial zeros of ζ(s) lie on Re(s) = 1/2.', 'therefore all nontrivial zeros of ζ(s)'),
+    (44, 'decompose into combinations of C₁–C₇ with no eighth class', 'c₁–c₇ with no eighth class'),   # ### tightened once: "with no eighth class" also read PATHS :164/:166's "with no eighth class compensating", another sentence
+    (48, 'The three routes to σ = 1/2 compile independently in the Lean 4 kernel', 'two commands settle it'),
+    (70, 'step (8) states the one named premise (§27.3 five registers)', 'states the one named premise (§27.3 five registers)'),
+    (86, 'the corpus names it openly at every site that depends on it', 'names it openly at every site that depends on it'),
+    (98, 'NO terminal — `h2`, undischarged, manuscript-resident.', 'no terminal — `h2`, undischarged, manuscript-resident'),
+]
+CUT_HELD = (90, 91, 92)   # ### the Correspondence table's cells (:88-:92): N3, no cell by hand, the paper off the roster
+
+
+def quote(*a):
+    """data/b704_quote.txt (.json): data/b690_rules.txt row (2) at a paper cut, BEFORE the cut's commit -- each line the cut changes read at
+    PLACE-papers HEAD, its two needles checked to stand in it, each searched with git grep -n -F across PLACE-papers' tracked tree at HEAD (the
+    exact shape and the case-insensitive shape); every hit outside the cut lines themselves a quoting line, entered as a residue in the cut bank.
+    The b670 form a paper cut takes (a `document`, no kernel, no merge), as b703's repaired arm reads it."""
+    doc = (_show(PP, 'HEAD', CUT_DOC) or '').replace(chr(13), '').split(NL)
+    rows, bad = [], []
+    for ln, nd, wd in QUOTE_LINES:
+        line = doc[ln - 1]
+        if nd not in line or wd.lower() not in line.lower():
+            bad.append((ln, nd in line, wd.lower() in line.lower()))
+        h1 = [x for x in g(PP, 'grep', '-n', '-F', nd, 'HEAD', '--').split(NL) if x.strip()]
+        h2 = [x for x in g(PP, 'grep', '-n', '-i', '-F', wd, 'HEAD', '--').split(NL) if x.strip()]
+        own = lambda h: h.split(':', 2)[1] == CUT_DOC and int(h.split(':', 3)[2]) in [q[0] for q in QUOTE_LINES]   # noqa: E731
+        rows.append(dict(line_no=ln, line=line, needle=nd, wide=wd, hits=[h for h in h1 if not own(h)], hits_wide=[h for h in h2 if not own(h)],
+                         own=[h for h in h2 if own(h)]))
+    if bad:
+        sys.exit('### A NEEDLE DOES NOT STAND IN ITS OWN LINE %s -- NOTHING WRITTEN' % bad)
+    quoting = sorted(set((h.split(':', 3)[1], int(h.split(':', 3)[2])) for r in rows for h in r['hits'] + r['hits_wide']))
+    L = ['%s -- COMPONENT 4, (R314)(7): THE QUOTATION SEARCH BEFORE THE CUT`S COMMIT, data/b690_rules.txt row (2), OVER %s (%s)' % (ACT, CUT_DOC, utc()), '',
+         '### the lines the cut changes, read at PLACE-papers HEAD %s; each with a case-exact needle and a case-insensitive needle, both checked to' % g(PP, 'rev-parse', '--short=7', 'HEAD').strip(),
+         '### stand in the line; each searched with git grep -n -F across the tracked tree at HEAD. The cut lines themselves are not counted (their own',
+         '### hits printed). Rows are lines: :line | needle | hits | case-insensitive needle | hits, then every hit with its quoting line.', '']
+    for r in rows:
+        L.append('  :%-3d | %-62r %d hit(s) | %-50r %d hit(s) | own %d' % (r['line_no'], r['needle'], len(r['hits']), r['wide'], len(r['hits_wide']), len(r['own'])))
+        L += ['      %s' % h[:220] for h in sorted(set(r['hits'] + r['hits_wide']))]
+    L += ['', '### THE QUOTING LINES, DISTINCT (file :line), EACH A RESIDUE: %s' % ('; '.join('%s :%d' % q for q in quoting) or 'NONE'),
+          '### ### **LINES CHANGED BY THE CUT %d ; NEEDLES %d IN TWO SHAPES ; QUOTING LINES %d -- EACH ENTERED AS A RESIDUE ; SEARCHED BEFORE THE CUT`S COMMIT.**' % (
+              len(rows), 2 * len(rows), len(quoting))]
+    if 'dry' not in a:
+        put_txt('%s_quote.txt' % ACT, L)
+        put_json('%s_quote.json' % ACT, dict(at=utc(), document=CUT_DOC, base=g(PP, 'rev-parse', 'HEAD').strip(), rows=rows, quoting=[list(q) for q in quoting]))
+    print(NL.join(L[6:]) if 'dry' in a else NL.join([x for x in L if x.startswith('  :')] + L[-2:]))
+
+
+TROW = re.compile(r'^  :(\d+) \| [^|]+\| [^|]+\| [^|]+\| [^|]+\| (MATCHES|OVERREACHES|UNLICENSED|UNDERSTATES) ; "(.*)" ; (.*)$')
+
+
+def cutbank(*a):
+    """data/b704_cut.txt (.json): (R314)(7), the re-cut of day1/ONE_PAGE_PROOF.md by the b670 method -- each non-MATCHES row of its table
+    (relay data/b646_table_ONE_PAGE_PROOF.txt) with its STATED text searched whitespace-normalized in the document at the base and now, the
+    row met where it no longer stands; the Correspondence cells held under N3; the residues from the quotation search (data/b704_quote.json).
+    `cutbank [<cut commit>]`: with the cut's PLACE-papers commit named, the bank's base is that commit's parent (`<sha>^`) and "now" its tree."""
+    commit = a[0] if a and re.match(r'^[0-9a-f]{7,40}$', a[0]) else None
+    base_ref = (commit + '^') if commit else 'HEAD'
+    norm = lambda s: ' '.join((s or '').split())   # noqa: E731
+    base = norm(_show(PP, base_ref, CUT_DOC))
+    now = norm(_show(PP, commit, CUT_DOC) if commit else rd(os.path.join(PP, CUT_DOC)))
+    rows = []
+    for l in rdn(CUT_TABLE).split(NL):
+        m = TROW.match(l)
+        if not m or m.group(2) == 'MATCHES':
+            continue
+        ln, v, st, act = int(m.group(1)), m.group(2), m.group(3), m.group(4)
+        held = ln in CUT_HELD
+        rows.append(dict(line=ln, verdict=v, stated=st, action=act.split(' -- ')[0][:60], held=held, base=norm(st) in base, now=norm(st) in now))
+    mt = [(int(m.group(1)), m.group(3)) for m in (TROW.match(l) for l in rdn(CUT_TABLE).split(NL)) if m and m.group(2) == 'MATCHES']
+    mt_lost = [(ln, st) for ln, st in mt if norm(st) in base and norm(st) not in now]
+    q = jl('b704_quote.json')
+    res = [list(x) for x in (q.get('quoting') or [])]
+    dist = [r for r in rows if r['verdict'] in ('OVERREACHES', 'UNLICENSED')]
+    und = [r for r in rows if r['verdict'] == 'UNDERSTATES']
+    before = sum(1 for r in dist if r['base'])
+    after = sum(1 for r in dist if r['now'])
+    L = ['%s -- COMPONENT 4, (R314)(7): THE RE-CUT OF %s, ITS DISTANCE, ITS RESIDUES (%s)' % (ACT, CUT_DOC, utc()), '',
+         '### the document: %s (v1.0.1), named by b652`s order passing to the companions and the author`s word on the tie (relay data/b704_tie.txt), b674`s' % CUT_DOC,
+         '### measures read in their written order. Its table: relay data/%s, pinned at 96779e5, 100 lines, sha256 29f18b706bda30bb = the base`s. The' % CUT_TABLE,
+         '### cut: each non-MATCHES row`s ACTION applied by the Edit tool on the rows alone, the paper`s title, opening label lines and file name untouched',
+         '### (W-ORD-KEYSTONE-HEADS held); the Correspondence cells :90-:92 held under N3 (the paper off the roster, no generator writes them).',
+         '### the base %s ; now %s.' % (base_ref, commit or 'the working tree'), '',
+         '### THE DISTANCE BY THE b670 METHOD: each non-MATCHES row`s STATED text searched whitespace-normalized in the document at the base and now,',
+         '### the row met where it no longer stands. Rows: base line | verdict | applied or HELD | stands at the base | stands now | the STATED text:']
+    for r in rows:
+        L.append('  :%-3d | %-11s | %-7s | base %-5s | now %-5s | %s' % (r['line'], r['verdict'], 'HELD' if r['held'] else 'applied', r['base'], r['now'], r['stated'][:110]))
+        if r['held']:
+            L.append('        HELD: a cell of the paper`s Correspondence table (base :88-:92); N3: no Correspondence cell by hand, and the paper is off the 19-table roster')
+    unmet = [r for r in rows if not r['held'] and r['now']]
+    L += ['', '### THE RESIDUES (data/b690_rules.txt row (2); relay data/b704_quote.txt, two shapes, the search run before the cut`s commit): each quoting',
+          '### line, file :line -- the monograph`s copies of this page (day1/A_Place_to_Stand.md and its versioned copies), the deposited and archived',
+          '### copies, and four other documents quoting it (ERRATA :417, THE_LOAD_BEARING_MAP :373, THE_RIEMANN_PATHS_CLUSTER_SPINE :61,',
+          '### THE_TWO_RADIUS_FAMILY_AND_THE_ANNIHILATION_BOUNDARY :13), each carried by its own table or frozen as deposited; none written:']
+    L += ['  %s :%d' % (f, n_) for f, n_ in res]
+    L += ['', '### THE ROWS APPLIED THAT STILL STAND: %s' % (['%d %s' % (r['line'], r['stated'][:60]) for r in unmet] or 'NONE'),
+          '### UNDERSTATES (not in the distance): %d at the base, %d now (the held cells :92 standing)' % (sum(1 for r in und if r['base']), sum(1 for r in und if r['now'])),
+          '### THE CONTROL, THE MATCHES ROWS: %d at the base ; standing now %d ; no longer standing %s' % (
+              sum(1 for _l, st in mt if norm(st) in base), sum(1 for _l, st in mt if norm(st) in now), ['%d %s' % (ln, st[:60]) for ln, st in mt_lost] or 'NONE'),
+          '### ### **THE DISTANCE BY THE b670 METHOD: BEFORE %d, AFTER %d ; ROWS APPLIED %d ; HELD %d (CORRESPONDENCE CELLS) ; QUOTING LINES %d ENTERED AS RESIDUES.**' % (
+              before, after, sum(1 for r in rows if not r['held']), sum(1 for r in rows if r['held']), len(res))]
+    if 'dry' not in a:
+        put_txt('%s_cut.txt' % ACT, L)
+        put_json('%s_cut.json' % ACT, dict(at=utc(), document=CUT_DOC, base=base_ref if commit else '', before=before, after=after,
+                                          held=[r['line'] for r in rows if r['held']], residues=res,
+                                          rows=[dict((k, v) for k, v in r.items()) for r in rows]))
+    print(NL.join(L[-4:]))
+
+
+def quotecheck(*a):
+    """a print only: G-RULE-RECUT-QUOTE's reading (tools/rule_arms.py, unedited) over the quote banks, restricted to this act's -- the search
+    before the cut's own PLACE-papers commit, every quoting line entered in the cut bank's residues."""
+    import rule_arms as RA
+    S = RA.sources(ACT, None, K.ANCHOR, K.PARTS, pre_relay=None, pre_pp=None)
+    mine = [q for q in S['quotes'] if q['act'] == int(ACT[1:])]
+    S2 = dict(S)
+    S2['quotes'] = mine
+    S2['cut_banks'] = dict((k, v) for k, v in S['cut_banks'].items() if k == int(ACT[1:]))
+    for q in mine:
+        print('  %s kind %s ; merge %s ; search at %s ; before the merge %s ; needled %s ; quoting %d ; unentered %d' % (
+            q['bank'], q.get('kind', 'kernel'), (q['merge'] or ['-'])[0][:7], q['at'], bool(q['merge'] and q['at'] and q['at'] < q['merge'][1]),
+            q['needled'], len(q['quoting']), len(q['unentered'])))
+    print('  the arm over b704`s banks: %s ; over every bank: %s' % (RA.reading('G-RULE-RECUT-QUOTE', S2), RA.reading('G-RULE-RECUT-QUOTE', S)))
+
+
 def runwait(*a):
     """`runwait <kernel> <run id> [seconds]`: the run's status read every 30 s in the FOREGROUND until it completes or the seconds pass (at most
     560, under the 590 s guard); each read printed. No wait is backgrounded."""
@@ -966,14 +1097,21 @@ def tie(*a):
         L.append('    NOT REACHED: one document at the top count')
     elif tabs:
         ov = sorted(set(t['over'] for t in tabs))
-        L.append('    (i) the OVERREACHES counts: %s -- %s' % (', '.join('%s %d' % (t['doc'], t['over']) for t in tabs), 'EQUAL' if len(ov) == 1 else 'NOT EQUAL'))
+        L.append('    (i) the rule`s condition, equal OVERREACHES counts: %s -- %s' % (', '.join('%s %d' % (t['doc'], t['over']) for t in tabs), 'MET' if len(ov) == 1 else 'NOT MET'))
         if len(ov) > 1:
-            mx = max(t['over'] for t in tabs)
-            cand = [t for t in tabs if t['over'] == mx]
-            L.append('        the rule`s condition (equal OVERREACHES) not met: the greater OVERREACHES count %d stands first' % mx)
+            L += ['        the tie stands at the agenda`s count (OVERREACHES + UNLICENSED: %s), a tie neither b674`s rule nor b666`s beneath it' % (
+                      ', '.join('%s %d + %d' % (t['doc'], t['over'], t['unl']) for t in tabs)),
+                  '        (OPEN_TRAILS :14238, kernels at the same OVERREACHES count) names; the rule`s measures printed beside the gap, none applied:',
+                  '        OVERREACHES %s ; rows outside LICENSED/CITED of any kind %s ; the table`s CLAIMS %s' % (
+                      ', '.join('%s %d' % (t['doc'], t['over']) for t in tabs), ', '.join('%s %d' % (t['doc'], t['outside']) for t in tabs),
+                      ', '.join('%s %d' % (t['doc'], t['claims']) for t in tabs)),
+                  '    ### THE RULES DO NOT REACH THIS TIE -- RAISED, NOTHING NAMED']
+            tabs_raised = True
+            cand = []
         else:
             cand = tabs
-        L.append('    (ii) a declared suite failure on either document: NONE (no arm of b703`s suite names either; data/b703_checks.txt)')
+        if cand:
+            L.append('    (ii) a declared suite failure on either document: NONE (no arm of b703`s suite names either; data/b703_checks.txt)')
         if len(cand) > 1:
             mo = max(t['outside'] for t in cand)
             L.append('    (iii) the rows outside LICENSED/CITED of any kind (OVERREACHES + UNLICENSED + UNDERSTATES): %s' % ', '.join(
@@ -985,11 +1123,17 @@ def tie(*a):
                 c2 = [t for t in c2 if t['claims'] == mc]
             cand = c2
         pick = cand[0] if len(cand) == 1 else None
-        if pick is None:
+        if pick is None and cand:
             L.append('    ### THE RULE ENDS IN A TIE -- RAISED, NOTHING NAMED')
+    word = jl('%s_tie_word.json' % ACT).get('pick') if os.path.exists(os.path.join(D, '%s_tie_word.json' % ACT)) else None
+    if pick is None and word:
+        pick = next((t for t in tabs if t['doc'] == word), None)
+        L.append('    THE AUTHOR`S WORD (relay data/b704_tie_word.json): %s' % word)
     nxt = [r for r in comp if r['count'] < (top or 0)][:2]
     L += ['', '### ### **THE NEXT DOCUMENT BY b652`S ORDER AND b674`S TIE-BREAK: %s (A COMPANION ; THE TOP COUNT %s, %d DOCUMENTS AT IT ; %s ; THE NEXT BY COUNT %s).**' % (
-        pick['doc'] if pick else '### NONE NAMED', top, len(at_top), 'b674`S RULE APPLIED' if len(tabs) > 1 else 'NO TIE',
+        pick['doc'] if pick else '### NONE NAMED', top, len(at_top),
+        ('THE AUTHOR`S WORD: b674`S MEASURES READ IN THEIR WRITTEN ORDER, THE FIRST THAT SEPARATES DECIDING (OVERREACHES)' if word else
+         '### THE RULES DO NOT REACH THE TIE') if len(tabs) > 1 else 'NO TIE',
         '; '.join('%s %d' % (r['row'].split('   ')[0].strip(), r['count']) for r in nxt))]
     if 'dry' not in a:
         put_txt('%s_tie.txt' % ACT, L)
@@ -998,7 +1142,7 @@ def tie(*a):
     print(NL.join(L))
 
 
-ROUTES = dict(names=names, defshort=defshort, probeview=probeview, probediff=probediff, efcells=efcells, tie=tie, runwait=runwait, cands=cands, facesraw=facesraw, facesdiff=facesdiff, cellsreach=cellsreach, readmediff=readmediff, glosscheck=glosscheck, orders=orders, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch, runstatus=runstatus,
+ROUTES = dict(names=names, defshort=defshort, probeview=probeview, probediff=probediff, efcells=efcells, tie=tie, runwait=runwait, cands=cands, facesraw=facesraw, facesdiff=facesdiff, cellsreach=cellsreach, readmediff=readmediff, glosscheck=glosscheck, orders=orders, quote=quote, cutbank=cutbank, quotecheck=quotecheck, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch, runstatus=runstatus,
               readsort=readsort, c1=c1, reads=reads, nodesdiff=nodesdiff, probe=probe)
 
 if __name__ == '__main__':
