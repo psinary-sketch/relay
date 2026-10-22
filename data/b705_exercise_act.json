@@ -1,15 +1,15 @@
 {
  "exercise": {
   "G-DRY-STEP-CLEAN": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record: the dry-run step CLEAN, the trail`s Defects and Resolved lines equal to the bank, the gate CLEAR",
    "secs": 0.0
   },
   "G-CLOSING-DRY-STEP": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record: the closing tool run dry before the lock, its sections read (the sort, the join, the contour, the detection law, the window, the ranking, the lexicon)",
    "secs": 0.0
@@ -19,14 +19,14 @@
    "neg": true,
    "pos": false,
    "reads": "the citation bank: every cite checked at step zero, the two misses the navigator`s as lettered, the bank before the step-zero commit and that before Component 1`s",
-   "secs": 0.001
+   "secs": 0.0
   },
   "G-R315-ENTERED": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the trail record`s ratification line",
-   "secs": 0.0036
+   "secs": 0.0
   },
   "G-ROWGEN-STEPZERO": {
    "live": true,
@@ -47,42 +47,42 @@
    "neg": true,
    "pos": false,
    "reads": "the command bank: every branch delete one branch, no glob, no variable, nothing chained after",
-   "secs": 0.0095
+   "secs": 0.0196
   },
   "G-ANSWERS-CHECKED": {
-   "live": true,
-   "neg": true,
+   "live": false,
+   "neg": false,
    "pos": false,
    "reads": "the citation bank`s mid-act prints: every answer checked before it was acted on, the root prompt`s checks after the lock each with its time (repaired under (R315)(2)(c))",
-   "secs": 0.001
+   "secs": 0.0
   },
   "G-ANSWERS-BEFORE-WRITES": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "the citation bank`s check stamps against the commits that acted on each answer: the misses` before Component 2`s, the tag-prints order`s before Component 1`s, the E0 prompt`s before Component 4`s",
-   "secs": 0.001
+   "secs": 0.0
   },
   "G-SCORER-READS-BANKS": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "the record tool`s scorers: banks alone, no ledger line (data/b686_rules.txt row (1))",
-   "secs": 0.0036
+   "secs": 0.0
   },
   "G-ENTRY-SCORES-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the landed entry`s scores line against the scores bank",
-   "secs": 0.015
+   "secs": 0.0141
   },
   "G-ENTRY-TITLE-FORM": {
    "live": false,
    "neg": false,
    "pos": false,
    "reads": "the landed entry`s title: by its objects (the join, the contour, the detection law, the window, the ranking)",
-   "secs": 0.01
+   "secs": 0.0241
   },
   "G-CORRIGENDUM-ENTERED": {
    "live": true,
@@ -96,32 +96,32 @@
    "neg": true,
    "pos": false,
    "reads": "the suite`s writer block guarded by `if PRERUN:` and its dry run banked",
-   "secs": 0.0013
+   "secs": 0.001
   },
   "G-POSTROOT-WRITES-NONE": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the per-part seconds banks` commit times against the root`s",
    "secs": 0.0
   },
   "G-TRAIL-LINES-EQUAL-DEFECTS": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the landed trail`s Defects and Resolved lines against the defects bank`s owners",
-   "secs": 0.0032
+   "secs": 0.0042
   },
   "G-TRAIL-DEFECTS-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record and the landed trail`s Defects line against the repaired reader`s rows",
    "secs": 0.001
   },
   "G-TRAIL-RESOLVED-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record and the landed trail`s Resolved line against the bank`s owners",
    "secs": 0.001
@@ -145,7 +145,7 @@
    "neg": true,
    "pos": false,
    "reads": "the carry-time repairs bank (5), their controls (7 cases as wanted, each repaired predicate distinguished) and the README figure`s controls",
-   "secs": 0.001
+   "secs": 0.0021
   },
   "G-FIGURES-BANKED": {
    "live": true,
@@ -159,14 +159,14 @@
    "neg": true,
    "pos": false,
    "reads": "the closure reader`s diff banked; the readfirst bank unchanged since the step-zero commit",
-   "secs": 0.001
+   "secs": 0.0
   },
   "G-ORDER-ENTERED": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "W-ORD-ENTRY-TAG-PRINTS at OPEN_TRAILS at the landing bank`s line, found by conv",
-   "secs": 0.0167
+   "secs": 0.0138
   },
   "G-CONTOUR-BEFORE-FIGURES": {
    "live": true,
@@ -229,7 +229,7 @@
    "neg": true,
    "pos": false,
    "reads": "N4: C1 reproducing b675`s n* at rho_0 and C2 zeta nonnegative, stamped before the pairs` bank",
-   "secs": 0.0046
+   "secs": 0.0
   },
   "G-DETECTION-BANKED": {
    "live": true,
@@ -283,15 +283,8 @@
  },
  "run": 40,
  "live_failing": [
-  "G-DRY-STEP-CLEAN",
-  "G-CLOSING-DRY-STEP",
-  "G-R315-ENTERED",
-  "G-ENTRY-SCORES-EQUAL",
-  "G-ENTRY-TITLE-FORM",
-  "G-POSTROOT-WRITES-NONE",
-  "G-TRAIL-LINES-EQUAL-DEFECTS",
-  "G-TRAIL-DEFECTS-EQUAL",
-  "G-TRAIL-RESOLVED-EQUAL"
+  "G-ANSWERS-CHECKED",
+  "G-ENTRY-TITLE-FORM"
  ],
  "defective": [],
  "neg_failures": 0,

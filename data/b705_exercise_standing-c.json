@@ -15,18 +15,18 @@
    "secs": 0.0
   },
   "G-WRITELIST-KINDS": {
-   "live": true,
-   "neg": true,
+   "live": false,
+   "neg": false,
    "pos": false,
    "reads": "every tracked file written since f5a35af1 and d668413 against the (W) globs",
-   "secs": 0.0056
+   "secs": 0.0159
   },
   "G-CORRESPONDENCE-CURRENCY": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "every roster paper`s Correspondence rows by tools/b703_standing_figures.py (through b705`s) against the kernel`s current tag and the statement at the cited tag: the changed-statement rows no more than b704`s figure",
-   "secs": 0.001
+   "secs": 0.0
   },
   "G-README-CURRENCY": {
    "live": true,
@@ -59,6 +59,7 @@
  },
  "run": 8,
  "live_failing": [
+  "G-WRITELIST-KINDS",
   "G-READ-RULE-STANDING"
  ],
  "defective": [],
