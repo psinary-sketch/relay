@@ -1,0 +1,54 @@
+b705 -- STEP ZERO, (R315)(6), W-ORD-P3-CONTOUR-SIGMA (PLACE-papers OPEN_TRAILS :15504): THE COUNT'S CONTOUR READ BEFORE ANY Q0 FIGURE IS RESTATED (2026-10-22)
+
+### rows are the two σ ranges the order names, each read by path and line through the Read tool this act, then the zeros of Λ_Q by path and
+### line, then the reading. Nothing is recomputed here and no figure is restated: a reading of banks, written by the Write tool before any
+### computation of this act and committed before any Q0 figure is printed (N3).
+
+== (1) THE CONTOUR WHOSE ARGUMENT PRINCIPLE GIVES P3 (the b685-b687 derivation)
+  THE OBJECT COUNTED: N_Q(T), the zeros ρ of Z_Q with −1/2 < Re ρ < 3/2 and 0 < Im ρ ≤ T, the zeros of Λ_Q(s) = (2π/√23)^{−s} Γ(s) Z_Q(s)
+      (relay data/b685_count_plan.txt :9-:10; data/b667_epstein_plan.txt :10).
+  THE PATH: the half path P: ½ + i/2 → σ₁ + i/2 → σ₁ + iT → ½ + iT with σ₁ ≥ 3/2, N_Q(T) = (1/π) Δ_P arg Λ_Q (data/b685_count_plan.txt :16-:20),
+      the same device as b667's region count (data/b667_epstein_counts.txt :49, "THE REGION [-0.5, 1.5] × [0.5, 150] BY THE HALF PATH ½ + i0.5
+      -> 1.5 + i0.5 -> 1.5 + i150 -> ½ + i150", N(R) = 180 at :52). The half path's right edge stands at σ₁ = c + (c − ½)²/r = 2.40243902439
+      at the chosen parameters c = 1.7, r = 2.05 (data/b685_count.txt :8). The left half of the strip is read through the reflection
+      Λ_Q(1 − conj s) = conj Λ_Q(s) (data/b667_epstein_plan.txt :12; data/b685_count_plan.txt :19): the half path's count is the count of the
+      whole rectangle 1 − σ₁ < Re ρ < σ₁, i.e. (−1.4024, 2.4024), which contains (−1/2, 3/2).
+  THE RIGHT EDGE'S WARRANT, V2: for σ ≥ 3/2, |Z_Q(s) − 2| ≤ Z_Q(σ) − 2 ≤ Z_Q(3/2) − 2 < 2, a bound in σ alone at every height (data/b685_count_plan.txt
+      :26-:28; data/b685_p3.txt :52; data/b667_epstein_counts.txt :50, "the right edge by (3c): tail [1.548413781 +/- 4.19e-10] < 2"), so Z_Q has
+      no zero with Re s ≥ 3/2 and Λ_Q none (Γ has no zero), at any height; the edge at σ₁ > 3/2 meets no zero and encloses every zero of
+      Λ_Q with ½ < Re ρ. The Jensen disc of the top edge, centre c = 1.7, radius r = 2.05, covers σ ∈ [c − r, c + r] = [−0.35, 3.75]
+      (data/b685_count_plan.txt :60; data/b687_jensen_q0.txt :7); the Phragmén-Lindelöf strip [p, 1 + η] = [−0.35, 1.2] (:63-:71; data/b685_count.txt
+      :8); the top edge read σ₁ → ½ at every sampled height, 114 of 114 inequalities holding (data/b687_steps.txt :25, :82, :101, :120, :122).
+  THE σ RANGE OF THE CONTOUR: (1 − σ₁, σ₁) = (−1.4024, 2.4024) by the half path and the reflection; the strip it counts, N_Q's, (−1/2, 3/2).
+
+== (2) THE σ RANGE THE b696 ZERO-TAIL BOUND ASSUMES (the tail-ball tool)
+  THE TOOL: relay tools/b696_witness_balls.py (the ferry's "tools/b696_tails.py"; a miss of the citation check, data/b705_citation_check.txt), its
+      zero tail zero_tail :124-:146: each zero above T0 enters as ρ = ½ + δ + iγ with |δ| ≤ Y, Y = 1 at Q0 (:130; the plan data/b696_tails_plan.txt
+      :50, "|delta| < 1 in N_Q's strip (:463)"), its term bounded by a majorant decreasing in γ (:135-:139); the zeros counted by N_Q's law
+      M'(u + 1) + 2R(u + 1) with b685's a and c as balls (count_unit :116-:121; A_P3, C_P3 :111-:112; the plan :42-:48, "N_Q counts zeros with
+      -1/2 < Re rho < 3/2, 0 < Im rho <= T, with multiplicity").
+  THE σ RANGE ASSUMED: |Re ρ − ½| ≤ 1, i.e. [−1/2, 3/2], the closure of N_Q's strip -- the zeros it counts and the zeros it bounds are the same
+      strip's. Where the bound enters: the identity's tolerance, not the sum's radius (data/b696_tails_plan.txt :12-:17).
+
+== (3) EVERY ZERO OF Λ_Q, BY PATH AND LINE
+  Λ_Q(s) = Λ_Q(1 − s) and Λ_Q(1 − conj s) = conj Λ_Q(s) (data/b667_epstein_plan.txt :10-:12). No zero with Re s ≥ 3/2 (V2, above); none with
+      Re s ≤ −1/2 by the functional equation (data/b685_p3.txt :53); the real points s = −1, −2, ... are Γ's poles against Z_Q's trivial zeros and
+      are not in the carrier (:40-:42). So every zero of Λ_Q lies in −1/2 < Re ρ < 3/2, at every height.
+  DAVENPORT-HEILBRONN'S ZEROS BEYOND Re s = 1: attested for the arithmetic form x² + xy + 6y² at PLACE-papers OPEN_TRAILS archive-2 :2089
+      ("off-line existence attested (Davenport–Heilbronn / Voronin / Bombieri–Hejhal)"); data/b685_p3.txt :34 and :70 ("Z_Q has zeros off the
+      line there (Davenport-Heilbronn; data/b675_hypotheses.txt :67)", with Re ρ > 1 above t = 150). By V2 those zeros have 1 < Re ρ < 3/2,
+      inside N_Q's strip; the closed strip 0 ≤ Re ρ ≤ 1 of Zeta23.ZeroConfig (data/b685_p3.txt :30, :33-:34) does not hold them, the strip-free
+      Wide.WideConfig's −1/2 < Re ρ < 3/2 (:35) does. Neither range read here is the closed strip: (1) is the rectangle (1 − σ₁, σ₁) counting N_Q's
+      strip; (2) is N_Q's strip, closed.
+
+== (4) THE READING
+  RANGE (1), the contour: (−1.4024, 2.4024) ⊃ (−1/2, 3/2) -- ENCLOSES EVERY ZERO OF Λ_Q, the Davenport-Heilbronn zeros with Re ρ > 1 among them.
+  RANGE (2), the tail bound: [−1/2, 3/2] ⊇ (−1/2, 3/2) -- ENCLOSES EVERY ZERO OF Λ_Q, the same.
+  THEREFORE the Q0 figures resting on them STAND: P3's constants a, c (data/b685_count.txt :21-:23) and the derived status (data/b687_p3_status.txt
+      :8); b675's n* = 63676 at ρ₀ under U_n on (−1/2, 3/2) (data/b675_li_bench.txt :4-:6); b694's and b696's witness tails (data/b696_witness_balls.txt).
+      No figure is entered as "stated on the closed strip"; W-ORD-Q0-TAILS-WIDE is NOT entered; no restatement is ordered. The detection law and the
+      window of (R315)(7) run with their tails as the registration states them (data/b703_registrations.txt :23-:24, :29-:30), each bank naming
+      the contour its tail assumes: P3's count law over N_Q's strip (−1/2, 3/2).
+
+### ### **THE CONTOUR (1 − σ₁, σ₁) = (−1.4024, 2.4024) AND THE TAIL BOUND'S [−1/2, 3/2] EACH ENCLOSE EVERY ZERO OF Λ_Q (V2 AT σ ≥ 3/2, THE
+### FUNCTIONAL EQUATION AT σ ≤ −1/2, DAVENPORT-HEILBRONN'S ZEROS IN (1, 3/2)) ; THE Q0 FIGURES STAND ; W-ORD-Q0-TAILS-WIDE NOT ENTERED ; NOTHING RECOMPUTED.**
