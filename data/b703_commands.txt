@@ -1,12 +1,12 @@
-b703 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T01:53:52Z)
+b703 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T02:25:01Z)
 
 ### the source: the seat`s session e5bcf1d0-1e8c-4ad1-a048-b35048cad0b6 from its first user line carrying 'RULING (R313) BEGIN', with its subagents` transcripts
-### commands read: 131
+### commands read: 164
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
 
-### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b702, session e5bcf1d0): 146 commands from 2026-10-21T22:59:43.711Z, its offences printed whole (0):
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b702, session e5bcf1d0): 179 commands from 2026-10-21T22:59:43.711Z, its offences printed whole (0):
   NONE
 
 ### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
@@ -197,5 +197,38 @@ b703 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #129 | 2026-10-22T01:52:04.642Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_closing.py dry
   #130 | 2026-10-22T01:52:46.877Z | seat | Bash | git grep -n -e "^SEALED" -e "^NEW_TOOLS" -e "^REPAIRED_TOOLS" HEAD -- tools/b702_worklist.py
   #131 | 2026-10-22T01:53:33.953Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py repairs && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py guard && PYTHONIOENCODING=utf-8
+  #132 | 2026-10-22T01:53:50.267Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py answers && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py commands && PYTHONIOENCODING=ut
+  #133 | 2026-10-22T01:54:20.405Z | seat | Bash | git log --reverse --format="%h %s" 8773acc9..HEAD && git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format="%h %s" 79266e3..HEAD
+  #134 | 2026-10-22T01:56:56.565Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --prerun --part act
+  #135 | 2026-10-22T01:58:31.049Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_checks.py --prerun --part standing-a
+  #136 | 2026-10-22T02:02:22.491Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --prerun --part standing-c
+  #137 | 2026-10-22T02:03:59.127Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --prerun --part standing-b1
+  #138 | 2026-10-22T02:06:10.090Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_checks.py --prerun --part standing-b2
+  #139 | 2026-10-22T02:13:56.832Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_checks.py --prerun --part standing-b3
+  #140 | 2026-10-22T02:16:45.265Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_checks.py --combine b703_arms_prerun.txt ; PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py armsecs
+  #141 | 2026-10-22T02:17:04.592Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --prerun --part act
+  #142 | 2026-10-22T02:18:29.145Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_checks.py --combine b703_arms_prerun.txt && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py armsecs
+  #143 | 2026-10-22T02:18:34.200Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py armsecs
+  #144 | 2026-10-22T02:18:46.809Z | seat | Bash | git status --porcelain --untracked-files=all -- "data/b703_*" "tools/b703_*"
+  #145 | 2026-10-22T02:18:58.928Z | seat | Bash | git add data/b703_defects.txt data/b703_tool_repairs.txt tools/b703_checks.py tools/b703_record.py tools/b703_worklist.py tools/b703_closing.py tools/b703_reg_g
+  #146 | 2026-10-22T02:19:09.123Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_reg_gate.py
+  #147 | 2026-10-22T02:19:46.047Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_reg_gate.py
+  #148 | 2026-10-22T02:20:43.079Z | seat | Bash | git ls-files -- "data/audit_b702_*" "data/b702_satisfiable.json" "data/b702_lockgate*"
+  #149 | 2026-10-22T02:20:58.663Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_regspec.py && PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_satisfiable.py data/b703_satisfiable.json --emit 
+  #150 | 2026-10-22T02:21:26.821Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_record.py gatebanks
+  #151 | 2026-10-22T02:21:34.617Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_record.py scores dry
+  #152 | 2026-10-22T02:21:56.686Z | seat | Bash | git status --porcelain --untracked-files=all -- "data/b703_*" "data/audit_b703_*" "tools/b703_*"
+  #153 | 2026-10-22T02:22:02.619Z | seat | Bash | git add data/b703_defects.txt data/b703_registration_2026-10-21.txt tools/b703_record.py data/audit_b703_reg_satisfiable.txt data/b703_census_stepzero.txt data/
+  #154 | 2026-10-22T02:22:11.279Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_reg_gate.py
+  #155 | 2026-10-22T02:22:38.830Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_record.py gatebanks
+  #156 | 2026-10-22T02:22:51.012Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b378_lockgate.py b703 data/b703_registration_2026-10-21.txt
+  #157 | 2026-10-22T02:22:56.353Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_seal.py --lock data/b703_registration_2026-10-21.txt
+  #158 | 2026-10-22T02:23:00.126Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_checks.py --seal
+  #159 | 2026-10-22T02:23:05.330Z | seat | Bash | git status --porcelain --untracked-files=all -- "data/b703_*" "data/audit_b703_*" "tools/b703_*"
+  #160 | 2026-10-22T02:23:09.934Z | seat | Bash | git add data/audit_b703_reg_satisfiable.txt data/b703_pins_stepzero.txt data/b703_reg_gate.txt data/b703_reg_termscan.txt data/b703_registration_2026-10-21.txt 
+  #161 | 2026-10-22T02:23:49.908Z | seat | Bash | git ls-files -- "data/b702_*push_out*"
+  #162 | 2026-10-22T02:24:16.211Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_record.py scores
+  #163 | 2026-10-22T02:24:29.768Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py desk && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py findings
+  #164 | 2026-10-22T02:24:34.122Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_record.py table_final
 
-### ### **COMMANDS 131 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 146 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 10 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 164 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 179 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 10 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

@@ -1,5 +1,5 @@
 {
- "at": "2026-10-22T01:53:52Z",
+ "at": "2026-10-22T02:25:01Z",
  "anchor": "RULING (R313) BEGIN",
  "rows": [
   {
@@ -1049,13 +1049,277 @@
    "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py repairs && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py guard && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py kernels",
    "n": 131,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T01:53:50.267Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py answers && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py commands && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py reads",
+   "n": 132,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T01:54:20.405Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format=\"%h %s\" 8773acc9..HEAD && git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format=\"%h %s\" 79266e3..HEAD",
+   "n": 133,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T01:56:56.565Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --prerun --part act",
+   "n": 134,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T01:58:31.049Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_checks.py --prerun --part standing-a",
+   "n": 135,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:02:22.491Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --prerun --part standing-c",
+   "n": 136,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:03:59.127Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --prerun --part standing-b1",
+   "n": 137,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:06:10.090Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_checks.py --prerun --part standing-b2",
+   "n": 138,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:13:56.832Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_checks.py --prerun --part standing-b3",
+   "n": 139,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:16:45.265Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_checks.py --combine b703_arms_prerun.txt ; PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py armsecs",
+   "n": 140,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:17:04.592Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --prerun --part act",
+   "n": 141,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:18:29.145Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_checks.py --combine b703_arms_prerun.txt && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py armsecs",
+   "n": 142,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:18:34.200Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py armsecs",
+   "n": 143,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:18:46.809Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all -- \"data/b703_*\" \"tools/b703_*\"",
+   "n": 144,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:18:58.928Z",
+   "src": "seat",
+   "cmd": "git add data/b703_defects.txt data/b703_tool_repairs.txt tools/b703_checks.py tools/b703_record.py tools/b703_worklist.py tools/b703_closing.py tools/b703_reg_gate.py data/b703_arm_seconds.json data/b703_arm_seconds.txt data/b703_arm_seconds_act.json data/b703_arm_seconds_standing-a.json data/b703_arm_seconds_standing-b1.json data/b703_arm_seconds_standing-b2.json data/b703_arm_seconds_standing-b3.json data/b703_arm_seconds_standing-c.json data/b703_arms_prerun.txt data/b703_arms_prerun_act.txt data/b703_arms_prerun_standing-a.txt data/b703_arms_prerun_standing-b1.txt data/b703_arms_prerun_standing-b2.txt data/b703_arms_prerun_standing-b3.txt data/b703_arms_prerun_standing-c.txt data/b703_author_answers.json data/b703_author_answers.txt data/b703_chain_half_a_arms_prerun.json data/b703_chain_half_b_arms_prerun.json data/b703_commands.json data/b703_commands.txt data/b703_exercise_act.json data/b703_exercise_standing-a.json data/b703_exercise_standing-b1.json data/b703_exercise_standing-b2.json data/b703_exercise_standing-b3.json data/b703_exercise_standing-c.json data/b703_guard_dry.json data/b703_guard_dry.txt data/b703_kernels_face.json data/b703_lsr_mid_c4_standing-c.json data/b703_lsr_prerun_act.json data/b703_lsr_prerun_standing-a.json data/b703_lsr_prerun_standing-b1.json data/b703_lsr_prerun_standing-b2.json data/b703_lsr_prerun_standing-b3.json data/b703_lsr_prerun_standing-c.json data/b703_read_calls.txt data/b703_registration_2026-10-21.txt && git commit -q -m \"b703 Component 5: the closing and gate tools carried, the repairs bank (1)-(5), the guard's dry run, the kernels face, the answers, the command and read banks, the defects (j)-(k), the face, the pre-run's six parts (138 arms, 106 passing, none failing on real state) and the per-part seconds\" && git log -1 --format=\"%h %s\"",
+   "n": 145,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:19:09.123Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_reg_gate.py",
+   "n": 146,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:19:46.047Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_reg_gate.py",
+   "n": 147,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:20:43.079Z",
+   "src": "seat",
+   "cmd": "git ls-files -- \"data/audit_b702_*\" \"data/b702_satisfiable.json\" \"data/b702_lockgate*\"",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:20:58.663Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_regspec.py && PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_satisfiable.py data/b703_satisfiable.json --emit b703",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:21:26.821Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_record.py gatebanks",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:21:34.617Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_record.py scores dry",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:21:56.686Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all -- \"data/b703_*\" \"data/audit_b703_*\" \"tools/b703_*\"",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:22:02.619Z",
+   "src": "seat",
+   "cmd": "git add data/b703_defects.txt data/b703_registration_2026-10-21.txt tools/b703_record.py data/audit_b703_reg_satisfiable.txt data/b703_census_stepzero.txt data/b703_faces_census_stepzero.txt data/b703_pins_stepzero.txt data/b703_reg_gate.txt data/b703_reg_termscan.txt data/b703_regspec_run.txt data/b703_satisfiable.json && git commit -q -m \"b703 Component 5: the gate's record CLEAR (both dry-run steps CLEAN, the trail's Defects and Resolved lines equal to the bank), the banned-terms scan, the spec and its satisfiability audit, the step-zero censuses and pins; defect (f)'s heading reworded for the banned stem\" && git log -1 --format=\"%h %s\"",
+   "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:22:11.279Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_reg_gate.py",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:22:38.830Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_record.py gatebanks",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:22:51.012Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b378_lockgate.py b703 data/b703_registration_2026-10-21.txt",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:22:56.353Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/reg_seal.py --lock data/b703_registration_2026-10-21.txt",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:23:00.126Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_checks.py --seal",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:23:05.330Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all -- \"data/b703_*\" \"data/audit_b703_*\" \"tools/b703_*\"",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:23:09.934Z",
+   "src": "seat",
+   "cmd": "git add data/audit_b703_reg_satisfiable.txt data/b703_pins_stepzero.txt data/b703_reg_gate.txt data/b703_reg_termscan.txt data/b703_registration_2026-10-21.txt data/b703_regspec_run.txt data/b703_lockgate.json data/b703_lockgate_notes.txt data/b703_seal_hashes.json && git commit -q -m \"b703 seal: the face locked (sha256 0747447d), the lock gate 8 of 8, the gate's records re-stamped against the final face, the sealed tools' hashes recorded\" && git log -1 --format=\"%h %s\"",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:23:49.908Z",
+   "src": "seat",
+   "cmd": "git ls-files -- \"data/b702_*push_out*\"",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:24:16.211Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_record.py scores",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:24:29.768Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py desk && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py findings",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T02:24:34.122Z",
+   "src": "seat",
+   "cmd": "PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_record.py table_final",
+   "n": 164,
+   "bg": false
   }
  ],
  "offences": [],
  "prev": {
   "act": "b702",
   "session": "e5bcf1d0-1e8c-4ad1-a048-b35048cad0b6",
-  "rows": 146,
+  "rows": 179,
   "offences": []
  },
  "local_lean": [],
