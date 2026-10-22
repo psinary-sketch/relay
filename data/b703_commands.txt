@@ -1,0 +1,201 @@
+b703 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T01:53:52Z)
+
+### the source: the seat`s session e5bcf1d0-1e8c-4ad1-a048-b35048cad0b6 from its first user line carrying 'RULING (R313) BEGIN', with its subagents` transcripts
+### commands read: 131
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b702, session e5bcf1d0): 146 commands from 2026-10-21T22:59:43.711Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (two ordered this act, N1: one per branch tip) (2):
+  #53 PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b703_record.py dispatch SIDE-explicit-formula aa9a543f2144de0eee791ec00e904416567d68b8 run1 "SIDEExplicitFormula.Schema.LiCfg SIDEExplicitFormula.Chi.LiForward SIDEExplicitFormula.Sche
+  #82 PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b703_record.py dispatch SIDE-explicit-formula 5f8961b00191957d67b960fd760ce5013e412d2a run2 "SIDEExplicitFormula.Schema.LiCfg SIDEExplicitFormula.Chi.LiForward SIDEExplicitFormula.Sche
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (1):
+  #109 2026-10-22T01:22:32.813Z echo "lv-conservation .lean files at v0.10.0:" && git -C /d/SIDE-lv-conservation ls-tree -r --name-only v0.10.0 | grep -c "\.lean$" ; echo "interval .lean files at main:" && git -C /d/relay/scratch/in
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (10):
+  #5 2026-10-21T23:24:30.551Z Get-ChildItem -LiteralPath 'D:\relay\tools' -Filter 'b70[0-2]_*.py' | Select-Object Name, Length
+  #6 2026-10-21T23:24:43.052Z Get-ChildItem -LiteralPath 'D:\relay\tools' | Where-Object { $_.Name -like 'b702_*' -or $_.Name -like 'b698_record*' } | Select-Object Name, Length
+  #7 2026-10-21T23:25:29.320Z (Get-Item -LiteralPath 'D:\relay\tools\circuit_read.py').Length; (Get-Content -LiteralPath 'D:\relay\tools\circuit_read.py' | Measure-Object -Line).Lines
+  #33 2026-10-21T23:56:04.013Z Get-Item -LiteralPath 'D:\relay\tools\rule_arms.py' | Select-Object Length
+  #45 2026-10-22T00:01:41.523Z Get-Item -LiteralPath 'D:\relay\tools\b701_record.py' | Select-Object Length
+  #57 2026-10-22T00:37:52.851Z Get-Item -LiteralPath 'D:\SIDE-explicit-formula\print_targets.txt' | Select-Object Length
+  #69 2026-10-22T00:58:09.673Z Get-Item -LiteralPath 'D:\relay\tools\e0_rule.py' | Select-Object Length
+  #100 2026-10-22T01:19:51.423Z Get-Item -LiteralPath 'D:\relay\data\b672_roster_read.json' | Select-Object Length
+  #109 2026-10-22T01:22:32.813Z echo "lv-conservation .lean files at v0.10.0:" && git -C /d/SIDE-lv-conservation ls-tree -r --name-only v0.10.0 | grep -c "\.lean$" ; echo "interval .lean files at main:" && git -C /d/relay/scratch/in
+  #114 2026-10-22T01:27:44.384Z Get-Item -LiteralPath 'D:\relay\tools\correspondence_gen.py' | Select-Object Length
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (6):
+  #13 2026-10-21T23:28:30.407Z Bash
+      git -C /d/relay branch -d push-b702
+  #14 2026-10-21T23:28:34.266Z Bash
+      git -C /d/relay branch -d push-b702-root
+  #15 2026-10-21T23:28:38.010Z Bash
+      git -C /d/relay branch -d push-b702-root2
+  #16 2026-10-21T23:28:43.169Z Bash
+      git -C /d/relay branch -d push-b702-closing
+  #17 2026-10-21T23:28:48.984Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b702
+  #18 2026-10-21T23:28:55.322Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b702-root
+
+### THE BRANCH DELETES BY SHAPE ((R313)(9) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #13 deletes ['push-b702'], halves 1, globs none, variables none, chained after False; #14 deletes ['push-b702-root'], halves 1, globs none, variables none, chained after False; #15 deletes ['push-b702-root2'], halves 1, globs none, variables none, chained after False; #16 deletes ['push-b702-closing'], halves 1, globs none, variables none, chained after False; #17 deletes ['push-b702'], halves 1, globs none, variables none, chained after False; #18 deletes ['push-b702-root'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-21T23:21:59.450Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_citation.py ferry
+  #2 | 2026-10-21T23:22:12.513Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b703_citation.py check dry
+  #3 | 2026-10-21T23:22:58.294Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b703_citation.py check dry
+  #4 | 2026-10-21T23:23:06.686Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 tools/b703_citation.py check
+  #5 | 2026-10-21T23:24:30.551Z | seat | PowerShell | Get-ChildItem -LiteralPath 'D:\relay\tools' -Filter 'b70[0-2]_*.py' | Select-Object Name, Length
+  #6 | 2026-10-21T23:24:43.052Z | seat | PowerShell | Get-ChildItem -LiteralPath 'D:\relay\tools' | Where-Object { $_.Name -like 'b702_*' -or $_.Name -like 'b698_record*' } | Select-Object Name, Length
+  #7 | 2026-10-21T23:25:29.320Z | seat | PowerShell | (Get-Item -LiteralPath 'D:\relay\tools\circuit_read.py').Length; (Get-Content -LiteralPath 'D:\relay\tools\circuit_read.py' | Measure-Object -Line).Lines
+  #8 | 2026-10-21T23:26:14.716Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/circuit_read.py readfirst b703_ferry.txt b703_readfirst.txt
+  #9 | 2026-10-21T23:27:42.957Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 tools/b703_record.py rowgen
+  #10 | 2026-10-21T23:28:06.590Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='tail.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='python3.exe' OR Name='claude.exe' OR 
+  #11 | 2026-10-21T23:28:14.915Z | seat | Bash | git add data/b702_closing_push_out.txt && git commit -q -m "b703 step zero: b702's closing push-out bank (both calls, the second read back at 8773acc9), committ
+  #12 | 2026-10-21T23:28:21.287Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py branches before
+  #13 | 2026-10-21T23:28:30.407Z | seat | Bash | git -C /d/relay branch -d push-b702
+  #14 | 2026-10-21T23:28:34.266Z | seat | Bash | git -C /d/relay branch -d push-b702-root
+  #15 | 2026-10-21T23:28:38.010Z | seat | Bash | git -C /d/relay branch -d push-b702-root2
+  #16 | 2026-10-21T23:28:43.169Z | seat | Bash | git -C /d/relay branch -d push-b702-closing
+  #17 | 2026-10-21T23:28:48.984Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b702
+  #18 | 2026-10-21T23:28:55.322Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b702-root
+  #19 | 2026-10-21T23:29:01.318Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py branches
+  #20 | 2026-10-21T23:30:01.632Z | seat | Bash | git add data/b703_registrations.txt && git commit -q -m "b703 step zero: the registrations of (R313)(6), written before any number and committed alone (N4)" && 
+  #21 | 2026-10-21T23:30:49.128Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_tests.py parts
+  #22 | 2026-10-21T23:30:58.854Z | seat | Bash | export PYTHONIOENCODING=utf-8 && python -X utf8 tools/b703_tests.py hold 1 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py
+  #23 | 2026-10-21T23:31:37.954Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_tests.py hold 2 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_tests.py run test_asof.py
+  #24 | 2026-10-21T23:38:24.897Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_tests.py hold 3 && for t in test_axiom_claim.py test_axiom_claim_b651.py test_banned_terms_backmatter.py test_b
+  #25 | 2026-10-21T23:39:11.290Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_tests.py hold 4 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_tests.py run test_chain_page.py
+  #26 | 2026-10-21T23:45:28.969Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_tests.py hold 5 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_
+  #27 | 2026-10-21T23:50:54.846Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_tests.py hold 6 && for t in test_name_b649.py test_name_patterns_b636.py test_no_sorry_main.py test_premise_sta
+  #28 | 2026-10-21T23:54:30.139Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_tests.py report
+  #29 | 2026-10-21T23:54:38.227Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/test_chain_page_b638.py
+  #30 | 2026-10-21T23:54:54.142Z | seat | Bash | git status --porcelain --untracked-files=no && git -C /d/MY-DOwnloads/PLACE-papers status --porcelain && git ls-files --error-unmatch data/b628_intake_crank_v0_
+  #31 | 2026-10-21T23:55:34.570Z | seat | Bash | git status --porcelain -- data/b703_* tools/b703_*
+  #32 | 2026-10-21T23:55:40.843Z | seat | Bash | git add data/b703_branches.json data/b703_branches.txt data/b703_branches_before.json data/b703_citation_check.json data/b703_citation_check.txt data/b703_defec
+  #33 | 2026-10-21T23:56:04.013Z | seat | PowerShell | Get-Item -LiteralPath 'D:\relay\tools\rule_arms.py' | Select-Object Length
+  #34 | 2026-10-21T23:57:50.210Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py quotectl dry
+  #35 | 2026-10-21T23:58:22.506Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py span
+  #36 | 2026-10-21T23:58:30.709Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py c1 dry
+  #37 | 2026-10-21T23:58:38.366Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py c1
+  #38 | 2026-10-21T23:59:23.703Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_corrigendum.py dry
+  #39 | 2026-10-21T23:59:38.555Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_corrigendum.py land
+  #40 | 2026-10-22T00:00:20.163Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py repairs dry
+  #41 | 2026-10-22T00:00:35.435Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py span && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py quotectl &
+  #42 | 2026-10-22T00:01:02.051Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --porcelain --untracked-files=no && git add FINDINGS.md && git commit -q -m "b703 Component 1 under (R313)(1)-(2):
+  #43 | 2026-10-22T00:01:06.814Z | seat | Bash | cd /d/relay && git status --porcelain && echo ---
+  #44 | 2026-10-22T00:01:15.286Z | seat | Bash | git add data/b675_corrigenda.txt tools/b703_record.py tools/rule_arms.py tools/b703_corrigendum.py data/b703_corrigendum.json data/b703_corrigendum.txt data/b70
+  #45 | 2026-10-22T00:01:41.523Z | seat | PowerShell | Get-Item -LiteralPath 'D:\relay\tools\b701_record.py' | Select-Object Length
+  #46 | 2026-10-22T00:33:45.011Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_citation.py answer "Epstein branch: 1"
+  #47 | 2026-10-22T00:34:00.768Z | seat | Bash | cd /d/SIDE-explicit-formula && git status --porcelain --untracked-files=no && git rev-parse --abbrev-ref HEAD && git rev-parse HEAD && git rev-parse widening-b7
+  #48 | 2026-10-22T00:34:06.985Z | seat | Bash | git checkout -q widening-b701 && git rev-parse --abbrev-ref HEAD && git rev-parse HEAD
+  #49 | 2026-10-22T00:34:14.453Z | seat | Bash | git diff --stat && git diff --word-diff=porcelain -U0
+  #50 | 2026-10-22T00:34:22.296Z | seat | Bash | git add SIDEExplicitFormula/H2SignWide.lean && git commit -q -m "b703 (R313)(3), W-ORD-CLASSK-WIDENING-HELD: the one-token repair at H2SignWide.lean :59 named i
+  #51 | 2026-10-22T00:34:33.160Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b703_widening_branch_push_out.txt timeout 300 bash tools/push_gated.sh /d/SIDE-explicit-formula --branch widening-b7
+  #52 | 2026-10-22T00:35:08.185Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b703_record.py dispatch SIDE-explicit-formula aa9a543f2144de0eee791ec00e904416567d68b8 run1 "SIDEExplici
+  #53 | 2026-10-22T00:35:16.114Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b703_record.py dispatch SIDE-explicit-formula aa9a543f2144de0eee791ec00e904416567d68b8 run1 "SIDEExplici
+  #54 | 2026-10-22T00:36:16.180Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b703_record.py runstatus SIDE-explicit-formula 39700585515
+  #55 | 2026-10-22T00:36:41.576Z | seat | Bash | cd /d/SIDE-explicit-formula && git ls-tree -r --name-only HEAD -- Zeta23/Defs.lean SIDEExplicitFormula/B321Identity.lean SIDEExplicitFormula/Schema/RestBound.le
+  #56 | 2026-10-22T00:36:48.073Z | seat | Bash | git ls-files -- '*RestBound*' '*Defs.lean' '*Config.lean'
+  #57 | 2026-10-22T00:37:52.851Z | seat | PowerShell | Get-Item -LiteralPath 'D:\SIDE-explicit-formula\print_targets.txt' | Select-Object Length
+  #58 | 2026-10-22T00:38:03.717Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b703_record.py runstatus SIDE-explicit-formula 39700585515
+  #59 | 2026-10-22T00:38:15.352Z | seat | Bash | cd /d/SIDE-explicit-formula/.lake/packages/mathlib && git rev-parse --short=8 HEAD && git grep -n -e "^def LSeries " -e "^noncomputable def LSeries " -e "^def L
+  #60 | 2026-10-22T00:39:15.593Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n -E "def (Q0form|rQ|ZQ|zeroSideQ|primeTermQ|archTermQ|bracketQ|ZQContinuation|ZQZeros|ZQExplicitFormula|ZQPremises|rhs
+  #61 | 2026-10-22T00:39:22.241Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b703_record.py runstatus SIDE-explicit-formula 39700585515
+  #62 | 2026-10-22T00:54:30.639Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_citation.py answer "Zero sum: answered by typing"
+  #63 | 2026-10-22T00:54:38.605Z | seat | Bash | cd /d/SIDE-explicit-formula && git diff --stat v0.35 HEAD -- SIDEExplicitFormula/Schema/Wide && git grep -n -e "structure WideConfig" -e "theorem li_nonneg_cfg_
+  #64 | 2026-10-22T00:56:37.908Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b703_record.py runstatus SIDE-explicit-formula 39700585515
+  #65 | 2026-10-22T00:56:48.255Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py runner SIDE-explicit-formula 39700585515 aa9a543f2144de0eee791ec00e904416567d68b8 run1 "a
+  #66 | 2026-10-22T00:57:37.141Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b703_record.py depsctl
+  #67 | 2026-10-22T00:57:45.388Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py runner SIDE-explicit-formula 39700585515 aa9a543f2144de0eee791ec00e904416567d68b8 run1r "
+  #68 | 2026-10-22T00:57:53.761Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py grade aa9a543f2144de0eee791ec00e904416567d68b8 widening acDeriv_of_contDiff_two "classK_s
+  #69 | 2026-10-22T00:58:09.673Z | seat | PowerShell | Get-Item -LiteralPath 'D:\relay\tools\e0_rule.py' | Select-Object Length
+  #70 | 2026-10-22T00:58:45.763Z | seat | Bash | cd /d/SIDE-explicit-formula && git checkout -q main && git status --porcelain --untracked-files=no && git merge --no-ff widening-b701 -m "b703 (R313)(3): merge 
+  #71 | 2026-10-22T00:58:53.476Z | seat | Bash | git branch push-b703-widen-merge && git rev-parse push-b703-widen-merge^{tree} && git rev-parse aa9a543^{tree}
+  #72 | 2026-10-22T00:59:01.009Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b703_widen_merge_push_out.txt timeout 300 bash tools/push_gated.sh /d/SIDE-explicit-formula push-b703-widen-merge "v
+  #73 | 2026-10-22T01:03:23.161Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_citation.py answer "row: 1, write, as printed"
+  #74 | 2026-10-22T01:04:37.918Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py grade aa9a543f2144de0eee791ec00e904416567d68b8 widening acDeriv_of_contDiff_two "classK_s
+  #75 | 2026-10-22T01:05:07.871Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --abbrev-ref HEAD && git rev-parse v0.36^{commit} && git status --porcelain --untracked-files=no && git branch epst
+  #76 | 2026-10-22T01:05:51.620Z | seat | Bash | git checkout -q epstein-b703 && git rev-parse --abbrev-ref HEAD && git ls-tree HEAD -- SIDEExplicitFormula/Schema/EpsteinZQ.lean && echo "ls-tree read"
+  #77 | 2026-10-22T01:06:47.090Z | seat | Bash | git grep -n -e "def liCoeff" -e "^namespace" -e "^end " v0.36 -- SIDEExplicitFormula/Schema/Wide/Converse.lean SIDEExplicitFormula/Schema/Wide/Remainder.lean SI
+  #78 | 2026-10-22T01:07:08.284Z | seat | Bash | git status --porcelain && git diff --stat && git diff --check && echo "diff-check clean"
+  #79 | 2026-10-22T01:07:17.185Z | seat | Bash | git add SIDEExplicitFormula/Schema/EpsteinZQ.lean print_targets.txt && git commit -q -m "b703 (R313)(4), the Epstein count's opening step M1 (relay data/b701_ep
+  #80 | 2026-10-22T01:07:22.810Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b703_epstein_branch_push_out.txt timeout 300 bash tools/push_gated.sh /d/SIDE-explicit-formula --branch epstein-b703
+  #81 | 2026-10-22T01:07:34.205Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b703_record.py dispatch SIDE-explicit-formula 5f8961b00191957d67b960fd760ce5013e412d2a run2 "SIDEExplici
+  #82 | 2026-10-22T01:07:41.292Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 tools/b703_record.py dispatch SIDE-explicit-formula 5f8961b00191957d67b960fd760ce5013e412d2a run2 "SIDEExplici
+  #83 | 2026-10-22T01:08:05.634Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b703_record.py runstatus SIDE-explicit-formula 39703864050
+  #84 | 2026-10-22T01:09:12.199Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b703_record.py runstatus SIDE-explicit-formula 39703864050
+  #85 | 2026-10-22T01:09:49.103Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b703_record.py runstatus SIDE-explicit-formula 39703864050
+  #86 | 2026-10-22T01:10:03.786Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b703_record.py runstatus SIDE-explicit-formula 39703864050
+  #87 | 2026-10-22T01:10:10.523Z | seat | Bash | cd /d/SIDE-lv-conservation && git rev-parse --abbrev-ref HEAD && git rev-parse --short=8 HEAD && git status --porcelain --untracked-files=no && git tag --sort=-
+  #88 | 2026-10-22T01:10:19.729Z | seat | Bash | git diff --stat v0.10.0 v0.13.0 -- lean-toolchain lake-manifest.json && echo "--- v0.13.0 to HEAD" && git diff --stat v0.13.0 HEAD -- lean-toolchain lake-manife
+  #89 | 2026-10-22T01:10:28.654Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b703_record.py runstatus SIDE-explicit-formula 39703864050
+  #90 | 2026-10-22T01:10:35.118Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 tools/b703_record.py runstatus SIDE-explicit-formula 39703864050
+  #91 | 2026-10-22T01:10:43.002Z | seat | Bash | timeout 540 gh run watch 39703864050 -R psinary-sketch/SIDE-explicit-formula --interval 30 --exit-status
+  #92 | 2026-10-22T01:17:36.145Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py runner SIDE-explicit-formula 39703864050 5f8961b00191957d67b960fd760ce5013e412d2a run2 "a
+  #93 | 2026-10-22T01:17:47.003Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py grade 5f8961b00191957d67b960fd760ce5013e412d2a epstein four_mul_Q0form Q0form_nonneg rQ_z
+  #94 | 2026-10-22T01:18:08.514Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py grade 5f8961b00191957d67b960fd760ce5013e412d2a epstein four_mul_Q0form Q0form_nonneg rQ_z
+  #95 | 2026-10-22T01:18:29.705Z | seat | Bash | cd /d/SIDE-explicit-formula && git checkout -q main && git rev-parse HEAD && git status --porcelain --untracked-files=no && git merge --no-ff epstein-b703 -m "b
+  #96 | 2026-10-22T01:18:35.794Z | seat | Bash | git branch push-b703-epstein-merge && git rev-parse push-b703-epstein-merge
+  #97 | 2026-10-22T01:18:42.310Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b703_epstein_merge_push_out.txt timeout 300 bash tools/push_gated.sh /d/SIDE-explicit-formula push-b703-epstein-merg
+  #98 | 2026-10-22T01:19:07.215Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_record.py cells dry
+  #99 | 2026-10-22T01:19:30.091Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_record.py cells dry
+  #100 | 2026-10-22T01:19:51.423Z | seat | PowerShell | Get-Item -LiteralPath 'D:\relay\data\b672_roster_read.json' | Select-Object Length
+  #101 | 2026-10-22T01:20:12.215Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_record.py cells dry
+  #102 | 2026-10-22T01:20:43.228Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b703_record.py wdiff
+  #103 | 2026-10-22T01:21:03.144Z | seat | Bash | git status --porcelain -- data/b703_* tools/b703_* data/glossary.txt data/b675_corrigenda.txt
+  #104 | 2026-10-22T01:21:14.676Z | seat | Bash | git add data/b703_citation_check.txt data/b703_defects.txt data/glossary.txt tools/b703_record.py data/b703_axioms_SIDE-explicit-formula_run1.txt data/b703_axio
+  #105 | 2026-10-22T01:21:27.934Z | seat | Bash | timeout 300 git clone --depth 1 https://github.com/girving/interval /d/relay/scratch/interval-b703 && git -C /d/relay/scratch/interval-b703 log -1 --format="%H 
+  #106 | 2026-10-22T01:21:37.207Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse --abbrev-ref HEAD && git rev-parse --short=8 HEAD && git rev-parse --short=8 v0.37^{commit} && git status --porcela
+  #107 | 2026-10-22T01:21:51.535Z | seat | Bash | cd /d/SIDE-lv-conservation && git ls-remote --tags origin
+  #108 | 2026-10-22T01:21:59.580Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib log -1 --format="de5ce8a9 %cI" de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11 ; git -C /d/SIDE-lv-conservation/
+  #109 | 2026-10-22T01:22:32.813Z | seat | Bash | echo "lv-conservation .lean files at v0.10.0:" && git -C /d/SIDE-lv-conservation ls-tree -r --name-only v0.10.0 | grep -c "\.lean$" ; echo "interval .lean files
+  #110 | 2026-10-22T01:23:11.472Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b703_q0_zeros_read.py keys
+  #111 | 2026-10-22T01:23:21.743Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 tools/b703_q0_zeros_read.py count
+  #112 | 2026-10-22T01:23:34.812Z | seat | Bash | git status --porcelain -- data/b703_* tools/b703_* scratch && git check-ignore -v scratch/interval-b703 ; echo "check-ignore exit $?"
+  #113 | 2026-10-22T01:23:54.171Z | seat | Bash | git add data/b703_defects.txt data/b703_pins.txt data/b703_q0_band.txt tools/b703_q0_zeros_read.py && git commit -q -m "b703 Component 3 under (R313)(5) and (6)
+  #114 | 2026-10-22T01:27:44.384Z | seat | PowerShell | Get-Item -LiteralPath 'D:\relay\tools\correspondence_gen.py' | Select-Object Length
+  #115 | 2026-10-22T01:28:18.693Z | seat | Bash | git grep -n -e "^def remote_refs" -e "^LSR" -e "^_REMOTE" -- tools/b616_claims.py
+  #116 | 2026-10-22T01:30:00.484Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_record.py figures dry
+  #117 | 2026-10-22T01:30:41.734Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_record.py figures dry
+  #118 | 2026-10-22T01:31:01.738Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 590 python -X utf8 tools/b703_record.py figures
+  #119 | 2026-10-22T01:31:18.157Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py orders dry
+  #120 | 2026-10-22T01:31:33.645Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_record.py orders dry
+  #121 | 2026-10-22T01:42:00.067Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 tools/b703_checks.py --guard-dry
+  #122 | 2026-10-22T01:42:06.262Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --mid b703_checks_mid_c4.txt --part standing-c
+  #123 | 2026-10-22T01:46:31.673Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --mid b703_checks_mid_c4.txt --part standing-c
+  #124 | 2026-10-22T01:47:49.167Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_checks.py --mid b703_checks_mid_c4.txt --part standing-c
+  #125 | 2026-10-22T01:49:21.190Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py orders
+  #126 | 2026-10-22T01:49:28.747Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b703 Component 4: four annotations and four orders at OPEN_TRAILS :15492-:15506 u
+  #127 | 2026-10-22T01:49:41.321Z | seat | Bash | cd /d/relay && git status --porcelain --untracked-files=all -- data tools
+  #128 | 2026-10-22T01:49:47.331Z | seat | Bash | git add data/b703_rules.txt data/b703_standing_figures.txt data/b703_standing_figures.json data/b703_orders_line.json data/b703_defects.txt data/b703_checks_mid
+  #129 | 2026-10-22T01:52:04.642Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 580 python -X utf8 tools/b703_closing.py dry
+  #130 | 2026-10-22T01:52:46.877Z | seat | Bash | git grep -n -e "^SEALED" -e "^NEW_TOOLS" -e "^REPAIRED_TOOLS" HEAD -- tools/b702_worklist.py
+  #131 | 2026-10-22T01:53:33.953Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py repairs && PYTHONIOENCODING=utf-8 python -X utf8 tools/b703_record.py guard && PYTHONIOENCODING=utf-8
+
+### ### **COMMANDS 131 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 146 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 10 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

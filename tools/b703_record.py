@@ -315,6 +315,17 @@ REPAIR_ROWS = [
      'banked "the last export b697`s". b698`s tool stays sealed and unedited; b703`s record tool carries mbank by copy with the span line read '
      'from the mirror bank chain (_last_export, span_line), every other line as b698`s writes it; its dry run (`span`) printing b702 as the last '
      'export before b703`s. The diff of b698`s mbank against b703`s, then the new functions.', None, ('mbank', ('_last_export', 'span_line', 'span'))),
+    ('(3) tools/b703_record.py _deps, the runner`s axioms reader -- ANSWERS b703`s defect (f) (relay data/b703_defects.txt): b698`s reader read a '
+     'printed name by `\'([^\']+)\'`, which stops at a prime, so the first reading of run 39700585515 read 83 of 89 printed and the gate NOT DERIVES '
+     'while the artifact printed all 89 at the standard three. The name now read lazily to the quote the verdict follows; b698`s sealed tool '
+     'unedited, R._deps rebound in b703`s tool; its control data/b703_deps_control.txt; the run read again by its id as run1r, no second dispatch. '
+     'The diff of b698`s _deps against b703`s, then the control route.', None, ('_deps', ('depsctl',))),
+    ('(4) tools/b703_record.py _self_eq, the salt-check`s "no X = X" clause -- ANSWERS b703`s defect (g): b701`s clause `(\\w+)\\s*=\\s*\\1` (its grade '
+     'route, carried into b703`s grade) read rQ_zero`s conclusion `rQ 0 = 0` as X = X and failed the clause. The clause now compares the two whole '
+     'sides of a top-level `=`; both grades re-run, every salt-check PASS. The new function.', None, (None, ('_self_eq',))),
+    ('(5) tools/b703_record.py _thm_sig, the grade`s statement reader -- ANSWERS the Epstein grade`s first run: b701`s reader took a statement to a '
+     '`:= by` or a line ending `:=`, and the module`s one-line theorems (`:= fun ...`, `:= by norm_num` on the theorem`s own line) read as no '
+     'statement. The reader now takes the statement from the `theorem NAME` line to the first `:=` after it. The new function.', None, (None, ('_thm_sig',))),
 ]
 
 
@@ -336,11 +347,12 @@ def repairs(*a):
             L += ['      ' + x for x in d] + ['']
         if fns:
             main_fn, extra = fns
-            old = R._fn_src(rd(os.path.join(T, 'b698_record.py')), main_fn).split(NL)
-            new = R._fn_src(rd(os.path.join(T, 'b703_record.py')), main_fn).split(NL)
-            d = list(difflib.unified_diff(old, new, 'tools/b698_record.py %s (sealed)' % main_fn, 'tools/b703_record.py %s (this act)' % main_fn, lineterm=''))
-            n += len(d)
-            L += ['      ' + x for x in d] + ['']
+            if main_fn:
+                old = R._fn_src(rd(os.path.join(T, 'b698_record.py')), main_fn).split(NL)
+                new = R._fn_src(rd(os.path.join(T, 'b703_record.py')), main_fn).split(NL)
+                d = list(difflib.unified_diff(old, new, 'tools/b698_record.py %s (sealed)' % main_fn, 'tools/b703_record.py %s (this act)' % main_fn, lineterm=''))
+                n += len(d)
+                L += ['      ' + x for x in d] + ['']
             for fn in extra:
                 new = R._fn_src(rd(os.path.join(T, 'b703_record.py')), fn).split(NL)
                 d = list(difflib.unified_diff([], new, '(none)', 'tools/b703_record.py %s (this act)' % fn, lineterm=''))

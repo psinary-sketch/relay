@@ -1,61 +1,10 @@
-b703 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-22T00:00:53Z)
+b703 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-22T01:53:34Z)
 
 ### rows are repairs with the defect or order they answer: the tool and its part ; what it answers ; the form. Each diff beneath its
 ### row, written by this route (difflib over the file`s or the function`s source, relay HEAD`s tool against this act`s).
 
   (1) tools/rule_arms.py, G-RULE-RECUT-QUOTE`s sources -- ANSWERS (R313)(2) and b702`s carried failure (relay data/b702_checks.txt, data/b702_checks_postpush.txt: G-RULE-RECUT-QUOTE failing, declared on b702`s face): the arm read quote banks in b676`s kernel form alone (data/b<act>_quote_*.json, a kernel, a tip, a merge on the kernel`s main), so b702`s paper cut -- its search banked as data/b702_quote.json in the b670 form, a document and no merge -- read as an act with a cut bank and no search. The sources now branch on the kind of cut: a paper cut`s search read beside the kernel cuts`, its "merge" the cut`s own PLACE-papers commit, its quoting lines entered where the cut bank`s residues carry them; the predicate unchanged. A shared tool, edited on the ruling`s word. The control: data/b703_quote_control.txt (the arm passing over every quote bank from b691, over b702`s paper cut alone and b697`s kernel cut alone, failing a planted late search).
 
-      --- tools/rule_arms.py (relay HEAD)
-      +++ tools/rule_arms.py (this act)
-      @@ -19,6 +19,10 @@
-       ### bank carries its sha256 on a row naming another path reads OK where the corrigenda bank (data/b675_corrigenda.txt) carries a row citing
-       ### that bank and line with the corrected path and the equal sha256, the correction printed beside the frozen row; with no such row it fails
-       ### as before (b694's (k) its positive control in CONTROLS, the corrigendum withheld). The diff banked in data/b696_tool_repairs.txt.
-      +### b703, (R313)(2): G-RULE-RECUT-QUOTE branched on the kind of cut by the Edit tool -- a kernel cut read in b676's quote form
-      +### (data/b<act>_quote_*.json, its merge on the kernel's main) and a paper cut in the b670 form (data/b<act>_quote.json, its document, the
-      +### search before the cut's own PLACE-papers commit, its quoting lines entered in the cut bank's residues); the predicate unchanged. The diff
-      +### banked in data/b703_tool_repairs.txt, the control on b702's paper cut bank and b697's kernel cut bank.
-       """
-       import calendar
-       import glob
-      @@ -347,6 +351,37 @@
-                              needled=all(r.get('needle') and r['needle'] in (r.get('line') or '') for r in rows) and bool(rows),
-                              quoting=lines, unentered=[x for x in lines if not re.search(re.escape(x.split(' :')[0]) + r'[^\n]{0,40}?' +
-                                                                                           r'(?:", |\s:?)' + x.split(' :')[1] + r'\b', cuts)]))
-      +    # ### b703, (R313)(2): the arm branched on the kind of cut -- a paper cut's search (data/b<act>_quote.json, the b670 form: a `document`, no
-      +    # ### kernel and no merge) read beside the kernel cuts' (b676's form above): its "merge" the cut's own PLACE-papers commit (the act's cut
-      +    # ### bank's `base` less its `^`), its time that commit's; its quoting lines (file, line) entered where the cut bank's residues carry them
-      +    for p in _banks('b*_quote.json', RECUT_FLOOR):
-      +        try:
-      +            q = json.load(io.open(p, encoding='utf-8'))
-      +        except Exception:
-      +            q = {}
-      +        if not q.get('document') or q.get('kernel'):
-      +            continue
-      +        a = _act_of(p)
-      +        try:
-      +            cj = json.load(io.open(os.path.join(D, 'b%d_cut.json' % a), encoding='utf-8'))
-      +        except Exception:
-      +            cj = {}
-      +        cc = (cj.get('base') or '').rstrip('^') if (cj.get('base') or '').endswith('^') else ''
-      +        if not cc:   # ### a cut bank written before its commit names HEAD: the first commit of the act touching the document after the search
-      +            qa = _iso(q.get('at') or '') or 0
-      +            for l in _g(PP, 'log', '--reverse', '--format=%H %ct %s', '--', q['document']).split(NL):
-      +                f = l.split(' ', 2)
-      +                if len(f) == 3 and f[1].isdigit() and int(f[1]) > qa and f[2].startswith('b%d ' % a):
-      +                    cc = f[0]
-      +                    break
-      +        ct = _g(PP, 'log', '-1', '--format=%H %ct', cc).split() if cc else []
-      +        mg = (ct[0], int(ct[1])) if len(ct) == 2 and ct[1].isdigit() else None
-      +        rows = q.get('rows') or []
-      +        lines = sorted(set('%s :%s' % (f, n_) for f, n_ in (q.get('quoting') or [])))
-      +        res = set('%s :%s' % (f, n_) for f, n_ in (cj.get('residues') or []))
-      +        qs.append(dict(bank=os.path.basename(p), act=a, at=_iso(q.get('at') or ''), merge=mg, rows=len(rows), kind='paper',
-      +                       needled=all(r.get('needle') and r['needle'] in (r.get('line') or '') for r in rows) and bool(rows),
-      +                       quoting=lines, unentered=[x for x in lines if x not in res]))
-           R['quotes'] = qs
-           R['cut_banks'] = dict((a, len([x for x in _banks('b%d_*cut.txt' % a, a, a)])) for a in range(RECUT_FLOOR, n + 1))
-           return R
 
   (2) tools/b703_record.py, the mirror bank`s span line -- ANSWERS (R313)(2) and b702`s (j) (relay data/b703_corrigendum.txt; data/b675_corrigenda.txt row (22)): b698`s mbank (tools/b698_record.py :2041) carries the span line as wording, so every act importing it banked "the last export b697`s". b698`s tool stays sealed and unedited; b703`s record tool carries mbank by copy with the span line read from the mirror bank chain (_last_export, span_line), every other line as b698`s writes it; its dry run (`span`) printing b702 as the last export before b703`s. The diff of b698`s mbank against b703`s, then the new functions.
 
@@ -133,4 +82,89 @@ b703 -- THE CARRY-TIME READING: THE REPAIRS (2026-10-22T00:00:53Z)
       +
       +
 
-### ### **REPAIRS 2 ; SHARED TOOLS EDITED 1 (tools/rule_arms.py, on (R313)(2)) ; DIFF LINES 121 ; NO FROZEN BANK EDITED.**
+  (3) tools/b703_record.py _deps, the runner`s axioms reader -- ANSWERS b703`s defect (f) (relay data/b703_defects.txt): b698`s reader read a printed name by `'([^']+)'`, which stops at a prime, so the first reading of run 39700585515 read 83 of 89 printed and the gate NOT DERIVES while the artifact printed all 89 at the standard three. The name now read lazily to the quote the verdict follows; b698`s sealed tool unedited, R._deps rebound in b703`s tool; its control data/b703_deps_control.txt; the run read again by its id as run1r, no second dispatch. The diff of b698`s _deps against b703`s, then the control route.
+
+      --- tools/b698_record.py _deps (sealed)
+      +++ tools/b703_record.py _deps (this act)
+      @@ -1,8 +1,10 @@
+       def _deps(ax):
+      -    """the axioms output read per terminal: [(name, [axioms] or None for 'does not depend on any axioms')], wrapped lists rejoined."""
+      +    """the axioms output read per terminal: [(name, [axioms] or [] for 'does not depend on any axioms')], wrapped lists rejoined -- b698's
+      +    reader with its name read lazily up to the quote that the verdict follows, so a name carrying a prime (`classK'`, `h2_sign'_imp_rh`) is read;
+      +    b698's `'([^']+)'` stopped at the prime and read the six primed names of widening-b701 as not printed (relay data/b703_runner_SIDE-explicit-
+      +    formula_run1.txt, 83 of 89, the artifact itself printing 89; b703's defect (f))."""
+           out = []
+      -    for n, d in re.findall(r"^'([^']+)' (depends on axioms: \[[^\]]*\]|does not depend on any axioms)",
+      -                           re.sub(r'\n(?=[ \t]*[A-Za-z_.]+[,\]])', ' ', ax), re.M):
+      +    for n, d in DEPS.findall(re.sub(r'\n(?=[ \t]*[A-Za-z_.]+[,\]])', ' ', ax)):
+               out.append((n, [x.strip() for x in d.split('[', 1)[1].rstrip(']').split(',') if x.strip()] if d.startswith('depends') else []))
+           return out
+       
+
+      --- (none)
+      +++ tools/b703_record.py depsctl (this act)
+      @@ -0,0 +1,23 @@
+      +def depsctl(*a):
+      +    """data/b703_deps_control.txt: the axioms reader's control -- b698's reader and the repaired one over this act's run1 artifact bank (89
+      +    printed, six primed) and over b701's run1 bank (74 printed, none primed); the repaired reader as wanted where it reads every printed name
+      +    and agrees with b698's wherever no name carries a prime."""
+      +    rows = []
+      +    for bank in ('b703_axioms_SIDE-explicit-formula_run1.txt', 'b701_axioms_SIDE-explicit-formula_run1.txt'):
+      +        ax = rdn(bank)
+      +        lines = len(re.findall(r"^'", ax, re.M))
+      +        old, new = _deps_698(ax), _deps(ax)
+      +        primed = [n for n, _d in new if "'" in n]
+      +        rows.append((bank, lines, len(old), len(new), primed, [n for n, _d in old if "'" not in n] == [n for n, _d in new if "'" not in n]))
+      +    ok = rows[0][3] == rows[0][1] and rows[0][2] == rows[0][1] - len(rows[0][4]) and rows[1][2] == rows[1][3] == rows[1][1] and all(r[5] for r in rows)
+      +    L = ['%s -- COMPONENT 2: THE AXIOMS READER`S REPAIR, ITS CONTROL (%s)' % (ACT, utc()), '',
+      +         '### rows are banks: the artifact`s axioms bank | the lines opening a printed name | read by b698`s reader | by the repaired reader | the primed',
+      +         '### names | the two readers equal on every unprimed name.', '']
+      +    L += ['  relay data/%s | printed %d | b698 %d | repaired %d | primed %s | equal off the primes %s' % r for r in rows]
+      +    L += ['', '### ### **THE REPAIRED READER READS EVERY PRINTED NAME, b698`S MISSING THE PRIMED ALONE, THE TWO EQUAL ON b701`S UNPRIMED BANK: %s.**' % ok]
+      +    if 'dry' not in a:
+      +        put_txt('%s_deps_control.txt' % ACT, L)
+      +    print(NL.join(L))
+      +
+      +
+      +
+
+  (4) tools/b703_record.py _self_eq, the salt-check`s "no X = X" clause -- ANSWERS b703`s defect (g): b701`s clause `(\w+)\s*=\s*\1` (its grade route, carried into b703`s grade) read rQ_zero`s conclusion `rQ 0 = 0` as X = X and failed the clause. The clause now compares the two whole sides of a top-level `=`; both grades re-run, every salt-check PASS. The new function.
+
+      --- (none)
+      +++ tools/b703_record.py _self_eq (this act)
+      @@ -0,0 +1,15 @@
+      +def _self_eq(concl):
+      +    """the salt-check's "no X = X": a top-level `=` of the conclusion whose two whole sides are one term -- b701's clause matched a word
+      +    against the next (`(\\w+)\\s*=\\s*\\1`) and read `rQ 0 = 0` as X = X (the 0 on both sides of the sign), a value at 0 and not a self-equation."""
+      +    s, depth, cut = ' '.join((concl or '').split()), 0, []
+      +    for i, ch in enumerate(s):
+      +        if ch in '([{⦃⟨':
+      +            depth += 1
+      +        elif ch in ')]}⦄⟩':
+      +            depth -= 1
+      +        elif ch == '=' and depth == 0 and s[i - 1:i] not in ('<', '>', '≠', ':', '=') and s[i + 1:i + 2] not in ('=', '>'):
+      +            cut.append(i)
+      +    return len(cut) == 1 and s[:cut[0]].strip() == s[cut[0] + 1:].strip()
+      +
+      +
+      +
+
+  (5) tools/b703_record.py _thm_sig, the grade`s statement reader -- ANSWERS the Epstein grade`s first run: b701`s reader took a statement to a `:= by` or a line ending `:=`, and the module`s one-line theorems (`:= fun ...`, `:= by norm_num` on the theorem`s own line) read as no statement. The reader now takes the statement from the `theorem NAME` line to the first `:=` after it. The new function.
+
+      --- (none)
+      +++ tools/b703_record.py _thm_sig (this act)
+      @@ -0,0 +1,12 @@
+      +def _thm_sig(src, name):
+      +    """a theorem's statement: from its `theorem NAME` line to the first `:=` after it (a one-line theorem's `:= fun ...` and a tactic proof's
+      +    `:= by` alike -- b701's reader looked for `:= by` or a line ending `:=` and could not read the one-line theorems)."""
+      +    L = src.split(NL)
+      +    i = next(k for k, l in enumerate(L) if l.startswith('theorem %s ' % name))
+      +    j = next(k for k in range(i, len(L)) if ':=' in L[k])
+      +    st = NL.join(L[i:j + 1])
+      +    head = st.split('theorem %s' % name, 1)[1].split(':=', 1)[0]
+      +    return i + 1, j + 1, ' '.join(head.split()).lstrip(': ').strip(), st
+      +
+      +
+      +
+
+### ### **REPAIRS 5 ; SHARED TOOLS EDITED 1 (tools/rule_arms.py, on (R313)(2)) ; DIFF LINES 145 ; NO FROZEN BANK EDITED.**

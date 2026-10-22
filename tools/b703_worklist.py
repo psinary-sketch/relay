@@ -77,14 +77,21 @@ STEPZERO_BANKS = '01abebc3'  # ### the step-zero banks
 C1_RELAY, C1_PP = '7a610b40', 'eb1d138'
 C2_RELAY = 'e506d3ef'
 C3_RELAY = 'e2563d74'
-C4_RELAY, C4_PP = '', '28c8a36'   # ### the relay commit filled after it is made
+C4_RELAY, C4_PP = '46cc2720', '28c8a36'
 B702_TRAIL_HEAD = ('### b702 — lane two, act one hundred and twenty-nine, the re-cut act under (R312): b701 at its weight; its undeclared failures '
                    'and unlettered items by corrigendum, the guard restored; Seven Mechanism Classes re-cut; the faces row, the README and the partner '
                    'copies on the author’s word; five orders and a spec row entered')
-SEALED = ()
+SEALED = ('b703_worklist.py', 'b703_tests.py', 'b703_citation.py', 'b703_record.py', 'b703_checks.py', 'b703_closing.py', 'b703_reg_gate.py',
+          'b703_regspec.py', 'b703_corrigendum.py', 'b703_standing_figures.py', 'b703_q0_zeros_read.py')
 REPAIRED_TOOLS = ('rule_arms.py',)
 NEW_TOOLS = ()
-ACT_ARMS = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R313-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-CORRIGENDUM-ENTERED',
+            'G-GUARD-HELD', 'G-POSTROOT-WRITES-NONE', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-QUOTE-ARM-BRANCHED', 'G-SPAN-FROM-CHAIN', 'G-WIDENING-ONE-TOKEN',
+            'G-WIDENING-GRADED', 'G-WIDENING-TAGGED', 'G-GLOSSARY-ROW', 'G-EPSTEIN-PREMISES', 'G-EPSTEIN-TAGGED', 'G-DISPATCHES-TWO',
+            'G-AXIOMS-READER-REPAIRED', 'G-CELLS-DRY', 'G-PINS-BANKED', 'G-REGISTRATIONS-BEFORE-COUNT', 'G-Q0-BAND-CONTROL', 'G-WSIGN7-BANKED',
+            'G-RULES-ROW', 'G-ORDERS-ENTERED', 'G-FIGURES-BASELINE', 'G-READFIRST-DIFF-BANKED', 'G-TOOL-REPAIRS', 'G-PARTS-PRERUN',
+            'G-ARM-SECONDS-BANKED', 'G-DEFECTS-LETTERED', 'G-READ-RULE', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-RESOLVED-EQUAL')
 STANDING_ADDED = ('G-CORRESPONDENCE-CURRENCY', 'G-README-CURRENCY', 'G-PARTNER-COPIES', 'G-SISTER-PINS')   # ### (R313)(7), the author's word
 SHARED_APPENDED = ('data/b675_corrigenda.txt', 'data/glossary.txt')
 PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')

@@ -76,7 +76,7 @@ PART = sys.argv[sys.argv.index('--part') + 1] if '--part' in sys.argv and len(sy
 L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): filled at the seal (stage two, by the Edit tool)
 FLOORS = dict(prompts=3, calls=3, checks=3, defects=(('a', 'SEAT'), ('b', 'SEAT'), ('c', 'SEAT'), ('d', 'NAVIGATOR'), ('e', 'NAVIGATOR'),
-                                                      ('f', 'SEAT'), ('g', 'SEAT'), ('h', 'SEAT'), ('i', 'SEAT')))
+                                                      ('f', 'SEAT'), ('g', 'SEAT'), ('h', 'SEAT'), ('i', 'SEAT'), ('j', 'SEAT'), ('k', 'SEAT')))
 REPAIRED_TOOLS = K.REPAIRED_TOOLS
 NEW_TOOLS = K.NEW_TOOLS
 # ### the instruments read unedited: b702's list, b695's to b702's sealed tools and the earlier readers among them, less this act's sealed tools
@@ -1104,7 +1104,7 @@ def wsign7_ok(S):
 
 
 def rules_ok(S):
-    return '(1) THE STEPS TO COMPILE BEFORE THE WRITE-UPS.' in S['rules'] and '“do the steps to compile, before write ups”' in S['rules']
+    return '(1) THE STEPS TO COMPILE BEFORE THE WRITE-UPS.' in S['rules'] and '"do the steps to compile, before write ups"' in S['rules']
 
 
 ORDER_NAMES = ('W-ORD-CLASSK-WIDENING-HELD', 'W-ORD-LV-CLOSURE-JOIN', 'W-ORD-KEYSTONE-HEADS', 'W-ORD-STANDING-ARMS-B703', 'W-ORD-Q0-BAND-CONTROL',
