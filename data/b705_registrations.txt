@@ -1,0 +1,57 @@
+b705 -- COMPONENT 4, (R315)(8): THE REGISTRATIONS, THE SUCCESSOR OF data/b703_registrations.txt, WRITTEN BEFORE ANY NUMBER OF (iii) IS COMPUTED (2026-10-22)
+
+### rows are registrations, each with its hypothesis, falsifier, control, the act that computes it and the order it serves. Rows (i) and (ii)
+### point to b703's bank, read as committed at b703 (relay b8a36309) and unchanged (N3); row (iii) is this act's, written by the Write tool
+### after the small-support positivity result was read at source and before any radius is computed, and committed alone before the
+### ranking of (R315)(8) is written. No figure of (iii) is computed this act; the figures this bank cites are banked ones, each by path.
+
+  (i) THE DETECTION LAW -- COMPUTED AT b705, as data/b703_registrations.txt (ii) (:21-:31) registered it, nothing added: relay
+      data/b705_detection.txt (the controls data/b705_detection_controls.txt; the binary bank data/b705_detection.json.gz beside
+      data/b705_detection_hashes.txt). Its reading is that bank's, not this one's.
+
+  (ii) THE NOTCHED WEIL WINDOW AT THE BAND ZERO -- COMPUTED AT b705, as data/b703_registrations.txt (ii) "BESIDE IT" (:29-:30) registered it:
+      relay data/b705_window.txt (the controls data/b705_window_controls.txt; data/b705_window.json.gz beside data/b705_window_hashes.txt).
+
+  (iii) THE SIGN-ONSET RADIUS AT Q0 -- COMPUTED AT b707 (the seventh row of the I-6 ranking, (R315)(8): the support radius a of the test
+      window as the deformation parameter, axis (d) of INSTRUMENTS.md :136 re-parametrised).
+      THE PARAMETER: a > 0, the support radius of the test window k in the additive variable u = log x: k even, k = h ⋆ h~ with h supported
+          in [-a/2, a/2], so k supported in [-a, a] and the prime side PR(k) = SUM_n c(n) n^(-1/2) 2 k(log n) carrying the terms with
+          log n <= a alone. In b694's ladder (tools/b694_witness_terms.py :51, Window :106) a window of width w has h supported in
+          [-log w, log w] and k in [-2 log w, 2 log w]: its support radius is a = 2 log w (w = 32: a = 2 log 32 = 6.9315...; w = 192:
+          a = 10.515...). The ruling's "a = 32" ((R315)(8)) names the ladder's width 32 and is read so here.
+      THE EMPTY PRIME SIDE: at zeta the prime side is empty below a = log 2 = 0.6931... (the first term at n = 2; the ruling's figure). At Q0
+          the form x^2 + xy + 6y^2 represents neither 2 nor 3 (read by hand from the form, not computed: y = 0 gives squares, |y| >= 1 gives
+          >= 6 - |x||y| + x^2 >= 6 for the values 2 and 3 to be reached), so Lambda_Q(2) = Lambda_Q(3) = 0 under b325's inversion
+          (tools/b694_witness_terms.py lambda_q :291-:317) and Q0's prime side is empty below a = log 4 = 2 log 2, its first term at n = 4.
+      THE SMALL-SUPPORT POSITIVITY RESULT, READ AT SOURCE BEFORE THIS ROW WAS WRITTEN: Connes-Consani, "Weil positivity and trace formula, the
+          archimedean place", arXiv:2006.13771 (relay data/b705_source_cc_2006_13771.txt, fetched by tools/b705_cc_source.py, the PDF's sha256
+          b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0 in the bank's head). THE RANGE IT PROVES, by page: the test function
+          f = g * g^* with support in the multiplicative interval (1/2, 2), "so that rational primes are not involved" (page 2, :94-:97) --
+          in the additive variable, |u| < log 2, the support radius a = log 2 exactly where zeta's prime side is empty -- Weil's inequality
+          W_oo(f) >= 0 for smooth positive-definite f supported in (1/2, 2) whose Fourier transform vanishes at +-i/2 (page 2, :104-:106,
+          "proved in [34] by reducing it to an explicit computation", :107); their Theorem 1 (page 3, :120-:125): g supported in
+          [2^(-1/2), 2^(1/2)] with g^ vanishing at i/2 and 0 gives W_oo(g * g^*) >= Tr(theta(g) S theta(g)^*) >= 0, the Sonin-space
+          compression; their Theorem 6.11 (page 48, :3633-:3641; stated page 3, :129-:135): with g^(-i/2) = 0 alone,
+          W_oo(g * g^*) >= Tr(theta(g) S theta(g)^*) - c |g^(0)|^2, c = 4 gamma / log 2, the best constant between 13 and 17 (page 49,
+          :3713-:3717). THE PLACE: the archimedean place alone, at zeta (W_oo = -W_R, page 2 :106); nothing at Q0, nothing beyond a = log 2.
+          So the proven range of positivity ends where the prime side begins: the sign-onset radius registered below is a question the
+          source does not reach, at zeta or at Q0.
+      THE QUANTITY: for each support radius a on a ladder fixed at b707 before any value is computed (from a = log 2 upward through the
+          ladder's radii 2 log w, w = 32 ... 192), the Weil form at Q0, Q_a(h) = P(k) - PR(k) + A(k) at k = h ⋆ h~, restricted to the
+          windows h of support radius a/2 in a finite-dimensional family named at b707 (b694's B-spline pieces or their span), in balls; its
+          least eigenvalue on that family. THE SIGN-ONSET RADIUS a*: the least a of the ladder at which the restricted form has a negative
+          eigenvalue -- at which some h of support radius a/2 gives S(k) wholly below 0 beyond its ball.
+      HYPOTHESIS: a* exists on the ladder and lies at or below a = 2 log 192 = 10.515... (a width at which (ii) read the notched window
+          negative at the band zero, data/b705_window.txt), and above a = log 4 (the empty prime side gives P + A alone, nonnegative at
+          zeta's proven range and read at Q0 as the control below).
+      FALSIFIER: a positive form at every a computed -- no negative eigenvalue at any radius of the ladder.
+      CONTROLS: (C1) the zeta form, the same family at the same radii, positive at every a (nonnegative at every width of both families in
+          data/b705_window_controls.txt; proven by the source below a = log 2); (C2) the form at Q0 evaluated at (ii)'s notched window of
+          width 32 (a = 2 log 32, centred at the band zero) returns data/b705_window.txt's S at width 32, NONNEGATIVE BEYOND ITS BOUND,
+          and at b696's rho_0-centred notched window of width 32 returns data/b696_witness_balls.txt :14's S, NEGATIVE BEYOND ITS BOUND --
+          the form reproducing (7)(ii)'s sign at a = 32 as the ruling words it, and b696's beside it.
+      THE ORDER IT SERVES: none named by (R315)(8); registered under the ruling's number for b707's ruling to name, the top-ranked axis of
+          data/b705_i6_ranking.txt beside it.
+
+### ### **REGISTRATIONS 3 ; COMPUTED AT b705 2 ((i), (ii), BY b703`S REGISTRATION UNCHANGED) ; AT b707 1 ((iii), THE SIGN-ONSET RADIUS) ;
+### THE SOURCE READ BY PAGE BEFORE (iii) WAS WRITTEN ; NO RADIUS COMPUTED ; COMMITTED ALONE BEFORE THE RANKING.**
