@@ -1,0 +1,249 @@
+b704 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCH, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T05:30:58Z)
+
+### the source: the seat`s session fb68aaef-b55a-4524-9588-8db0a32e886f from its first user line carrying 'RULING (R314) BEGIN', with its subagents` transcripts
+### commands read: 162
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b703, its own session e5bcf1d0, from its post-push combine to that session`s end): 14 commands from 2026-10-22T03:04:12.254Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (one ordered this act, N1: the faces probe) (1):
+  #75 PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 -B tools/b704_record.py dispatch SIDE-explicit-formula ad3db9ff7c055b12f3836e9afde0b1bbbfcb7104 probe "SIDEExplicitFormula.B321Identity SIDEExplicitFormula.DecayBound SIDEExplicitFormula.Det
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (6):
+  #1 2026-10-22T03:14:12.916Z cd /d/relay && ls -la data/b703* && git status --short | head -50 && git log --oneline -5
+  #3 2026-10-22T03:14:32.936Z git grep -n -e "PREV_ANCHOR" -e "SESSION_ID =" -e "SESSIONS_AFTER =" -- tools/b701_worklist.py tools/b700_worklist.py tools/b677_citation.py && git grep -n "PREV_ANCHOR\|PREV_SESSION" -- tools/*.py | 
+  #4 2026-10-22T03:14:36.278Z git grep -n "PREV_ANCHOR" -- 'tools/*.py' | head -30; git grep -n "OLD_SESSION\|PREV_SESSION" -- 'tools/*.py' | head
+  #5 2026-10-22T03:14:53.604Z cd /d/SIDE-explicit-formula && git rev-parse v0.36^{commit} v0.37^{commit} v0.26^{commit} main && git branch -a && cd /d/MY-DOwnloads/PLACE-papers && git grep -n -e "W-ORD-FACES-PROBE-CURRENT" -e "W-O
+  #63 2026-10-22T04:11:35.696Z ls -la /d/SIDE-explicit-formula/.github/workflows/ && ls -la /d/relay/data/b643_probe_out_zeta.txt /d/relay/data/b643_* | head -40
+  #131 2026-10-22T04:57:39.731Z PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py tie | tail -n 2
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (7):
+  #1 2026-10-22T03:14:12.916Z cd /d/relay && ls -la data/b703* && git status --short | head -50 && git log --oneline -5
+  #3 2026-10-22T03:14:32.936Z git grep -n -e "PREV_ANCHOR" -e "SESSION_ID =" -e "SESSIONS_AFTER =" -- tools/b701_worklist.py tools/b700_worklist.py tools/b677_citation.py && git grep -n "PREV_ANCHOR\|PREV_SESSION" -- tools/*.py | 
+  #4 2026-10-22T03:14:36.278Z git grep -n "PREV_ANCHOR" -- 'tools/*.py' | head -30; git grep -n "OLD_SESSION\|PREV_SESSION" -- 'tools/*.py' | head
+  #5 2026-10-22T03:14:53.604Z cd /d/SIDE-explicit-formula && git rev-parse v0.36^{commit} v0.37^{commit} v0.26^{commit} main && git branch -a && cd /d/MY-DOwnloads/PLACE-papers && git grep -n -e "W-ORD-FACES-PROBE-CURRENT" -e "W-O
+  #14 2026-10-22T03:22:22.391Z Get-CimInstance Win32_Process -Filter "Name='tail.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='python3.exe' OR Name='claude.exe' OR Name='node.exe'" | Select-Object Process
+  #63 2026-10-22T04:11:35.696Z ls -la /d/SIDE-explicit-formula/.github/workflows/ && ls -la /d/relay/data/b643_probe_out_zeta.txt /d/relay/data/b643_* | head -40
+  #131 2026-10-22T04:57:39.731Z PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py tie | tail -n 2
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (14):
+  #17 2026-10-22T03:22:37.956Z Bash
+      git -C /d/relay branch -d push-b703
+  #18 2026-10-22T03:22:40.159Z Bash
+      git -C /d/relay branch -d push-b703-root
+  #19 2026-10-22T03:22:42.339Z Bash
+      git -C /d/relay branch -d push-b703-root2
+  #20 2026-10-22T03:22:44.775Z Bash
+      git -C /d/relay branch -d push-b703-closing
+  #21 2026-10-22T03:22:47.322Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b703
+  #22 2026-10-22T03:22:49.505Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b703-root
+  #23 2026-10-22T03:22:52.328Z Bash
+      git -C /d/SIDE-explicit-formula branch -d push-b703-widen-merge
+  #24 2026-10-22T03:22:54.533Z Bash
+      git -C /d/SIDE-explicit-formula branch -d push-b703-epstein-merge
+  #33 2026-10-22T03:31:46.941Z Bash
+      git -C /d/SIDE-explicit-formula branch -d widening-b701
+  #34 2026-10-22T03:31:49.019Z Bash
+      git -C /d/SIDE-explicit-formula branch -d epstein-b703
+  #35 2026-10-22T03:31:51.265Z Bash
+      git -C /d/SIDE-explicit-formula push origin --delete widening-b701
+  #36 2026-10-22T03:31:55.570Z Bash
+      git -C /d/SIDE-explicit-formula push origin --delete epstein-b703
+  #96 2026-10-22T04:37:47.076Z Bash
+      git -C /d/SIDE-explicit-formula branch -D probe-b704
+  #97 2026-10-22T04:37:49.736Z Bash
+      git -C /d/SIDE-explicit-formula push origin --delete probe-b704
+
+### THE BRANCH DELETES BY SHAPE ((R314)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #17 deletes ['push-b703'], halves 1, globs none, variables none, chained after False; #18 deletes ['push-b703-root'], halves 1, globs none, variables none, chained after False; #19 deletes ['push-b703-root2'], halves 1, globs none, variables none, chained after False; #20 deletes ['push-b703-closing'], halves 1, globs none, variables none, chained after False; #21 deletes ['push-b703'], halves 1, globs none, variables none, chained after False; #22 deletes ['push-b703-root'], halves 1, globs none, variables none, chained after False; #23 deletes ['push-b703-widen-merge'], halves 1, globs none, variables none, chained after False; #24 deletes ['push-b703-epstein-merge'], halves 1, globs none, variables none, chained after False; #33 deletes ['widening-b701'], halves 1, globs none, variables none, chained after False; #34 deletes ['epstein-b703'], halves 1, globs none, variables none, chained after False; #35 deletes ['widening-b701'], halves 1, globs none, variables none, chained after False; #36 deletes ['epstein-b703'], halves 1, globs none, variables none, chained after False; #96 deletes ['probe-b704'], halves 1, globs none, variables none, chained after False; #97 deletes ['probe-b704'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-22T03:14:12.916Z | seat | Bash | cd /d/relay && ls -la data/b703* && git status --short | head -50 && git log --oneline -5
+  #2 | 2026-10-22T03:14:23.827Z | seat | Bash | wc -l tools/b703_citation.py tools/b703_record.py tools/b703_checks.py tools/b703_closing.py tools/b703_corrigendum.py tools/b703_worklist.py tools/b703_tests.p
+  #3 | 2026-10-22T03:14:32.936Z | seat | Bash | git grep -n -e "PREV_ANCHOR" -e "SESSION_ID =" -e "SESSIONS_AFTER =" -- tools/b701_worklist.py tools/b700_worklist.py tools/b677_citation.py && git grep -n "PRE
+  #4 | 2026-10-22T03:14:36.278Z | seat | Bash | git grep -n "PREV_ANCHOR" -- 'tools/*.py' | head -30; git grep -n "OLD_SESSION\|PREV_SESSION" -- 'tools/*.py' | head
+  #5 | 2026-10-22T03:14:53.604Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse v0.36^{commit} v0.37^{commit} v0.26^{commit} main && git branch -a && cd /d/MY-DOwnloads/PLACE-papers && git grep -
+  #6 | 2026-10-22T03:15:27.791Z | seat | Bash | cd /d/relay && git grep -n "def ferry_text\|def _user_texts\|def rule_clause" -- tools/b677_citation.py
+  #7 | 2026-10-22T03:16:53.056Z | seat | Bash | ls -la data/b670_licensed_table.txt data/b652_* data/b670_rules.txt data/b675_corrigenda.txt data/glossary.txt data/b703_widening_grade.txt data/b703_epstein_gr
+  #8 | 2026-10-22T03:19:47.642Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b704_citation.py ferry
+  #9 | 2026-10-22T03:19:50.469Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b704_citation.py check dry
+  #10 | 2026-10-22T03:20:00.729Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b704_citation.py check
+  #11 | 2026-10-22T03:20:42.898Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/circuit_read.py readfirst b704_ferry.txt b704_readfirst.txt
+  #12 | 2026-10-22T03:22:07.269Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 -B tools/b704_record.py rowgen
+  #13 | 2026-10-22T03:22:18.424Z | seat | Bash | ls -la data/b704_* && git status --porcelain
+  #14 | 2026-10-22T03:22:22.391Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='tail.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='python3.exe' OR Name='claude.exe' OR 
+  #15 | 2026-10-22T03:22:28.887Z | seat | Bash | git add data/b703_closing_push_out.txt && git commit -q -m "b704 step zero: b703's closing push-out bank (main read back at 295e53f0), committed alone under (R3
+  #16 | 2026-10-22T03:22:32.631Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py branches before
+  #17 | 2026-10-22T03:22:37.956Z | seat | Bash | git -C /d/relay branch -d push-b703
+  #18 | 2026-10-22T03:22:40.159Z | seat | Bash | git -C /d/relay branch -d push-b703-root
+  #19 | 2026-10-22T03:22:42.339Z | seat | Bash | git -C /d/relay branch -d push-b703-root2
+  #20 | 2026-10-22T03:22:44.775Z | seat | Bash | git -C /d/relay branch -d push-b703-closing
+  #21 | 2026-10-22T03:22:47.322Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b703
+  #22 | 2026-10-22T03:22:49.505Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b703-root
+  #23 | 2026-10-22T03:22:52.328Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -d push-b703-widen-merge
+  #24 | 2026-10-22T03:22:54.533Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -d push-b703-epstein-merge
+  #25 | 2026-10-22T03:22:56.888Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py branches
+  #26 | 2026-10-22T03:23:44.060Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py readsort dry
+  #27 | 2026-10-22T03:23:48.263Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py readsort dry
+  #28 | 2026-10-22T03:23:58.738Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py readsort
+  #29 | 2026-10-22T03:31:28.600Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "Kernel branches, (R314)(8): 1"
+  #30 | 2026-10-22T03:31:32.322Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "Read arm, (R314)(2): write the arm"
+  #31 | 2026-10-22T03:31:35.382Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "(l) miss: 1, as the bank letters it"
+  #32 | 2026-10-22T03:31:44.830Z | seat | Bash | git -C /d/SIDE-explicit-formula branch --merged main
+  #33 | 2026-10-22T03:31:46.941Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -d widening-b701
+  #34 | 2026-10-22T03:31:49.019Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -d epstein-b703
+  #35 | 2026-10-22T03:31:51.265Z | seat | Bash | git -C /d/SIDE-explicit-formula push origin --delete widening-b701
+  #36 | 2026-10-22T03:31:55.570Z | seat | Bash | git -C /d/SIDE-explicit-formula push origin --delete epstein-b703
+  #37 | 2026-10-22T03:31:59.852Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote origin
+  #38 | 2026-10-22T03:32:44.841Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b704_tests.py parts
+  #39 | 2026-10-22T03:32:50.680Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_tests.py hold 1 && for t in test_act_root.py test_act_root_commit_b644.py test_act_root_order_b641.py test_adde
+  #40 | 2026-10-22T03:33:04.658Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_tests.py hold 2 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_tests.py run test_asof.py
+  #41 | 2026-10-22T03:39:36.527Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_tests.py hold 3 && for t in test_axiom_claim.py test_axiom_claim_b651.py test_banned_terms_backmatter.py test_b
+  #42 | 2026-10-22T03:40:19.821Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_tests.py hold 4 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_tests.py run test_chain_page.py
+  #43 | 2026-10-22T03:46:22.834Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_tests.py hold 5 && for t in test_chain_page_b592.py test_chain_page_b596.py test_chain_page_b629.py test_chain_
+  #44 | 2026-10-22T03:49:25.499Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_tests.py hold 6 && for t in test_g_chain_page.py test_glossary_supersede_b651.py test_licensed_table_b645.py te
+  #45 | 2026-10-22T03:54:25.463Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_tests.py hold 7 && for t in test_push_gated.sh test_reader_needle_b641.py test_record_findings_b632.py test_reg
+  #46 | 2026-10-22T03:55:05.119Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_tests.py report
+  #47 | 2026-10-22T03:55:18.028Z | seat | Bash | git status --porcelain --untracked-files=no && git -C /d/MY-DOwnloads/PLACE-papers status --porcelain && git ls-files --error-unmatch data/b628_intake_crank_v0_
+  #48 | 2026-10-22T03:56:24.369Z | seat | Bash | git add data/b704_ferry.txt data/b704_ferry_scan.txt data/b704_citation_check.txt data/b704_citation_check.json data/b704_readfirst.txt data/b704_readfirst_clos
+  #49 | 2026-10-22T03:57:25.525Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_corrigendum.py dry
+  #50 | 2026-10-22T03:57:36.739Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_corrigendum.py dry
+  #51 | 2026-10-22T03:57:47.715Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_corrigendum.py dry
+  #52 | 2026-10-22T03:58:08.291Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_corrigendum.py dry
+  #53 | 2026-10-22T03:58:17.609Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_corrigendum.py dry
+  #54 | 2026-10-22T03:58:50.895Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py c1 dry
+  #55 | 2026-10-22T03:58:54.380Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py c1
+  #56 | 2026-10-22T03:58:57.723Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_corrigendum.py land
+  #57 | 2026-10-22T03:59:17.642Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py names b698
+  #58 | 2026-10-22T04:09:24.086Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "Arm baseline: 1, from the word on"
+  #59 | 2026-10-22T04:10:09.676Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py reads dry
+  #60 | 2026-10-22T04:11:07.528Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py reads && PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_read_arm.py n
+  #61 | 2026-10-22T04:11:15.696Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --porcelain --untracked-files=no && git add FINDINGS.md && git commit -q -m "b704 Component 1 under (R314)(1)-(2):
+  #62 | 2026-10-22T04:11:20.820Z | seat | Bash | cd /d/relay && git add data/b704_record_lines.json data/b704_corrigendum.txt data/b704_corrigendum.json data/b704_corrigendum_landing.json data/b675_corrigenda.
+  #63 | 2026-10-22T04:11:35.696Z | seat | Bash | ls -la /d/SIDE-explicit-formula/.github/workflows/ && ls -la /d/relay/data/b643_probe_out_zeta.txt /d/relay/data/b643_* | head -40
+  #64 | 2026-10-22T04:11:59.924Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py names chain_page
+  #65 | 2026-10-22T04:12:10.551Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-tree --name-only v0.37 && git -C /d/SIDE-explicit-formula status --porcelain --untracked-files=no && git -C /d/SIDE-explicit-
+  #66 | 2026-10-22T04:15:22.983Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "Probe route: 1, the probe branch"
+  #67 | 2026-10-22T04:17:48.447Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py nodesdiff
+  #68 | 2026-10-22T04:17:57.759Z | seat | Bash | git -C /d/SIDE-explicit-formula checkout -q -b probe-b704 v0.37 && git -C /d/SIDE-explicit-formula rev-parse --abbrev-ref HEAD && git -C /d/SIDE-explicit-formul
+  #69 | 2026-10-22T04:18:00.626Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py probe dry
+  #70 | 2026-10-22T04:18:08.574Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py probe
+  #71 | 2026-10-22T04:18:12.306Z | seat | Bash | git -C /d/SIDE-explicit-formula status --porcelain && git -C /d/SIDE-explicit-formula diff --stat v0.37
+  #72 | 2026-10-22T04:18:16.551Z | seat | Bash | git -C /d/SIDE-explicit-formula add CircuitClosure.lean && git -C /d/SIDE-explicit-formula commit -q -m "b704 (R314)(3), probe-b704: the root CircuitClosure.lea
+  #73 | 2026-10-22T04:18:21.044Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b704_probe_branch_push_out.txt timeout 300 bash tools/push_gated.sh /d/SIDE-explicit-formula --branch probe-b704 --scratch
+  #74 | 2026-10-22T04:18:34.618Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py dispatch SIDE-explicit-formula ad3db9ff7c055b12f3836e9afde0b1bbbfcb7104 probe "SIDEExp
+  #75 | 2026-10-22T04:18:43.130Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 200 python -X utf8 -B tools/b704_record.py dispatch SIDE-explicit-formula ad3db9ff7c055b12f3836e9afde0b1bbbfcb7104 probe "SIDEExp
+  #76 | 2026-10-22T04:19:24.610Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 -B tools/b704_record.py probediff && PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 -B tools/b704_record.py r
+  #77 | 2026-10-22T04:19:42.081Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/correspondence_gen.py dry data/b672_roster_read.json full
+  #78 | 2026-10-22T04:20:03.041Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 -B tools/b704_record.py runstatus SIDE-explicit-formula 39721668586
+  #79 | 2026-10-22T04:20:32.616Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py efcells dry
+  #80 | 2026-10-22T04:20:52.949Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 -B tools/b704_record.py runstatus SIDE-explicit-formula 39721668586
+  #81 | 2026-10-22T04:21:44.424Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 -B tools/b704_record.py runstatus SIDE-explicit-formula 39721668586
+  #82 | 2026-10-22T04:21:58.888Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 -B tools/b704_record.py runwait SIDE-explicit-formula 39721668586 540
+  #83 | 2026-10-22T04:29:13.625Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py probeview 39721668586
+  #84 | 2026-10-22T04:29:34.224Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py cands
+  #85 | 2026-10-22T04:33:03.846Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "Faces nodes: 1, regenerate with both nodes"
+  #86 | 2026-10-22T04:33:30.838Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 -B tools/chain_page.py --nodes data/b704_nodes_zeta.txt --probe-dir C:/Users/ECHOCH~1/AppData/Local/Temp/claud
+  #87 | 2026-10-22T04:34:43.670Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 -B tools/chain_page.py --nodes data/b702_nodes_zeta.txt --probe-dir C:/Users/ECHOCH~1/AppData/Local/Temp/claud
+  #88 | 2026-10-22T04:35:47.541Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py facesraw
+  #89 | 2026-10-22T04:36:15.120Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py facesdiff dry
+  #90 | 2026-10-22T04:36:22.633Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py facesdiff
+  #91 | 2026-10-22T04:36:23.971Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 -B tools/chain_page.py --nodes data/b704_nodes_zeta.txt --probe-dir C:/Users/ECHOCH~1/AppData/Local/Temp/claud
+  #92 | 2026-10-22T04:37:20.685Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers diff --stat && git -C /d/MY-DOwnloads/PLACE-papers diff --numstat && cmp /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COM
+  #93 | 2026-10-22T04:37:25.686Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add THE_CLAUSE_AND_ITS_COMPILED_FACES.md && git commit -q -m "b704 Component 2 under (R314)(3): the faces page regenerate
+  #94 | 2026-10-22T04:37:37.598Z | seat | Bash | cd /d/relay && git add data/b704_nodes_zeta.txt data/b704_nodes_diff.txt data/b704_probe.txt data/b704_probe.json data/b704_probe_diff.txt data/b704_probe_branc
+  #95 | 2026-10-22T04:37:44.626Z | seat | Bash | git -C /d/SIDE-explicit-formula checkout -q main && git -C /d/SIDE-explicit-formula rev-parse --abbrev-ref HEAD && git -C /d/SIDE-explicit-formula rev-parse HEA
+  #96 | 2026-10-22T04:37:47.076Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -D probe-b704
+  #97 | 2026-10-22T04:37:49.736Z | seat | Bash | git -C /d/SIDE-explicit-formula push origin --delete probe-b704
+  #98 | 2026-10-22T04:37:54.060Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote --heads origin
+  #99 | 2026-10-22T04:38:25.328Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py efcells && git -C /d/SIDE-explicit-formula diff --stat v0.36 v0.37 -- SIDEExplicitForm
+  #100 | 2026-10-22T04:38:35.847Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote --tags origin v0.37 v0.36 v0.35
+  #101 | 2026-10-22T04:38:41.910Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-remote --tags origin "v0.37^{}"
+  #102 | 2026-10-22T04:47:21.358Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "Cells: answered by typing, option 2 widened"
+  #103 | 2026-10-22T04:47:24.411Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "README: 1, apply"
+  #104 | 2026-10-22T04:47:27.342Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "Glossary: 1, write, after one check"
+  #105 | 2026-10-22T04:47:41.060Z | seat | Bash | ls -la /d/relay/data/*probe_out*
+  #106 | 2026-10-22T04:48:14.660Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py cellsreach
+  #107 | 2026-10-22T04:48:32.870Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py cellsreach
+  #108 | 2026-10-22T04:48:40.886Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 400 python -X utf8 -B tools/correspondence_gen.py run data/b672_roster_read.json --diff b704_correspondence_run
+  #109 | 2026-10-22T04:49:19.889Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py readmediff && git -C /d/MY-DOwnloads/PLACE-papers diff --stat
+  #110 | 2026-10-22T04:49:24.890Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add README.md && git commit -q -m "b704 Component 3 under (R314)(5) and the author's word (apply): README's kernel line a
+  #111 | 2026-10-22T04:49:47.840Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py glosscheck dry
+  #112 | 2026-10-22T04:49:58.492Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py glosscheck && git diff --stat -- data/glossary.txt
+  #113 | 2026-10-22T04:50:11.448Z | seat | Bash | git add data/b704_correspondence_dry.txt data/b704_correspondence_run.txt data/b704_correspondence_run.json data/b704_cells_reach.txt data/b704_cells_reach.json
+  #114 | 2026-10-22T04:50:20.791Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 -B tools/chain_page.py --nodes data/b704_nodes_zeta.txt --probe-dir C:/Users/ECHOCH~1/AppData/Local/Temp/claud
+  #115 | 2026-10-22T04:53:00.474Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "Page again: 1, regenerate once more"
+  #116 | 2026-10-22T04:53:18.577Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py facesdiff dry
+  #117 | 2026-10-22T04:53:22.728Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py facesdiff
+  #118 | 2026-10-22T04:53:24.771Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 500 python -X utf8 -B tools/chain_page.py --nodes data/b704_nodes_zeta.txt --probe-dir C:/Users/ECHOCH~1/AppData/Local/Temp/claud
+  #119 | 2026-10-22T04:54:22.292Z | seat | Bash | cmp /d/MY-DOwnloads/PLACE-papers/THE_CLAUSE_AND_ITS_COMPILED_FACES.md C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/fb68aaef-b55a-4524-9588-8db0a32e886f/scrat
+  #120 | 2026-10-22T04:54:26.013Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add THE_CLAUSE_AND_ITS_COMPILED_FACES.md && git commit -q -m "b704 Component 3 under (R314)(6) and the author's word (reg
+  #121 | 2026-10-22T04:54:45.909Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py cellsreach
+  #122 | 2026-10-22T04:54:51.393Z | seat | Bash | git add data/b704_faces_diff.txt data/b704_faces_diff.json data/b704_faces_cells.json data/b704_cells_reach.txt data/b704_cells_reach.json data/b704_defects.txt
+  #123 | 2026-10-22T04:55:27.978Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py orders dry
+  #124 | 2026-10-22T04:55:31.772Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py orders
+  #125 | 2026-10-22T04:55:36.853Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b704 Components 2-3 under (R314)(3)-(6): OPEN_TRAILS :15542 W-ORD-FACES-PROBE-CUR
+  #126 | 2026-10-22T04:55:40.017Z | seat | Bash | cd /d/relay && git add data/b704_orders_line.json tools/b704_record.py && git commit -q -m "b704 Components 2-3: the orders' landing bank (OPEN_TRAILS :15542-:1
+  #127 | 2026-10-22T04:55:44.578Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py tie dry
+  #128 | 2026-10-22T04:56:14.802Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py tie
+  #129 | 2026-10-22T04:57:24.857Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_citation.py answer "Next document: 1, day1/ONE_PAGE_PROOF.md"
+  #130 | 2026-10-22T04:57:33.237Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py tie dry
+  #131 | 2026-10-22T04:57:39.731Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py tie | tail -n 2
+  #132 | 2026-10-22T04:59:24.064Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 -B tools/b704_record.py names rule_arms
+  #133 | 2026-10-22T05:00:08.821Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py quote dry
+  #134 | 2026-10-22T05:00:21.300Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py quote
+  #135 | 2026-10-22T05:02:06.869Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py cutbank dry
+  #136 | 2026-10-22T05:02:19.760Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py cutbank dry
+  #137 | 2026-10-22T05:02:27.315Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git diff --numstat && git add day1/ONE_PAGE_PROOF.md && git commit -q -m "b704 Component 4 under (R314)(7): day1/ONE_PAGE_PRO
+  #138 | 2026-10-22T05:02:31.941Z | seat | Bash | cd /d/relay && PYTHONIOENCODING=utf-8 timeout 120 python -X utf8 -B tools/b704_record.py cutbank 02b7aad
+  #139 | 2026-10-22T05:02:42.743Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 300 python -X utf8 -B tools/b704_record.py quotecheck
+  #140 | 2026-10-22T05:03:15.372Z | seat | Bash | git add data/b704_tie.txt data/b704_tie.json data/b704_tie_word.json data/b704_quote.txt data/b704_quote.json data/b704_cut.txt data/b704_cut.json data/b704_def
+  #141 | 2026-10-22T05:03:25.510Z | seat | Bash | PYTHONIOENCODING=utf-8 timeout 60 python -X utf8 -B tools/b704_record.py names b703_checks
+  #142 | 2026-10-22T05:12:21.382Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py names b704_record
+  #143 | 2026-10-22T05:12:34.214Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/fb68aaef-b55a-4524-9588-8db0a32e886f/scratchpad/attrcheck.py"
+  #144 | 2026-10-22T05:12:38.159Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py commands dry
+  #145 | 2026-10-22T05:14:44.146Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py names b703_checks
+  #146 | 2026-10-22T05:15:27.252Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py standing
+  #147 | 2026-10-22T05:16:02.850Z | seat | Bash | git ls-files -s data/b704_citation_check.txt data/b704_branches.txt data/b704_rowgen_stepzero.txt data/b704_stepzero.txt data/b704_tests_stepzero.txt data/b704_
+  #148 | 2026-10-22T05:16:12.070Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py verdicts b704_citation_check.txt b704_branches.txt b704_rowgen_stepzero.txt b704_stepzero.txt b704_te
+  #149 | 2026-10-22T05:16:17.355Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py names b704_closing
+  #150 | 2026-10-22T05:16:58.066Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py names b704_read_arm
+  #151 | 2026-10-22T05:17:21.074Z | seat | Bash | git ls-files "data/b704_*" && git status --short
+  #152 | 2026-10-22T05:23:45.511Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/fb68aaef-b55a-4524-9588-8db0a32e886f/scratchpad/armcheck.py"
+  #153 | 2026-10-22T05:23:48.435Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py names b703_reg_gate && PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py names b703_regspec 
+  #154 | 2026-10-22T05:25:42.688Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py repairs dry
+  #155 | 2026-10-22T05:25:49.141Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py repairs && PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py guard && PYTHONIOENCODING=utf-8
+  #156 | 2026-10-22T05:25:54.960Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py figures
+  #157 | 2026-10-22T05:26:02.104Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py names b703_standing_figures
+  #158 | 2026-10-22T05:28:20.790Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_citation.py answer "README arm: answered by typing"
+  #159 | 2026-10-22T05:28:57.200Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py order_readme dry
+  #160 | 2026-10-22T05:29:05.045Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py order_readme dry
+  #161 | 2026-10-22T05:29:08.041Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py order_readme
+  #162 | 2026-10-22T05:30:41.446Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b704_record.py figures
+
+### ### **COMMANDS 162 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 14 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 6 ; PIPES OF ANY KIND 7 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 14 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 14 OF 14 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
