@@ -1,15 +1,15 @@
 {
  "exercise": {
   "G-DRY-STEP-CLEAN": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record: the dry-run step run, the entry and the trail record quiet under their screens, the trail`s Defects and Resolved lines equal to the defects bank, CLEAN printed, the gate CLEAR",
    "secs": 0.0
   },
   "G-CLOSING-DRY-STEP": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record: the closing run dry before the lock, its head line and its sections -- the corrigendum, the widening, the Epstein step, the pins, the count, the standing arms, the orders, the kernels -- and the defects row printed (b675 rules row 1)",
    "secs": 0.0
@@ -22,32 +22,32 @@
    "secs": 0.0
   },
   "G-R313-ENTERED": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the ferry and the trail",
-   "secs": 0.003
+   "secs": 0.0136
   },
   "G-ROWGEN-STEPZERO": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "the rowgen bank: constellation and the build-free diff over the 19 roster tables, both exit 0 (b670 rules row 3)",
-   "secs": 0.0
+   "secs": 0.0015
   },
   "G-BRANCHES-BANKED": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "the branches banks: every tip banked before the first delete and the citation check before it (b695 (a)), the six rows through the record tool`s reader, each merged and deleted, widening-b701 at its tip at step zero",
-   "secs": 0.0
+   "secs": 0.0016
   },
   "G-DELETES-ONE-BRANCH": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "the command capture by the record tool`s reader and the command bank: each branch delete naming one branch, no glob and no variable in any half, nothing chained after (data/b694_rules.txt row (1)), the ruling`s six exactly",
-   "secs": 0.0161
+   "secs": 0.0167
   },
   "G-ANSWERS-CHECKED": {
    "live": true,
@@ -61,28 +61,28 @@
    "neg": true,
    "pos": false,
    "reads": "tools/b703_record.py`s code, prose stripped: the N1-N4 scorers reading banks and commits and no ledger, the scores bank written once, the entry`s scores line from it",
-   "secs": 0.0
+   "secs": 0.002
   },
   "G-ENTRY-SCORES-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "FINDINGS at the findings bank`s line and the scores bank: the entry`s scores line equal to the line composed from the bank",
-   "secs": 0.0137
+   "secs": 0.0096
   },
   "G-ENTRY-TITLE-FORM": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "FINDINGS at the findings bank`s line and the record tool`s title from the banks: the ferry`s form, titled by its objects, adjusted to what the act did",
-   "secs": 0.1401
+   "secs": 0.1587
   },
   "G-CORRIGENDUM-ENTERED": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "the generated corrigendum entry at FINDINGS (its bank`s line, the title through conv), (j) and (k) lettered, the push capture committed at step zero; the corrigenda bank appended at rows (22)-(23) and nothing before them changed ((R313)(2))",
-   "secs": 0.0157
+   "secs": 0.0
   },
   "G-GUARD-HELD": {
    "live": true,
@@ -92,18 +92,18 @@
    "secs": 0.0
   },
   "G-POSTROOT-WRITES-NONE": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the guard`s dry-run bank and the log: no write on the post-root path, and every per-part seconds bank`s last commit at or before the root`s recorded commit",
    "secs": 0.0
   },
   "G-TRAIL-LINES-EQUAL-DEFECTS": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "OPEN_TRAILS from the trail`s head and data/b703_defects.txt at HEAD: the Defects line and the Resolved line, each counted by kind, equal the bank counted by kind",
-   "secs": 0.0073
+   "secs": 0.0169
   },
   "G-QUOTE-ARM-BRANCHED": {
    "live": true,
@@ -194,7 +194,7 @@
    "neg": true,
    "pos": false,
    "reads": "the registrations bank`s commit and the band bank`s first commit: the registrations committed alone, before the count was written (N4)",
-   "secs": 0.0061
+   "secs": 0.0
   },
   "G-Q0-BAND-CONTROL": {
    "live": true,
@@ -222,7 +222,7 @@
    "neg": true,
    "pos": false,
    "reads": "OPEN_TRAILS at the eight landing lines: the four annotations and the four orders by name, KEYSTONE-HEADS`s trigger moved, P3-CONTOUR-SIGMA`s trigger b705 step zero",
-   "secs": 0.0777
+   "secs": 0.0833
   },
   "G-FIGURES-BASELINE": {
    "live": true,
@@ -250,7 +250,7 @@
    "neg": true,
    "pos": false,
    "reads": "the pre-run bank`s six parts with their seconds, named in the form the parts arm reads",
-   "secs": 0.0016
+   "secs": 0.0
   },
   "G-ARM-SECONDS-BANKED": {
    "live": true,
@@ -274,32 +274,22 @@
    "secs": 0.0
   },
   "G-TRAIL-DEFECTS-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record and OPEN_TRAILS from the trail`s head: the trail`s Defects line equal to the defects bank in the dry run and as landed",
-   "secs": 0.0031
+   "secs": 0.0
   },
   "G-TRAIL-RESOLVED-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record and OPEN_TRAILS from the trail`s head: the trail`s Resolved line`s last item counting the navigator`s and the seat`s defects as the bank letters them, in the dry run and as landed",
-   "secs": 0.0
+   "secs": 0.0091
   }
  },
  "run": 41,
- "live_failing": [
-  "G-DRY-STEP-CLEAN",
-  "G-CLOSING-DRY-STEP",
-  "G-R313-ENTERED",
-  "G-ENTRY-SCORES-EQUAL",
-  "G-ENTRY-TITLE-FORM",
-  "G-POSTROOT-WRITES-NONE",
-  "G-TRAIL-LINES-EQUAL-DEFECTS",
-  "G-TRAIL-DEFECTS-EQUAL",
-  "G-TRAIL-RESOLVED-EQUAL"
- ],
+ "live_failing": [],
  "defective": [],
  "neg_failures": 0,
  "part": "act"
