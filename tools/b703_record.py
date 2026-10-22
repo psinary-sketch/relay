@@ -1282,7 +1282,7 @@ def _for_author():
             'author’s word at the classK’ prompt; (2) the merge to v0.36 made on the gate’s reading while E0 read PREDICATE-UNLISTED at the three '
             'inclusions, the question entered for b705 under W-ORD-E0-MET-CLASSK; (3) Z_Q’s zero sum stated over the strip-free WideConfig and not '
             'b701’s plan’s closed strip, b590’s EpsteinPremises link a residue; (4) the runner’s first reading of the widening NOT DERIVES on a reader '
-            'blind to primes, read again by its run id after the repair, no second dispatch; (5) the companion glossary rows h2_sign’ and h2_sign_sum '
+            'that stopped at a prime in a name, read again by its run id after the repair, no second dispatch; (5) the companion glossary rows h2_sign’ and h2_sign_sum '
             'not added, raised at b705; (6) the interval library’s pin read from a shallow clone of its main, its price waiting on BINDER-PROVENANCE; '
             '(7) the %s navigator %s (%s) and the seat’s %s defect%s as lettered' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', letters,
                                                                                    num_word(seat), '' if seat == 1 else 's'))
