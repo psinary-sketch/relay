@@ -697,6 +697,146 @@ def facesdiff(*a):
     print(NL.join(L[6:]))
 
 
+def _probe_pins():
+    """each banked chain probe with the pin its node list names (a list without a `# pin:` line is b568's, at v0.10)."""
+    out = []
+    for f in sorted(os.listdir(D)):
+        m = re.match(r'^(b\d+)_probe_out(_zeta)?\.txt$', f)
+        if not m:
+            continue
+        lst = next((x for x in ('%s_nodes_zeta.txt' % m.group(1), '%s_nodes.txt' % m.group(1), '%s_nodes_faces.txt' % m.group(1))
+                    if os.path.exists(os.path.join(D, x))), None)
+        pin = 'v0.10'
+        if lst:
+            pins = re.findall(r'^# pin: (\S+)\s*$', rdn(lst), re.M)
+            pin = pins[-1] if pins else 'v0.10'
+        out.append((f, lst, pin))
+    return out
+
+
+def cellsreach(*a):
+    """data/b704_cells_reach.txt: (R314)(4) on the author's word -- each table line naming SIDE-explicit-formula at a tag (data/b704_correspondence_dry.txt's
+    rows), read against the probe: the paper and line, each kernel theorem the line names (an identifier whose last component is a probe cell's),
+    the tag the line names beside the kernel, the theorem's statement at v0.37 from probe run 39721668586, and its statement at the named tag
+    from the banked chain probe whose list's pin is that tag, by path. EQUAL: the mention stands as an entry-tag citation; DIFFERS or NO PRINT
+    BANK AT THE TAG: raised before the closing, nothing written. The source header at the named tag is printed beside as a source, not a print."""
+    import chain_page as CP
+    cells, _e = CP.parse(rdn('b704_probe_out_zeta.txt'))
+    by_short = {}
+    for n in cells:
+        by_short.setdefault(n.split('.')[-1], []).append(n)
+    pins = _probe_pins()
+    dry_rows = [l for l in rdn('b704_correspondence_dry.txt').split(NL) if re.match(r'^  \S+ \| \S+ :\d+ \|', l)]
+    rows = []
+    for l in dry_rows:
+        doc, rest = l.strip().split(' | ', 1)
+        path, ln = re.match(r'^(\S+) :(\d+)', rest).groups()
+        line = (rd(os.path.join(PP, path)) or '').replace(chr(13), '').split(NL)[int(ln) - 1]
+        # ### the citation form the lines use: a backticked name, a comma, SIDE-explicit-formula and its tag (or "at the page's pin" and the tag)
+        pairs = re.findall(r"`([A-Za-z_][\w.']*)`,\s*SIDE-explicit-formula\s+(?:at [^`|;)]*?pin\s+)?(v\d+(?:\.\d+)*)", line) or [('(none named)', '(no tag)')]
+        for idn, tg0 in pairs:
+            full = (by_short.get(idn.split('.')[-1]) or [None])[0]
+            st37 = (cells.get(full) or {}).get('statement') if full else None
+            for tg in [tg0]:
+                bank = next((f for f, _lst, p in pins if p == tg), None)
+                st_t = None
+                if bank and full:
+                    c2, _ = CP.parse(rdn(bank))
+                    st_t = (c2.get(full) or {}).get('statement')
+                src = None
+                if full and tg.startswith('v'):
+                    mod = (cells.get(full) or {}).get('module') or ''
+                    blob = _show(EF, tg, '/'.join(mod.split('.')) + '.lean') if mod else ''
+                    m0 = re.search(r'^(?:theorem|lemma|def)\s+(?:[\w.]*\.)?%s\b(.*?):=' % re.escape(full.split('.')[-1]), blob or '', re.M | re.S)
+                    src = ' '.join(m0.group(0).split())[:300] if m0 else None
+                verdict = ('EQUAL' if st_t and st37 and ' '.join(st_t.split()) == ' '.join(st37.split()) else
+                           'DIFFERS' if st_t and st37 else 'NO PRINT BANK AT THE TAG' if full and tg.startswith('v') else 'NO THEOREM OR NO TAG READ')
+                rows.append(dict(doc=doc, path=path, line=int(ln), text=line, id=idn, full=full, tag=tg, st37=st37, bank=bank, st_t=st_t, src=src, verdict=verdict))
+    L = ['%s -- COMPONENT 3, (R314)(4) AND THE AUTHOR`S WORD AT THE CELLS PROMPT: THE PROSE MENTIONS OF SIDE-explicit-formula READ AGAINST THE PROBE (%s)' % (ACT, utc()), '',
+         '### the mentions: the reader`s rows of relay data/b704_correspondence_dry.txt (11 table lines naming the kernel). The statement at v0.37: probe run',
+         '### 39721668586 (relay data/b704_probe_out_zeta.txt, chain_page`s parser). The print banks holding a tag: the banked chain probes, each at its',
+         '### list`s pin -- %s. Rows are (line, theorem, tag): the line verbatim, then the readings.' % '; '.join('%s at %s' % (f, p) for f, _l, p in pins), '']
+    for r in rows:
+        L += ['  %s | %s :%d | %s | tag %s | %s' % (r['doc'], r['path'], r['line'], r['full'] or r['id'], r['tag'], r['verdict']),
+              '      the line: %s' % r['text'],
+              '      at v0.37 (the probe): %s' % (r['st37'] or '### NOT A PROBE CELL'),
+              '      at %s (%s): %s' % (r['tag'], ('relay data/' + r['bank']) if r['bank'] else '### NO PRINT BANK HOLDS THE TAG', r['st_t'] or '-'),
+              '      the source at %s (git show, not a print): %s' % (r['tag'], r['src'] or '-')]
+    raised = [r for r in rows if r['verdict'] != 'EQUAL']
+    L += ['', '### ### **MENTIONS READ %d (LINES %d) ; EQUAL %d ; DIFFERS %d ; NO PRINT BANK AT THE TAG %d ; NO THEOREM OR NO TAG %d ; RAISED BEFORE THE CLOSING %d ; '
+          'NOTHING WRITTEN.**' % (len(rows), len(dry_rows), sum(1 for r in rows if r['verdict'] == 'EQUAL'), sum(1 for r in rows if r['verdict'] == 'DIFFERS'),
+                                  sum(1 for r in rows if r['verdict'] == 'NO PRINT BANK AT THE TAG'), sum(1 for r in rows if r['verdict'].startswith('NO THEOREM')),
+                                  len(raised))]
+    if 'dry' not in a:
+        put_txt('%s_cells_reach.txt' % ACT, L)
+        put_json('%s_cells_reach.json' % ACT, dict(at=utc(), rows=[dict((k, v) for k, v in r.items() if k != 'text') for r in rows]))
+    print(L[-1])
+
+
+def readmediff(*a):
+    """data/b704_readme.txt: (R314)(5) on the author's word ("apply") -- the README's diff against PLACE-papers HEAD (the working tree, before the
+    commit) or, after it (`committed <sha>`), the commit's diff and the blob read back at the remote by one ls-remote of PLACE-papers; where each
+    edit landed by line; the two edits and nothing else."""
+    rm = (rd(os.path.join(PP, 'README.md')) or '').replace(chr(13), '').split(NL)
+    kl = next((i + 1 for i, l in enumerate(rm) if 'the live kernel line names SIDE-explicit-formula **v0.37** (`38e2734`)' in l), 0)
+    ap = next((i + 1 for i, l in enumerate(rm) if l.startswith("*(Appended under the author's ruling `(R314)`(5), 2026-10-22, b704")), 0)
+    if a and a[0] == 'committed':
+        sha = a[1]
+        d = g(PP, 'show', '--format=%H %s', '--unified=0', sha, '--', 'README.md').split(NL)
+        blob = g(PP, 'rev-parse', '%s:README.md' % sha).strip()
+        remote = g(PP, 'ls-remote', 'origin', 'refs/heads/main').split()[:1]
+        rblob = g(PP, 'rev-parse', '%s:README.md' % remote[0]).strip() if remote else ''
+        tail = ['### the commit %s ; its README blob %s ; the remote main %s, its README blob %s ; %s' % (
+            sha[:7], blob[:8], (remote or ['-'])[0][:7], rblob[:8], 'EQUAL' if blob and blob == rblob else '### NOT EQUAL')]
+    else:
+        d = g(PP, 'diff', '--unified=0', '--', 'README.md').split(NL)
+        tail = ['### the working tree against HEAD, before the commit']
+    plus = [l for l in d if l.startswith('+') and not l.startswith('+++')]
+    minus = [l for l in d if l.startswith('-') and not l.startswith('---')]
+    L = ['%s -- COMPONENT 3, (R314)(5): THE README`S TWO EDITS ON THE AUTHOR`S WORD (%s)' % (ACT, utc()), '',
+         '### rows are the diff`s lines (git diff --unified=0 of PLACE-papers README.md), then where each edit landed and the read-back.', '']
+    L += ['  ' + l for l in d if l.strip()]
+    L += ['', '### the kernel line at :%d ; the append at :%d (beneath the b702 append, :133)' % (kl, ap)] + tail
+    ok = len(minus) == 1 and len(plus) == 3 and kl and ap == 135
+    L += ['### ### **LINES REMOVED %d ; ADDED %d (THE KERNEL LINE, A BLANK, THE APPEND) ; THE KERNEL LINE AT :%d ; THE APPEND AT :%d ; AS ORDERED %s.**' % (
+        len(minus), len(plus), kl, ap, bool(ok))]
+    if 'dry' not in a:
+        put_txt('%s_readme.txt' % ACT, L)
+    print(NL.join(L[-3:]))
+
+
+def glosscheck(*a):
+    """data/b704_glossary.txt: (R314)(6) on the author's word ("write, after one check") -- E0's reading and the hand grade of the two theorems
+    the companion rows rest on, read from b703's grade bank (data/b703_widening_grade.txt, its verdict line and each theorem's check line); a
+    row is written where both read DERIVES, held otherwise; after the append (`landed`), the two rows read back from data/glossary.txt by line."""
+    wg = rdn('b703_widening_grade.txt').split(NL)
+    vl = next((i + 1 for i, l in enumerate(wg) if 'THEOREMS 10' in l), 0)
+    out = []
+    for th, row in (("h2_sign'_imp_rh", "h2_sign'"), ('h2_sign_sum_iff_rh', 'h2_sign_sum')):
+        hd = next((i + 1 for i, l in enumerate(wg) if l.startswith('== %s ' % th)), 0)
+        e0 = next((i + 1 for i, l in enumerate(wg) if i + 1 > hd and l.strip().startswith('E0 GRADE ')), 0) if hd else 0
+        gr = next((i + 1 for i, l in enumerate(wg) if i + 1 > hd and l.strip().startswith('THE GRADE READ FROM THE STATEMENT:')), 0) if hd else 0
+        m = re.search(r"%s GRADE (\S+) \(E0 (\S+)\)" % re.escape(th), wg[vl - 1] if vl else '')
+        ok = bool(m) and m.group(1) == 'DERIVES' and m.group(2) == 'DERIVES'
+        out.append((th, row, hd, e0, gr, m.group(1) if m else None, m.group(2) if m else None, ok,
+                    wg[e0 - 1].strip() if e0 else '', wg[gr - 1].strip() if gr else ''))
+    gl = rdn('glossary.txt').split(NL)
+    landed = [(r, next((i + 1 for i, l in enumerate(gl) if l.startswith(r + '\t')), 0)) for _t, r, *_x in out]
+    L = ['%s -- COMPONENT 3, (R314)(6): THE GLOSSARY COMPANIONS, THE CHECK BEFORE THE APPEND AND THE ROWS AFTER IT (%s)' % (ACT, utc()), '',
+         '### the check (the author`s word at the glossary prompt): E0`s reading and the hand grade of the theorem each row rests on, from relay',
+         '### data/b703_widening_grade.txt (the verdict :%d and each theorem`s block). Rows are theorems: the row it carries | the block | E0 | the hand' % vl,
+         '### grade | write or hold.', '']
+    for th, row, hd, e0, gr, hg, eg, ok, e0l, grl in out:
+        L += ['  %s (the row %s) | data/b703_widening_grade.txt :%d | E0 %s | hand %s | %s' % (th, row, hd, eg, hg, 'WRITE' if ok else '### HOLD'),
+              '      :%d %s' % (e0, e0l), '      :%d %s' % (gr, grl)]
+    L += ['', '### the rows in relay data/glossary.txt after the append: %s' % ('; '.join('%s :%d' % x for x in landed))]
+    L += ['### ### **THEOREMS 2 ; BOTH DERIVES UNDER E0 AND BY HAND %s ; ROWS TO WRITE %d ; ROWS IN THE GLOSSARY %d.**' % (
+        all(o[7] for o in out), sum(1 for o in out if o[7]), sum(1 for _r, n in landed if n))]
+    if 'dry' not in a:
+        put_txt('%s_glossary.txt' % ACT, L)
+    print(NL.join(L[6:]))
+
+
 def runwait(*a):
     """`runwait <kernel> <run id> [seconds]`: the run's status read every 30 s in the FOREGROUND until it completes or the seconds pass (at most
     560, under the 590 s guard); each read printed. No wait is backgrounded."""
@@ -801,7 +941,7 @@ def tie(*a):
     print(NL.join(L))
 
 
-ROUTES = dict(names=names, defshort=defshort, probeview=probeview, probediff=probediff, efcells=efcells, tie=tie, runwait=runwait, cands=cands, facesraw=facesraw, facesdiff=facesdiff, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch, runstatus=runstatus,
+ROUTES = dict(names=names, defshort=defshort, probeview=probeview, probediff=probediff, efcells=efcells, tie=tie, runwait=runwait, cands=cands, facesraw=facesraw, facesdiff=facesdiff, cellsreach=cellsreach, readmediff=readmediff, glosscheck=glosscheck, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch, runstatus=runstatus,
               readsort=readsort, c1=c1, reads=reads, nodesdiff=nodesdiff, probe=probe)
 
 if __name__ == '__main__':
