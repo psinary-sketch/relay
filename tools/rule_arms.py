@@ -19,6 +19,10 @@ the 5 DECLARATION-ONLY, twenty arms named G-RULE-<name>. The superseded rule (b6
 ### bank carries its sha256 on a row naming another path reads OK where the corrigenda bank (data/b675_corrigenda.txt) carries a row citing
 ### that bank and line with the corrected path and the equal sha256, the correction printed beside the frozen row; with no such row it fails
 ### as before (b694's (k) its positive control in CONTROLS, the corrigendum withheld). The diff banked in data/b696_tool_repairs.txt.
+### b703, (R313)(2): G-RULE-RECUT-QUOTE branched on the kind of cut by the Edit tool -- a kernel cut read in b676's quote form
+### (data/b<act>_quote_*.json, its merge on the kernel's main) and a paper cut in the b670 form (data/b<act>_quote.json, its document, the
+### search before the cut's own PLACE-papers commit, its quoting lines entered in the cut bank's residues); the predicate unchanged. The diff
+### banked in data/b703_tool_repairs.txt, the control on b702's paper cut bank and b697's kernel cut bank.
 """
 import calendar
 import glob
@@ -347,6 +351,37 @@ def sources(act, jsonl, anchor, parts, lock_epoch=None, pre_relay=None, pre_pp=N
                        needled=all(r.get('needle') and r['needle'] in (r.get('line') or '') for r in rows) and bool(rows),
                        quoting=lines, unentered=[x for x in lines if not re.search(re.escape(x.split(' :')[0]) + r'[^\n]{0,40}?' +
                                                                                     r'(?:", |\s:?)' + x.split(' :')[1] + r'\b', cuts)]))
+    # ### b703, (R313)(2): the arm branched on the kind of cut -- a paper cut's search (data/b<act>_quote.json, the b670 form: a `document`, no
+    # ### kernel and no merge) read beside the kernel cuts' (b676's form above): its "merge" the cut's own PLACE-papers commit (the act's cut
+    # ### bank's `base` less its `^`), its time that commit's; its quoting lines (file, line) entered where the cut bank's residues carry them
+    for p in _banks('b*_quote.json', RECUT_FLOOR):
+        try:
+            q = json.load(io.open(p, encoding='utf-8'))
+        except Exception:
+            q = {}
+        if not q.get('document') or q.get('kernel'):
+            continue
+        a = _act_of(p)
+        try:
+            cj = json.load(io.open(os.path.join(D, 'b%d_cut.json' % a), encoding='utf-8'))
+        except Exception:
+            cj = {}
+        cc = (cj.get('base') or '').rstrip('^') if (cj.get('base') or '').endswith('^') else ''
+        if not cc:   # ### a cut bank written before its commit names HEAD: the first commit of the act touching the document after the search
+            qa = _iso(q.get('at') or '') or 0
+            for l in _g(PP, 'log', '--reverse', '--format=%H %ct %s', '--', q['document']).split(NL):
+                f = l.split(' ', 2)
+                if len(f) == 3 and f[1].isdigit() and int(f[1]) > qa and f[2].startswith('b%d ' % a):
+                    cc = f[0]
+                    break
+        ct = _g(PP, 'log', '-1', '--format=%H %ct', cc).split() if cc else []
+        mg = (ct[0], int(ct[1])) if len(ct) == 2 and ct[1].isdigit() else None
+        rows = q.get('rows') or []
+        lines = sorted(set('%s :%s' % (f, n_) for f, n_ in (q.get('quoting') or [])))
+        res = set('%s :%s' % (f, n_) for f, n_ in (cj.get('residues') or []))
+        qs.append(dict(bank=os.path.basename(p), act=a, at=_iso(q.get('at') or ''), merge=mg, rows=len(rows), kind='paper',
+                       needled=all(r.get('needle') and r['needle'] in (r.get('line') or '') for r in rows) and bool(rows),
+                       quoting=lines, unentered=[x for x in lines if x not in res]))
     R['quotes'] = qs
     R['cut_banks'] = dict((a, len([x for x in _banks('b%d_*cut.txt' % a, a, a)])) for a in range(RECUT_FLOOR, n + 1))
     return R

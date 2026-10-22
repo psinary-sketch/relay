@@ -1,0 +1,18 @@
+b703 -- COMPONENT 1, (R313)(2): G-RULE-RECUT-QUOTE BRANCHED ON THE KIND OF CUT, ITS CONTROL (2026-10-22T00:00:36Z)
+
+### rows are readings of the repaired arm (tools/rule_arms.py, the sources block): over | the quote banks read (bank, kind, its merge or
+### commit, the search before it, unentered lines) | the reading (ok, rows, failing, note) | as wanted.
+
+  every quote bank from b691 (this act`s HEAD)
+      banks: b691_quote_epstein.json kernel merge e5fcda7 search-before True unentered 0; b691_quote_rcurve.json kernel merge 54c9040 search-before True unentered 0; b693_quote_archimedean.json kernel merge fcecc45 search-before True unentered 0; b695_quote_interfaces.json kernel merge c8bd217 search-before True unentered 0; b697_quote_simplicity.json kernel merge 53df27f search-before True unentered 0; b698_quote_simplicity_readme.json kernel merge 967f747 search-before True unentered 0; b699_quote_substrate.json kernel merge 0c98a9a search-before True unentered 0; b702_quote.json paper merge a1d5d59 search-before True unentered 0
+      reading (True, 8, 0, 'quotation-search banks from b691 8, each removed line needled, the search before its merge, every quoting line entered in a cut bank of the act ; failing NONE ; acts with more cut banks than searches NONE') ; as wanted (passing) True
+  b702`s paper cut alone (data/b702_quote.json)
+      banks: b702_quote.json paper merge a1d5d59 search-before True unentered 0
+      reading (True, 1, 0, 'quotation-search banks from b691 1, each removed line needled, the search before its merge, every quoting line entered in a cut bank of the act ; failing NONE ; acts with more cut banks than searches NONE') ; as wanted (passing) True
+  b697`s kernel cut alone (data/b697_quote_simplicity.json)
+      banks: b697_quote_simplicity.json kernel merge 53df27f search-before True unentered 0
+      reading (True, 1, 0, 'quotation-search banks from b691 1, each removed line needled, the search before its merge, every quoting line entered in a cut bank of the act ; failing NONE ; acts with more cut banks than searches NONE') ; as wanted (passing) True
+  b702`s paper row planted with its search a minute after its commit
+      reading (False, 1, 1, "quotation-search banks from b691 1, each removed line needled, the search before its merge, every quoting line entered in a cut bank of the act ; failing ['b702_quote.json'] ; acts with more cut banks than searches NONE") ; as wanted (failing) True
+
+### ### **THE ARM PASSES ON b702`S PAPER CUT AND b697`S KERNEL CUT ALIKE, AND FAILS THE PLANTED LATE SEARCH: True.**
