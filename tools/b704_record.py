@@ -616,6 +616,7 @@ def cands(*a):
 SCR = K.SP
 PAGE_NEW = os.path.join(SCR, 'faces_b704.md')
 PAGE_CTL = os.path.join(SCR, 'faces_b702_now.md')
+PAGE_NEW2 = os.path.join(SCR, 'faces_b704_gloss.md')   # ### the second write's page, after Component 3's glossary rows
 
 
 def _ops(a_, b_):
@@ -645,9 +646,10 @@ def facesdiff(*a):
     HEAD) against the new page by the generator (b704's list from b704's probe, run 39721668586); the control page (b702's list from b643's probe,
     regenerated now by the same generator) separates what changed before this act's probe from what the probe and the list change. A line no
     cause rule names prints ### NO CAUSE and holds the write."""
-    C = (_show(PP, 'HEAD', K.FACES_PAGE) or '').replace(chr(13), '').split(NL)
+    base = K.PRE_PP   # ### the act's start: the page as b702 wrote it (b704 writes it twice, 5cf62a2 and the glossary write after Component 3)
+    C = (_show(PP, base, K.FACES_PAGE) or '').replace(chr(13), '').split(NL)
     O = rd(PAGE_CTL).replace(chr(13), '').split(NL)
-    N = rd(PAGE_NEW).replace(chr(13), '').split(NL)
+    N = rd(PAGE_NEW2 if os.path.exists(PAGE_NEW2) else PAGE_NEW).replace(chr(13), '').split(NL)
     co = _ops(C, O)
     o_new = set(l for op, i1, i2, j1, j2 in co for l in O[j1:j2])
     gl = rdn('glossary.txt').split(NL)
@@ -659,6 +661,12 @@ def facesdiff(*a):
                 cause = ('THE GLOSSARY`S classK` ROW, appended at b703 on the author`s word (relay data/glossary.txt :%d), carried into the page`s '
                          'glossary block by the generator (the list`s `# glossary` line) -- present in the control page too: the change '
                          'test_chain_page.py (1), (14) and test_g_chain_page.py (1) read at step zero' % gi)
+            elif l.startswith("- **h2_sign'**") or l.startswith('- **h2_sign_sum**'):
+                gi = next((i + 1 for i, x in enumerate(gl) if x.startswith(l[4:].split('**')[0] + '\t')), 0)
+                cause = ('THE GLOSSARY COMPANIONS, (R314)(6) and the author`s word ("write, after one check"): the row appended at relay '
+                         'data/glossary.txt :%d after the page`s first write (5cf62a2), carried by the page`s second write on the author`s word '
+                         '("regenerate once more"); the page written twice because (R314) put the page before the rows it prints (the '
+                         'navigator`s, by that word)' % gi)
             elif j1 + k + 1 == 3 and 'b704_nodes_zeta.txt' in l:
                 cause = 'THE LIST AND ITS PIN, (R314)(3): b702`s list -> b704`s (relay data/b704_nodes_zeta.txt, every row unchanged but its tag)'
             elif any('`%s`' % c in l for c in CANDIDATES):
@@ -671,7 +679,7 @@ def facesdiff(*a):
                 rows.append(('delete', None, C[i1 + k], None, '### NO CAUSE'))
     hdr = [l for l in N[:6] if 'v0.37' in l]
     L = ['%s -- COMPONENT 2, (R314)(3): THE FACES PAGE REGENERATED FROM THE PROBE AT v0.37, EVERY CHANGED LINE WITH ITS CAUSE (%s)' % (ACT, utc()), '',
-         '### the page: PLACE-papers %s at HEAD (%d lines) against the generator`s page from relay data/b704_nodes_zeta.txt and relay' % (K.FACES_PAGE, len(C)),
+         '### the page: PLACE-papers %s at the act`s start, %s (%d lines), against the generator`s page from relay data/b704_nodes_zeta.txt and relay' % (K.FACES_PAGE, base, len(C)),
          '### data/b704_probe_out_zeta.txt (run 39721668586; %d lines). The control: b702`s list from b643`s probe regenerated now (%d lines),' % (len(N), len(O)),
          '### differing from the committed page in %d line(s) before any change of this act. No cell is written by hand. Rows are changed lines:' % sum(max(i2 - i1, j2 - j1) for _o, i1, i2, j1, j2 in co),
          '### the kind | the new page`s line | the committed line it replaces | the new line | the cause.', '']
@@ -763,6 +771,15 @@ def cellsreach(*a):
               '      at %s (%s): %s' % (r['tag'], ('relay data/' + r['bank']) if r['bank'] else '### NO PRINT BANK HOLDS THE TAG', r['st_t'] or '-'),
               '      the source at %s (git show, not a print): %s' % (r['tag'], r['src'] or '-')]
     raised = [r for r in rows if r['verdict'] != 'EQUAL']
+    # ### the author's word at the page-again prompt: each raised mention prints its cause in one word -- "differs" (the statement at v0.37
+    # ### differs from the statement at the named tag) or "unbanked" (no print bank holds the named tag; a line naming no tag beside the kernel
+    # ### reads unbanked too, no bank holding a tag it does not name)
+    L += ['', '### THE RAISED MENTIONS, EACH WITH ITS CAUSE IN ONE WORD (the author`s word):']
+    L += ['  %s | %s :%d | %s | tag %s | %s%s' % (r['doc'], r['path'], r['line'], r['full'] or r['id'], r['tag'],
+                                               'differs' if r['verdict'] == 'DIFFERS' else 'unbanked',
+                                               '' if r['tag'].startswith('v') else ' (no tag named beside the kernel)') for r in raised]
+    L += ['### EQUAL %d ; differs %d ; unbanked %d' % (sum(1 for r in rows if r['verdict'] == 'EQUAL'), sum(1 for r in raised if r['verdict'] == 'DIFFERS'),
+                                                      sum(1 for r in raised if r['verdict'] != 'DIFFERS'))]
     L += ['', '### ### **MENTIONS READ %d (LINES %d) ; EQUAL %d ; DIFFERS %d ; NO PRINT BANK AT THE TAG %d ; NO THEOREM OR NO TAG %d ; RAISED BEFORE THE CLOSING %d ; '
           'NOTHING WRITTEN.**' % (len(rows), len(dry_rows), sum(1 for r in rows if r['verdict'] == 'EQUAL'), sum(1 for r in rows if r['verdict'] == 'DIFFERS'),
                                   sum(1 for r in rows if r['verdict'] == 'NO PRINT BANK AT THE TAG'), sum(1 for r in rows if r['verdict'].startswith('NO THEOREM')),
