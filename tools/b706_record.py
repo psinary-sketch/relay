@@ -1367,12 +1367,237 @@ def genreach(*a):
     print(NL.join(L[2:5] + L[-1:]))
 
 
+# ================================================================================ COMPONENT 4: THE ENTRY-TAG PRINTS, (R316)(7)
+EF = K.EF_DIR
+TAG_THEOREMS = {'v0.1': 'SIDEExplicitFormula.B321.ch_iff_rh', 'v0.2': 'SIDEExplicitFormula.B321.h2_sign_iff_rh'}   # ### the mentioned theorems, data/b704_cells_reach.txt :84-:94
+
+
+def tagstate(*a):
+    """`tagstate <tag>`: the tag's tree read through the tool (no blob through the shell): its files, lean-toolchain, the lakefile's name and
+    require lines, the mentioned theorem's module by git grep bounded to the tree; writes nothing."""
+    tag = a[0]
+    tree = (g(EF, 'ls-tree', '-r', '--name-only', tag) or '').split()
+    lt = (_show(EF, tag, 'lean-toolchain') or '').strip()
+    lf_name = next((f for f in ('lakefile.toml', 'lakefile.lean') if f in tree), None)
+    lf = (_show(EF, tag, lf_name) or '') if lf_name else ''
+    req = [l.strip() for l in lf.split(NL) if 'require' in l or 'mathlib' in l.lower() or 'lean_lib' in l or 'name' in l][:12]
+    thm = TAG_THEOREMS.get(tag, '')
+    short = thm.split('.')[-1]
+    hit = g(EF, 'grep', '-n', '-E', '-e', r'^(theorem|lemma) +%s\b' % re.escape(short), tag, '--', '*.lean').strip()
+    print('  tag %s ; peel %s ; files %d ; lean-toolchain %r ; lakefile %s' % (tag, g(EF, 'rev-list', '-n', '1', tag).strip()[:12], len(tree), lt, lf_name))
+    print('  the lakefile`s require and lib lines: %s' % req)
+    print('  print_targets.txt in the tree %s ; the workflow in the tree %s ; lake-manifest.json %s' % ('print_targets.txt' in tree, WF in tree, 'lake-manifest.json' in tree))
+    print('  the theorem %s: %s' % (thm, hit[:160] or '### NOT FOUND'))
+
+
+TAG_MODULES = {'v0.1': 'SIDEExplicitFormula.H2Bridge', 'v0.2': 'SIDEExplicitFormula.Seam'}   # ### the mentioned theorems' modules at the tags (tagstate)
+
+
+def printprobe(*a):
+    """`printprobe <tag>`: the scratch branch prints-b706-<tag>, checked out at the tag with no tracked change, given (R316)(7)'s three files
+    by this route -- the workflow as SIDE-explicit-formula's main carries it after (R316)(5) (its blob's bytes, verbatim), print_targets.txt
+    naming the mentioned theorem alone, and a root ChainProbe.lean in tools/chain_page.py's probe form (PROBE_HEAD, one #chain_cell for the
+    theorem, the import of its module alone) for the workflow's probe step; the files banked with their sha256 in
+    data/b706_print_files_<branch>.json (.txt) before the commit. Nothing else of the tag's tree is touched."""
+    import hashlib
+    import io as _io
+    import chain_page as CP
+    tag = a[0]
+    br = 'prints-b706-%s' % tag
+    thm, mod = TAG_THEOREMS[tag], TAG_MODULES[tag]
+    head = g(EF, 'rev-parse', '--abbrev-ref', 'HEAD').strip()
+    base = g(EF, 'rev-parse', 'HEAD').strip()
+    peel = g(EF, 'rev-list', '-n', '1', tag).strip()
+    dirty = g(EF, 'status', '--porcelain', '--untracked-files=no').strip()
+    if head != br or base != peel or dirty:
+        sys.exit('### THE CHECKOUT IS NOT %s AT %s WITH NO TRACKED CHANGE (head %s at %s, dirty %r) -- NOTHING WRITTEN' % (br, tag, head, base[:7], dirty))
+    wf_text = _show(EF, 'main', WF) or ''
+    pt_text = thm + NL
+    probe = CP.PROBE_HEAD.replace('@@IMPORTS@@', 'import %s' % mod) + NL + '#chain_cell %s [%s] []' % (thm, thm) + NL
+    files = {WF: wf_text, 'print_targets.txt': pt_text, 'ChainProbe.lean': probe}
+    os.makedirs(os.path.join(EF, '.github', 'workflows'), exist_ok=True)
+    for f, t in files.items():
+        _io.open(os.path.join(EF, *f.split('/')), 'w', encoding='utf-8', newline=NL).write(t)
+    files['lakefile.toml'] = _show(EF, tag, 'lakefile.toml') or ''
+    files['lean-toolchain'] = _show(EF, tag, 'lean-toolchain') or ''
+    shas = dict((f, hashlib.sha256(t.encode('utf-8')).hexdigest()) for f, t in files.items())
+    L = ['%s -- COMPONENT 4, (R316)(7): THE SCRATCH BRANCH %s AT %s = %s, ITS THREE FILES WRITTEN BY THIS ROUTE AND BANKED BEFORE THE COMMIT (%s)' % (ACT, br, tag, peel[:7], utc()), '',
+         '### rows are files: the path | sha256 | bytes. The workflow is main`s blob (%s) verbatim; the print list the mentioned theorem alone; the probe' % (_blob_sha(EF, 'main', WF)[:12]),
+         '### chain_page.py`s PROBE_HEAD with the import of %s and one #chain_cell; the lakefile and toolchain the tag`s own, unedited.' % mod, '']
+    L += ['  %-40s sha256 %s ; %d bytes' % (f, shas[f], len(t.encode('utf-8'))) for f, t in files.items()]
+    for f in (WF, 'print_targets.txt', 'ChainProbe.lean'):
+        L += ['', '=== %s' % f] + ['    ' + x for x in files[f].rstrip(NL).split(NL)]
+    L += ['', '### ### **BRANCH %s AT %s ; FILES WRITTEN 3 ; THE WORKFLOW EQUAL TO main`S BLOB %s ; THE TARGET MODULE %s ; THE THEOREM %s.**' % (
+        br, peel[:7], hashlib.sha256(wf_text.encode('utf-8')).hexdigest() == hashlib.sha256((_show(EF, 'main', WF) or '').encode('utf-8')).hexdigest(), mod, thm)]
+    put_txt('%s_print_files_%s.txt' % (ACT, br), L)
+    put_json('%s_print_files_%s.json' % (ACT, br), dict(at=utc(), branch=br, tag=tag, peel=peel, theorem=thm, module=mod, blobs=files, sha256=shas))
+    print(NL.join(L[:8] + L[-1:]))
+
+
+def _artifact_named(repo, run_id, prefix):
+    rc, out, err = R._gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    arts = (json.loads(out or b'{}').get('artifacts') or [])
+    return next((x for x in arts if (x.get('name') or '').startswith(prefix)), None), arts
+
+
+def runner706(*a):
+    """`runner706 <kernel> <run id> <ref> <label> <note...>`: b698's runner carried with one change (this act's repair (6), data/b706_tool_repairs.txt):
+    the run's artifact chosen BY NAME (build-module-<run id>) where b698's reader takes the first listed -- a run of the workflow as edited
+    under (R316)(5) uploads a second artifact (chain-probe-<run id>); everything else b698's: the artifact's sha256 against the platform's digest
+    before any reading, the build's exit and error lines, the memory log, the print step read, the gate."""
+    import hashlib
+    import io as _io
+    import zipfile
+    kernel, run_id, ref, label, note = a[0], int(a[1]), a[2], a[3], ' '.join(a[4:])
+    repo = 'psinary-sketch/' + kernel
+    rc, out, err = R._gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    art, arts = _artifact_named(repo, run_id, 'build-module-')
+    art = art or {}
+    row = dict(kernel=kernel, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+               stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+    L = ['%s -- THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (ACT, kernel, label.upper(), utc()), '',
+         '### the dispatch: %s ; the ref input %s' % (note, ref),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+             run.get('updatedAt')),
+         '### the artifacts listed %d: %s ; the run`s own chosen by name (build-module-)' % (len(arts), [x.get('name') for x in arts])]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    row['axioms_sha256'] = __import__('hashlib').sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    deps = _deps(ax)
+    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+    printed = [n for n, _d in deps]
+    unmatched = [n for n in tg if n not in printed]
+    outside = [(n, d) for n, d in deps if not set(d) <= set(STD3)]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d:' % (row['build_exit'], len(row['errors']))] + ['    ' + l for l in row['errors'][:40]] + [
+          '### the log`s last lines:'] + ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + [
+          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; axiom-free %d ; '
+          'sorryAx %d ; outside the standard three %d ; refused %s' % (
+              len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg), sum(1 for _n, d in deps if not d),
+              sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### rows are terminals: name | the axioms printed | within the standard three:']
+    L += ['  %-62s %s %s' % (n, d, 'STD3' if set(d) <= set(STD3) else '### OUTSIDE') for n, d in deps]
+    L += ['  %-62s ### NOT PRINTED' % n for n in unmatched]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and not outside
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; '
+          'OUTSIDE THE STANDARD THREE %d ; GATE %s.**' % (
+              run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']),
+              len(deps), len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), row['gate'])]
+    read_runner_row(row)
+    put_txt('%s_runner_%s_%s.txt' % (ACT, kernel, label), L)
+    if row['artifact_sha256']:
+        put_txt('%s_axioms_%s_%s.txt' % (ACT, kernel, label), ax.split(NL) if ax else ['### EMPTY'])
+        put_txt('%s_buildlog_%s_%s.txt' % (ACT, kernel, label), blog.rstrip(NL).split(NL))
+    j = jl('%s_runner_rows.json' % ACT) if os.path.isfile(os.path.join(D, '%s_runner_rows.json' % ACT)) else {}
+    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (kernel, label)] + [row]
+    put_json('%s_runner_rows.json' % ACT, dict(rows=rows))
+    print(NL.join(L[:15] + L[-3:]))
+
+
+def printsbank(*a):
+    """`printsbank <tag> <run id>`: the run's SEPARATE chain-probe artifact (chain-probe-<run id>) read by name, its sha256 against the platform's
+    digest before any reading; probe/chainprobe.txt banked as data/b706_prints_<tag>.txt (the probe's own print, parsed by tools/chain_page.py's
+    parser as the banked chain probes are) with data/b706_prints_<tag>.json (the run, the artifact, the parsed cell)."""
+    import hashlib
+    import io as _io
+    import zipfile
+    import chain_page as CP
+    tag, run_id = a[0], int(a[1])
+    repo = 'psinary-sketch/SIDE-explicit-formula'
+    art, arts = _artifact_named(repo, run_id, 'chain-probe-')
+    if not art:
+        sys.exit('### NO chain-probe ARTIFACT ON RUN %d (listed %s) -- NOTHING READ' % (run_id, [x.get('name') for x in arts]))
+    rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+    sha = hashlib.sha256(rz.stdout).hexdigest()
+    digest = (art.get('digest') or '').replace('sha256:', '')
+    if not digest or digest != sha:
+        sys.exit('### THE PROBE ARTIFACT`S SHA256 %s IS NOT THE PLATFORM`S DIGEST %s -- NOTHING READ' % (sha[:16], digest[:16]))
+    with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+        names_ = z.namelist()
+        text = z.read('chainprobe.txt').decode('utf-8', 'replace').replace(chr(13), '') if 'chainprobe.txt' in names_ else ''
+        log = z.read('chainprobe_log.txt').decode('utf-8', 'replace').replace(chr(13), '') if 'chainprobe_log.txt' in names_ else ''
+    cells, errors = CP.parse(text)
+    thm = TAG_THEOREMS[tag]
+    c = cells.get(thm) or {}
+    L = ['%s -- THE ENTRY-TAG PRINT AT %s (SIDE-explicit-formula %s), RUN %d, THE PROBE STEP`S OUTPUT READ AFTER THE PROBE ARTIFACT`S SHA256 %s AGREED WITH THE PLATFORM`S (%s)' % (
+        ACT, tag, g(EF, 'rev-list', '-n', '1', tag).strip()[:7], run_id, sha[:16], utc()), '### the probe`s log: %s' % ' '.join(log.split()),
+         '### the artifact %s (id %s, %s bytes) ; files %s ; the probe`s errors %d ; the cell %s: %s' % (
+             art.get('name'), art.get('id'), art.get('size_in_bytes'), names_, len(errors), thm, ('statement ' + c.get('statement', '')) if c.get('statement') else ('### ' + ('MISSING' if c.get('missing') else 'NOT PARSED'))),
+         ''] + text.rstrip(NL).split(NL)
+    put_txt('%s_prints_%s.txt' % (ACT, tag), L)
+    put_json('%s_prints_%s.json' % (ACT, tag), dict(at=utc(), tag=tag, run_id=run_id, artifact=dict(id=art.get('id'), name=art.get('name'), sha256=sha), files=names_,
+                                                   log=log, errors=errors, cell=c, theorem=thm))
+    print(NL.join(L[:3]))
+
+
+def cellsreach(*a):
+    """data/b706_cells_reread.txt (.json): (R316)(7)'s last step -- the 11 unbanked mentions of data/b704_cells_reach.txt re-read against the new
+    print banks (data/b706_prints_v0.1.txt, data/b706_prints_v0.2.txt): the statement at the named tag from the bank beside the statement at
+    v0.37 (data/b704_probe_out_zeta.txt), printed "equal" or "differs"; a mention naming no tag stays unbanked (no bank holds a tag it does not
+    name)."""
+    import chain_page as CP
+    cells37, _e = CP.parse(rdn('b704_probe_out_zeta.txt'))
+    banks = dict((tg, CP.parse(rdn('b706_prints_%s.txt' % tg))[0]) for tg in TAG_THEOREMS)
+    prev = jl('b704_cells_reach.json').get('rows') or []
+    rows = []
+    for r in prev:
+        if r.get('verdict') == 'EQUAL':
+            continue
+        tg, full = r.get('tag'), r.get('full')
+        st37 = (cells37.get(full) or {}).get('statement') if full else None
+        st_t = ((banks.get(tg) or {}).get(full) or {}).get('statement') if (tg in banks and full) else None
+        if tg in banks and full:
+            v = 'equal' if (st_t and st37 and ' '.join(st_t.split()) == ' '.join(st37.split())) else ('differs' if (st_t and st37) else 'unbanked (the bank holds no cell for the name)')
+        else:
+            v = 'unbanked (no tag named beside the kernel)'
+        rows.append(dict(doc=r['doc'], path=r['path'], line=r['line'], full=full or r.get('id'), tag=tg, st37=st37, st_t=st_t, verdict=v, bank=('data/b706_prints_%s.txt' % tg) if tg in banks else None))
+    L = ['%s -- COMPONENT 4, (R316)(7): THE 11 UNBANKED MENTIONS OF data/b704_cells_reach.txt RE-READ AGAINST THE ENTRY-TAG PRINT BANKS (%s)' % (ACT, utc()), '',
+         '### rows are mentions (paper :line | theorem | tag): the statement at the tag from data/b706_prints_<tag>.txt (the probe step`s print, run on the scratch',
+         '### branch at the tag) against the statement at v0.37 (data/b704_probe_out_zeta.txt, run 39721668586); "equal" or "differs"; a mention with no tag',
+         '### beside the kernel stays unbanked. The paths as b704 read them (before (R316)(3)`s renames; the lines unchanged in the renamed files).', '']
+    for r in rows:
+        L += ['  %s | %s :%d | %s | tag %s | %s' % (r['doc'], r['path'], r['line'], r['full'], r['tag'], r['verdict']),
+              '      at v0.37: %s' % (r['st37'] or '-'), '      at %s (%s): %s' % (r['tag'], r['bank'] or 'no bank', r['st_t'] or '-')]
+    L += ['', '### ### **MENTIONS RE-READ %d ; EQUAL %d ; DIFFERS %d ; UNBANKED %d (no tag named %d).**' % (
+        len(rows), sum(1 for r in rows if r['verdict'] == 'equal'), sum(1 for r in rows if r['verdict'] == 'differs'),
+        sum(1 for r in rows if r['verdict'].startswith('unbanked')), sum(1 for r in rows if 'no tag named' in r['verdict']))]
+    put_txt('%s_cells_reread.txt' % ACT, L)
+    put_json('%s_cells_reread.json' % ACT, dict(at=utc(), rows=rows))
+    print(NL.join([l for l in L if l.startswith('  ') and ' | tag ' in l] + L[-1:]))
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, rootexclude=rootexclude, armsort=armsort, c1=c1,
               repairs=repairs, repairctl=repairctl, rootdry=rootdry, pairs=pairs, partners_read=partners_read, partners_regen=partners_regen,
-              registry_rows=registry_rows, readers=readers, joinlake=joinlake, joinfiles=joinfiles, artfile=artfile, joingrade=joingrade, roster706=roster706, wfstep=wfstep, genreach=genreach)
+              registry_rows=registry_rows, readers=readers, joinlake=joinlake, joinfiles=joinfiles, artfile=artfile, joingrade=joingrade, roster706=roster706, wfstep=wfstep, genreach=genreach, tagstate=tagstate, printprobe=printprobe, runner706=runner706, printsbank=printsbank, cellsreach=cellsreach)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

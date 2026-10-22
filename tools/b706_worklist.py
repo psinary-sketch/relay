@@ -78,6 +78,7 @@ EF_MATHLIB = 'de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11'
 EF_V01 = 'baed4df861dac05224f01dad17453648d3d7fe0a'     # ### v0.1 peeled (ch_iff_rh), as the papers cite it
 EF_V02 = '5c72cad24303f23d92256ebd466d3a3d32424a4b'     # ### v0.2 peeled (h2_sign_iff_rh)
 PRINT_BRANCHES = (('v0.1', 'prints-b706-v0.1'), ('v0.2', 'prints-b706-v0.2'))   # ### (R316)(7): the scratch branches, deleted after their banks
+PRINT_LABELS = {'v0.1': 'prints_v0_1', 'v0.2': 'prints_v0_2'}   # ### the runner rows' labels (b698's reader admits [\w-]+, no dot): data/b706_runner_SIDE-explicit-formula_<label>.txt
 JOIN_MODULE = 'FacesJoin'
 JOIN_TERMINAL = 'faces_join'
 JOIN_TAG = 'v0.1.0'

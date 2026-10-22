@@ -1,0 +1,246 @@
+b706 -- COMPONENT 4, (R316)(7): THE SCRATCH BRANCH prints-b706-v0.2 AT v0.2 = 5c72cad, ITS THREE FILES WRITTEN BY THIS ROUTE AND BANKED BEFORE THE COMMIT (2026-10-22T20:51:18Z)
+
+### rows are files: the path | sha256 | bytes. The workflow is main`s blob (c95b0ea847d2) verbatim; the print list the mentioned theorem alone; the probe
+### chain_page.py`s PROBE_HEAD with the import of SIDEExplicitFormula.Seam and one #chain_cell; the lakefile and toolchain the tag`s own, unedited.
+
+  .github/workflows/build-module.yml       sha256 f59e7bbba1286911ef76fc000f515cb8cf1e674fe57f4186612f15c8cdc10742 ; 6642 bytes
+  print_targets.txt                        sha256 999f240834fd18b5de8b56bed0df6370a3f2365da8d12f1b3a56182731cb77a1 ; 40 bytes
+  ChainProbe.lean                          sha256 b95a1ae1db2db5567df1350c35cf50dbaea8df1f622755515088430ac120fa20 ; 3060 bytes
+  lakefile.toml                            sha256 ffaef5efdea6a38874f9e5f56fefe1f15227a9b4899a35c5db68c3a7cb38233f ; 269 bytes
+  lean-toolchain                           sha256 0d3c76ccd8772d8bcbe207241421a760312b71a6aa82f84194391fdf5cb026d6 ; 29 bytes
+
+=== .github/workflows/build-module.yml
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    # From b658 ((R263)(4), standing): the named terminals are read from print_targets.txt at the kernel's root, one name per line, and the
+    # scratch file imports each module of the target; no workflow edit is needed to print a new theorem.
+    # From b692 ((R302)(3)(a)): where the ref carries CircuitClosure.lean (at the root, imported by no module), a closure step imports each module
+    # of the target above that file's text and runs it; its out/closure.jsonl.gz -- one record per programme constant -- joins the artifact.
+    # From b706 ((R316)(5), W-ORD-WORKFLOW-PROBE-STEP): where the ref carries ChainProbe.lean (at the root, imported by no module), a probe step
+    # after the print step and before the closure imports each module of the target above that file's text and runs it; its output goes to a
+    # SEPARATE artifact (chain-probe-<run id>), so a chain probe needs no scratch branch.
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              : > out/Axioms.lean
+              for m in $TARGET; do echo "import $m" >> out/Axioms.lean; done
+              cp print_targets.txt out/print_targets.txt
+              while IFS= read -r n || [ -n "$n" ]; do
+                n=$(printf '%s' "$n" | tr -d '\r' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                [ -z "$n" ] && continue
+                case "$n" in
+                  *[!A-Za-z0-9_.\']*) echo "print target refused: $n" >> out/axioms_refused.txt; continue ;;
+                esac
+                echo "#print axioms $n" >> out/Axioms.lean
+              done < print_targets.txt
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Chain probe of the ref's root ChainProbe.lean
+            if: always()
+            run: |
+              mkdir -p probe
+              if [ ! -f ChainProbe.lean ]; then
+                echo "NOT RUN: no ChainProbe.lean at the ref" > probe/chainprobe_log.txt
+              elif [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                : > probe/ChainProbe.lean
+                for m in $TARGET; do echo "import $m" >> probe/ChainProbe.lean; done
+                cat ChainProbe.lean >> probe/ChainProbe.lean
+                lake env lean probe/ChainProbe.lean > probe/chainprobe.txt 2>&1 || true
+                echo "RUN: ChainProbe.lean at the ref, its print in probe/chainprobe.txt" > probe/chainprobe_log.txt
+              else
+                echo "NOT RUN: the build did not complete under the hold" > probe/chainprobe_log.txt
+              fi
+    
+          - name: Constant closure of the kernel's own declarations
+            if: always()
+            run: |
+              if [ ! -f CircuitClosure.lean ]; then
+                echo "NOT RUN: no CircuitClosure.lean at the ref" > out/closure_log.txt
+              elif [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                : > out/Closure.lean
+                for m in $TARGET; do echo "import $m" >> out/Closure.lean; done
+                cat CircuitClosure.lean >> out/Closure.lean
+                lake env lean out/Closure.lean > out/closure_log.txt 2>&1 || true
+                if [ -f out/closure.jsonl ]; then gzip -9 -n out/closure.jsonl; fi
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/closure_log.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+    
+          - name: Upload the chain probe's artifact, separate from the run's
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: chain-probe-${{ github.run_id }}
+              path: probe/
+              if-no-files-found: ignore
+
+=== print_targets.txt
+    SIDEExplicitFormula.B321.h2_sign_iff_rh
+
+=== ChainProbe.lean
+    import SIDEExplicitFormula.Seam
+    import Lean
+    
+    /-! relay tools/chain_page.py's probe (b568, (R178)(5)). Written by the generator; not a kernel file. -/
+    
+    open Lean Elab Command
+    
+    namespace ChainPageProbe
+    
+    def bulkaRoots : List Name := [`Lc, `Hadamard, `FunctionsOfOneComplexVariable]
+    
+    def followed (m : Name) : Bool :=
+      let r := m.getRoot
+      r == `SIDEExplicitFormula || r == `Zeta23 || bulkaRoots.contains r
+    
+    def modOf (env : Environment) (c : Name) : Name :=
+      match env.getModuleIdxFor? c with
+      | some i => env.header.moduleNames[i.toNat]!
+      | none => Name.anonymous
+    
+    /-- the node-list constants reached from `start`'s type and value, following non-node constants of the kernel's,
+    Zeta23's and Bulka's modules; also every followed constant under a watched prefix. -/
+    def consumes (env : Environment) (nodes : NameSet) (watch : List Name) (start : Name) : Array Name × Array Name := Id.run do
+      let some ci := env.find? start | return (#[], #[])
+      let mut stack : Array Name := ci.getUsedConstantsAsSet.toArray
+      let mut seen : NameSet := {}
+      let mut found : Array Name := #[]
+      let mut watched : Array Name := #[]
+      while stack.size > 0 do
+        let c := stack.back!
+        stack := stack.pop
+        if seen.contains c then continue
+        seen := seen.insert c
+        if c == start then continue
+        if watch.any (fun p => p.isPrefixOf c) then watched := watched.push c
+        if nodes.contains c then
+          found := found.push c
+          continue
+        if followed (modOf env c) then
+          if let some cj := env.find? c then
+            for d in cj.getUsedConstantsAsSet.toArray do
+              unless seen.contains d do stack := stack.push d
+      return (found, watched)
+    
+    def kindOf (env : Environment) (n : Name) : String :=
+      match env.find? n with
+      | some (.thmInfo _) => "theorem"
+      | some (.defnInfo _) => "def"
+      | some (.axiomInfo _) => "axiom"
+      | some (.opaqueInfo _) => "opaque"
+      | some (.inductInfo _) => "inductive"
+      | some _ => "other"
+      | none => "MISSING"
+    
+    end ChainPageProbe
+    
+    open ChainPageProbe in
+    elab "#chain_cell " id:ident " [" ns:ident,* "]" " [" ws:ident,* "]" : command => do
+      let env ← getEnv
+      let n := id.getId
+      let nodes : NameSet := ns.getElems.foldl (fun s i => s.insert i.getId) {}
+      let watch := ws.getElems.toList.map (·.getId)
+      let k := kindOf env n
+      logInfo m!"@@BEGIN {n}"
+      if k == "MISSING" then
+        logInfo m!"@@MISSING {n}"
+      else
+        let r? ← findDeclarationRanges? n
+        let line : Nat := match r? with | some r => r.selectionRange.pos.line | none => 0
+        let (found, watched) := consumes env nodes watch n
+        logInfo m!"@@CELL @@KIND {k} @@MODULE {modOf env n} @@LINE {line} @@CONSUMES {found.toList} @@WATCHED {watched.toList}"
+        logInfo m!"@@STMT"
+        if k == "theorem" then
+          elabCommand (← `(command| #print sig $(mkIdent n):ident))
+        else
+          elabCommand (← `(command| #print $(mkIdent n):ident))
+        logInfo m!"@@AXIOMS"
+        elabCommand (← `(command| #print axioms $(mkIdent n):ident))
+      logInfo m!"@@END {n}"
+    
+    #chain_cell SIDEExplicitFormula.B321.h2_sign_iff_rh [SIDEExplicitFormula.B321.h2_sign_iff_rh] []
+
+### ### **BRANCH prints-b706-v0.2 AT 5c72cad ; FILES WRITTEN 3 ; THE WORKFLOW EQUAL TO main`S BLOB True ; THE TARGET MODULE SIDEExplicitFormula.Seam ; THE THEOREM SIDEExplicitFormula.B321.h2_sign_iff_rh.**
