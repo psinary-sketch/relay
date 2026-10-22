@@ -1,7 +1,7 @@
-b706 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T22:26:28Z)
+b706 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T22:29:17Z)
 
 ### the source: the seat`s session 44411d52-210c-4cc1-9c1f-45be454f0521 from its first user line carrying 'RULING (R316) BEGIN', with its subagents` transcripts
-### commands read: 160
+### commands read: 165
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -265,5 +265,10 @@ b706 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #158 | 2026-10-22T22:26:22.172Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py commands
   #159 | 2026-10-22T22:26:23.276Z | seat | Bash | python -X utf8 /d/relay/tools/b706_reg_gate.py
   #160 | 2026-10-22T22:26:24.228Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py gatebanks
+  #161 | 2026-10-22T22:27:20.865Z | seat | Bash | python -X utf8 tools/b378_lockgate.py b706 data/b706_registration_2026-10-22.txt
+  #162 | 2026-10-22T22:27:28.183Z | seat | Bash | python -X utf8 tools/reg_seal.py --lock data/b706_registration_2026-10-22.txt && python -X utf8 tools/b706_checks.py --seal
+  #163 | 2026-10-22T22:27:51.692Z | seat | Bash | git -C /d/relay add data/b706_registration_2026-10-22.txt data/b706_seal_hashes.json data/b706_lockgate.json data/b706_lockgate_notes.txt data/b706_reg_gate.txt
+  #164 | 2026-10-22T22:28:17.323Z | seat | Bash | python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/44411d52-210c-4cc1-9c1f-45be454f0521/scratchpad/b705_c6_probe.py"
+  #165 | 2026-10-22T22:28:41.700Z | seat | Bash | python -X utf8 tools/b706_record.py scores && python -X utf8 tools/b706_record.py desk && python -X utf8 tools/b706_record.py findings && python -X utf8 tools/b
 
-### ### **COMMANDS 160 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 6 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 29 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 12 OF 12 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 165 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 6 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 29 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 12 OF 12 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

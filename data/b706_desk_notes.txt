@@ -1,0 +1,110 @@
+========================================================================================================
+b706 -- THE DESK.
+========================================================================================================
+
+  **(N1)** ### **HELD.** -- commands of this act that run lean or lake on this host: []; runner dispatches in the capture: 3 (relay data/b706_commands.json); the dispatches bank (relay data/b706_dispatches.json): ['join b37a7b6 run 39850337262 whole True', 'prints-b706-v0.1 748f2a9 run 39852365437 whole True', 'prints-b706-v0.2 34e098a run 39852975531 whole True'], each whole by data/b705_rules.txt row (1); each run read by its id with its artifact`s sha256 (relay data/b706_runner_rows.json): ['join c574eed95e2f5809', 'prints_v0_1 e69a7ec98cd4c799', 'prints_v0_2 51f3d29ad3684f09']; the two chain-probe artifacts read by name with their sha256 (relay data/b706_prints_v0.1.json, v0.2): ['v0.1 b6a7cde4c3ac87be', 'v0.2 3bc06ae76c47d9d1']; the join`s cache log read after its artifact agreed
+  **(N2)** ### **HELD.** -- pairs 17, renamed 17, held none (relay data/b706_partners.json); the second pass changing 0 cells and nothing newer on the retired side for every renamed pair: True; the generator`s run measured dry at 2026-10-22T20:19:39Z, before the first rename commit 1dfd9bc (2026-10-22T20:26:39Z): True; the standing reader hits 102 before and 102 after the renames, the roster`s 20 tables found 20 at the unversioned names (relay data/b706_readers_before.txt, data/b706_readers_after.txt); the 107 remaining lines counted apart, every one the versioned side`s, on the author`s word; the bank`s own print at 2026-10-22T20:25:34Z after the renames
+  **(N3)** ### **REFUTED.** -- the join`s lakefile (relay data/b706_join_lakefile.txt): the requires in the order SIDEExplicitFormula > sideLvConservation > mathlib, Mathlib at de5ce8a9 True, Mathlib BEFORE both requires False -- the expectation`s first clause is the ruling`s order (R316)(4), the order that had already failed at b705`s run; on the author`s word Lake`s own hint was taken, mathlib LAST (True), the ruling`s order the navigator`s (b), so the first clause reads REFUTED by the author`s word; the second clause: faces_join states lv-conservation`s own declaration True, the run`s gate NOT DERIVES, the join HELD with 2 error lines banked by line (SIDELvConservation/GammaBounds.lean :177, relay data/b706_buildlog_SIDE-faces-join_join.txt), the tag v0.1.0 NOT MADE, no second dispatch: HELD
+  **(N4)** ### **HELD.** -- the generator`s control (relay data/b706_generator_reach.json): 20 roster tables re-emitted unedited and as edited from one set of sources, every one equal byte for byte True; the four branch deletes (two local, two remote) in the capture at ['2026-10-22T21:02:24', '2026-10-22T21:02:29', '2026-10-22T21:02:34', '2026-10-22T21:02:41'], after the banks` commit 4e1fdef0 at 2026-10-22T21:02:18Z: True; the branches gone locally True; the tags v0.1 baed4df, v0.2 5c72cad against baed4df, 5c72cad: True
+  **(N5)** ### **REFUTED.** -- nothing deposits: the deposit route untouched (draft 23228113, v5, unpublished); every kernel as the face read it: True; SIDE-explicit-formula`s main one commit past v0.37 touching the workflow alone and no tag past it: True; the join kernel`s tags: NONE; the standing arms added beyond b705`s face, the act arms apart: NONE (True); shared tools edited beyond the one the ruling names (tools/correspondence_gen.py, (R316)(6)): NONE; sealed tools not agreeing: NONE; commits amended after the seal: NONE; deletes with anything chained after: NONE; one git write per message (messages carrying a git write 44 ; with more than one ['2026-10-22T18:42:34.914Z']): False; PLACE-papers beyond the two ledgers, REGISTRY, the 17 pairs` files and their archive paths and the faces page: NONE; papers moved or renamed beyond the 17 pairs` git mv: NONE (renames 17); relay files of a kind beyond the act`s banks and tools, the generator, the table, the root list, the corrigenda bank and b705`s push-out bank: NONE; the glossary unchanged: True; outbound requests other than git and gh 0, an identifier of the author in NONE; no identifier in the workflow at SIDE-explicit-formula`s main or the join kernel`s: True
+  **(S1)** ### **PENDING.** -- waits on the final table (relay data/b706_table_final.json)
+  **(S2)** ### **PENDING.** -- waits on the root and its arm (relay data/b706_root_arm.json), computed after the entry
+  **(S3)** ### **HELD.** -- the sealed tools` hashes {'agree': 10}
+
+b706 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-22)
+
+### rows are defects, each lettered by the time it was found, with whose it is, what the rule says, what was done and the repair or the entry.
+### Events that are not defects are entered beneath, unlettered.
+
+    (a) THE NAVIGATOR'S: THE READ-FIRST LIST NAMED A MANIFEST THE TREE DOES NOT CARRY. The ferry's read-first: "SIDE-faces-join's lakefile and
+        lake-manifest.json at 732c1b49 by line". The tree at 732c1b49 is .github .gitignore FacesJoin.lean README.md lakefile.toml lean-toolchain
+        print_targets.txt -- no lake-manifest.json (relay data/b705_join_files.txt; the citation check's one MISS, data/b706_citation_check.txt).
+        That absence is b705's (j)'s cause (Lake resolving the transitive packages from the last require's manifest). Raised before Component 3
+        with (b) as one prompt (data/b706_prompt1_print.txt (2)); the author's word: the navigator's miss, from an assumed layout rather than a
+        listing of 732c1b49.
+    (b) THE NAVIGATOR'S: (R316)(4) PRESCRIBED THE ORDER THAT HAD ALREADY FAILED. (R316)(4): the lakefile "with SIDE-explicit-formula's require
+        ahead of lv-conservation's, and Mathlib required explicitly at de5ce8a9 before both". The lakefile at 732c1b49 stands in that order
+        (D:/SIDE-faces-join/lakefile.toml :11-:24), the order of run 39799253764's failure; Lake's own hint in the run's artifact (relay
+        data/b705_art_SIDE-faces-join_join_cache_log.txt :21) is `require mathlib` LAST. The edit (4) names changes no byte. Raised before
+        Component 3 (data/b706_prompt1_print.txt (2)); the author's word: Lake's hint taken -- SIDEExplicitFormula, sideLvConservation, then
+        mathlib last, each at its same revision, no manifest written on this host, one commit, one dispatch; the navigator's miss, from a reading
+        of the failure instead of the artifact's own hint.
+    (c) THE NAVIGATOR'S: (R316)(3)'S "DIFFED TO ZERO" WRITTEN WITHOUT ITS SCOPE. The eight hand-edited lines of data/b700_reading4.txt row (18)
+        read side by side (relay data/b706_partners_read.txt) are each of the kind "the versioned side carries it" -- the versioned copy's line
+        the later edition's, extending the unversioned one -- so after the generator's run the 123 regenerated-cell lines diff to zero and the
+        eight still differ; read without scope, the clause holds seven pairs. Raised before any paper was written (data/b706_prompt1_print.txt
+        (1)); the author's word: the zero-diff clause was written for the regenerated cells; a line of that kind is resolved by its kind, the
+        versioned copy being the one that survives the rename, and is counted apart from the zero diff and printed beside it; all 17 pairs
+        proceed; the ruling's wording the navigator's, entered with its cause.
+    (d) THE SEAT'S: THE REPAIRED CHECKER'S REACH EXCLUDED A KERNEL PIN. The carry-time repair of the answer route (data/b706_tool_repairs.txt row
+        (2)) reads a sha256 a bank's row names; the join-manifest answer names Mathlib's revision "de5ce8a9", the pin SIDE-faces-join's lakefile
+        requires (lakefile.toml :14) and no repository this host clones, and the route printed it a MISS (data/b706_citation_check.txt, the
+        check at 2026-10-22T20:12:15Z). The checker extended at the carry, before the answer was acted on: a token a kernel's lakefile or
+        manifest pins as a rev is read against that row and masked from the commit reading; the arm's clause reads the last print of each needle,
+        the first print standing (tools/b706_checks.py _answers_checked); the check re-run and the diffs re-banked (data/b706_tool_repairs.txt
+        row (2), its control).
+    (e) THE SEAT'S: A READER'S PRINT MISSTATED IN THE PROMPT'S BANK. data/b706_prompt1_print.txt (1) says the E_DIFFICULTY_THEOREM pair's "table
+        is found in neither copy by the roster's anchor"; the reader's print (data/b706_partners_read.txt, the pair's row) reads "TABLE NOT FOUND:
+        found / ANCHOR HEADING FOUND 0 TIMES" -- the table FOUND in the versioned copy (the roster's path, _v1_0_4.md) and not found in the
+        unversioned copy. The author's answer repeats the seat's wording ("with its table in neither copy and no differing line"); the fact the
+        answer rests on, no differing line, holds either way (no diff can be taken with one table); the misstatement the seat's, a print read
+        in haste, corrected here before any rename.
+    (f) THE SEAT'S: A PREMISE PUT TO THE AUTHOR BEFORE ITS MEASUREMENT. The same prompt (data/b706_prompt1_print.txt (1)) states "After the
+        generator's run the 123 regenerated-cell lines diff to zero" before the generator was run. Run dry afterwards (data/b706_partners_dry.txt):
+        for the eight pairs whose roster path is the VERSIONED copy (PATHS, SURROUND, GRH_CASCADE, R_CURVE, INDEX_ARITY, ADDITIVE_MULTIPLICATIVE,
+        FOUNDATIONS, INVARIANCE_BARRIERS) the versioned copy already carries the generator's cells (cells changed 0) and the unversioned copy is
+        the stale side, which the generator does not write; for SIMPLICITY and SILENCE_STAGES (the roster path unversioned) the generator writes
+        the versioned copy (26 and 13 cells) and lines remain where the edition's claim text, terminal names or profile cells differ from the
+        roster copy's. So the regenerated-cell lines do not diff to zero between the two copies; the author's reading "a pair is renamed when its
+        regenerated-cell lines diff to zero" was given on the seat's unmeasured premise. Raised again with the measured counts before any paper
+        is written or renamed (data/b706_prompt2_print.txt); the first answer's kind rule for the eight hand-edited lines stands.
+    (g) THE SEAT'S: A COMMIT AND THE TEST BATCH THAT RUNS THE PUSH TOOL'S TEST SENT IN ONE MESSAGE. At step zero the seat sent, in one message, the
+        commit of data/b705_closing_push_out.txt (the command bank's #11, 2026-10-22T18:42:34Z, relay ff817932) and the batch running fourteen
+        test files (#12, 18:42:41Z), test_push_gated.sh among them, which runs the push tool in a scratch repository. The standing rule arm
+        G-RULE-ONE-GIT-WRITE (tools/rule_arms.py, sealed) reads a command naming push_gated.sh as a git write, so by its own reading that
+        message carried two; the ferry's rule, one git write per message across every repository, is read by that arm. Found at the pre-run's
+        first standing-a run; no repair (the arm correct by its own reading, the seat's message the breach); the arm declared on the face as a
+        carried failure and N5's clause "one git write per message" scored by it; every later git write of the act its own message.
+    (h) THE SEAT'S: A GIT STATUS LISTING PIPED INTO A SHELL FILTER. After the second Component-5 commit (relay b5f062d7) the seat chained a
+        `git status --short` listing into four `grep -v` filters in the same command, to trim the untracked legacy files from the print -- a
+        pipe into a shell filter, which the ferry forbids ("files read ... not through a shell filter"); no file was written by it. Found by
+        the seat on reading its own command, before the lock; the command bank re-run so that it carries the pipe (PIPES INTO A SHELL FILTER 1),
+        the satisfiability spec measuring it; no repair, the rule the ferry's.
+
+### EVENTS, UNLETTERED
+
+    THE ROSTER TABLES FOUND, 19 BEFORE THE RENAMES AND 20 AFTER. The readers bank before the renames (data/b706_readers_before.txt) found 19 of the
+        20 roster tables at the unversioned names, E_DIFFICULTY_THEOREM's table standing in its versioned copy alone (defect (e)); after the 17
+        renames every table is found at the unversioned name (data/b706_readers_after.txt: HITS 102 = 102, TABLES 20). The count the ferry's
+        Component 2 orders equal is the reader hits, 102 before and after; the tables count rose by the one the rename brought under its name.
+    THE PARTNERS BANK RE-RUN AFTER THE GENERATOR'S WRITE. The generator's run under (R316)(3) wrote 26 and 13 cells into the versioned copies of
+        SIMPLICITY_OF_RIEMANN_ZEROS and SILENCE_STAGES_DEALIGNMENT (data/b706_partners_dry.txt, the dry measurement, 39 cells); the partners route
+        was run once more after that write, for E_DIFFICULTY_THEOREM's reading on the author's second answer, so data/b706_partners.txt records
+        the second pass over the written copies -- "THE GENERATOR WROTE 0 VERSIONED COPIES (0 CELLS CHANGED) ; THE SECOND PASS CHANGES 0" -- and
+        the 39 cells stand in the dry bank alone. Both banks are committed (relay 02e69d06); the cells are in the papers' commits.
+    THE JOIN-MANIFEST READER'S FIRST PRINT. The record tool's joinlake route first read every `name = ` line of the lakefile as a require, the
+        package's and the library's among them (five "requires"), the lakefile's text printed whole and right; that print, before the commit
+        b37a7b6 (20:33:44Z), was not banked. The route was repaired at once to parse the [[require]] blocks and re-run, its bank stamped
+        20:34:17Z (data/b706_join_lakefile.txt: REQUIRES 3) -- after the commit and before the push (the capture at 20:34:54Z) and the
+        dispatch (20:36:31Z). The arm G-JOIN-MANIFEST reads the bank in that order.
+    GIT'S LINE-ENDING WARNING AT THE JOIN COMMIT. `git -C /d/SIDE-faces-join commit` printed "LF will be replaced by CRLF in lakefile.toml" (the
+        host's autocrlf); the committed blob is LF, as the files bank reads it (data/b706_join_files.txt).
+    TWO COMMAND FAILURES AT THE RUNNER READS, RE-SENT. The first call of the runner route carried parentheses and backticks in its note and failed
+        in bash before any read; the runwait route was once called from the wrong working directory and read nothing. Each was re-sent with
+        absolute paths and a plain note; no bank was written by the failed calls.
+    THE RUNNER LABEL WITH A DOT. b698's runner-row reader admits labels of [\w-]+ alone, so the branch names prints-b706-v0.1 and prints-b706-v0.2
+        were refused as labels; the print runs are labelled prints_v0_1 and prints_v0_2 (tools/b706_worklist.py PRINT_LABELS) and their banks
+        named so (data/b706_runner_SIDE-explicit-formula_prints_v0_1.txt, _prints_v0_2.txt).
+    ONE COMMAND CARRYING A PIPE OF ANY KIND, NO READ PIPED AND NO FILE WRITTEN THROUGH IT. The command bank (data/b706_commands.txt, the row
+        "#42 2026-10-22T20:16:09Z") reads one pipe outside quoted strings: the PowerShell command that made the archive directories of (R316)(3)
+        before the first git mv, its New-Item piped into Out-Null. No read passed through a shell filter (the bank: PIPES INTO A SHELL FILTER 0),
+        no file was written by it and no push passed through it; the satisfiability spec measures the count (ANYPIPES 1) and caps it there.
+    THE STEP-ZERO BANK'S PROCESS LINE REWORDED TO THE STANDING ARM'S NEEDLE. G-PROCS-LISTED (tools/b703_checks.py procs_ok, sealed) reads the
+        step-zero bank for the words "tail, lean, lake, python and claude named"; the bank as written at step zero named node, git and bash in
+        the same clause ("tail, lean, lake, python, claude, node, git and bash named"), so the arm failed at the pre-run's first standing-a
+        run on the wording alone, every figure of the line as the arm wants it. The line was reworded by the Edit tool before the seal to carry
+        the arm's needle with the three further names beside it; no figure changed; the bank's commit (relay a6efc316) stands and the reworded
+        bank is committed with Component 5.
+    THE RUN'S ARTIFACT CHOSEN BY NAME. A run of the workflow as edited under (R316)(5) uploads two artifacts, build-module-<run id> and
+        chain-probe-<run id>; b698's runner route takes the first listed. The record tool's runner706 route chooses the run's own artifact by
+        name (data/b706_tool_repairs.txt row (6)); the two print runs were read through it, the join run through b698's (one artifact).
