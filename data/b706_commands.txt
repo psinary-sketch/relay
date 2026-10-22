@@ -1,7 +1,7 @@
-b706 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T21:33:56Z)
+b706 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T22:26:28Z)
 
 ### the source: the seat`s session 44411d52-210c-4cc1-9c1f-45be454f0521 from its first user line carrying 'RULING (R316) BEGIN', with its subagents` transcripts
-### commands read: 126
+### commands read: 160
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -29,11 +29,12 @@ b706 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
   NONE
 
-### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (0):
-  NONE
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (1):
+  #157 2026-10-22T22:25:41.154Z git -C /d/relay add data/b706_registration_2026-10-22.txt data/b706_reg_gate.txt data/b706_reg_termscan.txt data/b706_regspec_run.txt data/audit_b706_reg_satisfiable.txt data/b706_satisfiable.json dat
 
-### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (1):
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (2):
   #42 2026-10-22T20:16:09.327Z $base = 'D:\MY-DOwnloads\PLACE-papers\archive\2026-10-22-b706-partner-copies'; foreach ($d in @('phase1.5\proofs', 'phase1.5\simplicity', 'phase1.5\spectral', 'phase1.5\rcurve', 'phase2\method', 'phas
+  #157 2026-10-22T22:25:41.154Z git -C /d/relay add data/b706_registration_2026-10-22.txt data/b706_reg_gate.txt data/b706_reg_termscan.txt data/b706_regspec_run.txt data/audit_b706_reg_satisfiable.txt data/b706_satisfiable.json dat
 
 ### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
   NONE
@@ -230,5 +231,39 @@ b706 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #124 | 2026-10-22T21:33:40.320Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py guard
   #125 | 2026-10-22T21:33:41.340Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py armnames
   #126 | 2026-10-22T21:33:42.309Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py standing
+  #127 | 2026-10-22T21:35:19.764Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers diff --name-status -M c4c4273 HEAD
+  #128 | 2026-10-22T21:35:22.224Z | seat | Bash | git -C /d/relay status --short -- data tools; git -C /d/MY-DOwnloads/PLACE-papers status --short
+  #129 | 2026-10-22T21:36:06.299Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add OPEN_TRAILS.md
+  #130 | 2026-10-22T21:36:22.208Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -q -m "b706 Component 5 (R316)(3)-(7): the six order lines at OPEN_TRAILS :15632-:15642 -- W-ORD-PAPER-PARTNER-COPIES
+  #131 | 2026-10-22T21:39:55.124Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --prerun --part standing-a
+  #132 | 2026-10-22T21:45:37.335Z | seat | Bash | python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/44411d52-210c-4cc1-9c1f-45be454f0521/scratchpad/b706_gitwrite_probe.py"
+  #133 | 2026-10-22T21:46:26.443Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --prerun --part standing-c
+  #134 | 2026-10-22T21:50:35.295Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py repairs
+  #135 | 2026-10-22T21:50:36.421Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py repairctl
+  #136 | 2026-10-22T21:50:55.497Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --prerun --part standing-a
+  #137 | 2026-10-22T21:54:50.020Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --prerun --part standing-c
+  #138 | 2026-10-22T21:56:32.859Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --prerun --part standing-b1
+  #139 | 2026-10-22T21:58:54.644Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --prerun --part standing-b2a
+  #140 | 2026-10-22T22:06:16.424Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --prerun --part standing-b2b
+  #141 | 2026-10-22T22:08:46.341Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --prerun --part standing-b3
+  #142 | 2026-10-22T22:11:50.739Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --prerun --part act
+  #143 | 2026-10-22T22:14:38.582Z | seat | Bash | python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/44411d52-210c-4cc1-9c1f-45be454f0521/scratchpad/b706_act_probe.py"
+  #144 | 2026-10-22T22:14:40.575Z | seat | Bash | git -C /d/SIDE-faces-join log -1 --format='%ci %ct %h' b37a7b6; git -C /d/MY-DOwnloads/PLACE-papers log -1 --format='%ci %ct %h' 1dfd9bc; git -C /d/MY-DOwnloads
+  #145 | 2026-10-22T22:17:04.899Z | seat | Bash | python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/44411d52-210c-4cc1-9c1f-45be454f0521/scratchpad/b706_act_probe2.py"
+  #146 | 2026-10-22T22:18:03.272Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --prerun --part act
+  #147 | 2026-10-22T22:19:39.195Z | seat | Bash | python -X utf8 /d/relay/tools/b706_checks.py --combine b706_arms_prerun.txt
+  #148 | 2026-10-22T22:19:40.227Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py armsecs
+  #149 | 2026-10-22T22:20:32.127Z | seat | Bash | git -C /d/relay add data/b706_registration_2026-10-22.txt data/b706_defects.txt data/b706_stepzero.txt data/b706_tool_repairs.txt data/b706_repair_controls.txt 
+  #150 | 2026-10-22T22:21:00.437Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py rootdry
+  #151 | 2026-10-22T22:21:32.310Z | seat | Bash | python -X utf8 /d/relay/tools/b706_reg_gate.py
+  #152 | 2026-10-22T22:23:16.576Z | seat | Bash | python -X utf8 /d/relay/tools/b706_reg_gate.py
+  #153 | 2026-10-22T22:23:17.676Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py gatebanks
+  #154 | 2026-10-22T22:23:18.640Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py scores dry
+  #155 | 2026-10-22T22:24:43.233Z | seat | Bash | python -X utf8 /d/relay/tools/b706_reg_gate.py
+  #156 | 2026-10-22T22:24:44.278Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py gatebanks
+  #157 | 2026-10-22T22:25:41.154Z | seat | Bash | git -C /d/relay add data/b706_registration_2026-10-22.txt data/b706_reg_gate.txt data/b706_reg_termscan.txt data/b706_regspec_run.txt data/audit_b706_reg_satisf
+  #158 | 2026-10-22T22:26:22.172Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py commands
+  #159 | 2026-10-22T22:26:23.276Z | seat | Bash | python -X utf8 /d/relay/tools/b706_reg_gate.py
+  #160 | 2026-10-22T22:26:24.228Z | seat | Bash | python -X utf8 /d/relay/tools/b706_record.py gatebanks
 
-### ### **COMMANDS 126 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 6 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 29 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 12 OF 12 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 160 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 6 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 29 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 12 OF 12 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

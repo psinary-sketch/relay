@@ -101,7 +101,7 @@ PART = sys.argv[sys.argv.index('--part') + 1] if '--part' in sys.argv and len(sy
 L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): filled at the seal (stage two, by the Edit tool)
 FLOORS = dict(prompts=3, calls=2, checks=4, defects=(('a', 'NAVIGATOR'), ('b', 'NAVIGATOR'), ('c', 'NAVIGATOR'), ('d', 'SEAT'), ('e', 'SEAT'), ('f', 'SEAT'),
-                                                     ('g', 'SEAT')))
+                                                     ('g', 'SEAT'), ('h', 'SEAT')))
 
 
 def _jgz(name):
