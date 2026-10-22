@@ -1,0 +1,155 @@
+b705 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCH, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T15:36:39Z)
+
+### the source: the seat`s session 44411d52-210c-4cc1-9c1f-45be454f0521 from its first user line carrying 'RULING (R315) BEGIN', with its subagents` transcripts
+### commands read: 85
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b704, its own session fb68aaef, from its post-push combine to that session`s end): 11 commands from 2026-10-22T06:42:01.062Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (one ordered this act, N1: the join kernel) (1):
+  #51 python -X utf8 tools/b705_record.py dispatch SIDE-faces-join 732c1b49aada7f6266414a010e42652c877882f6 join FacesJoin
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (1):
+  #4 2026-10-22T11:55:24.627Z ls tools | grep -E 'b675|b685|b686|b687|b696|circuit|chain_page|mirror|corrig|tests|readfirst' && ls /d/ && ls /d/PLACE-papers 2>/dev/null | head -30
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (1):
+  #4 2026-10-22T11:55:24.627Z ls tools | grep -E 'b675|b685|b686|b687|b696|circuit|chain_page|mirror|corrig|tests|readfirst' && ls /d/ && ls /d/PLACE-papers 2>/dev/null | head -30
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (5):
+  #1 2026-10-22T11:55:01.851Z cd /d/relay && git status --short --branch && git log --oneline -3 && git branch --list 'push-b70*' && ls data | wc -l && ls tools | wc -l
+  #2 2026-10-22T11:55:04.070Z cd /d/relay && cat .git/config | head -20 && ls && ls tools | grep -E 'b70[0-4]|push_gated|act_root|e0_rule|b696_tails|b675|b694_witness|b326_windows|b703_standing|corrigend|rowgen|constell|b685|b686|
+  #3 2026-10-22T11:55:22.892Z ls -la data/b704_* data/b703_pins.txt data/b703_registrations.txt data/b703_q0_band.txt data/b703_wsign7.txt data/b703_widening_grade.txt data/b701_correspondence_restatement.txt data/b680_rules.txt d
+  #4 2026-10-22T11:55:24.627Z ls tools | grep -E 'b675|b685|b686|b687|b696|circuit|chain_page|mirror|corrig|tests|readfirst' && ls /d/ && ls /d/PLACE-papers 2>/dev/null | head -30
+  #6 2026-10-22T11:55:53.801Z ls -1 data/ | grep -E '^b704_' && git log -1 --format=%H%n%s -- data/b704_ferry.txt && grep -rl "PLACE-papers" tools/b704_closing.py | head -1 && grep -n "PLACE-papers'" tools/b704_closing.py | head -
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (7):
+  #1 2026-10-22T11:55:01.851Z cd /d/relay && git status --short --branch && git log --oneline -3 && git branch --list 'push-b70*' && ls data | wc -l && ls tools | wc -l
+  #2 2026-10-22T11:55:04.070Z cd /d/relay && cat .git/config | head -20 && ls && ls tools | grep -E 'b70[0-4]|push_gated|act_root|e0_rule|b696_tails|b675|b694_witness|b326_windows|b703_standing|corrigend|rowgen|constell|b685|b686|
+  #3 2026-10-22T11:55:22.892Z ls -la data/b704_* data/b703_pins.txt data/b703_registrations.txt data/b703_q0_band.txt data/b703_wsign7.txt data/b703_widening_grade.txt data/b701_correspondence_restatement.txt data/b680_rules.txt d
+  #4 2026-10-22T11:55:24.627Z ls tools | grep -E 'b675|b685|b686|b687|b696|circuit|chain_page|mirror|corrig|tests|readfirst' && ls /d/ && ls /d/PLACE-papers 2>/dev/null | head -30
+  #5 2026-10-22T11:55:27.037Z Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'claude|tail|lean|lake|python|node|bash|pwsh|powershell' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={ if ($_.CommandL
+  #6 2026-10-22T11:55:53.801Z ls -1 data/ | grep -E '^b704_' && git log -1 --format=%H%n%s -- data/b704_ferry.txt && grep -rl "PLACE-papers" tools/b704_closing.py | head -1 && grep -n "PLACE-papers'" tools/b704_closing.py | head -
+  #16 2026-10-22T12:16:04.729Z Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(claude|tail|lean|lake|python|node)' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={ if ($_.CommandLine) { $_.CommandL
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (6):
+  #19 2026-10-22T12:19:28.266Z Bash
+      git -C /d/relay branch -d push-b704
+  #20 2026-10-22T12:19:30.978Z Bash
+      git -C /d/relay branch -d push-b704-root
+  #21 2026-10-22T12:19:33.804Z Bash
+      git -C /d/relay branch -d push-b704-root2
+  #22 2026-10-22T12:19:36.414Z Bash
+      git -C /d/relay branch -d push-b704-closing
+  #23 2026-10-22T12:19:39.368Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b704
+  #24 2026-10-22T12:19:42.147Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b704-root
+
+### THE BRANCH DELETES BY SHAPE ((R315)(10) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #19 deletes ['push-b704'], halves 1, globs none, variables none, chained after False; #20 deletes ['push-b704-root'], halves 1, globs none, variables none, chained after False; #21 deletes ['push-b704-root2'], halves 1, globs none, variables none, chained after False; #22 deletes ['push-b704-closing'], halves 1, globs none, variables none, chained after False; #23 deletes ['push-b704'], halves 1, globs none, variables none, chained after False; #24 deletes ['push-b704-root'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-22T11:55:01.851Z | seat | Bash | cd /d/relay && git status --short --branch && git log --oneline -3 && git branch --list 'push-b70*' && ls data | wc -l && ls tools | wc -l
+  #2 | 2026-10-22T11:55:04.070Z | seat | Bash | cd /d/relay && cat .git/config | head -20 && ls && ls tools | grep -E 'b70[0-4]|push_gated|act_root|e0_rule|b696_tails|b675|b694_witness|b326_windows|b703_stand
+  #3 | 2026-10-22T11:55:22.892Z | seat | Bash | ls -la data/b704_* data/b703_pins.txt data/b703_registrations.txt data/b703_q0_band.txt data/b703_wsign7.txt data/b703_widening_grade.txt data/b701_corresponden
+  #4 | 2026-10-22T11:55:24.627Z | seat | Bash | ls tools | grep -E 'b675|b685|b686|b687|b696|circuit|chain_page|mirror|corrig|tests|readfirst' && ls /d/ && ls /d/PLACE-papers 2>/dev/null | head -30
+  #5 | 2026-10-22T11:55:27.037Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'claude|tail|lean|lake|python|node|bash|pwsh|powershell' } | Select-Object ProcessId, ParentProces
+  #6 | 2026-10-22T11:55:53.801Z | seat | Bash | ls -1 data/ | grep -E '^b704_' && git log -1 --format=%H%n%s -- data/b704_ferry.txt && grep -rl "PLACE-papers" tools/b704_closing.py | head -1 && grep -n "PLACE
+  #7 | 2026-10-22T11:57:29.303Z | seat | Bash | git ls-files -- 'data/b685_*.txt' 'data/b686_*.txt' 'data/b687_*.txt' 'data/b696_*.txt' 'data/b675_*.txt' 'data/b694_*.txt' 'data/b681_*.txt' && git -C /d/MY-DO
+  #8 | 2026-10-22T11:58:07.984Z | seat | Bash | python -X utf8 tools/b704_record.py names b698 && gh auth status && git -C /d/SIDE-lv-conservation log -1 --format=%H v0.10.0^{commit} && git -C /d/SIDE-explici
+  #9 | 2026-10-22T11:59:18.382Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-tree --name-only v0.37 SIDEExplicitFormula/ && git -C /d/SIDE-lv-conservation ls-tree --name-only -r v0.10.0 && git -C /d/SID
+  #10 | 2026-10-22T12:00:59.173Z | seat | Bash | git -C /d/SIDE-lv-conservation grep -n -A2 "^namespace\|^def Register4_positivity\|^end " v0.10.0 -- SIDELvConservation/RegisterPentagon.lean && git -C /d/SIDE-
+  #11 | 2026-10-22T12:09:54.004Z | seat | Bash | python -X utf8 tools/b705_citation.py ferry
+  #12 | 2026-10-22T12:09:54.898Z | seat | Bash | python -X utf8 tools/b705_citation.py check dry
+  #13 | 2026-10-22T12:13:02.615Z | seat | Bash | python -X utf8 tools/b705_citation.py check
+  #14 | 2026-10-22T12:15:59.254Z | seat | Bash | python -X utf8 tools/b705_record.py rowgen
+  #15 | 2026-10-22T12:16:02.170Z | seat | Bash | python -X utf8 tools/b705_record.py branches before && python -X utf8 tools/b705_tests.py parts && git status --porcelain --untracked-files=no && git -C /d/MY-D
+  #16 | 2026-10-22T12:16:04.729Z | seat | PowerShell | Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(claude|tail|lean|lake|python|node)' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cm
+  #17 | 2026-10-22T12:16:56.137Z | seat | Bash | python -X utf8 tools/circuit_read.py readfirst b705_ferry.txt b705_readfirst.txt
+  #18 | 2026-10-22T12:16:57.696Z | seat | Bash | git add data/b704_closing_push_out.txt && git commit -q -m "b705 step zero under (R315)(10): b704's closing push capture, committed alone (data/b704_closing_pus
+  #19 | 2026-10-22T12:19:28.266Z | seat | Bash | git -C /d/relay branch -d push-b704
+  #20 | 2026-10-22T12:19:30.978Z | seat | Bash | git -C /d/relay branch -d push-b704-root
+  #21 | 2026-10-22T12:19:33.804Z | seat | Bash | git -C /d/relay branch -d push-b704-root2
+  #22 | 2026-10-22T12:19:36.414Z | seat | Bash | git -C /d/relay branch -d push-b704-closing
+  #23 | 2026-10-22T12:19:39.368Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b704
+  #24 | 2026-10-22T12:19:42.147Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b704-root
+  #25 | 2026-10-22T12:19:47.845Z | seat | Bash | python -X utf8 tools/b705_record.py branches && python -X utf8 tools/b705_tests.py hold 1 && python -X utf8 tools/b705_tests.py run test_act_root.py && python -
+  #26 | 2026-10-22T12:20:02.688Z | seat | Bash | python -X utf8 tools/b705_tests.py hold 2 && python -X utf8 tools/b705_tests.py run test_asof.py
+  #27 | 2026-10-22T12:26:38.025Z | seat | Bash | python -X utf8 tools/b705_tests.py hold 3 && python -X utf8 tools/b705_tests.py run test_axiom_claim.py && python -X utf8 tools/b705_tests.py run test_axiom_cla
+  #28 | 2026-10-22T12:27:25.634Z | seat | Bash | python -X utf8 tools/b705_tests.py hold 4 && python -X utf8 tools/b705_tests.py run test_chain_page.py
+  #29 | 2026-10-22T12:33:51.558Z | seat | Bash | python -X utf8 tools/b705_tests.py hold 5 && python -X utf8 tools/b705_tests.py run test_chain_page_b592.py && python -X utf8 tools/b705_tests.py run test_chain
+  #30 | 2026-10-22T12:37:08.139Z | seat | Bash | python -X utf8 tools/b705_tests.py hold 6 && python -X utf8 tools/b705_tests.py run test_g_chain_page.py && python -X utf8 tools/b705_tests.py run test_glossary
+  #31 | 2026-10-22T12:42:19.569Z | seat | Bash | python -X utf8 tools/b705_tests.py hold 7 && python -X utf8 tools/b705_tests.py run test_push_gated.sh && python -X utf8 tools/b705_tests.py run test_reader_nee
+  #32 | 2026-10-22T12:45:59.471Z | seat | Bash | git add data/b705_ferry.txt data/b705_ferry_scan.txt data/b705_citation_check.txt data/b705_citation_check.json data/b705_readfirst.txt data/b705_readfirst_clos
+  #33 | 2026-10-22T12:47:43.595Z | seat | Bash | python -X utf8 tools/b705_record.py names b703_checks
+  #34 | 2026-10-22T12:49:28.059Z | seat | Bash | git -C /d/SIDE-explicit-formula cat-file -e v0.1:print_targets.txt && echo "v0.1 has print_targets" ; git -C /d/SIDE-explicit-formula cat-file -e v0.2:print_tar
+  #35 | 2026-10-22T13:02:12.750Z | seat | Bash | python -X utf8 tools/b705_record.py armsort && python -X utf8 tools/b705_record.py figures && python -X utf8 tools/b705_record.py figctl
+  #36 | 2026-10-22T13:02:13.867Z | seat | Bash | python -X utf8 tools/b705_record.py repairs dry
+  #37 | 2026-10-22T13:03:03.101Z | seat | Bash | python -X utf8 tools/b705_record.py figures && python -X utf8 tools/b705_record.py figctl && python -X utf8 tools/b705_record.py repairs && python -X utf8 tools
+  #38 | 2026-10-22T13:03:17.702Z | seat | Bash | python -X utf8 tools/b705_record.py repairctl && python -X utf8 tools/b705_corrigendum.py dry && python -X utf8 tools/b705_record.py c1 dry && python -X utf8 to
+  #39 | 2026-10-22T13:04:25.405Z | seat | Bash | python -X utf8 tools/b705_record.py repairs && python -X utf8 tools/b705_record.py repairctl
+  #40 | 2026-10-22T13:04:39.451Z | seat | Bash | python -X utf8 tools/b705_record.py repairs && python -X utf8 tools/b705_record.py repairctl && python -X utf8 tools/b705_corrigendum.py dry && python -X utf8 t
+  #41 | 2026-10-22T14:44:43.235Z | seat | Bash | python -X utf8 tools/b705_citation.py answer "Tails tool" && python -X utf8 tools/b705_citation.py answer "Join name" && python -X utf8 tools/b705_citation.py a
+  #42 | 2026-10-22T14:45:10.324Z | seat | Bash | python -X utf8 tools/b705_record.py c1 && python -X utf8 tools/b705_corrigendum.py land && python -X utf8 tools/b705_record.py orders
+  #43 | 2026-10-22T14:45:28.793Z | seat | Bash | python -X utf8 tools/b705_record.py defects && git status --porcelain --untracked-files=no && git -C /d/MY-DOwnloads/PLACE-papers status --porcelain --untracked
+  #44 | 2026-10-22T14:45:40.942Z | seat | Bash | git add data/b675_corrigenda.txt data/b705_citation_check.txt data/b705_defects.txt data/b705_defects.json data/b705_arm_sort.txt data/b705_arm_sort.json data/b
+  #45 | 2026-10-22T14:45:47.225Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md OPEN_TRAILS.md && git commit -q -m "b705 Component 1 under (R315)(1)-(4): b704's weight appended to its e
+  #46 | 2026-10-22T14:48:00.486Z | seat | Bash | cd /d/relay && python -X utf8 tools/b705_record.py names b703 && git -C /d/SIDE-explicit-formula hash-object .github/workflows/build-module.yml && git -C /d/SID
+  #47 | 2026-10-22T14:48:16.140Z | seat | Bash | cd /d/SIDE-faces-join && git init -q -b main && git add lean-toolchain lakefile.toml FacesJoin.lean print_targets.txt .gitignore README.md .github/workflows/bui
+  #48 | 2026-10-22T14:49:44.057Z | seat | Bash | cd /d/relay && python -X utf8 tools/b705_record.py joinfiles && python -X utf8 tools/b705_record.py dispatch SIDE-faces-join 732c1b49aada7f6266414a010e42652c877
+  #49 | 2026-10-22T14:49:54.440Z | seat | Bash | gh repo create psinary-sketch/SIDE-faces-join --public --description "The closure join of the PLACE TO STAND programme's two faces kernels at one pin (act b705)
+  #50 | 2026-10-22T14:50:08.331Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b705_join_push_out.txt bash tools/push_gated.sh /d/SIDE-faces-join push-b705-join
+  #51 | 2026-10-22T14:50:32.863Z | seat | Bash | python -X utf8 tools/b705_record.py dispatch SIDE-faces-join 732c1b49aada7f6266414a010e42652c877882f6 join FacesJoin
+  #52 | 2026-10-22T14:52:23.313Z | seat | Bash | python -X utf8 tools/b705_record.py runwait SIDE-faces-join 39799253764 540
+  #53 | 2026-10-22T14:53:58.836Z | seat | Bash | python -X utf8 tools/b705_record.py runner SIDE-faces-join 39799253764 732c1b49aada7f6266414a010e42652c877882f6 join the join kernel SIDE-faces-join at its one 
+  #54 | 2026-10-22T14:54:04.403Z | seat | Bash | python -X utf8 tools/b705_record.py runner SIDE-faces-join 39799253764 732c1b49aada7f6266414a010e42652c877882f6 join "the join kernel SIDE-faces-join at its one
+  #55 | 2026-10-22T14:54:27.386Z | seat | Bash | git -C /d/SIDE-lv-conservation show v0.10.0:lake-manifest.json && git -C /d/SIDE-explicit-formula show v0.37:lake-manifest.json
+  #56 | 2026-10-22T14:55:20.028Z | seat | Bash | python -X utf8 tools/b705_record.py artfile SIDE-faces-join 39799253764 join cache.log ref.txt build_exit.txt && python -X utf8 tools/b705_record.py joingrade j
+  #57 | 2026-10-22T14:57:38.836Z | seat | Bash | git status --short
+  #58 | 2026-10-22T14:58:23.971Z | seat | Bash | git add tools/b705_record.py data/b705_defects.txt data/b705_join_grade.txt data/b705_join_grade.json data/b705_join_files.txt data/b705_join_files.json data/b7
+  #59 | 2026-10-22T14:58:42.974Z | seat | Bash | python -X utf8 tools/b705_detection.py controls
+  #60 | 2026-10-22T14:58:51.771Z | seat | Bash | python -X utf8 tools/b705_detection.py pairs 0 8
+  #61 | 2026-10-22T14:59:05.522Z | seat | Bash | python -X utf8 tools/b705_detection.py pairs 9 16
+  #62 | 2026-10-22T14:59:09.984Z | seat | Bash | python -X utf8 tools/b705_detection.py bank
+  #63 | 2026-10-22T14:59:44.056Z | seat | Bash | git add data/b705_detection_controls.txt data/b705_detection.txt data/b705_detection.json.gz data/b705_detection_hashes.txt && git commit -q -m "b705 Component 
+  #64 | 2026-10-22T15:02:34.609Z | seat | Bash | python -X utf8 tools/b705_window.py zeta N 32 48
+  #65 | 2026-10-22T15:02:44.165Z | seat | Bash | python -X utf8 tools/b705_window.py zeta N
+  #66 | 2026-10-22T15:02:45.156Z | seat | Bash | python -X utf8 tools/b705_window.py zeta C
+  #67 | 2026-10-22T15:03:06.229Z | seat | Bash | python -X utf8 tools/b705_window.py q0 C
+  #68 | 2026-10-22T15:03:18.460Z | seat | Bash | python -X utf8 tools/b705_window.py q0 N
+  #69 | 2026-10-22T15:04:26.736Z | seat | Bash | python -X utf8 tools/b705_window.py bank
+  #70 | 2026-10-22T15:04:29.758Z | seat | Bash | cd /d/SIDE-explicit-formula && git rev-parse HEAD && git rev-parse v0.36^{commit} v0.37^{commit} && git rev-parse v0.36:SIDEExplicitFormula/H2SignWide.lean v0.3
+  #71 | 2026-10-22T15:04:53.502Z | seat | Bash | cd /d/relay && git add tools/b705_window.py data/b705_window_controls.txt data/b705_window.txt data/b705_window.json.gz data/b705_window_hashes.txt && git commi
+  #72 | 2026-10-22T15:05:10.069Z | seat | Bash | cd /d/relay && python -X utf8 tools/b705_cc_source.py fetch
+  #73 | 2026-10-22T15:06:52.923Z | seat | Bash | git add tools/b705_cc_source.py data/b705_source_cc_2006_13771.txt && git commit -q -m "b705 Component 4: the small-support positivity source fetched -- Connes-
+  #74 | 2026-10-22T15:08:16.346Z | seat | Bash | python -X utf8 tools/b705_record.py e0met before && python -X utf8 tools/b705_record.py e0met variants
+  #75 | 2026-10-22T15:08:24.767Z | seat | Bash | python -X utf8 tools/b705_cc_source.py locate "Theorem 6.11" "13ăcă 17" "r2´1{2, 21{2s" "log 2"
+  #76 | 2026-10-22T15:10:24.356Z | seat | Bash | git add data/b705_registrations.txt && git commit -q -m "b705 Component 4: the registrations bank, successor of b703's -- (iii) the sign-onset radius at Q0 regi
+  #77 | 2026-10-22T15:13:25.313Z | seat | Bash | python -X utf8 tools/b705_citation.py answer "RESTRICTIONS, four heads"
+  #78 | 2026-10-22T15:13:56.968Z | seat | Bash | python -X utf8 tools/b705_record.py e0met after && git add tools/e0_rule.py tools/b705_record.py tools/b705_cc_source.py data/b705_i6_ranking.txt data/b705_e0_m
+  #79 | 2026-10-22T15:14:08.124Z | seat | Bash | python -X utf8 tools/b705_record.py e0met after && git add tools/e0_rule.py tools/b705_record.py tools/b705_cc_source.py data/b705_i6_ranking.txt data/b705_e0_m
+  #80 | 2026-10-22T15:15:53.573Z | seat | Bash | python -X utf8 tools/b705_record.py names b704 && echo ---- && python -X utf8 tools/b705_record.py names b698
+  #81 | 2026-10-22T15:15:55.737Z | seat | Bash | git log -1 --stat=200 --format='%h %s' d56e5d93 && git log -1 --stat=200 --format='%h %s' 02b9d0c2 && git log --format='%h %ct %s' f5a35af1~12..f5a35af1
+  #82 | 2026-10-22T15:16:52.365Z | seat | Bash | python -X utf8 tools/b705_record.py verdicts b705_arm_sort.txt b705_tool_repairs.txt b705_repair_controls.txt b705_readme_control.txt b705_standing_figures.txt 
+  #83 | 2026-10-22T15:31:30.572Z | seat | Bash | python -X utf8 tools/b705_record.py armnames && python -X utf8 tools/b705_record.py standing
+  #84 | 2026-10-22T15:31:31.970Z | seat | Bash | python -X utf8 tools/b705_record.py guard && python -X utf8 tools/b705_record.py kernels
+  #85 | 2026-10-22T15:31:33.028Z | seat | Bash | python -X utf8 tools/b705_record.py scores dry
+
+### ### **COMMANDS 85 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 11 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 5 ; PIPES OF ANY KIND 7 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

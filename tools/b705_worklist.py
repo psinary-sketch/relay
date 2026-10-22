@@ -81,22 +81,32 @@ BAND_ZERO = ('0.79799715717868013876', '29.55176109862911459913')   # ### the lo
 DETECTION_RANGE = ('0.67', '1.5')                                   # ### data/b703_registrations.txt :25 (ii)
 
 # ### stage two (Component 5, by the Edit tool): the commits in order, the sealed tools and the act's arms.
-STEPZERO = ''                # ### b704's closing push capture, committed alone at step zero
-STEPZERO_BANKS = ''          # ### the step-zero banks and the act's first tools
-C1_RELAY, C1_PP = '', ''
-C2_RELAY, C2_PP = '', ''
-C3_RELAY, C3_PP = '', ''
-C4_RELAY, C4_PP = '', ''
-JOIN_TIP = ''                # ### SIDE-faces-join's one commit, the ref of the one dispatch
-JOIN_RUN = 0
+STEPZERO = '9ac2fb3a'        # ### b704's closing push capture, committed alone at step zero
+STEPZERO_BANKS = 'da824895'  # ### the step-zero banks and the act's first tools
+C1_RELAY, C1_PP = '522cccfd', 'e781ec1'
+C2_RELAY, C2_PP = 'e531dfd1', ''          # ### the join: its banks and the hold, defect (j), the record tool's artfile route
+C3_RELAY, C3_PP = '16746ef9', ''          # ### the window (the last of Component 3's two commits)
+C3_DET = 'f3cbf2d0'                       # ### the detection law (Component 3's first commit)
+C4_RELAY, C4_PP = '66edf2e2', ''          # ### the ranking, E0's RESTRICTIONS extended, defect (k), the locate bank
+C4_REGS = 'd139cfcf'                      # ### data/b705_registrations.txt committed ALONE, before the ranking (N3)
+C4_SRC = '85ffb2e1'                       # ### the Connes-Consani source fetched and banked, before the registration
+JOIN_TIP = '732c1b49aada7f6266414a010e42652c877882f6'   # ### SIDE-faces-join's one commit, the ref of the one dispatch
+JOIN_RUN = 39799253764                                   # ### the one run, read by its id; GATE NOT DERIVES, the join HELD
+JOIN_GATE = 'NOT DERIVES'
 B704_TRAIL_HEAD = ('### b704 — lane two, act one hundred and thirty-one, the re-cut act under (R314): b703 at its weight; its unlettered read '
                    'by corrigendum and the read rule sorted into an arm; the faces chain re-probed at v0.37 with two nodes; the Correspondence '
                    'cells of a moved tag read; the README, the glossary companions and One Page Proof re-cut')
 SEALED = ('b705_worklist.py', 'b705_tests.py', 'b705_citation.py', 'b705_record.py', 'b705_checks.py', 'b705_closing.py', 'b705_reg_gate.py',
-          'b705_regspec.py', 'b705_corrigendum.py', 'b705_standing_figures.py', 'b705_detection.py', 'b705_window.py')
-REPAIRED_TOOLS = ('e0_rule.py',)   # ### (R315)(9): the MET list extended by the Edit tool
+          'b705_regspec.py', 'b705_corrigendum.py', 'b705_standing_figures.py', 'b705_detection.py', 'b705_window.py', 'b705_cc_source.py')
+REPAIRED_TOOLS = ('e0_rule.py',)   # ### (R315)(9): RESTRICTIONS extended by the Edit tool on the author's word at the E0 prompt (the ruling's "MET" the navigator's (k))
 NEW_TOOLS = ()
-ACT_ARMS = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R315-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-ANSWERS-BEFORE-WRITES', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM',
+            'G-CORRIGENDUM-ENTERED', 'G-GUARD-HELD', 'G-POSTROOT-WRITES-NONE', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-DEFECTS-EQUAL',
+            'G-TRAIL-RESOLVED-EQUAL', 'G-DEFECTS-LETTERED', 'G-ARM-SORT-BANKED', 'G-TOOL-REPAIRS', 'G-FIGURES-BANKED', 'G-READFIRST-DIFF-BANKED',
+            'G-ORDER-ENTERED', 'G-CONTOUR-BEFORE-FIGURES', 'G-REGISTRATION-UNCHANGED', 'G-SIGN-ONSET-REGISTERED-FIRST', 'G-JOIN-FILES-BANKED',
+            'G-JOIN-ONE-DISPATCH', 'G-JOIN-ARTIFACT-VERIFIED', 'G-JOIN-HELD-WITH-ERRORS', 'G-JOIN-TERMINAL-STATES-LV', 'G-DETECTION-CONTROLS-FIRST',
+            'G-DETECTION-BANKED', 'G-WINDOW-CONTROLS-FIRST', 'G-WINDOW-BANKED', 'G-I6-RANKED', 'G-E0-EXTENDED', 'G-PARTS-PRERUN', 'G-ARM-SECONDS-BANKED')
 STANDING_ADDED = ()          # ### N5: no standing arm added
 SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')

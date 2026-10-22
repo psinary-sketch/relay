@@ -1,0 +1,793 @@
+{
+ "at": "2026-10-22T15:36:39Z",
+ "anchor": "RULING (R315) BEGIN",
+ "rows": [
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T11:55:01.851Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git status --short --branch && git log --oneline -3 && git branch --list 'push-b70*' && ls data | wc -l && ls tools | wc -l",
+   "n": 1,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T11:55:04.070Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && cat .git/config | head -20 && ls && ls tools | grep -E 'b70[0-4]|push_gated|act_root|e0_rule|b696_tails|b675|b694_witness|b326_windows|b703_standing|corrigend|rowgen|constell|b685|b686|b687' ",
+   "n": 2,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T11:55:22.892Z",
+   "src": "seat",
+   "cmd": "ls -la data/b704_* data/b703_pins.txt data/b703_registrations.txt data/b703_q0_band.txt data/b703_wsign7.txt data/b703_widening_grade.txt data/b701_correspondence_restatement.txt data/b680_rules.txt data/b690_rules.txt data/b675_rules.txt data/b675_corrigenda.txt 2>&1 | awk '{print $5, $9}' && wc -l tools/b704_*.py tools/e0_rule.py tools/b703_standing_figures.py tools/act_root.py tools/b696_tails.py tools/b694_witness_terms.py tools/b326_windows.py tools/push_gated.sh",
+   "n": 3,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T11:55:24.627Z",
+   "src": "seat",
+   "cmd": "ls tools | grep -E 'b675|b685|b686|b687|b696|circuit|chain_page|mirror|corrig|tests|readfirst' && ls /d/ && ls /d/PLACE-papers 2>/dev/null | head -30",
+   "n": 4,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T11:55:27.037Z",
+   "src": "seat",
+   "cmd": "Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'claude|tail|lean|lake|python|node|bash|pwsh|powershell' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={ if ($_.CommandLine) { $_.CommandLine.Substring(0, [Math]::Min(160, $_.CommandLine.Length)) } }} | Format-Table -AutoSize -Wrap | Out-String -Width 220",
+   "n": 5,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T11:55:53.801Z",
+   "src": "seat",
+   "cmd": "ls -1 data/ | grep -E '^b704_' && git log -1 --format=%H%n%s -- data/b704_ferry.txt && grep -rl \"PLACE-papers\" tools/b704_closing.py | head -1 && grep -n \"PLACE-papers'\" tools/b704_closing.py | head -5 && grep -n \"PP_ROOT\\|PLACE_PAPERS\\|'D:/PLACE\\|D:\\\\\\\\PLACE\" tools/b704_record.py | head -5",
+   "n": 6,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T11:57:29.303Z",
+   "src": "seat",
+   "cmd": "git ls-files -- 'data/b685_*.txt' 'data/b686_*.txt' 'data/b687_*.txt' 'data/b696_*.txt' 'data/b675_*.txt' 'data/b694_*.txt' 'data/b681_*.txt' && git -C /d/MY-DOwnloads/PLACE-papers ls-files -- 'OPEN_TRAILS*' 'archive*' '*archive-2*' && ls /d/SIDE-explicit-formula /d/SIDE-explicit-formula/.github/workflows /d/SIDE-lv-conservation && git -C /d/SIDE-lv-conservation tag -l && git -C /d/SIDE-explicit-formula tag -l 'v0.3*'",
+   "n": 7,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T11:58:07.984Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b704_record.py names b698 && gh auth status && git -C /d/SIDE-lv-conservation log -1 --format=%H v0.10.0^{commit} && git -C /d/SIDE-explicit-formula log -1 --format=%H v0.37^{commit}",
+   "n": 8,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T11:59:18.382Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula ls-tree --name-only v0.37 SIDEExplicitFormula/ && git -C /d/SIDE-lv-conservation ls-tree --name-only -r v0.10.0 && git -C /d/SIDE-lv-conservation show v0.10.0:lean-toolchain && git -C /d/SIDE-lv-conservation grep -n \"Register4_positivity\" v0.10.0 -- '*.lean' && git -C /d/SIDE-explicit-formula grep -n \"register4_positivity_liCoeff_iff_rh\\|theorem h2_sign_iff_rh\\|def h2_sign \" v0.37 -- '*.lean'",
+   "n": 9,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:00:59.173Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-lv-conservation grep -n -A2 \"^namespace\\|^def Register4_positivity\\|^end \" v0.10.0 -- SIDELvConservation/RegisterPentagon.lean && git -C /d/SIDE-lv-conservation grep -n \"^import\" v0.10.0 -- SIDELvConservation/RegisterPentagon.lean && git -C /d/SIDE-explicit-formula grep -n \"^namespace\\|^def LiCoeff\\|^noncomputable def LiCoeff\\|^end \" v0.37 -- SIDEExplicitFormula/LiWeil.lean SIDEExplicitFormula/ResidueDischarge.lean SIDEExplicitFormula/PageConverses.lean SIDEExplicitFormula/Seam.lean SIDEExplicitFormula/H2Sign.lean && git -C /d/SIDE-explicit-formula grep -n -A1 \"^def Register4_positivity\" v0.37 -- SIDEExplicitFormula/ResidueDischarge.lean && git -C /d/SIDE-lv-conservation grep -n -A1 \"^def Register4_positivity\" v0.10.0 -- SIDELvConservation/RegisterPentagon.lean && gh repo list psinary-sketch --limit 3 --json name && git -C /d/SIDE-explicit-formula config --get remote.origin.url",
+   "n": 10,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:09:54.004Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_citation.py ferry",
+   "n": 11,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:09:54.898Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_citation.py check dry",
+   "n": 12,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:13:02.615Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_citation.py check",
+   "n": 13,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:15:59.254Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py rowgen",
+   "n": 14,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:16:02.170Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py branches before && python -X utf8 tools/b705_tests.py parts && git status --porcelain --untracked-files=no && git -C /d/MY-DOwnloads/PLACE-papers status --porcelain && git ls-files data/b628_intake_crank_v0_5.txt data/b647_navigator_memory.txt data/b671_narrow_run2_points.jsonl data/b681_narrow_units.jsonl data/b694_witness_units.jsonl data/b696_witness_balls_units.jsonl",
+   "n": 15,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T12:16:04.729Z",
+   "src": "seat",
+   "cmd": "Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(claude|tail|lean|lake|python|node)' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={ if ($_.CommandLine) { $_.CommandLine.Substring(0, [Math]::Min(120, $_.CommandLine.Length)) } }} | Format-Table -AutoSize -Wrap | Out-String -Width 200",
+   "n": 16,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:16:56.137Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/circuit_read.py readfirst b705_ferry.txt b705_readfirst.txt",
+   "n": 17,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:16:57.696Z",
+   "src": "seat",
+   "cmd": "git add data/b704_closing_push_out.txt && git commit -q -m \"b705 step zero under (R315)(10): b704's closing push capture, committed alone (data/b704_closing_push_out.txt, main read back at f5a35af1)\" && git log -1 --format=%h%x20%s",
+   "n": 18,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:19:28.266Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b704",
+   "n": 19,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:19:30.978Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b704-root",
+   "n": 20,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:19:33.804Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b704-root2",
+   "n": 21,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:19:36.414Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b704-closing",
+   "n": 22,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:19:39.368Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b704",
+   "n": 23,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:19:42.147Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b704-root",
+   "n": 24,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:19:47.845Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py branches && python -X utf8 tools/b705_tests.py hold 1 && python -X utf8 tools/b705_tests.py run test_act_root.py && python -X utf8 tools/b705_tests.py run test_act_root_commit_b644.py && python -X utf8 tools/b705_tests.py run test_act_root_order_b641.py && python -X utf8 tools/b705_tests.py run test_addenda_licence.py && python -X utf8 tools/b705_tests.py run test_addenda_writelist.py && python -X utf8 tools/b705_tests.py run test_additive_shared_b644.py",
+   "n": 25,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:20:02.688Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_tests.py hold 2 && python -X utf8 tools/b705_tests.py run test_asof.py",
+   "n": 26,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:26:38.025Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_tests.py hold 3 && python -X utf8 tools/b705_tests.py run test_axiom_claim.py && python -X utf8 tools/b705_tests.py run test_axiom_claim_b651.py && python -X utf8 tools/b705_tests.py run test_banned_terms_backmatter.py && python -X utf8 tools/b705_tests.py run test_build_watch_b644.py && python -X utf8 tools/b705_tests.py run test_build_watch_b647.py",
+   "n": 27,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:27:25.634Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_tests.py hold 4 && python -X utf8 tools/b705_tests.py run test_chain_page.py",
+   "n": 28,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:33:51.558Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_tests.py hold 5 && python -X utf8 tools/b705_tests.py run test_chain_page_b592.py && python -X utf8 tools/b705_tests.py run test_chain_page_b596.py && python -X utf8 tools/b705_tests.py run test_chain_page_b629.py && python -X utf8 tools/b705_tests.py run test_chain_page_b630.py && python -X utf8 tools/b705_tests.py run test_chain_page_b632.py && python -X utf8 tools/b705_tests.py run test_chain_page_b635.py && python -X utf8 tools/b705_tests.py run test_chain_page_b638.py && python -X utf8 tools/b705_tests.py run test_closing_headline_b634.py && python -X utf8 tools/b705_tests.py run test_clusters_served_b651.py && python -X utf8 tools/b705_tests.py run test_composer_b646.py && python -X utf8 tools/b705_tests.py run test_composer_b647.py && python -X utf8 tools/b705_tests.py run test_composer_b649.py && python -X utf8 tools/b705_tests.py run test_conversion_b652.py && python -X utf8 tools/b705_tests.py run test_correspondence_gen.py && python -X utf8 tools/b705_tests.py run test_e0_databinder_b643.py && python -X utf8 tools/b705_tests.py run test_e0_existential.py && python -X utf8 tools/b705_tests.py run test_e0_rule.py && python -X utf8 tools/b705_tests.py run test_edit_route_b646.py && python -X utf8 tools/b705_tests.py run test_elab_reader_b634.py && python -X utf8 tools/b705_tests.py run test_faces_form.py",
+   "n": 29,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:37:08.139Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_tests.py hold 6 && python -X utf8 tools/b705_tests.py run test_g_chain_page.py && python -X utf8 tools/b705_tests.py run test_glossary_supersede_b651.py && python -X utf8 tools/b705_tests.py run test_licensed_table_b645.py && python -X utf8 tools/b705_tests.py run test_licensed_table_instrument_b652.py && python -X utf8 tools/b705_tests.py run test_met_b646.py && python -X utf8 tools/b705_tests.py run test_module_header.py && python -X utf8 tools/b705_tests.py run test_msplit_b658.py && python -X utf8 tools/b705_tests.py run test_name_b649.py && python -X utf8 tools/b705_tests.py run test_name_patterns_b636.py && python -X utf8 tools/b705_tests.py run test_no_sorry_main.py && python -X utf8 tools/b705_tests.py run test_premise_status.py && python -X utf8 tools/b705_tests.py run test_primed_names_b643.py",
+   "n": 30,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:42:19.569Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_tests.py hold 7 && python -X utf8 tools/b705_tests.py run test_push_gated.sh && python -X utf8 tools/b705_tests.py run test_reader_needle_b641.py && python -X utf8 tools/b705_tests.py run test_record_findings_b632.py && python -X utf8 tools/b705_tests.py run test_registry_tags_b636.py && python -X utf8 tools/b705_tests.py run test_row_sort.py && python -X utf8 tools/b705_tests.py run test_rowgen_ident.py && python -X utf8 tools/b705_tests.py run test_terminal_table_b630.py && python -X utf8 tools/b705_tests.py run test_terminal_table_b635.py && python -X utf8 tools/b705_tests.py run test_terminal_table_b636.py && python -X utf8 tools/b705_tests.py run test_terminal_table_b637.py && python -X utf8 tools/b705_tests.py report stepzero",
+   "n": 31,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:45:59.471Z",
+   "src": "seat",
+   "cmd": "git add data/b705_ferry.txt data/b705_ferry_scan.txt data/b705_citation_check.txt data/b705_citation_check.json data/b705_readfirst.txt data/b705_readfirst_closure.txt data/b705_readfirst_diff.txt data/b705_rowgen_stepzero.txt data/b705_branches_before.json data/b705_branches.txt data/b705_branches.json data/b705_contour.txt data/b705_rules.txt data/b705_tests_stepzero.txt data/b705_tests_stepzero.json data/b705_tests_withheld.json data/b705_stepzero.txt data/b705_defects.txt tools/b705_worklist.py tools/b705_citation.py tools/b705_record.py tools/b705_tests.py && git commit -q -m \"b705 step zero under (R315): the citation check (138 cites, 2 misses, the navigator's), the readfirst bank and its closure, rowgen, the branches (6 deleted), the contour read (both ranges enclose every zero of Lambda_Q, the Q0 figures stand), the rules, the tests (54 run, 3 not clean, carried), the defects so far, the act's first tools\" && git log -1 --format=%h%x20%s",
+   "n": 32,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:47:43.595Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py names b703_checks",
+   "n": 33,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T12:49:28.059Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula cat-file -e v0.1:print_targets.txt && echo \"v0.1 has print_targets\" ; git -C /d/SIDE-explicit-formula cat-file -e v0.2:print_targets.txt && echo \"v0.2 has print_targets\" ; git -C /d/SIDE-explicit-formula ls-tree --name-only v0.2 && git -C /d/SIDE-explicit-formula log -1 --format=%cI v0.2 && git -C /d/SIDE-explicit-formula log -1 --format=%cI v0.1",
+   "n": 34,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T13:02:12.750Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py armsort && python -X utf8 tools/b705_record.py figures && python -X utf8 tools/b705_record.py figctl",
+   "n": 35,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T13:02:13.867Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py repairs dry",
+   "n": 36,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T13:03:03.101Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py figures && python -X utf8 tools/b705_record.py figctl && python -X utf8 tools/b705_record.py repairs && python -X utf8 tools/b705_record.py repairctl",
+   "n": 37,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T13:03:17.702Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py repairctl && python -X utf8 tools/b705_corrigendum.py dry && python -X utf8 tools/b705_record.py c1 dry && python -X utf8 tools/b705_record.py orders dry",
+   "n": 38,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T13:04:25.405Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py repairs && python -X utf8 tools/b705_record.py repairctl",
+   "n": 39,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T13:04:39.451Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py repairs && python -X utf8 tools/b705_record.py repairctl && python -X utf8 tools/b705_corrigendum.py dry && python -X utf8 tools/b705_record.py c1 dry && python -X utf8 tools/b705_record.py orders dry",
+   "n": 40,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:44:43.235Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_citation.py answer \"Tails tool\" && python -X utf8 tools/b705_citation.py answer \"Join name\" && python -X utf8 tools/b705_citation.py answer \"Tag prints\"",
+   "n": 41,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:45:10.324Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py c1 && python -X utf8 tools/b705_corrigendum.py land && python -X utf8 tools/b705_record.py orders",
+   "n": 42,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:45:28.793Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py defects && git status --porcelain --untracked-files=no && git -C /d/MY-DOwnloads/PLACE-papers status --porcelain --untracked-files=no",
+   "n": 43,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:45:40.942Z",
+   "src": "seat",
+   "cmd": "git add data/b675_corrigenda.txt data/b705_citation_check.txt data/b705_defects.txt data/b705_defects.json data/b705_arm_sort.txt data/b705_arm_sort.json data/b705_standing_figures.txt data/b705_standing_figures.json data/b705_readme_control.txt data/b705_tool_repairs.txt data/b705_repair_controls.txt data/b705_corrigendum.txt data/b705_corrigendum.json data/b705_corrigendum_landing.json data/b705_record_lines.json data/b705_order_tagprints.json tools/b705_record.py tools/b705_checks.py tools/b705_corrigendum.py tools/b705_standing_figures.py && git commit -q -m \"b705 Component 1 under (R315)(1)-(4): b704's weight at FINDINGS :9974; the eight failures sorted (data/b705_arm_sort.txt); the three predicates repaired at the carry with their controls (data/b705_tool_repairs.txt, data/b705_repair_controls.txt); the README figure repaired, 0 stale, its baseline reset (data/b705_standing_figures.txt, data/b705_readme_control.txt); the corrigendum for b704's five post-seal items at FINDINGS :9976, corrigenda row (25); W-ORD-ENTRY-TAG-PRINTS at OPEN_TRAILS :15590; three misses raised and answered, defects (g)-(i) the navigator's; the suite, the corrigendum tool and the figures tool\" && git log -1 --format=%h%x20%s",
+   "n": 44,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:45:47.225Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md OPEN_TRAILS.md && git commit -q -m \"b705 Component 1 under (R315)(1)-(4): b704's weight appended to its entry (FINDINGS :9974); the corrigendum for b704's five post-seal items (FINDINGS :9976); W-ORD-ENTRY-TAG-PRINTS entered beneath W-ORD-CORRESPONDENCE-EF-REACH (OPEN_TRAILS :15590)\" && git log -1 --format=%h%x20%s",
+   "n": 45,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:48:00.486Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b705_record.py names b703 && git -C /d/SIDE-explicit-formula hash-object .github/workflows/build-module.yml && git -C /d/SIDE-faces-join hash-object .github/workflows/build-module.yml",
+   "n": 46,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:48:16.140Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-faces-join && git init -q -b main && git add lean-toolchain lakefile.toml FacesJoin.lean print_targets.txt .gitignore README.md .github/workflows/build-module.yml && git -c user.name=\"psinary-sketch\" -c user.email=\"psinary-sketch@users.noreply.github.com\" commit -q -m \"SIDE-faces-join v0.1.0 candidate: the closure join of h2_sign and lv-conservation's Register4_positivity at LiCoeff (act b705, (R315)(5)); SIDE-explicit-formula v0.37 and SIDE-lv-conservation v0.10.0 required at one pin\" && git log -1 --format=%H%x20%s && git config user.name && git config user.email",
+   "n": 47,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:49:44.057Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b705_record.py joinfiles && python -X utf8 tools/b705_record.py dispatch SIDE-faces-join 732c1b49aada7f6266414a010e42652c877882f6 join FacesJoin dry",
+   "n": 48,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:49:54.440Z",
+   "src": "seat",
+   "cmd": "gh repo create psinary-sketch/SIDE-faces-join --public --description \"The closure join of the PLACE TO STAND programme's two faces kernels at one pin (act b705): h2_sign equivalent to lv-conservation's Register4_positivity at LiCoeff\" && git -C /d/SIDE-faces-join remote add origin https://github.com/psinary-sketch/SIDE-faces-join.git && git -C /d/SIDE-faces-join remote -v && git -C /d/SIDE-faces-join branch push-b705-join main && git -C /d/SIDE-faces-join branch --list",
+   "n": 49,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:50:08.331Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b705_join_push_out.txt bash tools/push_gated.sh /d/SIDE-faces-join push-b705-join",
+   "n": 50,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:50:32.863Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py dispatch SIDE-faces-join 732c1b49aada7f6266414a010e42652c877882f6 join FacesJoin",
+   "n": 51,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:52:23.313Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py runwait SIDE-faces-join 39799253764 540",
+   "n": 52,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:53:58.836Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py runner SIDE-faces-join 39799253764 732c1b49aada7f6266414a010e42652c877882f6 join the join kernel SIDE-faces-join at its one commit, the whole target FacesJoin, dispatched once under (R315)(5)",
+   "n": 53,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:54:04.403Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py runner SIDE-faces-join 39799253764 732c1b49aada7f6266414a010e42652c877882f6 join \"the join kernel SIDE-faces-join at its one commit, the whole target FacesJoin, dispatched once under R315 clause 5\"",
+   "n": 54,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:54:27.386Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-lv-conservation show v0.10.0:lake-manifest.json && git -C /d/SIDE-explicit-formula show v0.37:lake-manifest.json",
+   "n": 55,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:55:20.028Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py artfile SIDE-faces-join 39799253764 join cache.log ref.txt build_exit.txt && python -X utf8 tools/b705_record.py joingrade join",
+   "n": 56,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:57:38.836Z",
+   "src": "seat",
+   "cmd": "git status --short",
+   "n": 57,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:58:23.971Z",
+   "src": "seat",
+   "cmd": "git add tools/b705_record.py data/b705_defects.txt data/b705_join_grade.txt data/b705_join_grade.json data/b705_join_files.txt data/b705_join_files.json data/b705_join_push_out.txt data/b705_dispatches.json data/b705_runner_rows.json data/b705_runner_SIDE-faces-join_join.txt data/b705_axioms_SIDE-faces-join_join.txt data/b705_buildlog_SIDE-faces-join_join.txt data/b705_art_SIDE-faces-join_join_cache_log.txt data/b705_art_SIDE-faces-join_join_ref_txt.txt data/b705_art_SIDE-faces-join_join_build_exit_txt.txt && git commit -q -m \"b705 Component 2: the closure join SIDE-faces-join 732c1b49 dispatched once (run 39799253764), its artifact sha256 verified, faces_join HELD at NOT DERIVES -- Mathlib's dependencies resolved from lv's manifest, the build's errors and the cache log banked by line; defect (j); record tool's artfile route\" && git log -1 --format='%h %s'",
+   "n": 58,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:58:42.974Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_detection.py controls",
+   "n": 59,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:58:51.771Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_detection.py pairs 0 8",
+   "n": 60,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:59:05.522Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_detection.py pairs 9 16",
+   "n": 61,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:59:09.984Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_detection.py bank",
+   "n": 62,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T14:59:44.056Z",
+   "src": "seat",
+   "cmd": "git add data/b705_detection_controls.txt data/b705_detection.txt data/b705_detection.json.gz data/b705_detection_hashes.txt && git commit -q -m \"b705 Component 3 (i): the detection law over the seventeen off-line pairs -- controls C1 n*(rho0) 63676 equal to b675's, C2 zeta nonnegative (vacuous); 5 pairs computed, all within [0.67, 1.5], 12 beyond b675's rule's reach; the falsifier HELD over the pairs computed\" && git log -1 --format='%h %s'",
+   "n": 63,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:02:34.609Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_window.py zeta N 32 48",
+   "n": 64,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:02:44.165Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_window.py zeta N",
+   "n": 65,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:02:45.156Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_window.py zeta C",
+   "n": 66,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:03:06.229Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_window.py q0 C",
+   "n": 67,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:03:18.460Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_window.py q0 N",
+   "n": 68,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:04:26.736Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_window.py bank",
+   "n": 69,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:04:29.758Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git rev-parse HEAD && git rev-parse v0.36^{commit} v0.37^{commit} && git rev-parse v0.36:SIDEExplicitFormula/H2SignWide.lean v0.37:SIDEExplicitFormula/H2SignWide.lean && git hash-object SIDEExplicitFormula/H2SignWide.lean && git rev-parse v0.36:SIDEExplicitFormula/H2Sign.lean v0.37:SIDEExplicitFormula/H2Sign.lean && git hash-object SIDEExplicitFormula/H2Sign.lean && git status --short",
+   "n": 70,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:04:53.502Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git add tools/b705_window.py data/b705_window_controls.txt data/b705_window.txt data/b705_window.json.gz data/b705_window_hashes.txt && git commit -q -m \"b705 Component 3 (ii): the notched Weil window of b518 at the lowest band zero 0.79799... + 29.55176... i -- zeta nonnegative at every width of both families, the centred window at Q0 nonnegative at every width, the notched window at Q0 nonnegative at 32-128 and NEGATIVE at 192 (S = -8.888 +- 2.8e-25): the falsifier not fired, the hypothesis HELD from width 192; the term anatomy beside b694's at rho_0\" && git log -1 --format='%h %s'",
+   "n": 71,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:05:10.069Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b705_cc_source.py fetch",
+   "n": 72,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:06:52.923Z",
+   "src": "seat",
+   "cmd": "git add tools/b705_cc_source.py data/b705_source_cc_2006_13771.txt && git commit -q -m \"b705 Component 4: the small-support positivity source fetched -- Connes-Consani arXiv:2006.13771 (the archimedean place), 57 pages by pypdf, the PDF's sha256 in the bank's head (the PDF itself untracked); no identifier of the author in the request\" && git log -1 --format='%h %s'",
+   "n": 73,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:08:16.346Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py e0met before && python -X utf8 tools/b705_record.py e0met variants",
+   "n": 74,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:08:24.767Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_cc_source.py locate \"Theorem 6.11\" \"13ăcă 17\" \"r2´1{2, 21{2s\" \"log 2\"",
+   "n": 75,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:10:24.356Z",
+   "src": "seat",
+   "cmd": "git add data/b705_registrations.txt && git commit -q -m \"b705 Component 4: the registrations bank, successor of b703's -- (iii) the sign-onset radius at Q0 registered before any radius is computed, the Connes-Consani small-support range cited by page; committed alone\" && git log -1 --format='%h %s'",
+   "n": 76,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:13:25.313Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_citation.py answer \"RESTRICTIONS, four heads\"",
+   "n": 77,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:13:56.968Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py e0met after && git add tools/e0_rule.py tools/b705_record.py tools/b705_cc_source.py data/b705_i6_ranking.txt data/b705_e0_met_before.json data/b705_e0_met_variants.txt data/b705_e0_met.txt data/b705_e0_met.json data/b705_source_cc_locate.txt data/b705_defects.txt && git commit -q -m \"b705 Component 4: the I-6 ranking (the support radius at its head, then (e), (b), (a); two rows zeroed by the spec's rule); E0's RESTRICTIONS extended by the Edit tool with classK, classKsum, classK' and acDeriv on the author's word -- the three inclusions DERIVES, every other header unchanged, the before/after control and the diff banked; defect (k); the source's locate bank\" && git log -1 --format='%h %s'",
+   "n": 78,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:14:08.124Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py e0met after && git add tools/e0_rule.py tools/b705_record.py tools/b705_cc_source.py data/b705_i6_ranking.txt data/b705_e0_met_before.json data/b705_e0_met_variants.txt data/b705_e0_met.txt data/b705_e0_met.json data/b705_source_cc_locate.txt data/b705_defects.txt && git commit -q -m \"b705 Component 4: the I-6 ranking (the support radius at its head, then (e), (b), (a); two rows zeroed by the spec's rule); E0's RESTRICTIONS extended by the Edit tool with classK, classKsum, classK' and acDeriv on the author's word -- the three inclusions DERIVES, every other header unchanged, the before/after control and the diff banked; defect (k); the source's locate bank\" && git log -1 --format='%h %s'",
+   "n": 79,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:15:53.573Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py names b704 && echo ---- && python -X utf8 tools/b705_record.py names b698",
+   "n": 80,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:15:55.737Z",
+   "src": "seat",
+   "cmd": "git log -1 --stat=200 --format='%h %s' d56e5d93 && git log -1 --stat=200 --format='%h %s' 02b9d0c2 && git log --format='%h %ct %s' f5a35af1~12..f5a35af1",
+   "n": 81,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:16:52.365Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py verdicts b705_arm_sort.txt b705_tool_repairs.txt b705_repair_controls.txt b705_readme_control.txt b705_standing_figures.txt b705_contour.txt b705_rules.txt b705_join_files.txt b705_join_push_out.txt b705_runner_SIDE-faces-join_join.txt b705_join_grade.txt b705_detection_controls.txt b705_detection.txt b705_window_controls.txt b705_window.txt b705_registrations.txt b705_i6_ranking.txt b705_e0_met.txt b705_e0_met_variants.txt b705_corrigendum.txt b705_readfirst.txt b705_stepzero.txt b705_citation_check.txt b705_branches.txt b705_tests_stepzero.txt b705_readfirst_diff.txt b705_rowgen_stepzero.txt b705_detection_hashes.txt b705_window_hashes.txt b705_art_SIDE-faces-join_join_cache_log.txt",
+   "n": 82,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:31:30.572Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py armnames && python -X utf8 tools/b705_record.py standing",
+   "n": 83,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:31:31.970Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py guard && python -X utf8 tools/b705_record.py kernels",
+   "n": 84,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:31:33.028Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py scores dry",
+   "n": 85,
+   "bg": false
+  }
+ ],
+ "offences": [],
+ "prev": {
+  "act": "b704",
+  "session": "fb68aaef-b55a-4524-9588-8db0a32e886f",
+  "rows": 11,
+  "offences": []
+ },
+ "local_lean": [],
+ "dispatches": [
+  51
+ ],
+ "detached": [],
+ "seds": [],
+ "null_redirects": [
+  4
+ ],
+ "redirects": [
+  4
+ ],
+ "pipes": [
+  1,
+  2,
+  3,
+  4,
+  6
+ ],
+ "any_pipes": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  16
+ ],
+ "py_programs": [],
+ "moves_deletes": [
+  19,
+  20,
+  21,
+  22,
+  23,
+  24
+ ],
+ "delete_shapes": [
+  {
+   "n": 19,
+   "deletes": [
+    "push-b704"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 20,
+   "deletes": [
+    "push-b704-root"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 21,
+   "deletes": [
+    "push-b704-root2"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 22,
+   "deletes": [
+    "push-b704-closing"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 23,
+   "deletes": [
+    "push-b704"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 24,
+   "deletes": [
+    "push-b704-root"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  }
+ ],
+ "outbound": []
+}

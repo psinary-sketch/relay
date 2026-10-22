@@ -34,6 +34,7 @@ LEXICON; SIX PARTS, THE CHAIN SPLIT BY ACT.
 """
 import copy
 import fnmatch
+import gzip
 import hashlib
 import json
 import os
@@ -95,7 +96,34 @@ GUARD_DRY = '--guard-dry' in sys.argv
 PART = sys.argv[sys.argv.index('--part') + 1] if '--part' in sys.argv and len(sys.argv) > sys.argv.index('--part') + 1 else None
 L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): filled at the seal (stage two, by the Edit tool)
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=(('a', 'SEAT'), ('b', 'SEAT'), ('c', 'SEAT'), ('d', 'SEAT'), ('e', 'SEAT'), ('f', 'SEAT')))
+FLOORS = dict(prompts=4, calls=2, checks=4, defects=(('a', 'SEAT'), ('b', 'SEAT'), ('c', 'SEAT'), ('d', 'SEAT'), ('e', 'SEAT'), ('f', 'SEAT'),
+                                                     ('g', 'NAVIGATOR'), ('h', 'NAVIGATOR'), ('i', 'NAVIGATOR'), ('j', 'SEAT'), ('k', 'NAVIGATOR')))
+
+
+def _jgz(name):
+    """a binary bank's json read from its gz (data/b680_rules.txt row (1): the gz beside its hashes bank); {} where absent."""
+    p = os.path.join(D, name)
+    try:
+        return json.loads(gzip.decompress(open(p, 'rb').read()).decode('utf-8'))
+    except Exception:
+        return {}
+
+
+def _gz_hash_ok(gzname, hashes_text):
+    """the gz's sha256 and its json's against the hashes bank's rows ('data/<name> ; <sha256> ; <bytes>')."""
+    p = os.path.join(D, gzname)
+    if not os.path.exists(p):
+        return False
+    b = open(p, 'rb').read()
+    raw = gzip.decompress(b)
+    want = dict((l.split(' ; ')[0].strip(), l.split(' ; ')[1].strip()) for l in hashes_text.split(NL) if l.count(' ; ') == 2)
+    return want.get('data/' + gzname) == hashlib.sha256(b).hexdigest() and want.get('data/' + gzname.replace('.gz', '') + ' (inside the gz)') == hashlib.sha256(raw).hexdigest()
+
+
+def _bank_utc(text):
+    """the UTC stamp a bank's head line carries, '(YYYY-MM-DDTHH:MM:SSZ)', as an epoch; None where absent."""
+    m = re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)', (text or '').split(NL)[0] + NL + ((text or '').split(NL)[1] if text and NL in text else ''))
+    return iso_epoch(m.group(1)) if m else None
 REPAIRED_TOOLS = K.REPAIRED_TOOLS
 NEW_TOOLS = K.NEW_TOOLS
 # ### the instruments read unedited: b703's list with tools/rule_arms.py and b703's figures tool, b695's to b704's sealed tools, b704's new tools,
@@ -329,13 +357,17 @@ def sources(need=()):
         joinax=rd('b705_axioms_%s_%s.txt' % (K.KERNEL, JOIN_LABEL)), runner_rows=jl('b705_runner_rows.json'),
         join_grade=rd('b705_join_grade.txt'), join_gradej=jl('b705_join_grade.json'), join_files=rd('b705_join_files.txt'),
         join_push=rd('b705_join_push_out.txt'), join_tag_push=rd('b705_join_tag_push_out.txt'),
-        detection=rd('b705_detection.txt'), detectionj=jl('b705_detection.json'), det_ctl=rd('b705_detection_controls.txt'), det_hashes=rd('b705_detection_hashes.txt'),
-        window=rd('b705_window.txt'), windowj=jl('b705_window.json'), win_ctl=rd('b705_window_controls.txt'), win_hashes=rd('b705_window_hashes.txt'),
+        detection=rd('b705_detection.txt'), detectionj=_jgz('b705_detection.json.gz'), det_ctl=rd('b705_detection_controls.txt'), det_hashes=rd('b705_detection_hashes.txt'),
+        window=rd('b705_window.txt'), windowj=_jgz('b705_window.json.gz'), win_ctl=rd('b705_window_controls.txt'), win_hashes=rd('b705_window_hashes.txt'),
+        det_gz_ok=_gz_hash_ok('b705_detection.json.gz', rd('b705_detection_hashes.txt')), win_gz_ok=_gz_hash_ok('b705_window.json.gz', rd('b705_window_hashes.txt')),
         regs=rd('b705_registrations.txt'), regs703=rd('b703_registrations.txt'),
         regs703_log=gs(ROOT, 'log', '--format=%h', '--', 'data/b703_registrations.txt'), regs703_status=gs(ROOT, 'status', '--porcelain', '--', 'data/b703_registrations.txt'),
+        regs703_eq=(blob(ROOT, 'HEAD:data/b703_registrations.txt') is not None and blob(ROOT, 'HEAD:data/b703_registrations.txt') == blob(ROOT, 'b8a36309:data/b703_registrations.txt')),
         regs_log=gs(ROOT, 'log', '--format=%h %ct', '--', 'data/b705_registrations.txt'),
-        i6=rd('b705_i6_ranking.txt'), i6j=jl('b705_i6_ranking.json'), cc_source=rd('b705_cc_source.txt'),
+        i6=rd('b705_i6_ranking.txt'), cc_source=rd('b705_source_cc_2006_13771.txt'), cc_locate=rd('b705_source_cc_locate.txt'),
+        art_cache=rd('b705_art_%s_%s_cache_log.txt' % (K.KERNEL, JOIN_LABEL)), buildlog=rd('b705_buildlog_%s_%s.txt' % (K.KERNEL, JOIN_LABEL)),
         e0diff=rd('b705_e0_met.txt'), e0j=jl('b705_e0_met.json'), e0_now=read(os.path.join(T, 'e0_rule.py')), e0_pre=cr0(blob(ROOT, PRE['relay'] + ':tools/e0_rule.py')),
+        e0_head=cr0(blob(ROOT, 'HEAD:tools/e0_rule.py')), e0_variants=rd('b705_e0_met_variants.txt'),
         orders_line=jl('b705_order_tagprints.json'),
         ef_main=gs(EF, 'rev-parse', 'main'),
         ef_log=[(l.split(' ', 2)[0], l.split(' ', 2)[2] if l.count(' ') >= 2 else '', int(l.split(' ', 2)[1])) for l in
@@ -351,10 +383,12 @@ def sources(need=()):
         asec=jl('b705_arm_seconds.json'), asect=rd('b705_arm_seconds.txt'),
         shared=dict((p, (cr0(blob(ROOT, '%s:%s' % (PRE['relay'], p))), cr0(raw(os.path.join(ROOT, *p.split('/')))), cr0(blob(ROOT, 'HEAD:' + p))))
                     for p in K.SHARED_APPENDED),
-        t=dict(c1=_ct(ROOT, K.C1_RELAY), c1pp=_ct(PP, K.C1_PP), c2=_ct(ROOT, K.C2_RELAY), c3=_ct(ROOT, K.C3_RELAY), c4=_ct(ROOT, K.C4_RELAY),
-               c4pp=_ct(PP, K.C4_PP), stepzero=_ct(ROOT, K.STEPZERO_BANKS)),
+        t=dict(c1=_ct(ROOT, K.C1_RELAY), c1pp=_ct(PP, K.C1_PP), c2=_ct(ROOT, K.C2_RELAY), c3=_ct(ROOT, K.C3_RELAY), c3det=_ct(ROOT, K.C3_DET),
+               c4=_ct(ROOT, K.C4_RELAY), c4regs=_ct(ROOT, K.C4_REGS), c4src=_ct(ROOT, K.C4_SRC), c4pp=(_ct(PP, K.C4_PP) if K.C4_PP else None),
+               stepzero=_ct(ROOT, K.STEPZERO_BANKS)),
         files=dict(stepzero=files_of(ROOT, K.STEPZERO_BANKS) if K.STEPZERO_BANKS else [], c1=files_of(ROOT, K.C1_RELAY), c1pp=files_of(PP, K.C1_PP),
-                   c2=files_of(ROOT, K.C2_RELAY), c3=files_of(ROOT, K.C3_RELAY), c4=files_of(ROOT, K.C4_RELAY), c4pp=files_of(PP, K.C4_PP)),
+                   c2=files_of(ROOT, K.C2_RELAY), c3=files_of(ROOT, K.C3_RELAY), c3det=files_of(ROOT, K.C3_DET), c4=files_of(ROOT, K.C4_RELAY),
+                   c4regs=files_of(ROOT, K.C4_REGS), c4src=files_of(ROOT, K.C4_SRC), c4pp=(files_of(PP, K.C4_PP) if K.C4_PP else [])),
         standing=STANDING, wf=wf_state(),
         export_present=os.path.exists(os.path.join(ROOT, *EXPORT.split('/'))), export_log=gs(ROOT, 'log', '--all', '--format=%h', '--', EXPORT),
         export_index=gs(ROOT, 'ls-files', '--', EXPORT), export_status=gs(ROOT, 'status', '--porcelain', '--', EXPORT),
@@ -892,6 +926,202 @@ def closing_sentence_ok(S):
         and 'THE STANDING ARMS' in t and 'THE ORDERS' in t and '### THE KERNELS' in t and '### THE MIRROR' in t and '### THE CARRY-TIME' in t
 
 
+# ================================================================== THIS ACT'S ARMS OVER ITS OWN BANKS (Component 5, by the Edit tool)
+NAV_LETTERS = ('g', 'h', 'i', 'k')
+ANSWER_NEEDLES = (('Tails tool', 'c2'), ('Join name', 'c2'), ('Tag prints', 'c1'), ('RESTRICTIONS, four heads', 'c4'))
+
+
+def defects_ok(S):
+    """every lettered row the sealed floors name stands in the bank with its owner, in order, and no owner differs; rows beyond the floors
+    (lettered after the seal) are admitted, each with an owner."""
+    rows = re.findall(r"^    \(([a-z])\) THE (NAVIGATOR|SEAT)'S", S['defects'], re.M)
+    want = [list(x) for x in FLOORS['defects']]
+    return len(rows) >= len(want) and [list(r) for r in rows[:len(want)]] == want and all(o in ('NAVIGATOR', 'SEAT') for _l, o in rows) \
+        and [l for l, o in rows if o == 'NAVIGATOR'][:len(NAV_LETTERS)] == list(NAV_LETTERS)
+
+
+def answers_before_ok(S):
+    """every mid-act answer's check stamped before the commit that acted on it: the three misses' before Component 2's (the join; the tag-prints
+    order's before Component 1's), the E0 prompt's before Component 4's."""
+    stamps = dict((n, iso_epoch(t)) for t, n in re.findall(
+        r'### \(R278\)\(4\) THE MID-ACT CHECK \((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\): the (?:navigator`s )?answer carrying \'([^\']+)\'', S['citation']))
+    return all(any(k.startswith(n) for k in stamps) for n, _c in ANSWER_NEEDLES) and all(
+        bool(S['t'].get(c)) and all(v is not None and v < S['t'][c] for k, v in stamps.items() if k.startswith(n)) for n, c in ANSWER_NEEDLES)
+
+
+def armsort_ok(S):
+    z = unwrap(S['armsort'])
+    return 'ARMS 8 ; FAILING AT b704`S CLOSE 8 OF 8 ; DECLARED ON THE FACE 3 ; FOUND AFTER THE SEAL 5 ; REPAIRED AT CARRY TIME 4 ; NO REPAIR 4' in z \
+        and all(n in S['armsort'] for n in ('G-README-CURRENCY', 'G-ACTROOT-BANKED', 'G-ANSWERS-CHECKED', 'G-WORKFLOW-FILES', 'G-READ-RULE-STANDING',
+                                            'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-RESOLVED-EQUAL')) \
+        and 'data/b705_arm_sort.txt' in S['files']['c1']
+
+
+def repairs_ok(S):
+    return 'REPAIRS 5 ; SHARED TOOLS EDITED 0 AT THE CARRY' in unwrap(S['repairs']) and 'CASES 7 ; AS WANTED True' in unwrap(S['repair_ctl']) \
+        and "['G-ACTROOT-BANKED', 'G-ANSWERS-CHECKED', 'G-WORKFLOW-FILES']" in unwrap(S['repair_ctl']) and 'EVERY CONTROL AS WANTED True' in unwrap(S['readme_ctl']) \
+        and 'THE REAL README READS 0 STALE ON THE REPAIRED FIGURE' in unwrap(S['readme_ctl']) and all(('(%d) tools/' % i) in S['repairs'] for i in range(1, 6))
+
+
+def figures_banked_ok(S):
+    j = S['figj']
+    figs = [(j.get(k) or {}).get('figure') for k in ('correspondence', 'readme', 'partners', 'pins')]
+    return all(isinstance(x, int) for x in figs) and j.get('readme_baseline_reset') is True and figs[1] == 0 \
+        and 'FIGURES AT b705: CORRESPONDENCE 0 ; README 0' in unwrap(S['figt']) and 'THE README BASELINE RESET TO 0' in unwrap(S['figt'])
+
+
+def readfirst_diff_ok(S):
+    return 'THE HAND LIST' in unwrap(S['rf_diff']) and S['rf_hand_now'] is not None and S['rf_hand_z'] is not None and S['rf_hand_now'] == S['rf_hand_z']
+
+
+def order_ok(S):
+    ls = S['orders_line'].get('lines') or []
+    return len(ls) == 1 and ls[0].get('file') == 'OPEN_TRAILS.md' and bool(ls[0].get('line')) \
+        and oline(S, ls[0]['line']).startswith(conv(S['REC'].ORDER_TAGPRINTS[0])) and 'W-ORD-ENTRY-TAG-PRINTS' in oline(S, ls[0]['line'])
+
+
+def contour_first_ok(S):
+    """(R315)(6), N3: the contour bank committed at step zero, before any Q0 figure is printed -- the detection controls' and the window
+    controls' stamps both after the step-zero commit; both ranges enclosing every zero."""
+    z = unwrap(S['contour'])
+    dc, wc = _bank_utc(S['det_ctl']), _bank_utc(S['win_ctl'])
+    return 'EACH ENCLOSE EVERY ZERO OF Λ_Q' in z and 'THE Q0 FIGURES STAND' in z and 'W-ORD-Q0-TAILS-WIDE NOT ENTERED' in z \
+        and 'data/b705_contour.txt' in S['files']['stepzero'] and bool(S['t'].get('stepzero')) and dc is not None and wc is not None \
+        and S['t']['stepzero'] < dc and S['t']['stepzero'] < wc
+
+
+def registration_unchanged_ok(S):
+    """N3: data/b703_registrations.txt as committed at b703 (one commit, b8a36309), unchanged in the tree and at HEAD; its (ii) the rows this act
+    computed by."""
+    return S['regs703_log'].strip() == 'b8a36309' and S['regs703_status'] == '' and S['regs703_eq'] is True \
+        and '(ii) THE DETECTION LAW -- COMPUTED AT b705.' in S['regs703'] and 'FALSIFIER: any pair\'s n* outside the range.' in S['regs703']
+
+
+def sign_onset_ok(S):
+    """N3 and (R315)(8): the sign-onset registration (iii) committed ALONE after the source was read and before the ranking (any number) was
+    written; no radius computed; the source cited by page."""
+    z = unwrap(S['regs'])
+    return S['files']['c4regs'] == ['data/b705_registrations.txt'] and bool(S['t'].get('c4regs')) and bool(S['t'].get('c4')) and bool(S['t'].get('c4src')) \
+        and S['t']['c4src'] < S['t']['c4regs'] < S['t']['c4'] and '(iii) THE SIGN-ONSET RADIUS AT Q0 -- COMPUTED AT b707' in S['regs'] \
+        and 'NO RADIUS COMPUTED' in z and 'COMMITTED ALONE BEFORE THE RANKING' in z and 'arXiv:2006.13771' in S['regs'] \
+        and 'page 48, :3633-:3641' in S['regs'] and 'Theorem 6.11' in S['cc_source'] and 'data/b705_source_cc_2006_13771.txt' in S['files']['c4src'] \
+        and 'data/b705_i6_ranking.txt' in S['files']['c4'] and 'data/b705_i6_ranking.txt' not in S['files']['c4regs']
+
+
+def join_files_ok(S):
+    z = unwrap(S['join_files'])
+    jf = jl('b705_join_files.json')
+    return 'THE WORKFLOW`S BLOB EQUAL TO SIDE-explicit-formula`S AT MAIN True' in z and 'MATHLIB True, SIDE-explicit-formula v0.37 True, SIDE-lv-conservation v0.10.0 True REQUIRED BY REVISION' in z \
+        and 'IDENTIFIER NEEDLES IN THE WORKFLOW OR THE MODULE NONE' in z and jf.get('tip') == K.JOIN_TIP and jf.get('workflow_equal') is True \
+        and ('main read back at the remote: %s' % K.JOIN_TIP[:8]) in S['join_push'] and 'data/b705_join_files.txt' in S['files']['c2']
+
+
+def join_dispatch_ok(S):
+    """N1: one dispatch, the join kernel's, at its tip, whole by data/b705_rules.txt row (1), its run the one read; one dispatch in the capture."""
+    rows = S['dispj'].get('rows') or []
+    return len(rows) == 1 and rows[0].get('kernel') == K.KERNEL and rows[0].get('ref') == K.JOIN_TIP and rows[0].get('run_id') == K.JOIN_RUN \
+        and rows[0].get('whole') is True and rows[0].get('print_modules') == [K.JOIN_MODULE] and len(S['cmdj'].get('dispatches') or []) == 1
+
+
+def join_artifact_ok(S):
+    """N1: the run read by its id with its artifact's sha256 verified (the runner bank AGREE; the artifact file banks read after the sha256 agreed)."""
+    rows = [r for r in (S['runner_rows'].get('rows') or []) if r.get('kernel') == K.KERNEL]
+    sha = (rows[0].get('artifact_sha256') or '') if rows else ''
+    return len(rows) == 1 and re.match(r'^[0-9a-f]{64}$', sha) is not None and rows[0].get('run_id') == K.JOIN_RUN and rows[0].get('ref') == K.JOIN_TIP \
+        and re.search(r'^### the artifact: .* ; AGREE$', S['joint'], re.M) is not None \
+        and ('READ AFTER THE ARTIFACT`S SHA256 %s AGREED WITH THE BANKED AND THE PLATFORM`S' % sha[:16]) in S['art_cache']
+
+
+def join_held_ok(S):
+    """N2 and (R315)(5): the gate NOT DERIVES, the join HELD with the build's error lines banked by line, the cause read from the run's own
+    artifact, no tag, no second dispatch."""
+    j = S['join_gradej']
+    t = S['join_grade']
+    errs = [l for l in S['buildlog'].split(NL) if l.startswith('error:')]
+    return j.get('held') is True and j.get('gate') == K.JOIN_GATE and j.get('run') == K.JOIN_RUN and j.get('tip') == K.JOIN_TIP \
+        and '== THE JOIN HELD: the run`s gate NOT DERIVES' in t and 'error: build failed' in t and '== THE CAUSE, READ FROM THE RUN`S OWN ARTIFACT' in t \
+        and 'mathlib: failed to fetch cache' in S['art_cache'] and len(errs) >= 16 and S['join_tag'] == '' and S['join_tag_push'] == '' \
+        and 'GATE NOT DERIVES' in S['joint'] and len(S['dispj'].get('rows') or []) == 1 \
+        and re.search(r'the terminal states lv-conservation`s own declaration, no restatement in the module \(N2\) PASS', t) is not None
+
+
+def join_terminal_ok(S):
+    m = S['join_module']
+    return 'theorem faces_join' in m and 'SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff' in m \
+        and 'def Register4_positivity' not in m and 'SIDEExplicitFormula.B321.h2_sign ↔' in m and 'sorry' not in strip_prose(m)
+
+
+def detection_controls_ok(S):
+    """N4: the controls printed before any pair's figure -- C1 reproducing b675's n* at rho_0, C2 zeta nonnegative; their stamp before the bank's."""
+    z = unwrap(S['det_ctl'])
+    dc, db = _bank_utc(S['det_ctl']), _bank_utc(S['detection'])
+    return 'C1: n*(rho0) BY b675`S ROUTE 63676 AGAINST b675`S 63676, EQUAL True' in z and 'C2: ZETA P_n NONNEGATIVE AT EVERY GRID n True' in z \
+        and dc is not None and db is not None and dc < db and 'data/b705_detection_controls.txt' in S['files']['c3det']
+
+
+def detection_ok(S):
+    """N4 and (R315)(7)(i): seventeen pairs, each computed within the registered range or entered beyond reach with its bound; the falsifier read
+    and printed HELD; the binary bank beside its hashes."""
+    j = S['detectionj']
+    rows = j.get('rows') or []
+    z = unwrap(S['detection'])
+    return len(rows) == 17 and j.get('verdict') == 'HELD' and j.get('range') == ['0.67', '1.5'] and j.get('computed') == 5 and j.get('outside') == [] \
+        and j.get('beyond') == list(range(5, 17)) and all((r.get('within') is True) if r.get('n_star') else bool(r.get('reach')) for r in rows) \
+        and 'PAIRS 17 ; COMPUTED 5, WITHIN [0.67, 1.5] 5, OUTSIDE 0 ; BEYOND REACH 12 ; THE FALSIFIER HELD ; C1 EQUAL True' in z \
+        and S['det_gz_ok'] is True and 'data/b705_detection.json.gz' in S['files']['c3det']
+
+
+def window_controls_ok(S):
+    """N4: the zeta windows (both families, every width) and the centred window at Q0 run and banked before the notched family at Q0 -- by the
+    units' stamps in the binary bank."""
+    z = unwrap(S['win_ctl'])
+    U = S['windowj'].get('units') or []
+    at = lambda r, f: [u['at'] for u in U if u.get('route') == r and u.get('fam') == f]   # noqa: E731
+    zs, c, n = at('zeta', 'N') + at('zeta', 'C'), at('q0', 'C'), at('q0', 'N')
+    return 'C1 ZETA NONNEGATIVE AT EVERY WIDTH OF BOTH FAMILIES True' in z and 'C2 THE CENTRED WINDOW AT Q0 NEGATIVE AT NO WIDTH' in z \
+        and len(zs) == 12 and len(c) == 6 and len(n) == 6 and max(zs) <= min(c) and max(c) <= min(n)
+
+
+def window_ok(S):
+    """N4 and (R315)(7)(ii): the sign per width with its term anatomy; the falsifier read; the binary bank beside its hashes."""
+    j = S['windowj']
+    t = S['window']
+    return j.get('verdict') == 'HELD' and j.get('negative_at') == ['192'] and j.get('falsifier_fired') is False and j.get('widths') == ['32', '48', '64', '96', '128', '192'] \
+        and len(j.get('anatomy') or []) == 12 and all(('  %-4s | P ' % w) in t for w in j['widths']) and t.count('THE MOVER') >= 12 \
+        and 'THE FALSIFIER (a nonnegative reading at every width 32 to 192): NOT FIRED' in t and 'THE REGISTRATION`S HYPOTHESIS' in t \
+        and 'NEGATIVE FROM WIDTH 192' in t and S['win_gz_ok'] is True and 'data/b705_window.json.gz' in S['files']['c3'] \
+        and (j.get('zero') or {}).get('im') == K.BAND_ZERO[1]
+
+
+def i6_ok(S):
+    z = unwrap(S['i6'])
+    return 'AXES 7' in z and 'THE TOP (d`) THE SUPPORT RADIUS, 5' in z and '  1. (d`)' in S['i6'] and 'THE TOP AXIS NAMED FOR b707' in S['i6'] \
+        and all(('(%s)' % a) in S['i6'] for a in 'abcdef') and 'data/b705_i6_ranking.txt' in S['files']['c4'] and 'AXIS (b) A WALL THAT NARROWED' in z
+
+
+def e0_ok(S):
+    """(R315)(9): the shared rule extended by the Edit tool on the author's word, the three inclusions DERIVES and every other header unchanged,
+    the diff banked; the working tree, HEAD and the bank agreeing; the variants bank the control that chose."""
+    z = unwrap(S['e0diff'])
+    heads = ("head='classK',", "head='classKsum',", "head=\"classK'\",", "head='acDeriv',")
+    return 'HEADERS 11 ; CHANGED BY THE EXTENSION 3' in z and 'EVERY OTHER NAME UNCHANGED True' in z \
+        and sorted(c[0] for c in (S['e0j'].get('changed') or [])) == sorted(["classK_subset_classK'", 'classK_subset_classKsum', "classKsum_subset_classK'"]) \
+        and all(h in S['e0_now'] for h in heads) and not any(h in (S['e0_pre'] or b'').decode('utf-8', 'replace') for h in heads) \
+        and S['e0_head'] is not None and S['e0_head'] == cr0(S['e0_now'].encode('utf-8')) and 'MET+3' in S['e0_variants'] \
+        and 'tools/e0_rule.py' in S['files']['c4'] and 'data/b705_e0_met.txt' in S['files']['c4']
+
+
+def parts_prerun_ok(S):
+    t = S['prerun']
+    return all(('### PART %s : ARMS' % p) in t for p in K.PARTS) and 'under the 590 s guard True' in t and 'PRE-SEAL (R202)(3)' in t
+
+
+def arm_seconds_ok(S):
+    j = S['asec']
+    return sorted(j.get('parts') or []) == sorted(K.PARTS) if isinstance(j.get('parts'), (list, dict)) else (
+        sorted(j) >= [] and all(p in json.dumps(j) for p in K.PARTS) and 'THE PER-PART SECONDS' in S['asect'].upper())
+
+
 ARMS = [
     ('G-RECEIPT-IN-FULL', 'the banked ferry', lambda S: 'RULING (R315) END' in S['ferry'] and S['ferry'].rstrip().endswith(K.TAIL),
      lambda S: put(S, 'ferry', S['ferry'].replace(K.TAIL, ''))),
@@ -921,6 +1151,81 @@ ARMS = [
      lambda S: put(S, 'cmds', S['cmds'] + [dict(n=0, tool='Bash', ts='', src='planted', cmd='lake env lean FacesJoin.lean')])),
     ('G-WEIGHT-LINE', 'FINDINGS at the record-lines bank`s line, found by conv', lambda S: weight_ok(S), lambda S: _rl(S, 0, 1)),
     # ### ACT ARMS (Component 5, by the Edit tool) -- inserted here
+    ('G-DRY-STEP-CLEAN', 'the gate`s record: the dry-run step CLEAN, the trail`s Defects and Resolved lines equal to the bank, the gate CLEAR',
+     lambda S: dry_step_ok(S), lambda S: put(S, 'gate', '')),
+    ('G-CLOSING-DRY-STEP', 'the gate`s record: the closing tool run dry before the lock, its sections read (the sort, the join, the contour, the detection law, the window, the ranking, the lexicon)',
+     lambda S: closing_dry_ok(S), lambda S: put(S, 'gate', S['gate'].replace('THE CLOSING DRY-RUN STEP : CLEAN', 'THE CLOSING DRY-RUN STEP : NOT CLEAN'))),
+    ('G-CITATION-CHECKED', 'the citation bank: every cite checked at step zero, the two misses the navigator`s as lettered, the bank before the step-zero commit and that before Component 1`s',
+     lambda S: citation_ok(S), lambda S: put(S, 'citation', '')),
+    ('G-R315-ENTERED', 'the trail record`s ratification line', lambda S: '**(R315) ratified.**' in trail_tail(S),
+     lambda S: put(S, 'ot', S['ot'].replace('**(R315) ratified.**', '**(R315) read.**'))),
+    ('G-ROWGEN-STEPZERO', 'the rowgen bank`s verdict line', lambda S: rowgen_ok(S), lambda S: put(S, 'rowgen', '')),
+    ('G-BRANCHES-BANKED', 'the branches bank through the record tool`s reader: six named, deleted, merged, banked before the first delete and after the citation check',
+     lambda S: branches_banked_ok(S), lambda S: _mut(S, 'branchj', lambda d: d['rows'].pop())),
+    ('G-DELETES-ONE-BRANCH', 'the command bank: every branch delete one branch, no glob, no variable, nothing chained after',
+     lambda S: deletes_one_ok(S), lambda S: put(S, 'cmdt', '')),
+    ('G-ANSWERS-CHECKED', 'the citation bank`s mid-act prints: every answer checked before it was acted on, the root prompt`s checks after the lock each with its time (repaired under (R315)(2)(c))',
+     lambda S: answers_checked_ok(S), lambda S: put(S, 'citation', '')),
+    ('G-ANSWERS-BEFORE-WRITES', 'the citation bank`s check stamps against the commits that acted on each answer: the misses` before Component 2`s, the tag-prints order`s before Component 1`s, the E0 prompt`s before Component 4`s',
+     lambda S: answers_before_ok(S), lambda S: put(S, 'citation', '')),
+    ('G-SCORER-READS-BANKS', 'the record tool`s scorers: banks alone, no ledger line (data/b686_rules.txt row (1))', lambda S: scorer_banks_ok(S),
+     lambda S: put(S, 'rec_src', '')),
+    ('G-ENTRY-SCORES-EQUAL', 'the landed entry`s scores line against the scores bank', lambda S: entry_scores_ok(S), lambda S: put(S, 'sc', {})),
+    ('G-ENTRY-TITLE-FORM', 'the landed entry`s title: by its objects (the join, the contour, the detection law, the window, the ranking)', lambda S: entry_title_ok(S),
+     lambda S: put(S, 'fj', dict(S['fj'], entry_line=1))),
+    ('G-CORRIGENDUM-ENTERED', 'the generated corrigendum for b704`s five post-seal items, landed; the corrigenda bank appended at row (25)',
+     lambda S: corrigendum_ok(S), lambda S: put(S, 'corrj', {})),
+    ('G-GUARD-HELD', 'the suite`s writer block guarded by `if PRERUN:` and its dry run banked', lambda S: guard_ok(S), lambda S: put(S, 'guard', '')),
+    ('G-POSTROOT-WRITES-NONE', 'the per-part seconds banks` commit times against the root`s', lambda S: postroot_writes_none(S), lambda S: put(S, 'guard', '')),
+    ('G-TRAIL-LINES-EQUAL-DEFECTS', 'the landed trail`s Defects and Resolved lines against the defects bank`s owners', lambda S: trail_lines_equal_defects(S),
+     lambda S: put(S, 'defects', '')),
+    ('G-TRAIL-DEFECTS-EQUAL', 'the gate`s record and the landed trail`s Defects line against the repaired reader`s rows', lambda S: trail_defects_ok(S),
+     lambda S: put(S, 'gate', '')),
+    ('G-TRAIL-RESOLVED-EQUAL', 'the gate`s record and the landed trail`s Resolved line against the bank`s owners', lambda S: trail_resolved_ok(S),
+     lambda S: put(S, 'gate', '')),
+    ('G-DEFECTS-LETTERED', 'the defects bank: the sealed floors` rows (a)-(k) with their owners in order, (g), (h), (i) and (k) the navigator`s',
+     lambda S: defects_ok(S), lambda S: put(S, 'defects', '')),
+    ('G-ARM-SORT-BANKED', '(R315)(2): the eight failing arms sorted by cause with their dispositions, in Component 1`s commit', lambda S: armsort_ok(S),
+     lambda S: put(S, 'armsort', '')),
+    ('G-TOOL-REPAIRS', 'the carry-time repairs bank (5), their controls (7 cases as wanted, each repaired predicate distinguished) and the README figure`s controls',
+     lambda S: repairs_ok(S), lambda S: put(S, 'repairs', '')),
+    ('G-FIGURES-BANKED', 'the four standing figures banked with the README baseline reset to this act`s reading (0)', lambda S: figures_banked_ok(S),
+     lambda S: put(S, 'figj', {})),
+    ('G-READFIRST-DIFF-BANKED', 'the closure reader`s diff banked; the readfirst bank unchanged since the step-zero commit', lambda S: readfirst_diff_ok(S),
+     lambda S: put(S, 'rf_diff', '')),
+    ('G-ORDER-ENTERED', 'W-ORD-ENTRY-TAG-PRINTS at OPEN_TRAILS at the landing bank`s line, found by conv', lambda S: order_ok(S),
+     lambda S: put(S, 'orders_line', {})),
+    ('G-CONTOUR-BEFORE-FIGURES', '(R315)(6), N3: the contour bank in the step-zero commit, before the detection controls` and the window controls` stamps; both ranges enclosing every zero of Λ_Q',
+     lambda S: contour_first_ok(S), lambda S: put(S, 'contour', '')),
+    ('G-REGISTRATION-UNCHANGED', 'N3: data/b703_registrations.txt at one commit (b8a36309), unchanged in the tree and at HEAD, its (ii) the computed rows',
+     lambda S: registration_unchanged_ok(S), lambda S: put(S, 'regs703_log', 'deadbee' + NL + 'b8a36309')),
+    ('G-SIGN-ONSET-REGISTERED-FIRST', 'N3 and (R315)(8): data/b705_registrations.txt committed alone after the source`s commit and before the ranking`s; no radius computed; the source cited by page',
+     lambda S: sign_onset_ok(S), lambda S: put(S, 'regs', '')),
+    ('G-JOIN-FILES-BANKED', '(R315)(5): the join kernel`s files printed before the push, the workflow`s blob equal to SIDE-explicit-formula`s, the pins by revision, no identifier; the push read back at the tip',
+     lambda S: join_files_ok(S), lambda S: put(S, 'join_files', '')),
+    ('G-JOIN-ONE-DISPATCH', 'N1: one dispatch, the join kernel`s at its tip, whole by data/b705_rules.txt row (1), one in the capture', lambda S: join_dispatch_ok(S),
+     lambda S: _mut(S, 'dispj', lambda d: d['rows'].append(dict(d['rows'][0])))),
+    ('G-JOIN-ARTIFACT-VERIFIED', 'N1: the run read by its id, its artifact`s sha256 agreeing, the artifact`s files read only after it agreed', lambda S: join_artifact_ok(S),
+     lambda S: put(S, 'art_cache', '')),
+    ('G-JOIN-HELD-WITH-ERRORS', 'N2 and (R315)(5): the gate NOT DERIVES, the join HELD, the build`s sixteen error lines banked by line, the cause read from the run`s own artifact, no tag, no second dispatch',
+     lambda S: join_held_ok(S), lambda S: _mut(S, 'join_gradej', lambda d: d.update(held=False))),
+    ('G-JOIN-TERMINAL-STATES-LV', 'N2: FacesJoin.lean at main states SIDELvConservation.RegisterPentagon.Register4_positivity against h2_sign, no restatement, no sorry',
+     lambda S: join_terminal_ok(S), lambda S: put(S, 'join_module', '')),
+    ('G-DETECTION-CONTROLS-FIRST', 'N4: C1 reproducing b675`s n* at rho_0 and C2 zeta nonnegative, stamped before the pairs` bank', lambda S: detection_controls_ok(S),
+     lambda S: put(S, 'det_ctl', '')),
+    ('G-DETECTION-BANKED', 'N4 and (R315)(7)(i): seventeen pairs, five within the registered range, twelve beyond reach with their bound, the falsifier HELD, the binary bank beside its hashes',
+     lambda S: detection_ok(S), lambda S: _mut(S, 'detectionj', lambda d: d.update(verdict='REFUTED'))),
+    ('G-WINDOW-CONTROLS-FIRST', 'N4: the zeta windows and the centred window at Q0 banked before the notched family at Q0, by the units` stamps', lambda S: window_controls_ok(S),
+     lambda S: put(S, 'win_ctl', '')),
+    ('G-WINDOW-BANKED', 'N4 and (R315)(7)(ii): the sign per width with its term anatomy, negative at 192 alone, the falsifier not fired, the binary bank beside its hashes',
+     lambda S: window_ok(S), lambda S: _mut(S, 'windowj', lambda d: d.update(verdict='REFUTED'))),
+    ('G-I6-RANKED', '(R315)(8): the seven axes scored, one ordered list, the support radius at its head, the top axis named for b707, in Component 4`s commit',
+     lambda S: i6_ok(S), lambda S: put(S, 'i6', '')),
+    ('G-E0-EXTENDED', '(R315)(9): tools/e0_rule.py`s RESTRICTIONS extended by the Edit tool on the author`s word, the three inclusions DERIVES, every other header unchanged, the diff banked, the tree at HEAD',
+     lambda S: e0_ok(S), lambda S: put(S, 'e0diff', '')),
+    ('G-PARTS-PRERUN', 'the pre-run bank: six parts, each named with its arms and seconds, the longest under the 590 s guard', lambda S: parts_prerun_ok(S),
+     lambda S: put(S, 'prerun', '')),
+    ('G-ARM-SECONDS-BANKED', 'the per-part seconds bank gathered before the seal', lambda S: arm_seconds_ok(S), lambda S: put(S, 'asec', {})),
     ('G-SPEC-PLANTED', 'tools/b705_regspec.py`s planted rows run live through the record tool`s readers, and rows of another shape refused',
      lambda S: bool(S['spec']['read']) and all(S['spec']['read']) and all(S['spec']['controls']) and any('runner' in x for x in S['spec']['shapes']),
      lambda S: _mut(S, 'spec', lambda d: d['controls'].append(False))),
@@ -1176,8 +1481,11 @@ def combine():
 
 
 # ### G-READ-RULE-STANDING fails at b705 on defect (e), the two whole reads at the opening (from b705 every call counts, the author's word at b704's
-# ### arm-baseline prompt) -- declared on the face, section (G2), as a carried failure; the combine reads it by name, and no other failure is carried
-CARRIED_FAILING = ('G-READ-RULE-STANDING',)
+# ### arm-baseline prompt) -- declared on the face, section (G2), as a carried failure. The three standing runner arms G-WORKFLOW-FILES, G-RUNNER-READ
+# ### and G-RUNNER-GATE read this act's one run, the join kernel's, and fail by (R315)(5)'s own clause: the run's gate NOT DERIVES, the join HELD
+# ### with the error banked (faces_join not printed, 16 error lines in Mathlib's dependencies); declared beside it. The combine reads the four by
+# ### name, and no other failure is carried.
+CARRIED_FAILING = ('G-READ-RULE-STANDING', 'G-WORKFLOW-FILES', 'G-RUNNER-READ', 'G-RUNNER-GATE')
 
 
 def main():

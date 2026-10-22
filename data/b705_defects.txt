@@ -76,6 +76,12 @@ b705 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-22)
         control that chose.
 
 ### EVENTS, UNLETTERED
+    the suite's hold ((R294)(2), 2,560 MB) refused the pre-run's first three calls of standing-a at 2259, 2288 and 2203 MB free, the host's
+    browser holding most of the memory; each part was then called after a foreground wait (a PowerShell loop reading the free memory every
+    five seconds, under 400 s) for the free memory to clear the hold, the part starting in the same command; the hold not changed.
+    the pre-run's first standing-b3 (16:07Z) read three kernels' remotes empty -- SIDE-spinor, SIDE-structural-error-correction,
+    SIDE-substrate-cluster -- and the chain's second half read DISAGREE across b659-b704 on those reads alone; the three remotes were then
+    read whole by one ls-remote each (every ref present) and the part run again (16:13Z), AGREE across all 46; a transient read, not lettered.
     the join kernel's one commit (SIDE-faces-join 732c1b49) was made with `-c user.name="psinary-sketch" -c user.email=
     "psinary-sketch@users.noreply.github.com"` on the command, the org's noreply identity, not the host's global identity: the ruling's "no
     identifier of the author in any workflow file" was read as reaching the kernel's commit identity too; not amended.
