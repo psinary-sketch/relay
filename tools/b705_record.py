@@ -381,10 +381,320 @@ def _one_git_write():
     return R._one_git_write()
 
 
+# ================================================================================ COMPONENT 1: THE SORT, (R315)(2)
+EIGHT = (('G-README-CURRENCY', 'n', 'the navigator`s design', 'REPAIRED under (R315)(3): tools/b705_standing_figures.py readme(), the appends and the deposited versions excluded by their text (data/b705_tool_repairs.txt row (3))'),
+         ('G-ACTROOT-BANKED', 'r', 'the navigator`s predicate, requiring a read bank among the root`s items where the root route excludes read banks by design', 'REPAIRED at carry time under (R315)(2)(b): tools/b705_checks.py root_banked_ok reads the root route`s own item list (data/b705_tool_repairs.txt row (1))'),
+         ('G-ANSWERS-CHECKED', 's', 'the navigator`s predicate, leaving no room for the root prompt`s answer checks after the seal', 'REPAIRED at carry time under (R315)(2)(c): tools/b705_checks.py answers_checked_ok admits the checks the root prompt requires, each printed with its time (data/b705_tool_repairs.txt row (2))'),
+         ('G-WORKFLOW-FILES', 'p', 'the seat`s run: the probe dispatched at 43 modules where print_targets.txt lists 109', 'REPAIRED under (R315)(4): the probe route`s target print_targets.txt whole, data/b705_rules.txt row (1), read by the arm (data/b705_tool_repairs.txt row (4))'),
+         ('G-READ-RULE-STANDING', 'i', 'four reads after the word, defects (i) and (o)', 'NO REPAIR: the arm correct; from b705 every call counts'),
+         ('G-TRAIL-LINES-EQUAL-DEFECTS', 'r', '(r) lettered after the trail landed', 'NO REPAIR: the sequence rule binding -- no defect is lettered after the trail without the trail`s dry run re-read'),
+         ('G-TRAIL-DEFECTS-EQUAL', 'r', '(r) lettered after the trail landed', 'NO REPAIR: the sequence rule binding'),
+         ('G-TRAIL-RESOLVED-EQUAL', 'r', '(r) lettered after the trail landed', 'NO REPAIR: the sequence rule binding'))
+
+
+def _drow(L, letter):
+    s = next((i + 1 for i, l in enumerate(L) if l.startswith('    (%s) ' % letter)), 0)
+    if not s:
+        return 0, 0, ''
+    e = next((i for i in range(s, len(L)) if re.match(r'^    \([a-z]\) ', L[i]) or L[i].startswith('###')), len(L))
+    return s, e, ' '.join(x.strip() for x in L[s - 1:e])
+
+
+def armsort(*a):
+    """data/b705_arm_sort.txt: (R315)(2), the eight arms failing at b704's close (data/b704_checks.txt's LIVE FAILING list), each with its cause by
+    letter and line in data/b704_defects.txt and its disposition in the ruling's words; rows are arms."""
+    ck = rdn('b704_checks.txt')
+    m8 = re.search(r'LIVE FAILING : (\d+) \[(.*?)\]', ck)
+    fails = [x.strip().strip("'") for x in (m8.group(2) if m8 else '').split(',') if x.strip()]
+    df = rdn('b704_defects.txt').split(NL)
+    face = rd(os.path.join(ROOT, *K.B704_FACE.split('/')))
+    md = re.search(r'THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:\*\* ([^.]*)\.', ' '.join(face.split()))
+    declared = sorted(set(re.findall(r'`([GF]-[A-Z0-9-]+)`', md.group(1)))) if md else []
+    rows = []
+    for name, letter, cause, disp in EIGHT:
+        s, e, t = _drow(df, letter)
+        rows.append((name, name in fails, 'declared on the face' if name in declared else 'found after the seal', letter, s, max(e - 1, s), cause, disp,
+                     t[:140]))
+    L = ['%s -- COMPONENT 1, (R315)(2): THE EIGHT ARMS FAILING AT b704`S CLOSE, SORTED BY CAUSE, EACH WITH ITS DISPOSITION (%s)' % (ACT, utc()), '',
+         '### rows are arms: the arm | failing at b704`s close (relay data/b704_checks.txt, LIVE FAILING %d) | declared on the face or found after the seal' % len(fails),
+         '### (relay data/b704_registration_2026-10-21.txt) | its cause by letter and line in relay data/b704_defects.txt | the disposition in (R315)(2)`s words.',
+         '### The sequence rule, (R315)(2)(f)-(h): no defect is lettered after the trail lands without the trail`s dry run re-read.', '']
+    for name, f, where, letter, s, e, cause, disp, t in rows:
+        L += ['  %-28s | failing %s | %s | (%s) data/b704_defects.txt :%d-:%d -- %s | %s' % (name, f, where, letter, s, e, cause, disp),
+              '      the row: %s' % t]
+    rep = [r for r in rows if r[7].startswith('REPAIRED')]
+    L += ['', '### ### **ARMS 8 ; FAILING AT b704`S CLOSE %d OF 8 ; DECLARED ON THE FACE %d ; FOUND AFTER THE SEAL %d ; REPAIRED AT CARRY TIME %d ; NO REPAIR %d.**' % (
+        sum(1 for r in rows if r[1]), sum(1 for r in rows if r[2] == 'declared on the face'), sum(1 for r in rows if r[2] == 'found after the seal'), len(rep), 8 - len(rep))]
+    if 'dry' not in a:
+        put_txt('%s_arm_sort.txt' % ACT, L)
+        put_json('%s_arm_sort.json' % ACT, dict(at=utc(), rows=[dict(arm=r[0], failing=r[1], where=r[2], letter=r[3], lines=[r[4], r[5]], cause=r[6], disposition=r[7]) for r in rows],
+                                                failing=fails, declared=declared))
+    print(NL.join(L[6:]))
+
+
+# ================================================================================ COMPONENT 1: THE FOUR STANDING FIGURES, THE README FIGURE REPAIRED ((R315)(3))
+def figures(*a):
+    """data/b705_standing_figures.txt (.json): the four figures by relay tools/b705_standing_figures.py (readme() repaired under (R315)(3), the
+    other three b703's unedited through it), the README figure's baseline reset to this act's reading, the other three read against b704's
+    baseline (data/b704_standing_figures.json); the excluded README rows printed with their reason."""
+    import b705_standing_figures as SF5
+    import b616_claims as KC0
+    t0 = time.time()
+    base = jl('b704_standing_figures.json')
+    f = SF5.all_figures(baseline=((base.get('pins') or {}).get('rows') or {}), remote=KC0.remote_refs)
+    t1 = time.time()
+    rr = (f.get('readme') or {}).get('rows') or []
+    L = ['%s -- COMPONENT 1, (R315)(3): THE FOUR STANDING FIGURES AT b705, THE README FIGURE BY THE REPAIRED readme() AGAINST ITS RESET BASELINE, THE OTHER THREE AGAINST b704`S (%s)' % (ACT, utc()), '',
+         '### by relay tools/b705_standing_figures.py (readme() repaired, W-ORD-README-FIGURE-SCOPE; correspondence(), partners(), pins() b703`s, imported unedited), %.0f s;' % (t1 - t0),
+         '### each arm fails on a regression from the previous act`s figure; the README figure`s baseline is THIS ACT`S reading (the author`s word at b704`s README-figure prompt).', '']
+    for k in ('correspondence', 'readme', 'partners', 'pins'):
+        prev = (base.get(k) or {}).get('figure')
+        now = (f.get(k) or {}).get('figure')
+        if k == 'readme':
+            L.append('  %-15s b705 %s ; b704 %s (by the unrepaired readme(), 12) ; THE BASELINE RESET TO b705`S READING %s' % (k, now, prev, now))
+        else:
+            L.append('  %-15s b705 %s ; b704 %s ; %s' % (k, now, prev, 'AT OR BELOW' if isinstance(now, int) and isinstance(prev, int) and now <= prev else '### ABOVE OR UNREAD'))
+    L += ['', '### THE README`S ROWS BY THE REPAIRED readme(): each with its line, kernel, cited tag, highest tag and state (EXCLUDED rows carry their reason):']
+    L += ['  :%-4d %-26s %-9s highest %-9s %s%s' % (r['line'], r['kernel'], r['cited'], r['highest'] or '-', r['state'], (' -- ' + r['why']) if r.get('why') else '') for r in rr]
+    ex = [r for r in rr if r['state'] == 'EXCLUDED']
+    L += ['', '### ### **FIGURES AT b705: CORRESPONDENCE %s ; README %s (ROWS %d, EXCLUDED %d: APPENDS %d, NOT CURRENCY LINES %d, DEPOSITED %d, STALE LINES %s) ; PARTNERS %s ; PINS %s -- AGAINST b704`S %s, %s, %s, %s ; THE README BASELINE RESET TO %s.**' % (
+        (f.get('correspondence') or {}).get('figure'), (f.get('readme') or {}).get('figure'), len(rr), len(ex), sum(1 for r in ex if 'append' in (r.get('why') or '')),
+        sum(1 for r in ex if 'not a currency' in (r.get('why') or '')),
+        sum(1 for r in ex if 'deposited' in (r.get('why') or '')), sorted(set(r['line'] for r in rr if r['state'] == 'STALE')) or 'NONE',
+        (f.get('partners') or {}).get('figure'), (f.get('pins') or {}).get('figure'),
+        (base.get('correspondence') or {}).get('figure'), (base.get('readme') or {}).get('figure'), (base.get('partners') or {}).get('figure'), (base.get('pins') or {}).get('figure'),
+        (f.get('readme') or {}).get('figure'))]
+    if 'dry' not in a:
+        put_txt('%s_standing_figures.txt' % ACT, L)
+        put_json('%s_standing_figures.json' % ACT, dict(at=utc(), readme_baseline_reset=True, **dict((k, f.get(k)) for k in ('correspondence', 'readme', 'partners', 'pins'))))
+    print(NL.join(L[:12] + L[-1:]))
+
+
+def figctl(*a):
+    """data/b705_readme_control.txt: the README figure's controls, (R315)(3) -- the real README by the repaired readme() (0 stale wanted), by b703's
+    unrepaired readme() beside it (b704's 12), a mutated copy with the kernel line set back to v0.35 (1 stale wanted, the arm failing against
+    the baseline 0), a mutated copy with a dated append naming v0.36 added (0 wanted: excluded by its text). No README edited."""
+    import b705_standing_figures as SF5
+    import b703_standing_figures as SF3
+    import b616_claims as KC0
+    import b703_checks as C3
+    text = rd(os.path.join(PP, 'README.md')).replace(chr(13), '')
+    base_fig = jl('%s_standing_figures.json' % ACT).get('readme', {}).get('figure')
+    n_real, rows_real = SF5.readme(KC0.remote_refs, text)
+    n_old, _rows_old = SF3.readme(KC0.remote_refs)
+    mut = text.replace('**v0.37** (`38e2734`)', '**v0.35** (`d4e046a`)')
+    assert mut != text
+    n_mut, rows_mut = SF5.readme(KC0.remote_refs, mut)
+    add = text.rstrip(NL) + NL + NL + "*(Appended under the author's ruling `(R999)`(1), 2026-10-22, b999: SIDE-explicit-formula v0.36 entered at its weight, v0.36 = `dfadc8c`.)*" + NL
+    n_add, _rows_add = SF5.readme(KC0.remote_refs, add)
+    arm = lambda live, prev: isinstance(live, int) and isinstance(prev, int) and live <= prev   # noqa: E731  ### tools/b703_checks.py fig_ok's comparison
+    cases = [('the real README by the repaired readme()', n_real, 0, 'PASS' if arm(n_real, base_fig) else 'FAIL', 'PASS'),
+             ('the real README by b703`s unrepaired readme() (b704`s figure beside)', n_old, 12, '-', '-'),
+             ('a mutated copy, the kernel line`s **v0.37** (`38e2734`) set back to **v0.35** (`d4e046a`)', n_mut, 1, 'PASS' if arm(n_mut, base_fig) else 'FAIL', 'FAIL'),
+             ('a mutated copy with a dated ceiling append naming v0.36 added at its end', n_add, 0, 'PASS' if arm(n_add, base_fig) else 'FAIL', 'PASS')]
+    L = ['%s -- COMPONENT 1, (R315)(3): THE README FIGURE`S CONTROLS, THE REPAIRED readme() AGAINST THE UNREPAIRED AND ON MUTATED COPIES (%s)' % (ACT, utc()), '',
+         '### rows are cases: the copy | the stale lines read | wanted | the arm`s verdict against the reset baseline %s | wanted. The README is not edited;' % base_fig,
+         '### the mutated copies are texts handed to readme(). The repaired readme(): tools/b705_standing_figures.py; the unrepaired: tools/b703_standing_figures.py :163.', '']
+    L += ['  %-96s | read %2s | wanted %2s | arm %-4s | wanted %s' % (c, n, w, v, wv) for c, n, w, v, wv in cases]
+    L += ['', '### the stale rows of the mutated copy: %s' % ['%s %s %s' % (r['line'], r['kernel'], r['cited']) for r in rows_mut if r['state'] == 'STALE'],
+          '### the excluded rows of the real README: %d (%s)' % (sum(1 for r in rows_real if r['state'] == 'EXCLUDED'), '; '.join(sorted(set(r['why'] for r in rows_real if r['state'] == 'EXCLUDED'))))]
+    ok = all((n == w) and (v == wv or v == '-') for _c, n, w, v, wv in cases)
+    L += ['', '### ### **THE REAL README READS %d STALE ON THE REPAIRED FIGURE (b704`S 12 ON THE UNREPAIRED) ; THE v0.35 COPY READS %d AND THE ARM FAILS ; THE APPEND COPY READS %d ; EVERY CONTROL AS WANTED %s.**' % (
+        n_real, n_mut, n_add, ok)]
+    put_txt('%s_readme_control.txt' % ACT, L)
+    print(NL.join(L[5:]))
+
+
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R315)(1)
+WH = ('*Appended 2026-10-22 by b705 to b704’s entry (:9938), under `(R315)`(1) -- b704 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b704_closing.txt):*')
+WB = (' “b704 closed: relay 3f2abacc, PLACE-papers d668413; suite 132 of 140; root 97bd213337dd2e17…; 13 prompts answered; 19 defects” '
+      '(data/b704_closing.txt :1); the closing commit f5a35af1 pushed alone after the line was written and read back equal at the remote '
+      '(data/b704_closing_push_out.txt :5). The faces page at v0.37 from probe run 39721668586 on the scratch branch probe-b704, deleted after '
+      'its bank with main and every tag untouched, h2_sign_sum_iff_rh and h2_sign’_imp_rh added as nodes on the author’s word, six lines changed '
+      'over the act each with its cause (data/b704_faces_diff.txt); the generator writing 0 cells, SIDE-explicit-formula outside its 16 parsed '
+      'kernels, the 15 prose mentions read against the probe -- 4 equal, 0 differing, 11 unbanked -- and W-ORD-CORRESPONDENCE-EF-REACH entered '
+      '(data/b704_cells_reach.txt); the README’s kernel line at :164 naming v0.37 = 38e2734 and the v0.36–v0.37 append at :135, PLACE-papers '
+      '05c6dd6, its blob 9a8ff6ce read back equal at the remote (data/b704_readme.txt); the glossary rows h2_sign’ and h2_sign_sum appended at '
+      ':107-:108 after both theorems read DERIVES under E0 and by hand (data/b704_glossary.txt); day1/ONE_PAGE_PROOF.md re-cut on the author’s '
+      'word at the tie, 22 rows outside LICENSED/CITED to 2, 80 quoting lines entered as residues (data/b704_cut.txt; PLACE-papers 02b7aad); '
+      'the four standing figures 0, 12, 131, 0 against b703’s 0, 11, 131, 0, the README’s one new stale line the ordered append at :135 '
+      '(data/b704_standing_figures.txt); W-ORD-FACES-PROBE-CURRENT discharged, W-ORD-WORKFLOW-PROBE-STEP, W-ORD-CORRESPONDENCE-EF-REACH and '
+      'W-ORD-README-FIGURE-SCOPE entered (OPEN_TRAILS :15542-:15550). b703’s one item after its closing answered by the generated corrigendum '
+      'at FINDINGS :9926 (corrigenda row (24)); b703’s weight at :9924. The entry at FINDINGS :9938, the trail at OPEN_TRAILS :15552; the root '
+      '97bd2133 over 91 banks chained from 3b6de278, the chain b624–b704 AGREE (data/b704_act_root.json); suite 132 of 140 pre-push and '
+      'post-push, three failures declared on the face (G-READ-RULE-STANDING on (i) and (o), G-README-CURRENCY on README :135, G-WORKFLOW-FILES '
+      'on the probe’s print step, 46 of 109 names) and five found after the seal (G-ACTROOT-BANKED, G-ANSWERS-CHECKED and the three '
+      'trail-equality arms, defects (r) and (s); data/b704_checks.txt, data/b704_checks_postpush.txt); N1, N2, N4, N5 and S1–S3 HELD, N3 REFUTED '
+      'at README :135 on the author’s word (data/b704_scores_close.json); the sealed tools’ hashes equal at the close, 10 of 10; the citation '
+      'check 99 cites, 97 OK, 2 misses the navigator’s; nineteen defects (a)–(s), (f), (g), (k), (n) and (q) the navigator’s '
+      '(data/b704_defects.txt); “13 prompts answered” the answers bank’s 12 rows and the root’s prompt, put in two calls under (q); the mirror '
+      'mirror-refresh-2026-10-21-b704.zip CLEAN on all three clauses with the root line (data/b704_mirror.txt). The five post-seal items '
+      'entered by this act’s corrigendum. Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B704_ENTRY,
+         check=[('FINDINGS.md', K.B704_ENTRY, '## The faces page at v0.37'), ('OPEN_TRAILS.md', K.B704_TRAIL, '### b704')],
+         dry=dry)
+
+
+# ================================================================================ COMPONENT 1: THE ORDER W-ORD-ENTRY-TAG-PRINTS, (R315)(4)
+ORDER_TAGPRINTS = (
+    '*Appended 2026-10-22 by b705 beneath `W-ORD-CORRESPONDENCE-EF-REACH` (:15546), under `(R315)`(4) -- THE ORDER **`W-ORD-ENTRY-TAG-PRINTS`**, ENTERED:*',
+    ' the eleven unbanked prose mentions of relay data/b704_cells_reach.txt name SIDE-explicit-formula at its entry tags v0.1 = baed4df (ch_iff_rh) '
+    'and v0.2 = 5c72cad (h2_sign_iff_rh), or no tag, and no print bank holds either tag: the generator (relay tools/correspondence_gen.py) and the '
+    'reader (tools/b704_record.py cellsreach) read them unbanked. THE ORDER, in the ruling’s words: the print banks at the entry tags v0.1 and '
+    'v0.2, priced at one dispatch per tag from the tag’s own tree with print_targets.txt as it stood at that tag. Read at b705’s step zero: '
+    'neither tag’s tree carries print_targets.txt or the workflow (both entered at b658), so a dispatch from the tag’s own tree runs no print '
+    'step; the form the ruling’s price takes is for b706’s ruling -- a scratch branch cut at the tag carrying the workflow and a print list of '
+    'the mentioned theorems, as b704’s probe branch carried the probe, one dispatch per tag, the branch deleted after its bank. No dispatch for '
+    'it at b705. Trigger: b706. Status OPEN.')
+
+
+def orders(*a):
+    """the order's trail line appended to OPEN_TRAILS through b698's guarded landing beneath W-ORD-CORRESPONDENCE-EF-REACH by its line (the ledger
+    is append-only); data/b705_order_tagprints.json."""
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', ORDER_TAGPRINTS[0], NL + ORDER_TAGPRINTS[0] + ORDER_TAGPRINTS[1] + NL)], '%s_order_tagprints.json' % ACT, 'orders', entry=None,
+         check=[('OPEN_TRAILS.md', K.ORDER_EF_REACH, 'W-ORD-CORRESPONDENCE-EF-REACH'), ('OPEN_TRAILS.md', K.ORDER_README, 'W-ORD-README-FIGURE-SCOPE')], dry=dry)
+
+
+# ================================================================================ COMPONENT 1: THE CARRY-TIME REPAIRS, (R315)(2)-(4), AND THEIR CONTROLS
+REPAIR_ROWS = [
+    ('(1) tools/b705_checks.py `root_banked_ok`, G-ACTROOT-BANKED -- ANSWERS (R315)(2)(b): b704`s predicate (tools/b704_checks.py :932-:945) required '
+     'data/b704_read_calls.txt among the root`s items where the root route (tools/b698_record.py :1285-:1293, rebound at tools/b704_record.py :56-:58) '
+     'excludes read banks by name -- defect (r), found after the seal. The repaired predicate reads the root bank`s items against the root route`s '
+     'own item list (`route_list`, tools/b705_record.py root_banks with K rebound), admits no bank the route excludes and requires the act`s named '
+     'banks. The control on b704`s banks: data/b705_repair_controls.txt.', 'b704_checks.py', 'b705_checks.py', 'root_banked_ok', ('_root_banked',)),
+    ('(2) tools/b705_checks.py `answers_checked_ok`, G-ANSWERS-CHECKED -- ANSWERS (R315)(2)(c): b704`s predicate (tools/b704_checks.py :596-:611) '
+     'allowed no check after the cut`s commit but the README figure`s, so the root prompt`s two checks failed it -- defect (s), found after the seal. '
+     'The repaired predicate admits the checks the root prompt requires after the seal (any number, each with its time read), and holds every other '
+     'check before the lock. The control on b704`s banks: data/b705_repair_controls.txt.', 'b704_checks.py', 'b705_checks.py', 'answers_checked_ok', ('_answers_checked',)),
+    ('(3) tools/b705_standing_figures.py `readme`, G-README-CURRENCY -- ANSWERS (R315)(3), W-ORD-README-FIGURE-SCOPE: b703`s readme() '
+     '(tools/b703_standing_figures.py :163-:183) counted every tag below the kernel`s highest as stale, the dated ceiling appends and the deposit '
+     'note`s deposited versions among them -- b704`s (n), the navigator`s design. The repaired readme() reads the README`s currency rows as '
+     'data/b702_readme_currency.txt registers them, the appends excluded by the append mark and the deposited versions by the Citable-deposit '
+     'sentences, each excluded row printed with its reason; the baseline reset to this act`s reading. The control: data/b705_readme_control.txt.',
+     'b703_standing_figures.py', 'b705_standing_figures.py', 'readme', ('deposited',)),
+    ('(4) tools/b705_checks.py `wf_ok` and tools/b705_record.py `dispatch`, G-WORKFLOW-FILES -- ANSWERS (R315)(4): the probe was dispatched at the '
+     'chain`s 43 modules where print_targets.txt lists 109 (b704`s (p)); the rule data/b705_rules.txt row (1) names the target print_targets.txt '
+     'whole. The repaired arm requires, beside b704`s clauses, the dispatch row`s `whole` read True; the dispatch route reads the kernel`s print '
+     'list, maps each name to its module by git grep bounded to the kernel`s tree, and refuses a target that does not cover them, writing `whole` '
+     'into the row. The control on b704`s banks: data/b705_repair_controls.txt.', 'b704_checks.py', 'b705_checks.py', 'wf_ok', ('_wf_ok',)),
+    ('(5) tools/b705_record.py `capture` and `reads` -- ANSWERS the carry (b704`s (2) again, and the author`s word at b704`s arm-baseline prompt): '
+     'b704`s record tool, imported here for its repaired readers, rebinds b698`s `capture` at its import to its own, which reads b704`s session '
+     '(fb68aaef); b705 runs in a new session (44411d52), so the capture is rebound to b705`s own; and `reads` takes the cap`s word as the act`s '
+     'anchor, so every call counts from b705 on.', 'b704_record.py', 'b705_record.py', 'reads', ('capture',)),
+]
+
+
+def repairs(*a):
+    """data/b705_tool_repairs.txt: the carry-time repairs, each with the order or carry it answers, its diff written by this route (difflib, the
+    plain unified_diff of whole lines; the old text from the sealed tool named)."""
+    import difflib
+    L = ['%s -- THE CARRY-TIME READING: THE REPAIRS, (R315)(2)-(4) (%s)' % (ACT, utc()), '',
+         '### rows are repairs with what they answer: the tool and its part ; what it answers ; the form. Each diff beneath its row, written by',
+         '### this route (difflib over the function`s source: the sealed tool`s against this act`s; a new function printed whole). The controls',
+         '### that distinguish each repaired predicate from the old one on b704`s banks: data/b705_repair_controls.txt; the README figure`s:',
+         '### data/b705_readme_control.txt. No sealed tool is edited; tools/e0_rule.py`s MET list is extended at Component 4 under (R315)(9),',
+         '### its diff in data/b705_e0_met.txt.', '']
+    n = 0
+    for text, oldf, newf, main_fn, extra in REPAIR_ROWS:
+        L += ['  ' + text, '']
+        old = R._fn_src(rd(os.path.join(T, oldf)), main_fn).split(NL)
+        new = R._fn_src(rd(os.path.join(T, newf)), main_fn).split(NL)
+        d = list(difflib.unified_diff(old, new, 'tools/%s %s (sealed)' % (oldf, main_fn), 'tools/%s %s (this act)' % (newf, main_fn), lineterm=''))
+        n += len(d)
+        L += ['      ' + x for x in d] + ['']
+        for fn in extra:
+            old2 = R._fn_src(rd(os.path.join(T, oldf)), fn).split(NL) if R._fn_src(rd(os.path.join(T, oldf)), fn) else []
+            new2 = R._fn_src(rd(os.path.join(T, newf)), fn).split(NL)
+            d = list(difflib.unified_diff(old2, new2, ('tools/%s %s (sealed)' % (oldf, fn)) if old2 else '(none)', 'tools/%s %s (this act)' % (newf, fn), lineterm=''))
+            n += len(d)
+            L += ['      ' + x for x in d] + ['']
+    L += ['### ### **REPAIRS %d ; SHARED TOOLS EDITED 0 AT THE CARRY (e0_rule.py AT COMPONENT 4 BY RULING) ; DIFF LINES %d ; NO FROZEN BANK EDITED.**' % (len(REPAIR_ROWS), n)]
+    if 'dry' not in a:
+        put_txt('%s_tool_repairs.txt' % ACT, L)
+    print(NL.join(L) if 'dry' in a else L[-1])
+
+
+def repairctl(*a):
+    """data/b705_repair_controls.txt: each repaired predicate and the old one run on b704's banks (a minimal source dict built from the banks, the
+    keys each predicate reads), then on mutated copies, so that the repaired predicate is distinguished from the old on real state."""
+    import b704_checks as C4
+    import b705_checks as C5
+    import b703_checks as C3
+    import copy as _copy
+    L = ['%s -- COMPONENT 1, (R315)(2)-(4): THE REPAIRED PREDICATES AGAINST THE OLD ON b704`S BANKS (%s)' % (ACT, utc()), '',
+         '### rows are cases: the predicate | the source (b704`s banks, or a mutated copy) | the old predicate (tools/b704_checks.py) | the repaired',
+         '### (tools/b705_checks.py) | wanted. Each repaired predicate is DISTINGUISHED where one row reads them apart.', '']
+    cases = []
+    # ### (2)(b) G-ACTROOT-BANKED on b704`s root bank
+    ex704 = re.compile(R.ROOT_EXCLUDE.pattern.replace('b705_', 'b704_'))
+    route704 = sorted(['data/' + f for f in os.listdir(D) if f.startswith('b704_') and os.path.isfile(os.path.join(D, f)) and not ex704.match(f)
+                       and not f.endswith(('.gz', '.png', '.jsonl'))] + ['data/b675_corrigenda.txt', 'data/glossary.txt'])
+    S4 = dict(REC=sys.modules[__name__], arj=jl('b704_act_root.json'), arj0=jl('b703_act_root.json'), rootsf=rdn('act_roots.txt'), art=rdn('b704_act_root.txt'),
+              roots_pre=C3.cr0(C3.blob(ROOT, '295e53f0:data/act_roots.txt')), roots_now=C3.cr0(C3.raw(os.path.join(D, 'act_roots.txt'))), route_list=route704)
+    req704 = ('data/b704_faces_diff.txt', 'data/b704_cut.txt', 'data/b704_corrigendum.txt')
+    old = C4.root_banked_ok(S4)
+    new = C5._root_banked(S4, 'b704', 81, required=req704, exclude=ex704)
+    items704 = sorted(it.split()[0] for it in (S4['arj'].get('items') or []))
+    L += ['### the root route`s list recomputed for b704 at HEAD against its root bank`s items: items not in the list %s ; in the list not among the items %s' % (
+        sorted(set(items704) - set(route704)) or 'NONE', sorted(set(route704) - set(items704)) or 'NONE'), '']
+    cases.append(('G-ACTROOT-BANKED', 'b704`s banks (data/b704_act_root.json, 91 items; the route`s list recomputed, %d)' % len(route704), old, new, (False, True)))
+    S4m = dict(S4, arj=_copy.deepcopy(S4['arj']))
+    S4m['arj']['items'] = S4m['arj']['items'] + ['data/b704_read_calls.txt ' + '0' * 64]
+    cases.append(('G-ACTROOT-BANKED', 'a mutated copy, data/b704_read_calls.txt planted among the items (a bank the route excludes)', C4.root_banked_ok(S4m),
+                  C5._root_banked(S4m, 'b704', 81, required=req704, exclude=ex704), (False, False)))
+    # ### (2)(c) G-ANSWERS-CHECKED on b704`s citation bank
+    face4 = rd(os.path.join(ROOT, *K.B704_FACE.split('/')))
+    ot = rd(OT)
+    S4 = dict(citation=rdn('b704_citation_check.txt'), t=dict(c4pp=C3._ct(PP, '02b7aad')), lock_epoch=C3.utc_epoch(face4, 'locked at (UTC)'),
+              order_readme=((jl('b704_order_readme.json').get('lines') or [{}])[0]), ot=ot, face=face4)
+    cmds4 = []
+    S4['probe_branch_ts'] = C3.iso_epoch('2026-10-22T04:15:19Z')
+    stamps = re.findall(r'### \(R278\)\(4\) THE MID-ACT CHECK \((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\): the (?:navigator`s )?answer carrying \'([^\']+)\'', S4['citation'])
+    rootc = C5.root_checks(S4)
+    old = C4.answers_checked_ok(S4)
+    new = C5._answers_checked(S4, 12, act=704)
+    cases.append(('G-ANSWERS-CHECKED', 'b704`s banks (data/b704_citation_check.txt, %d checks; the root prompt`s after the lock, each with its time: %s)' % (
+        len(stamps), '; '.join('%s at %s' % (n_, t_) for t_, n_ in rootc)), old, new, (False, True)))
+    S4m = dict(S4, citation=S4['citation'].replace('-- RAISED: data/b705_tool_repairs.txt', '-- RAISED: data/b703_tool_repairs.txt'))
+    assert S4m['citation'] != S4['citation']
+    cases.append(('G-ANSWERS-CHECKED', 'a mutated copy, a check`s one miss naming an earlier act`s bank instead of a later act`s', C4.answers_checked_ok(S4m),
+                  C5._answers_checked(S4m, 12, act=704), (False, False)))
+    # ### (4) G-WORKFLOW-FILES on b704`s probe
+    wf4 = C4.wf_state()
+    S4 = dict(wf=wf4, dispj=jl('b704_dispatches.json'), rules=rdn('b705_rules.txt'))
+    old = C4.wf_ok(S4)
+    new = C5._wf_ok(S4, 'SIDE-explicit-formula')
+    cases.append(('G-WORKFLOW-FILES', 'b704`s banks (the probe: targets %d, printed %d, the dispatch at %d modules)' % (len(wf4['SIDE-explicit-formula']['targets']), wf4['SIDE-explicit-formula']['printed'],
+                                                                                                                         len(((jl('b704_dispatches.json').get('rows') or [{}])[0].get('target') or '').split())), old, new, (False, False)))
+    S4m = _copy.deepcopy(S4)
+    S4m['wf']['SIDE-explicit-formula']['printed'] = len(wf4['SIDE-explicit-formula']['targets'])
+    cases.append(('G-WORKFLOW-FILES', 'a mutated copy, the print bank read as printing every listed name, the dispatch still at the chain`s 43 modules (not whole)', C4.wf_ok(S4m),
+                  C5._wf_ok(S4m, 'SIDE-explicit-formula'), (True, False)))
+    S4m2 = _copy.deepcopy(S4m)
+    S4m2['dispj']['rows'][0]['whole'] = True
+    cases.append(('G-WORKFLOW-FILES', 'a mutated copy, every name printed and the dispatch row marked whole', C4.wf_ok(S4m2), C5._wf_ok(S4m2, 'SIDE-explicit-formula'), (True, True)))
+    ok = True
+    for name, src, o, nw, want in cases:
+        asw = (bool(o), bool(nw)) == want
+        ok = ok and asw
+        L.append('  %-20s | %s | old %-5s | repaired %-5s | wanted old %s, repaired %s | %s' % (name, src, o, nw, want[0], want[1], 'AS WANTED' if asw else '### NOT AS WANTED'))
+    dist = [n_ for n_, _s, o, nw, _w in cases if bool(o) != bool(nw)]
+    L += ['', '### ### **CASES %d ; AS WANTED %s ; EACH REPAIRED PREDICATE DISTINGUISHED FROM THE OLD ON A ROW: %s.**' % (len(cases), ok, sorted(set(dist)))]
+    put_txt('%s_repair_controls.txt' % ACT, L)
+    print(NL.join(L[5:]))
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
-              runstatus=runstatus, runner=runner, runwait=runwait, reads=reads)
+              runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, armsort=armsort, figures=figures, figctl=figctl, c1=c1,
+              orders=orders, repairs=repairs, repairctl=repairctl)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

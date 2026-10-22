@@ -1,0 +1,116 @@
+{
+ "at": "2026-10-22T13:02:14Z",
+ "rows": [
+  {
+   "arm": "G-README-CURRENCY",
+   "failing": true,
+   "where": "declared on the face",
+   "letter": "n",
+   "lines": [
+    74,
+    80
+   ],
+   "cause": "the navigator`s design",
+   "disposition": "REPAIRED under (R315)(3): tools/b705_standing_figures.py readme(), the appends and the deposited versions excluded by their text (data/b705_tool_repairs.txt row (3))"
+  },
+  {
+   "arm": "G-ACTROOT-BANKED",
+   "failing": true,
+   "where": "found after the seal",
+   "letter": "r",
+   "lines": [
+    104,
+    111
+   ],
+   "cause": "the navigator`s predicate, requiring a read bank among the root`s items where the root route excludes read banks by design",
+   "disposition": "REPAIRED at carry time under (R315)(2)(b): tools/b705_checks.py root_banked_ok reads the root route`s own item list (data/b705_tool_repairs.txt row (1))"
+  },
+  {
+   "arm": "G-ANSWERS-CHECKED",
+   "failing": true,
+   "where": "found after the seal",
+   "letter": "s",
+   "lines": [
+    113,
+    119
+   ],
+   "cause": "the navigator`s predicate, leaving no room for the root prompt`s answer checks after the seal",
+   "disposition": "REPAIRED at carry time under (R315)(2)(c): tools/b705_checks.py answers_checked_ok admits the checks the root prompt requires, each printed with its time (data/b705_tool_repairs.txt row (2))"
+  },
+  {
+   "arm": "G-WORKFLOW-FILES",
+   "failing": true,
+   "where": "declared on the face",
+   "letter": "p",
+   "lines": [
+    88,
+    95
+   ],
+   "cause": "the seat`s run: the probe dispatched at 43 modules where print_targets.txt lists 109",
+   "disposition": "REPAIRED under (R315)(4): the probe route`s target print_targets.txt whole, data/b705_rules.txt row (1), read by the arm (data/b705_tool_repairs.txt row (4))"
+  },
+  {
+   "arm": "G-READ-RULE-STANDING",
+   "failing": true,
+   "where": "declared on the face",
+   "letter": "i",
+   "lines": [
+    49,
+    53
+   ],
+   "cause": "four reads after the word, defects (i) and (o)",
+   "disposition": "NO REPAIR: the arm correct; from b705 every call counts"
+  },
+  {
+   "arm": "G-TRAIL-LINES-EQUAL-DEFECTS",
+   "failing": true,
+   "where": "found after the seal",
+   "letter": "r",
+   "lines": [
+    104,
+    111
+   ],
+   "cause": "(r) lettered after the trail landed",
+   "disposition": "NO REPAIR: the sequence rule binding -- no defect is lettered after the trail without the trail`s dry run re-read"
+  },
+  {
+   "arm": "G-TRAIL-DEFECTS-EQUAL",
+   "failing": true,
+   "where": "found after the seal",
+   "letter": "r",
+   "lines": [
+    104,
+    111
+   ],
+   "cause": "(r) lettered after the trail landed",
+   "disposition": "NO REPAIR: the sequence rule binding"
+  },
+  {
+   "arm": "G-TRAIL-RESOLVED-EQUAL",
+   "failing": true,
+   "where": "found after the seal",
+   "letter": "r",
+   "lines": [
+    104,
+    111
+   ],
+   "cause": "(r) lettered after the trail landed",
+   "disposition": "NO REPAIR: the sequence rule binding"
+  }
+ ],
+ "failing": [
+  "G-WORKFLOW-FILES",
+  "G-ACTROOT-BANKED",
+  "G-READ-RULE-STANDING",
+  "G-README-CURRENCY",
+  "G-ANSWERS-CHECKED",
+  "G-TRAIL-LINES-EQUAL-DEFECTS",
+  "G-TRAIL-DEFECTS-EQUAL",
+  "G-TRAIL-RESOLVED-EQUAL"
+ ],
+ "declared": [
+  "G-READ-RULE-STANDING",
+  "G-README-CURRENCY",
+  "G-WORKFLOW-FILES"
+ ]
+}

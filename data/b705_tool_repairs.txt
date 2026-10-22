@@ -1,0 +1,258 @@
+b705 -- THE CARRY-TIME READING: THE REPAIRS, (R315)(2)-(4) (2026-10-22T13:04:41Z)
+
+### rows are repairs with what they answer: the tool and its part ; what it answers ; the form. Each diff beneath its row, written by
+### this route (difflib over the function`s source: the sealed tool`s against this act`s; a new function printed whole). The controls
+### that distinguish each repaired predicate from the old one on b704`s banks: data/b705_repair_controls.txt; the README figure`s:
+### data/b705_readme_control.txt. No sealed tool is edited; tools/e0_rule.py`s MET list is extended at Component 4 under (R315)(9),
+### its diff in data/b705_e0_met.txt.
+
+  (1) tools/b705_checks.py `root_banked_ok`, G-ACTROOT-BANKED -- ANSWERS (R315)(2)(b): b704`s predicate (tools/b704_checks.py :932-:945) required data/b704_read_calls.txt among the root`s items where the root route (tools/b698_record.py :1285-:1293, rebound at tools/b704_record.py :56-:58) excludes read banks by name -- defect (r), found after the seal. The repaired predicate reads the root bank`s items against the root route`s own item list (`route_list`, tools/b705_record.py root_banks with K rebound), admits no bank the route excludes and requires the act`s named banks. The control on b704`s banks: data/b705_repair_controls.txt.
+
+      --- tools/b704_checks.py root_banked_ok (sealed)
+      +++ tools/b705_checks.py root_banked_ok (this act)
+      @@ -1,17 +1,5 @@
+       def root_banked_ok(S):
+      -    import act_root as AR
+      -    j, j0 = S['arj'], S['arj0']
+      -    rows = _chain_rows(S)
+      -    items = j.get('items') or []
+      -    return bool(j) and len(rows) == 81 and rows[80][:3] == ['b704', j.get('root'), j0.get('root')] \
+      -        and AR.root_of(items, j.get('previous', '')) == j.get('root') and ('root %s' % j.get('root')) in S['art'] \
+      -        and sorted(j['reads']['heads']) == sorted(AR.repositories('HEAD')) and S['roots_pre'] is not None \
+      -        and (S['roots_now'] or b'').startswith(S['roots_pre']) \
+      -        and not [it for it in items if 'b628_intake_crank' in it or 'b647_navigator_memory' in it or 'b705_' in it or 'mirror' in it
+      -                 or 'chain_' in it or 'units' in it or it.split()[0].endswith(('.gz', '.png', '.jsonl'))] \
+      -        and any(it.startswith('data/b704_faces_diff.txt ') for it in items) and any(it.startswith('data/b704_cut.txt ') for it in items) \
+      -        and any(it.startswith('data/b704_corrigendum.txt ') for it in items) and any(it.startswith('data/b704_read_calls.txt ') for it in items) \
+      -        and (j.get('commit') or {}).get('relay')
+      +    return _root_banked(S, 'b705', 82)
+       
+       
+       
+
+      --- (none)
+      +++ tools/b705_checks.py _root_banked (this act)
+      @@ -0,0 +1,18 @@
+      +def _root_banked(S, act, nrows, prev_key='arj0', route_key='route_list', required=REQUIRED_BANKS, exclude=None):
+      +    import act_root as AR
+      +    j, j0 = S['arj'], S[prev_key]
+      +    rows = _chain_rows(S)
+      +    items = j.get('items') or []
+      +    paths = sorted(it.split()[0] for it in items if it.startswith('data/'))   # ### the banks; the repositories' heads stand beside them in the items
+      +    ex = exclude or S['REC'].R.ROOT_EXCLUDE
+      +    return bool(j) and len(rows) == nrows and rows[nrows - 1][:3] == [act, j.get('root'), j0.get('root')] \
+      +        and AR.root_of(items, j.get('previous', '')) == j.get('root') and ('root %s' % j.get('root')) in S['art'] \
+      +        and sorted(j['reads']['heads']) == sorted(AR.repositories('HEAD')) and S['roots_pre'] is not None \
+      +        and (S['roots_now'] or b'').startswith(S['roots_pre']) \
+      +        and paths == sorted(S[route_key]) \
+      +        and not [p for p in paths if ex.match(os.path.basename(p)) or p.endswith(('.gz', '.png', '.jsonl'))
+      +                 or 'b628_intake_crank' in p or 'b647_navigator_memory' in p] \
+      +        and all(p in paths for p in required) and (j.get('commit') or {}).get('relay')
+      +
+      +
+      +
+
+  (2) tools/b705_checks.py `answers_checked_ok`, G-ANSWERS-CHECKED -- ANSWERS (R315)(2)(c): b704`s predicate (tools/b704_checks.py :596-:611) allowed no check after the cut`s commit but the README figure`s, so the root prompt`s two checks failed it -- defect (s), found after the seal. The repaired predicate admits the checks the root prompt requires after the seal (any number, each with its time read), and holds every other check before the lock. The control on b704`s banks: data/b705_repair_controls.txt.
+
+      --- tools/b704_checks.py answers_checked_ok (sealed)
+      +++ tools/b705_checks.py answers_checked_ok (this act)
+      @@ -1,19 +1,5 @@
+       def answers_checked_ok(S):
+      -    """the citation bank's mid-act prints read at HEAD, at or above the sealed floor, each OK; the last before the cut's commit (the next
+      -    document's answer the last acted on before the seal); the probe route's before the probe branch was made."""
+      -    c = S['citation']
+      -    stamps = re.findall(r'### \(R278\)\(4\) THE MID-ACT CHECK \((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\): the (?:navigator`s )?answer carrying \'([^\']+)\'', c)
+      -    figs = re.findall(r'ANSWER CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)(?: -- RAISED: ([^*]*?))?\.\*\*', c)
+      -    ts = [iso_epoch(t_) for t_, _n in stamps]
+      -    probe = [iso_epoch(t_) for t_, n in stamps if 'Probe route' in n]
+      -    readme = [iso_epoch(t_) for t_, n in stamps if 'README arm' in n]
+      -    # ### a miss stands only where it names a bank of a later act, the answer naming where that act's work will go (the defects bank's event)
+      -    later = all(m_ == '0' or all(re.match(r'^data/b70[5-9]_\S+$', x.strip()) for x in (r_ or '').split(';') if x.strip()) and r_ for _c, _o, m_, r_ in figs)
+      -    lk = S['lock_epoch'] or 10 ** 12
+      -    return len(stamps) >= max(FLOORS['checks'], 1) and len(figs) >= len(stamps) and later \
+      -        and all(x and (x < S['t']['c4pp'] or x in readme) for x in ts) and bool(S['t'].get('c4pp')) \
+      -        and bool(probe) and bool(S['probe_branch_ts']) and max(probe) < S['probe_branch_ts'] and bool(readme) and max(readme) < lk \
+      -        and 'W-ORD-README-FIGURE-SCOPE' in oline(S, S['order_readme'].get('line'))
+      +    return _answers_checked(S, FLOORS['checks'])
+       
+       
+       
+
+      --- (none)
+      +++ tools/b705_checks.py _answers_checked (this act)
+      @@ -0,0 +1,16 @@
+      +def _answers_checked(S, floors, act=705, lock_key='lock_epoch'):
+      +    """the citation bank's mid-act prints: every check OK, or missing only a later act's bank (an act after `act`); every check made before the
+      +    lock is a mid-act answer's; every check made after the lock is the root prompt's -- the one prompt the ferry allows after the seal, in as
+      +    many calls as it requires -- each read with its time (the control prints them); a check with no time refuses."""
+      +    c = S['citation']
+      +    stamps = re.findall(r'### \(R278\)\(4\) THE MID-ACT CHECK \((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\): the (?:navigator`s )?answer carrying \'([^\']+)\'', c)
+      +    figs = re.findall(r'ANSWER CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)(?: -- RAISED: ([^*]*?))?\.\*\*', c)
+      +    later = all(m_ == '0' or (bool(r_) and all(re.match(r'^data/b(\d{3})_\S+$', x.strip()) and int(re.match(r'^data/b(\d{3})_', x.strip()).group(1)) > act
+      +                                               for x in (r_ or '').split(';') if x.strip())) for _c, _o, m_, r_ in figs)
+      +    lk = S[lock_key] or 10 ** 12
+      +    times = [iso_epoch(t_) for t_, _n in stamps]
+      +    rootc = [(x, t_, n) for x, (t_, n) in zip(times, stamps) if x and x >= lk]
+      +    return len(stamps) >= max(floors, 1) and len(figs) >= len(stamps) and later and all(times) and bool(rootc) == (S.get(lock_key) is not None and bool(S.get('root_prompted', rootc)))
+      +
+      +
+      +
+
+  (3) tools/b705_standing_figures.py `readme`, G-README-CURRENCY -- ANSWERS (R315)(3), W-ORD-README-FIGURE-SCOPE: b703`s readme() (tools/b703_standing_figures.py :163-:183) counted every tag below the kernel`s highest as stale, the dated ceiling appends and the deposit note`s deposited versions among them -- b704`s (n), the navigator`s design. The repaired readme() reads the README`s currency rows as data/b702_readme_currency.txt registers them, the appends excluded by the append mark and the deposited versions by the Citable-deposit sentences, each excluded row printed with its reason; the baseline reset to this act`s reading. The control: data/b705_readme_control.txt.
+
+      --- tools/b703_standing_figures.py readme (sealed)
+      +++ tools/b705_standing_figures.py readme (this act)
+      @@ -1,22 +1,34 @@
+      -def readme(remote=None):
+      -    """the README's lines naming a kernel's tag, each against the kernel's highest tag at its remote, and its kernel counts against the
+      -    federation's clones; the figure the stale lines."""
+      +def readme(remote=None, text=None):
+      +    """the README's currency rows against each kernel's highest tag at its remote; the dated appends and the deposited versions excluded by
+      +    their text; the figure the stale lines among the currency rows."""
+           remote = remote or KC0.remote_refs
+           rows = []
+      -    t = _read(os.path.join(PP, 'README.md')).split(NL)
+      +    t = (text if text is not None else _read(os.path.join(PP, 'README.md'))).split(NL)
+           feds = sorted(d for d in os.listdir('D:/') if d.startswith('SIDE-') and os.path.isdir(os.path.join('D:/', d, '.git')))
+      +    dep = deposited(t)
+           for n, l in enumerate(t, 1):
+      +        is_append = l.startswith(APPEND_MARK)
+      +        is_currency = l.startswith(CURRENCY_MARKS)
+               for m in README_TAG.finditer(l):
+                   k, v = m.group(1), m.group(2)
+      +            if is_append:
+      +                rows.append(dict(line=n, kernel=k, cited=v, highest=None, state='EXCLUDED', why='a dated ceiling append (the append mark)'))
+      +                continue
+      +            if not is_currency:
+      +                rows.append(dict(line=n, kernel=k, cited=v, highest=None, state='EXCLUDED', why='not a currency line (data/b702_readme_currency.txt (A): the kernel, federation and deposit-note lines)'))
+      +                continue
+      +            if (k, v) in dep:
+      +                rows.append(dict(line=n, kernel=k, cited=v, highest=None, state='EXCLUDED', why='a deposited version (a Citable deposit sentence)'))
+      +                continue
+                   if not os.path.isdir('D:/' + k):
+      -                rows.append(dict(line=n, kernel=k, cited=v, highest=None, state='UNREAD'))
+      +                rows.append(dict(line=n, kernel=k, cited=v, highest=None, state='UNREAD', why=None))
+                       continue
+                   tags = [r[len('refs/tags/'):] for r in remote('D:/' + k) if r.startswith('refs/tags/') and not r.endswith('^{}')]
+                   hi = max((x for x in tags if _vkey(x)), key=_vkey, default=None)
+      -            rows.append(dict(line=n, kernel=k, cited=v, highest=hi, state='CURRENT' if hi == v else ('STALE' if hi else 'UNREAD')))
+      +            rows.append(dict(line=n, kernel=k, cited=v, highest=hi, state='CURRENT' if hi == v else ('STALE' if hi else 'UNREAD'), why=None))
+               for m in README_COUNT.finditer(l):
+                   rows.append(dict(line=n, kernel='(the count)', cited=m.group(1), highest=str(len(feds)),
+      -                             state='CURRENT' if m.group(1) == str(len(feds)) else 'STALE'))
+      +                             state='CURRENT' if m.group(1) == str(len(feds)) else 'STALE', why=None))
+           stale_lines = sorted(set(r['line'] for r in rows if r['state'] == 'STALE'))
+           return len(stale_lines), rows
+       
+
+      --- (none)
+      +++ tools/b705_standing_figures.py deposited (this act)
+      @@ -0,0 +1,16 @@
+      +def deposited(lines):
+      +    """the (kernel, tag) pairs the README's own "Citable deposit" sentences name, each tag attributed to the nearest kernel named before it on
+      +    the line; a tag with no kernel before it (the monograph's, Zenodo's) is no kernel pair."""
+      +    out = set()
+      +    for l in lines:
+      +        for seg in DEPOSIT_SENTENCE.findall(l):
+      +            start = l.find(seg)
+      +            for m in TAG_TOKEN.finditer(seg):
+      +                pos = start + m.start()
+      +                ks = [(km.start(), km.group(1)) for km in KERNEL_NAME.finditer(l) if km.start() < pos]
+      +                if ks:
+      +                    out.add((ks[-1][1], m.group(1)))
+      +    return out
+      +
+      +
+      +
+
+  (4) tools/b705_checks.py `wf_ok` and tools/b705_record.py `dispatch`, G-WORKFLOW-FILES -- ANSWERS (R315)(4): the probe was dispatched at the chain`s 43 modules where print_targets.txt lists 109 (b704`s (p)); the rule data/b705_rules.txt row (1) names the target print_targets.txt whole. The repaired arm requires, beside b704`s clauses, the dispatch row`s `whole` read True; the dispatch route reads the kernel`s print list, maps each name to its module by git grep bounded to the kernel`s tree, and refuses a target that does not cover them, writing `whole` into the row. The control on b704`s banks: data/b705_repair_controls.txt.
+
+      --- tools/b704_checks.py wf_ok (sealed)
+      +++ tools/b705_checks.py wf_ok (this act)
+      @@ -1,15 +1,5 @@
+       def wf_ok(S):
+      -    for k, v in S['wf'].items():
+      -        t = v['text'].lower()
+      -        if not v['text'] or v['text'] != v['before'] or not v['wrote_before_act'] or any(w in t for w in IDENT_WF):
+      -            return False
+      -        if 'workflow_dispatch' not in t or 'hold_mb: "2560"' not in t or 'print_targets.txt' not in t:
+      -            return False
+      -        if not v['lakefile'] or 'lake env lean out/axioms.lean' not in t or (('lake exe cache get' in t) != v['mathlib']):
+      -            return False
+      -        if len(v['targets']) != v['printed'] or v['act_writes'] != v['want']:
+      -            return False
+      -    return sorted(S['wf']) == [K.KERNEL]
+      +    return _wf_ok(S, K.KERNEL)
+       
+       
+       
+
+      --- (none)
+      +++ tools/b705_checks.py _wf_ok (this act)
+      @@ -0,0 +1,19 @@
+      +def _wf_ok(S, kernel, rules_needle='(1) THE PROBE ROUTE\'S TARGET IS print_targets.txt WHOLE'):
+      +    """(R315)(4), REPAIRED AT THE CARRY: the workflow as carried, no identifier, the hold, the cache step for its Mathlib lakefile, the print step
+      +    over its list, every listed name printed by the run, AND the dispatch's target the whole target the rule names (data/b705_rules.txt row (1):
+      +    the dispatch row's `whole` read True by the dispatch route from the kernel's own print list)."""
+      +    for k, v in S['wf'].items():
+      +        t = v['text'].lower()
+      +        if not v['text'] or v['text'] != v['before'] or not v['wrote_before_act'] or any(w in t for w in IDENT_WF):
+      +            return False
+      +        if 'workflow_dispatch' not in t or 'hold_mb: "2560"' not in t or 'print_targets.txt' not in t:
+      +            return False
+      +        if not v['lakefile'] or 'lake env lean out/axioms.lean' not in t or (('lake exe cache get' in t) != v['mathlib']):
+      +            return False
+      +        if len(v['targets']) != v['printed'] or v['act_writes'] != v['want']:
+      +            return False
+      +    rows = [r for r in (S['dispj'].get('rows') or []) if r.get('kernel') == kernel]
+      +    return sorted(S['wf']) == [kernel] and bool(rows) and all(r.get('whole') is True for r in rows) and rules_needle in S['rules']
+      +
+      +
+      +
+
+  (5) tools/b705_record.py `capture` and `reads` -- ANSWERS the carry (b704`s (2) again, and the author`s word at b704`s arm-baseline prompt): b704`s record tool, imported here for its repaired readers, rebinds b698`s `capture` at its import to its own, which reads b704`s session (fb68aaef); b705 runs in a new session (44411d52), so the capture is rebound to b705`s own; and `reads` takes the cap`s word as the act`s anchor, so every call counts from b705 on.
+
+      --- tools/b704_record.py reads (sealed)
+      +++ tools/b705_record.py reads (this act)
+      @@ -1,9 +1,9 @@
+       def reads(*a):
+      -    """b698's route (tools/b698_record.py :1219), REPAIRED at b704's carry on the author's word at the sort: every Read call of the seat since
+      -    the anchor with its offset and limit VALUES (b698's route recorded only whether each was passed), the file's line count read now beside it;
+      -    a call of a file of two hundred lines or more with no offset, or no limit, or a limit above two hundred is an offence -- a call before the
+      -    word that named the cap, carrying both, printed as the cap's precursor and not counted. data/b704_read_calls.txt."""
+      -    word = _cap_word_at()
+      +    """b704's repaired route (tools/b704_record.py :392) with the author's word at b704's arm-baseline prompt applied: from b705 the word's time
+      +    is the act's anchor and every call counts -- every Read call of the seat since the anchor with its offset and limit VALUES, the file's line
+      +    count read now beside it; a call of a file of two hundred lines or more with no offset, or no limit, or a limit above two hundred is an
+      +    offence. data/b705_read_calls.txt."""
+      +    word = _anchor_ts(K.ANCHOR)
+           rows = []
+           for i, o, _st, _sid in R._session_rows():
+               if o.get('type') != 'assistant':
+      @@ -17,10 +17,10 @@
+               r['verdict'] = _read_verdict(r, word)
+           bad = [r for r in rows if r['verdict'] == '### AN OFFENCE']
+           pre = [r for r in rows if r['verdict'].startswith('BEFORE THE WORD')]
+      -    L = ['%s -- THE READ CALLS SINCE THE ANCHOR, BY data/b698_rules.txt ROW (2) AND THE AUTHOR`S WORD AT THE SORT (%s)' % (ACT, utc()), '',
+      +    L = ['%s -- THE READ CALLS SINCE THE ANCHOR, BY data/b698_rules.txt ROW (2) AND THE AUTHOR`S WORD AT b704`S SORT (%s)' % (ACT, utc()), '',
+                '### the rule: whole where the file is under two hundred lines; otherwise an offset and a limit, the limit no greater than two hundred (the',
+                '### cap, the author`s word at %s). Rows are Read calls: transcript line | time | the file`s lines read now | offset | limit | the verdict |' % (word or '### NOT READ'),
+      -         '### path. A call before the word carrying both an offset and a limit above the cap is its precursor, printed and not counted.']
+      +         '### path. From b705 the word`s time is the act`s anchor and every call counts (the author`s word at b704`s arm-baseline prompt).']
+           L += ['  %s | %s | %s | offset %s | limit %s | %s | %s' % (r['line'], r['ts'], r['lines'], r['offset'], r['limit'], r['verdict'], r['path']) for r in rows] or ['  NONE']
+           L += ['', '### ### **READ CALLS %d ; ON FILES OF 200 LINES OR MORE %d ; OFFENCES %d ; THE CAP`S PRECURSORS %d ; THE WORD AT %s.**' % (
+               len(rows), sum(1 for r in rows if r['lines'] is None or r['lines'] >= CAP), len(bad), len(pre), word or '### NOT READ')]
+
+      --- tools/b704_record.py capture (sealed)
+      +++ tools/b705_record.py capture (this act)
+      @@ -1,6 +1,6 @@
+       def capture():
+      -    """b701's capture: the seat's session from K.ANCHOR, then each continuation (K.SESSIONS_AFTER) from its own anchor. Rebound here: b703's
+      -    import rebound b698's to its own, which reads b703's session."""
+      +    """b701's capture: the seat's session from K.ANCHOR, then each continuation (K.SESSIONS_AFTER) from its own anchor. Rebound here: b704's
+      +    import rebound b698's to its own, which reads b704's session."""
+           rows = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
+           for sid, anc in K.SESSIONS_AFTER:
+               more = ER.capture('%s/%s.jsonl' % (PROJ, sid), anc, '%s/%s/subagents' % (PROJ, sid))
+
+### ### **REPAIRS 5 ; SHARED TOOLS EDITED 0 AT THE CARRY (e0_rule.py AT COMPONENT 4 BY RULING) ; DIFF LINES 229 ; NO FROZEN BANK EDITED.**
