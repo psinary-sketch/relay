@@ -71,14 +71,22 @@ Q0_ROWS_STATED = 163        # ### data/b681_findings.json :2
 RHO0_RE = '0.95326047479466068625'
 
 # ### stage two (Component 5, by the Edit tool): the commits in order, the sealed tools and the act's arms.
-STEPZERO = ''
-C1_RELAY, C1_PP = '', ''
+STEPZERO = '4937f617'        # ### b702's closing push capture, committed alone at step zero
+REGS_COMMIT = 'b8a36309'     # ### the four registrations, committed alone before the count (N4)
+STEPZERO_BANKS = '01abebc3'  # ### the step-zero banks
+C1_RELAY, C1_PP = '7a610b40', 'eb1d138'
+C2_RELAY = 'e506d3ef'
+C3_RELAY = 'e2563d74'
+C4_RELAY, C4_PP = '', '28c8a36'   # ### the relay commit filled after it is made
+B702_TRAIL_HEAD = ('### b702 — lane two, act one hundred and twenty-nine, the re-cut act under (R312): b701 at its weight; its undeclared failures '
+                   'and unlettered items by corrigendum, the guard restored; Seven Mechanism Classes re-cut; the faces row, the README and the partner '
+                   'copies on the author’s word; five orders and a spec row entered')
 SEALED = ()
-REPAIRED_TOOLS = ()
+REPAIRED_TOOLS = ('rule_arms.py',)
 NEW_TOOLS = ()
 ACT_ARMS = ()
 STANDING_ADDED = ('G-CORRESPONDENCE-CURRENCY', 'G-README-CURRENCY', 'G-PARTNER-COPIES', 'G-SISTER-PINS')   # ### (R313)(7), the author's word
-SHARED_APPENDED = ('data/b675_corrigenda.txt',)
+SHARED_APPENDED = ('data/b675_corrigenda.txt', 'data/glossary.txt')
 PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')
 NEXT = ('b704, the re-cut act, with W-ORD-FACES-PROBE-CURRENT; b705 the research act computing (R313)(6)(ii), the band witness where (6)(i) '
         'finds a zero, and the I-6 ranking of (6)(iv); b706 the re-cut act with W-ORD-PAPER-PARTNER-COPIES`s disposition; b710 the reading act, '
