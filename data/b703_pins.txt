@@ -1,0 +1,56 @@
+b703 -- COMPONENT 3, (R313)(5): THE PINS OF THE CLOSURE JOIN AND OF THE INTERVAL LIBRARY, READ AND PRICED (2026-10-22)
+
+### rows are kernels or libraries: the repository at the revision read | the Lean version (file :line) | the Mathlib revision (file :line)
+### and its commit date. Every file read through the Read tool this act; nothing built, no lakefile edited, nothing vendored. The opening
+### steps of W-ORD-LV-CLOSURE-JOIN (PLACE-papers OPEN_TRAILS :15452) and of the interval replay.
+
+== THE PINS, SIDE BY SIDE
+  SIDE-explicit-formula v0.37 = 38e2734 (its current tag; the working tree's two files equal v0.37's, git diff --stat empty)
+      Lean   leanprover/lean4:v4.34.0-rc1                lean-toolchain :1
+      Mathlib de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11   lake-manifest.json :10 (inputRev :13 the same sha) ; committed 2026-08-11T00:21:07Z
+  SIDE-lv-conservation v0.10.0 = 93c27ec (the deposit) and v0.13.0 = 8e3bc76 (its current tag at the remote, one ls-remote of its tags)
+      -- the two files byte-identical at v0.10.0, v0.13.0 and main d38f3e8 (git diff --stat empty), read at the working tree
+      Lean   leanprover/lean4:v4.29.1                    lean-toolchain :1
+      Mathlib 5e932f97dd25535344f80f9dd8da3aab83df0fe6   lake-manifest.json :8 (inputRev :11 the same sha) ; committed 2026-04-17T09:50:38Z
+  girving/interval main = 2c89204 (2026-10-13, one shallow clone into D:\relay\scratch\interval-b703, its own message)
+      Lean   leanprover/lean4:v4.34.1                    lean-toolchain :1
+      Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612   lake-manifest.json :8 (inputRev :11 "v4.34.1") ; committed 2026-09-24T20:34:32Z
+      (the dates: the two kernels' from their local Mathlib clones, git log -1 %cI; interval's by one gh api call to mathlib4's commit)
+
+== THE DISTANCES
+  explicit-formula against lv-conservation: Lean v4.29.1 -> v4.34.0-rc1 (five minor releases); Mathlib 2026-04-17 -> 2026-08-11 (116 days).
+  explicit-formula against interval:        Lean v4.34.0-rc1 -> v4.34.1 (the release candidate to the patch release); Mathlib 2026-08-11 ->
+                                            2026-09-24 (44 days).
+
+== THE PRICE OF THE CLOSURE JOIN (W-ORD-LV-CLOSURE-JOIN)
+  THE OBJECT: a third kernel requiring SIDE-explicit-formula and SIDE-lv-conservation at one shared Lean and Mathlib pin, its condition
+  lv-conservation's deposited v0.10.0 and its lakefile unchanged (OPEN_TRAILS :15452). A Lake build resolves one Mathlib for the whole graph,
+  so the two kernels cannot each keep their own pin inside the third.
+  WHICH KERNEL MOVES: explicit-formula's pin governs. The condition forbids editing lv-conservation, so lv cannot move by an edit of its own;
+  it is required at its deposit commit and rebuilt as a dependency at the third kernel's pin (the root's resolved Mathlib, de5ce8a9 at Lean
+  v4.34.0-rc1). Moving explicit-formula back to lv's pin instead would rebuild its 3878 jobs (relay data/b703_buildlog_SIDE-explicit-formula_run2.txt,
+  "[3878/3878]") against a Mathlib 116 days older than the one its vendored Zeta23 and Bulka were built at -- not priced as a route.
+  WHAT IT REBUILDS: lv-conservation's 15 Lean files at v0.10.0 (git ls-tree) against Mathlib de5ce8a9 and Lean v4.34.0-rc1, five minor
+  releases and 116 days later than the pin they were written at; explicit-formula's own build unchanged (its Mathlib cache).
+  THE PRICE: 1 DISPATCH to read whether lv-conservation's deposit compiles at explicit-formula's pin (the third kernel's first tree state:
+  its lakefile requiring both, the join theorem h2_sign ↔ Register4_positivity LiCoeff stated against lv's own declaration). If it compiles,
+  that dispatch is the join. If any lv module fails, the condition (lv's deposit unchanged) blocks the join: the failing lines banked by
+  file and line, and the route priced at that act as an lv forward-port at a new tag (each failing tree state one dispatch more) -- the
+  author's to rule, the deposit untouched.
+
+== THE PRICE OF THE INTERVAL VENDORING (the interval replay)
+  THE OBJECT: girving/interval's modules vendored into SIDE-explicit-formula at its pin, as Zeta23 and Bulka were, for the replay of the
+  certified balls in Lean.
+  THE PIN DISTANCE: interval stands 44 days of Mathlib and one Lean step (v4.34.0-rc1 -> v4.34.1) ahead of explicit-formula; vendoring it
+  compiles its 86 Lean files (git ls-files) back against Mathlib de5ce8a9 -- or moves explicit-formula forward to d13f23b7, rebuilding its
+  3878 jobs.
+  THE PRICE: 1 DISPATCH to read interval's files at explicit-formula's pin (one tree state, the vendored copy unedited), each failing tree
+  state one dispatch more; the forward move of explicit-formula not priced as a route.
+  THE READING IT WAITS FOR: BINDER-PROVENANCE (relay data/b702_circuit_spec.txt :65-:77, the twelfth row, a spec row with no tool) -- the
+  declarations of the replay's target theorem whose statements bind the hypothesis the interval route discharges, the count of them the
+  price of what the vendored library must carry; the vendoring waits for that reading.
+
+### ### **THE PINS: explicit-formula v4.34.0-rc1 / de5ce8a9 (2026-08-11) ; lv-conservation v4.29.1 / 5e932f97 (2026-04-17), the deposit and
+### the current tag alike ; interval v4.34.1 / d13f23b7 (2026-09-24). THE CLOSURE JOIN: explicit-formula's pin governs, lv's 15 files rebuilt
+### at it, 1 DISPATCH ; THE INTERVAL VENDORING: 86 files back 44 days, 1 DISPATCH, waiting on BINDER-PROVENANCE ; NOTHING BUILT, EDITED OR
+### VENDORED.**

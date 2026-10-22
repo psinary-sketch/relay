@@ -1,0 +1,21 @@
+b703 -- (R313)(6)(i), W-ORD-Q0-BAND-CONTROL: b681`S CERTIFIED ZEROS OF Q0 COUNTED BY REAL PART, BY THE NAMED READER (2026-10-22T01:23:22Z)
+
+### the reader: relay tools/b703_q0_zeros_read.py, registered before it was written (relay data/b703_registrations.txt, committed alone at
+### relay b8a36309); the bank opened after its gz sha256 f6613564e9d7fcd534534d0c33e418229bf32dbc0567c951ee8750438b11eb5a and its JSON sha256 c3b54356a1144ee50618fb714900dd4f982fd25a546a94f3100a176371269ce8 each equalled relay
+### data/b681_epstein_zeros_narrowed_hashes.txt :3 and :2. No witness and no Li coefficient computed: the reader counts. Rows are bins.
+
+  the bank`s top-level keys: ['h0', 'halvings', 'prec', 'rows', 'source', 'w'] ; the rows under 'rows' ; the fields read: real part 're', height 'im', kind None
+  rows 163 ; off the line 17 ; on the line 146 (|Re ρ - 1/2| <= 1e-20) ; values unread 0
+  the heights: from 1.30889632617270171810769870101159438490867614 to 149.718007585845503233622951768871080130338669
+
+### THE OFF-LINE ROWS BY REAL PART (rows are bins: the bin | the count | each row`s Re ρ and Im ρ to 12 places):
+  (1/2, 0.6]     0 | -
+  (0.6, 0.75]    5 | 0.663651678860 + 33.650100582527 i; 0.713640542357 + 75.081204182735 i; 0.730498157602 + 89.518105978853 i; 0.605436422186 + 93.081268401792 i; 0.666534152471 + 127.622836723839 i
+  (0.75, 7/8]   10 | 0.797997157179 + 29.551761098629 i; 0.809991531497 + 43.858664365004 i; 0.782378576678 + 46.960993669907 i; 0.808659971478 + 61.687903768792 i; 0.849879099520 + 64.434828940334 i; 0.795769025841 + 79.598549664937 i; 0.811783347933 + 92.151773718857 i; 0.823021429376 + 110.197432968843 i; 0.839428384996 + 124.775438100037 i; 0.874305660727 + 137.885557016994 i
+  (7/8, 1)       2 | 0.953260474795 + 16.290215720390 i; 0.951504657973 + 107.399291101921 i
+  outside (1/2, 1): 0 | -
+
+### THE HYPOTHESIS: a certified off-line zero with 1/2 < Re ρ <= 7/8 -- MET: 15 in the band, the lowest-height 0.79799715717868013876 + 29.55176109862911459913 i
+### THE CONTROL: the row count 163 against the stated 163: True ; the row for ρ₀ at Re 0.95326047479466068625 to the bank`s digits: True (0.953260474794660686250509013567280024290084839 + 16.2902157203903907929631726451914943754673004 i)
+
+### ### **ROWS 163 (THE CONTROL AGREES) ; OFF THE LINE 17, ON IT 146 ; IN (1/2, 7/8] 15 ; ρ₀ READ True ; NO WITNESS COMPUTED.**
