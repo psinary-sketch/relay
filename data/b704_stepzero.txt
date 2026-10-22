@@ -1,0 +1,57 @@
+b704 -- STEP ZERO UNDER (R314): WHAT RAN, IN THE ORDER IT RAN (2026-10-22)
+
+### rows are step zero's items as run: the item | the bank or the command | the reading. The order as run is the ferry's written order,
+### the citation check before any other step and before any delete; the act runs in a NEW session (fb68aaef, after the author's /clear),
+### claude pid 16980, its anchor (R314)'s line, unique in that session; b703 ran and closed in e5bcf1d0.
+
+  the ferry banked             data/b704_ferry.txt by the Write tool | 20128 characters, equal to the transcript's text; ferry_scan exit 0
+                               (data/b704_ferry_scan.txt)
+  the citation check           data/b704_citation_check.txt (.json), run before any other step and before any delete | CITES CHECKED 99 ; OK 97 ;
+                               MISSES 2. One dry run first: four misses, two the check's own needles (the orders' names inside a backtick in
+                               bold, W-ORD-P3-CONTOUR-SIGMA and W-ORD-PAPER-PARTNER-COPIES), corrected in the tool before the one real run. The
+                               two misses, each the navigator's: (R314)(2)'s "(l) one after the seal" (data/b703_defects.txt :70-:73: read before
+                               the lock) -- RAISED before Component 1, answered "as the bank letters it"; (R314)(5)'s README ":160" (the kernel
+                               line at :162) -- to be RAISED before Component 3. Both lettered in data/b704_defects.txt ((f), (g))
+  the readfirst bank           data/b704_readfirst.txt by the Write tool (23 items, each by path and line with its row unit) ; data/b704_readfirst_closure.txt
+                               and data/b704_readfirst_diff.txt by tools/circuit_read.py readfirst | ITEMS 11960 ; CITED BY THE TEXT ITSELF 24 ;
+                               THE HAND LIST 34 PATHS ; BOTH 18 ; LINES DIFFERING 22 (HAND ONLY 16, OF WHICH IN THE CLOSURE 13 ; TEXT ONLY 6)
+  rowgen and constellation     data/b704_rowgen_stepzero.txt | CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19 ; STALE 0
+  the process listing          tail, lean, lake, python and claude named, node beside them (Win32_Process by name, PowerShell Get-CimInstance):
+                               claude 1 (pid 16980, this seat), tail 0, lean 0, lake 0, python 0, node 0. One seat. No task of this session
+                               stopped; no orphan, nothing stopped by PID
+  b703's push-out bank         relay 49bbc37b, committed alone | data/b703_closing_push_out.txt, main read back at 295e53f0
+  the branches                 data/b704_branches_before.json (written before any delete: each tip, merged by ancestry, the remotes read once
+                               each) ; data/b704_branches.txt (.json) after | the eight of (R314)(8) deleted by name with -d (relay push-b703,
+                               push-b703-root, push-b703-root2, push-b703-closing; PLACE-papers push-b703, push-b703-root; SIDE-explicit-formula
+                               push-b703-widen-merge, push-b703-epstein-merge) -- eight deletes, one per command, each its own message, nothing
+                               chained after any ; BRANCHES NAMED 8 ; DELETED 8 ; KEPT 0 ; EVERY TIP MERGED True
+  the read rule's sort         data/b704_read_sort.txt by tools/b704_record.py readsort | BREACHES 15 ; TRACEABLE 14 ((k) 13, (l) 1, each a row of
+                               data/b703_read_calls.txt) ; NOT IN A BANK 1 ((m), after the closing) ; THE COMMAND BANK TRACES 0
+  the prompts                  one call, three questions (the kernel branches, the read arm, the (l) miss) ; each answer checked by
+                               tools/b704_citation.py answer before it was acted on, one answer per check: 5 of 5 OK, 5 of 5 OK, 2 of 2 OK.
+                               The words: delete both; write the arm for the traceable class (a Read call of a file of 200 lines or more with no
+                               offset, or no limit, or a limit above 200; its NEG control a mutated copy; its baseline b704's own read bank; (m)
+                               prose); (l) as the bank letters it
+  the kernel branches          `git branch --merged main` at SIDE-explicit-formula listing both ; widening-b701 (aa9a543) and epstein-b703 (5f8961b)
+                               deleted locally with -d, then at the remote by `git push origin --delete <name>` -- four deletes, one branch per
+                               command, each its own message, nothing chained after any ; one ls-remote of SIDE-explicit-formula read for
+                               content: neither branch present, v0.36 peeled dfadc8c, v0.37 peeled 38e2734, main 38e2734
+  the tests                    data/b704_tests_stepzero.txt (.json) | 55 files ; 54 run, each its own process in the foreground, in seven parts
+                               each after the hold printed (6775-7134 MB free) ; 1 withheld (test_elab_reader_b634.py, it runs lean) ; no file
+                               above 450 s at b703, so no file its own part by that rule; test_asof.py (388 s) and test_chain_page.py (355 s) each a
+                               part of its own by the plan's budget ; NOT CLEAN 3: test_chain_page.py (1), (9), (14) ; test_chain_page_b638.py
+                               (4)-(7) ; test_g_chain_page.py (1). Carried from b703's step zero: test_chain_page.py (9) and test_chain_page_b638.py
+                               (4)-(7). NEW since b703: test_chain_page.py (1) and (14) and test_g_chain_page.py (1), each the committed faces page
+                               no longer byte-identical to the generator's output from b702's list and b643's probe -- the page that Component 2
+                               regenerates; the changed lines read there with their cause ; the longest 388 s
+  the trees                    git status | relay tracked changes NONE ; PLACE-papers tracked changes NONE (two untracked files that stood before the
+                               act, .githooks/pre-push.b304-backup and internal/BLOB_SENSITIVITY_2026-08-29.md) ; the untracked locals untracked
+                               (data/b628_intake_crank_v0_5.txt, data/b647_navigator_memory.txt, data/b671_narrow_run2_points.jsonl,
+                               data/b681_narrow_units.jsonl, data/b694_witness_units.jsonl, data/b696_witness_balls_units.jsonl: git ls-files names none)
+  no build                     no lean or lake process on this host; no dispatch yet (Component 2's one)
+  the seat's offences          lettered in data/b704_defects.txt (a)-(e), (h): shell reads, pipes into filters and git greps of relay tools and a
+                               ledger in the carry's opening; two reads with a limit above two hundred, before the author's word named that limit
+
+### ### **STEP ZERO DONE: CITES 99, 97 OK, 2 MISSES (THE NAVIGATOR'S), ONE RAISED AND ANSWERED, ONE RAISED BEFORE COMPONENT 3 ; BRANCHES 8 DELETED,
+### THE KERNEL BRANCHES 2 DELETED LOCAL AND REMOTE ON THE WORD ; ONE BANK COMMITTED ALONE ; TESTS 54 RUN, 3 NOT CLEAN (2 CARRIED, 1 NEW: THE FACES
+### PAGE AGAINST ITS GENERATOR) ; NO BUILD ON THIS HOST.**

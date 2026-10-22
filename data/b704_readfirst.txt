@@ -1,0 +1,32 @@
+b704 -- STEP ZERO, (R314)(9): THE READ-FIRST BANK, EACH ITEM BY PATH AND LINE WITH THE UNIT OF ITS ROWS AND WHAT THE ACT TAKES FROM IT (2026-10-22)
+
+### rows are items: the path | the line or lines read | the unit of that bank's rows | what the act takes from it. Written by the Write tool at
+### step zero before any delete; the closure reader (tools/circuit_read.py readfirst) run beside it, its list diffed against this one
+### (data/b704_readfirst_closure.txt, data/b704_readfirst_diff.txt). Every line number below was read through the Read tool this act (a new
+### session, fb68aaef), but those marked located by the citation check (data/b704_citation_check.txt).
+
+  relay data/b703_closing.txt | :1 ; :5-:17 ; :88-:161 ; :290-:306 | the closing's sections; (a)-(h) the carried-forward rows | the head line for (R314)(1)'s quote (equal after whitespace, the citation check); the hashes 11 of 11 (:17); (c) the companion glossary rows "raised at b705" (:298), which (R314)(6) raises at b704; (f) the branches, (h) the push-out bank
+  relay data/b703_defects.txt | :6-:73 ; :75-:79 | rows are defects as lettered, (a)-(l); the events beneath | the lettering the corrigendum continues at (m); (d)-(e) the navigator's; (k) the thirteen calls (:61-:69); (l) the read "before the lock" at transcript line 10815, lettered after the seal (:70-:73) -- (R314)(2)'s "(l) one after the seal" a MISS of the citation check, raised before Component 1
+  relay data/b703_widening_grade.txt | :1-:40 ; :180-:210 | per theorem: the statement, the binders, the grade, the E0 check, the salt-check (ten rows); the E0 divergence rows (four) | the compiled relations for the glossary companions ((R314)(6)): h2_sign_sum_iff_rh DERIVES, h2_sign'_imp_rh DERIVES (:210)
+  relay data/b703_epstein_grade.txt | :1-:25 | per theorem, as the widening grade (seven rows) | the Epstein step's premises over Wide.WideConfig, for the README append's wording ((R314)(5)); located for the four premise names by the citation check
+  relay data/b703_q0_band.txt | :1-:21 | rows are bins of real part | 17 off the line, 15 in (1/2, 7/8], the lowest 0.79799715717868013876 + 29.55176109862911459913 i (:14, :18) -- the README append's figure ((R314)(5))
+  relay data/b703_pins.txt | :1-:56 | rows are kernels or libraries at a revision | the two prices (:53-:56), cited in (R314)(1) and carried to b705 ((R314)(11))
+  relay data/b703_tool_repairs.txt | :1-:30 | rows are repairs with their diffs (five) | the carry-time form for data/b704_tool_repairs.txt
+  relay data/b703_closing_push_out.txt | :1-:6 | lines of the push tool's capture | main read back at 295e53f0 (:5); committed alone at the start ((R314)(8))
+  relay data/b701_glossary_rows.txt | :1-:17 | the glossary entries drafted (A, B) and the seat's note (C) | the companion rows' names and source lines (:13-:15: h2_sign' H2SignWide.lean :38-:39, h2_sign_sum :48-:49 at 8a4ab68) for (R314)(6); at v0.36 the defs at :39 and :49 (the citation check)
+  relay data/b702_nodes_zeta.txt | :1-:174 | one record per node (name | source | role), comments, @corr/@mark and backmatter records | the node list's successor data/b704_nodes_zeta.txt, every row unchanged but its tag (:81 "# pin: v0.26")
+  relay data/b703_commands.txt | (by path) | rows are the act's commands, numbered | b703's command bank, the bank the read rule's sort reads by path and line ((R314)(2))
+  relay data/b703_read_calls.txt | (by path) | rows are Read calls | b703's read bank, named in (k)
+  PLACE-papers OPEN_TRAILS.md | :15444 ; :15454 ; :15496 ; :15506 ; :15492-:15540 | lines are ledger records | W-ORD-FACES-PROBE-CURRENT (:15444; its text "re-probed at v0.35", the ruling's at v0.37); W-ORD-KEYSTONE-HEADS (:15454) and its trigger moved (:15496, held); W-ORD-E0-MET-CLASSK (:15506; its text puts the companion rows "at b705 ... once that grade is settled"); b703's trail :15508
+  PLACE-papers README.md | :1-:190 (:133 ; :162) | lines of the README | the b702 append (:133); the deposit note's kernel line "SIDE-explicit-formula **v0.35** (`d4e046a`)" at :162 -- (R314)(5)'s ":160" a MISS of the citation check (:160 is the code fence), raised before Component 3
+  relay data/b670_licensed_table.txt | :1-:286 | A: rows are roster tables; B: rows are agenda documents with their counts; the prints whole | the agenda's form; the latest reading of it is b702's tie bank (relay data/b702_tie.txt :14-:56, from data/b700_r4_licensed.txt)
+  relay data/b702_tie.txt | :1-:57 | rows are documents: the count now, the kind, the row | b652's order (:3-:4), b674's rule (:6-:10), the companions by count (:49): after b702's cut, day1/Spectral_Inertness.md 22 and day1/ONE_PAGE_PROOF.md 22 -- a tie for b674's rule at Component 4
+  relay data/b646_table_Spectral_Inertness.txt ; data/b646_table_ONE_PAGE_PROOF.txt | (by path; their summary lines read at Component 4) | rows are the document's claims with verdicts | the per-document tables b674's rule reads
+  relay data/b674_rules.txt | :1-:15 | rows are rules | row (2): the tie-break beyond the count (:8-:11)
+  relay data/b690_rules.txt | :1-:16 | rows are rules | row (2): the quotation search at a re-cut (:9-:12)
+  relay data/b698_rules.txt | :1-:13 | rows are rules | row (1): a tag move regenerates the Correspondence cells (:6-:9); row (2): the read rule (:10-:12)
+  relay data/b703_correspondence_dry.txt | :1-:19 | the generator's dry run: the diff rows (cells), the verdict | the form of (R314)(4)'s dry run (tools/correspondence_gen.py dry data/b672_roster_read.json full)
+  relay tools/circuit_read.py | :379-:458 | the reader | the readfirst route and its call form
+  relay tools/b703_citation.py ; tools/b677_citation.py | :1-:347 ; :1-:140 | the tools | the citation check carried as tools/b704_citation.py
+
+### ### **ITEMS 23 ; EVERY LINE READ THROUGH THE READ TOOL BUT THOSE MARKED BY PATH ; THE RULING`S MISSES 2 ((l)`S READ BEFORE THE LOCK ; THE README KERNEL LINE AT :162, NOT :160), RAISED BEFORE THE COMPONENTS THAT CITE THEM.**
