@@ -1,0 +1,60 @@
+b705 -- COMPONENT 2, (R315)(5): THE GRADE OF faces_join, READ FROM ITS STATEMENT, WITH E0 AND THE SALT-CHECK BESIDE IT (2026-10-22T14:55:23Z)
+
+### rows are, per theorem: the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and
+### the salt-check`s clauses with their readings. The statement at SIDE-faces-join 732c1b4; the profile from run 39799253764 (gate NOT DERIVES).
+
+== faces_join (FacesJoin.lean :29-:31):
+    theorem faces_join :
+        SIDEExplicitFormula.B321.h2_sign ↔
+          SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff :=
+  THE BINDERS, READ BY HAND (the seat`s reading, before the check): NONE -- a closed statement
+  THE GRADE READ FROM THE STATEMENT: DERIVES ; THE NAMED PREMISE: NONE (no binder; an equivalence of two closed propositions, each kernel`s own, through Mathlib`s RiemannHypothesis)
+  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (JOIN_E0; the shared file not edited at this step):
+    E0 GRADE DERIVES ; its reason: no hypothesis binder ; the hypotheses it read: []
+    THE HAND READING AND THE CHECK AGREE
+  THE SALT-CHECK (REGISTRY.md :544), clause by clause:
+    no True-typed conclusion, no uniformly-True predicate                                 PASS -- the conclusion 'SIDEExplicitFormula.B321.h2_sign ↔ SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.L'
+    no X = X                                                                              PASS -- no equation of a term with itself in the conclusion (its two whole sides compared)
+    no hypothesis that is the claim                                                       PASS -- hypotheses none
+    no fabricated witness                                                                 PASS -- the conclusion constructs nothing
+    hypotheses named                                                                      PASS -- no binder
+    #print axioms profiled after the first three                                          ### FAIL -- run 39799253764: None
+    the terminal states lv-conservation`s own declaration, no restatement in the module (N2) PASS -- the right-hand side names SIDELvConservation.RegisterPentagon.Register4_positivity; the module defines no Register4_positivity
+  PROFILE None ; SALT-CHECK ### FAIL
+
+== THE JOIN HELD: the run`s gate NOT DERIVES ; the build`s error lines, by line (relay data/b705_buildlog_SIDE-faces-join_join.txt):
+    error: Batteries/Tactic/Alias.lean:118:16: Application type mismatch: The argument
+    error: Batteries/Tactic/Alias.lean:156:14: Application type mismatch: The argument
+    error: Aesop/Util/EqualUpToIds.lean:90:12: Invalid field `lDepth`: The environment does not contain `Lean.MetavarContext.lDepth`, so it is not possible to project the field `lDepth` from an expression
+    error: Aesop/Util/EqualUpToIds.lean:90:45: Invalid field `lDepth`: The environment does not contain `Lean.MetavarContext.lDepth`, so it is not possible to project the field `lDepth` from an expression
+    error: Mathlib/Tactic/Linter/Style.lean:559:12: Unknown identifier `isPrivateOrAutoDecl`
+    error: Mathlib/Tactic/Linter/OverlappingInstances.lean:230:47: Unknown identifier `findDeclarationSyntaxRange?`
+    error: Batteries/Data/Nat/Basic.lean:95:4: `Nat.sqrt` has already been declared
+    error: Qq/Typ.lean:71:17: failed to synthesize instance of type class
+    error: Qq/Typ.lean:71:27: failed to synthesize instance of type class
+    error: Batteries/Tactic/GeneralizeProofs.lean:58:67: unexpected identifier; expected '#guard_msgs', 'abbrev', 'add_decl_doc', 'axiom', 'binder_predicate', 'builtin_cbv_simproc', 'builtin_cbv_simproc_decl', 'builtin_dsimproc', 'builtin_dsimproc_decl', 'builtin_grind_propagator', 'builtin_initialize', 'builtin_simproc', 'builtin_simproc_decl', 'cbv_simproc', 'cbv_simproc_decl', 'class', 'coinductive', 'declare_simp_like_tactic', 'declare_syntax_cat', 'def', 'dsimproc', 'dsimproc_decl', 'elab', 'elab_rules', 'example', 'grind_propagator', 'inductive', 'infix', 'infixl', 'infixr', 'initialize', 'instance', 'macro', 'macro_rules', 'notation', 'opaque', 'postfix', 'prefix', 'recommended_spelling', 'register_builtin_option', 'register_error_explanation', 'register_option', 'register_tactic_tag', 'register_try?_tactic', 'simproc', 'simproc_decl', 'structure', 'syntax', 'tactic_extension', 'theorem' or 'unif_hint'
+    error: Plausible/Testable.lean:378:67: Application type mismatch: The argument
+    error: Batteries/Classes/SatisfiesM.lean:188:10: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+    error: Batteries/Classes/SatisfiesM.lean:294:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+    error: Batteries/Classes/SatisfiesM.lean:286:0: (kernel) declaration has metavariables 'MonadSatisfying.instEStateM'
+    error: ProofWidgets/Component/MakeEditLink.lean:13:64: Invalid field `utf16Size`: The environment does not contain `Char.utf16Size`, so it is not possible to project the field `utf16Size` from an expression
+    error: build failed
+   the author`s word at the join-name prompt: a composition that does not close against lv`s declaration is banked by line and the join holds, that mismatch the finding.
+
+== THE CAUSE, READ FROM THE RUN`S OWN ARTIFACT (data/b705_art_SIDE-faces-join_join_cache_log.txt, the cache step`s last twenty lines) AND THE TWO
+   KERNELS` MANIFESTS AT THEIR PINS, NOT A SECOND DISPATCH:
+   the composition was never checked -- FacesJoin.lean was not reached. Every error line above lies in Mathlib`s own dependencies (Batteries, Aesop,
+   Qq, Plausible, ProofWidgets, Mathlib`s linters) being compiled from source at Lean v4.34.0-rc1 at revisions that are not Mathlib de5ce8a9`s.
+   The cache step`s log names the mismatch package by package (project / mathlib): batteries 756e3321 / 01bc479e ; aesop 7152850e / c1c4362a ;
+   Qq 707efb56 / 3b55e9d0 ; proofwidgets 4dd0959c / 99e8adee ; Cli 7802da01 / af8bc067 ; then `Some mismatched dependencies come transitively from
+   other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib`s versions take precedence` and
+   `error: mathlib: failed to fetch cache`. The project column is SIDE-lv-conservation`s lake-manifest.json at v0.10.0 = 93c27ec (Lean v4.29.1,
+   Mathlib 5e932f97: batteries 756e3321, aesop 7152850e, Cli v4.29.0); the mathlib column is SIDE-explicit-formula`s at v0.37 = 38e2734
+   (batteries 01bc479e, aesop c1c4362a, Cli at v4.34.0-rc1). The join`s lakefile.toml (data/b705_join_files.txt) requires mathlib first and
+   sideLvConservation last with no lake-manifest.json at the root, so Lake resolved the transitive packages from the last require`s manifest,
+   lv`s, and the cache -- keyed to Mathlib`s own revisions -- had nothing to serve. The seat`s lakefile, not the runner`s refusal and not the
+   type of the composition: lettered at data/b705_defects.txt. The fix Lake names (require mathlib last, or a manifest at the root carrying
+   Mathlib`s revisions) is a new tree state and so a second dispatch, which this act does not make (R315)(5); carried to b706`s ruling as
+   W-ORD-FACES-JOIN-MANIFEST with the lines above.
+
+### ### **THEOREMS 1 ; faces_join GRADE DERIVES (E0 DERIVES) SALT FAIL PROFILE None ; THE GATE NOT DERIVES ; THE JOIN HELD ; EVERY SALT-CHECK PASSED AND EVERY CHECK AGREEING False.**

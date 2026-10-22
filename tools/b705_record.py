@@ -690,11 +690,181 @@ def repairctl(*a):
     print(NL.join(L[5:]))
 
 
+# ================================================================================ COMPONENT 2: THE JOIN KERNEL, (R315)(5)
+KI = K.KERNEL_DIR
+JOIN_FILES = ('lean-toolchain', 'lakefile.toml', 'FacesJoin.lean', 'print_targets.txt', '.github/workflows/build-module.yml', 'README.md', '.gitignore')
+
+
+def _blob_sha(repo, rev, path):
+    return g(repo, 'rev-parse', '%s:%s' % (rev, path)).strip()
+
+
+def joinfiles(*a):
+    """data/b705_join_files.txt: the join kernel's files at its commit, printed whole before the push ((R315)(5): "its lakefile and workflow printed
+    before the push"), each with its blob id; the workflow's blob against SIDE-explicit-formula's at main (carried verbatim); the two pins and
+    the two requirements read from the lakefile; no identifier of the author in any file (the needles of tools/b705_checks.py IDENT_WF)."""
+    import b705_checks as C5
+    tip = g(KI, 'rev-parse', 'HEAD').strip()
+    L = ['%s -- COMPONENT 2, (R315)(5): THE JOIN KERNEL %s AT ITS COMMIT %s, ITS FILES PRINTED BEFORE THE PUSH (%s)' % (ACT, K.KERNEL, tip[:7], utc()), '',
+         '### rows are files at the commit: the path | its blob id | its bytes; each printed whole beneath. The workflow carried verbatim from',
+         '### SIDE-explicit-formula`s .github/workflows/build-module.yml at main (blob %s); the lakefile requiring Mathlib at explicit-formula`s pin,' % _blob_sha(K.EF_DIR, 'main', '.github/workflows/build-module.yml')[:12],
+         '### SIDE-explicit-formula at v0.37 = %s and SIDE-lv-conservation at v0.10.0 = %s by git revision; nothing of either kernel edited.' % (K.EF_V037[:7], K.LV_V0100[:7]), '']
+    ident = []
+    for f in JOIN_FILES:
+        t = _show(KI, tip, f) or ''
+        hits = [w for w in C5.IDENT_WF if w in t.lower() and not (w == 'psinary' and f in ('lakefile.toml',))]
+        ident += [(f, w) for w in hits]
+        L += ['  %-40s blob %s ; %d bytes%s' % (f, _blob_sha(KI, tip, f)[:12], len(t.encode('utf-8')), (' ; ### IDENTIFIER NEEDLE %s' % hits) if hits else '')]
+    for f in JOIN_FILES:
+        t = _show(KI, tip, f) or ''
+        L += ['', '=== %s' % f] + ['    ' + x for x in t.rstrip(NL).split(NL)]
+    wf_eq = _blob_sha(KI, tip, '.github/workflows/build-module.yml') == _blob_sha(K.EF_DIR, 'main', '.github/workflows/build-module.yml')
+    lf = _show(KI, tip, 'lakefile.toml') or ''
+    pins = ('rev = "%s"' % K.EF_MATHLIB in lf, 'rev = "%s"' % K.EF_V037 in lf, 'rev = "%s"' % K.LV_V0100 in lf, (_show(KI, tip, 'lean-toolchain') or '').strip() == K.EF_LEAN)
+    L += ['', '### ### **FILES %d AT %s ; THE WORKFLOW`S BLOB EQUAL TO SIDE-explicit-formula`S AT MAIN %s ; MATHLIB %s, SIDE-explicit-formula v0.37 %s, SIDE-lv-conservation v0.10.0 %s REQUIRED BY REVISION ; '
+          'THE TOOLCHAIN v4.34.0-rc1 %s ; IDENTIFIER NEEDLES IN THE WORKFLOW OR THE MODULE %s.**' % (
+              len(JOIN_FILES), tip[:7], wf_eq, pins[0], pins[1], pins[2], pins[3], [x for x in ident if x[0] in ('.github/workflows/build-module.yml', 'FacesJoin.lean')] or 'NONE')]
+    put_txt('%s_join_files.txt' % ACT, L)
+    put_json('%s_join_files.json' % ACT, dict(at=utc(), tip=tip, workflow_equal=wf_eq, pins=list(pins), blobs=dict((f, _blob_sha(KI, tip, f)) for f in JOIN_FILES)))
+    print(NL.join(L[:12] + L[-1:]))
+
+
+def _print_modules(kernel_dir, rev='HEAD'):
+    """each name of the kernel's print_targets.txt mapped to the module declaring it, by git grep bounded to the kernel's tree at rev: the
+    declaration line `theorem|def|structure|abbrev <short>` in a .lean file -> the module (the path with / for . and no .lean)."""
+    names = [l.strip() for l in (_show(kernel_dir, rev, 'print_targets.txt') or '').split(NL) if l.strip()]
+    out = {}
+    for n in names:
+        short = n.split('.')[-1]
+        hit = g(kernel_dir, 'grep', '-n', '-E', '-e', r'^(@\[[^]]*\] *)?((private|protected|noncomputable|nonrec) +)*(theorem|lemma|def|abbrev|structure|instance) +%s([ :({\[]|$)' % re.escape(short),
+                rev, '--', '*.lean').strip()
+        f = hit.split(':', 2)[1] if hit.count(':') >= 2 else ''
+        out[n] = f[:-5].replace('/', '.') if f.endswith('.lean') else None
+    return out
+
+
+def dispatch(*a):
+    """`dispatch <kernel> <ref sha> <label> <target> [dry]`: b698's dispatch (one dispatch per tree state, the run id read), with (R315)(4) applied --
+    data/b705_rules.txt row (1): the target is the print list whole. Before the dispatch every name of print_targets.txt is mapped to its module
+    by git grep bounded to the kernel's tree; a target not covering every module is REFUSED, nothing dispatched; the row banked carries `whole`
+    True with the modules the list needs."""
+    kernel, ref, label, target = a[0], a[1], a[2], a[3]
+    mods = _print_modules('D:/' + kernel, ref)
+    need = sorted(set(m for m in mods.values() if m))
+    unmapped = [n for n, m in mods.items() if not m]
+    tgt = target.split()
+    whole = bool(need) and not unmapped and all(m in tgt for m in need)
+    print('  the print list %d names ; their modules %s ; unmapped %s ; the target %s ; whole %s' % (len(mods), need, unmapped or 'NONE', tgt, whole))
+    if not whole:
+        sys.exit('### THE TARGET DOES NOT COVER THE PRINT LIST`S MODULES (data/b705_rules.txt row (1)) -- NOT DISPATCHED')
+    R.dispatch(*a)
+    if 'dry' in a[4:]:
+        return
+    j = jl('%s_dispatches.json' % ACT)
+    rows = j.get('rows') or []
+    if rows:
+        rows[-1].update(whole=True, print_names=len(mods), print_modules=need)
+        put_json('%s_dispatches.json' % ACT, dict(rows=rows))
+    print('  the row banked with whole True ; modules %s' % need)
+
+
+def artfile(*a):
+    """`artfile <kernel> <run id> <label> <name> [<name> ...]`: a named file of the run's artifact, read only after the artifact's sha256 equals
+    the banked one (data/b705_runner_rows.json, the row read by its id) and the platform's digest; banked as data/b705_art_<kernel>_<label>_<name>.txt."""
+    import hashlib
+    import io as _io
+    import zipfile
+    kernel, run_id, label, names = a[0], int(a[1]), a[2], list(a[3:])
+    repo = 'psinary-sketch/' + kernel
+    row = next((r for r in (jl('%s_runner_rows.json' % ACT).get('rows') or []) if r.get('kernel') == kernel and r.get('run_id') == run_id), None)
+    if not row or not row.get('artifact_sha256'):
+        sys.exit('### THE RUN IS NOT BANKED WITH AN ARTIFACT SHA256 -- NOTHING READ')
+    rc, out, err = R._gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+    art = (json.loads(out or b'{}').get('artifacts') or [{}])[0]
+    rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+    sha = hashlib.sha256(rz.stdout).hexdigest()
+    if sha != row['artifact_sha256'] or sha != (art.get('digest') or '').replace('sha256:', ''):
+        sys.exit('### THE ARTIFACT`S SHA256 %s IS NOT THE BANKED %s -- NOTHING READ' % (sha[:16], row['artifact_sha256'][:16]))
+    with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+        have = z.namelist()
+        for n in names:
+            t = z.read(n).decode('utf-8', 'replace').replace(chr(13), '') if n in have else '### NOT IN THE ARTIFACT (%s)' % have
+            L = ['%s -- THE RUN %d (%s, %s) ARTIFACT`S %s, READ AFTER THE ARTIFACT`S SHA256 %s AGREED WITH THE BANKED AND THE PLATFORM`S (%s)' % (ACT, run_id, kernel, label, n, sha[:16], utc()), ''] + t.rstrip(NL).split(NL)
+            put_txt('%s_art_%s_%s_%s.txt' % (ACT, kernel, label, n.replace('/', '_').replace('.', '_')), L)
+            print(NL.join(L))
+
+
+JOIN_GRADES = {'faces_join': ('FacesJoin.lean', '', [], 'DERIVES',
+                              'NONE (no binder; an equivalence of two closed propositions, each kernel`s own, through Mathlib`s RiemannHypothesis)')}
+JOIN_E0 = {'h2_sign': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/H2Sign.lean :29'),
+           'Register4_positivity': ('prop', 'SIDE-lv-conservation SIDELvConservation/RegisterPentagon.lean :152 at v0.10.0'),
+           'LiCoeff': ('data', 'SIDE-explicit-formula SIDEExplicitFormula/LiWeil.lean :243'),
+           'RiemannHypothesis': ('prop', 'Mathlib RiemannHypothesis')}
+
+
+def joingrade(*a):
+    """`joingrade <label>`: data/b705_join_grade.txt (.json) -- faces_join's statement verbatim from the kernel at its commit, the seat's reading of
+    its binders by hand (none) and the grade it gives, the shared E0 rule's grade as the check (its lexicon extended here, the shared file not
+    edited at this step), the salt-check of REGISTRY.md :544 clause by clause, the runner's print of the name (b703's grade route, its readers
+    _thm_sig and _self_eq imported); on a run that is not DERIVES, the build's error lines printed by line and the join HELD."""
+    import e0_rule as E
+    label = a[0] if a else 'join'
+    E.LEXICON.update(JOIN_E0)
+    rows_ = jl('%s_runner_rows.json' % ACT).get('rows') or []
+    run = next((r for r in reversed(rows_) if r.get('kernel') == K.KERNEL and r.get('label') == label), None)
+    ax = rdn('%s_axioms_%s_%s.txt' % (ACT, K.KERNEL, label)) if run else ''
+    AX = dict(_deps(ax))
+    tip = g(KI, 'rev-parse', 'HEAD').strip()
+    L = ['%s -- COMPONENT 2, (R315)(5): THE GRADE OF faces_join, READ FROM ITS STATEMENT, WITH E0 AND THE SALT-CHECK BESIDE IT (%s)' % (ACT, utc()), '',
+         '### rows are, per theorem: the statement verbatim, the binders with their class read by hand, the grade they give, the E0 rule`s check, and',
+         '### the salt-check`s clauses with their readings. The statement at %s %s; the profile from run %s (gate %s).' % (
+             K.KERNEL, tip[:7], run['run_id'] if run else '### NO RUN', run['gate'] if run else '-'), '']
+    allok, summ = True, []
+    for name, (fpath, ns, hand, hgrade, hprem) in JOIN_GRADES.items():
+        i, j, head, st = P3._thm_sig(_show(KI, tip, fpath), name)
+        eg, why, read = E.grade(' ' + head + ' ', 'theorem')
+        prof = AX.get(ns + name)
+        concl = E.conclusion(E.statement_only(' ' + head + ' ')) or head
+        salt = [('no True-typed conclusion, no uniformly-True predicate', not re.search(r'\bTrue\b', concl), 'the conclusion %r' % concl.strip()[:120]),
+                ('no X = X', not P3._self_eq(concl), 'no equation of a term with itself in the conclusion (its two whole sides compared)'),
+                ('no hypothesis that is the claim', all(concl.strip() not in (t or '') for _n, t in read) if read else True, 'hypotheses %s' % ([n for n, _t in read] or 'none')),
+                ('no fabricated witness', '∃' not in concl, 'the conclusion constructs nothing' if '∃' not in concl else 'an existential in the conclusion'),
+                ('hypotheses named', all(n for n, _t in read) if read else True, ', '.join('%s : %s' % x for x in read) or 'no binder'),
+                ('#print axioms profiled after the first three', prof is not None and set(prof) <= set(STD3), 'run %s: %s' % (run['run_id'] if run else '### NO RUN', prof)),
+                ('the terminal states lv-conservation`s own declaration, no restatement in the module (N2)',
+                 'SIDELvConservation.RegisterPentagon.Register4_positivity' in head and 'def Register4_positivity' not in (_show(KI, tip, fpath) or ''),
+                 'the right-hand side names SIDELvConservation.RegisterPentagon.Register4_positivity; the module defines no Register4_positivity')]
+        ok = all(s[1] for s in salt)
+        allok = allok and ok and eg == hgrade
+        L += ['== %s (%s :%d-:%d):' % (name, fpath, i, j)] + ['    ' + l for l in st.split(NL)]
+        L += ['  THE BINDERS, READ BY HAND (the seat`s reading, before the check): %s' % ('NONE -- a closed statement' if not hand else '')]
+        L += ['    %-12s : %-34s %s' % b for b in hand]
+        L += ['  THE GRADE READ FROM THE STATEMENT: %s ; THE NAMED PREMISE: %s' % (hgrade, hprem),
+              '  THE CHECK: relay tools/e0_rule.py`s grade() on the header, its LEXICON extended in this tool (JOIN_E0; the shared file not edited at this step):',
+              '    E0 GRADE %s ; its reason: %s ; the hypotheses it read: %s' % (eg, why, read),
+              '    THE HAND READING AND THE CHECK %s' % ('AGREE' if eg == hgrade else '### DIFFER (%s against %s)' % (hgrade, eg)),
+              '  THE SALT-CHECK (REGISTRY.md :544), clause by clause:']
+        L += ['    %-85s %s -- %s' % (c, 'PASS' if ok_ else '### FAIL', how) for c, ok_, how in salt]
+        L += ['  PROFILE %s ; SALT-CHECK %s' % (prof, 'PASS' if ok else '### FAIL'), '']
+        summ.append('%s GRADE %s (E0 %s) SALT %s PROFILE %s' % (name, hgrade, eg, 'PASS' if ok else 'FAIL', 'STD3' if prof is not None and set(prof) <= set(STD3) else prof))
+    gate = (run or {}).get('gate')
+    held = gate != 'DERIVES'
+    if held:
+        L += ['== THE JOIN HELD: the run`s gate %s ; the build`s error lines, by line (relay data/%s_buildlog_%s_%s.txt):' % (gate, ACT, K.KERNEL, label)]
+        L += ['    ' + x for x in ((run or {}).get('errors') or ['### NO RUN READ'])[:60]]
+        L += ['   the author`s word at the join-name prompt: a composition that does not close against lv`s declaration is banked by line and the join holds, that mismatch the finding.', '']
+    L += ['### ### **THEOREMS %d ; %s ; THE GATE %s ; THE JOIN %s ; EVERY SALT-CHECK PASSED AND EVERY CHECK AGREEING %s.**' % (
+        len(JOIN_GRADES), ' ; '.join(summ), gate or '### NO RUN', 'HELD' if held else 'DERIVES AT THE STANDARD THREE', allok)]
+    put_txt('%s_join_grade.txt' % ACT, L)
+    put_json('%s_join_grade.json' % ACT, dict(at=utc(), tip=tip, run=run['run_id'] if run else None, gate=gate, held=held, ok=allok and not held, rows=summ))
+    print(NL.join(L[-4:]))
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, armsort=armsort, figures=figures, figctl=figctl, c1=c1,
-              orders=orders, repairs=repairs, repairctl=repairctl)
+              orders=orders, repairs=repairs, repairctl=repairctl, joinfiles=joinfiles, joingrade=joingrade, artfile=artfile)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

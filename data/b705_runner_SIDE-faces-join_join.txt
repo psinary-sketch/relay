@@ -1,0 +1,38 @@
+b698 -- THE HOSTED RUNNER FOR SIDE-faces-join, JOIN, READ BY ITS RUN ID (2026-10-22T14:54:06Z)
+
+### the dispatch: the join kernel SIDE-faces-join at its one commit, the whole target FacesJoin, dispatched once under R315 clause 5 ; the ref input 732c1b49aada7f6266414a010e42652c877882f6
+### the run: id 39799253764 ; https://github.com/psinary-sketch/SIDE-faces-join/actions/runs/39799253764 ; status completed ; conclusion success ; head 732c1b49aada7f6266414a010e42652c877882f6 on main ; 2026-10-22T14:50:35Z to 2026-10-22T14:53:12Z
+### the artifact: id 12433844844 ; build-module-39799253764 ; 7953 bytes ; sha256 9f6ba40a03d8dbd6202a77b7bcaae95cc1696b1e49b8f78d1d0afd7bd2c2b043 ; the platform`s digest 9f6ba40a03d8dbd6202a77b7bcaae95cc1696b1e49b8f78d1d0afd7bd2c2b043 ; AGREE
+### the ref built (out/ref.txt): 732c1b49aada7f6266414a010e42652c877882f6 leanprover/lean4:v4.34.0-rc1
+### the memory log: LOW 14419 MB ; the hold 2560 ; STOP lines False
+### the build: exit 1 ; error lines 16:
+    error: Batteries/Tactic/Alias.lean:118:16: Application type mismatch: The argument
+    error: Batteries/Tactic/Alias.lean:156:14: Application type mismatch: The argument
+    error: Aesop/Util/EqualUpToIds.lean:90:12: Invalid field `lDepth`: The environment does not contain `Lean.MetavarContext.lDepth`, so it is not possible to project the field `lDepth` from an expression
+    error: Aesop/Util/EqualUpToIds.lean:90:45: Invalid field `lDepth`: The environment does not contain `Lean.MetavarContext.lDepth`, so it is not possible to project the field `lDepth` from an expression
+    error: Mathlib/Tactic/Linter/Style.lean:559:12: Unknown identifier `isPrivateOrAutoDecl`
+    error: Mathlib/Tactic/Linter/OverlappingInstances.lean:230:47: Unknown identifier `findDeclarationSyntaxRange?`
+    error: Batteries/Data/Nat/Basic.lean:95:4: `Nat.sqrt` has already been declared
+    error: Qq/Typ.lean:71:17: failed to synthesize instance of type class
+    error: Qq/Typ.lean:71:27: failed to synthesize instance of type class
+    error: Batteries/Tactic/GeneralizeProofs.lean:58:67: unexpected identifier; expected '#guard_msgs', 'abbrev', 'add_decl_doc', 'axiom', 'binder_predicate', 'builtin_cbv_simproc', 'builtin_cbv_simproc_decl', 'builtin_dsimproc', 'builtin_dsimproc_decl', 'builtin_grind_propagator', 'builtin_initialize', 'builtin_simproc', 'builtin_simproc_decl', 'cbv_simproc', 'cbv_simproc_decl', 'class', 'coinductive', 'declare_simp_like_tactic', 'declare_syntax_cat', 'def', 'dsimproc', 'dsimproc_decl', 'elab', 'elab_rules', 'example', 'grind_propagator', 'inductive', 'infix', 'infixl', 'infixr', 'initialize', 'instance', 'macro', 'macro_rules', 'notation', 'opaque', 'postfix', 'prefix', 'recommended_spelling', 'register_builtin_option', 'register_error_explanation', 'register_option', 'register_tactic_tag', 'register_try?_tactic', 'simproc', 'simproc_decl', 'structure', 'syntax', 'tactic_extension', 'theorem' or 'unif_hint'
+    error: Plausible/Testable.lean:378:67: Application type mismatch: The argument
+    error: Batteries/Classes/SatisfiesM.lean:188:10: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+    error: Batteries/Classes/SatisfiesM.lean:294:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+    error: Batteries/Classes/SatisfiesM.lean:286:0: (kernel) declaration has metavariables 'MonadSatisfying.instEStateM'
+    error: ProofWidgets/Component/MakeEditLink.lean:13:64: Invalid field `utf16Size`: The environment does not contain `Char.utf16Size`, so it is not possible to project the field `utf16Size` from an expression
+    error: build failed
+### the log`s last lines:
+    - Mathlib.Tactic.Linter.OverlappingInstances
+    - Batteries.Data.Nat.Basic
+    - Qq.Typ
+    - Batteries.Tactic.GeneralizeProofs
+    - Plausible.Testable
+    - Batteries.Classes.SatisfiesM
+    - ProofWidgets.Component.MakeEditLink
+    error: build failed
+### the print step: the list (out/print_targets.txt) 1 names ; terminals printed 0 ; every name printed once False ; axiom-free 0 ; sorryAx 0 ; outside the standard three 0 ; refused NONE
+### rows are terminals: name | the axioms printed | within the standard three:
+  faces_join                                                     ### NOT PRINTED
+
+### ### **RUN 39799253764 (join) ; CONCLUSION success ; ARTIFACT AGREE ; BUILD EXIT 1 ; ERROR LINES 16 ; TERMINALS PRINTED 0 OF 1 ; SORRYAX 0 ; OUTSIDE THE STANDARD THREE 0 ; GATE NOT DERIVES.**

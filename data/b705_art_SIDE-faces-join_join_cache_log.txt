@@ -1,0 +1,22 @@
+b705 -- THE RUN 39799253764 (SIDE-faces-join, join) ARTIFACT`S cache.log, READ AFTER THE ARTIFACT`S SHA256 9f6ba40a03d8dbd6 AGREED WITH THE BANKED AND THE PLATFORM`S (2026-10-22T14:55:23Z)
+
+    project: 48d5698bc464
+    mathlib: 978b7ec9fbbf
+  proofwidgets:
+    project: 4dd0959c44d1
+    mathlib: 99e8adeea3c3
+  aesop:
+    project: 7152850e7b21
+    mathlib: c1c4362a130f
+  Qq:
+    project: 707efb56d069
+    mathlib: 3b55e9d00c6b
+  batteries:
+    project: 756e3321fd3b
+    mathlib: 01bc479e7432
+  Cli:
+    project: 7802da01beb5
+    mathlib: af8bc067a4cc
+
+Some mismatched dependencies come transitively from other packages in your lakefile. Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake update`.
+error: mathlib: failed to fetch cache

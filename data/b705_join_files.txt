@@ -1,0 +1,226 @@
+b705 -- COMPONENT 2, (R315)(5): THE JOIN KERNEL SIDE-faces-join AT ITS COMMIT 732c1b4, ITS FILES PRINTED BEFORE THE PUSH (2026-10-22T14:49:45Z)
+
+### rows are files at the commit: the path | its blob id | its bytes; each printed whole beneath. The workflow carried verbatim from
+### SIDE-explicit-formula`s .github/workflows/build-module.yml at main (blob 3fb18a706b30); the lakefile requiring Mathlib at explicit-formula`s pin,
+### SIDE-explicit-formula at v0.37 = 38e2734 and SIDE-lv-conservation at v0.10.0 = 93c27ec by git revision; nothing of either kernel edited.
+
+  lean-toolchain                           blob 75def60936d3 ; 29 bytes
+  lakefile.toml                            blob 18ae233c25c1 ; 1277 bytes
+  FacesJoin.lean                           blob 1f39e90efe2c ; 2535 bytes
+  print_targets.txt                        blob 65ad07ff8818 ; 11 bytes
+  .github/workflows/build-module.yml       blob 3fb18a706b30 ; 5178 bytes
+  README.md                                blob 181ddd5e52b1 ; 1183 bytes
+  .gitignore                               blob 01f8cdb637da ; 7 bytes
+
+=== lean-toolchain
+    leanprover/lean4:v4.34.0-rc1
+
+=== lakefile.toml
+    name = "SIDEFacesJoin"
+    defaultTargets = ["FacesJoin"]
+    
+    # THE CLOSURE JOIN, act b705 under (R315)(5) (W-ORD-LV-CLOSURE-JOIN, PLACE-papers OPEN_TRAILS :15452): a third kernel requiring
+    # SIDE-explicit-formula and SIDE-lv-conservation at one shared Lean and Mathlib pin -- SIDE-explicit-formula's (Lean v4.34.0-rc1,
+    # Mathlib de5ce8a9; relay data/b703_pins.txt) -- so that the join of the clause's two faces is read by Lean's closure and not by the
+    # correspondence reader. The two kernels are required by git revision: SIDE-explicit-formula at v0.37 = 38e2734 and SIDE-lv-conservation
+    # at its deposit v0.10.0 = 93c27ec, neither edited. Mathlib is resolved once, at this root's pin; lv-conservation's own requirement
+    # (5e932f97 at Lean v4.29.1) is not followed, its 15 files being rebuilt at this pin (the price read at b703).
+    
+    [[require]]
+    name = "mathlib"
+    scope = "leanprover-community"
+    rev = "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11"
+    
+    [[require]]
+    name = "SIDEExplicitFormula"
+    git = "https://github.com/psinary-sketch/SIDE-explicit-formula"
+    rev = "38e273477257687d676033be0b0243af84a1e08a"
+    
+    [[require]]
+    name = "sideLvConservation"
+    git = "https://github.com/psinary-sketch/SIDE-lv-conservation"
+    rev = "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f"
+    
+    [[lean_lib]]
+    name = "FacesJoin"
+
+=== FacesJoin.lean
+    /-
+    SIDE-faces-join -- FacesJoin.lean
+    THIS PROGRAMME'S WORK (act b705, ruling (R315)(5); W-ORD-LV-CLOSURE-JOIN, PLACE-papers OPEN_TRAILS.md :15452) -- NOT VENDORED.
+    SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+    
+    THE CLAUSE AND THE REGISTER FACE, JOINED BY LEAN'S CLOSURE. Two kernels are required at one pin (this project's lakefile):
+    SIDE-explicit-formula at v0.37 = 38e2734 and SIDE-lv-conservation at its deposit v0.10.0 = 93c27ec, neither edited.
+    `SIDEExplicitFormula.B321.h2_sign_iff_rh` (Seam.lean :101 at v0.37) -- Weil positivity on classK is Mathlib's RiemannHypothesis --
+    and `SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh` (PageConverses.lean :32 at v0.37) -- the restated
+    register-four positivity of the Li coefficients is RiemannHypothesis -- meet at RiemannHypothesis, as b701's bridge
+    (RegisterBridge.lean :34-:35) composed them against the restatement `ResidueDischarge.Register4_positivity`. Here the composition
+    is stated against SIDE-lv-conservation's OWN declaration, `SIDELvConservation.RegisterPentagon.Register4_positivity`
+    (RegisterPentagon.lean :152-:153 at v0.10.0), whose body the restatement carries unchanged (read HOLDS-BY-CORRESPONDENCE at every
+    binder before b701's theorem was written, relay data/b701_correspondence_restatement.txt): the two definitions unfold to the one
+    proposition `∀ n : ℕ, 1 ≤ n → 0 ≤ lam n` at `lam := LiCoeff`, so the composed equivalence closes against lv-conservation's declaration
+    by definitional unfolding, with no restatement in this module. No new analysis. Nothing here proves RH or h2_sign: `faces_join` is
+    an equivalence between open statements.
+    -/
+    import SIDEExplicitFormula.Seam
+    import SIDEExplicitFormula.PageConverses
+    import SIDELvConservation.RegisterPentagon
+    
+    noncomputable section
+    
+    /-- **THE JOIN BY CLOSURE.** Weil positivity on classK (SIDE-explicit-formula's `h2_sign`) is the register-four positivity of the Li
+    coefficients as SIDE-lv-conservation declares it (`RegisterPentagon.Register4_positivity` at `LiCoeff`), through Mathlib's
+    RiemannHypothesis: `h2_sign_iff_rh.trans register4_positivity_liCoeff_iff_rh.symm`, the right-hand side closing against
+    lv-conservation's definition by unfolding. -/
+    theorem faces_join :
+        SIDEExplicitFormula.B321.h2_sign ↔
+          SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff :=
+      SIDEExplicitFormula.B321.h2_sign_iff_rh.trans
+        SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh.symm
+    
+    end
+
+=== print_targets.txt
+    faces_join
+
+=== .github/workflows/build-module.yml
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    # From b658 ((R263)(4), standing): the named terminals are read from print_targets.txt at the kernel's root, one name per line, and the
+    # scratch file imports each module of the target; no workflow edit is needed to print a new theorem.
+    # From b692 ((R302)(3)(a)): where the ref carries CircuitClosure.lean (at the root, imported by no module), a closure step imports each module
+    # of the target above that file's text and runs it; its out/closure.jsonl.gz -- one record per programme constant -- joins the artifact.
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              : > out/Axioms.lean
+              for m in $TARGET; do echo "import $m" >> out/Axioms.lean; done
+              cp print_targets.txt out/print_targets.txt
+              while IFS= read -r n || [ -n "$n" ]; do
+                n=$(printf '%s' "$n" | tr -d '\r' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                [ -z "$n" ] && continue
+                case "$n" in
+                  *[!A-Za-z0-9_.\']*) echo "print target refused: $n" >> out/axioms_refused.txt; continue ;;
+                esac
+                echo "#print axioms $n" >> out/Axioms.lean
+              done < print_targets.txt
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Constant closure of the kernel's own declarations
+            if: always()
+            run: |
+              if [ ! -f CircuitClosure.lean ]; then
+                echo "NOT RUN: no CircuitClosure.lean at the ref" > out/closure_log.txt
+              elif [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                : > out/Closure.lean
+                for m in $TARGET; do echo "import $m" >> out/Closure.lean; done
+                cat CircuitClosure.lean >> out/Closure.lean
+                lake env lean out/Closure.lean > out/closure_log.txt 2>&1 || true
+                if [ -f out/closure.jsonl ]; then gzip -9 -n out/closure.jsonl; fi
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/closure_log.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+
+=== README.md
+    # SIDE-faces-join
+    
+    The closure join of the PLACE TO STAND programme's two faces kernels, act b705 under ruling (R315)(5) (W-ORD-LV-CLOSURE-JOIN).
+    
+    One module, `FacesJoin.lean`, states one theorem, `faces_join`: Weil positivity on classK (`SIDEExplicitFormula.B321.h2_sign`,
+    SIDE-explicit-formula at v0.37 = 38e2734) is equivalent to the register-four positivity of the Li coefficients as SIDE-lv-conservation
+    declares it (`SIDELvConservation.RegisterPentagon.Register4_positivity` at `SIDEExplicitFormula.LiWeil.LiCoeff`, SIDE-lv-conservation at its
+    deposit v0.10.0 = 93c27ec), proved by composing the two kernels' compiled equivalences with Mathlib's RiemannHypothesis. Both kernels are
+    required by git revision at one shared pin (Lean v4.34.0-rc1, Mathlib de5ce8a9), neither edited; the join is read by Lean's closure.
+    
+    Nothing here proves RH or h2_sign: the theorem is an equivalence between open statements. The kernel carries no claim beyond its one
+    theorem's statement; read `#print axioms faces_join` at the tag before citing it. The hosted build is `.github/workflows/build-module.yml`,
+    carried from SIDE-explicit-formula's. Licence: as SIDE-explicit-formula's (Apache 2.0).
+
+=== .gitignore
+    .lake/
+
+### ### **FILES 7 AT 732c1b4 ; THE WORKFLOW`S BLOB EQUAL TO SIDE-explicit-formula`S AT MAIN True ; MATHLIB True, SIDE-explicit-formula v0.37 True, SIDE-lv-conservation v0.10.0 True REQUIRED BY REVISION ; THE TOOLCHAIN v4.34.0-rc1 True ; IDENTIFIER NEEDLES IN THE WORKFLOW OR THE MODULE NONE.**
