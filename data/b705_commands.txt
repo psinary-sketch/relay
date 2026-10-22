@@ -1,7 +1,7 @@
-b705 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCH, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T15:36:39Z)
+b705 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCH, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-22T16:30:07Z)
 
 ### the source: the seat`s session 44411d52-210c-4cc1-9c1f-45be454f0521 from its first user line carrying 'RULING (R315) BEGIN', with its subagents` transcripts
-### commands read: 85
+### commands read: 125
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -34,7 +34,7 @@ b705 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #4 2026-10-22T11:55:24.627Z ls tools | grep -E 'b675|b685|b686|b687|b696|circuit|chain_page|mirror|corrig|tests|readfirst' && ls /d/ && ls /d/PLACE-papers 2>/dev/null | head -30
   #6 2026-10-22T11:55:53.801Z ls -1 data/ | grep -E '^b704_' && git log -1 --format=%H%n%s -- data/b704_ferry.txt && grep -rl "PLACE-papers" tools/b704_closing.py | head -1 && grep -n "PLACE-papers'" tools/b704_closing.py | head -
 
-### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (7):
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (8):
   #1 2026-10-22T11:55:01.851Z cd /d/relay && git status --short --branch && git log --oneline -3 && git branch --list 'push-b70*' && ls data | wc -l && ls tools | wc -l
   #2 2026-10-22T11:55:04.070Z cd /d/relay && cat .git/config | head -20 && ls && ls tools | grep -E 'b70[0-4]|push_gated|act_root|e0_rule|b696_tails|b675|b694_witness|b326_windows|b703_standing|corrigend|rowgen|constell|b685|b686|
   #3 2026-10-22T11:55:22.892Z ls -la data/b704_* data/b703_pins.txt data/b703_registrations.txt data/b703_q0_band.txt data/b703_wsign7.txt data/b703_widening_grade.txt data/b701_correspondence_restatement.txt data/b680_rules.txt d
@@ -42,6 +42,7 @@ b705 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #5 2026-10-22T11:55:27.037Z Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'claude|tail|lean|lake|python|node|bash|pwsh|powershell' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={ if ($_.CommandL
   #6 2026-10-22T11:55:53.801Z ls -1 data/ | grep -E '^b704_' && git log -1 --format=%H%n%s -- data/b704_ferry.txt && grep -rl "PLACE-papers" tools/b704_closing.py | head -1 && grep -n "PLACE-papers'" tools/b704_closing.py | head -
   #16 2026-10-22T12:16:04.729Z Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(claude|tail|lean|lake|python|node)' } | Select-Object ProcessId, ParentProcessId, Name, @{n='Cmd';e={ if ($_.CommandLine) { $_.CommandL
+  #88 2026-10-22T15:37:05.378Z Get-CimInstance Win32_OperatingSystem | Select-Object @{n='FreeMB';e={[int]($_.FreePhysicalMemory/1KB)}}, @{n='TotalMB';e={[int]($_.TotalVisibleMemorySize/1KB)}} | Format-Table | Out-String; Get-Proce
 
 ### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
   NONE
@@ -151,5 +152,45 @@ b705 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #83 | 2026-10-22T15:31:30.572Z | seat | Bash | python -X utf8 tools/b705_record.py armnames && python -X utf8 tools/b705_record.py standing
   #84 | 2026-10-22T15:31:31.970Z | seat | Bash | python -X utf8 tools/b705_record.py guard && python -X utf8 tools/b705_record.py kernels
   #85 | 2026-10-22T15:31:33.028Z | seat | Bash | python -X utf8 tools/b705_record.py scores dry
+  #86 | 2026-10-22T15:33:59.829Z | seat | Bash | python -X utf8 tools/b705_record.py answers && python -X utf8 tools/b705_record.py commands && python -X utf8 tools/b705_record.py reads && python -X utf8 tools
+  #87 | 2026-10-22T15:36:52.782Z | seat | Bash | python -X utf8 tools/b705_checks.py --prerun --part standing-a
+  #88 | 2026-10-22T15:37:05.378Z | seat | PowerShell | Get-CimInstance Win32_OperatingSystem | Select-Object @{n='FreeMB';e={[int]($_.FreePhysicalMemory/1KB)}}, @{n='TotalMB';e={[int]($_.TotalVisibleMemorySize/1KB)}
+  #89 | 2026-10-22T15:37:18.570Z | seat | Bash | python -X utf8 tools/b705_checks.py --prerun --part standing-a
+  #90 | 2026-10-22T15:37:29.519Z | seat | Bash | python -X utf8 tools/b705_record.py findings dry
+  #91 | 2026-10-22T15:37:30.519Z | seat | Bash | python -X utf8 tools/b705_record.py trail dry
+  #92 | 2026-10-22T15:37:31.558Z | seat | Bash | python -X utf8 tools/b705_closing.py dry
+  #93 | 2026-10-22T15:38:27.562Z | seat | Bash | python -X utf8 tools/b705_checks.py --prerun --part standing-a
+  #94 | 2026-10-22T15:38:44.181Z | seat | PowerShell | $t0 = Get-Date; while (((Get-Date) - $t0).TotalSeconds -lt 540) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); Write-Output ("
+  #95 | 2026-10-22T15:41:19.273Z | seat | Bash | python -X utf8 tools/b705_checks.py --prerun --part standing-a
+  #96 | 2026-10-22T15:41:37.234Z | seat | PowerShell | Set-Location D:\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).Fre
+  #97 | 2026-10-22T15:48:44.421Z | seat | Bash | python -X utf8 tools/b705_record.py names rule_arms
+  #98 | 2026-10-22T15:49:08.870Z | seat | PowerShell | Set-Location D:\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).Fre
+  #99 | 2026-10-22T15:55:27.089Z | seat | PowerShell | Set-Location D:\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).Fre
+  #100 | 2026-10-22T15:58:08.697Z | seat | PowerShell | Set-Location D:\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).Fre
+  #101 | 2026-10-22T16:07:07.062Z | seat | PowerShell | Set-Location D:\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).Fre
+  #102 | 2026-10-22T16:12:45.458Z | seat | Bash | git -C /d/SIDE-spinor ls-remote origin
+  #103 | 2026-10-22T16:12:46.518Z | seat | Bash | git -C /d/SIDE-structural-error-correction ls-remote origin
+  #104 | 2026-10-22T16:12:47.460Z | seat | Bash | git -C /d/SIDE-substrate-cluster ls-remote origin
+  #105 | 2026-10-22T16:13:01.067Z | seat | PowerShell | Set-Location D:\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).Fre
+  #106 | 2026-10-22T16:16:23.402Z | seat | PowerShell | Set-Location D:\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).Fre
+  #107 | 2026-10-22T16:18:09.580Z | seat | PowerShell | Set-Location D:\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).Fre
+  #108 | 2026-10-22T16:23:05.090Z | seat | Bash | python -X utf8 tools/b705_checks.py --combine b705_arms_prerun.txt; python -X utf8 tools/b705_record.py armsecs
+  #109 | 2026-10-22T16:23:19.323Z | seat | PowerShell | Set-Location D:\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).Fre
+  #110 | 2026-10-22T16:25:02.505Z | seat | Bash | python -X utf8 tools/b705_checks.py --combine b705_arms_prerun.txt; python -X utf8 tools/b705_record.py armsecs
+  #111 | 2026-10-22T16:25:37.597Z | seat | Bash | git status --short -- "data/b705_*" "tools/b705_*" "data/audit_b705_*" tools/e0_rule.py data/b675_corrigenda.txt data/act_roots.txt
+  #112 | 2026-10-22T16:25:54.884Z | seat | Bash | git add tools/b705_checks.py tools/b705_record.py tools/b705_worklist.py tools/b705_closing.py tools/b705_detection.py tools/b705_reg_gate.py tools/b705_regspec
+  #113 | 2026-10-22T16:26:12.193Z | seat | Bash | python -X utf8 tools/b705_reg_gate.py
+  #114 | 2026-10-22T16:26:14.208Z | seat | Bash | python -X utf8 tools/b705_regspec.py && python -X utf8 tools/reg_satisfiable.py data/b705_satisfiable.json --emit b705 && python -X utf8 tools/banned_terms.py -
+  #115 | 2026-10-22T16:26:15.437Z | seat | Bash | python -X utf8 tools/b705_record.py scores dry && python -X utf8 tools/b705_record.py gatebanks
+  #116 | 2026-10-22T16:27:33.400Z | seat | Bash | python -X utf8 tools/b705_regspec.py && python -X utf8 tools/reg_satisfiable.py data/b705_satisfiable.json --emit b705 && python -X utf8 tools/banned_terms.py -
+  #117 | 2026-10-22T16:27:34.450Z | seat | Bash | git status --short -- "data/b705_*" "data/audit_b705_*" "tools/b705_*"
+  #118 | 2026-10-22T16:27:47.091Z | seat | Bash | git add data/audit_b705_banned_terms.txt data/audit_b705_reg_satisfiable.txt data/b705_census_stepzero.txt data/b705_faces_census_stepzero.txt data/b705_pins_st
+  #119 | 2026-10-22T16:27:59.575Z | seat | Bash | python -X utf8 tools/b705_reg_gate.py
+  #120 | 2026-10-22T16:28:00.743Z | seat | Bash | python -X utf8 tools/b705_record.py gatebanks
+  #121 | 2026-10-22T16:28:01.906Z | seat | Bash | python -X utf8 tools/b378_lockgate.py b705 data/b705_registration_2026-10-22.txt
+  #122 | 2026-10-22T16:28:02.946Z | seat | Bash | python -X utf8 tools/b705_record.py findings dry
+  #123 | 2026-10-22T16:28:41.766Z | seat | Bash | python -X utf8 tools/reg_seal.py --lock data/b705_registration_2026-10-22.txt && python -X utf8 tools/b705_checks.py --seal
+  #124 | 2026-10-22T16:29:06.873Z | seat | Bash | git add data/b705_registration_2026-10-22.txt data/b705_seal_hashes.json data/b705_reg_gate.txt data/b705_reg_termscan.txt data/b705_regspec_run.txt data/audit_
+  #125 | 2026-10-22T16:29:16.109Z | seat | Bash | python -X utf8 tools/b705_record.py scores && python -X utf8 tools/b705_record.py desk && python -X utf8 tools/b705_record.py findings && python -X utf8 tools/b
 
-### ### **COMMANDS 85 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 11 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 5 ; PIPES OF ANY KIND 7 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 125 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 11 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 5 ; PIPES OF ANY KIND 8 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

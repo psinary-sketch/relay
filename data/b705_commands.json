@@ -1,5 +1,5 @@
 {
- "at": "2026-10-22T15:36:39Z",
+ "at": "2026-10-22T16:30:07Z",
  "anchor": "RULING (R315) BEGIN",
  "rows": [
   {
@@ -681,6 +681,326 @@
    "cmd": "python -X utf8 tools/b705_record.py scores dry",
    "n": 85,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:33:59.829Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py answers && python -X utf8 tools/b705_record.py commands && python -X utf8 tools/b705_record.py reads && python -X utf8 tools/b705_record.py defects",
+   "n": 86,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:36:52.782Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_checks.py --prerun --part standing-a",
+   "n": 87,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T15:37:05.378Z",
+   "src": "seat",
+   "cmd": "Get-CimInstance Win32_OperatingSystem | Select-Object @{n='FreeMB';e={[int]($_.FreePhysicalMemory/1KB)}}, @{n='TotalMB';e={[int]($_.TotalVisibleMemorySize/1KB)}} | Format-Table | Out-String; Get-Process | Sort-Object WS -Descending | Select-Object -First 18 Name, Id, @{n='MB';e={[int]($_.WS/1MB)}}, StartTime | Format-Table | Out-String; Get-CimInstance Win32_Process -Filter \"Name='python.exe' OR Name='python3.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='tail.exe'\" | Select-Object ProcessId, ParentProcessId, CreationDate, @{n='MB';e={[int]($_.WorkingSetSize/1MB)}}, CommandLine | Format-List | Out-String",
+   "n": 88,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:37:18.570Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_checks.py --prerun --part standing-a",
+   "n": 89,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:37:29.519Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py findings dry",
+   "n": 90,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:37:30.519Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py trail dry",
+   "n": 91,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:37:31.558Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_closing.py dry",
+   "n": 92,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:38:27.562Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_checks.py --prerun --part standing-a",
+   "n": 93,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T15:38:44.181Z",
+   "src": "seat",
+   "cmd": "$t0 = Get-Date; while (((Get-Date) - $t0).TotalSeconds -lt 540) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); Write-Output (\"{0}  free {1} MB (hold 2560)\" -f (Get-Date -Format 'HH:mm:ss'), $free); if ($free -ge 2800) { break }; Start-Sleep -Seconds 30 }",
+   "n": 94,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:41:19.273Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_checks.py --prerun --part standing-a",
+   "n": 95,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T15:41:37.234Z",
+   "src": "seat",
+   "cmd": "Set-Location D:\\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); if ($free -ge 2950) { $ok = $true; Write-Output (\"{0}  free {1} MB -- above the hold, the part starts now\" -f (Get-Date -Format 'HH:mm:ss'), $free); break }; Start-Sleep -Seconds 5 }; if ($ok) { python -X utf8 tools/b705_checks.py --prerun --part standing-a } else { Write-Output 'free memory stayed beneath the hold for 400 s; the part not run' }",
+   "n": 96,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T15:48:44.421Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py names rule_arms",
+   "n": 97,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T15:49:08.870Z",
+   "src": "seat",
+   "cmd": "Set-Location D:\\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); if ($free -ge 2950) { $ok = $true; Write-Output (\"{0}  free {1} MB -- above the hold, the part starts now\" -f (Get-Date -Format 'HH:mm:ss'), $free); break }; Start-Sleep -Seconds 5 }; if ($ok) { python -X utf8 tools/b705_checks.py --prerun --part standing-c } else { Write-Output 'free memory stayed beneath the hold for 400 s; the part not run' }",
+   "n": 98,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T15:55:27.089Z",
+   "src": "seat",
+   "cmd": "Set-Location D:\\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); if ($free -ge 2950) { $ok = $true; Write-Output (\"{0}  free {1} MB -- above the hold, the part starts now\" -f (Get-Date -Format 'HH:mm:ss'), $free); break }; Start-Sleep -Seconds 5 }; if ($ok) { python -X utf8 tools/b705_checks.py --prerun --part standing-b1 } else { Write-Output 'free memory stayed beneath the hold for 400 s; the part not run' }",
+   "n": 99,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T15:58:08.697Z",
+   "src": "seat",
+   "cmd": "Set-Location D:\\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); if ($free -ge 2950) { $ok = $true; Write-Output (\"{0}  free {1} MB -- above the hold, the part starts now\" -f (Get-Date -Format 'HH:mm:ss'), $free); break }; Start-Sleep -Seconds 5 }; if ($ok) { python -X utf8 tools/b705_checks.py --prerun --part standing-b2 } else { Write-Output 'free memory stayed beneath the hold for 400 s; the part not run' }",
+   "n": 100,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T16:07:07.062Z",
+   "src": "seat",
+   "cmd": "Set-Location D:\\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); if ($free -ge 2950) { $ok = $true; Write-Output (\"{0}  free {1} MB -- above the hold, the part starts now\" -f (Get-Date -Format 'HH:mm:ss'), $free); break }; Start-Sleep -Seconds 5 }; if ($ok) { python -X utf8 tools/b705_checks.py --prerun --part standing-b3 } else { Write-Output 'free memory stayed beneath the hold for 400 s; the part not run' }",
+   "n": 101,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:12:45.458Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-spinor ls-remote origin",
+   "n": 102,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:12:46.518Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-structural-error-correction ls-remote origin",
+   "n": 103,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:12:47.460Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-substrate-cluster ls-remote origin",
+   "n": 104,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T16:13:01.067Z",
+   "src": "seat",
+   "cmd": "Set-Location D:\\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); if ($free -ge 2950) { $ok = $true; Write-Output (\"{0}  free {1} MB -- above the hold, the part starts now\" -f (Get-Date -Format 'HH:mm:ss'), $free); break }; Start-Sleep -Seconds 5 }; if ($ok) { python -X utf8 tools/b705_checks.py --prerun --part standing-b3 } else { Write-Output 'free memory stayed beneath the hold for 400 s; the part not run' }",
+   "n": 105,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T16:16:23.402Z",
+   "src": "seat",
+   "cmd": "Set-Location D:\\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); if ($free -ge 2950) { $ok = $true; Write-Output (\"{0}  free {1} MB -- above the hold, the part starts now\" -f (Get-Date -Format 'HH:mm:ss'), $free); break }; Start-Sleep -Seconds 5 }; if ($ok) { python -X utf8 tools/b705_checks.py --prerun --part act } else { Write-Output 'free memory stayed beneath the hold for 400 s; the part not run' }",
+   "n": 106,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T16:18:09.580Z",
+   "src": "seat",
+   "cmd": "Set-Location D:\\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); if ($free -ge 2950) { $ok = $true; Write-Output (\"{0}  free {1} MB -- above the hold, the part starts now\" -f (Get-Date -Format 'HH:mm:ss'), $free); break }; Start-Sleep -Seconds 5 }; if ($ok) { python -X utf8 tools/b705_checks.py --prerun --part standing-a } else { Write-Output 'free memory stayed beneath the hold for 400 s; the part not run' }",
+   "n": 107,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:23:05.090Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_checks.py --combine b705_arms_prerun.txt; python -X utf8 tools/b705_record.py armsecs",
+   "n": 108,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T16:23:19.323Z",
+   "src": "seat",
+   "cmd": "Set-Location D:\\relay; $t0 = Get-Date; $ok = $false; while (((Get-Date) - $t0).TotalSeconds -lt 400) { $free = [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1KB); if ($free -ge 2950) { $ok = $true; Write-Output (\"{0}  free {1} MB -- above the hold, the part starts now\" -f (Get-Date -Format 'HH:mm:ss'), $free); break }; Start-Sleep -Seconds 5 }; if ($ok) { python -X utf8 tools/b705_checks.py --prerun --part act } else { Write-Output 'free memory stayed beneath the hold for 400 s; the part not run' }",
+   "n": 109,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:25:02.505Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_checks.py --combine b705_arms_prerun.txt; python -X utf8 tools/b705_record.py armsecs",
+   "n": 110,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:25:37.597Z",
+   "src": "seat",
+   "cmd": "git status --short -- \"data/b705_*\" \"tools/b705_*\" \"data/audit_b705_*\" tools/e0_rule.py data/b675_corrigenda.txt data/act_roots.txt",
+   "n": 111,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:25:54.884Z",
+   "src": "seat",
+   "cmd": "git add tools/b705_checks.py tools/b705_record.py tools/b705_worklist.py tools/b705_closing.py tools/b705_detection.py tools/b705_reg_gate.py tools/b705_regspec.py data/b705_citation_check.txt data/b705_defects.json data/b705_defects.txt data/b705_arm_seconds.json data/b705_arm_seconds.txt data/b705_arm_seconds_act.json data/b705_arm_seconds_standing-a.json data/b705_arm_seconds_standing-b1.json data/b705_arm_seconds_standing-b2.json data/b705_arm_seconds_standing-b3.json data/b705_arm_seconds_standing-c.json data/b705_arms_prerun.txt data/b705_arms_prerun_act.txt data/b705_arms_prerun_standing-a.txt data/b705_arms_prerun_standing-b1.txt data/b705_arms_prerun_standing-b2.txt data/b705_arms_prerun_standing-b3.txt data/b705_arms_prerun_standing-c.txt data/b705_author_answers.json data/b705_author_answers.txt data/b705_chain_half_a_arms_prerun.json data/b705_chain_half_b_arms_prerun.json data/b705_commands.json data/b705_commands.txt data/b705_exercise_act.json data/b705_exercise_standing-a.json data/b705_exercise_standing-b1.json data/b705_exercise_standing-b2.json data/b705_exercise_standing-b3.json data/b705_exercise_standing-c.json data/b705_guard_dry.json data/b705_guard_dry.txt data/b705_kernels_face.json data/b705_lsr_prerun_act.json data/b705_lsr_prerun_standing-a.json data/b705_lsr_prerun_standing-b1.json data/b705_lsr_prerun_standing-b2.json data/b705_lsr_prerun_standing-b3.json data/b705_lsr_prerun_standing-c.json data/b705_read_calls.json data/b705_read_calls.txt data/b705_registration_2026-10-22.txt && git commit -q -m \"b705 Component 5: the closing, gate, spec and suite tools carried from b704 with this act's forty arms by the Edit tool (the detection tool committed with them), the guard's dry run, the kernels face, the answers, command and read banks, the defects bank with (j)-(k) and the events, this face, the pre-run's six parts (138 arms, 102 passing, 4 failing on real state declared) and the per-part seconds, the chain halves\" && git log -1 --format='%h %s'",
+   "n": 112,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:26:12.193Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_reg_gate.py",
+   "n": 113,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:26:14.208Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_regspec.py && python -X utf8 tools/reg_satisfiable.py data/b705_satisfiable.json --emit b705 && python -X utf8 tools/banned_terms.py --new data/b705_registration_2026-10-22.txt data/b705_defects.txt --emit b705",
+   "n": 114,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:26:15.437Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py scores dry && python -X utf8 tools/b705_record.py gatebanks",
+   "n": 115,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:27:33.400Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_regspec.py && python -X utf8 tools/reg_satisfiable.py data/b705_satisfiable.json --emit b705 && python -X utf8 tools/banned_terms.py --new data/b705_registration_2026-10-22.txt data/b705_defects.txt --emit b705",
+   "n": 116,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:27:34.450Z",
+   "src": "seat",
+   "cmd": "git status --short -- \"data/b705_*\" \"data/audit_b705_*\" \"tools/b705_*\"",
+   "n": 117,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:27:47.091Z",
+   "src": "seat",
+   "cmd": "git add data/audit_b705_banned_terms.txt data/audit_b705_reg_satisfiable.txt data/b705_census_stepzero.txt data/b705_faces_census_stepzero.txt data/b705_pins_stepzero.txt data/b705_reg_gate.txt data/b705_reg_termscan.txt data/b705_regspec_run.txt data/b705_satisfiable.json data/b705_registration_2026-10-22.txt && git commit -q -m \"b705 Component 5: the gate's record (CLEAR: the dry-run step and the closing's dry run CLEAN) and its steps' banks (the spec, its audit JOINTLY SATISFIABLE after one count line of the face was reworded, the banned-terms scan CLEAN, the step-zero censuses and pins), the stamps; the face with the pre-run's figures and its first commit's hash\" && git log -1 --format='%h %s'",
+   "n": 118,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:27:59.575Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_reg_gate.py",
+   "n": 119,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:28:00.743Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py gatebanks",
+   "n": 120,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:28:01.906Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b378_lockgate.py b705 data/b705_registration_2026-10-22.txt",
+   "n": 121,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:28:02.946Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py findings dry",
+   "n": 122,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:28:41.766Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b705_registration_2026-10-22.txt && python -X utf8 tools/b705_checks.py --seal",
+   "n": 123,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:29:06.873Z",
+   "src": "seat",
+   "cmd": "git add data/b705_registration_2026-10-22.txt data/b705_seal_hashes.json data/b705_reg_gate.txt data/b705_reg_termscan.txt data/b705_regspec_run.txt data/audit_b705_reg_satisfiable.txt data/audit_b705_banned_terms.txt data/b705_lockgate.json data/b705_lockgate_notes.txt data/b705_satisfiable.json && git commit -q -m \"b705 seal: the face locked (sha256 7ecbc64c, 36453 bytes) after the lock gate (8 of 8, 4 by the face's digest), the gate run again against it (CLEAR) and the face-subject records stamped; the sealed tools' sha256 recorded (13)\" && git log -1 --format='%h %s'",
+   "n": 124,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T16:29:16.109Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py scores && python -X utf8 tools/b705_record.py desk && python -X utf8 tools/b705_record.py findings && python -X utf8 tools/b705_record.py table_final && python -X utf8 tools/b705_record.py commands && python -X utf8 tools/b705_record.py reads",
+   "n": 125,
+   "bg": false
   }
  ],
  "offences": [],
@@ -716,7 +1036,8 @@
   4,
   5,
   6,
-  16
+  16,
+  88
  ],
  "py_programs": [],
  "moves_deletes": [

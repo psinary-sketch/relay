@@ -85,6 +85,9 @@ b705 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-22)
     the join kernel's one commit (SIDE-faces-join 732c1b49) was made with `-c user.name="psinary-sketch" -c user.email=
     "psinary-sketch@users.noreply.github.com"` on the command, the org's noreply identity, not the host's global identity: the ruling's "no
     identifier of the author in any workflow file" was read as reaching the kernel's commit identity too; not amended.
+    before the pre-run, when the hold refused, the seat listed the host's free memory and its largest processes by `Get-CimInstance ... |
+    Select-Object ... | Format-Table | Out-String` and `Get-Process | Sort-Object ... | Format-Table | Out-String` -- process objects piped
+    into PowerShell's formatting, no file read, no python, lean or lake process found; the step-zero listing's event again.
     the process listing (data/b705_stepzero.txt) ran as `Get-CimInstance Win32_Process | Where-Object ... | Select-Object ... | Format-Table |
     Out-String`, process objects piped into PowerShell's formatting, no file read; b704's event, again.
     data/b705_contour.txt and data/b705_rules.txt were written before b704's push-out bank was committed and before the six deletes, where the
