@@ -1,0 +1,164 @@
+b706 -- THE CARRY-TIME READING: THE REPAIRS, (R316)(2) (2026-10-22T19:25:17Z)
+
+### rows are repairs with what they answer: the tool and its part ; what it answers ; the form. Each diff beneath its row, written by
+### this route (difflib over the function`s source: the sealed tool`s against this act`s; a new function printed whole). The controls
+### that distinguish each repaired reading from the old one: data/b706_repair_controls.txt. No sealed tool is edited;
+### tools/correspondence_gen.py`s parser is extended at Component 3 under (R316)(6), its diff in data/b706_generator_reach.txt.
+
+  (1) tools/b706_checks.py `wl_ok`, G-WRITELIST-KINDS -- ANSWERS (R316)(2): b705`s arm read C3.wl_ok (tools/b703_checks.py :1320-:1321) over the face`s (W) list, which named relay/data/b705_* and no file of a later act; data/b706_rules.txt, written on the author`s word after the seal, failed it (b705`s event, the navigator`s). The repair is in the (W) list`s form -- it admits the next act`s rules file by form, `relay/data/b707_rules.txt` -- and the arm now requires that form on the face beside the written files` cover. The control: data/b706_repair_controls.txt.
+
+      --- tools/b703_checks.py wl_ok (sealed)
+      +++ tools/b706_checks.py wl_ok (this act)
+      @@ -1,5 +1,5 @@
+       def wl_ok(S):
+      -    return bool(S['globs']) and bool(S['written']) and all(any(fnmatch.fnmatch(f, p) for p in S['globs']) for f in S['written'])
+      +    return C3.wl_ok(S) and S.get('next_rules', NEXT_RULES_GLOB) in S['globs']
+       
+       
+       
+
+  (2) tools/b706_citation.py `answer`, G-ANSWERS-CHECKED -- ANSWERS (R316)(2): b682`s route (tools/b682_citation.py :234-:236, carried by tools/b705_citation.py :431-:444) read every bare token of seven to twelve hex characters as a commit, so the root prompt`s second answer naming the fetched source`s sha256 "b8e0b54a..." printed a MISS -- b705`s (n). The repaired route reads every sha256 a bank`s row names (the root list, the hashes banks, any bank line carrying "sha256"), checks a token those rows name against its row, prints it OK and masks it from the commit reading; the predicate answers_checked_ok is b705`s, unchanged. The control: data/b706_repair_controls.txt.
+
+      --- tools/b705_citation.py answer (sealed)
+      +++ tools/b706_citation.py answer (this act)
+      @@ -1,16 +1,33 @@
+       def answer(needle, *a):
+      -    """(R278)(4): b682's route, imported, with its act names pointed at b705."""
+      +    """(R278)(4): b682's route, imported, with its act names pointed at b706, and the repair above: before b682's body runs, every eight-hex
+      +    token of the answer that a bank's row names as a sha256 is checked against that row and printed, and masked from b682's commit reading."""
+           import b682_citation as P
+           P.C.ANCHOR = P.ANCHOR = ANCHOR
+           P.C.SESSION = C.SESSION
+           P.REPOS = tuple(P.REPOS) + tuple(r for r in (K.EF_DIR, K.LV_DIR, K.KERNEL_DIR, 'D:/SIDE-archimedean', 'D:/SIDE-simplicity', 'D:/SIDE-substrate-cluster',
+                                                        'D:/SIDE-window', 'D:/SIDE-effects') if r not in P.REPOS and os.path.isdir(r))
+           P.act_root_line, P.D = act_root_line, D
+      -    P.after_root = lambda: bool(act_root_line('b705'))
+      +    P.after_root = lambda: bool(act_root_line('b706'))
+      +    shas = _sha_rows()
+      +    base = P.C._user_texts
+      +
+      +    def masked(*k, **kw):
+      +        out = []
+      +        for t in base(*k, **kw):
+      +            if t and needle in t:
+      +                for m in _HEX8.finditer(t):
+      +                    h8 = m.group(1)
+      +                    if h8 in shas:
+      +                        print('  ### SHA256 PREFIX %s... NAMED BY %s :%d -- a root or file hash by its bank`s row, not a commit; OK, masked from the commit reading' % (h8, shas[h8][0], shas[h8][1]))
+      +                        t = t.replace(h8, 'SHA-' + h8[:4] + '-' + h8[4:])
+      +            out.append(t)
+      +        return out
+      +
+      +    P.C._user_texts = masked
+           src = open(os.path.join(T, 'b682_citation.py'), encoding='utf-8').read()
+      -    body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b705')
+      +    body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b706')
+           ns = dict(vars(P))
+      -    exec(compile(body, 'b682_citation.answer (b705)', 'exec'), ns)
+      +    exec(compile(body, 'b682_citation.answer (b706)', 'exec'), ns)
+           ns['answer'](needle)
+       
+       
+
+      --- (none)
+      +++ tools/b706_citation.py _sha_rows (this act)
+      @@ -0,0 +1,15 @@
+      +def _sha_rows():
+      +    """every 64-hex sha256 any bank's row names, mapped by its first eight characters to (bank, line)."""
+      +    out = {}
+      +    for q in sorted(glob.glob(os.path.join(D, '*.txt'))) + [os.path.join(D, 'act_roots.txt')]:
+      +        t = rd(q) or ''
+      +        if 'sha256' not in t and not q.endswith('act_roots.txt') and not q.endswith('_hashes.txt'):
+      +            continue
+      +        for i, l in enumerate(t.split(NL), 1):
+      +            if 'sha256' in l or q.endswith('act_roots.txt') or q.endswith('_hashes.txt'):
+      +                for m in re.finditer(r'(?<![0-9a-f])([0-9a-f]{64})(?![0-9a-f])', l):
+      +                    out.setdefault(m.group(1)[:8], ('data/' + os.path.basename(q), i))
+      +    return out
+      +
+      +
+      +
+
+  (3) tools/b706_checks.py `entry_title_ok`, G-ENTRY-TITLE-FORM -- ANSWERS (R316)(2): b705`s predicate (tools/b705_checks.py :684-:689) required `the faces joined by closure at SIDE-faces-join` in a title that opens "## The faces joined by closure ..." -- b705`s (o), found after the seal. The repaired predicate compares after case-folding the article alone (`_fold_article`: the heading`s first word The, A or An lowered, nothing else), its needles this act`s objects. The control: data/b706_repair_controls.txt.
+
+      --- tools/b705_checks.py entry_title_ok (sealed)
+      +++ tools/b706_checks.py entry_title_ok (this act)
+      @@ -1,9 +1,8 @@
+       def entry_title_ok(S):
+           e = S['fj'].get('entry_line')
+           t = S['REC']._title()
+      -    return bool(e) and fline(S, e) == conv(t) and t.startswith('## ') and 'the faces joined by closure at SIDE-faces-join' in t \
+      -        and 'the count’s contour' in t and 'the detection law over seventeen pairs' in t and 'the Weil window at the lowest band zero' in t \
+      -        and 'the perspective ranking' in t
+      +    f = _fold_article(t)
+      +    return bool(e) and fline(S, e) == conv(t) and t.startswith('## ') and all(n in f for n in TITLE_NEEDLES)
+       
+       
+       
+
+      --- (none)
+      +++ tools/b706_checks.py _fold_article (this act)
+      @@ -0,0 +1,5 @@
+      +def _fold_article(t):
+      +    return re.sub(r'^(## )(The|A|An)( )', lambda m: m.group(1) + m.group(2).lower() + m.group(3), t)
+      +
+      +
+      +
+
+  (4) tools/b706_record.py `prev_capture` -- ANSWERS the carry: b698`s route (tools/b698_record.py :1053-:1064) reads the previous act`s window from its post-push combine to the session`s end; b705 ran in THIS session, so that window would take this act`s own commands as b705`s (b703`s form named the cut at the next ruling`s line but did not make it). The repaired route cuts the window at the first user line carrying (R316)`s anchor. The control: data/b706_repair_controls.txt.
+
+      --- tools/b698_record.py prev_capture (sealed)
+      +++ tools/b706_record.py prev_capture (this act)
+      @@ -1,12 +1,17 @@
+       def prev_capture():
+      -    """G-EDIT-ROUTE's window over the previous act (b689's form, carried for a new session): b697's capture AFTER ITS POST-PUSH SUITE -- every
+      -    command of b697's session (b97f6790) from the call that combined b697's post-push parts into data/b697_checks_postpush.txt to that
+      -    session's end, its closing's commands among them; this act runs in a session of its own."""
+      -    rows = ER.capture(PREV_SESSION_PATH, PREV_ANCHOR, PREV_SUBAGENTS)
+      -    first = [r['ts'] for r in rows if '%s_checks_postpush' % PREV_ACT in r['cmd'] and '--combine' in r['cmd']]
+      +    """G-EDIT-ROUTE's window over the previous act, b703's form for a previous act in THIS session, with this act's cut (the carry-time repair (a)):
+      +    b705's capture AFTER ITS POST-PUSH SUITE -- every command of this session from the call that combined b705's post-push parts into
+      +    data/b705_checks_postpush.txt to the first user line carrying (R316)'s anchor. b698's route reads to the session's end, which in one session
+      +    would take this act's own commands as the previous act's."""
+      +    rows = ER.capture(SESSION, K.PREV_ANCHOR, SUBAGENTS)
+      +    first = [r['ts'] for r in rows if '%s_checks_postpush' % PREV in r['cmd'] and '--combine' in r['cmd']]
+           if not first:
+               sys.exit('### THE PREVIOUS ACT`S POST-PUSH COMBINE IS NOT IN ITS SESSION`S CAPTURE -- NOTHING READ')
+      -    out = [dict(r, src='%s %s' % (PREV_ACT, r['src'])) for r in rows if first[0] <= r['ts']]
+      +    cut = _anchor_ts(K.ANCHOR)
+      +    cut_e = _iso_epoch(cut) if cut else None
+      +    if not cut_e:
+      +        sys.exit('### THIS ACT`S ANCHOR %r IS NOT TIMED IN THE SESSION -- THE PREVIOUS WINDOW HAS NO END -- NOTHING READ' % K.ANCHOR)
+      +    out = [dict(r, src='%s %s' % (PREV, r['src'])) for r in rows if first[0] <= r['ts'] and (_iso_epoch(r['ts']) or 0) < cut_e]
+           for i, r in enumerate(out):
+               r['n'] = 'p%d' % (i + 1)
+           return out
+
+  (5) tools/b706_record.py `_root_exclude`, `declared_untracked` -- ANSWERS data/b706_rules.txt row (1) (b705`s (l), (m)): the root route`s exclusion list carried from the previous act`s tool and extended at carry time with every untracked write a b706_*.py tool declares in its head (`### UNTRACKED WRITE: data/b706_<name>`), read from the tools` own declarations at import; the `rootexclude` route prints them; the `rootdry` route runs the root route dry on the pre-root tree before the seal and banks its READY. The control: data/b706_repair_controls.txt.
+
+      --- tools/b705_record.py _root_exclude (sealed)
+      +++ tools/b706_record.py _root_exclude (this act)
+      @@ -1 +1,6 @@
+      +def _root_exclude():
+      +    names = [re.escape(n) for _f, n in declared_untracked()]
+      +    return re.compile(r'^b706_(' + EXCLUDE_KINDS + (('|' + '|'.join(names)) if names else '') + r')\.?(txt|json|md|jsonl|)$')
+       
+      +
+      +
+
+      --- (none)
+      +++ tools/b706_record.py declared_untracked (this act)
+      @@ -0,0 +1,11 @@
+      +def declared_untracked():
+      +    """every b706_*.py tool's declaration of an untracked write (its units file, its download), read from the tools' own heads: [(tool, name)]."""
+      +    out = []
+      +    for f in sorted(os.listdir(T)):
+      +        if f.startswith('b706_') and f.endswith('.py'):
+      +            for m in UNTRACKED_DECL.finditer(rd(os.path.join(T, f)) or ''):
+      +                out.append((f, m.group(1)))
+      +    return out
+      +
+      +
+      +
+
+### ### **REPAIRS 5 ; SHARED TOOLS EDITED 0 AT THE CARRY (correspondence_gen.py AT COMPONENT 3 BY RULING) ; DIFF LINES 138 ; NO FROZEN BANK EDITED.**

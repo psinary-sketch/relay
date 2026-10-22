@@ -383,7 +383,7 @@ _HEX8 = re.compile(r'(?<![0-9a-f])([0-9a-f]{8})(?![0-9a-f])')
 def _sha_rows():
     """every 64-hex sha256 any bank's row names, mapped by its first eight characters to (bank, line)."""
     out = {}
-    for q in sorted(glob.glob(os.path.join(D, '*.txt'))) + [os.path.join(D, 'act_roots.txt')]:
+    for q in [os.path.join(D, 'act_roots.txt')] + sorted(glob.glob(os.path.join(D, '*.txt')), reverse=True):   # ### the later act's row named first
         t = rd(q) or ''
         if 'sha256' not in t and not q.endswith('act_roots.txt') and not q.endswith('_hashes.txt'):
             continue

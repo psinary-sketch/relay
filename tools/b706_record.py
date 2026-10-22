@@ -28,6 +28,7 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 import b706_worklist as K          # noqa: E402
+import b705_worklist as K705       # noqa: E402  ### b705's data, for the controls on b705's banks
 import b705_record as P5           # noqa: E402  ### b705's tool, imported unedited (its import binds b698's R, b703's P3 and b704's P4 to b705: rebound below)
 R, P3, P4 = P5.R, P5.P3, P5.P4     # ### b698's routes, b703's and b704's repaired readers, through b705's module
 
@@ -460,10 +461,304 @@ def _one_git_write():
     return R._one_git_write()
 
 
+# ================================================================================ COMPONENT 1: THE SORT, (R316)(2)
+TEN = (('G-WORKFLOW-FILES', 'j', 'declared', 'the held join: the run`s gate NOT DERIVES by (R315)(5)`s own clause, Lake resolving Mathlib`s packages from lv-conservation`s manifest',
+        'NO REPAIR: the arm correct; the join`s manifest repaired and dispatched once under (R316)(4)'),
+       ('G-RUNNER-READ', 'j', 'declared', 'the held join, the gate NOT DERIVES', 'NO REPAIR: the arm correct; (R316)(4)'),
+       ('G-RUNNER-GATE', 'j', 'declared', 'the held join, the gate NOT DERIVES', 'NO REPAIR: the arm correct; (R316)(4)'),
+       ('G-READ-RULE-STANDING', 'e', 'declared', 'two whole reads of files of two hundred lines or more at the opening', 'NO REPAIR: the arm correct; from b705 every call counts'),
+       ('G-WRITELIST-KINDS', '', 'after', 'the navigator`s: a rules file (data/b706_rules.txt) ordered mid-act after the (W) list was sealed -- an event in b705`s bank, unlettered',
+        'REPAIRED at carry time under (R316)(2): a (W) list that admits data/b<next act>_rules.txt by form, the arm requiring the form (tools/b706_checks.py wl_ok; data/b706_tool_repairs.txt row (1))'),
+       ('G-ANSWERS-CHECKED', 'n', 'after', 'the checker reading the PDF`s sha256 prefix as a commit', 'REPAIRED at carry time under (R316)(2): tools/b706_citation.py answer tells a root prefix or a file hash from a commit by its bank`s row (data/b706_tool_repairs.txt row (2))'),
+       ('G-ENTRY-TITLE-FORM', 'o', 'after', 'the needle`s lower-case "the" against the entry`s "The"', 'REPAIRED at carry time under (R316)(2): tools/b706_checks.py entry_title_ok compares after case-folding the article alone (data/b706_tool_repairs.txt row (3))'),
+       ('G-TRAIL-LINES-EQUAL-DEFECTS', 'o', 'after', '(o) lettered after the trail landed', 'NO REPAIR: the sequence rule of (R315)(2) binding and read by the gate -- no defect lettered after the trail`s dry run without that dry run re-read'),
+       ('G-TRAIL-DEFECTS-EQUAL', 'o', 'after', '(o) lettered after the trail landed', 'NO REPAIR: the sequence rule binding'),
+       ('G-TRAIL-RESOLVED-EQUAL', 'o', 'after', '(o) lettered after the trail landed', 'NO REPAIR: the sequence rule binding'))
+
+
+def _drow(L, letter):
+    s = next((i + 1 for i, l in enumerate(L) if l.startswith('    (%s) ' % letter)), 0)
+    if not s:
+        return 0, 0, ''
+    e = next((i for i in range(s, len(L)) if re.match(r'^    \([a-z]\) ', L[i]) or L[i].startswith('###')), len(L))
+    return s, e, ' '.join(x.strip() for x in L[s - 1:e])
+
+
+def armsort(*a):
+    """data/b706_arm_sort.txt: (R316)(2), the ten arms failing at b705's close (data/b705_checks_postpush.txt's LIVE FAILING list) -- the four
+    declared on the face and the six found after the seal -- each with its cause by letter and line in data/b705_defects.txt (the write-list
+    event by its line) and its disposition in the ruling's words; rows are arms."""
+    ck = rdn('b705_checks_postpush.txt')
+    m = re.search(r'LIVE FAILING : (\d+) \[(.*?)\]', ck)
+    fails = [x.strip().strip("'") for x in (m.group(2) if m else '').split(',') if x.strip()]
+    df = rdn('b705_defects.txt').split(NL)
+    face = rd(os.path.join(ROOT, *K.B705_FACE.split('/')))
+    md = re.search(r'THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:\*\* ([^.]*)\.', ' '.join(face.split()))
+    declared = sorted(set(re.findall(r'`([GF]-[A-Z0-9-]+)`', md.group(1)))) if md else []
+    ev = next((i + 1 for i, l in enumerate(df) if l.strip().startswith('G-WRITELIST-KINDS fails after the seal')), 0)
+    rows = []
+    for name, letter, where, cause, disp in TEN:
+        if letter:
+            s, e, t = _drow(df, letter)
+            e = max(e - 1, s)
+        else:
+            s, e, t = ev, ev + 3, ' '.join(x.strip() for x in df[ev - 1:ev + 3]) if ev else ''
+        rows.append((name, name in fails, 'declared on the face' if name in declared else 'found after the seal', letter or 'event', s, e, cause, disp, t[:140]))
+    L = ['%s -- COMPONENT 1, (R316)(2): THE TEN ARMS FAILING AT b705`S CLOSE, THE SIX AFTER THE SEAL SORTED BY CAUSE, EACH WITH ITS DISPOSITION (%s)' % (ACT, utc()), '',
+         '### rows are arms: the arm | failing at b705`s close (relay data/b705_checks_postpush.txt, LIVE FAILING %d) | declared on the face or found after the seal' % len(fails),
+         '### (relay data/b705_registration_2026-10-22.txt) | its cause by letter and line in relay data/b705_defects.txt (the write-list event by its line) |',
+         '### the disposition in (R316)(2)`s words. The sequence rule, (R315)(2), binding and read by the gate: no defect is lettered after the trail`s dry run',
+         '### without that dry run re-read.', '']
+    for name, f, where, letter, s, e, cause, disp, t in rows:
+        L += ['  %-28s | failing %s | %s | (%s) data/b705_defects.txt :%d-:%d -- %s | %s' % (name, f, where, letter, s, e, cause, disp),
+              '      the row: %s' % t]
+    rep = [r for r in rows if r[7].startswith('REPAIRED')]
+    L += ['', '### ### **ARMS %d ; FAILING AT b705`S CLOSE %d OF %d ; DECLARED ON THE FACE %d ; FOUND AFTER THE SEAL %d ; REPAIRED AT CARRY TIME %d ; NO REPAIR %d.**' % (
+        len(rows), sum(1 for r in rows if r[1]), len(rows), sum(1 for r in rows if r[2] == 'declared on the face'), sum(1 for r in rows if r[2] == 'found after the seal'),
+        len(rep), len(rows) - len(rep))]
+    if 'dry' not in a:
+        put_txt('%s_arm_sort.txt' % ACT, L)
+        put_json('%s_arm_sort.json' % ACT, dict(at=utc(), rows=[dict(arm=r[0], failing=r[1], where=r[2], letter=r[3], lines=[r[4], r[5]], cause=r[6], disposition=r[7]) for r in rows],
+                                                failing=fails, declared=declared))
+    print(NL.join(L[7:]))
+
+
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R316)(1)
+WH = ('*Appended 2026-10-22 by b706 to b705’s entry (:9990), under `(R316)`(1) -- b705 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b705_closing.txt):*')
+WB = (' “b705 closed: relay 9f5871da, PLACE-papers c4c4273; suite 128 of 138; root 8454a2bb2428eba3…; 5 prompts answered; 15 defects” '
+      '(data/b705_closing.txt :1); the closing commit f9a60e40 pushed alone after the line was written and read back equal at the remote '
+      '(data/b705_closing_push_out.txt :5). The count’s contour read at step zero, b685–b687’s rectangle and b696’s tail strip each enclosing '
+      'every zero of Λ_Q, the Q0 figures standing (data/b705_contour.txt); the detection law held over the five pairs b675’s route reaches, '
+      'each within [0.67, 1.5], the twelve higher pairs beyond its modulus rule and entered with the bound (data/b705_detection.txt); the '
+      'notched Weil window at 0.79799715717868013876 + 29.55176109862911459913 i nonnegative at widths 32 to 128 and negative at 192, the '
+      'hypothesis HELD from width 192 (data/b705_window.txt); the I-6 ranking with the support radius at its head, the sign-onset registration '
+      '(iii) committed alone before any number, the Connes–Consani range read by page (data/b705_i6_ranking.txt, data/b705_registrations.txt); '
+      'E0’s RESTRICTIONS given four heads on the author’s word, the three inclusions DERIVES, every other header unchanged (data/b705_e0_met.txt); '
+      'the join SIDE-faces-join created at 732c1b49 and HELD at its one run, Lake resolving Mathlib’s transitive packages from '
+      'lv-conservation’s manifest so the cache was not served, FacesJoin.lean not reached, the cause banked from the run’s artifact as defect '
+      '(j) (data/b705_join_grade.txt); W-ORD-ENTRY-TAG-PRINTS entered (OPEN_TRAILS :15590). b704’s five post-seal items answered by the '
+      'generated corrigendum at FINDINGS :9976 (corrigenda row (25)); b704’s weight at :9974. The entry at FINDINGS :9990, the trail at '
+      'OPEN_TRAILS :15592; the root 8454a2bb over 89 banks chained from 97bd2133 (data/b705_act_root.json); suite 131 of 138 pre-push and '
+      '128 of 138 post-push, four failures declared on the face (G-READ-RULE-STANDING on (e); G-WORKFLOW-FILES, G-RUNNER-READ and G-RUNNER-GATE '
+      'on the held join) and six found after the seal (G-WRITELIST-KINDS on data/b706_rules.txt, G-ANSWERS-CHECKED, G-ENTRY-TITLE-FORM and the '
+      'three trail-equality arms; data/b705_checks.txt, data/b705_checks_postpush.txt); N1–N4 and S1–S3 HELD, N5 HELD at the record and REFUTED '
+      'at the close on data/b706_rules.txt (data/b705_scores_close.json); the sealed tools’ hashes equal at the close, 13 of 13; the citation '
+      'check 138 cites, 136 OK, 2 misses the navigator’s; fifteen defects (a)–(o), (g), (h), (i) and (k) the navigator’s (data/b705_defects.txt); '
+      '“5 prompts answered” the answers bank’s 4 rows and the root’s prompt, put in two calls under (m); the three excluded files moved to the '
+      'session scratchpad with sha256 equal before and after; the mirror mirror-refresh-2026-10-22-b705.zip CLEAN on all three clauses with '
+      'the root line (data/b705_mirror.txt). The six post-seal items entered by this act’s corrigendum. Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B705_ENTRY,
+         check=[('FINDINGS.md', K.B705_ENTRY, '## The faces joined by closure'), ('OPEN_TRAILS.md', K.B705_TRAIL, '### b705')],
+         dry=dry)
+
+
+# ================================================================================ COMPONENT 1: THE CARRY-TIME REPAIRS, (R316)(2), AND THEIR CONTROLS
+REPAIR_ROWS = [
+    ('(1) tools/b706_checks.py `wl_ok`, G-WRITELIST-KINDS -- ANSWERS (R316)(2): b705`s arm read C3.wl_ok (tools/b703_checks.py :1320-:1321) over the '
+     'face`s (W) list, which named relay/data/b705_* and no file of a later act; data/b706_rules.txt, written on the author`s word after the seal, '
+     'failed it (b705`s event, the navigator`s). The repair is in the (W) list`s form -- it admits the next act`s rules file by form, '
+     '`relay/data/b707_rules.txt` -- and the arm now requires that form on the face beside the written files` cover. The control: '
+     'data/b706_repair_controls.txt.', 'b703_checks.py', 'b706_checks.py', 'wl_ok', ()),
+    ('(2) tools/b706_citation.py `answer`, G-ANSWERS-CHECKED -- ANSWERS (R316)(2): b682`s route (tools/b682_citation.py :234-:236, carried by '
+     'tools/b705_citation.py :431-:444) read every bare token of seven to twelve hex characters as a commit, so the root prompt`s second answer '
+     'naming the fetched source`s sha256 "b8e0b54a..." printed a MISS -- b705`s (n). The repaired route reads every sha256 a bank`s row names '
+     '(the root list, the hashes banks, any bank line carrying "sha256"), checks a token those rows name against its row, prints it OK and '
+     'masks it from the commit reading; the predicate answers_checked_ok is b705`s, unchanged. The control: data/b706_repair_controls.txt.',
+     'b705_citation.py', 'b706_citation.py', 'answer', ('_sha_rows',)),
+    ('(3) tools/b706_checks.py `entry_title_ok`, G-ENTRY-TITLE-FORM -- ANSWERS (R316)(2): b705`s predicate (tools/b705_checks.py :684-:689) '
+     'required `the faces joined by closure at SIDE-faces-join` in a title that opens "## The faces joined by closure ..." -- b705`s (o), found '
+     'after the seal. The repaired predicate compares after case-folding the article alone (`_fold_article`: the heading`s first word The, A or An '
+     'lowered, nothing else), its needles this act`s objects. The control: data/b706_repair_controls.txt.', 'b705_checks.py', 'b706_checks.py',
+     'entry_title_ok', ('_fold_article',)),
+    ('(4) tools/b706_record.py `prev_capture` -- ANSWERS the carry: b698`s route (tools/b698_record.py :1053-:1064) reads the previous act`s '
+     'window from its post-push combine to the session`s end; b705 ran in THIS session, so that window would take this act`s own commands as '
+     'b705`s (b703`s form named the cut at the next ruling`s line but did not make it). The repaired route cuts the window at the first user '
+     'line carrying (R316)`s anchor. The control: data/b706_repair_controls.txt.', 'b698_record.py', 'b706_record.py', 'prev_capture', ()),
+    ('(5) tools/b706_record.py `_root_exclude`, `declared_untracked` -- ANSWERS data/b706_rules.txt row (1) (b705`s (l), (m)): the root route`s '
+     'exclusion list carried from the previous act`s tool and extended at carry time with every untracked write a b706_*.py tool declares in its '
+     'head (`### UNTRACKED WRITE: data/b706_<name>`), read from the tools` own declarations at import; the `rootexclude` route prints them; '
+     'the `rootdry` route runs the root route dry on the pre-root tree before the seal and banks its READY. The control: '
+     'data/b706_repair_controls.txt.', 'b705_record.py', 'b706_record.py', '_root_exclude', ('declared_untracked',)),
+]
+
+
+def repairs(*a):
+    """data/b706_tool_repairs.txt: the carry-time repairs, each with the order or carry it answers, its diff written by this route (difflib, the
+    plain unified_diff of whole lines; the old text from the sealed tool named)."""
+    import difflib
+    L = ['%s -- THE CARRY-TIME READING: THE REPAIRS, (R316)(2) (%s)' % (ACT, utc()), '',
+         '### rows are repairs with what they answer: the tool and its part ; what it answers ; the form. Each diff beneath its row, written by',
+         '### this route (difflib over the function`s source: the sealed tool`s against this act`s; a new function printed whole). The controls',
+         '### that distinguish each repaired reading from the old one: data/b706_repair_controls.txt. No sealed tool is edited;',
+         '### tools/correspondence_gen.py`s parser is extended at Component 3 under (R316)(6), its diff in data/b706_generator_reach.txt.', '']
+    n = 0
+    for text, oldf, newf, main_fn, extra in REPAIR_ROWS:
+        L += ['  ' + text, '']
+        old = R._fn_src(rd(os.path.join(T, oldf)), main_fn).split(NL)
+        new = R._fn_src(rd(os.path.join(T, newf)), main_fn).split(NL)
+        d = list(difflib.unified_diff(old, new, 'tools/%s %s (sealed)' % (oldf, main_fn), 'tools/%s %s (this act)' % (newf, main_fn), lineterm=''))
+        n += len(d)
+        L += ['      ' + x for x in d] + ['']
+        for fn in extra:
+            old2 = R._fn_src(rd(os.path.join(T, oldf)), fn).split(NL) if R._fn_src(rd(os.path.join(T, oldf)), fn) else []
+            new2 = R._fn_src(rd(os.path.join(T, newf)), fn).split(NL)
+            d = list(difflib.unified_diff(old2, new2, ('tools/%s %s (sealed)' % (oldf, fn)) if old2 else '(none)', 'tools/%s %s (this act)' % (newf, fn), lineterm=''))
+            n += len(d)
+            L += ['      ' + x for x in d] + ['']
+    L += ['### ### **REPAIRS %d ; SHARED TOOLS EDITED 0 AT THE CARRY (correspondence_gen.py AT COMPONENT 3 BY RULING) ; DIFF LINES %d ; NO FROZEN BANK EDITED.**' % (len(REPAIR_ROWS), n)]
+    if 'dry' not in a:
+        put_txt('%s_tool_repairs.txt' % ACT, L)
+    print(NL.join(L) if 'dry' in a else L[-1])
+
+
+def _answer_text(needle, anchor):
+    """b682's selection of an answer text (tools/b682_citation.py :210-:223), pure: the latest user text carrying `needle` after `anchor`."""
+    import b677_citation as C
+    best, seen = None, False
+    for t in C._user_texts():
+        if anchor in t:
+            seen = True
+        u = t.replace('’', "'")
+        if seen and needle in t and ("NAVIGATOR'S ANSWER" in u or "NAVIGATOR'S NOTE" in u or "AUTHOR'S" in u or 'The user answered' in u or 'user has answered' in u):
+            best = t
+    if best is None:
+        return ''
+    k = best.find(needle)
+    b0, e0 = best.rfind('BEGIN', 0, k), best.find('END', k)
+    return best[b0:e0 + 3] if (b0 >= 0 and e0 > k) else best
+
+
+def repairctl(*a):
+    """data/b706_repair_controls.txt: each repaired reading and the old one run on b705's banks or b705's own answer (the keys each reads), then
+    on mutated copies, so that the repaired reading is distinguished from the old on real state."""
+    import b703_checks as C3
+    import b705_checks as C5
+    import b706_checks as C6
+    import b706_citation as CIT
+    import b682_citation as P82
+    L = ['%s -- COMPONENT 1, (R316)(2): THE REPAIRED READINGS AGAINST THE OLD ON b705`S BANKS AND ANSWERS (%s)' % (ACT, utc()), '',
+         '### rows are cases: the arm or tool | the source (b705`s banks or answer, or a mutated copy) | the old reading | the repaired | wanted.',
+         '### Each repaired reading is DISTINGUISHED where one row reads them apart.', '']
+    cases = []
+    # ### (1) G-WRITELIST-KINDS on b705`s face and written files
+    face5 = rd(os.path.join(ROOT, *K.B705_FACE.split('/')))
+    globs5 = C3.wl_globs(face5)
+    written5 = sorted(set('relay/' + x for x in g(ROOT, 'diff', '--name-only', K705.PRE_RELAY, K.PRE_RELAY).split(NL) if x.strip())
+                      | set('PLACE-papers/' + x for x in g(PP, 'diff', '--name-only', K705.PRE_PP, K.PRE_PP).split(NL) if x.strip()))
+    with6 = written5 + ['relay/data/b706_rules.txt']
+    S = dict(globs=globs5, written=with6, next_rules='relay/data/b706_rules.txt')
+    cases.append(('G-WRITELIST-KINDS', 'b705`s face`s (W) globs (%d) and its written files (%d) with data/b706_rules.txt among them' % (len(globs5), len(with6)),
+                  C3.wl_ok(S), C6.wl_ok(S), (False, False)))
+    S2 = dict(globs=globs5 + ['relay/data/b706_rules.txt'], written=with6, next_rules='relay/data/b706_rules.txt')
+    cases.append(('G-WRITELIST-KINDS', 'the same with the (W) list in the repaired form (the next act`s rules file admitted by form)', C3.wl_ok(S2), C6.wl_ok(S2), (True, True)))
+    S3 = dict(globs=globs5, written=[w for w in written5 if any(fnmatch.fnmatch(w, p) for p in globs5)], next_rules='relay/data/b706_rules.txt')
+    cases.append(('G-WRITELIST-KINDS', 'b705`s face`s globs over its covered files alone (no rules file written): the form absent', C3.wl_ok(S3), C6.wl_ok(S3), (True, False)))
+    # ### (2) the answer checker on b705`s root answer, second call
+    txt = _answer_text('Root, second call', K.PREV_ANCHOR)
+    old_tokens = sorted(set(h for h in re.findall(r'\b([0-9a-f]{7,12})\b', txt) if re.search(r'[a-f]', h) and re.search(r'\d', h)))
+    shas = CIT._sha_rows()
+    masked = txt
+    named = []
+    for m in CIT._HEX8.finditer(txt):
+        if m.group(1) in shas:
+            named.append((m.group(1), shas[m.group(1)]))
+            masked = masked.replace(m.group(1), 'SHA-' + m.group(1)[:4] + '-' + m.group(1)[4:])
+    new_tokens = sorted(set(h for h in re.findall(r'\b([0-9a-f]{7,12})\b', masked) if re.search(r'[a-f]', h) and re.search(r'\d', h)))
+    old_ok = all(any(P82.commit_in(r_, h) for r_ in P82.REPOS + (K.EF_DIR, K.KERNEL_DIR)) for h in old_tokens)
+    new_ok = all(any(P82.commit_in(r_, h) for r_ in P82.REPOS + (K.EF_DIR, K.KERNEL_DIR)) for h in new_tokens) and all(
+        os.path.exists(os.path.join(ROOT, *b_.split('/'))) for _h, (b_, _l) in named)
+    L += ['### the answer carrying `Root, second call` (%d characters): hex tokens b682`s reading takes as commits %s ; named by a bank`s row as a sha256 %s ; '
+          'left for the commit reading after the mask %s' % (len(txt), old_tokens, ['%s by %s :%d' % (h, b_, l_) for h, (b_, l_) in named], new_tokens), '']
+    cases.append(('G-ANSWERS-CHECKED', 'b705`s root answer (the second call): every hex token a commit at HEAD (old) ; every token a commit or a bank-named sha256 (repaired)',
+                  old_ok, new_ok, (False, True)))
+    planted = txt + ' deadbee1'
+    pt = sorted(set(h for h in re.findall(r'\b([0-9a-f]{7,12})\b', planted) if re.search(r'[a-f]', h) and re.search(r'\d', h)))
+    pm = planted
+    for m in CIT._HEX8.finditer(planted):
+        if m.group(1) in shas:
+            pm = pm.replace(m.group(1), 'SHA-' + m.group(1)[:4] + '-' + m.group(1)[4:])
+    pnt = sorted(set(h for h in re.findall(r'\b([0-9a-f]{7,12})\b', pm) if re.search(r'[a-f]', h) and re.search(r'\d', h)))
+    cases.append(('G-ANSWERS-CHECKED', 'a mutated copy, a token no bank names (deadbee1) planted', all(P82.commit_in(ROOT, h) for h in pt), all(P82.commit_in(ROOT, h) for h in pnt), (False, False)))
+    # ### (3) G-ENTRY-TITLE-FORM`s needle clause on b705`s title
+    t5 = C5.K.__dict__ and '## The faces joined by closure at SIDE-faces-join held; the count’s contour encloses every zero of Λ_Q'
+    nd5 = 'the faces joined by closure at SIDE-faces-join'
+    cases.append(('G-ENTRY-TITLE-FORM', 'b705`s title and its needle: the needle clause of tools/b705_checks.py entry_title_ok (old) ; after _fold_article (repaired)',
+                  nd5 in t5, nd5 in C6._fold_article(t5), (False, True)))
+    tm = t5.replace('joined', 'split')
+    cases.append(('G-ENTRY-TITLE-FORM', 'a mutated copy, the title`s "joined" set to "split"', nd5 in tm, nd5 in C6._fold_article(tm), (False, False)))
+    # ### (4) prev_capture: b698`s window against the cut
+    rows_all = ER.capture(SESSION, K.PREV_ANCHOR, SUBAGENTS)
+    first = [r['ts'] for r in rows_all if '%s_checks_postpush' % PREV in r['cmd'] and '--combine' in r['cmd']]
+    cut = _anchor_ts(K.ANCHOR)
+    cut_e = _iso_epoch(cut) if cut else None
+    old_rows = [r for r in rows_all if first and first[0] <= r['ts']]
+    new_rows = prev_capture()
+    after_old = [r for r in old_rows if cut_e and (_iso_epoch(r['ts']) or 0) >= cut_e]
+    after_new = [r for r in new_rows if cut_e and (_iso_epoch(r['ts']) or 0) >= cut_e]
+    L += ['### the previous window: b698`s route from b705`s post-push combine to the session`s end %d commands, of which after (R316)`s line %d ; the cut route %d commands, '
+          'after the line %d ; the anchor at %s' % (len(old_rows), len(after_old), len(new_rows), len(after_new), cut), '']
+    cases.append(('prev_capture', 'this session from b705`s post-push combine: no command of the window after (R316)`s line', not after_old and bool(old_rows), not after_new and bool(new_rows), (False, True)))
+    # ### (5) ROOT_EXCLUDE extended by declaration
+    pat0 = R.ROOT_EXCLUDE
+    import b706_record as SELF
+    keep = SELF.declared_untracked
+    try:
+        SELF.declared_untracked = lambda: []
+        p_none = SELF._root_exclude()
+        SELF.declared_untracked = lambda: [('b706_x.py', 'x_units.jsonl')]
+        p_decl = SELF._root_exclude()
+    finally:
+        SELF.declared_untracked = keep
+    pat5 = P5.R.ROOT_EXCLUDE if hasattr(P5, 'R') else pat0
+    old_m = bool(re.compile(pat5.pattern.replace('b705_', 'b706_')).match('b706_x_units.jsonl'))
+    cases.append(('ROOT_EXCLUDE', 'no tool declares an untracked write: b706_x_units.jsonl excluded by name (old: b705`s pattern with the act renamed)', old_m, bool(p_none.match('b706_x_units.jsonl')), (False, False)))
+    cases.append(('ROOT_EXCLUDE', 'a tool declares data/b706_x_units.jsonl untracked: the file excluded by name', old_m, bool(p_decl.match('b706_x_units.jsonl')), (False, True)))
+    cases.append(('ROOT_EXCLUDE', 'the declaration present: a bank of a committed kind (b706_partners.txt) still named', not pat5.match('b705_partners.txt'), not p_decl.match('b706_partners.txt'), (True, True)))
+    ok = True
+    for name, src, o, nw, want in cases:
+        asw = (bool(o), bool(nw)) == want
+        ok = ok and asw
+        L.append('  %-20s | %s | old %-5s | repaired %-5s | wanted old %s, repaired %s | %s' % (name, src, bool(o), bool(nw), want[0], want[1], 'AS WANTED' if asw else '### NOT AS WANTED'))
+    dist = [n_ for n_, _s, o, nw, _w in cases if bool(o) != bool(nw)]
+    L += ['', '### ### **CASES %d ; AS WANTED %s ; EACH REPAIRED READING DISTINGUISHED FROM THE OLD ON A ROW: %s.**' % (len(cases), ok, sorted(set(dist)))]
+    put_txt('%s_repair_controls.txt' % ACT, L)
+    print(NL.join(L[5:]))
+
+
+def rootdry(*a):
+    """data/b706_rules.txt row (1): the root route run DRY on the pre-root tree before the seal -- the banks the route names (ROOT_EXCLUDE
+    extended), each read for CR LF, its status and its blob at HEAD; READY where every named bank is clean and equal at HEAD and none is CR LF
+    (the push clause, HEAD the remote main, printed beside and not required before the record`s push). data/b706_root_banks_dry.txt (.json)."""
+    banks = root_banks()
+    s = root_banks_state(banks)
+    crlf = [b_ for b_ in banks if os.path.exists(os.path.join(ROOT, *b_.split('/'))) and b'\r\n' in open(os.path.join(ROOT, *b_.split('/')), 'rb').read()]
+    missing = [b_ for b_ in banks if not os.path.exists(os.path.join(ROOT, *b_.split('/')))]
+    ready = bool(s['rows']) and s['clean'] and not crlf and not missing
+    L = ['%s -- THE ROOT ROUTE`S DRY RUN ON THE PRE-ROOT TREE BEFORE THE SEAL (data/b706_rules.txt row (1)) (%s)' % (ACT, utc()), '',
+         '### rows are the banks the root route names (tools/b698_record.py root_banks with ROOT_EXCLUDE rebound at tools/b706_record.py, extended by',
+         '### every declared untracked write: %s): status ; carried by HEAD ; HEAD`s blob equal to the file ; CR LF.' % (
+             [n for _f, n in declared_untracked()] or 'NONE DECLARED'),
+         '### HEAD %s ; the remote main %s ; equal %s (the push clause, read beside: the record`s push comes after the seal)' % (s['head'], s['remote'], s['pushed']), '']
+    L += ['  %-52s %-6s at HEAD %-5s equal %-5s crlf %s' % (r['bank'], r['status'], r['at_head'], r['equal'], r['bank'] in crlf) for r in s['rows']]
+    L += ['', '### ### **BANKS %d ; CLEAN AND EQUAL AT HEAD %d ; CR LF %s ; MISSING %s ; HEAD THE REMOTE MAIN %s ; THE DRY RUN READY %s.**' % (
+        len(s['rows']), sum(1 for r in s['rows'] if r['status'] == 'clean' and r['equal']), crlf or 'NONE', missing or 'NONE', s['pushed'], ready)]
+    put_txt('%s_root_banks_dry.txt' % ACT, L)
+    put_json('%s_root_banks_dry.json' % ACT, dict(at=utc(), ready=ready, crlf=crlf, missing=missing, declared=declared_untracked(), **s))
+    print(L[-1])
+
+
+import fnmatch   # noqa: E402
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
-              runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, rootexclude=rootexclude)
+              runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, rootexclude=rootexclude, armsort=armsort, c1=c1,
+              repairs=repairs, repairctl=repairctl, rootdry=rootdry)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

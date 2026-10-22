@@ -56,6 +56,7 @@ DELETE = (('D:/relay', ('push-b705', 'push-b705-root', 'push-b705-root2', 'push-
 DELETE_REMOTE = ()
 
 FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
+ARCHIVE_DIR = 'archive/2026-10-22-b706-partner-copies'   # ### (R316)(3): the unversioned copies retired here by git mv, their paths kept beneath it
 # ### THE SUITE'S PARTS: standing-b2 (576-577 s at b705's post-push run, the chain's first half) SPLIT at this act per data/b684_rules.txt
 # ### row (1), the split named here before the pre-run: standing-b2a reads the chain over b624-b641, standing-b2b over b642-b658.
 PARTS = ('standing-a', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'act')
