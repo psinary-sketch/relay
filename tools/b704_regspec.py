@@ -278,7 +278,7 @@ def main(argv):
                     REPAIRS=tfirst('b704_tool_repairs.txt', r'REPAIRS (\d+) ;'),
                     CARRIED=carried(text), DISPATCHES=jcount('b704_commands.json', lambda j: len(j.get('dispatches') or [])),
                     MAINS=int(mains) if mains.isdigit() else 0, TAGSMADE=len(tags_after), LEANFILES=len(leanf),
-                    ORDERS=jcount('b704_orders_line.json', lambda j: len(j.get('lines') or [])),
+                    ORDERS=jcount('b704_orders_line.json', lambda j: len(j.get('lines') or [])) + jcount('b704_order_readme.json', lambda j: len(j.get('lines') or [])),
                     SEDS=jcount('b704_commands.json', lambda j: len(j.get('seds') or [])),
                     REDIRECTS=jcount('b704_commands.json', lambda j: len(j.get('redirects') or [])),
                     PIPES=jcount('b704_commands.json', lambda j: len(j.get('pipes') or [])),

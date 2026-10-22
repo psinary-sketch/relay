@@ -418,8 +418,10 @@ def main():
         if title.startswith('THE CELLS'):
             L.append('    the reach, beside the four equal (the author`s word at the cells prompt): %s' % reach_line())
         if title.startswith('THE ORDERS'):
-            L.append('    the landing of the discharge, the two orders and the annotation (relay data/b704_orders_line.json): %s' % (
-                ' ; '.join('%s :%s' % (x.get('file'), x.get('line')) for x in jl('b704_orders_line.json').get('lines') or []) or '### NOT LANDED'))
+            L.append('    the landing of the discharge, the two orders and the annotation (relay data/b704_orders_line.json) and of W-ORD-README-FIGURE-SCOPE '
+                     '(relay data/b704_order_readme.json): %s' % (
+                         ' ; '.join('%s :%s' % (x.get('file'), x.get('line')) for x in (jl('b704_orders_line.json').get('lines') or [])
+                                    + (jl('b704_order_readme.json').get('lines') or [])) or '### NOT LANDED'))
         L += ['']
     L += ['### THE KERNELS: the face`s reading of the kernels (relay data/b704_kernels_face.json): %d kernels read before the seal, after the probe '
           'branch`s deletes ; SIDE-explicit-formula main %s, v0.36 %s, v0.37 %s' % (

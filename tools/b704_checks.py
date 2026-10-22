@@ -89,7 +89,7 @@ GUARD_DRY = '--guard-dry' in sys.argv
 PART = sys.argv[sys.argv.index('--part') + 1] if '--part' in sys.argv and len(sys.argv) > sys.argv.index('--part') + 1 else None
 L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): filled at the seal (stage two, by the Edit tool)
-FLOORS = dict(prompts=0, calls=0, checks=0, defects=(('a', 'SEAT'), ('b', 'SEAT'), ('c', 'SEAT'), ('d', 'SEAT'), ('e', 'SEAT'), ('f', 'NAVIGATOR'),
+FLOORS = dict(prompts=12, calls=8, checks=12, defects=(('a', 'SEAT'), ('b', 'SEAT'), ('c', 'SEAT'), ('d', 'SEAT'), ('e', 'SEAT'), ('f', 'NAVIGATOR'),
                                                       ('g', 'NAVIGATOR'), ('h', 'SEAT'), ('i', 'SEAT'), ('j', 'SEAT'), ('k', 'NAVIGATOR'), ('l', 'SEAT'),
                                                       ('m', 'SEAT'), ('n', 'NAVIGATOR'), ('o', 'SEAT'), ('p', 'SEAT')))
 REPAIRED_TOOLS = K.REPAIRED_TOOLS
@@ -969,7 +969,7 @@ def unedited_all(S):
 
 ENTRY_NEEDLES = ('**The corrigendum**', '**The read rule**', '**The faces page**', '**The cells**', '**The README**', '**The glossary**',
                  '**The re-cut**', '**The orders**', '**The standing arms**', '**The citation check**', '**The scores.**', '**Read in mutual light**',
-                 'strengthens', '**Carried to:**', '**Next.**', 'b705', 'G-READ-RULE-STANDING', 'h2_sign_sum_iff_rh')
+                 'strengthens', '**Carried to:**', '**Next.**', 'b705', 'the cap of two hundred', 'h2_sign_sum_iff_rh')
 
 
 def finding_ok(S):

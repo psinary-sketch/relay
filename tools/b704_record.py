@@ -1479,7 +1479,9 @@ def _n3():
     pp_cells = [x for x in g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD').split(NL) if x.strip() and x not in K.PP_WRITTEN]
     ok = eq and below and not pp_cells
     st = [r for r in ((fj.get('readme') or {}).get('rows') or []) if r.get('state') == 'STALE']
-    new = sorted(set(r['line'] for r in st) - set(r['line'] for r in ((bj.get('readme') or {}).get('rows') or []) if r.get('state') == 'STALE'))
+    # ### read by kernel and cited tag, not by line: b704's append at :135 moved b703's :160 to :164
+    was = set((r.get('kernel'), r.get('cited')) for r in ((bj.get('readme') or {}).get('rows') or []) if r.get('state') == 'STALE')
+    new = sorted(set(r['line'] for r in st if (r.get('kernel'), r.get('cited')) not in was))
     return ('HELD' if ok else 'REFUTED'), (
         'the generator`s run wrote %s cells in %s files, its dry run %s cells (relay data/b704_correspondence_run.txt, data/b704_correspondence_dry.txt): '
         'equal %s; no cell by hand -- PLACE-papers files beyond the named ones %s; the four figures at b704 against b703`s (correspondence, '
