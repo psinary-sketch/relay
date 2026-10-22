@@ -1,0 +1,1190 @@
+{
+ "at": "2026-10-22T21:33:56Z",
+ "anchor": "RULING (R316) BEGIN",
+ "rows": [
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:23:44.020Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py names correspondence_gen && echo ---- && git -C /d/relay rev-parse --short=8 HEAD origin/main && git -C /d/relay status --porcelain -- data/b705_closing_push_out.txt data/b706_ferry.txt && git -C /d/SIDE-faces-join ls-tree --name-only 732c1b49 && git -C /d/SIDE-explicit-formula rev-parse main v0.1^{commit} v0.2^{commit}",
+   "n": 1,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:25:52.060Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD && git rev-parse --short=8 origin/main && git status --porcelain -- data/b705_closing_push_out.txt data/b706_ferry.txt && echo ---- && git -C /d/SIDE-faces-join ls-tree --name-only 732c1b49 && echo ---- && git -C /d/SIDE-explicit-formula rev-parse --short=7 main && git -C /d/SIDE-explicit-formula rev-list -n 1 v0.1 && git -C /d/SIDE-explicit-formula rev-list -n 1 v0.2",
+   "n": 2,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:26:34.896Z",
+   "src": "seat",
+   "cmd": "ls -la data/b672_roster_read.json data/b680_rules.txt data/b690_rules.txt data/b675_rules.txt data/b705_arm_seconds.txt data/b705_arm_seconds.json data/b705_join_grade.txt data/b705_art_SIDE-faces-join_join_cache_log.txt data/b705_tool_repairs.txt data/b705_standing_figures.txt data/b705_registrations.txt tools/correspondence_gen.py tools/rule_arms.py /d/SIDE-explicit-formula/.github/workflows/build-module.yml /d/SIDE-explicit-formula/print_targets.txt && git -C /d/SIDE-explicit-formula branch -a && git -C /d/relay branch && git -C /d/MY-DOwnloads/PLACE-papers branch && git -C /d/SIDE-faces-join branch",
+   "n": 3,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:32:38.533Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_citation.py ferry && echo ---- && python -X utf8 tools/b706_citation.py check dry",
+   "n": 4,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:33:49.090Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_citation.py check dry",
+   "n": 5,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:34:27.767Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_citation.py check",
+   "n": 6,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:35:58.340Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b705_record.py names b698 && echo ---- b703 && python -X utf8 tools/b705_record.py names b703 && echo ---- b704 && python -X utf8 tools/b705_record.py names b704",
+   "n": 7,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T18:36:02.123Z",
+   "src": "seat",
+   "cmd": "$p = Get-CimInstance Win32_Process; $n = 0; foreach ($x in $p) { if ($x.Name -match '^(tail|lean|lake|python|claude|node|git|bash)') { $n = $n + 1; Write-Output (\"{0,8} {1,-14} {2}\" -f $x.ProcessId, $x.Name, $x.CommandLine) } }; Write-Output (\"MATCHED {0} of {1} processes at {2}\" -f $n, $p.Count, (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')); $os = Get-CimInstance Win32_OperatingSystem; Write-Output (\"FREE MB {0}\" -f [int]($os.FreePhysicalMemory/1KB))",
+   "n": 8,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:36:03.145Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_tests.py parts",
+   "n": 9,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:40:51.924Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/circuit_read.py readfirst b706_ferry.txt b706_readfirst.txt && echo ---- rootexclude && python -X utf8 tools/b706_record.py rootexclude && echo ---- rowgen && python -X utf8 tools/b706_record.py rowgen && echo ---- branches before && python -X utf8 tools/b706_record.py branches before",
+   "n": 10,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:42:34.914Z",
+   "src": "seat",
+   "cmd": "git add data/b705_closing_push_out.txt && git commit -q -m \"b706 step zero: data/b705_closing_push_out.txt committed alone, b705's closing push capture (main read back at f9a60e40)\" && git log -1 --format='%h %s' && git status --porcelain -- data/b705_closing_push_out.txt",
+   "n": 11,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:42:41.760Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_tests.py hold 1 && python -X utf8 tools/b706_tests.py run test_act_root.py && python -X utf8 tools/b706_tests.py run test_act_root_commit_b644.py && python -X utf8 tools/b706_tests.py run test_act_root_order_b641.py && python -X utf8 tools/b706_tests.py run test_addenda_licence.py && python -X utf8 tools/b706_tests.py run test_addenda_writelist.py && python -X utf8 tools/b706_tests.py run test_additive_shared_b644.py && python -X utf8 tools/b706_tests.py hold 3 && python -X utf8 tools/b706_tests.py run test_axiom_claim.py && python -X utf8 tools/b706_tests.py run test_axiom_claim_b651.py && python -X utf8 tools/b706_tests.py run test_banned_terms_backmatter.py && python -X utf8 tools/b706_tests.py run test_build_watch_b644.py && python -X utf8 tools/b706_tests.py run test_build_watch_b647.py && python -X utf8 tools/b706_tests.py hold 7 && python -X utf8 tools/b706_tests.py run test_push_gated.sh && python -X utf8 tools/b706_tests.py run test_reader_needle_b641.py && python -X utf8 tools/b706_tests.py run test_record_findings_b632.py && python -X utf8 tools/b706_tests.py run test_registry_tags_b636.py && python -X utf8 tools/b706_tests.py run test_row_sort.py && python -X utf8 tools/b706_tests.py run test_rowgen_ident.py && python -X utf8 tools/b706_tests.py run test_terminal_table_b630.py && python -X utf8 tools/b706_tests.py run test_terminal_table_b635.py && python -X utf8 tools/b706_tests.py run test_terminal_table_b636.py && python -X utf8 tools/b706_tests.py run test_terminal_table_b637.py",
+   "n": 12,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:44:14.791Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b705",
+   "n": 13,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:44:18.875Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b705-root",
+   "n": 14,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:44:23.456Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b705-root2",
+   "n": 15,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:44:27.777Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b705-root3",
+   "n": 16,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:44:32.487Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b705-closing",
+   "n": 17,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:44:36.734Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b705",
+   "n": 18,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:44:42.518Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b705-root",
+   "n": 19,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:44:46.678Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-faces-join branch -d push-b705-join",
+   "n": 20,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:44:55.021Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py branches",
+   "n": 21,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:44:56.297Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_tests.py hold 2 && python -X utf8 tools/b706_tests.py run test_asof.py",
+   "n": 22,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:51:35.272Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_tests.py hold 4 && python -X utf8 tools/b706_tests.py run test_chain_page.py",
+   "n": 23,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T18:58:23.614Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_tests.py hold 5 && python -X utf8 tools/b706_tests.py run test_chain_page_b592.py && python -X utf8 tools/b706_tests.py run test_chain_page_b596.py && python -X utf8 tools/b706_tests.py run test_chain_page_b629.py && python -X utf8 tools/b706_tests.py run test_chain_page_b630.py && python -X utf8 tools/b706_tests.py run test_chain_page_b632.py && python -X utf8 tools/b706_tests.py run test_chain_page_b635.py && python -X utf8 tools/b706_tests.py run test_chain_page_b638.py && python -X utf8 tools/b706_tests.py run test_closing_headline_b634.py && python -X utf8 tools/b706_tests.py run test_clusters_served_b651.py && python -X utf8 tools/b706_tests.py run test_composer_b646.py && python -X utf8 tools/b706_tests.py run test_composer_b647.py && python -X utf8 tools/b706_tests.py run test_composer_b649.py && python -X utf8 tools/b706_tests.py run test_conversion_b652.py && python -X utf8 tools/b706_tests.py run test_correspondence_gen.py && python -X utf8 tools/b706_tests.py run test_e0_databinder_b643.py && python -X utf8 tools/b706_tests.py run test_e0_existential.py && python -X utf8 tools/b706_tests.py run test_e0_rule.py && python -X utf8 tools/b706_tests.py run test_edit_route_b646.py && python -X utf8 tools/b706_tests.py run test_elab_reader_b634.py && python -X utf8 tools/b706_tests.py run test_faces_form.py",
+   "n": 24,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:01:42.144Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_tests.py hold 6 && python -X utf8 tools/b706_tests.py run test_g_chain_page.py && python -X utf8 tools/b706_tests.py run test_glossary_supersede_b651.py && python -X utf8 tools/b706_tests.py run test_licensed_table_b645.py && python -X utf8 tools/b706_tests.py run test_licensed_table_instrument_b652.py && python -X utf8 tools/b706_tests.py run test_met_b646.py && python -X utf8 tools/b706_tests.py run test_module_header.py && python -X utf8 tools/b706_tests.py run test_msplit_b658.py && python -X utf8 tools/b706_tests.py run test_name_b649.py && python -X utf8 tools/b706_tests.py run test_name_patterns_b636.py && python -X utf8 tools/b706_tests.py run test_no_sorry_main.py && python -X utf8 tools/b706_tests.py run test_premise_status.py && python -X utf8 tools/b706_tests.py run test_primed_names_b643.py && python -X utf8 tools/b706_tests.py report stepzero",
+   "n": 25,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:01:45.477Z",
+   "src": "seat",
+   "cmd": "git status --porcelain && echo ---- PP && git -C /d/MY-DOwnloads/PLACE-papers status --porcelain && echo ---- join && git -C /d/SIDE-faces-join status --porcelain && echo ---- EF && git -C /d/SIDE-explicit-formula status --porcelain && echo ---- ls-files && git ls-files -- data/b628_intake_crank_v0_5.txt data/b647_navigator_memory.txt data/b671_narrow_run2_points.jsonl data/b681_narrow_units.jsonl data/b694_witness_units.jsonl data/b696_witness_balls_units.jsonl && echo END-LS",
+   "n": 26,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:08:13.374Z",
+   "src": "seat",
+   "cmd": "git add tools/b706_worklist.py tools/b706_tests.py tools/b706_citation.py tools/b706_record.py data/b706_ferry.txt data/b706_ferry_scan.txt data/b706_citation_check.txt data/b706_citation_check.json data/b706_readfirst.txt data/b706_readfirst_closure.txt data/b706_readfirst_diff.txt data/b706_rowgen_stepzero.txt data/b706_branches_before.json data/b706_branches.txt data/b706_branches.json data/b706_tests_stepzero.txt data/b706_tests_stepzero.json data/b706_tests_withheld.json data/b706_stepzero.txt && git commit -q -m \"b706 step zero: the ferry, the citation check (130 cites, 1 miss the navigator's), the readfirst bank and its closure diff, rowgen, the branches (8 deleted), the tests (54 run, 3 not clean carried), the step-zero bank; the act's first four tools\" && git log -1 --format='%h %s' && git status --porcelain -- tools/b706_worklist.py tools/b706_record.py data/b706_stepzero.txt",
+   "n": 27,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:08:36.278Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py names b703_checks",
+   "n": 28,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:10:14.890Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py names b682_citation && echo ---- b677 && python -X utf8 tools/b706_record.py names b677_citation && echo ---- b678 && python -X utf8 tools/b706_record.py names b678_corrigendum",
+   "n": 29,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:25:15.697Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py armsort && echo ---- repairs && python -X utf8 tools/b706_record.py repairs && echo ---- repairctl && python -X utf8 tools/b706_record.py repairctl && echo ---- c1 dry && python -X utf8 tools/b706_record.py c1 dry && echo ---- corrigendum dry && python -X utf8 tools/b706_corrigendum.py dry",
+   "n": 30,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:25:41.558Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py repairctl && echo ---- c1 land && python -X utf8 tools/b706_record.py c1 && echo ---- corrigendum land && python -X utf8 tools/b706_corrigendum.py land",
+   "n": 31,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:26:08.602Z",
+   "src": "seat",
+   "cmd": "git add tools/b706_checks.py tools/b706_corrigendum.py tools/b706_record.py tools/b706_worklist.py tools/b706_citation.py data/b706_arm_sort.txt data/b706_arm_sort.json data/b706_tool_repairs.txt data/b706_repair_controls.txt data/b706_record_lines.json data/b706_corrigendum.txt data/b706_corrigendum.json data/b706_corrigendum_landing.json data/b675_corrigenda.txt && git commit -q -m \"b706 Component 1: b705 at its weight (FINDINGS :10028); the ten failing arms sorted, six after the seal; five carry-time repairs with their controls (11 cases as wanted); the corrigendum for b705's six post-seal items (FINDINGS :10030), corrigenda row (26); the suite and the corrigendum tool carried\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 32,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:26:18.349Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m \"b706 Component 1: b705 at its weight appended to its entry (FINDINGS :10028); the corrigendum to b705's record after its seal (FINDINGS :10030)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 33,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:27:05.525Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b706_record.py pairs",
+   "n": 34,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:28:13.993Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b706_record.py pairs",
+   "n": 35,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:29:21.062Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py partners_read",
+   "n": 36,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T19:29:22.326Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py names b672_record",
+   "n": 37,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:12:02.422Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_citation.py answer \"Hand edits: 1, resolved by kind\" && echo ---- && python -X utf8 tools/b706_citation.py answer \"Join manifest: 1, Mathlib last\"",
+   "n": 38,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:15:07.419Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_citation.py answer \"Join manifest: 1, Mathlib last\" && echo ---- repairs && python -X utf8 tools/b706_record.py repairs && echo ---- repairctl && python -X utf8 tools/b706_record.py repairctl && echo ---- readers before && python -X utf8 tools/b706_record.py readers before && echo ---- registry rows && python -X utf8 tools/b706_record.py registry_rows",
+   "n": 39,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:15:08.575Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py names rule_arms",
+   "n": 40,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:16:06.014Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py partners_regen dry",
+   "n": 41,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T20:16:09.327Z",
+   "src": "seat",
+   "cmd": "$base = 'D:\\MY-DOwnloads\\PLACE-papers\\archive\\2026-10-22-b706-partner-copies'; foreach ($d in @('phase1.5\\proofs', 'phase1.5\\simplicity', 'phase1.5\\spectral', 'phase1.5\\rcurve', 'phase2\\method', 'phase1.5\\structural', 'phase1.5\\method', 'phase2\\quantum', 'day1')) { $p = Join-Path $base $d; if (-not (Test-Path $p)) { New-Item -ItemType Directory -Path $p | Out-Null }; Write-Output (\"{0} exists {1}\" -f $p, (Test-Path $p)) }",
+   "n": 42,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:17:17.748Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py partners_regen dry show",
+   "n": 43,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:18:54.361Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py partners_regen dry",
+   "n": 44,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:22:25.994Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_citation.py answer \"Zero diff: 1, against the generator\"",
+   "n": 45,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:23:39.383Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py partners_regen && git -C /d/MY-DOwnloads/PLACE-papers status --porcelain --untracked-files=no",
+   "n": 46,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:25:14.680Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py partners_regen && git -C /d/MY-DOwnloads/PLACE-papers status --porcelain --untracked-files=no",
+   "n": 47,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:25:21.928Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git mv phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md && git mv phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE_v0_7.md phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md && git add -- phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): PATHS_TO_THE_CRITICAL_LINE renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v0_7.md renamed by git mv to the unversioned name; REGISTRY 1.5a-5 version v0.6 -> v0.7 (the tag kept); the pair's zero diff against the generator (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 48,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:26:56.640Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md archive/2026-10-22-b706-partner-copies/phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md && git mv phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md && git add -- phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): SIMPLICITY_OF_RIEMANN_ZEROS renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v1_1_3.md (its Correspondence table regenerated by the generator, 26 cells, the second pass 0) renamed by git mv to the unversioned name; REGISTRY 1.5b-6 version v1.1.2 -> v1.1.3 (the tag kept); the pair's zero diff against the generator (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 49,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:27:07.101Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md && git mv phase1.5/proofs/THE_UNCONDITIONAL_SURROUND_v0_5.md phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md && git add -- phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): THE_UNCONDITIONAL_SURROUND renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v0_5.md renamed by git mv to the unversioned name; REGISTRY 1.5a-6 version v0.4 -> v0.5 (the tag kept); the pair's zero diff against the generator (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 50,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:27:16.731Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/spectral/GRH_CASCADE.md archive/2026-10-22-b706-partner-copies/phase1.5/spectral/GRH_CASCADE.md && git mv phase1.5/spectral/GRH_CASCADE_v0_3_6.md phase1.5/spectral/GRH_CASCADE.md && git add -- phase1.5/spectral/GRH_CASCADE.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): GRH_CASCADE renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v0_3_6.md renamed by git mv to the unversioned name; REGISTRY 1.5d-4 version v0.3.5 -> v0.3.6 (the tag kept); the pair's zero diff against the generator (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 51,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:27:26.665Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/rcurve/R_CURVE_CRITERION.md archive/2026-10-22-b706-partner-copies/phase1.5/rcurve/R_CURVE_CRITERION.md && git mv phase1.5/rcurve/R_CURVE_CRITERION_v0_2_2.md phase1.5/rcurve/R_CURVE_CRITERION.md && git add -- phase1.5/rcurve/R_CURVE_CRITERION.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): R_CURVE_CRITERION renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v0_2_2.md renamed by git mv to the unversioned name; REGISTRY 1.5g-4 version v0.2.1 -> v0.2.2 (the tag kept); the pair's zero diff against the generator (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 52,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:27:38.527Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md archive/2026-10-22-b706-partner-copies/phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md && git mv phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md && git add -- phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): INDEX_ARITY_AT_THE_CRITICAL_LINE renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v0_19.md renamed by git mv to the unversioned name; REGISTRY 1.5a-7 version v0.18 -> v0.19 (the tag kept); the pair's zero diff against the generator (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 53,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:27:48.192Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/proofs/THE_RESIDUE_OF_RH.md archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_RESIDUE_OF_RH.md && git mv phase1.5/proofs/THE_RESIDUE_OF_RH_v1_2.md phase1.5/proofs/THE_RESIDUE_OF_RH.md && git add -- phase1.5/proofs/THE_RESIDUE_OF_RH.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): THE_RESIDUE_OF_RH renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v1_2.md renamed by git mv to the unversioned name; REGISTRY 1.5a-8 version v1.1 -> v1.2 (the tag kept); the pair's tables equal (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 54,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:27:59.389Z",
+   "src": "seat",
+   "cmd": "git mv phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md archive/2026-10-22-b706-partner-copies/phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md && git mv phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md && git add -- phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): ADDITIVE_MULTIPLICATIVE_CONSPIRACY renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v0_2_4.md renamed by git mv to the unversioned name; REGISTRY p2-27 version v0.2.3 -> v0.2.4 (the tag kept); the pair's zero diff against the generator (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 55,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:28:11.075Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md archive/2026-10-22-b706-partner-copies/phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md && git mv phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md && git add -- phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): FOUNDATIONS_OF_THE_SIDE_PROGRAMME renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v0_2_5.md renamed by git mv to the unversioned name; REGISTRY 1.5f-4 version v0.2.4 -> v0.2.5 (the tag kept); the pair's zero diff against the generator (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 56,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:28:22.851Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/method/TECHNE_TOOLKIT.md archive/2026-10-22-b706-partner-copies/phase1.5/method/TECHNE_TOOLKIT.md && git mv phase1.5/method/TECHNE_TOOLKIT_v8_3.md phase1.5/method/TECHNE_TOOLKIT.md && git add -- phase1.5/method/TECHNE_TOOLKIT.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): TECHNE_TOOLKIT renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v8_3.md renamed by git mv to the unversioned name; REGISTRY 1.5h-7 version v8.2 -> v8.3 (the tag kept); the pair's one hand-edited line resolved by its kind (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 57,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:28:32.789Z",
+   "src": "seat",
+   "cmd": "git mv phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md archive/2026-10-22-b706-partner-copies/phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md && git mv phase2/quantum/SILENCE_STAGES_DEALIGNMENT_v1_3.md phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md && git add -- phase2/quantum/SILENCE_STAGES_DEALIGNMENT.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): SILENCE_STAGES_DEALIGNMENT renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v1_3.md (its Correspondence table regenerated by the generator, 13 cells, the second pass 0) renamed by git mv to the unversioned name; REGISTRY p2-16 version v1.2 -> v1.3 (the tag kept); the pair's zero diff against the generator (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 58,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:28:43.774Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/method/EXHAUSTIVENESS_LICENSE.md archive/2026-10-22-b706-partner-copies/phase1.5/method/EXHAUSTIVENESS_LICENSE.md && git mv phase1.5/method/EXHAUSTIVENESS_LICENSE_v0_2.md phase1.5/method/EXHAUSTIVENESS_LICENSE.md && git add -- phase1.5/method/EXHAUSTIVENESS_LICENSE.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): EXHAUSTIVENESS_LICENSE renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v0_2.md renamed by git mv to the unversioned name; REGISTRY 1.5h-9 version v0.1 -> v0.2 (the tag kept); the pair's tables equal (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 59,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:28:54.873Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/method/INVARIANCE_BARRIERS.md archive/2026-10-22-b706-partner-copies/phase1.5/method/INVARIANCE_BARRIERS.md && git mv phase1.5/method/INVARIANCE_BARRIERS_v1_4.md phase1.5/method/INVARIANCE_BARRIERS.md && git add -- phase1.5/method/INVARIANCE_BARRIERS.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): INVARIANCE_BARRIERS renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v1_4.md renamed by git mv to the unversioned name; REGISTRY 1.5h-8 version v1.3 -> v1.4 (the tag kept); the pair's zero diff against the generator (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 60,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:29:04.619Z",
+   "src": "seat",
+   "cmd": "git mv day1/A_Place_to_Stand.md archive/2026-10-22-b706-partner-copies/day1/A_Place_to_Stand.md && git mv day1/A_Place_to_Stand_v5_18.md day1/A_Place_to_Stand.md && git add -- day1/A_Place_to_Stand.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): A_Place_to_Stand renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v5_18.md renamed by git mv to the unversioned name; REGISTRY d1-1 version v5.13 -> v5.18 (the tag kept); the pair's one hand-edited line resolved by its kind (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 61,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:29:14.270Z",
+   "src": "seat",
+   "cmd": "git mv phase1.5/spectral/BALANCE_AND_POSITIVITY.md archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md && git mv phase1.5/spectral/BALANCE_AND_POSITIVITY_v0_9_5.md phase1.5/spectral/BALANCE_AND_POSITIVITY.md && git add -- phase1.5/spectral/BALANCE_AND_POSITIVITY.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): BALANCE_AND_POSITIVITY renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v0_9_5.md renamed by git mv to the unversioned name; REGISTRY 1.5c-16 version v0.9.4 -> v0.9.5 (the tag kept); the pair's tables equal (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 62,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:29:26.030Z",
+   "src": "seat",
+   "cmd": "git mv phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md archive/2026-10-22-b706-partner-copies/phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md && git mv phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE_v0_2.md phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md && git add -- phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): FACES_OF_H2_AT_FINITE_INSTANCE renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v0_2.md renamed by git mv to the unversioned name; REGISTRY p2-39 version cell v0.2 kept, the edition's path noted; the pair's one hand-edited line resolved by its kind (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 63,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:29:36.540Z",
+   "src": "seat",
+   "cmd": "git mv phase2/method/E_DIFFICULTY_THEOREM.md archive/2026-10-22-b706-partner-copies/phase2/method/E_DIFFICULTY_THEOREM.md && git mv phase2/method/E_DIFFICULTY_THEOREM_v1_0_4.md phase2/method/E_DIFFICULTY_THEOREM.md && git add -- phase2/method/E_DIFFICULTY_THEOREM.md REGISTRY.md && git commit -q -m \"b706 Component 2 (R316)(3): E_DIFFICULTY_THEOREM renamed in place -- the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv, the versioned copy _v1_0_4.md renamed by git mv to the unversioned name; REGISTRY p2-4 version v1.0.3 -> v1.0.4 (the tag kept); the table in the versioned copy alone, no diff taken, the author's word (relay data/b706_partners.txt)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no && git log --oneline -18 --format='%h %s' -- REGISTRY.md",
+   "n": 64,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:29:53.939Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b706_record.py readers after",
+   "n": 65,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:29:59.658Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git add tools/b706_record.py tools/b706_citation.py tools/b706_checks.py data/b706_partners_read.txt data/b706_partners_read.json data/b706_partners_dry.txt data/b706_partners_dry.json data/b706_partners.txt data/b706_partners.json data/b706_prompt1_print.txt data/b706_prompt2_print.txt data/b706_readers_before.txt data/b706_readers_before.json data/b706_readers_after.txt data/b706_readers_after.json data/b706_defects.txt data/b706_citation_check.txt data/b706_citation_check.json data/b706_tool_repairs.txt data/b706_repair_controls.txt && git commit -q -m \"b706 Component 2 (R316)(3): the 17 pairs read side by side (8 hand edits, all the versioned side's), the generator run once into the versioned copies (26 + 13 cells), the zero diff against the generator (the second pass 0, 107 lines counted apart, none newer on the retired side), 17 renamed in place at PLACE-papers 1dfd9bc..cedf7e9; the two prompts' prints and the answers checked; the readers' hits and the roster re-read before and after; the defects (a)-(f); the checker's reach extended (repairs re-banked)\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 66,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:33:35.532Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py joinlake && echo ---- roster && python -X utf8 tools/b706_record.py roster706",
+   "n": 67,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:33:38.965Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-faces-join && git add lakefile.toml && git -c user.name=\"psinary-sketch\" -c user.email=\"psinary-sketch@users.noreply.github.com\" commit -q -m \"W-ORD-FACES-JOIN-MANIFEST (b706, (R316)(4) and the author's word): the lakefile re-ordered SIDEExplicitFormula v0.37, sideLvConservation v0.10.0, mathlib LAST at de5ce8a9 (Lake's own hint, run 39799253764's cache.log :21: Mathlib's versions take precedence for the transitive packages); every revision as at 732c1b49; no lake-manifest.json written on this host, the runner regenerates it\" && git log -1 --format='%H %s' && git status --porcelain",
+   "n": 68,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:34:16.167Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b706_record.py joinlake && echo ---- joinfiles && python -X utf8 tools/b706_record.py joinfiles",
+   "n": 69,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:34:21.763Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-faces-join branch push-b706-join && git -C /d/SIDE-faces-join branch --list push-b706-join",
+   "n": 70,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:34:40.891Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b706_join_push_out.txt timeout 300 bash tools/push_gated.sh /d/SIDE-faces-join push-b706-join",
+   "n": 71,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:36:27.277Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_tests.py hold dispatch-join && python -X utf8 tools/b706_record.py dispatch SIDE-faces-join b37a7b6e6322b8f99b2e1bc5c43cae248782c991 join FacesJoin",
+   "n": 72,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:36:28.697Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py genreach forms && echo ---- wfstep && python -X utf8 tools/b706_record.py wfstep",
+   "n": 73,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:37:32.490Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py wfstep && echo ---- genreach && python -X utf8 tools/b706_record.py genreach",
+   "n": 74,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:37:33.877Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py runwait SIDE-faces-join 39850337262 300",
+   "n": 75,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:42:51.580Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git add .github/workflows/build-module.yml && git -c user.name=\"psinary-sketch\" -c user.email=\"psinary-sketch@users.noreply.github.com\" commit -q -m \"W-ORD-WORKFLOW-PROBE-STEP (b706, (R316)(5)): a chain-probe step after the print step and before the closure, run when the ref carries a root ChainProbe.lean (imported by no module), its output uploaded as a separate artifact chain-probe-<run id>; no other step changed; no dispatch for it this act, the trigger the next probe at b708\" && git log -1 --format='%H %s' && git status --porcelain && git log --oneline -3 --format='%h %s' main",
+   "n": 76,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:42:52.741Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b706_record.py runwait SIDE-faces-join 39850337262 300",
+   "n": 77,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:43:03.092Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula branch push-b706-ef && git -C /d/SIDE-explicit-formula branch --list push-b706-ef",
+   "n": 78,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:43:04.320Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 /d/relay/tools/b706_record.py runwait SIDE-faces-join 39850337262 300",
+   "n": 79,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:45:45.449Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=/d/relay/data/b706_ef_push_out.txt timeout 300 bash /d/relay/tools/push_gated.sh /d/SIDE-explicit-formula push-b706-ef",
+   "n": 80,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:45:48.357Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py runner SIDE-faces-join 39850337262 b37a7b6e6322b8f99b2e1bc5c43cae248782c991 join the join kernel at its manifest commit, (R316)(4) and the author`s word (mathlib last), dispatched once with the whole print list",
+   "n": 81,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:46:06.743Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py runner SIDE-faces-join 39850337262 b37a7b6e6322b8f99b2e1bc5c43cae248782c991 join \"the join kernel at its manifest commit under R316-4 and the author-s word, mathlib last; dispatched once with the whole print list\" && echo ---- artfile && python -X utf8 /d/relay/tools/b706_record.py artfile SIDE-faces-join 39850337262 join cache.log && echo ---- joingrade && python -X utf8 /d/relay/tools/b706_record.py joingrade join",
+   "n": 82,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:47:06.504Z",
+   "src": "seat",
+   "cmd": "git add tools/b706_record.py tools/correspondence_gen.py data/b706_join_lakefile.txt data/b706_join_lakefile.json data/b706_join_files.txt data/b706_join_files.json data/b706_join_push_out.txt data/b706_dispatches.json data/b706_runner_SIDE-faces-join_join.txt data/b706_axioms_SIDE-faces-join_join.txt data/b706_buildlog_SIDE-faces-join_join.txt data/b706_runner_rows.json data/b706_art_SIDE-faces-join_join_cache_log.txt data/b706_join_grade.txt data/b706_join_grade.json data/b706_workflow_step.txt data/b706_workflow_step.json data/b706_ef_push_out.txt data/b706_generator_forms.txt data/b706_generator_reach.txt data/b706_generator_reach.json data/b706_generator_diff.txt data/b706_roster_read.txt data/b706_roster_read.json && git commit -q -m \"b706 Component 3 (R316)(4)-(6): the join's lakefile re-ordered mathlib last (SIDE-faces-join b37a7b6, pushed), one dispatch (run 39850337262): the cache served, Mathlib built, the build held at SIDE-lv-conservation GammaBounds.lean :177 at the shared pin, faces_join not reached, the join HELD, no tag; the workflow's probe step on SIDE-explicit-formula main (badaccc, pushed); the generator's parser extended to the citation form (17 kernels, SIDE-explicit-formula 13 cells), every re-emission byte-identical, its roster at the unversioned names\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 83,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:47:48.624Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py names chain_page",
+   "n": 84,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:48:01.133Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py tagstate v0.1 && echo ---- && python -X utf8 /d/relay/tools/b706_record.py tagstate v0.2",
+   "n": 85,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:50:15.929Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula checkout -q -b prints-b706-v0.1 v0.1 && git -C /d/SIDE-explicit-formula rev-parse --abbrev-ref HEAD && git -C /d/SIDE-explicit-formula rev-parse --short HEAD && git -C /d/SIDE-explicit-formula status --porcelain --untracked-files=no",
+   "n": 86,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:50:24.619Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py printprobe v0.1 && git -C /d/SIDE-explicit-formula status --porcelain",
+   "n": 87,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:50:28.195Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git add .github/workflows/build-module.yml print_targets.txt ChainProbe.lean && git -c user.name=\"psinary-sketch\" -c user.email=\"psinary-sketch@users.noreply.github.com\" commit -q -m \"b706 (R316)(7), W-ORD-ENTRY-TAG-PRINTS: the scratch branch prints-b706-v0.1 cut at v0.1 = baed4df carrying main's build-module.yml verbatim, print_targets.txt naming SIDEExplicitFormula.B321.ch_iff_rh alone, and a root ChainProbe.lean for the probe step; one dispatch, the branch deleted after its bank; the tag untouched\" && git log -1 --format='%H %s' && git status --porcelain",
+   "n": 88,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:50:39.120Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b706_prints_v0.1_push_out.txt timeout 300 bash /d/relay/tools/push_gated.sh /d/SIDE-explicit-formula --branch prints-b706-v0.1 --scratch",
+   "n": 89,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:50:52.439Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_tests.py hold dispatch-prints-v0.1 && python -X utf8 /d/relay/tools/b706_record.py dispatch SIDE-explicit-formula 748f2a9429e0cb227adbcfecdb0850d6a44fbcc8 prints-b706-v0.1 SIDEExplicitFormula.H2Bridge",
+   "n": 90,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:50:54.505Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula checkout -q -b prints-b706-v0.2 v0.2 && git -C /d/SIDE-explicit-formula rev-parse --abbrev-ref HEAD && git -C /d/SIDE-explicit-formula rev-parse --short HEAD && git -C /d/SIDE-explicit-formula status --porcelain --untracked-files=no",
+   "n": 91,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:51:12.963Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py printprobe v0.2 && git -C /d/SIDE-explicit-formula status --porcelain",
+   "n": 92,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:51:16.170Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git add .github/workflows/build-module.yml print_targets.txt ChainProbe.lean && git -c user.name=\"psinary-sketch\" -c user.email=\"psinary-sketch@users.noreply.github.com\" commit -q -m \"b706 (R316)(7), W-ORD-ENTRY-TAG-PRINTS: the scratch branch prints-b706-v0.2 cut at v0.2 = 5c72cad carrying main's build-module.yml verbatim, print_targets.txt naming SIDEExplicitFormula.B321.h2_sign_iff_rh alone, and a root ChainProbe.lean for the probe step; one dispatch, the branch deleted after its bank; the tag untouched\" && git log -1 --format='%H %s' && git status --porcelain",
+   "n": 93,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:51:27.432Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PUSH_GATED_LOG=/d/relay/data/b706_prints_v0.2_push_out.txt timeout 300 bash /d/relay/tools/push_gated.sh /d/SIDE-explicit-formula --branch prints-b706-v0.2 --scratch",
+   "n": 94,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:51:28.766Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 /d/relay/tools/b706_record.py runwait SIDE-explicit-formula 39852365437 240",
+   "n": 95,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:55:16.232Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_tests.py hold dispatch-prints-v0.2 && python -X utf8 /d/relay/tools/b706_record.py dispatch SIDE-explicit-formula 34e098ad3ad6fd4a31358a8530640434d0a8fcb5 prints-b706-v0.2 SIDEExplicitFormula.Seam",
+   "n": 96,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:55:17.538Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py runwait SIDE-explicit-formula 39852365437 300",
+   "n": 97,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:55:39.346Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py runner706 SIDE-explicit-formula 39852365437 748f2a9429e0cb227adbcfecdb0850d6a44fbcc8 prints-b706-v0.1 \"the entry-tag print at v0.1, the scratch branch carrying the workflow and the one-name print list; dispatched once\" && echo ---- printsbank && python -X utf8 /d/relay/tools/b706_record.py printsbank v0.1 39852365437",
+   "n": 98,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T20:55:40.580Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py runwait SIDE-explicit-formula 39852975531 300",
+   "n": 99,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:00:34.968Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py runner706 SIDE-explicit-formula 39852365437 748f2a9429e0cb227adbcfecdb0850d6a44fbcc8 prints_v0_1 \"the entry-tag print at v0.1 on the scratch branch prints-b706-v0.1, carrying the workflow and the one-name print list; dispatched once\" && echo ---- printsbank && python -X utf8 /d/relay/tools/b706_record.py printsbank v0.1 39852365437",
+   "n": 100,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:00:36.327Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py runwait SIDE-explicit-formula 39852975531 300",
+   "n": 101,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:01:30.913Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py runner706 SIDE-explicit-formula 39852975531 34e098ad3ad6fd4a31358a8530640434d0a8fcb5 prints_v0_2 \"the entry-tag print at v0.2 on the scratch branch prints-b706-v0.2, carrying the workflow and the one-name print list; dispatched once\" && echo ---- printsbank && python -X utf8 /d/relay/tools/b706_record.py printsbank v0.2 39852975531",
+   "n": 102,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:01:32.660Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula checkout -q main && git -C /d/SIDE-explicit-formula rev-parse --abbrev-ref HEAD && git -C /d/SIDE-explicit-formula rev-parse --short HEAD && git -C /d/SIDE-explicit-formula status --porcelain --untracked-files=no",
+   "n": 103,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:01:53.822Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py cellsreach",
+   "n": 104,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:02:10.553Z",
+   "src": "seat",
+   "cmd": "git add tools/b706_record.py tools/b706_worklist.py data/b706_print_files_prints-b706-v0.1.txt data/b706_print_files_prints-b706-v0.1.json data/b706_print_files_prints-b706-v0.2.txt data/b706_print_files_prints-b706-v0.2.json data/b706_prints_v0.1_push_out.txt data/b706_prints_v0.2_push_out.txt data/b706_dispatches.json data/b706_runner_SIDE-explicit-formula_prints_v0_1.txt data/b706_axioms_SIDE-explicit-formula_prints_v0_1.txt data/b706_buildlog_SIDE-explicit-formula_prints_v0_1.txt data/b706_runner_SIDE-explicit-formula_prints_v0_2.txt data/b706_axioms_SIDE-explicit-formula_prints_v0_2.txt data/b706_buildlog_SIDE-explicit-formula_prints_v0_2.txt data/b706_runner_rows.json data/b706_prints_v0.1.txt data/b706_prints_v0.1.json data/b706_prints_v0.2.txt data/b706_prints_v0.2.json data/b706_cells_reread.txt data/b706_cells_reread.json data/b706_faces.txt && git commit -q -m \"b706 Component 4 (R316)(7)-(8): the entry-tag prints -- scratch branches prints-b706-v0.1 (748f2a9) and prints-b706-v0.2 (34e098a) carrying the workflow and a one-name print list, one dispatch each (runs 39852365437, 39852975531, both DERIVES), the probe step's prints banked from the separate artifacts (data/b706_prints_v0.1.txt, v0.2); the 11 unbanked mentions re-read; the faces row: the join held, no prompt, no row changed\" && git log -1 --format='%h %s' && git status --porcelain --untracked-files=no",
+   "n": 105,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:02:24.655Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula branch -D prints-b706-v0.1",
+   "n": 106,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:02:29.655Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula branch -D prints-b706-v0.2",
+   "n": 107,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:02:34.840Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula push origin --delete prints-b706-v0.1",
+   "n": 108,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:02:41.689Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula push origin --delete prints-b706-v0.2",
+   "n": 109,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-22T21:10:20.966Z",
+   "src": "seat",
+   "cmd": "Get-ChildItem D:\\relay\\data -Filter 'b706_*' -Name",
+   "n": 110,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:10:58.765Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay log --format='%h %ct %s' f9a60e40..HEAD",
+   "n": 111,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:10:59.777Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers log --format='%h %ct %s' c4c4273..HEAD",
+   "n": 112,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:11:01.305Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-faces-join log --format='%H %ct %s' main; git -C /d/SIDE-explicit-formula log --format='%H %ct %s' -2 main; git -C /d/relay status --short; git -C /d/MY-DOwnloads/PLACE-papers status --short",
+   "n": 113,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:32:33.939Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py repairs",
+   "n": 114,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:32:35.116Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py repairctl",
+   "n": 115,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:32:36.139Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py figures",
+   "n": 116,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:32:37.234Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py orders dry",
+   "n": 117,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:32:39.381Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -m py_compile /d/relay/tools/b706_checks.py /d/relay/tools/b706_closing.py /d/relay/tools/b706_regspec.py /d/relay/tools/b706_reg_gate.py /d/relay/tools/b706_standing_figures.py /d/relay/tools/b706_worklist.py; echo EXIT $?",
+   "n": 118,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:33:35.712Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py orders",
+   "n": 119,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:33:36.221Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py answers",
+   "n": 120,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:33:37.283Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py reads",
+   "n": 121,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:33:38.222Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py commands",
+   "n": 122,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:33:39.302Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py kernels",
+   "n": 123,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:33:40.320Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py guard",
+   "n": 124,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:33:41.340Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py armnames",
+   "n": 125,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-22T21:33:42.309Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /d/relay/tools/b706_record.py standing",
+   "n": 126,
+   "bg": false
+  }
+ ],
+ "offences": [],
+ "prev": {
+  "act": "b705",
+  "session": "44411d52-210c-4cc1-9c1f-45be454f0521",
+  "rows": 6,
+  "offences": []
+ },
+ "local_lean": [],
+ "dispatches": [
+  72,
+  90,
+  96
+ ],
+ "detached": [],
+ "seds": [],
+ "null_redirects": [],
+ "redirects": [],
+ "pipes": [],
+ "any_pipes": [
+  42
+ ],
+ "py_programs": [],
+ "moves_deletes": [
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  48,
+  49,
+  50,
+  51,
+  52,
+  53,
+  54,
+  55,
+  56,
+  57,
+  58,
+  59,
+  60,
+  61,
+  62,
+  63,
+  64,
+  106,
+  107,
+  108,
+  109
+ ],
+ "delete_shapes": [
+  {
+   "n": 13,
+   "deletes": [
+    "push-b705"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 14,
+   "deletes": [
+    "push-b705-root"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 15,
+   "deletes": [
+    "push-b705-root2"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 16,
+   "deletes": [
+    "push-b705-root3"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 17,
+   "deletes": [
+    "push-b705-closing"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 18,
+   "deletes": [
+    "push-b705"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 19,
+   "deletes": [
+    "push-b705-root"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 20,
+   "deletes": [
+    "push-b705-join"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 106,
+   "deletes": [
+    "prints-b706-v0.1"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 107,
+   "deletes": [
+    "prints-b706-v0.2"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 108,
+   "deletes": [
+    "prints-b706-v0.1"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 109,
+   "deletes": [
+    "prints-b706-v0.2"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  }
+ ],
+ "outbound": []
+}

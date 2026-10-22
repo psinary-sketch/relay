@@ -1,4 +1,4 @@
-b706 -- THE CARRY-TIME READING: THE REPAIRS, (R316)(2) (2026-10-22T20:15:17Z)
+b706 -- THE CARRY-TIME READING: THE REPAIRS, (R316)(2) (2026-10-22T21:50:40Z)
 
 ### rows are repairs with what they answer: the tool and its part ; what it answers ; the form. Each diff beneath its row, written by
 ### this route (difflib over the function`s source: the sealed tool`s against this act`s; a new function printed whole). The controls
@@ -170,4 +170,157 @@ b706 -- THE CARRY-TIME READING: THE REPAIRS, (R316)(2) (2026-10-22T20:15:17Z)
       +
       +
 
-### ### **REPAIRS 5 ; SHARED TOOLS EDITED 0 AT THE CARRY (correspondence_gen.py AT COMPONENT 3 BY RULING) ; DIFF LINES 147 ; NO FROZEN BANK EDITED.**
+  (6) tools/b706_record.py `runner706`, `_artifact_named` -- ANSWERS the carry under (R316)(5) and (7): b698`s runner (tools/b698_record.py runner, carried by tools/b705_record.py) reads the run`s FIRST LISTED artifact; a run of the workflow as edited under (R316)(5) uploads two, build-module-<run id> and chain-probe-<run id>, so the first listed may be the probe`s. runner706 chooses the run`s own artifact by name and is printed whole (the sealed tool has no function of that name); every other clause b698`s -- the sha256 against the platform`s digest before any reading, the build`s exit and error lines, the memory log, the print step, the gate. The two print runs were read through it, the join run through b698`s (one artifact). The control: data/b706_repair_controls.txt.
+
+      --- tools/b698_record.py runner706 (sealed)
+      +++ tools/b706_record.py runner706 (this act)
+      @@ -1 +1,81 @@
+      +def runner706(*a):
+      +    """`runner706 <kernel> <run id> <ref> <label> <note...>`: b698's runner carried with one change (this act's repair (6), data/b706_tool_repairs.txt):
+      +    the run's artifact chosen BY NAME (build-module-<run id>) where b698's reader takes the first listed -- a run of the workflow as edited
+      +    under (R316)(5) uploads a second artifact (chain-probe-<run id>); everything else b698's: the artifact's sha256 against the platform's digest
+      +    before any reading, the build's exit and error lines, the memory log, the print step read, the gate."""
+      +    import hashlib
+      +    import io as _io
+      +    import zipfile
+      +    kernel, run_id, ref, label, note = a[0], int(a[1]), a[2], a[3], ' '.join(a[4:])
+      +    repo = 'psinary-sketch/' + kernel
+      +    rc, out, err = R._gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+      +    run = json.loads(out or b'{}')
+      +    art, arts = _artifact_named(repo, run_id, 'build-module-')
+      +    art = art or {}
+      +    row = dict(kernel=kernel, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+      +               stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+      +    L = ['%s -- THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (ACT, kernel, label.upper(), utc()), '',
+      +         '### the dispatch: %s ; the ref input %s' % (note, ref),
+      +         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+      +             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+      +             run.get('updatedAt')),
+      +         '### the artifacts listed %d: %s ; the run`s own chosen by name (build-module-)' % (len(arts), [x.get('name') for x in arts])]
+      +    T_ = {}
+      +    if art:
+      +        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+      +        sha = hashlib.sha256(rz.stdout).hexdigest()
+      +        digest = (art.get('digest') or '').replace('sha256:', '')
+      +        L.append('### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+      +            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+      +            'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+      +        if digest and digest == sha:
+      +            row['artifact_sha256'] = sha
+      +            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+      +                for n in z.namelist():
+      +                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+      +    else:
+      +        L.append('### the artifact: ### NONE LISTED')
+      +    mem = T_.get('mem.log', '')
+      +    low = re.findall(r'^LOW (\d+)', mem, re.M)
+      +    row['mem_low'] = int(low[-1]) if low else None
+      +    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+      +    blog = T_.get('build.log', '')
+      +    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+      +    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+      +    ax = T_.get('axioms.txt', '').rstrip(NL)
+      +    row['axioms_sha256'] = __import__('hashlib').sha256(ax.encode('utf-8')).hexdigest() if ax else None
+      +    deps = _deps(ax)
+      +    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+      +    printed = [n for n, _d in deps]
+      +    unmatched = [n for n in tg if n not in printed]
+      +    outside = [(n, d) for n, d in deps if not set(d) <= set(STD3)]
+      +    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+      +          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+      +          '### the build: exit %s ; error lines %d:' % (row['build_exit'], len(row['errors']))] + ['    ' + l for l in row['errors'][:40]] + [
+      +          '### the log`s last lines:'] + ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + [
+      +          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; axiom-free %d ; '
+      +          'sorryAx %d ; outside the standard three %d ; refused %s' % (
+      +              len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg), sum(1 for _n, d in deps if not d),
+      +              sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+      +          '### rows are terminals: name | the axioms printed | within the standard three:']
+      +    L += ['  %-62s %s %s' % (n, d, 'STD3' if set(d) <= set(STD3) else '### OUTSIDE') for n, d in deps]
+      +    L += ['  %-62s ### NOT PRINTED' % n for n in unmatched]
+      +    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+      +        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and not outside
+      +    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+      +    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; '
+      +          'OUTSIDE THE STANDARD THREE %d ; GATE %s.**' % (
+      +              run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']),
+      +              len(deps), len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), row['gate'])]
+      +    read_runner_row(row)
+      +    put_txt('%s_runner_%s_%s.txt' % (ACT, kernel, label), L)
+      +    if row['artifact_sha256']:
+      +        put_txt('%s_axioms_%s_%s.txt' % (ACT, kernel, label), ax.split(NL) if ax else ['### EMPTY'])
+      +        put_txt('%s_buildlog_%s_%s.txt' % (ACT, kernel, label), blog.rstrip(NL).split(NL))
+      +    j = jl('%s_runner_rows.json' % ACT) if os.path.isfile(os.path.join(D, '%s_runner_rows.json' % ACT)) else {}
+      +    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (kernel, label)] + [row]
+      +    put_json('%s_runner_rows.json' % ACT, dict(rows=rows))
+      +    print(NL.join(L[:15] + L[-3:]))
+       
+      +
+      +
+
+      --- (none)
+      +++ tools/b706_record.py _artifact_named (this act)
+      @@ -0,0 +1,7 @@
+      +def _artifact_named(repo, run_id, prefix):
+      +    rc, out, err = R._gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, run_id))
+      +    arts = (json.loads(out or b'{}').get('artifacts') or [])
+      +    return next((x for x in arts if (x.get('name') or '').startswith(prefix)), None), arts
+      +
+      +
+      +
+
+  (7) tools/b706_standing_figures.py `correspondence`, `partners`, `_roster` -- ANSWERS the carry under (R316)(3): b703`s readers (tools/b703_standing_figures.py :106-:156 and :186-:206, carried through tools/b705_standing_figures.py) take their roster from data/b672_roster_read.json, whose `path` is the VERSIONED copy for nine tables and whose `partner` the unversioned copy of each pair; after the renames those paths are gone (nine tables missing, seventeen partners in archive/). correspondence() is carried line for line over THIS ACT`S roster (data/b706_roster_read.json, the 20 tables at the unversioned names, each found by its anchor); partners() reads one copy per table, the figure 0 with every row ONE COPY, the order`s unit having no two copies from b706 on. No sealed module`s constant is rebound. The control: data/b706_repair_controls.txt.
+
+      --- tools/b703_standing_figures.py correspondence (sealed)
+      +++ tools/b706_standing_figures.py correspondence (this act)
+      @@ -1,5 +1,6 @@
+       def correspondence():
+      -    """per paper: the rows current, behind, at a moved tag with a changed statement, unread; the figure the changed-statement rows."""
+      +    """per paper: the rows current, behind, at a moved tag with a changed statement, unread; the figure the changed-statement rows (b703's
+      +    reading over this act's roster)."""
+           papers = []
+           for t in _roster():
+               path = os.path.join(PP, *t['path'].split('/'))
+
+      --- tools/b703_standing_figures.py partners (sealed)
+      +++ tools/b706_standing_figures.py partners (this act)
+      @@ -1,12 +1,11 @@
+       def partners():
+      -    """per roster paper with a partner copy: the lines differing between the two copies' Correspondence tables -- the unit of
+      -    W-ORD-PAPER-PARTNER-COPIES and of reading 4's 131 lines (relay data/b700_reading4.txt :66-:76) -- each table found by its anchor in each
+      -    copy (tools/correspondence_gen.py's find_table), difflib over its lines, autojunk off, each non-equal opcode counted at the larger side; a
+      -    copy whose table is not found counted apart. The figure the total."""
+      +    """per roster table after (R316)(3): ONE COPY at the unversioned name, no partner, differing 0; a table still naming a partner (none in this
+      +    act's roster) read as b703's partners() reads a pair. The figure the total."""
+           out = []
+           for t in _roster():
+               a, b = t.get('path'), t.get('partner')
+      -        if not a or not b or a == b:
+      +        if not b or b == a:
+      +            out.append(dict(paper=t['doc'], path=a, partner=None, differing=0, reason='ONE COPY (the pair renamed in place at b706, (R316)(3))'))
+                   continue
+               x = _read(os.path.join(PP, *a.split('/'))).split(NL)
+               y = _read(os.path.join(PP, *b.split('/'))).split(NL)
+
+      --- tools/b703_standing_figures.py _roster (sealed)
+      +++ tools/b706_standing_figures.py _roster (this act)
+      @@ -1,4 +1,5 @@
+       def _roster():
+      +    """this act's roster: data/b706_roster_read.json's tables (the 20 at the unversioned names)."""
+           try:
+               return json.load(io.open(os.path.join(D, ROSTER), encoding='utf-8')).get('tables') or []
+           except Exception:
+
+  (8) tools/b706_checks.py `partners_fig_ok`, G-PARTNER-COPIES -- ANSWERS the pre-run`s first standing-c run: b703`s fig_ok (tools/b703_checks.py :1127-:1130) reads a figure against the previous act`s alone, and with the partner copies resolved under (R316)(3) the figure drops from b705`s 131 to 0 (one copy per table), so the arm`s positive control -- the live figure raised by one -- still passed against 131 and the harness read the arm DEFECTIVE. The repaired predicate, printed whole, reads the partners figure against the LOWER of b705`s figure and this act`s banked reading (data/b706_standing_figures.json): the baseline reset to the reading the resolution gives, no regression from it admitted; the other three figures read b703`s predicate unchanged. The control: data/b706_repair_controls.txt.
+
+      --- tools/b703_checks.py partners_fig_ok (sealed)
+      +++ tools/b706_checks.py partners_fig_ok (this act)
+      @@ -1 +1,7 @@
+      +def partners_fig_ok(S):
+      +    f, p = S['fig'].get('partners') or {}, S['fig_prev'].get('partners') or {}
+      +    b = (S['figj'].get('partners') or {}).get('figure')
+      +    return isinstance(f.get('figure'), int) and isinstance(p.get('figure'), int) and isinstance(b, int) and f['figure'] <= min(p['figure'], b)
+       
+      +
+      +
+
+### ### **REPAIRS 8 ; SHARED TOOLS EDITED 0 AT THE CARRY (correspondence_gen.py AT COMPONENT 3 BY RULING) ; DIFF LINES 288 ; NO FROZEN BANK EDITED.**

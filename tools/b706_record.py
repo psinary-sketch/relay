@@ -584,6 +584,27 @@ REPAIR_ROWS = [
      'head (`### UNTRACKED WRITE: data/b706_<name>`), read from the tools` own declarations at import; the `rootexclude` route prints them; '
      'the `rootdry` route runs the root route dry on the pre-root tree before the seal and banks its READY. The control: '
      'data/b706_repair_controls.txt.', 'b705_record.py', 'b706_record.py', '_root_exclude', ('declared_untracked',)),
+    ('(6) tools/b706_record.py `runner706`, `_artifact_named` -- ANSWERS the carry under (R316)(5) and (7): b698`s runner (tools/b698_record.py '
+     'runner, carried by tools/b705_record.py) reads the run`s FIRST LISTED artifact; a run of the workflow as edited under (R316)(5) uploads '
+     'two, build-module-<run id> and chain-probe-<run id>, so the first listed may be the probe`s. runner706 chooses the run`s own artifact by '
+     'name and is printed whole (the sealed tool has no function of that name); every other clause b698`s -- the sha256 against the platform`s '
+     'digest before any reading, the build`s exit and error lines, the memory log, the print step, the gate. The two print runs were read through '
+     'it, the join run through b698`s (one artifact). The control: data/b706_repair_controls.txt.', 'b698_record.py', 'b706_record.py', 'runner706',
+     ('_artifact_named',)),
+    ('(7) tools/b706_standing_figures.py `correspondence`, `partners`, `_roster` -- ANSWERS the carry under (R316)(3): b703`s readers '
+     '(tools/b703_standing_figures.py :106-:156 and :186-:206, carried through tools/b705_standing_figures.py) take their roster from '
+     'data/b672_roster_read.json, whose `path` is the VERSIONED copy for nine tables and whose `partner` the unversioned copy of each pair; after '
+     'the renames those paths are gone (nine tables missing, seventeen partners in archive/). correspondence() is carried line for line over THIS '
+     'ACT`S roster (data/b706_roster_read.json, the 20 tables at the unversioned names, each found by its anchor); partners() reads one copy per '
+     'table, the figure 0 with every row ONE COPY, the order`s unit having no two copies from b706 on. No sealed module`s constant is rebound. '
+     'The control: data/b706_repair_controls.txt.', 'b703_standing_figures.py', 'b706_standing_figures.py', 'correspondence', ('partners', '_roster')),
+    ('(8) tools/b706_checks.py `partners_fig_ok`, G-PARTNER-COPIES -- ANSWERS the pre-run`s first standing-c run: b703`s fig_ok '
+     '(tools/b703_checks.py :1127-:1130) reads a figure against the previous act`s alone, and with the partner copies resolved under (R316)(3) '
+     'the figure drops from b705`s 131 to 0 (one copy per table), so the arm`s positive control -- the live figure raised by one -- still passed '
+     'against 131 and the harness read the arm DEFECTIVE. The repaired predicate, printed whole, reads the partners figure against the LOWER of '
+     'b705`s figure and this act`s banked reading (data/b706_standing_figures.json): the baseline reset to the reading the resolution gives, no '
+     'regression from it admitted; the other three figures read b703`s predicate unchanged. The control: data/b706_repair_controls.txt.',
+     'b703_checks.py', 'b706_checks.py', 'partners_fig_ok', ()),
 ]
 
 
@@ -719,6 +740,42 @@ def repairctl(*a):
     cases.append(('ROOT_EXCLUDE', 'no tool declares an untracked write: b706_x_units.jsonl excluded by name (old: b705`s pattern with the act renamed)', old_m, bool(p_none.match('b706_x_units.jsonl')), (False, False)))
     cases.append(('ROOT_EXCLUDE', 'a tool declares data/b706_x_units.jsonl untracked: the file excluded by name', old_m, bool(p_decl.match('b706_x_units.jsonl')), (False, True)))
     cases.append(('ROOT_EXCLUDE', 'the declaration present: a bank of a committed kind (b706_partners.txt) still named', not pat5.match('b705_partners.txt'), not p_decl.match('b706_partners.txt'), (True, True)))
+    # ### (6) the run`s artifact chosen by name (runner706) against b698`s first-listed reading, on a listing in the order the platform gives it
+    arts2 = [dict(name='chain-probe-39852365437', id=1), dict(name='build-module-39852365437', id=2)]
+    arts1 = [dict(name='chain-probe-39852365437', id=1)]
+    pick_old = lambda arts: (arts[0] if arts else None)   # noqa: E731  ### b698`s choice: the first listed (tools/b698_record.py runner)
+    pick_new = lambda arts: next((x for x in arts if (x.get('name') or '').startswith('build-module-')), None)   # noqa: E731  ### _artifact_named`s clause
+    listed = re.search(r"^### the artifacts listed (\d+): (\[.*\])", rd(os.path.join(D, 'b706_runner_SIDE-explicit-formula_prints_v0_1.txt')), re.M)
+    L += ['### the artifacts the v0.1 print run listed, in the platform`s order: %s' % (listed.group(2) if listed else '### NOT READ'), '']
+    cases.append(('runner706', 'two artifacts listed, the probe`s first: the run`s own (build-module-) chosen', (pick_old(arts2) or {}).get('name', '').startswith('build-module-'),
+                  (pick_new(arts2) or {}).get('name', '').startswith('build-module-'), (False, True)))
+    cases.append(('runner706', 'a mutated listing, the probe`s artifact alone: nothing chosen', (pick_old(arts1) or {}).get('name', '').startswith('build-module-'),
+                  (pick_new(arts1) or {}).get('name', '').startswith('build-module-'), (False, False)))
+    # ### (7) the standing figures` roster after the renames: b703`s readers over b672`s roster against b706`s over this act`s
+    import b703_standing_figures as SF3
+    import b706_standing_figures as SF6
+    old_files = [t.get('path') for t in SF3._roster()] + [t.get('partner') for t in SF3._roster() if t.get('partner')]
+    new_files = [t.get('path') for t in SF6._roster()]
+    old_present = bool(old_files) and all(os.path.exists(os.path.join(PP, *p.split('/'))) for p in old_files)
+    new_present = bool(new_files) and all(os.path.exists(os.path.join(PP, *p.split('/'))) for p in new_files)
+    L += ['### the rosters` files present in the working tree: b672`s %d paths and partners, present %s ; b706`s %d paths, present %s' % (
+        len(old_files), old_present, len(new_files), new_present), '']
+    cases.append(('standing_figures', 'every file the roster names present after the renames (b672`s roster: old ; this act`s: repaired)', old_present, new_present, (False, True)))
+    _po, rows_old = SF3.partners()
+    _pn, rows_new = SF6.partners()
+    old_read = bool(rows_old) and all(r.get('differing') is not None for r in rows_old)
+    new_read = bool(rows_new) and all(r.get('differing') is not None for r in rows_new) and all((r.get('reason') or '').startswith('ONE COPY') for r in rows_new)
+    L += ['### partners(): b703`s over b672`s roster %d rows, every row read %s (%d with a copy not found) ; b706`s over this act`s roster %d rows, every row ONE COPY %s' % (
+        len(rows_old), old_read, sum(1 for r in rows_old if r.get('differing') is None), len(rows_new), new_read), '']
+    cases.append(('standing_figures', 'partners(): every roster row read (no copy missing), each row of one copy', old_read, new_read, (False, True)))
+    # ### (8) the partners figure`s baseline: b703`s fig_ok against b705`s 131 alone, the repaired predicate against the lower of 131 and this act`s 0
+    fj6 = jl('%s_standing_figures.json' % ACT)
+    base5 = jl('b705_standing_figures.json')
+    S8 = dict(fig=dict(partners=dict(figure=(fj6.get('partners') or {}).get('figure'))), fig_prev=dict(partners=dict(figure=(base5.get('partners') or {}).get('figure'))), figj=fj6)
+    S8m = dict(fig=dict(partners=dict(figure=((fj6.get('partners') or {}).get('figure') or 0) + 1)), fig_prev=S8['fig_prev'], figj=fj6)
+    L += ['### the partners figure: this act`s banked reading %s, b705`s %s' % ((fj6.get('partners') or {}).get('figure'), (base5.get('partners') or {}).get('figure')), '']
+    cases.append(('G-PARTNER-COPIES', 'the live figure (0) against b705`s 131 (old) ; against the lower of 131 and this act`s banked 0 (repaired)', C3.fig_ok(S8, 'partners'), C6.partners_fig_ok(S8), (True, True)))
+    cases.append(('G-PARTNER-COPIES', 'a mutated copy, the live figure raised by one (the arm`s own positive control)', C3.fig_ok(S8m, 'partners'), C6.partners_fig_ok(S8m), (True, False)))
     ok = True
     for name, src, o, nw, want in cases:
         asw = (bool(o), bool(nw)) == want
@@ -1592,7 +1649,742 @@ def cellsreach(*a):
     print(NL.join([l for l in L if l.startswith('  ') and ' | tag ' in l] + L[-1:]))
 
 
+# ================================================================================ COMPONENT 5: THE STANDING FIGURES FROM THIS ACT'S ROSTER (repair (7))
+def figures(*a):
+    """data/b706_standing_figures.txt (.json): the four figures by relay tools/b706_standing_figures.py -- correspondence() and partners() over
+    THIS ACT'S roster after the renames (repair (7)), readme() b705's repaired one, pins() b703's -- each against b705's figure
+    (data/b705_standing_figures.json), the pins baseline b705's rows; the partners rows printed ONE COPY, the correspondence rows per paper."""
+    import b706_standing_figures as SF6
+    import b616_claims as KC0
+    t0 = time.time()
+    base = jl('b705_standing_figures.json')
+    f = SF6.all_figures(baseline=((base.get('pins') or {}).get('rows') or {}), remote=KC0.remote_refs)
+    t1 = time.time()
+    pr = (f.get('partners') or {}).get('rows') or []
+    cr = (f.get('correspondence') or {}).get('papers') or []
+    L = ['%s -- COMPONENT 5: THE FOUR STANDING FIGURES AT b706, READ FROM THIS ACT`S ROSTER AFTER THE RENAMES OF (R316)(3), AGAINST b705`S (%s)' % (ACT, utc()), '',
+         '### by relay tools/b706_standing_figures.py (correspondence() and partners() over data/b706_roster_read.json, the 20 tables at the unversioned names --',
+         '### data/b706_tool_repairs.txt row (7); readme() tools/b705_standing_figures.py`s, pins() tools/b703_standing_figures.py`s, imported unedited), %.0f s;' % (t1 - t0),
+         '### each arm fails on a regression from the previous act`s figure (data/b705_standing_figures.json).', '']
+    for k in ('correspondence', 'readme', 'partners', 'pins'):
+        prev = (base.get(k) or {}).get('figure')
+        now = (f.get(k) or {}).get('figure')
+        L.append('  %-15s b706 %s ; b705 %s ; %s' % (k, now, prev, 'AT OR BELOW' if isinstance(now, int) and isinstance(prev, int) and now <= prev else '### ABOVE OR UNREAD'))
+    L += ['', '### THE CORRESPONDENCE ROWS PER PAPER (current | behind | changed statement | unread ; the reason where the table is not read):']
+    L += ['  %-36s %-66s current %3d behind %3d changed %3d unread %3d%s' % (p['paper'], p['path'], p['current'], p['behind'], p['changed'], p['unread'],
+                                                                           (' ; ' + p['reason']) if p.get('reason') else '') for p in cr]
+    L += ['', '### THE PARTNERS ROWS, ONE PER ROSTER TABLE (the order`s unit, lines differing between two copies, has no two copies from b706 on):']
+    L += ['  %-36s %-66s %s' % (r['paper'], r['path'], r.get('reason') or ('differing %s against %s' % (r.get('differing'), r.get('partner')))) for r in pr]
+    one = sum(1 for r in pr if (r.get('reason') or '').startswith('ONE COPY'))
+    L += ['', '### ### **FIGURES AT b706: CORRESPONDENCE %s ; README %s ; PARTNERS %s (ONE COPY %d OF %d TABLES) ; PINS %s -- AGAINST b705`S %s, %s, %s, %s ; THE ROSTER THIS ACT`S, %d TABLES.**' % (
+        (f.get('correspondence') or {}).get('figure'), (f.get('readme') or {}).get('figure'), (f.get('partners') or {}).get('figure'), one, len(pr),
+        (f.get('pins') or {}).get('figure'), (base.get('correspondence') or {}).get('figure'), (base.get('readme') or {}).get('figure'),
+        (base.get('partners') or {}).get('figure'), (base.get('pins') or {}).get('figure'), len(cr))]
+    if 'dry' not in a:
+        put_txt('%s_standing_figures.txt' % ACT, L)
+        put_json('%s_standing_figures.json' % ACT, dict(at=utc(), roster='b706_roster_read.json', **dict((k, f.get(k)) for k in ('correspondence', 'readme', 'partners', 'pins'))))
+    print(NL.join(L[:10] + L[-1:]))
+
+
+# ================================================================================ COMPONENT 5: THE ORDERS AT OPEN_TRAILS, (R316)(3)-(7)
+ORDERS = [
+    (K.ORDER_PARTNER, 'W-ORD-PAPER-PARTNER-COPIES',
+     '*Appended 2026-10-22 by b706 beneath `W-ORD-PAPER-PARTNER-COPIES` (:15446), under `(R316)`(3) and the author’s words at its two prompts -- THE ORDER DISCHARGED:*',
+     ' disposition (iii) taken up over the 17 pairs of relay data/b700_reading4.txt. The 8 hand-edited lines read side by side first (relay '
+     'data/b706_partners_read.txt), every one of the kind “the versioned side carries it”, resolved by that kind on the author’s word and counted '
+     'apart from the zero diff; the generator run once into the versioned copies (26 cells at SIMPLICITY_OF_RIEMANN_ZEROS, 13 at '
+     'SILENCE_STAGES_DEALIGNMENT, measured dry before any paper was written: data/b706_partners_dry.txt); the zero diff read against the '
+     'generator on the author’s word -- the second pass changing 0 cells in the surviving copy and the retired copy carrying nothing newer -- '
+     'with the 107 remaining lines printed on both sides and counted apart, every one the versioned side’s, 0 newer on the unversioned side, '
+     '17 renamed and 0 held (data/b706_partners.txt); E_DIFFICULTY_THEOREM’s table in its versioned copy alone, no diff taken. Per pair, in '
+     'the written order: the unversioned copy retired to archive/2026-10-22-b706-partner-copies/ by git mv with its history, the versioned copy '
+     'renamed by git mv to the unversioned name, REGISTRY’s row keeping the version as its tag, one commit alone (PLACE-papers 1dfd9bc..cedf7e9, '
+     'seventeen). The 102 standing reader hits equal before and after, the roster’s 20 tables found at the unversioned names '
+     '(data/b706_readers_after.txt). The ruling’s unscoped “diffed to zero” the navigator’s (c). The Project mirror’s roster names as renamed '
+     'from this act’s export. Status DISCHARGED.'),
+    (K.ORDER_LV_JOIN, 'W-ORD-LV-CLOSURE-JOIN',
+     '*Appended 2026-10-22 by b706 beneath `W-ORD-LV-CLOSURE-JOIN` (:15452; its opening step read at :15494), under `(R316)`(4) -- THE JOIN HELD AT lv-conservation’s MODULE:*',
+     ' SIDE-faces-join’s manifest repaired (W-ORD-FACES-JOIN-MANIFEST, directly below) and the join dispatched once at b37a7b6 (run '
+     '39850337262, read by its id, the artifact’s sha256 verified): the cache served (8,691 files), Mathlib and its packages built from the '
+     'cache, lv-conservation’s fifteen files rebuilt at the shared pin and the build HELD at SIDELvConservation/GammaBounds.lean :177:8 '
+     '(“Tactic `rewrite` failed: Did not find an occurrence of the pattern”) at Mathlib de5ce8a9 -- the price b703 read at the pins: a failing '
+     'lv module blocks the join under the condition and is priced then as an lv forward-port at a new tag; FacesJoin.lean not reached, the gate '
+     'NOT DERIVES, no tag, no second dispatch (relay data/b706_join_grade.txt, data/b706_buildlog_SIDE-faces-join_join.txt). For the next '
+     'ruling: the forward-port of lv-conservation’s GammaBounds.lean at the shared pin, or the join at another pin, priced there. Status OPEN.'),
+    (K.ORDER_LV_JOIN, 'W-ORD-LV-CLOSURE-JOIN',
+     '*Appended 2026-10-22 by b706 beneath `W-ORD-LV-CLOSURE-JOIN` (:15452), under `(R316)`(4) and the author’s word at the manifest prompt -- THE ORDER **`W-ORD-FACES-JOIN-MANIFEST`**, ENTERED AND DISCHARGED:*',
+     ' named by b705’s trail (:15592) for this ruling: the join’s lakefile such that Lake resolves Mathlib’s transitive packages from Mathlib’s '
+     'own manifest and the cache serves. At b705’s run (39799253764) the root carried no lake-manifest.json and `require mathlib` stood first, so '
+     'Lake took the transitive packages from the last require’s manifest, lv-conservation’s at Lean v4.29.1 (defect (j) there). Done at b706: '
+     'the lakefile re-ordered by the Edit tool -- SIDEExplicitFormula v0.37, sideLvConservation v0.10.0, then mathlib LAST at de5ce8a9, each at '
+     'its same revision -- Lake’s own hint from the run’s artifact (cache.log :21) on the author’s word; no manifest written on this host; the '
+     'lakefile printed before the commit (relay data/b706_join_lakefile.txt); one commit b37a7b6 on main, pushed in main mode and read back; one '
+     'dispatch, the cache served and Mathlib built, so the manifest’s object is met; the join held past it at lv-conservation’s own module '
+     '(above). The ruling’s order “Mathlib explicit before both” the navigator’s (b), the order that had failed; the ferry’s lake-manifest.json '
+     'at 732c1b49 the navigator’s (a), the tree carrying none. Status DISCHARGED.'),
+    (K.ORDER_PROBE_STEP, 'W-ORD-WORKFLOW-PROBE-STEP',
+     '*Appended 2026-10-22 by b706 beneath `W-ORD-WORKFLOW-PROBE-STEP` (:15544), under `(R316)`(5) -- THE ORDER DISCHARGED:*',
+     ' build-module.yml on SIDE-explicit-formula’s main given the step “Chain probe of the ref’s root ChainProbe.lean” at :101, after the print '
+     'step (:81) and before the closure (:117): where the ref carries a root ChainProbe.lean (imported by no module) it imports each module of the '
+     'target above that file’s text and runs it, its output uploaded as the separate artifact chain-probe-<run id> (:140); no other step changed. '
+     'Edited by the Edit tool, printed before the commit (relay data/b706_workflow_step.txt, 49 diff lines, no identifier), one commit badaccc on '
+     'main under this ruling, pushed in the push tool’s main mode and read back (data/b706_ef_push_out.txt); no dispatch on main for it. The '
+     'step exercised by the two entry-tag dispatches of (R316)(7) on scratch branches carrying the workflow at main, both prints read from the '
+     'separate artifact. The trigger for the chain’s next probe, b708. Status DISCHARGED.'),
+    (K.ORDER_EF_REACH, 'W-ORD-CORRESPONDENCE-EF-REACH',
+     '*Appended 2026-10-22 by b706 beneath `W-ORD-CORRESPONDENCE-EF-REACH` (:15546), under `(R316)`(6) -- THE ORDER DISCHARGED:*',
+     ' the cell forms printed from relay data/b704_cells_reach.txt before the edit: 11 table lines, 15 citation-form mentions of '
+     'SIDE-explicit-formula (data/b706_generator_forms.txt). tools/correspondence_gen.py’s parser extended by the Edit tool to the form '
+     '“(`theorem`, SIDE-explicit-formula vX = `sha`)” in any cell (CITE_FORM, kernels_of, cite_mentions; the diff in data/b706_generator_diff.txt), '
+     'its roster read from data/b706_roster_read.json at the unversioned names. The dry run after the edit: 17 kernels parsed, '
+     'SIDE-explicit-formula among them with 13 citation-form cells; the control: every roster table re-emitted by the generator unedited and as '
+     'edited from one set of sources, 20 of 20 equal byte for byte, the diff empty; G-CORRESPONDENCE-CURRENCY’s reach printed beside its figure, '
+     'the 17 parsed kernels named with their kernel-cell and cited counts (data/b706_generator_reach.txt). Status DISCHARGED.'),
+    (K.ORDER_TAG_PRINTS, 'W-ORD-ENTRY-TAG-PRINTS',
+     '*Appended 2026-10-22 by b706 beneath `W-ORD-ENTRY-TAG-PRINTS` (:15590), under `(R316)`(7) -- THE ORDER DISCHARGED:*',
+     ' for each of v0.1 = baed4df and v0.2 = 5c72cad a scratch branch cut at the tag carrying the workflow at main, a one-name print list and a '
+     'root ChainProbe.lean naming the mentioned theorem -- prints-b706-v0.1 at 748f2a9 (ch_iff_rh, SIDEExplicitFormula.H2Bridge) and '
+     'prints-b706-v0.2 at 34e098a (h2_sign_iff_rh, SIDEExplicitFormula.Seam), their files banked before each dispatch '
+     '(data/b706_print_files_prints-b706-v0.1.txt, -v0.2.txt); one dispatch per branch (runs 39852365437, 39852975531), read by their ids with the '
+     'artifacts’ sha256 verified, both DERIVES; the probe step’s print read from the separate chain-probe artifact and banked at '
+     'data/b706_prints_v0.1.txt and data/b706_prints_v0.2.txt (each theorem at the standard three, its statement equal to v0.37’s); each branch '
+     'deleted by name locally and at the remote after its bank was committed (relay 4e1fdef0), the tags untouched. The 11 unbanked mentions '
+     're-read against the new banks: 9 equal, 0 differs, 2 unbanked (no tag named beside the kernel: SIMPLICITY_OF_RIEMANN_ZEROS :442, '
+     'FACES_LEDGER :20) (data/b706_cells_reread.txt). Status DISCHARGED.'),
+]
+
+
+def orders(*a):
+    """the six order lines appended to OPEN_TRAILS through b698's guarded landing, each beneath its order by its line (the ledger is
+    append-only); data/b706_orders.json."""
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', h, NL + h + b + NL) for _ln, _nm, h, b in ORDERS], '%s_orders.json' % ACT, 'orders', entry=None,
+         check=[('OPEN_TRAILS.md', ln, nm) for ln, nm, _h, _b in ORDERS], dry=dry)
+
+
+# ================================================================================ COMPONENT 6: THE SCORES (b686's order), THE RECORD, THE TRAIL, THE DRY RUN, THE MIRROR
+NK, SK = ('N1', 'N2', 'N3', 'N4', 'N5'), ('S1', 'S2', 'S3')
+SCORE_KEYS = NK + SK
+_sv, scores_line = R._sv, R.scores_line
+_calls, _rl_lines = R._calls, R._rl_lines
+num_word = P3.num_word
+_trail_defects, _trail_resolved = P3._trail_defects, P3._trail_resolved
+
+
+def _bank_utc(text):
+    m = re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)', NL.join((text or '').split(NL)[:2]))
+    return _iso_epoch(m.group(1)) if m else None
+
+
+def _s_scores():
+    return dict((k, (v[0], v[1].replace('b698_', ACT + '_'))) for k, v in R._s_scores().items())
+
+
+def _ts_epoch(ts):
+    return _iso_epoch((ts or '')[:19] + 'Z') if ts else None
+
+
+def _n1():
+    """N1: no lean process on this host; three runner dispatches (the join, the two entry-tag branches), each read by its run id with its
+    artifact's sha256 verified."""
+    cm = jl('%s_commands.json' % ACT)
+    dj = jl('%s_dispatches.json' % ACT).get('rows') or []
+    rr = jl('%s_runner_rows.json' % ACT).get('rows') or []
+    want = {K.JOIN_RUN: K.JOIN_TIP}
+    want.update(dict((K.PRINT_RUNS[t], None) for t, _b in K.PRINT_BRANCHES))
+    by_run = dict((d.get('run_id'), d) for d in dj)
+    rows_ok = len(dj) == 3 and sorted(by_run) == sorted(want) and all(d.get('whole') is True for d in dj) and by_run[K.JOIN_RUN].get('ref') == K.JOIN_TIP \
+        and all(by_run[K.PRINT_RUNS[t]].get('ref', '').startswith(K.PRINT_TIPS[t]) for t, _b in K.PRINT_BRANCHES)
+    shas = dict((r.get('run_id'), r.get('artifact_sha256') or '') for r in rr)
+    read_ok = len(rr) == 3 and sorted(shas) == sorted(want) and all(re.match(r'^[0-9a-f]{64}$', s) for s in shas.values())
+    pj = dict((t, jl('%s_prints_%s.json' % (ACT, t))) for t, _b in K.PRINT_BRANCHES)
+    probe_ok = all(pj[t].get('run_id') == K.PRINT_RUNS[t] and re.match(r'^[0-9a-f]{64}$', (pj[t].get('artifact') or {}).get('sha256') or '') for t in pj)
+    art = rdn('%s_art_%s_join_cache_log.txt' % (ACT, K.KERNEL))
+    ok = bool(cm) and not cm.get('local_lean') and len(cm.get('dispatches') or []) == 3 and rows_ok and read_ok and probe_ok \
+        and 'AGREED WITH THE BANKED AND THE PLATFORM`S' in art
+    return ('HELD' if ok else 'REFUTED'), (
+        'commands of this act that run lean or lake on this host: %s; runner dispatches in the capture: %s (relay data/b706_commands.json); the '
+        'dispatches bank (relay data/b706_dispatches.json): %s, each whole by data/b705_rules.txt row (1); each run read by its id with its artifact`s '
+        'sha256 (relay data/b706_runner_rows.json): %s; the two chain-probe artifacts read by name with their sha256 (relay data/b706_prints_v0.1.json, '
+        'v0.2): %s; the join`s cache log read after its artifact agreed' % (
+            cm.get('local_lean') if cm else 'unread', len(cm.get('dispatches') or []) if cm else 'unread',
+            ['%s %s run %s whole %s' % (d.get('label'), (d.get('ref') or '')[:7], d.get('run_id'), d.get('whole')) for d in dj],
+            ['%s %s' % (r.get('label'), (r.get('artifact_sha256') or 'UNREAD')[:16]) for r in rr],
+            ['%s %s' % (t, ((pj[t].get('artifact') or {}).get('sha256') or 'UNREAD')[:16]) for t in pj]))
+
+
+def _n2():
+    """N2: every renamed pair diffs to zero before its git mv (the generator's second pass 0, nothing newer on the retired side), the reader hits
+    and the roster count equal after the renames; no pair renamed while its diff is not zero."""
+    pj = jl('%s_partners.json' % ACT).get('rows') or []
+    ren = [r for r in pj if str(r.get('reading', '')).startswith('RENAME')]
+    held = [r['doc'] for r in pj if r not in ren]
+    zero = all(r.get('second_pass') == 0 and r.get('newer_unversioned') == 0 for r in ren)
+    first = _git_ct(PP, K.C2_PP_FIRST)
+    at = _bank_utc(rdn('%s_partners.txt' % ACT))
+    dry_at = _bank_utc(rdn('%s_partners_dry.txt' % ACT))
+    before = bool(first) and dry_at is not None and dry_at < first
+    rb, ra = rdn('%s_readers_before.txt' % ACT), rdn('%s_readers_after.txt' % ACT)
+    pat = r'STANDING READER HITS (\d+) OVER (\d+) PAIRS .*?ROSTER TABLES (\d+), FOUND AT THE UNVERSIONED NAME (\d+)'
+    mb, ma = re.search(pat, ' '.join(rb.split())), re.search(pat, ' '.join(ra.split()))
+    hits = bool(mb) and bool(ma) and mb.group(1) == ma.group(1) and ma.group(3) == ma.group(4)
+    ok = len(pj) == 17 and len(ren) == 17 and not held and zero and before and hits
+    return ('HELD' if ok else 'REFUTED'), (
+        'pairs %d, renamed %d, held %s (relay data/b706_partners.json); the second pass changing 0 cells and nothing newer on the retired side for every '
+        'renamed pair: %s; the generator`s run measured dry at %s, before the first rename commit %s (%s): %s; the standing reader hits %s before and %s '
+        'after the renames, the roster`s %s tables found %s at the unversioned names (relay data/b706_readers_before.txt, data/b706_readers_after.txt); '
+        'the 107 remaining lines counted apart, every one the versioned side`s, on the author`s word; the bank`s own print at %s after the renames' % (
+            len(pj), len(ren), held or 'none', zero, R.time.strftime('%Y-%m-%dT%H:%M:%SZ', R.time.gmtime(dry_at)) if dry_at else '-', K.C2_PP_FIRST,
+            R.time.strftime('%Y-%m-%dT%H:%M:%SZ', R.time.gmtime(first)) if first else '-', before, mb.group(1) if mb else '-', ma.group(1) if ma else '-',
+            ma.group(3) if ma else '-', ma.group(4) if ma else '-', R.time.strftime('%Y-%m-%dT%H:%M:%SZ', R.time.gmtime(at)) if at else '-'))
+
+
+def _n3():
+    """N3: the join's lakefile names Mathlib at de5ce8a9 before both requires; its grade reads DERIVES at the standard three against
+    lv-conservation's own declaration, or the join holds with the error banked by line."""
+    lj = jl('%s_join_lakefile.json' % ACT)
+    order = lj.get('order') or []
+    revs = lj.get('revs') or {}
+    at_pin = revs.get('mathlib', '').startswith(K.EF_MATHLIB[:8]) if isinstance(revs.get('mathlib'), str) else (K.EF_MATHLIB in json.dumps(revs))
+    before_both = bool(order) and order[0] == 'mathlib'
+    last = bool(order) and order[-1] == 'mathlib' and lj.get('mathlib_last') is True
+    jg = jl('%s_join_grade.json' % ACT)
+    t = rdn('%s_join_grade.txt' % ACT)
+    errs = [l for l in rdn('%s_buildlog_%s_join.txt' % (ACT, K.KERNEL)).split(NL) if l.startswith('error:')]
+    states = 'SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff' in (_show(KI, K.JOIN_TIP, 'FacesJoin.lean') or '')
+    tag = g(KI, 'tag', '--list', K.JOIN_TAG).strip()
+    held = jg.get('held') is True and jg.get('gate') == 'NOT DERIVES' and '== THE JOIN HELD' in t and len(errs) >= 1 and tag == '' \
+        and any('GammaBounds.lean:177' in l for l in errs)
+    derives = jg.get('held') is False and jg.get('gate') == 'DERIVES' and tag != ''
+    second = states and (held or derives)
+    ok = at_pin and before_both and second
+    return ('HELD' if ok else 'REFUTED'), (
+        'the join`s lakefile (relay data/b706_join_lakefile.txt): the requires in the order %s, Mathlib at de5ce8a9 %s, Mathlib BEFORE both requires %s '
+        '-- the expectation`s first clause is the ruling`s order (R316)(4), the order that had already failed at b705`s run; on the author`s word Lake`s '
+        'own hint was taken, mathlib LAST (%s), the ruling`s order the navigator`s (b), so the first clause reads REFUTED by the author`s word; the second '
+        'clause: faces_join states lv-conservation`s own declaration %s, the run`s gate %s, the join %s with %d error lines banked by line '
+        '(SIDELvConservation/GammaBounds.lean :177, relay data/b706_buildlog_SIDE-faces-join_join.txt), the tag %s %s, no second dispatch: %s' % (
+            ' > '.join(order) or 'UNREAD', at_pin, before_both, last, states, jg.get('gate'), 'HELD' if jg.get('held') else 'DERIVES', len(errs), K.JOIN_TAG,
+            tag or 'NOT MADE', 'HELD' if second else 'REFUTED'))
+
+
+def _n4():
+    """N4: the generator re-emits every pre-edit cell byte for byte; the entry-tag branches are deleted after their banks are committed and the
+    tags stand at baed4df and 5c72cad."""
+    gj = jl('%s_generator_reach.json' % ACT)
+    ctl = gj.get('control') or []
+    bytes_ok = gj.get('equal') is True and bool(ctl) and all(c.get('equal') for c in ctl)
+    c4 = _git_ct(ROOT, K.C4_RELAY)
+    rows = R.capture()
+    dels = [r for r in rows if r['tool'] in ('Bash', 'PowerShell') and any(b in r['cmd'] for _t, b in K.PRINT_BRANCHES) and ('branch -D' in r['cmd'] or '--delete' in r['cmd'])]
+    dts = [_ts_epoch(r['ts']) for r in dels]
+    after = bool(c4) and len(dels) == 4 and all(x and x > c4 for x in dts)
+    gone = all(g(EF, 'branch', '--list', b).strip() == '' for _t, b in K.PRINT_BRANCHES)
+    tags = dict((t, g(EF, 'rev-parse', '--verify', '--quiet', 'refs/tags/%s^{commit}' % t).strip()) for t, _b in K.PRINT_BRANCHES)
+    tags_ok = tags.get('v0.1') == K.EF_V01 and tags.get('v0.2') == K.EF_V02
+    ok = bytes_ok and after and gone and tags_ok
+    return ('HELD' if ok else 'REFUTED'), (
+        'the generator`s control (relay data/b706_generator_reach.json): %d roster tables re-emitted unedited and as edited from one set of sources, every '
+        'one equal byte for byte %s; the four branch deletes (two local, two remote) in the capture at %s, after the banks` commit %s at %s: %s; the branches '
+        'gone locally %s; the tags v0.1 %s, v0.2 %s against baed4df, 5c72cad: %s' % (
+            len(ctl), bytes_ok, ['%s' % (r['ts'] or '')[:19] for r in dels], K.C4_RELAY, R.time.strftime('%Y-%m-%dT%H:%M:%SZ', R.time.gmtime(c4)) if c4 else '-',
+            after, gone, (tags.get('v0.1') or '-')[:7], (tags.get('v0.2') or '-')[:7], tags_ok))
+
+
+def _n5():
+    import b633_record as R3
+    face = jl('%s_kernels_face.json' % ACT).get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    k_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    ef_main = g(EF, 'rev-parse', 'main').strip()
+    ef_past = [l for l in g(EF, 'log', '--first-parent', '--format=%H', K.EF_V037 + '..main').split(NL) if l.strip()]
+    ef_files = sorted(x for x in g(EF, 'diff', '--name-only', K.EF_V037, 'main').split(NL) if x.strip())
+    main_ok = ef_main == K.EF_MAIN and len(ef_past) == 1 and ef_files == [K.WORKFLOW] and not g(EF, 'tag', '--contains', K.EF_V037).replace('v0.37', '').strip()
+    join_tags = g(KI, 'tag', '--list').strip()
+    pj = jl('%s_partners.json' % ACT).get('rows') or []
+    pair_files = set(r.get('versioned') for r in pj) | set(r.get('unversioned') for r in pj)
+    archive = set(K.ARCHIVE_DIR + '/' + r.get('unversioned') for r in pj)
+    allowed = set(K.PP_WRITTEN) | pair_files | archive | {K.FACES_PAGE}
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in allowed]
+    renames = [l for l in g(PP, 'diff', '--name-status', '-M', K.PRE_PP, 'HEAD').split(NL) if l[:1] in ('R', 'D')]
+    ren_beyond = [l for l in renames if not any(p in l for p in pair_files)]
+    relay_ch = sorted(set(x for x in (g(ROOT, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(ROOT, 'diff', '--name-only')).split(NL) if x.strip()))
+    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not re.match(r'^tools/b706_', x) and x not in ['tools/' + t for t in K.REPAIRED_TOOLS]]
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b706_|audit_b706_)', x) or re.match(r'^data/terminal_table', x)
+                                                or x in ['tools/' + t for t in K.REPAIRED_TOOLS] or (x.startswith('data/') and x[5:] in R.N5_RELAY_DATA))]
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    added = sorted(set(R._g2_of(FACE)) - set(R._g2_of(os.path.join(ROOT, *K.B705_FACE.split('/')))) - set(K.ACT_ARMS))
+    arms_ok = added == sorted(K.STANDING_ADDED)
+    lock = _iso_epoch((re.search(r'locked at \(UTC\) : (\S+)', rd(FACE)) or [None, ''])[1])
+    amended = (_amended_after(ROOT, lock) + _amended_after(PP, lock) + _amended_after(EF, lock) + _amended_after(KI, lock)) if lock else []
+    cj = jl('%s_commands.json' % ACT)
+    ob = cj.get('outbound') or []
+    ident = [r for r in ob if r.get('identifiers')]
+    wf_ef = _show(EF, K.EF_MAIN, K.WORKFLOW) or ''
+    wf_ki = _show(KI, K.JOIN_TIP, K.WORKFLOW) or ''
+    wf_ok = bool(wf_ef) and bool(wf_ki) and not any(w in (wf_ef + wf_ki).lower() for w in ('psinary', 'seale', 'york', 'hotmail', 'orcid', 'secrets.'))
+    chained = [d['n'] for d in (cj.get('delete_shapes') or []) if d.get('chained')]
+    gw_ok, gw_note = _one_git_write()
+    pre_gl = (_show(ROOT, K.PRE_RELAY, 'data/glossary.txt') or '').replace('\r', '')
+    now_gl = R.rd(os.path.join(D, 'glossary.txt')).replace('\r', '')
+    gl = now_gl == pre_gl
+    ok = k_ok and main_ok and join_tags == '' and not pp_beyond and not ren_beyond and not kinds_beyond and not shared_tools and not differ and arms_ok \
+        and not amended and not ident and wf_ok and not chained and gw_ok and gl
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unpublished); every kernel as the face read it: %s; SIDE-explicit-formula`s '
+            'main one commit past v0.37 touching the workflow alone and no tag past it: %s; the join kernel`s tags: %s; the standing arms added beyond b705`s '
+            'face, the act arms apart: %s (%s); shared tools edited beyond the one the ruling names (tools/correspondence_gen.py, (R316)(6)): %s; sealed tools '
+            'not agreeing: %s; commits amended after the seal: %s; deletes with anything chained after: %s; one git write per message (%s): %s; PLACE-papers '
+            'beyond the two ledgers, REGISTRY, the 17 pairs` files and their archive paths and the faces page: %s; papers moved or renamed beyond the 17 pairs` '
+            'git mv: %s (renames %d); relay files of a kind beyond the act`s banks and tools, the generator, the table, the root list, the corrigenda bank and '
+            'b705`s push-out bank: %s; the glossary unchanged: %s; outbound requests other than git and gh %d, an identifier of the author in %s; no identifier '
+            'in the workflow at SIDE-explicit-formula`s main or the join kernel`s: %s' % (
+                K.DRAFT, k_ok, main_ok, join_tags or 'NONE', added or 'NONE', arms_ok, shared_tools or 'NONE', differ or 'NONE', amended or 'NONE',
+                chained or 'NONE', gw_note, gw_ok, pp_beyond or 'NONE', ren_beyond or 'NONE', len(renames), kinds_beyond or 'NONE', gl, len(ob),
+                [r['line'] for r in ident] or 'NONE', wf_ok))
+
+
+def scores(*a):
+    """`scores [dry]` writes data/b706_scores.json ONCE, before the entry (it refuses where the bank exists); `scores close` reads the readings
+    that waited into data/b706_scores_close.json."""
+    close = 'close' in a
+    S = dict([('N1', _n1()), ('N2', _n2()), ('N3', _n3()), ('N4', _n4()), ('N5', _n5())] + list(_s_scores().items()))
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:900]))
+    if 'dry' in a:
+        return
+    if close:
+        put_json('%s_scores_close.json' % ACT, dict((k2, list(v)) for k2, v in S.items()))
+        return
+    if os.path.isfile(os.path.join(D, '%s_scores.json' % ACT)):
+        sys.exit('### THE SCORES BANK IS WRITTEN ONCE, BEFORE THE ENTRY (data/b686_rules.txt row (1)) -- NOTHING WRITTEN; `scores close` at the close')
+    put_json('%s_scores.json' % ACT, dict((k2, list(v)) for k2, v in S.items()))
+
+
+def TRAIL_HEAD():
+    return ('### b706 — lane two, act one hundred and thirty-three, the re-cut act under (R316): b705 at its weight; the six post-seal failures '
+            'sorted and three tools repaired; the seventeen partner pairs renamed in place; the join’s manifest repaired and the join held at '
+            'lv-conservation’s module; the workflow’s probe step; the generator reaching the central kernel; the entry-tag prints at v0.1 and v0.2; '
+            'the faces row held')
+
+
+R.TRAIL_HEAD = TRAIL_HEAD
+
+
+def _figs():
+    co = jl('%s_corrigendum.json' % ACT)
+    ol = [x.get('line') for x in (jl('%s_orders.json' % ACT).get('lines') or [])]
+    pj = jl('%s_partners.json' % ACT).get('rows') or []
+    ren = [r['doc'] for r in pj if str(r.get('reading', '')).startswith('RENAME')]
+    held = [r['doc'] for r in pj if r['doc'] not in ren]
+    dj = jl('%s_partners_dry.json' % ACT).get('rows') or []
+    cells = dict((r['doc'], r.get('cells_changed')) for r in dj if r.get('written'))
+    jg = jl('%s_join_grade.json' % ACT)
+    errs = [l for l in rdn('%s_buildlog_%s_join.txt' % (ACT, K.KERNEL)).split(NL) if l.startswith('error:')]
+    ws = jl('%s_workflow_step.json' % ACT)
+    gr = jl('%s_generator_reach.json' % ACT)
+    reach = (gr.get('reach') or {}).get('SIDE-explicit-formula') or {}
+    pr = dict((t, jl('%s_prints_%s.json' % (ACT, t))) for t, _b in K.PRINT_BRANCHES)
+    cj = jl('%s_cells_reread.json' % ACT).get('rows') or []
+    fj_, f5 = jl('%s_standing_figures.json' % ACT), jl('b705_standing_figures.json')
+    ra = ' '.join(rdn('%s_readers_after.txt' % ACT).split())
+    m = re.search(r'STANDING READER HITS (\d+) OVER (\d+) PAIRS .*?ROSTER TABLES (\d+), FOUND AT THE UNVERSIONED NAME (\d+)', ra)
+    return dict(corr_line=co.get('entry_line', '-'), orders=ol, renamed=len(ren), held=held, pairs=len(pj), cells=cells,
+                apart=sum(r.get('apart') or 0 for r in pj), resolved=sum(r.get('resolved') or 0 for r in pj), newer=sum(r.get('newer_unversioned') or 0 for r in pj),
+                join_gate=jg.get('gate', '-'), join_held=jg.get('held'), join_run=jg.get('run', '-'), join_errs=len(errs),
+                wf_ok=ws.get('ok'), wf_lines=(ws.get('print_line'), ws.get('probe_line'), ws.get('closure_line'), ws.get('upload_line')),
+                gen_kernels=len(gr.get('kernels_new') or []), gen_cited=reach.get('cited', '-'), gen_equal=gr.get('equal'),
+                prints=dict((t, dict(run=pr[t].get('run_id'), stmt=((pr[t].get('cell') or {}).get('statement') or '-'), axioms=((pr[t].get('cell') or {}).get('axioms') or []),
+                                     module=((pr[t].get('cell') or {}).get('module') or '-'))) for t in pr),
+                cells_n=len(cj), cells_eq=sum(1 for r in cj if r.get('verdict') == 'equal'), cells_df=sum(1 for r in cj if r.get('verdict') == 'differs'),
+                figs=dict((k, (fj_.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')),
+                figs5=dict((k, (f5.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')),
+                hits=(m.group(1), m.group(3), m.group(4)) if m else ('-', '-', '-'))
+
+
+def _title():
+    f = _figs()
+    return ('## %d of %d partner pairs renamed in place, %d held; SIDE-faces-join %s; the workflow’s probe step; the generator reaching '
+            'SIDE-explicit-formula, %s cells; the entry-tag prints at v0.1 and v0.2, %d of %d mentions equal' % (
+                f['renamed'], f['pairs'], len(f['held']), 'held at lv-conservation’s module, its manifest repaired' if f['join_held'] else 'v0.1.0, the faces joined by closure',
+                f['gen_cited'], f['cells_eq'], f['cells_n']))
+
+
+def _owners_now():
+    rows = _defect_short(ACT)
+    nav = [r for r in rows if "THE NAVIGATOR'S" in r]
+    return rows, nav
+
+
+def _for_author():
+    rows, nav = _owners_now()
+    seat = len(rows) - len(nav)
+    letters = ', '.join(re.match(r'^\(([a-z])\)', r).group(0) for r in nav)
+    f = _figs()
+    return ('(1) the eight hand-edited lines of the 17 pairs each resolved by their kind, the versioned side carrying every one, and the 107 lines '
+            'remaining after the generator’s run counted apart and printed with both sides, every one the versioned side’s, the zero diff read '
+            'against the generator on the author’s two answers, the first prompt put on an unmeasured premise (f); (2) E_DIFFICULTY_THEOREM '
+            'renamed with its Correspondence table in its versioned copy alone, no diff taken, on the author’s word; (3) the join’s lakefile '
+            're-ordered mathlib LAST on Lake’s own hint and the author’s word, the ruling’s order the navigator’s (b) and the ferry’s manifest the '
+            'navigator’s (a), the join then held at lv-conservation’s GammaBounds.lean :177 at the shared pin, the price b703 read, no tag, no '
+            'second dispatch, N3 refuted on its first clause; (4) the two print runs read through a runner that chooses the run’s own artifact by '
+            'name, the workflow as edited uploading two; (5) the print runs labelled prints_v0_1 and prints_v0_2, b698’s reader admitting no dot; '
+            '(6) the standing figures read from this act’s roster, the partners figure 0 with one copy per table; (7) the partners bank re-run '
+            'after the generator’s write, the 39 cells standing in the dry bank; (8) G-WORKFLOW-FILES, G-RUNNER-READ and G-RUNNER-GATE declared '
+            'failing on the held join; (9) the %s navigator %s (%s) and the seat’s %s defect%s as lettered' % (
+                num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', letters, num_word(seat), '' if seat == 1 else 's'))
+
+
+def _finding_text():
+    """the FINDINGS entry, composed before the root: its head line the result sentence, the result before its conditions; its scores line from the
+    scores bank alone (data/b686_rules.txt row (1)); the root carried by the trail record."""
+    S = jl('%s_scores.json' % ACT)
+    f = _figs()
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+    checks = len(re.findall(r'^### \(R278\)\(4\) THE MID-ACT CHECK ', rdn(K.CITATION_BANK), re.M))
+    p1, p2 = f['prints'].get('v0.1') or {}, f['prints'].get('v0.2') or {}
+    e = ['', _title(), '',
+         'The re-cut act’s five objects read: the seventeen partner pairs are renamed in place -- the eight hand-edited lines each carried by the '
+         'versioned side and resolved by that kind, the generator run once (%s), the second pass changing 0 and nothing newer on the retired side, '
+         '%d lines counted apart, %d renamed and %d held; SIDE-faces-join’s manifest is repaired (mathlib last, Lake’s own hint) and dispatched once, '
+         'the cache served and Mathlib built, the join %s at lv-conservation’s GammaBounds.lean :177 at the shared pin with FacesJoin.lean not '
+         'reached; the workflow’s probe step stands on SIDE-explicit-formula’s main at badaccc; the generator parses SIDE-explicit-formula’s '
+         'citation form, %s cells, every re-emission byte-equal; and the entry-tag prints at v0.1 and v0.2 both DERIVES at the standard three, '
+         '%d of %d mentions equal, %d differing.' % (
+             ', '.join('%d at %s' % (v, k) for k, v in f['cells'].items()) or 'no cell changed', f['apart'], f['renamed'], len(f['held']),
+             'HELD' if f['join_held'] else 'DERIVES', f['gen_cited'], f['cells_eq'], f['cells_n'], f['cells_df']), '',
+         '*Filed at b706 on the author’s ruling `(R316)` and the author’s words at its prompts; %d question%s put. Banks: relay '
+         '`data/b706_arm_sort.txt`, `data/b706_tool_repairs.txt`, `data/b706_corrigendum.txt`, `data/b706_partners_read.txt`, `data/b706_partners.txt`, '
+         '`data/b706_readers_after.txt`, `data/b706_join_lakefile.txt`, `data/b706_runner_SIDE-faces-join_join.txt`, `data/b706_join_grade.txt`, '
+         '`data/b706_workflow_step.txt`, `data/b706_generator_reach.txt`, `data/b706_prints_v0.1.txt`, `data/b706_prints_v0.2.txt`, '
+         '`data/b706_cells_reread.txt`, `data/b706_faces.txt`, `data/b706_standing_figures.txt`.*' % (n_ans, '' if n_ans == 1 else 's'), '',
+         '**The corrigendum** (`(R316)`(1)-(2)): b705 entered at its weight (FINDINGS :%s); the generated entry at FINDINGS :%s answers b705’s six '
+         'post-seal items -- the write-list event on data/b706_rules.txt, (n) and (o), the two predicates found wrong after the seal, and the three '
+         'trail-equality arms broken by a defect lettered after the trail landed; the corrigenda bank appended at row (26); the sealed face, the '
+         'trail and the root-named banks unedited.' % (c1_[0], f['corr_line']), '',
+         '**The sort and the repairs** (`(R316)`(2)): the ten arms failing at b705’s close sorted by cause (relay data/b706_arm_sort.txt), four '
+         'declared on the face and six found after the seal; three repaired at carry time -- G-WRITELIST-KINDS reading a (W) list that admits the '
+         'next act’s rules file by form, G-ANSWERS-CHECKED’s checker telling a bank-named sha256 from a commit, G-ENTRY-TITLE-FORM comparing after '
+         'case-folding the article -- and four more at the carry: prev_capture cut at (R316)’s anchor, ROOT_EXCLUDE extended by the tools’ own '
+         'declarations with the root route run dry READY before the seal (data/b706_rules.txt row (1)), the runner’s artifact chosen by name, the '
+         'standing figures read from this act’s roster; each a diff with its control (relay data/b706_tool_repairs.txt, '
+         'data/b706_repair_controls.txt); seven not repaired, the arms correct.', '',
+         '**The partner copies** (`(R316)`(3), N2): W-ORD-PAPER-PARTNER-COPIES’s disposition (iii) over the 17 pairs of data/b700_reading4.txt -- '
+         'the 8 hand-edited lines read side by side first (relay data/b706_partners_read.txt), every one “the versioned side carries it” and '
+         'resolved by that kind on the author’s word; the generator run once into the versioned copies, measured dry before any paper was written '
+         '(%s; relay data/b706_partners_dry.txt); the zero diff read against the generator on the author’s word -- the second pass 0, nothing newer '
+         'on the retired side -- with %d remaining lines printed on both sides and counted apart, %d newer on the unversioned side, %d renamed, %d '
+         'held (relay data/b706_partners.txt); E_DIFFICULTY_THEOREM’s table in its versioned copy alone, no diff taken; per pair the unversioned '
+         'copy retired to archive/2026-10-22-b706-partner-copies/ by git mv with its history and the versioned copy renamed by git mv to the '
+         'unversioned name, REGISTRY’s row keeping the version as its tag, one commit alone (PLACE-papers 1dfd9bc..cedf7e9); the %s standing reader '
+         'hits equal before and after, the roster’s %s tables found %s at the unversioned names (relay data/b706_readers_after.txt); the ruling’s '
+         'unscoped “diffed to zero” the navigator’s (c), the first prompt’s unmeasured premise the seat’s (f).' % (
+             ', '.join('%d cells at %s' % (v, k) for k, v in f['cells'].items()) or 'no cell changed', f['apart'], f['newer'], f['renamed'], len(f['held']),
+             f['hits'][0], f['hits'][1], f['hits'][2]), '',
+         '**The join** (`(R316)`(4), N1, N3): SIDE-faces-join’s lakefile re-ordered by the Edit tool -- SIDEExplicitFormula v0.37, '
+         'sideLvConservation v0.10.0, then mathlib LAST at de5ce8a9, each at its same revision -- Lake’s own hint from b705’s run (cache.log :21) '
+         'on the author’s word, no manifest written on this host, printed before the commit (relay data/b706_join_lakefile.txt), one commit '
+         'b37a7b6 on main pushed in main mode and read back; one dispatch (run %s), read by its id with the artifact’s sha256 verified: the cache '
+         'served, Mathlib and its packages built, lv-conservation’s fifteen files rebuilt at the shared pin and the build held at '
+         'SIDELvConservation/GammaBounds.lean :177:8 (“Tactic `rewrite` failed”), %d error lines banked by line, FacesJoin.lean never reached, the '
+         'gate NOT DERIVES, the join %s, no tag, no second dispatch (relay data/b706_join_grade.txt); faces_join’s statement graded DERIVES by hand '
+         'and by E0, its profile unprinted; the price b703 read at the pins -- a failing lv module blocks the join and is priced as an lv '
+         'forward-port -- for the next ruling; W-ORD-FACES-JOIN-MANIFEST entered and discharged, the ruling’s order “Mathlib before both” the '
+         'navigator’s (b) and the ferry’s manifest at 732c1b49 the navigator’s (a).' % (f['join_run'], f['join_errs'], 'HELD' if f['join_held'] else 'DERIVES'), '',
+         '**The workflow** (`(R316)`(5)): build-module.yml on SIDE-explicit-formula’s main given the chain-probe step at :%s, after the print step '
+         '(:%s) and before the closure (:%s), running a root ChainProbe.lean when the ref carries one and uploading its output as the separate '
+         'artifact chain-probe-<run id> (:%s); edited by the Edit tool, printed before the commit, 49 diff lines, no identifier (relay '
+         'data/b706_workflow_step.txt); one commit badaccc on main, pushed in main mode and read back; no dispatch on main; the step exercised by '
+         'the two entry-tag dispatches; the trigger the next probe at b708; W-ORD-WORKFLOW-PROBE-STEP discharged.' % (
+             f['wf_lines'][1], f['wf_lines'][0], f['wf_lines'][2], f['wf_lines'][3]), '',
+         '**The generator** (`(R316)`(6), N4): the cell forms printed from data/b704_cells_reach.txt before the edit, 11 table lines and 15 '
+         'citation-form mentions (relay data/b706_generator_forms.txt); tools/correspondence_gen.py’s parser extended by the Edit tool to the form '
+         '“(`theorem`, SIDE-explicit-formula vX = `sha`)” in any cell, its roster at the unversioned names (the diff in data/b706_generator_diff.txt); '
+         'the dry run: %s kernels parsed, SIDE-explicit-formula among them with %s citation-form cells; the control: every roster table re-emitted '
+         'unedited and as edited from one set of sources, 20 of 20 equal byte for byte (%s); the reach printed beside G-CORRESPONDENCE-CURRENCY’s '
+         'figure (relay data/b706_generator_reach.txt); W-ORD-CORRESPONDENCE-EF-REACH discharged.' % (f['gen_kernels'], f['gen_cited'], f['gen_equal']), '',
+         '**The entry-tag prints** (`(R316)`(7), N1, N4): scratch branches prints-b706-v0.1 (748f2a9 at baed4df) and prints-b706-v0.2 (34e098a at '
+         '5c72cad), each the tag’s tree with the workflow at main, a one-name print list and a root ChainProbe.lean naming the mentioned theorem, '
+         'their files banked before each dispatch; one dispatch each (runs %s, %s), read by their ids with the artifacts’ sha256 verified, both '
+         'DERIVES; the probe step’s print read from the separate chain-probe artifact: %s at %s and %s at %s, each at the standard three (relay '
+         'data/b706_prints_v0.1.txt, data/b706_prints_v0.2.txt); each branch deleted by name locally and at the remote after its bank was committed, '
+         'the tags untouched; the 11 unbanked mentions of data/b704_cells_reach.txt re-read: %d equal, %d differs, %d unbanked (no tag named beside '
+         'the kernel) (relay data/b706_cells_reread.txt); W-ORD-ENTRY-TAG-PRINTS discharged.' % (
+             p1.get('run'), p2.get('run'), (p1.get('stmt') or '-').replace('theorem ', '').split(' :')[0], p1.get('module'),
+             (p2.get('stmt') or '-').replace('theorem ', '').split(' :')[0], p2.get('module'), f['cells_eq'], f['cells_df'], f['cells_n'] - f['cells_eq'] - f['cells_df']), '',
+         '**The faces row** (`(R316)`(8)): (4) tagged nothing, so no prompt was raised, no row changes and no page is written -- '
+         'THE_CLAUSE_AND_ITS_COMPILED_FACES.md stands as b704 wrote it (PLACE-papers c9b2e55); the hold named here: the join held at '
+         'lv-conservation’s module at the shared pin, SIDELvConservation/GammaBounds.lean :177 (relay data/b706_faces.txt).', '',
+         '**The standing arms**: the four figures at b706 -- %s, %s, %s, %s -- against b705’s %s, %s, %s, %s, read from this act’s roster after the '
+         'renames (relay data/b706_standing_figures.txt), the partners figure 0 with one copy per table; G-WORKFLOW-FILES, G-RUNNER-READ and '
+         'G-RUNNER-GATE declared failing on the held join by (R316)(4)’s own clause; no standing arm added.' % (
+             f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
+             f['figs5']['correspondence'], f['figs5']['readme'], f['figs5']['partners'], f['figs5']['pins']), '',
+         '**The orders** (`(R316)`(3)-(7)): W-ORD-PAPER-PARTNER-COPIES, W-ORD-WORKFLOW-PROBE-STEP, W-ORD-CORRESPONDENCE-EF-REACH and '
+         'W-ORD-ENTRY-TAG-PRINTS discharged; W-ORD-FACES-JOIN-MANIFEST entered and discharged; W-ORD-LV-CLOSURE-JOIN annotated with the hold at '
+         'lv-conservation’s module (OPEN_TRAILS :%s-:%s).' % (f['orders'][0] if f['orders'] else '-', f['orders'][-1] if f['orders'] else '-'), '',
+         '**The citation check** (the gate step from b662): %s cites checked at HEAD, %s OK, %s missed and raised before the component that cites '
+         'it; %d answer check%s, each before its answer was acted on, the join-manifest answer checked again after the checker’s repair (d).' % (
+             cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
+         scores_line(S), '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): the five objects say one thing about the corpus and its kernels -- every roster paper '
+         'now has one copy, named as the file of record, whose Correspondence cells the generator writes and whose citation-form mentions of the '
+         'central kernel it now parses; the entry tags the papers cite print the statements they cite, equal to the statements at v0.37; and the '
+         'clause’s two compiled faces stand one build short of a join, the cache served, Mathlib built, lv-conservation’s own module failing at '
+         'the pin the join requires. It strengthens the programme’s offering of a located clause: its citations are read by the generator, its '
+         'entry tags by the runner, and the join’s remaining price is one module of one kernel, named by line.', '',
+         '**Carried to:** b707 (the sign-onset radius at Q0 with its controls; the top-ranked axis at full grade; the twelve higher pairs priced '
+         'beyond b675’s modulus rule, registered before any number); b708 (the re-cut act with the opening probe through the workflow’s step); '
+         'b710 (W-ORD-STANDING-CLAUSES-BANK, reading 5); the next ruling (the join held at lv-conservation’s module, the lv forward-port b703 '
+         'priced); W-ORD-KEYSTONE-HEADS on its trigger; the draft held at v5.', '',
+         '**Next.** %s.' % K.NEXT, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
+    return _title(), NL.join(e)
+
+
+def _trail_text():
+    S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
+    fj = jl('%s_findings.json' % ACT)
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    _r, _n, sh = seal_hashes()
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    f = _figs()
+    p1, p2 = f['prints'].get('v0.1') or {}, f['prints'].get('v0.2') or {}
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R316) ratified.** (1) b705 at its weight. (2) The failures sorted, the repairs and the corrigendum. (3) The partner copies. (4) The '
+             'join’s manifest. (5) The workflow’s probe step. (6) The generator’s reach. (7) The entry-tag prints. (8) The faces row. (9) The branches. '
+             '(10) The readfirst bank. (11) The draft held at v5. (12) The acts after.', '',
+             '**Entered:** FINDINGS.md:%s (b705’s weight), :%s (the corrigendum), :%s (the entry); OPEN_TRAILS.md:%s-:%s (four discharges, one order '
+             'entered and discharged, one annotation); this record.' % (
+                 c1_[0], f['corr_line'], fj.get('entry_line'), f['orders'][0] if f['orders'] else '-', f['orders'][-1] if f['orders'] else '-'), '',
+             '**Act root:** b706 `%s` (previous `%s`, b705’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF '
+             'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b706_author_answers.txt); the root’s own prompt, its '
+             'answer in the closing line.' % (n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
+             '**The partner copies:** %d of %d pairs renamed in place, %d held; the 8 hand edits resolved by kind, %d lines counted apart, %d newer on '
+             'the retired side; the reader hits %s before and after (relay data/b706_partners.txt; PLACE-papers 1dfd9bc..cedf7e9).' % (
+                 f['renamed'], f['pairs'], len(f['held']), f['apart'], f['newer'], f['hits'][0]), '',
+             '**The join:** SIDE-faces-join at `%s`, its lakefile re-ordered mathlib last, one dispatch (run %s), the gate %s, the join %s with %d '
+             'error lines banked -- SIDELvConservation/GammaBounds.lean :177 at the shared pin, FacesJoin.lean never reached -- no tag, no second '
+             'dispatch (relay data/b706_join_grade.txt).' % (K.JOIN_TIP[:7], f['join_run'], f['join_gate'], 'HELD' if f['join_held'] else 'DERIVES', f['join_errs']), '',
+             '**The workflow:** the probe step at build-module.yml :%s on SIDE-explicit-formula’s main at `%s`, its output a separate artifact (relay '
+             'data/b706_workflow_step.txt).' % (f['wf_lines'][1], K.EF_MAIN[:7]), '',
+             '**The generator:** %s kernels parsed, SIDE-explicit-formula among them with %s citation-form cells; every re-emission byte-equal %s '
+             '(relay data/b706_generator_reach.txt).' % (f['gen_kernels'], f['gen_cited'], f['gen_equal']), '',
+             '**The entry-tag prints:** runs %s and %s, both DERIVES; %s and %s at the standard three; %d of %d mentions equal, %d differs (relay '
+             'data/b706_prints_v0.1.txt, data/b706_prints_v0.2.txt, data/b706_cells_reread.txt).' % (
+                 p1.get('run'), p2.get('run'), (p1.get('stmt') or '-').replace('theorem ', '').split(' :')[0], (p2.get('stmt') or '-').replace('theorem ', '').split(' :')[0],
+                 f['cells_eq'], f['cells_n'], f['cells_df']), '',
+             '**The faces row:** the join held, no prompt, no row changed, no page written; the hold named in the entry (relay data/b706_faces.txt).', '',
+             '**The kernels:** SIDE-faces-join’s main moved by its manifest commit and dispatched once; SIDE-explicit-formula’s main moved by the one '
+             'workflow commit, two scratch branches cut at the entry tags and deleted after their banks, every tag unmoved; lv-conservation’s main '
+             'and deposit unmoved; no lean or lake on this host.', '',
+             '**The mirror:** the export made after this root in the b670 form, its roster names as renamed, its name in the closing (relay '
+             'data/b706_closing.txt).', '',
+             '**The open orders:** `W-ORD-EXPLICIT-FORMULA-C1`; `W-ORD-EPSTEIN-COUNT-LEAN`; `W-ORD-STANDING-CLAUSES-BANK`; `W-ORD-LV-CLOSURE-JOIN` '
+             '(the join held at lv-conservation’s module, its manifest repaired); `W-ORD-KEYSTONE-HEADS`; `W-ORD-QUASI-RH-FIELD-WATCH`; '
+             '`W-ORD-P3-CONTOUR-SIGMA` (read at b705); `W-ORD-E0-MET-CLASSK` (its content done at b705); `W-ORD-README-FIGURE-SCOPE` (repaired at '
+             'b705). Discharged this act: `W-ORD-PAPER-PARTNER-COPIES`, `W-ORD-FACES-JOIN-MANIFEST`, `W-ORD-WORKFLOW-PROBE-STEP`, '
+             '`W-ORD-CORRESPONDENCE-EF-REACH`, `W-ORD-ENTRY-TAG-PRINTS`.', '',
+             '**The standing arms:** the four figures %s, %s, %s, %s against b705’s %s, %s, %s, %s, read from this act’s roster; G-WORKFLOW-FILES, '
+             'G-RUNNER-READ and G-RUNNER-GATE declared on the face as carried failures on the held join (relay data/b706_standing_figures.txt, '
+             'data/b706_join_grade.txt).' % (f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
+                                             f['figs5']['correspondence'], f['figs5']['readme'], f['figs5']['partners'], f['figs5']['pins']), '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % _for_author(), '',
+             '**Defects** (relay data/b706_defects.txt): %s.' % ('; '.join(_defect_short(ACT)) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in NK + SK) + '.** (the scores bank; the readings that waited, at the close)', '',
+             '**Next:** %s.' % K.NEXT, '']
+    return NL.join(rows_)
+
+
+def components(*a):
+    S, fj, tj, J = (jl(n_) for n_ in ('%s_scores.json' % ACT, '%s_findings.json' % ACT, '%s_trail.json' % ACT, '%s_act_root.json' % ACT))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    f = _figs()
+    L = ['%s -- THE COMPONENTS, BANKED UNDER (R316).' % ACT, '',
+         '### COMPONENT 0 : the citation check (data/b706_citation_check.txt), step zero (data/b706_ferry.txt, data/b706_readfirst.txt, data/b706_stepzero.txt, '
+         'data/b706_tests_stepzero.txt, data/b706_rowgen_stepzero.txt, data/b706_branches.txt)',
+         '### COMPONENT 1 : b705`s weight FINDINGS :%s ; the corrigendum FINDINGS :%s ; the sort and the repairs (data/b706_arm_sort.txt, '
+         'data/b706_tool_repairs.txt, data/b706_repair_controls.txt) ; the root route dry (data/b706_root_banks_dry.txt)' % (c1_[0], f['corr_line']),
+         '### COMPONENT 2 : the partner copies (data/b706_partners_read.txt, data/b706_partners_dry.txt, data/b706_partners.txt, data/b706_readers_after.txt), '
+         '%d of %d renamed, %d held ; N2 %s' % (f['renamed'], f['pairs'], len(f['held']), S['N2'][0]),
+         '### COMPONENT 3 : the join (data/b706_join_lakefile.txt, data/b706_runner_SIDE-faces-join_join.txt, data/b706_join_grade.txt), run %s, the gate %s, '
+         'the join %s ; the workflow (data/b706_workflow_step.txt) ; the generator (data/b706_generator_reach.txt, %s cells) ; N1 %s ; N3 %s' % (
+             f['join_run'], f['join_gate'], 'HELD' if f['join_held'] else 'DERIVES', f['gen_cited'], S['N1'][0], S['N3'][0]),
+         '### COMPONENT 4 : the entry-tag prints (data/b706_prints_v0.1.txt, data/b706_prints_v0.2.txt, data/b706_cells_reread.txt), %d of %d mentions equal ; '
+         'the faces row (data/b706_faces.txt), the join held ; N4 %s' % (f['cells_eq'], f['cells_n'], S['N4'][0]),
+         '### COMPONENT 5 : the carry-time reading (data/b706_tool_repairs.txt), the figures (data/b706_standing_figures.txt), the orders (data/b706_orders.json), '
+         'the dry-run steps (data/b706_reg_gate.txt), the seal (data/b706_seal_hashes.json), the suite in seven parts, the per-part seconds '
+         '(data/b706_arm_seconds.txt) ; S3 %s' % S['S3'][0],
+         '### COMPONENT 6 : FINDINGS :%s ; the root %s ; OPEN_TRAILS :%s ; the mirror after the root ; N5 %s' % (
+             fj.get('entry_line'), (J.get('root') or '')[:16], tj.get('line'), S['N5'][0])]
+    put_txt('%s_components.txt' % ACT, L)
+    print(NL.join(L[2:]))
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = R.conv(e)
+    dry = 'dry' in a
+    cells_, fired = R.screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells_)
+        return
+    if not os.path.isfile(os.path.join(D, '%s_scores.json' % ACT)):
+        sys.exit('### THE SCORES BANK IS NOT WRITTEN -- THE ENTRY READS IT (data/b686_rules.txt row (1)) -- NOTHING WRITTEN')
+    if cells_ or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = R._land_one(FIND, t, e, '%s_findings.json' % ACT, dict(title=t))
+    j = jl('%s_findings.json' % ACT)
+    j['entry_line'] = ln
+    put_json('%s_findings.json' % ACT, j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = R.conv(_trail_text())
+    dry = 'dry' in a
+    cells_, fired = R.screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells_)
+        return
+    if cells_ or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = R._land_one(OT, TRAIL_HEAD(), e, '%s_trail.json' % ACT, {})
+    print('  OPEN_TRAILS record :%s' % ln)
+
+
+def drycheck(*a):
+    """(R267)(2), STANDING FROM b657: the FINDINGS entry and the trail record composed as the record tool composes them, converted by conv and run
+    through the screens their landing runs, the needles the face names read in each; the trail's Defects line AND its Resolved line read against
+    the defects bank. Writes no bank."""
+    face = rd(a[0] if a and not a[0] == 'standin' else FACE)
+    ok = True
+    for which, (head, text) in (('ENTRY', _finding_text()), ('TRAIL', (TRAIL_HEAD(), _trail_text()))):
+        t = R.conv(text)
+        print('  %s (the screens):' % which)
+        cells_, fired = R.screens([('FINDINGS.md' if which == 'ENTRY' else 'OPEN_TRAILS.md', head, t)], 'dry_' + which.lower(), True)
+        nd = R._face_needles(face, which)
+        miss = [n for n in nd if n not in t]
+        clean = not cells_ and not fired and nd and not miss
+        if which == 'TRAIL':
+            m = re.search(r'^\*\*Defects\*\* \(relay data/%s_defects\.txt\): (.*)\.$' % ACT, text, re.M)
+            got = m.group(1) if m else None
+            want = '; '.join(_defect_short(ACT)) or 'none'
+            eq = got == want
+            print('  THE TRAIL`S DEFECTS LINE: %s' % got)
+            print('  THE DEFECTS BANK`S ROWS (relay data/%s_defects.txt, by the repaired reader): %s' % (ACT, want))
+            print('  ### THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK %s' % eq)
+            rows, nav = _owners_now()
+            gr = _trail_resolved(t)
+            wr = (num_word(len(nav)), num_word(len(rows) - len(nav)))
+            eqr = gr == wr
+            print('  THE TRAIL`S RESOLVED LINE`S COUNTS: %s ; THE BANK`S OWNERS (navigator, seat): %s' % (gr, wr))
+            print('  ### THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK %s' % eqr)
+            clean = clean and eq and eqr
+        ok = ok and clean
+        print('  %s : table cells %s ; screens %s ; the face`s needles %d, found %d%s ; %s' % (
+            which, cells_ or 'NONE', 'FIRED' if fired else 'QUIET', len(nd), len(nd) - len(miss), (' -- missing %s' % miss) if miss else '',
+            'CLEAN' if clean else 'NOT CLEAN'))
+    print('  ### ### **DRY-RUN STEP : %s**' % ('CLEAN' if ok else 'NOT CLEAN'))
+    if not ok:
+        sys.exit(1)
+
+
+def mbank(*a):
+    """b705's mbank (its span line read from the mirror bank chain) carried by copy with b706's names."""
+    import hashlib as _hl
+    import zipfile
+    import b616_record as R6
+    ZIP = R.ZIP
+    z = zipfile.ZipFile(ZIP)
+    names_ = sorted(z.namelist())
+    man = z.read('MANIFEST.md')
+    ls = man.decode('utf-8-sig').replace(chr(13), '').split(NL)
+    rootl = [l for l in ls if l.startswith('Act root: ')]
+    rosterl = [l for l in ls if l.startswith('ROSTER')]
+    commits = sorted(set(re.findall(r'\b([0-9a-f]{7,12})\b', NL.join(l for l in ls if '|' in l))))
+    zb = open(ZIP, 'rb').read()
+    clean = 'VERDICT: CLEAN ON ALL THREE CLAUSES' in rdn('%s_mirror_verify.txt' % ACT)
+    nd = R6.nd_hits(NL.join(names_), R6.nd_sets())[0]
+    files_ = [n for n in names_ if n != 'MANIFEST.md']
+    pp_head = g(PP, 'rev-parse', '--short=7', 'HEAD').strip()
+    pj = jl('%s_partners.json' % ACT).get('rows') or []
+    renamed_in = [r['unversioned'] for r in pj if any(n.endswith(r['unversioned'].split('/')[-1]) for n in files_)]
+    versioned_in = [r['versioned'] for r in pj if any(n.endswith(r['versioned'].split('/')[-1]) for n in files_)]
+    L = ['%s -- THE MIRROR-REFRESH EXPORT, BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH BY THE UNEDITED BUILDER, banked %s' % (ACT, utc()),
+         '### THE ZIP : %s ; %d bytes ; md5 %s ; sha256 %s' % (ZIP, len(zb), _hl.md5(zb).hexdigest(), _hl.sha256(zb).hexdigest()),
+         '### THE MANIFEST : md5 %s ; entries in the zip %d (files %d + MANIFEST)' % (_hl.md5(man).hexdigest(), len(names_), len(files_)),
+         '### PLACE-papers HEAD AT THE BUILD : %s ; the last commit carried in MANIFEST`s rows %s' % (pp_head, pp_head in commits),
+         '### THE ROSTER LINE : %s' % (' / '.join(rosterl) or '### NONE'), '### THE ROOT LINE : %s' % (rootl[0] if rootl else '### NONE'),
+         span_line(ACT),
+         '### THE ROSTER NAMES AS RENAMED UNDER (R316)(3): of the 17 pairs, the unversioned names carried %d, the retired versioned names carried %d' % (
+             len(renamed_in), len(versioned_in)),
+         '### THE VERIFICATION : %s' % ('CLEAN ON ALL THREE CLAUSES' if clean else '### NOT CLEAN'),
+         '### THE NO-DISCLOSURE ARM OVER THE FILE LIST: %s' % dict(nd), '### THE FILE LIST:'] + ['    %s' % n for n in names_]
+    put_txt('%s_mirror.txt' % ACT, L)
+    put_json('%s_mirror.json' % ACT, dict(at=utc(), zip=ZIP, zip_md5=_hl.md5(zb).hexdigest(), zip_sha256=_hl.sha256(zb).hexdigest(), bytes=len(zb),
+                                         manifest_md5=_hl.md5(man).hexdigest(), entries=len(names_), files=len(files_), roster_line=rosterl,
+                                         root_line=rootl[0] if rootl else '', clean=clean, nd=dict(nd), pp_head=pp_head, last_commit_in_manifest=pp_head in commits,
+                                         span=span_line(ACT), renamed_in=renamed_in, versioned_in=versioned_in))
+    for l in L[:10]:
+        print(l[:240])
+
+
+def guard(*a):
+    """data/b706_guard_dry.txt (.json): b705's route with b706's names -- the suite's `--guard-dry` run in its own process (it writes nothing), its
+    print banked verbatim; the writes by mode read from the suite's own writer_plan; the writer block's `if PRERUN:` line read by number."""
+    import b706_checks as CH
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'b706_checks.py'), '--guard-dry'], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', cwd=ROOT)
+    src = rd(os.path.join(T, 'b706_checks.py')).split(NL)
+    k = next((i for i, l in enumerate(src) if l.strip() == CH.GUARD_WRITE), None)
+    writes = {}
+    for mode, args in (('prerun', (True, False, False, False)), ('pre-push', (False, False, False, False)), ('post-push', (False, True, False, True))):
+        writes[mode] = CH.writer_plan(*args)[1]
+    ok = r.returncode == 0 and k is not None and src[k - 1].strip() == 'if PRERUN:' and writes['pre-push'] == [] and writes['post-push'] == [] \
+        and writes['prerun'] == ['data/b706_arm_seconds_<part>.json'] and 'POST-ROOT PATH WRITES NONE' in r.stdout
+    L = ['%s -- COMPONENT 5: THE PRERUN GUARD HELD AT THE CARRY, ITS DRY RUN (%s)' % (ACT, utc()), '',
+         '### the suite`s `--guard-dry` run in its own process, writing nothing; its print verbatim beneath. The guard: tools/b706_checks.py :%d `%s`,'
+         % (k, src[k - 1].strip() if k else '?'), '### the line above the per-part seconds write at :%d.' % ((k or 0) + 1), '',
+         '### THE PRINT, VERBATIM (exit %d):' % r.returncode]
+    L += [x for x in r.stdout.rstrip(NL).split(NL)]
+    L += ['', '### THE WRITES BY MODE, READ FROM THE SUITE`S writer_plan: %s' % '; '.join('%s %s' % (m, w or 'NONE') for m, w in writes.items()), '',
+          '### ### **%s**' % ('THE GUARD HELD ; THE POST-ROOT PATH WRITES NONE OF THE PER-PART SECONDS BANKS ; THE PRE-RUN WRITES THEM ALONE'
+                               if ok else '### THE GUARD IS NOT AS READ -- SEE ABOVE')]
+    if 'dry' not in a:
+        put_txt('%s_guard_dry.txt' % ACT, L)
+        put_json('%s_guard_dry.json' % ACT, dict(at=utc(), writes=writes, guard_line=k, exit=r.returncode, ok=ok))
+    print(NL.join(L))
+
+
+def armnames(*a):
+    """the suite's arm names in its order, for the face's (G2) block -- names alone, no source printed."""
+    import b706_checks as CH
+    names_ = [x[0] for x in CH.ARMS]
+    st = set(_standing())
+    print('  ARMS %d ; standing among them %d ; the act`s %d ; beyond both %s' % (
+        len(names_), len(st & set(names_)), len(set(names_) & set(K.ACT_ARMS)), sorted(set(names_) - st - set(K.ACT_ARMS)) or 'NONE'))
+    print('  standing not in the suite: %s' % (sorted(st - set(names_)) or 'NONE'))
+    print('  act arms not in the suite: %s' % (sorted(set(K.ACT_ARMS) - set(names_)) or 'NONE'))
+    for i in range(0, len(names_), 7):
+        print('### ' + ' '.join('`%s`' % n for n in names_[i:i + 7]))
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
+              scores=scores, components=components, findings=findings, trail=trail, drycheck=drycheck, mbank=mbank, guard=guard, armnames=armnames,
+              figures=figures, orders=orders,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, rootexclude=rootexclude, armsort=armsort, c1=c1,

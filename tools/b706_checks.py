@@ -16,14 +16,15 @@ PARTS, THE CHAIN'S FIRST HALF SPLIT IN TWO.
 ### over this act's banks, the table regenerated in a closing run); each under the 590 s guard, NOT RUN beneath the 2,560 MB hold; `--combine
 ### <bank>` writes the bank. The chain halves as b693 drew them with b706 added to the second (the ferry's Component 5).
 ### ### (R264)(2), THE FREEZE: the standing arms are b705's face's (G2) arms less b705's own arms over b705's banks, carried, the twenty-four rule
-### arms of tools/rule_arms.py and G-READ-RULE-STANDING among them; NO standing arm is added (N5). THREE REPAIRS AT THE CARRY, (R316)(2), each
-### a diff in relay data/b706_tool_repairs.txt with its control (data/b706_repair_controls.txt):
+### arms of tools/rule_arms.py and G-READ-RULE-STANDING among them; NO standing arm is added (N5). SEVEN REPAIRS AT THE CARRY, (R316)(2) and the
+### carry's own, each a diff in relay data/b706_tool_repairs.txt with its control (data/b706_repair_controls.txt); the three of (R316)(2):
 ###   G-WRITELIST-KINDS (wl_ok) reads the face's (W) list, which admits the next act's rules file by form (`relay/data/b707_rules.txt`);
 ###   G-ANSWERS-CHECKED: its checker, tools/b706_citation.py's answer route, tells a sha256 prefix from a commit by its bank's row (the
 ###     predicate answers_checked_ok unchanged, b705's);
 ###   G-ENTRY-TITLE-FORM (entry_title_ok) compares after case-folding the article alone.
-### The four standing figures read by tools/b705_standing_figures.py (sealed at b705, imported unedited) against b705's baselines
-### (data/b705_standing_figures.json). G-READ-RULE-STANDING reads every call from the anchor on. The standing runner arms (G-WORKFLOW-FILES,
+### The four standing figures read by tools/b706_standing_figures.py (correspondence() and partners() over this act's roster after the renames of
+### (R316)(3), repair (7); readme() b705's repaired one and pins() b703's through it) against b705's baselines (data/b705_standing_figures.json).
+### G-READ-RULE-STANDING reads every call from the anchor on. The standing runner arms (G-WORKFLOW-FILES,
 ### G-RUNNER-READ, G-RUNNER-GATE, G-MERGES-ON-GATE) read THIS ACT'S THREE RUNS -- the join kernel's one dispatch at its manifest commit (its
 ### tag v0.1.0 on DERIVES) and the two entry-tag print branches of SIDE-explicit-formula -- and SIDE-explicit-formula's main moved by the one
 ### workflow commit of (R316)(5): no merge this act.
@@ -99,7 +100,8 @@ GUARD_DRY = '--guard-dry' in sys.argv
 PART = sys.argv[sys.argv.index('--part') + 1] if '--part' in sys.argv and len(sys.argv) > sys.argv.index('--part') + 1 else None
 L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): filled at the seal (stage two, by the Edit tool)
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=())
+FLOORS = dict(prompts=3, calls=2, checks=4, defects=(('a', 'NAVIGATOR'), ('b', 'NAVIGATOR'), ('c', 'NAVIGATOR'), ('d', 'SEAT'), ('e', 'SEAT'), ('f', 'SEAT'),
+                                                     ('g', 'SEAT')))
 
 
 def _jgz(name):
@@ -137,7 +139,10 @@ def _pairs():
 
 PAIRS = _pairs()
 PAIR_FILES = sorted(set(p for _d, a, b in PAIRS for p in (a, b)))
-ARCHIVE = sorted(K.ARCHIVE_DIR + '/' + a for _d, a, _b in PAIRS)
+VERSIONED_NAME = re.compile(r'_v\d+(?:_\d+)*\.md$')
+# ### the archive paths of (R316)(3): the UNVERSIONED copy of each pair retired beneath the archive directory at its own path (the roster's
+# ### `path` is the versioned copy for nine pairs, so the unversioned one is read off the pair by its name, not its roster side)
+ARCHIVE = sorted(K.ARCHIVE_DIR + '/' + p for _d, a, b in PAIRS for p in (a, b) if not VERSIONED_NAME.search(p))
 # ### the corpus documents this act does not write: every page, the monograph, the companions, the README, the faces page where the word is
 # ### "hold" and the cut papers of b702 and b704 -- less REGISTRY.md and the 17 pairs' files, written under (R316)(3) alone
 CURRENTS = tuple(p for p in C3.CURRENTS if p != 'REGISTRY.md' and p not in PAIR_FILES)
@@ -154,7 +159,8 @@ NEED = {'standing-a': ('live', 'rules'), 'standing-c': ('written', 'figures'), '
 PROJ = 'C:/Users/echo chamber/.claude/projects/D--'
 SESSION = '%s/%s.jsonl' % (PROJ, K.SESSION_ID)
 STD3 = ('Classical.choice', 'Quot.sound', 'propext')
-PRINT_LABELS = tuple(b for _t, b in K.PRINT_BRANCHES)   # ### the two entry-tag print runs, labelled by their branch
+PRINT_LABELS = tuple(K.PRINT_LABELS[t] for t, _b in K.PRINT_BRANCHES)   # ### the two entry-tag print runs by their runner labels (prints_v0_1, prints_v0_2: b698's reader admits no dot)
+PRINT_TAG = dict((K.PRINT_LABELS[t], t) for t, _b in K.PRINT_BRANCHES)
 
 
 def rec(s=''):
@@ -245,13 +251,14 @@ def wf_state():
                          lakefile=bool(lf.strip()), mathlib=bool(req), targets=[l.strip() for l in pt.split(NL) if l.strip()],
                          printed=len(_deps(rd('b706_axioms_%s_%s.txt' % (K.KERNEL, JOIN_LABEL)))), act_writes=[], want=[])
     main_wf = read_blob(EF, 'main:' + WF)
-    for _tag, br in K.PRINT_BRANCHES:
+    for tag, br in K.PRINT_BRANCHES:
+        lab = K.PRINT_LABELS[tag]
         pf = jl('b706_print_files_%s.json' % br)
         bl = pf.get('blobs') or {}
-        out[br] = dict(text=bl.get(WF) or '', before=main_wf, wrote=gs(EF, 'log', '-1', '--format=%H', 'main', '--', WF), wrote_before_act=True,
-                       lakefile=bool(bl.get('lakefile.toml') or bl.get('lakefile.lean')), mathlib=True,
-                       targets=[l.strip() for l in (bl.get(PT) or '').split(NL) if l.strip()],
-                       printed=len(_deps(rd('b706_axioms_SIDE-explicit-formula_%s.txt' % br))), act_writes=[], want=[])
+        out[lab] = dict(text=bl.get(WF) or '', before=main_wf, wrote=gs(EF, 'log', '-1', '--format=%H', 'main', '--', WF), wrote_before_act=True,
+                        lakefile=bool(bl.get('lakefile.toml') or bl.get('lakefile.lean')), mathlib=True,
+                        targets=[l.strip() for l in (bl.get(PT) or '').split(NL) if l.strip()],
+                        printed=len(_deps(rd('b706_axioms_SIDE-explicit-formula_%s.txt' % lab))), act_writes=[], want=[])
     return out
 
 
@@ -395,10 +402,27 @@ def sources(need=()):
         art_cache=rd('b706_art_%s_%s_cache_log.txt' % (K.KERNEL, JOIN_LABEL)), buildlog=rd('b706_buildlog_%s_%s.txt' % (K.KERNEL, JOIN_LABEL)),
         wfstep=rd('b706_workflow_step.txt'), wfstepj=jl('b706_workflow_step.json'), ef_push=rd('b706_ef_push_out.txt'),
         gen=rd('b706_generator_reach.txt'), genj=jl('b706_generator_reach.json'),
-        prints=dict((br, rd('b706_prints_%s.txt' % tg)) for tg, br in K.PRINT_BRANCHES), printsj=dict((br, jl('b706_prints_%s.json' % tg)) for tg, br in K.PRINT_BRANCHES),
-        print_files=dict((br, jl('b706_print_files_%s.json' % br)) for _tg, br in K.PRINT_BRANCHES),
-        print_runs=dict((br, rd('b706_runner_SIDE-explicit-formula_%s.txt' % br)) for _tg, br in K.PRINT_BRANCHES),
-        print_ax=dict((br, rd('b706_axioms_SIDE-explicit-formula_%s.txt' % br)) for _tg, br in K.PRINT_BRANCHES),
+        prints=dict((K.PRINT_LABELS[tg], rd('b706_prints_%s.txt' % tg)) for tg, _br in K.PRINT_BRANCHES),
+        printsj=dict((K.PRINT_LABELS[tg], jl('b706_prints_%s.json' % tg)) for tg, _br in K.PRINT_BRANCHES),
+        print_files=dict((K.PRINT_LABELS[tg], jl('b706_print_files_%s.json' % br)) for tg, br in K.PRINT_BRANCHES),
+        print_filest=dict((K.PRINT_LABELS[tg], rd('b706_print_files_%s.txt' % br)) for tg, br in K.PRINT_BRANCHES),
+        print_push=dict((K.PRINT_LABELS[tg], rd('b706_prints_%s_push_out.txt' % tg)) for tg, _br in K.PRINT_BRANCHES),
+        print_runs=dict((K.PRINT_LABELS[tg], rd('b706_runner_SIDE-explicit-formula_%s.txt' % K.PRINT_LABELS[tg])) for tg, _br in K.PRINT_BRANCHES),
+        print_ax=dict((K.PRINT_LABELS[tg], rd('b706_axioms_SIDE-explicit-formula_%s.txt' % K.PRINT_LABELS[tg])) for tg, _br in K.PRINT_BRANCHES),
+        readers_before=rd('b706_readers_before.txt'), readers_after=rd('b706_readers_after.txt'), roster706=jl('b706_roster_read.json'),
+        partners_read=rd('b706_partners_read.txt'), partners_dryt=rd('b706_partners_dry.txt'), partners_dryj=jl('b706_partners_dry.json'),
+        prompt1=rd('b706_prompt1_print.txt'), prompt2=rd('b706_prompt2_print.txt'),
+        registry_diff=gs(PP, 'diff', PRE['pp'], 'HEAD', '--', 'REGISTRY.md'), orders_line=jl('b706_orders.json'),
+        gen_forms=rd('b706_generator_forms.txt'), gen_diff=rd('b706_generator_diff.txt'), gen_src=read(os.path.join(T, 'correspondence_gen.py')),
+        join_lakefilej=jl('b706_join_lakefile.json'), join_lakefilet=rd('b706_join_lakefile.txt'),
+        nodes_exists=os.path.exists(os.path.join(D, 'b706_nodes_zeta.txt')), fig5=jl('b705_standing_figures.json'),
+        pair_blobs=[(r.get('doc'), gs(PP, 'rev-parse', '--verify', '--quiet', 'HEAD:' + (r.get('unversioned') or '')),
+                     gs(PP, 'rev-parse', '--verify', '--quiet', PRE['pp'] + ':' + (r.get('versioned') or '')),
+                     gs(PP, 'rev-parse', '--verify', '--quiet', 'HEAD:' + K.ARCHIVE_DIR + '/' + (r.get('unversioned') or '')),
+                     gs(PP, 'rev-parse', '--verify', '--quiet', PRE['pp'] + ':' + (r.get('unversioned') or '')),
+                     bool(r.get('written')) or (r.get('doc') in [d.get('doc') for d in (jl('b706_partners_dry.json').get('rows') or []) if d.get('written')]))
+                    for r in (jl('b706_partners.json').get('rows') or [])],
+        pp_rename_commits=[(h, files_of(PP, h)) for h in gs(PP, 'rev-list', '--reverse', K.C2_PP_FIRST + '~1..' + K.C2_PP).split(NL) if h.strip()],
         cells=rd('b706_cells_reread.txt'), cellsj=jl('b706_cells_reread.json'), faces=rd('b706_faces.txt'), facesj=jl('b706_faces.json'),
         ef_main=gs(EF, 'rev-parse', 'main'),
         ef_log=[(l.split(' ', 2)[0], l.split(' ', 2)[2] if l.count(' ') >= 2 else '', int(l.split(' ', 2)[1])) for l in
@@ -477,11 +501,11 @@ def sources(need=()):
     S['phase_secs']['the rule arms` trace' + ('' if 'rules' in need else ' (not in this part)')] = time.time() - t1
     t1 = time.time()
     if 'figures' in need:
-        import b705_standing_figures as SF5
+        import b706_standing_figures as SF6   # ### this act's roster after the renames (repair (7)); readme() b705's, pins() b703's through it
         base = jl('b705_standing_figures.json')
-        S['fig'] = SF5.all_figures(baseline=((base.get('pins') or {}).get('rows') or {}), remote=KC0.remote_refs)
+        S['fig'] = SF6.all_figures(baseline=((base.get('pins') or {}).get('rows') or {}), remote=KC0.remote_refs)
         S['fig_prev'] = base
-        S['fig_prev_name'] = 'b705_standing_figures.json (b705`s figures, the README baseline b705`s reset reading)'
+        S['fig_prev_name'] = 'b705_standing_figures.json (b705`s figures; the readers over this act`s roster, data/b706_roster_read.json)'
     else:
         S['fig'], S['fig_prev'], S['fig_prev_name'] = {}, {}, ''
     S['phase_secs']['the four standing figures' + ('' if 'figures' in need else ' (not in this part)')] = time.time() - t1
@@ -896,7 +920,7 @@ def merges_ok(S):
     one = len(S['ef_log']) == 1 and S['ef_files_past'] == [[WF]] and S['ef_main'] == S['ef_log'][0][0]
     return one and S['ef_tags'].get('v0.37') == K.EF_V037 and S['ef_tags'].get('v0.1') == K.EF_V01 and S['ef_tags'].get('v0.2') == K.EF_V02 \
         and not S['ef_sorry'].strip() and all(v.strip() == '' for v in S['ef_branches'].values()) \
-        and (not S['ef_remote'] or all(('refs/heads/%s' % b) not in S['ef_remote'] for b in PRINT_LABELS)) \
+        and (not S['ef_remote'] or all(('refs/heads/%s' % b) not in S['ef_remote'] for _t, b in K.PRINT_BRANCHES)) \
         and S['join_exists'] and S['join_main'] == K.JOIN_TIP and (S['join_tag'] == K.JOIN_TIP) == gate and not S['join_sorry'].strip() \
         and S['lv_main'].startswith(K.LV_MAIN) and S['lv_v0100'] == K.LV_V0100
 
@@ -930,7 +954,8 @@ def sealed_after_ok(S):
 # ### required or admitted
 REQUIRED_BANKS = ('data/b706_partners.txt', 'data/b706_join_grade.txt', 'data/b706_workflow_step.txt', 'data/b706_generator_reach.txt',
                   'data/b706_prints_v0.1.txt', 'data/b706_prints_v0.2.txt', 'data/b706_cells_reread.txt', 'data/b706_corrigendum.txt',
-                  'data/b706_arm_sort.txt', 'data/b706_tool_repairs.txt')
+                  'data/b706_arm_sort.txt', 'data/b706_tool_repairs.txt', 'data/b706_standing_figures.txt', 'data/b706_faces.txt',
+                  'data/b706_readers_after.txt', 'data/b706_root_banks_dry.txt')
 
 
 def _root_banked(S, act, nrows, prev_key='arj0', route_key='route_list', required=REQUIRED_BANKS, exclude=None):
@@ -1016,8 +1041,10 @@ def closing_sentence_ok(S):
 
 
 # ================================================================== THIS ACT'S ARMS OVER ITS OWN BANKS (Component 5, by the Edit tool)
-NAV_LETTERS = ()
-ANSWER_NEEDLES = ()
+NAV_LETTERS = ('a', 'b', 'c')
+# ### each mid-act answer's needle and the component commit that acted on it (the hand-edit and zero-diff answers at Component 2's, the join
+# ### manifest's at Component 3's; the manifest answer checked twice, before and after the checker's repair (d), both stamps before the commit)
+ANSWER_NEEDLES = (('Hand edits: 1, resolved by kind', 'c2'), ('Join manifest: 1, Mathlib last', 'c3'), ('Zero diff: 1, against the generator', 'c2'))
 
 
 def defects_ok(S):
@@ -1047,9 +1074,14 @@ def armsort_ok(S):
 
 
 def repairs_ok(S):
-    return 'REPAIRS 5 ; SHARED TOOLS EDITED 0 AT THE CARRY' in unwrap(S['repairs']) and 'AS WANTED True' in unwrap(S['repair_ctl']) \
-        and "['G-ANSWERS-CHECKED', 'G-ENTRY-TITLE-FORM', 'G-WRITELIST-KINDS']" in unwrap(S['repair_ctl']) \
-        and all(('(%d) tools/' % i) in S['repairs'] for i in range(1, 6)) and 'data/b706_tool_repairs.txt' in S['files']['c1']
+    """the seven carry-time repairs banked with their diffs, every control case as wanted and each repaired reading distinguished from the old
+    on a row (the three of (R316)(2) and the carry's own four)."""
+    z = unwrap(S['repair_ctl'])
+    m = re.search(r'EACH REPAIRED READING DISTINGUISHED FROM THE OLD ON A ROW: \[([^\]]*)\]', z)
+    dist = set(re.findall(r"'([^']+)'", m.group(1))) if m else set()
+    return 'REPAIRS 8 ; SHARED TOOLS EDITED 0 AT THE CARRY' in unwrap(S['repairs']) and 'AS WANTED True' in z \
+        and dist >= {'G-ANSWERS-CHECKED', 'G-ENTRY-TITLE-FORM', 'G-WRITELIST-KINDS', 'ROOT_EXCLUDE', 'prev_capture', 'runner706', 'standing_figures', 'G-PARTNER-COPIES'} \
+        and all(('(%d) tools/' % i) in S['repairs'] for i in range(1, 9)) and 'data/b706_tool_repairs.txt' in S['files']['c1']
 
 
 def rootdry_ok(S):
@@ -1073,6 +1105,222 @@ def arm_seconds_ok(S):
     j = S['asec']
     return sorted(j.get('parts') or []) == sorted(K.PARTS) if isinstance(j.get('parts'), (list, dict)) else (
         sorted(j) >= [] and all(p in json.dumps(j) for p in K.PARTS) and 'THE PER-PART SECONDS' in S['asect'].upper())
+
+
+# ================================================================== (R316)(3): THE PARTNER COPIES
+def partners_read_first_ok(S):
+    """the 8 hand-edited lines read side by side first, every one of the kind "the versioned side carries it"; the two prompts printed and the
+    generator's run measured dry (39 cells) before the first rename commit."""
+    z = unwrap(S['partners_read'])
+    first = _ct(PP, K.C2_PP_FIRST)
+    t_read, t_dry = _bank_utc(S['partners_read']), _bank_utc(S['partners_dryt'])
+    return 'HAND EDITS 8 (' in z and 'REGENERATED CELLS 123' in z and 'the versioned side carries it' in S['answers'] \
+        and S['partners'].count('RESOLVED BY KIND (the hand edit: the versioned side carries it)') == 6 and 'THE HAND EDITS RESOLVED BY KIND 6' in unwrap(S['partners']) \
+        and bool(first) and t_read is not None and t_dry is not None and t_read < first and t_dry < first \
+        and 'THE GENERATOR WROTE 2 VERSIONED COPIES (39 CELLS CHANGED)' in unwrap(S['partners_dryt']) \
+        and 'TWO QUESTIONS PRINTED' in unwrap(S['prompt1']) and 'ONE QUESTION PRINTED' in unwrap(S['prompt2'])
+
+
+def partners_ok(S):
+    """the 17 pairs: every reading RENAME, the second pass 0, nothing newer on the retired side, none held; each pair's two git mv in one commit
+    alone between Component 1's and Component 2's PLACE-papers commits, its files the archive path, the unversioned name and REGISTRY; at HEAD
+    the archive path carrying the retired copy's blob unchanged and the unversioned name the versioned copy's blob (the two the generator wrote
+    apart)."""
+    rows = S['partnersj'].get('rows') or []
+    docs_ok = len(rows) == 17 and all(str(r.get('reading', '')).startswith('RENAME') and r.get('second_pass') == 0 and r.get('newer_unversioned') == 0 for r in rows)
+    blobs = S['pair_blobs']
+    moved = len(blobs) == 17 and all(h_u and h_a and h_a == p_u and (w or h_u == p_v) for _d, h_u, p_v, h_a, p_u, w in blobs)
+    cm = S['pp_rename_commits']
+    # ### each commit's files: the archive path, the unversioned name and REGISTRY; git lists the retired versioned name beside them where its
+    # ### rename heuristic pairs the two copies as a modification of the unversioned path (one of the seventeen), so that name is admitted
+    want = [sorted([K.ARCHIVE_DIR + '/' + r['unversioned'], r['unversioned'], 'REGISTRY.md']) for r in rows]
+    alone = len(cm) == 17 and [sorted(set(fs) - {r['versioned']}) for (_h, fs), r in zip(cm, rows)] == want
+    return docs_ok and moved and alone and 'RENAME 17 ; HELD 0' in unwrap(S['partners']) and 'data/b706_partners.txt' in S['files']['c2']
+
+
+def readers_equal_ok(S):
+    """N2: the standing reader hits equal before and after the renames (102), the roster's 20 tables found at the unversioned names after; the
+    roster bank this act's, 9 renamed, every table found by its anchor; the after-read after the last rename commit."""
+    pat = r'STANDING READER HITS (\d+) OVER (\d+) PAIRS .*?ROSTER TABLES (\d+), FOUND AT THE UNVERSIONED NAME (\d+)'
+    mb, ma = re.search(pat, unwrap(S['readers_before'])), re.search(pat, unwrap(S['readers_after']))
+    tabs = S['roster706'].get('tables') or []
+    last = _ct(PP, K.C2_PP)
+    t_after = _bank_utc(S['readers_after'])
+    return bool(mb) and bool(ma) and mb.group(1) == ma.group(1) == '102' and ma.group(3) == ma.group(4) == '20' and len(tabs) == 20 \
+        and all(t.get('found') for t in tabs) and [t['doc'] for t in tabs if t.get('withheld')] == ['TECHNE_TOOLKIT'] \
+        and sum(1 for t in tabs if t.get('renamed_at_b706')) == 9 \
+        and bool(last) and t_after is not None and t_after > last
+
+
+def registry_rows_ok(S):
+    """REGISTRY.md against the act's base: seventeen lines changed, one per pair, each the pair's row by its unversioned path, no other line."""
+    d = S['registry_diff']
+    plus = [l for l in d.split(NL) if l.startswith('+') and not l.startswith('+++')]
+    minus = [l for l in d.split(NL) if l.startswith('-') and not l.startswith('---')]
+    rows = S['partnersj'].get('rows') or []
+    return len(rows) == 17 and len(plus) == 17 and len(minus) == 17 and all(any(r['unversioned'] in l for l in plus) for r in rows) \
+        and all(any(r['unversioned'] in l for l in minus) for r in rows)
+
+
+# ================================================================== (R316)(4): THE JOIN'S MANIFEST
+def join_manifest_ok(S):
+    """the lakefile's three requires in the order SIDEExplicitFormula, sideLvConservation, mathlib (last), every revision unchanged, no manifest
+    on this host, printed before the manifest commit; the kernel's main that commit on b705's one; pushed and read back; the files banked."""
+    j, lf = S['join_lakefilej'], S['join_lakefile']
+    order = re.findall(r'(?s)\[\[require\]\]\s*name\s*=\s*"([^"]+)"', lf)
+    at = iso_epoch(j.get('at') or '')
+    tip_ct = _ct(KI, K.JOIN_TIP)
+    # ### the lakefile bank's stamp: its reader was repaired after the commit (the event in data/b706_defects.txt), so the banked print stands
+    # ### after the manifest commit and before the push (the capture's stamp) and the dispatch; the first, unbanked print was before the commit
+    m = re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)', S['join_push'])
+    push_at = iso_epoch(m.group(1)) if m else None
+    disp = [r for r in (S['dispj'].get('rows') or []) if r.get('kernel') == K.KERNEL]
+    disp_at = iso_epoch((disp[0].get('dispatched') or '')[:19] + 'Z') if disp else None
+    return j.get('order') == ['SIDEExplicitFormula', 'sideLvConservation', 'mathlib'] == order and j.get('unchanged') is True and j.get('mathlib_last') is True \
+        and j.get('manifest') is False and not S['join_manifest'] and S['join_main'] == K.JOIN_TIP and len(S['join_log']) == 2 \
+        and S['join_log'][-1].startswith(K.JOIN_TIP_B705) and at is not None and bool(tip_ct) and tip_ct < at and push_at is not None and at < push_at \
+        and disp_at is not None and push_at < disp_at \
+        and K.EF_MATHLIB in lf and K.EF_V037 in lf and K.LV_V0100 in lf and ('main read back at the remote: ' + K.JOIN_TIP) in S['join_push'] \
+        and 'FILES 7 AT b37a7b6' in unwrap(S['join_files']) and 'MATHLIB LAST True' in unwrap(S['join_lakefilet'])
+
+
+def join_dispatch_ok(S):
+    rows = [r for r in (S['dispj'].get('rows') or []) if r.get('kernel') == K.KERNEL]
+    by_n = dict((str(r.get('n')), r.get('cmd') or '') for r in S['cmds'])
+    disp = [str(n) for n in (S['cmdj'].get('dispatches') or [])]   # ### the command bank names each dispatch by its command number
+    cap = [n for n in disp if K.KERNEL in by_n.get(n, '')]
+    return len(rows) == 1 and rows[0].get('ref') == K.JOIN_TIP and rows[0].get('run_id') == K.JOIN_RUN and rows[0].get('whole') is True \
+        and rows[0].get('target') == K.JOIN_MODULE and len(disp) == 3 and len(cap) == 1
+
+
+def join_artifact_ok(S):
+    rows = [r for r in (S['runner_rows'].get('rows') or []) if r.get('kernel') == K.KERNEL]
+    return len(rows) == 1 and rows[0].get('run_id') == K.JOIN_RUN and re.match(r'^[0-9a-f]{64}$', rows[0].get('artifact_sha256') or '') is not None \
+        and re.search(r'^### the artifact: .* ; AGREE$', S['joint'], re.M) is not None and 'AGREED WITH THE BANKED AND THE PLATFORM`S' in S['art_cache']
+
+
+def join_held_ok(S):
+    """(R316)(4), N3's second clause: the gate NOT DERIVES, the join HELD at SIDELvConservation/GammaBounds.lean :177 with the error banked by
+    line, no tag, no second dispatch."""
+    j = S['join_gradej']
+    errs = [l for l in S['buildlog'].split(NL) if l.startswith('error:')]
+    return j.get('held') is True and j.get('gate') == 'NOT DERIVES' and j.get('run') == K.JOIN_RUN and j.get('tip') == K.JOIN_TIP \
+        and any('GammaBounds.lean:177' in l for l in errs) and '== THE JOIN HELD' in S['join_grade'] and 'GammaBounds.lean:177' in S['join_grade'] \
+        and S['join_tag'] == '' and 'GATE NOT DERIVES' in S['joint'] \
+        and len([r for r in (S['dispj'].get('rows') or []) if r.get('kernel') == K.KERNEL]) == 1
+
+
+def join_terminal_ok(S):
+    mod = S['join_module']
+    return 'theorem faces_join' in mod and 'SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff' in mod \
+        and 'def Register4_positivity' not in mod and not S['join_sorry'].strip()
+
+
+# ================================================================== (R316)(5)-(6): THE WORKFLOW'S PROBE STEP, THE GENERATOR'S REACH
+def workflow_step_ok(S):
+    j = S['wfstepj']
+    wf = read_blob(EF, 'main:' + WF)
+    lines = (j.get('print_line'), j.get('probe_line'), j.get('closure_line'), j.get('upload_line'))
+    return j.get('ok') is True and j.get('separate') is True and j.get('ident') == [] and all(lines) and lines[0] < lines[1] < lines[2] < lines[3] \
+        and j.get('main_before') == K.EF_V037 and 'ChainProbe.lean' in wf and 'chain-probe-${{ github.run_id }}' in wf \
+        and S['ef_main'] == K.EF_MAIN and len(S['ef_log']) == 1 and S['ef_files_past'] == [[WF]] \
+        and ('main read back at the remote: ' + K.EF_MAIN) in S['ef_push'] and 'AS ORDERED True' in unwrap(S['wfstep'])
+
+
+def generator_reach_ok(S):
+    j = S['genj']
+    ctl = j.get('control') or []
+    reach = (j.get('reach') or {}).get('SIDE-explicit-formula') or {}
+    return 'SIDE-explicit-formula' in (j.get('kernels_new') or []) and 'SIDE-explicit-formula' not in (j.get('kernels_old') or []) \
+        and len(j.get('kernels_new') or []) == 17 and reach.get('cited') == 13 and j.get('equal') is True and j.get('dry_exit') == 0 \
+        and len(ctl) == 20 and all(c.get('equal') for c in ctl) and 'CITE_FORM' in S['gen_src'] and 'def cite_mentions' in S['gen_src'] \
+        and bool(S['gen_diff'].strip()) and 'CITATION-FORM MENTIONS OF SIDE-explicit-formula 15' in unwrap(S['gen_forms']) \
+        and 'tools/correspondence_gen.py' in S['files']['c3']
+
+
+# ================================================================== (R316)(7)-(8): THE ENTRY-TAG PRINTS, THE FACES ROW
+def print_branches_ok(S):
+    """each scratch branch at its tag's peel carrying the workflow at main, a one-name print list and ChainProbe.lean, banked before its
+    dispatch; its dispatch whole at the branch's tip; its push capture; the branches gone and the tags unmoved."""
+    rows = dict((r.get('run_id'), r) for r in (S['dispj'].get('rows') or []))
+    peel = {'v0.1': K.EF_V01, 'v0.2': K.EF_V02}
+    for lab in PRINT_LABELS:
+        tag = PRINT_TAG[lab]
+        pf, pt = S['print_files'][lab], unwrap(S['print_filest'][lab])
+        bl = pf.get('blobs') or {}
+        d = rows.get(K.PRINT_RUNS[tag]) or {}
+        if not (pf.get('peel') == peel[tag] and pf.get('theorem') == S['REC'].TAG_THEOREMS[tag] and pf.get('module') == S['REC'].TAG_MODULES[tag]
+                and set(bl) >= {WF, PT, 'ChainProbe.lean'} and bl.get(WF) == read_blob(EF, 'main:' + WF)
+                and (bl.get(PT) or '').strip() == S['REC'].TAG_THEOREMS[tag] and ('#chain_cell ' + S['REC'].TAG_THEOREMS[tag]) in (bl.get('ChainProbe.lean') or '')
+                and 'THE WORKFLOW EQUAL TO main`S BLOB True' in pt and 'FILES WRITTEN 3' in pt
+                and d.get('ref', '').startswith(K.PRINT_TIPS[tag]) and d.get('whole') is True and d.get('target') == S['REC'].TAG_MODULES[tag]
+                and iso_epoch(pf.get('at') or '') is not None and iso_epoch(pf.get('at')) < iso_epoch((d.get('dispatched') or '')[:19] + 'Z')
+                and ('branch prints-b706-%s' % tag) in S['print_push'][lab]):
+            return False
+    return all(v.strip() == '' for v in S['ef_branches'].values()) and S['ef_tags'].get('v0.1') == K.EF_V01 and S['ef_tags'].get('v0.2') == K.EF_V02
+
+
+def prints_ok(S):
+    """each print bank from the separate chain-probe artifact by name, its sha256 read, no error, the cell the mentioned theorem at its module,
+    its statement at the tag and the standard three; each run's row DERIVES."""
+    rr = dict((r.get('label'), r) for r in (S['runner_rows'].get('rows') or []))
+    for lab in PRINT_LABELS:
+        tag = PRINT_TAG[lab]
+        j, c = S['printsj'][lab], (S['printsj'][lab].get('cell') or {})
+        r = rr.get(lab) or {}
+        if not (j.get('run_id') == K.PRINT_RUNS[tag] and (j.get('artifact') or {}).get('name') == 'chain-probe-%d' % K.PRINT_RUNS[tag]
+                and re.match(r'^[0-9a-f]{64}$', (j.get('artifact') or {}).get('sha256') or '') and j.get('errors') == []
+                and (c.get('statement') or '').startswith('theorem ' + S['REC'].TAG_THEOREMS[tag]) and set(c.get('axioms') or []) == set(STD3)
+                and c.get('module') == S['REC'].TAG_MODULES[tag] and (c.get('statement') or '') in S['prints'][lab]
+                and r.get('gate') == 'DERIVES' and r.get('conclusion') == 'success' and r.get('run_id') == K.PRINT_RUNS[tag]):
+            return False
+    return True
+
+
+def cells_reread_ok(S):
+    rows = S['cellsj'].get('rows') or []
+    eq = [r for r in rows if r.get('verdict') == 'equal']
+    return len(rows) == 11 and len(eq) == 9 and not [r for r in rows if r.get('verdict') == 'differs'] \
+        and sum(1 for r in rows if str(r.get('verdict', '')).startswith('unbanked')) == 2 \
+        and all(r.get('st37') and r.get('st37') == r.get('st_t') and (r.get('bank') or '').startswith('data/b706_prints_') for r in eq) \
+        and 'MENTIONS RE-READ 11 ; EQUAL 9 ; DIFFERS 0 ; UNBANKED 2' in unwrap(S['cells']) and 'data/b706_cells_reread.txt' in S['files']['c4']
+
+
+def faces_row_ok(S):
+    """(R316)(8): the join held, so no faces prompt, no row changed and no page written; the page unchanged at base, working tree and HEAD; no
+    node list written; the hold named."""
+    cur = S['currents'].get(K.FACES_PAGE)
+    return 'NO FACES PROMPT ; NO ROW CHANGED ; NO PAGE WRITTEN' in unwrap(S['faces']) and 'GammaBounds.lean :177' in S['faces'] \
+        and not S['nodes_exists'] and S['join_tag'] == '' and cur is not None and cur[0] is not None and cur[0] == cur[1] == cur[2] \
+        and K.FACES_PAGE not in S['pp_changed'] and not K.C4_PP
+
+
+def orders_ok(S):
+    ls = S['orders_line'].get('lines') or []
+    heads = [h for _ln, _nm, h, _b in S['REC'].ORDERS]
+    return len(ls) == len(heads) == 6 and all(x.get('file') == 'OPEN_TRAILS.md' and bool(x.get('line')) for x in ls) \
+        and all(oline(S, x['line']).startswith(conv(h)) for x, h in zip(ls, heads)) and any('W-ORD-FACES-JOIN-MANIFEST' in oline(S, x['line']) for x in ls)
+
+
+# ### REPAIR (8) AT THE CARRY (data/b706_tool_repairs.txt): b703's fig_ok reads a figure against the previous act's alone; with the partner
+# ### copies resolved under (R316)(3) the figure drops from 131 to 0 (one copy per table), so a mutated copy raised by one would still pass
+# ### against 131 and the arm's positive control could not fire. The partners figure is read against the LOWER of b705's figure and this act's
+# ### banked reading (data/b706_standing_figures.json): the baseline reset to the reading the resolution gives, no regression from it admitted.
+def partners_fig_ok(S):
+    f, p = S['fig'].get('partners') or {}, S['fig_prev'].get('partners') or {}
+    b = (S['figj'].get('partners') or {}).get('figure')
+    return isinstance(f.get('figure'), int) and isinstance(p.get('figure'), int) and isinstance(b, int) and f['figure'] <= min(p['figure'], b)
+
+
+def figures_banked_ok(S):
+    """the four figures banked from this act's roster, each at or below b705's; the partners rows one copy per table, the figure 0."""
+    j, f5 = S['figj'], S['fig5']
+    figs = dict((k, (j.get(k) or {}).get('figure')) for k in ('correspondence', 'readme', 'partners', 'pins'))
+    prev = dict((k, (f5.get(k) or {}).get('figure')) for k in figs)
+    pr = (j.get('partners') or {}).get('rows') or []
+    return all(isinstance(figs[k], int) and isinstance(prev[k], int) and figs[k] <= prev[k] for k in figs) and figs['partners'] == 0 \
+        and len(pr) == 20 and all((r.get('reason') or '').startswith('ONE COPY') for r in pr) and j.get('roster') == 'b706_roster_read.json' \
+        and 'FIGURES AT b706' in S['figt']
 
 
 ARMS = [
@@ -1103,7 +1351,86 @@ ARMS = [
     ('G-NO-LOCAL-LEAN', 'the act`s command capture, read live: no command runs lean or lake on this host (N1)', lambda S: no_local_lean(S),
      lambda S: put(S, 'cmds', S['cmds'] + [dict(n=0, tool='Bash', ts='', src='planted', cmd='lake env lean FacesJoin.lean')])),
     ('G-WEIGHT-LINE', 'FINDINGS at the record-lines bank`s line, found by conv', lambda S: weight_ok(S), lambda S: _rl(S, 0, 1)),
-    # ### ACT ARMS (Component 5, by the Edit tool) -- inserted here
+    # ### ACT ARMS (Component 5, by the Edit tool)
+    ('G-DRY-STEP-CLEAN', 'the gate`s record: the dry-run step CLEAN, the trail`s Defects and Resolved lines equal to the bank, the gate CLEAR',
+     lambda S: dry_step_ok(S), lambda S: put(S, 'gate', '')),
+    ('G-CLOSING-DRY-STEP', 'the gate`s record: the closing tool run dry before the lock, its sections read (the sort, the partner copies, the join, the workflow, the generator, the entry-tag prints, the faces row)',
+     lambda S: closing_dry_ok(S), lambda S: put(S, 'gate', S['gate'].replace('THE CLOSING DRY-RUN STEP : CLEAN', 'THE CLOSING DRY-RUN STEP : NOT CLEAN'))),
+    ('G-CITATION-CHECKED', 'the citation bank: every cite checked at step zero, the one miss the navigator`s (the manifest the tree does not carry), the bank before the step-zero commit and that before Component 1`s',
+     lambda S: citation_ok(S), lambda S: put(S, 'citation', '')),
+    ('G-R316-ENTERED', 'the trail record`s ratification line', lambda S: '**(R316) ratified.**' in trail_tail(S),
+     lambda S: put(S, 'ot', S['ot'].replace('**(R316) ratified.**', '**(R316) read.**'))),
+    ('G-ROWGEN-STEPZERO', 'the rowgen bank`s verdict line', lambda S: rowgen_ok(S), lambda S: put(S, 'rowgen', '')),
+    ('G-BRANCHES-BANKED', 'the branches bank through the record tool`s reader: eight named, deleted, merged, banked before the first delete and after the citation check',
+     lambda S: branches_banked_ok(S), lambda S: _mut(S, 'branchj', lambda d: d['rows'].pop())),
+    ('G-DELETES-ONE-BRANCH', 'the command bank: every branch delete one branch (the eight of (R316)(9), the two scratch branches of (7), local and remote), no glob, no variable, nothing chained after',
+     lambda S: deletes_one_ok(S), lambda S: put(S, 'cmdt', '')),
+    ('G-ANSWERS-CHECKED', 'the citation bank`s mid-act prints: every answer checked before it was acted on, the last print of each needle read (the manifest answer checked again after the checker`s repair (d)), the root prompt`s checks after the lock each with its time',
+     lambda S: answers_checked_ok(S), lambda S: put(S, 'citation', '')),
+    ('G-ANSWERS-BEFORE-WRITES', 'the citation bank`s check stamps against the commits that acted on each answer: the hand-edit and zero-diff answers` before Component 2`s, the manifest answer`s before Component 3`s',
+     lambda S: answers_before_ok(S), lambda S: put(S, 'citation', '')),
+    ('G-SCORER-READS-BANKS', 'the record tool`s scorers: banks alone, no ledger line (data/b686_rules.txt row (1))', lambda S: scorer_banks_ok(S),
+     lambda S: put(S, 'rec_src', '')),
+    ('G-ENTRY-SCORES-EQUAL', 'the landed entry`s scores line against the scores bank', lambda S: entry_scores_ok(S), lambda S: put(S, 'sc', {})),
+    ('G-ENTRY-TITLE-FORM', 'the landed entry`s title: by its objects (the partner pairs, SIDE-faces-join, the workflow`s probe step, the generator`s reach, the entry-tag prints), compared after case-folding the article alone (repaired under (R316)(2))',
+     lambda S: entry_title_ok(S), lambda S: put(S, 'fj', dict(S['fj'], entry_line=1))),
+    ('G-CORRIGENDUM-ENTERED', 'the generated corrigendum for b705`s six post-seal items, landed; the corrigenda bank appended at row (26)',
+     lambda S: corrigendum_ok(S), lambda S: put(S, 'corrj', {})),
+    ('G-GUARD-HELD', 'the suite`s writer block guarded by `if PRERUN:` and its dry run banked', lambda S: guard_ok(S), lambda S: put(S, 'guard', '')),
+    ('G-POSTROOT-WRITES-NONE', 'the per-part seconds banks` commit times against the root`s', lambda S: postroot_writes_none(S), lambda S: put(S, 'guard', '')),
+    ('G-TRAIL-LINES-EQUAL-DEFECTS', 'the landed trail`s Defects and Resolved lines against the defects bank`s owners', lambda S: trail_lines_equal_defects(S),
+     lambda S: put(S, 'defects', '')),
+    ('G-TRAIL-DEFECTS-EQUAL', 'the gate`s record and the landed trail`s Defects line against the repaired reader`s rows', lambda S: trail_defects_ok(S),
+     lambda S: put(S, 'gate', '')),
+    ('G-TRAIL-RESOLVED-EQUAL', 'the gate`s record and the landed trail`s Resolved line against the bank`s owners', lambda S: trail_resolved_ok(S),
+     lambda S: put(S, 'gate', '')),
+    ('G-DEFECTS-LETTERED', 'the defects bank: the sealed floors` rows (a)-(f) with their owners in order, (a), (b) and (c) the navigator`s',
+     lambda S: defects_ok(S), lambda S: put(S, 'defects', '')),
+    ('G-ARM-SORT-BANKED', '(R316)(2): the ten arms failing at b705`s close sorted by cause with their dispositions, six after the seal, in Component 1`s commit', lambda S: armsort_ok(S),
+     lambda S: put(S, 'armsort', '')),
+    ('G-TOOL-REPAIRS', 'the carry-time repairs bank (7) and their controls (every case as wanted, each repaired reading distinguished)',
+     lambda S: repairs_ok(S), lambda S: put(S, 'repairs', '')),
+    ('G-ROOTDRY-READY', 'data/b706_rules.txt row (1): the root route run dry on the pre-root tree before the lock, READY True, printed in the face`s (0)',
+     lambda S: rootdry_ok(S), lambda S: _mut(S, 'rootdryj', lambda d: d.update(ready=False))),
+    ('G-FIGURES-BANKED', 'the four standing figures banked from this act`s roster, each at or below b705`s, the partners figure 0 with one copy per table', lambda S: figures_banked_ok(S),
+     lambda S: put(S, 'figj', {})),
+    ('G-READFIRST-DIFF-BANKED', 'the closure reader`s diff banked; the readfirst bank unchanged since the step-zero commit', lambda S: readfirst_diff_ok(S),
+     lambda S: put(S, 'rf_diff', '')),
+    ('G-ORDERS-ENTERED', 'the six order lines at OPEN_TRAILS at the landing bank`s lines, each found by conv (four discharges, W-ORD-FACES-JOIN-MANIFEST entered and discharged, the join`s hold annotated)',
+     lambda S: orders_ok(S), lambda S: put(S, 'orders_line', {})),
+    ('G-PARTNERS-READ-FIRST', '(R316)(3): the 8 hand-edited lines read side by side before any paper was written, every one the versioned side`s; the two prompts printed and the generator measured dry before the first rename commit',
+     lambda S: partners_read_first_ok(S), lambda S: put(S, 'partners_read', '')),
+    ('G-PARTNERS-RENAMED', '(R316)(3), N2: the 17 pairs renamed in place, each reading RENAME with the second pass 0 and nothing newer on the retired side; each pair`s two git mv in one commit alone (the archive path, the unversioned name, REGISTRY); the blobs at HEAD the retired copy`s and the versioned copy`s',
+     lambda S: partners_ok(S), lambda S: _mut(S, 'partnersj', lambda d: d['rows'][0].update(second_pass=1))),
+    ('G-READERS-EQUAL', 'N2: the 102 standing reader hits equal before and after the renames, the roster`s 20 tables found at the unversioned names after, this act`s roster bank with 9 renamed',
+     lambda S: readers_equal_ok(S), lambda S: put(S, 'readers_after', '')),
+    ('G-REGISTRY-ROWS', '(R316)(3): REGISTRY`s seventeen rows changed, one per pair by its unversioned path, no other line', lambda S: registry_rows_ok(S),
+     lambda S: put(S, 'registry_diff', S['registry_diff'] + NL + '+| planted | row |')),
+    ('G-JOIN-MANIFEST', '(R316)(4): the join`s lakefile re-ordered mathlib last at the same revisions, no manifest on this host, printed before its commit; the kernel`s main that commit on b705`s; pushed and read back; the files banked',
+     lambda S: join_manifest_ok(S), lambda S: put(S, 'join_lakefile', '')),
+    ('G-JOIN-ONE-DISPATCH', 'N1: one dispatch for the join at its manifest commit, whole by data/b705_rules.txt row (1), one in the capture', lambda S: join_dispatch_ok(S),
+     lambda S: _mut(S, 'dispj', lambda d: d['rows'].append(dict(d['rows'][0])))),
+    ('G-JOIN-ARTIFACT-VERIFIED', 'N1: the join run read by its id, its artifact`s sha256 agreeing, the artifact`s cache log read only after it agreed', lambda S: join_artifact_ok(S),
+     lambda S: put(S, 'art_cache', '')),
+    ('G-JOIN-HELD-WITH-ERRORS', 'N3 and (R316)(4): the gate NOT DERIVES, the join HELD at SIDELvConservation/GammaBounds.lean :177 with the error banked by line, no tag, no second dispatch',
+     lambda S: join_held_ok(S), lambda S: _mut(S, 'join_gradej', lambda d: d.update(held=False))),
+    ('G-JOIN-TERMINAL-STATES-LV', 'N3: FacesJoin.lean at main states SIDELvConservation.RegisterPentagon.Register4_positivity against h2_sign, no restatement, no sorry',
+     lambda S: join_terminal_ok(S), lambda S: put(S, 'join_module', '')),
+    ('G-WORKFLOW-STEP', '(R316)(5): the probe step on SIDE-explicit-formula`s main after the print step and before the closure, its output a separate artifact, no identifier; the one commit past v0.37 touching the workflow alone, pushed in main mode and read back',
+     lambda S: workflow_step_ok(S), lambda S: _mut(S, 'wfstepj', lambda d: d.update(separate=False))),
+    ('G-GENERATOR-REACH', '(R316)(6), N4: the parser reaching SIDE-explicit-formula (17 kernels, 13 citation-form cells), every roster table re-emitted byte for byte on the unedited roster, the forms banked before the edit, the diff banked',
+     lambda S: generator_reach_ok(S), lambda S: _mut(S, 'genj', lambda d: d.update(equal=False))),
+    ('G-PRINT-BRANCHES', '(R316)(7): each scratch branch at its tag`s peel carrying the workflow at main, a one-name print list and ChainProbe.lean, banked before its dispatch, its dispatch whole at the branch`s tip, its push captured; the branches gone, the tags unmoved',
+     lambda S: print_branches_ok(S), lambda S: _mut(S, 'print_files', lambda d: d[PRINT_LABELS[0]].update(peel='0' * 40))),
+    ('G-PRINTS-BANKED', '(R316)(7), N1: each print bank from the separate chain-probe artifact by name with its sha256, the cell the mentioned theorem at its module at the standard three, each run`s row DERIVES',
+     lambda S: prints_ok(S), lambda S: _mut(S, 'printsj', lambda d: d[PRINT_LABELS[0]].update(errors=['planted']))),
+    ('G-CELLS-REREAD', '(R316)(7): the 11 unbanked mentions re-read against the new banks, 9 equal, 0 differs, 2 unbanked, each equal row`s statement at the tag equal to v0.37`s, in Component 4`s commit',
+     lambda S: cells_reread_ok(S), lambda S: _mut(S, 'cellsj', lambda d: d['rows'][0].update(verdict='differs'))),
+    ('G-FACES-ROW-HELD', '(R316)(8): the join held, so no faces prompt, no row changed and no page written; the faces page unchanged at base, working tree and HEAD; no node list; the hold named',
+     lambda S: faces_row_ok(S), lambda S: put(S, 'faces', '')),
+    ('G-PARTS-PRERUN', 'the pre-run bank: seven parts, each named with its arms and seconds, the longest under the 590 s guard', lambda S: parts_prerun_ok(S),
+     lambda S: put(S, 'prerun', '')),
+    ('G-ARM-SECONDS-BANKED', 'the per-part seconds bank gathered before the seal', lambda S: arm_seconds_ok(S), lambda S: put(S, 'asec', {})),
     ('G-SPEC-PLANTED', 'tools/b706_regspec.py`s planted rows run live through the record tool`s readers, and rows of another shape refused',
      lambda S: bool(S['spec']['read']) and all(S['spec']['read']) and all(S['spec']['controls']) and any('runner' in x for x in S['spec']['shapes']),
      lambda S: _mut(S, 'spec', lambda d: d['controls'].append(False))),
@@ -1205,13 +1532,13 @@ ARMS = [
      lambda S: closing_sentence_ok(S), lambda S: put(S, 'closing_src', S['closing_src'].replace('no identifier of the author ' + 'in any outbound', 'x'))),
     ('G-LSREMOTE-ONE-PER-REPO', 'the part`s ls-remote calls per repository, read after every other arm of the part has run (OPEN_TRAILS :12703)',
      lambda S: lsr_ok(S), lambda S: put(S, 'lsr', {PP: 2})),
-    ('G-CORRESPONDENCE-CURRENCY', 'every roster paper`s Correspondence rows by tools/b703_standing_figures.py (through b705`s) against the kernel`s current tag and the statement at the cited tag: the changed-statement rows no more than b705`s figure',
+    ('G-CORRESPONDENCE-CURRENCY', 'every roster paper`s Correspondence rows by tools/b706_standing_figures.py (b703`s reading over this act`s roster, data/b706_roster_read.json, repair (7)) against the kernel`s current tag and the statement at the cited tag: the changed-statement rows no more than b705`s figure',
      lambda S: fig_ok(S, 'correspondence'), lambda S: _raise_fig(S, 'correspondence')),
-    ('G-README-CURRENCY', 'the PLACE-papers README`s currency rows against ls-remote by tools/b705_standing_figures.py (the dated appends and the deposited versions excluded by their text): the stale lines no more than b705`s figure',
+    ('G-README-CURRENCY', 'the PLACE-papers README`s currency rows against ls-remote by tools/b705_standing_figures.py through b706`s (the dated appends and the deposited versions excluded by their text): the stale lines no more than b705`s figure',
      lambda S: fig_ok(S, 'readme'), lambda S: _raise_fig(S, 'readme')),
-    ('G-PARTNER-COPIES', 'the lines differing between the two copies of each roster paper`s Correspondence table by tools/b703_standing_figures.py: no more than b705`s figure (the pairs renamed in place under (R316)(3) read as found or counted apart)',
-     lambda S: fig_ok(S, 'partners'), lambda S: _raise_fig(S, 'partners')),
-    ('G-SISTER-PINS', 'each kernel`s lean-toolchain and Mathlib revision beside the federation`s by tools/b703_standing_figures.py: no kernel the faces page names moved pin against the baseline',
+    ('G-PARTNER-COPIES', 'the lines differing between the two copies of each roster paper`s Correspondence table by tools/b706_standing_figures.py: one copy per table after (R316)(3), the figure 0, no more than the lower of b705`s 131 and this act`s banked reading (repair (8), the baseline reset to the resolution`s reading)',
+     lambda S: partners_fig_ok(S), lambda S: _raise_fig(S, 'partners')),
+    ('G-SISTER-PINS', 'each kernel`s lean-toolchain and Mathlib revision beside the federation`s by tools/b703_standing_figures.py through b706`s: no kernel the faces page names moved pin against the baseline',
      lambda S: sister_pins_ok(S), lambda S: _raise_fig(S, 'pins')),
     ('G-READ-RULE-STANDING', 'tools/b704_read_arm.py over the read bank at HEAD (the author`s word at b704`s sort; from b705 every call counts): no Read call of a file of two hundred lines or more without an offset, without a limit or with a limit above two hundred',
      lambda S: read_rule_standing_ok(S), lambda S: _read_plant(S)),
@@ -1358,9 +1685,9 @@ def combine():
     return 0 if ok else 1
 
 
-# ### the carried failures declared on the face by name (section (G2)); filled at the seal (stage two, by the Edit tool): the combine reads them by
-# ### name, and no other failure is carried.
-CARRIED_FAILING = ()
+# ### the carried failures declared on the face by name (section (G2)): the three standing runner arms failing on the held join by (R316)(4)'s own
+# ### clause; the combine reads them by name, and no other failure is carried.
+CARRIED_FAILING = ('G-WORKFLOW-FILES', 'G-RUNNER-READ', 'G-RUNNER-GATE', 'G-RULE-ONE-GIT-WRITE')
 
 
 def main():

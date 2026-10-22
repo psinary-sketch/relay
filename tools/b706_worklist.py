@@ -88,15 +88,21 @@ WORKFLOW = '.github/workflows/build-module.yml'
 PROBE_FILE = 'ChainProbe.lean'                            # ### (R316)(5): the root file the new step runs when the ref carries one
 
 # ### stage two (Component 5, by the Edit tool): the commits in order, the sealed tools and the act's arms.
-STEPZERO = ''                # ### b705's closing push capture, committed alone at step zero
-STEPZERO_BANKS = ''
-C1_RELAY, C1_PP = '', ''
-C2_RELAY, C2_PP = '', ''
-C3_RELAY, C3_PP = '', ''
-C4_RELAY, C4_PP = '', ''
-JOIN_TIP = ''                # ### SIDE-faces-join's manifest commit, the ref of this act's one join dispatch
-JOIN_RUN = 0
-JOIN_GATE = ''
+STEPZERO = 'ff817932'        # ### b705's closing push capture, committed alone at step zero
+STEPZERO_BANKS = 'a6efc316'
+C1_RELAY, C1_PP = '0ea2f61c', '9264d53'
+C2_RELAY, C2_PP = '02e69d06', 'cedf7e9'       # ### C2_PP the last of the 17 rename commits, 1dfd9bc..cedf7e9, each one paper alone
+C2_PP_FIRST = '1dfd9bc'
+C3_RELAY, C3_PP = '744ced46', ''              # ### Component 3 wrote no PLACE-papers byte: the join's lakefile, the workflow, the generator
+C4_RELAY, C4_PP = '4e1fdef0', ''              # ### Component 4 wrote no PLACE-papers byte: the join held, so no faces prompt and no page
+C5_PP = 'd168ff1'                             # ### Component 5: the six order lines at OPEN_TRAILS :15632-:15642, committed alone before the seal
+JOIN_TIP = 'b37a7b6e6322b8f99b2e1bc5c43cae248782c991'   # ### SIDE-faces-join's manifest commit, the ref of this act's one join dispatch
+JOIN_RUN = 39850337262
+JOIN_GATE = 'NOT DERIVES'    # ### the join HELD at SIDELvConservation/GammaBounds.lean :177 at the shared pin, FacesJoin.lean not reached
+JOIN_HELD_AT = 'SIDELvConservation/GammaBounds.lean:177:8'
+EF_MAIN = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'    # ### SIDE-explicit-formula's main after the one workflow commit of (R316)(5)
+PRINT_TIPS = {'v0.1': '748f2a9', 'v0.2': '34e098a'}       # ### the scratch branches' tips (the tag's tree + the workflow + the print list + ChainProbe.lean), deleted after their banks
+PRINT_RUNS = {'v0.1': 39852365437, 'v0.2': 39852975531}  # ### their dispatches, both DERIVES, the probe's print from the separate chain-probe artifact
 B705_TRAIL_HEAD = ('### b705 — lane two, act one hundred and thirty-two, the research act under (R315): b704 at its weight; the eight failures '
                    'sorted and three predicates repaired; the closure join built as its own kernel and held at its one run; the count’s contour '
                    'read; the detection law over seventeen pairs and the notched window at the lowest band zero; the perspective ranking; E0’s '
@@ -105,7 +111,14 @@ SEALED = ('b706_worklist.py', 'b706_tests.py', 'b706_citation.py', 'b706_record.
           'b706_regspec.py', 'b706_corrigendum.py', 'b706_standing_figures.py')
 REPAIRED_TOOLS = ('correspondence_gen.py',)   # ### (R316)(6): the parser extended by the Edit tool, its control byte for byte
 NEW_TOOLS = ()
-ACT_ARMS = ()
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R316-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-ANSWERS-BEFORE-WRITES', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM',
+            'G-CORRIGENDUM-ENTERED', 'G-GUARD-HELD', 'G-POSTROOT-WRITES-NONE', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-DEFECTS-EQUAL',
+            'G-TRAIL-RESOLVED-EQUAL', 'G-DEFECTS-LETTERED', 'G-ARM-SORT-BANKED', 'G-TOOL-REPAIRS', 'G-ROOTDRY-READY', 'G-FIGURES-BANKED',
+            'G-READFIRST-DIFF-BANKED', 'G-ORDERS-ENTERED', 'G-PARTNERS-READ-FIRST', 'G-PARTNERS-RENAMED', 'G-READERS-EQUAL', 'G-REGISTRY-ROWS',
+            'G-JOIN-MANIFEST', 'G-JOIN-ONE-DISPATCH', 'G-JOIN-ARTIFACT-VERIFIED', 'G-JOIN-HELD-WITH-ERRORS', 'G-JOIN-TERMINAL-STATES-LV',
+            'G-WORKFLOW-STEP', 'G-GENERATOR-REACH', 'G-PRINT-BRANCHES', 'G-PRINTS-BANKED', 'G-CELLS-REREAD', 'G-FACES-ROW-HELD', 'G-PARTS-PRERUN',
+            'G-ARM-SECONDS-BANKED')   # ### the forty-two over this act's own banks, run in the seventh part
 STANDING_ADDED = ()          # ### N5: no standing arm added
 SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'REGISTRY.md')
