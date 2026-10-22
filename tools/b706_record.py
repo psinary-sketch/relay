@@ -2092,7 +2092,7 @@ def _finding_text():
          'on the author’s word, no manifest written on this host, printed before the commit (relay data/b706_join_lakefile.txt), one commit '
          'b37a7b6 on main pushed in main mode and read back; one dispatch (run %s), read by its id with the artifact’s sha256 verified: the cache '
          'served, Mathlib and its packages built, lv-conservation’s fifteen files rebuilt at the shared pin and the build held at '
-         'SIDELvConservation/GammaBounds.lean :177:8 (“Tactic `rewrite` failed”), %d error lines banked by line, FacesJoin.lean never reached, the '
+         'SIDELvConservation/GammaBounds.lean :177:8 (“Tactic rewrite failed”), %d error lines banked by line, FacesJoin.lean never reached, the '
          'gate NOT DERIVES, the join %s, no tag, no second dispatch (relay data/b706_join_grade.txt); faces_join’s statement graded DERIVES by hand '
          'and by E0, its profile unprinted; the price b703 read at the pins -- a failing lv module blocks the join and is priced as an lv '
          'forward-port -- for the next ruling; W-ORD-FACES-JOIN-MANIFEST entered and discharged, the ruling’s order “Mathlib before both” the '
@@ -2170,7 +2170,7 @@ def _trail_text():
              '**The partner copies:** %d of %d pairs renamed in place, %d held; the 8 hand edits resolved by kind, %d lines counted apart, %d newer on '
              'the retired side; the reader hits %s before and after (relay data/b706_partners.txt; PLACE-papers 1dfd9bc..cedf7e9).' % (
                  f['renamed'], f['pairs'], len(f['held']), f['apart'], f['newer'], f['hits'][0]), '',
-             '**The join:** SIDE-faces-join at `%s`, its lakefile re-ordered mathlib last, one dispatch (run %s), the gate %s, the join %s with %d '
+             '**The join:** SIDE-faces-join at its manifest commit %s, its lakefile re-ordered mathlib last, one dispatch (run %s), the gate %s, the join %s with %d '
              'error lines banked -- SIDELvConservation/GammaBounds.lean :177 at the shared pin, FacesJoin.lean never reached -- no tag, no second '
              'dispatch (relay data/b706_join_grade.txt).' % (K.JOIN_TIP[:7], f['join_run'], f['join_gate'], 'HELD' if f['join_held'] else 'DERIVES', f['join_errs']), '',
              '**The workflow:** the probe step at build-module.yml :%s on SIDE-explicit-formula’s main at `%s`, its output a separate artifact (relay '
