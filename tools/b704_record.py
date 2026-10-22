@@ -154,6 +154,44 @@ def branches(*a):
     print(NL.join(L[7:]))
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R314)(1)
+WH = ('*Appended 2026-10-22 by b704 to b703’s entry (:9888), under `(R314)`(1) -- b703 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b703_closing.txt):*')
+WB = (' “b703 closed: relay 3ee79ba0, PLACE-papers 1532695; suite 138 of 138; root 3b6de278d4eb0467…; 4 prompts answered; 12 defects” '
+      '(data/b703_closing.txt :1); the closing commit 295e53f0 pushed alone after the line was written and read back equal at the remote '
+      '(data/b703_closing_push_out.txt :5). classK widened at one token: H2SignWide.lean :59 le_rfl -> one_ne_zero on widening-b701, run '
+      '39700585515 DERIVES at 89 of 89 (read again by its run id once the axioms reader read primed names), merged and tagged SIDE-explicit-formula '
+      'v0.36 = dfadc8c; ten names graded at the standard three, every salt-check passing -- acDeriv_of_contDiff_two, the three inclusions classK ⊆ '
+      'classKsum ⊆ classK’, h2_sign’_imp_h2_sign, h2_sign’_imp_rh, rh_imp_h2_sign_sum, h2_sign_sum_imp_h2_sign and h2_sign_sum_iff_rh DERIVES, '
+      'paperFT_finset_sum INTERFACES on its hypotheses hf and hs, the inclusions’ E0 reading PREDICATE-UNLISTED and entered as W-ORD-E0-MET-CLASSK '
+      '(data/b703_widening_grade.txt); the glossary’s classK’ row written. The Epstein zeta of x² + xy + 6y² a Lean object: Schema/EpsteinZQ.lean '
+      'merged and tagged v0.37 = 38e2734 naming v0.36, run 39703864050 DERIVES at 109 of 109, its four premises ZQContinuation, ZQZeros, '
+      'ZQExplicitFormula and ZQPremises printed beside their names over Wide.WideConfig, nothing about a zero stated as proved '
+      '(data/b703_epstein_grade.txt). b681’s certified zeros of Q0 counted by real part by the named reader after both hashes agreed: 163 rows, '
+      '17 off the line and 146 on it, binned (1/2, 0.6] 0, (0.6, 0.75] 5, (0.75, 7/8] 10, (7/8, 1) 2, fifteen in (1/2, 7/8], the lowest in height '
+      '0.79799715717868013876 + 29.55176109862911459913 i, the control reproducing 163 rows and ρ₀’s real part (data/b703_q0_band.txt), the four '
+      'registrations committed alone before any number (relay b8a36309). The pins priced: the closure join one dispatch at SIDE-explicit-formula’s '
+      'pin (Lean v4.34.0-rc1, Mathlib de5ce8a9) rebuilding SIDE-lv-conservation’s 15 files; the interval vendoring one dispatch over 86 files and '
+      '44 days, waiting on BINDER-PROVENANCE (data/b703_pins.txt). The four standing arms G-CORRESPONDENCE-CURRENCY, G-README-CURRENCY, '
+      'G-PARTNER-COPIES and G-SISTER-PINS added, b703’s figures 0, 11, 131, 0 the baseline (data/b703_standing_figures.txt); the quote arm '
+      'branched by the kind of cut and the mirror bank’s span line read from the chain (data/b703_tool_repairs.txt); four annotations and four '
+      'orders at OPEN_TRAILS :15492-:15506. b702’s two items after its root answered by the generated corrigendum at FINDINGS :9874 (corrigenda '
+      'rows (22)-(23)); b702’s weight at :9872. The entry at FINDINGS :9888, the trail at OPEN_TRAILS :15508; the root 3b6de278 over 83 banks '
+      'chained from 56312178 (data/b703_act_root.json); suite 138 of 138 pre-push and post-push with no failure carried (data/b703_checks.txt; '
+      'data/b703_checks_postpush.txt); all eight scores held (data/b703_scores_close.json); the sealed tools’ hashes equal at the close, 11 of 11; '
+      'the citation check 105 cites, 105 OK; twelve defects (a)-(l), (d) and (e) the navigator’s (data/b703_defects.txt); the mirror '
+      'mirror-refresh-2026-10-21-b703.zip, sha256 5263fb6f, CLEAN on all three clauses, its span line reading b702 as the last export '
+      '(data/b703_mirror.txt); the scratch clone deleted by its verified absolute path. One item after the closing, entered by this act’s '
+      'corrigendum: the project-state memory file read whole. Nothing deposited.')
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + WB + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B703_ENTRY,
+         check=[('FINDINGS.md', K.B703_ENTRY, '## classK widened at SIDE-explicit-formula v0.36'), ('OPEN_TRAILS.md', K.B703_TRAIL, '### b703')],
+         dry=dry)
+
+
 # ================================================================================ COMPONENT 2: THE DISPATCH, THE RUNNER (b698's routes; b703's runner)
 EF = K.KERNEL_DIR
 dispatch, runstatus = R.dispatch, R.runstatus
@@ -237,8 +275,85 @@ def readsort(*a):
     print(NL.join(L[8:]))
 
 
-ROUTES = dict(defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch, runstatus=runstatus,
-              readsort=readsort)
+# ================================================================================ COMPONENT 1: THE READ BANK, REPAIRED ((R314)(2), the author's word at the sort)
+CAP = 200
+CAP_NEEDLE = 'a limit above two hundred'   # ### the author's answer at the sort that named the cap
+
+
+def _cap_word_at():
+    """the time of the author's answer that named the cap: the first user line of this act's session carrying CAP_NEEDLE after the anchor."""
+    for _i, o, _st, _sid in R._session_rows():
+        if o.get('type') != 'user':
+            continue
+        cs = (o.get('message') or {}).get('content')
+        texts = [cs] if isinstance(cs, str) else []
+        for c in (cs if isinstance(cs, list) else []):
+            if isinstance(c, dict) and c.get('type') == 'tool_result':
+                t = c.get('content')
+                texts.append(''.join(x.get('text', '') for x in t if isinstance(x, dict)) if isinstance(t, list) else (t or ''))
+            elif isinstance(c, dict) and c.get('type') == 'text':
+                texts.append(c.get('text', ''))
+        if any(CAP_NEEDLE in t and 'BEGIN' in t for t in texts):
+            return o.get('timestamp')
+    return None
+
+
+def _read_verdict(r, word):
+    """one Read call against the rule: under 200 lines within it; otherwise an offset and a limit no greater than the cap, or a breach -- a
+    breach before the word that named the cap, with both an offset and a limit, the cap's precursor and not counted."""
+    big = r['lines'] is None or r['lines'] >= CAP
+    if not big:
+        return 'WITHIN THE RULE (UNDER 200 LINES)'
+    if r['offset'] is not None and r['limit'] is not None and r['limit'] <= CAP:
+        return 'WITHIN THE RULE'
+    if r['offset'] is not None and r['limit'] is not None and word and r['ts'] < word:
+        return 'BEFORE THE WORD -- THE CAP`S PRECURSOR, NOT COUNTED'
+    return '### AN OFFENCE'
+
+
+def reads(*a):
+    """b698's route (tools/b698_record.py :1219), REPAIRED at b704's carry on the author's word at the sort: every Read call of the seat since
+    the anchor with its offset and limit VALUES (b698's route recorded only whether each was passed), the file's line count read now beside it;
+    a call of a file of two hundred lines or more with no offset, or no limit, or a limit above two hundred is an offence -- a call before the
+    word that named the cap, carrying both, printed as the cap's precursor and not counted. data/b704_read_calls.txt."""
+    word = _cap_word_at()
+    rows = []
+    for i, o, _st, _sid in R._session_rows():
+        if o.get('type') != 'assistant':
+            continue
+        for c in (o.get('message') or {}).get('content') or []:
+            if isinstance(c, dict) and c.get('type') == 'tool_use' and c.get('name') == 'Read':
+                inp = c.get('input') or {}
+                p = inp.get('file_path') or ''
+                rows.append(dict(line=i, ts=o.get('timestamp'), path=p, offset=inp.get('offset'), limit=inp.get('limit'), lines=R._lines_now(p)))
+    for r in rows:
+        r['verdict'] = _read_verdict(r, word)
+    bad = [r for r in rows if r['verdict'] == '### AN OFFENCE']
+    pre = [r for r in rows if r['verdict'].startswith('BEFORE THE WORD')]
+    L = ['%s -- THE READ CALLS SINCE THE ANCHOR, BY data/b698_rules.txt ROW (2) AND THE AUTHOR`S WORD AT THE SORT (%s)' % (ACT, utc()), '',
+         '### the rule: whole where the file is under two hundred lines; otherwise an offset and a limit, the limit no greater than two hundred (the',
+         '### cap, the author`s word at %s). Rows are Read calls: transcript line | time | the file`s lines read now | offset | limit | the verdict |' % (word or '### NOT READ'),
+         '### path. A call before the word carrying both an offset and a limit above the cap is its precursor, printed and not counted.']
+    L += ['  %s | %s | %s | offset %s | limit %s | %s | %s' % (r['line'], r['ts'], r['lines'], r['offset'], r['limit'], r['verdict'], r['path']) for r in rows] or ['  NONE']
+    L += ['', '### ### **READ CALLS %d ; ON FILES OF 200 LINES OR MORE %d ; OFFENCES %d ; THE CAP`S PRECURSORS %d ; THE WORD AT %s.**' % (
+        len(rows), sum(1 for r in rows if r['lines'] is None or r['lines'] >= CAP), len(bad), len(pre), word or '### NOT READ')]
+    if 'dry' not in a:
+        put_txt('%s_read_calls.txt' % ACT, L)
+        put_json('%s_read_calls.json' % ACT, dict(at=utc(), word=word, cap=CAP, rows=rows))
+    print(NL.join([l for l in L if '### AN OFFENCE' in l or 'PRECURSOR' in l][:40] + L[-1:]))
+
+
+def names(*a):
+    """the functions of an imported record module (b698's by default) with the line each opens at -- names and numbers, no source printed."""
+    import inspect
+    mod = {'b698': R, 'b703': P3}.get(a[0] if a else 'b698', R)
+    for n, f in sorted(vars(mod).items(), key=lambda kv: inspect.getsourcelines(kv[1])[1] if inspect.isfunction(kv[1]) and kv[1].__module__ == mod.__name__ else 0):
+        if inspect.isfunction(f) and f.__module__ == mod.__name__:
+            print('  %-28s :%d' % (n, inspect.getsourcelines(f)[1]))
+
+
+ROUTES = dict(names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch, runstatus=runstatus,
+              readsort=readsort, c1=c1, reads=reads)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

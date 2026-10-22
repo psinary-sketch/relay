@@ -1,0 +1,42 @@
+b704 -- G-READ-RULE-STANDING: THE ARM`S READING AND ITS CONTROLS ON MUTATED COPIES OF THE REPAIRED BANK`S FORM (2026-10-22T04:11:09Z)
+
+### the arm: tools/b704_read_arm.py, its verdict recomputed from each row`s columns (lines, offset, limit, time) against the cap of two hundred
+### and the word`s time (2026-10-22T03:31:12.405Z, the bank`s head). Rows are cases: the copy read | the reading (ok, rows, offences, precursors, form) | as wanted.
+
+  the real bank (b704`s, from the word on)
+      reading: ok False ; rows 49 ; offences 1 ; precursors 2 ; the repaired form True ; THE REAL READING (no want)
+      offence  line 785 2026-10-22T03:32:06.719Z 201 lines offset 1 limit 201 D:\relay\tools\b703_tests.py
+      precursor line 115 2026-10-22T03:14:26.193Z 347 lines offset 1 limit 347 D:\relay\tools\b703_citation.py
+      precursor line 491 2026-10-22T03:21:27.166Z 1503 lines offset 320 limit 250 D:\relay\tools\b703_record.py
+  a mutated copy, the real bank`s offence rows removed
+      reading: ok True ; rows 48 ; offences 0 ; precursors 2 ; the repaired form True ; as wanted (passing) True
+      precursor line 115 2026-10-22T03:14:26.193Z 347 lines offset 1 limit 347 D:\relay\tools\b703_citation.py
+      precursor line 491 2026-10-22T03:21:27.166Z 1503 lines offset 320 limit 250 D:\relay\tools\b703_record.py
+  a mutated copy holding one planted row: 300 lines, offset 1, limit 250, after the word, labelled WITHIN THE RULE
+      reading: ok False ; rows 49 ; offences 1 ; precursors 2 ; the repaired form True ; as wanted (failing) True
+      offence  line 99991 2026-10-22T07:41:12Z 300 lines offset 1 limit 250 planted/limit_above_cap.txt
+      precursor line 115 2026-10-22T03:14:26.193Z 347 lines offset 1 limit 347 D:\relay\tools\b703_citation.py
+      precursor line 491 2026-10-22T03:21:27.166Z 1503 lines offset 320 limit 250 D:\relay\tools\b703_record.py
+  a mutated copy holding one planted row: 300 lines, no offset, limit 100, after the word
+      reading: ok False ; rows 49 ; offences 1 ; precursors 2 ; the repaired form True ; as wanted (failing) True
+      offence  line 99992 2026-10-22T07:41:12Z 300 lines offset None limit 100 planted/no_offset.txt
+      precursor line 115 2026-10-22T03:14:26.193Z 347 lines offset 1 limit 347 D:\relay\tools\b703_citation.py
+      precursor line 491 2026-10-22T03:21:27.166Z 1503 lines offset 320 limit 250 D:\relay\tools\b703_record.py
+  a mutated copy holding one planted row: 300 lines, offset 1, no limit, after the word
+      reading: ok False ; rows 49 ; offences 1 ; precursors 2 ; the repaired form True ; as wanted (failing) True
+      offence  line 99993 2026-10-22T07:41:12Z 300 lines offset 1 limit None planted/no_limit.txt
+      precursor line 115 2026-10-22T03:14:26.193Z 347 lines offset 1 limit 347 D:\relay\tools\b703_citation.py
+      precursor line 491 2026-10-22T03:21:27.166Z 1503 lines offset 320 limit 250 D:\relay\tools\b703_record.py
+  a mutated copy holding one planted precursor: 300 lines, offset 1, limit 250, before the word
+      reading: ok True ; rows 49 ; offences 0 ; precursors 3 ; the repaired form True ; as wanted (passing) True
+      precursor line 115 2026-10-22T03:14:26.193Z 347 lines offset 1 limit 347 D:\relay\tools\b703_citation.py
+      precursor line 491 2026-10-22T03:21:27.166Z 1503 lines offset 320 limit 250 D:\relay\tools\b703_record.py
+      precursor line 99994 2026-01-01T00:00:00Z 300 lines offset 1 limit 250 planted/precursor.txt
+  a mutated copy holding one planted row under the line floor: 150 lines, no offset, no limit, after the word
+      reading: ok True ; rows 49 ; offences 0 ; precursors 2 ; the repaired form True ; as wanted (passing) True
+      precursor line 115 2026-10-22T03:14:26.193Z 347 lines offset 1 limit 347 D:\relay\tools\b703_citation.py
+      precursor line 491 2026-10-22T03:21:27.166Z 1503 lines offset 320 limit 250 D:\relay\tools\b703_record.py
+  b703`s read bank, the form before the repair (no offset or limit values)
+      reading: ok False ; rows 0 ; offences 0 ; precursors 0 ; the repaired form False ; as wanted (failing) True
+
+### ### **THE REAL READING: FAIL (ROWS 49 ; OFFENCES 1 ; PRECURSORS 2) ; EVERY CONTROL AS WANTED True.**
