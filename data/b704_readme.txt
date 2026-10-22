@@ -1,7 +1,8 @@
-b704 -- COMPONENT 3, (R314)(5): THE README`S TWO EDITS ON THE AUTHOR`S WORD (2026-10-22T04:49:21Z)
+b704 -- COMPONENT 3, (R314)(5): THE README`S TWO EDITS ON THE AUTHOR`S WORD (2026-10-22T06:04:09Z)
 
 ### rows are the diff`s lines (git diff --unified=0 of PLACE-papers README.md), then where each edit landed and the read-back.
 
+  05c6dd6322a7c9da2b10f4e37f554937b561d1ad b704 Component 3 under (R314)(5) and the author's word (apply): README's kernel line at SIDE-explicit-formula v0.37 (38e2734), and the ceiling append for v0.36-v0.37 at :135, the author's sentence verbatim
   diff --git a/README.md b/README.md
   index c72e8ed..9a8ff6c 100644
   --- a/README.md
@@ -14,5 +15,5 @@ b704 -- COMPONENT 3, (R314)(5): THE README`S TWO EDITS ON THE AUTHOR`S WORD (202
   +**Deposit note (`day1/`).** Citable deposits: the monograph at manuscript **v5.10.2** / Zenodo **v1.1.2** ([10.5281/zenodo.21539167](https://doi.org/10.5281/zenodo.21539167); concept [10.5281/zenodo.19675355](https://doi.org/10.5281/zenodo.19675355)) and **SIDE-lv-conservation v0.10.0** = `93c27ec` ([10.5281/zenodo.21539068](https://doi.org/10.5281/zenodo.21539068); concept [10.5281/zenodo.21433177](https://doi.org/10.5281/zenodo.21433177)). The **T7 matched-arc search is PUBLISHED** (registered-search record, Outcome D; published 2026-07-19): [10.5281/zenodo.21436282](https://doi.org/10.5281/zenodo.21436282); concept [10.5281/zenodo.21436281](https://doi.org/10.5281/zenodo.21436281). The `day1/` tree here is the *live* line and is **ahead of the deposit**: the live monograph stands at **v5.18**, the deposit at manuscript **v5.10.2** / Zenodo **v1.1.2**; the live kernel line names SIDE-explicit-formula **v0.37** (`38e2734`) beside SIDE-kernel **v1.5** (`0e5233f`). *Internal since the deposit: v5.11 (F5/F6) → v5.12 (F7 two-clause accounting) → v5.13 (the substrate season) → v5.14–v5.16 (CP-8, b606–b608) → v5.17 (b609) → v5.18 (b621).* *(Refreshed 2026-10-04 under the author's ruling `(R232)`(3), b622: the live line named v5.13 and no kernel line.)* **Nothing deposits; staged waves do not inherit until separately ruled.** *(Reconciled 2026-08-24 to REGISTRY row `d1-1` and REGISTRY's own "`day1/` LIVE LINE IS AHEAD OF DEPOSITED v5.10.2" line; the prior wording said the live line matched the deposit, which stopped being true at v5.11.)* Counts and kernel figures inside deposited papers are frozen at their deposit and are historical; current kernel state is the named-terminal statement above.
 
 ### the kernel line at :164 ; the append at :135 (beneath the b702 append, :133)
-### the working tree against HEAD, before the commit
+### the commit 05c6dd6 ; its README blob 9a8ff6ce ; the remote main d83ef97, its README blob 9a8ff6ce ; EQUAL
 ### ### **LINES REMOVED 1 ; ADDED 3 (THE KERNEL LINE, A BLANK, THE APPEND) ; THE KERNEL LINE AT :164 ; THE APPEND AT :135 ; AS ORDERED True.**
