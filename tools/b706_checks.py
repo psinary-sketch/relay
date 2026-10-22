@@ -686,8 +686,13 @@ def _answers_checked(S, floors, act=706, lock_key='lock_epoch'):
     c = S['citation']
     stamps = re.findall(r'### \(R278\)\(4\) THE MID-ACT CHECK \((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\): the (?:navigator`s )?answer carrying \'([^\']+)\'', c)
     figs = re.findall(r'ANSWER CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)(?: -- RAISED: ([^*]*?))?\.\*\*', c)
+    # ### a check printed again for the same needle after a carry-time repair of its checker supersedes its first print (this act's (d): the
+    # ### first print stands, lettered); the clause reads the LAST print of each needle
+    last = {}
+    for (t_, n_), f_ in zip(stamps, figs):
+        last[n_] = f_
     later = all(m_ == '0' or (bool(r_) and all(re.match(r'^data/b(\d{3})_\S+$', x.strip()) and int(re.match(r'^data/b(\d{3})_', x.strip()).group(1)) > act
-                                               for x in (r_ or '').split(';') if x.strip())) for _c, _o, m_, r_ in figs)
+                                               for x in (r_ or '').split(';') if x.strip())) for _c, _o, m_, r_ in last.values())
     lk = S[lock_key] or 10 ** 12
     times = [iso_epoch(t_) for t_, _n in stamps]
     rootc = [(x, t_, n) for x, (t_, n) in zip(times, stamps) if x and x >= lk]

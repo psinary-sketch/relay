@@ -381,7 +381,10 @@ _HEX8 = re.compile(r'(?<![0-9a-f])([0-9a-f]{8})(?![0-9a-f])')
 
 
 def _sha_rows():
-    """every 64-hex sha256 any bank's row names, mapped by its first eight characters to (bank, line)."""
+    """every 64-hex sha256 any bank's row names, mapped by its first eight characters to (bank, line); and every revision a kernel's lakefile
+    or manifest pins (`rev = "<40 hex>"`, `"rev": "<40 hex>"` -- Mathlib's and the required kernels', commits of repositories this host does
+    not clone), mapped the same way to (the kernel's file, line) -- a token those rows name is read against its row, not as a commit of the
+    reachable repositories (the extension made at the check of the join-manifest answer, this act's defect (d))."""
     out = {}
     for q in [os.path.join(D, 'act_roots.txt')] + sorted(glob.glob(os.path.join(D, '*.txt')), reverse=True):   # ### the later act's row named first
         t = rd(q) or ''
@@ -391,6 +394,12 @@ def _sha_rows():
             if 'sha256' in l or q.endswith('act_roots.txt') or q.endswith('_hashes.txt'):
                 for m in re.finditer(r'(?<![0-9a-f])([0-9a-f]{64})(?![0-9a-f])', l):
                     out.setdefault(m.group(1)[:8], ('data/' + os.path.basename(q), i))
+    for kd in sorted(d_ for d_ in os.listdir('D:/') if d_.startswith('SIDE-') and os.path.isdir(os.path.join('D:/', d_, '.git'))):
+        for f in ('lakefile.toml', 'lakefile.lean', 'lake-manifest.json'):
+            t = rd(os.path.join('D:/', kd, f)) or ''
+            for i, l in enumerate(t.split(NL), 1):
+                for m in re.finditer(r'(?:rev\s*=\s*"|"rev"\s*:\s*"|@\s*"|rev\s+")([0-9a-f]{40})"', l):
+                    out.setdefault(m.group(1)[:8], ('%s/%s' % (kd, f), i))
     return out
 
 

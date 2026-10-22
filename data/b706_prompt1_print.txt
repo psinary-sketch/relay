@@ -1,0 +1,50 @@
+b706 -- COMPONENT 2, (R316)(3) AND THE CITATION MISS OF (R316)(4): WHAT THE ONE PROMPT CARRIES, PRINTED VERBATIM BEFORE THE PROMPT (2026-10-22)
+
+### rows are the items the two questions of one prompt put, each with its source by path and line, in the order asked: the reading of the
+### hand-edited lines' kind against the zero diff of (R316)(3) first (raised before any paper is written, moved or renamed), then the citation
+### check's one miss, the join's manifest (raised before Component 3, which (R316)(4) cites it for). Nothing is written to a paper, REGISTRY,
+### a kernel or a ledger by this bank.
+
+== (1) THE HAND-EDITED LINES AND THE ZERO DIFF, (R316)(3)
+  the 17 pairs' Correspondence tables diffed line by line at PLACE-papers 9264d53 (relay data/b706_partners_read.txt): DIFFERING LINES 131 ;
+  REGENERATED CELLS 123 ; HAND EDITS 8, as reading 4 counted them (relay data/b700_reading4.txt :70). The eight read side by side, each line's
+  last commit by git blame on each side:
+    PATHS_TO_THE_CRITICAL_LINE   versioned _v0_7 :298 (292c25b, b578's edition) carries the h2_sign clause the unversioned :294 (c86e203) lacks
+    THE_UNCONDITIONAL_SURROUND   versioned _v0_5 :189 (c2be09f, b581's edition) carries "compiled beside it, RH ⟺ h2_sign ..." ; unversioned :183 (5a03a31) lacks it
+    R_CURVE_CRITERION            versioned _v0_2_2 :362 (9d11874, b583's edition) carries "in its Weil form h2_sign ..." ; unversioned :360 (8035ba0) lacks it
+    TECHNE_TOOLKIT               versioned _v8_3 :519 (b378167, b588's edition) reads "not a deficiency" ; unversioned :516 (d511984, v8.2) reads "not a gap"
+    SILENCE_STAGES_DEALIGNMENT   versioned _v1_3 :214-:215 (ad82d5e, b599's edition) carry the kernel cells ; unversioned :210-:211 (bafdfe8) read "none (manuscript)"
+    A_Place_to_Stand             versioned _v5_18 :2260 (cc22481, b621) carries the dated working-head ; unversioned :2241 (35911f9, 2026-08-12) the older LIVE cell
+    FACES_OF_H2_AT_FINITE_INSTANCE versioned _v0_2 :41 (13dc5ab, b594's edition) carries the three compiled faces ; unversioned :39 (f301591, 2026-08-18) lacks them
+  THE KIND, each of the eight: THE VERSIONED SIDE CARRIES IT -- in every case the versioned copy's line is the later commit (an edition written
+  beside the unversioned copy) and extends or rewords the unversioned line; none is of the kind "the unversioned side carries it"; none "both
+  differ". So no hand-edited line is carried by hand into the versioned copy, and nothing is written to any unversioned copy.
+  THE QUESTION: (R316)(3) says "the generator run once over the regenerated-cell lines into the versioned copy; the pair diffed to zero, the diff
+  printed; ... any pair whose diff is not zero after the generator's run held and raised with its remaining lines, nothing renamed for it".
+  After the generator's run the 123 regenerated-cell lines diff to zero (the versioned table carrying the roster's cells); the 8 hand-edited
+  lines still differ, the versioned side carrying each. Read strictly, the seven pairs carrying them are HELD and ten renamed. Read with the
+  kinds (R316)(3) enters, a line of the kind "the versioned side carries it" is resolved by its kind -- the versioned copy is the one kept, its
+  line the later -- and counted apart from the zero diff, so all seventeen proceed (the E_DIFFICULTY_THEOREM pair's table is found in neither
+  copy by the roster's anchor, relay data/b706_partners_read.txt; it carries no differing table line and is renamed with the rest unless held).
+  The seat does not choose between the two readings: the precedence order does not reach it.
+
+== (2) THE CITATION CHECK'S ONE MISS, THE JOIN'S MANIFEST (R316)(4) (relay data/b706_citation_check.txt, the MISSES block)
+  the ferry's read-first item "SIDE-faces-join's lakefile and lake-manifest.json at 732c1b49 by line": the tree at 732c1b49 is .github .gitignore
+  FacesJoin.lean README.md lakefile.toml lean-toolchain print_targets.txt -- NO lake-manifest.json (relay data/b705_join_files.txt; the citation
+  check's row). That absence is (j)'s cause (relay data/b705_defects.txt :57-:65; data/b705_art_SIDE-faces-join_join_cache_log.txt :21-:22): with
+  no manifest at the root, Lake resolved the transitive packages from the LAST require's manifest, lv-conservation's, and the cache had nothing
+  to serve.
+  (R316)(4) orders the lakefile "with SIDE-explicit-formula's require ahead of lv-conservation's, and Mathlib required explicitly at de5ce8a9
+  before both". The lakefile at 732c1b49 ALREADY stands in that order (D:/SIDE-faces-join/lakefile.toml :11-:24: mathlib at de5ce8a9 first,
+  SIDEExplicitFormula at v0.37 second, sideLvConservation at v0.10.0 last) -- the order that failed at run 39799253764. Lake's own hint in the
+  run's artifact (:21): "Try putting `require mathlib` last in your lakefile so that Mathlib's versions take precedence, then run `lake
+  update`". So the edit (4) names, made as written, changes no byte of the lakefile, and a dispatch from it is the same tree state as 732c1b49's.
+  The readings the seat can carry out, none chosen:
+    (a) Lake's hint: the lakefile re-ordered SIDEExplicitFormula, sideLvConservation, mathlib LAST (each at its same revision, Mathlib explicit
+        at de5ce8a9), no manifest written on this host, one commit, one dispatch -- (4)'s purpose ("so the manifest resolves Mathlib and its
+        packages from the pin the cache serves") by Lake's own words, (4)'s order inverted;
+    (b) (4)'s order kept and a lake-manifest.json written at the root by hand from SIDE-explicit-formula's at v0.37 with the two kernels'
+        entries added -- against (4)'s "regenerated by the runner and not by hand on this host";
+    (c) the join held at 732c1b49 with the miss entered, no commit and no dispatch this act.
+
+### ### **TWO QUESTIONS PRINTED: THE HAND-EDITED LINES' KIND AGAINST THE ZERO DIFF (8 LINES, ALL "THE VERSIONED SIDE CARRIES IT") ; THE JOIN'S MANIFEST (THE ORDER (4) NAMES IS 732c1b49'S OWN).**
