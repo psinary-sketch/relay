@@ -1,0 +1,60 @@
+b706 -- STEP ZERO UNDER (R316): WHAT RAN, IN THE ORDER IT RAN (2026-10-22)
+
+### rows are step zero's items as run: the item | the bank or the command | the reading. The order as run is the ferry's written order; the
+### citation check before any other step and before any delete; the act runs in the SAME session as b705 (44411d52), claude pid 3604, its anchor
+### (R316)'s line, unique in that session after (R315)'s.
+
+  the ferry banked             data/b706_ferry.txt by the Write tool | 20697 characters, equal to the transcript's text; ferry_scan exit 0
+                               (data/b706_ferry_scan.txt)
+  the citation check           data/b706_citation_check.txt (.json), run before any other step and before any delete | CITES CHECKED 130 ; OK 129 ;
+                               MISSES 1. Two dry runs first: three misses, two the check's own needles (G-WRITELIST-KINDS's predicate sought as
+                               `wl_ok(` where the arm's row names it at :1317-:1318 and C_ARMS at :144; data/b700_reading4.txt's row (18) read at
+                               :68 where it opens at :67), corrected in the tool before the one real run; one needle (the v0.2 theorem) sharpened
+                               after the first real run and the check run once more. The one miss, the navigator's: the ferry's read-first item
+                               "SIDE-faces-join's lakefile and lake-manifest.json at 732c1b49 by line" -- the tree at 732c1b49 carries no
+                               lake-manifest.json (.github .gitignore FacesJoin.lean README.md lakefile.toml lean-toolchain print_targets.txt), that
+                               absence being (j)'s cause (Lake resolving the transitive packages from the last require's manifest) -- to be RAISED
+                               before Component 3, which (R316)(4) cites it for
+  the readfirst bank           data/b706_readfirst.txt by the Write tool (30 items, each by path and line with its row unit) ; data/b706_readfirst_closure.txt
+                               and data/b706_readfirst_diff.txt by tools/circuit_read.py readfirst | ITEMS 12216 ; CITED BY THE TEXT ITSELF 26 ;
+                               THE HAND LIST 42 PATHS ; BOTH 18 ; LINES DIFFERING 32 (HAND ONLY 24, OF WHICH IN THE CLOSURE 17 ; TEXT ONLY 8)
+  rowgen and constellation     data/b706_rowgen_stepzero.txt | CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19 ; STALE 0 (checked 151, unmapped 136)
+  the process listing          tail, lean, lake, python, claude, node, git and bash named (Win32_Process by name, PowerShell Get-CimInstance read in a
+                               foreach, no pipe): claude 1 (pid 3604, this seat), tail 0, lean 0, lake 0, python 0, node 0, git 0, bash 0, of 249
+                               processes at 2026-10-22T18:36:07Z, free 4574 MB. One seat. No task of this session stopped; no orphan, nothing
+                               stopped by PID
+  b705's push-out bank         relay ff817932, committed alone | data/b705_closing_push_out.txt, main read back at f9a60e40
+  the branches                 data/b706_branches_before.json (written before any delete: each tip, merged by ancestry, the remotes read once
+                               each) ; data/b706_branches.txt (.json) after | the eight of (R316)(9) deleted by name with -d after `git branch
+                               --merged main` listed each (the citation check's rows): relay push-b705, push-b705-root, push-b705-root2,
+                               push-b705-root3, push-b705-closing; PLACE-papers push-b705, push-b705-root; SIDE-faces-join push-b705-join --
+                               eight deletes, one per command, each its own message, nothing chained after any ; BRANCHES NAMED 8 ; DELETED 8 ;
+                               KEPT 0 ; EVERY TIP MERGED True
+  the standing-b2 split        named before the pre-run, tools/b706_worklist.py PARTS and CHAIN_QUARTERS | standing-b2 (577 s at b705's post-push
+                               run, data/b705_checks_postpush_standing-b2.txt :25; the chain's first half 507 s) split per data/b684_rules.txt
+                               row (1) into standing-b2a (the chain over b624-b641) and standing-b2b (b642-b658); seven parts: standing-a,
+                               standing-c, standing-b1, standing-b2a, standing-b2b, standing-b3, act; the chain halves as b693 drew them with b706
+                               added to the second (b659-b706)
+  the tests                    data/b706_tests_stepzero.txt (.json) | 55 files ; 54 run, each its own process in the foreground, in seven parts
+                               each after the hold printed (4437-4726 MB free) ; 1 withheld (test_elab_reader_b634.py, it runs lean;
+                               data/b706_tests_withheld.json) ; no file above 450 s at b705, so no file its own part by that rule; test_asof.py
+                               (388 s) and test_chain_page.py (394 s) each a part of its own by the plan's budget ; NOT CLEAN 3: test_chain_page.py
+                               (1), (9), (14) ; test_chain_page_b638.py (4)-(7) ; test_g_chain_page.py (1) -- the three b705's step zero read,
+                               carried (data/b705_stepzero.txt :38-:43): the committed faces page against the generator's output from b704's
+                               list and probe, the page's last write (PLACE-papers c9b2e55) preceding b704's cut of day1/ONE_PAGE_PROOF.md; the
+                               page is regenerated at this act only where (R316)(8)'s word is "regenerate" ; the longest 394 s
+  the trees                    git status | relay tracked changes NONE ; PLACE-papers tracked changes NONE (two untracked files that stood before the
+                               act, .githooks/pre-push.b304-backup and internal/BLOB_SENSITIVITY_2026-08-29.md) ; SIDE-faces-join and
+                               SIDE-explicit-formula clean ; the untracked locals untracked (data/b628_intake_crank_v0_5.txt,
+                               data/b647_navigator_memory.txt, data/b671_narrow_run2_points.jsonl, data/b681_narrow_units.jsonl,
+                               data/b694_witness_units.jsonl, data/b696_witness_balls_units.jsonl: git ls-files names none) ; this act's tools
+                               and step-zero banks untracked until the step-zero commit
+  the record tool's carry      tools/b706_record.py, stage one | b705's tool imported unedited with its constants rebound; two carry-time repairs
+                               for data/b706_tool_repairs.txt: prev_capture cut at (R316)'s line (b705 ran in this session, so b698's window "to
+                               the session's end" would read this act's commands as b705's); ROOT_EXCLUDE extended at import with every untracked
+                               write a b706_*.py tool declares (`rootexclude`: DECLARED UNTRACKED WRITES 0, the kinds carried) per
+                               data/b706_rules.txt row (1)
+  no build                     no lean or lake process on this host; no dispatch yet (Component 3's one and Component 4's two)
+
+### ### **STEP ZERO DONE: CITES 130, 129 OK, 1 MISS (THE NAVIGATOR'S), TO BE RAISED BEFORE COMPONENT 3 ; BRANCHES 8 DELETED ; ONE BANK
+### COMMITTED ALONE ; THE SPLIT NAMED ; TESTS 54 RUN, 3 NOT CLEAN (CARRIED) ; NO BUILD ON THIS HOST.**
