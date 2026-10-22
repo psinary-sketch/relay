@@ -292,6 +292,21 @@ RESTRICTIONS = [
          reads='def Alt2 (c : Nat → U4) : Prop := ∀ k, c (k + 2) = mul m1 (c k) -- a condition on c alone', restricts=('c',)),
     dict(head='Alternates', where='SIDE-global-section 17ce9ff, Core/AlternationShadow.lean :33 and Core/SignTransferShadow.lean :47',
          reads='def Alternates (s : Nat → Int) : Prop := ∀ i, s (i + 1) = -s i -- a condition on s alone', restricts=('s',)),
+    # ### b705, (R315)(9), W-ORD-E0-MET-CLASSK, on the author's answer at the E0 prompt (relay data/b705_author_answers.txt): the window
+    # ### classes and the regularity predicate of SIDE-explicit-formula's H2Sign.lean / H2SignWide.lean at v0.36 = dfadc8c are named
+    # ### restrictions on the variable they bind -- the author ruling the names restrictions, as the met-clause anticipates (a MET name is a
+    # ### premise). At b703 E0 read PREDICATE-UNLISTED at classK_subset_classK', classK_subset_classKsum and classKsum_subset_classK' (relay
+    # ### data/b703_widening_grade.txt); with these four they read DERIVES, every other header of that bank unchanged (relay data/b705_e0_met.txt).
+    dict(head='classK', where='SIDE-explicit-formula v0.36 = dfadc8c, SIDEExplicitFormula/H2Sign.lean :24',
+         reads='even, C² with compact support, an autocorrelation h ⋆ h~ of such h -- a condition on k alone', restricts=('k',)),
+    dict(head='classKsum', where='SIDE-explicit-formula v0.36 = dfadc8c, SIDEExplicitFormula/H2SignWide.lean :43',
+         reads='even, C² with compact support, a finite sum of autocorrelations of C² compactly supported h_i -- a condition on k alone',
+         restricts=('k',)),
+    dict(head="classK'", where='SIDE-explicit-formula v0.36 = dfadc8c, SIDEExplicitFormula/H2SignWide.lean :33',
+         reads='even, acDeriv with compact support, a finite sum of autocorrelations of acDeriv compactly supported h_i -- a condition on k alone',
+         restricts=('k',)),
+    dict(head='acDeriv', where='SIDE-explicit-formula v0.36 = dfadc8c, SIDEExplicitFormula/H2SignWide.lean :28',
+         reads='C¹ with the derivative an indefinite integral of an integrable g -- a condition on f alone', restricts=('f',)),
 ]
 # ### (R236)(3): every entry names the quantified variables it restricts (its definition's parameters, by position); an entry that
 # ### cannot name one is struck. None is struck: each definition read at its pin takes its restricted objects as parameters.

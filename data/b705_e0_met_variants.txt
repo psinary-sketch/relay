@@ -1,0 +1,19 @@
+b705 -- (R315)(9): E0`S READING OF data/b703_widening_grade.txt`S HEADERS UNDER IN-MEMORY VARIANTS OF THE RULE, THE FILE UNEDITED (2026-10-22T15:08:26Z)
+
+### rows are headers: name | the rule as it stands (sha256 1b4fa2b1fe2f5749) | MET+3 | RESTRICTIONS+4 | LEXICON+3 | ALL THREE
+### MET+3: MET extended with ['acDeriv', "classK'", 'classKsum'] ; RESTRICTIONS+4: named restrictions ['classK', 'classKsum', "classK'", 'acDeriv'] on their variable ; LEXICON+3: the three as Props with their lines.
+
+  acDeriv_of_contDiff_two      | DERIVES              | DERIVES              | DERIVES              | DERIVES              | DERIVES             
+  classK_subset_classK'        | PREDICATE-UNLISTED   | PREDICATE-UNLISTED   | DERIVES              | PREDICATE-UNLISTED   | DERIVES             
+  classK_subset_classKsum      | PREDICATE-UNLISTED   | PREDICATE-UNLISTED   | DERIVES              | PREDICATE-UNLISTED   | DERIVES             
+  classKsum_subset_classK'     | PREDICATE-UNLISTED   | INTERFACES           | DERIVES              | PREDICATE-UNLISTED   | DERIVES             
+  h2_sign'_imp_h2_sign         | DERIVES              | DERIVES              | DERIVES              | DERIVES              | DERIVES             
+  h2_sign'_imp_rh              | DERIVES              | DERIVES              | DERIVES              | DERIVES              | DERIVES             
+  paperFT_finset_sum           | INTERFACES           | INTERFACES           | INTERFACES           | INTERFACES           | INTERFACES          
+  rh_imp_h2_sign_sum           | DERIVES              | DERIVES              | DERIVES              | DERIVES              | DERIVES             
+  h2_sign_sum_imp_h2_sign      | DERIVES              | DERIVES              | DERIVES              | DERIVES              | DERIVES             
+  h2_sign_sum_iff_rh           | DERIVES              | DERIVES              | DERIVES              | DERIVES              | DERIVES             
+  THE E0 DIVERGENCE, FOUR ROWS | DERIVES              | DERIVES              | DERIVES              | DERIVES              | DERIVES             
+
+### the rule`s own words on a MET name (tools/e0_rule.py FORMS, `met`): "a named predicate on quantified variables that MET holds
+### -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction" -> outcome `premise` -> INTERFACES.

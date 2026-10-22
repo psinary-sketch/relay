@@ -48,9 +48,28 @@ def fetch(*a):
     print('  %s: %d lines ; %d pages ; raw %d bytes ; sha256 %s' % (OUT, len(head + L), len(R.pages), len(raw), sha))
 
 
+def locate(*needles):
+    """`locate <needle> [...]`: the lines of the fetched text that carry each needle, with their page, banked as data/b705_source_cc_locate.txt
+    (appended per call) -- the seat then reads the cited lines through the Read tool."""
+    q = os.path.join(D, OUT)
+    L = io.open(q, encoding='utf-8').read().replace(chr(13), '').split(NL)
+    out = ['%s -- LOCATE in data/%s (%s): rows are hits: needle | line | page | the line' % ('b705', OUT, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))]
+    page = 0
+    for i, l in enumerate(L, 1):
+        if l.startswith('== PAGE '):
+            page = int(l[8:])
+        for nd in needles:
+            if nd in l:
+                out.append('  %s | :%d | page %d | %s' % (nd, i, page, l[:120]))
+    b = os.path.join(D, 'b705_source_cc_locate.txt')
+    with open(b, 'ab') as fh:
+        fh.write((NL.join(out) + NL + NL).encode('utf-8'))
+    print(NL.join(out))
+
+
 if __name__ == '__main__':
-    fn = {'fetch': fetch}.get(sys.argv[1] if len(sys.argv) > 1 else '')
+    fn = {'fetch': fetch, 'locate': locate}.get(sys.argv[1] if len(sys.argv) > 1 else '')
     if fn is None:
-        print('usage: b705_cc_source.py fetch')
+        print('usage: b705_cc_source.py fetch | locate <needle> [...]')
         sys.exit(2)
     fn(*sys.argv[2:])

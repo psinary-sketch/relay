@@ -768,6 +768,139 @@ def dispatch(*a):
     print('  the row banked with whole True ; modules %s' % need)
 
 
+E0_PIN = 'SIDE-explicit-formula v0.36 = dfadc8c (H2SignWide.lean blob 0ff5c255, equal at v0.37 = 38e2734 and in the working tree)'
+E0_NEW = {'acDeriv': ('prop', E0_PIN + ', SIDEExplicitFormula/H2SignWide.lean :28'),
+          "classK'": ('prop', E0_PIN + ', SIDEExplicitFormula/H2SignWide.lean :33'),
+          'classKsum': ('prop', E0_PIN + ', SIDEExplicitFormula/H2SignWide.lean :43')}
+E0_RESTRICT = [dict(head='classK', where='SIDE-explicit-formula v0.36 = dfadc8c, SIDEExplicitFormula/H2Sign.lean :24',
+                    reads='even, C^2, compactly supported, an autocorrelation h * h~ of such h -- a condition on k alone', restricts=('k',)),
+               dict(head='classKsum', where=E0_PIN + ', SIDEExplicitFormula/H2SignWide.lean :43',
+                    reads='even, C^2, compactly supported, a finite sum of autocorrelations of C^2 compactly supported h_i -- a condition on k alone',
+                    restricts=('k',)),
+               dict(head="classK'", where=E0_PIN + ', SIDEExplicitFormula/H2SignWide.lean :33',
+                    reads='even, acDeriv, compactly supported, a finite sum of autocorrelations of acDeriv compactly supported h_i -- a condition on k alone',
+                    restricts=('k',)),
+               dict(head='acDeriv', where=E0_PIN + ', SIDEExplicitFormula/H2SignWide.lean :28',
+                    reads='C^1 with the derivative an indefinite integral of an integrable g -- a condition on f alone', restricts=('f',))]
+
+
+def _e0_heads():
+    """the headers of data/b703_widening_grade.txt (rows '== name (file :a-:b):' then the statement verbatim to '  THE BINDERS')."""
+    import io as _io
+    import re as _re
+    L = _io.open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b703_widening_grade.txt'), encoding='utf-8').read().replace(chr(13), '').split(NL)
+    out, i = [], 0
+    while i < len(L):
+        if L[i].startswith('== '):
+            name, j, stmt = L[i][3:].split(' (')[0], i + 1, []
+            while j < len(L) and not L[j].startswith('  THE BINDERS'):
+                stmt.append(L[j].strip())
+                j += 1
+            s = ' '.join(stmt).split(':=')[0]
+            out.append((name, _re.sub(r'^theorem\s+\S+\s*', '', s).strip()))
+            i = j
+        else:
+            i += 1
+    return out
+
+
+def _e0_all(E, heads):
+    rows = []
+    for name, head in heads:
+        try:
+            g, why, _r = E.grade(head, 'theorem')
+        except Exception as e:
+            g, why = 'BUG', str(e)[:100]
+        rows.append(dict(name=name, grade=g, why=why))
+    return rows
+
+
+def _e0_sha():
+    import hashlib as _h
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'e0_rule.py')
+    return _h.sha256(open(p, 'rb').read()).hexdigest()
+
+
+def _wjson(name, obj):
+    raw = (json.dumps(obj, indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', name)
+    with open(p + '.tmp', 'wb') as fh:
+        fh.write(raw)
+    os.replace(p + '.tmp', p)
+
+
+def e0met(*a):
+    """`e0met before | variants | after`: (R315)(9)'s control. `before`: every header of data/b703_widening_grade.txt graded by the shared
+    tools/e0_rule.py as it stands, banked with the file's sha256. `variants`: the same headers graded under in-memory variants of the rule
+    (MET + the three names; RESTRICTIONS + the four heads; LEXICON + the three), the file unedited, the table banked -- the evidence for
+    the prompt where the ruling's mechanism and the rule's own words part. `after`: the headers re-graded after the Edit, the before/after
+    diff per name and the file's diff banked as data/b705_e0_met.txt."""
+    import e0_rule as E
+    stage = a[0]
+    heads = _e0_heads()
+    if stage == 'before':
+        rows = _e0_all(E, heads)
+        _wjson('%s_e0_met_before.json' % ACT, dict(at=utc(), e0_rule_sha256=_e0_sha(), rows=rows))
+        for r in rows:
+            print('  %-28s %-20s %s' % (r['name'], r['grade'], r['why'][:90]))
+        print('### BEFORE: %d headers ; tools/e0_rule.py sha256 %s' % (len(rows), _e0_sha()[:16]))
+        return
+    if stage == 'variants':
+        base = _e0_all(E, heads)
+        met0, res0, lex0 = E.MET, list(E.RESTRICTIONS), dict(E.LEXICON)
+        V = {}
+        try:
+            E.MET = met0 + tuple(E0_NEW)
+            V['MET+3'] = _e0_all(E, heads)
+            E.MET = met0
+            E.RESTRICTIONS = res0 + E0_RESTRICT
+            V['RESTRICTIONS+4'] = _e0_all(E, heads)
+            E.RESTRICTIONS = res0
+            E.LEXICON.update(E0_NEW)
+            V['LEXICON+3'] = _e0_all(E, heads)
+            E.LEXICON.clear()
+            E.LEXICON.update(lex0)
+            E.MET = met0 + tuple(E0_NEW)
+            E.RESTRICTIONS = res0 + E0_RESTRICT
+            E.LEXICON.update(E0_NEW)
+            V['ALL THREE'] = _e0_all(E, heads)
+        finally:
+            E.MET, E.RESTRICTIONS = met0, res0
+            E.LEXICON.clear()
+            E.LEXICON.update(lex0)
+        names = list(V)
+        L = ['%s -- (R315)(9): E0`S READING OF data/b703_widening_grade.txt`S HEADERS UNDER IN-MEMORY VARIANTS OF THE RULE, THE FILE UNEDITED (%s)' % (ACT, utc()), '',
+             '### rows are headers: name | the rule as it stands (sha256 %s) | ' % _e0_sha()[:16] + ' | '.join(names),
+             '### MET+3: MET extended with %s ; RESTRICTIONS+4: named restrictions %s on their variable ; LEXICON+3: the three as Props with their lines.' % (
+                 sorted(E0_NEW), [r['head'] for r in E0_RESTRICT]), '']
+        for k, r in enumerate(base):
+            L.append('  %-28s | %-20s | ' % (r['name'], r['grade']) + ' | '.join('%-20s' % V[n][k]['grade'] for n in names))
+        L += ['', '### the rule`s own words on a MET name (tools/e0_rule.py FORMS, `met`): "a named predicate on quantified variables that MET holds',
+              '### -- the forward guard (OPEN_TRAILS :13221), a premise until the author rules the name a restriction" -> outcome `premise` -> INTERFACES.']
+        put_txt('%s_e0_met_variants.txt' % ACT, L)
+        print(NL.join(L[2:]))
+        return
+    if stage == 'after':
+        before = jl('%s_e0_met_before.json' % ACT)
+        rows = _e0_all(E, heads)
+        B = dict((r['name'], r) for r in before['rows'])
+        changed = [(r['name'], B[r['name']]['grade'], r['grade']) for r in rows if B.get(r['name'], {}).get('grade') != r['grade']]
+        out = subprocess.run(['git', 'diff', '--', 'tools/e0_rule.py'], cwd=ROOT, capture_output=True).stdout
+        diff = (out or b'').decode('utf-8', 'replace').replace(chr(13), '').rstrip(NL).split(NL)
+        L = ['%s -- (R315)(9), W-ORD-E0-MET-CLASSK: tools/e0_rule.py EXTENDED BY THE EDIT TOOL, E0`S READING OF data/b703_widening_grade.txt`S HEADERS BEFORE AND AFTER (%s)' % (ACT, utc()), '',
+             '### rows are headers: name | before (tools/e0_rule.py sha256 %s, %s) | after (sha256 %s) | changed' % (before['e0_rule_sha256'][:16], before['at'], _e0_sha()[:16]), '']
+        for r in rows:
+            L.append('  %-28s | %-20s | %-20s | %s' % (r['name'], B.get(r['name'], {}).get('grade'), r['grade'], 'CHANGED' if B.get(r['name'], {}).get('grade') != r['grade'] else 'unchanged'))
+        L += ['', '### CHANGED %d: %s' % (len(changed), changed or 'NONE'), '', '### THE FILE`S DIFF (git diff -- tools/e0_rule.py, %d lines):' % len(diff)] + ['    ' + l for l in diff]
+        L += ['', '### ### **HEADERS %d ; CHANGED BY THE EXTENSION %d %s ; EVERY OTHER NAME UNCHANGED %s.**' % (
+            len(rows), len(changed), [c[0] for c in changed], all(B.get(r['name'], {}).get('grade') == r['grade'] for r in rows if r['name'] not in [c[0] for c in changed]))]
+        put_txt('%s_e0_met.txt' % ACT, L)
+        _wjson('%s_e0_met.json' % ACT, dict(at=utc(), before=before, after=dict(e0_rule_sha256=_e0_sha(), rows=rows), changed=changed, diff=diff))
+        print(NL.join(L[2:4 + len(rows) + 2] + L[-1:]))
+        return
+    sys.exit('usage: e0met before | variants | after')
+
+
 def artfile(*a):
     """`artfile <kernel> <run id> <label> <name> [<name> ...]`: a named file of the run's artifact, read only after the artifact's sha256 equals
     the banked one (data/b705_runner_rows.json, the row read by its id) and the platform's digest; banked as data/b705_art_<kernel>_<label>_<name>.txt."""
@@ -864,7 +997,7 @@ ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=st
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, armsort=armsort, figures=figures, figctl=figctl, c1=c1,
-              orders=orders, repairs=repairs, repairctl=repairctl, joinfiles=joinfiles, joingrade=joingrade, artfile=artfile)
+              orders=orders, repairs=repairs, repairctl=repairctl, joinfiles=joinfiles, joingrade=joingrade, artfile=artfile, e0met=e0met)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
