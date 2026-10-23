@@ -1,5 +1,5 @@
 {
- "at": "2026-10-23T17:03:29Z",
+ "at": "2026-10-23T17:49:18Z",
  "anchor": "RULING (R318) BEGIN",
  "rows": [
   {
@@ -792,6 +792,238 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b708_record.py commands && python -X utf8 tools/b708_record.py guard && python -X utf8 tools/b708_record.py defects && python -X utf8 tools/b708_closing.py defects-row b708",
    "n": 99,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:06:59.030Z",
+   "src": "seat",
+   "cmd": "git status --porcelain data tools && git -C /d/relay log --oneline -1",
+   "n": 100,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:07:05.833Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_checks.py --prerun --part standing-a",
+   "n": 101,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:12:14.595Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers diff --name-status -M 95dc6f6 HEAD && git -C /d/MY-DOwnloads/PLACE-papers diff --name-only 95dc6f6 && git diff --name-only b5898a61 -- tools/ && git diff --name-only b5898a61 HEAD -- tools/",
+   "n": 102,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:12:25.815Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_checks.py --prerun --part standing-a",
+   "n": 103,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:16:33.953Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_checks.py --prerun --part standing-c",
+   "n": 104,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:22:07.088Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_checks.py --prerun --part standing-b1",
+   "n": 105,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:24:37.456Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_checks.py --prerun --part standing-b2a",
+   "n": 106,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:32:25.014Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_checks.py --prerun --part standing-b2b",
+   "n": 107,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:35:05.205Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_checks.py --prerun --part standing-b3",
+   "n": 108,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:38:18.670Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_checks.py --prerun --part act",
+   "n": 109,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:41:11.173Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_record.py scorercheck",
+   "n": 110,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:41:20.340Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_checks.py --prerun --part act",
+   "n": 111,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:43:31.780Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_checks.py --combine b708_arms_prerun.txt && python -X utf8 tools/b708_record.py armsecs",
+   "n": 112,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:43:42.369Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_record.py armsecs",
+   "n": 113,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:44:10.346Z",
+   "src": "seat",
+   "cmd": "git add tools/b708_checks.py tools/b708_closing.py tools/b708_reg_gate.py tools/b708_regspec.py tools/b708_record.py tools/b708_worklist.py data/b708_registration_2026-10-23.txt data/b708_tool_repairs.txt data/b708_tool_repairs.json data/b708_repair_controls.txt data/b708_standing_figures.txt data/b708_standing_figures.json data/b708_registrations_reread.txt data/b708_registrations_reread.json data/b708_author_answers.txt data/b708_author_answers.json data/b708_read_calls.txt data/b708_read_calls.json data/b708_commands.txt data/b708_commands.json data/b708_kernels_face.json data/b708_guard_dry.txt data/b708_guard_dry.json data/b708_defects.txt data/b708_defects.json data/b708_arms_prerun.txt data/b708_arms_prerun_standing-a.txt data/b708_arms_prerun_standing-c.txt data/b708_arms_prerun_standing-b1.txt data/b708_arms_prerun_standing-b2a.txt data/b708_arms_prerun_standing-b2b.txt data/b708_arms_prerun_standing-b3.txt data/b708_arms_prerun_act.txt data/b708_lsr_prerun_standing-a.json data/b708_lsr_prerun_standing-c.json data/b708_lsr_prerun_standing-b1.json data/b708_lsr_prerun_standing-b2a.json data/b708_lsr_prerun_standing-b2b.json data/b708_lsr_prerun_standing-b3.json data/b708_lsr_prerun_act.json data/b708_exercise_standing-a.json data/b708_exercise_standing-c.json data/b708_exercise_standing-b1.json data/b708_exercise_standing-b2a.json data/b708_exercise_standing-b2b.json data/b708_exercise_standing-b3.json data/b708_exercise_act.json data/b708_arm_seconds.txt data/b708_arm_seconds.json data/b708_arm_seconds_standing-a.json data/b708_arm_seconds_standing-c.json data/b708_arm_seconds_standing-b1.json data/b708_arm_seconds_standing-b2a.json data/b708_arm_seconds_standing-b2b.json data/b708_arm_seconds_standing-b3.json data/b708_arm_seconds_act.json data/b708_chain_half_a1_arms_prerun.json data/b708_chain_half_a2_arms_prerun.json data/b708_chain_half_b_arms_prerun.json && git commit -q -m \"b708 Component 5: the suite, closing, gate and spec tools carried from b707 with this act's 47 arms (the report tool unsealed by data/b708_rules.txt row (1)); the record tool's Component 5 and 6 routes; the carry-time repair (the print-list reader naming a vendored module by its srcDir) with its diff and six control cases; the four standing figures against b707's (0, 0, 0, 0); the registrations and the rules bank re-read unchanged, no eigenvalue; the answers bank (no prompt), the read calls (200, two offences lettered (a)), the command bank, the kernels face, the guard's dry run; defect (g) lettered; the face; the pre-run in seven foreground parts (145 arms, 103 passing, one failing on real state and declared), the combined bank, the per-part seconds, the chain quarters\" && git log --oneline -1 && git status --porcelain data/b708_* tools/b708_*",
+   "n": 114,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:45:14.995Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_record.py rootdry",
+   "n": 115,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:45:47.287Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_record.py names b698",
+   "n": 116,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:46:02.863Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_reg_gate.py",
+   "n": 117,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:46:34.714Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_record.py gatebanks",
+   "n": 118,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:46:35.689Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_record.py scores dry",
+   "n": 119,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:46:58.474Z",
+   "src": "seat",
+   "cmd": "wc -l data/b708_regspec_run.txt data/audit_b708_reg_satisfiable.txt",
+   "n": 120,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:47:13.884Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_record.py gatebanks",
+   "n": 121,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:47:24.406Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_record.py gatebanks",
+   "n": 122,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:47:38.793Z",
+   "src": "seat",
+   "cmd": "git add data/b708_registration_2026-10-23.txt data/b708_reg_gate.txt data/b708_reg_termscan.txt data/b708_regspec_run.txt data/b708_satisfiable.json data/audit_b708_reg_satisfiable.txt data/b708_census_stepzero.txt data/b708_faces_census_stepzero.txt data/b708_pins_stepzero.txt data/b708_root_banks_dry.txt data/b708_root_banks_dry.json && git commit -q -m \"b708 Component 5: the gate's record (the dry-run step CLEAN, the closing's dry run CLEAN, GATE VERDICT CLEAR) and its steps' banks (the banned-term scan CLEAN, the spec with no count prediction, the audit JOINTLY SATISFIABLE, the step-zero censuses and pins), the root route's dry run on the pre-root tree (84 banks, READY True), the face with the dry run's READY and the pre-run's figures\" && git log --oneline -1",
+   "n": 123,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:47:45.981Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_reg_gate.py && python -X utf8 tools/b708_record.py gatebanks && python -X utf8 tools/b378_lockgate.py b708 data/b708_registration_2026-10-23.txt",
+   "n": 124,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:48:19.417Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b708_registration_2026-10-23.txt && python -X utf8 tools/b708_checks.py --seal && python -X utf8 tools/reg_seal.py --verify data/b708_registration_2026-10-23.txt",
+   "n": 125,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:48:26.653Z",
+   "src": "seat",
+   "cmd": "git add data/b708_registration_2026-10-23.txt data/b708_seal_hashes.json data/b708_lockgate.json data/b708_lockgate_notes.txt data/b708_reg_gate.txt data/b708_reg_termscan.txt data/b708_regspec_run.txt data/b708_satisfiable.json data/audit_b708_reg_satisfiable.txt data/b708_census_stepzero.txt data/b708_faces_census_stepzero.txt data/b708_pins_stepzero.txt && git commit -q -m \"b708 seal: the face locked (sha256 1fd60a4c, 40776 bytes) after the gate's steps ran again against it and stamped (8 of 8 gates, LOCK PERMITTED), the nine sealed tools' hashes recorded; the report tool outside the sealed list by data/b708_rules.txt row (1)\" && git log --oneline -1 && git status --porcelain data/b708_* tools/b708_*",
+   "n": 126,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:48:35.955Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_record.py scores && python -X utf8 tools/b708_record.py findings dry",
+   "n": 127,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T17:48:54.679Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b708_record.py findings && python -X utf8 tools/b708_record.py table_final && python -X utf8 tools/b708_record.py commands && python -X utf8 tools/b708_record.py reads && python -X utf8 tools/b708_record.py desk",
+   "n": 128,
    "bg": false
   }
  ],
