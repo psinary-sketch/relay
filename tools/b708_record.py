@@ -1277,8 +1277,35 @@ def quotecheck(*a):
     print('  the arm over b708`s banks: %s ; over every bank: %s' % (RA.reading('G-RULE-RECUT-QUOTE', S2), RA.reading('G-RULE-RECUT-QUOTE', S)))
 
 
+# ================================================================================ COMPONENT 4: THE PORT'S NEXT LINES, HELD, (R318)(7)
+def portlines(*a):
+    """data/b708_port_lines.txt (.json): (R318)(7), the two failing lines of port-b707's one run read from data/b707_port.txt by line, the kind of
+    each failure read from the error's own text and printed -- :277:55 an application type mismatch (a changed signature: WeakFEPair.hasMellin
+    takes the hypothesis `k < re s` where the argument `w` was given), :380:8 the kernel's unknown constant (a renamed Mathlib declaration,
+    exists_norm_completedRiemannZeta₀_le_exp_half moved); no edit to port-b707 this act; the dispatch at b709."""
+    pt = rdn('b707_port.txt').split(NL)
+    l11, l14 = pt[10] if len(pt) > 10 else '', pt[13] if len(pt) > 13 else ''
+    ctx = pt[34:42] if len(pt) > 41 else []
+    k1 = 'a changed signature' if 'Application type mismatch' in l11 and any('is expected to have type' in l for l in ctx) else '### NOT READ'
+    k2 = 'a renamed Mathlib declaration' if 'unknown constant' in l14 else '### NOT READ'
+    tip = g(K.LV_DIR, 'rev-parse', K.PORT_BRANCH).strip()
+    rh = R._remote_heads(K.LV_DIR)
+    L = ['%s -- COMPONENT 4, (R318)(7): THE PORT`S NEXT LINES, HELD THIS ACT -- THE TWO FAILURES` KINDS READ FROM data/b707_port.txt (%s)' % (ACT, utc()), '',
+         '### rows are the next failing lines of port-b707`s one run (relay data/b707_port.txt, run 39888369981), each with its error line by the bank`s line and',
+         '### the kind the ruling names (a renamed Mathlib declaration, a changed signature, a broken proof) read from the error`s own text; no edit to port-b707',
+         '### this act; both the port`s next dispatch at b709 ((R318)(11); W-ORD-LV-FORWARD-PORT, OPEN_TRAILS :15686).', '',
+         '  C7OrderBounds.lean :277:55 | data/b707_port.txt :11 | %s | THE KIND: %s -- `WeakFEPair.hasMellin (hurwitzEvenFEPair 0).toStrongFEPair w` given `w : ℂ` where the first explicit argument is now the hypothesis `k < re s` (data/b707_port.txt :35-:42); the call`s arguments re-ordered at Mathlib de5ce8a9' % (l11.strip(), k1),
+         '  C7OrderBounds.lean :380:8  | data/b707_port.txt :14 | %s | THE KIND: %s -- `SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp_half` unknown to the kernel at the pin, the name moved; the replacement to be read at b709 from Mathlib de5ce8a9`s own declarations' % (l14.strip(), k2),
+         '', '### port-b707 at %s locally, %s at the remote (one ls-remote), equal to b707`s commit %s ; no edit this act.' % (tip[:12], (rh.get(K.PORT_BRANCH) or 'absent')[:12], tip == rh.get(K.PORT_BRANCH) == K.PORT_COMMIT),
+         '', '### ### **LINES 2 ; KINDS: :277:55 %s ; :380:8 %s ; port-b707 UNEDITED %s ; THE NEXT DISPATCH AT b709.**' % (k1, k2, tip == rh.get(K.PORT_BRANCH) == K.PORT_COMMIT)]
+    put_txt('%s_port_lines.txt' % ACT, L)
+    put_json('%s_port_lines.json' % ACT, dict(at=utc(), lines=[dict(line='277:55', bank_line=11, error=l11.strip(), kind=k1), dict(line='380:8', bank_line=14, error=l14.strip(), kind=k2)],
+                                             port_tip=tip, port_remote=rh.get(K.PORT_BRANCH), unedited=tip == rh.get(K.PORT_BRANCH) == K.PORT_COMMIT))
+    print(NL.join(L[5:]))
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks, c1=c1,
-              scratch=scratch, quote=quote, cutbank=cutbank, quotecheck=quotecheck, probe=probe, probediff=probediff, runner=runner, probeview=probeview, probecompare=probecompare, tagstate=tagstate, printprobe=printprobe,
+              scratch=scratch, portlines=portlines, quote=quote, cutbank=cutbank, quotecheck=quotecheck, probe=probe, probediff=probediff, runner=runner, probeview=probeview, probecompare=probecompare, tagstate=tagstate, printprobe=printprobe,
               printsbank=printsbank, cellsreach=cellsreach,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
