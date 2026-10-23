@@ -1,0 +1,62 @@
+b708 -- STEP ZERO, (R318)(3): THE FINE GRID, REGISTERED BEFORE ANY NUMBER -- THE REFINEMENT OF data/b705_registrations.txt (iii), NOTHING IN (iii) CHANGED (2026-10-23)
+
+### rows are registrations, each with its hypothesis, falsifier, controls, the act that computes it and the order it serves, in (R318)(3)'s
+### words. Written by the Write tool at step zero after the citation check and the branches, and committed alone with data/b708_rules.txt
+### before any computation of this act (the ferry's Component 0; N3). No eigenvalue is computed this act: every figure below is read from a
+### bank by path and line (data/b707_onset.txt, data/b707_onset_controls.txt, data/b705_registrations.txt) or is the registration's own
+### arithmetic on the grid's definition, marked DERIVED (the prime powers in an interval, counted; the grid's size; the price by b707's
+### stamps). Nothing here is a statement that RH or GRH holds or locates any zero.
+
+  (i) THE FINE GRID OF THE SIGN-ONSET RADIUS AT Q0 -- COMPUTED AT b709 ON THE AUTHOR'S WORD; NO EIGENVALUE COMPUTED AT b708.
+      THE OBJECT: data/b705_registrations.txt (iii) (:15-:54) as b707 computed it on the coarse ladder a = log 2, 2 log 32, ..., 2 log 192
+          (data/b707_onset.txt :12-:25: the family F_a(gamma_0) = span{C, N}, the Weil form S = P - PR + A in balls at 128 bits as the 2x2
+          matrix G with the L2 Gram beside it, two frequencies), refined between the coarse points where the sign turns; (iii)'s parameter,
+          quantity, hypothesis, falsifier and controls stand unchanged, this row the refinement (R318)(3) orders beside them.
+      THE INTERVAL PER FAMILY, the coarse endpoints read from the onset bank: the greatest positive coarse radius a_+ and the least negative
+          a_- (data/b707_onset.txt rows are rungs):
+            the band zero's family (gamma_0 = 29.5517..., b705's window): a_+ = 2 log 128 = 9.704060528 (:17, lambda_min 0.88175528, POSITIVE
+              DEFINITE BEYOND ITS BOUND) ; a_- = 2 log 192 = 10.51499074 (:18, lambda_min -0.18015272, NEGATIVE DIRECTION BEYOND ITS BOUND)
+            rho_0's family (gamma_0 = 16.2902..., b694's window): a_+ = log 2 = 0.6931471806 (:19, lambda_min 3.7190621, POSITIVE DEFINITE
+              BEYOND ITS BOUND) ; a_- = 2 log 32 = 6.931471806 (:20, lambda_min -0.14004491, NEGATIVE DIRECTION BEYOND ITS BOUND)
+      THE GRID, in (R318)(3)'s words: the interval (a_+, a_-] subdivided at the rungs log p^k that fall in it and at the midpoints between
+          consecutive rungs; the coarse endpoints a_+ and a_- the controls' points. The rungs COUNTED (DERIVED, prime powers p^k with
+          a_+ < log p^k <= a_-; the scratch count of this session, no eigenvalue):
+            rho_0's family: p^k in (2, 1024]: 197 rungs (171 primes, 26 higher powers; the first log 3, log 4, log 5, log 7, log 8, log 9;
+              the last log 1019, log 1021, log 1024) ; 196 midpoints ; with the two endpoints 395 grid points ; the mean step 3.18e-2
+            the band zero's family: p^k in (16384, 36864]: 2026 rungs (2008 primes, 18 higher powers; the first log 16411 ... ; the last
+              log 36857) ; 2025 midpoints ; with the two endpoints 4053 grid points ; the mean step 4.0e-4
+          Beside the ruling's rungs, the points at which Q0's own prime side gains a term (Lambda_Q(n) under b325's inversion, non-zero at n
+          = 4, 6, 8, 9, 12, 16, ... -- composite n among them, Z_Q being no Euler product; Lambda_Q(2) = Lambda_Q(3) = Lambda_Q(5) =
+          Lambda_Q(7) = 0, data/b707_onset_controls.txt :9-:14): new terms 270 in (log 2, 2 log 32] and 4127 in (2 log 128, 2 log 192]
+          (:16, :21). A rung log p at which Lambda_Q(p) = 0 is a grid point where no Q0 term enters; it stays a grid point as the ruling
+          words it, and the term structure at each rung is printed beside its eigenvalue at b709 (as (R317)(3) had it printed at the coarse
+          rungs).
+      THE QUANTITY: at each grid point a, the least eigenvalue of G in the L2 metric on the family at that frequency, in balls, read POSITIVE
+          DEFINITE, NEGATIVE DIRECTION or UNDECIDED beyond its bound as b707's tool reads it (tools/b707_onset.py); THE ONSET the least grid
+          point with a negative eigenvalue.
+      HYPOTHESIS: the onset lies within one subdivision step past a rung.
+      FALSIFIER: the onset lies at a midpoint with no rung within one step below it.
+      THE READING ENTERED FOR THE AUTHOR'S STRIKE (the navigator's wording, read before any number): on this grid every midpoint stands half a
+          step above the rung beneath it, so the falsifier as worded cannot fire at any grid point of the grid as worded, and the hypothesis
+          holds of every grid point by construction; the question the grid can decide is WHICH KIND of point the onset is -- a rung (the sign
+          turning as a term enters, the least eigenvalue negative at the rung and positive at the midpoint below it) or a midpoint (the sign
+          turning between entries, the least eigenvalue positive at the rung below and negative at the midpoint) -- and at which rung or
+          between which two; at a midpoint onset, the further refinement (the quarter points) is for b709's ruling. Nothing in (R318)(3) is
+          altered here; the vacuity is entered, not repaired.
+      CONTROLS: (C1) the coarse endpoints a_+ and a_- recomputed at b709 reproduce b707's eigenvalues (data/b707_onset.txt :17-:20) within
+          their balls; (C2) the zeta form on the same family at every new grid point POSITIVE DEFINITE BEYOND ITS BOUND, its certified
+          archimedean tail (tools/b696_witness_balls.py arch_tail :90, the DLMF ball) printed beside lambda_min at each point -- the margin of
+          order 1e-7 at the coarse radii (data/b707_onset_controls.txt :33, :35) read as a figure only beside that bound; (C3) the rung
+          structure at each rung printed before its figure, as at b707 (the controls before the figures).
+      THE PRICE (DERIVED from b707's stamps): b707's Component 2 ran its 14 Q0 rows, 14 zeta rows and 5 C2 cases between the registrations'
+          commit (6e8ece87, 00:09Z) and the onset bank's stamp (02:07Z) with the tool written between -- the units file stamps the rows; read
+          as about 30 s per row at 128 bits, rho_0's grid (395 points, each a Q0 row and a zeta row) prices at about 6-7 hours in foreground
+          parts under the 590 s guard, resumable by the units file as b705's form; the band zero's grid (4053 points) at about 70 hours --
+          beyond one act at the full grid as worded, for b709's ruling to read: the band's grid at its rungs alone (2026 points), or at a
+          sub-ladder of its rungs, or rho_0's family first. No part is run here.
+      THE ORDER IT SERVES: none named by (R318)(3); registered under the ruling's number for b709's ruling to name, beside the higher pairs'
+          route (data/b707_registrations.txt (i)) and the port's next dispatch ((R318)(7), (11)).
+
+### ### **REGISTRATIONS 1 ; THE GRID PER FAMILY: rho_0 197 RUNGS, 395 POINTS ; THE BAND ZERO 2026 RUNGS, 4053 POINTS (DERIVED, COUNTED) ; THE
+### FALSIFIER AS WORDED VACUOUS ON THE GRID AS WORDED, ENTERED FOR THE STRIKE ; THE PRICE BY b707`S STAMPS ; COMPUTED AT b709 ; NO EIGENVALUE
+### COMPUTED ; COMMITTED ALONE BEFORE ANY COMPUTATION.**
