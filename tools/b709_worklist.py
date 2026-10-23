@@ -101,6 +101,16 @@ B708_TRAIL_HEAD = ('### b708 — lane two, act one hundred and thirty-five, the 
 STEPZERO = 'c1b64ca5'        # ### b708's closing push capture, committed alone at step zero
 STEPZERO_BANKS = ''          # ### the ferry, the citation check, the readfirst bank, rowgen, the branches, the tests, the first tools
 REG_COMMIT = '510dc29b374ff89afa3ac4ccfadab74a05b7ce8e'              # ### data/b709_registrations.txt and data/b709_rules.txt committed alone, before any computation (N2)
+C1_RELAY = ''                # ### Component 1's relay commit (the weight line's banks, the repair's controls, the corrigendum banks, the order)
+C1_PP = ''                   # ### Component 1's PLACE-papers commit (the weight line, the corrigendum entry, the order's annotation)
+C2_RELAY = ''                # ### Component 2's relay commit (the grid and the pairs, their banks and hashes banks)
+C2_PP = ''                   # ### none: Component 2 writes no ledger
+C3_RELAY = ''                # ### Component 3's relay commit (the port banks)
+C3_PP = ''                   # ### none: Component 3 writes no ledger
+C4_RELAY = ''                # ### Component 4's relay commit (the axis named; the registrations re-read)
+PORT_TIP = ''                # ### this act's one commit on port-b707 (Component 3)
+PORT_RUN = 0                 # ### this act's one dispatch, read by its run id (Component 3)
+PORT_LABEL = 'port'
 SEALED = ('b709_worklist.py', 'b709_tests.py', 'b709_citation.py', 'b709_record.py', 'b709_checks.py', 'b709_closing.py', 'b709_reg_gate.py',
           'b709_regspec.py', 'b709_corrigendum.py', 'b709_carry.py', 'b709_grid.py', 'b709_pairs.py')   # ### the report tool tools/b709_report.py is NOT sealed (data/b708_rules.txt row (1))
 REPAIRED_TOOLS = ()

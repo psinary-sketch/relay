@@ -1,0 +1,128 @@
+b709 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b708_corrigendum.py -> tools/b709_corrigendum.py (2026-10-23T19:42:48Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b708 -> b709, b707 -> b708, (R318) -> (R319), (R317) -> (R318), R318 -> R319, R317 -> R318); 167 lines, 43 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s tool-repairs bank names for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b708_tool_repairs.txt NAMES FOR THIS TOOL (the row`s line ; the hunk`s line ; the hunk header, its line numbers in the carried file`s predecessor):
+  NONE: no repair of this tool at b708; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b708_corrigendum.py
+  +++ tools/b709_corrigendum.py
+  @@ -2,1 +2,1 @@
+  -"""b708_corrigendum.py -- THE CORRIGENDUM ENTRY OF (R318)(2): b707's item found after its seal -- (i) the write list omitting the mirror
+  +"""b709_corrigendum.py -- THE CORRIGENDUM ENTRY OF (R319)(2): b708's item found after its seal -- (i) the write list omitting the mirror
+  @@ -5,2 +5,2 @@
+  -the trail landed -- answered by one generated FINDINGS entry in b678's corrigendum form, in the bank's words; b707's sealed face (relay
+  -data/b707_registration_2026-10-22.txt), its trail record (PLACE-papers OPEN_TRAILS :15688) and every root-named bank unedited.
+  +the trail landed -- answered by one generated FINDINGS entry in b678's corrigendum form, in the bank's words; b708's sealed face (relay
+  +data/b708_registration_2026-10-22.txt), its trail record (PLACE-papers OPEN_TRAILS :15688) and every root-named bank unedited.
+  @@ -8,1 +8,1 @@
+  -### Carried from tools/b707_corrigendum.py, its rows rewritten for b707's record. b678's tool (tools/b678_corrigendum.py) is IMPORTED and
+  +### Carried from tools/b708_corrigendum.py, its rows rewritten for b708's record. b678's tool (tools/b678_corrigendum.py) is IMPORTED and
+  @@ -11,2 +11,2 @@
+  -###   (i): the row of data/b707_defects.txt by letter and line (the repaired reader of b703, through b708_record);
+  -###   the eight failing arms: data/b707_checks_postpush.txt's LIVE FAILING list; the four declared on the face: the face's declaration line;
+  +###   (i): the row of data/b708_defects.txt by letter and line (the repaired reader of b703, through b709_record);
+  +###   the eight failing arms: data/b708_checks_postpush.txt's LIVE FAILING list; the four declared on the face: the face's declaration line;
+  @@ -14,4 +14,4 @@
+  -###   the correction: data/b708_rules.txt (the rules bank) and this act's face's (W) row ((R318)(2)), named by path.
+  -### Routes: `dry` -> the entry printed through the screens, nothing written; `land` -> the entry appended to FINDINGS through b708_record's
+  -### guarded landing, data/b708_corrigendum.txt (.json). The corrigenda bank's row (28) is appended by the seat through the Edit tool from the
+  -### bank line this tool prints (ROW). Written by the Write tool at b708; it writes those two banks and the one FINDINGS entry.
+  +###   the correction: data/b709_rules.txt (the rules bank) and this act's face's (W) row ((R319)(2)), named by path.
+  +### Routes: `dry` -> the entry printed through the screens, nothing written; `land` -> the entry appended to FINDINGS through b709_record's
+  +### guarded landing, data/b709_corrigendum.txt (.json). The corrigenda bank's row (28) is appended by the seat through the Edit tool from the
+  +### bank line this tool prints (ROW). Written by the Write tool at b709; it writes those two banks and the one FINDINGS entry.
+  @@ -34,2 +34,2 @@
+  -import b708_worklist as K         # noqa: E402
+  -import b708_record as REC         # noqa: E402  ### the guarded landing and the repaired defects reader
+  +import b709_worklist as K         # noqa: E402
+  +import b709_record as REC         # noqa: E402  ### the guarded landing and the repaired defects reader
+  @@ -37,1 +37,1 @@
+  -TITLE = ('## Corrigendum to b707’s record after its seal (relay data/b707_defects.txt, data/b707_checks_postpush.txt): the write list omitting the '
+  +TITLE = ('## Corrigendum to b708’s record after its seal (relay data/b708_defects.txt, data/b708_checks_postpush.txt): the write list omitting the '
+  @@ -53,1 +53,1 @@
+  -    df = C78.rd(os.path.join(D, 'b707_defects.txt')).split(NL)
+  +    df = C78.rd(os.path.join(D, 'b708_defects.txt')).split(NL)
+  @@ -55,1 +55,1 @@
+  -    ck = C78.rd(os.path.join(D, 'b707_checks_postpush.txt'))
+  +    ck = C78.rd(os.path.join(D, 'b708_checks_postpush.txt'))
+  @@ -62,2 +62,2 @@
+  -    th = next((i + 1 for i, l in enumerate(ot) if l.startswith('### b707 — lane two, act one hundred and thirty-four')), 0)
+  -    dl = next((i + 1 for i in range(th, len(ot)) if ot[i].startswith('**Defects** (relay data/b707_defects.txt)')), 0) if th else 0
+  +    th = next((i + 1 for i, l in enumerate(ot) if l.startswith('### b708 — lane two, act one hundred and thirty-four')), 0)
+  +    dl = next((i + 1 for i in range(th, len(ot)) if ot[i].startswith('**Defects** (relay data/b708_defects.txt)')), 0) if th else 0
+  @@ -66,1 +66,1 @@
+  -    short = REC._defect_short('b707')
+  +    short = REC._defect_short('b708')
+  @@ -68,1 +68,1 @@
+  -    rules = C78.rd(os.path.join(D, 'b708_rules.txt'))
+  +    rules = C78.rd(os.path.join(D, 'b709_rules.txt'))
+  @@ -73,1 +73,1 @@
+  -          and '(1) THE REPORT TOOL IS KEPT OUT OF THE SEALED LIST' in rules and 'tools/mirror_build.ps1` (the b670 tool, unedited) | `D:/MY-DOwnloads/mirror-refresh-2026-10-22-b707.zip` and its stage' in wrow)
+  +          and '(1) THE REPORT TOOL IS KEPT OUT OF THE SEALED LIST' in rules and 'tools/mirror_build.ps1` (the b670 tool, unedited) | `D:/MY-DOwnloads/mirror-refresh-2026-10-22-b708.zip` and its stage' in wrow)
+  @@ -84,1 +84,1 @@
+  -         'b707’s face was locked after Components 1-4 (relay data/b707_registration_2026-10-22.txt) with four failures declared on it by name '
+  +         'b708’s face was locked after Components 1-4 (relay data/b708_registration_2026-10-22.txt) with four failures declared on it by name '
+  @@ -88,1 +88,1 @@
+  -         '**(i) THE SEAT’S: THE WRITE LIST OMITS THE MIRROR BUILDER’S POINTER FILE** (relay data/b707_defects.txt :%d-:%d). tools/mirror_prevbuild.json '
+  +         '**(i) THE SEAT’S: THE WRITE LIST OMITS THE MIRROR BUILDER’S POINTER FILE** (relay data/b708_defects.txt :%d-:%d). tools/mirror_prevbuild.json '
+  @@ -90,1 +90,1 @@
+  -         'b707’s face’s (W) row for the builder named the zip and its stage alone, and b707 built its mirror before its post-push suite (the '
+  +         'b708’s face’s (W) row for the builder named the zip and its stage alone, and b708 built its mirror before its post-push suite (the '
+  @@ -92,1 +92,1 @@
+  -         'alone. THE CORRECTION: under (R318)(2) this act’s face carries the row `tools/mirror_build.ps1 | the zip, its stage, '
+  +         'alone. THE CORRECTION: under (R319)(2) this act’s face carries the row `tools/mirror_build.ps1 | the zip, its stage, '
+  @@ -94,1 +94,1 @@
+  -         'N5 read it as the builder’s and not as a stray write; the file stands as b707 committed it (relay b5898a61), not edited.' % r['i'][:2], '',
+  +         'N5 read it as the builder’s and not as a stray write; the file stands as b708 committed it (relay b5898a61), not edited.' % r['i'][:2], '',
+  @@ -96,2 +96,2 @@
+  -         '(:%d) reading (a)-(h), and (i) was lettered after it at the post-push run, so the arms reading those lines against data/b707_defects.txt '
+  -         '((a)-(i)) fail by that order (relay data/b707_checks_postpush.txt). THE CORRECTION: no repair -- the sequence rule of (R315)(2) binds '
+  +         '(:%d) reading (a)-(h), and (i) was lettered after it at the post-push run, so the arms reading those lines against data/b708_defects.txt '
+  +         '((a)-(i)) fail by that order (relay data/b708_checks_postpush.txt). THE CORRECTION: no repair -- the sequence rule of (R315)(2) binds '
+  @@ -99,1 +99,1 @@
+  -         'lettered and never hidden (b707’s trap 3).' % (', '.join(TRAIL_ARMS), s['trail'], s['defects_line'], s['resolved_line']), '',
+  +         'lettered and never hidden (b708’s trap 3).' % (', '.join(TRAIL_ARMS), s['trail'], s['defects_line'], s['resolved_line']), '',
+  @@ -102,3 +102,3 @@
+  -         '*Filed at b708 on the author’s ruling `(R318)`(2): generated by relay `tools/b708_corrigendum.py`, carried from '
+  -         '`tools/b707_corrigendum.py`, in the corrigendum form of relay `tools/b678_corrigendum.py` (its reader imported unchanged), banked as '
+  -         'relay `data/b708_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (28); it answers b707’s four items '
+  +         '*Filed at b709 on the author’s ruling `(R319)`(2): generated by relay `tools/b709_corrigendum.py`, carried from '
+  +         '`tools/b708_corrigendum.py`, in the corrigendum form of relay `tools/b678_corrigendum.py` (its reader imported unchanged), banked as '
+  +         'relay `data/b709_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (28); it answers b708’s four items '
+  @@ -109,1 +109,1 @@
+  -ROW = ('  (28) b707\'s suite after its seal (relay data/b707_checks_postpush.txt, LIVE FAILING 8, four beyond the face): G-WRITELIST-KINDS on\n'
+  +ROW = ('  (28) b708\'s suite after its seal (relay data/b708_checks_postpush.txt, LIVE FAILING 8, four beyond the face): G-WRITELIST-KINDS on\n'
+  @@ -112,2 +112,2 @@
+  -       '      arms failing because (i) was lettered after the trail (OPEN_TRAILS :15688) landed. THE CORRECTION: the (W) row of b708\'s face names\n'
+  -       '      the state file beside the zip and its stage under (R318)(2); the trail arms no repair, the sequence rule binding. The generated\n'
+  +       '      arms failing because (i) was lettered after the trail (OPEN_TRAILS :15688) landed. THE CORRECTION: the (W) row of b709\'s face names\n'
+  +       '      the state file beside the zip and its stage under (R319)(2); the trail arms no repair, the sequence rule binding. The generated\n'
+  @@ -119,1 +119,1 @@
+  -    return ['b708 -- THE CORRIGENDUM, (R318)(2): b707`S POST-SEAL ITEM (i) AND THE THREE TRAIL-EQUALITY ARMS, ANSWERED BY ONE GENERATED '
+  +    return ['b709 -- THE CORRIGENDUM, (R319)(2): b708`S POST-SEAL ITEM (i) AND THE THREE TRAIL-EQUALITY ARMS, ANSWERED BY ONE GENERATED '
+  @@ -123,2 +123,2 @@
+  -            '  (i) THE WRITE LIST       relay data/b707_defects.txt :%d-:%d | G-WRITELIST-KINDS, the face`s (W) row for tools/mirror_build.ps1 (relay data/b707_registration_2026-10-22.txt :320) | '
+  -            'this act`s face names tools/mirror_prevbuild.json beside the zip and its stage ((R318)(2))' % r['i'][:2],
+  +            '  (i) THE WRITE LIST       relay data/b708_defects.txt :%d-:%d | G-WRITELIST-KINDS, the face`s (W) row for tools/mirror_build.ps1 (relay data/b708_registration_2026-10-22.txt :320) | '
+  +            'this act`s face names tools/mirror_prevbuild.json beside the zip and its stage ((R319)(2))' % r['i'][:2],
+  @@ -127,1 +127,1 @@
+  -            '  THE FAILING EIGHT        relay data/b707_checks_postpush.txt | %s | declared on the face %s ; found after the seal %s' % (
+  +            '  THE FAILING EIGHT        relay data/b708_checks_postpush.txt | %s | declared on the face %s ; found after the seal %s' % (
+  @@ -143,2 +143,2 @@
+  -    REC.land([('FINDINGS.md', TITLE, text)], 'b708_corrigendum_landing.json', 'corrigendum', entry=None, dry=False)
+  -    ln = (REC.jl('b708_corrigendum_landing.json').get('lines') or [{}])[0].get('line')
+  +    REC.land([('FINDINGS.md', TITLE, text)], 'b709_corrigendum_landing.json', 'corrigendum', entry=None, dry=False)
+  +    ln = (REC.jl('b709_corrigendum_landing.json').get('lines') or [{}])[0].get('line')
+  @@ -146,1 +146,1 @@
+  -    p = os.path.join(D, 'b708_corrigendum.txt')
+  +    p = os.path.join(D, 'b709_corrigendum.txt')
+  @@ -153,1 +153,1 @@
+  -    p = os.path.join(D, 'b708_corrigendum.json')
+  +    p = os.path.join(D, 'b709_corrigendum.json')
+  @@ -164,1 +164,1 @@
+  -        print('usage: b708_corrigendum.py dry | land')
+  +        print('usage: b709_corrigendum.py dry | land')
+
+### ### **CARRIED tools/b709_corrigendum.py ; LINES 167 ; CHANGED BY THE SUBSTITUTION 43 ; REPAIR SPANS AT b708 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

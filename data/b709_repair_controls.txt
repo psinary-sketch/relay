@@ -1,0 +1,13 @@
+b709 -- COMPONENT 1, (R319)(2): THE NEEDLE`S REPAIR (G-CLOSING-DRY-STEP) AGAINST THE OLD NEEDLE ON b708`S GATE RECORD AND MUTATED COPIES (2026-10-23T19:49:11Z)
+
+### rows are cases: the case | the old needle`s reading (wanted) | the repaired needle`s reading (wanted) | AS WANTED. The old needle: `'### NO VERDICT LINE' not in g`
+### (tools/b708_checks.py :679, the last clause); the repaired: tools/b709_checks.py no_verdict_line_ok -- the lines naming a bank of NO_VERDICT_EXEMPT ('data/b708_prints_v0.17.txt',)
+### excluded by name, the string failing anywhere else. The record: relay data/b708_reg_gate.txt (81 lines), the string at :51 on the prints bank`s line.
+
+  b708`s gate record as it stands: the string at :51 on the exempt prints bank`s line alone                      | old False (wanted False) | repaired True  (wanted True ) | AS WANTED
+  the exempt line :51 removed, the string nowhere                                                                | old True  (wanted True ) | repaired True  (wanted True ) | AS WANTED
+  NEG: the string moved onto the verdict-bearing line :47 (relay data/b708_probe_run.txt), the exempt line kept  | old False (wanted False) | repaired False (wanted False) | AS WANTED
+  NEG: the string on the verdict-bearing line :47 alone, the exempt line removed                                 | old False (wanted False) | repaired False (wanted False) | AS WANTED
+  NEG: the string appended on a line of its own after the record                                                 | old False (wanted False) | repaired False (wanted False) | AS WANTED
+
+### ### **CASES 5 ; AS WANTED True ; THE REPAIRED NEEDLE PASSES ON b708`S GATE RECORD True ; THE NEG CONTROL FAILS True ; THE OLD NEEDLE DISTINGUISHED ON THE RECORD AS IT STANDS True.**

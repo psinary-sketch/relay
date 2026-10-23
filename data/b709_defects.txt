@@ -45,6 +45,17 @@ b709 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-23)
     THE BRANCHES ROUTE'S CARRY REPAIR. The act-name substitution turned the kept branch's name port-b707 into port-b708 in the carried route's
         docstring and bank header, and the carried route read K.PORT_COMMIT where this act's worklist carries K.PORT_BASE; three Edits before
         the route's first run (the bank data/b709_branches.txt written once, after the six deletes); banked by diff at Component 5.
+    THE CORRIGENDUM'S LANDING STOPPED ON ITS OWN LINE COUNT; ONE BLANK LINE INSERTED BY THE EDIT TOOL BEFORE THE COMMIT. The carried
+        corrigendum tool, rewritten whole for b708's two items, composed its entry text without the leading newline the guarded landing
+        expects (the title two lines past the ledger's last line; b708's weight line had landed at :10184 by the record tool's c1 route a
+        moment before), so the landing wrote the entry with its title at :10185, directly beneath the weight line, and stopped
+        ("LANDED AT :10185, NOT :10186 -- STOPPED") before writing its banks. The seat's attempt to restore FINDINGS.md from HEAD (`git
+        checkout -- FINDINGS.md` at PLACE-papers, both landings uncommitted) was refused by the harness's classifier; the one blank line
+        was then inserted by the Edit tool between :10184 and the title (whitespace alone, no landed text changed, nothing committed before
+        it), the title standing at :10186; the tool given a `bank` route that reads the landed line from the ledger (the title found once
+        with a blank line each side) and writes data/b709_corrigendum.txt (.json) and the landing bank for it; the tool's entry_text given
+        its leading newline for any later use. The suite's landed-entry arms read the ledger as it stands. Not lettered: no sealed tool, no
+        committed ledger line; the Edit tool's one whitespace insertion in an uncommitted ledger write entered here in full.
     THE RENAMES' READERS IN THE TEST FILES, CARRIED. The eight files b708's step zero read NOT CLEAN read the same at this act's (the three b706
         carried: test_chain_page.py (1), (9), (14); test_chain_page_b638.py (4)-(7); test_g_chain_page.py (1); the five the renames of
         (R316)(3) broke: test_chain_page_b629.py (8), test_composer_b646.py (10), (11), (17), (19), test_composer_b647.py (4), (5), (7), (9),

@@ -1005,7 +1005,167 @@ def armnames(*a):
         print('### ' + ' '.join('`%s`' % n for n in names_[i:i + 7]))
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, THE REPAIR'S CONTROLS AND THE ORDER, (R319)(1)-(2)
+WH = ('*Appended 2026-10-23 by b709 to b708’s entry (:10152), under `(R319)`(1) -- b708 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b708_closing.txt):*')
+
+
+def _declared_b708():
+    face = rd(os.path.join(ROOT, *K.B708_FACE.split('/')))
+    md = re.search(r'THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:\*\* ([^.]*)\.', ' '.join(face.split()))
+    return sorted(set(re.findall(r'`([GF]-[A-Z0-9-]+)`', md.group(1)))) if md else []
+
+
+def _failing_b708():
+    m = re.search(r'LIVE FAILING : (\d+) \[(.*?)\]', rdn('b708_checks_postpush.txt'))
+    return [x.strip().strip("'") for x in (m.group(2) if m else '').split(',') if x.strip()]
+
+
+def _fig(text, pat, what):
+    m = re.search(pat, text)
+    if not m:
+        sys.exit('### b708`S CLOSING DOES NOT CARRY %s (%s) -- NOTHING COMPOSED' % (what, pat))
+    return m.groups() if m.groups() else m.group(0)
+
+
+def _wb():
+    """b708's weight line, its figures read from b708's banks where a bank names them (the declared arm from the face, the failing two from
+    the post-push bank, the scores from the scores banks, the defects from the defects bank by the repaired reader) and otherwise quoted
+    from the closing record (relay data/b708_closing.txt) by its own verdict lines; the port's second kind beside this act's (a)."""
+    decl, fails = _declared_b708(), _failing_b708()
+    post = [a for a in fails if a not in decl]
+    c = rdn('b708_closing.txt')
+    head = c.split(NL)[0]
+    sr, sc = jl('b708_scores.json'), jl('b708_scores_close.json')
+    short = _defect_short('b708')
+    if decl != ['G-READ-RULE-STANDING'] or sorted(fails) != ['G-CLOSING-DRY-STEP', 'G-READ-RULE-STANDING'] or post != ['G-CLOSING-DRY-STEP'] \
+            or len(short) != 7 or not head.startswith('b708 closed: relay ab5e5278, PLACE-papers 6abebe6; suite 143 of 145'):
+        sys.exit('### b708`S FACE OR ITS BANKS NOT AS READ (declared %s ; failing %s ; defects %d ; head %s) -- NOTHING COMPOSED' % (decl, fails, len(short), head[:40]))
+    run_p, = _fig(c, r'RUN (\d+) \(probe\)', 'the probe run')
+    cells, of = _fig(c, r'PROBE CELLS (\d+) OF (\d+)', 'the probe cells')
+    sha_p, = _fig(c, r'THE PROBE TEXT WRITTEN ; sha256 ([0-9a-f]{8})', 'the probe sha')
+    moved, = _fig(c, r'SIGS MOVED (\d+)', 'sigs moved')
+    run_q, = _fig(c, r'prints-v0\.17 [0-9a-f]+ at None run (\d+) whole True', 'the prints run')
+    if run_q == run_p:
+        sys.exit('### THE PRINTS RUN READ AS THE PROBE RUN (%s) -- NOTHING COMPOSED' % run_q)
+    ment, eq = _fig(c, r'MENTIONS (\d+) ; EQUAL (\d+)', 'the mentions')
+    before, after = _fig(c, r'BEFORE (\d+), AFTER (\d+)', 'the cut')
+    quoting, = _fig(c, r'QUOTING LINES (\d+) ENTERED AS RESIDUES', 'the quoting lines')
+    r_r, r_p, b_r, b_p = _fig(c, r'rho_0 (\d+) RUNGS, (\d+) POINTS ; THE BAND ZERO (\d+) RUNGS, (\d+) POINTS', 'the grid')
+    banks, = _fig(c, r'THE ROOT`S BANKS \(relay data/b708_root_banks.txt\): BANKS (\d+)', 'the root banks')
+    files, = _fig(rdn('b708_mirror.txt'), r'files (\d+)', 'the mirror files')
+    agree, of_a = _fig(c, r'### AGREE (\d+) of (\d+)', 'the sealed hashes')
+    cites, ok, miss = _fig(c, r'CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', 'the citation check')
+    prompts, = _fig(c, r'(\d+) prompt\(s\) put by the seat', 'the answers bank')
+    return (' “%s” (data/b708_closing.txt :1); the closing commit 60739238 pushed alone in main mode after the line was written and read back '
+            'equal at the remote (data/b708_closing_push_out.txt :5). The chain’s probe through the workflow’s own step on probe-b708 (run %s), '
+            'the generator’s text equal to b704’s (sha256 %s…), %s of %s cells read from the separate artifact, %s sigs moved against b704’s bank, '
+            'the page untouched, the branch deleted locally and at the remote (data/b708_probe_run.txt, data/b708_probe_compare.txt, '
+            'data/b708_scratch_branches.txt); the entry-tag print at v0.17 (run %s) reading simplicity_iff equal to its statement at v0.37, '
+            'the mentions %s of %s equal, FACES_LEDGER :20 unbanked by its own line (data/b708_prints_v0.17.txt, data/b708_cells_reread.txt); '
+            'day1/Spectral_Inertness.md re-cut by the b670 method from %s rows outside LICENSED/CITED to %s, %s quoting lines entered as residues '
+            '(data/b708_cut.txt, data/b708_quote.txt); the fine grid registered and committed alone in data/b708_registrations.txt (6045dd8c) '
+            'before any number -- ρ₀’s family %s rungs and %s points, the band zero’s %s rungs and %s points, the falsifier as worded vacuous on '
+            'the grid as worded and entered for the strike -- computed at this act; the port’s two lines read by kind, nothing edited '
+            '(data/b708_port_lines.txt: :277:55 a changed signature; :380:8 “a renamed Mathlib declaration”, where the error names the kernel’s '
+            'own _half theorem failing at :277 -- a cascade of :277, this act’s (a) by the fact clause and its corrigendum). The entry at '
+            'FINDINGS :10152, the trail at OPEN_TRAILS :15724; the root a840da57 over %s banks chained from 6fe154f9 (data/b708_act_root.json, '
+            'data/b708_root_banks.txt), the chain b624–b708 AGREE; the mirror mirror-refresh-2026-10-23-b708.zip CLEAN on all three clauses over '
+            '%s files with the root line (data/b708_mirror.txt); suite 143 of 145 pre-push and post-push, %s declared on the face and %s found '
+            'after the seal (data/b708_checks.txt, data/b708_checks_postpush.txt; the latter the arm’s own needle, answered by this act’s '
+            'corrigendum and repaired at this act’s carry under `(R319)`(2)); N1 REFUTED as worded on the count (two dispatches, the navigator’s '
+            '(f)), N2–N5 and S1–S3 HELD (data/b708_scores.json, data/b708_scores_close.json: N1 %s, N4 %s, S1 %s, S2 %s); the sealed tools’ hashes '
+            'equal at the close, %s of %s; the citation check %s cites, %s OK, %s missed, every one the navigator’s; seven defects (a)–(g), '
+            '(c)–(f) the navigator’s, (a), (b) and (g) the seat’s (data/b708_defects.txt), the post-seal event G-CLOSING-DRY-STEP beneath them '
+            'unlettered; “1 prompt answered” the root’s prompt alone, the answers bank %s rows; the report’s four lines by the unsealed tool '
+            'after the root’s word (data/b708_report.txt). Nothing deposited.' % (
+                head, run_p, sha_p, cells, of, moved, run_q, eq, ment, before, after, quoting, r_r, r_p, b_r, b_p, banks, files,
+                ', '.join(decl), ', '.join(post), (sr.get('N1') or ['-'])[0], (sc.get('N4') or ['-'])[0], (sc.get('S1') or ['-'])[0],
+                (sc.get('S2') or ['-'])[0], agree, of_a, cites, ok, miss, prompts))
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B708_ENTRY,
+         check=[('FINDINGS.md', K.B708_ENTRY, '## The faces chain probed through the workflow'), ('OPEN_TRAILS.md', K.B708_TRAIL, '### b708')],
+         dry=dry)
+
+
+def repairctl(*a):
+    """data/b709_repair_controls.txt (.json): the needle's repair ((R319)(2); tools/b709_checks.py no_verdict_line_ok) against the old needle
+    (`'### NO VERDICT LINE' not in g`) on b708's own gate record and on mutated copies of it -- the record as it stands (the string on the exempt
+    prints bank's line alone) failing the old needle and passing the repaired; the exempt line removed passing both; the NEG cases (the string
+    moved onto a verdict-bearing bank's line, with and without the exempt line) failing both. Every case as wanted or the route exits."""
+    import b709_checks as CH
+    g = rdn('b708_reg_gate.txt')
+    lines = g.split(NL)
+    ex = [i for i, l in enumerate(lines) if CH.NO_VERDICT_EXEMPT[0] in l and '### NO VERDICT LINE' in l]
+    vb = [i for i, l in enumerate(lines) if 'relay data/b708_probe_run.txt' in l and '### NO VERDICT LINE' not in l]
+    if len(ex) != 1 or len(vb) != 1:
+        sys.exit('### b708`S GATE RECORD NOT AS READ (exempt lines %s ; verdict-bearing probe_run lines %s) -- NOTHING WRITTEN' % (ex, vb))
+    old = lambda t: '### NO VERDICT LINE' not in t
+    neg_lines = list(lines)
+    neg_lines[vb[0]] = neg_lines[vb[0]].split('): ')[0] + '): ### NO VERDICT LINE'
+    cases = [('b708`s gate record as it stands: the string at :%d on the exempt prints bank`s line alone' % (ex[0] + 1), g, False, True),
+             ('the exempt line :%d removed, the string nowhere' % (ex[0] + 1), NL.join(l for j, l in enumerate(lines) if j != ex[0]), True, True),
+             ('NEG: the string moved onto the verdict-bearing line :%d (relay data/b708_probe_run.txt), the exempt line kept' % (vb[0] + 1), NL.join(neg_lines), False, False),
+             ('NEG: the string on the verdict-bearing line :%d alone, the exempt line removed' % (vb[0] + 1), NL.join(l for j, l in enumerate(neg_lines) if j != ex[0]), False, False),
+             ('NEG: the string appended on a line of its own after the record', g + NL + '### NO VERDICT LINE', False, False)]
+    rows, allok = [], True
+    for name, text, w_old, w_new in cases:
+        r_old, r_new = old(text), CH.no_verdict_line_ok(text)
+        ok = (r_old == w_old) and (r_new == w_new)
+        allok = allok and ok
+        rows.append(dict(case=name, old=r_old, old_wanted=w_old, new=r_new, new_wanted=w_new, as_wanted=ok))
+    L = ['%s -- COMPONENT 1, (R319)(2): THE NEEDLE`S REPAIR (G-CLOSING-DRY-STEP) AGAINST THE OLD NEEDLE ON b708`S GATE RECORD AND MUTATED COPIES (%s)' % (ACT, utc()), '',
+         '### rows are cases: the case | the old needle`s reading (wanted) | the repaired needle`s reading (wanted) | AS WANTED. The old needle: `\'### NO VERDICT LINE\' not in g`',
+         '### (tools/b708_checks.py :679, the last clause); the repaired: tools/b709_checks.py no_verdict_line_ok -- the lines naming a bank of NO_VERDICT_EXEMPT %s' % (CH.NO_VERDICT_EXEMPT,),
+         '### excluded by name, the string failing anywhere else. The record: relay data/b708_reg_gate.txt (%d lines), the string at :%d on the prints bank`s line.' % (len(lines), ex[0] + 1), '']
+    L += ['  %-110s | old %-5s (wanted %-5s) | repaired %-5s (wanted %-5s) | %s' % (r['case'][:110], r['old'], r['old_wanted'], r['new'], r['new_wanted'], 'AS WANTED' if r['as_wanted'] else '### NOT AS WANTED') for r in rows]
+    L += ['', '### ### **CASES %d ; AS WANTED %s ; THE REPAIRED NEEDLE PASSES ON b708`S GATE RECORD %s ; THE NEG CONTROL FAILS %s ; THE OLD NEEDLE DISTINGUISHED ON THE RECORD AS IT STANDS %s.**' % (
+        len(rows), allok, rows[0]['new'], not rows[2]['new'] and not rows[3]['new'], rows[0]['old'] != rows[0]['new'])]
+    if 'dry' not in a:
+        put_txt('%s_repair_controls.txt' % ACT, L)
+        put_json('%s_repair_controls.json' % ACT, dict(at=utc(), cases=rows, as_wanted=allok, exempt_line=ex[0] + 1, verdict_line=vb[0] + 1))
+    print(NL.join(L[6:]))
+    if not allok:
+        sys.exit(1)
+
+
+ORD = ('*Appended 2026-10-23 by b709 beneath `W-ORD-WORKFLOW-PROBE-STEP` (:15544; discharged at :15638, its trigger b708), under `(R319)`(2) -- '
+       'THE ORDER ANNOTATED DISCHARGED, in the author’s words:* the trigger ran at b708 as `(R319)`(1) reads it: “the chain’s probe through the '
+       'workflow’s own step on probe-b708 (run 39980813418), 568 of 568 cells read, 0 sigs moved against b704’s bank, the page untouched, the branch '
+       'deleted” (relay data/b708_probe_run.txt, data/b708_probe_compare.txt, data/b708_scratch_branches.txt) -- the step the order asked for at '
+       ':15544 (“so later chain probes need no scratch branch”) exercised by the chain’s own probe on a branch cut from main carrying the workflow, '
+       'the separate artifact read by run id and sha256. The scratch-branch route (b704’s: a root CircuitClosure.lean on a scratch branch whose own '
+       'workflow runs the print list) is retired; the chain’s next probe runs through the step at main’s workflow. Status DISCHARGED.')
+
+
+def orders(*a):
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', ORD, NL + ORD + NL)], '%s_order_lines.json' % ACT, 'orders', entry=None,
+         check=[('OPEN_TRAILS.md', K.ORDER_WORKFLOW_PROBE, '*Appended 2026-10-22 by b704, under the author’s word at the probe-route prompt -- THE ORDER **`W-ORD-WORKFLOW-PROBE-STEP`**'),
+                ('OPEN_TRAILS.md', K.ORDER_WORKFLOW_PROBE_DISCHARGED, '*Appended 2026-10-22 by b706 beneath `W-ORD-WORKFLOW-PROBE-STEP` (:15544)'),
+                ('OPEN_TRAILS.md', K.B708_TRAIL, '### b708')],
+         dry=dry)
+
+
+def ksyms(*a):
+    """`ksyms <tool.py>`: the worklist attributes a carried tool names as K.<NAME>, each with its lines, and which this act's worklist lacks --
+    the carry's reading of what the previous act's objects were (print only, no bank)."""
+    src = rd(os.path.join(T, a[0])).split(NL)
+    seen = {}
+    for i, l in enumerate(src, 1):
+        for m in re.finditer(r'\bK\.([A-Z_0-9]+)', l):
+            seen.setdefault(m.group(1), []).append(i)
+    missing = sorted(n for n in seen if not hasattr(K, n))
+    for n in sorted(seen):
+        print('  %-28s %s lines %s' % (n, '### MISSING' if n in missing else 'present   ', seen[n][:12]))
+    print('### ### **K.<NAME> REFERENCES %d ; MISSING FROM b709_worklist %d: %s.**' % (len(seen), len(missing), missing or 'NONE'))
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
+              c1=c1, repairctl=repairctl, orders=orders, ksyms=ksyms,
               scores=scores, findings=findings, trail=trail, drycheck=drycheck, mbank=mbank, guard=guard, armnames=armnames,
               figures=figures, regcheck=regcheck, scorercheck=scorercheck, runner=runner,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
