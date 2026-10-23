@@ -270,14 +270,12 @@ TITLE_LINE = ('b707 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND T
 
 def act_sections():
     return [('THE REPAIRS AND THE CORRIGENDUM ((R317)(1)-(2))', [('the carry-time repairs: the three readers and the carry`s three, each a diff', 'b707_tool_repairs.txt'),
-                                                             ('the repaired readings against the old on real state and mutated copies', 'b707_repair_controls.txt'),
-                                                             ('the roster`s control: tools/mirror_verify.py run dry against b706`s export', 'b707_roster_control.txt'),
+                                                             ('the repaired readings against the old on real state and mutated copies (the roster`s control, tools/mirror_verify.py run dry against b706`s export, in data/b707_roster_control.txt)', 'b707_repair_controls.txt'),
                                                              ('the table`s scope: the regeneration against b706`s final table', 'b707_table_scope.txt'),
                                                              ('the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1))', 'b707_root_banks_dry.txt'),
                                                              ('the generated entry and the corrigenda row (27)', 'b707_corrigendum.txt')]),
             ('THE ONSET ((R317)(3), N2, N3)', [('the controls before any Q0 figure: the rung structure, C1 at zeta, C2 on the registered windows', 'b707_onset_controls.txt'),
-                                               ('the form on the family at Q0 over the ladder, the onset per frequency', 'b707_onset.txt'),
-                                               ('the binary bank`s hashes', 'b707_onset_hashes.txt')]),
+                                               ('the form on the family at Q0 over the ladder, the onset per frequency (the binary bank beside its hashes, data/b707_onset_hashes.txt)', 'b707_onset.txt')]),
             ('THE REGISTRATIONS ((R317)(4), N2)', [('the twelve higher pairs` route, committed alone before any computation', 'b707_registrations.txt'),
                                                    ('the registrations re-read unchanged after the computations; the next axis', 'b707_registrations_reread.txt')]),
             ('THE PORT ((R317)(5), N1)', [('the five files printed before the one commit', 'b707_port_files.txt'),
