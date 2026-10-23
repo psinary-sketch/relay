@@ -1,0 +1,40 @@
+b708 -- THE CARRY-TIME READING: THE REPAIRS, THE FERRY`S COMPONENT 5 (2026-10-23T16:15:07Z)
+
+### rows are repairs with what they answer: the tool and its part ; what it answers ; the form. Each diff beneath its row, written by this
+### route (the carried function`s source against this act`s). The controls that distinguish each repaired reading from the old one:
+### data/b708_repair_controls.txt. No sealed tool is edited; no shared tool or shared data file is edited this act.
+
+  (1) tools/b708_record.py `_print_modules708` -- ANSWERS the dispatch of (R318)(4) under data/b705_rules.txt row (1): b705`s reader (tools/b705_record.py :732) names each print-list hit`s module by its path with / for . and no .lean, so the vendored lib`s hit Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean read as the module Vendored.Bulka.Lc.LiCriterion.ReverseDirection, a name no Lake target takes (the lib BulkaVendored declares srcDir = "Vendored/Bulka" in lakefile.toml, so Lake names the module Lc.LiCriterion.ReverseDirection); the dispatch`s `whole` check would then demand a module the target cannot carry. The repair: the lakefile`s lean_lib blocks read for their srcDir (`_lib_srcdirs`), a hit beneath a srcDir named relative to it; every other hit as b705 named it. Found at Component 2 before the probe dispatch; the repaired reader used for the probe`s target (54 modules, the run printing 109 of 109) and the prints dispatch. The control: the old and repaired readings over the print list at main, the vendored name`s file under its srcDir, the dispatched target covering the repaired modules, and a mutated lakefile without the srcDir line; data/b708_repair_controls.txt.
+
+      --- tools/b705_record.py _print_modules (b705, sealed)
+      +++ tools/b708_record.py _print_modules708 (this act)
+      @@ -1,6 +1,7 @@
+      -def _print_modules(kernel_dir, rev='HEAD'):
+      -    """each name of the kernel's print_targets.txt mapped to the module declaring it, by git grep bounded to the kernel's tree at rev: the
+      -    declaration line `theorem|def|structure|abbrev <short>` in a .lean file -> the module (the path with / for . and no .lean)."""
+      +def _print_modules708(kernel_dir, rev='HEAD'):
+      +    """b705's _print_modules (tools/b705_record.py :732) with the carry-time repair of this act (data/b708_tool_repairs.txt row (1)): a hit under a
+      +    lean_lib's srcDir is named relative to that srcDir, as Lake names it; every other hit as b705 named it (the path with / for . and no .lean)."""
+           names = [l.strip() for l in (_show(kernel_dir, rev, 'print_targets.txt') or '').split(NL) if l.strip()]
+      +    dirs = _lib_srcdirs(kernel_dir, rev)
+           out = {}
+           for n in names:
+      @@ -9,5 +10,13 @@
+                       rev, '--', '*.lean').strip()
+               f = hit.split(':', 2)[1] if hit.count(':') >= 2 else ''
+      -        out[n] = f[:-5].replace('/', '.') if f.endswith('.lean') else None
+      +        if not f.endswith('.lean'):
+      +            out[n] = None
+      +            continue
+      +        rel = f[:-5]
+      +        for sd, _nm in dirs:
+      +            if rel.startswith(sd + '/'):
+      +                rel = rel[len(sd) + 1:]
+      +                break
+      +        out[n] = rel.replace('/', '.')
+           return out
+       
+
+  CARRIED IN FORM, NOT REPAIRED: prev_capture (b707`s repair (5): the previous act`s window in b701`s form for another session, b707 having run and closed in aa198636) and ROOT_EXCLUDE (b707`s repair (6): data/b706_rules.txt row (1), extended at import with every untracked write a b708_*.py tool declares -- none declared this act), each carried into tools/b708_record.py with the act names rebound and no change of form (data/b707_tool_repairs.txt :183-:233).
+
+### ### **REPAIRS 1 ; CARRIED IN FORM 2 (prev_capture, ROOT_EXCLUDE) ; SHARED FILES EDITED 0 ; NO SEALED TOOL EDITED ; THE CONTROLS IN data/b708_repair_controls.txt.**

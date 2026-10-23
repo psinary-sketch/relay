@@ -1,0 +1,170 @@
+b708 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-23T17:03:29Z)
+
+### the source: the seat`s session 0be08567-3854-47cf-9c08-6d080b4d7312 from its first user line carrying 'RULING (R318) BEGIN', with its subagents` transcripts
+### commands read: 99
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b707, its own session aa198636, from its post-push combine to that session`s end): 8 commands from 2026-10-23T04:24:20.393Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (two ordered this act, N1 as the fact clause reads it: the probe branch and the prints branch of SIDE-explicit-formula) (2):
+  #56 python -X utf8 tools/b708_tests.py mem probe-dispatch && python -X utf8 tools/b708_record.py dispatch SIDE-explicit-formula 75bd018b784d3f9d27a829af65b54d33fd8e2796 probe "Lc.LiCriterion.ReverseDirection SIDEExplicitFormula.B321Identity SID
+  #62 python -X utf8 tools/b708_tests.py mem prints-dispatch && python -X utf8 tools/b708_record.py dispatch SIDE-explicit-formula 2627fa68a67dde0487bb0beab5f2ca8aca2549d9 prints-v0.17 "SIDEExplicitFormula.Simplicity"
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (2):
+  #2 2026-10-23T14:40:17.332Z cd /d/relay && ls data/b707_* tools/b707_* && ls data/b706_* | head -0; ls data/b706_*
+  #5 2026-10-23T14:40:35.649Z cd /d/relay && git log --oneline b0c74f89~1..b5898a61 && ls data/b706_reach* data/b706_generator_reach.txt && ls FACE* face* 2>&1; git ls-files | grep -i face | head -20
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (2):
+  #2 2026-10-23T14:40:17.332Z cd /d/relay && ls data/b707_* tools/b707_* && ls data/b706_* | head -0; ls data/b706_*
+  #5 2026-10-23T14:40:35.649Z cd /d/relay && git log --oneline b0c74f89~1..b5898a61 && ls data/b706_reach* data/b706_generator_reach.txt && ls FACE* face* 2>&1; git ls-files | grep -i face | head -20
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (1):
+  #96 2026-10-23T16:57:49.207Z python -X utf8 -c "import ast,sys; ast.parse(open('tools/b708_checks.py',encoding='utf-8').read()); print('PARSES')"
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (10):
+  #23 2026-10-23T15:07:21.229Z Bash
+      git -C D:/relay branch -d push-b707
+  #24 2026-10-23T15:07:25.022Z Bash
+      git -C D:/relay branch -d push-b707-root
+  #25 2026-10-23T15:07:27.265Z Bash
+      git -C D:/relay branch -d push-b707-root2
+  #26 2026-10-23T15:07:29.494Z Bash
+      git -C D:/relay branch -d push-b707-closing
+  #27 2026-10-23T15:07:32.051Z Bash
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b707
+  #28 2026-10-23T15:07:34.877Z Bash
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b707-root
+  #74 2026-10-23T15:56:24.060Z Bash
+      git -C D:/SIDE-explicit-formula branch -D probe-b708
+  #75 2026-10-23T15:56:27.621Z Bash
+      git -C D:/SIDE-explicit-formula push origin --delete probe-b708
+  #76 2026-10-23T15:56:32.387Z Bash
+      git -C D:/SIDE-explicit-formula branch -D prints-b708-v0.17
+  #77 2026-10-23T15:56:36.280Z Bash
+      git -C D:/SIDE-explicit-formula push origin --delete prints-b708-v0.17
+
+### THE BRANCH DELETES BY SHAPE ((R318)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #23 deletes ['push-b707'], halves 1, globs none, variables none, chained after False; #24 deletes ['push-b707-root'], halves 1, globs none, variables none, chained after False; #25 deletes ['push-b707-root2'], halves 1, globs none, variables none, chained after False; #26 deletes ['push-b707-closing'], halves 1, globs none, variables none, chained after False; #27 deletes ['push-b707'], halves 1, globs none, variables none, chained after False; #28 deletes ['push-b707-root'], halves 1, globs none, variables none, chained after False; #74 deletes ['probe-b708'], halves 1, globs none, variables none, chained after False; #75 deletes ['probe-b708'], halves 1, globs none, variables none, chained after False; #76 deletes ['prints-b708-v0.17'], halves 1, globs none, variables none, chained after False; #77 deletes ['prints-b708-v0.17'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-23T14:40:16.124Z | seat | Bash | cd /d/relay && git status --short && git log --oneline -5 && git branch -a
+  #2 | 2026-10-23T14:40:17.332Z | seat | Bash | cd /d/relay && ls data/b707_* tools/b707_* && ls data/b706_* | head -0; ls data/b706_*
+  #3 | 2026-10-23T14:40:18.306Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git status --short && git log --oneline -3 && git branch -a
+  #4 | 2026-10-23T14:40:33.687Z | seat | Bash | cd /d/relay && wc -l data/b707_closing.txt data/b707_stepzero.txt data/b707_readfirst.txt data/b707_defects.txt data/b707_tool_repairs.txt data/b707_ferry.txt d
+  #5 | 2026-10-23T14:40:35.649Z | seat | Bash | cd /d/relay && git log --oneline b0c74f89~1..b5898a61 && ls data/b706_reach* data/b706_generator_reach.txt && ls FACE* face* 2>&1; git ls-files | grep -i face |
+  #6 | 2026-10-23T14:41:54.485Z | seat | Bash | wc -l data/b707_registration_2026-10-22.txt data/b706_cells_reread.txt data/b704_cells_reach.txt data/b704_cut.txt data/b706_cut.txt data/b704_tie.txt data/b706
+  #7 | 2026-10-23T14:42:02.919Z | seat | Bash | ls data/b670_* data/b704_* data/b706_prints* data/b706_print_files* data/b706_cells* data/b706_tie* data/b706_cut* data/b705_tie* data/b705_cut* data/b699_cut* 
+  #8 | 2026-10-23T14:43:36.560Z | seat | Bash | python -X utf8 tools/b707_record.py names b706 && echo ---- && python -X utf8 tools/b707_record.py names b704 && echo ---- && wc -l /d/MY-DOwnloads/PLACE-papers
+  #9 | 2026-10-23T14:43:38.499Z | seat | Bash | cd /d/SIDE-explicit-formula && git status --short && git log --oneline -3 && git branch -a && git tag -l && git ls-tree -r --name-only v0.37 && echo ---- && git
+  #10 | 2026-10-23T14:43:43.953Z | seat | PowerShell | $t=(Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); $ps=Get-CimInstance Win32_Process; $n=0; $c=@{}; foreach($p in $ps){ $n++; $k=$p.Name.ToLower(
+  #11 | 2026-10-23T14:47:22.817Z | seat | Bash | cd /d/relay && wc -l data/b707_onset_controls.txt data/b652_ferry.txt data/b704_nodes_zeta.txt data/b704_probe_out_zeta.txt tools/b706_standing_figures.py tools
+  #12 | 2026-10-23T14:55:28.305Z | seat | Bash | python -X utf8 tools/b708_citation.py ferry
+  #13 | 2026-10-23T14:55:33.818Z | seat | Bash | python -X utf8 tools/b708_citation.py check
+  #14 | 2026-10-23T14:57:27.893Z | seat | Bash | python -X utf8 tools/b708_citation.py check
+  #15 | 2026-10-23T14:57:33.896Z | seat | Bash | git branch --merged main --list 'push-b707*' && git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list 'push-b707*' && git -C /d/SIDE-lv-conservation b
+  #16 | 2026-10-23T15:01:01.448Z | seat | Bash | python -X utf8 tools/b708_record.py rootexclude && python -X utf8 tools/b708_record.py standing && python -X utf8 tools/b708_record.py tie
+  #17 | 2026-10-23T15:03:24.385Z | seat | Bash | python -X utf8 tools/circuit_read.py readfirst b708_ferry.txt b708_readfirst.txt
+  #18 | 2026-10-23T15:03:25.574Z | seat | Bash | python -X utf8 tools/b708_record.py rowgen
+  #19 | 2026-10-23T15:03:26.555Z | seat | Bash | python -X utf8 tools/b708_record.py branches before
+  #20 | 2026-10-23T15:03:31.506Z | seat | PowerShell | $t=(Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); $ps=Get-CimInstance Win32_Process; $n=0; $c=@{}; foreach($p in $ps){ $n++; $k=$p.Name.ToLower(
+  #21 | 2026-10-23T15:07:04.981Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0be08567-3854-47cf-9c08-6d080b4d7312/scratchpad/b708_rungs.py"
+  #22 | 2026-10-23T15:07:06.597Z | seat | Bash | git add data/b707_closing_push_out.txt && git commit -q -m "b708 step zero: b707's closing push-out capture committed alone (data/b707_closing_push_out.txt: the
+  #23 | 2026-10-23T15:07:21.229Z | seat | Bash | git -C D:/relay branch -d push-b707
+  #24 | 2026-10-23T15:07:25.022Z | seat | Bash | git -C D:/relay branch -d push-b707-root
+  #25 | 2026-10-23T15:07:27.265Z | seat | Bash | git -C D:/relay branch -d push-b707-root2
+  #26 | 2026-10-23T15:07:29.494Z | seat | Bash | git -C D:/relay branch -d push-b707-closing
+  #27 | 2026-10-23T15:07:32.051Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b707
+  #28 | 2026-10-23T15:07:34.877Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b707-root
+  #29 | 2026-10-23T15:07:38.433Z | seat | Bash | python -X utf8 tools/b708_record.py branches
+  #30 | 2026-10-23T15:08:26.951Z | seat | Bash | git add data/b708_registrations.txt data/b708_rules.txt && git commit -q -m "b708 step zero: the fine grid registered before any number (data/b708_registrations
+  #31 | 2026-10-23T15:08:28.022Z | seat | Bash | python -X utf8 tools/b708_tests.py parts && python -X utf8 tools/b708_tests.py mem
+  #32 | 2026-10-23T15:08:34.946Z | seat | Bash | python -X utf8 tools/b708_tests.py hold 1 && python -X utf8 tools/b708_tests.py run test_act_root.py && python -X utf8 tools/b708_tests.py run test_act_root_com
+  #33 | 2026-10-23T15:08:48.740Z | seat | Bash | python -X utf8 tools/b708_tests.py hold 2 && python -X utf8 tools/b708_tests.py run test_asof.py
+  #34 | 2026-10-23T15:16:25.645Z | seat | Bash | python -X utf8 tools/b708_tests.py hold 3 && python -X utf8 tools/b708_tests.py run test_axiom_claim.py && python -X utf8 tools/b708_tests.py run test_axiom_cla
+  #35 | 2026-10-23T15:17:09.262Z | seat | Bash | python -X utf8 tools/b708_tests.py hold 4 && python -X utf8 tools/b708_tests.py run test_chain_page.py
+  #36 | 2026-10-23T15:24:06.829Z | seat | Bash | python -X utf8 tools/b708_tests.py hold 5 && python -X utf8 tools/b708_tests.py run test_chain_page_b592.py && python -X utf8 tools/b708_tests.py run test_chain
+  #37 | 2026-10-23T15:27:31.525Z | seat | Bash | python -X utf8 tools/b708_tests.py hold 6 && python -X utf8 tools/b708_tests.py run test_g_chain_page.py && python -X utf8 tools/b708_tests.py run test_glossary
+  #38 | 2026-10-23T15:30:00.597Z | seat | Bash | python -X utf8 tools/b708_tests.py hold 7 && python -X utf8 tools/b708_tests.py run test_name_b649.py && python -X utf8 tools/b708_tests.py run test_name_patter
+  #39 | 2026-10-23T15:34:16.093Z | seat | Bash | python -X utf8 tools/b708_tests.py report stepzero && git status --short --untracked-files=no && git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-
+  #40 | 2026-10-23T15:35:01.499Z | seat | Bash | python -X utf8 tools/b708_record.py defshort b708 && python -X utf8 tools/b708_record.py defects
+  #41 | 2026-10-23T15:35:54.459Z | seat | Bash | python -X utf8 tools/b708_record.py defects && python -X utf8 tools/b708_record.py defshort b708
+  #42 | 2026-10-23T15:36:02.283Z | seat | Bash | git add data/b708_ferry.txt data/b708_ferry_scan.txt data/b708_citation_check.txt data/b708_citation_check.json data/b708_readfirst.txt data/b708_readfirst_clos
+  #43 | 2026-10-23T15:38:10.244Z | seat | Bash | python -X utf8 tools/b708_record.py c1 dry
+  #44 | 2026-10-23T15:38:11.017Z | seat | Bash | python -X utf8 tools/b708_corrigendum.py dry
+  #45 | 2026-10-23T15:38:19.717Z | seat | Bash | python -X utf8 tools/b708_record.py c1 && python -X utf8 tools/b708_corrigendum.py land
+  #46 | 2026-10-23T15:38:30.204Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b708 Component 1 under (R318)(1)-(2): b707 at its weight (FINDINGS :10138, the onset
+  #47 | 2026-10-23T15:38:35.681Z | seat | Bash | cd /d/relay && git add data/b708_record_lines.json data/b708_corrigendum.txt data/b708_corrigendum.json data/b708_corrigendum_landing.json data/b675_corrigenda.
+  #48 | 2026-10-23T15:38:38.513Z | seat | Bash | cd /d/relay && python -X utf8 tools/b708_record.py names b705 && python -X utf8 tools/b708_record.py names b698
+  #49 | 2026-10-23T15:41:44.205Z | seat | Bash | python -X utf8 tools/b708_record.py tagstate v0.17 && python -X utf8 tools/b708_tests.py mem
+  #50 | 2026-10-23T15:41:45.958Z | seat | Bash | git -C D:/SIDE-explicit-formula checkout -q -b probe-b708 main && git -C D:/SIDE-explicit-formula status --short && git -C D:/SIDE-explicit-formula rev-parse --
+  #51 | 2026-10-23T15:41:54.129Z | seat | Bash | python -X utf8 tools/b708_record.py tagstate v0.17 && python -X utf8 tools/b708_record.py probe dry
+  #52 | 2026-10-23T15:43:00.712Z | seat | Bash | python -X utf8 tools/b708_record.py probe dry
+  #53 | 2026-10-23T15:43:17.974Z | seat | Bash | python -X utf8 tools/b708_record.py probe && git -C D:/SIDE-explicit-formula status --short
+  #54 | 2026-10-23T15:43:33.231Z | seat | Bash | git -C D:/SIDE-explicit-formula add ChainProbe.lean && git -C D:/SIDE-explicit-formula commit -q -m "b708 (R318)(4): the chain's probe text (relay tools/chain_p
+  #55 | 2026-10-23T15:43:36.680Z | seat | Bash | python -X utf8 tools/b708_record.py probediff && PUSH_GATED_LOG=/d/relay/data/b708_probe_push_out.txt bash tools/push_gated.sh /d/SIDE-explicit-formula --branch
+  #56 | 2026-10-23T15:43:57.086Z | seat | Bash | python -X utf8 tools/b708_tests.py mem probe-dispatch && python -X utf8 tools/b708_record.py dispatch SIDE-explicit-formula 75bd018b784d3f9d27a829af65b54d33fd8e
+  #57 | 2026-10-23T15:44:21.311Z | seat | Bash | git -C D:/SIDE-explicit-formula checkout -q -b prints-b708-v0.17 v0.17 && git -C D:/SIDE-explicit-formula status --short --untracked-files=no && git -C D:/SIDE-
+  #58 | 2026-10-23T15:44:24.429Z | seat | Bash | python -X utf8 tools/b708_record.py printprobe v0.17 && git -C D:/SIDE-explicit-formula status --short
+  #59 | 2026-10-23T15:44:25.275Z | seat | Bash | python -X utf8 tools/b708_record.py runstatus SIDE-explicit-formula 39980813418
+  #60 | 2026-10-23T15:44:32.637Z | seat | Bash | git -C D:/SIDE-explicit-formula add .github/workflows/build-module.yml print_targets.txt ChainProbe.lean && git -C D:/SIDE-explicit-formula commit -q -m "b708 (
+  #61 | 2026-10-23T15:44:36.573Z | seat | Bash | PUSH_GATED_LOG=/d/relay/data/b708_prints_v0.17_push_out.txt bash tools/push_gated.sh /d/SIDE-explicit-formula --branch prints-b708-v0.17 --scratch
+  #62 | 2026-10-23T15:44:45.115Z | seat | Bash | python -X utf8 tools/b708_tests.py mem prints-dispatch && python -X utf8 tools/b708_record.py dispatch SIDE-explicit-formula 2627fa68a67dde0487bb0beab5f2ca8aca2
+  #63 | 2026-10-23T15:44:45.969Z | seat | Bash | python -X utf8 tools/b708_record.py runstatus SIDE-explicit-formula 39980813418
+  #64 | 2026-10-23T15:45:02.220Z | seat | Bash | python -X utf8 tools/b708_record.py runwait SIDE-explicit-formula 39980908842 540
+  #65 | 2026-10-23T15:53:09.534Z | seat | Bash | python -X utf8 tools/b708_record.py runner SIDE-explicit-formula 39980908842 2627fa68a67dde0487bb0beab5f2ca8aca2549d9 prints-v0.17 the entry-tag print at v0.17 
+  #66 | 2026-10-23T15:53:10.382Z | seat | Bash | python -X utf8 tools/b708_record.py runstatus SIDE-explicit-formula 39980813418
+  #67 | 2026-10-23T15:53:21.846Z | seat | Bash | python -X utf8 tools/b708_record.py runner SIDE-explicit-formula 39980908842 2627fa68a67dde0487bb0beab5f2ca8aca2549d9 prints_v0_17 the entry-tag print at v0.17 
+  #68 | 2026-10-23T15:53:32.132Z | seat | Bash | python -X utf8 tools/b708_record.py cellsreach
+  #69 | 2026-10-23T15:53:33.301Z | seat | Bash | python -X utf8 tools/b708_record.py runwait SIDE-explicit-formula 39980813418 540
+  #70 | 2026-10-23T15:55:43.311Z | seat | Bash | python -X utf8 tools/b708_record.py runner SIDE-explicit-formula 39980813418 75bd018b784d3f9d27a829af65b54d33fd8e2796 probe the probe through the workflow`s ste
+  #71 | 2026-10-23T15:55:48.160Z | seat | Bash | python -X utf8 tools/b708_record.py runner SIDE-explicit-formula 39980813418 75bd018b784d3f9d27a829af65b54d33fd8e2796 probe the probe through the workflow step 
+  #72 | 2026-10-23T15:56:13.798Z | seat | Bash | git add data/b708_probe.txt data/b708_probe.json data/b708_probe_diff.txt data/b708_probe_push_out.txt data/b708_dispatches.json data/b708_runner_SIDE-explicit-
+  #73 | 2026-10-23T15:56:19.197Z | seat | Bash | git -C D:/SIDE-explicit-formula checkout -q main && git -C D:/SIDE-explicit-formula rev-parse --abbrev-ref HEAD HEAD && git -C D:/SIDE-explicit-formula status -
+  #74 | 2026-10-23T15:56:24.060Z | seat | Bash | git -C D:/SIDE-explicit-formula branch -D probe-b708
+  #75 | 2026-10-23T15:56:27.621Z | seat | Bash | git -C D:/SIDE-explicit-formula push origin --delete probe-b708
+  #76 | 2026-10-23T15:56:32.387Z | seat | Bash | git -C D:/SIDE-explicit-formula branch -D prints-b708-v0.17
+  #77 | 2026-10-23T15:56:36.280Z | seat | Bash | git -C D:/SIDE-explicit-formula push origin --delete prints-b708-v0.17
+  #78 | 2026-10-23T15:57:31.979Z | seat | Bash | git -C /d/SIDE-explicit-formula branch --list 'probe-b708' 'prints-b708-v0.17' && git -C /d/SIDE-explicit-formula ls-remote --heads origin probe-b708 prints-b70
+  #79 | 2026-10-23T15:59:30.889Z | seat | Bash | python -X utf8 tools/b708_record.py scratch && python -X utf8 tools/b708_record.py quote && python -X utf8 tools/b708_record.py cutbank dry
+  #80 | 2026-10-23T16:00:13.447Z | seat | Bash | python -X utf8 tools/b708_record.py cutbank dry && git -C /d/MY-DOwnloads/PLACE-papers diff --stat
+  #81 | 2026-10-23T16:00:23.990Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add day1/Spectral_Inertness.md && git commit -q -m "b708 Component 3 under (R318)(6): day1/Spectral_Inertness.md re-cut b
+  #82 | 2026-10-23T16:00:28.117Z | seat | Bash | cd /d/relay && python -X utf8 tools/b708_record.py cutbank f4ee06d && python -X utf8 tools/b708_record.py quotecheck
+  #83 | 2026-10-23T16:01:21.586Z | seat | Bash | git add data/b708_quote.txt data/b708_quote.json data/b708_cut.txt data/b708_cut.json data/b708_scratch_branches.txt data/b708_scratch_branches.json tools/b708_
+  #84 | 2026-10-23T16:02:45.251Z | seat | Bash | python -X utf8 tools/b708_record.py portlines
+  #85 | 2026-10-23T16:02:48.179Z | seat | Bash | python -X utf8 tools/b708_record.py names b703_checks && wc -l tools/b703_checks.py tools/b706_standing_figures.py data/b707_standing_figures.txt && git log --o
+  #86 | 2026-10-23T16:04:58.251Z | seat | Bash | git add data/b708_port_lines.txt data/b708_port_lines.json tools/b708_record.py && git commit -q -m "b708 Component 4 under (R318)(7): the port's next lines hel
+  #87 | 2026-10-23T16:05:12.233Z | seat | Bash | wc -l tools/b707_closing.py tools/b707_reg_gate.py tools/b707_regspec.py tools/b707_report.py tools/b707_report_root.py tools/b708_record.py tools/b708_worklist
+  #88 | 2026-10-23T16:05:32.521Z | seat | Bash | python -X utf8 tools/b708_record.py names b708_record
+  #89 | 2026-10-23T16:05:57.505Z | seat | Bash | python -X utf8 tools/b708_record.py names b707_record && python -X utf8 tools/b708_record.py verdicts
+  #90 | 2026-10-23T16:06:20.312Z | seat | Bash | python -X utf8 tools/b708_record.py verdicts b708_ferry_scan.txt b708_citation_check.txt b708_readfirst.txt b708_readfirst_diff.txt b708_rowgen_stepzero.txt b70
+  #91 | 2026-10-23T16:07:35.157Z | seat | Bash | wc -l data/b708_ferry.txt data/b708_defects.txt data/b708_registrations.txt data/b708_rules.txt data/b708_stepzero.txt data/b708_readfirst.txt data/b708_corrige
+  #92 | 2026-10-23T16:07:53.045Z | seat | Bash | python -X utf8 tools/b708_record.py names b705_record && python -X utf8 tools/b708_record.py names b706_standing_figures && git -C /d/relay log --format="%h %ct
+  #93 | 2026-10-23T16:15:05.548Z | seat | Bash | test "$(git -C /d/SIDE-lv-conservation branch --show-current)" = main && test "$(git -C /d/SIDE-explicit-formula branch --show-current)" = main && python -X utf
+  #94 | 2026-10-23T16:16:13.054Z | seat | Bash | python -X utf8 tools/b708_record.py figures
+  #95 | 2026-10-23T16:18:53.269Z | seat | Bash | python -X utf8 tools/b708_record.py repairctl && python -X utf8 tools/b708_record.py standing
+  #96 | 2026-10-23T16:57:49.207Z | seat | Bash | python -X utf8 -c "import ast,sys; ast.parse(open('tools/b708_checks.py',encoding='utf-8').read()); print('PARSES')"
+  #97 | 2026-10-23T16:58:29.220Z | seat | Bash | python -X utf8 tools/b708_record.py armnames
+  #98 | 2026-10-23T17:00:21.557Z | seat | Bash | python -X utf8 tools/b708_record.py answers && python -X utf8 tools/b708_record.py reads && python -X utf8 tools/b708_record.py defects && python -X utf8 tools/
+  #99 | 2026-10-23T17:03:26.470Z | seat | Bash | python -X utf8 tools/b708_record.py commands && python -X utf8 tools/b708_record.py guard && python -X utf8 tools/b708_record.py defects && python -X utf8 tools
+
+### ### **COMMANDS 99 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 8 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 2 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 10 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 10 OF 10 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

@@ -1,0 +1,45 @@
+{
+ "at": "2026-10-23T16:15:07Z",
+ "repairs": [
+  {
+   "n": 1,
+   "tool": "b708_record.py",
+   "part": "_print_modules708",
+   "old": "b705_record.py _print_modules",
+   "diff": [
+    "--- tools/b705_record.py _print_modules (b705, sealed)",
+    "+++ tools/b708_record.py _print_modules708 (this act)",
+    "@@ -1,6 +1,7 @@",
+    "-def _print_modules(kernel_dir, rev='HEAD'):",
+    "-    \"\"\"each name of the kernel's print_targets.txt mapped to the module declaring it, by git grep bounded to the kernel's tree at rev: the",
+    "-    declaration line `theorem|def|structure|abbrev <short>` in a .lean file -> the module (the path with / for . and no .lean).\"\"\"",
+    "+def _print_modules708(kernel_dir, rev='HEAD'):",
+    "+    \"\"\"b705's _print_modules (tools/b705_record.py :732) with the carry-time repair of this act (data/b708_tool_repairs.txt row (1)): a hit under a",
+    "+    lean_lib's srcDir is named relative to that srcDir, as Lake names it; every other hit as b705 named it (the path with / for . and no .lean).\"\"\"",
+    "     names = [l.strip() for l in (_show(kernel_dir, rev, 'print_targets.txt') or '').split(NL) if l.strip()]",
+    "+    dirs = _lib_srcdirs(kernel_dir, rev)",
+    "     out = {}",
+    "     for n in names:",
+    "@@ -9,5 +10,13 @@",
+    "                 rev, '--', '*.lean').strip()",
+    "         f = hit.split(':', 2)[1] if hit.count(':') >= 2 else ''",
+    "-        out[n] = f[:-5].replace('/', '.') if f.endswith('.lean') else None",
+    "+        if not f.endswith('.lean'):",
+    "+            out[n] = None",
+    "+            continue",
+    "+        rel = f[:-5]",
+    "+        for sd, _nm in dirs:",
+    "+            if rel.startswith(sd + '/'):",
+    "+                rel = rel[len(sd) + 1:]",
+    "+                break",
+    "+        out[n] = rel.replace('/', '.')",
+    "     return out",
+    " "
+   ]
+  }
+ ],
+ "carried": [
+  "prev_capture",
+  "ROOT_EXCLUDE"
+ ]
+}

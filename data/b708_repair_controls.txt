@@ -1,0 +1,15 @@
+b708 -- COMPONENT 5: THE REPAIRED READING AGAINST THE OLD ON REAL STATE AND ON MUTATED COPIES (2026-10-23T16:19:17Z)
+
+### rows are cases: the reader | the source (the kernel`s tree at main, the dispatch bank, or a mutated copy) | the old reading | the repaired | wanted.
+### Each repaired reading is DISTINGUISHED where one row reads them apart.
+
+### the print list at main: 109 names ; the old reading`s modules 16 ; the repaired`s 16 ; the names read apart ['LiCriterion.positivity_implies_RH: old Vendored.Bulka.Lc.LiCriterion.ReverseDirection -> repaired Lc.LiCriterion.ReverseDirection'] ; the lakefile`s srcDirs [('Vendored/Bulka', 'BulkaVendored')] ; the target 54 modules ; 21 s
+
+  print_modules    | the print list at main: every name mapped to a module | old True  | repaired True  | wanted old True, repaired True | AS WANTED
+  print_modules    | the vendored name LiCriterion.positivity_implies_RH: a Lake module (a lean_lib`s roots or globs cover it and its file stands under that lib`s srcDir in the tree at main) | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  print_modules    | every mapped module a Lake module (lakefile.toml at main: ["SIDEExplicitFormula srcDir '' globs ['Zeta23.+', 'SIDEExplicitFormula.+']", "BulkaVendored srcDir 'Vendored/Bulka' globs ['Lc.+', 'Hadamard.+', 'FunctionsOfOneComplexVariable.+']"]) | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  print_modules    | the dispatched target of the probe run (relay data/b708_dispatches.json row 1) covers the reading`s modules | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  print_modules    | a mutated copy of lakefile.toml, its srcDir line removed -- the repaired reading reads as the old (every mapped module a Lake module of the real lakefile) | old False | repaired False | wanted old False, repaired False | AS WANTED
+  print_modules    | a mutated copy: a name no module declares planted in the list -- every name mapped | old False | repaired False | wanted old False, repaired False | AS WANTED
+
+### ### **CASES 6 ; AS WANTED True ; EACH REPAIRED READING DISTINGUISHED FROM THE OLD ON A ROW: ['print_modules'].**

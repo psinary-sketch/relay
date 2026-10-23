@@ -99,7 +99,7 @@ MENTIONS_UNBANKED = (('SIMPLICITY_OF_RIEMANN_ZEROS', 'phase1.5/simplicity/SIMPLI
 # ### (R318)(6): the licensed table's next document -- named by the tie route at step zero (data/b708_tie.txt), the form a companion's cut takes
 CUT_DOC = 'day1/Spectral_Inertness.md'
 CUT_TABLE = 'b646_table_Spectral_Inertness.txt'
-CUT_HELD = ()                                            # ### filled at Component 3 by the Edit tool where a row is held (a Correspondence cell, a keystone head)
+CUT_HELD = (178, 181)                                    # ### the Correspondence cells held at Component 3 (no cell by hand, the paper off the roster; data/b708_cut.txt)
 
 # ### (R318)(3): the fine grid's registration, written at step zero and committed alone before any computation of this act (N3)
 REGISTRATION_B705 = 'data/b705_registrations.txt'        # ### (iii) :15-:54, committed alone at relay d139cfcf and unchanged
@@ -111,15 +111,29 @@ B707_TRAIL_HEAD = ('### b707 — lane two, act one hundred and thirty-four, the 
                    'split arm repaired; the sign-onset radius at Q0 on the family at two frequencies; the twelve higher pairs’ route registered; '
                    'lv-conservation’s forward-port opened and held at C7OrderBounds')
 # ### stage two (Component 5, by the Edit tool): the commits in order, the sealed tools and the act's arms.
-STEPZERO = ''                # ### b707's closing push capture, committed alone at step zero
-STEPZERO_BANKS = ''          # ### the ferry, the citation check, the readfirst bank, rowgen, the branches, the tests, the first tools
-REG_COMMIT = ''              # ### data/b708_registrations.txt and data/b708_rules.txt committed alone, before any computation (N3)
+STEPZERO = '5b046f20'        # ### b707's closing push capture, committed alone at step zero
+STEPZERO_BANKS = 'e4d2ddbc'  # ### the ferry, the citation check, the readfirst bank, rowgen, the branches, the tie, the tests, the first tools
+REG_COMMIT = '6045dd8c'      # ### data/b708_registrations.txt and data/b708_rules.txt committed alone, before any computation (N3)
+C1_RELAY, C1_PP = 'b2e26d16', 'd121e5c'     # ### Component 1: the record line and the corrigendum
+C2_RELAY, C2_PP = 'd0f68ae7', ''            # ### Component 2: the probe and the prints (no PLACE-papers write: no sig moved, the page not regenerated)
+C3_RELAY, C3_PP = '956df4a2', 'f4ee06d'     # ### Component 3: the re-cut (PLACE-papers f4ee06d the cut's commit; the quotation search before it)
+C4_RELAY = '7da72eff'                        # ### Component 4: the port's lines
+PROBE_RUN, PRINTS_RUN = 39980813418, 39980908842
+PROBE_TIP = '75bd018b784d3f9d27a829af65b54d33fd8e2796'    # ### probe-b708's one commit (deleted after its bank)
+PRINTS_TIP = '2627fa68a67dde0487bb0beab5f2ca8aca2549d9'   # ### prints-b708-v0.17's one commit (deleted after its bank)
 SEALED = ('b708_worklist.py', 'b708_tests.py', 'b708_citation.py', 'b708_record.py', 'b708_checks.py', 'b708_closing.py', 'b708_reg_gate.py',
           'b708_regspec.py', 'b708_corrigendum.py')   # ### the report tool tools/b708_report.py is NOT sealed: written after the root's word (data/b708_rules.txt row (1))
 REPAIRED_TOOLS = ()
 REPAIRED_DATA = ()
 NEW_TOOLS = ()
-ACT_ARMS = ()                # ### filled at Component 5 by the Edit tool
+ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP',
+            'G-CORRIGENDUM-ENTERED', 'G-CUT-DISTANCE', 'G-CUT-ROWS-ONLY', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
+            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-FINE-GRID-REGISTERED', 'G-GUARD-HELD', 'G-LISTINGS-BEFORE-CLAUSES',
+            'G-MENTIONS-REREAD', 'G-NO-EIGENVALUE', 'G-PARTS-PRERUN', 'G-PORT-LINES-HELD', 'G-POSTROOT-WRITES-NONE', 'G-PRINTS-EQUAL', 'G-PRINTS-FILES',
+            'G-PROBE-COMPARED', 'G-PROBE-DIFF', 'G-PROBE-STEP-RAN', 'G-PROBE-TEXT', 'G-QUOTE-BEFORE-CUT', 'G-R318-ENTERED', 'G-READFIRST-DIFF-BANKED',
+            'G-REGISTRATIONS-ALONE', 'G-REGISTRATIONS-REREAD', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED',
+            'G-SCORER-READS-BANKS', 'G-SCRATCH-BRANCHES-GONE', 'G-TIE-NAMED', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
+            'G-TRAIL-RESOLVED-EQUAL', 'G-TWO-DISPATCHES', 'G-WRITELIST-MIRROR-STATE')   # ### the 47 arms over this act's banks (Component 5)
 STANDING_ADDED = ()          # ### N5: no standing arm added
 SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'day1/Spectral_Inertness.md')   # ### the cut document joins at Component 3 (the tie route's naming)
