@@ -1,0 +1,39 @@
+b707 -- (R317)(3): THE SIGN-ONSET RADIUS AT Q0, AS data/b705_registrations.txt (iii) REGISTERED IT (:15-:54) (2026-10-23T02:07:13Z)
+
+### THE FORM: the Epstein zeta of x^2 + xy + 6y^2 (Q0, discriminant -23); the Weil form S = P - PR + A on k = h * h (b321`s identity, the
+### terms of tools/b696_witness_balls.py with the archimedean tail beyond R = 4000 as a DLMF ball; no zero tail), restricted to the family
+### F_a(gamma_0) = span{C, N} of support radius a/2 (b694`s centred and notched windows at one frequency), read as the symmetric matrix
+### G = [[S(C*C), S(C*N)], [S(C*N), S(N*N)]] in balls with the L2 Gram M beside it; two frequencies, the band zero`s ordinate (b705`s window)
+### and rho_0`s (b694`s). THE LADDER: a = log 2, then 2 log w at w = 32, 48, 64, 96, 128, 192. The controls: data/b707_onset_controls.txt.
+### Rows are rungs: frequency | rung | a = 2L | S_CC | S_NN | S_CN | det G | lambda_min, lambda_max (the L2 metric) | the reading | the witness
+### direction (v_1 C + v_2 N) and its S beyond its bound.
+
+### THE READING, THE FORM AT Q0:
+  band | log2  | a 0.69314718 +- 3.99e-39 | S_CC 10.46804976 +- 9.46e-26 | S_NN 2900308.52477 +- 3.83e-11 | S_CN -1254.732600 +- 3.83e-11 | det 2.87862e+7 +- 9.65e-8 | lambda 5.6038997 +- 1.76e-13, 6.80462 +- 1.76e-13 | POSITIVE DEFINITE BEYOND ITS BOUND | v ['1', '1708341493/1099511627776'] S 13.5706 +- 1.19e-13 NONNEGATIVE BEYOND ITS BOUND
+  band | 32    | a 6.9314718 +- 2.72e-38 | S_CC 1.359147336 +- 5.73e-30 | S_NN 1476.18033936 +- 3.83e-23 | S_CN 5.776303278 +- 3.83e-23 | det 1972.98 +- 4.95e-22 | lambda 3.3624249 +- 1.81e-24, 8.10817 +- 1.81e-24 | POSITIVE DEFINITE BEYOND ITS BOUND | v ['-1', '139711672581/1099511627776'] S 23.7256 +- 1.04e-23 NONNEGATIVE BEYOND ITS BOUND
+  band | 48    | a 7.7424020 +- 2.35e-38 | S_CC 1.300149324 +- 7.64e-30 | S_NN 905.381464243 +- 1.02e-23 | S_CN 6.417751866 +- 1.02e-23 | det 1135.94 +- 1.44e-22 | lambda 2.8052849 +- 6.29e-25, 8.71098 +- 6.29e-25 | POSITIVE DEFINITE BEYOND ITS BOUND | v ['-1', '143904811487/1099511627776'] S 15.1292 +- 2.83e-24 NONNEGATIVE BEYOND ITS BOUND
+  band | 64    | a 8.3177662 +- 5.15e-38 | S_CC 1.269840791 +- 1.27e-29 | S_NN 617.901384319 +- 4.31e-24 | S_CN 6.303714076 +- 4.31e-24 | det 744.900 +- 5.98e-23 | lambda 2.3339428 +- 2.98e-25, 9.14612 +- 2.98e-25 | POSITIVE DEFINITE BEYOND ITS BOUND | v ['-1', '159499050141/1099511627776'] S 12.4437 +- 1.34e-24 NONNEGATIVE BEYOND ITS BOUND
+  band | 96    | a 9.1286964 +- 4.71e-38 | S_CC 1.240628625 +- 1.37e-29 | S_NN 317.893640734 +- 1.42e-24 | S_CN 5.658089959 +- 1.42e-24 | det 362.374 +- 1.78e-23 | lambda 1.5405563 +- 1.06e-25, 9.77995 +- 1.06e-25 | POSITIVE DEFINITE BEYOND ITS BOUND | v ['-1', '49860706855/274877906944'] S 9.64766 +- 5.61e-25 NONNEGATIVE BEYOND ITS BOUND
+  band | 128   | a 9.7040605 +- 5.22e-38 | S_CC 1.228215479 +- 2.54e-29 | S_NN 159.167481563 +- 6.91e-25 | S_CN 5.014316220 +- 6.92e-25 | det 170.349 +- 7.79e-24 | lambda 0.88175528 +- 5.28e-26, 10.2574 +- 5.28e-26 | POSITIVE DEFINITE BEYOND ITS BOUND | v ['-1', '243872006561/1099511627776'] S 6.83417 +- 3.41e-25 NONNEGATIVE BEYOND ITS BOUND
+  band | 192   | a 10.514991 +- 4.71e-38 | S_CC 1.220766275 +- 3.54e-29 | S_NN -8.88797950674 +- 2.76e-25 | S_CN 4.024946986 +- 2.77e-25 | det -27.0503 +- 2.57e-24 | lambda -0.18015272 +- 2.08e-26, 10.9904 +- 2.08e-26 | NEGATIVE DIRECTION BEYOND ITS BOUND | v ['-1', '169770823977/549755813888'] S -2.11273 +- 1.97e-25 NEGATIVE BEYOND ITS BOUND
+  rho0 | log2  | a 0.69314718 +- 3.99e-39 | S_CC 8.844569673 +- 9.09e-26 | S_NN 919060.777207 +- 3.68e-11 | S_CN -948.9078650 +- 3.68e-11 | det 7.22827e+6 +- 7.02e-8 | lambda 3.7190621 +- 1.35e-13, 6.07464 +- 1.35e-13 | POSITIVE DEFINITE BEYOND ITS BOUND | v ['1', '630178229/274877906944'] S 9.32418 +- 1.69e-13 NONNEGATIVE BEYOND ITS BOUND
+  rho0 | 32    | a 6.9314718 +- 2.72e-38 | S_CC 1.226887957 +- 6.06e-30 | S_NN -7.77528749680 +- 3.68e-23 | S_CN 3.609059790 +- 3.68e-23 | det -22.5647 +- 3.11e-22 | lambda -0.14004491 +- 2.57e-24, 7.32054 +- 2.57e-24 | NEGATIVE DIRECTION BEYOND ITS BOUND | v ['-1', '95713493739/274877906944'] S -2.22921 +- 3.01e-23 NEGATIVE BEYOND ITS BOUND
+  rho0 | 48    | a 7.7424020 +- 2.35e-38 | S_CC 1.233255027 +- 8.09e-30 | S_NN -126.406024663 +- 9.76e-24 | S_CN 2.475420505 +- 9.76e-24 | det -162.019 +- 6.03e-23 | lambda -1.4054925 +- 6.39e-25, 8.15507 +- 6.39e-25 | NEGATIVE DIRECTION BEYOND ITS BOUND | v ['-1', '676543660513/1099511627776'] S -49.6716 +- 1.57e-23 NEGATIVE BEYOND ITS BOUND
+  rho0 | 64    | a 8.3177662 +- 5.15e-38 | S_CC 1.249115460 +- 1.35e-29 | S_NN -179.517891148 +- 4.13e-24 | S_CN 1.808129988 +- 4.13e-24 | det -227.508 +- 2.01e-23 | lambda -2.4252744 +- 2.55e-25, 8.84118 +- 2.55e-25 | NEGATIVE DIRECTION BEYOND ITS BOUND | v ['-1', '133749610143/137438953472'] S -172.280 +- 1.20e-23 NEGATIVE BEYOND ITS BOUND
+  rho0 | 96    | a 9.1286964 +- 4.71e-38 | S_CC 1.284401836 +- 1.40e-29 | S_NN -230.670413329 +- 1.35e-24 | S_CN 1.128776107 +- 1.35e-24 | det -297.548 +- 4.80e-24 | lambda -4.0903428 +- 7.78e-26, 9.94821 +- 7.78e-26 | NEGATIVE DIRECTION BEYOND ITS BOUND | v ['-552372234817/1099511627776', '1'] S -231.480 +- 2.72e-24 NEGATIVE BEYOND ITS BOUND
+  rho0 | 128   | a 9.7040605 +- 5.22e-38 | S_CC 1.317386633 +- 2.59e-29 | S_NN -256.659911555 +- 6.54e-25 | S_CN 0.8137123645 +- 6.54e-25 | det -338.782 +- 1.93e-24 | lambda -5.4605227 +- 3.68e-26, 10.8355 +- 3.68e-26 | NEGATIVE DIRECTION BEYOND ITS BOUND | v ['-79314415575/274877906944', '1'] S -257.020 +- 1.03e-24 NEGATIVE BEYOND ITS BOUND
+  rho0 | 192   | a 10.514991 +- 4.71e-38 | S_CC 1.373824989 +- 3.63e-29 | S_NN -284.847018273 +- 2.53e-25 | S_CN 0.5451110278 +- 2.54e-25 | det -391.627 +- 6.36e-25 | lambda -7.7071000 +- 1.47e-26, 12.2351 +- 1.47e-26 | NEGATIVE DIRECTION BEYOND ITS BOUND | v ['-135944295525/1099511627776', '1'] S -284.961 +- 3.16e-25 NEGATIVE BEYOND ITS BOUND
+
+### THE ONSET RADIUS per frequency (the least rung read NEGATIVE DIRECTION BEYOND ITS BOUND):
+  band | negative at ['192'] ; undecided at NO RUNG ; a* = 192 (a = 10.51499074 +- 4.71e-38)
+  rho0 | negative at ['32', '48', '64', '96', '128', '192'] ; undecided at NO RUNG ; a* = 32 (a = 6.931471806 +- 2.72e-38)
+
+### THE FALSIFIER (a positive form at every a computed, both frequencies): NOT FIRED
+### THE REGISTRATION`S HYPOTHESIS (a* on the ladder, at or below 2 log 192 = 10.514991 +- 4.70e-38 and above log 4 = 1.3862944 +- 6.61e-39; read at the band zero`s family, rho_0`s beside): HELD -- a* = 192
+### THE RUNGS NAMED BY THE RULING: log 2 (empty prime side at both), log 3, log 4, log 5, log 7 -- none of these but log 2 is a rung of the ladder; the
+### terms entering at each rung are printed in the controls bank (Lambda_Q(2) = Lambda_Q(3) = 0 as computed).
+### THE LADDER`S COARSENESS: at rho_0`s family a* is the first rung above log 2, so the onset lies in (log 2, 2 log 32] on this ladder; b696`s finer
+### ladder reads N at width 24 NONNEGATIVE and at 32 NEGATIVE (data/b696_witness_balls.txt :13-:14), placing it in (2 log 24, 2 log 32]. At the band
+### zero`s family a* is the ladder`s last rung, where N alone is negative (b705`s reading): the family adds no earlier negative direction.
+
+### ### **THE ONSET AT THE BAND ZERO`S FAMILY: a* = 192 ; AT rho_0`S FAMILY: a* = 32 ; THE FALSIFIER NOT FIRED ; THE HYPOTHESIS HELD ; C1 ZETA POSITIVE DEFINITE True ; C2 AS WANTED True.**
