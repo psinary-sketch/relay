@@ -1,0 +1,23 @@
+b708 -- THE HOSTED RUNNER FOR SIDE-explicit-formula, PRINTS_V0_17, READ BY ITS RUN ID (2026-10-23T15:53:25Z)
+
+### the dispatch: the entry-tag print at v0.17 on the scratch branch prints-b708-v0.17, carrying the workflow and the one-name print list, dispatched once ; the ref input 2627fa68a67dde0487bb0beab5f2ca8aca2549d9
+### the run: id 39980908842 ; https://github.com/psinary-sketch/SIDE-explicit-formula/actions/runs/39980908842 ; status completed ; conclusion success ; head badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe on main ; 2026-10-23T15:44:49Z to 2026-10-23T15:52:26Z
+### the artifacts listed 2: ['chain-probe-39980908842', 'build-module-39980908842'] ; the run`s own chosen by name (build-module-)
+### the artifact: id 12512794491 ; build-module-39980908842 ; 7560 bytes ; sha256 abc881f953f556ba91493484ec39f8c4ae725e66e9183b487a18fa36c80e30ce ; the platform`s digest abc881f953f556ba91493484ec39f8c4ae725e66e9183b487a18fa36c80e30ce ; AGREE
+### the ref built (out/ref.txt): 2627fa68a67dde0487bb0beab5f2ca8aca2549d9 leanprover/lean4:v4.34.0-rc1
+### the memory log: LOW 13263 MB ; the hold 2560 ; STOP lines False
+### the build: exit 0 ; error lines 0:
+### the log`s last lines:
+    ```
+    open Lean.Parser.Tactic in
+    macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+      `(tactic| push $cfg:optConfig Not $[$loc]?)
+    ```
+    ✔ [3779/3780] Built SIDEExplicitFormula.Schema.Instances (2.2s)
+    ✔ [3780/3780] Built SIDEExplicitFormula.Simplicity (2.3s)
+    Build completed successfully (3780 jobs).
+### the print step: the list (out/print_targets.txt) 1 names ; terminals printed 1 ; every name printed once True ; axiom-free 0 ; sorryAx 0 ; outside the standard three 0 ; refused NONE
+### rows are terminals: name | the axioms printed | within the standard three:
+  SIDEExplicitFormula.Simplicity.simplicity_iff                  ['propext', 'Classical.choice', 'Quot.sound'] STD3
+
+### ### **RUN 39980908842 (prints_v0_17) ; CONCLUSION success ; ARTIFACT AGREE ; BUILD EXIT 0 ; ERROR LINES 0 ; TERMINALS PRINTED 1 OF 1 ; SORRYAX 0 ; OUTSIDE THE STANDARD THREE 0 ; GATE DERIVES.**

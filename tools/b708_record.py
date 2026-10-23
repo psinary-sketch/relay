@@ -285,7 +285,7 @@ def dispatch(*a):
     (data/b705_rules.txt row (1)): every name of print_targets.txt at the ref mapped to its module by git grep bounded to the kernel's tree; a
     target not covering every module is REFUSED, nothing dispatched; the row banked carries `whole` True with the modules the list needs."""
     kernel, ref, label, target = a[0], a[1], a[2], a[3]
-    mods = _print_modules('D:/' + kernel, ref)
+    mods = _print_modules708('D:/' + kernel, ref)
     need = sorted(set(m for m in mods.values() if m))
     unmapped = [n for n, m in mods.items() if not m]
     tgt = target.split()
@@ -687,10 +687,443 @@ def c1(*a):
          dry=dry)
 
 
+# ================================================================================ COMPONENT 2: THE PROBE THROUGH THE WORKFLOW'S STEP, (R318)(4)
+def _lib_srcdirs(kernel_dir, rev='HEAD'):
+    """the lakefile's lean_lib blocks with a srcDir, at rev: [(srcDir, name)] -- a module under a lib's srcDir is named relative to it (the
+    vendored lib BulkaVendored at srcDir Vendored/Bulka: Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean is the module
+    Lc.LiCriterion.ReverseDirection)."""
+    txt = _show(kernel_dir, rev, 'lakefile.toml') or ''
+    out = []
+    name = None
+    for l in txt.split(NL):
+        m = re.match(r'^\s*name\s*=\s*"([^"]+)"', l)
+        if m:
+            name = m.group(1)
+        m = re.match(r'^\s*srcDir\s*=\s*"([^"]+)"', l)
+        if m:
+            out.append((m.group(1).strip('/'), name))
+    return out
+
+
+def _print_modules708(kernel_dir, rev='HEAD'):
+    """b705's _print_modules (tools/b705_record.py :732) with the carry-time repair of this act (data/b708_tool_repairs.txt row (1)): a hit under a
+    lean_lib's srcDir is named relative to that srcDir, as Lake names it; every other hit as b705 named it (the path with / for . and no .lean)."""
+    names = [l.strip() for l in (_show(kernel_dir, rev, 'print_targets.txt') or '').split(NL) if l.strip()]
+    dirs = _lib_srcdirs(kernel_dir, rev)
+    out = {}
+    for n in names:
+        short = n.split('.')[-1]
+        hit = g(kernel_dir, 'grep', '-n', '-E', '-e', r'^(@\[[^]]*\] *)?((private|protected|noncomputable|nonrec) +)*(theorem|lemma|def|abbrev|structure|instance) +%s([ :({\[]|$)' % re.escape(short),
+                rev, '--', '*.lean').strip()
+        f = hit.split(':', 2)[1] if hit.count(':') >= 2 else ''
+        if not f.endswith('.lean'):
+            out[n] = None
+            continue
+        rel = f[:-5]
+        for sd, _nm in dirs:
+            if rel.startswith(sd + '/'):
+                rel = rel[len(sd) + 1:]
+                break
+        out[n] = rel.replace('/', '.')
+    return out
+
+
+def _probe_parts():
+    """chain_page's own selection at the b704 list's pin (b704's form): (CP, names, corr_names, watch)."""
+    import chain_page as CP
+    CP.VARIANT = None
+    CP.PIN_TAG, CP.PIN = CP.node_pin(os.path.join(ROOT, *K.NODES_B704.split('/')))
+    nodes, _drops, _corr, marks = CP.read_nodes(os.path.join(ROOT, *K.NODES_B704.split('/')))
+    names = [x['name'] for x in nodes]
+    corr = CP.corr_select(CP.record_rows(), names, marks, None)
+    return CP, names, corr, list(K.PROBE_WATCH)
+
+
+def probe(*a):
+    """`probe [dry]`: the probe text by tools/chain_page.py's probe_text at the b704 list's pin (v0.37), its cells the list's names, the two
+    candidate nodes of (R314)(3) and the Correspondence names (b704's selection, data/b704_probe.json) -- written as the root ChainProbe.lean of
+    the probe branch's working tree ((R318)(4): the workflow's probe step at main's build-module.yml :101 imports each module of the target
+    above it and runs it), which must be checked out at probe-b708 cut from main (badaccc) with no tracked change. The lake target the union
+    of the print list's modules (data/b705_rules.txt row (1): print_targets.txt whole, each name mapped to its module by git grep bounded to the
+    tree) and the probe's own module imports. data/b708_probe.txt (.json): the text's sha256 against b704's, its cells, the target."""
+    CP, names, corr, watch = _probe_parts()
+    br = g(EF, 'rev-parse', '--abbrev-ref', 'HEAD').strip()
+    base = g(EF, 'rev-parse', 'HEAD').strip()
+    dirty = g(EF, 'status', '--porcelain', '--untracked-files=no').strip()
+    cells = names + [c for c in K.CANDIDATES if c not in names] + corr
+    text = CP.probe_text(cells, names + [c for c in K.CANDIDATES if c not in names], watch)
+    pmods = [l.split()[1] for l in CP.probe_imports().split(NL) if l.startswith('import ')]
+    plist = _print_modules708(EF, 'main')
+    need = sorted(set(m for m in plist.values() if m))
+    unmapped = [n for n, m in plist.items() if not m]
+    target_mods = sorted(set(pmods) | set(need))
+    target = ' '.join(target_mods)
+    sha = hashlib.sha256(text.encode('utf-8')).hexdigest()
+    b704 = jl('b704_probe.json')
+    same = sha == b704.get('sha256')
+    ok = br == K.PROBE_BRANCH and base == K.EF_MAIN and not dirty and CP.PIN == K.EF_V037 and not unmapped
+    L = ['%s -- (R318)(4): THE PROBE THROUGH THE WORKFLOW`S STEP -- ITS TEXT BY THE GENERATOR, ITS TARGET (%s)' % (ACT, utc()), '',
+         '### the generator: relay tools/chain_page.py probe_text at the list relay %s (pin %s = %s); the kernel checkout %s at %s (main, one commit past' % (
+             K.NODES_B704, CP.PIN_TAG, (CP.PIN or '')[:7], br, base[:7]),
+         '### v0.37 = %s by the workflow file alone, the navigator`s (e)), tracked changes %s. The text is written as the probe branch`s root ChainProbe.lean;' % (K.EF_V037[:7], dirty or 'NONE'),
+         '### the workflow`s probe step (build-module.yml :101-:115 at main) prepends one import per target module and runs it, its output the separate',
+         '### artifact chain-probe-<run id> (:140-:146). The target: data/b705_rules.txt row (1), print_targets.txt whole (%d names, their modules %d, unmapped %s),' % (len(plist), len(need), unmapped or 'NONE'),
+         '### joined with the probe`s own module imports (%d; b704`s target); the union %d modules.' % (len(pmods), len(target_mods)),
+         '  cells %d (the list`s names %d ; the candidates %d ; the Correspondence names %d) ; the node set %d ; the watch %s' % (
+             len(cells), len(names), len([c for c in K.CANDIDATES if c not in names]), len(corr), len(names) + len([c for c in K.CANDIDATES if c not in names]), watch),
+         '  the text: %d bytes ; %d lines ; sha256 %s ; b704`s text sha256 %s ; EQUAL %s' % (len(text.encode('utf-8')), text.count(NL), sha, (b704.get('sha256') or '-')[:16], same),
+         '  the lake target (%d modules): %s' % (len(target_mods), target),
+         '', '### ### **THE PROBE TEXT %s ; sha256 %s ; EQUAL TO b704`S %s ; CELLS %d ; TARGET MODULES %d (THE PRINT LIST`S %d, THE PROBE`S %d) ; THE CHECKOUT AT %s %s.**' % (
+             'WRITTEN' if ok and 'dry' not in a else ('NOT WRITTEN (dry)' if ok else '### NOT WRITTEN, THE CHECKOUT NOT AS ORDERED'), sha[:16], same, len(cells),
+             len(target_mods), len(need), len(pmods), K.PROBE_BRANCH, 'FROM main AT badaccc' if ok else '### NOT AS ORDERED')]
+    if ok and 'dry' not in a:
+        import io as _io
+        _io.open(os.path.join(EF, K.PROBE_FILE), 'w', encoding='utf-8', newline=NL).write(text)
+        put_txt('%s_probe.txt' % ACT, L)
+        put_json('%s_probe.json' % ACT, dict(at=utc(), sha256=sha, equal_b704=same, cells=cells, nodes=names, candidates=list(K.CANDIDATES), corr=corr, target=target,
+                                            print_modules=need, probe_modules=pmods, pin=CP.PIN, branch=br, base=base))
+    print(NL.join(L[-4:]))
+
+
+def probediff(*a):
+    """data/b708_probe_diff.txt: the probe branch's commit against main and against v0.37, by path (git diff --name-status, --stat) -- one
+    path against main, the root file ChainProbe.lean added; against v0.37 that file and the workflow."""
+    tip = g(EF, 'rev-parse', K.PROBE_BRANCH).strip()
+    nsm = [l for l in g(EF, 'diff', '--name-status', 'main', tip).split(NL) if l.strip()]
+    stm = [l for l in g(EF, 'diff', '--stat', 'main', tip).split(NL) if l.strip()]
+    ns37 = [l for l in g(EF, 'diff', '--name-status', 'v0.37', tip).split(NL) if l.strip()]
+    L = ['%s -- (R318)(4): THE PROBE BRANCH`S DIFF AGAINST main AND AGAINST v0.37 (%s)' % (ACT, utc()), '',
+         '### %s = %s against main = %s (badaccc) and against v0.37 = %s; rows are paths changed (git diff --name-status), then the stat.' % (
+             K.PROBE_BRANCH, tip[:7], K.EF_MAIN[:7], K.EF_V037[:7]), '', '### against main:']
+    L += ['  ' + l for l in nsm] + [''] + ['  ' + l for l in stm] + ['', '### against v0.37:'] + ['  ' + l for l in ns37]
+    ok = nsm == ['A\t' + K.PROBE_FILE] and sorted(ns37) == sorted(['A\t' + K.PROBE_FILE, 'M\t' + K.WORKFLOW])
+    L += ['', '### ### **PATHS CHANGED AGAINST main %d ; THE ONE PATH THE ROOT FILE ChainProbe.lean %s ; AGAINST v0.37 %d (THE PROBE FILE AND THE WORKFLOW) ; THE MODULES` TREE v0.37`S %s.**' % (
+        len(nsm), nsm == ['A\t' + K.PROBE_FILE], len(ns37), ok)]
+    if 'dry' not in a:
+        put_txt('%s_probe_diff.txt' % ACT, L)
+    print(NL.join(L[-1:]))
+
+
+def runner(*a):
+    """`runner <kernel> <run id> <ref> <label> <note...>`: b706's runner706 carried with b708's names -- the run's artifact chosen BY NAME
+    (build-module-<run id>; a run of the workflow uploads a second artifact, chain-probe-<run id>), its sha256 against the platform's digest
+    before any reading, the build's exit and error lines, the memory log, the print step read, the gate."""
+    import io as _io
+    import zipfile
+    kernel, run_id, ref, label, note = a[0], int(a[1]), a[2], a[3], ' '.join(a[4:])
+    repo = 'psinary-sketch/' + kernel
+    rc, out, err = R._gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    art, arts = _artifact_named(repo, run_id, 'build-module-')
+    art = art or {}
+    row = dict(kernel=kernel, label=label, ref=ref, run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=None, mem_low=None,
+               stopped=False, build_exit=None, errors=[], axioms_sha256=None)
+    L = ['%s -- THE HOSTED RUNNER FOR %s, %s, READ BY ITS RUN ID (%s)' % (ACT, kernel, label.upper(), utc()), '',
+         '### the dispatch: %s ; the ref input %s' % (note, ref),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'),
+             run.get('updatedAt')),
+         '### the artifacts listed %d: %s ; the run`s own chosen by name (build-module-)' % (len(arts), [x.get('name') for x in arts])]
+    T_ = {}
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        L.append('### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+            art['id'], art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN',
+            'AGREE' if digest and digest == sha else '### NOTHING READ FROM IT'))
+        if digest and digest == sha:
+            row['artifact_sha256'] = sha
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    else:
+        L.append('### the artifact: ### NONE LISTED')
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    row['mem_low'] = int(low[-1]) if low else None
+    row['stopped'] = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    row['build_exit'] = T_.get('build_exit.txt', '').strip() or None
+    row['errors'] = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    ax = T_.get('axioms.txt', '').rstrip(NL)
+    row['axioms_sha256'] = hashlib.sha256(ax.encode('utf-8')).hexdigest() if ax else None
+    deps = _deps(ax)
+    tg = [l.strip() for l in T_.get('print_targets.txt', '').split(NL) if l.strip()]
+    printed = [n for n, _d in deps]
+    unmatched = [n for n in tg if n not in printed]
+    outside = [(n, d) for n, d in deps if not set(d) <= set(STD3)]
+    L += ['### the ref built (out/ref.txt): %s' % ' '.join(T_.get('ref.txt', '### UNREAD').split()),
+          '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (row['mem_low'], K.HOLD, row['stopped']),
+          '### the build: exit %s ; error lines %d:' % (row['build_exit'], len(row['errors']))] + ['    ' + l for l in row['errors'][:40]] + [
+          '### the log`s last lines:'] + ['    ' + l for l in blog.rstrip(NL).split(NL)[-8:]] + [
+          '### the print step: the list (out/print_targets.txt) %d names ; terminals printed %d ; every name printed once %s ; axiom-free %d ; '
+          'sorryAx %d ; outside the standard three %d ; refused %s' % (
+              len(tg), len(deps), not unmatched and len(printed) == len(set(printed)) == len(tg), sum(1 for _n, d in deps if not d),
+              sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), T_.get('axioms_refused.txt', '').strip() or 'NONE'),
+          '### rows are terminals: name | the axioms printed | within the standard three:']
+    L += ['  %-62s %s %s' % (n, d, 'STD3' if set(d) <= set(STD3) else '### OUTSIDE') for n, d in deps]
+    L += ['  %-62s ### NOT PRINTED' % n for n in unmatched]
+    ok = run.get('conclusion') == 'success' and row['artifact_sha256'] and row['build_exit'] == '0' and not row['errors'] and not row['stopped'] \
+        and row['mem_low'] is not None and row['mem_low'] >= K.HOLD and deps and not unmatched and not outside
+    row['gate'] = 'DERIVES' if ok else 'NOT DERIVES'
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; TERMINALS PRINTED %d OF %d ; SORRYAX %d ; '
+          'OUTSIDE THE STANDARD THREE %d ; GATE %s.**' % (
+              run_id, label, run.get('conclusion'), 'AGREE' if row['artifact_sha256'] else '### UNREAD', row['build_exit'], len(row['errors']),
+              len(deps), len(tg), sum(1 for _n, d in deps if 'sorryAx' in d), len(outside), row['gate'])]
+    read_runner_row(row)
+    put_txt('%s_runner_%s_%s.txt' % (ACT, kernel, label), L)
+    if row['artifact_sha256']:
+        put_txt('%s_axioms_%s_%s.txt' % (ACT, kernel, label), ax.split(NL) if ax else ['### EMPTY'])
+        put_txt('%s_buildlog_%s_%s.txt' % (ACT, kernel, label), blog.rstrip(NL).split(NL))
+    j = jl('%s_runner_rows.json' % ACT) if os.path.isfile(os.path.join(D, '%s_runner_rows.json' % ACT)) else {}
+    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (kernel, label)] + [row]
+    put_json('%s_runner_rows.json' % ACT, dict(rows=rows))
+    print(NL.join(L[:15] + L[-3:]))
+
+
+R.runner = runner
+
+
+def _probe_artifact(run_id):
+    """the run's SEPARATE chain-probe artifact (chain-probe-<run id>) read by name, its sha256 against the platform's digest before any
+    reading: (artifact row, sha256, {file: text})."""
+    import io as _io
+    import zipfile
+    repo = 'psinary-sketch/' + K.KERNEL
+    art, arts = _artifact_named(repo, run_id, 'chain-probe-')
+    if not art:
+        return None, None, {}, [x.get('name') for x in arts]
+    rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+    sha = hashlib.sha256(rz.stdout).hexdigest()
+    digest = (art.get('digest') or '').replace('sha256:', '')
+    if not digest or digest != sha:
+        sys.exit('### THE PROBE ARTIFACT`S SHA256 %s IS NOT THE PLATFORM`S DIGEST %s -- NOTHING READ' % (sha[:16], (digest or '-')[:16]))
+    T_ = {}
+    with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+        for n in z.namelist():
+            T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    return art, sha, T_, [x.get('name') for x in arts]
+
+
+def probeview(*a):
+    """`probeview <run id>`: the probe run read by its id -- the SEPARATE chain-probe artifact by name, its sha256 against the platform's
+    digest before any reading; probe/chainprobe.txt banked whole as data/b708_probe_out_zeta.txt and parsed by chain_page's parser, every cell
+    of the probe named or missing; the step's log read (RUN or NOT RUN with its reason); where the step did not run, its error banked for
+    W-ORD-WORKFLOW-PROBE-STEP's re-opening. data/b708_probe_run.txt (.json)."""
+    import chain_page as CP
+    run_id = int(a[0])
+    repo = 'psinary-sketch/' + K.KERNEL
+    rc, out, err = R._gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event')
+    run = json.loads(out or b'{}')
+    art, sha, T_, names_ = _probe_artifact(run_id)
+    pj = jl('%s_probe.json' % ACT)
+    text = T_.get('chainprobe.txt', '')
+    log = ' '.join(T_.get('chainprobe_log.txt', '').split())
+    cells, perr = CP.parse(text)
+    want = pj.get('cells') or []
+    missing = [n for n in want if n not in cells or cells[n].get('missing')]
+    ran = log.startswith('RUN:')
+    L = ['%s -- (R318)(4): THE PROBE THROUGH THE WORKFLOW`S STEP ON THE HOSTED RUNNER, READ BY ITS RUN ID (%s)' % (ACT, utc()), '',
+         '### the probe: relay data/b708_probe.txt (the generator`s text sha256 %s, %d cells) as the root ChainProbe.lean of %s at %s, the modules` tree v0.37`s' % (
+             (pj.get('sha256') or '')[:16], len(want), K.PROBE_BRANCH, g(EF, 'rev-parse', K.PROBE_BRANCH).strip()[:7]),
+         '### (relay data/b708_probe_diff.txt); the step build-module.yml :101 at main, its output the separate artifact chain-probe-<run id> (:140).',
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'), run.get('updatedAt')),
+         '### the artifacts listed %d: %s ; the probe`s chosen by name (chain-probe-)' % (len(names_), names_),
+         '### the probe artifact: id %s ; %s ; %s bytes ; sha256 %s ; AGREE WITH THE PLATFORM`S DIGEST (read after the agreement)' % (
+             (art or {}).get('id'), (art or {}).get('name'), (art or {}).get('size_in_bytes'), sha) if art else '### the probe artifact: NONE LISTED',
+         '### the step`s log (probe/chainprobe_log.txt): %s' % (log or '### ABSENT'),
+         '### the step`s output (probe/chainprobe.txt): %d bytes ; error lines %d ; cells parsed %d ; cells wanted %d ; missing %d' % (
+             len(text), len(perr), len(cells), len(want), len(missing))] + ['    ' + l for l in perr[:20]] + ['### the missing cells: %s' % (missing or 'NONE')]
+    ok = run.get('conclusion') == 'success' and bool(art) and ran and not perr and not missing
+    L += ['', '### ### **RUN %s (probe) ; CONCLUSION %s ; THE PROBE ARTIFACT %s ; THE STEP %s ; ERROR LINES %d ; PROBE CELLS %d OF %d ; MISSING %d ; THE PROBE %s.**' % (
+        run_id, run.get('conclusion'), 'AGREE' if art else '### NONE', 'RAN' if ran else '### NOT RUN', len(perr), len(want) - len(missing), len(want), len(missing),
+        'READ' if ok else '### NOT READ WHOLE -- THE ORDER RE-OPENS')]
+    put_txt('%s_probe_run.txt' % ACT, L)
+    put_json('%s_probe_run.json' % ACT, dict(at=utc(), run_id=run_id, conclusion=run.get('conclusion'), artifact=dict(id=(art or {}).get('id'), name=(art or {}).get('name'), sha256=sha),
+                                            step_ran=ran, log=log, errors=perr, missing=missing, cells=len(cells), wanted=len(want), ok=bool(ok)))
+    if art:
+        put_txt('%s_probe_out_zeta.txt' % ACT, text.rstrip(NL).split(NL))
+    print(NL.join(L[:9] + L[-2:]))
+
+
+def probecompare(*a):
+    """data/b708_probe_compare.txt (.json): (R318)(4), the probe diffed against b704's probe bank -- every cell of data/b708_probe_out_zeta.txt
+    against the same cell of data/b704_probe_out_zeta.txt (run 39721668586 at v0.37, through the closure step), by chain_page's parser: the
+    statement (the sig), the kind, the module and line, the axioms, the consumed nodes; every differing sig printed with its cause read from the
+    two cells. The page is regenerated where a sig moved and not otherwise."""
+    import chain_page as CP
+    now, _e1 = CP.parse(rdn('%s_probe_out_zeta.txt' % ACT))
+    old, _e2 = CP.parse(rdn('b704_probe_out_zeta.txt'))
+    want = jl('%s_probe.json' % ACT).get('cells') or []
+    rows, moved = [], []
+    for n in want:
+        a_, b_ = old.get(n) or {}, now.get(n) or {}
+        if a_.get('missing') or b_.get('missing') or not a_ or not b_:
+            rows.append((n, 'MISSING', 'b704 %s ; b708 %s' % ('missing' if a_.get('missing') or not a_ else 'present', 'missing' if b_.get('missing') or not b_ else 'present')))
+            moved.append(n)
+            continue
+        diffs = []
+        for k_ in ('statement', 'kind', 'module', 'line', 'axioms', 'consumes'):
+            if a_.get(k_) != b_.get(k_):
+                diffs.append(k_)
+        if diffs:
+            cause = ('the sig' if 'statement' in diffs else '') + (' the place %s:%s -> %s:%s' % (a_.get('module'), a_.get('line'), b_.get('module'), b_.get('line')) if ('module' in diffs or 'line' in diffs) else '') \
+                + (' the axioms %s -> %s' % (a_.get('axioms'), b_.get('axioms')) if 'axioms' in diffs else '') + (' the consumed nodes' if 'consumes' in diffs else '') + (' the kind' if 'kind' in diffs else '')
+            rows.append((n, 'DIFFERS ' + ','.join(diffs), cause.strip()))
+            if 'statement' in diffs:
+                moved.append(n)
+        else:
+            rows.append((n, 'EQUAL', ''))
+    sig_moved = [n for n in moved]
+    L = ['%s -- (R318)(4): THE PROBE DIFFED AGAINST b704`S PROBE BANK, CELL BY CELL (%s)' % (ACT, utc()), '',
+         '### this act`s probe (relay data/b708_probe_out_zeta.txt, the workflow`s probe step at %s, the tree v0.37`s) against b704`s (relay data/b704_probe_out_zeta.txt,' % K.PROBE_BRANCH,
+         '### run 39721668586 through the closure step at v0.37), by chain_page`s parser; rows are cells: name | EQUAL, DIFFERS <fields> or MISSING | the cause.',
+         '### A sig moved is a cell whose #print statement differs (or is missing on one side); the page is regenerated where one moved and not otherwise.', '']
+    L += ['  %-70s %-28s %s' % r for r in rows if r[1] != 'EQUAL']
+    L += ['  (every other cell EQUAL: %d)' % sum(1 for r in rows if r[1] == 'EQUAL')]
+    L += ['', '### ### **CELLS COMPARED %d ; EQUAL %d ; DIFFERING %d ; SIGS MOVED %d %s ; THE PAGE %s.**' % (
+        len(rows), sum(1 for r in rows if r[1] == 'EQUAL'), sum(1 for r in rows if r[1] != 'EQUAL'), len(sig_moved), sig_moved[:10] or '',
+        'REGENERATED (a sig moved)' if sig_moved else 'NOT REGENERATED (no sig moved)')]
+    put_txt('%s_probe_compare.txt' % ACT, L)
+    put_json('%s_probe_compare.json' % ACT, dict(at=utc(), compared=len(rows), equal=sum(1 for r in rows if r[1] == 'EQUAL'), moved=sig_moved,
+                                                differing=[dict(name=r[0], how=r[1], cause=r[2]) for r in rows if r[1] != 'EQUAL']))
+    print(NL.join(L[-2:]))
+
+
+# ================================================================================ COMPONENT 2: THE ENTRY-TAG PRINT AT v0.17, (R318)(5) (b706's form)
+def tagstate(*a):
+    """`tagstate <tag>`: the tag's tree read through the tool (no blob through the shell): its files, lean-toolchain, the lakefile's name and
+    require lines, the mentioned theorem's module by git grep bounded to the tree; writes nothing."""
+    tag = a[0]
+    tree = (g(EF, 'ls-tree', '-r', '--name-only', tag) or '').split()
+    lt = (_show(EF, tag, 'lean-toolchain') or '').strip()
+    lf_name = next((f for f in ('lakefile.toml', 'lakefile.lean') if f in tree), None)
+    lf = (_show(EF, tag, lf_name) or '') if lf_name else ''
+    req = [l.strip() for l in lf.split(NL) if 'require' in l or 'mathlib' in l.lower() or 'lean_lib' in l or 'name' in l][:12]
+    thm = K.TAG_THEOREMS.get(tag, '')
+    short = thm.split('.')[-1]
+    hit = g(EF, 'grep', '-n', '-E', '-e', r'^(theorem|lemma) +%s\b' % re.escape(short), tag, '--', '*.lean').strip()
+    print('  tag %s ; peel %s ; files %d ; lean-toolchain %r ; lakefile %s' % (tag, g(EF, 'rev-list', '-n', '1', tag).strip()[:12], len(tree), lt, lf_name))
+    print('  the lakefile`s require and lib lines: %s' % req)
+    print('  print_targets.txt in the tree %s ; the workflow in the tree %s ; lake-manifest.json %s' % ('print_targets.txt' in tree, WF in tree, 'lake-manifest.json' in tree))
+    print('  the theorem %s: %s' % (thm, hit[:160] or '### NOT FOUND'))
+
+
+def printprobe(*a):
+    """`printprobe <tag>`: the scratch branch prints-b708-<tag>, checked out at the tag with no tracked change, given (R316)(7)'s three files
+    by this route (b706's form) -- the workflow as SIDE-explicit-formula's main carries it (its blob's bytes, verbatim), print_targets.txt
+    naming the mentioned theorem alone, and a root ChainProbe.lean in tools/chain_page.py's probe form (PROBE_HEAD, one #chain_cell for the
+    theorem, the import of its module alone) for the workflow's probe step; the files banked with their sha256 in
+    data/b708_print_files_<branch>.json (.txt) before the commit. Nothing else of the tag's tree is touched."""
+    import io as _io
+    import chain_page as CP
+    tag = a[0]
+    br = 'prints-b708-%s' % tag
+    thm, mod = K.TAG_THEOREMS[tag], K.TAG_MODULES[tag]
+    head = g(EF, 'rev-parse', '--abbrev-ref', 'HEAD').strip()
+    base = g(EF, 'rev-parse', 'HEAD').strip()
+    peel = g(EF, 'rev-list', '-n', '1', tag).strip()
+    dirty = g(EF, 'status', '--porcelain', '--untracked-files=no').strip()
+    if head != br or base != peel or dirty:
+        sys.exit('### THE CHECKOUT IS NOT %s AT %s WITH NO TRACKED CHANGE (head %s at %s, dirty %r) -- NOTHING WRITTEN' % (br, tag, head, base[:7], dirty))
+    wf_text = _show(EF, 'main', WF) or ''
+    pt_text = thm + NL
+    probe_ = CP.PROBE_HEAD.replace('@@IMPORTS@@', 'import %s' % mod) + NL + '#chain_cell %s [%s] []' % (thm, thm) + NL
+    files = {WF: wf_text, 'print_targets.txt': pt_text, 'ChainProbe.lean': probe_}
+    os.makedirs(os.path.join(EF, '.github', 'workflows'), exist_ok=True)
+    for f, t in files.items():
+        _io.open(os.path.join(EF, *f.split('/')), 'w', encoding='utf-8', newline=NL).write(t)
+    files['lakefile.toml'] = _show(EF, tag, 'lakefile.toml') or ''
+    files['lean-toolchain'] = _show(EF, tag, 'lean-toolchain') or ''
+    shas = dict((f, hashlib.sha256(t.encode('utf-8')).hexdigest()) for f, t in files.items())
+    wf_main_sha = hashlib.sha256((_show(EF, 'main', WF) or '').encode('utf-8')).hexdigest()
+    L = ['%s -- COMPONENT 2, (R318)(5) IN (R316)(7)`S FORM: THE SCRATCH BRANCH %s AT %s = %s, ITS THREE FILES WRITTEN BY THIS ROUTE AND BANKED BEFORE THE COMMIT (%s)' % (ACT, br, tag, peel[:7], utc()), '',
+         '### rows are files: the path | sha256 | bytes. The workflow is main`s blob verbatim; the print list the mentioned theorem alone; the probe',
+         '### chain_page.py`s PROBE_HEAD with the import of %s and one #chain_cell; the lakefile and toolchain the tag`s own, unedited.' % mod, '']
+    L += ['  %-40s sha256 %s ; %d bytes' % (f, shas[f], len(t.encode('utf-8'))) for f, t in files.items()]
+    for f in (WF, 'print_targets.txt', 'ChainProbe.lean'):
+        L += ['', '=== %s' % f] + ['    ' + x for x in files[f].rstrip(NL).split(NL)]
+    L += ['', '### ### **BRANCH %s AT %s ; FILES WRITTEN 3 ; THE WORKFLOW EQUAL TO main`S BLOB %s ; THE TARGET MODULE %s ; THE THEOREM %s.**' % (
+        br, peel[:7], shas[WF] == wf_main_sha, mod, thm)]
+    put_txt('%s_print_files_%s.txt' % (ACT, br), L)
+    put_json('%s_print_files_%s.json' % (ACT, br), dict(at=utc(), branch=br, tag=tag, peel=peel, theorem=thm, module=mod, blobs=files, sha256=shas))
+    print(NL.join(L[:8] + L[-1:]))
+
+
+def printsbank(*a):
+    """`printsbank <tag> <run id>`: the run's SEPARATE chain-probe artifact (chain-probe-<run id>) read by name, its sha256 against the platform's
+    digest before any reading; probe/chainprobe.txt banked as data/b708_prints_<tag>.txt (the probe's own print, parsed by tools/chain_page.py's
+    parser as the banked chain probes are) with data/b708_prints_<tag>.json (the run, the artifact, the parsed cell)."""
+    import chain_page as CP
+    tag, run_id = a[0], int(a[1])
+    art, sha, T_, names_ = _probe_artifact(run_id)
+    if not art:
+        sys.exit('### NO chain-probe ARTIFACT ON RUN %d (listed %s) -- NOTHING READ' % (run_id, names_))
+    text = T_.get('chainprobe.txt', '')
+    log = T_.get('chainprobe_log.txt', '')
+    cells, errors = CP.parse(text)
+    thm = K.TAG_THEOREMS[tag]
+    c = cells.get(thm) or {}
+    L = ['%s -- THE ENTRY-TAG PRINT AT %s (SIDE-explicit-formula %s), RUN %d, THE PROBE STEP`S OUTPUT READ AFTER THE PROBE ARTIFACT`S SHA256 %s AGREED WITH THE PLATFORM`S (%s)' % (
+        ACT, tag, g(EF, 'rev-list', '-n', '1', tag).strip()[:7], run_id, sha[:16], utc()), '### the probe`s log: %s' % ' '.join(log.split()),
+         '### the artifact %s (id %s, %s bytes) ; files %s ; the probe`s errors %d ; the cell %s: %s' % (
+             art.get('name'), art.get('id'), art.get('size_in_bytes'), sorted(T_), len(errors), thm, ('statement ' + c.get('statement', '')) if c.get('statement') else ('### ' + ('MISSING' if c.get('missing') else 'NOT PARSED'))),
+         ''] + text.rstrip(NL).split(NL)
+    put_txt('%s_prints_%s.txt' % (ACT, tag), L)
+    put_json('%s_prints_%s.json' % (ACT, tag), dict(at=utc(), tag=tag, run_id=run_id, artifact=dict(id=art.get('id'), name=art.get('name'), sha256=sha), files=sorted(T_),
+                                                   log=log, errors=errors, cell=c, theorem=thm))
+    print(NL.join(L[:3]))
+
+
+def cellsreach(*a):
+    """data/b708_cells_reread.txt (.json): (R318)(5)'s last step -- the two unbanked mentions of data/b706_cells_reread.txt re-read: the first
+    against the new print bank (data/b708_prints_v0.17.txt): the statement at v0.17 beside the statement at v0.37 (data/b704_probe_out_zeta.txt),
+    "equal" or "differs"; the second (FACES_LEDGER :20) naming no kernel and no tag, re-read as it stands, unbanked by its own line (b707's (e),
+    this act's (f)); the nine b706 read equal carried."""
+    import chain_page as CP
+    cells37, _e = CP.parse(rdn('b704_probe_out_zeta.txt'))
+    banks = dict((tg, CP.parse(rdn('%s_prints_%s.txt' % (ACT, tg)))[0]) for tg in K.TAG_THEOREMS if os.path.exists(os.path.join(D, '%s_prints_%s.txt' % (ACT, tg))))
+    prev = jl('b706_cells_reread.json').get('rows') or []
+    rows = []
+    for r in prev:
+        if r.get('verdict') == 'equal':
+            rows.append(dict(r, verdict='equal (b706, carried)', bank=r.get('bank')))
+            continue
+        m = next((x for x in K.MENTIONS_UNBANKED if x[1] == r.get('path') and x[2] == r.get('line')), None)
+        tg = m[3] if m else None
+        full = K.TAG_THEOREMS.get(tg) if tg else None
+        st37 = (cells37.get(full) or {}).get('statement') if full else None
+        st_t = ((banks.get(tg) or {}).get(full) or {}).get('statement') if (tg in banks and full) else None
+        if tg in banks and full:
+            v = 'equal' if (st_t and st37 and ' '.join(st_t.split()) == ' '.join(st37.split())) else ('differs' if (st_t and st37) else 'unbanked (the bank holds no cell for the name)')
+        else:
+            v = 'unbanked (no kernel and no tag named by the line; read as it stands)'
+        rows.append(dict(doc=r['doc'], path=r['path'], line=r['line'], full=full or r.get('full') or '(none named)', tag=tg or '(no tag)', st37=st37, st_t=st_t, verdict=v,
+                         bank=('data/%s_prints_%s.txt' % (ACT, tg)) if tg in banks else None))
+    L = ['%s -- COMPONENT 2, (R318)(5): THE TWO UNBANKED MENTIONS OF data/b706_cells_reread.txt RE-READ AGAINST THE ENTRY-TAG PRINT AT v0.17 (%s)' % (ACT, utc()), '',
+         '### rows are mentions (paper :line | theorem | tag): the statement at the tag from data/b708_prints_<tag>.txt (the probe step`s print, run on the scratch',
+         '### branch at the tag) against the statement at v0.37 (data/b704_probe_out_zeta.txt, run 39721668586); "equal" or "differs"; a mention with no tag',
+         '### beside the kernel stays unbanked (FACES_LEDGER :20, the F1 row, names no kernel: b707`s (e), this act`s (f)); the nine b706 read equal carried.', '']
+    for r in rows:
+        L += ['  %s | %s :%d | %s | tag %s | %s' % (r['doc'], r['path'], r['line'], r['full'], r['tag'], r['verdict'])]
+        if not r['verdict'].startswith('equal (b706'):
+            L += ['      at v0.37: %s' % (r['st37'] or '-'), '      at %s (%s): %s' % (r['tag'], r['bank'] or 'no bank', r['st_t'] or '-')]
+    L += ['', '### ### **MENTIONS 11 ; EQUAL %d (9 CARRIED FROM b706, %d RE-READ THIS ACT) ; DIFFERS %d ; UNBANKED %d (no kernel and no tag named %d).**' % (
+        sum(1 for r in rows if r['verdict'].startswith('equal')), sum(1 for r in rows if r['verdict'] == 'equal'), sum(1 for r in rows if r['verdict'] == 'differs'),
+        sum(1 for r in rows if r['verdict'].startswith('unbanked')), sum(1 for r in rows if 'no kernel and no tag' in r['verdict']))]
+    put_txt('%s_cells_reread.txt' % ACT, L)
+    put_json('%s_cells_reread.json' % ACT, dict(at=utc(), rows=rows))
+    print(NL.join([l for l in L if l.startswith('  ') and ' | tag ' in l] + L[-1:]))
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks, c1=c1,
+              probe=probe, probediff=probediff, runner=runner, probeview=probeview, probecompare=probecompare, tagstate=tagstate, printprobe=printprobe,
+              printsbank=printsbank, cellsreach=cellsreach,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
-              runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, tie=tie)
+              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, tie=tie)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

@@ -1,0 +1,32 @@
+{
+ "at": "2026-10-23T15:53:27Z",
+ "tag": "v0.17",
+ "run_id": 39980908842,
+ "artifact": {
+  "id": 12513567942,
+  "name": "chain-probe-39980908842",
+  "sha256": "cd54e0dbbac446f0f61eba3bd354ae819abb44a213a01fe079e0d0ae091d2810"
+ },
+ "files": [
+  "ChainProbe.lean",
+  "chainprobe.txt",
+  "chainprobe_log.txt"
+ ],
+ "log": "RUN: ChainProbe.lean at the ref, its print in probe/chainprobe.txt\n",
+ "errors": [],
+ "cell": {
+  "kind": "theorem",
+  "module": "SIDEExplicitFormula.Simplicity",
+  "line": 34,
+  "consumes": [],
+  "watched": [],
+  "statement": "theorem SIDEExplicitFormula.Simplicity.simplicity_iff : SIDEExplicitFormula.Simplicity.simplicity ↔ ∀ (ρ : ℂ), Zeta23.IsNontrivialZero ρ → Zeta23.zeroMult ρ = 1",
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "axioms_text": "'SIDEExplicitFormula.Simplicity.simplicity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]"
+ },
+ "theorem": "SIDEExplicitFormula.Simplicity.simplicity_iff"
+}
