@@ -1,0 +1,420 @@
+{
+ "at": "2026-10-23T15:59:36Z",
+ "document": "day1/Spectral_Inertness.md",
+ "base": "d121e5c522179d410064fabb4fb7564b70fe50f5",
+ "rows": [
+  {
+   "line_no": 9,
+   "line": "We prove that no structural force outside ℚ's field structure acts on the zeros of ξ(s) (Closure Theorem). The proof rests on a lemma: the product formula ∏_v |x|_v = 1, which builds the entire integration domain for ξ(s), is spectrally inert — it introduces no constraint depending on the spectral parameter s. In Tate's construction, the product formula defines the norm-one idele class group C¹_ℚ (the subgroup of ideles with adelic norm 1), which determines the test function Φ in the Tate integral. Since |x|_𝔸 = 1 on C¹_ℚ, the identity |x|_𝔸^s = 1 holds for every s ∈ ℂ. The product formula builds the integration domain but introduces no constraint depending on s. All zero-location constraints trace to ℚ's field structure: its additive group, multiplicative group, and distributive law. The Epstein zeta function comparison confirms this: functions satisfying the functional equation but lacking the Euler product have zeros off the critical line. The product formula is a property of ℚ itself (Artin–Whaples 1945), not an artifact of the Tate construction. The theorem and its consequences are machine-checked in Lean 4 against Mathlib — the conservation terminal `ProductFormula.conservation_of_spectra` (SIDE-kernel v1.3 = `0bc21c0`), `#print axioms` = `{propext, Classical.choice, Quot.sound}` (Lean core plus Mathlib, no custom axioms; a skeptic runs `lake build` and `#print axioms`).",
+   "needle": "The theorem and its consequences are machine-checked in Lean 4 against Mathlib",
+   "wide": "the theorem and its consequences are machine-checked",
+   "hits": [
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:7:We prove that no structural force outside ℚ's field structure acts on the zeros of ξ(s) (Closure Theorem). The proof rests on a lemma: the product formula ∏_v |x|_v = 1, which builds the entire integration domain for ξ(s), is spectrally inert — it introduces no constraint depending on the spectral parameter s. In Tate's construction, the product formula defines the norm-one idele class group C¹_ℚ (the subgroup of ideles with adelic norm 1), which determines the test function Φ in the Tate integral. Since |x|_𝔸 = 1 on C¹_ℚ, the identity |x|_𝔸^s = 1 holds for every s ∈ ℂ. The product formula builds the integration domain but introduces no constraint depending on s. All zero-location constraints trace to ℚ's field structure: its additive group, multiplicative group, and distributive law. The Epstein zeta function comparison confirms this: functions satisfying the functional equation but lacking the Euler product have zeros off the critical line. The product formula is a property of ℚ itself (Artin–Whaples 1945), not an artifact of the Tate construction. The theorem and its consequences are machine-checked in Lean 4 against Mathlib — the conservation terminal `ProductFormula.conservation_of_spectra` (SIDE-kernel v1.3 = `0bc21c0`), `#print axioms` = `{propext, Classical.choice, Quot.sound}` (Lean core plus Mathlib, no custom axioms; a skeptic runs `lake build` and `#print axioms`)."
+   ],
+   "hits_wide": [
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:7:We prove that no structural force outside ℚ's field structure acts on the zeros of ξ(s) (Closure Theorem). The proof rests on a lemma: the product formula ∏_v |x|_v = 1, which builds the entire integration domain for ξ(s), is spectrally inert — it introduces no constraint depending on the spectral parameter s. In Tate's construction, the product formula defines the norm-one idele class group C¹_ℚ (the subgroup of ideles with adelic norm 1), which determines the test function Φ in the Tate integral. Since |x|_𝔸 = 1 on C¹_ℚ, the identity |x|_𝔸^s = 1 holds for every s ∈ ℂ. The product formula builds the integration domain but introduces no constraint depending on s. All zero-location constraints trace to ℚ's field structure: its additive group, multiplicative group, and distributive law. The Epstein zeta function comparison confirms this: functions satisfying the functional equation but lacking the Euler product have zeros off the critical line. The product formula is a property of ℚ itself (Artin–Whaples 1945), not an artifact of the Tate construction. The theorem and its consequences are machine-checked in Lean 4 against Mathlib — the conservation terminal `ProductFormula.conservation_of_spectra` (SIDE-kernel v1.3 = `0bc21c0`), `#print axioms` = `{propext, Classical.choice, Quot.sound}` (Lean core plus Mathlib, no custom axioms; a skeptic runs `lake build` and `#print axioms`)."
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:9:We prove that no structural force outside ℚ's field structure acts on the zeros of ξ(s) (Closure Theorem). The proof rests on a lemma: the product formula ∏_v |x|_v = 1, which builds the entire integration domain for ξ(s), is spectrally inert — it introduces no constraint depending on the spectral parameter s. In Tate's construction, the product formula defines the norm-one idele class group C¹_ℚ (the subgroup of ideles with adelic norm 1), which determines the test function Φ in the Tate integral. Since |x|_𝔸 = 1 on C¹_ℚ, the identity |x|_𝔸^s = 1 holds for every s ∈ ℂ. The product formula builds the integration domain but introduces no constraint depending on s. All zero-location constraints trace to ℚ's field structure: its additive group, multiplicative group, and distributive law. The Epstein zeta function comparison confirms this: functions satisfying the functional equation but lacking the Euler product have zeros off the critical line. The product formula is a property of ℚ itself (Artin–Whaples 1945), not an artifact of the Tate construction. The theorem and its consequences are machine-checked in Lean 4 against Mathlib — the conservation terminal `ProductFormula.conservation_of_spectra` (SIDE-kernel v1.3 = `0bc21c0`), `#print axioms` = `{propext, Classical.choice, Quot.sound}` (Lean core plus Mathlib, no custom axioms; a skeptic runs `lake build` and `#print axioms`)."
+   ]
+  },
+  {
+   "line_no": 57,
+   "line": "The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib (Mathlib Community 2024). Three files build a chain from prime powers to rationals:",
+   "needle": "The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib",
+   "wide": "three files build a chain from prime powers to rationals",
+   "hits": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:55:The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib (Mathlib Community 2024). Three files build a chain from prime powers to rationals:",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:55:The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib (Mathlib Community 2024). Three files build a chain from prime powers to rationals:"
+   ],
+   "hits_wide": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:55:The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib (Mathlib Community 2024). Three files build a chain from prime powers to rationals:",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:55:The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib (Mathlib Community 2024). Three files build a chain from prime powers to rationals:"
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:57:The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib (Mathlib Community 2024). Three files build a chain from prime powers to rationals:"
+   ]
+  },
+  {
+   "line_no": 59,
+   "line": " **File 1** (prime powers): p^{v_p(n)} · |n|_p = 1. 6 theorems.",
+   "needle": "(prime powers): p^{v_p(n)} · |n|_p = 1. 6 theorems.",
+   "wide": "p^{v_p(n)} · |n|_p = 1. 6 theorems",
+   "hits": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:57: **File 1** (prime powers): p^{v_p(n)} · |n|_p = 1. 6 theorems.",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:57: **File 1** (prime powers): p^{v_p(n)} · |n|_p = 1. 6 theorems."
+   ],
+   "hits_wide": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:57: **File 1** (prime powers): p^{v_p(n)} · |n|_p = 1. 6 theorems.",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:57: **File 1** (prime powers): p^{v_p(n)} · |n|_p = 1. 6 theorems."
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:59: **File 1** (prime powers): p^{v_p(n)} · |n|_p = 1. 6 theorems."
+   ]
+  },
+  {
+   "line_no": 60,
+   "line": " **File 2** (integers): |n| · ∏_{p|n} |n|_p = 1. 8 theorems.",
+   "needle": "(integers): |n| · ∏_{p|n} |n|_p = 1. 8 theorems.",
+   "wide": "|n| · ∏_{p|n} |n|_p = 1. 8 theorems",
+   "hits": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:58: **File 2** (integers): |n| · ∏_{p|n} |n|_p = 1. 8 theorems.",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:58: **File 2** (integers): |n| · ∏_{p|n} |n|_p = 1. 8 theorems."
+   ],
+   "hits_wide": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:58: **File 2** (integers): |n| · ∏_{p|n} |n|_p = 1. 8 theorems.",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:58: **File 2** (integers): |n| · ∏_{p|n} |n|_p = 1. 8 theorems."
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:60: **File 2** (integers): |n| · ∏_{p|n} |n|_p = 1. 8 theorems."
+   ]
+  },
+  {
+   "line_no": 61,
+   "line": " **File 3** (rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems.",
+   "needle": "(rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems.",
+   "wide": "together with ∀ s : ℂ, 1^s = 1. 8 theorems",
+   "hits": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:59: **File 3** (rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems.",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:59: **File 3** (rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems."
+   ],
+   "hits_wide": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:59: **File 3** (rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems.",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:59: **File 3** (rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems."
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:61: **File 3** (rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems."
+   ]
+  },
+  {
+   "line_no": 63,
+   "line": "Total: 22 theorems. Zero `sorry` (unproved assertions). Zero custom axioms. The kernel repository is publicly available. [https://github.com/psinary-sketch/SIDE-kernel] Two theorems from this programme have been merged into the Mathlib standard library (PRs \\#36881 and \\#36865).",
+   "needle": "Total: 22 theorems. Zero `sorry` (unproved assertions). Zero custom axioms.",
+   "wide": "merged into the mathlib standard library (prs \\#36881 and \\#36865)",
+   "hits": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:61:Total: 22 theorems. Zero `sorry` (unproved assertions). Zero custom axioms. The kernel repository is publicly available. [https://github.com/psinary-sketch/SIDE-kernel] Two theorems from this programme have been merged into the Mathlib standard library (PRs \\#36881 and \\#36865).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:61:Total: 22 theorems. Zero `sorry` (unproved assertions). Zero custom axioms. The kernel repository is publicly available. [https://github.com/psinary-sketch/SIDE-kernel] Two theorems from this programme have been merged into the Mathlib standard library (PRs \\#36881 and \\#36865)."
+   ],
+   "hits_wide": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:61:Total: 22 theorems. Zero `sorry` (unproved assertions). Zero custom axioms. The kernel repository is publicly available. [https://github.com/psinary-sketch/SIDE-kernel] Two theorems from this programme have been merged into the Mathlib standard library (PRs \\#36881 and \\#36865).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:61:Total: 22 theorems. Zero `sorry` (unproved assertions). Zero custom axioms. The kernel repository is publicly available. [https://github.com/psinary-sketch/SIDE-kernel] Two theorems from this programme have been merged into the Mathlib standard library (PRs \\#36881 and \\#36865)."
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:63:Total: 22 theorems. Zero `sorry` (unproved assertions). Zero custom axioms. The kernel repository is publicly available. [https://github.com/psinary-sketch/SIDE-kernel] Two theorems from this programme have been merged into the Mathlib standard library (PRs \\#36881 and \\#36865)."
+   ]
+  },
+  {
+   "line_no": 87,
+   "line": "The Closure Corollary seals the catalogue: any proof by exhaustion requires that no external mechanism exists outside the enumerated classes. Spectral inertness of the product formula provides this seal for ξ(s). This seal is the proof of RH's one certified premise — the inter-class conservation step, named in five equivalent registers (*A Place to Stand* §27.3); the catalogue surrounding it is machine-checked.",
+   "needle": "This seal is the proof of RH's one certified premise",
+   "wide": "the catalogue surrounding it is machine-checked",
+   "hits": [
+    "HEAD:ERRATA.md:420:| `Spectral_Inertness.md:85` | *“This seal is the proof of RH's one certified premise — the inter-class conservation step, named in five equivalent registers (*A Place to Stand* §27.3); the catalogue surrounding it is machine-checked.”* | `ConservationHypothesis` @ `v1.5` | `NOT THE CLAIM` — **STAND-IN** |",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:85:The Closure Corollary seals the catalogue: any proof by exhaustion requires that no external mechanism exists outside the enumerated classes. Spectral inertness of the product formula provides this seal for ξ(s). This seal is the proof of RH's one certified premise — the inter-class conservation step, named in five equivalent registers (*A Place to Stand* §27.3); the catalogue surrounding it is machine-checked."
+   ],
+   "hits_wide": [
+    "HEAD:ERRATA.md:420:| `Spectral_Inertness.md:85` | *“This seal is the proof of RH's one certified premise — the inter-class conservation step, named in five equivalent registers (*A Place to Stand* §27.3); the catalogue surrounding it is machine-checked.”* | `ConservationHypothesis` @ `v1.5` | `NOT THE CLAIM` — **STAND-IN** |",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:85:The Closure Corollary seals the catalogue: any proof by exhaustion requires that no external mechanism exists outside the enumerated classes. Spectral inertness of the product formula provides this seal for ξ(s). This seal is the proof of RH's one certified premise — the inter-class conservation step, named in five equivalent registers (*A Place to Stand* §27.3); the catalogue surrounding it is machine-checked."
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:87:The Closure Corollary seals the catalogue: any proof by exhaustion requires that no external mechanism exists outside the enumerated classes. Spectral inertness of the product formula provides this seal for ξ(s). This seal is the proof of RH's one certified premise — the inter-class conservation step, named in five equivalent registers (*A Place to Stand* §27.3); the catalogue surrounding it is machine-checked."
+   ]
+  },
+  {
+   "line_no": 107,
+   "line": "| Zeros confined to critical line | Yes | **No** |",
+   "needle": "| Zeros confined to critical line | Yes | **No** |",
+   "wide": "zeros confined to critical line | yes",
+   "hits": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:105:| Zeros confined to critical line | Yes | **No** |",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:105:| Zeros confined to critical line | Yes | **No** |"
+   ],
+   "hits_wide": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:105:| Zeros confined to critical line | Yes | **No** |",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:105:| Zeros confined to critical line | Yes | **No** |"
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:107:| Zeros confined to critical line | Yes | **No** |"
+   ]
+  },
+  {
+   "line_no": 112,
+   "line": "The structural difference is the Euler product. The outcome difference is the confinement of zeros. The product formula, being spectrally inert, does not account for this difference. The Euler product — carrying s-dependent information through the weights p⁻ˢ — is the discriminating variable. The product formula builds the stage. The Euler product directs the play.",
+   "needle": "The outcome difference is the confinement of zeros.",
+   "wide": "the outcome difference is the confinement of zeros",
+   "hits": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:110:The structural difference is the Euler product. The outcome difference is the confinement of zeros. The product formula, being spectrally inert, does not account for this difference. The Euler product — carrying s-dependent information through the weights p⁻ˢ — is the discriminating variable. The product formula builds the stage. The Euler product directs the play.",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:110:The structural difference is the Euler product. The outcome difference is the confinement of zeros. The product formula, being spectrally inert, does not account for this difference. The Euler product — carrying s-dependent information through the weights p⁻ˢ — is the discriminating variable. The product formula builds the stage. The Euler product directs the play."
+   ],
+   "hits_wide": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:110:The structural difference is the Euler product. The outcome difference is the confinement of zeros. The product formula, being spectrally inert, does not account for this difference. The Euler product — carrying s-dependent information through the weights p⁻ˢ — is the discriminating variable. The product formula builds the stage. The Euler product directs the play.",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:110:The structural difference is the Euler product. The outcome difference is the confinement of zeros. The product formula, being spectrally inert, does not account for this difference. The Euler product — carrying s-dependent information through the weights p⁻ˢ — is the discriminating variable. The product formula builds the stage. The Euler product directs the play."
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:112:The structural difference is the Euler product. The outcome difference is the confinement of zeros. The product formula, being spectrally inert, does not account for this difference. The Euler product — carrying s-dependent information through the weights p⁻ˢ — is the discriminating variable. The product formula builds the stage. The Euler product directs the play."
+   ]
+  },
+  {
+   "line_no": 116,
+   "line": "Tate's construction (Tate 1950) makes spectral inertness transparent; we make it explicit and formally verify it. Ostrowski (1916) classified all absolute values on ℚ, establishing that the places appearing in the construction are exhaustive. Weil (1967) developed the adelic framework in full generality. Connes (1999) reinterpreted the construction in operator-algebraic language; spectral inertness translates to a statement about the trace of a specific operator being s-independent. Connes' 2026 survey (Connes 2026) develops a parallel framework through the semilocal adele class space, where the resolution of the measure-theoretic singularity between additive and multiplicative Haar measures addresses the same structural fact from a geometric perspective. Within this programme, the spectral inertness principle has been tested across 34 predictions in 9 coupled systems spanning number theory, physics, biology, linguistics, and computation, with all 34 confirmed (*The Silence of Foundations*, this collection).",
+   "needle": "we make it explicit and formally verify it",
+   "wide": "with all 34 confirmed",
+   "hits": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:114:Tate's construction (Tate 1950) makes spectral inertness transparent; we make it explicit and formally verify it. Ostrowski (1916) classified all absolute values on ℚ, establishing that the places appearing in the construction are exhaustive. Weil (1967) developed the adelic framework in full generality. Connes (1999) reinterpreted the construction in operator-algebraic language; spectral inertness translates to a statement about the trace of a specific operator being s-independent. Connes' 2026 survey (Connes 2026) develops a parallel framework through the semilocal adele class space, where the resolution of the measure-theoretic singularity between additive and multiplicative Haar measures addresses the same structural fact from a geometric perspective. Within this programme, the spectral inertness principle has been tested across 34 predictions in 9 coupled systems spanning number theory, physics, biology, linguistics, and computation, with all 34 confirmed (*The Silence of Foundations*, this collection).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:114:Tate's construction (Tate 1950) makes spectral inertness transparent; we make it explicit and formally verify it. Ostrowski (1916) classified all absolute values on ℚ, establishing that the places appearing in the construction are exhaustive. Weil (1967) developed the adelic framework in full generality. Connes (1999) reinterpreted the construction in operator-algebraic language; spectral inertness translates to a statement about the trace of a specific operator being s-independent. Connes' 2026 survey (Connes 2026) develops a parallel framework through the semilocal adele class space, where the resolution of the measure-theoretic singularity between additive and multiplicative Haar measures addresses the same structural fact from a geometric perspective. Within this programme, the spectral inertness principle has been tested across 34 predictions in 9 coupled systems spanning number theory, physics, biology, linguistics, and computation, with all 34 confirmed (*The Silence of Foundations*, this collection)."
+   ],
+   "hits_wide": [
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:114:Tate's construction (Tate 1950) makes spectral inertness transparent; we make it explicit and formally verify it. Ostrowski (1916) classified all absolute values on ℚ, establishing that the places appearing in the construction are exhaustive. Weil (1967) developed the adelic framework in full generality. Connes (1999) reinterpreted the construction in operator-algebraic language; spectral inertness translates to a statement about the trace of a specific operator being s-independent. Connes' 2026 survey (Connes 2026) develops a parallel framework through the semilocal adele class space, where the resolution of the measure-theoretic singularity between additive and multiplicative Haar measures addresses the same structural fact from a geometric perspective. Within this programme, the spectral inertness principle has been tested across 34 predictions in 9 coupled systems spanning number theory, physics, biology, linguistics, and computation, with all 34 confirmed (*The Silence of Foundations*, this collection).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:114:Tate's construction (Tate 1950) makes spectral inertness transparent; we make it explicit and formally verify it. Ostrowski (1916) classified all absolute values on ℚ, establishing that the places appearing in the construction are exhaustive. Weil (1967) developed the adelic framework in full generality. Connes (1999) reinterpreted the construction in operator-algebraic language; spectral inertness translates to a statement about the trace of a specific operator being s-independent. Connes' 2026 survey (Connes 2026) develops a parallel framework through the semilocal adele class space, where the resolution of the measure-theoretic singularity between additive and multiplicative Haar measures addresses the same structural fact from a geometric perspective. Within this programme, the spectral inertness principle has been tested across 34 predictions in 9 coupled systems spanning number theory, physics, biology, linguistics, and computation, with all 34 confirmed (*The Silence of Foundations*, this collection)."
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:116:Tate's construction (Tate 1950) makes spectral inertness transparent; we make it explicit and formally verify it. Ostrowski (1916) classified all absolute values on ℚ, establishing that the places appearing in the construction are exhaustive. Weil (1967) developed the adelic framework in full generality. Connes (1999) reinterpreted the construction in operator-algebraic language; spectral inertness translates to a statement about the trace of a specific operator being s-independent. Connes' 2026 survey (Connes 2026) develops a parallel framework through the semilocal adele class space, where the resolution of the measure-theoretic singularity between additive and multiplicative Haar measures addresses the same structural fact from a geometric perspective. Within this programme, the spectral inertness principle has been tested across 34 predictions in 9 coupled systems spanning number theory, physics, biology, linguistics, and computation, with all 34 confirmed (*The Silence of Foundations*, this collection)."
+   ]
+  },
+  {
+   "line_no": 161,
+   "line": " This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+   "needle": "This paper develops one component of a proof of Theorem (RH)",
+   "wide": "develops one component of a proof of theorem (rh)",
+   "hits": [
+    "HEAD:archive/2026-08-27-trim-backfill/Exhaustive_Enumeration.md:146: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:261: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:archive/2026-08-27-trim-backfill/Silence_of_Foundations.md:191: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:159: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:archive/2026-08-27-trim-backfill/Third_Identity_Element.md:227: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:day1/Exhaustive_Enumeration.md:148: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:day1/Silence_of_Foundations.md:193: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:day1/Third_Identity_Element.md:233: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:day1/Which_Structure_Confines.md:163: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Exhaustive_Enumeration.md:146: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:261: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md:191: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:159: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Third_Identity_Element.md:227: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md:161: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026)."
+   ],
+   "hits_wide": [
+    "HEAD:archive/2026-08-27-trim-backfill/Exhaustive_Enumeration.md:146: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md:261: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:archive/2026-08-27-trim-backfill/Silence_of_Foundations.md:191: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:archive/2026-08-27-trim-backfill/Spectral_Inertness.md:159: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:archive/2026-08-27-trim-backfill/Third_Identity_Element.md:227: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:day1/Exhaustive_Enumeration.md:148: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:day1/Silence_of_Foundations.md:193: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:day1/Third_Identity_Element.md:233: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:day1/Which_Structure_Confines.md:163: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Exhaustive_Enumeration.md:146: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md:261: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md:191: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md:159: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Third_Identity_Element.md:227: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026).",
+    "HEAD:outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md:161: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026)."
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:161: This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026)."
+   ]
+  },
+  {
+   "line_no": 172,
+   "line": "This paper shows that the product formula, which builds the entire integration domain for the completed zeta function, carries no information at all about the spectral parameter. The point is small to state and load-bearing: it is what lets a finite catalogue of mechanisms be sufficient, because it rules out an infinite source of influence from outside.",
+   "needle": "it is what lets a finite catalogue of mechanisms be sufficient",
+   "wide": "lets a finite catalogue of mechanisms be sufficient",
+   "hits": [],
+   "hits_wide": [],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:172:This paper shows that the product formula, which builds the entire integration domain for the completed zeta function, carries no information at all about the spectral parameter. The point is small to state and load-bearing: it is what lets a finite catalogue of mechanisms be sufficient, because it rules out an infinite source of influence from outside."
+   ]
+  },
+  {
+   "line_no": 174,
+   "line": "**The kernel's job here is narrow and complete**: it verifies that the interface predicates are independent of the spectral parameter. **The surrounding argument — that this is the right interface to check, and that Tate's construction is the right setting — is mathematics on the page with a classical citation.**",
+   "needle": "it verifies that the interface predicates are independent of the spectral parameter",
+   "wide": "verifies that the interface predicates are independent of the spectral parameter",
+   "hits": [],
+   "hits_wide": [],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:174:**The kernel's job here is narrow and complete**: it verifies that the interface predicates are independent of the spectral parameter. **The surrounding argument — that this is the right interface to check, and that Tate's construction is the right setting — is mathematics on the page with a classical citation.**"
+   ]
+  },
+  {
+   "line_no": 200,
+   "line": "> ### **A second inertness-shaped machine fact now stands beside Conservation of Spectra: at the",
+   "needle": "A second inertness-shaped machine fact now stands beside Conservation of Spectra",
+   "wide": "inertness-shaped machine fact now stands beside conservation of spectra",
+   "hits": [],
+   "hits_wide": [],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:200:> ### **A second inertness-shaped machine fact now stands beside Conservation of Spectra: at the"
+   ]
+  },
+  {
+   "line_no": 209,
+   "line": "*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence (`h2` the single open premise) unchanged.*",
+   "needle": "the register sentence (`h2` the single open premise) unchanged",
+   "wide": "the register sentence (`h2` the single open premise) unchanged",
+   "hits": [
+    "HEAD:day1/Exhaustive_Enumeration.md:188:*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence (`h2` the single open premise) unchanged.*",
+    "HEAD:day1/Silence_of_Foundations.md:232:*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence (`h2` the single open premise) unchanged.*",
+    "HEAD:day1/Which_Structure_Confines.md:233:*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence (`h2` the single open premise) unchanged.*"
+   ],
+   "hits_wide": [
+    "HEAD:day1/Exhaustive_Enumeration.md:188:*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence (`h2` the single open premise) unchanged.*",
+    "HEAD:day1/Silence_of_Foundations.md:232:*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence (`h2` the single open premise) unchanged.*",
+    "HEAD:day1/Which_Structure_Confines.md:233:*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence (`h2` the single open premise) unchanged.*"
+   ],
+   "own": [
+    "HEAD:day1/Spectral_Inertness.md:209:*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence (`h2` the single open premise) unchanged.*"
+   ]
+  }
+ ],
+ "quoting": [
+  [
+   "ERRATA.md",
+   420
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Exhaustive_Enumeration.md",
+   146
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Seven_Mechanism_Classes.md",
+   261
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Silence_of_Foundations.md",
+   191
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   55
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   57
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   58
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   59
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   61
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   105
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   110
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   114
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Spectral_Inertness.md",
+   159
+  ],
+  [
+   "archive/2026-08-27-trim-backfill/Third_Identity_Element.md",
+   227
+  ],
+  [
+   "day1/Exhaustive_Enumeration.md",
+   148
+  ],
+  [
+   "day1/Exhaustive_Enumeration.md",
+   188
+  ],
+  [
+   "day1/Silence_of_Foundations.md",
+   193
+  ],
+  [
+   "day1/Silence_of_Foundations.md",
+   232
+  ],
+  [
+   "day1/Third_Identity_Element.md",
+   233
+  ],
+  [
+   "day1/Which_Structure_Confines.md",
+   163
+  ],
+  [
+   "day1/Which_Structure_Confines.md",
+   233
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Exhaustive_Enumeration.md",
+   146
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md",
+   261
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md",
+   191
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   7
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   55
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   57
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   58
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   59
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   61
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   85
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   105
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   110
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   114
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md",
+   159
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Third_Identity_Element.md",
+   227
+  ],
+  [
+   "outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md",
+   161
+  ]
+ ]
+}

@@ -1118,8 +1118,167 @@ def cellsreach(*a):
     print(NL.join([l for l in L if l.startswith('  ') and ' | tag ' in l] + L[-1:]))
 
 
+def scratch(*a):
+    """data/b708_scratch_branches.txt (.json): the two scratch branches of (R318)(4)-(5), each cut, committed once, pushed alone in branch mode,
+    dispatched once and deleted by name locally and at the remote after its bank was committed; read now against the remote (one ls-remote),
+    main and the tags untouched."""
+    rh = R._remote_heads(EF)
+    rows = []
+    for br, base, tip, bank in ((K.PROBE_BRANCH, K.EF_MAIN, '75bd018b784d3f9d27a829af65b54d33fd8e2796', 'data/b708_probe.txt'),
+                                (K.PRINTS_BRANCH, K.EF_V017, '2627fa68a67dde0487bb0beab5f2ca8aca2549d9', 'data/b708_print_files_prints-b708-v0.17.txt')):
+        rows.append(dict(branch=br, base=base, tip=tip, local=bool(g(EF, 'branch', '--list', br).strip()), remote=br in rh, bank=bank,
+                         tip_in_log=bool(g(EF, 'cat-file', '-t', tip).strip() == 'commit')))
+    main_ = g(EF, 'rev-parse', 'main').strip()
+    tags_past = [t for t in g(EF, 'tag', '--contains', K.EF_V037).split(NL) if t.strip() and t.strip() != 'v0.37']
+    L = ['%s -- COMPONENT 2, (R318)(4)-(5): THE SCRATCH BRANCHES OF SIDE-explicit-formula, DELETED BY NAME AFTER THEIR BANKS WERE COMMITTED (%s)' % (ACT, utc()), '',
+         '### rows are branches: the branch | its base | its one commit | present locally | present at the remote (one ls-remote) | the bank committed before the delete.',
+         '### Each deleted in the house form: -D locally (a scratch branch, unmerged), then `push origin --delete` at the remote, one branch per command, each its own message.']
+    L += ['  %-20s | base %s | tip %s | local %s | remote %s | %s' % (r['branch'], r['base'][:7], r['tip'][:7], r['local'], r['remote'], r['bank']) for r in rows]
+    L += ['', '### ### **SCRATCH BRANCHES %d ; DELETED LOCALLY %d ; DELETED AT THE REMOTE %d ; main %s UNMOVED %s ; TAGS PAST v0.37 %s.**' % (
+        len(rows), sum(1 for r in rows if not r['local']), sum(1 for r in rows if not r['remote']), main_[:7], main_ == K.EF_MAIN, tags_past or 'NONE')]
+    put_txt('%s_scratch_branches.txt' % ACT, L)
+    put_json('%s_scratch_branches.json' % ACT, dict(at=utc(), rows=rows, main=main_, tags_past=tags_past))
+    print(NL.join(L[4:]))
+
+
+# ================================================================================ COMPONENT 3: THE RE-CUT OF day1/Spectral_Inertness.md ((R318)(6); b704's form)
+CUT_DOC = K.CUT_DOC
+CUT_TABLE = K.CUT_TABLE
+# ### the lines the cut changes, each with one case-exact needle and one wider case-insensitive needle (the two shapes of b702's search)
+QUOTE_LINES = [
+    (9, 'The theorem and its consequences are machine-checked in Lean 4 against Mathlib', 'the theorem and its consequences are machine-checked'),
+    (57, 'The product formula and its spectral inertness are formally verified in Lean 4 against Mathlib', 'three files build a chain from prime powers to rationals'),
+    (59, '(prime powers): p^{v_p(n)} · |n|_p = 1. 6 theorems.', 'p^{v_p(n)} · |n|_p = 1. 6 theorems'),
+    (60, '(integers): |n| · ∏_{p|n} |n|_p = 1. 8 theorems.', '|n| · ∏_{p|n} |n|_p = 1. 8 theorems'),
+    (61, '(rationals and spectral inertness): ∏_v |x|_v = 1 for x ∈ ℚ×, together with ∀ s : ℂ, 1^s = 1. 8 theorems.', 'together with ∀ s : ℂ, 1^s = 1. 8 theorems'),
+    (63, 'Total: 22 theorems. Zero `sorry` (unproved assertions). Zero custom axioms.', 'merged into the mathlib standard library (prs \\#36881 and \\#36865)'),
+    (87, "This seal is the proof of RH's one certified premise", 'the catalogue surrounding it is machine-checked'),
+    (107, '| Zeros confined to critical line | Yes | **No** |', 'zeros confined to critical line | yes'),
+    (112, 'The outcome difference is the confinement of zeros.', 'the outcome difference is the confinement of zeros'),
+    (116, 'we make it explicit and formally verify it', 'with all 34 confirmed'),
+    (161, 'This paper develops one component of a proof of Theorem (RH)', 'develops one component of a proof of theorem (rh)'),
+    (172, 'it is what lets a finite catalogue of mechanisms be sufficient', 'lets a finite catalogue of mechanisms be sufficient'),
+    (174, 'it verifies that the interface predicates are independent of the spectral parameter', 'verifies that the interface predicates are independent of the spectral parameter'),
+    (200, 'A second inertness-shaped machine fact now stands beside Conservation of Spectra', 'inertness-shaped machine fact now stands beside conservation of spectra'),
+    (209, 'the register sentence (`h2` the single open premise) unchanged', 'the register sentence (`h2` the single open premise) unchanged'),
+]
+CUT_HELD = (178, 181)   # ### the Correspondence table's cells (:176-:181): no cell by hand, the paper off the roster (b704's form, data/b704_cut.txt :32-:39)
+
+
+def quote(*a):
+    """data/b708_quote.txt (.json): data/b690_rules.txt row (2) at a paper cut, BEFORE the cut's commit -- each line the cut changes read at
+    PLACE-papers HEAD, its two needles checked to stand in it, each searched with git grep -n -F across PLACE-papers' tracked tree at HEAD (the
+    exact shape and the case-insensitive shape); every hit outside the cut lines themselves a quoting line, entered as a residue in the cut bank.
+    The b670 form a paper cut takes (a `document`, no kernel, no merge), as b703's repaired arm reads it."""
+    doc = (_show(PP, 'HEAD', CUT_DOC) or '').replace(chr(13), '').split(NL)
+    rows, bad = [], []
+    for ln, nd, wd in QUOTE_LINES:
+        line = doc[ln - 1]
+        if nd not in line or wd.lower() not in line.lower():
+            bad.append((ln, nd in line, wd.lower() in line.lower()))
+        h1 = [x for x in g(PP, 'grep', '-n', '-F', nd, 'HEAD', '--').split(NL) if x.strip()]
+        h2 = [x for x in g(PP, 'grep', '-n', '-i', '-F', wd, 'HEAD', '--').split(NL) if x.strip()]
+        own = lambda h: h.split(':', 2)[1] == CUT_DOC and int(h.split(':', 3)[2]) in [q[0] for q in QUOTE_LINES]   # noqa: E731
+        rows.append(dict(line_no=ln, line=line, needle=nd, wide=wd, hits=[h for h in h1 if not own(h)], hits_wide=[h for h in h2 if not own(h)],
+                         own=[h for h in h2 if own(h)]))
+    if bad:
+        sys.exit('### A NEEDLE DOES NOT STAND IN ITS OWN LINE %s -- NOTHING WRITTEN' % bad)
+    quoting = sorted(set((h.split(':', 3)[1], int(h.split(':', 3)[2])) for r in rows for h in r['hits'] + r['hits_wide']))
+    L = ['%s -- COMPONENT 3, (R318)(6): THE QUOTATION SEARCH BEFORE THE CUT`S COMMIT, data/b690_rules.txt row (2), OVER %s (%s)' % (ACT, CUT_DOC, utc()), '',
+         '### the lines the cut changes, read at PLACE-papers HEAD %s; each with a case-exact needle and a case-insensitive needle, both checked to' % g(PP, 'rev-parse', '--short=7', 'HEAD').strip(),
+         '### stand in the line; each searched with git grep -n -F across the tracked tree at HEAD. The cut lines themselves are not counted (their own',
+         '### hits printed). Rows are lines: :line | needle | hits | case-insensitive needle | hits, then every hit with its quoting line.', '']
+    for r in rows:
+        L.append('  :%-3d | %-62r %d hit(s) | %-50r %d hit(s) | own %d' % (r['line_no'], r['needle'], len(r['hits']), r['wide'], len(r['hits_wide']), len(r['own'])))
+        L += ['      %s' % h[:220] for h in sorted(set(r['hits'] + r['hits_wide']))]
+    L += ['', '### THE QUOTING LINES, DISTINCT (file :line), EACH A RESIDUE: %s' % ('; '.join('%s :%d' % q for q in quoting) or 'NONE'),
+          '### ### **LINES CHANGED BY THE CUT %d ; NEEDLES %d IN TWO SHAPES ; QUOTING LINES %d -- EACH ENTERED AS A RESIDUE ; SEARCHED BEFORE THE CUT`S COMMIT.**' % (
+              len(rows), 2 * len(rows), len(quoting))]
+    if 'dry' not in a:
+        put_txt('%s_quote.txt' % ACT, L)
+        put_json('%s_quote.json' % ACT, dict(at=utc(), document=CUT_DOC, base=g(PP, 'rev-parse', 'HEAD').strip(), rows=rows, quoting=[list(q) for q in quoting]))
+    print(NL.join(L[6:]) if 'dry' in a else NL.join([x for x in L if x.startswith('  :')] + L[-2:]))
+
+
+TROW = re.compile(r'^  :(\d+) \| [^|]+\| [^|]+\| [^|]+\| [^|]+\| (MATCHES|OVERREACHES|UNLICENSED|UNDERSTATES) ; "(.*)" ; (.*)$')
+
+
+def cutbank(*a):
+    """data/b708_cut.txt (.json): (R318)(6), the re-cut of day1/Spectral_Inertness.md by the b670 method -- each non-MATCHES row of its table
+    (relay data/b646_table_Spectral_Inertness.txt) with its STATED text searched whitespace-normalized in the document at the base and now, the
+    row met where it no longer stands; the Correspondence cells held (no cell by hand, the paper off the roster: b704's form); the residues from
+    the quotation search (data/b708_quote.json). `cutbank [<cut commit>]`: with the cut's PLACE-papers commit named, the bank's base is that
+    commit's parent (`<sha>^`) and "now" its tree."""
+    commit = a[0] if a and re.match(r'^[0-9a-f]{7,40}$', a[0]) else None
+    base_ref = (commit + '^') if commit else 'HEAD'
+    norm = lambda s: ' '.join((s or '').split())   # noqa: E731
+    base = norm(_show(PP, base_ref, CUT_DOC))
+    now = norm(_show(PP, commit, CUT_DOC) if commit else rd(os.path.join(PP, CUT_DOC)))
+    rows = []
+    for l in rdn(CUT_TABLE).split(NL):
+        m = TROW.match(l)
+        if not m or m.group(2) == 'MATCHES':
+            continue
+        ln, v, st, act = int(m.group(1)), m.group(2), m.group(3), m.group(4)
+        held = ln in CUT_HELD
+        rows.append(dict(line=ln, verdict=v, stated=st, action=act.split(' -- ')[0][:60], held=held, base=norm(st) in base, now=norm(st) in now))
+    mt = [(int(m.group(1)), m.group(3)) for m in (TROW.match(l) for l in rdn(CUT_TABLE).split(NL)) if m and m.group(2) == 'MATCHES']
+    mt_lost = [(ln, st) for ln, st in mt if norm(st) in base and norm(st) not in now]
+    q = jl('%s_quote.json' % ACT)
+    res = [list(x) for x in (q.get('quoting') or [])]
+    dist = [r for r in rows if r['verdict'] in ('OVERREACHES', 'UNLICENSED')]
+    und = [r for r in rows if r['verdict'] == 'UNDERSTATES']
+    before = sum(1 for r in dist if r['base'])
+    after = sum(1 for r in dist if r['now'])
+    L = ['%s -- COMPONENT 3, (R318)(6): THE RE-CUT OF %s, ITS DISTANCE, ITS RESIDUES (%s)' % (ACT, CUT_DOC, utc()), '',
+         '### the document: %s (v2.3.1), named by b652`s order passing to the companions, alone at the top count (relay data/b708_tie.txt), b674`s rule and' % CUT_DOC,
+         '### b705`s row (2) not reached. Its table: relay data/%s, pinned at 96779e5, 209 lines, sha256 3bf77f85e2a5af68 = the base`s. The' % CUT_TABLE,
+         '### cut: each non-MATCHES row`s ACTION applied by the Edit tool on the rows alone, the paper`s title, opening label lines, version line and file',
+         '### name untouched (W-ORD-KEYSTONE-HEADS held: the cut writes rows, not the paper`s opening); the Correspondence cells :178 and :181 held (no',
+         '### Correspondence cell by hand, the paper off the 20-table roster, b704`s form at data/b704_cut.txt :32-:39).',
+         '### the base %s ; now %s.' % (base_ref, commit or 'the working tree'), '',
+         '### THE DISTANCE BY THE b670 METHOD: each non-MATCHES row`s STATED text searched whitespace-normalized in the document at the base and now,',
+         '### the row met where it no longer stands. Rows: base line | verdict | applied or HELD | stands at the base | stands now | the STATED text:']
+    for r in rows:
+        L.append('  :%-3d | %-11s | %-7s | base %-5s | now %-5s | %s' % (r['line'], r['verdict'], 'HELD' if r['held'] else 'applied', r['base'], r['now'], r['stated'][:110]))
+        if r['held']:
+            L.append('        HELD: a cell of the paper`s Correspondence table (base :176-:181); no Correspondence cell by hand, and the paper is off the 20-table roster')
+    unmet = [r for r in rows if not r['held'] and r['now']]
+    L += ['', '### THE RESIDUES (data/b690_rules.txt row (2); relay data/b708_quote.txt, two shapes, the search run before the cut`s commit): each quoting',
+          '### line, file :line -- carried by its own table or frozen as deposited; none written:']
+    L += ['  %s :%d' % (f, n_) for f, n_ in res]
+    L += ['', '### THE ROWS APPLIED THAT STILL STAND: %s' % (['%d %s' % (r['line'], r['stated'][:60]) for r in unmet] or 'NONE'),
+          '### UNDERSTATES (not in the distance): %d at the base, %d now' % (sum(1 for r in und if r['base']), sum(1 for r in und if r['now'])),
+          '### THE CONTROL, THE MATCHES ROWS: %d at the base ; standing now %d ; no longer standing %s' % (
+              sum(1 for _l, st in mt if norm(st) in base), sum(1 for _l, st in mt if norm(st) in now), ['%d %s' % (ln, st[:60]) for ln, st in mt_lost] or 'NONE'),
+          '### ### **THE DISTANCE BY THE b670 METHOD: BEFORE %d, AFTER %d ; ROWS APPLIED %d ; HELD %d (CORRESPONDENCE CELLS) ; QUOTING LINES %d ENTERED AS RESIDUES.**' % (
+              before, after, sum(1 for r in rows if not r['held']), sum(1 for r in rows if r['held']), len(res))]
+    if 'dry' not in a:
+        put_txt('%s_cut.txt' % ACT, L)
+        put_json('%s_cut.json' % ACT, dict(at=utc(), document=CUT_DOC, base=base_ref if commit else '', before=before, after=after,
+                                          held=[r['line'] for r in rows if r['held']], residues=res, matches_lost=[list(x) for x in mt_lost],
+                                          rows=[dict((k, v) for k, v in r.items()) for r in rows]))
+    print(NL.join(L[-4:]))
+
+
+def quotecheck(*a):
+    """a print only: G-RULE-RECUT-QUOTE's reading (tools/rule_arms.py, unedited) over the quote banks, restricted to this act's -- the search
+    before the cut's own PLACE-papers commit, every quoting line entered in the cut bank's residues."""
+    import rule_arms as RA
+    S = RA.sources(ACT, None, K.ANCHOR, K.PARTS, pre_relay=None, pre_pp=None)
+    mine = [q for q in S['quotes'] if q['act'] == int(ACT[1:])]
+    S2 = dict(S)
+    S2['quotes'] = mine
+    S2['cut_banks'] = dict((k, v) for k, v in S['cut_banks'].items() if k == int(ACT[1:]))
+    for q in mine:
+        print('  %s kind %s ; merge %s ; search at %s ; before the merge %s ; needled %s ; quoting %d ; unentered %d' % (
+            q['bank'], q.get('kind', 'kernel'), (q['merge'] or ['-'])[0][:7], q['at'], bool(q['merge'] and q['at'] and q['at'] < q['merge'][1]),
+            q['needled'], len(q['quoting']), len(q['unentered'])))
+    print('  the arm over b708`s banks: %s ; over every bank: %s' % (RA.reading('G-RULE-RECUT-QUOTE', S2), RA.reading('G-RULE-RECUT-QUOTE', S)))
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks, c1=c1,
-              probe=probe, probediff=probediff, runner=runner, probeview=probeview, probecompare=probecompare, tagstate=tagstate, printprobe=printprobe,
+              scratch=scratch, quote=quote, cutbank=cutbank, quotecheck=quotecheck, probe=probe, probediff=probediff, runner=runner, probeview=probeview, probecompare=probecompare, tagstate=tagstate, printprobe=printprobe,
               printsbank=printsbank, cellsreach=cellsreach,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
