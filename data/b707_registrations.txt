@@ -1,0 +1,81 @@
+b707 -- STEP ZERO, (R317)(4): THE HIGHER PAIRS' ROUTE, REGISTERED BEFORE ANY NUMBER -- THE TWELVE OFF-LINE PAIRS BEYOND b675'S MODULUS RULE, THEIR ROUTE PRICED BY ITS ARITHMETIC, ONE NAMED ALTERNATIVE (2026-10-23)
+
+### rows are registrations, each with its hypothesis, falsifier, controls, the act that computes it and the order it serves, in (R317)(4)'s
+### words. Written by the Write tool at step zero after the citation check and the branches, and committed alone before any computation of
+### this act (the ferry's Component 0; N3). No Li coefficient is computed this act: every figure below is read from a bank by path and line
+### (data/b705_detection.txt, data/b705_detection_controls.txt, data/b703_q0_band.txt, data/b703_registrations.txt, tools/b675_li_bench.py) or
+### is the pricing's own arithmetic on those figures, marked DERIVED (the certified height the rule needs, the count law's bound at it, the
+### onset cap). Nothing here is a statement that RH or GRH holds or locates any zero.
+
+  (i) THE HIGHER PAIRS' ROUTE -- COMPUTED AT b709 ON THE AUTHOR'S WORD; NO COEFFICIENT COMPUTED AT b707.
+      THE OBJECT: the twelve certified off-line pairs of Q0 = x^2 + xy + 6y^2 that b675's route does not reach, data/b705_detection.txt :15-:26
+          (idx 5-16; the five it reaches idx 0-4 at :10-:14, each WITHIN [0.67, 1.5]). Each pair's real part and height are b681's certified
+          zeros as data/b703_q0_band.txt :13-:15 bins them (17 off the line, 146 on it, 163 rows to height 149.72, :8-:9); the predicted n* is
+          the detection law's L0 / r(rho), L0 = r(rho0) x n*(rho0) = 108.5739533... (data/b705_detection_controls.txt :7; :6 n*(rho0) = 63676
+          equal to b675's). The pairs, each with its height and real part (data/b705_detection.txt's row), the predicted n* (the same row),
+          and the modulus the route would need -- b675's rule (tools/b675_li_bench.py constants_for :163-:175) requires every rest modulus
+          below r = (1 + R)/2 (R = |1 - 1/(1 - beta + i t)|, the pair's reflected point), the uncertified points' modulus bound
+          sqrt(1 + 2/T0^2) among them (:172), T0 = 150 the certified height (:36), the bound 1.00004444346 (data/b705_detection.txt :15, the
+          same at every row); at these twelve pairs r lies BELOW that bound, so the rule does not reach them (:169-:176's refusal). THE
+          MODULUS THE ROUTE WOULD NEED is the bound below r: a certified height T0' with sqrt(1 + 2/T0'^2) < r, i.e. T0' > sqrt(2 / (r^2 - 1))
+          (DERIVED from the rule's own form), and every zero of Q0 below T0' certified on the line or placed by its pair -- the count law's
+          bound on their number N_Q(T0') beside it (P3's M'(T) + 2 R(T), tools/b696_witness_balls.py count_unit :116-:121, the constants
+          data/b685_count.txt :21, :23; DERIVED, a bound, not a count: at T0 = 150 it reads about 185 where the bank holds 163 rows):
+            idx |  Re rho        |  height t      | r = (1 + R)/2 (the bank`s :15-:26) | predicted n* (the bank) | T0' the rule needs (DERIVED) | N_Q(T0') bound (DERIVED)
+             5  |  0.8086599714  |  61.687903768  | 1.00004055351 |  1338705 | 157.0 | 196
+             6  |  0.8498790995  |  64.434828940  | 1.00004213335 |  1288511 | 154.1 | 192
+             7  |  0.7136405423  |  75.081204182  | 1.00001894858 |  2865017 | 229.7 | 312
+             8  |  0.7957690258  |  79.598549664  | 1.00002333992 |  2325982 | 207.0 | 275
+             9  |  0.7304981576  |  89.518105978  | 1.00001438154 |  3774821 | 263.7 | 369
+            10  |  0.8117833479  |  92.151773718  | 1.00001835717 |  2957317 | 233.4 | 318
+            11  |  0.6054364221  |  93.081268401  | 1.00000608451 |  8922215 | 405.4 | 619
+            12  |  0.9515046579  | 107.39929110   | 1.00001957135 |  2773852 | 226.0 | 306
+            13  |  0.8230214293  | 110.19743296   | 1.00001330000 |  4081783 | 274.2 | 387
+            14  |  0.8394283849  | 124.77543810   | 1.00001090070 |  4980190 | 302.9 | 436
+            15  |  0.6665341524  | 127.62283672   | 1.00000511224 | 10619071 | 442.3 | 687
+            16  |  0.8743056607  | 137.88555701   | 1.00000984361 |  5515003 | 318.7 | 463
+          (Re rho and t to ten places from the bank's rows; the full digits are b681's, through b671's hashes.) Two pairs (5, 6) sit just past
+          the certified height: a list certified to 157 reaches them; to 319 all but 11 and 15; to 443 every one of the twelve.
+      THE ROUTE: b675's route unchanged in its arithmetic -- for each pair, constants_for (tools/b675_li_bench.py :163-:194) on the 146 ON rows
+          and that pair alone with dom = ref<idx> (b705's configuration, tools/b705_detection.py pair_rows :93-:95), the tail under T-COUNT
+          (A0 = 10, KMAX 20000, :35-:37), n* the onset of 2 - R^n/4 + C (n + 1)^2 s^n below 0 (onset :153-:160) -- run under a certified list
+          extended to T0' for the pair, so that the uncertified bound falls below r and the rule reaches it, and with the onset's cap raised
+          from 2,000,000 (:153) to 1.5 x the predicted n* (the range's upper factor): 2.0 x 10^6 at pair 6 to 1.6 x 10^7 at pair 15.
+      THE PRICE BY ITS ARITHMETIC (every figure DERIVED from the route's own constants):
+          the working precision: b675's 256 bits (:34); the onset expression's two large terms, R^n/4 and C (n + 1)^2 s^n, at n ~ 10^7 with
+          ln R ~ 1.0 x 10^-5 (R ~ 1.00001) stand near e^(n ln R) ~ e^100, and their difference against 2 is read in balls -- 256 bits carry it
+          (the relative loss is n ln(R/s) ~ 10^2 nats against 177 decimal digits); no precision rung is needed, the rung at 512 bits named as
+          the control's second reading if a ball at the onset contains 0;
+          the number of on-line zeros entering: the 146 certified ON rows enter every pair's K_cert (:178) as b705 ran them; to reach pair idx
+          the certified list must extend to T0' with every zero below it placed -- N_Q(T0') bounded at 192 to 687 (the table), two to five
+          times the 146 -- which is a NEW CERTIFICATION of Q0's zeros above 149.72 by b671/b681's narrowing route (data/b681_epstein_zeros_narrowed
+          through its hashes), the route's main price, in foreground parts by height, each part under the 590 s guard and resumable; its own
+          arithmetic (b681's) is not restated here;
+          the tail's contribution at that n: K_tail (:180-:186) under T-COUNT from the new T0', Sum_{k >= T0'} 2 A0 log(k + 4)/(1 + k^2) ~ 2 A0
+          log(T0')/T0' -- about 0.64 at T0' = 157 and 0.28 at 442 (DERIVED, an order of magnitude) -- entering K = K_cert + K_tail and
+          C = 2 (2 + 2 (1 + s)^2) K (:187-:188); at n* the term C (n + 1)^2 s^n is dominated by R^n/4 by the factor (R/s)^n / (C (n + 1)^2),
+          so the tail moves n* by its log alone; the onset loop's cost is linear in n*: b705's five pairs at n* <= 1,020,476 each ran as one
+          unit in the foreground (data/b705_detection.txt :10-:14); a pair at 10^7 is ten times that, split into resumable parts of the loop
+          (the units file b705's form, untracked).
+      ONE NAMED ALTERNATIVE: the coefficient computed from the explicit formula's PRIME-SIDE sum rather than the zero sum -- lambda_n as the
+          arithmetic limit of Z_Q's literature right-hand side at the Li member (b697's Route A, data/b697_arith_plan.txt :34-:48: P_n - PR_n +
+          A_n at symMember n, PR_n = Sum_m Lambda_Q(m) m^(-1/2) (k(log m) + k(-log m)) by b325's inversion in balls, tools/b694_witness_terms.py
+          lambda_q :291-:317, prime_sum :346-:358), reaching every pair at once since no zero list and no modulus rule enter. ITS OWN TAIL: the
+          member's profile e^(-X/2) L_{n-1}^{(1)}(X) oscillates to X ~ 4n, so the prime sum needs Lambda_Q(m) for m up to about e^(4n)
+          (:40-:45) -- at n* ~ 10^6 to 10^7 that is e^(4 x 10^6) and beyond, NOT PRICEABLE in any number of foreground parts (b697's reading at
+          the Li sibling n = 10034, :46-:48); the alternative is named and read as not reaching these pairs, b697's Route B (Lagarias Lemma 4.2,
+          :50-:60) standing beside it at its own cost in digits.
+      HYPOTHESIS (the detection law's, data/b703_registrations.txt :25): n*(rho) = L0 / r(rho) within the factor range [0.67, 1.5] at each of
+          the twelve pairs, L0 calibrated at rho0.
+      FALSIFIER: any pair's n* outside [0.67, 1.5] (data/b703_registrations.txt :26).
+      CONTROLS: (C1) b675's figure at rho0 reproduced by the route as b705 ran it (the configuration at T0 = 150, dom = ref0): n* = 63676
+          (data/b705_detection_controls.txt :6; data/b675_li_bench.txt :6); (C2) the five pairs b705 computed, idx 0-4, reproduced to the
+          same n* (63651, 358522, 897059, 798682, 1020476; data/b705_detection.txt :10-:14) under the list as b705 held it, before any pair of
+          the twelve is run; (C3) the five pairs run again under the extended list, their n* printed beside b705's and their ratios still within
+          the range -- the extension's effect read before it reaches the twelve.
+      THE ORDER IT SERVES: none named by (R317)(4); registered under the ruling's number for b709's ruling to name, beside the port's next
+          dispatch and the next axis ((R317)(10)).
+
+### ### **REGISTRATIONS 1 ; THE TWELVE PAIRS BY HEIGHT, REAL PART, PREDICTED n* AND THE MODULUS THE ROUTE NEEDS ; THE PRICE BY ITS ARITHMETIC
+### (256 BITS; 192 TO 687 ZEROS BY THE COUNT LAW`S BOUND; THE TAIL ~ 2 A0 log(T0`)/T0`) ; ONE ALTERNATIVE NAMED, ITS TAIL e^(4n), NOT PRICEABLE ;
+### COMPUTED AT b709 ; NO COEFFICIENT COMPUTED ; COMMITTED ALONE BEFORE ANY COMPUTATION.**
