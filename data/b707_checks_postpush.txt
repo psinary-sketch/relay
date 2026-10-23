@@ -1,0 +1,375 @@
+========================================================================================================
+b707 -- THE SUITE. ### **POST-PUSH READING.** ### SEVEN PARTS SUMMED ### every arm exercised on both controls.
+========================================================================================================
+  ### PART standing-a : ARMS 88 ; 248 s
+  ### PART standing-c : ARMS 8 ; 70 s
+  ### PART standing-b1 : ARMS 1 ; 123 s
+  ### PART standing-b2a : ARMS 0 ; 460 s
+  ### PART standing-b2b : ARMS 0 ; 124 s
+  ### PART standing-b3 : ARMS 1 ; 165 s
+  ### PART act : ARMS 39 ; 88 s
+  ### the parts` seconds summed 1278 ; the longest part 460 s, under the 590 s guard True
+  ### the failures declared on the face as carried (section (G2)): ['G-WORKFLOW-FILES', 'G-RUNNER-READ', 'G-RUNNER-GATE', 'G-READ-RULE-STANDING'] ; failing among them ['G-WORKFLOW-FILES', 'G-RUNNER-READ', 'G-RUNNER-GATE', 'G-READ-RULE-STANDING'] ; failing beyond them ['G-WRITELIST-KINDS', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-RESOLVED-EQUAL']
+  ### ### **ARMS RUN : 137. ### LIVE PASSING : 129. ### LIVE FAILING : 8 ['G-WORKFLOW-FILES', 'G-RUNNER-READ', 'G-RUNNER-GATE', 'G-WRITELIST-KINDS', 'G-READ-RULE-STANDING', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-RESOLVED-EQUAL'].**
+  ### ### **NEGATIVE-CONTROL FAILURES : 0. ### POSITIVE-CONTROL PASSES : 0 .**
+  ### ### **VERDICT : NOT CLEAN**
+========================================================================================================
+
+### THE PART BANK b707_checks_postpush_standing-a.txt, WHOLE:
+========================================================================================================
+b707 -- THE SUITE. ### **POST-PUSH READING.** ### PART standing-a ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 7477 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 52; the three arms at HEAD 186; the rule arms` trace 6; the four standing figures (not in this part) 0; the written files, the public bytes and the prior banks (not in this part) 4; the act-root chain`s part (not in this part) 0; the shared additive files (not in this part) 0; the table regenerated (not in this part or run) 0
+  ### THE LONGEST PHASE 186 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 137 ; in the suite : 137 ; run in this part : 88
+  ### (R264)(2) THE FREEZE: the standing arms (b706`s face less its own arms, the twenty-four rule arms and G-READ-RULE-STANDING among them; none added) 98 ; carried here 98 ; the act`s arms over its own banks ['G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-NEXT-AXIS-NAMED', 'G-ONSET-BANKED', 'G-ONSET-CONTROLS-FIRST', 'G-ONSET-HASHES', 'G-ORDERS-ENTERED', 'G-PARTS-PRERUN', 'G-PORT-BRANCH-KEPT', 'G-PORT-FILES', 'G-PORT-ONE-DISPATCH', 'G-PORT-RUN-READ', 'G-POSTROOT-WRITES-NONE', 'G-R317-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REGISTRATIONS-ALONE', 'G-REGISTRATIONS-REREAD', 'G-ROOTDRY-READY', 'G-ROSTER-REPAIRED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SPLIT-ARM-REPAIRED', 'G-TABLE-SCOPE-RESTORED', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-RESOLVED-EQUAL'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE RULE ARMS, EACH WITH ITS COUNT (tools/rule_arms.py; rows read, rows failing, the reading); the call trace 185 calls:
+  ###   G-RULE-PAIR-OF-READINGS      PASS read 0 ; failing 0 ; VACUOUS: no declaration of PAIR OF READINGS in any bank or ledger (the condition now distances [('b670_state.txt', [372, 90, 0, 33]), ('b680_closing.txt', [361])])
+  ###   G-RULE-METHOD-READINESS      PASS read 12 ; failing 0 ; the methods bank b700_r4_methods.txt: rows 12, READY 9, READY against the criteria NONE
+  ###   G-RULE-ROWGEN-REVIEW         PASS read 34 ; failing 0 ; acts b674-b707: banks 34, missing or not exit 0 NONE ; this act`s before its first ledger write True
+  ###   G-RULE-TRIGGER-T1            PASS read 0 ; failing 0 ; VACUOUS: no declaration of T1 in any bank or ledger (the condition now distances [('b670_state.txt', [372, 90, 0, 33]), ('b680_closing.txt', [361])])
+  ###   G-RULE-TRIGGER-T2            PASS read 0 ; failing 0 ; VACUOUS: no declaration of T2 in any bank or ledger (the condition now the outside-reader bank b680_outside.txt: ALL THREE 3 of ENTRIES 7)
+  ###   G-RULE-TRIGGER-T3            PASS read 0 ; failing 0 ; VACUOUS: no declaration of T3 in any bank or ledger (the condition now the methods bank b700_r4_methods.txt: READY 9 of 12)
+  ###   G-RULE-TRIGGER-T5            PASS read 0 ; failing 0 ; VACUOUS: no declaration of T5 in any bank or ledger (the condition now ferry banks carrying a ruling that retires the withholding: NONE)
+  ###   G-RULE-DETACHED-PRINT        PASS read 582 ; failing 0 ; unit rows 582 in ['b681_narrow_progress.txt'] ; without a time 0
+  ###   G-RULE-MIDACT-AFTER-ROOT     PASS read 36 ; failing 0 ; roots read 36 (b672 on) ; mid-act headers after the root in a root-named bank NONE
+  ###   G-RULE-CONSUMER-TOLERANCE    PASS read 6 ; failing 0 ; consumers sections 6 (plan banks b672 on) ; citing no bank NONE
+  ###   G-RULE-SCORES-BEFORE-SEAL    PASS read 2 ; failing 0 ; score-route calls 2, the first 2026-10-23T03:25:10Z ; the seal commit 2026-10-23T03:26:54Z
+  ###   G-RULE-DISPATCH-PER-TREE     PASS read 54 ; failing 0 ; runner banks 54 (b673 on), every run`s built tree read ; two runs of one tree in an act NONE
+  ###   G-RULE-WALK-TIP              PASS read 0 ; failing 0 ; VACUOUS: no walk bank from b684 (the floor); before it, without its tip: ['b679_zeta_walk.txt'] (b680`s defect (c))
+  ###   G-RULE-ONE-GIT-WRITE         PASS read 35 ; failing 0 ; messages carrying a git write 35 ; with more than one NONE
+  ###   G-RULE-REMOTE-REREAD         PASS read 1 ; failing 0 ; ls-remote calls 1 ; naming more than one NONE ; an empty read not re-read alone NONE
+  ###   G-RULE-TIE-BREAK             PASS read 6 ; failing 0 ; naming banks 6, ties 3 ; named against the rule NONE
+  ###   G-RULE-HEAD-LINE-QUOTED      PASS read 1 ; failing 0 ; the previous closing`s :1 'b706 closed: relay 30313a13, PLACE-papers c9e0086; suite 129' in this ruling`s (1): True
+  ###   G-RULE-CLOSING-DRY           PASS read 33 ; failing 0 ; gate banks b675-b707 read 33 ; without the closing dry-run step CLEAN NONE ; this act`s before the seal True
+  ###   G-RULE-LONG-PHASE-SPLIT      PASS read 1 ; failing 0 ; the previous act`s pre-run`s longest phase 348 s (above 450 s: False) ; its parts 7, this act`s 7 -- NOT REACHED
+  ###   G-RULE-SUITE-PARTS           PASS read 88 ; failing 0 ; run banks b678-b707 88, each against its act`s governing parts (b678_rules.txt from b678: ['standing-a', 'standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s NONE
+  ###   G-RULE-BINARY-HASHES         PASS read 16 ; failing 0 ; binary banks from b680 16, each carried by sha256 in a root-named text bank of its act, the root not naming the binary itself, or its frozen row corrected by a corrigendum (1: data/b694_circuit_SIDE-lv-conservation_v0.13.0.png OK BY CORRIGENDUM -- the frozen r
+  ###   G-RULE-SUITE-PART-CALLS      PASS read 20 ; failing 0 ; suite part and combine calls 20 ; carrying more than one NONE ; sharing a message NONE
+  ###   G-RULE-POSTSEAL-READ         PASS read 2 ; failing 0 ; shell calls after the seal 47 ; naming the entry, the dry entry or the trail 2 ; by a shell filter or a redirect NONE
+  ###   G-RULE-RECUT-QUOTE           PASS read 9 ; failing 0 ; quotation-search banks from b691 9, each removed line needled, the search before its merge, every quoting line entered in a cut bank of the act ; failing NONE ; acts with more cut banks than searches NONE
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-23T03:26:46Z : b707_worklist.py agree; b707_tests.py agree; b707_citation.py agree; b707_record.py agree; b707_checks.py agree; b707_closing.py agree; b707_reg_gate.py agree; b707_regspec.py agree; b707_corrigendum.py agree; b707_onset.py agree; b707_report.py agree
+  ### G-EDIT-ROUTE read 184 captured commands of this act and 6 of the previous act after its post-push suite; offences 0: none
+  ### THE CITATION CHECK: CITES CHECKED 161 ; OK 156 ; MISSES 5
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  ### SIDE-lv-conservation: main d38f3e8c99c3 ; v0.10.0 93c27ec2cb9b ; port-b707 69e239d920fa (its parent 93c27ec2cb9b) ; tags 16 ; the port run 39888369981 ; SIDE-explicit-formula main badacccb867e ; the join kernel main b37a7b6e6322
+  ### THE THREE ARMS AT HEAD (seconds 69, 76, 40):
+  ###   G-NO-SORRY-MAIN read 45 kernels` mains, pairs unequal 0; sorry in code 0: none
+  ###   G-AXIOM-CLAIM read 198 claims: CONTRADICTED 0, UNVERIFIABLE 7, VERIFIED 55, UNBOUND 4, MENTION 132
+  ###   G-MODULE-HEADER read 243 headers: OVERREACHES 0 rows 
+  arm                                            LIVE  NEG   POS   secs     verdict
+  ----------------------------------------------------------------------------------------------------------
+  G-RECEIPT-IN-FULL                              PASS  PASS  FAIL  0.000    OK
+  G-SCAN-CLEAN                                   PASS  PASS  FAIL  0.000    OK
+  G-PROCS-LISTED                                 PASS  PASS  FAIL  0.000    OK
+  G-STEPZERO-TESTS                               PASS  PASS  FAIL  0.007    OK
+  G-PUSHOUT-COMMITTED                            PASS  PASS  FAIL  0.000    OK
+  G-BRANCHES-DELETED                             PASS  PASS  FAIL  0.000    OK
+  G-READFIRST-CITED                              PASS  PASS  FAIL  0.001    OK
+  G-ANSWERS-BANKED                               PASS  PASS  FAIL  0.002    OK
+  G-LOCAL-BANK-UNTRACKED                         PASS  PASS  FAIL  0.000    OK
+  G-EXPORT-UNTRACKED                             PASS  PASS  FAIL  0.000    OK
+  G-EDIT-ROUTE                                   PASS  PASS  FAIL  0.045    OK
+  G-NO-LOCAL-LEAN                                PASS  PASS  FAIL  0.005    OK
+  G-WEIGHT-LINE                                  PASS  PASS  FAIL  0.009    OK
+  G-SPEC-PLANTED                                 PASS  PASS  FAIL  0.000    OK
+  G-CONVERSION-ONE                               PASS  PASS  FAIL  0.000    OK
+  G-WORKFLOW-FILES                               FAIL  FAIL  FAIL  0.000    ### FAILS -- THE CARRIED FAILURE DECLARED ON THE FACE
+  G-RUNNER-READ                                  FAIL  FAIL  FAIL  0.000    ### FAILS -- THE CARRIED FAILURE DECLARED ON THE FACE
+  G-RUNNER-GATE                                  FAIL  FAIL  FAIL  0.000    ### FAILS -- THE CARRIED FAILURE DECLARED ON THE FACE
+  G-MERGES-ON-GATE                               PASS  PASS  FAIL  0.000    OK
+  G-NO-SORRY-MAIN                                PASS  PASS  FAIL  0.002    OK
+  G-NO-SORRY-MAIN-PLANTED                        PASS  PASS  FAIL  0.000    OK
+  G-AXIOM-CLAIM                                  PASS  PASS  FAIL  0.003    OK
+  G-AXIOM-CLAIM-PLANTED                          PASS  PASS  FAIL  0.000    OK
+  G-MODULE-HEADER                                PASS  PASS  FAIL  0.003    OK
+  G-MODULE-HEADER-PLANTED                        PASS  PASS  FAIL  0.000    OK
+  G-CONVERSION-TEST                              PASS  PASS  FAIL  0.000    OK
+  G-PP-SCOPE                                     PASS  PASS  FAIL  0.000    OK
+  G-CURRENTS-UNEDITED                            PASS  PASS  FAIL  0.003    OK
+  G-KERNELS-UNTOUCHED                            PASS  PASS  FAIL  0.000    OK
+  G-INSTRUMENTS-UNEDITED                         PASS  PASS  FAIL  0.004    OK
+  G-FINDINGS-APPEND-ONLY                         PASS  PASS  FAIL  0.000    OK
+  G-TRAIL-APPEND-ONLY                            PASS  PASS  FAIL  0.001    OK
+  G-OUTSIDE-NAMED-NOWHERE                        PASS  PASS  FAIL  0.000    OK
+  G-DELETE-FREE                                  PASS  PASS  FAIL  0.019    OK
+  G-PUBLISH-UNCALLED                             PASS  PASS  FAIL  0.001    OK
+  G-SEALED-AFTER-COMPONENTS                      PASS  PASS  FAIL  0.000    OK
+  G-NOTHING-RAN-AHEAD                            PASS  PASS  FAIL  0.000    OK
+  G-LOCKGATE-EIGHT                               PASS  PASS  FAIL  0.000    OK
+  G-SEAL-VERIFIES                                PASS  PASS  FAIL  0.000    OK
+  G-SEAL-HASHES                                  PASS  PASS  FAIL  0.000    OK
+  G-ARMS-PRERUN                                  PASS  PASS  FAIL  0.000    OK
+  G-PRIOR-CLOSED-PUSHED                          PASS  PASS  FAIL  0.006    OK
+  G-TABLE-FINAL                                  PASS  PASS  FAIL  0.000    OK
+  G-ACTROOT-BANKED                               PASS  PASS  FAIL  0.348    OK
+  G-ROOT-BANKS-COMMITTED                         PASS  PASS  FAIL  0.000    OK
+  G-ACTROOT-LAST                                 PASS  PASS  FAIL  0.000    OK
+  G-FINDINGS-ENTRY                               PASS  PASS  FAIL  0.016    OK
+  G-TRAIL-RECORD                                 PASS  PASS  FAIL  0.011    OK
+  G-TRAIL-CARRIES-ROOT                           PASS  PASS  FAIL  0.000    OK
+  G-TRAIL-CARRIES-SEAL                           PASS  PASS  FAIL  0.015    OK
+  G-NEXT-ACT-NAMED                               PASS  PASS  FAIL  0.006    OK
+  G-N1-SCORED                                    PASS  PASS  FAIL  0.000    OK
+  G-N2-SCORED                                    PASS  PASS  FAIL  0.000    OK
+  G-N3-SCORED                                    PASS  PASS  FAIL  0.000    OK
+  G-N4-SCORED                                    PASS  PASS  FAIL  0.000    OK
+  G-N5-SCORED                                    PASS  PASS  FAIL  0.000    OK
+  G-SEAT-EXPECTATIONS-SCORED                     PASS  PASS  FAIL  0.000    OK
+  G-ARMS-DECLARED-EQ-RUN                         PASS  PASS  FAIL  0.000    OK
+  G-ARMS-NO-LIVE-LIMB                            PASS  PASS  FAIL  0.000    OK
+  G-MUSTFAIL                                     PASS  PASS  FAIL  0.000    OK
+  G-ARTEFACTS-NOT-COMMITTED                      PASS  PASS  FAIL  0.000    OK
+  G-PUSHED-PREDICATE-THREE-CLAUSED               PASS  PASS  FAIL  0.000    OK
+  G-CLOSING-SENTENCE                             PASS  PASS  FAIL  0.000    OK
+  G-LSREMOTE-ONE-PER-REPO                        PASS  PASS  FAIL  0.000    OK
+  G-RULE-PAIR-OF-READINGS                        PASS  PASS  FAIL  0.000    OK
+  G-RULE-METHOD-READINESS                        PASS  PASS  FAIL  0.000    OK
+  G-RULE-ROWGEN-REVIEW                           PASS  PASS  FAIL  0.000    OK
+  G-RULE-TRIGGER-T1                              PASS  PASS  FAIL  0.000    OK
+  G-RULE-TRIGGER-T2                              PASS  PASS  FAIL  0.000    OK
+  G-RULE-TRIGGER-T3                              PASS  PASS  FAIL  0.000    OK
+  G-RULE-TRIGGER-T5                              PASS  PASS  FAIL  0.000    OK
+  G-RULE-DETACHED-PRINT                          PASS  PASS  FAIL  0.000    OK
+  G-RULE-MIDACT-AFTER-ROOT                       PASS  PASS  FAIL  0.000    OK
+  G-RULE-CONSUMER-TOLERANCE                      PASS  PASS  FAIL  0.000    OK
+  G-RULE-SCORES-BEFORE-SEAL                      PASS  PASS  FAIL  0.000    OK
+  G-RULE-DISPATCH-PER-TREE                       PASS  PASS  FAIL  0.000    OK
+  G-RULE-WALK-TIP                                PASS  PASS  FAIL  0.000    OK
+  G-RULE-ONE-GIT-WRITE                           PASS  PASS  FAIL  0.000    OK
+  G-RULE-REMOTE-REREAD                           PASS  PASS  FAIL  0.000    OK
+  G-RULE-TIE-BREAK                               PASS  PASS  FAIL  0.000    OK
+  G-RULE-HEAD-LINE-QUOTED                        PASS  PASS  FAIL  0.000    OK
+  G-RULE-CLOSING-DRY                             PASS  PASS  FAIL  0.000    OK
+  G-RULE-LONG-PHASE-SPLIT                        PASS  PASS  FAIL  0.000    OK
+  G-RULE-SUITE-PARTS                             PASS  PASS  FAIL  0.000    OK
+  G-RULE-BINARY-HASHES                           PASS  PASS  FAIL  0.000    OK
+  G-RULE-SUITE-PART-CALLS                        PASS  PASS  FAIL  0.016    OK
+  G-RULE-POSTSEAL-READ                           PASS  PASS  FAIL  0.009    OK
+  G-RULE-RECUT-QUOTE                             PASS  PASS  FAIL  0.000    OK
+
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 45 repositories, at most 1 each
+  ### the arms` own seconds summed 0.5, the slowest G-ACTROOT-BANKED 0.35, G-EDIT-ROUTE 0.05, G-DELETE-FREE 0.02
+  ### the run took 248 s
+  ### PART standing-a : ARMS 88 ; LIVE PASSING 85 ; LIVE FAILING 3 ["G-WORKFLOW-FILES", "G-RUNNER-READ", "G-RUNNER-GATE"] ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 248 s
+========================================================================================================
+
+### THE PART BANK b707_checks_postpush_standing-c.txt, WHOLE:
+========================================================================================================
+b707 -- THE SUITE. ### **POST-PUSH READING.** ### PART standing-c ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 7561 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 55; the three arms at HEAD (not in this part) 0; the rule arms` trace (not in this part) 0; the four standing figures 2; the written files, the public bytes and the prior banks 13; the act-root chain`s part (not in this part) 0; the shared additive files (not in this part) 0; the table regenerated (not in this part or run) 0
+  ### THE LONGEST PHASE 55 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 137 ; in the suite : 137 ; run in this part : 8
+  ### (R264)(2) THE FREEZE: the standing arms (b706`s face less its own arms, the twenty-four rule arms and G-READ-RULE-STANDING among them; none added) 98 ; carried here 98 ; the act`s arms over its own banks ['G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-NEXT-AXIS-NAMED', 'G-ONSET-BANKED', 'G-ONSET-CONTROLS-FIRST', 'G-ONSET-HASHES', 'G-ORDERS-ENTERED', 'G-PARTS-PRERUN', 'G-PORT-BRANCH-KEPT', 'G-PORT-FILES', 'G-PORT-ONE-DISPATCH', 'G-PORT-RUN-READ', 'G-POSTROOT-WRITES-NONE', 'G-R317-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REGISTRATIONS-ALONE', 'G-REGISTRATIONS-REREAD', 'G-ROOTDRY-READY', 'G-ROSTER-REPAIRED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SPLIT-ARM-REPAIRED', 'G-TABLE-SCOPE-RESTORED', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-RESOLVED-EQUAL'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE FOUR STANDING FIGURES, each against the previous act`s (b706_standing_figures.json (b706`s figures; the readers over b706`s roster, data/b706_roster_read.json)):
+  ###   correspondence  live 0 ; previous 0
+  ###   readme          live 0 ; previous 0
+  ###   partners        live 0 ; previous 0
+  ###   pins            live 0 ; previous 0
+  ### G-READ-RULE-STANDING`S READING (relay data/b707_read_calls.txt): FAIL ; rows 314 ; offences 1 ['line 33 2026-10-22T23:38:21.686Z 521 lines offset None limit None C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\project_state_cp4_cp5_b559_b576.md'] ; the cap`s precursors 0
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-23T03:26:46Z : b707_worklist.py agree; b707_tests.py agree; b707_citation.py agree; b707_record.py agree; b707_checks.py agree; b707_closing.py agree; b707_reg_gate.py agree; b707_regspec.py agree; b707_corrigendum.py agree; b707_onset.py agree; b707_report.py agree
+  ### G-EDIT-ROUTE read 185 captured commands of this act and 6 of the previous act after its post-push suite; offences 0: none
+  ### THE CITATION CHECK: CITES CHECKED 161 ; OK 156 ; MISSES 5
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  ### SIDE-lv-conservation: main d38f3e8c99c3 ; v0.10.0 93c27ec2cb9b ; port-b707 69e239d920fa (its parent 93c27ec2cb9b) ; tags 16 ; the port run 39888369981 ; SIDE-explicit-formula main badacccb867e ; the join kernel main b37a7b6e6322
+  arm                                            LIVE  NEG   POS   secs     verdict
+  ----------------------------------------------------------------------------------------------------------
+  G-PRIORBANK-UNCHANGED                          PASS  PASS  FAIL  0.000    OK
+  G-NODISCLOSURE-PUBLIC                          PASS  PASS  FAIL  0.000    OK
+  G-WRITELIST-KINDS                              FAIL  FAIL  FAIL  0.000    ### FAILS
+  G-CORRESPONDENCE-CURRENCY                      PASS  PASS  FAIL  0.000    OK
+  G-README-CURRENCY                              PASS  PASS  FAIL  0.000    OK
+  G-PARTNER-COPIES                               PASS  PASS  FAIL  0.000    OK
+  G-SISTER-PINS                                  PASS  PASS  FAIL  0.000    OK
+  G-READ-RULE-STANDING                           FAIL  FAIL  FAIL  0.016    ### FAILS -- THE CARRIED FAILURE DECLARED ON THE FACE
+
+  ### tracked files written (167), each against the (W) globs: uncovered ['relay/tools/mirror_prevbuild.json']
+  ### G-PRIORBANK-UNCHANGED checked 23073 relay data banks tracked at 37e4a12f by blob id; changed NONE
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 2 repositories, at most 1 each
+  ### the arms` own seconds summed 0.0, the slowest G-READ-RULE-STANDING 0.02, G-PRIORBANK-UNCHANGED 0.00, G-NODISCLOSURE-PUBLIC 0.00
+  ### the run took 70 s
+  ### PART standing-c : ARMS 8 ; LIVE PASSING 6 ; LIVE FAILING 2 ["G-WRITELIST-KINDS", "G-READ-RULE-STANDING"] ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 70 s
+========================================================================================================
+
+### THE PART BANK b707_checks_postpush_standing-b1.txt, WHOLE:
+========================================================================================================
+b707 -- THE SUITE. ### **POST-PUSH READING.** ### PART standing-b1 ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 6863 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 52; the three arms at HEAD (not in this part) 0; the rule arms` trace (not in this part) 0; the four standing figures (not in this part) 0; the written files, the public bytes and the prior banks (not in this part) 4; the act-root chain`s part (not in this part) 0; the shared additive files 67; the table regenerated (not in this part or run) 0
+  ### THE LONGEST PHASE 67 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 137 ; in the suite : 137 ; run in this part : 1
+  ### (R264)(2) THE FREEZE: the standing arms (b706`s face less its own arms, the twenty-four rule arms and G-READ-RULE-STANDING among them; none added) 98 ; carried here 98 ; the act`s arms over its own banks ['G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-NEXT-AXIS-NAMED', 'G-ONSET-BANKED', 'G-ONSET-CONTROLS-FIRST', 'G-ONSET-HASHES', 'G-ORDERS-ENTERED', 'G-PARTS-PRERUN', 'G-PORT-BRANCH-KEPT', 'G-PORT-FILES', 'G-PORT-ONE-DISPATCH', 'G-PORT-RUN-READ', 'G-POSTROOT-WRITES-NONE', 'G-R317-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REGISTRATIONS-ALONE', 'G-REGISTRATIONS-REREAD', 'G-ROOTDRY-READY', 'G-ROSTER-REPAIRED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SPLIT-ARM-REPAIRED', 'G-TABLE-SCOPE-RESTORED', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-RESOLVED-EQUAL'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-23T03:26:46Z : b707_worklist.py agree; b707_tests.py agree; b707_citation.py agree; b707_record.py agree; b707_checks.py agree; b707_closing.py agree; b707_reg_gate.py agree; b707_regspec.py agree; b707_corrigendum.py agree; b707_onset.py agree; b707_report.py agree
+  ### G-EDIT-ROUTE read 188 captured commands of this act and 6 of the previous act after its post-push suite; offences 0: none
+  ### THE CITATION CHECK: CITES CHECKED 161 ; OK 156 ; MISSES 5
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  ### SIDE-lv-conservation: main d38f3e8c99c3 ; v0.10.0 93c27ec2cb9b ; port-b707 69e239d920fa (its parent 93c27ec2cb9b) ; tags 16 ; the port run 39888369981 ; SIDE-explicit-formula main badacccb867e ; the join kernel main b37a7b6e6322
+  arm                                            LIVE  NEG   POS   secs     verdict
+  ----------------------------------------------------------------------------------------------------------
+  G-SHARED-ADDITIVE                              PASS  PASS  FAIL  0.000    OK
+
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 0 repositories, at most 0 each
+  ### the arms` own seconds summed 0.0, the slowest G-SHARED-ADDITIVE 0.00
+  ### the run took 123 s
+  ### PART standing-b1 : ARMS 1 ; LIVE PASSING 1 ; LIVE FAILING 0 NONE ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 123 s
+========================================================================================================
+
+### THE PART BANK b707_checks_postpush_standing-b2a.txt, WHOLE:
+========================================================================================================
+b707 -- THE SUITE. ### **POST-PUSH READING.** ### PART standing-b2a ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 4237 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 56; the three arms at HEAD (not in this part) 0; the rule arms` trace (not in this part) 0; the four standing figures (not in this part) 0; the written files, the public bytes and the prior banks (not in this part) 4; the act-root chain`s part 399; the shared additive files (not in this part) 0; the table regenerated (not in this part or run) 0
+  ### THE LONGEST PHASE 399 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 137 ; in the suite : 137 ; run in this part : 0
+  ### (R264)(2) THE FREEZE: the standing arms (b706`s face less its own arms, the twenty-four rule arms and G-READ-RULE-STANDING among them; none added) 98 ; carried here 98 ; the act`s arms over its own banks ['G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-NEXT-AXIS-NAMED', 'G-ONSET-BANKED', 'G-ONSET-CONTROLS-FIRST', 'G-ONSET-HASHES', 'G-ORDERS-ENTERED', 'G-PARTS-PRERUN', 'G-PORT-BRANCH-KEPT', 'G-PORT-FILES', 'G-PORT-ONE-DISPATCH', 'G-PORT-RUN-READ', 'G-POSTROOT-WRITES-NONE', 'G-R317-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REGISTRATIONS-ALONE', 'G-REGISTRATIONS-REREAD', 'G-ROOTDRY-READY', 'G-ROSTER-REPAIRED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SPLIT-ARM-REPAIRED', 'G-TABLE-SCOPE-RESTORED', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-RESOLVED-EQUAL'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE ACT-ROOT CHAIN`S PART A1, b624-b641, recomputed at commit: b624 AGREE; b625 AGREE; b626 AGREE; b627 AGREE; b628 AGREE; b629 AGREE; b630 AGREE; b631 AGREE; b632 AGREE; b633 AGREE; b634 AGREE; b635 AGREE; b636 AGREE; b637 AGREE; b638 AGREE; b639 AGREE; b640 AGREE; b641 AGREE
+  ### THE BOUNDARY (relay data/act_roots.txt): b658 root 4804e20cb26559b227a168a41934fed94320c773fd7ad120f879c4f4b4d9dc6f ; b659 previous 4804e20cb26559b227a168a41934fed94320c773fd7ad120f879c4f4b4d9dc6f ; equal True
+  ### the reads at commit, b641: {'commit': '112daefa877528f1a8942fa45b28e0f28bc2a6c4', 'blob': 38, 'crlf': 4, 'later': 0, 'unread': 0, 'corrected': 0}
+  ### PART standing-b2a CARRIES NO ARM: its verdicts banked for standing-b3 in relay data/b707_chain_half_a1_checks_postpush.json
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-23T03:26:46Z : b707_worklist.py agree; b707_tests.py agree; b707_citation.py agree; b707_record.py agree; b707_checks.py agree; b707_closing.py agree; b707_reg_gate.py agree; b707_regspec.py agree; b707_corrigendum.py agree; b707_onset.py agree; b707_report.py agree
+  ### G-EDIT-ROUTE read 189 captured commands of this act and 6 of the previous act after its post-push suite; offences 0: none
+  ### THE CITATION CHECK: CITES CHECKED 161 ; OK 156 ; MISSES 5
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  ### SIDE-lv-conservation: main d38f3e8c99c3 ; v0.10.0 93c27ec2cb9b ; port-b707 69e239d920fa (its parent 93c27ec2cb9b) ; tags 16 ; the port run 39888369981 ; SIDE-explicit-formula main badacccb867e ; the join kernel main b37a7b6e6322
+  arm                                            LIVE  NEG   POS   secs     verdict
+  ----------------------------------------------------------------------------------------------------------
+  (no arm in this part)
+
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 38 repositories, at most 1 each
+  ### the arms` own seconds summed 0.0, the slowest NONE
+  ### the run took 461 s
+  ### PART standing-b2a : ARMS 0 ; LIVE PASSING 0 ; LIVE FAILING 0 NONE ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 460 s
+========================================================================================================
+
+### THE PART BANK b707_checks_postpush_standing-b2b.txt, WHOLE:
+========================================================================================================
+b707 -- THE SUITE. ### **POST-PUSH READING.** ### PART standing-b2b ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 6457 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 53; the three arms at HEAD (not in this part) 0; the rule arms` trace (not in this part) 0; the four standing figures (not in this part) 0; the written files, the public bytes and the prior banks (not in this part) 5; the act-root chain`s part 67; the shared additive files (not in this part) 0; the table regenerated (not in this part or run) 0
+  ### THE LONGEST PHASE 67 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 137 ; in the suite : 137 ; run in this part : 0
+  ### (R264)(2) THE FREEZE: the standing arms (b706`s face less its own arms, the twenty-four rule arms and G-READ-RULE-STANDING among them; none added) 98 ; carried here 98 ; the act`s arms over its own banks ['G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-NEXT-AXIS-NAMED', 'G-ONSET-BANKED', 'G-ONSET-CONTROLS-FIRST', 'G-ONSET-HASHES', 'G-ORDERS-ENTERED', 'G-PARTS-PRERUN', 'G-PORT-BRANCH-KEPT', 'G-PORT-FILES', 'G-PORT-ONE-DISPATCH', 'G-PORT-RUN-READ', 'G-POSTROOT-WRITES-NONE', 'G-R317-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REGISTRATIONS-ALONE', 'G-REGISTRATIONS-REREAD', 'G-ROOTDRY-READY', 'G-ROSTER-REPAIRED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SPLIT-ARM-REPAIRED', 'G-TABLE-SCOPE-RESTORED', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-RESOLVED-EQUAL'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE ACT-ROOT CHAIN`S PART A2, b642-b658, recomputed at commit: b642 AGREE; b643 AGREE; b644 AGREE; b645 AGREE; b646 AGREE; b647 AGREE; b648 AGREE; b649 AGREE; b650 AGREE; b651 AGREE; b652 AGREE; b653 AGREE; b654 AGREE; b655 AGREE; b656 AGREE; b657 AGREE; b658 AGREE
+  ### THE BOUNDARY (relay data/act_roots.txt): b658 root 4804e20cb26559b227a168a41934fed94320c773fd7ad120f879c4f4b4d9dc6f ; b659 previous 4804e20cb26559b227a168a41934fed94320c773fd7ad120f879c4f4b4d9dc6f ; equal True
+  ### the reads at commit, b658: {'commit': '3b737af3056fb1be05109c6868c7875cb4ac017e', 'blob': 33, 'crlf': 0, 'later': 0, 'unread': 0, 'corrected': 0}
+  ### PART standing-b2b CARRIES NO ARM: its verdicts banked for standing-b3 in relay data/b707_chain_half_a2_checks_postpush.json
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-23T03:26:46Z : b707_worklist.py agree; b707_tests.py agree; b707_citation.py agree; b707_record.py agree; b707_checks.py agree; b707_closing.py agree; b707_reg_gate.py agree; b707_regspec.py agree; b707_corrigendum.py agree; b707_onset.py agree; b707_report.py agree
+  ### G-EDIT-ROUTE read 189 captured commands of this act and 6 of the previous act after its post-push suite; offences 0: none
+  ### THE CITATION CHECK: CITES CHECKED 161 ; OK 156 ; MISSES 5
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  ### SIDE-lv-conservation: main d38f3e8c99c3 ; v0.10.0 93c27ec2cb9b ; port-b707 69e239d920fa (its parent 93c27ec2cb9b) ; tags 16 ; the port run 39888369981 ; SIDE-explicit-formula main badacccb867e ; the join kernel main b37a7b6e6322
+  arm                                            LIVE  NEG   POS   secs     verdict
+  ----------------------------------------------------------------------------------------------------------
+  (no arm in this part)
+
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 38 repositories, at most 1 each
+  ### the arms` own seconds summed 0.0, the slowest NONE
+  ### the run took 125 s
+  ### PART standing-b2b : ARMS 0 ; LIVE PASSING 0 ; LIVE FAILING 0 NONE ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 124 s
+========================================================================================================
+
+### THE PART BANK b707_checks_postpush_standing-b3.txt, WHOLE:
+========================================================================================================
+b707 -- THE SUITE. ### **POST-PUSH READING.** ### PART standing-b3 ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 6269 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 53; the three arms at HEAD (not in this part) 0; the rule arms` trace (not in this part) 0; the four standing figures (not in this part) 0; the written files, the public bytes and the prior banks (not in this part) 4; the act-root chain`s part 107; the shared additive files (not in this part) 0; the table regenerated (not in this part or run) 0
+  ### THE LONGEST PHASE 107 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 137 ; in the suite : 137 ; run in this part : 1
+  ### (R264)(2) THE FREEZE: the standing arms (b706`s face less its own arms, the twenty-four rule arms and G-READ-RULE-STANDING among them; none added) 98 ; carried here 98 ; the act`s arms over its own banks ['G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-NEXT-AXIS-NAMED', 'G-ONSET-BANKED', 'G-ONSET-CONTROLS-FIRST', 'G-ONSET-HASHES', 'G-ORDERS-ENTERED', 'G-PARTS-PRERUN', 'G-PORT-BRANCH-KEPT', 'G-PORT-FILES', 'G-PORT-ONE-DISPATCH', 'G-PORT-RUN-READ', 'G-POSTROOT-WRITES-NONE', 'G-R317-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REGISTRATIONS-ALONE', 'G-REGISTRATIONS-REREAD', 'G-ROOTDRY-READY', 'G-ROSTER-REPAIRED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SPLIT-ARM-REPAIRED', 'G-TABLE-SCOPE-RESTORED', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-RESOLVED-EQUAL'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE ACT-ROOT CHAIN`S PART B, b659-b707, recomputed at commit: b659 AGREE; b660 AGREE; b661 AGREE; b662 AGREE; b663 AGREE; b664 AGREE; b665 AGREE; b666 AGREE; b667 AGREE; b668 AGREE; b669 AGREE; b670 AGREE; b671 AGREE; b672 AGREE; b673 AGREE; b674 AGREE; b675 AGREE; b676 AGREE; b677 AGREE; b678 AGREE; b679 AGREE; b680 AGREE; b681 AGREE; b682 AGREE; b683 AGREE; b684 AGREE; b685 AGREE; b686 AGREE; b687 AGREE; b688 AGREE; b689 AGREE; b690 AGREE; b691 AGREE; b692 AGREE; b693 AGREE; b694 AGREE; b695 AGREE; b696 AGREE; b697 AGREE; b698 AGREE; b699 AGREE; b700 AGREE; b701 AGREE; b702 AGREE; b703 AGREE; b704 AGREE; b705 AGREE; b706 AGREE; b707 AGREE
+  ### THE BOUNDARY (relay data/act_roots.txt): b658 root 4804e20cb26559b227a168a41934fed94320c773fd7ad120f879c4f4b4d9dc6f ; b659 previous 4804e20cb26559b227a168a41934fed94320c773fd7ad120f879c4f4b4d9dc6f ; equal True
+  ### the reads at commit, b680: {'commit': '42d26968f808db6bb565c4b99f7e7928d15466ff', 'blob': 68, 'crlf': 0, 'later': 7, 'unread': 0, 'corrected': 4} ; b707: {'commit': '821db90aa5d800bb1f34ddeda3645ca9c395cc9f', 'blob': 83, 'crlf': 0, 'later': 0, 'unread': 0, 'corrected': 0}
+  ### THE FIRST HALF AS standing-b2a AND standing-b2b BANKED IT (relay data/b707_chain_half_a1_checks_postpush.json, data/b707_chain_half_a2_checks_postpush.json): 35 acts, AGREE 35, at HEAD 2507e99cc114 (now 2507e99cc114), its boundary equal True
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-23T03:26:46Z : b707_worklist.py agree; b707_tests.py agree; b707_citation.py agree; b707_record.py agree; b707_checks.py agree; b707_closing.py agree; b707_reg_gate.py agree; b707_regspec.py agree; b707_corrigendum.py agree; b707_onset.py agree; b707_report.py agree
+  ### G-EDIT-ROUTE read 190 captured commands of this act and 6 of the previous act after its post-push suite; offences 0: none
+  ### THE CITATION CHECK: CITES CHECKED 161 ; OK 156 ; MISSES 5
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  ### SIDE-lv-conservation: main d38f3e8c99c3 ; v0.10.0 93c27ec2cb9b ; port-b707 69e239d920fa (its parent 93c27ec2cb9b) ; tags 16 ; the port run 39888369981 ; SIDE-explicit-formula main badacccb867e ; the join kernel main b37a7b6e6322
+  arm                                            LIVE  NEG   POS   secs     verdict
+  ----------------------------------------------------------------------------------------------------------
+  G-ACTROOT-VERIFY                               PASS  PASS  FAIL  0.128    OK
+
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 38 repositories, at most 1 each
+  ### the arms` own seconds summed 0.1, the slowest G-ACTROOT-VERIFY 0.13
+  ### the run took 165 s
+  ### PART standing-b3 : ARMS 1 ; LIVE PASSING 1 ; LIVE FAILING 0 NONE ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 165 s
+========================================================================================================
+
+### THE PART BANK b707_checks_postpush_act.txt, WHOLE:
+========================================================================================================
+b707 -- THE SUITE. ### **POST-PUSH READING.** ### PART act ### every arm exercised on both controls.
+### the host`s free memory at the part`s start 7368 MB (the hold 2560 MB)
+========================================================================================================
+  ### THE PHASES, IN SECONDS: the banks and the state 53; the three arms at HEAD (not in this part) 0; the rule arms` trace (not in this part) 0; the four standing figures (not in this part) 0; the written files, the public bytes and the prior banks (not in this part) 4; the act-root chain`s part (not in this part) 0; the shared additive files (not in this part) 0; the table regenerated 30
+  ### THE LONGEST PHASE 53 s ; above 450 s: False (b675 rules row 2)
+  arms in the (G2) block : 137 ; in the suite : 137 ; run in this part : 39
+  ### (R264)(2) THE FREEZE: the standing arms (b706`s face less its own arms, the twenty-four rule arms and G-READ-RULE-STANDING among them; none added) 98 ; carried here 98 ; the act`s arms over its own banks ['G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-NEXT-AXIS-NAMED', 'G-ONSET-BANKED', 'G-ONSET-CONTROLS-FIRST', 'G-ONSET-HASHES', 'G-ORDERS-ENTERED', 'G-PARTS-PRERUN', 'G-PORT-BRANCH-KEPT', 'G-PORT-FILES', 'G-PORT-ONE-DISPATCH', 'G-PORT-RUN-READ', 'G-POSTROOT-WRITES-NONE', 'G-R317-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REGISTRATIONS-ALONE', 'G-REGISTRATIONS-REREAD', 'G-ROOTDRY-READY', 'G-ROSTER-REPAIRED', 'G-ROWGEN-STEPZERO', 'G-SCORER-READS-BANKS', 'G-SPLIT-ARM-REPAIRED', 'G-TABLE-SCOPE-RESTORED', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-RESOLVED-EQUAL'] ; arms beyond both NONE
+  ### standing arms not carried here: NONE
+  ### THE SEALED TOOLS, recorded at the seal 2026-10-23T03:26:46Z : b707_worklist.py agree; b707_tests.py agree; b707_citation.py agree; b707_record.py agree; b707_checks.py agree; b707_closing.py agree; b707_reg_gate.py agree; b707_regspec.py agree; b707_corrigendum.py agree; b707_onset.py agree; b707_report.py agree
+  ### G-EDIT-ROUTE read 191 captured commands of this act and 6 of the previous act after its post-push suite; offences 0: none
+  ### THE CITATION CHECK: CITES CHECKED 161 ; OK 156 ; MISSES 5
+  ### PLACE-papers` changed files 2 against the allowed 2 (the two ledgers): beyond NONE
+  ### SIDE-lv-conservation: main d38f3e8c99c3 ; v0.10.0 93c27ec2cb9b ; port-b707 69e239d920fa (its parent 93c27ec2cb9b) ; tags 16 ; the port run 39888369981 ; SIDE-explicit-formula main badacccb867e ; the join kernel main b37a7b6e6322
+  arm                                            LIVE  NEG   POS   secs     verdict
+  ----------------------------------------------------------------------------------------------------------
+  G-DRY-STEP-CLEAN                               PASS  PASS  FAIL  0.000    OK
+  G-CLOSING-DRY-STEP                             PASS  PASS  FAIL  0.000    OK
+  G-CITATION-CHECKED                             PASS  PASS  FAIL  0.001    OK
+  G-R317-ENTERED                                 PASS  PASS  FAIL  0.007    OK
+  G-ROWGEN-STEPZERO                              PASS  PASS  FAIL  0.001    OK
+  G-BRANCHES-BANKED                              PASS  PASS  FAIL  0.000    OK
+  G-DELETES-ONE-BRANCH                           PASS  PASS  FAIL  0.013    OK
+  G-ANSWERS-CHECKED                              PASS  PASS  FAIL  0.001    OK
+  G-ANSWERS-BEFORE-WRITES                        PASS  PASS  FAIL  0.000    OK
+  G-SCORER-READS-BANKS                           PASS  PASS  FAIL  0.003    OK
+  G-ENTRY-SCORES-EQUAL                           PASS  PASS  FAIL  0.010    OK
+  G-ENTRY-TITLE-FORM                             PASS  PASS  FAIL  0.021    OK
+  G-CORRIGENDUM-ENTERED                          PASS  PASS  FAIL  0.006    OK
+  G-GUARD-HELD                                   PASS  PASS  FAIL  0.002    OK
+  G-POSTROOT-WRITES-NONE                         PASS  PASS  FAIL  0.000    OK
+  G-TRAIL-LINES-EQUAL-DEFECTS                    FAIL  FAIL  FAIL  0.003    ### FAILS
+  G-TRAIL-DEFECTS-EQUAL                          FAIL  FAIL  FAIL  0.001    ### FAILS
+  G-TRAIL-RESOLVED-EQUAL                         FAIL  FAIL  FAIL  0.002    ### FAILS
+  G-DEFECTS-LETTERED                             PASS  PASS  FAIL  0.000    OK
+  G-TOOL-REPAIRS                                 PASS  PASS  FAIL  0.002    OK
+  G-ROOTDRY-READY                                PASS  PASS  FAIL  0.003    OK
+  G-FIGURES-BANKED                               PASS  PASS  FAIL  0.002    OK
+  G-READFIRST-DIFF-BANKED                        PASS  PASS  FAIL  0.000    OK
+  G-ORDERS-ENTERED                               PASS  PASS  FAIL  0.032    OK
+  G-REGISTRATIONS-ALONE                          PASS  PASS  FAIL  0.003    OK
+  G-ROSTER-REPAIRED                              PASS  PASS  FAIL  0.004    OK
+  G-TABLE-SCOPE-RESTORED                         PASS  PASS  FAIL  0.000    OK
+  G-SPLIT-ARM-REPAIRED                           PASS  PASS  FAIL  0.002    OK
+  G-ONSET-CONTROLS-FIRST                         PASS  PASS  FAIL  0.007    OK
+  G-ONSET-BANKED                                 PASS  PASS  FAIL  0.003    OK
+  G-ONSET-HASHES                                 PASS  PASS  FAIL  0.002    OK
+  G-REGISTRATIONS-REREAD                         PASS  PASS  FAIL  0.001    OK
+  G-PORT-FILES                                   PASS  PASS  FAIL  0.235    OK
+  G-PORT-ONE-DISPATCH                            PASS  PASS  FAIL  0.000    OK
+  G-PORT-RUN-READ                                PASS  PASS  FAIL  0.001    OK
+  G-PORT-BRANCH-KEPT                             PASS  PASS  FAIL  0.016    OK
+  G-NEXT-AXIS-NAMED                              PASS  PASS  FAIL  0.001    OK
+  G-PARTS-PRERUN                                 PASS  PASS  FAIL  0.000    OK
+  G-ARM-SECONDS-BANKED                           PASS  PASS  FAIL  0.001    OK
+
+  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 1 repositories, at most 1 each
+  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit 0.
+  ###   rows added 0 ; rows gone 0 ; grade-or-profile changed 0 
+  ### the arms` own seconds summed 0.4, the slowest G-PORT-FILES 0.23, G-ORDERS-ENTERED 0.03, G-ENTRY-TITLE-FORM 0.02
+  ### the run took 88 s
+  ### PART act : ARMS 39 ; LIVE PASSING 36 ; LIVE FAILING 3 ["G-TRAIL-LINES-EQUAL-DEFECTS", "G-TRAIL-DEFECTS-EQUAL", "G-TRAIL-RESOLVED-EQUAL"] ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 88 s
+========================================================================================================
+
