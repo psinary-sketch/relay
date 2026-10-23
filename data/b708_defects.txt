@@ -56,6 +56,14 @@ b708 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-23)
 
 ### EVENTS, UNLETTERED
 
+    G-CLOSING-DRY-STEP FAILING AFTER THE SEAL, IN THE PRE-PUSH RUN. The sealed arm (tools/b708_checks.py closing_dry_ok) forbids the string
+        "### NO VERDICT LINE" anywhere in the gate's record; the closing tool's dry run prints each act bank's verdict line and prints that
+        string for data/b708_prints_v0.17.txt, whose form (b706's prints bank, the probe step's print banked whole) carries no verdict line.
+        The closing's dry run read CLEAN and the gate CLEAR; the arm's own needle reads the closing's honest "no verdict line" as a failure --
+        the arm's defect, found after the seal, in the pre-push run (data/b708_checks_act.txt). No sealed tool is edited; the failure is
+        entered here unlettered (the trail landed at OPEN_TRAILS :15724 before it was found, its Defects and Resolved lines equal to the
+        lettered rows) and printed in the closing's defects line for the next act's corrigendum, as b707's (i) was.
+
     THE CITATION CHECK RUN TWICE. The first run (15:00Z) wrote the bank with five misses, one the check's own needle (data/b705_rules.txt row
         (1)'s "109 names at" read at :8 where it stands at :7); the needle corrected in the unsealed tool and the check re-run (15:02Z) before
         any other step, the bank rewritten with four misses, every one the navigator's ((c)-(f) above). b707 corrected its own needle on a
