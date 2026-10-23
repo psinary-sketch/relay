@@ -106,12 +106,27 @@ B706_TRAIL_HEAD = ('### b706 — lane two, act one hundred and thirty-three, the
                    'sorted and three tools repaired; the seventeen partner pairs renamed in place; the join’s manifest repaired and the join held at '
                    'lv-conservation’s module; the workflow’s probe step; the generator reaching the central kernel; the entry-tag prints at v0.1 and v0.2; '
                    'the faces row held')
+# ### stage two (Component 5, by the Edit tool): the commits in order, the sealed tools and the act's arms.
+STEPZERO = '5423957b'        # ### b706's closing push capture, committed alone at step zero
+STEPZERO_BANKS = 'b0c74f89'  # ### the ferry, the citation check, the readfirst bank, rowgen, the branches, the registrations' bank beside them, the tests, the first four tools
+REG_COMMIT = '6e8ece87'      # ### data/b707_registrations.txt committed alone, before any computation (N2)
+C1_RELAY, C1_PP = 'd421f27e', 'd73a05e'       # ### Component 1: the weight line, the three readers' repairs with their controls, the corrigendum, the tag-prints remainder
+C2_RELAY, C2_PP = '7a680bdc', ''              # ### Component 2 wrote no PLACE-papers byte: the onset tool and its banks
+C3_RELAY, C3_PP = '09cac603', '5ac3f81'       # ### Components 3 and 4 in one relay commit: the port's banks, the forward-port order line, the registrations re-read
+C4_RELAY, C4_PP = '09cac603', ''
+PORT_COMMIT = '69e239d920fa76f073cdc04f9c78132e325735e1'   # ### the one commit on port-b707 (five files), pushed alone in branch mode and read back
 SEALED = ('b707_worklist.py', 'b707_tests.py', 'b707_citation.py', 'b707_record.py', 'b707_checks.py', 'b707_closing.py', 'b707_reg_gate.py',
           'b707_regspec.py', 'b707_corrigendum.py', 'b707_onset.py', 'b707_report.py')
 REPAIRED_TOOLS = ('terminal_table.py', 'rule_arms.py')   # ### (R317)(2): the table's scope and the split arm's family reading, each by the Edit tool
-REPAIRED_DATA = ('tools/mirror_roster.json',)             # ### (R317)(2): the roster's 17 entries re-pointed by the Edit tool
+REPAIRED_DATA = ('tools/mirror_roster.json',)             # ### (R317)(2): the roster re-pointed to 70 entries by the Edit tool
 NEW_TOOLS = ('b707_onset.py', 'b707_report.py')
-ACT_ARMS = ()                # ### stage two (Component 5, by the Edit tool)
+ACT_ARMS = ('G-DRY-STEP-CLEAN', 'G-CLOSING-DRY-STEP', 'G-CITATION-CHECKED', 'G-R317-ENTERED', 'G-ROWGEN-STEPZERO', 'G-BRANCHES-BANKED',
+            'G-DELETES-ONE-BRANCH', 'G-ANSWERS-CHECKED', 'G-ANSWERS-BEFORE-WRITES', 'G-SCORER-READS-BANKS', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM',
+            'G-CORRIGENDUM-ENTERED', 'G-GUARD-HELD', 'G-POSTROOT-WRITES-NONE', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-DEFECTS-EQUAL',
+            'G-TRAIL-RESOLVED-EQUAL', 'G-DEFECTS-LETTERED', 'G-TOOL-REPAIRS', 'G-ROOTDRY-READY', 'G-FIGURES-BANKED', 'G-READFIRST-DIFF-BANKED',
+            'G-ORDERS-ENTERED', 'G-REGISTRATIONS-ALONE', 'G-ROSTER-REPAIRED', 'G-TABLE-SCOPE-RESTORED', 'G-SPLIT-ARM-REPAIRED', 'G-ONSET-CONTROLS-FIRST',
+            'G-ONSET-BANKED', 'G-ONSET-HASHES', 'G-REGISTRATIONS-REREAD', 'G-PORT-FILES', 'G-PORT-ONE-DISPATCH', 'G-PORT-RUN-READ', 'G-PORT-BRANCH-KEPT',
+            'G-NEXT-AXIS-NAMED', 'G-PARTS-PRERUN', 'G-ARM-SECONDS-BANKED')   # ### the thirty-nine over this act's own banks, run in the seventh part
 STANDING_ADDED = ()          # ### N5: no standing arm added
 SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')
