@@ -3,22 +3,22 @@
  "ruling": "(R107) K0",
  "repos_named": 45,
  "repos_with_git": 45,
- "ledgers": 114,
- "grade_cells": 527,
- "grade_cells_loose_v1": 2135,
- "grade_cells_v2": 676,
- "grade_cells_v3": 538,
+ "ledgers": 97,
+ "grade_cells": 426,
+ "grade_cells_loose_v1": 1612,
+ "grade_cells_v2": 520,
+ "grade_cells_v3": 436,
  "grade_window": 120,
  "grade_matcher": "v4 nearest-name, compound-aware",
  "pins_named": 6,
  "registry_table_line": 692,
  "counts": {
-  "rows": 2122,
-  "not_profiled": 1211,
+  "rows": 2110,
+  "not_profiled": 1199,
   "ungraded": 0,
-  "conflict": 23,
-  "encodes": 5,
-  "ledger_names_unresolved": 46,
+  "conflict": 10,
+  "encodes": 9,
+  "ledger_names_unresolved": 32,
   "statement_unresolved": 36
  },
  "workorders_b516": {
@@ -620,10 +620,6 @@
     "grh_structural_exhaustiveness_proved"
    ],
    [
-    "SIDE-grh-transfer",
-    "paired_topological_no_sigma_preference"
-   ],
-   [
     "SIDE-kernel",
     "cr_forces_half"
    ],
@@ -633,15 +629,7 @@
    ],
    [
     "SIDE-kernel",
-    "spectral_cannon"
-   ],
-   [
-    "SIDE-kernel",
     "topological_constant"
-   ],
-   [
-    "SIDE-kernel",
-    "zero_codimension"
    ],
    [
     "SIDE-lv-conservation",
@@ -2048,7 +2036,6 @@
   "E2even",
   "ENGINE",
   "Grade.le",
-  "I.is_universal",
   "INTERFACES",
   "INVARIANCE_BARRIERS",
   "MATCHES",
@@ -2056,38 +2043,25 @@
   "R4_positivity",
   "R5_output",
   "R_CURVE_CRITERION",
-  "RegisterPentagon",
   "RiemannHypothesis",
   "RvMBridge27.bl_explicit_formula",
   "RvMBridge27.liValue",
-  "SIDEDerivative.exactly_c1_derives",
-  "SIDEDerivative.no_onLine_double_iff_transversal",
   "SIMPLICITY_OF_RIEMANN_ZEROS",
   "SteaneLabeling",
-  "a27415d",
-  "bc4751e",
   "bl_explicit_formula",
-  "c80bdc2",
-  "covers_all",
   "decide",
   "derivGrade",
-  "e3d08b6",
   "exactly_c1_derives",
   "fbdc36bb",
   "h2_sign_upto_mono",
   "h_conserved",
-  "hurwitzOddFEPair",
   "inequalityToPositivity",
-  "lam_additive",
   "li_coefficients_eq_zero_sum",
   "li_criterion",
   "no_onLine_double_iff_transversal",
-  "one_zpow",
-  "s.interfaces",
   "sorryAx",
   "stripDerivBound",
-  "supersede",
-  "voice6.self_adjoint_forces_half"
+  "supersede"
  ],
  "rows": [
   {
@@ -2279,41 +2253,6 @@
     "INTERFACES",
     "SHELL"
    ],
-   "mark": null,
-   "provenance": "cell",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-bsd-formation-transfer",
-   "name": "formation_preserved",
-   "head": "34917669160d",
-   "pin": null,
-   "pin_sha": null,
-   "pin_cell": null,
-   "refs": [
-    "HEAD"
-   ],
-   "present_at": [
-    "HEAD"
-   ],
-   "statement": "theorem formation_preserved :\n    n1_BSD = n1_xi ∧ n2_BSD = n2_xi ∧ n3_BSD = n3_xi ∧ n4_BSD = n4_xi",
-   "statement_file": "SIDEBSDFormationTransfer/Basic.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "SHELL",
-   "grade_cells": [
-    {
-     "grade": "SHELL",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/GRH_CASCADE.md",
-     "line": 391,
-     "act": null,
-     "quote": "**SHELL — work-order (W-5 family).** PULLED as a citation per author ruling (2026-07-13): `formation_preserved` is `decide` over hand-assigned constants (`n1_BSD`…`n4_BSD`"
-    }
-   ],
-   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -3307,13 +3246,6 @@
      "line": 2075,
      "act": null,
      "quote": "instances_ordered` compiled; the E-Difficulty biconditional `EDifficultyTop` the single INTERFACES point, consumed by `RH_typeI_of_top` (named premise, never"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/method/EXHAUSTIVENESS_LICENSE.md",
-     "line": 77,
-     "act": null,
-     "quote": "nstructed. In the kernel this biconditional is the **single INTERFACES point** — carried as a *named premise* (`EDifficultyTop`), consumed by `RH_typeI_of_top`, and **never proved inside"
     }
    ],
    "conflict": null,
@@ -4241,7 +4173,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "INTERFACES",
    "grade_cells": [
     {
      "grade": "INTERFACES",
@@ -4249,26 +4181,9 @@
      "line": 1266,
      "act": null,
      "quote": "egative spectrum, μₙ = n², whose heat trace is the kernel*; `Register5_output_HilbertPolya`, INTERFACES, **disclaimed**: *an operator self-adjoint w.r.t. a positiv"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 302,
-     "act": null,
-     "quote": "**INTERFACES** — the certified R5-input spectrum `{n²}` is NOT zero-realizing: it fails `Register5_output_HilbertPolya`'s `:190` realization clause (extracted verbatim as `Realize"
-    },
-    {
-     "grade": "ENCODES-CONCLUSION",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 623,
-     "act": null,
-     "quote": "ENCODES-CONCLUSION: `Register5_output_HilbertPolya` holds (`register5_output_holds`), so its bridge premise `Re"
     }
    ],
-   "conflict": [
-    "ENCODES-CONCLUSION",
-    "INTERFACES"
-   ],
+   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -5215,33 +5130,11 @@
    "profile": "depends on axioms: [propext, Classical.choice, Quot.sound]",
    "profile_state": "PROFILED",
    "profile_source": "relay:data/b532_profile.json",
-   "grade": "ENCODES-CONCLUSION",
-   "grade_cells": [
-    {
-     "grade": "ENCODES-CONCLUSION",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 619,
-     "act": null,
-     "quote": "ENCODES-CONCLUSION: its premise is RH restated (`ch_iff_rh`)"
-    },
-    {
-     "grade": "ENCODES-CONCLUSION",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 686,
-     "act": "b539",
-     "quote": "its premise is RH restated (`ch_iff_rh`), EQUIVALENT-REWORDING under (R151)(2): ENCODES-CONCLUSION"
-    },
-    {
-     "grade": "ENCODES-CONCLUSION",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 718,
-     "act": null,
-     "quote": "- reads: `ConservationHypothesis` is RH restated (`ch_iff_rh`); Route 3 formalizes RH ⇒ RH, its terminal ENCODES-CONCLUSION (T2)."
-    }
-   ],
+   "grade": "DERIVES",
+   "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "cell",
+   "provenance": "rule",
    "zeta_row": false,
    "ei": "—"
   },
@@ -52775,7 +52668,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "ENCODES-CONCLUSION",
    "grade_cells": [
     {
      "grade": "ENCODES-CONCLUSION",
@@ -52783,26 +52676,9 @@
      "line": 4684,
      "act": "b531",
      "quote": "onservationHypothesis` is RH restated** by the kernel’s own `balance_theorem`; the Route 3 terminal ENCODES-CONCLUSION against \"h2_sign → RH\" (b531); 31 deposited sentences read,"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 179,
-     "act": null,
-     "quote": "**DERIVES (five):** `techne_kernel_voice1.balance_theorem` (C₂), `techne_kernel_voice2.symmetries_agree_iff` (C₁), `te"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 221,
-     "act": null,
-     "quote": "**DERIVES (five):** `techne_kernel_voice1.balance_theorem` (C₂), `techne_kernel_voice2.symmetries_agree_iff` (C₁), `te"
     }
    ],
-   "conflict": [
-    "DERIVES",
-    "ENCODES-CONCLUSION"
-   ],
+   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -52998,18 +52874,10 @@
    "profile_state": "NOT PROFILED",
    "profile_source": null,
    "grade": "DERIVES",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/GRH_CASCADE.md",
-     "line": 133,
-     "act": null,
-     "quote": "bution is $\\sigma$-neutral. Kernel: `c7_chi_exclusion` (via `paired_topological_no_sigma_preference`). **Order-≤1 input → DERIVES (2026-07-17, 1.5b-6 two-part-split template):** the Hadamar"
-    }
-   ],
+   "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "cell",
+   "provenance": "rule",
    "zeta_row": false,
    "ei": "—"
   },
@@ -53121,7 +52989,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "DERIVES",
    "grade_cells": [
     {
      "grade": "DERIVES",
@@ -53129,33 +52997,9 @@
      "line": 1930,
      "act": null,
      "quote": "σ`) and `Finset.univ` off it; `c6_exclusion` closes through `cr_forces_half`, which DERIVES σ = 1/2 from `reflect_fixed_iff : 1 − σ = σ ↔ σ = 1/2` (no"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/method/TECHNE_TOOLKIT.md",
-     "line": 38,
-     "act": null,
-     "quote": "vel** — the de-encoded codimension count `zero_codimension`/`cr_forces_half` (ξ-faithfulness INTERFACES-named); **C₇ (Hadamard) is a definition-encoded stand-in**,"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/method/TECHNE_TOOLKIT.md",
-     "line": 518,
-     "act": null,
-     "quote": "carries a COMPILED-SPECIMEN sub-anchor (`zero_codimension`/`cr_forces_half`, model-level DERIVES; ξ-faithfulness INTERFACES-named); **C₇** is definition-enc"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/method/TECHNE_TOOLKIT.md",
-     "line": 518,
-     "act": null,
-     "quote": "carries a COMPILED-SPECIMEN sub-anchor (`zero_codimension`/`cr_forces_half`, model-level DERIVES; ξ-faithfulness INTERFACES-named); **C₇** is definition-encoded (relabeled stand-in; f"
     }
    ],
-   "conflict": [
-    "DERIVES",
-    "INTERFACES"
-   ],
+   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -53180,7 +53024,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "ENCODES-CONCLUSION",
    "grade_cells": [
     {
      "grade": "ENCODES-CONCLUSION",
@@ -53191,62 +53035,10 @@
     },
     {
      "grade": "ENCODES-CONCLUSION",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 179,
-     "act": null,
-     "quote": "ORD-C7-WITNESS closed-by-compile, not open**). The stand-in `topological_constant` is **ENCODES-CONCLUSION** — it states only that the σ-neutral contribution is *assi"
-    },
-    {
-     "grade": "ENCODES-CONCLUSION",
      "ledger": "PLACE-papers/REGISTRY.md",
      "line": 505,
      "act": null,
      "quote": ", `691295b`; W-ORD-C7-WITNESS closed-by-compile) + stand-in `voice7.topological_constant` (ENCODES-CONCLUSION); `c7_forces_half` concluded `σ=σ`, deprecated 2026-07-29;"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 179,
-     "act": null,
-     "quote": "`Voice7Witness.hadamard_does_not_enforce_online` (faithful, DERIVES) + `techne_kernel_voice7.topological_constant` (stand-in, ENCODES-CONCLUSION)"
-    }
-   ],
-   "conflict": [
-    "DERIVES",
-    "ENCODES-CONCLUSION"
-   ],
-   "mark": null,
-   "provenance": "cell",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-grh-transfer",
-   "name": "zero_codimension",
-   "head": "6e149db34ab5",
-   "pin": null,
-   "pin_sha": null,
-   "pin_cell": null,
-   "refs": [
-    "HEAD"
-   ],
-   "present_at": [
-    "HEAD"
-   ],
-   "statement": "noncomputable def zero_codimension (sigma : Real) : Nat",
-   "statement_file": "SIDEGRHTransfer/Voice3bVendored.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "DERIVES",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/method/TECHNE_TOOLKIT.md",
-     "line": 38,
-     "act": null,
-     "quote": "-derivation claim. In the kernel, **C₆ (Cauchy-Riemann) now DERIVES at model level** — the de-encoded codimension count `zero_codimension`/`cr_forces_half` (ξ-faithfulness INTERFACES-named); **C₇ (H"
     }
    ],
    "conflict": null,
@@ -53489,20 +53281,6 @@
      "line": 5812,
      "act": "b555",
      "quote": "ence_universal` on `I.is_universal`; the route terminals on `ConservationHypothesis` before E-2026-09-25-1 showed it RH restated -- is **T2-INTERFACES**: the premise's truth is the programme's to establish, so"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 297,
-     "act": null,
-     "quote": "**INTERFACES** — named premise: `ConservationHypothesis` (the statement is `riemann_hypothesis (h_cons : Conservatio"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 686,
-     "act": "b539",
-     "quote": "INTERFACES on `ConservationHypothesis`"
     }
    ],
    "conflict": null,
@@ -53710,25 +53488,10 @@
    "profile_state": "NOT PROFILED",
    "profile_source": null,
    "grade": "DERIVES",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/rcurve/R_CURVE_CRITERION.md",
-     "line": 351,
-     "act": "b397",
-     "quote": "**DERIVES** — consumes the perpendicular crossing; `spectral_cannon` @ `691295b` wired ### **BRANCH-RESIDENT: this terminal is o"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/rcurve/R_CURVE_CRITERION.md",
-     "line": 472,
-     "act": null,
-     "quote": "Deriv_zero` | `{propext, Classical.choice, Quot.sound}` | **DERIVES** — consumes the perpendicular crossing; `spectral_cannon` @ `691295b` wired |"
-    }
-   ],
+   "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "cell",
+   "provenance": "rule",
    "zeta_row": true,
    "ei": "E (=)"
   },
@@ -53823,20 +53586,6 @@
      "line": 1937,
      "act": null,
      "quote": "**W-ORD-C7-WITNESS is NOT open — it is closed-by-compile** (`Voice7Witness.hadamard_does_not_enforce_online`, 2026-07-24, `691295b`, axiom-free DERIVES; the Epstein countermodel). The repair ruling's \"open work-"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 234,
-     "act": null,
-     "quote": "t resolution — while its **faithful content is compiled and DERIVES**: `Voice7Witness.hadamard_does_not_enforce_online` (SIDE-kernel, axiom-free, 2026-07-24 `691295b`), the Epstei"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 179,
-     "act": null,
-     "quote": "rence** (σ-neutral): its faithful content is **compiled and DERIVES** — `Voice7Witness.hadamard_does_not_enforce_online` (SIDE-kernel, axiom-free, 2026-07-24 `691295b`), the Epstei"
     }
    ],
    "conflict": [
@@ -53924,7 +53673,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "ENCODES-CONCLUSION",
    "grade_cells": [
     {
      "grade": "ENCODES-CONCLUSION",
@@ -53932,26 +53681,9 @@
      "line": 4684,
      "act": "b531",
      "quote": "onservationHypothesis` is RH restated** by the kernel’s own `balance_theorem`; the Route 3 terminal ENCODES-CONCLUSION against \"h2_sign → RH\" (b531); 31 deposited sentences read,"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 179,
-     "act": null,
-     "quote": "**DERIVES (five):** `techne_kernel_voice1.balance_theorem` (C₂), `techne_kernel_voice2.symmetries_agree_iff` (C₁), `te"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 221,
-     "act": null,
-     "quote": "**DERIVES (five):** `techne_kernel_voice1.balance_theorem` (C₂), `techne_kernel_voice2.symmetries_agree_iff` (C₁), `te"
     }
    ],
-   "conflict": [
-    "DERIVES",
-    "ENCODES-CONCLUSION"
-   ],
+   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -54013,7 +53745,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "ENCODES-CONCLUSION \\ SHELL",
    "grade_cells": [
     {
      "grade": "ENCODES-CONCLUSION \\ SHELL",
@@ -54021,19 +53753,9 @@
      "line": 952,
      "act": null,
      "quote": "- `bright_access_required` — **ENCODES-CONCLUSION \\ SHELL.** Contrapositive of the definitional cap; inherits `sieve_"
-    },
-    {
-     "grade": "SHELL",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md",
-     "line": 653,
-     "act": null,
-     "quote": "two E-Difficulty \"SCAFFOLDING\" base rows (`sieve_ceiling`, `bright_access_required`) → **SHELL** (work-orders — cite `sieve_ceiling_semantic` for content)"
     }
    ],
-   "conflict": [
-    "ENCODES-CONCLUSION \\ SHELL",
-    "SHELL"
-   ],
+   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -54278,34 +54000,6 @@
      "line": 1919,
      "act": null,
      "quote": "ustivenessLicense.lean`; the E-Difficulty bridge cited as **INTERFACES on a named premise** (the `e_difficulty` biconditional lives in SIDE-kernel with Mathlib; the vanill"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md",
-     "line": 247,
-     "act": null,
-     "quote": ", 2026-07-19). The E-Difficulty terminals are de-vacuified: `e_difficulty` reads its system and extracts the Ostrowski (DERIVES, `{propext, Quot.sound}`), the contentful ceiling is the ax"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase2/method/E_DIFFICULTY_THEOREM.md",
-     "line": 8,
-     "act": null,
-     "quote": "174`, 2026-07-19); the skeleton terminals are de-vacuified (`e_difficulty` reads its system, DERIVES, `{propext, Quot.sound}`) and are **no longer shells**. The"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase2/method/E_DIFFICULTY_THEOREM.md",
-     "line": 160,
-     "act": null,
-     "quote": "fied at SIDE-kernel v1.4 = `f374174` (W-6-EXT, 2026-07-19): `e_difficulty` strengthened from the skeleton-form to reads-its-system (DERIVES, `{propext, Quot.sound}`) — no longer a shell; grades hold"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase2/method/E_DIFFICULTY_THEOREM.md",
-     "line": 171,
-     "act": null,
-     "quote": "`f374174`, 2026-07-19).** The terminals are de-vacuified — `e_difficulty` now reads its system and extracts the Ostrowski (**DERIVES**, `{propext, Quot.sound}`), the contentful ceiling is the"
     }
    ],
    "conflict": [
@@ -54675,7 +54369,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "ENCODES-CONCLUSION \\ SHELL",
    "grade_cells": [
     {
      "grade": "ENCODES-CONCLUSION \\ SHELL",
@@ -54683,19 +54377,9 @@
      "line": 951,
      "act": null,
      "quote": "- `sieve_ceiling` — **ENCODES-CONCLUSION \\ SHELL.** The cap is defined into `maxStatement`; the theorem prov"
-    },
-    {
-     "grade": "SHELL",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase2/method/E_DIFFICULTY_THEOREM.md",
-     "line": 249,
-     "act": null,
-     "quote": "*Row :162 MOVED:* READING (7): the bullet names `sieve_ceiling` as the ceiling without SCAFFOLDING, SHELL or work-order on the bullet"
     }
    ],
-   "conflict": [
-    "ENCODES-CONCLUSION \\ SHELL",
-    "SHELL"
-   ],
+   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -54721,7 +54405,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "SHELL \\ ENCODES",
    "grade_cells": [
     {
      "grade": "SHELL \\ ENCODES",
@@ -54729,52 +54413,6 @@
      "line": 1972,
      "act": null,
      "quote": "ort, NOT COMMITTED — author rules on the statement first** (SHELL/ENCODES until wired to the compiled `sieve_ceiling_semantic`). **Arm 3 (2-bit phase):** `TRIVIUM_FINDINGS` §VII — M_H=vv"
-    },
-    {
-     "grade": "SHELL",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase2/method/E_DIFFICULTY_THEOREM.md",
-     "line": 254,
-     "act": null,
-     "quote": ":** the bullets cite the v1.1 skeleton; the paragraph names `sieve_ceiling_semantic` as the contentful ceiling, but no bullet carries SCAFFOLDING, SHELL or work-order."
-    }
-   ],
-   "conflict": [
-    "SHELL",
-    "SHELL \\ ENCODES"
-   ],
-   "mark": null,
-   "provenance": "cell",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-kernel",
-   "name": "silence_principle",
-   "head": "70aba3cd7392",
-   "pin": "v1.5",
-   "pin_sha": "0e5233f01153",
-   "pin_cell": "### **`v1.5` = `0e5233f`** — the deposited wave; concept DOI `10.5281/zenodo.19674312`, version DOI `10.5281/zenodo.21520474`",
-   "refs": [
-    "v1.5",
-    "HEAD"
-   ],
-   "present_at": [
-    "v1.5"
-   ],
-   "statement": "theorem silence_principle\n    (determined : ∀ I : InterfaceContribution Config Val, Essential I → Universal I)\n    (I : InterfaceContribution Config Val)\n    (P : BehavioralParam Config Val)\n    (hI : Essential I) :\n    Silent I P",
-   "statement_file": "Kernel/SilencePrinciple.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "ENCODES-CONCLUSION",
-   "grade_cells": [
-    {
-     "grade": "ENCODES-CONCLUSION",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md",
-     "line": 653,
-     "act": null,
-     "quote": "rows (`product_formula_silent`, `distributive_law_silent`, `silence_principle`) → **ENCODES-CONCLUSION** (they certify the in-kernel Boolean model; the arithmetic"
     }
    ],
    "conflict": null,
@@ -55030,59 +54668,6 @@
   },
   {
    "repo": "SIDE-kernel",
-   "name": "techne_kernel_voice1.balance_theorem",
-   "head": "70aba3cd7392",
-   "pin": "v1.5",
-   "pin_sha": "0e5233f01153",
-   "pin_cell": "### **`v1.5` = `0e5233f`** — the deposited wave; concept DOI `10.5281/zenodo.19674312`, version DOI `10.5281/zenodo.21520474`",
-   "refs": [
-    "v1.5",
-    "HEAD"
-   ],
-   "present_at": [
-    "v1.5"
-   ],
-   "statement": "theorem balance_theorem (p : Nat) (hp : Nat.Prime p) (s : Real) :\n    (prime_as_real p hp) ^ (-s) = (prime_as_real p hp) ^ (-(1 - s))\n    <-> s = 1 / 2",
-   "statement_file": "Kernel/Voice1.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "CONFLICT",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 179,
-     "act": null,
-     "quote": "**DERIVES (five):** `techne_kernel_voice1.balance_theorem` (C₂), `techne_kernel_voice2.symmetries_agree_iff` (C₁), `te"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 221,
-     "act": null,
-     "quote": "**DERIVES (five):** `techne_kernel_voice1.balance_theorem` (C₂), `techne_kernel_voice2.symmetries_agree_iff` (C₁), `te"
-    },
-    {
-     "grade": "ENCODES-CONCLUSION",
-     "ledger": "PLACE-papers/FINDINGS.md",
-     "line": 4684,
-     "act": "b531",
-     "quote": "onservationHypothesis` is RH restated** by the kernel’s own `balance_theorem`; the Route 3 terminal ENCODES-CONCLUSION against \"h2_sign → RH\" (b531); 31 deposited sentences read,"
-    }
-   ],
-   "conflict": [
-    "DERIVES",
-    "ENCODES-CONCLUSION"
-   ],
-   "mark": null,
-   "provenance": "cell",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-kernel",
    "name": "techne_kernel_voice3b.codim_off_line",
    "head": "70aba3cd7392",
    "pin": "v1.5",
@@ -55160,7 +54745,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "DERIVES",
    "grade_cells": [
     {
      "grade": "DERIVES",
@@ -55168,33 +54753,9 @@
      "line": 1930,
      "act": null,
      "quote": "σ`) and `Finset.univ` off it; `c6_exclusion` closes through `cr_forces_half`, which DERIVES σ = 1/2 from `reflect_fixed_iff : 1 − σ = σ ↔ σ = 1/2` (no"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/method/TECHNE_TOOLKIT.md",
-     "line": 38,
-     "act": null,
-     "quote": "vel** — the de-encoded codimension count `zero_codimension`/`cr_forces_half` (ξ-faithfulness INTERFACES-named); **C₇ (Hadamard) is a definition-encoded stand-in**,"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/method/TECHNE_TOOLKIT.md",
-     "line": 518,
-     "act": null,
-     "quote": "carries a COMPILED-SPECIMEN sub-anchor (`zero_codimension`/`cr_forces_half`, model-level DERIVES; ξ-faithfulness INTERFACES-named); **C₇** is definition-enc"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/method/TECHNE_TOOLKIT.md",
-     "line": 518,
-     "act": null,
-     "quote": "carries a COMPILED-SPECIMEN sub-anchor (`zero_codimension`/`cr_forces_half`, model-level DERIVES; ξ-faithfulness INTERFACES-named); **C₇** is definition-encoded (relabeled stand-in; f"
     }
    ],
-   "conflict": [
-    "DERIVES",
-    "INTERFACES"
-   ],
+   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -55337,19 +54898,11 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "DERIVES",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/method/TECHNE_TOOLKIT.md",
-     "line": 38,
-     "act": null,
-     "quote": "-derivation claim. In the kernel, **C₆ (Cauchy-Riemann) now DERIVES at model level** — the de-encoded codimension count `zero_codimension`/`cr_forces_half` (ξ-faithfulness INTERFACES-named); **C₇ (H"
-    }
-   ],
+   "grade": "DEF",
+   "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "cell",
+   "provenance": "rule",
    "zeta_row": false,
    "ei": "—"
   },
@@ -55374,22 +54927,8 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "ENCODES-CONCLUSION",
    "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 179,
-     "act": null,
-     "quote": "`Voice7Witness.hadamard_does_not_enforce_online` (faithful, DERIVES) + `techne_kernel_voice7.topological_constant` (stand-in, ENCODES-CONCLUSION)"
-    },
-    {
-     "grade": "ENCODES-CONCLUSION",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 179,
-     "act": null,
-     "quote": "ess.hadamard_does_not_enforce_online` (faithful, DERIVES) + `techne_kernel_voice7.topological_constant` (stand-in, ENCODES-CONCLUSION)"
-    },
     {
      "grade": "ENCODES-CONCLUSION",
      "ledger": "PLACE-papers/REGISTRY.md",
@@ -55405,10 +54944,7 @@
      "quote": "_online` (DERIVES, axiom-free, `691295b`) with the stand-in `topological_constant` (ENCODES-CONCLUSION), and note the proof does not rest on the C₇ row. (3) PATHS"
     }
    ],
-   "conflict": [
-    "DERIVES",
-    "ENCODES-CONCLUSION"
-   ],
+   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -55552,27 +55088,6 @@
      "line": 2122,
      "act": null,
      "quote": "`R4_channelDecomposition` = `lam_add` (DERIVES, axiom-free); `R4_positivity_to_RH` = the Li-criterion equi"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 72,
-     "act": null,
-     "quote": "y face**: its `R4_channelDecomposition` edge is exactly the `lam_add` channel-additivity §B.1 already rests on (DERIVES, axiom-free, SIDE-li-map `73cee42`), and its `R4_positivity"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 723,
-     "act": null,
-     "quote": "y face**: its `R4_channelDecomposition` edge is exactly the `lam_add` channel-additivity §B.1 already rests on (DERIVES, axiom-free, SIDE-li-map `73cee42`), and its `R4_positivity"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 725,
-     "act": "b545",
-     "quote": "253 at SIDE-lv-conservation `v0.10.0`), the additivity that `lam_add` proves at SIDE-li-map `73cee42` over integer streams (DERIVES, profile [propext, Quot.sound], §B.1 :150 and fresh at b545"
     }
    ],
    "conflict": null,
@@ -55609,13 +55124,6 @@
      "line": 1266,
      "act": null,
      "quote": "e — the pentagon's R5 face (`Register5_input` certified via `C5_input_at_Phi`, DERIVES: *a real non-negative spectrum, μₙ = n², whose heat trace i"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 69,
-     "act": null,
-     "quote": "t/output distance runs from a certified {n²} heat-spectrum (`C5_input_at_Phi`, DERIVES) to a disclaimed {γ} operator-spectrum (Hilbert–Pólya) — ne"
     }
    ],
    "conflict": null,
@@ -55652,13 +55160,6 @@
      "line": 2019,
      "act": null,
      "quote": "tum**; \"presence does not enforce on-line placement\" then **DERIVES** as the countermodel statement (kin to the T3″ countermodel and `C7_finite_type_false`). **Landing:** a compiled *negative* (what C₇'s presence pr"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 257,
-     "act": null,
-     "quote": "eady closed the χ-side GRH order-input (GRH_CASCADE C₇ row, DERIVES); `C7_finite_type_false` brackets the maximal-type growth regime under Voros's λ_A a"
     }
    ],
    "conflict": null,
@@ -55825,119 +55326,12 @@
      "line": 1702,
      "act": null,
      "quote": "n (recorded).** The discharge is a genuine but **isolated** DERIVES: it de-opaques `low` and converts one of `ExplicitFormulaDecomp`'s ~three assumed clauses to a theorem; the decomposition co"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 304,
-     "act": null,
-     "quote": "**INTERFACES — three named premises**: `VerifiedZerosTo T` (external computation, zeros verified past 10⁹); `ExplicitFormulaDecomp` (Bombieri–Lagarias — **finite-set conjunct now DERIVES**, `"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 187,
-     "act": null,
-     "quote": "**INTERFACES** — three named premises (`VerifiedZerosTo T`; `ExplicitFormulaDecomp`, Bombieri–Lagarias — **finite-set conjunct now DERIVES**, `"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/rcurve/R_CURVE_CRITERION.md",
-     "line": 355,
-     "act": null,
-     "quote": "**INTERFACES** — three named premises (`VerifiedZerosTo T`; `ExplicitFormulaDecomp`, Bombieri–Lagarias; `TailBoundPremise`, Voros n ≳ 2T²). λ_n"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md",
-     "line": 446,
-     "act": null,
-     "quote": "**INTERFACES — three named premises** (`VerifiedZerosTo T`; `ExplicitFormulaDecomp`, Bombieri–Lagarias; `TailBoundPremise`, Voros $n \\gtrsim 2T"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 682,
-     "act": "b540",
-     "quote": "INTERFACES on `ExplicitFormulaDecomp` and `TailBoundPremise` (literature, not compiled) and the n"
     }
    ],
    "conflict": [
     "DERIVES",
     "INTERFACES"
    ],
-   "mark": null,
-   "provenance": "cell",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-lv-conservation",
-   "name": "NontrivialZeroExistsInStrip",
-   "head": "d38f3e8c99c3",
-   "pin": "v0.8.0",
-   "pin_sha": "6efa9e54dadf",
-   "pin_cell": "`v0.8.0` = `6efa9e5` and `v0.10.0` = `93c27ec` as cited per-document",
-   "refs": [
-    "v0.8.0",
-    "HEAD"
-   ],
-   "present_at": [
-    "HEAD"
-   ],
-   "statement": "def NontrivialZeroExistsInStrip : Prop",
-   "statement_file": "SIDELvConservation/RegisterPentagon.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "INTERFACES",
-   "grade_cells": [
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 624,
-     "act": null,
-     "quote": "INTERFACES on `NontrivialZeroExistsInStrip` (Hardy), not compiled"
-    }
-   ],
-   "conflict": null,
-   "mark": null,
-   "provenance": "cell",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-lv-conservation",
-   "name": "PartialPositivity.blTerm_nonneg_of_onLine",
-   "head": "d38f3e8c99c3",
-   "pin": "v0.8.0",
-   "pin_sha": "6efa9e54dadf",
-   "pin_cell": "`v0.8.0` = `6efa9e5` and `v0.10.0` = `93c27ec` as cited per-document",
-   "refs": [
-    "v0.8.0",
-    "HEAD"
-   ],
-   "present_at": [
-    "v0.8.0"
-   ],
-   "statement": "lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) :\n    0 ≤ blTerm z n",
-   "statement_file": "SIDELvConservation/PartialPositivity.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "DERIVES",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 137,
-     "act": null,
-     "quote": "iled down-payments: on-line-term nonnegativity is *proved* (`PartialPositivity.blTerm_nonneg_of_onLine`, SIDE-lv-conservation v0.8.0 = `6efa9e5`, grade **DERIVES** — Re ρ = ½ ⟹ each Bombieri–Lagarias term ≥ 0), and finite"
-    }
-   ],
-   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -56003,13 +55397,6 @@
    "grade_cells": [
     {
      "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 57,
-     "act": null,
-     "quote": "DISCHARGED (2026-07-24)** — P1's finite-set conjunct is now DERIVES (`PartialPositivity.lowFinset_mem_iff`, SIDE-lv-conservation v0.10.0 = `93c27ec`); the decompositi"
-    },
-    {
-     "grade": "DERIVES",
      "ledger": "PLACE-papers/FINDINGS.md",
      "line": 902,
      "act": null,
@@ -56042,76 +55429,6 @@
      "line": 1936,
      "act": null,
      "quote": "= Σ_{low} blTerm + tail (`ExplicitFormulaDecomp`; low half DERIVES `lowFinset_mem_iff` v0.10.0, blTerm nonneg on-line), assert **the prime-ledger"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/day1/A_Place_to_Stand.md",
-     "line": 1810,
-     "act": null,
-     "quote": "te set — is now itself **proved** (`lowFinset` constructed, `lowFinset_mem_iff` DERIVES via an entire ξ-carrier and analytic isolated zeros), repla"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/day1/A_Place_to_Stand.md",
-     "line": 2189,
-     "act": null,
-     "quote": "cit-formula premise is now proved (`lowFinset` constructed, `lowFinset_mem_iff` DERIVES via an entire ξ-carrier + analytic isolated zeros), replaci"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 46,
-     "act": null,
-     "quote": "threshold), on-line term proved; **finite-set conjunct now DERIVES** (`lowFinset_mem_iff`, v0.10.0); all-n tail open"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 271,
-     "act": null,
-     "quote": "-ORD-P1-FINSET marked DISCHARGED** (finite-set conjunct now DERIVES, `lowFinset_mem_iff`, lv v0.10.0); II.7 / the R4 door / §ANNEX A wired to §ANNEX"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 304,
-     "act": null,
-     "quote": "rmulaDecomp` (Bombieri–Lagarias — **finite-set conjunct now DERIVES**, `lowFinset_mem_iff` at lv SIDE-lv-conservation v0.10.0 = `93c27ec`; the decompo"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 325,
-     "act": null,
-     "quote": "T DISCHARGED (2026-07-24):** the finite-set conjunct is now DERIVES (`lowFinset_mem_iff`, lv SIDE-lv-conservation v0.10.0 = `93c27ec`); the decompos"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 379,
-     "act": null,
-     "quote": "tialPositivity_finiteRange` (lv `6efa9e5`); finite-set half DERIVES (`lowFinset_mem_iff`, v0.10.0)"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 513,
-     "act": null,
-     "quote": "r than when a fold noticed:** R4’s *finite-set conjunct now DERIVES* (`lowFinset_mem_iff`, lv v0.10.0) and R5’s *compiled boundary marker* (`certifie"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 137,
-     "act": null,
-     "quote": "which the `ExplicitFormulaDecomp` **finite-set conjunct now DERIVES** (`lowFinset_mem_iff`, lv SIDE-lv-conservation v0.10.0 = `93c27ec`); a certificat"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 187,
-     "act": null,
-     "quote": "rmulaDecomp`, Bombieri–Lagarias — **finite-set conjunct now DERIVES**, `lowFinset_mem_iff`, lv SIDE-lv-conservation v0.10.0 = `93c27ec`; the decomposi"
     }
    ],
    "conflict": null,
@@ -56144,31 +55461,10 @@
    "grade_cells": [
     {
      "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 137,
-     "act": null,
-     "quote": "Li positivity λ_n ≥ 0 for 1 ≤ n ≤ N₀(T) ≈ 2T² is certified (`PartialPositivity.partialPositivity_finiteRange`, grade **INTERFACES** — three named premises, of which the `ExplicitFormulaDeco"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 239,
-     "act": null,
-     "quote": "- **`:187` `PartialPositivity.partialPositivity_finiteRange` -- T4 → T1-lit** (`(R150)`(3)): it INTERFACES on literature theorems not yet compiled (`ExplicitFormulaDe"
-    },
-    {
-     "grade": "INTERFACES",
      "ledger": "PLACE-papers/archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md",
      "line": 1270,
      "act": null,
      "quote": "ximity (author-requested, mapped):** R4 positivity CLOSEST (`partialPositivity_finiteRange`, λₙ ≥ 0 for n ≤ N₀(T) ≈ 2T², on-line term proved) → R1/R2 named premises (INTERFACES) → R3 totality (h2 = `mellin Φ(s/2) ≠ 0` off-line, the raw"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 594,
-     "act": null,
-     "quote": "`partialPositivity_finiteRange` INTERFACES on `ExplicitFormulaDecomp`, `TailBoundPremise` (literature,"
     }
    ],
    "conflict": null,
@@ -56212,41 +55508,6 @@
      "line": 2122,
      "act": null,
      "quote": "R4_channelDecomposition` = `lam_add` (DERIVES, axiom-free); `R4_positivity_to_RH` = the Li-criterion equivalence (INTERFACES, named premise) — STRUCTURE only"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 564,
-     "act": null,
-     "quote": "r`s head)**; the Li form`s equivalence is **not compiled** (`R4_positivity_to_RH` INTERFACES on Li`s criterion, not in Mathlib); channel additivity `lam"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 72,
-     "act": null,
-     "quote": "ts on (DERIVES, axiom-free, SIDE-li-map `73cee42`), and its `R4_positivity_to_RH` edge is exactly the Li-criterion equivalence below (INTERFACES, Li's criterion as named premise). On the present bench the"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 723,
-     "act": null,
-     "quote": "ts on (DERIVES, axiom-free, SIDE-li-map `73cee42`), and its `R4_positivity_to_RH` edge is exactly the Li-criterion equivalence below (INTERFACES, Li's criterion as named premise).\"*"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 725,
-     "act": "b545",
-     "quote": "propext, Quot.sound], §B.1 :150 and fresh at b545), and its `R4_positivity_to_RH` edge is the Li-criterion equivalence (INTERFACES, Li's criterion as named premise, T1-lit).\"*"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 770,
-     "act": null,
-     "quote": "nce to RH is not compiled in the federation: the pentagon's `R4_positivity_to_RH` (SIDE-lv-conservation `v0.10.0`, `RegisterPentagon.lean`:266) INTERFACES on Li's criterion as a named premise. It is T1-lit, and the"
     }
    ],
    "conflict": null,
@@ -56275,7 +55536,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "ENCODES",
    "grade_cells": [
     {
      "grade": "ENCODES-CONCLUSION",
@@ -56297,41 +55558,9 @@
      "line": 500,
      "act": null,
      "quote": "the output face holds outright, so `R5_output_HilbertPolya_to_RH` ENCODES its conclusion (R151)(2); the marker is T1-lit"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 553,
-     "act": null,
-     "quote": "rtified and C₅-output as the disclaimed Hilbert–Pólya edge (`R5_output_HilbertPolya_to_RH`, INTERFACES — **DISCLAIMED**, the bridge named but never asserted, clos"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 750,
-     "act": null,
-     "quote": "rtified and C₅-output as the disclaimed Hilbert–Pólya edge (`R5_output_HilbertPolya_to_RH`, INTERFACES — **DISCLAIMED**, the bridge named but never asserted, clos"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 751,
-     "act": null,
-     "quote": "- reads: `R5_output_HilbertPolya_to_RH` INTERFACES on a premise that is RH restated, since `Register5_output_H"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/BALANCE_AND_POSITIVITY.md",
-     "line": 752,
-     "act": null,
-     "quote": "`): C₅-input is certified (`C5_input_at_Phi`), and the edge `R5_output_HilbertPolya_to_RH` INTERFACES on a premise that is RH restated, since `Register5_output_H"
     }
    ],
-   "conflict": [
-    "ENCODES",
-    "ENCODES-CONCLUSION",
-    "INTERFACES"
-   ],
+   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -56386,7 +55615,7 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "CONFLICT",
+   "grade": "INTERFACES",
    "grade_cells": [
     {
      "grade": "INTERFACES",
@@ -56394,26 +55623,9 @@
      "line": 1266,
      "act": null,
      "quote": "egative spectrum, μₙ = n², whose heat trace is the kernel*; `Register5_output_HilbertPolya`, INTERFACES, **disclaimed**: *an operator self-adjoint w.r.t. a positiv"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 302,
-     "act": null,
-     "quote": "**INTERFACES** — the certified R5-input spectrum `{n²}` is NOT zero-realizing: it fails `Register5_output_HilbertPolya`'s `:190` realization clause (extracted verbatim as `Realize"
-    },
-    {
-     "grade": "ENCODES-CONCLUSION",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 623,
-     "act": null,
-     "quote": "ENCODES-CONCLUSION: `Register5_output_HilbertPolya` holds (`register5_output_holds`), so its bridge premise `Re"
     }
    ],
-   "conflict": [
-    "ENCODES-CONCLUSION",
-    "INTERFACES"
-   ],
+   "conflict": null,
    "mark": null,
    "provenance": "cell",
    "zeta_row": false,
@@ -56482,20 +55694,6 @@
      "line": 1468,
      "act": null,
      "quote": "`v0.9.0 = e3d08b6`** adds the C₅-distance compiled marker (`certifiedInput_not_zeroRealizing`, h2 candidate #4, INTERFACES; census two sites; joins the next wave, not yet deposited)"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 140,
-     "act": null,
-     "quote": "rt–Pólya) disclaimed, never claimed; **C₅-distance marker** `certifiedInput_not_zeroRealizing` (lv-conservation v0.9.0, INTERFACES) — the certified `{n²}` input spectrum is NOT zero-realizin"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 565,
-     "act": null,
-     "quote": "the marker `certifiedInput_not_zeroRealizing` INTERFACES on `NontrivialZeroExistsInStrip`, a literature theorem not"
     }
    ],
    "conflict": null,
@@ -56526,20 +55724,6 @@
    "profile_source": null,
    "grade": "DERIVES",
    "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/GRH_CASCADE.md",
-     "line": 143,
-     "act": null,
-     "quote": "**Correspondence (transport edge, graded).** DERIVES — the transport itself, the move from per-class exclusion to the joint conclusion (goal ⇐ h1 ∧ h2), is compiled as `RegisterPentagon.goalState_of_h1_h2` at **SIDE-lv-conservation v0.7.0 = `2d86182`** (`{propext,"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/GRH_CASCADE.md",
-     "line": 407,
-     "act": null,
-     "quote": "graded note: the per-class → joint move (goal ⇐ h1 ∧ h2) is DERIVES, compiled as `RegisterPentagon.goalState_of_h1_h2` (SIDE-lv-conservation v0.7.0 = `2d86182`, native via `T3.T3"
-    },
     {
      "grade": "DERIVES",
      "ledger": "PLACE-papers/archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md",
@@ -57456,49 +56640,6 @@
   },
   {
    "repo": "SIDE-lv-conservation",
-   "name": "SIDELvConservation.exists_norm_completedLFunction_le_exp",
-   "head": "d38f3e8c99c3",
-   "pin": "v0.8.0",
-   "pin_sha": "6efa9e54dadf",
-   "pin_cell": "`v0.8.0` = `6efa9e5` and `v0.10.0` = `93c27ec` as cited per-document",
-   "refs": [
-    "v0.8.0",
-    "HEAD"
-   ],
-   "present_at": [
-    "v0.8.0"
-   ],
-   "statement": "theorem exists_norm_completedLFunction_le_exp {N : ℕ} [NeZero N]\n    (χ : DirichletCharacter ℂ N) (hχ : χ ≠ 1) :\n    ∃ A C : ℝ, ∀ s : ℂ,\n      ‖DirichletCharacter.completedLFunction χ s‖\n        ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))",
-   "statement_file": "SIDELvConservation/DirichletC7Order.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "DERIVES",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 141,
-     "act": null,
-     "quote": "ed terminal for χ ≠ 1, both parities, over the whole plane (`SIDELvConservation.exists_norm_completedLFunction_le_exp`, SIDE-lv-conservation v0.5.0 = `1767bd6`, grade **DERIVES**; Correspondence below), so the χ-side assumes no more tha"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/GRH_CASCADE.md",
-     "line": 405,
-     "act": null,
-     "quote": "Verify-first: the C₇-order citation is the χ-side order-≤1 DERIVES input (`exists_norm_completedLFunction_le_exp`), **not** the census exclusion stand-in — no relabel. No co"
-    }
-   ],
-   "conflict": null,
-   "mark": null,
-   "provenance": "cell",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-lv-conservation",
    "name": "SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp",
    "head": "d38f3e8c99c3",
    "pin": "v0.8.0",
@@ -57526,13 +56667,6 @@
      "line": 620,
      "act": null,
      "quote": "lit, not a one-cell fill): the **input** (ξ order ≤ 1) is **DERIVES** at `SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp`, SIDE-lv-conservation `v0.4.0 = 0d2d74c` (clean `{propext,"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md",
-     "line": 473,
-     "act": null,
-     "quote": "ally distinct steps: the **input** (ξ has order ≤ 1) is now DERIVES at `SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp`, SIDE-lv-conservation `v0.4.0 = 0d2d74c` (clean `{propext,"
     },
     {
      "grade": "DERIVES",
@@ -57610,56 +56744,6 @@
    "conflict": null,
    "mark": null,
    "provenance": "rule",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-lv-conservation",
-   "name": "SIDELvConservation.h1_complete_at_Phi",
-   "head": "d38f3e8c99c3",
-   "pin": "v0.8.0",
-   "pin_sha": "6efa9e54dadf",
-   "pin_cell": "`v0.8.0` = `6efa9e5` and `v0.10.0` = `93c27ec` as cited per-document",
-   "refs": [
-    "v0.8.0",
-    "HEAD"
-   ],
-   "present_at": [
-    "v0.8.0"
-   ],
-   "statement": "theorem h1_complete_at_Phi :\n    C1_realness Phi ∧ C2_halfplane_nonvanishing Phi ∧ C3_theta_transformation Phi ∧\n      C4_modularity Phi ∧ C5_input Phi ∧ C6_holomorphic_extension Phi ∧\n      C7_entirety Phi ∧ C7_order Phi",
-   "statement_file": "SIDELvConservation/CouplingsAtPhi.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "DERIVES",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 130,
-     "act": null,
-     "quote": "mise `h2` — the surround `h1` being compiled complete at Φ (`SIDELvConservation.h1_complete_at_Phi`, grade **DERIVES**; §0 and Correspondence), so that goal ⇐ h1 ∧ h2 with only"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md",
-     "line": 1957,
-     "act": null,
-     "quote": "assets — NOT to be re-litigated.** The certifiable surround `h1_complete_at_Phi` (DERIVES); the Conservation seal / s-darkness certificate (`ProductF"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md",
-     "line": 3473,
-     "act": null,
-     "quote": "**`h1_complete_at_Phi`** — eight coupling facts at Φ, DERIVES"
-    }
-   ],
-   "conflict": null,
-   "mark": null,
-   "provenance": "cell",
    "zeta_row": false,
    "ei": "—"
   },
@@ -57888,18 +56972,10 @@
    "profile_state": "NOT PROFILED",
    "profile_source": null,
    "grade": "DERIVES",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 178,
-     "act": null,
-     "quote": "e terminals distinguished — they are not of one strength.** `T1_completedRiemannZeta_factors_through_mellin` **DERIVES** (substantive: `∃ Φ, ∀ s, 1 < s.re → completedRiemannZeta"
-    }
-   ],
+   "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "cell",
+   "provenance": "rule",
    "zeta_row": true,
    "ei": "I (<)"
   },
@@ -58185,19 +57261,11 @@
    "profile": "NOT PROFILED",
    "profile_state": "NOT PROFILED",
    "profile_source": null,
-   "grade": "DERIVES",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 295,
-     "act": null,
-     "quote": "**DERIVES** (native, via `T3.T3prime_shared_witness`)"
-    }
-   ],
+   "grade": "INTERFACES",
+   "grade_cells": [],
    "conflict": null,
    "mark": null,
-   "provenance": "cell",
+   "provenance": "rule",
    "zeta_row": true,
    "ei": "I (≠ 0)"
   },
@@ -58229,13 +57297,6 @@
      "line": 1318,
      "act": null,
      "quote": "iring-positivity* shaped, and its **type is now compiled** (`ZeroActingPairing` interface, INTERFACES, no instance) — a zero-acting positive pairing, FE-even, br"
-    },
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md",
-     "line": 408,
-     "act": null,
-     "quote": "analogue open). Its *type* is now compiled as an interface (`ZeroActingPairing`, SIDE-lv-conservation, INTERFACES, no instance). The **W-SIGN-5 B2** pairing attempt then dec"
     }
    ],
    "conflict": null,
@@ -58385,49 +57446,6 @@
   },
   {
    "repo": "SIDE-lv-conservation",
-   "name": "exists_norm_completedLFunction_le_exp",
-   "head": "d38f3e8c99c3",
-   "pin": "v0.8.0",
-   "pin_sha": "6efa9e54dadf",
-   "pin_cell": "`v0.8.0` = `6efa9e5` and `v0.10.0` = `93c27ec` as cited per-document",
-   "refs": [
-    "v0.8.0",
-    "HEAD"
-   ],
-   "present_at": [
-    "v0.8.0"
-   ],
-   "statement": "theorem exists_norm_completedLFunction_le_exp {N : ℕ} [NeZero N]\n    (χ : DirichletCharacter ℂ N) (hχ : χ ≠ 1) :\n    ∃ A C : ℝ, ∀ s : ℂ,\n      ‖DirichletCharacter.completedLFunction χ s‖\n        ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))",
-   "statement_file": "SIDELvConservation/DirichletC7Order.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "DERIVES",
-   "grade_cells": [
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/GRH_CASCADE.md",
-     "line": 405,
-     "act": null,
-     "quote": "Verify-first: the C₇-order citation is the χ-side order-≤1 DERIVES input (`exists_norm_completedLFunction_le_exp`), **not** the census exclusion stand-in — no relabel. No co"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 141,
-     "act": null,
-     "quote": "ed terminal for χ ≠ 1, both parities, over the whole plane (`SIDELvConservation.exists_norm_completedLFunction_le_exp`, SIDE-lv-conservation v0.5.0 = `1767bd6`, grade **DERIVES**; Correspondence below), so the χ-side assumes no more tha"
-    }
-   ],
-   "conflict": null,
-   "mark": null,
-   "provenance": "cell",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-lv-conservation",
    "name": "h1_complete_at_Phi",
    "head": "d38f3e8c99c3",
    "pin": "v0.8.0",
@@ -58461,49 +57479,6 @@
      "line": 3473,
      "act": null,
      "quote": "**`h1_complete_at_Phi`** — eight coupling facts at Φ, DERIVES"
-    },
-    {
-     "grade": "DERIVES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md",
-     "line": 130,
-     "act": null,
-     "quote": "mise `h2` — the surround `h1` being compiled complete at Φ (`SIDELvConservation.h1_complete_at_Phi`, grade **DERIVES**; §0 and Correspondence), so that goal ⇐ h1 ∧ h2 with only"
-    }
-   ],
-   "conflict": null,
-   "mark": null,
-   "provenance": "cell",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-lv-conservation",
-   "name": "residue_irreducible",
-   "head": "d38f3e8c99c3",
-   "pin": "v0.8.0",
-   "pin_sha": "6efa9e54dadf",
-   "pin_cell": "`v0.8.0` = `6efa9e5` and `v0.10.0` = `93c27ec` as cited per-document",
-   "refs": [
-    "v0.8.0",
-    "HEAD"
-   ],
-   "present_at": [
-    "HEAD"
-   ],
-   "statement": "theorem residue_irreducible\n    {lam_A lam_Z lam : ℕ → ℝ} {low : Finset NontrivialZero} {tail : ℕ → ℝ} {T : ℝ}\n    (hZero : NontrivialZeroExistsInStrip)\n    (hdecomp : ∀ n, lam n = lam_A n + lam_Z n)\n    (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T)\n    (hTail : TailBoundPremise low tail T)\n    (inequalityToPositivity : Register4_channelInequality lam_A lam_Z → Register4_positivity lam)\n    (liCriterion : Register4_positivity lam → RiemannHypothesis) :\n    (¬ RealizesXiZeros certifiedInputSpectrum)\n    ∧ PartialChannelInequality lam_A lam_Z (N₀ T)\n    ∧ (∀ ledger : ℕ → ℝ, ZeroActingPairing lam_A lam_Z ledger → RiemannHypothesis)",
-   "statement_file": "SIDELvConservation/ZeroActingPartial.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "INTERFACES",
-   "grade_cells": [
-    {
-     "grade": "INTERFACES",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/proofs/THE_RESIDUE_OF_RH.md",
-     "line": 253,
-     "act": "b567",
-     "quote": "first premise, `inequalityToPositivity`, is NOT discharged; `residue_irreducible` keeps its INTERFACES grade in lv (`v0.11.0` = `2f71068`). No byte above this lin"
     }
    ],
    "conflict": null,
@@ -58754,41 +57729,6 @@
    "conflict": null,
    "mark": null,
    "provenance": "rule",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-silence-principle",
-   "name": "silence_principle",
-   "head": "716b686ea846",
-   "pin": null,
-   "pin_sha": null,
-   "pin_cell": null,
-   "refs": [
-    "HEAD"
-   ],
-   "present_at": [
-    "HEAD"
-   ],
-   "statement": "theorem silence_principle (I : Interface) :\n    chain_holds I = true → I.essential = true → isSilent I = true",
-   "statement_file": "SIDESilencePrinciple/Basic.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "ENCODES-CONCLUSION",
-   "grade_cells": [
-    {
-     "grade": "ENCODES-CONCLUSION",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md",
-     "line": 653,
-     "act": null,
-     "quote": "rows (`product_formula_silent`, `distributive_law_silent`, `silence_principle`) → **ENCODES-CONCLUSION** (they certify the in-kernel Boolean model; the arithmetic"
-    }
-   ],
-   "conflict": null,
-   "mark": null,
-   "provenance": "cell",
    "zeta_row": false,
    "ei": "—"
   },
@@ -62968,41 +61908,6 @@
    "conflict": null,
    "mark": null,
    "provenance": "rule",
-   "zeta_row": false,
-   "ei": "—"
-  },
-  {
-   "repo": "SIDE-yang-mills-formation",
-   "name": "mass_gap_equals_n3_certification",
-   "head": "73e9e2c3e962",
-   "pin": null,
-   "pin_sha": null,
-   "pin_cell": null,
-   "refs": [
-    "HEAD"
-   ],
-   "present_at": [
-    "HEAD"
-   ],
-   "statement": "theorem mass_gap_equals_n3_certification :\n    mass_gap_is_n3_domain_ostrowski = true",
-   "statement_file": "SIDEYangMillsFormation/Basic.lean",
-   "statement_state": "RESOLVED",
-   "profile": "NOT PROFILED",
-   "profile_state": "NOT PROFILED",
-   "profile_source": null,
-   "grade": "SHELL",
-   "grade_cells": [
-    {
-     "grade": "SHELL",
-     "ledger": "PLACE-papers/archive/2026-10-22-b706-partner-copies/phase1.5/spectral/GRH_CASCADE.md",
-     "line": 392,
-     "act": null,
-     "quote": "**SHELL — work-order (W-5 family).** PULLED as a citation per author ruling (2026-07-13): `mass_gap_equals_n3_certification` proves that `mass_gap_is_n3_domain_ostrowski`, a `Bool` def"
-    }
-   ],
-   "conflict": null,
-   "mark": null,
-   "provenance": "cell",
    "zeta_row": false,
    "ei": "—"
   }

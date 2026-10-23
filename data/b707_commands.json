@@ -1,5 +1,5 @@
 {
- "at": "2026-10-23T02:41:49Z",
+ "at": "2026-10-23T03:30:32Z",
  "anchor": "RULING (R317) BEGIN",
  "rows": [
   {
@@ -824,6 +824,374 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b707_record.py commands",
    "n": 103,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T02:42:46.751Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py kernels",
+   "n": 104,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T02:43:12.619Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py portrun 39888369981 port && python -X utf8 tools/b707_report.py",
+   "n": 105,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T02:46:15.262Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --prerun --part standing-a",
+   "n": 106,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T02:51:35.958Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --prerun --part standing-a",
+   "n": 107,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T02:55:30.021Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --prerun --part standing-c",
+   "n": 108,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T02:58:19.045Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --prerun --part standing-b1",
+   "n": 109,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:00:42.480Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --prerun --part standing-b2a",
+   "n": 110,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:08:06.537Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --prerun --part standing-b2b",
+   "n": 111,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:10:36.947Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --prerun --part standing-b3",
+   "n": 112,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:13:43.462Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --prerun --part act",
+   "n": 113,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:15:33.626Z",
+   "src": "seat",
+   "cmd": "wc -l data/b707_registrations.txt && git -C /d/relay log --format=%h -- data/b707_registrations.txt && git -C /d/relay diff-tree --no-commit-id --name-only -r 6e8ece87",
+   "n": 114,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:15:34.932Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --combine b707_arms_prerun.txt",
+   "n": 115,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:15:36.060Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py armsecs",
+   "n": 116,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:16:25.455Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py names b703_checks",
+   "n": 117,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:16:46.408Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --prerun --part act",
+   "n": 118,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:18:20.501Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --combine b707_arms_prerun.txt",
+   "n": 119,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:18:21.537Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py armsecs",
+   "n": 120,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:18:49.402Z",
+   "src": "seat",
+   "cmd": "git add tools/b707_checks.py tools/b707_closing.py tools/b707_reg_gate.py tools/b707_regspec.py tools/b707_report.py tools/b707_record.py tools/b707_worklist.py data/b707_registration_2026-10-22.txt data/b707_author_answers.txt data/b707_author_answers.json data/b707_read_calls.txt data/b707_read_calls.json data/b707_commands.txt data/b707_commands.json data/b707_kernels_face.json data/b707_standing_figures.txt data/b707_standing_figures.json data/b707_guard_dry.txt data/b707_guard_dry.json data/b707_report.txt data/b707_report.json data/b707_port.txt data/b707_port.json data/b707_runner_SIDE-lv-conservation_port.txt data/b707_buildlog_SIDE-lv-conservation_port.txt data/b707_runner_rows.json data/b707_arms_prerun.txt data/b707_arms_prerun_standing-a.txt data/b707_arms_prerun_standing-c.txt data/b707_arms_prerun_standing-b1.txt data/b707_arms_prerun_standing-b2a.txt data/b707_arms_prerun_standing-b2b.txt data/b707_arms_prerun_standing-b3.txt data/b707_arms_prerun_act.txt data/b707_lsr_prerun_standing-a.json data/b707_lsr_prerun_standing-c.json data/b707_lsr_prerun_standing-b1.json data/b707_lsr_prerun_standing-b2a.json data/b707_lsr_prerun_standing-b2b.json data/b707_lsr_prerun_standing-b3.json data/b707_lsr_prerun_act.json data/b707_exercise_standing-a.json data/b707_exercise_standing-c.json data/b707_exercise_standing-b1.json data/b707_exercise_standing-b2a.json data/b707_exercise_standing-b2b.json data/b707_exercise_standing-b3.json data/b707_exercise_act.json data/b707_arm_seconds.txt data/b707_arm_seconds.json data/b707_arm_seconds_standing-a.json data/b707_arm_seconds_standing-c.json data/b707_arm_seconds_standing-b1.json data/b707_arm_seconds_standing-b2a.json data/b707_arm_seconds_standing-b2b.json data/b707_arm_seconds_standing-b3.json data/b707_arm_seconds_act.json data/b707_chain_half_a1_arms_prerun.json data/b707_chain_half_a2_arms_prerun.json data/b707_chain_half_b_arms_prerun.json && git commit -q -m \"b707 Component 5: the suite, closing, gate, spec and report tools carried from b706 with this act's 39 arms; the four standing figures by b706's tool against b706's (0, 0, 0, 0); the answers, read-call, command and kernels banks, the guard's dry run, the report, the port run re-read with its id; this face; the pre-run in seven parts, 99 of 137 (four declared failing on real state, 34 reading not-yet state), the combined bank, the per-part seconds, the chain quarters\" && git rev-parse --short=8 HEAD && git status --short tools data",
+   "n": 121,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:18:58.791Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py rootdry",
+   "n": 122,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:19:23.768Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_reg_gate.py && python -X utf8 tools/b707_regspec.py",
+   "n": 123,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:22:15.614Z",
+   "src": "seat",
+   "cmd": "Get-ChildItem D:\\relay\\data -Filter 'b707_*' -Name; Get-ChildItem D:\\relay\\data -Filter 'audit_b707*' -Name",
+   "n": 124,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:22:56.239Z",
+   "src": "seat",
+   "cmd": "python tools/b707_record.py",
+   "n": 125,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:23:10.089Z",
+   "src": "seat",
+   "cmd": "(Get-Item D:\\relay\\tools\\b707_record.py).Length; (Get-Item D:\\relay\\tools\\b706_record.py).Length",
+   "n": 126,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:23:44.946Z",
+   "src": "seat",
+   "cmd": "(Get-Item D:\\relay\\tools\\b698_record.py).Length",
+   "n": 127,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:24:36.390Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_regspec.py",
+   "n": 128,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:25:01.581Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py gatebanks",
+   "n": 129,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:25:10.534Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py scores dry",
+   "n": 130,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:25:33.114Z",
+   "src": "seat",
+   "cmd": "git -C D:\\relay status --short",
+   "n": 131,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:25:50.417Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b707_registration_2026-10-22.txt tools/b707_closing.py data/audit_b707_reg_satisfiable.txt data/b707_census_stepzero.txt data/b707_faces_census_stepzero.txt data/b707_pins_stepzero.txt data/b707_reg_gate.txt data/b707_reg_termscan.txt data/b707_regspec_run.txt data/b707_root_banks_dry.json data/b707_root_banks_dry.txt data/b707_satisfiable.json && git -C /d/relay commit -q -m \"b707 C5b: the gate\\`s record and its steps\\` banks (the spec and its audit, the banned-terms scan, the step-zero censuses and pins), the root route\\`s dry run, the face with the dry run\\`s READY; the closing tool\\`s bank names\" && git -C /d/relay log -1 --format='%h %H %s'",
+   "n": 132,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:25:57.700Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_reg_gate.py",
+   "n": 133,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:26:32.059Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py gatebanks",
+   "n": 134,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:26:38.538Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b378_lockgate.py b707 data/b707_registration_2026-10-22.txt",
+   "n": 135,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:26:42.529Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_seal.py --lock data/b707_registration_2026-10-22.txt; if ($?) { python -X utf8 tools/reg_seal.py --verify data/b707_registration_2026-10-22.txt }",
+   "n": 136,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:26:45.571Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_checks.py --seal",
+   "n": 137,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-23T03:26:53.451Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b707_registration_2026-10-22.txt data/b707_reg_gate.txt data/b707_reg_termscan.txt data/b707_regspec_run.txt data/audit_b707_reg_satisfiable.txt data/b707_satisfiable.json data/b707_census_stepzero.txt data/b707_faces_census_stepzero.txt data/b707_pins_stepzero.txt data/b707_lockgate.json data/b707_lockgate_notes.txt data/b707_seal_hashes.json && git -C /d/relay commit -q -m \"b707 seal: the face locked (57c5ac90), the gate\\`s steps re-run against it and their records stamped, the lock gate 8 of 8, the sealed tools\\` hashes (11)\" && git -C /d/relay log -1 --format='%h %H %s' && git -C /d/relay status --short data tools",
+   "n": 138,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:27:23.742Z",
+   "src": "seat",
+   "cmd": "git -C D:\\relay log -48 --format='%h %ci %s'",
+   "n": 139,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:27:24.666Z",
+   "src": "seat",
+   "cmd": "git -C D:\\MY-DOwnloads\\PLACE-papers log -16 --format='%h %ci %s'",
+   "n": 140,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:27:48.941Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py scores",
+   "n": 141,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:28:39.960Z",
+   "src": "seat",
+   "cmd": "Get-ChildItem D:\\relay\\data -Filter 'b706_*push_out*' -Name; (Get-Item D:\\relay\\tools\\b707_closing.py).Length; (Get-Item D:\\relay\\data\\b706_citation_check.txt).Length; (Get-Item D:\\relay\\data\\b706_closing.txt).Length",
+   "n": 142,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:29:41.961Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py findings dry",
+   "n": 143,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:29:43.211Z",
+   "src": "seat",
+   "cmd": "(Get-Item D:\\relay\\tools\\b707_checks.py).Length; (Get-Item D:\\relay\\data\\b707_commands.txt).Length; (Get-Item D:\\relay\\data\\b707_citation_check.txt).Length",
+   "n": 144,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:29:53.286Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py findings",
+   "n": 145,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:30:03.684Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py table_final",
+   "n": 146,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:30:04.716Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py commands",
+   "n": 147,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:30:05.836Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py reads",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-23T03:30:06.810Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b707_record.py desk",
+   "n": 149,
    "bg": false
   }
  ],
