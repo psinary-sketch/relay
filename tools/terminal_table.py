@@ -487,11 +487,20 @@ def ledger_files():
     out.append(('SIDE-global-section/CORRESPONDENCE.md', os.path.join(SIDE, 'CORRESPONDENCE.md')))
     arch = os.path.join(PP, 'archive')
     for dirpath, _, files in os.walk(arch):
+        rel = os.path.relpath(dirpath, PP).replace(os.sep, '/')
+        if any(rel == d or rel.startswith(d + '/') for d in RETIRED_DIRS):
+            continue   # ### b707, (R317)(2) (b706's (i)): a retired paper's copy is not a ledger; its stale grade words stay out of the table
         for f in sorted(files):
             if f.endswith('.md'):
                 p = os.path.join(dirpath, f)
                 out.append(('PLACE-papers/' + os.path.relpath(p, PP).replace(os.sep, '/'), p))
     return out
+
+
+# ### b707, (R317)(2): the directories under PLACE-papers/archive/ that hold RETIRED COPIES of papers (b706's (R316)(3) moved the seventeen
+# ### unversioned partner copies here), excluded from the ledger walk by path; the 2026-08-24 ledger split stays in reach (a split moves a
+# ### ledger, it does not retire it).
+RETIRED_DIRS = ('archive/2026-10-22-b706-partner-copies',)
 
 
 # ### ### **A MENTION IS NOT A GRADE CELL, AND THE FIRST MATCHER COULD NOT TELL THEM APART.**

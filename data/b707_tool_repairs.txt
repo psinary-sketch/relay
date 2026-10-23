@@ -1,0 +1,235 @@
+b707 -- THE CARRY-TIME READING: THE REPAIRS, (R317)(2) (2026-10-23T01:52:33Z)
+
+### rows are repairs with what they answer: the file or the tool and its part ; what it answers ; the form. Each diff beneath its row,
+### written by this route (rows (1)-(3): the shared file at relay HEAD b0c74f89 against the working tree, edited by the Edit tool under
+### (R317)(2); rows (4)-(6): the carried function`s source against this act`s, a new function printed whole). The controls that
+### distinguish each repaired reading from the old one: data/b707_repair_controls.txt. No sealed tool is edited.
+
+  (1) tools/mirror_roster.json -- ANSWERS (R317)(2) and the author`s word at this act`s first prompt (b706`s (m)): the roster named the 17 versioned paths the renames of (R316)(3) retired, so b706`s export verified NOT CLEAN on clause 3 alone (17 MISSING, data/b706_mirror_verify.txt). The ruling`s "rewritten to the 17 unversioned names" would list 13 paths twice (they stand at :14-:27 and :46 already) and the builder`s flat naming collides on a path listed twice (tools/mirror_verify.py staged_names) -- the navigator`s (f). On the author`s word: the four rows whose papers stood here at the versioned name alone (EXHAUSTIVENESS_LICENSE, TECHNE_TOOLKIT, R_CURVE_CRITERION, E_DIFFICULTY_THEOREM) re-pointed to the unversioned names in their own slots, the thirteen duplicate rows removed, 70 entries, the history line extended; by the Edit tool; the builder unedited by (R96). The control: the dry run of tools/mirror_verify.py against b706`s export (data/b707_roster_control.txt) -- clauses 1 and 2 CLEAN, clause 3 NOT CLEAN by exactly the four names MISSING; data/b707_repair_controls.txt.
+
+      --- tools/mirror_roster.json (relay HEAD)
+      +++ tools/mirror_roster.json (this act, the working tree)
+      @@ -2,6 +2,6 @@
+         "_authority": "### THIS FILE IS THE ROSTER. IT IS THE SINGLE SOURCE OF TRUTH AND THE BUILDER READS IT. Reconciled 2026-08-26 (b183) from the hardcoded array formerly inside mirror_build.ps1.",
+         "_what_these_are": "### REPO-RELATIVE **SOURCE PATHS**, IN ROSTER ORDER. They are NOT archive names. The export is FLAT and the builder derives each archive name from the path: leaf; on collision, parent-directory + '__' + leaf; if it still collides, THE BUILD THROWS. ### ORDER IS SIGNIFICANT -- the first entry wins the plain slot, which is why the repo front-door README.md is listed before the archive README.md.",
+      -  "_history": "### BEFORE b183 THIS FILE HELD **STAGED ARCHIVE NAMES** AND NOTHING READ IT. It was an OUTPUT written as though it were an INPUT. ### At b182 a row added here changed nothing and the mirror verified CLEAN AT 33 FILES WITHOUT THE FILE IN IT. ### THAT IS WHY THE CONTENT WAS REPLACED RATHER THAN MERGED: the old list was derived, not source. ### b300: THE ARC KEYSTONE ADDED BY THE AUTHOR'S RULING (4) OF THE b300 FERRY -- the document b299 wrote. ### APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT: order is significant and the first entry wins the plain slot. ### b576: THE TWO PAGES ADDED BY THE AUTHOR'S RULING (R186)(5), WHICH ORDERS THE REFRESH TO CARRY THEM (the page of the compiled chain and the page at the Dirichlet instance). APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT. ### b614: THE CURRENT EDITIONS SINCE 192077f AND THE FOUR SYNTHESES ADDED BY THE AUTHOR’S ANSWERS TO b614’s PROMPT (all 22 documents’ current editions, the diff governing over (R224)(3)’s named ten; the build after the act’s last PLACE-papers push, so the 2D synthesis is carried). APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT. ### b637: THE CURRENT EDITIONS OF THE MONOGRAPH, THE SIEVE AND THE CENSUS (v5.18, v0.6, v0.5) ADDED BY THE AUTHOR’S RULING (R247)(5), BESIDE THE SUPERSEDED VERSIONED FILES IT KEEPS, SO THE NEXT MIRROR CARRIES WHAT THE CORPUS STANDS ON; THE BUILDER UNEDITED BY (R96). APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT. ### b639: THE CENSUS AT v0.6 ADDED BY THE AUTHOR’S RULING (R249)(3), BESIDE v0.5, WHICH IT KEEPS, SO THE MIRROR THE DEPOSIT CARRIES HOLDS THE CENSUS THE DESCRIPTION NAMES; THE BUILDER UNEDITED BY (R96). APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT. ### b644: THE SEVEN DAY 1 COMPANIONS AT THEIR PATCH LABELS AND THE CENSUS AT v0.7 AND v0.7.1 ADDED BY THE AUTHOR'S ANSWER TO (R254)(7) AND (9) (the labels live inside the files, so the ruling's 'roster edited to the patch labels' has no roster object -- the navigator's wording; the companions and both census editions join, superseded versioned files kept beside the current edition as since b637); THE BUILDER UNEDITED BY (R96). APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT.",
+      -  "lastChanged": "2026-10-09",
+      +  "_history": "### BEFORE b183 THIS FILE HELD **STAGED ARCHIVE NAMES** AND NOTHING READ IT. It was an OUTPUT written as though it were an INPUT. ### At b182 a row added here changed nothing and the mirror verified CLEAN AT 33 FILES WITHOUT THE FILE IN IT. ### THAT IS WHY THE CONTENT WAS REPLACED RATHER THAN MERGED: the old list was derived, not source. ### b300: THE ARC KEYSTONE ADDED BY THE AUTHOR'S RULING (4) OF THE b300 FERRY -- the document b299 wrote. ### APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT: order is significant and the first entry wins the plain slot. ### b576: THE TWO PAGES ADDED BY THE AUTHOR'S RULING (R186)(5), WHICH ORDERS THE REFRESH TO CARRY THEM (the page of the compiled chain and the page at the Dirichlet instance). APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT. ### b614: THE CURRENT EDITIONS SINCE 192077f AND THE FOUR SYNTHESES ADDED BY THE AUTHOR’S ANSWERS TO b614’s PROMPT (all 22 documents’ current editions, the diff governing over (R224)(3)’s named ten; the build after the act’s last PLACE-papers push, so the 2D synthesis is carried). APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT. ### b637: THE CURRENT EDITIONS OF THE MONOGRAPH, THE SIEVE AND THE CENSUS (v5.18, v0.6, v0.5) ADDED BY THE AUTHOR’S RULING (R247)(5), BESIDE THE SUPERSEDED VERSIONED FILES IT KEEPS, SO THE NEXT MIRROR CARRIES WHAT THE CORPUS STANDS ON; THE BUILDER UNEDITED BY (R96). APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT. ### b639: THE CENSUS AT v0.6 ADDED BY THE AUTHOR’S RULING (R249)(3), BESIDE v0.5, WHICH IT KEEPS, SO THE MIRROR THE DEPOSIT CARRIES HOLDS THE CENSUS THE DESCRIPTION NAMES; THE BUILDER UNEDITED BY (R96). APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT. ### b644: THE SEVEN DAY 1 COMPANIONS AT THEIR PATCH LABELS AND THE CENSUS AT v0.7 AND v0.7.1 ADDED BY THE AUTHOR'S ANSWER TO (R254)(7) AND (9) (the labels live inside the files, so the ruling's 'roster edited to the patch labels' has no roster object -- the navigator's wording; the companions and both census editions join, superseded versioned files kept beside the current edition as since b637); THE BUILDER UNEDITED BY (R96). APPENDED AT THE END SO NO EXISTING ROW CHANGES ITS SLOT. ### b707: THE SEVENTEEN PARTNER PAIRS RENAMED IN PLACE AT b706 ((R316)(3)) RETIRED THE VERSIONED PATHS THIS ROSTER NAMED; UNDER (R317)(2) AND THE AUTHOR'S WORD AT b707'S FIRST PROMPT, THE FOUR ROWS WHOSE PAPERS STOOD HERE AT THE VERSIONED NAME ALONE (EXHAUSTIVENESS_LICENSE, TECHNE_TOOLKIT, R_CURVE_CRITERION, E_DIFFICULTY_THEOREM) ARE RE-POINTED TO THE UNVERSIONED NAMES IN THEIR OWN SLOTS AND THE THIRTEEN ROWS WHOSE UNVERSIONED NAMES ALREADY STOOD ABOVE ARE REMOVED (A PATH LISTED TWICE COLLIDES IN THE BUILDER'S FLAT NAMING); 70 ENTRIES; THE BUILDER UNEDITED BY (R96).",
+      +  "lastChanged": "2026-10-23",
+         "files": [
+           "README.md",
+      @@ -52,28 +52,15 @@
+           "day1\\A_Place_to_Stand_v5_17.md",
+           "phase1.5\\method\\ENUMERA_v1_6.md",
+      -    "phase1.5\\method\\EXHAUSTIVENESS_LICENSE_v0_2.md",
+      -    "phase1.5\\method\\INVARIANCE_BARRIERS_v1_4.md",
+      -    "phase1.5\\method\\TECHNE_TOOLKIT_v8_3.md",
+      -    "phase1.5\\proofs\\INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md",
+      -    "phase1.5\\proofs\\PATHS_TO_THE_CRITICAL_LINE_v0_7.md",
+      -    "phase1.5\\proofs\\THE_RESIDUE_OF_RH_v1_2.md",
+      -    "phase1.5\\proofs\\THE_UNCONDITIONAL_SURROUND_v0_5.md",
+      -    "phase1.5\\rcurve\\R_CURVE_CRITERION_v0_2_2.md",
+      -    "phase1.5\\simplicity\\SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md",
+      -    "phase1.5\\spectral\\BALANCE_AND_POSITIVITY_v0_9_5.md",
+      -    "phase1.5\\spectral\\GRH_CASCADE_v0_3_6.md",
+      -    "phase1.5\\structural\\FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md",
+      -    "phase2\\method\\ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md",
+      -    "phase2\\method\\E_DIFFICULTY_THEOREM_v1_0_4.md",
+      -    "phase2\\method\\FACES_OF_H2_AT_FINITE_INSTANCE_v0_2.md",
+      +    "phase1.5\\method\\EXHAUSTIVENESS_LICENSE.md",
+      +    "phase1.5\\method\\TECHNE_TOOLKIT.md",
+      +    "phase1.5\\rcurve\\R_CURVE_CRITERION.md",
+      +    "phase2\\method\\E_DIFFICULTY_THEOREM.md",
+           "phase2\\method\\REPARAMETERIZATION_BARRIERS_v0_2.md",
+           "phase2\\method\\THE_FINDINGS_AS_THEY_STAND_v0_4.md",
+           "phase2\\method\\THE_KEYSTONE_CENSUS_v0_3.md",
+      -    "phase2\\quantum\\SILENCE_STAGES_DEALIGNMENT_v1_3.md",
+           "phase1.5\\proofs\\THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION.md",
+           "phase1.5\\deep-structure\\THE_TWO_THREE_SUBSTRATE_AND_THE_TRIVIUM.md",
+           "phase2\\philosophy\\THE_SILENCE_PRINCIPLE_AND_INTERFACE_DARKNESS.md",
+           "phase2\\physics\\THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS.md",
+      -    "day1\\A_Place_to_Stand_v5_18.md",
+           "phase2\\method\\THE_FINDINGS_AS_THEY_STAND_v0_6.md",
+           "phase2\\method\\THE_KEYSTONE_CENSUS_v0_5.md",
+
+  (2) tools/terminal_table.py `ledger_files`, RETIRED_DIRS -- ANSWERS (R317)(2) (b706`s (i), THE NAVIGATOR`S): the ledger walk takes every .md under PLACE-papers/archive/ as a ledger (b494`s rule: a split moves a ledger, it does not retire it), so the 17 retired copies (R316)(3) moved to archive/2026-10-22-b706-partner-copies/ entered the table at b706`s final regeneration -- 12 rows added, 18 moved, 15 grades moved, every one citing a retired copy (data/b706_table_final.txt; S1 REFUTED, G-TABLE-FINAL failing). The repair: the retired copies` directory excluded by path (RETIRED_DIRS), the split ledgers of 2026-08-24 still in reach; by the Edit tool. The control: the table regenerated and diffed against b706`s final table -- the 12 added rows gone, the 18 moved rows restored to their prior state (15 grades), no other row changed (data/b707_table_scope.txt); the walk`s own count with and without the exclusion; data/b707_repair_controls.txt.
+
+      --- tools/terminal_table.py (relay HEAD)
+      +++ tools/terminal_table.py (this act, the working tree)
+      @@ -488,4 +488,7 @@
+           arch = os.path.join(PP, 'archive')
+           for dirpath, _, files in os.walk(arch):
+      +        rel = os.path.relpath(dirpath, PP).replace(os.sep, '/')
+      +        if any(rel == d or rel.startswith(d + '/') for d in RETIRED_DIRS):
+      +            continue   # ### b707, (R317)(2) (b706's (i)): a retired paper's copy is not a ledger; its stale grade words stay out of the table
+               for f in sorted(files):
+                   if f.endswith('.md'):
+      @@ -493,4 +496,10 @@
+                       out.append(('PLACE-papers/' + os.path.relpath(p, PP).replace(os.sep, '/'), p))
+           return out
+      +
+      +
+      +# ### b707, (R317)(2): the directories under PLACE-papers/archive/ that hold RETIRED COPIES of papers (b706's (R316)(3) moved the seventeen
+      +# ### unversioned partner copies here), excluded from the ledger walk by path; the 2026-08-24 ledger split stays in reach (a split moves a
+      +# ### ledger, it does not retire it).
+      +RETIRED_DIRS = ('archive/2026-10-22-b706-partner-copies',)
+       
+       
+
+  (3) tools/rule_arms.py `reading`, G-RULE-SUITE-PARTS -- ANSWERS (R317)(2) (b706`s (l)): b692`s family reading strips one trailing digit (`(?<=^standing-[a-z])[0-9]$`), so standing-b2a and standing-b2b read as families of their own and b706`s run banks fail the arm at every later act. The repair: a lettered half strips its letter and its digit to the family it halves (`[0-9][a-z]?$`), and a family is met whole or by its numbered halves 1, 2, ... consecutive and at least two, a numbered half whole or by its lettered halves a, b, ... consecutive and at least two, never both (`whole`); by the Edit tool. The control: the arm`s old and repaired readings over b706`s run banks, b705`s unsplit banks and every run bank b678-b706; mutated copies: a part outside any family planted, a half planted beside its halves, a lettered half alone, a gap in the numbering; data/b707_repair_controls.txt.
+
+      --- tools/rule_arms.py (relay HEAD)
+      +++ tools/rule_arms.py (this act, the working tree)
+      @@ -547,8 +547,32 @@
+                   # ### b692, (R302)(2) on the author's word: a governing part is met by itself or by its numbered halves (standing-b by
+                   # ### standing-b1 and standing-b2, the split data/b684_rules.txt row (1) orders) and by no other numbering; never both.
+      +            # ### b707, (R317)(2) (b706's (l)): a numbered half split once more under the same rule carries a letter (standing-b2a,
+      +            # ### standing-b2b), and reads as a half of the numbered half it splits -- the family the letter and the digit both strip to.
+                   fam = {}
+                   for p in run:
+      -                fam.setdefault(re.sub(r'(?<=^standing-[a-z])[0-9]$', '', p), []).append(p)
+      -            return sorted(fam) == sorted(gp) and all(v == [k] or (len(v) >= 2 and len(set(v)) == len(v) and k not in v) for k, v in fam.items())
+      +                fam.setdefault(re.sub(r'(?<=^standing-[a-z])[0-9][a-z]?$', '', p), []).append(p)
+      +
+      +            def whole(k, v):
+      +                # ### b707: a family stands whole (the part itself) or as its numbered halves 1, 2, ... consecutive and at least two, never both;
+      +                # ### a numbered half stands whole or as its lettered halves a, b, ... consecutive and at least two, never both (a lettered half
+      +                # ### alone, a half beside its own halves, or a gap in the numbering fails)
+      +                if v == [k]:
+      +                    return True
+      +                if len(set(v)) != len(v) or k in v:
+      +                    return False
+      +                digits = {}
+      +                for p in v:
+      +                    m = re.match(re.escape(k) + r'([0-9])([a-z]?)$', p)
+      +                    if not m:
+      +                        return False
+      +                    digits.setdefault(m.group(1), []).append(m.group(2))
+      +                if len(digits) < 2 or sorted(digits) != [str(i) for i in range(1, len(digits) + 1)]:
+      +                    return False
+      +                for ls in digits.values():
+      +                    ls = sorted(ls)
+      +                    if ls != [''] and (len(ls) < 2 or ls != [chr(97 + i) for i in range(len(ls))]):
+      +                        return False
+      +                return True
+      +            return sorted(fam) == sorted(gp) and all(whole(k, v) for k, v in fam.items())
+               bad = [('b%d' % a, k) for (a, k), ps in runs.items() if parts_of(a)[0] is None or not met([p for p, _s in ps], parts_of(a)[0])
+                      or any(s >= 600 for _p, s in ps)]
+
+  (4) tools/b707_record.py `rowgen`, `roster707`, `_renamed` -- ANSWERS the carry (a fourth path reader the renames broke, data/b707_defects.txt, the events): b698`s rowgen (tools/b698_record.py :190) reads its 19-table roster from data/b586_corroboration.txt`s table, whose paths are the retired versioned names for eight documents; at this act`s step zero it refused. The repair: each roster path re-pointed through data/b706_partners.json to the file of record, the re-pointing printed in the bank (RE-POINTED 8). The control: every roster path present at PLACE-papers HEAD, the old roster against the re-pointed; data/b707_repair_controls.txt.
+
+      --- tools/b698_record.py rowgen (sealed)
+      +++ tools/b707_record.py rowgen (this act)
+      @@ -1,11 +1,13 @@
+       def rowgen(*a):
+           """b670 rules row 3: tools/rowgen/rowgen.py `constellation <root> <papers>` and tools/rowgen/diff_rowpin.py `<namemap.json> <papers>` (the
+      -    build-free diff) over the 19 roster tables; each tool's verdict lines banked with its exit. data/b698_rowgen_<stage>.txt."""
+      +    build-free diff) over the 19 roster tables, each at the file of record after b706's renames (roster707); each tool's verdict lines banked
+      +    with its exit. data/b707_rowgen_<stage>.txt."""
+           stage = a[0] if a and a[0] not in ('dry',) else 'stepzero'
+      -    R = roster()
+      -    paths = [os.path.join(PP, p) for _n, p in R]
+      +    Ro = roster707()
+      +    paths = [os.path.join(PP, p) for _n, p, _f in Ro]
+           miss = [p for p in paths if not os.path.exists(p)]
+      -    if len(R) != 19 or miss:
+      -        sys.exit('### THE ROSTER IS NOT 19 PATHS AT HEAD: %d, missing %s' % (len(R), miss))
+      +    if len(Ro) != 19 or miss:
+      +        sys.exit('### THE ROSTER IS NOT 19 PATHS AT HEAD: %d, missing %s' % (len(Ro), miss))
+      +    moved = [(n, f, p) for n, p, f in Ro if f]
+           t0 = time.time()
+           con = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'rowgen', 'rowgen.py'), 'constellation', PP] + paths,
+      @@ -17,10 +19,12 @@
+           tail = lambda t: [l for l in t.replace(chr(13), '').split(NL) if l.strip()][-12:]   # noqa: E731
+           L = ['%s -- %s: ROWGEN DIFF AND CONSTELLATION MODE (b670 rules row 3) (%s)' % (ACT, stage.upper(), utc()), '',
+      -         '### the roster: the 19 tables of relay data/b586_corroboration.txt :34 at PLACE-papers HEAD %s ; the instruments: tools/rowgen/rowgen.py '
+      +         '### the roster: the 19 tables of relay data/b586_corroboration.txt :34 at PLACE-papers HEAD %s, each at its file of record after b706`s renames '
+      +         '((R316)(3): %d of the bank`s paths re-pointed from the retired versioned name, data/b706_partners.json) ; the instruments: tools/rowgen/rowgen.py '
+                '`constellation`, tools/rowgen/diff_rowpin.py (build-free; `rowgen.py diff` runs lean and is not run on this host) ; %d s' % (
+      -             g(PP, 'rev-parse', '--short', 'HEAD').strip(), secs), '',
+      -         '### constellation, exit %d ; its last lines:' % con.returncode] + ['    ' + l for l in tail(co)] + [
+      +             g(PP, 'rev-parse', '--short', 'HEAD').strip(), len(moved), secs), '']
+      +    L += ['### re-pointed: %s -> %s' % (f, p) for _n, f, p in moved]
+      +    L += ['', '### constellation, exit %d ; its last lines:' % con.returncode] + ['    ' + l for l in tail(co)] + [
+                '', '### diff_rowpin, exit %d ; its last lines:' % dif.returncode] + ['    ' + l for l in tail(do)] + [
+      -         '', '### ### **CONSTELLATION EXIT %d ; ROWGEN DIFF EXIT %d ; TABLES 19.**' % (con.returncode, dif.returncode)]
+      +         '', '### ### **CONSTELLATION EXIT %d ; ROWGEN DIFF EXIT %d ; TABLES 19 ; RE-POINTED %d.**' % (con.returncode, dif.returncode, len(moved))]
+           put_txt('%s_rowgen_%s.txt' % (ACT, stage), L)
+           print(NL.join(L[-14:]))
+
+      --- (none)
+      +++ tools/b707_record.py roster707 (this act)
+      @@ -0,0 +1,9 @@
+      +def roster707():
+      +    """b698's roster (tools/b698_record.py roster: the 19 documents of data/b586_corroboration.txt :34 with the paths its table names) with every
+      +    path b706's renames retired re-pointed to the unversioned name -- the carry-time repair of the fourth path reader the renames broke (the
+      +    three of (R317)(2) and this one): [(name, path, re-pointed from)]."""
+      +    ren = _renamed()
+      +    return [(n, ren.get(p, p), p if p in ren else None) for n, p in R.roster()]
+      +
+      +
+      +
+
+      --- (none)
+      +++ tools/b707_record.py _renamed (this act)
+      @@ -0,0 +1,6 @@
+      +def _renamed():
+      +    """the 17 pairs b706 renamed in place (data/b706_partners.json): the retired versioned path -> the unversioned name, the file of record."""
+      +    return dict((r['versioned'], r['unversioned']) for r in (jl('b706_partners.json').get('rows') or []) if r.get('versioned') and r.get('unversioned'))
+      +
+      +
+      +
+
+  (5) tools/b707_record.py `prev_capture` -- ANSWERS the carry: b706`s route (tools/b706_record.py prev_capture) reads the previous act`s window from this session cut at this act`s anchor, b705 having run in b706`s own session; b706 ran and closed in 44411d52 and this act opens aa198636 after the author`s /clear, so b701`s form is carried: b706`s capture from its post-push combine to that session`s end, read from that session`s own file and subagents. The control: data/b707_repair_controls.txt.
+
+      --- tools/b706_record.py prev_capture (sealed)
+      +++ tools/b707_record.py prev_capture (this act)
+      @@ -1,16 +1,11 @@
+       def prev_capture():
+      -    """G-EDIT-ROUTE's window over the previous act, b703's form for a previous act in THIS session, with this act's cut (the carry-time repair (a)):
+      -    b705's capture AFTER ITS POST-PUSH SUITE -- every command of this session from the call that combined b705's post-push parts into
+      -    data/b705_checks_postpush.txt to the first user line carrying (R316)'s anchor. b698's route reads to the session's end, which in one session
+      -    would take this act's own commands as the previous act's."""
+      -    rows = ER.capture(SESSION, K.PREV_ANCHOR, SUBAGENTS)
+      +    """G-EDIT-ROUTE's window over the previous act, b701's form for a previous act in ITS OWN session (the carry-time repair (a)): b706's capture
+      +    AFTER ITS POST-PUSH SUITE -- every command of session 44411d52 from the call that combined b706's post-push parts into
+      +    data/b706_checks_postpush.txt to that session's end, its closing's commands among them; this act runs in a session of its own."""
+      +    rows = ER.capture(PREV_SESSION_PATH, K.PREV_ANCHOR, PREV_SUBAGENTS)
+           first = [r['ts'] for r in rows if '%s_checks_postpush' % PREV in r['cmd'] and '--combine' in r['cmd']]
+           if not first:
+               sys.exit('### THE PREVIOUS ACT`S POST-PUSH COMBINE IS NOT IN ITS SESSION`S CAPTURE -- NOTHING READ')
+      -    cut = _anchor_ts(K.ANCHOR)
+      -    cut_e = _iso_epoch(cut) if cut else None
+      -    if not cut_e:
+      -        sys.exit('### THIS ACT`S ANCHOR %r IS NOT TIMED IN THE SESSION -- THE PREVIOUS WINDOW HAS NO END -- NOTHING READ' % K.ANCHOR)
+      -    out = [dict(r, src='%s %s' % (PREV, r['src'])) for r in rows if first[0] <= r['ts'] and (_iso_epoch(r['ts']) or 0) < cut_e]
+      +    out = [dict(r, src='%s %s' % (PREV, r['src'])) for r in rows if first[0] <= r['ts']]
+           for i, r in enumerate(out):
+               r['n'] = 'p%d' % (i + 1)
+
+  (6) tools/b707_record.py `_root_exclude`, `declared_untracked` -- ANSWERS data/b706_rules.txt row (1): the root route`s exclusion list carried from b706`s tool and extended at carry time with every untracked write a b707_*.py tool declares in its head; the `rootexclude` route prints them; `rootdry` runs the root route dry before the seal. The control: data/b707_repair_controls.txt.
+
+      --- tools/b706_record.py _root_exclude (sealed)
+      +++ tools/b707_record.py _root_exclude (this act)
+      @@ -1,5 +1,5 @@
+       def _root_exclude():
+           names = [re.escape(n) for _f, n in declared_untracked()]
+      -    return re.compile(r'^b706_(' + EXCLUDE_KINDS + (('|' + '|'.join(names)) if names else '') + r')\.?(txt|json|md|jsonl|)$')
+      +    return re.compile(r'^b707_(' + EXCLUDE_KINDS + (('|' + '|'.join(names)) if names else '') + r')\.?(txt|json|md|jsonl|)$')
+       
+       
+
+      --- tools/b706_record.py declared_untracked (sealed)
+      +++ tools/b707_record.py declared_untracked (this act)
+      @@ -1,7 +1,7 @@
+       def declared_untracked():
+      -    """every b706_*.py tool's declaration of an untracked write (its units file, its download), read from the tools' own heads: [(tool, name)]."""
+      +    """every b707_*.py tool's declaration of an untracked write (its units file, its download), read from the tools' own heads: [(tool, name)]."""
+           out = []
+           for f in sorted(os.listdir(T)):
+      -        if f.startswith('b706_') and f.endswith('.py'):
+      +        if f.startswith('b707_') and f.endswith('.py'):
+                   for m in UNTRACKED_DECL.finditer(rd(os.path.join(T, f)) or ''):
+                       out.append((f, m.group(1)))
+
+### ### **REPAIRS 6 ; SHARED FILES EDITED 3 UNDER (R317)(2) (tools/mirror_roster.json, tools/terminal_table.py, tools/rule_arms.py), EACH BY THE EDIT TOOL ; DIFF LINES 206 ; NO SEALED TOOL EDITED ; NO FROZEN BANK EDITED.**

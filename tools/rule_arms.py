@@ -546,10 +546,34 @@ def reading(name, R):
         def met(run, gp):
             # ### b692, (R302)(2) on the author's word: a governing part is met by itself or by its numbered halves (standing-b by
             # ### standing-b1 and standing-b2, the split data/b684_rules.txt row (1) orders) and by no other numbering; never both.
+            # ### b707, (R317)(2) (b706's (l)): a numbered half split once more under the same rule carries a letter (standing-b2a,
+            # ### standing-b2b), and reads as a half of the numbered half it splits -- the family the letter and the digit both strip to.
             fam = {}
             for p in run:
-                fam.setdefault(re.sub(r'(?<=^standing-[a-z])[0-9]$', '', p), []).append(p)
-            return sorted(fam) == sorted(gp) and all(v == [k] or (len(v) >= 2 and len(set(v)) == len(v) and k not in v) for k, v in fam.items())
+                fam.setdefault(re.sub(r'(?<=^standing-[a-z])[0-9][a-z]?$', '', p), []).append(p)
+
+            def whole(k, v):
+                # ### b707: a family stands whole (the part itself) or as its numbered halves 1, 2, ... consecutive and at least two, never both;
+                # ### a numbered half stands whole or as its lettered halves a, b, ... consecutive and at least two, never both (a lettered half
+                # ### alone, a half beside its own halves, or a gap in the numbering fails)
+                if v == [k]:
+                    return True
+                if len(set(v)) != len(v) or k in v:
+                    return False
+                digits = {}
+                for p in v:
+                    m = re.match(re.escape(k) + r'([0-9])([a-z]?)$', p)
+                    if not m:
+                        return False
+                    digits.setdefault(m.group(1), []).append(m.group(2))
+                if len(digits) < 2 or sorted(digits) != [str(i) for i in range(1, len(digits) + 1)]:
+                    return False
+                for ls in digits.values():
+                    ls = sorted(ls)
+                    if ls != [''] and (len(ls) < 2 or ls != [chr(97 + i) for i in range(len(ls))]):
+                        return False
+                return True
+            return sorted(fam) == sorted(gp) and all(whole(k, v) for k, v in fam.items())
         bad = [('b%d' % a, k) for (a, k), ps in runs.items() if parts_of(a)[0] is None or not met([p for p, _s in ps], parts_of(a)[0])
                or any(s >= 600 for _p, s in ps)]
         return bool(runs) and bool(gov) and not bad, len(runs), len(bad), (

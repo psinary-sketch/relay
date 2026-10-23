@@ -525,10 +525,381 @@ def rootdry(*a):
     print(L[-1])
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R317)(1)
+WH = ('*Appended 2026-10-22 by b707 to b706’s entry (:10046), under `(R317)`(1) -- b706 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b706_closing.txt):*')
+
+
+def _declared_b706():
+    face = rd(os.path.join(ROOT, *K.B706_FACE.split('/')))
+    md = re.search(r'THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:\*\* ([^.]*)\.', ' '.join(face.split()))
+    return sorted(set(re.findall(r'`([GF]-[A-Z0-9-]+)`', md.group(1)))) if md else []
+
+
+def _failing_b706():
+    m = re.search(r'LIVE FAILING : (\d+) \[(.*?)\]', rdn('b706_checks_postpush.txt'))
+    return [x.strip().strip("'") for x in (m.group(2) if m else '').split(',') if x.strip()]
+
+
+def _wb():
+    """b706's weight line, its figures read from b706's banks where a bank names them (the declared arms from the face, the failing eleven
+    from the post-push bank) and otherwise quoted from the closing record (relay data/b706_closing.txt) by line."""
+    decl, fails = _declared_b706(), _failing_b706()
+    post = [a for a in fails if a not in decl]
+    if len(decl) != 4 or len(fails) != 11 or len(post) != 7:
+        sys.exit('### b706`S FACE OR ITS POST-PUSH BANK NOT AS READ (declared %s ; failing %s) -- NOTHING COMPOSED' % (decl, fails))
+    return (' “b706 closed: relay 30313a13, PLACE-papers c9e0086; suite 129 of 140; root aa8a696b1c7e9fef…; 4 prompts answered; 13 defects” '
+            '(data/b706_closing.txt :1); the closing commit 37e4a12f pushed alone after the line was written and read back equal at the remote '
+            '(data/b706_closing_push_out.txt :5). The seventeen partner pairs renamed in place under (R316)(3): the eight hand-edited lines read '
+            'side by side first and resolved by kind on the author’s word, the generator run once, the second pass changing 0 cells, 107 lines '
+            'counted apart, 17 renamed and 0 held, the 102 standing reader hits equal before and after, the roster’s 20 tables found at the '
+            'unversioned names (data/b706_partners_read.txt, data/b706_partners.txt, data/b706_readers_after.txt); the join’s lakefile re-ordered '
+            'with mathlib last on Lake’s own hint, one commit b37a7b6, one dispatch (run 39850337262), the cache served and Mathlib built, the '
+            'join HELD at SIDELvConservation/GammaBounds.lean :177 at the shared pin, the gate NOT DERIVES, no tag (data/b706_join_lakefile.txt, '
+            'data/b706_runner_SIDE-faces-join_join.txt, data/b706_join_grade.txt); the workflow’s probe step at :101 of build-module.yml on '
+            'SIDE-explicit-formula’s main at badaccc, 49 diff lines, no identifier (data/b706_workflow_step.txt); the generator parsing '
+            'SIDE-explicit-formula’s citation form, 17 kernels and 13 cells, 20 of 20 re-emissions byte-equal (data/b706_generator_reach.txt); '
+            'the entry-tag prints at v0.1 = baed4df and v0.2 = 5c72cad from scratch branches (runs 39852365437, 39852975531), both DERIVES at '
+            'the standard three, 9 of 11 mentions equal, 0 differing, 2 unbanked (data/b706_prints_v0.1.txt, data/b706_prints_v0.2.txt, '
+            'data/b706_cells_reread.txt); the faces row unchanged, the hold named in the entry (data/b706_faces.txt). b705’s six post-seal '
+            'items answered by the generated corrigendum at FINDINGS :10030 (corrigenda row (26)); b705’s weight at :10028. The entry at '
+            'FINDINGS :10046, the trail at OPEN_TRAILS :15644; the root aa8a696b over 114 banks chained from 8454a2bb (data/b706_act_root.json, '
+            'data/b706_root_banks.txt); suite 129 of 140 pre-push and post-push, four failures declared on the face (%s) and seven found after '
+            'the seal (%s; data/b706_checks.txt, data/b706_checks_postpush.txt); N1, N2 and N4 HELD, N3 REFUTED by the author’s word (the '
+            'ruling’s order mathlib-first, the navigator’s (b)), N5 REFUTED at the record on one message carrying two git writes (18:42:34Z), '
+            'S1 REFUTED at the close on the table (12 rows added, 15 grades moved, every one citing a retired copy: (i)), S2 and S3 HELD '
+            '(data/b706_scores_close.json); the sealed tools’ hashes equal at the close, 10 of 10; the citation check 130 cites, 129 OK, 1 miss '
+            'the navigator’s ((a)); thirteen defects (a)–(m), (a), (b), (c), (i) and (m) the navigator’s (data/b706_defects.txt); “4 prompts '
+            'answered” the answers bank’s 3 rows and the root’s prompt; the mirror mirror-refresh-2026-10-22-b706.zip CLEAN on clauses 1 and 2 '
+            'and NOT CLEAN on clause 3 by its roster’s 17 retired names, with the root line ((m); data/b706_mirror.txt, '
+            'data/b706_mirror_verify.txt). The seven post-seal items entered by this act’s corrigendum. Nothing deposited.' % (
+                ', '.join(decl), ', '.join(post)))
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B706_ENTRY,
+         check=[('FINDINGS.md', K.B706_ENTRY, '## 17 of 17 partner pairs renamed in place'), ('OPEN_TRAILS.md', K.B706_TRAIL, '### b706')],
+         dry=dry)
+
+
+# ================================================================================ COMPONENT 1: THE THREE READERS' REPAIRS, (R317)(2), AND THE CARRY-TIME REPAIRS, WITH THEIR CONTROLS
+RETIRED_FOUR = ('EXHAUSTIVENESS_LICENSE.md', 'TECHNE_TOOLKIT.md', 'R_CURVE_CRITERION.md', 'E_DIFFICULTY_THEOREM.md')
+REPAIR_ROWS = [      # ### (text, kind, old, new): kind `file` diffs the whole file at relay HEAD against the working tree; kind `fn` a function
+    ('(1) tools/mirror_roster.json -- ANSWERS (R317)(2) and the author`s word at this act`s first prompt (b706`s (m)): the roster named the 17 '
+     'versioned paths the renames of (R316)(3) retired, so b706`s export verified NOT CLEAN on clause 3 alone (17 MISSING, data/b706_mirror_verify.txt). '
+     'The ruling`s "rewritten to the 17 unversioned names" would list 13 paths twice (they stand at :14-:27 and :46 already) and the builder`s flat '
+     'naming collides on a path listed twice (tools/mirror_verify.py staged_names) -- the navigator`s (f). On the author`s word: the four rows whose '
+     'papers stood here at the versioned name alone (EXHAUSTIVENESS_LICENSE, TECHNE_TOOLKIT, R_CURVE_CRITERION, E_DIFFICULTY_THEOREM) re-pointed to '
+     'the unversioned names in their own slots, the thirteen duplicate rows removed, 70 entries, the history line extended; by the Edit tool; the '
+     'builder unedited by (R96). The control: the dry run of tools/mirror_verify.py against b706`s export (data/b707_roster_control.txt) -- clauses 1 '
+     'and 2 CLEAN, clause 3 NOT CLEAN by exactly the four names MISSING; data/b707_repair_controls.txt.', 'file', 'tools/mirror_roster.json', None),
+    ('(2) tools/terminal_table.py `ledger_files`, RETIRED_DIRS -- ANSWERS (R317)(2) (b706`s (i), THE NAVIGATOR`S): the ledger walk takes every .md '
+     'under PLACE-papers/archive/ as a ledger (b494`s rule: a split moves a ledger, it does not retire it), so the 17 retired copies (R316)(3) moved '
+     'to archive/2026-10-22-b706-partner-copies/ entered the table at b706`s final regeneration -- 12 rows added, 18 moved, 15 grades moved, every '
+     'one citing a retired copy (data/b706_table_final.txt; S1 REFUTED, G-TABLE-FINAL failing). The repair: the retired copies` directory excluded '
+     'by path (RETIRED_DIRS), the split ledgers of 2026-08-24 still in reach; by the Edit tool. The control: the table regenerated and diffed '
+     'against b706`s final table -- the 12 added rows gone, the 18 moved rows restored to their prior state (15 grades), no other row changed '
+     '(data/b707_table_scope.txt); the walk`s own count with and without the exclusion; data/b707_repair_controls.txt.', 'file', 'tools/terminal_table.py', None),
+    ('(3) tools/rule_arms.py `reading`, G-RULE-SUITE-PARTS -- ANSWERS (R317)(2) (b706`s (l)): b692`s family reading strips one trailing digit '
+     '(`(?<=^standing-[a-z])[0-9]$`), so standing-b2a and standing-b2b read as families of their own and b706`s run banks fail the arm at every later '
+     'act. The repair: a lettered half strips its letter and its digit to the family it halves (`[0-9][a-z]?$`), and a family is met whole or '
+     'by its numbered halves 1, 2, ... consecutive and at least two, a numbered half whole or by its lettered halves a, b, ... consecutive and at '
+     'least two, never both (`whole`); by the Edit tool. The control: the arm`s old and repaired readings over b706`s run banks, b705`s unsplit '
+     'banks and every run bank b678-b706; mutated copies: a part outside any family planted, a half planted beside its halves, a lettered half '
+     'alone, a gap in the numbering; data/b707_repair_controls.txt.',
+     'file', 'tools/rule_arms.py', None),
+    ('(4) tools/b707_record.py `rowgen`, `roster707`, `_renamed` -- ANSWERS the carry (a fourth path reader the renames broke, data/b707_defects.txt, '
+     'the events): b698`s rowgen (tools/b698_record.py :190) reads its 19-table roster from data/b586_corroboration.txt`s table, whose paths are the '
+     'retired versioned names for eight documents; at this act`s step zero it refused. The repair: each roster path re-pointed through '
+     'data/b706_partners.json to the file of record, the re-pointing printed in the bank (RE-POINTED 8). The control: every roster path present at '
+     'PLACE-papers HEAD, the old roster against the re-pointed; data/b707_repair_controls.txt.', 'fn', ('b698_record.py', 'rowgen'),
+     ('b707_record.py', 'rowgen', ('roster707', '_renamed'))),
+    ('(5) tools/b707_record.py `prev_capture` -- ANSWERS the carry: b706`s route (tools/b706_record.py prev_capture) reads the previous act`s window '
+     'from this session cut at this act`s anchor, b705 having run in b706`s own session; b706 ran and closed in 44411d52 and this act opens aa198636 '
+     'after the author`s /clear, so b701`s form is carried: b706`s capture from its post-push combine to that session`s end, read from that '
+     'session`s own file and subagents. The control: data/b707_repair_controls.txt.', 'fn', ('b706_record.py', 'prev_capture'),
+     ('b707_record.py', 'prev_capture', ())),
+    ('(6) tools/b707_record.py `_root_exclude`, `declared_untracked` -- ANSWERS data/b706_rules.txt row (1): the root route`s exclusion list carried '
+     'from b706`s tool and extended at carry time with every untracked write a b707_*.py tool declares in its head; the `rootexclude` route prints '
+     'them; `rootdry` runs the root route dry before the seal. The control: data/b707_repair_controls.txt.', 'fn', ('b706_record.py', '_root_exclude'),
+     ('b707_record.py', '_root_exclude', ('declared_untracked',))),
+]
+
+
+def _udiff(old, new, a, b):
+    import difflib
+    return list(difflib.unified_diff(old, new, a, b, lineterm='', n=2))
+
+
+def repairs(*a):
+    """data/b707_tool_repairs.txt: the three readers` repairs of (R317)(2) (each shared file`s diff, relay HEAD against the working tree, by the
+    Edit tool) and the carry-time repairs of this act`s record tool (difflib over the function`s source, the carried tool`s against this act`s)."""
+    L = ['%s -- THE CARRY-TIME READING: THE REPAIRS, (R317)(2) (%s)' % (ACT, utc()), '',
+         '### rows are repairs with what they answer: the file or the tool and its part ; what it answers ; the form. Each diff beneath its row,',
+         '### written by this route (rows (1)-(3): the shared file at relay HEAD %s against the working tree, edited by the Edit tool under' % g(ROOT, 'rev-parse', '--short=8', 'HEAD').strip(),
+         '### (R317)(2); rows (4)-(6): the carried function`s source against this act`s, a new function printed whole). The controls that',
+         '### distinguish each repaired reading from the old one: data/b707_repair_controls.txt. No sealed tool is edited.', '']
+    n = 0
+    for text, kind, old, new in REPAIR_ROWS:
+        L += ['  ' + text, '']
+        if kind == 'file':
+            o = (_show(ROOT, 'HEAD', old) or '').split(NL)
+            w = (rd(os.path.join(ROOT, *old.split('/'))) or '').split(NL)
+            d = _udiff(o, w, '%s (relay HEAD)' % old, '%s (this act, the working tree)' % old)
+            n += len(d)
+            L += ['      ' + x for x in d] + ['']
+            continue
+        oldf, fn = old
+        newf, fn2, extra = new
+        o = R._fn_src(rd(os.path.join(T, oldf)), fn).split(NL)
+        w = R._fn_src(rd(os.path.join(T, newf)), fn2).split(NL)
+        d = _udiff(o, w, 'tools/%s %s (sealed)' % (oldf, fn), 'tools/%s %s (this act)' % (newf, fn2))
+        n += len(d)
+        L += ['      ' + x for x in d] + ['']
+        for f2 in extra:
+            o2 = R._fn_src(rd(os.path.join(T, oldf)), f2)
+            o2 = o2.split(NL) if o2 else []
+            w2 = R._fn_src(rd(os.path.join(T, newf)), f2).split(NL)
+            d = _udiff(o2, w2, ('tools/%s %s (sealed)' % (oldf, f2)) if o2 else '(none)', 'tools/%s %s (this act)' % (newf, f2))
+            n += len(d)
+            L += ['      ' + x for x in d] + ['']
+    L += ['### ### **REPAIRS %d ; SHARED FILES EDITED 3 UNDER (R317)(2) (tools/mirror_roster.json, tools/terminal_table.py, tools/rule_arms.py), EACH BY THE EDIT TOOL ; '
+          'DIFF LINES %d ; NO SEALED TOOL EDITED ; NO FROZEN BANK EDITED.**' % (len(REPAIR_ROWS), n)]
+    if 'dry' not in a:
+        put_txt('%s_tool_repairs.txt' % ACT, L)
+    print(NL.join(L) if 'dry' in a else L[-1])
+
+
+def tablescope(*a):
+    """data/b707_table_scope.txt (.json): the table regenerated with the retired copies` directory out of the ledger walk and diffed against relay
+    HEAD`s table (b706`s final, data/b706_table_final.txt): wanted the 12 added rows gone, the 18 moved rows restored to the state HEAD`s prior
+    table holds (b705`s final; 15 of them grades), nothing added and no other row changed. The walk`s own count with and without the exclusion."""
+    import terminal_table as TT
+    new_files = [l for l, _p in TT.ledger_files()]
+    keep = TT.RETIRED_DIRS
+    try:
+        TT.RETIRED_DIRS = ()
+        old_files = [l for l, _p in TT.ledger_files()]
+    finally:
+        TT.RETIRED_DIRS = keep
+    dropped = sorted(set(old_files) - set(new_files))
+    b6 = jl('b706_table_final.json')
+    before = R._rows_state(json.loads(_show(ROOT, 'HEAD', 'data/terminal_table.json'))['rows'])
+    # ### the state each moved row held BEFORE b706`s final regeneration, read from b706`s own diff lines ("moved repo / name : (before) -> (after)")
+    import ast
+    prior = {}
+    for l in rdn('b706_table_final.txt').split(NL):
+        m = re.match(r'^    moved   (\S+) / (\S+) : (\(.*?\)) -> (\(.*?\))$', l)
+        if m:
+            prior[(m.group(1), m.group(2))] = ast.literal_eval(m.group(3))
+    t0 = time.time()
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8', errors='replace')
+    secs = int(time.time() - t0)
+    after = R._rows_state(json.load(open(os.path.join(D, 'terminal_table.json'), encoding='utf-8'))['rows'])
+    moved = sorted(k for k in set(before) & set(after) if before[k] != after[k])
+    added, gone = sorted(set(after) - set(before)), sorted(set(before) - set(after))
+    b6_added = sorted(tuple(x) for x in b6.get('added') or [])
+    b6_moved = sorted(tuple(x) for x in b6.get('moved') or [])
+    restored = [k for k in moved if k in prior and after[k] == prior[k]]
+    grade_moved = [k for k in moved if before[k][0] != after[k][0]]
+    other = [k for k in moved if k not in b6_moved]
+    ok = (r.returncode == 0 and gone == b6_added and len(gone) == 12 and not added and moved == b6_moved and len(moved) == 18
+          and len(restored) == 18 and len(grade_moved) == 15 and not other
+          and len(dropped) == 17 and all(d.startswith('PLACE-papers/' + K.ARCHIVE_DIR + '/') for d in dropped))
+    L = ['%s -- COMPONENT 1, (R317)(2): THE TERMINAL TABLE`S SCOPE REPAIRED -- THE TABLE REGENERATED AND DIFFED AGAINST b706`S FINAL TABLE (%s); exit %d ; %d s' % (ACT, utc(), r.returncode, secs), '',
+         '### the ledger walk (tools/terminal_table.py ledger_files): files with the retired copies` directory in reach (the old reading) %d ; without it (repaired) %d ; '
+         'dropped %d, every one under PLACE-papers/%s %s' % (len(old_files), len(new_files), len(dropped), K.ARCHIVE_DIR, all(d.startswith('PLACE-papers/' + K.ARCHIVE_DIR + '/') for d in dropped))]
+    L += ['    dropped %s' % d for d in dropped]
+    L += ['', '### the table against relay HEAD`s (b706`s final, relay data/b706_table_final.txt: added 12, moved 18, grade moved 15): rows %d ; added %d ; gone %d ; moved %d ; '
+              'of the moved, restored to HEAD`s prior table (b705`s final) %d ; grades moved %d ; moved rows b706`s final did not move %d' % (
+                  len(after), len(added), len(gone), len(moved), len(restored), len(grade_moved), len(other))]
+    L += ['    gone    %s / %s' % k for k in gone] + ['    added   %s / %s' % k for k in added] + [
+        '    moved   %s / %s : %s -> %s%s' % (k[0], k[1], before[k], after[k], '' if k in restored else ' ### NOT RESTORED') for k in moved]
+    L += ['', '### ### **THE WALK DROPS %d FILES, EVERY ONE A RETIRED COPY %s ; AGAINST b706`S FINAL TABLE: GONE %d (b706`S ADDED %d), ADDED %d, MOVED %d (b706`S MOVED %d), '
+              'RESTORED %d, GRADES MOVED %d, OTHER ROWS CHANGED %d ; AS WANTED %s.**' % (
+                  len(dropped), all(d.startswith('PLACE-papers/' + K.ARCHIVE_DIR + '/') for d in dropped), len(gone), len(b6_added), len(added), len(moved), len(b6_moved),
+                  len(restored), len(grade_moved), len(other), ok)]
+    put_txt('%s_table_scope.txt' % ACT, L)
+    put_json('%s_table_scope.json' % ACT, dict(at=utc(), rc=r.returncode, seconds=secs, ok=ok, dropped=dropped, gone=[list(k) for k in gone], added=[list(k) for k in added],
+                                               moved=[list(k) for k in moved], restored=[list(k) for k in restored], grade_moved=[list(k) for k in grade_moved],
+                                               other=[list(k) for k in other], walk_old=len(old_files), walk_new=len(new_files)))
+    print(NL.join(L[:3] + L[-1:]))
+
+
+def _rule_arms_head():
+    """tools/rule_arms.py as relay HEAD carries it (the sealed reading), loaded from the blob into a module of its own: the old reading, run and
+    not retyped."""
+    import types
+    src = _show(ROOT, 'HEAD', 'tools/rule_arms.py') or ''
+    mod = types.ModuleType('rule_arms_head')
+    mod.__file__ = os.path.join(T, 'rule_arms.py')
+    exec(compile(src, 'tools/rule_arms.py@HEAD', 'exec'), mod.__dict__)
+    return mod
+
+
+def repairctl(*a):
+    """data/b707_repair_controls.txt: each repaired reading and the old one run on real state (b706`s export, b706`s and b705`s run banks, the
+    roster bank, this session) and on mutated copies, so that the repaired reading is distinguished from the old on a row."""
+    import zipfile
+    import mirror_verify as MV
+    import rule_arms as RA
+    L = ['%s -- COMPONENT 1, (R317)(2): THE REPAIRED READINGS AGAINST THE OLD ON REAL STATE AND ON MUTATED COPIES (%s)' % (ACT, utc()), '',
+         '### rows are cases: the reader | the source (a bank, an export, a session, or a mutated copy) | the old reading | the repaired | wanted.',
+         '### Each repaired reading is DISTINGUISHED where one row reads them apart.', '']
+    cases = []
+    # ### (1) the roster against b706`s export: the names staged by the builder`s rule (tools/mirror_verify.py staged_names, the clause 3 reading)
+    z = zipfile.ZipFile(K.MIRROR_ZIP)
+    have = set(n for n in z.namelist() if n.lower() != 'manifest.md')
+    old_paths = json.loads(_show(ROOT, 'HEAD', 'tools/mirror_roster.json'))['files']
+    new_paths = json.loads(rd(os.path.join(T, 'mirror_roster.json')))['files']
+    old_exp, new_exp = set(MV.staged_names(old_paths)), set(MV.staged_names(new_paths))
+    om, oe, nm, ne = sorted(old_exp - have), sorted(have - old_exp), sorted(new_exp - have), sorted(have - new_exp)
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'mirror_verify.py'), K.MIRROR_ZIP, 'origin', 'main'], cwd=PP,
+                       capture_output=True, text=True, encoding='utf-8', errors='replace')
+    dry = (r.stdout + r.stderr).replace(chr(13), '')
+    put_txt('%s_roster_control.txt' % ACT, ['%s -- THE ROSTER`S CONTROL: tools/mirror_verify.py RUN DRY AGAINST b706`S EXPORT WITH THE ROSTER AS EDITED (%s); exit %d' % (ACT, utc(), r.returncode),
+                                             '### the export: %s ; wanted on the author`s word: clauses 1 and 2 CLEAN, clause 3 NOT CLEAN by exactly the four re-pointed names MISSING' % K.MIRROR_ZIP, '']
+                 + dry.split(NL))
+    c1_, c2_ = 'CLAUSE 1 : CLEAN' in dry, 'CLAUSE 2 : CLEAN' in dry
+    c3m = re.search(r'in roster, MISSING from archive : (\d+)', dry)
+    c3x = re.search(r'in archive, NOT in roster\s+: (\d+)', dry)
+    miss_named = re.findall(r'MISSING : (\S+)', dry)
+    old_dry = rdn('b706_mirror_verify.txt')
+    o3m = re.search(r'in roster, MISSING from archive : (\d+)', old_dry)
+    L += ['### the export %s: files %d ; the roster at HEAD %d paths, as edited %d ; staged names expected: old %d, repaired %d ; MISSING old %d %s ; repaired %d %s ; EXTRA old %d, repaired %d' % (
+        os.path.basename(K.MIRROR_ZIP), len(have), len(old_paths), len(new_paths), len(old_exp), len(new_exp), len(om), om[:17], len(nm), nm, len(oe), len(ne)),
+          '### the dry run as edited (data/b707_roster_control.txt): clause 1 CLEAN %s ; clause 2 CLEAN %s ; clause 3 MISSING %s, EXTRA %s, named %s ; b706`s own run (data/b706_mirror_verify.txt): MISSING %s' % (
+              c1_, c2_, c3m.group(1) if c3m else '?', c3x.group(1) if c3x else '?', miss_named, o3m.group(1) if o3m else '?'), '']
+    cases.append(('mirror_roster', 'b706`s export against the roster at HEAD (old) and as edited (repaired): every roster name in the export', not om and not oe, not nm and not ne, (False, False)))
+    cases.append(('mirror_roster', 'the MISSING set exactly the four re-pointed names and nothing EXTRA (the author`s stated form)', om == sorted(RETIRED_FOUR) and not oe,
+                  nm == sorted(RETIRED_FOUR) and not ne, (False, True)))
+    cases.append(('mirror_roster', 'the roster`s 70 entries and no path listed twice (the builder`s flat naming)', len(old_paths) == 70 and len(set(old_paths)) == len(old_paths),
+                  len(new_paths) == 70 and len(set(new_paths)) == len(new_paths), (False, True)))
+    cases.append(('mirror_roster', 'tools/mirror_verify.py run dry over b706`s export: clauses 1 and 2 CLEAN, clause 3 MISSING exactly 4, EXTRA 0 (old: b706`s own run, MISSING 17)',
+                  bool(o3m) and o3m.group(1) == '4', c1_ and c2_ and bool(c3m) and c3m.group(1) == '4' and bool(c3x) and c3x.group(1) == '0' and sorted(miss_named) == sorted(RETIRED_FOUR), (False, True)))
+
+    def collides(paths):
+        try:
+            MV.staged_names(paths)
+            return False
+        except ValueError:
+            return True
+    cases.append(('mirror_roster', 'a mutated copy of the repaired roster, FINDINGS.md listed twice: the builder`s naming collides (clause 3 HARD FAILURE)', collides(new_paths),
+                  collides(new_paths + ['FINDINGS.md']), (False, True)))
+    # ### (2) the table`s scope: the walk and the regeneration (data/b707_table_scope.json, written by `tablescope` before this route)
+    ts = jl('%s_table_scope.json' % ACT)
+    if not ts:
+        sys.exit('### data/b707_table_scope.json IS NOT WRITTEN -- run `tablescope` first')
+    L += ['### the table`s scope (data/b707_table_scope.txt): the walk %s files with the retired directory in reach, %s without ; gone %d ; added %d ; moved %d ; restored %d ; grades %d ; other %d ; as wanted %s' % (
+        ts.get('walk_old'), ts.get('walk_new'), len(ts.get('gone') or []), len(ts.get('added') or []), len(ts.get('moved') or []), len(ts.get('restored') or []),
+        len(ts.get('grade_moved') or []), len(ts.get('other') or []), ts.get('ok')), '']
+    cases.append(('terminal_table', 'the ledger walk: a file under the retired copies` directory among the ledgers (old: RETIRED_DIRS emptied ; repaired: as edited)',
+                  (ts.get('walk_old') or 0) > (ts.get('walk_new') or 0), False, (True, False)))
+    cases.append(('terminal_table', 'the walk drops exactly the 17 retired copies and nothing else', len(ts.get('dropped') or []) == 17 and all(
+        d.startswith('PLACE-papers/' + K.ARCHIVE_DIR + '/') for d in ts.get('dropped') or []), len(ts.get('dropped') or []) == 17 and all(
+        d.startswith('PLACE-papers/' + K.ARCHIVE_DIR + '/') for d in ts.get('dropped') or []), (True, True)))
+    b6 = jl('b706_table_final.json')
+    cases.append(('terminal_table', 'the table against b706`s final: 12 added rows gone, 18 moved rows restored (15 grades), nothing added, no other row changed (old: b706`s final diff itself)',
+                  not (b6.get('added') or []) and not (b6.get('moved') or []), bool(ts.get('ok')), (False, True)))
+    # ### (3) G-RULE-SUITE-PARTS: the old reading (relay HEAD`s rule_arms.py, loaded from the blob) against the repaired, over the real run banks
+    OLD = _rule_arms_head()
+    S = RA.sources(ACT, None, K.ANCHOR, K.PARTS)
+    runs = S['runs']
+
+    def R_with(sel):
+        return dict(S, runs=dict((k, v) for k, v in runs.items() if sel(k)))
+    name = 'G-RULE-SUITE-PARTS'
+    r706, r705, rall = R_with(lambda k: k[0] == 706), R_with(lambda k: k[0] == 705), S
+    L += ['### G-RULE-SUITE-PARTS: run banks read %d (b678-b706) ; b706`s %s ; b705`s %s ; the governing parts %s' % (
+        len(runs), dict((k[1], [p for p, _s in v]) for k, v in r706['runs'].items()), dict((k[1], [p for p, _s in v]) for k, v in r705['runs'].items()),
+        ['%s from b%d: %s' % (b, a_, ps) for a_, b, ps in S.get('governing') or []]), '']
+    for lab, RR, want in (('b706`s three run banks (standing-a, c, b1, b2a, b2b, b3, act) against their governing parts', r706, (False, True)),
+                          ('b705`s three run banks (unsplit: standing-a, c, b1, b2, act)', r705, (True, True)),
+                          ('every run bank b678-b706', rall, (False, True))):
+        cases.append((name, lab, OLD.reading(name, RR)[0], RA.reading(name, RR)[0], want))
+    pl = dict(r706, runs=dict((k, v + [('standing-z', 1)]) for k, v in r706['runs'].items()))
+    cases.append((name, 'a mutated copy of b706`s banks, a part outside any family (standing-z) planted', OLD.reading(name, pl)[0], RA.reading(name, pl)[0], (False, False)))
+    pl2 = dict(r706, runs=dict((k, v + [('standing-b2', 1)]) for k, v in r706['runs'].items()))
+    cases.append((name, 'a mutated copy of b706`s banks, standing-b2 planted beside standing-b2a and standing-b2b (a half beside its own halves)', OLD.reading(name, pl2)[0], RA.reading(name, pl2)[0], (False, False)))
+    pl3 = dict(r705, runs=dict((k, v + [('standing-b', 1)]) for k, v in r705['runs'].items()))
+    cases.append((name, 'a mutated copy of b705`s banks, standing-b planted beside standing-b1 and standing-b2 (b692`s "never both")', OLD.reading(name, pl3)[0], RA.reading(name, pl3)[0], (False, False)))
+    pl4 = dict(r706, runs=dict((k, [(p, s) for p, s in v if p != 'standing-b2b']) for k, v in r706['runs'].items()))
+    cases.append((name, 'a mutated copy of b706`s banks, standing-b2b removed (a lettered half alone)', OLD.reading(name, pl4)[0], RA.reading(name, pl4)[0], (False, False)))
+    pl5 = dict(r705, runs=dict((k, [(p, s) for p, s in v if p != 'standing-b2']) for k, v in r705['runs'].items()))
+    cases.append((name, 'a mutated copy of b705`s banks, standing-b2 removed (standing-b1 and standing-b3 alone: a gap in the numbering)', OLD.reading(name, pl5)[0], RA.reading(name, pl5)[0], (True, False)))
+    # ### (4) the rowgen roster: b698`s paths against the re-pointed
+    old_ro = [(n_, p) for n_, p in R.roster()]
+    new_ro = roster707()
+    old_present = all(os.path.exists(os.path.join(PP, p)) for _n, p in old_ro)
+    new_present = all(os.path.exists(os.path.join(PP, p)) for _n, p, _f in new_ro)
+    L += ['### the rowgen roster: b698`s 19 paths, present at PLACE-papers HEAD %s (missing %d) ; re-pointed through data/b706_partners.json: %d re-pointed, present %s' % (
+        old_present, sum(1 for _n, p in old_ro if not os.path.exists(os.path.join(PP, p))), sum(1 for _n, _p, f in new_ro if f), new_present), '']
+    cases.append(('rowgen roster', 'every roster path present at PLACE-papers HEAD (b698`s roster: old ; re-pointed: repaired)', old_present, new_present, (False, True)))
+    cases.append(('rowgen roster', 'the roster 19 tables, the same names in the same order', [n_ for n_, _p in old_ro] == [n_ for n_, _p, _f in new_ro] and len(old_ro) == 19, len(new_ro) == 19, (True, True)))
+    # ### (5) prev_capture: b706`s form (this session, from the previous act`s combine) against b701`s (the previous act`s own session)
+    rows_this = ER.capture(SESSION, K.PREV_ANCHOR, SUBAGENTS)
+    first_this = [r_['ts'] for r_ in rows_this if '%s_checks_postpush' % PREV in r_['cmd'] and '--combine' in r_['cmd']]
+    new_rows = prev_capture()
+    L += ['### the previous window: b706`s form over this session %s from (R316)`s anchor: %d commands, the previous act`s combine among them %s ; b701`s form over %s: %d commands from %s, every one marked b706 %s' % (
+        K.SESSION_ID[:8], len(rows_this), bool(first_this), K.PREV_SESSION[:8], len(new_rows), new_rows[0]['ts'] if new_rows else '-', all(r_['src'].startswith(PREV) for r_ in new_rows)), '']
+    cases.append(('prev_capture', 'the previous act`s window read: its post-push combine found and the commands after it read', bool(first_this), bool(new_rows) and all(r_['src'].startswith(PREV) for r_ in new_rows), (False, True)))
+    # ### (6) ROOT_EXCLUDE extended by declaration (b706`s cases with this act`s names)
+    SELF = sys.modules[__name__]
+    keep = SELF.declared_untracked
+    try:
+        SELF.declared_untracked = lambda: []
+        p_none = SELF._root_exclude()
+        SELF.declared_untracked = lambda: [('b707_x.py', 'x_units.jsonl')]
+        p_decl = SELF._root_exclude()
+    finally:
+        SELF.declared_untracked = keep
+    pat6 = P6.R.ROOT_EXCLUDE if hasattr(P6, 'R') else R.ROOT_EXCLUDE
+    old_m = bool(re.compile(pat6.pattern.replace('b706_', 'b707_')).match('b707_x_units.jsonl'))
+    cases.append(('ROOT_EXCLUDE', 'no tool declares an untracked write: b707_x_units.jsonl excluded by name (old: b706`s pattern with the act renamed)', old_m, bool(p_none.match('b707_x_units.jsonl')), (False, False)))
+    cases.append(('ROOT_EXCLUDE', 'a tool declares data/b707_x_units.jsonl untracked: the file excluded by name', old_m, bool(p_decl.match('b707_x_units.jsonl')), (False, True)))
+    cases.append(('ROOT_EXCLUDE', 'the declaration present: a bank of a committed kind (b707_onset.txt) still named', not pat6.match('b706_onset.txt'), not p_decl.match('b707_onset.txt'), (True, True)))
+    ok = True
+    for nm_, src, o, nw, want in cases:
+        asw = (bool(o), bool(nw)) == want
+        ok = ok and asw
+        L.append('  %-20s | %s | old %-5s | repaired %-5s | wanted old %s, repaired %s | %s' % (nm_, src, bool(o), bool(nw), want[0], want[1], 'AS WANTED' if asw else '### NOT AS WANTED'))
+    dist = [n_ for n_, _s, o, nw, _w in cases if bool(o) != bool(nw)]
+    L += ['', '### ### **CASES %d ; AS WANTED %s ; EACH REPAIRED READING DISTINGUISHED FROM THE OLD ON A ROW: %s.**' % (len(cases), ok, sorted(set(dist)))]
+    put_txt('%s_repair_controls.txt' % ACT, L)
+    print(NL.join(L[5:]))
+
+
+# ================================================================================ COMPONENT 1: THE ORDER LINES (the two unbanked mentions, (R317)(2)); Component 3 appends the port`s
+ORDERS = [
+    (K.ORDER_TAG_PRINTS, 'W-ORD-ENTRY-TAG-PRINTS',
+     '*Appended 2026-10-22 by b707 beneath `W-ORD-ENTRY-TAG-PRINTS` (:15590; discharged at :15642), under `(R317)`(2) -- THE REMAINDER ENTERED, THE TWO UNBANKED MENTIONS:*',
+     ' the two mentions b706’s re-read left unbanked (relay data/b706_cells_reread.txt: 11 re-read, 9 equal, 0 differs, 2 unbanked), each named by '
+     'paper and line with what its line cites. (1) SIMPLICITY_OF_RIEMANN_ZEROS :442 (the joint-step row) names the Prop `simplicity` at '
+     'SIDE-explicit-formula v0.17 = `5a1630b` by `simplicity_iff` -- a tag no print bank holds; priced at one dispatch at b708 in b706’s form (a '
+     'scratch branch cut at v0.17 carrying the workflow at main, a one-name print list and a root ChainProbe.lean naming `simplicity_iff`, the '
+     'branch deleted after its bank). (2) FACES_LEDGER :20 (the F1 row, the finite-instance identity) names no kernel and no tag -- b704’s reader '
+     'took it as a mention by the words “explicit formula” (relay data/b704_cells_reach.txt :78); nothing to print, no dispatch priced, the row '
+     'read as it stands. The ruling’s “the tag each cites” the navigator’s (e) (relay data/b707_defects.txt), the second line citing none. '
+     'Trigger: b708 (the first). Status OPEN.'),
+]
+
+
+def orders(*a):
+    """the order lines appended to OPEN_TRAILS through b698's guarded landing, each beneath its order by its line (the ledger is append-only);
+    data/b707_orders.json. `orders [dry] [<n>]`: one line by its index, or every line."""
+    dry = 'dry' in a
+    idx = [int(x) for x in a if x.isdigit()]
+    sel = [ORDERS[i] for i in idx] if idx else ORDERS
+    land([('OPEN_TRAILS.md', h, NL + h + b + NL) for _ln, _nm, h, b in sel], '%s_orders%s.json' % (ACT, ('_%d' % idx[0]) if idx else ''), 'orders', entry=None,
+         check=[('OPEN_TRAILS.md', ln, nm) for ln, nm, _h, _b in sel], dry=dry)
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
-              runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry)
+              runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry,
+              c1=c1, repairs=repairs, tablescope=tablescope, repairctl=repairctl, orders=orders)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

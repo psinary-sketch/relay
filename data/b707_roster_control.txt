@@ -1,0 +1,38 @@
+b707 -- THE ROSTER`S CONTROL: tools/mirror_verify.py RUN DRY AGAINST b706`S EXPORT WITH THE ROSTER AS EDITED (2026-10-23T01:52:35Z); exit 1
+### the export: D:/MY-DOwnloads/mirror-refresh-2026-10-22-b706.zip ; wanted on the author`s word: clauses 1 and 2 CLEAN, clause 3 NOT CLEAN by exactly the four re-pointed names MISSING
+
+==============================================================================
+MIRROR VERIFICATION -- ALL THREE CLAUSES (b142; clause 3 added b183)
+  archive: D:/MY-DOwnloads/mirror-refresh-2026-10-22-b706.zip
+==============================================================================
+
+--- CLAUSE 1: THE ARCHIVE AGAINST ITS OWN MANIFEST ---
+  files in archive (excl MANIFEST) : 66
+  rows parsed from MANIFEST        : 66
+  md5 / byte mismatches            : 0
+  CLAUSE 1 : CLEAN
+
+--- CLAUSE 2: THE BUILD'S SOURCE HEAD AGAINST ls-remote ---
+  manifest declares source HEAD    : c9e0086
+  ls-remote origin/main              : c9e00860b2993d8182618064f41f985ece0e0860
+  CLAUSE 2 : CLEAN -- they agree
+
+--- CLAUSE 3: THE ARCHIVE'S CONTENTS AGAINST THE ROSTER ---
+  roster entries (source paths) : 70
+  archive files (excl MANIFEST) : 66
+  in roster, MISSING from archive : 4
+  in archive, NOT in roster       : 0
+      MISSING : EXHAUSTIVENESS_LICENSE.md
+      MISSING : E_DIFFICULTY_THEOREM.md
+      MISSING : R_CURVE_CRITERION.md
+      MISSING : TECHNE_TOOLKIT.md
+  ### CLAUSE 3 : NOT CLEAN -- HARD FAILURE.
+  ### THE ARCHIVE DOES NOT MATCH THE ROSTER, and this is exactly the
+  ### b182 case that clauses 1 and 2 both passed.
+
+  ### VERDICT: NOT CLEAN
+  ### NO CLAUSE ALONE IS THE VERIFICATION; THE LAW REQUIRES ALL THREE.
+  ### clause 1 is the archive against ITSELF, clause 2 is the pin, and
+  ### clause 3 is the archive against the ROSTER -- ### THE ONLY ONE OF THE
+  ### THREE THAT CAN SEE A FILE THAT NEVER ENTERED THE STAGING DIRECTORY.
+

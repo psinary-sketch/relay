@@ -1,0 +1,40 @@
+b707 -- COMPONENT 1, (R317)(2): THE REPAIRED READINGS AGAINST THE OLD ON REAL STATE AND ON MUTATED COPIES (2026-10-23T01:52:34Z)
+
+### rows are cases: the reader | the source (a bank, an export, a session, or a mutated copy) | the old reading | the repaired | wanted.
+### Each repaired reading is DISTINGUISHED where one row reads them apart.
+
+### the export mirror-refresh-2026-10-22-b706.zip: files 66 ; the roster at HEAD 83 paths, as edited 70 ; staged names expected: old 83, repaired 70 ; MISSING old 17 ['ADDITIVE_MULTIPLICATIVE_CONSPIRACY_v0_2_4.md', 'A_Place_to_Stand_v5_18.md', 'BALANCE_AND_POSITIVITY_v0_9_5.md', 'EXHAUSTIVENESS_LICENSE_v0_2.md', 'E_DIFFICULTY_THEOREM_v1_0_4.md', 'FACES_OF_H2_AT_FINITE_INSTANCE_v0_2.md', 'FOUNDATIONS_OF_THE_SIDE_PROGRAMME_v0_2_5.md', 'GRH_CASCADE_v0_3_6.md', 'INDEX_ARITY_AT_THE_CRITICAL_LINE_v0_19.md', 'INVARIANCE_BARRIERS_v1_4.md', 'PATHS_TO_THE_CRITICAL_LINE_v0_7.md', 'R_CURVE_CRITERION_v0_2_2.md', 'SILENCE_STAGES_DEALIGNMENT_v1_3.md', 'SIMPLICITY_OF_RIEMANN_ZEROS_v1_1_3.md', 'TECHNE_TOOLKIT_v8_3.md', 'THE_RESIDUE_OF_RH_v1_2.md', 'THE_UNCONDITIONAL_SURROUND_v0_5.md'] ; repaired 4 ['EXHAUSTIVENESS_LICENSE.md', 'E_DIFFICULTY_THEOREM.md', 'R_CURVE_CRITERION.md', 'TECHNE_TOOLKIT.md'] ; EXTRA old 0, repaired 0
+### the dry run as edited (data/b707_roster_control.txt): clause 1 CLEAN True ; clause 2 CLEAN True ; clause 3 MISSING 4, EXTRA 0, named ['EXHAUSTIVENESS_LICENSE.md', 'E_DIFFICULTY_THEOREM.md', 'R_CURVE_CRITERION.md', 'TECHNE_TOOLKIT.md'] ; b706`s own run (data/b706_mirror_verify.txt): MISSING 17
+
+### the table`s scope (data/b707_table_scope.txt): the walk 114 files with the retired directory in reach, 97 without ; gone 12 ; added 0 ; moved 18 ; restored 18 ; grades 15 ; other 0 ; as wanted True
+
+### G-RULE-SUITE-PARTS: run banks read 86 (b678-b706) ; b706`s {'arms_prerun': ['standing-a', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'act'], 'checks': ['standing-a', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'act'], 'checks_postpush': ['standing-a', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'act']} ; b705`s {'arms_prerun': ['standing-a', 'standing-c', 'standing-b1', 'standing-b2', 'standing-b3', 'act'], 'checks': ['standing-a', 'standing-c', 'standing-b1', 'standing-b2', 'standing-b3', 'act'], 'checks_postpush': ['standing-a', 'standing-c', 'standing-b1', 'standing-b2', 'standing-b3', 'act']} ; the governing parts ["b678_rules.txt from b678: ['standing-a', 'standing-b', 'act']", "b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']"]
+
+### the rowgen roster: b698`s 19 paths, present at PLACE-papers HEAD False (missing 8) ; re-pointed through data/b706_partners.json: 8 re-pointed, present True
+
+### the previous window: b706`s form over this session aa198636 from (R316)`s anchor: 67 commands, the previous act`s combine among them False ; b701`s form over 44411d52: 6 commands from 2026-10-22T23:24:55.299Z, every one marked b706 True
+
+  mirror_roster        | b706`s export against the roster at HEAD (old) and as edited (repaired): every roster name in the export | old False | repaired False | wanted old False, repaired False | AS WANTED
+  mirror_roster        | the MISSING set exactly the four re-pointed names and nothing EXTRA (the author`s stated form) | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  mirror_roster        | the roster`s 70 entries and no path listed twice (the builder`s flat naming) | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  mirror_roster        | tools/mirror_verify.py run dry over b706`s export: clauses 1 and 2 CLEAN, clause 3 MISSING exactly 4, EXTRA 0 (old: b706`s own run, MISSING 17) | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  mirror_roster        | a mutated copy of the repaired roster, FINDINGS.md listed twice: the builder`s naming collides (clause 3 HARD FAILURE) | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  terminal_table       | the ledger walk: a file under the retired copies` directory among the ledgers (old: RETIRED_DIRS emptied ; repaired: as edited) | old True  | repaired False | wanted old True, repaired False | AS WANTED
+  terminal_table       | the walk drops exactly the 17 retired copies and nothing else | old True  | repaired True  | wanted old True, repaired True | AS WANTED
+  terminal_table       | the table against b706`s final: 12 added rows gone, 18 moved rows restored (15 grades), nothing added, no other row changed (old: b706`s final diff itself) | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  G-RULE-SUITE-PARTS   | b706`s three run banks (standing-a, c, b1, b2a, b2b, b3, act) against their governing parts | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  G-RULE-SUITE-PARTS   | b705`s three run banks (unsplit: standing-a, c, b1, b2, act) | old True  | repaired True  | wanted old True, repaired True | AS WANTED
+  G-RULE-SUITE-PARTS   | every run bank b678-b706 | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  G-RULE-SUITE-PARTS   | a mutated copy of b706`s banks, a part outside any family (standing-z) planted | old False | repaired False | wanted old False, repaired False | AS WANTED
+  G-RULE-SUITE-PARTS   | a mutated copy of b706`s banks, standing-b2 planted beside standing-b2a and standing-b2b (a half beside its own halves) | old False | repaired False | wanted old False, repaired False | AS WANTED
+  G-RULE-SUITE-PARTS   | a mutated copy of b705`s banks, standing-b planted beside standing-b1 and standing-b2 (b692`s "never both") | old False | repaired False | wanted old False, repaired False | AS WANTED
+  G-RULE-SUITE-PARTS   | a mutated copy of b706`s banks, standing-b2b removed (a lettered half alone) | old False | repaired False | wanted old False, repaired False | AS WANTED
+  G-RULE-SUITE-PARTS   | a mutated copy of b705`s banks, standing-b2 removed (standing-b1 and standing-b3 alone: a gap in the numbering) | old True  | repaired False | wanted old True, repaired False | AS WANTED
+  rowgen roster        | every roster path present at PLACE-papers HEAD (b698`s roster: old ; re-pointed: repaired) | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  rowgen roster        | the roster 19 tables, the same names in the same order | old True  | repaired True  | wanted old True, repaired True | AS WANTED
+  prev_capture         | the previous act`s window read: its post-push combine found and the commands after it read | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  ROOT_EXCLUDE         | no tool declares an untracked write: b707_x_units.jsonl excluded by name (old: b706`s pattern with the act renamed) | old False | repaired False | wanted old False, repaired False | AS WANTED
+  ROOT_EXCLUDE         | a tool declares data/b707_x_units.jsonl untracked: the file excluded by name | old False | repaired True  | wanted old False, repaired True | AS WANTED
+  ROOT_EXCLUDE         | the declaration present: a bank of a committed kind (b707_onset.txt) still named | old True  | repaired True  | wanted old True, repaired True | AS WANTED
+
+### ### **CASES 22 ; AS WANTED True ; EACH REPAIRED READING DISTINGUISHED FROM THE OLD ON A ROW: ['G-RULE-SUITE-PARTS', 'ROOT_EXCLUDE', 'mirror_roster', 'prev_capture', 'rowgen roster', 'terminal_table'].**
