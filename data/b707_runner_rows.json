@@ -1,0 +1,25 @@
+{
+ "rows": [
+  {
+   "kernel": "SIDE-lv-conservation",
+   "label": "port",
+   "ref": "69e239d920fa76f073cdc04f9c78132e325735e1",
+   "run_id": 39888369981,
+   "conclusion": "failure",
+   "artifact_sha256": "e07c11bfae5818d69bdead87a21ebd297dd4ad98e5ea667d09920f0561ee8826",
+   "mem_low": 13658,
+   "stopped": false,
+   "build_exit": "1",
+   "errors": [
+    "error: SIDELvConservation/C7OrderBounds.lean:277:55: Application type mismatch: The argument",
+    "error: SIDELvConservation/C7OrderBounds.lean:277:6: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached",
+    "error: SIDELvConservation/C7OrderBounds.lean:260:0: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached",
+    "error: SIDELvConservation/C7OrderBounds.lean:380:8: (kernel) unknown constant 'SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp_half'",
+    "error: build failed"
+   ],
+   "axioms_sha256": null,
+   "gate": "NOT DERIVES",
+   "note": "no grade claimed: the print step read as not run (print_targets.txt absent at 93c27ec), the author`s word"
+  }
+ ]
+}

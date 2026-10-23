@@ -1,0 +1,384 @@
+b707 -- COMPONENT 3, (R317)(5) AND THE AUTHOR`S WORD AT THE SECOND PROMPT: THE PORT BRANCH`S FIVE FILES, PRINTED BEFORE THE ONE COMMIT (2026-10-23T02:12:47Z)
+
+### the branch port-b707 cut at 93c27ec2 (v0.10.0, the deposit), checked out, HEAD 93c27ec2 (unmoved before the commit); the five files: the toolchain, the manifest,
+### lakefile.lean, SIDELvConservation/GammaBounds.lean and SIDE-explicit-formula`s .github/workflows/build-module.yml at main (badacccb) carried verbatim; each tracked file`s diff
+### against 93c27ec2 by git diff; the workflow (untracked at 93c27ec2) printed whole and its blob compared. Nothing else is edited.
+
+### (1) lean-toolchain, whole: 'leanprover/lean4:v4.34.0-rc1' -> the shared pin leanprover/lean4:v4.34.0-rc1: True
+    diff --git a/lean-toolchain b/lean-toolchain
+    index 33e0c08..75def60 100644
+    --- a/lean-toolchain
+    +++ b/lean-toolchain
+    @@ -1 +1 @@
+    -leanprover/lean4:v4.29.1
+    +leanprover/lean4:v4.34.0-rc1
+
+### (2) lakefile.lean, whole (:12 the rev moved to de5ce8a9, the comment lines :7-:8 left as they stand -- the author`s word names the rev alone): True
+      1  import Lake
+      2  open Lake DSL
+      3  
+      4  package sideLvConservation where
+      5    leanOptions := #[]
+      6  
+      7  -- Mathlib pinned to match the working pin used by SIDE-grh-transfer
+      8  -- (Lean v4.29.1 + Mathlib commit 5e932f9). Federation discipline: no
+      9  -- Lake cross-dependencies on sister kernels; Mathlib is the sole source
+     10  -- of imported content.
+     11  require mathlib from git
+     12    "https://github.com/leanprover-community/mathlib4" @ "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11"
+     13  
+     14  @[default_target]
+     15  lean_lib SIDELvConservation where
+     16    srcDir := "."
+     17    globs := #[.submodules `SIDELvConservation]
+     18  
+    diff --git a/lakefile.lean b/lakefile.lean
+    index fbfd43a..1949226 100644
+    --- a/lakefile.lean
+    +++ b/lakefile.lean
+    @@ -9,7 +9,7 @@ package sideLvConservation where
+     -- Lake cross-dependencies on sister kernels; Mathlib is the sole source
+     -- of imported content.
+     require mathlib from git
+    -  "https://github.com/leanprover-community/mathlib4" @ "5e932f97dd25535344f80f9dd8da3aab83df0fe6"
+    +  "https://github.com/leanprover-community/mathlib4" @ "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11"
+     
+     @[default_target]
+     lean_lib SIDELvConservation where
+
+### (3) lake-manifest.json: the packages block SIDE-explicit-formula`s main manifest`s (9 packages, mathlib at de5ce8a9, Cli at v4.34.0-rc1), the manifest version 1.2.0, the root name kept 'sideLvConservation': True ; the diff against 93c27ec2:
+    diff --git a/lake-manifest.json b/lake-manifest.json
+    index 4f03720..d9f3ef6 100644
+    --- a/lake-manifest.json
+    +++ b/lake-manifest.json
+    @@ -1,95 +1,116 @@
+    -{"version": "1.1.0",
+    +{
+    + "version": "1.2.0",
+      "packagesDir": ".lake/packages",
+    - "packages":
+    - [{"url": "https://github.com/leanprover-community/mathlib4",
+    + "packages": [
+    +  {
+    +   "url": "https://github.com/leanprover-community/mathlib4.git",
+        "type": "git",
+        "subDir": null,
+        "scope": "",
+    -   "rev": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+    +   "rev": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+        "name": "mathlib",
+        "manifestFile": "lake-manifest.json",
+    -   "inputRev": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+    +   "inputRev": "de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11",
+        "inherited": false,
+    -   "configFile": "lakefile.lean"},
+    -  {"url": "https://github.com/leanprover-community/plausible",
+    +   "configFile": "lakefile.lean"
+    +  },
+    +  {
+    +   "url": "https://github.com/leanprover-community/plausible",
+        "type": "git",
+        "subDir": null,
+        "scope": "leanprover-community",
+    -   "rev": "83e90935a17ca19ebe4b7893c7f7066e266f50d3",
+    +   "rev": "38e9c3ce15cbb63c92e90bb9a92e4eb82131f669",
+        "name": "plausible",
+        "manifestFile": "lake-manifest.json",
+        "inputRev": "main",
+        "inherited": true,
+    -   "configFile": "lakefile.toml"},
+    -  {"url": "https://github.com/leanprover-community/LeanSearchClient",
+    +   "configFile": "lakefile.toml"
+    +  },
+    +  {
+    +   "url": "https://github.com/leanprover-community/LeanSearchClient",
+        "type": "git",
+        "subDir": null,
+        "scope": "leanprover-community",
+    -   "rev": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+    +   "rev": "2bc7cf064315b26bc38dac2e9612fb581be9b75f",
+        "name": "LeanSearchClient",
+        "manifestFile": "lake-manifest.json",
+        "inputRev": "main",
+        "inherited": true,
+    -   "configFile": "lakefile.toml"},
+    -  {"url": "https://github.com/leanprover-community/import-graph",
+    +   "configFile": "lakefile.toml"
+    +  },
+    +  {
+    +   "url": "https://github.com/leanprover-community/import-graph",
+        "type": "git",
+        "subDir": null,
+        "scope": "leanprover-community",
+    -   "rev": "48d5698bc464786347c1b0d859b18f938420f060",
+    +   "rev": "978b7ec9fbbf9a535114f1de8fe5b3778b358870",
+        "name": "importGraph",
+        "manifestFile": "lake-manifest.json",
+        "inputRev": "main",
+        "inherited": true,
+    -   "configFile": "lakefile.toml"},
+    -  {"url": "https://github.com/leanprover-community/ProofWidgets4",
+    +   "configFile": "lakefile.toml"
+    +  },
+    +  {
+    +   "url": "https://github.com/leanprover-community/ProofWidgets4",
+        "type": "git",
+        "subDir": null,
+        "scope": "leanprover-community",
+    -   "rev": "4dd0959c44d1af0462bd604d0f87c5781307d709",
+    +   "rev": "99e8adeea3c3cd86b6b79ba01a1383bf2d31d055",
+        "name": "proofwidgets",
+        "manifestFile": "lake-manifest.json",
+    -   "inputRev": "v0.0.95+lean-v4.29.1",
+    +   "inputRev": "main",
+        "inherited": true,
+    -   "configFile": "lakefile.lean"},
+    -  {"url": "https://github.com/leanprover-community/aesop",
+    +   "configFile": "lakefile.lean"
+    +  },
+    +  {
+    +   "url": "https://github.com/leanprover-community/aesop",
+        "type": "git",
+        "subDir": null,
+        "scope": "leanprover-community",
+    -   "rev": "7152850e7b216a0d409701617721b6e469d34bf6",
+    +   "rev": "c1c4362a130f12e632d252180a6c2a31d8fd4726",
+        "name": "aesop",
+        "manifestFile": "lake-manifest.json",
+        "inputRev": "master",
+        "inherited": true,
+    -   "configFile": "lakefile.toml"},
+    -  {"url": "https://github.com/leanprover-community/quote4",
+    +   "configFile": "lakefile.toml"
+    +  },
+    +  {
+    +   "url": "https://github.com/leanprover-community/quote4",
+        "type": "git",
+        "subDir": null,
+        "scope": "leanprover-community",
+    -   "rev": "707efb56d0696634e9e965523a1bbe9ac6ce141d",
+    +   "rev": "3b55e9d00c6b0018e5d984eb011b6f93c09bd163",
+        "name": "Qq",
+        "manifestFile": "lake-manifest.json",
+        "inputRev": "master",
+        "inherited": true,
+    -   "configFile": "lakefile.toml"},
+    -  {"url": "https://github.com/leanprover-community/batteries",
+    +   "configFile": "lakefile.toml"
+    +  },
+    +  {
+    +   "url": "https://github.com/leanprover-community/batteries",
+        "type": "git",
+        "subDir": null,
+        "scope": "leanprover-community",
+    -   "rev": "756e3321fd3b02a85ffda19fef789916223e578c",
+    +   "rev": "01bc479e7432594821ba3fb0ca465211941de86d",
+        "name": "batteries",
+        "manifestFile": "lake-manifest.json",
+        "inputRev": "main",
+        "inherited": true,
+    -   "configFile": "lakefile.toml"},
+    -  {"url": "https://github.com/leanprover/lean4-cli",
+    +   "configFile": "lakefile.toml"
+    +  },
+    +  {
+    +   "url": "https://github.com/leanprover/lean4-cli",
+        "type": "git",
+        "subDir": null,
+        "scope": "leanprover",
+    -   "rev": "7802da01beb530bf051ab657443f9cd9bc3e1a29",
+    +   "rev": "af8bc067a4cc6c6df472a68909a3f40b1c76c43e",
+        "name": "Cli",
+        "manifestFile": "lake-manifest.json",
+    -   "inputRev": "v4.29.0",
+    +   "inputRev": "v4.34.0-rc1",
+        "inherited": true,
+    -   "configFile": "lakefile.toml"}],
+    +   "configFile": "lakefile.toml"
+    +  }
+    + ],
+      "name": "sideLvConservation",
+    - "lakeDir": ".lake"}
+    + "lakeDir": ".lake"
+    +}
+
+### (4) SIDELvConservation/GammaBounds.lean: the one line repaired -- the `rw` at :177 whose target was the beta-redex `(fun x => rexp (-1 / 2 * x)) t = rexp (-t / 2)`
+### (b706`s run, relay data/b706_buildlog_SIDE-faces-join_join.txt :163-:178): a `show` of the beta-reduced goal placed before it (now :177), the rw itself unchanged: True
+### the lines :170-:181 as they stand:
+    170      rw [Set.mem_Ioi] at ht
+    171      have h1 := mul_le_mul_of_nonneg_right (hmax t ht) (exp_pos (-t / 2)).le
+    172      rw [mul_assoc, ← exp_add, show -t / 2 + -t / 2 = -t by ring] at h1
+    173      rwa [mul_comm (exp (-t)) (t ^ (a - 1))]
+    174    have hexp_int : MeasureTheory.IntegrableOn (fun t => exp (-t / 2)) (Set.Ioi (0 : ℝ)) := by
+    175      have h := integrableOn_exp_mul_Ioi (a := (-1 / 2 : ℝ)) (by norm_num) 0
+    176      refine h.congr_fun (fun t _ => ?_) measurableSet_Ioi
+    177      show exp (-1 / 2 * t) = exp (-t / 2)
+    178      rw [show (-1 / 2 : ℝ) * t = -t / 2 by ring]
+    179    have hExpInt : ∫ t in Set.Ioi (0 : ℝ), exp (-t / 2) = 2 := by
+    180      have h := integral_rpow_mul_exp_neg_mul_Ioi (a := (1 : ℝ)) (r := 1 / 2) one_pos (by norm_num)
+    181      rw [Gamma_one, mul_one, show ((1 : ℝ) / (1 / 2)) = 2 by norm_num, rpow_one] at h
+    diff --git a/SIDELvConservation/GammaBounds.lean b/SIDELvConservation/GammaBounds.lean
+    index a16bd34..6340401 100644
+    --- a/SIDELvConservation/GammaBounds.lean
+    +++ b/SIDELvConservation/GammaBounds.lean
+    @@ -174,6 +174,7 @@ theorem Gamma_le_two_mul_rpow {a : ℝ} (ha : 1 ≤ a) :
+       have hexp_int : MeasureTheory.IntegrableOn (fun t => exp (-t / 2)) (Set.Ioi (0 : ℝ)) := by
+         have h := integrableOn_exp_mul_Ioi (a := (-1 / 2 : ℝ)) (by norm_num) 0
+         refine h.congr_fun (fun t _ => ?_) measurableSet_Ioi
+    +    show exp (-1 / 2 * t) = exp (-t / 2)
+         rw [show (-1 / 2 : ℝ) * t = -t / 2 by ring]
+       have hExpInt : ∫ t in Set.Ioi (0 : ℝ), exp (-t / 2) = 2 := by
+         have h := integral_rpow_mul_exp_neg_mul_Ioi (a := (1 : ℝ)) (r := 1 / 2) one_pos (by norm_num)
+
+### (5) .github/workflows/build-module.yml: carried verbatim from SIDE-explicit-formula`s main -- the working file`s blob c95b0ea847d2 ; SIDE-explicit-formula`s blob at badacccb c95b0ea847d2 ; at main c95b0ea847d2 ; EQUAL True ; identifier needles NONE ; absent at 93c27ec2 True
+### the workflow, whole:
+    # build-module -- a hand-dispatched build of one ref, under (R263)(4).
+    # Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by
+    # lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;
+    # lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log
+    # and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).
+    # From b658 ((R263)(4), standing): the named terminals are read from print_targets.txt at the kernel's root, one name per line, and the
+    # scratch file imports each module of the target; no workflow edit is needed to print a new theorem.
+    # From b692 ((R302)(3)(a)): where the ref carries CircuitClosure.lean (at the root, imported by no module), a closure step imports each module
+    # of the target above that file's text and runs it; its out/closure.jsonl.gz -- one record per programme constant -- joins the artifact.
+    # From b706 ((R316)(5), W-ORD-WORKFLOW-PROBE-STEP): where the ref carries ChainProbe.lean (at the root, imported by no module), a probe step
+    # after the print step and before the closure imports each module of the target above that file's text and runs it; its output goes to a
+    # SEPARATE artifact (chain-probe-<run id>), so a chain probe needs no scratch branch.
+    name: build-module
+    
+    on:
+      workflow_dispatch:
+        inputs:
+          ref:
+            description: "the commit SHA or branch to build"
+            required: true
+          target:
+            description: "the lake target to build"
+            required: true
+    
+    permissions:
+      contents: read
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 300
+        env:
+          HOLD_MB: "2560"
+          TARGET: ${{ inputs.target }}
+        steps:
+          - name: Checkout at the ref
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ inputs.ref }}
+    
+          - name: Refuse a target outside the lake grammar
+            run: |
+              case "$TARGET" in
+                *[!A-Za-z0-9_.\ ]*|"") echo "target refused: $TARGET"; exit 2 ;;
+              esac
+              mkdir -p out
+              git rev-parse HEAD > out/ref.txt
+              cat lean-toolchain >> out/ref.txt
+    
+          - name: Install elan (official script; the toolchain from lean-toolchain)
+            run: |
+              curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+              sh elan-init.sh -y --default-toolchain none
+              echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+    
+          - name: Mathlib cache
+            run: lake exe cache get 2>&1 | tail -20 > out/cache.log
+    
+          - name: Build under the hold
+            run: |
+              (
+                while true; do
+                  avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)
+                  echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail" >> out/mem.log
+                  if [ "$avail" -lt "$HOLD_MB" ]; then
+                    echo "STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB" >> out/mem.log
+                    pkill -f lake || true
+                    pkill -f lean || true
+                  fi
+                  sleep 5
+                done
+              ) &
+              LOGGER=$!
+              set +e
+              lake build $TARGET > out/build.log 2>&1
+              echo "$?" > out/build_exit.txt
+              kill "$LOGGER" || true
+              awk -F'avail_mb=' '/avail_mb=/ {split($2,a," "); if (min=="" || a[1]+0<min) min=a[1]+0} END {print "LOW " min}' out/mem.log >> out/mem.log
+              exit 0
+    
+          - name: Axioms of the named terminals
+            if: always()
+            run: |
+              : > out/Axioms.lean
+              for m in $TARGET; do echo "import $m" >> out/Axioms.lean; done
+              cp print_targets.txt out/print_targets.txt
+              while IFS= read -r n || [ -n "$n" ]; do
+                n=$(printf '%s' "$n" | tr -d '\r' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+                [ -z "$n" ] && continue
+                case "$n" in
+                  *[!A-Za-z0-9_.\']*) echo "print target refused: $n" >> out/axioms_refused.txt; continue ;;
+                esac
+                echo "#print axioms $n" >> out/Axioms.lean
+              done < print_targets.txt
+              if [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/axioms.txt
+              fi
+    
+          - name: Chain probe of the ref's root ChainProbe.lean
+            if: always()
+            run: |
+              mkdir -p probe
+              if [ ! -f ChainProbe.lean ]; then
+                echo "NOT RUN: no ChainProbe.lean at the ref" > probe/chainprobe_log.txt
+              elif [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                : > probe/ChainProbe.lean
+                for m in $TARGET; do echo "import $m" >> probe/ChainProbe.lean; done
+                cat ChainProbe.lean >> probe/ChainProbe.lean
+                lake env lean probe/ChainProbe.lean > probe/chainprobe.txt 2>&1 || true
+                echo "RUN: ChainProbe.lean at the ref, its print in probe/chainprobe.txt" > probe/chainprobe_log.txt
+              else
+                echo "NOT RUN: the build did not complete under the hold" > probe/chainprobe_log.txt
+              fi
+    
+          - name: Constant closure of the kernel's own declarations
+            if: always()
+            run: |
+              if [ ! -f CircuitClosure.lean ]; then
+                echo "NOT RUN: no CircuitClosure.lean at the ref" > out/closure_log.txt
+              elif [ "$(cat out/build_exit.txt)" = "0" ] && ! grep -q '^STOP ' out/mem.log; then
+                : > out/Closure.lean
+                for m in $TARGET; do echo "import $m" >> out/Closure.lean; done
+                cat CircuitClosure.lean >> out/Closure.lean
+                lake env lean out/Closure.lean > out/closure_log.txt 2>&1 || true
+                if [ -f out/closure.jsonl ]; then gzip -9 -n out/closure.jsonl; fi
+              else
+                echo "NOT RUN: the build did not complete under the hold" > out/closure_log.txt
+              fi
+    
+          - name: Upload the run's artifact
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: build-module-${{ github.run_id }}
+              path: out/
+              if-no-files-found: error
+    
+          - name: Upload the chain probe's artifact, separate from the run's
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: chain-probe-${{ github.run_id }}
+              path: probe/
+              if-no-files-found: ignore
+
+### the working tree (git status --short, the untracked .lp.log aside): [' M SIDELvConservation/GammaBounds.lean', ' M lake-manifest.json', ' M lakefile.lean', ' M lean-toolchain', '?? .github/']
+
+### ### **FIVE FILES ON port-b707 AT 93c27ec2: TOOLCHAIN True ; LAKEFILE :12 True ; MANIFEST True ; GAMMABOUNDS True ; WORKFLOW BLOB EQUAL True, IDENTIFIERS NONE ; AS THE WORD ORDERS True.**

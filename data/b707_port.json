@@ -1,0 +1,68 @@
+{
+ "at": "2026-10-23T02:15:55Z",
+ "run": {
+  "conclusion": "failure",
+  "createdAt": "2026-10-23T02:13:14Z",
+  "event": "workflow_dispatch",
+  "headBranch": "port-b707",
+  "headSha": "69e239d920fa76f073cdc04f9c78132e325735e1",
+  "status": "completed",
+  "updatedAt": "2026-10-23T02:15:31Z",
+  "url": "https://github.com/psinary-sketch/SIDE-lv-conservation/actions/runs/39888369981",
+  "workflowName": "build-module"
+ },
+ "artifact": {
+  "id": 12472754797,
+  "name": "build-module-39888369981",
+  "sha256": "e07c11bfae5818d69bdead87a21ebd297dd4ad98e5ea667d09920f0561ee8826",
+  "digest": "e07c11bfae5818d69bdead87a21ebd297dd4ad98e5ea667d09920f0561ee8826",
+  "agree": true
+ },
+ "ref_built": "69e239d920fa76f073cdc04f9c78132e325735e1 leanprover/lean4:v4.34.0-rc1",
+ "mem_low": 13658,
+ "stopped": false,
+ "build_exit": "1",
+ "errors": [
+  "error: SIDELvConservation/C7OrderBounds.lean:277:55: Application type mismatch: The argument",
+  "error: SIDELvConservation/C7OrderBounds.lean:277:6: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached",
+  "error: SIDELvConservation/C7OrderBounds.lean:260:0: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached",
+  "error: SIDELvConservation/C7OrderBounds.lean:380:8: (kernel) unknown constant 'SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp_half'",
+  "error: build failed"
+ ],
+ "built": [
+  "Smoke",
+  "T1_MellinFactorization",
+  "ZeroCarrier",
+  "GammaBounds",
+  "T2_SDarkness",
+  "T3_StepNineBridge"
+ ],
+ "held": [
+  "C7OrderBounds"
+ ],
+ "first_error": "error: SIDELvConservation/C7OrderBounds.lean:277:55: Application type mismatch: The argument",
+ "remaining": [
+  "C7FiniteTypeFalse",
+  "C7OrderBounds",
+  "CouplingsAtPhi",
+  "DirichletC7Order",
+  "PartialPositivity",
+  "RegisterPentagon"
+ ],
+ "modules": [
+  "C7FiniteTypeFalse",
+  "C7OrderBounds",
+  "CouplingsAtPhi",
+  "DirichletC7Order",
+  "GammaBounds",
+  "PartialPositivity",
+  "RegisterPentagon",
+  "Smoke",
+  "T1_MellinFactorization",
+  "T2_SDarkness",
+  "T3_StepNineBridge",
+  "ZeroCarrier"
+ ],
+ "print_step": "NOT RUN",
+ "grade_claimed": false
+}

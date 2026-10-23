@@ -1,0 +1,53 @@
+warning: manifest out of date: git url of dependency 'mathlib' changed; use `lake update mathlib` to update it
+✔ [3180/3275] Built SIDELvConservation.Smoke (3.1s)
+✔ [3578/3589] Built SIDELvConservation.T1_MellinFactorization (3.0s)
+✔ [3579/3589] Built SIDELvConservation.ZeroCarrier (4.0s)
+✔ [3580/3589] Built SIDELvConservation.GammaBounds (4.9s)
+✔ [3581/3589] Built SIDELvConservation.T2_SDarkness (2.4s)
+⚠ [3582/3589] Built SIDELvConservation.T3_StepNineBridge (3.5s)
+warning: SIDELvConservation/T3_StepNineBridge.lean:92:8: declaration uses `sorry`
+warning: SIDELvConservation/T3_StepNineBridge.lean:168:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: SIDELvConservation/T3_StepNineBridge.lean:176:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: SIDELvConservation/T3_StepNineBridge.lean:194:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+✖ [3583/3589] Building SIDELvConservation.C7OrderBounds (19s)
+trace: .> LEAN_PATH=/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.34.0-rc1/bin/lean /home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/SIDELvConservation/C7OrderBounds.lean -o /home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/build/lib/lean/SIDELvConservation/C7OrderBounds.olean -i /home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/build/lib/lean/SIDELvConservation/C7OrderBounds.ilean -c /home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/build/ir/SIDELvConservation/C7OrderBounds.c --setup /home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/build/ir/SIDELvConservation/C7OrderBounds.setup.json --json
+warning: SIDELvConservation/C7OrderBounds.lean:99:4: `if_true` has been deprecated: Use `ite_true` instead
+warning: SIDELvConservation/C7OrderBounds.lean:182:17: `HasSubset.Subset.eventuallyLE` has been deprecated: Use `LE.le.eventuallyLE` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.eventuallyLE` to `LE.le.eventuallyLE x`).
+warning: SIDELvConservation/C7OrderBounds.lean:270:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+error: SIDELvConservation/C7OrderBounds.lean:277:55: Application type mismatch: The argument
+  w
+has type
+  ℂ
+of sort `Type` but is expected to have type
+  (hurwitzEvenFEPair 0).toStrongFEPair.k < re ?m.243
+of sort `Prop` in the application
+  WeakFEPair.hasMellin (hurwitzEvenFEPair 0).toStrongFEPair w
+error: SIDELvConservation/C7OrderBounds.lean:277:6: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: SIDELvConservation/C7OrderBounds.lean:260:0: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+warning: SIDELvConservation/C7OrderBounds.lean:386:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+error: SIDELvConservation/C7OrderBounds.lean:380:8: (kernel) unknown constant 'SIDELvConservation.exists_norm_completedRiemannZeta₀_le_exp_half'
+Some required targets logged failures:
+- SIDELvConservation.C7OrderBounds
+error: build failed

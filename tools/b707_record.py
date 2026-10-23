@@ -870,6 +870,36 @@ def repairctl(*a):
     print(NL.join(L[5:]))
 
 
+# ================================================================================ COMPONENT 4: THE REGISTRATIONS RE-READ, (R317)(4), AND THE NEXT AXIS
+def regcheck(*a):
+    """data/b707_registrations_reread.txt (.json): data/b707_registrations.txt re-read whole after the computations of Components 2 and 3 and
+    compared byte for byte with the blob committed alone at step zero (relay 6e8ece87, before any computation of this act); printed unchanged;
+    the next axis named for b709 from data/b705_i6_ranking.txt`s ranking line :58 ((e) representation coordinates), beside the ruling`s
+    higher-pairs route of (R317)(4) computed there."""
+    now = rd(os.path.join(D, '%s_registrations.txt' % ACT)) or ''
+    then = _show(ROOT, K.REG_COMMIT, 'data/%s_registrations.txt' % ACT) or ''
+    head_blob = g(ROOT, 'rev-parse', 'HEAD:data/%s_registrations.txt' % ACT).strip()
+    then_blob = g(ROOT, 'rev-parse', '%s:data/%s_registrations.txt' % (K.REG_COMMIT, ACT)).strip()
+    work_blob = g(ROOT, 'hash-object', '--', 'data/%s_registrations.txt' % ACT).strip()
+    rk = (rd(os.path.join(D, 'b705_i6_ranking.txt')) or '').replace(chr(13), '').split(NL)
+    l58 = rk[57] if len(rk) >= 58 else ''
+    axis_ok = l58.strip().startswith('2. (e) representation coordinates')
+    same = now == then and work_blob == then_blob == head_blob
+    L = ['%s -- COMPONENT 4, (R317)(4): THE REGISTRATIONS RE-READ AFTER THE COMPUTATIONS, UNCHANGED; THE NEXT AXIS NAMED (%s)' % (ACT, utc()), '',
+         '### data/b707_registrations.txt committed alone at relay %s before any computation (N3); re-read now: the working file`s blob %s ; the blob at %s %s ; '
+         'at HEAD %s ; EQUAL BYTE FOR BYTE %s' % (K.REG_COMMIT, work_blob[:12], K.REG_COMMIT, then_blob[:12], head_blob[:12], same),
+         '### the next axis for b709, from data/b705_i6_ranking.txt :58: %r -- (e) representation coordinates, the Weil form as a Hermitian-Toeplitz / prolate '
+         'operator on the Sonin complement, its least eigenvalue the sign (the ranking`s second row, 4; this act computed the first, (d`), the support radius); '
+         'beside it the higher pairs` route (R317)(4) registers in this bank, computed at b709' % l58.strip(), '',
+         '### THE REGISTRATIONS, PRINTED UNCHANGED:'] + ['    ' + x for x in now.rstrip(NL).split(NL)]
+    L += ['', '### ### **REGISTRATIONS RE-READ: UNCHANGED SINCE %s %s ; THE NEXT AXIS (e) REPRESENTATION COORDINATES (data/b705_i6_ranking.txt :58) %s ; NO FIGURE OF THE ROUTE COMPUTED THIS ACT.**' % (
+        K.REG_COMMIT, same, axis_ok)]
+    put_txt('%s_registrations_reread.txt' % ACT, L)
+    put_json('%s_registrations_reread.json' % ACT, dict(at=utc(), commit=K.REG_COMMIT, work_blob=work_blob, then_blob=then_blob, head_blob=head_blob, unchanged=same,
+                                                        next_axis='(e) representation coordinates', ranking_line=58, ranking_text=l58.strip(), axis_ok=axis_ok))
+    print(NL.join(L[2:5] + L[-1:]))
+
+
 # ================================================================================ COMPONENT 1: THE ORDER LINES (the two unbanked mentions, (R317)(2)); Component 3 appends the port`s
 ORDERS = [
     (K.ORDER_TAG_PRINTS, 'W-ORD-ENTRY-TAG-PRINTS',
@@ -882,6 +912,25 @@ ORDERS = [
      'took it as a mention by the words “explicit formula” (relay data/b704_cells_reach.txt :78); nothing to print, no dispatch priced, the row '
      'read as it stands. The ruling’s “the tag each cites” the navigator’s (e) (relay data/b707_defects.txt), the second line citing none. '
      'Trigger: b708 (the first). Status OPEN.'),
+    (K.ORDER_LV_JOIN_HELD, 'W-ORD-LV-CLOSURE-JOIN',
+     '*Appended 2026-10-22 by b707 beneath `W-ORD-LV-CLOSURE-JOIN` (:15452; the join held at :15634), under `(R317)`(5) and the author’s word at this act’s second prompt -- THE ORDER **`W-ORD-LV-FORWARD-PORT`**, ENTERED AND OPENED:*',
+     ' the forward-port of SIDE-lv-conservation’s deposit v0.10.0 = 93c27ec to the shared pin (Lean v4.34.0-rc1, Mathlib de5ce8a9, '
+     'SIDE-explicit-formula’s), on the branch port-b707 cut at 93c27ec and pushed alone in branch mode at 69e239d (relay '
+     'data/b707_port_push_out.txt): five files -- lean-toolchain and lake-manifest.json moved to the pin, lakefile.lean :12’s rev beside them, '
+     'GammaBounds.lean :177’s rw given its beta-reduced goal by a `show` (the join’s hold of :15634), and SIDE-explicit-formula’s '
+     'build-module.yml at main (badaccc) carried verbatim, the tree at 93c27ec carrying no workflow -- each printed before the one commit, '
+     'every diff banked, no identifier in the workflow (data/b707_port_files.txt). One dispatch at the branch (run 39888369981, read by its '
+     'id, the artifact’s sha256 verified): the cache served (8,691 files), GammaBounds built, and the build HELD at '
+     'SIDELvConservation/C7OrderBounds.lean :277:55 (“Application type mismatch”: `WeakFEPair.hasMellin` takes the hypothesis `k < re s` '
+     'before its argument at Mathlib de5ce8a9) with :380:8 beside it (the kernel’s unknown constant '
+     '`exists_norm_completedRiemannZeta₀_le_exp_half`, a Mathlib name moved) -- 6 of 12 modules built (Smoke, T1_MellinFactorization, '
+     'ZeroCarrier, GammaBounds, T2_SDarkness, T3_StepNineBridge), the price restated as 6 files built of 15, 6 modules remaining '
+     '(C7FiniteTypeFalse, C7OrderBounds, CouplingsAtPhi, DirichletC7Order, PartialPositivity, RegisterPentagon); the print step not run '
+     '(print_targets.txt absent at 93c27ec), no grade claimed, the run’s conclusion failure by that step alone (data/b707_port.txt, '
+     'data/b707_buildlog_SIDE-lv-conservation_port.txt). No merge, no tag; port-b707 kept at the remote. THE ORDER: the port continued '
+     'module by module on port-b707 at one dispatch per tree state, C7OrderBounds.lean :277 and :380 first; the join of '
+     'W-ORD-LV-CLOSURE-JOIN re-dispatched only at a port that builds 12 of 12. The ruling’s “nothing else edited” the navigator’s (g) '
+     '(relay data/b707_defects.txt). Trigger: the next ruling that names it (b709 the research act). Status OPEN.'),
 ]
 
 
@@ -895,11 +944,203 @@ def orders(*a):
          check=[('OPEN_TRAILS.md', ln, nm) for ln, nm, _h, _b in sel], dry=dry)
 
 
+# ================================================================================ COMPONENT 3: THE PORT, (R317)(5) AND THE AUTHOR`S WORD AT THE SECOND PROMPT
+LV, EF, WF = K.LV_DIR, K.EF_DIR, K.WORKFLOW
+LV_MODULES = ('C7FiniteTypeFalse', 'C7OrderBounds', 'CouplingsAtPhi', 'DirichletC7Order', 'GammaBounds', 'PartialPositivity', 'RegisterPentagon', 'Smoke',
+              'T1_MellinFactorization', 'T2_SDarkness', 'T3_StepNineBridge', 'ZeroCarrier')   # ### SIDELvConservation/*.lean at 93c27ec (git ls-tree -r), 12
+LV_OTHER_LEAN = ('AxiomCheck.lean', 'PinnedGoal.lean', 'lakefile.lean')                     # ### the three .lean files beside the 12 modules: the ruling`s 15
+
+
+def portfiles(*a):
+    """data/b707_port_files.txt (.json): the five files of the port branch, printed BEFORE the one commit -- each small file whole, the module`s
+    repaired lines, the diff of each tracked file against 93c27ec (git diff), the carried workflow`s blob against SIDE-explicit-formula`s main
+    blob (badaccc), the identifier needles in it (none), the manifest`s packages against SIDE-explicit-formula`s with lv-conservation`s own
+    name kept, the toolchain at the shared pin, lakefile.lean :12`s rev at the shared pin."""
+    import b706_checks as C6   # ### the identifier needles alone (IDENT_WF); imported inside the route, as b706`s wfstep did
+    base, head = K.LV_V0100, g(LV, 'rev-parse', 'HEAD').strip()
+    br = g(LV, 'rev-parse', '--abbrev-ref', 'HEAD').strip()
+    tc = (rd(os.path.join(LV, 'lean-toolchain')) or '').replace(chr(13), '')
+    lf = (rd(os.path.join(LV, 'lakefile.lean')) or '').replace(chr(13), '').split(NL)
+    man = json.loads(rd(os.path.join(LV, 'lake-manifest.json')) or '{}')
+    man_ef = json.loads(rd(os.path.join(EF, 'lake-manifest.json')) or '{}')
+    wf_now = (rd(os.path.join(LV, *WF.split('/'))) or '').replace(chr(13), '')
+    wf_blob = g(LV, 'hash-object', '--', WF).strip()
+    ef_blob = g(EF, 'rev-parse', '%s:%s' % (K.EF_MAIN, WF)).strip()
+    ef_main_blob = g(EF, 'rev-parse', 'main:%s' % WF).strip()
+    ident = [w for w in C6.IDENT_WF if w in wf_now.lower()]
+    gb = (rd(os.path.join(LV, 'SIDELvConservation', 'GammaBounds.lean')) or '').replace(chr(13), '').split(NL)
+    diffs = {}
+    for f in K.PORT_FILES:
+        if f == WF:
+            continue
+        d = subprocess.run(['git', '-C', LV, 'diff', base, '--', f], capture_output=True).stdout.decode('utf-8', 'replace').replace(chr(13), '').rstrip(NL)
+        diffs[f] = d.split(NL) if d else []
+    tracked_at_base = set((g(LV, 'ls-tree', '-r', '--name-only', base) or '').split(NL)) - {''}
+    tc_ok = tc.strip() == K.EF_LEAN
+    lf12 = lf[11] if len(lf) >= 12 else ''
+    lf_ok = K.EF_MATHLIB in lf12 and sum(1 for l in lf if K.LV_MATHLIB in l) == 0
+    man_ok = (man.get('packages') == man_ef.get('packages') and man.get('name') == 'sideLvConservation' and man.get('version') == man_ef.get('version')
+              and any(p.get('rev') == K.EF_MATHLIB and p.get('name') == 'mathlib' for p in man.get('packages') or []))
+    gb_ok = any(l.strip() == 'show exp (-1 / 2 * t) = exp (-t / 2)' for l in gb) and sum(1 for l in gb if 'rw [show (-1 / 2 : ℝ) * t = -t / 2 by ring]' in l) == 1
+    gb_at = next((i + 1 for i, l in enumerate(gb) if l.strip() == 'show exp (-1 / 2 * t) = exp (-t / 2)'), 0)
+    wf_ok = bool(wf_blob) and wf_blob == ef_blob == ef_main_blob and not ident and WF not in tracked_at_base
+    changed = [l for l in (g(LV, 'status', '--short') or '').split(NL) if l.strip() and not l.endswith('.lp.log')]
+    ok = tc_ok and lf_ok and man_ok and gb_ok and wf_ok and head == base and br == K.PORT_BRANCH and len(changed) == 5
+    L = ['%s -- COMPONENT 3, (R317)(5) AND THE AUTHOR`S WORD AT THE SECOND PROMPT: THE PORT BRANCH`S FIVE FILES, PRINTED BEFORE THE ONE COMMIT (%s)' % (ACT, utc()), '',
+         '### the branch %s cut at %s (v0.10.0, the deposit), checked out, HEAD %s (unmoved before the commit); the five files: the toolchain, the manifest,' % (br, base[:8], head[:8]),
+         '### lakefile.lean, SIDELvConservation/GammaBounds.lean and SIDE-explicit-formula`s %s at main (%s) carried verbatim; each tracked file`s diff' % (WF, K.EF_MAIN[:8]),
+         '### against %s by git diff; the workflow (untracked at %s) printed whole and its blob compared. Nothing else is edited.' % (base[:8], base[:8]), '',
+         '### (1) lean-toolchain, whole: %r -> the shared pin %s: %s' % (tc.strip(), K.EF_LEAN, tc_ok)] + ['    ' + x for x in diffs.get('lean-toolchain', [])] + [
+         '', '### (2) lakefile.lean, whole (:12 the rev moved to %s, the comment lines :7-:8 left as they stand -- the author`s word names the rev alone): %s' % (K.EF_MATHLIB[:8], lf_ok)]
+    L += ['    %3d  %s' % (i + 1, l) for i, l in enumerate(lf)] + ['    ' + x for x in diffs.get('lakefile.lean', [])]
+    L += ['', '### (3) lake-manifest.json: the packages block SIDE-explicit-formula`s main manifest`s (%d packages, mathlib at %s, Cli at %s), the manifest version %s, '
+              'the root name kept %r: %s ; the diff against %s:' % (len(man.get('packages') or []), K.EF_MATHLIB[:8], next((p.get('inputRev') for p in man.get('packages') or [] if p.get('name') == 'Cli'), '-'),
+                                                                   man.get('version'), man.get('name'), man_ok, base[:8])]
+    L += ['    ' + x for x in diffs.get('lake-manifest.json', [])]
+    L += ['', '### (4) SIDELvConservation/GammaBounds.lean: the one line repaired -- the `rw` at :177 whose target was the beta-redex `(fun x => rexp (-1 / 2 * x)) t = rexp (-t / 2)`',
+          '### (b706`s run, relay data/b706_buildlog_SIDE-faces-join_join.txt :163-:178): a `show` of the beta-reduced goal placed before it (now :%d), the rw itself unchanged: %s' % (gb_at, gb_ok),
+          '### the lines :170-:181 as they stand:'] + ['    %3d  %s' % (i + 1, gb[i]) for i in range(169, min(181, len(gb)))] + ['    ' + x for x in diffs.get('SIDELvConservation/GammaBounds.lean', [])]
+    L += ['', '### (5) %s: carried verbatim from SIDE-explicit-formula`s main -- the working file`s blob %s ; SIDE-explicit-formula`s blob at %s %s ; at main %s ; EQUAL %s ; '
+              'identifier needles %s ; absent at %s %s' % (WF, wf_blob[:12], K.EF_MAIN[:8], ef_blob[:12], ef_main_blob[:12], wf_blob == ef_blob == ef_main_blob, ident or 'NONE', base[:8], WF not in tracked_at_base),
+          '### the workflow, whole:'] + ['    ' + x for x in wf_now.rstrip(NL).split(NL)]
+    L += ['', '### the working tree (git status --short, the untracked .lp.log aside): %s' % changed,
+          '', '### ### **FIVE FILES ON %s AT %s: TOOLCHAIN %s ; LAKEFILE :12 %s ; MANIFEST %s ; GAMMABOUNDS %s ; WORKFLOW BLOB EQUAL %s, IDENTIFIERS %s ; AS THE WORD ORDERS %s.**' % (
+              br, base[:8], tc_ok, lf_ok, man_ok, gb_ok, wf_blob == ef_blob == ef_main_blob, ident or 'NONE', ok)]
+    put_txt('%s_port_files.txt' % ACT, L)
+    put_json('%s_port_files.json' % ACT, dict(at=utc(), branch=br, base=base, head=head, files=list(K.PORT_FILES), toolchain_ok=tc_ok, lakefile_ok=lf_ok, manifest_ok=man_ok,
+                                               gammabounds_ok=gb_ok, show_line=gb_at, workflow_blob=wf_blob, ef_blob=ef_blob, workflow_equal=wf_blob == ef_blob == ef_main_blob,
+                                               ident=ident, changed=changed, ok=ok, diffs=diffs))
+    print(NL.join(L[2:6] + L[-1:]))
+
+
+def portdispatch(*a):
+    """`portdispatch <label> <target> [dry]`: b698`s dispatch form for a branch whose own tree carries the workflow -- the workflow run AT THE
+    BRANCH (`--ref port-b707`) with the ref input the branch`s tip, one dispatch per tree state (refused where data/b707_dispatches.json carries
+    the tree), the branch`s tip read back at the remote by one ls-remote before the dispatch; no print-list check (print_targets.txt is absent at
+    93c27ec: the print step read as not run, the author`s word), the row banked with whole False and the reason."""
+    label, target = a[0], a[1]
+    repo = 'psinary-sketch/' + K.KERNEL
+    full = g(LV, 'rev-parse', K.PORT_BRANCH).strip()
+    tree = g(LV, 'rev-parse', full + '^{tree}').strip()
+    j = jl('%s_dispatches.json' % ACT) if os.path.isfile(os.path.join(D, '%s_dispatches.json' % ACT)) else {}
+    rows = j.get('rows') or []
+    seen = [r for r in rows if r.get('tree') == tree]
+    if seen:
+        sys.exit('### THE TREE %s IS ALREADY BUILT (run %s) -- NOT DISPATCHED' % (tree[:12], seen[0].get('run_id')))
+    if not re.match(r'^[A-Za-z0-9_. ]+$', target):
+        sys.exit('### THE TARGET %r IS OUTSIDE THE LAKE GRAMMAR -- NOT DISPATCHED' % target)
+    remote = (g(LV, 'ls-remote', 'origin', 'refs/heads/' + K.PORT_BRANCH).split() or [''])[0]
+    print('  kernel %s ; branch %s ; tip %s ; the remote`s tip %s ; equal %s ; tree %s ; target %s' % (K.KERNEL, K.PORT_BRANCH, full, remote, remote == full, tree, target))
+    if remote != full:
+        sys.exit('### THE REMOTE`S %s IS NOT THE LOCAL TIP -- NOT DISPATCHED' % K.PORT_BRANCH)
+    if 'dry' in a[2:]:
+        return
+    t0 = utc()
+    rc, out, err = R._gh('workflow', 'run', 'build-module.yml', '-R', repo, '--ref', K.PORT_BRANCH, '-f', 'ref=' + full, '-f', 'target=' + target)
+    if rc != 0:
+        sys.exit('### THE DISPATCH REFUSED: %s' % err[-400:])
+    run_id = None
+    for _i in range(12):
+        time.sleep(5)
+        rc, out, err = R._gh('run', 'list', '-R', repo, '--workflow', 'build-module.yml', '--event', 'workflow_dispatch', '--limit', '5', '--json', 'databaseId,createdAt,status')
+        new = [r for r in json.loads(out or b'[]') if r.get('createdAt', '') >= t0]
+        if new:
+            run_id = sorted(new, key=lambda r: r['createdAt'])[-1]['databaseId']
+            break
+    rows.append(dict(kernel=K.KERNEL, label=label, ref=full, tree=tree, target=target, dispatched=t0, run_id=run_id, whole=False, branch=K.PORT_BRANCH,
+                     print_list='ABSENT AT 93c27ec -- the print step read as not run, no grade claimed (the author`s word at the second prompt)'))
+    put_json('%s_dispatches.json' % ACT, dict(rows=rows))
+    print('  dispatched %s at --ref %s ; run id %s' % (t0, K.PORT_BRANCH, run_id))
+
+
+def portrun(*a):
+    """`portrun <run id> <label>`: the port run read by its id -- b706`s runner706 clauses for the run and its artifact (chosen by name,
+    its sha256 against the platform`s digest before any reading), the build`s exit, the memory log, the error lines; the outcome BY FILE AND LINE:
+    the modules built (`Built SIDELvConservation.X`), the module held (`Building SIDELvConservation.Y` with ✖) and its first error line, the
+    modules remaining of the 12 (the ruling`s "15" the 12 modules with AxiomCheck.lean, PinnedGoal.lean and lakefile.lean beside, not built by
+    the target); the print step read as not run; NO GRADE CLAIMED. data/b707_port.txt (.json), the build log banked whole."""
+    import hashlib
+    import io as _io
+    import zipfile
+    run_id, label = int(a[0]), a[1]
+    repo = 'psinary-sketch/' + K.KERNEL
+    rc, out, err = R._gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    art, arts = _artifact_named(repo, run_id, 'build-module-')
+    art = art or {}
+    T_ = {}
+    sha = digest = None
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        if digest and digest == sha:
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    agree = bool(art) and bool(digest) and digest == sha
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    mem_low = int(low[-1]) if low else None
+    stopped = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip() or None
+    errors = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    built = [m.group(1) for m in re.finditer(r'^[✔⚠] \[\d+/\d+\] Built SIDELvConservation\.(\w+)', blog, re.M)]
+    held = [m.group(1) for m in re.finditer(r'^✖ \[\d+/\d+\] Building SIDELvConservation\.(\w+)', blog, re.M)]
+    first_err = next((l for l in blog.split(NL) if re.match(r'^error: SIDELvConservation/\w+\.lean:\d+:\d+:', l)), None)
+    remaining = [m for m in LV_MODULES if m not in built]
+    cache = T_.get('cache.log', '')
+    axioms = T_.get('axioms.txt', '').strip()
+    ref_built = ' '.join(T_.get('ref.txt', '').split())
+    row = dict(kernel=K.KERNEL, label=label, ref=run.get('headSha') or '', run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=sha if agree else None,
+               mem_low=mem_low, stopped=stopped, build_exit=bexit, errors=errors, axioms_sha256=None, gate='NOT DERIVES',
+               note='no grade claimed: the print step read as not run (print_targets.txt absent at 93c27ec), the author`s word')
+    L = ['%s -- COMPONENT 3, (R317)(5): THE PORT RUN OF SIDE-lv-conservation AT THE SHARED PIN, READ BY ITS RUN ID; THE OUTCOME BY FILE AND LINE (%s)' % (ACT, utc()), '',
+         '### the dispatch: the branch %s at its tip, the workflow at the branch, target SIDELvConservation (data/b707_dispatches.json)' % K.PORT_BRANCH,
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'), run.get('updatedAt')),
+         '### the artifacts listed %d: %s ; the run`s own chosen by name (build-module-)' % (len(arts), [x.get('name') for x in arts]),
+         '### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+             art.get('id'), art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN', 'AGREE' if agree else '### NOTHING READ FROM IT'),
+         '### the ref built (out/ref.txt): %s' % (ref_built or '### UNREAD'),
+         '### the cache (out/cache.log, last lines): %s' % ' | '.join(l for l in cache.rstrip(NL).split(NL)[-3:] if l),
+         '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (mem_low, K.HOLD, stopped),
+         '### the build: exit %s ; error lines %d:' % (bexit, len(errors))] + ['    ' + l for l in errors[:40]]
+    L += ['### THE OUTCOME BY FILE AND LINE: modules built %d of %d: %s' % (len(built), len(LV_MODULES), built),
+          '### the module held: %s ; its first error line: %s' % (held or 'NONE', first_err or 'NONE'),
+          '### the modules remaining (not built by this run): %d %s' % (len(remaining), remaining),
+          '### the ruling`s price restated: files built %d of 15 (the 12 modules, with %s beside them, not built by the target SIDELvConservation)' % (len(built), ', '.join(LV_OTHER_LEAN)),
+          '### the print step: %s' % ('NOT RUN (print_targets.txt absent at 93c27ec; out/axioms.txt: %s)' % (axioms[:80] or 'ABSENT')),
+          '### the lines after the held module (the log`s context, up to 24 lines):']
+    if held:
+        i0 = next((i for i, l in enumerate(blog.split(NL)) if ('Building SIDELvConservation.%s' % held[0]) in l), 0)
+        L += ['    ' + l[:200] for l in blog.split(NL)[i0:i0 + 24]]
+    else:
+        L += ['    ' + l[:200] for l in blog.rstrip(NL).split(NL)[-12:]]
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; MODULES BUILT %d OF 12 (FILES %d OF 15) ; HELD AT %s ; '
+              'REMAINING %d ; THE PRINT STEP NOT RUN ; NO GRADE CLAIMED.**' % (
+                  run_id, label, run.get('conclusion'), 'AGREE' if agree else '### UNREAD', bexit, len(errors), len(built), len(built), (first_err or (held[0] if held else 'NONE')), len(remaining))]
+    read_runner_row(row)
+    put_txt('%s_port.txt' % ACT, L)
+    if agree:
+        put_txt('%s_buildlog_%s_%s.txt' % (ACT, K.KERNEL, label), blog.rstrip(NL).split(NL))
+        put_txt('%s_runner_%s_%s.txt' % (ACT, K.KERNEL, label), L)
+    put_json('%s_port.json' % ACT, dict(at=utc(), run=run, artifact=dict(id=art.get('id'), name=art.get('name'), sha256=sha, digest=digest, agree=agree), ref_built=ref_built,
+                                        mem_low=mem_low, stopped=stopped, build_exit=bexit, errors=errors, built=built, held=held, first_error=first_err, remaining=remaining,
+                                        modules=list(LV_MODULES), print_step='NOT RUN', grade_claimed=False))
+    j = jl('%s_runner_rows.json' % ACT) if os.path.isfile(os.path.join(D, '%s_runner_rows.json' % ACT)) else {}
+    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (K.KERNEL, label)] + [row]
+    put_json('%s_runner_rows.json' % ACT, dict(rows=rows))
+    print(NL.join(L[2:10] + L[-1:]))
+
+
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry,
-              c1=c1, repairs=repairs, tablescope=tablescope, repairctl=repairctl, orders=orders)
+              c1=c1, repairs=repairs, tablescope=tablescope, repairctl=repairctl, orders=orders, portfiles=portfiles, portdispatch=portdispatch, portrun=portrun,
+              regcheck=regcheck)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

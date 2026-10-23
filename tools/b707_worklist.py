@@ -80,7 +80,10 @@ LV_MATHLIB = '5e932f97dd25535344f80f9dd8da3aab83df0fe6'   # ### lv's Mathlib at 
 EF_LEAN = 'leanprover/lean4:v4.34.0-rc1'                 # ### the shared pin: SIDE-explicit-formula's lean-toolchain :1
 EF_MATHLIB = 'de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11'  # ### the shared pin: SIDE-explicit-formula's lake-manifest.json :10, :13
 PORT_BRANCH = 'port-b707'
-PORT_FILES = ('lean-toolchain', 'lake-manifest.json', 'SIDELvConservation/GammaBounds.lean')   # ### (R317)(5): the two files moved to the pin and the one line repaired
+PORT_FILES = ('lean-toolchain', 'lake-manifest.json', 'lakefile.lean', 'SIDELvConservation/GammaBounds.lean', '.github/workflows/build-module.yml')
+# ### (R317)(5) and the author's word at this act's second prompt (data/b707_author_answers.txt): five files on the branch -- the toolchain and the
+# ### manifest moved to the shared pin, lakefile.lean :12's rev beside them, the one line at GammaBounds.lean :177 repaired, and
+# ### SIDE-explicit-formula's build-module.yml at main (badaccc) carried verbatim (the tree at 93c27ec carries no workflow)
 JOIN_TIP = 'b37a7b6e6322b8f99b2e1bc5c43cae248782c991'   # ### SIDE-faces-join's manifest commit (b706), unmoved by this act
 JOIN_RUN = 39850337262
 JOIN_HELD_AT = 'SIDELvConservation/GammaBounds.lean:177:8'
@@ -94,6 +97,9 @@ ONSET_TOOL = 'tools/b707_onset.py'
 ONSET_BANK = 'data/b707_onset.txt'
 REGISTRATION_B705 = 'data/b705_registrations.txt'        # ### (iii) :15-:54, committed alone at relay d139cfcf and unchanged (N2)
 REGISTRATION_B705_COMMIT = 'd139cfcf'
+REG_COMMIT = '6e8ece87'                                  # ### data/b707_registrations.txt committed alone at step zero, before any computation (N3)
+PORT_RUN = 39888369981                                   # ### the one dispatch of (R317)(5): the port branch at 69e239d9, conclusion failure, 6 of 12 modules built
+PORT_TIP = '69e239d920fa76f073cdc04f9c78132e325735e1'
 CC_BANK = 'data/b705_source_cc_2006_13771.txt'           # ### Connes-Consani, by page (== PAGE n rows)
 
 B706_TRAIL_HEAD = ('### b706 — lane two, act one hundred and thirty-three, the re-cut act under (R316): b705 at its weight; the six post-seal failures '
