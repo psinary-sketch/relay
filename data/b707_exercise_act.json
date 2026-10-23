@@ -1,15 +1,15 @@
 {
  "exercise": {
   "G-DRY-STEP-CLEAN": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record: the dry-run step CLEAN, the trail`s Defects and Resolved lines equal to the bank, the gate CLEAR",
    "secs": 0.0
   },
   "G-CLOSING-DRY-STEP": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record: the closing tool run dry before the lock, its sections read (the repairs, the onset, the port, the registrations, the standing arms, the orders, the kernels)",
    "secs": 0.0
@@ -22,11 +22,11 @@
    "secs": 0.0
   },
   "G-R317-ENTERED": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the trail record`s ratification line",
-   "secs": 0.0
+   "secs": 0.0136
   },
   "G-ROWGEN-STEPZERO": {
    "live": true,
@@ -47,7 +47,7 @@
    "neg": true,
    "pos": false,
    "reads": "the command bank: every branch delete one branch (the eight of (R317)(7) alone, port-b707 never), no glob, no variable, nothing chained after",
-   "secs": 0.0148
+   "secs": 0.0037
   },
   "G-ANSWERS-CHECKED": {
    "live": true,
@@ -68,60 +68,60 @@
    "neg": true,
    "pos": false,
    "reads": "the record tool`s scorers: banks alone, no ledger line (data/b686_rules.txt row (1))",
-   "secs": 0.0
+   "secs": 0.012
   },
   "G-ENTRY-SCORES-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the landed entry`s scores line against the scores bank",
-   "secs": 0.0168
+   "secs": 0.0036
   },
   "G-ENTRY-TITLE-FORM": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the landed entry`s title: by its objects (the sign-onset radius at the Epstein zeta, the ζ form, the forward-port with its modules of 15, the higher pairs` route), compared after case-folding the article alone",
-   "secs": 0.0131
+   "secs": 0.0121
   },
   "G-CORRIGENDUM-ENTERED": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "the generated corrigendum for b706`s seven post-seal items ((i)-(m) and the three trail arms), landed; the corrigenda bank appended at row (27)",
-   "secs": 0.0056
+   "secs": 0.0159
   },
   "G-GUARD-HELD": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "the suite`s writer block guarded by `if PRERUN:` and its dry run banked",
-   "secs": 0.0017
+   "secs": 0.0032
   },
   "G-POSTROOT-WRITES-NONE": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the per-part seconds banks` commit times against the root`s",
    "secs": 0.0
   },
   "G-TRAIL-LINES-EQUAL-DEFECTS": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the landed trail`s Defects and Resolved lines against the defects bank`s owners",
-   "secs": 0.0
+   "secs": 0.0016
   },
   "G-TRAIL-DEFECTS-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record and the landed trail`s Defects line against the repaired reader`s rows",
    "secs": 0.0
   },
   "G-TRAIL-RESOLVED-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "the gate`s record and the landed trail`s Resolved line against the bank`s owners",
    "secs": 0.0
@@ -141,8 +141,8 @@
    "secs": 0.0
   },
   "G-ROOTDRY-READY": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "reads": "data/b706_rules.txt row (1): the root route run dry on the pre-root tree before the lock, READY True, printed in the face`s (0)",
    "secs": 0.0
@@ -152,7 +152,7 @@
    "neg": true,
    "pos": false,
    "reads": "the four standing figures banked by b706`s tool over b706`s roster, each at or below b706`s, the partners figure 0 with one copy per table",
-   "secs": 0.0085
+   "secs": 0.0
   },
   "G-READFIRST-DIFF-BANKED": {
    "live": true,
@@ -166,21 +166,21 @@
    "neg": true,
    "pos": false,
    "reads": "the two order lines at OPEN_TRAILS at the landing banks` lines, each found by conv (the tag-prints remainder, W-ORD-LV-FORWARD-PORT entered)",
-   "secs": 0.0316
+   "secs": 0.0328
   },
   "G-REGISTRATIONS-ALONE": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "(R317)(4), N2: data/b707_registrations.txt committed alone before any computation (before the onset`s first unit and Component 2`s commit), the one commit touching it, its blob unchanged at HEAD and in the working tree",
-   "secs": 0.0
+   "secs": 0.0103
   },
   "G-ROSTER-REPAIRED": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "(R317)(2), b706`s (m): tools/mirror_roster.json at HEAD 70 entries, none twice, no retired path, the four re-pointed; the control the dry run of b706`s export: clauses 1 and 2 CLEAN, clause 3 NOT CLEAN by exactly the four names",
-   "secs": 0.0061
+   "secs": 0.0
   },
   "G-TABLE-SCOPE-RESTORED": {
    "live": true,
@@ -208,7 +208,7 @@
    "neg": true,
    "pos": false,
    "reads": "(R317)(3): the ladder of seven rungs from log 2, two frequencies, every Q0 rung read in balls; a* = 192 at the band zero`s family and 32 at rho_0`s, the falsifier not fired, the hypothesis HELD; in Component 2`s commit",
-   "secs": 0.0099
+   "secs": 0.0158
   },
   "G-ONSET-HASHES": {
    "live": true,
@@ -229,7 +229,7 @@
    "neg": true,
    "pos": false,
    "reads": "(R317)(5) and the author`s word: the five files of port-b707 printed before the one commit, the workflow`s blob SIDE-explicit-formula`s at main, no identifier, the commit those five on 93c27ec, pushed in branch mode and read back",
-   "secs": 0.1554
+   "secs": 0.237
   },
   "G-PORT-ONE-DISPATCH": {
    "live": true,
@@ -243,21 +243,21 @@
    "neg": true,
    "pos": false,
    "reads": "N1, (R317)(5): the run read by its id with the artifact`s sha256 verified, the cache served, 6 of 12 modules built (GammaBounds among them), held at C7OrderBounds.lean :277:55 with the first error banked, the print step not run, no grade claimed",
-   "secs": 0.0
+   "secs": 0.0011
   },
   "G-PORT-BRANCH-KEPT": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "(R317)(5): port-b707 at its one commit on 93c27ec locally and at the remote, no merge, no tag, main and the deposit unmoved; W-ORD-LV-FORWARD-PORT entered beneath the join`s hold",
-   "secs": 0.0162
+   "secs": 0.0141
   },
   "G-NEXT-AXIS-NAMED": {
    "live": true,
    "neg": true,
    "pos": false,
    "reads": "(R317)(6): the next axis named from data/b705_i6_ranking.txt :58, (e) representation coordinates, in the re-read bank",
-   "secs": 0.0
+   "secs": 0.0016
   },
   "G-PARTS-PRERUN": {
    "live": true,
@@ -271,22 +271,11 @@
    "neg": true,
    "pos": false,
    "reads": "the per-part seconds bank gathered before the seal",
-   "secs": 0.002
+   "secs": 0.0
   }
  },
  "run": 39,
- "live_failing": [
-  "G-DRY-STEP-CLEAN",
-  "G-CLOSING-DRY-STEP",
-  "G-R317-ENTERED",
-  "G-ENTRY-SCORES-EQUAL",
-  "G-ENTRY-TITLE-FORM",
-  "G-POSTROOT-WRITES-NONE",
-  "G-TRAIL-LINES-EQUAL-DEFECTS",
-  "G-TRAIL-DEFECTS-EQUAL",
-  "G-TRAIL-RESOLVED-EQUAL",
-  "G-ROOTDRY-READY"
- ],
+ "live_failing": [],
  "defective": [],
  "neg_failures": 0,
  "part": "act"
