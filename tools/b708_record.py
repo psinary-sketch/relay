@@ -612,7 +612,82 @@ def tie(*a):
     print(NL.join(L))
 
 
-ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R318)(1)-(2)
+WH = ('*Appended 2026-10-23 by b708 to b707’s entry (:10106), under `(R318)`(1) -- b707 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b707_closing.txt):*')
+ONSET_ROW = re.compile(r'^  (band|rho0) \| (\S+)\s+\| a (\S+) \+- (\S+) \| .*?\| lambda (\S+) \+- (\S+), (\S+) \+- (\S+) \| ([A-Z ]+?BEYOND ITS BOUND)', re.M)
+
+
+def _onset_rows(text):
+    out = {}
+    for m in ONSET_ROW.finditer(text):
+        out[(m.group(1), m.group(2))] = dict(a=m.group(3), lmin=m.group(5), reading=m.group(9).strip())
+    return out
+
+
+def _declared_b707():
+    face = rd(os.path.join(ROOT, *K.B707_FACE.split('/')))
+    md = re.search(r'THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:\*\* ([^.]*)\.', ' '.join(face.split()))
+    return sorted(set(re.findall(r'`([GF]-[A-Z0-9-]+)`', md.group(1)))) if md else []
+
+
+def _failing_b707():
+    m = re.search(r'LIVE FAILING : (\d+) \[(.*?)\]', rdn('b707_checks_postpush.txt'))
+    return [x.strip().strip("'") for x in (m.group(2) if m else '').split(',') if x.strip()]
+
+
+def _wb():
+    """b707's weight line, its figures read from b707's banks where a bank names them (the declared arms from the face, the failing eight
+    from the post-push bank, the eigenvalues from the onset banks, the scores from the scores banks) and otherwise quoted from the closing
+    record (relay data/b707_closing.txt) by line; the onset figures' reading of (R318)(2) beside it in the navigator's words."""
+    decl, fails = _declared_b707(), _failing_b707()
+    post = [a for a in fails if a not in decl]
+    q0, z = _onset_rows(rdn('b707_onset.txt')), _onset_rows(rdn('b707_onset_controls.txt'))
+    sr, sc = jl('b707_scores.json'), jl('b707_scores_close.json')
+    if len(decl) != 4 or len(fails) != 8 or len(post) != 4 or not q0.get(('band', '192')) or not z.get(('rho0', '32')):
+        sys.exit('### b707`S FACE OR ITS BANKS NOT AS READ (declared %s ; failing %s) -- NOTHING COMPOSED' % (decl, fails))
+    return (' “b707 closed: relay 2507e99c, PLACE-papers 95dc6f6; suite 129 of 137; root 6fe154f9820e7d9e…; 3 prompts answered; 9 defects” '
+            '(data/b707_closing.txt :1); the closing commit b5898a61 pushed alone after the line was written and read back equal at the remote '
+            '(data/b707_closing_push_out.txt :5). The sign-onset radius at Q0 on the family span{C, N} at two frequencies over the ladder log 2, '
+            '2 log 32 ... 2 log 192 (data/b707_onset.txt): the band zero’s family positive definite to 2 log 128 (λ_min %s there) and negative at '
+            'a* = 2 log 192 (λ_min %s); ρ₀’s family positive definite at log 2 (λ_min %s) and negative from a* = 2 log 32 (λ_min %s); the ζ '
+            'control positive definite at every rung of both frequencies, λ_min %s at the band’s 2 log 192 and %s at ρ₀’s 2 log 32 '
+            '(data/b707_onset_controls.txt); the falsifier NOT FIRED, the hypothesis HELD (the ruling’s “the falsifier HELD” the navigator’s (c) '
+            'of this act). The forward-port opened on port-b707 of SIDE-lv-conservation at the shared pin: five files on the branch, one '
+            'dispatch (run 39888369981), 6 of 12 modules built, the build held at C7OrderBounds.lean :277:55 with :380:8 beside it, nothing '
+            'merged, the deposit untouched (data/b707_port_files.txt, data/b707_port.txt). The three readers of the renames written and controlled '
+            '-- tools/mirror_roster.json re-pointed to 70 entries (four re-pointed, thirteen duplicates struck), tools/terminal_table.py’s ledger '
+            'walk excluding the retired copies’ directory under archive/, tools/rule_arms.py’s family reading of a lettered half -- 22 control '
+            'cases as wanted (data/b707_tool_repairs.txt, data/b707_repair_controls.txt); the mirror mirror-refresh-2026-10-22-b707.zip CLEAN on '
+            'all three clauses over 70 files with the root line (data/b707_mirror.txt). The higher pairs’ route registered in '
+            'data/b707_registrations.txt (committed alone at 6e8ece87), the next axis (e) representation coordinates. The entry at FINDINGS '
+            ':10106, the trail at OPEN_TRAILS :15688; the root 6fe154f9 over 83 banks chained from aa8a696b (data/b707_act_root.json, '
+            'data/b707_root_banks.txt), the chain b624–b707 AGREE; suite 133 of 137 pre-push and 129 of 137 post-push, four failures declared '
+            'on the face (%s) and four found after the seal (%s; data/b707_checks.txt, data/b707_checks_postpush.txt); N1–N5 and S3 HELD at the '
+            'lock, N5 REFUTED at the close on tools/mirror_prevbuild.json alone, S1 and S2 HELD at the close (data/b707_scores.json, '
+            'data/b707_scores_close.json: N5 %s, S1 %s, S2 %s); the sealed tools’ hashes equal at the close, 11 of 11; the citation check 161 cites, '
+            '156 OK, 5 missed, every one the navigator’s; nine defects (a)–(i), (c), (d), (e), (f) and (g) the navigator’s (data/b707_defects.txt; the '
+            'ruling’s “four” the navigator’s (d) of this act), (i) the seat’s; “3 prompts answered” the answers bank’s 2 rows and the root’s prompt; '
+            'the report’s five lines by the sealed tool and the four lines the author’s word at the root named by the unsealed tool '
+            '(data/b707_report.txt, data/b707_report_root.txt). The post-seal item (i) entered by this act’s corrigendum. Nothing deposited. '
+            'THE ONSET FIGURES’ READING, in the navigator’s words for the author’s strike (`(R318)`(2)): the onsets found at the coarse grid’s '
+            'own points (a = 2 log N at the widths 32 and 192 b694 and b705 used), confirming b705’s signs; the rung question (whether the '
+            'onset sits within one step past log 2, log 3, log 5 or log 7) not yet resolved, since no grid point lies between the coarse '
+            'points where the sign turns; the ζ control’s margin small (order 1e-7) and to be printed beside its certified tail bound before '
+            'it is read as a figure -- the fine grid registered for b709 in data/b708_registrations.txt.' % (
+                q0[('band', '128')]['lmin'], q0[('band', '192')]['lmin'], q0[('rho0', 'log2')]['lmin'], q0[('rho0', '32')]['lmin'],
+                z[('band', '192')]['lmin'], z[('rho0', '32')]['lmin'], ', '.join(decl), ', '.join(post),
+                (sc.get('N5') or ['-'])[0], (sc.get('S1') or ['-'])[0], (sc.get('S2') or ['-'])[0]))
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B707_ENTRY,
+         check=[('FINDINGS.md', K.B707_ENTRY, '## The sign-onset radius at the Epstein zeta'), ('OPEN_TRAILS.md', K.B707_TRAIL, '### b707')],
+         dry=dry)
+
+
+ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks, c1=c1,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runner=runner, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, tie=tie)
