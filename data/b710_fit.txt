@@ -1,0 +1,41 @@
+b710 -- (R320)(6)(i): THE REFINED DETECTION LAW`S FITTED CONSTANTS, FROM b709`S BANKED PAIRS ALONE; THE PREDICTIONS FOR PAIRS 11 AND 15 (2026-10-24T21:51:33Z)
+
+### the source: relay data/b709_pairs.txt :46-:57 (rows are off-line pairs; r(rho) = log|1 - 1/(1 - beta + i t)| and n* as printed), the ten
+### computed pairs read, the two beyond reach (11, 15) read for their r(rho) alone. NOTHING COMPUTED FOR THE LAW`S TEST: no n*, no zero, no Li
+### coefficient; the constants fitted to the banked figures and the fixed point solved -- the seat`s derived figures. The form: r n* = alpha +
+### beta log(n* + 1) (b675`s onset, tools/b675_li_bench.py :153-:160 and :188-:189, read to first order: alpha = 4 log(4C), beta = 8).
+
+### THE TEN COMPUTED PAIRS (idx | the bank`s line | height | r(rho) | n* | r n* | log(n* + 1)):
+   5 | :46 | t 61.6879 | r 8.110374060e-05 | n* 1646498 | r n* 133.537147 | log(n*+1) 14.314162
+   6 | :47 | t 64.4348 | r 8.426314945e-05 | n* 1580904 | r n* 133.211950 | log(n*+1) 14.273508
+   7 | :48 | t 75.0812 | r 3.789644202e-05 | n* 3694266 | r n* 139.999537 | log(n*+1) 15.122293
+   8 | :49 | t 79.5985 | r 4.667875348e-05 | n* 2961319 | r n* 138.230680 | log(n*+1) 14.901146
+   9 | :50 | t 89.5181 | r 2.876267413e-05 | n* 4948687 | r n* 142.337472 | log(n*+1) 15.414633
+  10 | :51 | t 92.1518 | r 3.671366680e-05 | n* 3820597 | r n* 140.268125 | log(n*+1) 15.155918
+  12 | :53 | t 107.3993 | r 3.914193738e-05 | n* 3569692 | r n* 139.724661 | log(n*+1) 15.087990
+  13 | :54 | t 110.1974 | r 2.659963680e-05 | n* 5376002 | r n* 142.999701 | log(n*+1) 15.497456
+  14 | :55 | t 124.7754 | r 2.180116810e-05 | n* 6636549 | r n* 144.684520 | log(n*+1) 15.708103
+  16 | :57 | t 137.8856 | r 1.968701755e-05 | n* 7393095 | r n* 145.547991 | log(n*+1) 15.816057
+
+### THE FITTED CONSTANTS:
+  (F2) two constants by least squares: alpha 19.065093 ; beta 7.997097
+  (F1) the route`s beta = 8, alpha alone by least squares: alpha 19.021167
+
+### THE FIT AGAINST THE TEN (the registered control`s own reading at b711: each within [0.9, 1.1] of its refined prediction) -- idx | n* | F2 | n*/F2 | F1 | n*/F1:
+   5 | 1646498 | 1646493.8 | 1.000003 | 1646462.8 | 1.000021
+   6 | 1580904 | 1580901.0 | 1.000002 | 1580869.7 | 1.000022
+   7 | 3694266 | 3694265.7 | 1.000000 | 3694265.2 | 1.000000
+   8 | 2961319 | 2961326.1 | 0.999998 | 2961311.1 | 1.000003
+   9 | 4948687 | 4948684.4 | 1.000001 | 4948715.0 | 0.999994
+  10 | 3820597 | 3820605.8 | 0.999998 | 3820608.0 | 0.999997
+  12 | 3569692 | 3569706.8 | 0.999996 | 3569703.6 | 0.999997
+  13 | 5376002 | 5376003.7 | 1.000000 | 5376046.3 | 0.999992
+  14 | 6636549 | 6636538.7 | 1.000002 | 6636620.3 | 0.999989
+  16 | 7393095 | 7393075.6 | 1.000003 | 7393182.8 | 0.999988
+  within [0.9, 1.1]: F2 10 of 10 ; F1 10 of 10
+
+### THE PREDICTIONS FOR THE PAIRS BEYOND REACH (idx | the bank`s line | height | r(rho) | b709`s L0/r | F2 | F1 | the window [0.9, 1.1] of F2):
+  11 | :52 | t 93.0813 | r 1.216894664e-05 | L0/r 8922214.6 | F2 12294837.0 | F1 12295138.4 | [11065353.3, 13524320.7]
+  15 | :56 | t 127.6228 | r 1.022443029e-05 | L0/r 10619071.2 | F2 14776939.6 | F1 14777353.3 | [13299245.7, 16254633.6]
+
+### ### **TEN PAIRS READ ; F2 alpha 19.0651 beta 7.9971 ; F1 alpha 19.0212 (beta 8) ; WITHIN [0.9, 1.1] F2 10 OF 10, F1 10 OF 10 ; PREDICTIONS pair 11 F2 12294837 F1 12295138 ; pair 15 F2 14776940 F1 14777353 ; NOTHING COMPUTED FOR THE TEST.**
