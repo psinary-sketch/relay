@@ -1,0 +1,1245 @@
+{
+ "at": "2026-10-24T23:12:06Z",
+ "anchor": "RULING (R320) BEGIN",
+ "rows": [
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:03.161Z",
+   "src": "seat",
+   "cmd": "ls /d/",
+   "n": 1,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:03.939Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short --branch",
+   "n": 2,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:04.769Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay log --oneline -6",
+   "n": 3,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:05.566Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --list",
+   "n": 4,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:07.405Z",
+   "src": "seat",
+   "cmd": "ls /d/relay/tools/b709_record.py /d/relay/tools/b709_checks.py /d/relay/tools/b709_closing.py /d/relay/tools/b709_regspec.py /d/relay/tools/b709_gate.py /d/relay/tools/citation.py /d/relay/tools/b378_lockgate.py /d/relay/tools/push_gated.sh /d/relay/tools/act_root.py /d/relay/data/b709_closing.txt /d/relay/data/b709_defects.txt /d/relay/data/b709_rules.txt /d/relay/data/b709_closing_push_out.txt /d/relay/data/b709_ferry.txt /d/relay/data/b709_readfirst.txt /d/relay/data/b709_citation_check.txt",
+   "n": 5,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:21.468Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/b709_closing.txt /d/relay/data/b709_defects.txt /d/relay/data/b709_rules.txt /d/relay/data/b709_readfirst.txt /d/relay/data/b709_citation_check.txt /d/relay/data/b709_ferry.txt /d/relay/data/b709_closing_push_out.txt /d/relay/data/b709_registrations.txt /d/relay/data/b709_tool_repairs.txt /d/relay/data/b709_port.txt /d/relay/data/b709_grid.txt /d/relay/data/b709_pairs.txt /d/relay/tools/b709_record.py /d/relay/tools/b709_checks.py /d/relay/tools/b709_closing.py /d/relay/tools/b709_regspec.py /d/relay/data/b680_rules.txt /d/relay/data/b675_rules.txt /d/relay/data/b708_rules.txt",
+   "n": 6,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:27.414Z",
+   "src": "seat",
+   "cmd": "ls /d/relay/data/b709_commands.txt /d/relay/data/b709_reads.txt /d/relay/data/b709_read_calls.json /d/relay/data/b709_author_answers.txt /d/relay/data/b709_scores.txt /d/relay/data/b709_tests.txt /d/relay/data/b709_tests_withheld.json /d/relay/data/b709_procs.txt /d/relay/data/b709_branches.txt /d/relay/data/b709_rowgen_diff.txt /d/relay/data/b709_constellation.txt /d/relay/data/b709_readfirst_closure.txt /d/relay/data/b709_readfirst_diff.txt",
+   "n": 7,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:27.471Z",
+   "src": "seat",
+   "cmd": "ls /d/relay/data/ -1 --ignore='audit_*' --ignore='_*' --ignore='b[0-6]*' ",
+   "n": 8,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:53.847Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/b709_commands.txt /d/relay/data/b709_stepzero.txt /d/relay/data/b709_tests_stepzero.txt /d/relay/data/b709_branches.txt /d/relay/data/b709_rowgen_stepzero.txt /d/relay/data/b709_readfirst_closure.txt /d/relay/data/b709_readfirst_diff.txt /d/relay/data/b709_author_answers.txt /d/relay/tools/b709_citation.py /d/relay/tools/b709_worklist.py /d/relay/tools/b709_tests.py /d/relay/tools/b709_carry.py /d/relay/tools/b709_corrigendum.py /d/relay/tools/b709_reg_gate.py /d/relay/tools/b709_report.py /d/relay/tools/circuit_read.py /d/relay/data/b709_tool_repairs.txt /d/relay/data/b709_repair_controls.txt /d/relay/data/b709_carry_spans.txt /d/relay/data/b708_tests_withheld.json /d/relay/data/b709_standing_figures.txt /d/relay/data/b709_report.txt /d/relay/data/b709_corrigendum.txt",
+   "n": 9,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:57.488Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"^    (el)?if cmd == |^def main|^ROUTES|^    cmd = \" -- tools/b709_record.py",
+   "n": 10,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:34:57.507Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"^def [a-z_0-9]+\\(\" -- tools/b709_record.py",
+   "n": 11,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:36:33.824Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -E \"^def |^[A-Z_]+ = |^if __name__\" -- tools/b709_citation.py",
+   "n": 12,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:36:46.557Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && ls data/b700_reading4.txt data/b690_reading3.txt data/b690_r3_residues.txt data/b700_r4_licensed.txt data/b709_grid_hashes.txt data/b709_pairs_hashes.txt data/b709_port.txt data/b709_report.txt \"/c/Users/echo chamber/.claude/projects/D--/c9e4ce2d-b9b5-4986-a582-3919fb34d296.jsonl\" tools/test_elab_reader_b634.py tools/b634_elab.py tools/ferry_scan.py tools/b677_citation.py tools/b682_citation.py",
+   "n": 13,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:36:47.406Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && ls data/b690_r* data/b700_r* data/b690_reading* data/b700_reading*",
+   "n": 14,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:36:48.654Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers ls-files \"*TECHNE_TOOLKIT*\" \"*METHOD_CANON*\" \"*E_DIFFICULTY*\" \"*Exhaustive_Enumeration*\" \"*ENUMERA*\" \"*INSTRUMENTS*\" \"*BRIGHTENING*\"",
+   "n": 15,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:36:56.672Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git log --oneline --follow -3 -- phase1.5/method/TECHNE_TOOLKIT.md && git grep -n -m3 -E \"^\\*\\*Version|^Version|v8\\.3|8\\.3\" -- phase1.5/method/TECHNE_TOOLKIT.md && wc -l phase1.5/method/TECHNE_TOOLKIT.md phase1.5/method/THE_METHOD_CANON.md phase2/method/E_DIFFICULTY_THEOREM.md day1/Exhaustive_Enumeration.md phase1.5/method/ENUMERA.md phase1.5/method/INSTRUMENTS.md phase1.5/method/THE_BRIGHTENING_MOVES.md OPEN_TRAILS.md FINDINGS.md",
+   "n": 16,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:38:25.408Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse HEAD && git -C /d/MY-DOwnloads/PLACE-papers rev-parse HEAD && git -C /d/MY-DOwnloads/PLACE-papers branch --list \"push-b709*\" && git -C /d/relay status --short -- data/b709_closing_push_out.txt",
+   "n": 17,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:39:51.724Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && ls data/b705_read_calls.txt data/b706_read_calls.txt data/b707_read_calls.txt data/b708_read_calls.txt data/b709_read_calls.txt data/b709_standing_figures.json data/b709_act_root.json data/b709_mirror.txt data/b709_scores.json data/b709_scores_close.json data/b709_checks.txt data/b709_checks_postpush.txt && wc -l data/b705_read_calls.txt data/b706_read_calls.txt data/b707_read_calls.txt data/b708_read_calls.txt data/b709_read_calls.txt data/act_roots.txt tools/b378_lockgate.py tools/test_elab_reader_b634.py data/b675_corrigenda.txt",
+   "n": 18,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:40:08.827Z",
+   "src": "seat",
+   "cmd": "git grep -l -e \"test_reader\" -- tools data",
+   "n": 19,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:40:42.878Z",
+   "src": "seat",
+   "cmd": "ls -la \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0be08567-3854-47cf-9c08-6d080b4d7312/scratchpad/\" && cd /d/relay && git grep -n -e \"^WORK = \" -e \"^RUNS = \" -- tools/b634_elab.py",
+   "n": 20,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:40:54.666Z",
+   "src": "seat",
+   "cmd": "ls -la \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/89dd14e7-e119-4cf8-b592-ceaac809eff2/scratchpad/b634_elab/test_reader.out\" \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/89dd14e7-e119-4cf8-b592-ceaac809eff2/scratchpad/b634_elab/test_reader.lean\" \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/e1567886-3bd6-4471-9e29-3d65058acee0/scratchpad/b636_elab_sec/test_reader_sec.out\" \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/e1567886-3bd6-4471-9e29-3d65058acee0/scratchpad/b636_elab_sec/test_reader_sec.lean\"",
+   "n": 21,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:44:35.201Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_citation.py ferry",
+   "n": 22,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:44:41.918Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_citation.py check dry",
+   "n": 23,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:45:06.657Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_citation.py check",
+   "n": 24,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:45:16.911Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch --merged main",
+   "n": 25,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:45:17.704Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-lv-conservation branch --list --verbose port-b707",
+   "n": 26,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:45:18.869Z",
+   "src": "seat",
+   "cmd": "ls -l /d/relay/data/b709_closing_push_out.txt /d/relay/tools/b378_lockgate.py /d/relay/tools/test_elab_reader_b634.py /d/relay/tools/ferry_scan.py /d/relay/tools/mirror_prevbuild.json /d/relay/data/b675_corrigenda.txt",
+   "n": 27,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:45:23.361Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch --merged main",
+   "n": 28,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:45:30.536Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/b700_reading4.txt /d/relay/data/b690_reading3.txt /d/relay/data/b700_r4_defects.txt /d/relay/data/b709_readfirst_diff.txt",
+   "n": 29,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:46:39.124Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/circuit_read.py readfirst b710_ferry.txt b710_readfirst.txt",
+   "n": 30,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:48:01.112Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py carry record && python -X utf8 tools/b710_carry.py carry tests",
+   "n": 31,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:48:16.080Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py rootexclude",
+   "n": 32,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:48:24.122Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py rootexclude",
+   "n": 33,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:48:47.380Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py rootexclude",
+   "n": 34,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:49:27.219Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py prune record \"# ================================================================================ COMPONENT 4: THE REGISTRATIONS RE-READ\" \"def linecheck(\"",
+   "n": 35,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:49:37.118Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py rootexclude",
+   "n": 36,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:49:45.001Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py rowgen",
+   "n": 37,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-24T21:50:06.499Z",
+   "src": "seat",
+   "cmd": "$t = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); $p = Get-CimInstance Win32_Process; $os = Get-CimInstance Win32_OperatingSystem; $free = [int]($os.FreePhysicalMemory / 1024); $c = @{}; foreach ($k in @('tail','lean','lake','python','claude','node','git','bash','grep')) { $c[$k] = 0 }; foreach ($x in $p) { $nm = $x.Name.ToLower(); foreach ($k in @('tail','lean','lake','python','claude','node','git','bash','grep')) { if ($nm -eq \"$k.exe\") { $c[$k]++; if ($k -ne 'node' -and $k -ne 'bash' -and $k -ne 'git') { \"  $k pid $($x.ProcessId) parent $($x.ParentProcessId) : $($x.CommandLine)\" } } } }; \"AT $t ; PROCESSES $($p.Count) ; FREE $free MB\"; foreach ($k in @('tail','lean','lake','python','claude','node','git','bash','grep')) { \"  $k $($c[$k])\" }",
+   "n": 38,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:50:12.730Z",
+   "src": "seat",
+   "cmd": "git add data/b709_closing_push_out.txt && git commit -q -m \"b710 step zero: b709's closing push-out capture committed alone (data/b709_closing_push_out.txt: the branch push-b709-closing, main read back at 42dd8768), under (R320)(7)\" && git log --oneline -1",
+   "n": 39,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:50:19.257Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py branches before",
+   "n": 40,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:50:27.011Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b709",
+   "n": 41,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:50:30.995Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b709-root",
+   "n": 42,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:50:35.025Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b709-root2",
+   "n": 43,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:50:38.846Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch -d push-b709-closing",
+   "n": 44,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:50:42.722Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b709",
+   "n": 45,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:50:48.729Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b709-root",
+   "n": 46,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:50:56.455Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py branches",
+   "n": 47,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:51:32.111Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_fit.py",
+   "n": 48,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:52:48.361Z",
+   "src": "seat",
+   "cmd": "git add data/b710_registrations.txt data/b710_rules.txt && git commit -q -m \"b710 step zero: the three registrations for b711 (the refined detection law with its fitted constants and the predictions for pairs 11 and 15; the surgery at Q0's onset radii; the coefficient observation) and the rules bank (the standing clauses by version; the lock gate's argument required), committed alone before any other bank, under (R320)(6) and (3)-(4)\" && git log --oneline -1",
+   "n": 49,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:53:06.113Z",
+   "src": "seat",
+   "cmd": "git hash-object data/b710_elab_reader_print.txt data/b710_elab_reader_print_sec.txt \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/89dd14e7-e119-4cf8-b592-ceaac809eff2/scratchpad/b634_elab/test_reader.out\" \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/e1567886-3bd6-4471-9e29-3d65058acee0/scratchpad/b636_elab_sec/test_reader_sec.out\"",
+   "n": 50,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:53:36.409Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_tests.py parts",
+   "n": 51,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:53:43.102Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_tests.py hold 1 && python -X utf8 tools/b710_tests.py run test_act_root.py && python -X utf8 tools/b710_tests.py run test_act_root_commit_b644.py && python -X utf8 tools/b710_tests.py run test_act_root_order_b641.py && python -X utf8 tools/b710_tests.py run test_addenda_licence.py && python -X utf8 tools/b710_tests.py run test_addenda_writelist.py && python -X utf8 tools/b710_tests.py run test_additive_shared_b644.py",
+   "n": 52,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T21:53:59.124Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_tests.py hold 2 && python -X utf8 tools/b710_tests.py run test_asof.py",
+   "n": 53,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:00:25.447Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_tests.py hold 3 && python -X utf8 tools/b710_tests.py run test_axiom_claim.py && python -X utf8 tools/b710_tests.py run test_axiom_claim_b651.py && python -X utf8 tools/b710_tests.py run test_banned_terms_backmatter.py && python -X utf8 tools/b710_tests.py run test_build_watch_b644.py && python -X utf8 tools/b710_tests.py run test_build_watch_b647.py",
+   "n": 54,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:01:12.869Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_tests.py hold 4 && python -X utf8 tools/b710_tests.py run test_chain_page.py",
+   "n": 55,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:08:01.360Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_tests.py hold 5 && python -X utf8 tools/b710_tests.py run test_elab_reader_b634.py",
+   "n": 56,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-24T22:08:14.264Z",
+   "src": "seat",
+   "cmd": "$t = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); $p = Get-CimInstance Win32_Process; $c = @{}; foreach ($k in @('tail','lean','lake','python','claude')) { $c[$k] = 0 }; foreach ($x in $p) { $nm = $x.Name.ToLower(); foreach ($k in @('tail','lean','lake','python','claude')) { if ($nm -eq \"$k.exe\") { $c[$k]++ } } }; \"AT $t ; PROCESSES $($p.Count) ; after the repaired test (part 5)\"; foreach ($k in @('tail','lean','lake','python','claude')) { \"  $k $($c[$k])\" }",
+   "n": 57,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:08:24.635Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_tests.py hold 6 && python -X utf8 tools/b710_tests.py run test_chain_page_b592.py && python -X utf8 tools/b710_tests.py run test_chain_page_b596.py && python -X utf8 tools/b710_tests.py run test_chain_page_b629.py && python -X utf8 tools/b710_tests.py run test_chain_page_b630.py && python -X utf8 tools/b710_tests.py run test_chain_page_b632.py && python -X utf8 tools/b710_tests.py run test_chain_page_b635.py && python -X utf8 tools/b710_tests.py run test_chain_page_b638.py && python -X utf8 tools/b710_tests.py run test_closing_headline_b634.py && python -X utf8 tools/b710_tests.py run test_clusters_served_b651.py && python -X utf8 tools/b710_tests.py run test_composer_b646.py && python -X utf8 tools/b710_tests.py run test_composer_b647.py && python -X utf8 tools/b710_tests.py run test_composer_b649.py && python -X utf8 tools/b710_tests.py run test_conversion_b652.py && python -X utf8 tools/b710_tests.py run test_correspondence_gen.py && python -X utf8 tools/b710_tests.py run test_e0_databinder_b643.py && python -X utf8 tools/b710_tests.py run test_e0_existential.py && python -X utf8 tools/b710_tests.py run test_e0_rule.py && python -X utf8 tools/b710_tests.py run test_edit_route_b646.py && python -X utf8 tools/b710_tests.py run test_faces_form.py",
+   "n": 58,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:11:46.040Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_tests.py hold 7 && python -X utf8 tools/b710_tests.py run test_g_chain_page.py && python -X utf8 tools/b710_tests.py run test_glossary_supersede_b651.py && python -X utf8 tools/b710_tests.py run test_licensed_table_b645.py && python -X utf8 tools/b710_tests.py run test_licensed_table_instrument_b652.py && python -X utf8 tools/b710_tests.py run test_met_b646.py && python -X utf8 tools/b710_tests.py run test_module_header.py && python -X utf8 tools/b710_tests.py run test_msplit_b658.py",
+   "n": 59,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:14:19.814Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_tests.py hold 8 && python -X utf8 tools/b710_tests.py run test_name_b649.py && python -X utf8 tools/b710_tests.py run test_name_patterns_b636.py && python -X utf8 tools/b710_tests.py run test_no_sorry_main.py && python -X utf8 tools/b710_tests.py run test_premise_status.py && python -X utf8 tools/b710_tests.py run test_primed_names_b643.py && python -X utf8 tools/b710_tests.py run test_push_gated.sh && python -X utf8 tools/b710_tests.py run test_reader_needle_b641.py && python -X utf8 tools/b710_tests.py run test_record_findings_b632.py && python -X utf8 tools/b710_tests.py run test_registry_tags_b636.py && python -X utf8 tools/b710_tests.py run test_row_sort.py && python -X utf8 tools/b710_tests.py run test_rowgen_ident.py && python -X utf8 tools/b710_tests.py run test_terminal_table_b630.py && python -X utf8 tools/b710_tests.py run test_terminal_table_b635.py && python -X utf8 tools/b710_tests.py run test_terminal_table_b636.py && python -X utf8 tools/b710_tests.py run test_terminal_table_b637.py",
+   "n": 60,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:18:05.005Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_tests.py report",
+   "n": 61,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:18:19.129Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short -- tools data/b710_ferry.txt data/b710_ferry_scan.txt data/b710_citation_check.txt data/b710_citation_check.json data/b710_readfirst.txt data/b710_readfirst_closure.txt data/b710_readfirst_diff.txt data/b710_rowgen_stepzero.txt data/b710_branches_before.json data/b710_branches.txt data/b710_branches.json data/b710_fit.txt data/b710_tests_stepzero.txt data/b710_tests_stepzero.json data/b710_carry_record.txt data/b710_carry_tests.txt data/b710_prune_record.txt data/b710_elab_reader_print.txt data/b710_elab_reader_print_sec.txt data/b709_grid_units.jsonl data/b707_onset_units.jsonl",
+   "n": 62,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:19:16.972Z",
+   "src": "seat",
+   "cmd": "git add data/b710_ferry.txt data/b710_ferry_scan.txt data/b710_citation_check.txt data/b710_citation_check.json data/b710_readfirst.txt data/b710_readfirst_closure.txt data/b710_readfirst_diff.txt data/b710_rowgen_stepzero.txt data/b710_branches_before.json data/b710_branches.txt data/b710_branches.json data/b710_fit.txt data/b710_tests_stepzero.txt data/b710_tests_stepzero.json data/b710_carry_record.txt data/b710_carry_tests.txt data/b710_prune_record.txt data/b710_stepzero.txt data/b710_defects.txt tools/b710_carry.py tools/b710_citation.py tools/b710_fit.py tools/b710_record.py tools/b710_tests.py tools/b710_worklist.py && git commit -q -m \"b710 step zero: the ferry banked, the citation check (179 cites, 177 OK, 2 misses entered by the fact clause), the readfirst bank and the closure diff, rowgen and constellation, the branches before and after the six deletes (port-b707 stands), the refined law's fit from b709's banked pairs, the tests (55 run, the carried eight not clean, the repaired lean test 7 of 7 with no lean process), the step-zero bank, the defects bank (a)-(c), and the act's first tools\" && git log --oneline -1",
+   "n": 63,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:19:40.867Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py defs b698_record.py",
+   "n": 64,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:20:35.441Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py c1 dry",
+   "n": 65,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:20:42.153Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/b709_mirror.txt",
+   "n": 66,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:20:51.034Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py c1 dry",
+   "n": 67,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:20:59.822Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py c1",
+   "n": 68,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:21:21.179Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py carry checks",
+   "n": 69,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:22:34.727Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py repairctl dry",
+   "n": 70,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:22:41.727Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py ksyms b710_checks.py",
+   "n": 71,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:22:51.631Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py repairctl dry",
+   "n": 72,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:22:59.902Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py repairctl",
+   "n": 73,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:23:29.984Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py toolrepairs",
+   "n": 74,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:23:37.153Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/b710_tool_repairs.txt",
+   "n": 75,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:23:51.106Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py carry corrigendum && python -X utf8 tools/b710_record.py defs b710_corrigendum.py",
+   "n": 76,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:23:58.899Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/tools/b678_corrigendum.py && cd /d/relay && python -X utf8 tools/b710_record.py defs b678_corrigendum.py",
+   "n": 77,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:25:04.960Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_corrigendum.py dry",
+   "n": 78,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:25:14.255Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_corrigendum.py land",
+   "n": 79,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:25:29.239Z",
+   "src": "seat",
+   "cmd": "git diff --numstat -- data/b675_corrigenda.txt tools/b378_lockgate.py tools/test_elab_reader_b634.py && git -C /d/MY-DOwnloads/PLACE-papers diff --numstat",
+   "n": 80,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:25:37.338Z",
+   "src": "seat",
+   "cmd": "git add data/b710_record_lines.json data/b710_repair_controls.txt data/b710_repair_controls.json data/b710_tool_repairs.txt data/b710_corrigendum.txt data/b710_corrigendum.json data/b710_corrigendum_landing.json data/b675_corrigenda.txt data/b710_carry_checks.txt data/b710_carry_corrigendum.txt data/b710_elab_reader_print.txt data/b710_elab_reader_print_sec.txt tools/b378_lockgate.py tools/test_elab_reader_b634.py tools/b710_checks.py tools/b710_corrigendum.py tools/b710_record.py && git commit -q -m \"b710 Component 1: b709 at its weight (FINDINGS :10230) and the navigator's readings beside it (:10232); the two needles repaired at carry (keys case-insensitive, the bank joined), the lock gate's argument required, the lean-running test reading banked prints -- 16 controls as wanted, the diffs in data/b710_tool_repairs.txt; the corrigendum entry (:10234) and the corrigenda row (30), under (R320)(1)-(3)\" && git log --oneline -1",
+   "n": 81,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:25:42.898Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m \"b710 Component 1: b709 at its weight (FINDINGS :10230), the navigator's readings of b709's figures beside it (:10232), the corrigendum for b709's two post-seal needles (:10234), under (R320)(1)-(3)\" && git log --oneline -1",
+   "n": 82,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:26:10.688Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b710_record.py defs ferry_scan.py",
+   "n": 83,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:27:32.235Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_standing.py write dry",
+   "n": 84,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:27:43.523Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_standing.py write",
+   "n": 85,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:27:50.898Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/standing_clauses_v1.txt",
+   "n": 86,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:28:09.465Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_standing.py write again && python -X utf8 tools/b710_standing.py control",
+   "n": 87,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:28:19.725Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_standing.py control",
+   "n": 88,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:28:37.897Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/ferry_scan.py data/b710_ferry.txt",
+   "n": 89,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:29:12.715Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_standing.py readers",
+   "n": 90,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:29:19.600Z",
+   "src": "seat",
+   "cmd": "git add data/standing_clauses_v1.txt data/b710_standing_control.txt data/b710_standing_control.json data/b710_standing_readers.txt data/b710_standing_readers.json tools/b710_standing.py tools/ferry_scan.py tools/b710_citation.py && git commit -q -m \"b710 Component 2: the standing clauses banked at v1 (data/standing_clauses_v1.txt: 51 rows from (R319)'s ferry :49, :43, :45 -- 42 standing, 7 the act's deltas, 2 heads -- each numbered and tagged by its own source or the ruling that first carried it); the re-assembly control equal line for line, its NEG copy differing; the ferry scan and the citation tool repointed to read the bank by version, their controls as wanted, under (R320)(4)\" && git log --oneline -1",
+   "n": 91,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:29:43.272Z",
+   "src": "seat",
+   "cmd": "ls data/terminal_table.json tools/terminal_table.py tools/e0_rule.py && python -X utf8 tools/b710_record.py defs terminal_table.py",
+   "n": 92,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:30:26.587Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py search",
+   "n": 93,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:30:42.539Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/b710_r5_search.txt",
+   "n": 94,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:31:03.934Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-meta show HEAD:SIDEMeta/Meta/SIDESystem.lean --stat --format= && git -C /d/SIDE-meta ls-files SIDEMeta/Meta && git -C /d/SIDE-meta tag --points-at HEAD && git -C /d/SIDE-kernel tag --points-at HEAD && git -C /d/SIDE-meta log --oneline -1",
+   "n": 95,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:31:25.291Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-kernel status --short -- Kernel/Layer1.lean Kernel/Cascade/SieveCeiling.lean Bridge/TheBridgeComplete.lean Kernel/Kappa.lean Kernel/TypeLevel.lean && wc -l /d/SIDE-kernel/Kernel/Layer1.lean /d/SIDE-kernel/Kernel/Cascade/SieveCeiling.lean /d/SIDE-kernel/Bridge/TheBridgeComplete.lean /d/SIDE-kernel/Kernel/Kappa.lean /d/SIDE-kernel/Kernel/TypeLevel.lean",
+   "n": 96,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:32:22.677Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py terminals",
+   "n": 97,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:32:35.986Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py terminals",
+   "n": 98,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:33:26.757Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py controls",
+   "n": 99,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:33:54.400Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py controls",
+   "n": 100,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:34:36.574Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py moves",
+   "n": 101,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:34:52.165Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers ls-files archive/2026-08-24-ledger-split",
+   "n": 102,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:35:01.472Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py moves",
+   "n": 103,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:37:18.195Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py flip",
+   "n": 104,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:37:34.641Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py flip",
+   "n": 105,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:37:57.106Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py flip",
+   "n": 106,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:38:21.233Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py flip",
+   "n": 107,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:38:30.044Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/b710_r5_flip.txt",
+   "n": 108,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:38:59.215Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py flip",
+   "n": 109,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:39:06.642Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reading5.py cost",
+   "n": 110,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:41:23.414Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/b710_r5_terminals.txt /d/relay/data/b710_r5_cost.txt /d/relay/data/b710_r5_flip.txt /d/relay/data/b710_r5_controls.txt",
+   "n": 111,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:42:09.788Z",
+   "src": "seat",
+   "cmd": "git add data/b710_reading5.txt data/b710_r5_search.txt data/b710_r5_search.json data/b710_r5_terminals.txt data/b710_r5_terminals.json data/b710_r5_controls.txt data/b710_r5_controls.json data/b710_r5_moves.txt data/b710_r5_moves.json data/b710_r5_flip.txt data/b710_r5_flip.json data/b710_r5_cost.txt data/b710_r5_cost.json tools/b710_reading5.py data/b710_defects.txt && git commit -q -m \"b710 Component 3: reading 5 in four sections (data/b710_reading5.txt) -- the principles against the corpus (a compiled theorem for 3 of 4, Independence as definitions alone; a control object for 1 of 4, Independence's Q0); the moves-by-locus table (12 rows, 11 tried, 1 moved, 4 narrowed, 2 re-presented, 5 reappeared), its placement to the author; the readfirst flip (0 of 101 defects caught, 0 paths dropped: do not flip); the cost reading (48.0% of the volume on carried tools); the route banks; defect (d), under (R320)(5)\" && git log --oneline -1",
+   "n": 112,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:45:02.863Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_citation.py answer \"Moves table: 1, enter in OPEN_TRAILS\"",
+   "n": 113,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:47:31.729Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/data/b710_reading5.txt",
+   "n": 114,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:47:58.174Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py moves dry",
+   "n": 115,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:48:12.362Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py moves",
+   "n": 116,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:48:27.592Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m \"b710 Component 3: the moves-by-locus table at Weil positivity on classK entered as W-ORD-MOVES-BY-LOCUS (OPEN_TRAILS :15804) on the author's word of 2026-10-24 (option 1), citing relay data/b710_reading5.txt section (ii) by line; INSTRUMENTS.md untouched, under (R320)(5)(ii)\" && git log --oneline -1",
+   "n": 117,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:48:32.431Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short -- data tools",
+   "n": 118,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:48:38.857Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git add data/b710_citation_check.txt data/b710_moves_lines.json tools/b710_record.py && git commit -q -m \"b710 Component 3: the author's word at the table's prompt checked per (R278)(4) (1 cite, OK) and acted on; the record's landing bank (OPEN_TRAILS :15804, W-ORD-MOVES-BY-LOCUS); the record tool's moves route\" && git log --oneline -1",
+   "n": 119,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:49:05.207Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py regcheck",
+   "n": 120,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:49:22.385Z",
+   "src": "seat",
+   "cmd": "git add data/b710_registrations_reread.txt data/b710_registrations_reread.json tools/b710_record.py && git commit -q -m \"b710 Component 4: the registrations and the rules re-read after Components 1-3, equal byte for byte to their blobs at 41ff1193 and at HEAD, one commit each; the registration printed unchanged; nothing computed for its three rows (no such bank, no computation tool run), under (R320)(6)\" && git log --oneline -1",
+   "n": 121,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:49:47.389Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py spanlist checks && python -X utf8 tools/b710_carry.py spanlist closing && python -X utf8 tools/b710_carry.py spanlist regspec && python -X utf8 tools/b710_carry.py spanlist reg_gate",
+   "n": 122,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:51:52.730Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%H %s\" -12 && git -C /d/MY-DOwnloads/PLACE-papers log --format=\"%H %s\" -3",
+   "n": 123,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:53:22.451Z",
+   "src": "seat",
+   "cmd": "ls data/b709_runner_SIDE-lv-conservation_port.txt data/b709_buildlog_SIDE-lv-conservation_port.txt data/b709_port.json data/b709_dispatches.json data/b709_runner_rows.json",
+   "n": 124,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:55:55.297Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py prune checks \"# ================================================================== (R320)(6) AND N2: THE REGISTRATIONS AND THE AXIS\" \"ARMS = [\"",
+   "n": 125,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T22:57:36.506Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py prune checks \"    ('G-REGISTRATIONS-ALONE'\" \"    ('G-PARTS-PRERUN'\"",
+   "n": 126,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:01:11.490Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b710_checks.py \"K\\.(ACT_ARMS|SEALED|STANDING_ADDED|REPAIRED_TOOLS|NEW_TOOLS|B708|B709_|PORT_)\"",
+   "n": 127,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:01:21.061Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b710_checks.py \"^(import|from) |^K7\\d\\d|^K6\\d\\d|= importlib|import_module\"",
+   "n": 128,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:01:32.729Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b709_worklist.py \"ACT_ARMS|^SEALED|^STANDING_ADDED\"",
+   "n": 129,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:01:40.530Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b710_checks.py \"^    \\('G-[A-Z0-9-]+',\"",
+   "n": 130,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:02:19.588Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py carry closing",
+   "n": 131,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:02:23.212Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py spanlist closing",
+   "n": 132,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:02:55.615Z",
+   "src": "seat",
+   "cmd": "ls data/b710_*",
+   "n": 133,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:04:09.426Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py carry reg_gate",
+   "n": 134,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:04:18.235Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_carry.py carry regspec",
+   "n": 135,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:05:53.162Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py data/b710_r5_terminals.json \"^ ?\\\"[a-z_]+\\\":\" && python -X utf8 tools/b710_locate.py data/b710_r5_moves.json \"^ ?\\\"[a-z_]+\\\":\"",
+   "n": 136,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:05:59.658Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py data/b709_registration_2026-10-23.txt \"^#|^\\*\\*\\(|^\\(|^## |^### [A-Z(]\"",
+   "n": 137,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:06:11.931Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b710_record.py \"^def |^ROUTES|^    '[a-z0-9_]+': \"",
+   "n": 138,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:06:22.188Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py data/b710_prune_record.txt \"^-def |^@@\"",
+   "n": 139,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:06:43.657Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b710_record.py \"^(read_score_row|_defect_short|span_line|_amended_after|_iso_epoch|desk|gatebanks|armsecs|answers|mbuild|mroot|mverify|rootbanks|root|root_arm|table_final|runstatus|seal_hashes|IDENT_WORDS|LV|CARRIED_NAMES|_udiff|_fn_lines)\\b|^[a-zA-Z_, ]+ = (R|P\\d)\\.\"",
+   "n": 140,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:06:50.155Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b710_checks.py \"TITLE_NEEDLES|ENTRY_NEEDLES|^def (scorer_banks_ok|finding_ok|entry_title_ok|title_form_ok|trail_tail|reading5_ok|principles_ok|moves_ok|flip_ok|cost_ok|standing_v1_ok|figures_ok|fig_ok|report_unsealed_ok|repairs_ok|carry_spans_ok)\"",
+   "n": 141,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:07:20.802Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py data/b710_reading5.txt \"of 4|^## |^### ### |DO NOT FLIP|tried at the clause|48\\.0%|MOVED 1|^  \\((S|I|D|E)\\) \"",
+   "n": 142,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:11:02.914Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b710_record.py \"L\\[5:8\\]|^ROUTES|^def armnames\"",
+   "n": 143,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:11:55.537Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py armnames",
+   "n": 144,
+   "bg": false
+  }
+ ],
+ "offences": [],
+ "prev": {
+  "act": "b709",
+  "session": "0be08567-3854-47cf-9c08-6d080b4d7312",
+  "rows": 5,
+  "offences": []
+ },
+ "local_lean": [],
+ "dispatches": [],
+ "detached": [],
+ "seds": [],
+ "null_redirects": [],
+ "redirects": [],
+ "pipes": [],
+ "any_pipes": [],
+ "py_programs": [],
+ "moves_deletes": [
+  41,
+  42,
+  43,
+  44,
+  45,
+  46
+ ],
+ "delete_shapes": [
+  {
+   "n": 41,
+   "deletes": [
+    "push-b709"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 42,
+   "deletes": [
+    "push-b709-root"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 43,
+   "deletes": [
+    "push-b709-root2"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 44,
+   "deletes": [
+    "push-b709-closing"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 45,
+   "deletes": [
+    "push-b709"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 46,
+   "deletes": [
+    "push-b709-root"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  }
+ ],
+ "outbound": []
+}

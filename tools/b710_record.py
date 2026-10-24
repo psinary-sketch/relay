@@ -757,8 +757,8 @@ def figures(*a):
     L = ['%s -- COMPONENT 5: THE FOUR STANDING FIGURES AT b710, READ BY b706`S TOOL OVER b706`S ROSTER, AGAINST b709`S (%s)' % (ACT, utc()), '',
          '### by relay tools/b706_standing_figures.py, unedited (correspondence() and partners() over data/b706_roster_read.json, the 20 tables at the',
          '### unversioned names; readme() tools/b705_standing_figures.py`s, pins() tools/b703_standing_figures.py`s), %.0f s; each arm fails on a' % (t1 - t0),
-         '### regression from the previous act`s figure (data/b709_standing_figures.json). No document is cut this act; day1/Spectral_Inertness.md (cut at b709) is off the roster;',
-         '### both kernels on main at the read (SIDE-lv-conservation`s checkout restored to main from port-b707 before this read, b707`s trap).', '']
+         '### regression from the previous act`s figure (data/b709_standing_figures.json). No document is cut this act; day1/Spectral_Inertness.md (cut at b708) is off the roster;',
+         '### both kernels on main at the read (SIDE-lv-conservation`s checkout at main; port-b707 not checked out this act, b707`s trap).', '']
     for k in ('correspondence', 'readme', 'partners', 'pins'):
         prev = (base.get(k) or {}).get('figure')
         now = (f.get(k) or {}).get('figure')
@@ -1048,7 +1048,35 @@ def _fn_diff(old_src, new_src, name, a_name, b_name):
     return ['    ' + l for l in difflib.unified_diff(o, n, a_name, b_name, lineterm='', n=1)]
 
 
-CARRY_ROWS = []   # ### the carry-time repairs of Component 5, appended by the Edit tool at Component 5
+# ### the carry-time rows of Component 5: each carried tool (tools/b710_carry.py carry, the substitution diff in data/b710_carry_<name>.txt) with
+# ### what was repaired or rewritten at carry time and its repairdiff bank's verdict (the carried form against the file now)
+CARRY_WHAT = (
+    ('tests', 'tools/b710_tests.py -- carried at step zero; its act names alone'),
+    ('record', 'tools/b710_record.py -- roster709 bound through b709`s module; the workflow constant read by getattr; prev_capture bounded in b701`s form for a new session; '
+               'the stand-in`s previous root b709`s b3213c0b; the face constant B709_FACE; the branches route reading the kept branch`s tip K.PORT_TIP; b709`s routes over '
+               'its own objects pruned (data/b710_prune_record.txt, one block); this act`s routes (c1, repairctl, toolrepairs, moves, regcheck, the scorers, the entry and '
+               'trail texts, components, the dry run, the mirror bank, the guard, the arm names) written by the Edit tool'),
+    ('checks', 'tools/b710_checks.py -- the two needles of (R320)(3) (rows (1)-(2)); the act`s arms over this act`s banks in place of b709`s (pruned, data/b710_prune_checks.txt); '
+               'the sources over this act`s banks; REQUIRED_BANKS; the standing runner arms read as banked (no dispatch); the receipt arm repointed by version ((R320)(4)); '
+               'the title fold for "Reading"; the figures baseline b709`s; the next act`s rules glob b710`s'),
+    ('closing', 'tools/b710_closing.py -- TITLE_LINE, NO_VERDICT_BY_FORM, act_sections, KERNEL_LINES, CARRIED_FIXED and the heads loop`s port line -- the act`s own text'),
+    ('reg_gate', 'tools/b710_reg_gate.py -- the substitution and the face`s date (2026-10-24)'),
+    ('regspec', 'tools/b710_regspec.py -- the clause table, the measured counts, the face`s date and the spec`s title re-written for this act`s objects (no dispatch, no kernel '
+                'commit, the repairs, the standing clauses bank, reading 5, the moves table) -- the act`s own text'),
+    ('corrigendum', 'tools/b710_corrigendum.py -- written whole by the Write tool in b678`s form for b709`s two post-seal needles'),
+)
+
+
+def _carry_rows():
+    out = []
+    for i, (name, what) in enumerate(CARRY_WHAT, 5):
+        v = (re.findall(r'^### ### \*\*(.*)\*\*\s*$', rdn('%s_repairdiff_%s.txt' % (ACT, name)), re.M) or ['### NO REPAIRDIFF BANK'])[-1]
+        c = (re.findall(r'^### ### \*\*(.*)\*\*\s*$', rdn('%s_carry_%s.txt' % (ACT, name)), re.M) or ['### NO CARRY BANK'])[-1]
+        out += ['', '  (%d) %s.' % (i, what), '      data/%s_carry_%s.txt: %s' % (ACT, name, c), '      data/%s_repairdiff_%s.txt: %s' % (ACT, name, v)]
+    return out
+
+
+CARRY_ROWS = []   # ### filled at the call (the repairdiff banks written first)
 
 
 def toolrepairs(*a):
@@ -1056,7 +1084,10 @@ def toolrepairs(*a):
     G-AXIS-REGISTERED's bank joined (each the function's diff, b709's sealed form against tools/b710_checks.py's, and the helper added), (3) the
     lock gate's argument required (`git diff HEAD` of tools/b378_lockgate.py), (4) the test reading banked prints (`git diff HEAD` of
     tools/test_elab_reader_b634.py); the controls data/b710_repair_controls.txt by row. At Component 5 the carry-time repairs are added as rows."""
-    old, new = rd(os.path.join(T, 'b709_checks.py')), rd(os.path.join(T, 'b710_checks.py'))
+    # ### the repairs stand at Component 1's commit (relay cf4a17ff): the suite's two functions read there (b709's act arm axis_registered_ok
+    # ### is pruned from the suite at Component 5, its repaired form standing at that commit and read by G-NEEDLES-REPAIRED), the two shared
+    # ### tools' diffs from the act's base to that commit (a `git diff HEAD` after the commit is empty)
+    old, new = rd(os.path.join(T, 'b709_checks.py')), (_show(ROOT, K.C1_RELAY, 'tools/b710_checks.py') or '')
     ctl = jl('%s_repair_controls.json' % ACT).get('cases') or []
     cl = lambda p: ['      control: %s -- %s' % (c['case'], 'AS WANTED' if c['as_wanted'] else '### NOT AS WANTED') for c in ctl if c['case'].startswith(p)]   # noqa: E731
     L = ['%s -- THE REPAIRS OF (R320)(3) AND THE CARRY-TIME REPAIRS, EACH WITH ITS DIFF AND ITS CONTROL (%s)' % (ACT, utc()), '',
@@ -1064,19 +1095,22 @@ def toolrepairs(*a):
          '### an earlier act is edited; the two shared tools edited are the ruling`s ((R320)(3)), named in (W).', '',
          '  (1) tools/b710_checks.py report_unsealed_ok and keys_ci -- (R320)(3): G-REPORT-UNSEALED`s key read case-insensitively (b709`s arm wanted',
          '      RATIO in capitals; its report printed "the twelve ratios"; data/b709_defects.txt :117-:122).']
-    L += _fn_diff(old, new, 'report_unsealed_ok', 'tools/b709_checks.py', 'tools/b710_checks.py') + ['    + (the helper keys_ci added beside it)'] + cl('(1)')
+    L += _fn_diff(old, new, 'report_unsealed_ok', 'tools/b709_checks.py', 'tools/b710_checks.py at relay cf4a17ff') + ['    + (the helper keys_ci added beside it)'] + cl('(1)')
     L += ['', '  (2) tools/b710_checks.py axis_registered_ok and joined -- (R320)(3): G-AXIS-REGISTERED reading the registrations bank after joining',
           '      wrapped lines (b709`s bank wraps the quotation across :12-:13; data/b709_defects.txt :123-:129).']
-    L += _fn_diff(old, new, 'axis_registered_ok', 'tools/b709_checks.py', 'tools/b710_checks.py') + ['    + (the helper joined added beside it)'] + cl('(2)')
+    L += _fn_diff(old, new, 'axis_registered_ok', 'tools/b709_checks.py', 'tools/b710_checks.py at relay cf4a17ff') + ['    + (the helper joined added beside it)'] + cl('(2)')
     L += ['', '  (3) tools/b378_lockgate.py main -- (R320)(3): the act argument required, a call without it exiting before any write (b709`s (h)).']
-    L += ['    ' + l for l in g(ROOT, 'diff', 'HEAD', '--', 'tools/b378_lockgate.py').rstrip(NL).split(NL)] + cl('(3)')
+    L += ['    ' + l for l in g(ROOT, 'diff', K.PRE_RELAY, K.C1_RELAY, '--', 'tools/b378_lockgate.py').rstrip(NL).split(NL)] + cl('(3)')
     L += ['', '  (4) tools/test_elab_reader_b634.py -- (R320)(3): the test reading lean`s banked prints and invoking no lean (b709`s (c), its calls at',
           '      :34 and :65); the prints data/b710_elab_reader_print.txt and data/b710_elab_reader_print_sec.txt (blobs 55277c74, ef99e5c3).']
-    L += ['    ' + l for l in g(ROOT, 'diff', 'HEAD', '--', 'tools/test_elab_reader_b634.py').rstrip(NL).split(NL)] + cl('(4)')
-    L += CARRY_ROWS
+    L += ['    ' + l for l in g(ROOT, 'diff', K.PRE_RELAY, K.C1_RELAY, '--', 'tools/test_elab_reader_b634.py').rstrip(NL).split(NL)] + cl('(4)')
+    rows_c = _carry_rows() if 'carry' in a else CARRY_ROWS
+    L += rows_c
+    L += ['', '  THE SHARED TOOL OF (R320)(4): tools/ferry_scan.py -- the standing clauses bank`s citation read by version (bank_versions, bank_citation_check,',
+          '      the print line "STANDING CLAUSES BANK CITATION"); its controls data/b710_standing_readers.txt.']
     ok = bool(ctl) and all(c['as_wanted'] for c in ctl)
-    L += ['', '### ### **REPAIRS OF (R320)(3) 4 ; CONTROLS AS WANTED %s ; CARRY-TIME ROWS %d ; NO SEALED TOOL OF AN EARLIER ACT EDITED ; SHARED TOOLS EDITED 2 (THE RULING`S).**' % (
-        ok, sum(1 for l in CARRY_ROWS if re.match(r'^  \(\d+\) ', l)))]
+    L += ['', '### ### **REPAIRS OF (R320)(3) 4 ; CONTROLS AS WANTED %s ; CARRY-TIME ROWS %d ; NO SEALED TOOL OF AN EARLIER ACT EDITED ; SHARED TOOLS EDITED %d (THE RULING`S).**' % (
+        ok, sum(1 for l in rows_c if re.match(r'^  \(\d+\) ', l)), len(K.REPAIRED_TOOLS))]
     if 'dry' not in a:
         put_txt('%s_tool_repairs.txt' % ACT, L)
     print(NL.join(L[-1:]))
@@ -1150,12 +1184,577 @@ def regcheck(*a):
     print(NL.join(L[2:4] + L[5:8] + L[-1:]))
 
 
+# ================================================================================ COMPONENT 6: THE SCORES (b686's order), THE RECORD, THE TRAIL, THE DRY RUN, THE MIRROR
+NK, SK = ('N1', 'N2', 'N3', 'N4', 'N5'), ('S1', 'S2', 'S3')
+SCORE_KEYS = NK + SK
+_sv, scores_line = R._sv, R.scores_line
+_calls, _rl_lines = R._calls, R._rl_lines
+num_word = P3.num_word
+_trail_defects, _trail_resolved = P3._trail_defects, P3._trail_resolved
+LV = K.LV_DIR
+CARRIED_NAMES = ('tests', 'record', 'checks', 'closing', 'reg_gate', 'regspec', 'corrigendum')
+ALLOWED_SHARED_DATA = ('act_roots.txt', 'b709_closing_push_out.txt', 'b675_corrigenda.txt', 'standing_clauses_v1.txt')
+
+
+def _s_scores():
+    return dict((k, (v[0], v[1].replace('b698_', ACT + '_'))) for k, v in R._s_scores().items())
+
+
+def _r5_counts():
+    """reading 5's counts from its verdict lines (data/b710_reading5.txt :191-:194), the wrapped verdict joined."""
+    t = rdn('%s_reading5.txt' % ACT)
+    v = ' '.join(l[4:] if l.startswith('### ') else l for l in t[t.find('### ### **READING 5:'):].split(NL))
+    v = ' '.join(v.split())
+    f = lambda p: re.search(p, v)   # noqa: E731
+    m1, m2 = f(r'WITH A COMPILED THEOREM (\d) OF 4'), f(r'WITH A CONTROL OBJECT (\d) OF 4')
+    m3 = f(r'THE MOVES TABLE (\d+) ROWS, TRIED (\d+), UNTRIED (\d+), MOVED (\d+), NARROWED (\d+), RE-PRESENTED (\d+), REAPPEARED (\d+)')
+    m4 = f(r'THE FLIP: (\d+) OF (\d+) DEFECTS CAUGHT, (\d+) PATHS DROPPED, (DO NOT FLIP|FLIP)')
+    m5 = f(r'THE COST (\d+) LINES IN (\d+) CALLS, ([0-9.]+)% ON CARRIED TOOLS, THE TOP THREE (\S+), (\S+), (\S+?)\.?\*\*')
+    if not all((m1, m2, m3, m4, m5)):
+        sys.exit('### READING 5`S VERDICT NOT AS READ (%s) -- NOTHING COMPOSED' % [bool(x) for x in (m1, m2, m3, m4, m5)])
+    return dict(compiled=int(m1.group(1)), control=int(m2.group(1)), rows=int(m3.group(1)), tried=int(m3.group(2)), untried=int(m3.group(3)),
+                moved=int(m3.group(4)), narrowed=int(m3.group(5)), represented=int(m3.group(6)), reappeared=int(m3.group(7)),
+                caught=int(m4.group(1)), defects=int(m4.group(2)), dropped=int(m4.group(3)), flip=m4.group(4),
+                lines=int(m5.group(1)), calls=int(m5.group(2)), share=m5.group(3), top=[m5.group(4), m5.group(5), m5.group(6).rstrip('.,')])
+
+
+def _figs():
+    co = jl('%s_corrigendum.json' % ACT)
+    rl = _rl_lines('%s_record_lines.json' % ACT) + ['-', '-']
+    ml = (jl('%s_moves_lines.json' % ACT).get('lines') or [{}])[0]
+    fj_, f9 = jl('%s_standing_figures.json' % ACT), jl('b709_standing_figures.json')
+    fit = rdn('%s_fit.txt' % ACT)
+    a2, b2 = _fig(fit, r'\(F2\) two constants by least squares: alpha (\S+) ; beta (\S+)', 'the fitted constants')
+    p11, w11 = _fig(fit, r'(?m)^  11 \|.*\| F2 (\S+) \| F1 \S+ \| \[(\S+, \S+)\]', 'pair 11`s prediction')
+    p15, w15 = _fig(fit, r'(?m)^  15 \| .*\| F2 (\S+) \| F1 \S+ \| \[(\S+, \S+)\]', 'pair 15`s prediction')
+    sc = jl('%s_standing_control.json' % ACT)
+    sr = jl('%s_standing_readers.json' % ACT)
+    rj = jl('%s_registrations_reread.json' % ACT)
+    rc = jl('%s_repair_controls.json' % ACT).get('cases') or []
+    return dict(weight=rl[0], readings=rl[1], corr_line=co.get('entry_line', '-'), corr_row=co.get('row'), moves_line=ml.get('line'), r5=_r5_counts(),
+                alpha=a2, beta=b2, p11=int(float(p11) + 0.5), p15=int(float(p15) + 0.5), w11=w11, w15=w15,
+                std_ok=sc.get('ok'), readers_ok=sr.get('ok'), reg_unchanged=rj.get('unchanged'), nothing=rj.get('nothing_computed'),
+                ctl_n=len(rc), ctl_ok=bool(rc) and all(c['as_wanted'] for c in rc),
+                figs=dict((k, (fj_.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')),
+                figs9=dict((k, (f9.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')))
+
+
+def _n1():
+    """N1: no lean process runs on this host and no dispatch this act. The first clause against the command bank's reading of the seat's own
+    commands and the lean-running test's repaired form (its controls, data/b710_repair_controls.json row (4): the test reads lean's banked
+    prints and calls no lean); the second against the dispatch bank (none written) and the capture's dispatches."""
+    cm = jl('%s_commands.json' % ACT)
+    dj = jl('%s_dispatches.json' % ACT).get('rows') or []
+    rc = [c for c in (jl('%s_repair_controls.json' % ACT).get('cases') or []) if c['case'].startswith('(4)')]
+    seat_lean = cm.get('local_lean') if cm else None
+    test_ok = bool(rc) and all(c['as_wanted'] for c in rc)
+    disp = cm.get('dispatches') or [] if cm else ['unread']
+    ok = bool(cm) and not seat_lean and test_ok and not dj and not disp
+    return ('HELD' if ok else 'REFUTED'), (
+        'the seat`s commands running lean or lake (relay data/b710_commands.json): %s; the lean-running test repaired to read lean`s banked prints '
+        '(relay data/b710_elab_reader_print.txt, data/b710_elab_reader_print_sec.txt), its %d control cases as wanted %s, no lean called by it; runner '
+        'dispatches banked %d (relay data/b710_dispatches.json, not written), in the capture %d' % (
+            seat_lean if cm else 'unread', len(rc), test_ok, len(dj), len(disp)))
+
+
+def _n2():
+    """N2: each principle's row cites its papers by path and line and its terminals by kernel, tag, name and grade; a control object named or
+    "none located" with the search printed. Read from the reading bank's section (i), the terminals bank and the controls bank."""
+    r = rdn('%s_reading5.txt' % ACT)
+    sec = r[r.find('## (i)'):r.find('## (ii)')]
+    blocks = re.split(r'^  \((S|I|D|E)\) ', sec, flags=re.M)
+    rows = dict(zip(blocks[1::2], blocks[2::2]))
+    tj = jl('%s_r5_terminals.json' % ACT).get('rows') or []
+    cj = jl('%s_r5_controls.json' % ACT)
+    per = {}
+    for k in ('S', 'I', 'D', 'E'):
+        b = rows.get(k) or ''
+        per[k] = dict(stated=re.search(r'STATED: .*\.md :\d+', b) is not None, compiled=re.search(r'COMPILED: .*SIDE-[a-z-]+ v\d', b) is not None,
+                      control='LOCATED' if 'CONTROL: LOCATED' in b else ('NONE LOCATED, SEARCH PRINTED' if 'CONTROL: NONE LOCATED. The search' in b and 'data/b710_r5_controls.txt' in b else '### UNREAD'))
+    ok = sorted(rows) == ['D', 'E', 'I', 'S'] and all(v['stated'] and v['compiled'] and not v['control'].startswith('###') for v in per.values()) \
+        and len(tj) >= 4 and all(x.get('statement') for x in tj) and bool(cj)
+    return ('HELD' if ok else 'REFUTED'), (
+        'reading 5 section (i) (relay data/b710_reading5.txt :11-:111): %s; the terminals bank`s statements read %d (relay data/b710_r5_terminals.json), '
+        'each graded by the shared E0 rule; the controls bank`s searches printed (relay data/b710_r5_controls.json)' % (
+            '; '.join('(%s) papers by path and line %s, terminals by kernel and tag %s, control %s' % (k, v['stated'], v['compiled'], v['control']) for k, v in per.items()), len(tj)))
+
+
+def _n3():
+    """N3: the standing clauses' re-assembly equal to b709's ferry line for line, its NEG control differing; the readers of the ferry's text
+    repointed by version, their controls as wanted. From the control bank and the readers bank."""
+    sc, sr = jl('%s_standing_control.json' % ACT), jl('%s_standing_readers.json' % ACT)
+    t = rdn('%s_standing_control.txt' % ACT)
+    ok = sc.get('ok') is True and 'EQUAL LINE FOR LINE True' in t and sr.get('ok') is True
+    return ('HELD' if ok else 'REFUTED'), (
+        'the re-assembly from relay data/standing_clauses_v1.txt against b709`s ferry (relay data/b710_standing_control.txt): equal line for line %s, '
+        'the control as wanted %s; the readers repointed by version, the ferry scan`s bank citation, the citation tool`s standing rows and the suite`s '
+        'receipt arm (relay data/b710_standing_readers.json): as wanted %s' % ('EQUAL LINE FOR LINE True' in t, sc.get('ok'), sr.get('ok')))
+
+
+def _n4():
+    """N4: the registrations committed at step zero, before any other bank of the act; nothing computed for them; the predictions printed with
+    the fitted constants. From the registrations' commit and its ancestry, the re-read bank and the fit bank."""
+    rj = jl('%s_registrations_reread.json' % ACT)
+    log = [l for l in g(ROOT, 'log', '--format=%H', '--', 'data/%s_registrations.txt' % ACT).split(NL) if l.strip()]
+    parent = g(ROOT, 'rev-parse', '--verify', '--quiet', K.REG_COMMIT + '^').strip()
+    files = sorted(x for x in g(ROOT, 'diff-tree', '--no-commit-id', '--name-only', '-r', K.REG_COMMIT).split(NL) if x.strip())
+    alone = log == [K.REG_COMMIT] and parent == K.STEPZERO and files == ['data/%s_registrations.txt' % ACT, 'data/%s_rules.txt' % ACT]
+    reg, fit = rdn('%s_registrations.txt' % ACT), rdn('%s_fit.txt' % ACT)
+    printed = all(x in reg for x in ('19.065093', '7.997097', '12294837', '14776940', '[11065353, 13524321]', '[13299246, 16254634]')) \
+        and 'PREDICTIONS pair 11 F2 12294837' in fit and 'NOTHING COMPUTED FOR THE TEST' in fit
+    ok = alone and rj.get('unchanged') is True and rj.get('nothing_computed') is True and printed
+    return ('HELD' if ok else 'REFUTED'), (
+        'the registrations and the rules committed alone at relay %s, its parent the step-zero capture commit %s, its files %s, the one commit '
+        'touching the registrations: %s; re-read unchanged and nothing computed for the three rows (relay data/b710_registrations_reread.json): %s, %s; '
+        'the fitted constants and both predictions with their windows printed in the registrations and the fit bank: %s' % (
+            K.REG_COMMIT[:8], parent[:8], files, alone, rj.get('unchanged'), rj.get('nothing_computed'), printed))
+
+
+def _n5():
+    import b633_record as R3
+    face = jl('%s_kernels_face.json' % ACT).get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    k_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    ef_main = g(K.EF_DIR, 'rev-parse', 'main').strip()
+    ef_ok = ef_main == K.EF_MAIN and not g(K.EF_DIR, 'tag', '--contains', K.EF_V037).replace('v0.37', '').strip()
+    lv_main, lv_dep = g(LV, 'rev-parse', 'main').strip(), g(LV, 'rev-parse', 'v0.10.0^{commit}').strip()
+    lv_port = g(LV, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.PORT_BRANCH).strip()
+    lv_ok = lv_main == K.LV_MAIN and lv_dep == K.LV_V0100 and lv_port == K.PORT_TIP and not [t for t in g(LV, 'tag', '--contains', K.PORT_TIP).split(NL) if t.strip()]
+    join_main, join_tags = g(K.JOIN_DIR, 'rev-parse', 'main').strip(), g(K.JOIN_DIR, 'tag', '--list').strip()
+    join_ok = join_main == K.JOIN_TIP and join_tags == ''
+    allowed = set(K.PP_WRITTEN)
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in allowed]
+    renames = [l for l in g(PP, 'diff', '--name-status', '-M', K.PRE_PP, 'HEAD').split(NL) if l[:1] in ('R', 'D')]
+    relay_ch = sorted(set(x for x in (g(ROOT, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(ROOT, 'diff', '--name-only')).split(NL) if x.strip()))
+    ruled = set('tools/' + t for t in K.REPAIRED_TOOLS)
+    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not re.match(r'^tools/b710_', x) and x[6:] not in R.N5_RELAY_TOOLS and x not in ruled]
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b710_|audit_b710_)', x) or re.match(r'^data/terminal_table', x) or x in ruled
+                                                or (x.startswith('data/') and x[5:] in ALLOWED_SHARED_DATA) or (x.startswith('tools/') and x[6:] in R.N5_RELAY_TOOLS))]
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    added = sorted(set(R._g2_of(FACE)) - set(R._g2_of(os.path.join(ROOT, *K.B709_FACE.split('/')))) - set(K.ACT_ARMS))
+    arms_ok = added == sorted(K.STANDING_ADDED)
+    lock = _iso_epoch((re.search(r'locked at \(UTC\) : (\S+)', rd(FACE)) or [None, ''])[1])
+    amended = (_amended_after(ROOT, lock) + _amended_after(PP, lock) + _amended_after(LV, lock)) if lock else []
+    cj = jl('%s_commands.json' % ACT)
+    ob = cj.get('outbound') or []
+    ident = [r for r in ob if r.get('identifiers')]
+    chained = [d['n'] for d in (cj.get('delete_shapes') or []) if d.get('chained')]
+    deleted = sorted(x for d in (cj.get('delete_shapes') or []) for x in (d.get('deletes') or []))
+    gw_ok, gw_note = _one_git_write()
+    pre_gl = (_show(ROOT, K.PRE_RELAY, 'data/glossary.txt') or '').replace('\r', '')
+    now_gl = R.rd(os.path.join(D, 'glossary.txt')).replace('\r', '')
+    gl = now_gl == pre_gl
+    ok = k_ok and ef_ok and lv_ok and join_ok and not pp_beyond and not renames and not kinds_beyond and not shared_tools and not differ and arms_ok \
+        and not amended and not ident and not chained and K.PORT_BRANCH not in deleted and gw_ok and gl
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unpublished); every kernel as the face read it: %s; SIDE-explicit-formula`s main at badaccc, no tag past '
+            'v0.37, unmoved: %s; SIDE-lv-conservation`s main and deposit unmoved, port-b707 at b709`s one commit %s, no tag on it: %s; the join kernel`s main at its manifest '
+            'commit, no tag: %s; the standing arms added beyond b709`s face, the act arms apart: %s (%s); shared tools edited beyond the ruling`s three: %s; sealed tools not '
+            'agreeing: %s; commits amended after the seal (relay, PLACE-papers, SIDE-lv-conservation): %s; deletes with anything chained after: %s; port-b707 deleted: %s; one '
+            'git write per message (%s): %s; PLACE-papers beyond the two ledgers: %s; papers moved or renamed: %s; relay files of a kind beyond the act`s banks and tools, the '
+            'table, the root list, the corrigenda bank, b709`s push-out bank, the standing clauses bank, the ruling`s three shared tools and tools/mirror_prevbuild.json: %s; '
+            'the glossary unchanged: %s; outbound requests other than git and gh %d, an identifier of the author in %s; the clauses that wait (the hashes at the close, no '
+            'bank after the root) read again at `scores close`' % (
+                K.DRAFT, k_ok, ef_ok, K.PORT_TIP[:8], lv_ok, join_ok, added or 'NONE', arms_ok, shared_tools or 'NONE', differ or 'NONE', amended or 'NONE',
+                chained or 'NONE', K.PORT_BRANCH in deleted, gw_note, gw_ok, pp_beyond or 'NONE', renames or 'NONE', kinds_beyond or 'NONE', gl, len(ob),
+                [r['line'] for r in ident] or 'NONE'))
+
+
+def TRAIL_HEAD():
+    return ('### b710 — lane two, act one hundred and thirty-seven, the reading act under (R320): b709 at its weight; the needles, the test and the '
+            'lock gate repaired; the standing clauses banked at v1; the four principles read against the corpus; the moves-by-locus table entered; '
+            'the readfirst flip and the cost read; the refined detection law and the surgery registered for b711')
+
+
+R.TRAIL_HEAD = TRAIL_HEAD
+
+
+def _title():
+    c = _r5_counts()
+    return ('## Reading 5: the four principles against the corpus, %d of 4 with a compiled terminal and %d with a control object; the moves-by-locus '
+            'table entered; the standing clauses banked at v1; the refined detection law and the surgery registered for b711' % (c['compiled'], c['control']))
+
+
+def _owners_now():
+    rows = _defect_short(ACT)
+    nav = [r for r in rows if "THE NAVIGATOR'S" in r]
+    return rows, nav
+
+
+def _for_author():
+    rows, nav = _owners_now()
+    seat = len(rows) - len(nav)
+    letters = ', '.join(re.match(r'^\(([a-z])\)', r).group(0) for r in nav)
+    return ('(1) the ruling’s two misses entered by the fact clause and not raised -- the ratios “rising with height” rise as a trend over the ten '
+            'pairs and not at every step (pairs 6, 8, 10 and 12 below the next-lower pair’s), and the law’s M and A read in the route’s own terms '
+            '(the remainder bound C (n + 1)² sⁿ and the constant 1/4), registered so in relay data/b710_registrations.txt (i); (2) the principle I '
+            'compiled as definitions alone, the one principle with a control object (Q0 and the Davenport-Heilbronn witness), the three with theorems '
+            'having none located -- the seat’s reading, for the strike; (3) the readfirst flip read DO NOT FLIP by the counts, the closure catching no '
+            'defect of b700-b709; (4) the fitted β = 7.997097 against the route’s own 8, so b711’s test of pairs 11 and 15 reads whether the extended '
+            'list moves C and not an independent law -- the seat’s reading; (5) the onset cap at b711 registered at 1.25 × the F2 prediction, b709’s '
+            '1.5 × L0/r lying below the window’s top for both pairs; (6) the surgery’s scope stated as the ruling states it, nothing about any '
+            'function’s zeros; (7) the report tool outside the sealed list until the root’s word (relay data/b708_rules.txt row (1)); (8) the %s '
+            'navigator %s%s and the seat’s %s defect%s as lettered' % (
+                num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', (' (%s)' % letters) if letters else '', num_word(seat), '' if seat == 1 else 's'))
+
+
+def _finding_text():
+    """the FINDINGS entry, composed before the root: its head line the result sentence, the result before its conditions; its scores line from the
+    scores bank alone (data/b686_rules.txt row (1)); the root carried by the trail record."""
+    S = jl('%s_scores.json' % ACT)
+    f = _figs()
+    c = f['r5']
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+    checks = len(re.findall(r'^### \(R278\)\(4\) THE MID-ACT CHECK ', rdn(K.CITATION_BANK), re.M))
+    e = ['', _title(), '',
+         'The reading act’s pass over the corpus, read by its banks: of the four principles of the SIDE system, three are consumed by a compiled '
+         'theorem whose grade the shared E0 rule reads from its statement -- Symmetry by SIDE-kernel v1.8’s fe_symmetry at ξ’s own instance, '
+         'Determination by determination_collapse, Exhaustiveness by SIDE_exclusion, structural_exhaustiveness_proved, ostrowski_exhaustive and '
+         'e_difficulty -- and the fourth, Independence, is compiled as definitions alone; one principle has a control object, Independence, whose '
+         'control is Q0, the Epstein zeta of x² + xy + 6y² (a functional equation and no Euler product), with the kernel’s Davenport-Heilbronn '
+         'witness; the three with theorems have none located, each search printed. The moves-by-locus table at Weil positivity on classK: %d rows, '
+         '%d tried at the clause and %d untried, the wall %d moved, %d narrowed, %d re-presented and %d reappeared, entered on the author’s word as '
+         'W-ORD-MOVES-BY-LOCUS. The readfirst flip: %d of %d defects caught by the computed closure, %d paths dropped -- %s. The cost: %d lines in '
+         '%d Read calls over b705-b709, %s%% on carried tools. The standing clauses banked at v1 and re-assembled equal to b709’s ferry line for '
+         'line; the refined detection law, the surgery at Q0’s onset radii and the coefficient observation registered for b711 before any number.' % (
+             c['rows'], c['tried'], c['untried'], c['moved'], c['narrowed'], c['represented'], c['reappeared'], c['caught'], c['defects'], c['dropped'],
+             c['flip'], c['lines'], c['calls'], c['share']), '',
+         '*Filed at b710 on the author’s ruling `(R320)`; %d question%s put before the root. Banks: relay `data/b710_reading5.txt` (its route banks '
+         '`data/b710_r5_search.txt`, `data/b710_r5_terminals.txt`, `data/b710_r5_controls.txt`, `data/b710_r5_moves.txt`, `data/b710_r5_flip.txt`, '
+         '`data/b710_r5_cost.txt`), `data/standing_clauses_v1.txt`, `data/b710_standing_control.txt`, `data/b710_standing_readers.txt`, '
+         '`data/b710_registrations.txt`, `data/b710_fit.txt`, `data/b710_registrations_reread.txt`, `data/b710_rules.txt`, `data/b710_tool_repairs.txt`, '
+         '`data/b710_repair_controls.txt`, `data/b710_carry_spans.txt`, `data/b710_standing_figures.txt`, `data/b710_corrigendum.txt`, '
+         '`data/b710_report.txt`.*' % (n_ans, '' if n_ans == 1 else 's'), '',
+         '**The corrigendum** ((R320)(1)-(3)): b709 entered at its weight as its closing prints (FINDINGS :%s) and the navigator’s three readings of '
+         'its figures beside it for the strike (FINDINGS :%s); the generated entry at FINDINGS :%s answers b709’s two post-seal needles, '
+         'G-REPORT-UNSEALED’s key read in capitals and G-AXIS-REGISTERED’s quotation wrapped across two lines (an unlettered event at b709); the '
+         'corrigenda bank appended at row (%s).' % (f['weight'], f['readings'], f['corr_line'], f['corr_row']), '',
+         '**The repairs** ((R320)(3)): the two needles repaired in this act’s suite -- the report’s keys read case-insensitively, the registrations '
+         'bank read after joining its wrapped lines; the lean-running test, tools/test_elab_reader_b634.py, repaired to read lean’s banked prints '
+         '(relay data/b710_elab_reader_print.txt and data/b710_elab_reader_print_sec.txt), its control a run printing no lean process; the lock '
+         'gate’s act argument made required, a call without it writing nothing; %d control cases, every one as wanted %s (relay '
+         'data/b710_repair_controls.txt); the diffs in relay data/b710_tool_repairs.txt with the carried tools’ repair diffs.' % (f['ctl_n'], f['ctl_ok']), '',
+         '**The standing clauses** ((R320)(4), N3): the procedural paragraph and the standing clauses of Components 5 and 6 of `(R319)`’s ferry '
+         'written verbatim into relay data/standing_clauses_v1.txt, one clause per row, numbered and tagged by its source; the re-assembly equal to '
+         'b709’s ferry line for line %s, its NEG control differing; the readers of the ferry’s text repointed by version %s; from b711 the ferry '
+         'names “standing clauses v1” (relay data/b710_rules.txt row (1)).' % (f['std_ok'], f['readers_ok']), '',
+         '**The principles** ((R320)(5)(i), N2): each principle against the papers that state it by path and line, the terminals that compile it by '
+         'kernel, tag and name with the E0 rule’s grade, the formula that measures it and its control object. Symmetry (ENUMERA.md :213): '
+         'SIDEMeta.Symmetric a definition, conservation_from_SIDE a projection the rule does not grade, Focus.fe_symmetry DERIVES at ξ’s instance; '
+         'κ measures it; no control object located. Independence (ENUMERA.md :214; E_DIFFICULTY_THEOREM.md :71): SIDEMeta.Independent and '
+         'IndependentConstraints definitions, no theorem consuming it; the Universal Darkness Theorem measures it; the control located, Q0 and '
+         'the Davenport-Heilbronn witness (SieveCeilingWitness.lean :94). Determination (ENUMERA.md :215; THE_METHOD_CANON.md :30): '
+         'determination_collapse INTERFACES; μ, Δμ and the D↔E licence measure it, no kernel declaration of μ or Δμ located; no control object '
+         'located. Exhaustiveness (ENUMERA.md :216, :218; Exhaustive_Enumeration.md :76-:89): SIDE_exclusion, structural_exhaustiveness_proved, '
+         'ostrowski_exhaustive and the E-Difficulty equivalence e_difficulty INTERFACES, the dichotomy compiled as a conjecture’s type alone; no '
+         'control object located. %d of 4 with a compiled theorem, %d with a control object (relay data/b710_reading5.txt :11-:111).' % (c['compiled'], c['control']), '',
+         '**The moves table** ((R320)(5)(ii)): the six brightening moves and the six perspective axes against Weil positivity on classK, each with '
+         'the act or order that tried it by ledger line -- %d tried, %d untried ((e), registered for b711); the one row where the wall moved is (d), '
+         'the support radius at Q0, at the control object and not at ζ; raised as one prompt, entered on the author’s word as W-ORD-MOVES-BY-LOCUS '
+         'at OPEN_TRAILS :%s, INSTRUMENTS.md untouched (relay data/b710_reading5.txt :113-:155).' % (c['tried'], c['untried'], f['moves_line']), '',
+         '**The readfirst flip** ((R320)(5)(iii)): %d defects of b700-b709 classed, the computed closure catching %d and a flip dropping %d prior '
+         'paths; the recommendation %s, the hand list kept as the bank of record with the closure’s prior rows printed into it as a supplement; '
+         'the largest class a read outside the read tool, 37 of 101, a form the list does not govern (relay data/b710_reading5.txt :157-:177).' % (
+             c['defects'], c['caught'], c['dropped'], c['flip']), '',
+         '**The cost reading** ((R320)(5)(iv)): %d lines returned in %d Read calls over b705-b709, the top three files %s, %s and %s; %s%% of the '
+         'volume on carried tools, an upper bound on what the carry by diff removes (relay data/b710_reading5.txt :179-:189).' % (
+             c['lines'], c['calls'], c['top'][0], c['top'][1], c['top'][2], c['share']), '',
+         '**The registrations** ((R320)(6), N4): committed alone at relay %s before any other bank of the act and re-read unchanged %s, nothing '
+         'computed for them %s -- (i) the refined detection law read in the route’s terms, r n* = α + β log(n* + 1), fitted from b709’s banked '
+         'pairs alone (α = %s, β = %s), its predictions for pairs 11 and 15 printed before the list reaches them, %d and %d, the falsifier the '
+         'window [0.9, 1.1] ([%s] and [%s]); (ii) the surgery at Q0’s onset radii, the composition terms removed from the prime side, its '
+         'controls ζ unchanged and the unoperated form reproducing b709’s eigenvalues; (iii) the coefficient observation through e^10.39, n = 48 '
+         'and c(48) = −2 log 48 printed as the navigator’s expectation (relay data/b710_registrations.txt, data/b710_fit.txt).' % (
+             K.REG_COMMIT[:8], f['reg_unchanged'], f['nothing'], f['alpha'], f['beta'], f['p11'], f['p15'], f['w11'], f['w15']), '',
+         '**The standing arms**: the four figures at b710 -- %s, %s, %s, %s -- against b709’s %s, %s, %s, %s, read by b706’s tool over b706’s '
+         'roster (relay data/b710_standing_figures.txt); the standing runner arms reading b709’s one run as banked, no dispatch this act; no '
+         'standing arm added.' % (f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
+                                  f['figs9']['correspondence'], f['figs9']['readme'], f['figs9']['partners'], f['figs9']['pins']), '',
+         '**The citation check** (the gate step from b662): %s cites checked at HEAD, %s OK, %s missed, both entered by the fact clause; %d answer '
+         'check%s before the root.' % (cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
+         scores_line(S), '',
+         '**Read in mutual light** ((R204)(3)(ii)-(iii)): the principles’ rows and the moves table say one thing from two sides -- the one place '
+         'the corpus holds a control object is the place the wall has moved, Q0, where the support radius turns the sign and the Euler product is '
+         'absent, while the principles with compiled theorems carry no object that keeps one clause and drops another; the registrations take that '
+         'place up at b711, the surgery asking which part of Q0’s prime side carries the sign. It strengthens the programme’s offering of a located '
+         'clause by naming, row by row, where a proposed move has already been tried and what the wall did there.', '',
+         '**Carried to:** b711 (the research act: the port’s next line, DirichletC7Order.lean :212:55, and the join’s dispatch where the build '
+         'completes; W-ORD-Q0-ZEROS-443 with pairs 11 and 15 against the refined law; the surgery and the coefficient observation; the axis (e)); '
+         'the ferry names standing clauses v1 from b711; the draft held at v5.', '',
+         '**Next.** %s.' % K.NEXT, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
+    return _title(), NL.join(e)
+
+
+def _trail_text():
+    S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
+    fj = jl('%s_findings.json' % ACT)
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    _r, _n, sh = seal_hashes()
+    f = _figs()
+    c = f['r5']
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R320) ratified.** (1) b709 at its weight. (2) The navigator’s readings beside it. (3) The repairs and the corrigendum. (4) The standing '
+             'clauses by version. (5) Reading 5. (6) The registrations for b711. (7) The branches. (8) The read-first bank and the write list. (9) The '
+             'draft held at v5. (10) The next act.', '',
+             '**Entered:** FINDINGS.md:%s (b709’s weight), :%s (the readings), :%s (the corrigendum), :%s (the entry); OPEN_TRAILS.md:%s '
+             '(W-ORD-MOVES-BY-LOCUS); this record.' % (f['weight'], f['readings'], f['corr_line'], fj.get('entry_line'), f['moves_line']), '',
+             '**Act root:** b710 `%s` (previous `%s`, b709’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF '
+             'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b710_author_answers.txt): the moves table’s placement, '
+             'answered “enter in OPEN_TRAILS” and checked before the landing; the root’s own prompt, its answer in the closing line.' % (
+                 n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
+             '**The repairs:** the two needles in the suite, the lean-running test reading banked prints, the lock gate’s argument required; %d '
+             'control cases as wanted %s (relay data/b710_repair_controls.txt, data/b710_tool_repairs.txt).' % (f['ctl_n'], f['ctl_ok']), '',
+             '**The standing clauses:** relay data/standing_clauses_v1.txt at VERSION 1, re-assembled equal to b709’s ferry line for line %s; the '
+             'readers repointed by version %s (relay data/b710_standing_control.txt, data/b710_standing_readers.txt).' % (f['std_ok'], f['readers_ok']), '',
+             '**The principles:** %d of 4 with a compiled theorem (Symmetry, Determination, Exhaustiveness), Independence as definitions alone; %d '
+             'with a control object (Independence: Q0 and the Davenport-Heilbronn witness) (relay data/b710_reading5.txt :11-:111).' % (c['compiled'], c['control']), '',
+             '**The moves table:** %d rows, %d tried and %d untried; %d moved, %d narrowed, %d re-presented, %d reappeared; W-ORD-MOVES-BY-LOCUS at '
+             'OPEN_TRAILS :%s on the author’s word.' % (c['rows'], c['tried'], c['untried'], c['moved'], c['narrowed'], c['represented'], c['reappeared'], f['moves_line']), '',
+             '**The flip and the cost:** %d of %d defects caught by the closure, %s; %d lines in %d calls, %s%% on carried tools, the top three %s.' % (
+                 c['caught'], c['defects'], c['flip'], c['lines'], c['calls'], c['share'], ', '.join(c['top'])), '',
+             '**The registrations:** the refined law (α %s, β %s; pair 11 %d, pair 15 %d, the window [0.9, 1.1]), the surgery and the coefficient '
+             'observation, committed alone at relay %s, re-read unchanged %s, nothing computed %s.' % (
+                 f['alpha'], f['beta'], f['p11'], f['p15'], K.REG_COMMIT[:8], f['reg_unchanged'], f['nothing']), '',
+             '**The kernels:** none written; no dispatch; port-b707 kept at b709’s 92af8a34; SIDE-explicit-formula, SIDE-lv-conservation’s main and '
+             'deposit and the join kernel unmoved; no lean process on this host.', '',
+             '**The mirror:** the export made after this root in the b670 form over b709’s roster, its name in the closing (relay data/b710_closing.txt).', '',
+             '**The open orders:** `W-ORD-MOVES-BY-LOCUS` (entered this act); `W-ORD-STANDING-CLAUSES-BANK` (taken up this act, the bank at v1); '
+             '`W-ORD-Q0-ZEROS-443` (trigger b711); `W-ORD-LV-FORWARD-PORT` (11 of 12 modules, DirichletC7Order :212:55 next); `W-ORD-LV-CLOSURE-JOIN`; '
+             '`W-ORD-ENTRY-TAG-PRINTS`; `W-ORD-EXPLICIT-FORMULA-C1`; `W-ORD-EPSTEIN-COUNT-LEAN`; `W-ORD-KEYSTONE-HEADS`; `W-ORD-QUASI-RH-FIELD-WATCH`; '
+             '`W-ORD-P3-CONTOUR-SIGMA`; `W-ORD-E0-MET-CLASSK`; `W-ORD-README-FIGURE-SCOPE`.', '',
+             '**The standing arms:** the four figures %s, %s, %s, %s against b709’s %s, %s, %s, %s (relay data/b710_standing_figures.txt).' % (
+                 f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
+                 f['figs9']['correspondence'], f['figs9']['readme'], f['figs9']['partners'], f['figs9']['pins']), '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % _for_author(), '',
+             '**Defects** (relay data/b710_defects.txt): %s.' % ('; '.join(_defect_short(ACT)) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in NK + SK) + '.** (the scores bank; the readings that waited, at the close)', '',
+             '**Next:** %s.' % K.NEXT, '']
+    return NL.join(rows_)
+
+
+def components(*a):
+    S, fj, tj, J = (jl(n_) for n_ in ('%s_scores.json' % ACT, '%s_findings.json' % ACT, '%s_trail.json' % ACT, '%s_act_root.json' % ACT))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    f = _figs()
+    c = f['r5']
+    L = ['%s -- THE COMPONENTS, BANKED UNDER (R320).' % ACT, '',
+         '### COMPONENT 0 : the citation check (data/b710_citation_check.txt), step zero (data/b710_ferry.txt, data/b710_readfirst.txt, data/b710_stepzero.txt, '
+         'data/b710_tests_stepzero.txt, data/b710_rowgen_stepzero.txt, data/b710_branches.txt), the registrations and the rules bank committed alone at relay %s '
+         '(data/b710_registrations.txt, data/b710_rules.txt), the fit (data/b710_fit.txt) ; N4 %s' % (K.REG_COMMIT[:8], S['N4'][0]),
+         '### COMPONENT 1 : b709`s weight FINDINGS :%s ; the readings FINDINGS :%s ; the corrigendum FINDINGS :%s (data/b710_corrigendum.txt, the corrigenda row (%s)) ; '
+         'the repairs and their controls (data/b710_tool_repairs.txt, data/b710_repair_controls.txt) ; N1 %s' % (
+             f['weight'], f['readings'], f['corr_line'], f['corr_row'], S['N1'][0]),
+         '### COMPONENT 2 : the standing clauses (data/standing_clauses_v1.txt, data/b710_standing_control.txt, data/b710_standing_readers.txt) ; N3 %s' % S['N3'][0],
+         '### COMPONENT 3 : reading 5 (data/b710_reading5.txt and its route banks): principles %d of 4 compiled, %d with a control ; the moves table %d rows, '
+         'W-ORD-MOVES-BY-LOCUS at OPEN_TRAILS :%s ; the flip %s ; the cost %d lines ; N2 %s' % (
+             c['compiled'], c['control'], c['rows'], f['moves_line'], c['flip'], c['lines'], S['N2'][0]),
+         '### COMPONENT 4 : the registrations re-read (data/b710_registrations_reread.txt) unchanged %s, nothing computed %s' % (f['reg_unchanged'], f['nothing']),
+         '### COMPONENT 5 : the carry (data/b710_carry_spans.txt, data/b710_tool_repairs.txt), the figures (data/b710_standing_figures.txt), the root route dry '
+         '(data/b710_root_banks_dry.txt), the dry-run steps (data/b710_reg_gate.txt), the seal (data/b710_seal_hashes.json), the suite in seven parts, the per-part '
+         'seconds (data/b710_arm_seconds.txt) ; S3 %s' % S['S3'][0],
+         '### COMPONENT 6 : FINDINGS :%s ; the root %s ; OPEN_TRAILS :%s ; the mirror after the root ; N5 %s' % (
+             fj.get('entry_line'), (J.get('root') or '')[:16], tj.get('line'), S['N5'][0]),
+         '### THE AUTHOR`S WORD AT THE MOVES TABLE`S PROMPT (2026-10-24, banked in data/b710_author_answers.txt, checked in data/b710_citation_check.txt before '
+         'the landing): enter in OPEN_TRAILS as one appended record beneath b709`s trail, INSTRUMENTS.md untouched, each later research act appending its row`s reading.']
+    put_txt('%s_components.txt' % ACT, L)
+    print(NL.join(L[2:]))
+
+
+def scores(*a):
+    """`scores [dry]` writes data/b710_scores.json ONCE, before the entry (it refuses where the bank exists); `scores close` reads the readings
+    that waited (N5's close clauses, S1, S2) into data/b710_scores_close.json."""
+    close = 'close' in a
+    S = dict([('N1', _n1()), ('N2', _n2()), ('N3', _n3()), ('N4', _n4()), ('N5', _n5())] + list(_s_scores().items()))
+    for k2 in SCORE_KEYS:
+        read_score_row(k2, list(S[k2]))
+    for k2 in SCORE_KEYS:
+        print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:900]))
+    if 'dry' in a:
+        return
+    if close:
+        put_json('%s_scores_close.json' % ACT, dict((k2, list(v)) for k2, v in S.items()))
+        return
+    if os.path.isfile(os.path.join(D, '%s_scores.json' % ACT)):
+        sys.exit('### THE SCORES BANK IS WRITTEN ONCE, BEFORE THE ENTRY (data/b686_rules.txt row (1)) -- NOTHING WRITTEN; `scores close` at the close')
+    put_json('%s_scores.json' % ACT, dict((k2, list(v)) for k2, v in S.items()))
+
+
+def findings(*a):
+    t, e = _finding_text()
+    e = R.conv(e)
+    dry = 'dry' in a
+    cells_, fired = R.screens([('FINDINGS.md', t, e)], 'entry', dry)
+    if dry:
+        print(e)
+        print('  cells %s' % cells_)
+        return
+    if not os.path.isfile(os.path.join(D, '%s_scores.json' % ACT)):
+        sys.exit('### THE SCORES BANK IS NOT WRITTEN -- THE ENTRY READS IT (data/b686_rules.txt row (1)) -- NOTHING WRITTEN')
+    if cells_ or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = R._land_one(FIND, t, e, '%s_findings.json' % ACT, dict(title=t))
+    j = jl('%s_findings.json' % ACT)
+    j['entry_line'] = ln
+    put_json('%s_findings.json' % ACT, j)
+    print('  FINDINGS entry :%s' % ln)
+
+
+def trail(*a):
+    e = R.conv(_trail_text())
+    dry = 'dry' in a
+    cells_, fired = R.screens([('OPEN_TRAILS.md', TRAIL_HEAD(), e)], 'trail', dry)
+    if dry:
+        print(e[:9000])
+        print('  cells %s' % cells_)
+        return
+    if cells_ or fired:
+        sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    ln = R._land_one(OT, TRAIL_HEAD(), e, '%s_trail.json' % ACT, {})
+    print('  OPEN_TRAILS record :%s' % ln)
+
+
+def drycheck(*a):
+    """(R267)(2), STANDING FROM b657: the FINDINGS entry and the trail record composed as the record tool composes them, converted by conv and run
+    through the screens their landing runs, the needles the face names read in each; the trail's Defects line AND its Resolved line read against
+    the defects bank. Writes no bank."""
+    face = rd(a[0] if a and not a[0] == 'standin' else FACE)
+    ok = True
+    for which, (head, text) in (('ENTRY', _finding_text()), ('TRAIL', (TRAIL_HEAD(), _trail_text()))):
+        t = R.conv(text)
+        print('  %s (the screens):' % which)
+        cells_, fired = R.screens([('FINDINGS.md' if which == 'ENTRY' else 'OPEN_TRAILS.md', head, t)], 'dry_' + which.lower(), True)
+        nd = R._face_needles(face, which)
+        miss = [n for n in nd if n not in t]
+        clean = not cells_ and not fired and nd and not miss
+        if which == 'TRAIL':
+            m = re.search(r'^\*\*Defects\*\* \(relay data/%s_defects\.txt\): (.*)\.$' % ACT, text, re.M)
+            got = m.group(1) if m else None
+            want = '; '.join(_defect_short(ACT)) or 'none'
+            eq = got == want
+            print('  THE TRAIL`S DEFECTS LINE: %s' % got)
+            print('  THE DEFECTS BANK`S ROWS (relay data/%s_defects.txt, by the repaired reader): %s' % (ACT, want))
+            print('  ### THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK %s' % eq)
+            rows, nav = _owners_now()
+            gr = _trail_resolved(t)
+            wr = (num_word(len(nav)), num_word(len(rows) - len(nav)))
+            eqr = gr == wr
+            print('  THE TRAIL`S RESOLVED LINE`S COUNTS: %s ; THE BANK`S OWNERS (navigator, seat): %s' % (gr, wr))
+            print('  ### THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK %s' % eqr)
+            clean = clean and eq and eqr
+        ok = ok and clean
+        print('  %s : table cells %s ; screens %s ; the face`s needles %d, found %d%s ; %s' % (
+            which, cells_ or 'NONE', 'FIRED' if fired else 'QUIET', len(nd), len(nd) - len(miss), (' -- missing %s' % miss) if miss else '',
+            'CLEAN' if clean else 'NOT CLEAN'))
+    print('  ### ### **DRY-RUN STEP : %s**' % ('CLEAN' if ok else 'NOT CLEAN'))
+    if not ok:
+        sys.exit(1)
+
+
+def mbank(*a):
+    """b709's mbank carried with b710's names (the span line read from the mirror bank chain)."""
+    import hashlib as _hl
+    import zipfile
+    import b616_record as R6
+    ZIP = R.ZIP
+    z = zipfile.ZipFile(ZIP)
+    names_ = sorted(z.namelist())
+    man = z.read('MANIFEST.md')
+    ls = man.decode('utf-8-sig').replace(chr(13), '').split(NL)
+    rootl = [l for l in ls if l.startswith('Act root: ')]
+    rosterl = [l for l in ls if l.startswith('ROSTER')]
+    commits = sorted(set(re.findall(r'\b([0-9a-f]{7,12})\b', NL.join(l for l in ls if '|' in l))))
+    zb = open(ZIP, 'rb').read()
+    clean = 'VERDICT: CLEAN ON ALL THREE CLAUSES' in rdn('%s_mirror_verify.txt' % ACT)
+    nd = R6.nd_hits(NL.join(names_), R6.nd_sets())[0]
+    files_ = [n for n in names_ if n != 'MANIFEST.md']
+    pp_head = g(PP, 'rev-parse', '--short=7', 'HEAD').strip()
+    L = ['%s -- THE MIRROR-REFRESH EXPORT, BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH BY THE UNEDITED BUILDER, banked %s' % (ACT, utc()),
+         '### THE ZIP : %s ; %d bytes ; md5 %s ; sha256 %s' % (ZIP, len(zb), _hl.md5(zb).hexdigest(), _hl.sha256(zb).hexdigest()),
+         '### THE MANIFEST : md5 %s ; entries in the zip %d (files %d + MANIFEST)' % (_hl.md5(man).hexdigest(), len(names_), len(files_)),
+         '### PLACE-papers HEAD AT THE BUILD : %s ; the last commit carried in MANIFEST`s rows %s' % (pp_head, pp_head in commits),
+         '### THE ROSTER LINE : %s' % (' / '.join(rosterl) or '### NONE'), '### THE ROOT LINE : %s' % (rootl[0] if rootl else '### NONE'),
+         span_line(ACT),
+         '### THE ROSTER b709`S (tools/mirror_roster.json unedited this act); the builder`s state file tools/mirror_prevbuild.json written at this build, named in (W) ((R320)(8)); files %d' % len(files_),
+         '### THE VERIFICATION : %s' % ('CLEAN ON ALL THREE CLAUSES' if clean else '### NOT CLEAN'),
+         '### THE NO-DISCLOSURE ARM OVER THE FILE LIST: %s' % dict(nd), '### THE FILE LIST:'] + ['    %s' % n for n in names_]
+    put_txt('%s_mirror.txt' % ACT, L)
+    put_json('%s_mirror.json' % ACT, dict(at=utc(), zip=ZIP, zip_md5=_hl.md5(zb).hexdigest(), zip_sha256=_hl.sha256(zb).hexdigest(), bytes=len(zb),
+                                         manifest_md5=_hl.md5(man).hexdigest(), entries=len(names_), files=len(files_), roster_line=rosterl,
+                                         root_line=rootl[0] if rootl else '', clean=clean, nd=dict(nd), pp_head=pp_head, last_commit_in_manifest=pp_head in commits,
+                                         span=span_line(ACT)))
+    for l in L[:10]:
+        print(l[:240])
+
+
+def guard(*a):
+    """data/b710_guard_dry.txt (.json): the suite's `--guard-dry` run in its own process (it writes nothing), its print banked verbatim; the writes
+    by mode read from the suite's own writer_plan; the writer block's `if PRERUN:` line read by number."""
+    import b710_checks as CH
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'b710_checks.py'), '--guard-dry'], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', cwd=ROOT)
+    src = rd(os.path.join(T, 'b710_checks.py')).split(NL)
+    k = next((i for i, l in enumerate(src) if l.strip() == CH.GUARD_WRITE), None)
+    writes = {}
+    for mode, args in (('prerun', (True, False, False, False)), ('pre-push', (False, False, False, False)), ('post-push', (False, True, False, True))):
+        writes[mode] = CH.writer_plan(*args)[1]
+    ok = r.returncode == 0 and k is not None and src[k - 1].strip() == 'if PRERUN:' and writes['pre-push'] == [] and writes['post-push'] == [] \
+        and writes['prerun'] == ['data/b710_arm_seconds_<part>.json'] and 'POST-ROOT PATH WRITES NONE' in r.stdout
+    L = ['%s -- COMPONENT 5: THE PRERUN GUARD HELD AT THE CARRY, ITS DRY RUN (%s)' % (ACT, utc()), '',
+         '### the suite`s `--guard-dry` run in its own process, writing nothing; its print verbatim beneath. The guard: tools/b710_checks.py :%d `%s`,'
+         % (k, src[k - 1].strip() if k else '?'), '### the line above the per-part seconds write at :%d.' % ((k or 0) + 1), '',
+         '### THE PRINT, VERBATIM (exit %d):' % r.returncode]
+    L += [x for x in r.stdout.rstrip(NL).split(NL)]
+    L += ['', '### THE WRITES BY MODE, READ FROM THE SUITE`S writer_plan: %s' % '; '.join('%s %s' % (m, w or 'NONE') for m, w in writes.items()), '',
+          '### ### **%s**' % ('THE GUARD HELD ; THE POST-ROOT PATH WRITES NONE OF THE PER-PART SECONDS BANKS ; THE PRE-RUN WRITES THEM ALONE'
+                               if ok else '### THE GUARD IS NOT AS READ -- SEE ABOVE')]
+    if 'dry' not in a:
+        put_txt('%s_guard_dry.txt' % ACT, L)
+        put_json('%s_guard_dry.json' % ACT, dict(at=utc(), writes=writes, guard_line=k, exit=r.returncode, ok=ok))
+    print(NL.join(L))
+
+
+def scorercheck(*a):
+    """a print only: the suite's G-SCORER-READS-BANKS reading over this tool's own source, each clause named; writes nothing."""
+    import b710_checks as CH
+    src = rd(os.path.join(T, 'b710_record.py'))
+    n = ''.join(CH.strip_prose(CH._fn_src(src, f)) for f in ('_n1', '_n2', '_n3', '_n4'))
+    sc = CH.strip_prose(CH._fn_src(src, 'scores'))
+    ft = CH.strip_prose(CH._fn_src(src, '_finding_text'))
+    m = re.search(r'\b(FIND|OT)\b|FINDINGS|OPEN_TRAILS|findings|entry_line', n)
+    print('  n %d chars ; needles %s ; ledger needle %r at %s' % (
+        len(n), dict((x, x in n) for x in ('_commands.json', '_dispatches.json', '_r5_terminals', '_standing_control', '_registrations_reread')),
+        m.group(0) if m else None, n[max(0, m.start() - 80):m.end() + 40] if m else '-'))
+    print('  sc isfile %s ; ft scores_line %s ; ft jl %s' % ("os.path.isfile(os.path.join(D, '%s_scores.json' % ACT))" in sc, 'scores_line(S)' in ft, "jl('%s_scores.json' % ACT)" in ft))
+
+
+def armnames(*a):
+    """the suite's arm names in its order, for the face's (G2) block -- names alone, no source printed."""
+    import b710_checks as CH
+    names_ = [x[0] for x in CH.ARMS]
+    st = set(_standing())
+    print('  ARMS %d ; standing among them %d ; the act`s %d ; beyond both %s' % (
+        len(names_), len(st & set(names_)), len(set(names_) & set(K.ACT_ARMS)), sorted(set(names_) - st - set(K.ACT_ARMS)) or 'NONE'))
+    print('  standing not in the suite: %s' % (sorted(st - set(names_)) or 'NONE'))
+    print('  act arms not in the suite: %s' % (sorted(set(K.ACT_ARMS) - set(names_)) or 'NONE'))
+    for i in range(0, len(names_), 7):
+        print('### ' + ' '.join('`%s`' % n for n in names_[i:i + 7]))
+
+
 # ### stage one (step zero): b709's Component routes over its own objects pruned (data/b710_prune_record.txt); this act's are added by the Edit tool
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               ksyms=ksyms, defs=defs, figures=figures, runner=runner,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
-              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck, c1=c1, repairctl=repairctl, toolrepairs=toolrepairs, moves=moves, regcheck=regcheck)
+              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck, c1=c1, repairctl=repairctl, toolrepairs=toolrepairs, moves=moves, regcheck=regcheck,
+              scores=scores, findings=findings, trail=trail, drycheck=drycheck, components=components, mbank=mbank, guard=guard,
+              scorercheck=scorercheck, armnames=armnames)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

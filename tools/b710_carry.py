@@ -177,8 +177,27 @@ def spans(*a):
     print(NL.join(L))
 
 
+def spanlist(name, *a):
+    """`spanlist <name>`: the new-side line ranges of the previous act's repairdiff bank for the tool (data/b709_repairdiff_<name>.txt, its hunk
+    headers `@@ -i,n +j,m @@`), merged where they touch within 3 lines -- the spans the carry reads in the carried file (the substitution keeps
+    every line in place, so the previous act's new side is the carried file's numbering before this act's own repairs). Print only."""
+    hs = []
+    for l in rd(os.path.join(D, '%s_repairdiff_%s.txt' % (PREV, name))).split(NL):
+        m = re.match(r'^@@ -\d+,\d+ \+(\d+),(\d+) @@', l)
+        if m and int(m.group(2)) > 0:
+            hs.append([int(m.group(1)), int(m.group(1)) + int(m.group(2)) - 1])
+    merged = []
+    for s, e in sorted(hs):
+        if merged and s <= merged[-1][1] + 3:
+            merged[-1][1] = max(merged[-1][1], e)
+        else:
+            merged.append([s, e])
+    print('  %s: hunks %d ; spans %d ; lines %d' % (name, len(hs), len(merged), sum(e - s + 1 for s, e in merged)))
+    print('  ' + ' '.join(':%d-:%d' % (s, e) for s, e in merged))
+
+
 if __name__ == '__main__':
-    fn = {'carry': carry, 'spans': spans, 'prune': prune, 'repairdiff': repairdiff}.get(sys.argv[1] if len(sys.argv) > 1 else '')
+    fn = {'carry': carry, 'spans': spans, 'prune': prune, 'repairdiff': repairdiff, 'spanlist': spanlist}.get(sys.argv[1] if len(sys.argv) > 1 else '')
     if fn is None:
         print('usage: b710_carry.py carry <name> [again] | prune <name> <start prefix> <end prefix> | repairdiff <name> | spans')
         sys.exit(2)

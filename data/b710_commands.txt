@@ -1,0 +1,204 @@
+b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-24T23:12:06Z)
+
+### the source: the seat`s session c9e4ce2d-b9b5-4986-a582-3919fb34d296 from its first user line carrying 'RULING (R320) BEGIN', with its subagents` transcripts
+### commands read: 144
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b709, its own session 0be08567, from its post-push combine to that session`s end): 5 commands from 2026-10-24T21:26:22.054Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (one ordered this act, N1: the port branch of SIDE-lv-conservation at its tip, through the portdispatch route) (0):
+  NONE
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (6):
+  #41 2026-10-24T21:50:27.011Z Bash
+      git -C /d/relay branch -d push-b709
+  #42 2026-10-24T21:50:30.995Z Bash
+      git -C /d/relay branch -d push-b709-root
+  #43 2026-10-24T21:50:35.025Z Bash
+      git -C /d/relay branch -d push-b709-root2
+  #44 2026-10-24T21:50:38.846Z Bash
+      git -C /d/relay branch -d push-b709-closing
+  #45 2026-10-24T21:50:42.722Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b709
+  #46 2026-10-24T21:50:48.729Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b709-root
+
+### THE BRANCH DELETES BY SHAPE ((R320)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #41 deletes ['push-b709'], halves 1, globs none, variables none, chained after False; #42 deletes ['push-b709-root'], halves 1, globs none, variables none, chained after False; #43 deletes ['push-b709-root2'], halves 1, globs none, variables none, chained after False; #44 deletes ['push-b709-closing'], halves 1, globs none, variables none, chained after False; #45 deletes ['push-b709'], halves 1, globs none, variables none, chained after False; #46 deletes ['push-b709-root'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-24T21:34:03.161Z | seat | Bash | ls /d/
+  #2 | 2026-10-24T21:34:03.939Z | seat | Bash | git -C /d/relay status --short --branch
+  #3 | 2026-10-24T21:34:04.769Z | seat | Bash | git -C /d/relay log --oneline -6
+  #4 | 2026-10-24T21:34:05.566Z | seat | Bash | git -C /d/relay branch --list
+  #5 | 2026-10-24T21:34:07.405Z | seat | Bash | ls /d/relay/tools/b709_record.py /d/relay/tools/b709_checks.py /d/relay/tools/b709_closing.py /d/relay/tools/b709_regspec.py /d/relay/tools/b709_gate.py /d/rela
+  #6 | 2026-10-24T21:34:21.468Z | seat | Bash | wc -l /d/relay/data/b709_closing.txt /d/relay/data/b709_defects.txt /d/relay/data/b709_rules.txt /d/relay/data/b709_readfirst.txt /d/relay/data/b709_citation_ch
+  #7 | 2026-10-24T21:34:27.414Z | seat | Bash | ls /d/relay/data/b709_commands.txt /d/relay/data/b709_reads.txt /d/relay/data/b709_read_calls.json /d/relay/data/b709_author_answers.txt /d/relay/data/b709_scor
+  #8 | 2026-10-24T21:34:27.471Z | seat | Bash | ls /d/relay/data/ -1 --ignore='audit_*' --ignore='_*' --ignore='b[0-6]*' 
+  #9 | 2026-10-24T21:34:53.847Z | seat | Bash | wc -l /d/relay/data/b709_commands.txt /d/relay/data/b709_stepzero.txt /d/relay/data/b709_tests_stepzero.txt /d/relay/data/b709_branches.txt /d/relay/data/b709_r
+  #10 | 2026-10-24T21:34:57.488Z | seat | Bash | git -C /d/relay grep -n -E "^    (el)?if cmd == |^def main|^ROUTES|^    cmd = " -- tools/b709_record.py
+  #11 | 2026-10-24T21:34:57.507Z | seat | Bash | git -C /d/relay grep -n -E "^def [a-z_0-9]+\(" -- tools/b709_record.py
+  #12 | 2026-10-24T21:36:33.824Z | seat | Bash | git -C /d/relay grep -n -E "^def |^[A-Z_]+ = |^if __name__" -- tools/b709_citation.py
+  #13 | 2026-10-24T21:36:46.557Z | seat | Bash | cd /d/relay && ls data/b700_reading4.txt data/b690_reading3.txt data/b690_r3_residues.txt data/b700_r4_licensed.txt data/b709_grid_hashes.txt data/b709_pairs_ha
+  #14 | 2026-10-24T21:36:47.406Z | seat | Bash | cd /d/relay && ls data/b690_r* data/b700_r* data/b690_reading* data/b700_reading*
+  #15 | 2026-10-24T21:36:48.654Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers ls-files "*TECHNE_TOOLKIT*" "*METHOD_CANON*" "*E_DIFFICULTY*" "*Exhaustive_Enumeration*" "*ENUMERA*" "*INSTRUMENTS*" "*BRIGH
+  #16 | 2026-10-24T21:36:56.672Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git log --oneline --follow -3 -- phase1.5/method/TECHNE_TOOLKIT.md && git grep -n -m3 -E "^\*\*Version|^Version|v8\.3|8\.3" -
+  #17 | 2026-10-24T21:38:25.408Z | seat | Bash | git -C /d/relay rev-parse HEAD && git -C /d/MY-DOwnloads/PLACE-papers rev-parse HEAD && git -C /d/MY-DOwnloads/PLACE-papers branch --list "push-b709*" && git -C
+  #18 | 2026-10-24T21:39:51.724Z | seat | Bash | cd /d/relay && ls data/b705_read_calls.txt data/b706_read_calls.txt data/b707_read_calls.txt data/b708_read_calls.txt data/b709_read_calls.txt data/b709_standin
+  #19 | 2026-10-24T21:40:08.827Z | seat | Bash | git grep -l -e "test_reader" -- tools data
+  #20 | 2026-10-24T21:40:42.878Z | seat | Bash | ls -la "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0be08567-3854-47cf-9c08-6d080b4d7312/scratchpad/" && cd /d/relay && git grep -n -e "^WORK = " -e "^RUNS 
+  #21 | 2026-10-24T21:40:54.666Z | seat | Bash | ls -la "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/89dd14e7-e119-4cf8-b592-ceaac809eff2/scratchpad/b634_elab/test_reader.out" "/c/Users/ECHOCH~1/AppData/Lo
+  #22 | 2026-10-24T21:44:35.201Z | seat | Bash | python -X utf8 tools/b710_citation.py ferry
+  #23 | 2026-10-24T21:44:41.918Z | seat | Bash | python -X utf8 tools/b710_citation.py check dry
+  #24 | 2026-10-24T21:45:06.657Z | seat | Bash | python -X utf8 tools/b710_citation.py check
+  #25 | 2026-10-24T21:45:16.911Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main
+  #26 | 2026-10-24T21:45:17.704Z | seat | Bash | git -C /d/SIDE-lv-conservation branch --list --verbose port-b707
+  #27 | 2026-10-24T21:45:18.869Z | seat | Bash | ls -l /d/relay/data/b709_closing_push_out.txt /d/relay/tools/b378_lockgate.py /d/relay/tools/test_elab_reader_b634.py /d/relay/tools/ferry_scan.py /d/relay/tool
+  #28 | 2026-10-24T21:45:23.361Z | seat | Bash | git -C /d/relay branch --merged main
+  #29 | 2026-10-24T21:45:30.536Z | seat | Bash | wc -l /d/relay/data/b700_reading4.txt /d/relay/data/b690_reading3.txt /d/relay/data/b700_r4_defects.txt /d/relay/data/b709_readfirst_diff.txt
+  #30 | 2026-10-24T21:46:39.124Z | seat | Bash | python -X utf8 tools/circuit_read.py readfirst b710_ferry.txt b710_readfirst.txt
+  #31 | 2026-10-24T21:48:01.112Z | seat | Bash | python -X utf8 tools/b710_carry.py carry record && python -X utf8 tools/b710_carry.py carry tests
+  #32 | 2026-10-24T21:48:16.080Z | seat | Bash | python -X utf8 tools/b710_record.py rootexclude
+  #33 | 2026-10-24T21:48:24.122Z | seat | Bash | python -X utf8 tools/b710_record.py rootexclude
+  #34 | 2026-10-24T21:48:47.380Z | seat | Bash | python -X utf8 tools/b710_record.py rootexclude
+  #35 | 2026-10-24T21:49:27.219Z | seat | Bash | python -X utf8 tools/b710_carry.py prune record "# ================================================================================ COMPONENT 4: THE REGISTRATIO
+  #36 | 2026-10-24T21:49:37.118Z | seat | Bash | python -X utf8 tools/b710_record.py rootexclude
+  #37 | 2026-10-24T21:49:45.001Z | seat | Bash | python -X utf8 tools/b710_record.py rowgen
+  #38 | 2026-10-24T21:50:06.499Z | seat | PowerShell | $t = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); $p = Get-CimInstance Win32_Process; $os = Get-CimInstance Win32_OperatingSystem; $free = [in
+  #39 | 2026-10-24T21:50:12.730Z | seat | Bash | git add data/b709_closing_push_out.txt && git commit -q -m "b710 step zero: b709's closing push-out capture committed alone (data/b709_closing_push_out.txt: the
+  #40 | 2026-10-24T21:50:19.257Z | seat | Bash | python -X utf8 tools/b710_record.py branches before
+  #41 | 2026-10-24T21:50:27.011Z | seat | Bash | git -C /d/relay branch -d push-b709
+  #42 | 2026-10-24T21:50:30.995Z | seat | Bash | git -C /d/relay branch -d push-b709-root
+  #43 | 2026-10-24T21:50:35.025Z | seat | Bash | git -C /d/relay branch -d push-b709-root2
+  #44 | 2026-10-24T21:50:38.846Z | seat | Bash | git -C /d/relay branch -d push-b709-closing
+  #45 | 2026-10-24T21:50:42.722Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b709
+  #46 | 2026-10-24T21:50:48.729Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b709-root
+  #47 | 2026-10-24T21:50:56.455Z | seat | Bash | python -X utf8 tools/b710_record.py branches
+  #48 | 2026-10-24T21:51:32.111Z | seat | Bash | python -X utf8 tools/b710_fit.py
+  #49 | 2026-10-24T21:52:48.361Z | seat | Bash | git add data/b710_registrations.txt data/b710_rules.txt && git commit -q -m "b710 step zero: the three registrations for b711 (the refined detection law with it
+  #50 | 2026-10-24T21:53:06.113Z | seat | Bash | git hash-object data/b710_elab_reader_print.txt data/b710_elab_reader_print_sec.txt "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/89dd14e7-e119-4cf8-b592-cea
+  #51 | 2026-10-24T21:53:36.409Z | seat | Bash | python -X utf8 tools/b710_tests.py parts
+  #52 | 2026-10-24T21:53:43.102Z | seat | Bash | python -X utf8 tools/b710_tests.py hold 1 && python -X utf8 tools/b710_tests.py run test_act_root.py && python -X utf8 tools/b710_tests.py run test_act_root_com
+  #53 | 2026-10-24T21:53:59.124Z | seat | Bash | python -X utf8 tools/b710_tests.py hold 2 && python -X utf8 tools/b710_tests.py run test_asof.py
+  #54 | 2026-10-24T22:00:25.447Z | seat | Bash | python -X utf8 tools/b710_tests.py hold 3 && python -X utf8 tools/b710_tests.py run test_axiom_claim.py && python -X utf8 tools/b710_tests.py run test_axiom_cla
+  #55 | 2026-10-24T22:01:12.869Z | seat | Bash | python -X utf8 tools/b710_tests.py hold 4 && python -X utf8 tools/b710_tests.py run test_chain_page.py
+  #56 | 2026-10-24T22:08:01.360Z | seat | Bash | python -X utf8 tools/b710_tests.py hold 5 && python -X utf8 tools/b710_tests.py run test_elab_reader_b634.py
+  #57 | 2026-10-24T22:08:14.264Z | seat | PowerShell | $t = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); $p = Get-CimInstance Win32_Process; $c = @{}; foreach ($k in @('tail','lean','lake','python'
+  #58 | 2026-10-24T22:08:24.635Z | seat | Bash | python -X utf8 tools/b710_tests.py hold 6 && python -X utf8 tools/b710_tests.py run test_chain_page_b592.py && python -X utf8 tools/b710_tests.py run test_chain
+  #59 | 2026-10-24T22:11:46.040Z | seat | Bash | python -X utf8 tools/b710_tests.py hold 7 && python -X utf8 tools/b710_tests.py run test_g_chain_page.py && python -X utf8 tools/b710_tests.py run test_glossary
+  #60 | 2026-10-24T22:14:19.814Z | seat | Bash | python -X utf8 tools/b710_tests.py hold 8 && python -X utf8 tools/b710_tests.py run test_name_b649.py && python -X utf8 tools/b710_tests.py run test_name_patter
+  #61 | 2026-10-24T22:18:05.005Z | seat | Bash | python -X utf8 tools/b710_tests.py report
+  #62 | 2026-10-24T22:18:19.129Z | seat | Bash | git -C /d/relay status --short -- tools data/b710_ferry.txt data/b710_ferry_scan.txt data/b710_citation_check.txt data/b710_citation_check.json data/b710_readfi
+  #63 | 2026-10-24T22:19:16.972Z | seat | Bash | git add data/b710_ferry.txt data/b710_ferry_scan.txt data/b710_citation_check.txt data/b710_citation_check.json data/b710_readfirst.txt data/b710_readfirst_clos
+  #64 | 2026-10-24T22:19:40.867Z | seat | Bash | python -X utf8 tools/b710_record.py defs b698_record.py
+  #65 | 2026-10-24T22:20:35.441Z | seat | Bash | python -X utf8 tools/b710_record.py c1 dry
+  #66 | 2026-10-24T22:20:42.153Z | seat | Bash | wc -l /d/relay/data/b709_mirror.txt
+  #67 | 2026-10-24T22:20:51.034Z | seat | Bash | python -X utf8 tools/b710_record.py c1 dry
+  #68 | 2026-10-24T22:20:59.822Z | seat | Bash | python -X utf8 tools/b710_record.py c1
+  #69 | 2026-10-24T22:21:21.179Z | seat | Bash | python -X utf8 tools/b710_carry.py carry checks
+  #70 | 2026-10-24T22:22:34.727Z | seat | Bash | python -X utf8 tools/b710_record.py repairctl dry
+  #71 | 2026-10-24T22:22:41.727Z | seat | Bash | python -X utf8 tools/b710_record.py ksyms b710_checks.py
+  #72 | 2026-10-24T22:22:51.631Z | seat | Bash | python -X utf8 tools/b710_record.py repairctl dry
+  #73 | 2026-10-24T22:22:59.902Z | seat | Bash | python -X utf8 tools/b710_record.py repairctl
+  #74 | 2026-10-24T22:23:29.984Z | seat | Bash | python -X utf8 tools/b710_record.py toolrepairs
+  #75 | 2026-10-24T22:23:37.153Z | seat | Bash | wc -l /d/relay/data/b710_tool_repairs.txt
+  #76 | 2026-10-24T22:23:51.106Z | seat | Bash | python -X utf8 tools/b710_carry.py carry corrigendum && python -X utf8 tools/b710_record.py defs b710_corrigendum.py
+  #77 | 2026-10-24T22:23:58.899Z | seat | Bash | wc -l /d/relay/tools/b678_corrigendum.py && cd /d/relay && python -X utf8 tools/b710_record.py defs b678_corrigendum.py
+  #78 | 2026-10-24T22:25:04.960Z | seat | Bash | python -X utf8 tools/b710_corrigendum.py dry
+  #79 | 2026-10-24T22:25:14.255Z | seat | Bash | python -X utf8 tools/b710_corrigendum.py land
+  #80 | 2026-10-24T22:25:29.239Z | seat | Bash | git diff --numstat -- data/b675_corrigenda.txt tools/b378_lockgate.py tools/test_elab_reader_b634.py && git -C /d/MY-DOwnloads/PLACE-papers diff --numstat
+  #81 | 2026-10-24T22:25:37.338Z | seat | Bash | git add data/b710_record_lines.json data/b710_repair_controls.txt data/b710_repair_controls.json data/b710_tool_repairs.txt data/b710_corrigendum.txt data/b710_
+  #82 | 2026-10-24T22:25:42.898Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b710 Component 1: b709 at its weight (FINDINGS :10230), the navigator's readings of 
+  #83 | 2026-10-24T22:26:10.688Z | seat | Bash | cd /d/relay && python -X utf8 tools/b710_record.py defs ferry_scan.py
+  #84 | 2026-10-24T22:27:32.235Z | seat | Bash | python -X utf8 tools/b710_standing.py write dry
+  #85 | 2026-10-24T22:27:43.523Z | seat | Bash | python -X utf8 tools/b710_standing.py write
+  #86 | 2026-10-24T22:27:50.898Z | seat | Bash | wc -l /d/relay/data/standing_clauses_v1.txt
+  #87 | 2026-10-24T22:28:09.465Z | seat | Bash | python -X utf8 tools/b710_standing.py write again && python -X utf8 tools/b710_standing.py control
+  #88 | 2026-10-24T22:28:19.725Z | seat | Bash | python -X utf8 tools/b710_standing.py control
+  #89 | 2026-10-24T22:28:37.897Z | seat | Bash | python -X utf8 tools/ferry_scan.py data/b710_ferry.txt
+  #90 | 2026-10-24T22:29:12.715Z | seat | Bash | python -X utf8 tools/b710_standing.py readers
+  #91 | 2026-10-24T22:29:19.600Z | seat | Bash | git add data/standing_clauses_v1.txt data/b710_standing_control.txt data/b710_standing_control.json data/b710_standing_readers.txt data/b710_standing_readers.js
+  #92 | 2026-10-24T22:29:43.272Z | seat | Bash | ls data/terminal_table.json tools/terminal_table.py tools/e0_rule.py && python -X utf8 tools/b710_record.py defs terminal_table.py
+  #93 | 2026-10-24T22:30:26.587Z | seat | Bash | python -X utf8 tools/b710_reading5.py search
+  #94 | 2026-10-24T22:30:42.539Z | seat | Bash | wc -l /d/relay/data/b710_r5_search.txt
+  #95 | 2026-10-24T22:31:03.934Z | seat | Bash | git -C /d/SIDE-meta show HEAD:SIDEMeta/Meta/SIDESystem.lean --stat --format= && git -C /d/SIDE-meta ls-files SIDEMeta/Meta && git -C /d/SIDE-meta tag --points-a
+  #96 | 2026-10-24T22:31:25.291Z | seat | Bash | git -C /d/SIDE-kernel status --short -- Kernel/Layer1.lean Kernel/Cascade/SieveCeiling.lean Bridge/TheBridgeComplete.lean Kernel/Kappa.lean Kernel/TypeLevel.lea
+  #97 | 2026-10-24T22:32:22.677Z | seat | Bash | python -X utf8 tools/b710_reading5.py terminals
+  #98 | 2026-10-24T22:32:35.986Z | seat | Bash | python -X utf8 tools/b710_reading5.py terminals
+  #99 | 2026-10-24T22:33:26.757Z | seat | Bash | python -X utf8 tools/b710_reading5.py controls
+  #100 | 2026-10-24T22:33:54.400Z | seat | Bash | python -X utf8 tools/b710_reading5.py controls
+  #101 | 2026-10-24T22:34:36.574Z | seat | Bash | python -X utf8 tools/b710_reading5.py moves
+  #102 | 2026-10-24T22:34:52.165Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers ls-files archive/2026-08-24-ledger-split
+  #103 | 2026-10-24T22:35:01.472Z | seat | Bash | python -X utf8 tools/b710_reading5.py moves
+  #104 | 2026-10-24T22:37:18.195Z | seat | Bash | python -X utf8 tools/b710_reading5.py flip
+  #105 | 2026-10-24T22:37:34.641Z | seat | Bash | python -X utf8 tools/b710_reading5.py flip
+  #106 | 2026-10-24T22:37:57.106Z | seat | Bash | python -X utf8 tools/b710_reading5.py flip
+  #107 | 2026-10-24T22:38:21.233Z | seat | Bash | python -X utf8 tools/b710_reading5.py flip
+  #108 | 2026-10-24T22:38:30.044Z | seat | Bash | wc -l /d/relay/data/b710_r5_flip.txt
+  #109 | 2026-10-24T22:38:59.215Z | seat | Bash | python -X utf8 tools/b710_reading5.py flip
+  #110 | 2026-10-24T22:39:06.642Z | seat | Bash | python -X utf8 tools/b710_reading5.py cost
+  #111 | 2026-10-24T22:41:23.414Z | seat | Bash | wc -l /d/relay/data/b710_r5_terminals.txt /d/relay/data/b710_r5_cost.txt /d/relay/data/b710_r5_flip.txt /d/relay/data/b710_r5_controls.txt
+  #112 | 2026-10-24T22:42:09.788Z | seat | Bash | git add data/b710_reading5.txt data/b710_r5_search.txt data/b710_r5_search.json data/b710_r5_terminals.txt data/b710_r5_terminals.json data/b710_r5_controls.txt
+  #113 | 2026-10-24T22:45:02.863Z | seat | Bash | python -X utf8 tools/b710_citation.py answer "Moves table: 1, enter in OPEN_TRAILS"
+  #114 | 2026-10-24T22:47:31.729Z | seat | Bash | wc -l /d/relay/data/b710_reading5.txt
+  #115 | 2026-10-24T22:47:58.174Z | seat | Bash | python -X utf8 tools/b710_record.py moves dry
+  #116 | 2026-10-24T22:48:12.362Z | seat | Bash | python -X utf8 tools/b710_record.py moves
+  #117 | 2026-10-24T22:48:27.592Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b710 Component 3: the moves-by-locus table at Weil positivity on classK entered a
+  #118 | 2026-10-24T22:48:32.431Z | seat | Bash | git -C /d/relay status --short -- data tools
+  #119 | 2026-10-24T22:48:38.857Z | seat | Bash | cd /d/relay && git add data/b710_citation_check.txt data/b710_moves_lines.json tools/b710_record.py && git commit -q -m "b710 Component 3: the author's word at 
+  #120 | 2026-10-24T22:49:05.207Z | seat | Bash | python -X utf8 tools/b710_record.py regcheck
+  #121 | 2026-10-24T22:49:22.385Z | seat | Bash | git add data/b710_registrations_reread.txt data/b710_registrations_reread.json tools/b710_record.py && git commit -q -m "b710 Component 4: the registrations and
+  #122 | 2026-10-24T22:49:47.389Z | seat | Bash | python -X utf8 tools/b710_carry.py spanlist checks && python -X utf8 tools/b710_carry.py spanlist closing && python -X utf8 tools/b710_carry.py spanlist regspec
+  #123 | 2026-10-24T22:51:52.730Z | seat | Bash | git log --format="%H %s" -12 && git -C /d/MY-DOwnloads/PLACE-papers log --format="%H %s" -3
+  #124 | 2026-10-24T22:53:22.451Z | seat | Bash | ls data/b709_runner_SIDE-lv-conservation_port.txt data/b709_buildlog_SIDE-lv-conservation_port.txt data/b709_port.json data/b709_dispatches.json data/b709_runne
+  #125 | 2026-10-24T22:55:55.297Z | seat | Bash | python -X utf8 tools/b710_carry.py prune checks "# ================================================================== (R320)(6) AND N2: THE REGISTRATIONS AND TH
+  #126 | 2026-10-24T22:57:36.506Z | seat | Bash | python -X utf8 tools/b710_carry.py prune checks "    ('G-REGISTRATIONS-ALONE'" "    ('G-PARTS-PRERUN'"
+  #127 | 2026-10-24T23:01:11.490Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "K\.(ACT_ARMS|SEALED|STANDING_ADDED|REPAIRED_TOOLS|NEW_TOOLS|B708|B709_|PORT_)"
+  #128 | 2026-10-24T23:01:21.061Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "^(import|from) |^K7\d\d|^K6\d\d|= importlib|import_module"
+  #129 | 2026-10-24T23:01:32.729Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b709_worklist.py "ACT_ARMS|^SEALED|^STANDING_ADDED"
+  #130 | 2026-10-24T23:01:40.530Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "^    \('G-[A-Z0-9-]+',"
+  #131 | 2026-10-24T23:02:19.588Z | seat | Bash | python -X utf8 tools/b710_carry.py carry closing
+  #132 | 2026-10-24T23:02:23.212Z | seat | Bash | python -X utf8 tools/b710_carry.py spanlist closing
+  #133 | 2026-10-24T23:02:55.615Z | seat | Bash | ls data/b710_*
+  #134 | 2026-10-24T23:04:09.426Z | seat | Bash | python -X utf8 tools/b710_carry.py carry reg_gate
+  #135 | 2026-10-24T23:04:18.235Z | seat | Bash | python -X utf8 tools/b710_carry.py carry regspec
+  #136 | 2026-10-24T23:05:53.162Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b710_r5_terminals.json "^ ?\"[a-z_]+\":" && python -X utf8 tools/b710_locate.py data/b710_r5_moves.json "^ ?\"[a-z_]+\"
+  #137 | 2026-10-24T23:05:59.658Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b709_registration_2026-10-23.txt "^#|^\*\*\(|^\(|^## |^### [A-Z(]"
+  #138 | 2026-10-24T23:06:11.931Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_record.py "^def |^ROUTES|^    '[a-z0-9_]+': "
+  #139 | 2026-10-24T23:06:22.188Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b710_prune_record.txt "^-def |^@@"
+  #140 | 2026-10-24T23:06:43.657Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_record.py "^(read_score_row|_defect_short|span_line|_amended_after|_iso_epoch|desk|gatebanks|armsecs|answers|mbui
+  #141 | 2026-10-24T23:06:50.155Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "TITLE_NEEDLES|ENTRY_NEEDLES|^def (scorer_banks_ok|finding_ok|entry_title_ok|title_form_ok|trail_tail|r
+  #142 | 2026-10-24T23:07:20.802Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b710_reading5.txt "of 4|^## |^### ### |DO NOT FLIP|tried at the clause|48\.0%|MOVED 1|^  \((S|I|D|E)\) "
+  #143 | 2026-10-24T23:11:02.914Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_record.py "L\[5:8\]|^ROUTES|^def armnames"
+  #144 | 2026-10-24T23:11:55.537Z | seat | Bash | python -X utf8 tools/b710_record.py armnames
+
+### ### **COMMANDS 144 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 5 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

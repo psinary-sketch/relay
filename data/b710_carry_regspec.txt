@@ -1,0 +1,157 @@
+b710 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b709_regspec.py -> tools/b710_regspec.py (2026-10-24T23:04:19Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b709 -> b710, b708 -> b709, (R319) -> (R320), (R318) -> (R319), R319 -> R320, R318 -> R319); 352 lines, 50 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b709_tool_repairs.txt AND data/b709_repairdiff_regspec.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  :24 ; tools/b709_regspec.py -- the clause table, the measured counts, the spec`s title and a pla
+  :5 ; @@ -4,6 +4,7 @@
+  :19 ; @@ -34,2 +35,4 @@
+  :26 ; @@ -37,4 +40,3 @@
+  :34 ; @@ -42,1 +44,1 @@
+  :37 ; @@ -44,4 +46,4 @@
+  :46 ; @@ -49,1 +51,1 @@
+  :49 ; @@ -52,3 +54,3 @@
+  :56 ; @@ -58,1 +60,1 @@
+  :59 ; @@ -60,1 +62,5 @@
+  :66 ; @@ -83,6 +89,6 @@
+  :79 ; @@ -92,0 +98,1 @@
+  :81 ; @@ -94,1 +101,1 @@
+  :84 ; @@ -101,5 +108,3 @@
+  :93 ; @@ -170,0 +175,1 @@
+  :95 ; @@ -289,1 +295,1 @@
+  :98 ; @@ -291,1 +297,2 @@
+  :102 ; @@ -299,1 +306,2 @@
+  :106 ; @@ -301,3 +309,10 @@
+  :120 ; @@ -312,2 +327,3 @@
+  :126 ; @@ -318,3 +334,2 @@
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b709_regspec.py
+  +++ tools/b710_regspec.py
+  @@ -2,1 +2,1 @@
+  -"""b709_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  +"""b710_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  @@ -4,1 +4,1 @@
+  -### ### Carried from b708's spec by tools/b709_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face:
+  +### ### Carried from b709's spec by tools/b710_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face:
+  @@ -22,1 +22,1 @@
+  -import b709_worklist as K   # noqa: E402
+  +import b710_worklist as K   # noqa: E402
+  @@ -24,2 +24,2 @@
+  -REG = os.path.join(ROOT, 'data', 'b709_registration_2026-10-23.txt')
+  -SPEC = os.path.join(ROOT, 'data', 'b709_satisfiable.json')
+  +REG = os.path.join(ROOT, 'data', 'b710_registration_2026-10-23.txt')
+  +SPEC = os.path.join(ROOT, 'data', 'b710_satisfiable.json')
+  @@ -36,1 +36,1 @@
+  -    ('lean processes run on this host by a test at step zero', 'LEANTEST', 'LEANTEST', 'processes', '### defect (c): test_elab_reader_b634.py, b708`s withheld bank not carried; N1 scored as worded REFUTED; MEASURED off the tests bank.'),
+  +    ('lean processes run on this host by a test at step zero', 'LEANTEST', 'LEANTEST', 'processes', '### defect (c): test_elab_reader_b634.py, b709`s withheld bank not carried; N1 scored as worded REFUTED; MEASURED off the tests bank.'),
+  @@ -40,2 +40,2 @@
+  -    ('commits on any kernel`s main', 0, 0, 'commits', '### (R319)(4): no main moved.'),
+  -    ('commits on the port branch of SIDE-lv-conservation', 'PORTCOMMITS', 'PORTCOMMITS', 'commits', '### (R319)(4): one, on b707`s; MEASURED off the branch`s log from b707`s commit to the tip.'),
+  +    ('commits on any kernel`s main', 0, 0, 'commits', '### (R320)(4): no main moved.'),
+  +    ('commits on the port branch of SIDE-lv-conservation', 'PORTCOMMITS', 'PORTCOMMITS', 'commits', '### (R320)(4): one, on b707`s; MEASURED off the branch`s log from b707`s commit to the tip.'),
+  @@ -48,1 +48,1 @@
+  -    ('kernel branches deleted', 0, 0, 'branches', '### (R319)(7) names relay`s and PLACE-papers` push branches alone; port-b707 deleted under no answer.'),
+  +    ('kernel branches deleted', 0, 0, 'branches', '### (R320)(7) names relay`s and PLACE-papers` push branches alone; port-b707 deleted under no answer.'),
+  @@ -60,3 +60,3 @@
+  -    ('orders and annotations entered at OPEN_TRAILS before the seal', 'ORDERS', 'ORDERS', 'lines', '### (R319)(2) the annotation at :15762; the author`s bound as W-ORD-Q0-ZEROS-443 at :15764; MEASURED off the landing banks.'),
+  -    ('generated corrigendum entries', 1, 1, 'entries', '### (R319)(2).'),
+  -    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R319)(2): row (29).'),
+  +    ('orders and annotations entered at OPEN_TRAILS before the seal', 'ORDERS', 'ORDERS', 'lines', '### (R320)(2) the annotation at :15762; the author`s bound as W-ORD-Q0-ZEROS-443 at :15764; MEASURED off the landing banks.'),
+  +    ('generated corrigendum entries', 1, 1, 'entries', '### (R320)(2).'),
+  +    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R320)(2): row (29).'),
+  @@ -64,3 +64,3 @@
+  -    ('grid points computed and banked', 'GRIDPTS', 'GRIDPTS', 'points', '### (R319)(3); MEASURED off the grid bank`s rows.'),
+  -    ('higher pairs computed under the extended list', 'PAIRSDONE', 'PAIRSDONE', 'pairs', '### (R319)(5); MEASURED off the pairs bank`s WITHIN and OUTSIDE rows.'),
+  -    ('higher pairs entered beyond reach at the author`s bound', 'PAIRSBEYOND', 'PAIRSBEYOND', 'pairs', '### (R319)(5), the author`s word of 2026-10-24; MEASURED off the pairs bank.'),
+  +    ('grid points computed and banked', 'GRIDPTS', 'GRIDPTS', 'points', '### (R320)(3); MEASURED off the grid bank`s rows.'),
+  +    ('higher pairs computed under the extended list', 'PAIRSDONE', 'PAIRSDONE', 'pairs', '### (R320)(5); MEASURED off the pairs bank`s WITHIN and OUTSIDE rows.'),
+  +    ('higher pairs entered beyond reach at the author`s bound', 'PAIRSBEYOND', 'PAIRSBEYOND', 'pairs', '### (R320)(5), the author`s word of 2026-10-24; MEASURED off the pairs bank.'),
+  @@ -94,1 +94,1 @@
+  -    ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R319)(7).'),
+  +    ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R320)(7).'),
+  @@ -98,1 +98,1 @@
+  -    ('carried tools read whole in parts or spans', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b709_rules.txt row (1); lettered (b) and (e); MEASURED off the defects bank`s rows.'),
+  +    ('carried tools read whole in parts or spans', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b710_rules.txt row (1); lettered (b) and (e); MEASURED off the defects bank`s rows.'),
+  @@ -101,1 +101,1 @@
+  -    ('branches deleted beyond the ruling`s list', 0, 0, 'branches', '### (R319)(7).'),
+  +    ('branches deleted beyond the ruling`s list', 0, 0, 'branches', '### (R320)(7).'),
+  @@ -107,2 +107,2 @@
+  -    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R319)(1); MEASURED.'),
+  -    ('registrations committed alone before any computation', 1, 1, 'commits', '### (R319)(6), N2: relay 510dc29b (with the rules bank).'),
+  +    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R320)(1); MEASURED.'),
+  +    ('registrations committed alone before any computation', 1, 1, 'commits', '### (R320)(6), N2: relay 510dc29b (with the rules bank).'),
+  @@ -110,1 +110,1 @@
+  -    ('eigenvalues of the second axis computed this act', 0, 0, 'eigenvalues', '### (R319)(6): nothing computed for it at b709.'),
+  +    ('eigenvalues of the second axis computed this act', 0, 0, 'eigenvalues', '### (R320)(6): nothing computed for it at b710.'),
+  @@ -113,1 +113,1 @@
+  -    ('report tools sealed before the root`s word', 0, 0, 'tools', '### data/b709_rules.txt row (1).'),
+  +    ('report tools sealed before the root`s word', 0, 0, 'tools', '### data/b710_rules.txt row (1).'),
+  @@ -147,1 +147,1 @@
+  -    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R319).'),
+  +    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R320).'),
+  @@ -181,1 +181,1 @@
+  -    import b709_record as REC
+  +    import b710_record as REC
+  @@ -187,1 +187,1 @@
+  -                with tempfile.TemporaryDirectory(prefix='b709_spec_') as d:
+  +                with tempfile.TemporaryDirectory(prefix='b710_spec_') as d:
+  @@ -215,1 +215,1 @@
+  -    import b709_record as REC
+  +    import b710_record as REC
+  @@ -218,1 +218,1 @@
+  -                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b709_ferry.txt'), '### b999 absent')),
+  +                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b710_ferry.txt'), '### b999 absent')),
+  @@ -247,1 +247,1 @@
+  -    print('b709_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  +    print('b710_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  @@ -301,6 +301,6 @@
+  -                    TESTS=jcount('b709_tests_stepzero.json', len), QUESTIONS=tcount('b709_author_answers.txt', r'^### PROMPT '),
+  -                    LINES=jcount('b709_record_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    MISSES=tfirst('b709_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  -                    REPAIRS=tfirst('b709_tool_repairs.txt', r'REPAIRS (\d+) ;'),
+  -                    CARRIED=carried(text), DISPATCHES=jcount('b709_commands.json', lambda j: len(j.get('dispatches') or [])),
+  -                    RUNSREAD=jcount('b709_runner_rows.json', lambda j: len(j.get('rows') or [])),
+  +                    TESTS=jcount('b710_tests_stepzero.json', len), QUESTIONS=tcount('b710_author_answers.txt', r'^### PROMPT '),
+  +                    LINES=jcount('b710_record_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    MISSES=tfirst('b710_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  +                    REPAIRS=tfirst('b710_tool_repairs.txt', r'REPAIRS (\d+) ;'),
+  +                    CARRIED=carried(text), DISPATCHES=jcount('b710_commands.json', lambda j: len(j.get('dispatches') or [])),
+  +                    RUNSREAD=jcount('b710_runner_rows.json', lambda j: len(j.get('rows') or [])),
+  @@ -310,7 +310,7 @@
+  -                    LEANTEST=tcount('b709_tests_stepzero.txt', r'^  test_elab_reader_b634\.py\s+exit \d+ ;'),
+  -                    ORDERS=jcount('b709_order443_lines.json', lambda j: len(j.get('lines') or [])) + jcount('b709_order_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b709_\w+_hashes\.txt$', f)]),
+  -                    GRIDPTS=tcount('b709_grid.txt', r'^  (?:rho0|band) \|\s*\d+ \| \S+\s+\| a '),
+  -                    PAIRSDONE=tcount('b709_pairs.txt', r'^\s+\d+ \| \[.*\| (?:WITHIN|OUTSIDE)$'),
+  -                    PAIRSBEYOND=tcount('b709_pairs.txt', r'^\s+\d+ \| \[.*\| beyond reach at height \d+'),
+  -                    REREAD=jcount('b709_registrations_reread.json', lambda j: len(j.get('rows') or {})),
+  +                    LEANTEST=tcount('b710_tests_stepzero.txt', r'^  test_elab_reader_b634\.py\s+exit \d+ ;'),
+  +                    ORDERS=jcount('b710_order443_lines.json', lambda j: len(j.get('lines') or [])) + jcount('b710_order_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b710_\w+_hashes\.txt$', f)]),
+  +                    GRIDPTS=tcount('b710_grid.txt', r'^  (?:rho0|band) \|\s*\d+ \| \S+\s+\| a '),
+  +                    PAIRSDONE=tcount('b710_pairs.txt', r'^\s+\d+ \| \[.*\| (?:WITHIN|OUTSIDE)$'),
+  +                    PAIRSBEYOND=tcount('b710_pairs.txt', r'^\s+\d+ \| \[.*\| beyond reach at height \d+'),
+  +                    REREAD=jcount('b710_registrations_reread.json', lambda j: len(j.get('rows') or {})),
+  @@ -318,7 +318,7 @@
+  -                        r"^    \([a-z]\) THE SEAT'S: (ONE|TWO|THREE|FOUR) CARRIED TOOLS? READ WHOLE", io.open(os.path.join(ROOT, 'data', 'b709_defects.txt'), encoding='utf-8').read(), re.M)),
+  -                    SEDS=jcount('b709_commands.json', lambda j: len(j.get('seds') or [])),
+  -                    REDIRECTS=jcount('b709_commands.json', lambda j: len(j.get('redirects') or [])),
+  -                    PIPES=jcount('b709_commands.json', lambda j: len(j.get('pipes') or [])),
+  -                    ANYPIPES=jcount('b709_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  -                    PYPROGS=jcount('b709_commands.json', lambda j: len(j.get('py_programs') or [])),
+  -                    READOFF=tfirst('b709_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  +                        r"^    \([a-z]\) THE SEAT'S: (ONE|TWO|THREE|FOUR) CARRIED TOOLS? READ WHOLE", io.open(os.path.join(ROOT, 'data', 'b710_defects.txt'), encoding='utf-8').read(), re.M)),
+  +                    SEDS=jcount('b710_commands.json', lambda j: len(j.get('seds') or [])),
+  +                    REDIRECTS=jcount('b710_commands.json', lambda j: len(j.get('redirects') or [])),
+  +                    PIPES=jcount('b710_commands.json', lambda j: len(j.get('pipes') or [])),
+  +                    ANYPIPES=jcount('b710_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  +                    PYPROGS=jcount('b710_commands.json', lambda j: len(j.get('py_programs') or [])),
+  +                    READOFF=tfirst('b710_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  @@ -334,2 +334,2 @@
+  -    spec = {"registration": ("data/b709_registration_2026-10-23.txt -- b709, LANE TWO ACT ONE HUNDRED AND THIRTY-SIX, THE RESEARCH ACT: b708 AT ITS WEIGHT; "
+  -                             "THE NEEDLE AND THE CARRY BY DIFF; THE FINE GRID; THE PORT`S NEXT LINES; THE HIGHER PAIRS; THE NEXT AXIS, UNDER (R319)"),
+  +    spec = {"registration": ("data/b710_registration_2026-10-23.txt -- b710, LANE TWO ACT ONE HUNDRED AND THIRTY-SIX, THE RESEARCH ACT: b709 AT ITS WEIGHT; "
+  +                             "THE NEEDLE AND THE CARRY BY DIFF; THE FINE GRID; THE PORT`S NEXT LINES; THE HIGHER PAIRS; THE NEXT AXIS, UNDER (R320)"),
+
+### ### **CARRIED tools/b710_regspec.py ; LINES 352 ; CHANGED BY THE SUBSTITUTION 50 ; REPAIR SPANS AT b709 21 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

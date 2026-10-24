@@ -1,0 +1,14 @@
+b710 -- COMPONENT 5: THE PRERUN GUARD HELD AT THE CARRY, ITS DRY RUN (2026-10-24T23:14:55Z)
+
+### the suite`s `--guard-dry` run in its own process, writing nothing; its print verbatim beneath. The guard: tools/b710_checks.py :1893 `if PRERUN:`,
+### the line above the per-part seconds write at :1894.
+
+### THE PRINT, VERBATIM (exit 0):
+  MODE prerun    | the part`s banks: data/b710_arms_prerun_<part>.txt, data/b710_lsr_prerun_<part>.json, data/b710_exercise_<part>.json | the per-part seconds bank: data/b710_arm_seconds_<part>.json
+  MODE pre-push  | the part`s banks: data/b710_checks_<part>.txt, data/b710_lsr_<part>.json, data/b710_exercise_<part>.json | the per-part seconds bank: NONE
+  MODE post-push | the part`s banks: data/b710_checks_postpush_<part>.txt, data/b710_lsr_postpush_<part>.json, data/b710_exercise_<part>.json | the per-part seconds bank: NONE
+  ### POST-ROOT PATH WRITES NONE of the root-named per-part seconds banks: the pre-push and post-push modes write no data/b710_arm_seconds_<part>.json
+
+### THE WRITES BY MODE, READ FROM THE SUITE`S writer_plan: prerun ['data/b710_arm_seconds_<part>.json']; pre-push NONE; post-push NONE
+
+### ### **THE GUARD HELD ; THE POST-ROOT PATH WRITES NONE OF THE PER-PART SECONDS BANKS ; THE PRE-RUN WRITES THEM ALONE**

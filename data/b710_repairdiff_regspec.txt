@@ -1,0 +1,131 @@
+b710 -- THE CARRY-TIME REPAIRS OF tools/b710_regspec.py AS A DIFF: the carried form (tools/b709_regspec.py with the act names substituted) against the file now (2026-10-24T23:13:59Z)
+
+--- tools/b710_regspec.py (the carried form)
++++ tools/b710_regspec.py (now)
+@@ -5,6 +5,5 @@
+-### ### the citation check as a gate step; the record line and the corrigendum; the carry-time repairs; one commit on SIDE-lv-conservation's
+-### ### port-b707, pushed in branch mode, dispatched once and read by its id, the branch held; no main moved, no tag, no merge; no paper cut; the
+-### ### registrations committed alone, the fine grid and the higher pairs computed as registered, the second axis registered for b711; no
+-### ### outbound fetch; the suite in seven parts, one call each, one standing arm failing and declared; the mirror after the root; the report
+-### ### tool unsealed until the root's word; nothing deposits. The planted rows of (R263)(3) for this act's readers, the defect row's and the
+-### ### runner row's among them (the runner row with the gate NOT DERIVES, this act's port run's shape).
++### ### the citation check as a gate step; the record lines and the corrigendum; the repairs of (R320)(3) and the carry-time repairs; the
++### ### standing clauses banked at v1; reading 5 and the moves table; no kernel written, no lean run, no dispatch; no paper cut; the registrations
++### ### committed alone, nothing computed for them; no outbound fetch; the suite in seven parts, one call each; the mirror after the root; the
++### ### report tool unsealed until the root's word; nothing deposits. The planted rows of (R263)(3) for this act's readers, the defect row's and
++### ### the runner row's among them (the runner row with the gate NOT DERIVES, b709's port run's shape, read as banked).
+@@ -24,1 +23,1 @@
+-REG = os.path.join(ROOT, 'data', 'b710_registration_2026-10-23.txt')
++REG = os.path.join(ROOT, 'data', 'b710_registration_2026-10-24.txt')
+@@ -36,3 +35,3 @@
+-    ('lean processes run on this host by a test at step zero', 'LEANTEST', 'LEANTEST', 'processes', '### defect (c): test_elab_reader_b634.py, b709`s withheld bank not carried; N1 scored as worded REFUTED; MEASURED off the tests bank.'),
+-    ('runner dispatches made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### N1: one, the port branch at its tip; MEASURED off the command bank.'),
+-    ('runs read by their id with the artifact verified', 'RUNSREAD', 'RUNSREAD', 'runs', '### N1; MEASURED off the runner rows bank.'),
++    ('lean processes run on this host by a test', 0, 0, 'processes', '### (R320)(3): the lean-running test reads lean`s banked prints; N1.'),
++    ('runner dispatches made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### (R320)(7), N1: none; MEASURED off the command bank.'),
++    ('runs dispatched and read this act', 0, 0, 'runs', '### none: b709`s one run read as banked.'),
+@@ -40,2 +39,2 @@
+-    ('commits on any kernel`s main', 0, 0, 'commits', '### (R320)(4): no main moved.'),
+-    ('commits on the port branch of SIDE-lv-conservation', 'PORTCOMMITS', 'PORTCOMMITS', 'commits', '### (R320)(4): one, on b707`s; MEASURED off the branch`s log from b707`s commit to the tip.'),
++    ('commits on any kernel`s main', 0, 0, 'commits', '### no main moved.'),
++    ('commits on the port branch of SIDE-lv-conservation', 'PORTCOMMITS', 'PORTCOMMITS', 'commits', '### none this act; MEASURED off the branch`s log from b709`s tip to the branch now.'),
+@@ -45,3 +44,2 @@
+-    ('Lean files written on a kernel`s main', 0, 0, 'files', '### none.'),
+-    ('Lean files edited on the port branch', 'LEANFILES', 'LEANFILES', 'files', '### C7OrderBounds.lean alone; MEASURED off the port commit`s tree diff.'),
+-    ('port branches cut on a kernel', 0, 0, 'branches', '### none this act (port-b707 is b707`s, given one commit and held).'),
++    ('Lean files written on a kernel', 0, 0, 'files', '### none.'),
++    ('port branches cut on a kernel', 0, 0, 'branches', '### none this act (port-b707 is b707`s, held at b709`s commit).'),
+@@ -49,1 +47,1 @@
+-    ('toolchain, manifest, lakefile or workflow files of a kernel`s main written', 0, 0, 'files', '### none: the workflow at the port branch b707`s blob unchanged.'),
++    ('toolchain, manifest, lakefile or workflow files of a kernel written', 0, 0, 'files', '### none.'),
+@@ -60,7 +58,8 @@
+-    ('orders and annotations entered at OPEN_TRAILS before the seal', 'ORDERS', 'ORDERS', 'lines', '### (R320)(2) the annotation at :15762; the author`s bound as W-ORD-Q0-ZEROS-443 at :15764; MEASURED off the landing banks.'),
+-    ('generated corrigendum entries', 1, 1, 'entries', '### (R320)(2).'),
+-    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R320)(2): row (29).'),
+-    ('binary banks written beside a text hashes bank', 'BINARIES', 'BINARIES', 'banks', '### data/b680_rules.txt row (1): the grid`s and the pairs`; MEASURED off the hashes banks present.'),
+-    ('grid points computed and banked', 'GRIDPTS', 'GRIDPTS', 'points', '### (R320)(3); MEASURED off the grid bank`s rows.'),
+-    ('higher pairs computed under the extended list', 'PAIRSDONE', 'PAIRSDONE', 'pairs', '### (R320)(5); MEASURED off the pairs bank`s WITHIN and OUTSIDE rows.'),
+-    ('higher pairs entered beyond reach at the author`s bound', 'PAIRSBEYOND', 'PAIRSBEYOND', 'pairs', '### (R320)(5), the author`s word of 2026-10-24; MEASURED off the pairs bank.'),
++    ('orders and annotations entered at OPEN_TRAILS before the seal', 'ORDERS', 'ORDERS', 'lines', '### the author`s word at the moves table`s prompt: W-ORD-MOVES-BY-LOCUS at :15804; MEASURED off the landing bank.'),
++    ('generated corrigendum entries', 1, 1, 'entries', '### (R320)(3).'),
++    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R320)(3): row (30).'),
++    ('binary banks written beside a text hashes bank', 'BINARIES', 'BINARIES', 'banks', '### none this act; MEASURED off the hashes banks present.'),
++    ('principles read against the corpus', 'PRINCIPLES', 'PRINCIPLES', 'principles', '### (R320)(5)(i): S, I, D and E; MEASURED off the terminals bank.'),
++    ('rows of the moves-by-locus table', 'MOVEROWS', 'MOVEROWS', 'rows', '### (R320)(5)(ii); MEASURED off the moves bank.'),
++    ('prompts raised for the moves table`s placement', 1, 1, 'prompts', '### (R320)(5)(ii): one, answered and checked.'),
++    ('numbers computed for the b711 registrations this act', 0, 0, 'numbers', '### N4: the fit`s constants printed from b709`s banks; nothing computed for pairs 11 or 15, the surgery or the coefficient.'),
+@@ -68,1 +67,1 @@
+-    ('shared tools edited by ruling', 0, 0, 'tools', '### none this act.'),
++    ('shared tools edited by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### (R320)(3)-(4): the lock gate, the lean-running test and the ferry scan; MEASURED off the worklist`s list.'),
+@@ -70,0 +69,1 @@
++    ('shared banks written by ruling', 1, 1, 'banks', '### (R320)(4): data/standing_clauses_v1.txt.'),
+@@ -78,1 +78,1 @@
+-    ('citation checks run at step zero', 1, 1, 'checks', '### the gate step, standing from b662; before any delete (run twice, the bank the second run`s).'),
++    ('citation checks run at step zero', 1, 1, 'checks', '### the gate step, standing from b662; before any delete (run once to its bank after a dry run).'),
+@@ -90,4 +90,4 @@
+-    ('commands piping a read into a shell filter', 'PIPES', 'PIPES', 'commands', '### the ferry, MEASURED off the command bank; the two listings lettered (g).'),
+-    ('commands carrying a pipe of any kind', 'ANYPIPES', 'ANYPIPES', 'commands', '### the ferry, MEASURED off the command bank; lettered (g).'),
+-    ('commands running an interpreter`s one-line program', 'PYPROGS', 'PYPROGS', 'commands', '### the ferry, MEASURED off the command bank (none this act).'),
+-    ('Read calls above the cap from the anchor on', 'READOFF', 'READOFF', 'reads', '### every call counts from b705, MEASURED off the read bank; the eleven limit-only reads lettered (f).'),
++    ('commands piping a read into a shell filter', 'PIPES', 'PIPES', 'commands', '### the ferry, MEASURED off the command bank.'),
++    ('commands carrying a pipe of any kind', 'ANYPIPES', 'ANYPIPES', 'commands', '### the ferry, MEASURED off the command bank.'),
++    ('commands running an interpreter`s one-line program', 'PYPROGS', 'PYPROGS', 'commands', '### the ferry, MEASURED off the command bank.'),
++    ('Read calls above the cap from the anchor on', 'READOFF', 'READOFF', 'reads', '### every call counts from b705, MEASURED off the read bank; the opening`s whole reads lettered (a), the two at Component 5 (f).'),
+@@ -98,1 +98,1 @@
+-    ('carried tools read whole in parts or spans', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b710_rules.txt row (1); lettered (b) and (e); MEASURED off the defects bank`s rows.'),
++    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b709_rules.txt row (1); lettered (e); MEASURED off the defects bank`s rows.'),
+@@ -108,3 +108,2 @@
+-    ('registrations committed alone before any computation', 1, 1, 'commits', '### (R320)(6), N2: relay 510dc29b (with the rules bank).'),
+-    ('registration banks re-read unchanged from their own commits', 'REREAD', 'REREAD', 'banks', '### N2; MEASURED off the re-read bank.'),
+-    ('eigenvalues of the second axis computed this act', 0, 0, 'eigenvalues', '### (R320)(6): nothing computed for it at b710.'),
++    ('registrations committed alone before any other bank', 1, 1, 'commits', '### (R320)(6), N4: relay 41ff1193 (with the rules bank).'),
++    ('registration banks re-read unchanged from their own commits', 'REREAD', 'REREAD', 'banks', '### N4; MEASURED off the re-read bank.'),
+@@ -113,1 +112,1 @@
+-    ('report tools sealed before the root`s word', 0, 0, 'tools', '### data/b710_rules.txt row (1).'),
++    ('report tools sealed before the root`s word', 0, 0, 'tools', '### data/b708_rules.txt row (1).'),
+@@ -175,1 +174,1 @@
+-    ('runner row with the gate NOT DERIVES (this act`s port run`s shape)', 'read_runner_row', dict(kernel='SIDE-x', label='port', ref='0' * 40, run_id=1, gate='NOT DERIVES')),
++    ('runner row with the gate NOT DERIVES (b709`s port run`s shape)', 'read_runner_row', dict(kernel='SIDE-x', label='port', ref='0' * 40, run_id=1, gate='NOT DERIVES')),
+@@ -297,2 +296,9 @@
+-    port_files = [x for x in _git(K.LV_DIR, 'diff-tree', '--no-commit-id', '--name-only', '-r', K.PORT_TIP).split(chr(10)) if x.strip()]
+-    port_commits = _git(K.LV_DIR, 'rev-list', '--count', '%s..%s' % (K.PORT_BASE, K.PORT_TIP))
++    port_commits = _git(K.LV_DIR, 'rev-list', '--count', '%s..refs/heads/%s' % (K.PORT_TIP, K.PORT_BRANCH))
++
++    def jrows(name, key):
++        try:
++            j = json.load(io.open(os.path.join(ROOT, 'data', name), encoding='utf-8'))
++            v = j.get(key) if isinstance(j, dict) else j
++            return len(v or [])
++        except Exception:
++            return 0
+@@ -306,1 +312,0 @@
+-                    RUNSREAD=jcount('b710_runner_rows.json', lambda j: len(j.get('rows') or [])),
+@@ -309,3 +314,1 @@
+-                    LEANFILES=len([f for f in port_files if f.endswith('.lean')]),
+-                    LEANTEST=tcount('b710_tests_stepzero.txt', r'^  test_elab_reader_b634\.py\s+exit \d+ ;'),
+-                    ORDERS=jcount('b710_order443_lines.json', lambda j: len(j.get('lines') or [])) + jcount('b710_order_lines.json', lambda j: len(j.get('lines') or [])),
++                    ORDERS=jcount('b710_moves_lines.json', lambda j: len(j.get('lines') or [])),
+@@ -313,3 +316,3 @@
+-                    GRIDPTS=tcount('b710_grid.txt', r'^  (?:rho0|band) \|\s*\d+ \| \S+\s+\| a '),
+-                    PAIRSDONE=tcount('b710_pairs.txt', r'^\s+\d+ \| \[.*\| (?:WITHIN|OUTSIDE)$'),
+-                    PAIRSBEYOND=tcount('b710_pairs.txt', r'^\s+\d+ \| \[.*\| beyond reach at height \d+'),
++                    PRINCIPLES=jrows('b710_r5_terminals.json', 'rows'),
++                    MOVEROWS=jrows('b710_r5_moves.json', 'rows'),
++                    SHAREDTOOLS=len(K.REPAIRED_TOOLS),
+@@ -317,2 +320,2 @@
+-                    WHOLEREADS=sum({'ONE': 1, 'TWO': 2, 'THREE': 3, 'FOUR': 4}.get(w, 0) for w in re.findall(
+-                        r"^    \([a-z]\) THE SEAT'S: (ONE|TWO|THREE|FOUR) CARRIED TOOLS? READ WHOLE", io.open(os.path.join(ROOT, 'data', 'b710_defects.txt'), encoding='utf-8').read(), re.M)),
++                    WHOLEREADS=len(re.findall(r"^    \([a-z]\) THE SEAT'S: THE CARRIED (?:SUITE|TOOLS?) READ BEYOND THE SPANS",
++                                              io.open(os.path.join(ROOT, 'data', 'b710_defects.txt'), encoding='utf-8').read(), re.M)),
+@@ -327,2 +330,2 @@
+-    for k in ('ARMS', 'READINGS', 'EXPECT', 'BARS', 'TESTS', 'QUESTIONS', 'LINES', 'MISSES', 'REPAIRS', 'CARRIED', 'DISPATCHES', 'RUNSREAD', 'PORTCOMMITS',
+-              'TAGSMADE', 'LEANFILES', 'LEANTEST', 'ORDERS', 'BINARIES', 'GRIDPTS', 'PAIRSDONE', 'PAIRSBEYOND', 'REREAD', 'WHOLEREADS', 'SEDS', 'REDIRECTS',
++    for k in ('ARMS', 'READINGS', 'EXPECT', 'BARS', 'TESTS', 'QUESTIONS', 'LINES', 'MISSES', 'REPAIRS', 'CARRIED', 'DISPATCHES', 'PORTCOMMITS',
++              'TAGSMADE', 'ORDERS', 'BINARIES', 'PRINCIPLES', 'MOVEROWS', 'SHAREDTOOLS', 'REREAD', 'WHOLEREADS', 'SEDS', 'REDIRECTS',
+@@ -334,2 +337,2 @@
+-    spec = {"registration": ("data/b710_registration_2026-10-23.txt -- b710, LANE TWO ACT ONE HUNDRED AND THIRTY-SIX, THE RESEARCH ACT: b709 AT ITS WEIGHT; "
+-                             "THE NEEDLE AND THE CARRY BY DIFF; THE FINE GRID; THE PORT`S NEXT LINES; THE HIGHER PAIRS; THE NEXT AXIS, UNDER (R320)"),
++    spec = {"registration": ("data/b710_registration_2026-10-24.txt -- b710, LANE TWO ACT ONE HUNDRED AND THIRTY-SEVEN, THE READING ACT, READING 5: b709 AT ITS WEIGHT; "
++                             "THE NEEDLES, THE TEST AND THE LOCK GATE; THE STANDING CLAUSES AT v1; THE PRINCIPLES AGAINST THE CORPUS; THE MOVES BY LOCUS; THE b711 REGISTRATIONS, UNDER (R320)"),
+
+### ### **HUNKS 22 ; LINES REMOVED 50 ; LINES ADDED 53.**
