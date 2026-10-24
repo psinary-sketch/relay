@@ -122,6 +122,10 @@ b709 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-23)
         (R316)(3) broke: test_chain_page_b629.py (8), test_composer_b646.py (10), (11), (17), (19), test_composer_b647.py (4), (5), (7), (9),
         (17), (18), test_composer_b649.py (6 of 9), test_name_b649.py (5)); entered by b707 and b708 for the ruling and not reached by (R319);
         no test edited this act (data/b709_tests_stepzero.txt).
+    THE LOCK GATE'S FIRST CALL RAN AGAINST ITS OWN DEFAULT FACE. tools/b378_lockgate.py sent with no argument (to print its usage) read b378's
+        registration, its default, and wrote data/b378_lockgate_notes3.txt (its notes file for that face), an untracked scratch file in relay data/
+        beside the older acts' notes files; no bank of this act touched, nothing of b378's tracked state changed, the file left in place (no file
+        is deleted this act). The tool's trap (relay memory: a live tool writes); the next call names this act's face. Not lettered.
     THE ORDER'S LANDING BANK COMMITTED ONE COMMIT LATE. data/b709_order443_lines.json (the orders443 route's landing bank for W-ORD-Q0-ZEROS-443,
         OPEN_TRAILS :15764, written 18:54Z after Component 2's relay commit 91607edb and its PLACE-papers commit caf18664) stood untracked
         until Component 3's relay commit, which carries it; the ledger line it records was committed at PLACE-papers in its own commit and is
