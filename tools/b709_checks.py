@@ -21,7 +21,8 @@ THE HIGHER PAIRS; THE NEXT AXIS; SEVEN PARTS AS b706 SPLIT THEM.
 ### stand-in root, branches route and declaration reader; the corrigendum tool rewritten; ROOT_EXCLUDE carried in form. This suite carried by
 ### tools/b709_carry.py from tools/b708_checks.py (the act names substituted) and its act sections written by the Edit tool: the sources over
 ### this act's banks and the arms over them (the grid, the pairs, the port, the axis, the carry, the corrigendum row (29), the orders, the title)
-### in place of b708's (the probe, the prints, the re-cut, the port's lines) -- the whole file read in spans to do so, defect (e).
+### in place of b708's (the probe, the prints, the re-cut, the port's lines) -- the whole file read in spans to do so, defect (e), as were
+### the closing tool and the spec tool.
 ### The four standing figures read by tools/b706_standing_figures.py (unedited, over b706's roster) against b708's baselines
 ### (data/b708_standing_figures.json), each by b703's fig_ok. The standing runner arms (G-WORKFLOW-FILES, G-RUNNER-READ, G-RUNNER-GATE,
 ### G-MERGES-ON-GATE) read THIS ACT'S ONE RUN at SIDE-lv-conservation -- port-b707 at this act's one commit (run 40123142437), its conclusion
@@ -1333,11 +1334,11 @@ def port_kind_ok(S):
 # ================================================================== (R319)(2) AND N1, N3: THE CARRY BY DIFF AND THE LEAN TEST
 def carry_spans_ok(S):
     """N3 as the banks read it: the seven carried tools each with its carry bank (the substitution diff and the repair spans b708's bank names) and a row in
-    the spans bank; the two read whole in spans and the one in parts lettered in the defects bank ((b), (e))."""
+    the spans bank; the three read whole in spans and the one in parts lettered in the defects bank ((b), (e))."""
     rows = re.findall(r'^  tools/b709_(\w+)\.py \| repair spans (.*?) \| substitution hunks (\d+) \|', S['spans'], re.M)
     d = S['defects']
     return sorted(r[0] for r in rows) == sorted(CARRIED_NAMES) and all(bool(S['carry_banks'][n]) and ('CARRIED tools/b709_%s.py' % n) in S['carry_banks'][n] for n in CARRIED_NAMES) \
-        and "(b) THE SEAT'S: ONE CARRIED TOOL READ WHOLE IN PARTS" in d and "(e) THE SEAT'S: TWO CARRIED TOOLS READ WHOLE IN SPANS" in d \
+        and "(b) THE SEAT'S: ONE CARRIED TOOL READ WHOLE IN PARTS" in d and "(e) THE SEAT'S: THREE CARRIED TOOLS READ WHOLE IN SPANS" in d \
         and 'CARRIED TOOLS 7 ; REPAIR SPANS 2' in unwrap(S['spans']) and S['tracked']('data/b709_carry_spans.txt')
 
 
@@ -1464,7 +1465,7 @@ ARMS = [
      lambda S: port_held_ok(S), lambda S: put(S, 'lv_tip_on_main', True)),
     ('G-PORT-KIND-ANSWERED', 'defect (a) and the run together: b707`s :277 kind answered by the edit (C7OrderBounds builds), :380 the cascade cleared unedited, the next failing line of the same kind named with the count remaining',
      lambda S: port_kind_ok(S), lambda S: put(S, 'portt', '')),
-    ('G-CARRY-SPANS', 'N3 as the banks read it: the seven carried tools each with its carry bank and its row in the spans bank; the three read whole lettered (b) and (e) in the defects bank',
+    ('G-CARRY-SPANS', 'N3 as the banks read it: the seven carried tools each with its carry bank and its row in the spans bank; the four read whole (one in parts, three in spans) lettered (b) and (e) in the defects bank',
      lambda S: carry_spans_ok(S), lambda S: put(S, 'spans', '')),
     ('G-LEAN-TEST-ENTERED', 'N1 as worded, refuted on the test`s lean run: the tests bank`s line for test_elab_reader_b634.py over the guard, defect (c) naming it, the N1 score REFUTED, no command of the seat running lean',
      lambda S: lean_test_entered_ok(S), lambda S: put(S, 'testst', '')),

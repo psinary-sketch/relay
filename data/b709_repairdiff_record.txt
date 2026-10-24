@@ -1,4 +1,4 @@
-b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried form (tools/b708_record.py with the act names substituted) against the file now (2026-10-24T20:20:39Z)
+b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried form (tools/b708_record.py with the act names substituted) against the file now (2026-10-24T20:30:51Z)
 
 --- tools/b709_record.py (the carried form)
 +++ tools/b709_record.py (now)
@@ -303,7 +303,7 @@ b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried fo
 +        '(%d banks)' % (G['c1_first'], G['c1'], fr['zeta_pos'], fr['rows'], fb['zeta_pos'], fb['rows'], fr['tails_max'], fb['tails_max'], fr['hyp'], fb['hyp'], fr['fal'], fb['fal'],
 +                        fr['hyp_vac'] and fr['fal_vac'], fb['hyp_vac'] and fb['fal_vac'], Pz['c1'], Pz['c2_rows'], Pz['controls_first'],
 +                        Pz['falsifier'].group(0)[4:] if Pz['falsifier'] else '### NOT READ', rj.get('unchanged'), len(rj.get('rows') or {})))
-@@ -1575,18 +997,12 @@
+@@ -1575,18 +997,13 @@
 -    """N3: the registrations bank committed at step zero and no eigenvalue computed this act; the listings of (9) printed before any branch or file
 -    clause was acted on, and no clause naming a file or branch the listing does not show."""
 -    files = [x for x in g(ROOT, 'diff-tree', '--no-commit-id', '--name-only', '-r', K.REG_COMMIT).split(NL) if x.strip()]
@@ -330,22 +330,23 @@ b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried fo
 +    rows = re.findall(r'^  tools/b709_(\w+)\.py \| repair spans (.*?) \| substitution hunks (\d+) \|', sp, re.M)
 +    rc = jl('%s_repair_controls.json' % ACT)
 +    ctl = rdn('%s_repair_controls.txt' % ACT)
-+    whole = re.findall(r"^    \(([a-z])\) THE SEAT'S: (ONE CARRIED TOOL READ WHOLE IN PARTS|TWO CARRIED TOOLS READ WHOLE IN SPANS)", rdn('%s_defects.txt' % ACT), re.M)
++    whole = re.findall(r"^    \(([a-z])\) THE SEAT'S: (ONE CARRIED TOOL READ WHOLE IN PARTS|(?:TWO|THREE) CARRIED TOOLS READ WHOLE IN SPANS)", rdn('%s_defects.txt' % ACT), re.M)
++    n_whole = sum({'ONE': 1, 'TWO': 2, 'THREE': 3}.get(w.split()[0], 0) for _l, w in whole)
 +    spans_ok = all(banks.values()) and sorted(r[0] for r in rows) == sorted(CARRIED_NAMES)
 +    repair_ok = 'CASES 5 ; AS WANTED True ; THE REPAIRED NEEDLE PASSES ON b708`S GATE RECORD True ; THE NEG CONTROL FAILS True' in ctl and (rc.get('as_wanted') is True or 'AS WANTED True' in ctl)
 +    ok = spans_ok and repair_ok and not whole
-@@ -1594,5 +1010,5 @@
+@@ -1594,5 +1011,5 @@
 -        'the registrations` commit %s carrying %s alone at step zero, its time before Component 1`s %s: %s; re-read unchanged %s, no onset, units or eigenvalue bank of this act %s '
 -        '(relay data/b709_registrations_reread.json); commands running an onset or witness tool: %s; the listing `git branch --merged main` first at %s, the first delete at %s, '
 -        'the listing first: %s; every branch deleted among the branches listed before (relay data/b709_branches_before.json, %d rows; data/b709_branches.json, %d rows): %s' % (
 -            K.REG_COMMIT, files, K.C1_RELAY, bool(reg_ct) and bool(c1_ct) and reg_ct < c1_ct, rj.get('unchanged'), rj.get('no_eigenvalue'), onset_cmds or 'NONE',
 -            min(lst) if lst else '-', min(dels) if dels else '-', before, len(bb), len(bj), in_listing))
 +        'as worded, on the first clause: the seven carried tools each carried by the substitution and banked by its diff with the repair spans b708`s bank names '
-+        '(relay data/b709_carry_spans.txt: %s), %s; the reads of three of them cover the whole file -- %s -- lettered in relay data/b709_defects.txt with their cause, '
++        '(relay data/b709_carry_spans.txt: %s), %s; the reads of %d of them cover the whole file -- %s -- lettered in relay data/b709_defects.txt with their cause, '
 +        'so the clause is %s; the second clause, the needle`s repair (relay data/b709_repair_controls.txt): %s' % (
-+            '; '.join('%s spans %s hunks %s' % r for r in rows) or 'NONE', 'every bank present' if all(banks.values()) else '### A CARRY BANK MISSING',
++            '; '.join('%s spans %s hunks %s' % r for r in rows) or 'NONE', 'every bank present' if all(banks.values()) else '### A CARRY BANK MISSING', n_whole,
 +            '; '.join('(%s) %s' % (l, w.lower()) for l, w in whole) or 'none', 'REFUTED' if whole else 'met', 'passes on b708`s record and the NEG control fails' if repair_ok else '### NOT AS READ'))
-@@ -1602,20 +1018,21 @@
+@@ -1602,20 +1019,21 @@
 -    """N4: the distance after the cut at or below the distance before; the quotation search run before the merge and its hit count printed; the
 -    mirror verifies CLEAN on all three clauses (read at the close where the mirror is not yet built: PENDING at the record)."""
 -    cj, qj = jl('%s_cut.json' % ACT), jl('%s_quote.json' % ACT)
@@ -387,23 +388,23 @@ b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried fo
 +            K.PORT_FILE, (l277.get('old') or '').strip(), (l277.get('new') or '').strip(), l380.get('old') == l380.get('new'), pe.get('hunks'), pe.get('changed'),
 +            K.PORT_TIP[:8], parent[:8], K.PORT_BASE[:8], parent == K.PORT_BASE, files, stat[0].split('\t')[0] if stat else '-', stat[0].split('\t')[1] if stat else '-',
 +            lv_dep[:8], lv_dep == K.LV_V0100, lv_main[:8], lv_main == K.LV_MAIN, stand))
-@@ -1629,4 +1046,2 @@
+@@ -1629,4 +1047,2 @@
 -    ef_main = g(EF, 'rev-parse', 'main').strip()
 -    ef_ok = ef_main == K.EF_MAIN and not g(EF, 'tag', '--contains', K.EF_V037).replace('v0.37', '').strip()
 -    rh = R._remote_heads(EF)
 -    scratch_gone = not any(g(EF, 'branch', '--list', b).strip() or b in rh for b in (K.PROBE_BRANCH, K.PRINTS_BRANCH))
 +    ef_main = g(K.EF_DIR, 'rev-parse', 'main').strip()
 +    ef_ok = ef_main == K.EF_MAIN and not g(K.EF_DIR, 'tag', '--contains', K.EF_V037).replace('v0.37', '').strip()
-@@ -1635,1 +1050,1 @@
+@@ -1635,1 +1051,1 @@
 -    lv_ok = lv_main == K.LV_MAIN and lv_dep == K.LV_V0100 and lv_port == K.PORT_COMMIT and not [t for t in g(LV, 'tag', '--contains', K.PORT_COMMIT).split(NL) if t.strip()]
 +    lv_ok = lv_main == K.LV_MAIN and lv_dep == K.LV_V0100 and lv_port == K.PORT_TIP and not [t for t in g(LV, 'tag', '--contains', K.PORT_TIP).split(NL) if t.strip()]
-@@ -1648,1 +1063,1 @@
+@@ -1648,1 +1064,1 @@
 -    added = sorted(set(R._g2_of(FACE)) - set(R._g2_of(os.path.join(ROOT, *K.B707_FACE.split('/')))) - set(K.ACT_ARMS))
 +    added = sorted(set(R._g2_of(FACE)) - set(R._g2_of(os.path.join(ROOT, *K.B708_FACE.split('/')))) - set(K.ACT_ARMS))
-@@ -1651,1 +1066,1 @@
+@@ -1651,1 +1067,1 @@
 -    amended = (_amended_after(ROOT, lock) + _amended_after(PP, lock) + _amended_after(EF, lock)) if lock else []
 +    amended = (_amended_after(ROOT, lock) + _amended_after(PP, lock) + _amended_after(LV, lock)) if lock else []
-@@ -1655,4 +1070,3 @@
+@@ -1655,4 +1071,3 @@
 -    wf_main = _show(EF, K.EF_MAIN, K.WORKFLOW) or ''
 -    pf = jl('%s_print_files_%s.json' % (ACT, K.PRINTS_BRANCH))
 -    wf_ok = bool(wf_main) and (pf.get('sha256') or {}).get(K.WORKFLOW) == hashlib.sha256(wf_main.encode('utf-8')).hexdigest() \
@@ -411,10 +412,10 @@ b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried fo
 +    wf_tip = _show(LV, K.PORT_TIP, K.WORKFLOW) or ''
 +    wf_base = _show(LV, K.PORT_BASE, K.WORKFLOW) or ''
 +    wf_ok = bool(wf_tip) and wf_tip == wf_base and not any(w in wf_tip.lower() for w in IDENT_WORDS)
-@@ -1665,1 +1079,1 @@
+@@ -1665,1 +1080,1 @@
 -    ok = k_ok and ef_ok and scratch_gone and lv_ok and join_ok and not pp_beyond and not renames and not kinds_beyond and not shared_tools and not differ and arms_ok \
 +    ok = k_ok and ef_ok and lv_ok and join_ok and not pp_beyond and not renames and not kinds_beyond and not shared_tools and not differ and arms_ok \
-@@ -1669,7 +1083,8 @@
+@@ -1669,7 +1084,8 @@
 -            'v0.37, the two scratch branches gone locally and at the remote: %s, %s; SIDE-lv-conservation`s main and deposit unmoved, port-b708 standing at its one commit, no tag '
 -            'past it: %s; the join kernel`s main at its manifest commit, no tag: %s; the standing arms added beyond b708`s face, the act arms apart: %s (%s); shared tools '
 -            'edited: %s; sealed tools not agreeing: %s; commits amended after the seal: %s; deletes with anything chained after: %s; port-b708 deleted: %s; one git write per '
@@ -430,7 +431,7 @@ b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried fo
 +            'the author in %s; the workflow at port-b707`s tip b707`s blob unchanged with no identifier: %s; the clauses that wait (the hashes at the close, no bank after the '
 +            'root) read again at `scores close`' % (
 +                K.DRAFT, k_ok, ef_ok, K.PORT_TIP[:8], lv_ok, join_ok, added or 'NONE', arms_ok, shared_tools or 'NONE', differ or 'NONE', amended or 'NONE',
-@@ -1680,0 +1095,290 @@
+@@ -1680,0 +1096,290 @@
 +def TRAIL_HEAD():
 +    return ('### b709 — lane two, act one hundred and thirty-six, the research act under (R319): b708 at its weight; the needle repaired and the carry read '
 +            'by diff; the sign-onset radius at Q0 on the fine grid; the detection law over the higher pairs to height 325; SIDE-lv-conservation’s '
@@ -468,8 +469,8 @@ b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried fo
 +            'and 15 entered “beyond reach at height 325” with the heights the rule needs (405.4, 442.3), not estimated, the order W-ORD-Q0-ZEROS-443 entered for '
 +            'b711; the band runs sent to the background and through pools before that word, defect (d); (4) the grid’s hypothesis and falsifier as worded '
 +            'vacuous on the grid as worded (b708’s reading, carried): read and printed per family with the discriminating reading beside them -- the band’s '
-+            'onset a rung (log 32381, where Λ_Q vanishes), ρ₀’s a midpoint (between log 929 and log 937); (5) the carry read by diff: three carried tools read '
-+            'whole in spans or parts (the citation tool, (b); the suite and the closing tool, (e)), N3 scored as worded REFUTED on that clause, the rule’s '
++            'onset a rung (log 32381, where Λ_Q vanishes), ρ₀’s a midpoint (between log 929 and log 937); (5) the carry read by diff: four carried tools read '
++            'whole in spans or parts (the citation tool, (b); the suite, the closing tool and the spec tool, (e)), N3 scored as worded REFUTED on that clause, the rule’s '
 +            'provision for the act-specific sections of a carried tool for the next ruling; (6) the report tool outside the sealed list until the root’s word '
 +            '(relay data/b709_rules.txt row (1)); (7) the order’s landing bank committed one commit late, an event; (8) the %s navigator %s%s and the seat’s %s '
 +            'defect%s as lettered' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', (' (%s)' % letters) if letters else '', num_word(seat), '' if seat == 1 else 's'))
@@ -511,7 +512,7 @@ b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried fo
 +         'read for C7OrderBounds.lean :380 (a cascade of :277, this act’s (a)); the corrigenda bank appended at row (%s); the needle repaired at carry time '
 +         '(tools/b709_checks.py no_verdict_line_ok, the exempt bank named; its controls relay data/b709_repair_controls.txt, 5 cases as wanted, the NEG '
 +         'control failing); the carry read by diff entered as relay data/b709_rules.txt row (1), each carried tool banked by its substitution diff with the '
-+         'spans b708’s repairs bank names (relay data/b709_carry_spans.txt), the three read whole lettered ((b), (e)); W-ORD-WORKFLOW-PROBE-STEP annotated '
++         'spans b708’s repairs bank names (relay data/b709_carry_spans.txt), the four read whole lettered ((b), (e)); W-ORD-WORKFLOW-PROBE-STEP annotated '
 +         'DISCHARGED at OPEN_TRAILS :%d; the report tool outside the sealed list until the root’s word.' % (c1_[0], f['corr_line'], f['corr_row'], K.ORDER_WORKFLOW_PROBE_ANNOTATED), '',
 +         '**The grid** (`(R319)`(3), N2): data/b708_registrations.txt (i) computed as registered and nothing added -- for each family the interval between '
 +         'the greatest positive coarse radius and the least negative one subdivided at the rungs log p^k in it and at the midpoints between consecutive rungs, '
@@ -686,7 +687,7 @@ b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried fo
 +    ('checks', 'the act`s arms over this act`s banks (the grid, the pairs, the port, the axis, the carry, the corrigendum row (29), the orders, the title form) in place of b708`s (the probe, the prints, the re-cut, the port`s lines); the sources over this act`s banks; REQUIRED_BANKS; the standing runner arms re-sourced to this act`s one run; the figures baseline b708`s; the next act`s rules glob b710`s'),
 +    ('closing', 'TITLE_LINE, act_sections (the grid, the pairs, the port, the axis), KERNEL_LINES, CARRIED_FIXED and the heads loop (port-b707 at this act`s tip; no scratch branch) -- the act`s own text'),
 +    ('reg_gate', 'the substitution alone (7 lines)'),
-+    ('regspec', 'the substitution alone (42 lines)'),
++    ('regspec', 'the clause table, the measured counts, the spec`s title and a planted runner row with the gate NOT DERIVES re-written for this act`s objects (b708`s scratch branches, probe, prints, cut and port commit replaced by the port`s one commit, the grid, the pairs, the orders, the binary banks, the lean test and the whole reads); the tag check at the port tip -- the act`s own text'),
 +]
 +
 +
@@ -721,12 +722,12 @@ b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried fo
 +    print(NL.join(L[-1:]))
 +
 +
-@@ -1682,1 +1387,1 @@
+@@ -1682,1 +1388,1 @@
 -    that waited (N4's mirror clause, S1, S2) into data/b709_scores_close.json."""
 +    that waited (N5's close clauses, S1, S2) into data/b709_scores_close.json."""
-@@ -1697,239 +1402,0 @@
+@@ -1697,239 +1403,0 @@
 -  ### 239 lines pruned (data/b709_prune_record.txt), the first: 
-@@ -2099,5 +1565,422 @@
+@@ -2099,5 +1566,422 @@
 -ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks, c1=c1,
 -              scores=scores, components=components, findings=findings, trail=trail, drycheck=drycheck, mbank=mbank, guard=guard, armnames=armnames,
 -              figures=figures, repairs=repairs, repairctl=repairctl, regcheck=regcheck, scorercheck=scorercheck,
@@ -1154,9 +1155,9 @@ b709 -- THE CARRY-TIME REPAIRS OF tools/b709_record.py AS A DIFF: the carried fo
 +              c1=c1, repairctl=repairctl, orders=orders, orders443=orders443, ksyms=ksyms, defs=defs, portedit=portedit, portdispatch=portdispatch, portrun=portrun,
 +              scores=scores, findings=findings, trail=trail, drycheck=drycheck, mbank=mbank, guard=guard, armnames=armnames,
 +              figures=figures, regcheck=regcheck, scorercheck=scorercheck, runner=runner,
-@@ -2106,1 +1989,2 @@
+@@ -2106,1 +1990,2 @@
 -              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, tie=tie)
 +              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, components=components, repairs=repairs,
 +              linecheck=linecheck)
 
-### ### **HUNKS 49 ; LINES REMOVED 1080 ; LINES ADDED 964.**
+### ### **HUNKS 49 ; LINES REMOVED 1080 ; LINES ADDED 965.**

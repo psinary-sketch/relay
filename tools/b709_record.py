@@ -1002,15 +1002,16 @@ def _n3():
     rows = re.findall(r'^  tools/b709_(\w+)\.py \| repair spans (.*?) \| substitution hunks (\d+) \|', sp, re.M)
     rc = jl('%s_repair_controls.json' % ACT)
     ctl = rdn('%s_repair_controls.txt' % ACT)
-    whole = re.findall(r"^    \(([a-z])\) THE SEAT'S: (ONE CARRIED TOOL READ WHOLE IN PARTS|TWO CARRIED TOOLS READ WHOLE IN SPANS)", rdn('%s_defects.txt' % ACT), re.M)
+    whole = re.findall(r"^    \(([a-z])\) THE SEAT'S: (ONE CARRIED TOOL READ WHOLE IN PARTS|(?:TWO|THREE) CARRIED TOOLS READ WHOLE IN SPANS)", rdn('%s_defects.txt' % ACT), re.M)
+    n_whole = sum({'ONE': 1, 'TWO': 2, 'THREE': 3}.get(w.split()[0], 0) for _l, w in whole)
     spans_ok = all(banks.values()) and sorted(r[0] for r in rows) == sorted(CARRIED_NAMES)
     repair_ok = 'CASES 5 ; AS WANTED True ; THE REPAIRED NEEDLE PASSES ON b708`S GATE RECORD True ; THE NEG CONTROL FAILS True' in ctl and (rc.get('as_wanted') is True or 'AS WANTED True' in ctl)
     ok = spans_ok and repair_ok and not whole
     return ('HELD' if ok else 'REFUTED'), (
         'as worded, on the first clause: the seven carried tools each carried by the substitution and banked by its diff with the repair spans b708`s bank names '
-        '(relay data/b709_carry_spans.txt: %s), %s; the reads of three of them cover the whole file -- %s -- lettered in relay data/b709_defects.txt with their cause, '
+        '(relay data/b709_carry_spans.txt: %s), %s; the reads of %d of them cover the whole file -- %s -- lettered in relay data/b709_defects.txt with their cause, '
         'so the clause is %s; the second clause, the needle`s repair (relay data/b709_repair_controls.txt): %s' % (
-            '; '.join('%s spans %s hunks %s' % r for r in rows) or 'NONE', 'every bank present' if all(banks.values()) else '### A CARRY BANK MISSING',
+            '; '.join('%s spans %s hunks %s' % r for r in rows) or 'NONE', 'every bank present' if all(banks.values()) else '### A CARRY BANK MISSING', n_whole,
             '; '.join('(%s) %s' % (l, w.lower()) for l, w in whole) or 'none', 'REFUTED' if whole else 'met', 'passes on b708`s record and the NEG control fails' if repair_ok else '### NOT AS READ'))
 
 
@@ -1129,8 +1130,8 @@ def _for_author():
             'and 15 entered “beyond reach at height 325” with the heights the rule needs (405.4, 442.3), not estimated, the order W-ORD-Q0-ZEROS-443 entered for '
             'b711; the band runs sent to the background and through pools before that word, defect (d); (4) the grid’s hypothesis and falsifier as worded '
             'vacuous on the grid as worded (b708’s reading, carried): read and printed per family with the discriminating reading beside them -- the band’s '
-            'onset a rung (log 32381, where Λ_Q vanishes), ρ₀’s a midpoint (between log 929 and log 937); (5) the carry read by diff: three carried tools read '
-            'whole in spans or parts (the citation tool, (b); the suite and the closing tool, (e)), N3 scored as worded REFUTED on that clause, the rule’s '
+            'onset a rung (log 32381, where Λ_Q vanishes), ρ₀’s a midpoint (between log 929 and log 937); (5) the carry read by diff: four carried tools read '
+            'whole in spans or parts (the citation tool, (b); the suite, the closing tool and the spec tool, (e)), N3 scored as worded REFUTED on that clause, the rule’s '
             'provision for the act-specific sections of a carried tool for the next ruling; (6) the report tool outside the sealed list until the root’s word '
             '(relay data/b709_rules.txt row (1)); (7) the order’s landing bank committed one commit late, an event; (8) the %s navigator %s%s and the seat’s %s '
             'defect%s as lettered' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', (' (%s)' % letters) if letters else '', num_word(seat), '' if seat == 1 else 's'))
@@ -1172,7 +1173,7 @@ def _finding_text():
          'read for C7OrderBounds.lean :380 (a cascade of :277, this act’s (a)); the corrigenda bank appended at row (%s); the needle repaired at carry time '
          '(tools/b709_checks.py no_verdict_line_ok, the exempt bank named; its controls relay data/b709_repair_controls.txt, 5 cases as wanted, the NEG '
          'control failing); the carry read by diff entered as relay data/b709_rules.txt row (1), each carried tool banked by its substitution diff with the '
-         'spans b708’s repairs bank names (relay data/b709_carry_spans.txt), the three read whole lettered ((b), (e)); W-ORD-WORKFLOW-PROBE-STEP annotated '
+         'spans b708’s repairs bank names (relay data/b709_carry_spans.txt), the four read whole lettered ((b), (e)); W-ORD-WORKFLOW-PROBE-STEP annotated '
          'DISCHARGED at OPEN_TRAILS :%d; the report tool outside the sealed list until the root’s word.' % (c1_[0], f['corr_line'], f['corr_row'], K.ORDER_WORKFLOW_PROBE_ANNOTATED), '',
          '**The grid** (`(R319)`(3), N2): data/b708_registrations.txt (i) computed as registered and nothing added -- for each family the interval between '
          'the greatest positive coarse radius and the least negative one subdivided at the rungs log p^k in it and at the midpoints between consecutive rungs, '
@@ -1347,7 +1348,7 @@ OWN_SECTIONS = [
     ('checks', 'the act`s arms over this act`s banks (the grid, the pairs, the port, the axis, the carry, the corrigendum row (29), the orders, the title form) in place of b708`s (the probe, the prints, the re-cut, the port`s lines); the sources over this act`s banks; REQUIRED_BANKS; the standing runner arms re-sourced to this act`s one run; the figures baseline b708`s; the next act`s rules glob b710`s'),
     ('closing', 'TITLE_LINE, act_sections (the grid, the pairs, the port, the axis), KERNEL_LINES, CARRIED_FIXED and the heads loop (port-b707 at this act`s tip; no scratch branch) -- the act`s own text'),
     ('reg_gate', 'the substitution alone (7 lines)'),
-    ('regspec', 'the substitution alone (42 lines)'),
+    ('regspec', 'the clause table, the measured counts, the spec`s title and a planted runner row with the gate NOT DERIVES re-written for this act`s objects (b708`s scratch branches, probe, prints, cut and port commit replaced by the port`s one commit, the grid, the pairs, the orders, the binary banks, the lean test and the whole reads); the tag check at the port tip -- the act`s own text'),
 ]
 
 
