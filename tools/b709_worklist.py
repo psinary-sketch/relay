@@ -99,17 +99,22 @@ B708_TRAIL_HEAD = ('### b708 — lane two, act one hundred and thirty-five, the 
                    'workflow’s step at v0.37; the entry-tag prints complete; day1/Spectral_Inertness.md re-cut; the onset’s fine grid registered')
 # ### stage two (Component 5, by the Edit tool): the commits in order, the sealed tools and the act's arms.
 STEPZERO = 'c1b64ca5'        # ### b708's closing push capture, committed alone at step zero
-STEPZERO_BANKS = ''          # ### the ferry, the citation check, the readfirst bank, rowgen, the branches, the tests, the first tools
+STEPZERO_BANKS = '17d67b307a412a3bfc3dba8aa167d25df73ac29d'   # ### the ferry, the citation check, the readfirst bank, rowgen, the branches, the tests, the first tools
 REG_COMMIT = '510dc29b374ff89afa3ac4ccfadab74a05b7ce8e'              # ### data/b709_registrations.txt and data/b709_rules.txt committed alone, before any computation (N2)
-C1_RELAY = ''                # ### Component 1's relay commit (the weight line's banks, the repair's controls, the corrigendum banks, the order)
-C1_PP = ''                   # ### Component 1's PLACE-papers commit (the weight line, the corrigendum entry, the order's annotation)
-C2_RELAY = ''                # ### Component 2's relay commit (the grid and the pairs, their banks and hashes banks)
-C2_PP = ''                   # ### none: Component 2 writes no ledger
+C1_RELAY = '7e8a6f9ec492c84351ba793534ea6f507f5d148b'   # ### Component 1's relay commit (the weight line's banks, the repair's controls, the corrigendum banks, the order)
+C1_PP = 'c31eca883d11cc573557e2dc8391ca34ba3341d5'      # ### Component 1's PLACE-papers commit (the weight line :10184, the corrigendum entry :10186, the order's annotation :15762)
+C2_RELAY = '91607edbc2bbc52cb66fc45341934ef1edaea73c'   # ### Component 2's relay commit (the pairs); the grid's commit before it bf1f2e16c26950b17617337939a5cd2617e28911
+C2_RELAY_GRID = 'bf1f2e16c26950b17617337939a5cd2617e28911'
+C2_PP = 'caf18664eee7eadfeab4917ce9550717cedbef0d'      # ### Component 2's PLACE-papers commit: W-ORD-Q0-ZEROS-443 entered at OPEN_TRAILS :15764 (the author's bound at 325)
+ORDER_Q0_ZEROS = 15764       # ### OPEN_TRAILS: W-ORD-Q0-ZEROS-443 (b709), trigger b711
+PAIRS_BOUND = 325            # ### the author's word of 2026-10-24: the higher pairs bounded at height 325; pairs 11 and 15 beyond reach, W-ORD-Q0-ZEROS-443 for b711
 C3_RELAY = ''                # ### Component 3's relay commit (the port banks)
 C3_PP = ''                   # ### none: Component 3 writes no ledger
 C4_RELAY = ''                # ### Component 4's relay commit (the axis named; the registrations re-read)
-PORT_TIP = ''                # ### this act's one commit on port-b707 (Component 3)
-PORT_RUN = 0                 # ### this act's one dispatch, read by its run id (Component 3)
+PORT_TIP = '92af8a344f1161e5f91df448f270bd3dea304429'   # ### this act's one commit on port-b707 (Component 3), pushed in branch mode and read back (data/b709_port_push_out.txt)
+PORT_RUN = 40123142437       # ### this act's one dispatch, read by its run id (Component 3): completed, failure; 11 of 12 modules built; DirichletC7Order held at :212:55
+PORT_BUILT = 11              # ### modules built of PORT_MODULES at the run (b707: 6); C7OrderBounds now builds
+PORT_NEXT_LINE = 'SIDELvConservation/DirichletC7Order.lean:212:55'   # ### the next failing line, a changed signature (the same hasMellin argument as :277)
 PORT_LABEL = 'port'
 SEALED = ('b709_worklist.py', 'b709_tests.py', 'b709_citation.py', 'b709_record.py', 'b709_checks.py', 'b709_closing.py', 'b709_reg_gate.py',
           'b709_regspec.py', 'b709_corrigendum.py', 'b709_carry.py', 'b709_grid.py', 'b709_pairs.py')   # ### the report tool tools/b709_report.py is NOT sealed (data/b708_rules.txt row (1))

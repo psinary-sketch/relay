@@ -1,0 +1,53 @@
+b709 -- COMPONENT 3, (R319)(4): THE PORT RUN OF SIDE-lv-conservation ON port-b707 AT ITS NEW TIP, READ BY ITS RUN ID; THE OUTCOME BY FILE AND LINE (2026-10-24T19:01:04Z)
+
+### the dispatch: the branch port-b707 at its tip (the one commit of this act on b707`s 69e239d9), the workflow at the branch, target SIDELvConservation (data/b709_dispatches.json)
+### the run: id 40123142437 ; https://github.com/psinary-sketch/SIDE-lv-conservation/actions/runs/40123142437 ; status completed ; conclusion failure ; head 92af8a344f1161e5f91df448f270bd3dea304429 on port-b707 ; 2026-10-24T18:58:21Z to 2026-10-24T19:00:45Z
+### the artifacts listed 2: ['chain-probe-40123142437', 'build-module-40123142437'] ; the run`s own chosen by name (build-module-)
+### the artifact: id 12572041735 ; build-module-40123142437 ; 4881 bytes ; sha256 27193149e34b4a6775708ac647c078ba115260cc1ff245c707abafc8b6beea1e ; the platform`s digest 27193149e34b4a6775708ac647c078ba115260cc1ff245c707abafc8b6beea1e ; AGREE
+### the ref built (out/ref.txt): 92af8a344f1161e5f91df448f270bd3dea304429 leanprover/lean4:v4.34.0-rc1
+### the cache (out/cache.log, last line): Already decompressed 8691 file(s)
+### the memory log: LOW 13541 MB ; the hold 2560 ; STOP lines False
+### the build: exit 1 ; error lines 8:
+    error: SIDELvConservation/DirichletC7Order.lean:212:55: Application type mismatch: The argument
+    error: SIDELvConservation/DirichletC7Order.lean:212:6: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+    error: SIDELvConservation/DirichletC7Order.lean:193:0: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+    error: SIDELvConservation/DirichletC7Order.lean:333:8: (kernel) unknown constant 'SIDELvConservation.exists_norm_completedHurwitzZetaEven₀_le_exp_half'
+    error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`
+    error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals
+    error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument
+    error: build failed
+### THE OUTCOME BY FILE AND LINE: modules built 11 of 12: ['Smoke', 'T1_MellinFactorization', 'ZeroCarrier', 'GammaBounds', 'T2_SDarkness', 'T3_StepNineBridge', 'C7OrderBounds', 'CouplingsAtPhi', 'C7FiniteTypeFalse', 'RegisterPentagon', 'PartialPositivity']
+### the module held: ['DirichletC7Order']
+### THE NEXT FAILING LINE, its error and its kind: error: SIDELvConservation/DirichletC7Order.lean:212:55: Application type mismatch: The argument -- a changed signature
+### the failing lines after it (error, kind): [('error: SIDELvConservation/DirichletC7Order.lean:212:6: (deterministic) timeout at `isDefEq', 'a heartbeat timeout (a proof grown costlier at the pin)'), ('error: SIDELvConservation/DirichletC7Order.lean:193:0: (deterministic) timeout at `whnf`, ', 'a heartbeat timeout (a proof grown costlier at the pin)'), ("error: SIDELvConservation/DirichletC7Order.lean:333:8: (kernel) unknown constant 'SIDELvCo", 'a cascade of an earlier failure (the kernel`s own declaration)'), ('error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ', 'a broken proof'), ('error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals', 'a broken proof'), ('error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The arg', 'a changed signature')]
+### the count remaining (not built by this run): 1 ['DirichletC7Order']
+### the ruling`s price restated: files built 11 of 15 (the 12 modules, with AxiomCheck.lean, PinnedGoal.lean, lakefile.lean beside them, not built by the target SIDELvConservation)
+### the print step: NOT RUN (print_targets.txt absent at the branch; out/axioms.txt: ABSENT)
+### where the build completes: not complete at this run; the join`s dispatch not named
+### the lines after the held module (the log`s context, up to 24 lines):
+    ✖ [3588/3589] Building SIDELvConservation.DirichletC7Order (22s)
+    trace: .> LEAN_PATH=/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/batte
+    warning: SIDELvConservation/DirichletC7Order.lean:175:17: `HasSubset.Subset.eventuallyLE` has been deprecated: Use `LE.le.eventuallyLE` instead
+    
+    Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.eventuallyLE` to `LE.le.eventuallyLE x`).
+    warning: SIDELvConservation/DirichletC7Order.lean:205:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+    If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+    ```
+    open Lean.Parser.Tactic in
+    macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+      `(tactic| push $cfg:optConfig Not $[$loc]?)
+    ```
+    error: SIDELvConservation/DirichletC7Order.lean:212:55: Application type mismatch: The argument
+      w
+    has type
+      ℂ
+    of sort `Type` but is expected to have type
+      (hurwitzEvenFEPair a).toStrongFEPair.k < re ?m.299
+    of sort `Prop` in the application
+      WeakFEPair.hasMellin (hurwitzEvenFEPair a).toStrongFEPair w
+    error: SIDELvConservation/DirichletC7Order.lean:212:6: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+    
+    Note: Use `set_option maxHeartbeats <num>` to set the limit.
+    
+
+### ### **RUN 40123142437 (port) ; CONCLUSION failure ; ARTIFACT AGREE ; BUILD EXIT 1 ; ERROR LINES 8 ; MODULES BUILT 11 OF 12 (FILES 11 OF 15) ; THE NEXT FAILING LINE error (a changed signature) ; REMAINING 1 ; THE PRINT STEP NOT RUN ; NO GRADE CLAIMED.**

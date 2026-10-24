@@ -1,0 +1,35 @@
+b709 -- COMPONENT 3, (R319)(4): THE PORT`S NEXT LINES ON port-b707, PRINTED BEFORE THE ONE COMMIT (2026-10-24T18:57:44Z)
+
+### the branch port-b707 checked out at 69e239d9 (b707`s one commit, the base), HEAD unmoved before the commit; the one module SIDELvConservation/C7OrderBounds.lean edited by the Edit tool at
+### one line; the second line (R319)(4) names read again after the edit and not edited: its "(kernel) unknown constant" (data/b707_port.txt :14) names the
+### kernel`s own theorem of :264, whose body failed at :277 -- a cascade of :277 (data/b709_defects.txt (a)); the ruling`s "repaired by the Edit tool to the
+### Mathlib name or form ... for each by kind" is met at :380 by the kind read: no Mathlib name is renamed there, the one edit answers both lines.
+
+### :277 at 69e239d9:  (((hurwitzEvenFEPair 0).toStrongFEPair.hasMellin w).1).norm
+### :277 now:         (((hurwitzEvenFEPair 0).isStrongFEPair_toStrongFEPair.hasMellin w).1).norm
+###   the form: Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean at de5ce8a9 -- WeakFEPair.hasMellin (:405-:406) takes the hypothesis `P.k < s.re` where the kernel
+###   passed `w`; the strong pair`s IsStrongFEPair.hasMellin (:484-:485) takes `s` alone, and WeakFEPair.isStrongFEPair_toStrongFEPair (:313-:315) gives the
+###   instance for (hurwitzEvenFEPair 0).toStrongFEPair, whose f is the modified f of :276. Beside it b707`s second error at :277:6 (a heartbeat timeout at
+###   isDefEq, data/b707_port.txt :43) is read at the dispatch, not pre-judged.
+### :380 at 69e239d9:  theorem exists_norm_completedRiemannZeta₀_le_exp :
+### :380 now:         theorem exists_norm_completedRiemannZeta₀_le_exp :  (UNEDITED True)
+### :383 applies the _half theorem: obtain ⟨A, C, hA0, hb⟩ := exists_norm_completedRiemannZeta₀_le_exp_half
+
+### the diff against 69e239d9 (git diff), 1 hunk(s):
+    diff --git a/SIDELvConservation/C7OrderBounds.lean b/SIDELvConservation/C7OrderBounds.lean
+    index 4a48af2..ebe209e 100644
+    --- a/SIDELvConservation/C7OrderBounds.lean
+    +++ b/SIDELvConservation/C7OrderBounds.lean
+    @@ -274,7 +274,7 @@ theorem exists_norm_completedRiemannZeta₀_le_exp_half :
+           (fun t : ℝ => t ^ (w.re - 1) * ‖(hurwitzEvenFEPair 0).f_modif t‖) (Set.Ioi 0) := fun w => by
+         have h : MeasureTheory.IntegrableOn
+             (fun t : ℝ => ‖(t : ℂ) ^ (w - 1) • (hurwitzEvenFEPair 0).f_modif t‖) (Set.Ioi 0) :=
+    -      (((hurwitzEvenFEPair 0).toStrongFEPair.hasMellin w).1).norm
+    +      (((hurwitzEvenFEPair 0).isStrongFEPair_toStrongFEPair.hasMellin w).1).norm
+         refine MeasureTheory.IntegrableOn.congr_fun h (fun t ht => ?_) measurableSet_Ioi
+         rw [Set.mem_Ioi] at ht
+         rw [norm_smul, Complex.norm_cpow_eq_rpow_re_of_pos ht, Complex.sub_re, Complex.one_re]
+
+### the working tree (git status --short, the untracked .lp.log aside): [' M SIDELvConservation/C7OrderBounds.lean']
+
+### ### **:277 EDITED TO THE STRONG PAIR`S hasMellin ; :380 READ AGAIN, UNEDITED (THE CASCADE) ; HUNKS 1 ; LINES CHANGED 1 ; FILES CHANGED [' M SIDELvConservation/C7OrderBounds.lean'] ; AS THE RULING ORDERS True.**

@@ -1,0 +1,28 @@
+{
+ "rows": [
+  {
+   "kernel": "SIDE-lv-conservation",
+   "label": "port",
+   "ref": "92af8a344f1161e5f91df448f270bd3dea304429",
+   "run_id": 40123142437,
+   "conclusion": "failure",
+   "artifact_sha256": "27193149e34b4a6775708ac647c078ba115260cc1ff245c707abafc8b6beea1e",
+   "mem_low": 13541,
+   "stopped": false,
+   "build_exit": "1",
+   "errors": [
+    "error: SIDELvConservation/DirichletC7Order.lean:212:55: Application type mismatch: The argument",
+    "error: SIDELvConservation/DirichletC7Order.lean:212:6: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached",
+    "error: SIDELvConservation/DirichletC7Order.lean:193:0: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached",
+    "error: SIDELvConservation/DirichletC7Order.lean:333:8: (kernel) unknown constant 'SIDELvConservation.exists_norm_completedHurwitzZetaEven₀_le_exp_half'",
+    "error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`",
+    "error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals",
+    "error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument",
+    "error: build failed"
+   ],
+   "axioms_sha256": null,
+   "gate": "NOT DERIVES",
+   "note": "no grade claimed: the print step read as not run (print_targets.txt absent at the branch), W-ORD-LV-FORWARD-PORT"
+  }
+ ]
+}

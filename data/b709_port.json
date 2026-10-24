@@ -1,0 +1,103 @@
+{
+ "at": "2026-10-24T19:01:04Z",
+ "run_id": 40123142437,
+ "run": {
+  "conclusion": "failure",
+  "createdAt": "2026-10-24T18:58:21Z",
+  "event": "workflow_dispatch",
+  "headBranch": "port-b707",
+  "headSha": "92af8a344f1161e5f91df448f270bd3dea304429",
+  "status": "completed",
+  "updatedAt": "2026-10-24T19:00:45Z",
+  "url": "https://github.com/psinary-sketch/SIDE-lv-conservation/actions/runs/40123142437",
+  "workflowName": "build-module"
+ },
+ "artifact": {
+  "id": 12572041735,
+  "name": "build-module-40123142437",
+  "sha256": "27193149e34b4a6775708ac647c078ba115260cc1ff245c707abafc8b6beea1e",
+  "digest": "27193149e34b4a6775708ac647c078ba115260cc1ff245c707abafc8b6beea1e",
+  "agree": true
+ },
+ "ref_built": "92af8a344f1161e5f91df448f270bd3dea304429 leanprover/lean4:v4.34.0-rc1",
+ "mem_low": 13541,
+ "stopped": false,
+ "build_exit": "1",
+ "errors": [
+  "error: SIDELvConservation/DirichletC7Order.lean:212:55: Application type mismatch: The argument",
+  "error: SIDELvConservation/DirichletC7Order.lean:212:6: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached",
+  "error: SIDELvConservation/DirichletC7Order.lean:193:0: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached",
+  "error: SIDELvConservation/DirichletC7Order.lean:333:8: (kernel) unknown constant 'SIDELvConservation.exists_norm_completedHurwitzZetaEven₀_le_exp_half'",
+  "error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`",
+  "error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals",
+  "error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument",
+  "error: build failed"
+ ],
+ "built": [
+  "Smoke",
+  "T1_MellinFactorization",
+  "ZeroCarrier",
+  "GammaBounds",
+  "T2_SDarkness",
+  "T3_StepNineBridge",
+  "C7OrderBounds",
+  "CouplingsAtPhi",
+  "C7FiniteTypeFalse",
+  "RegisterPentagon",
+  "PartialPositivity"
+ ],
+ "held": [
+  "DirichletC7Order"
+ ],
+ "first_error": "error: SIDELvConservation/DirichletC7Order.lean:212:55: Application type mismatch: The argument",
+ "kinds": [
+  [
+   "error: SIDELvConservation/DirichletC7Order.lean:212:55: Application type mismatch: The argument",
+   "a changed signature"
+  ],
+  [
+   "error: SIDELvConservation/DirichletC7Order.lean:212:6: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached",
+   "a heartbeat timeout (a proof grown costlier at the pin)"
+  ],
+  [
+   "error: SIDELvConservation/DirichletC7Order.lean:193:0: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached",
+   "a heartbeat timeout (a proof grown costlier at the pin)"
+  ],
+  [
+   "error: SIDELvConservation/DirichletC7Order.lean:333:8: (kernel) unknown constant 'SIDELvConservation.exists_norm_completedHurwitzZetaEven₀_le_exp_half'",
+   "a cascade of an earlier failure (the kernel`s own declaration)"
+  ],
+  [
+   "error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`",
+   "a broken proof"
+  ],
+  [
+   "error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals",
+   "a broken proof"
+  ],
+  [
+   "error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument",
+   "a changed signature"
+  ]
+ ],
+ "remaining": [
+  "DirichletC7Order"
+ ],
+ "modules": [
+  "C7FiniteTypeFalse",
+  "C7OrderBounds",
+  "CouplingsAtPhi",
+  "DirichletC7Order",
+  "GammaBounds",
+  "PartialPositivity",
+  "RegisterPentagon",
+  "Smoke",
+  "T1_MellinFactorization",
+  "T2_SDarkness",
+  "T3_StepNineBridge",
+  "ZeroCarrier"
+ ],
+ "print_step": "NOT RUN",
+ "grade_claimed": false,
+ "complete": false
+}

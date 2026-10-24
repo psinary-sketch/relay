@@ -1141,6 +1141,24 @@ ORD = ('*Appended 2026-10-23 by b709 beneath `W-ORD-WORKFLOW-PROBE-STEP` (:15544
        'workflow runs the print list) is retired; the chain’s next probe runs through the step at main’s workflow. Status DISCHARGED.')
 
 
+ORD443 = ('*Appended 2026-10-24 by b709, under the author’s word of 2026-10-24 bounding the higher pairs at height 325 -- THE ORDER '
+          '**`W-ORD-Q0-ZEROS-443`**, ENTERED:* the certified list of Q0’s zeros, complete to height 325 at this act (relay data/b709_pairs.txt: '
+          '231 new zeros on the line by certified sign changes of Λ_Q, 29 new off-line pairs located by Newton on point values, every band’s '
+          'count by the half path equal to on-line + 2 × off-line; b667’s engine with the Bessel rung raised to 2000 bits), extended from 325 to '
+          '443 in eight bands of 15 in the foreground form (one band per call under the guard, no pool, no background shell), priced at 90–120 '
+          'minutes per band from b709’s stamps (the band 310–325: scan 128 s, count 24 pieces 2 800 s, candidates 2 400 s, rising with height); '
+          'then pairs 11 and 15 of data/b707_registrations.txt computed by the registered route (the rule needs T0′ > 405.4 and > 442.3, :31 and '
+          ':35), each entered at b709 as “beyond reach at height 325”, not estimated. The banked candidate grids and counts above 310 '
+          '(data/b709_pairs_units_band_*.jsonl, the band 310–325 complete) are carried as its starting point. Trigger: the research act b711. '
+          'Status OPEN.')
+
+
+def orders443(*a):
+    dry = 'dry' in a
+    land([('OPEN_TRAILS.md', ORD443, NL + ORD443 + NL)], '%s_order443_lines.json' % ACT, 'orders443', entry=None,
+         check=[('OPEN_TRAILS.md', K.ORDER_LV_PORT, '*Appended 2026-10-22 by b707'), ('OPEN_TRAILS.md', K.B708_TRAIL, '### b708')], dry=dry)
+
+
 def orders(*a):
     dry = 'dry' in a
     land([('OPEN_TRAILS.md', ORD, NL + ORD + NL)], '%s_order_lines.json' % ACT, 'orders', entry=None,
@@ -1148,6 +1166,220 @@ def orders(*a):
                 ('OPEN_TRAILS.md', K.ORDER_WORKFLOW_PROBE_DISCHARGED, '*Appended 2026-10-22 by b706 beneath `W-ORD-WORKFLOW-PROBE-STEP` (:15544)'),
                 ('OPEN_TRAILS.md', K.B708_TRAIL, '### b708')],
          dry=dry)
+
+
+# ================================================================================ COMPONENT 3: THE PORT, (R319)(4) -- b707's port routes (tools/b707_record.py :947-:1135), carried in form
+LV = K.LV_DIR
+LV_MODULES = ('C7FiniteTypeFalse', 'C7OrderBounds', 'CouplingsAtPhi', 'DirichletC7Order', 'GammaBounds', 'PartialPositivity', 'RegisterPentagon', 'Smoke',
+              'T1_MellinFactorization', 'T2_SDarkness', 'T3_StepNineBridge', 'ZeroCarrier')   # ### SIDELvConservation/*.lean at 93c27ec, 12 (b707 :949)
+LV_OTHER_LEAN = ('AxiomCheck.lean', 'PinnedGoal.lean', 'lakefile.lean')                     # ### the three .lean files beside the 12: the ruling`s 15
+OLD277 = '      (((hurwitzEvenFEPair 0).toStrongFEPair.hasMellin w).1).norm'
+NEW277 = '      (((hurwitzEvenFEPair 0).isStrongFEPair_toStrongFEPair.hasMellin w).1).norm'
+
+
+def _artifact_named(repo, run_id, prefix):
+    rc, out, err = R._gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, int(run_id)))
+    arts = (json.loads(out or b'{}') or {}).get('artifacts') or []
+    art = next((x for x in arts if (x.get('name') or '').startswith(prefix)), None)
+    return art, arts
+
+
+def portedit(*a):
+    """data/b709_port_edit.txt (.json): the two lines (R319)(4) names, printed BEFORE the one commit -- :277 as it stood at 69e239d and as the Edit
+    tool left it (the strong pair's hasMellin, Mathlib AbstractFuncEq.lean :484-:485 at de5ce8a9); :380 read again after the edit and NOT edited
+    (the kernel's own theorem, its "unknown constant" the cascade of :277, this act's (a)); the diff of the module against the branch's base by
+    git diff, one hunk; every other tracked file unchanged (git status)."""
+    base = K.PORT_BASE
+    head = g(LV, 'rev-parse', 'HEAD').strip()
+    br = g(LV, 'rev-parse', '--abbrev-ref', 'HEAD').strip()
+    src = (rd(os.path.join(LV, *K.PORT_FILE.split('/'))) or '').replace(chr(13), '').split(NL)
+    old = (g(LV, 'show', '%s:%s' % (base, K.PORT_FILE)) or '').replace(chr(13), '').split(NL)
+    d = subprocess.run(['git', '-C', LV, 'diff', base, '--', K.PORT_FILE], capture_output=True).stdout.decode('utf-8', 'replace').replace(chr(13), '').rstrip(NL)
+    dl = d.split(NL) if d else []
+    hunks = [l for l in dl if l.startswith('@@')]
+    changed = [l for l in (g(LV, 'status', '--short') or '').split(NL) if l.strip() and not l.endswith('.lp.log')]
+    l277_old, l277_new = old[276] if len(old) > 276 else '', src[276] if len(src) > 276 else ''
+    l380_old, l380_new = old[379] if len(old) > 379 else '', src[379] if len(src) > 379 else ''
+    ok = (l277_old == OLD277 and l277_new == NEW277 and l380_old == l380_new and l380_new.startswith('theorem exists_norm_completedRiemannZeta₀_le_exp :')
+          and len(hunks) == 1 and changed == [' M ' + K.PORT_FILE] and head == base and br == K.PORT_BRANCH and len(old) == len(src)
+          and sum(1 for i in range(len(src)) if src[i] != old[i]) == 1)
+    L = ['%s -- COMPONENT 3, (R319)(4): THE PORT`S NEXT LINES ON %s, PRINTED BEFORE THE ONE COMMIT (%s)' % (ACT, K.PORT_BRANCH, utc()), '',
+         '### the branch %s checked out at %s (b707`s one commit, the base), HEAD unmoved before the commit; the one module %s edited by the Edit tool at' % (br, head[:8], K.PORT_FILE),
+         '### one line; the second line (R319)(4) names read again after the edit and not edited: its "(kernel) unknown constant" (data/b707_port.txt :14) names the',
+         '### kernel`s own theorem of :264, whose body failed at :277 -- a cascade of :277 (data/b709_defects.txt (a)); the ruling`s "repaired by the Edit tool to the',
+         '### Mathlib name or form ... for each by kind" is met at :380 by the kind read: no Mathlib name is renamed there, the one edit answers both lines.', '',
+         '### :277 at %s:  %s' % (base[:8], l277_old.strip()),
+         '### :277 now:         %s' % l277_new.strip(),
+         '###   the form: Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean at de5ce8a9 -- WeakFEPair.hasMellin (:405-:406) takes the hypothesis `P.k < s.re` where the kernel',
+         '###   passed `w`; the strong pair`s IsStrongFEPair.hasMellin (:484-:485) takes `s` alone, and WeakFEPair.isStrongFEPair_toStrongFEPair (:313-:315) gives the',
+         '###   instance for (hurwitzEvenFEPair 0).toStrongFEPair, whose f is the modified f of :276. Beside it b707`s second error at :277:6 (a heartbeat timeout at',
+         '###   isDefEq, data/b707_port.txt :43) is read at the dispatch, not pre-judged.',
+         '### :380 at %s:  %s' % (base[:8], l380_old.strip()),
+         '### :380 now:         %s  (UNEDITED %s)' % (l380_new.strip(), l380_old == l380_new),
+         '### :383 applies the _half theorem: %s' % (src[382].strip() if len(src) > 382 else ''), '',
+         '### the diff against %s (git diff), %d hunk(s):' % (base[:8], len(hunks))] + ['    ' + x for x in dl] + [
+         '', '### the working tree (git status --short, the untracked .lp.log aside): %s' % changed,
+         '', '### ### **:277 EDITED TO THE STRONG PAIR`S hasMellin ; :380 READ AGAIN, UNEDITED (THE CASCADE) ; HUNKS %d ; LINES CHANGED %d ; FILES CHANGED %s ; AS THE RULING ORDERS %s.**' % (
+             len(hunks), sum(1 for i in range(min(len(src), len(old))) if src[i] != old[i]), changed, ok)]
+    put_txt('%s_port_edit.txt' % ACT, L)
+    put_json('%s_port_edit.json' % ACT, dict(at=utc(), branch=br, base=base, head=head, file=K.PORT_FILE, l277=dict(old=l277_old, new=l277_new), l380=dict(old=l380_old, new=l380_new),
+                                              hunks=len(hunks), diff=dl, changed=changed, ok=ok))
+    print(NL.join(L[6:14] + L[-1:]))
+
+
+def portdispatch(*a):
+    """`portdispatch <label> <target> [dry]`: b707`s form (:1016-:1053) -- the workflow run AT THE BRANCH with the ref input the branch`s tip, one
+    dispatch per tree state (refused where data/b709_dispatches.json carries the tree), the branch`s tip read back at the remote by one ls-remote
+    before the dispatch; no print-list check (print_targets.txt absent at the branch`s tree: the print step read as not run); the row banked with
+    whole False and the reason. The host`s free memory printed before the dispatch ((R319)(7))."""
+    label, target = a[0], a[1]
+    repo = 'psinary-sketch/' + K.KERNEL
+    full = g(LV, 'rev-parse', K.PORT_BRANCH).strip()
+    tree = g(LV, 'rev-parse', full + '^{tree}').strip()
+    j = jl('%s_dispatches.json' % ACT) if os.path.isfile(os.path.join(D, '%s_dispatches.json' % ACT)) else {}
+    rows = j.get('rows') or []
+    seen = [r for r in rows if r.get('tree') == tree]
+    if seen:
+        sys.exit('### THE TREE %s IS ALREADY BUILT (run %s) -- NOT DISPATCHED' % (tree[:12], seen[0].get('run_id')))
+    if not re.match(r'^[A-Za-z0-9_. ]+$', target):
+        sys.exit('### THE TARGET %r IS OUTSIDE THE LAKE GRAMMAR -- NOT DISPATCHED' % target)
+    remote = (g(LV, 'ls-remote', 'origin', 'refs/heads/' + K.PORT_BRANCH).split() or [''])[0]
+    import b709_tests as TT
+    free = TT.mem('the dispatch')
+    print('  kernel %s ; branch %s ; tip %s ; the remote`s tip %s ; equal %s ; tree %s ; target %s' % (K.KERNEL, K.PORT_BRANCH, full, remote, remote == full, tree, target))
+    if remote != full:
+        sys.exit('### THE REMOTE`S %s IS NOT THE LOCAL TIP -- NOT DISPATCHED' % K.PORT_BRANCH)
+    if free < K.HOLD:
+        sys.exit('### FREE MEMORY %d MB BENEATH THE HOLD -- NOT DISPATCHED' % free)
+    if 'dry' in a[2:]:
+        return
+    t0 = utc()
+    rc, out, err = R._gh('workflow', 'run', 'build-module.yml', '-R', repo, '--ref', K.PORT_BRANCH, '-f', 'ref=' + full, '-f', 'target=' + target)
+    if rc != 0:
+        sys.exit('### THE DISPATCH REFUSED: %s' % err[-400:])
+    run_id = None
+    for _i in range(12):
+        time.sleep(5)
+        rc, out, err = R._gh('run', 'list', '-R', repo, '--workflow', 'build-module.yml', '--event', 'workflow_dispatch', '--limit', '5', '--json', 'databaseId,createdAt,status')
+        new = [r for r in json.loads(out or b'[]') if r.get('createdAt', '') >= t0]
+        if new:
+            run_id = sorted(new, key=lambda r: r['createdAt'])[-1]['databaseId']
+            break
+    rows.append(dict(kernel=K.KERNEL, label=label, ref=full, tree=tree, target=target, dispatched=t0, run_id=run_id, whole=False, branch=K.PORT_BRANCH, free_mb=free,
+                     print_list='ABSENT at the branch`s tree -- the print step read as not run, no grade claimed (b707`s reading, W-ORD-LV-FORWARD-PORT)'))
+    put_json('%s_dispatches.json' % ACT, dict(rows=rows))
+    print('  dispatched %s at --ref %s ; run id %s' % (t0, K.PORT_BRANCH, run_id))
+
+
+def _kind(line, built_first_err):
+    """the kind of a failing line read from its error text (b708`s three kinds, with the cascade and the timeout named): a changed signature,
+    a renamed Mathlib declaration, a cascade of an earlier failure (an unknown constant in the kernel`s own namespace), a heartbeat timeout, a
+    broken proof."""
+    if 'Application type mismatch' in line or 'type mismatch' in line:
+        return 'a changed signature'
+    if 'unknown constant' in line or 'unknown identifier' in line:
+        return 'a cascade of an earlier failure (the kernel`s own declaration)' if 'SIDELvConservation.' in line else 'a renamed Mathlib declaration'
+    if 'timeout' in line:
+        return 'a heartbeat timeout (a proof grown costlier at the pin)'
+    return 'a broken proof'
+
+
+def portrun(*a):
+    """`portrun <run id> <label>`: b707`s form (:1056-:1135) -- the run read by its id, its artifact by name with the sha256 against the platform`s
+    digest before any reading, the build`s exit, the memory log, the error lines; THE OUTCOME BY FILE AND LINE: the modules built of 12 (the
+    ruling`s 15 with the three .lean files beside), the module held, the next failing line with its error and its KIND, the count remaining; the
+    print step read as not run; where the build completes, the print step`s absence noted and the join`s dispatch named for b711. data/b709_port.txt (.json)."""
+    import hashlib
+    import io as _io
+    import zipfile
+    run_id, label = int(a[0]), a[1]
+    repo = 'psinary-sketch/' + K.KERNEL
+    rc, out, err = R._gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    art, arts = _artifact_named(repo, run_id, 'build-module-')
+    art = art or {}
+    T_ = {}
+    sha = digest = None
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        if digest and digest == sha:
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for n in z.namelist():
+                    T_[n] = z.read(n).decode('utf-8', 'replace').replace(chr(13), '')
+    agree = bool(art) and bool(digest) and digest == sha
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    mem_low = int(low[-1]) if low else None
+    stopped = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip() or None
+    errors = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    built = [m.group(1) for m in re.finditer(r'^[✔⚠] \[\d+/\d+\] Built SIDELvConservation\.(\w+)', blog, re.M)]
+    held = [m.group(1) for m in re.finditer(r'^✖ \[\d+/\d+\] Building SIDELvConservation\.(\w+)', blog, re.M)]
+    file_errs = [l for l in blog.split(NL) if re.match(r'^error: SIDELvConservation/\w+\.lean:\d+:\d+:', l)]
+    first_err = file_errs[0] if file_errs else None
+    kinds = [(l, _kind(l, first_err)) for l in file_errs[:12]]
+    remaining = [m for m in LV_MODULES if m not in built]
+    cache = T_.get('cache.log', '')
+    axioms = T_.get('axioms.txt', '').strip()
+    ref_built = ' '.join(T_.get('ref.txt', '').split())
+    complete = bool(agree) and bexit == '0' and not remaining
+    row = dict(kernel=K.KERNEL, label=label, ref=run.get('headSha') or '', run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=sha if agree else None,
+               mem_low=mem_low, stopped=stopped, build_exit=bexit, errors=errors, axioms_sha256=None, gate='NOT DERIVES',
+               note='no grade claimed: the print step read as not run (print_targets.txt absent at the branch), W-ORD-LV-FORWARD-PORT')
+    L = ['%s -- COMPONENT 3, (R319)(4): THE PORT RUN OF SIDE-lv-conservation ON %s AT ITS NEW TIP, READ BY ITS RUN ID; THE OUTCOME BY FILE AND LINE (%s)' % (ACT, K.PORT_BRANCH, utc()), '',
+         '### the dispatch: the branch %s at its tip (the one commit of this act on b707`s %s), the workflow at the branch, target SIDELvConservation (data/b709_dispatches.json)' % (K.PORT_BRANCH, K.PORT_BASE[:8]),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'), run.get('updatedAt')),
+         '### the artifacts listed %d: %s ; the run`s own chosen by name (build-module-)' % (len(arts), [x.get('name') for x in arts]),
+         '### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+             art.get('id'), art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN', 'AGREE' if agree else '### NOTHING READ FROM IT'),
+         '### the ref built (out/ref.txt): %s' % (ref_built or '### UNREAD'),
+         '### the cache (out/cache.log, last line): %s' % ' | '.join(l for l in cache.rstrip(NL).split(NL)[-1:] if l)[:300],
+         '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (mem_low, K.HOLD, stopped),
+         '### the build: exit %s ; error lines %d:' % (bexit, len(errors))] + ['    ' + l for l in errors[:40]]
+    L += ['### THE OUTCOME BY FILE AND LINE: modules built %d of %d: %s' % (len(built), len(LV_MODULES), built),
+          '### the module held: %s' % (held or 'NONE'),
+          '### THE NEXT FAILING LINE, its error and its kind: %s' % ((' ; '.join('%s -- %s' % (l, k) for l, k in kinds[:1])) if kinds else 'NONE (no file error line)'),
+          '### the failing lines after it (error, kind): %s' % ([(l[:90], k) for l, k in kinds[1:]] or 'NONE'),
+          '### the count remaining (not built by this run): %d %s' % (len(remaining), remaining),
+          '### the ruling`s price restated: files built %d of 15 (the 12 modules, with %s beside them, not built by the target SIDELvConservation)' % (len(built), ', '.join(LV_OTHER_LEAN)),
+          '### the print step: %s' % ('NOT RUN (print_targets.txt absent at the branch; out/axioms.txt: %s)' % (axioms[:80] or 'ABSENT')),
+          '### where the build completes: %s' % ('THE BUILD COMPLETES, 12 of 12 -- the print step`s absence at the branch noted (no grade claimed); the join`s dispatch (W-ORD-LV-CLOSURE-JOIN, OPEN_TRAILS :%d) named for b711'
+                                                  % K.ORDER_LV_JOIN if complete else 'not complete at this run; the join`s dispatch not named'),
+          '### the lines after the held module (the log`s context, up to 24 lines):']
+    if held:
+        i0 = next((i for i, l in enumerate(blog.split(NL)) if ('Building SIDELvConservation.%s' % held[0]) in l), 0)
+        L += ['    ' + l[:200] for l in blog.split(NL)[i0:i0 + 24]]
+    else:
+        L += ['    ' + l[:200] for l in blog.rstrip(NL).split(NL)[-12:]]
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; MODULES BUILT %d OF 12 (FILES %d OF 15) ; THE NEXT FAILING LINE %s (%s) ; '
+              'REMAINING %d ; THE PRINT STEP NOT RUN ; NO GRADE CLAIMED%s.**' % (
+                  run_id, label, run.get('conclusion'), 'AGREE' if agree else '### UNREAD', bexit, len(errors), len(built), len(built),
+                  (first_err.split(': ')[0] if first_err else 'NONE'), (kinds[0][1] if kinds else '-'), len(remaining), ' ; THE BUILD COMPLETES, THE JOIN`S DISPATCH NAMED FOR b711' if complete else '')]
+    rr = globals().get('read_runner_row') or R.read_runner_row
+    rr(row)
+    put_txt('%s_port.txt' % ACT, L)
+    if agree:
+        put_txt('%s_buildlog_%s_%s.txt' % (ACT, K.KERNEL, label), blog.rstrip(NL).split(NL))
+        put_txt('%s_runner_%s_%s.txt' % (ACT, K.KERNEL, label), L)
+    put_json('%s_port.json' % ACT, dict(at=utc(), run_id=run_id, run=run, artifact=dict(id=art.get('id'), name=art.get('name'), sha256=sha, digest=digest, agree=agree), ref_built=ref_built,
+                                        mem_low=mem_low, stopped=stopped, build_exit=bexit, errors=errors, built=built, held=held, first_error=first_err, kinds=kinds, remaining=remaining,
+                                        modules=list(LV_MODULES), print_step='NOT RUN', grade_claimed=False, complete=complete))
+    j = jl('%s_runner_rows.json' % ACT) if os.path.isfile(os.path.join(D, '%s_runner_rows.json' % ACT)) else {}
+    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (K.KERNEL, label)] + [row]
+    put_json('%s_runner_rows.json' % ACT, dict(rows=rows))
+    print(NL.join(L[2:10] + L[-1:]))
+
+
+def defs(*a):
+    """`defs <tool.py>`: the tool's top-level def names with their lines (print only) -- the span finder for a read by offset and limit."""
+    src = rd(os.path.join(T, a[0])).split(NL)
+    for i, l in enumerate(src, 1):
+        if l.startswith('def ') or l.startswith('class ') or l.startswith('# ====='):
+            print('  :%d %s' % (i, l[:100]))
 
 
 def ksyms(*a):
@@ -1165,7 +1397,7 @@ def ksyms(*a):
 
 
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
-              c1=c1, repairctl=repairctl, orders=orders, ksyms=ksyms,
+              c1=c1, repairctl=repairctl, orders=orders, orders443=orders443, ksyms=ksyms, defs=defs, portedit=portedit, portdispatch=portdispatch, portrun=portrun,
               scores=scores, findings=findings, trail=trail, drycheck=drycheck, mbank=mbank, guard=guard, armnames=armnames,
               figures=figures, regcheck=regcheck, scorercheck=scorercheck, runner=runner,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
