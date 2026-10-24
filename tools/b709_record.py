@@ -774,36 +774,58 @@ def figures(*a):
     print(NL.join(L[:10] + L[-1:]))
 
 
-# ================================================================================ COMPONENT 5: THE REGISTRATIONS RE-READ ((R319)(3), N3)
+# ================================================================================ COMPONENT 4: THE REGISTRATIONS RE-READ ((R319)(3), (5), (6); N2, N3)
+REG_B708_COMMIT = '6045dd8c'    # ### data/b708_registrations.txt committed alone (b708's step zero): the fine grid, computed this act ((R319)(3))
+REG_B707_COMMIT = '6e8ece87'    # ### data/b707_registrations.txt committed alone (b707's step zero): the higher pairs' route, computed this act ((R319)(5))
+REGISTRATIONS = (('data/%s_registrations.txt' % ACT, K.REG_COMMIT, 'the second axis, (e) representation coordinates, registered for b711 before any computation ((R319)(6))'),
+                 ('data/%s_rules.txt' % ACT, K.REG_COMMIT, 'the carry-by-diff rule, row (1) ((R319)(2))'),
+                 (K.REGISTRATION_B708, REG_B708_COMMIT, 'the fine grid (b708), computed this act as registered ((R319)(3): %s)' % K.GRID_BANK),
+                 (K.REGISTRATION_B707, REG_B707_COMMIT, 'the higher pairs` route (b707), computed this act as registered ((R319)(5): %s)' % K.PAIRS_BANK))
+COMPUTED_BANKS = (K.GRID_BANK, K.GRID_BANK.replace('.txt', '_hashes.txt'), K.PAIRS_BANK, K.PAIRS_BANK.replace('.txt', '_hashes.txt'))
+
+
 def regcheck(*a):
-    """data/b709_registrations_reread.txt (.json): data/b709_registrations.txt and data/b709_rules.txt re-read whole after Components 1-4 and
-    compared byte for byte with the blobs committed alone at step zero (relay 6045dd8c); no eigenvalue computed this act (no onset or units
-    bank of b709 exists; no onset tool run, read from the command capture by the suite)."""
-    out = dict(at=utc(), commit=K.REG_COMMIT)
+    """data/b709_registrations_reread.txt (.json), Component 4: the four registration banks re-read whole after Components 1-3 and compared byte
+    for byte with the blobs committed alone before any computation -- this act's data/b709_registrations.txt (the second axis for b711) and
+    data/b709_rules.txt at relay 510dc29b, b708's fine grid at 6045dd8c and b707's higher pairs' route at 6e8ece87 (both computed this act as
+    registered, nothing in either edited before, during or after the computation); the computed banks named by path and blob; the axis's
+    registration printed unchanged for the entry to name (the entry names the axis, nothing computes it this act)."""
+    out = dict(at=utc(), rows={})
     same = True
-    L = ['%s -- COMPONENT 5, (R319)(3): THE REGISTRATIONS AND THE RULES BANK RE-READ AFTER COMPONENTS 1-4, UNCHANGED; NO EIGENVALUE COMPUTED (%s)' % (ACT, utc()), '']
-    for nm in ('registrations', 'rules'):
-        p = 'data/%s_%s.txt' % (ACT, nm)
+    L = ['%s -- COMPONENT 4, (R319)(3), (5) AND (6): THE FOUR REGISTRATION BANKS RE-READ AFTER COMPONENTS 1-3, UNCHANGED SINCE THEIR OWN COMMITS; THE COMPUTED BANKS NAMED; THE SECOND AXIS NAMED FOR THE ENTRY (%s)' % (ACT, utc()), '']
+    for p, c, what in REGISTRATIONS:
         now = rd(os.path.join(ROOT, *p.split('/'))) or ''
-        then = _show(ROOT, K.REG_COMMIT, p) or ''
+        then = _show(ROOT, c, p) or ''
         hb = g(ROOT, 'rev-parse', 'HEAD:' + p).strip()
-        tb = g(ROOT, 'rev-parse', '%s:%s' % (K.REG_COMMIT, p)).strip()
+        tb = g(ROOT, 'rev-parse', '%s:%s' % (c, p)).strip()
         wb = g(ROOT, 'hash-object', '--', p).strip()
         log = [l for l in g(ROOT, 'log', '--format=%h', '--', p).split(NL) if l.strip()]
-        eq = now == then and wb == tb == hb and len(log) == 1
+        eq = bool(now) and now == then and wb == tb == hb
         same = same and eq
-        out[nm] = dict(work_blob=wb, then_blob=tb, head_blob=hb, commits=log, unchanged=eq)
-        L.append('### %s committed alone at relay %s before any computation (N3); re-read now: the working file`s blob %s ; the blob at %s %s ; at HEAD %s ; '
-                 'the commits touching it %s ; EQUAL BYTE FOR BYTE %s' % (p, K.REG_COMMIT, wb[:12], K.REG_COMMIT, tb[:12], hb[:12], log, eq))
-    onset_banks = sorted(f for f in os.listdir(D) if f.startswith('b709_') and ('onset' in f or 'units' in f or 'eigen' in f))
-    L += ['### banks of this act naming an onset, units or an eigenvalue: %s' % (onset_banks or 'NONE'), '',
-          '### THE REGISTRATIONS, PRINTED UNCHANGED:'] + ['    ' + x for x in (rd(os.path.join(D, '%s_registrations.txt' % ACT)) or '').rstrip(NL).split(NL)]
-    L += ['', '### ### **REGISTRATIONS RE-READ: UNCHANGED SINCE %s %s ; THE RULES BANK UNCHANGED %s ; NO EIGENVALUE COMPUTED THIS ACT %s ; COMPUTED AT b709.**' % (
-        K.REG_COMMIT, out['registrations']['unchanged'], out['rules']['unchanged'], not onset_banks)]
-    out.update(unchanged=same, onset_banks=onset_banks, no_eigenvalue=not onset_banks)
+        out['rows'][p] = dict(commit=c, what=what, work_blob=wb, then_blob=tb, head_blob=hb, commits=log, one_commit=len(log) == 1, unchanged=eq)
+        L.append('### %s -- %s ; committed alone at relay %s ; re-read now: the working file`s blob %s ; the blob at %s %s ; at HEAD %s ; '
+                 'the commits touching it %s ; EQUAL BYTE FOR BYTE %s' % (p, what, c, wb[:12], c, tb[:12], hb[:12], log, eq))
+    L += ['', '### THE COMPUTED BANKS ((R319)(3) and (5)), each present and committed:']
+    cb = {}
+    for p in COMPUTED_BANKS:
+        ap = os.path.join(ROOT, *p.split('/'))
+        ex = os.path.exists(ap)
+        wb = g(ROOT, 'hash-object', '--', p).strip() if ex else ''
+        hb = g(ROOT, 'rev-parse', 'HEAD:' + p).strip() if ex else ''
+        log = [l for l in g(ROOT, 'log', '--format=%h', '--', p).split(NL) if l.strip()] if ex else []
+        cb[p] = dict(present=ex, work_blob=wb, head_blob=hb, commits=log, committed=bool(log) and wb == hb)
+        L.append('    %-34s present %s ; blob %s ; at HEAD %s ; commits %s ; COMMITTED AS IT STANDS %s' % (p, ex, wb[:12], hb[:12], log, cb[p]['committed']))
+    axis = (rd(os.path.join(D, '%s_registrations.txt' % ACT)) or '').rstrip(NL).split(NL)
+    L += ['', '### THE SECOND AXIS`S REGISTRATION, PRINTED UNCHANGED (named in the entry; computed by b711, not this act):'] + ['    ' + x for x in axis]
+    eig = sorted(f for f in os.listdir(D) if f.startswith('%s_' % ACT) and ('onset' in f or 'eigen' in f or 'axis' in f))
+    L += ['', '### banks of this act naming the axis, an onset of it or an eigenvalue of it: %s (the grid`s and the pairs` banks are the registered routes` outputs, not the axis`s)' % (eig or 'NONE')]
+    allc = all(v['committed'] for v in cb.values())
+    L += ['', '### ### **REGISTRATIONS RE-READ: FOUR BANKS UNCHANGED SINCE THEIR OWN COMMITS %s (this act`s %s and %s at %s ; b708`s at %s ; b707`s at %s) ; THE COMPUTED BANKS COMMITTED AS THEY STAND %s ; THE AXIS NAMED FOR THE ENTRY, NOT COMPUTED %s.**' % (
+        same, 'registrations', 'rules', K.REG_COMMIT[:8], REG_B708_COMMIT, REG_B707_COMMIT, allc, not eig)]
+    out.update(unchanged=same, computed=cb, computed_committed=allc, axis_banks=eig, axis_not_computed=not eig, axis_lines=len(axis))
     put_txt('%s_registrations_reread.txt' % ACT, L)
     put_json('%s_registrations_reread.json' % ACT, out)
-    print(NL.join(L[2:5] + L[-1:]))
+    print(NL.join(L[2:6] + L[-1:]))
 
 
 # ================================================================================ COMPONENT 6: THE SCORES (b686's order), THE RECORD, THE TRAIL, THE DRY RUN, THE MIRROR
