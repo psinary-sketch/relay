@@ -337,7 +337,25 @@ def rows():
     add('ferry C6', 'the unsealed report tool`s form (tools/b709_report.py, written after the root`s word; data/b709_report.txt)', os.path.exists(p('tools', 'b709_report.py')) and not os.path.exists(p('tools', 'b710_report.py')),
         'tools/b709_report.py ; tools/b710_report.py TO BE WRITTEN after the root`s word', '6')
     add('ferry C0', 'this act`s session transcript (a new session) and b709`s', os.path.exists(C.SESSION) and os.path.exists('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % K.PREV_SESSION), C.SESSION, '0')
+    standing_rows(C.ferry_text(), add)
     return R
+
+
+def standing_rows(text, add):
+    """(R320)(4), the citation tool repointed to read the standing clauses by version (data/b710_rules.txt row (1)): for each version a ferry names
+    as "standing clauses v<N>" outside a quotation, the bank data/standing_clauses_v<N>.txt present, its VERSION line equal, its rows read back
+    by tools/b710_standing.py's parser, and its re-assembly control banked AS WANTED (data/b710_standing_control.json for v1)."""
+    import b710_standing as SC
+    flat = re.sub(r'“[^”]*”', '', ' '.join(text.split()))
+    for v in sorted(set(int(m.group(1)) for m in re.finditer(r'standing clauses v(\d+)', flat, re.I))):
+        p = os.path.join(D, 'standing_clauses_v%d.txt' % v)
+        t = rd(p) or ''
+        rows_ = SC.parse(t)
+        ver = re.search(r'^VERSION: (\d+)$', t, re.M)
+        ctl = _jl('b710_standing_control.json') if v == 1 else _jl('standing_clauses_v%d_control.json' % v)
+        add('ferry (standing clauses)', 'the standing clauses v%d the ferry names: data/standing_clauses_v%d.txt' % (v, v),
+            bool(t) and bool(ver) and ver.group(1) == str(v) and bool(rows_) and ctl.get('ok') is True,
+            'present %s ; VERSION %s ; rows %d ; the re-assembly control AS WANTED %s' % (bool(t), ver.group(1) if ver else 'NONE', len(rows_), ctl.get('ok')), '0')
 
 
 def _write(L, R, miss):

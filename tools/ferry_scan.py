@@ -118,6 +118,37 @@ def citation_check(text, current=None):
         return 'NO FILE', cited, current
     return ('CURRENT' if cited == [current] else 'STALE'), cited, current
 
+# ### b710, (R320)(4): THE STANDING CLAUSES BANKED BY VERSION (relay data/standing_clauses_v<N>.txt; W-ORD-STANDING-CLAUSES-BANK, PLACE-papers
+# ### OPEN_TRAILS :15450). From b711 a ferry names "standing clauses v<N>" and carries its deltas alone; the scan reads the version it names
+# ### against the banks present: CURRENT when it names the highest version banked, STALE (a hit) otherwise, NO BANK when the named version is absent.
+BANK_CITATION = re.compile(r'standing clauses v(\d+)', re.I)
+
+
+def bank_versions(directory=None):
+    """### the versions of relay data/standing_clauses_v<N>.txt present, each read from its own `VERSION: <N>` line (the name and the line agree)."""
+    d = directory or os.path.join(ROOT, 'data')
+    out = []
+    for f in sorted(os.listdir(d)) if os.path.isdir(d) else []:
+        m = re.match(r'^standing_clauses_v(\d+)\.txt$', f)
+        if m:
+            v = re.search(r'^VERSION:\s*(\d+)\s*$', io.open(os.path.join(d, f), encoding='utf-8', errors='replace').read(), re.M)
+            if v and v.group(1) == m.group(1):
+                out.append(int(m.group(1)))
+    return out
+
+
+def bank_citation_check(text, versions=None):
+    """### RETURNS `(status, cited, current)` for the bank's citation form: NONE, CURRENT, STALE or NO BANK."""
+    vs = bank_versions() if versions is None else versions
+    cited = sorted(set(int(m.group(1)) for m in BANK_CITATION.finditer(re.sub(r'\s+', ' ', text))))
+    current = max(vs) if vs else None
+    if not cited:
+        return 'NONE', cited, current
+    if any(c not in vs for c in cited):
+        return 'NO BANK', cited, current
+    return ('CURRENT' if cited == [current] else 'STALE'), cited, current
+
+
 ENTRY = re.compile(r'^###\s+([SU]-\d+)\s*$')
 KEYVAL = re.compile(r'^([A-Z][A-Z-]*):\s*(.*)$')
 
@@ -701,6 +732,14 @@ def main(argv):
           % (status, cited if cited else 'none', current if current is not None else 'no file'))
     if stale:
         print('    ### the ferry cites a version other than the current one -- a HIT; the reader rules.')
+    # ### b710, (R320)(4): the standing clauses bank by version.
+    bstatus, bcited, bcurrent = bank_citation_check(text)
+    bstale = 1 if bstatus in ('STALE', 'NO BANK') else 0
+    print('  ### STANDING CLAUSES BANK CITATION : %s   (cited %s ; banked %s)'
+          % (bstatus, bcited if bcited else 'none', bcurrent if bcurrent is not None else 'no bank'))
+    if bstale:
+        print('    ### the ferry names a version of the standing clauses not banked or not the current -- a HIT; the reader rules.')
+    stale += bstale
     print()
     print('  ### VERDICT: ### **%d HIT(S) REPORTED. ### NOTHING REFUSED, NOTHING EDITED.**'
           % (len(ch) + len(sh) + stale))

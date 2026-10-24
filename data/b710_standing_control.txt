@@ -1,0 +1,12 @@
+b710 -- COMPONENT 2, (R320)(4): THE RE-ASSEMBLY CONTROL -- THE THREE LINES OF (R319)`S FERRY RE-ASSEMBLED FROM data/standing_clauses_v1.txt AGAINST THE FERRY AS BANKED AT b709 (2026-10-24T22:28:20Z)
+
+### rows are source lines: the line of relay data/b709_ferry.txt | what it is | its characters | the re-assembled characters | EQUAL. The bank`s
+### rows read back by its own parser (tools/b710_standing.py parse): 51 ; its version line 1. The NEG control: one clause altered in a copy of the
+### bank ("no pipe in any command" to "no pipe in a command"), the paragraph re-assembled from it compared again.
+
+  :49 | the standing procedural paragraph        |  3579 |  3579 | EQUAL True
+  :43 | Component 5, the seal and the suite      |  1375 |  1375 | EQUAL True
+  :45 | Component 6, the record and the mirror   |  1844 |  1844 | EQUAL True
+  NEG: the altered copy`s :49 re-assembled EQUAL False (wanted False)
+
+### ### **LINES 3 ; EQUAL LINE FOR LINE True ; THE NEG COPY DIFFERS True ; ROWS 51 ; VERSION 1 True ; THE CONTROL AS WANTED True.**
