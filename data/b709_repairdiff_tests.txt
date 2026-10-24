@@ -1,0 +1,10 @@
+b709 -- THE CARRY-TIME REPAIRS OF tools/b709_tests.py AS A DIFF: the carried form (tools/b708_tests.py with the act names substituted) against the file now (2026-10-24T19:45:16Z)
+
+--- tools/b709_tests.py (the carried form)
++++ tools/b709_tests.py (now)
+@@ -173,1 +173,2 @@
+-          '### the longest test %d s (the 600 s limit; no part moved to the background)' % longest,
++          '### the longest test %d s (the 600 s limit); tests over the 590 s guard, whose part the harness moved to the background: %s' % (
++              longest, ' '.join('%s %d s' % (n, j[n]['seconds']) for n in tests() if n in j and j[n]['seconds'] > 590) or 'NONE'),
+
+### ### **HUNKS 1 ; LINES REMOVED 1 ; LINES ADDED 2.**

@@ -1,0 +1,33 @@
+b709 -- THE CARRY-TIME READING: THE REPAIRS, THE FERRY`S COMPONENT 5 (2026-10-24T20:20:39Z)
+
+### rows are repairs with what they answer: the tool and its part ; what it answers ; the form. Each tool`s whole diff against its carried form (the
+### previous act`s tool with the act names substituted) stands in data/b709_repairdiff_<name>.txt, written by tools/b709_carry.py repairdiff from
+### autojunk=False opcodes; the verdict line of each is quoted beneath its row. The controls that distinguish the needle`s repaired reading from the
+### old one: data/b709_repair_controls.txt. No sealed tool is edited; no shared tool or shared data file is edited this act.
+
+  (1) tools/b709_checks.py `no_verdict_line_ok` and `NO_VERDICT_EXEMPT` -- (R319)(2): G-CLOSING-DRY-STEP`s needle read "### NO VERDICT LINE" as a defect where the closing prints it for a bank that carries no verdict line by its form; the arm now excludes the named banks` lines and fails on the string elsewhere. Controls: data/b709_repair_controls.txt (5 cases as wanted; the NEG control fails). Found at Component 1.
+      data/b709_repairdiff_checks.txt: HUNKS 118 ; LINES REMOVED 364 ; LINES ADDED 447.
+
+  (2) tools/b709_tests.py, the report line -- the carried report line printed "no part moved to the background" unconditionally; it reads the tests over the 590 s guard now (test_elab_reader_b634.py, 867 s, defect (c)), the report re-run at step zero.
+      data/b709_repairdiff_tests.txt: HUNKS 1 ; LINES REMOVED 1 ; LINES ADDED 2.
+
+  (3) tools/b709_record.py: roster709, prev_capture, _standins, the branches route, UNTRACKED_DECL and _root_exclude -- roster709 bound to b708`s roster through b708`s module (the bare-number name the substitution left); prev_capture bounded at (R319)`s anchor for an act in the SAME session as its predecessor (b701`s form); the stand-in`s previous root b708`s a840da57; the branches route reading K.PORT_BASE and port-b707 (the substitution had turned the kept branch`s name into port-b708); the untracked-write declaration read to its first space and a trailing `*` read as a prefix (b708`s `\s*$` refused the grid`s and pairs` declarations, the root`s first dry run naming 32 units files). b708`s routes over its own objects pruned (data/b709_prune_record.txt, seven blocks); this act`s routes (c1, repairctl, orders, orders443, portedit, portdispatch, portrun, regcheck, the scorers, the entry and trail texts, components, repairs) written by the Edit tool.
+      data/b709_repairdiff_record.txt: HUNKS 49 ; LINES REMOVED 1080 ; LINES ADDED 964.
+
+  (4) tools/b709_corrigendum.py, rewritten whole -- b678`s form for b708`s two items (the post-seal needle, the kind of :380); the `bank` route added after the landing stopped on its own line count (the event in data/b709_defects.txt); the entry text given its leading newline.
+      data/b709_repairdiff_corrigendum.txt: HUNKS 20 ; LINES REMOVED 77 ; LINES ADDED 136.
+
+  THE ACT`S OWN SECTIONS, REWRITTEN BY THE EDIT TOOL (not repairs of the carried form):
+      tools/b709_checks.py -- the act`s arms over this act`s banks (the grid, the pairs, the port, the axis, the carry, the corrigendum row (29), the orders, the title form) in place of b708`s (the probe, the prints, the re-cut, the port`s lines); the sources over this act`s banks; REQUIRED_BANKS; the standing runner arms re-sourced to this act`s one run; the figures baseline b708`s; the next act`s rules glob b710`s ; data/b709_repairdiff_checks.txt: HUNKS 118 ; LINES REMOVED 364 ; LINES ADDED 447.
+      tools/b709_closing.py -- TITLE_LINE, act_sections (the grid, the pairs, the port, the axis), KERNEL_LINES, CARRIED_FIXED and the heads loop (port-b707 at this act`s tip; no scratch branch) -- the act`s own text ; data/b709_repairdiff_closing.txt: HUNKS 15 ; LINES REMOVED 77 ; LINES ADDED 76.
+      tools/b709_reg_gate.py -- the substitution alone (7 lines) ; data/b709_repairdiff_reg_gate.txt: HUNKS 0 ; LINES REMOVED 0 ; LINES ADDED 0.
+      tools/b709_regspec.py -- the substitution alone (42 lines) ; data/b709_repairdiff_regspec.txt: HUNKS 0 ; LINES REMOVED 0 ; LINES ADDED 0.
+
+  THE COMPUTATION TOOLS` DECLARATION LINES (new tools, not carried): tools/b709_grid.py and tools/b709_pairs.py each declare their units files by prefix
+      (`### UNTRACKED WRITE: data/b709_grid_units*`, `... data/b709_pairs_units*`) for the root route`s exclusion list, the lines edited after the tools`
+      Component 2 commits and before the seal; no bank changed.
+
+  CARRIED IN FORM: ROOT_EXCLUDE (data/b706_rules.txt row (1), the kinds b698`s route excludes extended at import with every declared untracked write) --
+      its form b707`s and b708`s, its declaration reader repaired as row (3) says.
+
+### ### **REPAIRS 4 ; THE ACT`S OWN SECTIONS REWRITTEN 4 ; CARRIED IN FORM 1 (ROOT_EXCLUDE) ; SHARED FILES EDITED 0 ; NO SEALED TOOL EDITED ; THE CONTROLS IN data/b709_repair_controls.txt.**

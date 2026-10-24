@@ -5,7 +5,9 @@ registration priced, at the working precision it names, each pair's n* and its r
 pair outside [0.67, 1.5]) and printed HELD or REFUTED, the controls printed before the figures (b675's figure at rho_0 and b705's five pairs
 reproduced); a pair beyond the route's reach entered as 'beyond reach at n = <bound>' with the bound, not estimated".
 
-### UNTRACKED WRITE: data/b709_pairs_units.jsonl (one unit per (route, key), appended as it lands; resumable).
+### UNTRACKED WRITE: data/b709_pairs_units* -- data/b709_pairs_units.jsonl and the band files data/b709_pairs_units_band_<lo>_<hi>.jsonl (one unit per
+### (route, key), appended as it lands; resumable); declared by prefix for the root route's exclusion list (the line read to its first space by
+### tools/b709_record.py, a carry-time repair banked in data/b709_tool_repairs.txt).
 
 ### THE ROUTE (the registration :39-:43): b675's arithmetic unchanged -- for each pair, constants_for (tools/b675_li_bench.py :163-:194) on the ON
 ### rows and that pair alone with dom = ref<idx> (b705's configuration, tools/b705_detection.py pair_rows), the tail under T-COUNT (A0 = 10,

@@ -62,7 +62,10 @@ R.N5_RELAY_TOOLS = ('mirror_prevbuild.json',)   # ### (R319)(2): the mirror buil
 # ### THE ROOT ROUTE'S EXCLUSION LIST (data/b706_rules.txt row (1)): the kinds b698's route excludes, carried; and every untracked write a
 # ### b709_*.py tool declares in its own head, read at import. A tool declares one by a line `### UNTRACKED WRITE: data/b709_<name>`.
 EXCLUDE_KINDS = P7.EXCLUDE_KINDS
-UNTRACKED_DECL = re.compile(r'^### UNTRACKED WRITE: data/b709_(\S+)\s*$', re.M)
+# ### b708's declaration line read to its first space (b708: `\s*$`, which refused a declaration followed by prose and so read the grid's and the
+# ### pairs' declarations as none -- the root's first dry run named 32 untracked units files); a name ending in `*` declares every file with that
+# ### prefix (the grid's segment files, the pairs' band files). A carry-time repair, banked by diff (data/b709_tool_repairs.txt).
+UNTRACKED_DECL = re.compile(r'^### UNTRACKED WRITE: data/b709_(\S+)', re.M)
 
 
 def declared_untracked():
@@ -76,7 +79,7 @@ def declared_untracked():
 
 
 def _root_exclude():
-    names = [re.escape(n) for _f, n in declared_untracked()]
+    names = [(re.escape(n[:-1]) + r'\S*') if n.endswith('*') else re.escape(n) for _f, n in declared_untracked()]
     return re.compile(r'^b709_(' + EXCLUDE_KINDS + (('|' + '|'.join(names)) if names else '') + r')\.?(txt|json|md|jsonl|)$')
 
 
@@ -362,7 +365,9 @@ QUOTED, REDIRECT_NULL, REDIRECT_ANY, PIPE_FILTER, PY_PRINT_READ, MOVE_OR_DELETE,
     R.QUOTED, R.REDIRECT_NULL, R.REDIRECT_ANY, R.PIPE_FILTER, R.PY_PRINT_READ, R.MOVE_OR_DELETE, R.SED_KIND)
 local_lean, delete_shape, chained_after, seal_hashes, root_banks_state = R.local_lean, R.delete_shape, R.chained_after, R.seal_hashes, R.root_banks_state
 root_banks, rootbanks, root, root_arm, table_final = R.root_banks, R.rootbanks, R.root, R.root_arm, R.table_final
-DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py dispatch\b(?![^\n]*\bdry\b)', re.M)
+# ### b708's pattern read `_record.py dispatch`; this act's one dispatch ran through the `portdispatch` route, so the pattern takes the port prefix too
+# ### (a carry-time repair, banked by diff: the command bank's first write read DISPATCHES 0 against the dispatch bank's one row)
+DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)?dispatch\b(?![^\n]*\bdry\b)', re.M)
 
 
 def commands(*a):
@@ -406,7 +411,7 @@ def commands(*a):
     if not phits:
         L.append('  NONE')
     L += ['', '### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (%d):' % len(lean)] + (['  #%d %s' % (r['n'], r['cmd'][:200]) for r in lean] or ['  NONE'])
-    L += ['', '### THE RUNNER DISPATCHES (two ordered this act, N1 as the fact clause reads it: the probe branch and the prints branch of SIDE-explicit-formula) (%d):' % len(disp)] + (
+    L += ['', '### THE RUNNER DISPATCHES (one ordered this act, N1: the port branch of SIDE-lv-conservation at its tip, through the portdispatch route) (%d):' % len(disp)] + (
         ['  #%d %s' % (r['n'], r['cmd'][:240]) for r in disp] or ['  NONE'])
     L += ['', '### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (%d):' % len(
         detach)] + (['  #%d %s%s' % (r['n'], '[run_in_background] ' if r.get('bg') else '', r['cmd'][:240]) for r in detach] or ['  NONE'])
@@ -474,11 +479,11 @@ def kernels(*a):
     ks = list(dict.fromkeys(_kerns() + ['SIDE-faces-join']))
     import b633_record as R3
     put_json('%s_kernels_face.json' % ACT, dict(at=utc(), kernels=R3.kern_state(ks)))
-    print('  kernels read: %d (SIDE-faces-join among them; no kernel main written this act; the two scratch branches of SIDE-explicit-formula deleted after their banks)' % len(ks))
+    print('  kernels read: %d (SIDE-faces-join among them; no kernel main written this act; SIDE-lv-conservation`s port-b707 at this act`s one commit, its checkout at main for this read)' % len(ks))
 
 
 def _standing():
-    return sorted((set(R._g2_of(os.path.join(ROOT, *K.B707_FACE.split('/')))) - set(K707.ACT_ARMS)) | set(K.STANDING_ADDED))
+    return sorted((set(R._g2_of(os.path.join(ROOT, *K.B708_FACE.split('/')))) - set(K707.ACT_ARMS)) | set(K.STANDING_ADDED))
 
 
 R._standing = _standing
@@ -752,7 +757,8 @@ def figures(*a):
     L = ['%s -- COMPONENT 5: THE FOUR STANDING FIGURES AT b709, READ BY b706`S TOOL OVER b706`S ROSTER, AGAINST b708`S (%s)' % (ACT, utc()), '',
          '### by relay tools/b706_standing_figures.py, unedited (correspondence() and partners() over data/b706_roster_read.json, the 20 tables at the',
          '### unversioned names; readme() tools/b705_standing_figures.py`s, pins() tools/b703_standing_figures.py`s), %.0f s; each arm fails on a' % (t1 - t0),
-         '### regression from the previous act`s figure (data/b708_standing_figures.json). day1/Spectral_Inertness.md, cut this act, is off the roster.', '']
+         '### regression from the previous act`s figure (data/b708_standing_figures.json). No document is cut this act; day1/Spectral_Inertness.md (cut at b708) is off the roster;',
+         '### both kernels on main at the read (SIDE-lv-conservation`s checkout restored to main from port-b707 before this read, b707`s trap).', '']
     for k in ('correspondence', 'readme', 'partners', 'pins'):
         prev = (base.get(k) or {}).get('figure')
         now = (f.get(k) or {}).get('figure')
@@ -847,9 +853,538 @@ def _runner_rows():
     return dict((r.get('label'), r) for r in (jl('%s_runner_rows.json' % ACT).get('rows') or []))
 
 
+seal_hashes, delete_shape, local_lean, _remote_heads = R.seal_hashes, R.delete_shape, R.local_lean, R._remote_heads
+_udiff, _fn_lines = P7._udiff, P7._fn_lines
+CARRIED_NAMES = ('tests', 'record', 'checks', 'closing', 'reg_gate', 'regspec', 'corrigendum')
+GRID_ONSET = re.compile(r'^  THE ONSET \((rho0|band)\): (\S+) at a = (\S+) \+- (\S+), lambda_min (\S+) \+- (\S+), (rung|mid) ; negative readings (\d+) ; undecided (\d+)', re.M)
+GRID_ROW = re.compile(r'^  (rho0|band) \|\s*(\d+) \| (\S+)\s+\| a (\S+) \+- \S+ \| .*\| lambda (\S+) \+- \S+, .*\| zeta lambda_min (\S+) \+- (\S+) (POS|NEG|UND) tails (\S+) \+- \S+ (\S+) \+- \S+ (\S+) \+- \S+\s*$', re.M)
+GRID_RUNG = re.compile(r'^  THE ONSET IS A RUNG: log (\d+) \(= (\S+)\), Lambda_Q\((\d+)\) = (\S+) \+- \S+ entering there .*?; THE NEAREST RUNG AT WHICH A Q0 TERM ENTERS: below or at the onset log (\d+) \(index (\d+), (\d+) points below the onset, Lambda_Q (\S+) \+- \S+\) ; above it log (\d+) \(index (\d+), (\d+) points above, Lambda_Q (\S+)', re.M)
+GRID_MID = re.compile(r'^  THE ONSET IS A MIDPOINT between log (\d+) and log (\d+): the rung one half-step below it log (\d+), Lambda_Q\((\d+)\) = (\S+) \+- \S+, read ([A-Z ]+?) there ; THE NEAREST RUNG AT WHICH A Q0 TERM ENTERS: below or at the onset log (\d+) \(index (\d+), (\d+) points below the onset, Lambda_Q (\S+) \+- \S+\) ; above it log (\d+) \(index (\d+), (\d+) points above, Lambda_Q (\S+)', re.M)
+PAIR_ROW = re.compile(r'^\s+(\d+) \| \[(\S+) \+ \[(\S+) i \| r\(rho\) \[(\S+) \+/- \S+\] \| T0` needed > (\S+) ; the list`s (\d+) \| n\* (\S+) \| predicted \[(\S+) \+/- \S+\] \| n\*/predicted (?:\[(\S+) \+/- \S+\]|-) \| (.*)$', re.M)
+BAND_ROW = re.compile(r'^  band \[(\S+), (\S+)\] \| N (\d+) \| on-line (\d+) \| off-line (\d+) \| (\w+)\s*$', re.M)
+
+
+def _a4(s):
+    try:
+        return '%.4f' % float(s)
+    except Exception:
+        return s
+
+
+def _grid_read(text=None):
+    """the grid bank's figures by family, read from its text rows and its onset lines (the compressed bank is the grid tool's alone): the onset
+    point with its a, lambda_min and kind, the negative readings, the rung or midpoint line's figures, the zeta form's lambda_min and the
+    largest certified tail ball at the onset point, the rows per family, the controls and the verdict."""
+    t = text if text is not None else rdn('%s_grid.txt' % ACT)
+    out = dict(c1='C1 AS WANTED True' in t, c2=t.count('(C2) THE ZETA FORM POSITIVE DEFINITE BEYOND ITS BOUND AT EVERY POINT BANKED: True'),
+               verdict=(re.findall(r'^### ### \*\*(.*)\*\*\s*$', t, re.M) or ['### NO VERDICT LINE'])[-1],
+               c1_first=(t.find('### (C1) THE COARSE ENDPOINTS') >= 0 and t.find('### (C1) THE COARSE ENDPOINTS') < t.find(NL + '  rho0 |')),
+               fam={})
+    rows = GRID_ROW.findall(t)
+    for fam in ('rho0', 'band'):
+        fr = [r for r in rows if r[0] == fam]
+        m = next((x for x in GRID_ONSET.findall(t) if x[0] == fam), None)
+        d = dict(rows=len(fr), zeta_pos=sum(1 for r in fr if r[7] == 'POS'), tails_max=max([max(float(r[8]), float(r[9]), float(r[10])) for r in fr] or [0.0]))
+        if m:
+            d.update(name=m[1], a=m[2], a_err=m[3], lam=m[4], lam_err=m[5], kind=m[6], neg=int(m[7]), undecided=int(m[8]))
+            onset_row = next((r for r in fr if r[2] == m[1]), None)
+            if onset_row:
+                d.update(zeta_lam=onset_row[5], zeta_err=onset_row[6], zeta_flag=onset_row[7], tails=(onset_row[8], onset_row[9], onset_row[10]), index=int(onset_row[1]))
+        hyp = re.search(r'^  THE HYPOTHESIS \(the onset within one subdivision step past a rung\): (\w+)( -- VACUOUS AS WORDED)?', t[t.find('THE ONSET (%s)' % fam):], re.M)
+        fal = re.search(r'^  THE FALSIFIER \(the onset at a midpoint with no rung within one step below it\): ([A-Z ]+?)( -- VACUOUS AS WORDED)?:', t[t.find('THE ONSET (%s)' % fam):], re.M)
+        d.update(hyp=hyp.group(1) if hyp else '-', hyp_vac=bool(hyp and hyp.group(2)), fal=fal.group(1) if fal else '-', fal_vac=bool(fal and fal.group(2)))
+        out['fam'][fam] = d
+    mr = GRID_RUNG.search(t)
+    mm = GRID_MID.search(t)
+    if mr:
+        out['fam']['band'].update(rung=int(mr.group(1)), rung_pow=mr.group(2), lam_q=mr.group(4), below=int(mr.group(5)), below_pts=int(mr.group(7)), below_lq=mr.group(8),
+                                  above=int(mr.group(9)), above_pts=int(mr.group(11)), above_lq=mr.group(12))
+    if mm:
+        out['fam']['rho0'].update(mid_lo=int(mm.group(1)), mid_hi=int(mm.group(2)), rung_below=int(mm.group(3)), lam_q=mm.group(5), read_at_rung=mm.group(6),
+                                  below=int(mm.group(7)), below_pts=int(mm.group(9)), below_lq=mm.group(10), above=int(mm.group(11)), above_pts=int(mm.group(13)), above_lq=mm.group(14))
+    return out
+
+
+def _pairs_read(text=None):
+    t = text if text is not None else rdn('%s_pairs.txt' % ACT)
+    rows = [dict(idx=int(r[0]), beta=r[1], t=r[2], r=r[3], need=r[4], height=int(r[5]), nstar=r[6], predicted=r[7], ratio=r[8] or None, verdict=r[9].strip()) for r in PAIR_ROW.findall(t)]
+    bands = [dict(lo=b[0], hi=b[1], n=int(b[2]), on=int(b[3]), off=int(b[4]), status=b[5]) for b in BAND_ROW.findall(t)]
+    m = re.search(r'THE LIST COMPLETE TO T0` = (\d+) ; new on-line zeros (\d+) ; new off-line pairs (\d+) ; representatives (\d+)', t)
+    i12 = t.find('### THE TWELVE PAIRS')
+    return dict(rows=rows, within=[r['idx'] for r in rows if r['verdict'] == 'WITHIN'], outside=[r['idx'] for r in rows if r['verdict'] == 'OUTSIDE'],
+                beyond=[r for r in rows if r['verdict'].startswith('beyond reach')], bands=bands, complete=all(b['status'] == 'COMPLETE' for b in bands) and bool(bands),
+                height=int(m.group(1)) if m else None, new_on=int(m.group(2)) if m else None, new_off=int(m.group(3)) if m else None, reps=int(m.group(4)) if m else None,
+                c1=t.count('(C1) n*(rho_0) at T0 = 150') == 1 and 'EQUAL True' in t.split(NL)[10] if len(t.split(NL)) > 10 else False,
+                c2_rows=len(re.findall(r'^### \(C2\) pair \d at T0 = 150, cap 2,000,000: n\* \d+ against b705`s \d+, EQUAL True', t, re.M)),
+                controls_first=(0 <= t.find('### (C1) n*(rho_0)') < t.find('### THE EXTENSION BY BAND') < i12) if i12 >= 0 else False,
+                c3=len(re.findall(r'^  pair \d \| .* \| WITHIN$', t, re.M)),
+                verdict=(re.findall(r'^### ### \*\*(.*)\*\*\s*$', t, re.M) or ['### NO VERDICT LINE'])[-1],
+                falsifier=re.search(r'^### THE FALSIFIER \(any pair`s n\* outside \[0\.67, 1\.5\]\): pairs computed (\d+), within (\d+), outside (\d+)\s+; beyond reach (\d+) \[([^\]]*)\] ; not run or partial (\d+)', t, re.M),
+                hyp=re.search(r'^### THE REGISTRATION`S HYPOTHESIS: (.*)$', t, re.M))
+
+
+def _figs():
+    co = jl('%s_corrigendum.json' % ACT)
+    G, Pz = _grid_read(), _pairs_read()
+    pj, pe, dj = jl('%s_port.json' % ACT), jl('%s_port_edit.json' % ACT), jl('%s_dispatches.json' % ACT).get('rows') or []
+    rr, rj = _runner_rows(), jl('%s_registrations_reread.json' % ACT)
+    fj_, f8 = jl('%s_standing_figures.json' % ACT), jl('b708_standing_figures.json')
+    o443 = (jl('%s_order443_lines.json' % ACT).get('lines') or [{}])[0]
+    return dict(corr_line=co.get('entry_line', '-'), corr_row=co.get('row'), grid=G, pairs=Pz,
+                built=len(pj.get('built') or []), modules=len(pj.get('modules') or []), held=pj.get('held') or [], remaining=len(pj.get('remaining') or []),
+                first_error=pj.get('first_error') or '-', first_kind=((pj.get('kinds') or [['', '-']])[0][1]), kinds=pj.get('kinds') or [],
+                run_id=pj.get('run_id'), conclusion=(pj.get('run') or {}).get('conclusion'), art=((pj.get('artifact') or {}).get('sha256') or '-')[:8],
+                art_agree=(pj.get('artifact') or {}).get('agree'), mem_low=pj.get('mem_low'), print_step=pj.get('print_step'), grade=pj.get('grade_claimed'),
+                edit_hunks=pe.get('hunks'), edit_ok=pe.get('ok'), l277_old=((pe.get('l277') or {}).get('old') or '').strip(), l277_new=((pe.get('l277') or {}).get('new') or '').strip(),
+                l380_same=((pe.get('l380') or {}).get('old') == (pe.get('l380') or {}).get('new')), dispatches=len(dj), disp_free=(dj[0].get('free_mb') if dj else None),
+                gate=(rr.get(K.PORT_LABEL) or {}).get('gate'), reg_unchanged=rj.get('unchanged'), axis_not_computed=rj.get('axis_not_computed'), reg_rows=len(rj.get('rows') or {}),
+                o443_line=o443.get('line'),
+                figs=dict((k, (fj_.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')),
+                figs8=dict((k, (f8.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')))
+
+
+def _n1():
+    """N1 AS WORDED: no lean process runs on this host in this act; one runner dispatch, the port branch, read by its run id with its artifact's
+    sha256 verified. The first clause scored against the tests bank (test_elab_reader_b634.py ran lean on this host at step zero, defect (c))
+    and the command bank's reading of the seat's own commands; the second against the dispatch, runner and port banks."""
+    cm = jl('%s_commands.json' % ACT)
+    dj = jl('%s_dispatches.json' % ACT).get('rows') or []
+    rr = _runner_rows()
+    pj = jl('%s_port.json' % ACT)
+    tt = rdn('%s_tests_stepzero.txt' % ACT)
+    sha_ok = lambda s: re.match(r'^[0-9a-f]{64}$', s or '') is not None   # noqa: E731
+    lt = re.search(r'^  test_elab_reader_b634\.py\s+exit (\d+) ;.*; (\d+) s', tt, re.M)
+    lean_test = bool(lt)
+    one = len(dj) == 1 and len(cm.get('dispatches') or []) == 1 and dj[0].get('branch') == K.PORT_BRANCH and dj[0].get('ref') == K.PORT_TIP and dj[0].get('run_id') == K.PORT_RUN
+    pr = rr.get(K.PORT_LABEL) or {}
+    read_ok = len(rr) == 1 and pr.get('run_id') == K.PORT_RUN and sha_ok(pr.get('artifact_sha256')) and pj.get('run_id') == K.PORT_RUN \
+        and (pj.get('artifact') or {}).get('agree') is True and sha_ok((pj.get('artifact') or {}).get('sha256')) and pr.get('artifact_sha256') == (pj.get('artifact') or {}).get('sha256')
+    seat_lean = cm.get('local_lean') if cm else None
+    ok = bool(cm) and not seat_lean and not lean_test and one and read_ok
+    return ('HELD' if ok else 'REFUTED'), (
+        'as worded, on the first clause: the step-zero tests ran every test file, b708`s withheld bank not carried, and test_elab_reader_b634.py ran lean on this host '
+        '(relay data/b709_tests_stepzero.txt: exit %s, %s s; defect (c), the seat`s), so the clause is %s; the seat`s own commands running lean or lake (relay '
+        'data/b709_commands.json): %s. The second clause: dispatches banked %d (relay data/b709_dispatches.json: %s), in the capture %d; the run read by its id with the '
+        'artifact`s sha256 verified against the platform`s digest (relay data/b709_runner_rows.json, data/b709_port.json: run %s, artifact %s, agree %s): %s' % (
+            lt.group(1) if lt else '-', lt.group(2) if lt else '-', 'REFUTED' if lean_test else 'met', seat_lean if cm else 'unread',
+            len(dj), ['%s %s at %s run %s' % (d.get('label'), (d.get('ref') or '')[:7], d.get('branch'), d.get('run_id')) for d in dj],
+            len(cm.get('dispatches') or []) if cm else -1, pj.get('run_id'), ((pj.get('artifact') or {}).get('sha256') or '-')[:16], (pj.get('artifact') or {}).get('agree'), read_ok))
+
+
+def _n2():
+    """N2: each tool's controls printed before its figures; the coarse endpoints reproduce b707's eigenvalues; b675's figure at rho_0 and b705's five
+    pairs reproduced; the zeta form positive at every grid point with its tail bound printed beside; every falsifier read and printed; each
+    registration read unchanged from its commit."""
+    G, Pz, rj = _grid_read(), _pairs_read(), jl('%s_registrations_reread.json' % ACT)
+    fr, fb = G['fam']['rho0'], G['fam']['band']
+    zeta_all = fr['rows'] == fr['zeta_pos'] > 0 and fb['rows'] == fb['zeta_pos'] > 0 and G['c2'] == 2
+    fals = fr['fal'] in ('NOT FIRED', 'FIRED') and fb['fal'] in ('NOT FIRED', 'FIRED') and fr['hyp'] in ('HELD', 'REFUTED') and fb['hyp'] in ('HELD', 'REFUTED') \
+        and bool(Pz['falsifier']) and 'THE FALSIFIER HELD' in Pz['verdict'] or 'THE FALSIFIER REFUTED' in Pz['verdict']
+    ok = G['c1_first'] and G['c1'] and Pz['controls_first'] and Pz['c1'] and Pz['c2_rows'] == 5 and zeta_all and fals and rj.get('unchanged') is True and rj.get('rows') \
+        and all(v.get('unchanged') for v in rj['rows'].values())
+    return ('HELD' if ok else 'REFUTED'), (
+        'the grid (relay data/b709_grid.txt): (C1) printed before the first grid row %s, the 32 coarse-endpoint rows against b707`s units AS WANTED %s; (C2) the zeta '
+        'form positive beyond its bound at every point, rho_0 %d of %d rows and the band %d of %d, each row carrying its three certified tail balls beside lambda_min '
+        '(the largest tail %.2e and %.2e); the hypothesis %s / %s and the falsifier %s / %s per family (rho_0 / the band), each vacuous as worded (%s, %s) and printed so; '
+        'the pairs (relay data/b709_pairs.txt): (C1) b675`s 63676 at rho_0 EQUAL %s and (C2) b705`s five pairs EQUAL %d of 5, both printed before the extension and the '
+        'twelve %s; the falsifier read over the pairs computed: %s; the registrations re-read unchanged from their commits (relay data/b709_registrations_reread.json): %s '
+        '(%d banks)' % (G['c1_first'], G['c1'], fr['zeta_pos'], fr['rows'], fb['zeta_pos'], fb['rows'], fr['tails_max'], fb['tails_max'], fr['hyp'], fb['hyp'], fr['fal'], fb['fal'],
+                        fr['hyp_vac'] and fr['fal_vac'], fb['hyp_vac'] and fb['fal_vac'], Pz['c1'], Pz['c2_rows'], Pz['controls_first'],
+                        Pz['falsifier'].group(0)[4:] if Pz['falsifier'] else '### NOT READ', rj.get('unchanged'), len(rj.get('rows') or {})))
+
+
+def _n3():
+    """N3 AS WORDED: the carried tools are read by the spans the previous act's diff bank names and not whole, each span printed; the needle's
+    repair passes on b708's gate record and its NEG control fails. The first clause scored against the carry banks, the read bank and the defects
+    bank ((b) the citation tool whole in parts; (e) the suite and the closing tool whole in spans); the second against the controls bank."""
+    sp = rdn('%s_carry_spans.txt' % ACT)
+    banks = dict((n, os.path.exists(os.path.join(D, '%s_carry_%s.txt' % (ACT, n)))) for n in CARRIED_NAMES)
+    rows = re.findall(r'^  tools/b709_(\w+)\.py \| repair spans (.*?) \| substitution hunks (\d+) \|', sp, re.M)
+    rc = jl('%s_repair_controls.json' % ACT)
+    ctl = rdn('%s_repair_controls.txt' % ACT)
+    whole = re.findall(r"^    \(([a-z])\) THE SEAT'S: (ONE CARRIED TOOL READ WHOLE IN PARTS|TWO CARRIED TOOLS READ WHOLE IN SPANS)", rdn('%s_defects.txt' % ACT), re.M)
+    spans_ok = all(banks.values()) and sorted(r[0] for r in rows) == sorted(CARRIED_NAMES)
+    repair_ok = 'CASES 5 ; AS WANTED True ; THE REPAIRED NEEDLE PASSES ON b708`S GATE RECORD True ; THE NEG CONTROL FAILS True' in ctl and (rc.get('as_wanted') is True or 'AS WANTED True' in ctl)
+    ok = spans_ok and repair_ok and not whole
+    return ('HELD' if ok else 'REFUTED'), (
+        'as worded, on the first clause: the seven carried tools each carried by the substitution and banked by its diff with the repair spans b708`s bank names '
+        '(relay data/b709_carry_spans.txt: %s), %s; the reads of three of them cover the whole file -- %s -- lettered in relay data/b709_defects.txt with their cause, '
+        'so the clause is %s; the second clause, the needle`s repair (relay data/b709_repair_controls.txt): %s' % (
+            '; '.join('%s spans %s hunks %s' % r for r in rows) or 'NONE', 'every bank present' if all(banks.values()) else '### A CARRY BANK MISSING',
+            '; '.join('(%s) %s' % (l, w.lower()) for l, w in whole) or 'none', 'REFUTED' if whole else 'met', 'passes on b708`s record and the NEG control fails' if repair_ok else '### NOT AS READ'))
+
+
+def _n4():
+    """N4: the port's edit touches the two named lines and nothing else, the diffs printed; the deposit and lv-conservation's main stand. Read from the
+    edit bank, the branch's one commit and the kernel's refs; :380 read unedited as the cascade of :277 (defect (a)), its diff printed empty."""
+    pe = jl('%s_port_edit.json' % ACT)
+    l277, l380 = pe.get('l277') or {}, pe.get('l380') or {}
+    edit_ok = pe.get('hunks') == 1 and pe.get('ok') is True and l277.get('old') != l277.get('new') and '.isStrongFEPair_toStrongFEPair.hasMellin w' in (l277.get('new') or '') \
+        and '.toStrongFEPair.hasMellin w' in (l277.get('old') or '') and l380.get('old') == l380.get('new') and bool(l380.get('old')) \
+        and pe.get('changed') == [' M %s' % K.PORT_FILE] and pe.get('file') == K.PORT_FILE and pe.get('base') == K.PORT_BASE
+    parent = g(LV, 'rev-parse', '--verify', '--quiet', K.PORT_TIP + '^').strip()
+    files = [x for x in g(LV, 'diff-tree', '--no-commit-id', '--name-only', '-r', K.PORT_TIP).split(NL) if x.strip()]
+    stat = [x for x in g(LV, 'diff-tree', '--no-commit-id', '--numstat', '-r', K.PORT_TIP).split(NL) if x.strip()]
+    commit_ok = parent == K.PORT_BASE and files == [K.PORT_FILE] and len(stat) == 1 and stat[0].split('\t')[:2] == ['1', '1']
+    lv_main, lv_dep = g(LV, 'rev-parse', 'main').strip(), g(LV, 'rev-parse', 'v0.10.0^{commit}').strip()
+    stand = lv_main == K.LV_MAIN and lv_dep == K.LV_V0100 and subprocess.run(['git', '-C', LV, 'merge-base', '--is-ancestor', K.PORT_TIP, 'main']).returncode != 0
+    ok = edit_ok and commit_ok and stand
+    return ('HELD' if ok else 'REFUTED'), (
+        'the edit (relay data/b709_port_edit.json): %s :277 `%s` -> `%s`, :380 read again after the one edit and unchanged (%s; the cascade of :277, defect (a)), hunks %s, '
+        'the tree`s changed files %s; the one commit %s on port-b707: parent %s (b707`s %s) %s, files %s, +%s -%s; the deposit v0.10.0 at %s (%s) and main at %s (%s), '
+        'the port commit not on main: %s' % (
+            K.PORT_FILE, (l277.get('old') or '').strip(), (l277.get('new') or '').strip(), l380.get('old') == l380.get('new'), pe.get('hunks'), pe.get('changed'),
+            K.PORT_TIP[:8], parent[:8], K.PORT_BASE[:8], parent == K.PORT_BASE, files, stat[0].split('\t')[0] if stat else '-', stat[0].split('\t')[1] if stat else '-',
+            lv_dep[:8], lv_dep == K.LV_V0100, lv_main[:8], lv_main == K.LV_MAIN, stand))
+
+
+def _n5():
+    import b633_record as R3
+    face = jl('%s_kernels_face.json' % ACT).get('kernels') or {}
+    now = R3.kern_state(list(face)) if face else {}
+    k_ok = bool(face) and all(now[k] == list(v) for k, v in face.items())
+    ef_main = g(K.EF_DIR, 'rev-parse', 'main').strip()
+    ef_ok = ef_main == K.EF_MAIN and not g(K.EF_DIR, 'tag', '--contains', K.EF_V037).replace('v0.37', '').strip()
+    lv_main, lv_dep = g(LV, 'rev-parse', 'main').strip(), g(LV, 'rev-parse', 'v0.10.0^{commit}').strip()
+    lv_port = g(LV, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.PORT_BRANCH).strip()
+    lv_ok = lv_main == K.LV_MAIN and lv_dep == K.LV_V0100 and lv_port == K.PORT_TIP and not [t for t in g(LV, 'tag', '--contains', K.PORT_TIP).split(NL) if t.strip()]
+    join_main, join_tags = g(K.JOIN_DIR, 'rev-parse', 'main').strip(), g(K.JOIN_DIR, 'tag', '--list').strip()
+    join_ok = join_main == K.JOIN_TIP and join_tags == ''
+    allowed = set(K.PP_WRITTEN)
+    pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
+    pp_beyond = [x for x in pp_ch if x not in allowed]
+    renames = [l for l in g(PP, 'diff', '--name-status', '-M', K.PRE_PP, 'HEAD').split(NL) if l[:1] in ('R', 'D')]
+    relay_ch = sorted(set(x for x in (g(ROOT, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(ROOT, 'diff', '--name-only')).split(NL) if x.strip()))
+    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not re.match(r'^tools/b709_', x) and x[6:] not in R.N5_RELAY_TOOLS]
+    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b709_|audit_b709_)', x) or re.match(r'^data/terminal_table', x)
+                                                or (x.startswith('data/') and x[5:] in R.N5_RELAY_DATA) or (x.startswith('tools/') and x[6:] in R.N5_RELAY_TOOLS))]
+    _r, _n, sh = seal_hashes()
+    differ = [t for t, v in sh if v != 'agree']
+    added = sorted(set(R._g2_of(FACE)) - set(R._g2_of(os.path.join(ROOT, *K.B708_FACE.split('/')))) - set(K.ACT_ARMS))
+    arms_ok = added == sorted(K.STANDING_ADDED)
+    lock = _iso_epoch((re.search(r'locked at \(UTC\) : (\S+)', rd(FACE)) or [None, ''])[1])
+    amended = (_amended_after(ROOT, lock) + _amended_after(PP, lock) + _amended_after(LV, lock)) if lock else []
+    cj = jl('%s_commands.json' % ACT)
+    ob = cj.get('outbound') or []
+    ident = [r for r in ob if r.get('identifiers')]
+    wf_tip = _show(LV, K.PORT_TIP, K.WORKFLOW) or ''
+    wf_base = _show(LV, K.PORT_BASE, K.WORKFLOW) or ''
+    wf_ok = bool(wf_tip) and wf_tip == wf_base and not any(w in wf_tip.lower() for w in IDENT_WORDS)
+    chained = [d['n'] for d in (cj.get('delete_shapes') or []) if d.get('chained')]
+    deleted = sorted(x for d in (cj.get('delete_shapes') or []) for x in (d.get('deletes') or []))
+    gw_ok, gw_note = _one_git_write()
+    pre_gl = (_show(ROOT, K.PRE_RELAY, 'data/glossary.txt') or '').replace('\r', '')
+    now_gl = R.rd(os.path.join(D, 'glossary.txt')).replace('\r', '')
+    gl = now_gl == pre_gl
+    ok = k_ok and ef_ok and lv_ok and join_ok and not pp_beyond and not renames and not kinds_beyond and not shared_tools and not differ and arms_ok \
+        and not amended and not ident and wf_ok and not chained and K.PORT_BRANCH not in deleted and gw_ok and gl
+    return (('HELD' if ok else 'REFUTED'),
+            'nothing deposits: the deposit route untouched (draft %s, v5, unpublished); every kernel as the face read it: %s; SIDE-explicit-formula`s main at badaccc, no tag past '
+            'v0.37, unmoved: %s; SIDE-lv-conservation`s main and deposit unmoved, port-b707 at this act`s one commit %s, no tag on it: %s; the join kernel`s main at its manifest '
+            'commit, no tag: %s; the standing arms added beyond b708`s face, the act arms apart: %s (%s); shared tools edited: %s; sealed tools not agreeing: %s; commits amended '
+            'after the seal (relay, PLACE-papers, SIDE-lv-conservation): %s; deletes with anything chained after: %s; port-b707 deleted: %s; one git write per message (%s): %s; '
+            'PLACE-papers beyond the two ledgers: %s; papers moved or renamed: %s; relay files of a kind beyond the act`s banks and tools, the table, the root list, the '
+            'corrigenda bank, b708`s push-out bank and tools/mirror_prevbuild.json: %s; the glossary unchanged: %s; outbound requests other than git and gh %d, an identifier of '
+            'the author in %s; the workflow at port-b707`s tip b707`s blob unchanged with no identifier: %s; the clauses that wait (the hashes at the close, no bank after the '
+            'root) read again at `scores close`' % (
+                K.DRAFT, k_ok, ef_ok, K.PORT_TIP[:8], lv_ok, join_ok, added or 'NONE', arms_ok, shared_tools or 'NONE', differ or 'NONE', amended or 'NONE',
+                chained or 'NONE', K.PORT_BRANCH in deleted, gw_note, gw_ok, pp_beyond or 'NONE', renames or 'NONE', kinds_beyond or 'NONE', gl, len(ob),
+                [r['line'] for r in ident] or 'NONE', wf_ok))
+
+
+def TRAIL_HEAD():
+    return ('### b709 — lane two, act one hundred and thirty-six, the research act under (R319): b708 at its weight; the needle repaired and the carry read '
+            'by diff; the sign-onset radius at Q0 on the fine grid; the detection law over the higher pairs to height 325; SIDE-lv-conservation’s '
+            'forward-port, 11 of 12 modules building; the second axis registered for b711')
+
+
+R.TRAIL_HEAD = TRAIL_HEAD
+
+
+def _title():
+    f = _figs()
+    fr, fb, Pz = f['grid']['fam']['rho0'], f['grid']['fam']['band'], f['pairs']
+    return ('## The sign-onset radius at the Epstein zeta of x² + xy + 6y² on the fine grid: a = %s at the rung log %s for the band zero’s family and a = %s at a '
+            'midpoint (between log %s and log %s, the rung log %s one half-step below) for ρ₀’s; the ζ form positive at every point; the detection law over the '
+            'twelve higher pairs, %d within the registered range, %d beyond reach; SIDE-lv-conservation’s forward-port, %d of %d modules building' % (
+                _a4(fb.get('a')), fb.get('rung', '-'), _a4(fr.get('a')), fr.get('mid_lo', '-'), fr.get('mid_hi', '-'), fr.get('rung_below', '-'),
+                len(Pz['within']), len(Pz['beyond']), f['built'], f['modules']))
+
+
+def _owners_now():
+    rows = _defect_short(ACT)
+    nav = [r for r in rows if "THE NAVIGATOR'S" in r]
+    return rows, nav
+
+
+def _for_author():
+    rows, nav = _owners_now()
+    seat = len(rows) - len(nav)
+    letters = ', '.join(re.match(r'^\(([a-z])\)', r).group(0) for r in nav)
+    return ('(1) the ruling’s one miss entered by the fact clause and not raised -- b708’s kind for C7OrderBounds.lean :380, “a renamed Mathlib declaration”, '
+            'where the module reads :380 as a cascade of :277 (the kernel’s own _half theorem failing at :277), the one edit at :277 answering both lines and '
+            'the run confirming it (C7OrderBounds builds); (2) N1 scored as worded REFUTED on its first clause -- b708’s withheld bank not carried, '
+            'test_elab_reader_b634.py ran lean on this host at step zero (defect (c)); its second clause met: one dispatch, read by its id, the artifact '
+            'agreeing; (3) the higher pairs bounded at height 325 on the author’s word of 2026-10-24, ten of twelve computed and within [0.67, 1.5], pairs 11 '
+            'and 15 entered “beyond reach at height 325” with the heights the rule needs (405.4, 442.3), not estimated, the order W-ORD-Q0-ZEROS-443 entered for '
+            'b711; the band runs sent to the background and through pools before that word, defect (d); (4) the grid’s hypothesis and falsifier as worded '
+            'vacuous on the grid as worded (b708’s reading, carried): read and printed per family with the discriminating reading beside them -- the band’s '
+            'onset a rung (log 32381, where Λ_Q vanishes), ρ₀’s a midpoint (between log 929 and log 937); (5) the carry read by diff: three carried tools read '
+            'whole in spans or parts (the citation tool, (b); the suite and the closing tool, (e)), N3 scored as worded REFUTED on that clause, the rule’s '
+            'provision for the act-specific sections of a carried tool for the next ruling; (6) the report tool outside the sealed list until the root’s word '
+            '(relay data/b709_rules.txt row (1)); (7) the order’s landing bank committed one commit late, an event; (8) the %s navigator %s%s and the seat’s %s '
+            'defect%s as lettered' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', (' (%s)' % letters) if letters else '', num_word(seat), '' if seat == 1 else 's'))
+
+
+def _finding_text():
+    """the FINDINGS entry, composed before the root: its head line the result sentence, the result before its conditions; its scores line from the
+    scores bank alone (data/b686_rules.txt row (1)); the root carried by the trail record."""
+    S = jl('%s_scores.json' % ACT)
+    f = _figs()
+    fr, fb, Pz = f['grid']['fam']['rho0'], f['grid']['fam']['band'], f['pairs']
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+    checks = len(re.findall(r'^### \(R278\)\(4\) THE MID-ACT CHECK ', rdn(K.CITATION_BANK), re.M))
+    ratios = '; '.join('%d %s' % (r['idx'], ('%.4f' % float(r['ratio'])) if r['ratio'] else 'beyond reach (T0′ > %s)' % r['need']) for r in Pz['rows'])
+    rmin = min(float(r['ratio']) for r in Pz['rows'] if r['ratio']) if Pz['within'] else 0
+    rmax = max(float(r['ratio']) for r in Pz['rows'] if r['ratio']) if Pz['within'] else 0
+    e = ['', _title(), '',
+         'The research act’s four objects read: the sign-onset radius of the Weil form of Q0 on the fine grid data/b708_registrations.txt registered -- on '
+         'the band zero’s family the onset is the rung log %s at a = %s (λ_min %s), where Λ_Q vanishes, %d points above the last rung at which a Q0 term '
+         'enters (log %s) and %d below the next (log %s); on ρ₀’s family the onset is the midpoint between log %s and log %s at a = %s (λ_min %s), the rung '
+         'log %s one half-step below it read positive, %d points above the last entering rung log %s; the ζ form positive beyond its bound at every one of '
+         'the %d points with its certified tail beside λ_min; the detection law over the twelve higher pairs under a certified list extended from 150 to '
+         '%s: %d pairs computed, every one within [0.67, 1.5] (the ratios %.4f to %.4f, rising with height), %d beyond reach at the author’s bound, not '
+         'estimated; and SIDE-lv-conservation’s forward-port, one edit at C7OrderBounds.lean :277 and one dispatch: %d of %d modules build, the module held '
+         'DirichletC7Order at :212:55 by the same changed signature. The second axis, (e) representation coordinates, registered for b711 with hypothesis, '
+         'falsifier and three controls, nothing of it computed.' % (
+             fb.get('rung', '-'), _a4(fb.get('a')), fb.get('lam', '-'), fb.get('above_pts', 0) and fb.get('below_pts', 0), fb.get('below', '-'), fb.get('above_pts', 0), fb.get('above', '-'),
+             fr.get('mid_lo', '-'), fr.get('mid_hi', '-'), _a4(fr.get('a')), fr.get('lam', '-'), fr.get('rung_below', '-'), fr.get('below_pts', 0), fr.get('below', '-'),
+             fr['rows'] + fb['rows'], Pz['height'], len(Pz['within']) + len(Pz['outside']), rmin, rmax, len(Pz['beyond']), f['built'], f['modules']), '',
+         '*Filed at b709 on the author’s ruling `(R319)`; %d question%s put before the root. Banks: relay `data/b709_grid.txt` (its binary bank beside '
+         '`data/b709_grid_hashes.txt`), `data/b709_pairs.txt` (`data/b709_pairs_hashes.txt`), `data/b709_port_edit.txt`, `data/b709_port_push_out.txt`, '
+         '`data/b709_port.txt`, `data/b709_registrations.txt`, `data/b709_registrations_reread.txt`, `data/b709_rules.txt`, `data/b709_tool_repairs.txt`, '
+         '`data/b709_repair_controls.txt`, `data/b709_carry_spans.txt`, `data/b709_standing_figures.txt`, `data/b709_corrigendum.txt`, `data/b709_report.txt`.*' % (
+             n_ans, '' if n_ans == 1 else 's'), '',
+         '**The corrigendum** (`(R319)`(1)-(2)): b708 entered at its weight as its closing prints (FINDINGS :%s); the generated entry at FINDINGS :%s answers '
+         'b708’s post-seal item -- G-CLOSING-DRY-STEP’s needle reading “NO VERDICT LINE” as a defect on a bank that carries none by its form -- and the kind '
+         'read for C7OrderBounds.lean :380 (a cascade of :277, this act’s (a)); the corrigenda bank appended at row (%s); the needle repaired at carry time '
+         '(tools/b709_checks.py no_verdict_line_ok, the exempt bank named; its controls relay data/b709_repair_controls.txt, 5 cases as wanted, the NEG '
+         'control failing); the carry read by diff entered as relay data/b709_rules.txt row (1), each carried tool banked by its substitution diff with the '
+         'spans b708’s repairs bank names (relay data/b709_carry_spans.txt), the three read whole lettered ((b), (e)); W-ORD-WORKFLOW-PROBE-STEP annotated '
+         'DISCHARGED at OPEN_TRAILS :%d; the report tool outside the sealed list until the root’s word.' % (c1_[0], f['corr_line'], f['corr_row'], K.ORDER_WORKFLOW_PROBE_ANNOTATED), '',
+         '**The grid** (`(R319)`(3), N2): data/b708_registrations.txt (i) computed as registered and nothing added -- for each family the interval between '
+         'the greatest positive coarse radius and the least negative one subdivided at the rungs log p^k in it and at the midpoints between consecutive rungs, '
+         'b707’s form imported unedited (the 2 × 2 matrix of S = P − PR + A on span{C, N} in balls at 128 bits), each point’s window of width N^(1/4) with '
+         'the prime sum’s exact ratios read from N; the controls before the figures: (C1) the four coarse endpoints reproducing b707’s eigenvalues in both '
+         'forms, 32 rows AS WANTED; (C2) the ζ form positive beyond its bound at every point (ρ₀ %d of %d, the band %d of %d), its λ_min printed beside its '
+         'three certified archimedean tail balls (tools/b696_witness_balls.py). ρ₀’s family (γ₀ = 16.2902…, the interval (log 2, 2 log 32]): %d negative '
+         'readings, the onset %s at a = %s ± %s, λ_min %s ± %s -- a midpoint, the rung log %s one half-step below it read positive, Λ_Q(%s) = 0; the nearest '
+         'rungs at which a Q0 term enters log %s (%d points below) and log %s (%d points above). The band zero’s family (γ₀ = 29.5517…, (2 log 128, 2 log 192]): '
+         '%d negative readings, the onset %s at a = %s ± %s, λ_min %s ± %s -- a rung, log %s, at which Λ_Q(%s) = 0 (no Q0 term enters there); the nearest '
+         'entering rungs log %s (%d points below) and log %s (%d points above). The hypothesis (the onset within one subdivision step past a rung) %s / %s and the '
+         'falsifier (the onset at a midpoint with no rung within one step below it) %s / %s, each vacuous as worded on the grid as worded (b708’s reading, '
+         'carried for the strike): the discriminating reading is the one above, a rung for the band and a midpoint for ρ₀ (relay data/b709_grid.txt, '
+         'data/b709_grid_hashes.txt; the points banked %d and %d).' % (
+             fr['zeta_pos'], fr['rows'], fb['zeta_pos'], fb['rows'], fr.get('neg', 0), fr.get('name', '-'), fr.get('a', '-'), fr.get('a_err', '-'), fr.get('lam', '-'), fr.get('lam_err', '-'),
+             fr.get('rung_below', '-'), fr.get('rung_below', '-'), fr.get('below', '-'), fr.get('below_pts', 0), fr.get('above', '-'), fr.get('above_pts', 0),
+             fb.get('neg', 0), fb.get('name', '-'), fb.get('a', '-'), fb.get('a_err', '-'), fb.get('lam', '-'), fb.get('lam_err', '-'), fb.get('rung', '-'), fb.get('rung', '-'),
+             fb.get('below', '-'), fb.get('below_pts', 0), fb.get('above', '-'), fb.get('above_pts', 0), fr['hyp'], fb['hyp'], fr['fal'], fb['fal'], fr['rows'], fb['rows']), '',
+         '**The pairs** (`(R319)`(5), N2): data/b707_registrations.txt (i) computed as registered -- b675’s constants_for line for line with the certified '
+         'height and the onset cap as parameters, on the ON rows and the pair alone with dom = ref<idx>, 256 bits; the controls before the figures: (C1) '
+         'n*(ρ₀) at T0 = 150 over the 180 representatives 63676, b675’s, EQUAL; (C2) b705’s five pairs at T0 = 150 reproduced, EQUAL 5 of 5. The certified '
+         'list extended by band from 150 to %s with b667’s engine (the Bessel rung raised to 2000 bits above t ≈ 185): %d bands, each COMPLETE with N = '
+         'on-line + 2 × off-line (%d new zeros on the line by certified sign changes of Λ_Q, %d new off-line pairs located by Newton on point values; the '
+         'bands run in the foreground one per call under the guard from the author’s word, the earlier background runs and pools lettered (d)). The '
+         'twelve pairs: %s. The falsifier (any pair’s n* outside [0.67, 1.5]) read over the %d computed: %s; pairs %s beyond reach at height %d on the author’s '
+         'bound, each with the height the rule needs, not estimated; W-ORD-Q0-ZEROS-443 entered at OPEN_TRAILS :%s for b711 (eight bands of 15 to 443 in the '
+         'foreground form, then the two pairs) (relay data/b709_pairs.txt, data/b709_pairs_hashes.txt).' % (
+             Pz['height'], len(Pz['bands']), Pz['new_on'], Pz['new_off'], ratios, len(Pz['within']) + len(Pz['outside']),
+             'HELD, none outside' if not Pz['outside'] else 'REFUTED on %s' % Pz['outside'], ', '.join(str(r['idx']) for r in Pz['beyond']), K.PAIRS_BOUND, f['o443_line']), '',
+         '**The port** (`(R319)`(4), N1, N4): W-ORD-LV-FORWARD-PORT continued on port-b707 -- C7OrderBounds.lean :277 edited by the Edit tool from '
+         '`%s` to `%s` (Mathlib AbstractFuncEq.lean :484 at the pin de5ce8a9: `IsStrongFEPair.hasMellin (s)` where `WeakFEPair.hasMellin` takes `k < re s`), '
+         ':380 read again after the edit and left unedited, the “unknown constant” there the kernel’s own _half theorem failing at :277 (defect (a); the two '
+         'diffs printed, one hunk); one commit %s on b707’s %s, pushed in branch mode and read back; one dispatch at the tip (free memory %s MB at the '
+         'dispatch), run %s read by its id, the artifact’s sha256 %s… agreeing with the platform’s digest, memory low %s MB above the hold, no STOP line: '
+         'conclusion %s, %d of %d modules built (b707: 6) -- C7OrderBounds builds, with CouplingsAtPhi, C7FiniteTypeFalse, RegisterPentagon and '
+         'PartialPositivity behind it -- the module held %s, the next failing line %s (%s), the lines after it two heartbeat timeouts, a cascade, two broken '
+         'proofs and a second changed signature at :574; %d remaining; the print step %s (print_targets.txt absent at the branch), no grade claimed; no merge, '
+         'no tag, main and the deposit v0.10.0 unmoved, the branch held at %s for b711 (relay data/b709_port_edit.txt, data/b709_port_push_out.txt, '
+         'data/b709_port.txt).' % (
+             f['l277_old'], f['l277_new'], K.PORT_TIP[:8], K.PORT_BASE[:8], f['disp_free'], f['run_id'], f['art'], f['mem_low'], f['conclusion'], f['built'], f['modules'],
+             ', '.join(f['held']), f['first_error'].replace('error: ', '').split(': ')[0], f['first_kind'], f['remaining'], f['print_step'], K.PORT_TIP[:8]), '',
+         '**The axis** (`(R319)`(6)): the second axis of data/b705_i6_ranking.txt (:58, “(e) representation coordinates (the operator / Toeplitz form) -- 4”), '
+         'named with its statement-grade re-expression as the ranking holds it -- the Weil form of Q0 as the quadratic form of a self-adjoint operator on the '
+         'even window space of support radius a, its N × N matrix on a Legendre or prolate basis in balls and its least eigenvalue the sign, the 2 × 2 family '
+         'a subspace so that this act’s onsets are upper bounds on the operator’s -- registered for b711 in relay data/b709_registrations.txt before any '
+         'number (committed alone at %s): the hypothesis (at the least radius where λ_min(a, 16) is negative, the least eigenvector’s peak ordinate within one '
+         'half-width of an off-line ordinate of Z_Q), the falsifier, three controls (the family as Rayleigh quotients; the ζ form with its tail; the proven '
+         'range a ≤ log 2) and the price derived from b707’s stamps; nothing of it computed this act (relay data/b709_registrations_reread.txt: no axis, onset '
+         'or eigenvalue bank of it, %s).' % (K.REG_COMMIT[:8], f['axis_not_computed']), '',
+         '**The registrations** (N2): the four registration banks re-read after Components 1–3 and unchanged byte for byte since their own commits -- this '
+         'act’s data/b709_registrations.txt and data/b709_rules.txt at relay %s, b708’s fine grid at 6045dd8c and b707’s higher pairs’ route at 6e8ece87, '
+         'each touched by one commit -- and the computed banks committed as they stand: %s (relay data/b709_registrations_reread.txt).' % (K.REG_COMMIT[:8], f['reg_unchanged']), '',
+         '**The standing arms**: the four figures at b709 -- %s, %s, %s, %s -- against b708’s %s, %s, %s, %s, read by b706’s tool over b706’s roster with both '
+         'kernels on main at the read (relay data/b709_standing_figures.txt); the standing runner arms reading this act’s one run, a failure read as banked; no '
+         'standing arm added; the carry-time repairs with their diffs (relay data/b709_tool_repairs.txt).' % (
+             f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
+             f['figs8']['correspondence'], f['figs8']['readme'], f['figs8']['partners'], f['figs8']['pins']), '',
+         '**The citation check** (the gate step from b662): %s cites checked at HEAD, %s OK, %s missed -- the seat’s, b708’s kind for :380, entered by the fact '
+         'clause and answered by the edit and the run; %d answer check%s before the root.' % (
+             cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
+         scores_line(S), '',
+         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): the two computations say one thing about the control object -- the sign of the Weil form at Q0 '
+         'turns at a scale the grid now names to a rung or a midpoint, and on neither family does it turn at a rung where a Q0 term enters (the band’s onset '
+         'rung carries Λ_Q = 0, ρ₀’s onset lies between entering rungs), so the onset is a reading of the window’s width against the zeros and not of any '
+         'one prime; and the detection law, carried past the modulus rule’s reach by a certified list to 325, holds at every pair it reaches with the ratio '
+         'drifting upward with height (%.2f to %.2f), the drift itself a figure b711’s two higher pairs can test. It strengthens the programme’s offering of a '
+         'located clause by giving the onset’s question a named point on a grid at the rungs of the arithmetic and by pricing the law’s next test at a '
+         'height already banked in bands.' % (rmin, rmax), '',
+         '**Carried to:** b711 (the research act: W-ORD-Q0-ZEROS-443 -- the list from 325 to 443 in eight bands, then pairs 11 and 15; the join’s dispatch where '
+         'the port completes, DirichletC7Order.lean :212:55 first; the second axis at the coarse radii); b710 (the reading act, reading 5: W-ORD-STANDING-CLAUSES-BANK, '
+         'the readfirst flip against readings 3 and 4, the principles S, I, D and E against the corpus, the moves-by-locus table); the next ruling (the carry '
+         'rule’s provision for a carried tool’s act-specific sections; the withheld bank carried by name with the tests tool; the five renames’ readers in the '
+         'test files, no test edited); the draft held at v5.', '',
+         '**Next.** %s.' % K.NEXT, '',
+         '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
+    return _title(), NL.join(e)
+
+
+def _trail_text():
+    S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
+    fj = jl('%s_findings.json' % ACT)
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    _r, _n, sh = seal_hashes()
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    f = _figs()
+    fr, fb, Pz = f['grid']['fam']['rho0'], f['grid']['fam']['band'], f['pairs']
+    rows_ = ['', TRAIL_HEAD(), '',
+             '**(R319) ratified.** (1) b708 at its weight. (2) The needle, the carry and the corrigendum. (3) The fine grid. (4) The port’s next lines. (5) The '
+             'higher pairs. (6) The next axis. (7) The branches. (8) The read-first bank. (9) The draft held at v5. (10) The acts after.', '',
+             '**Entered:** FINDINGS.md:%s (b708’s weight), :%s (the corrigendum), :%s (the entry); OPEN_TRAILS.md:%d (W-ORD-WORKFLOW-PROBE-STEP annotated '
+             'DISCHARGED), :%s (W-ORD-Q0-ZEROS-443); this record.' % (c1_[0], f['corr_line'], fj.get('entry_line'), K.ORDER_WORKFLOW_PROBE_ANNOTATED, f['o443_line']), '',
+             '**Act root:** b709 `%s` (previous `%s`, b708’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF '
+             'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
+             '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b709_author_answers.txt); the author’s words of 2026-10-24 on '
+             'the pairs (the foreground form, the bound at height 325) in the components bank; the root’s own prompt, its answer in the closing line.' % (
+                 n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
+             '**The grid:** the band zero’s onset %s at a = %s (λ_min %s), a rung where Λ_Q vanishes; ρ₀’s onset %s at a = %s (λ_min %s), a midpoint with the '
+             'rung log %s one half-step below; the ζ form positive at every one of the %d points; C1 32 rows as wanted; the hypothesis %s / %s and the falsifier '
+             '%s / %s, vacuous as worded (relay data/b709_grid.txt).' % (
+                 fb.get('name', '-'), _a4(fb.get('a')), fb.get('lam', '-'), fr.get('name', '-'), _a4(fr.get('a')), fr.get('lam', '-'), fr.get('rung_below', '-'),
+                 fr['rows'] + fb['rows'], fr['hyp'], fb['hyp'], fr['fal'], fb['fal']), '',
+             '**The pairs:** the list complete to %s (%d bands, %d new zeros on the line, %d new off-line pairs); %d of 12 computed, every one within [0.67, 1.5], '
+             'the falsifier HELD over them; pairs %s beyond reach at height %d on the author’s bound; W-ORD-Q0-ZEROS-443 entered (relay data/b709_pairs.txt).' % (
+                 Pz['height'], len(Pz['bands']), Pz['new_on'], Pz['new_off'], len(Pz['within']) + len(Pz['outside']), ', '.join(str(r['idx']) for r in Pz['beyond']), K.PAIRS_BOUND), '',
+             '**The port:** port-b707 at `%s` (one edit at C7OrderBounds.lean :277, :380 the cascade), run %s %s, %d of %d modules built, DirichletC7Order held at '
+             ':212:55 (%s); no merge, no tag, main and the deposit unmoved (relay data/b709_port.txt).' % (
+                 K.PORT_TIP[:7], f['run_id'], f['conclusion'], f['built'], f['modules'], f['first_kind']), '',
+             '**The axis:** (e) representation coordinates registered for b711 at relay %s with hypothesis, falsifier and three controls; nothing computed '
+             '(relay data/b709_registrations.txt).' % K.REG_COMMIT[:8], '',
+             '**The registrations:** the four banks re-read unchanged since their own commits %s; the computed banks committed as they stand (relay '
+             'data/b709_registrations_reread.txt).' % f['reg_unchanged'], '',
+             '**The kernels:** SIDE-lv-conservation’s port-b707 given one commit, pushed in branch mode and dispatched once, its main and deposit unmoved, no tag; '
+             'SIDE-explicit-formula and the join kernel unmoved; one lean process on this host, the test’s (defect (c)); no build by the seat on this host.', '',
+             '**The mirror:** the export made after this root in the b670 form over b708’s roster, its name in the closing (relay data/b709_closing.txt).', '',
+             '**The open orders:** `W-ORD-Q0-ZEROS-443` (entered this act, trigger b711); `W-ORD-LV-FORWARD-PORT` (continued: 11 of 12 modules, DirichletC7Order :212:55 '
+             'next); `W-ORD-LV-CLOSURE-JOIN` (the join held; its dispatch where the port completes, b711); `W-ORD-WORKFLOW-PROBE-STEP` (annotated DISCHARGED this act); '
+             '`W-ORD-ENTRY-TAG-PRINTS` (read to its end at b708); `W-ORD-EXPLICIT-FORMULA-C1`; `W-ORD-EPSTEIN-COUNT-LEAN`; `W-ORD-STANDING-CLAUSES-BANK` (trigger b710); '
+             '`W-ORD-KEYSTONE-HEADS`; `W-ORD-QUASI-RH-FIELD-WATCH`; `W-ORD-P3-CONTOUR-SIGMA` (read at b705); `W-ORD-E0-MET-CLASSK` (its content done at b705); '
+             '`W-ORD-README-FIGURE-SCOPE` (repaired at b705). Discharged this act by a landing: none; entered this act: `W-ORD-Q0-ZEROS-443`.', '',
+             '**The standing arms:** the four figures %s, %s, %s, %s against b708’s %s, %s, %s, %s; the runner arms reading this act’s one run as banked (relay '
+             'data/b709_standing_figures.txt, data/b709_runner_rows.json).' % (
+                 f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
+                 f['figs8']['correspondence'], f['figs8']['readme'], f['figs8']['partners'], f['figs8']['pins']), '',
+             '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
+             '**Resolved by the seat, for the author’s strike:** %s.' % _for_author(), '',
+             '**Defects** (relay data/b709_defects.txt): %s.' % ('; '.join(_defect_short(ACT)) or 'none'), '',
+             '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in NK + SK) + '.** (the scores bank; the readings that waited, at the close)', '',
+             '**Next:** %s.' % K.NEXT, '']
+    return NL.join(rows_)
+
+
+def components(*a):
+    S, fj, tj, J = (jl(n_) for n_ in ('%s_scores.json' % ACT, '%s_findings.json' % ACT, '%s_trail.json' % ACT, '%s_act_root.json' % ACT))
+    if not fj.get('entry_line') or not tj.get('line'):
+        sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
+    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
+    f = _figs()
+    fr, fb, Pz = f['grid']['fam']['rho0'], f['grid']['fam']['band'], f['pairs']
+    L = ['%s -- THE COMPONENTS, BANKED UNDER (R319).' % ACT, '',
+         '### COMPONENT 0 : the citation check (data/b709_citation_check.txt), step zero (data/b709_ferry.txt, data/b709_readfirst.txt, data/b709_stepzero.txt, '
+         'data/b709_tests_stepzero.txt, data/b709_rowgen_stepzero.txt, data/b709_branches.txt), the registrations and the rules bank committed alone '
+         '(data/b709_registrations.txt, data/b709_rules.txt) ; N1 %s (the test`s lean run, (c))' % S['N1'][0],
+         '### COMPONENT 1 : b708`s weight FINDINGS :%s ; the corrigendum FINDINGS :%s (data/b709_corrigendum.txt, the corrigenda row (%s)) ; the needle`s repair '
+         '(data/b709_repair_controls.txt) ; the carry by diff (data/b709_carry_spans.txt) ; the order annotated OPEN_TRAILS :%d ; N3 %s' % (
+             c1_[0], f['corr_line'], f['corr_row'], K.ORDER_WORKFLOW_PROBE_ANNOTATED, S['N3'][0]),
+         '### COMPONENT 2 : the grid (data/b709_grid.txt, data/b709_grid_hashes.txt): the band`s onset %s a = %s, rho_0`s %s a = %s, the zeta form positive at %d points ; '
+         'the pairs (data/b709_pairs.txt, data/b709_pairs_hashes.txt): the list to %s, %d within, %d beyond reach, W-ORD-Q0-ZEROS-443 at OPEN_TRAILS :%s ; N2 %s' % (
+             fb.get('name', '-'), _a4(fb.get('a')), fr.get('name', '-'), _a4(fr.get('a')), fr['rows'] + fb['rows'], Pz['height'], len(Pz['within']), len(Pz['beyond']), f['o443_line'], S['N2'][0]),
+         '### COMPONENT 3 : the port (data/b709_port_edit.txt, data/b709_port_push_out.txt, data/b709_port.txt): port-b707 at %s, run %s %s, %d of %d modules ; N4 %s' % (
+             K.PORT_TIP[:8], f['run_id'], f['conclusion'], f['built'], f['modules'], S['N4'][0]),
+         '### COMPONENT 4 : the axis (data/b709_registrations.txt), the four registrations re-read (data/b709_registrations_reread.txt) unchanged %s' % f['reg_unchanged'],
+         '### COMPONENT 5 : the carry (data/b709_tool_repairs.txt, data/b709_repair_controls.txt), the figures (data/b709_standing_figures.txt), the root route dry '
+         '(data/b709_root_banks_dry.txt), the dry-run steps (data/b709_reg_gate.txt), the seal (data/b709_seal_hashes.json), the suite in seven parts, the per-part '
+         'seconds (data/b709_arm_seconds.txt) ; S3 %s' % S['S3'][0],
+         '### COMPONENT 6 : FINDINGS :%s ; the root %s ; OPEN_TRAILS :%s ; the mirror after the root ; N5 %s' % (
+             fj.get('entry_line'), (J.get('root') or '')[:16], tj.get('line'), S['N5'][0]),
+         '### THE AUTHOR`S WORDS OF 2026-10-24, MID-ACT (not prompts; in the transcript, acted on as read): the pairs in the foreground, one band per call under the '
+         'guard, no pool, no background shell, the background runs entered as the seat`s (d), each banked band read back before the next; a status print; the higher '
+         'pairs bounded at height 325, the band 310-325 finished, ten pairs computed, 11 and 15 entered beyond reach with their heights, W-ORD-Q0-ZEROS-443 entered; '
+         'then the port, the axis and Component 5 in the ferry`s order.']
+    put_txt('%s_components.txt' % ACT, L)
+    print(NL.join(L[2:]))
+
+
+REPAIR_ROWS = [
+    ('checks', 'tools/b709_checks.py `no_verdict_line_ok` and `NO_VERDICT_EXEMPT`', '(R319)(2): G-CLOSING-DRY-STEP`s needle read "### NO VERDICT LINE" as a defect where the closing prints it for a bank that carries no verdict line by its form; the arm now excludes the named banks` lines and fails on the string elsewhere. Controls: data/b709_repair_controls.txt (5 cases as wanted; the NEG control fails). Found at Component 1.'),
+    ('tests', 'tools/b709_tests.py, the report line', 'the carried report line printed "no part moved to the background" unconditionally; it reads the tests over the 590 s guard now (test_elab_reader_b634.py, 867 s, defect (c)), the report re-run at step zero.'),
+    ('record', 'tools/b709_record.py: roster709, prev_capture, _standins, the branches route, UNTRACKED_DECL and _root_exclude', 'roster709 bound to b708`s roster through b708`s module (the bare-number name the substitution left); prev_capture bounded at (R319)`s anchor for an act in the SAME session as its predecessor (b701`s form); the stand-in`s previous root b708`s a840da57; the branches route reading K.PORT_BASE and port-b707 (the substitution had turned the kept branch`s name into port-b708); the untracked-write declaration read to its first space and a trailing `*` read as a prefix (b708`s `\\s*$` refused the grid`s and pairs` declarations, the root`s first dry run naming 32 units files). b708`s routes over its own objects pruned (data/b709_prune_record.txt, seven blocks); this act`s routes (c1, repairctl, orders, orders443, portedit, portdispatch, portrun, regcheck, the scorers, the entry and trail texts, components, repairs) written by the Edit tool.'),
+    ('corrigendum', 'tools/b709_corrigendum.py, rewritten whole', 'b678`s form for b708`s two items (the post-seal needle, the kind of :380); the `bank` route added after the landing stopped on its own line count (the event in data/b709_defects.txt); the entry text given its leading newline.'),
+]
+OWN_SECTIONS = [
+    ('checks', 'the act`s arms over this act`s banks (the grid, the pairs, the port, the axis, the carry, the corrigendum row (29), the orders, the title form) in place of b708`s (the probe, the prints, the re-cut, the port`s lines); the sources over this act`s banks; REQUIRED_BANKS; the standing runner arms re-sourced to this act`s one run; the figures baseline b708`s; the next act`s rules glob b710`s'),
+    ('closing', 'TITLE_LINE, act_sections (the grid, the pairs, the port, the axis), KERNEL_LINES, CARRIED_FIXED and the heads loop (port-b707 at this act`s tip; no scratch branch) -- the act`s own text'),
+    ('reg_gate', 'the substitution alone (7 lines)'),
+    ('regspec', 'the substitution alone (42 lines)'),
+]
+
+
+def repairs(*a):
+    """data/b709_tool_repairs.txt (.json): the ferry's Component 5 -- every carry-time repair of a carried tool, each with its diff from tools/b709_carry.py
+    repairdiff (the carried form against the file now; data/b709_repairdiff_<name>.txt), the act's own sections of the suite and the closing tool named
+    apart (not repairs), the two computation tools' declaration lines, and ROOT_EXCLUDE named as carried in form. No shared file edited."""
+    L = ['%s -- THE CARRY-TIME READING: THE REPAIRS, THE FERRY`S COMPONENT 5 (%s)' % (ACT, utc()), '',
+         '### rows are repairs with what they answer: the tool and its part ; what it answers ; the form. Each tool`s whole diff against its carried form (the',
+         '### previous act`s tool with the act names substituted) stands in data/b709_repairdiff_<name>.txt, written by tools/b709_carry.py repairdiff from',
+         '### autojunk=False opcodes; the verdict line of each is quoted beneath its row. The controls that distinguish the needle`s repaired reading from the',
+         '### old one: data/b709_repair_controls.txt. No sealed tool is edited; no shared tool or shared data file is edited this act.', '']
+    out = []
+    for i, (name, part, what) in enumerate(REPAIR_ROWS, 1):
+        v = (re.findall(r'^### ### \*\*(.*)\*\*\s*$', rdn('%s_repairdiff_%s.txt' % (ACT, name)), re.M) or ['### NO REPAIRDIFF BANK'])[-1]
+        L += ['  (%d) %s -- %s' % (i, part, what), '      data/%s_repairdiff_%s.txt: %s' % (ACT, name, v), '']
+        out.append(dict(n=i, tool='%s_%s.py' % (ACT, name), part=part, what=what, diff_bank='data/%s_repairdiff_%s.txt' % (ACT, name), verdict=v))
+    L += ['  THE ACT`S OWN SECTIONS, REWRITTEN BY THE EDIT TOOL (not repairs of the carried form):']
+    own = []
+    for name, what in OWN_SECTIONS:
+        v = (re.findall(r'^### ### \*\*(.*)\*\*\s*$', rdn('%s_repairdiff_%s.txt' % (ACT, name)), re.M) or ['### NO REPAIRDIFF BANK'])[-1]
+        L += ['      tools/%s_%s.py -- %s ; data/%s_repairdiff_%s.txt: %s' % (ACT, name, what, ACT, name, v)]
+        own.append(dict(tool='%s_%s.py' % (ACT, name), what=what, verdict=v))
+    L += ['', '  THE COMPUTATION TOOLS` DECLARATION LINES (new tools, not carried): tools/b709_grid.py and tools/b709_pairs.py each declare their units files by prefix',
+          '      (`### UNTRACKED WRITE: data/b709_grid_units*`, `... data/b709_pairs_units*`) for the root route`s exclusion list, the lines edited after the tools`',
+          '      Component 2 commits and before the seal; no bank changed.', '',
+          '  CARRIED IN FORM: ROOT_EXCLUDE (data/b706_rules.txt row (1), the kinds b698`s route excludes extended at import with every declared untracked write) --',
+          '      its form b707`s and b708`s, its declaration reader repaired as row (3) says.', '',
+          '### ### **REPAIRS %d ; THE ACT`S OWN SECTIONS REWRITTEN %d ; CARRIED IN FORM 1 (ROOT_EXCLUDE) ; SHARED FILES EDITED 0 ; NO SEALED TOOL EDITED ; THE CONTROLS IN data/b709_repair_controls.txt.**' % (len(out), len(own))]
+    put_txt('%s_tool_repairs.txt' % ACT, L)
+    put_json('%s_tool_repairs.json' % ACT, dict(at=utc(), repairs=out, own_sections=own, carried=['ROOT_EXCLUDE'], declarations=['b709_grid.py', 'b709_pairs.py']))
+    print(NL.join(L[-1:]))
+
+
 def scores(*a):
     """`scores [dry]` writes data/b709_scores.json ONCE, before the entry (it refuses where the bank exists); `scores close` reads the readings
-    that waited (N4's mirror clause, S1, S2) into data/b709_scores_close.json."""
+    that waited (N5's close clauses, S1, S2) into data/b709_scores_close.json."""
     close = 'close' in a
     S = dict([('N1', _n1()), ('N2', _n2()), ('N3', _n3()), ('N4', _n4()), ('N5', _n5())] + list(_s_scores().items()))
     for k2 in SCORE_KEYS:
@@ -1396,6 +1931,33 @@ def portrun(*a):
     print(NL.join(L[2:10] + L[-1:]))
 
 
+def linecheck(*a):
+    """`linecheck <record-lines bank> <i> <needle>...`: the suite's landed-line reading (tools/b703_checks.py landed) reproduced piece by piece and
+    printed -- the bank's row, the ledger line at its number through the suite's own reader, conv(head), startswith and each needle; print only."""
+    import b709_checks as CH
+    bank, i = a[0], int(a[1])
+    need = list(a[2:])
+    rl = jl(bank)
+    x = (rl.get('lines') or [])[i]
+    find = CH.read(os.path.join(CH.PP, 'FINDINGS.md'))
+    ot_ = CH.read(os.path.join(CH.PP, 'OPEN_TRAILS.md'))
+    S_ = dict(find=find, ot=ot_)
+    o = (CH.fline if x.get('file') == 'FINDINGS.md' else CH.oline)(S_, x.get('line'))
+    h = conv(x.get('head', '\x00'))
+    print('  row %d: file %s line %s ; the ledger text %d lines, %d chars' % (i, x.get('file'), x.get('line'), len(find.split(NL)), len(find)))
+    print('  the line at that number (%d chars): %r' % (len(o), o[:160]))
+    print('  conv(head) (%d chars): %r' % (len(h), h[:160]))
+    print('  startswith %s ; first differing index %s' % (o.startswith(h), next((k for k in range(min(len(o), len(h))) if o[k] != h[k]), None)))
+    for n_ in need:
+        print('  needle %r in the line: %s' % (n_, n_ in o))
+    if os.environ.get('LINECHECK_SUITE') == '1' or 'suite' in a:
+        S = CH.sources(())
+        xs = (S['rl'].get('lines') or [{}])[i]
+        os_ = CH.fline(S, xs.get('line')) if xs.get('file') == 'FINDINGS.md' else CH.oline(S, xs.get('line'))
+        print('  THE SUITE`S SOURCES: rl row %s ; find %d chars ; the line at its number (%d chars): %r' % (xs, len(S['find']), len(os_), os_[:120]))
+        print('  CH.landed(S, %d, need) %s ; CH.weight_ok(S) %s' % (i, CH.landed(S, i, [n_ for n_ in need if n_ != 'suite']), CH.weight_ok(S)))
+
+
 def defs(*a):
     """`defs <tool.py>`: the tool's top-level def names with their lines (print only) -- the span finder for a read by offset and limit."""
     src = rd(os.path.join(T, a[0])).split(NL)
@@ -1424,7 +1986,8 @@ ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=st
               figures=figures, regcheck=regcheck, scorercheck=scorercheck, runner=runner,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
-              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry)
+              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, components=components, repairs=repairs,
+              linecheck=linecheck)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

@@ -1,0 +1,66 @@
+{
+ "at": "2026-10-24T20:20:39Z",
+ "repairs": [
+  {
+   "n": 1,
+   "tool": "b709_checks.py",
+   "part": "tools/b709_checks.py `no_verdict_line_ok` and `NO_VERDICT_EXEMPT`",
+   "what": "(R319)(2): G-CLOSING-DRY-STEP`s needle read \"### NO VERDICT LINE\" as a defect where the closing prints it for a bank that carries no verdict line by its form; the arm now excludes the named banks` lines and fails on the string elsewhere. Controls: data/b709_repair_controls.txt (5 cases as wanted; the NEG control fails). Found at Component 1.",
+   "diff_bank": "data/b709_repairdiff_checks.txt",
+   "verdict": "HUNKS 118 ; LINES REMOVED 364 ; LINES ADDED 447."
+  },
+  {
+   "n": 2,
+   "tool": "b709_tests.py",
+   "part": "tools/b709_tests.py, the report line",
+   "what": "the carried report line printed \"no part moved to the background\" unconditionally; it reads the tests over the 590 s guard now (test_elab_reader_b634.py, 867 s, defect (c)), the report re-run at step zero.",
+   "diff_bank": "data/b709_repairdiff_tests.txt",
+   "verdict": "HUNKS 1 ; LINES REMOVED 1 ; LINES ADDED 2."
+  },
+  {
+   "n": 3,
+   "tool": "b709_record.py",
+   "part": "tools/b709_record.py: roster709, prev_capture, _standins, the branches route, UNTRACKED_DECL and _root_exclude",
+   "what": "roster709 bound to b708`s roster through b708`s module (the bare-number name the substitution left); prev_capture bounded at (R319)`s anchor for an act in the SAME session as its predecessor (b701`s form); the stand-in`s previous root b708`s a840da57; the branches route reading K.PORT_BASE and port-b707 (the substitution had turned the kept branch`s name into port-b708); the untracked-write declaration read to its first space and a trailing `*` read as a prefix (b708`s `\\s*$` refused the grid`s and pairs` declarations, the root`s first dry run naming 32 units files). b708`s routes over its own objects pruned (data/b709_prune_record.txt, seven blocks); this act`s routes (c1, repairctl, orders, orders443, portedit, portdispatch, portrun, regcheck, the scorers, the entry and trail texts, components, repairs) written by the Edit tool.",
+   "diff_bank": "data/b709_repairdiff_record.txt",
+   "verdict": "HUNKS 49 ; LINES REMOVED 1080 ; LINES ADDED 964."
+  },
+  {
+   "n": 4,
+   "tool": "b709_corrigendum.py",
+   "part": "tools/b709_corrigendum.py, rewritten whole",
+   "what": "b678`s form for b708`s two items (the post-seal needle, the kind of :380); the `bank` route added after the landing stopped on its own line count (the event in data/b709_defects.txt); the entry text given its leading newline.",
+   "diff_bank": "data/b709_repairdiff_corrigendum.txt",
+   "verdict": "HUNKS 20 ; LINES REMOVED 77 ; LINES ADDED 136."
+  }
+ ],
+ "own_sections": [
+  {
+   "tool": "b709_checks.py",
+   "what": "the act`s arms over this act`s banks (the grid, the pairs, the port, the axis, the carry, the corrigendum row (29), the orders, the title form) in place of b708`s (the probe, the prints, the re-cut, the port`s lines); the sources over this act`s banks; REQUIRED_BANKS; the standing runner arms re-sourced to this act`s one run; the figures baseline b708`s; the next act`s rules glob b710`s",
+   "verdict": "HUNKS 118 ; LINES REMOVED 364 ; LINES ADDED 447."
+  },
+  {
+   "tool": "b709_closing.py",
+   "what": "TITLE_LINE, act_sections (the grid, the pairs, the port, the axis), KERNEL_LINES, CARRIED_FIXED and the heads loop (port-b707 at this act`s tip; no scratch branch) -- the act`s own text",
+   "verdict": "HUNKS 15 ; LINES REMOVED 77 ; LINES ADDED 76."
+  },
+  {
+   "tool": "b709_reg_gate.py",
+   "what": "the substitution alone (7 lines)",
+   "verdict": "HUNKS 0 ; LINES REMOVED 0 ; LINES ADDED 0."
+  },
+  {
+   "tool": "b709_regspec.py",
+   "what": "the substitution alone (42 lines)",
+   "verdict": "HUNKS 0 ; LINES REMOVED 0 ; LINES ADDED 0."
+  }
+ ],
+ "carried": [
+  "ROOT_EXCLUDE"
+ ],
+ "declarations": [
+  "b709_grid.py",
+  "b709_pairs.py"
+ ]
+}

@@ -45,6 +45,7 @@ ORDER_TAG_PRINTS = 15590    # ### OPEN_TRAILS: W-ORD-ENTRY-TAG-PRINTS (b705), di
 ORDER_TAG_REMAINDER = 15684
 ORDER_WORKFLOW_PROBE = 15544   # ### OPEN_TRAILS: W-ORD-WORKFLOW-PROBE-STEP (b705), discharged at :15638 (b706) with the trigger b708; annotated DISCHARGED at b709 ((R319)(2))
 ORDER_WORKFLOW_PROBE_DISCHARGED = 15638
+ORDER_WORKFLOW_PROBE_ANNOTATED = 15762   # ### OPEN_TRAILS: the DISCHARGED annotation this act appended ((R319)(2), Component 1, PLACE-papers c31eca88)
 ORDER_LV_PORT = 15686       # ### OPEN_TRAILS: W-ORD-LV-FORWARD-PORT entered and opened (b707); continued this act ((R319)(4))
 B708_REPORT = 'data/b708_report.txt'
 
@@ -110,7 +111,7 @@ ORDER_Q0_ZEROS = 15764       # ### OPEN_TRAILS: W-ORD-Q0-ZEROS-443 (b709), trigg
 PAIRS_BOUND = 325            # ### the author's word of 2026-10-24: the higher pairs bounded at height 325; pairs 11 and 15 beyond reach, W-ORD-Q0-ZEROS-443 for b711
 C3_RELAY = '06298535ade29dc265b6c135554394a98211ffd1'   # ### Component 3's relay commit (the port banks, the record tool, the worklist's run id)
 C3_PP = ''                   # ### none: Component 3 writes no ledger
-C4_RELAY = ''                # ### Component 4's relay commit (the axis named; the registrations re-read)
+C4_RELAY = 'f5580870d4909b496a2b3ebbbe0a83c627b1ceec'   # ### Component 4's relay commit (the axis named; the four registrations re-read unchanged)
 PORT_TIP = '92af8a344f1161e5f91df448f270bd3dea304429'   # ### this act's one commit on port-b707 (Component 3), pushed in branch mode and read back (data/b709_port_push_out.txt)
 PORT_RUN = 40123142437       # ### this act's one dispatch, read by its run id (Component 3): completed, failure; 11 of 12 modules built; DirichletC7Order held at :212:55
 PORT_BUILT = 11              # ### modules built of PORT_MODULES at the run (b707: 6); C7OrderBounds now builds
@@ -121,7 +122,15 @@ SEALED = ('b709_worklist.py', 'b709_tests.py', 'b709_citation.py', 'b709_record.
 REPAIRED_TOOLS = ()
 REPAIRED_DATA = ()
 NEW_TOOLS = ()
-ACT_ARMS = ()                # ### filled at Component 5 by the Edit tool
+ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-AXIS-NOT-COMPUTED', 'G-AXIS-REGISTERED', 'G-BRANCHES-BANKED',
+            'G-CARRY-SPANS', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH',
+            'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GRID-BANKED', 'G-GRID-CONTROLS-FIRST',
+            'G-GRID-ONSET-NAMED', 'G-GRID-RUNG-COUNTS', 'G-GUARD-HELD', 'G-LEAN-TEST-ENTERED', 'G-LISTINGS-BEFORE-CLAUSES', 'G-ONE-DISPATCH',
+            'G-ORDER-443-ENTERED', 'G-ORDER-ANNOTATED', 'G-PAIRS-BANKED', 'G-PAIRS-CONTROLS-FIRST', 'G-PARTS-PRERUN', 'G-PORT-EDIT-ONE-LINE',
+            'G-PORT-HELD', 'G-PORT-KIND-ANSWERED', 'G-PORT-PUSHED-BRANCH', 'G-PORT-RUN-READ', 'G-POSTROOT-WRITES-NONE', 'G-R319-ENTERED',
+            'G-READFIRST-DIFF-BANKED', 'G-REGISTRATIONS-ALONE', 'G-REGISTRATIONS-REREAD', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
+            'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
+            'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE')   # ### the forty-nine arms over this act's banks (Component 5, the Edit tool)
 STANDING_ADDED = ()          # ### N5: no standing arm added
 SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')

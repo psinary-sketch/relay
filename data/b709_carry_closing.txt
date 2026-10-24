@@ -1,0 +1,232 @@
+b709 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b708_closing.py -> tools/b709_closing.py (2026-10-24T19:06:43Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b708 -> b709, b707 -> b708, (R318) -> (R319), (R317) -> (R318), R318 -> R319, R317 -> R318); 475 lines, 88 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s tool-repairs bank names for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b708_tool_repairs.txt NAMES FOR THIS TOOL (the row`s line ; the hunk`s line ; the hunk header, its line numbers in the carried file`s predecessor):
+  NONE: no repair of this tool at b708; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b708_closing.py
+  +++ tools/b709_closing.py
+  @@ -2,1 +2,1 @@
+  -"""b708_closing.py -- THE CLOSING RECORD OF b708, UNDER (R318). Carried from b707_closing.py by the Write tool, its act text written for b708:
+  +"""b709_closing.py -- THE CLOSING RECORD OF b709, UNDER (R319). Carried from b708_closing.py by the Write tool, its act text written for b709:
+  @@ -9,2 +9,2 @@
+  -readings, the cut's distances and the four standing arms' figures beside b707's, from the bank the unsealed report tool writes after the
+  -root's word (data/b708_rules.txt row (1)). SIDE-lv-conservation's port branch is read beside the mains (standing, unedited); the join kernel
+  +readings, the cut's distances and the four standing arms' figures beside b708's, from the bank the unsealed report tool writes after the
+  +root's word (data/b709_rules.txt row (1)). SIDE-lv-conservation's port branch is read beside the mains (standing, unedited); the join kernel
+  @@ -12,1 +12,1 @@
+  -`python tools/b708_closing.py dry` -- (R285)(2)'s rule row (relay data/b675_rules.txt row 1), the closing a gate step before the seal: the record
+  +`python tools/b709_closing.py dry` -- (R285)(2)'s rule row (relay data/b675_rules.txt row 1), the closing a gate step before the seal: the record
+  @@ -14,2 +14,2 @@
+  -`python tools/b708_closing.py defects-row <act>` -- the carried-forward defects row computed from relay data/<act>_defects.txt, printed only.
+  -### Writes data/b708_closing.txt and the closing censuses and pins (each its own tool's output) and nothing else.
+  +`python tools/b709_closing.py defects-row <act>` -- the carried-forward defects row computed from relay data/<act>_defects.txt, printed only.
+  +### Writes data/b709_closing.txt and the closing censuses and pins (each its own tool's output) and nothing else.
+  @@ -32,1 +32,1 @@
+  -import b708_worklist as WL   # noqa: E402
+  +import b709_worklist as WL   # noqa: E402
+  @@ -140,1 +140,1 @@
+  -    return CARRIED_FIXED[:-1] + [defects_row('b708', 'g')] + CARRIED_FIXED[-1:]
+  +    return CARRIED_FIXED[:-1] + [defects_row('b709', 'g')] + CARRIED_FIXED[-1:]
+  @@ -188,1 +188,1 @@
+  -ACT = 'b708'
+  +ACT = 'b709'
+  @@ -227,1 +227,1 @@
+  -    cc, cj, dl = rd('b708_citation_check.txt'), jl('b708_citation_check.json'), rd('b708_defects.txt')
+  +    cc, cj, dl = rd('b709_citation_check.txt'), jl('b709_citation_check.json'), rd('b709_defects.txt')
+  @@ -240,1 +240,1 @@
+  -    j = jl('b708_mirror.json')
+  +    j = jl('b709_mirror.json')
+  @@ -242,2 +242,2 @@
+  -        return '### TO BE BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH (the b670 form, mirror-refresh-%s-b708.zip; over b707`s roster of 70 entries, the builder`s state file tools/mirror_prevbuild.json named in (W))' % WL.DATE
+  -    return '%s ; %d bytes ; sha256 %s ; MANIFEST md5 %s ; entries %d ; %s ; %s ; %s ; the roster b707`s, 70 entries; tools/mirror_prevbuild.json written at the build and committed with this closing' % (
+  +        return '### TO BE BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH (the b670 form, mirror-refresh-%s-b709.zip; over b708`s roster of 70 entries, the builder`s state file tools/mirror_prevbuild.json named in (W))' % WL.DATE
+  +    return '%s ; %d bytes ; sha256 %s ; MANIFEST md5 %s ; entries %d ; %s ; %s ; %s ; the roster b708`s, 70 entries; tools/mirror_prevbuild.json written at the build and committed with this closing' % (
+  @@ -249,1 +249,1 @@
+  -    S, C = jl('b708_scores.json'), jl('b708_scores_close.json')
+  +    S, C = jl('b709_scores.json'), jl('b709_scores_close.json')
+  @@ -261,1 +261,1 @@
+  -    rj = jl('b708_report.json')
+  +    rj = jl('b709_report.json')
+  @@ -264,1 +264,1 @@
+  -        return ['### THE REPORT (the ferry`s Component 6, one line each; relay data/b708_report.txt, by the unsealed tools/b708_report.py written after the root`s word, data/b708_rules.txt row (1)):'] + [
+  +        return ['### THE REPORT (the ferry`s Component 6, one line each; relay data/b709_report.txt, by the unsealed tools/b709_report.py written after the root`s word, data/b709_rules.txt row (1)):'] + [
+  @@ -266,1 +266,1 @@
+  -    return ['### THE REPORT (the ferry`s Component 6): ### data/b708_report.txt NOT YET WRITTEN (tools/b708_report.py is written after the root`s word and runs before the root)']
+  +    return ['### THE REPORT (the ferry`s Component 6): ### data/b709_report.txt NOT YET WRITTEN (tools/b709_report.py is written after the root`s word and runs before the root)']
+  @@ -269,2 +269,2 @@
+  -TITLE_LINE = ('b708 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND THIRTY-FIVE, THE RE-CUT ACT: b707 AT ITS WEIGHT; THE WRITE LIST AND THE '
+  -              'REPORT TOOL; THE PROBE THROUGH THE WORKFLOW`S STEP; THE REMAINING ENTRY-TAG PRINTS; THE NEXT DOCUMENT CUT; THE FINE GRID REGISTERED, UNDER (R318).**')
+  +TITLE_LINE = ('b709 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND THIRTY-FIVE, THE RE-CUT ACT: b708 AT ITS WEIGHT; THE WRITE LIST AND THE '
+  +              'REPORT TOOL; THE PROBE THROUGH THE WORKFLOW`S STEP; THE REMAINING ENTRY-TAG PRINTS; THE NEXT DOCUMENT CUT; THE FINE GRID REGISTERED, UNDER (R319).**')
+  @@ -274,19 +274,19 @@
+  -    return [('THE RECORD LINES AND THE CORRIGENDUM ((R318)(1)-(2))', [('the generated entry and the corrigenda row (28)', 'b708_corrigendum.txt'),
+  -                                                                   ('the carry-time repair (the print-list reader), its diff', 'b708_tool_repairs.txt'),
+  -                                                                   ('the repaired reading against the old on real state and mutated copies', 'b708_repair_controls.txt'),
+  -                                                                   ('the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1))', 'b708_root_banks_dry.txt')]),
+  -            ('THE PROBE ((R318)(4), N2)', [('the probe text by the generator, its sha256 b704`s, its target', 'b708_probe.txt'),
+  -                                           ('the probe branch`s diff against main and v0.37', 'b708_probe_diff.txt'),
+  -                                           ('the step on the runner, read by run id and sha256', 'b708_probe_run.txt'),
+  -                                           ('the probe diffed against b704`s bank, cell by cell', 'b708_probe_compare.txt')]),
+  -            ('THE PRINTS ((R318)(5))', [('the scratch branch`s three files, banked before the commit', 'b708_print_files_prints-b708-v0.17.txt'),
+  -                                        ('the entry-tag print at v0.17', 'b708_prints_v0.17.txt'),
+  -                                        ('the eleven mentions re-read', 'b708_cells_reread.txt'),
+  -                                        ('the two scratch branches deleted after their banks', 'b708_scratch_branches.txt')]),
+  -            ('THE RE-CUT ((R318)(6), N4)', [('the next document by b652`s order, b674`s rule and b705`s row (2), printed before it is named', 'b708_tie.txt'),
+  -                                            ('the quotation search before the cut`s commit (data/b690_rules.txt row (2))', 'b708_quote.txt'),
+  -                                            ('the cut by the b670 method, its distance and its residues', 'b708_cut.txt')]),
+  -            ('THE PORT ((R318)(7))', [('the two failing lines` kinds, nothing edited', 'b708_port_lines.txt')]),
+  -            ('THE REGISTRATIONS ((R318)(3), N3)', [('the fine grid, committed alone before any computation', 'b708_registrations.txt'),
+  -                                                   ('the registrations and the rules bank re-read unchanged; no eigenvalue computed', 'b708_registrations_reread.txt')]),
+  -            ('THE STANDING ARMS', [('the four figures against b707`s, read by b706`s tool', 'b708_standing_figures.txt')])]
+  +    return [('THE RECORD LINES AND THE CORRIGENDUM ((R319)(1)-(2))', [('the generated entry and the corrigenda row (28)', 'b709_corrigendum.txt'),
+  +                                                                   ('the carry-time repair (the print-list reader), its diff', 'b709_tool_repairs.txt'),
+  +                                                                   ('the repaired reading against the old on real state and mutated copies', 'b709_repair_controls.txt'),
+  +                                                                   ('the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1))', 'b709_root_banks_dry.txt')]),
+  +            ('THE PROBE ((R319)(4), N2)', [('the probe text by the generator, its sha256 b704`s, its target', 'b709_probe.txt'),
+  +                                           ('the probe branch`s diff against main and v0.37', 'b709_probe_diff.txt'),
+  +                                           ('the step on the runner, read by run id and sha256', 'b709_probe_run.txt'),
+  +                                           ('the probe diffed against b704`s bank, cell by cell', 'b709_probe_compare.txt')]),
+  +            ('THE PRINTS ((R319)(5))', [('the scratch branch`s three files, banked before the commit', 'b709_print_files_prints-b709-v0.17.txt'),
+  +                                        ('the entry-tag print at v0.17', 'b709_prints_v0.17.txt'),
+  +                                        ('the eleven mentions re-read', 'b709_cells_reread.txt'),
+  +                                        ('the two scratch branches deleted after their banks', 'b709_scratch_branches.txt')]),
+  +            ('THE RE-CUT ((R319)(6), N4)', [('the next document by b652`s order, b674`s rule and b705`s row (2), printed before it is named', 'b709_tie.txt'),
+  +                                            ('the quotation search before the cut`s commit (data/b690_rules.txt row (2))', 'b709_quote.txt'),
+  +                                            ('the cut by the b670 method, its distance and its residues', 'b709_cut.txt')]),
+  +            ('THE PORT ((R319)(7))', [('the two failing lines` kinds, nothing edited', 'b709_port_lines.txt')]),
+  +            ('THE REGISTRATIONS ((R319)(3), N3)', [('the fine grid, committed alone before any computation', 'b709_registrations.txt'),
+  +                                                   ('the registrations and the rules bank re-read unchanged; no eigenvalue computed', 'b709_registrations_reread.txt')]),
+  +            ('THE STANDING ARMS', [('the four figures against b708`s, read by b706`s tool', 'b709_standing_figures.txt')])]
+  @@ -296,3 +296,3 @@
+  -    '    kernel mains written: none -- SIDE-explicit-formula`s two scratch branches, probe-b708 cut from main (badaccc, one commit past v0.37 by the',
+  -    '    workflow file alone) with the one root file ChainProbe.lean by the generator, and prints-b708-v0.17 cut at v0.17 = 5a1630b with three files',
+  -    '    (the workflow main`s blob verbatim, a one-name print list, a root ChainProbe.lean) under (R318)(4)-(5), each one commit, pushed alone in the',
+  +    '    kernel mains written: none -- SIDE-explicit-formula`s two scratch branches, probe-b709 cut from main (badaccc, one commit past v0.37 by the',
+  +    '    workflow file alone) with the one root file ChainProbe.lean by the generator, and prints-b709-v0.17 cut at v0.17 = 5a1630b with three files',
+  +    '    (the workflow main`s blob verbatim, a one-name print list, a root ChainProbe.lean) under (R319)(4)-(5), each one commit, pushed alone in the',
+  @@ -302,2 +302,2 @@
+  -    '    main and its deposit unmoved, port-b707 standing at 69e239d locally and at the remote, unedited ((R318)(7)) ; SIDE-faces-join`s main at its',
+  -    '    manifest commit unmoved, no tag ; the six push-b707* branches of relay and PLACE-papers deleted at step zero by name, one per command and each',
+  +    '    main and its deposit unmoved, port-b708 standing at 69e239d locally and at the remote, unedited ((R319)(7)) ; SIDE-faces-join`s main at its',
+  +    '    manifest commit unmoved, no tag ; the six push-b708* branches of relay and PLACE-papers deleted at step zero by name, one per command and each',
+  @@ -306,1 +306,1 @@
+  -    '    navigator`s export, b671`s uncompressed points file, b681`s units file, b694`s, b696`s and b707`s units files untracked ;',
+  +    '    navigator`s export, b671`s uncompressed points file, b681`s units file, b694`s, b696`s and b708`s units files untracked ;',
+  @@ -310,1 +310,1 @@
+  -    '    appended ; day1/Spectral_Inertness.md re-cut by the b670 method on its rows alone ((R318)(6)) ; data/act_roots.txt and the corrigenda bank',
+  +    '    appended ; day1/Spectral_Inertness.md re-cut by the b670 method on its rows alone ((R319)(6)) ; data/act_roots.txt and the corrigenda bank',
+  @@ -312,1 +312,1 @@
+  -    '    or faces page byte (no sig moved) ; the mirror zip written outside every repository over b707`s roster, the builder`s state file',
+  +    '    or faces page byte (no sig moved) ; the mirror zip written outside every repository over b708`s roster, the builder`s state file',
+  @@ -316,1 +316,1 @@
+  -    '    (a) ### **THE NEXT ACTS, (R318)(11)**: b709, the research act: the fine grid as data/b708_registrations.txt registers it (rho_0`s family 395',
+  +    '    (a) ### **THE NEXT ACTS, (R319)(11)**: b709, the research act: the fine grid as data/b709_registrations.txt registers it (rho_0`s family 395',
+  @@ -318,2 +318,2 @@
+  -    '        higher pairs` route as data/b707_registrations.txt registers it; the port`s next dispatch on port-b707 (C7OrderBounds.lean :277:55 a',
+  -    '        changed signature, :380:8 a renamed Mathlib declaration, data/b708_port_lines.txt); the next axis (e) representation coordinates. b710',
+  +    '        higher pairs` route as data/b708_registrations.txt registers it; the port`s next dispatch on port-b708 (C7OrderBounds.lean :277:55 a',
+  +    '        changed signature, :380:8 a renamed Mathlib declaration, data/b709_port_lines.txt); the next axis (e) representation coordinates. b710',
+  @@ -321,2 +321,2 @@
+  -    '        five renames` readers in the test files (data/b708_defects.txt, the events), no test edited this act; the fine grid`s falsifier as worded',
+  -    '        vacuous on the grid as worded (data/b708_registrations.txt, the reading entered for the strike).',
+  +    '        five renames` readers in the test files (data/b709_defects.txt, the events), no test edited this act; the fine grid`s falsifier as worded',
+  +    '        vacuous on the grid as worded (data/b709_registrations.txt, the reading entered for the strike).',
+  @@ -333,1 +333,1 @@
+  -    '        the report tool outside the sealed list until the root`s word (data/b708_rules.txt row (1)); the draft held at v5.',
+  +    '        the report tool outside the sealed list until the root`s word (data/b709_rules.txt row (1)); the draft held at v5.',
+  @@ -335,1 +335,1 @@
+  -    '        data/b696_witness_balls_units.jsonl, data/b707_onset_units.jsonl and the zero-byte `=` at relay`s root stay local and untracked; b705`s',
+  +    '        data/b696_witness_balls_units.jsonl, data/b708_onset_units.jsonl and the zero-byte `=` at relay`s root stay local and untracked; b705`s',
+  @@ -337,2 +337,2 @@
+  -    '    (e) The act root of b708 is relay data/act_roots.txt`s last line, chained from b707`s root; the mirror export carries it in MANIFEST.',
+  -    '    (f) Branches left for the next act`s step zero: the push-b708* branches of relay and PLACE-papers. KEPT, not for deletion: port-b707 of',
+  +    '    (e) The act root of b709 is relay data/act_roots.txt`s last line, chained from b708`s root; the mirror export carries it in MANIFEST.',
+  +    '    (f) Branches left for the next act`s step zero: the push-b709* branches of relay and PLACE-papers. KEPT, not for deletion: port-b708 of',
+  @@ -345,3 +345,3 @@
+  -    for tool, out in (('b307_handoff_census.py', 'b708_census_closing.txt'), ('b327_faces_census.py', 'b708_faces_census_closing.txt'),
+  -                      ('b303_pins.py', 'b708_pins_closing.txt')):
+  -        rc, o = run([sys.executable, os.path.join(T, tool), 'b708'])
+  +    for tool, out in (('b307_handoff_census.py', 'b709_census_closing.txt'), ('b327_faces_census.py', 'b709_faces_census_closing.txt'),
+  +                      ('b303_pins.py', 'b709_pins_closing.txt')):
+  +        rc, o = run([sys.executable, os.path.join(T, tool), 'b709'])
+  @@ -369,1 +369,1 @@
+  -    heads.append('      %-32s local %s ; remote %s ; %s (the forward-port`s branch, (R318)(7): standing, unedited; held at C7OrderBounds.lean :277 and :380)' % (
+  +    heads.append('      %-32s local %s ; remote %s ; %s (the forward-port`s branch, (R319)(7): standing, unedited; held at C7OrderBounds.lean :277 and :380)' % (
+  @@ -374,1 +374,1 @@
+  -        heads.append('      %-32s local %s ; remote %s ; %s (the scratch branch of (R318)(4)-(5), deleted after its bank)' % (
+  +        heads.append('      %-32s local %s ; remote %s ; %s (the scratch branch of (R319)(4)-(5), deleted after its bank)' % (
+  @@ -399,1 +399,1 @@
+  -    pre, post = rd('b708_checks.txt'), rd('b708_checks_postpush.txt')
+  +    pre, post = rd('b709_checks.txt'), rd('b709_checks_postpush.txt')
+  @@ -401,1 +401,1 @@
+  -    rec_ = jl('b708_seal_hashes.json').get('tools') or {}
+  +    rec_ = jl('b709_seal_hashes.json').get('tools') or {}
+  @@ -407,1 +407,1 @@
+  -    L += ['### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b708_seal_hashes.json; the report tool unsealed by data/b708_rules.txt row (1)):'] + [
+  +    L += ['### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b709_seal_hashes.json; the report tool unsealed by data/b709_rules.txt row (1)):'] + [
+  @@ -410,8 +410,8 @@
+  -    L += ['### THE CITATION CHECK (the gate step at step zero; relay data/b708_citation_check.txt): ' + citation_line(), '']
+  -    RL = jl('b708_record_lines.json').get('lines') or []
+  -    L += ['### THE RECORD LINES ((R318)(1); relay data/b708_record_lines.json): ' + ' ; '.join('%s :%s' % (x.get('file'), x.get('line')) for x in RL), '']
+  -    L += ['### THE DRY RUN ((R267)(2), standing; relay data/b708_reg_gate.txt, the gate`s step before the lock): ' + verdict(
+  -        rd('b708_reg_gate.txt'), r'THE DRY-RUN STEP : [A-Z ]+') + ' ; THE TRAIL`S DEFECTS LINE AGAINST THE BANK: ' + verdict(
+  -        rd('b708_reg_gate.txt'), r'THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK \w+') + ' ; THE TRAIL`S RESOLVED LINE AGAINST THE BANK: ' + verdict(
+  -        rd('b708_reg_gate.txt'), r'THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK \w+') + ' ; THE CLOSING`S DRY RUN (relay data/b675_rules.txt row 1): ' + verdict(
+  -        rd('b708_reg_gate.txt'), r'THE CLOSING DRY-RUN STEP : [A-Z ]+'), '']
+  +    L += ['### THE CITATION CHECK (the gate step at step zero; relay data/b709_citation_check.txt): ' + citation_line(), '']
+  +    RL = jl('b709_record_lines.json').get('lines') or []
+  +    L += ['### THE RECORD LINES ((R319)(1); relay data/b709_record_lines.json): ' + ' ; '.join('%s :%s' % (x.get('file'), x.get('line')) for x in RL), '']
+  +    L += ['### THE DRY RUN ((R267)(2), standing; relay data/b709_reg_gate.txt, the gate`s step before the lock): ' + verdict(
+  +        rd('b709_reg_gate.txt'), r'THE DRY-RUN STEP : [A-Z ]+') + ' ; THE TRAIL`S DEFECTS LINE AGAINST THE BANK: ' + verdict(
+  +        rd('b709_reg_gate.txt'), r'THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK \w+') + ' ; THE TRAIL`S RESOLVED LINE AGAINST THE BANK: ' + verdict(
+  +        rd('b709_reg_gate.txt'), r'THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK \w+') + ' ; THE CLOSING`S DRY RUN (relay data/b675_rules.txt row 1): ' + verdict(
+  +        rd('b709_reg_gate.txt'), r'THE CLOSING DRY-RUN STEP : [A-Z ]+'), '']
+  @@ -422,1 +422,1 @@
+  -    L += ['### THE KERNELS: the face`s reading of the kernels (relay data/b708_kernels_face.json): %d kernels read before the seal, the join kernel '
+  +    L += ['### THE KERNELS: the face`s reading of the kernels (relay data/b709_kernels_face.json): %d kernels read before the seal, the join kernel '
+  @@ -424,2 +424,2 @@
+  -          'v0.10.0 %s (the deposit), port-b707 %s (standing, unedited) ; SIDE-faces-join main %s, no tag' % (
+  -              len(jl('b708_kernels_face.json').get('kernels') or {}), g('D:/SIDE-explicit-formula', 'rev-parse', 'main')[:12],
+  +          'v0.10.0 %s (the deposit), port-b708 %s (standing, unedited) ; SIDE-faces-join main %s, no tag' % (
+  +              len(jl('b709_kernels_face.json').get('kernels') or {}), g('D:/SIDE-explicit-formula', 'rev-parse', 'main')[:12],
+  @@ -429,4 +429,4 @@
+  -    L += ['### THE ROOT`S BANKS (relay data/b708_root_banks.txt): ' + (
+  -        vline(rd('b708_root_banks.txt')) if rd('b708_root_banks.txt') else 'TO BE READ AT THE ROOT, before it is computed'), '']
+  -    L += ['### THE MIRROR (relay data/b708_mirror.txt, the b670 form, after the root and the last PLACE-papers push): ' + mirror_line(), '']
+  -    L += ['### THE CARRY-TIME READING (the ferry`s Component 5; relay data/b708_tool_repairs.txt): ' + vtail(rd('b708_tool_repairs.txt')),
+  +    L += ['### THE ROOT`S BANKS (relay data/b709_root_banks.txt): ' + (
+  +        vline(rd('b709_root_banks.txt')) if rd('b709_root_banks.txt') else 'TO BE READ AT THE ROOT, before it is computed'), '']
+  +    L += ['### THE MIRROR (relay data/b709_mirror.txt, the b670 form, after the root and the last PLACE-papers push): ' + mirror_line(), '']
+  +    L += ['### THE CARRY-TIME READING (the ferry`s Component 5; relay data/b709_tool_repairs.txt): ' + vtail(rd('b709_tool_repairs.txt')),
+  @@ -435,2 +435,2 @@
+  -    L += ['### THE AUTHOR`S ANSWERS AND WORDS (relay data/b708_author_answers.txt): ' + verdict(rd('b708_author_answers.txt'), r'\d+ prompt\(s\)[^;]*')]
+  -    L += ['    ' + l for l in rd('b708_components.txt').split(NL)[2:] if l.strip()]
+  +    L += ['### THE AUTHOR`S ANSWERS AND WORDS (relay data/b709_author_answers.txt): ' + verdict(rd('b709_author_answers.txt'), r'\d+ prompt\(s\)[^;]*')]
+  +    L += ['    ' + l for l in rd('b709_components.txt').split(NL)[2:] if l.strip()]
+  @@ -438,3 +438,3 @@
+  -    L += ['### THE SCORES IN FULL (relay data/b708_scores.json, written once before the entry; a reading that waited, from relay '
+  -          'data/b708_scores_close.json):'] + ['    (%s) %s -- %s [%s]' % (k, SC[k][0][0], SC[k][0][1], SC[k][1]) for ks in SCORE_KEYS for k in ks] + ['']
+  -    L += ['### THIS ACT`S DEFECTS (the desk), THE SEAT`S AND THE NAVIGATOR`S.'] + rd('b708_defects.txt').rstrip(NL).split(NL) + ['']
+  +    L += ['### THE SCORES IN FULL (relay data/b709_scores.json, written once before the entry; a reading that waited, from relay '
+  +          'data/b709_scores_close.json):'] + ['    (%s) %s -- %s [%s]' % (k, SC[k][0][0], SC[k][0][1], SC[k][1]) for ks in SCORE_KEYS for k in ks] + ['']
+  +    L += ['### THIS ACT`S DEFECTS (the desk), THE SEAT`S AND THE NAVIGATOR`S.'] + rd('b709_defects.txt').rstrip(NL).split(NL) + ['']
+  @@ -447,1 +447,1 @@
+  -    L += ['    censuses : %s / %s' % (verdict(rd('b708_census_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b708_census_closing.txt'), encoding='utf-8').read(),
+  +    L += ['    censuses : %s / %s' % (verdict(rd('b709_census_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b709_census_closing.txt'), encoding='utf-8').read(),
+  @@ -449,1 +449,1 @@
+  -                                       verdict(rd('b708_faces_census_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b708_faces_census_closing.txt'), encoding='utf-8').read(),
+  +                                       verdict(rd('b709_faces_census_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b709_faces_census_closing.txt'), encoding='utf-8').read(),
+  @@ -451,1 +451,1 @@
+  -          '    pins : %s' % verdict(rd('b708_pins_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b708_pins_closing.txt'), encoding='utf-8').read(),
+  +          '    pins : %s' % verdict(rd('b709_pins_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b709_pins_closing.txt'), encoding='utf-8').read(),
+  @@ -456,1 +456,1 @@
+  -    p = os.path.join(OUTD, 'b708_closing_dry.txt' if DRY else 'b708_closing.txt')
+  +    p = os.path.join(OUTD, 'b709_closing_dry.txt' if DRY else 'b709_closing.txt')
+  @@ -463,1 +463,1 @@
+  -            if l.startswith(('b708 closed', '### THE', '    the', '    (g)')):
+  +            if l.startswith(('b709 closed', '### THE', '    the', '    (g)')):
+
+### ### **CARRIED tools/b709_closing.py ; LINES 475 ; CHANGED BY THE SUBSTITUTION 88 ; REPAIR SPANS AT b708 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

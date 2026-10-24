@@ -8,7 +8,9 @@ family; the controls printed before the figures (the coarse endpoints reproducin
 its lambda_min printed beside its certified tail bound from tools/b696_witness_balls.py); the rung named where the hypothesis holds, with the
 coefficient of Z_Q that enters at it".
 
-### UNTRACKED WRITE: data/b709_grid_units.jsonl (one unit per (route, family, kind, point, obj), appended, resumable; b707's form).
+### UNTRACKED WRITE: data/b709_grid_units* -- data/b709_grid_units.jsonl and the segment files data/b709_grid_units_<segment>.jsonl (one unit per
+### (route, family, kind, point, obj), appended, resumable; b707's form); declared by prefix for the root route's exclusion list (the line read
+### to its first space by tools/b709_record.py, a carry-time repair banked in data/b709_tool_repairs.txt).
 
 ### THE FORM, b707's unchanged (tools/b707_onset.py, IMPORTED unedited: Combo, gram, reading, _gz_unit, the constants; tools/b694_witness_terms.py
 ### Window; tools/b696_witness_balls.py a_int, arch_tail): the family F_a(gamma_0) = span{C, N} at one frequency, the Weil form S = P - PR + A in

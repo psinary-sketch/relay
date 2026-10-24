@@ -1,0 +1,120 @@
+b709 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b708_regspec.py -> tools/b709_regspec.py (2026-10-24T19:06:44Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b708 -> b709, b707 -> b708, (R318) -> (R319), (R317) -> (R318), R318 -> R319, R317 -> R318); 337 lines, 42 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s tool-repairs bank names for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b708_tool_repairs.txt NAMES FOR THIS TOOL (the row`s line ; the hunk`s line ; the hunk header, its line numbers in the carried file`s predecessor):
+  NONE: no repair of this tool at b708; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b708_regspec.py
+  +++ tools/b709_regspec.py
+  @@ -2,1 +2,1 @@
+  -"""b708_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  +"""b709_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  @@ -4,1 +4,1 @@
+  -### ### Carried from b707's spec by the Write tool, every clause re-written against this face: the citation check as a gate step; the record
+  +### ### Carried from b708's spec by the Write tool, every clause re-written against this face: the citation check as a gate step; the record
+  @@ -21,1 +21,1 @@
+  -import b708_worklist as K   # noqa: E402
+  +import b709_worklist as K   # noqa: E402
+  @@ -23,2 +23,2 @@
+  -REG = os.path.join(ROOT, 'data', 'b708_registration_2026-10-23.txt')
+  -SPEC = os.path.join(ROOT, 'data', 'b708_satisfiable.json')
+  +REG = os.path.join(ROOT, 'data', 'b709_registration_2026-10-23.txt')
+  +SPEC = os.path.join(ROOT, 'data', 'b709_satisfiable.json')
+  @@ -37,3 +37,3 @@
+  -    ('commits on any kernel`s main', 0, 0, 'commits', '### (R318)(4)-(5): no main moved; the scratch branches cut and deleted.'),
+  -    ('commits on the port branch of SIDE-lv-conservation', 0, 0, 'commits', '### (R318)(7): port-b707 unedited this act.'),
+  -    ('scratch branches cut on a kernel', 'SCRATCH', 'SCRATCH', 'branches', '### (R318)(4)-(5): probe-b708 and prints-b708-v0.17; MEASURED off the scratch bank.'),
+  +    ('commits on any kernel`s main', 0, 0, 'commits', '### (R319)(4)-(5): no main moved; the scratch branches cut and deleted.'),
+  +    ('commits on the port branch of SIDE-lv-conservation', 0, 0, 'commits', '### (R319)(7): port-b708 unedited this act.'),
+  +    ('scratch branches cut on a kernel', 'SCRATCH', 'SCRATCH', 'branches', '### (R319)(4)-(5): probe-b709 and prints-b709-v0.17; MEASURED off the scratch bank.'),
+  @@ -45,2 +45,2 @@
+  -    ('port branches cut on a kernel', 0, 0, 'branches', '### none this act (port-b707 is b707`s, standing).'),
+  -    ('kernel branches deleted beyond the scratch branches', 0, 0, 'branches', '### (R318)(8) names relay`s and PLACE-papers` push branches; port-b707 deleted under no answer.'),
+  +    ('port branches cut on a kernel', 0, 0, 'branches', '### none this act (port-b708 is b708`s, standing).'),
+  +    ('kernel branches deleted beyond the scratch branches', 0, 0, 'branches', '### (R319)(8) names relay`s and PLACE-papers` push branches; port-b708 deleted under no answer.'),
+  @@ -49,1 +49,1 @@
+  -    ('papers cut', 1, 1, 'papers', '### (R318)(6): day1/Spectral_Inertness.md by the b670 method.'),
+  +    ('papers cut', 1, 1, 'papers', '### (R319)(6): day1/Spectral_Inertness.md by the b670 method.'),
+  @@ -59,2 +59,2 @@
+  -    ('generated corrigendum entries', 1, 1, 'entries', '### (R318)(2).'),
+  -    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R318)(2): row (28).'),
+  +    ('generated corrigendum entries', 1, 1, 'entries', '### (R319)(2).'),
+  +    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R319)(2): row (28).'),
+  @@ -88,1 +88,1 @@
+  -    ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R318)(8).'),
+  +    ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R319)(8).'),
+  @@ -94,1 +94,1 @@
+  -    ('branches deleted beyond the ruling`s list and the scratch branches', 0, 0, 'branches', '### (R318)(8).'),
+  +    ('branches deleted beyond the ruling`s list and the scratch branches', 0, 0, 'branches', '### (R319)(8).'),
+  @@ -100,2 +100,2 @@
+  -    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R318)(1); MEASURED.'),
+  -    ('registrations committed alone before any computation', 1, 1, 'commits', '### (R318)(3), N3: relay 6045dd8c (with the rules bank).'),
+  +    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R319)(1); MEASURED.'),
+  +    ('registrations committed alone before any computation', 1, 1, 'commits', '### (R319)(3), N3: relay 6045dd8c (with the rules bank).'),
+  @@ -103,1 +103,1 @@
+  -    ('probe steps run on the runner', 1, 1, 'steps', '### N2, (R318)(4).'),
+  +    ('probe steps run on the runner', 1, 1, 'steps', '### N2, (R319)(4).'),
+  @@ -108,1 +108,1 @@
+  -    ('report tools sealed before the root`s word', 0, 0, 'tools', '### data/b708_rules.txt row (1).'),
+  +    ('report tools sealed before the root`s word', 0, 0, 'tools', '### data/b709_rules.txt row (1).'),
+  @@ -142,1 +142,1 @@
+  -    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R318).'),
+  +    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R319).'),
+  @@ -175,1 +175,1 @@
+  -    import b708_record as REC
+  +    import b709_record as REC
+  @@ -181,1 +181,1 @@
+  -                with tempfile.TemporaryDirectory(prefix='b708_spec_') as d:
+  +                with tempfile.TemporaryDirectory(prefix='b709_spec_') as d:
+  @@ -209,1 +209,1 @@
+  -    import b708_record as REC
+  +    import b709_record as REC
+  @@ -212,1 +212,1 @@
+  -                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b708_ferry.txt'), '### b999 absent')),
+  +                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b709_ferry.txt'), '### b999 absent')),
+  @@ -241,1 +241,1 @@
+  -    print('b708_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  +    print('b709_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  @@ -291,1 +291,1 @@
+  -    sb = jcount('b708_scratch_branches.json', lambda j: j.get('rows') or [])
+  +    sb = jcount('b709_scratch_branches.json', lambda j: j.get('rows') or [])
+  @@ -294,5 +294,5 @@
+  -                    TESTS=jcount('b708_tests_stepzero.json', len), QUESTIONS=tcount('b708_author_answers.txt', r'^### PROMPT '),
+  -                    LINES=jcount('b708_record_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    MISSES=tfirst('b708_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  -                    REPAIRS=tfirst('b708_tool_repairs.txt', r'REPAIRS (\d+) ;'),
+  -                    CARRIED=carried(text), DISPATCHES=jcount('b708_commands.json', lambda j: len(j.get('dispatches') or [])),
+  +                    TESTS=jcount('b709_tests_stepzero.json', len), QUESTIONS=tcount('b709_author_answers.txt', r'^### PROMPT '),
+  +                    LINES=jcount('b709_record_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    MISSES=tfirst('b709_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  +                    REPAIRS=tfirst('b709_tool_repairs.txt', r'REPAIRS (\d+) ;'),
+  +                    CARRIED=carried(text), DISPATCHES=jcount('b709_commands.json', lambda j: len(j.get('dispatches') or [])),
+  @@ -301,9 +301,9 @@
+  -                    LEANFILES=(1 if jcount('b708_probe.json', lambda j: bool(j.get('sha256'))) else 0) + (1 if jcount('b708_print_files_%s.json' % K.PRINTS_BRANCH, lambda j: 'ChainProbe.lean' in (j.get('blobs') or {})) else 0),
+  -                    MOVED=jcount('b708_probe_compare.json', lambda j: len(j.get('moved') or [])),
+  -                    MENTIONS=jcount('b708_cells_reread.json', lambda j: len(j.get('rows') or [])),
+  -                    SEDS=jcount('b708_commands.json', lambda j: len(j.get('seds') or [])),
+  -                    REDIRECTS=jcount('b708_commands.json', lambda j: len(j.get('redirects') or [])),
+  -                    PIPES=jcount('b708_commands.json', lambda j: len(j.get('pipes') or [])),
+  -                    ANYPIPES=jcount('b708_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  -                    PYPROGS=jcount('b708_commands.json', lambda j: len(j.get('py_programs') or [])),
+  -                    READOFF=tfirst('b708_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  +                    LEANFILES=(1 if jcount('b709_probe.json', lambda j: bool(j.get('sha256'))) else 0) + (1 if jcount('b709_print_files_%s.json' % K.PRINTS_BRANCH, lambda j: 'ChainProbe.lean' in (j.get('blobs') or {})) else 0),
+  +                    MOVED=jcount('b709_probe_compare.json', lambda j: len(j.get('moved') or [])),
+  +                    MENTIONS=jcount('b709_cells_reread.json', lambda j: len(j.get('rows') or [])),
+  +                    SEDS=jcount('b709_commands.json', lambda j: len(j.get('seds') or [])),
+  +                    REDIRECTS=jcount('b709_commands.json', lambda j: len(j.get('redirects') or [])),
+  +                    PIPES=jcount('b709_commands.json', lambda j: len(j.get('pipes') or [])),
+  +                    ANYPIPES=jcount('b709_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  +                    PYPROGS=jcount('b709_commands.json', lambda j: len(j.get('py_programs') or [])),
+  +                    READOFF=tfirst('b709_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  @@ -318,1 +318,1 @@
+  -    spec = {"registration": ("data/b708_registration_2026-10-23.txt -- b708, LANE TWO ACT ONE HUNDRED AND THIRTY-FIVE, THE RE-CUT ACT: b707 AT ITS WEIGHT; "
+  +    spec = {"registration": ("data/b709_registration_2026-10-23.txt -- b709, LANE TWO ACT ONE HUNDRED AND THIRTY-FIVE, THE RE-CUT ACT: b708 AT ITS WEIGHT; "
+  @@ -320,1 +320,1 @@
+  -                             "CUT; THE FINE GRID REGISTERED, UNDER (R318)"),
+  +                             "CUT; THE FINE GRID REGISTERED, UNDER (R319)"),
+
+### ### **CARRIED tools/b709_regspec.py ; LINES 337 ; CHANGED BY THE SUBSTITUTION 42 ; REPAIR SPANS AT b708 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

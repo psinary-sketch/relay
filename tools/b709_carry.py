@@ -173,7 +173,7 @@ def spans(*a):
         hunks = sum(1 for l in bank.split(NL) if l.strip().startswith('@@'))
         tot += len(sp)
         L.append('  tools/%s_%s.py | repair spans %s | substitution hunks %d | data/%s_carry_%s.txt' % (ACT, n, [s[2] for s in sp] or 'NONE', hunks, ACT, n))
-    L += ['', '### ### **CARRIED TOOLS %d ; REPAIR SPANS %d ; EACH READ BY ITS SPANS AND ITS DIFF, NONE WHOLE.**' % (len(names), tot)]
+    L += ['', '### ### **CARRIED TOOLS %d ; REPAIR SPANS %d ; EACH CARRIED BY THE SUBSTITUTION AND BANKED BY ITS DIFF ; THE READS AS THE READ BANK AND THE DEFECTS BANK RECORD THEM (data/b709_read_calls.txt ; data/b709_defects.txt (b), (e)).**' % (len(names), tot)]
     p = os.path.join(D, '%s_carry_spans.txt' % ACT)
     with open(p + '.tmp', 'wb') as fh:
         fh.write((NL.join(L) + NL).encode('utf-8'))

@@ -1,0 +1,174 @@
+b709 -- THE CARRY-TIME REPAIRS OF tools/b709_closing.py AS A DIFF: the carried form (tools/b708_closing.py with the act names substituted) against the file now (2026-10-24T19:45:18Z)
+
+--- tools/b709_closing.py (the carried form)
++++ tools/b709_closing.py (now)
+@@ -2,10 +2,11 @@
+-"""b709_closing.py -- THE CLOSING RECORD OF b709, UNDER (R319). Carried from b708_closing.py by the Write tool, its act text written for b709:
+-the remote reads stored and looked up under ONE key (repo_key(), b694's repair, carried); the remote reads one per call in sequence, an empty read
+-re-read alone before any row is declared (b674_rules.txt row 1); the tag rows reading a lightweight tag at its own line; each bank's verdict line
+-and not its title; the citation line from the banks; the captures in b673's form; the defects row read from the bank (b693's repair); the head
+-line's prompt count the answers bank's rows plus one for the root's prompt, its defect count the defects bank's lettered rows read now (b700's
+-repair (9), carried). The act's sections are the record lines and the corrigendum, the probe, the prints, the re-cut, the port's lines, the
+-registrations and the standing arms; the report of the ferry's Component 6 prints in one line each the probe's moved sigs, the 11 mentions'
+-readings, the cut's distances and the four standing arms' figures beside b708's, from the bank the unsealed report tool writes after the
+-root's word (data/b709_rules.txt row (1)). SIDE-lv-conservation's port branch is read beside the mains (standing, unedited); the join kernel
+-and SIDE-explicit-formula read unmoved, the two scratch branches read absent.
++"""b709_closing.py -- THE CLOSING RECORD OF b709, UNDER (R319). Carried from b708_closing.py by tools/b709_carry.py (the act names substituted,
++data/b709_rules.txt row (1)), its act sections written for b709 by the Edit tool: the remote reads stored and looked up under ONE key (repo_key(),
++b694's repair, carried); the remote reads one per call in sequence, an empty read re-read alone before any row is declared (b674_rules.txt row 1);
++the tag rows reading a lightweight tag at its own line; each bank's verdict line and not its title; the citation line from the banks; the captures
++in b673's form; the defects row read from the bank (b693's repair); the head line's prompt count the answers bank's rows plus one for the root's
++prompt, its defect count the defects bank's lettered rows read now (b700's repair (9), carried). The act's sections are the record lines and the
++corrigendum, the grid, the pairs, the port, the axis, the registrations and the standing arms; the report of the ferry's Component 6 prints in one
++line each the onset per family with its rung and eigenvalue, the zeta control's lambda_min beside its tail bound, the twelve ratios, the port's
++modules built and next failing line, and the four standing arms' figures beside b708's, from the bank the unsealed report tool writes after the
++root's word (data/b709_rules.txt row (1)). SIDE-lv-conservation's port branch is read beside the mains at this act's one commit; the join kernel
++and SIDE-explicit-formula read unmoved.
+@@ -84,1 +85,1 @@
+-    """the fixed list; no tag made this act (the scratch branches deleted; no main moved)."""
++    """the fixed list; no tag made this act (one commit on port-b707; no main moved)."""
+@@ -263,1 +264,1 @@
+-    if len(ls) >= 4:
++    if len(ls) >= 5:
+@@ -269,2 +270,5 @@
+-TITLE_LINE = ('b709 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND THIRTY-FIVE, THE RE-CUT ACT: b708 AT ITS WEIGHT; THE WRITE LIST AND THE '
+-              'REPORT TOOL; THE PROBE THROUGH THE WORKFLOW`S STEP; THE REMAINING ENTRY-TAG PRINTS; THE NEXT DOCUMENT CUT; THE FINE GRID REGISTERED, UNDER (R319).**')
++TITLE_LINE = ('b709 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND THIRTY-SIX, THE RESEARCH ACT: b708 AT ITS WEIGHT; THE NEEDLE AND THE CARRY BY '
++              'DIFF; THE FINE GRID; THE PORT`S NEXT LINES; THE HIGHER PAIRS; THE NEXT AXIS, UNDER (R319).**')
++# ### (R319)(2), the repaired needle`s ground: the banks below carry no verdict line BY THEIR FORM (the push tool`s capture); the closing prints
++# ### "### NO VERDICT LINE" for them and the suite`s G-CLOSING-DRY-STEP exempts them by name (tools/b709_checks.py NO_VERDICT_EXEMPT).
++NO_VERDICT_BY_FORM = ('b709_port_push_out.txt',)
+@@ -274,3 +278,4 @@
+-    return [('THE RECORD LINES AND THE CORRIGENDUM ((R319)(1)-(2))', [('the generated entry and the corrigenda row (28)', 'b709_corrigendum.txt'),
+-                                                                   ('the carry-time repair (the print-list reader), its diff', 'b709_tool_repairs.txt'),
+-                                                                   ('the repaired reading against the old on real state and mutated copies', 'b709_repair_controls.txt'),
++    return [('THE RECORD LINES AND THE CORRIGENDUM ((R319)(1)-(2))', [('the generated entry and the corrigenda row (29)', 'b709_corrigendum.txt'),
++                                                                   ('the carry-time repairs, each with its diff bank; the act`s own sections named apart', 'b709_tool_repairs.txt'),
++                                                                   ('the needle`s repaired reading against the old on b708`s gate record and mutated copies', 'b709_repair_controls.txt'),
++                                                                   ('the carried tools and their read spans (N3)', 'b709_carry_spans.txt'),
+@@ -278,14 +283,9 @@
+-            ('THE PROBE ((R319)(4), N2)', [('the probe text by the generator, its sha256 b704`s, its target', 'b709_probe.txt'),
+-                                           ('the probe branch`s diff against main and v0.37', 'b709_probe_diff.txt'),
+-                                           ('the step on the runner, read by run id and sha256', 'b709_probe_run.txt'),
+-                                           ('the probe diffed against b704`s bank, cell by cell', 'b709_probe_compare.txt')]),
+-            ('THE PRINTS ((R319)(5))', [('the scratch branch`s three files, banked before the commit', 'b709_print_files_prints-b709-v0.17.txt'),
+-                                        ('the entry-tag print at v0.17', 'b709_prints_v0.17.txt'),
+-                                        ('the eleven mentions re-read', 'b709_cells_reread.txt'),
+-                                        ('the two scratch branches deleted after their banks', 'b709_scratch_branches.txt')]),
+-            ('THE RE-CUT ((R319)(6), N4)', [('the next document by b652`s order, b674`s rule and b705`s row (2), printed before it is named', 'b709_tie.txt'),
+-                                            ('the quotation search before the cut`s commit (data/b690_rules.txt row (2))', 'b709_quote.txt'),
+-                                            ('the cut by the b670 method, its distance and its residues', 'b709_cut.txt')]),
+-            ('THE PORT ((R319)(7))', [('the two failing lines` kinds, nothing edited', 'b709_port_lines.txt')]),
+-            ('THE REGISTRATIONS ((R319)(3), N3)', [('the fine grid, committed alone before any computation', 'b709_registrations.txt'),
+-                                                   ('the registrations and the rules bank re-read unchanged; no eigenvalue computed', 'b709_registrations_reread.txt')]),
++            ('THE GRID ((R319)(3), N2)', [('the sign-onset radius on the fine grid per family, the controls before the figures', 'b709_grid.txt'),
++                                          ('the grid`s binary bank, its hashes (data/b680_rules.txt row (1))', 'b709_grid_hashes.txt')]),
++            ('THE PAIRS ((R319)(5), N2)', [('the detection law over the twelve higher pairs, the list extended to 325', 'b709_pairs.txt'),
++                                           ('the pairs` binary bank, its hashes (data/b680_rules.txt row (1))', 'b709_pairs_hashes.txt')]),
++            ('THE PORT ((R319)(4), N1, N4)', [('the one edit at :277, :380 read unedited, the diffs', 'b709_port_edit.txt'),
++                                               ('the push in branch mode, read back (the push tool`s capture, no verdict line by its form)', 'b709_port_push_out.txt'),
++                                               ('the one dispatch read by its run id, the artifact verified, the outcome by file and line', 'b709_port.txt')]),
++            ('THE AXIS ((R319)(6))', [('the second axis registered for b711 before any number', 'b709_registrations.txt')]),
++            ('THE REGISTRATIONS (N2)', [('the four registration banks re-read unchanged; the computed banks committed as they stand', 'b709_registrations_reread.txt')]),
+@@ -296,7 +296,6 @@
+-    '    kernel mains written: none -- SIDE-explicit-formula`s two scratch branches, probe-b709 cut from main (badaccc, one commit past v0.37 by the',
+-    '    workflow file alone) with the one root file ChainProbe.lean by the generator, and prints-b709-v0.17 cut at v0.17 = 5a1630b with three files',
+-    '    (the workflow main`s blob verbatim, a one-name print list, a root ChainProbe.lean) under (R319)(4)-(5), each one commit, pushed alone in the',
+-    '    push tool`s branch mode and read back, dispatched once at its tip (runs 39980813418 and 39980908842) and read by run id with the artifact`s',
+-    '    sha256 verified, each DERIVES, the probe step RAN and its separate artifact read after its sha256 agreed; each branch deleted by name locally',
+-    '    and at the remote after its bank was committed ; SIDE-explicit-formula`s main at badaccc unmoved, every tag unmoved ; SIDE-lv-conservation`s',
+-    '    main and its deposit unmoved, port-b708 standing at 69e239d locally and at the remote, unedited ((R319)(7)) ; SIDE-faces-join`s main at its',
++    '    kernel mains written: none -- SIDE-lv-conservation`s port-b707 given this act`s one commit (C7OrderBounds.lean :277 edited by the Edit tool to',
++    '    `isStrongFEPair_toStrongFEPair.hasMellin w`, :380 read again and left unedited as the cascade of :277), pushed alone in the push tool`s branch mode',
++    '    and read back, dispatched once at its tip (run 40123142437) and read by run id with the artifact`s sha256 verified: conclusion failure, 11 of 12',
++    '    modules built (b707: 6), C7OrderBounds building, DirichletC7Order held at :212:55 by the same changed signature, no grade claimed, the print step',
++    '    not run (print_targets.txt absent at the branch) ; the branch HELD at its new tip for b711, no merge, no tag ; SIDE-lv-conservation`s main and its',
++    '    deposit v0.10.0 unmoved ; SIDE-explicit-formula`s main at badaccc unmoved, every tag unmoved, no scratch branch ; SIDE-faces-join`s main at its',
+@@ -304,3 +303,4 @@
+-    '    its own message, nothing chained after any, their tips banked before the first delete ; no lean or lake run on this host ; no lakefile,',
+-    '    manifest, toolchain or workflow of a kernel`s MAIN edited ; nothing vendored ; no worktree made or removed ; b628`s local intake bank, the',
+-    '    navigator`s export, b671`s uncompressed points file, b681`s units file, b694`s, b696`s and b708`s units files untracked ;',
++    '    its own message, nothing chained after any, their tips banked before the first delete ; one lean process on this host, the test`s at step zero',
++    '    (defect (c)), none started by the seat ; no lakefile, manifest, toolchain or workflow of a kernel`s MAIN edited ; nothing vendored ; no worktree',
++    '    made or removed ; b628`s local intake bank, the navigator`s export, b671`s uncompressed points file, b681`s units file, b694`s, b696`s and b707`s',
++    '    units files and this act`s grid and pairs units files untracked ;',
+@@ -308,1 +308,1 @@
+-    '    reads and pushes, its two runner dispatches and its reads) the act`s only outbound calls ; the deposit route untouched, publish never called ;',
++    '    reads and pushes, its one runner dispatch and its reads) the act`s only outbound calls ; the deposit route untouched, publish never called ;',
+@@ -310,4 +310,3 @@
+-    '    appended ; day1/Spectral_Inertness.md re-cut by the b670 method on its rows alone ((R319)(6)) ; data/act_roots.txt and the corrigenda bank',
+-    '    appended ; no shared tool or shared data file edited ; no paper written, moved or renamed ; no REGISTRY byte ; no FOUNDATIONS byte ; no README',
+-    '    or faces page byte (no sig moved) ; the mirror zip written outside every repository over b708`s roster, the builder`s state file',
+-    '    tools/mirror_prevbuild.json written at the build and named in (W) ; nothing of TECHNE or any patent written',
++    '    appended ; no paper cut, written, moved or renamed ; data/act_roots.txt and the corrigenda bank appended ; no shared tool or shared data file',
++    '    edited ; no REGISTRY byte ; no FOUNDATIONS byte ; no README or faces page byte ; the mirror zip written outside every repository over b708`s roster,',
++    '    the builder`s state file tools/mirror_prevbuild.json written at the build and named in (W) ; nothing of TECHNE or any patent written',
+@@ -316,18 +315,22 @@
+-    '    (a) ### **THE NEXT ACTS, (R319)(11)**: b709, the research act: the fine grid as data/b709_registrations.txt registers it (rho_0`s family 395',
+-    '        points about 6-7 hours; the band 4053 points about 70 hours -- the ruling to name rho_0 first or the band at its rungs alone); the',
+-    '        higher pairs` route as data/b708_registrations.txt registers it; the port`s next dispatch on port-b708 (C7OrderBounds.lean :277:55 a',
+-    '        changed signature, :380:8 a renamed Mathlib declaration, data/b709_port_lines.txt); the next axis (e) representation coordinates. b710',
+-    '        the reading act, reading 5, with W-ORD-STANDING-CLAUSES-BANK and the readfirst flip against readings 3 and 4. For the next ruling: the',
+-    '        five renames` readers in the test files (data/b709_defects.txt, the events), no test edited this act; the fine grid`s falsifier as worded',
+-    '        vacuous on the grid as worded (data/b709_registrations.txt, the reading entered for the strike).',
+-    '    (b) The orders: W-ORD-WORKFLOW-PROBE-STEP (its trigger met: the chain`s next probe ran through the step, 568 of 568 cells, 0 sigs moved);',
+-    '        W-ORD-ENTRY-TAG-PRINTS (its remainder read to its end: SIMPLICITY :442 equal at v0.17, FACES_LEDGER :20 unbanked by its own line);',
+-    '        W-ORD-LV-FORWARD-PORT (held: :277 and :380 named by kind, the next dispatch at b709); W-ORD-LV-CLOSURE-JOIN (the join held);',
+-    '        W-ORD-EXPLICIT-FORMULA-C1; W-ORD-EPSTEIN-COUNT-LEAN; W-ORD-STANDING-CLAUSES-BANK (trigger b710); W-ORD-KEYSTONE-HEADS (held at this',
+-    '        re-cut); W-ORD-QUASI-RH-FIELD-WATCH; W-ORD-P3-CONTOUR-SIGMA (read at b705); W-ORD-E0-MET-CLASSK (its content done at b705);',
+-    '        W-ORD-README-FIGURE-SCOPE (repaired at b705). Discharged this act by a landing: none; entered this act: none.',
+-    '    (c) For the author`s word: the four citation misses entered by the fact clause ((c) the falsifier`s wording, (d) four for five, (e) main one',
+-    '        commit past the tag, (f) the tag each cites with N1`s three dispatches), N1 scored as worded REFUTED on the count (two dispatches); the',
+-    '        vendored lib`s module named by its srcDir, a carry-time repair of b705`s print-list reader; the fine grid`s falsifier as worded vacuous,',
+-    '        entered not repaired; the cut document`s four Correspondence cells held; G-READ-RULE-STANDING declared failing on (a)`s two whole reads;',
+-    '        the report tool outside the sealed list until the root`s word (data/b709_rules.txt row (1)); the draft held at v5.',
++    '    (a) ### **THE NEXT ACTS, (R319)(10)**: b710, the reading act, reading 5: the standing-clauses bank (W-ORD-STANDING-CLAUSES-BANK) written and the',
++    '        ferry carried by version from b711; the readfirst flip read against readings 3 and 4; the reading of the principles S, I, D and E against',
++    '        the corpus; the moves-by-locus table drafted for the author`s word. b711, the research act: W-ORD-Q0-ZEROS-443 (the certified list from 325',
++    '        to 443 in eight bands of 15 in the foreground form, 90-120 minutes per band by this act`s stamps, then pairs 11 and 15 by the registered',
++    '        route, the banked candidate grids and counts above 310 its starting point); the join`s dispatch where the port completes -- port-b707 held at',
++    '        92af8a34, DirichletC7Order.lean :212:55 the next line (a changed signature, the same hasMellin argument), then :212:6 and :193:0 heartbeat',
++    '        timeouts, :333:8 a cascade, :501:31 and :500:82 broken proofs, :574:39 a changed signature; the second axis (e) representation coordinates',
++    '        at the coarse radii as data/b709_registrations.txt registers it. For the next ruling: the carry rule`s provision for a carried tool`s',
++    '        act-specific sections (defect (e)); the withheld bank carried by name with the tests tool (defect (c)); the five renames` readers in the',
++    '        test files (data/b709_defects.txt, the events), no test edited this act.',
++    '    (b) The orders: W-ORD-Q0-ZEROS-443 (entered this act at OPEN_TRAILS :15764, trigger b711); W-ORD-LV-FORWARD-PORT (continued: 11 of 12 modules,',
++    '        DirichletC7Order :212:55 next); W-ORD-LV-CLOSURE-JOIN (the join held; its dispatch where the port completes); W-ORD-WORKFLOW-PROBE-STEP',
++    '        (annotated DISCHARGED this act at :15762); W-ORD-ENTRY-TAG-PRINTS (read to its end at b708); W-ORD-EXPLICIT-FORMULA-C1; W-ORD-EPSTEIN-COUNT-LEAN;',
++    '        W-ORD-STANDING-CLAUSES-BANK (trigger b710); W-ORD-KEYSTONE-HEADS; W-ORD-QUASI-RH-FIELD-WATCH; W-ORD-P3-CONTOUR-SIGMA (read at b705);',
++    '        W-ORD-E0-MET-CLASSK (its content done at b705); W-ORD-README-FIGURE-SCOPE (repaired at b705). Discharged this act by a landing: none;',
++    '        entered this act: W-ORD-Q0-ZEROS-443.',
++    '    (c) For the author`s word: the one citation miss (the seat`s, b708`s kind for :380, the cascade of :277) entered by the fact clause and answered by',
++    '        the edit and the run; N1 as worded REFUTED on the test`s lean run (defect (c)), its dispatch clause met; N3 as worded REFUTED on the three',
++    '        carried tools read whole ((b), (e)); the higher pairs bounded at height 325 on the author`s word, pairs 11 and 15 beyond reach, not estimated,',
++    '        W-ORD-Q0-ZEROS-443 for b711; the background band runs before that word, defect (d); the grid`s hypothesis and falsifier vacuous as worded,',
++    '        read and printed with the discriminating reading (a rung for the band, a midpoint for rho_0); the report tool outside the sealed list until',
++    '        the root`s word (data/b709_rules.txt row (1)); the draft held at v5.',
+@@ -335,2 +338,3 @@
+-    '        data/b696_witness_balls_units.jsonl, data/b708_onset_units.jsonl and the zero-byte `=` at relay`s root stay local and untracked; b705`s',
+-    '        two units files and its fetched PDF stand in an earlier session`s scratchpad, outside every repository.',
++    '        data/b696_witness_balls_units.jsonl, data/b707_onset_units.jsonl, this act`s data/b709_grid_units*.jsonl and data/b709_pairs_units*.jsonl',
++    '        (declared by prefix in their tools` heads) and the zero-byte `=` at relay`s root stay local and untracked; b705`s two units files and its',
++    '        fetched PDF stand in an earlier session`s scratchpad, outside every repository.',
+@@ -338,2 +342,2 @@
+-    '    (f) Branches left for the next act`s step zero: the push-b709* branches of relay and PLACE-papers. KEPT, not for deletion: port-b708 of',
+-    '        SIDE-lv-conservation (the forward-port`s branch, at the remote, unedited this act).',
++    '    (f) Branches left for the next act`s step zero: the push-b709* branches of relay and PLACE-papers. KEPT, not for deletion: port-b707 of',
++    '        SIDE-lv-conservation (the forward-port`s branch, at the remote at this act`s one commit 92af8a34).',
+@@ -369,7 +373,2 @@
+-    heads.append('      %-32s local %s ; remote %s ; %s (the forward-port`s branch, (R319)(7): standing, unedited; held at C7OrderBounds.lean :277 and :380)' % (
+-        WL.PORT_BRANCH, pl[:12] or 'absent', pr[:12] or 'absent', 'AGREE' if pl and pl == pr == WL.PORT_COMMIT else '### DIFFER'))
+-    for b in (WL.PROBE_BRANCH, WL.PRINTS_BRANCH):
+-        loc = g('D:/SIDE-explicit-formula', 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b)
+-        rem = remote_refs('D:/SIDE-explicit-formula').get('refs/heads/' + b, '')
+-        heads.append('      %-32s local %s ; remote %s ; %s (the scratch branch of (R319)(4)-(5), deleted after its bank)' % (
+-            b, loc[:12] or 'absent', rem[:12] or 'absent', 'AGREE, ABSENT' if not loc and not rem else '### A SCRATCH BRANCH STANDS'))
++    heads.append('      %-32s local %s ; remote %s ; %s (the forward-port`s branch, (R319)(4): this act`s one commit on b707`s %s, held; DirichletC7Order.lean :212:55 next)' % (
++        WL.PORT_BRANCH, pl[:12] or 'absent', pr[:12] or 'absent', 'AGREE' if pl and pl == pr == WL.PORT_TIP else '### DIFFER', WL.PORT_BASE[:8]))
+@@ -423,2 +422,2 @@
+-          'among them ; SIDE-explicit-formula main %s (unmoved), v0.37 %s, v0.17 %s, the scratch branches absent ; SIDE-lv-conservation main %s (unmoved), '
+-          'v0.10.0 %s (the deposit), port-b708 %s (standing, unedited) ; SIDE-faces-join main %s, no tag' % (
++          'among them ; SIDE-explicit-formula main %s (unmoved), v0.37 %s, v0.17 %s, no scratch branch ; SIDE-lv-conservation main %s (unmoved), '
++          'v0.10.0 %s (the deposit), port-b707 %s (this act`s one commit, held) ; SIDE-faces-join main %s, no tag' % (
+
+### ### **HUNKS 15 ; LINES REMOVED 77 ; LINES ADDED 76.**
