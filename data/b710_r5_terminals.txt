@@ -1,0 +1,48 @@
+b710 -- (R320)(5)(i): THE TERMINALS OF THE FOUR PRINCIPLES AND THE MEASURES, EACH READ AT ITS KERNEL`S HEAD AND TAG, ITS GRADE FROM THE STATEMENT (2026-10-24T22:32:37Z)
+
+### rows are terminals: the principle or measure | kernel | the tag at HEAD (or the latest tag and whether the file is unchanged since it) |
+### file :line | the keyword and the qualified name | the grade by the shared E0 rule on the statement (tools/terminal_table.py rule_reading:
+### a theorem by its header, a definition DEF) | the terminal table`s rows for the name (relay data/terminal_table.json) | the statement.
+
+  Symmetry       | SIDE-meta                | tag v0.1.0,v0.3 | SIDEMeta/Meta/SIDESystem.lean :74 | def SIDEMeta.Symmetric | grade DEF | table NO ROW
+      def Symmetric (D : Type) (ops : List (D → D)) (determined : D → Prop) : Prop
+  Symmetry       | SIDE-meta                | tag v0.1.0,v0.3 | SIDEMeta/Meta/SIDESystem.lean :142 | theorem SIDEMeta.conservation_from_SIDE | grade UNCLASSED BY THE E0 RULE (explicit S : SIDESystem (a bare name no lexicon lists (SIDESystem))) | table NO ROW
+      theorem conservation_from_SIDE (S : SIDESystem) : conservation S
+  Symmetry       | SIDE-kernel              | tag v1.8 | Kernel/Layer1.lean :8 | structure techne_kernel.HasSymmetry | grade DEF | table NO ROW
+      structure HasSymmetry (X : Type u) where T : X -> X T_involution : forall x : X, T (T x) = x structure Constraint (X : Type u) where name : String source : String machinery : String structure IndependentConstraints (X : Type u) where constraints : List (Constraint X) has_two : constraints.length >= 2 structure ExhaustiveCatalogue (X : Type u) (P : X -> Prop) where classes : List (MechanismClass X 
+  Symmetry       | SIDE-kernel              | tag v1.8 | Kernel/Focus.lean :34 | theorem Focus.fe_symmetry | grade DERIVES | table ['SIDE-kernel DERIVES']
+      theorem fe_symmetry (s : ℂ) : completedRiemannZeta₀ (1 - s) = completedRiemannZeta₀ s
+  Independence   | SIDE-meta                | tag v0.1.0,v0.3 | SIDEMeta/Meta/SIDESystem.lean :56 | def SIDEMeta.Independent | grade DEF | table NO ROW
+      def Independent (D : Type) (ops : List (D → D)) : Prop
+  Independence   | SIDE-kernel              | tag v1.8 | Kernel/Layer1.lean :17 | structure techne_kernel.IndependentConstraints | grade DEF | table NO ROW
+      structure IndependentConstraints (X : Type u) where constraints : List (Constraint X) has_two : constraints.length >= 2 structure ExhaustiveCatalogue (X : Type u) (P : X -> Prop) where classes : List (MechanismClass X P) covers_all : forall (x : X), P x -> Exists (fun C : MechanismClass X P => And (List.Mem C classes) (C.produces x))
+  Determination  | SIDE-meta                | tag v0.1.0,v0.3 | SIDEMeta/Meta/SIDESystem.lean :65 | def SIDEMeta.Determined | grade DEF | table NO ROW
+      def Determined (D : Type) (ops : List (D → D)) (determined : D → Prop) : Prop
+  Determination  | SIDE-kernel              | tag v1.8 | Kernel/TypeLevel.lean :15 | theorem TypeLevel.determination_collapse | grade INTERFACES | table NO ROW
+      theorem determination_collapse {X : Type u} {P : X → Prop} (tlc : TypeLevelConstraint X P) (x : X) : P x
+  Determination  | SIDE-kernel              | tag v1.8 | Kernel/Cascade/SieveCeiling.lean :69 | structure DeterminedSystem | grade DEF | table NO ROW
+      structure DeterminedSystem where classes : Nat interfaces : Nat → Interface
+  Exhaustiveness | SIDE-meta                | tag v0.1.0,v0.3 | SIDEMeta/Meta/SIDESystem.lean :85 | def SIDEMeta.Exhaustive | grade DEF | table NO ROW
+      def Exhaustive (D : Type) (ops : List (D → D)) (determined : D → Prop) : Prop
+  Exhaustiveness | SIDE-kernel              | tag v1.8 | Kernel/Layer1.lean :30 | theorem techne_kernel.SIDE_exclusion | grade INTERFACES | table ['SIDE-effects INTERFACES', 'SIDE-kernel INTERFACES']
+      theorem SIDE_exclusion {X : Type u} {P : X -> Prop} {x : X} (cat : ExhaustiveCatalogue X P) (h_none : NoneProduces X P cat.classes x) : Not (P x)
+  Exhaustiveness | SIDE-kernel              | tag v1.8 | Bridge/TheBridgeComplete.lean :249 | theorem structural_exhaustiveness_proved | grade INTERFACES | table ['SIDE-kernel INTERFACES']
+      theorem structural_exhaustiveness_proved (h_cons : ConservationHypothesis) : StructuralExhaustiveness
+  kappa          | SIDE-meta                | tag v0.1.0,v0.3 | SIDEMeta/Meta/Kappa.lean :61 | def SIDEMeta.kappa | grade DEF | table NO ROW
+      def kappa (S : SIDESystem) (d : S.domain) (op : S.domain → S.domain) : Prop
+  kappa          | SIDE-kernel              | tag v1.8 | Kernel/Cascade/SieveCeiling.lean :48 | inductive Kappa | grade DEF | table NO ROW
+      inductive Kappa where | dark : Kappa -- κ = 0 | diffractive : Kappa -- 0 < κ < 1 | bright : Kappa -- κ = 1 deriving DecidableEq
+  UDT            | SIDE-formation-procedure | tag v0.1.0 | SIDEFormationProcedure/Basic.lean :136 | def SIDEFormationProcedure.universalDarkness | grade DEF | table NO ROW
+      def universalDarkness (s : SystemSpec) : Bool
+  UDT            | SIDE-kernel              | tag v1.8 | Kernel/SilenceTheorem.lean :74 | theorem SilenceTheorem.silence_universal | grade DERIVES | table ['SIDE-kernel INTERFACES', 'SIDE-silence-principle INTERFACES']
+      theorem silence_universal {C : ConfigurationSpace} {R : Type} (I : Interface C R) (h_univ : I.is_universal) : I.kappa_zero
+  Ostrowski      | SIDE-kernel              | tag v1.8 | Kernel/Cascade/SieveCeiling.lean :279 | structure DomainOstrowski | grade DEF | table NO ROW
+      structure DomainOstrowski (s : DeterminedSystem) where brightClass : Nat inBounds : brightClass < s.classes isBright : (s.interfaces brightClass).kappa.isDark = false inessential : (s.interfaces brightClass).essential = false
+  EDiff          | SIDE-kernel              | tag v1.8 | Kernel/Cascade/SieveCeiling.lean :298 | theorem e_difficulty | grade INTERFACES | table ['SIDE-kernel CONFLICT']
+      theorem e_difficulty (s : DeterminedSystem) (h_conserved : s.isConserved) : IsDecidable s ↔ Nonempty (DomainOstrowski s)
+  EDiff          | SIDE-kernel              | tag v1.8 | MetaKernel.lean :187 | def ECondition.e_difficulty_conjecture | grade DEF | table NO ROW
+      def e_difficulty_conjecture : Type 1
+  Ostrowski      | SIDE-kernel              | tag v1.8 | Bridge/OstrowskiBridge.lean :94 | theorem ostrowski_exhaustive | grade INTERFACES | table NO ROW
+      theorem ostrowski_exhaustive : ∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial → f.IsEquiv Rat.AbsoluteValue.real ∨ ∃! p : ℕ, ∃ (_ : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p)
+
+### ### **TERMINALS READ 20 ; STATEMENTS READ 20 ; GRADES DEF 12, INTERFACES 5, DERIVES 2, UNCLASSED BY THE E0 RULE (explicit S : SIDESystem (a bare name no lexicon lists (SIDESystem))) 1 ; TABLE ROWS FOR 5.**

@@ -1,0 +1,115 @@
+b710 -- (R320)(5)(i): THE CONTROL OBJECTS FOR THE FOUR PRINCIPLES, SEARCHED IN THE RELAY BANKS AT HEAD (2026-10-24T22:33:55Z)
+
+### the search: `git grep -l -i -E` over relay data/*.txt at HEAD 3e37d9f9 for each pattern; rows are patterns: the pattern | the banks naming it
+### (count, the first twelve). A control object is named where a bank computes on an object that violates the principle and keeps the
+### others; the candidates` verdict lines printed for the reading.
+
+### SYMMETRY:
+  no functional equation                                       | banks    4 | data/b613_reads.txt, data/b642_epstein_rungs.txt, data/b647_table_SIDE-archimedean.txt, data/b701_epstein_plan.txt
+      data/b613_reads.txt :214 | :56 The product formula ∏_v |x|_v = 1 in number theory is essential for constructing the adelic integration domain for ξ(s) — without it, no Tate inte
+      data/b642_epstein_rungs.txt :54 | PRICE: ONE ACT, AFTER R2: Theta_Q - 1 and its dual as a WeakFEPair (weight k = 1) give Lambda_Q = (2 pi / sqrt 23)^(-s) Gamma(s) Z_Q(s), its functiona
+      data/b647_table_SIDE-archimedean.txt :17 | LICENSED The theorem proves only that a rational σ fixed by σ ↦ 1 − σ equals 1/2 (by fe_reflect_fixed_iff); no functional equation of ξ and no zero en
+      data/b701_epstein_plan.txt :21 | class number formula; no continuation and no functional equation at the pin); completedRiemannZeta_one_sub (LSeries/RiemannZeta.lean :106)
+  without (a|the) functional equation                          | banks    0 | 
+  functional equation (absent|fails|broken)                    | banks    0 | 
+  lacks? (a|the) functional equation                           | banks    0 | 
+  asymmetric control                                           | banks    0 | 
+  symmetry[- ]broken control                                   | banks    0 | 
+
+### INDEPENDENCE:
+  \bQ0\b                                                       | banks  682 | data/audit_b505_reg_satisfiable.txt, data/audit_b505_satisfiable_run.txt, data/audit_b511_reg_satisfiable.txt, data/audit_b514_reg_satisfiable.txt, data/audit_b515_reg_satisfiable.txt, data/audit_b518_reg_satisfiable.txt, data/audit_b519_reg_satisfiable.txt, data/audit_b520_reg_satisfiable.txt, data/audit_b521_reg_satisfiable.txt, data/audit_b522_reg_satisfiable.txt, data/audit_b528_reg_satisfiable.txt, data/audit_b663_reg_satisfiable.txt
+  Davenport                                                    | banks  102 | data/b230_engine_statement_and_price.txt, data/b230_registration_2026-08-28.txt, data/b325_extract_notes.txt, data/b327_extract_notes.txt, data/b327_source_text.txt, data/b341_source_text_coffey0505052.txt, data/b358_source_coffey0505052.txt, data/b358_source_lagarias0404394.txt, data/b358_source_voros0506326.txt, data/b374_hedge_notes.txt, data/b417_reads.txt, data/b432_components.txt
+  no Euler product                                             | banks   38 | data/b325_extract_notes.txt, data/b326_the_reach.txt, data/b442_closing.txt, data/b442_components.txt, data/b442_desk_notes.txt, data/b442_extract.txt, data/b442_the_minimum.txt, data/b468r_components.txt, data/b468r_registration_2026-09-22.txt, data/b523_components.txt, data/b523_registration_2026-09-25.txt, data/b523_report.txt
+  without an Euler product                                     | banks    3 | data/b694_faces_rows.txt, data/b695_author_answers.txt, data/b695_faces_rows.txt
+  Epstein                                                      | banks 1377 | data/_b410/density_excluded.txt, data/audit_b326_reg_satisfiable.txt, data/audit_b328_index_query.txt, data/audit_b329_index_query.txt, data/audit_b334_reg_satisfiable.txt, data/audit_b343_index_query.txt, data/audit_b404_reg_satisfiable.txt, data/audit_b495_reg_satisfiable.txt, data/audit_b496_reg_satisfiable_carried.txt, data/audit_b502_reg_satisfiable.txt, data/audit_b504_reg_satisfiable.txt, data/audit_b505_reg_satisfiable.txt
+
+### DETERMINATION:
+  free parameter                                               | banks   42 | data/b119_dominance.txt, data/b119_registration_2026-08-23.txt, data/b188_identity_chain.txt, data/b188_registration_2026-08-26.txt, data/b191_registration_2026-08-26.txt, data/b191_truncation_question.txt, data/b196_registration_2026-08-26.txt, data/b196_term3_requirement.txt, data/b374_hedge_notes.txt, data/b375_rubric_notes.txt, data/b421_c2_specification.txt, data/b421_extract.txt
+  underdetermined                                              | banks  132 | data/b104_orientation_dependence.txt, data/b214_registration_2026-08-27.txt, data/b220_aggregation_freedom.txt, data/b220_core_print.txt, data/b220_registration_2026-08-27.txt, data/b221_core_remeasured.txt, data/b226_core_remeasured.txt, data/b227_core_remeasured.txt, data/b232_sign_of_A.txt, data/b234_fold_forward.txt, data/b241_registration_2026-08-29.txt, data/b241_residual_ledger.txt
+  E_h\b                                                        | banks   23 | data/_b412/doors.txt, data/b181_gate_sweep.txt, data/b298_the_boundary_terminal.txt, data/b377_branch_notes.txt, data/b377_branch_notes2.txt, data/b377_branch_notes3.txt, data/b377_the_unblocked_obligation.txt, data/b378_closing.txt, data/b378_extract_notes.txt, data/b378_extract_notes2.txt, data/b378_extract_notes3.txt, data/b378_terminals_notes.txt
+      data/_b412/doors.txt :6 | | **R5 — farthest** | spectral realization (input/output) | input certified {n²}; output disclaimed (HP); **the distance now carries a compiled bounda
+      data/b181_gate_sweep.txt :109 | `E_h` chain is mentioned once at INSTRUMENTS.md:75 without a definition here.
+      data/b298_the_boundary_terminal.txt :97 | ### ### **b284's `scale_g` AND `scale_h` -- THE MAPS THE ARTIFACT LIVES IN -- OCCUR 0 TIMES.**
+      data/b298_the_boundary_terminal.txt :179 | ### P-NOARTIFACT .. HOLDS -- the module's index maps ENUMERATED; `scale_g`/`scale_h` occur 0 times
+      data/b298_the_boundary_terminal.txt :306 | ### ARTIFACT: ### **NOT EXPOSED** ### -- index maps enumerated; `scale_g`/`scale_h` occur 0 times.
+      data/b377_branch_notes.txt :29 | ### ### **NOT LOCATED** E_h ### in any of 43 kernels
+      data/b377_branch_notes2.txt :29 | ### ### **NOT LOCATED** E_h ### in any of 43 kernels
+      data/b377_branch_notes3.txt :29 | ### ### **NOT LOCATED** E_h ### in any of 43 kernels
+      data/b377_the_unblocked_obligation.txt :149 | ### `E_h` ### -- declared in NONE of the 43 kernels
+      data/b378_closing.txt :202 | ### `W_pole`, `E_h`, `A_n`, `e_n`, `F_v`, `psi_coarse`, `resid_N` read like variables in prose.
+      data/b378_extract_notes.txt :139 | E_h DECLARED-NOWHERE INSTRUMENTS
+      data/b378_extract_notes2.txt :143 | E_h DECLARED-NOWHERE INSTRUMENTS
+      data/b378_extract_notes3.txt :144 | E_h DECLARED-NOWHERE INSTRUMENTS
+      data/b378_terminals_notes.txt :101 | E_h NOT-FOUND-ON-ANY-REF-SEARCHED none of 270 refs across 43 kernels, nor
+      data/b378_terminals_notes2.txt :112 | E_h NOT-FOUND-ON-ANY-REF-SEARCHED none of 270 refs across 43 kernels, nor
+      data/b378_terminals_notes3.txt :112 | E_h NOT-FOUND-ON-ANY-REF-SEARCHED none of 270 refs across 43 kernels, nor
+      data/b378_the_refs_widened.txt :91 | ### E_h NOT-FOUND-ON-ANY-REF-SEARCHED none of 270 refs across 43 kernels, nor
+      data/b379_closing.txt :69 | ### 6`, `UNDECIDED-BY-ITS-SENTENCE 8`. ### `E_h` is *the Lagarias `E_h` chain*; `Z_Q` is *Epstein
+      data/b379_survivors_notes.txt :35 | E_h NOT_LOCATED no searched ref declares it and
+      data/b379_survivors_notes.txt :84 | ### `E_h` ### -- `INSTRUMENTS` line 83
+      data/b379_survivors_notes.txt :85 | the sentence that names it : - **the deformation face:** progress on the Lagarias `E_h` chain at `h < ½`, or past the Conrey-Li refutation.
+      data/b409_extract.txt :132 | evidence: C₄ modularity's schedule vs the theta/E_h
+      data/b637_binder_classes.txt :77 | FIVE binder h expected class B11 grade INTERFACES theorem five_h (h : NontrivialZeroExistsInStrip) : True := trivial
+      data/b637_binder_classes.txt :78 | FIVE binder H expected class B11 grade INTERFACES theorem five_H (H : NontrivialZeroExistsInStrip) : True := trivial
+      data/b637_planted_read.txt :32 | five_h five-name binder h want B11 INTERFACES got B11 INTERFACES AS WANTED
+      data/b637_planted_read.txt :33 | five_H five-name binder H want B11 INTERFACES got B11 INTERFACES AS WANTED
+      data/b705_closing.txt :69 | the ranking`s order (relay data/b705_i6_ranking.txt): 1. (d`) the support radius a as the deformation parameter -- 5; 2. (e) representation coordinate
+      data/b705_i6_ranking.txt :31 | (d) deformation parameter (the generic axis) | "deform the form through the Lagarias E_h chain / the deformation face (W-DENINGER)" |
+      data/b705_i6_ranking.txt :61 | 5. (d) the generic deformation (E_h) -- 1
+      data/b705_reg_gate.txt :71 | the ranking`s order (relay data/b705_i6_ranking.txt): 1. (d`) the support radius a as the deformation parameter -- 5; 2. (e) representation coordinate
+  Lagarias                                                     | banks  431 | data/_b405/U1_cell5.txt, data/_b405/U1_row_at_HEAD.txt, data/_b406/U1_row_at_HEAD.txt, data/_b407/U1_row_at_HEAD.txt, data/_b408/U1_row_at_HEAD.txt, data/_b409/U1_row_at_HEAD.txt, data/_b412/doors.txt, data/_b413/r4_row.txt, data/_b413/sources.txt, data/_b413/synthesis.txt, data/_b413/threshold.txt, data/_b413/vajra1.txt
+  deformation parameter                                        | banks    7 | data/b425_source_2608.23585_run1.txt, data/b468r_text/claude_transcripts.txt, data/b705_closing.txt, data/b705_ferry.txt, data/b705_i6_ranking.txt, data/b705_reg_gate.txt, data/b705_registrations.txt
+      data/b425_source_2608.23585_run1.txt :579 | ing the deformation parameter ∆ to evolve dynamically
+      data/b468r_text/claude_transcripts.txt :265 | family of Sonin spaces. Track the phantom-line residue as a function of the deformation parameter; if it's
+      data/b705_closing.txt :69 | the ranking`s order (relay data/b705_i6_ranking.txt): 1. (d`) the support radius a as the deformation parameter -- 5; 2. (e) representation coordinate
+      data/b705_ferry.txt :19 | (8) THE PERSPECTIVE RANKING, I-6 at Weil positivity on classK, at statement grade, written to data/b705_i6_ranking.txt: the six axes of INSTRUMENTS :1
+      data/b705_i6_ranking.txt :31 | (d) deformation parameter (the generic axis) | "deform the form through the Lagarias E_h chain / the deformation face (W-DENINGER)" |
+      data/b705_i6_ranking.txt :46 | (d`) THE SEVENTH ROW, the support radius a of the test window as the deformation parameter (data/b705_registrations.txt (iii)) | "deform
+      data/b705_i6_ranking.txt :57 | 1. (d`) the support radius a as the deformation parameter -- 5
+      data/b705_reg_gate.txt :71 | the ranking`s order (relay data/b705_i6_ranking.txt): 1. (d`) the support radius a as the deformation parameter -- 5; 2. (e) representation coordinate
+      data/b705_registrations.txt :16 | window as the deformation parameter, axis (d) of INSTRUMENTS.md :136 re-parametrised).
+
+### EXHAUSTIVENESS:
+  no domain Ostrowski                                          | banks    3 | data/b580_reads.txt, data/b589_reads.txt, data/b646_table_Exhaustive_Enumeration.txt
+      data/b580_reads.txt :109 | :35 - **Out of method reach** (TYPE III) — no domain Ostrowski exists or has been identified; the problem lies outside the SIDE methodology's scope (P
+      data/b589_reads.txt :137 | :118 The contrapositive of the theorem: if no domain Ostrowski exists, then P is undecidable. This gives a structural criterion: P is undecidable for 
+      data/b589_reads.txt :169 | :150 **The Halting Problem.** The catalogue for "does Turing machine M halt on input x?" cannot be completed because the search for halting programs i
+      data/b646_table_Exhaustive_Enumeration.txt :82 | :95 | argument-supported | graded | - | no | MATCHES ; "no domain Ostrowski exists because the enumeration cannot be exhaustive in an underdetermined 
+      data/b646_table_Exhaustive_Enumeration.txt :88 | :101 | synthesis-suggested | graded | - | no | MATCHES ; "When no domain Ostrowski exists, the method identifies the obstruction" ; none
+  catalogue (cannot|can not) be (closed|completed|shown complete) | banks    0 | 
+  Continuum Hypothesis                                         | banks    5 | data/b462_census.txt, data/b462_components.txt, data/b589_reads.txt, data/b645_table_monograph.txt, data/b645_v6_agenda.txt
+      data/b462_census.txt :97 | **Test 3: The Continuum Hypothesis.** Gödel (1940) proved CH consistent with ZFC.
+      data/b462_components.txt :97 | **Test 3: The Continuum Hypothesis.** Gödel (1940) proved CH consistent with ZFC.
+      data/b589_reads.txt :49 | :30 The paper proves the theorem (Section II), provides the ten-step proof (Section III), shows where each step uses an existing programme result (Sec
+      data/b589_reads.txt :165 | :146 **The Continuum Hypothesis.** Cohen and Gödel showed CH is independent of ZFC. Reading through E-Difficulty: the mechanism catalogue for "how man
+      data/b589_reads.txt :228 | :209 Cohen, P. J. (1963, 1964). *The independence of the continuum hypothesis.* PNAS.
+      data/b645_table_monograph.txt :36 | :40 | The Third Identity Element and Riemann's | statement-grade | established | - | no | UNLICENSED ; "The method has been tested on completed proble
+      data/b645_table_monograph.txt :1274 | :1856 | Chapter 28: Extensions and Future Work | synthesis-suggested | graded | - | no | MATCHES ; "the method correctly identifies its own boundary (
+      data/b645_v6_agenda.txt :12 | "The method has been tested on completed problems (including the independence of the Continuum Hypothesis, which it correctly predicted)."
+  open catalogue                                               | banks    0 | 
+  no Ostrowski                                                 | banks    3 | data/b647_table_SIDE-kernel.txt, data/b651_table_SIDE-kernel_sentences.txt, data/b652_sentence_grades.txt
+      data/b647_table_SIDE-kernel.txt :429 | ACTION RE-CUT: The seven mechanism-class labels of the SIDE catalogue (an enumeration; no Ostrowski instance is compiled).
+      data/b647_table_SIDE-kernel.txt :521 | STATED The meta-theorem (CP-O-5): TYPE I ↔ Ostrowski exists. TYPE III ↔ no Ostrowski exists. Stated as a definition (conjecture).
+      data/b651_table_SIDE-kernel_sentences.txt :575 | s2 MATCHES TYPE III ↔ no Ostrowski exists.
+      data/b652_sentence_grades.txt :1230 | ACTION : RE-CUT: The seven mechanism-class labels of the SIDE catalogue (an enumeration; no Ostrowski instance is compiled).
+      data/b652_sentence_grades.txt :1234 | The seven mechanism-class labels of the SIDE catalogue (an enumeration; no Ostrowski instance is compiled).
+      data/b652_sentence_grades.txt :1398 | s2 OVERREACHES TYPE III ↔ no Ostrowski exists.
+
+### THE INDEPENDENCE CONTROL`S BANKS, BY THEIR VERDICT LINES:
+  data/b703_q0_band.txt | ROWS 163 (THE CONTROL AGREES) ; OFF THE LINE 17, ON IT 146 ; IN (1/2, 7/8] 15 ; ρ₀ READ True ; NO WITNESS COMPUTED.
+  data/b707_onset.txt | THE ONSET AT THE BAND ZERO`S FAMILY: a* = 192 ; AT rho_0`S FAMILY: a* = 32 ; THE FALSIFIER NOT FIRED ; THE HYPOTHESIS HELD ; C1 ZETA POSITIVE DEFINITE True ; C2 AS WANTED True.
+  data/b709_grid.txt | THE ONSET AT rho_0`S FAMILY: mid929_937 (mid) ; AT THE BAND ZERO`S FAMILY: rung32381 (rung) ; THE HYPOTHESIS HELD / HELD ; THE FALSIFIER NOT FIRED / NOT FIRED ; C1 AS WANTED True ; C2 ZETA POSITIVE AT
+  data/b709_pairs.txt | PAIRS 12 ; COMPUTED 10, WITHIN [0.67, 1.5] 10, OUTSIDE 0 ; BEYOND REACH 2 ; THE FALSIFIER HELD ; THE LIST COMPLETE TO T0` = 325 (NEW ON-LINE 231, OFF-LINE PAIRS 29) ; C1 EQUAL True ; C2 EQUAL True ; C
+  data/b705_detection.txt | PAIRS 17 ; COMPUTED 5, WITHIN [0.67, 1.5] 5, OUTSIDE 0 ; BEYOND REACH 12 ; THE FALSIFIER HELD ; C1 EQUAL True ; C2 NONNEGATIVE True (VACUOUS).
+  data/b705_window.txt | THE NOTCHED WINDOW AT THE BAND ZERO: NEGATIVE AT ['192'] ; THE FALSIFIER NOT FIRED ; THE HYPOTHESIS HELD ; C1 ZETA NONNEGATIVE True ; C2 CENTRED AT Q0 NEGATIVE AT NO WIDTH ; THE MOVER (N, zeta -> Q0) 
+
+### THE KERNEL`S WITNESS FILE (SIDE-kernel, the Davenport-Heilbronn witness named at Kernel/Cascade/SieveCeiling.lean :355):
+  Kernel/Cascade/SieveCeilingSemantic.lean :59 | def NonInvarianceWitness (onLine : U → Prop) : Prop :=
+  Kernel/Cascade/SieveCeilingSemantic.lean :63 | theorem not_respectsI_of_witness {onLine : U → Prop}
+  Kernel/Cascade/SieveCeilingSemantic.lean :72 | theorem sieve_ceiling_of_witness {onLine : U → Prop}
+  Kernel/Cascade/SieveCeilingWitness.lean :94 | theorem dh_witness : NonInvarianceWitness iIndist allOnLine :=
+  Kernel/Voice7Witness.lean :121 | theorem hadamard_witness : NonInvarianceWitness hadIndist allOnLine :=
+  legacy/Foundation3v2.lean :31 | theorem local_structure_witness :
+  legacy/Foundation3v2.lean :44 | theorem global_structure_witness (s : ℂ) :
+
+### ### **PRINCIPLES 4 ; PATTERNS 21 ; THE BANKS NAMING EACH PRINCIPLE`S PATTERNS: Symmetry 4 ; Independence 1763 ; Determination 603 ; Exhaustiveness 10.**

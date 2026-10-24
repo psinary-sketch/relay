@@ -1,0 +1,49 @@
+b710 -- (R320)(5)(iv): THE COST READING -- THE READ VOLUME BY FILE FROM THE READ BANKS OF b705-b709 (2026-10-24T22:39:07Z)
+
+### the banks: relay data/b705_read_calls.txt .. data/b709_read_calls.txt (b704`s route: rows are Read calls -- transcript line | time | the
+### file`s lines read then | offset | limit | the verdict | path). A call`s volume: the lines it returned -- the file`s lines from the offset
+### to the limit, the whole where neither is given (the tool`s cap of two thousand lines). A whole read: neither offset nor limit. A read
+### the carry-by-diff rule (data/b709_rules.txt row (1), binding from b709) would have removed: a call on a carried tool of its own act or the
+### previous act (tools/bNNN_<record|checks|closing|regspec|reg_gate|corrigendum|tests|citation|worklist|report>.py) outside b709`s rule`s spans.
+
+### b705: calls 189 ; lines returned 20694 ; files 98 ; calls on carried tools 54 (lines 9082) ; the top five by lines: relay/tools/b704_record.py 2424; relay/tools/b704_checks.py 1553; relay/tools/b705_checks.py 1400; relay/tools/e0_rule.py 1050; relay/tools/b705_record.py 1020
+### b706: calls 196 ; lines returned 16138 ; files 90 ; calls on carried tools 73 (lines 8763) ; the top five by lines: relay/tools/b705_record.py 2323; relay/tools/b705_checks.py 1960; relay/tools/b706_checks.py 1581; relay/tools/b705_citation.py 866; relay/tools/b698_record.py 492
+### b707: calls 314 ; lines returned 30052 ; files 140 ; calls on carried tools 89 (lines 14154) ; the top five by lines: relay/tools/b706_checks.py 3753; relay/tools/b706_record.py 3663; relay/tools/b707_record.py 2120; relay/tools/b698_record.py 1888; relay/tools/b706_closing.py 998
+### b708: calls 214 ; lines returned 20012 ; files 125 ; calls on carried tools 64 (lines 10628) ; the top five by lines: relay/tools/b707_checks.py 3550; relay/tools/b707_record.py 2632; relay/tools/b708_record.py 1326; relay/data/b704_probe.json 1152; relay/tools/b707_closing.py 932
+### b709: calls 218 ; lines returned 14353 ; files 121 ; calls on carried tools 53 (lines 5999) ; the top five by lines: relay/tools/b709_checks.py 2548; relay/tools/b709_record.py 863; relay/tools/b708_record.py 615; relay/tools/b707_onset.py 581; relay/tools/b708_citation.py 527
+
+### THE FILES BY LINES RETURNED OVER THE FIVE ACTS (the top fifteen):
+  relay/tools/b706_checks.py                                                                 calls  38 ; lines   5334
+  relay/tools/b707_record.py                                                                 calls  30 ; lines   4944
+  relay/tools/b706_record.py                                                                 calls  36 ; lines   4398
+  relay/tools/b707_checks.py                                                                 calls  21 ; lines   4060
+  relay/tools/b705_record.py                                                                 calls  24 ; lines   3429
+  relay/tools/b705_checks.py                                                                 calls  23 ; lines   3360
+  relay/tools/b698_record.py                                                                 calls  32 ; lines   3064
+  relay/tools/b704_record.py                                                                 calls  20 ; lines   2938
+  relay/tools/b709_checks.py                                                                 calls  18 ; lines   2548
+  relay/tools/b708_record.py                                                                 calls  12 ; lines   1941
+  relay/tools/b694_witness_terms.py                                                          calls  12 ; lines   1935
+  memory/project_state_cp4_cp5_b559_b576.md                                                  calls   3 ; lines   1561
+  relay/tools/b704_checks.py                                                                 calls   8 ; lines   1553
+  relay/tools/b696_witness_balls.py                                                          calls   9 ; lines   1430
+  relay/tools/rule_arms.py                                                                   calls  13 ; lines   1377
+
+### THE FILES READ WHOLE MOST OFTEN (neither offset nor limit; the top fifteen):
+  relay/data/b706_rules.txt                                                                  whole   5
+  relay/data/b680_rules.txt                                                                  whole   4
+  relay/data/b705_i6_ranking.txt                                                             whole   4
+  memory/project_state_cp4_cp5_b559_b576.md                                                  whole   3
+  memory/feedback_session_change_one_seat.md                                                 whole   3
+  memory/feedback_standing_rules_b547_b558.md                                                whole   3
+  memory/feedback_delete_only_verified_absolute_path.md                                      whole   3
+  SIDE-explicit-formula/.github/workflows/build-module.yml                                   whole   3
+  relay/data/b684_rules.txt                                                                  whole   3
+  relay/data/b707_port.txt                                                                   whole   3
+  relay/data/b708_defects.txt                                                                whole   3
+  relay/data/b708_registrations.txt                                                          whole   3
+  memory/feedback_b704_traps.md                                                              whole   2
+  memory/feedback_b703_traps.md                                                              whole   2
+  memory/feedback_standing_rules_b559_b576.md                                                whole   2
+
+### ### **ACTS 5 ; CALLS 1131 ; LINES RETURNED 101249 ; CALLS ON CARRIED TOOLS 333 (LINES 48626, 48.0% OF THE VOLUME) -- THE READS THE CARRY-BY-DIFF RULE WOULD HAVE REMOVED ; THE TOP THREE BY LINES relay/tools/b706_checks.py 5334; relay/tools/b707_record.py 4944; relay/tools/b706_record.py 4398.**

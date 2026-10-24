@@ -1,0 +1,194 @@
+b710 -- COMPONENT 3, (R320)(5): READING 5, THE READING ACT'S OWN PASS, IN FOUR SECTIONS (2026-10-24)
+
+### the seat's bank, by the Write tool; every figure copied from the route bank it names (relay tools/b710_reading5.py, each route one foreground
+### process: data/b710_r5_search.txt, _terminals.txt, _controls.txt, _moves.txt, _flip.txt, _cost.txt, each with its .json), every paper line
+### cited read through the Read tool this act (the readfirst bank data/b710_readfirst.txt names the spans). The kernels read at their HEADs, no
+### build, no lean (SIDE-meta tags v0.1.0 and v0.3 at HEAD 6bb7b23; SIDE-kernel v1.8 at HEAD 70aba3c; SIDE-formation-procedure v0.1.0). The
+### grades are the shared E0 rule's on each statement (tools/terminal_table.py rule_reading), the terminal table's ledger cells printed beside.
+### TECHNE.Core is private: its UniversalDarkness.lean is cited as TECHNE_TOOLKIT.md :240 cites it and is not read. Nothing here is a statement
+### that RH or GRH holds or locates any zero.
+
+## (i) THE FOUR PRINCIPLES AGAINST THE CORPUS (the author's ask of 2026-10-23)
+
+### rows are principles: the papers that state it (path :line) | the terminals that compile it (kernel, tag, name, keyword, the E0 rule's grade,
+### the table's cell) | the formula or theorem that measures it (paper :line, and its kernel object where one is located) | the control object.
+
+  (S) SYMMETRY
+      STATED: PLACE-papers phase1.5/method/ENUMERA.md :213 ("**S** (Symmetry) | Constrains WHERE properties can occur -- reduces search to
+          G-orbits"); day1/A_Place_to_Stand.md :2076 (the SIDE glossary row) and :571; phase2/method/E_DIFFICULTY_THEOREM.md :45 (I+D+S: "the
+          equation-consequence interchange is symmetric"); internal/CATALOGOS.md :55 (data/b710_r5_search.txt :7-:68, 97 hits in 40 files).
+      COMPILED: SIDE-meta v0.3 SIDEMeta.Symmetric (SIDEMeta/Meta/SIDESystem.lean :74) -- def, DEF (the determined class preserved by every op);
+          SIDE-meta v0.3 SIDEMeta.conservation_from_SIDE (:142) -- theorem, its proof the structure's own field `S.sym`, the E0 rule REFUSES its
+          binder (S : SIDESystem, a name its lexicon lists not), so no grade is read; SIDE-kernel v1.8 techne_kernel.HasSymmetry (Kernel/Layer1.lean
+          :8) -- structure, DEF (an involution T); SIDE-kernel v1.8 Focus.fe_symmetry (Kernel/Focus.lean :34) -- theorem, DERIVES by the rule,
+          the table's cell DERIVES: completedRiemannZeta₀ (1 - s) = completedRiemannZeta₀ s, the symmetry at ξ's own instance
+          (data/b710_r5_terminals.txt :7-:14).
+      MEASURED: the conservation strength κ (PLACE-papers phase1.5/method/TECHNE_TOOLKIT.md :208, F-1; ENUMERA.md :235, :305) -- the SIDE-meta
+          kernel ties conservation to S definitionally (SIDEMeta.conservation_eq_symmetric, SIDESystem.lean :148, `rfl`); the pattern class
+          "Symmetry-forbids-canonical-assignment" (TECHNE_TOOLKIT.md :252).
+      CONTROL: NONE LOCATED. The search (data/b710_r5_controls.txt, SYMMETRY): six patterns over relay data/*.txt at HEAD -- "no functional
+          equation" 4 banks (data/b613_reads.txt :214, data/b642_epstein_rungs.txt :54, data/b647_table_SIDE-archimedean.txt :17,
+          data/b701_epstein_plan.txt :21: a product-formula reading, Λ_Q's functional equation, a licensed reading, a plan note), the other five
+          patterns 0; none is a computed object that keeps the Euler product and drops the functional equation.
+
+  (I) INDEPENDENCE
+      STATED: ENUMERA.md :214 ("**I** (Independence) | FACTORS the search space -- mechanisms from different components catalogued separately");
+          E_DIFFICULTY_THEOREM.md :45 and :71 (Step 4, "By the Independence axiom, the mechanism classes of X are connected only through essential
+          interfaces"); day1/Exhaustive_Enumeration.md :28-:30 (primes as independent filters, the Chinese Remainder Theorem); A_Place_to_Stand.md
+          :2058 (data/b710_r5_search.txt :70-:131, 113 hits in 46 files).
+      COMPILED: DEFINITIONS ALONE. SIDE-meta v0.3 SIDEMeta.Independent (SIDESystem.lean :56) -- def, DEF, its own docstring "Skeleton form: each
+          operation moves at least one element ... a weak form"; SIDE-kernel v1.8 techne_kernel.IndependentConstraints (Layer1.lean :17) --
+          structure, DEF (a list of constraints, length at least two). No theorem consuming the principle located: the kernels' 11 declarations
+          the pattern reaches (data/b710_r5_search.txt :586-:598) are a CRT count (SIDE-dirichlet-mod-24 :108), an exhaustiveness lemma
+          (SIDE-effects :146), coordinates (SIDE-global-section :106) and the carrier spec's "arch-independent" sense (SIDE-carrier-spec), none the
+          principle (data/b710_r5_terminals.txt :15-:18).
+      MEASURED: the Universal Darkness Theorem n₄ = 0 (TECHNE_TOOLKIT.md :212, F-5), through E_DIFFICULTY_THEOREM.md :67-:73 (Steps 3-5:
+          independence connects the classes only through interfaces, and every essential interface is dark); the Darkness Principle ("Darkness is
+          what independence requires", ENUMERA.md :284).
+      CONTROL: LOCATED -- Q0, the Epstein zeta of x^2 + xy + 6y^2: a functional equation and no Euler product, the programme's control for the
+          Euler product (the primes as independent filters): relay data/b703_q0_band.txt (163 rows, 17 off the line), data/b707_onset.txt
+          (a* = 192 at the band zero, 32 at rho_0), data/b709_grid.txt (the onsets on the fine grid), data/b709_pairs.txt (the detection law over
+          the higher pairs); and the kernel's Davenport-Heilbronn witness, SIDE-kernel v1.8 Kernel/Cascade/SieveCeilingWitness.lean :94 dh_witness
+          (data/b710_r5_controls.txt, INDEPENDENCE and THE KERNEL'S WITNESS FILE).
+
+  (D) DETERMINATION
+      STATED: ENUMERA.md :215 ("**D** (Determination) | Guarantees SUFFICIENCY -- nothing comes from outside the specification");
+          E_DIFFICULTY_THEOREM.md :45 ("A determined system is one whose specification leaves no free parameters"); THE_METHOD_CANON.md :30
+          (Step 1: determined iff nothing in the specification is free to vary); phase1.5/method/A_METHODOLOGY.md :57; phase1.5/spectral/CONSERVATION.md
+          :428 (data/b710_r5_search.txt :133-:190, 57 hits in 24 files).
+      COMPILED: SIDE-meta v0.3 SIDEMeta.Determined (SIDESystem.lean :65) -- def, DEF; SIDE-kernel v1.8 TypeLevel.determination_collapse
+          (Kernel/TypeLevel.lean :15) -- theorem, INTERFACES by the rule, no table row: P x from a type-level constraint, its proof the
+          constraint's own field (:18); SIDE-kernel v1.8 DeterminedSystem (Kernel/Cascade/SieveCeiling.lean :69) -- structure, DEF (a slot:
+          classes, interfaces) (data/b710_r5_terminals.txt :19-:24).
+      MEASURED: the formation distance Δμ = n - μ (TECHNE_TOOLKIT.md :215, F-8; THE_METHOD_CANON.md :115, the reserved term), the formation
+          measure μ (TECHNE_TOOLKIT.md :209, F-2), the Phase Transition Theorem (:217) and the D↔E licence (:221, Figure 4 :223-:238) -- NO KERNEL
+          DECLARATION of μ, Δμ or the licence located (the measures' pattern reaches 84 declarations, none a formation measure or distance;
+          data/b710_r5_search.txt :660-:742).
+      CONTROL: NONE LOCATED. The search (data/b710_r5_controls.txt, DETERMINATION): "free parameter" 42 banks and "underdetermined" 132 are
+          readings; the Lagarias E_h family, the one deformed object the corpus names, is "declared in NONE of the 43 kernels"
+          (data/b377_the_unblocked_obligation.txt :149) and computed in no bank; "deformation parameter" 7 banks, b705's ranking alone.
+
+  (E) EXHAUSTIVENESS (ENUMERATION)
+      STATED: ENUMERA.md :216 ("**E** (Enumeration) | Certifies COMPLETENESS") and :218 (the SIDE Exclusion Principle, Theorem 1.1);
+          day1/Exhaustive_Enumeration.md :17-:24 (the template) and :76-:89 (the domain Ostrowski); E_DIFFICULTY_THEOREM.md :37-:47 (the theorem,
+          the domain Ostrowski); TECHNE_TOOLKIT.md :256 (data/b710_r5_search.txt :192 ff., 384 hits in 82 files).
+      COMPILED: SIDE-meta v0.3 SIDEMeta.Exhaustive (SIDESystem.lean :85) -- def, DEF; SIDE-kernel v1.8 techne_kernel.SIDE_exclusion (Layer1.lean
+          :30) -- theorem, INTERFACES by the rule, the table INTERFACES (SIDE-kernel, SIDE-effects): an exhaustive catalogue and none-produces give
+          Not (P x); SIDE-kernel v1.8 structural_exhaustiveness_proved (Bridge/TheBridgeComplete.lean :249) -- theorem, INTERFACES by the rule and
+          the table, on its binder (h_cons : ConservationHypothesis); SIDE-kernel v1.8 ostrowski_exhaustive (Bridge/OstrowskiBridge.lean :94) --
+          theorem, INTERFACES by the rule, no table row: Ostrowski's classification of the absolute values of ℚ (data/b710_r5_terminals.txt :25-:30, :45-:46).
+      MEASURED: the domain Ostrowski -- SIDE-kernel v1.8 DomainOstrowski (SieveCeiling.lean :279), structure, DEF; the E-Difficulty equivalence
+          e_difficulty (:298) -- theorem, INTERFACES by the rule, the table's cell CONFLICT: IsDecidable s ↔ Nonempty (DomainOstrowski s) for a
+          conserved determined system, the skeleton of TECHNE_TOOLKIT.md :214 (F-7) and of the D↔E licence; the E-Difficulty DICHOTOMY -- "The
+          full dichotomy remains the separate research-reach item" (E_DIFFICULTY_THEOREM.md :9), compiled only as the definition
+          ECondition.e_difficulty_conjecture (SIDE-kernel v1.8 MetaKernel.lean :187), a type, DEF (data/b710_r5_terminals.txt :39-:44).
+      CONTROL: NONE LOCATED. The search (data/b710_r5_controls.txt, EXHAUSTIVENESS): "no domain Ostrowski" 3 banks, "Continuum Hypothesis" 5,
+          "no Ostrowski" 3 -- the Continuum Hypothesis and the Halting Problem are named at statement grade (E_DIFFICULTY_THEOREM.md :147;
+          day1/Exhaustive_Enumeration.md :95; data/b589_reads.txt :165, :169), "TYPE III ↔ no Ostrowski exists" is "stated as a definition
+          (conjecture)" (data/b647_table_SIDE-kernel.txt :521); no computed object.
+
+  THE MEASURES BESIDE THE PRINCIPLES (the ruling's list):
+      κ, the conservation strength -- TECHNE_TOOLKIT.md :208 (F-1, κ(P, I) = 1 - Var[P | I] / Var[P]); kernels: SIDE-kernel v1.8 Kappa,
+          three-valued (SieveCeiling.lean :48), DEF; SIDE-meta v0.3 SIDEMeta.kappa (Kappa.lean :61), a predicate, DEF; no real-valued variance
+          form located.
+      μ, the formation measure -- TECHNE_TOOLKIT.md :209 (F-2); no kernel declaration located.
+      Δμ, the formation distance -- TECHNE_TOOLKIT.md :215 (F-8), THE_METHOD_CANON.md :115; no kernel declaration located.
+      the Universal Darkness Theorem -- TECHNE_TOOLKIT.md :212 (F-5) and :240 (TECHNE.Core UniversalDarkness.lean, private, not read); public:
+          SIDE-formation-procedure v0.1.0 universalDarkness (SIDEFormationProcedure/Basic.lean :136), a Bool (the interface count zero), DEF, its
+          instances by `decide` (:266-:277); SIDE-kernel v1.8 SilenceTheorem.silence_universal (Kernel/SilenceTheorem.lean :74), DERIVES by the
+          rule against the table's INTERFACES (SIDE-kernel, SIDE-silence-principle) -- the two readings printed, neither chosen here.
+      the D↔E licence -- TECHNE_TOOLKIT.md :221 and Figure 4 :223-:238 (FOUNDATIONS §VI.5 cited there); its compiled skeleton e_difficulty above.
+      the domain Ostrowski -- day1/Exhaustive_Enumeration.md :76-:89; TECHNE_TOOLKIT.md :256; DomainOstrowski above.
+      the E-Difficulty dichotomy -- E_DIFFICULTY_THEOREM.md :9-:11 (skeleton DERIVES at v1.4, the dichotomy research-reach); the conjecture as a type above.
+
+  THE SECTION'S COUNTS: principles 4 ; with a compiled theorem consuming the principle, its grade read from the statement, 3 of 4 (S: fe_symmetry
+      DERIVES at ξ's instance; D: determination_collapse INTERFACES; E: SIDE_exclusion, structural_exhaustiveness_proved, ostrowski_exhaustive and
+      e_difficulty INTERFACES), the fourth (I) compiled as definitions alone ; with a control object 1 of 4 (I: Q0 and the Davenport-Heilbronn
+      witness) ; measures 7, with a kernel object 4 (κ, the Universal Darkness Theorem, the domain Ostrowski, the E-Difficulty skeleton and
+      conjecture), none located 3 (μ, Δμ, the D↔E licence beyond its skeleton).
+  THE READING (the seat's, for the strike): the one principle with a control object is the one with no compiled theorem, and the three with
+      theorems have no control object; the principle-level terminals are definitions and projection lemmas (conservation_from_SIDE is `S.sym`,
+      determination_collapse a field read), the content-bearing theorems sitting at instances (fe_symmetry at ξ, ostrowski_exhaustive at ℚ).
+
+## (ii) THE MOVES-BY-LOCUS TABLE, AGAINST WEIL POSITIVITY ON classK (h2_sign, the clause)
+
+### rows are the six brightening moves (THE_BRIGHTENING_MOVES.md :9-:14) and the six perspective axes (INSTRUMENTS.md :131-:138): the act or
+### work-order that tried it at the clause, by ledger line (PLACE-papers FINDINGS.md, OPEN_TRAILS.md, and the split archive's
+### archive/2026-08-24-ledger-split/OPEN_TRAILS-archive-2-historical-landings-and-programs.md, "OT-A2"; data/b710_r5_moves.txt) | its grade |
+### whether the wall MOVED, NARROWED, was RE-PRESENTED or REAPPEARED.
+
+  (1) inversion-change -- W-MINE-QUADRATIC (OT-A2 :2087, 2026-07-26): the shelf's forms mined against the pairing type, warrant unfired; the sign
+      wall's tower address "Level-2-persistent Weil positivity" | census grade, closed | REAPPEARED (at Level 2; the move's own "fails at
+      positivity", THE_BRIGHTENING_MOVES.md :9).
+  (2) cover-ascent -- W-SIGN-7 (OT-A2 :2089, 2026-07-27; FINDINGS :9900, b703's Epstein arm): at the metaplectic altitude positivity rides free
+      three ways and Selberg furnishes three of four clauses, failing zeroActing | evidence grade, closed | NARROWED (to zeroActing for a single ζ).
+  (3) subspace-restriction -- partialPositivity_finiteRange (FINDINGS :4823: T1-lit; OT-A2 :1268 ff.) and the classK widening (FINDINGS :9808,
+      b701; W-ORD-CLASSK-WIDENING-HELD OPEN_TRAILS :15410; merged at b703) | the partial positivity compiled; the widening DERIVES 8 + INTERFACES
+      at b703 | NARROWED on the subspace; the widening of the class REAPPEARED (no sign moved, data/b705_i6_ranking.txt :26-:30).
+  (4) parameter-deformation -- W3-1-CHILD (OT-A2 :2095): Lagarias' E_h on-line and simple for |h| >= 1/2, the wall the h = 1/2 threshold, Conrey-Li
+      against the centre | census grade | REAPPEARED (the wall's fourth face); its re-parametrisation by the window's support radius is row (d).
+  (5) structure-transport -- W-SUBSTRATE (OT-A2 :2093): the single-object X typed as an interface, every candidate stalling at zeroActing;
+      THE_BRIGHTENING_MOVES.md :13 "no ℚ-analogue ... this move is the wall over ℚ" | interface typed, no construction | REAPPEARED.
+  (6) region-compression -- the finite-range certificate (FINDINGS :4823) and E-15 (OT-A2 :2350: the truncated moment problem ↔ the finite-range
+      certificate ↔ region-compression; "no move names a data-side condition weaker than the polarization") | compiled partial; E-15 a full
+      run | NARROWED (positivity on the compressed region, the tail uncovered); its new-axis composition W-UNION priced and held
+      (THE_BRIGHTENING_MOVES.md :25), E-4 armed and not run (OT-A2 :2334, :2342).
+  (a) identity-element re-centering -- the notched window: b694's witness and b696's tail balls (FINDINGS :9548, :9622), b705's window at the band
+      zero (FINDINGS :9992) | computed in balls | RE-PRESENTED (data/b705_i6_ranking.txt :16-:20, score 2: "which centre and width sees an
+      off-line zero").
+  (b) cover -- W-SIGN-7 as in (2) (OT-A2 :2089; FINDINGS :9900) | evidence grade | NARROWED (data/b705_i6_ranking.txt :21-:25, score 3).
+  (c) distinguished subspace -- classK`, classKsum, h2_sign_sum (FINDINGS :9808; OPEN_TRAILS :15410, :15436) | compiled at v0.36 (b703) |
+      REAPPEARED (data/b705_i6_ranking.txt :26-:30, zeroed by the spec's rule).
+  (d) deformation parameter -- the generic E_h axis (data/b705_i6_ranking.txt :31-:33, score 1, REAPPEARED) and b705's seventh row, the support
+      radius a (:46-:54, score 5), computed at b707 (FINDINGS :10106: a* at Q0) and on b709's fine grid (FINDINGS :10198) | computed in balls at
+      the control Q0 | MOVED (positive below the onset, negative above it at Q0; the ζ form positive at every point read) -- the one row where the
+      wall moves, and at the control object, not at ζ.
+  (e) representation coordinates -- Connes-Consani's Toeplitz/prolate form (INSTRUMENTS.md :113-:117, WATCH-progress-within-stall;
+      data/b705_i6_ranking.txt :34-:40, score 4) | statement grade; registered for computation at b711 (data/b709_registrations.txt, FINDINGS
+      :10212) | RE-PRESENTED at statement grade -- UNTRIED by computation.
+  (f) reading / composition order -- the chiasmus and the faces join (FINDINGS :9992, :10000; OPEN_TRAILS :15602, :15624: the join held) |
+      statement grade, the join's build held | REAPPEARED (data/b705_i6_ranking.txt :41-:45, zeroed).
+
+  THE TABLE'S COUNTS: rows 12 ; tried at the clause 11 ; untried 1 ((e) by computation, registered for b711) ; MOVED 1 ((d), by the support
+      radius at Q0) ; NARROWED 4 ((2), (3), (6), (b)) ; RE-PRESENTED 2 ((a), (e)) ; REAPPEARED 5 ((1), (4), (5), (c), (f)) ; the held composition
+      W-UNION beside them, priced, not run.
+  THE PLACEMENT: raised as one prompt for the author's word -- "enter in OPEN_TRAILS" / "enter in INSTRUMENTS" / "hold" -- before any ledger write.
+
+## (iii) THE READFIRST FLIP, AGAINST READINGS 3 AND 4
+
+### the defects b700-b709 by b700's classes (data/b700_r4_defects.txt :10-:45; data/b710_r5_flip.txt, the word sort with the hand's sort of 31
+### rows and its corrections of 12 printed in the tool), and each act's hand list against tools/circuit_read.py readfirst's closure
+### (data/b700_readfirst_diff.txt .. data/b709_readfirst_diff.txt).
+
+  THE DEFECTS: 101 over the ten acts (b700 2, b701 7, b702 9, b703 12, b704 19, b705 15, b706 13, b707 9, b708 7, b709 8), 16 classes; the largest:
+      a read outside the read tool 37 ; the navigator's cite, path, name or count 21 ; the navigator's plan or wording 8 ; a step out of its
+      order 5 ; a tool's first form 5 ; a figure not read from its bank 4 ; a sealed tool's defect after the seal 4 (data/b710_r5_flip.txt :121-:137).
+      Reading 4's series (185 in 18 classes, b673-b699, data/b700_reading4.txt :81-:88) ran 3.8 defects an act over b695-b699; b700-b709 run 10.1
+      an act, the read-outside class the larger part of the rise (37 of 101 here against 12 of 185 there).
+  THE DIFFS: the hand lists 444 paths, the ruling's text 262, both 186; the text's paths the hand lists lacked 76, of which the act's own outputs
+      (its banks to be written, the next act's rules bank) 54 and prior paths 22 -- chiefly data/b675_rules.txt and data/b680_rules.txt, cited by
+      every ferry's Component 5; the hand-only paths 258, of which in the closure 220, outside it 38, every one the act's own output (its closure
+      and diff banks, its tools) (data/b710_r5_flip.txt :139-:141).
+  THE SHARE a computed closure would have caught: of the ruling's cited prior paths, the hand lists missed 22 of 208 (0.106); of the 101 defects,
+      those that arose from a path the hand list lacked: 0 (the two the path match named, b701 (a) and b703 (a), read by hand: each names its path
+      for another cause); of the hand lists' prior paths, those a flip to the computed list would have dropped: 0.
+  THE RECOMMENDATION, BY THE COUNTS: DO NOT FLIP. Keep the hand list as the bank of record and print the closure's prior TEXT ONLY rows into it
+      as a computed supplement (22 rows over ten acts). The flip would have caught 0 of 101 defects and dropped 0 prior paths; the list is not
+      where the defects lie -- 37 of 101 are reads outside the read tool, a form the list does not govern.
+
+## (iv) THE COST READING (the read banks of b705-b709)
+
+  THE VOLUME: 1131 Read calls, 101249 lines returned (b705 189 calls / 20694 lines ; b706 196 / 16138 ; b707 314 / 30052 ; b708 214 / 20012 ;
+      b709 218 / 14353) (data/b710_r5_cost.txt :9-:13).
+  THE FILES BY LINES RETURNED, the top three: relay/tools/b706_checks.py 5334 (38 calls) ; relay/tools/b707_record.py 4944 (30) ;
+      relay/tools/b706_record.py 4398 (36) (data/b710_r5_cost.txt :16-:18).
+  THE FILES READ WHOLE MOST OFTEN: relay/data/b706_rules.txt 5 ; data/b680_rules.txt 4 ; data/b705_i6_ranking.txt 4 ; the memory index's
+      project-state file 3 (data/b710_r5_cost.txt :33-:36) -- the rules banks every ferry cites read whole act after act.
+  THE READS THE CARRY-BY-DIFF RULE WOULD HAVE REMOVED: the calls on carried tools of the act or its predecessor, 333 calls and 48626 lines, 48.0% of
+      the volume, an upper bound (the rule keeps the repair spans); the rule in force at b709 alone: 53 calls and 5999 lines on carried tools,
+      against 64-89 calls and 8763-14154 lines at b706-b708 (data/b710_r5_cost.txt :9-:13, :49).
+
+### ### **READING 5: THE PRINCIPLES 4 -- WITH A COMPILED THEOREM 3 OF 4 (S, D, E; I AS DEFINITIONS ALONE), WITH A CONTROL OBJECT 1 OF 4 (I: Q0) ;
+### THE MOVES TABLE 12 ROWS, TRIED 11, UNTRIED 1, MOVED 1, NARROWED 4, RE-PRESENTED 2, REAPPEARED 5, ITS PLACEMENT RAISED ; THE FLIP: 0 OF 101
+### DEFECTS CAUGHT, 0 PATHS DROPPED, DO NOT FLIP ; THE COST 101249 LINES IN 1131 CALLS, 48.0% ON CARRIED TOOLS, THE TOP THREE b706_checks.py,
+### b707_record.py, b706_record.py.**

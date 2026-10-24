@@ -1,0 +1,383 @@
+{
+ "at": "2026-10-24T22:32:40Z",
+ "rows": [
+  {
+   "principle": "Symmetry",
+   "kernel": "SIDE-meta",
+   "file": "SIDEMeta/Meta/SIDESystem.lean",
+   "line": 74,
+   "role": "the predicate S",
+   "keyword": "def",
+   "name": "SIDEMeta.Symmetric",
+   "tags_at_head": [
+    "v0.1.0",
+    "v0.3"
+   ],
+   "last_tag": "v0.1.0",
+   "unchanged_since_last": true,
+   "statement": "def Symmetric (D : Type) (ops : List (D → D)) (determined : D → Prop) : Prop",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "Symmetry",
+   "kernel": "SIDE-meta",
+   "file": "SIDEMeta/Meta/SIDESystem.lean",
+   "line": 142,
+   "role": "the parametric conservation theorem, S its whole content",
+   "keyword": "theorem",
+   "name": "SIDEMeta.conservation_from_SIDE",
+   "tags_at_head": [
+    "v0.1.0",
+    "v0.3"
+   ],
+   "last_tag": "v0.1.0",
+   "unchanged_since_last": true,
+   "statement": "theorem conservation_from_SIDE (S : SIDESystem) : conservation S",
+   "kind": "theorem",
+   "grade": "UNCLASSED BY THE E0 RULE (explicit S : SIDESystem (a bare name no lexicon lists (SIDESystem)))",
+   "table": []
+  },
+  {
+   "principle": "Symmetry",
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/Layer1.lean",
+   "line": 8,
+   "role": "the certificate`s symmetry field",
+   "keyword": "structure",
+   "name": "techne_kernel.HasSymmetry",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "structure HasSymmetry (X : Type u) where\n  T : X -> X\n  T_involution : forall x : X, T (T x) = x\n\nstructure Constraint (X : Type u) where\n  name : String\n  source : String\n  machinery : String\n\nstructure IndependentConstraints (X : Type u) where\n  constraints : List (Constraint X)\n  has_two : constraints.length >= 2\n\nstructure ExhaustiveCatalogue (X : Type u) (P : X -> Prop) where\n  classes : List (MechanismClass X P)\n  covers_all : forall (x : X), P x ->\n    Exists (fun C : MechanismClass X P => And (List.Mem C classes) (C.produces x))",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "Symmetry",
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/Focus.lean",
+   "line": 34,
+   "role": "the functional equation at the kernel",
+   "keyword": "theorem",
+   "name": "Focus.fe_symmetry",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "theorem fe_symmetry (s : ℂ) :\n    completedRiemannZeta₀ (1 - s) = completedRiemannZeta₀ s",
+   "kind": "theorem",
+   "grade": "DERIVES",
+   "table": [
+    "SIDE-kernel DERIVES"
+   ]
+  },
+  {
+   "principle": "Independence",
+   "kernel": "SIDE-meta",
+   "file": "SIDEMeta/Meta/SIDESystem.lean",
+   "line": 56,
+   "role": "the predicate I",
+   "keyword": "def",
+   "name": "SIDEMeta.Independent",
+   "tags_at_head": [
+    "v0.1.0",
+    "v0.3"
+   ],
+   "last_tag": "v0.1.0",
+   "unchanged_since_last": true,
+   "statement": "def Independent (D : Type) (ops : List (D → D)) : Prop",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "Independence",
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/Layer1.lean",
+   "line": 17,
+   "role": "the certificate`s independence field",
+   "keyword": "structure",
+   "name": "techne_kernel.IndependentConstraints",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "structure IndependentConstraints (X : Type u) where\n  constraints : List (Constraint X)\n  has_two : constraints.length >= 2\n\nstructure ExhaustiveCatalogue (X : Type u) (P : X -> Prop) where\n  classes : List (MechanismClass X P)\n  covers_all : forall (x : X), P x ->\n    Exists (fun C : MechanismClass X P => And (List.Mem C classes) (C.produces x))",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "Determination",
+   "kernel": "SIDE-meta",
+   "file": "SIDEMeta/Meta/SIDESystem.lean",
+   "line": 65,
+   "role": "the predicate D",
+   "keyword": "def",
+   "name": "SIDEMeta.Determined",
+   "tags_at_head": [
+    "v0.1.0",
+    "v0.3"
+   ],
+   "last_tag": "v0.1.0",
+   "unchanged_since_last": true,
+   "statement": "def Determined (D : Type) (ops : List (D → D)) (determined : D → Prop) : Prop",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "Determination",
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/TypeLevel.lean",
+   "line": 15,
+   "role": "determination collapse",
+   "keyword": "theorem",
+   "name": "TypeLevel.determination_collapse",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "theorem determination_collapse\n    {X : Type u} {P : X → Prop}\n    (tlc : TypeLevelConstraint X P) (x : X) : P x",
+   "kind": "theorem",
+   "grade": "INTERFACES",
+   "table": []
+  },
+  {
+   "principle": "Determination",
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/Cascade/SieveCeiling.lean",
+   "line": 69,
+   "role": "the determined system`s slot",
+   "keyword": "structure",
+   "name": "DeterminedSystem",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "structure DeterminedSystem where\n  classes : Nat\n  interfaces : Nat → Interface",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "Exhaustiveness",
+   "kernel": "SIDE-meta",
+   "file": "SIDEMeta/Meta/SIDESystem.lean",
+   "line": 85,
+   "role": "the predicate E",
+   "keyword": "def",
+   "name": "SIDEMeta.Exhaustive",
+   "tags_at_head": [
+    "v0.1.0",
+    "v0.3"
+   ],
+   "last_tag": "v0.1.0",
+   "unchanged_since_last": true,
+   "statement": "def Exhaustive (D : Type) (ops : List (D → D)) (determined : D → Prop) : Prop",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "Exhaustiveness",
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/Layer1.lean",
+   "line": 30,
+   "role": "the SIDE exclusion syllogism",
+   "keyword": "theorem",
+   "name": "techne_kernel.SIDE_exclusion",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "theorem SIDE_exclusion\n    {X : Type u} {P : X -> Prop} {x : X}\n    (cat : ExhaustiveCatalogue X P)\n    (h_none : NoneProduces X P cat.classes x) :\n    Not (P x)",
+   "kind": "theorem",
+   "grade": "INTERFACES",
+   "table": [
+    "SIDE-effects INTERFACES",
+    "SIDE-kernel INTERFACES"
+   ]
+  },
+  {
+   "principle": "Exhaustiveness",
+   "kernel": "SIDE-kernel",
+   "file": "Bridge/TheBridgeComplete.lean",
+   "line": 249,
+   "role": "the structural exhaustiveness the monograph cites",
+   "keyword": "theorem",
+   "name": "structural_exhaustiveness_proved",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "theorem structural_exhaustiveness_proved\n    (h_cons : ConservationHypothesis) : StructuralExhaustiveness",
+   "kind": "theorem",
+   "grade": "INTERFACES",
+   "table": [
+    "SIDE-kernel INTERFACES"
+   ]
+  },
+  {
+   "principle": "kappa",
+   "kernel": "SIDE-meta",
+   "file": "SIDEMeta/Meta/Kappa.lean",
+   "line": 61,
+   "role": "kappa as a predicate",
+   "keyword": "def",
+   "name": "SIDEMeta.kappa",
+   "tags_at_head": [
+    "v0.1.0",
+    "v0.3"
+   ],
+   "last_tag": "v0.1.0",
+   "unchanged_since_last": true,
+   "statement": "def kappa (S : SIDESystem) (d : S.domain) (op : S.domain → S.domain) : Prop",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "kappa",
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/Cascade/SieveCeiling.lean",
+   "line": 48,
+   "role": "kappa three-valued",
+   "keyword": "inductive",
+   "name": "Kappa",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "inductive Kappa where\n  | dark    : Kappa  -- κ = 0\n  | diffractive : Kappa  -- 0 < κ < 1\n  | bright  : Kappa  -- κ = 1\n  deriving DecidableEq",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "UDT",
+   "kernel": "SIDE-formation-procedure",
+   "file": "SIDEFormationProcedure/Basic.lean",
+   "line": 136,
+   "role": "the interface count zero, a Bool",
+   "keyword": "def",
+   "name": "SIDEFormationProcedure.universalDarkness",
+   "tags_at_head": [
+    "v0.1.0"
+   ],
+   "last_tag": "v0.1.0",
+   "unchanged_since_last": true,
+   "statement": "def universalDarkness (s : SystemSpec) : Bool",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "UDT",
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/SilenceTheorem.lean",
+   "line": 74,
+   "role": "the silence theorem",
+   "keyword": "theorem",
+   "name": "SilenceTheorem.silence_universal",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "theorem silence_universal\n    {C : ConfigurationSpace} {R : Type}\n    (I : Interface C R)\n    (h_univ : I.is_universal) :\n    I.kappa_zero",
+   "kind": "theorem",
+   "grade": "DERIVES",
+   "table": [
+    "SIDE-kernel INTERFACES",
+    "SIDE-silence-principle INTERFACES"
+   ]
+  },
+  {
+   "principle": "Ostrowski",
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/Cascade/SieveCeiling.lean",
+   "line": 279,
+   "role": "the domain Ostrowski",
+   "keyword": "structure",
+   "name": "DomainOstrowski",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "structure DomainOstrowski (s : DeterminedSystem) where\n  brightClass : Nat\n  inBounds : brightClass < s.classes\n  isBright : (s.interfaces brightClass).kappa.isDark = false\n  inessential : (s.interfaces brightClass).essential = false",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "EDiff",
+   "kernel": "SIDE-kernel",
+   "file": "Kernel/Cascade/SieveCeiling.lean",
+   "line": 298,
+   "role": "the E-Difficulty equivalence (skeleton)",
+   "keyword": "theorem",
+   "name": "e_difficulty",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "theorem e_difficulty (s : DeterminedSystem) (h_conserved : s.isConserved) :\n    IsDecidable s ↔ Nonempty (DomainOstrowski s)",
+   "kind": "theorem",
+   "grade": "INTERFACES",
+   "table": [
+    "SIDE-kernel CONFLICT"
+   ]
+  },
+  {
+   "principle": "EDiff",
+   "kernel": "SIDE-kernel",
+   "file": "MetaKernel.lean",
+   "line": 187,
+   "role": "the E-Difficulty conjecture as a type",
+   "keyword": "def",
+   "name": "ECondition.e_difficulty_conjecture",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "def e_difficulty_conjecture : Type 1",
+   "kind": "def",
+   "grade": "DEF",
+   "table": []
+  },
+  {
+   "principle": "Ostrowski",
+   "kernel": "SIDE-kernel",
+   "file": "Bridge/OstrowskiBridge.lean",
+   "line": 94,
+   "role": "Ostrowski`s classification, exhaustive",
+   "keyword": "theorem",
+   "name": "ostrowski_exhaustive",
+   "tags_at_head": [
+    "v1.8"
+   ],
+   "last_tag": "v1.8",
+   "unchanged_since_last": true,
+   "statement": "theorem ostrowski_exhaustive :\n    ∀ (f : AbsoluteValue ℚ ℝ), f.IsNontrivial →\n    f.IsEquiv Rat.AbsoluteValue.real ∨\n    ∃! p : ℕ, ∃ (_ : Fact (Nat.Prime p)), f.IsEquiv (Rat.AbsoluteValue.padic p)",
+   "kind": "theorem",
+   "grade": "INTERFACES",
+   "table": []
+  }
+ ]
+}
