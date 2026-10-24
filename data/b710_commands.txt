@@ -1,7 +1,7 @@
-b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-24T23:48:21Z)
+b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-24T23:52:51Z)
 
 ### the source: the seat`s session c9e4ce2d-b9b5-4986-a582-3919fb34d296 from its first user line carrying 'RULING (R320) BEGIN', with its subagents` transcripts
-### commands read: 198
+### commands read: 214
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -254,5 +254,21 @@ b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #196 | 2026-10-24T23:46:25.808Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b709_commands.json 'b709_reg_gate\.py &&|reg_seal\.py|gate_hash'
   #197 | 2026-10-24T23:46:37.697Z | seat | Bash | python -X utf8 tools/b710_reg_gate.py && python -X utf8 tools/b710_record.py gatebanks && python -X utf8 tools/b710_record.py scores dry
   #198 | 2026-10-24T23:47:34.825Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part act
+  #199 | 2026-10-24T23:48:18.785Z | seat | Bash | python -X utf8 tools/b710_checks.py --combine b710_arms_prerun.txt; python -X utf8 tools/b710_record.py armsecs; python -X utf8 tools/b710_record.py commands; p
+  #200 | 2026-10-24T23:49:02.815Z | seat | Bash | for n in tests record checks closing reg_gate regspec corrigendum; do python -X utf8 tools/b710_carry.py repairdiff $n; done; python -X utf8 tools/b710_carry.py
+  #201 | 2026-10-24T23:49:10.843Z | seat | Bash | python -X utf8 tools/b710_reg_gate.py && python -X utf8 tools/b710_record.py gatebanks
+  #202 | 2026-10-24T23:49:45.661Z | seat | Bash | git status --porcelain -- data/b710_* data/audit_b710_* tools/b710_* tools/ferry_scan.py tools/b378_lockgate.py
+  #203 | 2026-10-24T23:49:53.616Z | seat | Bash | git add data/b710_arm_seconds.json data/b710_arm_seconds.txt data/b710_arm_seconds_act.json data/b710_arms_prerun.txt data/b710_arms_prerun_act.txt data/b710_ca
+  #204 | 2026-10-24T23:50:05.304Z | seat | Bash | python -X utf8 tools/b710_reg_gate.py && python -X utf8 tools/b710_record.py gatebanks && python -X utf8 tools/b378_lockgate.py b710 data/b710_registration_2026
+  #205 | 2026-10-24T23:50:41.802Z | seat | Bash | git log --format=%s -12 42dd8768
+  #206 | 2026-10-24T23:50:49.214Z | seat | Bash | git status --porcelain -- data/b710_* data/audit_b710_* tools/b710_*
+  #207 | 2026-10-24T23:50:55.749Z | seat | Bash | git add data/audit_b710_reg_satisfiable.txt data/b710_pins_stepzero.txt data/b710_reg_gate.txt data/b710_reg_termscan.txt data/b710_registration_2026-10-24.txt 
+  #208 | 2026-10-24T23:51:04.935Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b709_commands.json 'push_gated|"cmd": "python -X utf8 tools/b709_record.py (scores|findings|desk|table_final|rootbanks|
+  #209 | 2026-10-24T23:51:17.753Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b710_commands.json 'push_gated|checkout -b push|branch -D push'
+  #210 | 2026-10-24T23:51:28.643Z | seat | Bash | ls data/b709_*push_out* && git -C /d/relay branch --list
+  #211 | 2026-10-24T23:51:46.454Z | seat | Bash | python -X utf8 tools/b710_record.py scores
+  #212 | 2026-10-24T23:52:07.008Z | seat | Bash | python -X utf8 tools/b710_record.py findings
+  #213 | 2026-10-24T23:52:17.971Z | seat | Bash | python -X utf8 tools/b710_record.py table_final
+  #214 | 2026-10-24T23:52:18.601Z | seat | Bash | python -X utf8 tools/b710_record.py desk
 
-### ### **COMMANDS 198 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 5 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 214 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 5 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

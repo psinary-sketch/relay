@@ -1,5 +1,5 @@
 {
- "at": "2026-10-24T23:48:21Z",
+ "at": "2026-10-24T23:52:51Z",
  "anchor": "RULING (R320) BEGIN",
  "rows": [
   {
@@ -1584,6 +1584,134 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b710_checks.py --prerun --part act",
    "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:48:18.785Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --combine b710_arms_prerun.txt; python -X utf8 tools/b710_record.py armsecs; python -X utf8 tools/b710_record.py commands; python -X utf8 tools/b710_record.py reads",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:49:02.815Z",
+   "src": "seat",
+   "cmd": "for n in tests record checks closing reg_gate regspec corrigendum; do python -X utf8 tools/b710_carry.py repairdiff $n; done; python -X utf8 tools/b710_carry.py spans; python -X utf8 tools/b710_record.py toolrepairs carry",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:49:10.843Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reg_gate.py && python -X utf8 tools/b710_record.py gatebanks",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:49:45.661Z",
+   "src": "seat",
+   "cmd": "git status --porcelain -- data/b710_* data/audit_b710_* tools/b710_* tools/ferry_scan.py tools/b378_lockgate.py",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:49:53.616Z",
+   "src": "seat",
+   "cmd": "git add data/b710_arm_seconds.json data/b710_arm_seconds.txt data/b710_arm_seconds_act.json data/b710_arms_prerun.txt data/b710_arms_prerun_act.txt data/b710_carry_spans.txt data/b710_commands.json data/b710_commands.txt data/b710_defects.txt data/b710_exercise_act.json data/b710_locate.txt data/b710_read_calls.json data/b710_read_calls.txt data/b710_registration_2026-10-24.txt data/b710_repairdiff_checks.txt data/b710_repairdiff_closing.txt data/b710_repairdiff_corrigendum.txt data/b710_repairdiff_record.txt data/b710_repairdiff_reg_gate.txt data/b710_repairdiff_regspec.txt data/b710_repairdiff_tests.txt data/b710_satisfiable.json data/b710_tool_repairs.txt tools/b710_regspec.py data/audit_b710_reg_satisfiable.txt data/b710_census_stepzero.txt data/b710_faces_census_stepzero.txt data/b710_pins_stepzero.txt data/b710_reg_gate.txt data/b710_reg_termscan.txt data/b710_regspec_run.txt data/b710_root_banks_dry.json data/b710_root_banks_dry.txt && git commit -q -m \"b710 Component 5: the gate's record and its steps' banks (the dry-run step and the closing's dry run CLEAN, banned terms CLEAN, the spec jointly satisfiable, the censuses and pins), the root route's dry run READY over 91 banks, this face with the dry run's READY and the first commit's hash; the act part's third run (143 arms, 110 passing), the repair diffs; defect (f) widened to a third read\" && git log -1 --format=%H",
+   "n": 203,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:50:05.304Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_reg_gate.py && python -X utf8 tools/b710_record.py gatebanks && python -X utf8 tools/b378_lockgate.py b710 data/b710_registration_2026-10-24.txt && python -X utf8 tools/reg_seal.py --lock data/b710_registration_2026-10-24.txt && python -X utf8 tools/b710_checks.py --seal",
+   "n": 204,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:50:41.802Z",
+   "src": "seat",
+   "cmd": "git log --format=%s -12 42dd8768",
+   "n": 205,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:50:49.214Z",
+   "src": "seat",
+   "cmd": "git status --porcelain -- data/b710_* data/audit_b710_* tools/b710_*",
+   "n": 206,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:50:55.749Z",
+   "src": "seat",
+   "cmd": "git add data/audit_b710_reg_satisfiable.txt data/b710_pins_stepzero.txt data/b710_reg_gate.txt data/b710_reg_termscan.txt data/b710_registration_2026-10-24.txt data/b710_regspec_run.txt data/b710_lockgate.json data/b710_lockgate_notes.txt data/b710_seal_hashes.json && git commit -q -m \"b710 seal: the face locked (sha256 efaccaa6, 41001 bytes) after the gate's steps ran again against it and were stamped (the gate CLEAR, the dry-run step and the closing's dry run CLEAN, banned terms CLEAN, no count prediction, the spec jointly satisfiable, the censuses and pins clean), the lock gate called with its act argument and its eight gates passing; the fourteen sealed tools' hashes recorded\" && git log -1 --format=%H",
+   "n": 207,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:51:04.935Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py data/b709_commands.json 'push_gated|\"cmd\": \"python -X utf8 tools/b709_record.py (scores|findings|desk|table_final|rootbanks|root|root_arm|trail|components|mbuild|mroot|mverify|mbank)'",
+   "n": 208,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:51:17.753Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py data/b710_commands.json 'push_gated|checkout -b push|branch -D push'",
+   "n": 209,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:51:28.643Z",
+   "src": "seat",
+   "cmd": "ls data/b709_*push_out* && git -C /d/relay branch --list",
+   "n": 210,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:51:46.454Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py scores",
+   "n": 211,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:52:07.008Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py findings",
+   "n": 212,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:52:17.971Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py table_final",
+   "n": 213,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:52:18.601Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py desk",
+   "n": 214,
    "bg": false
   }
  ],
