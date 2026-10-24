@@ -1,7 +1,7 @@
-b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-24T23:12:06Z)
+b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-24T23:48:21Z)
 
 ### the source: the seat`s session c9e4ce2d-b9b5-4986-a582-3919fb34d296 from its first user line carrying 'RULING (R320) BEGIN', with its subagents` transcripts
-### commands read: 144
+### commands read: 198
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -200,5 +200,59 @@ b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #142 | 2026-10-24T23:07:20.802Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b710_reading5.txt "of 4|^## |^### ### |DO NOT FLIP|tried at the clause|48\.0%|MOVED 1|^  \((S|I|D|E)\) "
   #143 | 2026-10-24T23:11:02.914Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_record.py "L\[5:8\]|^ROUTES|^def armnames"
   #144 | 2026-10-24T23:11:55.537Z | seat | Bash | python -X utf8 tools/b710_record.py armnames
+  #145 | 2026-10-24T23:12:04.282Z | seat | Bash | python -X utf8 tools/b710_record.py commands
+  #146 | 2026-10-24T23:12:10.251Z | seat | Bash | python -X utf8 tools/b710_record.py reads
+  #147 | 2026-10-24T23:12:29.573Z | seat | Bash | python -X utf8 tools/b710_record.py scores dry
+  #148 | 2026-10-24T23:13:09.850Z | seat | Bash | python -X utf8 tools/b710_record.py answers
+  #149 | 2026-10-24T23:13:16.899Z | seat | Bash | python -X utf8 tools/b710_record.py kernels
+  #150 | 2026-10-24T23:13:26.982Z | seat | Bash | git -C /d/SIDE-lv-conservation branch --show-current && python -X utf8 tools/b710_record.py figures
+  #151 | 2026-10-24T23:13:37.200Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b709_standing_figures.txt "Spectral_Inertness|restored"
+  #152 | 2026-10-24T23:13:45.278Z | seat | Bash | python -X utf8 tools/b710_record.py figures
+  #153 | 2026-10-24T23:13:53.188Z | seat | Bash | for n in tests record checks closing reg_gate regspec corrigendum; do python -X utf8 tools/b710_carry.py repairdiff $n; done; python -X utf8 tools/b710_carry.py
+  #154 | 2026-10-24T23:14:03.009Z | seat | Bash | python -X utf8 tools/b710_record.py toolrepairs carry
+  #155 | 2026-10-24T23:14:08.444Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b710_tool_repairs.txt "^  \(\d+\) |^    (diff|\+\+\+|---|@@)"
+  #156 | 2026-10-24T23:14:24.436Z | seat | Bash | git log --format=%h_%s -- tools/b710_checks.py tools/b378_lockgate.py tools/test_elab_reader_b634.py
+  #157 | 2026-10-24T23:14:39.815Z | seat | Bash | python -X utf8 tools/b710_record.py toolrepairs carry
+  #158 | 2026-10-24T23:14:46.414Z | seat | Bash | git diff --numstat HEAD -- data/b710_tool_repairs.txt && python -X utf8 tools/b710_locate.py data/b710_tool_repairs.txt "^    @@|^    diff --git"
+  #159 | 2026-10-24T23:14:53.492Z | seat | Bash | python -X utf8 tools/b710_record.py guard
+  #160 | 2026-10-24T23:17:35.535Z | seat | Bash | python -X utf8 tools/b710_regspec.py
+  #161 | 2026-10-24T23:17:52.797Z | seat | Bash | python -X utf8 tools/b710_regspec.py
+  #162 | 2026-10-24T23:18:10.172Z | seat | Bash | python -X utf8 tools/b710_record.py drycheck
+  #163 | 2026-10-24T23:18:18.013Z | seat | Bash | python -X utf8 tools/b710_record.py drycheck data/b710_registration_2026-10-24.txt standin
+  #164 | 2026-10-24T23:18:22.942Z | seat | Bash | python -X utf8 tools/b710_closing.py dry
+  #165 | 2026-10-24T23:18:51.877Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_closing.py "b710_rules\.txt"
+  #166 | 2026-10-24T23:19:11.149Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part act
+  #167 | 2026-10-24T23:20:25.037Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "def answers_before_ok|movesj=|spans=|carry_banks=|c3pp=|def oline|def fline"
+  #168 | 2026-10-24T23:20:51.069Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "this act`s one (commit|run)|the cut document"
+  #169 | 2026-10-24T23:20:57.302Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py 'this act.s one (commit|run)|the cut document'
+  #170 | 2026-10-24T23:21:05.950Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024)
+  #171 | 2026-10-24T23:21:12.352Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part standing-a
+  #172 | 2026-10-24T23:24:47.215Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b710_arms_prerun_standing-a.txt 'PROCS|DELETE-FREE|delete|procs'
+  #173 | 2026-10-24T23:24:52.913Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "'G-PROCS-LISTED'|^def no_delete|^def procs_ok|^DELETE_PAT|def _act_tool_srcs"
+  #174 | 2026-10-24T23:24:57.496Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "no_delete =|no_delete,|def no_delete|no_delete\b"
+  #175 | 2026-10-24T23:25:04.044Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b703_checks.py "^def (no_delete|procs_ok)|^DELETE_|^PROC" && python -X utf8 tools/b710_locate.py tools/b710_checks.py 
+  #176 | 2026-10-24T23:25:14.917Z | seat | Bash | for f in tools/b710_*.py; do python -X utf8 tools/b710_locate.py $f 'os\.remove|os\.unlink|shutil\.rmtree|os\.rmdir|rm -rf|Remove-Item|\.unlink\(|git branch -D|
+  #177 | 2026-10-24T23:25:24.037Z | seat | Bash | for f in tools/test_elab_reader_b634.py tools/ferry_scan.py tools/b378_lockgate.py; do python -X utf8 tools/b710_locate.py $f 'os\.remove|os\.unlink|shutil\.rmt
+  #178 | 2026-10-24T23:25:36.606Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "^    tools = |^        tools = |tools = sorted|tools = \["
+  #179 | 2026-10-24T23:25:55.952Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b710_stepzero.txt 'tail|claude|orphan|python'
+  #180 | 2026-10-24T23:26:21.144Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part standing-c
+  #181 | 2026-10-24T23:28:22.040Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part standing-b1
+  #182 | 2026-10-24T23:29:43.582Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part standing-b2a
+  #183 | 2026-10-24T23:36:17.845Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part standing-b2b
+  #184 | 2026-10-24T23:38:01.899Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part standing-b3
+  #185 | 2026-10-24T23:40:01.934Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part act
+  #186 | 2026-10-24T23:41:09.282Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --combine
+  #187 | 2026-10-24T23:41:17.467Z | seat | Bash | python -X utf8 tools/b710_checks.py --combine b710_arms_prerun.txt
+  #188 | 2026-10-24T23:41:25.352Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part standing-a
+  #189 | 2026-10-24T23:44:58.233Z | seat | Bash | python -X utf8 tools/b710_checks.py --combine b710_arms_prerun.txt && python -X utf8 tools/b710_record.py armsecs
+  #190 | 2026-10-24T23:45:03.527Z | seat | Bash | python -X utf8 tools/b710_record.py armsecs
+  #191 | 2026-10-24T23:45:20.995Z | seat | Bash | git status --porcelain --untracked-files=all
+  #192 | 2026-10-24T23:45:35.072Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b710_commands.txt 'git (-C \S+ )?(add|commit)'
+  #193 | 2026-10-24T23:45:48.745Z | seat | Bash | git add data/b710_defects.txt data/b710_stepzero.txt data/b710_tool_repairs.txt tools/b710_carry.py tools/b710_checks.py tools/b710_record.py tools/b710_worklis
+  #194 | 2026-10-24T23:45:57.698Z | seat | Bash | python -X utf8 tools/b710_record.py rootdry
+  #195 | 2026-10-24T23:46:15.665Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b709_commands.txt 'reg_satisfiable|banned_terms|gate_hash|reg_seal|lockgate|reg_gate|--seal'
+  #196 | 2026-10-24T23:46:25.808Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b709_commands.json 'b709_reg_gate\.py &&|reg_seal\.py|gate_hash'
+  #197 | 2026-10-24T23:46:37.697Z | seat | Bash | python -X utf8 tools/b710_reg_gate.py && python -X utf8 tools/b710_record.py gatebanks && python -X utf8 tools/b710_record.py scores dry
+  #198 | 2026-10-24T23:47:34.825Z | seat | Bash | python -X utf8 tools/b710_checks.py --prerun --part act
 
-### ### **COMMANDS 144 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 5 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 198 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 5 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

@@ -1,4 +1,4 @@
-b710 -- THE CARRY-TIME REPAIRS OF tools/b710_regspec.py AS A DIFF: the carried form (tools/b709_regspec.py with the act names substituted) against the file now (2026-10-24T23:13:59Z)
+b710 -- THE CARRY-TIME REPAIRS OF tools/b710_regspec.py AS A DIFF: the carried form (tools/b709_regspec.py with the act names substituted) against the file now (2026-10-24T23:49:04Z)
 
 --- tools/b710_regspec.py (the carried form)
 +++ tools/b710_regspec.py (now)
@@ -70,9 +70,11 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_regspec.py AS A DIFF: the carried f
 +    ('commands piping a read into a shell filter', 'PIPES', 'PIPES', 'commands', '### the ferry, MEASURED off the command bank.'),
 +    ('commands carrying a pipe of any kind', 'ANYPIPES', 'ANYPIPES', 'commands', '### the ferry, MEASURED off the command bank.'),
 +    ('commands running an interpreter`s one-line program', 'PYPROGS', 'PYPROGS', 'commands', '### the ferry, MEASURED off the command bank.'),
-+    ('Read calls above the cap from the anchor on', 'READOFF', 'READOFF', 'reads', '### every call counts from b705, MEASURED off the read bank; the opening`s whole reads lettered (a), the two at Component 5 (f).'),
-@@ -98,1 +98,1 @@
++    ('Read calls above the cap from the anchor on', 'READOFF', 'READOFF', 'reads', '### every call counts from b705, MEASURED off the read bank; the opening`s whole reads lettered (a), those at Component 5 (f).'),
+@@ -97,2 +97,2 @@
+-    ('carry-time repairs', 'REPAIRS', 'REPAIRS', 'repairs', '### the ferry`s Component 5, MEASURED off the repairs bank.'),
 -    ('carried tools read whole in parts or spans', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b710_rules.txt row (1); lettered (b) and (e); MEASURED off the defects bank`s rows.'),
++    ('repairs of (R320)(3)', 'REPAIRS', 'REPAIRS', 'repairs', '### the two needles, the lock gate, the test; MEASURED off the repairs bank.'),
 +    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b709_rules.txt row (1); lettered (e); MEASURED off the defects bank`s rows.'),
 @@ -108,3 +108,2 @@
 -    ('registrations committed alone before any computation', 1, 1, 'commits', '### (R320)(6), N2: relay 510dc29b (with the rules bank).'),
@@ -86,46 +88,44 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_regspec.py AS A DIFF: the carried f
 @@ -175,1 +174,1 @@
 -    ('runner row with the gate NOT DERIVES (this act`s port run`s shape)', 'read_runner_row', dict(kernel='SIDE-x', label='port', ref='0' * 40, run_id=1, gate='NOT DERIVES')),
 +    ('runner row with the gate NOT DERIVES (b709`s port run`s shape)', 'read_runner_row', dict(kernel='SIDE-x', label='port', ref='0' * 40, run_id=1, gate='NOT DERIVES')),
-@@ -297,2 +296,9 @@
+@@ -297,2 +296,4 @@
 -    port_files = [x for x in _git(K.LV_DIR, 'diff-tree', '--no-commit-id', '--name-only', '-r', K.PORT_TIP).split(chr(10)) if x.strip()]
 -    port_commits = _git(K.LV_DIR, 'rev-list', '--count', '%s..%s' % (K.PORT_BASE, K.PORT_TIP))
 +    port_commits = _git(K.LV_DIR, 'rev-list', '--count', '%s..refs/heads/%s' % (K.PORT_TIP, K.PORT_BRANCH))
 +
-+    def jrows(name, key):
-+        try:
-+            j = json.load(io.open(os.path.join(ROOT, 'data', name), encoding='utf-8'))
-+            v = j.get(key) if isinstance(j, dict) else j
-+            return len(v or [])
-+        except Exception:
-+            return 0
-@@ -306,1 +312,0 @@
++    r5p = os.path.join(ROOT, 'data', 'b710_reading5.txt')
++    r5 = io.open(r5p, encoding='utf-8').read() if os.path.exists(r5p) else ''
+@@ -304,1 +305,1 @@
+-                    REPAIRS=tfirst('b710_tool_repairs.txt', r'REPAIRS (\d+) ;'),
++                    REPAIRS=tfirst('b710_tool_repairs.txt', r'REPAIRS OF \(R320\)\(3\) (\d+) ;'),
+@@ -306,1 +307,0 @@
 -                    RUNSREAD=jcount('b710_runner_rows.json', lambda j: len(j.get('rows') or [])),
-@@ -309,3 +314,1 @@
+@@ -309,3 +309,1 @@
 -                    LEANFILES=len([f for f in port_files if f.endswith('.lean')]),
 -                    LEANTEST=tcount('b710_tests_stepzero.txt', r'^  test_elab_reader_b634\.py\s+exit \d+ ;'),
 -                    ORDERS=jcount('b710_order443_lines.json', lambda j: len(j.get('lines') or [])) + jcount('b710_order_lines.json', lambda j: len(j.get('lines') or [])),
 +                    ORDERS=jcount('b710_moves_lines.json', lambda j: len(j.get('lines') or [])),
-@@ -313,3 +316,3 @@
+@@ -313,3 +311,3 @@
 -                    GRIDPTS=tcount('b710_grid.txt', r'^  (?:rho0|band) \|\s*\d+ \| \S+\s+\| a '),
 -                    PAIRSDONE=tcount('b710_pairs.txt', r'^\s+\d+ \| \[.*\| (?:WITHIN|OUTSIDE)$'),
 -                    PAIRSBEYOND=tcount('b710_pairs.txt', r'^\s+\d+ \| \[.*\| beyond reach at height \d+'),
-+                    PRINCIPLES=jrows('b710_r5_terminals.json', 'rows'),
-+                    MOVEROWS=jrows('b710_r5_moves.json', 'rows'),
++                    PRINCIPLES=len(re.findall(r'^  \((?:S|I|D|E)\) ', r5[r5.find('## (i)'):r5.find('## (ii)')], re.M)),
++                    MOVEROWS=len(re.findall(r'^  \([1-6a-f]\) ', r5[r5.find('## (ii)'):r5.find('## (iii)')], re.M)),
 +                    SHAREDTOOLS=len(K.REPAIRED_TOOLS),
-@@ -317,2 +320,2 @@
+@@ -317,2 +315,2 @@
 -                    WHOLEREADS=sum({'ONE': 1, 'TWO': 2, 'THREE': 3, 'FOUR': 4}.get(w, 0) for w in re.findall(
 -                        r"^    \([a-z]\) THE SEAT'S: (ONE|TWO|THREE|FOUR) CARRIED TOOLS? READ WHOLE", io.open(os.path.join(ROOT, 'data', 'b710_defects.txt'), encoding='utf-8').read(), re.M)),
 +                    WHOLEREADS=len(re.findall(r"^    \([a-z]\) THE SEAT'S: THE CARRIED (?:SUITE|TOOLS?) READ BEYOND THE SPANS",
 +                                              io.open(os.path.join(ROOT, 'data', 'b710_defects.txt'), encoding='utf-8').read(), re.M)),
-@@ -327,2 +330,2 @@
+@@ -327,2 +325,2 @@
 -    for k in ('ARMS', 'READINGS', 'EXPECT', 'BARS', 'TESTS', 'QUESTIONS', 'LINES', 'MISSES', 'REPAIRS', 'CARRIED', 'DISPATCHES', 'RUNSREAD', 'PORTCOMMITS',
 -              'TAGSMADE', 'LEANFILES', 'LEANTEST', 'ORDERS', 'BINARIES', 'GRIDPTS', 'PAIRSDONE', 'PAIRSBEYOND', 'REREAD', 'WHOLEREADS', 'SEDS', 'REDIRECTS',
 +    for k in ('ARMS', 'READINGS', 'EXPECT', 'BARS', 'TESTS', 'QUESTIONS', 'LINES', 'MISSES', 'REPAIRS', 'CARRIED', 'DISPATCHES', 'PORTCOMMITS',
 +              'TAGSMADE', 'ORDERS', 'BINARIES', 'PRINCIPLES', 'MOVEROWS', 'SHAREDTOOLS', 'REREAD', 'WHOLEREADS', 'SEDS', 'REDIRECTS',
-@@ -334,2 +337,2 @@
+@@ -334,2 +332,2 @@
 -    spec = {"registration": ("data/b710_registration_2026-10-23.txt -- b710, LANE TWO ACT ONE HUNDRED AND THIRTY-SIX, THE RESEARCH ACT: b709 AT ITS WEIGHT; "
 -                             "THE NEEDLE AND THE CARRY BY DIFF; THE FINE GRID; THE PORT`S NEXT LINES; THE HIGHER PAIRS; THE NEXT AXIS, UNDER (R320)"),
 +    spec = {"registration": ("data/b710_registration_2026-10-24.txt -- b710, LANE TWO ACT ONE HUNDRED AND THIRTY-SEVEN, THE READING ACT, READING 5: b709 AT ITS WEIGHT; "
 +                             "THE NEEDLES, THE TEST AND THE LOCK GATE; THE STANDING CLAUSES AT v1; THE PRINCIPLES AGAINST THE CORPUS; THE MOVES BY LOCUS; THE b711 REGISTRATIONS, UNDER (R320)"),
 
-### ### **HUNKS 22 ; LINES REMOVED 50 ; LINES ADDED 53.**
+### ### **HUNKS 23 ; LINES REMOVED 52 ; LINES ADDED 50.**

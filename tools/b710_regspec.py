@@ -90,7 +90,7 @@ CLAUSES = [
     ('commands piping a read into a shell filter', 'PIPES', 'PIPES', 'commands', '### the ferry, MEASURED off the command bank.'),
     ('commands carrying a pipe of any kind', 'ANYPIPES', 'ANYPIPES', 'commands', '### the ferry, MEASURED off the command bank.'),
     ('commands running an interpreter`s one-line program', 'PYPROGS', 'PYPROGS', 'commands', '### the ferry, MEASURED off the command bank.'),
-    ('Read calls above the cap from the anchor on', 'READOFF', 'READOFF', 'reads', '### every call counts from b705, MEASURED off the read bank; the opening`s whole reads lettered (a), the two at Component 5 (f).'),
+    ('Read calls above the cap from the anchor on', 'READOFF', 'READOFF', 'reads', '### every call counts from b705, MEASURED off the read bank; the opening`s whole reads lettered (a), those at Component 5 (f).'),
     ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R320)(7).'),
     ('delete commands with anything chained after', 0, 0, 'commands', '### data/b694_rules.txt row (1).'),
     ('deletes before the citation check', 0, 0, 'commands', '### b695 (a).'),

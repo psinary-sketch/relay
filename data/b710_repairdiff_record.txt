@@ -1,4 +1,4 @@
-b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried form (tools/b709_record.py with the act names substituted) against the file now (2026-10-24T23:13:58Z)
+b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried form (tools/b709_record.py with the act names substituted) against the file now (2026-10-24T23:49:04Z)
 
 --- tools/b710_record.py (the carried form)
 +++ tools/b710_record.py (now)
@@ -36,7 +36,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 -         '### both kernels on main at the read (SIDE-lv-conservation`s checkout restored to main from port-b707 before this read, b707`s trap).', '']
 +         '### regression from the previous act`s figure (data/b709_standing_figures.json). No document is cut this act; day1/Spectral_Inertness.md (cut at b708) is off the roster;',
 +         '### both kernels on main at the read (SIDE-lv-conservation`s checkout at main; port-b707 not checked out this act, b707`s trap).', '']
-@@ -783,8 +783,364 @@
+@@ -783,8 +783,367 @@
 -# ================================================================================ COMPONENT 4: THE REGISTRATIONS RE-READ ((R320)(3), (5), (6); N2, N3)
 -REG_B708_COMMIT = '6045dd8c'    # ### data/b709_registrations.txt committed alone (b709's step zero): the fine grid, computed this act ((R320)(3))
 -REG_B707_COMMIT = '6e8ece87'    # ### data/b707_registrations.txt committed alone (b707's step zero): the higher pairs' route, computed this act ((R320)(5))
@@ -349,7 +349,10 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +    G-AXIS-REGISTERED's bank joined (each the function's diff, b709's sealed form against tools/b710_checks.py's, and the helper added), (3) the
 +    lock gate's argument required (`git diff HEAD` of tools/b378_lockgate.py), (4) the test reading banked prints (`git diff HEAD` of
 +    tools/test_elab_reader_b634.py); the controls data/b710_repair_controls.txt by row. At Component 5 the carry-time repairs are added as rows."""
-+    old, new = rd(os.path.join(T, 'b709_checks.py')), rd(os.path.join(T, 'b710_checks.py'))
++    # ### the repairs stand at Component 1's commit (relay cf4a17ff): the suite's two functions read there (b709's act arm axis_registered_ok
++    # ### is pruned from the suite at Component 5, its repaired form standing at that commit and read by G-NEEDLES-REPAIRED), the two shared
++    # ### tools' diffs from the act's base to that commit (a `git diff HEAD` after the commit is empty)
++    old, new = rd(os.path.join(T, 'b709_checks.py')), (_show(ROOT, K.C1_RELAY, 'tools/b710_checks.py') or '')
 +    ctl = jl('%s_repair_controls.json' % ACT).get('cases') or []
 +    cl = lambda p: ['      control: %s -- %s' % (c['case'], 'AS WANTED' if c['as_wanted'] else '### NOT AS WANTED') for c in ctl if c['case'].startswith(p)]   # noqa: E731
 +    L = ['%s -- THE REPAIRS OF (R320)(3) AND THE CARRY-TIME REPAIRS, EACH WITH ITS DIFF AND ITS CONTROL (%s)' % (ACT, utc()), '',
@@ -357,15 +360,15 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +         '### an earlier act is edited; the two shared tools edited are the ruling`s ((R320)(3)), named in (W).', '',
 +         '  (1) tools/b710_checks.py report_unsealed_ok and keys_ci -- (R320)(3): G-REPORT-UNSEALED`s key read case-insensitively (b709`s arm wanted',
 +         '      RATIO in capitals; its report printed "the twelve ratios"; data/b709_defects.txt :117-:122).']
-+    L += _fn_diff(old, new, 'report_unsealed_ok', 'tools/b709_checks.py', 'tools/b710_checks.py') + ['    + (the helper keys_ci added beside it)'] + cl('(1)')
++    L += _fn_diff(old, new, 'report_unsealed_ok', 'tools/b709_checks.py', 'tools/b710_checks.py at relay cf4a17ff') + ['    + (the helper keys_ci added beside it)'] + cl('(1)')
 +    L += ['', '  (2) tools/b710_checks.py axis_registered_ok and joined -- (R320)(3): G-AXIS-REGISTERED reading the registrations bank after joining',
 +          '      wrapped lines (b709`s bank wraps the quotation across :12-:13; data/b709_defects.txt :123-:129).']
-+    L += _fn_diff(old, new, 'axis_registered_ok', 'tools/b709_checks.py', 'tools/b710_checks.py') + ['    + (the helper joined added beside it)'] + cl('(2)')
++    L += _fn_diff(old, new, 'axis_registered_ok', 'tools/b709_checks.py', 'tools/b710_checks.py at relay cf4a17ff') + ['    + (the helper joined added beside it)'] + cl('(2)')
 +    L += ['', '  (3) tools/b378_lockgate.py main -- (R320)(3): the act argument required, a call without it exiting before any write (b709`s (h)).']
-+    L += ['    ' + l for l in g(ROOT, 'diff', 'HEAD', '--', 'tools/b378_lockgate.py').rstrip(NL).split(NL)] + cl('(3)')
++    L += ['    ' + l for l in g(ROOT, 'diff', K.PRE_RELAY, K.C1_RELAY, '--', 'tools/b378_lockgate.py').rstrip(NL).split(NL)] + cl('(3)')
 +    L += ['', '  (4) tools/test_elab_reader_b634.py -- (R320)(3): the test reading lean`s banked prints and invoking no lean (b709`s (c), its calls at',
 +          '      :34 and :65); the prints data/b710_elab_reader_print.txt and data/b710_elab_reader_print_sec.txt (blobs 55277c74, ef99e5c3).']
-+    L += ['    ' + l for l in g(ROOT, 'diff', 'HEAD', '--', 'tools/test_elab_reader_b634.py').rstrip(NL).split(NL)] + cl('(4)')
++    L += ['    ' + l for l in g(ROOT, 'diff', K.PRE_RELAY, K.C1_RELAY, '--', 'tools/test_elab_reader_b634.py').rstrip(NL).split(NL)] + cl('(4)')
 +    rows_c = _carry_rows() if 'carry' in a else CARRY_ROWS
 +    L += rows_c
 +    L += ['', '  THE SHARED TOOL OF (R320)(4): tools/ferry_scan.py -- the standing clauses bank`s citation read by version (bank_versions, bank_citation_check,',
@@ -409,7 +412,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +# ================================================================================ COMPONENT 4: THE REGISTRATIONS RE-READ, (R320)(6)
 +REG_COMMIT = '41ff1193'   # ### data/b710_registrations.txt and data/b710_rules.txt committed alone at step zero, before any other bank of the act
 +COMPUTE_TOOLS = ('b709_pairs.py', 'b709_grid.py', 'b707_onset.py', 'b705_detection.py', 'b675_li_bench.py', 'b667_epstein_certify.py', 'b694_witness', 'b696_witness_balls.py')
-@@ -794,5 +1150,4 @@
+@@ -794,5 +1153,4 @@
 -    """data/b710_registrations_reread.txt (.json), Component 4: the four registration banks re-read whole after Components 1-3 and compared byte
 -    for byte with the blobs committed alone before any computation -- this act's data/b710_registrations.txt (the second axis for b711) and
 -    data/b710_rules.txt at relay 510dc29b, b709's fine grid at 6045dd8c and b707's higher pairs' route at 6e8ece87 (both computed this act as
@@ -419,18 +422,18 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +    byte for byte with their blobs at relay 41ff1193 and at HEAD, the commits touching each read; the registration printed unchanged; nothing
 +    computed for its three rows -- no bank of this act carrying an n*, a surgery eigenvalue or a coefficient (by name), no computation tool of the
 +    rows' routes run in the act's capture; the one derived bank (data/b710_fit.txt, the fit of (i)'s constants from b709's banked pairs) named."""
-@@ -801,2 +1156,2 @@
+@@ -801,2 +1159,2 @@
 -    L = ['%s -- COMPONENT 4, (R320)(3), (5) AND (6): THE FOUR REGISTRATION BANKS RE-READ AFTER COMPONENTS 1-3, UNCHANGED SINCE THEIR OWN COMMITS; THE COMPUTED BANKS NAMED; THE SECOND AXIS NAMED FOR THE ENTRY (%s)' % (ACT, utc()), '']
 -    for p, c, what in REGISTRATIONS:
 +    L = ['%s -- COMPONENT 4, (R320)(6): THE REGISTRATIONS RE-READ AFTER COMPONENTS 1-3, UNCHANGED SINCE THEIR COMMIT; NOTHING COMPUTED FOR THEIR THREE ROWS (%s)' % (ACT, utc()), '']
 +    for p in ('data/%s_registrations.txt' % ACT, 'data/%s_rules.txt' % ACT):
-@@ -804,1 +1159,1 @@
+@@ -804,1 +1162,1 @@
 -        then = _show(ROOT, c, p) or ''
 +        then = _show(ROOT, REG_COMMIT, p) or ''
-@@ -806,1 +1161,1 @@
+@@ -806,1 +1164,1 @@
 -        tb = g(ROOT, 'rev-parse', '%s:%s' % (c, p)).strip()
 +        tb = g(ROOT, 'rev-parse', '%s:%s' % (REG_COMMIT, p)).strip()
-@@ -811,21 +1166,13 @@
+@@ -811,21 +1169,13 @@
 -        out['rows'][p] = dict(commit=c, what=what, work_blob=wb, then_blob=tb, head_blob=hb, commits=log, one_commit=len(log) == 1, unchanged=eq)
 -        L.append('### %s -- %s ; committed alone at relay %s ; re-read now: the working file`s blob %s ; the blob at %s %s ; at HEAD %s ; '
 -                 'the commits touching it %s ; EQUAL BYTE FOR BYTE %s' % (p, what, c, wb[:12], c, tb[:12], hb[:12], log, eq))
@@ -465,14 +468,14 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +    nothing = not names and not runs
 +    L += ['', '### ### **THE REGISTRATIONS AND THE RULES UNCHANGED SINCE THEIR COMMIT %s (relay %s) ; NOTHING COMPUTED FOR THE THREE ROWS %s.**' % (same, REG_COMMIT, nothing)]
 +    out.update(unchanged=same, computed_banks=names, compute_runs=runs, nothing_computed=nothing)
-@@ -834,1 +1181,1 @@
+@@ -834,1 +1184,1 @@
 -    print(NL.join(L[2:6] + L[-1:]))
 +    print(NL.join(L[2:4] + L[5:8] + L[-1:]))
-@@ -845,1 +1192,2 @@
+@@ -845,1 +1195,2 @@
 -IDENT_WORDS = ('psinary', 'seale', 'york', 'hotmail', 'orcid', 'secrets.')
 +CARRIED_NAMES = ('tests', 'record', 'checks', 'closing', 'reg_gate', 'regspec', 'corrigendum')
 +ALLOWED_SHARED_DATA = ('act_roots.txt', 'b709_closing_push_out.txt', 'b675_corrigenda.txt', 'standing_clauses_v1.txt')
-@@ -852,72 +1200,16 @@
+@@ -852,72 +1203,16 @@
 -def _runner_rows():
 -    return dict((r.get('label'), r) for r in (jl('%s_runner_rows.json' % ACT).get('rows') or []))
 -
@@ -561,7 +564,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +                moved=int(m3.group(4)), narrowed=int(m3.group(5)), represented=int(m3.group(6)), reappeared=int(m3.group(7)),
 +                caught=int(m4.group(1)), defects=int(m4.group(2)), dropped=int(m4.group(3)), flip=m4.group(4),
 +                lines=int(m5.group(1)), calls=int(m5.group(2)), share=m5.group(3), top=[m5.group(4), m5.group(5), m5.group(6).rstrip('.,')])
-@@ -928,14 +1220,15 @@
+@@ -928,14 +1223,15 @@
 -    G, Pz = _grid_read(), _pairs_read()
 -    pj, pe, dj = jl('%s_port.json' % ACT), jl('%s_port_edit.json' % ACT), jl('%s_dispatches.json' % ACT).get('rows') or []
 -    rr, rj = _runner_rows(), jl('%s_registrations_reread.json' % ACT)
@@ -591,17 +594,17 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +                alpha=a2, beta=b2, p11=int(float(p11) + 0.5), p15=int(float(p15) + 0.5), w11=w11, w15=w15,
 +                std_ok=sc.get('ok'), readers_ok=sr.get('ok'), reg_unchanged=rj.get('unchanged'), nothing=rj.get('nothing_computed'),
 +                ctl_n=len(rc), ctl_ok=bool(rc) and all(c['as_wanted'] for c in rc),
-@@ -943,1 +1236,1 @@
+@@ -943,1 +1239,1 @@
 -                figs8=dict((k, (f8.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')))
 +                figs9=dict((k, (f9.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')))
-@@ -947,3 +1240,3 @@
+@@ -947,3 +1243,3 @@
 -    """N1 AS WORDED: no lean process runs on this host in this act; one runner dispatch, the port branch, read by its run id with its artifact's
 -    sha256 verified. The first clause scored against the tests bank (test_elab_reader_b634.py ran lean on this host at step zero, defect (c))
 -    and the command bank's reading of the seat's own commands; the second against the dispatch, runner and port banks."""
 +    """N1: no lean process runs on this host and no dispatch this act. The first clause against the command bank's reading of the seat's own
 +    commands and the lean-running test's repaired form (its controls, data/b710_repair_controls.json row (4): the test reads lean's banked
 +    prints and calls no lean); the second against the dispatch bank (none written) and the capture's dispatches."""
-@@ -952,10 +1245,1 @@
+@@ -952,10 +1248,1 @@
 -    rr = _runner_rows()
 -    pj = jl('%s_port.json' % ACT)
 -    tt = rdn('%s_tests_stepzero.txt' % ACT)
@@ -613,12 +616,12 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 -    read_ok = len(rr) == 1 and pr.get('run_id') == K.PORT_RUN and sha_ok(pr.get('artifact_sha256')) and pj.get('run_id') == K.PORT_RUN \
 -        and (pj.get('artifact') or {}).get('agree') is True and sha_ok((pj.get('artifact') or {}).get('sha256')) and pr.get('artifact_sha256') == (pj.get('artifact') or {}).get('sha256')
 +    rc = [c for c in (jl('%s_repair_controls.json' % ACT).get('cases') or []) if c['case'].startswith('(4)')]
-@@ -963,1 +1247,3 @@
+@@ -963,1 +1250,3 @@
 -    ok = bool(cm) and not seat_lean and not lean_test and one and read_ok
 +    test_ok = bool(rc) and all(c['as_wanted'] for c in rc)
 +    disp = cm.get('dispatches') or [] if cm else ['unread']
 +    ok = bool(cm) and not seat_lean and test_ok and not dj and not disp
-@@ -965,7 +1251,4 @@
+@@ -965,7 +1254,4 @@
 -        'as worded, on the first clause: the step-zero tests ran every test file, b709`s withheld bank not carried, and test_elab_reader_b634.py ran lean on this host '
 -        '(relay data/b710_tests_stepzero.txt: exit %s, %s s; defect (c), the seat`s), so the clause is %s; the seat`s own commands running lean or lake (relay '
 -        'data/b710_commands.json): %s. The second clause: dispatches banked %d (relay data/b710_dispatches.json: %s), in the capture %d; the run read by its id with the '
@@ -630,7 +633,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +        '(relay data/b710_elab_reader_print.txt, data/b710_elab_reader_print_sec.txt), its %d control cases as wanted %s, no lean called by it; runner '
 +        'dispatches banked %d (relay data/b710_dispatches.json, not written), in the capture %d' % (
 +            seat_lean if cm else 'unread', len(rc), test_ok, len(dj), len(disp)))
-@@ -975,10 +1258,15 @@
+@@ -975,10 +1261,15 @@
 -    """N2: each tool's controls printed before its figures; the coarse endpoints reproduce b707's eigenvalues; b675's figure at rho_0 and b705's five
 -    pairs reproduced; the zeta form positive at every grid point with its tail bound printed beside; every falsifier read and printed; each
 -    registration read unchanged from its commit."""
@@ -656,7 +659,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +                      control='LOCATED' if 'CONTROL: LOCATED' in b else ('NONE LOCATED, SEARCH PRINTED' if 'CONTROL: NONE LOCATED. The search' in b and 'data/b710_r5_controls.txt' in b else '### UNREAD'))
 +    ok = sorted(rows) == ['D', 'E', 'I', 'S'] and all(v['stated'] and v['compiled'] and not v['control'].startswith('###') for v in per.values()) \
 +        and len(tj) >= 4 and all(x.get('statement') for x in tj) and bool(cj)
-@@ -986,8 +1274,3 @@
+@@ -986,8 +1277,3 @@
 -        'the grid (relay data/b710_grid.txt): (C1) printed before the first grid row %s, the 32 coarse-endpoint rows against b707`s units AS WANTED %s; (C2) the zeta '
 -        'form positive beyond its bound at every point, rho_0 %d of %d rows and the band %d of %d, each row carrying its three certified tail balls beside lambda_min '
 -        '(the largest tail %.2e and %.2e); the hypothesis %s / %s and the falsifier %s / %s per family (rho_0 / the band), each vacuous as worded (%s, %s) and printed so; '
@@ -668,7 +671,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +        'reading 5 section (i) (relay data/b710_reading5.txt :11-:111): %s; the terminals bank`s statements read %d (relay data/b710_r5_terminals.json), '
 +        'each graded by the shared E0 rule; the controls bank`s searches printed (relay data/b710_r5_controls.json)' % (
 +            '; '.join('(%s) papers by path and line %s, terminals by kernel and tag %s, control %s' % (k, v['stated'], v['compiled'], v['control']) for k, v in per.items()), len(tj)))
-@@ -997,13 +1280,5 @@
+@@ -997,13 +1283,5 @@
 -    """N3 AS WORDED: the carried tools are read by the spans the previous act's diff bank names and not whole, each span printed; the needle's
 -    repair passes on b709's gate record and its NEG control fails. The first clause scored against the carry banks, the read bank and the defects
 -    bank ((b) the citation tool whole in parts; (e) the suite and the closing tool whole in spans); the second against the controls bank."""
@@ -687,7 +690,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +    sc, sr = jl('%s_standing_control.json' % ACT), jl('%s_standing_readers.json' % ACT)
 +    t = rdn('%s_standing_control.txt' % ACT)
 +    ok = sc.get('ok') is True and 'EQUAL LINE FOR LINE True' in t and sr.get('ok') is True
-@@ -1011,5 +1286,3 @@
+@@ -1011,5 +1289,3 @@
 -        'as worded, on the first clause: the seven carried tools each carried by the substitution and banked by its diff with the repair spans b709`s bank names '
 -        '(relay data/b710_carry_spans.txt: %s), %s; the reads of %d of them cover the whole file -- %s -- lettered in relay data/b710_defects.txt with their cause, '
 -        'so the clause is %s; the second clause, the needle`s repair (relay data/b710_repair_controls.txt): %s' % (
@@ -696,7 +699,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +        'the re-assembly from relay data/standing_clauses_v1.txt against b709`s ferry (relay data/b710_standing_control.txt): equal line for line %s, '
 +        'the control as wanted %s; the readers repointed by version, the ferry scan`s bank citation, the citation tool`s standing rows and the suite`s '
 +        'receipt arm (relay data/b710_standing_readers.json): as wanted %s' % ('EQUAL LINE FOR LINE True' in t, sc.get('ok'), sr.get('ok')))
-@@ -1019,14 +1292,11 @@
+@@ -1019,14 +1295,11 @@
 -    """N4: the port's edit touches the two named lines and nothing else, the diffs printed; the deposit and lv-conservation's main stand. Read from the
 -    edit bank, the branch's one commit and the kernel's refs; :380 read unedited as the cascade of :277 (defect (a)), its diff printed empty."""
 -    pe = jl('%s_port_edit.json' % ACT)
@@ -722,7 +725,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +    printed = all(x in reg for x in ('19.065093', '7.997097', '12294837', '14776940', '[11065353, 13524321]', '[13299246, 16254634]')) \
 +        and 'PREDICTIONS pair 11 F2 12294837' in fit and 'NOTHING COMPUTED FOR THE TEST' in fit
 +    ok = alone and rj.get('unchanged') is True and rj.get('nothing_computed') is True and printed
-@@ -1034,6 +1304,4 @@
+@@ -1034,6 +1307,4 @@
 -        'the edit (relay data/b710_port_edit.json): %s :277 `%s` -> `%s`, :380 read again after the one edit and unchanged (%s; the cascade of :277, defect (a)), hunks %s, '
 -        'the tree`s changed files %s; the one commit %s on port-b707: parent %s (b707`s %s) %s, files %s, +%s -%s; the deposit v0.10.0 at %s (%s) and main at %s (%s), '
 -        'the port commit not on main: %s' % (
@@ -733,7 +736,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +        'touching the registrations: %s; re-read unchanged and nothing computed for the three rows (relay data/b710_registrations_reread.json): %s, %s; '
 +        'the fitted constants and both predictions with their windows printed in the registrations and the fit bank: %s' % (
 +            K.REG_COMMIT[:8], parent[:8], files, alone, rj.get('unchanged'), rj.get('nothing_computed'), printed))
-@@ -1059,3 +1327,4 @@
+@@ -1059,3 +1330,4 @@
 -    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not re.match(r'^tools/b710_', x) and x[6:] not in R.N5_RELAY_TOOLS]
 -    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b710_|audit_b710_)', x) or re.match(r'^data/terminal_table', x)
 -                                                or (x.startswith('data/') and x[5:] in R.N5_RELAY_DATA) or (x.startswith('tools/') and x[6:] in R.N5_RELAY_TOOLS))]
@@ -741,17 +744,17 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not re.match(r'^tools/b710_', x) and x[6:] not in R.N5_RELAY_TOOLS and x not in ruled]
 +    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b710_|audit_b710_)', x) or re.match(r'^data/terminal_table', x) or x in ruled
 +                                                or (x.startswith('data/') and x[5:] in ALLOWED_SHARED_DATA) or (x.startswith('tools/') and x[6:] in R.N5_RELAY_TOOLS))]
-@@ -1064,1 +1333,1 @@
+@@ -1064,1 +1336,1 @@
 -    added = sorted(set(R._g2_of(FACE)) - set(R._g2_of(os.path.join(ROOT, *K.B708_FACE.split('/')))) - set(K.ACT_ARMS))
 +    added = sorted(set(R._g2_of(FACE)) - set(R._g2_of(os.path.join(ROOT, *K.B709_FACE.split('/')))) - set(K.ACT_ARMS))
-@@ -1071,3 +1340,0 @@
+@@ -1071,3 +1343,0 @@
 -    wf_tip = _show(LV, K.PORT_TIP, K.WORKFLOW) or ''
 -    wf_base = _show(LV, K.PORT_BASE, K.WORKFLOW) or ''
 -    wf_ok = bool(wf_tip) and wf_tip == wf_base and not any(w in wf_tip.lower() for w in IDENT_WORDS)
-@@ -1081,1 +1347,1 @@
+@@ -1081,1 +1350,1 @@
 -        and not amended and not ident and wf_ok and not chained and K.PORT_BRANCH not in deleted and gw_ok and gl
 +        and not amended and not ident and not chained and K.PORT_BRANCH not in deleted and gw_ok and gl
-@@ -1084,7 +1350,7 @@
+@@ -1084,7 +1353,7 @@
 -            'v0.37, unmoved: %s; SIDE-lv-conservation`s main and deposit unmoved, port-b707 at this act`s one commit %s, no tag on it: %s; the join kernel`s main at its manifest '
 -            'commit, no tag: %s; the standing arms added beyond b709`s face, the act arms apart: %s (%s); shared tools edited: %s; sealed tools not agreeing: %s; commits amended '
 -            'after the seal (relay, PLACE-papers, SIDE-lv-conservation): %s; deletes with anything chained after: %s; port-b707 deleted: %s; one git write per message (%s): %s; '
@@ -766,17 +769,17 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +            'table, the root list, the corrigenda bank, b709`s push-out bank, the standing clauses bank, the ruling`s three shared tools and tools/mirror_prevbuild.json: %s; '
 +            'the glossary unchanged: %s; outbound requests other than git and gh %d, an identifier of the author in %s; the clauses that wait (the hashes at the close, no '
 +            'bank after the root) read again at `scores close`' % (
-@@ -1093,1 +1359,1 @@
+@@ -1093,1 +1362,1 @@
 -                [r['line'] for r in ident] or 'NONE', wf_ok))
 +                [r['line'] for r in ident] or 'NONE'))
-@@ -1097,3 +1363,3 @@
+@@ -1097,3 +1366,3 @@
 -    return ('### b710 — lane two, act one hundred and thirty-six, the research act under (R320): b709 at its weight; the needle repaired and the carry read '
 -            'by diff; the sign-onset radius at Q0 on the fine grid; the detection law over the higher pairs to height 325; SIDE-lv-conservation’s '
 -            'forward-port, 11 of 12 modules building; the second axis registered for b711')
 +    return ('### b710 — lane two, act one hundred and thirty-seven, the reading act under (R320): b709 at its weight; the needles, the test and the '
 +            'lock gate repaired; the standing clauses banked at v1; the four principles read against the corpus; the moves-by-locus table entered; '
 +            'the readfirst flip and the cost read; the refined detection law and the surgery registered for b711')
-@@ -1106,7 +1372,3 @@
+@@ -1106,7 +1375,3 @@
 -    f = _figs()
 -    fr, fb, Pz = f['grid']['fam']['rho0'], f['grid']['fam']['band'], f['pairs']
 -    return ('## The sign-onset radius at the Epstein zeta of x² + xy + 6y² on the fine grid: a = %s at the rung log %s for the band zero’s family and a = %s at a '
@@ -787,7 +790,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +    c = _r5_counts()
 +    return ('## Reading 5: the four principles against the corpus, %d of 4 with a compiled terminal and %d with a control object; the moves-by-locus '
 +            'table entered; the standing clauses banked at v1; the refined detection law and the surgery registered for b711' % (c['compiled'], c['control']))
-@@ -1125,13 +1387,11 @@
+@@ -1125,13 +1390,11 @@
 -    return ('(1) the ruling’s one miss entered by the fact clause and not raised -- b709’s kind for C7OrderBounds.lean :380, “a renamed Mathlib declaration”, '
 -            'where the module reads :380 as a cascade of :277 (the kernel’s own _half theorem failing at :277), the one edit at :277 answering both lines and '
 -            'the run confirming it (C7OrderBounds builds); (2) N1 scored as worded REFUTED on its first clause -- b709’s withheld bank not carried, '
@@ -812,16 +815,16 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +            'function’s zeros; (7) the report tool outside the sealed list until the root’s word (relay data/b708_rules.txt row (1)); (8) the %s '
 +            'navigator %s%s and the seat’s %s defect%s as lettered' % (
 +                num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', (' (%s)' % letters) if letters else '', num_word(seat), '' if seat == 1 else 's'))
-@@ -1145,1 +1405,1 @@
+@@ -1145,1 +1408,1 @@
 -    fr, fb, Pz = f['grid']['fam']['rho0'], f['grid']['fam']['band'], f['pairs']
 +    c = f['r5']
-@@ -1147,1 +1407,0 @@
+@@ -1147,1 +1410,0 @@
 -    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
-@@ -1150,3 +1409,0 @@
+@@ -1150,3 +1412,0 @@
 -    ratios = '; '.join('%d %s' % (r['idx'], ('%.4f' % float(r['ratio'])) if r['ratio'] else 'beyond reach (T0′ > %s)' % r['need']) for r in Pz['rows'])
 -    rmin = min(float(r['ratio']) for r in Pz['rows'] if r['ratio']) if Pz['within'] else 0
 -    rmax = max(float(r['ratio']) for r in Pz['rows'] if r['ratio']) if Pz['within'] else 0
-@@ -1154,83 +1410,65 @@
+@@ -1154,83 +1413,65 @@
 -         'The research act’s four objects read: the sign-onset radius of the Weil form of Q0 on the fine grid data/b709_registrations.txt registered -- on '
 -         'the band zero’s family the onset is the rung log %s at a = %s (λ_min %s), where Λ_Q vanishes, %d points above the last rung at which a Q0 term '
 -         'enters (log %s) and %d below the next (log %s); on ρ₀’s family the onset is the midpoint between log %s and log %s at a = %s (λ_min %s), the rung '
@@ -970,7 +973,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +                                  f['figs9']['correspondence'], f['figs9']['readme'], f['figs9']['partners'], f['figs9']['pins']), '',
 +         '**The citation check** (the gate step from b662): %s cites checked at HEAD, %s OK, %s missed, both entered by the fact clause; %d answer '
 +         'check%s before the root.' % (cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
-@@ -1238,12 +1476,8 @@
+@@ -1238,12 +1479,8 @@
 -         '**Read in mutual light** (`(R204)`(3)(ii)-(iii)): the two computations say one thing about the control object -- the sign of the Weil form at Q0 '
 -         'turns at a scale the grid now names to a rung or a midpoint, and on neither family does it turn at a rung where a Q0 term enters (the band’s onset '
 -         'rung carries Λ_Q = 0, ρ₀’s onset lies between entering rungs), so the onset is a reading of the window’s width against the zeros and not of any '
@@ -991,12 +994,12 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +         '**Carried to:** b711 (the research act: the port’s next line, DirichletC7Order.lean :212:55, and the join’s dispatch where the build '
 +         'completes; W-ORD-Q0-ZEROS-443 with pairs 11 and 15 against the refined law; the surgery and the coefficient observation; the axis (e)); '
 +         'the ferry names standing clauses v1 from b711; the draft held at v5.', '',
-@@ -1260,1 +1494,0 @@
+@@ -1260,1 +1497,0 @@
 -    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
-@@ -1262,1 +1495,1 @@
+@@ -1262,1 +1498,1 @@
 -    fr, fb, Pz = f['grid']['fam']['rho0'], f['grid']['fam']['band'], f['pairs']
 +    c = f['r5']
-@@ -1264,4 +1497,5 @@
+@@ -1264,4 +1500,5 @@
 -             '**(R320) ratified.** (1) b709 at its weight. (2) The needle, the carry and the corrigendum. (3) The fine grid. (4) The port’s next lines. (5) The '
 -             'higher pairs. (6) The next axis. (7) The branches. (8) The read-first bank. (9) The draft held at v5. (10) The acts after.', '',
 -             '**Entered:** FINDINGS.md:%s (b709’s weight), :%s (the corrigendum), :%s (the entry); OPEN_TRAILS.md:%d (W-ORD-WORKFLOW-PROBE-STEP annotated '
@@ -1006,12 +1009,12 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +             'draft held at v5. (10) The next act.', '',
 +             '**Entered:** FINDINGS.md:%s (b709’s weight), :%s (the readings), :%s (the corrigendum), :%s (the entry); OPEN_TRAILS.md:%s '
 +             '(W-ORD-MOVES-BY-LOCUS); this record.' % (f['weight'], f['readings'], f['corr_line'], fj.get('entry_line'), f['moves_line']), '',
-@@ -1270,2 +1504,2 @@
+@@ -1270,2 +1507,2 @@
 -             '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b710_author_answers.txt); the author’s words of 2026-10-24 on '
 -             'the pairs (the foreground form, the bound at height 325) in the components bank; the root’s own prompt, its answer in the closing line.' % (
 +             '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b710_author_answers.txt): the moves table’s placement, '
 +             'answered “enter in OPEN_TRAILS” and checked before the landing; the root’s own prompt, its answer in the closing line.' % (
-@@ -1273,17 +1507,15 @@
+@@ -1273,17 +1510,15 @@
 -             '**The grid:** the band zero’s onset %s at a = %s (λ_min %s), a rung where Λ_Q vanishes; ρ₀’s onset %s at a = %s (λ_min %s), a midpoint with the '
 -             'rung log %s one half-step below; the ζ form positive at every one of the %d points; C1 32 rows as wanted; the hypothesis %s / %s and the falsifier '
 -             '%s / %s, vacuous as worded (relay data/b710_grid.txt).' % (
@@ -1044,7 +1047,7 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +                 f['alpha'], f['beta'], f['p11'], f['p15'], K.REG_COMMIT[:8], f['reg_unchanged'], f['nothing']), '',
 +             '**The kernels:** none written; no dispatch; port-b707 kept at b709’s 92af8a34; SIDE-explicit-formula, SIDE-lv-conservation’s main and '
 +             'deposit and the join kernel unmoved; no lean process on this host.', '',
-@@ -1291,7 +1523,5 @@
+@@ -1291,7 +1526,5 @@
 -             '**The open orders:** `W-ORD-Q0-ZEROS-443` (entered this act, trigger b711); `W-ORD-LV-FORWARD-PORT` (continued: 11 of 12 modules, DirichletC7Order :212:55 '
 -             'next); `W-ORD-LV-CLOSURE-JOIN` (the join held; its dispatch where the port completes, b711); `W-ORD-WORKFLOW-PROBE-STEP` (annotated DISCHARGED this act); '
 -             '`W-ORD-ENTRY-TAG-PRINTS` (read to its end at b709); `W-ORD-EXPLICIT-FORMULA-C1`; `W-ORD-EPSTEIN-COUNT-LEAN`; `W-ORD-STANDING-CLAUSES-BANK` (trigger b710); '
@@ -1057,15 +1060,15 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +             '`W-ORD-ENTRY-TAG-PRINTS`; `W-ORD-EXPLICIT-FORMULA-C1`; `W-ORD-EPSTEIN-COUNT-LEAN`; `W-ORD-KEYSTONE-HEADS`; `W-ORD-QUASI-RH-FIELD-WATCH`; '
 +             '`W-ORD-P3-CONTOUR-SIGMA`; `W-ORD-E0-MET-CLASSK`; `W-ORD-README-FIGURE-SCOPE`.', '',
 +             '**The standing arms:** the four figures %s, %s, %s, %s against b709’s %s, %s, %s, %s (relay data/b710_standing_figures.txt).' % (
-@@ -1299,1 +1529,1 @@
+@@ -1299,1 +1532,1 @@
 -                 f['figs8']['correspondence'], f['figs8']['readme'], f['figs8']['partners'], f['figs8']['pins']), '',
 +                 f['figs9']['correspondence'], f['figs9']['readme'], f['figs9']['partners'], f['figs9']['pins']), '',
-@@ -1312,1 +1542,0 @@
+@@ -1312,1 +1545,0 @@
 -    c1_ = _rl_lines('%s_record_lines.json' % ACT) + ['-']
-@@ -1314,1 +1543,1 @@
+@@ -1314,1 +1546,1 @@
 -    fr, fb, Pz = f['grid']['fam']['rho0'], f['grid']['fam']['band'], f['pairs']
 +    c = f['r5']
-@@ -1317,12 +1546,11 @@
+@@ -1317,12 +1549,11 @@
 -         'data/b710_tests_stepzero.txt, data/b710_rowgen_stepzero.txt, data/b710_branches.txt), the registrations and the rules bank committed alone '
 -         '(data/b710_registrations.txt, data/b710_rules.txt) ; N1 %s (the test`s lean run, (c))' % S['N1'][0],
 -         '### COMPONENT 1 : b709`s weight FINDINGS :%s ; the corrigendum FINDINGS :%s (data/b710_corrigendum.txt, the corrigenda row (%s)) ; the needle`s repair '
@@ -1089,27 +1092,27 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 +             c['compiled'], c['control'], c['rows'], f['moves_line'], c['flip'], c['lines'], S['N2'][0]),
 +         '### COMPONENT 4 : the registrations re-read (data/b710_registrations_reread.txt) unchanged %s, nothing computed %s' % (f['reg_unchanged'], f['nothing']),
 +         '### COMPONENT 5 : the carry (data/b710_carry_spans.txt, data/b710_tool_repairs.txt), the figures (data/b710_standing_figures.txt), the root route dry '
-@@ -1333,4 +1561,2 @@
+@@ -1333,4 +1564,2 @@
 -         '### THE AUTHOR`S WORDS OF 2026-10-24, MID-ACT (not prompts; in the transcript, acted on as read): the pairs in the foreground, one band per call under the '
 -         'guard, no pool, no background shell, the background runs entered as the seat`s (d), each banked band read back before the next; a status print; the higher '
 -         'pairs bounded at height 325, the band 310-325 finished, ten pairs computed, 11 and 15 entered beyond reach with their heights, W-ORD-Q0-ZEROS-443 entered; '
 -         'then the port, the axis and Component 5 in the ferry`s order.']
 +         '### THE AUTHOR`S WORD AT THE MOVES TABLE`S PROMPT (2026-10-24, banked in data/b710_author_answers.txt, checked in data/b710_citation_check.txt before '
 +         'the landing): enter in OPEN_TRAILS as one appended record beneath b709`s trail, INSTRUMENTS.md untouched, each later research act appending its row`s reading.']
-@@ -1339,45 +1565,0 @@
+@@ -1339,45 +1568,0 @@
 -  ### 45 lines pruned (data/b710_prune_record.txt), the first: 
-@@ -1500,1 +1681,1 @@
+@@ -1500,1 +1684,1 @@
 -         '### THE ROSTER b709`S (70 entries, tools/mirror_roster.json unedited this act); the builder`s state file tools/mirror_prevbuild.json written at this build, named in (W) ((R320)(2)); files %d' % len(files_),
 +         '### THE ROSTER b709`S (tools/mirror_roster.json unedited this act); the builder`s state file tools/mirror_prevbuild.json written at this build, named in (W) ((R320)(8)); files %d' % len(files_),
-@@ -1547,2 +1728,3 @@
+@@ -1547,2 +1731,3 @@
 -    print('  n %d chars ; _commands.json %s ; _dispatches.json %s ; _probe %s ; _cut %s ; ledger needle %r at %s' % (
 -        len(n), '_commands.json' in n, '_dispatches.json' in n, '_probe' in n, '_cut' in n, m.group(0) if m else None, n[max(0, m.start() - 80):m.end() + 40] if m else '-'))
 +    print('  n %d chars ; needles %s ; ledger needle %r at %s' % (
 +        len(n), dict((x, x in n) for x in ('_commands.json', '_dispatches.json', '_r5_terminals', '_standing_control', '_registrations_reread')),
 +        m.group(0) if m else None, n[max(0, m.start() - 80):m.end() + 40] if m else '-'))
-@@ -1561,1 +1743,0 @@
+@@ -1561,1 +1746,0 @@
 -    print('  ACT_ARMS = %r' % (sorted(set(names_) - st),))
-@@ -1566,418 +1747,1 @@
+@@ -1566,418 +1750,1 @@
 -# ================================================================================ COMPONENT 1: THE RECORD LINES, THE REPAIR'S CONTROLS AND THE ORDER, (R320)(1)-(2)
 -WH = ('*Appended 2026-10-23 by b710 to b709’s entry (:10152), under `(R320)`(1) -- b709 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
 -      'data/b709_closing.txt):*')
@@ -1529,16 +1532,16 @@ b710 -- THE CARRY-TIME REPAIRS OF tools/b710_record.py AS A DIFF: the carried fo
 -
 -
 +# ### stage one (step zero): b709's Component routes over its own objects pruned (data/b710_prune_record.txt); this act's are added by the Edit tool
-@@ -1985,3 +1749,1 @@
+@@ -1985,3 +1752,1 @@
 -              c1=c1, repairctl=repairctl, orders=orders, orders443=orders443, ksyms=ksyms, defs=defs, portedit=portedit, portdispatch=portdispatch, portrun=portrun,
 -              scores=scores, findings=findings, trail=trail, drycheck=drycheck, mbank=mbank, guard=guard, armnames=armnames,
 -              figures=figures, regcheck=regcheck, scorercheck=scorercheck, runner=runner,
 +              ksyms=ksyms, defs=defs, figures=figures, runner=runner,
-@@ -1990,2 +1752,3 @@
+@@ -1990,2 +1755,3 @@
 -              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, components=components, repairs=repairs,
 -              linecheck=linecheck)
 +              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck, c1=c1, repairctl=repairctl, toolrepairs=toolrepairs, moves=moves, regcheck=regcheck,
 +              scores=scores, findings=findings, trail=trail, drycheck=drycheck, components=components, mbank=mbank, guard=guard,
 +              scorercheck=scorercheck, armnames=armnames)
 
-### ### **HUNKS 63 ; LINES REMOVED 878 ; LINES ADDED 641.**
+### ### **HUNKS 63 ; LINES REMOVED 878 ; LINES ADDED 644.**
