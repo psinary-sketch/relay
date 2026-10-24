@@ -65,28 +65,43 @@ b709 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-23)
         at the gate before the lock; N3 scored as worded against (b) and (e); for the next ruling: the act-specific sections of the suite, the
         closing tool and the spec tool named as spans the carry reads by right, or the three tools written whole by the Write tool from the
         previous act's as b708 did.
-    (f) THE SEAT'S: ELEVEN READS OF FILES OF TWO HUNDRED LINES OR MORE WITH A LIMIT AND NO OFFSET. The read bank (relay data/b709_read_calls.txt,
-        tools/b704_read_arm.py's reading from (R319)'s anchor) lists eleven Read calls on files of 200 lines or more made with a limit (30 to 200)
-        and no offset: data/b708_tests_stepzero.txt (1026 lines, limit 30), data/b709_prune_record.txt (1108, 200), data/b708_closing.txt (328,
-        60), tools/b709_corrigendum.py (225, 37), data/b709_carry_checks.txt (616, 200), tools/b707_onset.py (509, 200), tools/b705_detection.py
-        (248, 130), tools/b675_li_bench.py (423, 200), tools/b681_narrow.py (561, 110), tools/b671_narrow.py (829, 120) and
-        tools/b667_epstein_certify.py (667, 120), between 2026-10-23T19:00Z and 2026-10-24T11:49Z (step zero to the grid's resume). The ferry:
+    (f) THE SEAT'S: TWELVE READS OF FILES OF TWO HUNDRED LINES OR MORE OUTSIDE THE RULE -- ELEVEN WITH A LIMIT AND NO OFFSET, ONE WHOLE. The read
+        bank (relay data/b709_read_calls.txt, tools/b704_read_arm.py's reading from (R319)'s anchor) lists eleven Read calls on files of 200 lines
+        or more made with a limit (30 to 200) and no offset: data/b708_tests_stepzero.txt (1026 lines, limit 30), data/b709_prune_record.txt
+        (1108, 200), data/b708_closing.txt (328, 60), tools/b709_corrigendum.py (225, 37), data/b709_carry_checks.txt (616, 200),
+        tools/b707_onset.py (509, 200), tools/b705_detection.py (248, 130), tools/b675_li_bench.py (423, 200), tools/b681_narrow.py (561, 110),
+        tools/b671_narrow.py (829, 120) and tools/b667_epstein_certify.py (667, 120), between 2026-10-23T19:00Z and 2026-10-24T11:49Z (step zero
+        to the grid's resume); and one Read with neither offset nor limit of data/audit_b709_reg_satisfiable.txt (273 lines) at 2026-10-24T20:29Z,
+        the satisfiability audit read whole after the gate's spec step to find its one contradictory clause, its length not counted first. The ferry:
         "files read through the Read tool, whole where under two hundred lines and by offset and a limit of at most two hundred otherwise"; the
         arm's reading (b704's, from b705 every call counts): a call without an offset reads from the top, a limit-only read of a long file (b701's
-        trap). Each read took the head of its file and nothing past the limit; no content was taken on trust from an unread span. Found by the seat
-        at the read bank's write (Component 5), before the seal; G-READ-RULE-STANDING fails on these eleven and is declared on the face as the
-        carried failure, the arm unrepaired, its reading the rule's; entered for the strike. The seat's, with its cause: the first span of a file
-        was read as a head read and given no offset.
-    (g) THE SEAT'S: TWO PIPES IN LISTING COMMANDS. The command bank (relay data/b709_commands.txt, the pipes read outside quoted strings) lists two
-        commands carrying a pipe: #53 at 2026-10-23T19:55:55Z, a listing at step zero's end (`ls -la` over six named files, then `ls tools | wc -l`,
-        then `ls`), the count of the tools directory taken through wc; and the status listing of 2026-10-24T20:2xZ at Component 5, after the
-        pre-run (`git status --short --untracked-files=all -- data | grep -v ...`, the older acts' untracked scratch filtered out of the listing by
-        grep), sent after this row had been written for the first pipe. The ferry: "no redirect of any stream and no pipe in any command, scratch,
-        listings and diagnostics included". Nothing was read through either pipe but a count and a shortened listing; no bank took them (the
-        commit's file list was written by name). Found by the seat at the command bank's write and again at its own next listing, before the seal;
-        G-EDIT-ROUTE reads no sed and no offence in them (the pipe into a shell filter is the ferry's clause, not edit_route's). The seat's, with
-        its cause: a count and a filtered listing wanted, and the ferry's "listings and diagnostics included" not read against the command before
-        it was sent -- the second time with the row for the first already in this bank.
+        trap). Each limited read took the head of its file and nothing past the limit; no content was taken on trust from an unread span. Found by
+        the seat at the read bank's writes (Component 5 and again before the pre-root commit), the eleven before the seal and the twelfth after
+        it; G-READ-RULE-STANDING fails on them and is declared on the face as the carried failure (the face, locked, counts eleven), the arm
+        unrepaired, its reading the rule's; entered for the strike. The seat's, with its cause: the first span of a file was read as a head read
+        and given no offset; a gate's audit bank read whole for its verdict without its line count first.
+    (g) THE SEAT'S: THREE PIPES IN LISTING COMMANDS. The command bank (relay data/b709_commands.txt, the pipes read outside quoted strings) lists
+        three commands carrying a pipe: #53 at 2026-10-23T19:55:55Z, a listing at step zero's end (`ls -la` over six named files, then
+        `ls tools | wc -l`, then `ls`), the count of the tools directory taken through wc; the status listing of 2026-10-24T20:2xZ at Component 5,
+        after the pre-run (`git status --short --untracked-files=all -- data | grep -v ...`, the older acts' untracked scratch filtered out of the
+        listing by grep), sent after this row had been written for the first pipe; and a listing of b708's push captures after the seal
+        (2026-10-24T20:5xZ: `git ls-files ...` chained with `git ls-files data | git grep ...`, a malformed second half piping one listing into git
+        grep, which printed nothing), sent after this row had been written for two. The ferry: "no redirect of any stream and no pipe in any
+        command, scratch, listings and diagnostics included". Nothing was read through any of the three pipes but a count and a shortened listing;
+        no bank took them (every commit's file list was written by name). Found by the seat at the command bank's writes; G-EDIT-ROUTE reads no sed
+        and no offence in them (the pipe into a shell filter is the ferry's clause, not edit_route's); the first two before the seal, the third
+        after it. The seat's, with its cause: a count, a filtered listing and a botched second half wanted or left in a listing command, and the
+        ferry's "listings and diagnostics included" not read against the command before it was sent -- the second and third times with this row
+        already in the bank.
+    (h) THE SEAT'S: A TRACKED PRIOR BANK OVERWRITTEN BY THE LOCK GATE'S STRAY CALL, RESTORED. tools/b378_lockgate.py sent with no argument at
+        Component 5 (to print its usage, before the lock) ran against its default, b378's face, and wrote two files: data/b378_lockgate_notes3.txt
+        (untracked, left in place) and data/b378_lockgate.json -- b378's TRACKED lock-gate bank, 21 of its lines rewritten in the working tree
+        (the tool's verdict and stamps for b378's face at this run's time). The ferry and (Z): no prior bank is edited. Found by the N5 scorer at
+        the scores bank's one write after the seal ("relay files of a kind beyond the act`s banks and tools ...: ['data/b378_lockgate.json']"),
+        the bank written once and standing with N5 REFUTED on it; the file restored to its committed bytes by `git checkout -- data/b378_lockgate.json`
+        at relay (a git write of its own message, no commit touched, nothing staged), the working tree reading clean for it after; N5's clause read
+        again at `scores close`. The face's (0), locked before the scorer ran, names the notes file alone; this row completes it. The seat's, with
+        its cause: a tool known to write when run (relay memory, "a live tool writes") was called for its usage line without its argument.
 
 ### EVENTS, UNLETTERED
 
@@ -124,8 +139,9 @@ b709 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-23)
         no test edited this act (data/b709_tests_stepzero.txt).
     THE LOCK GATE'S FIRST CALL RAN AGAINST ITS OWN DEFAULT FACE. tools/b378_lockgate.py sent with no argument (to print its usage) read b378's
         registration, its default, and wrote data/b378_lockgate_notes3.txt (its notes file for that face), an untracked scratch file in relay data/
-        beside the older acts' notes files; no bank of this act touched, nothing of b378's tracked state changed, the file left in place (no file
-        is deleted this act). The tool's trap (relay memory: a live tool writes); the next call names this act's face. Not lettered.
+        beside the older acts' notes files, left in place (no file is deleted this act); no bank of this act touched. Entered here before the lock
+        as the notes file alone; the tracked bank it also overwrote was found after the seal and is lettered (h) above. The next call named this
+        act's face.
     THE ORDER'S LANDING BANK COMMITTED ONE COMMIT LATE. data/b709_order443_lines.json (the orders443 route's landing bank for W-ORD-Q0-ZEROS-443,
         OPEN_TRAILS :15764, written 18:54Z after Component 2's relay commit 91607edb and its PLACE-papers commit caf18664) stood untracked
         until Component 3's relay commit, which carries it; the ledger line it records was committed at PLACE-papers in its own commit and is
