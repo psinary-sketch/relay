@@ -13,7 +13,13 @@
 ###   (7) b636, (R246)(4): the reader given SIDE-structural-error-correction reads its d_eff_eq_five -- a theorem, no binder, d_eff = 5 --
 ###       in that kernel's checkout, and returns to the explicit-formula kernel after.
 ### The generated file and its output are the scratchpad's; nothing in a repository is written. Usage: python tools/test_elab_reader_b634.py
+### b710, (R320)(3): THE TEST READS A BANKED PRINT AND INVOKES NO LEAN. The two calls (:34 and :65 before this repair, b709's defect (c): each
+### ran `lake env lean` by subprocess on this host) are replaced by the reader's own parser over the prints lean wrote at b709's last run
+### (2026-10-23T19:28Z and 19:31Z, banked in relay byte for byte: data/b710_elab_reader_print.txt, data/b710_elab_reader_print_sec.txt, their
+### blobs equal to the scratchpad outputs test_reader.out and test_reader_sec.out); the reader's `call` is replaced for the run by a refusal,
+### so no lean process can start from this test. The seven cases read as before.
 """
+import hashlib
 import os
 import sys
 
@@ -30,11 +36,23 @@ EXTRA = 'theorem b634PlantedArrow (n : Nat) : n = n → n = n := fun h => h'
 SEC = 'SIDEStructuralErrorCorrection.d_eff_eq_five'     # ### b636, case (7)
 
 
+PRINT = os.path.join(ROOT, 'data', 'b710_elab_reader_print.txt')          # ### b710: lean's print of the first call, banked
+PRINT_SEC = os.path.join(ROOT, 'data', 'b710_elab_reader_print_sec.txt')  # ### b710: lean's print of the kernel's call, banked
+
+
+def _refuse(*a, **k):
+    raise SystemExit('### THE TEST CALLED THE READER`S `call` -- REFUSED: it reads banked prints and runs no lean ((R320)(3))')
+
+
+def _banked(p):
+    b = open(p, 'rb').read()
+    print('  the banked print %s : %d bytes ; sha256 %s' % (os.path.relpath(p, ROOT).replace(os.sep, '/'), len(b), hashlib.sha256(b).hexdigest()[:16]))
+    return b.decode('utf-8', 'replace')
+
+
 def main():
-    c = EL.call('SIDEExplicitFormula/PlattRung', NAMES, 'test_reader', extra=EXTRA)
-    print('  the call: started %s ; exit %s ; %s s ; free before %s MB ; lowest %s MB' % (c.get('started'), c.get('rc'), c.get('seconds'),
-                                                                                     c.get('free_before'), c.get('low')))
-    got = EL.parse(open(c['out'], 'rb').read().decode('utf-8', 'replace')) if c.get('started') else {}
+    EL.call = _refuse   # ### b710: no lean process can start from this test
+    got = EL.parse(_banked(PRINT))
     res = []
 
     def want(label, cond):
@@ -62,13 +80,11 @@ def main():
     # ### type, d_eff_eq_five : d_eff = 5 (SIDEStructuralErrorCorrection/Basic.lean :100), read by one call importing its module alone.
     EL.use('SIDE-structural-error-correction')
     try:
-        c7 = EL.call('SIDEStructuralErrorCorrection/Basic', [SEC], 'test_reader_sec')
-        g7 = EL.parse(open(c7['out'], 'rb').read().decode('utf-8', 'replace')) if c7.get('started') else {}
+        g7 = EL.parse(_banked(PRINT_SEC))   # ### b710: the kernel's call's print, banked; no lean
     finally:
         EL.use(EL.DEFAULT_KERNEL)
     e7 = g7.get(SEC) or dict(kind=None, header=-1, total=-1, binders=[], concl='', missing=True)
-    print('  the kernel`s call: started %s ; exit %s ; %s s ; free before %s MB ; in %s' % (c7.get('started'), c7.get('rc'), c7.get('seconds'),
-                                                                                       c7.get('free_before'), EL.KERNELS['SIDE-structural-error-correction']['KER']))
+    print('  the kernel`s print read for %s (no call made)' % EL.KERNELS['SIDE-structural-error-correction']['KER'])
     want('(7) SIDE-structural-error-correction`s d_eff_eq_five: a theorem, no binder, the conclusion d_eff = 5 (read %s %s of %s, %s)' % (
          e7['kind'], e7['header'], e7['total'], e7['concl']),
          e7['kind'] == 'theorem' and e7['header'] == 0 and e7['total'] == 0 and e7['concl'] == 'd_eff = 5' and EL.KX.KERNEL == 'SIDE-explicit-formula')

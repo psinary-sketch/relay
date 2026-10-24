@@ -1,0 +1,27 @@
+b710 -- COMPONENT 1, (R320)(3): THE TWO NEEDLES, THE LOCK GATE AND THE TEST AGAINST THEIR OLD FORMS, WITH THEIR CONTROLS (2026-10-24T22:23:02Z)
+
+### rows are cases: the case | the reading got | the reading wanted | AS WANTED. The banks the old needles failed on after b709`s seal:
+### relay data/b709_report.txt (G-REPORT-UNSEALED) and data/b709_registrations.txt :12-:13 (G-AXIS-REGISTERED); the repaired forms
+### tools/b710_checks.py keys_ci and joined. The lock gate: tools/b378_lockgate.py, the argument required (its main); the test:
+### tools/test_elab_reader_b634.py, the banked prints data/b710_elab_reader_print.txt and data/b710_elab_reader_print_sec.txt.
+
+  (1) the old needle on b709`s report bank (every key in capitals, case-sensitive)                                       | got False                    | wanted False                    | AS WANTED
+  (1) the repaired needle (keys_ci) on b709`s report bank                                                                | got True                     | wanted True                     | AS WANTED
+  (1) NEG: the repaired needle on a copy with every `ratio` removed, any case                                            | got False                    | wanted False                    | AS WANTED
+  (2) the old needle on b709`s registrations bank (the quotation as one string)                                          | got False                    | wanted False                    | AS WANTED
+  (2) the repaired needle (joined) on b709`s registrations bank                                                          | got True                     | wanted True                     | AS WANTED
+  (2) the repaired needle on data/b705_i6_ranking.txt :58 (the quotation on one line)                                    | got True                     | wanted True                     | AS WANTED
+  (2) NEG: the repaired needle on a copy with "Toeplitz" changed to "Hankel"                                             | got False                    | wanted False                    | AS WANTED
+  (2) the arm`s other needles on b709`s registrations bank, joined                                                       | got True                     | wanted True                     | AS WANTED
+  (3) NEG: the lock gate with no argument exits 2 printing its usage                                                     | got (2, True)                | wanted (2, True)                | AS WANTED
+  (3) NEG: the lock gate with an empty argument exits 2 printing its usage                                               | got (2, True)                | wanted (2, True)                | AS WANTED
+  (3) POS: with an act (b710, its default face absent) the gate passes the argument`s check and refuses at the face, exi | got (2, True, False)         | wanted (2, True, False)         | AS WANTED
+  (3) relay data/ unchanged file for file across the three calls (size and mtime)                                        | got []                       | wanted []                       | AS WANTED
+  (3) b378`s tracked bank data/b378_lockgate.json equal to HEAD before and after                                         | got ('', '')                 | wanted ('', '')                 | AS WANTED
+  (4) the repaired test at step zero: exit 0, 7 of 7 (data/b710_tests_stepzero.txt)                                      | got True                     | wanted True                     | AS WANTED
+  (4) its text carries no call of the reader`s lean route (`EL.call(` absent; `EL.call = _refuse` present)               | got (True, True)             | wanted (True, True)             | AS WANTED
+  (4) the process listing after its part: lean 0, lake 0, python 0 (data/b710_stepzero.txt)                              | got True                     | wanted True                     | AS WANTED
+
+### the lock gate`s three calls, their first lines: none 'usage: b378_lockgate.py <act> [<face>] -- the act argument is required; nothing read, noth' ; empty 'usage: b378_lockgate.py <act> [<face>] -- the act argument is required; nothing read, noth' ; b710 ['### ### **THE FACE DOES NOT EXIST. ### REFUSING.**']
+
+### ### **CASES 16 ; AS WANTED True ; THE REPAIRED NEEDLES PASS ON b709`S BANKS AND THEIR NEG COPIES FAIL ; THE LOCK GATE WITHOUT ITS ARGUMENT WRITES NOTHING ; THE TEST RUNS NO LEAN.**

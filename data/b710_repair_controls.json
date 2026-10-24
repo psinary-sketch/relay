@@ -1,0 +1,135 @@
+{
+ "at": "2026-10-24T22:23:02Z",
+ "cases": [
+  {
+   "case": "(1) the old needle on b709`s report bank (every key in capitals, case-sensitive)",
+   "got": false,
+   "wanted": false,
+   "as_wanted": true
+  },
+  {
+   "case": "(1) the repaired needle (keys_ci) on b709`s report bank",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true
+  },
+  {
+   "case": "(1) NEG: the repaired needle on a copy with every `ratio` removed, any case",
+   "got": false,
+   "wanted": false,
+   "as_wanted": true
+  },
+  {
+   "case": "(2) the old needle on b709`s registrations bank (the quotation as one string)",
+   "got": false,
+   "wanted": false,
+   "as_wanted": true
+  },
+  {
+   "case": "(2) the repaired needle (joined) on b709`s registrations bank",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true
+  },
+  {
+   "case": "(2) the repaired needle on data/b705_i6_ranking.txt :58 (the quotation on one line)",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true
+  },
+  {
+   "case": "(2) NEG: the repaired needle on a copy with \"Toeplitz\" changed to \"Hankel\"",
+   "got": false,
+   "wanted": false,
+   "as_wanted": true
+  },
+  {
+   "case": "(2) the arm`s other needles on b709`s registrations bank, joined",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true
+  },
+  {
+   "case": "(3) NEG: the lock gate with no argument exits 2 printing its usage",
+   "got": [
+    2,
+    true
+   ],
+   "wanted": [
+    2,
+    true
+   ],
+   "as_wanted": true
+  },
+  {
+   "case": "(3) NEG: the lock gate with an empty argument exits 2 printing its usage",
+   "got": [
+    2,
+    true
+   ],
+   "wanted": [
+    2,
+    true
+   ],
+   "as_wanted": true
+  },
+  {
+   "case": "(3) POS: with an act (b710, its default face absent) the gate passes the argument`s check and refuses at the face, exit 2",
+   "got": [
+    2,
+    true,
+    false
+   ],
+   "wanted": [
+    2,
+    true,
+    false
+   ],
+   "as_wanted": true
+  },
+  {
+   "case": "(3) relay data/ unchanged file for file across the three calls (size and mtime)",
+   "got": [],
+   "wanted": [],
+   "as_wanted": true
+  },
+  {
+   "case": "(3) b378`s tracked bank data/b378_lockgate.json equal to HEAD before and after",
+   "got": [
+    "",
+    ""
+   ],
+   "wanted": [
+    "",
+    ""
+   ],
+   "as_wanted": true
+  },
+  {
+   "case": "(4) the repaired test at step zero: exit 0, 7 of 7 (data/b710_tests_stepzero.txt)",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true
+  },
+  {
+   "case": "(4) its text carries no call of the reader`s lean route (`EL.call(` absent; `EL.call = _refuse` present)",
+   "got": [
+    true,
+    true
+   ],
+   "wanted": [
+    true,
+    true
+   ],
+   "as_wanted": true
+  },
+  {
+   "case": "(4) the process listing after its part: lean 0, lake 0, python 0 (data/b710_stepzero.txt)",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true
+  }
+ ],
+ "as_wanted": true,
+ "changed": []
+}

@@ -145,7 +145,12 @@ def fixture(verbose=True):
 
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
-    act = argv[0] if argv else 'b378'
+    # ### b710, (R320)(3): THE ACT ARGUMENT IS REQUIRED. A call without it ran against b378's face and rewrote b378's tracked bank (b709's
+    # ### defect (h)); it now exits here, before any line is recorded and before any file is written.
+    if not argv or not argv[0].strip():
+        print('usage: b378_lockgate.py <act> [<face>] -- the act argument is required; nothing read, nothing written')
+        return 2
+    act = argv[0]
     face = argv[1] if len(argv) > 1 else os.path.join(
         D, '%s_registration_2026-09-08.txt' % act)
     rec('=' * 100)

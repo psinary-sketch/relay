@@ -1,0 +1,18 @@
+DECL SIDEExplicitFormula.PlattRung.rh_upto KIND def HEADER 1 TOTAL 1
+BINDER explicit T : ℝ
+CONCL Prop
+END
+DECL SIDEExplicitFormula.PlattRung.rh_upto_platt KIND theorem HEADER 1 TOTAL 1
+BINDER explicit hP : PlattTrudgianHeight plattTrudgianT
+CONCL rh_upto plattTrudgianT
+END
+DECL Nat.add_comm KIND theorem HEADER 2 TOTAL 2
+BINDER explicit n : ℕ
+BINDER explicit m : ℕ
+CONCL n + m = m + n
+END
+DECL b634PlantedArrow KIND theorem HEADER 1 TOTAL 2
+BINDER explicit n : ℕ
+CONCL n = n → n = n
+END
+MISSING SIDEExplicitFormula.PlattRung.b634_no_such_name

@@ -1,0 +1,144 @@
+b710 -- THE REPAIRS OF (R320)(3) AND THE CARRY-TIME REPAIRS, EACH WITH ITS DIFF AND ITS CONTROL (2026-10-24T22:23:31Z)
+
+### rows are repairs: the tool and its part ; what it answers ; the diff ; the controls (data/b710_repair_controls.txt). No sealed tool of
+### an earlier act is edited; the two shared tools edited are the ruling`s ((R320)(3)), named in (W).
+
+  (1) tools/b710_checks.py report_unsealed_ok and keys_ci -- (R320)(3): G-REPORT-UNSEALED`s key read case-insensitively (b709`s arm wanted
+      RATIO in capitals; its report printed "the twelve ratios"; data/b709_defects.txt :117-:122).
+    --- tools/b709_checks.py
+    +++ tools/b710_checks.py
+    @@ -3,3 +3,3 @@
+         before the root's time; the tool outside the sealed list; its lines the ferry's five (the onset per family with its rung and eigenvalue, the
+    -    zeta control's lambda_min beside its tail bound, the twelve ratios, the port's modules built and next failing line, the four figures beside b708's)."""
+    +    zeta control's lambda_min beside its tail bound, the twelve ratios, the port's modules built and next failing line, the four figures beside b709's)."""
+         t = S['report']
+    @@ -7,4 +7,4 @@
+         root_at = S['arj'].get('at_epoch')
+    -    return bool(t) and S['report_tool'] and 'b709_report.py' not in K.SEALED and at is not None and S['lock_epoch'] is not None and at > S['lock_epoch'] \
+    -        and root_at is not None and at <= root_at + S['order_slack'] and all(x in t for x in ('ONSET', 'ZETA', 'RATIO', 'MODULES', 'FIGURES')) \
+    +    return bool(t) and S['report_tool'] and 'b710_report.py' not in K.SEALED and at is not None and S['lock_epoch'] is not None and at > S['lock_epoch'] \
+    +        and root_at is not None and at <= root_at + S['order_slack'] and keys_ci(t, ('ONSET', 'ZETA', 'RATIO', 'MODULES', 'FIGURES')) \
+             and len(re.findall(r'^  \(\d\) ', t, re.M)) >= 5
+    + (the helper keys_ci added beside it)
+      control: (1) the old needle on b709`s report bank (every key in capitals, case-sensitive) -- AS WANTED
+      control: (1) the repaired needle (keys_ci) on b709`s report bank -- AS WANTED
+      control: (1) NEG: the repaired needle on a copy with every `ratio` removed, any case -- AS WANTED
+
+  (2) tools/b710_checks.py axis_registered_ok and joined -- (R320)(3): G-AXIS-REGISTERED reading the registrations bank after joining
+      wrapped lines (b709`s bank wraps the quotation across :12-:13; data/b709_defects.txt :123-:129).
+    --- tools/b709_checks.py
+    +++ tools/b710_checks.py
+    @@ -1,5 +1,5 @@
+     def axis_registered_ok(S):
+    -    """(R319)(6): the second axis in the registration's words -- the ranking's second row quoted from data/b705_i6_ranking.txt :58, the statement-grade
+    +    """(R320)(6): the second axis in the registration's words -- the ranking's second row quoted from data/b705_i6_ranking.txt :58, the statement-grade
+         re-expression, hypothesis, falsifier, three controls, the price derived, computed at b711 -- and the landed entry naming it."""
+    -    r = S['regs']
+    +    r = joined(S['regs'])   # ### (R320)(3): the bank read after joining its wrapped lines
+         q = '(e) representation coordinates (the operator / Toeplitz form) -- 4'
+    @@ -7,3 +7,3 @@
+                                     '(C2)', '(C3)', 'THE PRICE (DERIVED', 'COMPUTED AT b711', 'the second row :58')) \
+    -        and q in r and q in S['ranking58'] and 'ITS LEAST EIGENVALUE lambda_min(a, N) IS THE SIGN' in r and conv('**The axis**') in _entry_block(S)
+    +        and q in r and q in joined(S['ranking58']) and 'ITS LEAST EIGENVALUE lambda_min(a, N) IS THE SIGN' in r and conv('**The axis**') in _entry_block(S)
+     
+    + (the helper joined added beside it)
+      control: (2) the old needle on b709`s registrations bank (the quotation as one string) -- AS WANTED
+      control: (2) the repaired needle (joined) on b709`s registrations bank -- AS WANTED
+      control: (2) the repaired needle on data/b705_i6_ranking.txt :58 (the quotation on one line) -- AS WANTED
+      control: (2) NEG: the repaired needle on a copy with "Toeplitz" changed to "Hankel" -- AS WANTED
+      control: (2) the arm`s other needles on b709`s registrations bank, joined -- AS WANTED
+
+  (3) tools/b378_lockgate.py main -- (R320)(3): the act argument required, a call without it exiting before any write (b709`s (h)).
+    diff --git a/tools/b378_lockgate.py b/tools/b378_lockgate.py
+    index a4f10f2a..8321da8f 100644
+    --- a/tools/b378_lockgate.py
+    +++ b/tools/b378_lockgate.py
+    @@ -145,7 +145,12 @@ def fixture(verbose=True):
+     
+     def main(argv=None):
+         argv = list(sys.argv[1:] if argv is None else argv)
+    -    act = argv[0] if argv else 'b378'
+    +    # ### b710, (R320)(3): THE ACT ARGUMENT IS REQUIRED. A call without it ran against b378's face and rewrote b378's tracked bank (b709's
+    +    # ### defect (h)); it now exits here, before any line is recorded and before any file is written.
+    +    if not argv or not argv[0].strip():
+    +        print('usage: b378_lockgate.py <act> [<face>] -- the act argument is required; nothing read, nothing written')
+    +        return 2
+    +    act = argv[0]
+         face = argv[1] if len(argv) > 1 else os.path.join(
+             D, '%s_registration_2026-09-08.txt' % act)
+         rec('=' * 100)
+      control: (3) NEG: the lock gate with no argument exits 2 printing its usage -- AS WANTED
+      control: (3) NEG: the lock gate with an empty argument exits 2 printing its usage -- AS WANTED
+      control: (3) POS: with an act (b710, its default face absent) the gate passes the argument`s check and refuses at the face, exit 2 -- AS WANTED
+      control: (3) relay data/ unchanged file for file across the three calls (size and mtime) -- AS WANTED
+      control: (3) b378`s tracked bank data/b378_lockgate.json equal to HEAD before and after -- AS WANTED
+
+  (4) tools/test_elab_reader_b634.py -- (R320)(3): the test reading lean`s banked prints and invoking no lean (b709`s (c), its calls at
+      :34 and :65); the prints data/b710_elab_reader_print.txt and data/b710_elab_reader_print_sec.txt (blobs 55277c74, ef99e5c3).
+    diff --git a/tools/test_elab_reader_b634.py b/tools/test_elab_reader_b634.py
+    index fe9f983a..95b97e5a 100644
+    --- a/tools/test_elab_reader_b634.py
+    +++ b/tools/test_elab_reader_b634.py
+    @@ -13,7 +13,13 @@
+     ###   (7) b636, (R246)(4): the reader given SIDE-structural-error-correction reads its d_eff_eq_five -- a theorem, no binder, d_eff = 5 --
+     ###       in that kernel's checkout, and returns to the explicit-formula kernel after.
+     ### The generated file and its output are the scratchpad's; nothing in a repository is written. Usage: python tools/test_elab_reader_b634.py
+    +### b710, (R320)(3): THE TEST READS A BANKED PRINT AND INVOKES NO LEAN. The two calls (:34 and :65 before this repair, b709's defect (c): each
+    +### ran `lake env lean` by subprocess on this host) are replaced by the reader's own parser over the prints lean wrote at b709's last run
+    +### (2026-10-23T19:28Z and 19:31Z, banked in relay byte for byte: data/b710_elab_reader_print.txt, data/b710_elab_reader_print_sec.txt, their
+    +### blobs equal to the scratchpad outputs test_reader.out and test_reader_sec.out); the reader's `call` is replaced for the run by a refusal,
+    +### so no lean process can start from this test. The seven cases read as before.
+     """
+    +import hashlib
+     import os
+     import sys
+     
+    @@ -30,11 +36,23 @@ EXTRA = 'theorem b634PlantedArrow (n : Nat) : n = n → n = n := fun h => h'
+     SEC = 'SIDEStructuralErrorCorrection.d_eff_eq_five'     # ### b636, case (7)
+     
+     
+    +PRINT = os.path.join(ROOT, 'data', 'b710_elab_reader_print.txt')          # ### b710: lean's print of the first call, banked
+    +PRINT_SEC = os.path.join(ROOT, 'data', 'b710_elab_reader_print_sec.txt')  # ### b710: lean's print of the kernel's call, banked
+    +
+    +
+    +def _refuse(*a, **k):
+    +    raise SystemExit('### THE TEST CALLED THE READER`S `call` -- REFUSED: it reads banked prints and runs no lean ((R320)(3))')
+    +
+    +
+    +def _banked(p):
+    +    b = open(p, 'rb').read()
+    +    print('  the banked print %s : %d bytes ; sha256 %s' % (os.path.relpath(p, ROOT).replace(os.sep, '/'), len(b), hashlib.sha256(b).hexdigest()[:16]))
+    +    return b.decode('utf-8', 'replace')
+    +
+    +
+     def main():
+    -    c = EL.call('SIDEExplicitFormula/PlattRung', NAMES, 'test_reader', extra=EXTRA)
+    -    print('  the call: started %s ; exit %s ; %s s ; free before %s MB ; lowest %s MB' % (c.get('started'), c.get('rc'), c.get('seconds'),
+    -                                                                                     c.get('free_before'), c.get('low')))
+    -    got = EL.parse(open(c['out'], 'rb').read().decode('utf-8', 'replace')) if c.get('started') else {}
+    +    EL.call = _refuse   # ### b710: no lean process can start from this test
+    +    got = EL.parse(_banked(PRINT))
+         res = []
+     
+         def want(label, cond):
+    @@ -62,13 +80,11 @@ def main():
+         # ### type, d_eff_eq_five : d_eff = 5 (SIDEStructuralErrorCorrection/Basic.lean :100), read by one call importing its module alone.
+         EL.use('SIDE-structural-error-correction')
+         try:
+    -        c7 = EL.call('SIDEStructuralErrorCorrection/Basic', [SEC], 'test_reader_sec')
+    -        g7 = EL.parse(open(c7['out'], 'rb').read().decode('utf-8', 'replace')) if c7.get('started') else {}
+    +        g7 = EL.parse(_banked(PRINT_SEC))   # ### b710: the kernel's call's print, banked; no lean
+         finally:
+             EL.use(EL.DEFAULT_KERNEL)
+         e7 = g7.get(SEC) or dict(kind=None, header=-1, total=-1, binders=[], concl='', missing=True)
+    -    print('  the kernel`s call: started %s ; exit %s ; %s s ; free before %s MB ; in %s' % (c7.get('started'), c7.get('rc'), c7.get('seconds'),
+    -                                                                                       c7.get('free_before'), EL.KERNELS['SIDE-structural-error-correction']['KER']))
+    +    print('  the kernel`s print read for %s (no call made)' % EL.KERNELS['SIDE-structural-error-correction']['KER'])
+         want('(7) SIDE-structural-error-correction`s d_eff_eq_five: a theorem, no binder, the conclusion d_eff = 5 (read %s %s of %s, %s)' % (
+              e7['kind'], e7['header'], e7['total'], e7['concl']),
+              e7['kind'] == 'theorem' and e7['header'] == 0 and e7['total'] == 0 and e7['concl'] == 'd_eff = 5' and EL.KX.KERNEL == 'SIDE-explicit-formula')
+      control: (4) the repaired test at step zero: exit 0, 7 of 7 (data/b710_tests_stepzero.txt) -- AS WANTED
+      control: (4) its text carries no call of the reader`s lean route (`EL.call(` absent; `EL.call = _refuse` present) -- AS WANTED
+      control: (4) the process listing after its part: lean 0, lake 0, python 0 (data/b710_stepzero.txt) -- AS WANTED
+
+### ### **REPAIRS OF (R320)(3) 4 ; CONTROLS AS WANTED True ; CARRY-TIME ROWS 0 ; NO SEALED TOOL OF AN EARLIER ACT EDITED ; SHARED TOOLS EDITED 2 (THE RULING`S).**

@@ -829,12 +829,265 @@ def ksyms(*a):
     print('### ### **K.<NAME> REFERENCES %d ; MISSING FROM b710_worklist %d: %s.**' % (len(seen), len(missing), missing or 'NONE'))
 
 
+# ================================================================================ COMPONENT 1: THE RECORD LINES, (R320)(1)-(2)
+WH = ('*Appended 2026-10-24 by b710 to b709’s entry (:10198), under `(R320)`(1) -- b709 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b709_closing.txt):*')
+RH = ('*Appended 2026-10-24 by b710 beside b709’s weight line, under `(R320)`(2) -- THE READINGS OF b709’S FIGURES, IN THE NAVIGATOR’S WORDS, '
+      'FOR THE AUTHOR’S STRIKE (relay data/b710_ferry.txt, (R320)(2)):*')
+
+
+def _fig(text, pat, what):
+    m = re.search(pat, text)
+    if not m:
+        sys.exit('### b709`S BANKS DO NOT CARRY %s (%s) -- NOTHING COMPOSED' % (what, pat))
+    return m.groups() if m.groups() else (m.group(0),)
+
+
+def _declared_b709():
+    face = rd(os.path.join(ROOT, *K.B709_FACE.split('/')))
+    md = re.search(r'THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:\*\* ([^.]*)\.', ' '.join(face.split()))
+    return sorted(set(re.findall(r'`([GF]-[A-Z0-9-]+)`', md.group(1)))) if md else []
+
+
+def _failing_b709():
+    m = re.search(r'LIVE FAILING : (\d+) \[(.*?)\]', rdn('b709_checks_postpush.txt'))
+    return [x.strip().strip("'") for x in (m.group(2) if m else '').split(',') if x.strip()]
+
+
+def _pairs_steps():
+    """the ten computed pairs of data/b709_pairs.txt in the order of height, and the pairs whose ratio is below the next-lower pair's."""
+    rows = []
+    for l in rdn('b709_pairs.txt').split(NL):
+        m = re.match(r'^\s+(\d+) \| \[\S+ \+ \[(\S+) i \|.*\| n\*/predicted \[(\S+) \+/- \S+\] \| WITHIN', l)
+        if m:
+            rows.append((int(m.group(1)), float(m.group(2)), float(m.group(3))))
+    rows.sort(key=lambda x: x[1])
+    return rows, [(b[0], a[0]) for a, b in zip(rows, rows[1:]) if b[2] < a[2]]
+
+
+def _wb():
+    """b709's weight line, its figures read from b709's banks by line: the head from the closing :1, the grid and the zeta control from the
+    report (:16-:17), the pairs from their bank, the port from its bank, the root from the act-root bank and the chain, the scores from the
+    scores banks, the suite from the post-push bank and the face, the defects from the defects bank by the repaired reader."""
+    c = rdn('b709_closing.txt')
+    head = c.split(NL)[0]
+    rp, pb, pt = rdn('b709_report.txt'), rdn('b709_pairs.txt'), rdn('b709_port.txt')
+    decl, fails = _declared_b709(), _failing_b709()
+    post = [a for a in fails if a not in decl]
+    sr, sc = jl('b709_scores.json'), jl('b709_scores_close.json')
+    short = _defect_short('b709')
+    if decl != ['G-READ-RULE-STANDING'] or sorted(post) != ['G-AXIS-REGISTERED', 'G-REPORT-UNSEALED'] or len(short) != 8 \
+            or not head.startswith('b709 closed: relay 8b842c9a, PLACE-papers 07978f3; suite 144 of 147'):
+        sys.exit('### b709`S FACE OR ITS BANKS NOT AS READ (declared %s ; post %s ; defects %d ; head %s) -- NOTHING COMPOSED' % (decl, post, len(short), head[:40]))
+    a_b, lam_b = _fig(rp, r'the rung log 32381 \(32381\^1\) at a = ([0-9.]+) \+- \S+, lambda_min (\S+) \+-', 'the band onset')
+    lo_b, hi_b = _fig(rp, r'the nearest entering rungs log (\d+) \(40 points below\) and log (\d+) \(8 points above\)', 'the band rungs')
+    a_r, lam_r = _fig(rp, r'the midpoint between log 929 and log 937 at a = ([0-9.]+) \+- \S+, lambda_min (\S+) \+-', 'the rho_0 onset')
+    zb, zr = _fig(rp, r'every point of both families \((\d+) of \d+ and (\d+) of \d+\)', 'the zeta points')
+    c1n, = _fig(rdn('b709_grid.txt'), r'(C1 AS WANTED True)', 'the coarse rows')
+    bands = len(re.findall(r'^  band \[.*\| COMPLETE\s*$', pb, re.M))
+    on, off = _fig(pb, r'new on-line zeros (\d+) ; new off-line pairs (\d+)', 'the extension')
+    comp, wi, out, br = _fig(pb, r'pairs computed (\d+), within (\d+), outside (\d+)\s+; beyond reach (\d+)', 'the falsifier')
+    rows, steps = _pairs_steps()
+    run, = _fig(pt, r'RUN (\d+) \(port\)', 'the port run')
+    built, of = _fig(pt, r'MODULES BUILT (\d+) OF (\d+)', 'the modules')
+    ar = jl('b709_act_root.json')
+    banks, = _fig(rdn('b709_root_banks.txt'), r'BANKS (\d+) ; CLEAN AND EQUAL AT HEAD', 'the root banks')
+    files, = _fig(rdn('b709_mirror.txt'), r'entries in the zip \d+ \(files (\d+) \+ MANIFEST\)', 'the mirror files')
+    agree, of_a = _fig(c, r'### AGREE (\d+) of (\d+)', 'the sealed hashes')
+    cites, ok, miss = _fig(c, r'CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', 'the citation check')
+    lg, = _fig(rp, r'(EQUAL True) -- the bank stands at its committed bytes', 'the lock-gate bank')
+    sv = lambda J, k: (J.get(k) or ['-'])[0]   # noqa: E731
+    return (' “%s” (data/b709_closing.txt :1); the closing commit 42dd8768 pushed alone in main mode after the line was written and read back '
+            'equal at the remote (data/b709_closing_push_out.txt :5). The fine grid (data/b709_grid.txt): the band zero’s onset at the rung log 32381, '
+            'a = %s, λ_min %s, a rung where Λ_Q vanishes, between the entering rungs log %s and log %s; ρ₀’s onset at the midpoint between log 929 and '
+            'log 937, a = %s, λ_min %s; the ζ form positive at all %d points (the band %s, ρ₀ %s) with its certified tail balls beside λ_min; the coarse '
+            'endpoints reproducing b707’s 32 rows exactly (%s); the registered hypothesis and falsifier printed vacuous as worded per family '
+            '(data/b709_report.txt :16-:17). The pairs (data/b709_pairs.txt): the certified list of Q0’s zeros extended from height 150 to 325 in %d '
+            'closed bands (%s new on-line zeros, %s new off-line pairs); %s of 12 pairs computed and %s within [0.67, 1.5], %s outside, the ratios %.4f '
+            'to %.4f, rising with height as a trend over the ten and not at every step -- in the order of height %s stand below the next-lower pair’s '
+            'ratio (the fact clause on the quotation, relay data/b710_citation_check.txt); pairs 11 and 15 beyond reach at 325 (needing 405.4 and '
+            '442.3), W-ORD-Q0-ZEROS-443 at OPEN_TRAILS :15764. The port at port-b707 = 92af8a34, one edit at C7OrderBounds.lean :277, one dispatch '
+            '(run %s), %s of %s modules building, DirichletC7Order.lean :212:55 the next line with the same changed signature, nothing merged or '
+            'tagged (data/b709_port.txt). The axis (e) representation coordinates registered for b711 (data/b709_registrations.txt, relay '
+            '510dc29b). b378’s lock-gate bank overwritten by a call without its argument and restored byte-equal, shown so before the root '
+            '(data/b709_report.txt :4-:7, %s; defect (h)). The entry at FINDINGS :10198, the trail at OPEN_TRAILS :15766; the root b3213c0b over %s '
+            'banks chained from %s (data/b709_act_root.json, data/b709_root_banks.txt), the chain b624–b709 AGREE; the mirror '
+            'mirror-refresh-2026-10-23-b709.zip CLEAN on all three clauses over %s files with the root line (data/b709_mirror.txt); suite 144 of '
+            '147 pre-push and post-push, %s declared on the face and %s failing after the seal on their own needles (data/b709_checks.txt, '
+            'data/b709_checks_postpush.txt; answered by this act’s corrigendum and repaired at this act’s carry under `(R320)`(3)); N1 %s and N3 %s '
+            'as worded, N2 %s and N4 %s, N5 %s at the record and %s at the close, S1 %s, S2 %s, S3 %s (data/b709_scores.json, '
+            'data/b709_scores_close.json); the sealed tools’ hashes equal at the close, %s of %s; the citation check %s cites, %s OK, %s missed, the '
+            'seat’s; eight defects (a)–(h), every one the seat’s (data/b709_defects.txt), the two post-seal needles beneath them unlettered; '
+            '“1 prompt answered” the root’s prompt alone. Nothing deposited.' % (
+                head, a_b, lam_b, lo_b, hi_b, a_r, lam_r, int(zb) + int(zr), zb, zr, c1n, bands, on, off, comp, wi, out,
+                min(r[2] for r in rows), max(r[2] for r in rows), ', '.join('pair %d below pair %d' % s for s in steps) or 'none',
+                run, built, of, lg, banks, (ar.get('previous') or '')[:8], files, ', '.join(decl), ' and '.join(sorted(post)),
+                sv(sr, 'N1'), sv(sr, 'N3'), sv(sr, 'N2'), sv(sr, 'N4'), sv(sr, 'N5'), sv(sc, 'N5'), sv(sc, 'S1'), sv(sc, 'S2'), sv(sr, 'S3'),
+                agree, of_a, cites, ok, miss))
+
+
+def _readings():
+    """(R320)(2) verbatim from the banked ferry (data/b710_ferry.txt), the navigator's words, entered beside the weight line for the strike."""
+    f = rdn('b710_ferry.txt').split(NL)
+    p2 = [l for l in f if l.startswith('(2) THE READINGS OF b709’S FIGURES')]
+    if len(p2) != 1:
+        sys.exit('### (R320)(2) NOT FOUND ONCE IN THE BANKED FERRY -- NOTHING COMPOSED')
+    body = p2[0].split(': ', 1)[1].rstrip('.')
+    return (' %s (data/b710_ferry.txt :%d). Beside reading (ii), by the fact clause: the rise is a trend over the ten pairs, four of them below the '
+            'next-lower pair’s ratio (data/b710_citation_check.txt), and the refined form is registered at relay data/b710_registrations.txt (i) with '
+            'its constants fitted from b709’s banked pairs alone, beta = 7.997097 against the route’s own 8 (data/b710_fit.txt).' % (body, f.index(p2[0]) + 1))
+
+
+def c1(*a):
+    dry = 'dry' in a
+    land([('FINDINGS.md', WH, NL + WH + _wb() + NL), ('FINDINGS.md', RH, NL + RH + _readings() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B709_ENTRY,
+         check=[('FINDINGS.md', K.B709_ENTRY, '## The sign-onset radius at the Epstein zeta'), ('OPEN_TRAILS.md', K.B709_TRAIL, '### b709')],
+         dry=dry)
+
+
+# ================================================================================ COMPONENT 1: THE REPAIRS' CONTROLS, (R320)(3)
+def _data_state():
+    """every file directly under relay data/: its size and its mtime -- the lock gate's NEG control reads it before and after."""
+    out = {}
+    for f in os.listdir(D):
+        p = os.path.join(D, f)
+        if os.path.isfile(p):
+            st = os.stat(p)
+            out[f] = (st.st_size, st.st_mtime_ns)
+    return out
+
+
+def _gate_call(*args):
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'b378_lockgate.py')] + list(args), capture_output=True, text=True,
+                       encoding='utf-8', errors='replace', cwd=ROOT, timeout=120)
+    return r.returncode, ((r.stdout or '') + (r.stderr or '')).replace(chr(13), '')
+
+
+def repairctl(*a):
+    """data/b710_repair_controls.txt (.json), Component 1, (R320)(3): the four repairs against their old forms. (1) G-REPORT-UNSEALED's key read
+    case-insensitively (tools/b710_checks.py keys_ci) on b709's report bank (data/b709_report.txt), the bank the sealed needle failed on, and on a
+    NEG copy with every `ratio` removed; (2) G-AXIS-REGISTERED's quotation read after joining wrapped lines (joined) on b709's registrations bank
+    and a NEG copy with the quotation's words changed; (3) the lock gate without its argument: exit 2 and relay data/ unchanged file for file,
+    an empty argument the same, the POS call with an act whose face is absent passing the argument's check and refusing at the face, nothing
+    written, b378's tracked bank equal to HEAD; (4) the test that ran lean: its run at step zero (data/b710_tests_stepzero.txt), the process
+    listing after its part, and its text carrying no call of the reader's lean route."""
+    import types
+    src_ck = rd(os.path.join(T, 'b710_checks.py'))
+    ns = {}
+    for fn_name in ('keys_ci', 'joined'):   # ### the repaired forms as they stand in the suite's text (the suite's act sections are rewritten at Component 5)
+        exec(compile(R._fn_src(src_ck, fn_name), 'tools/b710_checks.py:' + fn_name, 'exec'), ns)
+    CH = types.SimpleNamespace(keys_ci=ns['keys_ci'], joined=ns['joined'])
+    rows, allok = [], True
+
+    def case(name, got, want):
+        nonlocal allok
+        ok = got == want
+        allok = allok and ok
+        rows.append(dict(case=name, got=got, wanted=want, as_wanted=ok))
+
+    keys = ('ONSET', 'ZETA', 'RATIO', 'MODULES', 'FIGURES')
+    rep = rdn('b709_report.txt')
+    case('(1) the old needle on b709`s report bank (every key in capitals, case-sensitive)', all(k in rep for k in keys), False)
+    case('(1) the repaired needle (keys_ci) on b709`s report bank', CH.keys_ci(rep, keys), True)
+    neg1 = re.sub('(?i)ratio', 'quotient', rep)
+    case('(1) NEG: the repaired needle on a copy with every `ratio` removed, any case', CH.keys_ci(neg1, keys), False)
+    q = '(e) representation coordinates (the operator / Toeplitz form) -- 4'
+    reg, rk = rdn('b709_registrations.txt'), rdn('b705_i6_ranking.txt').split(NL)[57]
+    case('(2) the old needle on b709`s registrations bank (the quotation as one string)', q in reg, False)
+    case('(2) the repaired needle (joined) on b709`s registrations bank', q in CH.joined(reg), True)
+    case('(2) the repaired needle on data/b705_i6_ranking.txt :58 (the quotation on one line)', q in CH.joined(rk), True)
+    case('(2) NEG: the repaired needle on a copy with "Toeplitz" changed to "Hankel"', q in CH.joined(reg.replace('Toeplitz', 'Hankel')), False)
+    other = ('(e) REPRESENTATION COORDINATES', 'THE STATEMENT-GRADE RE-EXPRESSION', 'HYPOTHESIS:', 'FALSIFIER:', 'CONTROLS, printed before any figure',
+             '(C1)', '(C2)', '(C3)', 'THE PRICE (DERIVED', 'COMPUTED AT b711', 'the second row :58', 'ITS LEAST EIGENVALUE lambda_min(a, N) IS THE SIGN')
+    case('(2) the arm`s other needles on b709`s registrations bank, joined', all(x in CH.joined(reg) for x in other), True)
+    before = _data_state()
+    lg_before = g(ROOT, 'diff', 'HEAD', '--', 'data/b378_lockgate.json')
+    rc0, out0 = _gate_call()
+    rc1, out1 = _gate_call('')
+    rc2, out2 = _gate_call('b710')
+    after = _data_state()
+    changed = sorted(f for f in set(before) | set(after) if before.get(f) != after.get(f))
+    lg_after = g(ROOT, 'diff', 'HEAD', '--', 'data/b378_lockgate.json')
+    case('(3) NEG: the lock gate with no argument exits 2 printing its usage', (rc0, 'the act argument is required' in out0), (2, True))
+    case('(3) NEG: the lock gate with an empty argument exits 2 printing its usage', (rc1, 'the act argument is required' in out1), (2, True))
+    case('(3) POS: with an act (b710, its default face absent) the gate passes the argument`s check and refuses at the face, exit 2',
+         (rc2, 'THE FACE DOES NOT EXIST' in out2, 'the act argument is required' in out2), (2, True, False))
+    case('(3) relay data/ unchanged file for file across the three calls (size and mtime)', changed, [])
+    case('(3) b378`s tracked bank data/b378_lockgate.json equal to HEAD before and after', (lg_before.strip(), lg_after.strip()), ('', ''))
+    tj = jl('b710_tests_stepzero.json')
+    trow = next((r for r in (tj.get('rows') or tj.get('tests') or []) if (r.get('file') or r.get('name')) == 'test_elab_reader_b634.py'), {})
+    tz = rdn('b710_tests_stepzero.txt')
+    tl = next((l for l in tz.split(NL) if l.strip().startswith('test_elab_reader_b634.py')), '')
+    src = rd(os.path.join(T, 'test_elab_reader_b634.py'))
+    case('(4) the repaired test at step zero: exit 0, 7 of 7 (data/b710_tests_stepzero.txt)', ('exit 0' in tl and '7 of 7 cases as wanted -- PASS' in tl), True)
+    case('(4) its text carries no call of the reader`s lean route (`EL.call(` absent; `EL.call = _refuse` present)', ('EL.call(' not in src, 'EL.call = _refuse' in src), (True, True))
+    sz = rdn('b710_stepzero.txt')
+    case('(4) the process listing after its part: lean 0, lake 0, python 0 (data/b710_stepzero.txt)', 'lean 0, lake 0, python 0' in sz and '22:08:15Z' in sz, True)
+    L = ['%s -- COMPONENT 1, (R320)(3): THE TWO NEEDLES, THE LOCK GATE AND THE TEST AGAINST THEIR OLD FORMS, WITH THEIR CONTROLS (%s)' % (ACT, utc()), '',
+         '### rows are cases: the case | the reading got | the reading wanted | AS WANTED. The banks the old needles failed on after b709`s seal:',
+         '### relay data/b709_report.txt (G-REPORT-UNSEALED) and data/b709_registrations.txt :12-:13 (G-AXIS-REGISTERED); the repaired forms',
+         '### tools/b710_checks.py keys_ci and joined. The lock gate: tools/b378_lockgate.py, the argument required (its main); the test:',
+         '### tools/test_elab_reader_b634.py, the banked prints data/b710_elab_reader_print.txt and data/b710_elab_reader_print_sec.txt.', '']
+    L += ['  %-118s | got %-24s | wanted %-24s | %s' % (r['case'][:118], str(r['got'])[:24], str(r['wanted'])[:24], 'AS WANTED' if r['as_wanted'] else '### NOT AS WANTED') for r in rows]
+    L += ['', '### the lock gate`s three calls, their first lines: none %r ; empty %r ; b710 %r' % (out0.strip().split(NL)[0][:90], out1.strip().split(NL)[0][:90],
+                                                                                              [l.strip() for l in out2.split(NL) if 'THE FACE DOES NOT EXIST' in l][:1])]
+    L += ['', '### ### **CASES %d ; AS WANTED %s ; THE REPAIRED NEEDLES PASS ON b709`S BANKS AND THEIR NEG COPIES FAIL ; THE LOCK GATE WITHOUT ITS ARGUMENT WRITES NOTHING ; THE TEST RUNS NO LEAN.**' % (
+        len(rows), allok)]
+    if 'dry' not in a:
+        put_txt('%s_repair_controls.txt' % ACT, L)
+        put_json('%s_repair_controls.json' % ACT, dict(at=utc(), cases=rows, as_wanted=allok, changed=changed))
+    print(NL.join(L[6:]))
+    if not allok:
+        sys.exit(1)
+
+
+def _fn_diff(old_src, new_src, name, a_name, b_name):
+    import difflib
+    o = (R._fn_src(old_src, name) or '').split(NL)
+    n = (R._fn_src(new_src, name) or '').split(NL)
+    return ['    ' + l for l in difflib.unified_diff(o, n, a_name, b_name, lineterm='', n=1)]
+
+
+CARRY_ROWS = []   # ### the carry-time repairs of Component 5, appended by the Edit tool at Component 5
+
+
+def toolrepairs(*a):
+    """data/b710_tool_repairs.txt: the repairs of (R320)(3) with their diffs and controls -- (1) G-REPORT-UNSEALED's key case-insensitive, (2)
+    G-AXIS-REGISTERED's bank joined (each the function's diff, b709's sealed form against tools/b710_checks.py's, and the helper added), (3) the
+    lock gate's argument required (`git diff HEAD` of tools/b378_lockgate.py), (4) the test reading banked prints (`git diff HEAD` of
+    tools/test_elab_reader_b634.py); the controls data/b710_repair_controls.txt by row. At Component 5 the carry-time repairs are added as rows."""
+    old, new = rd(os.path.join(T, 'b709_checks.py')), rd(os.path.join(T, 'b710_checks.py'))
+    ctl = jl('%s_repair_controls.json' % ACT).get('cases') or []
+    cl = lambda p: ['      control: %s -- %s' % (c['case'], 'AS WANTED' if c['as_wanted'] else '### NOT AS WANTED') for c in ctl if c['case'].startswith(p)]   # noqa: E731
+    L = ['%s -- THE REPAIRS OF (R320)(3) AND THE CARRY-TIME REPAIRS, EACH WITH ITS DIFF AND ITS CONTROL (%s)' % (ACT, utc()), '',
+         '### rows are repairs: the tool and its part ; what it answers ; the diff ; the controls (data/b710_repair_controls.txt). No sealed tool of',
+         '### an earlier act is edited; the two shared tools edited are the ruling`s ((R320)(3)), named in (W).', '',
+         '  (1) tools/b710_checks.py report_unsealed_ok and keys_ci -- (R320)(3): G-REPORT-UNSEALED`s key read case-insensitively (b709`s arm wanted',
+         '      RATIO in capitals; its report printed "the twelve ratios"; data/b709_defects.txt :117-:122).']
+    L += _fn_diff(old, new, 'report_unsealed_ok', 'tools/b709_checks.py', 'tools/b710_checks.py') + ['    + (the helper keys_ci added beside it)'] + cl('(1)')
+    L += ['', '  (2) tools/b710_checks.py axis_registered_ok and joined -- (R320)(3): G-AXIS-REGISTERED reading the registrations bank after joining',
+          '      wrapped lines (b709`s bank wraps the quotation across :12-:13; data/b709_defects.txt :123-:129).']
+    L += _fn_diff(old, new, 'axis_registered_ok', 'tools/b709_checks.py', 'tools/b710_checks.py') + ['    + (the helper joined added beside it)'] + cl('(2)')
+    L += ['', '  (3) tools/b378_lockgate.py main -- (R320)(3): the act argument required, a call without it exiting before any write (b709`s (h)).']
+    L += ['    ' + l for l in g(ROOT, 'diff', 'HEAD', '--', 'tools/b378_lockgate.py').rstrip(NL).split(NL)] + cl('(3)')
+    L += ['', '  (4) tools/test_elab_reader_b634.py -- (R320)(3): the test reading lean`s banked prints and invoking no lean (b709`s (c), its calls at',
+          '      :34 and :65); the prints data/b710_elab_reader_print.txt and data/b710_elab_reader_print_sec.txt (blobs 55277c74, ef99e5c3).']
+    L += ['    ' + l for l in g(ROOT, 'diff', 'HEAD', '--', 'tools/test_elab_reader_b634.py').rstrip(NL).split(NL)] + cl('(4)')
+    L += CARRY_ROWS
+    ok = bool(ctl) and all(c['as_wanted'] for c in ctl)
+    L += ['', '### ### **REPAIRS OF (R320)(3) 4 ; CONTROLS AS WANTED %s ; CARRY-TIME ROWS %d ; NO SEALED TOOL OF AN EARLIER ACT EDITED ; SHARED TOOLS EDITED 2 (THE RULING`S).**' % (
+        ok, sum(1 for l in CARRY_ROWS if re.match(r'^  \(\d+\) ', l)))]
+    if 'dry' not in a:
+        put_txt('%s_tool_repairs.txt' % ACT, L)
+    print(NL.join(L[-1:]))
+
+
 # ### stage one (step zero): b709's Component routes over its own objects pruned (data/b710_prune_record.txt); this act's are added by the Edit tool
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               ksyms=ksyms, defs=defs, figures=figures, runner=runner,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
-              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck)
+              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck, c1=c1, repairctl=repairctl, toolrepairs=toolrepairs)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
