@@ -33,6 +33,15 @@ b709 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-23)
         after the fact (the run stands in the bank); the carried tests tool's report line, which printed "no part moved to the background"
         unconditionally, repaired at carry time to read the tests over the guard (the diff in data/b709_tool_repairs.txt at Component 5), the
         report re-run. For the next ruling: the withheld bank carried by name with the tests tool.
+        HOW A TEST CAME TO INVOKE LEAN ON THIS HOST (the author's word at the root, 2026-10-24): the test file tools/test_elab_reader_b634.py
+        imports tools/b634_elab.py and calls its `call` route twice (:34 and :65); that route generates a Lean file in the scratchpad and runs
+        `lake env lean <generated file>` by subprocess in the kernel's own checkout (tools/b634_elab.py :290, cwd D:/SIDE-explicit-formula; the
+        second call through :480 in D:/SIDE-structural-error-correction), under the tool's own free-memory watch. The tests tool
+        (tools/b709_tests.py, part 5 of 7 at step zero) runs every tracked test file one process each unless data/b709_tests_withheld.json names
+        it; b708 withheld this test by data/b708_tests_withheld.json ("runs lean on this host"), the seat carried the tests tool by diff and did
+        not write this act's withheld bank, so the test ran: the first lean call 631 s (free before 6822 MB, lowest 4481 MB), the kernel's
+        call 235 s (free before 6795 MB), the test 867 s in all, exit 0, 7 of 7 cases (data/b709_tests_stepzero.txt :34, :645, :653; the bank
+        written 2026-10-23T19:39:09Z). Printed again by the unsealed report tool before the root (data/b709_report.txt, the second check).
 
     (d) THE SEAT'S: THE PAIRS' EXTENSION RUN THROUGH BACKGROUND SHELLS AND PROCESS POOLS. The band route of tools/b709_pairs.py (the
         certification of Q0's zeros above 150 by height band) was sent as parallel foreground calls, several bands at once, and its counts and
