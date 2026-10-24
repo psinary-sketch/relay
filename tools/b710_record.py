@@ -1110,12 +1110,52 @@ def moves(*a):
          check=[('OPEN_TRAILS.md', K.B709_TRAIL, '### b709'), ('FINDINGS.md', K.B709_ENTRY, '## The sign-onset radius at the Epstein zeta')], dry=dry)
 
 
+# ================================================================================ COMPONENT 4: THE REGISTRATIONS RE-READ, (R320)(6)
+REG_COMMIT = '41ff1193'   # ### data/b710_registrations.txt and data/b710_rules.txt committed alone at step zero, before any other bank of the act
+COMPUTE_TOOLS = ('b709_pairs.py', 'b709_grid.py', 'b707_onset.py', 'b705_detection.py', 'b675_li_bench.py', 'b667_epstein_certify.py', 'b694_witness', 'b696_witness_balls.py')
+
+
+def regcheck(*a):
+    """data/b710_registrations_reread.txt (.json), Component 4: the registrations bank and the rules bank re-read after Components 1-3 and compared
+    byte for byte with their blobs at relay 41ff1193 and at HEAD, the commits touching each read; the registration printed unchanged; nothing
+    computed for its three rows -- no bank of this act carrying an n*, a surgery eigenvalue or a coefficient (by name), no computation tool of the
+    rows' routes run in the act's capture; the one derived bank (data/b710_fit.txt, the fit of (i)'s constants from b709's banked pairs) named."""
+    out = dict(at=utc(), rows={})
+    same = True
+    L = ['%s -- COMPONENT 4, (R320)(6): THE REGISTRATIONS RE-READ AFTER COMPONENTS 1-3, UNCHANGED SINCE THEIR COMMIT; NOTHING COMPUTED FOR THEIR THREE ROWS (%s)' % (ACT, utc()), '']
+    for p in ('data/%s_registrations.txt' % ACT, 'data/%s_rules.txt' % ACT):
+        now = rd(os.path.join(ROOT, *p.split('/'))) or ''
+        then = _show(ROOT, REG_COMMIT, p) or ''
+        hb = g(ROOT, 'rev-parse', 'HEAD:' + p).strip()
+        tb = g(ROOT, 'rev-parse', '%s:%s' % (REG_COMMIT, p)).strip()
+        wb = g(ROOT, 'hash-object', '--', p).strip()
+        log = [l for l in g(ROOT, 'log', '--format=%h', '--', p).split(NL) if l.strip()]
+        eq = bool(now) and now == then and wb == tb == hb
+        same = same and eq
+        out['rows'][p] = dict(work_blob=wb, then_blob=tb, head_blob=hb, commits=log, unchanged=eq)
+        L.append('### %s -- committed alone at relay %s ; the working file`s blob %s ; at %s %s ; at HEAD %s ; the commits touching it %s ; EQUAL BYTE FOR BYTE %s' % (
+            p, REG_COMMIT, wb[:12], REG_COMMIT, tb[:12], hb[:12], log, eq))
+    names = sorted(f for f in os.listdir(D) if f.startswith('%s_' % ACT) and re.search(r'nstar|pair1[15]|surgery|coeff|onset|eigen|_grid|_pairs', f))
+    rows = capture()
+    runs = [r['n'] for r in rows if r['tool'] in ('Bash', 'PowerShell') and any(re.search(r'python[^\n]*' + re.escape(t), r['cmd']) for t in COMPUTE_TOOLS)]
+    L += ['', '### banks of this act named for an n*, a surgery, a coefficient, an onset, an eigenvalue, a grid or a pairs computation: %s' % (names or 'NONE'),
+          '### commands of the act running a computation tool of the rows` routes (%s): %s' % (', '.join(COMPUTE_TOOLS), runs or 'NONE'),
+          '### the one derived bank: data/b710_fit.txt (tools/b710_fit.py, the constants of (i) fitted from data/b709_pairs.txt`s printed figures; no n*, zero or coefficient computed)', '',
+          '### THE REGISTRATION, PRINTED UNCHANGED:'] + ['    ' + x for x in (rd(os.path.join(D, '%s_registrations.txt' % ACT)) or '').rstrip(NL).split(NL)]
+    nothing = not names and not runs
+    L += ['', '### ### **THE REGISTRATIONS AND THE RULES UNCHANGED SINCE THEIR COMMIT %s (relay %s) ; NOTHING COMPUTED FOR THE THREE ROWS %s.**' % (same, REG_COMMIT, nothing)]
+    out.update(unchanged=same, computed_banks=names, compute_runs=runs, nothing_computed=nothing)
+    put_txt('%s_registrations_reread.txt' % ACT, L)
+    put_json('%s_registrations_reread.json' % ACT, out)
+    print(NL.join(L[2:4] + L[5:8] + L[-1:]))
+
+
 # ### stage one (step zero): b709's Component routes over its own objects pruned (data/b710_prune_record.txt); this act's are added by the Edit tool
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               ksyms=ksyms, defs=defs, figures=figures, runner=runner,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
-              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck, c1=c1, repairctl=repairctl, toolrepairs=toolrepairs, moves=moves)
+              runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck, c1=c1, repairctl=repairctl, toolrepairs=toolrepairs, moves=moves, regcheck=regcheck)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

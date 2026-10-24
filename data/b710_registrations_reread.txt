@@ -1,0 +1,96 @@
+b710 -- COMPONENT 4, (R320)(6): THE REGISTRATIONS RE-READ AFTER COMPONENTS 1-3, UNCHANGED SINCE THEIR COMMIT; NOTHING COMPUTED FOR THEIR THREE ROWS (2026-10-24T22:49:07Z)
+
+### data/b710_registrations.txt -- committed alone at relay 41ff1193 ; the working file`s blob a70783647e95 ; at 41ff1193 a70783647e95 ; at HEAD a70783647e95 ; the commits touching it ['41ff1193'] ; EQUAL BYTE FOR BYTE True
+### data/b710_rules.txt -- committed alone at relay 41ff1193 ; the working file`s blob 8900a9f9cecf ; at 41ff1193 8900a9f9cecf ; at HEAD 8900a9f9cecf ; the commits touching it ['41ff1193'] ; EQUAL BYTE FOR BYTE True
+
+### banks of this act named for an n*, a surgery, a coefficient, an onset, an eigenvalue, a grid or a pairs computation: NONE
+### commands of the act running a computation tool of the rows` routes (b709_pairs.py, b709_grid.py, b707_onset.py, b705_detection.py, b675_li_bench.py, b667_epstein_certify.py, b694_witness, b696_witness_balls.py): NONE
+### the one derived bank: data/b710_fit.txt (tools/b710_fit.py, the constants of (i) fitted from data/b709_pairs.txt`s printed figures; no n*, zero or coefficient computed)
+
+### THE REGISTRATION, PRINTED UNCHANGED:
+    b710 -- STEP ZERO, (R320)(6): THE REGISTRATIONS FOR b711, WRITTEN AND COMMITTED BEFORE ANY NUMBER OF THEIRS IS COMPUTED (2026-10-24)
+    
+    ### rows are registrations, each with its object, quantity, hypothesis, falsifier, controls, the act that computes it and the order it serves,
+    ### in (R320)(6)'s words. Written by the Write tool at step zero after the citation check and the branches, and committed alone with
+    ### data/b710_rules.txt before any other bank of this act (the ferry's Component 0 and 4; N4). NOTHING IS COMPUTED FOR ANY ROW AT b710: no n*,
+    ### no eigenvalue, no coefficient. The one set of figures below is (i)'s fitted constants and predictions, DERIVED from b709's banked pairs
+    ### alone (relay data/b709_pairs.txt :46-:57) by relay tools/b710_fit.py and quoted from its bank data/b710_fit.txt by line, as (R320)(6)(i)
+    ### orders them printed here before the list reaches those heights. Nothing here is a statement that RH or GRH holds or locates any zero.
+    
+      (i) THE REFINED DETECTION LAW -- COMPUTED AT b711 WITH W-ORD-Q0-ZEROS-443 (OPEN_TRAILS :15764), ON PAIRS 11 AND 15 ALONE.
+          THE LAW AS THE RULING WORDS IT ((R320)(6)(i)): "n* solves r(rho)·n* = log(M(n*)/A(rho)), with M the main term of the configuration's
+              Li coefficient and A the off-line pair's amplitude, both as b709's route computes them".
+          THE ROUTE'S OWN EQUATION, BY LINE (the citation check's miss for this row, entered by the fact clause: data/b710_citation_check.txt):
+              b709's route is b675's constants_for line for line (tools/b709_pairs.py constants_for709; tools/b675_li_bench.py :163-:194), its
+              onset (:153-:160) the least n with 2 - (1/4) R^n + C (n + 1)^2 s^n < 0, called as onset(arb(2), R, arb(1) / 4, Cc, s) (:189):
+              R = |1 - 1/rho'| for the pair (rho' its reflection, :167-:168), s = (s1 + R)/2 with s1 = (1 + R)/2 (:169, :176-:177), so
+              s = (1 + 3R)/4; C = 2(2 + 2(1 + s)^2) K (:188), K the rest set's sum over the certified list with its tail (:178-:187). The term the
+              pair's growth R^n must overtake is the REMAINDER BOUND C (n + 1)^2 s^n, not a main term of the Li coefficient; the pair's coefficient
+              is the constant 1/4 for every pair, not a pair-dependent amplitude; and the rate that enters is log(R/s), which is r/4 + O(r^2) for
+              r = log R = r(rho), the bank's r(rho) (data/b709_pairs.txt :8). Read to first order in r the onset solves
+                  r n* = 4 log(4C) + 8 log(n* + 1),
+              the ruling's form with M(n) = (C (n + 1)^2)^4 and A = (1/4)^4: the ruling's form registered as the route's equation read to first
+              order, the route's equation the test's object.
+          THE FITTED FORM AND ITS CONSTANTS (data/b710_fit.txt :20-:22, DERIVED, least squares over the ten computed pairs 5-10, 12-14, 16):
+                  r n* = alpha + beta log(n* + 1)
+              (F2) two constants: alpha = 19.065093, beta = 7.997097 -- the registered law;
+              (F1) the route's beta = 8 held, alpha alone: alpha = 19.021167 -- printed beside, not the registered law.
+              The fitted beta reads the route's own coefficient 8 to within 0.003; the fit is the route's first-order equation with C nearly
+              constant across the pairs (alpha = 4 log(4C) gives C near 29), so the test at b711 reads whether the extended list's rest set
+              moves C at pairs 11 and 15, and not an independent law. This reading is the seat's, for the author's strike.
+          THE PREDICTIONS (data/b710_fit.txt :38-:39, each n the fixed point of n = (alpha + beta log(n + 1)) / r(rho), iterated from b709's
+              L0/r to a change below 1e-9), printed before the certified list reaches either pair's height (the list complete to 325, the rule
+              needing T0' > 405.4 and > 442.3, data/b709_pairs.txt :36, :52, :56):
+                  pair 11 (t = 93.0813, r(rho) = 1.216894664e-5): F2 n* = 12294837 ; the window [0.9, 1.1] = [11065353, 13524321] ; F1 12295138 ;
+                           b709's L0/r 8922215
+                  pair 15 (t = 127.6228, r(rho) = 1.022443029e-5): F2 n* = 14776940 ; the window [0.9, 1.1] = [13299246, 16254634] ; F1 14777353 ;
+                           b709's L0/r 10619071
+          THE ONSET CAP AT b711: b709's route capped the onset search at 1.5 x the L0/r prediction (data/b707_registrations.txt :39-:43): for
+              pair 11 that cap is 13383322 and for pair 15 15928607, each BELOW the window's top (13524321, 16254634). The cap is registered at
+              1.25 x the F2 prediction (15368546 for pair 11, 18471175 for pair 15), above the window, so the falsifier can be read on both sides.
+          HYPOTHESIS: each of pairs 11 and 15, computed by b709's route on the certified list extended to T0' above its need, has n* within
+              [0.9, 1.1] of its F2 prediction.
+          FALSIFIER: either computed n* outside [0.9, 1.1] of its F2 prediction ((R320)(6)(i)).
+          CONTROLS, printed before either pair: (C1) the refined law reproducing the ten computed pairs within [0.9, 1.1] -- read at b711 from
+              the same fit (data/b710_fit.txt :24-:35 prints the fit's own reading, 10 of 10 for F2 and F1, the largest departure 4e-6 for F2 and 2.2e-5 for F1; the
+              control re-reads it against the ten pairs re-computed on the list extended past 325, the ten's n* moving with the longer list as
+              b709's C3 rows moved pairs 0-4, data/b709_pairs.txt :39-:43); (C2) b709's controls carried: n*(rho_0) = 63676 at T0 = 150 over
+              the 180 representatives and b705's five pairs EQUAL (data/b709_pairs.txt :11-:16).
+          THE ORDER IT SERVES: W-ORD-Q0-ZEROS-443 (OPEN_TRAILS :15764): the list from 325 to 443 in eight bands, then pairs 11 and 15.
+    
+      (ii) THE SURGERY AT Q0'S ONSET RADII -- COMPUTED AT b711.
+          THE OBJECT: the Weil form of Q0 (the Epstein zeta of x^2 + xy + 6y^2), S = P - PR + A on the family F_a(gamma_0) = span{C, N}, as
+              b707's tool computes it in balls and b709's grid read it (tools/b707_onset.py; data/b709_grid.txt :3-:9), with its prime side's
+              coefficients at the n that are NOT prime powers removed -- the composition terms; the coefficients at prime powers kept as they
+              stand. Read at each family's onset radius as b709 placed it: the band zero's at the rung log 32381 (a = 10.38532711) and rho_0's at
+              the midpoint between log 929 and log 937 (a = 6.838396011) (data/b709_report.txt :16).
+          THE QUANTITY: the least eigenvalue of the operated 2 x 2 form in the L2 metric at each onset point, in balls, read POSITIVE DEFINITE,
+              NEGATIVE DIRECTION or UNDECIDED beyond its bound as b707's tool reads it; beside it the share of the prime side up to each onset
+              carried by non-prime-power n (the operated part's sum over the unoperated sum, both as b707's tool forms the prime side at that a).
+          HYPOTHESIS: the operated form is POSITIVE DEFINITE beyond its bound at both onsets -- the negative eigenvalue b709 read there carried
+              by the composition terms.
+          FALSIFIER: the operated form NEGATIVE DIRECTION beyond its bound at either onset.
+          CONTROLS, printed before either figure: (C1) zeta unchanged by the operation -- its composite part identically zero (Lambda vanishes off
+              the prime powers), the operated zeta form equal to the unoperated one at both points in balls; (C2) the unoperated Q0 form reproducing
+              b709's onset eigenvalues: band lambda_min -3.5300862e-5 +- 2.40e-26 at rung32381, rho_0 lambda_min -0.0037191321 +- 3.04e-24 at
+              mid929_937 (data/b709_report.txt :16), each within its ball.
+          THE SCOPE, stated as (R320)(6)(ii) states it: the corrected prime side is not the log-derivative of a function with these zeros, so the
+              surgery attributes the form's prime-side expression and states nothing about any function's zeros.
+          THE ORDER IT SERVES: none named; registered under the ruling's number for b711 ((R320)(10)).
+    
+      (iii) THE COEFFICIENT OBSERVATION -- COMPUTED AT b711; AN OBSERVATION, NO HYPOTHESIS.
+          THE OBJECT: Q0's log-derivative coefficients c(n) through n = e^{10.39} (about 32532, past the band's onset rung 32381), computed exactly
+              from the representation counts r_Q(n) of x^2 + xy + 6y^2 (the Dirichlet series of Z_Q and its log-derivative's coefficients by the
+              recursion over divisors, in exact rationals times log n where the coefficient carries one).
+          THE READINGS PRINTED: the least index n with c(n) < 0 and its value -- the navigator's expectation n = 48, c(48) = -2 log 48 "from the
+              navigator's exact computation" ((R320)(6)(iii)), printed beside the computed figure as an expectation and not checked here; the count
+              of negative coefficients through e^{10.39}; and beside it the least height of a certified zero with Re rho > 1 in the extended list
+              (data/b709_pairs.txt's bands and their units), if one exists, or "none in the list to 325" with the list's off-line search region read
+              from its tool (the right half-strip sigma >= 1/2 + 0.02, data/b709_pairs.txt :7-:8) and its upper sigma printed.
+          THE ORDER IT SERVES: none named; registered under the ruling's number for b711.
+    
+    ### ### **REGISTRATIONS 3 ; (i) THE REFINED LAW, F2 alpha 19.065093 beta 7.997097, PAIR 11 12294837, PAIR 15 14776940, THE WINDOW [0.9, 1.1],
+    ### THE CAP 1.25 x ; (ii) THE SURGERY AT BOTH ONSETS, ZETA AND THE UNOPERATED FORM AS CONTROLS, THE SCOPE STATED ; (iii) THE COEFFICIENT
+    ### OBSERVATION, NO HYPOTHESIS ; COMPUTED AT b711 ; NOTHING COMPUTED AT b710 BUT (i)'S FIT FROM b709'S BANKED PAIRS.**
+
+### ### **THE REGISTRATIONS AND THE RULES UNCHANGED SINCE THEIR COMMIT True (relay 41ff1193) ; NOTHING COMPUTED FOR THE THREE ROWS True.**
