@@ -1,5 +1,5 @@
 {
- "at": "2026-10-24T23:52:51Z",
+ "at": "2026-10-25T00:00:03Z",
  "anchor": "RULING (R320) BEGIN",
  "rows": [
   {
@@ -1712,6 +1712,158 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b710_record.py desk",
    "n": 214,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:52:49.698Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py commands; python -X utf8 tools/b710_record.py reads; python -X utf8 tools/b710_record.py answers; git status --porcelain -- data/b710_* data/terminal_table* && git -C /d/MY-DOwnloads/PLACE-papers status --porcelain",
+   "n": 215,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:52:59.645Z",
+   "src": "seat",
+   "cmd": "git diff --stat -- data/b710_author_answers.json data/b710_author_answers.txt",
+   "n": 216,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:53:03.336Z",
+   "src": "seat",
+   "cmd": "git restore -- data/b710_author_answers.json",
+   "n": 217,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:53:11.482Z",
+   "src": "seat",
+   "cmd": "git add data/b710_commands.json data/b710_commands.txt data/b710_locate.txt data/b710_read_calls.json data/b710_read_calls.txt data/b710_desk_notes.txt data/b710_findings.json data/b710_scores.json data/b710_table_final.json data/b710_table_final.txt && git commit -q -m \"b710 pre-root: the scores bank written once (N1-N5 HELD, S3 HELD, S1 and S2 waiting), the entry's line (FINDINGS :10246), the desk, the final table unmoved, the command and read banks to this point\" && git log -1 --format=%H",
+   "n": 218,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:53:17.611Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m \"b710 entry: reading 5 -- the four principles against the corpus, 3 of 4 with a compiled terminal and 1 with a control object; the moves-by-locus table entered; the standing clauses banked at v1; the refined detection law and the surgery registered for b711 (FINDINGS :10246), under (R320)\" && git log -1 --format=%H",
+   "n": 219,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:53:25.193Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b710",
+   "n": 220,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:53:30.951Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PUSH_GATED_LOG=data/b710_pp_push_out.txt bash tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b710",
+   "n": 221,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:54:04.084Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch push-b710",
+   "n": 222,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:54:09.469Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=data/b710_relay_push_out.txt bash tools/push_gated.sh /d/relay push-b710",
+   "n": 223,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:54:24.824Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py data/b709_closing.txt 'root.s prompt|ROOT`S PROMPT|PROMPT|answered'",
+   "n": 224,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:54:31.328Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py data/b709_citation_check.txt 'MID-ACT CHECK|ANSWER CITES'",
+   "n": 225,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:57:17.283Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b710_citation.py '^def |sys\\.argv|ROUTES'",
+   "n": 226,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:57:26.203Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_citation.py answer \"Root: 1, proceed\"",
+   "n": 227,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:57:41.619Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_citation.py word \"W-ORD-READING5-INDEPENDENCE\"",
+   "n": 228,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:58:00.573Z",
+   "src": "seat",
+   "cmd": "for k in SIDE-bijection SIDE-lv-conservation SIDE-explicit-formula SIDE-li-map SIDE-interfaces SIDE-kernel SIDE-simplicity; do echo \"== $k $(git -C /d/$k rev-parse --short HEAD) $(git -C /d/$k describe --tags --abbrev=0 2>/dev/null)\"; done",
+   "n": 229,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:58:16.014Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-bijection grep -l -w -e identity_formation_bijection -- \"*.lean\"; git -C /d/SIDE-lv-conservation grep -l -w -e T3prime_shared_witness -e T3doubleprime_general_commutation_fails -- \"*.lean\"; git -C /d/SIDE-explicit-formula grep -l -w -e productLemma_holds -e family_theorem -e h2_sign_cfg_iff_target -e h2_sign_sum_iff_rh -- \"*.lean\"; git -C /d/SIDE-li-map grep -l -w -e lam_add -- \"*.lean\"; git -C /d/SIDE-interfaces grep -l -w -e kappa_zero_of_no_mechanism -e parametric_mechanism_theorem -e interface_split -- \"*.lean\"; git -C /d/SIDE-kernel grep -l -w -e silence_universal -e offLine_of_codim_two -- \"*.lean\"; git -C /d/SIDE-simplicity grep -l -i -e codim -- \"*.lean\"",
+   "n": 230,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:59:06.894Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_order.py dry",
+   "n": 231,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:59:16.361Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_order.py",
+   "n": 232,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-24T23:59:48.434Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_report.py",
+   "n": 233,
    "bg": false
   }
  ],

@@ -1,7 +1,7 @@
-b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-24T23:52:51Z)
+b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T00:00:03Z)
 
 ### the source: the seat`s session c9e4ce2d-b9b5-4986-a582-3919fb34d296 from its first user line carrying 'RULING (R320) BEGIN', with its subagents` transcripts
-### commands read: 214
+### commands read: 233
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -270,5 +270,24 @@ b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #212 | 2026-10-24T23:52:07.008Z | seat | Bash | python -X utf8 tools/b710_record.py findings
   #213 | 2026-10-24T23:52:17.971Z | seat | Bash | python -X utf8 tools/b710_record.py table_final
   #214 | 2026-10-24T23:52:18.601Z | seat | Bash | python -X utf8 tools/b710_record.py desk
+  #215 | 2026-10-24T23:52:49.698Z | seat | Bash | python -X utf8 tools/b710_record.py commands; python -X utf8 tools/b710_record.py reads; python -X utf8 tools/b710_record.py answers; git status --porcelain -- 
+  #216 | 2026-10-24T23:52:59.645Z | seat | Bash | git diff --stat -- data/b710_author_answers.json data/b710_author_answers.txt
+  #217 | 2026-10-24T23:53:03.336Z | seat | Bash | git restore -- data/b710_author_answers.json
+  #218 | 2026-10-24T23:53:11.482Z | seat | Bash | git add data/b710_commands.json data/b710_commands.txt data/b710_locate.txt data/b710_read_calls.json data/b710_read_calls.txt data/b710_desk_notes.txt data/b71
+  #219 | 2026-10-24T23:53:17.611Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md && git commit -q -m "b710 entry: reading 5 -- the four principles against the corpus, 3 of 4 with a compi
+  #220 | 2026-10-24T23:53:25.193Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch push-b710
+  #221 | 2026-10-24T23:53:30.951Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=data/b710_pp_push_out.txt bash tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b710
+  #222 | 2026-10-24T23:54:04.084Z | seat | Bash | git -C /d/relay branch push-b710
+  #223 | 2026-10-24T23:54:09.469Z | seat | Bash | PUSH_GATED_LOG=data/b710_relay_push_out.txt bash tools/push_gated.sh /d/relay push-b710
+  #224 | 2026-10-24T23:54:24.824Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b709_closing.txt 'root.s prompt|ROOT`S PROMPT|PROMPT|answered'
+  #225 | 2026-10-24T23:54:31.328Z | seat | Bash | python -X utf8 tools/b710_locate.py data/b709_citation_check.txt 'MID-ACT CHECK|ANSWER CITES'
+  #226 | 2026-10-24T23:57:17.283Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_citation.py '^def |sys\.argv|ROUTES'
+  #227 | 2026-10-24T23:57:26.203Z | seat | Bash | python -X utf8 tools/b710_citation.py answer "Root: 1, proceed"
+  #228 | 2026-10-24T23:57:41.619Z | seat | Bash | python -X utf8 tools/b710_citation.py word "W-ORD-READING5-INDEPENDENCE"
+  #229 | 2026-10-24T23:58:00.573Z | seat | Bash | for k in SIDE-bijection SIDE-lv-conservation SIDE-explicit-formula SIDE-li-map SIDE-interfaces SIDE-kernel SIDE-simplicity; do echo "== $k $(git -C /d/$k rev-pa
+  #230 | 2026-10-24T23:58:16.014Z | seat | Bash | git -C /d/SIDE-bijection grep -l -w -e identity_formation_bijection -- "*.lean"; git -C /d/SIDE-lv-conservation grep -l -w -e T3prime_shared_witness -e T3double
+  #231 | 2026-10-24T23:59:06.894Z | seat | Bash | python -X utf8 tools/b710_order.py dry
+  #232 | 2026-10-24T23:59:16.361Z | seat | Bash | python -X utf8 tools/b710_order.py
+  #233 | 2026-10-24T23:59:48.434Z | seat | Bash | python -X utf8 tools/b710_report.py
 
-### ### **COMMANDS 214 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 5 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 233 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 5 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

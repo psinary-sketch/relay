@@ -843,3 +843,31 @@ b710 -- THE LOCATOR`S BANK: every call of tools/b710_locate.py, its pattern and 
 ### 2026-10-24T23:51:19Z ; data/b710_commands.json ; /push_gated|checkout -b push|branch -D push/ ; hits 2
   :41 "cmd": "ls /d/relay/tools/b709_record.py /d/relay/tools/b709_checks.py /d/relay/tools/b709_closing.p
   :481 "cmd": "python -X utf8 tools/b710_tests.py hold 8 && python -X utf8 tools/b710_tests.py run test_nam
+### 2026-10-24T23:54:26Z ; data/b709_closing.txt ; /root.s prompt|ROOT`S PROMPT|PROMPT|answered/ ; hits 2
+  :1 b709 closed: relay 8b842c9a, PLACE-papers 07978f3; suite 144 of 147; root b3213c0b530e6b1d…; 1 promp
+  :412 (c) For the author`s word: the one citation miss (the seat`s, b708`s kind for :380, the cascade of :
+### 2026-10-24T23:54:32Z ; data/b709_citation_check.txt ; /MID-ACT CHECK|ANSWER CITES/ ; hits 2
+  :162 ### (R278)(4) THE MID-ACT CHECK (2026-10-24T20:42:56Z): the answer carrying 'option 1 with one line 
+  :164 ### ### **ANSWER CITES CHECKED 0 ; OK 0 ; MISSES 0.** -- VACUOUS: the word names no path, line or co
+### 2026-10-24T23:57:18Z ; tools/b710_citation.py ; /^def |sys\.argv|ROUTES/ ; hits 21
+  :31 def continuation_sessions():
+  :48 def act_root_line(act):
+  :53 def lines_of(path):
+  :57 def first(L, needle, start=1):
+  :61 def at(L, n):
+  :65 def _ws(s):
+  :69 def _remote_heads(repo):
+  :74 def _defect_row(L, letter):
+  :83 def _jl(name):
+  :90 def _heading(L, pat):
+  :96 def _pp_files(term):
+  :102 def rows():
+  :344 def standing_rows(text, add):
+  :361 def _write(L, R, miss):
+  :371 def check(*a):
+  :390 def ferry(*a):
+  :413 def _sha_rows():
+  :432 def answer(needle, *a):
+  :465 def word(needle, *a):
+  :480 fn = {'check': check, 'ferry': ferry, 'answer': answer, 'word': word}.get(sys.argv[1] if len(sys.arg
+  :484 fn(*sys.argv[2:])
