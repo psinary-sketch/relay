@@ -1,0 +1,315 @@
+b713 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b712_citation.py -> tools/b713_citation.py (2026-10-25T21:00:12Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b712 -> b713, b711 -> b712, (R322) -> (R323), (R321) -> (R322), R322 -> R323, R321 -> R322); 487 lines, 113 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b712_tool_repairs.txt AND data/b712_repairdiff_citation.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  :5 ; @@ -123,14 +123,12 @@
+  :32 ; @@ -138,1 +136,1 @@
+  :35 ; @@ -140,25 +138,28 @@
+  :89 ; @@ -166,1 +167,0 @@
+  :91 ; @@ -168,5 +168,15 @@
+  :112 ; @@ -174,2 +184,2 @@
+  :117 ; @@ -177,10 +187,0 @@
+  :128 ; @@ -189,2 +189,3 @@
+  :134 ; @@ -192,22 +193,12 @@
+  :169 ; @@ -216,1 +207,1 @@
+  :172 ; @@ -218,41 +209,22 @@
+  :236 ; @@ -260,1 +232,0 @@
+  :238 ; @@ -262,4 +233,1 @@
+  :244 ; @@ -267,5 +235,3 @@
+  :253 ; @@ -275,2 +241,1 @@
+  :257 ; @@ -280,1 +245,1 @@
+  :260 ; @@ -283,26 +248,27 @@
+  :314 ; @@ -315,2 +281,3 @@
+  :320 ; @@ -318,1 +285,1 @@
+  :323 ; @@ -320,3 +287,0 @@
+  :327 ; @@ -324,1 +288,1 @@
+  :330 ; @@ -327,3 +291,0 @@
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b712_citation.py
+  +++ tools/b713_citation.py
+  @@ -2,1 +2,1 @@
+  -"""b712_citation.py -- THE CITATION CHECK AS A GATE STEP (standing from b662, OPEN_TRAILS :14136), b712's step zero, run before any other step
+  +"""b713_citation.py -- THE CITATION CHECK AS A GATE STEP (standing from b662, OPEN_TRAILS :14136), b713's step zero, run before any other step
+  @@ -6,5 +6,5 @@
+  -### act's (ec2d71b5, a NEW session after the author's /clear; the anchor (R322)'s line); the answer route is b682's, imported from
+  -### tools/b682_citation.py with its act names pointed at b712, b706's repair carried (a bare eight-hex token a bank names as a sha256 or a
+  -### kernel's lakefile pins as a rev is not read as a commit); the `word` route is b694's. Routes: `check [dry]` -> data/b712_citation_check.txt
+  -### (.json) ; `ferry` -> data/b712_ferry_scan.txt ; `answer <needle>` / `word <needle>` -> the check on one answer.
+  -### Written by the Write tool at b712 from b711_citation.py's form (its engine :1-:101 and :344-:484, read at step zero), its cite rows this
+  +### act's (ec2d71b5, a NEW session after the author's /clear; the anchor (R323)'s line); the answer route is b682's, imported from
+  +### tools/b682_citation.py with its act names pointed at b713, b706's repair carried (a bare eight-hex token a bank names as a sha256 or a
+  +### kernel's lakefile pins as a rev is not read as a commit); the `word` route is b694's. Routes: `check [dry]` -> data/b713_citation_check.txt
+  +### (.json) ; `ferry` -> data/b713_ferry_scan.txt ; `answer <needle>` / `word <needle>` -> the check on one answer.
+  +### Written by the Write tool at b713 from b712_citation.py's form (its engine :1-:101 and :344-:484, read at step zero), its cite rows this
+  @@ -26,2 +26,2 @@
+  -import b712_worklist as K   # noqa: E402
+  -import act_membrane as MEM  # noqa: E402  ### (R322)(2)(ii): the membrane before every bank write of this tool
+  +import b713_worklist as K   # noqa: E402
+  +import act_membrane as MEM  # noqa: E402  ### (R323)(2)(ii): the membrane before every bank write of this tool
+  @@ -31,1 +31,1 @@
+  -    import b712_record as REC   # ### the record tool's exclusion pattern, the one the root route reads (imported at the call, nothing written)
+  +    import b713_record as REC   # ### the record tool's exclusion pattern, the one the root route reads (imported at the call, nothing written)
+  @@ -123,10 +123,10 @@
+  -    # ### b712: the cite rows of (R322) and its ferry, written by the Edit tool after b711's rows were pruned (data/b712_prune_citation.txt)
+  -    for f in ('data/b711_closing.txt', 'data/b711_defects.txt', 'data/b711_events.txt', 'data/standing_clauses_v2.txt', 'data/b711_port.txt',
+  -              'data/b711_buildlog_SIDE-lv-conservation_port.txt', 'data/b711_report.txt', 'data/b711_steps.json', 'data/b710_registrations.txt',
+  -              'data/b711_closing_push_out.txt', 'data/b670_licensed_table.txt', 'data/b703_rules.txt', 'data/b708_cut.txt', 'data/b708_tie.txt',
+  -              'data/b711_pairs.txt', 'data/b711_coeffs.txt', 'data/b711_surgery.txt', 'data/b711_axis.txt', 'data/b711_list.txt', 'data/b711_independence.txt',
+  -              'data/b711_mirror.txt', 'data/b711_scores_close.json', 'data/b711_scores.json', 'data/b711_regspec_run.txt', 'data/b711_author_answers.txt',
+  -              'data/b711_commands.json', 'data/b711_root_banks.txt', 'data/b711_checks.txt', 'data/b711_checks_postpush.txt', 'data/b711_standing_figures.json',
+  -              'data/b675_corrigenda.txt', 'data/act_roots.txt', 'data/b675_rules.txt', 'data/b684_rules.txt', K.B711_FACE, 'tools/b711_worklist.py',
+  -              'tools/b711_record.py', 'tools/b711_checks.py', 'tools/b711_closing.py', 'tools/b711_citation.py', 'tools/b711_corrigendum.py', 'tools/b711_regspec.py',
+  -              'tools/b711_reg_gate.py', 'tools/b711_tests.py', 'tools/b711_report.py', 'tools/b711_carry.py', 'tools/b711_standing.py', 'tools/b710_standing.py',
+  +    # ### b713: the cite rows of (R323) and its ferry, written by the Edit tool after b712's rows were pruned (data/b713_prune_citation.txt)
+  +    for f in ('data/b712_closing.txt', 'data/b712_defects.txt', 'data/b712_events.txt', 'data/standing_clauses_v2.txt', 'data/b712_port.txt',
+  +              'data/b712_buildlog_SIDE-lv-conservation_port.txt', 'data/b712_report.txt', 'data/b712_steps.json', 'data/b710_registrations.txt',
+  +              'data/b712_closing_push_out.txt', 'data/b670_licensed_table.txt', 'data/b703_rules.txt', 'data/b708_cut.txt', 'data/b708_tie.txt',
+  +              'data/b712_pairs.txt', 'data/b712_coeffs.txt', 'data/b712_surgery.txt', 'data/b712_axis.txt', 'data/b712_list.txt', 'data/b712_independence.txt',
+  +              'data/b712_mirror.txt', 'data/b712_scores_close.json', 'data/b712_scores.json', 'data/b712_regspec_run.txt', 'data/b712_author_answers.txt',
+  +              'data/b712_commands.json', 'data/b712_root_banks.txt', 'data/b712_checks.txt', 'data/b712_checks_postpush.txt', 'data/b712_standing_figures.json',
+  +              'data/b675_corrigenda.txt', 'data/act_roots.txt', 'data/b675_rules.txt', 'data/b684_rules.txt', K.B711_FACE, 'tools/b712_worklist.py',
+  +              'tools/b712_record.py', 'tools/b712_checks.py', 'tools/b712_closing.py', 'tools/b712_citation.py', 'tools/b712_corrigendum.py', 'tools/b712_regspec.py',
+  +              'tools/b712_reg_gate.py', 'tools/b712_tests.py', 'tools/b712_report.py', 'tools/b712_carry.py', 'tools/b712_standing.py', 'tools/b710_standing.py',
+  @@ -136,5 +136,5 @@
+  -    # ### (R322)(1): b711 at its weight
+  -    cl = lines_of(p('data', 'b711_closing.txt'))
+  -    q = _quote(text, 'b711 closed: relay', '”; its prompt count')
+  -    add('ruling (1)', 'data/b711_closing.txt :1, the head line, against (R322)(1)`s quote', q == cl[0], 'quote %d characters, the line %d ; equal byte for byte %s' % (len(q), len(cl[0]), q == cl[0]), '0-1')
+  -    ev = lines_of(p('data', 'b711_events.txt'))
+  +    # ### (R323)(1): b712 at its weight
+  +    cl = lines_of(p('data', 'b712_closing.txt'))
+  +    q = _quote(text, 'b712 closed: relay', '”; its prompt count')
+  +    add('ruling (1)', 'data/b712_closing.txt :1, the head line, against (R323)(1)`s quote', q == cl[0], 'quote %d characters, the line %d ; equal byte for byte %s' % (len(q), len(cl[0]), q == cl[0]), '0-1')
+  +    ev = lines_of(p('data', 'b712_events.txt'))
+  @@ -142,3 +142,3 @@
+  -    add('ruling (1)', 'events :79, the head line`s prompt count and its missing score', 'THE CLOSING\'S HEAD LINE: NO SCORE' in at(ev, 79), 'data/b711_events.txt :79 %r' % at(ev, 79).strip()[:70], '1')
+  -    pr = lines_of(p('data', 'b711_pairs.txt'))
+  -    add('ruling (1)', 'pair 11 ratio 0.998460 and pair 15 ratio 0.998079', 'n*/F2 0.998460' in at(pr, 12) and 'n*/F2 0.998079' in at(pr, 13), 'data/b711_pairs.txt :12, :13', '1')
+  +    add('ruling (1)', 'events :79, the head line`s prompt count and its missing score', 'THE CLOSING\'S HEAD LINE: NO SCORE' in at(ev, 79), 'data/b712_events.txt :79 %r' % at(ev, 79).strip()[:70], '1')
+  +    pr = lines_of(p('data', 'b712_pairs.txt'))
+  +    add('ruling (1)', 'pair 11 ratio 0.998460 and pair 15 ratio 0.998079', 'n*/F2 0.998460' in at(pr, 12) and 'n*/F2 0.998079' in at(pr, 13), 'data/b712_pairs.txt :12, :13', '1')
+  @@ -147,1 +147,1 @@
+  -    co = lines_of(p('data', 'b711_coeffs.txt'))
+  +    co = lines_of(p('data', 'b712_coeffs.txt'))
+  @@ -149,4 +149,4 @@
+  -        'data/b711_coeffs.txt :18, :13', '1')
+  -    add('ruling (1)', 'the surgery HELD', 'THE SURGERY HELD' in at(lines_of(p('data', 'b711_surgery.txt')), 36), 'data/b711_surgery.txt :36', '1')
+  -    add('ruling (1)', 'the axis (e) REFUTED', 'THE AXIS (e) REFUTED' in at(lines_of(p('data', 'b711_axis.txt')), 60), 'data/b711_axis.txt :60', '1')
+  -    li = lines_of(p('data', 'b711_list.txt'))
+  +        'data/b712_coeffs.txt :18, :13', '1')
+  +    add('ruling (1)', 'the surgery HELD', 'THE SURGERY HELD' in at(lines_of(p('data', 'b712_surgery.txt')), 36), 'data/b712_surgery.txt :36', '1')
+  +    add('ruling (1)', 'the axis (e) REFUTED', 'THE AXIS (e) REFUTED' in at(lines_of(p('data', 'b712_axis.txt')), 60), 'data/b712_axis.txt :60', '1')
+  +    li = lines_of(p('data', 'b712_list.txt'))
+  @@ -155,1 +155,1 @@
+  -        and sum(int(a) for a, _b in on_off) == 170 and sum(int(b) for _a, b in on_off) == 23, 'data/b711_list.txt :19 ; the bands` rows :1-:16 sum on-line %d, off-line %d over %d bands' % (
+  +        and sum(int(a) for a, _b in on_off) == 170 and sum(int(b) for _a, b in on_off) == 23, 'data/b712_list.txt :19 ; the bands` rows :1-:16 sum on-line %d, off-line %d over %d bands' % (
+  @@ -157,6 +157,6 @@
+  -    add('ruling (1)', 'the Independence supplement in data/b711_independence.txt', '**' in (rd(p('data', 'b711_independence.txt')) or ''), 'data/b711_independence.txt', '1')
+  -    rp_ = lines_of(p('data', 'b711_report.txt'))
+  -    add('ruling (1)', 'the throughstone report 21 of 21 EQUAL', 'THE COMPARISONS (21)' in at(rp_, 16) and '0 DIFFERS' in at(rp_, 21), 'data/b711_report.txt :16, :21', '1')
+  -    po = lines_of(p('data', 'b711_port.txt'))
+  -    add('ruling (1); ruling (4)', 'the port at 11 of 12, held at DirichletC7Order.lean :501:31 (data/b711_port.txt :11)', 'DirichletC7Order.lean:501:31' in at(po, 11) and 'StrongFEPair.Λ_eq' in at(po, 11)
+  -        and re.search(r'\b11 of 12\b', ' '.join(po)) is not None, 'data/b711_port.txt :11 ; "11 of 12" in the bank %s' % (re.search(r'\b11 of 12\b', ' '.join(po)) is not None), '1-2')
+  +    add('ruling (1)', 'the Independence supplement in data/b712_independence.txt', '**' in (rd(p('data', 'b712_independence.txt')) or ''), 'data/b712_independence.txt', '1')
+  +    rp_ = lines_of(p('data', 'b712_report.txt'))
+  +    add('ruling (1)', 'the throughstone report 21 of 21 EQUAL', 'THE COMPARISONS (21)' in at(rp_, 16) and '0 DIFFERS' in at(rp_, 21), 'data/b712_report.txt :16, :21', '1')
+  +    po = lines_of(p('data', 'b712_port.txt'))
+  +    add('ruling (1); ruling (4)', 'the port at 11 of 12, held at DirichletC7Order.lean :501:31 (data/b712_port.txt :11)', 'DirichletC7Order.lean:501:31' in at(po, 11) and 'StrongFEPair.Λ_eq' in at(po, 11)
+  +        and re.search(r'\b11 of 12\b', ' '.join(po)) is not None, 'data/b712_port.txt :11 ; "11 of 12" in the bank %s' % (re.search(r'\b11 of 12\b', ' '.join(po)) is not None), '1-2')
+  @@ -164,1 +164,1 @@
+  -    add('ruling (1)', 'the trail at OPEN_TRAILS :15850 carrying the root afa0d8f9', at(ot, 15850).startswith('### b711') and 'afa0d8f9' in ' '.join(ot[15849:15890]),
+  +    add('ruling (1)', 'the trail at OPEN_TRAILS :15850 carrying the root afa0d8f9', at(ot, 15850).startswith('### b712') and 'afa0d8f9' in ' '.join(ot[15849:15890]),
+  @@ -166,2 +166,2 @@
+  -    row = act_root_line('b711')
+  -    rb = ' '.join(lines_of(p('data', 'b711_root_banks.txt')))
+  +    row = act_root_line('b712')
+  +    rb = ' '.join(lines_of(p('data', 'b712_root_banks.txt')))
+  @@ -169,2 +169,2 @@
+  -        'data/act_roots.txt row b711 %s ; data/b711_root_banks.txt BANKS 122 %s' % (row[0][1][:16] if row else 'NONE', 'BANKS 122' in rb), '1')
+  -    scc = _jl('b711_scores_close.json')
+  +        'data/act_roots.txt row b712 %s ; data/b712_root_banks.txt BANKS 122 %s' % (row[0][1][:16] if row else 'NONE', 'BANKS 122' in rb), '1')
+  +    scc = _jl('b712_scores_close.json')
+  @@ -176,1 +176,1 @@
+  -        'data/b711_scores_close.json verdicts %s ; the words in the whole bank: HELD %d, REFUTED %d (the reading of :12)' % (
+  +        'data/b712_scores_close.json verdicts %s ; the words in the whole bank: HELD %d, REFUTED %d (the reading of :12)' % (
+  @@ -178,2 +178,2 @@
+  -    mr = rd(p('data', 'b711_mirror.txt')) or ''
+  -    add('ruling (1)', 'the mirror mirror-refresh-2026-10-25-b711.zip (sha256 f01cb32d…) CLEAN on all three clauses with the root line',
+  +    mr = rd(p('data', 'b712_mirror.txt')) or ''
+  +    add('ruling (1)', 'the mirror mirror-refresh-2026-10-25-b712.zip (sha256 f01cb32d…) CLEAN on all three clauses with the root line',
+  @@ -181,2 +181,2 @@
+  -        'data/b711_mirror.txt: f01cb32d %s ; CLEAN %s ; the root line afa0d8f9 %s ; the zip exists %s' % ('f01cb32d' in mr, 'CLEAN ON ALL THREE CLAUSES' in mr, 'afa0d8f9' in mr, os.path.exists(K.MIRROR_ZIP)), '1')
+  -    cpp, cpr = rd(p('data', 'b711_checks_postpush.txt')) or '', rd(p('data', 'b711_checks.txt')) or ''
+  +        'data/b712_mirror.txt: f01cb32d %s ; CLEAN %s ; the root line afa0d8f9 %s ; the zip exists %s' % ('f01cb32d' in mr, 'CLEAN ON ALL THREE CLAUSES' in mr, 'afa0d8f9' in mr, os.path.exists(K.MIRROR_ZIP)), '1')
+  +    cpp, cpr = rd(p('data', 'b712_checks_postpush.txt')) or '', rd(p('data', 'b712_checks.txt')) or ''
+  @@ -186,2 +186,2 @@
+  -        'data/b711_checks.txt, data/b711_checks_postpush.txt: failing post-push %s' % (fl.group(1) if fl else 'NONE'), '1')
+  -    dl = lines_of(p('data', 'b711_defects.txt'))
+  +        'data/b712_checks.txt, data/b712_checks_postpush.txt: failing post-push %s' % (fl.group(1) if fl else 'NONE'), '1')
+  +    dl = lines_of(p('data', 'b712_defects.txt'))
+  @@ -189,2 +189,2 @@
+  -    add('ruling (1)', 'ten defects (a)-(j) lettered before the seal', lets == 'abcdefghij', 'data/b711_defects.txt letters %s' % lets, '1')
+  -    add('ruling (1); ruling (2)', 'sixteen events in data/b711_events.txt (each event`s starting line, four spaces and a capital)', len(starts) == 16,
+  +    add('ruling (1)', 'ten defects (a)-(j) lettered before the seal', lets == 'abcdefghij', 'data/b712_defects.txt letters %s' % lets, '1')
+  +    add('ruling (1); ruling (2)', 'sixteen events in data/b712_events.txt (each event`s starting line, four spaces and a capital)', len(starts) == 16,
+  @@ -192,2 +192,2 @@
+  -    add('ruling (1); ruling (10)', '"Nothing deposited": the draft at v5, held', K.DRAFT == '23228113', 'tools/b712_worklist.py DRAFT', '6')
+  -    # ### (R322)(2): the corrigendum's sixteen starting lines, lettered and records
+  +    add('ruling (1); ruling (10)', '"Nothing deposited": the draft at v5, held', K.DRAFT == '23228113', 'tools/b713_worklist.py DRAFT', '6')
+  +    # ### (R323)(2): the corrigendum's sixteen starting lines, lettered and records
+  @@ -200,1 +200,1 @@
+  -        add('ruling (2)', 'data/b711_events.txt :%d, the item the ruling names there' % n, needle in at(ev, n), ':%d %r' % (n, at(ev, n).strip()[:70]), '1')
+  +        add('ruling (2)', 'data/b712_events.txt :%d, the item the ruling names there' % n, needle in at(ev, n), ':%d %r' % (n, at(ev, n).strip()[:70]), '1')
+  @@ -204,1 +204,1 @@
+  -        'the file`s last commit %r ; data/b711_closing.txt lines carrying the sentence %s' % (mp[:70], cs), '1')
+  +        'the file`s last commit %r ; data/b712_closing.txt lines carrying the sentence %s' % (mp[:70], cs), '1')
+  @@ -207,1 +207,1 @@
+  -    add('ruling (2)', 'the corrigenda bank, appended only (its last row (31), b711`s)', bool(last) and re.match(r'^\s*\(31\)', last[-1]) is not None,
+  +    add('ruling (2)', 'the corrigenda bank, appended only (its last row (31), b712`s)', bool(last) and re.match(r'^\s*\(31\)', last[-1]) is not None,
+  @@ -209,1 +209,1 @@
+  -    # ### (R322)(3): the five faces' objects
+  +    # ### (R323)(3): the five faces' objects
+  @@ -211,2 +211,2 @@
+  -    ck = rd(p('tools', 'b711_checks.py')) or ''
+  -    add('ruling (3)(i)', 'the face`s "POST-SEAL PROMPTS NAMED: NONE" (data/b711_registration_2026-10-25.txt :96) and G-ANSWERS-BANKED in the suite',
+  +    ck = rd(p('tools', 'b712_checks.py')) or ''
+  +    add('ruling (3)(i)', 'the face`s "POST-SEAL PROMPTS NAMED: NONE" (data/b712_registration_2026-10-25.txt :96) and G-ANSWERS-BANKED in the suite',
+  @@ -214,1 +214,1 @@
+  -    st = _jl('b711_steps.json').get('rows', [])
+  +    st = _jl('b712_steps.json').get('rows', [])
+  @@ -216,1 +216,1 @@
+  -    add('ruling (3)(ii)', 'the gate`s commit 85c26c1c in b711`s step bank (the row`s subject names "the gate before the lock"; the bank carries no field marked gate)',
+  +    add('ruling (3)(ii)', 'the gate`s commit 85c26c1c in b712`s step bank (the row`s subject names "the gate before the lock"; the bank carries no field marked gate)',
+  @@ -218,6 +218,6 @@
+  -        'data/b711_steps.json row %s phase %r' % (gate[0]['commit'][:8] if gate else 'NONE', gate[0].get('phase') if gate else ''), '1')
+  -    aa = rd(p('data', 'b711_author_answers.txt')) or ''
+  -    add('ruling (3)(iii)', 'b711`s answers bank holds one prompt (the root`s)', len(re.findall(r'^### PROMPT \d+', aa, re.M)) == 1, 'data/b711_author_answers.txt PROMPT rows %d' % len(re.findall(r'^### PROMPT \d+', aa, re.M)), '1')
+  -    add('ruling (3)(iv)', 'b711`s mirror sequence (events :75: mbuild, mverify, mbank, then mroot)', 'mroot route had not run' in ' '.join(ev[74:78]), 'data/b711_events.txt :75-:78', '1')
+  -    rs = lines_of(p('data', 'b711_regspec_run.txt'))
+  -    add('ruling (3)(v)', 'b711`s stale bank ANYPIPES 7 (data/b711_regspec_run.txt :61) and the fresh bank`s eight (events :3-:4)', at(rs, 61).split() == ['ANYPIPES', '7'] and 'eight commands' in ' '.join(ev[2:5]),
+  +        'data/b712_steps.json row %s phase %r' % (gate[0]['commit'][:8] if gate else 'NONE', gate[0].get('phase') if gate else ''), '1')
+  +    aa = rd(p('data', 'b712_author_answers.txt')) or ''
+  +    add('ruling (3)(iii)', 'b712`s answers bank holds one prompt (the root`s)', len(re.findall(r'^### PROMPT \d+', aa, re.M)) == 1, 'data/b712_author_answers.txt PROMPT rows %d' % len(re.findall(r'^### PROMPT \d+', aa, re.M)), '1')
+  +    add('ruling (3)(iv)', 'b712`s mirror sequence (events :75: mbuild, mverify, mbank, then mroot)', 'mroot route had not run' in ' '.join(ev[74:78]), 'data/b712_events.txt :75-:78', '1')
+  +    rs = lines_of(p('data', 'b712_regspec_run.txt'))
+  +    add('ruling (3)(v)', 'b712`s stale bank ANYPIPES 7 (data/b712_regspec_run.txt :61) and the fresh bank`s eight (events :3-:4)', at(rs, 61).split() == ['ANYPIPES', '7'] and 'eight commands' in ' '.join(ev[2:5]),
+  @@ -225,2 +225,2 @@
+  -    add('ruling (3)', 'the throughstone report`s four footings KERNEL, CERTIFIED, REGISTERED, HELD (data/b711_report.txt :3)', '(KERNEL, CERTIFIED, REGISTERED, HELD)' in at(rp_, 3), ':3', '1')
+  -    for f in ('data/standing_clauses_v3.txt', 'data/b712_registrations.txt'):
+  +    add('ruling (3)', 'the throughstone report`s four footings KERNEL, CERTIFIED, REGISTERED, HELD (data/b712_report.txt :3)', '(KERNEL, CERTIFIED, REGISTERED, HELD)' in at(rp_, 3), ':3', '1')
+  +    for f in ('data/standing_clauses_v3.txt', 'data/b713_registrations.txt'):
+  @@ -228,2 +228,2 @@
+  -    for f in ('data/b712_tool_repairs.txt', 'data/b712_report.txt', 'data/b712_port.txt', 'data/b712_join_grade.txt', 'data/b712_price.txt', 'data/b712_readfirst.txt',
+  -              'data/b712_rules.txt', 'data/b713_rules.txt'):
+  +    for f in ('data/b713_tool_repairs.txt', 'data/b713_report.txt', 'data/b713_port.txt', 'data/b713_join_grade.txt', 'data/b713_price.txt', 'data/b713_readfirst.txt',
+  +              'data/b713_rules.txt', 'data/b713_rules.txt'):
+  @@ -231,1 +231,1 @@
+  -    # ### (R322)(4): the port and the join
+  +    # ### (R323)(4): the port and the join
+  @@ -233,1 +233,1 @@
+  -    add('ruling (4)', 'port-b707 at b711`s one commit be3052ac (the edit`s base)', loc == K.PORT_TIP, 'local port-b707 %s' % loc[:8], '2')
+  +    add('ruling (4)', 'port-b707 at b712`s one commit be3052ac (the edit`s base)', loc == K.PORT_TIP, 'local port-b707 %s' % loc[:8], '2')
+  @@ -253,1 +253,1 @@
+  -    # ### (R322)(5)-(7)
+  +    # ### (R323)(5)-(7)
+  @@ -261,1 +261,1 @@
+  -    add('ruling (6); N3', 'data/b712_registrations.txt committed alone, the act`s first commit', bool(first_c) and first_c[0] == K.REG_COMMIT,
+  +    add('ruling (6); N3', 'data/b713_registrations.txt committed alone, the act`s first commit', bool(first_c) and first_c[0] == K.REG_COMMIT,
+  @@ -270,3 +270,3 @@
+  -    # ### (R322)(8): the carried files and the branches
+  -    c1 = (g(ROOT, 'log', '--format=%h', '--', 'data/b711_closing_push_out.txt')[1] or '').split()
+  -    add('ruling (8)', 'data/b711_closing_push_out.txt committed alone at step zero', c1 == [K.STEPZERO[:8]], 'its commits %s' % c1, '0')
+  +    # ### (R323)(8): the carried files and the branches
+  +    c1 = (g(ROOT, 'log', '--format=%h', '--', 'data/b712_closing_push_out.txt')[1] or '').split()
+  +    add('ruling (8)', 'data/b712_closing_push_out.txt committed alone at step zero', c1 == [K.STEPZERO[:8]], 'its commits %s' % c1, '0')
+  @@ -274,1 +274,1 @@
+  -    add('ruling (8)', 'the closing`s step row in data/b711_steps.json committed alone at step zero', '1 file changed' in c2 and 'data/b711_steps.json' in c2, 'commit %s' % K.STEPZERO_STEPS[:8], '0')
+  +    add('ruling (8)', 'the closing`s step row in data/b712_steps.json committed alone at step zero', '1 file changed' in c2 and 'data/b712_steps.json' in c2, 'commit %s' % K.STEPZERO_STEPS[:8], '0')
+  @@ -281,3 +281,3 @@
+  -    push711 = sorted(x.strip(' *') for x in merged.split(NL) if x.strip(' *').startswith('push-b711')) + sorted(x.strip(' *') for x in mpp.split(NL) if x.strip(' *').startswith('push-b711'))
+  -    add('ruling (8)', 'the push-b711 branches of the relay and of PLACE-papers are the seven the worklist names (data/b711_closing.txt :452)', len(push711) == 7 == sum(len(n) for _r, n in K.DELETE)
+  -        and 'push-b711' in at(cl, 452), 'listed %s' % push711, '0')
+  +    push711 = sorted(x.strip(' *') for x in merged.split(NL) if x.strip(' *').startswith('push-b712')) + sorted(x.strip(' *') for x in mpp.split(NL) if x.strip(' *').startswith('push-b712'))
+  +    add('ruling (8)', 'the push-b712 branches of the relay and of PLACE-papers are the seven the worklist names (data/b712_closing.txt :452)', len(push711) == 7 == sum(len(n) for _r, n in K.DELETE)
+  +        and 'push-b712' in at(cl, 452), 'listed %s' % push711, '0')
+  @@ -287,2 +287,2 @@
+  -    add('ruling (8)', 'the 2,560 MB hold', K.HOLD == 2560, 'tools/b712_worklist.py HOLD', '0')
+  -    # ### (R322)(9)-(11) and the ferry's standing references
+  +    add('ruling (8)', 'the 2,560 MB hold', K.HOLD == 2560, 'tools/b713_worklist.py HOLD', '0')
+  +    # ### (R323)(9)-(11) and the ferry's standing references
+  @@ -291,2 +291,2 @@
+  -    add('ferry C5', 'the four standing arms` figures tool and b711`s baselines', os.path.exists(p('tools', 'b706_standing_figures.py')) and os.path.exists(p('data', 'b711_standing_figures.json')),
+  -        'tools/b706_standing_figures.py ; data/b711_standing_figures.json', '5')
+  +    add('ferry C5', 'the four standing arms` figures tool and b712`s baselines', os.path.exists(p('tools', 'b706_standing_figures.py')) and os.path.exists(p('data', 'b712_standing_figures.json')),
+  +        'tools/b706_standing_figures.py ; data/b712_standing_figures.json', '5')
+  @@ -294,2 +294,2 @@
+  -    add('ferry C5', 'the chain halves as b693 drew them, b712 added to the second', K.CHAIN_HALVES[1] == ('b659', 'b712'), 'tools/b712_worklist.py CHAIN_HALVES', '5')
+  -    add('ferry C0', 'this act`s session transcript (a new session) and b711`s', os.path.exists(C.SESSION) and os.path.exists('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % K.PREV_SESSION), C.SESSION, '0')
+  +    add('ferry C5', 'the chain halves as b693 drew them, b713 added to the second', K.CHAIN_HALVES[1] == ('b659', 'b713'), 'tools/b713_worklist.py CHAIN_HALVES', '5')
+  +    add('ferry C0', 'this act`s session transcript (a new session) and b712`s', os.path.exists(C.SESSION) and os.path.exists('C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % K.PREV_SESSION), C.SESSION, '0')
+  @@ -301,1 +301,1 @@
+  -    """the citation tool reads the standing clauses by version (data/b711_rules.txt row (1)): for each version a ferry names as "standing clauses v<N>"
+  +    """the citation tool reads the standing clauses by version (data/b712_rules.txt row (1)): for each version a ferry names as "standing clauses v<N>"
+  @@ -303,2 +303,2 @@
+  -    act writes at step zero (v2, (R322)(2)) read as TO BE WRITTEN when absent and from the bank when present."""
+  -    import b711_standing as SC
+  +    act writes at step zero (v2, (R323)(2)) read as TO BE WRITTEN when absent and from the bank when present."""
+  +    import b712_standing as SC
+  @@ -312,1 +312,1 @@
+  -            ctl = _jl('b711_standing_control.json')
+  +            ctl = _jl('b712_standing_control.json')
+  @@ -316,1 +316,1 @@
+  -            add('ferry (standing clauses)', 'the standing clauses v%d the ferry names: data/standing_clauses_v%d.txt -- TO BE WRITTEN at step zero ((R322)(2))' % (v, v), True, 'absent, as ordered', '0')
+  +            add('ferry (standing clauses)', 'the standing clauses v%d the ferry names: data/standing_clauses_v%d.txt -- TO BE WRITTEN at step zero ((R323)(2))' % (v, v), True, 'absent, as ordered', '0')
+  @@ -322,4 +322,4 @@
+  -    for n_ in ('b712_citation_check.txt', 'b712_citation_check.json'):
+  -        MEM.guard('b712', n_, _root_exclude())
+  -    for name, data in (('b712_citation_check.txt', (NL.join(L) + NL).encode('utf-8')),
+  -                       ('b712_citation_check.json', (json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), rows=R,
+  +    for n_ in ('b713_citation_check.txt', 'b713_citation_check.json'):
+  +        MEM.guard('b713', n_, _root_exclude())
+  +    for name, data in (('b713_citation_check.txt', (NL.join(L) + NL).encode('utf-8')),
+  +                       ('b713_citation_check.json', (json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), rows=R,
+  @@ -337,1 +337,1 @@
+  -    L = ['b712 -- THE CITATION CHECK, A GATE STEP AT STEP ZERO, BEFORE ANY OTHER STEP (standing from b662; the ferry`s Component 0) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  +    L = ['b713 -- THE CITATION CHECK, A GATE STEP AT STEP ZERO, BEFORE ANY OTHER STEP (standing from b662; the ferry`s Component 0) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  @@ -353,1 +353,1 @@
+  -    """the ferry is banked by the Write tool (data/b712_ferry.txt); this route compares it with the transcript's text and runs the scan."""
+  +    """the ferry is banked by the Write tool (data/b713_ferry.txt); this route compares it with the transcript's text and runs the scan."""
+  @@ -355,1 +355,1 @@
+  -    q = os.path.join(D, 'b712_ferry.txt')
+  +    q = os.path.join(D, 'b713_ferry.txt')
+  @@ -358,2 +358,2 @@
+  -    s = os.path.join(D, 'b712_ferry_scan.txt')
+  -    MEM.guard('b712', 'b712_ferry_scan.txt', _root_exclude())
+  +    s = os.path.join(D, 'b713_ferry_scan.txt')
+  +    MEM.guard('b713', 'b713_ferry_scan.txt', _root_exclude())
+  @@ -364,1 +364,1 @@
+  -    print('  b712_ferry.txt %d characters ; the transcript`s text %d characters ; equal %s ; ferry_scan exit %d' % (
+  +    print('  b713_ferry.txt %d characters ; the transcript`s text %d characters ; equal %s ; ferry_scan exit %d' % (
+  @@ -396,1 +396,1 @@
+  -    """(R278)(4): b682's route, imported, with its act names pointed at b712, and b706's repair carried."""
+  +    """(R278)(4): b682's route, imported, with its act names pointed at b713, and b706's repair carried."""
+  @@ -405,1 +405,1 @@
+  -    P.after_root = lambda: bool(act_root_line('b712'))
+  +    P.after_root = lambda: bool(act_root_line('b713'))
+  @@ -423,3 +423,3 @@
+  -    body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b712')
+  -    # ### (R322)(2), the item repair: THE WHOLE ANSWER. b682's cut ends at the first "END" after the needle (`best.find('END', k)`, :221), which a
+  -    # ### word carrying END (AMENDMENT, APPENDED, RECOMMENDED) ends inside: b711's answers read 468 characters. The cut now ends at the answer's
+  +    body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b713')
+  +    # ### (R323)(2), the item repair: THE WHOLE ANSWER. b682's cut ends at the first "END" after the needle (`best.find('END', k)`, :221), which a
+  +    # ### word carrying END (AMENDMENT, APPENDED, RECOMMENDED) ends inside: b712's answers read 468 characters. The cut now ends at the answer's
+  @@ -430,1 +430,1 @@
+  -    body = body.replace("    open(q + '.tmp', 'wb')", "    MEM.guard('b712', os.path.basename(q), ROOT_EXCLUDE)\n    open(q + '.tmp', 'wb')")
+  +    body = body.replace("    open(q + '.tmp', 'wb')", "    MEM.guard('b713', os.path.basename(q), ROOT_EXCLUDE)\n    open(q + '.tmp', 'wb')")
+  @@ -433,1 +433,1 @@
+  -    exec(compile(body, 'b682_citation.answer (b712)', 'exec'), ns)
+  +    exec(compile(body, 'b682_citation.answer (b713)', 'exec'), ns)
+  @@ -484,1 +484,1 @@
+  -        print('usage: b712_citation.py check [dry] | ferry | answer <needle> | word <needle> | replay <needle> <session id> <anchor>')
+  +        print('usage: b713_citation.py check [dry] | ferry | answer <needle> | word <needle> | replay <needle> <session id> <anchor>')
+
+### ### **CARRIED tools/b713_citation.py ; LINES 487 ; CHANGED BY THE SUBSTITUTION 113 ; REPAIR SPANS AT b712 22 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

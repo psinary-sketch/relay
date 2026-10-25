@@ -1,0 +1,157 @@
+b713 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b712_worklist.py -> tools/b713_worklist.py (2026-10-25T20:57:48Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b712 -> b713, b711 -> b712, (R322) -> (R323), (R321) -> (R322), R322 -> R323, R321 -> R322); 173 lines, 54 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b712_tool_repairs.txt AND data/b712_repairdiff_worklist.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  :31 ; tools/b712_worklist.py orders_naming and next_line (the ruling`s named items, then every o
+  :282 ; +    tools/b712_closing.py (head_line, state_file_sentence), tools/b712_regspec.py (refres
+  :405 ; +     'tools/b712_worklist.py orders_naming and next_line (the ruling`s named items, then 
+  :408 ; +REPAIR712_TRACKED = ('tools/b712_record.py', 'tools/b712_worklist.py', 'tools/b712_checks
+  :455 ; ### tools/b712_worklist.py : +40 -1
+  :456 ; diff --git a/tools/b712_worklist.py b/tools/b712_worklist.py
+  :458 ; --- a/tools/b712_worklist.py
+  :459 ; +++ b/tools/b712_worklist.py
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b712_worklist.py
+  +++ tools/b713_worklist.py
+  @@ -2,1 +2,1 @@
+  -"""b712_worklist.py -- THE ACT'S DATA, UNDER (R322). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+  +"""b713_worklist.py -- THE ACT'S DATA, UNDER (R323). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+  @@ -4,1 +4,1 @@
+  -### ### b712: LANE TWO, ACT ONE HUNDRED AND THIRTY-NINE, THE RE-CUT ACT -- b711 AT ITS WEIGHT; THE CORRIGENDUM; THE STANDING CLAUSES AT v3;
+  +### ### b713: LANE TWO, ACT ONE HUNDRED AND THIRTY-NINE, THE RE-CUT ACT -- b712 AT ITS WEIGHT; THE CORRIGENDUM; THE STANDING CLAUSES AT v3;
+  @@ -6,4 +6,4 @@
+  -### runner dispatches, up to three for the port and one for the join ((R322)(4), N1).
+  -### Written whole by the Write tool from b711_worklist.py's form (stage one: step zero; stage two, Component 5, by the Edit tool).
+  -### The act runs in a NEW session (3bbc6267, the author's /clear after b711's closing; the same claude process, pid 3604): the previous act's
+  -### window is b711's own session (ec2d71b5) from its post-push combine to that session's end (b701's form for a new session).
+  +### runner dispatches, up to three for the port and one for the join ((R323)(4), N1).
+  +### Written whole by the Write tool from b712_worklist.py's form (stage one: step zero; stage two, Component 5, by the Edit tool).
+  +### The act runs in a NEW session (3bbc6267, the author's /clear after b712's closing; the same claude process, pid 3604): the previous act's
+  +### window is b712's own session (ec2d71b5) from its post-push combine to that session's end (b701's form for a new session).
+  @@ -19,2 +19,2 @@
+  -PRE_PP = '693a46d5'         # ### PLACE-papers main before the act (b711's trail, pushed)
+  -PRE_RELAY = '4a383ac8'      # ### relay main before the act (b711's closing, pushed alone and read back)
+  +PRE_PP = '693a46d5'         # ### PLACE-papers main before the act (b712's trail, pushed)
+  +PRE_RELAY = '4a383ac8'      # ### relay main before the act (b712's closing, pushed alone and read back)
+  @@ -25,1 +25,1 @@
+  -ANCHOR = 'RULING (R322) BEGIN'
+  +ANCHOR = 'RULING (R323) BEGIN'
+  @@ -28,2 +28,2 @@
+  -PREV_SESSION = 'ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce'   # ### b711 ran and closed in its own session; this act's is new
+  -PREV_ANCHOR = 'RULING (R321) BEGIN'
+  +PREV_SESSION = 'ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce'   # ### b712 ran and closed in its own session; this act's is new
+  +PREV_ANCHOR = 'RULING (R323) BEGIN'
+  @@ -34,1 +34,1 @@
+  -CITATION_BANK = 'b712_citation_check.txt'
+  +CITATION_BANK = 'b713_citation_check.txt'
+  @@ -37,6 +37,6 @@
+  -B711_ENTRY = 10306          # ### FINDINGS: b711's entry head
+  -B711_WEIGHT = 10282         # ### FINDINGS: b710's weight line (b711's Component 1)
+  -B711_CORRIGENDUM = 10284    # ### FINDINGS: b711's corrigendum for b710
+  -B711_TRAIL = 15850          # ### OPEN_TRAILS: b711's trail record
+  -B711_FACE = 'data/b711_registration_2026-10-25.txt'
+  -MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-10-25-b711.zip'   # ### b711's export, CLEAN on all three clauses over 70 files
+  +B711_ENTRY = 10306          # ### FINDINGS: b712's entry head
+  +B711_WEIGHT = 10282         # ### FINDINGS: b710's weight line (b712's Component 1)
+  +B711_CORRIGENDUM = 10284    # ### FINDINGS: b712's corrigendum for b710
+  +B711_TRAIL = 15850          # ### OPEN_TRAILS: b712's trail record
+  +B711_FACE = 'data/b712_registration_2026-10-25.txt'
+  +MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-10-25-b712.zip'   # ### b712's export, CLEAN on all three clauses over 70 files
+  @@ -44,1 +44,1 @@
+  -ORDER_LV_PORT = 15686       # ### OPEN_TRAILS: W-ORD-LV-FORWARD-PORT (b707), its latest open-orders row :15876 (b711's trail)
+  +ORDER_LV_PORT = 15686       # ### OPEN_TRAILS: W-ORD-LV-FORWARD-PORT (b707), its latest open-orders row :15876 (b712's trail)
+  @@ -46,1 +46,1 @@
+  -ORDER_LV_PORT_TAG = 15848   # ### OPEN_TRAILS: W-ORD-LV-PORT-TAG (b711), for the author's word
+  +ORDER_LV_PORT_TAG = 15848   # ### OPEN_TRAILS: W-ORD-LV-PORT-TAG (b712), for the author's word
+  @@ -48,3 +48,3 @@
+  -# ### the branches step zero deletes ((R322)(8)), one per command, each its own message, in sequence, nothing chained after any
+  -DELETE = (('D:/relay', ('push-b711-preroot', 'push-b711-preroot2', 'push-b711-root', 'push-b711-record', 'push-b711-closing')),
+  -          ('D:/MY-DOwnloads/PLACE-papers', ('push-b711-preroot', 'push-b711-record')))
+  +# ### the branches step zero deletes ((R323)(8)), one per command, each its own message, in sequence, nothing chained after any
+  +DELETE = (('D:/relay', ('push-b712-preroot', 'push-b712-preroot2', 'push-b712-root', 'push-b712-record', 'push-b712-closing')),
+  +          ('D:/MY-DOwnloads/PLACE-papers', ('push-b712-preroot', 'push-b712-record')))
+  @@ -52,1 +52,1 @@
+  -KEPT_BRANCH = ('D:/SIDE-lv-conservation', 'port-b707')   # ### (R322)(8): NOT deleted, local or remote
+  +KEPT_BRANCH = ('D:/SIDE-lv-conservation', 'port-b707')   # ### (R323)(8): NOT deleted, local or remote
+  @@ -54,1 +54,1 @@
+  -# ### the kernels this act may write ((R322)(4)): the port branch's modules and SIDE-faces-join's lakefile and tag
+  +# ### the kernels this act may write ((R323)(4)): the port branch's modules and SIDE-faces-join's lakefile and tag
+  @@ -59,1 +59,1 @@
+  -LV_MAIN = 'd38f3e8c99c3431c604bcba13210042df7748859'    # ### SIDE-lv-conservation's main, untouched ((R322)(4))
+  +LV_MAIN = 'd38f3e8c99c3431c604bcba13210042df7748859'    # ### SIDE-lv-conservation's main, untouched ((R323)(4))
+  @@ -62,1 +62,1 @@
+  -PORT_TIP = 'be3052acd2c6fe013ba482a5eddcfb236ce88738'   # ### b711's one commit on port-b707, the base of this act's edit
+  +PORT_TIP = 'be3052acd2c6fe013ba482a5eddcfb236ce88738'   # ### b712's one commit on port-b707, the base of this act's edit
+  @@ -76,3 +76,3 @@
+  -REGISTRATIONS = 'data/b712_registrations.txt'
+  -REG_B710 = '41ff1193'        # ### data/b710_registrations.txt committed alone at b710's step zero (the refined law (i), carried at (R322)(6)(ii))
+  -READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt', 'data/b711_read_calls.txt')
+  +REGISTRATIONS = 'data/b713_registrations.txt'
+  +REG_B710 = '41ff1193'        # ### data/b710_registrations.txt committed alone at b710's step zero (the refined law (i), carried at (R323)(6)(ii))
+  +READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt', 'data/b712_read_calls.txt')
+  @@ -80,1 +80,1 @@
+  -# ### THE SUITE'S PARTS: seven, as b706 split them and b707-b711 carried them (the ferry's Component 5)
+  +# ### THE SUITE'S PARTS: seven, as b706 split them and b707-b712 carried them (the ferry's Component 5)
+  @@ -82,1 +82,1 @@
+  -CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b712'))
+  +CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b713'))
+  @@ -88,3 +88,3 @@
+  -PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'FACES_LEDGER.md')   # ### (R322)(5): the faces ledger's row; the re-cut on its branch, not main
+  -NEXT = ('b713, the research act at discriminant -15 where (R322)(6) prices it within one act’s budget, its registrations read unchanged from '
+  -        'data/b712_registrations.txt’s commit; the keystone heads’ trigger read against the compile steps (4) and (7) reach')
+  +PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'FACES_LEDGER.md')   # ### (R323)(5): the faces ledger's row; the re-cut on its branch, not main
+  +NEXT = ('b713, the research act at discriminant -15 where (R323)(6) prices it within one act’s budget, its registrations read unchanged from '
+  +        'data/b713_registrations.txt’s commit; the keystone heads’ trigger read against the compile steps (4) and (7) reach')
+  @@ -95,1 +95,1 @@
+  -    """(R322)(3), the NEXT line's repair: every open-orders row of OPEN_TRAILS whose status names <act> -- a row is a line opening
+  +    """(R323)(3), the NEXT line's repair: every open-orders row of OPEN_TRAILS whose status names <act> -- a row is a line opening
+  @@ -97,1 +97,1 @@
+  -    its arguments (b711's port clause was made b712's after the seal and stood outside the sealed NEXT, events :46)."""
+  +    its arguments (b712's port clause was made b713's after the seal and stood outside the sealed NEXT, events :46)."""
+  @@ -121,1 +121,1 @@
+  -REG_COMMIT = '67a023887360b74483803ed02c83ae44fdf88f0b'        # ### data/b712_registrations.txt with its genus control, committed alone, first
+  +REG_COMMIT = '67a023887360b74483803ed02c83ae44fdf88f0b'        # ### data/b713_registrations.txt with its genus control, committed alone, first
+  @@ -123,2 +123,2 @@
+  -STEPZERO = 'ddd8785d08b760599c465a56e57fe3b1147ec824'          # ### b711's closing push capture, committed alone at step zero
+  -STEPZERO_STEPS = 'cb8a8580249f2a150d1a805dba36a06d4b921b11'    # ### b711's closing step row, committed alone at step zero
+  +STEPZERO = 'ddd8785d08b760599c465a56e57fe3b1147ec824'          # ### b712's closing push capture, committed alone at step zero
+  +STEPZERO_STEPS = 'cb8a8580249f2a150d1a805dba36a06d4b921b11'    # ### b712's closing step row, committed alone at step zero
+  @@ -127,1 +127,1 @@
+  -C1_PP = 'a7f77d3ad08414881899fc8606c36bf817652d9b'           # ### FINDINGS :10346 (b711's weight) and :10348 (the corrigendum)
+  +C1_PP = 'a7f77d3ad08414881899fc8606c36bf817652d9b'           # ### FINDINGS :10346 (b712's weight) and :10348 (the corrigendum)
+  @@ -133,1 +133,1 @@
+  -C3_PP = '2351a31a799f0b887b7236865c215c55b236a614'           # ### FACES_LEDGER.md's b712 update block, by the Edit tool
+  +C3_PP = '2351a31a799f0b887b7236865c215c55b236a614'           # ### FACES_LEDGER.md's b713 update block, by the Edit tool
+  @@ -137,1 +137,1 @@
+  -RECUT_BRANCH = 'recut-b712-silence'
+  +RECUT_BRANCH = 'recut-b713-silence'
+  @@ -142,1 +142,1 @@
+  -B709_TRAIL_HEAD = '### b711 — lane two, act one hundred and thirty-eight, the research act under (R321)'   # ### the previous act's trail head (the suite's name carried)
+  +B709_TRAIL_HEAD = '### b712 — lane two, act one hundred and thirty-eight, the research act under (R323)'   # ### the previous act's trail head (the suite's name carried)
+  @@ -149,3 +149,3 @@
+  -JOIN_NEW_TIP = '11a472b90553deaddc411c5d69ec03611ee277c5'   # ### SIDE-faces-join main: lv-conservation re-pinned at PORT_NEW_TIP, pushed from push-b712-join
+  -JOIN_RUN = 40210894425       # ### faces_join DERIVES at the standard three (data/b712_join_grade.txt)
+  -JOIN_TAG = ('v0.1.0', '9bf6fe65582187a92b6ab17e03953efb2cecd913', '11a472b90553deaddc411c5d69ec03611ee277c5')   # ### tag object, peeled (data/b712_join_tag.txt)
+  +JOIN_NEW_TIP = '11a472b90553deaddc411c5d69ec03611ee277c5'   # ### SIDE-faces-join main: lv-conservation re-pinned at PORT_NEW_TIP, pushed from push-b713-join
+  +JOIN_RUN = 40210894425       # ### faces_join DERIVES at the standard three (data/b713_join_grade.txt)
+  +JOIN_TAG = ('v0.1.0', '9bf6fe65582187a92b6ab17e03953efb2cecd913', '11a472b90553deaddc411c5d69ec03611ee277c5')   # ### tag object, peeled (data/b713_join_tag.txt)
+  @@ -155,6 +155,6 @@
+  -NEW_TOOLS = ()               # ### no shared tool new this act (act_membrane.py was b711's)
+  -COMPUTE_TOOLS = ('b712_genus_control.py',)   # ### the genus control alone, an identity between coefficients (N3: no -15 zero computed)
+  -SEALED = ('b712_worklist.py', 'b712_tests.py', 'b712_citation.py', 'b712_record.py', 'b712_checks.py', 'b712_closing.py', 'b712_reg_gate.py',
+  -          'b712_regspec.py', 'b712_corrigendum.py', 'b712_carry.py', 'b712_standing.py', 'b712_price.py', 'b712_recut.py',
+  -          'b712_locate.py') + COMPUTE_TOOLS   # ### the report tool NOT sealed ((R322)(3): a report and not an arm)
+  -# ### the act's arms over its own banks (Component 5): b711's ritual arms carried, its arms over b711's objects (v2, the supplement, the port
+  +NEW_TOOLS = ()               # ### no shared tool new this act (act_membrane.py was b712's)
+  +COMPUTE_TOOLS = ('b713_genus_control.py',)   # ### the genus control alone, an identity between coefficients (N3: no -15 zero computed)
+  +SEALED = ('b713_worklist.py', 'b713_tests.py', 'b713_citation.py', 'b713_record.py', 'b713_checks.py', 'b713_closing.py', 'b713_reg_gate.py',
+  +          'b713_regspec.py', 'b713_corrigendum.py', 'b713_carry.py', 'b713_standing.py', 'b713_price.py', 'b713_recut.py',
+  +          'b713_locate.py') + COMPUTE_TOOLS   # ### the report tool NOT sealed ((R323)(3): a report and not an arm)
+  +# ### the act's arms over its own banks (Component 5): b712's ritual arms carried, its arms over b712's objects (v2, the supplement, the port
+  @@ -167,1 +167,1 @@
+  -            'G-POSTROOT-WRITES-NONE', 'G-R322-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
+  +            'G-POSTROOT-WRITES-NONE', 'G-R323-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
+
+### ### **CARRIED tools/b713_worklist.py ; LINES 173 ; CHANGED BY THE SUBSTITUTION 54 ; REPAIR SPANS AT b712 8 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

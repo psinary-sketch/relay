@@ -1,0 +1,58 @@
+b713 -- STEP ZERO UNDER (R323): WHAT RAN, IN THE ORDER IT RAN (2026-10-25)
+
+### rows are step zero's items as run: the item | the bank or the command | the reading. The order as run: the ferry banked, the citation
+### check (with the ferry route), the standing clauses v4 committed alone, the read-first bank and the closure reader's diff, rowgen, the
+### process listing, the carried files committed (each alone), the branches, the tests, the trees, and the paths last (defect (g)). The act
+### runs in the SAME session as b712 (3bbc6267, no /clear between), claude pid 3604, its anchor (R323)'s line; the previous act's window
+### b712's own, in this session, from its post-push combine to (R323)'s line.
+
+  the ferry banked             data/b713_ferry.txt by the Write tool | 16228 characters from "RULING (R323) BEGIN" to "FERRY END (part 1 of 1)",
+                               equal to the transcript's text after the paste's outer BEGIN and END were taken off by the Edit tool (defect (b));
+                               part 1 of 1, received in full, confirmed before execution; ferry_scan exit 0 (data/b713_ferry_scan.txt)
+  the citation check           data/b713_citation_check.txt (.json) by tools/b713_citation.py, before any delete | CITES CHECKED 144 ; OK 144 ;
+                               MISSES 0 ; the dry form 142 of 144 and the first bank 143 of 144, three matcher defects corrected (defect (a));
+                               b712's rows pruned (data/b713_prune_citation.txt)
+  the standing clauses v4      data/standing_clauses_v4.txt by tools/b713_standing.py, committed alone at relay 89bea621 | ROWS 68 ; v3's 60
+                               unchanged ; seven rows cut from (R323)(4) (the governing row and the six repairs (i)-(vi)) and the close's order
+                               row (68) ; the control data/b713_standing_control.txt AS WANTED (re-run with the ferry's line :13; v4's own text
+                               names :14, defect (b))
+  the readfirst bank           data/b713_readfirst.txt by the Write tool (23 items) ; data/b713_readfirst_closure.txt and data/b713_readfirst_diff.txt
+                               by tools/circuit_read.py readfirst (foreground, once) | ITEMS 13533 ; THE HAND LIST 33 PATHS ; THE TEXT CITES 25 ;
+                               BOTH 19 ; HAND ONLY 14 (in the closure 8) ; TEXT ONLY 6 (data/b712_regpos.txt and data/b711_steps.json, read by the
+                               citation check's rows; the bank itself; data/b713_rules.txt and data/b714_rules.txt, to be written;
+                               tools/mirror_prevbuild.json, a (W) item of (R323)(8))
+  rowgen and constellation     data/b713_rowgen_stepzero.txt by tools/b713_record.py rowgen | CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19 ;
+                               RE-POINTED 8 ; diff_rowpin TOTALS checked 153, present 153, STALE 0
+  the process listing          Win32_Process by name, tail, lean, lake, python, claude and git named: at step zero (21:12Z; its first run piped,
+                               defect (d), re-run with no pipe: claude 1 (pid 3604, this seat), the others 0, free 5,290 MB) and after the tests
+                               (21:41Z: claude 1, the others 0, free 5,447 MB). One seat. No task of this session stopped; no orphan
+  b712's push-out bank         relay 82e128b4, committed alone | data/b712_closing_push_out.txt
+  b712's closing step row      relay b8de4d0c, committed alone | data/b712_steps.json, step 25 (the closing row)
+  the step bank                data/b713_steps.json by tools/b713_record.py step | rows 1-3: 82e128b4, 89bea621, b8de4d0c (v4's entered late,
+                               defect (e); each row carries its committer time)
+  the branches                 data/b713_branches_before.json (before any delete) ; data/b713_branches.txt (.json) after | `git branch --merged main`
+                               printed at relay, PLACE-papers and SIDE-faces-join, no pattern, the eight push-b712-* among the merged, none at a
+                               remote; the eight of (R323)(7) deleted by name with -d, one per command, each its own message, nothing chained
+                               after any: relay push-b712-closing (was 1290446c), push-b712-preroot (36df0a39), push-b712-preroot2 (795af0ce),
+                               push-b712-record (755b03aa), push-b712-record2 (603a3b63); PLACE-papers push-b712-entry (d5bd546), push-b712-record
+                               (ada52b0); SIDE-faces-join push-b712-join (11a472b) ; BRANCHES NAMED 8 ; DELETED 8 ; EVERY TIP MERGED True ;
+                               port-b707 STANDS True (local and remote cb0aea56, not deleted) ; recut-b712-silence at PLACE-papers local
+                               f5ea57cb, absent at the remote (the empty read re-read with main beside it: main ada52b01), not deleted
+  the tests                    data/b713_tests_stepzero.txt (.json) by tools/b713_tests.py (carried by diff, data/b713_carry_tests.txt) | 55 files ;
+                               55 run, each its own process in the foreground, in seven calls each after the hold printed (free 5442, 5383, 4876,
+                               5202, 5380, 5496, 5375 MB at the starts; every call above the 2,560 MB hold; the planned part 4 run in two calls,
+                               4 and 4b) ; 0 withheld ; test_asof.py (397 s) and test_chain_page.py (417 s) each a call of its own ; NOT CLEAN 8:
+                               the same eight as b712's step zero (data/b712_tests_stepzero.txt :62), case for case ; no test over the guard,
+                               none moved to the background
+  the trees                    git status --untracked-files=no | relay tracked changes NONE ; PLACE-papers tracked changes NONE ; the untracked
+                               locals untracked (earlier acts' units, scanfile, audit and mirror scratch) ; this act's tools and step-zero banks
+                               untracked until the step-zero commit
+  the paths                    D:\relay, D:\MY-DOwnloads\PLACE-papers, D:\SIDE-explicit-formula, D:\SIDE-lv-conservation, D:\SIDE-faces-join, each
+                               present by Test-Path (21:41Z, one command, no pipe), read last (defect (g))
+  the carried tools            tools/b713_record.py, b713_citation.py, b713_standing.py, b713_worklist.py and b713_tests.py by tools/b713_carry.py
+                               (data/b713_carry_<name>.txt); tools/b713_carry.py by the Write tool from b712's; the record tool's Component
+                               routes over b712's objects pruned before Component 1
+  no build                     no lean or lake process on this host; no dispatch at step zero
+
+### ### **STEP ZERO DONE: CITES 144, 144 OK, 0 MISSES ; THE STANDING CLAUSES v4 COMMITTED ALONE ; THE CARRIED FILES EACH COMMITTED ALONE ;
+### BRANCHES 8 DELETED, port-b707 AND recut-b712-silence STAND ; TESTS 55 RUN, 8 NOT CLEAN (THE CARRIED EIGHT), NO LEAN PROCESS ; NO BUILD.**
