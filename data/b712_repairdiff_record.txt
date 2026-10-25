@@ -1,0 +1,11 @@
+b712 -- THE CARRY-TIME REPAIRS OF tools/b712_record.py AS A DIFF: the carried form (tools/b711_record.py with the act names substituted) against the file now (2026-10-25T15:47:15Z)
+
+--- tools/b712_record.py (the carried form)
++++ tools/b712_record.py (now)
+@@ -94,1 +94,3 @@
+-_put_json0, _put_txt0 = R.put_json, R.put_txt
++# ### a carry-time repair at b712: b711's module rebound R's writers to its own wrappers, which guard b711 (rooted), so the originals are read
++# ### from b711's capture of b698's writers and not from R (a wrapper over a wrapper refuses every bank once the previous root is appended)
++_put_json0, _put_txt0 = getattr(P7, '_put_json0', R.put_json), getattr(P7, '_put_txt0', R.put_txt)
+
+### ### **HUNKS 1 ; LINES REMOVED 1 ; LINES ADDED 3.**

@@ -1,0 +1,88 @@
+b712 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b711_report.py -> tools/b712_report.py (2026-10-25T14:59:38Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b711 -> b712, b710 -> b711, (R321) -> (R322), (R320) -> (R321), R321 -> R322, R320 -> R321); 341 lines, 27 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b711_tool_repairs.txt AND data/b711_repairdiff_report.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b711; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b711_report.py
+  +++ tools/b712_report.py
+  @@ -1,1 +1,1 @@
+  -"""b711 -- THE REPORT, WITH THE THROUGHSTONE CHECK (the ferry's Component 6; the author's word at the root's prompt, data/b711_author_answers.txt :11).
+  +"""b712 -- THE REPORT, WITH THE THROUGHSTONE CHECK (the ferry's Component 6; the author's word at the root's prompt, data/b712_author_answers.txt :11).
+  @@ -14,1 +14,1 @@
+  -      unchanged from data/b710_registrations.txt (i), the computed onset, the ratio to six places;
+  +      unchanged from data/b711_registrations.txt (i), the computed onset, the ratio to six places;
+  @@ -18,2 +18,2 @@
+  -The check writes nothing beyond this tool's own bank (data/b711_report.txt, data/b711_report.json), each through the membrane. Under standing
+  -clauses v2 row (52) a DIFFERS, or a line the word's form cannot hold, is printed here, entered by the seat in data/b711_events.txt, and not
+  +The check writes nothing beyond this tool's own bank (data/b712_report.txt, data/b712_report.json), each through the membrane. Under standing
+  +clauses v2 row (52) a DIFFERS, or a line the word's form cannot hold, is printed here, entered by the seat in data/b712_events.txt, and not
+  @@ -36,2 +36,2 @@
+  -import b711_worklist as K          # noqa: E402
+  -import b711_record as REC          # noqa: E402  ### the scorers and ROOT_EXCLUDE, read, not edited
+  +import b712_worklist as K          # noqa: E402
+  +import b712_record as REC          # noqa: E402  ### the scorers and ROOT_EXCLUDE, read, not edited
+  @@ -41,1 +41,1 @@
+  -ACT = 'b711'
+  +ACT = 'b712'
+  @@ -139,1 +139,1 @@
+  -    """the navigator's exact value as the author's word at the root carries it (data/b711_author_answers.txt, THE AUTHOR`S WORD: "the navigator's
+  +    """the navigator's exact value as the author's word at the root carries it (data/b712_author_answers.txt, THE AUTHOR`S WORD: "the navigator's
+  @@ -162,1 +162,1 @@
+  -    err_rows = ['%s (data/b711_port.txt :%s)' % (e[len('error: '):], line_of('%s_port.txt' % ACT, e)) for e in errs]
+  +    err_rows = ['%s (data/b712_port.txt :%s)' % (e[len('error: '):], line_of('%s_port.txt' % ACT, e)) for e in errs]
+  @@ -171,1 +171,1 @@
+  -                    '(a join grade bank %s; SIDE-faces-join unmoved); :212:55, b710`s held line, REPAIRED by the edit at %s :%s (the strong pair`s hasMellin), '
+  +                    '(a join grade bank %s; SIDE-faces-join unmoved); :212:55, b711`s held line, REPAIRED by the edit at %s :%s (the strong pair`s hasMellin), '
+  @@ -186,1 +186,1 @@
+  -    keys['SURGERY'] = ('CERTIFIED -- THE SURGERY at Q0`s onsets (data/b710_registrations.txt (ii), read unchanged at %s %s): the operated form %s at the band '
+  +    keys['SURGERY'] = ('CERTIFIED -- THE SURGERY at Q0`s onsets (data/b711_registrations.txt (ii), read unchanged at %s %s): the operated form %s at the band '
+  @@ -188,1 +188,1 @@
+  -                       'the controls first %s; the falsifier (NEGATIVE DIRECTION at either onset) not fired: %s. The certificate: the balls in data/b711_surgery.json. '
+  +                       'the controls first %s; the falsifier (NEGATIVE DIRECTION at either onset) not fired: %s. The certificate: the balls in data/b712_surgery.json. '
+  @@ -190,1 +190,1 @@
+  -                           K.REG_B710[:8], unchanged('data/b710_registrations.txt', K.REG_B710),
+  +                           K.REG_B710[:8], unchanged('data/b711_registrations.txt', K.REG_B710),
+  @@ -207,1 +207,1 @@
+  -    keys['COEFFICIENTS'] = ('CERTIFIED -- THE COEFFICIENTS of Q0`s log-derivative (data/b710_registrations.txt (iii), an observation), exact through %s: the least '
+  +    keys['COEFFICIENTS'] = ('CERTIFIED -- THE COEFFICIENTS of Q0`s log-derivative (data/b711_registrations.txt (iii), an observation), exact through %s: the least '
+  @@ -241,1 +241,1 @@
+  -    reg10 = rd('b710_registrations.txt')
+  +    reg10 = rd('b711_registrations.txt')
+  @@ -256,1 +256,1 @@
+  -    keys['LIST'] = ('REGISTERED -- THE LIST AND THE PAIRS (W-ORD-Q0-ZEROS-443; data/b710_registrations.txt (i), read unchanged at %s %s): the certified list '
+  +    keys['LIST'] = ('REGISTERED -- THE LIST AND THE PAIRS (W-ORD-Q0-ZEROS-443; data/b711_registrations.txt (i), read unchanged at %s %s): the certified list '
+  @@ -260,1 +260,1 @@
+  -                        K.REG_B710[:8], unchanged('data/b710_registrations.txt', K.REG_B710), top, len(closed), len(bands), on_, off_,
+  +                        K.REG_B710[:8], unchanged('data/b711_registrations.txt', K.REG_B710), top, len(closed), len(bands), on_, off_,
+  @@ -265,1 +265,1 @@
+  -    # ------------------------------------------------------------------ THE FOUR STANDING FIGURES: REGISTERED (b710's baseline read at its commit)
+  +    # ------------------------------------------------------------------ THE FOUR STANDING FIGURES: REGISTERED (b711's baseline read at its commit)
+  @@ -267,2 +267,2 @@
+  -    f10_now = jl('b710_standing_figures.json')
+  -    t10 = g(ROOT, 'show', '%s:data/b710_standing_figures.json' % K.PRE_RELAY)
+  +    f10_now = jl('b711_standing_figures.json')
+  +    t10 = g(ROOT, 'show', '%s:data/b711_standing_figures.json' % K.PRE_RELAY)
+  @@ -273,1 +273,1 @@
+  -    c_f = [cmp('b710`s %s baseline, now against its commit' % k, base[k], (f10_now.get(k) or {}).get('figure')) for k in names]
+  +    c_f = [cmp('b711`s %s baseline, now against its commit' % k, base[k], (f10_now.get(k) or {}).get('figure')) for k in names]
+  @@ -275,2 +275,2 @@
+  -    keys['FIGURES'] = ('REGISTERED -- THE FOUR STANDING FIGURES (b710`s figures the baseline, read unchanged at relay %s): correspondence %s, readme %s, partners %s, '
+  -                       'pins %s at b711, beside b710`s %s, %s, %s, %s; no standing arm added. SOURCE %s. THE PROMPT named none.' % (
+  +    keys['FIGURES'] = ('REGISTERED -- THE FOUR STANDING FIGURES (b711`s figures the baseline, read unchanged at relay %s): correspondence %s, readme %s, partners %s, '
+  +                       'pins %s at b712, beside b711`s %s, %s, %s, %s; no standing arm added. SOURCE %s. THE PROMPT named none.' % (
+  @@ -296,2 +296,2 @@
+  -    keys['SCORES'] = ('THE SCORES (g), all eight (relay data/b711_scores.json for N1-N5 and S3, written once before the entry; S1 and S2 read now by the record '
+  -                      'tool`s scorer, data/b711_table_final.json and data/b711_root_arm.json): %s. THE PROMPT: %s.' % (
+  +    keys['SCORES'] = ('THE SCORES (g), all eight (relay data/b712_scores.json for N1-N5 and S3, written once before the entry; S1 and S2 read now by the record '
+  +                      'tool`s scorer, data/b712_table_final.json and data/b712_root_arm.json): %s. THE PROMPT: %s.' % (
+  @@ -315,1 +315,1 @@
+  -    L = ['%s -- THE REPORT, WITH THE THROUGHSTONE CHECK, BEFORE THE ROOT (the author`s word at the root`s prompt, data/b711_author_answers.txt :11) (%s)' % (ACT, at), '',
+  +    L = ['%s -- THE REPORT, WITH THE THROUGHSTONE CHECK, BEFORE THE ROOT (the author`s word at the root`s prompt, data/b712_author_answers.txt :11) (%s)' % (ACT, at), '',
+  @@ -318,1 +318,1 @@
+  -         '### bank) beside the recomputed one. Written by tools/b711_report.py, unsealed (data/b708_rules.txt row (1)), after the root`s word and before the root.', '']
+  +         '### bank) beside the recomputed one. Written by tools/b712_report.py, unsealed (data/b708_rules.txt row (1)), after the root`s word and before the root.', '']
+
+### ### **CARRIED tools/b712_report.py ; LINES 341 ; CHANGED BY THE SUBSTITUTION 27 ; REPAIR SPANS AT b711 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
