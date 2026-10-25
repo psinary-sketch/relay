@@ -1,0 +1,40 @@
+b712 -- COMPONENT 4, (R322)(7): THE RE-CUT`S COMPILE STEPS, BANKED BEFORE ANY PROSE OF day1/Silence_of_Foundations.md (2026-10-25T16:42:46Z)
+
+### each pin the cut cites, read at its tag by `git show <tag>:<path>` (the working trees not read): the tag peeled to its commit, the line
+### carrying its needle, the blob`s sha256. The compile steps are the kernels` own builds at these tags, banked by their acts (SIDE-kernel v1.8,
+### SIDE-explicit-formula v0.37, SIDE-faces-join v0.1.0 at this act`s join run 40210894425); this bank reads that each cited statement stands
+### where the cut will pin it. No lean on this host. Rows: repo tag (peeled) | path :line | needle | stands | sha256 (16) | what the cut states:
+
+  SIDE-kernel v1.8 (70aba3cd) | Kernel/SilenceTheorem.lean :42 | 'def Interface.is_universal' | True | a0f5e5afd26c7682 | the premise: an interface is universal when its action is the same on every pair of configurations
+      def Interface.is_universal {C : ConfigurationSpace} {R : Type}
+  SIDE-kernel v1.8 (70aba3cd) | Kernel/SilenceTheorem.lean :74 | 'theorem silence_universal' | True | a0f5e5afd26c7682 | silence_universal: from I.is_universal, I.kappa_zero (the logical schema over an abstract domain)
+      theorem silence_universal
+  SIDE-kernel v1.8 (70aba3cd) | Kernel/ProductFormula_Rat.lean :71 | 'theorem conservation_of_spectra' | True | a2d3e6fc5b81ec0f | ProductFormula.conservation_of_spectra, the statement
+      theorem conservation_of_spectra :
+  SIDE-kernel v1.8 (70aba3cd) | Kernel/ProductFormula_Rat.lean :72 | '(1 : Rat) ^ s = 1' | True | a2d3e6fc5b81ec0f | its content: (1 : Q)^s = 1 for every integer s
+      ∀ (s : Int), (1 : Rat) ^ s = 1 :=
+  SIDE-kernel v1.8 (70aba3cd) | Kernel/StructuralCount.lean :80 | 'theorem formation_count : allClasses.length = 7' | True | 96bd35beb0d27e9f | formation_count: the defined list of classes has length 7
+      theorem formation_count : allClasses.length = 7 := by decide
+  SIDE-kernel v1.8 (70aba3cd) | Kernel/StructuralCount.lean :83 | 'theorem stage_sum' | True | 96bd35beb0d27e9f | stage_sum: the arithmetic 2 + 3 + 2 + 0 = 7
+      theorem stage_sum :
+  SIDE-kernel v1.8 (70aba3cd) | Bridge/CardDerived.lean :44 | 'theorem mechanism_class_card_derived' | True | 6f7f2bb744a3a73f | Fintype.card MechanismClass = 7, a defined type counted
+      theorem mechanism_class_card_derived :
+  SIDE-kernel v1.8 (70aba3cd) | Kernel/Layer1.lean :23 | 'covers_all' | True | 45b2768b8a96ea34 | covers_all: a field of ExhaustiveCatalogue, a hypothesis supplied, not a theorem
+      covers_all : forall (x : X), P x ->
+  SIDE-explicit-formula v0.37 (38e27347) | SIDEExplicitFormula/Seam.lean :101 | 'h2_sign_iff_rh' | True | 69ebe02f82b3da44 | RH equivalent to the one open clause h2_sign
+      theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+  SIDE-explicit-formula v0.37 (38e27347) | SIDEExplicitFormula/H2Bridge.lean :71 | 'ch_iff_rh' | True | 9b24fad42d644422 | Route 3: RH from its own restatement, no route and no reduction
+      theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis := ⟨ch_imp_rh, rh_imp_ch⟩
+  SIDE-explicit-formula v0.37 (38e27347) | SIDEExplicitFormula/RegisterDepth.lean :60 | 'not_register1' | True | ec602cd3ce8bc124 | register 1 false as stated
+      theorem not_register1 : ¬ Register1_universalityHypothesis := by
+  SIDE-explicit-formula v0.37 (38e27347) | SIDEExplicitFormula/RegisterDepth.lean :297 | 'register5_output_holds' | True | ec602cd3ce8bc124 | register 5: its output a theorem
+      theorem register5_output_holds : Register5_output_HilbertPolya := by
+  SIDE-explicit-formula v0.37 (38e27347) | SIDEExplicitFormula/PageConverses.lean :32 | 'register4_positivity_liCoeff_iff_rh' | True | 3e9f53aa78c395b1 | register 4 equivalent to RH
+      theorem register4_positivity_liCoeff_iff_rh : Register4_positivity LiCoeff ↔ RiemannHypothesis :=
+  SIDE-faces-join v0.1.0 (11a472b9) | FacesJoin.lean :29 | 'theorem faces_join' | True | b82b58cbabeaeba7 | the faces joined by closure: h2_sign iff lv`s Register4_positivity, through RH
+      theorem faces_join :
+
+### THE CONTROL: the needle `theorem conservation_of_spectra` read at Kernel/ProductFormula_Rat.lean :70 (one line off its pin): False
+### THE OLD PIN: 0bc21c0 = 0bc21c06454a ; v1.3 peeled 0bc21c06454a ; equal True ; `theorem conservation_of_spectra` stands True ; `(1 : Rat) ^ s = 1` stands True
+### PRESENT AT THE PIN: SIDE-kernel v1.8 MetaKernel.lean True
+### ### **PINS 14 ; STANDING 14 ; NOT STANDING NONE ; BANKED BEFORE ANY PROSE OF THE CUT.**

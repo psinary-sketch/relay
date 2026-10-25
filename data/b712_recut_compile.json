@@ -1,0 +1,189 @@
+{
+ "at": "2026-10-25T16:42:47Z",
+ "document": "day1/Silence_of_Foundations.md",
+ "pins": [
+  {
+   "repo": "SIDE-kernel",
+   "tag": "v1.8",
+   "peeled": "70aba3cd739270e354278a8b4eb439f5349e5495",
+   "path": "Kernel/SilenceTheorem.lean",
+   "line": 42,
+   "needle": "def Interface.is_universal",
+   "text": "def Interface.is_universal {C : ConfigurationSpace} {R : Type}",
+   "what": "the premise: an interface is universal when its action is the same on every pair of configurations",
+   "sha256": "a0f5e5afd26c7682e44d39df6343f39e112677403b9ce8c4378d258d73362797",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "tag": "v1.8",
+   "peeled": "70aba3cd739270e354278a8b4eb439f5349e5495",
+   "path": "Kernel/SilenceTheorem.lean",
+   "line": 74,
+   "needle": "theorem silence_universal",
+   "text": "theorem silence_universal",
+   "what": "silence_universal: from I.is_universal, I.kappa_zero (the logical schema over an abstract domain)",
+   "sha256": "a0f5e5afd26c7682e44d39df6343f39e112677403b9ce8c4378d258d73362797",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "tag": "v1.8",
+   "peeled": "70aba3cd739270e354278a8b4eb439f5349e5495",
+   "path": "Kernel/ProductFormula_Rat.lean",
+   "line": 71,
+   "needle": "theorem conservation_of_spectra",
+   "text": "theorem conservation_of_spectra :",
+   "what": "ProductFormula.conservation_of_spectra, the statement",
+   "sha256": "a2d3e6fc5b81ec0f7d20ab3e9eb92798794ffa8c27c05150af04e729a37513d8",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "tag": "v1.8",
+   "peeled": "70aba3cd739270e354278a8b4eb439f5349e5495",
+   "path": "Kernel/ProductFormula_Rat.lean",
+   "line": 72,
+   "needle": "(1 : Rat) ^ s = 1",
+   "text": "∀ (s : Int), (1 : Rat) ^ s = 1 :=",
+   "what": "its content: (1 : Q)^s = 1 for every integer s",
+   "sha256": "a2d3e6fc5b81ec0f7d20ab3e9eb92798794ffa8c27c05150af04e729a37513d8",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "tag": "v1.8",
+   "peeled": "70aba3cd739270e354278a8b4eb439f5349e5495",
+   "path": "Kernel/StructuralCount.lean",
+   "line": 80,
+   "needle": "theorem formation_count : allClasses.length = 7",
+   "text": "theorem formation_count : allClasses.length = 7 := by decide",
+   "what": "formation_count: the defined list of classes has length 7",
+   "sha256": "96bd35beb0d27e9f71494bfc7d42101d76ebe5f374208edf67f6fcb5470aeb8e",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "tag": "v1.8",
+   "peeled": "70aba3cd739270e354278a8b4eb439f5349e5495",
+   "path": "Kernel/StructuralCount.lean",
+   "line": 83,
+   "needle": "theorem stage_sum",
+   "text": "theorem stage_sum :",
+   "what": "stage_sum: the arithmetic 2 + 3 + 2 + 0 = 7",
+   "sha256": "96bd35beb0d27e9f71494bfc7d42101d76ebe5f374208edf67f6fcb5470aeb8e",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "tag": "v1.8",
+   "peeled": "70aba3cd739270e354278a8b4eb439f5349e5495",
+   "path": "Bridge/CardDerived.lean",
+   "line": 44,
+   "needle": "theorem mechanism_class_card_derived",
+   "text": "theorem mechanism_class_card_derived :",
+   "what": "Fintype.card MechanismClass = 7, a defined type counted",
+   "sha256": "6f7f2bb744a3a73fa36faeb0ade46f11831d9419018738e3b4ec55355bb97191",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-kernel",
+   "tag": "v1.8",
+   "peeled": "70aba3cd739270e354278a8b4eb439f5349e5495",
+   "path": "Kernel/Layer1.lean",
+   "line": 23,
+   "needle": "covers_all",
+   "text": "covers_all : forall (x : X), P x ->",
+   "what": "covers_all: a field of ExhaustiveCatalogue, a hypothesis supplied, not a theorem",
+   "sha256": "45b2768b8a96ea347f3e23f498cd022f81a5db2aa6ad65880af8eddb5dc8ad9b",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "tag": "v0.37",
+   "peeled": "38e273477257687d676033be0b0243af84a1e08a",
+   "path": "SIDEExplicitFormula/Seam.lean",
+   "line": 101,
+   "needle": "h2_sign_iff_rh",
+   "text": "theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩",
+   "what": "RH equivalent to the one open clause h2_sign",
+   "sha256": "69ebe02f82b3da448805b6bd9ad1b7879df2aa73b92589333ea2f64fdc86dca2",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "tag": "v0.37",
+   "peeled": "38e273477257687d676033be0b0243af84a1e08a",
+   "path": "SIDEExplicitFormula/H2Bridge.lean",
+   "line": 71,
+   "needle": "ch_iff_rh",
+   "text": "theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis := ⟨ch_imp_rh, rh_imp_ch⟩",
+   "what": "Route 3: RH from its own restatement, no route and no reduction",
+   "sha256": "9b24fad42d6444227fd2c204c5ce682be767bdedbfe2d7ef7227ebb71ad2a19a",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "tag": "v0.37",
+   "peeled": "38e273477257687d676033be0b0243af84a1e08a",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 60,
+   "needle": "not_register1",
+   "text": "theorem not_register1 : ¬ Register1_universalityHypothesis := by",
+   "what": "register 1 false as stated",
+   "sha256": "ec602cd3ce8bc1248c9dcb9477ed045f25fe6297676e5e65d59026cc7026ef41",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "tag": "v0.37",
+   "peeled": "38e273477257687d676033be0b0243af84a1e08a",
+   "path": "SIDEExplicitFormula/RegisterDepth.lean",
+   "line": 297,
+   "needle": "register5_output_holds",
+   "text": "theorem register5_output_holds : Register5_output_HilbertPolya := by",
+   "what": "register 5: its output a theorem",
+   "sha256": "ec602cd3ce8bc1248c9dcb9477ed045f25fe6297676e5e65d59026cc7026ef41",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-explicit-formula",
+   "tag": "v0.37",
+   "peeled": "38e273477257687d676033be0b0243af84a1e08a",
+   "path": "SIDEExplicitFormula/PageConverses.lean",
+   "line": 32,
+   "needle": "register4_positivity_liCoeff_iff_rh",
+   "text": "theorem register4_positivity_liCoeff_iff_rh : Register4_positivity LiCoeff ↔ RiemannHypothesis :=",
+   "what": "register 4 equivalent to RH",
+   "sha256": "3e9f53aa78c395b1112977fb2f766261b07be20f298654eb9f757ac3e56cdf94",
+   "stands": true
+  },
+  {
+   "repo": "SIDE-faces-join",
+   "tag": "v0.1.0",
+   "peeled": "11a472b90553deaddc411c5d69ec03611ee277c5",
+   "path": "FacesJoin.lean",
+   "line": 29,
+   "needle": "theorem faces_join",
+   "text": "theorem faces_join :",
+   "what": "the faces joined by closure: h2_sign iff lv`s Register4_positivity, through RH",
+   "sha256": "b82b58cbabeaeba70f9187b375ec47d82cc0c1037871d12ba97616346e82fd92",
+   "stands": true
+  }
+ ],
+ "present": [
+  {
+   "repo": "SIDE-kernel",
+   "tag": "v1.8",
+   "path": "MetaKernel.lean",
+   "present": true
+  }
+ ],
+ "control": false,
+ "oldpin": {
+  "commit": "0bc21c06454a9605200440506a8302f9252d7b31",
+  "v13": "0bc21c06454a9605200440506a8302f9252d7b31",
+  "statement": true,
+  "content": true
+ }
+}
