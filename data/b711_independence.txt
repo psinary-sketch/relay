@@ -1,0 +1,210 @@
+b711 -- STEP ZERO, (R321)(3): THE INDEPENDENCE SUPPLEMENT, W-ORD-READING5-INDEPENDENCE (PLACE-papers OPEN_TRAILS.md :15806) -- EACH NAMED TERMINAL READ AT ITS KERNEL AND TAG (2026-10-25T01:18:47Z)
+
+### rows are terminal declarations: the kernel at its tag (the tag`s commit) | the file :line AT THE TAG | the statement, cut from the blob at the
+### tag to the proof`s `:=` | the hypotheses named (salt-check (c), EXCLUSION_ENGINE.md :181) | the grade read from the statement, in EXCLUSION_ENGINE`s
+### vocabulary (its table :185-:206) | the table`s own row and grade where it grades the terminal | the form in which it bears on Independence.
+### Each blob written to the scratchpad by tools/b711_independence.py `blobs` (git show <tag>:<file>) and read through the Read tool at its
+### line; the grades are the seat`s reading of each statement, no lean run and no #print axioms profile taken on this host (salt-check (d)
+### stands at each kernel`s own transcript). The author named fifteen items ((R321)(3)); they expand to 19 declarations: the bijection`s
+### Independence lemma to its field and restatement, the codimension terminals of SIDE-simplicity to its five theorems. EXCLUSION_ENGINE`s
+### grades were read at its own pins (:183: SIDE-kernel v1.2, SIDE-interfaces v0.2); the statements here are at the tags the author named.
+
+  SIDE-bijection v0.2.1 (b8005043) SIDEBijection/Theorem.lean :137 -- identity_formation_bijection
+      theorem identity_formation_bijection (S : IDSSystem) :
+          ∀ stage : Fin 4, Bijective (S.identityOf stage)
+      HYPOTHESES: S : IDSSystem, whose fields distinctness (:124) and noOrphans (:127) are assumed
+      GRADE (the statement): SHELL at the schema -- screen (b) fires: the conclusion is the conjunction of the two assumed fields (its docstring: "hypothesis-assumed"), the shape of determination_collapse (EE :194); DERIVES (thin) at the concrete instance sideIDS_bijection :237, the fields proved there for the identity on Fin
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: AS A HYPOTHESIS
+
+  SIDE-bijection v0.2.1 (b8005043) SIDEBijection/Theorem.lean :160 -- statement_b_distinctness
+      theorem statement_b_distinctness (S : IDSSystem) (stage : Fin 4) :
+          ∀ C₁ C₂ : S.MechClass stage,
+            S.identityOf stage C₁ = S.identityOf stage C₂ → C₁ = C₂
+      HYPOTHESES: S : IDSSystem ; stage -- the proof is the field S.distinctness stage
+      GRADE (the statement): SHELL -- screen (b) fires: the paper`s Independence Lemma (IDENTITY_FORMATION_BIJECTION.md :65, Lemma 3.1 :67-:71) compiles as the structure FIELD distinctness (:122-:124, assumed per stage), and this theorem restates the field
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: AS A HYPOTHESIS
+
+  SIDE-lv-conservation v0.10.0 (93c27ec2) SIDELvConservation/T3_StepNineBridge.lean :121 -- T3prime_shared_witness
+      theorem T3prime_shared_witness
+          (𝒞 : Set Coupling) (s : ℂ)
+          (h1 : ∀ C ∈ 𝒞, C Phi)
+          (h2 : mellin Phi (s / 2) ≠ 0) :
+          ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+      HYPOTHESES: h1 : every coupling of the family satisfied by T1`s Phi (the shared witness, Determination`s supply) ; h2 : mellin Phi (s / 2) ≠ 0
+      GRADE (the statement): DERIVES (thin) -- existential introduction ⟨Phi, h1, h2⟩; the shared witness is the hypothesis h1, named as such in its docstring
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: COMMUTATION
+
+  SIDE-lv-conservation v0.10.0 (93c27ec2) SIDELvConservation/T3_StepNineBridge.lean :137 -- T3doubleprime_general_commutation_fails
+      theorem T3doubleprime_general_commutation_fails :
+          ¬ ∀ (𝒞 : Set Coupling) (s : ℂ),
+              (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) →
+              ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+      HYPOTHESES: none
+      GRADE (the statement): DERIVES -- a countermodel at s = 3: two couplings Φ = f₁ and Φ = f₂ (f₁, f₂ agreeing on Ioi 0, differing at t = -1), each excluding at s through completedRiemannZeta 3 ≠ 0, no Φ satisfying both
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: COMMUTATION
+
+  SIDE-explicit-formula v0.18 (1dd5cd73) SIDEExplicitFormula/Product.lean :169 -- productLemma_holds
+      theorem productLemma_holds : ProductLemma
+      HYPOTHESES: none beyond the two configurations (WeilConfig, whose fields carry ef, count, target_iff)
+      GRADE (the statement): DERIVES -- ProductLemma unfolds (:160-:161) to "∀ C₁ C₂ : WeilConfig, h2_sign_cfg (sum C₁ C₂) ↔ h2_sign_cfg C₁ ∧ h2_sign_cfg C₂"; an equivalence between open statements; its substance the summed explicit formula sum_ef :111 (each zero side summable by its count); the target of the sum is DEFINED as the conjunction (:147), so the factorization is h2_sign_cfg_iff_target read three times (:170)
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: FACTORIZATION
+
+  SIDE-explicit-formula v0.21 (1d5d4dd9) SIDEExplicitFormula/Schema/Family.lean :213 -- family_theorem
+      theorem family_theorem : h2_sign_cfg (familyConfig q) ↔ ∀ χ ∈ family q, GRH_chi χ.primitiveCharacter
+      HYPOTHESES: q : ℕ with NeZero q
+      GRADE (the statement): DERIVES -- an equivalence between open statements (Weil positivity of the family`s summed configuration ↔ GRH_chi at every non-trivial character`s primitive inducer); the Dedekind reading`s two premises named and NOT DISCHARGED (:255-:272)
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: FACTORIZATION
+
+  SIDE-explicit-formula v0.15 (21c8c522) SIDEExplicitFormula/Schema/Converse.lean :265 -- h2_sign_cfg_iff_target
+      theorem h2_sign_cfg_iff_target (C : WeilConfig) : h2_sign_cfg C ↔ C.target
+      HYPOTHESES: C : WeilConfig
+      GRADE (the statement): DERIVES -- its docstring: "An equivalence between open statements; it proves neither"
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: FACTORIZATION
+
+  SIDE-explicit-formula v0.36 (dfadc8cb) SIDEExplicitFormula/H2SignWide.lean :150 -- h2_sign_sum_iff_rh
+      theorem h2_sign_sum_iff_rh : h2_sign_sum ↔ RiemannHypothesis
+      HYPOTHESES: none
+      GRADE (the statement): DERIVES -- an equivalence between open statements (its head :15: "Nothing here proves RH or h2_sign"); the converse half reads each zero term as the finite sum of |ĥ_i(γ)|² over the summands (:129-:136)
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: FACTORIZATION
+
+  SIDE-li-map v0.1.1 (9e02bc00) LiLinearMap.lean :55 -- lam_add
+      theorem lam_add (η η' : Nat → Int) (n : Nat) :
+          lam (fun j => η j + η' j) n = lam η n + lam η' n
+      HYPOTHESES: η η` : Nat → Int ; n : Nat
+      GRADE (the statement): DERIVES (thin) -- linearity of the Li map over integer-valued streams; the archimedean / pole+Euler split, with real coefficients, is "not an instance compiled here" (its docstring :51-:54)
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: FACTORIZATION
+
+  SIDE-interfaces v0.2.1 (c8bd217a) Interfaces/Kappa.lean :36 -- kappa_zero_of_no_mechanism
+      theorem kappa_zero_of_no_mechanism
+          {A B : Type*} [Fintype A]
+          (P : B -> Real) (f : A -> B) (a0 : A)
+          (h_no_mechanism : ∀ a : A, P (f a) = P (f a0)) :
+          kappa P f a0 = 0
+      HYPOTHESES: h_no_mechanism : ∀ a, P (f a) = P (f a0)
+      GRADE (the statement): DERIVES -- κ computed as the max of a Fintype response set, zero under no response
+      GRADE (EXCLUSION_ENGINE.md :190, the row naming it True): **DERIVES**
+      BEARS ON INDEPENDENCE: SEPARATION
+
+  SIDE-interfaces v0.2.1 (c8bd217a) Interfaces/ConnectionRequiresStructure.lean :41 -- parametric_mechanism_theorem
+      theorem parametric_mechanism_theorem
+          {A B : Type} [Fintype A]
+          (P : B -> Real) (f : A -> B) (a0 : A)
+          (h_no_mechanism : ∀ a : A, P (f a) = P (f a0)) :
+          kappa P f a0 = 0
+      HYPOTHESES: h_no_mechanism : ∀ a, P (f a) = P (f a0)
+      GRADE (the statement): DERIVES -- the statement of kappa_zero_of_no_mechanism, its proof that theorem applied (:46): one result under two names
+      GRADE (EXCLUSION_ENGINE.md :190, the row naming it True): **DERIVES**
+      BEARS ON INDEPENDENCE: SEPARATION
+
+  SIDE-interfaces v0.2.1 (c8bd217a) Interfaces/ConservationProfile.lean :108 -- interface_split
+      theorem interface_split
+          {params : Type} [Fintype params]
+          (P : ConservationProfile params)
+          (h_nontrivial : ¬ IsAllStructural P) :
+          structuralRank P < dim P
+      HYPOTHESES: h_nontrivial : ¬ IsAllStructural P
+      GRADE (the statement): DERIVES -- Finset.card_lt_card on the structural filter; the source-fidelity form with f : A → B reserved for a later kernel (its docstring :104-:106)
+      GRADE (EXCLUSION_ENGINE.md :191, the row naming it True): **DERIVES**
+      BEARS ON INDEPENDENCE: SEPARATION
+
+  SIDE-kernel v1.8 (70aba3cd) Kernel/SilenceTheorem.lean :74 -- silence_universal
+      theorem silence_universal
+          {C : ConfigurationSpace} {R : Type}
+          (I : Interface C R)
+          (h_univ : I.is_universal) :
+          I.kappa_zero
+      HYPOTHESES: h_univ : I.is_universal
+      GRADE (the statement): DERIVES -- constant action, every factoring measurement constant; the essential field unused; its instances over Unit (:104-:136)
+      GRADE (EXCLUSION_ENGINE.md :189, the row naming it True): **DERIVES**
+      BEARS ON INDEPENDENCE: SEPARATION
+
+  SIDE-kernel v1.8 (70aba3cd) Kernel/Voice3b.lean :183 -- offLine_of_codim_two
+      theorem offLine_of_codim_two (sigma : Real)
+          (h_codim2 : zero_codimension sigma = 2) :
+          Not (sigma = 1 / 2)
+      HYPOTHESES: h_codim2 : zero_codimension sigma = 2
+      GRADE (the statement): DERIVES (thin) -- codimension arithmetic; its docstring: "it does NOT use Determination"
+      GRADE (EXCLUSION_ENGINE.md :193, the row naming it True): **SHELL → REPAIRED** (V3B, 2026-07-23)
+      BEARS ON INDEPENDENCE: NO -- codimension arithmetic, outside the principle
+
+  SIDE-simplicity v0.1.2 (967f747c) SIDESimplicity/Codimension.lean :34 -- transversal_generic_empty
+      theorem transversal_generic_empty (curveDim obstrCodim : ℤ)
+          (hcurve : curveDim = 1) (hcodim : 2 ≤ obstrCodim) :
+          curveDim - obstrCodim < 0
+      HYPOTHESES: hcurve : curveDim = 1 ; hcodim : 2 ≤ obstrCodim (integers)
+      GRADE (the statement): DERIVES (thin) -- integer arithmetic by omega; the analytic Thom transversality delegated (the file head :15-:17)
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: AS A HAND-SET COUNT
+
+  SIDE-simplicity v0.1.2 (967f747c) SIDESimplicity/Codimension.lean :49 -- codim_exceeds_curve
+      theorem codim_exceeds_curve : curveDim < numSources
+      HYPOTHESES: none -- over the constants numSources := 5 and curveDim := 1 set in the file (:46-:47)
+      GRADE (the statement): DERIVES (thin) -- 1 < 5 over hand-set constants; the "five independent mechanism-class sources" are the constant numSources (:40-:46)
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: AS A HAND-SET COUNT
+
+  SIDE-simplicity v0.1.2 (967f747c) SIDESimplicity/Codimension.lean :52 -- codim_margin
+      theorem codim_margin (lost : ℤ) (h0 : 0 ≤ lost) (h3 : lost ≤ 3) :
+          curveDim < numSources - lost
+      HYPOTHESES: h0 : 0 ≤ lost ; h3 : lost ≤ 3
+      GRADE (the statement): DERIVES (thin) -- 1 < 5 - lost over the hand-set constants
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: AS A HAND-SET COUNT
+
+  SIDE-simplicity v0.1.2 (967f747c) SIDESimplicity/Codimension.lean :58 -- margin_fails_at_threshold
+      theorem margin_fails_at_threshold : ¬ (curveDim < curveDim)
+      HYPOTHESES: none
+      GRADE (the statement): DERIVES (thin) -- ¬ (1 < 1)
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: AS A HAND-SET COUNT
+
+  SIDE-simplicity v0.1.2 (967f747c) SIDESimplicity/Codimension.lean :71 -- no_tuning
+      theorem no_tuning : freeParameters = 0
+      HYPOTHESES: none -- freeParameters := 0 set in the file (:69)
+      GRADE (the statement): ENCODES-CONCLUSION -- a constant set to the wanted value, proved equal by rfl (the shape of EE :205); its comment: "the kernel records the load-bearing premise", the premise it names "the Independence step" (:61-:67)
+      GRADE (EXCLUSION_ENGINE.md): not graded in its table
+      BEARS ON INDEPENDENCE: AS A HAND-SET COUNT
+
+### THE CONTROL OBJECT: T3″ (SIDE-lv-conservation v0.10.0 T3_StepNineBridge.lean :137)
+  its hypothesis carries PerClassExcludes`s body (:53 "∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0") unfolded: True
+  its conclusion carries CombinationsExclude`s body (:58 "∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0") unfolded: True
+  READING: the statement bears it -- per-class exclusion holding (each of C₁, C₂ excludes at s = 3) and the joint conclusion failing (no Φ satisfies both) without a shared witness; T3′ (:121) the same conclusion with the shared witness as its hypothesis h1. Independence`s control object at the compiled level: the principle`s step from per-class to joint is not free, and T3″ is the compiled proof that it is not
+  beside it, at the tag: the unrestricted bridge T3_perClass_to_combinations (:92) closed by `sorry` at line(s) [108] -- the deposit`s own pinned stop (its docstring :106-:108); on main
+  (d38f3e8c) restated at b648 under (R258)(2) as a `def ... : Prop` whose docstring names T3″ as its refutation and T3′ as its shared-witness form (main`s file :77-:91 read
+  through the Read tool; the quarantine map sorry-quarantine-SIDE-lv-conservation README.md :9). Known, not a finding of this act.
+
+### THE SEARCH THAT MISSED THEM AT b710 (relay data/b710_r5_search.txt):
+  the papers` pattern, :70: ### THE PRINCIPLE Independence -- the pattern '\\*\\*I\\*\\* \\(Independence\\)|Independence axiom|Independence, Determination|\\bIndependence (factors|principle|of the mechanism)' -- hits 113 in 46 files:
+  the kernels` pattern, :586: ^(theorem|lemma|def|structure|class|abbrev) +[A-Za-z_.₀-₉]*([Ii]ndependen|euler_?[Pp]roduct|eulerProduct|crt|[Cc]oprime_filter)
+  its yield :586-:598: 11 declarations in 6 kernels, none of the terminals above
+  POSITIVE CONTROL: the pattern on its own hit "structure IndependentConstraints (X : Type u) where" (:596): True
+  the pattern on each terminal`s declaration line: hits 0 of 19 -- NONE
+  WHY IT MISSED: the pattern reads the declaration`s NAME (independen, euler product, crt, coprime filter); the terminals bear on the principle
+  by their statements (a joint criterion as the conjunction of per-component ones, no response under no mechanism, the per-class to joint
+  step) and none carries the word in its name. A reach by name cannot test a principle stated by content (relay memory: reach is not argument).
+
+### THE PRINCIPLE`S ROW, RESTATED (relay data/b710_reading5.txt (I) :34-:52, its COMPILED cell :39-:44 "DEFINITIONS ALONE"):
+  (I) INDEPENDENCE
+      STATED: as reading 5 :35-:38 has it, unchanged.
+      COMPILED: NOT DEFINITIONS ALONE. Read at their tags, 18 of the 19 declarations above bear on the principle, in five forms:
+          FACTORIZATION (5): productLemma_holds, family_theorem, h2_sign_cfg_iff_target, h2_sign_sum_iff_rh, lam_add -- a joint criterion as the conjunction or the sum of per-component ones (DERIVES; equivalences between open statements, or linearity over integer streams)
+          SEPARATION (4): kappa_zero_of_no_mechanism, parametric_mechanism_theorem, interface_split, silence_universal -- a channel with no mechanism carries no response (DERIVES, EXCLUSION_ENGINE :189-:191)
+          COMMUTATION (2): T3prime_shared_witness, T3doubleprime_general_commutation_fails -- the per-class to joint step: DERIVES under a shared witness (T3′), REFUTED unrestricted (T3″, the control object)
+          AS A HYPOTHESIS (2): identity_formation_bijection, statement_b_distinctness -- the paper`s Independence Lemma (Lemma 3.1, distinct identities) compiled as an assumed field and its restatement (SHELL by screen (b))
+          AS A HAND-SET COUNT (5): transversal_generic_empty, codim_exceeds_curve, codim_margin, margin_fails_at_threshold, no_tuning -- Independence as five hand-set sources and a recorded premise (DERIVES (thin) over constants; no_tuning ENCODES-CONCLUSION)
+          not bearing (1): offLine_of_codim_two
+      THE SCOPE: the forms compiled are the principle`s consequences at named objects, each with its premise named; among the declarations
+          read here none takes the principle as the corpus states it (E_DIFFICULTY_THEOREM.md :71, the mechanism classes "connected only through
+          essential interfaces") as a hypothesis or a conclusion. The SIDE-meta and SIDE-kernel definitions reading 5 located stand beside them.
+      MEASURED and CONTROL: as reading 5 :45-:52 has them, unchanged; at the compiled level T3″ added as the control object.
+
+### ### **DECLARATIONS READ 19 AT THEIR TAGS (THE AUTHOR`S 15 ITEMS) ; BEARING ON INDEPENDENCE 18 ; GRADED BY EXCLUSION_ENGINE 5 ; T3″ THE CONTROL OBJECT True ; THE b710 PATTERN HITS 0 OF 19, ITS OWN HIT True ; NOT READ 0.**
