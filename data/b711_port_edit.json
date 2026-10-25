@@ -1,0 +1,35 @@
+{
+ "at": "2026-10-25T02:24:23Z",
+ "branch": "port-b707",
+ "base": "92af8a344f1161e5f91df448f270bd3dea304429",
+ "head": "92af8a344f1161e5f91df448f270bd3dea304429",
+ "file": "SIDELvConservation/DirichletC7Order.lean",
+ "line": 212,
+ "old": "      (((hurwitzEvenFEPair a).toStrongFEPair.hasMellin w).1).norm",
+ "new": "      (((hurwitzEvenFEPair a).isStrongFEPair_toStrongFEPair.hasMellin w).1).norm",
+ "form": {
+  "file": "SIDELvConservation/C7OrderBounds.lean",
+  "line": 277,
+  "text": "      (((hurwitzEvenFEPair 0).isStrongFEPair_toStrongFEPair.hasMellin w).1).norm"
+ },
+ "hunks": 1,
+ "diff": [
+  "diff --git a/SIDELvConservation/DirichletC7Order.lean b/SIDELvConservation/DirichletC7Order.lean",
+  "index 350afe0..163bdda 100644",
+  "--- a/SIDELvConservation/DirichletC7Order.lean",
+  "+++ b/SIDELvConservation/DirichletC7Order.lean",
+  "@@ -209,7 +209,7 @@ theorem exists_norm_completedHurwitzZetaEven₀_le_exp_half (a : UnitAddCircle)",
+  "       (fun t : ℝ => t ^ (w.re - 1) * ‖(hurwitzEvenFEPair a).f_modif t‖) (Ioi 0) := fun w => by",
+  "     have h : MeasureTheory.IntegrableOn",
+  "         (fun t : ℝ => ‖(t : ℂ) ^ (w - 1) • (hurwitzEvenFEPair a).f_modif t‖) (Ioi 0) :=",
+  "-      (((hurwitzEvenFEPair a).toStrongFEPair.hasMellin w).1).norm",
+  "+      (((hurwitzEvenFEPair a).isStrongFEPair_toStrongFEPair.hasMellin w).1).norm",
+  "     refine MeasureTheory.IntegrableOn.congr_fun h (fun t ht => ?_) measurableSet_Ioi",
+  "     rw [Set.mem_Ioi] at ht",
+  "     rw [norm_smul, Complex.norm_cpow_eq_rpow_re_of_pos ht, Complex.sub_re, Complex.one_re]"
+ ],
+ "changed": [
+  " M SIDELvConservation/DirichletC7Order.lean"
+ ],
+ "ok": true
+}

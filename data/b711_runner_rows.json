@@ -1,0 +1,24 @@
+{
+ "rows": [
+  {
+   "kernel": "SIDE-lv-conservation",
+   "label": "port",
+   "ref": "be3052acd2c6fe013ba482a5eddcfb236ce88738",
+   "run_id": 40154341879,
+   "conclusion": "failure",
+   "artifact_sha256": "0ef8674ffb93d40458614094a3b7be6049bc640fa4a6972bdf3042a3e935fd02",
+   "mem_low": 13667,
+   "stopped": false,
+   "build_exit": "1",
+   "errors": [
+    "error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`",
+    "error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals",
+    "error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument",
+    "error: build failed"
+   ],
+   "axioms_sha256": null,
+   "gate": "NOT DERIVES",
+   "note": "no grade claimed on the port: the print step read as not run (print_targets.txt absent at the branch), W-ORD-LV-FORWARD-PORT"
+  }
+ ]
+}

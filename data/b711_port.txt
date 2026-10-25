@@ -1,0 +1,48 @@
+b711 -- COMPONENT 2, (R321)(4): THE PORT RUN OF SIDE-lv-conservation ON port-b707 AT ITS NEW TIP, READ BY ITS RUN ID; THE OUTCOME BY FILE AND LINE (2026-10-25T02:27:39Z)
+
+### the dispatch: the branch port-b707 at its tip (this act`s one commit on b709`s 92af8a34), the workflow at the branch, target SIDELvConservation (data/b711_dispatches.json)
+### the run: id 40154341879 ; https://github.com/psinary-sketch/SIDE-lv-conservation/actions/runs/40154341879 ; status completed ; conclusion failure ; head be3052acd2c6fe013ba482a5eddcfb236ce88738 on port-b707 ; 2026-10-25T02:24:49Z to 2026-10-25T02:27:10Z
+### the artifacts listed 2: ['chain-probe-40154341879', 'build-module-40154341879'] ; the run`s own chosen by name (build-module-)
+### the artifact: id 12584351087 ; build-module-40154341879 ; 4332 bytes ; sha256 0ef8674ffb93d40458614094a3b7be6049bc640fa4a6972bdf3042a3e935fd02 ; the platform`s digest 0ef8674ffb93d40458614094a3b7be6049bc640fa4a6972bdf3042a3e935fd02 ; AGREE
+### the ref built (out/ref.txt): be3052acd2c6fe013ba482a5eddcfb236ce88738 leanprover/lean4:v4.34.0-rc1
+### the cache (out/cache.log, last line): Already decompressed 8691 file(s)
+### the memory log: LOW 13667 MB ; the hold 2560 ; STOP lines False
+### the build: exit 1 ; error lines 4:
+    error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`
+    error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals
+    error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument
+    error: build failed
+### THE OUTCOME BY FILE AND LINE: modules built 11 of 12: ['C7FiniteTypeFalse', 'C7OrderBounds', 'CouplingsAtPhi', 'GammaBounds', 'PartialPositivity', 'RegisterPentagon', 'Smoke', 'T1_MellinFactorization', 'T2_SDarkness', 'T3_StepNineBridge', 'ZeroCarrier']
+### the module held: ['DirichletC7Order']
+### THE NEXT FAILING LINE, its error and its kind: error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq` -- a renamed Mathlib declaration
+### the failing lines after it (error, kind): [('error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals', 'a broken proof'), ('error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The arg', 'a changed signature')]
+### the count remaining (not built by this run): 1 ['DirichletC7Order']
+### the files: built 11 of 15 (the 12 modules, with AxiomCheck.lean, PinnedGoal.lean, lakefile.lean beside them, not built by the target SIDELvConservation)
+### where the build completes: not complete at this run; (R321)(4)`s join not reached, its dispatch not made
+### the lines after the held module (the log`s context, up to 24 lines):
+    ✖ [3588/3589] Building SIDELvConservation.DirichletC7Order (23s)
+    trace: .> LEAN_PATH=/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/batte
+    warning: SIDELvConservation/DirichletC7Order.lean:175:17: `HasSubset.Subset.eventuallyLE` has been deprecated: Use `LE.le.eventuallyLE` instead
+    
+    Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.eventuallyLE` to `LE.le.eventuallyLE x`).
+    warning: SIDELvConservation/DirichletC7Order.lean:205:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+    If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+    ```
+    open Lean.Parser.Tactic in
+    macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+      `(tactic| push $cfg:optConfig Not $[$loc]?)
+    ```
+    warning: SIDELvConservation/DirichletC7Order.lean:298:25: This simp argument is unused:
+      ZMod.toAddCircle_eq_zero
+    
+    Hint: Omit it from the simp argument list.
+      [apply] simp
+    
+    Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+    warning: SIDELvConservation/DirichletC7Order.lean:434:25: Unused tactic linter: `push_cast` does nothing
+    
+    Note: This linter can be disabled with `set_option linter.unusedTactic false`
+    error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`
+    error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals
+
+### ### **RUN 40154341879 (port) ; CONCLUSION failure ; ARTIFACT AGREE ; BUILD EXIT 1 ; ERROR LINES 4 ; MODULES BUILT 11 OF 12 (FILES 11 OF 15) ; THE NEXT FAILING LINE SIDELvConservation/DirichletC7Order.lean:501:31 (a renamed Mathlib declaration) ; REMAINING 1 ; NO GRADE CLAIMED ON THE PORT.**

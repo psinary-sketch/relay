@@ -1296,13 +1296,248 @@ def _wrap_words(text, width):
     return out + ([cur] if cur else [])
 
 
+# ================================================================================ COMPONENT 2, (R321)(4): THE PORT (b709's portedit, portdispatch and portrun, :1745-:1932, carried)
+LV = K.LV_DIR
+LV_MODULES = ('C7FiniteTypeFalse', 'C7OrderBounds', 'CouplingsAtPhi', 'DirichletC7Order', 'GammaBounds', 'PartialPositivity', 'RegisterPentagon', 'Smoke',
+              'T1_MellinFactorization', 'T2_SDarkness', 'T3_StepNineBridge', 'ZeroCarrier')   # ### b709's twelve (data/b709_port.txt :19-:20)
+LV_OTHER_LEAN = ('AxiomCheck.lean', 'PinnedGoal.lean', 'lakefile.lean')
+OLD212 = '      (((hurwitzEvenFEPair a).toStrongFEPair.hasMellin w).1).norm'
+NEW212 = '      (((hurwitzEvenFEPair a).isStrongFEPair_toStrongFEPair.hasMellin w).1).norm'
+FORM_FILE, FORM_LINE = 'SIDELvConservation/C7OrderBounds.lean', 277   # ### b709's edit of the same form, its error cleared at run 40123142437
+
+
+def _artifact_named(repo, run_id, prefix):
+    rc, out, err = R._gh('api', 'repos/%s/actions/runs/%d/artifacts' % (repo, int(run_id)))
+    arts = (json.loads(out or b'{}') or {}).get('artifacts') or []
+    art = next((x for x in arts if (x.get('name') or '').startswith(prefix)), None)
+    return art, arts
+
+
+def portedit(*a):
+    """data/b711_port_edit.txt (.json): the line (R321)(4) names, printed BEFORE the one commit -- :212 as it stood at b709's tip 92af8a34 and as
+    the Edit tool left it, to the signature data/b709_port.txt :40-:47 reads (WeakFEPair.hasMellin wants the hypothesis `k < re s` where the
+    kernel passed `w`), in b709's form at C7OrderBounds.lean :277 (the strong pair's hasMellin, which takes `s` alone; its error cleared at b709's
+    run); the diff of the module against the tip by git diff, one hunk; every other tracked file unchanged (git status)."""
+    base = K.PORT_TIP
+    head = g(LV, 'rev-parse', 'HEAD').strip()
+    br = g(LV, 'rev-parse', '--abbrev-ref', 'HEAD').strip()
+    src = (rd(os.path.join(LV, *K.PORT_FILE.split('/'))) or '').replace(chr(13), '').split(NL)
+    old = (g(LV, 'show', '%s:%s' % (base, K.PORT_FILE)) or '').replace(chr(13), '').split(NL)
+    form = (rd(os.path.join(LV, *FORM_FILE.split('/'))) or '').replace(chr(13), '').split(NL)
+    d = subprocess.run(['git', '-C', LV, 'diff', base, '--', K.PORT_FILE], capture_output=True).stdout.decode('utf-8', 'replace').replace(chr(13), '').rstrip(NL)
+    dl = d.split(NL) if d else []
+    hunks = [l for l in dl if l.startswith('@@')]
+    changed = [l for l in (g(LV, 'status', '--short') or '').split(NL) if l.strip() and not l.endswith('.lp.log')]
+    n = K.PORT_LINE - 1
+    l_old, l_new = old[n] if len(old) > n else '', src[n] if len(src) > n else ''
+    l_form = form[FORM_LINE - 1] if len(form) >= FORM_LINE else ''
+    nchg = sum(1 for i in range(min(len(src), len(old))) if src[i] != old[i])
+    ok = (l_old == OLD212 and l_new == NEW212 and l_form.replace('hurwitzEvenFEPair 0', 'hurwitzEvenFEPair a') == NEW212 and len(hunks) == 1
+          and changed == [' M ' + K.PORT_FILE] and head == base and br == K.PORT_BRANCH and len(old) == len(src) and nchg == 1)
+    L = ['%s -- COMPONENT 2, (R321)(4): THE PORT`S LINE :%d ON %s, PRINTED BEFORE THE ONE COMMIT (%s)' % (ACT, K.PORT_LINE, K.PORT_BRANCH, utc()), '',
+         '### the branch %s checked out at %s (b709`s one commit, the base), HEAD unmoved before the commit; the one module %s edited by the Edit tool' % (br, head[:8], K.PORT_FILE),
+         '### at one line, the line b709`s run names first (data/b709_port.txt :11, :21: "Application type mismatch", a changed signature).', '',
+         '### :%d at %s:  %s' % (K.PORT_LINE, base[:8], l_old.strip()),
+         '### :%d now:         %s' % (K.PORT_LINE, l_new.strip()),
+         '###   the signature (data/b709_port.txt :40-:47): WeakFEPair.hasMellin (hurwitzEvenFEPair a).toStrongFEPair w -- the argument w : ℂ where',
+         '###   `(hurwitzEvenFEPair a).toStrongFEPair.k < re ?m` is expected; the strong pair`s hasMellin takes `s` alone, its instance given by',
+         '###   WeakFEPair.isStrongFEPair_toStrongFEPair -- b709`s form at %s :%d:  %s' % (FORM_FILE, FORM_LINE, l_form.strip()),
+         '###   beside it b709`s second error at :212:6 (a heartbeat timeout at isDefEq, data/b709_port.txt :12) is read at the dispatch, not pre-judged.', '',
+         '### the diff against %s (git diff), %d hunk(s):' % (base[:8], len(hunks))] + ['    ' + x for x in dl] + [
+         '', '### the working tree (git status --short, the untracked .lp.log aside): %s' % changed,
+         '', '### ### **:%d EDITED TO THE STRONG PAIR`S hasMellin (b709`S FORM AT %s :%d) ; HUNKS %d ; LINES CHANGED %d ; FILES CHANGED %s ; AS THE RULING ORDERS %s.**' % (
+             K.PORT_LINE, FORM_FILE.split('/')[-1], FORM_LINE, len(hunks), nchg, changed, ok)]
+    put_txt('%s_port_edit.txt' % ACT, L)
+    put_json('%s_port_edit.json' % ACT, dict(at=utc(), branch=br, base=base, head=head, file=K.PORT_FILE, line=K.PORT_LINE, old=l_old, new=l_new,
+                                              form=dict(file=FORM_FILE, line=FORM_LINE, text=l_form), hunks=len(hunks), diff=dl, changed=changed, ok=ok))
+    print(NL.join(L[5:10] + L[-1:]))
+    if not ok:
+        sys.exit(1)
+
+
+def portdispatch(*a):
+    """`portdispatch <label> <target> [dry]`: b709's form -- the workflow run AT THE BRANCH with the ref input the branch's tip, one dispatch per
+    tree state (refused where data/b711_dispatches.json carries the tree), at most two dispatches this act ((R321) N1), the branch's tip read back
+    at the remote by one ls-remote before the dispatch; the host's free memory printed before it and the hold read ((R321)(8))."""
+    label, target = a[0], a[1]
+    repo = 'psinary-sketch/' + K.KERNEL
+    full = g(LV, 'rev-parse', K.PORT_BRANCH).strip()
+    tree = g(LV, 'rev-parse', full + '^{tree}').strip()
+    j = jl('%s_dispatches.json' % ACT) if os.path.isfile(os.path.join(D, '%s_dispatches.json' % ACT)) else {}
+    rows = j.get('rows') or []
+    seen = [r for r in rows if r.get('tree') == tree]
+    if seen:
+        sys.exit('### THE TREE %s IS ALREADY BUILT (run %s) -- NOT DISPATCHED' % (tree[:12], seen[0].get('run_id')))
+    if len(rows) >= 2:
+        sys.exit('### TWO DISPATCHES ALREADY MADE THIS ACT ((R321) N1) -- NOT DISPATCHED')
+    if not re.match(r'^[A-Za-z0-9_. ]+$', target):
+        sys.exit('### THE TARGET %r IS OUTSIDE THE LAKE GRAMMAR -- NOT DISPATCHED' % target)
+    remote = (g(LV, 'ls-remote', 'origin', 'refs/heads/' + K.PORT_BRANCH).split() or [''])[0]
+    import b711_tests as TT
+    free = TT.mem('the dispatch')
+    print('  kernel %s ; branch %s ; tip %s ; the remote`s tip %s ; equal %s ; tree %s ; target %s' % (K.KERNEL, K.PORT_BRANCH, full, remote, remote == full, tree, target))
+    if remote != full:
+        sys.exit('### THE REMOTE`S %s IS NOT THE LOCAL TIP -- NOT DISPATCHED' % K.PORT_BRANCH)
+    if free < K.HOLD:
+        sys.exit('### FREE MEMORY %d MB BENEATH THE HOLD -- NOT DISPATCHED' % free)
+    if 'dry' in a[2:]:
+        return
+    t0 = utc()
+    rc, out, err = R._gh('workflow', 'run', 'build-module.yml', '-R', repo, '--ref', K.PORT_BRANCH, '-f', 'ref=' + full, '-f', 'target=' + target)
+    if rc != 0:
+        sys.exit('### THE DISPATCH REFUSED: %s' % err[-400:])
+    run_id = None
+    for _i in range(12):
+        time.sleep(5)
+        rc, out, err = R._gh('run', 'list', '-R', repo, '--workflow', 'build-module.yml', '--event', 'workflow_dispatch', '--limit', '5', '--json', 'databaseId,createdAt,status')
+        new = [r for r in json.loads(out or b'[]') if r.get('createdAt', '') >= t0]
+        if new:
+            run_id = sorted(new, key=lambda r: r['createdAt'])[-1]['databaseId']
+            break
+    rows.append(dict(kernel=K.KERNEL, label=label, ref=full, tree=tree, target=target, dispatched=t0, run_id=run_id, whole=False, branch=K.PORT_BRANCH, free_mb=free,
+                     print_list='ABSENT at the branch`s tree -- the print step read as not run, no grade claimed (b707`s reading, W-ORD-LV-FORWARD-PORT)'))
+    put_json('%s_dispatches.json' % ACT, dict(rows=rows))
+    print('  dispatched %s at --ref %s ; run id %s' % (t0, K.PORT_BRANCH, run_id))
+
+
+def _kind(line):
+    """b709's kinds of a failing line, read from its error text."""
+    if 'Application type mismatch' in line or 'type mismatch' in line:
+        return 'a changed signature'
+    if 'unknown constant' in line or 'unknown identifier' in line or 'Unknown identifier' in line:
+        return 'a cascade of an earlier failure (the kernel`s own declaration)' if 'SIDELvConservation.' in line else 'a renamed Mathlib declaration'
+    if 'timeout' in line:
+        return 'a heartbeat timeout (a proof grown costlier at the pin)'
+    return 'a broken proof'
+
+
+def portrun(*a):
+    """`portrun <run id> <label>`: b709's form -- the run read by its id, its artifact by name with the sha256 against the platform's digest
+    before any reading, the build's exit, the memory log, the error lines; THE OUTCOME BY FILE AND LINE: the modules built of 12, the module
+    held, the next failing line with its error and its kind, the count remaining; where the build completes, the join named for this act's
+    (R321)(4). data/b711_port.txt (.json)."""
+    import io as _io
+    import zipfile
+    run_id, label = int(a[0]), a[1]
+    repo = 'psinary-sketch/' + K.KERNEL
+    rc, out, err = R._gh('run', 'view', str(run_id), '-R', repo, '--json', 'status,conclusion,headSha,headBranch,createdAt,updatedAt,url,event,workflowName')
+    run = json.loads(out or b'{}')
+    art, arts = _artifact_named(repo, run_id, 'build-module-')
+    art = art or {}
+    T_ = {}
+    sha = digest = None
+    if art:
+        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+        sha = hashlib.sha256(rz.stdout).hexdigest()
+        digest = (art.get('digest') or '').replace('sha256:', '')
+        if digest and digest == sha:
+            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+                for nm in z.namelist():
+                    T_[nm] = z.read(nm).decode('utf-8', 'replace').replace(chr(13), '')
+    agree = bool(art) and bool(digest) and digest == sha
+    mem = T_.get('mem.log', '')
+    low = re.findall(r'^LOW (\d+)', mem, re.M)
+    mem_low = int(low[-1]) if low else None
+    stopped = any(l.startswith('STOP ') for l in mem.split(NL))
+    blog = T_.get('build.log', '')
+    bexit = T_.get('build_exit.txt', '').strip() or None
+    errors = [l for l in blog.split(NL) if ': error' in l or l.startswith('error:')]
+    built = sorted(set(m.group(1) for m in re.finditer(r'^[✔⚠] \[\d+/\d+\] Built SIDELvConservation\.(\w+)', blog, re.M)))
+    held = [m.group(1) for m in re.finditer(r'^✖ \[\d+/\d+\] Building SIDELvConservation\.(\w+)', blog, re.M)]
+    file_errs = [l for l in blog.split(NL) if re.match(r'^error: SIDELvConservation/\w+\.lean:\d+:\d+:', l)]
+    first_err = file_errs[0] if file_errs else None
+    kinds = [(l, _kind(l)) for l in file_errs[:12]]
+    remaining = [m for m in LV_MODULES if m not in built]
+    cache = T_.get('cache.log', '')
+    ref_built = ' '.join(T_.get('ref.txt', '').split())
+    complete = bool(agree) and bexit == '0' and not remaining
+    row = dict(kernel=K.KERNEL, label=label, ref=run.get('headSha') or '', run_id=run_id, conclusion=run.get('conclusion'), artifact_sha256=sha if agree else None,
+               mem_low=mem_low, stopped=stopped, build_exit=bexit, errors=errors, axioms_sha256=None, gate='NOT DERIVES',
+               note='no grade claimed on the port: the print step read as not run (print_targets.txt absent at the branch), W-ORD-LV-FORWARD-PORT')
+    L = ['%s -- COMPONENT 2, (R321)(4): THE PORT RUN OF SIDE-lv-conservation ON %s AT ITS NEW TIP, READ BY ITS RUN ID; THE OUTCOME BY FILE AND LINE (%s)' % (ACT, K.PORT_BRANCH, utc()), '',
+         '### the dispatch: the branch %s at its tip (this act`s one commit on b709`s %s), the workflow at the branch, target SIDELvConservation (data/b711_dispatches.json)' % (K.PORT_BRANCH, K.PORT_TIP[:8]),
+         '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
+             run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'), run.get('updatedAt')),
+         '### the artifacts listed %d: %s ; the run`s own chosen by name (build-module-)' % (len(arts), [x.get('name') for x in arts]),
+         '### the artifact: id %s ; %s ; %s bytes ; sha256 %s ; the platform`s digest %s ; %s' % (
+             art.get('id'), art.get('name'), art.get('size_in_bytes'), sha, digest or '### NONE GIVEN', 'AGREE' if agree else '### NOTHING READ FROM IT'),
+         '### the ref built (out/ref.txt): %s' % (ref_built or '### UNREAD'),
+         '### the cache (out/cache.log, last line): %s' % ' | '.join(l for l in cache.rstrip(NL).split(NL)[-1:] if l)[:300],
+         '### the memory log: LOW %s MB ; the hold %d ; STOP lines %s' % (mem_low, K.HOLD, stopped),
+         '### the build: exit %s ; error lines %d:' % (bexit, len(errors))] + ['    ' + l for l in errors[:40]]
+    L += ['### THE OUTCOME BY FILE AND LINE: modules built %d of %d: %s' % (len(built), len(LV_MODULES), built),
+          '### the module held: %s' % (held or 'NONE'),
+          '### THE NEXT FAILING LINE, its error and its kind: %s' % ((' ; '.join('%s -- %s' % (l, k) for l, k in kinds[:1])) if kinds else 'NONE (no file error line)'),
+          '### the failing lines after it (error, kind): %s' % ([(l[:90], k) for l, k in kinds[1:]] or 'NONE'),
+          '### the count remaining (not built by this run): %d %s' % (len(remaining), remaining),
+          '### the files: built %d of 15 (the 12 modules, with %s beside them, not built by the target SIDELvConservation)' % (len(built), ', '.join(LV_OTHER_LEAN)),
+          '### where the build completes: %s' % ('THE BUILD COMPLETES, 12 of 12 -- (R321)(4): Register4_positivity read at 93c27ec and at the tip, the join`s lakefile re-pinned, one join dispatch'
+                                                  if complete else 'not complete at this run; (R321)(4)`s join not reached, its dispatch not made'),
+          '### the lines after the held module (the log`s context, up to 24 lines):']
+    if held:
+        i0 = next((i for i, l in enumerate(blog.split(NL)) if ('Building SIDELvConservation.%s' % held[0]) in l), 0)
+        L += ['    ' + l[:200] for l in blog.split(NL)[i0:i0 + 24]]
+    else:
+        L += ['    ' + l[:200] for l in blog.rstrip(NL).split(NL)[-12:]]
+    L += ['', '### ### **RUN %s (%s) ; CONCLUSION %s ; ARTIFACT %s ; BUILD EXIT %s ; ERROR LINES %d ; MODULES BUILT %d OF 12 (FILES %d OF 15) ; THE NEXT FAILING LINE %s (%s) ; '
+              'REMAINING %d ; NO GRADE CLAIMED ON THE PORT%s.**' % (
+                  run_id, label, run.get('conclusion'), 'AGREE' if agree else '### UNREAD', bexit, len(errors), len(built), len(built),
+                  (first_err.split(': ')[1] if first_err else 'NONE'), (kinds[0][1] if kinds else '-'), len(remaining), ' ; THE BUILD COMPLETES, THE JOIN NEXT' if complete else '')]
+    R.read_runner_row(row)
+    put_txt('%s_port.txt' % ACT, L)
+    if agree:
+        put_txt('%s_buildlog_%s_%s.txt' % (ACT, K.KERNEL, label), blog.rstrip(NL).split(NL))
+    put_json('%s_port.json' % ACT, dict(at=utc(), run_id=run_id, run=run, artifact=dict(id=art.get('id'), name=art.get('name'), sha256=sha, digest=digest, agree=agree), ref_built=ref_built,
+                                        mem_low=mem_low, stopped=stopped, build_exit=bexit, errors=errors, built=built, held=held, first_error=first_err, kinds=kinds, remaining=remaining,
+                                        modules=list(LV_MODULES), grade_claimed=False, complete=complete))
+    j = jl('%s_runner_rows.json' % ACT) if os.path.isfile(os.path.join(D, '%s_runner_rows.json' % ACT)) else {}
+    rows = [r for r in (j.get('rows') or []) if (r.get('kernel'), r.get('label')) != (K.KERNEL, label)] + [row]
+    put_json('%s_runner_rows.json' % ACT, dict(rows=rows))
+    print(NL.join(L[2:10] + L[-1:]))
+
+
+PORT_TAG_HEAD = '*Appended 2026-10-25 by b711 beneath b710’s trail record (:15808), under `(R321)`(4) -- THE ORDER **`W-ORD-LV-PORT-TAG`**, FOR THE AUTHOR’S WORD:*'
+
+
+def c2order(*a):
+    """`c2order [dry]`: (R321)(4) -- "The naming of the port's tip in lv-conservation's tags entered as W-ORD-LV-PORT-TAG for the author's word, no
+    lv tag this act": one OPEN_TRAILS record through b698's guarded landing, every figure read from data/b711_port.json and data/b711_port_edit.json
+    and the kernel's refs (the port's tip, lv's main and the deposit's tag read back, each against the worklist)."""
+    pj, ej = jl('%s_port.json' % ACT), jl('%s_port_edit.json' % ACT)
+    tip = g(LV, 'rev-parse', K.PORT_BRANCH).strip()
+    main = g(LV, 'rev-parse', 'main').strip()
+    dep = g(LV, 'rev-parse', 'v0.10.0^{commit}').strip()
+    tags_at_tip = [t for t in (g(LV, 'tag', '--points-at', tip) or '').split(NL) if t.strip()]
+    fe = pj.get('first_error') or ''
+    m = re.match(r'^error: (SIDELvConservation/\w+\.lean):(\d+):(\d+): (.*)$', fe)
+    after = [k for k in (pj.get('kinds') or [])[1:]]
+    bad = [k for k, v in (('the run read', pj.get('run_id') and (pj.get('artifact') or {}).get('agree')), ('the edit as ordered', ej.get('ok') is True),
+                          ('the tip built', (pj.get('run') or {}).get('headSha') == tip), ('lv main', main == K.LV_MAIN), ('the deposit', dep == K.LV_V0100),
+                          ('no tag at the tip', not tags_at_tip), ('the failing line', m), ('not complete', pj.get('complete') is False)) if not v]
+    if bad:
+        sys.exit('### THE BANKS NOT AS READ: %s -- NOTHING LANDED' % bad)
+    text = (NL + PORT_TAG_HEAD + ' the naming of the port’s tip in SIDE-lv-conservation’s tags. The port at b711: %s at %s '
+            '(b709’s %s with one edit at %s :%d to the strong pair’s hasMellin, b709’s form at C7OrderBounds.lean :277, relay data/b711_port_edit.txt), '
+            'its one run %s read by its id (relay data/b711_port.txt, the artifact’s sha256 %s… equal to the platform’s digest): %d of 12 modules built, '
+            '%s held at :%s:%s (%s, %s)%s. The join (W-ORD-LV-CLOSURE-JOIN, :%d) is not reached: SIDE-faces-join’s lakefile is not re-pinned, no join '
+            'is dispatched and no tag is made. No lv tag at b711: SIDE-lv-conservation’s main (%s) and its deposit v0.10.0 (%s) untouched, the tip '
+            'carrying no tag. Where the port builds 12 of 12 and the join derives, the tip’s name among lv’s tags is the author’s to give. Status OPEN.' % (
+                K.PORT_BRANCH, tip[:8], K.PORT_TIP[:8], K.PORT_FILE.split('/')[-1], K.PORT_LINE, pj['run_id'], pj['artifact']['sha256'][:16],
+                len(pj.get('built') or []), m.group(1).split('/')[-1], m.group(2), m.group(3), m.group(4).strip(), pj['kinds'][0][1],
+                ('; after it ' + ', '.join(':%s (%s)' % (re.search(r'\.lean:(\d+:\d+):', l).group(1), k) for l, k in after)) if after else '',
+                K.ORDER_LV_JOIN, main[:8], dep[:8]) + NL)
+    land([('OPEN_TRAILS.md', PORT_TAG_HEAD, text)], '%s_order_lines.json' % ACT, 'order', entry=None, dry='dry' in a)
+    if 'dry' in a:
+        print(conv(text))
+
+
 # ### stage one (step zero): b710's Component routes over its own objects pruned (data/b711_prune_record.txt); this act's are added by the Edit tool
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               ksyms=ksyms, defs=defs, figures=figures, runner=runner,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck,
-              step=step, c1=c1, repairctl=repairctl, toolrepairs=toolrepairs)
+              step=step, c1=c1, repairctl=repairctl, toolrepairs=toolrepairs, portedit=portedit, portdispatch=portdispatch, portrun=portrun, c2order=c2order)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

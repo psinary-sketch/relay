@@ -1,0 +1,123 @@
+warning: manifest out of date: git url of dependency 'mathlib' changed; use `lake update mathlib` to update it
+✔ [3180/3236] Built SIDELvConservation.Smoke (3.1s)
+✔ [3578/3589] Built SIDELvConservation.T1_MellinFactorization (4.0s)
+✔ [3579/3589] Built SIDELvConservation.ZeroCarrier (4.1s)
+✔ [3580/3589] Built SIDELvConservation.GammaBounds (4.0s)
+✔ [3581/3589] Built SIDELvConservation.T2_SDarkness (2.4s)
+⚠ [3582/3589] Built SIDELvConservation.T3_StepNineBridge (3.5s)
+warning: SIDELvConservation/T3_StepNineBridge.lean:92:8: declaration uses `sorry`
+warning: SIDELvConservation/T3_StepNineBridge.lean:168:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: SIDELvConservation/T3_StepNineBridge.lean:176:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: SIDELvConservation/T3_StepNineBridge.lean:194:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [3583/3589] Built SIDELvConservation.C7OrderBounds (6.4s)
+warning: SIDELvConservation/C7OrderBounds.lean:99:4: `if_true` has been deprecated: Use `ite_true` instead
+warning: SIDELvConservation/C7OrderBounds.lean:182:17: `HasSubset.Subset.eventuallyLE` has been deprecated: Use `LE.le.eventuallyLE` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.eventuallyLE` to `LE.le.eventuallyLE x`).
+warning: SIDELvConservation/C7OrderBounds.lean:270:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: SIDELvConservation/C7OrderBounds.lean:386:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+⚠ [3584/3589] Built SIDELvConservation.CouplingsAtPhi (5.5s)
+warning: SIDELvConservation/CouplingsAtPhi.lean:199:8: This simp argument is unused:
+  C1_realness
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Phi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SIDELvConservation/CouplingsAtPhi.lean:235:58: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofReal_zero, zero_pow, mul_zero, zero_mul, Complex.exp_zero, one_mul, ne_eq, OfNat.ofNat_ne_zero,
+    not_false_eq_true] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SIDELvConservation/CouplingsAtPhi.lean:326:15: `UpperHalfPlane.coe_mk_subtype` has been deprecated: Use `UpperHalfPlane.coe_mk` instead
+warning: SIDELvConservation/CouplingsAtPhi.lean:320:82: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ne_eq, OfNat.ofNat_ne_zero, not_false_eq_true, zero_pow, mul_zero, Complex.exp_zero, one_mul,
+    Complex.ofReal_zero, zero_mul] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SIDELvConservation/CouplingsAtPhi.lean:326:15: This simp argument is unused:
+  UpperHalfPlane.coe_mk_subtype
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only at hS
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3585/3589] Built SIDELvConservation.C7FiniteTypeFalse (10s)
+✔ [3586/3589] Built SIDELvConservation.RegisterPentagon (5.3s)
+⚠ [3587/3589] Built SIDELvConservation.PartialPositivity (3.9s)
+warning: SIDELvConservation/PartialPositivity.lean:119:49: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✖ [3588/3589] Building SIDELvConservation.DirichletC7Order (23s)
+trace: .> LEAN_PATH=/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.34.0-rc1/bin/lean /home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/SIDELvConservation/DirichletC7Order.lean -o /home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/build/lib/lean/SIDELvConservation/DirichletC7Order.olean -i /home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/build/lib/lean/SIDELvConservation/DirichletC7Order.ilean -c /home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/build/ir/SIDELvConservation/DirichletC7Order.c --setup /home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/build/ir/SIDELvConservation/DirichletC7Order.setup.json --json
+warning: SIDELvConservation/DirichletC7Order.lean:175:17: `HasSubset.Subset.eventuallyLE` has been deprecated: Use `LE.le.eventuallyLE` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.eventuallyLE` to `LE.le.eventuallyLE x`).
+warning: SIDELvConservation/DirichletC7Order.lean:205:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: SIDELvConservation/DirichletC7Order.lean:298:25: This simp argument is unused:
+  ZMod.toAddCircle_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SIDELvConservation/DirichletC7Order.lean:434:25: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`
+error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals
+a : UnitAddCircle
+s : ℂ
+⊢ ‖(hurwitzOddFEPair a).Λ ((s + 1) / 2) / 2‖ ≤ (∫ (t : ℝ) in Ioi 0, t ^ (((s + 1) / 2).re - 1) * |oddKernel a t|) / 2
+warning: SIDELvConservation/DirichletC7Order.lean:542:17: `HasSubset.Subset.eventuallyLE` has been deprecated: Use `LE.le.eventuallyLE` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.eventuallyLE` to `LE.le.eventuallyLE x`).
+warning: SIDELvConservation/DirichletC7Order.lean:567:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument
+  w
+has type
+  ℂ
+of sort `Type` but is expected to have type
+  (hurwitzOddFEPair a).k < re ?m.280
+of sort `Prop` in the application
+  WeakFEPair.hasMellin (hurwitzOddFEPair a) w
+info: SIDELvConservation/DirichletC7Order.lean:738:36: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: SIDELvConservation/DirichletC7Order.lean:738:25: Unused tactic linter: `push_cast` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Some required targets logged failures:
+- SIDELvConservation.DirichletC7Order
+error: build failed

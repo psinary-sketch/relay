@@ -1,0 +1,30 @@
+b711 -- COMPONENT 2, (R321)(4): THE PORT`S LINE :212 ON port-b707, PRINTED BEFORE THE ONE COMMIT (2026-10-25T02:24:23Z)
+
+### the branch port-b707 checked out at 92af8a34 (b709`s one commit, the base), HEAD unmoved before the commit; the one module SIDELvConservation/DirichletC7Order.lean edited by the Edit tool
+### at one line, the line b709`s run names first (data/b709_port.txt :11, :21: "Application type mismatch", a changed signature).
+
+### :212 at 92af8a34:  (((hurwitzEvenFEPair a).toStrongFEPair.hasMellin w).1).norm
+### :212 now:         (((hurwitzEvenFEPair a).isStrongFEPair_toStrongFEPair.hasMellin w).1).norm
+###   the signature (data/b709_port.txt :40-:47): WeakFEPair.hasMellin (hurwitzEvenFEPair a).toStrongFEPair w -- the argument w : ℂ where
+###   `(hurwitzEvenFEPair a).toStrongFEPair.k < re ?m` is expected; the strong pair`s hasMellin takes `s` alone, its instance given by
+###   WeakFEPair.isStrongFEPair_toStrongFEPair -- b709`s form at SIDELvConservation/C7OrderBounds.lean :277:  (((hurwitzEvenFEPair 0).isStrongFEPair_toStrongFEPair.hasMellin w).1).norm
+###   beside it b709`s second error at :212:6 (a heartbeat timeout at isDefEq, data/b709_port.txt :12) is read at the dispatch, not pre-judged.
+
+### the diff against 92af8a34 (git diff), 1 hunk(s):
+    diff --git a/SIDELvConservation/DirichletC7Order.lean b/SIDELvConservation/DirichletC7Order.lean
+    index 350afe0..163bdda 100644
+    --- a/SIDELvConservation/DirichletC7Order.lean
+    +++ b/SIDELvConservation/DirichletC7Order.lean
+    @@ -209,7 +209,7 @@ theorem exists_norm_completedHurwitzZetaEven₀_le_exp_half (a : UnitAddCircle)
+           (fun t : ℝ => t ^ (w.re - 1) * ‖(hurwitzEvenFEPair a).f_modif t‖) (Ioi 0) := fun w => by
+         have h : MeasureTheory.IntegrableOn
+             (fun t : ℝ => ‖(t : ℂ) ^ (w - 1) • (hurwitzEvenFEPair a).f_modif t‖) (Ioi 0) :=
+    -      (((hurwitzEvenFEPair a).toStrongFEPair.hasMellin w).1).norm
+    +      (((hurwitzEvenFEPair a).isStrongFEPair_toStrongFEPair.hasMellin w).1).norm
+         refine MeasureTheory.IntegrableOn.congr_fun h (fun t ht => ?_) measurableSet_Ioi
+         rw [Set.mem_Ioi] at ht
+         rw [norm_smul, Complex.norm_cpow_eq_rpow_re_of_pos ht, Complex.sub_re, Complex.one_re]
+
+### the working tree (git status --short, the untracked .lp.log aside): [' M SIDELvConservation/DirichletC7Order.lean']
+
+### ### **:212 EDITED TO THE STRONG PAIR`S hasMellin (b709`S FORM AT C7OrderBounds.lean :277) ; HUNKS 1 ; LINES CHANGED 1 ; FILES CHANGED [' M SIDELvConservation/DirichletC7Order.lean'] ; AS THE RULING ORDERS True.**

@@ -1,0 +1,82 @@
+{
+ "at": "2026-10-25T02:27:39Z",
+ "run_id": 40154341879,
+ "run": {
+  "conclusion": "failure",
+  "createdAt": "2026-10-25T02:24:49Z",
+  "event": "workflow_dispatch",
+  "headBranch": "port-b707",
+  "headSha": "be3052acd2c6fe013ba482a5eddcfb236ce88738",
+  "status": "completed",
+  "updatedAt": "2026-10-25T02:27:10Z",
+  "url": "https://github.com/psinary-sketch/SIDE-lv-conservation/actions/runs/40154341879",
+  "workflowName": "build-module"
+ },
+ "artifact": {
+  "id": 12584351087,
+  "name": "build-module-40154341879",
+  "sha256": "0ef8674ffb93d40458614094a3b7be6049bc640fa4a6972bdf3042a3e935fd02",
+  "digest": "0ef8674ffb93d40458614094a3b7be6049bc640fa4a6972bdf3042a3e935fd02",
+  "agree": true
+ },
+ "ref_built": "be3052acd2c6fe013ba482a5eddcfb236ce88738 leanprover/lean4:v4.34.0-rc1",
+ "mem_low": 13667,
+ "stopped": false,
+ "build_exit": "1",
+ "errors": [
+  "error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`",
+  "error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals",
+  "error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument",
+  "error: build failed"
+ ],
+ "built": [
+  "C7FiniteTypeFalse",
+  "C7OrderBounds",
+  "CouplingsAtPhi",
+  "GammaBounds",
+  "PartialPositivity",
+  "RegisterPentagon",
+  "Smoke",
+  "T1_MellinFactorization",
+  "T2_SDarkness",
+  "T3_StepNineBridge",
+  "ZeroCarrier"
+ ],
+ "held": [
+  "DirichletC7Order"
+ ],
+ "first_error": "error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`",
+ "kinds": [
+  [
+   "error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq`",
+   "a renamed Mathlib declaration"
+  ],
+  [
+   "error: SIDELvConservation/DirichletC7Order.lean:500:82: unsolved goals",
+   "a broken proof"
+  ],
+  [
+   "error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument",
+   "a changed signature"
+  ]
+ ],
+ "remaining": [
+  "DirichletC7Order"
+ ],
+ "modules": [
+  "C7FiniteTypeFalse",
+  "C7OrderBounds",
+  "CouplingsAtPhi",
+  "DirichletC7Order",
+  "GammaBounds",
+  "PartialPositivity",
+  "RegisterPentagon",
+  "Smoke",
+  "T1_MellinFactorization",
+  "T2_SDarkness",
+  "T3_StepNineBridge",
+  "ZeroCarrier"
+ ],
+ "grade_claimed": false,
+ "complete": false
+}
