@@ -1,0 +1,60 @@
+b711 -- COMPONENT 3, (R321)(6): THE AXIS (e), REPRESENTATION COORDINATES, AS data/b709_registrations.txt (i) REGISTERED IT (:10-:58) (2026-10-25T04:01:36Z)
+
+### rows are readings per radius of b707`s coarse ladder: the Weil form on W_a^N, N = 2, 4, 8, 16 (the basis C_2k^(17/2)(v) (1 - v^2)^4, the seat`s
+### reading for the author`s strike, tools/b711_axis.py head), its least eigenvalue in the L2 metric in balls. THE CONTROLS FIRST, THEN THE FIGURES.
+
+### (C1) THE FAMILY IN THE OPERATOR`S COORDINATES -- b707`s 2 x 2 at its coarse points through b707`s windows and reading (C and N lie in W_a, not in
+### the polynomial truncation W_a^N), against data/b707_onset.txt :17-:20 as the registration quotes them (:46-:47):
+  band  128   | lambda_min 0.8817552845 +- 5.28e-26 (POSITIVE DEFINITE BEYOND ITS BOUND) | registered 0.88175528 | equal at its digits True
+  band  192   | lambda_min -0.1801527192 +- 2.08e-26 (NEGATIVE DIRECTION BEYOND ITS BOUND) | registered -0.18015272 | equal at its digits True
+  rho0  log2  | lambda_min 3.719062079 +- 1.35e-13 (POSITIVE DEFINITE BEYOND ITS BOUND) | registered 3.7190621 | equal at its digits True
+  rho0  32    | lambda_min -0.1400449109 +- 2.57e-24 (NEGATIVE DIRECTION BEYOND ITS BOUND) | registered -0.14004491 | equal at its digits True
+  the basis`s own checks: the two enclosures of J_k agree at w = 41, 45 [True, True] (largest gap ['2.4e-42', '1.1e-40']) ; k_00 against acb.integral`s convolution at x = L/2, L (w = 32) [True, True] ; ghat_0(i/2) against acb.integral True
+
+### (C2) THE ZETA FORM ON W_a^N AT EVERY RADIUS READ (wanted POSITIVE DEFINITE beyond its bound), its tail beside:
+  width log2  a = 0.69314718 +- 7.46e-40 | N2 POSITIVE / N4 POSITIVE / N8 POSITIVE / N16 POSITIVE | lambda_min(16) ~ 0.0016149463 | the tail ball, largest entry 1.91e-8 +- 1.38e-47 | AS WANTED
+  width 32    a = 6.9314718 +- 1.58e-39 | N2 POSITIVE / N4 POSITIVE / N8 UNDECIDED / N16 UNDECIDED | lambda_min(16) ~ -1.247721343 | the tail ball, largest entry 8.82e-17 +- 1.50e-56 | ### NOT AS WANTED
+  width 48    a = 7.7424020 +- 7.35e-39 | N2 POSITIVE / N4 POSITIVE / N8 UNDECIDED / N16 UNDECIDED | lambda_min(16) ~ -1.565218407 | the tail ball, largest entry 3.61e-17 +- 5.03e-56 | ### NOT AS WANTED
+  width 64    a = 8.3177662 +- 2.07e-38 | N2 POSITIVE / N4 POSITIVE / N8 UNDECIDED / N16 UNDECIDED | lambda_min(16) ~ -2.408055357 | the tail ball, largest entry 2.02e-17 +- 8.60e-57 | ### NOT AS WANTED
+  width 96    a = 9.1286964 +- 1.18e-38 | N2 POSITIVE / N4 POSITIVE / N8 UNDECIDED / N16 UNDECIDED | lambda_min(16) ~ -2.609481347 | the tail ball, largest entry 9.55e-18 +- 1.49e-56 | ### NOT AS WANTED
+  width 128   a = 9.7040605 +- 1.63e-38 | N2 POSITIVE / N4 POSITIVE / N8 UNDECIDED / N16 UNDECIDED | lambda_min(16) ~ -2.494921013 | the tail ball, largest entry 5.83e-18 +- 5.87e-57 | ### NOT AS WANTED
+  width 192   a = 10.514991 +- 7.44e-39 | N2 POSITIVE / N4 POSITIVE / N8 UNDECIDED / N16 UNDECIDED | lambda_min(16) ~ -2.324279232 | the tail ball, largest entry 3.06e-18 +- 1.92e-57 | ### NOT AS WANTED
+  width a6.838396011 a = 6.8383960 +- 3.88e-39 | N2 POSITIVE / N4 POSITIVE / N8 UNDECIDED / N16 UNDECIDED | lambda_min(16) ~ -2.820299807 | the tail ball, largest entry 9.84e-17 +- 3.50e-57 | ### NOT AS WANTED
+  ### the zeta readings not POSITIVE whose witness Rayleigh quotient lies below the largest entry`s tail ball (the form`s least eigenvalue under the resolution of the archimedean tail beyond R = 4000, not a sign): 14 of them -- 32 N8, 32 N16, 48 N8, 48 N16, 64 N8, 64 N16, 96 N8, 96 N16, 128 N8, 128 N16, 192 N8, 192 N16, a6.838396011 N8, a6.838396011 N16
+
+### (C3) THE PROVEN RANGE AT a = log 2: Lambda_Q(2) = 0, prime terms 0 ; lambda_min(log 2, N) N2 POSITIVE 2.46701164 / N4 POSITIVE 2.33012244 / N8 POSITIVE 2.26332103 / N16 POSITIVE 2.23587209 -- AS WANTED
+### THE CONTROLS: C1 True ; C2 False ; C3 True
+
+### THE FIGURES: the Q0 form on W_a^N per radius (the convergence in N read across the row):
+  width log2  a = 0.69314718 +- 7.46e-40 | prime terms 0 | N2 POSITIVE 2.467011643 | N4 POSITIVE 2.330122446 | N8 POSITIVE 2.263321037 | N16 POSITIVE 2.235872090
+        N 16: lambda_min in [2.2358699 +- 3.03e-39, 2.2358721 +- 4.53e-13] (the certified lower bound, the witness`s Rayleigh quotient) ; POSITIVE DEFINITE BEYOND ITS BOUND
+  width 32    a = 6.9314718 +- 1.58e-39 | prime terms 270 | N2 POSITIVE 0.000047957 | N4 POSITIVE 2.881467532 | N8 POSITIVE 5.534456669 | N16 NEGATIVE -7.63798800
+        N 16: lambda_min in [-7.6379880 +- 1.12e-38, -7.6379880 +- 5.54e-20] (the certified lower bound, the witness`s Rayleigh quotient) ; NEGATIVE DIRECTION BEYOND ITS BOUND
+  width 48    a = 7.7424020 +- 7.35e-39 | prime terms 566 | N2 POSITIVE 0.000030353 | N4 POSITIVE 4.750133408 | N8 NEGATIVE -5.51414652 | N16 NEGATIVE -12.7538933
+        N 16: lambda_min in [-12.753893 +- 1.91e-38, -12.753893 +- 5.99e-20] (the certified lower bound, the witness`s Rayleigh quotient) ; NEGATIVE DIRECTION BEYOND ITS BOUND
+  width 64    a = 8.3177662 +- 2.07e-38 | prime terms 973 | N2 POSITIVE 0.000003501 | N4 POSITIVE 4.978259995 | N8 NEGATIVE -4.78122342 | N16 NEGATIVE -11.3635267
+        N 16: lambda_min in [-11.363527 +- 1.96e-38, -11.363527 +- 4.92e-21] (the certified lower bound, the witness`s Rayleigh quotient) ; NEGATIVE DIRECTION BEYOND ITS BOUND
+  width 96    a = 9.1286964 +- 1.18e-38 | prime terms 2075 | N2 POSITIVE 0.000002919 | N4 POSITIVE 5.118473040 | N8 NEGATIVE -5.54121751 | N16 NEGATIVE -7.87656345
+        N 16: lambda_min in [-7.8765635 +- 6.27e-39, -7.8765635 +- 4.83e-21] (the certified lower bound, the witness`s Rayleigh quotient) ; NEGATIVE DIRECTION BEYOND ITS BOUND
+  width 128   a = 9.7040605 +- 1.63e-38 | prime terms 3567 | N2 POSITIVE 0.000000224 | N4 POSITIVE 1.752200533 | N8 NEGATIVE -1.29598896 | N16 NEGATIVE -10.4297418
+        N 16: lambda_min in [-10.429742 +- 1.38e-38, -10.429742 +- 4.35e-21] (the certified lower bound, the witness`s Rayleigh quotient) ; NEGATIVE DIRECTION BEYOND ITS BOUND
+  width 192   a = 10.514991 +- 7.44e-39 | prime terms 7694 | N2 POSITIVE 0.000000337 | N4 POSITIVE 1.128129746 | N8 NEGATIVE -4.61358494 | N16 NEGATIVE -10.4015391
+        N 16: lambda_min in [-10.401539 +- 1.31e-38, -10.401539 +- 2.01e-21] (the certified lower bound, the witness`s Rayleigh quotient) ; NEGATIVE DIRECTION BEYOND ITS BOUND
+  ### the point off the ladder at the earlier family onset a = 6.838396011 (rho_0`s, data/b709_report.txt :16), read for the hypothesis`s second clause:
+  a = 6.838396011 +- 3.88e-39 | prime terms 247 | N2 POSITIVE 0.000097507 | N4 POSITIVE 4.585292084 | N8 NEGATIVE -6.36224287 | N16 NEGATIVE -6.32235506
+        N 16: lambda_min in [-6.3223551 +- 5.90e-39, -6.3223551 +- 5.59e-20] ; NEGATIVE DIRECTION BEYOND ITS BOUND
+
+### THE LEAST RADIUS ON THE LADDER WITH lambda_min(a, 16) NEGATIVE: width 32 (a = 6.9314718 +- 1.58e-39) ; the least eigenvector`s |e^(t)| on [0, 40]: t_peak 15.78, half-width 0.35 ; the off-line ordinates within one half-width: NONE
+### THE ONSET ON W_a^16: below the ladder`s least negative radius a = 6.931472 and at or below a* = 6.838396011 (the point reads NEGATIVE DIRECTION BEYOND ITS BOUND)
+
+### THE SEAT`S CHECK, NOT REGISTERED: the zero side of the explicit formula for each witness, S(g) = SUM_rho ghat(t_rho)^2 over tools/b709_pairs.py`s
+### certified list to 325.0 (row kinds ['off', 'on', 'ref']; the list`s tail beyond it unbounded here, so a ratio and not a ball) against v^T S v:
+  calibration, width 32 N 2: v^T S v 7.6247550e-5 +- 2.64e-30 ; on-line 7.6259145e-5 +- 3.37e-17 ; off-line -1.1594743e-8 +- 6.71e-23 ; ratio 1.0000000 +- 4.42e-13
+  the onset radius, width 32 N 16: v^T S v -985.56101 +- 7.15e-18 ; on-line 471.66196 +- 7.51e-10 ; off-line -1457.2230 +- 3.14e-10 ; ratio 1.0000000 +- 1.08e-12 ; the largest off-line terms off0 (sigma [0.95326047 +/- 4.80e-9], t [16.290216 +/- 2.80e-7]) -1469; off2 (sigma [0.66365168 +/- 1.15e-9], t [33.650101 +/- 4.18e-7]) -0.9026; off3 (sigma [0.80999153 +/- 1.50e-9], t [43.858664 +/- 3.66e-7]) -0.342
+  the point a*, width a6.838396011 N 16: v^T S v -3756.9870 +- 3.32e-17 ; on-line 2237.8481 +- 1.01e-9 ; off-line -5994.8351 +- 1.47e-9 ; ratio 1.0000000 +- 6.59e-13 ; the largest off-line terms off0 (sigma [0.95326047 +/- 4.80e-9], t [16.290216 +/- 2.80e-7]) -6103; off4 (sigma [0.78237858 +/- 3.33e-9], t [46.960994 +/- 3.31e-7]) -0.5952; off8 (sigma [0.79576903 +/- 4.16e-9], t [79.598550 +/- 3.36e-7]) -0.005265
+### THE HYPOTHESIS (:38-:40): the peak within one half-width of an off-line ordinate False ; the operator`s onset at or below the earlier family onset (a = 6.838396011) True
+### THE FALSIFIER (:41-:44): the peak near no off-line ordinate FIRED ; lambda_min(a, 16) POSITIVE DEFINITE where b709`s grid reads a family NEGATIVE (widths 32, 192): NOT FIRED -- the tool`s falsifier beside the axis`s
+
+### THE SEAT`S READING BESIDE THE VERDICT, NOT CHANGING IT (the check above is not registered): at the onset radius the largest zero-side term is off0 (sigma [0.95326047 +/- 4.80e-9], t [16.290216 +/- 2.80e-7]), 1.4906 of v^T S v ; the real-axis peak t_peak 15.78 lies 0.51 from its ordinate against the half-width 0.35 -- the registered profile reads |e^(t)| on the real line, the term sits at the complex point t - i (sigma - 1/2)
+
+### ### **THE AXIS (e) REFUTED ; RADII READ 7 OF 7 ; THE ONSET ON W_a^16 width 32, t_peak 15.78, half-width 0.35 ; THE TOOL`S FALSIFIER NOT FIRED ; C1 True ; C2 False ; C3 True.**

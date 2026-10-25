@@ -1,0 +1,36 @@
+b711 -- COMPONENT 3, (R321)(5): THE SURGERY AT Q0`S ONSET RADII, AS data/b710_registrations.txt (ii) REGISTERED IT (:51-:69) (2026-10-25T02:35:12Z)
+
+### rows are readings at the two onset points (the band zero`s family at rung32381, rho_0`s at mid929_937; b709`s grid points, tools/b709_grid.py
+### grid); the form S = P - PR + A per window C, N, CN (b709`s terms709, the coefficient list the one change), the 2 x 2 form`s least eigenvalue
+### in the L2 metric, b707`s reading. THE CONTROLS FIRST, THEN THE FIGURES.
+
+### (C1) ZETA UNCHANGED BY THE OPERATION (Lambda vanishes off the prime powers):
+  band  rung32381   | Lambda off the prime powers nonzero at 0 n | S per window operated = unoperated True | lambda_min equal True (1.262326818e-7 +- 4.06e-26, POSITIVE DEFINITE BEYOND ITS BOUND) | AS WANTED
+  rho0  mid929_937  | Lambda off the prime powers nonzero at 0 n | S per window operated = unoperated True | lambda_min equal True (3.111197351e-7 +- 3.67e-24, POSITIVE DEFINITE BEYOND ITS BOUND) | AS WANTED
+
+### (C2) THE UNOPERATED Q0 FORM AGAINST b709`S ONSET UNITS AND THE REGISTRATION`S FIGURES (:65-:66):
+  band  rung32381   | b709`s units CCNN (data/b709_grid_units_seg_qC.jsonl) | S per window equal True | k(0) equal True | lambda_min -3.530086238e-5 +- 2.40e-26 (NEGATIVE DIRECTION BEYOND ITS BOUND) against -3.5300862e-5 at its digits True | AS WANTED
+  rho0  mid929_937  | b709`s units CCNN (data/b709_grid_units_rho0_q0.jsonl) | S per window equal True | k(0) equal True | lambda_min -0.003719132066 +- 3.04e-24 (NEGATIVE DIRECTION BEYOND ITS BOUND) against -0.0037191321 at its digits True | AS WANTED
+
+### THE CONTROLS: C1 True ; C2 True -- THE FIGURES FOLLOW
+
+### THE FIGURES: the operated Q0 form at each onset point (composite coefficients removed; prime powers kept):
+  band  rung32381   | a = 10.38532711 +- 5.12e-38 | N = 1048529161 | the list to 36864: 3987 prime powers kept, 6983 composite n carrying a nonzero coefficient set to zero
+        OPERATED lambda_min 5.718178239 +- 7.52e-26 ; lambda_max 7.698530879 +- 7.52e-26 ; det 632.0341215 +- 1.70e-24 ; POSITIVE DEFINITE BEYOND ITS BOUND
+        unoperated lambda_min -3.530086238e-5 +- 2.40e-26 (b709`s onset reading)
+        window C  | PR as it stands -0.5121273259 +- 3.42e-29 | PR operated -0.1334198167 +- 3.31e-30 | the composite share 0.73947921 +- 1.22e-28 | S 1.221235602 +- 3.42e-29 -> 0.8425280928 +- 3.35e-30
+        window N  | PR as it stands 772.1667922 +- 1.82e-26 | PR operated 29.47949194 +- 1.85e-27 | the composite share 0.96182238 +- 4.85e-29 | S 14.32697731 +- 3.17e-25 -> 757.0142776 +- 3.01e-25
+        window CN | PR as it stands 762.5485022 +- 1.99e-26 | PR operated 23.80215538 +- 2.02e-27 | the composite share 0.96878604 +- 5.40e-29 | S 23.91532061 +- 3.19e-25 -> 762.6616674 +- 3.01e-25
+  rho0  mid929_937  | a = 6.838396011 +- 2.47e-38 | N = 870473 | the list to 1024: 198 prime powers kept, 220 composite n carrying a nonzero coefficient set to zero
+        OPERATED lambda_min 3.285406306 +- 3.32e-24 ; lambda_max 6.142542356 +- 3.32e-24 ; det 468.8749655 +- 1.07e-22 ; POSITIVE DEFINITE BEYOND ITS BOUND
+        unoperated lambda_min -0.003719132066 +- 3.04e-24 (b709`s onset reading)
+        window C  | PR as it stands -0.3569801808 +- 5.53e-30 | PR operated -0.1909061636 +- 1.13e-30 | the composite share 0.46521915 +- 2.59e-29 | S 1.227584179 +- 5.58e-30 -> 1.061510161 +- 1.17e-30
+        window N  | PR as it stands 668.3046739 +- 2.23e-27 | PR operated 237.0310654 +- 4.86e-28 | the composite share 0.64532484 +- 6.22e-30 | S 10.90311747 +- 4.33e-23 -> 442.1767260 +- 4.33e-23
+        window CN | PR as it stands 658.1737396 +- 2.45e-27 | PR operated 235.9664647 +- 5.25e-28 | the composite share 0.64148301 +- 6.90e-30 | S 19.61657484 +- 4.33e-23 -> 441.8238497 +- 4.33e-23
+
+### THE HYPOTHESIS (:60-:61): the operated form POSITIVE DEFINITE beyond its bound at both onsets -- HELD
+### THE FALSIFIER (:62): the operated form NEGATIVE DIRECTION beyond its bound at either onset -- NOT FIRED
+### THE SCOPE (:67-:68): the corrected prime side is not the log-derivative of a function with these zeros; the surgery attributes the
+### form`s prime-side expression and states nothing about any function`s zeros.
+
+### ### **THE SURGERY HELD ; THE OPERATED FORM POSITIVE DEFINITE BEYOND ITS BOUND (band, rung32381) AND POSITIVE DEFINITE BEYOND ITS BOUND (rho_0, mid929_937) ; LAMBDA_MIN 5.7181782 +- 7.52e-26 AND 3.2854063 +- 3.32e-24 ; THE COMPOSITE SHARE (C, N, CN) 0.7395 / 0.9618 / 0.9688 AND 0.4652 / 0.6453 / 0.6415 ; C1 True ; C2 True.**

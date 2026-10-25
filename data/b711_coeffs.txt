@@ -1,0 +1,18 @@
+b711 -- COMPONENT 3, (R321)(5): THE COEFFICIENT OBSERVATION, AS data/b710_registrations.txt (iii) REGISTERED IT (:71-:80) -- AN OBSERVATION, NO HYPOTHESIS (2026-10-25T02:36:42Z)
+
+### rows are readings of c(n), Q0`s log-derivative coefficients (-Z_Q`/Z_Q = SUM c(n) n^-s), computed exactly for n <= 32532 = floor(e^10.39), each a
+### vector of rationals over the primes of n (c(n) = SUM q_p log p); b_n = r_Q(n)/2 by b694`s count (b_1 = 1). THE CONTROLS FIRST, THEN THE READINGS.
+
+### (C1) the recursion with b_n = 1 (zeta`s series) returns von Mangoldt exactly at every n <= 32532: mismatches 0 [] -- AS WANTED
+### (C2) the exact Q0 vector against b694`s ball Lambda_Q(n) (tools/b694_witness_terms.py lambda_q): 4420 nonzero vectors overlapping their balls, 0 not overlapping [], 0 zero vectors against a ball excluding 0 [] -- AS WANTED
+### THE CONTROLS: C1 True ; C2 True
+
+### THE READINGS:
+  the coefficients through 32532: nonzero 4420 of 32531 (r_Q(n) nonzero at 6834 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n = 48 ; c(48) = (-8) log 2 + (-2) log 3 = [-7.74240202181578 +/- 1.86e-15]
+  beside it, the navigator`s expectation (:75-:76), NOT checked: n = 48, c(48) = -2 log 48 (= (-8) log 2 + (-2) log 3) ; the computed c(48) = (-8) log 2 + (-2) log 3
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 1066 ; the first ten [48, 72, 96, 108, 144, 156, 162, 208, 216, 234]
+  THE LEAST HEIGHT OF A ZERO WITH Re rho > 1: NONE IN THE LIST TO 325.0 (469 rows, 46 off-line; the largest off-line real part 0.953260)
+  the list`s off-line search region (tools/b709_pairs.py DELTA, SIG_ROWS, candidates): the right half-strip sigma >= 1/2 + 0.02, its candidate grid`s upper sigma 1.45 for the bands to 310 and 1.00 from 310 on
+
+### ### **AN OBSERVATION ; c(n) NEGATIVE FROM n = 48 (c = (-8) log 2 + (-2) log 3) ; NEGATIVE COEFFICIENTS 1066 THROUGH 32532 ; THE NAVIGATOR`S n = 48 PRINTED BESIDE, NOT CHECKED ; Re rho > 1 IN THE LIST TO 325.0: NONE ; C1 True ; C2 True.**
