@@ -1,0 +1,51 @@
+{
+ "rows": [
+  {
+   "kernel": "SIDE-lv-conservation",
+   "label": "port1",
+   "ref": "42da39ea2c03859ef6e74a9b752d9783816b430a",
+   "run_id": 40210206913,
+   "conclusion": "failure",
+   "artifact_sha256": "89b8e17d01f2442397e5af8124de6a3c47bffb182ae13482de11db953db7b573",
+   "mem_low": 13563,
+   "stopped": false,
+   "build_exit": "1",
+   "errors": [
+    "error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument",
+    "error: build failed"
+   ],
+   "axioms_sha256": null,
+   "gate": "NOT DERIVES",
+   "note": "no grade claimed on the port: the print step read as not run (print_targets.txt absent at the branch), W-ORD-LV-FORWARD-PORT"
+  },
+  {
+   "kernel": "SIDE-lv-conservation",
+   "label": "port2",
+   "ref": "cb0aea56354abb3abda3fdaef28429c6605605d5",
+   "run_id": 40210536172,
+   "conclusion": "failure",
+   "artifact_sha256": "789ea0ac4442ddb4cd4707e7d9ce8ca88eeee7438e9b48f329478f39a34eb6b5",
+   "mem_low": 13622,
+   "stopped": false,
+   "build_exit": "0",
+   "errors": [],
+   "axioms_sha256": null,
+   "gate": "NOT DERIVES",
+   "note": "no grade claimed on the port: the print step read as not run (print_targets.txt absent at the branch), W-ORD-LV-FORWARD-PORT"
+  },
+  {
+   "kernel": "SIDE-faces-join",
+   "label": "join",
+   "ref": "11a472b90553deaddc411c5d69ec03611ee277c5",
+   "run_id": 40210894425,
+   "conclusion": "success",
+   "artifact_sha256": "632b3d77a689dce569d82a5deab92ed74e029c5c8c99ebef81d2b4895903162d",
+   "mem_low": 12824,
+   "stopped": false,
+   "build_exit": "0",
+   "errors": [],
+   "axioms_sha256": "16a413081564f99f08acf6f0f17f5a0777bce384e24ee4a1d00ea13f8301ef56",
+   "gate": "DERIVES"
+  }
+ ]
+}

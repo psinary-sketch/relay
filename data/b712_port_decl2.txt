@@ -1,0 +1,27 @@
+b712 -- COMPONENT 2, (R322)(4): THE DECLARATIONS AT MATHLIB de5ce8a9 FOR THE PORT`S EDIT 2, PRINTED BEFORE THE EDIT (2026-10-25T16:11:36Z)
+
+### the held line: error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: the argument w : ℂ where (hurwitzOddFEPair a).k < re ?m is expected, in WeakFEPair.hasMellin (hurwitzOddFEPair a) w (data/b712_buildlog_SIDE-lv-conservation_port1.txt :99-:106)
+### the Mathlib checkout read: D:/SIDE-explicit-formula/.lake/packages/mathlib at de5ce8a9 (the port`s lake-manifest pins de5ce8a9) ; equal True
+### the kernel: SIDE-lv-conservation on port-b707 at 42da39ea (the edit`s base 42da39ea) ; :574 as it stands, unedited:
+          (((hurwitzOddFEPair a).hasMellin w).1).norm
+
+### Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :402-:406 (WeakFEPair.hasMellin, its hypothesis k < re s) at de5ce8a9:
+    402  /-- Relation between `Λ s` and the Mellin transform of `f - f₀`, where the latter is defined.
+    403  (Compare `IsStrongFEPair.hasMellin` for a version without assumptions on `s.re` assuming the
+    404  FE-pair is strong.) -/
+    405  theorem hasMellin [CompleteSpace E]
+    406      {s : ℂ} (hs : P.k < s.re) : HasMellin (P.f · - P.f₀) s (P.Λ s) := by
+
+### Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :483-:485 (IsStrongFEPair.hasMellin, s alone) at de5ce8a9:
+    483  /-- The Mellin transform of `f` is well-defined and equal to `P.Λ s`, for all `s`. -/
+    484  theorem hasMellin (s : ℂ) : HasMellin P.f s (P.Λ s) :=
+    485    ⟨hP.mellinConvergent s, congr_fun hP.Λ_eq.symm s⟩
+
+### Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean :325-:327 (the odd pair`s strong proof) at de5ce8a9:
+    325  lemma isStrong_hurwitzOddFEPair (a : UnitAddCircle) : IsStrongFEPair (hurwitzOddFEPair a) where
+    326    hf₀ := rfl
+    327    hg₀ := rfl
+
+### the form the edit takes: (((isStrong_hurwitzOddFEPair a).hasMellin w).1).norm
+
+### ### **DECLARATIONS READ 3 AT MATHLIB de5ce8a9 ; THE LINE UNEDITED True ; READY FOR THE EDIT True.**

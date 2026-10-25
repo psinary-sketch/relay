@@ -1,0 +1,18 @@
+b712 -- COMPONENT 2, (R322)(4): faces_join GRADED AGAINST lv-conservation`S OWN DECLARATION (2026-10-25T16:25:24Z)
+
+### the built ref: SIDE-faces-join main 11a472b9 ; the run 40210894425 (data/b712_runner_SIDE-faces-join_join.txt)
+### the lakefile at the ref requires SIDE-lv-conservation at cb0aea56 ; the port`s tip cb0aea56 ; equal True (the run`s log does not print the revision Lake resolved;
+###   the pin is read from the lakefile the runner checked out at the ref)
+### the statement (FacesJoin.lean at 11a472b9 :29):
+    theorem faces_join :
+        SIDEExplicitFormula.B321.h2_sign ↔
+          SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff :=
+      SIDEExplicitFormula.B321.h2_sign_iff_rh.trans
+        SIDEExplicitFormula.PageConverses.register4_positivity_liCoeff_iff_rh.symm
+### lv-conservation`s own declaration, at the deposit and at the port`s tip (data/b712_regpos.txt), EQUAL BY STATEMENT True:
+    def Register4_positivity (lam : ℕ → ℝ) : Prop :=
+      ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n
+### #print axioms (data/b712_axioms_SIDE-faces-join_join.txt):
+    'faces_join' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+### ### **faces_join: GATE DERIVES ; NAMES lv-conservation`S RegisterPentagon.Register4_positivity True ; THE PIN THE PORT`S TIP True ; GRADE DERIVES AT THE STANDARD THREE.**

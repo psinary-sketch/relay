@@ -1,0 +1,46 @@
+b712 -- COMPONENT 2, (R322)(4): THE PORT RUN OF SIDE-lv-conservation ON port-b707 AT ITS NEW TIP, READ BY ITS RUN ID; THE OUTCOME BY FILE AND LINE (2026-10-25T16:11:06Z)
+
+### the dispatch: the branch port-b707 at its tip (this act`s edit on b711`s be3052ac), the workflow at the branch, target SIDELvConservation (data/b712_dispatches.json)
+### the run: id 40210206913 ; https://github.com/psinary-sketch/SIDE-lv-conservation/actions/runs/40210206913 ; status completed ; conclusion failure ; head 42da39ea2c03859ef6e74a9b752d9783816b430a on port-b707 ; 2026-10-25T16:07:54Z to 2026-10-25T16:10:25Z
+### the artifacts listed 2: ['build-module-40210206913', 'chain-probe-40210206913'] ; the run`s own chosen by name (build-module-)
+### the artifact: id 12605406005 ; build-module-40210206913 ; 4400 bytes ; sha256 89b8e17d01f2442397e5af8124de6a3c47bffb182ae13482de11db953db7b573 ; the platform`s digest 89b8e17d01f2442397e5af8124de6a3c47bffb182ae13482de11db953db7b573 ; AGREE
+### the ref built (out/ref.txt): 42da39ea2c03859ef6e74a9b752d9783816b430a leanprover/lean4:v4.34.0-rc1
+### the cache (out/cache.log, last line): Already decompressed 8691 file(s)
+### the memory log: LOW 13563 MB ; the hold 2560 ; STOP lines False
+### the build: exit 1 ; error lines 2:
+    error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument
+    error: build failed
+### THE OUTCOME BY FILE AND LINE: modules built 11 of 12: ['C7FiniteTypeFalse', 'C7OrderBounds', 'CouplingsAtPhi', 'GammaBounds', 'PartialPositivity', 'RegisterPentagon', 'Smoke', 'T1_MellinFactorization', 'T2_SDarkness', 'T3_StepNineBridge', 'ZeroCarrier']
+### the module held: ['DirichletC7Order']
+### THE NEXT FAILING LINE, its error and its kind: error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument -- a changed signature
+### the failing lines after it (error, kind): NONE
+### the count remaining (not built by this run): 1 ['DirichletC7Order']
+### the files: built 11 of 15 (the 12 modules, with AxiomCheck.lean, PinnedGoal.lean, lakefile.lean beside them, not built by the target SIDELvConservation)
+### where the build completes: not complete at this run; (R322)(4)`s join not reached, its dispatch not made
+### the lines after the held module (the log`s context, up to 24 lines):
+    ✖ [3588/3589] Building SIDELvConservation.DirichletC7Order (15s)
+    trace: .> LEAN_PATH=/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/batte
+    warning: SIDELvConservation/DirichletC7Order.lean:175:17: `HasSubset.Subset.eventuallyLE` has been deprecated: Use `LE.le.eventuallyLE` instead
+    
+    Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.eventuallyLE` to `LE.le.eventuallyLE x`).
+    warning: SIDELvConservation/DirichletC7Order.lean:205:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+    If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+    ```
+    open Lean.Parser.Tactic in
+    macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+      `(tactic| push $cfg:optConfig Not $[$loc]?)
+    ```
+    warning: SIDELvConservation/DirichletC7Order.lean:298:25: This simp argument is unused:
+      ZMod.toAddCircle_eq_zero
+    
+    Hint: Omit it from the simp argument list.
+      [apply] simp
+    
+    Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+    warning: SIDELvConservation/DirichletC7Order.lean:434:25: Unused tactic linter: `push_cast` does nothing
+    
+    Note: This linter can be disabled with `set_option linter.unusedTactic false`
+    warning: SIDELvConservation/DirichletC7Order.lean:542:17: `HasSubset.Subset.eventuallyLE` has been deprecated: Use `LE.le.eventuallyLE` instead
+    
+
+### ### **RUN 40210206913 (port1) ; CONCLUSION failure ; ARTIFACT AGREE ; BUILD EXIT 1 ; ERROR LINES 2 ; MODULES BUILT 11 OF 12 (FILES 11 OF 15) ; THE NEXT FAILING LINE SIDELvConservation/DirichletC7Order.lean:574:39 (a changed signature) ; REMAINING 1 ; NO GRADE CLAIMED ON THE PORT.**

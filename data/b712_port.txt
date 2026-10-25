@@ -1,0 +1,84 @@
+b712 -- COMPONENT 2, (R322)(4): THE PORT`S RUNS, EACH READ BY ITS RUN ID, EACH HELD LINE BY FILE AND LINE (2026-10-25T16:14:24Z) ; RUNS 2 of at most 3
+
+### ======== data/b712_port_port1.txt
+b712 -- COMPONENT 2, (R322)(4): THE PORT RUN OF SIDE-lv-conservation ON port-b707 AT ITS NEW TIP, READ BY ITS RUN ID; THE OUTCOME BY FILE AND LINE (2026-10-25T16:11:06Z)
+
+### the dispatch: the branch port-b707 at its tip (this act`s edit on b711`s be3052ac), the workflow at the branch, target SIDELvConservation (data/b712_dispatches.json)
+### the run: id 40210206913 ; https://github.com/psinary-sketch/SIDE-lv-conservation/actions/runs/40210206913 ; status completed ; conclusion failure ; head 42da39ea2c03859ef6e74a9b752d9783816b430a on port-b707 ; 2026-10-25T16:07:54Z to 2026-10-25T16:10:25Z
+### the artifacts listed 2: ['build-module-40210206913', 'chain-probe-40210206913'] ; the run`s own chosen by name (build-module-)
+### the artifact: id 12605406005 ; build-module-40210206913 ; 4400 bytes ; sha256 89b8e17d01f2442397e5af8124de6a3c47bffb182ae13482de11db953db7b573 ; the platform`s digest 89b8e17d01f2442397e5af8124de6a3c47bffb182ae13482de11db953db7b573 ; AGREE
+### the ref built (out/ref.txt): 42da39ea2c03859ef6e74a9b752d9783816b430a leanprover/lean4:v4.34.0-rc1
+### the cache (out/cache.log, last line): Already decompressed 8691 file(s)
+### the memory log: LOW 13563 MB ; the hold 2560 ; STOP lines False
+### the build: exit 1 ; error lines 2:
+    error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument
+    error: build failed
+### THE OUTCOME BY FILE AND LINE: modules built 11 of 12: ['C7FiniteTypeFalse', 'C7OrderBounds', 'CouplingsAtPhi', 'GammaBounds', 'PartialPositivity', 'RegisterPentagon', 'Smoke', 'T1_MellinFactorization', 'T2_SDarkness', 'T3_StepNineBridge', 'ZeroCarrier']
+### the module held: ['DirichletC7Order']
+### THE NEXT FAILING LINE, its error and its kind: error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: The argument -- a changed signature
+### the failing lines after it (error, kind): NONE
+### the count remaining (not built by this run): 1 ['DirichletC7Order']
+### the files: built 11 of 15 (the 12 modules, with AxiomCheck.lean, PinnedGoal.lean, lakefile.lean beside them, not built by the target SIDELvConservation)
+### where the build completes: not complete at this run; (R322)(4)`s join not reached, its dispatch not made
+### the lines after the held module (the log`s context, up to 24 lines):
+    ✖ [3588/3589] Building SIDELvConservation.DirichletC7Order (15s)
+    trace: .> LEAN_PATH=/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/SIDE-lv-conservation/SIDE-lv-conservation/.lake/packages/batte
+    warning: SIDELvConservation/DirichletC7Order.lean:175:17: `HasSubset.Subset.eventuallyLE` has been deprecated: Use `LE.le.eventuallyLE` instead
+    
+    Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.eventuallyLE` to `LE.le.eventuallyLE x`).
+    warning: SIDELvConservation/DirichletC7Order.lean:205:18: `push_neg` has been deprecated. Prefer using `push Not` instead.
+    If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+    ```
+    open Lean.Parser.Tactic in
+    macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+      `(tactic| push $cfg:optConfig Not $[$loc]?)
+    ```
+    warning: SIDELvConservation/DirichletC7Order.lean:298:25: This simp argument is unused:
+      ZMod.toAddCircle_eq_zero
+    
+    Hint: Omit it from the simp argument list.
+      [apply] simp
+    
+    Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+    warning: SIDELvConservation/DirichletC7Order.lean:434:25: Unused tactic linter: `push_cast` does nothing
+    
+    Note: This linter can be disabled with `set_option linter.unusedTactic false`
+    warning: SIDELvConservation/DirichletC7Order.lean:542:17: `HasSubset.Subset.eventuallyLE` has been deprecated: Use `LE.le.eventuallyLE` instead
+    
+
+### ### **RUN 40210206913 (port1) ; CONCLUSION failure ; ARTIFACT AGREE ; BUILD EXIT 1 ; ERROR LINES 2 ; MODULES BUILT 11 OF 12 (FILES 11 OF 15) ; THE NEXT FAILING LINE SIDELvConservation/DirichletC7Order.lean:574:39 (a changed signature) ; REMAINING 1 ; NO GRADE CLAIMED ON THE PORT.**
+
+### ======== data/b712_port_port2.txt
+b712 -- COMPONENT 2, (R322)(4): THE PORT RUN OF SIDE-lv-conservation ON port-b707 AT ITS NEW TIP, READ BY ITS RUN ID; THE OUTCOME BY FILE AND LINE (2026-10-25T16:14:24Z)
+
+### the dispatch: the branch port-b707 at its tip (this act`s edit on b711`s be3052ac), the workflow at the branch, target SIDELvConservation (data/b712_dispatches.json)
+### the run: id 40210536172 ; https://github.com/psinary-sketch/SIDE-lv-conservation/actions/runs/40210536172 ; status completed ; conclusion failure ; head cb0aea56354abb3abda3fdaef28429c6605605d5 on port-b707 ; 2026-10-25T16:12:03Z to 2026-10-25T16:14:13Z
+### the artifacts listed 2: ['build-module-40210536172', 'chain-probe-40210536172'] ; the run`s own chosen by name (build-module-)
+### the artifact: id 12606040150 ; build-module-40210536172 ; 3777 bytes ; sha256 789ea0ac4442ddb4cd4707e7d9ce8ca88eeee7438e9b48f329478f39a34eb6b5 ; the platform`s digest 789ea0ac4442ddb4cd4707e7d9ce8ca88eeee7438e9b48f329478f39a34eb6b5 ; AGREE
+### the ref built (out/ref.txt): cb0aea56354abb3abda3fdaef28429c6605605d5 leanprover/lean4:v4.34.0-rc1
+### the cache (out/cache.log, last line): Already decompressed 8691 file(s)
+### the memory log: LOW 13622 MB ; the hold 2560 ; STOP lines False
+### the build: exit 0 ; error lines 0:
+### THE OUTCOME BY FILE AND LINE: modules built 12 of 12: ['C7FiniteTypeFalse', 'C7OrderBounds', 'CouplingsAtPhi', 'DirichletC7Order', 'GammaBounds', 'PartialPositivity', 'RegisterPentagon', 'Smoke', 'T1_MellinFactorization', 'T2_SDarkness', 'T3_StepNineBridge', 'ZeroCarrier']
+### the module held: NONE
+### THE NEXT FAILING LINE, its error and its kind: NONE (no file error line)
+### the failing lines after it (error, kind): NONE
+### the count remaining (not built by this run): 0 []
+### the files: built 12 of 15 (the 12 modules, with AxiomCheck.lean, PinnedGoal.lean, lakefile.lean beside them, not built by the target SIDELvConservation)
+### where the build completes: THE BUILD COMPLETES, 12 of 12 -- (R322)(4): Register4_positivity read at 93c27ec and at the tip, the join`s lakefile re-pinned, one join dispatch
+### the lines after the held module (the log`s context, up to 24 lines):
+      `(tactic| push $cfg:optConfig Not $[$loc]?)
+    ```
+    info: SIDELvConservation/DirichletC7Order.lean:738:36: Try this:
+      [apply] ring_nf
+      
+      The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+        
+      Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+    warning: SIDELvConservation/DirichletC7Order.lean:738:25: Unused tactic linter: `push_cast` does nothing
+    
+    Note: This linter can be disabled with `set_option linter.unusedTactic false`
+    Build completed successfully (3589 jobs).
+
+### ### **RUN 40210536172 (port2) ; CONCLUSION failure ; ARTIFACT AGREE ; BUILD EXIT 0 ; ERROR LINES 0 ; MODULES BUILT 12 OF 12 (FILES 12 OF 15) ; THE NEXT FAILING LINE NONE (-) ; REMAINING 0 ; NO GRADE CLAIMED ON THE PORT ; THE BUILD COMPLETES, THE JOIN NEXT.**
+

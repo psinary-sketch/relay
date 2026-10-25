@@ -1,0 +1,27 @@
+b712 -- COMPONENT 2, (R322)(4): THE PORT`S EDIT 1 AT :501 ON port-b707, PRINTED BEFORE ITS COMMIT (2026-10-25T16:07:17Z)
+
+### the branch port-b707 at be3052ac (the edit`s base), HEAD unmoved before the commit; the one module SIDELvConservation/DirichletC7Order.lean edited by the Edit tool at one line
+### the held line: error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq` (data/b711_port.txt :11)
+### the declarations read at Mathlib de5ce8a9 before the edit: data/b712_port_decl1.txt (banked True)
+
+### :501 at be3052ac:  rw [completedHurwitzZetaOdd, StrongFEPair.Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]
+### :501 now:         rw [completedHurwitzZetaOdd, (isStrong_hurwitzOddFEPair a).Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]
+
+### the diff against be3052ac (git diff), 1 hunk(s):
+    diff --git a/SIDELvConservation/DirichletC7Order.lean b/SIDELvConservation/DirichletC7Order.lean
+    index 163bdda..dfe811f 100644
+    --- a/SIDELvConservation/DirichletC7Order.lean
+    +++ b/SIDELvConservation/DirichletC7Order.lean
+    @@ -498,7 +498,7 @@ theorem norm_f_oddPair (a : UnitAddCircle) (t : ℝ) :
+     theorem norm_completedHurwitzZetaOdd_le (a : UnitAddCircle) (s : ℂ) :
+         ‖completedHurwitzZetaOdd a s‖
+           ≤ (∫ t in Ioi (0 : ℝ), t ^ (((s + 1) / 2).re - 1) * |oddKernel a t|) / 2 := by
+    -  rw [completedHurwitzZetaOdd, StrongFEPair.Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]
+    +  rw [completedHurwitzZetaOdd, (isStrong_hurwitzOddFEPair a).Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]
+       gcongr
+       rw [mellin]
+       refine (norm_integral_le_integral_norm _).trans_eq ?_
+
+### the working tree (git status --short, the untracked .lp.log aside): [' M SIDELvConservation/DirichletC7Order.lean']
+
+### ### **EDIT 1: :501 TO THE FORM MATHLIB de5ce8a9 STATES ; HUNKS 1 ; LINES CHANGED 1 ; FILES CHANGED [' M SIDELvConservation/DirichletC7Order.lean'] ; AS THE RULING ORDERS True.**

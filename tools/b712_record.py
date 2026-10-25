@@ -1319,11 +1319,216 @@ def _artifact_named(repo, run_id, prefix):
     return art, arts
 
 
+MATHLIB_DIR = os.path.join(K.EF_DIR, '.lake', 'packages', 'mathlib')   # ### SIDE-explicit-formula's Mathlib checkout, at de5ce8a9 (the port's pin)
+MATHLIB_PIN = 'de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11'
+# ### (R322)(4): the port's edits, one per held line, each in the form Mathlib de5ce8a9 states, each read there and printed before its edit
+PORT_EDITS = (
+    dict(n=1, line=501, base=K.PORT_TIP,
+         old='  rw [completedHurwitzZetaOdd, StrongFEPair.Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]',
+         new='  rw [completedHurwitzZetaOdd, (isStrong_hurwitzOddFEPair a).Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]',
+         error='error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq` (data/b711_port.txt :11)',
+         decls=(('Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean', 100, 100, 'the strong pair a predicate on a weak pair'),
+                ('Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean', 461, 481, 'IsStrongFEPair.Λ_eq, its hypothesis hP explicit'),
+                ('Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean', 300, 302, 'the odd pair a WeakFEPair'),
+                ('Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean', 325, 327, 'the odd pair`s strong proof'),
+                ('Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean', 339, 340, 'completedHurwitzZetaOdd through the pair`s Λ'))),
+    dict(n=2, line=574, base='42da39ea2c03859ef6e74a9b752d9783816b430a',
+         old='      (((hurwitzOddFEPair a).hasMellin w).1).norm',
+         new='      (((isStrong_hurwitzOddFEPair a).hasMellin w).1).norm',
+         error=('error: SIDELvConservation/DirichletC7Order.lean:574:39: Application type mismatch: the argument w : ℂ where '
+                '(hurwitzOddFEPair a).k < re ?m is expected, in WeakFEPair.hasMellin (hurwitzOddFEPair a) w (data/b712_buildlog_SIDE-lv-conservation_port1.txt :99-:106)'),
+         decls=(('Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean', 402, 406, 'WeakFEPair.hasMellin, its hypothesis k < re s'),
+                ('Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean', 483, 485, 'IsStrongFEPair.hasMellin, s alone'),
+                ('Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean', 325, 327, 'the odd pair`s strong proof'))),
+)
+
+
+def _port_edit(n):
+    e = next((x for x in PORT_EDITS if x['n'] == int(n)), None)
+    if not e:
+        sys.exit('### NO PORT EDIT %s IN PORT_EDITS -- NOTHING WRITTEN' % n)
+    return e
+
+
+def _decl_lines(e):
+    """each declaration of the edit read at Mathlib de5ce8a9 by `git show <pin>:<path>`, its lines by number."""
+    out = []
+    for path, a0, a1, what in e['decls']:
+        src = (g(MATHLIB_DIR, 'show', '%s:%s' % (MATHLIB_PIN, path)) or '').replace(chr(13), '').split(NL)
+        out.append(('%s :%d-:%d (%s)' % (path, a0, a1, what), ['%5d  %s' % (i, src[i - 1]) for i in range(a0, a1 + 1) if i <= len(src)]))
+    return out
+
+
 def portedit(*a):
-    """data/b712_port_edit.txt (.json): the line (R322)(4) names, printed BEFORE the one commit -- :212 as it stood at b709's tip 92af8a34 and as
-    the Edit tool left it, to the signature data/b709_port.txt :40-:47 reads (WeakFEPair.hasMellin wants the hypothesis `k < re s` where the
-    kernel passed `w`), in b709's form at C7OrderBounds.lean :277 (the strong pair's hasMellin, which takes `s` alone; its error cleared at b709's
-    run); the diff of the module against the tip by git diff, one hunk; every other tracked file unchanged (git status)."""
+    """`portedit <n> pre` -> data/b712_port_decl<n>.txt: the declarations the edit's form rests on, read at Mathlib de5ce8a9 by git show (the pin
+    read from SIDE-explicit-formula's checkout, HEAD equal to it), printed BEFORE the Edit tool touches the kernel; the line as it stands, unedited.
+    `portedit <n>` -> data/b712_port_edit<n>.txt (.json): the line as it stood at the edit's base and as the Edit tool left it, the diff of the
+    module against the base by git diff, one hunk, one line; every other tracked file unchanged (git status), the declarations' bank cited."""
+    e = _port_edit(a[0])
+    head = g(LV, 'rev-parse', 'HEAD').strip()
+    br = g(LV, 'rev-parse', '--abbrev-ref', 'HEAD').strip()
+    pin_head = g(MATHLIB_DIR, 'rev-parse', 'HEAD').strip()
+    src = (rd(os.path.join(LV, *K.PORT_FILE.split('/'))) or '').replace(chr(13), '').split(NL)
+    n_ = e['line'] - 1
+    if 'pre' in a[1:]:
+        dl = _decl_lines(e)
+        ok = (pin_head == MATHLIB_PIN and head == e['base'] and br == K.PORT_BRANCH and len(src) > n_ and src[n_] == e['old']
+              and all(x[1] for x in dl))
+        L = ['%s -- COMPONENT 2, (R322)(4): THE DECLARATIONS AT MATHLIB %s FOR THE PORT`S EDIT %d, PRINTED BEFORE THE EDIT (%s)' % (ACT, MATHLIB_PIN[:8], e['n'], utc()), '',
+             '### the held line: %s' % e['error'],
+             '### the Mathlib checkout read: %s at %s (the port`s lake-manifest pins %s) ; equal %s' % (MATHLIB_DIR.replace(chr(92), '/'), pin_head[:8], MATHLIB_PIN[:8], pin_head == MATHLIB_PIN),
+             '### the kernel: %s on %s at %s (the edit`s base %s) ; :%d as it stands, unedited:' % (K.KERNEL, br, head[:8], e['base'][:8], e['line']),
+             '    %s' % (src[n_] if len(src) > n_ else '### ABSENT'), '']
+        for title, lines in dl:
+            L += ['### %s at %s:' % (title, MATHLIB_PIN[:8])] + ['  ' + x for x in lines] + ['']
+        L += ['### the form the edit takes: %s' % e['new'].strip(),
+              '', '### ### **DECLARATIONS READ %d AT MATHLIB %s ; THE LINE UNEDITED %s ; READY FOR THE EDIT %s.**' % (len(dl), MATHLIB_PIN[:8], len(src) > n_ and src[n_] == e['old'], ok)]
+        put_txt('%s_port_decl%d.txt' % (ACT, e['n']), L)
+        print(NL.join(L))
+        if not ok:
+            sys.exit(1)
+        return
+    base = e['base']
+    old = (g(LV, 'show', '%s:%s' % (base, K.PORT_FILE)) or '').replace(chr(13), '').split(NL)
+    d = subprocess.run(['git', '-C', LV, 'diff', base, '--', K.PORT_FILE], capture_output=True).stdout.decode('utf-8', 'replace').replace(chr(13), '').rstrip(NL)
+    dl = d.split(NL) if d else []
+    hunks = [l for l in dl if l.startswith('@@')]
+    changed = [l for l in (g(LV, 'status', '--short') or '').split(NL) if l.strip() and not l.endswith('.lp.log')]
+    l_old, l_new = old[n_] if len(old) > n_ else '', src[n_] if len(src) > n_ else ''
+    nchg = sum(1 for i in range(min(len(src), len(old))) if src[i] != old[i])
+    decl_bank = os.path.isfile(os.path.join(D, '%s_port_decl%d.txt' % (ACT, e['n'])))
+    ok = (l_old == e['old'] and l_new == e['new'] and len(hunks) == 1 and changed == [' M ' + K.PORT_FILE] and head == base
+          and br == K.PORT_BRANCH and len(old) == len(src) and nchg == 1 and decl_bank)
+    L = ['%s -- COMPONENT 2, (R322)(4): THE PORT`S EDIT %d AT :%d ON %s, PRINTED BEFORE ITS COMMIT (%s)' % (ACT, e['n'], e['line'], K.PORT_BRANCH, utc()), '',
+         '### the branch %s at %s (the edit`s base), HEAD unmoved before the commit; the one module %s edited by the Edit tool at one line' % (br, head[:8], K.PORT_FILE),
+         '### the held line: %s' % e['error'],
+         '### the declarations read at Mathlib %s before the edit: data/%s_port_decl%d.txt (banked %s)' % (MATHLIB_PIN[:8], ACT, e['n'], decl_bank), '',
+         '### :%d at %s:  %s' % (e['line'], base[:8], l_old.strip()),
+         '### :%d now:         %s' % (e['line'], l_new.strip()), '',
+         '### the diff against %s (git diff), %d hunk(s):' % (base[:8], len(hunks))] + ['    ' + x for x in dl] + [
+         '', '### the working tree (git status --short, the untracked .lp.log aside): %s' % changed,
+         '', '### ### **EDIT %d: :%d TO THE FORM MATHLIB %s STATES ; HUNKS %d ; LINES CHANGED %d ; FILES CHANGED %s ; AS THE RULING ORDERS %s.**' % (
+             e['n'], e['line'], MATHLIB_PIN[:8], len(hunks), nchg, changed, ok)]
+    put_txt('%s_port_edit%d.txt' % (ACT, e['n']), L)
+    put_json('%s_port_edit%d.json' % (ACT, e['n']), dict(at=utc(), n=e['n'], branch=br, base=base, head=head, file=K.PORT_FILE, line=e['line'], old=l_old,
+                                                         new=l_new, hunks=len(hunks), diff=dl, changed=changed, ok=ok))
+    print(NL.join(L[2:8] + L[-1:]))
+    if not ok:
+        sys.exit(1)
+
+
+REGPOS_FILE = 'SIDELvConservation/RegisterPentagon.lean'
+REGPOS_NAME = 'Register4_positivity'
+
+
+def _decl_at(commit, path, name):
+    """the declaration of <name> at <commit>:<path> by git show: from its `def`/`theorem` line to the line before the next blank line; with
+    the namespaces open at its head. Returns (line, lines, namespaces)."""
+    src = (g(LV, 'show', '%s:%s' % (commit, path)) or '').replace(chr(13), '').split(NL)
+    i0 = next((i for i, l in enumerate(src) if re.match(r'^\s*(noncomputable\s+)?(def|theorem|abbrev)\s+%s\b' % re.escape(name), l)), None)
+    if i0 is None:
+        return 0, [], []
+    i1 = next((i for i in range(i0, len(src)) if not src[i].strip()), len(src))
+    ns = []
+    for l in src[:i0]:
+        m = re.match(r'^namespace\s+(\S+)', l)
+        if m:
+            ns.append(m.group(1))
+        m = re.match(r'^end\s+(\S+)', l)
+        if m and ns and ns[-1] == m.group(1):
+            ns.pop()
+    return i0 + 1, src[i0:i1], ns
+
+
+def regpos(*a):
+    """data/b712_regpos.txt (.json), (R322)(4): lv-conservation's Register4_positivity read at the deposit 93c27ec and at the port's tip, each by
+    git show, its declaration printed with its line and its namespaces; EQUAL BY STATEMENT where the lines are equal character for character
+    and the namespaces equal. The module's diff between the two commits printed beside it (git diff --stat and the hunks of the file)."""
+    tip = g(LV, 'rev-parse', K.PORT_BRANCH).strip()
+    l0, d0, n0 = _decl_at(K.LV_V0100, REGPOS_FILE, REGPOS_NAME)
+    l1, d1, n1 = _decl_at(tip, REGPOS_FILE, REGPOS_NAME)
+    eq = bool(d0) and d0 == d1 and n0 == n1
+    fd = subprocess.run(['git', '-C', LV, 'diff', K.LV_V0100, tip, '--', REGPOS_FILE], capture_output=True).stdout.decode('utf-8', 'replace').replace(chr(13), '').rstrip(NL)
+    fdl = fd.split(NL) if fd else []
+    L = ['%s -- COMPONENT 2, (R322)(4): lv-conservation`S %s AT THE DEPOSIT AND AT THE PORT`S TIP, BY STATEMENT (%s)' % (ACT, REGPOS_NAME, utc()), '',
+         '### at the deposit v0.10.0 = %s: %s :%d, namespaces %s' % (K.LV_V0100[:8], REGPOS_FILE, l0, '.'.join(n0) or 'NONE')] + ['    ' + x for x in d0] + [
+         '### at the port`s tip %s (port-b707): %s :%d, namespaces %s' % (tip[:8], REGPOS_FILE, l1, '.'.join(n1) or 'NONE')] + ['    ' + x for x in d1] + [
+         '', '### the module %s between the two commits (git diff), %d lines:' % (REGPOS_FILE, len(fdl))] + (['    ' + x for x in fdl] or ['    (unchanged)']) + [
+         '', '### ### **%s: LINES %d AND %d ; DECLARATION LINES %d AND %d ; NAMESPACES %s AND %s ; EQUAL BY STATEMENT %s.**' % (
+             REGPOS_NAME, l0, l1, len(d0), len(d1), '.'.join(n0), '.'.join(n1), eq)]
+    put_txt('%s_regpos.txt' % ACT, L)
+    put_json('%s_regpos.json' % ACT, dict(at=utc(), deposit=K.LV_V0100, tip=tip, line_deposit=l0, line_tip=l1, decl_deposit=d0, decl_tip=d1,
+                                          ns_deposit=n0, ns_tip=n1, equal=eq, file_diff_lines=len(fdl)))
+    print(NL.join(L))
+    if not eq:
+        sys.exit(1)
+
+
+def joingrade(*a):
+    """data/b712_join_grade.txt (.json), (R322)(4): faces_join graded against lv-conservation's own declaration -- its statement printed from
+    FacesJoin.lean at the built ref (git show), the lakefile's lv-conservation pin read at that ref, Register4_positivity's declaration from
+    data/b712_regpos.json, the run's row (data/b712_runner_SIDE-faces-join_join.txt) and its #print axioms (data/b712_axioms_SIDE-faces-join_join.txt);
+    DERIVES where the run's gate reads DERIVES, the statement names RegisterPentagon.Register4_positivity, the pin is the port's tip and the
+    declaration equal by statement."""
+    ref = g(K.JOIN_DIR, 'rev-parse', 'HEAD').strip()
+    fj = (g(K.JOIN_DIR, 'show', '%s:FacesJoin.lean' % ref) or '').replace(chr(13), '').split(NL)
+    i0 = next((i for i, l in enumerate(fj) if l.startswith('theorem faces_join')), None)
+    stmt = fj[i0:i0 + 5] if i0 is not None else []
+    lk = (g(K.JOIN_DIR, 'show', '%s:lakefile.toml' % ref) or '').replace(chr(13), '')
+    m = re.search(r'name = "sideLvConservation"\s*\ngit = "[^"]+"\s*\nrev = "([0-9a-f]{40})"', lk)
+    pin = m.group(1) if m else ''
+    tip = g(LV, 'rev-parse', K.PORT_BRANCH).strip()
+    rp = jl('%s_regpos.json' % ACT)
+    run = rd(os.path.join(D, '%s_runner_SIDE-faces-join_join.txt' % ACT))
+    ax = rd(os.path.join(D, '%s_axioms_SIDE-faces-join_join.txt' % ACT)).rstrip(NL)
+    gate = re.search(r'GATE (DERIVES|NOT DERIVES)\.\*\*', run)
+    rid = re.search(r'### the run: id (\d+)', run)
+    names_lv = any('SIDELvConservation.RegisterPentagon.Register4_positivity' in l for l in stmt)
+    ok = bool(gate) and gate.group(1) == 'DERIVES' and names_lv and pin == tip and rp.get('equal') is True
+    L = ['%s -- COMPONENT 2, (R322)(4): faces_join GRADED AGAINST lv-conservation`S OWN DECLARATION (%s)' % (ACT, utc()), '',
+         '### the built ref: SIDE-faces-join main %s ; the run %s (data/%s_runner_SIDE-faces-join_join.txt)' % (ref[:8], rid.group(1) if rid else '### UNREAD', ACT),
+         '### the lakefile at the ref requires SIDE-lv-conservation at %s ; the port`s tip %s ; equal %s (the run`s log does not print the revision Lake resolved;'
+         % (pin[:8], tip[:8], pin == tip),
+         '###   the pin is read from the lakefile the runner checked out at the ref)',
+         '### the statement (FacesJoin.lean at %s :%d):' % (ref[:8], (i0 or -1) + 1)] + ['    ' + x for x in stmt] + [
+         '### lv-conservation`s own declaration, at the deposit and at the port`s tip (data/%s_regpos.txt), EQUAL BY STATEMENT %s:' % (ACT, rp.get('equal'))] + [
+         '    ' + x for x in rp.get('decl_tip') or []] + [
+         '### #print axioms (data/%s_axioms_SIDE-faces-join_join.txt):' % ACT] + ['    ' + x for x in ax.split(NL)] + [
+         '', '### ### **faces_join: GATE %s ; NAMES lv-conservation`S RegisterPentagon.Register4_positivity %s ; THE PIN THE PORT`S TIP %s ; GRADE %s.**' % (
+             gate.group(1) if gate else '### UNREAD', names_lv, pin == tip, 'DERIVES AT THE STANDARD THREE' if ok else 'NOT DERIVES')]
+    put_txt('%s_join_grade.txt' % ACT, L)
+    put_json('%s_join_grade.json' % ACT, dict(at=utc(), ref=ref, run_id=int(rid.group(1)) if rid else None, pin=pin, tip=tip, statement=stmt, names_lv=names_lv,
+                                              regpos_equal=rp.get('equal'), axioms=ax.split(NL), grade='DERIVES' if ok else 'NOT DERIVES'))
+    print(NL.join(L))
+    if not ok:
+        sys.exit(1)
+
+
+def jointag(*a):
+    """data/b712_join_tag.txt (.json), (R322)(4): SIDE-faces-join's tag v0.1.0 read back -- the tag object and its peel locally, the remote's
+    tag ref and its peel by one ls-remote; the peel against the graded ref (data/b712_join_grade.json). Reads only; the tag was made by
+    tools/push_gated.sh after main read back."""
+    jg = jl('%s_join_grade.json' % ACT)
+    obj = g(K.JOIN_DIR, 'rev-parse', 'v0.1.0').strip()
+    peel = g(K.JOIN_DIR, 'rev-parse', 'v0.1.0^{commit}').strip()
+    rem = [l.split() for l in g(K.JOIN_DIR, 'ls-remote', '--tags', 'origin', 'v0.1.0*').split(NL) if l.strip()]
+    r_obj = next((h for h, r in rem if r == 'refs/tags/v0.1.0'), '')
+    r_peel = next((h for h, r in rem if r == 'refs/tags/v0.1.0^{}'), '')
+    ok = bool(peel) and peel == r_peel == jg.get('ref') and obj == r_obj and jg.get('grade') == 'DERIVES'
+    L = ['%s -- COMPONENT 2, (R322)(4): SIDE-faces-join TAGGED v0.1.0 ON DERIVES, THE PEELED SHA READ BACK (%s)' % (ACT, utc()), '',
+         '### the grade: data/%s_join_grade.txt, %s at %s' % (ACT, jg.get('grade'), (jg.get('ref') or '')[:8]),
+         '### local: the tag object %s ; peeled %s' % (obj, peel),
+         '### the remote (ls-remote --tags origin): the tag object %s ; peeled %s' % (r_obj or '### ABSENT', r_peel or '### ABSENT'),
+         '', '### ### **v0.1.0: PEELED LOCAL %s REMOTE %s ; THE GRADED REF %s ; EQUAL %s.**' % (peel[:8], r_peel[:8], (jg.get('ref') or '')[:8], ok)]
+    put_txt('%s_join_tag.txt' % ACT, L)
+    put_json('%s_join_tag.json' % ACT, dict(at=utc(), tag='v0.1.0', object=obj, peeled=peel, remote_object=r_obj, remote_peeled=r_peel, ok=ok))
+    print(NL.join(L))
+    if not ok:
+        sys.exit(1)
+
+
+def _portedit_b711(*a):
+    """b711's portedit (:212), carried as read; pruned before the seal."""
     base = K.PORT_TIP
     head = g(LV, 'rev-parse', 'HEAD').strip()
     br = g(LV, 'rev-parse', '--abbrev-ref', 'HEAD').strip()
@@ -1374,8 +1579,10 @@ def portdispatch(*a):
     seen = [r for r in rows if r.get('tree') == tree]
     if seen:
         sys.exit('### THE TREE %s IS ALREADY BUILT (run %s) -- NOT DISPATCHED' % (tree[:12], seen[0].get('run_id')))
-    if len(rows) >= 2:
-        sys.exit('### TWO DISPATCHES ALREADY MADE THIS ACT ((R322) N1) -- NOT DISPATCHED')
+    if len([r for r in rows if r.get('label') == 'port']) >= K.MAX_PORT_DISPATCHES and label == 'port':
+        sys.exit('### %d PORT DISPATCHES ALREADY MADE THIS ACT ((R322)(4)) -- NOT DISPATCHED' % K.MAX_PORT_DISPATCHES)
+    if len(rows) >= K.MAX_DISPATCHES:
+        sys.exit('### %d DISPATCHES ALREADY MADE THIS ACT ((R322) N1) -- NOT DISPATCHED' % K.MAX_DISPATCHES)
     if not re.match(r'^[A-Za-z0-9_. ]+$', target):
         sys.exit('### THE TARGET %r IS OUTSIDE THE LAKE GRAMMAR -- NOT DISPATCHED' % target)
     remote = (g(LV, 'ls-remote', 'origin', 'refs/heads/' + K.PORT_BRANCH).split() or [''])[0]
@@ -1461,7 +1668,7 @@ def portrun(*a):
                mem_low=mem_low, stopped=stopped, build_exit=bexit, errors=errors, axioms_sha256=None, gate='NOT DERIVES',
                note='no grade claimed on the port: the print step read as not run (print_targets.txt absent at the branch), W-ORD-LV-FORWARD-PORT')
     L = ['%s -- COMPONENT 2, (R322)(4): THE PORT RUN OF SIDE-lv-conservation ON %s AT ITS NEW TIP, READ BY ITS RUN ID; THE OUTCOME BY FILE AND LINE (%s)' % (ACT, K.PORT_BRANCH, utc()), '',
-         '### the dispatch: the branch %s at its tip (this act`s one commit on b709`s %s), the workflow at the branch, target SIDELvConservation (data/b712_dispatches.json)' % (K.PORT_BRANCH, K.PORT_TIP[:8]),
+         '### the dispatch: the branch %s at its tip (this act`s edit on b711`s %s), the workflow at the branch, target SIDELvConservation (data/b712_dispatches.json)' % (K.PORT_BRANCH, K.PORT_TIP[:8]),
          '### the run: id %s ; %s ; status %s ; conclusion %s ; head %s on %s ; %s to %s' % (
              run_id, run.get('url'), run.get('status'), run.get('conclusion'), run.get('headSha'), run.get('headBranch'), run.get('createdAt'), run.get('updatedAt')),
          '### the artifacts listed %d: %s ; the run`s own chosen by name (build-module-)' % (len(arts), [x.get('name') for x in arts]),
@@ -1490,9 +1697,18 @@ def portrun(*a):
                   run_id, label, run.get('conclusion'), 'AGREE' if agree else '### UNREAD', bexit, len(errors), len(built), len(built),
                   (first_err.split(': ')[1] if first_err else 'NONE'), (kinds[0][1] if kinds else '-'), len(remaining), ' ; THE BUILD COMPLETES, THE JOIN NEXT' if complete else '')]
     R.read_runner_row(row)
-    put_txt('%s_port.txt' % ACT, L)
+    # ### (R322)(4): up to three port runs, each its own bank by its label (port1, port2, port3); data/b712_port.txt carries them all, in order
+    put_txt('%s_port_%s.txt' % (ACT, label), L)
+    runs = sorted(f for f in os.listdir(D) if re.match(r'^%s_port_port\d\.txt$' % ACT, f))
+    allL = ['%s -- COMPONENT 2, (R322)(4): THE PORT`S RUNS, EACH READ BY ITS RUN ID, EACH HELD LINE BY FILE AND LINE (%s) ; RUNS %d of at most %d' % (
+        ACT, utc(), len(runs), K.MAX_PORT_DISPATCHES), '']
+    for f in runs:
+        allL += ['### ======== data/%s' % f] + rd(os.path.join(D, f)).rstrip(NL).split(NL) + ['']
+    put_txt('%s_port.txt' % ACT, allL)
     if agree:
         put_txt('%s_buildlog_%s_%s.txt' % (ACT, K.KERNEL, label), blog.rstrip(NL).split(NL))
+    put_json('%s_port_%s.json' % (ACT, label), dict(at=utc(), run_id=run_id, label=label, ref=run.get('headSha'), built=built, held=held, first_error=first_err,
+                                                    kinds=kinds, remaining=remaining, complete=complete, artifact_sha256=sha, agree=agree))
     put_json('%s_port.json' % ACT, dict(at=utc(), run_id=run_id, run=run, artifact=dict(id=art.get('id'), name=art.get('name'), sha256=sha, digest=digest, agree=agree), ref_built=ref_built,
                                         mem_low=mem_low, stopped=stopped, build_exit=bexit, errors=errors, built=built, held=held, first_error=first_err, kinds=kinds, remaining=remaining,
                                         modules=list(LV_MODULES), grade_claimed=False, complete=complete))
@@ -2374,7 +2590,7 @@ ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=st
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck,
-              step=step, c1=c1, repairctl=repairctl12, toolrepairs=toolrepairs12, facerows=facerows, portedit=portedit, portdispatch=portdispatch, portrun=portrun, c2order=c2order,
+              step=step, c1=c1, repairctl=repairctl12, toolrepairs=toolrepairs12, facerows=facerows, portedit=portedit, portdispatch=portdispatch, portrun=portrun, c2order=c2order, regpos=regpos, joingrade=joingrade, jointag=jointag,
               regcheck=regcheck, scores=scores, findings=findings, trail=trail, drycheck=drycheck, components=components, mbank=mbank, guard=guard,
               scorercheck=scorercheck, armnames=armnames)
 

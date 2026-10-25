@@ -1,0 +1,31 @@
+{
+ "at": "2026-10-25T16:07:17Z",
+ "n": 1,
+ "branch": "port-b707",
+ "base": "be3052acd2c6fe013ba482a5eddcfb236ce88738",
+ "head": "be3052acd2c6fe013ba482a5eddcfb236ce88738",
+ "file": "SIDELvConservation/DirichletC7Order.lean",
+ "line": 501,
+ "old": "  rw [completedHurwitzZetaOdd, StrongFEPair.Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]",
+ "new": "  rw [completedHurwitzZetaOdd, (isStrong_hurwitzOddFEPair a).Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]",
+ "hunks": 1,
+ "diff": [
+  "diff --git a/SIDELvConservation/DirichletC7Order.lean b/SIDELvConservation/DirichletC7Order.lean",
+  "index 163bdda..dfe811f 100644",
+  "--- a/SIDELvConservation/DirichletC7Order.lean",
+  "+++ b/SIDELvConservation/DirichletC7Order.lean",
+  "@@ -498,7 +498,7 @@ theorem norm_f_oddPair (a : UnitAddCircle) (t : ℝ) :",
+  " theorem norm_completedHurwitzZetaOdd_le (a : UnitAddCircle) (s : ℂ) :",
+  "     ‖completedHurwitzZetaOdd a s‖",
+  "       ≤ (∫ t in Ioi (0 : ℝ), t ^ (((s + 1) / 2).re - 1) * |oddKernel a t|) / 2 := by",
+  "-  rw [completedHurwitzZetaOdd, StrongFEPair.Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]",
+  "+  rw [completedHurwitzZetaOdd, (isStrong_hurwitzOddFEPair a).Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]",
+  "   gcongr",
+  "   rw [mellin]",
+  "   refine (norm_integral_le_integral_norm _).trans_eq ?_"
+ ],
+ "changed": [
+  " M SIDELvConservation/DirichletC7Order.lean"
+ ],
+ "ok": true
+}

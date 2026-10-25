@@ -1,0 +1,31 @@
+{
+ "at": "2026-10-25T16:11:44Z",
+ "n": 2,
+ "branch": "port-b707",
+ "base": "42da39ea2c03859ef6e74a9b752d9783816b430a",
+ "head": "42da39ea2c03859ef6e74a9b752d9783816b430a",
+ "file": "SIDELvConservation/DirichletC7Order.lean",
+ "line": 574,
+ "old": "      (((hurwitzOddFEPair a).hasMellin w).1).norm",
+ "new": "      (((isStrong_hurwitzOddFEPair a).hasMellin w).1).norm",
+ "hunks": 1,
+ "diff": [
+  "diff --git a/SIDELvConservation/DirichletC7Order.lean b/SIDELvConservation/DirichletC7Order.lean",
+  "index dfe811f..d9b4cbe 100644",
+  "--- a/SIDELvConservation/DirichletC7Order.lean",
+  "+++ b/SIDELvConservation/DirichletC7Order.lean",
+  "@@ -571,7 +571,7 @@ theorem exists_norm_completedHurwitzZetaOdd_le_exp_half (a : UnitAddCircle) :",
+  "       (fun t : ℝ => t ^ (w.re - 1) * |oddKernel a t|) (Ioi 0) := fun w => by",
+  "     have h : MeasureTheory.IntegrableOn",
+  "         (fun t : ℝ => ‖(t : ℂ) ^ (w - 1) • (hurwitzOddFEPair a).f t‖) (Ioi 0) :=",
+  "-      (((hurwitzOddFEPair a).hasMellin w).1).norm",
+  "+      (((isStrong_hurwitzOddFEPair a).hasMellin w).1).norm",
+  "     refine MeasureTheory.IntegrableOn.congr_fun h (fun t ht => ?_) measurableSet_Ioi",
+  "     rw [Set.mem_Ioi] at ht",
+  "     rw [norm_smul, Complex.norm_cpow_eq_rpow_re_of_pos ht, Complex.sub_re, Complex.one_re,"
+ ],
+ "changed": [
+  " M SIDELvConservation/DirichletC7Order.lean"
+ ],
+ "ok": true
+}

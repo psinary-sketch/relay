@@ -1,0 +1,50 @@
+b712 -- COMPONENT 2, (R322)(4): THE DECLARATIONS AT MATHLIB de5ce8a9 FOR THE PORT`S EDIT 1, PRINTED BEFORE THE EDIT (2026-10-25T16:07:10Z)
+
+### the held line: error: SIDELvConservation/DirichletC7Order.lean:501:31: Unknown identifier `StrongFEPair.Λ_eq` (data/b711_port.txt :11)
+### the Mathlib checkout read: D:/SIDE-explicit-formula/.lake/packages/mathlib at de5ce8a9 (the port`s lake-manifest pins de5ce8a9) ; equal True
+### the kernel: SIDE-lv-conservation on port-b707 at be3052ac (the edit`s base be3052ac) ; :501 as it stands, unedited:
+      rw [completedHurwitzZetaOdd, StrongFEPair.Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]
+
+### Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :100-:100 (the strong pair a predicate on a weak pair) at de5ce8a9:
+    100  structure IsStrongFEPair (P : WeakFEPair E) : Prop where
+
+### Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :461-:481 (IsStrongFEPair.Λ_eq, its hypothesis hP explicit) at de5ce8a9:
+    461  namespace IsStrongFEPair
+    462  /-!
+    463  ## Main theorems on strong FE-pairs
+    464  -/
+    465  
+    466  open WeakFEPair
+    467  
+    468  variable {P : WeakFEPair E} (hP : IsStrongFEPair P)
+    469  include hP
+    470  
+    471  /-- For strong FE-pairs, `P.Λ` is everywhere equal to the Mellin transform of `P.f`. -/
+    472  lemma Λ_eq : P.Λ = mellin P.f := by
+    473    ext s
+    474    simp only [mellin, Λ, Λ₀, f_modif, hP.hf₀, sub_zero, hP.hg₀, smul_zero]
+    475    refine integral_congr_ae <| (ae_restrict_iff' measurableSet_Ioi).mpr ?_
+    476    filter_upwards [compl_mem_ae_iff.mpr (Subsingleton.measure_zero (s := {1}) (by simp) _)]
+    477      with t (ht₁ : t ≠ 1) (ht₀ : 0 < t)
+    478    by_cases ht : t < 1 <;> [rw [add_comm] ; skip] <;>
+    479    rw [Pi.add_apply, indicator_of_mem (by grind), indicator_of_notMem (by grind), add_zero]
+    480  
+    481  lemma symm_Λ_eq : P.symm.Λ = mellin P.g := hP.symm.Λ_eq
+
+### Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean :300-:302 (the odd pair a WeakFEPair) at de5ce8a9:
+    300  /-- A `StrongFEPair` structure with `f = oddKernel a` and `g = sinKernel a`. -/
+    301  @[simps]
+    302  def hurwitzOddFEPair (a : UnitAddCircle) : WeakFEPair ℂ where
+
+### Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean :325-:327 (the odd pair`s strong proof) at de5ce8a9:
+    325  lemma isStrong_hurwitzOddFEPair (a : UnitAddCircle) : IsStrongFEPair (hurwitzOddFEPair a) where
+    326    hf₀ := rfl
+    327    hg₀ := rfl
+
+### Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean :339-:340 (completedHurwitzZetaOdd through the pair`s Λ) at de5ce8a9:
+    339  def completedHurwitzZetaOdd (a : UnitAddCircle) (s : ℂ) : ℂ :=
+    340    ((hurwitzOddFEPair a).Λ ((s + 1) / 2)) / 2
+
+### the form the edit takes: rw [completedHurwitzZetaOdd, (isStrong_hurwitzOddFEPair a).Λ_eq, norm_div, show ‖(2 : ℂ)‖ = 2 by norm_num]
+
+### ### **DECLARATIONS READ 5 AT MATHLIB de5ce8a9 ; THE LINE UNEDITED True ; READY FOR THE EDIT True.**
