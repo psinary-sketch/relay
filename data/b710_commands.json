@@ -1,5 +1,5 @@
 {
- "at": "2026-10-25T00:20:46Z",
+ "at": "2026-10-25T00:40:02Z",
  "anchor": "RULING (R320) BEGIN",
  "rows": [
   {
@@ -2112,6 +2112,174 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b710_checks.py --combine b710_checks.txt",
    "n": 264,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:20:44.142Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py commands; python -X utf8 tools/b710_record.py reads; git status --porcelain -- data/b710_* data/terminal_table* tools/b710_* data/act_roots.txt",
+   "n": 265,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:20:58.361Z",
+   "src": "seat",
+   "cmd": "git diff --stat -- data/b710_locate.txt",
+   "n": 266,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:21:05.899Z",
+   "src": "seat",
+   "cmd": "git restore -- data/b710_locate.txt",
+   "n": 267,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:21:20.974Z",
+   "src": "seat",
+   "cmd": "git add data/b710_commands.json data/b710_commands.txt data/b710_defects.txt data/b710_exercise_act.json data/b710_exercise_standing-a.json data/b710_exercise_standing-b3.json data/b710_exercise_standing-c.json data/b710_read_calls.json data/b710_read_calls.txt data/b710_chain_half_a1_checks.json data/b710_chain_half_a2_checks.json data/b710_chain_half_b_checks.json data/b710_checks.txt data/b710_checks_act.txt data/b710_checks_standing-a.txt data/b710_checks_standing-b1.txt data/b710_checks_standing-b2a.txt data/b710_checks_standing-b2b.txt data/b710_checks_standing-b3.txt data/b710_checks_standing-c.txt data/b710_components.txt data/b710_exercise.json data/b710_lsr_act.json data/b710_lsr_standing-a.json data/b710_lsr_standing-b1.json data/b710_lsr_standing-b2a.json data/b710_lsr_standing-b2b.json data/b710_lsr_standing-b3.json data/b710_lsr_standing-c.json data/b710_pp_root_push_out.txt data/b710_relay_root_push_out.txt data/b710_trail.json && git commit -q -m \"b710 record: the trail record at OPEN_TRAILS :15808 carrying the act root 11fe3e21 (PLACE-papers df2dd7c0), the components; the pre-push suite in seven foreground parts, 138 of 143 (G-READ-RULE-STANDING declared on the face; G-SEALED-AFTER-COMPONENTS on two post-seal subjects, defect (i); the three trail arms after the late letter; G-ANSWERS-BEFORE-WRITES's control that cannot fire), the chain b624-b710 AGREE; defects (i) and (j); the root push captures\" && git log -1 --format=%H",
+   "n": 268,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:21:27.670Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch push-b710-record",
+   "n": 269,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:21:33.214Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=data/b710_relay_record_push_out.txt bash tools/push_gated.sh /d/relay push-b710-record",
+   "n": 270,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:21:46.260Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-a",
+   "n": 271,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:24:56.418Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-c",
+   "n": 272,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:25:52.104Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-b1",
+   "n": 273,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:26:56.642Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-b2a",
+   "n": 274,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:33:08.646Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-b2b",
+   "n": 275,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:34:34.111Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-b3",
+   "n": 276,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:36:16.274Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part act",
+   "n": 277,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:37:24.017Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --combine b710_checks_postpush.txt",
+   "n": 278,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:37:32.809Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py scores close",
+   "n": 279,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:37:54.056Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py mbuild",
+   "n": 280,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:38:21.732Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py mroot",
+   "n": 281,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:38:29.325Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py mverify",
+   "n": 282,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:38:36.728Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py mbank",
+   "n": 283,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:38:45.209Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_closing.py",
+   "n": 284,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:39:28.027Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_closing.py",
+   "n": 285,
    "bg": false
   }
  ],
