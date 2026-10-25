@@ -34,6 +34,14 @@ def utc():
     return time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
 
 
+def _membrane(p):
+    """(R321)(2)(ii), standing clauses v2 row (53): the membrane before a write under relay data/ (tools/act_membrane.py guard_path)."""
+    sys.path.insert(0, T)
+    import act_membrane as MEM
+    import b711_record as REC
+    MEM.guard_path(ACT, p, REC.R.ROOT_EXCLUDE)
+
+
 def substitute(text):
     """the act names shifted by one act, in order so that b710 -> b711 runs before b709 -> b710."""
     out = text
@@ -95,6 +103,7 @@ def carry(name, *a):
     L += ['', '### ### **CARRIED tools/%s_%s.py ; LINES %d ; CHANGED BY THE SUBSTITUTION %d ; REPAIR SPANS AT %s %d ; THE SEAT READS THE SPANS, NOT THE WHOLE.**' % (
         ACT, name, len(nl_), changed, PREV, len(spans))]
     p = os.path.join(D, '%s_carry_%s.txt' % (ACT, name))
+    _membrane(p)
     with open(p + '.tmp', 'wb') as fh:
         fh.write((NL.join(L) + NL).encode('utf-8'))
     os.replace(p + '.tmp', p)
@@ -117,6 +126,7 @@ def prune(name, start, end, *a):
     os.replace(dst + '.tmp', dst)
     hunk = ['@@ -%d,%d +%d,0 @@ PRUNED (%s)' % (s + 1, e - s, s + 1, utc())] + ['-' + l for l in L[s:e]]
     p = os.path.join(D, '%s_prune_%s.txt' % (ACT, name))
+    _membrane(p)
     prev = rd(p)
     head = '' if prev else ('%s -- THE PRUNES OF THE CARRIED tools/%s_%s.py: the previous act`s routes over its own objects, removed at carry time (data/b709_rules.txt row (1)); rows are hunks.' % (ACT, ACT, name) + NL + NL)
     with open(p + '.tmp', 'wb') as fh:
@@ -151,6 +161,7 @@ def repairdiff(name, *a):
         n_ins += j2 - j1
     L += ['', '### ### **HUNKS %d ; LINES REMOVED %d ; LINES ADDED %d.**' % (n_hunks, n_del, n_ins)]
     p = os.path.join(D, '%s_repairdiff_%s.txt' % (ACT, name))
+    _membrane(p)
     with open(p + '.tmp', 'wb') as fh:
         fh.write((NL.join(L) + NL).encode('utf-8'))
     os.replace(p + '.tmp', p)
@@ -170,6 +181,7 @@ def spans(*a):
         L.append('  tools/%s_%s.py | spans %d | substitution hunks %d | data/%s_carry_%s.txt' % (ACT, n, len(sp), hunks, ACT, n))
     L += ['', '### ### **CARRIED TOOLS %d ; SPANS NAMED %d ; EACH CARRIED BY THE SUBSTITUTION AND BANKED BY ITS DIFF.**' % (len(names), tot)]
     p = os.path.join(D, '%s_carry_spans.txt' % ACT)
+    _membrane(p)
     with open(p + '.tmp', 'wb') as fh:
         fh.write((NL.join(L) + NL).encode('utf-8'))
     os.replace(p + '.tmp', p)

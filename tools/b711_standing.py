@@ -79,6 +79,13 @@ def text_of():
     return L
 
 
+def _membrane(p):
+    """(R321)(2)(ii), standing clauses v2 row (53): the membrane before a write under relay data/ (tools/act_membrane.py guard_path)."""
+    import act_membrane as MEM
+    import b711_record as REC
+    MEM.guard_path('b711', p, REC.R.ROOT_EXCLUDE)
+
+
 def write(*a):
     L = text_of()
     if 'dry' in a:
@@ -89,6 +96,7 @@ def write(*a):
     tracked = subprocess.run(['git', '-C', ROOT, 'ls-files', '--error-unmatch', 'data/' + BANK], capture_output=True).returncode == 0
     if tracked or os.path.exists(p):
         sys.exit('### data/%s EXISTS%s -- A VERSION IS WRITTEN ONCE; NOTHING WRITTEN' % (BANK, ' AND IS COMMITTED' if tracked else ''))
+    _membrane(p)
     with open(p + '.tmp', 'wb') as fh:
         fh.write((NL.join(L) + NL).encode('utf-8'))
     os.replace(p + '.tmp', p)
@@ -127,6 +135,7 @@ def control(*a):
                            ('b711_standing_control.json', json.dumps(dict(at=utc(), rows=dres, first_equal=first_equal, v1_lines_equal=v1_lines_equal, neg_equal=neg_equal,
                                                                           n=len(r2), ok=ok), indent=1) + NL)):
             p = os.path.join(D, name)
+            _membrane(p)
             with open(p + '.tmp', 'wb') as fh:
                 fh.write(data.encode('utf-8'))
             os.replace(p + '.tmp', p)

@@ -1,0 +1,100 @@
+b711 -- THE CARRY-TIME REPAIRS OF tools/b711_closing.py AS A DIFF: the carried form (tools/b710_closing.py with the act names substituted) against the file now (2026-10-25T02:12:14Z)
+
+--- tools/b711_closing.py (the carried form)
++++ tools/b711_closing.py (now)
+@@ -193,1 +193,26 @@
+-def head_line(dd=None, act=ACT):
++# ### (R321)(2)(k), a carry-time repair: the head-line builder's capture-name failures go to the events section (events_section) and never into
++# ### the head line; filled at each head_line call and read by the section beneath the defects.
++HEAD_EVENTS = []
++
++
++def _captures(dd, act):
++    """every push capture of the act but the closing's own (data/<act>_*push_out.txt), each read by its own lines: (name, its UTC stamp at :1,
++    the repository at :2, the branch, the tip, the main read back at the remote)."""
++    out = []
++    for n in sorted(os.listdir(dd)):
++        if not (n.startswith(act + '_') and n.endswith('push_out.txt')) or n == '%s_closing_push_out.txt' % act:
++            continue
++        t = io.open(os.path.join(dd, n), encoding='utf-8', errors='replace').read().replace(chr(13), '')
++        s = re.search(r'^push_gated: capture on -> \S+ \((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)', t, re.M)
++        b = re.search(r'^push_gated: repo (\S+) ; branch (\S+) ; tip (\w+)', t, re.M)
++        m = re.search(r'^push_gated: main read back at the remote: (\w+)', t, re.M)
++        out.append((n, s.group(1) if s else None, b.group(1) if b else None, b.group(2) if b else None, b.group(3) if b else None,
++                    m.group(1) if m else None))
++    return out
++
++
++def head_line(dd=None, act=ACT, events=None):
++    """(R321)(2)(k), repaired: each repository's record commit is the main its LAST push capture of the act read back at the remote (the
++    closing's own capture excluded, the captures ordered by their own UTC stamps), printed in the head line; where b673's name for the record's
++    capture (data/<act>_<key>_push_out.txt) is not that capture, or no capture reads main back, the failure goes to the events section and the
++    head line carries the commit or `none read`, never the failure's text (b710's head line carried "IS NOT THE RECORD`S CAPTURE" for both)."""
+@@ -195,0 +220,1 @@
++    ev = HEAD_EVENTS if events is None else events
+@@ -200,11 +226,1 @@
+-    def _back(n, repo):
+-        t = _t(n)
+-        m = re.search(r'push_gated: main read back at the remote: (\w+)', t)
+-        b = re.search(r'push_gated: repo \S+ ; branch (\S+) ; tip (\w+)', t)
+-        if not m or not b:
+-            return '### NOT READ'
+-        subj = g(repo, 'log', '-1', '--format=%s', b.group(2))
+-        if b.group(1) != 'push-%s' % act or not subj.startswith('%s record' % act):
+-            return '### %s IS NOT THE RECORD`S CAPTURE (branch %s, tip %s "%s")' % (n, b.group(1), b.group(2)[:8], subj[:40])
+-        return m.group(1)
+-
++    caps = _captures(dd, act)
+@@ -213,2 +229,14 @@
+-        v = _back('%s_%s_push_out.txt' % (act, key), repo)
+-        parts.append('%s %s' % (name, v if v.startswith('###') else v[:8 if key == 'relay' else 7]))
++        w = 8 if key == 'relay' else 7
++        mine = sorted((c for c in caps if c[2] and c[1] and c[5] and repo_key(c[2]) == repo_key(repo)), key=lambda c: c[1])
++        b673 = '%s_%s_push_out.txt' % (act, key)
++        if not mine:
++            ev.append('%s: no push capture of the act reads main back at the remote; the record commit not read' % name)
++            parts.append('%s none read' % name)
++            continue
++        last = mine[-1]
++        if last[0] != b673:
++            other = next((c for c in caps if c[0] == b673), None)
++            ev.append('%s: the record commit %s read from the act`s last capture data/%s (%s, branch %s); b673`s name data/%s %s' % (
++                name, last[5][:w], last[0], last[1], last[3], b673,
++                ('carries an earlier push (branch %s, main read back %s, %s)' % (other[3], (other[5] or '-')[:w], other[1])) if other else 'is absent'))
++        parts.append('%s %s' % (name, last[5][:w]))
+@@ -225,0 +253,12 @@
++
++
++def events_section(act=ACT, dd=None):
++    """(R321)(2)(i), standing clauses v2 row (52): a finding made after the seal is entered here and not lettered in the defects bank (the next
++    act's corrigendum letters it) -- the rows of data/<act>_events.txt as the seat entered them (by the Write or the Edit tool; every line of
++    the bank from its third, indented), and the head-line builder's capture-name failures (HEAD_EVENTS)."""
++    p = os.path.join(dd or D, '%s_events.txt' % act)
++    t = io.open(p, encoding='utf-8', errors='replace').read().replace(chr(13), '') if os.path.exists(p) else ''
++    rows = [l for l in t.split(NL)[2:] if l.startswith('    ')]
++    return ['### THE EVENTS AFTER THE SEAL (standing clauses v2 row (52); relay data/%s_events.txt, unlettered, for the next act`s corrigendum):' % act] + (
++        rows or ['    NONE ENTERED IN THE EVENTS BANK']) + ['    THE HEAD LINE: ' + e for e in HEAD_EVENTS] + [
++        '    ### EVENTS %d ; THE HEAD LINE`S %d' % (len([l for l in rows if not l.startswith('     ')]), len(HEAD_EVENTS))]
+@@ -273,1 +313,2 @@
+-# ### "### NO VERDICT LINE" for them and the suite`s G-CLOSING-DRY-STEP exempts them by name (tools/b711_checks.py NO_VERDICT_EXEMPT).
++# ### "### NO VERDICT LINE" for them, and the suite`s G-CLOSING-DRY-STEP reads each such bank itself ((R321)(2)(iii): the line passes where the
++# ### bank exists and carries no verdict line by this tool`s own reader, tools/b711_checks.py no_verdict_line_ok; no list of names).
+@@ -343,0 +384,10 @@
++def _guard(name):
++    """(R321)(2)(ii), standing clauses v2 row (53), the membrane: a write to relay data/ refused once the act's root is appended, unless the
++    act's ROOT_EXCLUDE takes the bank out (the closing's banks, its censuses and pins are excluded kinds); the dry run writes to the scratchpad."""
++    if DRY:
++        return
++    import act_membrane as MEM
++    import b711_record as REC
++    MEM.guard(ACT, name, REC.R.ROOT_EXCLUDE)
++
++
+@@ -346,0 +397,1 @@
++        _guard(out)
+@@ -435,0 +487,1 @@
++    L += events_section() + ['']
+@@ -450,0 +503,1 @@
++    _guard('b711_closing.txt')
+
+### ### **HUNKS 10 ; LINES REMOVED 15 ; LINES ADDED 69.**

@@ -24,6 +24,13 @@ D, T = os.path.join(ROOT, 'data'), os.path.join(ROOT, 'tools')
 sys.path.insert(0, T)
 import b677_citation as C   # noqa: E402  ### the helpers, imported unchanged
 import b711_worklist as K   # noqa: E402
+import act_membrane as MEM  # noqa: E402  ### (R321)(2)(ii): the membrane before every bank write of this tool
+
+
+def _root_exclude():
+    import b711_record as REC   # ### the record tool's exclusion pattern, the one the root route reads (imported at the call, nothing written)
+    return REC.R.ROOT_EXCLUDE
+
 
 C.SESSION = 'C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % K.SESSION_ID
 
@@ -351,6 +358,8 @@ def standing_rows(text, add):
 
 
 def _write(L, R, miss):
+    for n_ in ('b711_citation_check.txt', 'b711_citation_check.json'):
+        MEM.guard('b711', n_, _root_exclude())
     for name, data in (('b711_citation_check.txt', (NL.join(L) + NL).encode('utf-8')),
                        ('b711_citation_check.json', (json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), rows=R,
                                                                        misses=[r[1] for r in miss]), indent=1, ensure_ascii=False) + NL).encode('utf-8'))):
@@ -386,6 +395,7 @@ def ferry(*a):
     banked = (rd(q) or '').rstrip(NL)
     r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'ferry_scan.py'), q], capture_output=True, cwd=ROOT)
     s = os.path.join(D, 'b711_ferry_scan.txt')
+    MEM.guard('b711', 'b711_ferry_scan.txt', _root_exclude())
     with open(s + '.tmp', 'wb') as fh:
         fh.write((r.stdout + r.stderr).replace(b'\r\n', b'\n'))
     os.replace(s + '.tmp', s)
@@ -450,9 +460,47 @@ def answer(needle, *a):
     P.C._user_texts = masked
     src = open(os.path.join(T, 'b682_citation.py'), encoding='utf-8').read()
     body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b711')
+    # ### (R321)(2), the item repair: THE WHOLE ANSWER. b682's cut ends at the first "END" after the needle (`best.find('END', k)`, :221), which a
+    # ### word carrying END (AMENDMENT, APPENDED, RECOMMENDED) ends inside: b710's answers read 468 characters. The cut now ends at the answer's
+    # ### last END (`best.rfind('END')`), the paste's own tail; the substitution printed, the route refusing where it does not apply.
+    if body.count("best.find('END', k)") != 1:
+        sys.exit('### b682`s CUT NOT FOUND ONCE IN ITS answer -- NOTHING CHECKED')
+    body = body.replace("best.find('END', k)", "best.rfind('END')")
+    body = body.replace("    open(q + '.tmp', 'wb')", "    MEM.guard('b711', os.path.basename(q), ROOT_EXCLUDE)\n    open(q + '.tmp', 'wb')")
     ns = dict(vars(P))
+    ns.update(MEM=MEM, ROOT_EXCLUDE=_root_exclude())
     exec(compile(body, 'b682_citation.answer (b711)', 'exec'), ns)
     ns['answer'](needle)
+
+
+def replay(needle, session_id, anchor, *a):
+    """`replay <needle> <session id> <anchor>`: the repair's control, print only -- b682's selection (:210-:219, the latest user text after the
+    anchor carrying the needle and an answer's mark) over the named session, then its cut two ways: b682's (`best.find('END', k)`) and the
+    repaired (`best.rfind('END')`); each cut's length and its last 60 characters printed; nothing written."""
+    import b682_citation as P
+    P.C.SESSION = 'C:/Users/echo chamber/.claude/projects/D--/%s.jsonl' % session_id
+    P.C.SESSIONS_AFTER = ()
+    best, seen = None, False
+    for t in P.C._user_texts():
+        if anchor in t:
+            seen = True
+        u = t.replace('\u2019', "'")
+        if seen and needle in t and ("NAVIGATOR'S ANSWER" in u or "NAVIGATOR'S NOTE" in u or "AUTHOR'S" in u or 'The user answered' in u
+                                     or 'user has answered' in u):
+            best = t
+    if best is None:
+        print('  ### NO ANSWER CARRYING %r AFTER %r IN SESSION %s' % (needle, anchor, session_id))
+        return
+    k = best.find(needle)
+    out = {}
+    for label, e0 in (('b682', best.find('END', k)), ('repaired', best.rfind('END'))):
+        b0 = best.rfind('BEGIN', 0, k)
+        cut = best[b0:e0 + 3] if b0 >= 0 and e0 > k else best
+        out[label] = cut
+        print('  %-8s cut: %d characters ; ends %r' % (label, len(cut), cut[-60:]))
+    print('  the whole answer %d characters ; the repaired cut equal to the text from its BEGIN to its last END: %s' % (
+        len(best), out['repaired'] == best[best.rfind('BEGIN', 0, k):best.rfind('END') + 3]))
+    return dict((k_, len(v)) for k_, v in out.items())
 
 
 def word(needle, *a):
@@ -470,8 +518,8 @@ def word(needle, *a):
 
 
 if __name__ == '__main__':
-    fn = {'check': check, 'ferry': ferry, 'answer': answer, 'word': word}.get(sys.argv[1] if len(sys.argv) > 1 else '')
+    fn = {'check': check, 'ferry': ferry, 'answer': answer, 'word': word, 'replay': replay}.get(sys.argv[1] if len(sys.argv) > 1 else '')
     if fn is None:
-        print('usage: b711_citation.py check [dry] | ferry | answer <needle> | word <needle>')
+        print('usage: b711_citation.py check [dry] | ferry | answer <needle> | word <needle> | replay <needle> <session id> <anchor>')
         sys.exit(2)
     fn(*sys.argv[2:])

@@ -1,0 +1,34 @@
+b711 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b710_reg_gate.py -> tools/b711_reg_gate.py (2026-10-25T01:50:21Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b710 -> b711, b709 -> b710, (R320) -> (R321), (R319) -> (R320), R320 -> R321, R319 -> R320); 83 lines, 7 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b710_tool_repairs.txt AND data/b710_repairdiff_reg_gate.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  :160 ; (9) tools/b710_reg_gate.py -- the substitution and the face`s date (2026-10-24).
+  :161 ; data/b710_carry_reg_gate.txt: CARRIED tools/b710_reg_gate.py ; LINES 83 ; CHANGED BY THE S
+  :5 ; @@ -21,1 +21,1 @@
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b710_reg_gate.py
+  +++ tools/b711_reg_gate.py
+  @@ -2,1 +2,1 @@
+  -"""b710_reg_gate.py -- THE REGISTRATION GATE, RUN BEFORE THE LOCK. ### ALL THREE ARMS, THE DRY-RUN STEP AND THE CLOSING'S DRY RUN.
+  +"""b711_reg_gate.py -- THE REGISTRATION GATE, RUN BEFORE THE LOCK. ### ALL THREE ARMS, THE DRY-RUN STEP AND THE CLOSING'S DRY RUN.
+  @@ -8,1 +8,1 @@
+  -### the writer never wrote. ### Carried from b709_reg_gate.py by the Write tool, the act's names changed; the closing dry-run step as
+  +### the writer never wrote. ### Carried from b710_reg_gate.py by the Write tool, the act's names changed; the closing dry-run step as
+  @@ -21,2 +21,2 @@
+  -REG = os.path.join(D, 'b710_registration_2026-10-24.txt')
+  -OUT = os.path.join(D, 'b710_reg_gate.txt')
+  +REG = os.path.join(D, 'b711_registration_2026-10-24.txt')
+  +OUT = os.path.join(D, 'b711_reg_gate.txt')
+  @@ -37,1 +37,1 @@
+  -    rec('b710 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.')
+  +    rec('b711 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.')
+  @@ -58,1 +58,1 @@
+  -    dr = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(ROOT, 'tools', 'b710_record.py'), 'drycheck', REG, 'standin'], capture_output=True,
+  +    dr = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(ROOT, 'tools', 'b711_record.py'), 'drycheck', REG, 'standin'], capture_output=True,
+  @@ -66,1 +66,1 @@
+  -    cr = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(ROOT, 'tools', 'b710_closing.py'), 'dry'], capture_output=True,
+  +    cr = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(ROOT, 'tools', 'b711_closing.py'), 'dry'], capture_output=True,
+
+### ### **CARRIED tools/b711_reg_gate.py ; LINES 83 ; CHANGED BY THE SUBSTITUTION 7 ; REPAIR SPANS AT b710 3 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

@@ -1,0 +1,164 @@
+b711 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b710_corrigendum.py -> tools/b711_corrigendum.py (2026-10-25T01:50:21Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b710 -> b711, b709 -> b710, (R320) -> (R321), (R319) -> (R320), R320 -> R321, R319 -> R320); 181 lines, 53 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b710_tool_repairs.txt AND data/b710_repairdiff_corrigendum.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  :168 ; (11) tools/b710_corrigendum.py -- written whole by the Write tool in b678`s form for b709`
+  :169 ; data/b710_carry_corrigendum.txt: CARRIED tools/b710_corrigendum.py ; LINES 226 ; CHANGED B
+  :5 ; @@ -2,6 +2,5 @@
+  :17 ; @@ -9,11 +8,11 @@
+  :40 ; @@ -21,1 +20,1 @@
+  :43 ; @@ -42,4 +41,4 @@
+  :52 ; @@ -47,1 +46,7 @@
+  :61 ; @@ -58,6 +63,2 @@
+  :70 ; @@ -67,7 +68,6 @@
+  :84 ; @@ -75,0 +75,1 @@
+  :86 ; @@ -76,37 +77,22 @@
+  :146 ; @@ -116,1 +102,1 @@
+  :149 ; @@ -120,38 +106,28 @@
+  :216 ; @@ -161,15 +137,10 @@
+  :242 ; @@ -187,17 +158,2 @@
+  :262 ; @@ -209,3 +165,2 @@
+  :268 ; @@ -222,2 +177,2 @@
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b710_corrigendum.py
+  +++ tools/b711_corrigendum.py
+  @@ -2,1 +2,1 @@
+  -"""b710_corrigendum.py -- THE CORRIGENDUM ENTRY OF (R320)(3): b709's two items found after its seal -- G-REPORT-UNSEALED and G-AXIS-REGISTERED
+  +"""b711_corrigendum.py -- THE CORRIGENDUM ENTRY OF (R321)(3): b710's two items found after its seal -- G-REPORT-UNSEALED and G-AXIS-REGISTERED
+  @@ -4,3 +4,3 @@
+  -twelve ratios"; the ranking's quotation needled as one string where the registrations bank wraps it across its lines 12-13; data/b709_defects.txt,
+  -the unlettered event) -- answered by one generated FINDINGS entry in b678's corrigendum form, in the banks' words; b709's sealed face (relay
+  -data/b709_registration_2026-10-23.txt), its trail record (PLACE-papers OPEN_TRAILS :15766) and every root-named bank unedited.
+  +twelve ratios"; the ranking's quotation needled as one string where the registrations bank wraps it across its lines 12-13; data/b710_defects.txt,
+  +the unlettered event) -- answered by one generated FINDINGS entry in b678's corrigendum form, in the banks' words; b710's sealed face (relay
+  +data/b710_registration_2026-10-23.txt), its trail record (PLACE-papers OPEN_TRAILS :15766) and every root-named bank unedited.
+  @@ -8,2 +8,2 @@
+  -### Carried from tools/b709_corrigendum.py by tools/b710_carry.py (data/b710_carry_corrigendum.txt; its head :1-:65 and its landing :178-:226 read
+  -### by offset and limit), then written whole by the Write tool with its items rewritten for b709's record (b708 and b709 wrote theirs the same
+  +### Carried from tools/b710_corrigendum.py by tools/b711_carry.py (data/b711_carry_corrigendum.txt; its head :1-:65 and its landing :178-:226 read
+  +### by offset and limit), then written whole by the Write tool with its items rewritten for b710's record (b708 and b710 wrote theirs the same
+  @@ -13,2 +13,2 @@
+  -###   the event: the row of data/b709_defects.txt beneath EVENTS, UNLETTERED that opens TWO ARMS FAILING AFTER THE SEAL, by line;
+  -###   the failing three: data/b709_checks_postpush.txt's LIVE FAILING list; the one declared on the face: the face's declaration line;
+  +###   the event: the row of data/b710_defects.txt beneath EVENTS, UNLETTERED that opens TWO ARMS FAILING AFTER THE SEAL, by line;
+  +###   the failing three: data/b710_checks_postpush.txt's LIVE FAILING list; the one declared on the face: the face's declaration line;
+  @@ -16,5 +16,5 @@
+  -###   the needles: tools/b709_checks.py report_unsealed_ok and axis_registered_ok, their needle lines; the report's wording: data/b709_report.txt;
+  -###   the wrap: data/b709_registrations.txt :12-:13; the repairs: tools/b710_checks.py keys_ci and joined, their controls
+  -###   data/b710_repair_controls.txt (AS WANTED True).
+  -### Routes: `dry` -> the entry printed through the screens, nothing written; `land` -> the entry appended to FINDINGS through b710_record's
+  -### guarded landing, data/b710_corrigendum.txt (.json). The corrigenda bank's row (30) is appended by the seat through the Edit tool from the
+  +###   the needles: tools/b710_checks.py report_unsealed_ok and axis_registered_ok, their needle lines; the report's wording: data/b710_report.txt;
+  +###   the wrap: data/b710_registrations.txt :12-:13; the repairs: tools/b711_checks.py keys_ci and joined, their controls
+  +###   data/b711_repair_controls.txt (AS WANTED True).
+  +### Routes: `dry` -> the entry printed through the screens, nothing written; `land` -> the entry appended to FINDINGS through b711_record's
+  +### guarded landing, data/b711_corrigendum.txt (.json). The corrigenda bank's row (30) is appended by the seat through the Edit tool from the
+  @@ -38,2 +38,2 @@
+  -import b710_worklist as K         # noqa: E402
+  -import b710_record as REC         # noqa: E402  ### the guarded landing and the repaired defects reader
+  +import b711_worklist as K         # noqa: E402
+  +import b711_record as REC         # noqa: E402  ### the guarded landing and the repaired defects reader
+  @@ -41,1 +41,1 @@
+  -TITLE = ('## Corrigendum to b709’s record after its seal (relay data/b709_defects.txt, data/b709_checks_postpush.txt): G-REPORT-UNSEALED’s '
+  +TITLE = ('## Corrigendum to b710’s record after its seal (relay data/b710_defects.txt, data/b710_checks_postpush.txt): G-REPORT-UNSEALED’s '
+  @@ -47,3 +47,3 @@
+  -ROW = ('  (30) b709\'s suite after its seal (relay data/b709_checks_postpush.txt, LIVE FAILING 3, two beyond the face): G-REPORT-UNSEALED on its\n'
+  -       '      key RATIO wanted in capitals where the unsealed report printed "the twelve ratios" (data/b709_report.txt), and G-AXIS-REGISTERED on\n'
+  -       '      the ranking\'s quotation needled as one string where data/b709_registrations.txt wraps it across :12-:13 (the unlettered event; THE\n'
+  +ROW = ('  (30) b710\'s suite after its seal (relay data/b710_checks_postpush.txt, LIVE FAILING 3, two beyond the face): G-REPORT-UNSEALED on its\n'
+  +       '      key RATIO wanted in capitals where the unsealed report printed "the twelve ratios" (data/b710_report.txt), and G-AXIS-REGISTERED on\n'
+  +       '      the ranking\'s quotation needled as one string where data/b710_registrations.txt wraps it across :12-:13 (the unlettered event; THE\n'
+  @@ -51,1 +51,1 @@
+  -       '      b710\'s carry under (R320)(3) (relay data/b710_tool_repairs.txt rows (1)-(2), their controls data/b710_repair_controls.txt). The\n'
+  +       '      b711\'s carry under (R321)(3) (relay data/b711_tool_repairs.txt rows (1)-(2), their controls data/b711_repair_controls.txt). The\n'
+  @@ -68,1 +68,1 @@
+  -    dl = C78.rd(os.path.join(D, 'b709_defects.txt')).split(NL)
+  +    dl = C78.rd(os.path.join(D, 'b710_defects.txt')).split(NL)
+  @@ -70,1 +70,1 @@
+  -    m = re.search(r'LIVE FAILING : (\d+) \[(.*?)\]', C78.rd(os.path.join(D, 'b709_checks_postpush.txt')))
+  +    m = re.search(r'LIVE FAILING : (\d+) \[(.*?)\]', C78.rd(os.path.join(D, 'b710_checks_postpush.txt')))
+  @@ -77,1 +77,1 @@
+  -    trail = K.B709_TRAIL if ot[K.B709_TRAIL - 1].startswith('### b709') else 0
+  +    trail = K.B709_TRAIL if ot[K.B709_TRAIL - 1].startswith('### b710') else 0
+  @@ -80,1 +80,1 @@
+  -    ck = C78.rd(os.path.join(T, 'b709_checks.py')).split(NL)
+  +    ck = C78.rd(os.path.join(T, 'b710_checks.py')).split(NL)
+  @@ -84,1 +84,1 @@
+  -    rep = C78.rd(os.path.join(D, 'b709_report.txt'))
+  +    rep = C78.rd(os.path.join(D, 'b710_report.txt'))
+  @@ -86,1 +86,1 @@
+  -    rg = C78.rd(os.path.join(D, 'b709_registrations.txt')).split(NL)
+  +    rg = C78.rd(os.path.join(D, 'b710_registrations.txt')).split(NL)
+  @@ -88,1 +88,1 @@
+  -    ctl = REC.jl('b710_repair_controls.json')
+  +    ctl = REC.jl('b711_repair_controls.json')
+  @@ -108,2 +108,2 @@
+  -        ('b709’s face was locked after Components 1-4 (relay %s) with one failure declared on it by name (%s); its pre-push and post-push suites '
+  -         'found two more, %s and %s, not editable in a sealed tool, entered in its defects bank as an unlettered event (relay data/b709_defects.txt '
+  +        ('b710’s face was locked after Components 1-4 (relay %s) with one failure declared on it by name (%s); its pre-push and post-push suites '
+  +         'found two more, %s and %s, not editable in a sealed tool, entered in its defects bank as an unlettered event (relay data/b710_defects.txt '
+  @@ -113,1 +113,1 @@
+  -        ('**THE FIRST ITEM: G-REPORT-UNSEALED FAILING AFTER THE SEAL** (relay data/b709_defects.txt :%d). The sealed arm (tools/b709_checks.py '
+  +        ('**THE FIRST ITEM: G-REPORT-UNSEALED FAILING AFTER THE SEAL** (relay data/b710_defects.txt :%d). The sealed arm (tools/b710_checks.py '
+  @@ -116,6 +116,6 @@
+  -         'RATIO in its verdict line (relay data/b709_report.txt :18, :23), so the needle found nothing there, every other clause of the arm met (the '
+  -         'stamp after the lock and before the root, six lines, the tool unsealed). THE CORRECTION: under (R320)(3) the key is read case-insensitively '
+  -         'at this act’s carry -- tools/b710_checks.py keys_ci, the arm reading its keys through it -- its diff in relay data/b710_tool_repairs.txt row '
+  -         '(1) and its controls in data/b710_repair_controls.txt (b709’s report failing the old needle and passing the repaired; the NEG copy with '
+  -         'every “ratio” removed failing the repaired); no sealed tool of b709 is edited.' % (s['event'][0], s['ru'], s['ru_n'])), '',
+  -        ('**THE SECOND ITEM: G-AXIS-REGISTERED FAILING AFTER THE SEAL** (relay data/b709_defects.txt :%d). The sealed arm (tools/b709_checks.py '
+  +         'RATIO in its verdict line (relay data/b710_report.txt :18, :23), so the needle found nothing there, every other clause of the arm met (the '
+  +         'stamp after the lock and before the root, six lines, the tool unsealed). THE CORRECTION: under (R321)(3) the key is read case-insensitively '
+  +         'at this act’s carry -- tools/b711_checks.py keys_ci, the arm reading its keys through it -- its diff in relay data/b711_tool_repairs.txt row '
+  +         '(1) and its controls in data/b711_repair_controls.txt (b710’s report failing the old needle and passing the repaired; the NEG copy with '
+  +         'every “ratio” removed failing the repaired); no sealed tool of b710 is edited.' % (s['event'][0], s['ru'], s['ru_n'])), '',
+  +        ('**THE SECOND ITEM: G-AXIS-REGISTERED FAILING AFTER THE SEAL** (relay data/b710_defects.txt :%d). The sealed arm (tools/b710_checks.py '
+  @@ -123,1 +123,1 @@
+  -         'data/b705_i6_ranking.txt :58; the registrations bank, written at b709’s step zero by the Write tool, wraps that quotation across its lines '
+  +         'data/b705_i6_ranking.txt :58; the registrations bank, written at b710’s step zero by the Write tool, wraps that quotation across its lines '
+  @@ -125,3 +125,3 @@
+  -         'read the arm failing on the entry not yet landed and so masked the needle. THE CORRECTION: under (R320)(3) the bank is read after joining '
+  -         'its wrapped lines at this act’s carry -- tools/b710_checks.py joined, every run of white space read as one space -- its diff in relay '
+  -         'data/b710_tool_repairs.txt row (2) and its controls in data/b710_repair_controls.txt (b709’s bank failing the old needle and passing the '
+  +         'read the arm failing on the entry not yet landed and so masked the needle. THE CORRECTION: under (R321)(3) the bank is read after joining '
+  +         'its wrapped lines at this act’s carry -- tools/b711_checks.py joined, every run of white space read as one space -- its diff in relay '
+  +         'data/b711_tool_repairs.txt row (2) and its controls in data/b711_repair_controls.txt (b710’s bank failing the old needle and passing the '
+  @@ -129,1 +129,1 @@
+  -         'no sealed tool of b709 is edited.' % (s['event'][0], s['ax'], s['ax_n'], QUOTE)), '',
+  +         'no sealed tool of b710 is edited.' % (s['event'][0], s['ax'], s['ax_n'], QUOTE)), '',
+  @@ -131,3 +131,3 @@
+  -        ('*Filed at b710 on the author’s ruling `(R320)`(3): generated by relay `tools/b710_corrigendum.py`, carried from `tools/b709_corrigendum.py`, '
+  -         'in the corrigendum form of relay `tools/b678_corrigendum.py` (its reader imported unchanged), banked as relay `data/b710_corrigendum.txt`, '
+  -         'the corrigenda bank `data/b675_corrigenda.txt` appended at row (30); it answers b709’s two post-seal needles.*')]
+  +        ('*Filed at b711 on the author’s ruling `(R321)`(3): generated by relay `tools/b711_corrigendum.py`, carried from `tools/b710_corrigendum.py`, '
+  +         'in the corrigendum form of relay `tools/b678_corrigendum.py` (its reader imported unchanged), banked as relay `data/b711_corrigendum.txt`, '
+  +         'the corrigenda bank `data/b675_corrigenda.txt` appended at row (30); it answers b710’s two post-seal needles.*')]
+  @@ -137,2 +137,2 @@
+  -    L = ['b710 -- THE CORRIGENDUM ENTRY FOR b709`S TWO POST-SEAL NEEDLES, (R320)(3) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  -         '### the figures read before the write: the event data/b709_defects.txt :%d-:%d ; failing %s ; declared %s ; beyond the face %s ; the trail' % (
+  +    L = ['b711 -- THE CORRIGENDUM ENTRY FOR b710`S TWO POST-SEAL NEEDLES, (R321)(3) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  +         '### the figures read before the write: the event data/b710_defects.txt :%d-:%d ; failing %s ; declared %s ; beyond the face %s ; the trail' % (
+  @@ -140,1 +140,1 @@
+  -         '### OPEN_TRAILS :%d, its Defects line :%d letters %s ; the needles tools/b709_checks.py :%d/:%d and :%d/:%d ; the report`s wording %s ; the wrap %s ;' % (
+  +         '### OPEN_TRAILS :%d, its Defects line :%d letters %s ; the needles tools/b710_checks.py :%d/:%d and :%d/:%d ; the report`s wording %s ; the wrap %s ;' % (
+  @@ -142,1 +142,1 @@
+  -         '### the controls data/b710_repair_controls.txt AS WANTED %s.' % s['ctl'], '']
+  +         '### the controls data/b711_repair_controls.txt AS WANTED %s.' % s['ctl'], '']
+  @@ -158,2 +158,2 @@
+  -    REC.land([('FINDINGS.md', TITLE, text)], 'b710_corrigendum_landing.json', 'corrigendum', entry=None, dry=False)
+  -    ln = (REC.jl('b710_corrigendum_landing.json').get('lines') or [{}])[0].get('line')
+  +    REC.land([('FINDINGS.md', TITLE, text)], 'b711_corrigendum_landing.json', 'corrigendum', entry=None, dry=False)
+  +    ln = (REC.jl('b711_corrigendum_landing.json').get('lines') or [{}])[0].get('line')
+  @@ -161,1 +161,1 @@
+  -    p = os.path.join(D, 'b710_corrigendum.txt')
+  +    p = os.path.join(D, 'b711_corrigendum.txt')
+  @@ -167,1 +167,1 @@
+  -    p = os.path.join(D, 'b710_corrigendum.json')
+  +    p = os.path.join(D, 'b711_corrigendum.json')
+  @@ -178,1 +178,1 @@
+  -        print('usage: b710_corrigendum.py dry | land')
+  +        print('usage: b711_corrigendum.py dry | land')
+
+### ### **CARRIED tools/b711_corrigendum.py ; LINES 181 ; CHANGED BY THE SUBSTITUTION 53 ; REPAIR SPANS AT b710 17 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

@@ -59,8 +59,16 @@ def load(stage):
         return {}
 
 
+def _membrane(p):
+    """(R321)(2)(ii), standing clauses v2 row (53): the membrane before a write under relay data/ (tools/act_membrane.py guard_path)."""
+    import act_membrane as MEM
+    import b711_record as REC
+    MEM.guard_path(ACT, p, REC.R.ROOT_EXCLUDE)
+
+
 def save(stage, j):
     b = (json.dumps(j, indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    _membrane(bank(stage))
     with open(bank(stage) + '.tmp', 'wb') as fh:
         fh.write(b)
     os.replace(bank(stage) + '.tmp', bank(stage))
@@ -181,6 +189,7 @@ def report(stage):
             L += ['', '=== %s' % n] + j[n]['output'].rstrip(NL).split(NL)
     b = (NL.join(L) + NL).encode('utf-8')
     p = os.path.join(D, '%s_tests_%s.txt' % (ACT, stage))
+    _membrane(p)
     with open(p + '.tmp', 'wb') as fh:
         fh.write(b)
     os.replace(p + '.tmp', p)

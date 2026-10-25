@@ -43,6 +43,14 @@ def rd(p):
     return open(p, encoding='utf-8', errors='replace').read().replace(chr(13), '') if os.path.exists(p) else ''
 
 
+def _membrane(p):
+    """(R321)(2)(ii), standing clauses v2 row (53): the membrane before a write under relay data/ (tools/act_membrane.py guard_path), refusing a
+    bank the root names once this act's root is appended; the scratch blobs pass."""
+    import act_membrane as MEM
+    import b711_record as REC
+    MEM.guard_path('b711', p, REC.R.ROOT_EXCLUDE)
+
+
 def short(name):
     return name.split('.')[-1]
 
@@ -303,6 +311,7 @@ def write(*a):
                         ('b711_independence.json', json.dumps(dict(at=utc(), rows=out, control=dict(per_in=per_in, comb_in=comb_in, sorry_lines=sorry_t3),
                                                                    search=dict(pattern=kpat, positive=pos), bears=len(bears), ok=ok), indent=1, ensure_ascii=False) + NL)):
         p = os.path.join(D, name_)
+        _membrane(p)
         with open(p + '.tmp', 'wb') as fh:
             fh.write(data.encode('utf-8'))
         os.replace(p + '.tmp', p)

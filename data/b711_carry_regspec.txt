@@ -1,0 +1,169 @@
+b711 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b710_regspec.py -> tools/b711_regspec.py (2026-10-25T01:50:21Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b710 -> b711, b709 -> b710, (R320) -> (R321), (R319) -> (R320), R320 -> R321, R319 -> R320); 350 lines, 52 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b710_tool_repairs.txt AND data/b710_repairdiff_regspec.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  :164 ; (10) tools/b710_regspec.py -- the clause table, the measured counts, the face`s date and t
+  :165 ; data/b710_carry_regspec.txt: CARRIED tools/b710_regspec.py ; LINES 352 ; CHANGED BY THE SU
+  :5 ; @@ -5,6 +5,5 @@
+  :17 ; @@ -24,1 +23,1 @@
+  :20 ; @@ -36,3 +35,3 @@
+  :27 ; @@ -40,2 +39,2 @@
+  :32 ; @@ -45,3 +44,2 @@
+  :38 ; @@ -49,1 +47,1 @@
+  :41 ; @@ -60,7 +58,8 @@
+  :57 ; @@ -68,1 +67,1 @@
+  :60 ; @@ -70,0 +69,1 @@
+  :62 ; @@ -78,1 +78,1 @@
+  :65 ; @@ -90,4 +90,4 @@
+  :74 ; @@ -97,2 +97,2 @@
+  :79 ; @@ -108,3 +108,2 @@
+  :85 ; @@ -113,1 +112,1 @@
+  :88 ; @@ -175,1 +174,1 @@
+  :91 ; @@ -297,2 +296,4 @@
+  :98 ; @@ -304,1 +305,1 @@
+  :101 ; @@ -306,1 +307,0 @@
+  :103 ; @@ -309,3 +309,1 @@
+  :108 ; @@ -313,3 +311,3 @@
+  :115 ; @@ -317,2 +315,2 @@
+  :120 ; @@ -327,2 +325,2 @@
+  :125 ; @@ -334,2 +332,2 @@
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b710_regspec.py
+  +++ tools/b711_regspec.py
+  @@ -2,1 +2,1 @@
+  -"""b710_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  +"""b711_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  @@ -4,2 +4,2 @@
+  -### ### Carried from b709's spec by tools/b710_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face:
+  -### ### the citation check as a gate step; the record lines and the corrigendum; the repairs of (R320)(3) and the carry-time repairs; the
+  +### ### Carried from b710's spec by tools/b711_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face:
+  +### ### the citation check as a gate step; the record lines and the corrigendum; the repairs of (R321)(3) and the carry-time repairs; the
+  @@ -9,1 +9,1 @@
+  -### ### the runner row's among them (the runner row with the gate NOT DERIVES, b709's port run's shape, read as banked).
+  +### ### the runner row's among them (the runner row with the gate NOT DERIVES, b710's port run's shape, read as banked).
+  @@ -21,1 +21,1 @@
+  -import b710_worklist as K   # noqa: E402
+  +import b711_worklist as K   # noqa: E402
+  @@ -23,2 +23,2 @@
+  -REG = os.path.join(ROOT, 'data', 'b710_registration_2026-10-24.txt')
+  -SPEC = os.path.join(ROOT, 'data', 'b710_satisfiable.json')
+  +REG = os.path.join(ROOT, 'data', 'b711_registration_2026-10-24.txt')
+  +SPEC = os.path.join(ROOT, 'data', 'b711_satisfiable.json')
+  @@ -35,3 +35,3 @@
+  -    ('lean processes run on this host by a test', 0, 0, 'processes', '### (R320)(3): the lean-running test reads lean`s banked prints; N1.'),
+  -    ('runner dispatches made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### (R320)(7), N1: none; MEASURED off the command bank.'),
+  -    ('runs dispatched and read this act', 0, 0, 'runs', '### none: b709`s one run read as banked.'),
+  +    ('lean processes run on this host by a test', 0, 0, 'processes', '### (R321)(3): the lean-running test reads lean`s banked prints; N1.'),
+  +    ('runner dispatches made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### (R321)(7), N1: none; MEASURED off the command bank.'),
+  +    ('runs dispatched and read this act', 0, 0, 'runs', '### none: b710`s one run read as banked.'),
+  @@ -40,1 +40,1 @@
+  -    ('commits on the port branch of SIDE-lv-conservation', 'PORTCOMMITS', 'PORTCOMMITS', 'commits', '### none this act; MEASURED off the branch`s log from b709`s tip to the branch now.'),
+  +    ('commits on the port branch of SIDE-lv-conservation', 'PORTCOMMITS', 'PORTCOMMITS', 'commits', '### none this act; MEASURED off the branch`s log from b710`s tip to the branch now.'),
+  @@ -45,2 +45,2 @@
+  -    ('port branches cut on a kernel', 0, 0, 'branches', '### none this act (port-b707 is b707`s, held at b709`s commit).'),
+  -    ('kernel branches deleted', 0, 0, 'branches', '### (R320)(7) names relay`s and PLACE-papers` push branches alone; port-b707 deleted under no answer.'),
+  +    ('port branches cut on a kernel', 0, 0, 'branches', '### none this act (port-b707 is b707`s, held at b710`s commit).'),
+  +    ('kernel branches deleted', 0, 0, 'branches', '### (R321)(7) names relay`s and PLACE-papers` push branches alone; port-b707 deleted under no answer.'),
+  @@ -59,2 +59,2 @@
+  -    ('generated corrigendum entries', 1, 1, 'entries', '### (R320)(3).'),
+  -    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R320)(3): row (30).'),
+  +    ('generated corrigendum entries', 1, 1, 'entries', '### (R321)(3).'),
+  +    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R321)(3): row (30).'),
+  @@ -62,4 +62,4 @@
+  -    ('principles read against the corpus', 'PRINCIPLES', 'PRINCIPLES', 'principles', '### (R320)(5)(i): S, I, D and E; MEASURED off the terminals bank.'),
+  -    ('rows of the moves-by-locus table', 'MOVEROWS', 'MOVEROWS', 'rows', '### (R320)(5)(ii); MEASURED off the moves bank.'),
+  -    ('prompts raised for the moves table`s placement', 1, 1, 'prompts', '### (R320)(5)(ii): one, answered and checked.'),
+  -    ('numbers computed for the b711 registrations this act', 0, 0, 'numbers', '### N4: the fit`s constants printed from b709`s banks; nothing computed for pairs 11 or 15, the surgery or the coefficient.'),
+  +    ('principles read against the corpus', 'PRINCIPLES', 'PRINCIPLES', 'principles', '### (R321)(5)(i): S, I, D and E; MEASURED off the terminals bank.'),
+  +    ('rows of the moves-by-locus table', 'MOVEROWS', 'MOVEROWS', 'rows', '### (R321)(5)(ii); MEASURED off the moves bank.'),
+  +    ('prompts raised for the moves table`s placement', 1, 1, 'prompts', '### (R321)(5)(ii): one, answered and checked.'),
+  +    ('numbers computed for the b711 registrations this act', 0, 0, 'numbers', '### N4: the fit`s constants printed from b710`s banks; nothing computed for pairs 11 or 15, the surgery or the coefficient.'),
+  @@ -67,1 +67,1 @@
+  -    ('shared tools edited by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### (R320)(3)-(4): the lock gate, the lean-running test and the ferry scan; MEASURED off the worklist`s list.'),
+  +    ('shared tools edited by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### (R321)(3)-(4): the lock gate, the lean-running test and the ferry scan; MEASURED off the worklist`s list.'),
+  @@ -69,1 +69,1 @@
+  -    ('shared banks written by ruling', 1, 1, 'banks', '### (R320)(4): data/standing_clauses_v1.txt.'),
+  +    ('shared banks written by ruling', 1, 1, 'banks', '### (R321)(4): data/standing_clauses_v1.txt.'),
+  @@ -94,1 +94,1 @@
+  -    ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R320)(7).'),
+  +    ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R321)(7).'),
+  @@ -97,2 +97,2 @@
+  -    ('repairs of (R320)(3)', 'REPAIRS', 'REPAIRS', 'repairs', '### the two needles, the lock gate, the test; MEASURED off the repairs bank.'),
+  -    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b709_rules.txt row (1); lettered (e); MEASURED off the defects bank`s rows.'),
+  +    ('repairs of (R321)(3)', 'REPAIRS', 'REPAIRS', 'repairs', '### the two needles, the lock gate, the test; MEASURED off the repairs bank.'),
+  +    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b710_rules.txt row (1); lettered (e); MEASURED off the defects bank`s rows.'),
+  @@ -101,1 +101,1 @@
+  -    ('branches deleted beyond the ruling`s list', 0, 0, 'branches', '### (R320)(7).'),
+  +    ('branches deleted beyond the ruling`s list', 0, 0, 'branches', '### (R321)(7).'),
+  @@ -107,2 +107,2 @@
+  -    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R320)(1); MEASURED.'),
+  -    ('registrations committed alone before any other bank', 1, 1, 'commits', '### (R320)(6), N4: relay 41ff1193 (with the rules bank).'),
+  +    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R321)(1); MEASURED.'),
+  +    ('registrations committed alone before any other bank', 1, 1, 'commits', '### (R321)(6), N4: relay 41ff1193 (with the rules bank).'),
+  @@ -146,1 +146,1 @@
+  -    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R320).'),
+  +    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R321).'),
+  @@ -174,1 +174,1 @@
+  -    ('runner row with the gate NOT DERIVES (b709`s port run`s shape)', 'read_runner_row', dict(kernel='SIDE-x', label='port', ref='0' * 40, run_id=1, gate='NOT DERIVES')),
+  +    ('runner row with the gate NOT DERIVES (b710`s port run`s shape)', 'read_runner_row', dict(kernel='SIDE-x', label='port', ref='0' * 40, run_id=1, gate='NOT DERIVES')),
+  @@ -180,1 +180,1 @@
+  -    import b710_record as REC
+  +    import b711_record as REC
+  @@ -186,1 +186,1 @@
+  -                with tempfile.TemporaryDirectory(prefix='b710_spec_') as d:
+  +                with tempfile.TemporaryDirectory(prefix='b711_spec_') as d:
+  @@ -214,1 +214,1 @@
+  -    import b710_record as REC
+  +    import b711_record as REC
+  @@ -217,1 +217,1 @@
+  -                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b710_ferry.txt'), '### b999 absent')),
+  +                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b711_ferry.txt'), '### b999 absent')),
+  @@ -246,1 +246,1 @@
+  -    print('b710_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  +    print('b711_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  @@ -298,1 +298,1 @@
+  -    r5p = os.path.join(ROOT, 'data', 'b710_reading5.txt')
+  +    r5p = os.path.join(ROOT, 'data', 'b711_reading5.txt')
+  @@ -302,5 +302,5 @@
+  -                    TESTS=jcount('b710_tests_stepzero.json', len), QUESTIONS=tcount('b710_author_answers.txt', r'^### PROMPT '),
+  -                    LINES=jcount('b710_record_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    MISSES=tfirst('b710_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  -                    REPAIRS=tfirst('b710_tool_repairs.txt', r'REPAIRS OF \(R320\)\(3\) (\d+) ;'),
+  -                    CARRIED=carried(text), DISPATCHES=jcount('b710_commands.json', lambda j: len(j.get('dispatches') or [])),
+  +                    TESTS=jcount('b711_tests_stepzero.json', len), QUESTIONS=tcount('b711_author_answers.txt', r'^### PROMPT '),
+  +                    LINES=jcount('b711_record_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    MISSES=tfirst('b711_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  +                    REPAIRS=tfirst('b711_tool_repairs.txt', r'REPAIRS OF \(R321\)\(3\) (\d+) ;'),
+  +                    CARRIED=carried(text), DISPATCHES=jcount('b711_commands.json', lambda j: len(j.get('dispatches') or [])),
+  @@ -309,2 +309,2 @@
+  -                    ORDERS=jcount('b710_moves_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b710_\w+_hashes\.txt$', f)]),
+  +                    ORDERS=jcount('b711_moves_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b711_\w+_hashes\.txt$', f)]),
+  @@ -314,1 +314,1 @@
+  -                    REREAD=jcount('b710_registrations_reread.json', lambda j: len(j.get('rows') or {})),
+  +                    REREAD=jcount('b711_registrations_reread.json', lambda j: len(j.get('rows') or {})),
+  @@ -316,7 +316,7 @@
+  -                                              io.open(os.path.join(ROOT, 'data', 'b710_defects.txt'), encoding='utf-8').read(), re.M)),
+  -                    SEDS=jcount('b710_commands.json', lambda j: len(j.get('seds') or [])),
+  -                    REDIRECTS=jcount('b710_commands.json', lambda j: len(j.get('redirects') or [])),
+  -                    PIPES=jcount('b710_commands.json', lambda j: len(j.get('pipes') or [])),
+  -                    ANYPIPES=jcount('b710_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  -                    PYPROGS=jcount('b710_commands.json', lambda j: len(j.get('py_programs') or [])),
+  -                    READOFF=tfirst('b710_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  +                                              io.open(os.path.join(ROOT, 'data', 'b711_defects.txt'), encoding='utf-8').read(), re.M)),
+  +                    SEDS=jcount('b711_commands.json', lambda j: len(j.get('seds') or [])),
+  +                    REDIRECTS=jcount('b711_commands.json', lambda j: len(j.get('redirects') or [])),
+  +                    PIPES=jcount('b711_commands.json', lambda j: len(j.get('pipes') or [])),
+  +                    ANYPIPES=jcount('b711_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  +                    PYPROGS=jcount('b711_commands.json', lambda j: len(j.get('py_programs') or [])),
+  +                    READOFF=tfirst('b711_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  @@ -332,2 +332,2 @@
+  -    spec = {"registration": ("data/b710_registration_2026-10-24.txt -- b710, LANE TWO ACT ONE HUNDRED AND THIRTY-SEVEN, THE READING ACT, READING 5: b709 AT ITS WEIGHT; "
+  -                             "THE NEEDLES, THE TEST AND THE LOCK GATE; THE STANDING CLAUSES AT v1; THE PRINCIPLES AGAINST THE CORPUS; THE MOVES BY LOCUS; THE b711 REGISTRATIONS, UNDER (R320)"),
+  +    spec = {"registration": ("data/b711_registration_2026-10-24.txt -- b711, LANE TWO ACT ONE HUNDRED AND THIRTY-SEVEN, THE READING ACT, READING 5: b710 AT ITS WEIGHT; "
+  +                             "THE NEEDLES, THE TEST AND THE LOCK GATE; THE STANDING CLAUSES AT v1; THE PRINCIPLES AGAINST THE CORPUS; THE MOVES BY LOCUS; THE b711 REGISTRATIONS, UNDER (R321)"),
+
+### ### **CARRIED tools/b711_regspec.py ; LINES 350 ; CHANGED BY THE SUBSTITUTION 52 ; REPAIR SPANS AT b710 25 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
