@@ -1,0 +1,67 @@
+b712 -- STEP ZERO, (R322)(6): THE CLASS-NUMBER-2 CONTROL AT DISCRIMINANT -15, REGISTERED FOR b713 AND PRICED, WRITTEN AND COMMITTED BEFORE ANY NUMBER OF ITS ZEROS IS COMPUTED (2026-10-25)
+
+### rows are registrations, each with its object, quantity, hypothesis, falsifier, controls, the act that computes it and the order it serves,
+### in (R322)(6)'s words and b710's form (relay data/b710_registrations.txt). Written by the Write tool at step zero and committed alone, with
+### the one control the author's word at this act's first prompt orders run before the row is committed and banked beside it (relay
+### data/b712_genus_control.txt and .json, written by tools/b712_genus_control.py), before any other bank of this act (the ferry's
+### Component 0; N3). NOTHING OF THE -15 CONTROL IS COMPUTED AT b712: no zero, no n*, no log-derivative coefficient, no onset. The control
+### beside row (i) checks an identity between Dirichlet coefficients and nothing else. Nothing here is a statement that RH or GRH holds or
+### locates any zero.
+
+  (i) THE FORMS AND THE DECOMPOSITION -- THE AUTHOR'S WORD AT b712'S FIRST PROMPT (the -15 text: option 2's statement, carried with a control).
+      THE TEXT IT IS READ FROM: no text cited. The statement is standard genus theory, written by the navigator in the author's word at this
+          act's first prompt (put because no text in PLACE-papers or the relay states it; VERIFICATION_LOOM's archive
+          archive/2026-08-24-ledger-split/VERIFICATION_LOOM-archive-1-dated-log-through-nineteenth-seam.md :2971 names the form (1,1,4) and
+          its zeros only). The source pin is priced for b713 in data/b712_price.txt.
+      THE STATEMENT, as the word gives it: the class group of discriminant -15 has order 2. The principal class is Q1 = x^2 + xy + 4y^2 and
+          the other class is Q2 = 2x^2 + xy + 2y^2. With Z_Q(s) the sum over (x, y) other than (0, 0) of Q(x, y)^(-s), and two units:
+              Z_Q1(s) + Z_Q2(s) = 2 zeta(s) L(s, chi_-15)
+              Z_Q1(s) - Z_Q2(s) = 2 L(s, chi_-3) L(s, chi_5)
+          each chi_D the Kronecker symbol (D/.); the second line Kronecker's factorization for the genus character. The principal form's zeta
+          is then Z_Q1(s) = zeta(s) L(s, chi_-15) + L(s, chi_-3) L(s, chi_5), a sum of two Euler products, each carrying weight 1.
+      THE CONTROL, run before this row is committed and banked beside it (data/b712_genus_control.txt :1-:45): r_Q1(n) and r_Q2(n) for
+          n <= 400 by direct enumeration against the Dirichlet coefficients of both right-hand sides, 2 sum_{d|n} chi_-15(d) and
+          2 sum_{d|n} chi_-3(d) chi_5(n/d): MISSES 0 through n = 400 (the navigator's own run reads 0); the word's hand checks EQUAL (n = 1:
+          sum 2, difference 2; n = 2: sum 4, difference -4); two planted controls fail as wanted (Q0 = x^2 + xy + 6y^2 in Q1's place, 24
+          misses to n = 60; the difference's sign reversed, 38 misses to n = 60).
+
+  (ii) THE REFINED DETECTION LAW AT -15 -- COMPUTED AT b713, THE RESEARCH ACT AT DISCRIMINANT -15 ((R322)(11)), WHERE (R322)(6)'S PRICE
+       PLACES IT WITHIN ONE ACT'S BUDGET.
+      THE LAW, CARRIED UNCHANGED FROM data/b710_registrations.txt (i) (:10-:43): "n* solves r(rho)·n* = log(M(n*)/A(rho)), with M the main
+          term of the configuration's Li coefficient and A the off-line pair's amplitude, both as b709's route computes them" (:11-:12); read
+          by b709's route to first order as
+              r n* = 4 log(4C) + 8 log(n* + 1)
+          (:21), the ruling's form with M(n) = (C (n + 1)^2)^4 and A = (1/4)^4 (:22), r = r(rho) = log |1 - 1/rho'| for the off-line pair
+          (rho' its reflection), C = 2(2 + 2(1 + s)^2) K with s = (1 + 3R)/4 and K the rest set's sum over the certified list with its tail
+          (:14-:17). THE CONSTANTS AT -15, as (R322)(6)(ii) orders: M and A read from the -15 form's own prime side, i.e. from Q1's own
+          route -- its Li coefficients, its certified list and its rest set -- and from no constant fitted at Q0. The seat's reading, for the
+          author's strike: b709's route forms C from the rest set over the certified zeros, so "the form's own prime side" is read as Q1's
+          own explicit formula feeding that route; b710's fitted alpha = 19.065093, beta = 7.997097 (data/b710_registrations.txt :26) are
+          Q0's and do not enter the -15 predictions.
+      THE PREDICTIONS: for each off-line pair of Q1 computed at b713, n*_pred the fixed point of n = (4 log(4C) + 8 log(n + 1)) / r(rho), C
+          read on Q1's certified list before that pair's n* is computed, each prediction printed and committed before its computation (b710's
+          form, (R320)(6)(i)). The pairs: the off-line zeros of Q1 the b713 list certifies; the corpus records two pinned there as
+          0.800011 + 12.038599 i and 0.9274609 + 15.496634 i with a third confirmed and unpinned (archive :2971), named here as the record's
+          and not computed.
+      HYPOTHESIS: each computed pair's ratio n*/n*_pred lies within [0.99, 1.01] (at Q0 the law read 0.998460 at pair 11 and 0.998079 at
+          pair 15, relay data/b711_pairs.txt :12-:13).
+      FALSIFIER: a computed pair whose ratio lies outside [0.99, 1.01] ((R322)(6)(ii)).
+      CONTROLS, printed before any -15 pair: (C1) the route reproducing Q0's pairs 11 and 15 at their b711 ratios (0.998460, 0.998079) on
+          b711's list, the route unchanged; (C2) the identity of (i) (data/b712_genus_control.txt), Q1's coefficients the route's input read
+          equal to zeta(s)L(s, chi_-15) + L(s, chi_-3)L(s, chi_5)'s through the route's cut.
+      THE ORDER IT SERVES: (R322)(11), the research act at -15 (b713), its registrations read unchanged from this row's commit.
+
+  (iii) THE COEFFICIENT OBSERVATION AT -15 -- COMPUTED AT b713; AN OBSERVATION TO BE REPORTED, NOT A PREDICTION.
+      THE OBJECT, in b710's form (data/b710_registrations.txt :71-:79): Q1's log-derivative coefficients c(n), computed exactly from the
+          representation counts r_Q1(n) of x^2 + xy + 4y^2 (the Dirichlet series of Z_Q1 and its log-derivative's coefficients by the recursion
+          over divisors, in exact rationals times log n where the coefficient carries one), through a cut fixed in data/b712_price.txt.
+      THE READINGS PRINTED: the least index n with c(n) < 0 and its value; the count of negative coefficients through the cut; beside it the
+          least height of a certified zero of Q1 with Re rho > 1 in b713's list, if one exists, or "none in the list to <T>" with the list's
+          off-line search region read from its tool. No expectation is registered for the least index: the observation is reported, not
+          predicted ((R322)(6)(iii)).
+      THE ORDER IT SERVES: (R322)(11), b713.
+
+### ### **REGISTRATIONS 3 ; (i) THE FORMS Q1 = x^2 + xy + 4y^2, Q2 = 2x^2 + xy + 2y^2 AND THE GENUS DECOMPOSITION ON THE AUTHOR'S WORD, NO TEXT
+### CITED, ITS CONTROL 0 MISSES THROUGH n = 400 BANKED BESIDE IT ; (ii) THE REFINED LAW CARRIED UNCHANGED, ITS CONSTANTS FROM Q1'S OWN ROUTE,
+### THE FALSIFIER A RATIO OUTSIDE [0.99, 1.01] ; (iii) THE COEFFICIENT OBSERVATION, NO PREDICTION ; COMPUTED AT b713 ; NOTHING OF THE -15
+### ZEROS COMPUTED AT b712.**
