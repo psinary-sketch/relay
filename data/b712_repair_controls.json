@@ -1,0 +1,210 @@
+{
+ "at": "2026-10-25T16:00:31Z",
+ "cases": [
+  {
+   "section": "i",
+   "case": "the builder`s row where the order puts the root`s prompt after the lock",
+   "got": "### POST-SEAL PROMPTS NAMED: 1 (the root`s prompt)",
+   "wanted": "### POST-SEAL PROMPTS NAMED: 1 (the root`s prompt)",
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "i",
+   "case": "the builder`s row where no prompt follows the lock (NEG of the form)",
+   "got": "### POST-SEAL PROMPTS NAMED: NONE",
+   "wanted": "### POST-SEAL PROMPTS NAMED: NONE",
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "i",
+   "case": "b711`s answers bank under the repaired arm, its face naming 1: passes",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "i",
+   "case": "b711`s answers bank under the repaired arm, a face naming 0 (b711`s own, NONE): fails",
+   "got": false,
+   "wanted": false,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "i",
+   "case": "the arm reads the row`s figure from the form \"1 (the root`s prompt)\"",
+   "got": 1,
+   "wanted": 1,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "ii",
+   "case": "b711`s banks pass with 85c26c1c read as the gate (its step row marked gate in a copy)",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "ii",
+   "case": "an undeclared commit before the lock fails (NEG)",
+   "got": false,
+   "wanted": false,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "ii",
+   "case": "b711`s step bank as banked, no row marked gate: fails (the gate`s commit undeclared)",
+   "got": false,
+   "wanted": false,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "ii",
+   "case": "b711`s old arm on the same banks (every commit before the lock on the face): fails on 85c26c1c",
+   "got": false,
+   "wanted": false,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "iii",
+   "case": "b711`s banks rebuild the head line with \"1 prompt answered\"",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "iii",
+   "case": "b711`s banks rebuild the head line with \"scores 8 of 8 HELD\"",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "iii",
+   "case": "a scores bank with one BROKEN prints 7 of 8 (NEG)",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "iii",
+   "case": "b711`s own head line (data/b711_closing.txt :1) carried 2 prompts and no score",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "iv",
+   "case": "b711`s sequence replayed on a copy: the bank before mroot (the export`s root line NONE, b711`s root appended) refuses",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "iv",
+   "case": "after mroot (the export`s root line b711`s): the bank may be written",
+   "got": "",
+   "wanted": "",
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "iv",
+   "case": "a root line naming another act`s root refuses (NEG)",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "iv",
+   "case": "before the act`s root is appended the order does not refuse (b712 now)",
+   "got": "",
+   "wanted": "",
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "v",
+   "case": "b711`s stale command bank (at its gate commit 85c26c1c) reproduces ANYPIPES 7",
+   "got": 7,
+   "wanted": 7,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "v",
+   "case": "the fresh bank (refreshed after the seal, 13:04Z) reads 8",
+   "got": 8,
+   "wanted": 8,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "v",
+   "case": "tools/mirror_prevbuild.json`s blob at b711`s closing (4a383ac8) equal to b707`s (b5898a61): b711`s \"committed with this closing\" false",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "v",
+   "case": "the repaired sentence now: \"unchanged since its last commit\", not \"committed\"",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "NEXT",
+   "case": "a planted open-orders row whose status names b713 is printed by the NEXT line",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "NEXT",
+   "case": "the same row is not printed for another act (NEG)",
+   "got": false,
+   "wanted": false,
+   "as_wanted": true,
+   "note": ""
+  },
+  {
+   "section": "NEXT",
+   "case": "the NEXT line opens with the ruling`s named items",
+   "got": true,
+   "wanted": true,
+   "as_wanted": true,
+   "note": ""
+  }
+ ],
+ "as_wanted": true,
+ "not_as_wanted": 0,
+ "notes": [
+  "(i) b711`s lock 2026-10-25T13:02:58Z ; its answers bank`s calls after the lock ['2026-10-25T13:10:16.370Z'] ; b711`s face row '### POST-SEAL PROMPTS NAMED: NONE'",
+  "(ii) b711`s commits at or before the lock 13 ; on the face 12 ; not on the face ['85c26c1c']",
+  "(iii) rebuilt: b711 closed: relay 011516e4, PLACE-papers 693a46d; suite 138 of 143; root afa0d8f9464fe0c9…; 1 prompt answered; scores 8 of 8 HELD; 10 defects",
+  "(iii) with one BROKEN: b711 closed: relay 011516e4, PLACE-papers 693a46d; suite 138 of 143; root afa0d8f9464fe0c9…; 1 prompt answered; scores 7 of 8 HELD; 10 defects",
+  "(iv) b711`s export`s root line now ['Act root: b711 afa0d8f9464fe0c9a138363e37643830053b9f8cd2ebaa518174f78aa600e1c9'] ; the refusal before mroot: ### (R322)(3)(iv) THE MIRROR`S ORDER: b711`S ROOT IS APPENDED AND THE EXPORT`S ROOT LINE READS NONE, NOT Act root: b711 ",
+  "(v) ANYPIPES stale 7, fresh 8 ; the blob at b707 72b7b905, at b711`s closing 72b7b905 ; the sentence now: tools/mirror_prevbuild.json unchanged since its last commit b5898a61 (blob 72b7b905, equal at HEAD and in the working tree), not committed with this closing",
+  "(NEXT) the open-orders rows whose status names b712 on OPEN_TRAILS now: NONE",
+  "(NEXT) the line now: b713, the research act at discriminant -15 where (R322)(6) prices it within one act’s budget, its registrations read unchanged from data/b712_registrations.txt’s commit; the keystone heads’ trigger read against the compile steps (4) and (7) reach; the open orders whose status names b713 (OPEN_TRAILS, read at closing time): NONE",
+  "(iii) the scratch copies: C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad\\b712_ctl_headline_1792944031 (left in the scratchpad)"
+ ]
+}

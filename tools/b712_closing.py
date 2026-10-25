@@ -3,8 +3,9 @@
 data/b711_rules.txt row (1)), its act sections written for b712 by the Edit tool: the remote reads stored and looked up under ONE key (repo_key(),
 b694's repair, carried); the remote reads one per call in sequence, an empty read re-read alone before any row is declared (b674_rules.txt row 1);
 the tag rows reading a lightweight tag at its own line; each bank's verdict line and not its title; the citation line from the banks; the captures
-in b673's form; the defects row read from the bank (b693's repair); the head line's prompt count the answers bank's rows plus one for the root's
-prompt, its defect count the defects bank's lettered rows read now (b700's repair (9), carried). The act's sections (Component 5, by the Edit
+in b673's form; the defects row read from the bank (b693's repair); the head line's prompt count the answers bank's rows with nothing added and
+its scores from the scores-close bank ((R322)(3)(iii), replacing b700's repair (9)), its defect count the defects bank's lettered rows read now;
+the mirror line's sentence on the builder's state file read from its blob against its last commit ((R322)(3)(v)). The act's sections (Component 5, by the Edit
 tool) are the record lines, the repairs and the corrigendum, the standing clauses at v2 and the supplement, the port and the join, the surgery,
 the coefficients and the axis, the list and the pairs, the registrations read unchanged and the standing arms; the report of the ferry's
 Component 6 prints in one line each the join's grade, the surgery's two eigenvalues and shares, the coefficients' negative index and count, the
@@ -247,10 +248,19 @@ def head_line(dd=None, act=ACT, events=None):
         root = json.loads(_t('%s_act_root.json' % act))['root'][:16] + '…'
     except Exception:
         root = '### NOT READ'
-    k = len(re.findall(r'^### PROMPT ', _t('%s_author_answers.txt' % act), re.M)) + 1
+    # ### (R322)(3)(iii), standing clauses v3: the prompt count is the answers bank's rows with nothing added (b700's "+ 1" for the root's
+    # ### prompt counted it twice where the bank already holds it, b711's events :79), and the scores are read from the scores-close bank
+    k = len(re.findall(r'^### PROMPT ', _t('%s_author_answers.txt' % act), re.M))
     d = len([l for l in _t('%s_defects.txt' % act).split(NL) if DEFECT_ROW.match(l)])
-    return '%s closed: %s; %s; root %s; %d prompt%s answered; %d defect%s' % (act, ', '.join(parts), suite, root, k, '' if k == 1 else 's',
-                                                                             d, '' if d == 1 else 's')
+    try:
+        sc = json.loads(_t('%s_scores_close.json' % act))
+    except Exception:
+        sc = {}
+    keys = [x for ks in SCORE_KEYS for x in ks]
+    held = sum(1 for x in keys if (sc.get(x) or [''])[0] == 'HELD')
+    scores = ('scores %d of %d HELD' % (held, len(keys))) if all(x in sc for x in keys) else 'scores ### NOT READ'
+    return '%s closed: %s; %s; root %s; %d prompt%s answered; %s; %d defect%s' % (act, ', '.join(parts), suite, root, k, '' if k == 1 else 's',
+                                                                                 scores, d, '' if d == 1 else 's')
 
 
 def events_section(act=ACT, dd=None):
@@ -278,13 +288,25 @@ def citation_line():
                 ', '.join('(%s)' % x for x in nav) or 'NONE'))
 
 
+def state_file_sentence(path='tools/mirror_prevbuild.json', repo=ROOT):
+    """(R322)(3)(v): the closing's sentence about a state file read from its blob against the last commit before it says "committed": the
+    working file's blob (git hash-object) against HEAD's blob of the path and the last commit that touched it."""
+    work = g(repo, 'hash-object', '--', path).strip()
+    head = g(repo, 'rev-parse', '--verify', '--quiet', 'HEAD:' + path).strip()
+    last = g(repo, 'log', '-1', '--format=%h %s', '--', path).strip()
+    if work and head and work == head:
+        return '%s unchanged since its last commit %s (blob %s, equal at HEAD and in the working tree), not committed with this closing' % (
+            path, last[:8] or '### NONE', work[:8])
+    return '%s written at the build (blob %s, HEAD`s %s), committed with this closing' % (path, work[:8] or '### NONE', head[:8] or '### NONE')
+
+
 def mirror_line():
     j = jl('b712_mirror.json')
     if not j:
         return '### TO BE BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH (the b670 form, mirror-refresh-%s-b712.zip; over b711`s roster of 70 entries, the builder`s state file tools/mirror_prevbuild.json named in (W))' % WL.DATE
-    return '%s ; %d bytes ; sha256 %s ; MANIFEST md5 %s ; entries %d ; %s ; %s ; %s ; the roster b711`s, 70 entries; tools/mirror_prevbuild.json written at the build and committed with this closing' % (
+    return '%s ; %d bytes ; sha256 %s ; MANIFEST md5 %s ; entries %d ; %s ; %s ; %s ; the roster b711`s, 70 entries; %s' % (
         j.get('zip'), j.get('bytes', 0), (j.get('zip_sha256') or '')[:16], j.get('manifest_md5'), j.get('entries', 0), j.get('root_line') or '### NO ROOT LINE',
-        'CLEAN ON ALL THREE CLAUSES' if j.get('clean') else '### NOT CLEAN', j.get('span') or '### NO SPAN LINE')
+        'CLEAN ON ALL THREE CLAUSES' if j.get('clean') else '### NOT CLEAN', j.get('span') or '### NO SPAN LINE', state_file_sentence())
 
 
 def scores_at_close():

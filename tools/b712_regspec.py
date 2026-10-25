@@ -15,6 +15,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
@@ -239,8 +240,29 @@ def _git(repo, *a):
     return (r.stdout or '').strip()
 
 
+def refresh_commands(bank='b712_commands.json'):
+    """(R322)(3)(v), standing clauses v3: THE COMMAND SCREEN READS A FRESH BANK -- the command bank rewritten by the record tool's `commands`
+    route in this step, before the face's counts are read from it (b711's face read ANYPIPES 7 from a bank last written before its eighth
+    pipe, events :3). Returns the bank's `at` stamp after the refresh, or None where the refresh did not write it."""
+    p = os.path.join(ROOT, 'data', bank)
+    t0 = time.time()
+    r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(ROOT, 'tools', 'b712_record.py'), 'commands'], capture_output=True,
+                       text=True, encoding='utf-8', errors='replace')
+    if r.returncode != 0 or not os.path.exists(p) or os.path.getmtime(p) < t0:
+        return None
+    try:
+        return json.load(io.open(p, encoding='utf-8')).get('at')
+    except Exception:
+        return None
+
+
 def main(argv):
     print('=' * 100)
+    fresh = refresh_commands()
+    print('  ### (R322)(3)(v) THE COMMAND BANK REFRESHED IN THIS STEP: %s' % (fresh or '### NOT REFRESHED'))
+    if not fresh:
+        print('  ### REFUSING TO EMIT A SPEC FROM A COMMAND BANK NOT WRITTEN IN THIS STEP.')
+        return 4
     print('b712_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
     print('=' * 100)
     print('  counter source : %s' % os.path.basename(CNT.__file__))

@@ -95,7 +95,7 @@ EF = K.EF_DIR                 # ### SIDE-explicit-formula, read unmoved this act
 LV = K.LV_DIR                 # ### the kernel this act wrote: port-b707 given one commit, held; no main moved
 KI = K.JOIN_DIR               # ### the join kernel, read unmoved
 FACE = os.path.join(D, 'b712_registration_%s.txt' % K.DATE)
-B707_FACE = os.path.join(ROOT, *K.B710_FACE.split('/'))   # ### the previous act's face (b711's, data/b711_registration_2026-10-24.txt), the standing arms' source
+B707_FACE = os.path.join(ROOT, *K.B711_FACE.split('/'))   # ### the previous act's face (b711's, data/b711_registration_2026-10-25.txt), the standing arms' source
 PRE = dict(relay=K.PRE_RELAY, pp=K.PRE_PP)
 EXPORT = K.EXPORT
 RERUN = '--rerun-postpush' in sys.argv
@@ -621,21 +621,31 @@ def tests_ok(S):
 UNANSWERED = "The user doesn't want to proceed with this tool use"
 
 
-def answers_ok(S):
-    """the answers bank at HEAD: its prompt count the bank's own (none before the root this act), each prompt with its options and result, any
-    call after the lock named on the face."""
-    a = S['answers']
-    m = re.search(r'^### b712 -- THE AUTHOR`S ANSWERS, (\d+) prompt\(s\)', a, re.M)
+def post_seal_named(face):
+    """(R322)(3)(i): the face's row `### POST-SEAL PROMPTS NAMED: <n>[ (the root`s prompt)]` read as n; NONE or no row reads 0."""
+    m = re.search(r'### POST-SEAL PROMPTS NAMED: (NONE|\d+)', face or '')
+    return 0 if not m or m.group(1) == 'NONE' else int(m.group(1))
+
+
+def answers_bank_ok(a, answersj, lock_epoch, face, act, floors):
+    """the answers bank's form for <act>, pure in its arguments: its prompt count the bank's own, each prompt with two options or more and its
+    result, the calls at or above the floors, and every call after the lock named on the face's post-seal row ((R322)(3)(i))."""
+    m = re.search(r'^### %s -- THE AUTHOR`S ANSWERS, (\d+) prompt\(s\)' % act, a, re.M)
     heads = re.findall(r'^### PROMPT \d+ \(', a, re.M)
     calls = re.findall(r'^### CALL tool-use id ', a, re.M)
     res = re.findall(r'^RESULT \(transcript line [^)]*\): (.*)$', a, re.M)
-    if not m or int(m.group(1)) != len(heads) or len(heads) < FLOORS['prompts'] or len(calls) < FLOORS['calls']:
+    if not m or int(m.group(1)) != len(heads) or len(heads) < floors['prompts'] or len(calls) < floors['calls']:
         return False
     per = [len(re.findall(r'^  OPTION \d+', p, re.M)) for p in re.split(r'^### PROMPT \d+ \(', a, flags=re.M)[1:]]
-    lk = S['lock_epoch']
-    after = [c for c in S['answersj'].get('calls') or [] if lk and iso_epoch((c.get('ts') or '')[:19] + 'Z') and iso_epoch((c.get('ts') or '')[:19] + 'Z') > lk]
+    lk = lock_epoch
+    after = [c for c in (answersj or {}).get('calls') or [] if lk and iso_epoch((c.get('ts') or '')[:19] + 'Z') and iso_epoch((c.get('ts') or '')[:19] + 'Z') > lk]
     return all(x >= 2 for x in per) and len(res) == len(calls) and not any(UNANSWERED in r or '### NO RESULT' in r for r in res) \
-        and len(after) <= _post_seal_named(S['face'])
+        and len(after) <= post_seal_named(face)
+
+
+def answers_ok(S):
+    """the answers bank at HEAD under answers_bank_ok, this act's floors."""
+    return answers_bank_ok(S['answers'], S['answersj'], S['lock_epoch'], S['face'], 'b712', FLOORS)
 
 
 def no_local_lean(S):
@@ -1088,6 +1098,17 @@ def sealed_after_ok(S):
             if p is None or (t < lk) != (p in pre):
                 return False
     return any(_step_phase(rows, 'pp', h) in pre for h, s, t in S['plog'])
+
+
+def nothing_ahead_ok(face, lock_epoch, logs, steps):
+    """(R322)(3)(ii), standing clauses v3: THE GATE'S COMMIT READ FROM THE STEP BANK. A face cannot carry the hash of the commit that stamps it,
+    so the gate's commit is the one step-bank row of phase `gate` (or, for an act before the repair, the row the control names), and every
+    other commit at or before the lock is declared on the face by its 7-hex prefix. Pure in its arguments: logs [(hash, subject, epoch)],
+    steps the step bank's rows."""
+    gates = [r.get('commit') or '' for r in steps or [] if r.get('phase') == 'gate']
+    if 'WHAT RAN AHEAD OF THIS SEAL' not in (face or '') or lock_epoch is None or len(gates) != 1:
+        return False
+    return all(h[:7] in face for h, s, t in logs if t <= lock_epoch and not gates[0].startswith(h))
 
 
 def _root_banked(S, act, nrows, prev_key='arj0', route_key='route_list', required=REQUIRED_BANKS, exclude=None):
@@ -1567,9 +1588,8 @@ ARMS = [
      lambda S: put(S, 'tooltext', dict(S['tooltext'], x='z_' + 'publish()'))),
     ('G-SEALED-AFTER-COMPONENTS', 'the lock time against every relay and PLACE-papers commit of the act by its row in the act`s step bank, data/b712_steps.json ((R322)(2); not by its subject)', lambda S: sealed_after_ok(S),
      lambda S: put(S, 'plog', S['plog'] + [('deadbee', 'b712 record', 1)])),
-    ('G-NOTHING-RAN-AHEAD', 'section (0) and the logs before the lock: every commit before it declared by its hash',
-     lambda S: 'WHAT RAN AHEAD OF THIS SEAL' in S['face'] and S['lock_epoch'] is not None
-     and all(h[:7] in S['face'] for h, s, t in S['rlog'] + S['plog'] if t <= S['lock_epoch']),
+    ('G-NOTHING-RAN-AHEAD', 'section (0) and the logs before the lock: every commit before it declared by its hash, the gate`s commit read from the step bank`s one `gate` row ((R322)(3)(ii))',
+     lambda S: nothing_ahead_ok(S['face'], S['lock_epoch'], S['rlog'] + S['plog'], S['steps']),
      lambda S: put(S, 'rlog', S['rlog'] + [('deadbeef', 'x', 1)])),
     ('G-LOCKGATE-EIGHT', 'the lock gate`s verdict line', lambda S: 'GATES READ : 8. ### PASSING : 8.' in S['lock'] and 'VERDICT : LOCK PERMITTED' in S['lock'],
      lambda S: put(S, 'lock', S['lock'].replace('PASSING : 8.', 'PASSING : 7.'))),

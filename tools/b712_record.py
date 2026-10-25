@@ -248,7 +248,9 @@ def defects(*a):
 
 
 # ================================================================================ (R322)(2): THE ACT'S STEP BANK (G-SEALED-AFTER-COMPONENTS reads it)
-PRE_SEAL_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'component 5')
+# ### (R322)(3)(ii): 'gate' -- the commit of the gate before the lock, the one commit the face cannot carry (it stamps the face); the suite's
+# ### G-NOTHING-RAN-AHEAD reads it from this bank and asks every other commit before the lock to be declared on the face by its hash
+PRE_SEAL_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'component 5', 'gate')
 POST_SEAL_PHASES = ('seal', 'pre-root', 'root', 'record', 'closing')
 STEP_PHASES = PRE_SEAL_PHASES + POST_SEAL_PHASES
 STEP_REPOS = dict(relay=ROOT, pp=PP)
@@ -921,7 +923,7 @@ def ksyms(*a):
 
 
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R322)(1)
-WH = ('*Appended 2026-10-25 by b712 to b711’s entry (:10246), under `(R322)`(1) -- b711 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+WH = ('*Appended 2026-10-25 by b712 to b711’s entry (:10306), under `(R322)`(1) -- b711 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
       'data/b711_closing.txt):*')
 
 
@@ -932,72 +934,74 @@ def _fig(text, pat, what):
     return m.groups() if m.groups() else (m.group(0),)
 
 
+def _fl(name, pat, what):
+    """a figure read from a b711 bank with the line it stands on: (groups, line)."""
+    for i, l in enumerate(rdn(name).split(NL), 1):
+        m = re.search(pat, l)
+        if m:
+            return (m.groups() if m.groups() else (m.group(0),)), i
+    sys.exit('### data/%s DOES NOT CARRY %s (%s) -- NOTHING COMPOSED' % (name, what, pat))
+
+
 def _wb():
-    """b711's weight line, every figure read from b711's banks by row: the head from its closing :1, the suite from its two banks, the sealed
-    hashes and the citation check from the closing, reading 5 and the moves from its verdict, the standing clauses' control, the root and its
-    banks, the mirror, the scores (a PENDING row read from the close bank), the defects by the repaired reader; the record's commits by the
-    repaired head-line builder over b711's own captures (tools/b712_closing.py head_line), the capture-name failure named as defect (k)."""
+    """b711's weight line, every figure read from b711's banks by row and cited by its line: the head from its closing :1, the pairs, the
+    coefficients, the surgery, the axis, the list, the report's comparisons, the port's held line, the root and its banks, the mirror, the
+    scores at the close, the suite from its two banks, the defects by the repaired reader and the events by their starting lines."""
     c = rdn('b711_closing.txt')
     head = c.split(NL)[0]
+    (r11,), l11 = _fl('b711_pairs.txt', r'^\s*11 \|.*n\*/F2 (0\.\d+)', 'pair 11`s ratio')
+    (r15,), l15 = _fl('b711_pairs.txt', r'^\s*15 \|.*n\*/F2 (0\.\d+)', 'pair 15`s ratio')
+    _x, lpv = _fl('b711_pairs.txt', r'THE LAW HELD', 'the pairs` verdict')
+    (cn, cv), lc = _fl('b711_coeffs.txt', r'THE LEAST n WITH c\(n\) < 0: n = (\d+) ; c\(\d+\) = (\(-8\) log 2 \+ \(-2\) log 3)', 'the least negative index')
+    (thru, neg), lneg = _fl('b711_coeffs.txt', r'THE COUNT OF NEGATIVE COEFFICIENTS through (\d+): (\d+)', 'the negative count')
+    _x, lsu = _fl('b711_surgery.txt', r'THE SURGERY HELD', 'the surgery`s verdict')
+    _x, lax = _fl('b711_axis.txt', r'THE AXIS \(e\) REFUTED', 'the axis`s verdict')
+    (reach,), lli = _fl('b711_list.txt', r'THE LIST COMPLETE TO (\d+)\.0 ; BANDS ABOVE 325', 'the reached height')
+    bands = [l for l in rdn('b711_list.txt').split(NL) if l.strip().startswith('band [')]
+    on = sum(int(re.search(r'on-line (\d+)', l).group(1)) for l in bands)
+    off = sum(int(re.search(r'off-line (\d+)', l).group(1)) for l in bands)
+    (ncmp,), lcmp = _fl('b711_report.txt', r'^### THE COMPARISONS \((\d+)\)', 'the report`s comparisons')
+    _x, ldif = _fl('b711_report.txt', r'^### DIFFERS: NONE', 'the report`s DIFFERS row')
+    _x, lseat = _fl('b711_report.txt', r'^### BANKS NOT SEATED .*: NONE', 'the report`s seated row')
+    _x, lport = _fl('b711_port.txt', r':501:31', 'the port`s held line')
+    (built,), lbu = _fl('b711_port.txt', r'(\d+) of 12', 'the modules built')
+    (banks,), lrb = _fl('b711_root_banks.txt', r'BANKS (\d+) ; CLEAN AND EQUAL AT HEAD', 'the root banks')
+    (msha,), lmi = _fl('b711_closing.txt', r'sha256 ([0-9a-f]{8})[0-9a-f]* ; MANIFEST .* ; CLEAN ON ALL THREE CLAUSES', 'the mirror')
+    _x, lsc = _fl('b711_closing.txt', r'^\s*\(N1\) HELD \(N2\) HELD \(N3\) HELD \(N4\) HELD \(N5\) HELD ; \(S1\) HELD \(S2\) HELD \(S3\) HELD', 'the scores at the close')
     n_pre, p_pre = _fig(rdn('b711_checks.txt'), r'ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\.', 'the pre-push suite')
     n_post, p_post = _fig(rdn('b711_checks_postpush.txt'), r'ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\.', 'the post-push suite')
-    chain, = _fig(rdn('b711_checks_postpush.txt'), r'(?m)^\s+G-ACTROOT-VERIFY\s+(PASS)\s', 'the chain`s arm passing post-push')
-    agree, of_a = _fig(c, r'### AGREE (\d+) of (\d+)', 'the sealed hashes')
-    cites, ok, miss = _fig(c, r'CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', 'the citation check')
-    r5 = ' '.join(rdn('b711_reading5.txt').split())
-    comp, ctl = _fig(r5, r'WITH A COMPILED THEOREM (\d) OF 4 .*?WITH A CONTROL OBJECT (\d) OF 4', 'reading 5`s principles')
-    rows, tried, untried = _fig(r5, r'THE MOVES TABLE (\d+) ROWS, TRIED (\d+), UNTRIED (\d+)', 'the moves table')
-    sc_ok, = _fig(rdn('b711_standing_control.txt'), r'THE CONTROL AS WANTED (True)', 'the standing clauses` control')
-    banks, = _fig(rdn('b711_root_banks.txt'), r'BANKS (\d+) ; CLEAN AND EQUAL AT HEAD', 'the root banks')
-    mi = rdn('b711_mirror.txt')
-    files, = _fig(mi, r'entries in the zip \d+ \(files (\d+) \+ MANIFEST\)', 'the mirror`s files')
-    _fig(mi, r'THE VERIFICATION : CLEAN ON ALL THREE CLAUSES', 'the mirror`s verification')
     ar = jl('b711_act_root.json')
     if not ar.get('root') or not ar.get('previous'):
         sys.exit('### data/b711_act_root.json CARRIES NO ROOT -- NOTHING COMPOSED')
-    sr, scl = jl('b711_scores.json'), jl('b711_scores_close.json')
-    keys = ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3')
-    sv = dict((k, ((scl.get(k) if (sr.get(k) or ['-'])[0] == 'PENDING' else sr.get(k)) or ['-'])[0]) for k in keys)
-    n1 = (sr.get('N1') or ['', ''])[1]
-    if 'running lean or lake (relay data/b711_commands.json): []' not in n1 or 'runner dispatches banked 0' not in n1:
-        sys.exit('### b711`S N1 DOES NOT READ NO LEAN AND NO DISPATCH -- NOTHING COMPOSED')
-    if not (sr.get('N5') or ['', ''])[1].startswith('nothing deposits: the deposit route untouched'):
-        sys.exit('### b711`S N5 DOES NOT READ NOTHING DEPOSITED -- NOTHING COMPOSED')
     short = _defect_short('b711')
-    seat = sum(1 for s in short if "THE SEAT'S" in s)
-    regc = g(ROOT, 'log', '--diff-filter=A', '--format=%h', '--', 'data/b711_registrations.txt').strip()
-    import b712_closing as CL
-    ev = []
-    hl = CL.head_line(act='b711', events=ev)
-    mc = re.match(r'^b711 closed: relay (\w+), PLACE-papers (\w+);', hl)
-    if not mc or len(ev) != 2:
-        sys.exit('### THE REPAIRED HEAD LINE OVER b711`S CAPTURES DID NOT READ BOTH COMMITS (%r ; events %d) -- NOTHING COMPOSED' % (hl[:80], len(ev)))
-    return (' “%s” (data/b711_closing.txt :1). The head line carries the closing tool’s capture-name failure text where the record’s commits '
-            'belong, defect (k); the record’s commits, read by this act’s repaired builder from b711’s own push captures, are relay %s and '
-            'PLACE-papers %s (data/b712_repair_controls.txt). Reading 5 in data/b711_reading5.txt: the four principles against the corpus, %s '
-            'of 4 with a compiled theorem and %s with a control object; the moves-by-locus table, %s rows (%s tried, %s untried), entered as '
-            'W-ORD-MOVES-BY-LOCUS at OPEN_TRAILS :%d; W-ORD-READING5-INDEPENDENCE at :%d on the author’s word at the root’s prompt; the entry at '
-            'FINDINGS :%d, the trail at OPEN_TRAILS :%d. The standing clauses banked at data/standing_clauses_v1.txt, the re-assembly control '
-            'as wanted %s (data/b711_standing_control.txt). data/b711_registrations.txt committed at relay %s (the refined detection law, the '
-            'surgery, the coefficient observation). The root %s over %s banks chained from %s (data/b711_act_root.json, data/b711_root_banks.txt), '
-            'the chain b624–b711 read AGREE by G-ACTROOT-VERIFY post-push (%s); the mirror mirror-refresh-2026-10-24-b711.zip CLEAN on all three clauses over %s files (data/b711_mirror.txt). '
-            'N1 %s, N2 %s, N3 %s, N4 %s, N5 %s, S1 %s, S2 %s, S3 %s (data/b711_scores.json, data/b711_scores_close.json); the sealed tools’ '
-            'hashes %s of %s equal at the close; the citation check %s cites, %s OK, %s missed; suite %s of %s '
-            'pre-push and %s of %s post-push (data/b711_checks.txt, data/b711_checks_postpush.txt); no dispatch and no lean on the host (N1); %d defects '
-            '(a)–(%s), %s the seat’s (data/b711_defects.txt). Nothing deposited.' % (
-                head, mc.group(1), mc.group(2), comp, ctl, rows, tried, untried, K.ORDER_MOVES, K.ORDER_INDEPENDENCE, K.B710_ENTRY, K.B710_TRAIL,
-                sc_ok, regc, ar['root'][:8], banks, ar['previous'][:8], chain, files, sv['N1'], sv['N2'], sv['N3'], sv['N4'], sv['N5'], sv['S1'],
-                sv['S2'], sv['S3'], agree, of_a, cites, ok, miss, p_pre, n_pre, p_post, n_post, len(short), _letter(short[-1]) if short else '-',
-                'all' if seat == len(short) else '%d of them' % seat))
+    evl = [i for i, l in enumerate(rdn('b711_events.txt').split(NL), 1) if re.match(r'^    \S', l)]
+    if len(evl) != 16:
+        sys.exit('### data/b711_events.txt READS %d STARTING LINES, NOT THE RULING`S SIXTEEN -- NOTHING COMPOSED' % len(evl))
+    return (' “%s” (data/b711_closing.txt :1); its prompt count reads one prompt as two and it carries no score (data/b711_events.txt :79, '
+            'repaired at (R322)(3)(iii)). As the banks confirm by row: the refined detection law of data/b710_registrations.txt (i) met at pair 11 '
+            '(n*/F2 %s) and pair 15 (%s) (data/b711_pairs.txt :%d, :%d, :%d); Q0’s log-derivative coefficients negative from n = %s, c(%s) = %s, '
+            '%s negative through %s (data/b711_coeffs.txt :%d, :%d); the surgery HELD (data/b711_surgery.txt :%d); the axis (e) REFUTED by its '
+            'registered falsifier (data/b711_axis.txt :%d); the certified list complete to height %s, %d on-line and %d off-line zeros added above '
+            '325 in %d bands (data/b711_list.txt :%d, the band rows); the Independence supplement in data/b711_independence.txt; the throughstone '
+            'report’s %s comparisons, DIFFERS NONE, every bank seated, S2 not scorable before the root on the author’s word (data/b711_report.txt '
+            ':%d, :%d, :%d); the port at %s of 12 modules, held at DirichletC7Order.lean :501:31 (data/b711_port.txt :%d), the join not dispatched; '
+            'the entry at FINDINGS :%d; the trail at OPEN_TRAILS :%d carrying the root %s over %s banks (data/b711_root_banks.txt :%d); N1-N5 and '
+            'S1-S3 HELD at scores close (data/b711_closing.txt :%d); the mirror mirror-refresh-2026-10-25-b711.zip (sha256 %s…) CLEAN on all three '
+            'clauses with the root line (data/b711_closing.txt :%d); suite %s of %s pre-push and %s of %s post-push, NOT CLEAN (data/b711_checks.txt, '
+            'data/b711_checks_postpush.txt); %d defects (a)–(%s) lettered before the seal (data/b711_defects.txt); %d events in data/b711_events.txt. '
+            'Nothing deposited.' % (
+                head, r11, r15, l11, l15, lpv, cn, cn, cv, neg, thru, lc, lneg, lsu, lax, reach, on, off, len(bands), lli, ncmp, lcmp, ldif, lseat,
+                built, lport, K.B711_ENTRY, K.B711_TRAIL, ar['root'][:8], banks, lrb, lsc, msha, lmi, p_pre, n_pre, p_post, n_post, len(short),
+                _letter(short[-1]) if short else '-', len(evl)))
 
 
 def c1(*a):
-    """FINDINGS: b711's weight line beneath b711's entry (:10246) through b698's landing and its screens; its line banked in
+    """FINDINGS: b711's weight line beneath b711's entry (:10306) through b698's landing and its screens; its line banked in
     data/b712_record_lines.json. `c1 dry` prints the line and writes nothing."""
     dry = 'dry' in a
-    land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B710_ENTRY,
-         check=[('FINDINGS.md', K.B710_ENTRY, '## Reading 5: the four principles against the corpus'), ('OPEN_TRAILS.md', K.B710_TRAIL, '### b711'),
-                ('OPEN_TRAILS.md', K.ORDER_MOVES, '`W-ORD-MOVES-BY-LOCUS`'), ('OPEN_TRAILS.md', K.ORDER_INDEPENDENCE, '`W-ORD-READING5-INDEPENDENCE`')],
+    land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B711_ENTRY,
+         check=[('FINDINGS.md', K.B711_ENTRY, '## The faces’ join by closure at SIDE-faces-join held at DirichletC7Order.lean :501:31'),
+                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b711'), ('OPEN_TRAILS.md', K.ORDER_LV_PORT_TAG, '*Appended 2026-10-25 by b711')],
          dry=dry)
 
 
@@ -1889,7 +1893,7 @@ def _finding_text():
          '**Carried to:** b712 (the re-cut act: the faces row naming the join where (R322)(4) tags it; the class-number-2 control at discriminant −15 '
          'priced; the licensed table’s next document); W-ORD-LV-PORT-TAG for the author’s word, the port’s next line DirichletC7Order.lean :501:31; '
          'the ferry names standing clauses v2; the draft held at v5.', '',
-         '**Next.** %s.' % K.NEXT, '',
+         '**Next.** %s.' % K.next_line(), '',
          '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
     return _title(), NL.join(e)
 
@@ -1938,7 +1942,7 @@ def _trail_text():
              '**Resolved by the seat, for the author’s strike:** %s.' % _for_author(), '',
              '**Defects** (relay data/b712_defects.txt): %s.' % ('; '.join(_letters_now()) or 'none'), '',
              '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in NK + SK) + '.** (the scores bank; the readings that waited, at the close)', '',
-             '**Next:** %s.' % K.NEXT, '']
+             '**Next:** %s.' % K.next_line(), '']
     return NL.join(rows_)
 
 
@@ -2058,8 +2062,43 @@ def drycheck(*a):
         sys.exit(1)
 
 
+def post_seal_row(root_prompt_after_lock, other_after_lock=0):
+    """(R322)(3)(i), standing clauses v3: THE FACE NAMES THE ROOT'S PROMPT BY FORM -- the face's post-seal row built from the act's order: where
+    the order puts the root's prompt after the lock, the row names it (b711's face read NONE with the root's prompt after its lock, events
+    :61). Pure in its arguments; the seat writes the row into the face as printed by `facerows`."""
+    n = (1 if root_prompt_after_lock else 0) + other_after_lock
+    if n == 0:
+        return '### POST-SEAL PROMPTS NAMED: NONE'
+    return '### POST-SEAL PROMPTS NAMED: %d%s' % (n, ' (the root`s prompt)' if root_prompt_after_lock and not other_after_lock else '')
+
+
+def facerows(*a):
+    """prints the face rows built by form ((R322)(3)(i), (ii), (v)): the post-seal row from the act's order (the root's prompt after the lock,
+    (R322)(9)); every relay and PLACE-papers commit of the act's step bank but the gate's, by its 7-hex prefix, for section (0); writes nothing."""
+    print(post_seal_row(True))
+    rows = jl('%s_steps.json' % ACT).get('rows') or []
+    for r in rows:
+        if r.get('phase') in PRE_SEAL_PHASES and r.get('phase') != 'gate':
+            print('  %-5s %s  %-12s %s' % (r['repo'], r['commit'][:8], r['phase'], r.get('subject', '')[:90]))
+
+
+def mirror_order(act, rootl, roots=None):
+    """(R322)(3)(iv), standing clauses v3: THE MIRROR'S ORDER -- with the act's root appended, the export's MANIFEST must carry the root line
+    `Act root: <act> <root>` before the mirror bank is written (b711 banked once with THE ROOT LINE : ### NONE, its mroot not yet run, events
+    :75). The refusal's text, or '' where the bank may be written (pure in its arguments; `roots` names a test copy of the chain)."""
+    line = MEM.appended(act, roots)
+    if not line:
+        return ''
+    want = 'Act root: %s %s' % (act, line.split()[1])
+    if any(l.startswith(want) for l in rootl):
+        return ''
+    return ('### (R322)(3)(iv) THE MIRROR`S ORDER: %s`S ROOT IS APPENDED AND THE EXPORT`S ROOT LINE READS %s, NOT %s... -- RUN mroot, THEN mverify, '
+            'THEN mbank; NOTHING WRITTEN' % (act, (rootl[0][:40] if rootl else 'NONE'), want[:40]))
+
+
 def mbank(*a):
-    """b711's mbank carried with b712's names (the span line read from the mirror bank chain)."""
+    """b711's mbank carried with b712's names (the span line read from the mirror bank chain); (R322)(3)(iv): refused where the root is
+    appended and the export carries no root line for it."""
     import hashlib as _hl
     import zipfile
     import b616_record as R6
@@ -2069,6 +2108,9 @@ def mbank(*a):
     man = z.read('MANIFEST.md')
     ls = man.decode('utf-8-sig').replace(chr(13), '').split(NL)
     rootl = [l for l in ls if l.startswith('Act root: ')]
+    refusal = mirror_order(ACT, rootl)
+    if refusal:
+        sys.exit(refusal)
     rosterl = [l for l in ls if l.startswith('ROSTER')]
     commits = sorted(set(re.findall(r'\b([0-9a-f]{7,12})\b', NL.join(l for l in ls if '|' in l))))
     zb = open(ZIP, 'rb').read()
@@ -2148,13 +2190,191 @@ def armnames(*a):
         print('### ' + ' '.join('`%s`' % n for n in names_[i:i + 7]))
 
 
+# ================================================================================ COMPONENT 1: (R322)(3)'S FIVE REPAIRS AND THE NEXT LINE, THEIR CONTROLS
+def _b711_logs():
+    """b711's relay and PLACE-papers commits as its step bank records them: [(hash, subject, epoch)]."""
+    return [(r['commit'], r.get('subject', ''), int(r['ct'])) for r in jl('b711_steps.json').get('rows') or []]
+
+
+def _count_pipes(text):
+    try:
+        return len(json.loads(text).get('any_pipes') or [])
+    except Exception:
+        return None
+
+
+def repairctl12(*a):
+    """data/b712_repair_controls.txt (.json), Component 1, (R322)(3): each of the five repairs and the NEXT line's repair run on b711's banks,
+    each with the control the ruling names and a NEG case; every reading printed beside its case. The repaired forms are read where they
+    stand: tools/b712_checks.py (post_seal_named, answers_bank_ok, nothing_ahead_ok), tools/b712_record.py (post_seal_row, mirror_order),
+    tools/b712_closing.py (head_line, state_file_sentence), tools/b712_regspec.py (refresh_commands), tools/b712_worklist.py (orders_naming)."""
+    import shutil
+    import b712_checks as CK
+    import b712_closing as CL
+    import b711_checks as CK7
+    rows, notes = [], []
+
+    def case(sec, name, got, want, note=''):
+        rows.append(dict(section=sec, case=name, got=got, wanted=want, as_wanted=got == want, note=note))
+
+    lock = CK.iso_epoch(jl('b711_seal_hashes.json')['lock'])
+    face7 = rdn('b711_registration_2026-10-25.txt')
+    a7, aj7 = rdn('b711_author_answers.txt'), jl('b711_author_answers.json')
+    # ---------------------------------------------------------------- (i) THE FACE NAMES THE ROOT'S PROMPT BY FORM
+    row1 = post_seal_row(True)
+    face_1 = face7.replace('### POST-SEAL PROMPTS NAMED: NONE', row1)
+    case('i', 'the builder`s row where the order puts the root`s prompt after the lock', row1, '### POST-SEAL PROMPTS NAMED: 1 (the root`s prompt)')
+    case('i', 'the builder`s row where no prompt follows the lock (NEG of the form)', post_seal_row(False), '### POST-SEAL PROMPTS NAMED: NONE')
+    case('i', 'b711`s answers bank under the repaired arm, its face naming 1: passes', CK.answers_bank_ok(a7, aj7, lock, face_1, 'b711', CK7.FLOORS), True)
+    case('i', 'b711`s answers bank under the repaired arm, a face naming 0 (b711`s own, NONE): fails', CK.answers_bank_ok(a7, aj7, lock, face7, 'b711', CK7.FLOORS), False)
+    case('i', 'the arm reads the row`s figure from the form "1 (the root`s prompt)"', CK.post_seal_named(face_1), 1)
+    after = [c.get('ts') for c in aj7.get('calls') or [] if CK.iso_epoch((c.get('ts') or '')[:19] + 'Z') and CK.iso_epoch((c.get('ts') or '')[:19] + 'Z') > lock]
+    notes.append('(i) b711`s lock %s ; its answers bank`s calls after the lock %s ; b711`s face row %r' % (
+        jl('b711_seal_hashes.json')['lock'], after, (re.search(r'### POST-SEAL PROMPTS NAMED: \S+', face7) or [None])[0]))
+    # ---------------------------------------------------------------- (ii) THE GATE'S COMMIT READ FROM THE STEP BANK
+    logs = _b711_logs()
+    steps7 = jl('b711_steps.json').get('rows') or []
+    marked = [dict(r, phase='gate') if r['commit'].startswith('85c26c1c') else r for r in steps7]
+    case('ii', 'b711`s banks pass with 85c26c1c read as the gate (its step row marked gate in a copy)', CK.nothing_ahead_ok(face7, lock, logs, marked), True)
+    case('ii', 'an undeclared commit before the lock fails (NEG)', CK.nothing_ahead_ok(face7, lock, logs + [('deadbeefcafe', 'x', lock - 60)], marked), False)
+    case('ii', 'b711`s step bank as banked, no row marked gate: fails (the gate`s commit undeclared)', CK.nothing_ahead_ok(face7, lock, logs, steps7), False)
+    case('ii', 'b711`s old arm on the same banks (every commit before the lock on the face): fails on 85c26c1c',
+         all(h[:7] in face7 for h, s, t in logs if t <= lock), False)
+    notes.append('(ii) b711`s commits at or before the lock %d ; on the face %d ; not on the face %s' % (
+        len([1 for h, s, t in logs if t <= lock]), len([1 for h, s, t in logs if t <= lock and h[:7] in face7]),
+        [h[:8] for h, s, t in logs if t <= lock and h[:7] not in face7]))
+    # ---------------------------------------------------------------- (iii) THE HEAD LINE BUILT FROM BANKS
+    sp = os.path.join(K.SP, 'b712_ctl_headline_%d' % int(time.time()))   # ### a new scratch directory per run; nothing is deleted
+    os.makedirs(sp)
+    for f in os.listdir(D):
+        if f.startswith('b711_') and (f.endswith('push_out.txt') or f in ('b711_checks_postpush.txt', 'b711_act_root.json', 'b711_author_answers.txt',
+                                                                          'b711_defects.txt', 'b711_scores_close.json')):
+            shutil.copyfile(os.path.join(D, f), os.path.join(sp, f))
+    ev = []
+    hl = CL.head_line(dd=sp, act='b711', events=ev)
+    case('iii', 'b711`s banks rebuild the head line with "1 prompt answered"', '; 1 prompt answered;' in hl, True)
+    case('iii', 'b711`s banks rebuild the head line with "scores 8 of 8 HELD"', '; scores 8 of 8 HELD;' in hl, True)
+    sc = jl('b711_scores_close.json')
+    sc['N2'] = ['BROKEN', 'a planted BROKEN for the control']
+    with open(os.path.join(sp, 'b711_scores_close.json'), 'w', encoding='utf-8') as fh:
+        json.dump(sc, fh, ensure_ascii=False)
+    hl7 = CL.head_line(dd=sp, act='b711', events=[])
+    case('iii', 'a scores bank with one BROKEN prints 7 of 8 (NEG)', '; scores 7 of 8 HELD;' in hl7, True)
+    case('iii', 'b711`s own head line (data/b711_closing.txt :1) carried 2 prompts and no score', ('2 prompts answered' in rdn('b711_closing.txt').split(NL)[0])
+         and 'scores' not in rdn('b711_closing.txt').split(NL)[0], True)
+    notes.append('(iii) rebuilt: %s' % hl)
+    notes.append('(iii) with one BROKEN: %s' % hl7)
+    # ---------------------------------------------------------------- (iv) THE MIRROR'S ORDER
+    import zipfile
+    zl = zipfile.ZipFile('D:/MY-DOwnloads/mirror-refresh-2026-10-25-b711.zip').read('MANIFEST.md').decode('utf-8-sig').replace(chr(13), '').split(NL)
+    root7 = [l for l in zl if l.startswith('Act root: ')]
+    case('iv', 'b711`s sequence replayed on a copy: the bank before mroot (the export`s root line NONE, b711`s root appended) refuses',
+         bool(mirror_order('b711', [])), True)
+    case('iv', 'after mroot (the export`s root line b711`s): the bank may be written', mirror_order('b711', root7), '')
+    case('iv', 'a root line naming another act`s root refuses (NEG)', bool(mirror_order('b711', ['Act root: b710 11fe3e21'])), True)
+    case('iv', 'before the act`s root is appended the order does not refuse (b712 now)', mirror_order('b712', []), '')
+    notes.append('(iv) b711`s export`s root line now %r ; the refusal before mroot: %s' % (root7[:1], mirror_order('b711', [])[:120]))
+    # ---------------------------------------------------------------- (v) THE COMMAND SCREEN READS A FRESH BANK; THE STATE FILE'S BLOB
+    stale = _count_pipes(g(ROOT, 'show', '85c26c1c:data/b711_commands.json'))
+    fresh = _count_pipes(rdn('b711_commands.json'))
+    case('v', 'b711`s stale command bank (at its gate commit 85c26c1c) reproduces ANYPIPES 7', stale, 7)
+    case('v', 'the fresh bank (refreshed after the seal, 13:04Z) reads 8', fresh, 8)
+    blob7, blob11 = g(ROOT, 'rev-parse', 'b5898a61:tools/mirror_prevbuild.json').strip(), g(ROOT, 'rev-parse', '4a383ac8:tools/mirror_prevbuild.json').strip()
+    case('v', 'tools/mirror_prevbuild.json`s blob at b711`s closing (4a383ac8) equal to b707`s (b5898a61): b711`s "committed with this closing" false',
+         bool(blob7) and blob7 == blob11, True)
+    sfs = CL.state_file_sentence()
+    case('v', 'the repaired sentence now: "unchanged since its last commit", not "committed"', 'unchanged since its last commit' in sfs and 'not committed' in sfs, True)
+    notes.append('(v) ANYPIPES stale %s, fresh %s ; the blob at b707 %s, at b711`s closing %s ; the sentence now: %s' % (stale, fresh, blob7[:8], blob11[:8], sfs))
+    # ---------------------------------------------------------------- THE NEXT LINE
+    ot = rd(OT)
+    found = K.orders_naming(ot, 'b712')
+    plant = ot + NL + '*Appended 2026-10-25 by b799 -- THE ORDER **`W-ORD-PLANTED-CONTROL`**: a planted row. Status OPEN, for b713.' + NL
+    case('NEXT', 'a planted open-orders row whose status names b713 is printed by the NEXT line', 'W-ORD-PLANTED-CONTROL' in K.next_line(text=plant), True)
+    case('NEXT', 'the same row is not printed for another act (NEG)', any(o == 'W-ORD-PLANTED-CONTROL' for _i, o, _s in K.orders_naming(plant, 'b714')), False)
+    case('NEXT', 'the NEXT line opens with the ruling`s named items', K.next_line(text=plant).startswith(K.NEXT), True)
+    notes.append('(NEXT) the open-orders rows whose status names b712 on OPEN_TRAILS now: %s' % (found or 'NONE'))
+    notes.append('(NEXT) the line now: %s' % K.next_line()[:400])
+    notes.append('(iii) the scratch copies: %s (left in the scratchpad)' % sp)
+    nw = [r for r in rows if not r['as_wanted']]
+    L = ['%s -- COMPONENT 1, (R322)(3): THE FIVE REPAIRS AND THE NEXT LINE`S, EACH ON b711`S BANKS WITH ITS CONTROL (%s)' % (ACT, utc()), '',
+         '### rows are cases: the section | the case | the reading got | the reading wanted | AS WANTED. The sections: (i) the face names the root`s',
+         '### prompt by form; (ii) the gate`s commit from the step bank; (iii) the head line from banks; (iv) the mirror`s order; (v) the command',
+         '### screen`s fresh bank and the state file`s blob; NEXT the open-orders rows. Each control is (R322)(3)`s own; a NEG case beside it. The',
+         '### head-line copies are made in the scratchpad and removed after the reading.', '']
+    L += ['  %-5s | %-150s | got %-34s | wanted %-34s | %s' % (r['section'], r['case'][:150], str(r['got'])[:34], str(r['wanted'])[:34],
+                                                           'AS WANTED' if r['as_wanted'] else '### NOT AS WANTED -- ' + r['note']) for r in rows]
+    L += ['', '### THE READINGS BESIDE THE CASES:'] + ['  ' + n for n in notes]
+    L += ['', '### ### **CASES %d ; AS WANTED %d ; NOT AS WANTED %d.**' % (len(rows), len(rows) - len(nw), len(nw))]
+    if 'dry' not in a:
+        put_txt('%s_repair_controls.txt' % ACT, L)
+        put_json('%s_repair_controls.json' % ACT, dict(at=utc(), cases=rows, as_wanted=not nw, not_as_wanted=len(nw), notes=notes))
+    print(NL.join(L[7:]))
+
+
+REPAIRS712 = (
+    ('(56)', '(R322)(3)(i), THE FACE NAMES THE ROOT`S PROMPT BY FORM',
+     'tools/b712_record.py post_seal_row and the `facerows` route (the face`s post-seal row built from the act`s order: "### POST-SEAL PROMPTS NAMED: '
+     '1 (the root`s prompt)" where the root`s prompt follows the lock); tools/b712_checks.py post_seal_named and answers_bank_ok (G-ANSWERS-BANKED '
+     'reading that row, pure in its banks), answers_ok calling it. Answers b711`s events :61. Control: data/b712_repair_controls.txt (i)'),
+    ('(57)', '(R322)(3)(ii), THE GATE`S COMMIT READ FROM THE STEP BANK',
+     'tools/b712_record.py PRE_SEAL_PHASES with the phase `gate`; tools/b712_checks.py nothing_ahead_ok (the one step-bank row of phase gate exempt, '
+     'every other commit at or before the lock declared on the face by its hash), G-NOTHING-RAN-AHEAD calling it. Answers b711`s events :66. Control: (ii)'),
+    ('(58)', '(R322)(3)(iii), THE HEAD LINE BUILT FROM BANKS',
+     'tools/b712_closing.py head_line: the prompt count the answers bank`s rows with nothing added (b700`s "+ 1" removed), the scores "scores <k> of 8 '
+     'HELD" from the scores-close bank. Answers b711`s events :79. Control: (iii)'),
+    ('(59)', '(R322)(3)(iv), THE MIRROR`S ORDER',
+     'tools/b712_record.py mirror_order and mbank: the mirror bank refused, nothing written, while the act`s root is appended and the export`s root '
+     'line does not read the act`s root. Answers b711`s events :75. Control: (iv)'),
+    ('(60)', '(R322)(3)(v), THE COMMAND SCREEN READS A FRESH BANK',
+     'tools/b712_regspec.py refresh_commands (the command bank rewritten by the record tool`s `commands` route in the spec`s own step, the spec '
+     'refused where it is not); tools/b712_closing.py state_file_sentence (the state file`s blob against HEAD and its last commit before "committed"), '
+     'mirror_line calling it. Answers b711`s events :3 and the added item of (R322)(2). Control: (v)'),
+    ('NEXT', 'THE NEXT LINE',
+     'tools/b712_worklist.py orders_naming and next_line (the ruling`s named items, then every open-orders row of OPEN_TRAILS whose status names '
+     'the next act, read at closing time); tools/b712_record.py the entry`s and the trail`s Next lines calling it. Answers b711`s events :46. Control: NEXT'),
+)
+REPAIR712_TRACKED = ('tools/b712_record.py', 'tools/b712_worklist.py', 'tools/b712_checks.py', 'tools/b712_closing.py', 'tools/b712_regspec.py')
+
+
+def toolrepairs12(*a):
+    """data/b712_tool_repairs.txt (.json), Component 1, (R322)(3): each repair's row (its standing clauses v3 row, its objects, its control's
+    section in data/b712_repair_controls.txt) and the diffs of the five tools against their commit at step zero (relay 46750da9), each whole.
+    The standing report tool's row is appended at Component 5, when its items are written."""
+    ctl = jl('%s_repair_controls.json' % ACT)
+    if not ctl.get('cases'):
+        sys.exit('### data/b712_repair_controls.json IS NOT WRITTEN -- THE CONTROLS FIRST; NOTHING WRITTEN')
+    nw = [c for c in ctl['cases'] if not c.get('as_wanted')]
+    L = ['%s -- COMPONENT 1, (R322)(3): THE FIVE REPAIRS (STANDING CLAUSES v3 ROWS (56)-(60)) AND THE NEXT LINE`S, WITH THEIR DIFFS (%s)' % (ACT, utc()), '',
+         '### rows are repairs: the row | what is repaired | its objects and its control. The controls: relay data/b712_repair_controls.txt (%d cases,' % len(ctl['cases']),
+         '### %d as wanted, %d not as wanted). The diffs follow the rows: each tool against its blob at relay %s (the step-zero commit), `git diff`.' % (
+             len(ctl['cases']) - len(nw), len(nw), K.STEPZERO_BANKS[:8]), '']
+    for n, what, objs in REPAIRS712:
+        L += ['  %s %s.' % (n, what)] + ['      ' + x for x in _wrap_words(objs, 140)] + ['']
+    stat = []
+    for p in REPAIR712_TRACKED:
+        d = g(ROOT, 'diff', K.STEPZERO_BANKS, '--', p).replace(chr(13), '').rstrip(NL)
+        add = sum(1 for l in d.split(NL) if l.startswith('+') and not l.startswith('+++'))
+        rem = sum(1 for l in d.split(NL) if l.startswith('-') and not l.startswith('---'))
+        stat.append((p, add, rem))
+        L += ['', '### %s : +%d -%d' % (p, add, rem)] + (['    ' + l for l in d.split(NL)] if d else ['    (unchanged)'])
+    L += ['', '### ### **REPAIRS %d (FIVE OF v3 ROWS (56)-(60) AND THE NEXT LINE) ; CONTROLS %d, AS WANTED %d, NOT AS WANTED %d ; TOOLS DIFFED %d ; '
+              'NO SEALED TOOL OF AN EARLIER ACT EDITED.**' % (len(REPAIRS712), len(ctl['cases']), len(ctl['cases']) - len(nw), len(nw), len(REPAIR712_TRACKED))]
+    if 'dry' in a:
+        print(NL.join(L[:30] + L[-1:]))
+        return
+    put_txt('%s_tool_repairs.txt' % ACT, L)
+    put_json('%s_tool_repairs.json' % ACT, dict(at=utc(), repairs=[dict(row=n, what=w) for n, w, _o in REPAIRS712], tracked=stat,
+                                                 controls=len(ctl['cases']), not_as_wanted=len(nw)))
+    print(L[-1])
+
+
 # ### stage one (step zero): b711's Component routes over its own objects pruned (data/b712_prune_record.txt); this act's are added by the Edit tool
 ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               ksyms=ksyms, defs=defs, figures=figures, runner=runner,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck,
-              step=step, c1=c1, repairctl=repairctl, toolrepairs=toolrepairs, portedit=portedit, portdispatch=portdispatch, portrun=portrun, c2order=c2order,
+              step=step, c1=c1, repairctl=repairctl12, toolrepairs=toolrepairs12, facerows=facerows, portedit=portedit, portdispatch=portdispatch, portrun=portrun, c2order=c2order,
               regcheck=regcheck, scores=scores, findings=findings, trail=trail, drycheck=drycheck, components=components, mbank=mbank, guard=guard,
               scorercheck=scorercheck, armnames=armnames)
 

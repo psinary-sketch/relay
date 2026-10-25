@@ -8,7 +8,9 @@
 ### The act runs in a NEW session (3bbc6267, the author's /clear after b711's closing; the same claude process, pid 3604): the previous act's
 ### window is b711's own session (ec2d71b5) from its post-push combine to that session's end (b701's form for a new session).
 """
+import io
 import os
+import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = os.path.join(ROOT, 'data')
@@ -86,13 +88,41 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')
 NEXT = ('b713, the research act at discriminant -15 where (R322)(6) prices it within one act’s budget, its registrations read unchanged from '
         'data/b712_registrations.txt’s commit; the keystone heads’ trigger read against the compile steps (4) and (7) reach')
+NEXT_ACT = 'b713'
+
+
+def orders_naming(ot_text, act):
+    """(R322)(3), the NEXT line's repair: every open-orders row of OPEN_TRAILS whose status names <act> -- a row is a line opening
+    `*Appended` that carries `THE ORDER **`W-ORD-`; its status is its text from its last `Status`; returned as (line, order, status). Pure in
+    its arguments (b711's port clause was made b712's after the seal and stood outside the sealed NEXT, events :46)."""
+    out = []
+    for i, l in enumerate((ot_text or '').replace(chr(13), '').split(NL), 1):
+        m = re.search(r'THE ORDER \*\*`(W-ORD-[A-Z0-9-]+)`', l)
+        if not (l.startswith('*Appended') and m):
+            continue
+        k = l.rfind('Status')
+        st = l[k:] if k >= 0 else ''
+        if re.search(r'\b%s\b' % re.escape(act), st):
+            out.append((i, m.group(1), st.strip()))
+    return out
+
+
+def next_line(pp=PP, act=NEXT_ACT, text=None):
+    """the NEXT line read at closing time: the ruling's named items (NEXT), then every open-orders row whose status names the next act, read
+    from OPEN_TRAILS now (or from <text>, for a control)."""
+    if text is None:
+        p = os.path.join(pp, 'OPEN_TRAILS.md')
+        text = io.open(p, encoding='utf-8', errors='replace').read() if os.path.exists(p) else ''
+    rows = orders_naming(text, act)
+    return NEXT + '; the open orders whose status names %s (OPEN_TRAILS, read at closing time): %s' % (
+        act, '; '.join('%s (:%d, %s)' % (o, i, s[:160]) for i, o, s in rows) or 'NONE')
 
 # ### stage one (step zero): the commits made so far
 REG_COMMIT = '67a023887360b74483803ed02c83ae44fdf88f0b'        # ### data/b712_registrations.txt with its genus control, committed alone, first
 STANDING_COMMIT = 'cf193d0e7d19014359bc9c05ee4c41af6620bbd5'   # ### data/standing_clauses_v3.txt, committed alone
 STEPZERO = 'ddd8785d08b760599c465a56e57fe3b1147ec824'          # ### b711's closing push capture, committed alone at step zero
 STEPZERO_STEPS = 'cb8a8580249f2a150d1a805dba36a06d4b921b11'    # ### b711's closing step row, committed alone at step zero
-STEPZERO_BANKS = ''          # ### the step-zero banks and tools (stage two)
+STEPZERO_BANKS = '46750da99871168eed2276f399a049d124ebf5c1'   # ### the step-zero banks and tools, committed together by explicit list
 C1_RELAY = ''
 C1_PP = ''
 C2_RELAY = ''
@@ -101,6 +131,15 @@ C3_RELAY = ''
 C3_PP = ''
 C4_RELAY = ''
 C4_PP = ''
+C3_RELAY_B = ''
+INDEPENDENCE_COMMIT = ''     # ### no supplement this act
+REG_B709 = 'data/b709_registrations.txt'
+B709_TRAIL_HEAD = '### b711 — lane two, act one hundred and thirty-eight, the research act under (R321)'   # ### the previous act's trail head (the suite's name carried)
+PORT_FILE = PORT_MODULE
+PORT_LABEL = 'port'
+PORT_RUN = None              # ### this act's port dispatches, read by run id at Component 2 (up to three)
+PORT_NEW_TIP = ''            # ### this act's last commit on port-b707, written at Component 2
+EF_V037 = '38e273477257687d676033be0b0243af84a1e08a'
 REPAIRED_TOOLS = ()
 REPAIRED_DATA = ()
 NEW_TOOLS = ()
