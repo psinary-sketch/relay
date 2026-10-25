@@ -1987,7 +1987,7 @@ def _for_author():
             'Correspondence cells %s of the re-cut held (b708’s form), the distance %s after the cut by them alone; (8) the report tool outside the '
             'sealed list until the root (relay data/b708_rules.txt row (1)); (9) %s and the seat’s %s defect%s as lettered' % (
                 f['tag'], f['budget'], f['held'], f['d_after'],
-                ('the %s navigator %s (%s)' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', letters)) if nav else 'no navigator miss',
+                ('the %s navigator %s (%s)' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', letters)) if nav else 'the none navigator misses',
                 num_word(seat), '' if seat == 1 else 's'))
 
 

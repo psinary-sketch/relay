@@ -1,5 +1,5 @@
 {
- "at": "2026-10-25T17:42:46Z",
+ "at": "2026-10-25T18:34:42Z",
  "anchor": "RULING (R322) BEGIN",
  "rows": [
   {
@@ -3336,6 +3336,486 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b712_record.py reads",
    "n": 417,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T17:42:44.230Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py commands",
+   "n": 418,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T17:42:49.862Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --prerun --part standing-c",
+   "n": 419,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T17:48:44.983Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --prerun --part standing-b1",
+   "n": 420,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T17:50:32.563Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --prerun --part standing-b2a",
+   "n": 421,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T17:59:27.041Z",
+   "src": "seat",
+   "cmd": "git -C D:/SIDE-explicit-formula ls-remote origin refs/tags/v0.1 refs/tags/v0.13 refs/heads/main",
+   "n": 422,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T17:59:35.114Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --prerun --part standing-b2a",
+   "n": 423,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:06:54.817Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --prerun --part standing-b2b",
+   "n": 424,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:09:08.064Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --prerun --part standing-b3",
+   "n": 425,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:11:43.452Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --prerun --part act",
+   "n": 426,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:13:09.196Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_checks.py \"'G-TOOL-REPAIRS'|'G-NOTHING-COMPUTED'|'G-RULES-ROW-ENTERED'|'G-ANSWERS-BEFORE-WRITES'|^def nothing_computed_ok|^def repairs_ok|^def rules_row_ok|^def answers_before_ok\"",
+   "n": 427,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:13:35.027Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b711_rules.txt \"THE STANDING CLAUSES CARRIED BY VERSION\"; python -I -X utf8 tools/b712_locate.py data/b709_rules.txt \"THE CARRY IS READ BY DIFF\"; python -I -X utf8 tools/b712_locate.py data/b708_rules.txt \"THE REPORT TOOL IS KEPT OUT\"; python -I -X utf8 tools/b712_locate.py data/standing_clauses_v3.txt \"^VERSION\"",
+   "n": 428,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:13:40.856Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -l \"CARRIED BY VERSION\" -- data",
+   "n": 429,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:13:50.312Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b710_rules.txt \"^\\(\\d+\\)\"; python -I -X utf8 tools/b712_locate.py tools/b711_checks.py \"_rules.txt'\\)\"",
+   "n": 430,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:14:17.839Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py defects",
+   "n": 431,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:14:44.023Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_checks.py \"b0d874f7|b710`s base|0be08567|b709_|B709_TRAIL_HEAD\"",
+   "n": 432,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:14:51.623Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --porcelain --untracked-files=all",
+   "n": 433,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:15:08.780Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add -- data/b712_stepzero.txt tools/b712_checks.py tools/b712_closing.py tools/b712_record.py tools/b712_recut.py tools/b712_regspec.py tools/b712_report.py tools/b712_worklist.py data/b712_arms_prerun_act.txt data/b712_arms_prerun_standing-a.txt data/b712_arms_prerun_standing-b1.txt data/b712_arms_prerun_standing-b2a.txt data/b712_arms_prerun_standing-b2b.txt data/b712_arms_prerun_standing-b3.txt data/b712_arms_prerun_standing-c.txt data/b712_chain_half_a1_arms_prerun.json data/b712_chain_half_a2_arms_prerun.json data/b712_chain_half_b_arms_prerun.json data/b712_checks_mid_act.txt data/b712_commands.json data/b712_commands.txt data/b712_cut.json data/b712_defects.json data/b712_defects.txt data/b712_exercise_act.json data/b712_exercise_standing-a.json data/b712_exercise_standing-b1.json data/b712_exercise_standing-b2a.json data/b712_exercise_standing-b2b.json data/b712_exercise_standing-b3.json data/b712_exercise_standing-c.json data/b712_guard_dry.json data/b712_guard_dry.txt data/b712_kernels_face.json data/b712_lsr_mid_act.json data/b712_lsr_prerun_act.json data/b712_lsr_prerun_standing-a.json data/b712_lsr_prerun_standing-b1.json data/b712_lsr_prerun_standing-b2a.json data/b712_lsr_prerun_standing-b2b.json data/b712_lsr_prerun_standing-b3.json data/b712_lsr_prerun_standing-c.json data/b712_read_calls.json data/b712_read_calls.txt data/b712_registration_2026-10-25.txt data/b712_report_diff.txt data/b712_standing_figures.json data/b712_standing_figures.txt data/b712_steps.json",
+   "n": 434,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:15:16.363Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -m \"b712 component 5: the suite's, closing's, gate's and spec's act sections; the record tool's Component 5-6 routes; the standing figures (0,0,0,0 against b711's), the defects (a)-(v), kernels face, guard dry run, command and read banks, the report tool's diff, the cut bank under its standing name; this face; the pre-run's seven parts\"",
+   "n": 435,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:15:21.601Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_record.py step relay \"component 5\" 8a70dfe0",
+   "n": 436,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:15:28.338Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --prerun --part standing-a",
+   "n": 437,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:20:09.837Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --prerun --part act",
+   "n": 438,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:22:17.893Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_checks.py \"\\('G-R322-ENTERED'|\\('G-PARTS-PRERUN'|\\('G-ARM-SECONDS-BANKED'\"",
+   "n": 439,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:22:26.620Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --prerun --combine",
+   "n": 440,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:22:39.150Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_checks.py \"def _part_name|def _base_name\" ",
+   "n": 441,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:22:52.301Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_checks.py --combine b712_arms_prerun.txt",
+   "n": 442,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:23:04.003Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py armsecs",
+   "n": 443,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:23:18.817Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --porcelain -- data/b712_* tools/b712_*",
+   "n": 444,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:23:28.860Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add -- data/b712_arms_prerun_act.txt data/b712_arms_prerun_standing-a.txt data/b712_exercise_act.json data/b712_exercise_standing-a.json data/b712_registration_2026-10-25.txt data/b712_steps.json data/b712_arm_seconds.json data/b712_arm_seconds.txt data/b712_arm_seconds_act.json data/b712_arm_seconds_standing-a.json data/b712_arm_seconds_standing-b1.json data/b712_arm_seconds_standing-b2a.json data/b712_arm_seconds_standing-b2b.json data/b712_arm_seconds_standing-b3.json data/b712_arm_seconds_standing-c.json data/b712_arms_prerun.txt",
+   "n": 445,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:23:37.252Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -m \"b712 component 5: standing-a and act run again after the repairs of (s)-(v), the combined pre-run bank (142 run, 100 passing, 42 failing: 2 declared, 40 waiting; NEG failures 0, POS passes 0), the per-part seconds, the face's pre-run figures\"",
+   "n": 446,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:23:48.455Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py step relay \"component 5\" f1c29477",
+   "n": 447,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:24:05.551Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py rootdry",
+   "n": 448,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:24:56.406Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b712_root_banks_dry.txt \"crlf True|equal False|at HEAD False|^  \\S+\\s+(?!clean)\\S+ \"",
+   "n": 449,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:25:12.972Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_recut.py \"^import|^ROOT =\"",
+   "n": 450,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:25:20.923Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_recut.py quote_lf",
+   "n": 451,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:25:29.633Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py rootdry",
+   "n": 452,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:26:15.423Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b712_root_banks_dry.txt \"equal False|at HEAD False| modified | untracked \"",
+   "n": 453,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:26:23.658Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b712_root_banks_dry.txt \"^  data/\\S+\\s+(?!clean)\"",
+   "n": 454,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:26:33.082Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --porcelain -- data/b712_recut_quote.txt; git -C D:/relay diff --stat -- data/b712_recut_quote.txt; git -C D:/relay config --get core.autocrlf",
+   "n": 455,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:26:43.423Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add -- data/b712_recut_quote.txt",
+   "n": 456,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:26:50.327Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --porcelain -- data/b712_recut_quote.txt tools/b712_recut.py data/b712_root_banks_dry.txt",
+   "n": 457,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:26:57.870Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py rootdry",
+   "n": 458,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:27:48.896Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py defects",
+   "n": 459,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:28:01.628Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b712_registration_2026-10-25.txt \"<<FILL\"",
+   "n": 460,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:28:08.093Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_reg_gate.py \"b711|b710|R321|ACT =\"",
+   "n": 461,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:28:12.981Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_reg_gate.py",
+   "n": 462,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:28:47.841Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py defects",
+   "n": 463,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:28:56.473Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b712_reg_gate.txt \"b712 closed|SCORES IN FULL|THE DRY-RUN STEP :|DEFECTS LINE EQUAL|RESOLVED LINE EQUAL|TRAIL :\"",
+   "n": 464,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:30:05.479Z",
+   "src": "seat",
+   "cmd": "git grep -n \"def _trail_resolved\" -- tools",
+   "n": 465,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:30:30.595Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_record.py \"navigator miss|_bank_owners|def _for_author\"",
+   "n": 466,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:30:40.526Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_record.py \"_trail_resolved|RESOLVED LINE\"",
+   "n": 467,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:30:50.149Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_reg_gate.py",
+   "n": 468,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:33:44.189Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_record.py \"SCORES IN FULL\"",
+   "n": 469,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:33:47.867Z",
+   "src": "seat",
+   "cmd": "git grep -l \"SCORES IN FULL\" -- tools",
+   "n": 470,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:33:53.104Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_closing.py \"SCORES IN FULL|def _scores|scores_close\"",
+   "n": 471,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:34:01.275Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_regspec.py",
+   "n": 472,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:34:13.368Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_satisfiable.py data/b712_registration_2026-10-25.txt",
+   "n": 473,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:34:21.669Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_satisfiable.py data/b712_satisfiable.json --emit b712",
+   "n": 474,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:34:28.114Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b712_registration_2026-10-25.txt \"12 of 12|twelve\"",
+   "n": 475,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:34:33.415Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_record.py \"of %s modules|port at \"",
+   "n": 476,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:34:39.950Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_regspec.py",
+   "n": 477,
    "bg": false
   }
  ],

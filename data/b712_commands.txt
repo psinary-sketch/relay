@@ -1,7 +1,7 @@
-b712 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T17:42:46Z)
+b712 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T18:34:42Z)
 
 ### the source: the seat`s session 3bbc6267-f2de-40fb-b160-263f3c982c61 from its first user line carrying 'RULING (R322) BEGIN', with its subagents` transcripts
-### commands read: 417
+### commands read: 477
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -477,5 +477,65 @@ b712 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #415 | 2026-10-25T17:42:14.895Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/rule_arms.py "^def |^NAMES"
   #416 | 2026-10-25T17:42:28.945Z | seat | PowerShell | python -X utf8 tools/b712_record.py defects
   #417 | 2026-10-25T17:42:38.315Z | seat | PowerShell | python -X utf8 tools/b712_record.py reads
+  #418 | 2026-10-25T17:42:44.230Z | seat | PowerShell | python -X utf8 tools/b712_record.py commands
+  #419 | 2026-10-25T17:42:49.862Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --part standing-c
+  #420 | 2026-10-25T17:48:44.983Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --part standing-b1
+  #421 | 2026-10-25T17:50:32.563Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --part standing-b2a
+  #422 | 2026-10-25T17:59:27.041Z | seat | PowerShell | git -C D:/SIDE-explicit-formula ls-remote origin refs/tags/v0.1 refs/tags/v0.13 refs/heads/main
+  #423 | 2026-10-25T17:59:35.114Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --part standing-b2a
+  #424 | 2026-10-25T18:06:54.817Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --part standing-b2b
+  #425 | 2026-10-25T18:09:08.064Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --part standing-b3
+  #426 | 2026-10-25T18:11:43.452Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --part act
+  #427 | 2026-10-25T18:13:09.196Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "'G-TOOL-REPAIRS'|'G-NOTHING-COMPUTED'|'G-RULES-ROW-ENTERED'|'G-ANSWERS-BEFORE-WRITES'|^def nothing_
+  #428 | 2026-10-25T18:13:35.027Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_rules.txt "THE STANDING CLAUSES CARRIED BY VERSION"; python -I -X utf8 tools/b712_locate.py data/b709_rules.txt
+  #429 | 2026-10-25T18:13:40.856Z | seat | PowerShell | git -C D:/relay grep -l "CARRIED BY VERSION" -- data
+  #430 | 2026-10-25T18:13:50.312Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b710_rules.txt "^\(\d+\)"; python -I -X utf8 tools/b712_locate.py tools/b711_checks.py "_rules.txt'\)"
+  #431 | 2026-10-25T18:14:17.839Z | seat | PowerShell | python -X utf8 tools/b712_record.py defects
+  #432 | 2026-10-25T18:14:44.023Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "b0d874f7|b710`s base|0be08567|b709_|B709_TRAIL_HEAD"
+  #433 | 2026-10-25T18:14:51.623Z | seat | PowerShell | git -C D:/relay status --porcelain --untracked-files=all
+  #434 | 2026-10-25T18:15:08.780Z | seat | PowerShell | git -C D:/relay add -- data/b712_stepzero.txt tools/b712_checks.py tools/b712_closing.py tools/b712_record.py tools/b712_recut.py tools/b712_regspec.py tools/b7
+  #435 | 2026-10-25T18:15:16.363Z | seat | PowerShell | git -C D:/relay commit -m "b712 component 5: the suite's, closing's, gate's and spec's act sections; the record tool's Component 5-6 routes; the standing figure
+  #436 | 2026-10-25T18:15:21.601Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step relay "component 5" 8a70dfe0
+  #437 | 2026-10-25T18:15:28.338Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --part standing-a
+  #438 | 2026-10-25T18:20:09.837Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --part act
+  #439 | 2026-10-25T18:22:17.893Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "\('G-R322-ENTERED'|\('G-PARTS-PRERUN'|\('G-ARM-SECONDS-BANKED'"
+  #440 | 2026-10-25T18:22:26.620Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --combine
+  #441 | 2026-10-25T18:22:39.150Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "def _part_name|def _base_name" 
+  #442 | 2026-10-25T18:22:52.301Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --combine b712_arms_prerun.txt
+  #443 | 2026-10-25T18:23:04.003Z | seat | PowerShell | python -X utf8 tools/b712_record.py armsecs
+  #444 | 2026-10-25T18:23:18.817Z | seat | PowerShell | git -C D:/relay status --porcelain -- data/b712_* tools/b712_*
+  #445 | 2026-10-25T18:23:28.860Z | seat | PowerShell | git -C D:/relay add -- data/b712_arms_prerun_act.txt data/b712_arms_prerun_standing-a.txt data/b712_exercise_act.json data/b712_exercise_standing-a.json data/b7
+  #446 | 2026-10-25T18:23:37.252Z | seat | PowerShell | git -C D:/relay commit -m "b712 component 5: standing-a and act run again after the repairs of (s)-(v), the combined pre-run bank (142 run, 100 passing, 42 fail
+  #447 | 2026-10-25T18:23:48.455Z | seat | PowerShell | python -X utf8 tools/b712_record.py step relay "component 5" f1c29477
+  #448 | 2026-10-25T18:24:05.551Z | seat | PowerShell | python -X utf8 tools/b712_record.py rootdry
+  #449 | 2026-10-25T18:24:56.406Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_root_banks_dry.txt "crlf True|equal False|at HEAD False|^  \S+\s+(?!clean)\S+ "
+  #450 | 2026-10-25T18:25:12.972Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_recut.py "^import|^ROOT ="
+  #451 | 2026-10-25T18:25:20.923Z | seat | PowerShell | python -X utf8 tools/b712_recut.py quote_lf
+  #452 | 2026-10-25T18:25:29.633Z | seat | PowerShell | python -X utf8 tools/b712_record.py rootdry
+  #453 | 2026-10-25T18:26:15.423Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_root_banks_dry.txt "equal False|at HEAD False| modified | untracked "
+  #454 | 2026-10-25T18:26:23.658Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_root_banks_dry.txt "^  data/\S+\s+(?!clean)"
+  #455 | 2026-10-25T18:26:33.082Z | seat | PowerShell | git -C D:/relay status --porcelain -- data/b712_recut_quote.txt; git -C D:/relay diff --stat -- data/b712_recut_quote.txt; git -C D:/relay config --get core.aut
+  #456 | 2026-10-25T18:26:43.423Z | seat | PowerShell | git -C D:/relay add -- data/b712_recut_quote.txt
+  #457 | 2026-10-25T18:26:50.327Z | seat | PowerShell | git -C D:/relay status --porcelain -- data/b712_recut_quote.txt tools/b712_recut.py data/b712_root_banks_dry.txt
+  #458 | 2026-10-25T18:26:57.870Z | seat | PowerShell | python -X utf8 tools/b712_record.py rootdry
+  #459 | 2026-10-25T18:27:48.896Z | seat | PowerShell | python -X utf8 tools/b712_record.py defects
+  #460 | 2026-10-25T18:28:01.628Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_registration_2026-10-25.txt "<<FILL"
+  #461 | 2026-10-25T18:28:08.093Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_reg_gate.py "b711|b710|R321|ACT ="
+  #462 | 2026-10-25T18:28:12.981Z | seat | PowerShell | python -X utf8 tools/b712_reg_gate.py
+  #463 | 2026-10-25T18:28:47.841Z | seat | PowerShell | python -X utf8 tools/b712_record.py defects
+  #464 | 2026-10-25T18:28:56.473Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_reg_gate.txt "b712 closed|SCORES IN FULL|THE DRY-RUN STEP :|DEFECTS LINE EQUAL|RESOLVED LINE EQUAL|TRAIL :"
+  #465 | 2026-10-25T18:30:05.479Z | seat | PowerShell | git grep -n "def _trail_resolved" -- tools
+  #466 | 2026-10-25T18:30:30.595Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "navigator miss|_bank_owners|def _for_author"
+  #467 | 2026-10-25T18:30:40.526Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "_trail_resolved|RESOLVED LINE"
+  #468 | 2026-10-25T18:30:50.149Z | seat | PowerShell | python -X utf8 tools/b712_reg_gate.py
+  #469 | 2026-10-25T18:33:44.189Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "SCORES IN FULL"
+  #470 | 2026-10-25T18:33:47.867Z | seat | PowerShell | git grep -l "SCORES IN FULL" -- tools
+  #471 | 2026-10-25T18:33:53.104Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_closing.py "SCORES IN FULL|def _scores|scores_close"
+  #472 | 2026-10-25T18:34:01.275Z | seat | PowerShell | python -X utf8 tools/b712_regspec.py
+  #473 | 2026-10-25T18:34:13.368Z | seat | PowerShell | python -X utf8 tools/reg_satisfiable.py data/b712_registration_2026-10-25.txt
+  #474 | 2026-10-25T18:34:21.669Z | seat | PowerShell | python -X utf8 tools/reg_satisfiable.py data/b712_satisfiable.json --emit b712
+  #475 | 2026-10-25T18:34:28.114Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_registration_2026-10-25.txt "12 of 12|twelve"
+  #476 | 2026-10-25T18:34:33.415Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "of %s modules|port at "
+  #477 | 2026-10-25T18:34:39.950Z | seat | PowerShell | python -X utf8 tools/b712_regspec.py
 
-### ### **COMMANDS 417 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 22 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 7 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 7 OF 7 ; OUTBOUND REQUESTS 1, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 477 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 22 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 7 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 7 OF 7 ; OUTBOUND REQUESTS 1, AN IDENTIFIER IN 0.**

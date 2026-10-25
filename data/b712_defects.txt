@@ -39,7 +39,9 @@ b712 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-25)
         BUDGET") claimed a comparison with no banked figure; recut to the seat's estimate for the author's reading.
     (l) THE SEAT'S: CR BYTES IN THE QUOTE BANK. tools/b712_recut.py's quote route kept the CR bytes of the quoted files' CRLF lines in its hit rows,
         so data/b712_recut_quote.txt carries CR bytes (git's warning at the add: CRLF replaced by LF). The bank was not rewritten, its record being
-        "searched before the cut's commit" (before f5ea57c); its counts are unaffected (the hits split on LF, the JSON escapes them).
+        "searched before the cut's commit" (before f5ea57c); its counts are unaffected (the hits split on LF, the JSON escapes them). At
+        Component 5 the root route's dry run read the working file CR LF and unequal to its blob; the recut tool's quote_lf route wrote it LF
+        only after reading the stripped bytes equal to the committed blob (9795 bytes), the commit unchanged, the dry run then READY.
     (m) THE SEAT'S: A READ WITH A LIMIT OVER TWO HUNDRED. At Component 5 tools/b712_record.py was read from :1045 with a limit of 250 (the old
         repair routes, read to prune them). Row (19): "by offset and a limit of at most two hundred otherwise". Nothing was banked from it; the
         pruning it served was not made (event in data/b712_events.txt). The seat's.
@@ -67,7 +69,7 @@ b712 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-25)
         bank; with no such bank the arm read no residues and looked for the cut's commit on PLACE-papers main (the cut being on its branch), and
         failed at the pre-run. Repaired before the seal by a route of the recut tool (standing_name) writing data/b712_cut.json with the same
         bytes (sha256 c4cd7c30); the rule arm not edited. The seat's.
-    (u) THE SEAT'S: N3'S PATTERN BLIND TO A FILE'S EXTENSION. tools/b712_record.py's NOTHING_COMPUTED (read by the N3 scorer and by
+    (u) THE SEAT'S: N3'S PATTERN UNABLE TO MATCH A FILE'S EXTENSION. tools/b712_record.py's NOTHING_COMPUTED (read by the N3 scorer and by
         G-NOTHING-COMPUTED) ended `\w*` before `$`, so no bank name carrying an extension (data/b712_epstein_zeros.txt) could match and the
         clause could not fire; found when the arm's positive control passed at the pre-run. Repaired before the seal to `[\w.-]*`. The seat's.
     (v) THE SEAT'S: FOUR READINGS OF THE SUITE'S RECUT MIS-CUT, FOUND BY THE PRE-RUN. In tools/b712_checks.py: G-TOOL-REPAIRS's plant set

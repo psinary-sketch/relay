@@ -285,7 +285,28 @@ def standing_name(*a):
         hashlib.sha256(b).hexdigest()[:16]))
 
 
-ROUTES = dict(compile=compile_, quote=quote, cut=cut, diff=diff, standing_name=standing_name)
+def quote_lf(*a):
+    """data/b712_recut_quote.txt written LF (defect (l)): its CR bytes stripped, the result written only where it equals the bank's blob at relay
+    HEAD byte for byte (git normalized the line ends at the add), so the working file and the committed bank agree; nothing else written."""
+    p = os.path.join(D, '%s_recut_quote.txt' % ACT)
+    now = open(p, 'rb').read()
+    lf = now.replace(b'\r', b'')
+    r = subprocess.run(['git', '-C', ROOT, 'show', 'HEAD:data/%s_recut_quote.txt' % ACT], capture_output=True)
+    head = r.stdout
+    print('  the working file %d bytes, CR %d ; stripped %d bytes ; HEAD`s blob %d bytes ; equal %s' % (len(now), now.count(b'\r'), len(lf), len(head), lf == head))
+    if lf != head:
+        sys.exit('### THE STRIPPED FILE IS NOT HEAD`S BLOB -- NOTHING WRITTEN')
+    import act_membrane as MEM
+    import b712_record as REC
+    MEM.guard_path(ACT, p, REC.R.ROOT_EXCLUDE)
+    if 'dry' not in a:
+        with open(p + '.tmp', 'wb') as fh:
+            fh.write(lf)
+        os.replace(p + '.tmp', p)
+        print('  written LF')
+
+
+ROUTES = dict(compile=compile_, quote=quote, cut=cut, diff=diff, standing_name=standing_name, quote_lf=quote_lf)
 
 if __name__ == '__main__':
     r = sys.argv[1] if len(sys.argv) > 1 else ''

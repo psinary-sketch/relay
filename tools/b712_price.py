@@ -25,7 +25,7 @@ NL = chr(10)
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
-BAND = 15.0                       # ### b711's band width (data/b711_list.txt :7-:14, 15 height units, two of them cut at a zero's gap)
+BAND = 15.0                       # ### b711's band width (data/b711_list.txt :7-:14, 15 height units, two of them cut between two zeros)
 TIERS = ((0.0, 100.0, 'the first tier: the record`s three off-line zeros at -15 (two pinned at 12.04 and 15.50, archive :2971) and the route`s rest set'),
          (100.0, 200.0, 'the second tier: the rest set`s reach, entered only where b713`s pair rows ask a height above 100'))
 TOLERANCE = 0.03                  # ### the main term's check against Q0's banked counts: within 3 per cent over 325-445
