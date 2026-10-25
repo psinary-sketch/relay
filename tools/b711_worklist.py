@@ -122,11 +122,16 @@ STEPZERO_BANKS = '4aa6e281ddf49dd4718cfda72cb067b663928192'    # ### the step-ze
 REG_COMMIT = ''              # ### no registration this act ((R321) registers nothing new; b710's are read)
 C1_RELAY = '7acbba1a'        # ### Component 1: the weight line's bank, the repairs and their controls, the corrigendum
 C1_PP = '45cc0a5'                # ### Component 1 at PLACE-papers: b710's weight line and the corrigendum entry
-C2_RELAY = ''                # ### Component 2: the port's bank
-C3_RELAY = ''                # ### Component 3: the surgery, the coefficients, the axis
-C3_PP = ''
+C2_RELAY = '042f25f2'        # ### Component 2: the port's edit and run banks (git rev-parse, read 2026-10-25)
+C2_PP = '1d66a75'            # ### Component 2 at PLACE-papers: W-ORD-LV-PORT-TAG at OPEN_TRAILS :15848
+C3_RELAY = '0c534d2a'        # ### Component 3: the surgery, the coefficients, the axis
+C3_PP = ''                   # ### none: Component 3 wrote no ledger line
 C3_RELAY_B = ''
-C4_RELAY = ''                # ### Component 4: the list toward 443
+C4_RELAY = '14c1462d'        # ### Component 4: the list toward 443 and pairs 11 and 15
+INDEPENDENCE_COMMIT = '3010867c'   # ### the Independence supplement, committed alone at step zero
+STANDING_COMMIT = '4cb4f236'       # ### data/standing_clauses_v2.txt, committed alone at step zero
+REG_B710 = '41ff1193'        # ### data/b710_registrations.txt committed alone at b710's step zero (the refined law, the surgery, the coefficients)
+REG_B709 = 'data/b709_registrations.txt'   # ### the axis (e) row, read unchanged since b709
 B709_TRAIL_HEAD = ('### b710 — lane two, act one hundred and thirty-seven, the reading act under (R320): b709 at its weight; the needles, the test and '
                    'the lock gate repaired; the standing clauses banked at v1; the four principles read against the corpus; the moves-by-locus table '
                    'entered; the readfirst flip and the cost read; the refined detection law and the surgery registered for b711')   # ### the previous act's trail head (OPEN_TRAILS :15808), under the carried suite's name
@@ -139,13 +144,18 @@ EF_V037 = '38e273477257687d676033be0b0243af84a1e08a'
 REPAIRED_TOOLS = ()          # ### shared tools of earlier acts edited by this act: none
 REPAIRED_DATA = ()
 NEW_TOOLS = ('act_membrane.py',)   # ### (R321)(2)(ii): the membrane's shared tool, new at b711, named in (W)
+COMPUTE_TOOLS = ('b711_surgery.py', 'b711_coeffs.py', 'b711_axis.py', 'b711_list.py', 'b711_pairs.py')   # ### (R321)(5)-(7): each writes its own bank alone
 SEALED = ('b711_worklist.py', 'b711_tests.py', 'b711_citation.py', 'b711_record.py', 'b711_checks.py', 'b711_closing.py', 'b711_reg_gate.py',
-          'b711_regspec.py', 'b711_corrigendum.py', 'b711_carry.py', 'b711_standing.py', 'b711_independence.py')   # ### completed at Component 5; the report tool NOT sealed (data/b708_rules.txt row (1))
-ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CARRY-SPANS', 'G-CITATION-CHECKED',
-            'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-COST-READ', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
-            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-FIT-BANKED', 'G-FLIP-READ', 'G-GUARD-HELD', 'G-LEAN-TEST-BANKED',
-            'G-LISTINGS-BEFORE-CLAUSES', 'G-LOCKGATE-ARG-REQUIRED', 'G-MOVES-ENTERED', 'G-NEEDLES-REPAIRED', 'G-NO-DISPATCH', 'G-PARTS-PRERUN',
-            'G-POSTROOT-WRITES-NONE', 'G-PRINCIPLES-ROWS', 'G-R321-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-READING5-BANKED', 'G-REGISTRATIONS-ALONE',
-            'G-REGISTRATIONS-REREAD', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROUTE-TERMS-REGISTERED', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED',
-            'G-SCORER-READS-BANKS', 'G-STANDING-CLAUSES-V1', 'G-STANDING-READERS', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL',
-            'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE')   # ### b710's act arms as carried; rewritten for this act's banks at Component 5
+          'b711_regspec.py', 'b711_corrigendum.py', 'b711_carry.py', 'b711_standing.py', 'b711_independence.py') + COMPUTE_TOOLS   # ### the report tool NOT sealed (data/b708_rules.txt row (1))
+# ### the act's arms over its own banks (Component 5): b710's ritual arms carried, its arms over b710's objects (reading 5, the moves, the fit, the
+# ### registrations, the needles, the lock gate, the lean test, v1) replaced by arms over this act's (v2, the supplement, the repairs' controls,
+# ### the membrane, the port, the dispatches, the join held, the order, the five computations, the registrations read unchanged)
+ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED',
+            'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
+            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-LISTINGS-BEFORE-CLAUSES', 'G-PARTS-PRERUN',
+            'G-POSTROOT-WRITES-NONE', 'G-R321-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
+            'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
+            'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE',
+            'G-STANDING-CLAUSES-V2', 'G-INDEPENDENCE-BANKED', 'G-REPAIR-CONTROLS', 'G-MEMBRANE-WIRED', 'G-PORT-BANKED', 'G-DISPATCHES-AT-MOST-TWO',
+            'G-JOIN-HELD', 'G-PORT-TAG-ORDER', 'G-SURGERY-BANKED', 'G-COEFFS-BANKED', 'G-AXIS-BANKED', 'G-LIST-BANKED', 'G-PAIRS-BANKED',
+            'G-COMPUTE-BANKS-ALONE', 'G-CONTROLS-BEFORE-FIGURES', 'G-REGISTRATIONS-UNCHANGED')

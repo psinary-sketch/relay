@@ -1,0 +1,431 @@
+b711 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T11:48:13Z)
+
+### the source: the seat`s session ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce from its first user line carrying 'RULING (R321) BEGIN', with its subagents` transcripts
+### commands read: 348
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (4):
+  #3 2026-10-25T00:56:50.990Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      wc -l tools/b710_*.py && sed -n 1,80p data/b710_stepzero.txt
+  #5 2026-10-25T00:57:51.903Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n 1,60p tools/b710_citation.py; grep -n "^def \|sys.argv\|__main__" tools/b710_citation.py | head -40
+  #7 2026-10-25T00:58:02.031Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n 60,200p tools/b710_citation.py
+  #8 2026-10-25T00:58:06.260Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n 200,484p tools/b710_citation.py
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b710, its own session c9e4ce2d, from its post-push combine to that session`s end): 12 commands from 2026-10-25T00:37:24.017Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (one ordered this act, N1: the port branch of SIDE-lv-conservation at its tip, through the portdispatch route) (1):
+  #160 PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py portdispatch port SIDELvConservation
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (4):
+  #3 wc -l tools/b710_*.py && sed -n 1,80p data/b710_stepzero.txt
+  #5 sed -n 1,60p tools/b710_citation.py; grep -n "^def \|sys.argv\|__main__" tools/b710_citation.py | head -40
+  #7 sed -n 60,200p tools/b710_citation.py
+  #8 sed -n 200,484p tools/b710_citation.py
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (1):
+  #25 2026-10-25T01:05:22.220Z python -X utf8 /d/relay/tools/b711_citation.py check dry > /dev/null; echo "exit $?"
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (1):
+  #25 2026-10-25T01:05:22.220Z python -X utf8 /d/relay/tools/b711_citation.py check dry > /dev/null; echo "exit $?"
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (4):
+  #1 2026-10-25T00:56:38.263Z for p in /d/relay /d/MY-DOwnloads/PLACE-papers /d/SIDE-explicit-formula /d/SIDE-lv-conservation /d/SIDE-faces-join; do echo "### $p"; ls -d "$p" && git -C "$p" rev-parse --abbrev-ref HEAD && git -C "$
+  #2 2026-10-25T00:56:44.908Z cd /d/relay && git ls-files 'tools/b710*' 'data/b710*' 'tools/b709*' | cat; echo ---; git status --short | grep -v '^?? data/' | cat; echo ---; ls -la = 2>&1 | head; git log --format='%h %ad %s' --dat
+  #5 2026-10-25T00:57:51.903Z sed -n 1,60p tools/b710_citation.py; grep -n "^def \|sys.argv\|__main__" tools/b710_citation.py | head -40
+  #9 2026-10-25T00:58:13.785Z wc -l data/b710_closing.txt && cat -n data/b710_closing.txt | cut -c1-400
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (7):
+  #1 2026-10-25T00:56:38.263Z for p in /d/relay /d/MY-DOwnloads/PLACE-papers /d/SIDE-explicit-formula /d/SIDE-lv-conservation /d/SIDE-faces-join; do echo "### $p"; ls -d "$p" && git -C "$p" rev-parse --abbrev-ref HEAD && git -C "$
+  #2 2026-10-25T00:56:44.908Z cd /d/relay && git ls-files 'tools/b710*' 'data/b710*' 'tools/b709*' | cat; echo ---; git status --short | grep -v '^?? data/' | cat; echo ---; ls -la = 2>&1 | head; git log --format='%h %ad %s' --dat
+  #5 2026-10-25T00:57:51.903Z sed -n 1,60p tools/b710_citation.py; grep -n "^def \|sys.argv\|__main__" tools/b710_citation.py | head -40
+  #9 2026-10-25T00:58:13.785Z wc -l data/b710_closing.txt && cat -n data/b710_closing.txt | cut -c1-400
+  #322 2026-10-25T11:20:48.718Z Get-ChildItem D:\relay\data -Filter 'b711_*' | Select-Object Name, Length
+  #323 2026-10-25T11:22:06.135Z Get-ChildItem D:\relay\tools -Filter 'b711_*' | Select-Object Name, Length; git -C D:\relay status --porcelain
+  #343 2026-10-25T11:43:15.304Z Get-Item -LiteralPath 'D:\relay\=' | Select-Object Name, Length, CreationTimeUtc, LastWriteTimeUtc
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (8):
+  #55 2026-10-25T01:12:56.682Z Bash
+      git -C /d/relay branch -d push-b710
+  #56 2026-10-25T01:12:59.656Z Bash
+      git -C /d/relay branch -d push-b710-preroot
+  #57 2026-10-25T01:13:02.527Z Bash
+      git -C /d/relay branch -d push-b710-root
+  #58 2026-10-25T01:13:05.572Z Bash
+      git -C /d/relay branch -d push-b710-record
+  #59 2026-10-25T01:13:08.602Z Bash
+      git -C /d/relay branch -d push-b710-closing
+  #60 2026-10-25T01:13:11.755Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b710
+  #61 2026-10-25T01:13:15.405Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b710-order
+  #62 2026-10-25T01:13:18.446Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b710-root
+
+### THE BRANCH DELETES BY SHAPE ((R321)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #55 deletes ['push-b710'], halves 1, globs none, variables none, chained after False; #56 deletes ['push-b710-preroot'], halves 1, globs none, variables none, chained after False; #57 deletes ['push-b710-root'], halves 1, globs none, variables none, chained after False; #58 deletes ['push-b710-record'], halves 1, globs none, variables none, chained after False; #59 deletes ['push-b710-closing'], halves 1, globs none, variables none, chained after False; #60 deletes ['push-b710'], halves 1, globs none, variables none, chained after False; #61 deletes ['push-b710-order'], halves 1, globs none, variables none, chained after False; #62 deletes ['push-b710-root'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-25T00:56:38.263Z | seat | Bash | for p in /d/relay /d/MY-DOwnloads/PLACE-papers /d/SIDE-explicit-formula /d/SIDE-lv-conservation /d/SIDE-faces-join; do echo "### $p"; ls -d "$p" && git -C "$p" 
+  #2 | 2026-10-25T00:56:44.908Z | seat | Bash | cd /d/relay && git ls-files 'tools/b710*' 'data/b710*' 'tools/b709*' | cat; echo ---; git status --short | grep -v '^?? data/' | cat; echo ---; ls -la = 2>&1 | 
+  #3 | 2026-10-25T00:56:50.990Z | seat | Bash | wc -l tools/b710_*.py && sed -n 1,80p data/b710_stepzero.txt
+  #4 | 2026-10-25T00:56:58.702Z | seat | PowerShell | $all = Get-CimInstance Win32_Process; $n = @{}; foreach ($p in $all) { $k = $p.Name.ToLower(); if ($n.ContainsKey($k)) { $n[$k] += 1 } else { $n[$k] = 1 } }; fo
+  #5 | 2026-10-25T00:57:51.903Z | seat | Bash | sed -n 1,60p tools/b710_citation.py; grep -n "^def \|sys.argv\|__main__" tools/b710_citation.py | head -40
+  #6 | 2026-10-25T00:57:57.827Z | seat | Bash | cat tools/b710_worklist.py
+  #7 | 2026-10-25T00:58:02.031Z | seat | Bash | sed -n 60,200p tools/b710_citation.py
+  #8 | 2026-10-25T00:58:06.260Z | seat | Bash | sed -n 200,484p tools/b710_citation.py
+  #9 | 2026-10-25T00:58:13.785Z | seat | Bash | wc -l data/b710_closing.txt && cat -n data/b710_closing.txt | cut -c1-400
+  #10 | 2026-10-25T00:58:27.333Z | seat | Bash | wc -l data/standing_clauses_v1.txt data/b710_defects.txt data/b710_reading5.txt data/b710_registrations.txt data/b709_registrations.txt data/b709_port.txt data/
+  #11 | 2026-10-25T00:59:19.540Z | seat | Bash | cd /d && for k in SIDE-bijection SIDE-lv-conservation SIDE-explicit-formula SIDE-li-map SIDE-interfaces SIDE-kernel SIDE-simplicity; do echo "### $k head $(git 
+  #12 | 2026-10-25T00:59:28.449Z | seat | Bash | cd /d && for k in SIDE-bijection SIDE-explicit-formula SIDE-li-map SIDE-interfaces SIDE-kernel SIDE-simplicity; do echo "### $k $(git -C /d/$k describe --tags -
+  #13 | 2026-10-25T00:59:35.373Z | seat | Bash | cd /d && git -C /d/SIDE-bijection ls-files; wc -l /d/SIDE-bijection/SIDEBijection/*.lean
+  #14 | 2026-10-25T00:59:53.983Z | seat | Bash | cd /d && for t in v0.15 v0.18 v0.21 v0.36; do echo "EF $t $(git -C /d/SIDE-explicit-formula rev-parse --short $t^{commit})"; done; for f in SIDEExplicitFormula/
+  #15 | 2026-10-25T01:00:06.485Z | seat | Bash | cd /d && git -C /d/SIDE-explicit-formula grep -l -w h2_sign_cfg_iff_target v0.15 -- '*.lean'; git -C /d/SIDE-explicit-formula grep -l -w productLemma_holds v0.1
+  #16 | 2026-10-25T01:00:15.147Z | seat | Bash | cd /d && wc -l /d/MY-DOwnloads/PLACE-papers/phase1.5/method/EXCLUSION_ENGINE.md /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md /d/MY-DOwnloads/PLACE-papers/FINDING
+  #17 | 2026-10-25T01:00:43.285Z | seat | Bash | cd /d && git -C /d/relay branch --merged main; echo ---; git -C /d/MY-DOwnloads/PLACE-papers branch --merged main; echo ---; git -C /d/SIDE-lv-conservation rev-
+  #18 | 2026-10-25T01:04:06.233Z | seat | Bash | cd /d/relay && python -X utf8 /d/relay/tools/b711_citation.py ferry
+  #19 | 2026-10-25T01:04:13.746Z | seat | Bash | wc -l data/b710_ferry.txt && git -C /d/relay grep -c -e "^BEGIN$" -e "^END$" -- data/b710_ferry.txt data/b709_ferry.txt
+  #20 | 2026-10-25T01:04:25.490Z | seat | Bash | python -X utf8 /d/relay/tools/b711_citation.py ferry
+  #21 | 2026-10-25T01:04:30.083Z | seat | Bash | wc -l data/b711_ferry_scan.txt
+  #22 | 2026-10-25T01:04:39.887Z | seat | Bash | python -X utf8 /d/relay/tools/b711_citation.py check dry
+  #23 | 2026-10-25T01:04:59.293Z | seat | Bash | wc -l tools/b682_citation.py tools/b677_citation.py
+  #24 | 2026-10-25T01:05:17.296Z | seat | Bash | git -C /d/relay grep -c -e "468 characters" -- data/b710_citation_check.txt data/b710_defects.txt
+  #25 | 2026-10-25T01:05:22.220Z | seat | Bash | python -X utf8 /d/relay/tools/b711_citation.py check dry > /dev/null; echo "exit $?"
+  #26 | 2026-10-25T01:05:33.208Z | seat | Bash | python -X utf8 /d/relay/tools/b711_citation.py check
+  #27 | 2026-10-25T01:05:48.589Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers ls-files '*IDENTITY_FORMATION_BIJECTION*'; git -C /d/MY-DOwnloads/PLACE-papers grep -c -i -e independ -- '*IDENTITY_FORMATIO
+  #28 | 2026-10-25T01:05:52.129Z | seat | Bash | wc -l /d/MY-DOwnloads/PLACE-papers/archive/2026-08-27-trim-backfill/IDENTITY_FORMATION_BIJECTION.md
+  #29 | 2026-10-25T01:07:19.870Z | seat | Bash | python -X utf8 /d/relay/tools/b711_standing.py write dry
+  #30 | 2026-10-25T01:07:24.180Z | seat | Bash | python -X utf8 /d/relay/tools/b711_standing.py write
+  #31 | 2026-10-25T01:07:24.661Z | seat | Bash | python -X utf8 /d/relay/tools/b711_standing.py control
+  #32 | 2026-10-25T01:07:31.079Z | seat | Bash | git -C /d/relay add -- data/standing_clauses_v2.txt
+  #33 | 2026-10-25T01:07:35.076Z | seat | Bash | git -C /d/relay commit -m "b711 step zero: data/standing_clauses_v2.txt written and committed alone under (R321)(2) -- v1's 51 rows unchanged with the four delt
+  #34 | 2026-10-25T01:07:39.848Z | seat | Bash | python -X utf8 /d/relay/tools/b711_citation.py ferry
+  #35 | 2026-10-25T01:07:45.292Z | seat | Bash | wc -l data/b710_readfirst.txt data/b710_readfirst_diff.txt data/b710_readfirst_closure.txt tools/circuit_read.py
+  #36 | 2026-10-25T01:08:27.212Z | seat | Bash | python -X utf8 /d/relay/tools/circuit_read.py readfirst b711_ferry.txt b711_readfirst.txt
+  #37 | 2026-10-25T01:09:10.718Z | seat | Bash | wc -l data/b710_rowgen_stepzero.txt data/b710_stepzero.txt data/b710_tests_stepzero.txt tools/b710_tests.py
+  #38 | 2026-10-25T01:10:23.916Z | seat | Bash | git -C /d/relay grep -l "ROWGEN DIFF AND CONSTELLATION MODE" -- tools
+  #39 | 2026-10-25T01:10:38.549Z | seat | Bash | wc -l /d/relay/tools/b710_record.py
+  #40 | 2026-10-25T01:10:41.690Z | seat | Bash | git -C /d/relay grep -c "rowgen" -- tools/b710_record.py
+  #41 | 2026-10-25T01:10:53.766Z | seat | Bash | python -X utf8 /d/relay/tools/b710_record.py names b710_record
+  #42 | 2026-10-25T01:11:03.371Z | seat | Bash | wc -l /d/relay/tools/b710_carry.py /d/relay/data/b710_carry_record.txt /d/relay/data/b710_prune_record.txt
+  #43 | 2026-10-25T01:11:59.761Z | seat | Bash | python -X utf8 /d/relay/tools/b711_carry.py carry record
+  #44 | 2026-10-25T01:12:08.478Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py rootexclude
+  #45 | 2026-10-25T01:12:13.380Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py rowgen stepzero
+  #46 | 2026-10-25T01:12:30.962Z | seat | PowerShell | $all = Get-CimInstance Win32_Process; $os = Get-CimInstance Win32_OperatingSystem; $c = @{}; foreach ($n in @('claude','tail','lean','lake','python','node','git
+  #47 | 2026-10-25T01:12:35.848Z | seat | Bash | git -C /d/relay status --short -- data/b710_closing_push_out.txt
+  #48 | 2026-10-25T01:12:36.545Z | seat | Bash | git -C /d/relay add -- data/b710_closing_push_out.txt
+  #49 | 2026-10-25T01:12:37.047Z | seat | Bash | git -C /d/relay diff --cached --stat
+  #50 | 2026-10-25T01:12:40.706Z | seat | Bash | git -C /d/relay commit -m "b711 step zero: data/b710_closing_push_out.txt committed alone under (R321)(8) (b710's closing push capture, main read back at b0d874
+  #51 | 2026-10-25T01:12:45.245Z | seat | Bash | git -C /d/relay branch --merged main
+  #52 | 2026-10-25T01:12:45.632Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main
+  #53 | 2026-10-25T01:12:46.202Z | seat | Bash | git -C /d/SIDE-lv-conservation branch -a -v
+  #54 | 2026-10-25T01:12:51.068Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py branches before
+  #55 | 2026-10-25T01:12:56.682Z | seat | Bash | git -C /d/relay branch -d push-b710
+  #56 | 2026-10-25T01:12:59.656Z | seat | Bash | git -C /d/relay branch -d push-b710-preroot
+  #57 | 2026-10-25T01:13:02.527Z | seat | Bash | git -C /d/relay branch -d push-b710-root
+  #58 | 2026-10-25T01:13:05.572Z | seat | Bash | git -C /d/relay branch -d push-b710-record
+  #59 | 2026-10-25T01:13:08.602Z | seat | Bash | git -C /d/relay branch -d push-b710-closing
+  #60 | 2026-10-25T01:13:11.755Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b710
+  #61 | 2026-10-25T01:13:15.405Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b710-order
+  #62 | 2026-10-25T01:13:18.446Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b710-root
+  #63 | 2026-10-25T01:13:21.574Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py branches
+  #64 | 2026-10-25T01:13:39.851Z | seat | Bash | wc -l /d/relay/data/b710_r5_search.txt
+  #65 | 2026-10-25T01:14:12.493Z | seat | Bash | python -X utf8 /d/relay/tools/b711_independence.py blobs
+  #66 | 2026-10-25T01:14:23.320Z | seat | Bash | python -X utf8 /d/relay/tools/b711_independence.py blobs
+  #67 | 2026-10-25T01:15:54.651Z | seat | Bash | git -C /d/SIDE-lv-conservation grep -l -w T3_perClass_to_combinations sorry-quarantine-SIDE-lv-conservation main
+  #68 | 2026-10-25T01:16:04.671Z | seat | Bash | python -X utf8 /d/relay/tools/b711_independence.py blob SIDE-lv-conservation sorry-quarantine-SIDE-lv-conservation README.md
+  #69 | 2026-10-25T01:16:13.392Z | seat | Bash | python -X utf8 /d/relay/tools/b711_independence.py blob SIDE-lv-conservation main SIDELvConservation/T3_StepNineBridge.lean
+  #70 | 2026-10-25T01:18:17.562Z | seat | Bash | python -X utf8 /d/relay/tools/b711_independence.py write dry
+  #71 | 2026-10-25T01:18:25.400Z | seat | Bash | python -X utf8 /d/relay/tools/b711_independence.py write
+  #72 | 2026-10-25T01:18:35.768Z | seat | Bash | python -X utf8 /d/relay/tools/b711_independence.py write
+  #73 | 2026-10-25T01:18:47.040Z | seat | Bash | python -X utf8 /d/relay/tools/b711_independence.py write
+  #74 | 2026-10-25T01:18:52.723Z | seat | Bash | git -C /d/relay add -- data/b711_independence.txt data/b711_independence.json
+  #75 | 2026-10-25T01:18:53.249Z | seat | Bash | git -C /d/relay diff --cached --stat
+  #76 | 2026-10-25T01:18:56.902Z | seat | Bash | git -C /d/relay commit -m "b711 step zero: data/b711_independence.txt (.json), the Independence supplement under (R321)(3), committed alone -- 19 declarations a
+  #77 | 2026-10-25T01:19:01.487Z | seat | Bash | python -X utf8 /d/relay/tools/b711_carry.py carry tests
+  #78 | 2026-10-25T01:19:08.837Z | seat | Bash | python -X utf8 /d/relay/tools/b711_tests.py parts
+  #79 | 2026-10-25T01:19:21.693Z | seat | Bash | python -X utf8 tools/b711_tests.py hold 1 && python -X utf8 tools/b711_tests.py run test_act_root.py && python -X utf8 tools/b711_tests.py run test_act_root_com
+  #80 | 2026-10-25T01:19:36.381Z | seat | Bash | python -X utf8 /d/relay/tools/b711_tests.py hold 2 && python -X utf8 /d/relay/tools/b711_tests.py run test_asof.py
+  #81 | 2026-10-25T01:26:31.527Z | seat | Bash | python -X utf8 /d/relay/tools/b711_tests.py hold 3 && python -X utf8 /d/relay/tools/b711_tests.py run test_axiom_claim.py && python -X utf8 /d/relay/tools/b711_
+  #82 | 2026-10-25T01:27:15.174Z | seat | Bash | python -X utf8 /d/relay/tools/b711_tests.py hold 4 && python -X utf8 /d/relay/tools/b711_tests.py run test_chain_page.py
+  #83 | 2026-10-25T01:34:09.794Z | seat | Bash | python -X utf8 /d/relay/tools/b711_tests.py hold 5 && python -X utf8 /d/relay/tools/b711_tests.py run test_chain_page_b592.py && python -X utf8 /d/relay/tools/b
+  #84 | 2026-10-25T01:37:04.837Z | seat | Bash | python -X utf8 /d/relay/tools/b711_tests.py mem 5 && python -X utf8 /d/relay/tools/b711_tests.py run test_composer_b647.py && python -X utf8 /d/relay/tools/b711
+  #85 | 2026-10-25T01:37:38.501Z | seat | Bash | python -X utf8 /d/relay/tools/b711_tests.py hold 6 && python -X utf8 /d/relay/tools/b711_tests.py run test_g_chain_page.py && python -X utf8 /d/relay/tools/b711
+  #86 | 2026-10-25T01:40:08.334Z | seat | Bash | python -X utf8 /d/relay/tools/b711_tests.py hold 7 && python -X utf8 /d/relay/tools/b711_tests.py run test_name_b649.py && python -X utf8 /d/relay/tools/b711_te
+  #87 | 2026-10-25T01:43:50.449Z | seat | Bash | python -X utf8 /d/relay/tools/b711_tests.py mem 7 && python -X utf8 /d/relay/tools/b711_tests.py run test_registry_tags_b636.py && python -X utf8 /d/relay/tools
+  #88 | 2026-10-25T01:43:57.128Z | seat | Bash | python -X utf8 /d/relay/tools/b711_tests.py report stepzero
+  #89 | 2026-10-25T01:44:02.253Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py verdicts b710_tests_stepzero.txt b711_tests_stepzero.txt
+  #90 | 2026-10-25T01:44:14.457Z | seat | PowerShell | $all = Get-CimInstance Win32_Process; $os = Get-CimInstance Win32_OperatingSystem; $c = @{}; foreach ($n in @('claude','tail','lean','lake','python','node','git
+  #91 | 2026-10-25T01:44:14.959Z | seat | Bash | git -C /d/relay status --short
+  #92 | 2026-10-25T01:44:15.638Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-files=no
+  #93 | 2026-10-25T01:45:31.284Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py defects
+  #94 | 2026-10-25T01:45:40.553Z | seat | Bash | ls -d /d/relay /d/MY-DOwnloads/PLACE-papers /d/SIDE-explicit-formula /d/SIDE-lv-conservation /d/SIDE-faces-join
+  #95 | 2026-10-25T01:45:54.496Z | seat | Bash | git -C /d/relay add -- data/b711_ferry.txt data/b711_ferry_scan.txt data/b711_citation_check.txt data/b711_citation_check.json data/b711_standing_control.txt da
+  #96 | 2026-10-25T01:45:55.037Z | seat | Bash | git -C /d/relay diff --cached --stat
+  #97 | 2026-10-25T01:46:00.506Z | seat | Bash | git -C /d/relay commit -m "b711 step zero under (R321): the ferry, its scan, the citation check (173, 171 OK, 2 by the fact clause), the standing control, the r
+  #98 | 2026-10-25T01:46:19.965Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py names b709_record
+  #99 | 2026-10-25T01:46:35.338Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py defs b711_record.py
+  #100 | 2026-10-25T01:46:53.000Z | seat | Bash | python -X utf8 /d/relay/tools/b711_carry.py prune record "# ================================================================================ COMPONENT 1: THE RE
+  #101 | 2026-10-25T01:46:58.560Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py rootexclude
+  #102 | 2026-10-25T01:47:05.159Z | seat | Bash | wc -l /d/relay/tools/b710_checks.py /d/relay/tools/b710_closing.py /d/relay/tools/b710_corrigendum.py /d/relay/tools/b710_reg_gate.py /d/relay/tools/b710_regspe
+  #103 | 2026-10-25T01:47:32.983Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py names b698_record
+  #104 | 2026-10-25T01:47:45.758Z | seat | Bash | wc -l /d/relay/data/act_roots.txt
+  #105 | 2026-10-25T01:48:52.526Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py rootexclude
+  #106 | 2026-10-25T01:49:00.401Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py defs b711_citation.py
+  #107 | 2026-10-25T01:49:47.326Z | seat | Bash | wc -l /d/relay/data/b710_citation_check.txt
+  #108 | 2026-10-25T01:50:07.900Z | seat | Bash | python -X utf8 /d/relay/tools/b711_citation.py replay "Root: 1, proceed" c9e4ce2d-b9b5-4986-a582-3919fb34d296 "RULING (R320) BEGIN"
+  #109 | 2026-10-25T01:50:19.200Z | seat | Bash | python -X utf8 /d/relay/tools/b711_carry.py carry checks
+  #110 | 2026-10-25T01:50:19.261Z | seat | Bash | python -X utf8 /d/relay/tools/b711_carry.py carry closing
+  #111 | 2026-10-25T01:50:19.263Z | seat | Bash | python -X utf8 /d/relay/tools/b711_carry.py carry corrigendum
+  #112 | 2026-10-25T01:50:19.667Z | seat | Bash | python -X utf8 /d/relay/tools/b711_carry.py carry reg_gate
+  #113 | 2026-10-25T01:50:20.122Z | seat | Bash | python -X utf8 /d/relay/tools/b711_carry.py carry regspec
+  #114 | 2026-10-25T01:50:25.338Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py defs b711_checks.py
+  #115 | 2026-10-25T01:53:32.759Z | seat | Bash | git -C /d/relay log --format="%h %cI %s" -- data/b710_defects.txt
+  #116 | 2026-10-25T01:54:57.582Z | seat | Bash | ls -la /d/relay/data/b710_exercise.json /d/relay/data/b710_exercise_act.json /d/relay/data/b708_reg_gate.txt /d/relay/data/b708_reg_gate.json /d/relay/data/b709
+  #117 | 2026-10-25T01:56:34.965Z | seat | Bash | wc -l /d/relay/data/b710_components.txt /d/relay/data/b710_components.json /d/relay/data/b710_stepzero.txt
+  #118 | 2026-10-25T01:58:09.256Z | seat | Bash | ls -la --time-style=full-iso /d/relay/data/b710_*push_out*.txt
+  #119 | 2026-10-25T02:09:55.877Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py repairctl dry
+  #120 | 2026-10-25T02:10:01.075Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py ksyms b711_checks.py
+  #121 | 2026-10-25T02:10:42.355Z | seat | Bash | git -C /d/relay rev-parse 181e1995 4aa6e281 3010867c 4cb4f236
+  #122 | 2026-10-25T02:10:55.873Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py repairctl dry
+  #123 | 2026-10-25T02:11:13.492Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py repairctl
+  #124 | 2026-10-25T02:11:39.269Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py defects
+  #125 | 2026-10-25T02:11:44.243Z | seat | Bash | date -u +%Y-%m-%dT%H:%M:%SZ
+  #126 | 2026-10-25T02:11:58.265Z | seat | Bash | git -C /d/relay show --name-only --pretty=format: 4aa6e281
+  #127 | 2026-10-25T02:12:13.368Z | seat | Bash | python -X utf8 /d/relay/tools/b711_carry.py repairdiff checks
+  #128 | 2026-10-25T02:12:13.429Z | seat | Bash | python -X utf8 /d/relay/tools/b711_carry.py repairdiff closing
+  #129 | 2026-10-25T02:12:58.263Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py c1 dry
+  #130 | 2026-10-25T02:13:38.277Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py c1 dry
+  #131 | 2026-10-25T02:13:57.348Z | seat | Bash | python -X utf8 /d/relay/tools/b711_record.py c1 dry
+  #132 | 2026-10-25T02:18:06.322Z | seat | Bash | git -C /d/relay status --short --untracked-files=all data
+  #133 | 2026-10-25T02:18:10.094Z | seat | Bash | git -C /d/relay ls-files "data/b711_*"
+  #134 | 2026-10-25T02:19:35.857Z | seat | Bash | git -C /d/relay show HEAD:tools/b711_corrigendum.py --format= -- 
+  #135 | 2026-10-25T02:19:58.079Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py toolrepairs dry
+  #136 | 2026-10-25T02:20:02.144Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py toolrepairs
+  #137 | 2026-10-25T02:20:05.620Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_corrigendum.py dry
+  #138 | 2026-10-25T02:20:11.544Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_corrigendum.py dry
+  #139 | 2026-10-25T02:20:25.983Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_corrigendum.py dry
+  #140 | 2026-10-25T02:20:32.805Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py c1
+  #141 | 2026-10-25T02:20:40.530Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_corrigendum.py land
+  #142 | 2026-10-25T02:20:54.493Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py defects
+  #143 | 2026-10-25T02:20:59.925Z | seat | Bash | git -C /d/relay status --short tools data/b675_corrigenda.txt data/b711_corrigendum.txt data/b711_corrigendum.json data/b711_corrigendum_landing.json data/b711_
+  #144 | 2026-10-25T02:21:09.065Z | seat | Bash | git -C /d/relay add -- tools/act_membrane.py tools/b711_checks.py tools/b711_closing.py tools/b711_corrigendum.py tools/b711_reg_gate.py tools/b711_regspec.py t
+  #145 | 2026-10-25T02:21:14.564Z | seat | Bash | git -C /d/relay commit -m "b711 component 1, under (R321)(1)-(2): b710 at its weight (FINDINGS :10282); the four structural repairs of standing clauses v2 rows 
+  #146 | 2026-10-25T02:21:18.876Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers status --short FINDINGS.md OPEN_TRAILS.md
+  #147 | 2026-10-25T02:21:22.468Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b711 component 1, under (R321)(1)-(2): b710 at its weight (FINDINGS :10282) and the corrigendum entry for b710's 
+  #148 | 2026-10-25T02:21:31.178Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log --format="%h %cI %s" -6
+  #149 | 2026-10-25T02:21:31.719Z | seat | Bash | git -C /d/relay log --format="%h %cI %s" -8
+  #150 | 2026-10-25T02:21:39.235Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py step relay step zero 4cb4f236 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py step rela
+  #151 | 2026-10-25T02:22:03.926Z | seat | Bash | git -C /d/SIDE-lv-conservation status --short --branch
+  #152 | 2026-10-25T02:22:23.920Z | seat | Bash | git -C /d/SIDE-lv-conservation rev-parse port-b707 origin/port-b707 main origin/main
+  #153 | 2026-10-25T02:22:26.999Z | seat | Bash | git -C /d/SIDE-lv-conservation switch port-b707
+  #154 | 2026-10-25T02:22:38.302Z | seat | Bash | git -C /d/SIDE-lv-conservation grep -n -F "isStrongFEPair_toStrongFEPair" -- SIDELvConservation
+  #155 | 2026-10-25T02:22:56.677Z | seat | Bash | git -C /d/SIDE-lv-conservation diff --stat
+  #156 | 2026-10-25T02:24:23.318Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py portedit
+  #157 | 2026-10-25T02:24:27.487Z | seat | Bash | git -C /d/SIDE-lv-conservation commit -m "port-b707 (b711): DirichletC7Order.lean :212 takes the strong pair's hasMellin, b709's form at C7OrderBounds.lean :277
+  #158 | 2026-10-25T02:24:35.483Z | seat | Bash | PUSH_GATED_LOG=data/b711_port_push_out.txt bash tools/push_gated.sh /d/SIDE-lv-conservation --branch port-b707 --scratch
+  #159 | 2026-10-25T02:24:42.865Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py portdispatch port SIDELvConservation dry
+  #160 | 2026-10-25T02:24:47.402Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py portdispatch port SIDELvConservation
+  #161 | 2026-10-25T02:24:59.416Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py runwait SIDE-lv-conservation 40154341879 540
+  #162 | 2026-10-25T02:27:36.556Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py portrun 40154341879 port
+  #163 | 2026-10-25T02:28:27.609Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py c2order dry
+  #164 | 2026-10-25T02:28:35.754Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py c2order dry
+  #165 | 2026-10-25T02:28:42.301Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py c2order
+  #166 | 2026-10-25T02:28:50.369Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py defects
+  #167 | 2026-10-25T02:28:55.101Z | seat | Bash | git -C /d/relay status --short tools/b711_record.py tools/b711_worklist.py data/b711_defects.txt data/b711_defects.json data/b711_port_edit.txt data/b711_port_e
+  #168 | 2026-10-25T02:29:00.651Z | seat | Bash | git -C /d/relay add -- tools/b711_record.py tools/b711_worklist.py data/b711_defects.txt data/b711_defects.json data/b711_port_edit.txt data/b711_port_edit.json
+  #169 | 2026-10-25T02:29:05.412Z | seat | Bash | git -C /d/relay commit -m "b711 component 2, under (R321)(4): the port's line :212 edited on port-b707 to the strong pair's hasMellin (data/b711_port_edit.txt; 
+  #170 | 2026-10-25T02:29:09.489Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -m "b711 component 2, under (R321)(4): W-ORD-LV-PORT-TAG entered at OPEN_TRAILS :15848 for the author's word -- the p
+  #171 | 2026-10-25T02:29:13.537Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py step relay component 2 042f25f2 && PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py step pp
+  #172 | 2026-10-25T02:29:18.107Z | seat | Bash | git -C /d/SIDE-lv-conservation switch main
+  #173 | 2026-10-25T02:34:16.688Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_surgery.py run dry
+  #174 | 2026-10-25T02:34:47.913Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_surgery.py run
+  #175 | 2026-10-25T02:36:31.514Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_coeffs.py run dry
+  #176 | 2026-10-25T02:36:41.427Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_coeffs.py run
+  #177 | 2026-10-25T02:39:47.089Z | seat | Bash | python -X utf8 tools/b711_axis_probe.py
+  #178 | 2026-10-25T02:39:55.209Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce/scratchpad/probe_libs.py"
+  #179 | 2026-10-25T02:42:12.010Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py controls
+  #180 | 2026-10-25T02:42:44.897Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py controls
+  #181 | 2026-10-25T02:43:16.119Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius log2 zeta
+  #182 | 2026-10-25T02:47:09.813Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius log2 zeta again
+  #183 | 2026-10-25T02:50:26.744Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py diag log2 zeta
+  #184 | 2026-10-25T02:50:59.298Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius log2 zeta again
+  #185 | 2026-10-25T02:56:14.103Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py controls again
+  #186 | 2026-10-25T02:56:44.870Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius log2 q0 again
+  #187 | 2026-10-25T03:00:45.461Z | seat | Bash | git grep -n "def unit_ball" -- tools/b696_witness_balls.py
+  #188 | 2026-10-25T03:00:56.484Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py diag log2 q0
+  #189 | 2026-10-25T03:01:05.104Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 32 zeta
+  #190 | 2026-10-25T03:05:47.353Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 32 q0
+  #191 | 2026-10-25T03:10:40.024Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 48 q0
+  #192 | 2026-10-25T03:15:15.526Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 48 zeta
+  #193 | 2026-10-25T03:19:34.775Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 64 q0
+  #194 | 2026-10-25T03:24:13.652Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 64 zeta
+  #195 | 2026-10-25T03:27:59.166Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 96 q0
+  #196 | 2026-10-25T03:32:27.962Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 96 zeta
+  #197 | 2026-10-25T03:36:08.466Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 128 q0
+  #198 | 2026-10-25T03:40:07.892Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 128 zeta
+  #199 | 2026-10-25T03:43:45.079Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 192 q0
+  #200 | 2026-10-25T03:47:42.072Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius 192 zeta
+  #201 | 2026-10-25T03:51:38.007Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius a6.838396011 q0
+  #202 | 2026-10-25T03:55:42.229Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py radius a6.838396011 zeta
+  #203 | 2026-10-25T03:55:42.862Z | seat | Bash | git grep -l "class Window" -- tools
+  #204 | 2026-10-25T03:59:26.958Z | seat | Bash | git grep -l -F "b709_list" -- tools/b711_coeffs.py tools/b709_pairs.py
+  #205 | 2026-10-25T04:00:00.487Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce/scratchpad/probe_spectral.py"
+  #206 | 2026-10-25T04:00:16.710Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce/scratchpad/probe_spectral.py"
+  #207 | 2026-10-25T04:01:12.601Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py bank dry
+  #208 | 2026-10-25T04:01:35.499Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_axis.py bank
+  #209 | 2026-10-25T04:01:49.392Z | seat | Bash | git status --short --untracked-files=all
+  #210 | 2026-10-25T04:01:56.221Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py defects
+  #211 | 2026-10-25T04:01:59.391Z | seat | Bash | git status --short -- data/b711_defects.json data/b711_defects.txt data/b711_steps.json
+  #212 | 2026-10-25T04:02:03.561Z | seat | Bash | git add -- tools/b711_surgery.py tools/b711_coeffs.py tools/b711_axis.py data/b711_surgery.txt data/b711_surgery.json data/b711_surgery_hashes.txt data/b711_coe
+  #213 | 2026-10-25T04:02:07.865Z | seat | Bash | git commit -m "b711 Component 3: the surgery (HELD), the coefficients (negative from n = 48, 1066 through 32532), the axis (e) (REFUTED as worded; onset at or b
+  #214 | 2026-10-25T04:02:16.096Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py step relay "component 3" 0c534d2a
+  #215 | 2026-10-25T04:02:33.349Z | seat | Bash | ls -la data/b709_pairs_units_band_310_325.jsonl data/b709_pairs_units_band_299.827256_310.jsonl data/b709_pairs_units.jsonl
+  #216 | 2026-10-25T04:03:05.397Z | seat | Bash | git grep -n -c "b711_list\|b711_pairs" -- data/b711_ferry.txt
+  #217 | 2026-10-25T04:03:50.915Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce/scratchpad/probe_lines.py" ROOT_EXCLUDE tools/b711_record.p
+  #218 | 2026-10-25T04:04:36.326Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py status
+  #219 | 2026-10-25T04:04:41.925Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #220 | 2026-10-25T04:06:50.570Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #221 | 2026-10-25T04:15:54.655Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #222 | 2026-10-25T04:24:54.643Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #223 | 2026-10-25T04:33:44.635Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #224 | 2026-10-25T04:41:27.416Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #225 | 2026-10-25T04:50:16.354Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #226 | 2026-10-25T04:55:30.764Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #227 | 2026-10-25T05:02:36.495Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #228 | 2026-10-25T05:03:47.226Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #229 | 2026-10-25T05:05:55.723Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #230 | 2026-10-25T05:13:37.789Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #231 | 2026-10-25T05:21:10.720Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #232 | 2026-10-25T05:28:52.783Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #233 | 2026-10-25T05:37:38.273Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #234 | 2026-10-25T05:41:50.699Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #235 | 2026-10-25T05:48:58.205Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #236 | 2026-10-25T05:50:34.400Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #237 | 2026-10-25T05:53:06.229Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #238 | 2026-10-25T06:02:26.864Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #239 | 2026-10-25T06:09:33.440Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #240 | 2026-10-25T06:16:42.919Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #241 | 2026-10-25T06:26:36.452Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #242 | 2026-10-25T06:32:27.790Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #243 | 2026-10-25T06:35:29.795Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #244 | 2026-10-25T06:42:39.624Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #245 | 2026-10-25T06:45:42.922Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #246 | 2026-10-25T06:45:46.986Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #247 | 2026-10-25T06:48:22.742Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #248 | 2026-10-25T06:54:08.899Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #249 | 2026-10-25T06:59:56.448Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #250 | 2026-10-25T07:05:25.988Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #251 | 2026-10-25T07:10:34.252Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #252 | 2026-10-25T07:15:41.947Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #253 | 2026-10-25T07:21:04.908Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #254 | 2026-10-25T07:26:50.723Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #255 | 2026-10-25T07:29:43.788Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #256 | 2026-10-25T07:36:56.225Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #257 | 2026-10-25T07:41:05.213Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #258 | 2026-10-25T07:41:09.629Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #259 | 2026-10-25T07:43:58.743Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #260 | 2026-10-25T07:49:46.223Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #261 | 2026-10-25T07:55:49.412Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #262 | 2026-10-25T08:01:02.826Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #263 | 2026-10-25T08:06:13.584Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #264 | 2026-10-25T08:11:08.167Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #265 | 2026-10-25T08:18:19.482Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #266 | 2026-10-25T08:21:44.529Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #267 | 2026-10-25T08:21:51.183Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #268 | 2026-10-25T08:25:07.745Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #269 | 2026-10-25T08:30:51.986Z | seat | Bash | ls data/b710_fit.json tools/b710_fit.py
+  #270 | 2026-10-25T08:30:52.650Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #271 | 2026-10-25T08:37:12.193Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #272 | 2026-10-25T08:42:37.601Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_pairs.py c2
+  #273 | 2026-10-25T08:42:49.735Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #274 | 2026-10-25T08:50:54.080Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #275 | 2026-10-25T08:57:16.980Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #276 | 2026-10-25T09:04:38.818Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #277 | 2026-10-25T09:08:36.940Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #278 | 2026-10-25T09:08:41.920Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_pairs.py c1
+  #279 | 2026-10-25T09:09:49.928Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_pairs.py c1
+  #280 | 2026-10-25T09:10:26.644Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_pairs.py pair 11
+  #281 | 2026-10-25T09:10:59.865Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #282 | 2026-10-25T09:13:58.441Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #283 | 2026-10-25T09:20:22.865Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #284 | 2026-10-25T09:26:59.052Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #285 | 2026-10-25T09:32:57.185Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #286 | 2026-10-25T09:38:26.495Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #287 | 2026-10-25T09:43:50.582Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #288 | 2026-10-25T09:51:31.963Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #289 | 2026-10-25T09:58:09.256Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #290 | 2026-10-25T10:01:28.111Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #291 | 2026-10-25T10:08:55.126Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #292 | 2026-10-25T10:13:42.936Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #293 | 2026-10-25T10:13:50.463Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #294 | 2026-10-25T10:17:05.269Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #295 | 2026-10-25T10:23:54.532Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #296 | 2026-10-25T10:30:42.838Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #297 | 2026-10-25T10:36:59.394Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #298 | 2026-10-25T10:42:36.698Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #299 | 2026-10-25T10:48:38.205Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #300 | 2026-10-25T10:54:05.182Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #301 | 2026-10-25T10:59:24.687Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #302 | 2026-10-25T11:01:15.357Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #303 | 2026-10-25T11:08:47.921Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #304 | 2026-10-25T11:14:11.712Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py next
+  #305 | 2026-10-25T11:14:16.464Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_pairs.py c1
+  #306 | 2026-10-25T11:15:25.865Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_pairs.py c1
+  #307 | 2026-10-25T11:15:26.604Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_pairs.py pair 15
+  #308 | 2026-10-25T11:16:38.065Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_list.py bank
+  #309 | 2026-10-25T11:16:38.497Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_pairs.py bank
+  #310 | 2026-10-25T11:16:47.142Z | seat | Bash | git status --short -- tools/b711_list.py tools/b711_pairs.py data/b711_list.txt data/b711_list.json data/b711_list_hashes.txt data/b711_pairs.txt data/b711_pair
+  #311 | 2026-10-25T11:16:51.169Z | seat | Bash | git add -- tools/b711_list.py tools/b711_pairs.py data/b711_list.txt data/b711_list.json data/b711_list_hashes.txt data/b711_pairs.txt data/b711_pairs.json data
+  #312 | 2026-10-25T11:16:55.179Z | seat | Bash | git commit -m "b711 component 4, under (R321)(7): the certified list complete to 445 (8 bands above 325, all COMPLETE); pairs 11 (0.998460) and 15 (0.998079) WI
+  #313 | 2026-10-25T11:16:59.094Z | seat | Bash | PYTHONIOENCODING=utf-8 python -X utf8 tools/b711_record.py step relay "component 4" 14c1462d
+  #314 | 2026-10-25T11:17:04.967Z | seat | Bash | git ls-files -- "tools/b711_*" "data/b711_*"
+  #315 | 2026-10-25T11:17:11.309Z | seat | Bash | ls -la data/b710_rules.txt data/b709_rules.txt data/b711_rules.txt data/b712_rules.txt data/b710_registrations.txt
+  #316 | 2026-10-25T11:17:43.361Z | seat | Bash | git log --format="%h %s" -n 40 --reverse 513a8f6d..b0d874f7
+  #317 | 2026-10-25T11:17:57.108Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce/scratchpad/probe_defs.py" tools/b711_checks.py tools/b711_r
+  #318 | 2026-10-25T11:18:08.972Z | seat | Bash | ls data/b710_registration_2026-10-23.txt data/b710_registration_2026-10-24.txt data/b711_registration_2026-10-24.txt data/b711_registration_2026-10-25.txt
+  #319 | 2026-10-25T11:18:24.792Z | seat | Bash | wc -l data/b710_registration_2026-10-24.txt tools/b711_reg_gate.py tools/b711_regspec.py tools/b711_closing.py tools/b710_record.py
+  #320 | 2026-10-25T11:18:48.825Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce/scratchpad/probe_defs.py" tools/b710_record.py
+  #321 | 2026-10-25T11:20:24.391Z | seat | PowerShell | python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_defs.py" D:\relay\tools\b711_record.py D:\relay\to
+  #322 | 2026-10-25T11:20:48.718Z | seat | PowerShell | Get-ChildItem D:\relay\data -Filter 'b711_*' | Select-Object Name, Length
+  #323 | 2026-10-25T11:22:06.135Z | seat | PowerShell | Get-ChildItem D:\relay\tools -Filter 'b711_*' | Select-Object Name, Length; git -C D:\relay status --porcelain
+  #324 | 2026-10-25T11:22:41.438Z | seat | PowerShell | python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "### ### **" D:\relay\data\b711_independ
+  #325 | 2026-10-25T11:25:22.942Z | seat | PowerShell | python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "A GATE STEP AT STEP ZERO" D:\relay\data
+  #326 | 2026-10-25T11:25:49.146Z | seat | PowerShell | python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "def _rl" D:\relay\tools\b703_checks.py;
+  #327 | 2026-10-25T11:26:31.415Z | seat | PowerShell | python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "  (31) " D:\relay\data\b675_corrigenda.
+  #328 | 2026-10-25T11:28:53.997Z | seat | PowerShell | python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "def _unused_fit" D:\relay\tools\b711_ch
+  #329 | 2026-10-25T11:29:55.052Z | seat | PowerShell | python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "b710 " D:\relay\data\act_roots.txt; pyt
+  #330 | 2026-10-25T11:32:23.791Z | seat | PowerShell | python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_defs.py" D:\relay\tools\b711_closing.py D:\relay\t
+  #331 | 2026-10-25T11:33:56.735Z | seat | PowerShell | python -m py_compile D:\relay\tools\b711_checks.py D:\relay\tools\b711_worklist.py D:\relay\tools\b711_closing.py; if ($?) { "compiled" }
+  #332 | 2026-10-25T11:34:07.023Z | seat | PowerShell | foreach ($n in 'seal_hashes', '_amended_after', '_iso_epoch', 'span_line', '_defect_short', 'def _fig', 'def _kerns', 'def capture', 'letters_at_seal', 'def rea
+  #333 | 2026-10-25T11:36:01.988Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_defs.py" D:\relay\t
+  #334 | 2026-10-25T11:36:26.324Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_keys.py" D:\relay\d
+  #335 | 2026-10-25T11:36:38.532Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_dump.py" D:\relay\d
+  #336 | 2026-10-25T11:37:08.719Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "### ### 
+  #337 | 2026-10-25T11:37:30.512Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "def regi
+  #338 | 2026-10-25T11:41:33.216Z | seat | PowerShell | python -X utf8 -m py_compile D:\relay\tools\b711_record.py; if ($?) { $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py ksyms b711_rec
+  #339 | 2026-10-25T11:41:57.357Z | seat | PowerShell | python -X utf8 -m py_compile D:\relay\tools\b711_record.py; if ($?) { $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py regcheck }
+  #340 | 2026-10-25T11:42:16.571Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py figures
+  #341 | 2026-10-25T11:42:28.590Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py kernels; python -X utf8 D:\relay\tools\b711_record.py guard; python -X utf8 D:\relay
+  #342 | 2026-10-25T11:43:07.307Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_dump.py" D:\relay\d
+  #343 | 2026-10-25T11:43:15.304Z | seat | PowerShell | Get-Item -LiteralPath 'D:\relay\=' | Select-Object Name, Length, CreationTimeUtc, LastWriteTimeUtc
+  #344 | 2026-10-25T11:45:01.931Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py rootexclude; git -C D:/SIDE-lv-conservation diff --stat 69e239d9 be3052ac; git -C D:
+  #345 | 2026-10-25T11:45:09.984Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "NEXT = "
+  #346 | 2026-10-25T11:47:35.664Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py drycheck D:\relay\data\b711_registration_2026-10-25.txt standin
+  #347 | 2026-10-25T11:47:51.971Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py drycheck D:\relay\data\b711_registration_2026-10-25.txt standin
+  #348 | 2026-10-25T11:47:58.619Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py findings dry
+
+### ### **COMMANDS 348 ; G-EDIT-ROUTE OFFENCES 4 (SED IN ANY FORM AMONG THEM 4) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 12 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 4 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 4 ; PIPES OF ANY KIND 7 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 8 OF 8 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
