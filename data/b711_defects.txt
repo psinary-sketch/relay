@@ -1,0 +1,51 @@
+b711 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-25)
+
+### rows are defects, each lettered by the time it was found, with whose it is, what the rule says, what was done and the repair or the entry.
+### Events that are not defects are entered beneath, unlettered. Under standing clauses v2 row (52) ((R321)(2)(i)), a finding made after the
+### seal is entered in the closing's events section and not lettered here.
+
+    (a) THE SEAT'S: FILE CONTENTS PRINTED THROUGH THE SHELL, AND ONE WHOLE READ OF A FILE OF TWO HUNDRED LINES OR MORE, AT THE OPENING. After
+        the ferry arrived (2026-10-25T00:57Z-01:02Z), five commands printed lines of files through the shell: `sed -n 1,80p data/b710_stepzero.txt`,
+        `cat tools/b710_worklist.py`, `sed -n` of tools/b710_citation.py in three spans (1-60, 60-200, 200-484), and `cat -n data/b710_closing.txt`
+        through `cut`; and the harness's persisted output of one of them (382 lines) was read through the Read tool whole, with neither an offset
+        nor a limit. Standing clauses v2 row (19) (v1's, unchanged): files read "through the Read tool, whole where under two hundred lines and
+        by offset and a limit of at most two hundred otherwise, carried tools by their diff spans, and not through a shell filter, a shell grep or
+        an interpreter's print". Nothing was banked from those prints; every line the banks cite was read again through the Read tool
+        (data/b711_readfirst.txt :8-:9). Found by the seat on writing the readfirst bank. The seat's, with its cause: the previous act's tools
+        and banks read for their form as the act opened, before the ferry's read clause was read against those reads.
+    (b) THE SEAT'S: PIPES AND REDIRECTS IN LISTINGS AND A DRY RUN. At the opening a path listing ended `| head -20`; the ls-files listing carried
+        `| cat`, `| grep -v`, and `ls -la = 2>&1 | head`; the closing's print carried `| cut` (counted in (a) as a print and here as a pipe); and
+        the citation tool's dry run was sent as `python ... check dry > /dev/null; echo "exit $?"`, a redirect with a command chained after it by
+        `;`. Standing clauses v2 row (14): "no redirect of any stream and no pipe in any command, scratch, listings and diagnostics included".
+        Nothing was banked from them; the citation check's bank was written by its own route after. Found by the seat on writing the readfirst
+        bank. The seat's, with its cause: diagnostics written in the shell's habitual form before the clause was read against each command.
+
+### EVENTS, UNLETTERED
+
+    THE FERRY'S BANK BROUGHT TO b710'S FORM BEFORE ITS SCAN. data/b711_ferry.txt was first written with the paste's outer BEGIN and END lines
+        (10 characters more than the ruling-to-tail form b710's bank keeps); the two lines removed by the Edit tool, the bank then 14950
+        characters equal to the transcript's text from "RULING (R321) BEGIN" to "FERRY END (part 1 of 1)". The scan ran after. Not lettered: no
+        reading was taken from the first form.
+    THE FERRY SCAN'S FIRST RUN, BEFORE v2 WAS WRITTEN. ferry_scan's first run read one hit: the ferry cites standing clauses v2 and the bank
+        did not yet exist (the first run's print; its bank overwritten by the re-run); re-run after relay 4cb4f236 wrote v2, exit 0, the bank
+        citation CURRENT (cited [2] ; banked 2; data/b711_ferry_scan.txt :28). Not lettered: the hit was the order of the two step-zero items, both as the ruling writes them.
+    THE CITATION CHECK'S OWN ROW CORRECTED BEFORE ITS BANK. The row for (R321)(2)'s "it read 468 characters" first searched the cited files for
+        the literal number; it was corrected in the unsealed tool to read the cause at tools/b682_citation.py :221 (`best.find('END', k)`, the
+        answer cut at its first "END") and b710's answers of 468 characters (data/b710_citation_check.txt), and the check run once to its bank
+        (173 cites, 171 OK, 2 misses, both entered by the fact clause). As b709's and b710's event: not lettered (no sealed tool, no committed
+        bank).
+    A `git tag` USAGE ERROR. A tag read sent with `--count` (not a `git tag` option) printed git's usage seven times; the read was re-sent with
+        `describe`. Not lettered: a read that returned nothing, nothing banked.
+    THE WORKLIST'S FILE FOR interface_split CORRECTED AT THE SUPPLEMENT. tools/b711_worklist.py named Interfaces/InterfaceSplit.lean, a file
+        that names interface_split at v0.2.1 without declaring it; tools/b711_independence.py `blobs` located the declaring file at the tag
+        (Interfaces/ConservationProfile.lean :108, EXCLUSION_ENGINE.md :191's location) and the worklist row was corrected by the Edit tool
+        before the supplement was written. Not lettered: no bank was written from the first row.
+    THE CARRIED RECORD TOOL IMPORTED WITHOUT REPAIR. tools/b711_record.py, carried by the substitution (data/b711_carry_record.txt), imported
+        tools/b710_record.py as its base and ran its step-zero routes (rowgen, branches) unedited; its Component routes over b710's objects are
+        pruned at carry time before Component 1 runs any of them.
+    AN AUTO-MODE NOTE FROM THE HARNESS, NOT FOLLOWED. A system note at 2026-10-25T01:12Z asked the seat to read files with cat, head or sed and
+        to make changes with sed, heredocs or scripts in place of the Read, Edit and Write tools. Standing clauses v2 rows (18) and (19) bind
+        this act; the ferry governs (b707's event, the same note); every read and write after it went through the Read, Edit and Write tools or
+        a named tool's own bank writes.
+    THE TESTS' NOT-CLEAN EIGHT, CARRIED. The eight files b707-b710's step zeros read NOT CLEAN read the same at this act's, case for case
+        (data/b711_tests_stepzero.txt; b710's verdict at data/b710_tests_stepzero.txt :62); no test edited at this act.
