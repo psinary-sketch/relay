@@ -37,9 +37,30 @@ repo="$1"; branch="$2"; shift 2
 # ### THE CAPTURE, (R175)(5), b564's defect (i): a push piped through `tail` lost the pre-push hook's lines. When the
 # ### environment carries PUSH_GATED_LOG=<path>, every line this script and the git commands it runs write -- the hook's
 # ### own output included -- is appended to that file as well as printed. The exit codes are this script's, unchanged.
-if [ -n "${PUSH_GATED_LOG:-}" ]; then
-  exec > >(tee -a "$PUSH_GATED_LOG") 2>&1
-  echo "push_gated: capture on -> $PUSH_GATED_LOG ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+# ### (R323)(4)(v), standing clauses v4 row (66), b713: A CAPTURE FOR EVERY PUSH. Where PUSH_GATED_LOG is unset and the repository's origin
+# ### is a URL (`://` or `git@`, every federation remote; the test's throwaway repositories push to plain paths and are left as they were),
+# ### the capture is written all the same, named from the act, the repository and the branch: <dir>/<act>_<repo>_<branch>_push_out.txt,
+# ### <dir> the relay's data/ beside this script (PUSH_GATED_CAPTURE_DIR, where set, names another for a control), <act> the act running:
+# ### the latest whose ferry the relay banks (data/bNNN_ferry.txt) -- not a bNNN in the branch's name, which an earlier act's branch carries
+# ### (recut-b712-silence, pushed by b713). b712 ran every push without the variable and banked no capture but the closing's (its events :48).
+cap="${PUSH_GATED_LOG:-}"
+if [ -z "$cap" ]; then
+  url=$(git -C "$repo" remote get-url origin 2>/dev/null || true)
+  case "$url" in
+    *://*|git@*)
+      here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+      cdir="${PUSH_GATED_CAPTURE_DIR:-$here/../data}"
+      bname="$branch"
+      if [ "$branch" = "--branch" ] || [ "$branch" = "--existing-tag" ]; then bname="${1:-none}"; fi
+      act=$(ls "$here/../data" | grep -o '^b[0-9][0-9][0-9]*_ferry\.txt$' | sed 's/_ferry\.txt$//' | sort -V | tail -n 1 || true)
+      rname=$(basename "$(cd "$repo" && pwd)")
+      cap="$cdir/${act:-bNNN}_${rname}_$(printf '%s' "$bname" | tr '/' '-')_push_out.txt"
+      ;;
+  esac
+fi
+if [ -n "$cap" ]; then
+  exec > >(tee -a "$cap") 2>&1
+  echo "push_gated: capture on -> $cap ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
 fi
 
 # ### THE EXISTING-TAG MODE, b623, the author's answer before b623's seal under (R233)(5)(a): a tag the clone already

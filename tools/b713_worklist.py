@@ -100,6 +100,8 @@ PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'FACES_LEDGER.md')   # ### (R323)
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
 RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'   # ### b712's re-cut on RECUT_BRANCH; pushed this act in branch mode, not merged
+RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'      # ### (R323)(2)(iii): the two MISSING lines restored by Edit on RECUT_BRANCH, the
+#                                                             ### branch's tip pushed --branch --scratch (read back at the remote), not merged
 NEXT = ('b714, the keystone heads act where W-ORD-KEYSTONE-HEADS’s trigger reads met against the join’s tag and the re-cut, the re-cut’s '
         'merge on the author’s word where given, and W-ORD-LV-PORT-TAG on the author’s word where given')
 NEXT_ACT = 'b714'
@@ -132,10 +134,10 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
         act, '; '.join('%s (:%d, %s)' % (o, i, s[:160]) for i, o, s in rows) or 'NONE')
 
 # ### stage one (step zero): the commits made so far
-STANDING_COMMIT = ''         # ### data/standing_clauses_v4.txt, committed alone
-STEPZERO = ''                # ### b712's closing push capture, committed alone at step zero
-STEPZERO_STEPS = ''          # ### b712's closing step row (step 25), committed alone at step zero
-STEPZERO_BANKS = ''          # ### the step-zero banks and tools, committed together by explicit list
+STANDING_COMMIT = '89bea62186f636921a0f88144114ee9f22bc5b47'   # ### data/standing_clauses_v4.txt, committed alone
+STEPZERO = '82e128b4ab4334307364ed7abb612e3501c2195d'          # ### b712's closing push capture, committed alone at step zero
+STEPZERO_STEPS = 'b8de4d0c83aa738b268779afb310ad756f6211c9'    # ### b712's closing step row (step 25), committed alone at step zero
+STEPZERO_BANKS = 'dc373260a0baa7d6266e87703ee91c7f7cb38199'    # ### the step-zero banks and tools, committed together by explicit list
 COMPUTE_TOOLS = ('b713_list.py', 'b713_predict.py', 'b713_onsets.py', 'b713_coeffs.py')   # ### (R323)(5): each writing its own bank alone
 REPAIRED_TOOLS = ()          # ### shared tools of earlier acts edited by this act (repair (v): tools/push_gated.sh), filled at Component 1
 REPAIRED_DATA = ()

@@ -1,0 +1,1578 @@
+b713 -- THE SIX REPAIRS OF (R323)(4), EACH BY ITS DIFF (standing clauses v4 rows (61)-(68)) (2026-10-25T22:07:31Z)
+
+### per repair: the v4 row ; tools/act_close.py`s section (a new shared tool, every line added) ; the hunks of the carried tools` diffs
+### (data/b713_repairdiff_<tool>.txt) whose added lines name the repair or call its function ; tools/push_gated.sh`s diff against relay
+### HEAD for (v) ; the two controls (data/b713_repair_controls.txt).
+
+### ### (i) ONE LIST OF WRITES -- v4 row (62)
+  --- tools/act_close.py (new) its section, 28 lines:
+  +# ================================================================================ (i) ONE LIST OF WRITES
+  +W_HEAD = re.compile(r'^### \(W\) THE WRITE LIST')
+  +Z_HEAD = re.compile(r'^### \(Z\) THE NOTHINGS')
+  +W_PATH = re.compile(r'`((?:relay|PLACE-papers|SIDE-[\w-]+)/[^`\s]+)`')
+  +
+  +
+  +def w_patterns(face_text):
+  +    """every backticked repository path of the face's (W) table, from its head to the (Z) head: ['relay/data/b712_*', ...]."""
+  +    out, on = [], False
+  +    for l in (face_text or '').replace(chr(13), '').split(NL):
+  +        if W_HEAD.match(l):
+  +            on = True
+  +            continue
+  +        if on and Z_HEAD.match(l):
+  +            break
+  +        if on:
+  +            for p in W_PATH.findall(l):
+  +                if p not in out:
+  +                    out.append(p)
+  +    return out
+  +
+  +
+  +def w_allows(path, patterns, repo='relay'):
+  +    """True where `<repo>/<path>` matches a (W) pattern (a glob, `*` within the name)."""
+  +    q = '%s/%s' % (repo, path.replace('\\', '/'))
+  +    return any(fnmatch.fnmatchcase(q, p) for p in patterns)
+  +
+  +
+  --- tools/b713_record.py @@ -1901,4 +2033,10 @@
+  -    rc_branch = g(PP, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.RECUT_BRANCH).strip() == K.RECUT_COMMIT
+  -    rc_remote = g(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH).strip() == ''
+  -    recut_ok = rc_main and rc_branch and rc_remote
+  -    allowed = set(K.PP_WRITTEN)
+  +    # ### (R323)(2)(iii): the branch at its restored tip, pushed in branch mode (at the remote at that tip) and NOT merged (the remote main
+  +    # ### does not carry it); b712's form wanted the branch at b712's re-cut and absent at the remote
+  +    rc_branch = g(PP, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.RECUT_BRANCH).strip() == K.RECUT_TIP
+  +    rc_remote = g(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH).strip().split('\t')[0] == K.RECUT_TIP
+  +    rc_unmerged = grc(PP, 'merge-base', '--is-ancestor', K.RECUT_TIP, 'origin/main') != 0
+  +    recut_ok = rc_main and rc_branch and rc_remote and rc_unmerged
+  +    # ### (R323)(4)(i), standing clauses v4 row (62), ONE LIST OF WRITES: every write read against the face's (W) table through
+  +    # ### tools/act_close.py w_patterns, the scorer keeping no list of its own (b712's N5_RELAY_DATA omitted data/b711_steps.json, which its
+  +    # ### (W) named, and refuted N5 on it; a repair at b713, banked by diff)
+  +    W = AC.w_patterns(rd(FACE) or '')
+  --- tools/b713_record.py @@ -1906,1 +2044,1 @@
+  -    pp_beyond = [x for x in pp_ch if x not in allowed]
+  +    pp_beyond = [x for x in pp_ch if not AC.w_allows(x, W, 'PLACE-papers')]
+  --- tools/b713_record.py @@ -1909,4 +2047,3 @@
+  -    ruled = set('tools/' + t for t in tuple(K.REPAIRED_TOOLS) + tuple(K.NEW_TOOLS))
+  -    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not re.match(r'^tools/b713_', x) and x[6:] not in R.N5_RELAY_TOOLS and x not in ruled]
+  -    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b713_|audit_b713_)', x) or re.match(r'^data/terminal_table', x) or x in ruled
+  -                                                or (x.startswith('data/') and x[5:] in ALLOWED_SHARED_DATA) or (x.startswith('tools/') and x[6:] in R.N5_RELAY_TOOLS))]
+  +    ruled = sorted(x for x in relay_ch if x.startswith('tools/') and AC.w_allows(x, W, 'relay'))
+  +    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not AC.w_allows(x, W, 'relay')]
+  +    kinds_beyond = [x for x in relay_ch if not AC.w_allows(x, W, 'relay')]
+  --- tools/b713_record.py @@ -2112,0 +2249,199 @@
+  +def _close_step(n):
+  +    """(R323)(4)(vi), standing clauses v4 row (68), THE CLOSE IN ONE ORDER: the route is step [n] of the close and refuses, writing nothing,
+  +    while a lower step's evidence is absent (tools/act_close.py close_refuses; a repair at b713, banked by diff)."""
+  +    r = AC.close_refuses(ACT, n)
+  +    if r:
+  +        print(r, flush=True)
+  +        sys.exit(5)
+  +    print('  ### THE CLOSE IN ONE ORDER: STEP [%d] MAY RUN -- EVERY LOWER STEP`S EVIDENCE STANDS' % n, flush=True)
+  +
+  +
+  +def closeorder(*a):
+  +    """`closeorder <n>`: step [n] of v4 row (68) read against the lower steps' evidence before the seat runs it by hand (the record commit
+  +    [19] among them); prints and exits 5 where it refuses; writes nothing."""
+  +    if not a or not a[0].isdigit():
+  +        for k, w, e in AC.close_steps():
+  +            print('  [%d] %s (%s)' % (k, w[:90], e.replace('<act>', ACT)))
+  +        return
+  +    _close_step(int(a[0]))
+  +
+  +
+  +def repaircontrols(*a):
+  +    """data/b713_repair_controls.txt (.json): (R323)(4), each of the six repairs with its two-instance control -- one instance from the record
+  +    (b712's own banks, commits and remotes) and one constructed (rows or banks made by the route in the scratchpad, or throwaway repositories
+  +    made by the scratch control script for (v)) -- every instance printed with what it was wanted to read and what it read."""
+  +    import io
+  +    import subprocess
+  +    import tempfile
+  +    import b713_closing as CL
+  +    SP = os.environ.get('B713_SCRATCH') or 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad'
+  +    out, J = [], {}
+  +
+  +    def row(rep, inst, wanted, got, note=''):
+  +        ok = (wanted == got)
+  +        out.append('  (%s) %-12s wanted %s ; got %s ; %s%s' % (rep, inst, wanted, got, 'PASS' if ok else '### FAIL', (' -- ' + note) if note else ''))
+  +        J.setdefault(rep, []).append(dict(instance=inst, wanted=str(wanted), got=str(got), ok=ok, note=note))
+  +
+  +    def git(*args, repo=ROOT):
+  +        return subprocess.run(['git', '-C', repo] + list(args), capture_output=True, text=True, encoding='utf-8').stdout.strip()
+  +
+  +    # ### (i) ONE LIST OF WRITES: b712's face (W) read by AC.w_patterns against b712's relay changes 4a383ac8..1290446c; constructed paths
+  +    face12 = io.open(os.path.join(D, 'b712_registration_2026-10-25.txt'), encoding='utf-8').read()
+  +    pats = AC.w_patterns(face12)
+  +    ch = [p for p in git('diff', '--name-only', '4a383ac8', '1290446c').split(NL) if p]
+  +    beyond = [p for p in ch if not AC.w_allows(p, pats, 'relay')]
+  +    out.append('### (i) b712`s face (W): %d patterns read ; relay 4a383ac8..1290446c changed %d paths ; beyond the list %s' % (len(pats), len(ch), beyond or 'NONE'))
+  +    row('i', 'record', 0, len(beyond), 'b712`s relay changes, every one inside its own face`s (W)')
+  +    row('i', 'constructed', (True, False, False), (AC.w_allows('data/b712_x.txt', pats), AC.w_allows('data/zz_outside_b712.txt', pats),
+  +                                                   AC.w_allows('FOUNDATIONS.md', pats, 'PLACE-papers')),
+  +        'data/b712_x.txt inside ; data/zz_outside_b712.txt and PLACE-papers/FOUNDATIONS.md outside')
+  +
+  +    # ### (ii) EVERY COMMIT OF A STEP: b712's gate (afe3903a, and dcb3b286 "the gate before the lock" entered under component 5); constructed
+  +    st12 = jl('b712_steps.json')
+  +    rows12 = st12 if isinstance(st12, list) else st12.get('rows', [])
+  +    g_one = [r.get('commit', '')[:8] for r in rows12 if r.get('phase') == 'gate']
+  +    joined = [dict(repo='relay', phase='gate', commits=['afe3903acfd0e4c790a34015d5fa142d1d52b812', 'dcb3b2862324ddbde0bd8ee08a893141fcda38c2'])]
+  +    out.append('### (ii) b712`s step bank: the gate phase`s rows read by their one `commit`: %s ; dcb3b286`s subject names the gate, its phase %r' % (
+  +        g_one, next((r.get('phase') for r in rows12 if r.get('commit', '').startswith('dcb3b286')), None)))
+  +    row('ii', 'record', ['afe3903a', 'dcb3b286'], [c[:8] for c in AC.step_commits(joined, 'gate', 'relay')],
+  +        'the gate`s two commits on one row, read whole (the one-`commit` form reads %s)' % [r.get('commit', '')[:8] for r in joined if r.get('commit')])
+  +    three = [dict(repo='relay', phase='component 9', commit='c1', commits=['c1', 'c2', 'c3']), dict(repo='pp', phase='component 9', commit='c4')]
+  +    row('ii', 'constructed', ['c1', 'c2', 'c3'], AC.step_commits(three, 'component 9', 'relay'),
+  +        'a three-commit step: the one-`commit` form reads [c1], c2 and c3 undeclared; the other repository`s c4 not read')
+  +
+  +    # ### (iii) ONE COUNTER: b712's defects bank (b712's record tool counted 22 for the seat, its suite 21); constructed rows
+  +    d12 = [l for l in io.open(os.path.join(D, 'b712_defects.txt'), encoding='utf-8').read().split(NL) if AC.OWNER.match(l.lstrip())]
+  +    c12 = AC.defect_owners(d12)
+  +    row('iii', 'record', (22, 21, 0, 1), (c12['TOTAL'], c12['SEAT'], c12['NAVIGATOR'], c12['OTHER']),
+  +        'TOTAL, SEAT, NAVIGATOR, OTHER: (h) THE CARRIED RECORD TOOL`S FORM is OTHER; both tools now read the one number')
+  +    c3 = AC.defect_owners(["(a) THE SEAT'S: x", "(b) THE NAVIGATOR'S: y", "(c) THE RECORD TOOL'S: z", "(a') THE SEAT’S: w", 'no row'])
+  +    row('iii', 'constructed', (4, 2, 1, 1), (c3['TOTAL'], c3['SEAT'], c3['NAVIGATOR'], c3['OTHER']), 'a primed letter and a curly apostrophe counted')
+  +
+  +    # ### (iv) THE LOCK AS A MEMBRANE: b712's lock is written, its dry root bank refuses; a constructed act's banks before and after its lock
+  +    row('iv', 'record', True, bool(AC.lock_refuses('b712', 'b712_root_banks_dry.json')), 'b712_lockgate.json stands; a rewrite of [2]`s bank refused')
+  +    td = tempfile.mkdtemp(prefix='b713_lock_', dir=SP)
+  +    for n_ in ('b999_root_banks_dry.json', 'b999_standing_figures.json'):
+  +        io.open(os.path.join(td, n_), 'w', encoding='utf-8').write('{}')
+  +    before = bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td))
+  +    io.open(os.path.join(td, 'b999_lockgate.json'), 'w', encoding='utf-8').write('{}')
+  +    after = (bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td)), bool(AC.lock_refuses('b999', 'b999_scores.json', td)))
+  +    row('iv', 'constructed', (False, True, False), (before,) + after,
+  +        'scratch %s: before the lock writable ; after it [2]`s bank refused ; [9]`s scores bank (after the lock) writable' % os.path.basename(td))
+  +
+  +    # ### (v) A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote: b712's head line read again; the scratch script's two clones
+  +    ev = []
+  +    hl = CL.head_line(act='b712', events=ev)
+  +    m_ = re.search(r'relay (\w+), PLACE-papers (\w+)', hl)
+  +    out.append('### (v) b712`s head line read again by the repaired builder: %s' % hl)
+  +    out += ['      event: ' + e for e in ev]
+  +    row('v', 'record', True, bool(m_) and 'none' not in (m_.group(1), m_.group(2)),
+  +        'each repository`s main read at the remote (b712`s own head line read "none read" for both, events :48)')
+  +    r_ = subprocess.run(['bash', SP + '/control_v_capture.sh'], capture_output=True, text=True, encoding='utf-8')
+  +    out += ['      ' + l for l in r_.stdout.strip().split(NL)]
+  +    got_v = tuple(re.findall(r'captures written (\d+) ; name \S+ ; the capture carries the read-back (\w+)', r_.stdout))
+  +    row('v', 'constructed', (('1', 'yes'), ('0', 'no')), got_v, 'a file:// origin captured unasked, a plain-path origin (the tests`) not')
+  +
+  +    # ### (vi) THE CLOSE IN ONE ORDER: b712's banks replayed by their mtimes at its record commit (755b03aa) and at its scores-close bank
+  +    t_rec = int(git('show', '-s', '--format=%ct', '755b03aa') or 0)
+  +    t_sc = int(os.path.getmtime(os.path.join(D, 'b712_scores_close.json')))
+  +    alias = {'b712_closing_dry.txt': 0, 'b712_scores_dry.txt': 0, 'b712_relay_push-b712-record_push_out.txt': t_rec}
+  +
+  +    def at(T):
+  +        def has(p):
+  +            b = os.path.basename(p)
+  +            if b in alias:
+  +                return T >= alias[b]
+  +            return os.path.exists(p) and os.path.getmtime(p) <= T
+  +        return has
+  +    r19, r22 = AC.close_refuses('b712', 19, present=at(t_rec)), AC.close_refuses('b712', 22, present=at(t_sc))
+  +    out.append('### (vi) b712 replayed (its dry runs [3] [4] in the scratchpad, recorded in its gate; [19] its record push 755b03aa, no capture):')
+  +    out += ['      step [19] at %s: %s' % (t_rec, r19 or 'MAY RUN'), '      step [22] at %s: %s' % (t_sc, r22 or 'MAY RUN')]
+  +    row('vi', 'record', True, bool(r19 or r22), 'b712 closed out of v4`s order: a step ran while a lower step`s evidence was absent')
+  +    td2 = tempfile.mkdtemp(prefix='b713_order_', dir=SP)
+  +    for k, w, e in AC.close_steps():
+  +        if k <= 5 and e.startswith('data/'):
+  +            io.open(os.path.join(td2, os.path.basename(e.replace('<act>', 'b999'))), 'w', encoding='utf-8').write('{}')
+  +    g6, g7 = AC.close_refuses('b999', 6, td2), AC.close_refuses('b999', 7, td2)
+  +    row('vi', 'constructed', ('', True, True), (g6, bool(g7), '[6]' in g7), 'banks [1]-[5] in scratch %s: [6] may run ; [7] refused naming [6]' % os.path.basename(td2))
+  +
+  +    npass = sum(1 for v in J.values() for x in v if x['ok'])
+  +    ntot = sum(len(v) for v in J.values())
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH WITH ITS TWO-INSTANCE CONTROL (standing clauses v4 rows (62)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### one instance from the record (b712`s banks, commits and remotes), one constructed (rows here, banks in the scratchpad, throwaway',
+  +         '### repositories for (v)); the functions are tools/act_close.py`s, the head line tools/b713_closing.py`s, the capture tools/push_gated.sh`s.',
+  +         '### (vi)`s record instance reads b712`s banks by their file times (a bank rewritten later reads absent at the earlier time).', ''] + out + [
+  +         '', '### ### **CONTROLS %d ; PASSING %d ; THE SIX REPAIRS EACH WITH TWO INSTANCES %s.**' % (ntot, npass, all(len(J.get(x, [])) == 2 for x in
+  +                                                                                                       ('i', 'ii', 'iii', 'iv', 'v', 'vi')))]
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L))
+  +        return
+  +    put_txt('%s_repair_controls.txt' % ACT, L)
+  +    put_json('%s_repair_controls.json' % ACT, dict(at=utc(), controls=J, passing=npass, total=ntot))
+  +    print(NL.join(L))
+  +
+  +
+  +REPAIR_KEYS = (('i', 'ONE LIST OF WRITES', '(62)', r'w_patterns|w_allows'),
+  +                ('ii', 'EVERY COMMIT OF A STEP', '(63)', r'step_commits'),
+  +                ('iii', 'ONE COUNTER', '(64)', r'defect_owners'),
+  +                ('iv', 'THE LOCK AS A MEMBRANE', '(65)', r'lock_refuses|_lock_guard'),
+  +                ('v', 'A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote', '(66)', r'read_remotes|PUSH_GATED_CAPTURE_DIR'),
+  +                ('vi', 'THE CLOSE IN ONE ORDER', '(67), (68)', r'close_refuses|_close_step|close_steps'))
+  +
+  +
+  +def toolrepairs13(*a):
+  +    """data/b713_tool_repairs.txt (.json): (R323)(4), each repair's diff -- the hunks of the carry-time diffs (data/b713_repairdiff_record.txt,
+  +    _checks.txt, _closing.txt) whose added lines name the repair or call its function, tools/push_gated.sh's diff against relay HEAD, and
+  +    tools/act_close.py (a new shared tool, untracked till the component's commit) by its sections -- each repair's control line beside it."""
+  +    import io
+  +    hunks = []
+  +    for n_ in ('record', 'checks', 'closing'):
+  +        cur = None
+  +        for l in io.open(os.path.join(D, '%s_repairdiff_%s.txt' % (ACT, n_)), encoding='utf-8').read().split(NL):
+  +            if l.startswith('@@'):
+  +                cur = dict(tool='tools/%s_%s.py' % (ACT, n_), lines=[l])
+  +                hunks.append(cur)
+  +            elif cur is not None and l[:1] in '+-' and not l.startswith('### ###'):
+  +                cur['lines'].append(l)
+  +            elif cur is not None and not l.strip():
+  +                cur = None
+  +    pg = subprocess.run(['git', '-C', ROOT, 'diff', 'HEAD', '--', 'tools/push_gated.sh'], capture_output=True, text=True, encoding='utf-8').stdout.split(NL)
+  +    ac = io.open(os.path.join(T, 'act_close.py'), encoding='utf-8').read().split(NL)
+  +    cj = jl('%s_repair_controls.json' % ACT).get('controls', {})
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH BY ITS DIFF (standing clauses v4 rows (61)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### per repair: the v4 row ; tools/act_close.py`s section (a new shared tool, every line added) ; the hunks of the carried tools` diffs',
+  +         '### (data/b713_repairdiff_<tool>.txt) whose added lines name the repair or call its function ; tools/push_gated.sh`s diff against relay',
+  +         '### HEAD for (v) ; the two controls (data/b713_repair_controls.txt).', '']
+  +    J = {}
+  +    for k, title, rows, fn in REPAIR_KEYS:
+  +        tag = re.compile(r'\(R323\)\(4\)\(%s\)|%s' % (re.escape(k), fn))
+  +        mine = [h for h in hunks if any(tag.search(l) for l in h['lines'] if l.startswith('+'))]
+  +        L.append('### ### (%s) %s -- v4 row %s' % (k, title, rows))
+  +        sec, on = [], False
+  +        for i, l in enumerate(ac, 1):
+  +            if l.startswith('# ====='):
+  +                on = bool(re.search(r'\(%s\) ' % re.escape(k), l)) or (k == 'vi' and '(vi)' in l)
+  +            if on:
+  +                sec.append('+%s' % l)
+  +        if sec:
+  +            L += ['  --- tools/act_close.py (new) its section, %d lines:' % len(sec)] + ['  ' + s for s in sec]
+  +        for h in mine:
+  +            L += ['  --- %s %s' % (h['tool'], h['lines'][0])] + ['  ' + s for s in h['lines'][1:]]
+  +        if k == 'v':
+  +            L += ['  --- tools/push_gated.sh, git diff HEAD:'] + ['  ' + s for s in pg if s]
+  +        L += ['  CONTROL %s: %s ; got %s ; %s' % (c['instance'], c['wanted'], c['got'], 'PASS' if c['ok'] else '### FAIL') for c in cj.get(k, [])]
+  +        L.append('')
+  +        J[k] = dict(title=title, v4_rows=rows, act_close_lines=len(sec), hunks=[(h['tool'], h['lines'][0]) for h in mine],
+  +                    push_gated_lines=len([s for s in pg if s]) if k == 'v' else 0, controls=cj.get(k, []))
+  +    nh = sum(len(v['hunks']) for v in J.values())
+  +    L.append('### ### **REPAIRS %d ; HUNKS NAMED %d ; WITH tools/act_close.py`s SECTIONS AND push_gated.sh`s DIFF ; CONTROLS PASSING %d OF %d.**' % (
+  +        len(J), nh, sum(1 for v in J.values() for c in v['controls'] if c['ok']), sum(len(v['controls']) for v in J.values())))
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L[-1:]))
+  +        for k, v in J.items():
+  +            print('  (%s) act_close %d ; hunks %s ; push_gated %d ; controls %d' % (k, v['act_close_lines'], v['hunks'], v['push_gated_lines'], len(v['controls'])))
+  +        return
+  +    put_txt('%s_tool_repairs.txt' % ACT, L)
+  +    put_json('%s_tool_repairs.json' % ACT, dict(at=utc(), repairs=J))
+  +    print(L[-1])
+  +
+  +
+  CONTROL record: 0 ; got 0 ; PASS
+  CONTROL constructed: (True, False, False) ; got (True, False, False) ; PASS
+
+### ### (ii) EVERY COMMIT OF A STEP -- v4 row (63)
+  --- tools/act_close.py (new) its section, 14 lines:
+  +# ================================================================================ (ii) EVERY COMMIT OF A STEP
+  +def step_commits(rows, phase=None, repo=None):
+  +    """every commit a step bank's rows carry -- each row's `commits` list where it has one, else its `commit` -- for the rows of the phase and
+  +    the repository named (all where None), in the bank's order, each once."""
+  +    out = []
+  +    for r in rows or []:
+  +        if (phase is not None and r.get('phase') != phase) or (repo is not None and r.get('repo') != repo):
+  +            continue
+  +        for c in (r.get('commits') or [r.get('commit') or '']):
+  +            if c and c not in out:
+  +                out.append(c)
+  +    return out
+  +
+  +
+  --- tools/b713_record.py @@ -260,3 +274,5 @@
+  -    """`step <relay|pp> <phase words> [commit]`: one row appended to data/b713_steps.json after a commit -- the repository, the commit (HEAD where
+  -    none is named), its committer time and subject as read, and the phase the seat names from STEP_PHASES; G-SEALED-AFTER-COMPONENTS reads the
+  -    phase and not the subject. A commit already in the bank is not entered twice."""
+  +    """`step <relay|pp> <phase words> [commit ...]`: one row appended to data/b713_steps.json after a step's commits -- the repository, the
+  +    commits (HEAD where none is named), the last one's committer time and subject as read, and the phase the seat names from STEP_PHASES;
+  +    G-SEALED-AFTER-COMPONENTS reads the phase and not the subject. (R323)(4)(ii), standing clauses v4 row (63): EVERY COMMIT OF A STEP -- a
+  +    step of several commits is one row carrying the list of them (`commits`), `commit` its first, and every arm reads the list through
+  +    tools/act_close.py step_commits (a repair at b713). A commit already in the bank is not entered twice."""
+  --- tools/b713_record.py @@ -276,3 +298,8 @@
+  -    if any(r.get('repo') == a[0] and r.get('commit') == full for r in rows):
+  -        sys.exit('### %s %s IS IN THE STEP BANK ALREADY -- NOTHING WRITTEN' % (a[0], full[:8]))
+  -    rows.append(dict(repo=a[0], commit=full, ct=int(ct), at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(int(ct))), phase=phase, subject=subj[:120]))
+  +    have = set(AC.step_commits(rows, repo=a[0]))
+  +    dup = [f[:8] for f in fulls if f in have]
+  +    if dup:
+  +        sys.exit('### %s %s IN THE STEP BANK ALREADY -- NOTHING WRITTEN' % (a[0], dup))
+  +    row = dict(repo=a[0], commit=fulls[0], ct=int(ct), at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(int(ct))), phase=phase, subject=subj[:120])
+  +    if len(fulls) > 1:
+  +        row['commits'] = fulls
+  +    rows.append(row)
+  --- tools/b713_record.py @@ -2112,0 +2249,199 @@
+  +def _close_step(n):
+  +    """(R323)(4)(vi), standing clauses v4 row (68), THE CLOSE IN ONE ORDER: the route is step [n] of the close and refuses, writing nothing,
+  +    while a lower step's evidence is absent (tools/act_close.py close_refuses; a repair at b713, banked by diff)."""
+  +    r = AC.close_refuses(ACT, n)
+  +    if r:
+  +        print(r, flush=True)
+  +        sys.exit(5)
+  +    print('  ### THE CLOSE IN ONE ORDER: STEP [%d] MAY RUN -- EVERY LOWER STEP`S EVIDENCE STANDS' % n, flush=True)
+  +
+  +
+  +def closeorder(*a):
+  +    """`closeorder <n>`: step [n] of v4 row (68) read against the lower steps' evidence before the seat runs it by hand (the record commit
+  +    [19] among them); prints and exits 5 where it refuses; writes nothing."""
+  +    if not a or not a[0].isdigit():
+  +        for k, w, e in AC.close_steps():
+  +            print('  [%d] %s (%s)' % (k, w[:90], e.replace('<act>', ACT)))
+  +        return
+  +    _close_step(int(a[0]))
+  +
+  +
+  +def repaircontrols(*a):
+  +    """data/b713_repair_controls.txt (.json): (R323)(4), each of the six repairs with its two-instance control -- one instance from the record
+  +    (b712's own banks, commits and remotes) and one constructed (rows or banks made by the route in the scratchpad, or throwaway repositories
+  +    made by the scratch control script for (v)) -- every instance printed with what it was wanted to read and what it read."""
+  +    import io
+  +    import subprocess
+  +    import tempfile
+  +    import b713_closing as CL
+  +    SP = os.environ.get('B713_SCRATCH') or 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad'
+  +    out, J = [], {}
+  +
+  +    def row(rep, inst, wanted, got, note=''):
+  +        ok = (wanted == got)
+  +        out.append('  (%s) %-12s wanted %s ; got %s ; %s%s' % (rep, inst, wanted, got, 'PASS' if ok else '### FAIL', (' -- ' + note) if note else ''))
+  +        J.setdefault(rep, []).append(dict(instance=inst, wanted=str(wanted), got=str(got), ok=ok, note=note))
+  +
+  +    def git(*args, repo=ROOT):
+  +        return subprocess.run(['git', '-C', repo] + list(args), capture_output=True, text=True, encoding='utf-8').stdout.strip()
+  +
+  +    # ### (i) ONE LIST OF WRITES: b712's face (W) read by AC.w_patterns against b712's relay changes 4a383ac8..1290446c; constructed paths
+  +    face12 = io.open(os.path.join(D, 'b712_registration_2026-10-25.txt'), encoding='utf-8').read()
+  +    pats = AC.w_patterns(face12)
+  +    ch = [p for p in git('diff', '--name-only', '4a383ac8', '1290446c').split(NL) if p]
+  +    beyond = [p for p in ch if not AC.w_allows(p, pats, 'relay')]
+  +    out.append('### (i) b712`s face (W): %d patterns read ; relay 4a383ac8..1290446c changed %d paths ; beyond the list %s' % (len(pats), len(ch), beyond or 'NONE'))
+  +    row('i', 'record', 0, len(beyond), 'b712`s relay changes, every one inside its own face`s (W)')
+  +    row('i', 'constructed', (True, False, False), (AC.w_allows('data/b712_x.txt', pats), AC.w_allows('data/zz_outside_b712.txt', pats),
+  +                                                   AC.w_allows('FOUNDATIONS.md', pats, 'PLACE-papers')),
+  +        'data/b712_x.txt inside ; data/zz_outside_b712.txt and PLACE-papers/FOUNDATIONS.md outside')
+  +
+  +    # ### (ii) EVERY COMMIT OF A STEP: b712's gate (afe3903a, and dcb3b286 "the gate before the lock" entered under component 5); constructed
+  +    st12 = jl('b712_steps.json')
+  +    rows12 = st12 if isinstance(st12, list) else st12.get('rows', [])
+  +    g_one = [r.get('commit', '')[:8] for r in rows12 if r.get('phase') == 'gate']
+  +    joined = [dict(repo='relay', phase='gate', commits=['afe3903acfd0e4c790a34015d5fa142d1d52b812', 'dcb3b2862324ddbde0bd8ee08a893141fcda38c2'])]
+  +    out.append('### (ii) b712`s step bank: the gate phase`s rows read by their one `commit`: %s ; dcb3b286`s subject names the gate, its phase %r' % (
+  +        g_one, next((r.get('phase') for r in rows12 if r.get('commit', '').startswith('dcb3b286')), None)))
+  +    row('ii', 'record', ['afe3903a', 'dcb3b286'], [c[:8] for c in AC.step_commits(joined, 'gate', 'relay')],
+  +        'the gate`s two commits on one row, read whole (the one-`commit` form reads %s)' % [r.get('commit', '')[:8] for r in joined if r.get('commit')])
+  +    three = [dict(repo='relay', phase='component 9', commit='c1', commits=['c1', 'c2', 'c3']), dict(repo='pp', phase='component 9', commit='c4')]
+  +    row('ii', 'constructed', ['c1', 'c2', 'c3'], AC.step_commits(three, 'component 9', 'relay'),
+  +        'a three-commit step: the one-`commit` form reads [c1], c2 and c3 undeclared; the other repository`s c4 not read')
+  +
+  +    # ### (iii) ONE COUNTER: b712's defects bank (b712's record tool counted 22 for the seat, its suite 21); constructed rows
+  +    d12 = [l for l in io.open(os.path.join(D, 'b712_defects.txt'), encoding='utf-8').read().split(NL) if AC.OWNER.match(l.lstrip())]
+  +    c12 = AC.defect_owners(d12)
+  +    row('iii', 'record', (22, 21, 0, 1), (c12['TOTAL'], c12['SEAT'], c12['NAVIGATOR'], c12['OTHER']),
+  +        'TOTAL, SEAT, NAVIGATOR, OTHER: (h) THE CARRIED RECORD TOOL`S FORM is OTHER; both tools now read the one number')
+  +    c3 = AC.defect_owners(["(a) THE SEAT'S: x", "(b) THE NAVIGATOR'S: y", "(c) THE RECORD TOOL'S: z", "(a') THE SEAT’S: w", 'no row'])
+  +    row('iii', 'constructed', (4, 2, 1, 1), (c3['TOTAL'], c3['SEAT'], c3['NAVIGATOR'], c3['OTHER']), 'a primed letter and a curly apostrophe counted')
+  +
+  +    # ### (iv) THE LOCK AS A MEMBRANE: b712's lock is written, its dry root bank refuses; a constructed act's banks before and after its lock
+  +    row('iv', 'record', True, bool(AC.lock_refuses('b712', 'b712_root_banks_dry.json')), 'b712_lockgate.json stands; a rewrite of [2]`s bank refused')
+  +    td = tempfile.mkdtemp(prefix='b713_lock_', dir=SP)
+  +    for n_ in ('b999_root_banks_dry.json', 'b999_standing_figures.json'):
+  +        io.open(os.path.join(td, n_), 'w', encoding='utf-8').write('{}')
+  +    before = bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td))
+  +    io.open(os.path.join(td, 'b999_lockgate.json'), 'w', encoding='utf-8').write('{}')
+  +    after = (bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td)), bool(AC.lock_refuses('b999', 'b999_scores.json', td)))
+  +    row('iv', 'constructed', (False, True, False), (before,) + after,
+  +        'scratch %s: before the lock writable ; after it [2]`s bank refused ; [9]`s scores bank (after the lock) writable' % os.path.basename(td))
+  +
+  +    # ### (v) A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote: b712's head line read again; the scratch script's two clones
+  +    ev = []
+  +    hl = CL.head_line(act='b712', events=ev)
+  +    m_ = re.search(r'relay (\w+), PLACE-papers (\w+)', hl)
+  +    out.append('### (v) b712`s head line read again by the repaired builder: %s' % hl)
+  +    out += ['      event: ' + e for e in ev]
+  +    row('v', 'record', True, bool(m_) and 'none' not in (m_.group(1), m_.group(2)),
+  +        'each repository`s main read at the remote (b712`s own head line read "none read" for both, events :48)')
+  +    r_ = subprocess.run(['bash', SP + '/control_v_capture.sh'], capture_output=True, text=True, encoding='utf-8')
+  +    out += ['      ' + l for l in r_.stdout.strip().split(NL)]
+  +    got_v = tuple(re.findall(r'captures written (\d+) ; name \S+ ; the capture carries the read-back (\w+)', r_.stdout))
+  +    row('v', 'constructed', (('1', 'yes'), ('0', 'no')), got_v, 'a file:// origin captured unasked, a plain-path origin (the tests`) not')
+  +
+  +    # ### (vi) THE CLOSE IN ONE ORDER: b712's banks replayed by their mtimes at its record commit (755b03aa) and at its scores-close bank
+  +    t_rec = int(git('show', '-s', '--format=%ct', '755b03aa') or 0)
+  +    t_sc = int(os.path.getmtime(os.path.join(D, 'b712_scores_close.json')))
+  +    alias = {'b712_closing_dry.txt': 0, 'b712_scores_dry.txt': 0, 'b712_relay_push-b712-record_push_out.txt': t_rec}
+  +
+  +    def at(T):
+  +        def has(p):
+  +            b = os.path.basename(p)
+  +            if b in alias:
+  +                return T >= alias[b]
+  +            return os.path.exists(p) and os.path.getmtime(p) <= T
+  +        return has
+  +    r19, r22 = AC.close_refuses('b712', 19, present=at(t_rec)), AC.close_refuses('b712', 22, present=at(t_sc))
+  +    out.append('### (vi) b712 replayed (its dry runs [3] [4] in the scratchpad, recorded in its gate; [19] its record push 755b03aa, no capture):')
+  +    out += ['      step [19] at %s: %s' % (t_rec, r19 or 'MAY RUN'), '      step [22] at %s: %s' % (t_sc, r22 or 'MAY RUN')]
+  +    row('vi', 'record', True, bool(r19 or r22), 'b712 closed out of v4`s order: a step ran while a lower step`s evidence was absent')
+  +    td2 = tempfile.mkdtemp(prefix='b713_order_', dir=SP)
+  +    for k, w, e in AC.close_steps():
+  +        if k <= 5 and e.startswith('data/'):
+  +            io.open(os.path.join(td2, os.path.basename(e.replace('<act>', 'b999'))), 'w', encoding='utf-8').write('{}')
+  +    g6, g7 = AC.close_refuses('b999', 6, td2), AC.close_refuses('b999', 7, td2)
+  +    row('vi', 'constructed', ('', True, True), (g6, bool(g7), '[6]' in g7), 'banks [1]-[5] in scratch %s: [6] may run ; [7] refused naming [6]' % os.path.basename(td2))
+  +
+  +    npass = sum(1 for v in J.values() for x in v if x['ok'])
+  +    ntot = sum(len(v) for v in J.values())
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH WITH ITS TWO-INSTANCE CONTROL (standing clauses v4 rows (62)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### one instance from the record (b712`s banks, commits and remotes), one constructed (rows here, banks in the scratchpad, throwaway',
+  +         '### repositories for (v)); the functions are tools/act_close.py`s, the head line tools/b713_closing.py`s, the capture tools/push_gated.sh`s.',
+  +         '### (vi)`s record instance reads b712`s banks by their file times (a bank rewritten later reads absent at the earlier time).', ''] + out + [
+  +         '', '### ### **CONTROLS %d ; PASSING %d ; THE SIX REPAIRS EACH WITH TWO INSTANCES %s.**' % (ntot, npass, all(len(J.get(x, [])) == 2 for x in
+  +                                                                                                       ('i', 'ii', 'iii', 'iv', 'v', 'vi')))]
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L))
+  +        return
+  +    put_txt('%s_repair_controls.txt' % ACT, L)
+  +    put_json('%s_repair_controls.json' % ACT, dict(at=utc(), controls=J, passing=npass, total=ntot))
+  +    print(NL.join(L))
+  +
+  +
+  +REPAIR_KEYS = (('i', 'ONE LIST OF WRITES', '(62)', r'w_patterns|w_allows'),
+  +                ('ii', 'EVERY COMMIT OF A STEP', '(63)', r'step_commits'),
+  +                ('iii', 'ONE COUNTER', '(64)', r'defect_owners'),
+  +                ('iv', 'THE LOCK AS A MEMBRANE', '(65)', r'lock_refuses|_lock_guard'),
+  +                ('v', 'A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote', '(66)', r'read_remotes|PUSH_GATED_CAPTURE_DIR'),
+  +                ('vi', 'THE CLOSE IN ONE ORDER', '(67), (68)', r'close_refuses|_close_step|close_steps'))
+  +
+  +
+  +def toolrepairs13(*a):
+  +    """data/b713_tool_repairs.txt (.json): (R323)(4), each repair's diff -- the hunks of the carry-time diffs (data/b713_repairdiff_record.txt,
+  +    _checks.txt, _closing.txt) whose added lines name the repair or call its function, tools/push_gated.sh's diff against relay HEAD, and
+  +    tools/act_close.py (a new shared tool, untracked till the component's commit) by its sections -- each repair's control line beside it."""
+  +    import io
+  +    hunks = []
+  +    for n_ in ('record', 'checks', 'closing'):
+  +        cur = None
+  +        for l in io.open(os.path.join(D, '%s_repairdiff_%s.txt' % (ACT, n_)), encoding='utf-8').read().split(NL):
+  +            if l.startswith('@@'):
+  +                cur = dict(tool='tools/%s_%s.py' % (ACT, n_), lines=[l])
+  +                hunks.append(cur)
+  +            elif cur is not None and l[:1] in '+-' and not l.startswith('### ###'):
+  +                cur['lines'].append(l)
+  +            elif cur is not None and not l.strip():
+  +                cur = None
+  +    pg = subprocess.run(['git', '-C', ROOT, 'diff', 'HEAD', '--', 'tools/push_gated.sh'], capture_output=True, text=True, encoding='utf-8').stdout.split(NL)
+  +    ac = io.open(os.path.join(T, 'act_close.py'), encoding='utf-8').read().split(NL)
+  +    cj = jl('%s_repair_controls.json' % ACT).get('controls', {})
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH BY ITS DIFF (standing clauses v4 rows (61)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### per repair: the v4 row ; tools/act_close.py`s section (a new shared tool, every line added) ; the hunks of the carried tools` diffs',
+  +         '### (data/b713_repairdiff_<tool>.txt) whose added lines name the repair or call its function ; tools/push_gated.sh`s diff against relay',
+  +         '### HEAD for (v) ; the two controls (data/b713_repair_controls.txt).', '']
+  +    J = {}
+  +    for k, title, rows, fn in REPAIR_KEYS:
+  +        tag = re.compile(r'\(R323\)\(4\)\(%s\)|%s' % (re.escape(k), fn))
+  +        mine = [h for h in hunks if any(tag.search(l) for l in h['lines'] if l.startswith('+'))]
+  +        L.append('### ### (%s) %s -- v4 row %s' % (k, title, rows))
+  +        sec, on = [], False
+  +        for i, l in enumerate(ac, 1):
+  +            if l.startswith('# ====='):
+  +                on = bool(re.search(r'\(%s\) ' % re.escape(k), l)) or (k == 'vi' and '(vi)' in l)
+  +            if on:
+  +                sec.append('+%s' % l)
+  +        if sec:
+  +            L += ['  --- tools/act_close.py (new) its section, %d lines:' % len(sec)] + ['  ' + s for s in sec]
+  +        for h in mine:
+  +            L += ['  --- %s %s' % (h['tool'], h['lines'][0])] + ['  ' + s for s in h['lines'][1:]]
+  +        if k == 'v':
+  +            L += ['  --- tools/push_gated.sh, git diff HEAD:'] + ['  ' + s for s in pg if s]
+  +        L += ['  CONTROL %s: %s ; got %s ; %s' % (c['instance'], c['wanted'], c['got'], 'PASS' if c['ok'] else '### FAIL') for c in cj.get(k, [])]
+  +        L.append('')
+  +        J[k] = dict(title=title, v4_rows=rows, act_close_lines=len(sec), hunks=[(h['tool'], h['lines'][0]) for h in mine],
+  +                    push_gated_lines=len([s for s in pg if s]) if k == 'v' else 0, controls=cj.get(k, []))
+  +    nh = sum(len(v['hunks']) for v in J.values())
+  +    L.append('### ### **REPAIRS %d ; HUNKS NAMED %d ; WITH tools/act_close.py`s SECTIONS AND push_gated.sh`s DIFF ; CONTROLS PASSING %d OF %d.**' % (
+  +        len(J), nh, sum(1 for v in J.values() for c in v['controls'] if c['ok']), sum(len(v['controls']) for v in J.values())))
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L[-1:]))
+  +        for k, v in J.items():
+  +            print('  (%s) act_close %d ; hunks %s ; push_gated %d ; controls %d' % (k, v['act_close_lines'], v['hunks'], v['push_gated_lines'], len(v['controls'])))
+  +        return
+  +    put_txt('%s_tool_repairs.txt' % ACT, L)
+  +    put_json('%s_tool_repairs.json' % ACT, dict(at=utc(), repairs=J))
+  +    print(L[-1])
+  +
+  +
+  --- tools/b713_checks.py @@ -1130,2 +1139,3 @@
+  -    """the phase the act's step bank gives a commit (its row by repository and by the commit's abbreviated hash), None where it has no row."""
+  -    return next((r.get('phase') for r in rows if r.get('repo') == repo and (r.get('commit') or '').startswith(h)), None)
+  +    """the phase the act's step bank gives a commit (its row by repository and by the commit's abbreviated hash), None where it has no row.
+  +    (R323)(4)(ii), v4 row (63): a row's every commit read through tools/act_close.py step_commits (a repair at b713)."""
+  +    return next((r.get('phase') for r in rows if r.get('repo') == repo and any(c.startswith(h) for c in AC.step_commits([r]))), None)
+  --- tools/b713_checks.py @@ -1156,3 +1166,6 @@
+  -    steps the step bank's rows."""
+  -    gates = [r.get('commit') or '' for r in steps or [] if r.get('phase') == 'gate']
+  -    if 'WHAT RAN AHEAD OF THIS SEAL' not in (face or '') or lock_epoch is None or len(gates) != 1:
+  +    steps the step bank's rows.
+  +    (R323)(4)(ii), standing clauses v4 row (63), EVERY COMMIT OF A STEP: the gate's commits are every commit of the step-bank rows of phase
+  +    `gate` (tools/act_close.py step_commits), one or more; b712's arm wanted exactly one row and read its one commit, and so read the gate's
+  +    second commit dcb3b286 undeclared (a repair at b713, banked by diff)."""
+  +    gates = AC.step_commits(steps, phase='gate')
+  +    if 'WHAT RAN AHEAD OF THIS SEAL' not in (face or '') or lock_epoch is None or not gates:
+  CONTROL record: ['afe3903a', 'dcb3b286'] ; got ['afe3903a', 'dcb3b286'] ; PASS
+  CONTROL constructed: ['c1', 'c2', 'c3'] ; got ['c1', 'c2', 'c3'] ; PASS
+
+### ### (iii) ONE COUNTER -- v4 row (64)
+  --- tools/act_close.py (new) its section, 18 lines:
+  +# ================================================================================ (iii) ONE COUNTER
+  +OWNER = re.compile(r"^\(([a-z]'?)\) THE ([A-Z][A-Z_ -]*?)(?:’S|'S|’|')")
+  +
+  +
+  +def defect_owners(letter_rows):
+  +    """the defects' letters counted by owner, once: {'TOTAL': n, 'SEAT': n, 'NAVIGATOR': n, 'OTHER': n, 'by': [(letter, owner)]}. A row is
+  +    `(x) THE <OWNER>'S ...` (the bank's own indent read through); SEAT and NAVIGATOR are the owners those words name, every other owner (a
+  +    tool's, the carried form's) OTHER."""
+  +    by = []
+  +    for s in letter_rows or []:
+  +        m = OWNER.match(s.lstrip())
+  +        if m:
+  +            o = m.group(2).strip()
+  +            by.append((m.group(1), 'SEAT' if o == 'SEAT' else 'NAVIGATOR' if o == 'NAVIGATOR' else 'OTHER'))
+  +    return dict(TOTAL=len(by), SEAT=sum(1 for _x, o in by if o == 'SEAT'), NAVIGATOR=sum(1 for _x, o in by if o == 'NAVIGATOR'),
+  +                OTHER=sum(1 for _x, o in by if o == 'OTHER'), by=by)
+  +
+  +
+  --- tools/b713_record.py @@ -1977,1 +2114,1 @@
+  -    seat = len(rows) - len(nav)
+  +    seat = AC.defect_owners(rows)['SEAT']   # ### (R323)(4)(iii), v4 row (64): the one counter (b712's form counted every row not the navigator's)
+  --- tools/b713_record.py @@ -2112,0 +2249,199 @@
+  +def _close_step(n):
+  +    """(R323)(4)(vi), standing clauses v4 row (68), THE CLOSE IN ONE ORDER: the route is step [n] of the close and refuses, writing nothing,
+  +    while a lower step's evidence is absent (tools/act_close.py close_refuses; a repair at b713, banked by diff)."""
+  +    r = AC.close_refuses(ACT, n)
+  +    if r:
+  +        print(r, flush=True)
+  +        sys.exit(5)
+  +    print('  ### THE CLOSE IN ONE ORDER: STEP [%d] MAY RUN -- EVERY LOWER STEP`S EVIDENCE STANDS' % n, flush=True)
+  +
+  +
+  +def closeorder(*a):
+  +    """`closeorder <n>`: step [n] of v4 row (68) read against the lower steps' evidence before the seat runs it by hand (the record commit
+  +    [19] among them); prints and exits 5 where it refuses; writes nothing."""
+  +    if not a or not a[0].isdigit():
+  +        for k, w, e in AC.close_steps():
+  +            print('  [%d] %s (%s)' % (k, w[:90], e.replace('<act>', ACT)))
+  +        return
+  +    _close_step(int(a[0]))
+  +
+  +
+  +def repaircontrols(*a):
+  +    """data/b713_repair_controls.txt (.json): (R323)(4), each of the six repairs with its two-instance control -- one instance from the record
+  +    (b712's own banks, commits and remotes) and one constructed (rows or banks made by the route in the scratchpad, or throwaway repositories
+  +    made by the scratch control script for (v)) -- every instance printed with what it was wanted to read and what it read."""
+  +    import io
+  +    import subprocess
+  +    import tempfile
+  +    import b713_closing as CL
+  +    SP = os.environ.get('B713_SCRATCH') or 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad'
+  +    out, J = [], {}
+  +
+  +    def row(rep, inst, wanted, got, note=''):
+  +        ok = (wanted == got)
+  +        out.append('  (%s) %-12s wanted %s ; got %s ; %s%s' % (rep, inst, wanted, got, 'PASS' if ok else '### FAIL', (' -- ' + note) if note else ''))
+  +        J.setdefault(rep, []).append(dict(instance=inst, wanted=str(wanted), got=str(got), ok=ok, note=note))
+  +
+  +    def git(*args, repo=ROOT):
+  +        return subprocess.run(['git', '-C', repo] + list(args), capture_output=True, text=True, encoding='utf-8').stdout.strip()
+  +
+  +    # ### (i) ONE LIST OF WRITES: b712's face (W) read by AC.w_patterns against b712's relay changes 4a383ac8..1290446c; constructed paths
+  +    face12 = io.open(os.path.join(D, 'b712_registration_2026-10-25.txt'), encoding='utf-8').read()
+  +    pats = AC.w_patterns(face12)
+  +    ch = [p for p in git('diff', '--name-only', '4a383ac8', '1290446c').split(NL) if p]
+  +    beyond = [p for p in ch if not AC.w_allows(p, pats, 'relay')]
+  +    out.append('### (i) b712`s face (W): %d patterns read ; relay 4a383ac8..1290446c changed %d paths ; beyond the list %s' % (len(pats), len(ch), beyond or 'NONE'))
+  +    row('i', 'record', 0, len(beyond), 'b712`s relay changes, every one inside its own face`s (W)')
+  +    row('i', 'constructed', (True, False, False), (AC.w_allows('data/b712_x.txt', pats), AC.w_allows('data/zz_outside_b712.txt', pats),
+  +                                                   AC.w_allows('FOUNDATIONS.md', pats, 'PLACE-papers')),
+  +        'data/b712_x.txt inside ; data/zz_outside_b712.txt and PLACE-papers/FOUNDATIONS.md outside')
+  +
+  +    # ### (ii) EVERY COMMIT OF A STEP: b712's gate (afe3903a, and dcb3b286 "the gate before the lock" entered under component 5); constructed
+  +    st12 = jl('b712_steps.json')
+  +    rows12 = st12 if isinstance(st12, list) else st12.get('rows', [])
+  +    g_one = [r.get('commit', '')[:8] for r in rows12 if r.get('phase') == 'gate']
+  +    joined = [dict(repo='relay', phase='gate', commits=['afe3903acfd0e4c790a34015d5fa142d1d52b812', 'dcb3b2862324ddbde0bd8ee08a893141fcda38c2'])]
+  +    out.append('### (ii) b712`s step bank: the gate phase`s rows read by their one `commit`: %s ; dcb3b286`s subject names the gate, its phase %r' % (
+  +        g_one, next((r.get('phase') for r in rows12 if r.get('commit', '').startswith('dcb3b286')), None)))
+  +    row('ii', 'record', ['afe3903a', 'dcb3b286'], [c[:8] for c in AC.step_commits(joined, 'gate', 'relay')],
+  +        'the gate`s two commits on one row, read whole (the one-`commit` form reads %s)' % [r.get('commit', '')[:8] for r in joined if r.get('commit')])
+  +    three = [dict(repo='relay', phase='component 9', commit='c1', commits=['c1', 'c2', 'c3']), dict(repo='pp', phase='component 9', commit='c4')]
+  +    row('ii', 'constructed', ['c1', 'c2', 'c3'], AC.step_commits(three, 'component 9', 'relay'),
+  +        'a three-commit step: the one-`commit` form reads [c1], c2 and c3 undeclared; the other repository`s c4 not read')
+  +
+  +    # ### (iii) ONE COUNTER: b712's defects bank (b712's record tool counted 22 for the seat, its suite 21); constructed rows
+  +    d12 = [l for l in io.open(os.path.join(D, 'b712_defects.txt'), encoding='utf-8').read().split(NL) if AC.OWNER.match(l.lstrip())]
+  +    c12 = AC.defect_owners(d12)
+  +    row('iii', 'record', (22, 21, 0, 1), (c12['TOTAL'], c12['SEAT'], c12['NAVIGATOR'], c12['OTHER']),
+  +        'TOTAL, SEAT, NAVIGATOR, OTHER: (h) THE CARRIED RECORD TOOL`S FORM is OTHER; both tools now read the one number')
+  +    c3 = AC.defect_owners(["(a) THE SEAT'S: x", "(b) THE NAVIGATOR'S: y", "(c) THE RECORD TOOL'S: z", "(a') THE SEAT’S: w", 'no row'])
+  +    row('iii', 'constructed', (4, 2, 1, 1), (c3['TOTAL'], c3['SEAT'], c3['NAVIGATOR'], c3['OTHER']), 'a primed letter and a curly apostrophe counted')
+  +
+  +    # ### (iv) THE LOCK AS A MEMBRANE: b712's lock is written, its dry root bank refuses; a constructed act's banks before and after its lock
+  +    row('iv', 'record', True, bool(AC.lock_refuses('b712', 'b712_root_banks_dry.json')), 'b712_lockgate.json stands; a rewrite of [2]`s bank refused')
+  +    td = tempfile.mkdtemp(prefix='b713_lock_', dir=SP)
+  +    for n_ in ('b999_root_banks_dry.json', 'b999_standing_figures.json'):
+  +        io.open(os.path.join(td, n_), 'w', encoding='utf-8').write('{}')
+  +    before = bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td))
+  +    io.open(os.path.join(td, 'b999_lockgate.json'), 'w', encoding='utf-8').write('{}')
+  +    after = (bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td)), bool(AC.lock_refuses('b999', 'b999_scores.json', td)))
+  +    row('iv', 'constructed', (False, True, False), (before,) + after,
+  +        'scratch %s: before the lock writable ; after it [2]`s bank refused ; [9]`s scores bank (after the lock) writable' % os.path.basename(td))
+  +
+  +    # ### (v) A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote: b712's head line read again; the scratch script's two clones
+  +    ev = []
+  +    hl = CL.head_line(act='b712', events=ev)
+  +    m_ = re.search(r'relay (\w+), PLACE-papers (\w+)', hl)
+  +    out.append('### (v) b712`s head line read again by the repaired builder: %s' % hl)
+  +    out += ['      event: ' + e for e in ev]
+  +    row('v', 'record', True, bool(m_) and 'none' not in (m_.group(1), m_.group(2)),
+  +        'each repository`s main read at the remote (b712`s own head line read "none read" for both, events :48)')
+  +    r_ = subprocess.run(['bash', SP + '/control_v_capture.sh'], capture_output=True, text=True, encoding='utf-8')
+  +    out += ['      ' + l for l in r_.stdout.strip().split(NL)]
+  +    got_v = tuple(re.findall(r'captures written (\d+) ; name \S+ ; the capture carries the read-back (\w+)', r_.stdout))
+  +    row('v', 'constructed', (('1', 'yes'), ('0', 'no')), got_v, 'a file:// origin captured unasked, a plain-path origin (the tests`) not')
+  +
+  +    # ### (vi) THE CLOSE IN ONE ORDER: b712's banks replayed by their mtimes at its record commit (755b03aa) and at its scores-close bank
+  +    t_rec = int(git('show', '-s', '--format=%ct', '755b03aa') or 0)
+  +    t_sc = int(os.path.getmtime(os.path.join(D, 'b712_scores_close.json')))
+  +    alias = {'b712_closing_dry.txt': 0, 'b712_scores_dry.txt': 0, 'b712_relay_push-b712-record_push_out.txt': t_rec}
+  +
+  +    def at(T):
+  +        def has(p):
+  +            b = os.path.basename(p)
+  +            if b in alias:
+  +                return T >= alias[b]
+  +            return os.path.exists(p) and os.path.getmtime(p) <= T
+  +        return has
+  +    r19, r22 = AC.close_refuses('b712', 19, present=at(t_rec)), AC.close_refuses('b712', 22, present=at(t_sc))
+  +    out.append('### (vi) b712 replayed (its dry runs [3] [4] in the scratchpad, recorded in its gate; [19] its record push 755b03aa, no capture):')
+  +    out += ['      step [19] at %s: %s' % (t_rec, r19 or 'MAY RUN'), '      step [22] at %s: %s' % (t_sc, r22 or 'MAY RUN')]
+  +    row('vi', 'record', True, bool(r19 or r22), 'b712 closed out of v4`s order: a step ran while a lower step`s evidence was absent')
+  +    td2 = tempfile.mkdtemp(prefix='b713_order_', dir=SP)
+  +    for k, w, e in AC.close_steps():
+  +        if k <= 5 and e.startswith('data/'):
+  +            io.open(os.path.join(td2, os.path.basename(e.replace('<act>', 'b999'))), 'w', encoding='utf-8').write('{}')
+  +    g6, g7 = AC.close_refuses('b999', 6, td2), AC.close_refuses('b999', 7, td2)
+  +    row('vi', 'constructed', ('', True, True), (g6, bool(g7), '[6]' in g7), 'banks [1]-[5] in scratch %s: [6] may run ; [7] refused naming [6]' % os.path.basename(td2))
+  +
+  +    npass = sum(1 for v in J.values() for x in v if x['ok'])
+  +    ntot = sum(len(v) for v in J.values())
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH WITH ITS TWO-INSTANCE CONTROL (standing clauses v4 rows (62)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### one instance from the record (b712`s banks, commits and remotes), one constructed (rows here, banks in the scratchpad, throwaway',
+  +         '### repositories for (v)); the functions are tools/act_close.py`s, the head line tools/b713_closing.py`s, the capture tools/push_gated.sh`s.',
+  +         '### (vi)`s record instance reads b712`s banks by their file times (a bank rewritten later reads absent at the earlier time).', ''] + out + [
+  +         '', '### ### **CONTROLS %d ; PASSING %d ; THE SIX REPAIRS EACH WITH TWO INSTANCES %s.**' % (ntot, npass, all(len(J.get(x, [])) == 2 for x in
+  +                                                                                                       ('i', 'ii', 'iii', 'iv', 'v', 'vi')))]
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L))
+  +        return
+  +    put_txt('%s_repair_controls.txt' % ACT, L)
+  +    put_json('%s_repair_controls.json' % ACT, dict(at=utc(), controls=J, passing=npass, total=ntot))
+  +    print(NL.join(L))
+  +
+  +
+  +REPAIR_KEYS = (('i', 'ONE LIST OF WRITES', '(62)', r'w_patterns|w_allows'),
+  +                ('ii', 'EVERY COMMIT OF A STEP', '(63)', r'step_commits'),
+  +                ('iii', 'ONE COUNTER', '(64)', r'defect_owners'),
+  +                ('iv', 'THE LOCK AS A MEMBRANE', '(65)', r'lock_refuses|_lock_guard'),
+  +                ('v', 'A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote', '(66)', r'read_remotes|PUSH_GATED_CAPTURE_DIR'),
+  +                ('vi', 'THE CLOSE IN ONE ORDER', '(67), (68)', r'close_refuses|_close_step|close_steps'))
+  +
+  +
+  +def toolrepairs13(*a):
+  +    """data/b713_tool_repairs.txt (.json): (R323)(4), each repair's diff -- the hunks of the carry-time diffs (data/b713_repairdiff_record.txt,
+  +    _checks.txt, _closing.txt) whose added lines name the repair or call its function, tools/push_gated.sh's diff against relay HEAD, and
+  +    tools/act_close.py (a new shared tool, untracked till the component's commit) by its sections -- each repair's control line beside it."""
+  +    import io
+  +    hunks = []
+  +    for n_ in ('record', 'checks', 'closing'):
+  +        cur = None
+  +        for l in io.open(os.path.join(D, '%s_repairdiff_%s.txt' % (ACT, n_)), encoding='utf-8').read().split(NL):
+  +            if l.startswith('@@'):
+  +                cur = dict(tool='tools/%s_%s.py' % (ACT, n_), lines=[l])
+  +                hunks.append(cur)
+  +            elif cur is not None and l[:1] in '+-' and not l.startswith('### ###'):
+  +                cur['lines'].append(l)
+  +            elif cur is not None and not l.strip():
+  +                cur = None
+  +    pg = subprocess.run(['git', '-C', ROOT, 'diff', 'HEAD', '--', 'tools/push_gated.sh'], capture_output=True, text=True, encoding='utf-8').stdout.split(NL)
+  +    ac = io.open(os.path.join(T, 'act_close.py'), encoding='utf-8').read().split(NL)
+  +    cj = jl('%s_repair_controls.json' % ACT).get('controls', {})
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH BY ITS DIFF (standing clauses v4 rows (61)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### per repair: the v4 row ; tools/act_close.py`s section (a new shared tool, every line added) ; the hunks of the carried tools` diffs',
+  +         '### (data/b713_repairdiff_<tool>.txt) whose added lines name the repair or call its function ; tools/push_gated.sh`s diff against relay',
+  +         '### HEAD for (v) ; the two controls (data/b713_repair_controls.txt).', '']
+  +    J = {}
+  +    for k, title, rows, fn in REPAIR_KEYS:
+  +        tag = re.compile(r'\(R323\)\(4\)\(%s\)|%s' % (re.escape(k), fn))
+  +        mine = [h for h in hunks if any(tag.search(l) for l in h['lines'] if l.startswith('+'))]
+  +        L.append('### ### (%s) %s -- v4 row %s' % (k, title, rows))
+  +        sec, on = [], False
+  +        for i, l in enumerate(ac, 1):
+  +            if l.startswith('# ====='):
+  +                on = bool(re.search(r'\(%s\) ' % re.escape(k), l)) or (k == 'vi' and '(vi)' in l)
+  +            if on:
+  +                sec.append('+%s' % l)
+  +        if sec:
+  +            L += ['  --- tools/act_close.py (new) its section, %d lines:' % len(sec)] + ['  ' + s for s in sec]
+  +        for h in mine:
+  +            L += ['  --- %s %s' % (h['tool'], h['lines'][0])] + ['  ' + s for s in h['lines'][1:]]
+  +        if k == 'v':
+  +            L += ['  --- tools/push_gated.sh, git diff HEAD:'] + ['  ' + s for s in pg if s]
+  +        L += ['  CONTROL %s: %s ; got %s ; %s' % (c['instance'], c['wanted'], c['got'], 'PASS' if c['ok'] else '### FAIL') for c in cj.get(k, [])]
+  +        L.append('')
+  +        J[k] = dict(title=title, v4_rows=rows, act_close_lines=len(sec), hunks=[(h['tool'], h['lines'][0]) for h in mine],
+  +                    push_gated_lines=len([s for s in pg if s]) if k == 'v' else 0, controls=cj.get(k, []))
+  +    nh = sum(len(v['hunks']) for v in J.values())
+  +    L.append('### ### **REPAIRS %d ; HUNKS NAMED %d ; WITH tools/act_close.py`s SECTIONS AND push_gated.sh`s DIFF ; CONTROLS PASSING %d OF %d.**' % (
+  +        len(J), nh, sum(1 for v in J.values() for c in v['controls'] if c['ok']), sum(len(v['controls']) for v in J.values())))
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L[-1:]))
+  +        for k, v in J.items():
+  +            print('  (%s) act_close %d ; hunks %s ; push_gated %d ; controls %d' % (k, v['act_close_lines'], v['hunks'], v['push_gated_lines'], len(v['controls'])))
+  +        return
+  +    put_txt('%s_tool_repairs.txt' % ACT, L)
+  +    put_json('%s_tool_repairs.json' % ACT, dict(at=utc(), repairs=J))
+  +    print(L[-1])
+  +
+  +
+  --- tools/b713_record.py @@ -2214,1 +2555,2 @@
+  -            wr = (num_word(len(nav)), num_word(len(rows) - len(nav)))
+  +            oc = AC.defect_owners(rows)   # ### (R323)(4)(iii), v4 row (64): the one counter, the suite's arm's own (a repair at b713)
+  +            wr = (num_word(oc['NAVIGATOR']), num_word(oc['SEAT']))
+  --- tools/b713_checks.py @@ -90,0 +90,9 @@
+  +import act_close as AC        # noqa: E402  ### (R323)(4): the close's shared functions, one form for every tool (a repair at b713)
+  +
+  +
+  +def _owners(rows):
+  +    """(R323)(4)(iii), standing clauses v4 row (64), ONE COUNTER: (navigator, seat) from tools/act_close.py defect_owners, the one function
+  +    every tool imports -- b703's _owners counted the seat as every row not the navigator's (22 at b712) where the trail arm counted THE SEAT'S
+  +    alone (21); both now read the one count (a repair at b713, banked by diff)."""
+  +    o = AC.defect_owners(rows)
+  +    return o['NAVIGATOR'], o['SEAT']
+  --- tools/b713_checks.py @@ -1010,2 +1019,2 @@
+  -    bank = [m_.groups() for m_ in (re.match(r"^\(([a-z]'?)\) THE (NAVIGATOR|SEAT)'S", s) for s in (S['letters_seal'] or [])) if m_]
+  -    want = (sum(1 for _x, o in bank if o == 'NAVIGATOR'), sum(1 for _x, o in bank if o == 'SEAT'))
+  +    bank = [b_ for b_ in AC.defect_owners(S['letters_seal'] or [])['by'] if b_[1] in ('NAVIGATOR', 'SEAT')]
+  +    want = _owners(S['letters_seal'] or [])   # ### (R323)(4)(iii): the one counter (a repair at b713)
+  CONTROL record: (22, 21, 0, 1) ; got (22, 21, 0, 1) ; PASS
+  CONTROL constructed: (4, 2, 1, 1) ; got (4, 2, 1, 1) ; PASS
+
+### ### (iv) THE LOCK AS A MEMBRANE -- v4 row (65)
+  --- tools/act_close.py (new) its section, 26 lines:
+  +# ================================================================================ (iv) THE LOCK AS A MEMBRANE
+  +def pre_lock_banks(act, v4_text=None):
+  +    """the banks of the steps before the lock in v4 row (68) (the lock's own step excluded), by basename, each with its .txt/.json sibling."""
+  +    steps = close_steps(v4_text)
+  +    lock_n = next((k for k, w, e in steps if e.endswith('_lockgate.json')), None)
+  +    out = []
+  +    for k, w, e in steps:
+  +        if lock_n is not None and k < lock_n and e.startswith('data/'):
+  +            b = os.path.basename(e.replace('<act>', act))
+  +            stem = re.sub(r'\.(txt|json)$', '', b)
+  +            out += [b, stem + '.txt', stem + '.json']
+  +    return sorted(set(out))
+  +
+  +
+  +def lock_refuses(act, name, dd=None, v4_text=None):
+  +    """the refusal's text where the act's lock is written (data/<act>_lockgate.json) and the bank is one a step before the lock wrote and
+  +    stands written; '' otherwise. As the root's membrane refuses after the root (row (53)), so the lock's after the lock."""
+  +    dd = dd or D
+  +    base = os.path.basename(name)
+  +    if not os.path.exists(os.path.join(dd, '%s_lockgate.json' % act)):
+  +        return ''
+  +    if base in pre_lock_banks(act, v4_text) and os.path.exists(os.path.join(dd, base)):
+  +        return ('### THE LOCK AS A MEMBRANE (standing clauses v4 row (65)): %s`S LOCK IS WRITTEN (data/%s_lockgate.json) AND %s IS A BANK '
+  +                'WRITTEN BEFORE IT -- NOTHING WRITTEN' % (act, act, base))
+  +    return ''
+  +
+  --- tools/b713_record.py @@ -99,0 +99,12 @@
+  +import act_close as AC             # noqa: E402  ### (R323)(4): the close's shared functions, one form for every tool (a repair at b713)
+  +
+  +
+  +def _lock_guard(name):
+  +    """(R323)(4)(iv), standing clauses v4 row (65): THE LOCK AS A MEMBRANE -- a bank of a step before the lock refuses a rewrite once the lock
+  +    is written, as the root's membrane refuses after the root (a repair at b713, banked by diff)."""
+  +    r = AC.lock_refuses(ACT, name)
+  +    if r:
+  +        print(r, flush=True)
+  +        sys.exit(4)
+  +
+  +
+  --- tools/b713_record.py @@ -101,0 +113,1 @@
+  +    _lock_guard(name)
+  --- tools/b713_record.py @@ -106,0 +119,1 @@
+  +    _lock_guard(name)
+  --- tools/b713_record.py @@ -2112,0 +2249,199 @@
+  +def _close_step(n):
+  +    """(R323)(4)(vi), standing clauses v4 row (68), THE CLOSE IN ONE ORDER: the route is step [n] of the close and refuses, writing nothing,
+  +    while a lower step's evidence is absent (tools/act_close.py close_refuses; a repair at b713, banked by diff)."""
+  +    r = AC.close_refuses(ACT, n)
+  +    if r:
+  +        print(r, flush=True)
+  +        sys.exit(5)
+  +    print('  ### THE CLOSE IN ONE ORDER: STEP [%d] MAY RUN -- EVERY LOWER STEP`S EVIDENCE STANDS' % n, flush=True)
+  +
+  +
+  +def closeorder(*a):
+  +    """`closeorder <n>`: step [n] of v4 row (68) read against the lower steps' evidence before the seat runs it by hand (the record commit
+  +    [19] among them); prints and exits 5 where it refuses; writes nothing."""
+  +    if not a or not a[0].isdigit():
+  +        for k, w, e in AC.close_steps():
+  +            print('  [%d] %s (%s)' % (k, w[:90], e.replace('<act>', ACT)))
+  +        return
+  +    _close_step(int(a[0]))
+  +
+  +
+  +def repaircontrols(*a):
+  +    """data/b713_repair_controls.txt (.json): (R323)(4), each of the six repairs with its two-instance control -- one instance from the record
+  +    (b712's own banks, commits and remotes) and one constructed (rows or banks made by the route in the scratchpad, or throwaway repositories
+  +    made by the scratch control script for (v)) -- every instance printed with what it was wanted to read and what it read."""
+  +    import io
+  +    import subprocess
+  +    import tempfile
+  +    import b713_closing as CL
+  +    SP = os.environ.get('B713_SCRATCH') or 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad'
+  +    out, J = [], {}
+  +
+  +    def row(rep, inst, wanted, got, note=''):
+  +        ok = (wanted == got)
+  +        out.append('  (%s) %-12s wanted %s ; got %s ; %s%s' % (rep, inst, wanted, got, 'PASS' if ok else '### FAIL', (' -- ' + note) if note else ''))
+  +        J.setdefault(rep, []).append(dict(instance=inst, wanted=str(wanted), got=str(got), ok=ok, note=note))
+  +
+  +    def git(*args, repo=ROOT):
+  +        return subprocess.run(['git', '-C', repo] + list(args), capture_output=True, text=True, encoding='utf-8').stdout.strip()
+  +
+  +    # ### (i) ONE LIST OF WRITES: b712's face (W) read by AC.w_patterns against b712's relay changes 4a383ac8..1290446c; constructed paths
+  +    face12 = io.open(os.path.join(D, 'b712_registration_2026-10-25.txt'), encoding='utf-8').read()
+  +    pats = AC.w_patterns(face12)
+  +    ch = [p for p in git('diff', '--name-only', '4a383ac8', '1290446c').split(NL) if p]
+  +    beyond = [p for p in ch if not AC.w_allows(p, pats, 'relay')]
+  +    out.append('### (i) b712`s face (W): %d patterns read ; relay 4a383ac8..1290446c changed %d paths ; beyond the list %s' % (len(pats), len(ch), beyond or 'NONE'))
+  +    row('i', 'record', 0, len(beyond), 'b712`s relay changes, every one inside its own face`s (W)')
+  +    row('i', 'constructed', (True, False, False), (AC.w_allows('data/b712_x.txt', pats), AC.w_allows('data/zz_outside_b712.txt', pats),
+  +                                                   AC.w_allows('FOUNDATIONS.md', pats, 'PLACE-papers')),
+  +        'data/b712_x.txt inside ; data/zz_outside_b712.txt and PLACE-papers/FOUNDATIONS.md outside')
+  +
+  +    # ### (ii) EVERY COMMIT OF A STEP: b712's gate (afe3903a, and dcb3b286 "the gate before the lock" entered under component 5); constructed
+  +    st12 = jl('b712_steps.json')
+  +    rows12 = st12 if isinstance(st12, list) else st12.get('rows', [])
+  +    g_one = [r.get('commit', '')[:8] for r in rows12 if r.get('phase') == 'gate']
+  +    joined = [dict(repo='relay', phase='gate', commits=['afe3903acfd0e4c790a34015d5fa142d1d52b812', 'dcb3b2862324ddbde0bd8ee08a893141fcda38c2'])]
+  +    out.append('### (ii) b712`s step bank: the gate phase`s rows read by their one `commit`: %s ; dcb3b286`s subject names the gate, its phase %r' % (
+  +        g_one, next((r.get('phase') for r in rows12 if r.get('commit', '').startswith('dcb3b286')), None)))
+  +    row('ii', 'record', ['afe3903a', 'dcb3b286'], [c[:8] for c in AC.step_commits(joined, 'gate', 'relay')],
+  +        'the gate`s two commits on one row, read whole (the one-`commit` form reads %s)' % [r.get('commit', '')[:8] for r in joined if r.get('commit')])
+  +    three = [dict(repo='relay', phase='component 9', commit='c1', commits=['c1', 'c2', 'c3']), dict(repo='pp', phase='component 9', commit='c4')]
+  +    row('ii', 'constructed', ['c1', 'c2', 'c3'], AC.step_commits(three, 'component 9', 'relay'),
+  +        'a three-commit step: the one-`commit` form reads [c1], c2 and c3 undeclared; the other repository`s c4 not read')
+  +
+  +    # ### (iii) ONE COUNTER: b712's defects bank (b712's record tool counted 22 for the seat, its suite 21); constructed rows
+  +    d12 = [l for l in io.open(os.path.join(D, 'b712_defects.txt'), encoding='utf-8').read().split(NL) if AC.OWNER.match(l.lstrip())]
+  +    c12 = AC.defect_owners(d12)
+  +    row('iii', 'record', (22, 21, 0, 1), (c12['TOTAL'], c12['SEAT'], c12['NAVIGATOR'], c12['OTHER']),
+  +        'TOTAL, SEAT, NAVIGATOR, OTHER: (h) THE CARRIED RECORD TOOL`S FORM is OTHER; both tools now read the one number')
+  +    c3 = AC.defect_owners(["(a) THE SEAT'S: x", "(b) THE NAVIGATOR'S: y", "(c) THE RECORD TOOL'S: z", "(a') THE SEAT’S: w", 'no row'])
+  +    row('iii', 'constructed', (4, 2, 1, 1), (c3['TOTAL'], c3['SEAT'], c3['NAVIGATOR'], c3['OTHER']), 'a primed letter and a curly apostrophe counted')
+  +
+  +    # ### (iv) THE LOCK AS A MEMBRANE: b712's lock is written, its dry root bank refuses; a constructed act's banks before and after its lock
+  +    row('iv', 'record', True, bool(AC.lock_refuses('b712', 'b712_root_banks_dry.json')), 'b712_lockgate.json stands; a rewrite of [2]`s bank refused')
+  +    td = tempfile.mkdtemp(prefix='b713_lock_', dir=SP)
+  +    for n_ in ('b999_root_banks_dry.json', 'b999_standing_figures.json'):
+  +        io.open(os.path.join(td, n_), 'w', encoding='utf-8').write('{}')
+  +    before = bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td))
+  +    io.open(os.path.join(td, 'b999_lockgate.json'), 'w', encoding='utf-8').write('{}')
+  +    after = (bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td)), bool(AC.lock_refuses('b999', 'b999_scores.json', td)))
+  +    row('iv', 'constructed', (False, True, False), (before,) + after,
+  +        'scratch %s: before the lock writable ; after it [2]`s bank refused ; [9]`s scores bank (after the lock) writable' % os.path.basename(td))
+  +
+  +    # ### (v) A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote: b712's head line read again; the scratch script's two clones
+  +    ev = []
+  +    hl = CL.head_line(act='b712', events=ev)
+  +    m_ = re.search(r'relay (\w+), PLACE-papers (\w+)', hl)
+  +    out.append('### (v) b712`s head line read again by the repaired builder: %s' % hl)
+  +    out += ['      event: ' + e for e in ev]
+  +    row('v', 'record', True, bool(m_) and 'none' not in (m_.group(1), m_.group(2)),
+  +        'each repository`s main read at the remote (b712`s own head line read "none read" for both, events :48)')
+  +    r_ = subprocess.run(['bash', SP + '/control_v_capture.sh'], capture_output=True, text=True, encoding='utf-8')
+  +    out += ['      ' + l for l in r_.stdout.strip().split(NL)]
+  +    got_v = tuple(re.findall(r'captures written (\d+) ; name \S+ ; the capture carries the read-back (\w+)', r_.stdout))
+  +    row('v', 'constructed', (('1', 'yes'), ('0', 'no')), got_v, 'a file:// origin captured unasked, a plain-path origin (the tests`) not')
+  +
+  +    # ### (vi) THE CLOSE IN ONE ORDER: b712's banks replayed by their mtimes at its record commit (755b03aa) and at its scores-close bank
+  +    t_rec = int(git('show', '-s', '--format=%ct', '755b03aa') or 0)
+  +    t_sc = int(os.path.getmtime(os.path.join(D, 'b712_scores_close.json')))
+  +    alias = {'b712_closing_dry.txt': 0, 'b712_scores_dry.txt': 0, 'b712_relay_push-b712-record_push_out.txt': t_rec}
+  +
+  +    def at(T):
+  +        def has(p):
+  +            b = os.path.basename(p)
+  +            if b in alias:
+  +                return T >= alias[b]
+  +            return os.path.exists(p) and os.path.getmtime(p) <= T
+  +        return has
+  +    r19, r22 = AC.close_refuses('b712', 19, present=at(t_rec)), AC.close_refuses('b712', 22, present=at(t_sc))
+  +    out.append('### (vi) b712 replayed (its dry runs [3] [4] in the scratchpad, recorded in its gate; [19] its record push 755b03aa, no capture):')
+  +    out += ['      step [19] at %s: %s' % (t_rec, r19 or 'MAY RUN'), '      step [22] at %s: %s' % (t_sc, r22 or 'MAY RUN')]
+  +    row('vi', 'record', True, bool(r19 or r22), 'b712 closed out of v4`s order: a step ran while a lower step`s evidence was absent')
+  +    td2 = tempfile.mkdtemp(prefix='b713_order_', dir=SP)
+  +    for k, w, e in AC.close_steps():
+  +        if k <= 5 and e.startswith('data/'):
+  +            io.open(os.path.join(td2, os.path.basename(e.replace('<act>', 'b999'))), 'w', encoding='utf-8').write('{}')
+  +    g6, g7 = AC.close_refuses('b999', 6, td2), AC.close_refuses('b999', 7, td2)
+  +    row('vi', 'constructed', ('', True, True), (g6, bool(g7), '[6]' in g7), 'banks [1]-[5] in scratch %s: [6] may run ; [7] refused naming [6]' % os.path.basename(td2))
+  +
+  +    npass = sum(1 for v in J.values() for x in v if x['ok'])
+  +    ntot = sum(len(v) for v in J.values())
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH WITH ITS TWO-INSTANCE CONTROL (standing clauses v4 rows (62)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### one instance from the record (b712`s banks, commits and remotes), one constructed (rows here, banks in the scratchpad, throwaway',
+  +         '### repositories for (v)); the functions are tools/act_close.py`s, the head line tools/b713_closing.py`s, the capture tools/push_gated.sh`s.',
+  +         '### (vi)`s record instance reads b712`s banks by their file times (a bank rewritten later reads absent at the earlier time).', ''] + out + [
+  +         '', '### ### **CONTROLS %d ; PASSING %d ; THE SIX REPAIRS EACH WITH TWO INSTANCES %s.**' % (ntot, npass, all(len(J.get(x, [])) == 2 for x in
+  +                                                                                                       ('i', 'ii', 'iii', 'iv', 'v', 'vi')))]
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L))
+  +        return
+  +    put_txt('%s_repair_controls.txt' % ACT, L)
+  +    put_json('%s_repair_controls.json' % ACT, dict(at=utc(), controls=J, passing=npass, total=ntot))
+  +    print(NL.join(L))
+  +
+  +
+  +REPAIR_KEYS = (('i', 'ONE LIST OF WRITES', '(62)', r'w_patterns|w_allows'),
+  +                ('ii', 'EVERY COMMIT OF A STEP', '(63)', r'step_commits'),
+  +                ('iii', 'ONE COUNTER', '(64)', r'defect_owners'),
+  +                ('iv', 'THE LOCK AS A MEMBRANE', '(65)', r'lock_refuses|_lock_guard'),
+  +                ('v', 'A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote', '(66)', r'read_remotes|PUSH_GATED_CAPTURE_DIR'),
+  +                ('vi', 'THE CLOSE IN ONE ORDER', '(67), (68)', r'close_refuses|_close_step|close_steps'))
+  +
+  +
+  +def toolrepairs13(*a):
+  +    """data/b713_tool_repairs.txt (.json): (R323)(4), each repair's diff -- the hunks of the carry-time diffs (data/b713_repairdiff_record.txt,
+  +    _checks.txt, _closing.txt) whose added lines name the repair or call its function, tools/push_gated.sh's diff against relay HEAD, and
+  +    tools/act_close.py (a new shared tool, untracked till the component's commit) by its sections -- each repair's control line beside it."""
+  +    import io
+  +    hunks = []
+  +    for n_ in ('record', 'checks', 'closing'):
+  +        cur = None
+  +        for l in io.open(os.path.join(D, '%s_repairdiff_%s.txt' % (ACT, n_)), encoding='utf-8').read().split(NL):
+  +            if l.startswith('@@'):
+  +                cur = dict(tool='tools/%s_%s.py' % (ACT, n_), lines=[l])
+  +                hunks.append(cur)
+  +            elif cur is not None and l[:1] in '+-' and not l.startswith('### ###'):
+  +                cur['lines'].append(l)
+  +            elif cur is not None and not l.strip():
+  +                cur = None
+  +    pg = subprocess.run(['git', '-C', ROOT, 'diff', 'HEAD', '--', 'tools/push_gated.sh'], capture_output=True, text=True, encoding='utf-8').stdout.split(NL)
+  +    ac = io.open(os.path.join(T, 'act_close.py'), encoding='utf-8').read().split(NL)
+  +    cj = jl('%s_repair_controls.json' % ACT).get('controls', {})
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH BY ITS DIFF (standing clauses v4 rows (61)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### per repair: the v4 row ; tools/act_close.py`s section (a new shared tool, every line added) ; the hunks of the carried tools` diffs',
+  +         '### (data/b713_repairdiff_<tool>.txt) whose added lines name the repair or call its function ; tools/push_gated.sh`s diff against relay',
+  +         '### HEAD for (v) ; the two controls (data/b713_repair_controls.txt).', '']
+  +    J = {}
+  +    for k, title, rows, fn in REPAIR_KEYS:
+  +        tag = re.compile(r'\(R323\)\(4\)\(%s\)|%s' % (re.escape(k), fn))
+  +        mine = [h for h in hunks if any(tag.search(l) for l in h['lines'] if l.startswith('+'))]
+  +        L.append('### ### (%s) %s -- v4 row %s' % (k, title, rows))
+  +        sec, on = [], False
+  +        for i, l in enumerate(ac, 1):
+  +            if l.startswith('# ====='):
+  +                on = bool(re.search(r'\(%s\) ' % re.escape(k), l)) or (k == 'vi' and '(vi)' in l)
+  +            if on:
+  +                sec.append('+%s' % l)
+  +        if sec:
+  +            L += ['  --- tools/act_close.py (new) its section, %d lines:' % len(sec)] + ['  ' + s for s in sec]
+  +        for h in mine:
+  +            L += ['  --- %s %s' % (h['tool'], h['lines'][0])] + ['  ' + s for s in h['lines'][1:]]
+  +        if k == 'v':
+  +            L += ['  --- tools/push_gated.sh, git diff HEAD:'] + ['  ' + s for s in pg if s]
+  +        L += ['  CONTROL %s: %s ; got %s ; %s' % (c['instance'], c['wanted'], c['got'], 'PASS' if c['ok'] else '### FAIL') for c in cj.get(k, [])]
+  +        L.append('')
+  +        J[k] = dict(title=title, v4_rows=rows, act_close_lines=len(sec), hunks=[(h['tool'], h['lines'][0]) for h in mine],
+  +                    push_gated_lines=len([s for s in pg if s]) if k == 'v' else 0, controls=cj.get(k, []))
+  +    nh = sum(len(v['hunks']) for v in J.values())
+  +    L.append('### ### **REPAIRS %d ; HUNKS NAMED %d ; WITH tools/act_close.py`s SECTIONS AND push_gated.sh`s DIFF ; CONTROLS PASSING %d OF %d.**' % (
+  +        len(J), nh, sum(1 for v in J.values() for c in v['controls'] if c['ok']), sum(len(v['controls']) for v in J.values())))
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L[-1:]))
+  +        for k, v in J.items():
+  +            print('  (%s) act_close %d ; hunks %s ; push_gated %d ; controls %d' % (k, v['act_close_lines'], v['hunks'], v['push_gated_lines'], len(v['controls'])))
+  +        return
+  +    put_txt('%s_tool_repairs.txt' % ACT, L)
+  +    put_json('%s_tool_repairs.json' % ACT, dict(at=utc(), repairs=J))
+  +    print(L[-1])
+  +
+  +
+  --- tools/b713_closing.py @@ -532,1 +533,9 @@
+  -    p = os.path.join(OUTD, 'b713_closing_dry.txt' if DRY else 'b713_closing.txt')
+  +    # ### (R323)(4)(iv) and (vi), standing clauses v4 rows (65) and (68), a repair at b713: the dry run is step [3] of the close's order and
+  +    # ### writes its bank to relay data/ (b712 wrote it to the scratchpad, so its order left no evidence of the step), refused once the lock
+  +    # ### is written; the closing is step [25], refused while a lower step's evidence is absent
+  +    import act_close as AC
+  +    r = AC.lock_refuses(ACT, 'b713_closing_dry.txt') if DRY else AC.close_refuses(ACT, 25)
+  +    if r:
+  +        print(r, flush=True)
+  +        sys.exit(5)
+  +    p = os.path.join(D, 'b713_closing_dry.txt') if DRY else os.path.join(OUTD, 'b713_closing.txt')
+  CONTROL record: True ; got True ; PASS
+  CONTROL constructed: (False, True, False) ; got (False, True, False) ; PASS
+
+### ### (v) A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote -- v4 row (66)
+  --- tools/b713_record.py @@ -980,19 +1020,22 @@
+  -    evl = [i for i, l in enumerate(rdn('b712_events.txt').split(NL), 1) if re.match(r'^    \S', l)]
+  -    if len(evl) != 16:
+  -        sys.exit('### data/b712_events.txt READS %d STARTING LINES, NOT THE RULING`S SIXTEEN -- NOTHING COMPOSED' % len(evl))
+  -    return (' “%s” (data/b712_closing.txt :1); its prompt count reads one prompt as two and it carries no score (data/b712_events.txt :79, '
+  -            'repaired at (R323)(3)(iii)). As the banks confirm by row: the refined detection law of data/b710_registrations.txt (i) met at pair 11 '
+  -            '(n*/F2 %s) and pair 15 (%s) (data/b712_pairs.txt :%d, :%d, :%d); Q0’s log-derivative coefficients negative from n = %s, c(%s) = %s, '
+  -            '%s negative through %s (data/b712_coeffs.txt :%d, :%d); the surgery HELD (data/b712_surgery.txt :%d); the axis (e) REFUTED by its '
+  -            'registered falsifier (data/b712_axis.txt :%d); the certified list complete to height %s, %d on-line and %d off-line zeros added above '
+  -            '325 in %d bands (data/b712_list.txt :%d, the band rows); the Independence supplement in data/b712_independence.txt; the throughstone '
+  -            'report’s %s comparisons, DIFFERS NONE, every bank seated, S2 not scorable before the root on the author’s word (data/b712_report.txt '
+  -            ':%d, :%d, :%d); the port at %s of 12 modules, held at DirichletC7Order.lean :501:31 (data/b712_port.txt :%d), the join not dispatched; '
+  -            'the entry at FINDINGS :%d; the trail at OPEN_TRAILS :%d carrying the root %s over %s banks (data/b712_root_banks.txt :%d); N1-N5 and '
+  -            'S1-S3 HELD at scores close (data/b712_closing.txt :%d); the mirror mirror-refresh-2026-10-25-b712.zip (sha256 %s…) CLEAN on all three '
+  -            'clauses with the root line (data/b712_closing.txt :%d); suite %s of %s pre-push and %s of %s post-push, NOT CLEAN (data/b712_checks.txt, '
+  -            'data/b712_checks_postpush.txt); %d defects (a)–(%s) lettered before the seal (data/b712_defects.txt); %d events in data/b712_events.txt. '
+  -            'Nothing deposited.' % (
+  -                head, r11, r15, l11, l15, lpv, cn, cn, cv, neg, thru, lc, lneg, lsu, lax, reach, on, off, len(bands), lli, ncmp, lcmp, ldif, lseat,
+  -                built, lport, K.B711_ENTRY, K.B711_TRAIL, ar['root'][:8], banks, lrb, lsc, msha, lmi, p_pre, n_pre, p_post, n_post, len(short),
+  -                _letter(short[-1]) if short else '-', len(evl)))
+  +    evl = [i for i, l in enumerate(rdn('b712_events.txt').split(NL), 1) if re.match(r'^    [A-Z]', l)]
+  +    if len(evl) != 9:
+  +        sys.exit('### data/b712_events.txt READS %d STARTING LINES, NOT THE RULING`S NINE -- NOTHING COMPOSED' % len(evl))
+  +    return (' “%s” (data/b712_closing.txt :1); “none read” because no push of the act wrote a capture (data/b712_events.txt :48, repaired at '
+  +            '(R323)(4)(v)). As the banks confirm by row: faces_join, h2_sign ↔ SIDELvConservation.RegisterPentagon.Register4_positivity LiCoeff, at '
+  +            'SIDE-faces-join FacesJoin.lean :29 at v0.1.0, built on run %s against lv-conservation at the port’s tip cb0aea56, #print axioms '
+  +            '[propext, Classical.choice, Quot.sound], graded DERIVES from its statement, an equivalence between open statements, neither side proved '
+  +            '(data/b712_join_grade.txt :%d, :%d, :%d); tag object %s, peeled %s, read back at the remote (data/b712_join_tag.txt :%d, :%d; FINDINGS '
+  +            ':10380, :10390; FACES_LEDGER :547); Register4_positivity equal by statement at 93c27ec and at cb0aea56 (data/b712_regpos.txt :%d, :%d); '
+  +            'the port at %s of 12 modules (data/b712_port.txt :%d); the throughstone (a)-(d) EQUAL, DIFFERS NONE, REGRADE NONE (data/b712_report.txt '
+  +            ':%d); data/b712_registrations.txt committed alone at %s, its one commit, with its genus control as wanted (data/b712_genus_control.txt '
+  +            ':%d, :%d); the price in data/b712_price.txt, tier one %s h, tier two %s h, the act’s budget %s h, the coefficient cut n <= %s '
+  +            '(data/b712_price.txt :%d, :%d, :%d; FINDINGS :10394); day1/Silence_of_Foundations.md re-cut on %s %s, local, its distance by the b670 '
+  +            'method %s to %s (data/b712_recut_cut.txt :%d); the entry at FINDINGS :%d; the trail at OPEN_TRAILS :%d carrying the root %s; the '
+  +            'act-root chain b624-b712 AGREE (data/b712_checks_postpush_standing-b3.txt :%d); N1-N4 and S1-S3 HELD, N5 REFUTED on the scorer’s file '
+  +            'list (data/b712_closing.txt :%d); suite %s of %s pre-push and %s of %s post-push, failing %s (data/b712_checks.txt :13, '
+  +            'data/b712_checks_postpush.txt :13); the mirror mirror-refresh-2026-10-25-b712.zip (sha256 %s…) CLEAN on all three clauses over %s files '
+  +            'with the root line (data/b712_closing.txt :%d); %d defects (a)–(%s) lettered before the seal (data/b712_defects.txt); %d events in '
+  +            'data/b712_events.txt. Nothing deposited, nothing published.' % (
+  +                head, run, lrun, lax3, lder, tobj, peel, ltag, ltagr, lrp0, lrp, built, lbu, lthr, K.REG_COMMIT[:8], lgc, lgp, t1, t2, bud, cut,
+  +                lpr, lbud, lcut, K.RECUT_BRANCH, K.RECUT_COMMIT[:8], d0, d1, lrc, K.B711_ENTRY, K.B711_TRAIL, ar['root'][:8], lch, lsc, p_pre, n_pre,
+  +                p_post, n_post, fails, msha, nfiles, lmi, len(short), _letter(short[-1]) if short else '-', len(evl)))
+  --- tools/b713_record.py @@ -2112,0 +2249,199 @@
+  +def _close_step(n):
+  +    """(R323)(4)(vi), standing clauses v4 row (68), THE CLOSE IN ONE ORDER: the route is step [n] of the close and refuses, writing nothing,
+  +    while a lower step's evidence is absent (tools/act_close.py close_refuses; a repair at b713, banked by diff)."""
+  +    r = AC.close_refuses(ACT, n)
+  +    if r:
+  +        print(r, flush=True)
+  +        sys.exit(5)
+  +    print('  ### THE CLOSE IN ONE ORDER: STEP [%d] MAY RUN -- EVERY LOWER STEP`S EVIDENCE STANDS' % n, flush=True)
+  +
+  +
+  +def closeorder(*a):
+  +    """`closeorder <n>`: step [n] of v4 row (68) read against the lower steps' evidence before the seat runs it by hand (the record commit
+  +    [19] among them); prints and exits 5 where it refuses; writes nothing."""
+  +    if not a or not a[0].isdigit():
+  +        for k, w, e in AC.close_steps():
+  +            print('  [%d] %s (%s)' % (k, w[:90], e.replace('<act>', ACT)))
+  +        return
+  +    _close_step(int(a[0]))
+  +
+  +
+  +def repaircontrols(*a):
+  +    """data/b713_repair_controls.txt (.json): (R323)(4), each of the six repairs with its two-instance control -- one instance from the record
+  +    (b712's own banks, commits and remotes) and one constructed (rows or banks made by the route in the scratchpad, or throwaway repositories
+  +    made by the scratch control script for (v)) -- every instance printed with what it was wanted to read and what it read."""
+  +    import io
+  +    import subprocess
+  +    import tempfile
+  +    import b713_closing as CL
+  +    SP = os.environ.get('B713_SCRATCH') or 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad'
+  +    out, J = [], {}
+  +
+  +    def row(rep, inst, wanted, got, note=''):
+  +        ok = (wanted == got)
+  +        out.append('  (%s) %-12s wanted %s ; got %s ; %s%s' % (rep, inst, wanted, got, 'PASS' if ok else '### FAIL', (' -- ' + note) if note else ''))
+  +        J.setdefault(rep, []).append(dict(instance=inst, wanted=str(wanted), got=str(got), ok=ok, note=note))
+  +
+  +    def git(*args, repo=ROOT):
+  +        return subprocess.run(['git', '-C', repo] + list(args), capture_output=True, text=True, encoding='utf-8').stdout.strip()
+  +
+  +    # ### (i) ONE LIST OF WRITES: b712's face (W) read by AC.w_patterns against b712's relay changes 4a383ac8..1290446c; constructed paths
+  +    face12 = io.open(os.path.join(D, 'b712_registration_2026-10-25.txt'), encoding='utf-8').read()
+  +    pats = AC.w_patterns(face12)
+  +    ch = [p for p in git('diff', '--name-only', '4a383ac8', '1290446c').split(NL) if p]
+  +    beyond = [p for p in ch if not AC.w_allows(p, pats, 'relay')]
+  +    out.append('### (i) b712`s face (W): %d patterns read ; relay 4a383ac8..1290446c changed %d paths ; beyond the list %s' % (len(pats), len(ch), beyond or 'NONE'))
+  +    row('i', 'record', 0, len(beyond), 'b712`s relay changes, every one inside its own face`s (W)')
+  +    row('i', 'constructed', (True, False, False), (AC.w_allows('data/b712_x.txt', pats), AC.w_allows('data/zz_outside_b712.txt', pats),
+  +                                                   AC.w_allows('FOUNDATIONS.md', pats, 'PLACE-papers')),
+  +        'data/b712_x.txt inside ; data/zz_outside_b712.txt and PLACE-papers/FOUNDATIONS.md outside')
+  +
+  +    # ### (ii) EVERY COMMIT OF A STEP: b712's gate (afe3903a, and dcb3b286 "the gate before the lock" entered under component 5); constructed
+  +    st12 = jl('b712_steps.json')
+  +    rows12 = st12 if isinstance(st12, list) else st12.get('rows', [])
+  +    g_one = [r.get('commit', '')[:8] for r in rows12 if r.get('phase') == 'gate']
+  +    joined = [dict(repo='relay', phase='gate', commits=['afe3903acfd0e4c790a34015d5fa142d1d52b812', 'dcb3b2862324ddbde0bd8ee08a893141fcda38c2'])]
+  +    out.append('### (ii) b712`s step bank: the gate phase`s rows read by their one `commit`: %s ; dcb3b286`s subject names the gate, its phase %r' % (
+  +        g_one, next((r.get('phase') for r in rows12 if r.get('commit', '').startswith('dcb3b286')), None)))
+  +    row('ii', 'record', ['afe3903a', 'dcb3b286'], [c[:8] for c in AC.step_commits(joined, 'gate', 'relay')],
+  +        'the gate`s two commits on one row, read whole (the one-`commit` form reads %s)' % [r.get('commit', '')[:8] for r in joined if r.get('commit')])
+  +    three = [dict(repo='relay', phase='component 9', commit='c1', commits=['c1', 'c2', 'c3']), dict(repo='pp', phase='component 9', commit='c4')]
+  +    row('ii', 'constructed', ['c1', 'c2', 'c3'], AC.step_commits(three, 'component 9', 'relay'),
+  +        'a three-commit step: the one-`commit` form reads [c1], c2 and c3 undeclared; the other repository`s c4 not read')
+  +
+  +    # ### (iii) ONE COUNTER: b712's defects bank (b712's record tool counted 22 for the seat, its suite 21); constructed rows
+  +    d12 = [l for l in io.open(os.path.join(D, 'b712_defects.txt'), encoding='utf-8').read().split(NL) if AC.OWNER.match(l.lstrip())]
+  +    c12 = AC.defect_owners(d12)
+  +    row('iii', 'record', (22, 21, 0, 1), (c12['TOTAL'], c12['SEAT'], c12['NAVIGATOR'], c12['OTHER']),
+  +        'TOTAL, SEAT, NAVIGATOR, OTHER: (h) THE CARRIED RECORD TOOL`S FORM is OTHER; both tools now read the one number')
+  +    c3 = AC.defect_owners(["(a) THE SEAT'S: x", "(b) THE NAVIGATOR'S: y", "(c) THE RECORD TOOL'S: z", "(a') THE SEAT’S: w", 'no row'])
+  +    row('iii', 'constructed', (4, 2, 1, 1), (c3['TOTAL'], c3['SEAT'], c3['NAVIGATOR'], c3['OTHER']), 'a primed letter and a curly apostrophe counted')
+  +
+  +    # ### (iv) THE LOCK AS A MEMBRANE: b712's lock is written, its dry root bank refuses; a constructed act's banks before and after its lock
+  +    row('iv', 'record', True, bool(AC.lock_refuses('b712', 'b712_root_banks_dry.json')), 'b712_lockgate.json stands; a rewrite of [2]`s bank refused')
+  +    td = tempfile.mkdtemp(prefix='b713_lock_', dir=SP)
+  +    for n_ in ('b999_root_banks_dry.json', 'b999_standing_figures.json'):
+  +        io.open(os.path.join(td, n_), 'w', encoding='utf-8').write('{}')
+  +    before = bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td))
+  +    io.open(os.path.join(td, 'b999_lockgate.json'), 'w', encoding='utf-8').write('{}')
+  +    after = (bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td)), bool(AC.lock_refuses('b999', 'b999_scores.json', td)))
+  +    row('iv', 'constructed', (False, True, False), (before,) + after,
+  +        'scratch %s: before the lock writable ; after it [2]`s bank refused ; [9]`s scores bank (after the lock) writable' % os.path.basename(td))
+  +
+  +    # ### (v) A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote: b712's head line read again; the scratch script's two clones
+  +    ev = []
+  +    hl = CL.head_line(act='b712', events=ev)
+  +    m_ = re.search(r'relay (\w+), PLACE-papers (\w+)', hl)
+  +    out.append('### (v) b712`s head line read again by the repaired builder: %s' % hl)
+  +    out += ['      event: ' + e for e in ev]
+  +    row('v', 'record', True, bool(m_) and 'none' not in (m_.group(1), m_.group(2)),
+  +        'each repository`s main read at the remote (b712`s own head line read "none read" for both, events :48)')
+  +    r_ = subprocess.run(['bash', SP + '/control_v_capture.sh'], capture_output=True, text=True, encoding='utf-8')
+  +    out += ['      ' + l for l in r_.stdout.strip().split(NL)]
+  +    got_v = tuple(re.findall(r'captures written (\d+) ; name \S+ ; the capture carries the read-back (\w+)', r_.stdout))
+  +    row('v', 'constructed', (('1', 'yes'), ('0', 'no')), got_v, 'a file:// origin captured unasked, a plain-path origin (the tests`) not')
+  +
+  +    # ### (vi) THE CLOSE IN ONE ORDER: b712's banks replayed by their mtimes at its record commit (755b03aa) and at its scores-close bank
+  +    t_rec = int(git('show', '-s', '--format=%ct', '755b03aa') or 0)
+  +    t_sc = int(os.path.getmtime(os.path.join(D, 'b712_scores_close.json')))
+  +    alias = {'b712_closing_dry.txt': 0, 'b712_scores_dry.txt': 0, 'b712_relay_push-b712-record_push_out.txt': t_rec}
+  +
+  +    def at(T):
+  +        def has(p):
+  +            b = os.path.basename(p)
+  +            if b in alias:
+  +                return T >= alias[b]
+  +            return os.path.exists(p) and os.path.getmtime(p) <= T
+  +        return has
+  +    r19, r22 = AC.close_refuses('b712', 19, present=at(t_rec)), AC.close_refuses('b712', 22, present=at(t_sc))
+  +    out.append('### (vi) b712 replayed (its dry runs [3] [4] in the scratchpad, recorded in its gate; [19] its record push 755b03aa, no capture):')
+  +    out += ['      step [19] at %s: %s' % (t_rec, r19 or 'MAY RUN'), '      step [22] at %s: %s' % (t_sc, r22 or 'MAY RUN')]
+  +    row('vi', 'record', True, bool(r19 or r22), 'b712 closed out of v4`s order: a step ran while a lower step`s evidence was absent')
+  +    td2 = tempfile.mkdtemp(prefix='b713_order_', dir=SP)
+  +    for k, w, e in AC.close_steps():
+  +        if k <= 5 and e.startswith('data/'):
+  +            io.open(os.path.join(td2, os.path.basename(e.replace('<act>', 'b999'))), 'w', encoding='utf-8').write('{}')
+  +    g6, g7 = AC.close_refuses('b999', 6, td2), AC.close_refuses('b999', 7, td2)
+  +    row('vi', 'constructed', ('', True, True), (g6, bool(g7), '[6]' in g7), 'banks [1]-[5] in scratch %s: [6] may run ; [7] refused naming [6]' % os.path.basename(td2))
+  +
+  +    npass = sum(1 for v in J.values() for x in v if x['ok'])
+  +    ntot = sum(len(v) for v in J.values())
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH WITH ITS TWO-INSTANCE CONTROL (standing clauses v4 rows (62)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### one instance from the record (b712`s banks, commits and remotes), one constructed (rows here, banks in the scratchpad, throwaway',
+  +         '### repositories for (v)); the functions are tools/act_close.py`s, the head line tools/b713_closing.py`s, the capture tools/push_gated.sh`s.',
+  +         '### (vi)`s record instance reads b712`s banks by their file times (a bank rewritten later reads absent at the earlier time).', ''] + out + [
+  +         '', '### ### **CONTROLS %d ; PASSING %d ; THE SIX REPAIRS EACH WITH TWO INSTANCES %s.**' % (ntot, npass, all(len(J.get(x, [])) == 2 for x in
+  +                                                                                                       ('i', 'ii', 'iii', 'iv', 'v', 'vi')))]
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L))
+  +        return
+  +    put_txt('%s_repair_controls.txt' % ACT, L)
+  +    put_json('%s_repair_controls.json' % ACT, dict(at=utc(), controls=J, passing=npass, total=ntot))
+  +    print(NL.join(L))
+  +
+  +
+  +REPAIR_KEYS = (('i', 'ONE LIST OF WRITES', '(62)', r'w_patterns|w_allows'),
+  +                ('ii', 'EVERY COMMIT OF A STEP', '(63)', r'step_commits'),
+  +                ('iii', 'ONE COUNTER', '(64)', r'defect_owners'),
+  +                ('iv', 'THE LOCK AS A MEMBRANE', '(65)', r'lock_refuses|_lock_guard'),
+  +                ('v', 'A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote', '(66)', r'read_remotes|PUSH_GATED_CAPTURE_DIR'),
+  +                ('vi', 'THE CLOSE IN ONE ORDER', '(67), (68)', r'close_refuses|_close_step|close_steps'))
+  +
+  +
+  +def toolrepairs13(*a):
+  +    """data/b713_tool_repairs.txt (.json): (R323)(4), each repair's diff -- the hunks of the carry-time diffs (data/b713_repairdiff_record.txt,
+  +    _checks.txt, _closing.txt) whose added lines name the repair or call its function, tools/push_gated.sh's diff against relay HEAD, and
+  +    tools/act_close.py (a new shared tool, untracked till the component's commit) by its sections -- each repair's control line beside it."""
+  +    import io
+  +    hunks = []
+  +    for n_ in ('record', 'checks', 'closing'):
+  +        cur = None
+  +        for l in io.open(os.path.join(D, '%s_repairdiff_%s.txt' % (ACT, n_)), encoding='utf-8').read().split(NL):
+  +            if l.startswith('@@'):
+  +                cur = dict(tool='tools/%s_%s.py' % (ACT, n_), lines=[l])
+  +                hunks.append(cur)
+  +            elif cur is not None and l[:1] in '+-' and not l.startswith('### ###'):
+  +                cur['lines'].append(l)
+  +            elif cur is not None and not l.strip():
+  +                cur = None
+  +    pg = subprocess.run(['git', '-C', ROOT, 'diff', 'HEAD', '--', 'tools/push_gated.sh'], capture_output=True, text=True, encoding='utf-8').stdout.split(NL)
+  +    ac = io.open(os.path.join(T, 'act_close.py'), encoding='utf-8').read().split(NL)
+  +    cj = jl('%s_repair_controls.json' % ACT).get('controls', {})
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH BY ITS DIFF (standing clauses v4 rows (61)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### per repair: the v4 row ; tools/act_close.py`s section (a new shared tool, every line added) ; the hunks of the carried tools` diffs',
+  +         '### (data/b713_repairdiff_<tool>.txt) whose added lines name the repair or call its function ; tools/push_gated.sh`s diff against relay',
+  +         '### HEAD for (v) ; the two controls (data/b713_repair_controls.txt).', '']
+  +    J = {}
+  +    for k, title, rows, fn in REPAIR_KEYS:
+  +        tag = re.compile(r'\(R323\)\(4\)\(%s\)|%s' % (re.escape(k), fn))
+  +        mine = [h for h in hunks if any(tag.search(l) for l in h['lines'] if l.startswith('+'))]
+  +        L.append('### ### (%s) %s -- v4 row %s' % (k, title, rows))
+  +        sec, on = [], False
+  +        for i, l in enumerate(ac, 1):
+  +            if l.startswith('# ====='):
+  +                on = bool(re.search(r'\(%s\) ' % re.escape(k), l)) or (k == 'vi' and '(vi)' in l)
+  +            if on:
+  +                sec.append('+%s' % l)
+  +        if sec:
+  +            L += ['  --- tools/act_close.py (new) its section, %d lines:' % len(sec)] + ['  ' + s for s in sec]
+  +        for h in mine:
+  +            L += ['  --- %s %s' % (h['tool'], h['lines'][0])] + ['  ' + s for s in h['lines'][1:]]
+  +        if k == 'v':
+  +            L += ['  --- tools/push_gated.sh, git diff HEAD:'] + ['  ' + s for s in pg if s]
+  +        L += ['  CONTROL %s: %s ; got %s ; %s' % (c['instance'], c['wanted'], c['got'], 'PASS' if c['ok'] else '### FAIL') for c in cj.get(k, [])]
+  +        L.append('')
+  +        J[k] = dict(title=title, v4_rows=rows, act_close_lines=len(sec), hunks=[(h['tool'], h['lines'][0]) for h in mine],
+  +                    push_gated_lines=len([s for s in pg if s]) if k == 'v' else 0, controls=cj.get(k, []))
+  +    nh = sum(len(v['hunks']) for v in J.values())
+  +    L.append('### ### **REPAIRS %d ; HUNKS NAMED %d ; WITH tools/act_close.py`s SECTIONS AND push_gated.sh`s DIFF ; CONTROLS PASSING %d OF %d.**' % (
+  +        len(J), nh, sum(1 for v in J.values() for c in v['controls'] if c['ok']), sum(len(v['controls']) for v in J.values())))
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L[-1:]))
+  +        for k, v in J.items():
+  +            print('  (%s) act_close %d ; hunks %s ; push_gated %d ; controls %d' % (k, v['act_close_lines'], v['hunks'], v['push_gated_lines'], len(v['controls'])))
+  +        return
+  +    put_txt('%s_tool_repairs.txt' % ACT, L)
+  +    put_json('%s_tool_repairs.json' % ACT, dict(at=utc(), repairs=J))
+  +    print(L[-1])
+  +
+  +
+  --- tools/b713_closing.py @@ -228,0 +228,4 @@
+  +    # ### (R323)(4)(v), standing clauses v4 row (66): THE HEAD LINE READS EACH REPOSITORY'S MAIN AT THE REMOTE by ls-remote (one read per
+  +    # ### repository, an empty read re-read alone), not from the act's push captures -- b712 wrote no capture but the closing's, and its head line
+  +    # ### read "none read" for both (events :48). The captures are still read, and a remote main no capture of the act read back goes to the
+  +    # ### events section (a repair at b713, banked by diff).
+  --- tools/b713_closing.py @@ -229,0 +233,1 @@
+  +    read_remotes([repo for _n, _k, repo in CAPTURES])
+  --- tools/push_gated.sh, git diff HEAD:
+  diff --git a/tools/push_gated.sh b/tools/push_gated.sh
+  index e7410053..6102b3c5 100644
+  --- a/tools/push_gated.sh
+  +++ b/tools/push_gated.sh
+  @@ -37,9 +37,30 @@ repo="$1"; branch="$2"; shift 2
+   # ### THE CAPTURE, (R175)(5), b564's defect (i): a push piped through `tail` lost the pre-push hook's lines. When the
+   # ### environment carries PUSH_GATED_LOG=<path>, every line this script and the git commands it runs write -- the hook's
+   # ### own output included -- is appended to that file as well as printed. The exit codes are this script's, unchanged.
+  -if [ -n "${PUSH_GATED_LOG:-}" ]; then
+  -  exec > >(tee -a "$PUSH_GATED_LOG") 2>&1
+  -  echo "push_gated: capture on -> $PUSH_GATED_LOG ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+  +# ### (R323)(4)(v), standing clauses v4 row (66), b713: A CAPTURE FOR EVERY PUSH. Where PUSH_GATED_LOG is unset and the repository's origin
+  +# ### is a URL (`://` or `git@`, every federation remote; the test's throwaway repositories push to plain paths and are left as they were),
+  +# ### the capture is written all the same, named from the act, the repository and the branch: <dir>/<act>_<repo>_<branch>_push_out.txt,
+  +# ### <dir> the relay's data/ beside this script (PUSH_GATED_CAPTURE_DIR, where set, names another for a control), <act> the act running:
+  +# ### the latest whose ferry the relay banks (data/bNNN_ferry.txt) -- not a bNNN in the branch's name, which an earlier act's branch carries
+  +# ### (recut-b712-silence, pushed by b713). b712 ran every push without the variable and banked no capture but the closing's (its events :48).
+  +cap="${PUSH_GATED_LOG:-}"
+  +if [ -z "$cap" ]; then
+  +  url=$(git -C "$repo" remote get-url origin 2>/dev/null || true)
+  +  case "$url" in
+  +    *://*|git@*)
+  +      here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  +      cdir="${PUSH_GATED_CAPTURE_DIR:-$here/../data}"
+  +      bname="$branch"
+  +      if [ "$branch" = "--branch" ] || [ "$branch" = "--existing-tag" ]; then bname="${1:-none}"; fi
+  +      act=$(ls "$here/../data" | grep -o '^b[0-9][0-9][0-9]*_ferry\.txt$' | sed 's/_ferry\.txt$//' | sort -V | tail -n 1 || true)
+  +      rname=$(basename "$(cd "$repo" && pwd)")
+  +      cap="$cdir/${act:-bNNN}_${rname}_$(printf '%s' "$bname" | tr '/' '-')_push_out.txt"
+  +      ;;
+  +  esac
+  +fi
+  +if [ -n "$cap" ]; then
+  +  exec > >(tee -a "$cap") 2>&1
+  +  echo "push_gated: capture on -> $cap ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+   fi
+   
+   # ### THE EXISTING-TAG MODE, b623, the author's answer before b623's seal under (R233)(5)(a): a tag the clone already
+  CONTROL record: True ; got True ; PASS
+  CONTROL constructed: (('1', 'yes'), ('0', 'no')) ; got (('1', 'yes'), ('0', 'no')) ; PASS
+
+### ### (vi) THE CLOSE IN ONE ORDER -- v4 row (67), (68)
+  --- tools/act_close.py (new) its section, 31 lines:
+  +# ================================================================================ (vi) THE CLOSE IN ONE ORDER
+  +STEP = re.compile(r'\[(\d+)\] (.*?) \((data/<act>_[^)\s]+|the commands bank)\)')
+  +
+  +
+  +def close_steps(v4_text=None):
+  +    """v4 row (68) as [(n, words, evidence)], the evidence a path with <act> or 'the commands bank'."""
+  +    t = v4_text if v4_text is not None else open(V4, encoding='utf-8').read()
+  +    row = next((l for l in t.replace(chr(13), '').split(NL) if l.strip().startswith('THE CLOSE IN ONE ORDER, THE STEPS NUMBERED')), '')
+  +    return [(int(n), w, e) for n, w, e in STEP.findall(row)]
+  +
+  +
+  +def _evidence(e, act, dd):
+  +    return None if not e.startswith('data/') else os.path.join(dd, os.path.basename(e.replace('<act>', act)))
+  +
+  +
+  +def close_refuses(act, n, dd=None, v4_text=None, present=None):
+  +    """the refusal's text where a step lower than n lacks its evidence, '' where step n may run. `present(path)` decides a bank's presence
+  +    (default: the file exists) so a replay can read the banks as they stood at a time."""
+  +    dd = dd or D
+  +    has = present or os.path.exists
+  +    steps = close_steps(v4_text)
+  +    if not steps or n not in [s[0] for s in steps]:
+  +        return '### THE CLOSE`S ORDER (v4 row (68)) CARRIES NO STEP [%d] -- REFUSED' % n
+  +    miss = [(k, w, e) for k, w, e in steps if k < n and _evidence(e, act, dd) and not has(_evidence(e, act, dd))]
+  +    if miss:
+  +        k, w, e = miss[0]
+  +        return ('### THE CLOSE IN ONE ORDER (standing clauses v4 row (68)): STEP [%d] REFUSED -- STEP [%d] (%s) IS UNFINISHED, ITS EVIDENCE %s '
+  +                'ABSENT%s -- NOTHING RUN' % (n, k, w[:60], e.replace('<act>', act), (' (and %d more lower steps)' % (len(miss) - 1)) if len(miss) > 1 else ''))
+  +    return ''
+  +
+  +
+  --- tools/b713_record.py @@ -603,0 +630,1 @@
+  +    _close_step(2)   # ### (R323)(4)(vi): the root's dry run, step [2]
+  --- tools/b713_record.py @@ -2112,0 +2249,199 @@
+  +def _close_step(n):
+  +    """(R323)(4)(vi), standing clauses v4 row (68), THE CLOSE IN ONE ORDER: the route is step [n] of the close and refuses, writing nothing,
+  +    while a lower step's evidence is absent (tools/act_close.py close_refuses; a repair at b713, banked by diff)."""
+  +    r = AC.close_refuses(ACT, n)
+  +    if r:
+  +        print(r, flush=True)
+  +        sys.exit(5)
+  +    print('  ### THE CLOSE IN ONE ORDER: STEP [%d] MAY RUN -- EVERY LOWER STEP`S EVIDENCE STANDS' % n, flush=True)
+  +
+  +
+  +def closeorder(*a):
+  +    """`closeorder <n>`: step [n] of v4 row (68) read against the lower steps' evidence before the seat runs it by hand (the record commit
+  +    [19] among them); prints and exits 5 where it refuses; writes nothing."""
+  +    if not a or not a[0].isdigit():
+  +        for k, w, e in AC.close_steps():
+  +            print('  [%d] %s (%s)' % (k, w[:90], e.replace('<act>', ACT)))
+  +        return
+  +    _close_step(int(a[0]))
+  +
+  +
+  +def repaircontrols(*a):
+  +    """data/b713_repair_controls.txt (.json): (R323)(4), each of the six repairs with its two-instance control -- one instance from the record
+  +    (b712's own banks, commits and remotes) and one constructed (rows or banks made by the route in the scratchpad, or throwaway repositories
+  +    made by the scratch control script for (v)) -- every instance printed with what it was wanted to read and what it read."""
+  +    import io
+  +    import subprocess
+  +    import tempfile
+  +    import b713_closing as CL
+  +    SP = os.environ.get('B713_SCRATCH') or 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad'
+  +    out, J = [], {}
+  +
+  +    def row(rep, inst, wanted, got, note=''):
+  +        ok = (wanted == got)
+  +        out.append('  (%s) %-12s wanted %s ; got %s ; %s%s' % (rep, inst, wanted, got, 'PASS' if ok else '### FAIL', (' -- ' + note) if note else ''))
+  +        J.setdefault(rep, []).append(dict(instance=inst, wanted=str(wanted), got=str(got), ok=ok, note=note))
+  +
+  +    def git(*args, repo=ROOT):
+  +        return subprocess.run(['git', '-C', repo] + list(args), capture_output=True, text=True, encoding='utf-8').stdout.strip()
+  +
+  +    # ### (i) ONE LIST OF WRITES: b712's face (W) read by AC.w_patterns against b712's relay changes 4a383ac8..1290446c; constructed paths
+  +    face12 = io.open(os.path.join(D, 'b712_registration_2026-10-25.txt'), encoding='utf-8').read()
+  +    pats = AC.w_patterns(face12)
+  +    ch = [p for p in git('diff', '--name-only', '4a383ac8', '1290446c').split(NL) if p]
+  +    beyond = [p for p in ch if not AC.w_allows(p, pats, 'relay')]
+  +    out.append('### (i) b712`s face (W): %d patterns read ; relay 4a383ac8..1290446c changed %d paths ; beyond the list %s' % (len(pats), len(ch), beyond or 'NONE'))
+  +    row('i', 'record', 0, len(beyond), 'b712`s relay changes, every one inside its own face`s (W)')
+  +    row('i', 'constructed', (True, False, False), (AC.w_allows('data/b712_x.txt', pats), AC.w_allows('data/zz_outside_b712.txt', pats),
+  +                                                   AC.w_allows('FOUNDATIONS.md', pats, 'PLACE-papers')),
+  +        'data/b712_x.txt inside ; data/zz_outside_b712.txt and PLACE-papers/FOUNDATIONS.md outside')
+  +
+  +    # ### (ii) EVERY COMMIT OF A STEP: b712's gate (afe3903a, and dcb3b286 "the gate before the lock" entered under component 5); constructed
+  +    st12 = jl('b712_steps.json')
+  +    rows12 = st12 if isinstance(st12, list) else st12.get('rows', [])
+  +    g_one = [r.get('commit', '')[:8] for r in rows12 if r.get('phase') == 'gate']
+  +    joined = [dict(repo='relay', phase='gate', commits=['afe3903acfd0e4c790a34015d5fa142d1d52b812', 'dcb3b2862324ddbde0bd8ee08a893141fcda38c2'])]
+  +    out.append('### (ii) b712`s step bank: the gate phase`s rows read by their one `commit`: %s ; dcb3b286`s subject names the gate, its phase %r' % (
+  +        g_one, next((r.get('phase') for r in rows12 if r.get('commit', '').startswith('dcb3b286')), None)))
+  +    row('ii', 'record', ['afe3903a', 'dcb3b286'], [c[:8] for c in AC.step_commits(joined, 'gate', 'relay')],
+  +        'the gate`s two commits on one row, read whole (the one-`commit` form reads %s)' % [r.get('commit', '')[:8] for r in joined if r.get('commit')])
+  +    three = [dict(repo='relay', phase='component 9', commit='c1', commits=['c1', 'c2', 'c3']), dict(repo='pp', phase='component 9', commit='c4')]
+  +    row('ii', 'constructed', ['c1', 'c2', 'c3'], AC.step_commits(three, 'component 9', 'relay'),
+  +        'a three-commit step: the one-`commit` form reads [c1], c2 and c3 undeclared; the other repository`s c4 not read')
+  +
+  +    # ### (iii) ONE COUNTER: b712's defects bank (b712's record tool counted 22 for the seat, its suite 21); constructed rows
+  +    d12 = [l for l in io.open(os.path.join(D, 'b712_defects.txt'), encoding='utf-8').read().split(NL) if AC.OWNER.match(l.lstrip())]
+  +    c12 = AC.defect_owners(d12)
+  +    row('iii', 'record', (22, 21, 0, 1), (c12['TOTAL'], c12['SEAT'], c12['NAVIGATOR'], c12['OTHER']),
+  +        'TOTAL, SEAT, NAVIGATOR, OTHER: (h) THE CARRIED RECORD TOOL`S FORM is OTHER; both tools now read the one number')
+  +    c3 = AC.defect_owners(["(a) THE SEAT'S: x", "(b) THE NAVIGATOR'S: y", "(c) THE RECORD TOOL'S: z", "(a') THE SEAT’S: w", 'no row'])
+  +    row('iii', 'constructed', (4, 2, 1, 1), (c3['TOTAL'], c3['SEAT'], c3['NAVIGATOR'], c3['OTHER']), 'a primed letter and a curly apostrophe counted')
+  +
+  +    # ### (iv) THE LOCK AS A MEMBRANE: b712's lock is written, its dry root bank refuses; a constructed act's banks before and after its lock
+  +    row('iv', 'record', True, bool(AC.lock_refuses('b712', 'b712_root_banks_dry.json')), 'b712_lockgate.json stands; a rewrite of [2]`s bank refused')
+  +    td = tempfile.mkdtemp(prefix='b713_lock_', dir=SP)
+  +    for n_ in ('b999_root_banks_dry.json', 'b999_standing_figures.json'):
+  +        io.open(os.path.join(td, n_), 'w', encoding='utf-8').write('{}')
+  +    before = bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td))
+  +    io.open(os.path.join(td, 'b999_lockgate.json'), 'w', encoding='utf-8').write('{}')
+  +    after = (bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td)), bool(AC.lock_refuses('b999', 'b999_scores.json', td)))
+  +    row('iv', 'constructed', (False, True, False), (before,) + after,
+  +        'scratch %s: before the lock writable ; after it [2]`s bank refused ; [9]`s scores bank (after the lock) writable' % os.path.basename(td))
+  +
+  +    # ### (v) A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote: b712's head line read again; the scratch script's two clones
+  +    ev = []
+  +    hl = CL.head_line(act='b712', events=ev)
+  +    m_ = re.search(r'relay (\w+), PLACE-papers (\w+)', hl)
+  +    out.append('### (v) b712`s head line read again by the repaired builder: %s' % hl)
+  +    out += ['      event: ' + e for e in ev]
+  +    row('v', 'record', True, bool(m_) and 'none' not in (m_.group(1), m_.group(2)),
+  +        'each repository`s main read at the remote (b712`s own head line read "none read" for both, events :48)')
+  +    r_ = subprocess.run(['bash', SP + '/control_v_capture.sh'], capture_output=True, text=True, encoding='utf-8')
+  +    out += ['      ' + l for l in r_.stdout.strip().split(NL)]
+  +    got_v = tuple(re.findall(r'captures written (\d+) ; name \S+ ; the capture carries the read-back (\w+)', r_.stdout))
+  +    row('v', 'constructed', (('1', 'yes'), ('0', 'no')), got_v, 'a file:// origin captured unasked, a plain-path origin (the tests`) not')
+  +
+  +    # ### (vi) THE CLOSE IN ONE ORDER: b712's banks replayed by their mtimes at its record commit (755b03aa) and at its scores-close bank
+  +    t_rec = int(git('show', '-s', '--format=%ct', '755b03aa') or 0)
+  +    t_sc = int(os.path.getmtime(os.path.join(D, 'b712_scores_close.json')))
+  +    alias = {'b712_closing_dry.txt': 0, 'b712_scores_dry.txt': 0, 'b712_relay_push-b712-record_push_out.txt': t_rec}
+  +
+  +    def at(T):
+  +        def has(p):
+  +            b = os.path.basename(p)
+  +            if b in alias:
+  +                return T >= alias[b]
+  +            return os.path.exists(p) and os.path.getmtime(p) <= T
+  +        return has
+  +    r19, r22 = AC.close_refuses('b712', 19, present=at(t_rec)), AC.close_refuses('b712', 22, present=at(t_sc))
+  +    out.append('### (vi) b712 replayed (its dry runs [3] [4] in the scratchpad, recorded in its gate; [19] its record push 755b03aa, no capture):')
+  +    out += ['      step [19] at %s: %s' % (t_rec, r19 or 'MAY RUN'), '      step [22] at %s: %s' % (t_sc, r22 or 'MAY RUN')]
+  +    row('vi', 'record', True, bool(r19 or r22), 'b712 closed out of v4`s order: a step ran while a lower step`s evidence was absent')
+  +    td2 = tempfile.mkdtemp(prefix='b713_order_', dir=SP)
+  +    for k, w, e in AC.close_steps():
+  +        if k <= 5 and e.startswith('data/'):
+  +            io.open(os.path.join(td2, os.path.basename(e.replace('<act>', 'b999'))), 'w', encoding='utf-8').write('{}')
+  +    g6, g7 = AC.close_refuses('b999', 6, td2), AC.close_refuses('b999', 7, td2)
+  +    row('vi', 'constructed', ('', True, True), (g6, bool(g7), '[6]' in g7), 'banks [1]-[5] in scratch %s: [6] may run ; [7] refused naming [6]' % os.path.basename(td2))
+  +
+  +    npass = sum(1 for v in J.values() for x in v if x['ok'])
+  +    ntot = sum(len(v) for v in J.values())
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH WITH ITS TWO-INSTANCE CONTROL (standing clauses v4 rows (62)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### one instance from the record (b712`s banks, commits and remotes), one constructed (rows here, banks in the scratchpad, throwaway',
+  +         '### repositories for (v)); the functions are tools/act_close.py`s, the head line tools/b713_closing.py`s, the capture tools/push_gated.sh`s.',
+  +         '### (vi)`s record instance reads b712`s banks by their file times (a bank rewritten later reads absent at the earlier time).', ''] + out + [
+  +         '', '### ### **CONTROLS %d ; PASSING %d ; THE SIX REPAIRS EACH WITH TWO INSTANCES %s.**' % (ntot, npass, all(len(J.get(x, [])) == 2 for x in
+  +                                                                                                       ('i', 'ii', 'iii', 'iv', 'v', 'vi')))]
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L))
+  +        return
+  +    put_txt('%s_repair_controls.txt' % ACT, L)
+  +    put_json('%s_repair_controls.json' % ACT, dict(at=utc(), controls=J, passing=npass, total=ntot))
+  +    print(NL.join(L))
+  +
+  +
+  +REPAIR_KEYS = (('i', 'ONE LIST OF WRITES', '(62)', r'w_patterns|w_allows'),
+  +                ('ii', 'EVERY COMMIT OF A STEP', '(63)', r'step_commits'),
+  +                ('iii', 'ONE COUNTER', '(64)', r'defect_owners'),
+  +                ('iv', 'THE LOCK AS A MEMBRANE', '(65)', r'lock_refuses|_lock_guard'),
+  +                ('v', 'A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote', '(66)', r'read_remotes|PUSH_GATED_CAPTURE_DIR'),
+  +                ('vi', 'THE CLOSE IN ONE ORDER', '(67), (68)', r'close_refuses|_close_step|close_steps'))
+  +
+  +
+  +def toolrepairs13(*a):
+  +    """data/b713_tool_repairs.txt (.json): (R323)(4), each repair's diff -- the hunks of the carry-time diffs (data/b713_repairdiff_record.txt,
+  +    _checks.txt, _closing.txt) whose added lines name the repair or call its function, tools/push_gated.sh's diff against relay HEAD, and
+  +    tools/act_close.py (a new shared tool, untracked till the component's commit) by its sections -- each repair's control line beside it."""
+  +    import io
+  +    hunks = []
+  +    for n_ in ('record', 'checks', 'closing'):
+  +        cur = None
+  +        for l in io.open(os.path.join(D, '%s_repairdiff_%s.txt' % (ACT, n_)), encoding='utf-8').read().split(NL):
+  +            if l.startswith('@@'):
+  +                cur = dict(tool='tools/%s_%s.py' % (ACT, n_), lines=[l])
+  +                hunks.append(cur)
+  +            elif cur is not None and l[:1] in '+-' and not l.startswith('### ###'):
+  +                cur['lines'].append(l)
+  +            elif cur is not None and not l.strip():
+  +                cur = None
+  +    pg = subprocess.run(['git', '-C', ROOT, 'diff', 'HEAD', '--', 'tools/push_gated.sh'], capture_output=True, text=True, encoding='utf-8').stdout.split(NL)
+  +    ac = io.open(os.path.join(T, 'act_close.py'), encoding='utf-8').read().split(NL)
+  +    cj = jl('%s_repair_controls.json' % ACT).get('controls', {})
+  +    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH BY ITS DIFF (standing clauses v4 rows (61)-(68)) (%s)' % (ACT, utc()), '',
+  +         '### per repair: the v4 row ; tools/act_close.py`s section (a new shared tool, every line added) ; the hunks of the carried tools` diffs',
+  +         '### (data/b713_repairdiff_<tool>.txt) whose added lines name the repair or call its function ; tools/push_gated.sh`s diff against relay',
+  +         '### HEAD for (v) ; the two controls (data/b713_repair_controls.txt).', '']
+  +    J = {}
+  +    for k, title, rows, fn in REPAIR_KEYS:
+  +        tag = re.compile(r'\(R323\)\(4\)\(%s\)|%s' % (re.escape(k), fn))
+  +        mine = [h for h in hunks if any(tag.search(l) for l in h['lines'] if l.startswith('+'))]
+  +        L.append('### ### (%s) %s -- v4 row %s' % (k, title, rows))
+  +        sec, on = [], False
+  +        for i, l in enumerate(ac, 1):
+  +            if l.startswith('# ====='):
+  +                on = bool(re.search(r'\(%s\) ' % re.escape(k), l)) or (k == 'vi' and '(vi)' in l)
+  +            if on:
+  +                sec.append('+%s' % l)
+  +        if sec:
+  +            L += ['  --- tools/act_close.py (new) its section, %d lines:' % len(sec)] + ['  ' + s for s in sec]
+  +        for h in mine:
+  +            L += ['  --- %s %s' % (h['tool'], h['lines'][0])] + ['  ' + s for s in h['lines'][1:]]
+  +        if k == 'v':
+  +            L += ['  --- tools/push_gated.sh, git diff HEAD:'] + ['  ' + s for s in pg if s]
+  +        L += ['  CONTROL %s: %s ; got %s ; %s' % (c['instance'], c['wanted'], c['got'], 'PASS' if c['ok'] else '### FAIL') for c in cj.get(k, [])]
+  +        L.append('')
+  +        J[k] = dict(title=title, v4_rows=rows, act_close_lines=len(sec), hunks=[(h['tool'], h['lines'][0]) for h in mine],
+  +                    push_gated_lines=len([s for s in pg if s]) if k == 'v' else 0, controls=cj.get(k, []))
+  +    nh = sum(len(v['hunks']) for v in J.values())
+  +    L.append('### ### **REPAIRS %d ; HUNKS NAMED %d ; WITH tools/act_close.py`s SECTIONS AND push_gated.sh`s DIFF ; CONTROLS PASSING %d OF %d.**' % (
+  +        len(J), nh, sum(1 for v in J.values() for c in v['controls'] if c['ok']), sum(len(v['controls']) for v in J.values())))
+  +    if a and a[0] == 'dry':
+  +        print(NL.join(L[-1:]))
+  +        for k, v in J.items():
+  +            print('  (%s) act_close %d ; hunks %s ; push_gated %d ; controls %d' % (k, v['act_close_lines'], v['hunks'], v['push_gated_lines'], len(v['controls'])))
+  +        return
+  +    put_txt('%s_tool_repairs.txt' % ACT, L)
+  +    put_json('%s_tool_repairs.json' % ACT, dict(at=utc(), repairs=J))
+  +    print(L[-1])
+  +
+  +
+  --- tools/b713_record.py @@ -2113,0 +2449,1 @@
+  +    _close_step(18)
+  --- tools/b713_record.py @@ -2142,0 +2479,2 @@
+  +    if 'dry' not in a:
+  +        _close_step(22 if close else 9)   # ### (R323)(4)(vi): scores [9], scores close [22] (the events bank [21] before it)
+  --- tools/b713_record.py @@ -2168,0 +2507,1 @@
+  +    _close_step(12)   # ### (R323)(4)(vi): the FINDINGS entry, step [12]
+  --- tools/b713_record.py @@ -2187,0 +2527,1 @@
+  +    _close_step(15)   # ### (R323)(4)(vi): the trail carrying the root, step [15]
+  --- tools/b713_record.py @@ -2265,0 +2607,1 @@
+  +    _close_step(23)   # ### (R323)(4)(vi): the mirror, step [23]
+  --- tools/b713_closing.py @@ -532,1 +533,9 @@
+  -    p = os.path.join(OUTD, 'b713_closing_dry.txt' if DRY else 'b713_closing.txt')
+  +    # ### (R323)(4)(iv) and (vi), standing clauses v4 rows (65) and (68), a repair at b713: the dry run is step [3] of the close's order and
+  +    # ### writes its bank to relay data/ (b712 wrote it to the scratchpad, so its order left no evidence of the step), refused once the lock
+  +    # ### is written; the closing is step [25], refused while a lower step's evidence is absent
+  +    import act_close as AC
+  +    r = AC.lock_refuses(ACT, 'b713_closing_dry.txt') if DRY else AC.close_refuses(ACT, 25)
+  +    if r:
+  +        print(r, flush=True)
+  +        sys.exit(5)
+  +    p = os.path.join(D, 'b713_closing_dry.txt') if DRY else os.path.join(OUTD, 'b713_closing.txt')
+  CONTROL record: True ; got True ; PASS
+  CONTROL constructed: ('', True, True) ; got ('', True, True) ; PASS
+
+### ### **REPAIRS 6 ; HUNKS NAMED 31 ; WITH tools/act_close.py`s SECTIONS AND push_gated.sh`s DIFF ; CONTROLS PASSING 12 OF 12.**

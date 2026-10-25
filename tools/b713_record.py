@@ -96,13 +96,27 @@ import act_membrane as MEM          # noqa: E402
 _put_json0, _put_txt0 = getattr(P7, '_put_json0', R.put_json), getattr(P7, '_put_txt0', R.put_txt)
 
 
+import act_close as AC             # noqa: E402  ### (R323)(4): the close's shared functions, one form for every tool (a repair at b713)
+
+
+def _lock_guard(name):
+    """(R323)(4)(iv), standing clauses v4 row (65): THE LOCK AS A MEMBRANE -- a bank of a step before the lock refuses a rewrite once the lock
+    is written, as the root's membrane refuses after the root (a repair at b713, banked by diff)."""
+    r = AC.lock_refuses(ACT, name)
+    if r:
+        print(r, flush=True)
+        sys.exit(4)
+
+
 def put_json(name, obj):
     MEM.guard(ACT, name, R.ROOT_EXCLUDE)
+    _lock_guard(name)
     _put_json0(name, obj)
 
 
 def put_txt(name, lines):
     MEM.guard(ACT, name, R.ROOT_EXCLUDE)
+    _lock_guard(name)
     _put_txt0(name, lines)
 
 
@@ -257,27 +271,40 @@ STEP_REPOS = dict(relay=ROOT, pp=PP)
 
 
 def step(*a):
-    """`step <relay|pp> <phase words> [commit]`: one row appended to data/b713_steps.json after a commit -- the repository, the commit (HEAD where
-    none is named), its committer time and subject as read, and the phase the seat names from STEP_PHASES; G-SEALED-AFTER-COMPONENTS reads the
-    phase and not the subject. A commit already in the bank is not entered twice."""
+    """`step <relay|pp> <phase words> [commit ...]`: one row appended to data/b713_steps.json after a step's commits -- the repository, the
+    commits (HEAD where none is named), the last one's committer time and subject as read, and the phase the seat names from STEP_PHASES;
+    G-SEALED-AFTER-COMPONENTS reads the phase and not the subject. (R323)(4)(ii), standing clauses v4 row (63): EVERY COMMIT OF A STEP -- a
+    step of several commits is one row carrying the list of them (`commits`), `commit` its first, and every arm reads the list through
+    tools/act_close.py step_commits (a repair at b713). A commit already in the bank is not entered twice."""
     if len(a) < 2 or a[0] not in STEP_REPOS:
-        sys.exit('### step <relay|pp> <phase> [commit] -- the phases: %s' % ' | '.join(STEP_PHASES))
+        sys.exit('### step <relay|pp> <phase> [commit ...] -- the phases: %s' % ' | '.join(STEP_PHASES))
     rest = list(a[1:])
-    commit = rest.pop() if rest and re.match(r'^[0-9a-f]{7,40}$', rest[-1]) else 'HEAD'
+    commits = []
+    while rest and re.match(r'^[0-9a-f]{7,40}$', rest[-1]):
+        commits.insert(0, rest.pop())
+    commits = commits or ['HEAD']
     phase = ' '.join(rest)
     if phase not in STEP_PHASES:
         sys.exit('### THE PHASE %r IS NOT ONE OF %s -- NOTHING WRITTEN' % (phase, ' | '.join(STEP_PHASES)))
-    full = g(STEP_REPOS[a[0]], 'rev-parse', '--verify', '--quiet', commit + '^{commit}').strip()
-    if not full:
-        sys.exit('### %s IS NOT A COMMIT OF %s -- NOTHING WRITTEN' % (commit, a[0]))
-    ct, subj = g(STEP_REPOS[a[0]], 'log', '-1', '--format=%ct%x09%s', full).strip().split('\t', 1)
+    fulls = []
+    for commit in commits:
+        full = g(STEP_REPOS[a[0]], 'rev-parse', '--verify', '--quiet', commit + '^{commit}').strip()
+        if not full:
+            sys.exit('### %s IS NOT A COMMIT OF %s -- NOTHING WRITTEN' % (commit, a[0]))
+        fulls.append(full)
+    ct, subj = g(STEP_REPOS[a[0]], 'log', '-1', '--format=%ct%x09%s', fulls[-1]).strip().split('\t', 1)
     j = jl('%s_steps.json' % ACT)
     rows = j.get('rows') or []
-    if any(r.get('repo') == a[0] and r.get('commit') == full for r in rows):
-        sys.exit('### %s %s IS IN THE STEP BANK ALREADY -- NOTHING WRITTEN' % (a[0], full[:8]))
-    rows.append(dict(repo=a[0], commit=full, ct=int(ct), at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(int(ct))), phase=phase, subject=subj[:120]))
+    have = set(AC.step_commits(rows, repo=a[0]))
+    dup = [f[:8] for f in fulls if f in have]
+    if dup:
+        sys.exit('### %s %s IN THE STEP BANK ALREADY -- NOTHING WRITTEN' % (a[0], dup))
+    row = dict(repo=a[0], commit=fulls[0], ct=int(ct), at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(int(ct))), phase=phase, subject=subj[:120])
+    if len(fulls) > 1:
+        row['commits'] = fulls
+    rows.append(row)
     put_json('%s_steps.json' % ACT, dict(at=utc(), rows=rows))
-    print('  step %d: %s %s %s -- %s' % (len(rows), a[0], full[:8], rows[-1]['at'], phase))
+    print('  step %d: %s %s %s -- %s' % (len(rows), a[0], ' '.join(f[:8] for f in fulls), rows[-1]['at'], phase))
 
 
 # ================================================================================ STEP ZERO: THE BRANCHES BANK ((R323)(8); b712's form)
@@ -600,6 +627,7 @@ def rootdry(*a):
     """data/b706_rules.txt row (1): the root route run DRY on the pre-root tree before the seal -- the banks the route names (ROOT_EXCLUDE
     extended), each read for CR LF, its status and its blob at HEAD; READY where every named bank is clean and equal at HEAD and none is CR LF
     (the push clause, HEAD the remote main, printed beside and not required before the record`s push). data/b713_root_banks_dry.txt (.json)."""
+    _close_step(2)   # ### (R323)(4)(vi): the root's dry run, step [2]
     banks = root_banks()
     s = root_banks_state(banks)
     crlf = [b_ for b_ in banks if os.path.exists(os.path.join(ROOT, *b_.split('/'))) and b'\r\n' in open(os.path.join(ROOT, *b_.split('/')), 'rb').read()]
@@ -926,8 +954,8 @@ def ksyms(*a):
 
 
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R323)(1)
-WH = ('*Appended 2026-10-25 by b713 to b712’s entry (:10306), under `(R323)`(1) -- b712 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
-      'data/b712_closing.txt):*')
+WH = ('*Appended 2026-10-25 by b713 to b712’s entry (:10378), under `(R323)`(1) -- b712 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b712_closing.txt):*')   # ### b713: the entry's line b712's (:10378); the carry's substitution left b711's (:10306)
 
 
 def _fig(text, pat, what):
@@ -947,65 +975,169 @@ def _fl(name, pat, what):
 
 
 def _wb():
-    """b712's weight line, every figure read from b712's banks by row and cited by its line: the head from its closing :1, the pairs, the
-    coefficients, the surgery, the axis, the list, the report's comparisons, the port's held line, the root and its banks, the mirror, the
-    scores at the close, the suite from its two banks, the defects by the repaired reader and the events by their starting lines."""
+    """b712's weight line under (R323)(1), every figure read from b712's banks by row and cited by its line: the head from its closing :1,
+    the join (its statement at v0.1.0, its grade, its tag), the statement equality, the port, the throughstone, the registrations' one commit
+    and their control, the price, the re-cut, the trail and the root, the chain, the scores at the close, the suite from its two banks, the
+    mirror, the defects by the repaired reader and the events by their starting lines. A rewrite at b713: the carried form composed b711's
+    objects (the pairs, the surgery, the axis, the list), none of them b712's (the repair banked by diff, data/b713_tool_repairs.txt)."""
     c = rdn('b712_closing.txt')
     head = c.split(NL)[0]
-    (r11,), l11 = _fl('b712_pairs.txt', r'^\s*11 \|.*n\*/F2 (0\.\d+)', 'pair 11`s ratio')
-    (r15,), l15 = _fl('b712_pairs.txt', r'^\s*15 \|.*n\*/F2 (0\.\d+)', 'pair 15`s ratio')
-    _x, lpv = _fl('b712_pairs.txt', r'THE LAW HELD', 'the pairs` verdict')
-    (cn, cv), lc = _fl('b712_coeffs.txt', r'THE LEAST n WITH c\(n\) < 0: n = (\d+) ; c\(\d+\) = (\(-8\) log 2 \+ \(-2\) log 3)', 'the least negative index')
-    (thru, neg), lneg = _fl('b712_coeffs.txt', r'THE COUNT OF NEGATIVE COEFFICIENTS through (\d+): (\d+)', 'the negative count')
-    _x, lsu = _fl('b712_surgery.txt', r'THE SURGERY HELD', 'the surgery`s verdict')
-    _x, lax = _fl('b712_axis.txt', r'THE AXIS \(e\) REFUTED', 'the axis`s verdict')
-    (reach,), lli = _fl('b712_list.txt', r'THE LIST COMPLETE TO (\d+)\.0 ; BANDS ABOVE 325', 'the reached height')
-    bands = [l for l in rdn('b712_list.txt').split(NL) if l.strip().startswith('band [')]
-    on = sum(int(re.search(r'on-line (\d+)', l).group(1)) for l in bands)
-    off = sum(int(re.search(r'off-line (\d+)', l).group(1)) for l in bands)
-    (ncmp,), lcmp = _fl('b712_report.txt', r'^### THE COMPARISONS \((\d+)\)', 'the report`s comparisons')
-    _x, ldif = _fl('b712_report.txt', r'^### DIFFERS: NONE', 'the report`s DIFFERS row')
-    _x, lseat = _fl('b712_report.txt', r'^### BANKS NOT SEATED .*: NONE', 'the report`s seated row')
-    _x, lport = _fl('b712_port.txt', r':501:31', 'the port`s held line')
-    (built,), lbu = _fl('b712_port.txt', r'(\d+) of 12', 'the modules built')
-    (banks,), lrb = _fl('b712_root_banks.txt', r'BANKS (\d+) ; CLEAN AND EQUAL AT HEAD', 'the root banks')
-    (msha,), lmi = _fl('b712_closing.txt', r'sha256 ([0-9a-f]{8})[0-9a-f]* ; MANIFEST .* ; CLEAN ON ALL THREE CLAUSES', 'the mirror')
-    _x, lsc = _fl('b712_closing.txt', r'^\s*\(N1\) HELD \(N2\) HELD \(N3\) HELD \(N4\) HELD \(N5\) HELD ; \(S1\) HELD \(S2\) HELD \(S3\) HELD', 'the scores at the close')
-    n_pre, p_pre = _fig(rdn('b712_checks.txt'), r'ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\.', 'the pre-push suite')
-    n_post, p_post = _fig(rdn('b712_checks_postpush.txt'), r'ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\.', 'the post-push suite')
+    fj = g(K.JOIN_DIR, 'show', 'v0.1.0:FacesJoin.lean').split(NL)
+    if len(fj) < 29 or 'faces_join' not in fj[28]:
+        sys.exit('### SIDE-faces-join FacesJoin.lean :29 AT v0.1.0 DOES NOT CARRY faces_join -- NOTHING COMPOSED')
+    (run,), lrun = _fl('b712_join_grade.txt', r'the run (\d{11})', 'the join`s run')
+    _x, lax3 = _fl('b712_join_grade.txt', r"'faces_join' depends on axioms: \[propext, Classical\.choice, Quot\.sound\]", 'the join`s axioms')
+    _x, lder = _fl('b712_join_grade.txt', r'faces_join: GATE DERIVES', 'the join`s grade')
+    (tobj, peel), ltag = _fl('b712_join_tag.txt', r'local: the tag object ([0-9a-f]{8})[0-9a-f]* ; peeled ([0-9a-f]{8})', 'the tag')
+    _x, ltagr = _fl('b712_join_tag.txt', r'PEELED LOCAL 11a472b9 REMOTE 11a472b9', 'the tag read back')
+    _x, lrp0 = _fl('b712_regpos.txt', r'between the two commits \(git diff\), 0 lines', 'the statement diff')
+    _x, lrp = _fl('b712_regpos.txt', r'Register4_positivity: LINES 152 AND 152', 'the statement equality')
+    (built,), lbu = _fl('b712_port.txt', r'THE BUILD COMPLETES, (\d+) of 12', 'the modules built')   # ### the dry form's needle read port1's :16 (11 of 12)
+    _x, lthr = _fl('b712_report.txt', r'THE THROUGHSTONE FOR THE KERNEL FOOTING.*DIFFERS NONE ; REGRADE NONE', 'the throughstone')
+    reg = g(ROOT, 'log', '--format=%H', '--', K.REGISTRATIONS).split()
+    if reg != [K.REG_COMMIT]:
+        sys.exit('### %s HAS COMMITS %s, NOT THE ONE %s -- NOTHING COMPOSED' % (K.REGISTRATIONS, [x[:8] for x in reg], K.REG_COMMIT[:8]))
+    _x, lgc = _fl('b712_genus_control.txt', r'^\s*THE MISSES THROUGH n = 400: 0\s*$', 'the genus control')
+    _x, lgp = _fl('b712_genus_control.txt', r'PLANTED CONTROLS BOTH F', 'the planted controls')
+    (t1, t2), lpr = _fl('b712_price.txt', r'the first tier (\d\.\d+) hours ; the second tier (\d\.\d+) hours', 'the tiers')
+    (bud,), lbud = _fl('b712_price.txt', r'about (\d+\.\d) foreground hours', 'the budget')
+    (cut,), lcut = _fl('b712_price.txt', r'THE CUT FOR \(iii\): n <= (\d+)', 'the cut')
+    (d0, d1), lrc = _fl('b712_recut_cut.txt', r'BEFORE (\d+), AFTER (\d+)', 'the re-cut`s distance')
+    rtip = g(PP, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.RECUT_BRANCH).strip()
+    if rtip != K.RECUT_COMMIT:
+        sys.exit('### %s AT %s, NOT %s -- NOTHING COMPOSED' % (K.RECUT_BRANCH, rtip[:8], K.RECUT_COMMIT[:8]))
     ar = jl('b712_act_root.json')
     if not ar.get('root') or not ar.get('previous'):
         sys.exit('### data/b712_act_root.json CARRIES NO ROOT -- NOTHING COMPOSED')
+    _x, lch = _fl('b712_checks_postpush_standing-b3.txt', r'b712 AGREE', 'the chain`s last act')
+    _x, lsc = _fl('b712_closing.txt', r'^\s*\(N1\) HELD \(N2\) HELD \(N3\) HELD \(N4\) HELD \(N5\) REFUTED ; \(S1\) HELD \(S2\) HELD \(S3\) HELD', 'the scores at the close')
+    n_pre, p_pre = _fig(rdn('b712_checks.txt'), r'ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\.', 'the pre-push suite')
+    n_post, p_post = _fig(rdn('b712_checks_postpush.txt'), r'ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\.', 'the post-push suite')
+    fails = re.search(r'LIVE FAILING : \d+ \[(.*?)\]', rdn('b712_checks_postpush.txt'))
+    fails = ', '.join(re.findall(r"'([A-Z0-9-]+)'", fails.group(1))) if fails else 'NONE'
+    (msha, nfiles), lmi = _fl('b712_closing.txt', r'sha256 ([0-9a-f]{8})[0-9a-f]* ; MANIFEST .* ; CLEAN ON ALL THREE CLAUSES.* the roster b711`s, (\d+) entries', 'the mirror')
     short = _defect_short('b712')
-    evl = [i for i, l in enumerate(rdn('b712_events.txt').split(NL), 1) if re.match(r'^    \S', l)]
-    if len(evl) != 16:
-        sys.exit('### data/b712_events.txt READS %d STARTING LINES, NOT THE RULING`S SIXTEEN -- NOTHING COMPOSED' % len(evl))
-    return (' “%s” (data/b712_closing.txt :1); its prompt count reads one prompt as two and it carries no score (data/b712_events.txt :79, '
-            'repaired at (R323)(3)(iii)). As the banks confirm by row: the refined detection law of data/b710_registrations.txt (i) met at pair 11 '
-            '(n*/F2 %s) and pair 15 (%s) (data/b712_pairs.txt :%d, :%d, :%d); Q0’s log-derivative coefficients negative from n = %s, c(%s) = %s, '
-            '%s negative through %s (data/b712_coeffs.txt :%d, :%d); the surgery HELD (data/b712_surgery.txt :%d); the axis (e) REFUTED by its '
-            'registered falsifier (data/b712_axis.txt :%d); the certified list complete to height %s, %d on-line and %d off-line zeros added above '
-            '325 in %d bands (data/b712_list.txt :%d, the band rows); the Independence supplement in data/b712_independence.txt; the throughstone '
-            'report’s %s comparisons, DIFFERS NONE, every bank seated, S2 not scorable before the root on the author’s word (data/b712_report.txt '
-            ':%d, :%d, :%d); the port at %s of 12 modules, held at DirichletC7Order.lean :501:31 (data/b712_port.txt :%d), the join not dispatched; '
-            'the entry at FINDINGS :%d; the trail at OPEN_TRAILS :%d carrying the root %s over %s banks (data/b712_root_banks.txt :%d); N1-N5 and '
-            'S1-S3 HELD at scores close (data/b712_closing.txt :%d); the mirror mirror-refresh-2026-10-25-b712.zip (sha256 %s…) CLEAN on all three '
-            'clauses with the root line (data/b712_closing.txt :%d); suite %s of %s pre-push and %s of %s post-push, NOT CLEAN (data/b712_checks.txt, '
-            'data/b712_checks_postpush.txt); %d defects (a)–(%s) lettered before the seal (data/b712_defects.txt); %d events in data/b712_events.txt. '
-            'Nothing deposited.' % (
-                head, r11, r15, l11, l15, lpv, cn, cn, cv, neg, thru, lc, lneg, lsu, lax, reach, on, off, len(bands), lli, ncmp, lcmp, ldif, lseat,
-                built, lport, K.B711_ENTRY, K.B711_TRAIL, ar['root'][:8], banks, lrb, lsc, msha, lmi, p_pre, n_pre, p_post, n_post, len(short),
-                _letter(short[-1]) if short else '-', len(evl)))
+    evl = [i for i, l in enumerate(rdn('b712_events.txt').split(NL), 1) if re.match(r'^    [A-Z]', l)]
+    if len(evl) != 9:
+        sys.exit('### data/b712_events.txt READS %d STARTING LINES, NOT THE RULING`S NINE -- NOTHING COMPOSED' % len(evl))
+    return (' “%s” (data/b712_closing.txt :1); “none read” because no push of the act wrote a capture (data/b712_events.txt :48, repaired at '
+            '(R323)(4)(v)). As the banks confirm by row: faces_join, h2_sign ↔ SIDELvConservation.RegisterPentagon.Register4_positivity LiCoeff, at '
+            'SIDE-faces-join FacesJoin.lean :29 at v0.1.0, built on run %s against lv-conservation at the port’s tip cb0aea56, #print axioms '
+            '[propext, Classical.choice, Quot.sound], graded DERIVES from its statement, an equivalence between open statements, neither side proved '
+            '(data/b712_join_grade.txt :%d, :%d, :%d); tag object %s, peeled %s, read back at the remote (data/b712_join_tag.txt :%d, :%d; FINDINGS '
+            ':10380, :10390; FACES_LEDGER :547); Register4_positivity equal by statement at 93c27ec and at cb0aea56 (data/b712_regpos.txt :%d, :%d); '
+            'the port at %s of 12 modules (data/b712_port.txt :%d); the throughstone (a)-(d) EQUAL, DIFFERS NONE, REGRADE NONE (data/b712_report.txt '
+            ':%d); data/b712_registrations.txt committed alone at %s, its one commit, with its genus control as wanted (data/b712_genus_control.txt '
+            ':%d, :%d); the price in data/b712_price.txt, tier one %s h, tier two %s h, the act’s budget %s h, the coefficient cut n <= %s '
+            '(data/b712_price.txt :%d, :%d, :%d; FINDINGS :10394); day1/Silence_of_Foundations.md re-cut on %s %s, local, its distance by the b670 '
+            'method %s to %s (data/b712_recut_cut.txt :%d); the entry at FINDINGS :%d; the trail at OPEN_TRAILS :%d carrying the root %s; the '
+            'act-root chain b624-b712 AGREE (data/b712_checks_postpush_standing-b3.txt :%d); N1-N4 and S1-S3 HELD, N5 REFUTED on the scorer’s file '
+            'list (data/b712_closing.txt :%d); suite %s of %s pre-push and %s of %s post-push, failing %s (data/b712_checks.txt :13, '
+            'data/b712_checks_postpush.txt :13); the mirror mirror-refresh-2026-10-25-b712.zip (sha256 %s…) CLEAN on all three clauses over %s files '
+            'with the root line (data/b712_closing.txt :%d); %d defects (a)–(%s) lettered before the seal (data/b712_defects.txt); %d events in '
+            'data/b712_events.txt. Nothing deposited, nothing published.' % (
+                head, run, lrun, lax3, lder, tobj, peel, ltag, ltagr, lrp0, lrp, built, lbu, lthr, K.REG_COMMIT[:8], lgc, lgp, t1, t2, bud, cut,
+                lpr, lbud, lcut, K.RECUT_BRANCH, K.RECUT_COMMIT[:8], d0, d1, lrc, K.B711_ENTRY, K.B711_TRAIL, ar['root'][:8], lch, lsc, p_pre, n_pre,
+                p_post, n_post, fails, msha, nfiles, lmi, len(short), _letter(short[-1]) if short else '-', len(evl)))
 
 
 def c1(*a):
-    """FINDINGS: b712's weight line beneath b712's entry (:10306) through b698's landing and its screens; its line banked in
+    """FINDINGS: b712's weight line appended after b712's entry (:10378) through b698's landing and its screens; its line banked in
     data/b713_record_lines.json. `c1 dry` prints the line and writes nothing."""
     dry = 'dry' in a
     land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B711_ENTRY,
-         check=[('FINDINGS.md', K.B711_ENTRY, '## The faces’ join by closure at SIDE-faces-join held at DirichletC7Order.lean :501:31'),
-                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b712'), ('OPEN_TRAILS.md', K.ORDER_LV_PORT_TAG, '*Appended 2026-10-25 by b712')],
-         dry=dry)
+         check=[('FINDINGS.md', K.B711_ENTRY, '## The faces joined by closure at SIDE-faces-join v0.1.0'),
+                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b712')],
+         dry=dry)   # ### b713: the checks b712's (the carried needles named b711's entry and b711's appended order line)
+
+
+# ================================================================================ COMPONENT 1: THE FACES LEDGER HEAD, (R323)(2)(ii)
+FACES_OLD = 'and the record states none'
+FACES_NEW = ('and the record states one, faces_join (row at :547), an equivalence between two faces of the fourth register compiled through '
+             'Mathlib’s RiemannHypothesis, neither face proved; the deposit’s refusal of the cross-register equivalences, quoted above, stands, '
+             'and no row compiles one')
+
+
+def facesdiff(*a):
+    """data/b713_faces_head_diff.txt: (R323)(2)(ii)'s edit of FACES_LEDGER.md :8, made by the Edit tool -- the working tree's diff against
+    HEAD printed whole, and N3's reading: the line at HEAD with the clause replaced equals the line now, byte for byte, and no other line moved."""
+    fl = 'FACES_LEDGER.md'
+    d = g(PP, 'diff', '--', fl)
+    old = g(PP, 'show', 'HEAD:' + fl).split(NL)
+    new = rd(os.path.join(PP, fl)).split(NL)
+    h = K.FACES_HEAD - 1
+    want = old[h].replace(FACES_OLD, FACES_NEW, 1)
+    same_else = len(old) == len(new) and all(old[i] == new[i] for i in range(len(old)) if i != h)
+    once = old[h].count(FACES_OLD) == 1 and new[h].count(FACES_OLD) == 0
+    ok = new[h] == want and same_else and once
+    L = ['%s -- COMPONENT 1, (R323)(2)(ii): THE FACES LEDGER HEAD`S EDIT, FACES_LEDGER.md :%d, BY THE EDIT TOOL (%s)' % (ACT, K.FACES_HEAD, utc()), '',
+         '### the clause "%s" replaced by the author`s words, every other word of the head unchanged; the diff of the working tree against' % FACES_OLD,
+         '### PLACE-papers HEAD %s printed whole by `git diff`.' % g(PP, 'rev-parse', '--short', 'HEAD').strip(), '']
+    L += ['    ' + l for l in d.replace(chr(13), '').rstrip(NL).split(NL)]
+    L += ['', '### the old clause once at HEAD :%d %s ; absent now %s' % (K.FACES_HEAD, old[h].count(FACES_OLD) == 1, new[h].count(FACES_OLD) == 0),
+          '### the line at HEAD with the clause replaced equals the line now: %s ; lines %d and %d ; every other line equal: %s' % (
+              new[h] == want, len(old), len(new), same_else),
+          '', '### ### **THE HEAD`S EDIT: THE CLAUSE NAMED AND NOTHING ELSE %s.**' % ('True' if ok else '### False')]
+    put_txt('%s_faces_head_diff.txt' % ACT, L)
+    print(NL.join(L[5:]))
+
+
+# ================================================================================ COMPONENT 1: THE RE-CUT'S ADDITIVE CHECK, (R323)(2)(iii)
+def _sections(lines):
+    """[(start, end, level, title)] for each markdown heading, its section running to the next heading of its level or above (1-based, end inclusive)."""
+    hs = [(i + 1, len(m.group(1)), m.group(2).strip()) for i, l in enumerate(lines) for m in [re.match(r'^(#{1,6}) +(.*)$', l)] if m]
+    out = []
+    for k, (s, lv, t) in enumerate(hs):
+        e = next((s2 - 1 for s2, lv2, _t in hs[k + 1:] if lv2 <= lv), len(lines))
+        out.append((s, e, lv, t))
+    return out
+
+
+def recutadd(*a):
+    """data/b713_recut_additive.txt (.json): every line of the original Correspondence section (the re-cut's base, <RECUT_COMMIT>^, the
+    section whose heading names Correspondence) read against the branch's tip: each line with its line at the tip, FOUND (the same bytes on
+    one line at or after the tip's back matter) or MISSING; blank lines counted, not searched. `recutadd <rev>` reads another tip (after a
+    restore). Writes its bank; edits no document."""
+    tip = a[0] if a else 'refs/heads/' + K.RECUT_BRANCH
+    tsha = g(PP, 'rev-parse', '--verify', '--quiet', tip + '^{commit}').strip()
+    base = g(PP, 'show', '%s^:%s' % (K.RECUT_COMMIT, K.RECUT_DOC)).replace(chr(13), '').split(NL)
+    now = g(PP, 'show', '%s:%s' % (tsha, K.RECUT_DOC)).replace(chr(13), '').split(NL)
+    secs = [x for x in _sections(base) if 'correspondence' in x[3].lower()]
+    if len(secs) != 1:
+        sys.exit('### THE BASE CARRIES %d SECTIONS NAMING Correspondence (%s) -- NOTHING WRITTEN' % (len(secs), secs))
+    s, e, lv, title = secs[0]
+    tsecs = [x for x in _sections(now) if 'correspondence' in x[3].lower()]
+    rows, found, missing, blank = [], 0, 0, 0
+    for i in range(s, e + 1):
+        l = base[i - 1]
+        if not l.strip():
+            blank += 1
+            continue
+        at_ = [j + 1 for j, m in enumerate(now) if m == l]
+        st = 'FOUND' if at_ else 'MISSING'
+        found += bool(at_)
+        missing += not at_
+        rows.append(dict(base_line=i, text=l, tip_lines=at_, status=st))
+    order = [r['tip_lines'][0] for r in rows if r['tip_lines']]
+    in_order = order == sorted(order)
+    L = ['%s -- COMPONENT 1, (R323)(2)(iii): THE RE-CUT`S ADDITIVE CHECK, THE ORIGINAL CORRESPONDENCE SECTION READ AGAINST %s (%s)' % (ACT, K.RECUT_BRANCH, utc()), '',
+         '### the base: PLACE-papers %s^ (%s), %s, the section %r at :%d-:%d (heading level %d), %d lines of which %d blank; the tip: %s %s (%d lines),' % (
+             K.RECUT_COMMIT[:8], g(PP, 'rev-parse', '--short', K.RECUT_COMMIT + '^').strip(), K.RECUT_DOC, title, s, e, lv, e - s + 1, blank, tip, tsha[:8], len(now)),
+         '### its sections naming Correspondence %s. Rows: the base line | its line(s) at the tip | FOUND or MISSING | the line`s first 110 characters.' % (
+             ['%s :%d-:%d' % (t, s2, e2) for s2, e2, _lv, t in tsecs] or 'NONE'), '']
+    L += ['  :%-5d | %-14s | %-7s | %s' % (r['base_line'], ','.join(':%d' % j for j in r['tip_lines']) or '--', r['status'], r['text'][:110]) for r in rows]
+    L += ['', '### the found lines in the base`s order at the tip: %s' % in_order,
+          '', '### ### **ORIGINAL LINES %d (BLANK %d NOT SEARCHED) ; FOUND %d ; MISSING %d ; IN ORDER %s.**' % (len(rows), blank, found, missing, in_order)]
+    # ### every run kept in the one bank (W) names: a run at a later tip (after a restore) is appended beneath the earlier, which is not rewritten
+    prior = jl('%s_recut_additive.json' % ACT).get('runs') or []
+    run = dict(at=utc(), tip=tsha, base=K.RECUT_COMMIT + '^', section=[s, e, title], rows=rows, found=found, missing=missing, in_order=in_order, text=L)
+    runs = [r for r in prior if r.get('tip') != tsha] + [run]
+    T_ = []
+    for k, r in enumerate(runs, 1):
+        T_ += (['', '=' * 40 + ' RUN %d OF %d, AT THE TIP %s' % (k, len(runs), r['tip'][:8]), ''] if len(runs) > 1 else []) + r['text']
+    put_txt('%s_recut_additive.txt' % ACT, T_ if len(runs) == 1 else T_[1:])
+    put_json('%s_recut_additive.json' % ACT, dict(at=utc(), runs=runs, last=dict((k, run[k]) for k in ('tip', 'found', 'missing', 'in_order'))))
+    print(NL.join(L[2:]))
 
 
 # ================================================================================ COMPONENT 1: THE REPAIRS' CONTROLS, (R323)(2)
@@ -1898,18 +2030,23 @@ def _n5():
     join_main, join_tags = g(K.JOIN_DIR, 'rev-parse', 'main').strip(), g(K.JOIN_DIR, 'tag', '--list').strip()
     join_ok = join_main == K.JOIN_NEW_TIP and join_tags == K.JOIN_TAG[0]
     rc_main = g(PP, 'rev-parse', '%s:%s' % ('HEAD', K.RECUT_DOC)).strip() == g(PP, 'rev-parse', '%s:%s' % (K.PRE_PP, K.RECUT_DOC)).strip()
-    rc_branch = g(PP, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.RECUT_BRANCH).strip() == K.RECUT_COMMIT
-    rc_remote = g(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH).strip() == ''
-    recut_ok = rc_main and rc_branch and rc_remote
-    allowed = set(K.PP_WRITTEN)
+    # ### (R323)(2)(iii): the branch at its restored tip, pushed in branch mode (at the remote at that tip) and NOT merged (the remote main
+    # ### does not carry it); b712's form wanted the branch at b712's re-cut and absent at the remote
+    rc_branch = g(PP, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.RECUT_BRANCH).strip() == K.RECUT_TIP
+    rc_remote = g(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH).strip().split('\t')[0] == K.RECUT_TIP
+    rc_unmerged = grc(PP, 'merge-base', '--is-ancestor', K.RECUT_TIP, 'origin/main') != 0
+    recut_ok = rc_main and rc_branch and rc_remote and rc_unmerged
+    # ### (R323)(4)(i), standing clauses v4 row (62), ONE LIST OF WRITES: every write read against the face's (W) table through
+    # ### tools/act_close.py w_patterns, the scorer keeping no list of its own (b712's N5_RELAY_DATA omitted data/b711_steps.json, which its
+    # ### (W) named, and refuted N5 on it; a repair at b713, banked by diff)
+    W = AC.w_patterns(rd(FACE) or '')
     pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
-    pp_beyond = [x for x in pp_ch if x not in allowed]
+    pp_beyond = [x for x in pp_ch if not AC.w_allows(x, W, 'PLACE-papers')]
     renames = [l for l in g(PP, 'diff', '--name-status', '-M', K.PRE_PP, 'HEAD').split(NL) if l[:1] in ('R', 'D')]
     relay_ch = sorted(set(x for x in (g(ROOT, 'diff', '--name-only', K.PRE_RELAY, 'HEAD') + NL + g(ROOT, 'diff', '--name-only')).split(NL) if x.strip()))
-    ruled = set('tools/' + t for t in tuple(K.REPAIRED_TOOLS) + tuple(K.NEW_TOOLS))
-    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not re.match(r'^tools/b713_', x) and x[6:] not in R.N5_RELAY_TOOLS and x not in ruled]
-    kinds_beyond = [x for x in relay_ch if not (re.match(r'^(data|tools)/(b713_|audit_b713_)', x) or re.match(r'^data/terminal_table', x) or x in ruled
-                                                or (x.startswith('data/') and x[5:] in ALLOWED_SHARED_DATA) or (x.startswith('tools/') and x[6:] in R.N5_RELAY_TOOLS))]
+    ruled = sorted(x for x in relay_ch if x.startswith('tools/') and AC.w_allows(x, W, 'relay'))
+    shared_tools = [x for x in relay_ch if x.startswith('tools/') and not AC.w_allows(x, W, 'relay')]
+    kinds_beyond = [x for x in relay_ch if not AC.w_allows(x, W, 'relay')]
     _r, _n, sh = seal_hashes()
     differ = [t for t, v in sh if v != 'agree']
     added = sorted(set(R._g2_of(FACE)) - set(R._g2_of(os.path.join(ROOT, *K.B711_FACE.split('/')))) - set(K.ACT_ARMS))
@@ -1930,14 +2067,14 @@ def _n5():
     return (('HELD' if ok else 'REFUTED'),
             'nothing deposits or publishes: the deposit route untouched (draft %s, v5, unpublished); every kernel as the face read it: %s; SIDE-explicit-formula`s main at '
             'badaccc, no tag past v0.37, unmoved: %s; SIDE-lv-conservation`s main and deposit untouched, port-b707 at this act`s tip %s, no tag at it: %s; the join kernel`s '
-            'main at %s with the one tag %s: %s; the re-cut on its branch %s at %s, not at the remote, the document unmoved on main: %s; the standing arms added beyond '
+            'main at %s with the one tag %s: %s; the re-cut on its branch %s at %s, at the remote at that tip and not merged, the document unmoved on main: %s; the standing arms added beyond '
             'b712`s face, the act arms apart: %s (%s); shared tools edited beyond the membrane %s: %s; sealed tools not agreeing: %s; commits amended after the seal '
             '(relay, PLACE-papers, SIDE-lv-conservation): %s; deletes with anything chained after: %s; port-b707 deleted: %s; one git write per message (%s): %s; '
             'PLACE-papers beyond the three ledgers: %s; papers moved or renamed: %s; relay files of a kind beyond the act`s banks and tools, the table, the root list, '
             'the corrigenda bank, b712`s push-out bank, standing clauses v3, the membrane and tools/mirror_prevbuild.json: %s; the glossary unchanged: %s; outbound '
             'requests other than git and gh %d, an identifier of the author in %s; the clauses that wait (the hashes at the close, no bank after the root) read '
             'again at `scores close`' % (
-                K.DRAFT, k_ok, ef_ok, K.PORT_NEW_TIP[:8], lv_ok, K.JOIN_NEW_TIP[:8], K.JOIN_TAG[0], join_ok, K.RECUT_BRANCH, K.RECUT_COMMIT[:8], recut_ok,
+                K.DRAFT, k_ok, ef_ok, K.PORT_NEW_TIP[:8], lv_ok, K.JOIN_NEW_TIP[:8], K.JOIN_TAG[0], join_ok, K.RECUT_BRANCH, K.RECUT_TIP[:8], recut_ok,
                 added or 'NONE', arms_ok, sorted(ruled), shared_tools or 'NONE', differ or 'NONE', amended or 'NONE', chained or 'NONE', K.PORT_BRANCH in deleted,
                 gw_note, gw_ok, pp_beyond or 'NONE', renames or 'NONE', kinds_beyond or 'NONE', gl, len(ob), [r['line'] for r in ident] or 'NONE'))
 
@@ -1974,7 +2111,7 @@ def _owners_now():
 def _for_author():
     rows, nav = _owners_now()
     f = _figs()
-    seat = len(rows) - len(nav)
+    seat = AC.defect_owners(rows)['SEAT']   # ### (R323)(4)(iii), v4 row (64): the one counter (b712's form counted every row not the navigator's)
     letters = ', '.join(re.match(r'^\(([a-z])\)', r).group(0) for r in nav)
     return ('(1) N5’s “no identifier of the author in any outbound request or workflow file” read as the requests’ headers and payloads and the '
             'workflow files, not the git identity every commit and the tag %s carry as author and tagger -- for the strike; (2) the faces ledger head’s '
@@ -2109,7 +2246,207 @@ def _trail_text():
     return NL.join(rows_)
 
 
+def _close_step(n):
+    """(R323)(4)(vi), standing clauses v4 row (68), THE CLOSE IN ONE ORDER: the route is step [n] of the close and refuses, writing nothing,
+    while a lower step's evidence is absent (tools/act_close.py close_refuses; a repair at b713, banked by diff)."""
+    r = AC.close_refuses(ACT, n)
+    if r:
+        print(r, flush=True)
+        sys.exit(5)
+    print('  ### THE CLOSE IN ONE ORDER: STEP [%d] MAY RUN -- EVERY LOWER STEP`S EVIDENCE STANDS' % n, flush=True)
+
+
+def closeorder(*a):
+    """`closeorder <n>`: step [n] of v4 row (68) read against the lower steps' evidence before the seat runs it by hand (the record commit
+    [19] among them); prints and exits 5 where it refuses; writes nothing."""
+    if not a or not a[0].isdigit():
+        for k, w, e in AC.close_steps():
+            print('  [%d] %s (%s)' % (k, w[:90], e.replace('<act>', ACT)))
+        return
+    _close_step(int(a[0]))
+
+
+def repaircontrols(*a):
+    """data/b713_repair_controls.txt (.json): (R323)(4), each of the six repairs with its two-instance control -- one instance from the record
+    (b712's own banks, commits and remotes) and one constructed (rows or banks made by the route in the scratchpad, or throwaway repositories
+    made by the scratch control script for (v)) -- every instance printed with what it was wanted to read and what it read."""
+    import io
+    import subprocess
+    import tempfile
+    import b713_closing as CL
+    SP = os.environ.get('B713_SCRATCH') or 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad'
+    out, J = [], {}
+
+    def row(rep, inst, wanted, got, note=''):
+        ok = (wanted == got)
+        out.append('  (%s) %-12s wanted %s ; got %s ; %s%s' % (rep, inst, wanted, got, 'PASS' if ok else '### FAIL', (' -- ' + note) if note else ''))
+        J.setdefault(rep, []).append(dict(instance=inst, wanted=str(wanted), got=str(got), ok=ok, note=note))
+
+    def git(*args, repo=ROOT):
+        return subprocess.run(['git', '-C', repo] + list(args), capture_output=True, text=True, encoding='utf-8').stdout.strip()
+
+    # ### (i) ONE LIST OF WRITES: b712's face (W) read by AC.w_patterns against b712's relay changes 4a383ac8..1290446c; constructed paths
+    face12 = io.open(os.path.join(D, 'b712_registration_2026-10-25.txt'), encoding='utf-8').read()
+    pats = AC.w_patterns(face12)
+    ch = [p for p in git('diff', '--name-only', '4a383ac8', '1290446c').split(NL) if p]
+    beyond = [p for p in ch if not AC.w_allows(p, pats, 'relay')]
+    out.append('### (i) b712`s face (W): %d patterns read ; relay 4a383ac8..1290446c changed %d paths ; beyond the list %s' % (len(pats), len(ch), beyond or 'NONE'))
+    row('i', 'record', 0, len(beyond), 'b712`s relay changes, every one inside its own face`s (W)')
+    row('i', 'constructed', (True, False, False), (AC.w_allows('data/b712_x.txt', pats), AC.w_allows('data/zz_outside_b712.txt', pats),
+                                                   AC.w_allows('FOUNDATIONS.md', pats, 'PLACE-papers')),
+        'data/b712_x.txt inside ; data/zz_outside_b712.txt and PLACE-papers/FOUNDATIONS.md outside')
+
+    # ### (ii) EVERY COMMIT OF A STEP: b712's gate (afe3903a, and dcb3b286 "the gate before the lock" entered under component 5); constructed
+    st12 = jl('b712_steps.json')
+    rows12 = st12 if isinstance(st12, list) else st12.get('rows', [])
+    g_one = [r.get('commit', '')[:8] for r in rows12 if r.get('phase') == 'gate']
+    joined = [dict(repo='relay', phase='gate', commits=['afe3903acfd0e4c790a34015d5fa142d1d52b812', 'dcb3b2862324ddbde0bd8ee08a893141fcda38c2'])]
+    out.append('### (ii) b712`s step bank: the gate phase`s rows read by their one `commit`: %s ; dcb3b286`s subject names the gate, its phase %r' % (
+        g_one, next((r.get('phase') for r in rows12 if r.get('commit', '').startswith('dcb3b286')), None)))
+    row('ii', 'record', ['afe3903a', 'dcb3b286'], [c[:8] for c in AC.step_commits(joined, 'gate', 'relay')],
+        'the gate`s two commits on one row, read whole (the one-`commit` form reads %s)' % [r.get('commit', '')[:8] for r in joined if r.get('commit')])
+    three = [dict(repo='relay', phase='component 9', commit='c1', commits=['c1', 'c2', 'c3']), dict(repo='pp', phase='component 9', commit='c4')]
+    row('ii', 'constructed', ['c1', 'c2', 'c3'], AC.step_commits(three, 'component 9', 'relay'),
+        'a three-commit step: the one-`commit` form reads [c1], c2 and c3 undeclared; the other repository`s c4 not read')
+
+    # ### (iii) ONE COUNTER: b712's defects bank (b712's record tool counted 22 for the seat, its suite 21); constructed rows
+    d12 = [l for l in io.open(os.path.join(D, 'b712_defects.txt'), encoding='utf-8').read().split(NL) if AC.OWNER.match(l.lstrip())]
+    c12 = AC.defect_owners(d12)
+    row('iii', 'record', (22, 21, 0, 1), (c12['TOTAL'], c12['SEAT'], c12['NAVIGATOR'], c12['OTHER']),
+        'TOTAL, SEAT, NAVIGATOR, OTHER: (h) THE CARRIED RECORD TOOL`S FORM is OTHER; both tools now read the one number')
+    c3 = AC.defect_owners(["(a) THE SEAT'S: x", "(b) THE NAVIGATOR'S: y", "(c) THE RECORD TOOL'S: z", "(a') THE SEAT’S: w", 'no row'])
+    row('iii', 'constructed', (4, 2, 1, 1), (c3['TOTAL'], c3['SEAT'], c3['NAVIGATOR'], c3['OTHER']), 'a primed letter and a curly apostrophe counted')
+
+    # ### (iv) THE LOCK AS A MEMBRANE: b712's lock is written, its dry root bank refuses; a constructed act's banks before and after its lock
+    row('iv', 'record', True, bool(AC.lock_refuses('b712', 'b712_root_banks_dry.json')), 'b712_lockgate.json stands; a rewrite of [2]`s bank refused')
+    td = tempfile.mkdtemp(prefix='b713_lock_', dir=SP)
+    for n_ in ('b999_root_banks_dry.json', 'b999_standing_figures.json'):
+        io.open(os.path.join(td, n_), 'w', encoding='utf-8').write('{}')
+    before = bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td))
+    io.open(os.path.join(td, 'b999_lockgate.json'), 'w', encoding='utf-8').write('{}')
+    after = (bool(AC.lock_refuses('b999', 'b999_root_banks_dry.json', td)), bool(AC.lock_refuses('b999', 'b999_scores.json', td)))
+    row('iv', 'constructed', (False, True, False), (before,) + after,
+        'scratch %s: before the lock writable ; after it [2]`s bank refused ; [9]`s scores bank (after the lock) writable' % os.path.basename(td))
+
+    # ### (v) A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote: b712's head line read again; the scratch script's two clones
+    ev = []
+    hl = CL.head_line(act='b712', events=ev)
+    m_ = re.search(r'relay (\w+), PLACE-papers (\w+)', hl)
+    out.append('### (v) b712`s head line read again by the repaired builder: %s' % hl)
+    out += ['      event: ' + e for e in ev]
+    row('v', 'record', True, bool(m_) and 'none' not in (m_.group(1), m_.group(2)),
+        'each repository`s main read at the remote (b712`s own head line read "none read" for both, events :48)')
+    r_ = subprocess.run(['bash', SP + '/control_v_capture.sh'], capture_output=True, text=True, encoding='utf-8')
+    out += ['      ' + l for l in r_.stdout.strip().split(NL)]
+    got_v = tuple(re.findall(r'captures written (\d+) ; name \S+ ; the capture carries the read-back (\w+)', r_.stdout))
+    row('v', 'constructed', (('1', 'yes'), ('0', 'no')), got_v, 'a file:// origin captured unasked, a plain-path origin (the tests`) not')
+
+    # ### (vi) THE CLOSE IN ONE ORDER: b712's banks replayed by their mtimes at its record commit (755b03aa) and at its scores-close bank
+    t_rec = int(git('show', '-s', '--format=%ct', '755b03aa') or 0)
+    t_sc = int(os.path.getmtime(os.path.join(D, 'b712_scores_close.json')))
+    alias = {'b712_closing_dry.txt': 0, 'b712_scores_dry.txt': 0, 'b712_relay_push-b712-record_push_out.txt': t_rec}
+
+    def at(T):
+        def has(p):
+            b = os.path.basename(p)
+            if b in alias:
+                return T >= alias[b]
+            return os.path.exists(p) and os.path.getmtime(p) <= T
+        return has
+    r19, r22 = AC.close_refuses('b712', 19, present=at(t_rec)), AC.close_refuses('b712', 22, present=at(t_sc))
+    out.append('### (vi) b712 replayed (its dry runs [3] [4] in the scratchpad, recorded in its gate; [19] its record push 755b03aa, no capture):')
+    out += ['      step [19] at %s: %s' % (t_rec, r19 or 'MAY RUN'), '      step [22] at %s: %s' % (t_sc, r22 or 'MAY RUN')]
+    row('vi', 'record', True, bool(r19 or r22), 'b712 closed out of v4`s order: a step ran while a lower step`s evidence was absent')
+    td2 = tempfile.mkdtemp(prefix='b713_order_', dir=SP)
+    for k, w, e in AC.close_steps():
+        if k <= 5 and e.startswith('data/'):
+            io.open(os.path.join(td2, os.path.basename(e.replace('<act>', 'b999'))), 'w', encoding='utf-8').write('{}')
+    g6, g7 = AC.close_refuses('b999', 6, td2), AC.close_refuses('b999', 7, td2)
+    row('vi', 'constructed', ('', True, True), (g6, bool(g7), '[6]' in g7), 'banks [1]-[5] in scratch %s: [6] may run ; [7] refused naming [6]' % os.path.basename(td2))
+
+    npass = sum(1 for v in J.values() for x in v if x['ok'])
+    ntot = sum(len(v) for v in J.values())
+    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH WITH ITS TWO-INSTANCE CONTROL (standing clauses v4 rows (62)-(68)) (%s)' % (ACT, utc()), '',
+         '### one instance from the record (b712`s banks, commits and remotes), one constructed (rows here, banks in the scratchpad, throwaway',
+         '### repositories for (v)); the functions are tools/act_close.py`s, the head line tools/b713_closing.py`s, the capture tools/push_gated.sh`s.',
+         '### (vi)`s record instance reads b712`s banks by their file times (a bank rewritten later reads absent at the earlier time).', ''] + out + [
+         '', '### ### **CONTROLS %d ; PASSING %d ; THE SIX REPAIRS EACH WITH TWO INSTANCES %s.**' % (ntot, npass, all(len(J.get(x, [])) == 2 for x in
+                                                                                                       ('i', 'ii', 'iii', 'iv', 'v', 'vi')))]
+    if a and a[0] == 'dry':
+        print(NL.join(L))
+        return
+    put_txt('%s_repair_controls.txt' % ACT, L)
+    put_json('%s_repair_controls.json' % ACT, dict(at=utc(), controls=J, passing=npass, total=ntot))
+    print(NL.join(L))
+
+
+REPAIR_KEYS = (('i', 'ONE LIST OF WRITES', '(62)', r'w_patterns|w_allows'),
+                ('ii', 'EVERY COMMIT OF A STEP', '(63)', r'step_commits'),
+                ('iii', 'ONE COUNTER', '(64)', r'defect_owners'),
+                ('iv', 'THE LOCK AS A MEMBRANE', '(65)', r'lock_refuses|_lock_guard'),
+                ('v', 'A CAPTURE FOR EVERY PUSH, THE HEAD LINE FROM ls-remote', '(66)', r'read_remotes|PUSH_GATED_CAPTURE_DIR'),
+                ('vi', 'THE CLOSE IN ONE ORDER', '(67), (68)', r'close_refuses|_close_step|close_steps'))
+
+
+def toolrepairs13(*a):
+    """data/b713_tool_repairs.txt (.json): (R323)(4), each repair's diff -- the hunks of the carry-time diffs (data/b713_repairdiff_record.txt,
+    _checks.txt, _closing.txt) whose added lines name the repair or call its function, tools/push_gated.sh's diff against relay HEAD, and
+    tools/act_close.py (a new shared tool, untracked till the component's commit) by its sections -- each repair's control line beside it."""
+    import io
+    hunks = []
+    for n_ in ('record', 'checks', 'closing'):
+        cur = None
+        for l in io.open(os.path.join(D, '%s_repairdiff_%s.txt' % (ACT, n_)), encoding='utf-8').read().split(NL):
+            if l.startswith('@@'):
+                cur = dict(tool='tools/%s_%s.py' % (ACT, n_), lines=[l])
+                hunks.append(cur)
+            elif cur is not None and l[:1] in '+-' and not l.startswith('### ###'):
+                cur['lines'].append(l)
+            elif cur is not None and not l.strip():
+                cur = None
+    pg = subprocess.run(['git', '-C', ROOT, 'diff', 'HEAD', '--', 'tools/push_gated.sh'], capture_output=True, text=True, encoding='utf-8').stdout.split(NL)
+    ac = io.open(os.path.join(T, 'act_close.py'), encoding='utf-8').read().split(NL)
+    cj = jl('%s_repair_controls.json' % ACT).get('controls', {})
+    L = ['%s -- THE SIX REPAIRS OF (R323)(4), EACH BY ITS DIFF (standing clauses v4 rows (61)-(68)) (%s)' % (ACT, utc()), '',
+         '### per repair: the v4 row ; tools/act_close.py`s section (a new shared tool, every line added) ; the hunks of the carried tools` diffs',
+         '### (data/b713_repairdiff_<tool>.txt) whose added lines name the repair or call its function ; tools/push_gated.sh`s diff against relay',
+         '### HEAD for (v) ; the two controls (data/b713_repair_controls.txt).', '']
+    J = {}
+    for k, title, rows, fn in REPAIR_KEYS:
+        tag = re.compile(r'\(R323\)\(4\)\(%s\)|%s' % (re.escape(k), fn))
+        mine = [h for h in hunks if any(tag.search(l) for l in h['lines'] if l.startswith('+'))]
+        L.append('### ### (%s) %s -- v4 row %s' % (k, title, rows))
+        sec, on = [], False
+        for i, l in enumerate(ac, 1):
+            if l.startswith('# ====='):
+                on = bool(re.search(r'\(%s\) ' % re.escape(k), l)) or (k == 'vi' and '(vi)' in l)
+            if on:
+                sec.append('+%s' % l)
+        if sec:
+            L += ['  --- tools/act_close.py (new) its section, %d lines:' % len(sec)] + ['  ' + s for s in sec]
+        for h in mine:
+            L += ['  --- %s %s' % (h['tool'], h['lines'][0])] + ['  ' + s for s in h['lines'][1:]]
+        if k == 'v':
+            L += ['  --- tools/push_gated.sh, git diff HEAD:'] + ['  ' + s for s in pg if s]
+        L += ['  CONTROL %s: %s ; got %s ; %s' % (c['instance'], c['wanted'], c['got'], 'PASS' if c['ok'] else '### FAIL') for c in cj.get(k, [])]
+        L.append('')
+        J[k] = dict(title=title, v4_rows=rows, act_close_lines=len(sec), hunks=[(h['tool'], h['lines'][0]) for h in mine],
+                    push_gated_lines=len([s for s in pg if s]) if k == 'v' else 0, controls=cj.get(k, []))
+    nh = sum(len(v['hunks']) for v in J.values())
+    L.append('### ### **REPAIRS %d ; HUNKS NAMED %d ; WITH tools/act_close.py`s SECTIONS AND push_gated.sh`s DIFF ; CONTROLS PASSING %d OF %d.**' % (
+        len(J), nh, sum(1 for v in J.values() for c in v['controls'] if c['ok']), sum(len(v['controls']) for v in J.values())))
+    if a and a[0] == 'dry':
+        print(NL.join(L[-1:]))
+        for k, v in J.items():
+            print('  (%s) act_close %d ; hunks %s ; push_gated %d ; controls %d' % (k, v['act_close_lines'], v['hunks'], v['push_gated_lines'], len(v['controls'])))
+        return
+    put_txt('%s_tool_repairs.txt' % ACT, L)
+    put_json('%s_tool_repairs.json' % ACT, dict(at=utc(), repairs=J))
+    print(L[-1])
+
+
 def components(*a):
+    _close_step(18)
     S, fj, tj, J = (jl(n_) for n_ in ('%s_scores.json' % ACT, '%s_findings.json' % ACT, '%s_trail.json' % ACT, '%s_act_root.json' % ACT))
     if not fj.get('entry_line') or not tj.get('line'):
         sys.exit('### THE FINDINGS OR TRAIL BANK IS NOT WRITTEN -- RUN `findings` AND `trail` FIRST -- NOTHING WRITTEN')
@@ -2139,6 +2476,8 @@ def scores(*a):
     """`scores [dry]` writes data/b713_scores.json ONCE, before the entry (it refuses where the bank exists); `scores close` reads the readings
     that waited (N4's and N5's close clauses, S1, S2) into data/b713_scores_close.json."""
     close = 'close' in a
+    if 'dry' not in a:
+        _close_step(22 if close else 9)   # ### (R323)(4)(vi): scores [9], scores close [22] (the events bank [21] before it)
     S = dict([('N1', _n1()), ('N2', _n2()), ('N3', _n3()), ('N4', _n4()), ('N5', _n5())] + list(_s_scores().items()))
     for k2 in SCORE_KEYS:
         read_score_row(k2, list(S[k2]))
@@ -2165,6 +2504,7 @@ def findings(*a):
         return
     if not os.path.isfile(os.path.join(D, '%s_scores.json' % ACT)):
         sys.exit('### THE SCORES BANK IS NOT WRITTEN -- THE ENTRY READS IT (data/b686_rules.txt row (1)) -- NOTHING WRITTEN')
+    _close_step(12)   # ### (R323)(4)(vi): the FINDINGS entry, step [12]
     if cells_ or fired:
         sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
     ln = R._land_one(FIND, t, e, '%s_findings.json' % ACT, dict(title=t))
@@ -2184,6 +2524,7 @@ def trail(*a):
         return
     if cells_ or fired:
         sys.exit('### A SCREEN FIRED -- NOTHING WRITTEN')
+    _close_step(15)   # ### (R323)(4)(vi): the trail carrying the root, step [15]
     ln = R._land_one(OT, TRAIL_HEAD(), e, '%s_trail.json' % ACT, {})
     print('  OPEN_TRAILS record :%s' % ln)
 
@@ -2211,7 +2552,8 @@ def drycheck(*a):
             print('  ### THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK %s' % eq)
             rows, nav = _owners_now()
             gr = _trail_resolved(t)
-            wr = (num_word(len(nav)), num_word(len(rows) - len(nav)))
+            oc = AC.defect_owners(rows)   # ### (R323)(4)(iii), v4 row (64): the one counter, the suite's arm's own (a repair at b713)
+            wr = (num_word(oc['NAVIGATOR']), num_word(oc['SEAT']))
             eqr = gr == wr
             print('  THE TRAIL`S RESOLVED LINE`S COUNTS: %s ; THE BANK`S OWNERS (navigator, seat): %s' % (gr, wr))
             print('  ### THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK %s' % eqr)
@@ -2262,6 +2604,7 @@ def mirror_order(act, rootl, roots=None):
 def mbank(*a):
     """b712's mbank carried with b713's names (the span line read from the mirror bank chain); (R323)(3)(iv): refused where the root is
     appended and the export carries no root line for it."""
+    _close_step(23)   # ### (R323)(4)(vi): the mirror, step [23]
     import hashlib as _hl
     import zipfile
     import b616_record as R6
@@ -2539,9 +2882,10 @@ ROUTES = dict(verdicts=verdicts, commands=commands, kernels=kernels, standing=st
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck,
-              step=step, c1=c1, repairctl=repairctl12, toolrepairs=toolrepairs12, facerows=facerows, portedit=portedit, portdispatch=portdispatch, portrun=portrun, regpos=regpos, joingrade=joingrade, jointag=jointag,
+              step=step, c1=c1, repairctl=repairctl12, toolrepairs12=toolrepairs12, facerows=facerows, portedit=portedit, portdispatch=portdispatch, portrun=portrun, regpos=regpos, joingrade=joingrade, jointag=jointag,
               scores=scores, findings=findings, trail=trail, drycheck=drycheck, components=components, mbank=mbank, guard=guard,
-              scorercheck=scorercheck, armnames=armnames)
+              scorercheck=scorercheck, armnames=armnames, facesdiff=facesdiff, recutadd=recutadd, closeorder=closeorder,
+              repaircontrols=repaircontrols, toolrepairs=toolrepairs13)
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

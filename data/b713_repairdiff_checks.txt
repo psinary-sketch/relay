@@ -1,0 +1,40 @@
+b713 -- THE CARRY-TIME REPAIRS OF tools/b713_checks.py AS A DIFF: the carried form (tools/b712_checks.py with the act names substituted) against the file now (2026-10-25T22:04:59Z)
+
+--- tools/b713_checks.py (the carried form)
++++ tools/b713_checks.py (now)
+@@ -90,0 +90,9 @@
++import act_close as AC        # noqa: E402  ### (R323)(4): the close's shared functions, one form for every tool (a repair at b713)
++
++
++def _owners(rows):
++    """(R323)(4)(iii), standing clauses v4 row (64), ONE COUNTER: (navigator, seat) from tools/act_close.py defect_owners, the one function
++    every tool imports -- b703's _owners counted the seat as every row not the navigator's (22 at b712) where the trail arm counted THE SEAT'S
++    alone (21); both now read the one count (a repair at b713, banked by diff)."""
++    o = AC.defect_owners(rows)
++    return o['NAVIGATOR'], o['SEAT']
+@@ -1010,2 +1019,2 @@
+-    bank = [m_.groups() for m_ in (re.match(r"^\(([a-z]'?)\) THE (NAVIGATOR|SEAT)'S", s) for s in (S['letters_seal'] or [])) if m_]
+-    want = (sum(1 for _x, o in bank if o == 'NAVIGATOR'), sum(1 for _x, o in bank if o == 'SEAT'))
++    bank = [b_ for b_ in AC.defect_owners(S['letters_seal'] or [])['by'] if b_[1] in ('NAVIGATOR', 'SEAT')]
++    want = _owners(S['letters_seal'] or [])   # ### (R323)(4)(iii): the one counter (a repair at b713)
+@@ -1130,2 +1139,3 @@
+-    """the phase the act's step bank gives a commit (its row by repository and by the commit's abbreviated hash), None where it has no row."""
+-    return next((r.get('phase') for r in rows if r.get('repo') == repo and (r.get('commit') or '').startswith(h)), None)
++    """the phase the act's step bank gives a commit (its row by repository and by the commit's abbreviated hash), None where it has no row.
++    (R323)(4)(ii), v4 row (63): a row's every commit read through tools/act_close.py step_commits (a repair at b713)."""
++    return next((r.get('phase') for r in rows if r.get('repo') == repo and any(c.startswith(h) for c in AC.step_commits([r]))), None)
+@@ -1156,3 +1166,6 @@
+-    steps the step bank's rows."""
+-    gates = [r.get('commit') or '' for r in steps or [] if r.get('phase') == 'gate']
+-    if 'WHAT RAN AHEAD OF THIS SEAL' not in (face or '') or lock_epoch is None or len(gates) != 1:
++    steps the step bank's rows.
++    (R323)(4)(ii), standing clauses v4 row (63), EVERY COMMIT OF A STEP: the gate's commits are every commit of the step-bank rows of phase
++    `gate` (tools/act_close.py step_commits), one or more; b712's arm wanted exactly one row and read its one commit, and so read the gate's
++    second commit dcb3b286 undeclared (a repair at b713, banked by diff)."""
++    gates = AC.step_commits(steps, phase='gate')
++    if 'WHAT RAN AHEAD OF THIS SEAL' not in (face or '') or lock_epoch is None or not gates:
+@@ -1160,1 +1173,1 @@
+-    return all(h[:7] in face for h, s, t in logs if t <= lock_epoch and not gates[0].startswith(h))
++    return all(h[:7] in face for h, s, t in logs if t <= lock_epoch and not any(gc.startswith(h) for gc in gates))
+
+### ### **HUNKS 5 ; LINES REMOVED 8 ; LINES ADDED 21.**

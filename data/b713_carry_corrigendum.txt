@@ -1,0 +1,149 @@
+b713 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b712_corrigendum.py -> tools/b713_corrigendum.py (2026-10-25T21:49:15Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b712 -> b713, b711 -> b712, (R322) -> (R323), (R321) -> (R322), R322 -> R323, R321 -> R322); 242 lines, 52 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b712_tool_repairs.txt AND data/b712_repairdiff_corrigendum.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b712; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b712_corrigendum.py
+  +++ tools/b713_corrigendum.py
+  @@ -2,1 +2,1 @@
+  -"""b712_corrigendum.py -- THE CORRIGENDUM ENTRY OF (R322)(2): b711's events after its seal (relay data/b711_events.txt, sixteen starting
+  +"""b713_corrigendum.py -- THE CORRIGENDUM ENTRY OF (R323)(2): b712's events after its seal (relay data/b712_events.txt, sixteen starting
+  @@ -4,3 +4,3 @@
+  -lettered as defects, each with its owner, (k)-(t) after b711's ten letters (a)-(j) (relay data/b711_defects.txt); seven are entered as
+  -records, unlettered. Each lettered item names the repair of (3) that takes it up (relay data/b712_tool_repairs.txt by its row) or "carried"
+  -with its reason. b711's events bank, its defects bank, its sealed face (relay data/b711_registration_2026-10-25.txt), its trail record
+  +lettered as defects, each with its owner, (k)-(t) after b712's ten letters (a)-(j) (relay data/b712_defects.txt); seven are entered as
+  +records, unlettered. Each lettered item names the repair of (3) that takes it up (relay data/b713_tool_repairs.txt by its row) or "carried"
+  +with its reason. b712's events bank, its defects bank, its sealed face (relay data/b712_registration_2026-10-25.txt), its trail record
+  @@ -9,1 +9,1 @@
+  -### Written whole by the Write tool at b712, its items rewritten for b711's events (b708-b711 wrote theirs the same way). b678's reader `rd`
+  +### Written whole by the Write tool at b713, its items rewritten for b712's events (b708-b712 wrote theirs the same way). b678's reader `rd`
+  @@ -12,7 +12,7 @@
+  -###   the starting lines: data/b711_events.txt, a line opening four spaces and a non-space; each item's head checked by its needle;
+  -###   b711's letters: data/b711_defects.txt by tools/b712_record.py letters_of (ten, (a)-(j));
+  -###   the repairs: data/b712_tool_repairs.txt, each row's label and the events line it answers ("Answers b711`s events :<n>");
+  -###   the controls: data/b712_repair_controls.json, every case AS WANTED, each section present;
+  -###   the added item: tools/mirror_prevbuild.json's blob at b707 (b5898a61) and at b711's closing (4a383ac8), read by git rev-parse.
+  -### Routes: `dry` -> the entry printed through the screens, nothing written; `land` -> the entry appended to FINDINGS through b712_record's
+  -### guarded landing, data/b712_corrigendum.txt (.json). The corrigenda bank's row (32) is appended by the seat through the Edit tool from the
+  +###   the starting lines: data/b712_events.txt, a line opening four spaces and a non-space; each item's head checked by its needle;
+  +###   b712's letters: data/b712_defects.txt by tools/b713_record.py letters_of (ten, (a)-(j));
+  +###   the repairs: data/b713_tool_repairs.txt, each row's label and the events line it answers ("Answers b712`s events :<n>");
+  +###   the controls: data/b713_repair_controls.json, every case AS WANTED, each section present;
+  +###   the added item: tools/mirror_prevbuild.json's blob at b707 (b5898a61) and at b712's closing (4a383ac8), read by git rev-parse.
+  +### Routes: `dry` -> the entry printed through the screens, nothing written; `land` -> the entry appended to FINDINGS through b713_record's
+  +### guarded landing, data/b713_corrigendum.txt (.json). The corrigenda bank's row (32) is appended by the seat through the Edit tool from the
+  @@ -37,2 +37,2 @@
+  -import b712_worklist as K         # noqa: E402
+  -import b712_record as REC         # noqa: E402  ### the guarded landing, the letters reader
+  +import b713_worklist as K         # noqa: E402
+  +import b713_record as REC         # noqa: E402  ### the guarded landing, the letters reader
+  @@ -40,2 +40,2 @@
+  -TITLE = ('## Corrigendum to b711’s record after its seal (relay data/b711_events.txt): sixteen events and one added item, ten lettered '
+  -         '(k)-(t) with their owners, seven entered as records, under (R322)(2)')
+  +TITLE = ('## Corrigendum to b712’s record after its seal (relay data/b712_events.txt): sixteen events and one added item, ten lettered '
+  +         '(k)-(t) with their owners, seven entered as records, under (R323)(2)')
+  @@ -43,1 +43,1 @@
+  -# ### the lettered items, (R322)(2)'s order: (letter, events line or None for the added item, the head's needle, the owner, the repair row or
+  +# ### the lettered items, (R323)(2)'s order: (letter, events line or None for the added item, the head's needle, the owner, the repair row or
+  @@ -52,1 +52,1 @@
+  -     'the port clause made b712’s after the seal, outside the sealed NEXT line'),
+  +     'the port clause made b713’s after the seal, outside the sealed NEXT line'),
+  @@ -72,1 +72,1 @@
+  -ROW = ('  (32) b711\'s record after its seal (relay data/b711_events.txt, sixteen starting lines, and the closing`s sentence on\n'
+  +ROW = ('  (32) b712\'s record after its seal (relay data/b712_events.txt, sixteen starting lines, and the closing`s sentence on\n'
+  @@ -75,1 +75,1 @@
+  -       '      the root, the navigator`s, both taken up by the standing report tool (data/b712_report.txt); (o) the port clause outside the sealed\n'
+  +       '      the root, the navigator`s, both taken up by the standing report tool (data/b713_report.txt); (o) the port clause outside the sealed\n'
+  @@ -80,1 +80,1 @@
+  -       '      CORRECTION: relay data/b712_tool_repairs.txt rows (56)-(60) and NEXT, their controls data/b712_repair_controls.txt. The generated\n'
+  +       '      CORRECTION: relay data/b713_tool_repairs.txt rows (56)-(60) and NEXT, their controls data/b713_repair_controls.txt. The generated\n'
+  @@ -89,1 +89,1 @@
+  -    ev = C78.rd(os.path.join(D, 'b711_events.txt')).replace(chr(13), '').split(NL)
+  +    ev = C78.rd(os.path.join(D, 'b712_events.txt')).replace(chr(13), '').split(NL)
+  @@ -95,1 +95,1 @@
+  -    dt = C78.rd(os.path.join(D, 'b711_defects.txt'))
+  +    dt = C78.rd(os.path.join(D, 'b712_defects.txt'))
+  @@ -97,1 +97,1 @@
+  -    tr = C78.rd(os.path.join(D, 'b712_tool_repairs.txt')).split(NL)
+  +    tr = C78.rd(os.path.join(D, 'b713_tool_repairs.txt')).split(NL)
+  @@ -108,1 +108,1 @@
+  -            rows[m.group(1)] = (i, sorted(set(int(x) for x in re.findall(r':(\d+)', re.sub(r'.*Answers b711`s events', '', body)[:60]))))
+  +            rows[m.group(1)] = (i, sorted(set(int(x) for x in re.findall(r':(\d+)', re.sub(r'.*Answers b712`s events', '', body)[:60]))))
+  @@ -111,1 +111,1 @@
+  -    ctl = json.load(open(os.path.join(D, 'b712_repair_controls.json'), encoding='utf-8'))
+  +    ctl = json.load(open(os.path.join(D, 'b713_repair_controls.json'), encoding='utf-8'))
+  @@ -117,1 +117,1 @@
+  -    cl11 = C78.rd(os.path.join(D, 'b711_closing.txt')).split(NL)
+  +    cl11 = C78.rd(os.path.join(D, 'b712_closing.txt')).split(NL)
+  @@ -121,1 +121,1 @@
+  -                          ('b711`s ten letters', prev == PREV_LETTERS), ('the repair rows answering their lines', not bad_rows),
+  +                          ('b712`s ten letters', prev == PREV_LETTERS), ('the repair rows answering their lines', not bad_rows),
+  @@ -124,2 +124,2 @@
+  -                          ('the blob unchanged b707 to b711`s closing', blob7 and blob7 == blob11),
+  -                          ('b711`s closing saying "committed with this closing"', said)) if not v]
+  +                          ('the blob unchanged b707 to b712`s closing', blob7 and blob7 == blob11),
+  +                          ('b712`s closing saying "committed with this closing"', said)) if not v]
+  @@ -139,2 +139,2 @@
+  -        return 'TAKEN UP BY THE STANDING REPORT TOOL of (R322)(3) (relay data/b712_report.txt, written at Component 5)'
+  -    return 'REPAIRED by relay data/b712_tool_repairs.txt row %s (:%d), its control data/b712_repair_controls.txt' % (r, s['rows'][r][0])
+  +        return 'TAKEN UP BY THE STANDING REPORT TOOL of (R323)(3) (relay data/b713_report.txt, written at Component 5)'
+  +    return 'REPAIRED by relay data/b713_tool_repairs.txt row %s (:%d), its control data/b713_repair_controls.txt' % (r, s['rows'][r][0])
+  @@ -145,3 +145,3 @@
+  -         ('b711’s events bank (relay data/b711_events.txt) carries sixteen starting lines (:%s), entered after its seal and not lettered, '
+  -          'for this act’s corrigendum under standing clauses v2 row (52). (R322)(2) letters ten of them as defects, each with its owner, and '
+  -          'adds one; b711’s defects bank carries (a)-(j), so these are (k)-(t). Seven are entered as records. b711’s events bank, its defects '
+  +         ('b712’s events bank (relay data/b712_events.txt) carries sixteen starting lines (:%s), entered after its seal and not lettered, '
+  +          'for this act’s corrigendum under standing clauses v2 row (52). (R323)(2) letters ten of them as defects, each with its owner, and '
+  +          'adds one; b712’s defects bank carries (a)-(j), so these are (k)-(t). Seven are entered as records. b712’s events bank, its defects '
+  @@ -160,1 +160,1 @@
+  -        o=('The author’s word on S2 made DirichletC7Order.lean :501:31 b712’s port clause after the seal; the sealed NEXT named b712 without it. '
+  +        o=('The author’s word on S2 made DirichletC7Order.lean :501:31 b713’s port clause after the seal; the sealed NEXT named b713 without it. '
+  @@ -170,2 +170,2 @@
+  -        t=('b711’s closing (relay data/b711_closing.txt :%d) says the state file was committed with the closing, but its blob %s is the same '
+  -           'at b707 (relay %s) and at b711’s closing (relay %s). The closing now reads the blob against its last commit before it says '
+  +        t=('b712’s closing (relay data/b712_closing.txt :%d) says the state file was committed with the closing, but its blob %s is the same '
+  +           'at b707 (relay %s) and at b712’s closing (relay %s). The closing now reads the blob against its last commit before it says '
+  @@ -174,1 +174,1 @@
+  -        place = 'relay data/b711_events.txt :%d' % n if n else 'the item (R322)(2) adds'
+  +        place = 'relay data/b712_events.txt :%d' % n if n else 'the item (R323)(2) adds'
+  @@ -176,1 +176,1 @@
+  -    L += ['**Records, unlettered:** ' + '; '.join(':%d %s' % (n, w) for n, _h, w in RECORDS) + ' (relay data/b711_events.txt).', '',
+  +    L += ['**Records, unlettered:** ' + '; '.join(':%d %s' % (n, w) for n, _h, w in RECORDS) + ' (relay data/b712_events.txt).', '',
+  @@ -179,3 +179,3 @@
+  -          ('*Filed at b712 on the author’s ruling `(R322)`(2): generated by relay `tools/b712_corrigendum.py`, written whole at b712 in the '
+  -           'corrigendum form of relay `tools/b678_corrigendum.py` (its reader imported unchanged), banked as relay `data/b712_corrigendum.txt`, '
+  -           'the corrigenda bank `data/b675_corrigenda.txt` appended at row (32); it answers b711’s events after its seal.*')]
+  +          ('*Filed at b713 on the author’s ruling `(R323)`(2): generated by relay `tools/b713_corrigendum.py`, written whole at b713 in the '
+  +           'corrigendum form of relay `tools/b678_corrigendum.py` (its reader imported unchanged), banked as relay `data/b713_corrigendum.txt`, '
+  +           'the corrigenda bank `data/b675_corrigenda.txt` appended at row (32); it answers b712’s events after its seal.*')]
+  @@ -186,2 +186,2 @@
+  -    L = ['b712 -- THE CORRIGENDUM ENTRY FOR b711`S EVENTS AFTER ITS SEAL, (R322)(2) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  -         '### the figures read before the write: the starting lines :%s ; b711`s letters %s ;' % (', :'.join(str(n) for n in s['starts']), ''.join(s['prev'])),
+  +    L = ['b713 -- THE CORRIGENDUM ENTRY FOR b712`S EVENTS AFTER ITS SEAL, (R323)(2) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  +         '### the figures read before the write: the starting lines :%s ; b712`s letters %s ;' % (', :'.join(str(n) for n in s['starts']), ''.join(s['prev'])),
+  @@ -189,1 +189,1 @@
+  -         '### the controls %d cases, %d not as wanted, sections %s ; %s blob %s at %s and %s at %s ; b711`s closing :%d.' % (
+  +         '### the controls %d cases, %d not as wanted, sections %s ; %s blob %s at %s and %s at %s ; b712`s closing :%d.' % (
+  @@ -204,1 +204,1 @@
+  -    MEM.guard_path('b712', p, REC.R.ROOT_EXCLUDE)
+  +    MEM.guard_path('b713', p, REC.R.ROOT_EXCLUDE)
+  @@ -224,2 +224,2 @@
+  -    REC.land([('FINDINGS.md', TITLE, text)], 'b712_corrigendum_landing.json', 'corrigendum', entry=None, dry=False)
+  -    ln = (REC.jl('b712_corrigendum_landing.json').get('lines') or [{}])[0].get('line')
+  +    REC.land([('FINDINGS.md', TITLE, text)], 'b713_corrigendum_landing.json', 'corrigendum', entry=None, dry=False)
+  +    ln = (REC.jl('b713_corrigendum_landing.json').get('lines') or [{}])[0].get('line')
+  @@ -227,1 +227,1 @@
+  -    _put('b712_corrigendum.txt', NL.join(L) + NL)
+  +    _put('b713_corrigendum.txt', NL.join(L) + NL)
+  @@ -231,1 +231,1 @@
+  -    _put('b712_corrigendum.json', json.dumps(j, indent=1, ensure_ascii=False) + NL)
+  +    _put('b713_corrigendum.json', json.dumps(j, indent=1, ensure_ascii=False) + NL)
+  @@ -239,1 +239,1 @@
+  -        print('usage: b712_corrigendum.py dry | land')
+  +        print('usage: b713_corrigendum.py dry | land')
+
+### ### **CARRIED tools/b713_corrigendum.py ; LINES 242 ; CHANGED BY THE SUBSTITUTION 52 ; REPAIR SPANS AT b712 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

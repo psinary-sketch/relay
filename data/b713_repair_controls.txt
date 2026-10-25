@@ -1,0 +1,33 @@
+b713 -- THE SIX REPAIRS OF (R323)(4), EACH WITH ITS TWO-INSTANCE CONTROL (standing clauses v4 rows (62)-(68)) (2026-10-25T22:04:23Z)
+
+### one instance from the record (b712`s banks, commits and remotes), one constructed (rows here, banks in the scratchpad, throwaway
+### repositories for (v)); the functions are tools/act_close.py`s, the head line tools/b713_closing.py`s, the capture tools/push_gated.sh`s.
+### (vi)`s record instance reads b712`s banks by their file times (a bank rewritten later reads absent at the earlier time).
+
+### (i) b712`s face (W): 49 patterns read ; relay 4a383ac8..1290446c changed 249 paths ; beyond the list NONE
+  (i) record       wanted 0 ; got 0 ; PASS -- b712`s relay changes, every one inside its own face`s (W)
+  (i) constructed  wanted (True, False, False) ; got (True, False, False) ; PASS -- data/b712_x.txt inside ; data/zz_outside_b712.txt and PLACE-papers/FOUNDATIONS.md outside
+### (ii) b712`s step bank: the gate phase`s rows read by their one `commit`: ['afe3903a'] ; dcb3b286`s subject names the gate, its phase 'component 5'
+  (ii) record       wanted ['afe3903a', 'dcb3b286'] ; got ['afe3903a', 'dcb3b286'] ; PASS -- the gate`s two commits on one row, read whole (the one-`commit` form reads [])
+  (ii) constructed  wanted ['c1', 'c2', 'c3'] ; got ['c1', 'c2', 'c3'] ; PASS -- a three-commit step: the one-`commit` form reads [c1], c2 and c3 undeclared; the other repository`s c4 not read
+  (iii) record       wanted (22, 21, 0, 1) ; got (22, 21, 0, 1) ; PASS -- TOTAL, SEAT, NAVIGATOR, OTHER: (h) THE CARRIED RECORD TOOL`S FORM is OTHER; both tools now read the one number
+  (iii) constructed  wanted (4, 2, 1, 1) ; got (4, 2, 1, 1) ; PASS -- a primed letter and a curly apostrophe counted
+  (iv) record       wanted True ; got True ; PASS -- b712_lockgate.json stands; a rewrite of [2]`s bank refused
+  (iv) constructed  wanted (False, True, False) ; got (False, True, False) ; PASS -- scratch b713_lock_osyekzqd: before the lock writable ; after it [2]`s bank refused ; [9]`s scores bank (after the lock) writable
+### (v) b712`s head line read again by the repaired builder: b712 closed: relay 1290446c, PLACE-papers ada52b0; suite 137 of 142; root fa19697bc8f13f4c…; 2 prompts answered; scores 7 of 8 HELD; 22 defects
+      event: relay: the remote`s main 1290446c is read back by no push capture of the act (0 captures of the repository)
+      event: PLACE-papers: the remote`s main ada52b0 is read back by no push capture of the act (0 captures of the repository)
+  (v) record       wanted True ; got True ; PASS -- each repository`s main read at the remote (b712`s own head line read "none read" for both, events :48)
+      control_v: script sha256 422c4fa3c995a2f9 ; scratch /tmp/tmp.40TnDEFFFT
+      ### CASE U -- origin file:///tmp/tmp.40TnDEFFFT/U/origin.git
+        U exit 0 ; captures written 1 ; name b713_work_push-t_push_out.txt ; the capture carries the read-back yes
+      ### CASE P -- origin C:/Users/ECHOCH~1/AppData/Local/Temp/tmp.40TnDEFFFT/P/origin.git
+        P exit 0 ; captures written 0 ; name none ; the capture carries the read-back no
+  (v) constructed  wanted (('1', 'yes'), ('0', 'no')) ; got (('1', 'yes'), ('0', 'no')) ; PASS -- a file:// origin captured unasked, a plain-path origin (the tests`) not
+### (vi) b712 replayed (its dry runs [3] [4] in the scratchpad, recorded in its gate; [19] its record push 755b03aa, no capture):
+      step [19] at 1792958973: ### THE CLOSE IN ONE ORDER (standing clauses v4 row (68)): STEP [19] REFUSED -- STEP [18] (the components bank) IS UNFINISHED, ITS EVIDENCE data/b712_components.txt ABSENT -- NOTHING RUN
+      step [22] at 1792960441: ### THE CLOSE IN ONE ORDER (standing clauses v4 row (68)): STEP [22] REFUSED -- STEP [21] (the events bank (an event found after it appended by the Edi) IS UNFINISHED, ITS EVIDENCE data/b712_events.txt ABSENT -- NOTHING RUN
+  (vi) record       wanted True ; got True ; PASS -- b712 closed out of v4`s order: a step ran while a lower step`s evidence was absent
+  (vi) constructed  wanted ('', True, True) ; got ('', True, True) ; PASS -- banks [1]-[5] in scratch b713_order_g83fn84t: [6] may run ; [7] refused naming [6]
+
+### ### **CONTROLS 12 ; PASSING 12 ; THE SIX REPAIRS EACH WITH TWO INSTANCES True.**

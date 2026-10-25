@@ -1,0 +1,47 @@
+b713 -- THE CARRY-TIME REPAIRS OF tools/b713_closing.py AS A DIFF: the carried form (tools/b712_closing.py with the act names substituted) against the file now (2026-10-25T22:05:00Z)
+
+--- tools/b713_closing.py (the carried form)
++++ tools/b713_closing.py (now)
+@@ -228,0 +228,4 @@
++    # ### (R323)(4)(v), standing clauses v4 row (66): THE HEAD LINE READS EACH REPOSITORY'S MAIN AT THE REMOTE by ls-remote (one read per
++    # ### repository, an empty read re-read alone), not from the act's push captures -- b712 wrote no capture but the closing's, and its head line
++    # ### read "none read" for both (events :48). The captures are still read, and a remote main no capture of the act read back goes to the
++    # ### events section (a repair at b713, banked by diff).
+@@ -229,0 +233,1 @@
++    read_remotes([repo for _n, _k, repo in CAPTURES])
+@@ -232,4 +237,3 @@
+-        mine = sorted((c for c in caps if c[2] and c[1] and c[5] and repo_key(c[2]) == repo_key(repo)), key=lambda c: c[1])
+-        b673 = '%s_%s_push_out.txt' % (act, key)
+-        if not mine:
+-            ev.append('%s: no push capture of the act reads main back at the remote; the record commit not read' % name)
++        main = remote_refs(repo).get('refs/heads/main', '')
++        if not main:
++            ev.append('%s: ls-remote read no main at the remote, read twice; the head line carries none read' % name)
+@@ -238,7 +242,4 @@
+-        last = mine[-1]
+-        if last[0] != b673:
+-            other = next((c for c in caps if c[0] == b673), None)
+-            ev.append('%s: the record commit %s read from the act`s last capture data/%s (%s, branch %s); b673`s name data/%s %s' % (
+-                name, last[5][:w], last[0], last[1], last[3], b673,
+-                ('carries an earlier push (branch %s, main read back %s, %s)' % (other[3], (other[5] or '-')[:w], other[1])) if other else 'is absent'))
+-        parts.append('%s %s' % (name, last[5][:w]))
++        mine = [c for c in caps if c[2] and c[5] and repo_key(c[2]) == repo_key(repo)]
++        if not any(c[5] == main for c in mine):
++            ev.append('%s: the remote`s main %s is read back by no push capture of the act (%d captures of the repository)' % (name, main[:w], len(mine)))
++        parts.append('%s %s' % (name, main[:w]))
+@@ -532,1 +533,9 @@
+-    p = os.path.join(OUTD, 'b713_closing_dry.txt' if DRY else 'b713_closing.txt')
++    # ### (R323)(4)(iv) and (vi), standing clauses v4 rows (65) and (68), a repair at b713: the dry run is step [3] of the close's order and
++    # ### writes its bank to relay data/ (b712 wrote it to the scratchpad, so its order left no evidence of the step), refused once the lock
++    # ### is written; the closing is step [25], refused while a lower step's evidence is absent
++    import act_close as AC
++    r = AC.lock_refuses(ACT, 'b713_closing_dry.txt') if DRY else AC.close_refuses(ACT, 25)
++    if r:
++        print(r, flush=True)
++        sys.exit(5)
++    p = os.path.join(D, 'b713_closing_dry.txt') if DRY else os.path.join(OUTD, 'b713_closing.txt')
+@@ -537,1 +546,1 @@
+-        print('  ### THE CLOSING DRY-RUN, its readings (written to the scratchpad, %s):' % p)
++        print('  ### THE CLOSING DRY-RUN, its readings (written to relay data/, %s):' % p)
+
+### ### **HUNKS 6 ; LINES REMOVED 13 ; LINES ADDED 22.**
