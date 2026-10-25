@@ -1,0 +1,47 @@
+b713 -- THE SOURCE PIN, (R323)(6), priced at b712 (data/b712_price.txt :47-:51): A PUBLISHED TEXT STATING THE GENUS-CHARACTER FACTORIZATION, READ AGAINST REGISTRATION (i) (2026-10-25T22:10Z)
+
+### rows: the search (queries and results, no bank written while it ran) ; the text (citation, fetch, size, sha256) ; the statement quoted with
+### its page and section ; the -15 identity of registration (i) (data/b712_registrations.txt :16-:21, its blob 943ec19e equal to 67a02388's)
+### set beside it and read as an instance ; the verdict. Written by the Write tool after the search and the fetch; the fetched bytes sit in the
+### scratchpad (pin_src/, its own directory), not in any repository.
+
+THE SEARCH (one query; no identifier of the author in any request, no header added; the fetches by curl with its own default headers):
+  query 1: "genus character L-function factorization L(s,chi_d1) L(s,chi_d2) imaginary quadratic field Kronecker pdf"
+  results: arxiv.org/pdf/2609.10642 ; gfs.fields.utoronto.ca (a talk page) ; people.mpim-bonn.mpg.de/zagier (KroneckerLimit.pdf) ;
+           www.math.ucla.edu/~wdduke/preprints/classgroup.pdf (Duke, Friedlander, Iwaniec, "Class group L-functions") ;
+           arxiv.org/pdf/math/0412237 (Murty, Osburn) ; mast.queensu.ca/~murty/Annalen.pdf ; arxiv.org/abs/math/0210313 ;
+           mast.queensu.ca/~murty/Murty-Osburn.pdf ; arxiv.org/pdf/math/0210313
+  chosen: arXiv math/0412237, a fixed version on a public archive whose statement is numbered (Theorem 2.3) and names its own source.
+
+THE TEXT:
+  M. Ram Murty and Robert Osburn, "Representations of integers by certain positive definite binary quadratic forms",
+  arXiv:math/0412237v1 [math.NT], submitted 13 Dec 2004 (the abstract page's submission history: [v1] alone).
+  fetched 2026-10-25T22:08Z from https://arxiv.org/pdf/math/0412237v1 (two requests to arxiv.org: the abstract page, the PDF)
+  size 152951 bytes ; sha256 5de0ba0368f3c62780ef0830fa60977903f69f5278ecf95d7fe47f5039b03dac
+  read by its text layer (pypdf, 8 pages); the quoted words are the layer's, its ligature breaks ("ﬁ rst") kept out of the quote below.
+
+THE STATEMENT, page 3, section 2 (before Theorem 2.3 and the theorem), the text's words:
+  "Every discriminant can be written uniquely as a product of prime discriminants, say dK = P1 . . . Pk. ... Thus dK can be written as a
+  product of two discriminants, say dK = D1D2 in 2^(k-1) distinct ways (excluding order). Now, for any such decomposition we define a
+  character χD1,D2 on ideals by χD1,D2(p) = χD1(Np) if p ∤ D1, χD2(Np) if p ∤ D2 where χd(n) is the Kronecker symbol. ... Thus χD1,D2 has
+  order two, except for the trivial character corresponding to dK = dK · 1 = 1 · dK. Every such character χD1,D2 is called the genus
+  character of discriminant dK. ... Kronecker's theorem (see Theorem 12.7 in [11]) is as follows.
+  Theorem 2.3. The L-function of K associated with the genus character χD1,D2 factors into the Dirichlet L-functions,
+  L(s, χD1,D2) = L(s, χD1)L(s, χD2)."
+
+THE INSTANCE, registration (i) beside it:
+  K = Q(sqrt(-15)), dK = -15 = (-3)(5), k = 2: two decompositions, 2^(k-1) = 2 genus characters, and h(-15) = 2, so the genus characters are
+  the class group's two characters.
+  - dK = -15 · 1, the trivial character: Theorem 2.3 reads zeta_K(s) = L(s, chi_-15) zeta(s).
+  - dK = (-3)(5): chi_{-3,5} on the class of Q2 = 2x^2 + xy + 2y^2: Q2(1, 0) = 2, a prime ideal of norm 2, 2 ∤ -3, chi_-3(2) = -1; so
+    chi_{-3,5} is +1 on the principal class (Q1) and -1 on Q2's. Theorem 2.3 reads L_K(s, chi_{-3,5}) = L(s, chi_-3) L(s, chi_5).
+  - THE BRIDGE (not stated in the text; standard and read here as the seat's step): with w = 2 units, each class C's partial zeta is
+    zeta(s, C) = (1/2) Z_Q(s) for its form Q, so L_K(s, chi) = (1/2)(Z_Q1(s) + chi(C2) Z_Q2(s)).
+  - Then the trivial character gives Z_Q1 + Z_Q2 = 2 zeta(s) L(s, chi_-15) (registration (i) :18) and chi_{-3,5} gives
+    Z_Q1 - Z_Q2 = 2 L(s, chi_-3) L(s, chi_5) (registration (i) :19), each line the theorem's statement at one decomposition of -15.
+  - THE CONTROL beside it, unchanged from b712: data/b712_genus_control.txt, MISSES 0 through n = 400 for both lines, its two planted
+    controls failing as wanted (registration (i) :22-:26).
+
+### ### **THE TEXT FOUND: Murty-Osburn, arXiv:math/0412237v1, page 3, Theorem 2.3 (Kronecker's theorem), sha256 5de0ba03...3dac, 152951
+### bytes ; REGISTRATION (i)'s TWO LINES READ AS THE THEOREM AT -15's TWO DECOMPOSITIONS, THE BRIDGE (zeta(s, C) = Z_Q / w) THE SEAT'S AND
+### NAMED ; AGREES.**
