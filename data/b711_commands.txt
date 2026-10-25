@@ -1,7 +1,7 @@
-b711 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T11:48:13Z)
+b711 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T13:04:04Z)
 
 ### the source: the seat`s session ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce from its first user line carrying 'RULING (R321) BEGIN', with its subagents` transcripts
-### commands read: 348
+### commands read: 457
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (4):
   #3 2026-10-25T00:56:50.990Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -43,7 +43,7 @@ b711 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #5 2026-10-25T00:57:51.903Z sed -n 1,60p tools/b710_citation.py; grep -n "^def \|sys.argv\|__main__" tools/b710_citation.py | head -40
   #9 2026-10-25T00:58:13.785Z wc -l data/b710_closing.txt && cat -n data/b710_closing.txt | cut -c1-400
 
-### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (7):
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (8):
   #1 2026-10-25T00:56:38.263Z for p in /d/relay /d/MY-DOwnloads/PLACE-papers /d/SIDE-explicit-formula /d/SIDE-lv-conservation /d/SIDE-faces-join; do echo "### $p"; ls -d "$p" && git -C "$p" rev-parse --abbrev-ref HEAD && git -C "$
   #2 2026-10-25T00:56:44.908Z cd /d/relay && git ls-files 'tools/b710*' 'data/b710*' 'tools/b709*' | cat; echo ---; git status --short | grep -v '^?? data/' | cat; echo ---; ls -la = 2>&1 | head; git log --format='%h %ad %s' --dat
   #5 2026-10-25T00:57:51.903Z sed -n 1,60p tools/b710_citation.py; grep -n "^def \|sys.argv\|__main__" tools/b710_citation.py | head -40
@@ -51,6 +51,7 @@ b711 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #322 2026-10-25T11:20:48.718Z Get-ChildItem D:\relay\data -Filter 'b711_*' | Select-Object Name, Length
   #323 2026-10-25T11:22:06.135Z Get-ChildItem D:\relay\tools -Filter 'b711_*' | Select-Object Name, Length; git -C D:\relay status --porcelain
   #343 2026-10-25T11:43:15.304Z Get-Item -LiteralPath 'D:\relay\=' | Select-Object Name, Length, CreationTimeUtc, LastWriteTimeUtc
+  #355 2026-10-25T11:56:09.887Z $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "claude" D:\relay\data\b711_stepzero.txt D:\relay
 
 ### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
   NONE
@@ -427,5 +428,114 @@ b711 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #346 | 2026-10-25T11:47:35.664Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py drycheck D:\relay\data\b711_registration_2026-10-25.txt standin
   #347 | 2026-10-25T11:47:51.971Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py drycheck D:\relay\data\b711_registration_2026-10-25.txt standin
   #348 | 2026-10-25T11:47:58.619Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py findings dry
+  #349 | 2026-10-25T11:48:11.177Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py commands; python -X utf8 D:\relay\tools\b711_record.py reads
+  #350 | 2026-10-25T11:48:55.976Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "defects_
+  #351 | 2026-10-25T11:49:06.632Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #352 | 2026-10-25T11:49:11.458Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prerun --part standing-a
+  #353 | 2026-10-25T11:55:46.140Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "G-RULE-H
+  #354 | 2026-10-25T11:55:59.885Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "G-PROCS-
+  #355 | 2026-10-25T11:56:09.887Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "claude" 
+  #356 | 2026-10-25T11:56:51.976Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py" "G-READ-R
+  #357 | 2026-10-25T11:56:56.295Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #358 | 2026-10-25T11:57:00.696Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prerun --part standing-c
+  #359 | 2026-10-25T12:03:37.044Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #360 | 2026-10-25T12:03:43.372Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prerun --part standing-b1
+  #361 | 2026-10-25T12:05:43.337Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #362 | 2026-10-25T12:05:48.011Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prerun --part standing-b2a
+  #363 | 2026-10-25T12:12:48.325Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #364 | 2026-10-25T12:12:52.568Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prerun --part standing-b2b
+  #365 | 2026-10-25T12:14:56.638Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #366 | 2026-10-25T12:15:00.832Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prerun --part standing-b3
+  #367 | 2026-10-25T12:17:29.763Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #368 | 2026-10-25T12:17:34.084Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prerun --part act
+  #369 | 2026-10-25T12:19:01.659Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_defs.py" D:\relay\t
+  #370 | 2026-10-25T12:19:19.761Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #371 | 2026-10-25T12:19:24.038Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prev --part act
+  #372 | 2026-10-25T12:20:54.735Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #373 | 2026-10-25T12:20:59.304Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prev --part standing-a
+  #374 | 2026-10-25T12:26:09.178Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #375 | 2026-10-25T12:26:13.848Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prev --part standing-c
+  #376 | 2026-10-25T12:29:11.818Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #377 | 2026-10-25T12:29:16.987Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prev --part standing-b1
+  #378 | 2026-10-25T12:31:05.948Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #379 | 2026-10-25T12:31:09.999Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prev --part standing-b2a
+  #380 | 2026-10-25T12:38:31.221Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #381 | 2026-10-25T12:38:35.158Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prev --part standing-b2b
+  #382 | 2026-10-25T12:40:50.983Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #383 | 2026-10-25T12:40:57.375Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prev --part standing-b3
+  #384 | 2026-10-25T12:43:38.292Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_keys.py D:\r
+  #385 | 2026-10-25T12:43:45.082Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py D:\
+  #386 | 2026-10-25T12:43:49.915Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "FI
+  #387 | 2026-10-25T12:43:57.664Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "ha
+  #388 | 2026-10-25T12:44:07.014Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "de
+  #389 | 2026-10-25T12:44:12.447Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "de
+  #390 | 2026-10-25T12:44:22.979Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "de
+  #391 | 2026-10-25T12:44:27.841Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "jl
+  #392 | 2026-10-25T12:44:58.364Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "  
+  #393 | 2026-10-25T12:45:12.548Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "(i
+  #394 | 2026-10-25T12:45:18.527Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "'i
+  #395 | 2026-10-25T12:45:34.499Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "(i
+  #396 | 2026-10-25T12:45:45.138Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "ni
+  #397 | 2026-10-25T12:45:51.596Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "-(
+  #398 | 2026-10-25T12:45:58.993Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #399 | 2026-10-25T12:46:03.524Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prev --part standing-b3
+  #400 | 2026-10-25T12:48:42.529Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "CO
+  #401 | 2026-10-25T12:48:51.465Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "de
+  #402 | 2026-10-25T12:49:00.113Z | seat | Bash | git -C /d/relay status --porcelain --untracked-files=all -- tools data
+  #403 | 2026-10-25T12:49:08.468Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_dump.py D:\r
+  #404 | 2026-10-25T12:49:13.621Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_keys.py D:\r
+  #405 | 2026-10-25T12:49:19.055Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_dump.py D:\r
+  #406 | 2026-10-25T12:49:42.364Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_dump.py D:\r
+  #407 | 2026-10-25T12:49:48.505Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "b7
+  #408 | 2026-10-25T12:49:56.459Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py defects
+  #409 | 2026-10-25T12:50:13.687Z | seat | Bash | git add -- data/b711_defects.txt data/b711_defects.json data/b711_steps.json data/b711_stepzero.txt tools/b711_checks.py tools/b711_closing.py tools/b711_record
+  #410 | 2026-10-25T12:50:22.101Z | seat | Bash | git -C /d/relay commit -q -m "b711 component 5, under (R321)(9): the suite and the record tool's Component 5-6 routes; the face (data/b711_registration_2026-10-
+  #411 | 2026-10-25T12:50:25.472Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py step relay component 5
+  #412 | 2026-10-25T12:50:32.017Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "ro
+  #413 | 2026-10-25T12:50:39.810Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py rootdry
+  #414 | 2026-10-25T12:51:00.707Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "EN
+  #415 | 2026-10-25T12:51:02.675Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "TH
+  #416 | 2026-10-25T12:51:17.426Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #417 | 2026-10-25T12:51:21.500Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prerun --part act
+  #418 | 2026-10-25T12:52:22.908Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --combine b711_arms_prerun.txt
+  #419 | 2026-10-25T12:52:31.459Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #420 | 2026-10-25T12:52:35.591Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --prerun --part standing-a
+  #421 | 2026-10-25T12:56:53.188Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --combine b711_arms_prerun.txt
+  #422 | 2026-10-25T12:56:57.964Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py armsecs
+  #423 | 2026-10-25T12:57:03.306Z | seat | Bash | git -C /d/relay status --porcelain -- data tools
+  #424 | 2026-10-25T12:57:09.314Z | seat | Bash | git add -- data/b711_arm_seconds_act.json data/b711_arm_seconds_standing-a.json data/b711_arms_prerun_act.txt data/b711_arms_prerun_standing-a.txt data/b711_exe
+  #425 | 2026-10-25T12:57:13.656Z | seat | Bash | git -C /d/relay commit -q -m "b711 component 5: the act and standing-a parts re-run after fec31e36 (act 30 of 45, standing-a 63 of 88), the seven parts combined
+  #426 | 2026-10-25T12:57:17.905Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py step relay component 5
+  #427 | 2026-10-25T12:57:22.057Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py rootdry
+  #428 | 2026-10-25T12:58:05.827Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_reg_gate.py
+  #429 | 2026-10-25T12:58:41.988Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "di
+  #430 | 2026-10-25T12:58:43.067Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "TH
+  #431 | 2026-10-25T12:58:56.111Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_regspec.py
+  #432 | 2026-10-25T12:59:04.635Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "ar
+  #433 | 2026-10-25T12:59:18.300Z | seat | Bash | git -C /d/relay ls-files -- "data/audit_b710_*" "data/audit_b709_*" "data/b710_banned*" "data/b710_reg_*" "data/b710_satisf*"
+  #434 | 2026-10-25T12:59:27.269Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "de
+  #435 | 2026-10-25T12:59:36.357Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "FA
+  #436 | 2026-10-25T12:59:50.860Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py gatebanks
+  #437 | 2026-10-25T13:00:00.898Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "CO
+  #438 | 2026-10-25T13:00:27.894Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_regspec.py
+  #439 | 2026-10-25T13:00:47.312Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "de
+  #440 | 2026-10-25T13:00:54.792Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py scores dry
+  #441 | 2026-10-25T13:01:18.961Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_reg_gate.py
+  #442 | 2026-10-25T13:01:51.713Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py gatebanks
+  #443 | 2026-10-25T13:02:02.759Z | seat | Bash | git -C /d/relay status --porcelain --untracked-files=all -- "data/b711_*" "data/audit_b711_*" tools
+  #444 | 2026-10-25T13:02:10.670Z | seat | Bash | git add -- data/b711_registration_2026-10-25.txt data/b711_steps.json data/audit_b711_reg_satisfiable.txt data/b711_census_stepzero.txt data/b711_faces_census_s
+  #445 | 2026-10-25T13:02:16.516Z | seat | Bash | git -C /d/relay commit -q -m "b711 component 5, the gate before the lock: the root route's dry run READY (106 banks at dc84edfc); the gate CLEAR (dry-run step a
+  #446 | 2026-10-25T13:02:20.062Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py step relay component 5
+  #447 | 2026-10-25T13:02:35.136Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "sy
+  #448 | 2026-10-25T13:02:50.947Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b378_lockgate.py b711 D:\relay\data\b711_registration_2026-10-25.txt
+  #449 | 2026-10-25T13:02:57.592Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\reg_seal.py --lock D:\relay\data\b711_registration_2026-10-25.txt
+  #450 | 2026-10-25T13:03:03.670Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_checks.py --seal
+  #451 | 2026-10-25T13:03:13.598Z | seat | Bash | git -C /d/relay status --porcelain -- "data/b711_*" "data/audit_b711_*" "tools/b711_*"
+  #452 | 2026-10-25T13:03:17.351Z | seat | Bash | git add -- data/b711_defects.txt data/b711_registration_2026-10-25.txt data/b711_steps.json data/b711_lockgate.json data/b711_lockgate_notes.txt data/b711_seal_
+  #453 | 2026-10-25T13:03:21.551Z | seat | Bash | git -C /d/relay commit -q -m "b711 seal: the face locked (sha256 124f9953, the lock gate 8 of 8, 4 by digest); seventeen tools sealed; the letters (a)-(j) recor
+  #454 | 2026-10-25T13:03:26.616Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\relay\tools\b711_record.py step relay seal
+  #455 | 2026-10-25T13:03:36.211Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_dump.py D:\r
+  #456 | 2026-10-25T13:03:41.618Z | seat | Bash | git -C /d/relay log --format="%h %ad %s" --date=format:%H:%M -n 22 b0d874f7
+  #457 | 2026-10-25T13:03:52.423Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\scratchpad\probe_lines.py "RO
 
-### ### **COMMANDS 348 ; G-EDIT-ROUTE OFFENCES 4 (SED IN ANY FORM AMONG THEM 4) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 12 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 4 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 4 ; PIPES OF ANY KIND 7 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 8 OF 8 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 457 ; G-EDIT-ROUTE OFFENCES 4 (SED IN ANY FORM AMONG THEM 4) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 12 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 0 ; sed COMMANDS 4 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 4 ; PIPES OF ANY KIND 8 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 8 OF 8 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

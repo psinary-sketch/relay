@@ -1,5 +1,5 @@
 {
- "at": "2026-10-25T11:48:13Z",
+ "at": "2026-10-25T13:04:04Z",
  "anchor": "RULING (R321) BEGIN",
  "rows": [
   {
@@ -2785,6 +2785,878 @@
    "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py findings dry",
    "n": 348,
    "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T11:48:11.177Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py commands; python -X utf8 D:\\relay\\tools\\b711_record.py reads",
+   "n": 349,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T11:48:55.976Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"defects_row(\" D:\\relay\\tools\\b711_closing.py; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"def carried\" D:\\relay\\tools\\b711_closing.py",
+   "n": 350,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T11:49:06.632Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 351,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T11:49:11.458Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prerun --part standing-a",
+   "n": 352,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T11:55:46.140Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"G-RULE-HEAD-LINE-QUOTED\" D:\\relay\\data\\b711_arms_prerun_standing-a.txt; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"G-PROCS-LISTED\" D:\\relay\\data\\b711_arms_prerun_standing-a.txt; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"G-EDIT-ROUTE\" D:\\relay\\data\\b711_arms_prerun_standing-a.txt",
+   "n": 353,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T11:55:59.885Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"G-PROCS-LISTED\" D:\\relay\\tools\\b711_checks.py; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"def procs\" D:\\relay\\tools\\b711_checks.py D:\\relay\\tools\\b698_checks.py D:\\relay\\tools\\b710_checks.py",
+   "n": 354,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T11:56:09.887Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"claude\" D:\\relay\\data\\b711_stepzero.txt D:\\relay\\data\\b710_stepzero.txt; (Get-Content D:\\relay\\data\\b711_stepzero.txt | Measure-Object -Line).Lines",
+   "n": 355,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T11:56:51.976Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"G-READ-RULE-STANDING\" D:\\relay\\tools\\b711_closing.py D:\\relay\\tools\\b711_record.py D:\\relay\\tools\\b711_worklist.py; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"CARRIED_FAILING\" D:\\relay\\tools\\b711_checks.py D:\\relay\\tools\\b711_closing.py",
+   "n": 356,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T11:56:56.295Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 357,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T11:57:00.696Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prerun --part standing-c",
+   "n": 358,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:03:37.044Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 359,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:03:43.372Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prerun --part standing-b1",
+   "n": 360,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:05:43.337Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 361,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:05:48.011Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prerun --part standing-b2a",
+   "n": 362,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:12:48.325Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 363,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:12:52.568Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prerun --part standing-b2b",
+   "n": 364,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:14:56.638Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 365,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:15:00.832Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prerun --part standing-b3",
+   "n": 366,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:17:29.763Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 367,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:17:34.084Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prerun --part act",
+   "n": 368,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:19:01.659Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_defs.py\" D:\\relay\\tools\\b711_standing.py; python \"C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py\" \"G-R321-ENTERED\" D:\\relay\\tools\\b711_checks.py",
+   "n": 369,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:19:19.761Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 370,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:19:24.038Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prev --part act",
+   "n": 371,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:20:54.735Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 372,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:20:59.304Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prev --part standing-a",
+   "n": 373,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:26:09.178Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 374,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:26:13.848Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prev --part standing-c",
+   "n": 375,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:29:11.818Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 376,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:29:16.987Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prev --part standing-b1",
+   "n": 377,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:31:05.948Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 378,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:31:09.999Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prev --part standing-b2a",
+   "n": 379,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:38:31.221Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 380,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:38:35.158Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prev --part standing-b2b",
+   "n": 381,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:40:50.983Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 382,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:40:57.375Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prev --part standing-b3",
+   "n": 383,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:43:38.292Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_keys.py D:\\relay\\data\\b711_chain_half_a1_prevrun.json",
+   "n": 384,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:43:45.082Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py D:\\relay\\tools\\b711_checks.py \"THE FIRST HALF AS\"",
+   "n": 385,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:43:49.915Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"FIRST HALF AS\" D:\\relay\\tools\\b711_checks.py",
+   "n": 386,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:43:57.664Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"half_a\" D:\\relay\\tools\\b711_checks.py",
+   "n": 387,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:44:07.014Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"def jl|def half_bank|def write_half|def _run_key\" D:\\relay\\tools\\b711_checks.py",
+   "n": 388,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:44:12.447Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"def half_bank\" D:\\relay\\tools\\b711_checks.py",
+   "n": 389,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:44:22.979Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"def jl\" D:\\relay\\tools\\b711_checks.py",
+   "n": 390,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:44:27.841Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"jl =\" D:\\relay\\tools\\b711_checks.py",
+   "n": 391,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:44:58.364Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"  (i) \" D:\\relay\\data\\b711_defects.txt",
+   "n": 392,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:45:12.548Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"(i) THE SEAT\" D:\\relay\\tools\\b711_checks.py D:\\relay\\data\\b711_registration_2026-10-25.txt D:\\relay\\tools\\b711_record.py",
+   "n": 393,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:45:18.527Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"'i'\" D:\\relay\\tools\\b711_checks.py D:\\relay\\tools\\b711_record.py",
+   "n": 394,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:45:34.499Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"(i)\" D:\\relay\\data\\b711_registration_2026-10-25.txt",
+   "n": 395,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:45:45.138Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"nine\" D:\\relay\\data\\b711_registration_2026-10-25.txt D:\\relay\\tools\\b711_record.py D:\\relay\\tools\\b711_regspec.py",
+   "n": 396,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:45:51.596Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"-(i)\" D:\\relay\\data\\b711_registration_2026-10-25.txt D:\\relay\\tools\\b711_record.py D:\\relay\\tools\\b711_regspec.py D:\\relay\\tools\\b711_checks.py D:\\relay\\tools\\b711_reg_gate.py",
+   "n": 397,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:45:58.993Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 398,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:46:03.524Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prev --part standing-b3",
+   "n": 399,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:48:42.529Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"COMBINE\" D:\\relay\\tools\\b711_checks.py",
+   "n": 400,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:48:51.465Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"def seal\" D:\\relay\\tools\\b711_checks.py",
+   "n": 401,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T12:49:00.113Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --porcelain --untracked-files=all -- tools data",
+   "n": 402,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:49:08.468Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_dump.py D:\\relay\\data\\b711_steps.json steps 20",
+   "n": 403,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:49:13.621Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_keys.py D:\\relay\\data\\b711_steps.json",
+   "n": 404,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:49:19.055Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_dump.py D:\\relay\\data\\b711_steps.json rows 10",
+   "n": 405,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:49:42.364Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_dump.py D:\\relay\\data\\b711_steps.json rows 6000",
+   "n": 406,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:49:48.505Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"b711_steps.json\" D:\\relay\\tools\\b711_record.py D:\\relay\\tools\\b710_record.py",
+   "n": 407,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:49:56.459Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py defects",
+   "n": 408,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T12:50:13.687Z",
+   "src": "seat",
+   "cmd": "git add -- data/b711_defects.txt data/b711_defects.json data/b711_steps.json data/b711_stepzero.txt tools/b711_checks.py tools/b711_closing.py tools/b711_record.py tools/b711_reg_gate.py tools/b711_regspec.py tools/b711_worklist.py data/b711_registration_2026-10-25.txt data/b711_registrations_reread.txt data/b711_registrations_reread.json data/b711_standing_figures.txt data/b711_standing_figures.json data/b711_kernels_face.json data/b711_guard_dry.txt data/b711_guard_dry.json data/b711_commands.txt data/b711_commands.json data/b711_read_calls.txt data/b711_read_calls.json data/b711_arms_prerun_act.txt data/b711_arms_prerun_standing-a.txt data/b711_arms_prerun_standing-b1.txt data/b711_arms_prerun_standing-b2a.txt data/b711_arms_prerun_standing-b2b.txt data/b711_arms_prerun_standing-b3.txt data/b711_arms_prerun_standing-c.txt data/b711_arm_seconds_act.json data/b711_arm_seconds_standing-a.json data/b711_arm_seconds_standing-b1.json data/b711_arm_seconds_standing-b2a.json data/b711_arm_seconds_standing-b2b.json data/b711_arm_seconds_standing-b3.json data/b711_arm_seconds_standing-c.json data/b711_lsr_prerun_act.json data/b711_lsr_prerun_standing-a.json data/b711_lsr_prerun_standing-b1.json data/b711_lsr_prerun_standing-b2a.json data/b711_lsr_prerun_standing-b2b.json data/b711_lsr_prerun_standing-b3.json data/b711_lsr_prerun_standing-c.json data/b711_exercise_act.json data/b711_exercise_standing-a.json data/b711_exercise_standing-b1.json data/b711_exercise_standing-b2a.json data/b711_exercise_standing-b2b.json data/b711_exercise_standing-b3.json data/b711_exercise_standing-c.json data/b711_chain_half_a1_arms_prerun.json data/b711_chain_half_a2_arms_prerun.json data/b711_chain_half_b_arms_prerun.json data/b711_chain_half_a1_prevrun.json data/b711_chain_half_a2_prevrun.json data/b711_chain_half_b_prevrun.json data/b711_prevrun_act.txt data/b711_prevrun_act.json data/b711_prevrun_standing-a.txt data/b711_prevrun_standing-a.json data/b711_prevrun_standing-b1.txt data/b711_prevrun_standing-b1.json data/b711_prevrun_standing-b2a.txt data/b711_prevrun_standing-b2a.json data/b711_prevrun_standing-b2b.txt data/b711_prevrun_standing-b2b.json data/b711_prevrun_standing-b3.txt data/b711_prevrun_standing-b3.json data/b711_prevrun_standing-c.txt data/b711_prevrun_standing-c.json data/b711_prevrun_exercise_act.json data/b711_prevrun_exercise_standing-a.json data/b711_prevrun_exercise_standing-b1.json data/b711_prevrun_exercise_standing-b2a.json data/b711_prevrun_exercise_standing-b2b.json data/b711_prevrun_exercise_standing-b3.json data/b711_prevrun_exercise_standing-c.json",
+   "n": 409,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T12:50:22.101Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b711 component 5, under (R321)(9): the suite and the record tool's Component 5-6 routes; the face (data/b711_registration_2026-10-25.txt); the registrations re-read (b710's and b709's, EQUAL); the four standing figures (0, 0, 0, 0 beside b710's); the guard dry run (HELD); the command and read banks; the seven-part pre-run and the seven parts on b710's banks; defects (a)-(j)\"",
+   "n": 410,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:50:25.472Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py step relay component 5",
+   "n": 411,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:50:32.017Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"rootdry\" D:\\relay\\tools\\b711_record.py D:\\relay\\tools\\b710_record.py D:\\relay\\tools\\b711_checks.py",
+   "n": 412,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:50:39.810Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py rootdry",
+   "n": 413,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:51:00.707Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"ENTERED AFTER\" D:\\relay\\data\\b711_registration_2026-10-25.txt",
+   "n": 414,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:51:02.675Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"THE ROOT DRY RUN READ AFTER\" D:\\relay\\data\\b711_registration_2026-10-25.txt",
+   "n": 415,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:51:17.426Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 416,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:51:21.500Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prerun --part act",
+   "n": 417,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:52:22.908Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --combine b711_arms_prerun.txt",
+   "n": 418,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:52:31.459Z",
+   "src": "seat",
+   "cmd": "(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024",
+   "n": 419,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:52:35.591Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --prerun --part standing-a",
+   "n": 420,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:56:53.188Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --combine b711_arms_prerun.txt",
+   "n": 421,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:56:57.964Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py armsecs",
+   "n": 422,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T12:57:03.306Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --porcelain -- data tools",
+   "n": 423,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T12:57:09.314Z",
+   "src": "seat",
+   "cmd": "git add -- data/b711_arm_seconds_act.json data/b711_arm_seconds_standing-a.json data/b711_arms_prerun_act.txt data/b711_arms_prerun_standing-a.txt data/b711_exercise_act.json data/b711_exercise_standing-a.json data/b711_steps.json data/b711_arm_seconds.json data/b711_arm_seconds.txt data/b711_arms_prerun.txt",
+   "n": 424,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T12:57:13.656Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b711 component 5: the act and standing-a parts re-run after fec31e36 (act 30 of 45, standing-a 63 of 88), the seven parts combined (143 run, 101 passing, 42 failing: the three carried and thirty-nine waiting on the gate, lock, seal, scores, entry, trail and root banks; 0 control defects), and the per-part seconds\"",
+   "n": 425,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:57:17.905Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py step relay component 5",
+   "n": 426,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:57:22.057Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py rootdry",
+   "n": 427,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:58:05.827Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_reg_gate.py",
+   "n": 428,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:58:41.988Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"dispatch rows\" D:\\relay\\tools\\b711_closing.py",
+   "n": 429,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:58:43.067Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"THE SCORES IN FULL\" D:\\relay\\tools\\b711_closing.py D:\\relay\\tools\\b710_closing.py",
+   "n": 430,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:58:56.111Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_regspec.py",
+   "n": 431,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:59:04.635Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"argv\" D:\\relay\\tools\\reg_satisfiable.py D:\\relay\\tools\\banned_terms.py",
+   "n": 432,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T12:59:18.300Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay ls-files -- \"data/audit_b710_*\" \"data/audit_b709_*\" \"data/b710_banned*\" \"data/b710_reg_*\" \"data/b710_satisf*\"",
+   "n": 433,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:59:27.269Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"def gatebanks\" D:\\relay\\tools\\b698_record.py D:\\relay\\tools\\b710_record.py D:\\relay\\tools\\b711_record.py",
+   "n": 434,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:59:36.357Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"FACE_REL\" D:\\relay\\tools\\b711_record.py D:\\relay\\tools\\b710_record.py",
+   "n": 435,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T12:59:50.860Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py gatebanks",
+   "n": 436,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:00:00.898Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"CONTRADICTORY ###\" D:\\relay\\data\\audit_b711_reg_satisfiable.txt",
+   "n": 437,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:00:27.894Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_regspec.py",
+   "n": 438,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:00:47.312Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"def scores\" D:\\relay\\tools\\b711_record.py",
+   "n": 439,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:00:54.792Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py scores dry",
+   "n": 440,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:01:18.961Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_reg_gate.py",
+   "n": 441,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:01:51.713Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py gatebanks",
+   "n": 442,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T13:02:02.759Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --porcelain --untracked-files=all -- \"data/b711_*\" \"data/audit_b711_*\" tools",
+   "n": 443,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T13:02:10.670Z",
+   "src": "seat",
+   "cmd": "git add -- data/b711_registration_2026-10-25.txt data/b711_steps.json data/audit_b711_reg_satisfiable.txt data/b711_census_stepzero.txt data/b711_faces_census_stepzero.txt data/b711_pins_stepzero.txt data/b711_reg_gate.txt data/b711_reg_termscan.txt data/b711_regspec_run.txt data/b711_root_banks_dry.json data/b711_root_banks_dry.txt data/b711_satisfiable.json",
+   "n": 444,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T13:02:16.516Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b711 component 5, the gate before the lock: the root route's dry run READY (106 banks at dc84edfc); the gate CLEAR (dry-run step and closing dry run CLEAN, needles 24 and 18 found); the term scan CLEAN; the spec 0 predictions after five counted nouns reworded on the face; JOINTLY SATISFIABLE; censuses 0 missing, pins 0 hard-failing; the four gate records stamped against the face\"",
+   "n": 445,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:02:20.062Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py step relay component 5",
+   "n": 446,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:02:35.136Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"sys.argv\" D:\\relay\\tools\\b378_lockgate.py D:\\relay\\tools\\reg_seal.py",
+   "n": 447,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:02:50.947Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b378_lockgate.py b711 D:\\relay\\data\\b711_registration_2026-10-25.txt",
+   "n": 448,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:02:57.592Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\reg_seal.py --lock D:\\relay\\data\\b711_registration_2026-10-25.txt",
+   "n": 449,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:03:03.670Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_checks.py --seal",
+   "n": 450,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T13:03:13.598Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --porcelain -- \"data/b711_*\" \"data/audit_b711_*\" \"tools/b711_*\"",
+   "n": 451,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T13:03:17.351Z",
+   "src": "seat",
+   "cmd": "git add -- data/b711_defects.txt data/b711_registration_2026-10-25.txt data/b711_steps.json data/b711_lockgate.json data/b711_lockgate_notes.txt data/b711_seal_hashes.json",
+   "n": 452,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T13:03:21.551Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b711 seal: the face locked (sha256 124f9953, the lock gate 8 of 8, 4 by digest); seventeen tools sealed; the letters (a)-(j) recorded at the seal; the NEG control shown failing for 143 of 143 arms; the seven parts on b710's banks recorded; one event entered before the seal (the gate's catch of five counted nouns)\"",
+   "n": 453,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:03:26.616Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 D:\\relay\\tools\\b711_record.py step relay seal",
+   "n": 454,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:03:36.211Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_dump.py D:\\relay\\data\\b710_steps.json rows 9000",
+   "n": 455,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T13:03:41.618Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay log --format=\"%h %ad %s\" --date=format:%H:%M -n 22 b0d874f7",
+   "n": 456,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T13:03:52.423Z",
+   "src": "seat",
+   "cmd": "$env:PYTHONIOENCODING='utf-8'; python -X utf8 C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\ec2d71b5-9c82-4b17-a54c-30c0ba8a3dce\\scratchpad\\probe_lines.py \"ROUTES = \" D:\\relay\\tools\\b711_record.py",
+   "n": 457,
+   "bg": false
   }
  ],
  "offences": [
@@ -2849,7 +3721,8 @@
   9,
   322,
   323,
-  343
+  343,
+  355
  ],
  "py_programs": [],
  "moves_deletes": [
