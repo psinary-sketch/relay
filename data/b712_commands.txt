@@ -1,7 +1,7 @@
-b712 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T18:34:42Z)
+b712 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T18:39:35Z)
 
 ### the source: the seat`s session 3bbc6267-f2de-40fb-b160-263f3c982c61 from its first user line carrying 'RULING (R322) BEGIN', with its subagents` transcripts
-### commands read: 477
+### commands read: 504
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -537,5 +537,32 @@ b712 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #475 | 2026-10-25T18:34:28.114Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_registration_2026-10-25.txt "12 of 12|twelve"
   #476 | 2026-10-25T18:34:33.415Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "of %s modules|port at "
   #477 | 2026-10-25T18:34:39.950Z | seat | PowerShell | python -X utf8 tools/b712_regspec.py
+  #478 | 2026-10-25T18:34:46.658Z | seat | PowerShell | python -X utf8 tools/reg_satisfiable.py data/b712_satisfiable.json --emit b712
+  #479 | 2026-10-25T18:34:53.237Z | seat | PowerShell | python -X utf8 tools/banned_terms.py --new
+  #480 | 2026-10-25T18:34:57.292Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_commands.txt "banned_terms"
+  #481 | 2026-10-25T18:35:01.852Z | seat | PowerShell | git grep -l "banned_terms.py --new" -- data tools
+  #482 | 2026-10-25T18:35:09.033Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_registration_2026-10-25.txt "banned_terms"
+  #483 | 2026-10-25T18:35:23.035Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/banned_terms.py "--new|--emit|def main"
+  #484 | 2026-10-25T18:35:30.330Z | seat | PowerShell | python -X utf8 tools/banned_terms.py --diff D:/relay 4a383ac8 --new data/b712_registration_2026-10-25.txt data/b712_defects.txt --emit b712
+  #485 | 2026-10-25T18:36:06.210Z | seat | PowerShell | git grep -l "b712_price.py" -- data tools
+  #486 | 2026-10-25T18:36:13.078Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "b712_price"
+  #487 | 2026-10-25T18:36:25.790Z | seat | PowerShell | python -X utf8 tools/banned_terms.py --diff D:/relay 4a383ac8 --new data/b712_registration_2026-10-25.txt data/b712_defects.txt --emit b712
+  #488 | 2026-10-25T18:36:34.402Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_tests_stepzero.txt "blind_sieve_ceiling"
+  #489 | 2026-10-25T18:36:35.000Z | seat | PowerShell | git grep -l "blind_sieve_ceiling" -- tests tools
+  #490 | 2026-10-25T18:36:45.864Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad/b712_events_draft.txt "^\
+  #491 | 2026-10-25T18:37:06.382Z | seat | PowerShell | git grep -n -c "banned_terms" -- tools/b712_checks.py tools/b378_lockgate.py tools/b712_record.py tools/reg_seal.py
+  #492 | 2026-10-25T18:37:11.643Z | seat | PowerShell | python -X utf8 tools/b712_record.py scores dry
+  #493 | 2026-10-25T18:37:31.073Z | seat | PowerShell | git status --porcelain --untracked-files=all
+  #494 | 2026-10-25T18:37:43.385Z | seat | PowerShell | git add -- data/b712_commands.json data/b712_commands.txt data/b712_defects.json data/b712_defects.txt data/b712_registration_2026-10-25.txt data/b712_steps.jso
+  #495 | 2026-10-25T18:37:48.924Z | seat | PowerShell | git commit -m "b712 component 5: the gate CLEAR, the spec and satisfiability audit, the banned-term scan, the face's :131 recut, the Resolved clause restored"
+  #496 | 2026-10-25T18:37:53.949Z | seat | PowerShell | python -X utf8 tools/b712_record.py step relay "gate" afe3903a
+  #497 | 2026-10-25T18:37:59.308Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_commands.txt "gate_hash|lockgate|reg_seal|--seal"
+  #498 | 2026-10-25T18:38:15.946Z | seat | PowerShell | git log --format="%h %s" -n 8 b0d874f7..4a383ac8 -- data/b711_registration_2026-10-25.txt
+  #499 | 2026-10-25T18:38:23.344Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_registration_2026-10-25.txt "85c26c1c|dc84edfc|gate_hash|stamp"
+  #500 | 2026-10-25T18:38:32.001Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_registration_2026-10-25.txt "stamp|gate`s commit|COMMITS OF THIS COMPONENT"
+  #501 | 2026-10-25T18:38:37.491Z | seat | PowerShell | python -X utf8 tools/b712_reg_gate.py
+  #502 | 2026-10-25T18:39:10.036Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "gate_hash|def stamp|'stamp'"
+  #503 | 2026-10-25T18:39:15.229Z | seat | PowerShell | git grep -l "gate_hash" -- tools/b711_*.py tools/b710_*.py tools/b712_*.py
+  #504 | 2026-10-25T18:39:19.961Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_commands.txt "stamp"
 
-### ### **COMMANDS 477 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 22 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 7 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 7 OF 7 ; OUTBOUND REQUESTS 1, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 504 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 22 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 7 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 7 OF 7 ; OUTBOUND REQUESTS 1, AN IDENTIFIER IN 0.**

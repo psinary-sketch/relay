@@ -1,5 +1,5 @@
 {
- "at": "2026-10-25T18:34:42Z",
+ "at": "2026-10-25T18:39:35Z",
  "anchor": "RULING (R322) BEGIN",
  "rows": [
   {
@@ -3816,6 +3816,222 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b712_regspec.py",
    "n": 477,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:34:46.658Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_satisfiable.py data/b712_satisfiable.json --emit b712",
+   "n": 478,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:34:53.237Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/banned_terms.py --new",
+   "n": 479,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:34:57.292Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b711_commands.txt \"banned_terms\"",
+   "n": 480,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:35:01.852Z",
+   "src": "seat",
+   "cmd": "git grep -l \"banned_terms.py --new\" -- data tools",
+   "n": 481,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:35:09.033Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b712_registration_2026-10-25.txt \"banned_terms\"",
+   "n": 482,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:35:23.035Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/banned_terms.py \"--new|--emit|def main\"",
+   "n": 483,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:35:30.330Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/banned_terms.py --diff D:/relay 4a383ac8 --new data/b712_registration_2026-10-25.txt data/b712_defects.txt --emit b712",
+   "n": 484,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:36:06.210Z",
+   "src": "seat",
+   "cmd": "git grep -l \"b712_price.py\" -- data tools",
+   "n": 485,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:36:13.078Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_checks.py \"b712_price\"",
+   "n": 486,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:36:25.790Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/banned_terms.py --diff D:/relay 4a383ac8 --new data/b712_registration_2026-10-25.txt data/b712_defects.txt --emit b712",
+   "n": 487,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:36:34.402Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b711_tests_stepzero.txt \"blind_sieve_ceiling\"",
+   "n": 488,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:36:35.000Z",
+   "src": "seat",
+   "cmd": "git grep -l \"blind_sieve_ceiling\" -- tests tools",
+   "n": 489,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:36:45.864Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad/b712_events_draft.txt \"^\\s*\\(1[5-8]\\)|EVENTS\"",
+   "n": 490,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:37:06.382Z",
+   "src": "seat",
+   "cmd": "git grep -n -c \"banned_terms\" -- tools/b712_checks.py tools/b378_lockgate.py tools/b712_record.py tools/reg_seal.py",
+   "n": 491,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:37:11.643Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py scores dry",
+   "n": 492,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:37:31.073Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all",
+   "n": 493,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:37:43.385Z",
+   "src": "seat",
+   "cmd": "git add -- data/b712_commands.json data/b712_commands.txt data/b712_defects.json data/b712_defects.txt data/b712_registration_2026-10-25.txt data/b712_steps.json tools/b712_price.py tools/b712_record.py tools/b712_recut.py data/b712_reg_gate.txt data/b712_root_banks_dry.json data/b712_root_banks_dry.txt data/b712_satisfiable.json data/audit_b712_reg_satisfiable.txt data/audit_b712_banned_terms.txt data/audit_b712_banned_terms_r2.txt",
+   "n": 494,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:37:48.924Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b712 component 5: the gate CLEAR, the spec and satisfiability audit, the banned-term scan, the face's :131 recut, the Resolved clause restored\"",
+   "n": 495,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:37:53.949Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_record.py step relay \"gate\" afe3903a",
+   "n": 496,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:37:59.308Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b711_commands.txt \"gate_hash|lockgate|reg_seal|--seal\"",
+   "n": 497,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:38:15.946Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" -n 8 b0d874f7..4a383ac8 -- data/b711_registration_2026-10-25.txt",
+   "n": 498,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:38:23.344Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b711_registration_2026-10-25.txt \"85c26c1c|dc84edfc|gate_hash|stamp\"",
+   "n": 499,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:38:32.001Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b712_registration_2026-10-25.txt \"stamp|gate`s commit|COMMITS OF THIS COMPONENT\"",
+   "n": 500,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:38:37.491Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b712_reg_gate.py",
+   "n": 501,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:39:10.036Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b712_record.py \"gate_hash|def stamp|'stamp'\"",
+   "n": 502,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:39:15.229Z",
+   "src": "seat",
+   "cmd": "git grep -l \"gate_hash\" -- tools/b711_*.py tools/b710_*.py tools/b712_*.py",
+   "n": 503,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-25T18:39:19.961Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b711_commands.txt \"stamp\"",
+   "n": 504,
    "bg": false
   }
  ],
