@@ -85,7 +85,7 @@ FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
 ARCHIVE_DIR = 'archive/2026-10-22-b706-partner-copies'
 STANDING_ADDED = ()          # ### N5: no standing arm added
 SHARED_APPENDED = ('data/b675_corrigenda.txt',)
-PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')
+PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'FACES_LEDGER.md')   # ### (R322)(5): the faces ledger's row; the re-cut on its branch, not main
 NEXT = ('b713, the research act at discriminant -15 where (R322)(6) prices it within one act’s budget, its registrations read unchanged from '
         'data/b712_registrations.txt’s commit; the keystone heads’ trigger read against the compile steps (4) and (7) reach')
 NEXT_ACT = 'b713'
@@ -131,7 +131,7 @@ C2_RELAY = 'ee71a7a9'        # ### Component 2: the port, the join, the grade an
 C2_PP = ''
 C3_RELAY = 'c885392d'        # ### Component 3: the price tool and its banks
 C3_PP = '2351a31a799f0b887b7236865c215c55b236a614'           # ### FACES_LEDGER.md's b712 update block, by the Edit tool
-C4_RELAY = ''
+C4_RELAY = 'c2492dcf'        # ### Component 4: the re-cut tool, its banks and the worklist's re-cut rows
 C4_PP = ''                   # ### none on main: the re-cut is on its branch, not pushed
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
@@ -150,9 +150,23 @@ JOIN_NEW_TIP = '11a472b90553deaddc411c5d69ec03611ee277c5'   # ### SIDE-faces-joi
 JOIN_RUN = 40210894425       # ### faces_join DERIVES at the standard three (data/b712_join_grade.txt)
 JOIN_TAG = ('v0.1.0', '9bf6fe65582187a92b6ab17e03953efb2cecd913', '11a472b90553deaddc411c5d69ec03611ee277c5')   # ### tag object, peeled (data/b712_join_tag.txt)
 EF_V037 = '38e273477257687d676033be0b0243af84a1e08a'
-REPAIRED_TOOLS = ()
+REPAIRED_TOOLS = ()          # ### shared tools of earlier acts edited by this act: none
 REPAIRED_DATA = ()
-NEW_TOOLS = ()
-COMPUTE_TOOLS = ('b712_genus_control.py',)
-SEALED = ()
-ACT_ARMS = ()
+NEW_TOOLS = ()               # ### no shared tool new this act (act_membrane.py was b711's)
+COMPUTE_TOOLS = ('b712_genus_control.py',)   # ### the genus control alone, an identity between coefficients (N3: no -15 zero computed)
+SEALED = ('b712_worklist.py', 'b712_tests.py', 'b712_citation.py', 'b712_record.py', 'b712_checks.py', 'b712_closing.py', 'b712_reg_gate.py',
+          'b712_regspec.py', 'b712_corrigendum.py', 'b712_carry.py', 'b712_standing.py', 'b712_price.py', 'b712_recut.py',
+          'b712_locate.py') + COMPUTE_TOOLS   # ### the report tool NOT sealed ((R322)(3): a report and not an arm)
+# ### the act's arms over its own banks (Component 5): b711's ritual arms carried, its arms over b711's objects (v2, the supplement, the port
+# ### held, the order, the five computations, the registrations read unchanged) replaced by arms over this act's (v3, the repairs' controls, the
+# ### membrane, the port, the dispatches, the join and its tag, the faces row, the registrations first, nothing computed, the genus control, the
+# ### price, the re-cut's compile, distance and branch)
+ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED',
+            'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
+            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-LISTINGS-BEFORE-CLAUSES', 'G-PARTS-PRERUN',
+            'G-POSTROOT-WRITES-NONE', 'G-R322-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
+            'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
+            'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE',
+            'G-STANDING-CLAUSES-V3', 'G-REPAIR-CONTROLS', 'G-MEMBRANE-WIRED', 'G-PORT-BANKED', 'G-DISPATCHES-AT-MOST-FOUR', 'G-JOIN-DERIVES',
+            'G-JOIN-TAG', 'G-FACES-ROW', 'G-REGISTRATIONS-FIRST', 'G-NOTHING-COMPUTED', 'G-GENUS-CONTROL', 'G-PRICE-BANKED',
+            'G-RECUT-COMPILE-FIRST', 'G-RECUT-DISTANCE', 'G-RECUT-ON-BRANCH')

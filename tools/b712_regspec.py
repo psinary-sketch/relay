@@ -2,12 +2,12 @@
 """b712_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
 ### ### **THE COUNTER IS IMPORTED FROM `b300_regspec.py`, NEVER COPIED.**
 ### ### Carried from b711's spec by tools/b712_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face:
-### ### the citation check as a gate step; the record lines and the corrigendum; the repairs of (R322)(2) and the membrane; standing clauses v2
-### ### and the Independence supplement; the port's one commit and one dispatch, the join not reached, no tag; the five computations each by its
-### ### own tool, the registrations they compute read unchanged; no lean on this host; no paper cut; no outbound fetch; the suite in seven parts,
-### ### one call each; the mirror after the root; the report tool unsealed until the root's word; nothing deposits. The planted rows of
-### ### (R263)(3) for this act's readers, the defect row's and the runner row's among them (the runner row with the gate NOT DERIVES, the port
-### ### run's shape).
+### ### the citation check as a gate step; the record lines and the corrigendum; the five repairs of (R322)(3) and the NEXT line's; standing
+### ### clauses v3; the port's two commits and two dispatches, the join's re-pin, its one dispatch and its tag v0.1.0; the faces row; the -15
+### ### control registered first and priced, nothing of it computed; the re-cut on its branch, not pushed; no lean on this host; no outbound
+### ### fetch; the suite in seven parts, one call each; the mirror after the root; the report tool unsealed; nothing deposits. The planted rows
+### ### of (R263)(3) for this act's readers, the defect row's and the runner row's among them (the runner row with the gate NOT DERIVES, the
+### ### port runs' shape).
 """
 import io
 import json
@@ -35,21 +35,23 @@ CLAUSES = [
     ('identifiers of the author placed in an outbound request or a workflow file', 0, 0, 'identifiers', '### N5.'),
     ('lean or lake processes started by the seat on this host', 0, 0, 'processes', '### N1; MEASURED off the command bank (the seat`s own commands).'),
     ('lean processes run on this host by a test', 0, 0, 'processes', '### N1: the lean-running test reads lean`s banked prints.'),
-    ('runner dispatches made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### (R322)(4), N1: one, at most two; MEASURED off the command bank.'),
+    ('runner dispatches made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### (R322)(4), N1: at most four, three for the port and one for the join; MEASURED off the command bank.'),
     ('runs dispatched and read this act', 'RUNS', 'RUNS', 'runs', '### N1: each read by its run id, its artifact`s sha256 verified; MEASURED off the dispatch bank.'),
     ('kernels created', 0, 0, 'kernels', '### none this act.'),
-    ('commits on any kernel`s main', 0, 0, 'commits', '### no main moved.'),
-    ('commits on the port branch of SIDE-lv-conservation', 'PORTCOMMITS', 'PORTCOMMITS', 'commits', '### (R322)(4): the edit at :212; MEASURED off the branch`s log from b709`s tip to the branch now.'),
+    ('commits on any kernel`s main', 1, 1, 'commits', '### (R322)(4): SIDE-faces-join`s main fast-forwarded to its re-pin 11a472b9; every other main unmoved.'),
+    ('commits on the port branch of SIDE-lv-conservation', 'PORTCOMMITS', 'PORTCOMMITS', 'commits', '### (R322)(4): the edits at :501 and :574; MEASURED off the branch`s log from b711`s tip to the branch now.'),
     ('scratch branches cut on a kernel', 0, 0, 'branches', '### none this act.'),
-    ('kernel merges made', 0, 0, 'merges', '### none.'),
-    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### MEASURED off SIDE-explicit-formula`s tags past v0.37, SIDE-lv-conservation`s containing the port tip and the join kernel`s.'),
-    ('Lean files written on a kernel', 'LEANFILES', 'LEANFILES', 'files', '### (R322)(4): the port`s module; MEASURED off the port commit`s files.'),
-    ('port branches cut on a kernel', 0, 0, 'branches', '### none this act (port-b707 is b707`s, its one commit this act on it).'),
+    ('push branches cut on a kernel for the push procedure', 1, 1, 'branches', '### push-b712-join at SIDE-faces-join, left for b713`s step zero.'),
+    ('kernel merges made', 0, 0, 'merges', '### none (the join`s main a fast-forward of its push branch).'),
+    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### (R322)(4): v0.1.0 on SIDE-faces-join; MEASURED off SIDE-explicit-formula`s tags past v0.37, SIDE-lv-conservation`s containing b711`s port tip and the join kernel`s.'),
+    ('Lean files written on a kernel', 'LEANFILES', 'LEANFILES', 'files', '### (R322)(4): the port`s module; MEASURED off the port commits` files.'),
+    ('port branches cut on a kernel', 0, 0, 'branches', '### none this act (port-b707 is b707`s, its two commits this act on it).'),
     ('kernel branches deleted', 0, 0, 'branches', '### (R322)(8) names relay`s and PLACE-papers` push branches alone; port-b707 deleted under no answer.'),
-    ('toolchain, manifest, lakefile or workflow files of a kernel written', 0, 0, 'files', '### none.'),
+    ('toolchain, manifest, lakefile or workflow files of a kernel written', 1, 1, 'files', '### (R322)(4): SIDE-faces-join`s lakefile.toml re-pinned, its one write; no toolchain, manifest or workflow.'),
     ('libraries vendored', 0, 0, 'libraries', '### N5.'),
-    ('papers cut', 0, 0, 'papers', '### none this act.'),
-    ('papers moved, renamed or written', 0, 0, 'papers', '### N5.'),
+    ('papers cut', 1, 1, 'papers', '### (R322)(7): day1/Silence_of_Foundations.md, on the branch recut-b712-silence.'),
+    ('papers moved, renamed or written beyond the re-cut', 0, 0, 'papers', '### N5.'),
+    ('re-cut branches pushed', 0, 0, 'branches', '### (R322)(7), (10): nothing published.'),
     ('pairs renamed in place by git mv', 0, 0, 'pairs', '### none this act (b706`s).'),
     ('Correspondence cells written by the generator', 0, 0, 'cells', '### none: no page write this act.'),
     ('Correspondence cells written by hand', 0, 0, 'cells', '### none.'),
@@ -57,16 +59,17 @@ CLAUSES = [
     ('README edits', 0, 0, 'edits', '### none this act.'),
     ('glossary rows appended', 0, 0, 'rows', '### none this act.'),
     ('REGISTRY rows changed', 0, 0, 'rows', '### none this act.'),
-    ('orders and annotations entered at OPEN_TRAILS before the seal', 'ORDERS', 'ORDERS', 'lines', '### (R322)(4): W-ORD-LV-PORT-TAG at :15848; MEASURED off the landing bank.'),
+    ('orders and annotations entered at OPEN_TRAILS before the seal', 0, 0, 'lines', '### none before the seal: W-ORD-LV-FORWARD-PORT restated in the trail at the record ((R322)(4)).'),
     ('generated corrigendum entries', 1, 1, 'entries', '### (R322)(2).'),
-    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R322)(2): row (31).'),
-    ('binary banks written beside a text hashes bank', 'BINARIES', 'BINARIES', 'banks', '### the five computations` hashes banks; MEASURED off the hashes banks present.'),
-    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### (R322)(5)-(7); MEASURED off the banks present.'),
-    ('numbers computed for a registration not read from its commit', 0, 0, 'numbers', '### N3: every registration computed read unchanged.'),
+    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R322)(2): row (32).'),
+    ('faces ledger update blocks appended', 1, 1, 'blocks', '### (R322)(5): by the Edit tool.'),
+    ('binary banks written beside a text hashes bank', 'BINARIES', 'BINARIES', 'banks', '### none this act; MEASURED off the hashes banks present.'),
+    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### (R322)(6)-(7): the genus control, the price and the re-cut; MEASURED off the banks present.'),
+    ('numbers computed for a registration not read from its commit', 0, 0, 'numbers', '### N3: nothing of the -15 control computed.'),
     ('pages, keystones or ledger lines written beyond the named files', 0, 0, 'lines', '### N5.'),
-    ('shared tools written by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### (R322)(2): tools/act_membrane.py; MEASURED off the worklist`s lists.'),
+    ('shared tools written by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### none this act; MEASURED off the worklist`s lists.'),
     ('shared data files rewritten by ruling', 0, 0, 'files', '### none this act.'),
-    ('shared banks written by ruling', 1, 1, 'banks', '### (R322)(2): data/standing_clauses_v2.txt.'),
+    ('shared banks written by ruling', 1, 1, 'banks', '### (R322)(3): data/standing_clauses_v3.txt.'),
     ('shared tools edited beyond the ruling', 0, 0, 'tools', '### N5.'),
     ('standing arms added', 0, 0, 'arms', '### N5.'),
     ('frozen banks edited', 0, 0, 'banks', '### (Z).'),
@@ -78,7 +81,7 @@ CLAUSES = [
     ('citation checks run at step zero', 1, 1, 'checks', '### the gate step, standing from b662; before any delete (run once to its bank after a dry run).'),
     ('citation misses repaired silently', 0, 0, 'misses', '### the gate step.'),
     ('citation misses raised or entered before the component that cites them', 'MISSES', 'MISSES', 'misses', '### MEASURED off the citation bank.'),
-    ('mid-act answers acted on before their check', 0, 0, 'answers', '### (R278)(4).'),
+    ('mid-act answers acted on before their tool check', 1, 1, 'answers', '### (R278)(4): the first prompt`s, checked by hand before it was acted on and by the tool after (defect (f)).'),
     ('answers acted on with their END marker unread', 0, 0, 'answers', '### the paste rule.'),
     ('sealed entries or faces edited in place', 0, 0, 'entries', '### (Z).'),
     ('scores read from a ledger line', 0, 0, 'scores', '### data/b686_rules.txt row (1).'),
@@ -91,24 +94,24 @@ CLAUSES = [
     ('commands carrying a pipe of any kind', 'ANYPIPES', 'ANYPIPES', 'commands', '### the ferry, MEASURED off the command bank.'),
     ('commands running an interpreter`s one-line program', 'PYPROGS', 'PYPROGS', 'commands', '### the ferry, MEASURED off the command bank.'),
     ('Read calls above the cap from the anchor on', 'READOFF', 'READOFF', 'reads', '### every call counts from b705, MEASURED off the read bank; the opening`s whole read lettered (a).'),
-    ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R322)(7).'),
+    ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R322)(8).'),
     ('delete commands with anything chained after', 0, 0, 'commands', '### data/b694_rules.txt row (1).'),
     ('deletes before the citation check', 0, 0, 'commands', '### b695 (a).'),
-    ('repairs of (R322)(2)', 'REPAIRS', 'REPAIRS', 'repairs', '### the four structural and the three item repairs; MEASURED off the repairs bank.'),
+    ('repairs of (R322)(3)', 'REPAIRS', 'REPAIRS', 'repairs', '### the five repairs and the NEXT line`s; MEASURED off the repairs bank.'),
     ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b711_rules.txt row (1); MEASURED off the defects bank`s rows.'),
     ('root-route dry runs printed READY before the lock', 1, 1, 'runs', '### data/b706_rules.txt row (1).'),
     ('closing dry-run steps printed CLEAN before the lock', 1, 1, 'steps', '### b675 rules row 1.'),
-    ('branches deleted beyond the ruling`s list', 0, 0, 'branches', '### (R322)(7).'),
+    ('branches deleted beyond the ruling`s list', 0, 0, 'branches', '### (R322)(8).'),
     ('declared suite failures carried at the close', 'CARRIED', 'CARRIED', 'failures', '### (G2), MEASURED off the face`s declaration line.'),
     ('numbers of this act entered in a keystone', 0, 0, 'numbers', '### W-ORD-KEYSTONE-HEADS held.'),
     ('shared-bank lines changed in place', 0, 0, 'lines', '### (R254)(2).'),
     ('deletes naming a variable or a glob', 0, 0, 'commands', '### the ferry.'),
-    ('environment variables set or cleared by the seat', 0, 0, 'variables', '### the ferry: left as they are (the push tool`s own capture variable given to it alone).'),
+    ('environment variables set or cleared by the seat', 1, 1, 'variables', '### the ferry: left as they are (the push tool`s own capture variable given to it alone); one set for one command`s process, defect (n).'),
     ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R322)(1); MEASURED.'),
-    ('registration banks re-read unchanged from their own commits', 'REREAD', 'REREAD', 'banks', '### N3; MEASURED off the re-read bank.'),
+    ('registration banks committed ahead of every other bank', 'REGFIRST', 'REGFIRST', 'banks', '### N3; MEASURED off the relay log since the act`s base.'),
     ('dry-run steps printed CLEAN before the lock', 1, 1, 'steps', '### (R267)(2), standing.'),
     ('mirror exports built', 1, 1, 'exports', '### the b670 form, after the root.'),
-    ('report tools sealed before the root`s word', 0, 0, 'tools', '### data/b708_rules.txt row (1).'),
+    ('report tools sealed', 0, 0, 'tools', '### (R322)(3): a report and not an arm; data/b708_rules.txt row (1).'),
     ('scratch clones made', 0, 0, 'clones', '### (Z).'),
     ('holds changed', 0, 0, 'holds', '### the hold stays at 2,560 MB on every host.'),
     ('navigator files read or written', 0, 0, 'files', '### (Z).'),
@@ -137,7 +140,7 @@ CLAUSES = [
     ('ferry parts received', 1, 1, 'parts', '### section (A).'),
     ('struck-clause hits in the ferry scan', 0, 0, 'hits', '### section (A).'),
     ('test files run at step zero', 'TESTS', 'TESTS', 'files', '### MEASURED off the bank.'),
-    ('questions asked of the author before the seal', 'QUESTIONS', 'QUESTIONS', 'questions', '### MEASURED off the answers bank (none).'),
+    ('questions asked of the author before the seal', 'QUESTIONS', 'QUESTIONS', 'questions', '### MEASURED off the answers bank (the first prompt and the root`s).'),
     ('questions asked of the author after the root', 0, 0, 'questions', '### the answers bank is root-named.'),
     ('readings of the order declared in advance on this face', 'READINGS', 'READINGS', 'readings', '### section (A), MEASURED off the face.'),
     ('readings taken silently', 0, 0, 'readings', '### section (A).'),
@@ -170,7 +173,7 @@ PLANTED = [
     ('defect row (the defects bank`s shape, its continuation joined)', 'read_defect_row', ["    (a) THE SEAT'S: A PLANTED DEFECT. Its text,",
                                                                                           '        wrapped.']),
     ('runner row (the runner rows bank`s shape)', 'read_runner_row', dict(kernel='SIDE-x', label='run1', ref='0' * 40, run_id=1, gate='DERIVES')),
-    ('runner row with the gate NOT DERIVES (b711`s port run`s shape)', 'read_runner_row', dict(kernel='SIDE-x', label='port', ref='0' * 40, run_id=1, gate='NOT DERIVES')),
+    ('runner row with the gate NOT DERIVES (the port runs` shape)', 'read_runner_row', dict(kernel='SIDE-x', label='port', ref='0' * 40, run_id=1, gate='NOT DERIVES')),
 ]
 
 
@@ -315,6 +318,7 @@ def main(argv):
     join_tags = [t for t in _git(K.JOIN_DIR, 'tag', '--list').split(chr(10)) if t.strip()] if os.path.isdir(K.JOIN_DIR) else []
     port_commits = _git(K.LV_DIR, 'rev-list', '--count', '%s..refs/heads/%s' % (K.PORT_TIP, K.PORT_BRANCH))
     lean_files = [f for f in _git(K.LV_DIR, 'diff', '--name-only', K.PORT_TIP, K.PORT_NEW_TIP).split(chr(10)) if f.strip().endswith('.lean')]
+    first_relay = (_git(ROOT, 'rev-list', '--reverse', '%s..HEAD' % K.PRE_RELAY).split(chr(10)) or [''])[0].strip()
     measured = dict(ARMS=count_arms(text), READINGS=len(set(re.findall(r'\*\*READING \((\d+)\) --', text))),
                     EXPECT=len(re.findall(r'\*\*\((?:N|S)\d\)\*\*', text)), BARS=len(re.findall(r'^### BAR \d+', text, re.M)),
                     TESTS=jcount('b712_tests_stepzero.json', len), QUESTIONS=tcount('b712_author_answers.txt', r'^### PROMPT '),
@@ -327,9 +331,9 @@ def main(argv):
                     TAGSMADE=len(lv_tags_after) + len(ef_tags_after) + len(join_tags),
                     ORDERS=jcount('b712_order_lines.json', lambda j: len(j.get('lines') or [])),
                     BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b712_\w+_hashes\.txt$', f)]),
-                    COMPUTE=len([n_ for n_ in ('surgery', 'coeffs', 'axis', 'list', 'pairs') if os.path.exists(os.path.join(ROOT, 'data', 'b712_%s.txt' % n_))]),
+                    COMPUTE=len([n_ for n_ in ('genus_control', 'price', 'recut_cut') if os.path.exists(os.path.join(ROOT, 'data', 'b712_%s.txt' % n_))]),
                     SHAREDTOOLS=len(K.REPAIRED_TOOLS) + len(K.NEW_TOOLS),
-                    REREAD=jcount('b712_registrations_reread.json', lambda j: len(j.get('rows') or {})),
+                    REGFIRST=1 if K.REG_COMMIT.startswith(first_relay) and first_relay else 0,
                     WHOLEREADS=len(re.findall(r"^    \([a-z]\) THE SEAT'S: THE CARRIED (?:SUITE|TOOLS?) READ BEYOND THE SPANS",
                                               io.open(os.path.join(ROOT, 'data', 'b712_defects.txt'), encoding='utf-8').read(), re.M)),
                     SEDS=jcount('b712_commands.json', lambda j: len(j.get('seds') or [])),
@@ -341,15 +345,15 @@ def main(argv):
     print()
     print('  ### ### **MEASURED OFF THE FACE, THE BANKS AND THE KERNELS, NOT TYPED:**')
     for k in ('ARMS', 'READINGS', 'EXPECT', 'BARS', 'TESTS', 'QUESTIONS', 'LINES', 'MISSES', 'REPAIRS', 'CARRIED', 'DISPATCHES', 'RUNS', 'PORTCOMMITS',
-              'LEANFILES', 'TAGSMADE', 'ORDERS', 'BINARIES', 'COMPUTE', 'SHAREDTOOLS', 'REREAD', 'WHOLEREADS', 'SEDS', 'REDIRECTS',
+              'LEANFILES', 'TAGSMADE', 'ORDERS', 'BINARIES', 'COMPUTE', 'SHAREDTOOLS', 'REGFIRST', 'WHOLEREADS', 'SEDS', 'REDIRECTS',
               'PIPES', 'ANYPIPES', 'PYPROGS', 'READOFF'):
         print('      %-12s %d' % (k, measured[k]))
     CLAUSES[:] = [(c, measured.get(cap, cap), measured.get(dem, dem), u, f) for (c, cap, dem, u, f) in CLAUSES]
     clauses = [{"clause": c, "cap": cap, "demand": (n if (dem is None and c.startswith('artifact counts')) else (cap if dem is None else dem)),
                 "units": u, "from": frm} for (c, cap, dem, u, frm) in CLAUSES]
-    spec = {"registration": ("data/b712_registration_2026-10-25.txt -- b712, LANE TWO ACT ONE HUNDRED AND THIRTY-EIGHT, THE RESEARCH ACT: b711 AT ITS WEIGHT; "
-                             "THE REPAIRS AND THE CORRIGENDUM; STANDING CLAUSES v2 AND THE INDEPENDENCE SUPPLEMENT; THE PORT AND THE JOIN; THE SURGERY, THE "
-                             "COEFFICIENTS AND THE AXIS (e); THE LIST TOWARD 443 AND PAIRS 11 AND 15, UNDER (R322)"),
+    spec = {"registration": ("data/b712_registration_2026-10-25.txt -- b712, LANE TWO ACT ONE HUNDRED AND THIRTY-NINE, THE RE-CUT ACT: b711 AT ITS WEIGHT; "
+                             "THE CORRIGENDUM; STANDING CLAUSES v3 AND THE FIVE REPAIRS; THE PORT AND THE JOIN, TAGGED v0.1.0; THE FACES ROW; THE -15 CONTROL "
+                             "REGISTERED AND PRICED; SILENCE OF FOUNDATIONS RE-CUT ON ITS BRANCH, UNDER (R322)"),
             "clauses": clauses}
     d = (json.dumps(spec, indent=1, ensure_ascii=False) + chr(10)).encode('utf-8')
     with open(SPEC + '.tmp', 'wb') as fh:

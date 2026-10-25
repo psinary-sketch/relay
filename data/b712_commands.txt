@@ -1,0 +1,481 @@
+b712 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T17:42:46Z)
+
+### the source: the seat`s session 3bbc6267-f2de-40fb-b160-263f3c982c61 from its first user line carrying 'RULING (R322) BEGIN', with its subagents` transcripts
+### commands read: 417
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b711, its own session ec2d71b5, from its post-push combine to that session`s end): 22 commands from 2026-10-25T14:22:02.244Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (at most three port dispatches and the join`s, (R322)(4) and N1: port-b707 of SIDE-lv-conservation through the portdispatch route, SIDE-faces-join`s main through the dispatch route) (3):
+  #205 python -I -X utf8 tools/b712_record.py portdispatch port SIDELvConservation
+  #213 python -I -X utf8 tools/b712_record.py portdispatch port SIDELvConservation
+  #228 python -I -X utf8 tools/b712_record.py dispatch SIDE-faces-join 11a472b90553deaddc411c5d69ec03611ee277c5 join FacesJoin
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (1):
+  #329 2026-10-25T17:00:51.537Z Get-Item -LiteralPath 'D:/relay/=' | Select-Object Name, Length, CreationTime, LastWriteTime
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (7):
+  #61 2026-10-25T15:11:08.600Z PowerShell
+      git -C D:/relay branch -d push-b711-preroot
+  #62 2026-10-25T15:11:12.913Z PowerShell
+      git -C D:/relay branch -d push-b711-preroot2
+  #63 2026-10-25T15:11:17.528Z PowerShell
+      git -C D:/relay branch -d push-b711-root
+  #64 2026-10-25T15:11:21.830Z PowerShell
+      git -C D:/relay branch -d push-b711-record
+  #65 2026-10-25T15:11:26.003Z PowerShell
+      git -C D:/relay branch -d push-b711-closing
+  #66 2026-10-25T15:11:30.190Z PowerShell
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b711-preroot
+  #67 2026-10-25T15:11:34.759Z PowerShell
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b711-record
+
+### THE BRANCH DELETES BY SHAPE ((R322)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #61 deletes ['push-b711-preroot'], halves 1, globs none, variables none, chained after False; #62 deletes ['push-b711-preroot2'], halves 1, globs none, variables none, chained after False; #63 deletes ['push-b711-root'], halves 1, globs none, variables none, chained after False; #64 deletes ['push-b711-record'], halves 1, globs none, variables none, chained after False; #65 deletes ['push-b711-closing'], halves 1, globs none, variables none, chained after False; #66 deletes ['push-b711-preroot'], halves 1, globs none, variables none, chained after False; #67 deletes ['push-b711-record'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (1):
+  line 276 | WebSearch | 2026-10-25T14:48:57.420Z | identifiers NONE | Epstein zeta function x^2+xy+4y^2 2x^2+xy+2y^2 discriminant -15 L-function decomposition genus character
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-25T14:45:37.835Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/memory" && cat feedback_ferry_paste_rule.md; echo =====; cat feedback_b711_traps.md; echo =====; cat feedback_ses
+  #2 | 2026-10-25T14:46:29.294Z | seat | Bash | cd /d/relay && git ls-files "tools/b711_*" "tools/b710_*" && git status --short && git log --oneline -3
+  #3 | 2026-10-25T14:46:37.753Z | seat | Bash | wc -l tools/b711_*.py data/b711_steps.json data/b711_ferry.txt data/b711_closing.txt data/b711_defects.txt data/b711_port.txt data/b711_report.txt
+  #4 | 2026-10-25T14:47:01.056Z | seat | PowerShell | Get-Item -LiteralPath 'D:\relay','D:\MY-DOwnloads\PLACE-papers','D:\SIDE-explicit-formula','D:\SIDE-lv-conservation','D:\SIDE-faces-join'
+  #5 | 2026-10-25T14:47:01.988Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='claude.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe'"
+  #6 | 2026-10-25T14:47:10.490Z | seat | Bash | wc -l data/b710_registrations.txt data/b711_ferry.txt && git grep -n -F "xy+4y" -- data tools && git -C /d/MY-DOwnloads/PLACE-papers grep -n -F "xy + 4y" 
+  #7 | 2026-10-25T14:47:48.695Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -i -e "discriminant -15" -e "disc -15" -e "discriminant −15" -e "2x^2 + xy + 2y^2" -e "2x² + xy + 2y²" -e "x² + x
+  #8 | 2026-10-25T14:47:57.007Z | seat | Bash | cd /d/relay && git grep -n -l -i -e "disc.\?-\?15" -e "(1,1,4)" -e "1, 1, 4" -e "chi_-15" -e "chi_{-15}" -e "L(s, chi_5)" -- . 
+  #9 | 2026-10-25T14:48:11.605Z | seat | Bash | cd /d/relay && git grep -n -l -F -e "(1,1,4)" -e "[1, 1, 4]" -e "(1, 1, 4)" -e "SUCCESSOR 3" -e "successor3" -e "-15" -- "*.py" "*.md"
+  #10 | 2026-10-25T14:48:19.416Z | seat | Bash | wc -l tools/b667_epstein_certify.py && git grep -n -i -e "character" -e "decompos" -e "class group" -e "genus" -- tools/b667_epstein_certify.py tools/b707_onset
+  #11 | 2026-10-25T14:48:32.258Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -i -e "genus character" -e "chi_{-3}" -e "χ₋₃" -e "χ_{−3}" -e "L(s,χ_5)" -e "chi_5" -e "−15" -- "*.md" ":!archive
+  #12 | 2026-10-25T14:53:14.637Z | seat | Bash | cd /d/relay && wc -l tools/act_membrane.py && git grep -n "^def \|^    \"\"\"" -- tools/act_membrane.py && git grep -n "act_membrane" -- tools/b711_coeffs.py
+  #13 | 2026-10-25T14:53:54.534Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_genus_control.py run dry
+  #14 | 2026-10-25T14:53:58.933Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_genus_control.py run
+  #15 | 2026-10-25T14:54:42.223Z | seat | Bash | wc -l data/b712_genus_control.txt && git grep -n -F -e "0.998460" -e "0.998079" -- data/b711_pairs.txt
+  #16 | 2026-10-25T14:54:55.821Z | seat | Bash | git add data/b712_registrations.txt data/b712_genus_control.txt data/b712_genus_control.json tools/b712_genus_control.py && git commit -q -m "b712 step zero: da
+  #17 | 2026-10-25T14:56:39.148Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_standing.py write dry
+  #18 | 2026-10-25T14:56:43.992Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_standing.py write && PYTHONIOENCODING=utf-8 python -I tools/b712_standing.py control
+  #19 | 2026-10-25T14:56:49.396Z | seat | Bash | git add data/standing_clauses_v3.txt && git commit -q -m "b712 step zero: data/standing_clauses_v3.txt written and committed alone under (R322)(3) -- v2's 55 ro
+  #20 | 2026-10-25T14:56:55.177Z | seat | Bash | git diff --stat data/b711_steps.json && git add data/b711_closing_push_out.txt && git commit -q -m "b712 step zero: data/b711_closing_push_out.txt committed alo
+  #21 | 2026-10-25T14:57:00.220Z | seat | Bash | git add data/b711_steps.json && git commit -q -m "b712 step zero: data/b711_steps.json's closing step row (4a383ac8) committed alone under (R322)(8)" && git rev
+  #22 | 2026-10-25T14:57:25.858Z | seat | Bash | git grep -n -e "b711" -e "b710" -e "R321" -e "R320" -e "R319" -- tools/b711_carry.py
+  #23 | 2026-10-25T14:58:34.979Z | seat | Bash | git grep -n -e "CARRIED FORWARD" -e "Branches left" -e "^    ([a-z]) " -- data/b711_closing.txt && git -C /d/MY-DOwnloads/PLACE-papers log --oneline -2 && git -
+  #24 | 2026-10-25T14:58:43.273Z | seat | Bash | git branch --merged main && git -C /d/MY-DOwnloads/PLACE-papers branch --merged main && git -C /d/SIDE-lv-conservation branch -a
+  #25 | 2026-10-25T14:58:51.289Z | seat | Bash | git -C /d/SIDE-lv-conservation rev-parse port-b707 origin/port-b707 main && git -C /d/SIDE-faces-join rev-parse HEAD && git -C /d/SIDE-explicit-formula rev-pars
+  #26 | 2026-10-25T14:59:30.090Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_carry.py carry record
+  #27 | 2026-10-25T14:59:35.650Z | seat | Bash | for n in citation checks closing corrigendum regspec reg_gate tests report; do PYTHONIOENCODING=utf-8 python -I tools/b712_carry.py carry $n || break; done
+  #28 | 2026-10-25T14:59:58.945Z | seat | Bash | git ls-files "data/b711_*" && git -C /d/MY-DOwnloads/PLACE-papers ls-files "FACES*" "*LEDGER*"
+  #29 | 2026-10-25T15:00:04.749Z | seat | Bash | wc -l data/b711_stepzero.txt data/b711_readfirst.txt data/b711_tool_repairs.txt data/b711_report.txt data/b711_events.txt && git grep -n "^def \|^    '[a-z_]*':
+  #30 | 2026-10-25T15:00:12.116Z | seat | Bash | git grep -n -E "^def [a-z_]+" -- tools/b712_record.py
+  #31 | 2026-10-25T15:00:35.134Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_locate.py tools/b712_record.py "^def [a-z_]+" tools/b712_record.py "^(if|elif) (a|cmd|route) ==|^ROUTES|^    '[a-z0-
+  #32 | 2026-10-25T15:00:45.564Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_record.py rootexclude
+  #33 | 2026-10-25T15:00:52.550Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_locate.py data/b711_coeffs.txt "log 48|NEGATIVE FROM" data/b711_surgery.txt "\*\*" data/b711_axis.txt "\*\*" data/b7
+  #34 | 2026-10-25T15:01:00.820Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_locate.py data/b708_ferry.txt "licensed|keystone form|2026-10-21" data/b708_closing.txt "licensed" data/b706_ferry.t
+  #35 | 2026-10-25T15:01:13.220Z | seat | Bash | wc -l data/b670_licensed_table.txt data/b708_cut.txt && PYTHONIOENCODING=utf-8 python -I tools/b712_locate.py data/b702_author_answers.txt "(?i)keystone" data/b
+  #36 | 2026-10-25T15:01:23.038Z | seat | Bash | git grep -l -i -e "back matter" -e "each section doing one thing" -e "declarative sentences" -- data && git -C /d/MY-DOwnloads/PLACE-papers grep -l -i -e "back 
+  #37 | 2026-10-25T15:01:30.488Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_locate.py data/b703_rules.txt "(?i)back matter|keystone|compile|2026-10-21" data/b703_ferry.txt "(?i)back matter|key
+  #38 | 2026-10-25T15:01:37.760Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_locate.py data/b670_licensed_table.txt "^###|Spectral_Inertness|Seven_Mechanism|NEXT|next" data/b708_cut.txt "b652|o
+  #39 | 2026-10-25T15:01:54.693Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_carry.py prune citation "    # ### the ferry's read-first list and the banks" "    standing_rows(text, add)"
+  #40 | 2026-10-25T15:03:39.871Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_citation.py check dry
+  #41 | 2026-10-25T15:03:53.706Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_locate.py data/b711_scores_close.json "REFUTED|^  \"[NS][1-5]\""
+  #42 | 2026-10-25T15:04:05.413Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_citation.py check
+  #43 | 2026-10-25T15:04:21.025Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_citation.py answer "carried with a control, and the source pin priced for b713"
+  #44 | 2026-10-25T15:04:31.001Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_citation.py ferry
+  #45 | 2026-10-25T15:04:59.869Z | seat | Bash | PYTHONIOENCODING=utf-8 python -I tools/b712_locate.py D:/MY-DOwnloads/PLACE-papers/FACES_LEDGER.md "(?i)faces.join|SIDE-faces-join|Register4|lv-conservation|^##
+  #46 | 2026-10-25T15:06:49.868Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_buildlog_SIDE-lv-conservation_port.txt "error|built|Built|✔|✖" data/b711_steps.json "readfirst|rowgen"
+  #47 | 2026-10-25T15:06:59.992Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/circuit_read.py "def |readfirst|argv" data/b711_steps.json "\"step\"|stepzero"
+  #48 | 2026-10-25T15:07:09.563Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/circuit_read.py "def readfirst|_readfirst_|act =|ACT"
+  #49 | 2026-10-25T15:08:03.012Z | seat | PowerShell | python -I -X utf8 tools/circuit_read.py readfirst b712_ferry.txt b712_readfirst.txt
+  #50 | 2026-10-25T15:08:53.255Z | seat | PowerShell | git -C D:/relay log --format="%h %ad %s" --date=short -- tools/mirror_prevbuild.json
+  #51 | 2026-10-25T15:09:05.931Z | seat | PowerShell | python -I -X utf8 tools/circuit_read.py readfirst b712_ferry.txt b712_readfirst.txt
+  #52 | 2026-10-25T15:09:33.989Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py rowgen
+  #53 | 2026-10-25T15:09:56.199Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "def put_txt|def put_json|MEM\.|guard|^import|^from|^ACT|^PREV|= P7\.|R = " tools/act_membrane.py "d
+  #54 | 2026-10-25T15:10:10.311Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b711_record.py "_put_txt0|_put_json0|R.put_json, R.put_txt =" tools/b712_carry.py "repairdiff|def "
+  #55 | 2026-10-25T15:10:20.812Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py rowgen
+  #56 | 2026-10-25T15:10:44.352Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='claude.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='git.exe'" -Property ProcessId,Name,
+  #57 | 2026-10-25T15:10:50.726Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py branches before
+  #58 | 2026-10-25T15:10:59.472Z | seat | PowerShell | git -C D:/relay branch --merged main
+  #59 | 2026-10-25T15:11:00.178Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch --merged main
+  #60 | 2026-10-25T15:11:00.810Z | seat | PowerShell | git -C D:/SIDE-lv-conservation branch -a
+  #61 | 2026-10-25T15:11:08.600Z | seat | PowerShell | git -C D:/relay branch -d push-b711-preroot
+  #62 | 2026-10-25T15:11:12.913Z | seat | PowerShell | git -C D:/relay branch -d push-b711-preroot2
+  #63 | 2026-10-25T15:11:17.528Z | seat | PowerShell | git -C D:/relay branch -d push-b711-root
+  #64 | 2026-10-25T15:11:21.830Z | seat | PowerShell | git -C D:/relay branch -d push-b711-record
+  #65 | 2026-10-25T15:11:26.003Z | seat | PowerShell | git -C D:/relay branch -d push-b711-closing
+  #66 | 2026-10-25T15:11:30.190Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b711-preroot
+  #67 | 2026-10-25T15:11:34.759Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b711-record
+  #68 | 2026-10-25T15:11:39.961Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py branches
+  #69 | 2026-10-25T15:11:50.622Z | seat | PowerShell | python -I -X utf8 tools/b712_tests.py parts
+  #70 | 2026-10-25T15:11:57.620Z | seat | PowerShell | python -I -X utf8 tools/b712_tests.py hold
+  #71 | 2026-10-25T15:12:03.087Z | seat | PowerShell | python -I -X utf8 tools/b712_tests.py run test_act_root.py stepzero
+  #72 | 2026-10-25T15:12:14.067Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_act_root.py stepzero
+  #73 | 2026-10-25T15:12:19.926Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_act_root_commit_b644.py stepzero
+  #74 | 2026-10-25T15:12:29.614Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_act_root_order_b641.py stepzero
+  #75 | 2026-10-25T15:12:35.333Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_addenda_licence.py stepzero
+  #76 | 2026-10-25T15:12:40.481Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_addenda_writelist.py stepzero
+  #77 | 2026-10-25T15:12:47.087Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_additive_shared_b644.py stepzero
+  #78 | 2026-10-25T15:12:54.803Z | seat | PowerShell | python -X utf8 tools/b712_tests.py hold
+  #79 | 2026-10-25T15:12:59.248Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_asof.py stepzero
+  #80 | 2026-10-25T15:19:51.132Z | seat | PowerShell | python -X utf8 tools/b712_tests.py hold
+  #81 | 2026-10-25T15:19:55.576Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_axiom_claim.py stepzero
+  #82 | 2026-10-25T15:20:00.415Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_axiom_claim_b651.py stepzero
+  #83 | 2026-10-25T15:20:05.168Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_banned_terms_backmatter.py stepzero
+  #84 | 2026-10-25T15:20:10.576Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_build_watch_b644.py stepzero
+  #85 | 2026-10-25T15:20:25.813Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_build_watch_b647.py stepzero
+  #86 | 2026-10-25T15:20:59.211Z | seat | PowerShell | python -X utf8 tools/b712_tests.py hold
+  #87 | 2026-10-25T15:21:04.098Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_chain_page.py stepzero
+  #88 | 2026-10-25T15:30:16.449Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_tests_stepzero.json "test_chain_page.py|failing" data/b712_tests_stepzero.json "test_chain_page.py"
+  #89 | 2026-10-25T15:30:25.634Z | seat | PowerShell | python -X utf8 tools/b712_tests.py hold
+  #90 | 2026-10-25T15:30:29.818Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_chain_page_b592.py stepzero
+  #91 | 2026-10-25T15:31:10.243Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_chain_page_b596.py stepzero
+  #92 | 2026-10-25T15:32:35.418Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_chain_page_b629.py stepzero
+  #93 | 2026-10-25T15:32:41.369Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_tests_stepzero.json "test_chain_page_b629|test_chain_page_b630|test_chain_page_b632|test_chain_page_b635|test_c
+  #94 | 2026-10-25T15:32:46.812Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_chain_page_b630.py stepzero
+  #95 | 2026-10-25T15:32:51.812Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_chain_page_b632.py stepzero
+  #96 | 2026-10-25T15:33:56.972Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_chain_page_b635.py stepzero
+  #97 | 2026-10-25T15:34:46.044Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_chain_page_b638.py stepzero
+  #98 | 2026-10-25T15:34:55.099Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_closing_headline_b634.py stepzero
+  #99 | 2026-10-25T15:34:59.752Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_clusters_served_b651.py stepzero
+  #100 | 2026-10-25T15:35:04.239Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_composer_b646.py stepzero
+  #101 | 2026-10-25T15:35:14.961Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_composer_b647.py stepzero
+  #102 | 2026-10-25T15:35:21.528Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_composer_b649.py stepzero
+  #103 | 2026-10-25T15:35:27.572Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_conversion_b652.py stepzero
+  #104 | 2026-10-25T15:35:32.363Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_correspondence_gen.py stepzero
+  #105 | 2026-10-25T15:35:37.070Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_e0_databinder_b643.py stepzero
+  #106 | 2026-10-25T15:35:41.833Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_e0_existential.py stepzero
+  #107 | 2026-10-25T15:35:47.156Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_e0_rule.py stepzero
+  #108 | 2026-10-25T15:35:52.194Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_edit_route_b646.py stepzero
+  #109 | 2026-10-25T15:35:57.079Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_elab_reader_b634.py stepzero
+  #110 | 2026-10-25T15:36:01.766Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_faces_form.py stepzero
+  #111 | 2026-10-25T15:36:29.110Z | seat | PowerShell | python -X utf8 tools/b712_tests.py hold
+  #112 | 2026-10-25T15:36:33.142Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_g_chain_page.py stepzero
+  #113 | 2026-10-25T15:39:54.646Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_glossary_supersede_b651.py stepzero
+  #114 | 2026-10-25T15:39:59.273Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_licensed_table_b645.py stepzero
+  #115 | 2026-10-25T15:40:03.718Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_licensed_table_instrument_b652.py stepzero
+  #116 | 2026-10-25T15:40:08.563Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_met_b646.py stepzero
+  #117 | 2026-10-25T15:40:13.176Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_module_header.py stepzero
+  #118 | 2026-10-25T15:40:18.042Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_msplit_b658.py stepzero
+  #119 | 2026-10-25T15:40:22.309Z | seat | PowerShell | python -X utf8 tools/b712_tests.py hold
+  #120 | 2026-10-25T15:40:27.146Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_name_b649.py stepzero
+  #121 | 2026-10-25T15:44:38.460Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_name_patterns_b636.py stepzero
+  #122 | 2026-10-25T15:44:44.274Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_no_sorry_main.py stepzero
+  #123 | 2026-10-25T15:44:53.362Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_premise_status.py stepzero
+  #124 | 2026-10-25T15:45:00.517Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_primed_names_b643.py stepzero
+  #125 | 2026-10-25T15:45:06.244Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_push_gated.sh stepzero
+  #126 | 2026-10-25T15:45:15.207Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_tests_stepzero.json "test_push_gated" tools/b712_tests.py "bash|\.sh"
+  #127 | 2026-10-25T15:45:22.682Z | seat | Bash | python -X utf8 /d/relay/tools/b712_tests.py run test_push_gated.sh stepzero
+  #128 | 2026-10-25T15:46:00.060Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_reader_needle_b641.py stepzero
+  #129 | 2026-10-25T15:46:05.195Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_record_findings_b632.py stepzero
+  #130 | 2026-10-25T15:46:10.869Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_registry_tags_b636.py stepzero
+  #131 | 2026-10-25T15:46:15.744Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_row_sort.py stepzero
+  #132 | 2026-10-25T15:46:20.638Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_rowgen_ident.py stepzero
+  #133 | 2026-10-25T15:46:25.779Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_terminal_table_b630.py stepzero
+  #134 | 2026-10-25T15:46:30.842Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_terminal_table_b635.py stepzero
+  #135 | 2026-10-25T15:46:35.728Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_terminal_table_b636.py stepzero
+  #136 | 2026-10-25T15:46:42.246Z | seat | PowerShell | python -X utf8 tools/b712_tests.py run test_terminal_table_b637.py stepzero
+  #137 | 2026-10-25T15:46:47.941Z | seat | PowerShell | python -X utf8 tools/b712_tests.py report stepzero
+  #138 | 2026-10-25T15:46:57.158Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_tests_stepzero.txt "NOT CLEAN"
+  #139 | 2026-10-25T15:47:13.791Z | seat | PowerShell | python -I -X utf8 tools/b712_carry.py repairdiff record
+  #140 | 2026-10-25T15:47:20.358Z | seat | PowerShell | python -I -X utf8 tools/b712_carry.py repairdiff citation
+  #141 | 2026-10-25T15:47:25.262Z | seat | PowerShell | git -C D:/relay status --short
+  #142 | 2026-10-25T15:47:25.809Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers status --short
+  #143 | 2026-10-25T15:47:39.662Z | seat | PowerShell | foreach ($p in 'D:\relay','D:\MY-DOwnloads\PLACE-papers','D:\SIDE-explicit-formula','D:\SIDE-lv-conservation','D:\SIDE-faces-join') { '{0} {1}' -f $p, (Test-Pat
+  #144 | 2026-10-25T15:48:20.894Z | seat | PowerShell | git -C D:/relay add -- data/b712_ferry.txt data/b712_ferry_scan.txt data/b712_citation_check.txt data/b712_citation_check.json data/b712_standing_control.txt da
+  #145 | 2026-10-25T15:48:27.692Z | seat | PowerShell | git -C D:/relay diff --cached --stat
+  #146 | 2026-10-25T15:48:34.549Z | seat | PowerShell | git -C D:/relay commit -m "b712 step zero under (R322): the ferry banked (16111 chars, scan exit 0); the citation check 149 of 149; the standing control as want
+  #147 | 2026-10-25T15:48:41.033Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step relay step zero 67a023887360b74483803ed02c83ae44fdf88f0b
+  #148 | 2026-10-25T15:48:46.411Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step relay step zero cf193d0e7d19014359bc9c05ee4c41af6620bbd5
+  #149 | 2026-10-25T15:48:51.829Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step relay step zero ddd8785d08b760599c465a56e57fe3b1147ec824
+  #150 | 2026-10-25T15:48:57.588Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step relay step zero cb8a8580249f2a150d1a805dba36a06d4b921b11
+  #151 | 2026-10-25T15:49:02.276Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step relay step zero 46750da9
+  #152 | 2026-10-25T15:49:09.593Z | seat | PowerShell | git -C D:/relay rev-parse HEAD
+  #153 | 2026-10-25T15:49:27.173Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "^def |^# =====" 
+  #154 | 2026-10-25T15:49:55.717Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_pairs.txt "ratio|HELD|MET|0\.998" data/b711_coeffs.txt "48|NEGATIVE|negative" data/b711_surgery.txt "HELD|VERDI
+  #155 | 2026-10-25T15:50:14.890Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_closing.txt "f01cb32d|sha256|scores|HELD" data/b711_scores_close.json "N1|S2|HELD" D:/MY-DOwnloads/PLACE-papers
+  #156 | 2026-10-25T15:51:29.607Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "^def c1|^def _wb_b711_form|^# =====.*REPAIRS' CONTROLS"
+  #157 | 2026-10-25T15:52:09.647Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py c1 dry
+  #158 | 2026-10-25T15:52:18.704Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py c1 dry
+  #159 | 2026-10-25T15:52:25.331Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py c1 dry
+  #160 | 2026-10-25T15:52:33.926Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py c1 dry
+  #161 | 2026-10-25T15:52:41.117Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py c1
+  #162 | 2026-10-25T15:53:24.190Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_regspec.py "POST-SEAL PROMPTS|ANYPIPES|def " tools/b712_checks.py "def answers_ok|POST-SEAL PROMPTS|G-ANSWERS-
+  #163 | 2026-10-25T15:53:32.274Z | seat | PowerShell | git -C D:/relay grep -l "POST-SEAL PROMPTS" -- tools
+  #164 | 2026-10-25T15:53:46.294Z | seat | PowerShell | git -C D:/relay grep -l -e "PROMPTS NAMED" -e "def face" -- tools/b698_record.py tools/b703_record.py tools/b704_record.py tools/b705_record.py tools/b706_recor
+  #165 | 2026-10-25T15:53:51.326Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b704_record.py "PROMPTS NAMED|def face" tools/b703_checks.py "PROMPTS NAMED|def answers_ok|def _post_seal" data/b71
+  #166 | 2026-10-25T15:54:18.842Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_steps.json "85c26c1c|phase" tools/b712_checks.py "S\['steps'\]|'steps'|def sealed_after_ok|lock_epoch'\] =|S\['
+  #167 | 2026-10-25T15:55:22.409Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "^def mbank|^def mroot|^def mverify|^def mbuild|^mbuild|^mroot|^mverify|mbuild =|mroot =|mverify ="
+  #168 | 2026-10-25T15:57:41.624Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_closing.py "NEXT" tools/b712_record.py "K\.NEXT|WL\.NEXT" tools/b712_checks.py "K\.NEXT|\.NEXT\b"
+  #169 | 2026-10-25T15:58:08.162Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "^def repairctl|^def toolrepairs|^REPAIRS|^def _wrap_words|def case|put_txt\('%s_repair|put_json\('%
+  #170 | 2026-10-25T15:58:13.411Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "^def repairctl|^def toolrepairs|^REPAIRS|def case|_repair_controls|_tool_repairs" data/b711_seal_ha
+  #171 | 2026-10-25T15:59:48.197Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py repairctl dry
+  #172 | 2026-10-25T15:59:56.596Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "K\.[A-Z][A-Z0-9_]+"
+  #173 | 2026-10-25T16:00:12.555Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b711_worklist.py "^PORT_LABEL|^PORT_NEW_TIP|^PORT_FILE|^PORT_RUN|^REG_B709|^EF_V037|^C3_RELAY_B|^INDEPENDENCE_COMMI
+  #174 | 2026-10-25T16:00:22.652Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py repairctl dry
+  #175 | 2026-10-25T16:00:29.948Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py repairctl
+  #176 | 2026-10-25T16:00:35.058Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py toolrepairs
+  #177 | 2026-10-25T16:00:49.727Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b675_corrigenda.txt "^  \(3[01]\)|^###"
+  #178 | 2026-10-25T16:03:30.690Z | seat | PowerShell | python -I -X utf8 tools/b712_corrigendum.py dry
+  #179 | 2026-10-25T16:03:41.965Z | seat | PowerShell | python -I -X utf8 tools/b712_corrigendum.py land
+  #180 | 2026-10-25T16:04:04.441Z | seat | PowerShell | git -C D:/relay status --short
+  #181 | 2026-10-25T16:04:12.794Z | seat | PowerShell | git -C D:/relay add -- data/b675_corrigenda.txt tools/b712_checks.py tools/b712_closing.py tools/b712_corrigendum.py tools/b712_record.py tools/b712_regspec.py 
+  #182 | 2026-10-25T16:04:19.294Z | seat | PowerShell | git -C D:/relay commit -m "b712 component 1: b711 at its weight (FINDINGS :10346), the corrigendum (k)-(t) (FINDINGS :10348, corrigenda row (32)), the five repa
+  #183 | 2026-10-25T16:04:23.606Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers status --short
+  #184 | 2026-10-25T16:04:27.549Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers commit -m "b712 component 1: b711 at its weight (:10346) and the corrigendum to b711's record after its seal (:10348), under
+  #185 | 2026-10-25T16:04:32.615Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step relay "component 1" 3e1c958c
+  #186 | 2026-10-25T16:04:36.741Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step pp "component 1" a7f77d3
+  #187 | 2026-10-25T16:04:41.308Z | seat | PowerShell | git -C D:/relay rev-parse 3e1c958c; git -C D:/MY-DOwnloads/PLACE-papers rev-parse a7f77d3
+  #188 | 2026-10-25T16:04:56.414Z | seat | PowerShell | Test-Path D:/SIDE-lv-conservation/.lake/packages/mathlib; Test-Path D:/SIDE-faces-join/.lake/packages/mathlib; Test-Path D:/SIDE-explicit-formula/.lake/packages
+  #189 | 2026-10-25T16:05:02.855Z | seat | PowerShell | git -C D:/SIDE-lv-conservation/.lake/packages/mathlib rev-parse HEAD; git -C D:/SIDE-explicit-formula/.lake/packages/mathlib rev-parse HEAD; git -C D:/SIDE-lv-c
+  #190 | 2026-10-25T16:05:08.332Z | seat | PowerShell | git -C D:/SIDE-explicit-formula/.lake/packages/mathlib grep -l "structure StrongFEPair" de5ce8a9 -- Mathlib
+  #191 | 2026-10-25T16:05:18.776Z | seat | PowerShell | git -C D:/SIDE-explicit-formula/.lake/packages/mathlib grep -l "StrongFEPair" de5ce8a9 -- Mathlib
+  #192 | 2026-10-25T16:05:24.894Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py D:/SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean "theorem .*Λ" "def Λ" "l
+  #193 | 2026-10-25T16:05:29.514Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py D:/SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean "Λ_eq|def Λ|deprecated|Λ
+  #194 | 2026-10-25T16:05:40.054Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py D:/SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean "IsStrongFEPair|StrongFE
+  #195 | 2026-10-25T16:05:40.114Z | seat | PowerShell | git -C D:/SIDE-lv-conservation status --short; git -C D:/SIDE-lv-conservation rev-parse --abbrev-ref HEAD; git -C D:/SIDE-lv-conservation rev-parse HEAD
+  #196 | 2026-10-25T16:05:49.043Z | seat | PowerShell | git -C D:/SIDE-lv-conservation checkout port-b707
+  #197 | 2026-10-25T16:05:54.159Z | seat | PowerShell | git -C D:/SIDE-lv-conservation rev-parse HEAD; git -C D:/SIDE-lv-conservation status --short; git -C D:/SIDE-lv-conservation ls-tree HEAD SIDELvConservation/Dir
+  #198 | 2026-10-25T16:05:59.073Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py D:/SIDE-lv-conservation/lake-manifest.json "de5ce8a9|mathlib"
+  #199 | 2026-10-25T16:06:10.806Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py D:/SIDE-explicit-formula/.lake/packages/mathlib/Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean "StrongFEPair|def hurwit
+  #200 | 2026-10-25T16:07:08.269Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py portedit 1 pre
+  #201 | 2026-10-25T16:07:15.280Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py portedit 1
+  #202 | 2026-10-25T16:07:23.825Z | seat | PowerShell | git -C D:/SIDE-lv-conservation commit -m "port-b707: DirichletC7Order :501 to Mathlib de5ce8a9's form, (isStrong_hurwitzOddFEPair a).Λ_eq for StrongFEPair.Λ_eq 
+  #203 | 2026-10-25T16:07:32.844Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/SIDE-lv-conservation --branch port-b707 --scratch
+  #204 | 2026-10-25T16:07:44.785Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py portdispatch port SIDELvConservation dry
+  #205 | 2026-10-25T16:07:50.909Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py portdispatch port SIDELvConservation
+  #206 | 2026-10-25T16:08:07.918Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py runwait SIDE-lv-conservation 40210206913 560
+  #207 | 2026-10-25T16:11:01.913Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py portrun 40210206913 port1
+  #208 | 2026-10-25T16:11:14.210Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_buildlog_SIDE-lv-conservation_port1.txt "574:39"
+  #209 | 2026-10-25T16:11:33.907Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py portedit 2 pre
+  #210 | 2026-10-25T16:11:41.613Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py portedit 2
+  #211 | 2026-10-25T16:11:48.429Z | seat | PowerShell | git -C D:/SIDE-lv-conservation commit -m "port-b707: DirichletC7Order :574 to Mathlib de5ce8a9's form, the strong pair's hasMellin (isStrong_hurwitzOddFEPair a)
+  #212 | 2026-10-25T16:11:53.367Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/SIDE-lv-conservation --branch port-b707 --scratch
+  #213 | 2026-10-25T16:12:00.324Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py portdispatch port SIDELvConservation
+  #214 | 2026-10-25T16:12:13.362Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py runwait SIDE-lv-conservation 40210536172 560
+  #215 | 2026-10-25T16:14:20.961Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py portrun 40210536172 port2
+  #216 | 2026-10-25T16:14:29.571Z | seat | PowerShell | gh run view 40210536172 -R psinary-sketch/SIDE-lv-conservation --json jobs --jq ".jobs[].steps[] | [.number, .name, .conclusion] | @tsv"
+  #217 | 2026-10-25T16:14:37.236Z | seat | PowerShell | git -C D:/SIDE-lv-conservation ls-tree --name-only cb0aea5; git -C D:/SIDE-lv-conservation ls-tree --name-only 93c27ec
+  #218 | 2026-10-25T16:14:43.616Z | seat | PowerShell | gh run view 40210536172 -R psinary-sketch/SIDE-lv-conservation --log-failed
+  #219 | 2026-10-25T16:14:52.346Z | seat | PowerShell | git -C D:/SIDE-lv-conservation grep -l "Register4_positivity" 93c27ec; git -C D:/SIDE-lv-conservation grep -l "Register4_positivity" cb0aea5
+  #220 | 2026-10-25T16:14:58.772Z | seat | PowerShell | git -C D:/SIDE-faces-join status --short; git -C D:/SIDE-faces-join rev-parse --abbrev-ref HEAD; git -C D:/SIDE-faces-join rev-parse HEAD; git -C D:/SIDE-faces-
+  #221 | 2026-10-25T16:15:27.501Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py regpos
+  #222 | 2026-10-25T16:15:54.008Z | seat | PowerShell | git -C D:/SIDE-faces-join diff --stat; git -C D:/SIDE-faces-join status --short
+  #223 | 2026-10-25T16:16:01.562Z | seat | PowerShell | git -C D:/SIDE-faces-join commit -m "b712 (R322)(4): require SIDE-lv-conservation at its port's tip cb0aea56 (12 of 12 at Mathlib de5ce8a9); Register4_positivit
+  #224 | 2026-10-25T16:16:06.860Z | seat | PowerShell | git -C D:/SIDE-faces-join branch push-b712-join
+  #225 | 2026-10-25T16:16:10.735Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/SIDE-faces-join push-b712-join
+  #226 | 2026-10-25T16:16:18.798Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py dispatch SIDE-faces-join 11a472b90553deaddc411c5d69ec03611ee277c5 join FacesJoin dry
+  #227 | 2026-10-25T16:16:24.566Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory
+  #228 | 2026-10-25T16:16:29.386Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py dispatch SIDE-faces-join 11a472b90553deaddc411c5d69ec03611ee277c5 join FacesJoin
+  #229 | 2026-10-25T16:16:41.257Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py runwait SIDE-faces-join 40210894425 560
+  #230 | 2026-10-25T16:24:47.563Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py runner SIDE-faces-join 40210894425 11a472b90553deaddc411c5d69ec03611ee277c5 join "the join at faces-join main 11a472b9, l
+  #231 | 2026-10-25T16:24:57.166Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_buildlog_SIDE-faces-join_join.txt "Built FacesJoin|Building FacesJoin|RegisterPentagon|cb0aea5|sideLvConservati
+  #232 | 2026-10-25T16:25:21.952Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py joingrade
+  #233 | 2026-10-25T16:25:31.972Z | seat | PowerShell | git -C D:/SIDE-faces-join log -1 --format="%an <%ae> | %cn <%ce>"; git -C D:/SIDE-faces-join tag --list; git -C D:/SIDE-faces-join ls-remote --tags origin
+  #234 | 2026-10-25T16:25:43.108Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/SIDE-faces-join push-b712-join "v0.1.0::v0.1.0 -- faces_join DERIVES at the standard three (run 40210894425), SIDE-lv-conse
+  #235 | 2026-10-25T16:26:04.655Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py jointag
+  #236 | 2026-10-25T16:26:15.573Z | seat | PowerShell | git -C D:/SIDE-lv-conservation rev-parse main v0.10.0^{commit}; git -C D:/SIDE-lv-conservation ls-remote origin refs/heads/main refs/heads/port-b707 refs/tags/v
+  #237 | 2026-10-25T16:26:20.882Z | seat | PowerShell | git -C D:/SIDE-lv-conservation rev-parse main 'v0.10.0^{commit}'; git -C D:/SIDE-lv-conservation ls-remote origin refs/heads/main refs/heads/port-b707 'refs/tag
+  #238 | 2026-10-25T16:26:26.751Z | seat | PowerShell | git -C D:/SIDE-lv-conservation checkout main
+  #239 | 2026-10-25T16:26:38.220Z | seat | PowerShell | git -C D:/relay status --short -- data/b712_* tools/b712_*
+  #240 | 2026-10-25T16:26:45.451Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_port.txt "^### ========|RUNS \d of|### ### \*\*RUN"
+  #241 | 2026-10-25T16:27:15.315Z | seat | PowerShell | git -C D:/relay add -- tools/b712_record.py tools/b712_worklist.py data/b712_axioms_SIDE-faces-join_join.txt data/b712_buildlog_SIDE-faces-join_join.txt data/b7
+  #242 | 2026-10-25T16:27:22.079Z | seat | PowerShell | git -C D:/relay commit -m "b712 component 2: the port 12 of 12 at two dispatches (:501, :574 to Mathlib de5ce8a9's form; port-b707 cb0aea56), Register4_positivi
+  #243 | 2026-10-25T16:27:27.075Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step relay "component 2" ee71a7a9
+  #244 | 2026-10-25T16:27:40.081Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py D:/MY-DOwnloads/PLACE-papers/FACES_LEDGER.md "faces.join|faces_join|SIDE-faces-join|^\| *Face|^## |^\|---"
+  #245 | 2026-10-25T16:28:37.474Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_list.json "secs|seconds|elapsed|wall|_s\"" data/b709_pairs.txt "secs|seconds|elapsed|wall| s\b|minutes|hours"
+  #246 | 2026-10-25T16:28:42.381Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_list.json "secs|seconds|elapsed|wall" data/b709_pairs.txt "secs|seconds|elapsed|wall|minutes|hours"
+  #247 | 2026-10-25T16:29:07.627Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b709_pairs.py "^def |^import|^from|QFORM|FORM|disc|-23|23\b" 
+  #248 | 2026-10-25T16:29:13.576Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b667_epstein_certify.py "^A, B, C|^QA|^Q =|\(1, 1, 6\)|= 6\b|D = |DISC|sqrt\(23|23" tools/b675_li_bench.py "\(1, 1,
+  #249 | 2026-10-25T16:29:40.795Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_coeffs.txt "THROUGH|through|cut|CUT|seconds" data/b710_registrations.txt "cut|through n|THROUGH"
+  #250 | 2026-10-25T16:30:11.138Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_list.json "^  \"[a-z]+\|"
+  #251 | 2026-10-25T16:30:16.506Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b711_list.json "route.: "
+  #252 | 2026-10-25T16:31:21.281Z | seat | PowerShell | python -I -X utf8 tools/b712_price.py dry
+  #253 | 2026-10-25T16:31:44.487Z | seat | PowerShell | python -I -X utf8 tools/b712_price.py bank
+  #254 | 2026-10-25T16:31:51.003Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_price.txt "band \[|tier 0"
+  #255 | 2026-10-25T16:32:02.115Z | seat | PowerShell | git -C D:/relay add -- tools/b712_price.py tools/b712_worklist.py data/b712_price.txt data/b712_price.json
+  #256 | 2026-10-25T16:32:07.154Z | seat | PowerShell | git -C D:/relay commit -m "b712 component 3: the price of the -15 control for b713 (tools named, tiers [0,100] and [100,200], hours per band from b711's seconds
+  #257 | 2026-10-25T16:32:12.533Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers commit -m "b712 component 3: the faces ledger's row for the join by closure at SIDE-faces-join v0.1.0 (faces_join DERIVES at
+  #258 | 2026-10-25T16:32:17.083Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step relay "component 3" c885392d
+  #259 | 2026-10-25T16:32:17.680Z | seat | PowerShell | python -I -X utf8 tools/b712_record.py step pp "component 3" 2351a31
+  #260 | 2026-10-25T16:32:25.974Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_readfirst.txt "b670|b708_cut|b708_tie|b703_rules|licensed|next row|Silence|Spectral"
+  #261 | 2026-10-25T16:32:44.443Z | seat | PowerShell | git -C D:/relay grep -l "Silence_of_Foundations" -- "data/b709_*" "data/b710_*" "data/b711_*" "data/b712_*"; git -C D:/MY-DOwnloads/PLACE-papers log --format="%
+  #262 | 2026-10-25T16:33:02.312Z | seat | PowerShell | Get-FileHash -Algorithm SHA256 D:/MY-DOwnloads/PLACE-papers/day1/Silence_of_Foundations.md; (Get-Content D:/MY-DOwnloads/PLACE-papers/day1/Silence_of_Foundation
+  #263 | 2026-10-25T16:33:15.805Z | seat | PowerShell | git -C D:/relay grep -l "THE DISTANCE BY THE b670 METHOD" -- tools; git -C D:/relay ls-files data/b646_table_Silence_of_Foundations* data/b708_cut* data/b708_qu
+  #264 | 2026-10-25T16:33:49.529Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b646_table_Silence_of_Foundations.txt "OVERREACHES|UNLICENSED|UNDERSTATES"
+  #265 | 2026-10-25T16:34:13.200Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py D:/MY-DOwnloads/PLACE-papers/day1/Spectral_Inertness.md "h2_sign_iff_rh|ch_iff_rh|is_universal|not_register1|registers at
+  #266 | 2026-10-25T16:35:00.005Z | seat | PowerShell | (Get-ChildItem -Directory -Path D:/ -Filter "SIDE-*").Name
+  #267 | 2026-10-25T16:35:05.380Z | seat | PowerShell | git -C D:/SIDE-kernel grep -l -e "theorem silence_universal" -e "conservation_of_spectra" -e "ch_iff_rh" -e "covers_all" -e "MechanismClass" -e "not_register1" 
+  #268 | 2026-10-25T16:35:12.906Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py D:/SIDE-kernel/Kernel/SilenceTheorem.lean "theorem silence_universal|is_universal" D:/SIDE-kernel/Kernel/ProductFormula_R
+  #269 | 2026-10-25T16:35:14.532Z | seat | PowerShell | git -C D:/SIDE-kernel grep -l -e "ch_iff_rh" HEAD; git -C D:/SIDE-explicit-formula grep -l -e "ch_iff_rh" -e "theorem h2_sign_iff_rh" HEAD; git -C D:/SIDE-lv-co
+  #270 | 2026-10-25T16:35:23.094Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py D:/SIDE-explicit-formula/SIDEExplicitFormula/H2Bridge.lean "theorem ch_iff_rh" D:/SIDE-explicit-formula/SIDEExplicitFormu
+  #271 | 2026-10-25T16:35:24.573Z | seat | PowerShell | git -C D:/SIDE-explicit-formula grep -l -e "not_register1" HEAD; git -C D:/SIDE-kernel grep -l -e "not_register1" HEAD; git -C D:/SIDE-lv-conservation grep -l -
+  #272 | 2026-10-25T16:35:31.794Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py D:/SIDE-explicit-formula/SIDEExplicitFormula/RegisterDepth.lean "theorem not_register1|theorem |register" ; git -C D:/SID
+  #273 | 2026-10-25T16:35:39.596Z | seat | PowerShell | git -C D:/SIDE-explicit-formula ls-tree --name-only v0.37 SIDEExplicitFormula/RegisterDepth.lean SIDEExplicitFormula/H2Bridge.lean SIDEExplicitFormula/Seam.lean
+  #274 | 2026-10-25T16:35:46.952Z | seat | PowerShell | git -C D:/SIDE-kernel ls-remote --tags origin v1.8 v1.5 v1.3; git -C D:/SIDE-kernel status --short
+  #275 | 2026-10-25T16:36:47.249Z | seat | PowerShell | git -C D:/SIDE-kernel ls-remote origin 'refs/tags/v1.8^{}' 'refs/tags/v1.5^{}'; git -C D:/SIDE-kernel rev-parse 'v1.5^{commit}'; git -C D:/SIDE-kernel diff --st
+  #276 | 2026-10-25T16:38:25.620Z | seat | PowerShell | git -C D:/SIDE-explicit-formula ls-tree -r --name-only v0.37 -- SIDEExplicitFormula/Seam.lean SIDEExplicitFormula/H2Bridge.lean SIDEExplicitFormula/RegisterDept
+  #277 | 2026-10-25T16:38:30.729Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/SIDE-faces-join/FacesJoin.lean "theorem faces_join"; git -C D:/SIDE-explicit-formula rev-parse 'v0.37^{commit
+  #278 | 2026-10-25T16:38:48.794Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b646_table_Silence_of_Foundations.txt "(OVERREACHES|UNLICENSED|UNDERSTATES) ;"
+  #279 | 2026-10-25T16:39:03.211Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b646_table_Silence_of_Foundations.json "RE-CUT: (Two specific|are compiled individually|Nine syste
+  #280 | 2026-10-25T16:39:20.657Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/MY-DOwnloads/PLACE-papers/day1/Spectral_Inertness.md "h2_sign_iff_rh|ch_iff_rh|register sentence|## Errata|##
+  #281 | 2026-10-25T16:39:52.823Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/SIDE-kernel/Kernel/SilenceTheorem.lean "is_universal|theorem silence_universal|namespace"; python -I -X utf8 
+  #282 | 2026-10-25T16:41:16.009Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_recut.py compile dry
+  #283 | 2026-10-25T16:41:30.830Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_recut.py compile
+  #284 | 2026-10-25T16:41:38.686Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_recut.py quote dry
+  #285 | 2026-10-25T16:41:45.852Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_recut.py quote
+  #286 | 2026-10-25T16:41:51.887Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers switch -c recut-b712-silence
+  #287 | 2026-10-25T16:42:37.198Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_recut.py compile dry
+  #288 | 2026-10-25T16:42:44.439Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_recut.py compile
+  #289 | 2026-10-25T16:43:48.337Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_recut.py cut dry
+  #290 | 2026-10-25T16:43:56.357Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers status --short; git -C D:/MY-DOwnloads/PLACE-papers branch --show-current
+  #291 | 2026-10-25T16:44:01.152Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers commit -m "b712 (R322)(7): re-cut day1/Silence_of_Foundations.md in keystone form -- the licensed table's 19 rows applied, :
+  #292 | 2026-10-25T16:44:05.635Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_recut.py cut f5ea57c; python -I -X utf8 D:/relay/tools/b712_recut.py diff f5ea57c
+  #293 | 2026-10-25T16:44:11.429Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers switch main
+  #294 | 2026-10-25T16:44:18.191Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers ls-remote origin refs/heads/recut-b712-silence; git -C D:/MY-DOwnloads/PLACE-papers rev-parse recut-b712-silence main origin
+  #295 | 2026-10-25T16:44:34.668Z | seat | PowerShell | git -C D:/relay status --short
+  #296 | 2026-10-25T16:44:41.234Z | seat | PowerShell | git -C D:/relay add -- tools/b712_recut.py tools/b712_worklist.py data/b712_recut_compile.txt data/b712_recut_compile.json data/b712_recut_quote.txt data/b712_r
+  #297 | 2026-10-25T16:44:54.325Z | seat | PowerShell | git -C D:/relay commit -m "b712 Component 4, (R322)(7): the re-cut's compile steps (14 pins + control + old pin), quote search (29 residues), cut (19 -> 1, MATC
+  #298 | 2026-10-25T16:45:01.190Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_record.py step relay "component 4" c2492dcf
+  #299 | 2026-10-25T16:45:05.750Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_record.py step pp "component 4" f5ea57cb
+  #300 | 2026-10-25T16:45:36.977Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_tool_repairs.txt "^###|^\(|REPORT|NEXT"
+  #301 | 2026-10-25T16:45:42.939Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_report.py "^def |^[A-Z_]+ = |b711|footing|KERNEL|CERTIFIED|REGISTERED|HELD"; git -C D:/relay
+  #302 | 2026-10-25T16:46:10.888Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/standing_clauses_v3.txt "report|REPORT|after the root|footing"
+  #303 | 2026-10-25T16:46:37.910Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_price.json "\"(t1|t2|budget|cut)\""; python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay
+  #304 | 2026-10-25T16:46:47.396Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_price.json "t1|t2|budget|cut|hours"; python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay
+  #305 | 2026-10-25T16:46:53.888Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_port_port1.json "run_id|first_error|sha256|agree"; python -I -X utf8 D:/relay/tools/b712_loca
+  #306 | 2026-10-25T16:46:59.900Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "def _s_scores|def scores|scores_close|def root|def _n[1-5]|S1|S2|S3"
+  #307 | 2026-10-25T16:47:12.153Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "^def |^# =====|^ROUTES|^[A-Z_]+ = "
+  #308 | 2026-10-25T16:47:39.868Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_closing.py "of 8|of %d|scores_close|def head|prompt|SCORE"; python -I -X utf8 D:/relay/tools
+  #309 | 2026-10-25T16:47:47.639Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_worklist.py "^[A-Z_0-9]+ = "
+  #310 | 2026-10-25T16:47:58.304Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "^def |G-[A-Z0-9-]+'|^[A-Z_]+ = "
+  #311 | 2026-10-25T16:48:54.816Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_report.py dry
+  #312 | 2026-10-25T16:49:07.924Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_join_grade.txt "GRADE DERIVES"
+  #313 | 2026-10-25T16:51:26.714Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "^import|^from|as P3|as P7|as R$| as R\b"; python -I -X utf8 D:/relay/tools/b712_l
+  #314 | 2026-10-25T16:53:54.754Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "^ROUTES|^    [a-z0-9_]+=|regcheck|c2order|_portedit_b711|repairctl\b|toolrepairs\
+  #315 | 2026-10-25T16:54:07.560Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "_data_state|_trail_defects_body|_run\(|_status\(|_b711_logs|_count_pipes"
+  #316 | 2026-10-25T16:54:56.086Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_record.py findings dry
+  #317 | 2026-10-25T16:55:08.260Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_genus_control.json "^ \x22"; python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b7
+  #318 | 2026-10-25T16:55:19.784Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_record.py trail dry
+  #319 | 2026-10-25T16:56:08.368Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_record.py defects; python -I -X utf8 D:/relay/tools/b712_record.py defshort b712
+  #320 | 2026-10-25T16:56:17.641Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_record.py defects
+  #321 | 2026-10-25T16:58:01.878Z | seat | PowerShell | git -C D:/relay show --name-only --format=%h_%s cf193d0e; git -C D:/relay show --name-only --format=%h_%s 67a02388; python -I -X utf8 D:/relay/tools/b712_locate
+  #322 | 2026-10-25T16:58:08.976Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_standing.py "^def |^import|b711_standing"; python -I -X utf8 D:/relay/tools/b712_locate.py D
+  #323 | 2026-10-25T16:59:32.852Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "^def sources|S\['(standing_v2|standing_v2_pre|port1j|port2j|porte|regposj|joingj|
+  #324 | 2026-10-25T16:59:59.688Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_recut_compile.json "^ \x22[a-z_]+\x22:"; python -I -X utf8 D:/relay/tools/b712_locate.py D:/r
+  #325 | 2026-10-25T17:00:13.430Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_recut_cut.txt "^### ###|BEFORE|MATCHES|HELD"; python -I -X utf8 D:/relay/tools/b712_locate.py
+  #326 | 2026-10-25T17:00:22.463Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_worklist.py "^[A-Z][A-Z0-9_]* *="
+  #327 | 2026-10-25T17:00:34.812Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "^def _n[1-5]|relay_first|REG_COMMIT|NOTHING_COMPUTED|def _genus_ok|def _artifacts
+  #328 | 2026-10-25T17:00:44.238Z | seat | PowerShell | git -C D:/relay log --reverse --format="%h %ct %s" 4a383ac8..HEAD; git -C D:/relay status --short
+  #329 | 2026-10-25T17:00:51.537Z | seat | PowerShell | Get-Item -LiteralPath 'D:/relay/=' | Select-Object Name, Length, CreationTime, LastWriteTime
+  #330 | 2026-10-25T17:01:05.304Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "^def (cr0|blob|raw|read|rd|jl|files_of|_ct|_bank_utc|_tag_peel|unwrap|oline|conv|
+  #331 | 2026-10-25T17:01:11.795Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b711_standing.py "parse|^import|^from"; python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/
+  #332 | 2026-10-25T17:02:23.532Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "cr0 *=|import.*cr0|def cr0|^from .* import"
+  #333 | 2026-10-25T17:02:29.135Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "\bcr0\b.*=|^import|^[a-z_0-9]+ = [A-Z0-9]+\.[a-z_0-9]+$|^(blob|raw|read|rd|jl|fil
+  #334 | 2026-10-25T17:04:24.626Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "'(portej|orderj|comp|regs_b711|regs_b709|regs_rereadj|fit710|indep|standing_v1)'|
+  #335 | 2026-10-25T17:04:30.130Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "PARTS|ACT_ARMS|def part_of|'act'|efremote|^def (main|drycheck|_part)"
+  #336 | 2026-10-25T17:04:42.524Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "^ROUTES|'drycheck'|def drycheck|'standingfigs'|'rootdry'|'commands'|'arms'"; pyth
+  #337 | 2026-10-25T17:04:56.934Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "^def armnames" ; python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b
+  #338 | 2026-10-25T17:05:29.950Z | seat | PowerShell | $env:PYTHONIOENCODING='utf-8'; python -X utf8 D:/relay/tools/b712_record.py armnames
+  #339 | 2026-10-25T17:05:42.241Z | seat | PowerShell | python -X utf8 D:/relay/tools/b712_record.py armnames
+  #340 | 2026-10-25T17:05:48.245Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "B710_FACE|B709_FACE"; python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/to
+  #341 | 2026-10-25T17:05:54.888Z | seat | PowerShell | python -X utf8 D:/relay/tools/b712_record.py armnames
+  #342 | 2026-10-25T17:06:06.643Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "^(TITLE_NEEDLES|REPORT_KEYS|READFIRST_NEEDLES|ENTRY_NEEDLES|NAV_LETTERS|CARRIED_N
+  #343 | 2026-10-25T17:06:27.464Z | seat | PowerShell | python -X utf8 D:/relay/tools/b712_checks.py --mid b712_checks_mid.txt --part act
+  #344 | 2026-10-25T17:08:20.924Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_citation_check.txt "CITES CHECKED|MISS|GATE STEP"; python -I -X utf8 D:/relay/tools/b712_loca
+  #345 | 2026-10-25T17:09:27.081Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_corrigendum.json "^ \x22[a-z_]+\x22:"; python -I -X utf8 D:/relay/tools/b712_locate.py D:/rel
+  #346 | 2026-10-25T17:09:53.751Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_report.py "lines=|'lines'|FOOTINGS|^def |footing"
+  #347 | 2026-10-25T17:10:39.107Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "^(WF|PT) *="; git -C D:/SIDE-faces-join ls-tree -r --name-only 11a472b9; git -C D
+  #348 | 2026-10-25T17:11:45.164Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b712_port_port1.txt "BUILD EXIT|### the artifact|GRADE"; python -I -X utf8 D:/relay/tools/b712_loc
+  #349 | 2026-10-25T17:11:56.592Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "^ENTRY_NEEDLES|^NAV_LETTERS|^def repairs_ok|^def figures_banked_ok|^def readfirst
+  #350 | 2026-10-25T17:12:06.124Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "^def _finding_text|^def _trail_text|'\*\*[A-Z][^*]{2,60}\*\*"; python -I -X utf8 
+  #351 | 2026-10-25T17:12:20.892Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "^FLOORS|'defects':|\('h', 'CARRIED'\)"
+  #352 | 2026-10-25T17:13:24.641Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "^    \('G-(CLOSING-DRY-STEP|CITATION-CHECKED|BRANCHES-BANKED|DELETES-ONE-BRANCH|A
+  #353 | 2026-10-25T17:13:36.612Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_checks.py "def _root_banked" ; python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tool
+  #354 | 2026-10-25T17:14:36.866Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_closing.py "^def |^    sec\(|'### THE [A-Z ,-]+|'(THE [A-Z][A-Z ,-]{6,60})'|b711|SURGERY|SUP
+  #355 | 2026-10-25T17:16:30.157Z | seat | PowerShell | git -C D:/SIDE-faces-join branch -a; git -C D:/MY-DOwnloads/PLACE-papers branch --list; git -C D:/relay branch --list; git -C D:/SIDE-lv-conservation branch -a
+  #356 | 2026-10-25T17:16:50.976Z | seat | PowerShell | python -X utf8 D:/relay/tools/b712_closing.py dry
+  #357 | 2026-10-25T17:17:25.749Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad/b712_closing_dry
+  #358 | 2026-10-25T17:17:32.876Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_regspec.py "^def |^[A-Z_]+ *=|b711|SURGERY|surgery|INDEPENDENCE|v2|PROMPTS NAMED|\(W\)"
+  #359 | 2026-10-25T17:19:18.001Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/data/b711_registration_2026-10-25.txt "^\([0-9A-Z][0-9A-Z]?\) |^### BAR|^### ### \*\*|POST-SEAL PROMPTS
+  #360 | 2026-10-25T17:19:41.910Z | seat | PowerShell | python -I -X utf8 D:/relay/tools/b712_locate.py D:/relay/tools/b712_record.py "^def (figures|kernels|guard|commands|reads|rootdry|scores|defects|armsecs|gateban
+  #361 | 2026-10-25T17:20:57.980Z | seat | PowerShell | python -X utf8 tools/b712_record.py figures
+  #362 | 2026-10-25T17:21:11.934Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers rev-parse --abbrev-ref HEAD; git -C D:/MY-DOwnloads/PLACE-papers rev-parse HEAD
+  #363 | 2026-10-25T17:21:22.982Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "def _pp_head|def pp_head|def _head|PP_ROOT|def git\("
+  #364 | 2026-10-25T17:21:27.929Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "PLACE-papers'|subprocess|def _git|rev-parse"
+  #365 | 2026-10-25T17:21:37.721Z | seat | PowerShell | python -X utf8 tools/b712_record.py figures
+  #366 | 2026-10-25T17:21:56.416Z | seat | PowerShell | python -X utf8 tools/b712_record.py defects
+  #367 | 2026-10-25T17:22:14.565Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "dispatch=|dispatch'|def \w*dispatch"
+  #368 | 2026-10-25T17:22:39.462Z | seat | PowerShell | python -X utf8 tools/b712_record.py kernels
+  #369 | 2026-10-25T17:22:52.638Z | seat | PowerShell | git -C D:/SIDE-lv-conservation rev-parse --abbrev-ref HEAD; git -C D:/SIDE-faces-join rev-parse --abbrev-ref HEAD
+  #370 | 2026-10-25T17:22:57.071Z | seat | PowerShell | python -X utf8 tools/b712_record.py commands
+  #371 | 2026-10-25T17:23:04.519Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_commands.txt "PIPE OF ANY KIND|OUTBOUND REQUESTS OTHER|^  line "
+  #372 | 2026-10-25T17:23:18.445Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py "C:/Users/echo chamber/.claude/projects/D--/3bbc6267-f2de-40fb-b160-263f3c982c61.jsonl" "\x22name\x22:\x22AskUserQuestion
+  #373 | 2026-10-25T17:23:32.845Z | seat | PowerShell | python -X utf8 tools/b712_record.py defects
+  #374 | 2026-10-25T17:23:41.901Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "'n'\)|a-n|\(a\)-\(n\)|DEFECTS 14|defects=14|14 defects|'(m|n)':"
+  #375 | 2026-10-25T17:23:46.467Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "^FLOORS|FLOORS =|SEAT'|'SEAT'|CARRIED'"
+  #376 | 2026-10-25T17:24:01.624Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_closing.py "defects|DEFECTS|\(n\)"
+  #377 | 2026-10-25T17:24:11.618Z | seat | PowerShell | python -X utf8 tools/b712_record.py guard
+  #378 | 2026-10-25T17:24:18.989Z | seat | PowerShell | python -X utf8 tools/b712_record.py reads
+  #379 | 2026-10-25T17:24:43.257Z | seat | PowerShell | python -X utf8 tools/b712_record.py defects
+  #380 | 2026-10-25T17:24:48.817Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "read_calls|OFFENCES \d|AN OFFENCE"
+  #381 | 2026-10-25T17:24:59.061Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "CARRIED_FAILING"
+  #382 | 2026-10-25T17:25:14.351Z | seat | PowerShell | python -X utf8 tools/b712_report.py dry
+  #383 | 2026-10-25T17:25:23.212Z | seat | PowerShell | python -X utf8 tools/b712_report.py diff
+  #384 | 2026-10-25T17:25:29.032Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "^def (drycheck|scores|facerows|rootdry|answers|findings|trail|components)\("
+  #385 | 2026-10-25T17:25:36.529Z | seat | PowerShell | python -X utf8 tools/b712_record.py facerows
+  #386 | 2026-10-25T17:25:54.036Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_ferry.txt "N[1-5][ .:)]|S[1-3][ .:)]|^\(W\)|write list|Component 5|Component 6|COMPONENT"
+  #387 | 2026-10-25T17:26:04.476Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "def _s_scores|def _n[1-5]|S1|S2|S3"
+  #388 | 2026-10-25T17:26:14.848Z | seat | PowerShell | python -X utf8 tools/b712_record.py findings dry
+  #389 | 2026-10-25T17:26:25.506Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_record.py "questions put before the root|def _finding_text|def _trail_text|def _questions|answers\.json"
+  #390 | 2026-10-25T17:26:42.100Z | seat | PowerShell | python -X utf8 tools/b712_record.py trail dry
+  #391 | 2026-10-25T17:26:54.968Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "ENTRY_NEEDLES|TRAIL_NEEDLES|_face_needles"
+  #392 | 2026-10-25T17:27:09.534Z | seat | PowerShell | python -X utf8 tools/b712_record.py armnames
+  #393 | 2026-10-25T17:27:30.312Z | seat | PowerShell | git -C D:/relay log --reverse --format="%h %ad %s" --date=format:%H:%M 4a383ac8..HEAD; git -C D:/MY-DOwnloads/PLACE-papers log --reverse --format="%h %ad %s" --
+  #394 | 2026-10-25T17:27:58.199Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "def writelist|WRITELIST|def wl_|mirror_prevbuild"
+  #395 | 2026-10-25T17:28:06.421Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "NEXT_RULES_GLOB ="
+  #396 | 2026-10-25T17:28:23.363Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_worklist.py "PP_WRITTEN|STANDING_ADDED|DRAFT =|ORDER_LV_PORT_TAG|def next_line"
+  #397 | 2026-10-25T17:30:49.843Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_branches.txt "\|"
+  #398 | 2026-10-25T17:31:03.384Z | seat | PowerShell | python -X utf8 tools/b712_checks.py --prerun --part standing-a
+  #399 | 2026-10-25T17:38:35.206Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_arms_prerun_standing-a.txt "PROCS-LISTED|WORKFLOW-FILES|PP-SCOPE|NOTHING-RAN-AHEAD|RECUT-QUOTE|RULE-TIE-BREAK"
+  #400 | 2026-10-25T17:38:48.319Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "'G-PROCS-LISTED'|'G-WORKFLOW-FILES'|'G-PP-SCOPE'|'G-NOTHING-RAN-AHEAD'|def pp_scope|def procs|def n
+  #401 | 2026-10-25T17:39:00.900Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "^def (procs_ok|corpus_scope_ok|nothing_ahead_ok|wf_state)|^procs_ok|^corpus_scope_ok|^nothing_ahead
+  #402 | 2026-10-25T17:39:14.490Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b711_checks.py "range\(624|two ledgers"
+  #403 | 2026-10-25T17:39:25.726Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "two ledgers|this act`s one commit|range\(659|range\(6[0-9]{2}, 71"
+  #404 | 2026-10-25T17:39:33.637Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "range\(6\d\d|, 71[12]\)|'b71[12]'\]|== 8[89]\b|, 8[89]\)"
+  #405 | 2026-10-25T17:39:51.101Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "procs_ok|def wf_ok|^def wf_state"
+  #406 | 2026-10-25T17:39:56.155Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_checks.py "^import .* as C3|C3 = |import b\d+_checks as C3"
+  #407 | 2026-10-25T17:40:00.636Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b703_checks.py "def procs_ok"
+  #408 | 2026-10-25T17:40:08.629Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py data/b712_stepzero.txt "tail, lean|claude \d|tail \d|No task|stopped"
+  #409 | 2026-10-25T17:40:30.296Z | seat | PowerShell | python -X utf8 tools/b712_record.py defects
+  #410 | 2026-10-25T17:40:57.461Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\3bbc6267-f2de-40fb-b160-263f3c982c61\scratchpad\probe_wf.py"
+  #411 | 2026-10-25T17:41:12.700Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/rule_arms.py "RECUT-QUOTE|def _recut_quote|def recut_quote|quoting"
+  #412 | 2026-10-25T17:41:40.992Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\3bbc6267-f2de-40fb-b160-263f3c982c61\scratchpad\probe_quote.py"
+  #413 | 2026-10-25T17:41:50.081Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/b712_recut.py "^def |ROUTES|guard_path|__main__"
+  #414 | 2026-10-25T17:42:07.737Z | seat | PowerShell | python -X utf8 tools/b712_recut.py standing_name
+  #415 | 2026-10-25T17:42:14.895Z | seat | PowerShell | python -I -X utf8 tools/b712_locate.py tools/rule_arms.py "^def |^NAMES"
+  #416 | 2026-10-25T17:42:28.945Z | seat | PowerShell | python -X utf8 tools/b712_record.py defects
+  #417 | 2026-10-25T17:42:38.315Z | seat | PowerShell | python -X utf8 tools/b712_record.py reads
+
+### ### **COMMANDS 417 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 22 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 7 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 7 OF 7 ; OUTBOUND REQUESTS 1, AN IDENTIFIER IN 0.**

@@ -1,0 +1,79 @@
+b712 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-25)
+
+### rows are defects, each lettered by the time it was found, with whose it is, what the rule says, what was done and the repair or the entry.
+### Events that are not defects are entered in data/b712_events.txt, unlettered. Under standing clauses v3 row (52) (v2's, unchanged), a
+### finding made after the seal is entered in the closing's events section and not lettered here.
+
+    (a) THE SEAT'S: LINES PRINTED THROUGH THE SHELL BEFORE THE FERRY. On the read-only request after the context was cleared, the seat read
+        data/b711_closing.txt :1, the W-ORD-LV-FORWARD-PORT row and b711's events through the shell: `sed -n '1p'`, `awk` with line numbers,
+        `git grep ... | cut -c1-400`, `ls -d */ 2>/dev/null | head -50` and `git ls-files | grep -i open_trails` -- pipes, a redirect and shell
+        filters. Standing clauses v2 rows (14) and (19). Nothing was banked from them; every line the banks cite was read again through the Read
+        tool. The seat's, with its cause: a read-only request answered in the shell's habitual form before the ferry's clauses were in hand.
+    (b) THE SEAT'S: THREE MEMORY FILES READ BY `cat`. After the ferry, before step zero, three memory files were read by `cat` in one Bash call.
+        Row (19): files read through the Read tool. Nothing banked from them. The seat's.
+    (c) THE SEAT'S: A FILE OF MORE THAN TWO HUNDRED LINES READ WHOLE. tools/b711_carry.py (215 lines) was read whole by the Read tool without an
+        offset and a limit. Row (19): "by offset and a limit of at most two hundred otherwise". The seat's.
+    (d) THE SEAT'S: STEP ZERO'S ORDER. The registrations (N3) were committed before the citation check was banked: the check's reads of
+        (R322)(6)'s cites were made before the registration, its bank after (Component 0: "the citation check over this ruling and ferry before
+        any other step"). The seat's.
+    (e) THE SEAT'S: LINES PRINTED THROUGH A SHELL GREP AT STEP ZERO. `git grep -n` over PLACE-papers (the -15 search, the keystone search) and over
+        relay's tools and banks (the decomposition search, b711_carry's act names) printed lines. Row (19). A print-only locator was written
+        (tools/b712_locate.py) and used from 15:00Z on. The seat's.
+    (f) THE SEAT'S: THE FIRST PROMPT'S ANSWER CHECKED BY THE TOOL AFTER IT WAS ACTED ON. The author's word at the first prompt was checked by hand
+        before it was acted on, and by the citation tool's answer route only after the control and the registration were written and committed
+        (15:04Z). Rows (22) and (44): each mid-act answer checked before it is acted on. The tool's check read OK 1 of 1. The seat's.
+    (g) THE SEAT'S: A MATCHER DEFECT IN THE CITATION CHECK'S DRY FORM. The first (dry) form of the scores-close row counted the word REFUTED anywhere
+        in the bank and read S3's reading as a score (MISS 1); the predicate was repaired to the verdict field before the bank (149 of 149).
+    (h) THE CARRIED RECORD TOOL'S FORM: THE WRITERS' CAPTURE. b711's form, carried by substitution: tools/b712_record.py :94 captured R.put_json
+        and R.put_txt as its originals, but b711's module had already rebound them to its own wrappers guarding b711; with b711's root appended every b712 bank was
+        refused (rowgen stepzero, exit 4, nothing written). Repaired at carry time by the Edit tool to read b711's capture P7._put_json0 and
+        P7._put_txt0 (b698's writers); rowgen re-run, exit 0; the repair banked by the carry tool's repairdiff route.
+    (i) THE SEAT'S: A BANK HEADER MISSTATING ITS ROUTE. data/b712_repair_controls.txt :6 says "The head-line copies are made in the scratchpad and
+        removed after the reading", while the tool deletes nothing (G-DELETE-FREE) and its own notes row reads "(left in the scratchpad)". Found on
+        reading the tool's source at the corrigendum; the bank not rewritten (its controls as wanted, 24 of 24).
+    (j) THE SEAT'S: THE CORRIGENDUM'S FOOT MISCOUNTED IN ITS DRY RUN. The first dry run printed "EIGHT REPAIRED OR TAKEN UP" over nine; the foot was
+        recomputed from the lettered items before the landing (REPAIRED OR TAKEN UP 9, CARRIED 1).
+    (k) THE SEAT'S: THE PRICE TOOL'S BANDS AND ITS FOOT IN ITS DRY RUN. tools/b712_price.py cut the tiers by round((b - a)/15) = 7 bands of 15 over a
+        tier of 100, so each tier printed a band [105, 100] and [205, 200] with negative zeros and seconds (-6.6, -123 s; -7.7, -143 s); the loop
+        was repaired to step to the tier's top before the bank (first tier 0.51 h, second 0.74 h). The first wording of its foot ("WITHIN ONE ACT'S
+        BUDGET") claimed a comparison with no banked figure; recut to the seat's estimate for the author's reading.
+    (l) THE SEAT'S: CR BYTES IN THE QUOTE BANK. tools/b712_recut.py's quote route kept the CR bytes of the quoted files' CRLF lines in its hit rows,
+        so data/b712_recut_quote.txt carries CR bytes (git's warning at the add: CRLF replaced by LF). The bank was not rewritten, its record being
+        "searched before the cut's commit" (before f5ea57c); its counts are unaffected (the hits split on LF, the JSON escapes them).
+    (m) THE SEAT'S: A READ WITH A LIMIT OVER TWO HUNDRED. At Component 5 tools/b712_record.py was read from :1045 with a limit of 250 (the old
+        repair routes, read to prune them). Row (19): "by offset and a limit of at most two hundred otherwise". Nothing was banked from it; the
+        pruning it served was not made (event in data/b712_events.txt). The seat's.
+    (n) THE SEAT'S: AN ENVIRONMENT VARIABLE SET IN A COMMAND. At Component 5 the record tool's armnames route was run in PowerShell as
+        `$env:PYTHONIOENCODING='utf-8'; python -X utf8 tools/b712_record.py armnames` (it failed on the record tool's previous-face constant
+        before printing). Row (20): environment variables unchanged. The setting held for that one command's process alone (the tool's shell state
+        does not persist) and nothing was banked from it; every later run is `python -X utf8` with nothing set. The seat's.
+    (o) THE SEAT'S: A PIPE IN A COMMAND. At Component 5 the stray zero-byte file D:/relay/= was read by `Get-Item -LiteralPath 'D:/relay/=' |
+        Select-Object Name, Length, CreationTime, LastWriteTime` (data/b712_commands.txt #329, 17:00:51Z), found by the command bank's
+        any-pipe reading. Row (14): no redirect and no pipe in any command. Nothing was banked from it. The seat's.
+    (p) THE SEAT'S: A SECOND READ WITH A LIMIT OVER TWO HUNDRED. tools/b712_report.py (228 lines) read at offset 130 with a limit of 212
+        (transcript line 2415, 15:57:06Z), found by the read bank (data/b712_read_calls.txt). Row (19). The seat's.
+    (q) THE SEAT'S: TWO MORE FILES OF MORE THAN TWO HUNDRED LINES READ WHOLE. tools/b712_corrigendum.py (241 lines, :2636) and
+        data/b712_tool_repairs.txt (729 lines, :2658), each with no offset and no limit, found by the read bank. Row (19). The seat's.
+    (r) THE SEAT'S: THIRTEEN READS OF FILES OF TWO HUNDRED LINES OR MORE WITH ONE OF THE TWO BOUNDS. A limit with no offset at transcript lines
+        :111, :123, :480, :697, :931, :2661, :2976, :3609, :3751, :3785, :5130, :5527, and an offset with no limit at :3497 (FACES_LEDGER.md
+        from :526 of 549), found by the read bank. Row (19): "by offset and a limit of at most two hundred otherwise" -- both bounds. The
+        seat's: each read was bounded on one side and none above two hundred lines, the rule asking both.
+    (s) THE SEAT'S: THE STEP-ZERO BANK'S PROCESS ROW OUT OF THE STANDING FORM. data/b712_stepzero.txt (committed at 46750da9) wrote the listing
+        as "claude.exe 1, pid 3604" without "tail, lean, lake, python and claude named", so G-PROCS-LISTED (b703's procs_ok) failed at the
+        pre-run on real state. The row recut by the Edit tool to the form before the seal, its facts unchanged (one claude, pid 3604; tail,
+        lean, lake and python 0). The seat's.
+    (t) THE SEAT'S: THE RE-CUT'S CUT BANK NAMED OUTSIDE THE PAPER-CUT FORM. tools/b712_recut.py wrote the cut bank as data/b712_recut_cut.json
+        where the standing reader (tools/rule_arms.py, G-RULE-RECUT-QUOTE, b703's paper-cut branch) reads data/b<act>_cut.json beside the quote
+        bank; with no such bank the arm read no residues and looked for the cut's commit on PLACE-papers main (the cut being on its branch), and
+        failed at the pre-run. Repaired before the seal by a route of the recut tool (standing_name) writing data/b712_cut.json with the same
+        bytes (sha256 c4cd7c30); the rule arm not edited. The seat's.
+    (u) THE SEAT'S: N3'S PATTERN BLIND TO A FILE'S EXTENSION. tools/b712_record.py's NOTHING_COMPUTED (read by the N3 scorer and by
+        G-NOTHING-COMPUTED) ended `\w*` before `$`, so no bank name carrying an extension (data/b712_epstein_zeros.txt) could match and the
+        clause could not fire; found when the arm's positive control passed at the pre-run. Repaired before the seal to `[\w.-]*`. The seat's.
+    (v) THE SEAT'S: FOUR READINGS OF THE SUITE'S RECUT MIS-CUT, FOUND BY THE PRE-RUN. In tools/b712_checks.py: G-TOOL-REPAIRS's plant set
+        `not_as_wanted` to 0, the value the bank carries (its positive control passing); G-RULES-ROW-ENTERED read data/b711_rules.txt, which does
+        not exist, for the by-version row b711 read from data/b710_rules.txt; G-WORKFLOW-FILES asked the join's print list to read the module
+        FacesJoin where print_targets.txt names the theorem faces_join; G-ACTROOT-VERIFY's chain range carried b711's range(624, 712) unchanged,
+        which would have excluded b712's own row after the root. Each repaired by the Edit tool before the seal. The seat's.
+
+### ### **DEFECTS 22: (a)-(v), THE SEAT'S 21 AND THE CARRIED TOOL'S FORM 1 ((h)) ; NONE THE NAVIGATOR'S.**

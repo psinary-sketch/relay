@@ -266,11 +266,30 @@ def diff(*a):
     print(L[-1])
 
 
-ROUTES = dict(compile=compile_, quote=quote, cut=cut, diff=diff)
+def standing_name(*a):
+    """data/b712_cut.json: the cut bank under the paper-cut form's standing name (b703's G-RULE-RECUT-QUOTE reads data/b<act>_cut.json beside
+    data/b<act>_quote.json), its bytes those of data/b712_recut_cut.json, copied through the membrane; nothing else written (defect (t))."""
+    src = os.path.join(D, '%s_recut_cut.json' % ACT)
+    b = open(src, 'rb').read()
+    import act_membrane as MEM
+    import b712_record as REC
+    p = os.path.join(D, '%s_cut.json' % ACT)
+    MEM.guard_path(ACT, p, REC.R.ROOT_EXCLUDE)
+    if 'dry' not in a:
+        with open(p + '.tmp', 'wb') as fh:
+            fh.write(b)
+        os.replace(p + '.tmp', p)
+    import hashlib
+    print('  data/%s_cut.json %s bytes %d sha256 %s (data/%s_recut_cut.json sha256 %s)' % (
+        ACT, 'DRY' if 'dry' in a else 'written', len(b), hashlib.sha256(open(p, 'rb').read() if os.path.exists(p) else b'').hexdigest()[:16], ACT,
+        hashlib.sha256(b).hexdigest()[:16]))
+
+
+ROUTES = dict(compile=compile_, quote=quote, cut=cut, diff=diff, standing_name=standing_name)
 
 if __name__ == '__main__':
     r = sys.argv[1] if len(sys.argv) > 1 else ''
     if r not in ROUTES:
-        print('usage: b712_recut.py compile|quote|cut|diff [<commit>] [dry]')
+        print('usage: b712_recut.py compile|quote|cut|diff|standing_name [<commit>] [dry]')
         sys.exit(2)
     ROUTES[r](*sys.argv[2:])
