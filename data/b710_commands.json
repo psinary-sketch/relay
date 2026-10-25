@@ -1,5 +1,5 @@
 {
- "at": "2026-10-25T00:00:03Z",
+ "at": "2026-10-25T00:20:46Z",
  "anchor": "RULING (R320) BEGIN",
  "rows": [
   {
@@ -1864,6 +1864,254 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b710_report.py",
    "n": 233,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:00:00.914Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py commands; python -X utf8 tools/b710_record.py reads; git status --porcelain -- data/b710_* tools/b710_*",
+   "n": 234,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:00:14.622Z",
+   "src": "seat",
+   "cmd": "git add data/b710_citation_check.txt data/b710_commands.json data/b710_commands.txt data/b710_defects.txt data/b710_locate.txt data/b710_read_calls.json data/b710_read_calls.txt data/b710_order_lines.json data/b710_pp_push_out.txt data/b710_relay_push_out.txt data/b710_report.json data/b710_report.txt tools/b710_order.py tools/b710_report.py && git commit -q -m \"b710 pre-root: the root answer checked (VACUOUS by the reader's span; the terminals it names located by file, defect (h)); W-ORD-READING5-INDEPENDENCE landed at OPEN_TRAILS :15806 on the author's word by tools/b710_order.py through the record tool's landing; the unsealed report tool written after the root's word and run before it, its six lines; defects (g) and (h); the pre-root push captures\" && git log -1 --format=%H",
+   "n": 235,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:00:23.239Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m \"b710 order: W-ORD-READING5-INDEPENDENCE entered at OPEN_TRAILS :15806 on the author's word at the root's prompt, trigger b711, under (R320)\" && git log -1 --format=%H",
+   "n": 236,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:00:29.168Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b710-order",
+   "n": 237,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:00:34.735Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PUSH_GATED_LOG=data/b710_pp_order_push_out.txt bash tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b710-order",
+   "n": 238,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:01:08.536Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py rootexclude",
+   "n": 239,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:01:15.138Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch push-b710-preroot",
+   "n": 240,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:01:20.885Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=data/b710_relay_preroot_push_out.txt bash tools/push_gated.sh /d/relay push-b710-preroot",
+   "n": 241,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:01:39.082Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py rootbanks",
+   "n": 242,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:01:55.004Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py root",
+   "n": 243,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:02:30.066Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py root_arm",
+   "n": 244,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:02:38.247Z",
+   "src": "seat",
+   "cmd": "git status --porcelain -- data/act_roots.txt data/b710_*",
+   "n": 245,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:02:42.932Z",
+   "src": "seat",
+   "cmd": "git add data/act_roots.txt data/b710_act_root.json data/b710_act_root.txt data/b710_root_arm.json data/b710_root_arm.txt data/b710_root_banks.json data/b710_root_banks.txt data/b710_pp_order_push_out.txt data/b710_relay_preroot_push_out.txt && git commit -q -m \"b710 root: the act root 11fe3e21 over 105 banks chained from b709's b3213c0b (the root's banks read READY at the pushed pre-root tree 842ea536, the recomputation equal, the one-byte control moves it); the pre-root push captures\" && git log -1 --format=%H",
+   "n": 246,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:02:48.394Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay branch push-b710-root",
+   "n": 247,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:02:54.067Z",
+   "src": "seat",
+   "cmd": "PUSH_GATED_LOG=data/b710_relay_root_push_out.txt bash tools/push_gated.sh /d/relay push-b710-root",
+   "n": 248,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:03:04.028Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py trail dry",
+   "n": 249,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:03:12.934Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py trail",
+   "n": 250,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:03:17.616Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_record.py components",
+   "n": 251,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:03:28.868Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m \"b710 trail: the trail record at OPEN_TRAILS :15808 carrying the act root 11fe3e21, under (R320)\" && git log -1 --format=%H",
+   "n": 252,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:03:33.017Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch push-b710-root",
+   "n": 253,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:03:38.982Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && PUSH_GATED_LOG=data/b710_pp_root_push_out.txt bash tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b710-root",
+   "n": 254,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:04:10.743Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-a",
+   "n": 255,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:07:22.257Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b710_checks.py \"POST_SEAL\" && git -C /d/MY-DOwnloads/PLACE-papers log --format=%s -8 07978f3",
+   "n": 256,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:07:38.595Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-c",
+   "n": 257,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:08:34.058Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-b1",
+   "n": 258,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:09:37.837Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-b2a",
+   "n": 259,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:15:50.590Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-b2b",
+   "n": 260,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:17:16.584Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part standing-b3",
+   "n": 261,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:18:58.185Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --part act",
+   "n": 262,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:20:13.479Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_locate.py tools/b710_checks.py \"'G-ANSWERS-BEFORE-WRITES'\"",
+   "n": 263,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-25T00:20:34.840Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b710_checks.py --combine b710_checks.txt",
+   "n": 264,
    "bg": false
   }
  ],

@@ -1,7 +1,7 @@
-b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T00:00:03Z)
+b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-25T00:20:46Z)
 
 ### the source: the seat`s session c9e4ce2d-b9b5-4986-a582-3919fb34d296 from its first user line carrying 'RULING (R320) BEGIN', with its subagents` transcripts
-### commands read: 233
+### commands read: 264
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -289,5 +289,36 @@ b710 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #231 | 2026-10-24T23:59:06.894Z | seat | Bash | python -X utf8 tools/b710_order.py dry
   #232 | 2026-10-24T23:59:16.361Z | seat | Bash | python -X utf8 tools/b710_order.py
   #233 | 2026-10-24T23:59:48.434Z | seat | Bash | python -X utf8 tools/b710_report.py
+  #234 | 2026-10-25T00:00:00.914Z | seat | Bash | python -X utf8 tools/b710_record.py commands; python -X utf8 tools/b710_record.py reads; git status --porcelain -- data/b710_* tools/b710_*
+  #235 | 2026-10-25T00:00:14.622Z | seat | Bash | git add data/b710_citation_check.txt data/b710_commands.json data/b710_commands.txt data/b710_defects.txt data/b710_locate.txt data/b710_read_calls.json data/b7
+  #236 | 2026-10-25T00:00:23.239Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b710 order: W-ORD-READING5-INDEPENDENCE entered at OPEN_TRAILS :15806 on the auth
+  #237 | 2026-10-25T00:00:29.168Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch push-b710-order
+  #238 | 2026-10-25T00:00:34.735Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=data/b710_pp_order_push_out.txt bash tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b710-order
+  #239 | 2026-10-25T00:01:08.536Z | seat | Bash | python -X utf8 tools/b710_record.py rootexclude
+  #240 | 2026-10-25T00:01:15.138Z | seat | Bash | git -C /d/relay branch push-b710-preroot
+  #241 | 2026-10-25T00:01:20.885Z | seat | Bash | PUSH_GATED_LOG=data/b710_relay_preroot_push_out.txt bash tools/push_gated.sh /d/relay push-b710-preroot
+  #242 | 2026-10-25T00:01:39.082Z | seat | Bash | python -X utf8 tools/b710_record.py rootbanks
+  #243 | 2026-10-25T00:01:55.004Z | seat | Bash | python -X utf8 tools/b710_record.py root
+  #244 | 2026-10-25T00:02:30.066Z | seat | Bash | python -X utf8 tools/b710_record.py root_arm
+  #245 | 2026-10-25T00:02:38.247Z | seat | Bash | git status --porcelain -- data/act_roots.txt data/b710_*
+  #246 | 2026-10-25T00:02:42.932Z | seat | Bash | git add data/act_roots.txt data/b710_act_root.json data/b710_act_root.txt data/b710_root_arm.json data/b710_root_arm.txt data/b710_root_banks.json data/b710_roo
+  #247 | 2026-10-25T00:02:48.394Z | seat | Bash | git -C /d/relay branch push-b710-root
+  #248 | 2026-10-25T00:02:54.067Z | seat | Bash | PUSH_GATED_LOG=data/b710_relay_root_push_out.txt bash tools/push_gated.sh /d/relay push-b710-root
+  #249 | 2026-10-25T00:03:04.028Z | seat | Bash | python -X utf8 tools/b710_record.py trail dry
+  #250 | 2026-10-25T00:03:12.934Z | seat | Bash | python -X utf8 tools/b710_record.py trail
+  #251 | 2026-10-25T00:03:17.616Z | seat | Bash | python -X utf8 tools/b710_record.py components
+  #252 | 2026-10-25T00:03:28.868Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md && git commit -q -m "b710 trail: the trail record at OPEN_TRAILS :15808 carrying the act root 11fe3e21
+  #253 | 2026-10-25T00:03:33.017Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch push-b710-root
+  #254 | 2026-10-25T00:03:38.982Z | seat | Bash | cd /d/relay && PUSH_GATED_LOG=data/b710_pp_root_push_out.txt bash tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b710-root
+  #255 | 2026-10-25T00:04:10.743Z | seat | Bash | python -X utf8 tools/b710_checks.py --part standing-a
+  #256 | 2026-10-25T00:07:22.257Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "POST_SEAL" && git -C /d/MY-DOwnloads/PLACE-papers log --format=%s -8 07978f3
+  #257 | 2026-10-25T00:07:38.595Z | seat | Bash | python -X utf8 tools/b710_checks.py --part standing-c
+  #258 | 2026-10-25T00:08:34.058Z | seat | Bash | python -X utf8 tools/b710_checks.py --part standing-b1
+  #259 | 2026-10-25T00:09:37.837Z | seat | Bash | python -X utf8 tools/b710_checks.py --part standing-b2a
+  #260 | 2026-10-25T00:15:50.590Z | seat | Bash | python -X utf8 tools/b710_checks.py --part standing-b2b
+  #261 | 2026-10-25T00:17:16.584Z | seat | Bash | python -X utf8 tools/b710_checks.py --part standing-b3
+  #262 | 2026-10-25T00:18:58.185Z | seat | Bash | python -X utf8 tools/b710_checks.py --part act
+  #263 | 2026-10-25T00:20:13.479Z | seat | Bash | python -X utf8 tools/b710_locate.py tools/b710_checks.py "'G-ANSWERS-BEFORE-WRITES'"
+  #264 | 2026-10-25T00:20:34.840Z | seat | Bash | python -X utf8 tools/b710_checks.py --combine b710_checks.txt
 
-### ### **COMMANDS 233 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 5 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 264 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 5 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
