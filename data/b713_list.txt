@@ -1,0 +1,74 @@
+b713 -- COMPONENT 2, (R323)(5)(i): THE CERTIFIED ZERO LIST OF Q1 = x^2 + xy + 4y^2 (DISCRIMINANT -15) IN b709`S FOREGROUND BAND FORM (2026-10-26T01:12:12Z)
+
+### rows are bands, each by tools/b709_pairs.py`s band route imported unedited over b667`s engine carried to sqrt(15) by substitution
+### (tools/b713_list.py `carried`; its controls data/b713_list_controls.txt and (C-c)): N(band) by the half path, the on-line zeros by the
+### certified sign of Lambda_Q1 halved to 1e-8, the off-line zeros by Newton candidates (point values and the band`s count, RECT_CERTIFY False),
+### COMPLETE where N = on + 2 off. THE BASE: [-1, 2.0] x [-1.0, 1.0] by b709`s count at [-1.0, 1.0] (Lambda`s symmetry), the half path -2 + Lambda`s
+### two poles (s = 0, s = 1) = N 0 ; the sign of Z_Q1 on [1/2, 3/2] changes nowhere (unread at 1/2, where zeta(2s) and Gamma(s - 1/2) meet).
+### THE MAIN TERM BESIDE IT (not a bound): N(T) ~ (T/pi) log(T sqrt(15)/(2 pi e)) + 1 at T = 199.33082 reads 242.8 ; the list holds 243.
+
+### THE CONTROLS: data/b713_list_controls.txt ((C-a) the engine carried to sqrt(23) equal to b667`s, (C-b) Z_Q1 against the genus
+### identity, NEG failing); (C-c) b711`s band [325.0, 340.285786] counted at DQ = 23, the right edge 3/2: N 26, b711`s 26, EQUAL ;
+### (C-d) b709`s band [150.0, 160.0] counted at DQ = 23, the right edge 2.0: N 15, b709`s 15 (data/b709_pairs.txt :19), EQUAL.
+### THE RIGHT EDGE: b709`s Re s = 3/2 cannot close at Q1 (its tail Z_Q1(3/2) - 2 = 2.1587 is not below 2); the half path closes at
+### Re s = 2.0 (tail 0.6846), b709`s three functions carried by substitution (`carried`), each count over [-1, 2.0] x [t_lo, t_hi].
+### THE PRICE READ AGAINST THE RUN: b712`s per-band seconds (data/b712_price.txt :20-:39) read b711`s count units alone, not its
+### twelve-piece units (route hppiece): (C-c)`s one band at 325 ran 24 pieces, 2838 s; the -15 bands` pieces ran 0 to 125 s.
+
+  band [1.0, 15.0] | N 6 | on-line 4 | off-line 1 [('0.8000109881', '12.038598628')] | COMPLETE
+  band [15.0, 30.0] | N 14 | on-line 10 | off-line 2 [('0.9274608807', '15.496634067'), ('0.6955863427', '20.345967881')] | COMPLETE
+  band [30.0, 44.872571] | N 14 | on-line 10 | off-line 2 [('0.7402570449', '33.756850131'), ('0.8558165941', '43.631686363')] | COMPLETE
+  band [44.872571, 59.881486] | N 16 | on-line 14 | off-line 1 [('0.9129364012', '47.533162611')] | COMPLETE
+  band [59.881486, 75.0] | N 18 | on-line 12 | off-line 3 [('1.0259726162', '61.422798308'), ('0.7294031709', '64.809716738'), ('0.6719279225', '66.775581129')] | COMPLETE
+  band [75.0, 90.0] | N 20 | on-line 12 | off-line 4 [('0.7268416150', '75.336658869'), ('0.6334832483', '78.081280199'), ('0.7780393800', '79.325334088'), ('0.8253217431', '82.821945049')] | COMPLETE
+  band [90.0, 100.0] | N 12 | on-line 8 | off-line 2 [('0.6593965584', '93.320780954'), ('0.7305918376', '96.837589003')] | COMPLETE
+  band [100.0, 115.0] | N 20 | on-line 12 | off-line 4 [('0.7791712014', '102.65876750'), ('0.7117812642', '105.98883516'), ('0.7273572549', '107.28198744'), ('0.8758727322', '110.77795340')] | COMPLETE
+  band [115.0, 130.0] | N 21 | on-line 15 | off-line 3 [('0.5792481910', '120.63647141'), ('0.7628242148', '124.09789540'), ('0.7402850611', '129.15103172')] | COMPLETE
+  band [130.0, 145.0] | N 21 | on-line 15 | off-line 3 [('0.7137815950', '134.83968849'), ('0.9265846323', '138.22488912'), ('0.7688683291', '143.25808216')] | COMPLETE
+  band [145.0, 160.0] | N 22 | on-line 14 | off-line 4 [('0.7497148053', '148.81314412'), ('0.8235955855', '151.96676638'), ('0.7142110673', '156.46140260'), ('0.8191662008', '159.59942918')] | COMPLETE
+  band [160.0, 174.86436] | N 22 | on-line 16 | off-line 3 [('0.7262374079', '165.06512098'), ('0.9741991963', '170.19070397'), ('0.7715090751', '173.45680218')] | COMPLETE
+  band [174.86436, 190.0] | N 23 | on-line 19 | off-line 2 [('0.8802982435', '184.28429694'), ('0.8909421422', '187.66579052')] | COMPLETE
+  band [190.0, 199.33082] | N 14 | on-line 8 | off-line 3 [('0.6262022621', '191.68968953'), ('0.6816493754', '192.89387118'), ('0.7519569094', '197.63346287')] | COMPLETE
+
+### THE OFF-LINE PAIRS (rho and 1 - conj(rho) in the strip; the list`s order by height):
+  pair 1 : rho = 0.800010988172113959 + 12.03859862871871494 i
+  pair 2 : rho = 0.927460880755676711 + 15.49663406790113061 i
+  pair 3 : rho = 0.695586342789448134 + 20.34596788154669545 i
+  pair 4 : rho = 0.740257044957178208 + 33.75685013150081091 i
+  pair 5 : rho = 0.855816594183137117 + 43.63168636369801109 i
+  pair 6 : rho = 0.912936401249851593 + 47.53316261186596738 i
+  pair 7 : rho = 1.025972616218753458 + 61.42279830878939710 i ; Re rho > 1
+  pair 8 : rho = 0.729403170926296714 + 64.80971673808787255 i
+  pair 9 : rho = 0.671927922574629455 + 66.77558112990372304 i
+  pair 10 : rho = 0.726841615051527964 + 75.33665886964148439 i
+  pair 11 : rho = 0.633483248350263106 + 78.08128019973441334 i
+  pair 12 : rho = 0.778039380098869552 + 79.32533408845635842 i
+  pair 13 : rho = 0.825321743126571178 + 82.82194504983333912 i
+  pair 14 : rho = 0.659396558445293416 + 93.32078095423306101 i
+  pair 15 : rho = 0.730591837663537773 + 96.83758900341329512 i
+  pair 16 : rho = 0.779171201434191124 + 102.6587675092492225 i
+  pair 17 : rho = 0.711781264270874826 + 105.9888351676587198 i
+  pair 18 : rho = 0.727357254934939604 + 107.2819874459008792 i
+  pair 19 : rho = 0.875872732299215475 + 110.7779534073807821 i
+  pair 20 : rho = 0.579248191091815424 + 120.6364714194468314 i
+  pair 21 : rho = 0.762824214800717598 + 124.0978954051565835 i
+  pair 22 : rho = 0.740285061112814190 + 129.1510317223329991 i
+  pair 23 : rho = 0.713781595033076479 + 134.8396884981380806 i
+  pair 24 : rho = 0.926584632355347670 + 138.2248891234018257 i
+  pair 25 : rho = 0.768868329163891510 + 143.2580821661784492 i
+  pair 26 : rho = 0.749714805370361118 + 148.8131441257990692 i
+  pair 27 : rho = 0.823595585525195089 + 151.9667663867820623 i
+  pair 28 : rho = 0.714211067301148760 + 156.4614026090950014 i
+  pair 29 : rho = 0.819166200831153986 + 159.5994291842967505 i
+  pair 30 : rho = 0.726237407961614828 + 165.0651209843188541 i
+  pair 31 : rho = 0.974199196323424445 + 170.1907039731780828 i
+  pair 32 : rho = 0.771509075128166979 + 173.4568021809467124 i
+  pair 33 : rho = 0.880298243591010022 + 184.2842969461857472 i
+  pair 34 : rho = 0.890942142227062160 + 187.6657905257204293 i
+  pair 35 : rho = 0.626202262196169516 + 191.6896895345195283 i
+  pair 36 : rho = 0.681649375493924863 + 192.8938711802551655 i
+  pair 37 : rho = 0.751956909418327718 + 197.6334628769004235 i
+
+### THE LEAST HEIGHT OF A ZERO WITH Re rho > 1: 61.4227983087893
+
+### ### **THE LIST COMPLETE TO 199.33082 ; BANDS 14 (COMPLETE 14) ; ON-LINE ZEROS 169 ; OFF-LINE PAIRS 37.**
