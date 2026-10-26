@@ -688,7 +688,9 @@ def readfirst_ok(S):
 def branches_ok(S):
     z = S['branchest']
     left = dict((r, sorted(x.strip() for x in v.split(NL) if x.strip())) for r, v in S['branch_lists'].items())
-    return all(v == [] for v in left.values()) and len(left) == 2 and all(b in z for b in NAMED_PUSH) and len(NAMED_PUSH) == 8 \
+    # ### the carried figure: three repositories this act (relay, PLACE-papers and SIDE-faces-join, b712's push-b712-join among the eight);
+    # ### b712's form read two (an event after the lock, data/b713_events.txt)
+    return all(v == [] for v in left.values()) and len(left) == 3 and all(b in z for b in NAMED_PUSH) and len(NAMED_PUSH) == 8 \
         and 'BRANCHES NAMED 8 ; DELETED 8 ; KEPT 0 ; EVERY TIP MERGED True ; port-b707 STANDS True' in unwrap(z)
 
 
@@ -944,10 +946,11 @@ def report_lines_ok(j, keys, n):
     return isinstance(ls, list) and len(ls) >= n and all(isinstance(x, str) for x in ls) and keys_ci(NL.join(ls), keys)
 
 
-# ### (R323)(3): the standing report's lines in footing order -- KERNEL (the join, the port, Register4_positivity, the re-cut's pins), CERTIFIED
-# ### (none), REGISTERED (the -15 control, the faces row, the re-cut), HELD -- each read by a phrase its line carries
-REPORT_KEYS = ('THE JOIN BY CLOSURE', 'THE FORWARD PORT', 'Register4_positivity read at the deposit', 'THE RE-CUT`S PINS', 'CERTIFIED -- NONE',
-               'THE CLASS-NUMBER-2 CONTROL AT -15', 'THE FACES ROW', 'THE RE-CUT OF', 'HELD -- the draft at v5')
+# ### (R323)(3): the standing report's lines in footing order -- KERNEL (none: no kernel written), CERTIFIED (the -15 list), REGISTERED (the
+# ### predictions, the onsets, the coefficients, the source pin, the faces head, the re-cut's additive check), HELD -- each read by a phrase its
+# ### line carries
+REPORT_KEYS = ('KERNEL -- NONE', 'THE -15 LIST', 'THE PREDICTIONS COMMITTED ALONE', 'THE ONSETS AGAINST', 'THE COEFFICIENTS THROUGH',
+               'THE SOURCE PIN', 'THE FACES HEAD', 'THE RE-CUT`S ADDITIVE CHECK', 'HELD -- the draft at v5')
 FOOTINGS = ['KERNEL', 'CERTIFIED', 'REGISTERED', 'HELD']
 
 
@@ -1209,10 +1212,10 @@ def corpus_scope_ok(S):
     return bool(ch) and set(ch) <= set(S['pp_allowed']) and 'FINDINGS.md' in ch and 'OPEN_TRAILS.md' in ch and not ren
 
 
-ENTRY_NEEDLES = ('**The corrigendum**', '**The standing clauses and the repairs**', '**The port**', '**The join**', '**The faces row**',
-                 '**The −15 control**', '**The re-cut**', '**The standing arms**', '**The citation check**', '**The scores.**', '**Read in mutual light**',
-                 '**Carried to:**', '**Next.**', 'b713', 'W-ORD-LV-PORT-TAG', 'standing_clauses_v3.txt', 'Register4_positivity', 'v0.1.0',
-                 'DirichletC7Order.lean :501')
+ENTRY_NEEDLES = ('**The corrigendum**', '**The author’s word**', '**The standing clauses and the repairs**', '**The zero list**',
+                 '**The predictions and the onsets**', '**The coefficients**', '**The source pin**', '**The standing arms**', '**The citation check**',
+                 '**The scores.**', '**Read in mutual light**', '**Carried to:**', '**Next.**', 'b714', 'W-ORD-LV-PORT-TAG', 'standing_clauses_v4.txt',
+                 'act_close.py', 'data/b713_onsets.txt', 'data/b713_predictions.txt')
 
 
 def finding_ok(S):
@@ -1234,7 +1237,7 @@ def closing_sentence_ok(S):
     t = S['closing_src']
     return ('no identifier of the author ' + 'in any outbound') in t and ('plain requests to ' + 'github.com') in t \
         and '### THE CITATION CHECK' in t and '### THE RECORD LINES' in t and '### THE DRY RUN' in t and 'THE REPAIRS' in t and 'THE STANDING CLAUSES' in t \
-        and 'THE PORT AND THE JOIN' in t and 'THE -15 CONTROL' in t and 'THE RE-CUT' in t and 'FACES_LEDGER appended' in t and 'THE STANDING ARMS' in t \
+        and 'THE RESEARCH AT -15' in t and 'THE SOURCE PIN' in t and 'FACES_LEDGER.md :8' in t and 'THE STANDING ARMS' in t \
         and '### THE KERNELS' in t \
         and '### THE MIRROR' in t and '### THE CARRY-TIME' in t
 
@@ -1646,7 +1649,9 @@ ARMS = [
     ('G-ARMS-PRERUN', 'the pre-run bank: every arm run at HEAD before the lock, its count printed (R202)(3), in seven parts summed',
      lambda S: S['lock_epoch'] is not None and re.search(r'ARMS RUN : %d\.' % len(ARMS), S['prerun']) is not None and 'PRE-SEAL (R202)(3)' in S['prerun'],
      lambda S: put(S, 'prerun', '')),
-    ('G-PRIOR-CLOSED-PUSHED', 'b712`s trail record on OPEN_TRAILS and its root in the chain', lambda S: K.B709_TRAIL_HEAD in S['ot']
+    # ### b712's trail head as OPEN_TRAILS :15890 carries it; the carried form read K.B709_TRAIL_HEAD, a name b713's worklist does not carry,
+    # ### and raised at the pre-run (an event after the lock, data/b713_events.txt)
+    ('G-PRIOR-CLOSED-PUSHED', 'b712`s trail record on OPEN_TRAILS and its root in the chain', lambda S: '### b712 — lane two, act one hundred and thirty-nine, the re-cut act under (R322)' in S['ot']
      and S['rootsf'].count(NL + 'b712 ') == 1, lambda S: put(S, 'ot', S['ot'].replace('### b712 — lane two', '### b712 - lane two'))),
     ('G-TABLE-FINAL', 'the final table bank', lambda S: table_final_ok(S), lambda S: put(S, 'tfj', dict(S['tfj'], grade_moved=[['x', 'y']]))),
     ('G-ACTROOT-BANKED', 'data/act_roots.txt`s 89th chain row (the corrigendum row apart), the root bank and its items against the root route`s own item list (ROOT_EXCLUDE per data/b706_rules.txt row (1), the required list read against it at import), the standing control, the repairs, the port, the join, the price, the re-cut, the corrigendum and the report among them, no bank the route excludes',
