@@ -403,3 +403,243 @@ index 3fe391c1..b2acce12 100644
 ## tools/b714_repairs.py -- NEW, 236 lines, sha256 962a00cb6ab277a4e1225ed194055de96b683dc57428604aadead0dee293746c, untracked
 
 ### ### **REPAIRED 3 ; NEW 4.**
+
+ # ================================================================================ AT THE SEAL, THE AUTHOR'S WORD (6): THE WITHHELD LIST
+### appended 2026-10-26T14:10:37Z, after the lock and before the seal, by the Edit tool, on the author's word (6)
+### (data/b714_author_words_preseal.txt "## (6)"; defects (p), (q)). One tool edited: tools/b714_checks.py, this act's own, unsealed until the
+### seal, which records its hash. No shared tool touched; no bank rewritten.
+
+## tools/b714_checks.py -- EDITED, blob 32230eb0 -> 74280430, sha256 c2ae3eac2b2100eb2336b2cf5bfd7b0f702d7b4174245f38e52fa6528f8c59dd; +22 -5
+   (a) WITHHELD, a literal list of one entry: G-RULE-LONG-PHASE-SPLIT, defect (p), its cause, its condition data/b713_arms_prerun.txt
+       absent, read at seal time.
+   (b) neg_shown() returns a third list, the arms withheld: named in WITHHELD, its condition holding, its pre-run row's mutated copy passing.
+       Every other arm judged as before.
+   (c) seal() prints each withheld arm as WITHHELD, NOT EXERCISABLE, and writes `withheld` (each entry arm and reason) in
+       data/b714_seal_hashes.json; `neg_shown` (the count shown failing) does not count it.
+   The one other caller, tools/b714_record.py :1394 (`repairctl`, Component 1's controls, banked before the lock and not run again in the
+   close order), unpacks two names and is not edited; were it run again it would raise on the third list.
+
+### `git diff -- tools/b714_checks.py`, whole:
+    @@ -1755,13 +1755,24 @@ def _prev_verdicts(EX):
+         return out
+
+
+    +# ### the author's word (6) at the seal (data/b714_author_words_preseal.txt "## (6)"): the arms withheld from the seal as NOT EXERCISABLE, a
+    +# ### literal list -- (arm, defect, cause, the file whose absence is the entry's condition), the condition read at seal time
+    +WITHHELD = (
+    +    ('G-RULE-LONG-PHASE-SPLIT', '(p)', 'its input, b713`s combined pre-run bank, never written: the previous act`s longest phase reads 0 and '
+    +     'the mutated copy passes for that reason alone', os.path.join(D, 'b713_arms_prerun.txt')),
+    +)
+    +
+    +
+     def neg_shown():
+         """(R324)(2)(iv), standing clauses v2 row (55): the suite refuses to seal an arm whose NEG control -- the mutated copy, the POS column of a
+         part's table (its planted source; the arm must FAIL on it) -- has not been shown to fail, read from the pre-run's exercise banks
+         (data/b714_exercise_<part>.json, `mode` prerun, every part's): an arm with no row, whose mutated copy passed, or whose plant or predicate
+    -    raised on it, is not shown. Returns (the arms shown failing, [(arm, why)] the arms not shown)."""
+    +    raised on it, is not shown. The author's word (6): an arm is withheld when it is named in WITHHELD, its condition holds (the file named
+    +    absent, read now) and its pre-run row shows the mutated copy passing; every other arm is judged as before. Returns (the arms shown
+    +    failing, [(arm, why)] the arms not shown, [(arm, reason)] the arms withheld)."""
+         banks = dict((p, C3.jl('b714_exercise_%s.json' % p)) for p in K.PARTS)
+    -    shown, bad = [], []
+    +    wl = dict((w[0], w) for w in WITHHELD)
+    +    shown, bad, withheld = [], [], []
+         for a in ARMS:
+             n, p = a[0], _part_of(a[0])
+             j = banks.get(p) or {}
+    @@ -1770,13 +1781,15 @@ def neg_shown():
+                 bad.append((n, 'part %s: no pre-run exercise bank (mode %s)' % (p, j.get('mode'))))
+             elif e is None:
+                 bad.append((n, 'part %s: no row in the pre-run' % p))
+    +        elif e.get('pos') and n in wl and not os.path.exists(wl[n][3]):
+    +            withheld.append((n, 'defect %s: %s (%s absent at the seal)' % (wl[n][1], wl[n][2], os.path.relpath(wl[n][3], ROOT).replace(os.sep, '/'))))
+             elif e.get('pos'):
+                 bad.append((n, 'the mutated copy PASSED'))
+             elif e.get('pos_raised') or not e.get('shown_failing'):
+                 bad.append((n, 'the mutated copy raised: %s' % e.get('pos_raised')))
+             else:
+                 shown.append(n)
+    -    return shown, bad
+    +    return shown, bad, withheld
+
+
+     def prev_run_missing():
+    @@ -1794,8 +1807,10 @@ def seal():
+         if os.path.exists(p):
+             print('### THE HASHES ARE RECORDED ALREADY -- NOTHING RECORDED TWICE')
+             return 3
+    -    shown, bad = neg_shown()
+    +    shown, bad, withheld = neg_shown()
+         missing = prev_run_missing()
+    +    for n, why in withheld:
+    +        print('  WITHHELD, NOT EXERCISABLE: %-46s %s' % (n, why))
+         if bad or missing:
+             print('### (R324)(2)(iv): %d OF %d ARMS WITHOUT THEIR NEG CONTROL SHOWN FAILING ON A MUTATED COPY IN THE PRE-RUN:' % (len(bad), len(ARMS)))
+             for n, why in bad:
+    @@ -1808,7 +1823,7 @@ def seal():
+         # ### (R324)(2)(i): the letters entered before the seal, recorded with it -- the trail's lines and the three trail-equality arms read these
+         j = dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), lock=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(lock)), tools=now,
+                  relay_head=gs(ROOT, 'rev-parse', 'HEAD'), letters=REC0.letters_of(dtext), defects_sha256=hashlib.sha256(dtext.encode('utf-8')).hexdigest(),
+    -             neg_shown=len(shown), prev_run=dict((p_, dict((k_, len(v_)) for k_, v_ in C3.jl('b714_prevrun_exercise_%s.json' % p_).items()
+    +             neg_shown=len(shown), withheld=[dict(arm=n, reason=why) for n, why in withheld], prev_run=dict((p_, dict((k_, len(v_)) for k_, v_ in C3.jl('b714_prevrun_exercise_%s.json' % p_).items()
+                                                               if k_ in ('pass_on_prev', 'fail_as_prev', 'diverge', 'not_run_by_prev')))
+                                                      for p_ in sorted(set(_part_of(a[0]) for a in ARMS))))
+         b = (json.dumps(j, indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    @@ -1819,7 +1834,8 @@ def seal():
+         for t in K.SEALED:
+             print('  %-38s %s' % (t, now[t]))
+         print('  the letters entered before the seal %d: %s' % (len(j['letters']), ', '.join(s[:3] for s in j['letters']) or 'NONE'))
+    -    print('  the arms with their NEG control shown failing %d of %d ; the runs on b713`s banks %s' % (len(shown), len(ARMS), j['prev_run']))
+    +    print('  the arms with their NEG control shown failing %d of %d ; withheld, not exercisable, %d (%s) ; the runs on b713`s banks %s' % (
+    +        len(shown), len(ARMS), len(withheld), ', '.join(n for n, _w in withheld) or 'NONE', j['prev_run']))
+         print('  written: b714_seal_hashes.json')
+         return 0
+
+### ITS CONTROLS (14:09Z), each on a copy of the edited source with one mutation, executed in memory with the real __file__ (the scratch
+### probe b714_withheld_ctl.py, read before it ran); seal() called only where neg_shown() showed an arm not shown, so it could only refuse:
+   (0) the edited tool, unmutated, neg_shown() alone: shown 140 ; not shown 0 ; withheld G-RULE-LONG-PHASE-SPLIT -- AS WANTED.
+   (i) the list emptied: not shown G-RULE-LONG-PHASE-SPLIT "the mutated copy PASSED", seal() returns 3, "THE SEAL REFUSED -- NOTHING
+       RECORDED", as at records (15) -- AS WANTED.
+   (ii) a second arm named in the list whose mutated copy fails (G-RECEIPT-IN-FULL, the first shown failing): still in shown, not in
+       withheld; withheld G-RULE-LONG-PHASE-SPLIT alone -- AS WANTED. The list cannot hide a working arm.
+   (iii) the condition read from a scratch file that exists (the scratchpad's b714_ctl_iii_standin.txt, in place of
+       data/b713_arms_prerun.txt): the arm not withheld, seal() returns 3, refused -- AS WANTED. Nothing written under data/.
+   data/b714_seal_hashes.json absent after all four.
+
+### ### **AT THE SEAL: EDITED 1 (tools/b714_checks.py) ; CONTROLS 4, AS WANTED 4 ; NO SHARED TOOL ; NO BANK REWRITTEN.**
+
+### THE SECOND HUNK, ON THE AUTHOR'S WORD (7) (data/b714_author_words_preseal.txt "## (7)"), appended 2026-10-26T14:37:06Z, before the seal, by
+### the Edit tool. tools/b714_checks.py, blob 74280430 -> 0d5745b7, sha256 c2ae3eac... -> 41498f2e62f42477a866497e8c0ad366132be820a9f67cd4e84404c086666e39.
+### The closing and the record tool not edited. Every tally the suite writes after the seal reads the seal record's `withheld` field:
+   - withheld_field(): the arms named in data/b714_seal_hashes.json `withheld`; before the seal none (the record absent).
+   - a part: the arm's row printed WITHHELD, NOT EXERCISABLE (LIVE, NEG and POS as they fall); the part's figures from _tally(), the arm
+     counted neither passing nor failing nor among the controls' figures; the footer keeps PART_FOOT's form (b703 :1719, shared, read by
+     search) and appends "WITHHELD, NOT EXERCISABLE n [...]"; the part's exercise bank gains `withheld`.
+   - the combine: _combine_tally() sums the footers and takes a withheld arm out by its row -- off the sums when the part counted it (a part
+     written before the field), nothing when its row reads WITHHELD (a part written after); the summary line gains
+     "### WITHHELD, NOT EXERCISABLE : n [...]" after LIVE FAILING (inside the span tools/b714_closing.py :554/:556 reads, `LIVE FAILING :
+     \d+[^*]*`); ARMS RUN unchanged (the arm at tools/b714_checks.py :1661 reads `ARMS RUN : 141.`); the verdict line names it; data/b714_exercise.json gains `withheld`.
+   The pre-run bank (data/b714_arms_prerun.txt, 100) is not rewritten; the close states it as "100, one of them since WITHHELD".
+
+### the second hunk's lines, from `git diff -U1 -- tools/b714_checks.py` (the first hunk's lines above, unchanged):
+    @@ -1879,2 +1895,53 @@ def guard_dry():
+
+    +def withheld_field():
+    +    """the author's word (7): the arms in the seal record's withheld field (data/b714_seal_hashes.json `withheld`, written by seal()); before
+    +    the seal, none. Every tally the suite writes after the seal reads it."""
+    +    return [w.get('arm') for w in (C3.jl('b714_seal_hashes.json').get('withheld') or [])]
+    +
+    +
+    +def _tally(EX, W):
+    +    """the author's word (7): a part's figures from its exercise rows -- an arm in the withheld field W counted neither among the passes nor
+    +    among the live failures (nor the controls' figures); every other arm as before. Returns (live failing, positive-control passes,
+    +    negative-control failures, withheld)."""
+    +    fail = [n for n, e in EX.items() if n not in W and not e['live']]
+    +    defective = [n for n, e in EX.items() if n not in W and e['pos']]
+    +    negfail = sum(1 for n, e in EX.items() if n not in W and e['neg'] != e['live'])
+    +    return fail, defective, negfail, [n for n in EX if n in W]
+    +
+    +
+    +ARM_ROW = re.compile(r'^  (G-[\w-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+[\d.]+\s+(.*)$', re.M)
+    +
+    +
+    +def _combine_tally(parts, W):
+    +    """the author's word (7): the combine's figures summed from the parts' footers, an arm in the withheld field W taken out by its row -- a
+    +    part written before the field (the pre-run's) counted it as it fell, so its row's LIVE, NEG and POS are taken off the sums; a part written
+    +    after prints the row WITHHELD and its footer left it out. Returns (arms, passing, failing, neg failures, pos passes, failing names,
+    +    pos-pass names, withheld names)."""
+    +    n = sum(int(m.group(2)) for _p, m, _t in parts)
+    +    lp = sum(int(m.group(3)) for _p, m, _t in parts)
+    +    lf = sum(int(m.group(4)) for _p, m, _t in parts)
+    +    ng = sum(int(m.group(6)) for _p, m, _t in parts)
+    +    pc = sum(int(m.group(7)) for _p, m, _t in parts)
+    +    fails = sum((json.loads(m.group(5)) if m.group(5) != 'NONE' else [] for _p, m, _t in parts), [])
+    +    defs = sum((json.loads(m.group(8)) if m.group(8) != 'NONE' else [] for _p, m, _t in parts), [])
+    +    wh = []
+    +    for _p, _m, t in parts:
+    +        for r in ARM_ROW.finditer(t):
+    +            nm, live, neg, pos, verdict = r.groups()
+    +            if nm not in W or nm in wh:
+    +                continue
+    +            wh.append(nm)
+    +            if verdict.startswith('WITHHELD'):
+    +                continue
+    +            if live == 'PASS':
+    +                lp -= 1
+    +            else:
+    +                lf, fails = lf - 1, [f for f in fails if f != nm]
+    +            if neg != live:
+    +                ng -= 1
+    +            if pos == 'PASS':
+    +                pc, defs = pc - 1, [d for d in defs if d != nm]
+    +    return n, lp, lf, ng, pc, fails, defs, wh
+    +
+    +
+     def combine():
+    @@ -1890,9 +1957,3 @@ def combine():
+             heads.append(t.split(NL)[1] if len(t.split(NL)) > 1 else '')
+    -    n = sum(int(m.group(2)) for _p, m, _t in parts)
+    -    lp = sum(int(m.group(3)) for _p, m, _t in parts)
+    -    lf = sum(int(m.group(4)) for _p, m, _t in parts)
+    -    ng = sum(int(m.group(6)) for _p, m, _t in parts)
+    -    pc = sum(int(m.group(7)) for _p, m, _t in parts)
+    -    fails = sum((json.loads(m.group(5)) if m.group(5) != 'NONE' else [] for _p, m, _t in parts), [])
+    -    defs = sum((json.loads(m.group(8)) if m.group(8) != 'NONE' else [] for _p, m, _t in parts), [])
+    +    n, lp, lf, ng, pc, fails, defs, wh = _combine_tally(parts, withheld_field())
+         deq = all(m.group(9) == 'True' for _p, m, _t in parts)
+    @@ -1907,6 +1968,8 @@ def combine():
+                 list(CARRIED_FAILING) or 'NONE', carried or 'NONE', [f for f in fails if f not in CARRIED_FAILING] or 'NONE'),
+    -        '  ### ### **ARMS RUN : %d. ### LIVE PASSING : %d. ### LIVE FAILING : %d %s.**' % (n, lp, lf, fails or ''),
+    +        '  ### ### **ARMS RUN : %d. ### LIVE PASSING : %d. ### LIVE FAILING : %d %s. ### WITHHELD, NOT EXERCISABLE : %d %s.**' % (
+    +            n, lp, lf, fails or '', len(wh), wh or ''),
+             '  ### ### **NEGATIVE-CONTROL FAILURES : %d. ### POSITIVE-CONTROL PASSES : %d %s.**' % (ng, pc, defs or ''),
+    -        '  ### ### **VERDICT : %s**' % ('ALL ARMS PASS AND EVERY CONTROL BEHAVES' if (ok and not fails) else
+    -                                       'EVERY ARM PASSES BUT THE CARRIED FAILURE DECLARED ON THE FACE, AND EVERY CONTROL BEHAVES' if ok else 'NOT CLEAN'),
+    +        '  ### ### **VERDICT : %s%s**' % ('ALL ARMS PASS AND EVERY CONTROL BEHAVES' if (ok and not fails) else
+    +                                         'EVERY ARM PASSES BUT THE CARRIED FAILURE DECLARED ON THE FACE, AND EVERY CONTROL BEHAVES' if ok else 'NOT CLEAN',
+    +                                         ' ; WITHHELD, NOT EXERCISABLE, COUNTED NEITHER PASSING NOR FAILING: %s' % ', '.join(wh) if wh else ''),
+             '=' * 104, '']
+    @@ -1919,3 +1982,3 @@ def combine():
+         if ex and base in ('b714_checks.txt', 'b714_checks_postpush.txt'):
+    -        e = (json.dumps(dict(exercise=ex, run=n, live_failing=fails, defective=defs, neg_failures=ng), indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    +        e = (json.dumps(dict(exercise=ex, run=n, live_failing=fails, defective=defs, neg_failures=ng, withheld=wh), indent=1, ensure_ascii=False) + NL).encode('utf-8')
+             p_ = os.path.join(D, 'b714_exercise.json')
+    @@ -2047,2 +2110,3 @@ def main():
+         rec('  ' + '-' * 106)
+    +    W = withheld_field()
+         fail, defective, negfail, EX, SECS = [], [], 0, {}, {}
+    @@ -2079,2 +2143,3 @@ def main():
+             rec('  %-46s %-5s %-5s %-5s %-8.3f %s' % (name, 'PASS' if live else 'FAIL', 'PASS' if neg else 'FAIL', 'PASS' if posv else 'FAIL', SECS[name],
+    +                                                 'WITHHELD, NOT EXERCISABLE' if name in W else
+                                                      'OK' if (live and neg and not posv) else ('### POS PASSES -- DEFECTIVE' if posv else
+    @@ -2083,2 +2148,3 @@ def main():
+             rec('  (no arm in this part)')
+    +    fail, defective, negfail, wh = _tally(EX, W)
+         rec('')
+    @@ -2105,4 +2171,5 @@ def main():
+         rec('  ### PART %s : ARMS %d ; LIVE PASSING %d ; LIVE FAILING %d %s ; NEGATIVE-CONTROL FAILURES %d ; POSITIVE-CONTROL PASSES %d %s ; '
+    -        'DECLARED EQ RUN %s ; %d s' % (PART, len(arms), len(arms) - len(fail), len(fail), json.dumps(fail) if fail else 'NONE', negfail, len(defective),
+    -                                       json.dumps(defective) if defective else 'NONE', S['declared_eq_run'], int(secs)))
+    +        'DECLARED EQ RUN %s ; %d s ; WITHHELD, NOT EXERCISABLE %d %s' % (PART, len(arms), len(arms) - len(fail) - len(wh), len(fail), json.dumps(fail) if fail else 'NONE',
+    +                                                                      negfail, len(defective), json.dumps(defective) if defective else 'NONE', S['declared_eq_run'],
+    +                                                                      int(secs), len(wh), json.dumps(wh) if wh else 'NONE'))
+         rec('=' * 104)
+    @@ -2115,3 +2182,3 @@ def main():
+         os.replace(lp + '.tmp', lp)
+    -    ex = dict(exercise=EX, run=len(arms), live_failing=fail, defective=defective, neg_failures=negfail, part=PART,
+    +    ex = dict(exercise=EX, run=len(arms), live_failing=fail, defective=defective, neg_failures=negfail, withheld=wh, part=PART,
+                   mode='prev' if PREV else 'prerun' if PRERUN else 'mid' if MID else 'post-push' if pushed else 'pre-push',
+
+### ITS CONTROLS (14:36Z), on the edited source loaded in memory (the scratch probe b714_tally_ctl.py, read before it ran), the withheld
+### field given to the pure tallies as an argument; nothing written anywhere:
+   (1) the combine over the pre-run's seven part banks, the field naming G-RULE-LONG-PHASE-SPLIT: ARMS 141 ; PASS 99 ; FAIL 41 ; NEG
+       FAILURES 0 ; POS PASSES 0 ; WITHHELD 1 -- AS WANTED.
+   (2) the field emptied: ARMS 141 ; PASS 100 ; FAIL 41 ; POS PASSES 1 [G-RULE-LONG-PHASE-SPLIT] ; WITHHELD 0 -- as banked, AS WANTED.
+   (3) an arm not in the field, made to fail: the combine's 41 failing names unchanged by the field; the part tally over standing-a's
+       exercise rows with G-RECEIPT-IN-FULL's live set failing counts it failing (26), withholds the one arm alone, which is in neither the
+       failing nor the positive-control passes -- AS WANTED.
+   (4) a part written after the seal (its row WITHHELD, its footer leaving it out, read by PART_FOOT): PASS 1 ; FAIL 0 ; POS PASSES 0 ;
+       WITHHELD 1 -- nothing taken off twice, AS WANTED.
+   And word (6)'s four controls run again on this source (14:36Z): (0), (i), (ii), (iii) AS WANTED; the seal record absent after both probes.
+
+### ### **AT THE SEAL, THE SECOND HUNK: tools/b714_checks.py ; CONTROLS 4, AS WANTED 4 (and word (6)'s 4 again) ; THE CLOSING AND THE RECORD TOOL NOT EDITED.**

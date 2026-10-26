@@ -43,7 +43,8 @@ b714 -- PRE-SEAL RECORDS, UNLETTERED (2026-10-26)
     stands as the pilot's one, for the navigator; the homebrew reading stands. CONTROLS 5 OF 5 ; (P1) FOUND 12, MISSING 1, NO PIN STATED
     19 ; (P2) AS DESIGNED 1, FOR THE AUTHOR 6 ; (P3) 24 DECLARATIONS, 3 DISPATCHES, ABOUT 8.0 HOURS ; FINDINGS 1.
 (8) THE HARNESS'S AUTO-MODE NOTE, A FOURTH AND FIFTH TIME (Component 5, after the context's resumption, and 07:48Z at the worklist's
-    edit), AND A SIXTH (08:16Z, step [5], after the second resumption): the same request as (1); not followed, on the same rows.
+    edit), AND A SIXTH (08:16Z, step [5], after the second resumption), AND A SEVENTH (13:54Z, with the author's word at the seal, after
+    the third resumption): the same request as (1); not followed, on the same rows.
 (9) THE CORRESPONDENCE FIGURE MOVED BY THE TAG (step [1], 08:07:49Z, data/b714_standing_figures.txt :9, :17; the JSON :36). b706's tool
     reads each Correspondence row at its kernel's current edition, the latest tag: with v0.14.0 made at cb0aea56 ((R324)(3)(i)),
     phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md :183, pinned at SIDE-lv-conservation v0.13.0, reads `T3_perClass_to_combinations` with a
@@ -64,3 +65,57 @@ b714 -- PRE-SEAL RECORDS, UNLETTERED (2026-10-26)
     the corpus sentence at :218, read QUOTED at :104 in its own form); data/b714_tests_stepzero.json :393 and .txt :723 (the Lean name
     `blind_sieve_ceiling` in a test's output); tools/b714_pilot.py :61-:66 (the note table keyed by those corpus stems). b713's scan read
     NOT CLEAN on mentions in the same way (live 6). A reading banked, not a repair: no file edited for it.
+(12) THE GATE BANKED BY THE RECORD TOOL, THE LOCK PERMITTED (08:18Z-08:20Z). `tools/b714_record.py gatebanks` (b698's route, carried) banked
+    the face's own term scan (data/b714_reg_termscan.txt, CLEAN), the spec's run (data/b714_regspec_run.txt, predictions 0), the
+    satisfiability audit again (JOINTLY SATISFIABLE), the three census banks (TOTAL MISSING 0, 0; HARD-FAILING 0), and stamped the four
+    face-subject records 423c9be9 (each matching). Committed at relay 601dab1f, step row 11 "gate". b378_lockgate.py: GATES 8, PASSING 8,
+    LOCK PERMITTED; reg_seal.py --lock 08:19:57Z, 45017 bytes, 423c9be9.
+(13) THE PRE-RUN, SEVEN PARTS AND COMBINED (08:20Z-08:42Z, data/b714_arms_prerun.txt): ARMS 141, LIVE PASSING 100, LIVE FAILING 41,
+    NEGATIVE-CONTROL FAILURES 0, POSITIVE-CONTROL PASSES 1, NOT CLEAN; the longest part standing-b2a 401 s, under the 590 s guard. The
+    41: the three the face declares; 32 that read banks of steps after the seal (the seal's hashes, the scores, the answers, the entry,
+    the trail, the table, the root, the report, the post-root writes, the combined pre-run, the arm seconds) -- standing-a's 20 the same
+    20 b713's part failed, the act part's 12 each with its b713 counterpart; and six more on real state. Of those six, five are the
+    seat's defects (m), (n) and (o) (G-FIGURES-BANKED, (o), on the tag's figure of (9)); the sixth, G-RULE-ROWGEN-REVIEW
+    (tools/rule_arms.py, shared, unedited), reads the first PLACE-papers commit after e284156f with no first-parent, so takes b712's
+    f5ea57c (2026-10-25T16:44:02Z) for this act's first ledger write, where the step-zero rowgen bank (05:04:31Z) precedes b714's own
+    first, f51b0ae (05:57:48Z): the merge the ruling ordered moved the reading, as (9) records for the tag. The one positive-control
+    pass, G-RULE-LONG-PHASE-SPLIT (rule_arms.py), reads the previous act's combined pre-run bank, data/b713_arms_prerun.txt, which b713
+    never wrote (its --combine calls named b713_checks.txt and b713_checks_postpush.txt alone; the file is in no commit), so its parts
+    read 0 and the planted control passes: a finding about b713's record after its seal, for b715's corrigendum.
+(14) THE ARMS ON b713'S BANKS ((R324)(2)(iii), 08:47Z-09:03Z, data/b714_prevrun_<part>.txt, the five parts carrying arms): standing-a
+    PASS 64, AS b713 FAILED 4, DIVERGE 20, its positive-control passes G-ANSWERS-BANKED, G-SEAL-HASHES, G-RULE-LONG-PHASE-SPLIT;
+    standing-b1 PASS 1; standing-b3 AS b713 FAILED 1 (G-ACTROOT-VERIFY, the chain's first half not banked on b713's banks);
+    standing-c PASS 4, AS b713 FAILED 2, DIVERGE 2; act PASS 11, AS b713 FAILED 4, DIVERGE 17, NOT RUN BY b713 11. The rebinding reads
+    b713's banks under this act's live state (HEAD, the merged main, the tag), so the divergences read the act's own moves; a reading,
+    banked by the suite, gating nothing but the seal's presence test.
+(15) THE SEAL REFUSED, NOTHING RECORDED (08:46Z, `tools/b714_checks.py --seal`, run once as a control before the prev runs): "(R324)(2)(iv):
+    1 OF 141 ARMS WITHOUT THEIR NEG CONTROL SHOWN FAILING ON A MUTATED COPY IN THE PRE-RUN: G-RULE-LONG-PHASE-SPLIT the mutated copy
+    PASSED", and the five parts' prev runs then absent (now banked, (14)). The one standing in the way is (13)'s: b713's combined pre-run
+    bank never written. Every route the seat can take alone writes beyond (W) (combining b713's parts into data/b713_arms_prerun.txt),
+    edits a shared tool beyond the membrane (tools/rule_arms.py, N5), or weakens the seal's own rule in this act's suite after the lock;
+    none taken. HALTED at step [8] for the author's word; no prompt put (the root's prompt the act's one).
+(16) THE AUTHOR'S WORD AT THE SEAL, AND THE SEAL'S TOOL WITH NO ROUTE FOR IT (13:54Z-13:56Z). The word (data/b714_author_words_preseal.txt
+    "## (5)", verbatim) refuses route 1 and takes route 2: G-RULE-LONG-PHASE-SPLIT withheld from the seal as NOT EXERCISABLE, printed on the
+    seal's record as WITHHELD, lettered (p), owner b713's close, counted as a pass nowhere, no other arm excepted, no tool edited. Banked;
+    lettered (p) in data/b714_defects.txt. Read before running: tools/b714_checks.py `seal()` (:1787-:1824) refuses whenever `neg_shown()`
+    (:1758-:1779) returns any arm not shown failing, and neither has a withheld or excused branch; ARMS (:1490) is a literal list, read from no
+    bank. So the seal as written records nothing while the arm's pre-run row reads `pos` true (positive control: (15)'s refusal), and the
+    word's form cannot be carried out by its tool unedited. The routes, each read: an edit to `seal()`/`neg_shown()` to read a withheld list
+    edits a tool, which the word forbids "for this"; rewriting the arm's row in data/b714_exercise_standing-a.json rewrites a pre-run bank
+    after the lock, a substitution; writing data/b714_seal_hashes.json by the Write tool bypasses the seal's own refusal, a substitution.
+    None taken; `--seal` not run again. HALTED at step [8] a second time for the author's word on the seal's route.
+(17) THE WORD (6) CARRIED IN THE CHECKS TOOL; THE SEAL HELD ON ITS LAST SENTENCE (14:07Z-14:12Z). Word (6) banked ("## (6)"), (q) lettered,
+    tools/b714_checks.py edited as (a)-(c) order (+22 -5, sha256 c2ae3eac), the diff and four controls banked (data/b714_tool_repairs.txt, the
+    section at the seal; (0), (i), (ii), (iii) AS WANTED; the seal record absent after them). Read before the seal, which fixes K.SEALED's
+    hashes (tools/b714_worklist.py :165, the closing tool and the record tool among them; the report tool not sealed): (c)'s "The closing and
+    the scores read that field" -- neither reads it. tools/b714_closing.py reads data/b714_seal_hashes.json's `tools` alone (:507); the record
+    tool's scores and N-readers read `letters` and the tools' hashes (:2131, :2211, :2380). And word (5)'s "not counted as a pass anywhere":
+    the arm's live reading is PASS (data/b714_arms_prerun_standing-a.txt :129), one of the pre-run's 100, and the suite's later runs count it
+    the same way; the closing's figures are read from those banks. Making either hold in a sealed tool needs an edit before the seal that the
+    word does not name (the one edit is to tools/b714_checks.py). `--seal` not run. HELD at step [8] for the author's word on these two.
+(18) THE WORD (7) CARRIED: THE SUITE'S TALLIES (14:34Z-14:37Z). Word (7) banked ("## (7)"); (q) extended by the overreach it names; the second
+    hunk to tools/b714_checks.py (sha256 41498f2e) -- every tally after the seal reads the seal record's `withheld`, the arm printed WITHHELD,
+    NOT EXERCISABLE, counted neither passing nor failing, WITHHELD n on the part footer and the combine's summary line, the verdict naming it.
+    Its controls 4 of 4 as wanted (pre-run combine PASS 99 / WITHHELD 1; emptied PASS 100 as banked; an arm made to fail still failing; a
+    post-seal part not taken off twice), word (6)'s 4 again as wanted; diff and controls banked (data/b714_tool_repairs.txt). The closing and
+    the record tool not edited. Then the seal, once.

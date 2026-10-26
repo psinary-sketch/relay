@@ -62,3 +62,83 @@ b714 -- THE AUTHOR'S WORDS RECEIVED BEFORE THE SEAL, verbatim, each BEGIN to END
     row gains its repository and pin, read from the census at its current edition on main.
 
     The closing’s report carries the pilot in one line as the author’s earlier word set it.
+
+## (5) AT THE SEAL, ON G-RULE-LONG-PHASE-SPLIT (received after the seal's refusal, records (15), 13:54Z; verbatim)
+    The author’s word at the seal, after the navigator read the public relay at 2f76d11 to check route 1 before answering.
+
+    ROUTE 1 IS NOT TAKEN. Three readings, each at relay 2f76d11:
+    (a) data/b713_arms_prerun.txt is in no commit, and b713’s seven pre-run part banks are committed (data/b713_arms_prerun_<part>.txt).
+    Your account of (13) holds.
+    (b) data/b713_act_root.json names those seven part banks by sha256, and tools/b713_checks.py’s _membrane docstring states that “the
+    pre-run’s ... are root items, refused once the root is appended”. combine() writes through _write, which calls _membrane. b713’s root is
+    appended in data/act_roots.txt (d613bce6). So, read from the code as committed and not run, route 1’s command would be refused by the
+    membrane with exit 4.
+    (c) If it were not refused, it would add a bank of a kind b713’s root covers after that root was computed. b713’s seat declined the same
+    write for the same reason at b713’s event (13): “a bank written after the root would be a substitution”. The word holds that line.
+
+    ROUTE 2 IS TAKEN, IN THIS FORM. G-RULE-LONG-PHASE-SPLIT is withheld from this act’s seal as NOT EXERCISABLE: its input, b713’s combined
+    pre-run bank, does not exist. So the arm reads its previous act’s longest phase as 0, and its mutated copy passes for that reason alone.
+    This is the case standing clause (iv) exists to catch: an arm that cannot fail is not sealed as passing. The arm is printed on the seal’s
+    record and in the closing as WITHHELD, NOT EXERCISABLE, with the cause by bank. It is lettered in this act’s defects as the next letter,
+    owner b713’s close (its event (13)), and it is not counted as a pass anywhere. No other arm is excepted, and no tool is edited for this.
+
+    THE REPAIR, FOR b715 BY CLASS: an arm reads the previous act’s root-named banks, not a combined bank that act may not have written.
+    G-RULE-LONG-PHASE-SPLIT takes the previous act’s longest phase as the largest “THE LONGEST PHASE” figure across its committed pre-run
+    part banks, each read against the sha256 its act’s root names. Control: b713’s seven part banks give a figure and a mutated copy fails;
+    a part bank whose sha256 differs from its root’s is refused. Every other arm that reads a previous act’s combined bank is listed in the
+    same repair.
+
+    Then the seal, and the act proceeds from step [8] as the standing clauses v5 order it. Defects (m), (n) and (o), and the
+    G-RULE-ROWGEN-REVIEW reading, are reported by name in the close as you set out; (m), the os.remove at tools/b714_repairs.py :154, is
+    carried to b715 with the others.
+
+## (6) AT THE SEAL, SECOND: THE SEAL'S ROUTE (received after records (16), verbatim)
+    The author’s word at the seal, second: your recommended route is taken. The clause “no tool is edited for this” in word (5) is
+    withdrawn; it assumed the seal could withhold an arm, and the navigator read b713’s committed suite and found it cannot (neg_shown has
+    no such path). That assumption is the navigator’s, lettered as the next letter in this act’s defects.
+
+    One edit to tools/b714_checks.py, this act’s own tool, before the seal, by the Edit tool, its diff printed and banked in
+    data/b714_tool_repairs.txt:
+    (a) A literal withheld list of one entry, G-RULE-LONG-PHASE-SPLIT, citing defect (p) and its cause. The entry holds while
+    data/b713_arms_prerun.txt is absent, and the condition is read at seal time.
+    (b) neg_shown() returns a third list, the arms withheld. An arm is withheld when all three hold: it is named in the list, its condition
+    holds, and its pre-run row shows the mutated copy passing. Every other arm is judged exactly as now.
+    (c) seal() writes a withheld field in data/b714_seal_hashes.json, each entry with its reason. It prints each one as WITHHELD, NOT
+    EXERCISABLE, and not as shown failing. The closing and the scores read that field.
+
+    Its controls, run on copies before the seal and printed:
+    (i) With the list emptied, the seal refuses as it did at records (15).
+    (ii) With a second arm named in the list whose mutated copy fails, that arm is still counted as shown failing: the list cannot hide a
+    working arm.
+    (iii) On a copy of the tool whose condition reads a scratch file that exists, in place of data/b713_arms_prerun.txt, the arm is not
+    withheld and the seal refuses. Nothing is written under data/ for this control.
+    No shared tool is touched, no bank is rewritten, and the seal’s hash of the edited tool records the edit.
+
+    Then the seal once, and the act proceeds from step [8].
+
+## (7) AT THE SEAL, THIRD: ROUTE (A) NARROWED (received after records (17), verbatim)
+    The author’s word at the seal, third: route (A), narrowed to the one tool already edited. The closing and the record tool are not
+    edited.
+
+    The navigator’s word (5) asked for two things this act can carry without touching them:
+
+    “counted as a pass nowhere” is met at the source of the figures, the suite’s tallies;
+    “printed in the closing as WITHHELD” is met by defect (p)’s row, which the closing already prints.
+    The words “and the scores read that field” in word (6)(c) are withdrawn: the scores read letters and tool hashes, and no pass count.
+    That overreach is the navigator’s, entered under (q) beside the assumption it already names.
+
+    One more hunk to tools/b714_checks.py, by the Edit tool, before the seal, its diff appended to the same section of
+    data/b714_tool_repairs.txt. In every tally the suite writes from here on (the post-seal pre-push and post-push parts and their combine),
+    an arm in the withheld field is printed WITHHELD, NOT EXERCISABLE on its row. It is counted neither among the passes nor among the live
+    failures, and it gets its own figure on the combine’s summary line, WITHHELD 1. The verdict line names it. The pre-run bank’s 100 is
+    not rewritten; the close states it as “100, one of them since WITHHELD”.
+
+    Its controls, on copies, printed, nothing written under data/: the combine over the pre-run’s part banks, read by the edited tally,
+    gives PASS 99 and WITHHELD 1; with the withheld field emptied it gives PASS 100 as banked; and an arm not in the field, made to fail,
+    still counts as failing.
+
+    Then the seal once, and the act proceeds from step [8]. Whatever the closing’s suite figure reads as a result, it is reported as it
+    falls, with defect (p) beside it.
+
+    Carried to b715 with the class repair of word (5): the second caller of neg_shown(), tools/b714_record.py :1394 (repairctl), which
+    unpacks two values and is not run again in this act.

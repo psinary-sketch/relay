@@ -1755,13 +1755,24 @@ def _prev_verdicts(EX):
     return out
 
 
+# ### the author's word (6) at the seal (data/b714_author_words_preseal.txt "## (6)"): the arms withheld from the seal as NOT EXERCISABLE, a
+# ### literal list -- (arm, defect, cause, the file whose absence is the entry's condition), the condition read at seal time
+WITHHELD = (
+    ('G-RULE-LONG-PHASE-SPLIT', '(p)', 'its input, b713`s combined pre-run bank, never written: the previous act`s longest phase reads 0 and '
+     'the mutated copy passes for that reason alone', os.path.join(D, 'b713_arms_prerun.txt')),
+)
+
+
 def neg_shown():
     """(R324)(2)(iv), standing clauses v2 row (55): the suite refuses to seal an arm whose NEG control -- the mutated copy, the POS column of a
     part's table (its planted source; the arm must FAIL on it) -- has not been shown to fail, read from the pre-run's exercise banks
     (data/b714_exercise_<part>.json, `mode` prerun, every part's): an arm with no row, whose mutated copy passed, or whose plant or predicate
-    raised on it, is not shown. Returns (the arms shown failing, [(arm, why)] the arms not shown)."""
+    raised on it, is not shown. The author's word (6): an arm is withheld when it is named in WITHHELD, its condition holds (the file named
+    absent, read now) and its pre-run row shows the mutated copy passing; every other arm is judged as before. Returns (the arms shown
+    failing, [(arm, why)] the arms not shown, [(arm, reason)] the arms withheld)."""
     banks = dict((p, C3.jl('b714_exercise_%s.json' % p)) for p in K.PARTS)
-    shown, bad = [], []
+    wl = dict((w[0], w) for w in WITHHELD)
+    shown, bad, withheld = [], [], []
     for a in ARMS:
         n, p = a[0], _part_of(a[0])
         j = banks.get(p) or {}
@@ -1770,13 +1781,15 @@ def neg_shown():
             bad.append((n, 'part %s: no pre-run exercise bank (mode %s)' % (p, j.get('mode'))))
         elif e is None:
             bad.append((n, 'part %s: no row in the pre-run' % p))
+        elif e.get('pos') and n in wl and not os.path.exists(wl[n][3]):
+            withheld.append((n, 'defect %s: %s (%s absent at the seal)' % (wl[n][1], wl[n][2], os.path.relpath(wl[n][3], ROOT).replace(os.sep, '/'))))
         elif e.get('pos'):
             bad.append((n, 'the mutated copy PASSED'))
         elif e.get('pos_raised') or not e.get('shown_failing'):
             bad.append((n, 'the mutated copy raised: %s' % e.get('pos_raised')))
         else:
             shown.append(n)
-    return shown, bad
+    return shown, bad, withheld
 
 
 def prev_run_missing():
@@ -1794,8 +1807,10 @@ def seal():
     if os.path.exists(p):
         print('### THE HASHES ARE RECORDED ALREADY -- NOTHING RECORDED TWICE')
         return 3
-    shown, bad = neg_shown()
+    shown, bad, withheld = neg_shown()
     missing = prev_run_missing()
+    for n, why in withheld:
+        print('  WITHHELD, NOT EXERCISABLE: %-46s %s' % (n, why))
     if bad or missing:
         print('### (R324)(2)(iv): %d OF %d ARMS WITHOUT THEIR NEG CONTROL SHOWN FAILING ON A MUTATED COPY IN THE PRE-RUN:' % (len(bad), len(ARMS)))
         for n, why in bad:
@@ -1808,7 +1823,7 @@ def seal():
     # ### (R324)(2)(i): the letters entered before the seal, recorded with it -- the trail's lines and the three trail-equality arms read these
     j = dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), lock=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(lock)), tools=now,
              relay_head=gs(ROOT, 'rev-parse', 'HEAD'), letters=REC0.letters_of(dtext), defects_sha256=hashlib.sha256(dtext.encode('utf-8')).hexdigest(),
-             neg_shown=len(shown), prev_run=dict((p_, dict((k_, len(v_)) for k_, v_ in C3.jl('b714_prevrun_exercise_%s.json' % p_).items()
+             neg_shown=len(shown), withheld=[dict(arm=n, reason=why) for n, why in withheld], prev_run=dict((p_, dict((k_, len(v_)) for k_, v_ in C3.jl('b714_prevrun_exercise_%s.json' % p_).items()
                                                           if k_ in ('pass_on_prev', 'fail_as_prev', 'diverge', 'not_run_by_prev')))
                                                  for p_ in sorted(set(_part_of(a[0]) for a in ARMS))))
     b = (json.dumps(j, indent=1, ensure_ascii=False) + NL).encode('utf-8')
@@ -1819,7 +1834,8 @@ def seal():
     for t in K.SEALED:
         print('  %-38s %s' % (t, now[t]))
     print('  the letters entered before the seal %d: %s' % (len(j['letters']), ', '.join(s[:3] for s in j['letters']) or 'NONE'))
-    print('  the arms with their NEG control shown failing %d of %d ; the runs on b713`s banks %s' % (len(shown), len(ARMS), j['prev_run']))
+    print('  the arms with their NEG control shown failing %d of %d ; withheld, not exercisable, %d (%s) ; the runs on b713`s banks %s' % (
+        len(shown), len(ARMS), len(withheld), ', '.join(n for n, _w in withheld) or 'NONE', j['prev_run']))
     print('  written: b714_seal_hashes.json')
     return 0
 
@@ -1877,6 +1893,57 @@ def guard_dry():
     return 0
 
 
+def withheld_field():
+    """the author's word (7): the arms in the seal record's withheld field (data/b714_seal_hashes.json `withheld`, written by seal()); before
+    the seal, none. Every tally the suite writes after the seal reads it."""
+    return [w.get('arm') for w in (C3.jl('b714_seal_hashes.json').get('withheld') or [])]
+
+
+def _tally(EX, W):
+    """the author's word (7): a part's figures from its exercise rows -- an arm in the withheld field W counted neither among the passes nor
+    among the live failures (nor the controls' figures); every other arm as before. Returns (live failing, positive-control passes,
+    negative-control failures, withheld)."""
+    fail = [n for n, e in EX.items() if n not in W and not e['live']]
+    defective = [n for n, e in EX.items() if n not in W and e['pos']]
+    negfail = sum(1 for n, e in EX.items() if n not in W and e['neg'] != e['live'])
+    return fail, defective, negfail, [n for n in EX if n in W]
+
+
+ARM_ROW = re.compile(r'^  (G-[\w-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+[\d.]+\s+(.*)$', re.M)
+
+
+def _combine_tally(parts, W):
+    """the author's word (7): the combine's figures summed from the parts' footers, an arm in the withheld field W taken out by its row -- a
+    part written before the field (the pre-run's) counted it as it fell, so its row's LIVE, NEG and POS are taken off the sums; a part written
+    after prints the row WITHHELD and its footer left it out. Returns (arms, passing, failing, neg failures, pos passes, failing names,
+    pos-pass names, withheld names)."""
+    n = sum(int(m.group(2)) for _p, m, _t in parts)
+    lp = sum(int(m.group(3)) for _p, m, _t in parts)
+    lf = sum(int(m.group(4)) for _p, m, _t in parts)
+    ng = sum(int(m.group(6)) for _p, m, _t in parts)
+    pc = sum(int(m.group(7)) for _p, m, _t in parts)
+    fails = sum((json.loads(m.group(5)) if m.group(5) != 'NONE' else [] for _p, m, _t in parts), [])
+    defs = sum((json.loads(m.group(8)) if m.group(8) != 'NONE' else [] for _p, m, _t in parts), [])
+    wh = []
+    for _p, _m, t in parts:
+        for r in ARM_ROW.finditer(t):
+            nm, live, neg, pos, verdict = r.groups()
+            if nm not in W or nm in wh:
+                continue
+            wh.append(nm)
+            if verdict.startswith('WITHHELD'):
+                continue
+            if live == 'PASS':
+                lp -= 1
+            else:
+                lf, fails = lf - 1, [f for f in fails if f != nm]
+            if neg != live:
+                ng -= 1
+            if pos == 'PASS':
+                pc, defs = pc - 1, [d for d in defs if d != nm]
+    return n, lp, lf, ng, pc, fails, defs, wh
+
+
 def combine():
     base = sys.argv[sys.argv.index('--combine') + 1]
     parts, heads = [], []
@@ -1888,13 +1955,7 @@ def combine():
             return 2
         parts.append((part, m, t))
         heads.append(t.split(NL)[1] if len(t.split(NL)) > 1 else '')
-    n = sum(int(m.group(2)) for _p, m, _t in parts)
-    lp = sum(int(m.group(3)) for _p, m, _t in parts)
-    lf = sum(int(m.group(4)) for _p, m, _t in parts)
-    ng = sum(int(m.group(6)) for _p, m, _t in parts)
-    pc = sum(int(m.group(7)) for _p, m, _t in parts)
-    fails = sum((json.loads(m.group(5)) if m.group(5) != 'NONE' else [] for _p, m, _t in parts), [])
-    defs = sum((json.loads(m.group(8)) if m.group(8) != 'NONE' else [] for _p, m, _t in parts), [])
+    n, lp, lf, ng, pc, fails, defs, wh = _combine_tally(parts, withheld_field())
     deq = all(m.group(9) == 'True' for _p, m, _t in parts)
     carried = [f for f in fails if f in CARRIED_FAILING]
     ok = lf == len(carried) and pc == 0 and ng == 0 and deq
@@ -1905,10 +1966,12 @@ def combine():
             max(int(m.group(10)) for _p, m, _t in parts) < 590),
         '  ### the failures declared on the face as carried (section (G2)): %s ; failing among them %s ; failing beyond them %s' % (
             list(CARRIED_FAILING) or 'NONE', carried or 'NONE', [f for f in fails if f not in CARRIED_FAILING] or 'NONE'),
-        '  ### ### **ARMS RUN : %d. ### LIVE PASSING : %d. ### LIVE FAILING : %d %s.**' % (n, lp, lf, fails or ''),
+        '  ### ### **ARMS RUN : %d. ### LIVE PASSING : %d. ### LIVE FAILING : %d %s. ### WITHHELD, NOT EXERCISABLE : %d %s.**' % (
+            n, lp, lf, fails or '', len(wh), wh or ''),
         '  ### ### **NEGATIVE-CONTROL FAILURES : %d. ### POSITIVE-CONTROL PASSES : %d %s.**' % (ng, pc, defs or ''),
-        '  ### ### **VERDICT : %s**' % ('ALL ARMS PASS AND EVERY CONTROL BEHAVES' if (ok and not fails) else
-                                       'EVERY ARM PASSES BUT THE CARRIED FAILURE DECLARED ON THE FACE, AND EVERY CONTROL BEHAVES' if ok else 'NOT CLEAN'),
+        '  ### ### **VERDICT : %s%s**' % ('ALL ARMS PASS AND EVERY CONTROL BEHAVES' if (ok and not fails) else
+                                         'EVERY ARM PASSES BUT THE CARRIED FAILURE DECLARED ON THE FACE, AND EVERY CONTROL BEHAVES' if ok else 'NOT CLEAN',
+                                         ' ; WITHHELD, NOT EXERCISABLE, COUNTED NEITHER PASSING NOR FAILING: %s' % ', '.join(wh) if wh else ''),
         '=' * 104, '']
     for p, _m, t in parts:
         out += ['### THE PART BANK %s, WHOLE:' % _part_name(base, p)] + t.rstrip(NL).split(NL) + ['']
@@ -1917,7 +1980,7 @@ def combine():
     for part in K.PARTS:
         ex.update(jl('b714_exercise_%s.json' % part).get('exercise') or {})
     if ex and base in ('b714_checks.txt', 'b714_checks_postpush.txt'):
-        e = (json.dumps(dict(exercise=ex, run=n, live_failing=fails, defective=defs, neg_failures=ng), indent=1, ensure_ascii=False) + NL).encode('utf-8')
+        e = (json.dumps(dict(exercise=ex, run=n, live_failing=fails, defective=defs, neg_failures=ng, withheld=wh), indent=1, ensure_ascii=False) + NL).encode('utf-8')
         p_ = os.path.join(D, 'b714_exercise.json')
         _membrane(p_)
         with open(p_ + '.tmp', 'wb') as fh:
@@ -2045,6 +2108,7 @@ def main():
                                                                              ['%s %s:%s' % (x.get('kernel'), x.get('file'), x.get('line')) for x in lv['mh']][:6] or ''))
     rec('  %-46s %-5s %-5s %-5s %-8s %s' % ('arm', 'LIVE', 'NEG', 'POS', 'secs', 'verdict'))
     rec('  ' + '-' * 106)
+    W = withheld_field()
     fail, defective, negfail, EX, SECS = [], [], 0, {}, {}
     for name, reads, pred, pos in arms:
         if name == 'G-ARMS-NO-LIVE-LIMB':
@@ -2077,10 +2141,12 @@ def main():
             defective.append(name)
         EX[name] = dict(live=live, neg=neg, pos=posv, pos_raised=pos_raised, shown_failing=(not posv and pos_raised is None), reads=reads, secs=SECS[name])
         rec('  %-46s %-5s %-5s %-5s %-8.3f %s' % (name, 'PASS' if live else 'FAIL', 'PASS' if neg else 'FAIL', 'PASS' if posv else 'FAIL', SECS[name],
+                                                 'WITHHELD, NOT EXERCISABLE' if name in W else
                                                  'OK' if (live and neg and not posv) else ('### POS PASSES -- DEFECTIVE' if posv else
                                                                                            '### FAILS -- THE CARRIED FAILURE DECLARED ON THE FACE' if name in CARRIED_FAILING else '### FAILS')))
     if not arms:
         rec('  (no arm in this part)')
+    fail, defective, negfail, wh = _tally(EX, W)
     rec('')
     if 'written' in NEED[PART]:
         rec('  ### tracked files written (%d), each against the (W) globs: uncovered %s' % (len(S['written']), [f for f in S['written']
@@ -2103,8 +2169,9 @@ def main():
     rec('  ### the arms` own seconds summed %.1f, the slowest %s' % (sum(SECS.values()), ', '.join('%s %.2f' % kv for kv in sorted(SECS.items(), key=lambda x: -x[1])[:3]) or 'NONE'))
     rec('  ### the run took %.0f s' % secs)
     rec('  ### PART %s : ARMS %d ; LIVE PASSING %d ; LIVE FAILING %d %s ; NEGATIVE-CONTROL FAILURES %d ; POSITIVE-CONTROL PASSES %d %s ; '
-        'DECLARED EQ RUN %s ; %d s' % (PART, len(arms), len(arms) - len(fail), len(fail), json.dumps(fail) if fail else 'NONE', negfail, len(defective),
-                                       json.dumps(defective) if defective else 'NONE', S['declared_eq_run'], int(secs)))
+        'DECLARED EQ RUN %s ; %d s ; WITHHELD, NOT EXERCISABLE %d %s' % (PART, len(arms), len(arms) - len(fail) - len(wh), len(fail), json.dumps(fail) if fail else 'NONE',
+                                                                      negfail, len(defective), json.dumps(defective) if defective else 'NONE', S['declared_eq_run'],
+                                                                      int(secs), len(wh), json.dumps(wh) if wh else 'NONE'))
     rec('=' * 104)
     out = _write(_part_name(base, PART), L)
     lp = os.path.join(D, _part_name(base, PART).replace('b714_arms_prerun', 'b714_lsr_prerun').replace('b714_checks', 'b714_lsr').replace('.txt', '.json'))
@@ -2113,7 +2180,7 @@ def main():
     with open(lp + '.tmp', 'wb') as fh:
         fh.write(lb)
     os.replace(lp + '.tmp', lp)
-    ex = dict(exercise=EX, run=len(arms), live_failing=fail, defective=defective, neg_failures=negfail, part=PART,
+    ex = dict(exercise=EX, run=len(arms), live_failing=fail, defective=defective, neg_failures=negfail, withheld=wh, part=PART,
               mode='prev' if PREV else 'prerun' if PRERUN else 'mid' if MID else 'post-push' if pushed else 'pre-push',
               at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), relay_head=gs(ROOT, 'rev-parse', 'HEAD'))
     ex.update(pv)
