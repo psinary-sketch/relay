@@ -1,0 +1,569 @@
+b713 -- (R323)(3): THE STANDING REPORT TOOL CARRIED FORWARD, ITS DIFF AGAINST b712`S REPORT (2026-10-26T03:25:40Z)
+
+### tools/b713_report.py against tools/b712_report.py at relay 1290446c: +222 -256. The control of its form: `scores` writes nothing (the membrane
+### refuses after the root; the route opens no file for writing), `bank` writes data/b713_report.txt and .json alone.
+
+--- tools/b712_report.py@1290446c
++++ tools/b713_report.py
+@@ -1,17 +1,20 @@
+-"""b712 -- THE STANDING REPORT TOOL, (R322)(3): data/b712_report.txt (.json). A REPORT, NOT AN ARM.
+-
+-Rewritten whole by the Write tool at b712 from b711's throughstone report (tools/b711_report.py), carried forward under (R322)(3): "The
+-throughstone report of b711 carried forward as a standing report tool, data/b712_report.txt, its four footings KERNEL, CERTIFIED, REGISTERED,
++"""b713 -- THE STANDING REPORT TOOL, (R323)(3): data/b713_report.txt (.json). A REPORT, NOT AN ARM.
++
++Rewritten whole by the Write tool at b713 from b712's throughstone report (tools/b712_report.py), carried forward under (R323)(3): "The
++throughstone report of b712 carried forward as a standing report tool, data/b713_report.txt, its four footings KERNEL, CERTIFIED, REGISTERED,
+ HELD, its lines recomputed from the banks with path, line and sha256, its scores line printed after the root; it is a report and not an arm."
++b712's throughstone (the join's statement, the artifact's axioms, the tag, Register4_positivity, the re-cut's distance) read banks this act
++does not write -- no kernel is written at b713 -- and is not carried; its lines are b713's: the -15 list, the predictions and onsets, the
++coefficients, the source pin, the faces head :8 and the re-cut's additive check.
+ Two routes:
+   bank    (before the root) each line's figures recomputed from the act's JSON banks, beside each its SOURCE -- the bank's path, the row cited
+-          by line, the bank's sha256 now and, where a hashes bank exists, as that bank records it -- the lines printed in footing order
+-          (KERNEL, CERTIFIED, REGISTERED, HELD), a footing no line stands on printed as NONE; written through the membrane to data/b712_report.txt
+-          and data/b712_report.json. Nothing else is written.
+-  scores  (after the root) the scores line: all eight from data/b712_scores_close.json, each HELD or BROKEN, and the root line from
++          by line and the bank's sha256 now -- the lines printed in footing order (KERNEL, CERTIFIED, REGISTERED, HELD), a footing no line
++          stands on printed as NONE; written through the membrane to data/b713_report.txt and data/b713_report.json. Nothing else is written.
++  scores  (after the root) the scores line: all eight from data/b713_scores_close.json, each HELD or BROKEN, and the root line from
+           data/act_roots.txt; PRINTED ONLY -- no bank is written after the root (N4), and the membrane refuses one.
+ The tool decides nothing: no verdict is gated on its lines (no arm reads its exit code), and a line it cannot recompute prints as such.
+ """
++import calendar
+ import hashlib
+ import io
+ import json
+@@ -25,10 +28,10 @@
+ ROOT = os.path.dirname(T)
+ D = os.path.join(ROOT, 'data')
+ sys.path.insert(0, T)
+-import b712_worklist as K          # noqa: E402
++import b713_worklist as K          # noqa: E402
+ 
+ NL = '\n'
+-ACT = 'b712'
++ACT = 'b713'
+ FOOTINGS = ('KERNEL', 'CERTIFIED', 'REGISTERED', 'HELD')
+ PP = K.PP
+ if hasattr(sys.stdout, 'reconfigure'):
+@@ -69,272 +72,232 @@
+                 text='relay data/%s :%s ; sha256 %s' % (name, ln if ln is not None else '### NEEDLE NOT FOUND', (now or '### ABSENT')[:16]))
+ 
+ 
+-def _decl_block(text, head):
+-    """the declaration whose line opens (after indentation) with `head`, to the first blank line: (its line number, its lines)."""
+-    L = text.replace('\r', '').split(NL)
+-    i = next((k for k, l in enumerate(L) if l.lstrip().startswith(head)), None)
+-    if i is None:
+-        return None, []
+-    j = i
+-    while j < len(L) and L[j].strip():
+-        j += 1
+-    return i + 1, L[i:j]
+-
+-
+-def _binders(sig):
+-    """the binders between a theorem's name and its top-level colon, as (names, type, bracket); a type's own brackets nest."""
+-    pairs = {'(': ')', '{': '}', '[': ']', '⦃': '⦄'}
+-    out, depth, cur, opener = [], 0, '', None
+-    for ch in sig:
+-        if depth == 0:
+-            if ch in pairs:
+-                depth, opener, cur = 1, ch, ''
+-            elif ch == ':':
+-                break
+-            continue
+-        if ch == opener:
+-            depth += 1
+-        elif ch == pairs[opener]:
+-            depth -= 1
+-            if depth == 0:
+-                nm, _, ty = cur.partition(':')
+-                out.append((nm.strip(), ' '.join(ty.split()), opener))
+-                continue
+-        cur += ch
+-    return out
+-
+-
+-CHECK = {}
++def iso_epoch(s):
++    try:
++        return calendar.timegm(time.strptime(s, '%Y-%m-%dT%H:%M:%SZ'))
++    except (TypeError, ValueError):
++        return None
+ 
+ 
+ def throughstone():
+-    """the root's prompt, the author's word (data/b712_author_answers.txt, transcript line 8485): THE THROUGHSTONE FOR THE KERNEL FOOTING, read
+-    before the root and printed as the report's opening line -- (a) faces_join's statement verbatim from SIDE-faces-join at the tag, its
+-    hypotheses by name and type, the grade read under the E0 gate; (b) #print axioms from the join's build artifact by its run id, the
+-    artifact's sha256 verified, in full; (c) the tag's peeled SHA by ls-remote beside 11a472b9, the tag object's beside it; (d) lv-conservation's
+-    Register4_positivity at 93c27ec and at the port's tip, equal by statement, and the name faces_join uses resolved to that declaration
+-    through the join's import; (e) what the re-cut's distance measures, by the bank and line that define it, and the three cells held.
+-    Reads only: git, gh and the act's banks; nothing written (the bank route writes the report's own two files)."""
+-    import io as _io
+-    import zipfile
+-    import b712_record as REC
+-    tag, tag_obj, peeled_want = K.JOIN_TAG[0], K.JOIN_TAG[1], K.JOIN_TAG[2]
+-    differs, regrade = [], []
+-    # ---------------------------------------------------------------- (a) THE STATEMENT AT THE TAG, ITS HYPOTHESES, THE E0 GATE
+-    src = g(K.JOIN_DIR, 'show', '%s:FacesJoin.lean' % tag).replace('\r', '')
+-    ln, blk = _decl_block(src, 'theorem faces_join')
+-    body = NL.join(blk)
+-    sig = body[len('theorem faces_join'):body.find(':=')] if ':=' in body else ''
+-    hyps = _binders(sig)
+-    concl = ' '.join(sig[sig.find(':') + 1:].split()) if ':' in sig else ''
+-    variables = [i for i, l in enumerate(src.split(NL), 1) if re.match(r'^\s*variable\b', l)]
+-    sides = [s.strip() for s in concl.split('↔')]
+-    for nm, ty, br in hyps:
+-        hit = [w for w in ('h2_sign', 'Register4_positivity') if w in ty]
+-        if re.search(r'(?i)licoeff', ty) and '0 ≤' in ty:
+-            hit.append('a positivity of the Li coefficients')
+-        if ty == concl or any(s and s in ty for s in sides):
+-            hit.append('a premise equivalent to its conclusion')
+-        if hit:
+-            regrade.append('%s : %s (%s)' % (nm, ty, ', '.join(hit)))
+-    if variables:
+-        regrade.append('section variables at :%s' % ', :'.join(map(str, variables)))
+-    grade = 'DERIVES' if not regrade else 'INTERFACES on ' + '; '.join(regrade)
+-    a_line = ('(a) THE STATEMENT, SIDE-faces-join FacesJoin.lean :%s at the tag %s, verbatim (below); its hypotheses %d%s; section variables %s; '
+-              'the E0 gate (no hypothesis stating h2_sign, Register4_positivity, a positivity of the Li coefficients or a premise equivalent '
+-              'to its conclusion): %s' % (ln, tag, len(hyps), (' -- ' + '; '.join('%s : %s %s' % (n, t, b) for n, t, b in hyps)) if hyps else
+-                                           ' (NONE: no binder between the name and its colon)', ('at :' + ', :'.join(map(str, variables))) if variables else 'NONE',
+-                                           'DERIVES STANDS' if grade == 'DERIVES' else '### REGRADE ' + grade))
+-    # ---------------------------------------------------------------- (b) #print axioms FROM THE BUILD ARTIFACT, BY ITS RUN ID
+-    repo = 'psinary-sketch/SIDE-faces-join'
+-    art, arts = REC._artifact_named(repo, K.JOIN_RUN, 'build-module-')
+-    art = art or {}
+-    zsha = digest = None
+-    files, ax_lines, sorry = {}, [], []
+-    if art:
+-        rz = subprocess.run(['gh', 'api', 'repos/%s/actions/artifacts/%d/zip' % (repo, art['id'])], capture_output=True)
+-        zsha = hashlib.sha256(rz.stdout).hexdigest()
+-        digest = (art.get('digest') or '').replace('sha256:', '')
+-        if digest and digest == zsha:
+-            with zipfile.ZipFile(_io.BytesIO(rz.stdout)) as z:
+-                for nm in z.namelist():
+-                    files[nm] = z.read(nm).decode('utf-8', 'replace').replace('\r', '')
+-    banked = re.search(r'sha256 ([0-9a-f]{64})', rd('%s_runner_SIDE-faces-join_join.txt' % ACT))
+-    banked = banked.group(1) if banked else None
+-    for nm in sorted(files):
+-        for l in files[nm].split(NL):
+-            if 'faces_join' in l and 'depends on axioms' in l:
+-                ax_lines.append((nm, l.strip()))
+-            if 'sorryAx' in l:
+-                sorry.append((nm, l.strip()))
+-    ax_set = set()
+-    for _nm, l in ax_lines:
+-        m = re.search(r'\[(.*)\]', l)
+-        ax_set |= set(x.strip() for x in (m.group(1).split(',') if m else []))
+-    ax_ok = bool(ax_lines) and ax_set == {'propext', 'Classical.choice', 'Quot.sound'} and not sorry
+-    art_ok = bool(zsha) and zsha == digest == banked
+-    if not (ax_ok and art_ok):
+-        differs.append('(b)')
+-    b_line = ('(b) #print axioms FROM THE BUILD ARTIFACT: run %s, artifact %s (id %s), sha256 %s, the platform`s digest %s, the runner bank`s %s -- %s; '
+-              'printed in full: %s; sorryAx %s; propext, Classical.choice, Quot.sound and nothing else: %s' % (
+-                  K.JOIN_RUN, art.get('name'), art.get('id'), zsha, digest, banked, 'EQUAL' if art_ok else '### DIFFERS',
+-                  ' ; '.join('%s: %s' % (n, l) for n, l in ax_lines) or '### NOT FOUND', ('IN ' + '; '.join('%s: %s' % x for x in sorry)) if sorry else 'NONE',
+-                  'EQUAL' if ax_ok else '### DIFFERS'))
+-    # ---------------------------------------------------------------- (c) THE TAG AT THE REMOTE
+-    lsr = dict((r.split('\t')[1], r.split('\t')[0]) for r in g(K.JOIN_DIR, 'ls-remote', 'origin', 'refs/tags/%s' % tag, 'refs/tags/%s^{}' % tag).split(NL) if '\t' in r)
+-    r_obj, r_peeled = lsr.get('refs/tags/%s' % tag), lsr.get('refs/tags/%s^{}' % tag)
+-    c_ok = r_peeled == peeled_want and r_obj == tag_obj
+-    if not c_ok:
+-        differs.append('(c)')
+-    c_line = ('(c) THE TAG BY ls-remote: refs/tags/%s^{} %s beside %s -- %s; the tag object refs/tags/%s %s beside %s -- %s' % (
+-        tag, r_peeled, peeled_want, 'EQUAL' if r_peeled == peeled_want else '### DIFFERS', tag, r_obj, tag_obj, 'EQUAL' if r_obj == tag_obj else '### DIFFERS'))
+-    # ---------------------------------------------------------------- (d) Register4_positivity AT THE DEPOSIT AND THE TIP; THE NAME RESOLVED BY IMPORT
+-    rp = jl('%s_regpos.json' % ACT)
+-    dep, tip = rp.get('deposit') or '', K.PORT_NEW_TIP
+-    reads = {}
+-    for c in (dep, tip):
+-        t = g(K.LV_DIR, 'show', '%s:SIDELvConservation/RegisterPentagon.lean' % c).replace('\r', '')
+-        l_, b_ = _decl_block(t, 'def Register4_positivity')
+-        ns = [l.strip() for l in t.split(NL)[:(l_ or 1) - 1] if l.strip().startswith(('namespace', 'end '))]
+-        reads[c] = (l_, b_, ns)
+-    norm = [' '.join(' '.join(reads[c][1]).split()) for c in (dep, tip)]
+-    d_eq = bool(norm[0]) and norm[0] == norm[1]
+-    imports = [l.strip() for l in src.split(NL) if l.startswith('import ')]
+-    full = 'SIDELvConservation.RegisterPentagon.Register4_positivity'
+-    restated = [i for i, l in enumerate(src.split(NL), 1) if re.match(r'^\s*(?:def|abbrev|theorem|lemma|structure|class|instance)\s+\S*Register4_positivity\b', l)]
+-    resolves = 'import SIDELvConservation.RegisterPentagon' in imports and full in body and not restated
+-    if not (d_eq and resolves):
+-        differs.append('(d)')
+-    d_line = ('(d) %s AT THE DEPOSIT %s (RegisterPentagon.lean :%s, inside %s) AND AT THE PORT`S TIP %s (:%s): %s -- BY STATEMENT %s; the name in '
+-              'faces_join`s statement %s, the join`s imports %s, no declaration of that name in FacesJoin.lean (%s) -- RESOLVED TO lv-conservation`S '
+-              'DECLARATION THROUGH THE IMPORT %s' % (
+-                  full, dep[:8], reads[dep][0], ' / '.join(reads[dep][2]) or '-', tip[:8], reads[tip][0], ' '.join(norm[0].split()) or '### NOT FOUND',
+-                  'EQUAL' if d_eq else '### DIFFERS', full in body, imports, ('restated at :' + ', :'.join(map(str, restated))) if restated else 'NONE',
+-                  'EQUAL' if resolves else '### DIFFERS'))
+-    # ---------------------------------------------------------------- (e) WHAT THE RE-CUT'S DISTANCE MEASURES; THE THREE CELLS HELD
+-    cut = rd('%s_recut_cut.txt' % ACT).split(NL)
+-    l_def = line_of('%s_recut_cut.txt' % ACT, 'THE DISTANCE BY THE b670 METHOD: each')
+-    l_ex = line_of('%s_recut_cut.txt' % ACT, 'UNDERSTATES (not in the distance)')
+-    held = [(i, m.group(1), m.group(2), m.group(3).strip()) for i, l in enumerate(cut, 1)
+-            for m in [re.match(r'^\s+:(\d+)\s+\|\s+(\w+)\s+\| HELD\s+\|.*?\|\s+errata \w+\s+\|\s+(.*)$', l)] if m]
+-    cu = jl('%s_recut_cut.json' % ACT)
+-    e_line = ('(e) THE RE-CUT`S DISTANCE %s -> %s: the count of the paper`s table rows of verdict OVERREACHES or UNLICENSED whose STATED text still '
+-              'stands in the document, searched whitespace-normalized at the base and now (relay data/%s_recut_cut.txt :%s-:%s), UNDERSTATES rows '
+-              'outside it (:%s); the one row standing after the cut a held cell. THE THREE CELLS HELD (the Correspondence table, base :208-:212): %s' % (
+-                  cu.get('before'), cu.get('after'), ACT, l_def, (l_def or 0) + 1, l_ex,
+-                  '; '.join('bank :%d -- the paper`s :%s, %s, "%s"' % h for h in held) or '### NONE FOUND'))
+-    CHECK.update(statement_line=ln, statement=blk, hypotheses=hyps, variables=variables, grade=grade, regrade=regrade, artifact=dict(
+-        name=art.get('name'), id=art.get('id'), sha256=zsha, digest=digest, banked=banked), axioms=ax_lines, sorry=sorry,
+-        tag=dict(object=r_obj, peeled=r_peeled), regpos=dict((c[:8], dict(line=reads[c][0], decl=reads[c][1], ns=reads[c][2])) for c in (dep, tip)),
+-        regpos_equal=d_eq, resolves=resolves, held=held, differs=differs)
+-    head = ('KERNEL -- THE THROUGHSTONE FOR THE KERNEL FOOTING (the author`s word at the root`s prompt, relay data/%s_author_answers.txt): %s. '
+-            'DIFFERS %s ; REGRADE %s.' % (ACT, ' ; '.join([a_line, b_line, c_line, d_line, e_line]), differs or 'NONE', regrade or 'NONE'))
+-    return head + NL + NL.join('        ' + l for l in blk)
++    """the root's prompt, the author's word (data/b713_author_answers.txt, transcript line 17285): THE THROUGHSTONE FOR THE ACT'S REGISTERED
++    LINES AND ITS CERTIFIED OBSERVATION, read before the root and printed beside the report's lines -- (a) the order of the predictions,
++    be4db146 an ancestor of every commit of an onset bank, with timestamps, and data/b713_predictions.txt at be4db146 and at HEAD by sha256;
++    (b) the eight pairs, n* from the predictions at be4db146, the onset, the ratio to six places, the window from data/b712_registrations.txt
++    at 67a02388, HELD or REFUTED, and the 29 beyond reach by height with what the banks commit for them; (c) the coefficient against the
++    navigator's value (n = 24, c(24) = -2 log 24, 90 negatives through n = 3000); (d) the source pin in its own words beside registration
++    (i); (e) pair 7's zero with Re rho > 1 with the rows that certify it. Reads git and the act's banks; writes nothing (the bank route
++    writes the report's own two files). Returns (lines, items): items the readings that are not EQUAL, YES, HELD or AGREES."""
++    import math
++    out, items = [], []
++    pc = (jl('%s_onsets.json' % ACT).get('pred_commit') or '').split(' ')[0]
++    head = g(ROOT, 'rev-parse', 'HEAD').strip()
++    # ---------------------------------------------------------------- (a) THE ORDER OF THE PREDICTIONS
++    banks = ['data/%s_onsets.json' % ACT, 'data/%s_onsets.txt' % ACT]
++    commits = [c for c in g(ROOT, 'log', '--format=%H', '--reverse', '%s..HEAD' % K.PRE_RELAY, '--', *banks).split(NL) if c.strip()]
++    rows = []
++    for c in commits:
++        anc = subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', pc, c], capture_output=True).returncode == 0
++        rows.append('%s %s %s' % (c[:8], g(ROOT, 'show', '-s', '--format=%cI', c).strip(), 'YES' if anc else 'NO'))
++        if not anc:
++            items.append('(a) %s not after be4db146' % c[:8])
++    units = os.path.join(D, '%s_onsets_units.jsonl' % ACT)
++    p_at = hashlib.sha256(subprocess.run(['git', '-C', ROOT, 'show', '%s:data/%s_predictions.txt' % (pc, ACT)], capture_output=True).stdout).hexdigest()
++    p_hd = hashlib.sha256(subprocess.run(['git', '-C', ROOT, 'show', 'HEAD:data/%s_predictions.txt' % ACT], capture_output=True).stdout).hexdigest()
++    if p_at != p_hd:
++        items.append('(a) the predictions bank DIFFERS')
++    out.append('(a) THE ORDER OF THE PREDICTIONS: be4db146 (%s) an ancestor of every commit of an onset bank (%s): %s ; the onsets` units file '
++               'data/%s_onsets_units.jsonl untracked by the face`s declaration, no commit (its first unit 2026-10-26T01:18:58Z, after the '
++               'predictions` commit); data/%s_predictions.txt at be4db146 %s and at HEAD %s %s -- %s' % (
++                   g(ROOT, 'show', '-s', '--format=%cI', pc).strip(), ', '.join(banks), ' ; '.join(rows) or '### NONE FOUND', ACT, ACT, p_at[:16],
++                   head[:8], p_hd[:16], 'EQUAL' if p_at == p_hd else '### DIFFERS'))
++    # ---------------------------------------------------------------- (b) THE EIGHT PAIRS AND THE 29 BEYOND REACH
++    ptxt = subprocess.run(['git', '-C', ROOT, 'show', '%s:data/%s_predictions.txt' % (pc, ACT)], capture_output=True).stdout.decode('utf-8').replace('\r', '').split(NL)
++    reg = subprocess.run(['git', '-C', ROOT, 'show', '67a02388:data/b712_registrations.txt'], capture_output=True).stdout.decode('utf-8').replace('\r', '').split(NL)
++    hyp = next((i for i, l in enumerate(reg, 1) if l.strip().startswith('HYPOTHESIS:') and '[0.99, 1.01]' in l), None)
++    fal = next((i for i, l in enumerate(reg, 1) if l.strip().startswith('FALSIFIER:') and '[0.99, 1.01]' in l), None)
++    lo, hi = 0.99, 1.01
++    onr = dict((r['k'], r) for r in jl('%s_onsets.json' % ACT).get('rows') or [])
++    pairs, beyond = [], []
++    for i, l in enumerate(ptxt, 1):
++        m = re.match(r'^\s+pair\s+(\d+) \| rho ([\d.]+) \+ ([\d.]+) i \|.*\| n\*_pred ([\d.]+) \|', l)
++        b = re.match(r'^\s+pair\s+(\d+) \| rho ([\d.]+) \+ ([\d.]+) i \| r \S+ \| BEYOND REACH at T0` 199: the rule needs T0` > ([\d.]+)', l)
++        if m:
++            k, npred = int(m.group(1)), float(m.group(4))
++            ns = (onr.get(k) or {}).get('n_star')
++            ratio = (ns / npred) if ns else None
++            v = 'HELD' if ratio is not None and lo <= ratio <= hi else 'REFUTED'
++            if v != 'HELD':
++                items.append('(b) pair %d %s' % (k, v))
++            pairs.append('pair %d (predictions :%d) n*_pred %s, onset %s, ratio %s, %s' % (k, i, m.group(4), ns, ('%.6f' % ratio) if ratio else '-', v))
++        elif b:
++            beyond.append('pair %s at %s (:%d): n*_pred NONE COMMITTED, the reach it exceeds T0` 199 < %s' % (b.group(1), b.group(3), i, b.group(4)))
++    if beyond:
++        items.append('(b) the %d pairs beyond reach carry no committed n*_pred' % len(beyond))
++    out.append('(b) THE EIGHT PAIRS against the window [%s, %s] (data/b712_registrations.txt at 67a02388, HYPOTHESIS :%s, FALSIFIER :%s): %s. '
++               'THE %d PAIRS BEYOND REACH, by height, as data/%s_predictions.txt at be4db146 commits them and data/%s_onsets.txt states the '
++               'reach: %s -- the bank commits no n*_pred for a pair beyond reach (b709`s modulus rule fails at T0` 199, so no prediction is '
++               'formed); THE WORD`S "committed prediction n*" FOR THESE 29 IS NOT IN THE BANK' % (
++                   lo, hi, hyp, fal, ' ; '.join(pairs), len(beyond), ACT, ACT, ' ; '.join(beyond)))
++    # ---------------------------------------------------------------- (c) THE COEFFICIENT AGAINST THE NAVIGATOR'S VALUE
++    co = jl('%s_coeffs.json' % ACT)
++    ball = re.match(r'^\[(-?[\d.]+) \+/- ([\d.e-]+)\]$', co.get('least_negative_ball') or '')
++    want = -2 * math.log(24)
++    v_eq = bool(ball) and abs(float(ball.group(1)) - want) < 1e-12
++    n3000 = sum(1 for n in co.get('negative_list') or [] if n <= 3000)
++    for ok, what in ((co.get('least_negative') == 24, 'the least index'), (v_eq, 'c(24)'), (n3000 == 90, 'the count through 3000')):
++        if not ok:
++            items.append('(c) %s DIFFERS' % what)
++    out.append('(c) THE COEFFICIENT, against the navigator`s value in the word: the least index with c(n) < 0 %s beside 24 -- %s ; c(24) %s, '
++               'the ball %s, beside -6 log 2 - 2 log 3 = -2 log 24 = %.15f -- %s ; the count of negative coefficients through n = 3000 from '
++               'the bank`s rows (negative_list) %d beside 90 -- %s ; through %s, %s, the seat`s. SOURCE %s' % (
++                   co.get('least_negative'), 'EQUAL' if co.get('least_negative') == 24 else '### DIFFERS', co.get('least_negative_value'),
++                   co.get('least_negative_ball'), want, 'EQUAL' if v_eq else '### DIFFERS', n3000, 'EQUAL' if n3000 == 90 else '### DIFFERS',
++                   co.get('cut'), co.get('negatives'), seat('%s_coeffs.txt' % ACT, '### ### **AN OBSERVATION')['text']))
++    # ---------------------------------------------------------------- (d) THE SOURCE PIN IN ITS OWN WORDS
++    pin = rd('%s_source_pin.txt' % ACT).split(NL)
++    th = next((i for i, l in enumerate(pin, 1) if l.strip().startswith('Theorem 2.3.')), None)
++    quote = ' '.join(pin[th - 1:th + 1]).strip().rstrip('"').split() if th else []
++    agrees = 'AGREES.**' in NL.join(pin)
++    if not agrees:
++        items.append('(d) the pin not read AGREES')
++    i_lines = [l.strip() for l in reg[15:21] if l.strip().startswith(('Z_Q1(s) + Z_Q2(s) =', 'Z_Q1(s) - Z_Q2(s) ='))]
++    out.append('(d) THE SOURCE PIN: M. Ram Murty and Robert Osburn, "Representations of integers by certain positive definite binary quadratic '
++               'forms", arXiv:math/0412237v1, page 3 -- "%s" (data/%s_source_pin.txt :%s-:%s; the text`s sha256 5de0ba03...3dac; the bank`s '
++               'sha256 %s); registration (i) beside it (data/b712_registrations.txt at 67a02388 :16-:21): %s; the instance at dK = -15 = '
++               '(-3)(5), the bridge zeta(s, C) = Z_Q / 2 the seat`s step and named (the bank :38-:41) -- %s' % (
++                   ' '.join(quote), ACT, th, (th or 0) + 1, (sha('%s_source_pin.txt' % ACT) or '')[:16], ' ; '.join(i_lines) or '### NOT FOUND',
++                   'AGREES' if agrees else '### DIFFERS'))
++    # ---------------------------------------------------------------- (e) PAIR 7'S ZERO BEYOND THE STRIP'S RIGHT EDGE
++    li = jl('%s_list.json' % ACT)
++    p7 = (li.get('re_over_1') or [{}])[0]
++    ltxt = rd('%s_list.txt' % ACT).split(NL)
++    l_pair = next((i for i, l in enumerate(ltxt, 1) if l.strip().startswith('pair 7 :')), None)
++    l_band = next((i for i, l in enumerate(ltxt, 1) if l.strip().startswith('band [59.881486, 75.0]')), None)
++    l_meth = next((i for i, l in enumerate(ltxt, 1) if 'RECT_CERTIFY False' in l), None)
++    if not p7.get('certified'):
++        items.append('(e) pair 7`s point not box-certified: located by Newton inside a band certified by count')
++    out.append('(e) PAIR 7`S ZERO WITH Re rho > 1: rho = %s + %s i (data/%s_list.txt :%s), Re rho %.6f ; ITS ROW IN data/%s_list.json (re_over_1): '
++               'certified %s, count %s, located "%s", h %s x %s ; WHAT CERTIFIES IT: the band [59.881486, 75.0] (:%s) by its certified count, N 18 '
++               '= on-line 12 + 2 x off-line 3, COMPLETE -- the count certified, the off-line points Newton candidates with RECT_CERTIFY False (:%s); '
++               'NO BANK AND LINE CERTIFIES THE POINT ITSELF (no rectangle count about it); THE WORD`S "its certificate`s row" IS THE BAND`S COUNT, '
++               'NOT A CERTIFICATE OF THE POINT' % (
++                   p7.get('re', '')[:20], p7.get('im', '')[:20], ACT, l_pair, float(p7.get('re') or 'nan'), ACT, p7.get('certified'), p7.get('count'),
++                   p7.get('located'), p7.get('h_re'), p7.get('h_im'), l_band, l_meth))
++    return out, items
++
++
++NONE_TEXT = dict(KERNEL='KERNEL -- NONE: no kernel written this act (port-b707 at b712`s tip, no commit; the join tag %s unmoved; no lean on this '
++                        'host, no runner dispatch).' % K.JOIN_TAG[0])
+ 
+ 
+ def lines():
+     keys, seats = {}, []
+-    # ------------------------------------------------------------------ KERNEL: THE THROUGHSTONE (the author's check at the root's prompt), the opening line
+-    keys['CHECK'] = throughstone()
+-    # ------------------------------------------------------------------ KERNEL: THE JOIN
+-    jg, jt = jl('%s_join_grade.json' % ACT), jl('%s_join_tag.json' % ACT)
+-    s1, s2 = seat('%s_join_grade.txt' % ACT, 'GRADE DERIVES'), seat('%s_join_tag.txt' % ACT, 'EQUAL')
+-    ax = (jg.get('axioms') or ['-'])[0]
+-    three = ax.endswith('[propext, Classical.choice, Quot.sound]')
+-    keys['JOIN'] = ('KERNEL -- THE JOIN BY CLOSURE: faces_join at SIDE-faces-join %s (tag object %s, peeled %s, at the remote %s/%s, read back %s), '
+-                    'run %s at ref %s, the lv pin %s (the port`s tip %s); its statement: %s; it names lv-conservation`s own Register4_positivity %s, '
+-                    'read equal at the deposit and the tip %s; #print axioms: %s -- the standard three %s; the grade %s. SOURCE %s ; %s.' % (
+-                        jt.get('tag'), (jt.get('object') or '')[:8], (jt.get('peeled') or '')[:8], (jt.get('remote_object') or '')[:8],
+-                        (jt.get('remote_peeled') or '')[:8], jt.get('ok'), jg.get('run_id'), (jg.get('ref') or '')[:8], (jg.get('pin') or '')[:8],
+-                        (jg.get('pin') == jg.get('tip')), ' '.join(x.strip() for x in jg.get('statement') or []), jg.get('names_lv'),
+-                        jg.get('regpos_equal'), ax, three, jg.get('grade'), s1['text'], s2['text']))
++    # ------------------------------------------------------------------ CERTIFIED: THE -15 LIST
++    li, lc = jl('%s_list.json' % ACT), jl('%s_list_controls.json' % ACT)
++    s1, s2 = seat('%s_list.txt' % ACT, '### ### **THE LIST COMPLETE TO'), seat('%s_list_controls.txt' % ACT, '### ### **(C-a)')
++    bands = li.get('bands') or []
++    over = li.get('re_over_1') or []
++    keys['LIST'] = ('CERTIFIED -- THE -15 LIST: Q1 = %s (D = -%s), its Epstein zeros counted to height %s in %d bands (complete %d), on the line %d, '
++                    'off the line %d pairs, Re rho > 1 at %d (%s, pair 7: located by Newton at 200 bits, the band`s count certified); every '
++                    'off-line point of the list located, not certified -- the counts are certified and the points are located (the author`s word '
++                    'after the root`s prompt, event (9)); the list`s controls (C-a, C-b, NEG) %s. A certified count to a height; no '
++                    'sentence locates a zero of zeta or of an L-function. SOURCE %s ; %s.' % (
++                        li.get('form'), li.get('DQ'), li.get('top'), len(bands), sum(1 for b in bands if b.get('complete')),
++                        len(li.get('online') or []), len(li.get('offline') or []), len(over),
++                        '; '.join('%s + i %s' % (o.get('re', '')[:10], o.get('im', '')[:10]) for o in over) or '-',
++                        'AS WANTED' if lc.get('ok') else '### NOT AS WANTED', s1['text'], s2['text']))
+     seats += [s1, s2]
+-    # ------------------------------------------------------------------ KERNEL: THE PORT
+-    pj, p1 = jl('%s_port.json' % ACT), jl('%s_port_port1.json' % ACT)
+-    sp = seat('%s_port.txt' % ACT, '### ### **')
+-    built, mods = len(pj.get('built') or []), len(pj.get('modules') or [])
+-    art = pj.get('artifact') or {}
+-    fe1 = re.match(r'^error: SIDELvConservation/(\w+\.lean):(\d+):(\d+):', p1.get('first_error') or '')
+-    keys['PORT'] = ('KERNEL -- THE FORWARD PORT: SIDE-lv-conservation port-b707 at %s built %d of %d modules on run %s (artifact sha256 %s…, agreeing %s), '
+-                    'first error %s; the first dispatch, run %s at %s, held at %s; no grade claimed on the port (its print list absent at the tree, '
+-                    'b707`s reading). SOURCE %s.' % (
+-                        K.PORT_NEW_TIP[:8], built, mods, pj.get('run_id'), (art.get('sha256') or '')[:16], art.get('agree'),
+-                        pj.get('first_error') or 'NONE', p1.get('run_id'), K.PORT_EDIT1[:8],
+-                        ('%s :%s:%s' % fe1.groups()) if fe1 else '-', sp['text']))
++    # ------------------------------------------------------------------ REGISTERED: THE PREDICTIONS, COMMITTED ALONE BEFORE ANY ONSET
++    pr, on = jl('%s_predictions.json' % ACT), jl('%s_onsets.json' % ACT)
++    sp = seat('%s_predictions.txt' % ACT, '### ### **PAIRS')
++    pc = (on.get('pred_commit') or '').split(' ')[0]
++    pfiles = sorted(x for x in g(ROOT, 'show', '--name-only', '--format=', pc).split(NL) if x.strip()) if pc else []
++    pct = g(ROOT, 'show', '-s', '--format=%ct', pc).strip() if pc else ''
++    first = iso_epoch(on.get('first_onset') or '')
++    before = bool(pct) and first is not None and int(pct) < first
++    prows = pr.get('rows') or []
++    predicted = [r['k'] for r in prows if r.get('reach') is None]
++    keys['PRED'] = ('REGISTERED -- THE PREDICTIONS COMMITTED ALONE: of %d pairs, %d predicted at T0 %s (pairs %s), the window %s, committed at relay %s '
++                    'carrying %s; the commit before the first onset (%s) %s. SOURCE %s.' % (
++                        len(prows), len(predicted), pr.get('T0'), predicted, pr.get('window'), pc[:8], pfiles, on.get('first_onset'), before, sp['text']))
+     seats.append(sp)
+-    # ------------------------------------------------------------------ KERNEL: Register4_positivity READ EQUAL
+-    rp = jl('%s_regpos.json' % ACT)
+-    sr = seat('%s_regpos.txt' % ACT, 'EQUAL')
+-    keys['REGPOS'] = ('KERNEL -- Register4_positivity read at the deposit %s (:%s) and at the port`s tip %s (:%s), equal by statement %s, the file`s diff '
+-                      'lines %s: %s. SOURCE %s.' % ((rp.get('deposit') or '')[:8], rp.get('line_deposit'), (rp.get('tip') or '')[:8], rp.get('line_tip'),
+-                                                    rp.get('equal'), rp.get('file_diff_lines'), ' '.join(x.strip() for x in rp.get('decl_tip') or []), sr['text']))
++    # ------------------------------------------------------------------ REGISTERED: THE ONSETS
++    so = seat('%s_onsets.txt' % ACT, '### ### **PAIRS COMPUTED')
++    rows = on.get('rows') or []
++    ratios = [r.get('ratio') for r in rows if isinstance(r.get('ratio'), (int, float))]
++    keys['ONSETS'] = ('REGISTERED -- THE ONSETS AGAINST [0.99, 1.01]: computed %d, HELD %s, REFUTED %s, the ratios %s to %s; the pairs beyond reach '
++                      'at T0 held, not computed. SOURCE %s.' % (
++                          len(rows), on.get('held'), on.get('refuted'), ('%.6f' % min(ratios)) if ratios else '-',
++                          ('%.6f' % max(ratios)) if ratios else '-', so['text']))
++    seats.append(so)
++    # ------------------------------------------------------------------ REGISTERED: THE COEFFICIENTS, AN OBSERVATION
++    co = jl('%s_coeffs.json' % ACT)
++    sc = seat('%s_coeffs.txt' % ACT, '### ### **AN OBSERVATION')
++    keys['COEFFS'] = ('REGISTERED -- THE COEFFICIENTS THROUGH n <= %s, AN OBSERVATION: c(n) negative from n = %s (c = %s), negative %s of nonzero %s, '
++                      'undecided %d; the controls C1 %s, C2 %s, C2-NEG %s. SOURCE %s.' % (
++                          co.get('cut'), co.get('least_negative'), co.get('least_negative_value'), co.get('negatives'), co.get('nonzero'),
++                          len(co.get('undecided') or []), co.get('c1'), co.get('c2'), co.get('c2_neg'), sc['text']))
++    seats.append(sc)
++    # ------------------------------------------------------------------ REGISTERED: THE SOURCE PIN
++    sn = seat('%s_source_pin.txt' % ACT, '### ### **THE TEXT FOUND')
++    pin = rd('%s_source_pin.txt' % ACT)
++    keys['PIN'] = ('REGISTERED -- THE SOURCE PIN: Murty-Osburn, arXiv:math/0412237v1, Theorem 2.3 (Kronecker`s theorem), registration (i)`s two lines '
++                   'read as the theorem at -15`s two decompositions -- %s. SOURCE %s.' % ('AGREES' if 'AGREES.**' in pin else '### NOT READ AGREEING', sn['text']))
++    seats.append(sn)
++    # ------------------------------------------------------------------ REGISTERED: THE FACES HEAD :8
++    sf = seat('%s_faces_head_diff.txt' % ACT, '### ### **THE HEAD`S EDIT')
++    fd = rd('%s_faces_head_diff.txt' % ACT)
++    keys['FACES'] = ('REGISTERED -- THE FACES HEAD: FACES_LEDGER.md :%d restated ((R323)(2)(ii)), the edit the clause named and nothing else %s. '
++                     'SOURCE %s.' % (K.FACES_HEAD, 'True.**' in fd, sf['text']))
++    seats.append(sf)
++    # ------------------------------------------------------------------ REGISTERED: THE RE-CUT'S ADDITIVE CHECK
++    ra = jl('%s_recut_additive.json' % ACT).get('last') or {}
++    sr = seat('%s_recut_additive.txt' % ACT, 'FOUND 22 ; MISSING 0')
++    remote = g(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH).split('\t')[0].strip()
++    merged = 'origin/main' in g(PP, 'branch', '-r', '--contains', K.RECUT_TIP)
++    keys['RECUT'] = ('REGISTERED -- THE RE-CUT`S ADDITIVE CHECK ON %s: at %s, found %s, missing %s, in order %s; at the remote %s (equal %s), merged '
++                     'into main %s. SOURCE %s.' % (
++                         K.RECUT_BRANCH, (ra.get('tip') or '')[:8], ra.get('found'), ra.get('missing'), ra.get('in_order'), remote[:8],
++                         remote == K.RECUT_TIP, merged, sr['text']))
+     seats.append(sr)
+-    # ------------------------------------------------------------------ KERNEL: THE RE-CUT'S PINS
+-    cj = jl('%s_recut_compile.json' % ACT)
+-    sc = seat('%s_recut_compile.txt' % ACT, '### ### **')
+-    pins = cj.get('pins') or []
+-    keys['PINS'] = ('KERNEL -- THE RE-CUT`S PINS: %d of %d standing at their tags (%s), the control one line off reading %s, the old pin 0bc21c0 = v1.3 %s '
+-                    'with the statement standing %s. SOURCE %s.' % (
+-                        sum(1 for p in pins if p.get('stands')), len(pins), ', '.join(sorted(set('%s %s' % (p['repo'], p['tag']) for p in pins))),
+-                        cj.get('control'), (cj.get('oldpin') or {}).get('commit', '')[:7] == (cj.get('oldpin') or {}).get('v13', '-')[:7],
+-                        (cj.get('oldpin') or {}).get('statement'), sc['text']))
+-    seats.append(sc)
+-    # ------------------------------------------------------------------ REGISTERED: THE -15 CONTROL AND ITS PRICE
+-    pr = jl('%s_price.json' % ACT)
+-    sg, sq = seat('%s_registrations.txt' % ACT, '### ### **REGISTRATIONS'), seat('%s_price.txt' % ACT, '### ### **')
+-    first = g(ROOT, 'log', '--format=%H', '--reverse', '%s..HEAD' % K.PRE_RELAY).split(NL)[0].strip()
+-    files_first = sorted(x for x in g(ROOT, 'show', '--name-only', '--format=', first).split(NL) if x.strip())
+-    keys['CONTROL'] = ('REGISTERED -- THE CLASS-NUMBER-2 CONTROL AT -15: data/b712_registrations.txt committed at %s, the act`s first relay commit %s '
+-                       'carrying %s; priced -- the first tier %.2f h, the second %.2f h, the seat`s act budget %.1f h, the cut %s; nothing of the -15 '
+-                       'zeros computed. SOURCE %s ; %s.' % (
+-                           K.REG_COMMIT[:8], first[:8] == K.REG_COMMIT[:8], files_first, pr.get('t1') or 0, pr.get('t2') or 0, pr.get('budget') or 0,
+-                           pr.get('cut'), sg['text'], sq['text']))
+-    seats += [sg, sq]
+-    # ------------------------------------------------------------------ REGISTERED: THE FACES ROW
+-    fl = g(PP, 'show', '%s:FACES_LEDGER.md' % K.C3_PP).replace('\r', '').split(NL)
+-    fln = next((i for i, l in enumerate(fl, 1) if l.startswith('## UPDATE') and '(b712)' in l), None)
+-    keys['FACES'] = ('REGISTERED -- THE FACES ROW: FACES_LEDGER.md :%s at PLACE-papers %s, its row naming faces_join, its grade and the peeled SHA %s: %s. '
+-                     'SOURCE PLACE-papers FACES_LEDGER.md :%s at %s.' % (
+-                         fln, K.C3_PP[:8], K.JOIN_TAG[2][:8], K.JOIN_TAG[2][:7] in NL.join(fl[(fln or 1) - 1:]) and 'DERIVES' in NL.join(fl[(fln or 1) - 1:]),
+-                         fln, K.C3_PP[:8]))
+-    # ------------------------------------------------------------------ REGISTERED: THE RE-CUT
+-    cu = jl('%s_recut_cut.json' % ACT)
+-    su, sd = seat('%s_recut_cut.txt' % ACT, '### ### **'), seat('%s_recut_diff.txt' % ACT, '### ### **')
+-    on_remote = bool(g(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH).strip())
+-    keys['RECUT'] = ('REGISTERED -- THE RE-CUT OF %s: on the branch %s at %s (at the remote %s: nothing published); the distance by the b670 method %s -> %s, '
+-                     'the held Correspondence cells %s, the MATCHES rows lost %s. SOURCE %s ; %s.' % (
+-                         K.RECUT_DOC, K.RECUT_BRANCH, K.RECUT_COMMIT[:8], on_remote, cu.get('before'), cu.get('after'),
+-                         ', '.join(':%d' % x for x in sorted(set(cu.get('held') or []))),
+-                         cu.get('matches_lost') or 'NONE', su['text'], sd['text']))
+-    seats += [su, sd]
+     # ------------------------------------------------------------------ HELD
+-    keys['HELD'] = ('HELD -- the draft at v5 (%s), unpublished; no lv tag (W-ORD-LV-PORT-TAG at OPEN_TRAILS :%s for the author`s word); the Correspondence '
+-                    'cells of the re-cut held; the -15 source pin priced for b713; the faces ledger head`s :8 sentence for the author`s word.' % (
+-                        K.DRAFT, K.ORDER_LV_PORT_TAG))
+-    order = [('KERNEL', ['CHECK', 'JOIN', 'PORT', 'REGPOS', 'PINS']), ('CERTIFIED', []), ('REGISTERED', ['CONTROL', 'FACES', 'RECUT']), ('HELD', ['HELD'])]
++    keys['HELD'] = ('HELD -- the draft at v5 (%s), unpublished; the re-cut on its branch, not merged, for the author`s word; no lv tag '
++                    '(W-ORD-LV-PORT-TAG at OPEN_TRAILS :%s); the -15 pairs beyond reach at T0 %s, %d, not computed and owed no prediction; the '
++                    'rectangle certification of pair 7`s point (an argument-principle count of one zero in a box with Re > 1) carried to b714 to '
++                    'be priced there, not run in this act; the keystone heads for b714.' % (
++                        K.DRAFT, K.ORDER_LV_PORT_TAG, pr.get('T0'), len(prows) - len(predicted)))
++    order = [('KERNEL', []), ('CERTIFIED', ['LIST']), ('REGISTERED', ['PRED', 'ONSETS', 'COEFFS', 'PIN', 'FACES', 'RECUT']), ('HELD', ['HELD'])]
+     out = []
+     for ft, ks in order:
+         if not ks:
+-            out.append('%s -- NONE: no certified computation this act (nothing of the -15 control computed).' % ft)
++            out.append(NONE_TEXT[ft])
+         out += [keys[k] for k in ks]
+     return out, keys, seats, order
+ 
+ 
+ def bank():
+     import act_membrane as MEM
+-    import b712_record as REC
++    import b713_record as REC
+     out, keys, seats, order = lines()
+     bad = [s['bank'] for s in seats if not s['ok']]
+     at = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+-    L = ['%s -- THE STANDING REPORT, (R322)(3): THE LINES IN FOOTING ORDER, EACH RECOMPUTED FROM ITS BANKS (%s)' % (ACT, at), '',
++    L = ['%s -- THE STANDING REPORT, (R323)(3): THE LINES IN FOOTING ORDER, EACH RECOMPUTED FROM ITS BANKS (%s)' % (ACT, at), '',
+          '### rows are the report`s lines in footing order (KERNEL, CERTIFIED, REGISTERED, HELD), each line`s figures recomputed from the act`s JSON',
+          '### banks, its SOURCE the bank by path, row and sha256. A report, not an arm: no verdict reads it. The scores line is printed after the',
+-         '### root by `tools/b712_report.py scores`, and written nowhere.', '']
++         '### root by `tools/b713_report.py scores`, and written nowhere.', '']
+     L += ['  (%d) %s' % (i + 1, l) for i, l in enumerate(out)]
++    ts, items = throughstone()
++    L += ['', '### THE THROUGHSTONE, BESIDE THE LINES (the author`s word at the root`s prompt, relay data/%s_author_answers.txt): the act`s two '
++          'REGISTERED lines and its one CERTIFIED observation, read before the root.' % ACT] + ['  %s' % l for l in ts] + [
++          '### THE READINGS NOT EQUAL, YES, HELD OR AGREES -- for the events section, the root waiting on the author`s word: %s' % (items or 'NONE'),
++          '### THE AUTHOR`S WORD ON THEM (event (9), after the root`s prompt): both stand as the banks state them, the misreadings the navigator`s; '
++          '(b) no prediction owed a pair beyond reach; (e) pair 7 located by Newton at 200 bits, the band`s count certified, its rectangle '
++          'certification carried to b714; the act proceeds from the entry [12] through the closing as option 1 reads.']
+     L += ['', '### SOURCES NOT SEATED (a needle not found or a bank absent): %s' % (bad or 'NONE'),
+           '### ### **THE STANDING REPORT: %d LINES IN FOOTING ORDER ; SOURCES %d, SEATED %d ; THE SCORES LINE AFTER THE ROOT.**' % (
+               len(out), len(seats), len(seats) - len(bad))]
+-    J = dict(at=at, lines=out, keys=keys, seats=seats, unseated=bad, footing=dict(order), throughstone=CHECK)
++    J = dict(at=at, lines=out, keys=keys, seats=seats, unseated=bad, footing=dict(order), throughstone=dict(lines=ts, items=items))
+     for name, b in (('%s_report.txt' % ACT, (NL.join(L) + NL).encode('utf-8')),
+                     ('%s_report.json' % ACT, (json.dumps(J, indent=1, ensure_ascii=False) + NL).encode('utf-8'))):
+         p = os.path.join(D, name)
+@@ -349,6 +312,9 @@
+     out, _k, seats, _o = lines()
+     print(NL.join('  (%d) %s' % (i + 1, l) for i, l in enumerate(out)))
+     print('### SOURCES NOT SEATED: %s' % ([s['bank'] for s in seats if not s['ok']] or 'NONE'))
++    ts, items = throughstone()
++    print(NL.join('  ' + l for l in ts))
++    print('### THE READINGS NOT EQUAL, YES, HELD OR AGREES: %s' % (items or 'NONE'))
+ 
+ 
+ def scores():
+@@ -363,20 +329,20 @@
+ 
+ 
+ def diff():
+-    """data/b712_report_diff.txt: (R322)(3)'s carry -- this tool against b711's report at the act's base (tools/b711_report.py at relay
++    """data/b713_report_diff.txt: (R323)(3)'s carry -- this tool against b712's report at the act's base (tools/b712_report.py at relay
+     K.PRE_RELAY), by difflib over the two texts; written through the membrane before the root."""
+     import difflib
+     import act_membrane as MEM
+-    import b712_record as REC
+-    old = g(ROOT, 'show', '%s:tools/b711_report.py' % K.PRE_RELAY).replace('\r', '').split(NL)
++    import b713_record as REC
++    old = g(ROOT, 'show', '%s:tools/b712_report.py' % K.PRE_RELAY).replace('\r', '').split(NL)
+     new = io.open(os.path.abspath(__file__), encoding='utf-8').read().replace('\r', '').split(NL)
+-    body = list(difflib.unified_diff(old, new, 'tools/b711_report.py@%s' % K.PRE_RELAY[:8], 'tools/b712_report.py', lineterm=''))
++    body = list(difflib.unified_diff(old, new, 'tools/b712_report.py@%s' % K.PRE_RELAY[:8], 'tools/b713_report.py', lineterm=''))
+     add = sum(1 for l in body if l.startswith('+') and not l.startswith('+++'))
+     rem = sum(1 for l in body if l.startswith('-') and not l.startswith('---'))
+-    L = ['%s -- (R322)(3): THE STANDING REPORT TOOL CARRIED FORWARD, ITS DIFF AGAINST b711`S REPORT (%s)' % (ACT, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())),
+-         '', '### tools/b712_report.py against tools/b711_report.py at relay %s: +%d -%d. The control of its form: `scores` writes nothing (the membrane' % (K.PRE_RELAY[:8], add, rem),
+-         '### refuses after the root; the route opens no file for writing), `bank` writes data/b712_report.txt and .json alone.', ''] + body + [
+-         '', '### ### **THE REPORT TOOL`S DIFF: +%d -%d AGAINST b711`S.**' % (add, rem)]
++    L = ['%s -- (R323)(3): THE STANDING REPORT TOOL CARRIED FORWARD, ITS DIFF AGAINST b712`S REPORT (%s)' % (ACT, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())),
++         '', '### tools/b713_report.py against tools/b712_report.py at relay %s: +%d -%d. The control of its form: `scores` writes nothing (the membrane' % (K.PRE_RELAY[:8], add, rem),
++         '### refuses after the root; the route opens no file for writing), `bank` writes data/b713_report.txt and .json alone.', ''] + body + [
++         '', '### ### **THE REPORT TOOL`S DIFF: +%d -%d AGAINST b712`S.**' % (add, rem)]
+     p = os.path.join(D, '%s_report_diff.txt' % ACT)
+     MEM.guard_path(ACT, p, REC.R.ROOT_EXCLUDE)
+     with open(p + '.tmp', 'wb') as fh:
+@@ -388,7 +354,7 @@
+ if __name__ == '__main__':
+     r = sys.argv[1] if len(sys.argv) > 1 else ''
+     if r not in ('bank', 'dry', 'scores', 'diff'):
+-        print('usage: b712_report.py bank | dry | scores | diff')
++        print('usage: b713_report.py bank | dry | scores | diff')
+         sys.exit(2)
+     dict(bank=bank, dry=dry, scores=scores, diff=diff)[r]()
+ 
+
+### ### **THE REPORT TOOL`S DIFF: +222 -256 AGAINST b712`S.**

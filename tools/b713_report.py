@@ -19,6 +19,7 @@ import hashlib
 import io
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -78,6 +79,114 @@ def iso_epoch(s):
         return None
 
 
+def throughstone():
+    """the root's prompt, the author's word (data/b713_author_answers.txt, transcript line 17285): THE THROUGHSTONE FOR THE ACT'S REGISTERED
+    LINES AND ITS CERTIFIED OBSERVATION, read before the root and printed beside the report's lines -- (a) the order of the predictions,
+    be4db146 an ancestor of every commit of an onset bank, with timestamps, and data/b713_predictions.txt at be4db146 and at HEAD by sha256;
+    (b) the eight pairs, n* from the predictions at be4db146, the onset, the ratio to six places, the window from data/b712_registrations.txt
+    at 67a02388, HELD or REFUTED, and the 29 beyond reach by height with what the banks commit for them; (c) the coefficient against the
+    navigator's value (n = 24, c(24) = -2 log 24, 90 negatives through n = 3000); (d) the source pin in its own words beside registration
+    (i); (e) pair 7's zero with Re rho > 1 with the rows that certify it. Reads git and the act's banks; writes nothing (the bank route
+    writes the report's own two files). Returns (lines, items): items the readings that are not EQUAL, YES, HELD or AGREES."""
+    import math
+    out, items = [], []
+    pc = (jl('%s_onsets.json' % ACT).get('pred_commit') or '').split(' ')[0]
+    head = g(ROOT, 'rev-parse', 'HEAD').strip()
+    # ---------------------------------------------------------------- (a) THE ORDER OF THE PREDICTIONS
+    banks = ['data/%s_onsets.json' % ACT, 'data/%s_onsets.txt' % ACT]
+    commits = [c for c in g(ROOT, 'log', '--format=%H', '--reverse', '%s..HEAD' % K.PRE_RELAY, '--', *banks).split(NL) if c.strip()]
+    rows = []
+    for c in commits:
+        anc = subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', pc, c], capture_output=True).returncode == 0
+        rows.append('%s %s %s' % (c[:8], g(ROOT, 'show', '-s', '--format=%cI', c).strip(), 'YES' if anc else 'NO'))
+        if not anc:
+            items.append('(a) %s not after be4db146' % c[:8])
+    units = os.path.join(D, '%s_onsets_units.jsonl' % ACT)
+    p_at = hashlib.sha256(subprocess.run(['git', '-C', ROOT, 'show', '%s:data/%s_predictions.txt' % (pc, ACT)], capture_output=True).stdout).hexdigest()
+    p_hd = hashlib.sha256(subprocess.run(['git', '-C', ROOT, 'show', 'HEAD:data/%s_predictions.txt' % ACT], capture_output=True).stdout).hexdigest()
+    if p_at != p_hd:
+        items.append('(a) the predictions bank DIFFERS')
+    out.append('(a) THE ORDER OF THE PREDICTIONS: be4db146 (%s) an ancestor of every commit of an onset bank (%s): %s ; the onsets` units file '
+               'data/%s_onsets_units.jsonl untracked by the face`s declaration, no commit (its first unit 2026-10-26T01:18:58Z, after the '
+               'predictions` commit); data/%s_predictions.txt at be4db146 %s and at HEAD %s %s -- %s' % (
+                   g(ROOT, 'show', '-s', '--format=%cI', pc).strip(), ', '.join(banks), ' ; '.join(rows) or '### NONE FOUND', ACT, ACT, p_at[:16],
+                   head[:8], p_hd[:16], 'EQUAL' if p_at == p_hd else '### DIFFERS'))
+    # ---------------------------------------------------------------- (b) THE EIGHT PAIRS AND THE 29 BEYOND REACH
+    ptxt = subprocess.run(['git', '-C', ROOT, 'show', '%s:data/%s_predictions.txt' % (pc, ACT)], capture_output=True).stdout.decode('utf-8').replace('\r', '').split(NL)
+    reg = subprocess.run(['git', '-C', ROOT, 'show', '67a02388:data/b712_registrations.txt'], capture_output=True).stdout.decode('utf-8').replace('\r', '').split(NL)
+    hyp = next((i for i, l in enumerate(reg, 1) if l.strip().startswith('HYPOTHESIS:') and '[0.99, 1.01]' in l), None)
+    fal = next((i for i, l in enumerate(reg, 1) if l.strip().startswith('FALSIFIER:') and '[0.99, 1.01]' in l), None)
+    lo, hi = 0.99, 1.01
+    onr = dict((r['k'], r) for r in jl('%s_onsets.json' % ACT).get('rows') or [])
+    pairs, beyond = [], []
+    for i, l in enumerate(ptxt, 1):
+        m = re.match(r'^\s+pair\s+(\d+) \| rho ([\d.]+) \+ ([\d.]+) i \|.*\| n\*_pred ([\d.]+) \|', l)
+        b = re.match(r'^\s+pair\s+(\d+) \| rho ([\d.]+) \+ ([\d.]+) i \| r \S+ \| BEYOND REACH at T0` 199: the rule needs T0` > ([\d.]+)', l)
+        if m:
+            k, npred = int(m.group(1)), float(m.group(4))
+            ns = (onr.get(k) or {}).get('n_star')
+            ratio = (ns / npred) if ns else None
+            v = 'HELD' if ratio is not None and lo <= ratio <= hi else 'REFUTED'
+            if v != 'HELD':
+                items.append('(b) pair %d %s' % (k, v))
+            pairs.append('pair %d (predictions :%d) n*_pred %s, onset %s, ratio %s, %s' % (k, i, m.group(4), ns, ('%.6f' % ratio) if ratio else '-', v))
+        elif b:
+            beyond.append('pair %s at %s (:%d): n*_pred NONE COMMITTED, the reach it exceeds T0` 199 < %s' % (b.group(1), b.group(3), i, b.group(4)))
+    if beyond:
+        items.append('(b) the %d pairs beyond reach carry no committed n*_pred' % len(beyond))
+    out.append('(b) THE EIGHT PAIRS against the window [%s, %s] (data/b712_registrations.txt at 67a02388, HYPOTHESIS :%s, FALSIFIER :%s): %s. '
+               'THE %d PAIRS BEYOND REACH, by height, as data/%s_predictions.txt at be4db146 commits them and data/%s_onsets.txt states the '
+               'reach: %s -- the bank commits no n*_pred for a pair beyond reach (b709`s modulus rule fails at T0` 199, so no prediction is '
+               'formed); THE WORD`S "committed prediction n*" FOR THESE 29 IS NOT IN THE BANK' % (
+                   lo, hi, hyp, fal, ' ; '.join(pairs), len(beyond), ACT, ACT, ' ; '.join(beyond)))
+    # ---------------------------------------------------------------- (c) THE COEFFICIENT AGAINST THE NAVIGATOR'S VALUE
+    co = jl('%s_coeffs.json' % ACT)
+    ball = re.match(r'^\[(-?[\d.]+) \+/- ([\d.e-]+)\]$', co.get('least_negative_ball') or '')
+    want = -2 * math.log(24)
+    v_eq = bool(ball) and abs(float(ball.group(1)) - want) < 1e-12
+    n3000 = sum(1 for n in co.get('negative_list') or [] if n <= 3000)
+    for ok, what in ((co.get('least_negative') == 24, 'the least index'), (v_eq, 'c(24)'), (n3000 == 90, 'the count through 3000')):
+        if not ok:
+            items.append('(c) %s DIFFERS' % what)
+    out.append('(c) THE COEFFICIENT, against the navigator`s value in the word: the least index with c(n) < 0 %s beside 24 -- %s ; c(24) %s, '
+               'the ball %s, beside -6 log 2 - 2 log 3 = -2 log 24 = %.15f -- %s ; the count of negative coefficients through n = 3000 from '
+               'the bank`s rows (negative_list) %d beside 90 -- %s ; through %s, %s, the seat`s. SOURCE %s' % (
+                   co.get('least_negative'), 'EQUAL' if co.get('least_negative') == 24 else '### DIFFERS', co.get('least_negative_value'),
+                   co.get('least_negative_ball'), want, 'EQUAL' if v_eq else '### DIFFERS', n3000, 'EQUAL' if n3000 == 90 else '### DIFFERS',
+                   co.get('cut'), co.get('negatives'), seat('%s_coeffs.txt' % ACT, '### ### **AN OBSERVATION')['text']))
+    # ---------------------------------------------------------------- (d) THE SOURCE PIN IN ITS OWN WORDS
+    pin = rd('%s_source_pin.txt' % ACT).split(NL)
+    th = next((i for i, l in enumerate(pin, 1) if l.strip().startswith('Theorem 2.3.')), None)
+    quote = ' '.join(pin[th - 1:th + 1]).strip().rstrip('"').split() if th else []
+    agrees = 'AGREES.**' in NL.join(pin)
+    if not agrees:
+        items.append('(d) the pin not read AGREES')
+    i_lines = [l.strip() for l in reg[15:21] if l.strip().startswith(('Z_Q1(s) + Z_Q2(s) =', 'Z_Q1(s) - Z_Q2(s) ='))]
+    out.append('(d) THE SOURCE PIN: M. Ram Murty and Robert Osburn, "Representations of integers by certain positive definite binary quadratic '
+               'forms", arXiv:math/0412237v1, page 3 -- "%s" (data/%s_source_pin.txt :%s-:%s; the text`s sha256 5de0ba03...3dac; the bank`s '
+               'sha256 %s); registration (i) beside it (data/b712_registrations.txt at 67a02388 :16-:21): %s; the instance at dK = -15 = '
+               '(-3)(5), the bridge zeta(s, C) = Z_Q / 2 the seat`s step and named (the bank :38-:41) -- %s' % (
+                   ' '.join(quote), ACT, th, (th or 0) + 1, (sha('%s_source_pin.txt' % ACT) or '')[:16], ' ; '.join(i_lines) or '### NOT FOUND',
+                   'AGREES' if agrees else '### DIFFERS'))
+    # ---------------------------------------------------------------- (e) PAIR 7'S ZERO BEYOND THE STRIP'S RIGHT EDGE
+    li = jl('%s_list.json' % ACT)
+    p7 = (li.get('re_over_1') or [{}])[0]
+    ltxt = rd('%s_list.txt' % ACT).split(NL)
+    l_pair = next((i for i, l in enumerate(ltxt, 1) if l.strip().startswith('pair 7 :')), None)
+    l_band = next((i for i, l in enumerate(ltxt, 1) if l.strip().startswith('band [59.881486, 75.0]')), None)
+    l_meth = next((i for i, l in enumerate(ltxt, 1) if 'RECT_CERTIFY False' in l), None)
+    if not p7.get('certified'):
+        items.append('(e) pair 7`s point not box-certified: located by Newton inside a band certified by count')
+    out.append('(e) PAIR 7`S ZERO WITH Re rho > 1: rho = %s + %s i (data/%s_list.txt :%s), Re rho %.6f ; ITS ROW IN data/%s_list.json (re_over_1): '
+               'certified %s, count %s, located "%s", h %s x %s ; WHAT CERTIFIES IT: the band [59.881486, 75.0] (:%s) by its certified count, N 18 '
+               '= on-line 12 + 2 x off-line 3, COMPLETE -- the count certified, the off-line points Newton candidates with RECT_CERTIFY False (:%s); '
+               'NO BANK AND LINE CERTIFIES THE POINT ITSELF (no rectangle count about it); THE WORD`S "its certificate`s row" IS THE BAND`S COUNT, '
+               'NOT A CERTIFICATE OF THE POINT' % (
+                   p7.get('re', '')[:20], p7.get('im', '')[:20], ACT, l_pair, float(p7.get('re') or 'nan'), ACT, p7.get('certified'), p7.get('count'),
+                   p7.get('located'), p7.get('h_re'), p7.get('h_im'), l_band, l_meth))
+    return out, items
+
+
 NONE_TEXT = dict(KERNEL='KERNEL -- NONE: no kernel written this act (port-b707 at b712`s tip, no commit; the join tag %s unmoved; no lean on this '
                         'host, no runner dispatch).' % K.JOIN_TAG[0])
 
@@ -90,7 +199,9 @@ def lines():
     bands = li.get('bands') or []
     over = li.get('re_over_1') or []
     keys['LIST'] = ('CERTIFIED -- THE -15 LIST: Q1 = %s (D = -%s), its Epstein zeros counted to height %s in %d bands (complete %d), on the line %d, '
-                    'off the line %d pairs, Re rho > 1 at %d (%s); the list`s controls (C-a, C-b, NEG) %s. A certified count to a height; no '
+                    'off the line %d pairs, Re rho > 1 at %d (%s, pair 7: located by Newton at 200 bits, the band`s count certified); every '
+                    'off-line point of the list located, not certified -- the counts are certified and the points are located (the author`s word '
+                    'after the root`s prompt, event (9)); the list`s controls (C-a, C-b, NEG) %s. A certified count to a height; no '
                     'sentence locates a zero of zeta or of an L-function. SOURCE %s ; %s.' % (
                         li.get('form'), li.get('DQ'), li.get('top'), len(bands), sum(1 for b in bands if b.get('complete')),
                         len(li.get('online') or []), len(li.get('offline') or []), len(over),
@@ -152,7 +263,9 @@ def lines():
     seats.append(sr)
     # ------------------------------------------------------------------ HELD
     keys['HELD'] = ('HELD -- the draft at v5 (%s), unpublished; the re-cut on its branch, not merged, for the author`s word; no lv tag '
-                    '(W-ORD-LV-PORT-TAG at OPEN_TRAILS :%s); the -15 pairs beyond reach at T0 %s, %d, not computed; the keystone heads for b714.' % (
+                    '(W-ORD-LV-PORT-TAG at OPEN_TRAILS :%s); the -15 pairs beyond reach at T0 %s, %d, not computed and owed no prediction; the '
+                    'rectangle certification of pair 7`s point (an argument-principle count of one zero in a box with Re > 1) carried to b714 to '
+                    'be priced there, not run in this act; the keystone heads for b714.' % (
                         K.DRAFT, K.ORDER_LV_PORT_TAG, pr.get('T0'), len(prows) - len(predicted)))
     order = [('KERNEL', []), ('CERTIFIED', ['LIST']), ('REGISTERED', ['PRED', 'ONSETS', 'COEFFS', 'PIN', 'FACES', 'RECUT']), ('HELD', ['HELD'])]
     out = []
@@ -174,10 +287,17 @@ def bank():
          '### banks, its SOURCE the bank by path, row and sha256. A report, not an arm: no verdict reads it. The scores line is printed after the',
          '### root by `tools/b713_report.py scores`, and written nowhere.', '']
     L += ['  (%d) %s' % (i + 1, l) for i, l in enumerate(out)]
+    ts, items = throughstone()
+    L += ['', '### THE THROUGHSTONE, BESIDE THE LINES (the author`s word at the root`s prompt, relay data/%s_author_answers.txt): the act`s two '
+          'REGISTERED lines and its one CERTIFIED observation, read before the root.' % ACT] + ['  %s' % l for l in ts] + [
+          '### THE READINGS NOT EQUAL, YES, HELD OR AGREES -- for the events section, the root waiting on the author`s word: %s' % (items or 'NONE'),
+          '### THE AUTHOR`S WORD ON THEM (event (9), after the root`s prompt): both stand as the banks state them, the misreadings the navigator`s; '
+          '(b) no prediction owed a pair beyond reach; (e) pair 7 located by Newton at 200 bits, the band`s count certified, its rectangle '
+          'certification carried to b714; the act proceeds from the entry [12] through the closing as option 1 reads.']
     L += ['', '### SOURCES NOT SEATED (a needle not found or a bank absent): %s' % (bad or 'NONE'),
           '### ### **THE STANDING REPORT: %d LINES IN FOOTING ORDER ; SOURCES %d, SEATED %d ; THE SCORES LINE AFTER THE ROOT.**' % (
               len(out), len(seats), len(seats) - len(bad))]
-    J = dict(at=at, lines=out, keys=keys, seats=seats, unseated=bad, footing=dict(order))
+    J = dict(at=at, lines=out, keys=keys, seats=seats, unseated=bad, footing=dict(order), throughstone=dict(lines=ts, items=items))
     for name, b in (('%s_report.txt' % ACT, (NL.join(L) + NL).encode('utf-8')),
                     ('%s_report.json' % ACT, (json.dumps(J, indent=1, ensure_ascii=False) + NL).encode('utf-8'))):
         p = os.path.join(D, name)
@@ -192,6 +312,9 @@ def dry():
     out, _k, seats, _o = lines()
     print(NL.join('  (%d) %s' % (i + 1, l) for i, l in enumerate(out)))
     print('### SOURCES NOT SEATED: %s' % ([s['bank'] for s in seats if not s['ok']] or 'NONE'))
+    ts, items = throughstone()
+    print(NL.join('  ' + l for l in ts))
+    print('### THE READINGS NOT EQUAL, YES, HELD OR AGREES: %s' % (items or 'NONE'))
 
 
 def scores():
