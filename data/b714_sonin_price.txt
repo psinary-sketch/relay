@@ -1,0 +1,90 @@
+b714 -- (R324)(10): THE SONIN FACE, PRICED AS A RESTRICTION; NOTHING COMPILED, NO LEAN RUN, NO DISPATCH (2026-10-26)
+
+### F2 holds measured margins and two imported theorems and names no kernel declaration (PLACE-papers FACES_LEDGER.md :21; the tier T3 at
+### :502, "measured margins; the source's inequality and equality are imported, not compiled"). The relation to h2_sign is read as a
+### RESTRICTION, not an equivalence. THE TWO TEXTS READ: (a) the source, Connes-Consani arXiv:2006.13771v1, the artefact b304 pinned
+### (sha256 b8e0b54ade8535cf3ca633d1ef325bfc5c793b407da577a83d111726935b58e0, 1213504 bytes, re-hashed this act: PIN True), held in a prior
+### session's scratchpad (C:/Users/echo chamber/AppData/Local/Temp/claude/D--/44411d52-210c-4cc1-9c1f-45be454f0521/scratchpad/
+### b705_source_cc_2006_13771.pdf); its text layer extracted by pypdf, b305's route (data/b305_source_read.txt :25-:28, the layer intact),
+### pages 0-2 and 15-16, read by the Read tool; (b) SIDE-explicit-formula at v0.37 = 38e2734, the working files equal to the pin (git diff
+### --stat v0.37 empty for H2Sign.lean, PowerLimit.lean, Seam.lean, H2SignWide.lean), read by the Read tool; declarations located by git
+### grep at the tag. No lean is run on this host and no runner is dispatched ((R324) N1).
+
+## THE SOURCE'S STATEMENT (page index 2, the extracted text; ASCII for its symbols)
+    "Theorem 1 Let g in C_c^infty(R*_+) have support in the interval [2^-1/2, 2^1/2] and Fourier transform vanishing at i/2 and 0.
+     Then one has W_infty(g * g^*) >= Tr(theta(g) S theta(g)^*). (4)"
+    with W_infty := -W_R (page index 1, the extracted text, "Weil's inequality in this context ... W_infty(f) >= 0 where W_infty := -W_R"),
+    W_v(f) := W_v(Delta^-1/2 f) (page index 1), S the orthogonal projection of L^2(R)^ev on Sonin's space (page index 1), and the trace
+    Tr(theta(g) S theta(g)^*) of a positive operator, so >= 0 (page index 1: "positive definite by construction"). The positivity
+    W_infty(f) >= 0 on f with support in (1/2, 2) and Fourier transform vanishing at +-i/2 was proved in the source's [34] (page index 1);
+    Theorem 1 strengthens it, and (5) (Theorem 6.11) drops the condition at 0 at the price c |g^(0)|^2, 13 < c < 17 (page index 2).
+
+## THE KERNEL'S STATEMENTS (SIDE-explicit-formula v0.37 = 38e2734)
+    classK (H2Sign.lean :24-:26): k : R -> C even, ContDiff R 2, HasCompactSupport, and k = weilTest h h with h ContDiff R 2, compact support.
+    h2_sign (H2Sign.lean :29-:30): for every k in classK, 0 <= poleTerm k - primeSum k + archTerm k.
+    poleTerm k = paperFT k (i/2) + paperFT k (-i/2) ; primeSum k = SUM_n Lambda(n) n^-1/2 * 2 k(log n) ; archTerm k = (1/2pi) INT paperFT k r
+      * gammaBracket r dr (B321Identity.lean :29-:38) ; zeroSide k = b321Norm * (P - PR + A) for even k in C_c^2 (b321_identity :44-:46).
+    weilTest f g = f conv tilde g, tilde g u = conj (g (-u)) (Zeta23/ExplicitFormula.lean :64-:68); paperFT f z = INT f u exp(i z u) du
+      (Zeta23/Defs.lean :60). h2_sign_iff_rh (Seam.lean :101). kWindow_classK (PowerLimit.lean :121-:124), the power window in classK.
+
+## (i) THE WINDOW'S POSITIVITY AS A PROPOSITION ON classK's MACHINERY, AND THE TWO CLASSES COMPARED
+    the comparison, each feature read from both texts:
+      | feature            | the source's class (Theorem 1)                         | classK                                   | the meet                       |
+      | variable           | g on R*_+, the measure d*x, Delta^1/2 normalization    | k, h on R (u = log x), Lebesgue measure  | h(u) = g(e^u) e^(u/2) [READ]   |
+      | smoothness         | C^infty                                                | C^2 (k and its factor h)                 | C^infty (the source's)          |
+      | support            | g in [2^-1/2, 2^1/2], f = g*g^* in [1/2, 2]            | compact, any                             | h in [-(log 2)/2, (log 2)/2]    |
+      | form               | f = g * g^* (Hermitian; complex g)                     | k = h conv tilde h AND k even            | h REAL: weilTest of phiC phi is |
+      |                    |                                                        |                                          | even (PowerWindow :47-:49)      |
+      | vanishing          | g^(i/2) = 0 and g^(0) = 0                              | none (h2_sign_aim adds poleTerm = 0)     | paperFT h at i/2 and at 0 = 0   |
+      | the functional     | W_infty = -W_R, primes absent on (1/2, 2) (149)        | P - PR + A                               | A alone: P = 0, PR = 0          |
+    [READ] marks the one convention step not settled from the two texts at this act: the source's Fourier transform on R*_+ after Delta^1/2
+    and paperFT's e^(i z u) place the source's point i/2 at paperFT's i/2 or -i/2; the meet's statement uses the vanishing at BOTH +-i/2
+    of the factor's transform where needed and is unaffected by which (poleTerm carries both points), but W_infty's identification with
+    archTerm's normalization (b321Norm = 1, the 1/2pi, the Delta^1/2 weight) is not read here; it is the content (iii) carries.
+    THE PROPOSITION, in the kernel's objects (not compiled):
+        def soninWindowClass (phi : R -> R) : Prop :=
+          ContDiff R top phi AND tsupport phi SUBSET Icc (-(log 2 / 2)) (log 2 / 2) AND paperFT (phiC phi) (I/2) = 0 AND paperFT (phiC phi) 0 = 0
+        def soninWindowPos : Prop :=
+          forall phi, soninWindowClass phi -> 0 <= archTerm (weilTest (phiC phi) (phiC phi))
+    A restriction: it speaks of the meet only (real factors, the window, two vanishing conditions); it does not imply h2_sign, and no
+    statement of this act or the record makes it an equivalence.
+
+## (ii) THE RESTRICTION: h2_sign IMPLIES soninWindowPos, ITS STEPS AND ITS EXPECTED GRADE
+    theorem h2_sign_imp_soninWindowPos : h2_sign -> soninWindowPos. For phi in the class, k := weilTest (phiC phi) (phiC phi):
+      S1 k in classK -- classK_of_real_even (PowerWindow.lean :52), from ContDiff R 2 (of top) and compact support (of tsupport in Icc).
+         HELD at the pin.
+      S2 poleTerm k = 0 -- paperFT_weilTest (ExplicitFormula.lean :205): k^(z) = phi^(z) conj(phi^(conj z)); at z = i/2 the first factor is 0;
+         at z = -i/2 the second (conj(-i/2) = i/2). HELD at the pin; the step is a rewrite. NEW, short.
+      S3 primeSum k = 0 -- tsupport k SUBSET Icc (-log 2) (log 2) (tsupport_weilTest_subset, ExplicitFormula.lean :267, L = log 2); every n >= 3
+         has log n > log 2, so k(log n) = 0; at n = 2 the support's edge: k(log 2) = INT phi(t) phi(t - log 2) dt (weilTest_phiC,
+         PowerWindow.lean :64), the integrand zero off the one point t = (log 2)/2, so the integral is 0; n = 0, 1 by Lambda = 0. NEW: one
+         lemma at the edge (a convolution of two functions supported in [-c, c] vanishes at 2c), the one piece of analysis the step needs.
+      S4 from h2_sign k S1: 0 <= P - PR + A = A by S2, S3.
+    EXPECTED GRADE: T0 in the ledger's vocabulary (a theorem compiled outright, as FACES_LEDGER :532-:534 grade simplicity_iff and its
+    neighbours): its statement an implication from the open clause; it proves nothing of the sign, and its axiom profile expected the
+    library's [propext, Classical.choice, Quot.sound] (memory: library lemmas carry propext).
+
+## (iii) THEOREM 1 AS A NAMED PREMISE, ITS GRADE INTERFACES
+    def CCTheorem1Window : Prop := soninWindowPos -- the premise worded in the kernel's objects, its docstring quoting Theorem 1 (page index 2)
+      and the source's pin; the wording's fidelity to the source (the variable u = log x, the Delta^1/2 weight, W_infty = -W_R against
+      archTerm with b321Norm, the point i/2) carried by a hand-read fidelity row, not compiled -- the [READ] step of (i).
+    theorem soninWindowPos_of_CC : CCTheorem1Window -> soninWindowPos -- the premise consumed by name.
+    GRADE: INTERFACES, the ledger's T2-INTERFACES (FACES_LEDGER :535-:536: Keiper and the window, each `_of` a named premise). The source's
+    stronger content (the trace bound (4), the Sonin projection S) is not stated: S and theta(g) are not in the kernel, and the positivity
+    alone is what the restriction meets.
+
+## THE DISPATCHES AND MODULES EACH STEP NEEDS (priced; none run)
+    module M1 SIDEExplicitFormula/SoninWindow.lean (imports H2Sign, PowerWindow, PowerLimit): soninWindowClass, soninWindowPos, the edge
+       lemma (S3), poleTerm_window_zero (S2), primeSum_window_zero (S3), h2_sign_imp_soninWindowPos (S4). Dispatches: 1 build of the module +
+       its #print axioms; 1 fail-and-restore control (S2's vanishing hypothesis struck, the build wanted to fail); 1 build of the package
+       after the import is added. 3 dispatches.
+    module M2 SIDEExplicitFormula/SoninPremise.lean (imports M1): CCTheorem1Window, soninWindowPos_of_CC, the fidelity docstring. Dispatches:
+       1 build + #print axioms (the premise appearing as a hypothesis, no axiom added). 1 dispatch.
+    the ledger: one FACES_LEDGER update row naming M1's theorem at T0 and M2's at T2-INTERFACES, F2's T3 row unedited (append-only, :10).
+    the fidelity row (iii): a relay bank reading the [READ] step from both texts, before M2's wording is fixed.
+    HOURS (an estimate, the seat's): M1 4 to 6 (the edge lemma 2 to 3 of them), M2 1, the fidelity row 2, the ledger row 0.5; runner time per
+    dispatch read from the act that runs them. 4 dispatches in all; the order M1 -> fidelity row -> M2 -> the ledger row.
+
+### ### **PRICED AS A RESTRICTION: (i) soninWindowPos on the meet (real factors, the window [-(log 2)/2, (log 2)/2], vanishing at i/2 and 0),
+### ### ONE CONVENTION STEP [READ] ; (ii) h2_sign -> soninWindowPos, FOUR STEPS, TWO NEW (S2 a rewrite, S3 one edge lemma), EXPECTED T0 ;
+### ### (iii) CCTheorem1Window, INTERFACES (T2-INTERFACES) ; TWO MODULES, FOUR DISPATCHES, 7.5 TO 9.5 HOURS (4-6 + 1 + 2 + 0.5) ; NOTHING COMPILED.**
