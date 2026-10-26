@@ -975,8 +975,8 @@ def ksyms(*a):
 
 
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R325)(1)
-WH = ('*Appended 2026-10-26 by b715 to b714’s entry (:10440), under `(R325)`(1) -- b714 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
-      'data/b714_closing.txt):*')   # ### b715: b714's entry at :10440 and the act's date; the carry left b712's entry line (:10378) and b714's date
+WH = ('*Appended 2026-10-26 by b715 to b714’s entry (:10512), under `(R325)`(1) -- b714 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b714_closing.txt):*')   # ### b715: b714's entry at :10512 (K.B711_ENTRY) and the act's date; the carry left b713's entry line (:10440)
 
 
 def _fig(text, pat, what):
@@ -1064,8 +1064,11 @@ def _wb_carried():
                 p_post, n_post, fails, msha, nfiles, lmi, len(short), _letter(short[-1]) if short else '-', len(evl)))
 
 
-def _wb():
-    """b714's weight line under (R325)(1), in the clause's order, every figure read from b714's banks by row and cited by its line: the
+def _wb_carried713():
+    """THE SECOND CARRIED FORM, NOT CALLED (kept for the diff, data/b715_tool_repairs.txt): b713's composer under b714's names by the carry's
+    substitution -- the list, the predictions, the onsets, the coefficients, pair 7 -- banks b714 did not write (its first call would exit on
+    data/b714_list.txt absent). `_wb` below composes b714's own. Its words as carried:
+    b714's weight line under (R325)(1), in the clause's order, every figure read from b714's banks by row and cited by its line: the
     head from its closing :1 and the closing's commit from its step bank; the list's foot; the predictions' one commit and its ancestry to
     the onsets' commit; the onsets' rows and foot; Q0's two pairs at b711; the coefficients and the navigator's count; pair 7; Q0's list;
     the source pin; the faces head; the re-cut's check; the entry and the trail; the root and its banks; the scores; the suite; the mirror;
@@ -1146,12 +1149,79 @@ def _wb():
                 _letter(short[-1]) if short else '-', len(evl)))
 
 
+def _wb():
+    """b714's weight line under (R325)(1), in the clause's order, every figure read from b714's banks by row and cited by its line: the head
+    from its closing :1 and the closing's commit from its step bank; the suite post-push and pre-push with its one withheld arm; that arm's
+    defect (p); the lv tag; the re-cut's merge and its additive check; the heads draft held; the pilot's (P1), (P2) and (P3), the chain's rows
+    counted from the bank; the entry and the trail; the root and its banks; the scores; the mirror; the defects with their owners and the
+    events by their starting lines. Written at b715: both carried forms composed earlier acts' objects, banks b714 did not write -- the class
+    the navigator's added item of (R325)(2) names, a close computed in copied tools."""
+    c = rdn('b714_closing.txt')
+    head = c.split(NL)[0]
+    closing = [r for r in (jl('b714_steps.json').get('rows') or []) if r.get('phase') == 'closing']
+    if len(closing) != 1:
+        sys.exit('### data/b714_steps.json CARRIES %d CLOSING ROWS, NOT ONE -- NOTHING COMPOSED' % len(closing))
+    suite = r'^\s*%s : ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\. ### LIVE FAILING : (\d+) .*### WITHHELD, NOT EXERCISABLE : (\d+) \[\'G-RULE-LONG-PHASE-SPLIT\'\]'
+    (n_post, p_post, f_post, w_post), lpost = _fl('b714_closing.txt', suite % 'post-push', 'the post-push suite')
+    (n_pre, p_pre, f_pre, w_pre), lpre = _fl('b714_closing.txt', suite % 'pre-push', 'the pre-push suite')
+    _x, ldp = _fl('b714_defects.txt', r"^    \(p\) b713's CLOSE'S: .*G-RULE-LONG-PHASE-SPLIT WITHH", 'defect (p)')
+    (tag,), ltag = _fl('b714_closing.txt', r'v0\.14\.0 MADE AT ([0-9a-f]{8}), ANNOTATED, PEEL READ BACK \1 ; NO RELEASE FOR IT', 'the lv tag')
+    _x, lra = _fl('b714_closing.txt', r'ORIGINAL LINES 22 .* ; FOUND 22 ; MISSING 0 ; IN ORDER True', 'the additive check on main')
+    par = g(PP, 'rev-list', '--parents', '-n', '1', K.RECUT_MERGE).split()
+    if len(par) != 3 or par[0] != K.RECUT_MERGE:
+        sys.exit('### %s IS NOT A MERGE OF TWO PARENTS ON PLACE-papers (%s) -- NOTHING COMPOSED' % (K.RECUT_MERGE[:8], [x[:8] for x in par]))
+    _x, lhd = _fl('b714_closing.txt', r'THE DRAFT HELD, NOT WRITTEN TO MAIN', 'the heads draft held')
+    (n1, f1, m1, np1), lp1 = _fl('b714_pilot.txt', r'\(P1\) NAMES (\d+): FOUND (\d+) ; MISSING (\d+) ; NO PIN STATED (\d+)', 'the pilot`s (P1)')
+    (h2, ad2, fa2), lp2 = _fl('b714_pilot.txt', r'\(P2\) HITS (\d+): AS DESIGNED (\d+) ; FOR THE AUTHOR (\d+)', 'the pilot`s (P2)')
+    (nd3, dis3, hr3), lp3 = _fl('b714_pilot.txt', r'\(P3\) THE CHAIN (\d+) DECLARATIONS ; .* ; (\d+) DISPATCHES ; ABOUT ([\d.]+) HOURS', 'the pilot`s (P3)')
+    rows3 = [(i, m.group(1)) for i, l in enumerate(rdn('b714_pilot.txt').split(NL), 1)
+             for m in [re.match(r'^    the (?:surround :\d+|seam|target|join)\s+\| \S+\s+\| \S+\s+\| (FOUND|READ|MISSING)\s+\|', l)] if m]
+    if len(rows3) != int(nd3):
+        sys.exit('### data/b714_pilot.txt (P3) READS %d ROWS BESIDE ITS FOOT`S %s -- NOTHING COMPOSED' % (len(rows3), nd3))
+    found3 = sum(1 for _i, s in rows3 if s == 'FOUND')
+    read3 = sum(1 for _i, s in rows3 if s == 'READ')
+    ar = jl('b714_act_root.json')
+    if not ar.get('root') or not ar.get('previous'):
+        sys.exit('### data/b714_act_root.json CARRIES NO ROOT -- NOTHING COMPOSED')
+    (nbanks,), lbk = _fl('b714_closing.txt', r'THE ROOT`S BANKS .*: BANKS (\d+) ; CLEAN AND EQUAL AT HEAD \1', 'the root`s banks')
+    _x, lsc = _fl('b714_closing.txt', r'^\s*\(N1\) HELD \(N2\) HELD \(N3\) HELD \(N4\) HELD \(N5\) HELD ; \(S1\) HELD \(S2\) HELD \(S3\) HELD', 'the scores at the close')
+    (msha,), lmi = _fl('b714_closing.txt', r'mirror-refresh-2026-10-26-b714\.zip ; \d+ bytes ; sha256 ([0-9a-f]{8})[0-9a-f]* ; .*Act root: b714 '
+                       + ar['root'] + ' ; CLEAN ON ALL THREE CLAUSES', 'the mirror')
+    short = _defect_short('b714')
+    owners = re.findall(r"^    \(([a-z])\) (THE SEAT'S|THE NAVIGATOR'S|b713's CLOSE'S):", rdn('b714_defects.txt'), re.M)
+    nav = [x for x, o in owners if o == "THE NAVIGATOR'S"]
+    prv = [x for x, o in owners if o == "b713's CLOSE'S"]
+    if len(owners) != len(short) or nav != ['f', 'q'] or prv != ['p']:
+        sys.exit('### data/b714_defects.txt OWNERS %s BESIDE %d DEFECTS -- NOTHING COMPOSED' % (owners, len(short)))
+    evl = [i for i, l in enumerate(rdn('b714_events.txt').split(NL), 1) if re.match(r'^\(\d+\) ', l)]
+    if len(evl) != 12:
+        sys.exit('### data/b714_events.txt READS %d STARTING LINES, NOT THE RULING`S TWELVE -- NOTHING COMPOSED' % len(evl))
+    return (' “%s” (data/b714_closing.txt :1); its relay commit the record’s, the closing’s %s (data/b714_steps.json, the closing row), pushed '
+            'and read back. As the banks confirm by row: the suite %s passing, %s failing and %s WITHHELD, NOT EXERCISABLE of %s post-push, '
+            '%s/%s/%s pre-push (data/b714_closing.txt :%d, :%d); G-RULE-LONG-PHASE-SPLIT withheld under the author’s words (5)-(7), defect (p), '
+            'b713’s close’s (data/b714_defects.txt :%d); the lv port tagged v0.14.0 at %s, annotated, its peel read back, no release for it '
+            '(data/b714_closing.txt :%d); recut-b712-silence merged into PLACE-papers main at %s, its second parent %s, the additive check on '
+            'main FOUND 22, MISSING 0, in order (data/b714_closing.txt :%d); the heads draft HELD in data/b714_heads_draft.txt, not written to '
+            'main (data/b714_closing.txt :%d); the pilot in data/b714_pilot.txt: %s names, %s FOUND, %s MISSING, %s NO PIN STATED (:%d); %s '
+            'lint hits, %s AS DESIGNED, %s FOR THE AUTHOR (:%d); the reduction chain’s %s declarations, %s FOUND at their pins and %s READ '
+            'from the faces page (:%d-:%d), a blueprint priced at %s dispatches and about %s hours (:%d); the entry at FINDINGS :%d; the trail '
+            'at OPEN_TRAILS :%d; the root %s over %s banks chained from %s (data/b714_act_root.json; data/b714_closing.txt :%d); N1-N5 and '
+            'S1-S3 HELD (data/b714_closing.txt :%d); the mirror mirror-refresh-2026-10-26-b714.zip (sha256 %s…) CLEAN on all three clauses '
+            'with the root line (data/b714_closing.txt :%d); %d defects (a)–(%s), (%s) and (%s) the navigator’s, (%s) b713’s close’s, the '
+            'rest the seat’s (data/b714_defects.txt); %d events in data/b714_events.txt by their starting lines. Nothing deposited, nothing '
+            'published.' % (
+                head, closing[0]['commit'][:8], p_post, f_post, w_post, n_post, p_pre, f_pre, w_pre, lpost, lpre, ldp, tag, ltag,
+                K.RECUT_MERGE[:8], par[2][:8], lra, lhd, n1, f1, m1, np1, lp1, h2, ad2, fa2, lp2, nd3, found3, read3, rows3[0][0],
+                rows3[-1][0], dis3, hr3, lp3, K.B711_ENTRY, K.B711_TRAIL, ar['root'][:8], nbanks, ar['previous'][:8], lbk, lsc, msha, lmi,
+                len(short), _letter(short[-1]) if short else '-', nav[0], nav[1], prv[0], len(evl)))
+
+
 def c1(*a):
-    """FINDINGS: b714's weight line appended after b714's entry (:10440) through b698's landing and its screens; its line banked in
+    """FINDINGS: b714's weight line appended after b714's entry (:10512) through b698's landing and its screens; its line banked in
     data/b715_record_lines.json. `c1 dry` prints the line and writes nothing."""
     dry = 'dry' in a
     land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B711_ENTRY,
-         check=[('FINDINGS.md', K.B711_ENTRY, '## The −15 control: the certified list to height 199.33'),
+         check=[('FINDINGS.md', K.B711_ENTRY, '## The lv port tagged v0.14.0 and Silence_of_Foundations merged'),
                 ('OPEN_TRAILS.md', K.B711_TRAIL, '### b714 — lane two, act one hundred and forty')],
          dry=dry)   # ### b715: the needles b714's entry and trail (the carried needles named b712's entry and b714's trail head form)
 
