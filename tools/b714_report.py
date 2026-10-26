@@ -79,7 +79,7 @@ def lines():
     st = seat('%s_lv_tag.txt' % ACT, '### ### **%s TAKEN' % K.LV_TAG_RULED)
     peel = g(K.LV_DIR, 'rev-parse', '%s^{}' % K.LV_TAG).strip()
     keys['TAG'] = ('KERNEL -- THE LV PORT TAGGED %s: SIDE-lv-conservation port-b707 at %s (compiled by the runner at b712, no commit this act), '
-                   'the tag annotated, its peel read back %s and read now %s (equal %s); %s taken; no GitHub release (%s); main %s and the deposit '
+                   'the tag annotated, its peel read back %s and read now %s (equal %s); the ruled name %s found taken already (defect (f)); no GitHub release (%s); main %s and the deposit '
                    'untouched. SOURCE %s.' % (K.LV_TAG, K.PORT_TIP[:8], f['tag_peel'], peel[:8], peel == K.PORT_TIP, K.LV_TAG_RULED, f['tag_release'],
                                               K.LV_MAIN[:8], st['text']))
     seats.append(st)
@@ -123,7 +123,9 @@ def lines():
                     'names SIDE-kernel and a typeclass, the declaration a structure at SIDEMeta/Meta/SIDESystem.lean :99 in SIDE-meta) carried to b715, '
                     'the row not edited; the %s names with NO PIN STATED carried to b715 by keystone, file and line. SOURCE %s.' % (
                         K.DRAFT, f['heads_n'], f['heads_kernel'], f['heads_held'],
-                        ('written to main at %s on the author`s word' % f['heads_commit']) if f['heads_commit'] else 'held for the author`s word at the root`s prompt',
+                        ('written to main at %s on the author`s word' % f['heads_commit']) if f['heads_commit'] else
+                        'HELD on the author`s word at the root`s prompt (relay data/b714_author_words.txt), not written to main, carried to b715 with the '
+                        'question whether a head carries its footings inline or in a companion correspondence',
                         f['pil_for'], f['pil_nopin'], sh['text']))
     seats.append(sh)
     order = [('KERNEL', ['TAG']), ('CERTIFIED', ['RECT']), ('REGISTERED', ['MERGE', 'LAW', 'RESID', 'SONIN', 'PILOT']), ('HELD', ['HELD'])]
