@@ -1,0 +1,18 @@
+b713 -- (R323)(5)(iv): THE COEFFICIENT OBSERVATION AT -15, AS data/b712_registrations.txt (iii) REGISTERED IT (:54-:62) -- AN OBSERVATION, NOT A PREDICTION (2026-10-26T01:21:09Z)
+
+### rows are readings of c(n), Q1`s log-derivative coefficients (-Z_Q1`/Z_Q1 = SUM c(n) n^-s), computed exactly for n <= 32532 (data/b712_price.txt :53),
+### each a vector of rationals over the primes of n (c(n) = SUM q_p log p); b_n = r_Q1(n)/2, Q1 = x^2 + xy + 4y^2 (b_1 = 1). THE CONTROLS FIRST.
+
+### (C1) the recursion with b_n = 1 (zeta`s series) returns von Mangoldt exactly at every n <= 32532: mismatches 0 [] -- AS WANTED
+### (C2) r_Q1(n) against the coefficients of zeta L(chi_-15) + L(chi_-3) L(chi_5) at every n <= 32532: mismatches 0 [] -- AS WANTED
+### (C2-NEG) r_Q2(n), Q2 = 2x^2 + xy + 2y^2, against the same right side: mismatches 11086 (the first [1, 2, 3, 4, 5]) -- UNEQUAL AS WANTED
+### THE CONTROLS: C1 True ; C2 True ; C2-NEG True
+
+### THE READINGS:
+  the coefficients through 32532: nonzero 3184 of 32531 (r_Q1(n) nonzero at 5543 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n = 24 ; c(24) = (-6) log 2 + (-2) log 3 = [-6.35610766069589 +/- 1.24e-15]
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 756 ; the first ten [24, 36, 40, 60, 90, 100, 136, 150, 184, 204]
+  THE LEAST HEIGHT OF A CERTIFIED ZERO OF Q1 WITH Re rho > 1 IN b713`S LIST (complete to 199.33082): pair 7, [1.02597 +/- 3.62e-6] + [61.42280 +/- 2.70e-6] i ; 1 such pairs of 37 ; undecided 0
+  the list`s off-line search region (tools/b713_list.py over tools/b709_pairs.py DELTA, SIG_ROWS): sigma >= 1/2 + 0.02, 19 candidate rows, the right edge Re s = 2.0
+
+### ### **AN OBSERVATION ; c(n) NEGATIVE FROM n = 24 (c = (-6) log 2 + (-2) log 3) ; NEGATIVE COEFFICIENTS 756 THROUGH 32532 ; Re rho > 1 IN THE LIST TO 199.33082: pair 7 at [61.42280 +/- 2.70e-6] ; C1 True ; C2 True ; C2-NEG True.**
