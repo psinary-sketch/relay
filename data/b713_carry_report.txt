@@ -1,0 +1,77 @@
+b713 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b712_report.py -> tools/b713_report.py (2026-10-26T01:23:52Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b712 -> b713, b711 -> b712, (R322) -> (R323), (R321) -> (R322), R322 -> R323, R321 -> R322); 394 lines, 24 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b712_tool_repairs.txt AND data/b712_repairdiff_report.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b712; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b712_report.py
+  +++ tools/b713_report.py
+  @@ -1,1 +1,1 @@
+  -"""b712 -- THE STANDING REPORT TOOL, (R322)(3): data/b712_report.txt (.json). A REPORT, NOT AN ARM.
+  +"""b713 -- THE STANDING REPORT TOOL, (R323)(3): data/b713_report.txt (.json). A REPORT, NOT AN ARM.
+  @@ -3,2 +3,2 @@
+  -Rewritten whole by the Write tool at b712 from b711's throughstone report (tools/b711_report.py), carried forward under (R322)(3): "The
+  -throughstone report of b711 carried forward as a standing report tool, data/b712_report.txt, its four footings KERNEL, CERTIFIED, REGISTERED,
+  +Rewritten whole by the Write tool at b713 from b712's throughstone report (tools/b712_report.py), carried forward under (R323)(3): "The
+  +throughstone report of b712 carried forward as a standing report tool, data/b713_report.txt, its four footings KERNEL, CERTIFIED, REGISTERED,
+  @@ -9,3 +9,3 @@
+  -          (KERNEL, CERTIFIED, REGISTERED, HELD), a footing no line stands on printed as NONE; written through the membrane to data/b712_report.txt
+  -          and data/b712_report.json. Nothing else is written.
+  -  scores  (after the root) the scores line: all eight from data/b712_scores_close.json, each HELD or BROKEN, and the root line from
+  +          (KERNEL, CERTIFIED, REGISTERED, HELD), a footing no line stands on printed as NONE; written through the membrane to data/b713_report.txt
+  +          and data/b713_report.json. Nothing else is written.
+  +  scores  (after the root) the scores line: all eight from data/b713_scores_close.json, each HELD or BROKEN, and the root line from
+  @@ -28,1 +28,1 @@
+  -import b712_worklist as K          # noqa: E402
+  +import b713_worklist as K          # noqa: E402
+  @@ -31,1 +31,1 @@
+  -ACT = 'b712'
+  +ACT = 'b713'
+  @@ -111,1 +111,1 @@
+  -    """the root's prompt, the author's word (data/b712_author_answers.txt, transcript line 8485): THE THROUGHSTONE FOR THE KERNEL FOOTING, read
+  +    """the root's prompt, the author's word (data/b713_author_answers.txt, transcript line 8485): THE THROUGHSTONE FOR THE KERNEL FOOTING, read
+  @@ -120,1 +120,1 @@
+  -    import b712_record as REC
+  +    import b713_record as REC
+  @@ -287,1 +287,1 @@
+  -    keys['CONTROL'] = ('REGISTERED -- THE CLASS-NUMBER-2 CONTROL AT -15: data/b712_registrations.txt committed at %s, the act`s first relay commit %s '
+  +    keys['CONTROL'] = ('REGISTERED -- THE CLASS-NUMBER-2 CONTROL AT -15: data/b713_registrations.txt committed at %s, the act`s first relay commit %s '
+  @@ -295,1 +295,1 @@
+  -    fln = next((i for i, l in enumerate(fl, 1) if l.startswith('## UPDATE') and '(b712)' in l), None)
+  +    fln = next((i for i, l in enumerate(fl, 1) if l.startswith('## UPDATE') and '(b713)' in l), None)
+  @@ -325,1 +325,1 @@
+  -    import b712_record as REC
+  +    import b713_record as REC
+  @@ -329,1 +329,1 @@
+  -    L = ['%s -- THE STANDING REPORT, (R322)(3): THE LINES IN FOOTING ORDER, EACH RECOMPUTED FROM ITS BANKS (%s)' % (ACT, at), '',
+  +    L = ['%s -- THE STANDING REPORT, (R323)(3): THE LINES IN FOOTING ORDER, EACH RECOMPUTED FROM ITS BANKS (%s)' % (ACT, at), '',
+  @@ -332,1 +332,1 @@
+  -         '### root by `tools/b712_report.py scores`, and written nowhere.', '']
+  +         '### root by `tools/b713_report.py scores`, and written nowhere.', '']
+  @@ -366,1 +366,1 @@
+  -    """data/b712_report_diff.txt: (R322)(3)'s carry -- this tool against b711's report at the act's base (tools/b711_report.py at relay
+  +    """data/b713_report_diff.txt: (R323)(3)'s carry -- this tool against b712's report at the act's base (tools/b712_report.py at relay
+  @@ -370,2 +370,2 @@
+  -    import b712_record as REC
+  -    old = g(ROOT, 'show', '%s:tools/b711_report.py' % K.PRE_RELAY).replace('\r', '').split(NL)
+  +    import b713_record as REC
+  +    old = g(ROOT, 'show', '%s:tools/b712_report.py' % K.PRE_RELAY).replace('\r', '').split(NL)
+  @@ -373,1 +373,1 @@
+  -    body = list(difflib.unified_diff(old, new, 'tools/b711_report.py@%s' % K.PRE_RELAY[:8], 'tools/b712_report.py', lineterm=''))
+  +    body = list(difflib.unified_diff(old, new, 'tools/b712_report.py@%s' % K.PRE_RELAY[:8], 'tools/b713_report.py', lineterm=''))
+  @@ -376,4 +376,4 @@
+  -    L = ['%s -- (R322)(3): THE STANDING REPORT TOOL CARRIED FORWARD, ITS DIFF AGAINST b711`S REPORT (%s)' % (ACT, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())),
+  -         '', '### tools/b712_report.py against tools/b711_report.py at relay %s: +%d -%d. The control of its form: `scores` writes nothing (the membrane' % (K.PRE_RELAY[:8], add, rem),
+  -         '### refuses after the root; the route opens no file for writing), `bank` writes data/b712_report.txt and .json alone.', ''] + body + [
+  -         '', '### ### **THE REPORT TOOL`S DIFF: +%d -%d AGAINST b711`S.**' % (add, rem)]
+  +    L = ['%s -- (R323)(3): THE STANDING REPORT TOOL CARRIED FORWARD, ITS DIFF AGAINST b712`S REPORT (%s)' % (ACT, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())),
+  +         '', '### tools/b713_report.py against tools/b712_report.py at relay %s: +%d -%d. The control of its form: `scores` writes nothing (the membrane' % (K.PRE_RELAY[:8], add, rem),
+  +         '### refuses after the root; the route opens no file for writing), `bank` writes data/b713_report.txt and .json alone.', ''] + body + [
+  +         '', '### ### **THE REPORT TOOL`S DIFF: +%d -%d AGAINST b712`S.**' % (add, rem)]
+  @@ -391,1 +391,1 @@
+  -        print('usage: b712_report.py bank | dry | scores | diff')
+  +        print('usage: b713_report.py bank | dry | scores | diff')
+
+### ### **CARRIED tools/b713_report.py ; LINES 394 ; CHANGED BY THE SUBSTITUTION 24 ; REPAIR SPANS AT b712 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

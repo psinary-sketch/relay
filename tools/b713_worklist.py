@@ -139,8 +139,32 @@ STEPZERO = '82e128b4ab4334307364ed7abb612e3501c2195d'          # ### b712's clos
 STEPZERO_STEPS = 'b8de4d0c83aa738b268779afb310ad756f6211c9'    # ### b712's closing step row (step 25), committed alone at step zero
 STEPZERO_BANKS = 'dc373260a0baa7d6266e87703ee91c7f7cb38199'    # ### the step-zero banks and tools, committed together by explicit list
 COMPUTE_TOOLS = ('b713_list.py', 'b713_predict.py', 'b713_onsets.py', 'b713_coeffs.py')   # ### (R323)(5): each writing its own bank alone
-REPAIRED_TOOLS = ()          # ### shared tools of earlier acts edited by this act (repair (v): tools/push_gated.sh), filled at Component 1
+REPAIRED_TOOLS = ('push_gated.sh',)   # ### shared tools of earlier acts edited by this act: repair (v)'s capture (data/b713_tool_repairs.txt)
 REPAIRED_DATA = ()
-NEW_TOOLS = ()
-SEALED = ()                  # ### stage two
-ACT_ARMS = ()                # ### stage two
+NEW_TOOLS = ('act_close.py',)        # ### (R323)(4)(i)-(iv), (vi): the close's shared functions, one form for every tool (new at Component 1)
+# ### stage two (Component 5): the commits of the components, read from the logs after each was made
+C1_RELAY = 'aceae6110e68d83513ce5f355b85f460dedeac9b'    # ### the corrigendum's banks, the faces head diff, the re-cut's additive check, the six repairs
+C1_PP = '5bdd0d802f401ab0d375d7f743c6722b623b07da'       # ### the corrigendum entry (FINDINGS :10414), after 503f1ce (FACES_LEDGER :8) and ef7e72b (the weight)
+C1_PP_FACES = '503f1ce6415134228be619db9df05a6864a1254f' # ### (R323)(2)(ii): FACES_LEDGER.md :8 alone
+C1_PP_WEIGHT = 'ef7e72b8cf03824e47f5f6396d3f4a01cc4ee445'
+PIN_RELAY = 'b70e1c4d279e6084c73d05222228203c6de594d6'   # ### (R323)(6): the source pin (Component 4's, taken before the first -15 band)
+C2_RELAY = '56beea299b3686b888c494ff6ade667d9bda722f'    # ### the list
+PRED_RELAY = 'be4db146a2676fc5758cc81644f669efe4aca03a'  # ### the predictions, committed alone
+C3_RELAY = '9816b87d31567b02bad2dbf4e67f203c6af2c44f'    # ### the onsets
+C4_RELAY = 'c106062ae4ce5a6f261799cef1cf1b9bbcb33d00'    # ### the coefficients
+SEALED = ('b713_worklist.py', 'b713_tests.py', 'b713_citation.py', 'b713_record.py', 'b713_checks.py', 'b713_closing.py', 'b713_reg_gate.py',
+          'b713_regspec.py', 'b713_corrigendum.py', 'b713_carry.py', 'b713_standing.py') + COMPUTE_TOOLS   # ### the report tool NOT sealed (data/b708_rules.txt row (1))
+# ### the act's arms over its own banks (Component 5): b712's ritual arms carried, its arms over b712's objects (v3, the port, the dispatches, the
+# ### join and its tag, the faces row, the registrations first, nothing computed, the genus control, the price, the re-cut's compile, distance and
+# ### branch) replaced by arms over this act's (v4, the six repairs' controls, the membrane, the faces head's edit, the re-cut's additive check and
+# ### its branch, the source pin, the list's controls and completeness, the predictions first, the registrations unchanged, the onsets, the
+# ### coefficients, no dispatch)
+ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED',
+            'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
+            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-LISTINGS-BEFORE-CLAUSES', 'G-PARTS-PRERUN',
+            'G-POSTROOT-WRITES-NONE', 'G-R323-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
+            'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
+            'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE',
+            'G-STANDING-CLAUSES-V4', 'G-REPAIR-CONTROLS', 'G-MEMBRANE-WIRED', 'G-FACES-HEAD-EDIT', 'G-RECUT-ADDITIVE', 'G-SOURCE-PIN',
+            'G-LIST-CONTROLS', 'G-LIST-COMPLETE', 'G-PREDICTIONS-FIRST', 'G-REGISTRATIONS-UNCHANGED', 'G-ONSETS-SCORED', 'G-COEFFS-OBSERVED',
+            'G-NO-DISPATCH')

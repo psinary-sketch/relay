@@ -120,13 +120,10 @@ PREV = '--prev' in sys.argv
 ACTN = 'b712' if PREV else 'b713'
 PART =sys.argv[sys.argv.index('--part') + 1] if '--part' in sys.argv and len(sys.argv) > sys.argv.index('--part') + 1 else None
 L = []
-# ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): two prompts -- the mid-act prompt (the -15 text,
-# ### answered at step zero, before the lock) and the root's ((R323)(9): "the root's prompt put once"), two calls, each answer checked once per
-# ### (R278)(4); the twenty-two letters at the seal, (h) the carried record tool's form, the rest the seat's
-FLOORS = dict(prompts=2, calls=2, checks=2, defects=(('a', 'SEAT'), ('b', 'SEAT'), ('c', 'SEAT'), ('d', 'SEAT'), ('e', 'SEAT'), ('f', 'SEAT'),
-                                                     ('g', 'SEAT'), ('h', 'CARRIED'), ('i', 'SEAT'), ('j', 'SEAT'), ('k', 'SEAT'), ('l', 'SEAT'), ('m', 'SEAT'),
-                                                     ('n', 'SEAT'), ('o', 'SEAT'), ('p', 'SEAT'), ('q', 'SEAT'), ('r', 'SEAT'), ('s', 'SEAT'), ('t', 'SEAT'),
-                                                     ('u', 'SEAT'), ('v', 'SEAT')))
+# ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): one prompt -- the root's ((R323)(8): "the root's
+# ### prompt once"; no prompt before the seal this act), one call, its answer checked once per (R278)(4); the letters at the seal, every one the
+# ### seat's (set at the seal from the defects bank)
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijkl'))
 
 
 def _bank_utc(text):
@@ -156,7 +153,7 @@ def _renamed():
 CURRENTS = tuple(dict.fromkeys(_renamed().get(p, p) for p in C3.CURRENTS))
 TABLE_FILES = K.TABLE_FILES
 WF, PT = '.github/workflows/build-module.yml', 'print_targets.txt'
-PORT_LABEL = K.PORT_LABEL     # ### b712's one run, read as banked by the standing runner arms (no dispatch this act)
+PORT_LABEL = K707.PORT_LABEL  # ### b712's one run, read as banked by the standing runner arms (no dispatch this act)
 CARRIED_NAMES = ('tests', 'record', 'checks', 'closing', 'reg_gate', 'regspec', 'corrigendum')
 B1_ARMS = ('G-SHARED-ADDITIVE',)
 B2_ARMS = ()
@@ -168,16 +165,15 @@ NEED = {'standing-a': ('live', 'rules'), 'standing-c': ('written', 'figures'), '
 PROJ = 'C:/Users/echo chamber/.claude/projects/D--'
 SESSION = '%s/%s.jsonl' % (PROJ, K.SESSION_ID)
 STD3 = ('Classical.choice', 'Quot.sound', 'propext')
-NEXT_RULES_GLOB = 'relay/data/b713_rules.txt'   # ### (R323)(9): data/b713_rules.txt and data/b713_rules.txt named by form; this act writes no rules bank
+NEXT_RULES_GLOB = 'relay/data/b714_rules.txt'   # ### (R323)(8): data/b713_rules.txt and data/b714_rules.txt named by form; this act writes no rules bank
 # ### (R315)(2)(b), b705's repaired predicate, carried: the root bank's items read against the root route's own item list, and the required list
 # ### read against ROOT_EXCLUDE here, at import (b706's (j)); the binary banks (.gz) are not root items (data/b680_rules.txt row (1)), their hashes banks are
-REQUIRED_BANKS = ('data/b713_registrations.txt', 'data/b713_genus_control.txt', 'data/b713_standing_control.txt', 'data/b713_tool_repairs.txt',
-                  'data/b713_repair_controls.txt', 'data/b713_corrigendum.txt', 'data/b713_port.txt', 'data/b713_port_edit1.txt', 'data/b713_port_edit2.txt',
-                  'data/b713_dispatches.json', 'data/b713_regpos.txt', 'data/b713_join_grade.txt', 'data/b713_join_tag.txt', 'data/b713_price.txt',
-                  'data/b713_recut_compile.txt', 'data/b713_recut_quote.txt', 'data/b713_recut_cut.txt', 'data/b713_recut_diff.txt',
+REQUIRED_BANKS = ('data/b713_standing_control.txt', 'data/b713_tool_repairs.txt', 'data/b713_repair_controls.txt', 'data/b713_corrigendum.txt',
+                  'data/b713_faces_head_diff.txt', 'data/b713_recut_additive.txt', 'data/b713_source_pin.txt', 'data/b713_list.txt',
+                  'data/b713_list_controls.txt', 'data/b713_predictions.txt', 'data/b713_onsets.txt', 'data/b713_coeffs.txt',
                   'data/b713_standing_figures.txt', 'data/b713_stepzero.txt', 'data/b713_report.txt', 'data/b713_report_diff.txt',
                   'data/b713_citation_check.txt', 'data/b713_tests_stepzero.txt', 'data/b713_readfirst.txt', 'data/b713_branches.txt', 'data/b713_kernels_face.json')
-STANDING_BANK = 'data/standing_clauses_v3.txt'   # ### (R323)(3): a shared bank by version, outside the act's prefix, named apart
+STANDING_BANK = 'data/standing_clauses_v4.txt'   # ### (R323)(4): a shared bank by version, outside the act's prefix, named apart
 _EXCLUDED_REQUIRED = [p for p in REQUIRED_BANKS if REC0.R.ROOT_EXCLUDE.match(os.path.basename(p))]
 if _EXCLUDED_REQUIRED:
     raise SystemExit('### REQUIRED_BANKS NAMES A BANK THE ROOT ROUTE EXCLUDES (b706`s (j)): %s' % _EXCLUDED_REQUIRED)
@@ -267,14 +263,13 @@ def _tag_peel(repo, tag):
 
 
 def wf_state():
-    """this act's runs at two kernels ((R323)(4)): at SIDE-lv-conservation the workflow at port-b707's new tip equal to the workflow at b709's commit
-    (the branch's base before b712), written before b713; the lakefile and its Mathlib requirement; the print list ABSENT at the branch (the print
-    step read as not run, no grade claimed on the port); this act's two commits on the branch each the one module. At SIDE-faces-join the workflow
-    at the re-pinned main equal to the manifest commit's, written before b713; the lakefile's Mathlib requirement; the print list present (FacesJoin);
-    this act's one write the lakefile."""
+    """b712's runs at two kernels, read as banked (N1: no dispatch this act, b710's form over b709's run): at SIDE-lv-conservation the workflow at
+    port-b707's tip equal to the workflow at b709's commit, written before b712; the lakefile and its Mathlib requirement; the print list ABSENT at
+    the branch; b712's two commits on the branch each the one module. At SIDE-faces-join the workflow at main equal to the manifest commit's; the
+    lakefile's Mathlib requirement; the print list present (FacesJoin); b712's one write the lakefile. The constants b712's (K707)."""
     out = {}
-    for kern, repo, tip, base, writes, want in ((K.KERNEL, LV, K.PORT_NEW_TIP, K.PORT_BASE, (K.PORT_EDIT1, K.PORT_NEW_TIP), [K.PORT_FILE]),
-                                                ('SIDE-faces-join', KI, K.JOIN_NEW_TIP, K.JOIN_TIP, (K.JOIN_NEW_TIP,), ['lakefile.toml'])):
+    for kern, repo, tip, base, writes, want in ((K.KERNEL, LV, K707.PORT_NEW_TIP, K707.PORT_BASE, (K707.PORT_EDIT1, K707.PORT_NEW_TIP), [K707.PORT_FILE]),
+                                                ('SIDE-faces-join', KI, K707.JOIN_NEW_TIP, K707.JOIN_TIP, (K707.JOIN_NEW_TIP,), ['lakefile.toml'])):
         src = read_blob(repo, '%s:%s' % (tip, WF)) or ''
         before = read_blob(repo, '%s:%s' % (base, WF)) or ''
         lf = read_blob(repo, '%s:lakefile.lean' % tip) or read_blob(repo, '%s:lakefile.toml' % tip) or ''
@@ -435,51 +430,42 @@ def sources(need=()):
         guard=rd('b713_guard_dry.txt'), guardj=jl('b713_guard_dry.json'),
         rootdry=rd('b713_root_banks_dry.txt'), rootdryj=jl('b713_root_banks_dry.json'),
         figj=jl('b713_standing_figures.json'), figt=rd('b713_standing_figures.txt'),
-        # ### (R323)(3): the standing clauses by version (v3 written at step zero, v2 unchanged) and the control
-        standing_bank=read(os.path.join(ROOT, *STANDING_BANK.split('/'))), standing_v2=read(os.path.join(ROOT, *K.DATA_STANDING_V2.split('/'))),
-        standing_v2_pre=cr0(blob(ROOT, '%s:%s' % (PRE['relay'], K.DATA_STANDING_V2))),
+        # ### (R323)(4): the standing clauses by version (v4 written at step zero, v3 unchanged) and the control
+        standing_bank=read(os.path.join(ROOT, *STANDING_BANK.split('/'))), standing_v3=read(os.path.join(ROOT, *K.DATA_STANDING_V3.split('/'))),
+        standing_v3_pre=cr0(blob(ROOT, '%s:%s' % (PRE['relay'], K.DATA_STANDING_V3))),
         standing_ctlj=jl('b713_standing_control.json'), standing_ctl=rd('b713_standing_control.txt'),
-        membrane_src=read(os.path.join(T, 'act_membrane.py')),
-        # ### (R323)(4): the port's two edits and runs, the dispatch bank, the runner rows; the join's regpos, grade and tag; the join kernel read beside
-        portj=jl('b713_port.json'), portt=rd('b713_port.txt'), port1j=jl('b713_port_port1.json'), port2j=jl('b713_port_port2.json'),
-        porte=dict((n_, jl('b713_port_edit%d.json' % n_)) for n_ in (1, 2)), dispj=jl('b713_dispatches.json'),
-        runner_rows=jl('b713_runner_rows.json'), regposj=jl('b713_regpos.json'), joingj=jl('b713_join_grade.json'), jointj=jl('b713_join_tag.json'),
-        joinrun=rd('b713_runner_SIDE-faces-join_join.txt'), joinax=rd('b713_axioms_SIDE-faces-join_join.txt'),
-        runs={'port1': rd('b713_port_port1.txt'), 'port2': rd('b713_port_port2.txt'), 'join': rd('b713_runner_SIDE-faces-join_join.txt')},
-        buildlogs={'port1': rd('b713_buildlog_%s_port1.txt' % K.KERNEL), 'port2': rd('b713_buildlog_%s_port2.txt' % K.KERNEL),
-                   'join': rd('b713_buildlog_SIDE-faces-join_join.txt')},
-        lv_e1_files=[x for x in gs(LV, 'diff-tree', '--no-commit-id', '--name-only', '-r', K.PORT_EDIT1).split(NL) if x.strip()],
-        lv_e1_parent=gs(LV, 'rev-parse', '--verify', '--quiet', K.PORT_EDIT1 + '^'),
-        lv_wf_tip=read_blob(LV, '%s:%s' % (K.PORT_NEW_TIP, WF)) or '', lv_wf_base=read_blob(LV, '%s:%s' % (K.PORT_BASE, WF)) or '',
-        lv_tip_parent=gs(LV, 'rev-parse', '--verify', '--quiet', K.PORT_NEW_TIP + '^'),
-        lv_tip_files=[x for x in gs(LV, 'diff-tree', '--no-commit-id', '--name-only', '-r', K.PORT_NEW_TIP).split(NL) if x.strip()],
-        lv_tip_stat=[x for x in gs(LV, 'diff-tree', '--no-commit-id', '--numstat', '-r', K.PORT_NEW_TIP).split(NL) if x.strip()],
+        membrane_src=read(os.path.join(T, 'act_membrane.py')), act_close_src=read(os.path.join(T, 'act_close.py')),
+        # ### N1: no dispatch this act -- b712's runs read as banked (b710's form over b709's run): its dispatch bank, its runner rows, its run banks
+        port1j=jl('b712_port_port1.json'), port2j=jl('b712_port_port2.json'), dispj=jl('b712_dispatches.json'),
+        runner_rows=jl('b712_runner_rows.json'), disp_now=os.path.exists(os.path.join(D, 'b713_dispatches.json')),
+        runs={'port1': rd('b712_port_port1.txt'), 'port2': rd('b712_port_port2.txt'), 'join': rd('b712_runner_SIDE-faces-join_join.txt')},
+        lv_wf_tip=read_blob(LV, '%s:%s' % (K.PORT_NEW_TIP, WF)) or '',
         lv_tip_on_main=subprocess.run(['git', '-C', LV, 'merge-base', '--is-ancestor', K.PORT_NEW_TIP, 'main']).returncode == 0,
         lv_main=gs(LV, 'rev-parse', 'main'), lv_v0100=_tag_peel(LV, 'v0.10.0'), lv_port=gs(LV, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.PORT_BRANCH),
         lv_tags=[t for t in gs(LV, 'tag', '--list').split(NL) if t.strip()], lv_tip_tags=[t for t in gs(LV, 'tag', '--points-at', K.PORT_NEW_TIP).split(NL) if t.strip()],
         lv_remote={},
-        join_lake=dict((n_, (cr0(blob(KI, '%s:%s' % (K.JOIN_TIP, n_))), cr0(blob(KI, '%s:%s' % (K.JOIN_NEW_TIP, n_))), cr0(raw(os.path.join(KI, n_)))))
-                       for n_ in ('lakefile.toml', 'lake-manifest.json')) if os.path.isdir(KI) else {},
-        join_files=[x for x in gs(KI, 'diff', '--name-only', K.JOIN_TIP, K.JOIN_NEW_TIP).split(NL) if x.strip()] if os.path.isdir(KI) else [],
-        join_status=gs(KI, 'status', '--porcelain') if os.path.isdir(KI) else '### NO KERNEL', join_grade=os.path.exists(os.path.join(D, 'b713_join_grade.txt')),
-        join_tag_peel=_tag_peel(KI, K.JOIN_TAG[0]) if os.path.isdir(KI) else '',
-        # ### (R323)(5): the faces row, at the commit that wrote it
-        faces_pre=cr0(blob(PP, '%s:FACES_LEDGER.md' % PRE['pp'])), faces_c3=cr0(blob(PP, '%s:FACES_LEDGER.md' % K.C3_PP)), faces_now=cr0(raw(os.path.join(PP, 'FACES_LEDGER.md'))),
-        # ### (R323)(6): the registrations at their commit, the genus control, the price; the tracked and working trees for a -15 computation
+        join_files=[x for x in gs(KI, 'diff', '--name-only', K707.JOIN_TIP, K707.JOIN_NEW_TIP).split(NL) if x.strip()] if os.path.isdir(KI) else [],
+        # ### (R323)(2)(ii), N3: the faces ledger's head, before and at the commit that edited it, and now; the diff bank
+        faces_pre=cr0(blob(PP, '%s:FACES_LEDGER.md' % PRE['pp'])), faces_c1=cr0(blob(PP, '%s:FACES_LEDGER.md' % K.C1_PP_FACES)),
+        faces_now=cr0(raw(os.path.join(PP, 'FACES_LEDGER.md'))), faces_diff=rd('b713_faces_head_diff.txt'),
+        faces_c1_files=files_of(PP, K.C1_PP_FACES),
+        # ### (R323)(2)(iii), N3: the re-cut's additive check; the branch, its tip locally and at the remote (read once in the act part), unmerged
+        recut_addj=jl('b713_recut_additive.json'), recut_add=rd('b713_recut_additive.txt'),
+        recut_branch=gs(PP, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.RECUT_BRANCH),
+        recut_tip_parent=gs(PP, 'rev-parse', '--verify', '--quiet', K.RECUT_TIP + '^'),
+        recut_tip_files=[x for x in gs(PP, 'diff-tree', '--no-commit-id', '--name-only', '-r', K.RECUT_TIP).split(NL) if x.strip()],
+        recut_merged=subprocess.run(['git', '-C', PP, 'merge-base', '--is-ancestor', K.RECUT_TIP, 'HEAD']).returncode == 0,
+        recut_main_doc=(gs(PP, 'rev-parse', 'HEAD:' + K.RECUT_DOC), gs(PP, 'rev-parse', '%s:%s' % (PRE['pp'], K.RECUT_DOC))),
+        recut_capture=rd('b713_PLACE-papers_recut-b712-silence_push_out.txt'), pp_remote_recut=None,
+        # ### (R323)(5), N2: the registrations at their commit; the list, the predictions, the onsets and the coefficients; the source pin (6)
         regs=(blob(ROOT, '%s:%s' % (K.REG_COMMIT, K.REGISTRATIONS)), blob(ROOT, 'HEAD:' + K.REGISTRATIONS), raw(os.path.join(ROOT, *K.REGISTRATIONS.split('/'))),
               [l for l in gs(ROOT, 'log', '--format=%h', '--', K.REGISTRATIONS).split(NL) if l.strip()]),
-        genusj=jl('b713_genus_control.json'), pricej=jl('b713_price.json'), pricet=rd('b713_price.txt'),
-        relay_first=[x for x in gs(ROOT, 'log', '--format=%H', '--reverse', PRE['relay'] + '..HEAD').split(NL) if x.strip()][:1],
-        all_names=[x for x in (gs(ROOT, 'ls-files') + NL + gs(ROOT, 'ls-files', '--others', '--exclude-standard')).split(NL) if x.strip()],
-        # ### (R323)(7): the re-cut -- its compile, quote, cut and diff banks; the branch, its commit and its tree; the remote read once in the act part
-        recutc=jl('b713_recut_compile.json'), recutq=jl('b713_recut_quote.json'), recutk=jl('b713_recut_cut.json'), recutd=rd('b713_recut_diff.txt'),
-        recut_ct=dict(compile=_bank_utc(rd('b713_recut_compile.txt')), quote=_bank_utc(rd('b713_recut_quote.txt')), commit=_ct(PP, K.RECUT_COMMIT),
-                      branch_first=_ct(PP, (gs(PP, 'rev-list', '--reverse', '%s..%s' % (K.C3_PP, K.RECUT_COMMIT)).split(NL) or [''])[0])),
-        recut_branch=gs(PP, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.RECUT_BRANCH),
-        recut_parent=gs(PP, 'rev-parse', '--verify', '--quiet', K.RECUT_COMMIT + '^'),
-        recut_files=[x for x in gs(PP, 'diff-tree', '--no-commit-id', '--name-only', '-r', K.RECUT_COMMIT).split(NL) if x.strip()],
-        recut_main_doc=(gs(PP, 'rev-parse', 'HEAD:' + K.RECUT_DOC), gs(PP, 'rev-parse', '%s:%s' % (PRE['pp'], K.RECUT_DOC))),
-        recut_doc=cr0(blob(PP, '%s:%s' % (K.RECUT_COMMIT, K.RECUT_DOC))), pp_remote_recut=None,
+        price_blobs=(blob(ROOT, '%s:%s' % (PRE['relay'], K.PRICE)), raw(os.path.join(ROOT, *K.PRICE.split('/')))),
+        listj=jl('b713_list.json'), listt=rd('b713_list.txt'), listcj=jl('b713_list_controls.json'), listct=rd('b713_list_controls.txt'),
+        predj=jl('b713_predictions.json'), predt=rd('b713_predictions.txt'), onsj=jl('b713_onsets.json'), onst=rd('b713_onsets.txt'),
+        coefj=jl('b713_coeffs.json'), coeft=rd('b713_coeffs.txt'), pint=rd('b713_source_pin.txt'),
+        onset_banks=[l for l in gs(ROOT, 'log', '--format=%H', '--reverse', PRE['relay'] + '..HEAD', '--', 'data/b713_onsets.txt', 'data/b713_onsets.json').split(NL) if l.strip()],
+        pred_banks=[l for l in gs(ROOT, 'log', '--format=%H', '--reverse', PRE['relay'] + '..HEAD', '--', 'data/b713_predictions.txt', 'data/b713_predictions.json').split(NL) if l.strip()],
         rules=rd('b713_rules.txt'),
         report=rd('b713_report.txt'), reportj=jl('b713_report.json'), report_tool=os.path.exists(os.path.join(T, 'b713_report.py')),
         ef_main=gs(EF, 'rev-parse', 'main'), ef_tags=dict((t, _tag_peel(EF, t)) for t in ('v0.37', 'v0.1', 'v0.2')),
@@ -491,10 +477,10 @@ def sources(need=()):
         asec=jl('b713_arm_seconds.json'), asect=rd('b713_arm_seconds.txt'),
         shared=dict((p, (cr0(blob(ROOT, '%s:%s' % (PRE['relay'], p))), cr0(raw(os.path.join(ROOT, *p.split('/')))), cr0(blob(ROOT, 'HEAD:' + p))))
                     for p in K.SHARED_APPENDED),
-        t=dict(c1=_ct(ROOT, K.C1_RELAY), c1pp=_ct(PP, K.C1_PP), c2=_ct(ROOT, K.C2_RELAY), c3=_ct(ROOT, K.C3_RELAY), c3pp=_ct(PP, K.C3_PP),
-               c3b=_ct(ROOT, K.C3_RELAY_B), c4=_ct(ROOT, K.C4_RELAY), stepzero=_ct(ROOT, K.STEPZERO_BANKS), reg=_ct(ROOT, K.REG_COMMIT)),
+        t=dict(c1=_ct(ROOT, K.C1_RELAY), c1pp=_ct(PP, K.C1_PP), pin=_ct(ROOT, K.PIN_RELAY), c2=_ct(ROOT, K.C2_RELAY), pred=_ct(ROOT, K.PRED_RELAY),
+               c3=_ct(ROOT, K.C3_RELAY), c4=_ct(ROOT, K.C4_RELAY), stepzero=_ct(ROOT, K.STEPZERO_BANKS), reg=_ct(ROOT, K.REG_COMMIT)),
         files=dict(stepzero=files_of(ROOT, K.STEPZERO_BANKS) if K.STEPZERO_BANKS else [], c1=files_of(ROOT, K.C1_RELAY), c1pp=files_of(PP, K.C1_PP),
-                   c2=files_of(ROOT, K.C2_RELAY), c3=files_of(ROOT, K.C3_RELAY), c3pp=files_of(PP, K.C3_PP), c3b=files_of(ROOT, K.C3_RELAY_B),
+                   pin=files_of(ROOT, K.PIN_RELAY), c2=files_of(ROOT, K.C2_RELAY), pred=files_of(ROOT, K.PRED_RELAY), c3=files_of(ROOT, K.C3_RELAY),
                    c4=files_of(ROOT, K.C4_RELAY), reg=files_of(ROOT, K.REG_COMMIT)),
         tracked=lambda p: bool(gs(ROOT, 'ls-files', '--', p).strip()),
         standing=STANDING, wf=wf_state(),
@@ -535,7 +521,7 @@ def sources(need=()):
                 sha, ref = l.split('\t', 1)
                 refs[ref.strip()] = sha.strip()
         S['ef_remote'] = refs
-        S['pp_remote_recut'] = git(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH)[1].strip()   # ### (R323)(7): nothing published
+        S['pp_remote_recut'] = git(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH)[1].strip()   # ### (R323)(2)(iii): the branch at its tip
     if 'lvremote' in need:
         refs = {}
         for l in git(LV, 'ls-remote', 'origin')[1].split(NL):
@@ -580,7 +566,7 @@ def sources(need=()):
             if f.startswith(('b713_', 'audit_b713_')) and os.path.isfile(os.path.join(D, f)) and not f.endswith(('.gz', '.png', '.jsonl')):
                 pub.append(read(os.path.join(D, f)))
         pub += [read(f) for f in tools]
-        pub += [S['lv_wf_tip'] or '', read_blob(LV, '%s:%s' % (K.PORT_NEW_TIP, K.PORT_FILE)) or '']
+        pub += [S['lv_wf_tip'] or '']
         S['nd_pub'] = R6.nd_hits(NL.join(pub), S['nd_sets'])[0]
         shared = set(ADD.shared_files()) | set(K.SHARED_APPENDED)
         pre_ids = {}
@@ -684,25 +670,26 @@ def no_local_lean(S):
 
 # ================================================================== (R323) STEP ZERO: THE CITATION CHECK, THE BRANCHES, THE READ-FIRST BANK
 # ### the ferry's read-first list (data/b713_ferry.txt :37) by its banked rows (data/b713_readfirst.txt :11-:33)
-READFIRST_NEEDLES = ('relay data/b712_closing.txt | :1 ;', 'relay data/b712_events.txt | whole |', 'relay data/b712_defects.txt | whole |',
-                     'relay data/b712_port.txt | whole |', 'relay data/b712_report.txt | :1-:21 (whole) |', 'relay data/standing_clauses_v2.txt | whole |',
-                     'relay data/standing_clauses_v3.txt | written at step zero', 'relay data/b713_registrations.txt | written at step zero',
-                     'relay data/b670_licensed_table.txt | :86-:125 |', 'relay data/b703_rules.txt | :1-:11 (whole) |',
-                     'PLACE-papers OPEN_TRAILS.md | :15686 ; :15846-:15884 |', 'PLACE-papers FACES_LEDGER.md | :1-:36 ; :490-:540 |')
+READFIRST_NEEDLES = ('relay data/b712_closing.txt | :1 ;', 'relay data/b712_events.txt | whole |', 'relay data/b712_defects.txt |',
+                     'relay data/standing_clauses_v3.txt |', 'relay data/standing_clauses_v4.txt | written at step zero',
+                     'relay data/b712_registrations.txt |', 'relay data/b712_genus_control.txt |', 'relay data/b712_price.txt |',
+                     'relay data/b709_pairs.txt |', 'relay data/b710_registrations.txt |', 'relay data/b712_recut_cut.txt |',
+                     'relay data/b712_recut_diff.txt |', 'relay data/b712_closing_push_out.txt |', 'PLACE-papers OPEN_TRAILS.md |',
+                     'PLACE-papers FACES_LEDGER.md |')
 NAMED_PUSH = sorted(b for _r, bs in K.DELETE for b in bs)
 SCRATCH = ()                  # ### no scratch branch deleted this act: port-b707 kept ((R323)(8)); recut-b713-silence and push-b713-join stand
 
 
 def readfirst_ok(S):
     z = unwrap(S['readfirst'])
-    return bool(z) and all(x in z for x in READFIRST_NEEDLES) and 'ITEMS 26 ;' in z
+    return bool(z) and all(x in z for x in READFIRST_NEEDLES) and 'ITEMS 23 ;' in z
 
 
 def branches_ok(S):
     z = S['branchest']
     left = dict((r, sorted(x.strip() for x in v.split(NL) if x.strip())) for r, v in S['branch_lists'].items())
-    return all(v == [] for v in left.values()) and len(left) == 2 and all(b in z for b in NAMED_PUSH) and len(NAMED_PUSH) == 7 \
-        and 'BRANCHES NAMED 7 ; DELETED 7 ; KEPT 0 ; EVERY TIP MERGED True ; port-b707 STANDS True' in unwrap(z)
+    return all(v == [] for v in left.values()) and len(left) == 2 and all(b in z for b in NAMED_PUSH) and len(NAMED_PUSH) == 8 \
+        and 'BRANCHES NAMED 8 ; DELETED 8 ; KEPT 0 ; EVERY TIP MERGED True ; port-b707 STANDS True' in unwrap(z)
 
 
 def branches_banked_ok(S):
@@ -714,8 +701,8 @@ def branches_banked_ok(S):
     bt = iso_epoch((S['branchbj'].get('at') or '')[:19] + 'Z')
     fd = S['first_delete_ts']
     kept = S['branchj'].get('kept') or {}
-    return len(rows) == 7 and all(f == 'DELETED' for _b, f in fates) and all(r['merged'] for r in rows) \
-        and sorted(r['branch'] for r in rows) == NAMED_PUSH and bool(bt) and bool(fd) and bt < fd and len(S['branchbj'].get('rows') or []) >= 7 \
+    return len(rows) == 8 and all(f == 'DELETED' for _b, f in fates) and all(r['merged'] for r in rows) \
+        and sorted(r['branch'] for r in rows) == NAMED_PUSH and bool(bt) and bool(fd) and bt < fd and len(S['branchbj'].get('rows') or []) >= 8 \
         and bool(S['cit_at']) and S['cit_at'] < fd and kept.get('branch') == K.PORT_BRANCH and kept.get('local') == kept.get('remote') == K.PORT_TIP
 
 
@@ -774,8 +761,8 @@ def no_verdict_line_ok(g, root=ROOT):
 def closing_dry_ok(S):
     g = S['gate']
     return '--- THE CLOSING DRY-RUN STEP (b675 rules row 1)' in g and '### ### **THE CLOSING DRY-RUN STEP : CLEAN**' in g \
-        and 'b713 closed:' in g and 'THE REPAIRS' in g and 'THE STANDING CLAUSES ((R323)(3))' in g and 'THE PORT AND THE JOIN' in g \
-        and 'THE -15 CONTROL ((R323)(6), N3)' in g and 'THE RE-CUT ((R323)(7), (10))' in g and 'THE STANDING REPORT' in g \
+        and 'b713 closed:' in g and 'THE REPAIRS ((R323)(1)-(4))' in g and 'THE STANDING CLAUSES ((R323)(4))' in g \
+        and 'THE RESEARCH AT -15 ((R323)(5), N2)' in g and 'THE SOURCE PIN ((R323)(6))' in g and 'THE STANDING REPORT' in g \
         and '### THE STANDING ARMS' in g and '### THE KERNELS' in g and '(g) The defects (a)' in g and no_verdict_line_ok(g)
 
 
@@ -785,7 +772,7 @@ def citation_ok(S):
     c = S['citation']
     m = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', c)
     return bool(m) and int(m.group(1)) == int(m.group(2)) + int(m.group(3)) > 0 and 'A GATE STEP AT STEP ZERO' in c \
-        and int(m.group(3)) == len(S['cit_misses']) == 0 and int(m.group(1)) == 149 \
+        and int(m.group(3)) == len(S['cit_misses']) == 0 and int(m.group(1)) == 144 \
         and bool(S['cit_at']) and bool(S['t'].get('stepzero')) \
         and S['cit_at'] < S['t']['stepzero'] and bool(S['t'].get('c1')) and S['t']['stepzero'] <= S['t']['c1']
 
@@ -796,7 +783,7 @@ def rowgen_ok(S):
 
 def weight_ok(S):
     # ### this act's needles: b712's head line as its closing prints it (data/b712_closing.txt :1) and the record's commits the repaired builder read
-    return landed(S, 0, ['b712 AT ITS WEIGHT', 'suite 138 of 143; root afa0d8f9464fe0c9', 'relay 011516e4, PLACE-papers 693a46d'])
+    return landed(S, 0, ['b712 AT ITS WEIGHT', 'suite 137 of 142; root fa19697bc8f13f4c', 'repaired at (R323)(4)(v)'])
 
 
 # ### (R315)(2)(c), b705's repaired predicate, carried: the checks the root prompt requires are admitted after the seal, each printed with its
@@ -824,17 +811,14 @@ def answers_checked_ok(S):
 
 
 def answers_before_ok(S):
-    """two prompts this act: the mid-act prompt (the -15 text, (R323)(6)) and the root's ((R323)(9)). The first check stamp in the citation bank
-    (prompt 1's) lies before the lock -- before the write it governs by the hand check, after it by the tool's (defect (f), lettered, its words
-    read here); every later stamp (the root prompt's) after the lock and at or before the root (data/b713_act_root.json, within the chain's order
-    slack); the answers bank carrying the two prompts, written once before the root."""
+    """one prompt this act: the root's ((R323)(8)). Every check stamp in the citation bank (the root prompt's) after the lock and at or before
+    the root (data/b713_act_root.json, within the chain's order slack); the answers bank carrying the one prompt, written once before the root."""
     st = re.findall(r'### \(R278\)\(4\) THE MID-ACT CHECK \((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\): the (?:navigator`s )?answer carrying \'([^\']+)\'', S['citation'])
     lk = S['lock_epoch']
     root_at = S['arj'].get('at_epoch')
     xs = [iso_epoch(t) for t, _n in st]
-    f_ = re.search(r'^    \(f\) .*$', S['defects'], re.M)
-    return FLOORS['prompts'] == 2 and lk is not None and root_at is not None and len(xs) >= 2 and None not in xs and xs[0] < lk \
-        and all(lk <= x <= root_at + S['order_slack'] for x in xs[1:]) and bool(f_) and 'CHECKED BY THE TOOL AFTER IT WAS ACTED ON' in f_.group(0) \
+    return FLOORS['prompts'] == 1 and lk is not None and root_at is not None and len(xs) >= 1 and None not in xs \
+        and all(lk <= x <= root_at + S['order_slack'] for x in xs) \
         and len(re.findall(r'^### PROMPT \d+ \(', S['answers'], re.M)) == FLOORS['prompts']
 
 
@@ -854,8 +838,8 @@ def scorer_banks_ok(S):
     n = ''.join(strip_prose(_fn_src(S['rec_src'], f)) for f in ('_n1', '_n2', '_n3', '_n4'))
     sc = strip_prose(_fn_src(S['rec_src'], 'scores'))
     ft = strip_prose(_fn_src(S['rec_src'], '_finding_text'))
-    return bool(n) and '_commands.json' in n and '_dispatches.json' in n and '_join_grade.json' in n and '_regpos.json' in n \
-        and '_genus_control.json' in n and '_steps.json' in n \
+    return bool(n) and '_commands.json' in n and '_dispatches.json' in n and '_list_controls.json' in n and '_onsets.json' in n \
+        and '_recut_additive.json' in n and '_steps.json' in n \
         and not re.search(r'\b(FIND|OT)\b|FINDINGS|OPEN_TRAILS|findings|entry_line', n) \
         and "os.path.isfile(os.path.join(D, '%s_scores.json' % ACT))" in sc and 'scores_line(S)' in ft and "jl('%s_scores.json' % ACT)" in ft
 
@@ -868,9 +852,11 @@ def entry_scores_ok(S):
 
 
 # ### the title by its objects (the ferry's Component 6), compared after case-folding the article alone (b706's repaired predicate, carried):
-# ### the join at its tag, the port's modules, the -15 control registered and priced, the document re-cut
-TITLE_NEEDLES = ('## the faces joined by closure at SIDE-faces-join v0.1.0', '; the port at 12 of 12 modules', '; the −15 control registered with its price',
-                 '; Silence of Foundations re-cut')
+# ### the -15 control by its objects (Component 6's form, adjusted to what the act did): the list's height, its pairs, the law at the computed pairs
+# ### with its predictions first, the coefficients' least negative index, the source pin, the faces ledger's head
+TITLE_NEEDLES = ('## the −15 control: the certified list to height 199.33', ', 37 off-line pairs', ', the refined law met at 8 of 8 computed pairs',
+                 'with its predictions committed before its onsets', '; the coefficients negative from n = 24', '; the genus factorization pinned at Murty–Osburn',
+                 '; the faces ledger’s head restated at the join')
 
 
 def _fold_article(t):
@@ -916,18 +902,16 @@ def trail_resolved_ok(S):
 
 
 def corrigendum_ok(S):
-    """(R323)(2): the generated entry for b712's post-seal items landed (its line in the bank, the title at that line through conv): b712's
-    sixteen events by starting line, ten lettered (k)-(t) with their owners and repairs, seven entered as records, the two sets the sixteen; the
-    corrigenda bank appended at row (32) and nothing before it changed; in Component 1's commit."""
+    """(R323)(3): the generated entry for b712's post-seal items landed (its line in the bank, the title at that line through conv): b712's nine
+    events by starting line and the navigator's item, eight lettered (w)-(d′) with their owners and the repairs of (R323)(4) that take them up,
+    two entered as records; the corrigenda bank appended at row (33) and nothing before it changed; in Component 1's commit."""
     j = S['corrj']
     e = j.get('entry_line')
     now, pre, head = S['corrigenda_tri']
     let = j.get('lettered') or []
-    lines = [x.get('line') for x in let if x.get('line') is not None] + list(j.get('records') or [])
-    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and [x.get('letter') for x in let] == list('klmnopqrst') \
-        and all(x.get('owner') and x.get('repair') for x in let) and len(j.get('records') or []) == 7 and len(j.get('starts') or []) == 16 \
-        and sorted(lines) == sorted(j.get('starts') or []) \
-        and j.get('row') == 32 and '  (32) ' in S['corrigenda'] and '  (33) ' not in S['corrigenda'] \
+    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and [x.get('letter') for x in let] == ['w', 'x', 'y', 'z', 'a′', 'b′', 'c′', 'd′'] \
+        and all(x.get('owner') and x.get('repair') for x in let) and len(j.get('records') or []) == 2 and len(j.get('starts') or []) == 9 \
+        and j.get('row') == 33 and '  (33) ' in S['corrigenda'] and '  (34) ' not in S['corrigenda'] \
         and pre is not None and (now or b'').startswith(pre) and (head or b'').startswith(pre) and 'FINDINGS :%d' % e in S['corrt'] \
         and 'data/b713_corrigendum.txt' in S['files']['c1']
 
@@ -946,7 +930,7 @@ def rules_row_ok(S):
     VERSION 3); b709's row (1), the carry read by diff (this act's carry banks); b708's row (1), the report tool outside the sealed list, the
     worklist's SEALED naming no report tool. No rules bank of this act's (data/b713_rules.txt and data/b713_rules.txt named by form alone; nothing
     orders a row)."""
-    return '(1) THE STANDING CLAUSES CARRIED BY VERSION' in rd('b710_rules.txt') and bool(re.search(r'^VERSION: 3$', S['standing_bank'], re.M)) \
+    return '(1) THE STANDING CLAUSES CARRIED BY VERSION' in rd('b710_rules.txt') and bool(re.search(r'^VERSION: 4$', S['standing_bank'], re.M)) \
         and '(1) THE CARRY IS READ BY DIFF' in rd('b709_rules.txt') and all(S['carry_banks'].get(n) for n in ('record', 'tests', 'checks', 'closing')) \
         and '(1) THE REPORT TOOL IS KEPT OUT OF THE SEALED LIST UNTIL THE ROOT' in rd('b708_rules.txt') and not S['rules'] \
         and not any('report' in t for t in K.SEALED) and 'b713_report.py' not in (S['sealj'].get('tools') or {})
@@ -1066,8 +1050,8 @@ def wf_ok(S, rules_needle='(1) THE PROBE ROUTE\'S TARGET IS print_targets.txt WH
         and rd('b705_rules.txt').count(rules_needle) == 1
 
 
-RUN_WANT = {'port1': (K.KERNEL, K.PORT_EDIT1, 'failure', '1', 'NOT DERIVES'), 'port2': (K.KERNEL, K.PORT_NEW_TIP, 'failure', '0', 'NOT DERIVES'),
-            'join': ('SIDE-faces-join', K.JOIN_NEW_TIP, 'success', '0', 'DERIVES')}
+RUN_WANT = {'port1': (K.KERNEL, K707.PORT_EDIT1, 'failure', '1', 'NOT DERIVES'), 'port2': (K.KERNEL, K707.PORT_NEW_TIP, 'failure', '0', 'NOT DERIVES'),
+            'join': ('SIDE-faces-join', K707.JOIN_NEW_TIP, 'success', '0', 'DERIVES')}   # ### b712's three runs, read as banked (N1: none this act)
 
 
 def runner_ok(S):
@@ -1266,17 +1250,19 @@ def defects_ok(S):
         and [l for l, o in rows if o == 'NAVIGATOR'] == list(NAV_LETTERS)
 
 
-REPAIR_ROWS = ['(56)', '(57)', '(58)', '(59)', '(60)', 'NEXT']
+REPAIR_ROWS = {'i': '(62)', 'ii': '(63)', 'iii': '(64)', 'iv': '(65)', 'v': '(66)', 'vi': '(67), (68)'}
 
 
 def repairs_ok(S):
-    """(R323)(3): the repairs bank by its JSON (data/b713_tool_repairs.json): the five repairs, standing clauses v3 rows (56)-(60), and the NEXT
-    line's, each named; the five tracked tools' diffs counted; the controls 24, none not as wanted; both banks tracked, in Component 1's commit."""
-    j = S['repairsj']
-    rows = [r.get('row') for r in j.get('repairs') or []]
-    return rows == REPAIR_ROWS and all(r.get('what') for r in j.get('repairs') or []) and len(j.get('tracked') or []) == 5 \
-        and j.get('controls') == 24 and j.get('not_as_wanted') == 0 and S['tracked']('data/b713_tool_repairs.txt') and S['tracked']('data/b713_repair_controls.txt') \
-        and 'data/b713_tool_repairs.txt' in S['files']['c1']
+    """(R323)(4): the repairs bank by its JSON (data/b713_tool_repairs.json): the six repairs (i)-(vi), standing clauses v4 rows (62)-(68), each
+    titled with its hunks named and its two controls; repair (v) the one in tools/push_gated.sh, the rest in tools/act_close.py; both banks
+    tracked, in Component 1's commit."""
+    rp = S['repairsj'].get('repairs') or {}
+    return sorted(rp) == sorted(REPAIR_ROWS) and all(rp[k].get('v4_rows') == v and rp[k].get('title') and rp[k].get('hunks') and len(rp[k].get('controls') or []) == 2
+                                                      for k, v in REPAIR_ROWS.items()) \
+        and rp['v'].get('push_gated_lines', 0) > 0 and all(rp[k].get('act_close_lines', 0) > 0 for k in ('i', 'ii', 'iii', 'iv', 'vi')) \
+        and S['tracked']('data/b713_tool_repairs.txt') and S['tracked']('data/b713_repair_controls.txt') and 'data/b713_tool_repairs.txt' in S['files']['c1'] \
+        and 'tools/act_close.py' in S['files']['c1'] and 'tools/push_gated.sh' in S['files']['c1']
 
 
 def rootdry_ok(S):
@@ -1314,30 +1300,31 @@ def figures_banked_ok(S):
 
 
 # ================================================================== (R323)(2)-(7) AND N1-N3: THE ACT'S OBJECTS
-def standing_v3_ok(S):
-    """(R323)(3): data/standing_clauses_v3.txt at VERSION 3, read back by b710's parser (tools/b710_standing.py parse, which b713's standing tool
-    imports unchanged) -- v2's 55 rows unchanged as v2 carries them, rows (56)-(60) the five deltas; v2's bank unchanged since the act's base; the
-    control banked as wanted (its NEG differing); committed alone at relay cf193d0e at step zero."""
+def standing_v4_ok(S):
+    """(R323)(4): data/standing_clauses_v4.txt at VERSION 4, read back by b710's parser (tools/b710_standing.py parse, which b713's standing tool
+    imports unchanged) -- v3's 60 rows unchanged as v3 carries them, (61) the governing row, (62)-(67) the six deltas, (68) the close's order; v3's
+    bank unchanged since the act's base; the control banked as wanted (its NEG differing); committed alone at relay 89bea621 at step zero."""
     import b710_standing as SC
-    b, v2 = S['standing_bank'], S['standing_v2']
-    rows, rows2 = SC.parse(b), SC.parse(v2)
+    b, v3 = S['standing_bank'], S['standing_v3']
+    rows, rows3 = SC.parse(b), SC.parse(v3)
     c = S['standing_ctlj']
-    return bool(re.search(r'^VERSION: 3$', b, re.M)) and len(rows) == 60 and [r[0] for r in rows] == list(range(1, 61)) and rows[:55] == rows2 \
-        and len(rows2) == 55 and S['standing_v2_pre'] is not None and S['standing_v2_pre'] == cr0(raw(os.path.join(ROOT, *K.DATA_STANDING_V2.split('/')))) \
-        and c.get('ok') is True and c.get('neg_equal') is False and c.get('n') == 60 \
-        and [r.get('n') for r in c.get('rows') or []] == [56, 57, 58, 59, 60] and all(r.get('equal') and r.get('control_in') for r in c.get('rows') or []) \
-        and files_of(ROOT, K.STANDING_COMMIT) == [STANDING_BANK]
+    return bool(re.search(r'^VERSION: 4$', b, re.M)) and len(rows) == 68 and [r[0] for r in rows] == list(range(1, 69)) and rows[:60] == rows3 \
+        and len(rows3) == 60 and S['standing_v3_pre'] is not None and S['standing_v3_pre'] == cr0(raw(os.path.join(ROOT, *K.DATA_STANDING_V3.split('/')))) \
+        and c.get('ok') is True and c.get('neg_equal') is False and c.get('n') == 68 and c.get('order_equal') is True \
+        and [r.get('n') for r in c.get('rows') or []] == [61, 62, 63, 64, 65, 66, 67] and all(r.get('equal') for r in c.get('rows') or []) \
+        and all(r.get('control_in') for r in (c.get('rows') or [])[1:]) and files_of(ROOT, K.STANDING_COMMIT) == [STANDING_BANK]
 
 
-REPAIR_SECTIONS = ('i', 'ii', 'iii', 'iv', 'v', 'NEXT')
+REPAIR_SECTIONS = ('i', 'ii', 'iii', 'iv', 'v', 'vi')
 
 
 def repair_controls_ok(S):
-    """(R323)(3), by the JSON bank: every case with its section, got, wanted and as_wanted -- 24 cases in the five repairs' sections and the NEXT
-    line's, each as wanted by got against wanted, none not as wanted."""
-    cs = S['repair_ctlj'].get('cases') or []
-    return len(cs) == 24 and sorted(set(c.get('section') for c in cs)) == sorted(REPAIR_SECTIONS) \
-        and all(c.get('as_wanted') is True and c.get('got') == c.get('wanted') for c in cs) and not S['repair_ctlj'].get('not_as_wanted')
+    """(R323)(4), by the JSON bank: each of the six repairs with its two instances (the record's and a constructed one), each ok with got equal to
+    wanted; 12 of 12 passing."""
+    cs = S['repair_ctlj'].get('controls') or {}
+    return sorted(cs) == sorted(REPAIR_SECTIONS) and all(len(v) == 2 and all(x.get('ok') is True and x.get('got') == x.get('wanted') for x in v)
+                                                         and sorted(x.get('instance') for x in v) == ['constructed', 'record'] for v in cs.values()) \
+        and S['repair_ctlj'].get('passing') == 12 and S['repair_ctlj'].get('total') == 12
 
 
 def membrane_ok(S):
@@ -1348,71 +1335,59 @@ def membrane_ok(S):
         and S['suite'].count('_membrane(') >= 8
 
 
-def port_ok(S):
-    """(R323)(4): the two edits as banked -- edit 1 at :501 on b712's commit, edit 2 at :574 on edit 1, one hunk each, the one file changed -- and
-    the two runs read by their ids, each artifact's sha256 agreeing: run 1 held at :574:39 (DirichletC7Order alone), run 2 at the new tip 12 of 12,
-    complete; each commit's parent the one before and its one file the module; in Component 2's commit."""
-    e1, e2 = S['porte'][1], S['porte'][2]
-    p1, p2, j = S['port1j'], S['port2j'], S['portj']
-    edits = e1.get('ok') is True and e1.get('hunks') == 1 and e1.get('line') == K.PORT_LINE and e1.get('base') == K.PORT_TIP and e1.get('file') == K.PORT_FILE \
-        and e2.get('ok') is True and e2.get('hunks') == 1 and e2.get('line') == 574 and e2.get('base') == K.PORT_EDIT1 and e2.get('file') == K.PORT_FILE
-    run1 = p1.get('run_id') == K.PORT_RUNS[0] and p1.get('ref') == K.PORT_EDIT1 and p1.get('held') == ['DirichletC7Order'] and p1.get('complete') is False \
-        and (p1.get('first_error') or '').startswith('error: SIDELvConservation/DirichletC7Order.lean:574:39:') and p1.get('agree') is True
-    run2 = p2.get('run_id') == K.PORT_RUNS[1] and p2.get('ref') == K.PORT_NEW_TIP and len(p2.get('built') or []) == 12 and p2.get('held') == [] \
-        and p2.get('complete') is True and p2.get('agree') is True and j.get('run_id') == K.PORT_RUNS[1] and len(j.get('built') or []) == 12
-    commits = S['lv_e1_parent'] == K.PORT_TIP and S['lv_e1_files'] == [K.PORT_FILE] and S['lv_tip_parent'] == K.PORT_EDIT1 and S['lv_tip_files'] == [K.PORT_FILE]
-    return edits and run1 and run2 and commits and 'data/b713_port.txt' in S['files']['c2']
+def faces_head_ok(S):
+    """(R323)(2)(ii), N3: FACES_LEDGER.md's head edited at its own PLACE-papers commit (503f1ce), the one file -- every line but :8 equal to the act's
+    base, :8 changed, every line after the head equal (no line moves); the working tree equal to that commit's but for appended lines at the end
+    (none this act); the diff bank's verdict THE CLAUSE NAMED AND NOTHING ELSE True."""
+    pre, c1, now = _s(S['faces_pre']).split(NL), _s(S['faces_c1']).split(NL), _s(S['faces_now']).split(NL)
+    h = K.FACES_HEAD - 1
+    return bool(pre) and len(pre) == len(c1) and pre[h] != c1[h] and all(a == b for i, (a, b) in enumerate(zip(pre, c1)) if i != h) \
+        and now[:len(c1)] == c1 and S['faces_c1_files'] == ['FACES_LEDGER.md'] and 'THE CLAUSE NAMED AND NOTHING ELSE True' in S['faces_diff']
 
 
-def dispatches_ok(S):
-    """N1: at most four runner dispatches, up to three for the port and one for the join -- the dispatch bank's rows (the port's two at edit 1 and
-    the new tip, each with the free memory above the hold; the join's one at its re-pinned main), the command capture's dispatches as many."""
-    rows = S['dispj'].get('rows') or []
-    port = [r for r in rows if r.get('label') == PORT_LABEL]
-    join = [r for r in rows if r.get('label') == 'join']
-    return len(rows) <= K.MAX_DISPATCHES and len(port) <= K.MAX_PORT_DISPATCHES and len(join) <= 1 and len(port) + len(join) == len(rows) \
-        and [r.get('run_id') for r in port] == list(K.PORT_RUNS) and [r.get('ref') for r in port] == [K.PORT_EDIT1, K.PORT_NEW_TIP] \
-        and all(r.get('free_mb', 0) >= K.HOLD for r in port) and [r.get('run_id') for r in join] == [K.JOIN_RUN] and join[0].get('ref') == K.JOIN_NEW_TIP \
-        and len(S['cmdj'].get('dispatches') or []) == len(rows) and bool(S['cmds'])
+def no_dispatch_ok(S):
+    """N1: no runner dispatch and no lean process this act -- no dispatch bank of b713's, the command capture's dispatches none and its local lean
+    none (the record tool's command bank), the capture read live non-empty."""
+    return not S['disp_now'] and bool(S['cmdj']) and (S['cmdj'].get('dispatches') or []) == [] and not S['cmdj'].get('local_lean') and bool(S['cmds'])
 
 
-STANDARD_THREE = '[propext, Classical.choice, Quot.sound]'
+def recut_additive_ok(S):
+    """(R323)(2)(iii), N3: the re-cut's additive check -- its first run on b712's re-cut (two lines MISSING), its last on the restored tip (every
+    original Correspondence line FOUND, in order); the branch at that tip locally and at the remote (one ls-remote, the act part), the tip's
+    parent b712's re-cut and its one file the document; NOT merged (main does not carry it, the document on main unmoved); the push's capture."""
+    j = S['recut_addj']
+    runs, last = j.get('runs') or [], j.get('last') or {}
+    m = S['recut_main_doc']
+    return len(runs) == 2 and runs[0].get('tip') == K.RECUT_COMMIT and runs[0].get('missing', 0) > 0 and last.get('tip') == K.RECUT_TIP \
+        and last.get('missing') == 0 and last.get('found') == runs[0].get('found', 0) + runs[0].get('missing', 0) and last.get('in_order') is True \
+        and S['recut_branch'] == K.RECUT_TIP and S['recut_tip_parent'] == K.RECUT_COMMIT and S['recut_tip_files'] == [K.RECUT_DOC] \
+        and not S['recut_merged'] and bool(m[0]) and m[0] == m[1] and K.RECUT_TIP[:8] in S['recut_capture'] \
+        and (S['pp_remote_recut'] is None or S['pp_remote_recut'].split('\t')[0] == K.RECUT_TIP)
 
 
-def join_derives_ok(S):
-    """(R323)(4), N2: the join reached -- faces_join names lv-conservation's own Register4_positivity, that declaration equal by statement at the
-    deposit and at the port's tip; SIDE-faces-join re-pinned to the port's tip (its lake files moved from the manifest commit's, the tree's equal
-    to the new main's, the tree clean) and built at its new main by its one run; #print axioms the standard three; the grade DERIVES."""
-    g_, rp, jl_ = S['joingj'], S['regposj'], S['join_lake']
-    stmt = ' '.join(g_.get('statement') or [])
-    return g_.get('grade') == 'DERIVES' and g_.get('names_lv') is True and g_.get('regpos_equal') is True \
-        and 'SIDELvConservation.RegisterPentagon.Register4_positivity' in stmt and g_.get('pin') == K.PORT_NEW_TIP and g_.get('ref') == K.JOIN_NEW_TIP \
-        and g_.get('run_id') == K.JOIN_RUN and len(g_.get('axioms') or []) == 1 and (g_.get('axioms') or [''])[0].endswith(STANDARD_THREE) \
-        and rp.get('equal') is True and rp.get('deposit') == K.LV_V0100 and rp.get('tip') == K.PORT_NEW_TIP and rp.get('decl_deposit') == rp.get('decl_tip') \
-        and S['join_main'] == K.JOIN_NEW_TIP and S['join_status'] == '' and bool(jl_) and all(b == c for _a, b, c in jl_.values()) \
-        and any(a != b for a, b, _c in jl_.values()) and bool(S['join_files'])
-
-
-def join_tag_ok(S):
-    """(R323)(4): the tag v0.1.0 on SIDE-faces-join -- its object and its peel as banked, read back at the remote equal, the kernel's one tag;
-    no lv tag at the port's tip (no lv tag this act)."""
-    t = S['jointj']
-    return t.get('ok') is True and t.get('tag') == K.JOIN_TAG[0] and t.get('object') == K.JOIN_TAG[1] == t.get('remote_object') \
-        and t.get('peeled') == K.JOIN_TAG[2] == t.get('remote_peeled') and S['join_tag_peel'] == K.JOIN_TAG[2] and S['join_tags'] == [K.JOIN_TAG[0]] \
-        and S['lv_tip_tags'] == []
+def source_pin_ok(S):
+    """(R323)(6): the source pin -- one text fetched, its sha256 and size banked, the statement quoted with its page, read against registration
+    (i): the verdict AGREES; committed at its own relay commit before the list's."""
+    v = ' '.join(S['pint'].split())
+    return 'AGREES' in v and 'DIFFERS' not in v.split('### ### **')[-1] and re.search(r'sha256 [0-9a-f]{8}', v) is not None \
+        and 'data/b713_source_pin.txt' in S['files']['pin'] and S['t']['pin'] is not None and S['t']['c2'] is not None and S['t']['pin'] < S['t']['c2']
 
 
 def _s(x):
     return x.decode('utf-8', 'replace') if isinstance(x, bytes) else (x or '')
 
 
-def faces_row_ok(S):
-    """(R323)(5): FACES_LEDGER.md appended at Component 3's PLACE-papers commit -- the act's base text its prefix (append-only), the appended
-    block naming faces_join and the tag v0.1.0, the working tree equal to that commit's; in that commit."""
-    pre, c3, now = _s(S['faces_pre']), _s(S['faces_c3']), _s(S['faces_now'])
-    add = c3[len(pre):]
-    return bool(pre) and c3.startswith(pre) and len(c3) > len(pre) and now == c3 and 'faces_join' in add and 'v0.1.0' in add \
-        and '(b713)' in add and 'FACES_LEDGER.md' in S['files']['c3pp']
+def list_controls_ok(S):
+    """(R323)(5)(i): the list's controls printed before its figures -- (C-a) and (C-b) 3 of 3 each, the NEG 3 of 3 failing (the controls bank);
+    (C-c) b711's band at D = 23 and (C-d) b709's band at the carried edge reading their counts EQUAL (the list bank); the controls bank committed
+    with the list, its stamp before the list's."""
+    cj = S['listcj']
+    lt = ' '.join(S['listt'].split())
+    ca, cb, ng = cj.get('ca') or [], cj.get('cb') or [], cj.get('neg') or []
+    at_c, at_l = iso_epoch(cj.get('at') or ''), iso_epoch(S['listj'].get('at') or '')
+    return cj.get('ok') is True and len(ca) == 3 and all(x[2] is True for x in ca) and len(cb) == 3 and all(x[2] is True for x in cb) \
+        and len(ng) == 3 and all(x[2] is False for x in ng) and '(C-c)' in lt and '(C-d)' in lt and lt.count('EQUAL') >= 2 \
+        and at_c is not None and at_l is not None and at_c < at_l and 'data/b713_list_controls.json' in S['files']['c2']
 
 
 def _verdict(t):
@@ -1420,76 +1395,74 @@ def _verdict(t):
     return m.group(1) if m else ''
 
 
-REG_FILES = sorted(['data/b713_registrations.txt', 'data/b713_genus_control.txt', 'data/b713_genus_control.json', 'tools/b713_genus_control.py'])
+def predictions_first_ok(S):
+    """N2, (R323)(5)(ii): data/b713_predictions.txt committed ALONE before the commit of any bank holding a -15 onset -- the predictions' one
+    commit carrying its two banks and nothing else, the onsets' first commit after it, the two commits' order read from the log; the predictions'
+    blobs unchanged since; the onsets bank naming that commit and its first unit after it."""
+    pb, ob = S['pred_banks'], S['onset_banks']
+    order = [h for h, _s_, _t in S['rlog']]
+    pi = next((i for i, h in enumerate(order) if K.PRED_RELAY.startswith(h)), None)
+    oi = next((i for i, h in enumerate(order) if ob and ob[0].startswith(h)), None)
+    first = iso_epoch(S['onsj'].get('first_onset') or '')
+    return pb == [K.PRED_RELAY] and sorted(S['files']['pred']) == ['data/b713_predictions.json', 'data/b713_predictions.txt'] \
+        and bool(ob) and ob[0] == K.C3_RELAY and pi is not None and oi is not None and pi < oi \
+        and (S['onsj'].get('pred_commit') or '').startswith(K.PRED_RELAY) and first is not None and S['t']['pred'] is not None and first > S['t']['pred'] \
+        and 'the predictions bank unchanged since: True' in S['onst']
 
 
-def registrations_first_ok(S):
-    """N3, (R323)(6): data/b713_registrations.txt committed ahead of every other bank of the act -- the act's first relay commit the
-    registrations', carrying the row, the genus control's two banks and its tool alone; the row at that commit, at HEAD and in the working tree
-    equal, the one commit touching it."""
+def registrations_unchanged_ok(S):
+    """N2: every registration read unchanged from 67a02388 -- data/b712_registrations.txt at that commit, at HEAD and in the working tree equal,
+    no commit of this act touching it; data/b712_price.txt (the cut, committed by b712 after the registrations) equal at the act's base and now."""
     a, b, c, log = S['regs']
-    return bool(S['rlog']) and K.REG_COMMIT.startswith(S['rlog'][0][0]) and S['relay_first'] == [K.REG_COMMIT] and sorted(S['files']['reg']) == REG_FILES \
-        and a is not None and cr0(a) == cr0(b) == cr0(c) and len(log) == 1 and K.REG_COMMIT.startswith(log[0])
+    pa, pc = S['price_blobs']
+    return a is not None and cr0(a) == cr0(b) == cr0(c) and bool(log) and K.REG_COMMIT.startswith(log[0]) \
+        and not [h for h, _s_, _t in S['rlog'] if h in log] and pa is not None and cr0(pa) == cr0(pc)
 
 
-def nothing_computed_ok(S):
-    """N3: nothing of the -15 control computed at b713 -- no bank or tool of a -15 computation (the record tool's NOTHING_COMPUTED pattern)
-    tracked or in the working tree; the registrations bank saying so."""
-    return not [x for x in S['all_names'] if S['REC'].NOTHING_COMPUTED.match(x)] and bool(S['all_names']) \
-        and 'NOTHING OF THE -15 CONTROL IS COMPUTED AT b713' in _s(S['regs'][0])
+def onsets_ok(S):
+    """(R323)(5)(iii), N2: the onsets -- (C1) at Q0 printed before any -15 onset (b711's pairs 11 and 15, n* EQUAL, the NEG outside), then each
+    predicted pair's n* with its ratio to six places and its falsifier HELD or REFUTED against [0.99, 1.01]; the pairs beyond reach scored for
+    nothing; the bank's count line equal to its rows."""
+    j = S['onsj']
+    rows, c1 = j.get('rows') or [], j.get('c1') or []
+    live = [r for r in S['predj'].get('rows') or [] if not r.get('reach')]
+    c1_ok = len(c1) == 2 and all(u and u.get('done') for u in c1) and [u.get('n_star') for u in c1] == [12275906, 14748557] \
+        and all(iso_epoch(u.get('at') or '') < iso_epoch(j.get('first_onset') or '') for u in c1)
+    scored = [r['k'] for r in rows] == [r['k'] for r in live] and all(r.get('verdict') in ('HELD', 'REFUTED') for r in rows) \
+        and all((r['verdict'] == 'HELD') == (0.99 <= r['ratio'] <= 1.01) for r in rows) and all(r.get('C_equal') is True for r in rows)
+    held = sum(1 for r in rows if r['verdict'] == 'HELD')
+    return c1_ok and scored and j.get('held') == held and j.get('refuted') == len(rows) - held and 'OUTSIDE as wanted' in S['onst'] \
+        and re.search(r'(?m)^  pair +1 \| .* \| ratio \d\.\d{6} \| (HELD|REFUTED)$', S['onst']) is not None
 
 
-def genus_ok(S):
-    """(R323)(6), the author's word at the first prompt: the genus control as its bank reads -- no miss through n = 400, the hand rows read, both
-    planted copies missing (the record tool's _genus_ok, which the entry's figures read)."""
-    g_ = S['genusj']
-    return S['REC']._genus_ok(g_) and g_.get('n_max') == 400 and len(g_.get('rows') or []) == 400
+def coeffs_ok(S):
+    """(R323)(5)(iv): the coefficients exactly through n <= 32532 (data/b712_price.txt :53) -- (C1) von Mangoldt, (C2) the genus identity's input
+    and its NEG, all as wanted, printed before the readings; the least negative index and its closed form, the count of negatives equal to the
+    bank's list, no sign undecided; beside it the least Re rho > 1 of b713's list, the list's own (pair 7 at 61.42)."""
+    j = S['coefj']
+    over = (j.get('list') or {}).get('over') or []
+    ln = S['listj'].get('re_over_1') or []
+    t = S['coeft']
+    return j.get('cut') == 32532 and j.get('c1') is True and j.get('c2') is True and j.get('c2_neg') is True and j.get('undecided') == [] \
+        and isinstance(j.get('least_negative'), int) and (j.get('negative_list') or [None])[0] == j['least_negative'] and j.get('negatives') == len(j.get('negative_list') or []) \
+        and re.match(r'^(\(-?\d+(/\d+)?\) log \d+)( \+ \(-?\d+(/\d+)?\) log \d+)*$', j.get('least_negative_value') or '') is not None \
+        and len(over) == len(ln) and t.find('### THE CONTROLS:') < t.find('### THE READINGS:') and 'C2-NEG True' in t
 
 
-def price_ok(S):
-    """(R323)(6): data/b713_price.txt -- the two tiers [0, 100] and [100, 200] cut into contiguous bands, each band's zeros and seconds positive
-    (defect (k)'s repair), both tiers' hours positive, the cut 32532; the tool and its banks in Component 3's commit."""
-    p = S['pricej']
-    rows = sorted(p.get('rows') or [], key=lambda r: r.get('lo', -1))
-    edges = [(r.get('lo'), r.get('hi')) for r in rows]
-    cont = bool(rows) and edges[0][0] == 0.0 and edges[-1][1] == 200.0 and all(edges[i][1] == edges[i + 1][0] for i in range(len(edges) - 1))
-    return cont and all(r.get('hi') > r.get('lo') and r.get('zeros', 0) > 0 and r.get('seconds', 0) > 0 for r in rows) \
-        and set(r.get('tier') for r in rows) == {'the first tier', 'the second tier'} and (p.get('t1') or 0) > 0 and (p.get('t2') or 0) > 0 \
-        and p.get('cut') == 32532 and 'TIERS 2 ([0, 100], [100, 200])' in S['pricet'] \
-        and {'tools/b713_price.py', 'data/b713_price.txt', 'data/b713_price.json'} <= set(S['files']['c3'])
-
-
-def recut_compile_ok(S):
-    """(R323)(7): the compile steps done and banked before any prose -- 14 pins each standing with its sha256, the control one line off reading
-    False, the old pin (SIDE-kernel v1.3 = 0bc21c0) carrying the statement, MetaKernel present; the compile and quote banks stamped before the
-    re-cut's commit, the branch's one commit."""
-    c, t = S['recutc'], S['recut_ct']
-    pins = c.get('pins') or []
-    o = c.get('oldpin') or {}
-    return len(pins) == 14 and all(p_.get('stands') is True and len(p_.get('sha256') or '') == 64 for p_ in pins) and c.get('control') is False \
-        and (o.get('commit') or '').startswith('0bc21c0') and o.get('commit') == o.get('v13') and o.get('statement') is True and o.get('content') is True \
-        and bool(c.get('present')) and all(x.get('present') for x in c.get('present')) \
-        and None not in (t.get('compile'), t.get('quote'), t.get('commit')) and t['quote'] < t['commit'] and t['compile'] < t['commit'] \
-        and t.get('branch_first') == t['commit']
-
-
-def recut_cut_ok(S):
-    """(R323)(7): the distance by the b670 method -- 19 non-MATCHES rows standing at the base, 1 after, the MATCHES rows none lost, the held rows
-    the Correspondence cells :210 and :211; the quote search's residues 29; the back matter Correspondence, Errata and Placement in that order;
-    the diff bank."""
-    k, q, d = S['recutk'], S['recutq'], _s(S['recut_doc'])
-    i, e, p = d.find('Correspondence'), d.find(NL + '## Errata'), d.find(NL + '## Placement')
-    return k.get('before') == 19 and k.get('after') == 1 and k.get('matches_lost') == [] and sorted(set(k.get('held') or [])) == [210, 211] \
-        and len(q.get('quoting') or []) == 29 and 0 <= i < e < p and 'diff --git' in (S['recutd'] or '')
-
-
-def recut_branch_ok(S):
-    """(R323)(7), (10): written in PLACE-papers on a branch, nothing published -- recut-b713-silence at the re-cut's commit, its parent
-    Component 3's PLACE-papers commit, its one file the document; the document on main unmoved since the act's base; the branch absent at the
-    remote (one ls-remote, the act part)."""
-    m = S['recut_main_doc']
-    return S['recut_branch'] == K.RECUT_COMMIT and S['recut_parent'] == K.C3_PP and S['recut_files'] == [K.RECUT_DOC] \
-        and bool(m[0]) and m[0] == m[1] and S['pp_remote_recut'] == ''
+def list_complete_ok(S):
+    """(R323)(5)(i): Q1's certified list at tier two in b709's band form -- the bands contiguous from the base to the top, each COMPLETE, their
+    counts summing to the zeros listed (the on-line zeros and two per off-line pair); the top above 199 (the second tier, the stop rule not
+    reached); the least Re > 1 among the pairs; the list's commit carrying the tool and its banks, the units untracked."""
+    j = S['listj']
+    b = j.get('bands') or []
+    ch = j.get('chained') or []
+    on, off = len(j.get('online') or []), len(j.get('offline') or [])
+    tot = sum(x.get('N', 0) for x in b)
+    cont = bool(ch) and all(abs(ch[i]['t_hi'] - ch[i + 1]['t_from']) < 1e-9 for i in range(len(ch) - 1)) if ch and 't_from' in ch[-1] else False
+    return len(b) == 14 and all(x.get('complete') is True for x in b) and cont and tot == on + 2 * off and (j.get('top') or 0) > 199 \
+        and j.get('DQ') == 15 and len(j.get('re_over_1') or []) == sum(1 for z in j.get('offline') or [] if float(z['re']) > 1) \
+        and {'tools/b713_list.py', 'data/b713_list.txt', 'data/b713_list.json'} <= set(S['files']['c2']) \
+        and not [x for x in S['files']['c2'] if x.endswith('.jsonl')] and 'COMPLETE 14' in S['listt']
 
 
 def receipt_ok(S):
@@ -1574,43 +1547,39 @@ ARMS = [
     ('G-DEFECTS-LETTERED', 'the defects bank: the sealed floors` rows with their owners in order, (h) the carried tool`s form and the rest the seat`s, no navigator`s letter',
      lambda S: defects_ok(S), lambda S: put(S, 'defects', '')),
     ('G-TOOL-REPAIRS', '(R323)(3): the repairs bank by its JSON: the five repairs (rows (56)-(60)) and the NEXT line`s, the five tracked tools` diffs, the controls 24 with none not as wanted; in Component 1`s commit',
-     lambda S: repairs_ok(S), lambda S: _mut(S, 'repairsj', lambda d: d.update(not_as_wanted=1))),
+     lambda S: repairs_ok(S), lambda S: _mut(S, 'repairsj', lambda d: d['repairs'].pop('vi'))),
     ('G-ROOTDRY-READY', 'data/b706_rules.txt row (1): the root route run dry on the pre-root tree before the lock, READY True, printed in the face`s (0)',
      lambda S: rootdry_ok(S), lambda S: _mut(S, 'rootdryj', lambda d: d.update(ready=False))),
     ('G-FIGURES-BANKED', 'the four standing figures banked by b706`s tool over b706`s roster against b712`s baselines, each at or below b712`s, the partners figure 0 with one copy per table',
      lambda S: figures_banked_ok(S), lambda S: put(S, 'figj', {})),
     ('G-READFIRST-DIFF-BANKED', 'the closure reader`s diff banked; the readfirst bank unchanged since the step-zero commit', lambda S: readfirst_diff_ok(S),
      lambda S: put(S, 'rf_diff', '')),
-    ('G-STANDING-CLAUSES-V3', '(R323)(3): data/standing_clauses_v3.txt at VERSION 3, read back by b710`s parser: v2`s 55 rows unchanged, rows (56)-(60) the five deltas, v2`s bank unchanged, the control as wanted (its NEG differing), committed alone at step zero',
-     lambda S: standing_v3_ok(S), lambda S: put(S, 'standing_bank', S['standing_bank'].replace('VERSION: 3', 'VERSION: 2', 1))),
-    ('G-REPAIR-CONTROLS', '(R323)(3): the controls bank by its JSON: 24 cases in the five repairs` sections and the NEXT line`s, each as wanted by got against wanted',
-     lambda S: repair_controls_ok(S), lambda S: _mut(S, 'repair_ctlj', lambda d: d['cases'].pop())),
+    ('G-STANDING-CLAUSES-V4', '(R323)(4): data/standing_clauses_v4.txt at VERSION 4, read back by b710`s parser: v3`s 60 rows unchanged, (61) the governing row, (62)-(67) the six deltas, (68) the close`s order, v3`s bank unchanged, the control as wanted (its NEG differing), committed alone at step zero',
+     lambda S: standing_v4_ok(S), lambda S: put(S, 'standing_bank', S['standing_bank'].replace('VERSION: 4', 'VERSION: 3', 1))),
+    ('G-REPAIR-CONTROLS', '(R323)(4): the controls bank by its JSON: the six repairs, each with its record instance and its constructed instance, got equal to wanted, 12 of 12',
+     lambda S: repair_controls_ok(S), lambda S: _mut(S, 'repair_ctlj', lambda d: d['controls']['vi'].pop())),
     ('G-MEMBRANE-WIRED', 'the carried membrane: tools/act_membrane.py`s guard reading data/act_roots.txt, the record tool`s shared writers rebound through it, the suite`s writers calling it',
      lambda S: membrane_ok(S), lambda S: put(S, 'membrane_src', S['membrane_src'].replace('def guard_path(', 'def guard_p('))),
-    ('G-PORT-BANKED', '(R323)(4): the two edits (:501 on b712`s commit, :574 on edit 1, one hunk each), the two runs by their ids with the artifacts agreeing -- run 1 held at :574:39, run 2 12 of 12 at the new tip; each commit`s parent the one before, one file; in Component 2`s commit',
-     lambda S: port_ok(S), lambda S: _mut(S, 'port2j', lambda d: d.update(held=['DirichletC7Order']))),
-    ('G-DISPATCHES-AT-MOST-FOUR', 'N1: at most four runner dispatches, up to three for the port and one for the join -- the port`s two and the join`s one in the dispatch bank and the capture alike, the port`s above the hold',
-     lambda S: dispatches_ok(S), lambda S: _mut(S, 'dispj', lambda d: d.update(rows=(d.get('rows') or []) * 2))),
-    ('G-JOIN-DERIVES', '(R323)(4), N2: faces_join naming lv`s own Register4_positivity, equal by statement at the deposit and the port`s tip; SIDE-faces-join re-pinned to the port`s tip and built by its one run; the standard three; the grade DERIVES',
-     lambda S: join_derives_ok(S), lambda S: _mut(S, 'joingj', lambda d: d.update(grade='NOT DERIVES'))),
-    ('G-JOIN-TAG', '(R323)(4): v0.1.0 on SIDE-faces-join, its object and peel as banked and read back at the remote, the kernel`s one tag; no lv tag',
-     lambda S: join_tag_ok(S), lambda S: put(S, 'lv_tip_tags', ['v0.11.0'])),
-    ('G-FACES-ROW', '(R323)(5): FACES_LEDGER.md appended at Component 3`s commit, the base its prefix, the block naming faces_join and v0.1.0, the tree equal to that commit`s',
-     lambda S: faces_row_ok(S), lambda S: put(S, 'faces_now', b'')),
-    ('G-REGISTRATIONS-FIRST', 'N3: the act`s first relay commit the registrations`, carrying the row, the genus control`s banks and tool alone; the row unchanged since, one commit touching it',
-     lambda S: registrations_first_ok(S), lambda S: put(S, 'relay_first', [K.STANDING_COMMIT])),
-    ('G-NOTHING-COMPUTED', 'N3: no bank or tool of a -15 computation tracked or in the working tree (the record tool`s pattern); the registrations bank saying so',
-     lambda S: nothing_computed_ok(S), lambda S: put(S, 'all_names', S['all_names'] + ['data/b713_epstein_zeros.txt'])),
-    ('G-GENUS-CONTROL', '(R323)(6): the genus control banked beside the row on the author`s word -- no miss through n = 400, the hand rows read, both planted copies missing',
-     lambda S: genus_ok(S), lambda S: _mut(S, 'genusj', lambda d: d.update(misses=[7]))),
-    ('G-PRICE-BANKED', '(R323)(6): the price bank -- two tiers in contiguous bands, every band`s zeros and seconds positive, both tiers` hours, the cut 32532; in Component 3`s commit',
-     lambda S: price_ok(S), lambda S: _mut(S, 'pricej', lambda d: d['rows'][0].update(seconds=-6.6))),
-    ('G-RECUT-COMPILE-FIRST', '(R323)(7): 14 pins standing with their sha256, the control False, the old pin carrying the statement, MetaKernel present; the compile and quote banks before the re-cut`s commit',
-     lambda S: recut_compile_ok(S), lambda S: put(S, 'recut_ct', dict(S['recut_ct'], compile=(S['recut_ct'].get('commit') or 0) + 60))),
-    ('G-RECUT-DISTANCE', '(R323)(7): the b670 distance 19 before, 1 after, no MATCHES row lost, held :210-:211; 29 quoting residues; Correspondence, Errata and Placement in order; the diff bank',
-     lambda S: recut_cut_ok(S), lambda S: _mut(S, 'recutk', lambda d: d.update(matches_lost=[42]))),
-    ('G-RECUT-ON-BRANCH', '(R323)(7), (10): recut-b713-silence at the re-cut`s commit from Component 3`s, its one file the document; main`s copy unmoved; the branch absent at the remote',
-     lambda S: recut_branch_ok(S), lambda S: put(S, 'pp_remote_recut', K.RECUT_COMMIT + '\trefs/heads/' + K.RECUT_BRANCH)),
+    ('G-FACES-HEAD-EDIT', '(R323)(2)(ii), N3: FACES_LEDGER.md :8 changed at 503f1ce and nothing else -- every other line equal to the base, no line moved, the one file, the diff bank`s verdict',
+     lambda S: faces_head_ok(S), lambda S: put(S, 'faces_c1', _s(S['faces_c1']).replace(NL, NL + 'x', 1))),
+    ('G-RECUT-ADDITIVE', '(R323)(2)(iii), N3: the additive check`s two runs (b712`s re-cut two MISSING, the restored tip every line FOUND in order); the branch at the tip locally and at the remote, its one file, NOT merged, main`s copy unmoved; the push`s capture',
+     lambda S: recut_additive_ok(S), lambda S: put(S, 'recut_merged', True)),
+    ('G-SOURCE-PIN', '(R323)(6): the source pin bank -- the text found with its sha256 and page, read against registration (i), AGREES; at its own commit before the list`s',
+     lambda S: source_pin_ok(S), lambda S: put(S, 'pint', S['pint'].replace('AGREES', 'DIFFERS'))),
+    ('G-LIST-CONTROLS', '(R323)(5)(i): the list`s controls before its figures -- (C-a) 3 of 3, (C-b) 3 of 3, NEG 3 of 3 failing; (C-c) b711`s band and (C-d) b709`s EQUAL; banked before the list, in the list`s commit',
+     lambda S: list_controls_ok(S), lambda S: _mut(S, 'listcj', lambda d: d['neg'].append(['2.0', '0.0', True, True]))),
+    ('G-LIST-COMPLETE', '(R323)(5)(i): Q1`s list at tier two in b709`s band form -- 14 bands COMPLETE and contiguous, their counts the zeros listed, the top above 199, Re > 1 read from the pairs; the units untracked',
+     lambda S: list_complete_ok(S), lambda S: _mut(S, 'listj', lambda d: d['bands'][0].update(complete=False))),
+    ('G-PREDICTIONS-FIRST', 'N2: the predictions committed alone at be4db146 before the first commit of an onset bank, the order read from the log; the onsets bank naming that commit, its first unit after it, the predictions unchanged since',
+     lambda S: predictions_first_ok(S), lambda S: put(S, 'pred_banks', S['pred_banks'] + [K.C3_RELAY])),
+    ('G-REGISTRATIONS-UNCHANGED', 'N2: data/b712_registrations.txt and data/b712_price.txt read unchanged from 67a02388 -- equal at that commit, at HEAD and in the tree, no commit of this act touching them',
+     lambda S: registrations_unchanged_ok(S), lambda S: put(S, 'regs', (S['regs'][0], b'x', S['regs'][2], S['regs'][3]))),
+    ('G-ONSETS-SCORED', '(R323)(5)(iii), N2: (C1) at Q0 before any -15 onset (n* 12275906 and 14748557 EQUAL, NEG outside); every predicted pair`s ratio to six places, HELD or REFUTED against [0.99, 1.01], C equal to the prediction`s',
+     lambda S: onsets_ok(S), lambda S: _mut(S, 'onsj', lambda d: d['rows'][0].update(verdict='REFUTED'))),
+    ('G-COEFFS-OBSERVED', '(R323)(5)(iv): the coefficients through 32532 -- C1, C2 and C2-NEG as wanted before the readings; the least negative index in closed form, the count equal to the list, no sign undecided; the list`s Re > 1 beside it',
+     lambda S: coeffs_ok(S), lambda S: _mut(S, 'coefj', lambda d: d.update(c2_neg=False))),
+    ('G-NO-DISPATCH', 'N1: no runner dispatch and no lean process this act -- no b713 dispatch bank, the command capture`s dispatches and local lean none',
+     lambda S: no_dispatch_ok(S), lambda S: put(S, 'disp_now', True)),
     ('G-PARTS-PRERUN', 'the pre-run bank: seven parts, each named with its arms and seconds, the longest under the 590 s guard', lambda S: parts_prerun_ok(S),
      lambda S: put(S, 'prerun', '')),
     ('G-ARM-SECONDS-BANKED', 'the per-part seconds bank gathered before the seal', lambda S: arm_seconds_ok(S), lambda S: put(S, 'asec', {})),
@@ -2042,10 +2011,9 @@ def main():
     rec('  ### THE CITATION CHECK: %s' % (mc.group(0) if mc else '### NOT READ'))
     rec('  ### PLACE-papers` changed files on main %d against the allowed %d (the three ledgers; the re-cut on its branch): beyond %s' % (
         len(S['pp_changed']), len(S['pp_allowed']), sorted(set(S['pp_changed']) - set(S['pp_allowed'])) or 'NONE'))
-    rec('  ### SIDE-explicit-formula: main %s ; v0.37 %s (unmoved) ; SIDE-lv-conservation main %s, v0.10.0 %s, port-b707 %s (this act`s two commits on %s, kept; the port run %s, %s, %d of %d modules, read by its id) ; the join kernel main %s' % (
-        S['ef_main'][:12], (S['ef_tags'].get('v0.37') or '')[:12], S['lv_main'][:12], (S['lv_v0100'] or '-')[:12], (S['lv_port'] or '-')[:12], K.PORT_TIP[:12],
-        S['portj'].get('run_id') if S['portj'] else '-', (S['portj'].get('run') or {}).get('conclusion') if S['portj'] else '-', len(S['portj'].get('built') or []),
-        len(S['portj'].get('modules') or []), (S['join_main'] or '-')[:12]))
+    rec('  ### SIDE-explicit-formula: main %s ; v0.37 %s (unmoved) ; SIDE-lv-conservation main %s, v0.10.0 %s, port-b707 %s (b712`s tip, kept, no commit this act) ; the join kernel main %s ; runner dispatches this act %d (N1: none)' % (
+        S['ef_main'][:12], (S['ef_tags'].get('v0.37') or '')[:12], S['lv_main'][:12], (S['lv_v0100'] or '-')[:12], (S['lv_port'] or '-')[:12],
+        (S['join_main'] or '-')[:12], len(S['cmdj'].get('dispatches') or []) if S['cmdj'] else -1))
     if 'live' in NEED[PART]:
         lv = S['live']
         rec('  ### THE THREE ARMS AT HEAD (seconds %s):' % ', '.join('%.0f' % x for x in lv['secs']))

@@ -331,79 +331,70 @@ def report_lines():
     return ['### THE STANDING REPORT ((R323)(3)): ### data/b713_report.txt NOT YET WRITTEN (tools/b713_report.py bank runs before the root)']
 
 
-TITLE_LINE = ('b713 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND THIRTY-NINE, THE RE-CUT ACT: b712 AT ITS WEIGHT; THE CORRIGENDUM; THE '
-              'STANDING CLAUSES AT v3; THE PORT AND THE JOIN; THE FACES ROW; THE -15 CONTROL REGISTERED AND PRICED; THE NEXT DOCUMENT RE-CUT, UNDER (R323).**')
-# ### the banks below carry no verdict line BY THEIR FORM (the record's landing lines, the dispatch rows); the closing prints
-# ### "### NO VERDICT LINE" for them, and the suite`s G-CLOSING-DRY-STEP reads each such bank itself ((R323)(2)(iii): the line passes where the
-# ### bank exists and carries no verdict line by this tool`s own reader, tools/b713_checks.py no_verdict_line_ok; no list of names).
-NO_VERDICT_BY_FORM = ('b713_dispatches.json',)
+TITLE_LINE = ('b713 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND FORTY, THE RESEARCH ACT AT DISCRIMINANT -15: b712 AT ITS WEIGHT; THE '
+              'AUTHOR`S WORD ON THREE ITEMS; THE CORRIGENDUM; THE STANDING CLAUSES AT v4; THE ZERO LIST, THE PREDICTIONS, THE ONSETS AND THE COEFFICIENTS '
+              'AT -15; THE SOURCE PIN, UNDER (R323).**')
+# ### the banks below carry no verdict line BY THEIR FORM; the closing prints "### NO VERDICT LINE" for them, and the suite`s G-CLOSING-DRY-STEP
+# ### reads each such bank itself ((R322)(2)(iii): the line passes where the bank exists and carries no verdict line by this tool`s own reader,
+# ### tools/b713_checks.py no_verdict_line_ok; no list of names). None this act: every bank below carries its verdict line.
+NO_VERDICT_BY_FORM = ()
 
 
 def act_sections():
-    return [('THE RECORD LINES, THE REPAIRS AND THE CORRIGENDUM ((R323)(1)-(3))', [('the generated entry for b712`s post-seal items and the corrigenda row (32)', 'b713_corrigendum.txt'),
-                                                                                ('the five repairs and the NEXT line`s, each with its diff', 'b713_tool_repairs.txt'),
-                                                                                ('the repairs` controls, 24 cases', 'b713_repair_controls.txt'),
-                                                                                ('the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1))', 'b713_root_banks_dry.txt')]),
-            ('THE STANDING CLAUSES ((R323)(3))', [('v3 written at step zero, v2`s rows unchanged, the deltas` control', 'b713_standing_control.txt')]),
-            ('THE PORT AND THE JOIN ((R323)(4), N1-N2)', [('edit 1 at DirichletC7Order.lean :501, its diff', 'b713_port_edit1.txt'),
-                                                          ('run 1 by its id, held at :574:39', 'b713_port_port1.txt'),
-                                                          ('edit 2 at DirichletC7Order.lean :574, its diff', 'b713_port_edit2.txt'),
-                                                          ('run 2 by its id, the modules built of 12', 'b713_port.txt'),
-                                                          ('Register4_positivity read at the deposit and the port`s tip', 'b713_regpos.txt'),
-                                                          ('the join`s run, its grade at the standard three', 'b713_join_grade.txt'),
-                                                          ('the tag v0.1.0 read back', 'b713_join_tag.txt'),
-                                                          ('the dispatch rows (three: the port`s two, the join`s one)', 'b713_dispatches.json')]),
-            ('THE -15 CONTROL ((R323)(6), N3)', [('the registrations, committed alone first', 'b713_registrations.txt'),
-                                                 ('the genus control on the author`s word', 'b713_genus_control.txt'),
-                                                 ('the price for b713', 'b713_price.txt')]),
-            ('THE RE-CUT ((R323)(7), (10))', [('the compile steps, banked before any prose', 'b713_recut_compile.txt'),
-                                              ('the quote search before the cut`s commit', 'b713_recut_quote.txt'),
-                                              ('the distance by the b670 method', 'b713_recut_cut.txt'),
-                                              ('the diff on recut-b713-silence', 'b713_recut_diff.txt')]),
+    return [('THE RECORD LINES, THE AUTHOR`S WORD, THE CORRIGENDUM AND THE REPAIRS ((R323)(1)-(4))', [
+                ('FACES_LEDGER.md :8 restated at the join, the clause named and nothing else', 'b713_faces_head_diff.txt'),
+                ('the re-cut`s additive check, the two MISSING lines restored, every line FOUND', 'b713_recut_additive.txt'),
+                ('the generated entry for b712`s post-seal items and the corrigenda row (33)', 'b713_corrigendum.txt'),
+                ('the six repairs, each with its hunks named', 'b713_tool_repairs.txt'),
+                ('the repairs` two-instance controls, 12 cases', 'b713_repair_controls.txt'),
+                ('the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1))', 'b713_root_banks_dry.txt')]),
+            ('THE STANDING CLAUSES ((R323)(4))', [('v4 written at step zero, v3`s rows unchanged, the deltas` control', 'b713_standing_control.txt')]),
+            ('THE RESEARCH AT -15 ((R323)(5), N2)', [('the list`s controls, before its figures', 'b713_list_controls.txt'),
+                                                    ('Q1`s certified list at tier two, band by band', 'b713_list.txt'),
+                                                    ('the predictions, committed alone before any onset', 'b713_predictions.txt'),
+                                                    ('the onsets, (C1) at Q0 first, each ratio and falsifier', 'b713_onsets.txt'),
+                                                    ('the coefficients through 32532, the controls first', 'b713_coeffs.txt')]),
+            ('THE SOURCE PIN ((R323)(6))', [('the genus factorization read against its text', 'b713_source_pin.txt')]),
             ('THE STANDING ARMS', [('the four figures against b712`s, read by b706`s tool', 'b713_standing_figures.txt')])]
 
 
 KERNEL_LINES = [
-    '    kernels written: two -- SIDE-lv-conservation`s port-b707 given two commits on b712`s be3052ac, 42da39ea (DirichletC7Order.lean :501) and',
-    '    cb0aea56 (:574), and two runner dispatches: run 40210206913 held at DirichletC7Order.lean :574:39, run 40210536172 12 of 12 modules built,',
-    '    no grade claimed on the port (no print list at the branch) ; SIDE-faces-join`s lakefile re-pinned to cb0aea56 (main 11a472b9, a fast-forward',
-    '    of b37a7b6e, the lakefile its one file), one dispatch, run 40210894425, faces_join DERIVES at the standard three, tagged v0.1.0 (object',
-    '    9bf6fe65, peeled 11a472b9, read back at the remote) ; N1: three dispatches of at most four ; port-b707 KEPT and not deleted, local and',
-    '    remote ; SIDE-lv-conservation`s main and its deposit v0.10.0 unmoved, no lv tag (W-ORD-LV-PORT-TAG for the author`s word) ;',
-    '    SIDE-explicit-formula`s main at badaccc unmoved, every tag unmoved, no scratch branch ; the seven push-b712* branches of relay and',
-    '    PLACE-papers deleted at step zero by name, one per command and each its own message, nothing chained after any, their tips banked before',
-    '    the first delete ; no lean process started on this host ; no toolchain or workflow of a kernel edited, no manifest written (the join`s',
-    '    lakefile its one write) ; nothing vendored ; no worktree made or removed ; b628`s local intake bank, the navigator`s export, b671`s',
-    '    uncompressed points file, b681`s units file, b694`s, b696`s, b707`s, b709`s and b712`s units files untracked ;',
-    '    no identifier of the author in any outbound request or workflow file ; no secret added ; the seat`s plain requests to github.com (its git',
-    '    reads and pushes, the three dispatches and their runs` reads, the tag`s push) the act`s only outbound calls ; the deposit route untouched,',
-    '    publish never called ; FINDINGS, OPEN_TRAILS and FACES_LEDGER appended (the faces row by the Edit tool, (R323)(5)) ;',
-    '    day1/Silence_of_Foundations.md re-cut on the branch recut-b713-silence (f5ea57cb), not pushed, main`s copy unmoved ; no other paper',
-    '    cut, written, moved or renamed ; data/act_roots.txt and the corrigenda bank appended ; the shared bank data/standing_clauses_v3.txt',
-    '    written ((R323)(3)), named in (W) ; no REGISTRY byte ; no FOUNDATIONS byte ; no README or faces page byte ; the mirror zip written outside',
-    '    every repository over b712`s roster, the builder`s state file tools/mirror_prevbuild.json written at the build and named in (W) ; nothing',
-    '    of TECHNE or any patent written',
+    '    kernels written: none -- port-b707 of SIDE-lv-conservation at b712`s tip cb0aea56, KEPT and not deleted, local and remote, no commit',
+    '    this act ; SIDE-lv-conservation`s main and its deposit v0.10.0 unmoved, no lv tag (W-ORD-LV-PORT-TAG for the author`s word) ;',
+    '    SIDE-faces-join`s main 11a472b9 with its one tag v0.1.0 unmoved ; SIDE-explicit-formula`s main at badaccc unmoved, every tag unmoved ;',
+    '    N1: no runner dispatch and no lean process on this host ; the eight push-b712* branches of relay, PLACE-papers and SIDE-faces-join',
+    '    deleted at step zero by name, one per command and each its own message, nothing chained after any, their tips banked before the first',
+    '    delete ; no toolchain, workflow or manifest of a kernel written ; nothing vendored ; no worktree made or removed ; b628`s local intake',
+    '    bank, the navigator`s export, b671`s uncompressed points file, b681`s units file, b694`s, b696`s, b707`s, b709`s, b711`s and b713`s',
+    '    units files untracked ; no identifier of the author in any outbound request header, URL, input or payload, or in any workflow file ; no',
+    '    secret added ; the seat`s requests to github.com (its git reads and pushes) and the source pin`s search and one fetch from arxiv.org the',
+    '    act`s only outbound calls ; the deposit route untouched, publish never called ; FINDINGS and OPEN_TRAILS appended ; FACES_LEDGER.md :8',
+    '    restated at the join by the Edit tool on the author`s word ((R323)(2)(ii)), no other line moved ; day1/Silence_of_Foundations.md on',
+    '    recut-b712-silence given its two MISSING lines by the Edit tool (0aeca834) and pushed in branch mode, NOT merged, main`s copy unmoved ;',
+    '    no other paper cut, written, moved or renamed ; data/act_roots.txt and the corrigenda bank appended ; the shared bank',
+    '    data/standing_clauses_v4.txt written ((R323)(4)), named in (W) ; the shared tools tools/act_close.py (new) and tools/push_gated.sh',
+    '    (repair (v)) written, named in (W) ; no REGISTRY byte ; no FOUNDATIONS byte ; no README or faces page byte ; the mirror zip written',
+    '    outside every repository over b712`s roster, the builder`s state file tools/mirror_prevbuild.json written at the build and named in (W) ;',
+    '    nothing of TECHNE or any patent written',
 ]
 CARRIED_FIXED = [
-    '    (a) ### **THE NEXT ACT, (R323)(11)**: b713, the research act at discriminant -15 where (R323)(6) prices it within one act`s budget, its',
-    '        registrations read unchanged from data/b713_registrations.txt`s commit (67a02388); the source pin priced for b713 on the author`s word;',
-    '        the keystone heads` trigger read against the compile steps (4) and (7) reach. The ferry names "standing clauses v3".',
-    '    (b) The orders: W-ORD-LV-FORWARD-PORT (restated: 12 of 12 modules at cb0aea56, the port reached; no lv tag); W-ORD-LV-PORT-TAG (OPEN_TRAILS',
-    '        :15848, for the author`s word); W-ORD-LV-CLOSURE-JOIN (the join DERIVES, tagged v0.1.0); W-ORD-KEYSTONE-HEADS (the re-cut`s',
-    '        Correspondence header, events); W-ORD-Q0-ZEROS-443; W-ORD-READING5-INDEPENDENCE; W-ORD-MOVES-BY-LOCUS; W-ORD-ENTRY-TAG-PRINTS;',
+    '    (a) ### **THE NEXT ACT, (R323)(10)**: b714, the keystone heads act where W-ORD-KEYSTONE-HEADS`s trigger reads met against the join`s',
+    '        tag and the re-cut; the re-cut`s merge on the author`s word where given; W-ORD-LV-PORT-TAG on the author`s word where given. The ferry',
+    '        names "standing clauses v4".',
+    '    (b) The orders: W-ORD-KEYSTONE-HEADS (b714); W-ORD-LV-PORT-TAG (OPEN_TRAILS :15848, for the author`s word); W-ORD-LV-FORWARD-PORT;',
+    '        W-ORD-LV-CLOSURE-JOIN; W-ORD-Q0-ZEROS-443; W-ORD-READING5-INDEPENDENCE; W-ORD-MOVES-BY-LOCUS; W-ORD-ENTRY-TAG-PRINTS;',
     '        W-ORD-EXPLICIT-FORMULA-C1; W-ORD-EPSTEIN-COUNT-LEAN; W-ORD-QUASI-RH-FIELD-WATCH; W-ORD-P3-CONTOUR-SIGMA; W-ORD-E0-MET-CLASSK;',
     '        W-ORD-README-FIGURE-SCOPE. Entered this act: none.',
-    '    (c) For the author`s word: the faces ledger head`s :8 sentence ("the record states none"), which the faces row no longer describes; the',
-    '        re-cut`s three held Correspondence cells (:210, :211) and its Correspondence header (ADDITIVE ONLY) against the cut; the tag`s',
-    '        tagger identity read under N5 (events); the -15 source pin priced for b713; the report tool outside the sealed list ((R323)(3): a',
-    '        report and not an arm); the draft held at v5.',
+    '    (c) For the author`s word: the -15 pairs 9-37 beyond reach at T0` 199 (each with the height its rule needs, 205.4 to 763.1); the K tail`s',
+    '        T-COUNT assumption carried to Q1 uncertified; the right edge carried to Re s = 2; the re-cut`s merge; the report tool outside the',
+    '        sealed list; the draft held at v5.',
     '    (d) b628`s full intake bank, the navigator`s export, b671`s uncompressed points file, b681`s units file, data/b694_witness_units.jsonl,',
-    '        data/b696_witness_balls_units.jsonl, data/b707_onset_units.jsonl, b709`s grid and pairs units files and b712`s axis, list and pairs',
-    '        units files (declared by prefix in their tools` heads) and the zero-byte `=` at relay`s root stay local and untracked.',
+    '        data/b696_witness_balls_units.jsonl, data/b707_onset_units.jsonl, b709`s grid and pairs units files, b711`s axis, list and pairs',
+    '        units files and b713`s list and onsets units files (declared by prefix in their tools` heads) and the zero-byte `=` at relay`s root',
+    '        stay local and untracked.',
     '    (e) The act root of b713 is relay data/act_roots.txt`s last line, chained from b712`s root; the mirror export carries it in MANIFEST.',
-    '    (f) Branches left for the next act`s step zero: the push-b713* branches of relay and PLACE-papers, and push-b713-join of SIDE-faces-join.',
-    '        KEPT, not for deletion: port-b707 of SIDE-lv-conservation (the forward-port`s branch, at the remote at this act`s tip cb0aea56);',
-    '        recut-b713-silence of PLACE-papers (the re-cut, local, not pushed; nothing published).',
+    '    (f) Branches left for the next act`s step zero: the push-b713* branches of relay and PLACE-papers. KEPT, not for deletion: port-b707 of',
+    '        SIDE-lv-conservation (at the remote at cb0aea56); recut-b712-silence of PLACE-papers (at the remote at 0aeca834, not merged).',
     '    (h) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
 ]
 
@@ -444,12 +435,17 @@ def main():
                                                                                        'AGREE' if loc and loc == rem else '### DIFFER'))
     pl = g('D:/SIDE-lv-conservation', 'rev-parse', '--verify', '--quiet', 'refs/heads/' + WL.PORT_BRANCH)
     pr = remote_refs('D:/SIDE-lv-conservation').get('refs/heads/' + WL.PORT_BRANCH, '')
-    heads.append('      %-32s local %s ; remote %s ; %s (the forward-port`s branch, KEPT under (R323)(8): this act`s two commits on b712`s %s, 12 of 12 modules)' % (
+    heads.append('      %-32s local %s ; remote %s ; %s (the forward-port`s branch, KEPT under (R323)(7): b712`s tip %s, no commit this act)' % (
         WL.PORT_BRANCH, pl[:12] or 'absent', pr[:12] or 'absent', 'AGREE' if pl and pl == pr == WL.PORT_NEW_TIP else '### DIFFER', WL.PORT_TIP[:8]))
+    PP_ = 'D:/MY-DOwnloads/PLACE-papers'
+    rl_ = g(PP_, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + WL.RECUT_BRANCH)
+    rr_ = remote_refs(PP_).get('refs/heads/' + WL.RECUT_BRANCH, '')
+    heads.append('      %-32s local %s ; remote %s ; %s (the re-cut, KEPT; pushed in branch mode under (R323)(2)(iii), NOT merged)' % (
+        WL.RECUT_BRANCH, rl_[:12] or 'absent', rr_[:12] or 'absent', 'AGREE' if rl_ and rl_ == rr_ == WL.RECUT_TIP else '### DIFFER'))
     jt = g('D:/SIDE-faces-join', 'tag', '--list')
     jr = [x for x in remote_refs('D:/SIDE-faces-join') if x.startswith('refs/tags/')]
     jp = g('D:/SIDE-faces-join', 'rev-parse', WL.JOIN_TAG[0] + '^{commit}')
-    heads.append('      %-32s tags local %s ; at the remote %s ; %s peeled %s ; %s (the join tagged under (R323)(4))' % (
+    heads.append('      %-32s tags local %s ; at the remote %s ; %s peeled %s ; %s (the join`s tag, b712`s, unmoved)' % (
         'SIDE-faces-join', jt.split() or 'NONE', jr or 'NONE', WL.JOIN_TAG[0], jp[:12] or '-',
         'AGREE' if jt.split() == [WL.JOIN_TAG[0]] and jp == WL.JOIN_TAG[2] and ('refs/tags/' + WL.JOIN_TAG[0]) in jr else '### DIFFER'))
     for k in QUARANTINE:
@@ -494,9 +490,9 @@ def main():
         L += ['### %s:' % title] + ['    %s (relay data/%s): %s' % (lab, bk, vtail(rd(bk))) for lab, bk in rows]
         L += ['']
     L += report_lines() + ['']
-    L += ['### THE KERNELS: the face`s reading of the kernels (relay data/b713_kernels_face.json): %d kernels read before the seal, the join kernel '
-          'among them ; SIDE-explicit-formula main %s (unmoved), v0.37 %s, v0.17 %s, no scratch branch ; SIDE-lv-conservation main %s (unmoved), '
-          'v0.10.0 %s (the deposit), port-b707 %s (this act`s two commits, 12 of 12) ; SIDE-faces-join main %s (re-pinned), tagged v0.1.0' % (
+    L += ['### THE KERNELS: the face`s reading of the kernels (relay data/b713_kernels_face.json): %d kernels read before the seal, none written '
+          '; SIDE-explicit-formula main %s (unmoved), v0.37 %s, v0.17 %s, no scratch branch ; SIDE-lv-conservation main %s (unmoved), '
+          'v0.10.0 %s (the deposit), port-b707 %s (b712`s tip, KEPT, no commit this act) ; SIDE-faces-join main %s (unmoved), its tag v0.1.0 unmoved' % (
               len(jl('b713_kernels_face.json').get('kernels') or {}), g('D:/SIDE-explicit-formula', 'rev-parse', 'main')[:12],
               g('D:/SIDE-explicit-formula', 'rev-parse', 'v0.37^{commit}')[:12], g('D:/SIDE-explicit-formula', 'rev-parse', 'v0.17^{commit}')[:12],
               g('D:/SIDE-lv-conservation', 'rev-parse', 'main')[:12], g('D:/SIDE-lv-conservation', 'rev-parse', 'v0.10.0^{commit}')[:12], pl[:12] or '-',
