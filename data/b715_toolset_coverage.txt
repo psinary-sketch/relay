@@ -1,0 +1,36 @@
+b715 -- THE STANDING TOOLSET'S COVERAGE TABLE AT v1.0.0 (2026-10-26), the author's word (1)(b) (data/b715_author_words_preseal.txt)
+
+### rows are the steps of the close in the standing clauses v5 order (data/standing_clauses_v5.txt :188, row (79), [1]-[25]), each:
+### the step | STANDING (the core runs it) or PER-ACT (still b714's lineage, carried as b715's) | the module it lives in | the core's
+### functions a PER-ACT step calls, where the act's carried tool binds them. From b716 the close runs each step as this table marks it; each
+### later version of tools/standing/ moves rows from PER-ACT to STANDING, and its replay (data/<act>_replay.txt) is its proof.
+### Outside the 25 steps and STANDING from this act: the PreToolUse hook (tools/standing/hook.py, v5 row (77); the class repair (4)(iii)),
+### the literal scan (tools/standing/scan.py), the replay (tools/standing/replay.py) and the class repairs' controls (tools/standing/controls.py).
+
+  [1]  the four standing figures                               | PER-ACT  | tools/b715_standing.py (b714_standing.py's lineage)
+  [2]  the root route's dry run, READY True                    | PER-ACT  | tools/b715_record.py rootdry (b698_record.py's route)
+  [3]  the closing tool's dry run, its head line                | PER-ACT  | tools/b715_closing.py ; the head line's builder extracted as tools/standing/close.py head_line (replayed EQUAL on b714 and b713)
+  [4]  the score routes' dry form                              | PER-ACT  | tools/b715_record.py scores (its dry form, data/<act>_scores_dry.txt)
+  [5]  the gate                                                | PER-ACT  | tools/b715_reg_gate.py
+  [6]  the lock                                                | PER-ACT  | tools/b378_lockgate.py (shared by name, run with the act's argument)
+  [7]  the suite's pre-run in seven parts and its combined bank | PER-ACT  | tools/b715_checks.py ; G-RULE-LONG-PHASE-SPLIT's figures from tools/standing/arms.py prev_longest (the class repair (4)(i)), the combine's tally from tools/standing/close.py combine_tally
+  [8]  the seal, its NEG controls shown failing                | PER-ACT  | tools/b715_checks.py seal ; neg_shown's three lists and the withheld field from tools/standing/close.py neg_shown and withheld_entries (the class repairs (4)(ii) and (4)(vi)), the field read from data/act_current.json `withheld`
+  [9]  the scores, written once                                | PER-ACT  | tools/b715_record.py scores
+  [10] the root's prompt and the answers bank                  | PER-ACT  | tools/b715_citation.py answer
+  [11] the standing report's bank                              | PER-ACT  | tools/b715_report.py
+  [12] the FINDINGS entry, pushed                              | PER-ACT  | tools/b715_record.py findings
+  [13] the final table                                         | PER-ACT  | tools/b715_record.py table_final
+  [14] the root                                                | PER-ACT  | tools/b715_record.py root (tools/act_root.py, shared)
+  [15] the trail carrying the root                             | PER-ACT  | tools/b715_record.py trail
+  [16] the desk                                                | PER-ACT  | tools/b715_record.py desk
+  [17] the pre-push suite in seven parts                       | PER-ACT  | tools/b715_checks.py ; the combine's tally from tools/standing/close.py combine_tally
+  [18] the components bank                                     | STANDING | tools/standing/components.py bank (the ruling's components and the step bank; the class repair (4)(iv); replayed EQUAL on b714, b713's the old tool's form, finding F-2)
+  [19] the record commit and its pushes, captured              | PER-ACT  | tools/b715_record.py push routes and push_gated
+  [20] the post-push suite in seven parts                      | PER-ACT  | tools/b715_checks.py ; the combine's tally from tools/standing/close.py combine_tally (replayed EQUAL: 124/16/1 on b714, 129/11/0 on b713)
+  [21] the events bank                                         | PER-ACT  | the Edit tool, read by tools/b715_closing.py events_section
+  [22] scores close                                            | PER-ACT  | tools/b715_record.py scores (its close form, data/<act>_scores_close.json)
+  [23] the mirror after the root                               | PER-ACT  | tools/b715_record.py mbuild, mroot, mverify, mbank (the mirror builder; its roster from PLACE-papers main, (R325)(5))
+  [24] the standing report's scores line                       | PER-ACT  | tools/b715_report.py
+  [25] the closing and its push                                | PER-ACT  | tools/b715_closing.py ; its head line from tools/standing/close.py head_line where bound
+
+### ### **STEPS 25 ; STANDING 1 ([18]) ; PER-ACT 24 ; THE CORE'S FUNCTIONS CALLED INSIDE PER-ACT STEPS AT [3], [7], [8], [17], [20], [25] ; OUTSIDE THE STEPS STANDING 4 (THE HOOK, THE SCAN, THE REPLAY, THE CONTROLS) ; VERSION v1.0.0.**

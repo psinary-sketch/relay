@@ -24,12 +24,27 @@
  "hold_mb": 2560,
  "withheld": [],
  "components": [
-  {"n": 0, "title": "STEP ZERO", "clauses": ["(R325)(9)", "(R325)(10)"]},
-  {"n": 1, "title": "THE RECORD LINES AND THE CORRIGENDUM", "clauses": ["(R325)(1)", "(R325)(2)"]},
-  {"n": 2, "title": "THE STANDING TOOLSET", "clauses": ["(R325)(3)"]},
-  {"n": 3, "title": "THE CLASS REPAIRS", "clauses": ["(R325)(4)"]},
-  {"n": 4, "title": "THE MIRROR'S ROSTER AND THE PINS CENSUS", "clauses": ["(R325)(5)", "(R325)(6)"]},
-  {"n": 5, "title": "THE CHAIN'S CENSUS ROWS", "clauses": ["(R325)(7)"]},
-  {"n": 6, "title": "THE SEAL, THE SUITE, THE RECORD AND THE MIRROR", "clauses": ["(R325)(11)", "(R325)(12)"]}
- ]
+  {"n": 0, "title": "STEP ZERO", "clauses": ["(R325)(9)", "(R325)(10)"], "phases": ["step zero"]},
+  {"n": 1, "title": "THE RECORD LINES AND THE CORRIGENDUM", "clauses": ["(R325)(1)", "(R325)(2)"], "phases": ["component 1"]},
+  {"n": 2, "title": "THE STANDING TOOLSET", "clauses": ["(R325)(3)"], "phases": ["component 2"]},
+  {"n": 3, "title": "THE CLASS REPAIRS", "clauses": ["(R325)(4)"], "phases": ["component 3"]},
+  {"n": 4, "title": "THE MIRROR'S ROSTER AND THE PINS CENSUS", "clauses": ["(R325)(5)", "(R325)(6)"], "phases": ["component 4"]},
+  {"n": 5, "title": "THE CHAIN'S CENSUS ROWS", "clauses": ["(R325)(7)"], "phases": ["component 5"]},
+  {"n": 6, "title": "THE SEAL, THE SUITE, THE RECORD AND THE MIRROR", "clauses": ["(R325)(11)", "(R325)(12)"], "phases": ["gate", "seal", "pre-root", "root"]}
+ ],
+ "_replay": "THE REPLAY'S SPECIFICATIONS ((R325)(3)(iv), the author's word (1)(c)), read by tools/standing/replay.py for the previous act and the act before it (each read from the chain): each act's withheld field as its seal read it, and its components as the step bank's phases its composer used. Data, not code: b714's from tools/b714_checks.py WITHHELD :1760 (the author's word (6)) and tools/b714_components_standin.py COMPONENTS :34-:36; b713's withheld none (the field begins at b714) and its components by the same phases, the pilot absent.",
+ "replay": {
+  "b714": {"ruling": "R324", "withheld": [{"arm": "G-RULE-LONG-PHASE-SPLIT", "defect": "(p)", "cause": "its input, b713`s combined pre-run bank, never written: the previous act`s longest phase reads 0 and the mutated copy passes for that reason alone", "absent": "data/b713_arms_prerun.txt"}],
+           "components": [{"n": 0, "phases": ["step zero"]}, {"n": 1, "phases": ["component 1"]}, {"n": 2, "phases": ["component 2"]}, {"n": 3, "phases": ["component 3"]}, {"n": 4, "phases": ["component 4"]}, {"title": "THE PILOT", "phases": ["pilot"]}, {"n": 5, "phases": ["component 5", "gate", "seal"]}, {"n": 6, "phases": ["pre-root", "root"]}]},
+  "b713": {"ruling": "R323", "withheld": [],
+           "components": [{"n": 0, "phases": ["step zero"]}, {"n": 1, "phases": ["component 1"]}, {"n": 2, "phases": ["component 2"]}, {"n": 3, "phases": ["component 3"]}, {"n": 4, "phases": ["component 4"]}, {"n": 5, "phases": ["component 5", "gate", "seal"]}, {"n": 6, "phases": ["pre-root", "root"]}]},
+  "findings": [
+   {"id": "F-1", "acts": ["b714", "b713"], "object": "5", "whose": "the old tool's", "text": "THE SEAL'S RECORD NAMES A RELAY HEAD THAT DOES NOT CARRY EVERY TOOL IT SEALED: the seal hashed the working tree, and a sealed tool edited after its last commit before the seal was hashed uncommitted -- b714_checks.py at b714 (last committed d89d649f, the record's relay head 601dab1f), b713_checks.py and b713_closing.py at b713 (relay head b7503853); the seal's commit is the first to carry the sealed bytes in both. The core reads the sealed tools at the seal's commit (EQUAL) and prints the relay head's reading apart; not copied forward."},
+   {"id": "F-2", "acts": ["b713"], "object": "6", "whose": "the old tool's", "text": "b713'S COMPONENTS BANK IS NOT COMPOSED FROM ITS STEP BANK: its composer wrote each component's line as prose naming banks and figures (its tools/b713_record.py components route), with no step row and no commit list; the core composes each line from the step bank's phases (the form b714's stand-in wrote, EQUAL on b714), so every line differs in form. Not copied forward."}
+  ],
+  "forms": [
+   {"acts": ["b713"], "object": "2", "text": "the combined bank's first figure line carries no WITHHELD clause: b713's combine predates the withheld field (b714's word (7)); the figures EQUAL, the text the old form"},
+   {"acts": ["b714", "b713"], "object": "6", "text": "the components bank's head line is each composer's own prose (b714's stand-in names its cause); compared apart, not an object"}
+  ]
+ }
 }
