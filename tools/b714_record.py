@@ -2085,7 +2085,9 @@ def _n2():
     m = re.search(r'push_gated: tag %s peeled local ([0-9a-f]{40}) remote ([0-9a-f]{40})' % re.escape(K.LV_TAG), cap)
     peel_ok = bool(m) and m.group(1) == m.group(2) == K.PORT_TIP
     tb = ' '.join(rdn('%s_lv_tag.txt' % ACT).split())
-    rel = re.search(r'the release list \(gh release list --repo \S+\): (.*?)(?: ### |$)', tb)
+    # ### the list's releases read up to the bank's own reading for the tag ("; FOR v0.14.0: NONE (empty)", :43), the tag absent among them
+    # ### (the first form read past that reading and found the tag in it)
+    rel = re.search(r'the release list \(gh release list --repo \S+\): (.*?) ; FOR %s: NONE \(empty\)' % re.escape(K.LV_TAG), tb)
     rel_ok = 'NO RELEASE FOR IT' in tb and bool(rel) and K.LV_TAG not in rel.group(1)
     last = jl('%s_recut_additive.json' % ACT).get('last') or {}
     add_ok = last.get('tip') == K.C2_PP_MERGE and last.get('found') == 22 and last.get('missing') == 0 and last.get('in_order') is True \
@@ -2139,7 +2141,9 @@ def _n4():
         if r.get('tool') not in ('Bash', 'PowerShell'):
             continue
         # ### a push is the tool invoked, at the command's head or after && or ;, its environment prefixes allowed -- not a reader naming it
-        for m in re.finditer(r'(?:^|&&|;)\s*(?:[A-Z_]+=\S*\s+)*(?:bash\s+|sh\s+)?[^\s&;|]*push_gated\.sh\s+"?([^\s"]+)"?\s+"?([^\s"]+)', r.get('cmd') or ''):
+        # ### a mode flag before the ref (`--existing-tag v0.14.0`, the tag push of (R324)(3)(i)) is not the ref: the capture is named by the ref
+        for m in re.finditer(r'(?:^|&&|;)\s*(?:[A-Z_]+=\S*\s+)*(?:bash\s+|sh\s+)?[^\s&;|]*push_gated\.sh\s+"?([^\s"]+)"?\s+(?:--[\w-]+\s+)*"?([^\s"]+)',
+                             r.get('cmd') or ''):
             log = re.search(r'PUSH_GATED_LOG=(\S+)', r.get('cmd') or '')
             repo = os.path.basename(m.group(1).rstrip('/\\'))
             want = os.path.join(D, '%s_%s_%s_push_out.txt' % (ACT, repo, m.group(2)))
@@ -2189,7 +2193,9 @@ def _n5():
     rc_main = grc(PP, 'merge-base', '--is-ancestor', K.C2_PP_MERGE, 'HEAD') == 0 \
         and g(PP, 'rev-parse', K.C2_PP_MERGE + '^2').strip() == K.RECUT_TIP
     rc_branch = g(PP, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.RECUT_BRANCH).strip() == K.RECUT_TIP
-    rc_remote = g(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH).strip().split('\t')[0] == K.RECUT_TIP
+    # ### an empty read is re-read once alone (the closing's carried form; at step [4] a connection reset read it empty, records (10))
+    rr = g(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH).strip() or g(PP, 'ls-remote', 'origin', 'refs/heads/' + K.RECUT_BRANCH).strip()
+    rc_remote = rr.split('\t')[0] == K.RECUT_TIP
     recut_ok = rc_main and rc_branch and rc_remote
     # ### (R324)(4)(i), standing clauses v4 row (62), ONE LIST OF WRITES: every write read against the face's (W) table through
     # ### tools/act_close.py w_patterns, the scorer keeping no list of its own (b713's N5_RELAY_DATA omitted data/b711_steps.json, which its

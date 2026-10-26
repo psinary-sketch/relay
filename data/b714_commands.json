@@ -1,5 +1,5 @@
 {
- "at": "2026-10-26T08:01:44Z",
+ "at": "2026-10-26T08:19:00Z",
  "anchor": "RULING (R324) BEGIN",
  "rows": [
   {
@@ -3489,13 +3489,485 @@
    "cmd": "python -X utf8 tools/b714_record.py commands",
    "n": 436,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:01:50.278Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b714_commands.json \"\\\"(any_pipes|pipes)\\\"\"",
+   "n": 437,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:01:59.468Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b714_commands.json \"^ {1,3}\\\"[a-z_]+\\\": \\[\"",
+   "n": 438,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:02:08.790Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b714_commands.json \"\\\"n\\\": (52|272),\"",
+   "n": 439,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:02:23.384Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b714_hook_refusals.txt \"T0[4-7]:\"",
+   "n": 440,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:02:51.722Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_record.py reads",
+   "n": 441,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:02:59.524Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_record.py \"^def guard|^def figures|^def defects|^def step\\(|^def defshort\"",
+   "n": 442,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:03:09.198Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_record.py guard",
+   "n": 443,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:03:15.783Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_record.py defects",
+   "n": 444,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:03:31.269Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_checks.py \"def _base_name|def _part_name|_mid\"",
+   "n": 445,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:03:42.007Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_checks.py --mid b714_mid.txt --part act",
+   "n": 446,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:05:12.244Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_checks.py \"def repair_controls_ok\"",
+   "n": 447,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:05:27.966Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad/probe_keys.py\" b714_repair_controls.json",
+   "n": 448,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:05:44.080Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_checks.py \"'G-REPAIR-CONTROLS'\"",
+   "n": 449,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:06:00.946Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_checks.py --mid b714_mid.txt --part act",
+   "n": 450,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:07:37.105Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short --branch",
+   "n": 451,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:07:43.328Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b714_record.py figures",
+   "n": 452,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:08:07.508Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b714_standing_figures.txt \"Silence|:210|distance|STALE|stale\"",
+   "n": 453,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:08:24.610Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b714_standing_figures.json \"changed|THE_UNCONDITIONAL_SURROUND\"",
+   "n": 454,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:09:02.978Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_closing.py \"CARRIED_FIXED|second-order\"",
+   "n": 455,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:09:23.176Z",
+   "src": "seat",
+   "cmd": "git status --short",
+   "n": 456,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:09:29.846Z",
+   "src": "seat",
+   "cmd": "git diff -- tools/b714_rect.py data/b714_author_words_preseal.txt data/b714_steps.json data/b714_hook_refusals.txt",
+   "n": 457,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:09:40.654Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_record.py \"def _root_exclude\"",
+   "n": 458,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:09:56.698Z",
+   "src": "seat",
+   "cmd": "git add tools/b714_checks.py tools/b714_closing.py tools/b714_reg_gate.py tools/b714_regspec.py tools/b714_report.py tools/b714_record.py tools/b714_rect.py tools/b714_worklist.py data/b714_author_words_preseal.txt data/b714_defects.txt data/b714_defects.json data/b714_hook_refusals.txt data/b714_records.txt data/b714_steps.json data/b714_registration_2026-10-26.txt data/b714_commands.json data/b714_commands.txt data/b714_read_calls.json data/b714_read_calls.txt data/b714_kernels_face.json data/b714_guard_dry.json data/b714_guard_dry.txt data/b714_standing_figures.json data/b714_standing_figures.txt data/b714_carry_checks.txt data/b714_carry_closing.txt data/b714_carry_reg_gate.txt data/b714_carry_regspec.txt data/b714_carry_report.txt data/b714_closing_dry.txt data/b714_mid_act.txt data/b714_mid_act.json data/b714_exercise_act.json",
+   "n": 459,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:10:03.274Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b714 Component 5: the suite, closing, gate, spec, record and report tools' act sections for b714's objects (v5, the hook, one lettering, the tag, the merge, the head, (7)-(10), the pilot); the face; the kernels face, commands, read calls, guard, defects (j)-(l), records (8)-(9), the four figures (step [1]: 1, 0, 0, 0 -- the Correspondence figure moved by the tag v0.14.0); the pilot's phase edit and step rows; the author's word (4)\"",
+   "n": 460,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:10:07.586Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_record.py step relay component 5 d89d649f",
+   "n": 461,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:10:14.639Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_record.py \"^def rootdry\"",
+   "n": 462,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:10:23.383Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_record.py rootdry",
+   "n": 463,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:10:34.281Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_closing.py dry",
+   "n": 464,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:11:03.433Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_record.py \"^def scores|scores_dry\"",
+   "n": 465,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:11:11.084Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_record.py scores dry",
+   "n": 466,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:11:52.759Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_record.py \"^def _n2|^def _n5|^def _n4\"",
+   "n": 467,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:12:03.282Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b714_lv_tag.txt \"release list|FOR v0\\.14\\.0\"",
+   "n": 468,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:12:20.445Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git rev-parse a86c942941806b8f1895f7f82c2a6489946bc0a3^2 refs/heads/recut-b712-silence && git ls-remote origin refs/heads/recut-b712-silence",
+   "n": 469,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:12:47.967Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git ls-remote origin refs/heads/recut-b712-silence",
+   "n": 470,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:13:13.998Z",
+   "src": "seat",
+   "cmd": "git ls-remote origin refs/heads/main",
+   "n": 471,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:13:20.629Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git ls-remote --heads origin",
+   "n": 472,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:13:28.979Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -I -X utf8 tools/b712_locate.py data/b714_scores_dry.txt \"^N5 \"",
+   "n": 473,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:13:53.120Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_record.py scores dry",
+   "n": 474,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:14:22.994Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_record.py scores dry",
+   "n": 475,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:14:42.941Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_reg_gate.py",
+   "n": 476,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:15:15.506Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_regspec.py",
+   "n": 477,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:15:26.170Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/reg_satisfiable.py \"argv|usage|audit_|def main\"",
+   "n": 478,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:15:34.739Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_satisfiable.py data/b714_satisfiable.json --emit b714",
+   "n": 479,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:16:35.902Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/banned_terms.py \"usage|argv|--new\"",
+   "n": 480,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:16:42.903Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b714_registration_2026-10-26.txt \"banned_terms|gate_hash\"",
+   "n": 481,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:17:02.654Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/banned_terms.py --diff D:/relay 2f76d11c --new data/b714_registration_2026-10-26.txt data/b714_defects.txt --emit b714",
+   "n": 482,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:17:34.676Z",
+   "src": "seat",
+   "cmd": "git grep -n -I -E \"gate_hash\" -- \"tools/b713_*.py\" \"tools/b714_*.py\"",
+   "n": 483,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:17:38.820Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/gate_hash.py \"^def |__main__|argv|stamp\"",
+   "n": 484,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:17:43.211Z",
+   "src": "seat",
+   "cmd": "git grep -n -I -l -E \"gate_hash\" -- tools",
+   "n": 485,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:17:47.843Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_record.py \"stamp|'gate'|gatestamp|GH\\.\"",
+   "n": 486,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:17:56.630Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b378_lockgate.py \"matches|GH\\.|gate_hash|audit_|_reg_gate|RECORDS\"",
+   "n": 487,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:18:08.179Z",
+   "src": "seat",
+   "cmd": "git grep -n -I -E \"reg_termscan|regspec_run\" -- tools/b714_record.py tools/b713_record.py tools/b714_regspec.py tools/b714_reg_gate.py tools/act_close.py",
+   "n": 488,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:18:21.939Z",
+   "src": "seat",
+   "cmd": "git grep -n -I -E \"gatebanks|termscan\" -- tools/b714_record.py tools/b713_record.py tools/act_close.py tools/b714_regspec.py",
+   "n": 489,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:18:26.340Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_record.py \"^import|^R = | as R$|^    R\\.\"",
+   "n": 490,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:18:29.908Z",
+   "src": "seat",
+   "cmd": "git grep -n -I -E \"def gatebanks\" -- tools",
+   "n": 491,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:18:40.103Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b714_record.py \"^R\\b|^R=|R = |FACE_REL|^FACE|\\.FACE =\"",
+   "n": 492,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:18:47.566Z",
+   "src": "seat",
+   "cmd": "git status --short -- data/b714_census_stepzero.txt data/b714_faces_census_stepzero.txt data/b714_pins_stepzero.txt data/b714_ferry_scan.txt data/b714_reg_gate.txt data/b714_regspec_run.txt data/b714_reg_termscan.txt data/audit_b714_reg_satisfiable.txt data/audit_b714_banned_terms.txt",
+   "n": 493,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:18:51.305Z",
+   "src": "seat",
+   "cmd": "git ls-files -- data/b714_census_stepzero.txt data/b714_faces_census_stepzero.txt data/b714_pins_stepzero.txt data/b714_ferry_scan.txt",
+   "n": 494,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T08:18:56.463Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b714_record.py gatebanks",
+   "n": 495,
+   "bg": false
   }
  ],
  "offences": [],
  "prev": {
   "act": "b713",
   "session": "3bbc6267-f2de-40fb-b160-263f3c982c61",
-  "rows": 472,
+  "rows": 531,
   "offences": []
  },
  "local_lean": [],
