@@ -1,0 +1,218 @@
+b715 -- THE PRUNES OF THE CARRIED tools/b715_citation.py: the previous act`s routes over its own objects, removed at carry time (data/b709_rules.txt row (1)); rows are hunks.
+
+@@ -124,214 +124,0 @@ PRUNED (2026-10-26T16:11:16Z)
+-    # ### b715: the cite rows of (R325) and its ferry, written by the Edit tool after b714's rows were pruned (data/b715_prune_citation.txt)
+-    for f in ('data/b714_closing.txt', 'data/b714_defects.txt', 'data/b714_events.txt', 'data/standing_clauses_v4.txt', 'data/b714_predictions.txt',
+-              'tools/b714_predict.py', 'data/b714_onsets.txt', 'data/b710_registrations.txt', 'data/b711_pairs.txt', 'data/b714_list.json',
+-              'tools/b667_epstein_certify.py', 'data/b714_recut_additive.txt', 'data/b714_list.txt', 'data/b714_coeffs.txt', 'data/b714_source_pin.txt',
+-              'data/b714_report.txt', 'data/b714_scores_close.json', 'data/b714_checks.txt', 'data/b714_checks_postpush.txt', 'data/b714_mirror.txt',
+-              'data/b714_steps.json', 'data/b714_corrigendum.json', 'data/b714_root_banks_dry.json', 'data/b711_coeffs.txt', 'data/b709_pairs.txt',
+-              'data/b675_corrigenda.txt', 'data/act_roots.txt', 'tools/b714_checks.py', 'tools/b714_closing.py', 'tools/b714_record.py',
+-              'tools/b714_corrigendum.py', 'tools/act_close.py', 'tools/push_gated.sh', 'tools/b706_standing_figures.py', 'tools/circuit_read.py',
+-              'tools/mirror_prevbuild.json', 'tools/act_root.py', 'tools/act_membrane.py', 'tools/ferry_scan.py'):
+-        add('ferry read-first', f, os.path.exists(p(*f.split('/'))), 'exists at the working tree', '0')
+-    # ### (R325)(1): b714 at its weight
+-    cl = lines_of(p('data', 'b714_closing.txt'))
+-    q = _quote(text, 'b714 closed: relay', '”; its relay commit')
+-    add('ruling (1)', 'data/b714_closing.txt :1, the head line, against (R325)(1)`s quote', bool(q) and q == cl[0], 'quote %d characters, the line %d ; equal byte for byte %s' % (len(q), len(cl[0]), q == cl[0]), '0-1')
+-    clo = (g(ROOT, 'log', '-1', '--format=%H %s', '2f76d11c')[1] or '').strip()
+-    add('ruling (1)', 'the closing`s commit 2f76d11c (b714: the closing)', clo.startswith('2f76d11c') and 'b714: the closing' in clo, clo[:60], '0-1')
+-    ll = lines_of(p('data', 'b714_list.txt'))
+-    add('ruling (1)', 'the -15 list complete to 199.33082 in 14 bands, 169 on-line, 37 off-line pairs (data/b714_list.txt :74)',
+-        'COMPLETE TO 199.33082 ; BANDS 14 (COMPLETE 14) ; ON-LINE ZEROS 169 ; OFF-LINE PAIRS 37' in at(ll, 74), ':74 %r' % at(ll, 74)[:90], '1')
+-    pst = (g(ROOT, 'show', '--format=', '--name-only', K.B713_PRED_RELAY)[1] or '').split()
+-    anc = subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', K.B713_PRED_RELAY, K.B713_ONSETS_RELAY]).returncode == 0
+-    add('ruling (1); ruling (7)', 'data/b714_predictions.txt committed alone at be4db146, an ancestor of 9816b87d', sorted(pst) == ['data/b714_predictions.json', 'data/b714_predictions.txt'] and anc,
+-        'be4db146 files %s ; ancestor of 9816b87d %s' % (pst, anc), '1')
+-    on = lines_of(p('data', 'b714_onsets.txt'))
+-    rat = [float(m.group(1)) for l in on[11:19] for m in [re.search(r'ratio ([0-9.]+) \| HELD', l)] if m]
+-    add('ruling (1)', 'the law met at 8 of 8, ratios 1.000055 to 1.000885 (data/b714_onsets.txt :12-:19)', len(rat) == 8 and min(rat) == 1.000055 and max(rat) == 1.000885,
+-        'HELD rows %d ; ratios %s to %s' % (len(rat), min(rat) if rat else None, max(rat) if rat else None), '1')
+-    add('ruling (1)', '29 pairs beyond reach, owed no prediction (:20-:48; the author`s word, events (9))', sum(1 for l in on[19:48] if 'BEYOND REACH' in l and 'not computed' in l) == 29
+-        and 'PAIRS COMPUTED 8 ; HELD 8 ; REFUTED 0 ; BEYOND REACH 29' in at(on, 50), ':50 %r' % at(on, 50)[:70], '1')
+-    bp1 = lines_of(p('data', 'b711_pairs.txt'))
+-    add('ruling (1)', 'Q0`s pairs 11 and 15 met at b711, ratios 0.998460 and 0.998079, window [0.9, 1.1] (data/b711_pairs.txt :12-:13)',
+-        'n*/F2 0.998460' in at(bp1, 12) and 'WITHIN' in at(bp1, 12) and 'n*/F2 0.998079' in at(bp1, 13) and 'WITHIN' in at(bp1, 13) and 'window [0.9, 1.1]' in at(bp1, 4), ':12 ; :13 ; :4', '1')
+-    co = lines_of(p('data', 'b714_coeffs.txt'))
+-    rpt = lines_of(p('data', 'b714_report.txt'))
+-    add('ruling (1)', 'c(n) negative from n = 24, c(24) = -2 log 24, 90 through 3000 equal to the navigator`s value, 756 through 32532 (data/b714_coeffs.txt :13, :18; data/b714_report.txt :20)',
+-        'n = 24 ; c(24) = (-6) log 2 + (-2) log 3' in at(co, 13) and 'NEGATIVE FROM n = 24' in at(co, 18) and 'NEGATIVE COEFFICIENTS 756 THROUGH 32532' in at(co, 18)
+-        and '-2 log 24' in at(rpt, 20) and '90 beside 90 -- EQUAL' in at(rpt, 20), ':13 ; :18 ; report :20', '1')
+-    lj = _jl('b714_list.json')
+-    # ### the json's own shape: the off-line rows at its top level (`offline`, 37) and `re_over_1`; the dry form read rows under `bands` and
+-    # ### found none, a vacuous pass -- widened before the bank (both yields printed)
+-    offl = (lj.get('offline') or []) if isinstance(lj, dict) else []
+-    p7 = [r_ for r_ in offl if isinstance(r_, dict) and str(r_.get('re', '')).startswith('1.0259726')]
+-    ro1 = (lj.get('re_over_1') or []) if isinstance(lj, dict) else []
+-    add('ruling (1); ruling (9)', 'pair 7: Re rho 1.025973 at 61.422798, located by Newton at 200 bits, certified False (data/b714_list.json `offline` and `re_over_1`; data/b714_list.txt :22)',
+-        "('1.0259726162', '61.422798308')" in at(ll, 22) and len(p7) == 1 and p7[0].get('certified') is False and str(p7[0].get('im', '')).startswith('61.4227983')
+-        and 'Newton on point values at 200 bits' in p7[0].get('located', '') and len(ro1) == 1 and ro1[0] == p7[0],
+-        ':22 ; offline rows %d, with Re 1.0259726 %d, certified %s ; re_over_1 rows %d (the dry form`s `bands` matcher read 0)' % (
+-            len(offl), len(p7), [r_.get('certified') for r_ in p7], len(ro1)), '1')
+-    q0c = lines_of(p('data', 'b711_coeffs.txt'))
+-    add('ruling (1)', 'Q0 with no zero of Re rho > 1 in its list to 325.0 (data/b711_coeffs.txt :15)', 'NONE IN THE LIST TO 325.0' in at(q0c, 15), ':15 %r' % at(q0c, 15).strip()[:70], '1')
+-    spn = lines_of(p('data', 'b714_source_pin.txt'))
+-    add('ruling (1)', 'the genus factorization pinned at Murty-Osburn arXiv:math/0412237v1, Theorem 2.3, AGREES (data/b714_source_pin.txt :47)',
+-        'AGREES' in at(spn, 47) and 'math/0412237v1' in ' '.join(spn) and 'Theorem 2.3' in ' '.join(spn), ':47 %r' % at(spn, 47).strip()[:40], '1')
+-    fl_ = lines_of(os.path.join(PP, 'FACES_LEDGER.md'))
+-    fh = (g(PP, 'log', '--format=%h', '503f1ce', '-1', '--', 'FACES_LEDGER.md')[1] or '').strip()
+-    add('ruling (1)', 'FACES_LEDGER.md :8 restated (PLACE-papers 503f1ce touching the ledger)', fh.startswith('503f1ce'), 'log %r' % fh, '1')
+-    rh = _remote_heads(PP)
+-    rmerged = subprocess.run(['git', '-C', PP, 'merge-base', '--is-ancestor', K.RECUT_TIP, 'main']).returncode == 0
+-    ra = lines_of(p('data', 'b714_recut_additive.txt'))
+-    add('ruling (1); ruling (3)(ii)', 'the re-cut`s additive check 22 of 22 on recut-b712-silence 0aeca834, pushed and not merged (data/b714_recut_additive.txt :67)',
+-        'ORIGINAL LINES 22 (BLANK 12 NOT SEARCHED) ; FOUND 22 ; MISSING 0 ; IN ORDER True' in at(ra, 67),
+-        'the bank %d lines ; remote head %s ; merged into main %s' % (len(ra), (rh.get('refs/heads/' + K.RECUT_BRANCH) or 'ABSENT')[:8], rmerged), '1')
+-    add('ruling (1); ruling (3)(ii)', 'recut-b712-silence at 0aeca834 at the remote and locally, not merged into main', rh.get('refs/heads/' + K.RECUT_BRANCH) == K.RECUT_TIP
+-        and (g(PP, 'rev-parse', K.RECUT_BRANCH)[1] or '').strip() == K.RECUT_TIP and not rmerged, 'remote %s ; local %s ; merged %s' % (
+-            (rh.get('refs/heads/' + K.RECUT_BRANCH) or '')[:8], (g(PP, 'rev-parse', K.RECUT_BRANCH)[1] or '').strip()[:8], rmerged), '1-2')
+-    add('ruling (1)', 'the entry at FINDINGS :10440', at(fi, 10440).startswith('## The −15 control'), ':10440 %r' % at(fi, 10440)[:50], '1')
+-    add('ruling (1)', 'the trail at OPEN_TRAILS :15928', at(ot, 15928).startswith('### b714'), ':15928 %r' % at(ot, 15928)[:40], '1')
+-    row = act_root_line('b714')
+-    add('ruling (1); ruling (6)(ii)', 'the root d613bce6 over 114 banks chained from fa19697b (data/act_roots.txt, the 90th chain row)', bool(row) and row[0][1].startswith('d613bce6') and row[0][2].startswith('fa19697b'),
+-        'row b714 %s' % ([x[:8] for x in row[0][1:3]] if row else 'NONE'), '1')
+-    scc = _jl('b714_scores_close.json')
+-    verd = dict((k, (v[0] if isinstance(v, list) and v else v)) for k, v in scc.items() if re.match(r'^[NS][1-5]$', k))
+-    add('ruling (1)', 'N1-N5 and S1-S3 HELD at scores close', len(verd) == 8 and all(v == 'HELD' for v in verd.values()),
+-        'data/b714_scores_close.json verdicts %s' % ' '.join('%s %s' % kv for kv in sorted(verd.items())), '1')
+-    cpp, cpr = rd(p('data', 'b714_checks_postpush.txt')) or '', rd(p('data', 'b714_checks.txt')) or ''
+-    add('ruling (1)', 'suite 129 of 140 pre-push and post-push', all('ARMS RUN : 140. ### LIVE PASSING : 129.' in x for x in (cpp, cpr)), 'both banks', '1')
+-    mr = rd(p('data', 'b714_mirror.txt')) or ''
+-    add('ruling (1)', 'the mirror mirror-refresh-2026-10-25-b714.zip CLEAN on all three clauses with the root line', 'CLEAN ON ALL THREE CLAUSES' in mr and 'Act root: b714 d613bce6' in mr and os.path.exists(K.MIRROR_ZIP),
+-        'data/b714_mirror.txt ; the zip exists %s' % os.path.exists(K.MIRROR_ZIP), '1')
+-    dl = lines_of(p('data', 'b714_defects.txt'))
+-    dlet = [(m.group(1), m.group(2)) for l in dl for m in [re.match(r'^    \(([a-z])\) (THE [A-Z]+\'S)', l)] if m]
+-    add('ruling (1)', 'fourteen defects (a)-(n), all the seat`s', ''.join(x[0] for x in dlet) == 'abcdefghijklmn' and all(x[1] == "THE SEAT'S" for x in dlet),
+-        'letters %s ; owners %s' % (''.join(x[0] for x in dlet), sorted(set(x[1] for x in dlet))), '1')
+-    ev = lines_of(p('data', 'b714_events.txt'))
+-    starts = dict((int(m.group(1)), i + 1) for i, l in enumerate(ev) for m in [re.match(r'^\((\d+)\) ', l)] if m)
+-    add('ruling (1); ruling (5)', 'sixteen events in data/b714_events.txt, (1)-(16) each on its starting line', sorted(starts) == list(range(1, 17)),
+-        'starting lines %s' % [starts[k] for k in sorted(starts)], '1')
+-    add('ruling (1); ruling (13)', '"Nothing deposited, nothing published": the draft at v5, held', K.DRAFT == '23228113', 'tools/b715_worklist.py DRAFT', '6')
+-    # ### (R325)(2): the visibility map against GitHub's own listing, one call (the ruling names the author's listing; the seat reads GitHub's)
+-    r_ = subprocess.run(['gh', 'repo', 'list', 'psinary-sketch', '--limit', '400', '--json', 'name,visibility'], capture_output=True)
+-    try:
+-        vis = dict((x['name'], x['visibility']) for x in json.loads(r_.stdout.decode('utf-8', 'replace') or '[]'))
+-    except Exception:
+-        vis = {}
+-    priv = ('PLACE-papers', 'TECHNE-Core', 'PLACE-phase1.5', 'PLACE-phase2', 'SIDE-carrier-spec', 'SIDE-spinor-calibration-mathlib', 'SIDE-constants', 'glassbead-game')
+-    pub = ('relay', 'SIDE-faces-join', 'SIDE-lv-conservation', 'SIDE-explicit-formula')
+-    for n_ in priv:
+-        add('ruling (2)', 'PRIVATE: %s' % n_, vis.get(n_) == 'PRIVATE', 'GitHub reads %s' % vis.get(n_, 'ABSENT'), '0')
+-    for n_ in pub:
+-        add('ruling (2)', 'PUBLIC: %s' % n_, vis.get(n_) == 'PUBLIC', 'GitHub reads %s' % vis.get(n_, 'ABSENT'), '0')
+-    other = sorted(k for k in vis if k.startswith('SIDE-') and k not in priv + pub)
+-    add('ruling (2)', 'every other SIDE-* repository PUBLIC (GitHub`s listing, %d repositories)' % len(vis), bool(vis) and all(vis[k] == 'PUBLIC' for k in other),
+-        'other SIDE-* %d ; not PUBLIC %s' % (len(other), [k for k in other if vis[k] != 'PUBLIC']), '0')
+-    # ### (R325)(3)(i): the lv tag's objects
+-    lt = (g(K.LV_DIR, 'tag', '--list', K.LV_TAG)[1] or '').strip()
+-    lr = g(K.LV_DIR, 'ls-remote', '--tags', 'origin', K.LV_TAG)[1] or ''
+-    lpe = (g(K.LV_DIR, 'log', '-1', '--format=%h %ci', K.LV_TAG + '^{commit}')[1] or '').strip() if lt else ''
+-    add('ruling (3)(i)', 'v0.11.0 absent locally and at the remote (to be made at step (3)(i))', not lt and not lr.strip(),
+-        'local %r (peeled %s) ; remote %r ; the names taken %s' % (lt, lpe, lr.strip()[:40], (g(K.LV_DIR, 'tag', '--list', 'v0.1[1-9].*')[1] or '').split()), '2')
+-    lh = _remote_heads(K.LV_DIR)
+-    loc = (g(K.LV_DIR, 'rev-parse', K.PORT_BRANCH)[1] or '').strip()
+-    add('ruling (3)(i); ruling (11)', 'port-b707 at cb0aea56 locally and at the remote, NOT deleted', loc == K.PORT_TIP and lh.get('refs/heads/port-b707') == K.PORT_TIP,
+-        'local %s ; remote %s' % (loc[:8], (lh.get('refs/heads/port-b707') or '')[:8]), '0-2')
+-    lm = (g(K.LV_DIR, 'rev-parse', 'main', 'v0.10.0^{commit}')[1] or '').split()
+-    add('ruling (3)(i)', 'lv`s main d38f3e8c and the deposit v0.10.0 = 93c27ec', lm == [K.LV_MAIN, K.LV_V0100] and lh.get('refs/heads/main') == K.LV_MAIN,
+-        'local %s ; remote main %s' % ([x[:8] for x in lm], (lh.get('refs/heads/main') or '')[:8]), '2')
+-    rl = subprocess.run(['gh', 'release', 'list', '-R', 'psinary-sketch/SIDE-lv-conservation', '--json', 'tagName'], capture_output=True)
+-    try:
+-        rels = [x.get('tagName') for x in json.loads(rl.stdout.decode('utf-8', 'replace') or '[]')]
+-    except Exception:
+-        rels = None
+-    add('ruling (3)(i)', 'the release list of SIDE-lv-conservation read, no release for v0.11.0', rels is not None and K.LV_TAG not in rels, 'releases %s' % rels, '2')
+-    add('ruling (3)(i)', 'W-ORD-LV-PORT-TAG at OPEN_TRAILS :15848', 'W-ORD-LV-PORT-TAG' in at(ot, 15848), ':15848 %r' % at(ot, 15848)[:50], '2')
+-    ppm = (g(PP, 'rev-parse', 'main')[1] or '').strip()
+-    add('ruling (3)(ii)', 'PLACE-papers main at e284156 before the merge (b714`s trail)', ppm.startswith(K.PRE_PP), 'main %s' % ppm[:8], '2')
+-    # ### (R325)(4): the keystone order and the re-cut's opening
+-    add('ruling (4)', 'W-ORD-KEYSTONE-HEADS at OPEN_TRAILS :15454 and b703`s addition at :15496', 'W-ORD-KEYSTONE-HEADS' in at(ot, 15454) and 'W-ORD-KEYSTONE-HEADS' in at(ot, 15496),
+-        ':15454 ; :15496', '2')
+-    sd = _blob(PP, K.RECUT_TIP, K.RECUT_DOC).split(NL)
+-    add('ruling (4)', 'day1/Silence_of_Foundations.md at the re-cut`s tip 0aeca834 (its opening paragraph to be redrafted)', len(sd) > 20, '%d lines at 0aeca834' % len(sd), '2')
+-    # ### (R325)(5): the events the corrigendum letters and records, each once
+-    lettered = [1, 5, 10, 11, 12, 13, 14, 15, 6, 7, 8]
+-    records = [2, 3, 4, 9, 16]
+-    add('ruling (5)', 'the eleven lettered events and the five records are the sixteen, once each', sorted(lettered + records) == sorted(starts), 'lettered %s ; records %s' % (lettered, records), '1')
+-    for n_, needle in ((1, 'read four arms failing on real state'), (5, "G-TOOL-REPAIRS raised TypeError"), (10, 'G-NEXT-ACT-NAMED'), (11, 'G-ACTROOT-BANKED'),
+-                       (12, 'G-ACTROOT-VERIFY'), (13, '`--combine` was not run before the seal'), (14, 'G-CORRIGENDUM-ENTERED'), (15, 'G-ROOTDRY-READY'),
+-                       (6, 'THE THROUGHSTONE (b)'), (7, 'THE THROUGHSTONE (e)'), (8, "THE SEAT'S OWN WORDING")):
+-        add('ruling (5)', 'data/b714_events.txt (%d), the item the ruling names' % n_, needle in ' '.join(ev[starts.get(n_, 0) - 1:starts.get(n_, 0) + 1]) if n_ in starts else False,
+-            ':%s %r' % (starts.get(n_), at(ev, starts.get(n_, 0)).strip()[:60]), '1')
+-    bcl = rd(p('data', 'b714_closing.txt')) or ''
+-    add('ruling (5)', 'the item added here: the closing bank edited by the Edit tool after the seal (its carried item (i))', 'added to the sealed closing`s output by the Edit tool' in bcl,
+-        'data/b714_closing.txt carries the item %s' % ('added to the sealed closing`s output by the Edit tool' in bcl), '1')
+-    cg = lines_of(p('data', 'b675_corrigenda.txt'))
+-    last = [l for l in cg if re.match(r'^\s*\((\d+)\)', l)]
+-    add('ruling (5)', 'the corrigenda bank, appended only (its last row (33), b712`s record)', bool(last) and re.match(r'^\s*\(33\)', last[-1]) is not None,
+-        'data/b675_corrigenda.txt, last row %r' % (last[-1][:40] if last else ''), '1')
+-    # ### (R325)(6): the repairs' objects in b714's tools and banks
+-    ck = lines_of(p('tools', 'b714_checks.py'))
+-    add('ruling (6)(ii)', 'the carried figures in tools/b714_checks.py: :1673 `**Next:** b714`, :1657 the 89th row, :1198 a range', "'**Next:** b714'" in at(ck, 1673) and '89th' in at(ck, 1657),
+-        ':1673 ; :1657', '1')
+-    add('ruling (6)(ii)', 'b714`s banks read Next b715 (the trail :15960), the chain row 90 (data/act_roots.txt :91 with its one head row)', at(ot, 15960).startswith('**Next:** b715')
+-        and len([l for l in lines_of(p('data', 'act_roots.txt')) if re.match(r'^b\d+ [0-9a-f]{64} ', l)]) == 90, ':15960 ; chain rows %d' % len(
+-            [l for l in lines_of(p('data', 'act_roots.txt')) if re.match(r'^b\d+ [0-9a-f]{64} ', l)]), '1')
+-    add('ruling (6)(iii)', 'b714`s combined pre-run bank absent and its root dry run ready False', not os.path.exists(p('data', 'b714_arms_prerun.txt')) and _jl('b714_root_banks_dry.json').get('ready') is False,
+-        'arms_prerun exists %s ; dry ready %s' % (os.path.exists(p('data', 'b714_arms_prerun.txt')), _jl('b714_root_banks_dry.json').get('ready')), '1')
+-    cj = _jl('b714_corrigendum.json')
+-    lets = [x.get('letter') for x in (cj.get('lettered') or [])]
+-    add('ruling (6)(v)', 'b714`s corrigendum lettered with U+0027 where its suite reads U+2032', "a'" in lets and 'a′' in rd(p('tools', 'b714_checks.py')), 'letters %s' % lets, '1')
+-    add('ruling (6)(iv)', 'the seat`s project settings directory D:/.claude (the hook`s settings file to be written there)', os.path.isdir('D:/.claude'), 'D:/.claude exists %s ; settings.json %s' % (
+-        os.path.isdir('D:/.claude'), os.path.exists('D:/.claude/settings.json')), '0')
+-    add('ruling (6)(i)', 'b714`s word on (b) and (e) in data/b714_events.txt (9)', "THE AUTHOR'S WORD ON (b) AND (e)" in at(ev, starts.get(9, 0)), ':%s' % starts.get(9), '1')
+-    # ### (R325)(7)-(9): the law's sources
+-    r10 = lines_of(p('data', 'b710_registrations.txt'))
+-    add('ruling (7)', 'b710`s committed predictions 12294837 and 14776940 (data/b710_registrations.txt :34, :36), its (i) at :10',
+-        'F2 n* = 12294837' in at(r10, 34) and 'F2 n* = 14776940' in at(r10, 36) and at(r10, 10).strip().startswith('(i)'), ':10 ; :34 ; :36', '3')
+-    add('ruling (7)', 'the -15 tool`s evaluation at Q0: 12275846.6 and 14748496.3 (data/b714_onsets.txt :8, :9)', "n*_pred 12275846.6" in at(on, 8) and "n*_pred 14748496.3" in at(on, 9),
+-        ':8 ; :9', '3')
+-    pairs = [(m.group(1), float(m.group(2)), float(m.group(3))) for l in on[7:19] for m in [re.search(r'(pair\s+\d+).*?n\* (\d+).*?n\*_pred ([0-9.]+)', l)] if m]
+-    res = [round(a - b, 1) for _, a, b in pairs]
+-    want_ = [59.4, 60.7, 45.1, 44.9, 58.7, 70.3, 65.2, 64.3, 64.8, 137.3]
+-    add('ruling (8)', 'the navigator`s residuals 45.1 ... 137.3 at -15 and 59.4, 60.7 at Q0, from data/b714_onsets.txt :8-:19 to one decimal', res == want_,
+-        'read %s' % res, '3')
+-    ec = rd(p('tools', 'b667_epstein_certify.py')) or ''
+-    add('ruling (9)', 'tools/b667_epstein_certify.py`s interval routines (python-flint arb/acb; square_count, edge_arg, segment)', 'from flint import arb, acb' in ec and 'def square_count(' in ec and 'def edge_arg(' in ec,
+-        'present', '3')
+-    # ### (R325)(10): the Sonin face's sources
+-    add('ruling (10)', 'FACES_LEDGER.md :21, F2: measured margins and two imported theorems, no kernel declaration named', at(fl_, 21).startswith('| F2 |') and 'MEASURED' in at(fl_, 21) and 'IMPORTED' in at(fl_, 21)
+-        and '2006.13771v1' in at(fl_, 21) and not re.search(r'`[A-Za-z_]+\.[A-Za-z_.]+`', at(fl_, 21)), ':21', '4')
+-    add('ruling (10)', 'FACES_LEDGER.md :502, F2 at T3, imported not compiled', at(fl_, 502).startswith('| F2 |') and '**T3**' in at(fl_, 502), ':502', '4')
+-    h2 = _blob(K.EF_DIR, 'v0.37', 'SIDEExplicitFormula/H2Sign.lean').split(NL)
+-    add('ruling (10)', 'classK and h2_sign at SIDE-explicit-formula v0.37 (SIDEExplicitFormula/H2Sign.lean :24, :29)', at(h2, 24).startswith('def classK') and at(h2, 29).startswith('def h2_sign'),
+-        ':24 %r ; :29 %r' % (at(h2, 24)[:30], at(h2, 29)[:30]), '4')
+-    # ### (R325)(11): the carried files and the branches
+-    cpo = p('data', 'b714_closing_push_out.txt')
+-    add('ruling (11)', 'data/b714_closing_push_out.txt -- the name the ruling gives b714`s closing capture', os.path.exists(cpo),
+-        'absent ; the capture push_gated.sh wrote: data/b714_relay_push-b714-closing_push_out.txt exists %s, tracked %s' % (
+-            os.path.exists(p('data', 'b714_relay_push-b714-closing_push_out.txt')), bool((g(ROOT, 'ls-files', 'data/b714_relay_push-b714-closing_push_out.txt')[1] or '').strip())), '0')
+-    st = _jl('b714_steps.json').get('rows', [])
+-    s23 = st[22:23]
+-    add('ruling (11)', 'step 23 of data/b714_steps.json, the closing`s row (2f76d11c), uncommitted', len(st) == 23 and bool(s23) and s23[0].get('commit', '').startswith('2f76d11c')
+-        and s23[0].get('phase') == 'closing' and bool((g(ROOT, 'diff', '--name-only', '--', 'data/b714_steps.json')[1] or '').strip()), 'rows %d ; row 23 %s' % (
+-            len(st), (s23[0].get('commit', '')[:8], s23[0].get('phase')) if s23 else 'NONE'), '0')
+-    add('ruling (11)', 'the branch rows of data/b714_closing.txt (carried item (f))', any('push-b714* branches of relay and PLACE-papers' in l for l in cl), 'item (f)', '0')
+-    for repo, names in K.DELETE:
+-        lst = g(repo, 'branch', '--merged', 'main')[1] or ''
+-        for b in names:
+-            add('ruling (11)', '%s %s (local, listed --merged)' % (os.path.basename(repo), b), b in [x.strip(' *') for x in lst.split(NL)], 'listed by `git branch --merged main` before any delete', '0')
+-    mi = rd('C:/Users/echo chamber/.claude/projects/D--/memory/MEMORY.md') or ''
+-    add('ruling (11)', 'the seat`s memory index: its b714 line landed (nothing to restate)', 'b714 latest (closed 2026-10-26' in mi and 'feedback_b714_traps.md' in mi, 'MEMORY.md carries the b714 lines %s' % (
+-        'b714 latest (closed 2026-10-26' in mi), '0')
+-    add('ruling (11)', 'the 2,560 MB hold', K.HOLD == 2560, 'tools/b715_worklist.py HOLD', '0')
+-    # ### (R325)(12): the files this act writes, absent before it
+-    for f in ('data/standing_clauses_v5.txt', 'data/repo_visibility.txt', 'data/b715_readfirst.txt', 'data/b715_tool_repairs.txt', 'data/b715_heads_draft.txt',
+-              'data/b715_residual.txt', 'data/b715_sonin_price.txt', 'data/b715_rules.txt', 'data/b715_rules.txt', 'data/b715_author_words.txt',
+-              'tools/b715_law.py', 'tools/b715_residual.py', 'tools/b715_rect.py', 'D:/.claude/settings.json'):
+-        add('ruling (12)', '%s -- TO BE WRITTEN by this act' % f, not os.path.exists(f if ':' in f else p(*f.split('/'))), 'absent, as ordered', '0-6')
+-    add('ruling (12)', 'the READFIRST-CLOSURE reader', os.path.exists(p('tools', 'circuit_read.py')), 'tools/circuit_read.py (readfirst)', '0')
+-    add('ruling (12)', 'tools/mirror_prevbuild.json, the mirror builder`s state file, named in (W)', os.path.exists(p('tools', 'mirror_prevbuild.json')), 'present', '6')
+-    add('ferry C5', 'the four standing arms` figures tool and b714`s baselines', os.path.exists(p('tools', 'b706_standing_figures.py')) and os.path.exists(p('data', 'b714_standing_figures.json')),
+-        'tools/b706_standing_figures.py ; data/b714_standing_figures.json', '5')
+-    add('ferry C5', 'the chain halves as b693 drew them, b715 added to the second', K.CHAIN_HALVES[1] == ('b659', 'b715'), 'tools/b715_worklist.py CHAIN_HALVES', '5')
+-    add('ferry read-first', 'OPEN_TRAILS :15948, b714`s open orders', at(ot, 15948).startswith('**The open orders:**'), ':15948', '0')
+-    add('ruling (14)', 'the next act b715, the registrations act', K.NEXT_ACT == 'b715' and K.NEXT.startswith('b715, the registrations act'), 'tools/b715_worklist.py NEXT', '6')
+-    add('ferry C0', 'this act`s session transcript (the same session as b714)', os.path.exists(C.SESSION), C.SESSION, '0')
+

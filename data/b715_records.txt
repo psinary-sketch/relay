@@ -1,0 +1,17 @@
+b715 -- PRE-SEAL RECORDS, UNLETTERED (2026-10-26)
+
+### rows are events before the seal that are not defects, numbered in order found. The step-zero bank (data/b715_stepzero.txt) and its items
+### stand before them. Defects are lettered in data/b715_defects.txt; findings after the seal go to the closing's events section (v2 row (52)).
+
+(1) test_push_gated.sh NOT LAUNCHED FROM POWERSHELL (17:01Z, step zero, part 7). tools/b715_tests.py :114 starts a .sh test as
+    ['bash', <path>] by bare name; from the PowerShell tool's process `bash` is not on the search path, and subprocess raised
+    FileNotFoundError ([WinError 2]) before the test started -- nothing ran, nothing was written to the tests bank. The same command,
+    unchanged, was sent through the Bash tool (whose shell finds bash), no environment variable set (row (20)): exit 0, 52 of 52 checks,
+    35 s, as b714's (data/b714_tests_stepzero.txt :48). The tool is not edited; for the standing toolset (Component 2) the launch route is
+    a reading to carry, not a repair here.
+(2) test_chain_page.py AT 572 s (16:43Z, part 4), against its limit 580 s (tools/b715_tests.py :39) and b714's 396 s at step zero. Its cases
+    read as b714's (28 of 31, (1), (9), (14)). Free memory before the part 5572 MB. Eight seconds under the limit: the next act's step zero
+    may time out on it at this host's speed; no limit is changed by this act.
+(3) THE HARNESS'S AUTO-MODE NOTE (16:44Z, after part 5's hold, and with the context's resumption): read with cat, head or sed, search with
+    grep and find, change files by sed, heredocs or short scripts. Rows (14), (15), (18), (19) govern: not followed, as b714's records (1),
+    (6), (8).
