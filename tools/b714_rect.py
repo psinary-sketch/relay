@@ -12,6 +12,7 @@ the count reads 1; priced and carried where the run passes one hour.
 ### counts 0. THE UNITS: data/b714_rect_units.jsonl (this tool's; b709's and b713's units files are never written: b713_list's rebinding of
 ### b709's units/put_unit is replaced here before any piece runs). Each `run` call runs at most PROCS pieces (a pool joined before the
 ### return) and banks them; `bank [dry]` assembles and writes data/b714_rect.txt. Run as `python -X utf8` (it imports its siblings).
+### UNTRACKED WRITE: data/b714_rect_units.jsonl (the units file, left untracked as b709's and b713's are; declared at Component 5 for the root)
 """
 import hashlib
 import io

@@ -46,3 +46,16 @@ b714 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-26)
         and no offset or limit; row (19) reads by offset and a limit of at most 200. The hook refused it ("REFUSED READ", row (77)); re-sent
         with offset 1 and limit 200, the call failed on the absent renderer (pdftoppm), and the text was taken by pypdf to the scratchpad and
         read by the Read tool with offset and limit (data/b714_records.txt (5)).
+    (j) THE SEAT'S: A SCRATCH PROBE RUN BEFORE IT WAS READ, PRINTING BANK VALUES. At Component 5 (07:22Z), to read the JSON banks' keys, the
+        Write tool was called on the scratchpad's probe_keys.py, which an earlier act had left there; the Write refused (the file not read)
+        and the Bash call sent in the same message ran the old probe, which printed eleven b713 banks' keys with each scalar cut to 70
+        characters and each list's first item cut to 160 -- an interpreter's print of bank contents (row (19)), the run's own arguments
+        ignored. The probe was then read through the Read tool and rewritten to print keys and types alone; a probe is read before it is run.
+    (k) THE SEAT'S: ONE READ CALL WITH A LIMIT ABOVE TWO HUNDRED. At Component 5 (07:44Z), reading tools/b714_closing.py's act sections, the
+        Read tool was called with offset 186 and limit 230; row (19) reads by a limit of at most 200. The hook refused it ("REFUSED READ", row
+        (77)), nothing was read; re-sent with limit 200 and the rest read by a second call. A REPEAT of the class row (19) names ((i) above).
+    (l) THE SEAT'S: A LOCATOR PATTERN WITH BACKTICKS INSIDE DOUBLE QUOTES. At Component 5 (08:00:22Z), reading the closing's dry bank, the
+        locator's regex carried the bank's backtick possessives (`lv port`s tag|re-cut merged|law`s identity`) inside a double-quoted Bash
+        argument; the shell read two spans as command substitutions and tried to run `s`, `re-cut` and `law` (each "command not found",
+        nothing ran), and the locator searched the mangled pattern (5 hits of 8). The lines were then read through the Read tool by offset and
+        limit (data/b714_closing_dry.txt :28-:67). A pattern carrying a backtick goes in single quotes, or names the word without it.

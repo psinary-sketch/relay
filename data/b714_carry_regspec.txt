@@ -1,0 +1,164 @@
+b714 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b713_regspec.py -> tools/b714_regspec.py (2026-10-26T07:18:08Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b713 -> b714, b712 -> b713, (R323) -> (R324), (R322) -> (R323), R323 -> R324, R322 -> R323); 391 lines, 58 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b713_tool_repairs.txt AND data/b713_repairdiff_regspec.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b713; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b713_regspec.py
+  +++ tools/b714_regspec.py
+  @@ -2,1 +2,1 @@
+  -"""b713_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  +"""b714_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  @@ -4,1 +4,1 @@
+  -### ### Carried from b712's spec by tools/b713_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face:
+  +### ### Carried from b713's spec by tools/b714_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face:
+  @@ -6,1 +6,1 @@
+  -### ### the author's word; the six repairs of (R323)(4) and standing clauses v4; the -15 research (the list, the predictions committed alone
+  +### ### the author's word; the six repairs of (R324)(4) and standing clauses v4; the -15 research (the list, the predictions committed alone
+  @@ -23,1 +23,1 @@
+  -import b713_worklist as K   # noqa: E402
+  +import b714_worklist as K   # noqa: E402
+  @@ -25,2 +25,2 @@
+  -REG = os.path.join(ROOT, 'data', 'b713_registration_2026-10-25.txt')
+  -SPEC = os.path.join(ROOT, 'data', 'b713_satisfiable.json')
+  +REG = os.path.join(ROOT, 'data', 'b714_registration_2026-10-25.txt')
+  +SPEC = os.path.join(ROOT, 'data', 'b714_satisfiable.json')
+  @@ -42,1 +42,1 @@
+  -    ('commits on the port branch of SIDE-lv-conservation', 'PORTCOMMITS', 'PORTCOMMITS', 'commits', '### none: port-b707 at b712`s tip cb0aea56; MEASURED off the branch`s log from that tip to the branch now.'),
+  +    ('commits on the port branch of SIDE-lv-conservation', 'PORTCOMMITS', 'PORTCOMMITS', 'commits', '### none: port-b707 at b713`s tip cb0aea56; MEASURED off the branch`s log from that tip to the branch now.'),
+  @@ -46,2 +46,2 @@
+  -    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### none; MEASURED off SIDE-explicit-formula`s tags past v0.37, SIDE-lv-conservation`s containing b712`s port tip and the join kernel`s beyond v0.1.0.'),
+  -    ('Lean files written on a kernel', 'LEANFILES', 'LEANFILES', 'files', '### none; MEASURED off the port branch`s files from b712`s tip.'),
+  +    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### none; MEASURED off SIDE-explicit-formula`s tags past v0.37, SIDE-lv-conservation`s containing b713`s port tip and the join kernel`s beyond v0.1.0.'),
+  +    ('Lean files written on a kernel', 'LEANFILES', 'LEANFILES', 'files', '### none; MEASURED off the port branch`s files from b713`s tip.'),
+  @@ -49,1 +49,1 @@
+  -    ('kernel branches deleted', 1, 1, 'branches', '### (R323)(7): push-b712-join of SIDE-faces-join, local, by name at step zero; port-b707 KEPT.'),
+  +    ('kernel branches deleted', 1, 1, 'branches', '### (R324)(7): push-b713-join of SIDE-faces-join, local, by name at step zero; port-b707 KEPT.'),
+  @@ -52,2 +52,2 @@
+  -    ('papers cut', 0, 0, 'papers', '### none this act (the re-cut is b712`s).'),
+  -    ('commits on the re-cut branch', 1, 1, 'commits', '### (R323)(2)(iii): the two MISSING Correspondence lines restored by the Edit tool on recut-b712-silence (0aeca834).'),
+  +    ('papers cut', 0, 0, 'papers', '### none this act (the re-cut is b713`s).'),
+  +    ('commits on the re-cut branch', 1, 1, 'commits', '### (R324)(2)(iii): the two MISSING Correspondence lines restored by the Edit tool on recut-b713-silence (0aeca834).'),
+  @@ -55,1 +55,1 @@
+  -    ('re-cut branches pushed', 1, 1, 'branches', '### (R323)(2)(iii): recut-b712-silence in branch mode.'),
+  +    ('re-cut branches pushed', 1, 1, 'branches', '### (R324)(2)(iii): recut-b713-silence in branch mode.'),
+  @@ -57,1 +57,1 @@
+  -    ('faces ledger head lines edited', 1, 1, 'lines', '### (R323)(2)(ii), N3: FACES_LEDGER.md :8, by the Edit tool.'),
+  +    ('faces ledger head lines edited', 1, 1, 'lines', '### (R324)(2)(ii), N3: FACES_LEDGER.md :8, by the Edit tool.'),
+  @@ -66,2 +66,2 @@
+  -    ('generated corrigendum entries', 1, 1, 'entries', '### (R323)(3).'),
+  -    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R323)(3): row (33).'),
+  +    ('generated corrigendum entries', 1, 1, 'entries', '### (R324)(3).'),
+  +    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R324)(3): row (33).'),
+  @@ -70,1 +70,1 @@
+  -    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### (R323)(5): the list, the predictions, the onsets and the coefficients; MEASURED off the banks present.'),
+  +    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### (R324)(5): the list, the predictions, the onsets and the coefficients; MEASURED off the banks present.'),
+  @@ -74,1 +74,1 @@
+  -    ('shared tools written by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### (R323)(4): tools/act_close.py (new) and tools/push_gated.sh (repaired); MEASURED off the worklist`s lists.'),
+  +    ('shared tools written by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### (R324)(4): tools/act_close.py (new) and tools/push_gated.sh (repaired); MEASURED off the worklist`s lists.'),
+  @@ -76,1 +76,1 @@
+  -    ('shared banks written by ruling', 1, 1, 'banks', '### (R323)(4): data/standing_clauses_v4.txt.'),
+  +    ('shared banks written by ruling', 1, 1, 'banks', '### (R324)(4): data/standing_clauses_v4.txt.'),
+  @@ -81,1 +81,1 @@
+  -    ('outbound fetches by the seat', 2, 2, 'fetches', '### (R323)(6): the source pin`s abstract page and PDF at arxiv.org, by curl with its own default headers; one web search.'),
+  +    ('outbound fetches by the seat', 2, 2, 'fetches', '### (R324)(6): the source pin`s abstract page and PDF at arxiv.org, by curl with its own default headers; one web search.'),
+  @@ -102,1 +102,1 @@
+  -    ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R323)(7).'),
+  +    ('delete commands naming more than one branch or carrying a glob', 0, 0, 'commands', '### (R324)(7).'),
+  @@ -105,2 +105,2 @@
+  -    ('repairs of (R323)(4)', 'REPAIRS', 'REPAIRS', 'repairs', '### the six repairs; MEASURED off the repairs bank.'),
+  -    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b712_rules.txt row (1); MEASURED off the defects bank`s rows.'),
+  +    ('repairs of (R324)(4)', 'REPAIRS', 'REPAIRS', 'repairs', '### the six repairs; MEASURED off the repairs bank.'),
+  +    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b713_rules.txt row (1); MEASURED off the defects bank`s rows.'),
+  @@ -110,1 +110,1 @@
+  -    ('branches deleted beyond the ruling`s list', 0, 0, 'branches', '### (R323)(7).'),
+  +    ('branches deleted beyond the ruling`s list', 0, 0, 'branches', '### (R324)(7).'),
+  @@ -116,1 +116,1 @@
+  -    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R323)(1); MEASURED.'),
+  +    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R324)(1); MEASURED.'),
+  @@ -149,1 +149,1 @@
+  -    ('questions asked of the author before the seal', 0, 0, 'questions', '### none: the root`s prompt alone, after the seal ((R323)(8)).'),
+  +    ('questions asked of the author before the seal', 0, 0, 'questions', '### none: the root`s prompt alone, after the seal ((R324)(8)).'),
+  @@ -155,1 +155,1 @@
+  -    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R323).'),
+  +    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R324).'),
+  @@ -189,1 +189,1 @@
+  -    import b713_record as REC
+  +    import b714_record as REC
+  @@ -195,1 +195,1 @@
+  -                with tempfile.TemporaryDirectory(prefix='b713_spec_') as d:
+  +                with tempfile.TemporaryDirectory(prefix='b714_spec_') as d:
+  @@ -223,1 +223,1 @@
+  -    import b713_record as REC
+  +    import b714_record as REC
+  @@ -226,1 +226,1 @@
+  -                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b713_ferry.txt'), '### b999 absent')),
+  +                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b714_ferry.txt'), '### b999 absent')),
+  @@ -256,1 +256,1 @@
+  -    rows = _git(ROOT, 'log', '--reverse', '--format=%H', '%s..HEAD' % K.PRE_RELAY, '--', 'data/b713_predictions.txt', 'data/b713_onsets.txt').split(chr(10))
+  +    rows = _git(ROOT, 'log', '--reverse', '--format=%H', '%s..HEAD' % K.PRE_RELAY, '--', 'data/b714_predictions.txt', 'data/b714_onsets.txt').split(chr(10))
+  @@ -261,1 +261,1 @@
+  -    return alone == ['data/b713_predictions.json', 'data/b713_predictions.txt']
+  +    return alone == ['data/b714_predictions.json', 'data/b714_predictions.txt']
+  @@ -264,3 +264,3 @@
+  -def refresh_commands(bank='b713_commands.json'):
+  -    """(R323)(3)(v), standing clauses v3: THE COMMAND SCREEN READS A FRESH BANK -- the command bank rewritten by the record tool's `commands`
+  -    route in this step, before the face's counts are read from it (b712's face read ANYPIPES 7 from a bank last written before its eighth
+  +def refresh_commands(bank='b714_commands.json'):
+  +    """(R324)(3)(v), standing clauses v3: THE COMMAND SCREEN READS A FRESH BANK -- the command bank rewritten by the record tool's `commands`
+  +    route in this step, before the face's counts are read from it (b713's face read ANYPIPES 7 from a bank last written before its eighth
+  @@ -270,1 +270,1 @@
+  -    r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(ROOT, 'tools', 'b713_record.py'), 'commands'], capture_output=True,
+  +    r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(ROOT, 'tools', 'b714_record.py'), 'commands'], capture_output=True,
+  @@ -283,1 +283,1 @@
+  -    print('  ### (R323)(3)(v) THE COMMAND BANK REFRESHED IN THIS STEP: %s' % (fresh or '### NOT REFRESHED'))
+  +    print('  ### (R324)(3)(v) THE COMMAND BANK REFRESHED IN THIS STEP: %s' % (fresh or '### NOT REFRESHED'))
+  @@ -287,1 +287,1 @@
+  -    print('b713_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  +    print('b714_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  @@ -342,6 +342,6 @@
+  -                    TESTS=jcount('b713_tests_stepzero.json', len), QUESTIONS=tcount('b713_author_answers.txt', r'^### PROMPT '),
+  -                    LINES=jcount('b713_record_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    MISSES=tfirst('b713_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  -                    REPAIRS=jcount('b713_tool_repairs.json', lambda j: len(j.get('repairs') or [])),
+  -                    CARRIED=carried(text), DISPATCHES=jcount('b713_commands.json', lambda j: len(j.get('dispatches') or [])),
+  -                    RUNS=jcount('b713_dispatches.json', lambda j: len([r for r in j.get('rows') or [] if r.get('run_id')])),
+  +                    TESTS=jcount('b714_tests_stepzero.json', len), QUESTIONS=tcount('b714_author_answers.txt', r'^### PROMPT '),
+  +                    LINES=jcount('b714_record_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    MISSES=tfirst('b714_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  +                    REPAIRS=jcount('b714_tool_repairs.json', lambda j: len(j.get('repairs') or [])),
+  +                    CARRIED=carried(text), DISPATCHES=jcount('b714_commands.json', lambda j: len(j.get('dispatches') or [])),
+  +                    RUNS=jcount('b714_dispatches.json', lambda j: len([r for r in j.get('rows') or [] if r.get('run_id')])),
+  @@ -350,3 +350,3 @@
+  -                    ORDERS=jcount('b713_order_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b713_\w+_hashes\.txt$', f)]),
+  -                    COMPUTE=len([n_ for n_ in ('list', 'predictions', 'onsets', 'coeffs') if os.path.exists(os.path.join(ROOT, 'data', 'b713_%s.txt' % n_))]),
+  +                    ORDERS=jcount('b714_order_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b714_\w+_hashes\.txt$', f)]),
+  +                    COMPUTE=len([n_ for n_ in ('list', 'predictions', 'onsets', 'coeffs') if os.path.exists(os.path.join(ROOT, 'data', 'b714_%s.txt' % n_))]),
+  @@ -356,7 +356,7 @@
+  -                                              io.open(os.path.join(ROOT, 'data', 'b713_defects.txt'), encoding='utf-8').read(), re.M)),
+  -                    SEDS=jcount('b713_commands.json', lambda j: len(j.get('seds') or [])),
+  -                    REDIRECTS=jcount('b713_commands.json', lambda j: len(j.get('redirects') or [])),
+  -                    PIPES=jcount('b713_commands.json', lambda j: len(j.get('pipes') or [])),
+  -                    ANYPIPES=jcount('b713_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  -                    PYPROGS=jcount('b713_commands.json', lambda j: len(j.get('py_programs') or [])),
+  -                    READOFF=tfirst('b713_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  +                                              io.open(os.path.join(ROOT, 'data', 'b714_defects.txt'), encoding='utf-8').read(), re.M)),
+  +                    SEDS=jcount('b714_commands.json', lambda j: len(j.get('seds') or [])),
+  +                    REDIRECTS=jcount('b714_commands.json', lambda j: len(j.get('redirects') or [])),
+  +                    PIPES=jcount('b714_commands.json', lambda j: len(j.get('pipes') or [])),
+  +                    ANYPIPES=jcount('b714_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  +                    PYPROGS=jcount('b714_commands.json', lambda j: len(j.get('py_programs') or [])),
+  +                    READOFF=tfirst('b714_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  @@ -372,3 +372,3 @@
+  -    spec = {"registration": ("data/b713_registration_2026-10-25.txt -- b713, LANE TWO ACT ONE HUNDRED AND FORTY, THE RESEARCH ACT AT DISCRIMINANT -15: "
+  -                             "b712 AT ITS WEIGHT; THE AUTHOR`S WORD ON THREE ITEMS; THE CORRIGENDUM; STANDING CLAUSES v4 AND THE SIX REPAIRS; THE ZERO LIST, "
+  -                             "THE PREDICTIONS, THE ONSETS AND THE COEFFICIENTS AT -15; THE SOURCE PIN, UNDER (R323)"),
+  +    spec = {"registration": ("data/b714_registration_2026-10-25.txt -- b714, LANE TWO ACT ONE HUNDRED AND FORTY, THE RESEARCH ACT AT DISCRIMINANT -15: "
+  +                             "b713 AT ITS WEIGHT; THE AUTHOR`S WORD ON THREE ITEMS; THE CORRIGENDUM; STANDING CLAUSES v4 AND THE SIX REPAIRS; THE ZERO LIST, "
+  +                             "THE PREDICTIONS, THE ONSETS AND THE COEFFICIENTS AT -15; THE SOURCE PIN, UNDER (R324)"),
+
+### ### **CARRIED tools/b714_regspec.py ; LINES 391 ; CHANGED BY THE SUBSTITUTION 58 ; REPAIR SPANS AT b713 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

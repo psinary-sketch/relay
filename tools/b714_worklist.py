@@ -142,38 +142,38 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
         act, '; '.join('%s (:%d, %s)' % (o, i, s[:160]) for i, o, s in rows) or 'NONE')
 
 # ### stage one (step zero): the commits made so far
-STANDING_COMMIT = ''        # ### data/standing_clauses_v5.txt, committed alone (filled when made)
-VISIBILITY_COMMIT = ''      # ### data/repo_visibility.txt, committed alone (filled when made)
-STEPZERO = ''               # ### b713's closing push capture, committed alone at step zero
-STEPZERO_STEPS = ''         # ### b713's closing step row (step 23), committed alone at step zero
-STEPZERO_BANKS = ''         # ### the step-zero banks and tools, committed together by explicit list
-COMPUTE_TOOLS = ('b714_law.py', 'b714_residual.py', 'b714_rect.py')   # ### (R324)(7)-(9): each writing its own bank alone
-REPAIRED_TOOLS = ()          # ### shared tools of earlier acts edited by this act (data/b714_tool_repairs.txt), filled at Component 1
+STANDING_COMMIT = '8b8c72178bf87fc16b6cf4a0730e575c07688a79'     # ### data/standing_clauses_v5.txt, committed alone
+VISIBILITY_COMMIT = 'd17420703a34f5abd1d3a367fccb0b9e041c05b0'   # ### data/repo_visibility.txt, committed alone
+STEPZERO = '50994cb90e6955d323104c889a5e2d07973b5c68'            # ### b713's closing push capture, committed alone at step zero
+STEPZERO_STEPS = '3a41b58474f57a24b21ad91ad87e9d8ac5725fdb'      # ### b713's closing step row (step 23), committed alone at step zero
+STEPZERO_BANKS = 'c3f1813f651dbfe0f6ca3bd2b53bb74ad4bfebda'      # ### the step-zero banks and tools, committed together by explicit list
+COMPUTE_TOOLS = ('b714_law.py', 'b714_residual.py', 'b714_rect.py', 'b714_pilot.py')   # ### (R324)(7)-(9) and the pilot: each its own bank
+REPAIRED_TOOLS = ('act_close.py', 'push_gated.sh')   # ### shared tools of earlier acts edited by this act (data/b714_tool_repairs.txt, C1)
 REPAIRED_DATA = ()
-NEW_TOOLS = ()               # ### (R324)(6): new shared tools (the lettering, the hook), filled at Component 1
+NEW_TOOLS = ('act_letters.py',)   # ### (R324)(6)(v): the one lettering (the hook, the corrigendum and the repairs tool are b714_*)
 # ### b713's commits the act reads ((R324)(1), (7))
 B713_PRED_RELAY = 'be4db146a2676fc5758cc81644f669efe4aca03a'   # ### b713's predictions, committed alone
 B713_ONSETS_RELAY = '9816b87d31567b02bad2dbf4e67f203c6af2c44f'  # ### b713's onsets
 # ### stage two (Component 5): the commits of the components, read from the logs after each was made (filled then)
-C1_RELAY = ''
-C1_PP = ''
-C2_RELAY = ''
-C2_PP_MERGE = ''
-C3_RELAY = ''
-C4_RELAY = ''
+C1_RELAY = '3468cb19da7216174ae9eae61147ca80739e381c'      # ### the weight line, the corrigendum, the repairs, the lv tag
+C1_PP = 'f51b0ae2437bd5c28a7fe3c938e5867f8f074590'         # ### the weight line and the corrigendum entry (FINDINGS :10474, :10476)
+C2_RELAY = '3a9ff539f130a4ba4a8f6b6a0c00e3662782d0ae'      # ### Components 2 and 3 in one commit: the merge's banks, the heads draft
+C2_PP_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### (R324)(3)(ii): recut-b712-silence merged into main, --no-ff
+C3_RELAY = C2_RELAY                                        # ### (7)-(9): the law, the residual, the rectangle
+C4_RELAY = '15729469749812e942195e9fcd7fbe78dab5389e'      # ### (10): the Sonin price
+PILOT_RELAY = '6641f5066fb8f39f8dfaec4e3616b697928bfc4a'   # ### the pilot, on the author's word (2)
 SEALED = ('b714_worklist.py', 'b714_tests.py', 'b714_citation.py', 'b714_record.py', 'b714_checks.py', 'b714_closing.py', 'b714_reg_gate.py',
-          'b714_regspec.py', 'b714_corrigendum.py', 'b714_carry.py', 'b714_standing.py') + COMPUTE_TOOLS   # ### the report tool NOT sealed (data/b708_rules.txt row (1))
-# ### the act's arms over its own banks (Component 5): b713's ritual arms carried, its arms over b713's objects (v3, the port, the dispatches, the
-# ### join and its tag, the faces row, the registrations first, nothing computed, the genus control, the price, the re-cut's compile, distance and
-# ### branch) replaced by arms over this act's (v4, the six repairs' controls, the membrane, the faces head's edit, the re-cut's additive check and
-# ### its branch, the source pin, the list's controls and completeness, the predictions first, the registrations unchanged, the onsets, the
-# ### coefficients, no dispatch)
+          'b714_regspec.py', 'b714_corrigendum.py', 'b714_carry.py', 'b714_standing.py', 'b714_hook.py', 'b714_repairs.py') + COMPUTE_TOOLS   # ### the report tool NOT sealed (data/b708_rules.txt row (1))
+# ### the act's arms over its own banks (Component 5): b713's ritual arms carried, its arms over b713's objects (v4, the faces head's edit, the
+# ### re-cut's additive check, the source pin, the list's controls and completeness, the predictions first, the registrations unchanged, the
+# ### onsets, the coefficients) replaced by arms over this act's (v5, the repairs' controls, the membrane and the hook, one lettering, the lv tag,
+# ### the re-cut merged, the heads draft held, the law, the residual, the rectangle, the Sonin price, the pilot, no dispatch)
 ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED',
             'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
             'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-LISTINGS-BEFORE-CLAUSES', 'G-PARTS-PRERUN',
             'G-POSTROOT-WRITES-NONE', 'G-R324-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
             'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
             'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE',
-            'G-STANDING-CLAUSES-V4', 'G-REPAIR-CONTROLS', 'G-MEMBRANE-WIRED', 'G-FACES-HEAD-EDIT', 'G-RECUT-ADDITIVE', 'G-SOURCE-PIN',
-            'G-LIST-CONTROLS', 'G-LIST-COMPLETE', 'G-PREDICTIONS-FIRST', 'G-REGISTRATIONS-UNCHANGED', 'G-ONSETS-SCORED', 'G-COEFFS-OBSERVED',
-            'G-NO-DISPATCH')
+            'G-STANDING-CLAUSES-V5', 'G-REPAIR-CONTROLS', 'G-MEMBRANE-WIRED', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-LV-TAG',
+            'G-RECUT-MERGED', 'G-HEADS-DRAFT-HELD', 'G-LAW-READ', 'G-RESIDUAL-READ', 'G-RECT-CERTIFIED', 'G-SONIN-PRICED',
+            'G-PILOT-BANKED', 'G-NO-DISPATCH')
