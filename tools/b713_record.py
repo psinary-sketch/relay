@@ -2505,6 +2505,14 @@ def scores(*a):
     for k2 in SCORE_KEYS:
         print('  %-5s %s -- %s' % (k2, S[k2][0], str(S[k2][1])[:900]))
     if 'dry' in a:
+        # ### (R323)(4)(vi), v4 row (68) step [4]: the dry form banks its readings whole as the step's evidence (data/b713_scores_dry.txt),
+        # ### which tools/act_close.py names and step [5] reads; the first form printed only (defect (n), a repair before the lock)
+        L = ['%s -- THE SCORE ROUTES` DRY FORM, STEP [4] OF v4 ROW (68), ON THE REAL BANKS BEFORE THE LOCK (%s)' % (ACT, utc()), '',
+             '### rows are the scores: key | verdict | the reading in full. A PENDING or REFUTED clause that waits on a later step (the seal, the',
+             '### root, the closing) is read again at `scores` [9] and `scores close` [22]; this bank is a reading, not a score.', '']
+        L += ['%s | %s | %s' % (k2, S[k2][0], S[k2][1]) for k2 in SCORE_KEYS]
+        L += ['', '### ### **THE SCORE ROUTES RUN DRY: %s.**' % ' ; '.join('%s %s' % (k2, S[k2][0]) for k2 in SCORE_KEYS)]
+        put_txt('%s_scores_dry.txt' % ACT, L)
         return
     if close:
         put_json('%s_scores_close.json' % ACT, dict((k2, list(v)) for k2, v in S.items()))

@@ -36,7 +36,7 @@
 ### closing step row (step 25) each committed alone; the citation check over the ruling and the ferry -- 144 cites, 144 OK, 0 missed (defect
 ### (a) its matchers); the readfirst bank (23 items) and its closure diff, rowgen and the constellation, the process listing (defect (d)), the
 ### branches banked before any delete, the eight deletes by name, and the tests (55 run; eight not clean, the same eight as b707-b712`s).
-### Defects (a)-(l) are entered (`b713_defects.txt`), every one the seat`s, none the navigator`s, every one before this lock.
+### Defects (a)-(n) are entered (`b713_defects.txt`), every one the seat`s, none the navigator`s, every one before this lock.
 ### ### **COMPONENT 0 RAN AHEAD OF THIS SEAL:** relay 89bea621 -- data/standing_clauses_v4.txt, committed alone; relay 82e128b4 -- b712`s
 ### closing push-out bank, committed alone; relay b8de4d0c -- b712`s closing step row (step 25), committed alone; the eight push-b712* branches
 ### of relay (five), PLACE-papers (two) and SIDE-faces-join (one) deleted by name, one per command, each its own message, nothing chained after
@@ -58,12 +58,14 @@
 ### 756 negative (tools/b713_coeffs.py).
 ### ### **COMPONENT 5 BEFORE THIS LOCK:** the suite`s, the closing tool`s, the spec tool`s and the record tool`s act sections written by the Edit
 ### tool for this act`s arms and objects; the defects bank, the command bank, the read calls, the kernels face, the guard`s dry run and the four
-### standing figures (step [1]: 0, 0, 0, 0 against b712`s 0, 0, 0, 0) written; this face; all committed together (relay <C5>); then the root
-### route run dry once on that pre-root tree (step [2]) and its READY read into this section; the closing tool run dry (step [3]), its head line
+### standing figures (step [1]: 0, 0, 0, 0 against b712`s 0, 0, 0, 0) written; this face; all committed together (relay a5616519); then the
+### root route run dry once on that pre-root tree (step [2]) and its reading entered in this section; the closing tool run dry (step [3]), its head line
 ### rebuilt from the remotes; the score routes run dry on the real banks (step [4]); then the gate (step [5]) and its record and its steps`
 ### banks committed before the lock, every commit of the gate`s step listed on its step row (standing clauses v4 row (63)).
-### THE ROOT ROUTE`S DRY RUN (data/b706_rules.txt row (1)), on the pre-root tree at relay <C5> (relay data/b713_root_banks_dry.txt): <ROOTDRY>.
-### THE COMMITS OF THIS COMPONENT BEFORE THE LOCK, BY HASH: relay <C5> (the tools, the banks, this face); the gate`s commit after it, read from
+### THE ROOT ROUTE`S DRY RUN (data/b706_rules.txt row (1)), on the pre-root tree at relay a5616519 (relay data/b713_root_banks_dry.txt): banks
+### 65, clean and equal at HEAD 62, CR LF none, missing none, HEAD the remote main False -- the root route`s dry run READY False, run once and
+### not again (defect (m): the scout`s banks and the spec`s bank untracked in the tree, relay main unpushed).
+### THE COMMITS OF THIS COMPONENT BEFORE THE LOCK, BY HASH: relay a5616519 (the tools, the banks, this face); the gate`s commit after it, read from
 ### the log and the step bank (data/b713_steps.json), not entered here: this face is stamped before it.
 ### The hashes above are every relay and PLACE-papers commit before this lock, each read from the logs after its commit and entered here
 ### before the lock; the arms named in this paragraph read the same logs and banks pre-push and post-push alike.
@@ -76,12 +78,13 @@
 ### (step [7]), on b712`s banks and at HEAD, in its seven foreground parts, each its own call in its own message: every arm declared in (G2)
 ### runs there and its count is printed in `b713_arms_prerun.txt`, the arms reading the lock, the seal, the scores, the answers, the entry, the
 ### table, the root, the report and the trail not yet written failing there.
-### ### **THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:** `G-READ-RULE-STANDING`, `G-PRIORBANK-UNCHANGED`.
+### ### **THE ARMS FAILING THERE ON REAL STATE ARE DECLARED BEFORE THE LOCK, BY NAME:** `G-READ-RULE-STANDING`, `G-PRIORBANK-UNCHANGED`, `G-ROOTDRY-READY`.
+### `G-ROOTDRY-READY` reads the root route`s one dry run, READY False -- defect (m), the seat`s;
 ### `G-READ-RULE-STANDING` (tools/b704_read_arm.py over the read bank) reads the nine Read calls of files of two hundred lines or more given
 ### one bound, none, or a limit above two hundred -- defects (c), (f) and (l), the seat`s, lettered from the read bank;
 ### `G-PRIORBANK-UNCHANGED` reads data/b712_steps.json changed since the act`s base, b712`s closing step row committed alone at b8de4d0c by
-### (R323)(7)`s order. An arm failing at step [7] beyond these two is an event, not a letter. The act part alone was run once before this
-### face as a reading of the new arms (its bank written 01:32:17Z, 17 of 42 live passing then); its four banks (data/b713_arms_prerun_act.txt,
+### (R323)(7)`s order. An arm failing at step [7] beyond these three is an event, not a letter. The act part alone was run once before this
+### face as a reading of the new arms (its bank written 01:32:17Z, 17 of 42 live passing then); its banks (data/b713_arms_prerun_act.txt,
 ### data/b713_lsr_prerun_act.json, data/b713_exercise_act.json, data/b713_arm_seconds_act.json) are step [7]`s, left untracked and uncommitted,
 ### and are written again by step [7] after the lock -- a reading, not a pre-lock step`s bank.
 ### No arm is repaired, each reading the rule`s. They are carried to the close and printed in the closing`s defects line.
@@ -92,7 +95,12 @@
 ### the FINDINGS entry and the trail record composed by the record tool under stand-ins for the banks not yet written, run through the
 ### screens their landing runs, the needles below read in each, the trail`s Defects line and its Resolved line read against the letters the
 ### trail carries and printed equal; the closing tool run dry into the scratchpad, its head line rebuilt from the remotes; the gate`s record
-### `b713_reg_gate.txt` prints all three. The score routes ran on the real banks before this lock, dry.
+### `b713_reg_gate.txt` prints all three. The score routes ran on the real banks before this lock, dry (data/b713_scores_dry.txt).
+### THE BANNED-TERM SCAN (relay data/audit_b713_banned_terms.txt, added lines against 1290446c, this face and the defects bank whole): NOT
+### CLEAN, 10 hits, 6 read live and 4 quoted -- the four live rows of data/b713_recut_additive.txt/.json are the re-cut`s own Correspondence
+### sentence at :218 printed verbatim inside the check`s table rows (the check`s FOUND line, the paper`s word), and the two of
+### data/b713_tests_stepzero.txt/.json a carried test`s own file name in the tests` own print (b712`s scan read the same); none is
+### the seat`s voice, and no bank is edited for it.
 
 
 ### (A) WHAT THIS ACT IS.
@@ -118,7 +126,7 @@
 ### head restated at the join", every figure from the banks.
 ### (vii) (R323)(8) "data/b713_rules.txt and data/b714_rules.txt by form": none is written; a rules file is written where an author`s word after
 ### this seal orders a row, and none has.
-### (viii) the count arms` floors set at the seal: the prompts one (the root`s), the calls one, the checks one, the defects (a)-(l) as lettered,
+### (viii) the count arms` floors set at the seal: the prompts one (the root`s), the calls one, the checks one, the defects (a)-(n) as lettered,
 ### every one the seat`s, every one before this lock.
 ### (ix) the standing runner arms at an act with no dispatch: `G-WORKFLOW-FILES`, `G-RUNNER-READ`, `G-RUNNER-GATE` and `G-MERGES-ON-GATE` read
 ### b712`s three runs through b712`s banks and the kernels` states.

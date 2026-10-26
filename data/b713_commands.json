@@ -1,5 +1,5 @@
 {
- "at": "2026-10-26T01:54:24Z",
+ "at": "2026-10-26T02:03:24Z",
  "anchor": "RULING (R323) BEGIN",
  "rows": [
   {
@@ -2713,13 +2713,301 @@
    "cmd": "python -I -X utf8 tools/b713_record.py drycheck data/b713_registration_2026-10-25.txt standin",
    "n": 339,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:54:21.809Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_regspec.py",
+   "n": 340,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:54:30.763Z",
+   "src": "seat",
+   "cmd": "git status --porcelain=v1 --untracked-files=all",
+   "n": 341,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-26T01:54:57.290Z",
+   "src": "seat",
+   "cmd": "(Get-Item D:\\relay\\data\\b713_arms_prerun_act.txt).LastWriteTimeUtc.ToString('yyyy-MM-ddTHH:mm:ssZ')",
+   "n": 342,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:55:07.030Z",
+   "src": "seat",
+   "cmd": "git add data/b713_steps.json tools/b713_checks.py tools/b713_closing.py tools/b713_record.py tools/b713_worklist.py tools/b713_reg_gate.py tools/b713_regspec.py tools/b713_report.py data/b713_carry_reg_gate.txt data/b713_carry_regspec.txt data/b713_carry_report.txt data/b713_commands.json data/b713_commands.txt data/b713_defects.json data/b713_defects.txt data/b713_guard_dry.json data/b713_guard_dry.txt data/b713_kernels_face.json data/b713_read_calls.json data/b713_read_calls.txt data/b713_registration_2026-10-25.txt data/b713_standing_figures.json data/b713_standing_figures.txt",
+   "n": 343,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:55:17.003Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b713 component 5: the act sections of the suite, closing, spec and record tools for b713's objects; the defects bank (a)-(l), the command bank, the read calls (9 offences), the kernels face, the guard's dry run, the four standing figures (0, 0, 0, 0 against b712's), the carried gate, spec and report tools; this face\"",
+   "n": 344,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:55:21.012Z",
+   "src": "seat",
+   "cmd": "git log -1 --format=%H",
+   "n": 345,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:55:25.089Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_record.py step relay \"component 5\" a5616519eacf681b01d87abbd021c1f4802ce38a",
+   "n": 346,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:55:30.104Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_record.py rootdry",
+   "n": 347,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:55:44.437Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b713_root_banks_dry.txt \"DIRTY|UNTRACKED|NOT EQUAL|False|differ|uncommitted|REMOTE\" ",
+   "n": 348,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:56:04.486Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_record.py closeorder 3",
+   "n": 349,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:56:31.569Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_record.py defects",
+   "n": 350,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:56:36.450Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_closing.py dry",
+   "n": 351,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:57:07.436Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_record.py scores dry",
+   "n": 352,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:57:25.877Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b713_scores_dry.txt \"^  N5|beyond the membrane\" ",
+   "n": 353,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:57:32.726Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_record.py closeorder 5",
+   "n": 354,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:57:43.467Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad/probe_n5.py\"",
+   "n": 355,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:57:56.119Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad/probe_n5.py\"",
+   "n": 356,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:58:24.308Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py tools/b713_record.py \"put_txt\\('%s_\" ",
+   "n": 357,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:58:39.886Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_record.py defects",
+   "n": 358,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:58:45.670Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_record.py scores dry",
+   "n": 359,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:59:06.814Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_reg_gate.py",
+   "n": 360,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:59:40.826Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_regspec.py",
+   "n": 361,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T01:59:52.232Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_regspec.py",
+   "n": 362,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:00:05.547Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b712_commands.txt \"reg_satisfiable\\.py|banned_terms\\.py|gate_hash\\.py|b378_lockgate|reg_seal\\.py\" ",
+   "n": 363,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:00:16.465Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_satisfiable.py data/b713_satisfiable.json --emit b713",
+   "n": 364,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:00:24.261Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_regspec.py",
+   "n": 365,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:00:31.255Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_satisfiable.py data/b713_satisfiable.json --emit b713",
+   "n": 366,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:00:36.194Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/banned_terms.py --diff D:/relay 1290446c --new data/b713_registration_2026-10-25.txt data/b713_defects.txt --emit b713",
+   "n": 367,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:01:12.394Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_regspec.py",
+   "n": 368,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:01:22.030Z",
+   "src": "seat",
+   "cmd": "git grep -n \"gate_hash\" -- tools/b713_record.py tools/b712_record.py tools/b711_record.py tools/b378_lockgate.py",
+   "n": 369,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:01:36.231Z",
+   "src": "seat",
+   "cmd": "git grep -n \"regspec_run\\|reg_termscan\\|census_stepzero\" -- tools/b713_record.py tools/b712_record.py tools/b711_record.py tools/b710_record.py tools/b709_record.py",
+   "n": 370,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:01:40.733Z",
+   "src": "seat",
+   "cmd": "git grep -n \"def gatebanks\" -- tools/",
+   "n": 371,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:02:04.756Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_reg_gate.py",
+   "n": 372,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:02:34.944Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_record.py gatebanks",
+   "n": 373,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:02:46.232Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b712_locate.py data/b713_reg_termscan.txt \"<<hit|LIVE USE|hits found\" ",
+   "n": 374,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-26T02:02:52.222Z",
+   "src": "seat",
+   "cmd": "python -I -X utf8 tools/b713_reg_gate.py",
+   "n": 375,
+   "bg": false
   }
  ],
  "offences": [],
  "prev": {
   "act": "b712",
   "session": "3bbc6267-f2de-40fb-b160-263f3c982c61",
-  "rows": 363,
+  "rows": 399,
   "offences": []
  },
  "local_lean": [],

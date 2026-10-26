@@ -1,12 +1,12 @@
-b713 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-26T01:54:24Z)
+b713 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-26T02:03:24Z)
 
 ### the source: the seat`s session 3bbc6267-f2de-40fb-b160-263f3c982c61 from its first user line carrying 'RULING (R323) BEGIN', with its subagents` transcripts
-### commands read: 339
+### commands read: 375
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
 
-### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b712, its own session 3bbc6267, from its post-push combine to that session`s end): 363 commands from 2026-10-25T20:33:40.857Z, its offences printed whole (0):
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b712, its own session 3bbc6267, from its post-push combine to that session`s end): 399 commands from 2026-10-25T20:33:40.857Z, its offences printed whole (0):
   NONE
 
 ### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
@@ -400,5 +400,41 @@ b713 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #337 | 2026-10-26T01:51:08.584Z | seat | Bash | python -I -X utf8 tools/b713_record.py guard
   #338 | 2026-10-26T01:51:14.154Z | seat | Bash | python -I -X utf8 tools/b713_record.py figures
   #339 | 2026-10-26T01:54:15.644Z | seat | Bash | python -I -X utf8 tools/b713_record.py drycheck data/b713_registration_2026-10-25.txt standin
+  #340 | 2026-10-26T01:54:21.809Z | seat | Bash | python -I -X utf8 tools/b713_regspec.py
+  #341 | 2026-10-26T01:54:30.763Z | seat | Bash | git status --porcelain=v1 --untracked-files=all
+  #342 | 2026-10-26T01:54:57.290Z | seat | PowerShell | (Get-Item D:\relay\data\b713_arms_prerun_act.txt).LastWriteTimeUtc.ToString('yyyy-MM-ddTHH:mm:ssZ')
+  #343 | 2026-10-26T01:55:07.030Z | seat | Bash | git add data/b713_steps.json tools/b713_checks.py tools/b713_closing.py tools/b713_record.py tools/b713_worklist.py tools/b713_reg_gate.py tools/b713_regspec.py
+  #344 | 2026-10-26T01:55:17.003Z | seat | Bash | git commit -q -m "b713 component 5: the act sections of the suite, closing, spec and record tools for b713's objects; the defects bank (a)-(l), the command bank
+  #345 | 2026-10-26T01:55:21.012Z | seat | Bash | git log -1 --format=%H
+  #346 | 2026-10-26T01:55:25.089Z | seat | Bash | python -I -X utf8 tools/b713_record.py step relay "component 5" a5616519eacf681b01d87abbd021c1f4802ce38a
+  #347 | 2026-10-26T01:55:30.104Z | seat | Bash | python -I -X utf8 tools/b713_record.py rootdry
+  #348 | 2026-10-26T01:55:44.437Z | seat | Bash | python -I -X utf8 tools/b712_locate.py data/b713_root_banks_dry.txt "DIRTY|UNTRACKED|NOT EQUAL|False|differ|uncommitted|REMOTE" 
+  #349 | 2026-10-26T01:56:04.486Z | seat | Bash | python -I -X utf8 tools/b713_record.py closeorder 3
+  #350 | 2026-10-26T01:56:31.569Z | seat | Bash | python -I -X utf8 tools/b713_record.py defects
+  #351 | 2026-10-26T01:56:36.450Z | seat | Bash | python -I -X utf8 tools/b713_closing.py dry
+  #352 | 2026-10-26T01:57:07.436Z | seat | Bash | python -I -X utf8 tools/b713_record.py scores dry
+  #353 | 2026-10-26T01:57:25.877Z | seat | Bash | python -I -X utf8 tools/b712_locate.py data/b713_scores_dry.txt "^  N5|beyond the membrane" 
+  #354 | 2026-10-26T01:57:32.726Z | seat | Bash | python -I -X utf8 tools/b713_record.py closeorder 5
+  #355 | 2026-10-26T01:57:43.467Z | seat | Bash | python -I -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad/probe_n5.py"
+  #356 | 2026-10-26T01:57:56.119Z | seat | Bash | python -I -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/3bbc6267-f2de-40fb-b160-263f3c982c61/scratchpad/probe_n5.py"
+  #357 | 2026-10-26T01:58:24.308Z | seat | Bash | python -I -X utf8 tools/b712_locate.py tools/b713_record.py "put_txt\('%s_" 
+  #358 | 2026-10-26T01:58:39.886Z | seat | Bash | python -I -X utf8 tools/b713_record.py defects
+  #359 | 2026-10-26T01:58:45.670Z | seat | Bash | python -I -X utf8 tools/b713_record.py scores dry
+  #360 | 2026-10-26T01:59:06.814Z | seat | Bash | python -I -X utf8 tools/b713_reg_gate.py
+  #361 | 2026-10-26T01:59:40.826Z | seat | Bash | python -I -X utf8 tools/b713_regspec.py
+  #362 | 2026-10-26T01:59:52.232Z | seat | Bash | python -I -X utf8 tools/b713_regspec.py
+  #363 | 2026-10-26T02:00:05.547Z | seat | Bash | python -I -X utf8 tools/b712_locate.py data/b712_commands.txt "reg_satisfiable\.py|banned_terms\.py|gate_hash\.py|b378_lockgate|reg_seal\.py" 
+  #364 | 2026-10-26T02:00:16.465Z | seat | Bash | python -X utf8 tools/reg_satisfiable.py data/b713_satisfiable.json --emit b713
+  #365 | 2026-10-26T02:00:24.261Z | seat | Bash | python -I -X utf8 tools/b713_regspec.py
+  #366 | 2026-10-26T02:00:31.255Z | seat | Bash | python -X utf8 tools/reg_satisfiable.py data/b713_satisfiable.json --emit b713
+  #367 | 2026-10-26T02:00:36.194Z | seat | Bash | python -X utf8 tools/banned_terms.py --diff D:/relay 1290446c --new data/b713_registration_2026-10-25.txt data/b713_defects.txt --emit b713
+  #368 | 2026-10-26T02:01:12.394Z | seat | Bash | python -I -X utf8 tools/b713_regspec.py
+  #369 | 2026-10-26T02:01:22.030Z | seat | Bash | git grep -n "gate_hash" -- tools/b713_record.py tools/b712_record.py tools/b711_record.py tools/b378_lockgate.py
+  #370 | 2026-10-26T02:01:36.231Z | seat | Bash | git grep -n "regspec_run\|reg_termscan\|census_stepzero" -- tools/b713_record.py tools/b712_record.py tools/b711_record.py tools/b710_record.py tools/b709_recor
+  #371 | 2026-10-26T02:01:40.733Z | seat | Bash | git grep -n "def gatebanks" -- tools/
+  #372 | 2026-10-26T02:02:04.756Z | seat | Bash | python -I -X utf8 tools/b713_reg_gate.py
+  #373 | 2026-10-26T02:02:34.944Z | seat | Bash | python -I -X utf8 tools/b713_record.py gatebanks
+  #374 | 2026-10-26T02:02:46.232Z | seat | Bash | python -I -X utf8 tools/b712_locate.py data/b713_reg_termscan.txt "<<hit|LIVE USE|hits found" 
+  #375 | 2026-10-26T02:02:52.222Z | seat | Bash | python -I -X utf8 tools/b713_reg_gate.py
 
-### ### **COMMANDS 339 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 363 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 8 OF 8 ; OUTBOUND REQUESTS 1, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 375 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 399 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 8 OF 8 ; OUTBOUND REQUESTS 1, AN IDENTIFIER IN 0.**

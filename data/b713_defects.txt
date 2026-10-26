@@ -55,3 +55,14 @@ b713 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-25)
         data/b712_registration_2026-10-25.txt (379 lines) with a limit of 200 and no offset (01:22Z). Each read stayed inside the file's
         first two hundred lines but the record tool's and the PDF's; every line the act cites from them was read again within bounds or lies
         in a bank's named span, and the PDF's quoted words are its text layer's by pypdf (data/b713_source_pin.txt :21).
+    (m) THE SEAT'S: THE ROOT ROUTE'S ONE DRY RUN NOT READY. Step [2] of v4 row (68) ran once (01:55Z) at relay a5616519 and read BANKS 65,
+        CLEAN AND EQUAL AT HEAD 62, HEAD THE REMOTE MAIN False, READY False: the act part's scout banks (data/b713_arms_prerun_act.txt,
+        data/b713_arm_seconds_act.json, step [7]'s, written at 01:32Z) and data/b713_satisfiable.json (step [5]'s, written by the spec tool
+        at 01:54Z ahead of its step) stood untracked in the tree, and relay main was not pushed. The route is run once (the ferry's
+        Component 5; b712's defect (4) the same class); it is not run again, its bank stands as read, and G-ROOTDRY-READY is declared failing
+        on real state on the face and carried to the close. The root at step [14] reads the tree as it then stands.
+    (n) THE SEAT'S: STEP [4]'S EVIDENCE NAMED BY THE REPAIR AND WRITTEN BY NO ROUTE. Repair (vi) (tools/act_close.py close_steps) names
+        data/b713_scores_dry.txt as the evidence of step [4], the score routes' dry form; the record tool's `scores dry` printed its readings
+        and wrote nothing (01:57Z), so step [5] refused ("STEP [4] ... ITS EVIDENCE ... ABSENT -- NOTHING RUN"). The repair's controls
+        replayed b712's order at its record commit and its scores close and did not reach step [4]. The route now banks its readings whole
+        (the Edit tool, before the lock), and step [4] was run again to write it; the readings are a dry form, not scores.
