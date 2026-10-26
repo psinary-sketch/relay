@@ -25,16 +25,16 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the citation bank: every cite checked at step zero, 142 = 140 OK + 2 misses (the taken tag, the push-out`s name), the bank before the step-zero commit and that before Component 1`s",
-   "secs": 0.0
+   "secs": 0.001
   },
   "G-R324-ENTERED": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the trail record`s ratification line",
-   "secs": 0.0037
+   "secs": 0.0062
   },
   "G-ROWGEN-STEPZERO": {
    "live": true,
@@ -52,7 +52,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the step-zero bank`s branch row (no branches bank this act): the five named with their tips, in the step-zero commit, the citation check before the first delete; the two kept branches at their tips",
-   "secs": 0.002
+   "secs": 0.0
   },
   "G-DELETES-ONE-BRANCH": {
    "live": true,
@@ -61,7 +61,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the command bank: every branch delete one branch (the five of (R324)(11) alone, port-b707 and recut-b712-silence never), no glob, no variable, nothing chained after",
-   "secs": 0.0201
+   "secs": 0.0274
   },
   "G-LISTINGS-BEFORE-CLAUSES": {
    "live": true,
@@ -100,13 +100,13 @@
    "secs": 0.0036
   },
   "G-ENTRY-SCORES-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the landed entry`s scores line against the scores bank",
-   "secs": 0.009
+   "secs": 0.0101
   },
   "G-ENTRY-TITLE-FORM": {
    "live": false,
@@ -115,7 +115,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the landed entry`s title: by its objects (the lv tag, the merge in keystone form, the law, the residual, pair 7`s rectangle, the Sonin price, the repeat fraction), compared after case-folding the article alone",
-   "secs": 0.1066
+   "secs": 0.1373
   },
   "G-CORRIGENDUM-ENTERED": {
    "live": true,
@@ -124,7 +124,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the generated corrigendum for b713`s post-seal items, landed: its sixteen events by starting line, twelve lettered (o)-(z) through the one lettering with owners and repairs, five entered as records; the corrigenda bank appended at row (34)",
-   "secs": 0.0
+   "secs": 0.005
   },
   "G-WRITELIST-MIRROR-STATE": {
    "live": true,
@@ -133,7 +133,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R324)(9): the face`s (W) row for the mirror builder naming tools/mirror_prevbuild.json beside the zip and its stage; the record tool`s N5 reading it as the builder`s",
-   "secs": 0.0
+   "secs": 0.0015
   },
   "G-RULES-ROW-ENTERED": {
    "live": true,
@@ -142,11 +142,11 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the rules that bind this act read where they stand: b710`s row (1) by version (v5 at VERSION 5), b709`s carry row (the carry banks), b708`s report row (no report tool sealed); no rules bank of this act`s (b714`s and b714`s named by form)",
-   "secs": 0.0
+   "secs": 0.002
   },
   "G-REPORT-UNSEALED": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
@@ -160,11 +160,11 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the suite`s writer block guarded by `if PRERUN:` and its dry run banked",
-   "secs": 0.0
+   "secs": 0.002
   },
   "G-POSTROOT-WRITES-NONE": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
@@ -172,40 +172,40 @@
    "secs": 0.0
   },
   "G-TRAIL-LINES-EQUAL-DEFECTS": {
-   "live": false,
-   "neg": false,
-   "pos": false,
-   "pos_raised": null,
-   "shown_failing": true,
-   "reads": "the landed trail`s Defects and Resolved lines against the owners of the letters entered before the seal ((R324)(2)(i))",
-   "secs": 0.0
-  },
-  "G-TRAIL-DEFECTS-EQUAL": {
-   "live": false,
-   "neg": false,
-   "pos": false,
-   "pos_raised": null,
-   "shown_failing": true,
-   "reads": "the gate`s record and the landed trail`s Defects line against the repaired reader`s rows",
-   "secs": 0.0
-  },
-  "G-TRAIL-RESOLVED-EQUAL": {
-   "live": false,
-   "neg": false,
-   "pos": false,
-   "pos_raised": null,
-   "shown_failing": true,
-   "reads": "the gate`s record and the landed trail`s Resolved line against the bank`s owners",
-   "secs": 0.0151
-  },
-  "G-DEFECTS-LETTERED": {
    "live": true,
    "neg": true,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
+   "reads": "the landed trail`s Defects and Resolved lines against the owners of the letters entered before the seal ((R324)(2)(i))",
+   "secs": 0.003
+  },
+  "G-TRAIL-DEFECTS-EQUAL": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "pos_raised": null,
+   "shown_failing": true,
+   "reads": "the gate`s record and the landed trail`s Defects line against the repaired reader`s rows",
+   "secs": 0.001
+  },
+  "G-TRAIL-RESOLVED-EQUAL": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "pos_raised": null,
+   "shown_failing": true,
+   "reads": "the gate`s record and the landed trail`s Resolved line against the bank`s owners",
+   "secs": 0.0015
+  },
+  "G-DEFECTS-LETTERED": {
+   "live": false,
+   "neg": false,
+   "pos": false,
+   "pos_raised": null,
+   "shown_failing": true,
    "reads": "the defects bank: the sealed floors` rows with their owners in order, (f) the navigator`s and the rest the seat`s",
-   "secs": 0.0
+   "secs": 0.0011
   },
   "G-TOOL-REPAIRS": {
    "live": true,
@@ -214,7 +214,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R324)(6): the repairs bank by its sections: three repaired tools with their hunks, four new tools with their sha256, REPAIRED 3 ; NEW 4; the bank, its controls and the tools in Component 1`s commit",
-   "secs": 0.1118
+   "secs": 0.1191
   },
   "G-ROOTDRY-READY": {
    "live": true,
@@ -223,7 +223,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "data/b706_rules.txt row (1): the root route run dry on the pre-root tree before the lock, READY True, printed in the face`s (0)",
-   "secs": 0.0078
+   "secs": 0.0022
   },
   "G-FIGURES-BANKED": {
    "live": false,
@@ -232,7 +232,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the four standing figures banked by b706`s tool over b706`s roster against b713`s baselines, each at or below b713`s, the partners figure 0 with one copy per table",
-   "secs": 0.0
+   "secs": 0.001
   },
   "G-READFIRST-DIFF-BANKED": {
    "live": true,
@@ -241,7 +241,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the closure reader`s diff banked; the readfirst bank unchanged since the step-zero commit",
-   "secs": 0.0
+   "secs": 0.001
   },
   "G-STANDING-CLAUSES-V5": {
    "live": true,
@@ -250,7 +250,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R324)(6): data/standing_clauses_v5.txt at VERSION 5, read back by b710`s parser: v4`s 68 rows unchanged, (69)-(79) the tiers, the map, the governing row, the five deltas and the close`s order, v4`s bank unchanged, the control as wanted, committed alone at step zero; the visibility map committed alone",
-   "secs": 0.0059
+   "secs": 0.1015
   },
   "G-REPAIR-CONTROLS": {
    "live": true,
@@ -286,7 +286,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R324)(6)(v), v5 row (78): tools/act_letters.py the one lettering, imported by the corrigendum tool and this suite, the corrigendum arm reading through it",
-   "secs": 0.0
+   "secs": 0.0112
   },
   "G-LV-TAG": {
    "live": true,
@@ -322,7 +322,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R324)(7), N3: the law`s identity banked before the residual and the rectangle, its controls before its figures 5 of 5, the reading TWO FORMS",
-   "secs": 0.0
+   "secs": 0.001
   },
   "G-RESIDUAL-READ": {
    "live": true,
@@ -349,7 +349,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R324)(10): the Sonin face priced as a restriction -- the source`s and the kernel`s statements, the steps (i)-(iii), two modules and four dispatches priced, none run; in Component 4`s commit",
-   "secs": 0.0
+   "secs": 0.001
   },
   "G-PILOT-BANKED": {
    "live": true,
@@ -358,7 +358,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the pilot on the author`s word (2): controls 5 of 5 before the figures; (P1) 12 / 1 / 19, (P2) 1 / 6, (P3) 24 declarations and 3 dispatches, one finding; at 6641f506 with its tool and its step row",
-   "secs": 0.0101
+   "secs": 0.001
   },
   "G-NO-DISPATCH": {
    "live": true,
@@ -370,8 +370,8 @@
    "secs": 0.0
   },
   "G-PARTS-PRERUN": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
@@ -390,24 +390,18 @@
  },
  "run": 43,
  "live_failing": [
-  "G-R324-ENTERED",
   "G-ANSWERS-CHECKED",
   "G-ANSWERS-BEFORE-WRITES",
-  "G-ENTRY-SCORES-EQUAL",
   "G-ENTRY-TITLE-FORM",
-  "G-REPORT-UNSEALED",
-  "G-POSTROOT-WRITES-NONE",
-  "G-TRAIL-LINES-EQUAL-DEFECTS",
-  "G-TRAIL-DEFECTS-EQUAL",
-  "G-TRAIL-RESOLVED-EQUAL",
+  "G-DEFECTS-LETTERED",
   "G-FIGURES-BANKED",
-  "G-PARTS-PRERUN",
   "G-ARM-SECONDS-BANKED"
  ],
  "defective": [],
  "neg_failures": 0,
+ "withheld": [],
  "part": "act",
- "mode": "prerun",
- "at": "2026-10-26T08:42:01Z",
- "relay_head": "601dab1fdce97bba4bbac76b7b53c9b898884f46"
+ "mode": "pre-push",
+ "at": "2026-10-26T15:13:45Z",
+ "relay_head": "61225f7119cf0aa0ef3d79bec3488e07ba4be4db"
 }
