@@ -1,0 +1,33 @@
+b714 -- (R324)(8): THE RESIDUAL, AN OBSERVATION: THE ONSET MINUS THE PREDICTION UNDER THE -15 TOOL`S EVALUATION (2026-10-26T06:40:59Z)
+
+### free memory 6034 MB of 16178 MB before the run. The form: the first-order form with C per pair (data/b714_law.txt, THE READING TWO FORMS).
+### the onsets and predictions from data/b713_onsets.json (rows :6-:78, the -15 pairs; c1 :81-:115, Q0 at T0` 415 and 445); the
+### navigator`s figures from the ferry (data/b714_ferry.txt :21). The step of the onset search: tools/b709_pairs.py :159 (`n += 1`) in
+### onset709 :148-:160, the route b713`s -15 onsets and its Q0 (C1) both ran (b713_onsets.txt :4, :7). The spacing: the prime powers
+### p^k (k >= 1) over [n* - 50000, n* + 50000] by a sieve, the mean spacing 2W / count, printed beside log n*. NO ONSET COMPUTED.
+
+## I. THE SIEVE`S CONTROLS, BEFORE THE FIGURES
+  (R1) POS primes in [2, 10^6] = 78498 : read 78498 -- AS WANTED
+  (R2) POS higher prime powers in [2, 100] = 10 : read 10 -- AS WANTED
+  (R3) NEG the even 10^6 is not prime (count 0) : read 0 -- AS WANTED
+
+## II. THE TEN PAIRS: field | pair | n* (onset) | n*_pred | n* - n*_pred | the navigator`s | EQUAL/DIFFERS | log n* | primes + higher
+##     powers in the window | the mean prime-power spacing | the onset step
+  -15 |  1 |     51018 |     50972.8919 | 45.1081 |   45.1 | EQUAL  | 10.8399 | 9504 + 84 | 10.4297 | 1
+  -15 |  2 |     60014 |     59969.0855 | 44.9145 |   44.9 | EQUAL  | 11.0023 | 9222 + 60 | 10.7735 | 1
+  -15 |  3 |    249884 |    249825.3448 | 58.6552 |   58.7 | EQUAL  | 12.4288 | 8011 + 19 | 12.4533 | 1
+  -15 |  4 |    592391 |    592320.7456 | 70.2544 |   70.3 | EQUAL  | 13.2919 | 7494 + 10 | 13.3262 | 1
+  -15 |  5 |    673681 |    673615.7544 | 65.2456 |   65.2 | EQUAL  | 13.4205 | 7437 + 10 | 13.4282 | 1
+  -15 |  6 |    689982 |    689917.7227 | 64.2773 |   64.3 | EQUAL  | 13.4444 | 7459 + 12 | 13.3851 | 1
+  -15 |  7 |    921039 |    920974.2363 | 64.7637 |   64.8 | EQUAL  | 13.7333 | 7252 + 10 | 13.7703 | 1
+  -15 |  8 |   2496960 |   2496822.6953 | 137.3047 |  137.3 | EQUAL  | 14.7306 | 6786 + 5 | 14.7254 | 1
+  Q0  | 11 |  12275906 |  12275846.5662 | 59.4338 |   59.4 | EQUAL  | 16.3231 | 6174 + 1 | 16.1943 | 1
+  Q0  | 15 |  14748557 |  14748496.3055 | 60.6945 |   60.7 | EQUAL  | 16.5067 | 6093 + 0 | 16.4123 | 1
+
+## III. FOR THE NAVIGATOR, read, nothing computed for it
+  The route`s rate is log(R/s) with s = (1 + 3R)/4 (tools/b709_pairs.py :179-:180), which data/b710_registrations.txt :19-:20 reads as
+  r/4 + O(r^2); the first-order form keeps r/4 alone. Expanded one order further, log(R/s) = r/4 - 3r^2/32 + O(r^3), a rate smaller
+  by the factor (1 - 3r/8), which lengthens the onset; that term is the candidate this observation points to. It is not computed
+  here ((R324)(8): no new computation of onsets, no registration); it is a registration for b715 to write before any figure of it.
+
+### ### **TEN PAIRS ; EQUAL 10 OF 10 TO ONE DECIMAL ; THE RESIDUAL 44.9 TO 137.3 IN n, POSITIVE AT 10 OF 10 (the onset after the prediction) ; THE ONSET STEP 1 ; SIEVE CONTROLS 3 OF 3 ; NO ONSET COMPUTED ; 0 s.**

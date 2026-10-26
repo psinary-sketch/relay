@@ -1,0 +1,23 @@
+b714 -- PRE-SEAL RECORDS, UNLETTERED (2026-10-26)
+
+### rows are events before the seal that are not defects, numbered in order found. The step-zero bank's (r1)-(r3) (data/b714_stepzero.txt)
+### stand before them. Defects are lettered in data/b714_defects.txt; findings after the seal go to the closing's events section.
+
+(1) THE HARNESS'S AUTO-MODE NOTE, AGAIN (06:33Z, Component 2, after the merge's pre-reads). It asked that files be read with cat, head or sed
+    and changed by sed, heredocs or short scripts in place of the Read, Edit and Write tools. Row (19) and the standing rules (reads by the
+    Read tool with offset and limit; writes by Edit and Write; no pipe or redirect) govern: not followed. Its first appearance is the
+    step-zero bank's (r1).
+(2) COMPONENT 2'S MERGE. PLACE-papers main f51b0ae + recut-b712-silence 0aeca83 (merge base 2351a31a): the two sides touch separate files
+    (the recut day1/Silence_of_Foundations.md only; main FINDINGS.md, OPEN_TRAILS.md, FACES_LEDGER.md), merged by `git merge --no-ff` at
+    a86c9429 (the 'ort' strategy, no conflict, 40 insertions, 6 deletions). The branch kept. Not pushed at this record. The additive check on
+    main (tools/b714_record.py recutadd refs/heads/main, data/b714_recut_additive.txt): ORIGINAL LINES 22 ; FOUND 22 ; MISSING 0 ; IN ORDER
+    True. Step row 6 (data/b714_steps.json).
+(3) THE HEADS DRAFT BANKED (data/b714_heads_draft.txt): eighteen sentences of :15 footed, KERNEL 4, HELD 12, a terminal's reading 1, no
+    claim 1, four notes for the author. Its first foot read HELD 13 (S15 counted as HELD), corrected by Edit before this record.
+(4) COMPONENT 3'S BANKS. (7) data/b714_law.txt 06:39:26Z, controls 5 of 5, THE READING TWO FORMS (after defect (g)); (8)
+    data/b714_residual.txt 06:40:59Z, EQUAL 10 of 10, the residual 44.9 to 137.3, positive at 10 of 10, its note naming the second-order
+    term of log(R/s) as a registration for b715 (not computed); (9) data/b714_rect.txt 06:44:57Z, (K0)-(K2) as wanted, pair 7 CERTIFIED,
+    count 1 in [1.015972616, 1.035972616] x [61.412798309, 61.432798309], 30 s of piece time. tools/b714_rect.py writes, beside its bank,
+    its units file data/b714_rect_units.jsonl (25 rows: K0 and 3 x 8 pieces), left UNTRACKED as b709's and b713's units files are (the
+    root's exclusion list to name it at Component 5), b713_list's rebinding of b709's units replaced before any piece ran, so no b709 or
+    b713 units file was written (git status at 06:45Z: b713's units files unmodified, untracked as before).

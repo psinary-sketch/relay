@@ -1,0 +1,76 @@
+b714 -- (R324)(7): THE LAW`S IDENTITY, READ BEFORE ANY OTHER COMPUTATION OF THIS ACT (2026-10-26T06:39:26Z)
+
+### free memory 6032 MB of 16178 MB before the run (the hold 2560 MB, (R324)(11)). No route recomputed: C and r read from the banks.
+
+## I. THE FORMULA data/b713_predictions.txt WAS COMPUTED BY, FROM ITS TOOL BY PATH AND LINE
+    tools/b713_predict.py :57  def law(C, r):
+    tools/b713_predict.py :58      """the fixed point of n = (4 log(4C) + 8 log(n + 1)) / r, iterated from 4 log(4C)/r in arb at the bench's precision."""
+    tools/b713_predict.py :60      a = 4 * (4 * C).log()
+    tools/b713_predict.py :61      n = a / r
+    tools/b713_predict.py :63          n2 = (a + 8 * (n + 1).log()) / r
+    tools/b713_predict.py :76          c = P9.constants_for709(B.terms(cfg), 'ref%d' % k, T0p, 1)
+    tools/b713_predict.py :78          r = P5.r_of(off[1], off[2])
+    tools/b713_predict.py :84              C = P9._arb(c['C'])
+    tools/b713_predict.py :85              n = law(C, r)
+  ### the constant C: tools/b709_pairs.py constants_for709 (b675`s constants_for line for line), called with onset cap 1 (b713_predict :76):
+    tools/b709_pairs.py :170      r = (1 + R) / 2
+    tools/b709_pairs.py :179      s1 = r
+    tools/b709_pairs.py :180      s = (s1 + R) / 2
+    tools/b709_pairs.py :181      Kc = 2 * sum((1 / (1 + x[3] * x[3] + (x[2] - arb('0.5')) ** 2) for x in rest), arb(0))
+    tools/b709_pairs.py :187      Kk = Kc + Kt
+    tools/b709_pairs.py :188      Cc = 2 * (2 + 2 * (1 + s) ** 2) * Kk
+  ### the rate r: b705`s r_of (b713_predict :78), r(rho) = log |1 - 1/rho`| (b713_predict :5); the exponent 8 and the 4 in 4 log(4C) fixed in law() (:60, :63).
+
+## II. THE WORDS OF data/b710_registrations.txt (i)
+    data/b710_registrations.txt :20            r = log R = r(rho), the bank's r(rho) (data/b709_pairs.txt :8). Read to first order in r the onset solves
+    data/b710_registrations.txt :21                r n* = 4 log(4C) + 8 log(n* + 1),
+    data/b710_registrations.txt :22            the ruling's form with M(n) = (C (n + 1)^2)^4 and A = (1/4)^4: the ruling's form registered as the route's equation read to first
+    data/b710_registrations.txt :25                r n* = alpha + beta log(n* + 1)
+    data/b710_registrations.txt :26            (F2) two constants: alpha = 19.065093, beta = 7.997097 -- the registered law;
+    data/b710_registrations.txt :27            (F1) the route's beta = 8 held, alpha alone: alpha = 19.021167 -- printed beside, not the registered law.
+    data/b710_registrations.txt :28            The fitted beta reads the route's own coefficient 8 to within 0.003; the fit is the route's first-order equation with C nearly
+    data/b710_registrations.txt :29            constant across the pairs (alpha = 4 log(4C) gives C near 29), so the test at b711 reads whether the extended list's rest set
+    data/b710_registrations.txt :34                pair 11 (t = 93.0813, r(rho) = 1.216894664e-5): F2 n* = 12294837 ; the window [0.9, 1.1] = [11065353, 13524321] ; F1 12295138 ;
+    data/b710_registrations.txt :36                pair 15 (t = 127.6228, r(rho) = 1.022443029e-5): F2 n* = 14776940 ; the window [0.9, 1.1] = [13299246, 16254634] ; F1 14777353 ;
+    data/b710_registrations.txt :43        FALSIFIER: either computed n* outside [0.9, 1.1] of its F2 prediction ((R320)(6)(i)).
+
+## III. THE CONTROLS, BEFORE THE FIGURES
+  (L1) POS: the first-order form r n = 4 log(4C) + 8 log(n + 1), over b713_predictions.json`s own C and r with the width their banked
+       digits carry (each ball`s radius plus half a unit in its midpoint`s last printed digit; the -15 zeros certified to ~1e-6, so r
+       is banked to five or six figures), holds the bank`s n_pred_float at each of the eight -15 pairs: 1 [50972.5, 50973.2] holds 50972.8919 IN ; 2 [59968.5, 59969.4] holds 59969.0855 IN ; 3 [249820.5, 249829.7] holds 249825.3448 IN ; 4 [592303.0, 592355.0] holds 592320.7456 IN ; 5 [673583.5, 673637.1] holds 673615.7544 IN ; 6 [689910.7, 689921.6] holds 689917.7227 IN ; 7 [920965.4, 920979.7] holds 920974.2363 IN ; 8 [2496784.1, 2496858.8] holds 2496822.6953 IN -- the widest interval 74.7, beside the window`s half-width 0.01 n (510 at pair 1) -- AS WANTED
+  (NEG1) the same intervals do NOT hold each n_pred moved by 0.1% (x 1.001), so (L1) can fail: 1 OUT ; 2 OUT ; 3 OUT ; 4 OUT ; 5 OUT ; 6 OUT ; 7 OUT ; 8 OUT -- FAILS AS WANTED
+  (L2) POS: the same form, from b713_onsets.json c1`s C and r at Q0 (:91-:92, :108-:109), reproduces c1`s n_pred (:95, :112): 11 12275846.5662/12275846.566188 ; 15 14748496.3055/14748496.305526 -- AS WANTED
+  (L3) POS: F2, r n = alpha + beta log(n + 1) with alpha 19.065093, beta 7.997097 (six decimals, b710_fit :21) and b709`s r (:52, :56),
+       over the width those digits carry, holds b710`s committed predictions (b710_fit :38-:39, b711_pairs :12-:13): 11 [12294836.9, 12294838.4] holds 12294837.0 IN ; 15 [14776939.4, 14776941.3] holds 14776939.6 IN -- AS WANTED
+  (NEG) F2 put in the place of the first-order form at c1`s own r does NOT give c1`s n_pred (the difference over 1000): 11 12294837.7 vs 12275846.6 ; 15 14776940.4 vs 14748496.3 -- FAILS AS WANTED
+
+## IV. THE FIGURES: Q0`S PAIRS 11 AND 15, THE TWO COMPUTATIONS
+  pair 11 | the -15 tool`s evaluation (b713 c1, T0` 415): alpha = 4 log(4C) = 18.798968 from C 27.4796993065 (this pair`s, b709`s route), beta 8 ; n 12275846.566188
+          | b710`s F2: alpha 19.065093, beta 7.997097, fitted once over the ten pairs (b710_registrations :24-:26), the same for every pair ; n 12294837.0
+          | F2 written as alpha_eff + 8 log(n + 1) at n: alpha_eff 19.017702, the C it reads exp(alpha/4)/4 = 29.370151 (b710_registrations :29: "near 29")
+          | F2 - the -15 tool: 18990.4 in n (0.1547%) ; alpha_eff - 4 log(4C) = 0.218735 ; r x (F2 - the -15 tool) = 0.231094
+  pair 15 | the -15 tool`s evaluation (b713 c1, T0` 445): alpha = 4 log(4C) = 18.741758 from C 27.0894737354 (this pair`s, b709`s route), beta 8 ; n 14748496.305526
+          | b710`s F2: alpha 19.065093, beta 7.997097, fitted once over the ten pairs (b710_registrations :24-:26), the same for every pair ; n 14776939.6
+          | F2 written as alpha_eff + 8 log(n + 1) at n: alpha_eff 19.017169, the C it reads exp(alpha/4)/4 = 29.370151 (b710_registrations :29: "near 29")
+          | F2 - the -15 tool: 28443.3 in n (0.1929%) ; alpha_eff - 4 log(4C) = 0.275410 ; r x (F2 - the -15 tool) = 0.290816
+
+## V. THE DIFFERENCE NAMED, AND THE READING
+  ### the rule of the reading: ONE LAW where the two computations use one formula with one definition of each constant (they differ in
+  ### digits only); TWO EVALUATIONS where the formula and the definitions agree and an input differs (a list, a height, a precision);
+  ### TWO FORMS where a constant is defined differently in the two.
+  the difference: A CONSTANT, DEFINED TWO WAYS. Both computations solve r n = alpha + beta log(n + 1). In the -15 tool`s (b713_predict
+  law() :57-:68, b713`s (C1) and its -15 test) alpha is 4 log(4C) with C the pair`s own constant from b709`s route and beta is the
+  route`s 8 -- the route`s onset equation read to first order (b710_registrations :20-:23). In b710`s F2 (:25-:26) alpha and beta are
+  two numbers fitted once by least squares to the ten ONSETS of Q0`s pairs 5-10, 12-14, 16 at T0` 325 and used for every pair. Not
+  an approximation of one by the other: F2 reads no C; the first-order form reads no onset.
+  ### ### **THE READING: TWO FORMS.**
+  the form each test used:
+    b710`s fit control and b711`s (C1) (the ten re-computed at 415 and 445) and b711`s test of pairs 11 and 15 (data/b711_pairs.txt
+      :4, :8-:15): F2, the window [0.9, 1.1] -- pairs 11, 15 WITHIN at n*/F2 0.998460, 0.998079.
+    b713`s (C1) at Q0 (data/b713_onsets.txt :8-:9) and b713`s -15 test (:12-:19, the window [0.99, 1.01], data/b712_registrations.txt
+      :46): the first-order form, C per pair -- Q0 11, 15 at ratio 1.000005, 1.000004; the eight -15 pairs HELD.
+    b713`s NEG (4 log 4C struck): the first-order form less its constant term, OUTSIDE as wanted (data/b713_onsets.txt :8-:9).
+  the -15 result stands as the test of its own form, the first-order form with C per pair; it is not a test of F2, and b711`s is not
+  a test of the first-order form.
+
+### ### **CONTROLS 5 OF 5 AS WANTED ; THE DIFFERENCE A CONSTANT DEFINED TWO WAYS (alpha fitted vs 4 log 4C per pair, beta 7.997097 vs 8) ; F2 - THE -15 TOOL 18990.4 AND 28443.3 IN n ; THE READING TWO FORMS.**
