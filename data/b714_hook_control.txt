@@ -1,0 +1,19 @@
+B714 HOOK CONTROL -- (R324)(6)(iv), v5 row (77), the offline cases of tools/b714_hook.py at 2026-10-26T04:58:43Z
+### each case: tool | input | wanted | got | AS WANTED
+Read | {"file_path": "D:/relay/data/b714_ferry.txt"} | READ | READ | True
+Read | {"file_path": "D:/relay/data/b714_ferry.txt", "offset": 1, "limit": 201} | READ | READ | True
+Read | {"file_path": "D:/relay/data/b714_ferry.txt", "offset": 1, "limit": 200} | ALLOWED | ALLOWED | True
+Bash | {"command": "git status | head"} | PIPE | PIPE | True
+Bash | {"command": "git log --oneline -3 2>&1"} | REDIR | REDIR | True
+Bash | {"command": "cat a > b"} | REDIR | REDIR | True
+Bash | {"command": "PYTHONIOENCODING=utf-8 python x.py"} | ENV | ENV | True
+Bash | {"command": "cd /d/relay && FOO=1 python x.py"} | ENV | ENV | True
+Bash | {"command": "cd /d/relay && python -I -X utf8 tools/b712_locate.py data/x.txt \"a|b>c\""} | ALLOWED | ALLOWED | True
+Bash | {"command": "git -C /d/relay commit -m \"b714: a -> b, x|y\""} | ALLOWED | ALLOWED | True
+PowerShell | {"command": "Get-ChildItem D:/relay | Select-Object -First 3"} | PIPE | PIPE | True
+PowerShell | {"command": "git status > out.txt"} | REDIR | REDIR | True
+PowerShell | {"command": "$env:PYTHONIOENCODING = \"utf-8\"; python x.py"} | ENV | ENV | True
+PowerShell | {"command": "git commit -m @'\nline | with > marks\n'@"} | ALLOWED | ALLOWED | True
+PowerShell | {"command": "Get-PSDrive"} | ALLOWED | ALLOWED | True
+Grep | {"pattern": "a|b"} | ALLOWED | ALLOWED | True
+### ### **CASES 16 ; AS WANTED 16 ; REFUSAL KINDS ENV,PIPE,READ,REDIR ; ALLOWED CASES 6 ; ALL AS WANTED True**

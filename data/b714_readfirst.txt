@@ -1,0 +1,59 @@
+b714 -- STEP ZERO, (R324)(12): THE READ-FIRST BANK, EACH ITEM BY PATH AND LINE WITH THE UNIT OF ITS ROWS AND WHAT THE ACT TAKES FROM IT (2026-10-26)
+
+### rows are items: the path | the line or lines read | the unit of that bank's rows | what the act takes from it. Written by the Write tool at
+### step zero after the citation check (data/b714_citation_check.txt: 142 cites, 140 OK, 2 misses -- v0.11.0 taken, the push-out's name), the
+### standing clauses v5 (relay 8b8c7217, committed alone), the visibility map (relay d1742070, committed alone) and the hook of (R324)(6)(iv)
+### with its control (data/b714_hook_control.txt, data/b714_hook_refusals.txt), and before any delete; the closure reader (tools/circuit_read.py
+### readfirst) run beside it, its list diffed against this one (data/b714_readfirst_closure.txt, data/b714_readfirst_diff.txt). Every line number
+### below was read through the Read tool this act (session 3bbc6267, from (R324)'s line, after the context was cleared and resumed), by offset
+### and a limit of at most two hundred; the locator (tools/b712_locate.py) named the lines of the larger banks before they were read.
+
+## THE FERRY'S READ-FIRST LIST (data/b714_ferry.txt :43), in its order
+  relay data/b713_closing.txt | :1-:60 ; :330-:378 | the closing's sections; the carried-forward rows | the head line :1 ((R324)(1)'s quote); the kernels and N5 lines :336-:352; the carried items :354-:377 -- the branch rows :370-:371 (the push-b713* branches of relay and PLACE-papers; port-b707 and recut-b712-silence KEPT), the push-out :373, the rectangle item :374-:376
+  relay data/b713_defects.txt | :1-:68 (whole) | rows are defects as lettered, (a)-(n), each opening four spaces | the fourteen defects, all the seat's, the corrigendum's NEW and REPEAT column reads them beside the events
+  relay data/b713_events.txt | :1-:76 (whole, :1-:12 and :12-:76) | rows are events by starting line, (1)-(16) | the sixteen starting lines :3, :11, :13, :17, :21, :25, :29, :32, :35, :54, :56, :58, :61, :64, :68, :72 -- (R324)(5)'s objects: lettered (1), (5), (6), (7), (8), (10)-(15); records (2), (3), (4), (9), (16); the author's word on (b) and (e) verbatim :35-:47
+  relay data/standing_clauses_v4.txt | read whole at step zero by tools/b714_standing.py's carry (68 rows) | rows are clauses, (n) KIND SEP TAG then the clause | v5's rows (1)-(68) unchanged; (14) no redirect, no pipe; (19) the read clause; (20) environment variables; (68) the close's order
+  relay data/b713_predictions.txt | :1-:48 (whole) | rows are pairs: rho | r | R | s | K (cert, tail) | C | A | n*_pred | window | cap, or BEYOND REACH | the -15 evaluation: n*_pred the fixed point of n = (4 log(4C) + 8 log(n + 1)) / r(rho) (:3-:4), C per pair from Q1's list (:10-:17)
+  relay tools/b713_predict.py | :1-:137 (whole) | the tool by line | the formula by line: law() :57-:68 (a = 4 log(4C), n = (a + 8 log(n + 1))/r iterated); C from b709's constants_for709 :76; r = b705's r_of :78; the window :37 -- (R324)(7)'s formula
+  relay data/b713_onsets.txt | :1-:50 (whole); :8-:19 named | rows are pairs: rho | n* | n*_pred | ratio | HELD, or BEYOND REACH | (C1) :8-:9: Q0 pairs 11 and 15 under the -15 tool's evaluation, n*_pred 12275846.6 and 14748496.3, onsets 12275906 and 14748557; the -15 pairs :12-:19 -- the residual's ten rows ((R324)(8))
+  relay data/b710_registrations.txt | :1-:84 (whole); (i) :10-:49, :34, :36 | rows are registrations | (i) the route's equation read to first order r n* = 4 log(4C) + 8 log(n* + 1) (:21); THE FITTED FORM r n* = alpha + beta log(n* + 1), F2 alpha 19.065093, beta 7.997097 (:25-:26), F1 (:27); the predictions :34 (pair 11, F2 12294837) and :36 (pair 15, F2 14776940); the window [0.9, 1.1] :41-:43 -- (R324)(7)'s other evaluation
+  relay data/b711_pairs.txt | :1-:18 (whole); :12-:13 named | rows are pairs: idx | T0` | n* | F2 | n*/F2 | window | cap | WITHIN | pairs 11 and 15 against F2: n* 12275906, 14748557; F2 12294837.0, 14776939.6; ratios 0.998460, 0.998079
+  relay data/b713_list.json | :25 ; :2157 ; :2219 ; :2529-:2544 ; :6955-:7004 (lines named by the locator) | a JSON bank: top, online, offline, re_over_1, units | pair 7's row in re_over_1 :2530-:2539 (re 1.02597261621875345873785449582, im 61.4227983087893971055580920981, h 1e-6 x 1e-6, |Z_Q| 2.38e-46, count null, certified false, located by Newton at 200 bits) and in its band's unit :6958-:7002 -- (R324)(9)'s point
+  relay tools/b667_epstein_certify.py | :1-:80 ; :200-:359 | the tool by line | the interval routines: _ball :233, _accepted :240 (an enclosure excluding 0 with radius at most half its midpoint's modulus), _pt :244, segment :258 (bisection to the depth, then the 400 rung, else UNRESOLVED), edge_arg :284, square_count :301 (the count ball, unique integer at radius < 1/2); PREC 200, PREC_RUNG 400, SQ_SEG 4, DEPTH_SQ 16 :45-:65 -- (R324)(9)'s method
+  PLACE-papers FACES_LEDGER.md | :19-:22 ; :500-:503 | the ledger's rows by face | F2 :21 (the Sonin margin, supp g in [2^-1/2, 2^1/2], MEASURED; Theorems 1 and 4.7 IMPORTED; no kernel declaration named) and :502 (F2 T3, imported, not compiled) -- (R324)(10)'s object
+  PLACE-papers OPEN_TRAILS.md | :15452-:15455 ; :15494-:15497 ; :15846-:15849 ; :15926-:15961 | lines are ledger records | W-ORD-KEYSTONE-HEADS :15454 and its trigger moved :15496 ((R324)(4)); W-ORD-LV-PORT-TAG :15848 ((R324)(3)(i)); b713's trail :15928, its open orders :15948, resolved items :15954, defects :15956, Next :15960
+  relay data/b713_recut_additive.txt | :1-:67 (whole) | two runs; rows are the base's lines: base line | tip line(s) | FOUND or MISSING | the line | the base 2351a31 :200-:233; at 0aeca834 FOUND 22, MISSING 0, IN ORDER True :67 -- the check (R324)(3)(ii) re-runs on main
+  relay data/b713_closing_push_out.txt | ABSENT -- the citation check's miss (data/b714_citation_check.txt, Component 0) | -- | the capture b713's closing push wrote is relay data/b713_relay_push-b713-closing_push_out.txt (untracked); committed at the start under its own name, the ferry's name entered as the miss
+
+## THE CITATION CHECK'S OTHER ITEMS (data/b714_citation_check.txt :5-:43), read where the act takes from them
+  relay data/b713_list.txt | :1-:74 (whole) | rows are bands, then the off-line pairs | the band [59.881486, 75.0] :22 (N 18 = 12 + 2 x 3, COMPLETE); pair 7 :40 (Re rho > 1); RECT_CERTIFY False :5; the base :6-:7; the right edge Re s = 2.0 :13-:14
+  relay data/b713_coeffs.txt | :1-:18 (whole) | rows are readings of c(n) | n = 24 :13; 756 negatives :14; pair 7 the least height with Re rho > 1 :15 -- (R324)(14)'s sharpening, read not computed
+  relay data/b711_coeffs.txt | :1-:18 (whole) | rows are readings of c(n) | Q0: n = 48 :12; none with Re rho > 1 to 325.0 :15
+  relay data/b713_source_pin.txt | :1-:47 (whole) | the pin's rows | Murty-Osburn Theorem 2.3 :29-:30; AGREES :45-:47
+  relay data/b713_report.txt | :1-:27 (whole) | the report's lines in footing order | the HELD line :15 (the rectangle carried to b714; the keystone heads for b714); the throughstone (e) :22
+  relay data/b713_scores_close.json | :1-:34 (whole) | rows are scores by key | N1-N5, S1-S3 HELD
+  relay data/b713_checks.txt | :340-:378 | the suite's arms by part | the act part's four failing :376
+  relay data/b713_checks_postpush.txt | :366-:378 | the suite's arms by part | the same four :376
+  relay data/b713_mirror.txt | :1-:82 (whole) | the mirror's lines | the roster 70 files :5; the root line :6; CLEAN :9
+  relay data/b713_steps.json | :150-:189 | rows are steps, {repo, commit, ct, at, phase, subject}, a step its row's place | the closing's row :180-:187 (2f76d11c), the step (R324)(11) commits
+  relay data/b713_corrigendum.json | :1-:79 (whole) | the corrigendum record | letters "a'"-"d'" (U+0027) :35, :42, :49, :56 -- event (14)'s object, repair (v)
+  relay data/b713_root_banks_dry.json | :1-:30 | the dry run's record | ready false :3 -- event (15)'s object, repair (iii)
+  relay data/b709_pairs.txt | :1-:62 (whole) | the band rows; the pairs' rows | the route :3-:9; pairs 11 and 15 :52, :56 (r(rho), the need)
+  relay data/b675_corrigenda.txt | :185-:219 | rows are corrigenda, (n) | the last row (33) :212-:219; (34) is this act's
+  relay data/act_roots.txt | :1-:91 (whole) | rows are act roots: act root previous [note] | b713 the 90th chain row :91 (the corrigendum line :58 not a chain row) -- repair (ii)'s figures
+  relay tools/act_close.py | :1-:139 (whole) | the tool by line | w_patterns, step_commits, defect_owners, close_steps (reads V4 :21, row (68) :91), close_refuses, lock_refuses -- the shared functions repairs (i)-(v) extend
+  relay tools/act_membrane.py | :1-:60 (whole) | the tool by line | guard_path :55 -- every new bank writer calls it
+  relay tools/push_gated.sh | :1-:130 ; :130-:258 | the tool by line | the capture :37-:64 (where every push's visibility line is added, (R324)(2)); the existing-tag mode :66-:109 (the lv tag pushed as it stands, no main push); the branch mode :111-:156
+  relay tools/circuit_read.py | :379-:458 | the reader by line | readfirst :395-:456, CITE :380, the banks named by the ferry bank's act :398
+  relay tools/b706_standing_figures.py | :1-:30 | the tool by line | the four figures' readers, imported unedited
+  relay tools/act_root.py | :1-:40 | the tool by line | compute and verify, the chain's form
+  relay tools/ferry_scan.py | :1-:30 | the tool by line | the scan reads; it reports, it does not refuse
+  relay tools/mirror_prevbuild.json | :1-:12 | the builder's state | lastChanged 2026-10-22-b707 -- named in (W)
+  relay tools/b713_corrigendum.py | :1-:60 | the tool by line | the corrigendum form carried to b714: TITLE, LETTERED rows (letter, events line, needle, owner, repair), RECORDS
+  relay tools/b713_list.py | :1-:140 | the tool by line | the engine carried to sqrt(15) at import (carry_engine :71, called :98), units/put_unit, the membrane :101 -- b714_rect.py imports it
+  relay tools/b713_checks.py, tools/b713_closing.py, tools/b713_record.py | by their diff spans at the carry (data/b714_carry_*.txt) | the tools by line | carried by substitution; the spans the repairs name read at the repair
+
+### the text's other cites are this act's own banks to be written (data/b714_tool_repairs.txt, data/b714_heads_draft.txt, data/b714_law.txt,
+### data/b714_residual.txt, data/b714_rect.txt, data/b714_sonin_price.txt, data/b714_author_words.txt) and are read when written.
+
+### ### **ITEMS 41 (ROWS: THE FERRY'S 15, THE CITATION CHECK'S 26) ; THE FERRY'S LIST 15 (ONE ABSENT, THE CITATION CHECK'S MISS) ; EVERY CITED LINE READ THROUGH THE READ TOOL WITHIN ROW (19)'S BOUNDS ; THE RULING'S MISSES 2.**

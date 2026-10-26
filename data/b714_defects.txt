@@ -1,0 +1,25 @@
+b714 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-26)
+
+### rows are defects, each lettered by the time it was found, with whose it is, what the rule says, what was done and the repair or the entry.
+### Events that are not defects are entered in data/b714_events.txt, unlettered. Under standing clauses v5 row (52) (v2's, unchanged), a
+### finding made after the seal is entered in the closing's events section and not lettered here.
+
+    (a) THE SEAT'S: ONE CALL OF THE GREP TOOL. At step zero, before the hook was written, the Grep tool was called once on
+        D:/.claude/settings.local.json to read whether a hooks key stood there. b702's trap (memory feedback_b702_traps.md): the Grep tool is
+        grep, and row (19) (R319) reads files "not through a shell filter, a shell grep or an interpreter's print". The file was then read
+        through the Read tool by offset and limit (permissions only, no hooks key); every search since has gone through tools/b712_locate.py.
+    (b) THE SEAT'S: ONE INTERPRETER'S PRINT OF A BANK. At step zero, before the context was cleared and resumed, a probe written by the
+        Write tool to the scratchpad (probe_lj.py, 9 lines, run as `python -I -X utf8 <path>`) loaded data/b713_list.json and printed its
+        offline list's type and length, its first row, its re_over_1 list and pair 7's row, each cut to 300 or 400 characters. Row (19) reads
+        a file through the Read tool and "not through ... an interpreter's print"; the probe was a print. The lines the act takes from the bank
+        were then read through the Read tool (data/b714_readfirst.txt :21, :2529-:2544 and :6955-:7004, named by the locator).
+    (c) THE SEAT'S: THE TESTS TOOL STARTED UNDER -I, ITS CARRIED START FORM NOT READ. tools/b714_tests.py's first `run` (test_act_root.py,
+        05:07Z) was started as `python -I -X utf8`; isolated mode does not put the script's directory on sys.path, the membrane's import of
+        act_membrane failed (ModuleNotFoundError) after the test ran and before the bank's write, and nothing was written. The tool's own
+        docstring :7 and b713's run name the form `python -X utf8`, no environment mapping passed. Re-run in that form (05:08:06Z, 10 of 10);
+        every run since in that form. A sibling-importing tool is started without -I; the scratch probes keep -I.
+    (d) THE SEAT'S: FOUR TEST RUNS SENT IN ONE MESSAGE AGAINST ONE READ-MODIFY-WRITE BANK. test_act_root_order_b641.py,
+        test_addenda_licence.py, test_addenda_writelist.py and test_additive_shared_b644.py were sent as four Bash calls in one message
+        (05:08:20Z-05:08:27Z); each `run` loads data/b714_tests_stepzero.json, adds its row and replaces the file, so calls run at once could
+        drop a row. The locator read six rows at :2, :13, :24, :35, :46, :57 (05:08:32Z), all six part-1 tests present; every run since sent
+        one per message.
