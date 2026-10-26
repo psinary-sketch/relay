@@ -1,0 +1,45 @@
+b714 -- (R324)(3)(i), THE lv PORT'S TAG ON THE AUTHOR'S WORD (2026-10-26)
+
+### rows: the author's word verbatim; the remote's tags by ls-remote with their peels; the reading; the tag made and its read-back. The word
+### arrived before the seal (05:55Z, Component 1), in the author's message, after the citation check's MISS 1 (data/b714_citation_check.txt).
+
+## THE AUTHOR'S WORD, BEGIN to END verbatim
+    The author’s word on (R324)(3)(i): the name v0.11.0 is taken. Print SIDE-lv-conservation’s tags at the remote by ls-remote, each with its
+    peeled SHA. Where v0.11.0 peels to cb0aea56, the order is met and W-ORD-LV-PORT-TAG is discharged with no new tag. Otherwise, tag cb0aea56
+    with the next minor version above the highest existing tag, annotated, with no GitHub release, the peeled SHA read back and the release
+    list printed. The ruling named a tag without a listing of the tags before it; that is the navigator’s, lettered in this act’s defects
+    bank.
+
+## THE REMOTE'S TAGS (git -C D:/SIDE-lv-conservation ls-remote --tags origin, 2026-10-26T05:56Z): tag | object | peeled
+  v0.1.0  | 29941b92 | 45c27596
+  v0.2.0  | 0d67a363 | c8e3d310
+  v0.3.0  | a7710f26 | e26a9fcd
+  v0.3.1  | 683453df | 36388abe
+  v0.4.0  | 7557de2c | 0d2d74cd
+  v0.4.1  | ef620273 | ef620273 (lightweight, no ^{} line)
+  v0.5.0  | 1767bd64 | 1767bd64 (lightweight)
+  v0.5.1  | bc4751ee | bc4751ee (lightweight)
+  v0.6.0  | 1cc4c9ee | c80bdc26
+  v0.7.0  | 3839490f | 2d86182b
+  v0.8.0  | 64c27dc9 | 6efa9e54
+  v0.9.0  | d90d2bc6 | e3d08b6e
+  v0.10.0 | 799d267f | 93c27ec2 (the deposit, untouched)
+  v0.11.0 | 416ec76a | 2f71068a
+  v0.12.0 | 93b83a4a | b4c55b97
+  v0.13.0 | 23189d06 | 8e3bc76c
+
+## THE READING
+  v0.11.0 peels to 2f71068a, NOT cb0aea56: the order is not met by the standing tag. The highest existing tag v0.13.0; the next minor version
+  above it v0.14.0, absent at the remote. cb0aea56 is tagged v0.14.0, annotated, no GitHub release, pushed as it stands by
+  tools/push_gated.sh --existing-tag (no main push), its peel read back and the release list printed below.
+
+## THE TAG MADE AND READ BACK
+  made: git tag -a v0.14.0 cb0aea56354abb3abda3fdaef28429c6605605d5 (annotated, its message naming (R324)(3)(i) and the word), 05:56Z
+  pushed: tools/push_gated.sh D:/SIDE-lv-conservation --existing-tag v0.14.0 -- capture data/b714_SIDE-lv-conservation_v0.14.0_push_out.txt,
+          "visibility -> SIDE-lv-conservation PUBLIC" printed beside it, the push date 2026-10-26 (a public disclosure on that date); local
+          peel cb0aea56 = remote peel cb0aea56; DONE, exit 0
+  read back (ls-remote): refs/tags/v0.14.0 0e7c3527c8ff693c34126b57d1b1587149e5371c ; refs/tags/v0.14.0^{} cb0aea56354abb3abda3fdaef28429c6605605d5
+  the release list (gh release list --repo psinary-sketch/SIDE-lv-conservation): ONE release, "LV-Conservation v0.1.0 — T1+T2 compiled 0-sorry,
+          T3 pinned", tag v0.1.0, 2026-07-10T02:52:41Z ; FOR v0.14.0: NONE (empty)
+  untouched: lv main at the remote d38f3e8c99c3431c604bcba13210042df7748859 (= the worklist's LV_MAIN); the deposit v0.10.0 peels 93c27ec2
+### ### **v0.11.0 TAKEN (peel 2f71068a) ; v0.14.0 MADE AT cb0aea56, ANNOTATED, PEEL READ BACK cb0aea56 ; NO RELEASE FOR IT ; MAIN AND THE DEPOSIT UNTOUCHED ; W-ORD-LV-PORT-TAG DISCHARGED AT v0.14.0.**

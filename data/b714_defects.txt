@@ -23,3 +23,13 @@ b714 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-26)
         (05:08:20Z-05:08:27Z); each `run` loads data/b714_tests_stepzero.json, adds its row and replaces the file, so calls run at once could
         drop a row. The locator read six rows at :2, :13, :24, :35, :46, :57 (05:08:32Z), all six part-1 tests present; every run since sent
         one per message.
+    (e) THE SEAT'S: TWO ANCHORED NEEDLES BUILT FROM THE LOCATOR'S PRINT. The weight line's composer (tools/b714_record.py _wb, written at
+        Component 1) anchored the onsets' rows as `^pair` and pair 7's band as `^band`, read from tools/b712_locate.py's output, which prints
+        a hit with its leading space taken off; the banks' rows open with two spaces (data/b713_onsets.txt :12, data/b713_list.txt :22, read
+        through the Read tool). The first two dry runs (05:42Z) stopped at "READS 0 HELD ROWS", nothing composed or written; both needles
+        given `^\s*` and the third dry run composed every figure. A needle's anchor is read from the Read tool's view of the line, not the
+        locator's.
+    (f) THE NAVIGATOR'S: A TAG NAMED WITHOUT A LISTING OF THE TAGS BEFORE IT. (R324)(3)(i) named v0.11.0 for cb0aea56; SIDE-lv-conservation
+        carried v0.11.0 since 2026-09-26 (object 416ec76a, peel 2f71068a) and v0.12.0, v0.13.0 above it (the citation check's MISS 1,
+        data/b714_citation_check.txt). The author's word (data/b714_lv_tag.txt, verbatim) letters it here as the navigator's and orders the
+        next minor version: v0.14.0 made at cb0aea56, peel read back, no release (data/b714_lv_tag.txt).

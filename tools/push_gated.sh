@@ -61,6 +61,14 @@ fi
 if [ -n "$cap" ]; then
   exec > >(tee -a "$cap") 2>&1
   echo "push_gated: capture on -> $cap ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+  # ### (R324)(2), standing clauses v5 row (72), b714: THE REPOSITORY'S VISIBILITY BESIDE ITS CAPTURE, read from the visibility map
+  # ### (relay data/repo_visibility.txt, rows `VISIBILITY | name | ...`) by the origin's repository name; a name the map does not carry
+  # ### prints NOT IN THE MAP. A push to a PUBLIC repository is a public disclosure on its push date, which this line and the capture carry.
+  vurl=$(git -C "$repo" remote get-url origin 2>/dev/null || true)
+  vname=$(basename "${vurl%.git}")
+  vmap="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../data/repo_visibility.txt"
+  vis=$(awk -F' [|] ' -v n="$vname" '$2 == n { print $1; exit }' "$vmap" 2>/dev/null || true)
+  echo "push_gated: visibility -> ${vname:-unknown} ${vis:-NOT IN THE MAP} (relay data/repo_visibility.txt) ; the push date $(date -u +%Y-%m-%d)"
 fi
 
 # ### THE EXISTING-TAG MODE, b623, the author's answer before b623's seal under (R233)(5)(a): a tag the clone already

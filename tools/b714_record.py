@@ -954,8 +954,8 @@ def ksyms(*a):
 
 
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R324)(1)
-WH = ('*Appended 2026-10-25 by b714 to b713’s entry (:10378), under `(R324)`(1) -- b713 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
-      'data/b713_closing.txt):*')   # ### b714: the entry's line b713's (:10378); the carry's substitution left b711's (:10306)
+WH = ('*Appended 2026-10-26 by b714 to b713’s entry (:10440), under `(R324)`(1) -- b713 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b713_closing.txt):*')   # ### b714: b713's entry at :10440 and the act's date; the carry left b712's entry line (:10378) and b713's date
 
 
 def _fig(text, pat, what):
@@ -974,8 +974,10 @@ def _fl(name, pat, what):
     sys.exit('### data/%s DOES NOT CARRY %s (%s) -- NOTHING COMPOSED' % (name, what, pat))
 
 
-def _wb():
-    """b713's weight line under (R324)(1), every figure read from b713's banks by row and cited by its line: the head from its closing :1,
+def _wb_carried():
+    """THE CARRIED FORM, NOT CALLED (kept for the diff, data/b714_tool_repairs.txt): b712's objects under b713's names by the carry's
+    substitution -- the join, the port, the registrations -- banks b713 did not write. `_wb` below composes b713's own.
+    b713's weight line under (R324)(1), every figure read from b713's banks by row and cited by its line: the head from its closing :1,
     the join (its statement at v0.1.0, its grade, its tag), the statement equality, the port, the throughstone, the registrations' one commit
     and their control, the price, the re-cut, the trail and the root, the chain, the scores at the close, the suite from its two banks, the
     mirror, the defects by the repaired reader and the events by their starting lines. A rewrite at b714: the carried form composed b711's
@@ -1041,14 +1043,96 @@ def _wb():
                 p_post, n_post, fails, msha, nfiles, lmi, len(short), _letter(short[-1]) if short else '-', len(evl)))
 
 
+def _wb():
+    """b713's weight line under (R324)(1), in the clause's order, every figure read from b713's banks by row and cited by its line: the
+    head from its closing :1 and the closing's commit from its step bank; the list's foot; the predictions' one commit and its ancestry to
+    the onsets' commit; the onsets' rows and foot; Q0's two pairs at b711; the coefficients and the navigator's count; pair 7; Q0's list;
+    the source pin; the faces head; the re-cut's check; the entry and the trail; the root and its banks; the scores; the suite; the mirror;
+    the defects with their owners and the events by their starting lines. Written at b714 (the carried form composed b712's objects)."""
+    c = rdn('b713_closing.txt')
+    head = c.split(NL)[0]
+    closing = [r for r in (jl('b713_steps.json').get('rows') or []) if r.get('phase') == 'closing']
+    if len(closing) != 1:
+        sys.exit('### data/b713_steps.json CARRIES %d CLOSING ROWS, NOT ONE -- NOTHING COMPOSED' % len(closing))
+    (T, nb, nbc, on, off), llist = _fl('b713_list.txt', r'THE LIST COMPLETE TO ([\d.]+) ; BANDS (\d+) \(COMPLETE (\d+)\) ; ON-LINE ZEROS (\d+) ; '
+                                       r'OFF-LINE PAIRS (\d+)', 'the list`s foot')
+    pred = g(ROOT, 'log', '--format=%H', '--', 'data/b713_predictions.txt').split()
+    if pred != [K.B713_PRED_RELAY]:
+        sys.exit('### data/b713_predictions.txt HAS COMMITS %s, NOT THE ONE %s -- NOTHING COMPOSED' % ([x[:8] for x in pred], K.B713_PRED_RELAY[:8]))
+    pfiles = sorted(g(ROOT, 'show', '--format=', '--name-only', K.B713_PRED_RELAY).split())
+    if pfiles != ['data/b713_predictions.json', 'data/b713_predictions.txt']:
+        sys.exit('### %s CARRIES %s, NOT THE PREDICTIONS ALONE -- NOTHING COMPOSED' % (K.B713_PRED_RELAY[:8], pfiles))
+    anc = grc(ROOT, 'merge-base', '--is-ancestor', K.B713_PRED_RELAY, K.B713_ONSETS_RELAY) == 0
+    if not anc:
+        sys.exit('### %s IS NOT AN ANCESTOR OF %s -- NOTHING COMPOSED' % (K.B713_PRED_RELAY[:8], K.B713_ONSETS_RELAY[:8]))
+    rows = [(i, float(m.group(1))) for i, l in enumerate(rdn('b713_onsets.txt').split(NL), 1)
+            for m in [re.search(r'^\s*pair\s+\d+ \| .* \| ratio (\d\.\d+) \| HELD\s*$', l)] if m]
+    (comp, held, ref, beyond), lfoot = _fl('b713_onsets.txt', r'PAIRS COMPUTED (\d+) ; HELD (\d+) ; REFUTED (\d+) ; BEYOND REACH (\d+)', 'the onsets` foot')
+    _x, lwin = _fl('b713_onsets.txt', r'window \[0\.99, 1\.01\]', 'the window')
+    if len(rows) != int(held) or ref != '0':
+        sys.exit('### data/b713_onsets.txt READS %d HELD ROWS BESIDE ITS FOOT %s HELD, %s REFUTED -- NOTHING COMPOSED' % (len(rows), held, ref))
+    (q11,), lq11 = _fl('b711_pairs.txt', r'^\s+11 \| .* n\*/F2 (\d\.\d+) \| .* \| WITHIN$', 'pair 11 at b711')
+    (q15,), lq15 = _fl('b711_pairs.txt', r'^\s+15 \| .* n\*/F2 (\d\.\d+) \| .* \| WITHIN$', 'pair 15 at b711')
+    (n0,), lc0 = _fl('b713_coeffs.txt', r'THE LEAST n WITH c\(n\) < 0: n = (\d+) ; c\(\d+\) = \(-6\) log 2 \+ \(-2\) log 3', 'the least index')
+    (nneg,), lcn = _fl('b713_coeffs.txt', r'THE COUNT OF NEGATIVE COEFFICIENTS through 32532: (\d+) ;', 'the negatives through 32532')
+    (n3000,), lc3 = _fl('b713_report.txt', r'through n = 3000 from the bank`s rows \(negative_list\) (\d+) beside \1 -- EQUAL', 'the count through 3000')
+    _x, lp7 = _fl('b713_list.txt', r"^\s*band \[59\.881486, 75\.0\] \| N 18 .*\('1\.0259726162', '61\.422798308'\).* \| COMPLETE$", 'pair 7`s band')
+    _x, lp7r = _fl('b713_report.txt', r'^\s*\(e\) PAIR 7`S ZERO WITH Re rho > 1', 'pair 7 in the report')
+    _x, lq0 = _fl('b711_coeffs.txt', r'THE LEAST HEIGHT OF A ZERO WITH Re rho > 1: NONE IN THE LIST TO 325\.0', 'Q0`s list')
+    _x, lpin = _fl('b713_source_pin.txt', r'AGREES', 'the source pin')
+    _x, lfh = _fl('b713_closing.txt', r'THE FACES HEAD: FACES_LEDGER\.md :8 restated', 'the faces head')
+    (rtip, f22, m0), lra = _fl('b713_closing.txt', r'ADDITIVE CHECK ON recut-b712-silence: at ([0-9a-f]{8}), found (\d+), missing (\d+), in order True', 'the re-cut`s check')
+    _x, lra2 = _fl('b713_recut_additive.txt', r'FOUND 22 ; MISSING 0 ; IN ORDER True', 'the additive check')
+    if not K.RECUT_TIP.startswith(rtip):
+        sys.exit('### THE CLOSING`S RE-CUT TIP %s IS NOT %s -- NOTHING COMPOSED' % (rtip, K.RECUT_TIP[:8]))
+    ar = jl('b713_act_root.json')
+    if not ar.get('root') or not ar.get('previous'):
+        sys.exit('### data/b713_act_root.json CARRIES NO ROOT -- NOTHING COMPOSED')
+    (nbanks,), lbk = _fl('b713_closing.txt', r'THE ROOT`S BANKS .*: BANKS (\d+) ; CLEAN AND EQUAL AT HEAD \1', 'the root`s banks')
+    _x, lsc = _fl('b713_closing.txt', r'^\s*\(N1\) HELD \(N2\) HELD \(N3\) HELD \(N4\) HELD \(N5\) HELD ; \(S1\) HELD \(S2\) HELD \(S3\) HELD', 'the scores at the close')
+    (n_pre, p_pre), lpre = _fl('b713_closing.txt', r'^\s*pre-push : ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\.', 'the pre-push suite')
+    (n_post, p_post), lpost = _fl('b713_closing.txt', r'^\s*post-push : ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\.', 'the post-push suite')
+    (msha,), lmi = _fl('b713_closing.txt', r'mirror-refresh-2026-10-25-b713\.zip ; \d+ bytes ; sha256 ([0-9a-f]{8})[0-9a-f]* ; .*Act root: b713 '
+                       + ar['root'] + ' ; CLEAN ON ALL THREE CLAUSES', 'the mirror')
+    short = _defect_short('b713')
+    owners = re.findall(r"^    \(([a-z])\) (THE [A-Z’' ]+?)S?:", rdn('b713_defects.txt'), re.M)
+    if len(owners) != len(short) or any(o != "THE SEAT'" for _l, o in owners):
+        sys.exit('### data/b713_defects.txt OWNERS %s BESIDE %d DEFECTS -- NOTHING COMPOSED' % (owners, len(short)))
+    evl = [i for i, l in enumerate(rdn('b713_events.txt').split(NL), 1) if re.match(r'^\(\d+\) ', l)]
+    if len(evl) != 16:
+        sys.exit('### data/b713_events.txt READS %d STARTING LINES, NOT THE RULING`S SIXTEEN -- NOTHING COMPOSED' % len(evl))
+    return (' “%s” (data/b713_closing.txt :1); its relay commit the record’s, the closing’s %s (data/b713_steps.json, the closing row). As the '
+            'banks confirm by row: the −15 list complete to %s in %s bands (complete %s), %s on-line zeros and %s off-line pairs, the counts '
+            'certified and the off-line points located (data/b713_list.txt :%d); data/b713_predictions.txt committed alone at %s, with its JSON, '
+            'an ancestor of the onsets’ commit %s; the refined law met at %s of %s reachable pairs, ratios %.6f to %.6f against the registered '
+            'window [0.99, 1.01] (data/b713_onsets.txt :%d-:%d, :%d, :%d); %s pairs beyond reach, owed no prediction; Q0’s pairs 11 and 15 met '
+            'at b711 against b710’s committed predictions with the registered window [0.9, 1.1], ratios %s and %s (data/b711_pairs.txt :%d, :%d); '
+            'the coefficients negative from n = %s, c(%s) = −2 log 24 (data/b713_coeffs.txt :%d), %s negatives through 3000 equal to the '
+            'navigator’s value (data/b713_report.txt :%d), %s through 32532 (data/b713_coeffs.txt :%d); pair 7, Re ρ = 1.025973 at height '
+            '61.422798, located by Newton at 200 bits with its band’s count certified (data/b713_list.txt :%d; data/b713_report.txt :%d); Q0 '
+            'with no zero of Re ρ > 1 in its list to 325.0 (data/b711_coeffs.txt :%d); the genus factorization pinned at Murty–Osburn '
+            'arXiv:math/0412237v1, Theorem 2.3, AGREES (data/b713_source_pin.txt :%d); FACES_LEDGER.md :8 restated (data/b713_closing.txt :%d); '
+            'the re-cut’s additive check %s of 22 on recut-b712-silence %s, missing %s, pushed and not merged (data/b713_recut_additive.txt :%d; '
+            'data/b713_closing.txt :%d); the entry at FINDINGS :%d; the trail at OPEN_TRAILS :%d; the root %s over %s banks chained from %s '
+            '(data/b713_act_root.json; data/b713_closing.txt :%d); N1-N5 and S1-S3 HELD (data/b713_closing.txt :%d); suite %s of %s pre-push '
+            'and %s of %s post-push (data/b713_closing.txt :%d, :%d); the mirror mirror-refresh-2026-10-25-b713.zip (sha256 %s…) CLEAN on all '
+            'three clauses with the root line (data/b713_closing.txt :%d); %d defects (a)–(%s), all the seat’s (data/b713_defects.txt); %d '
+            'events in data/b713_events.txt by their starting lines. Nothing deposited, nothing published.' % (
+                head, closing[0]['commit'][:8], T, nb, nbc, on, off, llist, K.B713_PRED_RELAY[:8], K.B713_ONSETS_RELAY[:8], held, comp,
+                min(r for _i, r in rows), max(r for _i, r in rows), rows[0][0], rows[-1][0], lwin, lfoot, beyond, q11, q15, lq11, lq15,
+                n0, n0, lc0, n3000, lc3, nneg, lcn, lp7, lp7r, lq0, lpin, lfh, f22, rtip, m0, lra2, lra, K.B711_ENTRY, K.B711_TRAIL,
+                ar['root'][:8], nbanks, ar['previous'][:8], lbk, lsc, p_pre, n_pre, p_post, n_post, lpre, lpost, msha, lmi, len(short),
+                _letter(short[-1]) if short else '-', len(evl)))
+
+
 def c1(*a):
-    """FINDINGS: b713's weight line appended after b713's entry (:10378) through b698's landing and its screens; its line banked in
+    """FINDINGS: b713's weight line appended after b713's entry (:10440) through b698's landing and its screens; its line banked in
     data/b714_record_lines.json. `c1 dry` prints the line and writes nothing."""
     dry = 'dry' in a
     land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B711_ENTRY,
-         check=[('FINDINGS.md', K.B711_ENTRY, '## The faces joined by closure at SIDE-faces-join v0.1.0'),
-                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b713')],
-         dry=dry)   # ### b714: the checks b713's (the carried needles named b711's entry and b711's appended order line)
+         check=[('FINDINGS.md', K.B711_ENTRY, '## The −15 control: the certified list to height 199.33'),
+                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b713 — lane two, act one hundred and forty')],
+         dry=dry)   # ### b714: the needles b713's entry and trail (the carried needles named b712's entry and b713's trail head form)
 
 
 # ================================================================================ COMPONENT 1: THE FACES LEDGER HEAD, (R324)(2)(ii)
