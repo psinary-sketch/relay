@@ -28,3 +28,21 @@ b715 -- PRE-SEAL RECORDS, UNLETTERED (2026-10-26)
     the underestimate the navigator's, lettered (d) in data/b715_defects.txt. The probe run once more from relay's tools/
     (tools/b715_import_closure.py bank, 17:18Z): the per-module table banked as data/b715_import_closure.txt, its foot EQUAL to the figures
     above on all five (modules, act-named, shared, lines, literals).
+(5) THE CLOSURE'S LITERAL COUNT IS A LOWER BOUND (17:37Z, Component 2). The literal scan's positive control (tools/standing/scan.py, a
+    planted source; data/b715_standing_scan.txt) showed the measurement's pattern \bb\d{3}\b reading no word boundary before `_`: over
+    the planted code `x = 'data/b714_steps.json'` it finds 0, so every act-named file or module name in a string went uncounted. The
+    12,883 of (4) and data/b715_import_closure.txt counts the literals standing alone (b714 in prose, `'b714'`) and not those inside a
+    name: a lower bound. The banked figure stands as the author's word (1)(d) wrote it; the standing scan reads `b` and three digits not
+    inside a longer word or number, `_` allowed after (its control AS WANTED), and reads 0 in the toolset's code.
+(6) THE HOOK SWITCHED (about 17:30Z, after its control's first bank, Component 3, (R325)(4)(iii)). D:/.claude/settings.json's hook command now runs tools/standing/hook.py,
+    whose refusals go to data/<act>_hook_refusals.txt (the act read from data/act_current.json at each call), the kind `hook_refusals`
+    added to tools/b715_record.py EXCLUDE_KINDS so the root route takes it out; its control data/b715_hook_control.txt (the record's
+    instance: data/b714_hook_refusals.txt's sha256 73072d5b now against cc4e9dda at b714's root; the constructed, in a scratch outside
+    data/ and tools/: no root-named bank changed). No call has been refused since the switch, so the harness's reload of the settings is
+    not exercised: a refused call is the one test, and under the old hook it would write b714's rooted bank again. data/b714_hook_refusals.txt
+    stands at five lines after b714's root, unchanged since defect (e).
+(7) b715'S SUITE NOT YET CARRIED (Component 3). tools/b715_checks.py, closing, regspec, reg_gate and report are carried at Component 6
+    (b714's lineage). (R325)(4)(i)'s figure (tools/standing/arms.py prev_longest: b714's seven root-named part banks, its longest pre-run
+    phase 335 s, seven parts) and (ii)/(vi)'s field and lists (tools/standing/close.py withheld_entries, neg_shown) are bound into the
+    carried suite there, so that G-RULE-LONG-PHASE-SPLIT is sealed and not withheld; the coverage table (data/b715_toolset_coverage.txt)
+    marks [7] and [8] PER-ACT with these functions called.

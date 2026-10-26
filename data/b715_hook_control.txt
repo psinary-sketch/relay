@@ -1,0 +1,23 @@
+b715 STANDING HOOK CONTROL -- v5 row (77) and the class repair (4)(iii), tools/standing/hook.py at 2026-10-26T17:46:06Z
+### each case: tool | input | wanted | got | AS WANTED
+Read | {"file_path": "D:/relay/data/b715_ferry.txt"} | READ | READ | True
+Read | {"file_path": "D:/relay/data/b715_ferry.txt", "offset": 1, "limit": 201} | READ | READ | True
+Read | {"file_path": "D:/relay/data/b715_ferry.txt", "offset": 1, "limit": 200} | ALLOWED | ALLOWED | True
+Bash | {"command": "git status | head"} | PIPE | PIPE | True
+Bash | {"command": "git log --oneline -3 2>&1"} | REDIR | REDIR | True
+Bash | {"command": "cat a > b"} | REDIR | REDIR | True
+Bash | {"command": "PYTHONIOENCODING=utf-8 python x.py"} | ENV | ENV | True
+Bash | {"command": "cd /d/relay && FOO=1 python x.py"} | ENV | ENV | True
+Bash | {"command": "cd /d/relay && python -I -X utf8 tools/locate.py data/x.txt \"a|b>c\""} | ALLOWED | ALLOWED | True
+Bash | {"command": "git -C /d/relay commit -m \"b715: a -> b, x|y\""} | ALLOWED | ALLOWED | True
+PowerShell | {"command": "Get-ChildItem D:/relay | Select-Object -First 3"} | PIPE | PIPE | True
+PowerShell | {"command": "git status > out.txt"} | REDIR | REDIR | True
+PowerShell | {"command": "$env:PYTHONIOENCODING = \"utf-8\"; python x.py"} | ENV | ENV | True
+PowerShell | {"command": "git commit -m @'\nline | with > marks\n'@"} | ALLOWED | ALLOWED | True
+PowerShell | {"command": "Get-PSDrive"} | ALLOWED | ALLOWED | True
+Grep | {"pattern": "a|b"} | ALLOWED | ALLOWED | True
+### ### **CASES 16 ; AS WANTED 16 ; REFUSAL KINDS ENV,PIPE,READ,REDIR ; ALLOWED CASES 6 ; ALL AS WANTED True**
+
+### (4)(iii) INSTANCE 1, FROM THE RECORD: data/b714_hook_refusals.txt, named by b714_act_root.json: True ; its sha256 at the root cc4e9ddaf0e00777 ; now 73072d5bbb8f9e9e ; the class (a refusal after the root changed a rooted bank) SHOWN
+### (4)(iii) INSTANCE 2, CONSTRUCTED in C:\Users\ECHOCH~1\AppData\Local\Temp\standing-hook-control-rdl_rprt: the standing refuse() wrote data/b715_hook_refusals.txt (named by the test root False) and changed root-named banks none ; the old form (the refusal appended to a root-named bank) changed ['data/b715_old_hook_bank.txt'] ; AS WANTED True
+### ### **(4)(iii) CONTROL: THE RECORD`S INSTANCE SHOWN ; THE CONSTRUCTED AS WANTED ; THE REPAIR HOLDS True.**

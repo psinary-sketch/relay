@@ -65,7 +65,7 @@ R.N5_RELAY_TOOLS = ('mirror_prevbuild.json',)   # ### (R325)(2): the mirror buil
 # ### b715_*.py tool declares in its own head, read at import. A tool declares one by a line `### UNTRACKED WRITE: data/b715_<name>`.
 # ### (R325)(2): the events bank (row (52): a finding after the seal, written after the seal and after the root) and the step bank (G-SEALED-AFTER-
 # ### COMPONENTS, a row per commit written after the commit, the record's and the closing's among them) are the defects bank's kind: not root items
-EXCLUDE_KINDS = P7.EXCLUDE_KINDS + r'|events|steps'
+EXCLUDE_KINDS = P7.EXCLUDE_KINDS + r'|events|steps|hook_refusals'   # ### (R325)(4)(iii): the standing hook's bank, an excluded kind
 # ### b714's declaration line read to its first space (b714: `\s*$`, which refused a declaration followed by prose and so read the grid's and the
 # ### pairs' declarations as none -- the root's first dry run named 32 untracked units files); a name ending in `*` declares every file with that
 # ### prefix (the grid's segment files, the pairs' band files). A carry-time repair, banked by diff (data/b715_tool_repairs.txt).
