@@ -624,7 +624,7 @@ def kernels(*a):
     ks = list(dict.fromkeys(_kerns() + ['SIDE-faces-join']))
     import b633_record as R3
     put_json('%s_kernels_face.json' % ACT, dict(at=utc(), kernels=R3.kern_state(ks)))
-    print('  kernels read: %d (SIDE-faces-join among them at b712`s main %s with its tag v0.1.0; no kernel written this act; SIDE-lv-conservation`s main '
+    print('  kernels read: %d (SIDE-faces-join among them at b712`s main %s with its tag v0.1.0; no kernel`s main written this act, the pin branches of (R328)(8) on their own refs; SIDE-lv-conservation`s main '
           'untouched, port-b707 at b712`s tip %s, its checkout at main for this read)' % (len(ks), K.JOIN_NEW_TIP[:8], K.PORT_NEW_TIP[:8]))
 
 
@@ -645,9 +645,8 @@ desk, mbuild, mroot, mverify = R.desk, R.mbuild, R.mroot, R.mverify
 
 
 def gatebanks(*a):
-    """b698's route (tools/b698_record.py :1943, unedited), carried by the Edit tool with one change, the author's word (3)(a)
-    (data/b718_author_words_preseal.txt (3)): the pins bank the lock gate reads runs `b303_pins.py gate <act>`, b717's four in b717's form,
-    the widened census of (R328)(6) left to its own bank (data/b718_pins_census.txt). The reg gate's record is written before this route runs."""
+    """b698's route (tools/b698_record.py :1943, unedited), carried by the Edit tool with one change, b715's author's word (3)(a)
+    (data/b715_author_words_preseal.txt (3)): the pins bank the lock gate reads runs `b303_pins.py gate <act>`. The reg gate's record is written before this route runs."""
     import gate_hash as G
 
     def runb(args, out):
@@ -667,7 +666,7 @@ def gatebanks(*a):
     print('  reg_satisfiable rc %d ; %s' % (rc3, ([l for l in rdn('audit_%s_reg_satisfiable.txt' % ACT).split(NL) if 'VERDICT' in l] or ['### NO VERDICT'])[0][:160]))
     for tool, out in (('b307_handoff_census.py', '%s_census_stepzero.txt' % ACT), ('b327_faces_census.py', '%s_faces_census_stepzero.txt' % ACT),
                       ('b303_pins.py', '%s_pins_stepzero.txt' % ACT)):
-        rc, t = runb([os.path.join(T, tool)] + (['gate'] if tool == 'b303_pins.py' else []) + [ACT], out)   # ### word (3)(a): the gate route
+        rc, t = runb([os.path.join(T, tool)] + (['gate'] if tool == 'b303_pins.py' else []) + [ACT], out)   # ### b715's word (3)(a): the gate route
         print('  %s rc %d ; %s' % (out, rc, ([l.strip() for l in t.split(NL) if 'TOTAL MISSING' in l or 'HARD-FAILING' in l] or ['### NONE'])[0][:120]))
     for r in ('data/%s_reg_gate.txt' % ACT, 'data/%s_reg_termscan.txt' % ACT, 'data/%s_regspec_run.txt' % ACT, 'data/audit_%s_reg_satisfiable.txt' % ACT):
         ra = os.path.join(ROOT, *r.split('/'))
@@ -682,7 +681,7 @@ def rootdry(*a):
     """data/b706_rules.txt row (1): the root route run DRY on the pre-root tree before the seal -- the banks the route names (ROOT_EXCLUDE
     extended), each read for CR LF, its status and its blob at HEAD; READY where every named bank is clean and equal at HEAD and none is CR LF
     (the push clause, HEAD the remote main, printed beside and not required before the record`s push). data/b718_root_banks_dry.txt (.json)."""
-    _close_step(2)   # ### (R328)(4)(vi): the root's dry run, step [2]
+    _close_step(2)   # ### standing clauses v7 row (79): the root's dry run, step [2]
     banks = root_banks()
     s = root_banks_state(banks)
     crlf = [b_ for b_ in banks if os.path.exists(os.path.join(ROOT, *b_.split('/'))) and b'\r\n' in open(os.path.join(ROOT, *b_.split('/')), 'rb').read()]
