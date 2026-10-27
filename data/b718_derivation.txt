@@ -1,0 +1,136 @@
+b718 -- (R328)(4)(iii): THE COEFFICIENT LAW READ THROUGH THE CLASS GROUP, THE ARGUMENT WITH ITS CHECKS (2026-10-27T20:51:19Z)
+
+### THE OBJECT ((R328)(4)(i)): D < 0 fundamental, h >= 2, two units; a(n) = r_Q1(n)/2; log(Z_Q1/2) = SUM_{n>=2} b(n) n^-s. The law of
+### data/b716_registrations.txt (ii): the least n with b(n) < 0 has (1) b(n) = -2 and (2) a prime the principal form does not represent.
+### Each step: its CHECK at -23, -15, -39 through the banks` cuts, then its PLANT (an error put into the check), printed BEFORE the step.
+### The class groups by the forms` composition, each axiom checked: -23: h 3, ALL TRUE ; -15: h 2, ALL TRUE ; -39: h 4, ALL TRUE.
+
+## (0) THE DIRECT b AGAINST THE BANKS
+  CHECK -23 (data/b711_coeffs.json, cut 32532): negatives 1066 against the bank`s 1066, the lists EQUAL -- AS WANTED
+  PLANT -23: negatives 1117 against the bank`s 1066, the lists UNEQUAL -- FAILS AS WANTED
+  CHECK -15 (data/b713_coeffs.json, cut 32532): negatives 756 against the bank`s 756, the lists EQUAL -- AS WANTED
+  PLANT -15: negatives 1073 against the bank`s 756, the lists UNEQUAL -- FAILS AS WANTED
+  CHECK -39 (data/b717_coeffs.json, cut 32532): negatives 571 against the bank`s 571, the lists EQUAL -- AS WANTED
+  PLANT -39: negatives 637 against the bank`s 571, the lists UNEQUAL -- FAILS AS WANTED
+
+  The direct route: a(n) = r_Q1(n)/2 by enumeration and b(n) by the Omega derivation, Omega(n) b(n) = SUM_{d|n} Omega(d) b(d) a(n/d)
+  (Omega additive, so f -> Omega f is a derivation of Dirichlet convolution and Omega(log f) = (Omega f) * f^-1). The banks` c(n) are
+  b(n) log n, so the negative lists must agree; they do (above). Every later check reads this b.
+
+## (1) a(n) THROUGH THE CLASS GROUP
+  CHECK -23 (data/b711_coeffs.json, cut 32532): mismatches by the ideals 0 (n <= 32532), by the characters 0 (n <= 2000) -- AS WANTED
+  PLANT -23: mismatches by the ideals 4271 (n <= 32532), by the characters 322 (n <= 2000) -- FAILS AS WANTED
+  CHECK -15 (data/b713_coeffs.json, cut 32532): mismatches by the ideals 0 (n <= 32532), by the characters 0 (n <= 2000) -- AS WANTED
+  PLANT -15: mismatches by the ideals 3801 (n <= 32532), by the characters 292 (n <= 2000) -- FAILS AS WANTED
+  CHECK -39 (data/b717_coeffs.json, cut 32532): mismatches by the ideals 0 (n <= 32532), by the characters 0 (n <= 2000) -- AS WANTED
+  PLANT -39: mismatches by the ideals 4076 (n <= 32532), by the characters 321 (n <= 2000) -- FAILS AS WANTED
+
+  STEP 1 (the object through the class group). K = Q(sqrt D), w = 2, Cl(K) of order h. The ideals of norm n are the products of
+  prime ideals: for p split, p = P Pbar, the choices P^i Pbar^(k-i), i = 0..k, of class g^(2i-k) where g = [P]; for p ramified, p = P^2,
+  the one ideal P^k of class [P]^k; for p inert, (p)^(k/2) of the principal class, k even. Each class of norm-p ideals is read from the
+  reduced form (p, b, (b^2 - D)/4p), b^2 = D mod 4p. A principal ideal of norm n is a pair (x, y) up to the two units, so
+  a(n) = #{A : N A = n, [A] = 1} = (1/h) SUM_chi SUM_{N A = n} chi(A), by orthogonality of the characters of Cl(K). Hence
+  Z_Q1/2 = eps(F), F = PRODUCT_p F_p, F_p = SUM_A [class of A] N(A)^-s in Q[Cl(K)][[p^-s]], eps the coefficient of the identity.
+
+## (2) DECOUPLING; THE GOOD-SUPPORTED VALUES
+  CHECK -23 (data/b711_coeffs.json, cut 32532): mixed n 21293, b != 0 at 0 ; good-supported n 5930, off the Euler-factor value at 0 -- AS WANTED
+  PLANT -23: mixed n 17842, b != 0 at 2559 ; good-supported n 12194, off the Euler-factor value at 7 -- FAILS AS WANTED
+  CHECK -15 (data/b713_coeffs.json, cut 32532): mixed n 21892, b != 0 at 0 ; good-supported n 5571, off the Euler-factor value at 0 -- AS WANTED
+  PLANT -15: mixed n 18879, b != 0 at 1411 ; good-supported n 11341, off the Euler-factor value at 11 -- FAILS AS WANTED
+  CHECK -39 (data/b717_coeffs.json, cut 32532): mixed n 20068, b != 0 at 0 ; good-supported n 4084, off the Euler-factor value at 0 -- AS WANTED
+  PLANT -39: mixed n 20185, b != 0 at 1742 ; good-supported n 8415, off the Euler-factor value at 9 -- FAILS AS WANTED
+
+  STEP 2 (decoupling). Call p GOOD when every ideal of p-power norm is principal (p inert, or split or ramified with a principal prime
+  ideal) and BAD otherwise (split or ramified with [P] != 1). For good p, F_p is a scalar multiple of [1]; so F = F_good F_bad with F_good
+  scalar, eps(F) = F_good eps(F_bad), and log(Z_Q1/2) = log F_good + log eps(F_bad). The first is supported on good-supported n, the
+  second on bad-supported n; so b(n) = 0 at every n with both a good and a bad prime. log F_good = SUM_{good p} log F_p, each F_p an
+  Euler factor of zeta_K: b(p^k) = 2/k (split), 1/k (ramified), 1/j at k = 2j (inert), and b = 0 at good n with two or more primes. All
+  these values are >= 0: A NEGATIVE b(n) OCCURS ONLY AT A BAD-SUPPORTED n.
+
+## (3) ONE BAD PRIME
+  CHECK -23 (data/b711_coeffs.json, cut 32532): bad prime powers 1211, off the closed form at 0, negative at 0 -- AS WANTED
+  PLANT -23: bad prime powers 1211, off the closed form at 3, negative at 0 -- FAILS AS WANTED
+  CHECK -15 (data/b713_coeffs.json, cut 32532): bad prime powers 916, off the closed form at 0, negative at 0 -- AS WANTED
+  PLANT -15: bad prime powers 916, off the closed form at 3, negative at 0 -- FAILS AS WANTED
+  CHECK -39 (data/b717_coeffs.json, cut 32532): bad prime powers 1368, off the closed form at 0, negative at 0 -- AS WANTED
+  PLANT -39: bad prime powers 1368, off the closed form at 1, negative at 0 -- FAILS AS WANTED
+
+  STEP 3 (one bad prime). For p split with g = [P] of order m >= 2, eps(F_p) = SUM over (i, j) with m | i - j of x^(i+j) (x = p^-s), which
+  is (1 - x^(2m)) / ((1 - x^2)(1 - x^m)^2); its log gives b(p^N) = [2|N] 2/N + [m|N] 2m/N - [2m|N] 2m/N >= 0 (where 2m | N the
+  second term cancels the third and the first stays). For p ramified with [P] of order 2, eps(F_p) = 1/(1 - x^2), b(p^N) = [2|N] 2/N.
+  So b >= 0 on every bad prime power: A NEGATIVE b(n) NEEDS AT LEAST TWO DISTINCT BAD PRIMES.
+
+## (4) THE k >= 3 TERMS; THE CLOSED FORM AT OMEGA <= 5
+  CHECK -23 (data/b711_coeffs.json, cut 32532): bad primes with a(p) != 0: 0 ; Omega <= 3: 3726 n, b != a at 0 ; Omega 4-5: 1089 n, b != a - P/2 at 0 -- AS WANTED
+  PLANT -23: bad primes with a(p) != 0: 0 ; Omega <= 3: 3726 n, b != a at 0 ; Omega 4-5: 1089 n, b != a - P/2 at 1089 -- FAILS AS WANTED
+  CHECK -15 (data/b713_coeffs.json, cut 32532): bad primes with a(p) != 0: 0 ; Omega <= 3: 3200 n, b != a at 0 ; Omega 4-5: 1200 n, b != a - P/2 at 0 -- AS WANTED
+  PLANT -15: bad primes with a(p) != 0: 0 ; Omega <= 3: 3200 n, b != a at 0 ; Omega 4-5: 1200 n, b != a - P/2 at 738 -- FAILS AS WANTED
+  CHECK -39 (data/b717_coeffs.json, cut 32532): bad primes with a(p) != 0: 0 ; Omega <= 3: 5259 n, b != a at 0 ; Omega 4-5: 2084 n, b != a - P/2 at 0 -- AS WANTED
+  PLANT -39: bad primes with a(p) != 0: 0 ; Omega <= 3: 5259 n, b != a at 0 ; Omega 4-5: 2084 n, b != a - P/2 at 1046 -- FAILS AS WANTED
+
+  STEP 4 (part (b): the k >= 3 terms). For a bad prime p, a(p) = 0: no prime ideal above p is principal. Every divisor d of a
+  bad-supported n is bad-supported, so a(d) != 0 forces Omega(d) >= 2. A product a(d_1)...a(d_k) != 0 over an ordered factorization of
+  n then needs Omega(n) >= 2k. Hence for Omega(n) <= 5 only k = 1, 2 survive: b(n) = a(n) - P(n)/2 with P(n) = SUM_{de = n; d, e >= 2}
+  a(d) a(e) = (a*a)(n) - 2a(n), that is b(n) = 2a(n) - (a*a)(n)/2; and for Omega(n) <= 3, P(n) = 0 and b(n) = a(n) >= 0. A NEGATIVE
+  b(n) NEEDS Omega(n) >= 4; AT Omega(n) = 4, 5 ITS VALUE IS 2a(n) - (a*a)(n)/2, BOTH COUNTS OF IDEALS IN THE PRINCIPAL CLASS.
+
+## (5) THE ABSTRACT MODEL
+  CHECK -23 (data/b711_coeffs.json, cut 32532): bad-supported n 4135, the model off the direct b at 0 -- AS WANTED
+  PLANT -23: bad-supported n 4135, the model off the direct b at 2565 -- FAILS AS WANTED
+  CHECK -15 (data/b713_coeffs.json, cut 32532): bad-supported n 4190, the model off the direct b at 0 -- AS WANTED
+  PLANT -15: bad-supported n 4190, the model off the direct b at 1415 -- FAILS AS WANTED
+  CHECK -39 (data/b717_coeffs.json, cut 32532): bad-supported n 7055, the model off the direct b at 0 -- AS WANTED
+  PLANT -39: bad-supported n 7055, the model off the direct b at 1750 -- FAILS AS WANTED
+
+  STEP 5 (the model). By steps 1-4, b(n) at a bad-supported n is a function of Cl(K) and the list (type, class, exponent) of n`s
+  primes alone -- not of the primes` sizes. tools/b718_abstract.py computes it from that list (above: equal to the direct b at every
+  bad-supported n through each cut).
+
+## (6) THE PRIMES OF THE LEAST NEGATIVE INDEX
+  CHECK -23 (data/b711_coeffs.json, cut 32532): n0 = 48, primes [2, 3], each bad True, each with a(p) = 0 True, distinct 2 -- AS WANTED
+  PLANT -23: n0 = 48, primes [2, 3], each bad False, each with a(p) = 0 True, distinct 2 -- FAILS AS WANTED
+  CHECK -15 (data/b713_coeffs.json, cut 32532): n0 = 24, primes [2, 3], each bad True, each with a(p) = 0 True, distinct 2 -- AS WANTED
+  PLANT -15: n0 = 24, primes [2, 3], each bad False, each with a(p) = 0 True, distinct 2 -- FAILS AS WANTED
+  CHECK -39 (data/b717_coeffs.json, cut 32532): n0 = 120, primes [2, 3, 5], each bad True, each with a(p) = 0 True, distinct 3 -- AS WANTED
+  PLANT -39: n0 = 120, primes [2, 3, 5], each bad False, each with a(p) = 0 True, distinct 3 -- FAILS AS WANTED
+
+  STEP 6 (part (d): the primes of the least negative index). Let n0 be the least n with b(n) < 0. By step 2, n0 is bad-supported:
+  EVERY prime of n0 is bad, so has a(p) = 0, so is represented by no form of the principal class (r_Q1(p) = 0). By step 3, n0 has at
+  least two distinct primes; by step 4, Omega(n0) >= 4. Clause 2 of the law follows, in the stronger form "every prime of n0".
+
+## (7) THE MINIMAL NEGATIVE SHAPES (the census, tools/b718_abstract.py, C2, C3, C4 at Omega 4-6)
+  C2: minimal negative shapes 16 ; values by Omega {4: {'-4': 4, '-8': 3, '-2': 4, '-1/2': 1, '-16': 2, '-1': 1, '-32': 1}}
+      the shapes of value -2: Omega 4 p1^2 . r1^2; Omega 4 p1^3 . r1^1; Omega 4 p1^1 . r1^1 . r1^2; Omega 4 r1^1 . r1^1 . r1^1 . r1^1
+  C3: minimal negative shapes 4 ; values by Omega {4: {'-2': 1, '-6': 1}, 5: {'-2': 1, '-4': 1}}
+      the shapes of value -2: Omega 4 p1^1 . p1^1 . p1^2; Omega 5 p1^1 . p1^4
+  C4: minimal negative shapes 52 ; values by Omega {4: {'-4': 5, '-8': 3, '-2': 4, '-1/2': 1, '-16': 2, '-1': 1, '-32': 1}, 5: {'-4': 8, '-2': 3, '-16': 5, '-8': 6, '-32': 2}, 6: {'-2': 2, '-4': 2, '-10/3': 1, '-8': 5, '-16': 1}}
+      the shapes of value -2: Omega 4 p2^2 . r2^2; Omega 4 p2^3 . r2^1; Omega 4 p2^1 . r2^1 . r2^2; Omega 4 r2^1 . r2^1 . r2^1 . r2^1; Omega 5 p1^1 . p1^3 . r2^1; Omega 5 p1^2 . r2^1 . r2^2; Omega 5 p1^1 . p1^1 . r2^1 . r2^2; Omega 6 p1^1 . p1^5; Omega 6 p1^4 . r2^2
+
+  STEP 7 (part (c): the value at the least negative index). n0 has no proper divisor with b < 0 (each is smaller), so its shape is a
+  MINIMAL negative shape of Cl(K): a list (type, class, exponent) with b < 0 and b >= 0 at every proper sub-list. The census of
+  tools/b718_abstract.py over C2, C3, C4 (above) lists every minimal negative shape at Omega 4, 5 and 6 with its value, the shapes
+  abstract (a shape with more ramified primes than a discriminant of that group has is listed too). At the three banks:
+  -15 (C2): n0 = 24 = 2^3 . 3, the shape (split g)^3 (ramified g)^1: all four ideals P^i Pbar^(3-i) Q have class (2i - 2)g = 1, so a = 4;
+  the divisors with a != 0 are p^2 (a = 3) and pq (a = 2: P Q, Pbar Q, class 2g = 1), so P = 2 . 3 . 2 = 12 and b = 4 - 6 = -2.
+  -23 (C3): n0 = 48 = 2^4 . 3, the shape (split g)^4 (split g)^1: a = 4 and P = 12 by the same count over C3 (data/b718_decomp.txt).
+  -39 (C4): n0 = 120 = 2^3 . 3 . 5, (split c)^3 (ramified c^2) (split c): a = 4, P = 12 (data/b718_decomp.txt).
+  WHAT REPLACES a = 4, P = 12 IN GENERAL: at Omega(n0) = 4, 5 the value 2a(n0) - (a*a)(n0)/2 of the minimal shape n0 instantiates; the
+  census shows those values are not all -2 in any of the three groups.
+
+## THE GRADE
+  THEOREM (footing WRITTEN PROOF; nothing compiled). Let D < 0 be a fundamental discriminant with h(D) >= 2 and w = 2, Q1 its
+  principal form, a(n) = r_Q1(n)/2 and log(Z_Q1/2) = SUM b(n) n^-s. Then (i) b(n) = 0 at every n carrying both a good and a bad prime,
+  and b(n) >= 0 at every good-supported n and at every power of one bad prime; (ii) at a bad-supported n, a(d) = 0 for every divisor
+  d with Omega(d) <= 1, so the k-fold terms vanish for 2k > Omega(n), and b(n) = 2a(n) - (a*a)(n)/2 when Omega(n) <= 5; (iii) if some
+  b(n) < 0, the least such n0 is bad-supported with at least two distinct primes and Omega(n0) >= 4, so every prime dividing n0 is
+  represented by no form of the principal class -- CLAUSE 2 OF THE LAW, DERIVED, in the stronger form; (iv) b(n0) is the value of a
+  minimal negative shape of Cl(K), and at Omega(n0) <= 5 equals 2a(n0) - (a*a)(n0)/2.
+  CLAUSE 1 (b(n0) = -2) IS NOT DERIVED. THE STEP THAT REMAINS, NAMED EXACTLY: that the least n, over the bad primes of D with their
+  classes, instantiating a minimal negative shape of Cl(K) instantiates one of value -2. The value is not a function of the group:
+  minimal negative shapes of value other than -2 exist in C2 at Omega 4, in C3 at Omega 4 and 5, and in C4 at Omega 4, 5 and 6 (the
+  census above, read at Omega 4-6 only); which shape is least is set by the sizes of the least bad primes in each class, which the
+  class group does not fix. Nor does the argument bound Omega(n0): C4 has minimal negative shapes at Omega 6 (census), where the
+  k = 3 terms enter; the census does not read Omega 7 or more. The law`s clause 1 stands REGISTERED,
+  HELD at -23, -15, -39, and carried with its falsifier; clause 2 stands as a written proof.
+
+### ### **CHECKS 7 STEPS x 3 DISCRIMINANTS: ALL AS WANTED ; PLANTS: ALL FAIL AS WANTED ; THE GRADE: CLAUSE 2 A THEOREM (WRITTEN PROOF) ; CLAUSE 1 NOT DERIVED, ITS STEP NAMED ; 23 s.**
