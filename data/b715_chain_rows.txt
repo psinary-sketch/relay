@@ -1,0 +1,214 @@
+b715 -- COMPONENT 5, (R325)(7): THE CHAIN`S 24 DECLARATIONS READ AT THEIR PINS, GRADED AND THEIR AXIOMS READ (2026-10-27T00:13:40Z)
+
+### rows are declarations, in the order (R325)(7) takes them (the pilot`s NO HOMEBREW ROW names first, rh_strip_imp_rh_holds among them, then
+### the rest): the pilot`s line (relay data/b714_pilot.txt), the name, the repository, pin and place, the statement at the pin (git show
+### <pin>:<path>, from its line to its `:=`; a def whole), its kind, the E0 rule`s grade and why (tools/e0_rule.py grade, from the statement
+### alone), the span`s sorry lines and the axioms. Written by tools/b715_record.py chainrows.
+
+--- (P3) :120  SIDEExplicitFormula.B321.rh_strip_imp_rh_holds  (NO HOMEBREW ROW)
+    at   : SIDE-explicit-formula 38e2734 = 38e2734 : SIDEExplicitFormula/Seam.lean :84
+    stmt : theorem rh_strip_imp_rh_holds : rh_strip_imp_rh
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :84-:97 : NONE
+    axioms : 'SIDEExplicitFormula.B321.rh_strip_imp_rh_holds' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b704_probe_out_zeta.txt :2466
+
+--- (P3) :99  techne_kernel.ExhaustiveCatalogue.covers_all  (NO HOMEBREW ROW)
+    at   : SIDE-kernel v1.2 = b1407b2 : Kernel/Layer1.lean :23
+    stmt :   covers_all : forall (x : X), P x ->
+    stmt :     Exists (fun C : MechanismClass X P => And (List.Mem C classes) (C.produces x))
+    kind field ; GRADE NOT GRADED ; a structure field: the E0 rule grades a declaration`s statement, and a field is no declaration
+    sorry in the span :23-:24 : NONE
+    axioms : axioms not read at this pin ; no banked print of the field or its structure at v1.2
+
+--- (P3) :100  techne_kernel.SIDE_exclusion  (NO HOMEBREW ROW)
+    at   : SIDE-kernel v1.2 = b1407b2 : Kernel/Layer1.lean :30
+    stmt : theorem SIDE_exclusion
+    stmt :     {X : Type u} {P : X -> Prop} {x : X}
+    stmt :     (cat : ExhaustiveCatalogue X P)
+    stmt :     (h_none : NoneProduces X P cat.classes x) :
+    stmt :     Not (P x)
+    kind theorem ; GRADE INTERFACES ; P : X -> Prop, h_none : NoneProduces X P cat.classes x
+    sorry in the span :30-:39 : NONE
+    axioms : axioms not read at this pin ; no banked print at v1.2
+
+--- (P3) :103  ProductFormula.conservation_of_spectra  (NO HOMEBREW ROW)
+    at   : SIDE-kernel v1.2 = b1407b2 : Kernel/ProductFormula_Rat.lean :72
+    stmt : theorem conservation_of_spectra :
+    stmt :     ∀ (s : Int), (1 : Rat) ^ s = 1
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :72-:79 : NONE
+    axioms : 'ProductFormula.conservation_of_spectra' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b554_probe_k3.txt :7, its head naming b1407b2 with no DIFF
+
+--- (P3) :104  SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin  (NO HOMEBREW ROW)
+    at   : SIDE-lv-conservation v0.2.0 = c8e3d31 : SIDELvConservation/T1_MellinFactorization.lean :36
+    stmt : theorem T1_completedRiemannZeta_factors_through_mellin :
+    stmt :     ∃ Φ : ℝ → ℂ, ∀ s : ℂ, 1 < s.re →
+    stmt :       completedRiemannZeta s = mellin Φ (s / 2)
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :36-:76 : NONE
+    axioms : 'SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b554_probe_l3.txt :8-:10, its head naming c8e3d31 with no DIFF
+
+--- (P3) :105  SIDELvConservation.T2b_mellin_exhaustion  (NO HOMEBREW ROW)
+    at   : SIDE-lv-conservation v0.2.0 = c8e3d31 : SIDELvConservation/T2_SDarkness.lean :51
+    stmt : theorem T2b_mellin_exhaustion (Φ : ℝ → ℂ) (s : ℂ) :
+    stmt :     mellin Φ s = ∫ t : ℝ in Ioi 0, (t : ℂ) ^ (s - 1) • Φ t
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :51-:61 : NONE
+    axioms : 'SIDELvConservation.T2b_mellin_exhaustion' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b554_probe_l4.txt :8, its head naming c8e3d31 with no DIFF
+
+--- (P3) :107  techne_kernel_voice2.symmetries_agree_iff  (NO HOMEBREW ROW)
+    at   : SIDE-kernel v1.2 = b1407b2 : Kernel/Voice2.lean :52
+    stmt : theorem symmetries_agree_iff (sigma : Real) :
+    stmt :     conjugate_re sigma = reflect_re sigma <-> sigma = 1 / 2
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :52-:59 : NONE
+    axioms : axioms not read at this pin ; no banked print at v1.2
+
+--- (P3) :108  techne_kernel_voice3.reflect_fixed_iff  (NO HOMEBREW ROW)
+    at   : SIDE-kernel v1.2 = b1407b2 : Kernel/Voice3.lean :20
+    stmt : theorem reflect_fixed_iff (s : Real) :
+    stmt :     reflect s = s <-> s = 1 / 2
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :20-:25 : NONE
+    axioms : axioms not read at this pin ; no banked print at v1.2
+
+--- (P3) :110  CartanBridge.formation_n_3_eq_two  (NO HOMEBREW ROW)
+    at   : SIDE-kernel v1.2 = b1407b2 : Bridge/CartanBBridge.lean :220
+    stmt : theorem formation_n_3_eq_two : n_3 = 2
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :220-:223 : NONE
+    axioms : 'CartanBridge.formation_n_3_eq_two' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b554_probe_k5.txt :7, its head naming b1407b2 with no DIFF
+
+--- (P3) :111  CartanBridge.output_stage_card  (NO HOMEBREW ROW)
+    at   : SIDE-kernel v1.2 = b1407b2 : Bridge/CartanBBridge.lean :79
+    stmt : theorem output_stage_card : Fintype.card OutputStageClass = 2
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :79-:106 : NONE
+    axioms : axioms not read at this pin ; no banked print at v1.2
+
+--- (P3) :112  SIDELvConservation.h1_complete_at_Phi  (NO HOMEBREW ROW)
+    at   : SIDE-lv-conservation c80bdc2 = c80bdc2 : SIDELvConservation/CouplingsAtPhi.lean :418
+    stmt : theorem h1_complete_at_Phi :
+    stmt :     C1_realness Phi ∧ C2_halfplane_nonvanishing Phi ∧ C3_theta_transformation Phi ∧
+    stmt :       C4_modularity Phi ∧ C5_input Phi ∧ C6_holomorphic_extension Phi ∧
+    stmt :       C7_entirety Phi ∧ C7_order Phi
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :418-:425 : NONE
+    axioms : 'SIDELvConservation.h1_complete_at_Phi' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b554_probe_l7.txt :46, its head naming c80bdc2 with no DIFF
+
+--- (P3) :113  SIDELvConservation.RegisterPentagon.goalState_of_h1_h2  (NO HOMEBREW ROW)
+    at   : SIDE-lv-conservation 2d86182 = 2d86182 : SIDELvConservation/RegisterPentagon.lean :202
+    stmt : theorem goalState_of_h1_h2 (𝒞 : Set T3.Coupling) (s : ℂ)
+    stmt :     (h1 : ∀ C ∈ 𝒞, C Phi) (h2 : mellin Phi (s / 2) ≠ 0) :
+    stmt :     GoalState 𝒞 s
+    kind theorem ; GRADE INTERFACES ; h1 : ∀ C ∈ 𝒞, C Phi
+    sorry in the span :202-:209 : NONE
+    axioms : axioms not read at this pin ; relay data/b554_probe_l8.txt :1-:3 -- the pin`s file printed over a checkout whose file or imports DIFF
+
+--- (P3) :114  SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine  (NO HOMEBREW ROW)
+    at   : SIDE-lv-conservation 6efa9e5 = 6efa9e5 : SIDELvConservation/PartialPositivity.lean :50
+    stmt : lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) :
+    stmt :     0 ≤ blTerm z n
+    kind lemma ; GRADE DERIVES ; domain conditions only: h : z.1.re = 1 / 2
+    sorry in the span :50-:74 : NONE
+    axioms : axioms not read at this pin ; relay data/b554_probe_l2c.txt :1-:3 -- the pin`s file printed over a checkout whose file or imports DIFF
+
+--- (P3) :116  SIDELvConservation.exists_norm_completedLFunction_le_exp  (NO HOMEBREW ROW)
+    at   : SIDE-lv-conservation 1767bd6 = 1767bd6 : SIDELvConservation/DirichletC7Order.lean :771
+    stmt : theorem exists_norm_completedLFunction_le_exp {N : ℕ} [NeZero N]
+    stmt :     (χ : DirichletCharacter ℂ N) (hχ : χ ≠ 1) :
+    stmt :     ∃ A C : ℝ, ∀ s : ℂ,
+    stmt :       ‖DirichletCharacter.completedLFunction χ s‖
+    stmt :         ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))
+    kind theorem ; GRADE DERIVES ; domain conditions only: hχ : χ ≠ 1
+    sorry in the span :771-:780 : NONE
+    axioms : 'SIDELvConservation.exists_norm_completedLFunction_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b554_probe_l6.txt :41, its head naming 1767bd6 with no DIFF
+
+--- (P3) :117  SIDELvConservation.C7_finite_type_false  (NO HOMEBREW ROW)
+    at   : SIDE-lv-conservation bc4751e = bc4751e : SIDELvConservation/C7FiniteTypeFalse.lean :68
+    stmt : theorem C7_finite_type_false :
+    stmt :     ¬ ∃ C A : ℝ, ∀ s : ℂ, ‖completedRiemannZeta₀ s‖ ≤ C * Real.exp (A * ‖s‖)
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :68-:153 : NONE
+    axioms : 'SIDELvConservation.C7_finite_type_false' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b554_probe_l9.txt :7, its head naming bc4751e with no DIFF
+
+--- (P3) :101  SIDELvConservation.T3.T3_perClass_to_combinations
+    at   : SIDE-lv-conservation v0.2.0 = c8e3d31 : SIDELvConservation/T3_StepNineBridge.lean :92
+    stmt : theorem T3_perClass_to_combinations
+    stmt :     (𝒞 : Set Coupling) (s : ℂ)
+    stmt :     (h : ∀ C ∈ 𝒞, PerClassExcludes C s) :
+    stmt :     CombinationsExclude 𝒞 s
+    kind theorem ; GRADE INTERFACES ; h : ∀ C ∈ 𝒞, PerClassExcludes C s
+    sorry in the span :92-:120 : [108]
+    axioms : axioms not read at this pin ; no banked print at v0.2.0; at v0.11.0 relay data/b557_prints_root.txt :15 reads [propext, sorryAx, Classical.choice, Quot.sound]
+
+--- (P3) :102  SIDELvConservation.T3.T3doubleprime_general_commutation_fails
+    at   : SIDE-lv-conservation v0.2.0 = c8e3d31 : SIDELvConservation/T3_StepNineBridge.lean :137
+    stmt : theorem T3doubleprime_general_commutation_fails :
+    stmt :     ¬ ∀ (𝒞 : Set Coupling) (s : ℂ),
+    stmt :         (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) →
+    stmt :         ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :137-:197 : NONE
+    axioms : 'SIDELvConservation.T3.T3doubleprime_general_commutation_fails' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b554_probe_l5.txt :9-:11, its head naming c8e3d31 with no DIFF
+
+--- (P3) :106  techne_kernel_voice1.balance_theorem
+    at   : SIDE-kernel v1.2 = b1407b2 : Kernel/Voice1.lean :22
+    stmt : theorem balance_theorem (p : Nat) (hp : Nat.Prime p) (s : Real) :
+    stmt :     (prime_as_real p hp) ^ (-s) = (prime_as_real p hp) ^ (-(1 - s))
+    stmt :     <-> s = 1 / 2
+    kind theorem ; GRADE INTERFACES ; hp : Nat.Prime p
+    sorry in the span :22-:34 : NONE
+    axioms : axioms not read at this pin ; no banked print at v1.2
+
+--- (P3) :109  SIDEKernel.formation
+    at   : SIDE-kernel v1.2 = b1407b2 : Kernel/Core.lean :53
+    stmt : theorem formation : 2 + 3 + 2 + 0 = 7
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :53-:54 : NONE
+    axioms : 'SIDEKernel.formation' does not depend on any axioms ; relay data/b554_probe_k4.txt :7, its head naming b1407b2 with no DIFF
+
+--- (P3) :115  SIDELvConservation.PartialPositivity.partialPositivity_finiteRange
+    at   : SIDE-lv-conservation 6efa9e5 = 6efa9e5 : SIDELvConservation/PartialPositivity.lean :105
+    stmt : theorem partialPositivity_finiteRange
+    stmt :     (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ)
+    stmt :     (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T)
+    stmt :     (hTail : TailBoundPremise low tail T) :
+    stmt :     ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n
+    kind theorem ; GRADE INTERFACES ; hV : VerifiedZerosTo T, hEF : ExplicitFormulaDecomp lam low tail T, hTail : TailBoundPremise low tail T
+    sorry in the span :105-:116 : NONE
+    axioms : axioms not read at this pin ; relay data/b554_probe_l2.txt :1-:3 -- the pin`s file printed over a checkout whose file or imports DIFF
+
+--- (P3) :118  SIDEExplicitFormula.B321.h2_sign
+    at   : SIDE-explicit-formula 38e2734 = 38e2734 : SIDEExplicitFormula/H2Sign.lean :29
+    stmt : def h2_sign : Prop :=
+    stmt :   ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+    kind def ; GRADE DEF ; 
+    sorry in the span :29-:32 : NONE
+    axioms : 'SIDEExplicitFormula.B321.h2_sign' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b704_probe_out_zeta.txt :51
+
+--- (P3) :119  SIDEExplicitFormula.B321.h2_sign_iff_rh
+    at   : SIDE-explicit-formula 38e2734 = 38e2734 : SIDEExplicitFormula/Seam.lean :101
+    stmt : theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :101-:103 : NONE
+    axioms : 'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b704_probe_out_zeta.txt :71
+
+--- (P3) :121  RiemannHypothesis
+    at   : Mathlib de5ce8a9 (SIDE-explicit-formula v0.37 = 38e2734`s lake-manifest.json :10) Mathlib/NumberTheory/LSeries/RiemannZeta.lean :185 -- the elaborated statement of relay data/b704_probe_out_zeta.txt :4-:5 (run 39721668586 at v0.37; no Mathlib clone at the pin)
+    stmt : def RiemannHypothesis : Prop :=
+    stmt : ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+    kind def ; GRADE DEF ; 
+    sorry in the span : NONE
+    axioms : 'RiemannHypothesis' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b704_probe_out_zeta.txt :7
+
+--- (P3) :122  faces_join
+    at   : SIDE-faces-join 11a472b = 11a472b : FacesJoin.lean :29
+    stmt : theorem faces_join :
+    stmt :     SIDEExplicitFormula.B321.h2_sign ↔
+    stmt :       SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff
+    kind theorem ; GRADE DERIVES ; no hypothesis binder
+    sorry in the span :29-:34 : NONE
+    axioms : 'faces_join' depends on axioms: [propext, Classical.choice, Quot.sound] ; relay data/b712_join_grade.txt :16
+
+### ### **DECLARATIONS 24 ; GRADES DEF 2, DERIVES 16, INTERFACES 5, NOT GRADED 1 ; AXIOMS READ AT THE PIN 14 ; NOT READ AT THIS PIN 10 ; SORRY IN A SPAN 1.**

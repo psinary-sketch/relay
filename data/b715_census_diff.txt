@@ -1,0 +1,66 @@
+b715 -- COMPONENT 5, (R325)(7): THE CENSUS v0.8.2 AGAINST v0.8.1, UNIFIED (2026-10-27T00:16:40Z)
+
+### v0.8.1 read from PLACE-papers main, v0.8.2 its working copy; v0.8.2 begun as v0.8.1`s bytes (tools/b715_record.py edition82), its
+### additions written by the Edit tool. Written by tools/b715_record.py censusdiff.
+
+--- main:phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md
++++ phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md (working copy)
+@@ -111,2 +111,4 @@
+ 
++*v0.8.2, 2026-10-26 -- a row for each of the reduction chain’s 24 declarations, in back matter: its statement as printed at its pin, its repository and pin, its grade read from that statement under the E0 gate and its axioms where a banked print at the pin reaches them; every other row and cell v0.8.1’s, which stands beside it, unedited.*
++
+ *v0.8.1, 2026-10-11 -- the kernels’ cluster read as the clusters each serves, from the Correspondence tables that cite it (22 kernels, 3 served by none, listed); the glossary block regenerated; every other row and cell v0.8’s, which stands beside it, unedited.*
+@@ -1481 +1483,51 @@
+ 
++## Back matter of the v0.8.2 edition — written 2026-10-26 by b715 under the author’s ruling `(R325)`(7)
++
++### The readings v0.8.2 adds, each the seat’s and strikeable
++
++- **THE DECLARATIONS** are the 24 of the reduction chain as relay `data/b714_pilot.txt` (P3) lists them: the surround’s tiered Correspondence table (`phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md`), the seam, the target and the join. The 15 the pilot printed with no homebrew row come first, `rh_strip_imp_rh_holds` among them, then the other 9.
++- **THE STATEMENT** is read at the pin by `git show <pin>:<path>`, from the declaration’s line to its `:=`, and printed whole for a definition. Line breaks are joined here; relay `data/b715_chain_rows.txt` holds every statement as its file breaks it. `RiemannHypothesis` is Mathlib’s at `de5ce8a9`, the pin of SIDE-explicit-formula v0.37’s manifest. No Mathlib clone holds that commit, so its statement is the elaborated print of relay `data/b704_probe_out_zeta.txt` :4-:5 (a run at v0.37).
++- **THE GRADE** is the shared E0 rule’s (relay `tools/e0_rule.py`, grade), read from the statement alone. INTERFACES names the premise. A definition and a structure field are not graded, and each is named as such.
++- **THE AXIOMS** are a banked `#print axioms` that reaches the declaration at its pin. A probe bank counts when its head names the pin’s commit and reads no DIFF between the pin’s file or imports and the checkout it ran in. Otherwise the cell reads “axioms not read at this pin”. Two places are corrected from the pilot. `SIDEKernel.formation` is declared at `Kernel/Core.lean` :53; the pilot’s `Bridge/TheBridgeComplete.lean` :178 is the root-namespace `formation`, which restates it. The field `covers_all` is declared at `Kernel/Layer1.lean` :23; the pilot’s `Bridge/SIDEBridge.lean` :39 is where one instance gives the field its proof.
++- **The numerals.** In this back matter every numeral is a count of the rows below, a pin or a line.
++
++### The reduction chain’s declarations at their pins
++
++| # | declaration | repository, pin and place | the statement at the pin | grade (E0 gate) | axioms |
++|:--|:--|:--|:--|:--|:--|
++| 1 | `SIDEExplicitFormula.B321.rh_strip_imp_rh_holds` | SIDE-explicit-formula v0.37 = `38e2734`, `SIDEExplicitFormula/Seam.lean` :84 | `theorem rh_strip_imp_rh_holds : rh_strip_imp_rh` | DERIVES | `[propext, Classical.choice, Quot.sound]` (relay `data/b704_probe_out_zeta.txt` :2466) |
++| 2 | `techne_kernel.ExhaustiveCatalogue.covers_all` | SIDE-kernel v1.2 = `b1407b2`, `Kernel/Layer1.lean` :23 | `covers_all : forall (x : X), P x -> Exists (fun C : MechanismClass X P => And (List.Mem C classes) (C.produces x))` | not graded: a field of `structure ExhaustiveCatalogue` (:21) | axioms not read at this pin |
++| 3 | `techne_kernel.SIDE_exclusion` | SIDE-kernel v1.2 = `b1407b2`, `Kernel/Layer1.lean` :30 | `theorem SIDE_exclusion {X : Type u} {P : X -> Prop} {x : X} (cat : ExhaustiveCatalogue X P) (h_none : NoneProduces X P cat.classes x) : Not (P x)` | INTERFACES on `h_none : NoneProduces X P cat.classes x` (the rule’s print lists the implicit `P : X -> Prop` beside it) | axioms not read at this pin |
++| 4 | `ProductFormula.conservation_of_spectra` | SIDE-kernel v1.2 = `b1407b2`, `Kernel/ProductFormula_Rat.lean` :72 | `theorem conservation_of_spectra : ∀ (s : Int), (1 : Rat) ^ s = 1` | DERIVES | `[propext, Classical.choice, Quot.sound]` (relay `data/b554_probe_k3.txt` :7) |
++| 5 | `SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin` | SIDE-lv-conservation v0.2.0 = `c8e3d31`, `SIDELvConservation/T1_MellinFactorization.lean` :36 | `theorem T1_completedRiemannZeta_factors_through_mellin : ∃ Φ : ℝ → ℂ, ∀ s : ℂ, 1 < s.re → completedRiemannZeta s = mellin Φ (s / 2)` | DERIVES | `[propext, Classical.choice, Quot.sound]` (relay `data/b554_probe_l3.txt` :8-:10) |
++| 6 | `SIDELvConservation.T2b_mellin_exhaustion` | SIDE-lv-conservation v0.2.0 = `c8e3d31`, `SIDELvConservation/T2_SDarkness.lean` :51 | `theorem T2b_mellin_exhaustion (Φ : ℝ → ℂ) (s : ℂ) : mellin Φ s = ∫ t : ℝ in Ioi 0, (t : ℂ) ^ (s - 1) • Φ t` | DERIVES | `[propext, Classical.choice, Quot.sound]` (relay `data/b554_probe_l4.txt` :8) |
++| 7 | `techne_kernel_voice2.symmetries_agree_iff` | SIDE-kernel v1.2 = `b1407b2`, `Kernel/Voice2.lean` :52 | `theorem symmetries_agree_iff (sigma : Real) : conjugate_re sigma = reflect_re sigma <-> sigma = 1 / 2` | DERIVES | axioms not read at this pin |
++| 8 | `techne_kernel_voice3.reflect_fixed_iff` | SIDE-kernel v1.2 = `b1407b2`, `Kernel/Voice3.lean` :20 | `theorem reflect_fixed_iff (s : Real) : reflect s = s <-> s = 1 / 2` | DERIVES | axioms not read at this pin |
++| 9 | `CartanBridge.formation_n_3_eq_two` | SIDE-kernel v1.2 = `b1407b2`, `Bridge/CartanBBridge.lean` :220 | `theorem formation_n_3_eq_two : n_3 = 2` | DERIVES | `[propext, Classical.choice, Quot.sound]` (relay `data/b554_probe_k5.txt` :7) |
++| 10 | `CartanBridge.output_stage_card` | SIDE-kernel v1.2 = `b1407b2`, `Bridge/CartanBBridge.lean` :79 | `theorem output_stage_card : Fintype.card OutputStageClass = 2` | DERIVES | axioms not read at this pin |
++| 11 | `SIDELvConservation.h1_complete_at_Phi` | SIDE-lv-conservation v0.6.0 = `c80bdc2`, `SIDELvConservation/CouplingsAtPhi.lean` :418 | `theorem h1_complete_at_Phi : C1_realness Phi ∧ C2_halfplane_nonvanishing Phi ∧ C3_theta_transformation Phi ∧ C4_modularity Phi ∧ C5_input Phi ∧ C6_holomorphic_extension Phi ∧ C7_entirety Phi ∧ C7_order Phi` | DERIVES | `[propext, Classical.choice, Quot.sound]` (relay `data/b554_probe_l7.txt` :46) |
++| 12 | `SIDELvConservation.RegisterPentagon.goalState_of_h1_h2` | SIDE-lv-conservation v0.7.0 = `2d86182`, `SIDELvConservation/RegisterPentagon.lean` :202 | `theorem goalState_of_h1_h2 (𝒞 : Set T3.Coupling) (s : ℂ) (h1 : ∀ C ∈ 𝒞, C Phi) (h2 : mellin Phi (s / 2) ≠ 0) : GoalState 𝒞 s` | INTERFACES on `h1 : ∀ C ∈ 𝒞, C Phi` | axioms not read at this pin (the print of relay `data/b554_probe_l8.txt` ran over a checkout whose file differs) |
++| 13 | `SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine` | SIDE-lv-conservation v0.8.0 = `6efa9e5`, `SIDELvConservation/PartialPositivity.lean` :50 | `lemma blTerm_nonneg_of_onLine (z : NontrivialZero) (n : ℕ) (h : z.1.re = 1 / 2) : 0 ≤ blTerm z n` | DERIVES (`h : z.1.re = 1 / 2` a domain condition) | axioms not read at this pin (the print of relay `data/b554_probe_l2c.txt` ran over a checkout whose file and imports differ) |
++| 14 | `SIDELvConservation.exists_norm_completedLFunction_le_exp` | SIDE-lv-conservation v0.5.0 = `1767bd6`, `SIDELvConservation/DirichletC7Order.lean` :771 | `theorem exists_norm_completedLFunction_le_exp {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ ≠ 1) : ∃ A C : ℝ, ∀ s : ℂ, ‖DirichletCharacter.completedLFunction χ s‖ ≤ C * Real.exp (A * (‖s‖ * Real.log (‖s‖ + 2)))` | DERIVES (`hχ : χ ≠ 1` a domain condition) | `[propext, Classical.choice, Quot.sound]` (relay `data/b554_probe_l6.txt` :41) |
++| 15 | `SIDELvConservation.C7_finite_type_false` | SIDE-lv-conservation v0.5.1 = `bc4751e`, `SIDELvConservation/C7FiniteTypeFalse.lean` :68 | `theorem C7_finite_type_false : ¬ ∃ C A : ℝ, ∀ s : ℂ, ‖completedRiemannZeta₀ s‖ ≤ C * Real.exp (A * ‖s‖)` | DERIVES | `[propext, Classical.choice, Quot.sound]` (relay `data/b554_probe_l9.txt` :7) |
++| 16 | `SIDELvConservation.T3.T3_perClass_to_combinations` | SIDE-lv-conservation v0.2.0 = `c8e3d31`, `SIDELvConservation/T3_StepNineBridge.lean` :92 | `theorem T3_perClass_to_combinations (𝒞 : Set Coupling) (s : ℂ) (h : ∀ C ∈ 𝒞, PerClassExcludes C s) : CombinationsExclude 𝒞 s` | INTERFACES on `h : ∀ C ∈ 𝒞, PerClassExcludes C s`; its proof at the pin is `sorry` (:108) | axioms not read at this pin (at v0.11.0, relay `data/b557_prints_root.txt` :15 reads `[propext, sorryAx, Classical.choice, Quot.sound]`) |
++| 17 | `SIDELvConservation.T3.T3doubleprime_general_commutation_fails` | SIDE-lv-conservation v0.2.0 = `c8e3d31`, `SIDELvConservation/T3_StepNineBridge.lean` :137 | `theorem T3doubleprime_general_commutation_fails : ¬ ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0` | DERIVES | `[propext, Classical.choice, Quot.sound]` (relay `data/b554_probe_l5.txt` :9-:11) |
++| 18 | `techne_kernel_voice1.balance_theorem` | SIDE-kernel v1.2 = `b1407b2`, `Kernel/Voice1.lean` :22 | `theorem balance_theorem (p : Nat) (hp : Nat.Prime p) (s : Real) : (prime_as_real p hp) ^ (-s) = (prime_as_real p hp) ^ (-(1 - s)) <-> s = 1 / 2` | INTERFACES on `hp : Nat.Prime p` | axioms not read at this pin |
++| 19 | `SIDEKernel.formation` | SIDE-kernel v1.2 = `b1407b2`, `Kernel/Core.lean` :53 | `theorem formation : 2 + 3 + 2 + 0 = 7` | DERIVES | does not depend on any axioms (relay `data/b554_probe_k4.txt` :7) |
++| 20 | `SIDELvConservation.PartialPositivity.partialPositivity_finiteRange` | SIDE-lv-conservation v0.8.0 = `6efa9e5`, `SIDELvConservation/PartialPositivity.lean` :105 | `theorem partialPositivity_finiteRange (T : ℝ) (lam : ℕ → ℝ) (low : Finset NontrivialZero) (tail : ℕ → ℝ) (hV : VerifiedZerosTo T) (hEF : ExplicitFormulaDecomp lam low tail T) (hTail : TailBoundPremise low tail T) : ∀ n : ℕ, 1 ≤ n → n ≤ N₀ T → 0 ≤ lam n` | INTERFACES on `hV : VerifiedZerosTo T`, `hEF : ExplicitFormulaDecomp lam low tail T`, `hTail : TailBoundPremise low tail T` | axioms not read at this pin (the print of relay `data/b554_probe_l2.txt` ran over a checkout whose file and imports differ) |
++| 21 | `SIDEExplicitFormula.B321.h2_sign` | SIDE-explicit-formula v0.37 = `38e2734`, `SIDEExplicitFormula/H2Sign.lean` :29 | `def h2_sign : Prop := ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k` | not graded: a definition | `[propext, Classical.choice, Quot.sound]` (relay `data/b704_probe_out_zeta.txt` :51) |
++| 22 | `SIDEExplicitFormula.B321.h2_sign_iff_rh` | SIDE-explicit-formula v0.37 = `38e2734`, `SIDEExplicitFormula/Seam.lean` :101 | `theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis` | DERIVES | `[propext, Classical.choice, Quot.sound]` (relay `data/b704_probe_out_zeta.txt` :71) |
++| 23 | `RiemannHypothesis` | Mathlib `de5ce8a9`, `Mathlib/NumberTheory/LSeries/RiemannZeta.lean` :185 | `def RiemannHypothesis : Prop := ∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2` | not graded: a definition | `[propext, Classical.choice, Quot.sound]` (relay `data/b704_probe_out_zeta.txt` :7) |
++| 24 | `faces_join` | SIDE-faces-join v0.1.0 = `11a472b`, `FacesJoin.lean` :29 | `theorem faces_join : SIDEExplicitFormula.B321.h2_sign ↔ SIDELvConservation.RegisterPentagon.Register4_positivity SIDEExplicitFormula.LiWeil.LiCoeff` | DERIVES | `[propext, Classical.choice, Quot.sound]` (relay `data/b712_join_grade.txt` :16) |
++
++*24 declarations: DERIVES 16, INTERFACES 5, not graded 3 (2 definitions, 1 field); axioms read at the pin 14, not read at this pin 10; 1 proved by `sorry` at its pin (row 16).*
++
++### The rows not reached
++
++- All 24 rows are written; no row is left unreached.
++
++### Version history
++
++- **v0.8.2, 2026-10-26 (b715, `(R325)`(7))**: a row for each of the reduction chain’s 24 declarations, with its statement at its pin, its repository and pin, its E0 grade and its axioms where a banked print at the pin reaches them; every other row and cell v0.8.1’s.
++- **v0.8.1, 2026-10-11 (b651)** and the editions before it: carried above.
++
+
+### ### **LINES 1481 -> 1533 ; HUNKS 2 ; ADDED 52 ; REMOVED 0.**

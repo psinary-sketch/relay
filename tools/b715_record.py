@@ -3179,8 +3179,191 @@ def rootprompt(*a):
     print(NL.join(L))
 
 
+# ================================================================================ COMPONENT 5, (R325)(7): THE CHAIN'S CENSUS ROWS
+_SK, _LV, _EF, _FJ = 'D:/SIDE-kernel', 'D:/SIDE-lv-conservation', 'D:/SIDE-explicit-formula', 'D:/SIDE-faces-join'
+# ### (pilot line, name, repo, pin, path, line, kind, axioms) -- the 24 of data/b714_pilot.txt (P3) :99-:122, the pilot's NO HOMEBREW ROW names first
+# ### ((R325)(7)); axioms: ('probe', bank, first line, last line) a b554-form probe bank whose head must name the pin and read no DIFF,
+# ### ('cell', bank, line) a print at the pin by its bank's own record, or ('none', why).
+CHAIN = [
+    (120, 'SIDEExplicitFormula.B321.rh_strip_imp_rh_holds', _EF, '38e2734', 'SIDEExplicitFormula/Seam.lean', 84, 'decl', ('cell', 'b704_probe_out_zeta.txt', 2466)),
+    (99, 'techne_kernel.ExhaustiveCatalogue.covers_all', _SK, 'v1.2', 'Kernel/Layer1.lean', 23, 'field', ('none', 'no banked print of the field or its structure at v1.2')),
+    (100, 'techne_kernel.SIDE_exclusion', _SK, 'v1.2', 'Kernel/Layer1.lean', 30, 'decl', ('none', 'no banked print at v1.2')),
+    (103, 'ProductFormula.conservation_of_spectra', _SK, 'v1.2', 'Kernel/ProductFormula_Rat.lean', 72, 'decl', ('probe', 'b554_probe_k3.txt', 7, 7)),
+    (104, 'SIDELvConservation.T1_completedRiemannZeta_factors_through_mellin', _LV, 'v0.2.0', 'SIDELvConservation/T1_MellinFactorization.lean', 36, 'decl', ('probe', 'b554_probe_l3.txt', 8, 10)),
+    (105, 'SIDELvConservation.T2b_mellin_exhaustion', _LV, 'v0.2.0', 'SIDELvConservation/T2_SDarkness.lean', 51, 'decl', ('probe', 'b554_probe_l4.txt', 8, 8)),
+    (107, 'techne_kernel_voice2.symmetries_agree_iff', _SK, 'v1.2', 'Kernel/Voice2.lean', 52, 'decl', ('none', 'no banked print at v1.2')),
+    (108, 'techne_kernel_voice3.reflect_fixed_iff', _SK, 'v1.2', 'Kernel/Voice3.lean', 20, 'decl', ('none', 'no banked print at v1.2')),
+    (110, 'CartanBridge.formation_n_3_eq_two', _SK, 'v1.2', 'Bridge/CartanBBridge.lean', 220, 'decl', ('probe', 'b554_probe_k5.txt', 7, 7)),
+    (111, 'CartanBridge.output_stage_card', _SK, 'v1.2', 'Bridge/CartanBBridge.lean', 79, 'decl', ('none', 'no banked print at v1.2')),
+    (112, 'SIDELvConservation.h1_complete_at_Phi', _LV, 'c80bdc2', 'SIDELvConservation/CouplingsAtPhi.lean', 418, 'decl', ('probe', 'b554_probe_l7.txt', 46, 46)),
+    (113, 'SIDELvConservation.RegisterPentagon.goalState_of_h1_h2', _LV, '2d86182', 'SIDELvConservation/RegisterPentagon.lean', 202, 'decl', ('probe', 'b554_probe_l8.txt', 9, 9)),
+    (114, 'SIDELvConservation.PartialPositivity.blTerm_nonneg_of_onLine', _LV, '6efa9e5', 'SIDELvConservation/PartialPositivity.lean', 50, 'decl', ('probe', 'b554_probe_l2c.txt', 9, 11)),
+    (116, 'SIDELvConservation.exists_norm_completedLFunction_le_exp', _LV, '1767bd6', 'SIDELvConservation/DirichletC7Order.lean', 771, 'decl', ('probe', 'b554_probe_l6.txt', 41, 41)),
+    (117, 'SIDELvConservation.C7_finite_type_false', _LV, 'bc4751e', 'SIDELvConservation/C7FiniteTypeFalse.lean', 68, 'decl', ('probe', 'b554_probe_l9.txt', 7, 7)),
+    (101, 'SIDELvConservation.T3.T3_perClass_to_combinations', _LV, 'v0.2.0', 'SIDELvConservation/T3_StepNineBridge.lean', 92, 'decl', ('none', 'no banked print at v0.2.0; at v0.11.0 relay data/b557_prints_root.txt :15 reads [propext, sorryAx, Classical.choice, Quot.sound]')),
+    (102, 'SIDELvConservation.T3.T3doubleprime_general_commutation_fails', _LV, 'v0.2.0', 'SIDELvConservation/T3_StepNineBridge.lean', 137, 'decl', ('probe', 'b554_probe_l5.txt', 9, 11)),
+    (106, 'techne_kernel_voice1.balance_theorem', _SK, 'v1.2', 'Kernel/Voice1.lean', 22, 'decl', ('none', 'no banked print at v1.2')),
+    (109, 'SIDEKernel.formation', _SK, 'v1.2', 'Kernel/Core.lean', 53, 'decl', ('probe', 'b554_probe_k4.txt', 7, 7)),
+    (115, 'SIDELvConservation.PartialPositivity.partialPositivity_finiteRange', _LV, '6efa9e5', 'SIDELvConservation/PartialPositivity.lean', 105, 'decl', ('probe', 'b554_probe_l2.txt', 12, 14)),
+    (118, 'SIDEExplicitFormula.B321.h2_sign', _EF, '38e2734', 'SIDEExplicitFormula/H2Sign.lean', 29, 'decl', ('cell', 'b704_probe_out_zeta.txt', 51)),
+    (119, 'SIDEExplicitFormula.B321.h2_sign_iff_rh', _EF, '38e2734', 'SIDEExplicitFormula/Seam.lean', 101, 'decl', ('cell', 'b704_probe_out_zeta.txt', 71)),
+    (121, 'RiemannHypothesis', None, 'de5ce8a9', 'Mathlib/NumberTheory/LSeries/RiemannZeta.lean', 185, 'mathlib', ('cell', 'b704_probe_out_zeta.txt', 7)),
+    (122, 'faces_join', _FJ, '11a472b', 'FacesJoin.lean', 29, 'decl', ('cell', 'b712_join_grade.txt', 16)),
+]
+_NOHB = (120, 99, 100, 103, 104, 105, 107, 108, 110, 111, 112, 113, 114, 116, 117)   # ### (P3)'s NO HOMEBREW ROW lines
+_KW = re.compile(r'^\s*(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+|noncomputable\s+)*(theorem|lemma|def|abbrev|structure|class|instance|axiom|opaque)\b')
+
+
+def _chain_read(repo, pin, path, line, kind):
+    """(sha, statement, kind, span end, sorry lines) of the declaration at `path`:`line` at `pin`, from git show; None when unread."""
+    sha = (gitc(repo, 'rev-parse', '--short=7', pin + '^{commit}') or '').strip()
+    src = gitc(repo, 'show', '%s:%s' % (pin, path))
+    if not src:
+        return None
+    ls = src.replace('\r', '').split(NL)
+    i = line - 1
+    if kind == 'field':
+        ind = len(ls[i]) - len(ls[i].lstrip())
+        j = i + 1
+        while j < len(ls) and ls[j].strip() and len(ls[j]) - len(ls[j].lstrip()) > ind:
+            j += 1
+        return sha, NL.join(ls[i:j]), 'field', j, []
+    m = _KW.match(ls[i])
+    k = m.group(1) if m else '?'
+    j = i
+    while j < len(ls) and not re.search(r':=|\bwhere\b', ls[j]):
+        j += 1
+    st = re.split(r':=|\bwhere\b', NL.join(ls[i:j + 1]), 1)[0].rstrip()
+    if k in ('def', 'abbrev'):
+        e = j + 1
+        while e < len(ls) and ls[e].strip() and not _KW.match(ls[e]) and not ls[e].lstrip().startswith('/-'):
+            e += 1
+        st = NL.join(ls[i:e]).rstrip()
+    e = line
+    while e < len(ls) and not _KW.match(ls[e]) and not re.match(r'^\s*(end|namespace|section)\b', ls[e]):
+        e += 1
+    sl = [line + n for n, t in enumerate(ls[line - 1:e]) if re.search(r'(?<![\w`])sorry\b', t.split('--')[0])]
+    return sha, st, k, e, sl
+
+
+def gitc(repo, *a):
+    r = subprocess.run(['git', '-C', repo] + list(a), capture_output=True, encoding='utf-8', errors='replace')
+    return r.stdout if r.returncode == 0 else None
+
+
+def _chain_axioms(ax, sha):
+    """(text, source) of a row's axioms: a probe bank counts only when its head names the pin's commit and reads no DIFF."""
+    if ax[0] == 'none':
+        return 'axioms not read at this pin', ax[1]
+    t = (rdn(ax[1]) or '').split(NL)
+    if ax[0] == 'probe':
+        head = t[:4]
+        if not head or sha not in head[0] or any('DIFF' in h for h in head[1:3]):
+            return 'axioms not read at this pin', 'relay data/%s :1-:3 -- %s' % (ax[1], 'the head names another commit' if not head or sha not in head[0]
+                                                                                   else 'the pin`s file printed over a checkout whose file or imports DIFF')
+        return ' '.join(' '.join(t[ax[2] - 1:ax[3]]).split()), 'relay data/%s :%d%s, its head naming %s with no DIFF' % (
+            ax[1], ax[2], '-:%d' % ax[3] if ax[3] != ax[2] else '', sha)
+    return ' '.join(t[ax[2] - 1].split()), 'relay data/%s :%d' % (ax[1], ax[2])
+
+
+def chainrows(*a):
+    """(R325)(7)'s evidence for the census v0.8.2's rows: each of the 24 declarations of (P3) read at its pin, its statement, its grade under
+    the shared E0 rule (tools/e0_rule.py grade), the sorry lines of its span and its axioms where a banked print at the pin reaches them.
+    Banked as data/b715_chain_rows.txt; the census rows are written from it by the Edit tool."""
+    import e0_rule as E0
+    L = ['b715 -- COMPONENT 5, (R325)(7): THE CHAIN`S 24 DECLARATIONS READ AT THEIR PINS, GRADED AND THEIR AXIOMS READ (%s)' % utc(), '',
+         '### rows are declarations, in the order (R325)(7) takes them (the pilot`s NO HOMEBREW ROW names first, rh_strip_imp_rh_holds among them, then',
+         '### the rest): the pilot`s line (relay data/b714_pilot.txt), the name, the repository, pin and place, the statement at the pin (git show',
+         '### <pin>:<path>, from its line to its `:=`; a def whole), its kind, the E0 rule`s grade and why (tools/e0_rule.py grade, from the statement',
+         '### alone), the span`s sorry lines and the axioms. Written by tools/b715_record.py chainrows.', '']
+    grades = {}
+    for pl, name, repo, pin, path, line, kind, ax in CHAIN:
+        if kind == 'mathlib':
+            t = (rdn('b704_probe_out_zeta.txt') or '').split(NL)
+            sha, st, k, e, sl = 'de5ce8a', NL.join(t[3:5]), 'def', None, []
+            where = 'Mathlib de5ce8a9 (SIDE-explicit-formula v0.37 = 38e2734`s lake-manifest.json :10) %s :%d -- the elaborated statement of relay data/b704_probe_out_zeta.txt :4-:5 (run 39721668586 at v0.37; no Mathlib clone at the pin)' % (path, line)
+        else:
+            got = _chain_read(repo, pin, path, line, kind)
+            if got is None:
+                L += ['--- (P3) :%d  %s  ### NOT READ AT %s %s:%d' % (pl, name, pin, path, line), '']
+                continue
+            sha, st, k, e, sl = got
+            where = '%s %s = %s : %s :%d' % (os.path.basename(repo), pin, sha, path, line)
+        if k == 'field':
+            g, why = 'NOT GRADED', 'a structure field: the E0 rule grades a declaration`s statement, and a field is no declaration'
+        else:
+            short = name.split('.')[-1]
+            mm = re.search(r'\b' + re.escape(short) + r'\b', st)
+            try:
+                g, why, _b = E0.grade(st[mm.end():] if mm else st, 'def' if k in ('def', 'abbrev') else 'theorem')
+            except Exception as ex:   # noqa: BLE001
+                g, why = 'UNCLASSED', ' '.join(str(ex).split())[:300]
+        grades[g] = grades.get(g, 0) + 1
+        axt, axs = _chain_axioms(ax, sha if kind != 'mathlib' else '')
+        L += ['--- (P3) :%d  %s%s' % (pl, name, '  (NO HOMEBREW ROW)' if pl in _NOHB else ''), '    at   : ' + where]
+        L += ['    stmt : ' + s for s in st.split(NL)]
+        L += ['    kind %s ; GRADE %s ; %s' % (k, g, why), '    sorry in the span%s : %s' % (' :%d-:%d' % (line, e) if e else '', sl or 'NONE'),
+              '    axioms : %s ; %s' % (axt, axs), '']
+    L.append('### ### **DECLARATIONS %d ; GRADES %s ; AXIOMS READ AT THE PIN %d ; NOT READ AT THIS PIN %d ; SORRY IN A SPAN %d.**' % (
+        len(CHAIN), ', '.join('%s %d' % kv for kv in sorted(grades.items())),
+        sum(1 for l in L if l.startswith('    axioms : ') and 'not read at this pin' not in l),
+        sum(1 for l in L if l.startswith('    axioms : axioms not read at this pin')),
+        sum(1 for l in L if l.startswith('    sorry in the span') and not l.endswith('NONE'))))
+    put_txt('%s_chain_rows.txt' % ACT, L)
+    print('bank data/%s_chain_rows.txt' % ACT)
+    print(L[-1])
+
+
+_C81 = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md'
+_C82 = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
+
+
+def edition82(*a):
+    """(R325)(7): the census's next edition, v0.8.2, begun as v0.8.1's bytes at PLACE-papers main (git show main:<v0.8.1>), written once beside
+    it; v0.8.1 unedited. Refuses when v0.8.2 exists. The rows and the version lines are then written by the Edit tool."""
+    dst = os.path.join(PP, *_C82.split('/'))
+    if os.path.exists(dst):
+        sys.exit('### %s EXISTS -- NOT WRITTEN' % _C82)
+    r = subprocess.run(['git', '-C', PP, 'show', 'main:' + _C81], capture_output=True)
+    if r.returncode != 0 or not r.stdout:
+        sys.exit('### main:%s NOT READ -- NOT WRITTEN' % _C81)
+    with open(dst, 'xb') as f:
+        f.write(r.stdout)
+    print('wrote %s : %d bytes, sha256 %s ; main:%s sha256 %s' % (_C82, len(r.stdout), hashlib.sha256(open(dst, 'rb').read()).hexdigest(),
+                                                               _C81, hashlib.sha256(r.stdout).hexdigest()))
+
+
+def censusdiff(*a):
+    """(R325)(7)'s diff banked: v0.8.1 at main against v0.8.2's working copy, unified, as data/b715_census_diff.txt."""
+    old = subprocess.run(['git', '-C', PP, 'show', 'main:' + _C81], capture_output=True).stdout.decode('utf-8').replace('\r', '').split(NL)
+    new = open(os.path.join(PP, *_C82.split('/')), encoding='utf-8').read().replace('\r', '').split(NL)
+    import difflib
+    d = list(difflib.unified_diff(old, new, 'main:' + _C81, _C82 + ' (working copy)', lineterm='', n=1))
+    L = ['b715 -- COMPONENT 5, (R325)(7): THE CENSUS v0.8.2 AGAINST v0.8.1, UNIFIED (%s)' % utc(), '',
+         '### v0.8.1 read from PLACE-papers main, v0.8.2 its working copy; v0.8.2 begun as v0.8.1`s bytes (tools/b715_record.py edition82), its',
+         '### additions written by the Edit tool. Written by tools/b715_record.py censusdiff.', ''] + d + [
+        '', '### ### **LINES %d -> %d ; HUNKS %d ; ADDED %d ; REMOVED %d.**' % (len(old), len(new), sum(1 for l in d if l.startswith('@@')),
+                                                                         sum(1 for l in d if l.startswith('+') and not l.startswith('+++')),
+                                                                         sum(1 for l in d if l.startswith('-') and not l.startswith('---')))]
+    put_txt('%s_census_diff.txt' % ACT, L)
+    print('bank data/%s_census_diff.txt' % ACT)
+    print(L[-1])
+
+
+def censusscreen(*a):
+    """(R325)(7): b698's landing screens (the scanner, no-disclosure, backtick parity, unread figures, outside names, stems) over the lines
+    v0.8.2 adds to v0.8.1, dry: the scan file goes to the session scratchpad, nothing to data/. PRINTS ONLY."""
+    old = subprocess.run(['git', '-C', PP, 'show', 'main:' + _C81], capture_output=True).stdout.decode('utf-8').replace('\r', '').split(NL)
+    new = open(os.path.join(PP, *_C82.split('/')), encoding='utf-8').read().replace('\r', '').split(NL)
+    import difflib
+    add = [l[1:] for l in difflib.unified_diff(old, new, lineterm='', n=0) if l.startswith('+') and not l.startswith('+++')]
+    print('### the screens over the %d lines v0.8.2 adds:' % len(add))
+    cells, fired = R.screens([(_C82, 'v0.8.2', NL.join(add) + NL)], 'census82', True)
+    print('### table cells %d (the rows table, expected) ; FIRED %s' % (len(cells), fired))
+
+
 # ### stage one (step zero): b714's Component routes over its own objects pruned (data/b715_prune_record.txt); this act's are added by the Edit tool
-ROUTES = dict(rootprompt=rootprompt,verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
+ROUTES = dict(chainrows=chainrows, edition82=edition82, censusdiff=censusdiff, censusscreen=censusscreen,rootprompt=rootprompt,verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               ksyms=ksyms, defs=defs, figures=figures, runner=runner,
               mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
