@@ -41,3 +41,29 @@ b715 -- THE EVENTS AFTER THE SEAL (standing clauses v2 row (52)), entered after 
     three pre-seal words (Toolset, Roster set, Pins gate) and the root's prompt, as the answers route writes them. The arm failed at the
     pre-run as a later-step wait and fails now on that count; the predicate was carried from b714, where the pre-seal words were not in
     the answers bank. A sealed arm's predicate left behind its own act's prompts (the third pre-seal question at the gate); not edited.
+
+(9) THE SEAT'S: TWO COMMITS WITHOUT A STEP ROW UNTIL THE POST-PUSH SUITE (found 03:44Z and 04:05Z; rows 19 and 20 of data/b715_steps.json).
+    G-SEALED-AFTER-COMPONENTS failed in the pre-push suite (data/b715_checks.txt) and the first post-push standing-a run: relay 93f32342
+    (the C2 prep, 2026-10-26T17:27:15Z, before the lock) never had its row, and the root commit f7c38adb was followed by the record commit
+    before its row was added (the step route writes HEAD where no commit is named). Both rows were added after the record push by the
+    step route naming each commit (93f32342 phase component 2, f7c38adb phase root), the bank not root-named; standing-a re-run, 88 of 88
+    (data/b715_checks_postpush_standing-a.txt). The pre-push figure (135 of 140) stands as read, with this arm among its five failures.
+
+(10) THE MIRROR'S VERIFICATION NOT CLEAN AT CLAUSE 3: THE VERIFIER READS THE BASE ROSTER, NOT THE ROSTER FROM MAIN (04:12Z; data/b715_mirror_verify.txt
+    :17-:25, data/b715_mirror.txt). Component 6 asks the mirror "CLEAN with the root line". Clauses 1 and 2 CLEAN; clause 3 reads 70 roster
+    paths against 73 archive files: MISSING 0, EXTRA 3 -- THE_KEYSTONE_CENSUS_v0_8.md, _v0_8_1.md, _v0_8_2.md, exactly the three the build's
+    roster diff added from main (data/b715_mirror_build.json: added 3, removed 0). (R325)(5) moved the builder's roster to PLACE-papers main;
+    tools/mirror_verify.py's clause 3 reads only tools/mirror_roster.json (its ROSTER, :70; main calls clause3(names) with no path, :193), and
+    neither file is in the (W) list of (R325)(10), which names the mirror builder alone. Every route read: the act's mverify route NOT CLEAN; no
+    roster argument in the verifier; an edit to either file beyond (W) and N5. The positive control stands in the two banks: the archive equals
+    the roster from main name for name (EXTRA = the diff's three, MISSING 0), and the MANIFEST control AS WANTED. Halted, not substituted: the
+    mirror is banked NOT CLEAN with its root line (Act root: b715 c0e86c02...), zip sha256 835adfb4b44bf5c2. The verifier's roster source --
+    the roster from main, or the coupling (1) of its own header -- carried to b716 for the author's word. The seat's planning miss: the
+    coupling was not read when (R325)(5) was built.
+
+(11) THE CLOSING'S BRANCH LISTING NAMES ONE PRIVATE REPOSITORY (04:14Z; data/b715_closing.txt, the kept-branches rows). The sealed closing
+    tool's standing listing prints a PRIVATE repository's row by name with its local and remote-tracking heads, "PRIVATE, NOT PUSHED, NOT
+    WRITTEN BY THIS ACT". The same row, the same two heads, stands at the relay's remote main in data/b713_closing.txt :333 and
+    data/b714_closing.txt :380, so the closing's push adds no name or head not already public. Word (3)(b) governs the widened census's
+    roster ("counted on one line, as a number with no name"); whether it reaches the closing's standing listing is the author's to read
+    for b716. Not edited (own closing-tool edits after the seal 0).
