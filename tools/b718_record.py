@@ -2452,7 +2452,9 @@ def _n2():
 
 
 # ### N3: a sentence claiming more than the grade -- clause 1, or the law whole, said derived, proved or a theorem
-N3_OVERCLAIM = re.compile(r'(?i)\bclause 1\b[^.;]{0,40}\b(?:is |was )?(?:derived|proved|a theorem)\b|\b(?:coefficient )?law\b(?:,? (?:is|was))? '
+# ### the verb read with its negation (Component 7, before the lock): the first form fired on the composer's own "clause 1 not derived, its
+# ### step named" -- a sentence claiming less than the grade -- and refuted N3 at the dry scores [4]
+N3_OVERCLAIM = re.compile(r'(?i)\bclause 1\b[^.;]{0,40}\b(?:is |was )?(?<!not )(?:derived|proved|a theorem)\b|\b(?:coefficient )?law\b(?:,? (?:is|was))? '
                           r'(?:derived|proved)(?! to the step)')
 
 

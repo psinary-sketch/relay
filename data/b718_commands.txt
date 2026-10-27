@@ -1,7 +1,7 @@
-b718 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-27T22:38:21Z)
+b718 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-27T22:59:11Z)
 
 ### the source: the seat`s session 02c7cf38-4c6a-4f88-b813-a7e15e9b85b4 from its first user line carrying 'RULING (R328) BEGIN', with its subagents` transcripts
-### commands read: 314
+### commands read: 371
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -372,5 +372,62 @@ b718 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #312 | 2026-10-27T22:37:56.379Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
   #313 | 2026-10-27T22:38:05.963Z | seat | PowerShell | python -X utf8 tools/b718_record.py figures
   #314 | 2026-10-27T22:38:19.153Z | seat | PowerShell | python -X utf8 tools/b718_record.py commands
+  #315 | 2026-10-27T22:38:33.980Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/lines.py" D:/relay/data/b718_commands.txt; pytho
+  #316 | 2026-10-27T22:38:52.937Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/lines.py" D:/relay/data/b718_defects.txt
+  #317 | 2026-10-27T22:39:17.090Z | seat | PowerShell | python -X utf8 tools/b718_record.py reads
+  #318 | 2026-10-27T22:39:33.664Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/when.py" 2026-10-27T22:00:03
+  #319 | 2026-10-27T22:39:51.776Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/readat.py" 2026-10-27T22:00:0
+  #320 | 2026-10-27T22:40:11.637Z | seat | PowerShell | python -X utf8 tools/b718_record.py kernels
+  #321 | 2026-10-27T22:40:31.622Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_checks.py "def kern_now" "
+  #322 | 2026-10-27T22:40:45.664Z | seat | PowerShell | python -X utf8 tools/b718_record.py guard
+  #323 | 2026-10-27T22:40:54.180Z | seat | PowerShell | git -C D:/relay status --short -- data/b718_* tools/b718_* data/arm_tags.json data/act_current.json
+  #324 | 2026-10-27T22:41:01.217Z | seat | PowerShell | git -C D:/relay add -- tools/b718_record.py data/b718_bank_hashes.json data/b718_defects.txt data/b718_steps.json data/b718_commands.json data/b718_commands.txt
+  #325 | 2026-10-27T22:41:09.939Z | seat | PowerShell | git -C D:/relay commit -m "b718 C7: the four standing figures (step [1]), the command bank, the read calls, the kernels face and the guard's dry run; defect (z)
+  #326 | 2026-10-27T22:41:14.875Z | seat | PowerShell | python -X utf8 tools/b718_record.py step relay "component 6" b98b1ed3
+  #327 | 2026-10-27T22:41:23.507Z | seat | PowerShell | python -X utf8 tools/b718_record.py armnames
+  #328 | 2026-10-27T22:41:33.065Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/standing/needles.py "def line" 
+  #329 | 2026-10-27T22:41:49.878Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_reg_gate.py "NEEDLES" "fac
+  #330 | 2026-10-27T22:42:06.925Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_record.py "(R328)(3)(" "(R
+  #331 | 2026-10-27T22:42:20.843Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/act_letters.py "def " "[a-z]" "
+  #332 | 2026-10-27T22:42:51.769Z | seat | PowerShell | python -X utf8 tools/b718_record.py facerows
+  #333 | 2026-10-27T22:43:00.363Z | seat | PowerShell | git -C D:/relay log --reverse --format="%h %cI %s" 248c5a97..HEAD; git -C D:/MY-DOwnloads/PLACE-papers log --reverse --format="%h %cI %s" c02f47c1..HEAD
+  #334 | 2026-10-27T22:43:49.913Z | seat | PowerShell | git -C D:/relay diff --name-only 248c5a97 HEAD; git -C D:/MY-DOwnloads/PLACE-papers diff --name-only c02f47c1 HEAD
+  #335 | 2026-10-27T22:43:59.207Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_worklist.py "registration_
+  #336 | 2026-10-27T22:44:04.990Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_record.py "FACE = " "FACE_
+  #337 | 2026-10-27T22:44:15.454Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_checks.py "def wl_globs" "
+  #338 | 2026-10-27T22:44:22.456Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_checks.py "wl_globs" "BY N
+  #339 | 2026-10-27T22:44:29.924Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b703_checks.py "def wl_globs" "
+  #340 | 2026-10-27T22:47:37.162Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_checks.py "G-PRIORBANK-UNC
+  #341 | 2026-10-27T22:48:15.016Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_record.py "def rootbanks" 
+  #342 | 2026-10-27T22:48:31.232Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b717_record.py "EXCLUDE_KINDS =
+  #343 | 2026-10-27T22:48:43.787Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/rootpeek.py"
+  #344 | 2026-10-27T22:49:06.608Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" data/b717_root_banks_dry.txt "registr
+  #345 | 2026-10-27T22:49:20.838Z | seat | PowerShell | git -C D:/relay status --short -- data/b718_* tools/b718_* tools/standing data/arm_tags.json data/act_current.json
+  #346 | 2026-10-27T22:49:26.917Z | seat | PowerShell | git -C D:/relay add -- data/b718_registration_2026-10-27.txt data/b718_defects.txt data/b718_steps.json data/b718_bank_hashes.json tools/b718_checks.py
+  #347 | 2026-10-27T22:49:33.394Z | seat | PowerShell | git -C D:/relay commit -m "b718 gate: the face (data/b718_registration_2026-10-27.txt), before the root route's dry run; defects (a′) and (b′); the suite's carr
+  #348 | 2026-10-27T22:49:49.069Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/steprow.py" D:/relay/data/b717_steps.json 10; gi
+  #349 | 2026-10-27T22:49:56.224Z | seat | PowerShell | python -X utf8 tools/b718_record.py rootdry
+  #350 | 2026-10-27T22:50:12.699Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_closing.py "__main__" "usa
+  #351 | 2026-10-27T22:50:18.537Z | seat | PowerShell | python -X utf8 tools/b718_closing.py dry
+  #352 | 2026-10-27T22:51:22.896Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_record.py "def counter" "d
+  #353 | 2026-10-27T22:51:34.930Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b698_record.py "DEFECT_ROW =" "
+  #354 | 2026-10-27T22:52:12.656Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/lines.py" D:/relay/data/b718_citation_check.txt;
+  #355 | 2026-10-27T22:52:32.955Z | seat | PowerShell | python -X utf8 tools/b718_closing.py dry
+  #356 | 2026-10-27T22:53:31.363Z | seat | PowerShell | python -X utf8 tools/b718_record.py scores dry
+  #357 | 2026-10-27T22:54:14.292Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_record.py "def _n3" "N3_OV
+  #358 | 2026-10-27T22:54:51.303Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/n3ctl.py"
+  #359 | 2026-10-27T22:55:04.609Z | seat | PowerShell | python -X utf8 tools/b718_record.py scores dry
+  #360 | 2026-10-27T22:55:26.076Z | seat | PowerShell | python -X utf8 tools/b718_reg_gate.py
+  #361 | 2026-10-27T22:56:21.030Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" data/b718_reg_gate.txt "VERDICT" "###
+  #362 | 2026-10-27T22:56:28.112Z | seat | PowerShell | python -X utf8 tools/b718_record.py gatebanks
+  #363 | 2026-10-27T22:56:45.152Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/lines.py" D:/relay/data/b718_regspec_run.txt; py
+  #364 | 2026-10-27T22:57:01.302Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_regspec.py "LEANFILES" "de
+  #365 | 2026-10-27T22:57:17.012Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" tools/b718_regspec.py "pin_files =" "
+  #366 | 2026-10-27T22:57:25.924Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/pinfiles.py"
+  #367 | 2026-10-27T22:57:36.764Z | seat | PowerShell | python -X utf8 tools/b718_record.py gatebanks
+  #368 | 2026-10-27T22:57:54.561Z | seat | PowerShell | python -X utf8 tools/b718_reg_gate.py dry
+  #369 | 2026-10-27T22:58:54.131Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/stat.py" D:/relay/data/b718_reg_gate.txt D:/rela
+  #370 | 2026-10-27T22:59:02.466Z | seat | PowerShell | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py" data/b718_reg_gate.txt "GATE VERDICT"
+  #371 | 2026-10-27T22:59:08.988Z | seat | PowerShell | python -X utf8 tools/b718_record.py gatebanks
 
-### ### **COMMANDS 314 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 18 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 4 ; ONE-LINE PROGRAMS 2 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 371 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 18 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 4 ; ONE-LINE PROGRAMS 2 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

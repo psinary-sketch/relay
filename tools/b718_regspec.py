@@ -52,7 +52,7 @@ CLAUSES = [
     ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### N5: none; MEASURED off SIDE-explicit-formula`s tags past v0.37, SIDE-lv-conservation`s containing the port tip but b714`s v0.14.0, and the join kernel`s beyond v0.1.0.'),
     ('GitHub releases created', 0, 0, 'releases', '### N5.'),
     ('commits on SIDE-lv-conservation`s main or its deposit', 0, 0, 'commits', '### N5: main d38f3e8c untouched.'),
-    ('Lean files written on a kernel', 'LEANFILES', 'LEANFILES', 'files', '### none: the pin`s commits carry no .lean file; MEASURED off the port branch and the pin branches against their bases.'),
+    ('Lean files written on a kernel', 'LEANFILES', 'LEANFILES', 'files', '### the pin`s lakefile.lean on each pin branch whose lakefile is Lean (its Mathlib require, one of the three files of (R328)(8)), no module source; none on the port branch; MEASURED off the port branch and the pin branches against their bases.'),
     ('port branches cut on a kernel', 0, 0, 'branches', '### none this act.'),
     ('kernel branches deleted', 0, 0, 'branches', '### none: port-b707 KEPT; the pin branches carried.'),
     ('branches deleted at step zero', 5, 5, 'branches', '### (R328)(10): relay push-b717-closing, push-b717-preroot, push-b717-record; PLACE-papers push-b717-preroot, push-b717-record; each local, by name, after --merged listed it (data/b718_stepzero.txt :37-:40).'),
