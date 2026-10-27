@@ -1,3 +1,6 @@
 2026-10-26T17:49:09Z | PIPE | PowerShell | "(Get-Content D:\\relay\\tools\\mirror_build.ps1 | Measure-Object -Line).Lines; (Get-Content D:\\relay\\tools\\mirror_roster.json | Measure-Object -Line).Lines" | a PowerShell command carrying a pipe outside quotes
 2026-10-27T00:24:52Z | READ | Read | "D:\\relay\\tools\\b715_checks.py" | a Read call with limit 210, above 200
 2026-10-27T00:46:34Z | READ | Read | "D:\\relay\\data\\b715_ferry.txt" | a Read call with no limit
+2026-10-27T03:08:46Z | ENV | Bash | "cd /d/MY-DOwnloads/PLACE-papers && PUSH_GATED_LOG=/d/relay/data/b715_entry_push_out.txt bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b715-entry" | a Bash command prefixed by an environment-variable assignment
+2026-10-27T03:11:24Z | PIPE | PowerShell | "Get-ChildItem D:\\relay\\data -Filter \"b715_root*\" | Select-Object Name, Length, LastWriteTime" | a PowerShell command carrying a pipe outside quotes
+2026-10-27T04:44:09Z | REDIR | Bash | "cd /d/relay/data && ls b711_coef* b711_obs* b712_* b713_coef* b713_least* b714_least* b714_compos* 2>/dev/null; ls -1 b711_*.txt b712_*.txt b713_*.txt b714_*.txt" | a Bash command carrying a redirect outside quotes
