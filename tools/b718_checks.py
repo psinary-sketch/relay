@@ -1717,7 +1717,7 @@ ARMS = [
      lambda S: instruments_ok(S), lambda S: put(S, 'inst', dict(S['inst'], **{'additive_shared.py': (b'a', b'b', b'b')}))),
     ('G-SHARED-ADDITIVE', 'tools/additive_shared.py over the shared data files', lambda S: bool(S['additive']) and all(rc == [] for _p, _h, rc in S['additive']),
      lambda S: put(S, 'additive', [('data/glossary.txt', 'x', [('changed', [])])])),
-    ('G-PRIORBANK-UNCHANGED', 'every relay data bank tracked at the act`s base 1992a71c but the shared additive files (act_roots.txt and the corrigenda bank among them) and the table`s files, by blob id',
+    ('G-PRIORBANK-UNCHANGED', 'every relay data bank tracked at the act`s base 248c5a97 but the shared additive files (act_roots.txt and the corrigenda bank among them) and the table`s files, by blob id',
      lambda S: S['prior_bad'] == [] and S['prior_n'] > 0, lambda S: put(S, 'prior_bad', ['data/b717_stepzero.txt'])),
     ('G-FINDINGS-APPEND-ONLY', 'FINDINGS before and now', lambda S: S['fi_pre'] is not None and (S['fi_now'] or b'').startswith(S['fi_pre']),
      lambda S: put(S, 'fi_now', b'x' + (S['fi_now'] or b''))),
@@ -2029,10 +2029,9 @@ def combine():
 
 
 # ### the carried failures declared on the face by name (section (0)): G-READ-RULE-STANDING failing on the Read calls the read bank counts
-# ### (relay data/b718_read_calls.txt), defects (i) and (k) among them; G-PRIORBANK-UNCHANGED failing on data/b717_steps.json, b717's closing
-# ### step row committed alone at 3a41b584 by (R328)(11)'s order; G-CORRESPONDENCE-CURRENCY failing on the figure 1 against b717's 0, the tag
-# ### v0.14.0 moving THE_UNCONDITIONAL_SURROUND :183's lv row (v0.13.0 -> v0.14.0, T3_perClass_to_combinations; records (9)). The combine reads
-# ### them by name, and no other failure is carried.
+# ### (relay data/b718_read_calls.txt), defects (f), (n), (u), (x) and (z); G-PRIORBANK-UNCHANGED failing on b717's banks committed at step
+# ### zero, each alone by (R328)(10)'s order (data/b717_steps.json at 49778e81, data/b717_hook_refusals.txt at 5ef2ae3a) and on
+# ### data/act_current.json written new for b718 at 30965720. The combine reads them by name, and no other failure is carried.
 CARRIED_FAILING = ('G-READ-RULE-STANDING', 'G-PRIORBANK-UNCHANGED', 'G-STEPZERO-TESTS')   # ### b718's three: the first two read off the mid-act
 # ### standing-c run (b717's third, G-CORRESPONDENCE-CURRENCY, passing); G-STEPZERO-TESTS the standing arm over a step-zero tests bank where
 # ### (R328)'s Component 0 lists no test run (data/b718_ferry.txt :53; data/b718_stepzero.txt :53-:55) -- the order and the arm in conflict,
