@@ -1,4 +1,4 @@
-b716 -- THE TOOL REPAIRS, EVERY CHANGE BY DIFF: THE STANDING TOOLSET AT v1.1.0 AND THE ACT`S EDITS (2026-10-27T05:49:06Z)
+b716 -- THE TOOL REPAIRS, EVERY CHANGE BY DIFF: THE STANDING TOOLSET AT v1.1.0 AND THE ACT`S EDITS (2026-10-27T06:37:53Z)
 
 ### sections: (A) each standing function against its source, unified diff (--- the source, +++ the standing copy); (B) the standing
 ### files with no source, whole as additions; (C) the act`s edits to its carried tools (git diff against HEAD) and to the hook`s settings;
@@ -1752,12 +1752,698 @@ index 00000000..6dd56463
 +
 +if __name__ == '__main__':
 +    main(sys.argv[1] if len(sys.argv) > 1 else 'dry')
+diff --git a/tools/b716_epstein_price.py b/tools/b716_epstein_price.py
+new file mode 100644
+index 00000000..cee34543
+--- /dev/null
++++ b/tools/b716_epstein_price.py
+@@ -0,0 +1,191 @@
++# -*- coding: utf-8 -*-
++"""b716_epstein_price.py -- (R326)(6)(ii): W-ORD-EPSTEIN-COUNT-LEAN, PRICED, NOTHING BUILT. Writes data/b716_epstein_count_price.txt.
++
++What a Lean proof of one certified band count at Q0 (x^2 + xy + 6y^2, D = 23) would need. The band: data/b709_pairs.txt :20,
++[160.0, 170.0], N 15, on-line 15, off-line 0. What Mathlib supplies at the federation target (data/b716_federation_pin_price.txt (2)):
++read from the Mathlib checkout under SIDE-explicit-formula's .lake (its HEAD checked equal to the target, its tree checked clean), each
++needle's declarations counted with their first places. The grade vocabulary: the keystone census's status cells at PLACE-papers HEAD.
++No lean process runs; no dispatch is made; no request leaves the host.
++
++  python -X utf8 tools/b716_epstein_price.py          writes the bank and prints its foot
++"""
++import os
++import re
++import subprocess
++import sys
++import time
++from collections import Counter
++
++RELAY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++D = os.path.join(RELAY, 'data')
++NL = '\n'
++ML = 'D:/SIDE-explicit-formula/.lake/packages/mathlib'
++PP = 'D:/MY-DOwnloads/PLACE-papers'
++CENSUS = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
++DECL = re.compile(r'^\s*(?:@\[[^\]]*\]\s*)?(?:(?:private|protected|noncomputable|nonrec|partial|unsafe)\s+)*'
++                  r'(theorem|lemma|def|abbrev|structure|class|instance)\s+([^\s:(\[{]+)')
++GRADE = re.compile(r'### \*\*([A-Z][A-Z0-9 ,/\-]*?)\*\*')
++
++# (key, what it stands for, the name pattern, the path pattern or None) -- a declaration is a hit when its own name (or its
++# namespaced name) matches and its file matches the path pattern; the name's matches outside the path are counted beside it
++ANALYSIS = r'^Mathlib/(Analysis|MeasureTheory|NumberTheory/LSeries|Topology)/'
++NEEDLES = [
++    ('A1', 'Cauchy on a rectangle (the boundary integral)', r'integral_boundary_rect', None),
++    ('A2', 'residues, winding numbers, an argument principle by name', r'(?i)residue|winding|argumentPrinciple|argument_principle', ANALYSIS),
++    ('A3', 'the logarithmic derivative', r'(^|\.)logDeriv', None),
++    ('A4', 'meromorphic order and divisors', r'meromorphicOrderAt|(^|\.)divisor', ANALYSIS),
++    ('A5', 'zeros counted by name', r'(?i)card_?zeros|zeros_?card|countZeros|numZeros|zeroCount', None),
++    ('A6', 'Jensen`s formula (every declaration of its file)', r'.', r'JensenFormula\.lean$'),
++    ('B1', 'the Gamma function', r'^(Complex\.|Real\.)?Gamma', None),
++    ('B2', 'the Riemann zeta function and its completion', r'riemannZeta|completedRiemannZeta', None),
++    ('B3', 'Bessel functions (special functions, not Sobolev`s potential)', r'(?i)bessel', r'^Mathlib/Analysis/SpecialFunctions/'),
++    ('B4', 'Epstein zeta', r'(?i)epstein', None),
++    ('B5', 'Dirichlet L-functions', r'LFunction', None),
++    ('B6', 'Hurwitz zeta', r'(?i)hurwitz', None),
++    ('B7', 'Jacobi theta', r'(?i)jacobiTheta', None),
++    ('B8', 'the Mellin functional-equation pairs', r'(?i)FEPair', None),
++    ('C1', 'numerical bounds on constants (pi, e, log 2)', r'(?i)pi_gt|pi_lt|exp_one_gt|exp_one_lt|exp_one_near|log_two_near|log_two_gt|log_two_lt', None),
++    ('C2', 'interval arithmetic by name', r'(?i)interval_?arith|IntervalArith', None),
++    ('C3', 'explicit Taylor bounds for exp', r'(?i)exp_bound|exp_approx', None),
++    ('D1', 'the intermediate value theorem', r'(?i)intermediate_value', None),
++    ('D2', 'zeta conjugation / the Hardy Z function', r'(?i)hardyZ|riemannSiegel|zeta_conj|Zeta_conj', None),
++]
++DECL_TABLE = '### The reduction chain’s declarations at their pins'
++
++
++def git(path, *args):
++    r = subprocess.run(['git', '-C', path] + list(args), capture_output=True)
++    return r.stdout.decode('utf-8', 'replace').replace('\r', '') if r.returncode == 0 else None
++
++
++def main():
++    fed = open(os.path.join(D, 'b716_federation_pin_price.txt'), encoding='utf-8').read()
++    m = re.search(r'THE TARGET, the newest rev any kernel carries: ([0-9a-f]{12})', fed)
++    target = m.group(1) if m else None
++    head = (git(ML, 'rev-parse', 'HEAD') or '').strip()
++    dirty = git(ML, 'status', '--porcelain', '--untracked-files=no')
++    at_target = bool(target) and head.startswith(target)
++    files = [f for f in (git(ML, 'ls-tree', '-r', '--name-only', 'HEAD') or '').split(NL)
++             if f.startswith('Mathlib/') and f.endswith('.lean')]
++    hits = {k: [] for k, _, _, _ in NEEDLES}
++    outside = Counter()
++    pats = [(k, re.compile(p), re.compile(q) if q else None) for k, _, p, q in NEEDLES]
++    ndecl = 0
++    for f in files:
++        try:
++            src = open(os.path.join(ML, f), encoding='utf-8').read().split(NL)
++        except OSError:
++            continue
++        ns = []
++        for i, line in enumerate(src, 1):
++            nm = re.match(r'^\s*namespace\s+(\S+)', line)
++            if nm:
++                ns.append(nm.group(1))
++                continue
++            em = re.match(r'^\s*end\s+(\S+)\s*$', line)
++            if em and ns and ns[-1] == em.group(1):
++                ns.pop()
++                continue
++            dm = DECL.match(line)
++            if not dm:
++                continue
++            ndecl += 1
++            name = dm.group(2)
++            full = '.'.join(ns + [name]) if ns else name
++            for k, p, q in pats:
++                if p.search(name) or p.search(full):
++                    if q is None or q.search(f):
++                        hits[k].append((full, f, i, dm.group(1)))
++                    else:
++                        outside[k] += 1
++    census = (git(PP, 'show', 'HEAD:' + CENSUS) or '').split(NL)
++    pph = (git(PP, 'rev-parse', 'HEAD') or '').strip()
++    grades, foot, start = Counter(), None, None
++    for i, line in enumerate(census, 1):
++        if line.strip() == DECL_TABLE:
++            start = i
++            continue
++        if start and line.startswith('| ') and not line.startswith('| #'):
++            cells = [c.strip() for c in line.strip().strip('|').split('|')]
++            if len(cells) >= 6 and cells[0].isdigit():
++                g = cells[4]
++                grades['not graded' if g.startswith('not graded') else g.split()[0]] += 1
++        if start and line.startswith('*') and 'declarations:' in line:
++            foot = (i, line.strip())
++            break
++
++    L = ['b716 -- (R326)(6)(ii): W-ORD-EPSTEIN-COUNT-LEAN, PRICED; NOTHING BUILT, NO LEAN PROCESS, NO DISPATCH (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
++         '### rows: (1) the count priced; (2) what the proof needs, piece by piece; (3) what Mathlib supplies at the target rev, read from its',
++         '### sources on this host; (4) what would be built; (5) the dispatches and hours (THE SEAT`S); (6) the grade the result would carry, in',
++         '### the census`s own vocabulary. Written by tools/b716_epstein_price.py.', '']
++    L += ['## (1) THE COUNT PRICED',
++          '  Q0 = x^2 + xy + 6y^2, D = 23 (b711`s and b709`s form; data/b713_list.txt :11 counts b711`s band "at DQ = 23"). THE BAND:',
++          '  data/b709_pairs.txt :20, [160.0, 170.0], N 15, on-line 15, off-line 0, COMPLETE -- b667`s half path over [1/2, 2.0] x [160, 170],',
++          '  doubled by Lambda_Q0`s symmetry (data/b713_list.txt :3-:7 for the route`s form). Chosen as the band whose whole count is on the line:',
++          '  N = on-line, so the argument-principle count (an upper reading) and the 15 sign changes of Z_Q0 (a lower reading) close with no',
++          '  off-line rectangle -- the least proof a certified band count admits.', '']
++    L += ['## (2) WHAT THE PROOF NEEDS',
++          '  (a) THE ARGUMENT PRINCIPLE on a rectangle: for f holomorphic on a neighbourhood of a closed rectangle R and nonzero on its boundary,',
++          '      the zeros in R counted with multiplicity equal (1/2 pi i) times the boundary integral of f`/f -- or its discrete form: the change of',
++          '      arg f along the boundary, read from finitely many boundary points with a bound on |f - f(z_k)| below |f(z_k)| on each segment.',
++          '  (b) Lambda_Q0 IN LEAN: the Epstein zeta of Q0, its continuation and its functional equation Lambda_Q0(s) = Lambda_Q0(1 - s); h(-23) = 3,',
++          '      so Q0`s zeta is not a product of Dirichlet L-functions -- it is reached by the Mellin transform of Q0`s theta function or by the',
++          '      Chowla-Selberg expansion (zeta(2s), Gamma(s - 1/2)/Gamma(s) zeta(2s - 1), a K-Bessel series -- b667`s engine`s route).',
++          '  (c) INTERVAL BOUNDS ON Z_Q0: certified enclosures of Lambda_Q0 at every boundary point of the discrete argument count and at the 16',
++          '      points bracketing the 15 sign changes; each enclosure from explicit truncation bounds on the expansion of (b), checked in the kernel.',
++          '  (d) THE BAND`S EDGES: the horizontal edges t = 160 and t = 170 and the right edge Re s = 2.0, each with Lambda_Q0 nonzero on it (from',
++          '      (c)); the left edge Re s = 1/2 handled by the half path (the symmetry of (b)); the reading N = 15 then the sum (a) gives.', '']
++    L += ['## (3) WHAT MATHLIB SUPPLIES AT THE TARGET REV',
++          '  the checkout: %s HEAD %s ; the target %s ; AT THE TARGET %s ; its tracked tree %s ; Mathlib/*.lean files %d ; declarations read %d' % (
++              ML, head[:12] or '### NOT READ', target or '### NOT READ', at_target, 'CLEAN' if dirty == '' else '### NOT CLEAN OR NOT READ', len(files), ndecl)]
++    for k, what, p, q in NEEDLES:
++        h = hits[k]
++        L.append('  %s %-60s declarations %4d   (name pattern %s%s)' % (
++            k, what, len(h), p, '; path %s; the name matched outside it %d' % (q, outside[k]) if q else ''))
++        for full, f, i, kind in h[:5]:
++            L.append('       %-8s %s  %s :%d' % (kind, full, f, i))
++    L += ['  THE POSITIVE CONTROL of the reading: B2 must find riemannZeta (Mathlib`s, at NumberTheory/LSeries) and B1 Complex.Gamma; a zero',
++          '  there is the scan`s fault, not Mathlib`s absence.', '']
++    L += ['## (4) WHAT WOULD BE BUILT (on SIDE-explicit-formula, the kernel at the target; the piece names THE SEAT`S)',
++          '  (a) RectArgumentPrinciple: the discrete argument count on a rectangle from A1 and A3/A4 (local factorisation f = (z - a)^n g).',
++          '  (b) EpsteinQ0: Q0`s theta function, its Mellin transform, continuation and functional equation over B7/B8`s pairs where they reach a',
++          '      binary form`s theta, else from first principles; the Chowla-Selberg expansion proved equal to it, B3 built where it reads 0.',
++          '  (c) EpsteinQ0Bounds: truncation bounds for each term of the expansion, and the enclosures at the boundary points as rational',
++          '      inequalities closed by norm_num / decide in the kernel (C1/C3 the only ready bounds; C2 builds where it reads 0).',
++          '  (d) BandCount160: the band`s edges, the count N = 15 from (a)-(c), and the 15 sign changes by D1 -- the statement',
++          '      "the zeros of Lambda_Q0 in [1/2, 2] x [160, 170] number 15 with multiplicity, all on Re s = 1/2" (doubled by the symmetry).', '']
++    L += ['## (5) THE DISPATCHES AND HOURS (THE SEAT`S ESTIMATE; NO MEASUREMENT OF ANY SUCH BUILD EXISTS IN THE RECORD)',
++          '  each module dry-built by build-module on SIDE-explicit-formula, read by run id and its artifact`s sha256 (N1`s form); its runs at the',
++          '  target take 4.2 to 11.0 min (data/b716_federation_pin_price.txt (3b)). Authoring and dispatches by piece:',
++          '    (a) the argument count        800-1,500 lines ;  15-30 dispatches ;  20-40 foreground hours',
++          '    (b) Lambda_Q0 and its FE    1,500-3,000 lines ;  25-50 dispatches ;  35-70 foreground hours',
++          '    (c) the enclosures          3,000-6,000 lines ;  40-80 dispatches ;  50-100 foreground hours (kernel checking of the',
++          '                                                                        enclosures the risk: each must close within the runner`s limit)',
++          '    (d) the band                  300-600 lines  ;  10-20 dispatches ;  10-20 foreground hours',
++          '    IN ALL                      5,600-11,100 lines ; 90-180 dispatches, 6-33 runner hours ; 115-230 foreground hours, 15-30 acts at',
++          '    data/b716_price.txt (6)`s 7.7-hour act. The range is the seat`s judgement of an unbuilt proof, not a bound; its first',
++          '    measurement is (a)`s first module`s dispatch, in the act the author rules for it.', '']
++    L += ['## (6) THE GRADE THE RESULT WOULD CARRY',
++          '  the vocabulary: the shared E0 rule`s (relay tools/e0_rule.py; the census grades by it, census :1490) -- DERIVES, INTERFACES, not',
++          '  graded. The census`s declarations table (PLACE-papers %s at HEAD %s, from its head line %s) read here: %s ;' % (
++              CENSUS, pph[:8] or '### NOT READ', start or '### NOT FOUND', ' ; '.join('%s %d' % kv for kv in sorted(grades.items())) or '### NONE READ'),
++          '  THE CONTROL, the table`s own foot%s' % (' (:%d): %s' % foot if foot else ': ### NOT FOUND'),
++          '  the result: a theorem about the Lean-defined Lambda_Q0 whose statement binds no hypothesis -- DERIVES under the E0 rule`s (1),',
++          '  "its only binders are domain conditions" (it has none); its axioms read by a banked #print axioms at its pin, expected',
++          '  [propext, Classical.choice, Quot.sound] (library lemmas carry them); a route through native_decide adds Lean.ofReduceBool and is',
++          '  excluded from the price. ITS SCOPE: the one band at Q0; the other bands, and -15`s and -39`s lists, stay certified by the Python',
++          '  engine; the Lean Lambda_Q0 equal to the engine`s Z_Q0 is (b)`s theorem, not a reading.', '']
++    zero = [k for k, _, _, _ in NEEDLES if not hits[k]]
++    L += ['### ### **THE BAND [160, 170] AT Q0, N 15, ALL ON THE LINE ; MATHLIB AT THE TARGET %s ; NEEDLES %d, READING 0: %s ; BUILT: (a) THE ARGUMENT COUNT, (b) Lambda_Q0, (c) THE ENCLOSURES, (d) THE BAND ; 90-180 DISPATCHES, 115-230 FOREGROUND HOURS (THE SEAT`S) ; THE GRADE DERIVES (E0), ONE BAND ; NOTHING BUILT.**' % (
++        'READ' if at_target and dirty == '' else 'NOT READ', len(NEEDLES), ' '.join(zero) or 'none')]
++    p = os.path.join(D, 'b716_epstein_count_price.txt')
++    with open(p + '.tmp', 'w', encoding='utf-8', newline='\n') as f:
++        f.write(NL.join(L) + NL)
++    os.replace(p + '.tmp', p)
++    print('bank', p)
++    print(L[-1])
++    return 0
++
++
++if __name__ == '__main__':
++    sys.exit(main())
+diff --git a/tools/b716_federation.py b/tools/b716_federation.py
+new file mode 100644
+index 00000000..9230e6ff
+--- /dev/null
++++ b/tools/b716_federation.py
+@@ -0,0 +1,181 @@
++# -*- coding: utf-8 -*-
++"""b716_federation.py -- (R326)(6)(i): THE FEDERATION PIN, PRICED, NOTHING BUILT. Writes data/b716_federation_pin_price.txt.
++
++For every PUBLIC kernel data/b715_pins_census.txt lists (its `--- <repo> (<path>) visibility PUBLIC` rows, the SIDE-* ones): its Mathlib
++rev (lake-manifest.json `packages`, name mathlib, `rev`) and its toolchain (lean-toolchain), read from the kernel's own checkout at its HEAD
++(the census reads HEAD equal to ls-remote for every one); the revs grouped. Each Mathlib rev's commit date and its own lean-toolchain read
++from GitHub's public endpoints WITHOUT AUTHENTICATION (api.github.com commits, raw.githubusercontent.com), a generic User-Agent, no
++identifier of the author in any header, URL or payload. The target: the newest rev any kernel carries. For each kernel below it: the
++modules a bump would reach (its .lean files importing Mathlib, read from its tree at HEAD) and its own past runs (the public Actions runs
++listing, unauthenticated: workflow, conclusion, start and end), the hours priced from them. No dispatch is made; no lean process runs.
++
++  python -X utf8 tools/b716_federation.py          writes the bank and prints its foot
++"""
++import json
++import os
++import re
++import subprocess
++import sys
++import time
++import urllib.request
++from datetime import datetime
++
++RELAY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++D = os.path.join(RELAY, 'data')
++NL = '\n'
++UA = {'User-Agent': 'relay-price-reader', 'Accept': 'application/vnd.github+json'}
++ROW = re.compile(r'^--- (SIDE-[\w-]+)\s+\(([^)]+)\)\s+visibility PUBLIC', re.M)
++OWNER = 'psinary-sketch'
++MATHLIB = 'leanprover-community/mathlib4'
++
++
++def git(path, *args):
++    r = subprocess.run(['git', '-C', path] + list(args), capture_output=True)
++    return r.stdout.decode('utf-8', 'replace').replace('\r', '') if r.returncode == 0 else None
++
++
++def get(url):
++    try:
++        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
++            return r.read().decode('utf-8', 'replace'), None
++    except Exception as e:   # the failure is banked with its URL, never substituted
++        return None, '%s: %s' % (type(e).__name__, e)
++
++
++def iso(s):
++    return datetime.strptime(s, '%Y-%m-%dT%H:%M:%SZ') if s else None
++
++
++def main():
++    census = open(os.path.join(D, 'b715_pins_census.txt'), encoding='utf-8').read()
++    ks = ROW.findall(census)
++    rows, calls, fails = [], 0, []
++    for name, path in ks:
++        head = (git(path, 'rev-parse', 'HEAD') or '').strip()
++        man = git(path, 'show', 'HEAD:lake-manifest.json')
++        tc = (git(path, 'show', 'HEAD:lean-toolchain') or '').strip() or None
++        rev = None
++        if man:
++            try:
++                for p in json.loads(man).get('packages') or []:
++                    if p.get('name') == 'mathlib':
++                        rev = p.get('rev')
++            except ValueError:
++                pass
++        mods = []
++        if rev:
++            for f in (git(path, 'ls-tree', '-r', '--name-only', 'HEAD') or '').split(NL):
++                if f.endswith('.lean') and not f.startswith('.lake/'):
++                    src = git(path, 'show', 'HEAD:' + f) or ''
++                    if re.search(r'^\s*import\s+Mathlib', src, re.M):
++                        mods.append(f)
++        rows.append(dict(name=name, path=path, head=head, rev=rev, toolchain=tc, mods=mods))
++    revs = sorted(set(r['rev'] for r in rows if r['rev']))
++    info = {}
++    for rv in revs:
++        t, e = get('https://api.github.com/repos/%s/commits/%s' % (MATHLIB, rv))
++        calls += 1
++        date = None
++        if t:
++            try:
++                date = json.loads(t)['commit']['committer']['date']
++            except (ValueError, KeyError, TypeError):
++                pass
++        else:
++            fails.append(('commits ' + rv[:8], e))
++        tt, e2 = get('https://raw.githubusercontent.com/%s/%s/lean-toolchain' % (MATHLIB, rv))
++        calls += 1
++        if tt is None:
++            fails.append(('toolchain ' + rv[:8], e2))
++        info[rv] = dict(date=date, toolchain=(tt or '').strip() or None)
++    dated = [rv for rv in revs if info[rv]['date']]
++    target = max(dated, key=lambda rv: info[rv]['date']) if dated else None
++    below = [r for r in rows if r['rev'] and target and r['rev'] != target]
++    runs = {}
++    for r in below + [x for x in rows if x['rev'] == target]:
++        t, e = get('https://api.github.com/repos/%s/%s/actions/runs?per_page=20' % (OWNER, r['name']))
++        calls += 1
++        rs = []
++        if t:
++            try:
++                for x in json.loads(t).get('workflow_runs') or []:
++                    a, b = iso(x.get('run_started_at')), iso(x.get('updated_at'))
++                    rs.append(dict(id=x.get('id'), wf=x.get('name'), sha=(x.get('head_sha') or '')[:8], concl=x.get('conclusion'),
++                                   start=x.get('run_started_at'), minutes=round((b - a).total_seconds() / 60, 1) if a and b else None))
++            except ValueError:
++                pass
++        else:
++            fails.append(('runs ' + r['name'], e))
++        runs[r['name']] = rs
++    L = ['b716 -- (R326)(6)(i): THE FEDERATION PIN, PRICED; NOTHING BUILT, NO DISPATCH (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
++         '### rows: every PUBLIC kernel of data/b715_pins_census.txt (%d), its Mathlib rev and toolchain read from its own checkout at HEAD; the' % len(rows),
++         '### revs grouped, each rev`s date and toolchain from GitHub`s public endpoints, unauthenticated (%d requests, %d failed, each failure' % (calls, len(fails)),
++         '### banked); the target the newest rev any kernel carries; for each kernel below it, the modules a bump reaches and its own past runs.',
++         '### Written by tools/b716_federation.py.', '']
++    L.append('## (1) THE KERNELS, EACH WITH ITS MATHLIB REV AND TOOLCHAIN')
++    for r in rows:
++        L.append('  %-34s HEAD %s | mathlib %s | toolchain %s | modules importing Mathlib %s' % (
++            r['name'], r['head'][:8], (r['rev'] or 'NONE (no Mathlib in its manifest)')[:12] if r['rev'] else 'NONE (no Mathlib in its manifest)',
++            r['toolchain'] or '-', len(r['mods']) if r['rev'] else '-'))
++    L += ['', '## (2) THE REVS GROUPED']
++    for rv in sorted(revs, key=lambda x: info[x]['date'] or ''):
++        L.append('  mathlib %s | committed %s | its toolchain %s | kernels %d: %s' % (
++            rv[:12], info[rv]['date'] or '### NOT READ', info[rv]['toolchain'] or '### NOT READ',
++            sum(1 for r in rows if r['rev'] == rv), ' '.join(r['name'] for r in rows if r['rev'] == rv)))
++    L += ['  THE TARGET, the newest rev any kernel carries: %s (%s), toolchain %s' % (
++        (target or '### NOT READ')[:12], info.get(target, {}).get('date') if target else '-', info.get(target, {}).get('toolchain') if target else '-'), '']
++    L.append('## (3) EACH KERNEL BELOW THE TARGET: THE MODULES A BUMP REACHES, ITS OWN RUNS, THE HOURS')
++    tot_min, n_disp, unpriced = 0.0, 0, []
++    for r in below:
++        rs = runs.get(r['name']) or []
++        ok = [x for x in rs if x['concl'] == 'success' and x['minutes'] is not None]
++        mx = max((x['minutes'] for x in ok), default=None)
++        L.append('  %s at mathlib %s (%s), toolchain %s -> the target %s' % (r['name'], r['rev'][:12], info[r['rev']]['date'] or '?', r['toolchain'],
++                                                                    (target or '')[:12]))
++        L.append('    modules importing Mathlib %d: %s' % (len(r['mods']), ', '.join(r['mods'][:40]) + (' ...' if len(r['mods']) > 40 else '')))
++        L.append('    its own runs (the public listing, newest 20): %d ; successful %d ; the longest successful %s min' % (len(rs), len(ok), mx))
++        for x in rs[:6]:
++            L.append('      run %s %-14s %s at %s, %s, %s min' % (x['id'], x['wf'], x['concl'], x['sha'], x['start'], x['minutes']))
++        n_disp += 1
++        tot_min += (mx or 0)
++        if mx is None:
++            unpriced.append(r['name'])
++    L += ['', '## (3b) THE POSITIVE CONTROL: THE KERNEL(S) ALREADY AT THE TARGET, THEIR OWN RUNS']
++    for r in [x for x in rows if x['rev'] == target]:
++        rs = runs.get(r['name']) or []
++        ok = [x for x in rs if x['concl'] == 'success' and x['minutes'] is not None]
++        L.append('  %s at mathlib %s, toolchain %s ; its own runs (newest 20): %d ; successful %d ; the longest successful %s min' % (
++            r['name'], r['rev'][:12], r['toolchain'], len(rs), len(ok), max((x['minutes'] for x in ok), default=None)))
++        for x in rs[:6]:
++            L.append('      run %s %-14s %s at %s, %s, %s min' % (x['id'], x['wf'], x['concl'], x['sha'], x['start'], x['minutes']))
++    L += ['', '## (4) THE MODULES A BUMP WOULD BREAK: NOT READ -- A HALT, EVERY ROUTE NAMED',
++          '  (a) the kernel`s own build logs at the target rev: none exists -- a kernel below the target has never built at it (its runs in (3)',
++          '      build its own manifest`s rev); (b) a dry build on the runner: the kernels` build-module.yml builds `inputs.ref` with the manifest',
++          '      that ref carries (tools read: D:/SIDE-kernel/.github/workflows/build-module.yml :29-:32 checkout at the ref, :49-:50 `lake exe',
++          '      cache get` for that manifest), so a dry build at the target needs a ref whose lake-manifest.json pins the target -- a bump branch',
++          '      pushed to each kernel, a write outside (R326)(8)`s (W) list. THE POSITIVE CONTROL: the same workflow at a kernel already at the',
++          '      target builds as its runs in (3b) show. The set a bump REACHES is printed per kernel in (3) (its modules importing Mathlib); which',
++          '      of them BREAK is the dry builds` first figure, one dispatch per kernel on its bump branch, read by run id with its artifact`s',
++          '      sha256, in the act the author rules for the pin.', '',
++          '## (5) THE PRICE (THE SEAT`S, FROM (3)): dispatches %d (one per kernel below the target, each its bump branch first); runner time' % n_disp,
++          '  at each kernel`s longest successful run, %.0f min in all (%.1f h), the runs sequential on the runner; a kernel with no successful' % (tot_min, tot_min / 60),
++          '  run read enters at 0 min and is named here, UNPRICED: %s; the bump branches,' % (', '.join(unpriced) or 'none'),
++          '  the manifests` edits and the repairs where a module breaks priced at the act that reads the breakage. Foreground for this act: the',
++          '  branches and dispatches 1.0 h, the reads 0.5 h -- about %.1f h with the runner time, inside one act where no module breaks;' % (1.5 + tot_min / 60),
++          '  each breaking module adds its own repair, unpriced until read.']
++    if fails:
++        L += ['', '## THE REQUESTS THAT FAILED (banked, not substituted)'] + ['  %s : %s' % f for f in fails]
++    L += ['', '### ### **PUBLIC KERNELS %d ; WITH MATHLIB %d ; REVS %d ; THE TARGET %s ; BELOW IT %d ; DISPATCHES PRICED %d, %.1f RUNNER HOURS ;'
++          ' THE MODULES A BUMP WOULD BREAK NOT READ (A HALT: NO REF CARRIES THE BUMP) ; REQUESTS %d, FAILED %d ; NOTHING BUILT.**' % (
++              len(rows), sum(1 for r in rows if r['rev']), len(revs), (target or 'NOT READ')[:12], len(below), n_disp, tot_min / 60, calls, len(fails))]
++    p = os.path.join(D, 'b716_federation_pin_price.txt')
++    with open(p + '.tmp', 'w', encoding='utf-8', newline='\n') as f:
++        f.write(NL.join(L) + NL)
++    os.replace(p + '.tmp', p)
++    print('bank', p)
++    print(L[-1])
++    return 0
++
++
++if __name__ == '__main__':
++    sys.exit(main())
+diff --git a/tools/b716_keystone.py b/tools/b716_keystone.py
+new file mode 100644
+index 00000000..dbc7270d
+--- /dev/null
++++ b/tools/b716_keystone.py
+@@ -0,0 +1,120 @@
++# -*- coding: utf-8 -*-
++"""b716_keystone.py -- (R326)(5)(iii)-(iv): THE KEYSTONE ITEMS' READINGS AND DIFFS, banked, nothing printed from a file but its bank.
++
++  python -X utf8 tools/b716_keystone.py census     (5)(iv): the 19 names data/b714_pilot.txt (P1) lists with NO PIN STATED, each looked up
++                                                   in the census at its edition on PLACE-papers main (phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md,
++                                                   read as its blob at main): every census line naming it as a whole word, with the kernels,
++                                                   tags and commits on that line; and the census's kernel rows (a kernel with its tag and
++                                                   commit) -> data/b716_correspondence_census.txt
++  python -X utf8 tools/b716_keystone.py diff       each PLACE-papers file the act edits on main (the (W) list's: Silence :212, ERRATA, the
++                                                   day papers' Correspondence rows), its working bytes against its blob at main's HEAD as a
++                                                   unified diff -> data/b716_keystone_diffs.txt
++
++Writes only its two banks under relay data/. No git write, no push. The census is read as PLACE-papers' blob at a commit; the relay banks
++carry the lines the act cites (the rows' names, kernels and pins), as b714's pilot bank did.
++"""
++import difflib
++import os
++import re
++import subprocess
++import sys
++import time
++
++RELAY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++D = os.path.join(RELAY, 'data')
++PP = 'D:/MY-DOwnloads/PLACE-papers'
++CENSUS = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
++NL = '\n'
++EDITED = ['day1/Silence_of_Foundations.md', 'ERRATA.md', 'day1/Exhaustive_Enumeration.md', 'day1/ONE_PAGE_PROOF.md',
++          'day1/Seven_Mechanism_Classes.md', 'day1/Spectral_Inertness.md', 'day1/Third_Identity_Element.md']
++P1_ROW = re.compile(r'^    :(\d+)\s+(\S+)\s+\| NO PIN STATED')
++P1_FILE = re.compile(r'^  ### (day1/\S+\.md) -- its Correspondence')
++KERNEL = re.compile(r'\bSIDE-[a-z0-9]+(?:-[a-z0-9]+)*\b')
++TAG = re.compile(r'(?<![\w.])v\d+(?:\.\d+){1,2}\b')
++HEX = re.compile(r'(?<![0-9a-f])[0-9a-f]{7,40}(?![0-9a-f])')
++
++
++def git(*args):
++    r = subprocess.run(['git', '-C', PP] + list(args), capture_output=True)
++    return r.stdout.decode('utf-8', 'replace').replace('\r', '') if r.returncode == 0 else None
++
++
++def names_p1():
++    """[(file, line, name)] the pilot's NO PIN STATED rows, in its order."""
++    out, cur = [], None
++    for l in open(os.path.join(D, 'b714_pilot.txt'), encoding='utf-8').read().replace('\r', '').split(NL):
++        m = P1_FILE.match(l)
++        if m:
++            cur = m.group(1)
++            continue
++        m = P1_ROW.match(l)
++        if m and cur:
++            out.append((cur, int(m.group(1)), m.group(2)))
++    return out
++
++
++def census_lines(text, name):
++    """the census lines naming `name` as a whole word (its last dotted part matched where the name is qualified), each (line, text)."""
++    pat = re.compile(r'(?<![\w.])' + re.escape(name) + r'(?![\w])')
++    return [(i, l) for i, l in enumerate(text.split(NL), 1) if pat.search(l)]
++
++
++def census(route_write=True):
++    head = git('rev-parse', 'main').strip()
++    text = git('show', '%s:%s' % (head, CENSUS)) or ''
++    rows = names_p1()
++    L = ['b716 -- (R326)(5)(iv): THE 19 NAMES WITH NO PIN, EACH LOOKED UP IN THE CENSUS AT ITS EDITION ON MAIN (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
++         '### the names: data/b714_pilot.txt (P1), its NO PIN STATED rows ; the census: PLACE-papers %s at main %s (%d lines)' % (CENSUS, head[:8], text.count(NL) + 1),
++         '### per name: every census line naming it as a whole word, with the kernels (SIDE-*), tags (vN.N[.N]) and hex runs on that line.',
++         '### Written by tools/b716_keystone.py census; the pin each row takes is the seat`s reading of these lines, in data/b716_correspondence_pins.txt.', '']
++    found = 0
++    for f, ln, name in rows:
++        hits = census_lines(text, name)
++        found += 1 if hits else 0
++        L.append('## %s :%d  %s  -- census lines %d' % (f, ln, name, len(hits)))
++        for i, l in hits[:12]:
++            L.append('    census :%d  kernels %s ; tags %s ; hex %s' % (i, sorted(set(KERNEL.findall(l))), sorted(set(TAG.findall(l))),
++                                                                   sorted(set(HEX.findall(l)))))
++            L.append('        %s' % l.strip()[:600])
++        if len(hits) > 12:
++            L.append('    ... %d more census lines, their numbers: %s' % (len(hits) - 12, [i for i, _l in hits[12:]]))
++        L.append('')
++    L.append('### ### **NAMES %d ; WITH A CENSUS LINE %d ; WITH NONE %d.**' % (len(rows), found, len(rows) - found))
++    p = os.path.join(D, 'b716_correspondence_census.txt')
++    if route_write:
++        with open(p + '.tmp', 'w', encoding='utf-8', newline='\n') as fh:
++            fh.write(NL.join(L) + NL)
++        os.replace(p + '.tmp', p)
++    print('bank', p)
++    print(L[-1])
++    return 0
++
++
++def diff():
++    head = git('rev-parse', 'HEAD').strip()
++    L = ['b716 -- THE KEYSTONE EDITS ON PLACE-papers MAIN, EACH FILE`S WORKING BYTES AGAINST ITS BLOB AT HEAD %s (%s)' % (
++        head[:8], time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
++         '### --- the file at HEAD, +++ the file as the Edit tool left it ; written by tools/b716_keystone.py diff before the commit.', '']
++    n = 0
++    for f in EDITED:
++        a = (git('show', '%s:%s' % (head, f)) or '').split(NL)
++        b = open(os.path.join(PP, *f.split('/')), encoding='utf-8').read().replace('\r', '').split(NL)
++        d = list(difflib.unified_diff(a, b, '%s at %s' % (f, head[:8]), '%s edited' % f, lineterm='', n=0))
++        if d:
++            n += 1
++        ws = [(i + 1, repr(x), repr(y)) for i, (x, y) in enumerate(zip(a, b)) if x != y and x.strip() == y.strip()] if len(a) == len(b) else []
++        L += ['## %s : %s' % (f, ('%d diff lines' % len(d)) if d else 'UNCHANGED')] + d
++        L += ['    WHITESPACE-ONLY CHANGE at :%d : at HEAD %s ; edited %s' % w for w in ws] + ['']
++    L.append('### ### **FILES %d ; EDITED %d.**' % (len(EDITED), n))
++    p = os.path.join(D, 'b716_keystone_diffs.txt')
++    with open(p + '.tmp', 'w', encoding='utf-8', newline='\n') as fh:
++        fh.write(NL.join(L) + NL)
++    os.replace(p + '.tmp', p)
++    print('bank', p)
++    print(L[-1])
++    return 0
++
++
++if __name__ == '__main__':
++    r = sys.argv[1] if len(sys.argv) > 1 else ''
++    sys.exit(census() if r == 'census' else diff() if r == 'diff' else (print(__doc__) or 2))
+diff --git a/tools/b716_price.py b/tools/b716_price.py
+new file mode 100644
+index 00000000..22383d41
+--- /dev/null
++++ b/tools/b716_price.py
+@@ -0,0 +1,170 @@
++# -*- coding: utf-8 -*-
++"""b716_price.py -- (R326)(4)(iv): THE PRICE OF THE -39 COMPUTATION FOR b717, NOTHING OF -39 COMPUTED. Writes data/b716_price.txt.
++
++Every figure is read from b713's banks of the -15 run (the run b712's price was read against) or computed from the main term; the
++seat's estimates are marked THE SEAT'S. Read: b713's list bank (data/b713_list.json, its bands' N), its unit files
++(data/b713_list_units_band_*.jsonl, each row's `seconds`, the rows `derived_from` another not counted, the control23 bands apart), its
++onset units (data/b713_onsets_units.jsonl), its onsets bank (data/b713_onsets.txt, each pair's reach), its step bank (the act's wall
++clock), and the coefficients' cut (data/b713_coeffs.json `cut`). Nothing at -39 is computed: no zero, no coefficient, no onset.
++
++  python -X utf8 tools/b716_price.py          writes data/b716_price.txt and prints its foot
++"""
++import glob
++import json
++import math
++import os
++import re
++import sys
++import time
++from datetime import datetime
++
++RELAY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++D = os.path.join(RELAY, 'data')
++NL = '\n'
++DQ_PREV, DQ = 15, 39
++
++
++def jl(name):
++    with open(os.path.join(D, name), encoding='utf-8') as f:
++        return json.load(f)
++
++
++def rows(path):
++    out = []
++    for l in open(path, encoding='utf-8'):
++        l = l.strip()
++        if l:
++            try:
++                out.append(json.loads(l))
++            except ValueError:
++                pass
++    return out
++
++
++def main_term(T, d):
++    """N(T) ~ (T/pi) log(T sqrt(d)/(2 pi e)) + 1, the main term b713's list bank reads beside its count (data/b713_list.txt :8)."""
++    return (T / math.pi) * math.log(T * math.sqrt(d) / (2 * math.pi * math.e)) + 1 if T > 0 else 0.0
++
++
++def band_zeros(lo, hi, d):
++    return max(0.0, main_term(hi, d) - main_term(max(lo, 1.0), d))
++
++
++def main():
++    lst = jl('b713_list.json')
++    bands = lst['bands']
++    zeros_prev = sum(b['N'] for b in bands)
++    files = [p for p in sorted(glob.glob(os.path.join(D, 'b713_list_units_band_*.jsonl'))) if 'control23' not in p]
++    per_file, secs = [], 0
++    for p in files:
++        rs = rows(p)
++        s = sum(int(r.get('seconds') or 0) for r in rs if not r.get('derived_from'))
++        per_file.append((os.path.basename(p), len(rs), s))
++        secs += s
++    base_s = int((lst.get('base') or {}).get('seconds') or 0)
++    on_rows = rows(os.path.join(D, 'b713_onsets_units.jsonl')) if os.path.isfile(os.path.join(D, 'b713_onsets_units.jsonl')) else []
++    on_s = sum(int(r.get('seconds') or 0) for r in on_rows if not r.get('derived_from'))
++    ons = open(os.path.join(D, 'b713_onsets.txt'), encoding='utf-8').read()
++    held = re.findall(r'^  pair\s+(\d+) \| rho [\d.]+ \+ ([\d.]+) i \| n\* \d+', ons, re.M)
++    beyond = [(int(a), float(b)) for a, b in re.findall(r'^  pair\s+(\d+) \| BEYOND REACH at T0` \d+ \(needs > ([\d.]+)\)', ons, re.M)]
++    steps = jl('b713_steps.json')['rows']
++    ats = [datetime.strptime(r['at'], '%Y-%m-%dT%H:%M:%SZ') for r in steps if r.get('at')]
++    wall = (max(ats) - min(ats)).total_seconds() / 3600 if ats else None
++    cut = jl('b713_coeffs.json').get('cut')
++    # the base region's units are a fixed cost (no zero in it); the bands' seconds per unit height, measured, by the band file's edges
++    base_file = [s for n, _r, s in per_file if n.endswith('_base.jsonl')]
++    base_units = base_file[0] if base_file else 0
++    dens = []
++    for n, _r, s in per_file:
++        m = re.match(r'b713_list_units_band_([\d.]+)_([\d.]+)\.jsonl$', n)
++        if m:
++            dens.append((float(m.group(1)), float(m.group(2)), s / (float(m.group(2)) - float(m.group(1)))))
++    dens.sort()
++    top_prev = max(h for _l, h, _d in dens)
++
++    def measured(lo, hi):
++        """-15's measured seconds over [lo, hi], by the bands' densities; above -15's top, the last band's density (an extrapolation)."""
++        s = 0.0
++        for a, b, d in dens:
++            s += max(0.0, min(hi, b) - max(lo, a)) * d
++        if hi > top_prev:
++            s += (hi - max(lo, top_prev)) * dens[-1][2]
++        return s
++    band_secs = secs - base_units
++    spz = band_secs / zeros_prev
++    scale = math.sqrt(DQ_PREV / DQ)
++    tiers = [('the first tier', [(0, 15), (15, 30), (30, 45), (45, 60), (60, 75), (75, 90), (90, 100)]),
++             ('the second tier', [(100, 115), (115, 130), (130, 145), (145, 160), (160, 175), (175, 190), (190, 200)]),
++             ('the third tier', [(200, 215), (215, 230), (230, 245), (245, 260), (260, 275), (275, 290), (290, 300)])]
++    L = ['b716 -- (R326)(4)(iv): THE PRICE OF THE -39 COMPUTATION FOR b717; NOTHING OF -39 COMPUTED (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
++         '### rows are the price`s items: the tools named, the certified list`s tiers, the foreground hours per band, the coefficients` cut, the',
++         '### act budget. Figures read from b713`s banks of the -15 run are cited by path; the seat`s estimates are marked THE SEAT`S. The',
++         '### registrations this prices: relay data/b716_registrations.txt (committed alone at step zero, dc5e808f). Written by tools/b716_price.py.', '',
++         '  (1) THE TOOLS NAMED FOR b717, each carried from its -15 form with the form a parameter and its control reproducing -15 first:',
++         '      the certify engine and band route of b713 (tools/b713_epstein_certify.py, tools/b713_pairs.py, b667`s engine made sqrt(D) for the',
++         '      form (1,1,c), D = 4c - 1) at c = 10, D = 39 = 4 . 10 - 1, Q1 = x^2 + xy + 10y^2; the coefficient route of b713 (tools/b713_coeffs.py)',
++         '      over r_Q1(n), its input read equal to the three lines of registration (i) through the cut (data/b716_genus_control.txt); the onset',
++         '      route of b713 for (iii). Each control first: -15`s band counts, -15`s eight pairs at b713`s ratios, -15`s least index 24 and Q0`s 48.',
++         '',
++         '  (2) THE MEASURED SECONDS AT -15 (b713`s run): the list`s %d unit files (control23 apart), every row`s `seconds` summed with the rows' % len(files),
++         '      derived from another not counted -- %d s, of which the base region`s units %d s (a fixed cost, no zero in it; data/b713_list.json' % (
++             secs, base_units),
++         '      `base` records %d s for its own count) and the bands` %d s for %d zeros (the bands` N) -- %.2f s per zero on average, rising with' % (
++             base_s, band_secs, zeros_prev, spz),
++         '      height (per file below: the bands under 100 ran 70 to 303 s, the bands over 145 ran 598 to 1396 s).']
++    L += ['        %-48s rows %4d ; seconds %5d' % f for f in per_file]
++    L += ['      the onsets (data/b713_onsets_units.jsonl): rows %d, seconds %d, for %d pairs computed (data/b713_onsets.txt) ; the coefficients'
++          ' to the cut %s: one foreground call, the bank at 01:21:09Z after the onsets` at 01:19:29Z (data/b713_coeffs.json, data/b713_onsets.txt :1).' % (
++              len(on_rows), on_s, len(held), cut),
++          '      b712`s price read b711`s Q0 seconds at 15.06 s per zero taken x 1.238 for -15 (data/b712_price.txt :21-:24): 18.6 s per zero;'
++          ' the -15 run measured %.2f s per zero.' % spz, '']
++    L += ['  (3) THE CERTIFIED LIST`S TIERS AND THE FOREGROUND HOURS PER BAND AT -39 (THE SEAT`S READING): zeros by the main term at D = 39; seconds',
++          '      THE UPPER READING: -15`s measured seconds over the same heights (the band files` seconds per unit height) x the zeros` ratio',
++          '      N39/N15 of the band; THE LOWER: that x sqrt(15/39) = %.3f (the engine`s Bessel truncation M as 1/sqrt(D),' % scale,
++          '      tools/b667_epstein_certify.py :107, as b712 read it). Above -15`s top (%.1f) the last band`s density is carried, an' % top_prev,
++          '      EXTRAPOLATION. A band over 600 s is split into calls under it; the base region once, %d s at -15 (fixed).' % base_units]
++    tot = {}
++    for name, bs in tiers:
++        hu = hl = 0.0
++        for lo, hi in bs:
++            z = band_zeros(lo, hi, DQ)
++            z15 = band_zeros(lo, hi, DQ_PREV)
++            su = measured(lo, hi) * (z / z15 if z15 else 1.0)
++            sl = su * scale
++            hu, hl = hu + su, hl + sl
++            L.append('      %-15s band [%6.1f, %6.1f] : zeros (main term, D = 39) %5.1f (D = 15: %5.1f) ; %5.0f s upper, %5.0f s lower%s' % (
++                name, lo, hi, z, band_zeros(lo, hi, DQ_PREV), su, sl, ' ### OVER 600 s: SPLIT' if su > 600 else ''))
++        tot[name] = (hu / 3600, hl / 3600)
++    L.append('      %s' % ' ; '.join('%s %.2f h upper, %.2f h lower' % (n, u, l) for n, (u, l) in tot.items()))
++    L += ['      THE CHECK of the main term at -15 against b713`s list: N(199.33082) at D = 15 reads %.1f ; the list holds %d (data/b713_list.txt :8).' % (
++        main_term(199.33082, DQ_PREV), zeros_prev + 0), '',
++          '  (4) THE REACH OF (iii)`s PAIRS: at -15 a list to T0` 199 reached %d of the %d pairs (heights %s), every pair above 65 asking more:' % (
++              len(held), len(held) + len(beyond), ', '.join(h for _p, h in held)),
++          '      the next asked %s. THE SEAT`S READING for -39: the first two tiers, [0, 200], reach the pairs whose requirement is below 200;' % (
++              ', '.join('pair %d > %.1f' % b for b in sorted(beyond, key=lambda x: x[1])[:5])),
++          '      the third tier, [200, 300], is priced for the author`s word, to be entered only where b717`s pair rows ask it. No -39 pair is',
++          '      known at b716; their count and heights are b717`s first figures.', '',
++          '  (5) THE COEFFICIENTS` CUT FOR (ii): n <= %s, b711`s and b713`s cut (data/b713_coeffs.json `cut`), so the least negative index at' % cut,
++          '      -39 is read at the cut Q0`s 48 and -15`s 24 were read at; a least index above the cut is reported as none found to the cut.', '']
++    hours_list = tot['the first tier'][0] + tot['the second tier'][0] + base_units / 3600
++    L += ['  (5b) b713`s ACT, MEASURED: its step rows run %.1f h from its first to its last (data/b713_steps.json), the -15 list, predictions,' % (wall or 0),
++          '      onsets and coefficients inside it.', '',
++          '  (6) THE ACT BUDGET (THE SEAT`S ESTIMATE): the list`s base and first two tiers %.2f h (upper); the tools ported with their -15 controls 1.5 h;' % hours_list,
++          '      the predictions and n* 1.0 h; the coefficients 0.25 h; the corrigendum, record lines, seal, suite in seven parts, root, mirror',
++          '      and closing 2.5 h -- about %.1f foreground hours, inside one act where no pair asks above 200; the third tier adds %.2f h (upper)' % (
++              hours_list + 5.25, tot['the third tier'][0]),
++          '      where b717`s pair rows ask it.', '',
++          '### ### **TIERS 3 ([0, 100], [100, 200], [200, 300] FOR THE AUTHOR) ; THE -15 BANDS` RATE %.2f s PER ZERO MEASURED, RISING WITH HEIGHT ;'
++          ' BASE AND FIRST TWO TIERS %.2f h UPPER, %.2f h LOWER ; THE CUT %s ; THE SEAT`S ACT BUDGET ABOUT %.1f FOREGROUND HOURS ; NOTHING OF -39 COMPUTED.**' % (
++              spz, hours_list, tot['the first tier'][1] + tot['the second tier'][1] + base_units / 3600, cut, hours_list + 5.25)]
++    p = os.path.join(D, 'b716_price.txt')
++    with open(p + '.tmp', 'w', encoding='utf-8', newline='\n') as f:
++        f.write(NL.join(L) + NL)
++    os.replace(p + '.tmp', p)
++    print('bank', p)
++    print(L[-1])
++    return 0
++
++
++if __name__ == '__main__':
++    sys.exit(main())
 diff --git a/tools/b716_record.py b/tools/b716_record.py
 new file mode 100644
-index 00000000..4cf9eeec
+index 00000000..94a66f1a
 --- /dev/null
 +++ b/tools/b716_record.py
-@@ -0,0 +1,3488 @@
+@@ -0,0 +1,3505 @@
 +# -*- coding: utf-8 -*-
 +"""b716_record.py -- THE ACT'S RECORD TOOL, b716 under (R326).
 +
@@ -2384,8 +3070,8 @@ index 00000000..4cf9eeec
 +    ks = list(dict.fromkeys(_kerns() + ['SIDE-faces-join']))
 +    import b633_record as R3
 +    put_json('%s_kernels_face.json' % ACT, dict(at=utc(), kernels=R3.kern_state(ks)))
-+    print('  kernels read: %d (SIDE-faces-join among them at b715`s main %s with its tag v0.1.0; no kernel written this act; SIDE-lv-conservation`s main '
-+          'untouched, port-b707 at b715`s tip %s, its checkout at main for this read)' % (len(ks), K.JOIN_NEW_TIP[:8], K.PORT_NEW_TIP[:8]))
++    print('  kernels read: %d (SIDE-faces-join among them at b712`s main %s with its tag v0.1.0; no kernel written this act; SIDE-lv-conservation`s main '
++          'untouched, port-b707 at b712`s tip %s, its checkout at main for this read)' % (len(ks), K.JOIN_NEW_TIP[:8], K.PORT_NEW_TIP[:8]))
 +
 +
 +def _standing():
@@ -2694,7 +3380,7 @@ index 00000000..4cf9eeec
 +    L = ['%s -- COMPONENT 6: THE FOUR STANDING FIGURES AT b716, READ BY b706`S TOOL OVER b706`S ROSTER, AGAINST b715`S (%s)' % (ACT, utc()), '',
 +         '### by relay tools/b706_standing_figures.py, unedited (correspondence() and partners() over data/b706_roster_read.json, the 20 tables at the',
 +         '### unversioned names; readme() tools/b705_standing_figures.py`s, pins() tools/b703_standing_figures.py`s), %.0f s; each arm fails on a' % (t1 - t0),
-+         '### regression from the previous act`s figure (data/b715_standing_figures.json). The re-cut %s merged into main at %s (b715`s), its branch deleted;' % (
++         '### regression from the previous act`s figure (data/b715_standing_figures.json). The re-cut %s merged into main at %s (b714`s), its branch deleted;' % (
 +             K.RECUT_BRANCH, K.RECUT_MERGE[:8]),
 +         '### the read is of PLACE-papers %s at %s; day1/Spectral_Inertness.md (cut at b708) is off the roster;' % (
 +             g(PP, 'rev-parse', '--abbrev-ref', 'HEAD').strip(), g(PP, 'rev-parse', '--short=8', 'HEAD').strip()),
@@ -3916,14 +4602,13 @@ index 00000000..4cf9eeec
 +    return gc.get('misses') == [] and gc.get('hand') is True and (gc.get('planted_form_misses') or 0) > 0 and (gc.get('planted_sign_misses') or 0) > 0
 +
 +
-+CLASS_REPAIRS = ('(i)', '(ii)', '(iii)', '(iv)', '(v)', '(vi)')   # ### (R326)(4): (iii)'s control the hook's, the rest tools/standing/controls.py's
++CLASS_REPAIRS = ('(3i)', '(3ii)', '(3iii)', '(3iv)', '(3v)', '(3vi)', '(i)', '(ii)', '(iv)', '(v)', '(vi)')   # ### (R326)(3) and v1.0.0's, tools/standing/controls.py's
 +
 +
 +def _figs():
 +    """every figure the entry, the trail and the components print, read from b716's banks -- the JSON banks by structure (standing clauses v2 row
-+    (54)), the text-only banks (the scan, the replay, the coverage table, the class controls and the hook's, the measurement, the roster, the
-+    pins census, the chain rows and the census diff) by their own foot lines through _bfig, which refuses where a bank does not carry its
-+    figure; nothing typed."""
++    (54)), the text-only banks (the scan, the replay, the coverage table, the class controls, the roster, the count control, the keystone
++    bank, the three prices) by their own foot lines through _bfig, which refuses where a bank does not carry its figure; nothing typed."""
 +    co = jl('%s_corrigendum.json' % ACT)
 +    rl = _rl_lines('%s_record_lines.json' % ACT) + ['-']
 +    fj_, f10 = jl('%s_standing_figures.json' % ACT), jl('b715_standing_figures.json')
@@ -3934,26 +4619,20 @@ index 00000000..4cf9eeec
 +    sc_files, sc_lit, sc_prose, sc_del = _bfig('%s_standing_scan.txt' % ACT, r'\*\*FILES (\d+) ; LITERALS IN THE CODE (\d+) \(.*?\) ; PROVENANCE IN THE PROSE (\d+) ;'
 +                                               r' DELETE WORDS IN THE CODE (\d+)\.\*\*', 'the scan`s foot')
 +    rp = _bfig('%s_replay.txt' % ACT, r'\*\*OBJECTS (\d+) ; EQUAL (\d+) ; DIFFERS (\d+) (\[[^]]*\]) ; NAMED (\d+) ; UNNAMED (\d+) ; FINDINGS (\d+)\.\*\*', 'the replay`s foot')
-+    cv = _bfig('%s_toolset_coverage.txt' % ACT, r'\*\*STEPS (\d+) ; STANDING (\d+) \(([^)]*)\) ; PER-ACT (\d+) ;.*OUTSIDE THE STEPS STANDING (\d+) ', 'the coverage table`s foot')
++    cv = _bfig('%s_toolset_coverage.txt' % ACT, r"\*\*STEPS (\d+) ; STANDING (\d+) \(([^)]*)\) BESIDE v1\.0\.0'S (\d+) \(\[18\]\) ; PER-ACT (\d+) ; MOVED BY THIS VERSION (\d+) ",
++               'the coverage table`s foot')
 +    cc = _bfig('%s_standing_controls.txt' % ACT, r'\*\*CASES (\d+) ; AS WANTED (\d+) ; REPAIRS (\d+), EACH WITH BOTH INSTANCES (True|False) ; ALL AS WANTED (True|False)\.\*\*',
 +               'the class controls` foot')
-+    hc = _bfig('%s_hook_control.txt' % ACT, r'\*\*CASES (\d+) ; AS WANTED (\d+) ; REFUSAL KINDS ', 'the hook control`s foot')
-+    hh, = _bfig('%s_hook_control.txt' % ACT, r'\*\*\(4\)\(iii\) CONTROL: .* THE REPAIR HOLDS (True|False)\.\*\*', 'the hook class control')
-+    ic = _bfig('%s_import_closure.txt' % ACT, r'\*\*MODULES (\d+) \(ACT-NAMED (\d+), SHARED (\d+)\) ; LINES (\d+) ; ACT LITERALS (\d+) ; AGAINST THE RECORD (EQUAL|DIFFERS)\.\*\*',
-+               'the measurement`s foot')
 +    ro, = _bfig('%s_roster.txt' % ACT, r'\*\*ROSTER CONTROLS (\d+) ; AS WANTED \1 ; ALL AS WANTED True\.\*\*', 'the roster`s controls')
 +    joins = re.findall(r'(?m)^\s*JOINS (\S+)', rdn('%s_roster.txt' % ACT))
-+    pn, = _bfig('%s_pins_census.txt' % ACT, r'ALL (\d+) REPOS THE ROSTER NAMES', 'the pins census`s count')
-+    ph, = _bfig('%s_pins_census.txt' % ACT, r'### REPOS HARD-FAILING : (\d+)', 'the pins census`s hard failures')
-+    pv, = _bfig('%s_pins_census.txt' % ACT, r'PRIVATE REPOSITORIES THE TEXTS NAME OUTSIDE b715`S FOUR : (\d+) ', 'the pins census`s PRIVATE count (word (3)(b))')
-+    mlp = re.findall(r'(?m)^  MATHLIB UPSTREAM PIN ([0-9a-f]{40}) .* : (\d+) repositories', rdn('%s_pins_census.txt' % ACT))   # ### word (3)(c)
-+    pt, = _bfig('%s_pins_census.txt' % ACT, r'(\d+) texts read from PLACE-papers main', 'the pins census`s texts')
-+    pc, = _bfig('%s_pins_census.txt' % ACT, r'\*\*PINS ROSTER CONTROLS (\d+) ; AS WANTED \1 ; ALL AS WANTED True\.\*\*', 'the pins controls')
-+    cr = _bfig('%s_chain_rows.txt' % ACT, r'\*\*DECLARATIONS (\d+) ; GRADES DEF (\d+), DERIVES (\d+), INTERFACES (\d+), NOT GRADED (\d+) ; AXIOMS READ AT THE PIN (\d+) ;'
-+               r' NOT READ AT THIS PIN (\d+) ; SORRY IN A SPAN (\d+)\.\*\*', 'the chain rows` foot')
-+    cd = _bfig('%s_census_diff.txt' % ACT, r'\*\*LINES (\d+) -> (\d+) ; HUNKS (\d+) ; ADDED (\d+) ; REMOVED (\d+)\.\*\*', 'the census diff`s foot')
-+    back = (_show(PP, 'HEAD', K.CENSUS_NEW) or '').split('## Back matter of the v0.8.2 edition', 1)
-+    reached = len(re.findall(r'(?m)^\| (\d+) \| `', back[1])) if len(back) == 2 else 0   # ### the chain table alone: the rows after the edition's back matter heading
++    gm, = _bfig('%s_genus_control.txt' % ACT, r'\*\*THE FORMS h = 4 AS WANTED ; THE DECOMPOSITION READ THROUGH n = 400 ; MISSES (\d+) ;', 'the count control`s foot')
++    ks = _bfig('%s_keystone.txt' % ACT, r'\*\*\(iii\) CORRECTED, ERRATA (E-[\d-]+) ; \(iv\) (\d+) OF (\d+) PINNED, (\d+) CARRIED ; .* FILES EDITED ON MAIN (\d+)\.\*\*', 'the keystone bank`s foot')
++    pr = _bfig('%s_price.txt' % ACT, r'BASE AND FIRST TWO TIERS ([\d.]+) h UPPER, ([\d.]+) h LOWER ; THE CUT (\d+) ; THE SEAT`S ACT BUDGET ABOUT ([\d.]+) FOREGROUND HOURS ; NOTHING OF -39 COMPUTED',
++               'the -39 price`s foot')
++    fp = _bfig('%s_federation_pin_price.txt' % ACT, r'\*\*PUBLIC KERNELS (\d+) ; WITH MATHLIB (\d+) ; REVS (\d+) ; THE TARGET ([0-9a-f]+) ; BELOW IT (\d+) ; DISPATCHES PRICED (\d+), ([\d.]+) RUNNER HOURS ;'
++               r'.* REQUESTS (\d+), FAILED (\d+) ; NOTHING BUILT\.\*\*', 'the federation price`s foot')
++    ep = _bfig('%s_epstein_count_price.txt' % ACT, r'\*\*THE BAND \[([\d, ]+)\] AT Q0, N (\d+), ALL ON THE LINE ; .* ; (\d+-\d+) DISPATCHES, (\d+-\d+) FOREGROUND HOURS \(THE SEAT`S\) ; THE GRADE (\w+) \(E0\), ONE BAND ; NOTHING BUILT\.\*\*',
++               'the Lean count price`s foot')
 +    nf = int(rp[6])
 +    return dict(weight=rl[0], corr_line=co.get('entry_line', '-'), corr_row=co.get('row'), corr_n=len(co.get('lettered') or []), corr_rec=len(co.get('records') or []),
 +                corr_items=len(co.get('starts') or []), rep=('%s of %s' % (fr[0], fr[1])) if len(fr) >= 2 else '-',
@@ -3961,14 +4640,13 @@ index 00000000..4cf9eeec
 +                ver=ver, sc_files=sc_files, sc_lit=sc_lit, sc_prose=sc_prose, sc_del=sc_del,
 +                rp_obj=rp[0], rp_eq=rp[1], rp_diff=rp[2], rp_diffs=rp[3], rp_named=rp[4], rp_unnamed=rp[5], rp_find=rp[6],
 +                replay_word=('EQUAL' if rp[2] == '0' and nf == 0 else 'with %d finding%s' % (nf, '' if nf == 1 else 's')),
-+                cv_steps=cv[0], cv_std=cv[1], cv_std_at=cv[2], cv_per=cv[3], cv_out=cv[4],
-+                cc_cases=cc[0], cc_wanted=cc[1], cc_repairs=cc[2], cc_both=cc[3], cc_all=cc[4], hc_cases=hc[0], hc_wanted=hc[1], hc_holds=hh,
-+                n_repairs=len(CLASS_REPAIRS) if (cc[4] == 'True' and hh == 'True' and int(cc[2]) == len(CLASS_REPAIRS) - 1) else int(cc[2]),
-+                ic_mod=ic[0], ic_act=ic[1], ic_shared=ic[2], ic_lines=ic[3], ic_lit=ic[4], ic_eq=ic[5],
-+                ro_ctl=ro, ro_joins=[os.path.basename(j) for j in joins], pins_n=pn, pins_hard=ph, pins_texts=pt, pins_ctl=pc, pins_priv=pv,
-+                pins_ml=len(mlp), pins_ml_list=', '.join('%s (%s)' % (r[:8], n) for r, n in sorted(mlp, key=lambda x: -int(x[1]))),
-+                cr_n=cr[0], cr_def=cr[1], cr_der=cr[2], cr_int=cr[3], cr_ng=cr[4], cr_ax=cr[5], cr_noax=cr[6], cr_sorry=cr[7], cr_reached=reached,
-+                cd_from=cd[0], cd_to=cd[1], cd_hunks=cd[2], cd_add=cd[3], cd_rem=cd[4],
++                cv_steps=cv[0], cv_std=cv[1], cv_std_at=cv[2], cv_std_prev=cv[3], cv_per=cv[4], cv_moved=cv[5],
++                cc_cases=cc[0], cc_wanted=cc[1], cc_repairs=cc[2], cc_both=cc[3], cc_all=cc[4], n_repairs=int(cc[2]),
++                ro_ctl=ro, ro_joins=[os.path.basename(j) for j in joins], g_miss=gm,
++                ks_errata=ks[0], ks_pinned=ks[1], ks_names=ks[2], ks_carried=ks[3], ks_files=ks[4],
++                pr_up=pr[0], pr_low=pr[1], pr_cut=pr[2], pr_budget=pr[3],
++                fp_kern=fp[0], fp_ml=fp[1], fp_revs=fp[2], fp_target=fp[3], fp_below=fp[4], fp_disp=fp[5], fp_hours=fp[6], fp_req=fp[7], fp_fail=fp[8],
++                ep_band=ep[0], ep_n=ep[1], ep_disp=ep[2], ep_hours=ep[3], ep_grade=ep[4],
 +                figs=dict((k, (fj_.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')),
 +                figs10=dict((k, (f10.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')))
 +
@@ -4011,44 +4689,46 @@ index 00000000..4cf9eeec
 +    return next((i for i, h in enumerate(rows) if h.startswith(commit[:8])), None)
 +
 +
++REG_FILES_N2 = ('data/b716_registrations.txt', 'data/b716_genus_control.txt', 'data/b716_genus_control.json', 'tools/b716_genus_control.py')
++# ### the kinds of -39 computation N2 forbids beyond the count control: a list, its pairs, zeros, onsets or coefficients bank of this act
++N2_FORBIDDEN = re.compile(r'^b716_(list|pairs|zeros|onsets|coeffs|predictions|rect)[_.]')
++
++
 +def _n2():
-+    """N2 (R326): the literal scan reads 0 and the replay is EQUAL, or each difference is named. From the scan's foot (the code's literals and
-+    delete words, its planted control) and the replay's foot (every DIFFERS object named by a finding, none unnamed)."""
++    """N2 (R326): data/b716_registrations.txt is committed ahead of every other bank of the act and nothing of -39 is computed beyond its count
++    control. From the step bank's first row (its first commit, the act's first relay commit after b715's closing) and that commit's files read
++    by git, and the act's banks by name (no list, pairs, zeros, onsets or coefficients bank of b716)."""
++    rows = jl('%s_steps.json' % ACT).get('rows') or []
++    first = (rows[0].get('commits') or [rows[0].get('commit')])[0] if rows else None
++    after = g(ROOT, 'rev-list', '--reverse', '%s..HEAD' % K.PRE_RELAY).split() if K.PRE_RELAY else []
++    files = sorted(g(ROOT, 'show', '--name-only', '--format=', first).split()) if first else []
++    first_ok = bool(first) and bool(after) and after[0] == first and files == sorted(REG_FILES_N2)
++    forbidden = sorted(n for n in os.listdir(D) if N2_FORBIDDEN.match(n))
 +    f = _figs()
-+    scan_ok = f['sc_lit'] == '0' and f['sc_del'] == '0' and 'AS WANTED True' in rdn('%s_standing_scan.txt' % ACT)
-+    named_ok = f['rp_unnamed'] == '0' and f['rp_named'] == f['rp_diff'] and int(f['rp_eq']) + int(f['rp_diff']) == int(f['rp_obj'])
-+    rt = rdn('%s_replay.txt' % ACT)
-+    heads = re.findall(r'(?m)^  \(1\) the head line, rebuilt from the banks\s+(EQUAL|DIFFERS)$', rt)
-+    tally = re.search(r'(?m)^  \(2\) the suite`s tally: 124/16/1 \(passing/failing/withheld\)\s+(EQUAL|DIFFERS)$', rt)
-+    rows_ok = heads == ['EQUAL', 'EQUAL'] and bool(tally) and tally.group(1) == 'EQUAL'
-+    ok = scan_ok and named_ok and rows_ok
++    ok = first_ok and not forbidden and f['g_miss'] == '0'
 +    return ('HELD' if ok else 'REFUTED'), (
-+        'the literal scan over tools/standing/ at %s (relay data/b716_standing_scan.txt): %s files, literals in the code %s, delete words %s, its '
-+        'planted control as wanted: %s; the replay over b715 and b713 (relay data/b716_replay.txt): b715`s and b713`s head lines %s, b715`s 124/16/1 %s; '
-+        '%s objects, %s EQUAL, %s DIFFERS %s, named %s, unnamed %s, %s F-rows (the old tools`): %s' % (
-+            f['ver'], f['sc_files'], f['sc_lit'], f['sc_del'], scan_ok, ' and '.join(heads) or 'unread', tally.group(1) if tally else 'unread',
-+            f['rp_obj'], f['rp_eq'], f['rp_diff'], f['rp_diffs'], f['rp_named'], f['rp_unnamed'], f['rp_find'], named_ok and rows_ok))
++        'the act`s first relay commit after b715`s closing %s (git rev-list %s..HEAD): %s, its files %s -- the registration and its count control '
++        'alone: %s; the count control`s misses %s (relay data/b716_genus_control.txt); -39 banks beyond the control (a list, pairs, zeros, onsets, '
++        'coefficients or predictions bank of b716): %s' % (
++            K.PRE_RELAY[:8], K.PRE_RELAY[:8], (after[0][:8] if after else 'unread'), ', '.join(files) or 'unread', first_ok, f['g_miss'],
++            ', '.join(forbidden) or 'NONE'))
 +
 +
 +def _n3():
-+    """N3 (R326): two instances per repair, and G-RULE-LONG-PHASE-SPLIT sealed by (4)(i), not withheld. From the class controls' per-repair line
-+    (each of (i), (ii), (iv)-(vi) a record and a constructed instance), the hook's class control for (iii), the ruling's withheld field and,
-+    after the seal, the seal's record."""
++    """N3 (R326): every repair of (3) shows its two instances, and the replay over b715, b714 and b713 reads EQUAL or names each difference. From
++    the class controls' per-repair line (each repair a record and a constructed instance) and the replay's foot (every DIFFERS object named by a
++    finding, none unnamed)."""
 +    f = _figs()
 +    per = re.search(r'(?m)^### per repair: (.*)$', rdn('%s_standing_controls.txt' % ACT))
-+    each = dict((r, bool(per) and ('%s record True constructed True as wanted True' % r) in per.group(1)) for r in CLASS_REPAIRS if r != '(iii)')
-+    each['(iii)'] = f['hc_holds'] == 'True' and f['hc_cases'] == f['hc_wanted']
-+    field = jl('act_current.json').get('withheld')
-+    sj = jl('%s_seal_hashes.json' % ACT)
-+    sealed_wh = [w.get('arm') for w in (sj.get('withheld') or [])] if sj else None
-+    arm_ok = field == [] and (sealed_wh is None or 'G-RULE-LONG-PHASE-SPLIT' not in sealed_wh)
-+    ok = all(each.values()) and arm_ok
++    each = dict((r, bool(per) and ('%s record True constructed True as wanted True' % r) in per.group(1)) for r in CLASS_REPAIRS)
++    named_ok = f['rp_unnamed'] == '0' and f['rp_named'] == f['rp_diff'] and int(f['rp_eq']) + int(f['rp_diff']) == int(f['rp_obj'])
++    acts = re.findall(r'(?m)^### (b\d{3}) -- the seal`s commit ', rdn('%s_replay.txt' % ACT))
++    ok = all(each.values()) and f['cc_all'] == 'True' and f['cc_cases'] == f['cc_wanted'] and named_ok and acts == ['b715', 'b714', 'b713']
 +    return ('HELD' if ok else 'REFUTED'), (
-+        'the class repairs` instances (relay data/b716_standing_controls.txt, %s cases as wanted %s; data/b716_hook_control.txt for (iii), %s of %s, '
-+        'the repair holding %s): %s; the ruling`s withheld field (relay data/act_current.json) %s; the seal`s withheld field (relay '
-+        'data/b716_seal_hashes.json) %s -- G-RULE-LONG-PHASE-SPLIT sealed, not withheld: %s' % (
-+            f['cc_cases'], f['cc_wanted'], f['hc_wanted'], f['hc_cases'], f['hc_holds'], ', '.join('%s %s' % kv for kv in sorted(each.items())),
-+            field if field is not None else 'unread', sealed_wh if sealed_wh is not None else 'waits on the seal', arm_ok))
++        'the class repairs` instances (relay data/b716_standing_controls.txt, %s cases, as wanted %s): %s; the replay over %s (relay '
++        'data/b716_replay.txt): %s objects, %s EQUAL, %s DIFFERS %s, named %s, unnamed %s, %s F-rows (the old tools`): %s' % (
++            f['cc_cases'], f['cc_wanted'], ', '.join('%s %s' % (r, each[r]) for r in CLASS_REPAIRS), ', '.join(acts) or 'unread',
++            f['rp_obj'], f['rp_eq'], f['rp_diff'], f['rp_diffs'], f['rp_named'], f['rp_unnamed'], f['rp_find'], named_ok))
 +
 +
 +def _n4():
@@ -4153,7 +4833,7 @@ index 00000000..4cf9eeec
 +    return (('HELD' if ok else 'REFUTED'),
 +            'nothing deposits or publishes: the deposit route untouched (draft %s, v5, unpublished); no release route in the act`s tools: %s; every kernel '
 +            'as the face read it: %s; SIDE-explicit-formula`s main at badaccc, no tag past v0.37, unmoved: %s; SIDE-lv-conservation`s main and deposit '
-+            'untouched, port-b707 at %s, b715`s one tag %s at it, unmoved: %s; the join kernel`s main at %s with the one tag %s: %s; b715`s merge %s on '
++            'untouched, port-b707 at %s, b714`s one tag %s at it, unmoved: %s; the join kernel`s main at %s with the one tag %s: %s; b714`s merge %s on '
 +            'PLACE-papers main: %s; the standing '
 +            'arms added beyond b715`s face, the act arms apart: %s (%s); shared tools edited beyond the membrane %s: %s; sealed tools not agreeing: %s; '
 +            'commits amended after the seal (relay, PLACE-papers, SIDE-lv-conservation): %s; deletes with anything chained after: %s; a kept branch deleted '
@@ -4167,22 +4847,22 @@ index 00000000..4cf9eeec
 +
 +
 +def TRAIL_HEAD():
-+    return ('### b716 — lane two, act one hundred and forty-two, the toolset act under (R326): b715 at its weight; the corrigendum; one standing '
-+            'close toolset and its replay; the class repairs; the mirror’s roster; the pins census; the chain’s census rows')
++    return ('### b716 — lane two, act one hundred and forty-three, the registrations act under (R326): b715 at its weight; the corrigendum; the '
++            'toolset at v1.1.0; the -39 registration; the keystone items; two prices')
 +
 +
 +R.TRAIL_HEAD = TRAIL_HEAD
 +
 +
 +def _title():
-+    """the entry's title by its objects, Component 6's form ("the standing close toolset at v1.0.0, replaying b713 and b715 <EQUAL | with <k>
-+    findings>; <n> class repairs; the mirror's roster from main; the pins census at <r> repositories; the census at v0.8.2 with <m> of 24 chain
-+    rows"), every figure from the banks: the version from tools/standing/VERSION, <k> the replay's findings, <n> the repairs whose two instances
-+    hold, <r> the census's repositories, <m> the chain rows on main after the edition's back matter heading."""
++    """the entry's title by its objects, the ferry's Component 6 form ("the -39 law registered before its computation; the standing toolset at
++    v1.1.0 with <k> of 25 steps STANDING; Silence's SIDESystem row corrected; <p> Correspondence rows pinned; the federation pin and the Lean
++    count priced"), every figure from the banks: the version from tools/standing/VERSION, <k> and the steps from the coverage table's foot, <p>
++    the keystone bank's pinned count."""
 +    f = _figs()
-+    return ('## The standing close toolset at %s, replaying b713 and b715 %s; %d class repairs; the mirror’s roster from main; the pins census at %s '
-+            'repositories; the census at v0.8.2 with %d of %s chain rows' % (
-+                f['ver'], f['replay_word'], f['n_repairs'], f['pins_n'], f['cr_reached'], f['cr_n']))
++    return ('## The -39 law registered before its computation; the standing toolset at %s with %s of %s steps STANDING; Silence’s SIDESystem row '
++            'corrected; %s Correspondence rows pinned; the federation pin and the Lean count priced' % (
++                f['ver'], f['cv_std'], f['cv_steps'], f['ks_pinned']))
 +
 +
 +def _letters_now():
@@ -4202,22 +4882,22 @@ index 00000000..4cf9eeec
 +    f = _figs()
 +    seat = AC.defect_owners(rows)['SEAT']   # ### (R326)(4)(iii), v4 row (64): the one counter (b715's form counted every row not the navigator's)
 +    letters = ', '.join(re.match(r'^\(([a-z])\)', r).group(0) for r in nav)
-+    return ('(1) the toolset’s reach at %s, on the author’s word (1): the core extracted, not imported -- %s of the close’s %s steps STANDING '
-+            '(%s), %s PER-ACT, the core’s functions called inside the per-act steps, and %s standing outside the steps (the hook, the scan, the '
-+            'replay, the controls) (relay data/b716_toolset_coverage.txt); from b716 each later version moves rows to STANDING, its replay the '
-+            'proof; (2) the replay’s %s findings the old tools’, not copied forward -- F-1, the seal’s record naming a relay head that does not '
-+            'carry every sealed tool (b715, b713), and F-2, b713’s components bank not composed from its step bank (relay data/b716_replay.txt); '
-+            '(3) the measurement before the copy a lower bound for its literals, its pattern reading no boundary before `_` (relay '
-+            'data/b716_import_closure.txt; records (5)); (4) the pins census’s %s hard failures after the author’s word (3), its PUBLIC '
-+            'repositories alone, the fork of Mathlib out; upstream Mathlib carried at %s revs across the kernels’ '
-+            'manifests (%s), where the word reads one, de5ce8a9 (relay data/b716_pins_census.txt); '
-+            '(5) three readings of the chain rows stated in the census’s back matter and not repaired: T3_perClass_to_combinations proved by '
-+            '`sorry` at v0.2.0 where the pilot read it FOUND, and the pilot’s places for SIDEKernel.formation and covers_all (relay '
-+            'data/b716_chain_rows.txt; records (9)); (6) the census v0.8.2 the family’s newest edition on main, so the mirror’s roster read from '
-+            'main joins it beside v0.8 and v0.8.1 (relay data/b716_roster.txt; the author’s word (2)); (7) the report tool outside the sealed list '
-+            'until the root (relay data/b708_rules.txt row (1)); (8) %s and the seat’s %s defect%s as lettered' % (
-+                f['ver'], f['cv_std'], f['cv_steps'], f['cv_std_at'], f['cv_per'], f['cv_out'], f['rp_find'], f['pins_hard'], f['pins_ml'], f['pins_ml_list'],
-+                ('the %s navigator %s (%s)' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', letters)) if nav else 'the none navigator misses',
++    return ('(1) the citation check’s one miss, (R326)(1)’s “the pins census at 39 public repositories”, read as 39 repositories of which 38 '
++            'PUBLIC, PLACE-papers PRIVATE (relay data/b716_citation_check.txt, data/b715_pins_census.txt :27); (2) the -39 price’s third tier, '
++            '[200, 300], priced for the author’s word and entered only where b717’s pair rows ask it; its act budget the seat’s estimate, about %s '
++            'foreground hours (relay data/b716_price.txt); (3) the federation pin’s breakage not read, a halt: no ref of a kernel below the target '
++            '%s carries the bump, and a dry build needs a bump branch on each, a write outside (R326)(8)’s list; SIDE-frobenius, with no run read, '
++            'named UNPRICED (relay data/b716_federation_pin_price.txt); (4) the Lean count’s price the seat’s, %s dispatches and %s foreground '
++            'hours, its needles printing their yields, four reading 0 in Mathlib at the target (relay data/b716_epstein_count_price.txt); (5) the '
++            '%s names the census carries no row of their own for, listed and carried, none pinned from a paper’s own table (relay '
++            'data/b716_correspondence_pins.txt); (6) Silence :212’s axiom-profile and status cells carried as they stood, not re-verified, no Lean '
++            'process run (relay data/b716_keystone.txt); (7) the price tools’ requests to github.com unauthenticated, each URL carrying the public '
++            'repository’s own address and no identifier of the author in any header; (8) the coverage table at %s of %s steps STANDING, only the '
++            'seal moved by (3)(ii), the other repairs landing inside the per-act steps they govern (relay data/b716_toolset_coverage.txt); '
++            '(9) the report tool outside the sealed list until the root (relay data/b708_rules.txt row (1)); (10) %s and the seat’s %s defect%s '
++            'as lettered' % (
++                f['pr_budget'], f['fp_target'], f['ep_disp'], f['ep_hours'], f['ks_carried'], f['cv_std'], f['cv_steps'],
++                ('the %s navigator %s (%s)' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', letters)) if nav else 'no navigator miss',
 +                num_word(seat), '' if seat == 1 else 's'))
 +
 +
@@ -4230,62 +4910,63 @@ index 00000000..4cf9eeec
 +    cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
 +    checks = len(re.findall(r'^### \(R278\)\(4\) THE MID-ACT CHECK ', rdn(K.CITATION_BANK), re.M))
 +    e = ['', _title(), '',
-+         'One close toolset now stands for every act: tools/standing/ at %s, %s files whose code carries %s act literals, reads its act from '
-+         'relay data/act_current.json at run time, and rebuilds b715’s and b713’s closes from their committed banks at %s of %s objects EQUAL, the '
-+         'one difference named by the old tool’s finding; the %d class repairs b715 surfaced hold on a record instance and a constructed one each; '
-+         'the mirror’s roster is read from PLACE-papers main; the pins census reads %s repositories, its PUBLIC ones alone, %s hard failures, and '
-+         'upstream Mathlib at %s revs across the kernels’ manifests; and the '
-+         'census v0.8.2 on main carries %d of the reduction chain’s %s declarations as printed at their pins -- %s DERIVES, %s INTERFACES, %s not '
-+         'graded, one proved by `sorry` at its pin.' % (
-+             f['ver'], f['sc_files'], f['sc_lit'], f['rp_eq'], f['rp_obj'], f['n_repairs'], f['pins_n'], f['pins_hard'], f['pins_ml'], f['cr_reached'], f['cr_n'],
-+             f['cr_der'], f['cr_int'], int(f['cr_def']) + int(f['cr_ng'])), '',
-+         '*Filed at b716 on the author’s ruling `(R326)`; %d question%s put before the root. Banks: relay `data/act_current.json`, '
-+         '`data/b716_import_closure.txt`, `data/b716_standing_scan.txt`, `data/b716_replay.txt`, `data/b716_toolset_coverage.txt`, '
-+         '`data/b716_standing_controls.txt`, `data/b716_hook_control.txt`, `data/b716_tool_repairs.txt`, `data/b716_roster.txt`, '
-+         '`data/b716_pins_census.txt`, `data/b716_chain_rows.txt`, `data/b716_census_diff.txt`, `data/b716_corrigendum.txt`, '
-+         '`data/b716_standing_figures.txt`, `data/b716_report.txt`.*' % (n_ans, '' if n_ans == 1 else 's'), '',
++         'The prediction for discriminant -39 stands committed before any computation at it: the least index with a negative log-derivative '
++         'coefficient has b(n) = -2 and an index divisible by a prime no principal form represents, its count control reading %s misses through '
++         'n = 400 in the act’s first commit; the standing toolset at %s rebuilds b715’s, b714’s and b713’s closes at %s of %s objects EQUAL, its '
++         '%d class repairs each holding on a record instance and a constructed one, %s of the close’s %s steps now STANDING; Silence’s '
++         'SIDESystem row names SIDE-meta’s structure, entered as ERRATA %s; %s of %s Correspondence names gain their pins from the census, %s '
++         'carried; and two prices stand, nothing built -- the federation pin at %s for %s kernels below it, %s dispatches and %s runner hours, its '
++         'breakage a halt, and the Lean count of one band at Q0, %s dispatches, grading %s.' % (
++             f['g_miss'], f['ver'], f['rp_eq'], f['rp_obj'], f['n_repairs'], f['cv_std'], f['cv_steps'], f['ks_errata'], f['ks_pinned'],
++             f['ks_names'], f['ks_carried'], f['fp_target'], f['fp_below'], f['fp_disp'], f['fp_hours'], f['ep_disp'], f['ep_grade']), '',
++         '*Filed at b716 on the author’s ruling `(R326)`; %d question%s put before the root. Banks: relay `data/b716_registrations.txt`, '
++         '`data/b716_genus_control.txt`, `data/b716_price.txt`, `data/b716_standing_scan.txt`, `data/b716_replay.txt`, '
++         '`data/b716_toolset_coverage.txt`, `data/b716_standing_controls.txt`, `data/b716_roster.txt`, `data/b716_tool_repairs.txt`, '
++         '`data/b716_keystone.txt`, `data/b716_correspondence_pins.txt`, `data/b716_keystone_diffs.txt`, `data/b716_federation_pin_price.txt`, '
++         '`data/b716_epstein_count_price.txt`, `data/b716_corrigendum.txt`, `data/b716_standing_figures.txt`, `data/b716_report.txt`.*' % (
++             n_ans, '' if n_ans == 1 else 's'), '',
 +         '**The corrigendum** ((R326)(1), (2)): b715 entered at its weight as its closing prints (FINDINGS :%s); the corrigendum generated from '
 +         'b715’s defects and events, %d items by their starting lines, each NEW or REPEAT, %d lettered and %d records, the repeat fraction %s (%s), at '
 +         'FINDINGS :%s; the corrigenda bank appended at row (%s).' % (
 +             f['weight'], f['corr_items'], f['corr_n'], f['corr_rec'], f['rep'], f['rep_f'], f['corr_line'], f['corr_row']), '',
-+         '**The standing toolset** ((R326)(3), the author’s word (1)): measured before the copy -- b715’s fourteen tools import %s modules (%s '
-+         'act-named, %s shared), %s lines, %s act literals at the least (relay data/b716_import_closure.txt) -- and so built as a core extracted, not '
-+         'imported: eleven files under tools/standing/ at %s, every function against its source by diff (relay data/b716_tool_repairs.txt), the '
-+         'act read from relay data/act_current.json at run time; the literal scan over the code %s act literals and %s delete words, its planted '
-+         'control as wanted (relay data/b716_standing_scan.txt); the coverage table, %s steps of the close in v5’s order, %s STANDING (%s), %s '
-+         'PER-ACT with the core’s functions called inside them, %s standing outside the steps (relay data/b716_toolset_coverage.txt). Sealed by '
-+         'hash beside this act’s tools.' % (
-+             f['ic_mod'], f['ic_act'], f['ic_shared'], f['ic_lines'], f['ic_lit'], f['ver'], f['sc_lit'], f['sc_del'], f['cv_steps'], f['cv_std'],
-+             f['cv_std_at'], f['cv_per'], f['cv_out']), '',
-+         '**The replay** ((R326)(3)(iv), N2): the toolset over b715’s and b713’s committed banks, writing nothing but relay data/b716_replay.txt: '
-+         'b715’s head line and 124/16/1 rebuilt EQUAL, b713’s head line EQUAL; %s objects, %s EQUAL, %s DIFFERS %s, named by its finding; %s '
-+         'findings the old tools’ and not copied forward -- F-1, the seal’s record naming a relay head that does not carry every tool it sealed, '
-+         'and F-2, b713’s components bank not composed from its step bank.' % (
++         '**The -39 registration** ((R326)(4), N2): relay data/b716_registrations.txt, the act’s first commit, alone with its count control: the '
++         'forms of discriminant -39 and the class group of order 4, the principal form’s Epstein zeta decomposed by the group’s characters '
++         '(Murty-Osburn arXiv:math/0412237v1 Theorem 2.3, as pinned at b713), the decomposition read through n = 400 with %s misses and three '
++         'planted controls failing as wanted (relay data/b716_genus_control.txt); the prediction -- the least negative coefficient’s b(n) = -2, '
++         'its index divisible by a prime of no principal form -- with its falsifier; b710’s refined detection law carried unchanged, its window '
++         '[0.99, 1.01]. Its price: the list’s base and first two tiers %s h upper, %s h lower, the coefficients’ cut %s, the act about %s '
++         'foreground hours (relay data/b716_price.txt). Nothing of -39 computed beyond the control.' % (
++             f['g_miss'], f['pr_up'], f['pr_low'], f['pr_cut'], f['pr_budget']), '',
++         '**The standing toolset** ((R326)(3)): tools/standing/ at %s, %s files, three new (allow.py, rootbanks.py, words.py), every change by '
++         'diff (relay data/b716_tool_repairs.txt); the literal scan over the code %s act literals and %s delete words, its planted control as '
++         'wanted (relay data/b716_standing_scan.txt); the coverage table rewritten, %s steps of the close in v5’s order, %s STANDING (%s) beside '
++         'v1.0.0’s %s, %s PER-ACT, %s step moved by this version (relay data/b716_toolset_coverage.txt).' % (
++             f['ver'], f['sc_files'], f['sc_lit'], f['sc_del'], f['cv_steps'], f['cv_std'], f['cv_std_at'], f['cv_std_prev'], f['cv_per'],
++             f['cv_moved']), '',
++         '**The replay** ((R326)(3), N3): the toolset over b715’s, b714’s and b713’s committed banks, writing nothing but relay '
++         'data/b716_replay.txt: %s objects, %s EQUAL, %s DIFFERS %s, named by its finding; %s findings the old tools’ and not copied forward.' % (
 +             f['rp_obj'], f['rp_eq'], f['rp_diff'], f['rp_diffs'], f['rp_find']), '',
-+         '**The class repairs** ((R326)(4), N3): (i) an arm reads the previous act’s root-named part banks, each against its root’s sha256, and '
-+         'G-RULE-LONG-PHASE-SPLIT is sealed by it, not withheld; (ii) the withheld field read from the ruling, condition-bound; (iii) the hook’s '
-+         'refusals to an excluded bank, the hook switched to tools/standing/hook.py; (iv) the components composed from the ruling and the step '
-+         'bank; (v) no standing tool deletes a file; (vi) every caller of neg_shown reads its three lists. Each with its two instances, one from '
-+         'the record and one constructed: %s cases as wanted %s for (i), (ii), (iv)-(vi) (relay data/b716_standing_controls.txt), %s of %s for '
-+         '(iii), the repair holding %s (relay data/b716_hook_control.txt).' % (
-+             f['cc_cases'], f['cc_wanted'], f['hc_wanted'], f['hc_cases'], f['hc_holds']), '',
-+         '**The mirror’s roster** ((R326)(5), the author’s word (2)): read from PLACE-papers main at build time by tools/standing/roster.py -- the '
-+         'b707 roster’s families, each newer edition of a family joining (%s), its diff against the b707 roster printed, its controls %s as '
-+         'wanted (relay data/b716_roster.txt); the builder reads it and refuses a roster not read.' % (', '.join(f['ro_joins']), f['ro_ctl']), '',
-+         '**The pins census** ((R326)(6)): tools/b303_pins.py’s roster widened to every repository the day papers’ Correspondence, the census and '
-+         'FACES_LEDGER name, read from %s texts on main, under the author’s word (3): %s repositories, b715’s four and the PUBLIC names alone, '
-+         'each with its head, ls-remote, behind/ahead and visibility; %s PRIVATE names counted and not named or read; the author’s fork of '
-+         'Mathlib out, upstream Mathlib printed as the pins the kernels’ manifests carry, %s revs (%s); %s hard failures; its controls %s as '
-+         'wanted (relay data/b716_pins_census.txt). The lock gate’s pins bank read b715’s four by the tool’s gate route (relay '
-+         'data/b716_pins_stepzero.txt).' % (
-+             f['pins_texts'], f['pins_n'], f['pins_priv'], f['pins_ml'], f['pins_ml_list'], f['pins_hard'], f['pins_ctl']), '',
-+         '**The census rows** ((R326)(7)): the census v0.8.2 (' + K.CENSUS_NEW + ') on PLACE-papers main by the Edit tool, v0.8.1’s bytes and %s lines added, none removed '
-+         '(relay data/b716_census_diff.txt); %d of the %s declarations of data/b715_pilot.txt (P3), the names with no homebrew row first, each with '
-+         'its statement at its pin, its grade under the E0 gate -- %s DERIVES, %s INTERFACES, %s definitions and %s field not graded -- and its '
-+         'axioms where a banked print reaches them, %s read at the pin and %s not; one proved by `sorry` in its span (relay '
-+         'data/b716_chain_rows.txt). %s' % (
-+             f['cd_add'], f['cr_reached'], f['cr_n'], f['cr_der'], f['cr_int'], f['cr_def'], f['cr_ng'], f['cr_ax'], f['cr_noax'],
-+             'No row is left unreached.' if f['cr_reached'] == int(f['cr_n']) else 'The rows not reached are listed in the back matter and carried.'), '',
++         '**The class repairs** ((R326)(3)(i)-(vi), N3): (i) an arm reads its allowances (deletes, prompts) from the ruling and the words bank; '
++         '(ii) the seal commits what it hashes and records that commit as its head; (iii) the mirror’s verifier reads the builder’s roster; (iv) '
++         'the answers route reads every word by its “## (n)” head; (v) a word received after a sealed composition printed beside its clause; (vi) '
++         'the root’s required banks read against its exclusion at import. Each with its two instances, one from the record and one constructed, '
++         'beside v1.0.0’s: %s cases, %s as wanted, %s repairs each with both instances (relay data/b716_standing_controls.txt); the roster’s '
++         'controls %s as wanted, %s joining (relay data/b716_roster.txt).' % (
++             f['cc_cases'], f['cc_wanted'], f['cc_repairs'], f['ro_ctl'], ', '.join(f['ro_joins'])), '',
++         '**The keystone edits** ((R326)(5)(iii), (v)): day1/Silence_of_Foundations.md :212 corrected on PLACE-papers main to SIDE-meta, '
++         '`SIDEMeta.SIDESystem` at SIDEMeta/Meta/SIDESystem.lean :99, a structure, at v0.3 = 6bb7b23, entered as ERRATA %s; the census v0.8.2’s '
++         'rows as b715’s banks state them, all 24 written, nothing to carry; %s files edited on main, every edit diffed (relay '
++         'data/b716_keystone.txt, data/b716_keystone_diffs.txt).' % (f['ks_errata'], f['ks_files']), '',
++         '**The Correspondence pins** ((R326)(5)(iv)): of the %s names with no pin (relay data/b714_pilot.txt (P1)), %s pinned from the census '
++         'at its edition on main by the Edit tool, %s listed and carried, the census carrying no row of their own (relay '
++         'data/b716_correspondence_pins.txt, data/b716_correspondence_census.txt).' % (f['ks_names'], f['ks_pinned'], f['ks_carried']), '',
++         '**The prices** ((R326)(6), nothing built): (i) the federation pin -- %s public kernels, %s with Mathlib at %s revs, the target %s, %s '
++         'below it, %s dispatches and %s runner hours priced, the modules a bump would break not read (a halt: no ref carries the bump), %s '
++         'requests unauthenticated, %s failed (relay data/b716_federation_pin_price.txt); (ii) the Lean count of the band [%s] at Q0, N %s, '
++         'Mathlib read at the target, %s dispatches and %s foreground hours, the result grading %s under E0 (relay '
++         'data/b716_epstein_count_price.txt).' % (
++             f['fp_kern'], f['fp_ml'], f['fp_revs'], f['fp_target'], f['fp_below'], f['fp_disp'], f['fp_hours'], f['fp_req'], f['fp_fail'],
++             f['ep_band'], f['ep_n'], f['ep_disp'], f['ep_hours'], f['ep_grade']), '',
 +         '**The standing arms**: the four figures at b716 -- %s, %s, %s, %s -- against b715’s %s, %s, %s, %s, read by b706’s tool over b706’s '
 +         'roster (relay data/b716_standing_figures.txt); no standing arm added.' % (
 +             f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
@@ -4294,15 +4975,14 @@ index 00000000..4cf9eeec
 +         'citing it; %d answer check%s before the root.' % (
 +             cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
 +         scores_line(S), '',
-+         '**Read in mutual light** ((R204)(3)(ii)-(iii)): the replay is the toolset’s specification -- what it rebuilds EQUAL is what the next '
-+         'act may run on it, and its two findings are faults the copied tools carried and the core does not copy; the census rows read the '
-+         'same pins the pins census now reaches, and where the pilot read a declaration FOUND the row reads the statement at its pin, so a '
-+         '`sorry` and two misplaced lines surface that a name search could not see.', '',
-+         '**Carried to:** b716 (the registrations act, on the standing toolset), each from its bank: the heads draft and the question of inline '
-+         'footings or a companion correspondence; the six lint hits; the 19 names with no pin; the SIDESystem finding at Silence :212 and :183; the '
-+         'composition law for the least negative index and its −39 registration; the residual; the rectangle certification of pair 7; the Sonin '
-+         'restriction’s price and the law’s identity reading; upstream Mathlib’s %s revs across the kernels’ manifests, where the author’s word (3) '
-+         'reads one; the draft held at v5.' % f['pins_ml'], '',
++         '**Read in mutual light** ((R204)(3)(ii)-(iii)): the registration and the federation price meet at the same seam -- the -39 prediction '
++         'is a Python-certified reading, and the Lean count’s price shows what a KERNEL-footed band would ask once the kernels share the target '
++         'rev; the Correspondence pins and the federation census read the same kernels, so a pin the papers now print is a rev the federation '
++         'would move.', '',
++         '**Carried to:** b717, each from its bank: the computation at -39 under this act’s commit where its price fits one act; the author’s '
++         'words on the heads draft’s sections II and III and on the six lint hits, put in this act’s root prompt, applied; the federation pin '
++         'where its price fits one act; the %s names the census does not pin; the Lean count of one band, priced; the draft held at v5.' % (
++             f['ks_carried']), '',
 +         '**Next.** %s.' % K.next_line(), '',
 +         '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
 +    return _title(), NL.join(e)
@@ -4315,40 +4995,44 @@ index 00000000..4cf9eeec
 +    _r, _n, sh = seal_hashes()
 +    f = _figs()
 +    rows_ = ['', TRAIL_HEAD(), '',
-+             '**(R326) ratified.** (1) b715 at its weight. (2) The corrigendum. (3) One standing close toolset at %s and its replay. (4) The class '
-+             'repairs b715 surfaced. (5) The mirror’s roster read from main. (6) The pins census widened. (7) The census rows for the reduction chain. '
-+             '(8) The items carried to b716. (9) The branches and carried files at step zero. (10) The read-first bank, the citation check, the '
-+             'answers, the root’s prompt and the write list. (11) The draft held at v5. (12) The next act.' % f['ver'], '',
++             '**(R326) ratified.** (1) b715 at its weight. (2) The corrigendum. (3) The standing toolset at %s. (4) The registration for '
++             'discriminant -39. (5) The keystone items carried from b714 and b715. (6) Two prices, nothing built. (7) The branches and carried '
++             'files at step zero. (8) The read-first bank, the citation check, the root’s prompt and the write list. (9) The draft held at v5. '
++             '(10) The act’s place on the paper path and the next act.' % f['ver'], '',
 +             '**Entered:** FINDINGS.md:%s (b715’s weight), :%s (the corrigendum), :%s (the entry); this record.' % (
 +                 f['weight'], f['corr_line'], fj.get('entry_line')), '',
++             '**The registration:** relay data/b716_registrations.txt with its count control the act’s first commit, %s misses through n = 400 '
++             '(relay data/b716_genus_control.txt); nothing of -39 computed; its price about %s foreground hours (relay data/b716_price.txt).' % (
++                 f['g_miss'], f['pr_budget']), '',
 +             '**The toolset:** tools/standing/ at %s, %s files, %s act literals and %s delete words in the code (relay data/b716_standing_scan.txt); '
-+             'the coverage table %s STANDING of %s steps (relay data/b716_toolset_coverage.txt); the replay over b715 and b713 %s of %s EQUAL, %s '
-+             'DIFFERS named, %s findings (relay data/b716_replay.txt); sealed by hash beside the act’s tools.' % (
-+                 f['ver'], f['sc_files'], f['sc_lit'], f['sc_del'], f['cv_std'], f['cv_steps'], f['rp_eq'], f['rp_obj'], f['rp_diff'], f['rp_find']), '',
-+             '**The class repairs:** (i)-(vi), each with a record instance and a constructed one: %s cases as wanted %s (relay '
-+             'data/b716_standing_controls.txt), the hook’s %s of %s and its class control holding %s (relay data/b716_hook_control.txt).' % (
-+                 f['cc_cases'], f['cc_wanted'], f['hc_wanted'], f['hc_cases'], f['hc_holds']), '',
-+             '**The roster, the pins and the census rows:** the mirror’s roster from main, %s joining, controls %s (relay data/b716_roster.txt); the '
-+             'pins census at %s repositories, PUBLIC alone (%s PRIVATE counted), %s hard failures, upstream Mathlib at %s revs, controls %s (relay '
-+             'data/b716_pins_census.txt); the census v0.8.2 on main with '
-+             '%d of %s chain rows, %s DERIVES, %s INTERFACES (relay data/b716_chain_rows.txt, data/b716_census_diff.txt).' % (
-+                 ', '.join(f['ro_joins']), f['ro_ctl'], f['pins_n'], f['pins_priv'], f['pins_hard'], f['pins_ml'], f['pins_ctl'], f['cr_reached'], f['cr_n'], f['cr_der'], f['cr_int']), '',
++             'the coverage table %s STANDING of %s steps (relay data/b716_toolset_coverage.txt); the replay over b715, b714 and b713 %s of %s EQUAL, '
++             '%s DIFFERS named, %s findings (relay data/b716_replay.txt); the class repairs %s cases as wanted %s, %s repairs each with both '
++             'instances (relay data/b716_standing_controls.txt); the roster`s controls %s (relay data/b716_roster.txt).' % (
++                 f['ver'], f['sc_files'], f['sc_lit'], f['sc_del'], f['cv_std'], f['cv_steps'], f['rp_eq'], f['rp_obj'], f['rp_diff'], f['rp_find'],
++                 f['cc_cases'], f['cc_wanted'], f['cc_repairs'], f['ro_ctl']), '',
++             '**The keystone items:** Silence :212 to SIDE-meta, ERRATA %s; %s of %s Correspondence names pinned from the census, %s carried; %s '
++             'files edited on PLACE-papers main (relay data/b716_keystone.txt, data/b716_correspondence_pins.txt, data/b716_keystone_diffs.txt); the '
++             'heads draft`s sections II and III and the six lint hits in the root`s prompt (relay data/b716_author_answers.txt).' % (
++                 f['ks_errata'], f['ks_pinned'], f['ks_names'], f['ks_carried'], f['ks_files']), '',
++             '**The prices:** the federation pin at %s, %s kernels below it, %s dispatches, %s runner hours, the breakage a halt (relay '
++             'data/b716_federation_pin_price.txt); the Lean count of one band at Q0, %s dispatches, %s foreground hours, grading %s (relay '
++             'data/b716_epstein_count_price.txt); nothing built.' % (
++                 f['fp_target'], f['fp_below'], f['fp_disp'], f['fp_hours'], f['ep_disp'], f['ep_hours'], f['ep_grade']), '',
 +             '**Act root:** b716 `%s` (previous `%s`, b715’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF '
 +             'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
-+             '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b716_author_answers.txt): the root’s own prompt, its '
-+             'answer in the closing line; before the seal two, at Components 2 and 4, their words banked verbatim (relay '
-+             'data/b716_author_words_preseal.txt (1)-(2)) and checked after the acts they governed (defect (l)).' % (
-+                 n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
++             '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b716_author_answers.txt): the root’s own prompt, '
++             'put once, carrying the heads draft`s sections II and III and the six lint hits ((R326)(5)(i)-(ii)); its answer in the closing '
++             'line.' % (n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
 +             '**The standing clauses and the repairs:** relay data/standing_clauses_v5.txt at VERSION 5, unchanged this act; every change diffed in '
 +             'relay data/b716_tool_repairs.txt; the standing report tool (relay data/b716_report.txt).', '']
 +    aw = AC.author_words_section(ACT)   # ### (R326)(6)(i), v5 row (74): the author's word after the seal, from its bank, verbatim
 +    rows_ += ['**' + aw[0][4:].rstrip(':') + ':**'] + ['> ' + l[4:] if l.startswith('    ') else '> ' + l for l in aw[1:]] + ['']
-+    rows_ += ['**The kernels:** port-b707 at b715’s tip %s, kept local and remote, no commit this act, b715’s tag %s at it; SIDE-faces-join at %s with '
++    rows_ += ['**The kernels:** port-b707 at b712’s tip %s, kept local and remote, no commit this act, b714’s tag %s at it; SIDE-faces-join at %s with '
 +             'its one tag %s; SIDE-explicit-formula and SIDE-lv-conservation’s main and deposit unmoved; no runner dispatch; no lean process on this host.' % (
 +                 K.PORT_NEW_TIP[:8], K.LV_TAG, K.JOIN_NEW_TIP[:8], K.JOIN_TAG[0]), '',
 +             '**The mirror:** the export made after this root in the b670 form over the roster read from PLACE-papers main ((R326)(5)), its name in the '
 +             'closing (relay data/b716_closing.txt).', '',
-+             '**The open orders:** `W-ORD-KEYSTONE-HEADS` (the head held, carried to b716); `W-ORD-LV-FORWARD-PORT`; `W-ORD-LV-CLOSURE-JOIN`; '
++             '**The open orders:** `W-ORD-KEYSTONE-HEADS` (the heads draft in the root`s prompt, the word applied at b717); `W-ORD-LV-FORWARD-PORT`; `W-ORD-LV-CLOSURE-JOIN`; '
 +             '`W-ORD-MOVES-BY-LOCUS`; `W-ORD-ENTRY-TAG-PRINTS`; `W-ORD-EXPLICIT-FORMULA-C1`; `W-ORD-EPSTEIN-COUNT-LEAN`; `W-ORD-QUASI-RH-FIELD-WATCH`; '
 +             '`W-ORD-P3-CONTOUR-SIGMA`; `W-ORD-E0-MET-CLASSK`; `W-ORD-README-FIGURE-SCOPE`.', '',
 +             '**The standing arms:** the four figures %s, %s, %s, %s against b715’s %s, %s, %s, %s (relay data/b716_standing_figures.txt).' % (
@@ -5016,33 +5700,52 @@ index 00000000..4cf9eeec
 +    return l[a:b + 1].strip()
 +
 +
++HEADS_DRAFT = 'b714_heads_draft.txt'
++LINT_BANK = 'b714_pilot.txt'
++# ### (R326)(5)(ii): the six lint hits' rows in the pilot's (P2), by line (data/b714_pilot.txt :70, :72, :75, :78, :83, :86)
++LINT_ROWS = (70, 72, 75, 78, 83, 86)
++LINT_ROW = re.compile(r'^    :(\d+) +(STEM|FRONTDOOR) +\| (.+?) +\| FOR THE AUTHOR \| ')
++
++
++def _lint_hits():
++    """the six FOR THE AUTHOR hits of b714's pilot (P2), each (bank line, file, paper line, kind, hit, the whole sentence at PLACE-papers HEAD),
++    the file read from the section head above the row; the sentence the paper's own at HEAD, around the hit, uncut (_full_sentence)."""
++    rows = rdn(LINT_BANK).split(NL)
++    out = []
++    for n in LINT_ROWS:
++        m = LINT_ROW.match(rows[n - 1]) if len(rows) >= n else None
++        if not m:
++            sys.exit('### data/%s :%d IS NOT A FOR THE AUTHOR ROW -- NOTHING PRINTED' % (LINT_BANK, n))
++        f_ = next((re.match(r'^  ### (day1/\S+): hits', rows[j]).group(1) for j in range(n - 1, -1, -1) if re.match(r'^  ### (day1/\S+): hits', rows[j])), None)
++        line, hit = int(m.group(1)), m.group(3).strip()
++        text = (_show(PP, 'HEAD', f_) or '').split(NL)
++        l = text[line - 1] if len(text) >= line else ''
++        at = l.find(hit)
++        out.append((n, f_, line, m.group(2), hit, _full_sentence(l, at) if at >= 0 else '### THE HIT NOT ON THE LINE AT HEAD: ' + l[:200]))
++    return out
++
++
 +def rootprompt(*a):
-+    """[10], the root's prompt, put once: what b716 inherits from this act, each from its bank -- I. the toolset b716's close runs on ((R326)(3)(v),
-+    (12)): its version, the coverage table's reach and the replay's foot and findings; II. the pins census's hard failures, for a clone or a
-+    ruling each ((R326)(6)), and upstream Mathlib's revs across the kernels' manifests where the author's word (3)(c) reads one. PRINTS ONLY:
-+    the prompt's text is banked by the answers route from the transcript; no bank here."""
-+    f = _figs()
-+    rp = rdn('%s_replay.txt' % ACT).split(NL)
-+    finds = [l.strip() for l in rp if re.match(r'^  F-\d+ \[', l)]
-+    pt = rdn('%s_pins_census.txt' % ACT).split(NL)
-+    hard = []
-+    for i, l in enumerate(pt):
-+        if l.strip().startswith('### HARD FAILURE'):
-+            head = next((pt[j] for j in range(i, -1, -1) if pt[j].startswith('--- ')), '--- (unnamed)')
-+            hard.append('%s -- %s' % (head[4:].split('   ')[0].strip(), l.strip()[4:].strip()))
-+    L = ['THE ROOT`S PROMPT (b716, put once) -- I. THE TOOLSET b716 RUNS ON (relay data/b716_toolset_coverage.txt, data/b716_replay.txt):', '',
-+         '  tools/standing/ at %s ; %s files ; act literals in the code %s ; the close`s %s steps: %s STANDING (%s), %s PER-ACT, %s standing outside the steps' % (
-+             f['ver'], f['sc_files'], f['sc_lit'], f['cv_steps'], f['cv_std'], f['cv_std_at'], f['cv_per'], f['cv_out']),
-+         '  the replay over b715 and b713: %s objects, %s EQUAL, %s DIFFERS %s, named %s, unnamed %s ; the findings, the old tools`, not copied forward:' % (
-+             f['rp_obj'], f['rp_eq'], f['rp_diff'], f['rp_diffs'], f['rp_named'], f['rp_unnamed'])]
-+    L += ['    ' + x for x in finds]
-+    L += ['', 'II. THE PINS CENSUS`S %d HARD FAILURES OF %s REPOSITORIES (relay data/b716_pins_census.txt), carried to b716 for a clone or a ruling each:' % (
-+        len(hard), f['pins_n'])]
-+    L += ['  (%d) %s' % (i, h) for i, h in enumerate(hard, 1)] or ['  none (the census under the author`s word (3): PUBLIC repositories alone, the fork out)']
-+    L += ['  upstream Mathlib in the kernels` manifests at %s revs, the repositories carrying each: %s -- the word (3)(c) reads one, de5ce8a9' % (
-+        f['pins_ml'], f['pins_ml_list'])]
-+    L += ['', '### FINDINGS %d ; HARD FAILURES %d (the foot %s) ; the word is banked in data/b716_author_answers.txt and carried to b716 by the trail' % (
-+        len(finds), len(hard), f['pins_hard'])]
++    """[10], the root's prompt, put once ((R326)(8)), carrying (R326)(5)(i)-(ii) for the author's word, applied at b717: I. sections II and III of
++    the heads draft (relay data/b714_heads_draft.txt), printed in full, and the question of inline footings or a companion correspondence;
++    II. the six lint hits of b714's pilot (P2), each with its file, line and sentence. PRINTS ONLY: the prompt's text is banked by the answers
++    route from the transcript; no bank here."""
++    hd = rdn(HEADS_DRAFT).split(NL)
++    i2 = next((i for i, l in enumerate(hd) if l.startswith('## II. ')), None)
++    i3 = next((i for i, l in enumerate(hd) if l.startswith('## III. ')), None)
++    end = next((i for i, l in enumerate(hd) if l.startswith('### ### **')), len(hd))
++    if i2 is None or i3 is None:
++        sys.exit('### data/%s CARRIES NO SECTION II OR III -- NOTHING PRINTED' % HEADS_DRAFT)
++    hits = _lint_hits()
++    L = ['THE ROOT`S PROMPT (b716, put once; (R326)(5)(i)-(ii), the word applied at b717; nothing written to main without it)', '',
++         'I. THE HEADS DRAFT, SECTIONS II AND III IN FULL (relay data/%s :%d-:%d, Silence_of_Foundations.md :15 at a86c9429):' % (HEADS_DRAFT, i2 + 1, end), '']
++    L += hd[i2:end]
++    L += ['', '  THE QUESTION: the footings inline, in brackets after each sentence as section II prints them, or a companion correspondence',
++          '  (the paragraph as it stands, its footings in a table beside it)?', '',
++          'II. THE SIX LINT HITS FOR THE AUTHOR (relay data/%s (P2)), each with its file, line and sentence (the sentence read at PLACE-papers HEAD):' % LINT_BANK, '']
++    for k, (n, f_, line, kind, hit, sent) in enumerate(hits, 1):
++        L += ['  (%d) %s :%d  %s `%s`  (the pilot`s row :%d)' % (k, f_, line, kind, hit, n), '      ' + sent]
++    L += ['', '### HEADS DRAFT SECTIONS 2 (II, III) ; LINT HITS %d ; the word is banked in data/b716_author_answers.txt and applied at b717' % len(hits)]
 +    print(NL.join(L))
 +
 +
@@ -5700,10 +6403,10 @@ index 00000000..a5099ce8
 +        sys.exit(2)
 diff --git a/tools/b716_worklist.py b/tools/b716_worklist.py
 new file mode 100644
-index 00000000..82641afe
+index 00000000..9fb0b2b0
 --- /dev/null
 +++ b/tools/b716_worklist.py
-@@ -0,0 +1,194 @@
+@@ -0,0 +1,199 @@
 +# -*- coding: utf-8 -*-
 +"""b716_worklist.py -- THE ACT'S DATA, UNDER (R326). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
 +
@@ -5780,7 +6483,7 @@ index 00000000..82641afe
 +PORT_BRANCH = 'port-b707'
 +PORT_TIP = 'cb0aea56354abb3abda3fdaef28429c6605605d5'   # ### port-b707's tip, b712's, unmoved this act
 +PORT_NEW_TIP = PORT_TIP
-+LV_TAG = 'v0.14.0'          # ### b715's tag ((R325)(3)(i), data/b715_lv_tag.txt), at PORT_TIP, read and not moved this act
++LV_TAG = 'v0.14.0'          # ### b714's tag ((R324)(3)(i), data/b714_lv_tag.txt), at PORT_TIP, read and not moved this act
 +LV_TAG_OBJECT = '0e7c3527c8ff693c34126b57d1b1587149e5371c'   # ### annotated, at PORT_TIP, no GitHub release (tier one)
 +LV_TAG_RULED = 'v0.11.0'
 +KERNEL = 'SIDE-lv-conservation'
@@ -5797,9 +6500,12 @@ index 00000000..82641afe
 +DATA_STANDING_V4 = 'data/standing_clauses_v4.txt'
 +DATA_STANDING = 'data/standing_clauses_v5.txt'
 +REPO_VISIBILITY = 'data/repo_visibility.txt'   # ### (R325)(2): the visibility map, the author's listing of 2026-10-26; (R326)(6) reads it
-+REGISTRATIONS = 'data/b712_registrations.txt'   # ### b713's registrations; the registrations moved to b716 ((R326)), read not written
-+REG_COMMIT = '67a023887360b74483803ed02c83ae44fdf88f0b'   # ### b712's registrations with the genus control, committed alone
-+PRICE = 'data/b712_price.txt'
++REGISTRATIONS = 'data/b716_registrations.txt'   # ### (R326)(4): the -39 registrations, committed alone at step zero, ahead of every other bank (N2)
++REG_COMMIT = 'dc5e808f9a2a95ffbe5b4d69b58e7fb216458c16'   # ### the registrations with their count control (data/b716_genus_control.*, its tool), the act's first commit
++REG_FILES = ('data/b716_registrations.txt', 'data/b716_genus_control.txt', 'data/b716_genus_control.json', 'tools/b716_genus_control.py')
++PRICE = 'data/b716_price.txt'
++PRICES_6 = ('data/b716_federation_pin_price.txt', 'data/b716_epstein_count_price.txt')   # ### (R326)(6): two prices, nothing built
++REG_B712 = '67a023887360b74483803ed02c83ae44fdf88f0b'   # ### b712's registrations with the genus control (b713's), read not written
 +REG_B710 = '41ff1193'        # ### data/b710_registrations.txt committed alone at b710's step zero (the refined law (i))
 +READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
 +              'data/b715_read_calls.txt', 'data/b716_read_calls.txt')
@@ -5814,18 +6520,18 @@ index 00000000..82641afe
 +SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 +CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md'   # ### (R326)(7): the census read; its rows the readfirst's
 +CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'    # ### (R326)(7): the next edition, on main, the chain's rows
-+PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', CENSUS_NEW)   # ### (R326)(1)-(2) the record lines; (7) the census at v0.8.2
++PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'day1/Silence_of_Foundations.md', 'ERRATA.md', 'day1/ONE_PAGE_PROOF.md',
++              'day1/Seven_Mechanism_Classes.md', 'day1/Spectral_Inertness.md')   # ### (R326)(1)-(2) the record lines; (5)(iii)-(iv) the keystone edits on main
 +RECUT_DOC = 'day1/Silence_of_Foundations.md'
 +RECUT_BRANCH = 'recut-b712-silence'
 +RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'   # ### b712's re-cut on RECUT_BRANCH
-+RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'      # ### b713's tip of RECUT_BRANCH, merged into main at b715 (a86c9429); the
-+#                                                             ### branch deleted at this act's step zero ((R326)(9))
++RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'      # ### b713's tip of RECUT_BRANCH, merged into main at b714 (a86c9429); the
++#                                                             ### branch deleted at b715's step zero ((R325)(9))
 +RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'
-+NEXT = ('b716, the registrations act: the carried items of (R326)(8) on the standing toolset -- the heads draft and the question of inline '
-+        'footings or a companion correspondence; the six lint hits; the 19 names with no pin; the SIDESystem finding at Silence :212 and :183; '
-+        'the composition law for the least negative index and its -39 registration; the residual; the rectangle certification of pair 7; the '
-+        'Sonin restriction\'s price and the law\'s identity reading')
-+NEXT_ACT = 'b716'
++NEXT = ('b717 ((R326)(10)): the computation at -39 under (4)`s commit (dc5e808f) where its price fits one act (data/b716_price.txt); the '
++        'author`s words on (5)(i)-(ii) applied (the heads draft II and III, the six lint hits); and the federation pin where (6)(i) prices it '
++        'within one act (data/b716_federation_pin_price.txt)')
++NEXT_ACT = 'b717'
 +
 +
 +def orders_naming(ot_text, act):
@@ -5857,38 +6563,40 @@ index 00000000..82641afe
 +# ### stage one (step zero): the commits made so far
 +ACT_CURRENT = 'data/act_current.json'   # ### (R326)(3)(ii): the act's figures, written at step zero and committed alone
 +STANDING_DIR = 'tools/standing'         # ### (R326)(3): the standing close toolset, versioned by tools/standing/VERSION
-+ACT_CURRENT_COMMIT = '7dee7cad186132e251444896866145a3e8567fed'   # ### data/act_current.json committed alone
-+STEPZERO = 'de51ac0f85b7e2795440d5f3082e2e475453253c'           # ### b715's closing push capture, committed alone at step zero ((R326)(9))
-+STEPZERO_STEPS = '140e6f01ff4079070bd5a71148e87d73bcd481af'     # ### b715's step row 18, committed alone
-+STEPZERO_HASHES = '0e8f8463c7ab75f33d5f4a45cb6f43eaa451f2f9'    # ### data/b715_bank_hashes.json, committed alone
-+STEPZERO_REFUSALS = '771306c9f036e1071173c067f6792e79b5adb6c3'  # ### data/b715_hook_refusals.txt as it stands, committed alone, beside event (10)
-+STEPZERO_BANKS = '8e5610f02709f3a34e8980c3c00a73f36fa2c608'     # ### the step-zero banks and tools, committed together by explicit list
++ACT_CURRENT_COMMIT = '060acae95b64180ba130e6cc57718676b9619e64'   # ### data/act_current.json committed alone
++STEPZERO = '94a9aa6d8f7d4e3eda2eb9fa3ea71ccb79228d3b'           # ### b715's closing push capture, committed alone at step zero ((R326)(7))
++STEPZERO_STEPS = '5a5cd6c0aa6c1c545a5a64d1f579052b8bcee93e'     # ### b715's step row 21, committed alone
++STEPZERO_HASHES = '8ee0101664d13f3807c23866ddf7e7fad5818b37'    # ### data/b715_bank_hashes.json, committed alone
++STEPZERO_REFUSALS = 'd6964db89ffc6efd296165caf558c073e1221c8a'  # ### data/b715_hook_refusals.txt as it stands, committed alone
++STEPZERO_REFUSALS_B714 = '211bdb3a63a34f54fd25ebb4b12c2c86f278c034'   # ### data/b714_hook_refusals.txt as it stands, committed alone
++STEPZERO_PREVBUILD = '0fbfbf9e1e257a2c6076d5f4e76715b40e47ff10'  # ### tools/mirror_prevbuild.json as b715's build left it, committed alone
++STEPZERO_BANKS = 'ee0dbf176b4a66f24f754e84e39b2785c0fad834'     # ### the step-zero banks and tools, committed together by explicit list
 +STANDING_COMMIT = ACT_CURRENT_COMMIT    # ### no standing clauses written this act (v5 b715's): the arms reading this name read the act's figures' commit
 +VISIBILITY_COMMIT = ACT_CURRENT_COMMIT  # ### no visibility map written this act (b715's)
-+COMPUTE_TOOLS = ()                      # ### no compute tool this act
-+REPAIRED_TOOLS = ('b303_pins.py', 'mirror_build.ps1')   # ### shared tools of earlier acts edited by ruling ((R326)(5)-(6); data/b716_tool_repairs.txt (C))
++COMPUTE_TOOLS = ()                      # ### no compute tool this act: nothing of -39 computed beyond its count control (N2)
++REPAIRED_TOOLS = ('mirror_verify.py',)  # ### the shared verifier, repaired by (R326)(3)(iii) (clause 3 through tools/standing/roster.py roster_at)
 +REPAIRED_DATA = ()
-+STANDING_FILES = ('VERSION', 'act.py', 'arms.py', 'close.py', 'components.py', 'controls.py', 'hook.py', 'repairs.py', 'replay.py', 'roster.py', 'scan.py')
-+NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### (R326)(3): the standing close toolset at v1.0.0, sealed by hash beside the act's tools
++STANDING_FILES = ('VERSION', 'act.py', 'allow.py', 'arms.py', 'close.py', 'components.py', 'controls.py', 'hook.py', 'repairs.py', 'replay.py',
++                  'rootbanks.py', 'roster.py', 'scan.py', 'words.py')
++NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### (R326)(3): the standing close toolset at v1.1.0, sealed by hash beside the act's tools
 +# ### b715's commits the act reads ((R326)(1))
-+B714_CLOSING = '1992a71c4670ac3118f383f1bbf0ef9e992fa15a'
-+B714_RECORD = 'ce2c846400284eee07c6451757727f2a5f9bc68f'
-+B714_ROOT = '242b06d6e9bcca81e1d86d02c089b829354df27b347e5ac7265c94979e66bd0b'
-+# ### stage two (Component 6, before the lock): the commits of the components, read from the logs after each was made
-+C1_RELAY = '7d8d3d98b93dbbc686046beb2faafe9c04e0d773'      # ### b715's weight line and the corrigendum's banks, the corrigenda row (35)
-+C1_PP = '2d9654b39eb3737fe1ab840f88b039c375bfd8c5'         # ### the weight line and the corrigendum entry (FINDINGS :10550, :10552)
-+C2_PREP = '93f32342d073e2c384a9398aff6d9407a0fea0e7'       # ### the measurement before the copy and the author's word (1)
-+C2_RELAY = 'cfee370b4b0ff29d3cf7e795515855372986abfb'      # ### (R326)(3): the standing toolset at v1.0.0, the scan, the replay, the coverage table
-+C3_RELAY = 'b3ff33ce00df176784f2e755cbd679469380f985'      # ### (R326)(4): the class repairs and their controls; the hook switched
-+C4_RELAY = '4660aea044eef1199130e16cb2c0f56952951c92'      # ### (R326)(5)-(6): the roster from main (the author's word (2)), the pins census
-+C5_RELAY = '2694cfef6ddb6ec54e0e8ae161ead6e8eb635e5d'      # ### (R326)(7): the chain rows' evidence and the census diff
-+C5_PP = '332710b83192b6cad9774e3cb549dd03463a0e84'         # ### (R326)(7): the census v0.8.2 on main
-+SEALED = ('b716_worklist.py', 'b716_tests.py', 'b716_citation.py', 'b716_record.py', 'b716_checks.py', 'b716_closing.py', 'b716_reg_gate.py',
-+          'b716_regspec.py', 'b716_corrigendum.py', 'b716_carry.py', 'b716_standing.py', 'b716_import_closure.py') + NEW_TOOLS + COMPUTE_TOOLS   # ### the report tool NOT sealed (data/b708_rules.txt row (1)); the toolset sealed by hash beside the act's tools ((R326) Component 6)
-+# ### the act's arms over its own banks (Component 6): b715's ritual arms carried, its arms over b715's objects (v5 written, the lv tag, the re-cut
-+# ### merged, the heads draft held, the law, the residual, the rectangle, the Sonin price, the pilot; b715's hook and repairs tools) replaced by
-+# ### arms over this act's (the act's figures, the toolset's scan and replay, the coverage table, the class repairs' controls, the standing hook,
-+# ### the roster from main, the pins census, the census rows)
++B714_CLOSING = 'cf51ee95d8d7d96ccd1e64a3e17b32b9103b2eb6'   # ### b715's closing, the act's relay base (the names kept for the carried arms: the previous act's)
++B714_RECORD = 'fdddea138375be1dc1bbcc0e6f8150ac17d643f6'
++B714_ROOT = 'c0e86c02b7c5a8a4a7d1be2f741ae2bc8f04fdede278e26ae1ddb588c10f5729'   # ### data/act_roots.txt :93
++# ### stage two (Component 5, before the lock): the commits of the components, read from the logs after each was made
++C1_RELAY = 'fb4e662ec6f5c68eadc7ee8a00f5400fe580009e'      # ### b715's weight line and the corrigendum's banks, the corrigenda row (36)
++C1_PP = '4320b719e3a061e32260bb386242471b87b787b9'         # ### the weight line and the corrigendum entry (FINDINGS :10616, :10618)
++C2_RELAY = '8e69db7139d55861873312481245a681c7330214'      # ### (R326)(3): the standing toolset at v1.1.0, its controls, the replay, the coverage table
++C3_PP = '29c175277eb985b0c4b47bb070b1351f5f08bafe'         # ### (R326)(5)(iii)-(iv): Silence :212, ERRATA E-2026-10-27-1, 8 pins in 4 files
++C3_RELAY = 'e4fd02f3151caa72d041f840ad81061d0fe295a2'      # ### (R326)(5)(iii)-(v): the keystone banks
++C4_RELAY = '170a08021fd7c4199d99f877b8eb345006935e4d'      # ### (R326)(4)(iv), (6): the three prices, nothing built
++PP_EDITED = ('day1/Silence_of_Foundations.md', 'ERRATA.md', 'day1/ONE_PAGE_PROOF.md', 'day1/Seven_Mechanism_Classes.md', 'day1/Spectral_Inertness.md')
++ERRATA_ID = 'E-2026-10-27-1'
++# ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
++# ### its VERSION), read here at import so the suite's arms and the seal read the one list
++SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b716_') and f.endswith('.py') and f != 'b716_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
++# ### the act's arms over its own banks: b715's ritual arms carried; its arms over b715's objects (the import closure, the roster from main, the
++# ### pins census, the census rows) replaced by arms over this act's (the registrations first, the keystone edits, the prices, nothing built)
 +ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED',
 +            'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
 +            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-LISTINGS-BEFORE-CLAUSES', 'G-PARTS-PRERUN',
@@ -5896,8 +6604,8 @@ index 00000000..82641afe
 +            'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
 +            'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE',
 +            'G-REPAIR-CONTROLS', 'G-MEMBRANE-WIRED', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-ACT-CURRENT', 'G-TOOLSET-SCAN',
-+            'G-TOOLSET-REPLAY', 'G-COVERAGE-TABLE', 'G-IMPORT-CLOSURE', 'G-ROSTER-FROM-MAIN', 'G-PINS-CENSUS', 'G-CENSUS-ROWS',
-+            'G-NO-DISPATCH')
++            'G-TOOLSET-REPLAY', 'G-COVERAGE-TABLE', 'G-NO-DISPATCH',
++            'G-REGISTRATIONS-FIRST', 'G-KEYSTONE-EDITS', 'G-PRICES-BANKED')
 diff --git a/tools/mirror_verify.py b/tools/mirror_verify.py
 index 45c85608..c1427b7a 100644
 --- a/tools/mirror_verify.py
@@ -6726,4 +7434,4 @@ index 45c85608..c1427b7a 100644
 +    return out
 +
 
-### ### **PAIRS 17 ; NOT FOUND 0  ; STANDING FILES 14 ; THE ACT`S CARRIED TOOLS EDITED 8 ; THE TOOLSET`S FILES CHANGED 10 (NEW 3).**
+### ### **PAIRS 17 ; NOT FOUND 0  ; STANDING FILES 14 ; THE ACT`S CARRIED TOOLS EDITED 12 ; THE TOOLSET`S FILES CHANGED 10 (NEW 3).**

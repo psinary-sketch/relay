@@ -74,7 +74,7 @@ LV_V0100 = '93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f'   # ### the deposit, untou
 PORT_BRANCH = 'port-b707'
 PORT_TIP = 'cb0aea56354abb3abda3fdaef28429c6605605d5'   # ### port-b707's tip, b712's, unmoved this act
 PORT_NEW_TIP = PORT_TIP
-LV_TAG = 'v0.14.0'          # ### b715's tag ((R325)(3)(i), data/b715_lv_tag.txt), at PORT_TIP, read and not moved this act
+LV_TAG = 'v0.14.0'          # ### b714's tag ((R324)(3)(i), data/b714_lv_tag.txt), at PORT_TIP, read and not moved this act
 LV_TAG_OBJECT = '0e7c3527c8ff693c34126b57d1b1587149e5371c'   # ### annotated, at PORT_TIP, no GitHub release (tier one)
 LV_TAG_RULED = 'v0.11.0'
 KERNEL = 'SIDE-lv-conservation'
@@ -91,9 +91,12 @@ DATA_STANDING_V3 = 'data/standing_clauses_v3.txt'
 DATA_STANDING_V4 = 'data/standing_clauses_v4.txt'
 DATA_STANDING = 'data/standing_clauses_v5.txt'
 REPO_VISIBILITY = 'data/repo_visibility.txt'   # ### (R325)(2): the visibility map, the author's listing of 2026-10-26; (R326)(6) reads it
-REGISTRATIONS = 'data/b712_registrations.txt'   # ### b713's registrations; the registrations moved to b716 ((R326)), read not written
-REG_COMMIT = '67a023887360b74483803ed02c83ae44fdf88f0b'   # ### b712's registrations with the genus control, committed alone
-PRICE = 'data/b712_price.txt'
+REGISTRATIONS = 'data/b716_registrations.txt'   # ### (R326)(4): the -39 registrations, committed alone at step zero, ahead of every other bank (N2)
+REG_COMMIT = 'dc5e808f9a2a95ffbe5b4d69b58e7fb216458c16'   # ### the registrations with their count control (data/b716_genus_control.*, its tool), the act's first commit
+REG_FILES = ('data/b716_registrations.txt', 'data/b716_genus_control.txt', 'data/b716_genus_control.json', 'tools/b716_genus_control.py')
+PRICE = 'data/b716_price.txt'
+PRICES_6 = ('data/b716_federation_pin_price.txt', 'data/b716_epstein_count_price.txt')   # ### (R326)(6): two prices, nothing built
+REG_B712 = '67a023887360b74483803ed02c83ae44fdf88f0b'   # ### b712's registrations with the genus control (b713's), read not written
 REG_B710 = '41ff1193'        # ### data/b710_registrations.txt committed alone at b710's step zero (the refined law (i))
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b715_read_calls.txt', 'data/b716_read_calls.txt')
@@ -108,18 +111,18 @@ STANDING_ADDED = ()          # ### N5: no standing arm added
 SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md'   # ### (R326)(7): the census read; its rows the readfirst's
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'    # ### (R326)(7): the next edition, on main, the chain's rows
-PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', CENSUS_NEW)   # ### (R326)(1)-(2) the record lines; (7) the census at v0.8.2
+PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'day1/Silence_of_Foundations.md', 'ERRATA.md', 'day1/ONE_PAGE_PROOF.md',
+              'day1/Seven_Mechanism_Classes.md', 'day1/Spectral_Inertness.md')   # ### (R326)(1)-(2) the record lines; (5)(iii)-(iv) the keystone edits on main
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
 RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'   # ### b712's re-cut on RECUT_BRANCH
-RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'      # ### b713's tip of RECUT_BRANCH, merged into main at b715 (a86c9429); the
-#                                                             ### branch deleted at this act's step zero ((R326)(9))
+RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'      # ### b713's tip of RECUT_BRANCH, merged into main at b714 (a86c9429); the
+#                                                             ### branch deleted at b715's step zero ((R325)(9))
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'
-NEXT = ('b716, the registrations act: the carried items of (R326)(8) on the standing toolset -- the heads draft and the question of inline '
-        'footings or a companion correspondence; the six lint hits; the 19 names with no pin; the SIDESystem finding at Silence :212 and :183; '
-        'the composition law for the least negative index and its -39 registration; the residual; the rectangle certification of pair 7; the '
-        'Sonin restriction\'s price and the law\'s identity reading')
-NEXT_ACT = 'b716'
+NEXT = ('b717 ((R326)(10)): the computation at -39 under (4)`s commit (dc5e808f) where its price fits one act (data/b716_price.txt); the '
+        'author`s words on (5)(i)-(ii) applied (the heads draft II and III, the six lint hits); and the federation pin where (6)(i) prices it '
+        'within one act (data/b716_federation_pin_price.txt)')
+NEXT_ACT = 'b717'
 
 
 def orders_naming(ot_text, act):
@@ -151,38 +154,40 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
 # ### stage one (step zero): the commits made so far
 ACT_CURRENT = 'data/act_current.json'   # ### (R326)(3)(ii): the act's figures, written at step zero and committed alone
 STANDING_DIR = 'tools/standing'         # ### (R326)(3): the standing close toolset, versioned by tools/standing/VERSION
-ACT_CURRENT_COMMIT = '7dee7cad186132e251444896866145a3e8567fed'   # ### data/act_current.json committed alone
-STEPZERO = 'de51ac0f85b7e2795440d5f3082e2e475453253c'           # ### b715's closing push capture, committed alone at step zero ((R326)(9))
-STEPZERO_STEPS = '140e6f01ff4079070bd5a71148e87d73bcd481af'     # ### b715's step row 18, committed alone
-STEPZERO_HASHES = '0e8f8463c7ab75f33d5f4a45cb6f43eaa451f2f9'    # ### data/b715_bank_hashes.json, committed alone
-STEPZERO_REFUSALS = '771306c9f036e1071173c067f6792e79b5adb6c3'  # ### data/b715_hook_refusals.txt as it stands, committed alone, beside event (10)
-STEPZERO_BANKS = '8e5610f02709f3a34e8980c3c00a73f36fa2c608'     # ### the step-zero banks and tools, committed together by explicit list
+ACT_CURRENT_COMMIT = '060acae95b64180ba130e6cc57718676b9619e64'   # ### data/act_current.json committed alone
+STEPZERO = '94a9aa6d8f7d4e3eda2eb9fa3ea71ccb79228d3b'           # ### b715's closing push capture, committed alone at step zero ((R326)(7))
+STEPZERO_STEPS = '5a5cd6c0aa6c1c545a5a64d1f579052b8bcee93e'     # ### b715's step row 21, committed alone
+STEPZERO_HASHES = '8ee0101664d13f3807c23866ddf7e7fad5818b37'    # ### data/b715_bank_hashes.json, committed alone
+STEPZERO_REFUSALS = 'd6964db89ffc6efd296165caf558c073e1221c8a'  # ### data/b715_hook_refusals.txt as it stands, committed alone
+STEPZERO_REFUSALS_B714 = '211bdb3a63a34f54fd25ebb4b12c2c86f278c034'   # ### data/b714_hook_refusals.txt as it stands, committed alone
+STEPZERO_PREVBUILD = '0fbfbf9e1e257a2c6076d5f4e76715b40e47ff10'  # ### tools/mirror_prevbuild.json as b715's build left it, committed alone
+STEPZERO_BANKS = 'ee0dbf176b4a66f24f754e84e39b2785c0fad834'     # ### the step-zero banks and tools, committed together by explicit list
 STANDING_COMMIT = ACT_CURRENT_COMMIT    # ### no standing clauses written this act (v5 b715's): the arms reading this name read the act's figures' commit
 VISIBILITY_COMMIT = ACT_CURRENT_COMMIT  # ### no visibility map written this act (b715's)
-COMPUTE_TOOLS = ()                      # ### no compute tool this act
-REPAIRED_TOOLS = ('b303_pins.py', 'mirror_build.ps1')   # ### shared tools of earlier acts edited by ruling ((R326)(5)-(6); data/b716_tool_repairs.txt (C))
+COMPUTE_TOOLS = ()                      # ### no compute tool this act: nothing of -39 computed beyond its count control (N2)
+REPAIRED_TOOLS = ('mirror_verify.py',)  # ### the shared verifier, repaired by (R326)(3)(iii) (clause 3 through tools/standing/roster.py roster_at)
 REPAIRED_DATA = ()
-STANDING_FILES = ('VERSION', 'act.py', 'arms.py', 'close.py', 'components.py', 'controls.py', 'hook.py', 'repairs.py', 'replay.py', 'roster.py', 'scan.py')
-NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### (R326)(3): the standing close toolset at v1.0.0, sealed by hash beside the act's tools
+STANDING_FILES = ('VERSION', 'act.py', 'allow.py', 'arms.py', 'close.py', 'components.py', 'controls.py', 'hook.py', 'repairs.py', 'replay.py',
+                  'rootbanks.py', 'roster.py', 'scan.py', 'words.py')
+NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### (R326)(3): the standing close toolset at v1.1.0, sealed by hash beside the act's tools
 # ### b715's commits the act reads ((R326)(1))
-B714_CLOSING = '1992a71c4670ac3118f383f1bbf0ef9e992fa15a'
-B714_RECORD = 'ce2c846400284eee07c6451757727f2a5f9bc68f'
-B714_ROOT = '242b06d6e9bcca81e1d86d02c089b829354df27b347e5ac7265c94979e66bd0b'
-# ### stage two (Component 6, before the lock): the commits of the components, read from the logs after each was made
-C1_RELAY = '7d8d3d98b93dbbc686046beb2faafe9c04e0d773'      # ### b715's weight line and the corrigendum's banks, the corrigenda row (35)
-C1_PP = '2d9654b39eb3737fe1ab840f88b039c375bfd8c5'         # ### the weight line and the corrigendum entry (FINDINGS :10550, :10552)
-C2_PREP = '93f32342d073e2c384a9398aff6d9407a0fea0e7'       # ### the measurement before the copy and the author's word (1)
-C2_RELAY = 'cfee370b4b0ff29d3cf7e795515855372986abfb'      # ### (R326)(3): the standing toolset at v1.0.0, the scan, the replay, the coverage table
-C3_RELAY = 'b3ff33ce00df176784f2e755cbd679469380f985'      # ### (R326)(4): the class repairs and their controls; the hook switched
-C4_RELAY = '4660aea044eef1199130e16cb2c0f56952951c92'      # ### (R326)(5)-(6): the roster from main (the author's word (2)), the pins census
-C5_RELAY = '2694cfef6ddb6ec54e0e8ae161ead6e8eb635e5d'      # ### (R326)(7): the chain rows' evidence and the census diff
-C5_PP = '332710b83192b6cad9774e3cb549dd03463a0e84'         # ### (R326)(7): the census v0.8.2 on main
-SEALED = ('b716_worklist.py', 'b716_tests.py', 'b716_citation.py', 'b716_record.py', 'b716_checks.py', 'b716_closing.py', 'b716_reg_gate.py',
-          'b716_regspec.py', 'b716_corrigendum.py', 'b716_carry.py', 'b716_standing.py', 'b716_import_closure.py') + NEW_TOOLS + COMPUTE_TOOLS   # ### the report tool NOT sealed (data/b708_rules.txt row (1)); the toolset sealed by hash beside the act's tools ((R326) Component 6)
-# ### the act's arms over its own banks (Component 6): b715's ritual arms carried, its arms over b715's objects (v5 written, the lv tag, the re-cut
-# ### merged, the heads draft held, the law, the residual, the rectangle, the Sonin price, the pilot; b715's hook and repairs tools) replaced by
-# ### arms over this act's (the act's figures, the toolset's scan and replay, the coverage table, the class repairs' controls, the standing hook,
-# ### the roster from main, the pins census, the census rows)
+B714_CLOSING = 'cf51ee95d8d7d96ccd1e64a3e17b32b9103b2eb6'   # ### b715's closing, the act's relay base (the names kept for the carried arms: the previous act's)
+B714_RECORD = 'fdddea138375be1dc1bbcc0e6f8150ac17d643f6'
+B714_ROOT = 'c0e86c02b7c5a8a4a7d1be2f741ae2bc8f04fdede278e26ae1ddb588c10f5729'   # ### data/act_roots.txt :93
+# ### stage two (Component 5, before the lock): the commits of the components, read from the logs after each was made
+C1_RELAY = 'fb4e662ec6f5c68eadc7ee8a00f5400fe580009e'      # ### b715's weight line and the corrigendum's banks, the corrigenda row (36)
+C1_PP = '4320b719e3a061e32260bb386242471b87b787b9'         # ### the weight line and the corrigendum entry (FINDINGS :10616, :10618)
+C2_RELAY = '8e69db7139d55861873312481245a681c7330214'      # ### (R326)(3): the standing toolset at v1.1.0, its controls, the replay, the coverage table
+C3_PP = '29c175277eb985b0c4b47bb070b1351f5f08bafe'         # ### (R326)(5)(iii)-(iv): Silence :212, ERRATA E-2026-10-27-1, 8 pins in 4 files
+C3_RELAY = 'e4fd02f3151caa72d041f840ad81061d0fe295a2'      # ### (R326)(5)(iii)-(v): the keystone banks
+C4_RELAY = '170a08021fd7c4199d99f877b8eb345006935e4d'      # ### (R326)(4)(iv), (6): the three prices, nothing built
+PP_EDITED = ('day1/Silence_of_Foundations.md', 'ERRATA.md', 'day1/ONE_PAGE_PROOF.md', 'day1/Seven_Mechanism_Classes.md', 'day1/Spectral_Inertness.md')
+ERRATA_ID = 'E-2026-10-27-1'
+# ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
+# ### its VERSION), read here at import so the suite's arms and the seal read the one list
+SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b716_') and f.endswith('.py') and f != 'b716_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
+# ### the act's arms over its own banks: b715's ritual arms carried; its arms over b715's objects (the import closure, the roster from main, the
+# ### pins census, the census rows) replaced by arms over this act's (the registrations first, the keystone edits, the prices, nothing built)
 ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED',
             'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
             'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-LISTINGS-BEFORE-CLAUSES', 'G-PARTS-PRERUN',
@@ -190,5 +195,5 @@ ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKE
             'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
             'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE',
             'G-REPAIR-CONTROLS', 'G-MEMBRANE-WIRED', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-ACT-CURRENT', 'G-TOOLSET-SCAN',
-            'G-TOOLSET-REPLAY', 'G-COVERAGE-TABLE', 'G-IMPORT-CLOSURE', 'G-ROSTER-FROM-MAIN', 'G-PINS-CENSUS', 'G-CENSUS-ROWS',
-            'G-NO-DISPATCH')
+            'G-TOOLSET-REPLAY', 'G-COVERAGE-TABLE', 'G-NO-DISPATCH',
+            'G-REGISTRATIONS-FIRST', 'G-KEYSTONE-EDITS', 'G-PRICES-BANKED')
