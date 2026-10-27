@@ -1010,8 +1010,8 @@ def ksyms(*a):
 
 
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R326)(1)
-WH = ('*Appended 2026-10-26 by b716 to b715’s entry (:10512), under `(R326)`(1) -- b715 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
-      'data/b715_closing.txt):*')   # ### b716: b715's entry at :10512 (K.B711_ENTRY) and the act's date; the carry left b713's entry line (:10440)
+WH = ('*Appended 2026-10-27 by b716 to b715’s entry (:10582), under `(R326)`(1) -- b715 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b715_closing.txt):*')   # ### b716: b715's entry at :10582 (K.B711_ENTRY) and the act's date; the carry left b714's entry line (:10512)
 
 
 def _fig(text, pat, what):
@@ -1185,6 +1185,74 @@ def _wb_carried713():
 
 
 def _wb():
+    """b715's weight line under (R326)(1), in the clause's order, every figure read from b715's banks by row, or from b715's closing commit
+    for the toolset (Component 2 of this act moves tools/standing/ to v1.1.0 in the working tree), and cited by its line: the head from
+    its closing :1, the record's and the closing's commits from its step bank; the toolset's version, its files and its scan; the coverage
+    table's STANDING count; the replay's figure and its two findings; the seal's withheld field; the roster from main with the census
+    editions joined; the verification NOT CLEAN; the pins census's rows, visibility, hard failures and upstream revs; the suite pre-push and
+    post-push; the root; the events by their starting lines and the defects with their owners. Written whole at b716: the carried `_wb`
+    (below, renamed _wb_carried714, not called) composed b714's objects -- the lv tag, the re-cut, the pilot -- from banks b715 wrote of other
+    things, the class (R325)(2)'s added item named."""
+    head = rdn('b715_closing.txt').split(NL)[0]
+    st = jl('b715_steps.json').get('rows') or []
+    rec = [r for r in st if r.get('phase') == 'record' and r.get('repo') == 'relay']
+    clo = [r for r in st if r.get('phase') == 'closing']
+    if len(rec) != 1 or len(clo) != 1:
+        sys.exit('### data/b715_steps.json CARRIES %d RELAY RECORD ROWS AND %d CLOSING ROWS, NOT ONE EACH -- NOTHING COMPOSED' % (len(rec), len(clo)))
+    cc = clo[0]['commit']
+    ver = g(ROOT, 'show', '%s:tools/standing/VERSION' % cc).strip()
+    nfiles = len([x for x in g(ROOT, 'ls-tree', '--name-only', cc, 'tools/standing/').split(NL) if x.strip()])
+    _x, lscan = _fl('b715_standing_scan.txt', r'LITERALS IN THE CODE 0', 'the scan`s figure')
+    (nst, stp), lcov = _fl('b715_toolset_coverage.txt', r'STEPS 25 ; STANDING (\d+) \((\[\d+\])\)', 'the coverage table`s STANDING count')
+    _x, lcore = _fl('b715_toolset_coverage.txt', r'AT \[3\], \[7\], \[8\], \[17\], \[20\], \[25\]', 'the core`s steps')
+    (nobj, neq, ndf), lrp = _fl('b715_replay.txt', r'OBJECTS (\d+) ; EQUAL (\d+) ; DIFFERS (\d+)', 'the replay`s figure')
+    _x, lf1 = _fl('b715_replay.txt', r'^  F-1 \[b714, b713 ; object \(5\)\] THE SEAL', 'F-1')
+    _x, lf2 = _fl('b715_replay.txt', r'^  F-2 \[b713 ; object \(6\)\]', 'F-2')
+    wh = jl('b715_seal_hashes.json').get('withheld')
+    if wh != []:
+        sys.exit('### data/b715_seal_hashes.json WITHHELD %r, NOT EMPTY -- NOTHING COMPOSED' % (wh,))
+    _x, lro = _fl('b715_roster.txt', r'THE_KEYSTONE_CENSUS_v0_8_1\.md', 'the census v0.8.1 joined to the roster')
+    _x, lro0 = _fl('b715_roster.txt', r'THE_KEYSTONE_CENSUS_v0_8\.md', 'the census v0.8 joined to the roster')
+    _x, lmv = _fl('b715_mirror_verify.txt', r'NOT CLEAN', 'the verification NOT CLEAN')
+    pc = rdn('b715_pins_census.txt').split(NL)
+    allrows = [l for l in pc if l.startswith('--- ')]
+    npub = sum(1 for l in allrows if 'visibility PUBLIC' in l)
+    nprv = sum(1 for l in allrows if 'visibility PRIVATE' in l)
+    _x, lhf = _fl('b715_pins_census.txt', r'^\s*### REPOS HARD-FAILING : 0\s*$', 'the census`s hard failures')
+    revs = [i for i, l in enumerate(pc, 1) if l.strip().startswith('MATHLIB UPSTREAM PIN')]
+    suite = r'^\s*%s : ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\. ### LIVE FAILING : (\d+) .*### WITHHELD, NOT EXERCISABLE : (\d+) \.'
+    (n_post, p_post, f_post, w_post), lpost = _fl('b715_closing.txt', suite % 'post-push', 'the post-push suite')
+    (n_pre, p_pre, f_pre, w_pre), lpre = _fl('b715_closing.txt', suite % 'pre-push', 'the pre-push suite')
+    ar = jl('b715_act_root.json')
+    if not ar.get('root') or not ar.get('previous'):
+        sys.exit('### data/b715_act_root.json CARRIES NO ROOT -- NOTHING COMPOSED')
+    short = _defect_short('b715')
+    owners = re.findall(r"^    \(([a-z])\) (THE SEAT'S|THE NAVIGATOR'S):", rdn('b715_defects.txt'), re.M)
+    nav = [x for x, o in owners if o == "THE NAVIGATOR'S"]
+    if len(owners) != len(short) or len(short) != 17 or nav != ['d']:
+        sys.exit('### data/b715_defects.txt OWNERS %s BESIDE %d DEFECTS -- NOTHING COMPOSED' % (owners, len(short)))
+    evl = [i for i, l in enumerate(rdn('b715_events.txt').split(NL), 1) if re.match(r'^\(\d+\) ', l)]
+    if len(evl) != 11:
+        sys.exit('### data/b715_events.txt READS %d STARTING LINES, NOT THE RULING`S ELEVEN -- NOTHING COMPOSED' % len(evl))
+    return (' “%s” (data/b715_closing.txt :1); its relay commit the record’s %s, the closing’s %s (data/b715_steps.json, the record and '
+            'closing rows). As the banks confirm by row: tools/standing/ at %s, %d files, at the closing’s commit, its code carrying 0 act '
+            'literals (data/b715_standing_scan.txt :%d); the coverage table at %s of 25 steps STANDING (%s), the core’s functions called inside '
+            '[3], [7], [8], [17], [20], [25] (data/b715_toolset_coverage.txt :%s); the replay over b714 and b713 at %s of %s objects EQUAL, '
+            '%s DIFFERS, the old tool’s F-2 (:%d), and F-1 the seal’s recorded head (:%d) (data/b715_replay.txt :%d); the seal’s withheld field '
+            'empty, G-RULE-LONG-PHASE-SPLIT sealed by the part-bank repair (data/b715_seal_hashes.json); the mirror’s roster from main by '
+            'family, the census v0.8 and v0.8.1 joined (data/b715_roster.txt :%d, :%d), its verification NOT CLEAN at clause 3 by the '
+            'verifier’s base roster (data/b715_mirror_verify.txt :%d; event (10)); the pins census at %d repositories, %d PUBLIC and %d '
+            'PRIVATE, 0 hard failures (data/b715_pins_census.txt :%d), upstream Mathlib at %d revs read per kernel (:%d-:%d); the suite %s of %s '
+            'pre-push and %s of %s post-push, %s withheld (data/b715_closing.txt :%d, :%d); the root %s chained from %s (data/b715_act_root.json); '
+            '%d events in data/b715_events.txt by their starting lines (:%s); %d defects (a)–(%s), (%s) the navigator’s, the rest the seat’s '
+            '(data/b715_defects.txt). Nothing deposited, nothing published.' % (
+                head, rec[0]['commit'][:8], cc[:8], ver, nfiles, lscan, nst, stp, ('%d' % lcov) if lcov == lcore else ('%d, :%d' % (lcov, lcore)), neq, nobj, ndf, lf2, lf1, lrp, lro0, lro, lmv,
+                len(allrows), npub, nprv, lhf, len(revs), revs[0] if revs else 0, revs[-1] if revs else 0, p_pre, n_pre, p_post, n_post,
+                w_post, lpre, lpost, ar['root'][:8], ar['previous'][:8], len(evl), ', :'.join(str(i) for i in evl), len(short),
+                _letter(short[-1]) if short else '-', nav[0]))
+
+
+def _wb_carried714():
     """b715's weight line under (R326)(1), in the clause's order, every figure read from b715's banks by row and cited by its line: the head
     from its closing :1 and the closing's commit from its step bank; the suite post-push and pre-push with its one withheld arm; that arm's
     defect (p); the lv tag; the re-cut's merge and its additive check; the heads draft held; the pilot's (P1), (P2) and (P3), the chain's rows
@@ -1256,9 +1324,9 @@ def c1(*a):
     data/b716_record_lines.json. `c1 dry` prints the line and writes nothing."""
     dry = 'dry' in a
     land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B711_ENTRY,
-         check=[('FINDINGS.md', K.B711_ENTRY, '## The lv port tagged v0.14.0 and Silence_of_Foundations merged'),
-                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b715 — lane two, act one hundred and forty')],
-         dry=dry)   # ### b716: the needles b715's entry and trail (the carried needles named b712's entry and b715's trail head form)
+         check=[('FINDINGS.md', K.B711_ENTRY, '## The standing close toolset at v1.0.0, replaying b713 and b714'),
+                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b715 — lane two, act one hundred and forty-two, the toolset act')],
+         dry=dry)   # ### b716: the needles b715's entry (:10582) and trail (:16006); the carried needles named b714's entry and trail
 
 
 # ================================================================================ COMPONENT 1: THE FACES LEDGER HEAD, (R326)(2)(ii)

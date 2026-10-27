@@ -34,10 +34,10 @@ TABLE_FILES = ['terminal_table.md', 'terminal_table.json', 'terminal_table_prior
 CITATION_BANK = 'b716_citation_check.txt'
 
 # ### the ledger lines of the previous act (the carried tools' B711_* names read the previous act's lines)
-B711_ENTRY = 10512          # ### FINDINGS: b715's entry head
-B711_WEIGHT = 10474         # ### FINDINGS: b713's weight line (b715's Component 1)
-B711_CORRIGENDUM = 10476    # ### FINDINGS: b715's corrigendum for b713
-B711_TRAIL = 15962          # ### OPEN_TRAILS: b715's trail record
+B711_ENTRY = 10582          # ### FINDINGS: b715's entry head (b716's Component 1 reads :10582; the carry left b714's :10512)
+B711_WEIGHT = 10550         # ### FINDINGS: b714's weight line (b715's Component 1)
+B711_CORRIGENDUM = 10552    # ### FINDINGS: b715's corrigendum for b714 (data/b675_corrigenda.txt row (35))
+B711_TRAIL = 16006          # ### OPEN_TRAILS: b715's trail record (the carry left b714's :15962)
 B711_FACE = 'data/b715_registration_2026-10-26.txt'
 MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-10-26-b715.zip'   # ### b715's export, CLEAN on all three clauses over 70 files
 ORDER_LV_JOIN = 15452       # ### OPEN_TRAILS: W-ORD-LV-CLOSURE-JOIN (b702)
