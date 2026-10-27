@@ -13,10 +13,17 @@ Extracted, not imported (the author's word (1)(a) of the toolset act). Provenanc
   neg_shown          tools/b714_checks.py neg_shown (:1766-:1792), its three lists returned by name (the class repair (4)(vi))
   letters_of         tools/b714_record.py letters_of (:245) and tools/b703_record.py read_defect_row (:90)
   seal_record        tools/b714_checks.py seal (:1800-:1840), the record's fields rebuilt from the banks at the seal's commit
+v1.1.0 (the class repair (3)(ii) of the registrations act; event (1) of the toolset act, F-1's class):
+  seal_guard         a sealed tool whose working bytes differ from its blob at HEAD refused before the seal hashes
+  seal_head          the first commit carrying every sealed sha256 (the replay of a seal)
+  sealed_list        the act's sealed tools: tools/<act>_*.py but its report tool (sealed after the root's word, b707's), and tools/standing/
+  seal_write         step [8] of the close, the seal, run by the core: tools/b715_checks.py seal (:1792-:1832) with its act constants removed,
+                     the guard first and the head it records the commit that carries what it hashed
 """
 import collections
 import json
 import os
+import time
 import re
 import sys
 
@@ -47,12 +54,16 @@ def ls_remote_main(repo):
 
 
 def mains_from_steps(act):
-    """each repository's main as the close read it: the step bank's last row before the closing's (the record's commit), by repository."""
-    out = {}
+    """each repository's main as the close read it: the step bank's latest row by commit time before the closing's (the record's commit),
+    by repository. v1.1.0: by commit time, not by position -- a row appended late for an earlier commit (the toolset act's row 20, a
+    component 2 commit banked after its root) is not the main the close read."""
+    out, ct = {}, {}
     for r in A.steps(act):
         if r.get('phase') == 'closing':
             break
-        out[r.get('repo')] = r.get('commit')
+        k = r.get('repo')
+        if k not in ct or (r.get('ct') or 0) >= ct[k]:
+            out[k], ct[k] = r.get('commit'), r.get('ct') or 0
     return out
 
 
@@ -256,3 +267,112 @@ def seal_record(act, parts, rev, defects_rev, withheld_spec):
     got = dict(tools=tools, tools_at_head=at_head, letters=letters_of(dtext), defects_sha256=A.sha256_bytes(dtext.encode('utf-8')), neg_shown=len(ns.shown),
                bad=ns.bad, withheld=[dict(arm=n, reason=w) for n, w in ns.withheld], prev_run=prev_run)
     return got, rec
+
+
+# ======================================================================== THE SEAL COMMITS WHAT IT HASHES (the class repair (3)(ii))
+def seal_guard(tools, rev='HEAD', read=None, at_rev=None):
+    """the seal's guard before it hashes: each sealed tool (a path under relay tools/) whose bytes in the working tree differ from its blob
+    at `rev` (the commit the seal will record, HEAD) is refused -- a tool edited after its last commit is committed in the seal's own step
+    before the seal hashes, so the head the seal records carries every byte it hashed. `read` (path -> bytes) and `at_rev` (path -> bytes
+    or None) may be passed for a constructed control. Returns dict(ok, refused [(tool, reason)], head)."""
+    def _read(t):
+        p = os.path.join(A.T, *t.split('/'))
+        if not os.path.isfile(p):
+            return None
+        with open(p, 'rb') as f:
+            return f.read()
+    read = read or _read
+    at_rev = at_rev or (lambda t: A.blob(rev, 'tools/' + t))
+    refused = []
+    for t in tools:
+        w, c = read(t), at_rev(t)
+        if w is None:
+            refused.append((t, 'absent in the working tree'))
+        elif c is None:
+            refused.append((t, 'not committed at %s' % rev))
+        elif A.sha256_bytes(w) != A.sha256_bytes(c):
+            refused.append((t, 'edited after its last commit: working %s, at %s %s' % (A.sha256_bytes(w)[:16], rev, A.sha256_bytes(c)[:16])))
+    head = A.gs('relay', 'rev-parse', rev) if not refused else None
+    return dict(ok=not refused, refused=refused, head=head)
+
+
+def seal_head(hashes, commits):
+    """the first commit of `commits` (in order) whose blobs carry every sealed tool's sha256 in `hashes` ({tool: sha256}): the head a seal
+    that commits what it hashes records. None where no commit carries them all."""
+    for c in commits:
+        if all((lambda b: b is not None and A.sha256_bytes(b) == h)(A.blob(c, 'tools/' + t)) for t, h in hashes.items()):
+            return c
+    return None
+
+
+def sealed_list(act, names=None):
+    """the tools an act's seal hashes, by rule: tools/<act>_*.py but the act's report tool (sealed only after the root's word), and every
+    file of tools/standing/. `names` (paths relative to tools/) may be passed, for the replay of a seal at a commit."""
+    if names is None:
+        names = [f for f in os.listdir(A.T) if f.endswith('.py')] + ['standing/' + f for f in os.listdir(os.path.join(A.T, 'standing'))
+                                                                    if f.endswith('.py') or f == 'VERSION']
+    own = [n for n in names if re.match(r'^%s_\w+\.py$' % re.escape(act), n) and n != '%s_report.py' % act]
+    std = [n for n in names if re.match(r'^standing/(\w+\.py|VERSION)$', n)]
+    return sorted(own + std)
+
+
+def lock_of(act, date):
+    """the lock's time on the act's registration face (data/<act>_registration_<date>.txt, its "locked at (UTC)" line), or None."""
+    m = re.search(r'locked at \(UTC\)\s*:\s*(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)', A.rd('%s_registration_%s.txt' % (act, date)))
+    return m.group(1) if m else None
+
+
+def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
+    """step [8], the seal: refused where the face is not locked, the record exists, a sealed tool is edited after its last commit (the
+    guard), an arm is without its NEG control shown failing, or a part's run on the previous act's banks is not banked; else the record
+    written once, data/<act>_seal_hashes.json, its relay head the guard's (HEAD, which carries every byte hashed). Returns (code, lines)."""
+    L, p = [], os.path.join(A.D, '%s_seal_hashes.json' % act)
+    lock = lock_of(act, date)
+    if lock is None:
+        return 3, ['### THE FACE IS NOT LOCKED -- NOTHING RECORDED']
+    if os.path.exists(p):
+        return 3, ['### THE HASHES ARE RECORDED ALREADY -- NOTHING RECORDED TWICE']
+    tools = sealed_list(act)
+    g = seal_guard(tools)
+    if not g['ok']:
+        return 3, ['### THE SEAL`S GUARD: %d SEALED TOOL(S) NOT AS COMMITTED AT HEAD -- COMMIT THEM IN THE SEAL`S STEP; NOTHING RECORDED' % len(g['refused'])] + [
+            '  %-38s %s' % (t, w) for t, w in g['refused']]
+    banks = exercise_banks(act, parts)
+    arms = arms_of(banks, parts)
+    ns = neg_shown(arms, banks, withheld_entries(withheld_spec))
+    aparts = sorted(set(q for _n, q in arms))
+    missing = [q for q in aparts if A.jl('%s_prevrun_exercise_%s.json' % (act, q)).get('mode') != 'prev']
+    L += ['  WITHHELD, NOT EXERCISABLE: %-46s %s' % (n, w) for n, w in ns.withheld]
+    if ns.bad or missing:
+        return 3, L + ['### %d OF %d ARMS WITHOUT THEIR NEG CONTROL SHOWN FAILING ON A MUTATED COPY IN THE PRE-RUN:' % (len(ns.bad), len(arms))] + [
+            '  %-46s %s' % (n, w) for n, w in ns.bad] + ['### THE PARTS WHOSE ARMS ARE NOT RUN ON %s`S BANKS BEFORE THE SEAL: %s' % (prev, missing or 'NONE'),
+                                                         '### ### **THE SEAL REFUSED -- NOTHING RECORDED.**']
+    dtext = A.rd('%s_defects.txt' % act)
+    now = dict((t, A.sha256_file(os.path.join(A.T, *t.split('/')))) for t in tools)
+    prev_run = dict((q, dict((k, len(v)) for k, v in A.jl('%s_prevrun_exercise_%s.json' % (act, q)).items() if k in PREV_KEYS)) for q in aparts)
+    j = dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), lock=lock, tools=now, relay_head=g['head'], letters=letters_of(dtext),
+             defects_sha256=A.sha256_bytes(dtext.encode('utf-8')), neg_shown=len(ns.shown), withheld=[dict(arm=n, reason=w) for n, w in ns.withheld],
+             prev_run=prev_run)
+    if write:
+        with open(p + '.tmp', 'wb') as fh:
+            fh.write((json.dumps(j, indent=1, ensure_ascii=False) + NL).encode('utf-8'))
+        os.replace(p + '.tmp', p)
+    L += ['  %-38s %s' % (t, now[t]) for t in tools]
+    L += ['  the letters entered before the seal %d: %s' % (len(j['letters']), ', '.join(s[:3] for s in j['letters']) or 'NONE'),
+          '  the arms with their NEG control shown failing %d of %d ; withheld, not exercisable, %d (%s) ; the runs on %s`s banks %s' % (
+              len(ns.shown), len(arms), len(ns.withheld), ', '.join(n for n, _w in ns.withheld) or 'NONE', prev, prev_run),
+          '  the relay head recorded %s (the guard`s: every sealed byte committed there)' % g['head'],
+          '  %s: %s' % ('written' if write else 'dry, not written', os.path.basename(p))]
+    return 0, L
+
+
+def main(route):
+    """`seal` writes the act's seal record (step [8]); `dry` runs every refusal and prints, writing nothing."""
+    cur = A.current()
+    code, L = seal_write(cur['act'], cur['parts'], cur['date'], cur.get('withheld'), cur.get('prev'), write=(route == 'seal'))
+    print(NL.join(L))
+    return code
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'dry'))

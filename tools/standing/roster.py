@@ -48,9 +48,22 @@ def base():
         return [norm(p) for p in json.load(f)['files']]
 
 
-def main_tree():
-    out = A.gs('pp', 'ls-tree', '-r', '--name-only', 'main') or ''
+def main_tree(rev='main'):
+    """PLACE-papers' tree at `rev` (main, or the source head a build declared), its paths."""
+    out = A.gs('pp', 'ls-tree', '-r', '--name-only', rev) or ''
     return [p for p in out.split(NL) if p.strip()]
+
+
+def roster_at(rev='main'):
+    """the roster the builder reads, from the base roster's families and PLACE-papers' tree at `rev` (the class repair (3)(iii): the
+    mirror's verifier reads this roster, at the source head the build's MANIFEST declares, not the base roster alone)."""
+    return resolve(base(), main_tree(rev))[0]
+
+
+def build_joins(act):
+    """the joins an act's mirror build printed (data/<act>_mirror_build.json `out`, its JOINS rows) and the source head it built from."""
+    j = A.jl('%s_mirror_build.json' % act)
+    return re.findall(r'^  JOINS (\S+)', j.get('out') or '', re.M), j.get('pp_head')
 
 
 def resolve(b, tree):
@@ -109,8 +122,12 @@ def control_lines():
         out.append('  %-11s %s : got %s ; wanted %s ; %s' % (kind, what, got, want, 'AS WANTED' if got == want else '### NOT AS WANTED'))
     r, joins, leaves, nj = resolve(b, tree)
     census = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md'
-    case('RECORD', 'main`s tree: the joins', [j[0] for j in joins],
-         ['phase2/method/THE_KEYSTONE_CENSUS_v0_8.md', census])
+    # ### v1.1.0: the record's joins read from the previous act's build bank at the source head it built from (v1.0.0 wrote the two joins
+    # ### of its own act's main into the case, and main has gained an edition since)
+    prev = A.prev_of(A.current()['act'])
+    bj, bhead = build_joins(prev)
+    case('RECORD', '%s`s build at its source head: the joins as its build printed them' % prev,
+         ([j[0] for j in resolve(b, main_tree(bhead))[1]] if bhead else None), bj)
     case('RECORD', 'main`s tree: the census v0.8.1 and day1/Silence_of_Foundations.md in the roster', (census in r, 'day1/Silence_of_Foundations.md' in r), (True, True))
     case('RECORD', 'main`s tree: leaves ; families before and after', (len(leaves), len(set(family(p) for p in b)), len(set(family(p) for p in r))),
          (0, len(set(family(p) for p in b)), len(set(family(p) for p in b))))

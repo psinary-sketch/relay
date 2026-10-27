@@ -1,0 +1,48 @@
+b716 -- THE STANDING TOOLSET'S COVERAGE TABLE AT v1.1.0 (2026-10-27), rewritten under (R326)(3) (data/b716_ferry.txt :12-:19) from b715's at v1.0.0 (data/b715_toolset_coverage.txt)
+
+### rows are the steps of the close in the standing clauses v5 order (data/standing_clauses_v5.txt :188, row (79), [1]-[25]), each:
+### the step | STANDING (the core runs it) or PER-ACT (b715's lineage, carried as b716's) | the module it lives in | the repair of (R326)(3)
+### that reaches it, and whether it moves the step. b716 runs each step as this table marks it; the replay (data/b716_replay.txt) is the proof.
+### Outside the 25 steps and STANDING: the hook (tools/standing/hook.py), the scan (scan.py), the replay (replay.py), the controls
+### (controls.py), the repairs bank (repairs.py), the roster (roster.py, the builder's and now the verifier's), the allowances (allow.py),
+### the words (words.py) and the root's required banks (rootbanks.py).
+
+  [1]  the four standing figures                               | PER-ACT  | tools/b716_standing.py
+  [2]  the root route's dry run, READY True                    | PER-ACT  | tools/b716_record.py rootdry ; (3)(vi) reaches it: the suite's import reads its required banks against the root's exclusion by tools/standing/rootbanks.py guard -- not moved
+  [3]  the closing tool's dry run, its head line                | PER-ACT  | tools/b716_closing.py ; its head line from tools/standing/close.py head_line, mains_from_steps by commit time (the core's fault the replay found at b715 (1), repaired) -- not moved
+  [4]  the score routes' dry form                              | PER-ACT  | tools/b716_record.py scores
+  [5]  the gate                                                | PER-ACT  | tools/b716_reg_gate.py
+  [6]  the lock                                                | PER-ACT  | tools/b378_lockgate.py (shared by name, run with the act's argument)
+  [7]  the suite's pre-run in seven parts and its combined bank | PER-ACT  | tools/b716_checks.py ; (3)(i) reaches it: G-DELETES-ONE-BRANCH and G-ANSWERS-BEFORE-WRITES read their allowances from the ruling and the words by tools/standing/allow.py ; (3)(vi): the import guard by rootbanks.py -- not moved
+  [8]  the seal, its NEG controls shown failing                | STANDING | tools/standing/close.py seal (seal_write: the guard first, seal_guard refusing a sealed tool not as committed at HEAD; the record's head the commit that carries every byte hashed; sealed_list by rule, equal to b715's 23 at its seal commit) -- MOVED by (3)(ii)
+  [9]  the scores, written once                                | PER-ACT  | tools/b716_record.py scores
+  [10] the root's prompt and the answers bank                  | PER-ACT  | tools/b716_citation.py answer ; (3)(iv) reaches it: every word read by its "## (n)" head through tools/standing/words.py -- not moved
+  [11] the standing report's bank                              | PER-ACT  | tools/b716_report.py
+  [12] the FINDINGS entry, pushed                              | PER-ACT  | tools/b716_record.py findings ; (3)(v) reaches it: a word after the sealed composition printed beside its clause by words.py beside -- not moved
+  [13] the final table                                         | PER-ACT  | tools/b716_record.py table_final
+  [14] the root                                                | PER-ACT  | tools/b716_record.py root (tools/act_root.py, shared)
+  [15] the trail carrying the root                             | PER-ACT  | tools/b716_record.py trail ; (3)(v) as at [12] -- not moved
+  [16] the desk                                                | PER-ACT  | tools/b716_record.py desk
+  [17] the pre-push suite in seven parts                       | PER-ACT  | tools/b716_checks.py ; (3)(i) and (3)(vi) as at [7] -- not moved
+  [18] the components bank                                     | STANDING | tools/standing/components.py bank (v1.0.0's; composed at a commit for the replay, the core's fault found at b715 (6), repaired)
+  [19] the record commit and its pushes, captured              | PER-ACT  | tools/b716_record.py push routes and push_gated
+  [20] the post-push suite in seven parts                      | PER-ACT  | tools/b716_checks.py ; (3)(i) and (3)(vi) as at [7] -- not moved
+  [21] the events bank                                         | PER-ACT  | the Edit tool, read by tools/b716_closing.py events_section
+  [22] scores close                                            | PER-ACT  | tools/b716_record.py scores (its close form)
+  [23] the mirror after the root                               | PER-ACT  | tools/b716_record.py mbuild, mroot, mverify, mbank ; (3)(iii) reaches it: the verifier (tools/mirror_verify.py, shared) reads the builder's roster, tools/standing/roster.py roster_at at the MANIFEST's declared head -- not moved
+  [24] the standing report's scores line                       | PER-ACT  | tools/b716_report.py
+  [25] the closing and its push                                | PER-ACT  | tools/b716_closing.py ; its head line as at [3]
+
+### THE STEPS EACH REPAIR MOVES: (3)(i) none ([7], [17], [20] reached) ; (3)(ii) [8] ; (3)(iii) none ([23] reached) ; (3)(iv) none ([10]
+### reached) ; (3)(v) none ([12], [15] reached) ; (3)(vi) none ([2], [7], [17], [20] reached). The class repairs land inside the per-act
+### steps they govern; only the seal is a step the core now runs whole.
+### THE CONTROLS: data/b716_standing_controls.txt, CASES 37, AS WANTED 37, each repair with both instances ; the roster's,
+### data/b716_roster.txt, 7 of 7 ; the scan, data/b716_standing_scan.txt, literals in the code 0 ; the verifier over b715's export
+### (D:/MY-DOwnloads/mirror-refresh-2026-10-26-b715.zip, run 05:42Z from PLACE-papers): clause 1 CLEAN (73 files, 73 rows), clause 3 CLEAN
+### (the roster read at 4ff9e8a40eca, 73 and 73, 0 missing, 0 extra; NOT CLEAN at b715's event (10)), clause 2 NOT CLEAN as the build is
+### stale against main 4320b719 (moved by this act's Component 1) -- the verdict NOT CLEAN on clause 2 alone.
+### THE REPLAY: data/b716_replay.txt over b715, b714 and b713, OBJECTS 18, EQUAL 17, DIFFERS 1 (b713 (6), F-2, the old tool's) ; the two
+### DIFFERS of b715 the first run printed ((1) the head line, relay 93f32342 for fdddea13; (6) components 2 and 6 with rows 19 and 20) named
+### the core's and repaired in close.py and components.py (data/b716_tool_repairs.txt (D)).
+
+### ### **STEPS 25 ; STANDING 2 ([8], [18]) BESIDE v1.0.0'S 1 ([18]) ; PER-ACT 23 ; MOVED BY THIS VERSION 1 ([8], BY (3)(ii)) ; VERSION v1.1.0.**

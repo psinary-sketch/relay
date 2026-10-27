@@ -39,6 +39,12 @@ import act as A   # noqa: E402
 S = os.path.dirname(os.path.abspath(__file__))
 NL = '\n'
 PAIR = re.compile(r'^\s*PAIR (\S+) (\S+)\s+\| (\S+) (\S+)\s*$', re.M)
+# v1.1.0's repairs by file, the ruling's (3)(i)-(vi)
+REPAIR_OF = {'allow.py': '(3)(i)', 'close.py': '(3)(ii) (seal_guard, seal_head, sealed_list, seal_write: step [8] run by the core); the core`s '
+             'fault the replay found at the previous act`s (1), mains_from_steps by commit time', 'roster.py': '(3)(iii)', 'words.py': '(3)(iv), (3)(v)',
+             'rootbanks.py': '(3)(vi)', 'components.py': 'the core`s fault the replay found at the previous act`s (6): composed at a commit',
+             'replay.py': 'the replay over the ruling`s three acts; the components composed at the commit first carrying the bank',
+             'controls.py': 'the controls of (3)(i)-(vi); v1.0.0`s cases read the act that minted them', 'repairs.py': 'section (D)', 'VERSION': 'v1.1.0'}
 SETTINGS = 'D:/.claude/settings.json'
 
 
@@ -71,7 +77,8 @@ def lines():
     L = ['%s -- THE TOOL REPAIRS, EVERY CHANGE BY DIFF: THE STANDING TOOLSET AT %s AND THE ACT`S EDITS (%s)' % (
         act, ver, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
          '### sections: (A) each standing function against its source, unified diff (--- the source, +++ the standing copy); (B) the standing',
-         '### files with no source, whole as additions; (C) the act`s edits to its carried tools (git diff against HEAD) and to the hook`s settings.',
+         '### files with no source, whole as additions; (C) the act`s edits to its carried tools (git diff against HEAD) and to the hook`s settings;',
+         '### (D) the toolset`s own repairs since the previous act`s close, file by file.',
          '### Written by tools/standing/repairs.py from its provenance table.', '']
     L.append('## (A) THE EXTRACTION')
     covered, n_pairs, missing = set(), 0, []
@@ -103,9 +110,27 @@ def lines():
     L += (out.split(NL) if out else ['  none'])
     L += ['', '### the hook`s settings %s, read now: the hook`s command line' % SETTINGS]
     L += ['  ' + l.strip() for l in A.rd_path(SETTINGS).split(NL) if 'hook' in l and '.py' in l]
-    L += ['', '### ### **PAIRS %d ; NOT FOUND %d %s ; STANDING FILES %d ; THE ACT`S CARRIED TOOLS EDITED %d.**' % (
+    # ### v1.1.0: (D) the toolset's own repairs since the version the previous act closed on, file by file against its blob at the act's
+    # ### starting relay head (data/act_current.json `pre_relay`); a file new since then is whole as an addition
+    pre = cur.get('pre_relay')
+    L += ['', '## (D) THE TOOLSET`S REPAIRS SINCE THE PREVIOUS ACT`S CLOSE (tools/standing/ against its blobs at the act`s starting relay head %s, '
+          'the working tree; --- the head`s, +++ now)' % (pre or '-')[:8]]
+    changed = []
+    for f in sorted(os.listdir(S)):
+        if not (f.endswith('.py') or f == 'VERSION'):
+            continue
+        b0 = A.blob(pre, 'tools/standing/' + f) if pre else None
+        a0 = '' if b0 is None else b0.decode('utf-8', 'replace').replace('\r', '')
+        b1 = A.rd_path(os.path.join(S, f))
+        if a0 == b1:
+            continue
+        d = list(difflib.unified_diff(a0.split(NL) if a0 else [], b1.split(NL), 'tools/standing/%s at %s' % (f, (pre or '-')[:8]),
+                                      'tools/standing/%s now' % f, lineterm='', n=1))
+        changed.append((f, b0 is None))
+        L += ['', '### tools/standing/%s : %s, diff %d lines, repair %s' % (f, 'NEW' if b0 is None else 'EDITED', len(d), REPAIR_OF.get(f, '-'))] + d
+    L += ['', '### ### **PAIRS %d ; NOT FOUND %d %s ; STANDING FILES %d ; THE ACT`S CARRIED TOOLS EDITED %d ; THE TOOLSET`S FILES CHANGED %d (NEW %d).**' % (
         n_pairs, len(missing), missing or '', len([f for f in os.listdir(S) if f.endswith('.py') or f == 'VERSION']),
-        len(re.findall(r'^diff --git', out, re.M)))]
+        len(re.findall(r'^diff --git', out, re.M)), len(changed), sum(1 for _f, n in changed if n))]
     return L, act, not missing
 
 

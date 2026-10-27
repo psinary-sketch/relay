@@ -68,6 +68,12 @@ HEAD = re.compile(r'@\s*`?([0-9a-f]{7,40})`?')
 # ###     CLEAN CLAUSE 3, and no clause here checks the roster against the author's
 # ###     intent, because no instrument can.
 ROSTER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'mirror_roster.json')
+# ### b716, (R326)(3)(iii): THE VERIFIER READS THE BUILDER'S ROSTER. Since b715 the builder reads its roster from PLACE-papers main by family
+# ### (tools/standing/roster.py, the rule of data/b715_rules.txt (1)); this clause read tools/mirror_roster.json, the base roster, alone, and
+# ### read b715's export NOT CLEAN at clause 3 by the three editions the builder joined (b715's event (10)). main() now reads the roster the
+# ### builder read: tools/standing/roster.py roster_at(<the MANIFEST's declared source head>). The base roster's route stays for a path
+# ### passed in (roster_path) and as the families' source.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'standing'))
 
 
 def staged_names(paths):
@@ -87,19 +93,25 @@ def staged_names(paths):
     return out
 
 
-def clause3(names, roster_path=None):
+def clause3(names, roster_path=None, paths=None, source=None):
     rp = roster_path or ROSTER
     msg = []
-    if not os.path.exists(rp):
+    if paths is not None:
+        # ### b716: the roster's paths passed in, the builder's (read from main by family at the declared source head)
+        paths = list(paths)
+        msg.append("  roster read : %s" % (source or 'the paths passed in'))
+    elif not os.path.exists(rp):
         msg.append("  ### CLAUSE 3 : HARD FAILURE -- ROSTER NOT FOUND at %s" % rp)
         msg.append("  ### A verification with no roster is not a verification.")
         return False, msg
-    try:
-        doc = json.loads(io.open(rp, encoding='utf-8-sig').read())
-        paths = list(doc.get('files') or [])
-    except Exception as e:
-        msg.append("  ### CLAUSE 3 : HARD FAILURE -- ROSTER UNREADABLE (%s)" % e)
-        return False, msg
+    else:
+        try:
+            doc = json.loads(io.open(rp, encoding='utf-8-sig').read())
+            paths = list(doc.get('files') or [])
+        except Exception as e:
+            msg.append("  ### CLAUSE 3 : HARD FAILURE -- ROSTER UNREADABLE (%s)" % e)
+            return False, msg
+        msg.append("  roster read : %s" % rp)
     if not paths:
         # ### THE ZERO CASE. b167 had to add an empty-scope hard failure to
         # ### banned_terms.py; b179's hook cleared an EMPTY staged set on its first
@@ -190,7 +202,15 @@ def main(zpath, remote, branch='main'):
 
     # ---------------- CLAUSE 3 (b183) ----------------
     print("\n--- CLAUSE 3: THE ARCHIVE'S CONTENTS AGAINST THE ROSTER ---")
-    c3, rmsg = clause3(names)
+    # ### b716, (R326)(3)(iii): the builder's roster, read from main by family at the MANIFEST's declared source head
+    import roster as SR
+    full = SR.A.gs('pp', 'rev-parse', '--verify', '--quiet', declared + '^{commit}')
+    if not full:
+        print("  ### CLAUSE 3 : HARD FAILURE -- THE DECLARED SOURCE HEAD %s IS NOT A COMMIT OF PLACE-papers" % declared)
+        c3, rmsg = False, []
+    else:
+        c3, rmsg = clause3(names, paths=SR.roster_at(full),
+                           source='the builder`s roster, tools/standing/roster.py roster_at(%s), PLACE-papers by family' % full[:12])
     for line in rmsg:
         print(line)
 

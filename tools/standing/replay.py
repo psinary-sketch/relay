@@ -120,8 +120,13 @@ def replay_act(act, cur):
     if 'prev_run' in srec and got['prev_run'] != srec.get('prev_run'):
         out.append('        prev_run banked : %s' % json.dumps(srec.get('prev_run'), sort_keys=True))
     # (6) the components bank
-    comp = CO.composed(act, spec.get('components') or [], spec.get('ruling'))
+    # v1.1.0: composed from the banks as they stood at the commit that first carries the components bank (rows appended to the step bank
+    # after it, the toolset act's rows 19 and 20, are not the composer's input)
+    added = (A.gs('relay', 'log', '--diff-filter=A', '--format=%H', closing_rev or 'HEAD', '--', 'data/%s_components.txt' % act) or '').split(NL)
+    crev = added[-1].strip() if added and added[-1].strip() else None
+    comp = CO.composed(act, spec.get('components') or [], spec.get('ruling'), rev=crev)
     bank = A.rd('%s_components.txt' % act, closing_rev).rstrip(NL).split(NL)
+    out.append('        the components bank first carried at %s ; composed from the banks as they stood there' % (crev or '-')[:8])
     gl, bl = [l for l in comp if l.startswith('### ')], [l for l in bank if l.startswith('### ')]
     same = [verdict(x, y) for x, y in zip(gl, bl)]
     ok6 = len(gl) == len(bl) and all(s == 'EQUAL' for s in same)
@@ -137,16 +142,18 @@ def replay_act(act, cur):
 def lines():
     cur = A.current()
     act = cur['act']
-    prev = A.prev_of(act)
-    pprev = A.prev_of(prev)
-    L = ['%s -- THE REPLAY CONTROL OF THE STANDING TOOLSET AT %s, OVER %s AND %s (%s)' % (
-        act, A.rd_path(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'VERSION')).strip(), prev, pprev,
+    # ### v1.1.0: the acts replayed are those the ruling's replay field specifies (data/act_current.json `replay`), the chain's acts among
+    # ### them, newest first; v1.0.0 read the previous act and the one before it alone
+    chain = [r[0] for r in A.chain()]
+    acts = sorted((a for a in (cur.get('replay') or {}) if a in chain), key=chain.index, reverse=True)
+    L = ['%s -- THE REPLAY CONTROL OF THE STANDING TOOLSET AT %s, OVER %s (%s)' % (
+        act, A.rd_path(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'VERSION')).strip(), ', '.join(acts),
         time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
         '### rows are the objects of the author`s word (1)(c), per act: (1) the head line, (2) the suite`s tally, (3) the withheld field,',
         '### (4) neg_shown`s three lists, (5) the seal`s record, (6) the components bank, each EQUAL or DIFFERS with both sides printed.',
         '### Written by tools/standing/replay.py; it writes nothing else.', '']
     tot = []
-    for a in (prev, pprev):
+    for a in acts:
         o, f = replay_act(a, cur)
         L += o + ['']
         tot += [(a, k, ok) for k, ok in f]

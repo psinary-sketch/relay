@@ -1,0 +1,61 @@
+b716 -- THE CLASS REPAIRS` CONTROLS OF THE STANDING TOOLSET, TWO INSTANCES EACH (2026-10-27T05:47:33Z)
+
+### rows are cases: the repair, the instance (RECORD or CONSTRUCTED), what is read, the figure got, the figure wanted, AS WANTED.
+### Written by tools/standing/controls.py; (4)(iii)`s control is tools/standing/hook.py`s.
+### v1.0.0`s cases (i)-(vi) read the record of the act that minted them, b715 (its previous acts b714 and b713); v1.1.0`s (3i)-(3vi) read b715`s.
+
+  (i) RECORD      b713`s 7 part banks against its root`s sha256: read, refused, longest phase (s) : got (7, 0, True) ; wanted (7, 0, True) ; AS WANTED
+        b713`s longest pre-run phase 344 s ; refused none
+  (i) RECORD      b714`s part banks, the figure this act`s G-RULE-LONG-PHASE-SPLIT reads: read, refused : got (7, 0) ; wanted (7, 0) ; AS WANTED
+        b714`s longest pre-run phase 335 s, over 7 parts (the arm`s plant sets 500 s and one part: it can fail)
+  (i) CONSTRUCTED one part bank`s bytes altered (data/b713_arms_prerun_standing-a.txt): refused, the rest read : got (['data/b713_arms_prerun_standing-a.txt'], 6) ; wanted (['data/b713_arms_prerun_standing-a.txt'], 6) ; AS WANTED
+  (i) RECORD      the old route: b713`s combined pre-run bank (never written) gives longest phase : got 0 ; wanted 0 ; AS WANTED
+  (ii) RECORD      b714`s field at its seal: shown, unshown, withheld : got (140, 0, ['G-RULE-LONG-PHASE-SPLIT']) ; wanted (140, 0, ['G-RULE-LONG-PHASE-SPLIT']) ; AS WANTED
+  (ii) CONSTRUCTED the list emptied: the arm unshown, the seal refuses (unshown names) : got ['G-RULE-LONG-PHASE-SPLIT'] ; wanted ['G-RULE-LONG-PHASE-SPLIT'] ; AS WANTED
+  (ii) CONSTRUCTED a second entry for G-RECEIPT-IN-FULL, whose mutated copy fails: it stays shown, not withheld : got (True, False) ; wanted (True, False) ; AS WANTED
+  (ii) CONSTRUCTED the condition`s file present: the entry not withheld, the arm unshown : got ([], ['G-RULE-LONG-PHASE-SPLIT']) ; wanted ([], ['G-RULE-LONG-PHASE-SPLIT']) ; AS WANTED
+  (ii) RECORD      this act`s field read from the ruling (data/act_current.json `withheld`) : got [] ; wanted [] ; AS WANTED
+  (iv) RECORD      b714`s components bank rebuilt: lines equal / lines ; the finding naming a difference : got (8, 8, []) ; wanted (8, 8, []) ; AS WANTED
+  (iv) RECORD      b713`s components bank rebuilt: lines equal / lines ; the finding naming a difference : got (0, 7, ['F-2']) ; wanted (0, 7, ['F-2']) ; AS WANTED
+  (iv) CONSTRUCTED this act`s components composed from the ruling`s field (one line per component) : got 7 ; wanted 7 ; AS WANTED
+  (v) RECORD      the delete words over tools/standing/`s code : got 0 ; wanted 0 ; AS WANTED
+  (v) RECORD      the same words over b714`s tools` code (its delete-call defect): tools hit : got True ; wanted True ; AS WANTED
+        b714`s tools with a delete word in their code: ['b714_repairs.py']
+  (v) CONSTRUCTED the planted source`s delete found : got 1 ; wanted 1 ; AS WANTED
+  (v) CONSTRUCTED the controls` scratch (C:\Users\ECHOCH~1\AppData\Local\Temp) outside relay data/ and tools/ : got False ; wanted False ; AS WANTED
+  (vi) RECORD      b714`s repairctl caller (shown, bad = CK.neg_shown()) run on a three-list return : got True ; wanted True ; AS WANTED
+        raised: ValueError: too many values to unpack (expected 2)
+  (vi) CONSTRUCTED the standing caller over b714`s banks at its seal: shown, unshown, withheld, by name : got (140, 0, 1) ; wanted (140, 0, 1) ; AS WANTED
+  (vi) CONSTRUCTED the standing caller over b714`s banks as they stand (the post-push modes): no arm shown, every arm unshown : got (0, True) ; wanted (0, True) ; AS WANTED
+
+### THE CLASS REPAIRS OF v1.1.0 (b716`s ruling R326, its (3)), read over b715`s banks (the record) and constructed:
+  (3i) RECORD      b715`s step-zero deletes (data/b715_stepzero.txt) against its ruling`s delete clauses: deletes, allowed, outside : got (6, 6, []) ; wanted (6, 6, []) ; AS WANTED
+        the ruling`s delete names ['push-b714-entry', 'push-b714-preroot', 'push-b714-record', 'push-b714-closing', 'recut-b712-silence'] ; kept ['port-b707'] ; the deletes [('relay', 'push-b714-closing'), ('relay', 'push-b714-preroot'), ('relay', 'push-b714-record'), ('PLACE-papers', 'push-b714-entry'), ('PLACE-papers', 'push-b714-record'), ('PLACE-papers', 'recut-b712-silence')]
+  (3i) RECORD      b715`s event (7): the two push branches deleted outside its ruling`s list, refused : got (['push-b715-entry', 'push-b715-preroot'], 2) ; wanted (['push-b715-entry', 'push-b715-preroot'], 2) ; AS WANTED
+  (3i) CONSTRUCTED a seventh delete, a branch the ruling does not name: refused : got ['push-b716-planted'] ; wanted ['push-b716-planted'] ; AS WANTED
+  (3i) RECORD      b715`s prompts (data/b715_author_answers.txt) against the ruling`s root prompt and the banked words: prompts, allowed, unbanked : got (4, 4, []) ; wanted (4, 4, []) ; AS WANTED
+  (3i) CONSTRUCTED a fifth prompt with no banked word: refused : got ['Unbanked'] ; wanted ['Unbanked'] ; AS WANTED
+  (3ii) RECORD      b715`s seal replayed: the head that carries every byte it hashed is its seal commit, not the head it recorded : got ('4e4c4759', True, False) ; wanted ('4e4c4759', True, False) ; AS WANTED
+        the recorded head c5370fca ; the commits read in order ['5ae0ea91', 'c5370fca', '4e4c4759']
+  (3ii) RECORD      b715`s 23 sealed bytes (its seal commit`s blobs, each equal to its sha256) guarded at the head it recorded: refused ; at its seal commit: passed, the head 4e4c4759 : got (True, True, True, '4e4c4759') ; wanted (True, True, True, '4e4c4759') ; AS WANTED
+        refused at the recorded head c5370fca: ['b715_checks.py', 'b715_closing.py']
+  (3ii) RECORD      the sealed list by rule (step [8] run by the core) over the tools at b715`s seal commit: equal to the list it sealed : got True ; wanted True ; AS WANTED
+  (3ii) CONSTRUCTED the core`s seal route on an act whose face carries no lock: refused, nothing recorded : got (3, '### THE FACE IS NOT LOCKED -- ') ; wanted (3, '### THE FACE IS NOT LOCKED -- ') ; AS WANTED
+  (3ii) CONSTRUCTED a tool edited after its last commit (b715_carry.py): refused at the seal, no head recorded : got (['b715_carry.py'], None) ; wanted (['b715_carry.py'], None) ; AS WANTED
+  (3iii) RECORD      b715`s export at clause 3: the builder`s roster from main at its source head CLEAN ; the base roster alone (the old route) : got (True, False) ; wanted (True, False) ; AS WANTED
+  (3iii) CONSTRUCTED the same export with a file the roster lacks: NOT CLEAN : got False ; wanted False ; AS WANTED
+  (3iv) RECORD      b715`s answers bank: words read by the repaired route, the old matcher`s count (a word after `="` alone), words read back by their heads, refused : got (4, 3, 4, [], True) ; wanted (4, 3, 4, [], True) ; AS WANTED
+  (3iv) CONSTRUCTED a malformed head: refused with its line : got [(4, '## (2 a malformed head')] ; wanted [(4, '## (2 a malformed head')] ; AS WANTED
+  (3v) RECORD      b715`s words after its seal (2026-10-27T02:55:58Z): the root word alone, printed beside each of the two clauses : got (1, True, 2) ; wanted (1, True, 2) ; AS WANTED
+        THE CLAUSE (composed 2026-10-27T02:55:58Z): the entry`s **Carried to:** line, composed by b715`s sealed record tool
+            THE AUTHOR`S WORD RECEIVED AFTER IT (2026-10-27T03:04:30.425Z, transcript line 9309): Carry the toolset as marked, and rule on Mathlib now: per-kernel pins as printed.(a) The toolset: b716 runs each close step as data/b715_toolset_coverage.txt marks it. F-1 and F-2 stand as the old tools’ findings, not copied forward.(b) Mathlib: each kernel’s pin is the revision its own lake-manifes
+        THE CLAUSE (composed 2026-10-27T02:55:58Z): the trail`s two clauses, composed by b715`s sealed record tool
+            THE AUTHOR`S WORD RECEIVED AFTER IT (2026-10-27T03:04:30.425Z, transcript line 9309): Carry the toolset as marked, and rule on Mathlib now: per-kernel pins as printed.(a) The toolset: b716 runs each close step as data/b715_toolset_coverage.txt marks it. F-1 and F-2 stand as the old tools’ findings, not copied forward.(b) Mathlib: each kernel’s pin is the revision its own lake-manifes
+  (3v) CONSTRUCTED a composition after every word: none printed ; before every word: all printed : got (0, 4) ; wanted (0, 4) ; AS WANTED
+  (3vi) RECORD      b715`s required chain_ banks read by its root (named among its items) : got (True, True) ; wanted (True, True) ; AS WANTED
+        the required chain_ banks ['data/b715_chain_rows.txt']
+  (3vi) CONSTRUCTED the narrowed kind chain_half_ passes ; the planted overlap (the carried wide kind chain_) refused at import, naming the bank : got (True, True) ; wanted (True, True) ; AS WANTED
+
+### per repair: (3i) record True constructed True as wanted True ; (3ii) record True constructed True as wanted True ; (3iii) record True constructed True as wanted True ; (3iv) record True constructed True as wanted True ; (3v) record True constructed True as wanted True ; (3vi) record True constructed True as wanted True ; (i) record True constructed True as wanted True ; (ii) record True constructed True as wanted True ; (iv) record True constructed True as wanted True ; (v) record True constructed True as wanted True ; (vi) record True constructed True as wanted True
+
+### ### **CASES 37 ; AS WANTED 37 ; REPAIRS 11, EACH WITH BOTH INSTANCES True ; ALL AS WANTED True.**

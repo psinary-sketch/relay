@@ -38,13 +38,14 @@ def title_of(c):
     return 'COMPONENT %d' % c['n'] if isinstance(c.get('n'), int) else c['title']
 
 
-def composed(act, components, ruling=None):
+def composed(act, components, ruling=None, rev=None):
     """the components bank's lines: each component's commits from the act's step bank by its phases, the banks they carry, each N and S
     reading placed on the first component whose banks its reading names (the rest on the last component's), and the last component's
-    entry, root and trail lines."""
-    rows = A.steps(act)
-    sc = A.jl('%s_scores.json' % act)
-    fj, tj, rj = A.jl('%s_findings.json' % act), A.jl('%s_trail.json' % act), A.jl('%s_act_root.json' % act)
+    entry, root and trail lines. `rev` (v1.1.0): the banks as they stood at a commit (the replay's: the commit that first carries the
+    components bank), else now."""
+    rows = A.steps(act, rev)
+    sc = A.jl('%s_scores.json' % act, rev)
+    fj, tj, rj = A.jl('%s_findings.json' % act, rev), A.jl('%s_trail.json' % act, rev), A.jl('%s_act_root.json' % act, rev)
     comp = []
     for c in components:
         name, phases = title_of(c), tuple(c.get('phases') or ())
