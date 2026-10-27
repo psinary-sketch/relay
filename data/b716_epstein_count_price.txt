@@ -1,0 +1,152 @@
+b716 -- (R326)(6)(ii): W-ORD-EPSTEIN-COUNT-LEAN, PRICED; NOTHING BUILT, NO LEAN PROCESS, NO DISPATCH (2026-10-27T06:08:43Z)
+
+### rows: (1) the count priced; (2) what the proof needs, piece by piece; (3) what Mathlib supplies at the target rev, read from its
+### sources on this host; (4) what would be built; (5) the dispatches and hours (THE SEAT`S); (6) the grade the result would carry, in
+### the census`s own vocabulary. Written by tools/b716_epstein_price.py.
+
+## (1) THE COUNT PRICED
+  Q0 = x^2 + xy + 6y^2, D = 23 (b711`s and b709`s form; data/b713_list.txt :11 counts b711`s band "at DQ = 23"). THE BAND:
+  data/b709_pairs.txt :20, [160.0, 170.0], N 15, on-line 15, off-line 0, COMPLETE -- b667`s half path over [1/2, 2.0] x [160, 170],
+  doubled by Lambda_Q0`s symmetry (data/b713_list.txt :3-:7 for the route`s form). Chosen as the band whose whole count is on the line:
+  N = on-line, so the argument-principle count (an upper reading) and the 15 sign changes of Z_Q0 (a lower reading) close with no
+  off-line rectangle -- the least proof a certified band count admits.
+
+## (2) WHAT THE PROOF NEEDS
+  (a) THE ARGUMENT PRINCIPLE on a rectangle: for f holomorphic on a neighbourhood of a closed rectangle R and nonzero on its boundary,
+      the zeros in R counted with multiplicity equal (1/2 pi i) times the boundary integral of f`/f -- or its discrete form: the change of
+      arg f along the boundary, read from finitely many boundary points with a bound on |f - f(z_k)| below |f(z_k)| on each segment.
+  (b) Lambda_Q0 IN LEAN: the Epstein zeta of Q0, its continuation and its functional equation Lambda_Q0(s) = Lambda_Q0(1 - s); h(-23) = 3,
+      so Q0`s zeta is not a product of Dirichlet L-functions -- it is reached by the Mellin transform of Q0`s theta function or by the
+      Chowla-Selberg expansion (zeta(2s), Gamma(s - 1/2)/Gamma(s) zeta(2s - 1), a K-Bessel series -- b667`s engine`s route).
+  (c) INTERVAL BOUNDS ON Z_Q0: certified enclosures of Lambda_Q0 at every boundary point of the discrete argument count and at the 16
+      points bracketing the 15 sign changes; each enclosure from explicit truncation bounds on the expansion of (b), checked in the kernel.
+  (d) THE BAND`S EDGES: the horizontal edges t = 160 and t = 170 and the right edge Re s = 2.0, each with Lambda_Q0 nonzero on it (from
+      (c)); the left edge Re s = 1/2 handled by the half path (the symmetry of (b)); the reading N = 15 then the sum (a) gives.
+
+## (3) WHAT MATHLIB SUPPLIES AT THE TARGET REV
+  the checkout: D:/SIDE-explicit-formula/.lake/packages/mathlib HEAD de5ce8a9a66a ; the target de5ce8a9a66a ; AT THE TARGET True ; its tracked tree CLEAN ; Mathlib/*.lean files 8312 ; declarations read 238080
+  A1 Cauchy on a rectangle (the boundary integral)                declarations    6   (name pattern integral_boundary_rect)
+       theorem  Complex.integral_boundary_rect_of_hasFDerivAt_real_off_countable  Mathlib/Analysis/Complex/CauchyIntegral.lean :186
+       theorem  Complex.integral_boundary_rect_of_continuousOn_of_hasFDerivAt_real  Mathlib/Analysis/Complex/CauchyIntegral.lean :230
+       theorem  Complex.integral_boundary_rect_of_differentiableOn_real  Mathlib/Analysis/Complex/CauchyIntegral.lean :247
+       theorem  Complex.integral_boundary_rect_eq_zero_of_differentiable_on_off_countable  Mathlib/Analysis/Complex/CauchyIntegral.lean :266
+       theorem  Complex.integral_boundary_rect_eq_zero_of_continuousOn_of_differentiableOn  Mathlib/Analysis/Complex/CauchyIntegral.lean :282
+  A2 residues, winding numbers, an argument principle by name     declarations   37   (name pattern (?i)residue|winding|argumentPrinciple|argument_principle; path ^Mathlib/(Analysis|MeasureTheory|NumberTheory/LSeries|Topology)/; the name matched outside it 194)
+       lemma    Complex.Gammaℝ_residue_zero  Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean :102
+       lemma    Nat.sumByResidueClasses  Mathlib/Analysis/SumOverResidueClass.lean :106
+       theorem  WeakFEPair.Λ_residue_k  Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :431
+       theorem  WeakFEPair.Λ_residue_zero  Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :447
+       lemma    DirichletCharacter.LFunctionTrivChar_residue_one  Mathlib/NumberTheory/LSeries/DirichletContinuation.lean :182
+  A3 the logarithmic derivative                                   declarations   65   (name pattern (^|\.)logDeriv)
+       def      logDeriv  Mathlib/Analysis/Calculus/LogDeriv.lean :34
+       theorem  logDeriv_apply  Mathlib/Analysis/Calculus/LogDeriv.lean :37
+       lemma    logDeriv_eq_zero_of_not_differentiableAt  Mathlib/Analysis/Calculus/LogDeriv.lean :39
+       lemma    logDeriv_congr_nhds  Mathlib/Analysis/Calculus/LogDeriv.lean :44
+       lemma    logDeriv_congr_nhdsNE  Mathlib/Analysis/Calculus/LogDeriv.lean :50
+  A4 meromorphic order and divisors                               declarations  122   (name pattern meromorphicOrderAt|(^|\.)divisor; path ^Mathlib/(Analysis|MeasureTheory|NumberTheory/LSeries|Topology)/; the name matched outside it 47)
+       theorem  Complex.meromorphicOrderAt_canonicalFactor  Mathlib/Analysis/Complex/CanonicalDecomposition.lean :96
+       theorem  Complex.meromorphicOrderAt_canonicalFactor_ne_top  Mathlib/Analysis/Complex/CanonicalDecomposition.lean :176
+       theorem  Complex.divisor_canonicalFactor  Mathlib/Analysis/Complex/CanonicalDecomposition.lean :193
+       theorem  Complex.CanonicalDecomp.divisor_eq_divisor  Mathlib/Analysis/Complex/CanonicalDecomposition.lean :390
+       lemma    Complex.ECanonicalDecomp.eq_smul_meromorphicTrailingCoeffAt_of_meromorphicOrderAt  Mathlib/Analysis/Complex/CanonicalDecomposition.lean :595
+  A5 zeros counted by name                                        declarations    0   (name pattern (?i)card_?zeros|zeros_?card|countZeros|numZeros|zeroCount)
+  A6 Jensen`s formula (every declaration of its file)             declarations   14   (name pattern .; path JensenFormula\.lean$; the name matched outside it 238066)
+       def      herglotzLogIntegrand  Mathlib/Analysis/Complex/JensenFormula.lean :43
+       lemma    continuousAt_herglotzLogIntegrand  Mathlib/Analysis/Complex/JensenFormula.lean :48
+       lemma    continuous_herglotzLogIntegrand_circle  Mathlib/Analysis/Complex/JensenFormula.lean :56
+       lemma    const_mul_norm_sub_circleMap_le_norm_sub_circleMap  Mathlib/Analysis/Complex/JensenFormula.lean :69
+       lemma    norm_herglotzLogIntegrand_circleMap_le  Mathlib/Analysis/Complex/JensenFormula.lean :87
+  B1 the Gamma function                                           declarations   99   (name pattern ^(Complex\.|Real\.)?Gamma)
+       theorem  Real.Gamma_integrand_isLittleO  Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean :54
+       theorem  Real.GammaIntegral_convergent  Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean :66
+       theorem  Complex.GammaIntegral_convergent  Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean :87
+       def      Complex.GammaIntegral  Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean :110
+       theorem  Complex.GammaIntegral_conj  Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean :113
+  B2 the Riemann zeta function and its completion                 declarations   89   (name pattern riemannZeta|completedRiemannZeta)
+       def      riemannZetaSummandHom  Mathlib/NumberTheory/EulerProduct/DirichletLSeries.lean :35
+       lemma    summable_riemannZetaSummand  Mathlib/NumberTheory/EulerProduct/DirichletLSeries.lean :57
+       lemma    tsum_riemannZetaSummand  Mathlib/NumberTheory/EulerProduct/DirichletLSeries.lean :65
+       theorem  riemannZeta_eulerProduct_hasProd  Mathlib/NumberTheory/EulerProduct/DirichletLSeries.lean :89
+       theorem  riemannZeta_eulerProduct_tprod  Mathlib/NumberTheory/EulerProduct/DirichletLSeries.lean :96
+  B3 Bessel functions (special functions, not Sobolev`s potential) declarations    0   (name pattern (?i)bessel; path ^Mathlib/Analysis/SpecialFunctions/; the name matched outside it 9)
+  B4 Epstein zeta                                                 declarations    0   (name pattern (?i)epstein)
+  B5 Dirichlet L-functions                                        declarations   73   (name pattern LFunction)
+       def      WeierstrassCurve.LFunction  Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean :79
+       def      DirichletCharacter.LFunction  Mathlib/NumberTheory/LSeries/DirichletContinuation.lean :61
+       lemma    DirichletCharacter.LFunction_modOne_eq  Mathlib/NumberTheory/LSeries/DirichletContinuation.lean :67
+       lemma    DirichletCharacter.LFunction_eq_LSeries  Mathlib/NumberTheory/LSeries/DirichletContinuation.lean :75
+       lemma    DirichletCharacter.deriv_LFunction_eq_deriv_LSeries  Mathlib/NumberTheory/LSeries/DirichletContinuation.lean :79
+  B6 Hurwitz zeta                                                 declarations  182   (name pattern (?i)hurwitz)
+       def      HurwitzZeta.hurwitzZeta  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean :52
+       lemma    HurwitzZeta.hurwitzZetaEven_eq  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean :55
+       lemma    HurwitzZeta.hurwitzZetaOdd_eq  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean :60
+       lemma    HurwitzZeta.differentiableAt_hurwitzZeta  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean :66
+       lemma    HurwitzZeta.hasSum_hurwitzZeta_of_one_lt_re  Mathlib/NumberTheory/LSeries/HurwitzZeta.lean :72
+  B7 Jacobi theta                                                 declarations   57   (name pattern (?i)jacobiTheta)
+       def      HurwitzZeta.jacobiTheta₂''  Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean :61
+       lemma    HurwitzZeta.jacobiTheta₂''_conj  Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean :64
+       lemma    HurwitzZeta.jacobiTheta₂''_add_left  Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean :70
+       lemma    HurwitzZeta.jacobiTheta₂''_neg_left  Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean :82
+       lemma    HurwitzZeta.jacobiTheta₂'_functional_equation'  Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean :85
+  B8 the Mellin functional-equation pairs                         declarations   44   (name pattern (?i)FEPair)
+       structure WeakFEPair  Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :80
+       structure IsStrongFEPair  Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :100
+       lemma    WeakFEPair.h_feq'  Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :107
+       def      WeakFEPair.symm  Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :116
+       lemma    isStrongFEPair_symm  Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :131
+  C1 numerical bounds on constants (pi, e, log 2)                 declarations   28   (name pattern (?i)pi_gt|pi_lt|exp_one_gt|exp_one_lt|exp_one_near|log_two_near|log_two_gt|log_two_lt)
+       theorem  Real.exp_one_near_10  Mathlib/Analysis/Complex/ExponentialBounds.lean :23
+       theorem  Real.exp_one_near_20  Mathlib/Analysis/Complex/ExponentialBounds.lean :29
+       theorem  Real.exp_one_gt_d9  Mathlib/Analysis/Complex/ExponentialBounds.lean :35
+       theorem  Real.exp_one_lt_d9  Mathlib/Analysis/Complex/ExponentialBounds.lean :38
+       theorem  Real.exp_one_gt_two  Mathlib/Analysis/Complex/ExponentialBounds.lean :41
+  C2 interval arithmetic by name                                  declarations    0   (name pattern (?i)interval_?arith|IntervalArith)
+  C3 explicit Taylor bounds for exp                               declarations   11   (name pattern (?i)exp_bound|exp_approx)
+       theorem  Complex.exp_bound  Mathlib/Analysis/Complex/Exponential.lean :377
+       theorem  Complex.exp_bound'  Mathlib/Analysis/Complex/Exponential.lean :407
+       theorem  Real.exp_bound  Mathlib/Analysis/Complex/Exponential.lean :517
+       theorem  Real.exp_bound'  Mathlib/Analysis/Complex/Exponential.lean :523
+       theorem  Real.exp_approx_end  Mathlib/Analysis/Complex/Exponential.lean :563
+  D1 the intermediate value theorem                               declarations   33   (name pattern (?i)intermediate_value)
+       theorem  intermediate_value_univ₂  Mathlib/Topology/Order/IntermediateValue.lean :71
+       theorem  intermediate_value_univ₂_eventually₁  Mathlib/Topology/Order/IntermediateValue.lean :78
+       theorem  intermediate_value_univ₂_eventually₂  Mathlib/Topology/Order/IntermediateValue.lean :83
+       theorem  IsPreconnected.intermediate_value₂  Mathlib/Topology/Order/IntermediateValue.lean :93
+       theorem  IsPreconnected.intermediate_value₂_eventually₁  Mathlib/Topology/Order/IntermediateValue.lean :102
+  D2 zeta conjugation / the Hardy Z function                      declarations    1   (name pattern (?i)hardyZ|riemannSiegel|zeta_conj|Zeta_conj)
+       theorem  riemannZeta_conj  Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean :458
+  THE POSITIVE CONTROL of the reading: B2 must find riemannZeta (Mathlib`s, at NumberTheory/LSeries) and B1 Complex.Gamma; a zero
+  there is the scan`s fault, not Mathlib`s absence.
+
+## (4) WHAT WOULD BE BUILT (on SIDE-explicit-formula, the kernel at the target; the piece names THE SEAT`S)
+  (a) RectArgumentPrinciple: the discrete argument count on a rectangle from A1 and A3/A4 (local factorisation f = (z - a)^n g).
+  (b) EpsteinQ0: Q0`s theta function, its Mellin transform, continuation and functional equation over B7/B8`s pairs where they reach a
+      binary form`s theta, else from first principles; the Chowla-Selberg expansion proved equal to it, B3 built where it reads 0.
+  (c) EpsteinQ0Bounds: truncation bounds for each term of the expansion, and the enclosures at the boundary points as rational
+      inequalities closed by norm_num / decide in the kernel (C1/C3 the only ready bounds; C2 builds where it reads 0).
+  (d) BandCount160: the band`s edges, the count N = 15 from (a)-(c), and the 15 sign changes by D1 -- the statement
+      "the zeros of Lambda_Q0 in [1/2, 2] x [160, 170] number 15 with multiplicity, all on Re s = 1/2" (doubled by the symmetry).
+
+## (5) THE DISPATCHES AND HOURS (THE SEAT`S ESTIMATE; NO MEASUREMENT OF ANY SUCH BUILD EXISTS IN THE RECORD)
+  each module dry-built by build-module on SIDE-explicit-formula, read by run id and its artifact`s sha256 (N1`s form); its runs at the
+  target take 4.2 to 11.0 min (data/b716_federation_pin_price.txt (3b)). Authoring and dispatches by piece:
+    (a) the argument count        800-1,500 lines ;  15-30 dispatches ;  20-40 foreground hours
+    (b) Lambda_Q0 and its FE    1,500-3,000 lines ;  25-50 dispatches ;  35-70 foreground hours
+    (c) the enclosures          3,000-6,000 lines ;  40-80 dispatches ;  50-100 foreground hours (kernel checking of the
+                                                                        enclosures the risk: each must close within the runner`s limit)
+    (d) the band                  300-600 lines  ;  10-20 dispatches ;  10-20 foreground hours
+    IN ALL                      5,600-11,100 lines ; 90-180 dispatches, 6-33 runner hours ; 115-230 foreground hours, 15-30 acts at
+    data/b716_price.txt (6)`s 7.7-hour act. The range is the seat`s judgement of an unbuilt proof, not a bound; its first
+    measurement is (a)`s first module`s dispatch, in the act the author rules for it.
+
+## (6) THE GRADE THE RESULT WOULD CARRY
+  the vocabulary: the shared E0 rule`s (relay tools/e0_rule.py; the census grades by it, census :1490) -- DERIVES, INTERFACES, not
+  graded. The census`s declarations table (PLACE-papers phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md at HEAD 29c17527, from its head line 1494) read here: DERIVES 16 ; INTERFACES 5 ; not graded 3 ;
+  THE CONTROL, the table`s own foot (:1523): *24 declarations: DERIVES 16, INTERFACES 5, not graded 3 (2 definitions, 1 field); axioms read at the pin 14, not read at this pin 10; 1 proved by `sorry` at its pin (row 16).*
+  the result: a theorem about the Lean-defined Lambda_Q0 whose statement binds no hypothesis -- DERIVES under the E0 rule`s (1),
+  "its only binders are domain conditions" (it has none); its axioms read by a banked #print axioms at its pin, expected
+  [propext, Classical.choice, Quot.sound] (library lemmas carry them); a route through native_decide adds Lean.ofReduceBool and is
+  excluded from the price. ITS SCOPE: the one band at Q0; the other bands, and -15`s and -39`s lists, stay certified by the Python
+  engine; the Lean Lambda_Q0 equal to the engine`s Z_Q0 is (b)`s theorem, not a reading.
+
+### ### **THE BAND [160, 170] AT Q0, N 15, ALL ON THE LINE ; MATHLIB AT THE TARGET READ ; NEEDLES 19, READING 0: A5 B3 B4 C2 ; BUILT: (a) THE ARGUMENT COUNT, (b) Lambda_Q0, (c) THE ENCLOSURES, (d) THE BAND ; 90-180 DISPATCHES, 115-230 FOREGROUND HOURS (THE SEAT`S) ; THE GRADE DERIVES (E0), ONE BAND ; NOTHING BUILT.**
