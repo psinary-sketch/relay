@@ -1,0 +1,103 @@
+b718 -- THE REPLAY CONTROL OF THE STANDING TOOLSET AT v1.2.0, OVER b717, b716, b715 (2026-10-27T21:17:45Z)
+
+### rows are the objects of the author`s word (1)(c), per act: (1) the head line, (2) the suite`s tally, (3) the withheld field,
+### (4) neg_shown`s three lists, (5) the seal`s record, (6) the components bank, each EQUAL or DIFFERS with both sides printed.
+### Written by tools/standing/replay.py; it writes nothing else.
+
+### b717 -- the seal`s commit cef76dc8 ; the closing`s 248c5a97 ; the ruling R327 ; parts standing-a standing-c standing-b1 standing-b2a standing-b2b standing-b3 act
+  (1) the head line, rebuilt from the banks                      EQUAL
+        rebuilt: b717 closed: relay d72dd2d0, PLACE-papers c02f47c; suite 133 of 140; root 404b613b47de738a…; 1 prompt answered; scores 8 of 8 HELD; 25 defects
+        banked : b717 closed: relay d72dd2d0, PLACE-papers c02f47c; suite 133 of 140; root 404b613b47de738a…; 1 prompt answered; scores 8 of 8 HELD; 25 defects
+        events : none
+  (2) the suite`s tally: 133/7/0 (passing/failing/withheld)      EQUAL
+        rebuilt: {"arms": 140, "passing": 133, "failing": 7, "fails": ["G-PROCS-LISTED", "G-PRIORBANK-UNCHANGED", "G-READ-RULE-STANDING", "G-DELETES-ONE-BRANCH", "G-ROOTDRY-READY", "G-KEYSTONE-EDITS", "G-ARM-SECONDS-BANKED"], "withheld": [], "neg": 0, "pos": 0, "defs": []} ; verdict NOT CLEAN
+        banked : {"arms": 140, "passing": 133, "failing": 7, "fails": ["G-PROCS-LISTED", "G-PRIORBANK-UNCHANGED", "G-READ-RULE-STANDING", "G-DELETES-ONE-BRANCH", "G-ROOTDRY-READY", "G-KEYSTONE-EDITS", "G-ARM-SECONDS-BANKED"], "withheld": [], "neg": 0, "pos": 0, "defs": []} ; verdict NOT CLEAN
+        the three figure lines` text: EQUAL EQUAL EQUAL
+  (3) the withheld field, its condition read at the seal`s commit EQUAL
+        rebuilt: none
+        banked : none (the record carries no field)
+  (4) neg_shown`s three lists: shown 0, unshown 0, withheld 0    DIFFERS
+        banked : neg_shown 140 ; withheld 0 ; unshown none (the seal was written)
+        unshown rebuilt: none
+  (5) the seal`s record, field by field                          DIFFERS
+        tools           EQUAL 30 tools, at the seal`s commit cef76dc8 ; differing none
+        letters         EQUAL 25 letters ; the record 25
+        defects_sha256  EQUAL rebuilt cb82c04399422368 ; the record cb82c04399422368
+        prev_run        DIFFERS rebuilt {}
+        the record`s relay head 43eefe6a carries the sealed bytes of 30 of 30 tools ; not: none
+        prev_run banked : {"act": {"diverge": 17, "fail_as_prev": 4, "not_run_by_prev": 6, "pass_on_prev": 15}, "standing-a": {"diverge": 16, "fail_as_prev": 4, "not_run_by_prev": 0, "pass_on_prev": 68}, "standing-b1": {"diverge": 0, "fail_as_prev": 0, "not_run_by_prev": 0, "pass_on_prev": 1}, "standing-b3": {"diverge": 1, "fail_as_prev": 0, "not_run_by_prev": 0, "pass_on_prev": 0}, "standing-c": {"diverge": 1, "fail_as_prev": 2, "not_run_by_prev": 0, "pass_on_prev": 5}}
+        the components bank first carried at d72dd2d0 ; composed from the banks as they stood there
+  (6) the components bank: 7 component lines, 7 banked           DIFFERS
+        per line: EQUAL EQUAL EQUAL EQUAL EQUAL EQUAL DIFFERS
+        the head line apart: EQUAL
+          rebuilt: ### COMPONENT 6 : step row 9 relay df1589b6 (component 6) ; step row 10 relay 875c3e1a (gate) ; step row 11 relay 672baf85 (seal) ; step row 12 relay 43eefe6a (seal) ; step row 13 pp 9472a608 (pre-root) ; step row 14 relay cef76dc8 (seal) ; step row 15 relay d5afecf6 (pre-root) ; step row 17 relay 2e20c63b (root) ; the banks they carry (71): data/arm_tags.json, data/b717_carry_checks.txt, data/b71
+          banked : ### COMPONENT 6 : step row 9 relay df1589b6 (component 6) ; step row 10 relay 875c3e1a (gate) ; step row 11 relay 672baf85 (seal) ; step row 12 relay 43eefe6a (seal) ; step row 13 pp 9472a608 (pre-root) ; step row 14 relay cef76dc8 (seal) ; step row 15 relay d5afecf6 (pre-root) ; the banks they carry (64): data/arm_tags.json, data/b717_carry_checks.txt, data/b717_carry_closing.txt, data/b717_carry
+
+### b716 -- the seal`s commit ae6631d4 ; the closing`s 983dcbe2 ; the ruling R326 ; parts standing-a standing-c standing-b1 standing-b2a standing-b2b standing-b3 act
+  (1) the head line, rebuilt from the banks                      EQUAL
+        rebuilt: b716 closed: relay 78866b19, PLACE-papers b855623; suite 125 of 139; root 4df4ddac46aa7910…; 2 prompts answered; scores 8 of 8 HELD; 18 defects
+        banked : b716 closed: relay 78866b19, PLACE-papers b855623; suite 125 of 139; root 4df4ddac46aa7910…; 2 prompts answered; scores 8 of 8 HELD; 18 defects
+        events : none
+  (2) the suite`s tally: 125/14/0 (passing/failing/withheld)     EQUAL
+        rebuilt: {"arms": 139, "passing": 125, "failing": 14, "fails": ["G-RECEIPT-IN-FULL", "G-SEALED-AFTER-COMPONENTS", "G-NOTHING-RAN-AHEAD", "G-PRIOR-CLOSED-PUSHED", "G-ARMS-NO-LIVE-LIMB", "G-RULE-REMOTE-REREAD", "G-PRIORBANK-UNCHANGED", "G-READ-RULE-STANDING", "G-CLOSING-DRY-STEP", "G-ANSWERS-BEFORE-WRITES", "G-SCORER-READS-BANKS", "G-ROOTDRY-READY", "G-REGISTRATIONS-FIRST", "G-ARM-SECONDS-BANKED"], "withheld": [], "neg": 0, "pos": 1, "defs": ["G-PP-SCOPE"]} ; verdict NOT CLEAN
+        banked : {"arms": 139, "passing": 125, "failing": 14, "fails": ["G-RECEIPT-IN-FULL", "G-SEALED-AFTER-COMPONENTS", "G-NOTHING-RAN-AHEAD", "G-PRIOR-CLOSED-PUSHED", "G-ARMS-NO-LIVE-LIMB", "G-RULE-REMOTE-REREAD", "G-PRIORBANK-UNCHANGED", "G-READ-RULE-STANDING", "G-CLOSING-DRY-STEP", "G-ANSWERS-BEFORE-WRITES", "G-SCORER-READS-BANKS", "G-ROOTDRY-READY", "G-REGISTRATIONS-FIRST", "G-ARM-SECONDS-BANKED"], "withheld": [], "neg": 0, "pos": 1, "defs": ["G-PP-SCOPE"]} ; verdict NOT CLEAN
+        the three figure lines` text: EQUAL EQUAL EQUAL
+  (3) the withheld field, its condition read at the seal`s commit EQUAL
+        rebuilt: none
+        banked : none (the record carries no field)
+  (4) neg_shown`s three lists: shown 139, unshown 0, withheld 0  EQUAL
+        banked : neg_shown 139 ; withheld 0 ; unshown none (the seal was written)
+        unshown rebuilt: none
+  (5) the seal`s record, field by field                          EQUAL
+        tools           EQUAL 30 tools, at the seal`s commit ae6631d4 ; differing none
+        letters         EQUAL 18 letters ; the record 18
+        defects_sha256  EQUAL rebuilt 46e902009205983e ; the record 46e902009205983e
+        prev_run        EQUAL rebuilt {"act": {"diverge": 23, "fail_as_prev": 2, "not_run_by_prev": 4, "pass_on_prev": 12}, "standing-a": {"diverge": 22, "fail_as_prev": 0, "not_run_by_prev": 0, "pass_on_prev": 66}, "standing-b1": {"diverge": 0, "fail_as_prev": 0, "not_run_by_prev": 0, "pass_on_prev": 1}, "standing-b3": {"diverge": 1, "fail_as_prev": 0, "not_run_by_prev": 0, "pass_on_prev": 0}, "standing-c": {"diverge": 1, "fail_as_prev": 2, "not_run_by_prev": 0, "pass_on_prev": 5}}
+        the record`s relay head a10cd80a carries the sealed bytes of 30 of 30 tools ; not: none
+        the components bank first carried at 78866b19 ; composed from the banks as they stood there
+  (6) the components bank: 7 component lines, 7 banked           EQUAL
+        per line: EQUAL EQUAL EQUAL EQUAL EQUAL EQUAL EQUAL
+        the head line apart: EQUAL
+
+### b715 -- the seal`s commit 4e4c4759 ; the closing`s cf51ee95 ; the ruling R325 ; parts standing-a standing-c standing-b1 standing-b2a standing-b2b standing-b3 act
+  (1) the head line, rebuilt from the banks                      EQUAL
+        rebuilt: b715 closed: relay fdddea13, PLACE-papers 4ff9e8a; suite 136 of 140; root c0e86c02b7c5a8a4…; 4 prompts answered; scores 8 of 8 HELD; 17 defects
+        banked : b715 closed: relay fdddea13, PLACE-papers 4ff9e8a; suite 136 of 140; root c0e86c02b7c5a8a4…; 4 prompts answered; scores 8 of 8 HELD; 17 defects
+        events : none
+  (2) the suite`s tally: 136/4/0 (passing/failing/withheld)      EQUAL
+        rebuilt: {"arms": 140, "passing": 136, "failing": 4, "fails": ["G-PRIORBANK-UNCHANGED", "G-READ-RULE-STANDING", "G-DELETES-ONE-BRANCH", "G-ANSWERS-BEFORE-WRITES"], "withheld": [], "neg": 0, "pos": 0, "defs": []} ; verdict NOT CLEAN
+        banked : {"arms": 140, "passing": 136, "failing": 4, "fails": ["G-PRIORBANK-UNCHANGED", "G-READ-RULE-STANDING", "G-DELETES-ONE-BRANCH", "G-ANSWERS-BEFORE-WRITES"], "withheld": [], "neg": 0, "pos": 0, "defs": []} ; verdict NOT CLEAN
+        the three figure lines` text: EQUAL EQUAL EQUAL
+  (3) the withheld field, its condition read at the seal`s commit EQUAL
+        rebuilt: none
+        banked : none (the record carries no field)
+  (4) neg_shown`s three lists: shown 140, unshown 0, withheld 0  EQUAL
+        banked : neg_shown 140 ; withheld 0 ; unshown none (the seal was written)
+        unshown rebuilt: none
+  (5) the seal`s record, field by field                          EQUAL
+        tools           EQUAL 23 tools, at the seal`s commit 4e4c4759 ; differing none
+        letters         EQUAL 17 letters ; the record 17
+        defects_sha256  EQUAL rebuilt 007e920d8f8b9529 ; the record 007e920d8f8b9529
+        prev_run        EQUAL rebuilt {"act": {"diverge": 17, "fail_as_prev": 6, "not_run_by_prev": 9, "pass_on_prev": 10}, "standing-a": {"diverge": 16, "fail_as_prev": 6, "not_run_by_prev": 0, "pass_on_prev": 66}, "standing-b1": {"diverge": 0, "fail_as_prev": 0, "not_run_by_prev": 0, "pass_on_prev": 1}, "standing-b3": {"diverge": 1, "fail_as_prev": 0, "not_run_by_prev": 0, "pass_on_prev": 0}, "standing-c": {"diverge": 1, "fail_as_prev": 2, "not_run_by_prev": 0, "pass_on_prev": 5}}
+        the record`s relay head c5370fca carries the sealed bytes of 21 of 23 tools ; not: ['b715_checks.py', 'b715_closing.py']
+        b715_checks.py: the record cfc5379bf2c9f964 ; at the relay head f5a28ac4e61ea12f ; the step commits carrying the record`s bytes: ['4e4c4759 (seal)', '675e752e (pre-root)', 'fdddea13 (record)', 'f7c38adb (root)', 'cf51ee95 (closing)'] ; its last commit at or before the relay head: c5370fca 2026-10-26T21:54:01-04:00
+        b715_closing.py: the record 19abcb9f634c2421 ; at the relay head 39eafaf1e9881122 ; the step commits carrying the record`s bytes: ['4e4c4759 (seal)', '675e752e (pre-root)', 'fdddea13 (record)', 'f7c38adb (root)', 'cf51ee95 (closing)'] ; its last commit at or before the relay head: c5370fca 2026-10-26T21:54:01-04:00
+        the components bank first carried at fdddea13 ; composed from the banks as they stood there
+  (6) the components bank: 7 component lines, 7 banked           EQUAL
+        per line: EQUAL EQUAL EQUAL EQUAL EQUAL EQUAL EQUAL
+        the head line apart: EQUAL
+
+### THE DIFFERENCES NAMED (the seat`s, read from data/act_current.json `replay`): each DIFFERS by the finding that names it
+  b717 (4): ### UNNAMED
+  b717 (5): ### UNNAMED
+  b717 (6): ### UNNAMED
+
+### THE FINDINGS, the old tools` (not copied forward):
+  F-1 [b714, b713 ; object (5)] THE SEAL'S RECORD NAMES A RELAY HEAD THAT DOES NOT CARRY EVERY TOOL IT SEALED: the seal hashed the working tree, and a sealed tool edited after its last commit before the seal was hashed uncommitted -- b714_checks.py at b714 (last committed d89d649f, the record's relay head 601dab1f), b713_checks.py and b713_closing.py at b713 (relay head b7503853); the seal's commit is the first to carry the sealed bytes in both. The core reads the sealed tools at the seal's commit (EQUAL) and prints the relay head's reading apart; not copied forward.
+  F-2 [b713 ; object (6)] b713'S COMPONENTS BANK IS NOT COMPOSED FROM ITS STEP BANK: its composer wrote each component's line as prose naming banks and figures (its tools/b713_record.py components route), with no step row and no commit list; the core composes each line from the step bank's phases (the form b714's stand-in wrote, EQUAL on b714), so every line differs in form. Not copied forward.
+
+### THE FORMS, read and not counted (an old tool`s text where the figures are EQUAL):
+  [b713 ; object (2)] the combined bank's first figure line carries no WITHHELD clause: b713's combine predates the withheld field (b714's word (7)); the figures EQUAL, the text the old form
+  [b715, b714, b713 ; object (6)] the components bank's head line is each composer's own prose (b714's stand-in names its cause); compared apart, not an object
+
+### ### **OBJECTS 18 ; EQUAL 15 ; DIFFERS 3 ['b717 (4)', 'b717 (5)', 'b717 (6)'] ; NAMED 0 ; UNNAMED 3 ; FINDINGS 2.**

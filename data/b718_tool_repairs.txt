@@ -1,0 +1,536 @@
+b718 -- THE STANDING TOOLSET`S CHANGES AT v1.2.0, BY DIFF AGAINST HEAD (2026-10-27T21:18:28Z)
+
+### every file of tools/standing/: tracked files by `git diff HEAD`, a file not yet tracked whole with each line marked +.
+
+### PAIR tools/standing/VERSION (changed)
+diff --git a/tools/standing/VERSION b/tools/standing/VERSION
+index 795460fc..79127d85 100644
+--- a/tools/standing/VERSION
++++ b/tools/standing/VERSION
+@@ -1 +1 @@
+-v1.1.0
++v1.2.0
+
+### PAIR tools/standing/allow.py (changed)
+diff --git a/tools/standing/allow.py b/tools/standing/allow.py
+index a79f299d..40fbf38d 100644
+--- a/tools/standing/allow.py
++++ b/tools/standing/allow.py
+@@ -11,9 +11,15 @@ The prompts: the ruling's "root's prompt put once" allows one root prompt; every
+ answers it is banked under its "## (n)" head (data/<act>_author_words_preseal.txt, data/<act>_author_words.txt), the k-th prompt by the
+ k-th head. Provenance: the toolset act's G-ANSWERS-BEFORE-WRITES wanted FLOORS['prompts'] = 1 PROMPT row where the act put four.
+ 
++v1.2.0 ((R328)(7), b717's event (2), the class CONTROL): A BRANCH PATTERN READ AS A PATTERN. A ruling's "the push-b716-* branches ...
++deleted" names a pattern; v1.1.0's BRANCH dropped the star and read it as the one name `push-b716`, so the act's five deletes by name read
++as outside the ruling. The name now keeps its glob tail (`-*` or `*`), and a delete is allowed where its branch matches a delete name or
++pattern (fnmatch, case-sensitive) and no kept name or pattern.
++
+   deletes_allowed(ruling, words) -> [names]        prompts_read(answers, ruling, heads) -> dict(rows, allowed, unbanked, ok)
+   deletes_read(deleted, ruling, words) -> dict(rows, outside, ok)
+ """
++import fnmatch
+ import os
+ import re
+ import sys
+@@ -21,7 +27,8 @@ import sys
+ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+ import act as A   # noqa: E402
+ 
+-BRANCH = re.compile(r'(?<![\w/.-])((?:push|recut|port|merge)-[A-Za-z0-9][A-Za-z0-9.-]*[A-Za-z0-9])')
++BRANCH = re.compile(r'(?<![\w/.-])((?:push|recut|port|merge)-[A-Za-z0-9][A-Za-z0-9.-]*[A-Za-z0-9](?:-\*|\*)?)')
++BRANCH_V110 = re.compile(r'(?<![\w/.-])((?:push|recut|port|merge)-[A-Za-z0-9][A-Za-z0-9.-]*[A-Za-z0-9])')   # v1.1.0's, for the control
+ NOT_DELETED = re.compile(r'\bNOT\s+deleted\b|\bnot\s+deleted\b|\bnot\s+be\s+deleted\b')
+ DELETED = re.compile(r'\bdeleted?\b', re.I)
+ ROOT_ONCE = re.compile(r'root[’\']s prompt put once', re.I)
+@@ -35,31 +42,40 @@ def clauses(text):
+     return [c.strip() for c in re.split(r'(?<=[.;])\s+(?=[A-Za-z(])', flat) if c.strip()]
+ 
+ 
+-def deletes_allowed(ruling, words=''):
+-    """the branch names the ruling's delete clauses and the author's words name, in order, each once."""
++def deletes_allowed(ruling, words='', pattern=BRANCH):
++    """the branch names and patterns the ruling's delete clauses and the author's words name, in order, each once."""
+     out = []
+     for c in clauses(ruling) + clauses(words):
+         if DELETED.search(c) and not NOT_DELETED.search(c):
+-            for b in BRANCH.findall(c):
++            for b in pattern.findall(c):
+                 if b not in out:
+                     out.append(b)
+     return out
+ 
+ 
+-def deletes_kept(ruling, words=''):
+-    """the branch names a clause says are NOT deleted."""
++def deletes_kept(ruling, words='', pattern=BRANCH):
++    """the branch names and patterns a clause says are NOT deleted."""
+     out = []
+     for c in clauses(ruling) + clauses(words):
+         if NOT_DELETED.search(c):
+-            out += [b for b in BRANCH.findall(c) if b not in out]
++            out += [b for b in pattern.findall(c) if b not in out]
+     return out
+ 
+ 
+-def deletes_read(deleted, ruling, words=''):
+-    """each delete [(repository, branch)] read against the allowance: allowed where its name is among the ruling's delete names and not
+-    among the kept. Returns dict(rows [(repo, branch, allowed)], outside [(repo, branch)], allowed names, ok)."""
+-    allowed, kept = deletes_allowed(ruling, words), deletes_kept(ruling, words)
+-    rows = [(r, b, b in allowed and b not in kept) for r, b in deleted]
++def matches(branch, names):
++    """the branch is one of `names`, each a name or a glob pattern (v1.2.0)."""
++    return any(branch == n or fnmatch.fnmatchcase(branch, n) for n in names)
++
++
++def deletes_read(deleted, ruling, words='', pattern=BRANCH):
++    """each delete [(repository, branch)] read against the allowance: allowed where its branch matches a delete name or pattern of the
++    ruling and no kept one. Returns dict(rows [(repo, branch, allowed)], outside [(repo, branch)], allowed names, ok). `pattern`
++    BRANCH_V110 reads as v1.1.0 did (the control's record instance)."""
++    allowed, kept = deletes_allowed(ruling, words, pattern), deletes_kept(ruling, words, pattern)
++    if pattern is BRANCH_V110:
++        rows = [(r, b, b in allowed and b not in kept) for r, b in deleted]
++    else:
++        rows = [(r, b, matches(b, allowed) and not matches(b, kept)) for r, b in deleted]
+     outside = [(r, b) for r, b, ok in rows if not ok]
+     return dict(rows=rows, outside=outside, allowed=allowed, kept=kept, ok=not outside)
+
+### PAIR tools/standing/classes.py (new)
++# -*- coding: utf-8 -*-
++"""standing/classes.py -- THE CLOSE CLASSES GATHERED AT v1.2.0 ((R328)(7) of the derivation act), each class's repair with its control on
++the previous act's banks, both instances shown: the RECORD instance (the previous act's banks read the old way, the defect reproduced,
++and read the repaired way) and a CONSTRUCTED one (a plant the repaired reading must refuse, or a form it must accept).
++  (1) a needle read word for word from the face          tools/standing/needles.py       the test act's event (1)
++  (2) a branch pattern read as a pattern                 tools/standing/allow.py         event (2)
++  (8) the seconds gather ordered before the seal         tools/standing/close.py         event (8)
++  (9) the act's own trail append exempt by its commit    tools/standing/keystone.py      event (9)
++  (10) the MANIFEST control read against HEAD            tools/standing/manifest.py      event (10)
++The hook's refusal (the test act's fifth uncommitted item) stands as the hook working: no repair, no case.
++The acts read are the chain's: the previous act (`prev`, the record) and, for (8)'s accepting instance, the latest chain act whose
++gathered seconds bank exists. No act's name, figure or commit stands in the code; each is read from the banks at the call.
++
++  python -X utf8 tools/standing/classes.py            prints; writes nothing
++  python -X utf8 tools/standing/classes.py bank       writes data/<act>_classes_controls.txt
++  python -X utf8 tools/standing/classes.py repairs    writes data/<act>_tool_repairs.txt: every standing file's diff against HEAD (a new
++                                                      file whole), the record of v1.2.0's changes by diff
++Each writing route is refused once the act's root is appended to the chain.
++"""
++import glob
++import os
++import re
++import sys
++import time
++
++sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
++import act as A          # noqa: E402
++import allow as AW       # noqa: E402
++import close as C        # noqa: E402
++import keystone as KS    # noqa: E402
++import manifest as MF    # noqa: E402
++import needles as ND     # noqa: E402
++
++NL = '\n'
++S = os.path.dirname(os.path.abspath(__file__))
++DELETE_ROW = re.compile(r'^\s*#\d+ \| \S+ \| seat \| (?:Bash|PowerShell) \| git -C (\S+) ' + 'branch' + r' -d (\S+)\s*$', re.M)
++
++
++def deletes_of(act):
++    """the act's branch deletes [(repository path, branch)] from its command capture's rows (data/<act>_commands.txt)."""
++    return [(r.replace('\\', '/'), b) for r, b in DELETE_ROW.findall(A.rd('%s_commands.txt' % act))]
++
++
++def face_of(act):
++    fs = sorted(glob.glob(os.path.join(A.D, '%s_registration_*.txt' % act)))
++    return (fs[-1], A.rd_path(fs[-1])) if fs else (None, '')
++
++
++def lines():
++    cur = A.current()
++    act, parts = cur['act'], cur['parts']
++    prev = A.prev_of(act)
++    pprev = A.prev_of(prev)
++    L = ['%s -- THE CLOSE CLASSES OF THE STANDING TOOLSET AT %s, EACH REPAIR WITH ITS CONTROL ON %s`S BANKS, BOTH INSTANCES (%s)' % (
++        act, A.rd_path(os.path.join(S, 'VERSION')).strip(), prev, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
++         '### rows are cases: the class (its event), the instance (RECORD or CONSTRUCTED), what is read, the figure got, the figure wanted,',
++         '### AS WANTED. Written by tools/standing/classes.py; the hook`s refusal stands as the hook working (no case).', '']
++    res = []
++
++    def case(k, inst, what, got, want):
++        ok = got == want
++        res.append(ok)
++        L.append('  (%s) %-11s %s' % (k, inst, what))
++        L.append('        got %r ; wanted %r -- %s' % (got, want, 'AS WANTED' if ok else '### NOT AS WANTED'))
++
++    # (1) the needle
++    fp, face = face_of(prev)
++    dj = A.jl('%s_root_banks_dry.json' % prev)
++    ready = dj.get('ready')
++    old = ('the root route`s dry run READY %s' % ready) in ND.unwrap(face)
++    writer_form = 'root route run dry once' in ND.unwrap(face)
++    case('1', 'RECORD', '%s`s face (%s): the dry run READY %s ; the arm`s old literal found ; the repaired reader`s needle found ; the face`s '
++         'own form ("root route run dry once") found' % (prev, os.path.basename(fp or '-'), ready), (ready, old, ND.carries(face, 'rootdry', ready=ready),
++                                                                                                    writer_form), (True, False, False, True))
++    built = ND.line('rootdry', ready=True)
++    w = built.split(' ')
++    wrapped = '### (0) ... ' + ' '.join(w[:3]) + NL + '### ' + ' '.join(w[3:]) + ' its evidence for the seal'   # wrapped at a space, as a bank wraps
++    case('1', 'CONSTRUCTED', 'a face written by the table`s line, hard-wrapped through the needle: carried ; its READY True read as READY False: not',
++         (ND.carries(wrapped, 'rootdry', ready=True), ND.carries(wrapped, 'rootdry', ready=False)), (True, False))
++    # (2) the branch pattern
++    ruling = AW.ruling_of(prev)
++    dels = deletes_of(prev)
++    v110 = AW.deletes_read(dels, ruling, AW.words_of(prev), pattern=AW.BRANCH_V110)
++    v120 = AW.deletes_read(dels, ruling, AW.words_of(prev))
++    case('2', 'RECORD', '%s`s %d deletes by name (its command capture) against its ruling: outside at v1.1.0 (the star dropped) ; outside at v1.2.0 ; '
++         'the kept names' % (prev, len(dels)), (len(v110['outside']), len(v120['outside']), v120['kept']), (len(dels), 0, v110['kept']))
++    L.append('        v1.1.0 allowed %s ; v1.2.0 allowed %s' % (v110['allowed'], v120['allowed']))
++    other = 'push-%s-closing' % prev   # the previous act's own branch: its ruling names the act before it
++    kept = v120['kept'][0] if v120['kept'] else 'port-x'
++    pl = AW.deletes_read([('-', other), ('-', kept)], ruling, AW.words_of(prev))
++    case('2', 'CONSTRUCTED', 'two deletes the pattern must refuse: %s (an act`s branch the ruling does not name) and %s (kept)' % (other, kept),
++         [b for _r, b in pl['outside']], [other, kept])
++    # (8) the seconds gather before the seal
++    sg = C.seconds_gathered(prev, parts)
++    case('8', 'RECORD', '%s`s per-part seconds banks: the gathered bank written before the seal ; parts without a bank' % prev,
++         (sg['gathered'], sg['ok'], sg['missing_parts']), (False, False, []))
++    gat = next((a for a, _r, _p in reversed(A.chain()) if os.path.isfile(os.path.join(A.D, '%s_arm_seconds.json' % a))), None)
++    sg2 = C.seconds_gathered(gat, parts) if gat else dict(ok=None, gathered=None, missing_arms=None)
++    case('8', 'RECORD', 'the latest chain act with a gathered bank, %s: gathered, every part`s arms among its rows' % gat,
++         (sg2['gathered'], sg2['ok']), (True, True))
++    sg3 = C.seconds_gathered(gat, parts + ['a-part-with-no-bank']) if gat else dict(ok=None, missing_parts=None)
++    case('8', 'CONSTRUCTED', 'the same bank read with a part the pre-run never banked: refused, the part named', (sg3['ok'], sg3['missing_parts']),
++         (False, ['a-part-with-no-bank']))
++    # (9) the trail append exempt by its commit
++    c5 = [r['commit'] for r in A.steps(prev) if r.get('repo') == 'pp' and r.get('phase') == 'component 5']
++    base = c5[-1] if c5 else None
++    rec = KS.exempt_of(prev, ('record',))
++    head = rec[-1] if rec else None
++    files = sorted(p for p in (A.gs('pp', 'diff-tree', '--no-commit-id', '--name-only', '-r', base) or '').split(NL) if p.strip()) if base else []
++    k_old = KS.unchanged_since(files, base, head) if base and head else dict(ok=None, rows=[])
++    k_new = KS.unchanged_since(files, base, head, exempt=rec) if base and head else dict(ok=None, rows=[])
++    ch = lambda r: sorted(f for f, s, _c in r['rows'] if s != 'UNCHANGED')
++    case('9', 'RECORD', '%s`s %d files edited at its component-5 commit %s, read to its record`s commit %s: unchanged (the old clause) ; with the '
++         'record`s commit exempt ; the files touched after' % (prev, len(files), (base or '-')[:8], (head or '-')[:8]),
++         (k_old['ok'], k_new['ok'], ch(k_old)), (False, True, ['OPEN_TRAILS.md']))
++    k_pl = KS.unchanged_since(files, base, head, exempt=[base]) if base and head else dict(ok=None)
++    case('9', 'CONSTRUCTED', 'the exemption naming a commit that is not the act`s record (the edit commit itself): the trail`s append fails it',
++         k_pl['ok'], False)
++    # (10) the MANIFEST control against HEAD
++    mj = A.jl('%s_mirror_build.json' % prev)
++    mz = re.search(r'^built: (.+)$', mj.get('out') or '', re.M)
++    zp = mz.group(1).strip() if mz else None
++    mtxt = A.rd('%s_mirror.txt' % prev)
++    mref = re.search(r'MANIFEST CONTROL, AGAINST ([0-9a-f]{7,40})', mtxt)
++    pph = re.search(r'PLACE-papers HEAD AT THE BUILD : ([0-9a-f]{7,40})', mtxt)
++    if not (zp and os.path.isfile(zp) and mref and pph):
++        case('10', 'RECORD', '%s`s export and its control`s reference' % prev, (zp, bool(mref), bool(pph)), ('PRESENT', True, True))
++    else:
++        first = [r['commit'] for r in A.steps(prev) if r.get('repo') == 'pp']
++        pbase = A.gs('pp', 'rev-parse', first[0] + '^') if first else None
++        sil = [p for p in MF.edited(pbase, pph.group(1)) if p.endswith('Silence_of_Foundations.md')]
++        old_c = MF.control(zp, pbase, pph.group(1), files=sil, ref=mref.group(1))
++        new_c = MF.control(zp, pbase, pph.group(1))
++        case('10', 'RECORD', '%s`s export: its carried control (%s against the carried %s) ; the repaired control, every file the act edited '
++             '(%s..%s) against the head it was built at' % (prev, sil, mref.group(1)[:8], (pbase or '-')[:8], pph.group(1)[:8]),
++             (old_c['ok'], new_c['ok']), (False, True))
++        for p, mem, raw_eq, lf_eq, st in new_c['rows']:
++            L.append('        %-58s %-18s entries %d ; raw equal %s ; with CR removed %s' % (p, st, len(mem), raw_eq, lf_eq))
++        bad = MF.control(zp, pbase, pph.group(1), ref=pbase)
++        case('10', 'CONSTRUCTED', 'the same files read against the act`s base (a reference before its edits): NOT AS WANTED', bad['ok'], False)
++    L += ['', '### ### **CASES %d ; AS WANTED %d ; NOT AS WANTED %d.**' % (len(res), sum(res), len(res) - sum(res))]
++    return L, act, all(res)
++
++
++def repairs_lines():
++    act = A.current()['act']
++    L = ['%s -- THE STANDING TOOLSET`S CHANGES AT %s, BY DIFF AGAINST HEAD (%s)' % (act, A.rd_path(os.path.join(S, 'VERSION')).strip(),
++                                                                                 time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
++         '### every file of tools/standing/: tracked files by `git diff HEAD`, a file not yet tracked whole with each line marked +.', '']
++    for f in sorted(os.listdir(S)):
++        if not (f.endswith('.py') or f == 'VERSION'):
++            continue
++        rel = 'tools/standing/' + f
++        tracked = A.gs('relay', 'ls-files', rel)
++        if tracked:
++            d = A.gs('relay', 'diff', 'HEAD', '--', rel) or ''
++            if d:
++                L += ['### PAIR %s (changed)' % rel] + d.split(NL) + ['']
++        else:
++            L += ['### PAIR %s (new)' % rel] + ['+' + l for l in A.rd_path(os.path.join(S, f)).split(NL)] + ['']
++    return L, act
++
++
++def write_bank(act, name, L):
++    if act in [r[0] for r in A.chain()]:
++        print('### %s`s ROOT IS APPENDED TO THE CHAIN -- NOTHING WRITTEN' % act)
++        return 4
++    p = os.path.join(A.D, name)
++    with open(p + '.tmp', 'w', encoding='utf-8', newline='\n') as f:
++        f.write(NL.join(L) + NL)
++    os.replace(p + '.tmp', p)
++    print('bank', p)
++    return 0
++
++
++def main(route):
++    if route == 'repairs':
++        L, act = repairs_lines()
++        code = write_bank(act, '%s_tool_repairs.txt' % act, L)
++        print('### %d lines' % len(L))
++        return code
++    L, act, ok = lines()
++    print(NL.join(L))
++    if route == 'bank':
++        code = write_bank(act, '%s_classes_controls.txt' % act, L)
++        if code:
++            return code
++    return 0 if ok else 1
++
++
++if __name__ == '__main__':
++    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'dry'))
++
+
+### PAIR tools/standing/close.py (changed)
+diff --git a/tools/standing/close.py b/tools/standing/close.py
+index 3d0271e6..7b720b3e 100644
+--- a/tools/standing/close.py
++++ b/tools/standing/close.py
+@@ -322,6 +322,28 @@ def lock_of(act, date):
+     return m.group(1) if m else None
+ 
+ 
++def seconds_gathered(act, parts, rev=None):
++    """v1.2.0 ((R328)(7), b717's event (8), the class ORDER): THE SECONDS GATHER ORDERED BEFORE THE SEAL. The per-part seconds banks
++    (data/<act>_arm_seconds_<part>.json, the pre-run's) gathered into data/<act>_arm_seconds.json before the seal: the gathered bank
++    present, every part's bank present, and every arm of every standing part's bank among its rows (the gather's form: the standing
++    arms by part, the act part's arms counted apart -- b715's gathered bank, data/b715_arm_seconds.txt :1-:6). Provenance: b717's order
++    ran the pre-run and the combine and not the gather at step [7]; the seal recorded, the root computed, and G-ARM-SECONDS-BANKED failed
++    in both suites (b716's and b714's the same). Returns dict(ok, gathered, missing_parts, missing_arms)."""
++    g = A.jl('%s_arm_seconds.json' % act, rev)
++    have = set((r.get('arm'), r.get('part')) for r in (g.get('rows') or []))
++    missing_parts, missing_arms = [], []
++    for p in parts:
++        pj = A.jl('%s_arm_seconds_%s.json' % (act, p), rev)
++        if not pj:
++            missing_parts.append(p)
++            continue
++        if p.startswith('standing'):
++            missing_arms += [(n, p) for n in (pj.get('arms') or {}) if (n, p) not in have]
++    gathered = bool(g.get('rows'))
++    return dict(ok=gathered and not missing_parts and not missing_arms, gathered=gathered, missing_parts=missing_parts,
++                missing_arms=missing_arms)
++
++
+ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
+     """step [8], the seal: refused where the face is not locked, the record exists, a sealed tool is edited after its last commit (the
+     guard), an arm is without its NEG control shown failing, or a part's run on the previous act's banks is not banked; else the record
+@@ -343,9 +365,12 @@ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
+     aparts = sorted(set(q for _n, q in arms))
+     missing = [q for q in aparts if A.jl('%s_prevrun_exercise_%s.json' % (act, q)).get('mode') != 'prev']
+     L += ['  WITHHELD, NOT EXERCISABLE: %-46s %s' % (n, w) for n, w in ns.withheld]
+-    if ns.bad or missing:
++    sg = seconds_gathered(act, parts)
++    if ns.bad or missing or not sg['ok']:
+         return 3, L + ['### %d OF %d ARMS WITHOUT THEIR NEG CONTROL SHOWN FAILING ON A MUTATED COPY IN THE PRE-RUN:' % (len(ns.bad), len(arms))] + [
+             '  %-46s %s' % (n, w) for n, w in ns.bad] + ['### THE PARTS WHOSE ARMS ARE NOT RUN ON %s`S BANKS BEFORE THE SEAL: %s' % (prev, missing or 'NONE'),
++                                                         '### THE PER-PART SECONDS GATHERED BEFORE THE SEAL (v1.2.0): %s ; parts without a bank %s ; arms not gathered %d' % (
++                                                             sg['gathered'], sg['missing_parts'] or 'NONE', len(sg['missing_arms'])),
+                                                          '### ### **THE SEAL REFUSED -- NOTHING RECORDED.**']
+     dtext = A.rd('%s_defects.txt' % act)
+     now = dict((t, A.sha256_file(os.path.join(A.T, *t.split('/')))) for t in tools)
+
+### PAIR tools/standing/keystone.py (new)
++# -*- coding: utf-8 -*-
++"""standing/keystone.py -- THE ACT'S OWN TRAIL APPEND EXEMPT FROM THE KEYSTONE-EDITS ARM BY ITS COMMIT (v1.2.0; (R328)(7), b717's event
++(9), the class CONTROL). An arm that reads each file an act edited on PLACE-papers main "unchanged since" its edit commit reads, file by
++file, the commits that touched it after that commit up to the head read: a file is unchanged where none did, and EXEMPT where every one
++of them is among the exempt commits -- the act's own later steps that the order makes write that file (the trail record's append to
++OPEN_TRAILS.md), read from the act's step bank by phase, not named in code. Any other commit touching it fails the file. Provenance:
++b717's G-KEYSTONE-EDITS read OPEN_TRAILS.md at its C5 commit 84dbbf3e against HEAD, passed pre-push and failed post-push once the
++record's step [15] (PLACE-papers c02f47c) appended the trail, as the order makes it.
++
++  touched_after(files, base, head, repo) -> {file: [commits]}
++  unchanged_since(files, base, head='HEAD', exempt=(), repo='pp') -> dict(rows [(file, state, commits)], ok)
++  exempt_of(act, phases=('record',), repo='pp') -> [commits]     the act's step rows of those phases in the repository
++"""
++import os
++import sys
++
++sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
++import act as A   # noqa: E402
++
++NL = '\n'
++
++
++def touched_after(files, base, head='HEAD', repo='pp'):
++    out = {}
++    for f in files:
++        log = A.gs(repo, 'log', '--format=%H', '%s..%s' % (base, head), '--', f)
++        out[f] = [c for c in (log or '').split(NL) if c.strip()]
++    return out
++
++
++def unchanged_since(files, base, head='HEAD', exempt=(), repo='pp'):
++    """each file read against the commits that touched it after `base` up to `head`: UNCHANGED (none), EXEMPT (each among `exempt`, full
++    or abbreviated hashes) or CHANGED. ok where no file is CHANGED."""
++    full = []
++    for e in exempt:
++        h = A.gs(repo, 'rev-parse', e)
++        if h:
++            full.append(h)
++    rows = []
++    for f, cs in touched_after(files, base, head, repo).items():
++        state = 'UNCHANGED' if not cs else ('EXEMPT' if all(c in full for c in cs) else 'CHANGED')
++        rows.append((f, state, cs))
++    return dict(rows=rows, ok=all(s != 'CHANGED' for _f, s, _c in rows), exempt=full)
++
++
++def exempt_of(act, phases=('record',), repo='pp'):
++    """the act's step-bank commits of the phases the order makes write after the edit commit (the trail record's), in the repository."""
++    return [r['commit'] for r in A.steps(act) if r.get('repo') == repo and r.get('phase') in phases]
++
+
+### PAIR tools/standing/manifest.py (new)
++# -*- coding: utf-8 -*-
++"""standing/manifest.py -- THE MIRROR'S MANIFEST CONTROL READING EACH FILE THE ACT EDITS AGAINST HEAD (v1.2.0; (R328)(7), b717's event
++(10), the class CONTROL). The control's files are the PLACE-papers files the act's own commits changed (from the act's base to the head
++the mirror was built at, read from git), and its reference is that head: each file the roster carries must stand in the zip at that
++head's bytes (compared raw and with CR removed, the builder copying working files, autocrlf's trap). A carried reference is not read.
++Provenance: b716's control compared day1/Silence_of_Foundations.md against b716's merge a86c9429, carried into b717 unchanged; b717's C5
++edited the file on main (84dbbf3e), so the control read NOT AS WANTED while the zip's entry stood at the file's bytes at HEAD (b716's
++event (17), b717's event (10)).
++
++  edited(base, head, repo='pp') -> [paths]       member(names, path) -> [zip entries]
++  control(zip_path, base, head, repo='pp') -> dict(rows, ok, head, files)
++"""
++import os
++import sys
++import zipfile
++
++sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
++import act as A   # noqa: E402
++
++NL = '\n'
++
++
++def edited(base, head, repo='pp'):
++    out = A.gs(repo, 'diff', '--name-only', base, head)
++    return sorted(p for p in (out or '').split(NL) if p.strip())
++
++
++def member(names, path):
++    """the zip's entries for a path: by its flat name (the builder's) or its path."""
++    base = path.split('/')[-1]
++    return [n for n in names if n == path or n.split('/')[-1] == base or n.endswith('_' + base)]
++
++
++def control(zip_path, base, head, repo='pp', files=None, ref=None):
++    """each file the act edited (base..head) that the zip carries, its entry against the blob at `ref` (default `head`). Files the zip does
++    not carry are listed NOT IN THE ROSTER and not failed. Returns dict(rows [(path, entries, raw_equal, lf_equal, state)], ok, head)."""
++    z = zipfile.ZipFile(zip_path)
++    names = [n for n in z.namelist() if n != 'MANIFEST.md']
++    man = z.read('MANIFEST.md').decode('utf-8-sig', 'replace') if 'MANIFEST.md' in z.namelist() else ''
++    ref = ref or head
++    rows = []
++    for p in (files if files is not None else edited(base, head, repo)):
++        mem = member(names, p)
++        if not mem:
++            rows.append((p, [], None, None, 'NOT IN THE ROSTER'))
++            continue
++        b = A.blob(ref, p, repo) or b''
++        zb = z.read(mem[0]) if len(mem) == 1 else b''
++        raw_eq = bool(zb) and zb == b
++        lf_eq = bool(zb) and zb.replace(b'\r', b'') == b.replace(b'\r', b'')
++        listed = p.split('/')[-1] in man
++        rows.append((p, mem, raw_eq, lf_eq, 'AS WANTED' if (len(mem) == 1 and lf_eq and listed) else 'NOT AS WANTED'))
++    return dict(rows=rows, ok=all(r[4] != 'NOT AS WANTED' for r in rows) and any(r[4] == 'AS WANTED' for r in rows), head=head, ref=ref)
++
+
+### PAIR tools/standing/needles.py (new)
++# -*- coding: utf-8 -*-
++"""standing/needles.py -- A NEEDLE READ WORD FOR WORD FROM THE FACE (v1.2.0; (R328)(7), b717's event (1), the class FORM). The face's
++writer and the arm that reads it take a needle from one table: the face composer writes `line(key, ...)` and the arm asks `carries(face,
++key, ...)`, which reads the face unwrapped (each line's leading `###` marks removed and its whitespace collapsed, b703's unwrap), so a
++hard wrap through the needle does not hide it and a sentence in the writer's own words is not read as the needle. Provenance: b716's and
++b717's faces wrote "the root route run dry once on the pre-root tree (step [2]), READY True" where G-ROOTDRY-READY wanted "the root
++route`s dry run READY True" -- the same claim in two forms, the arm failing on both faces (b716 event (2), b717 event (1)).
++
++  NEEDLES {key: template}     line(key, **kw) -> text     carries(text, key, **kw) -> bool     unwrap(text) -> text
++"""
++import re
++
++NL = '\n'
++
++NEEDLES = {
++    'rootdry': 'the root route`s dry run READY {ready}',
++}
++
++
++def unwrap(t):
++    """b703's unwrap (tools/b703_checks.py :701-:702), carried: each line's leading `###` marks removed, the lines joined, whitespace
++    collapsed."""
++    return ' '.join(' '.join(re.sub(r'^\s*(?:###\s*)+', '', l) for l in (t or '').replace('\r', '').split(NL)).split())
++
++
++def line(key, **kw):
++    """the needle the face writes, from the table."""
++    return NEEDLES[key].format(**kw)
++
++
++def carries(text, key, **kw):
++    """the face carries the needle word for word, read unwrapped."""
++    return unwrap(line(key, **kw)) in unwrap(text)
++
+
+### PAIR tools/standing/replay.py (changed)
+diff --git a/tools/standing/replay.py b/tools/standing/replay.py
+index f5d30fcb..7fb8abba 100644
+--- a/tools/standing/replay.py
++++ b/tools/standing/replay.py
+@@ -14,6 +14,7 @@ naming it -- the core's fault, or the old tool's, a finding -- is the seat's, in
+   python -X utf8 tools/standing/replay.py          prints; writes nothing
+   python -X utf8 tools/standing/replay.py bank     writes data/<act>_replay.txt, the one bank it writes, refused once the act's root is
+                                                    appended to the chain
++  python -X utf8 tools/standing/replay.py <route> <act> ...   the same over the named acts alone (v1.2.0), each specified in the field
+ """
+ import json
+ import os
+@@ -139,13 +140,20 @@ def replay_act(act, cur):
+     return out, figs
+ 
+ 
+-def lines():
++def lines(only=None):
+     cur = A.current()
+     act = cur['act']
+     # ### v1.1.0: the acts replayed are those the ruling's replay field specifies (data/act_current.json `replay`), the chain's acts among
+     # ### them, newest first; v1.0.0 read the previous act and the one before it alone
++    # ### v1.2.0: `only`, the acts the ruling orders replayed (the command line), narrows them; a named act the field does not specify is
++    # ### refused, not replayed without its specification
+     chain = [r[0] for r in A.chain()]
+     acts = sorted((a for a in (cur.get('replay') or {}) if a in chain), key=chain.index, reverse=True)
++    if only:
++        bad = [a for a in only if a not in acts]
++        if bad:
++            raise SystemExit('### THE ACTS %s HAVE NO REPLAY SPECIFICATION ON THE CHAIN -- NOTHING REPLAYED' % bad)
++        acts = [a for a in acts if a in only]
+     L = ['%s -- THE REPLAY CONTROL OF THE STANDING TOOLSET AT %s, OVER %s (%s)' % (
+         act, A.rd_path(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'VERSION')).strip(), ', '.join(acts),
+         time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
+@@ -176,8 +184,8 @@ def lines():
+     return L, act
+ 
+ 
+-def main(route):
+-    L, act = lines()
++def main(route, only=None):
++    L, act = lines(only)
+     if route == 'bank':
+         if act in [r[0] for r in A.chain()]:
+             print('### %s`s ROOT IS APPENDED TO THE CHAIN -- NOTHING WRITTEN' % act)
+@@ -192,4 +200,4 @@ def main(route):
+ 
+ 
+ if __name__ == '__main__':
+-    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'dry'))
++    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'dry', sys.argv[2:] or None))
+

@@ -1,0 +1,53 @@
+b718 -- (R328)(6)(i): THE JOIN'S PREMISE, SIDE-lv-conservation RegisterPentagon.lean :149-:152 AT THE DEPOSIT 93c27ec, READ AGAINST LiCoeff
+THROUGH li_coeff_eq_taylorCoeff AT SIDE-explicit-formula's TAG v0.37 (2026-10-27)
+
+### Written by the Write tool from the print of tools/b718_reads.py (routes join, find, span; it reads the kernels' git trees at the named
+### revisions with git show and git grep bounded to the kernel's *.lean, row (4), and writes nothing). Nothing compiled; no lean on this host.
+
+## (1) THE PREMISE, QUOTED (SIDE-lv-conservation 93c27ec, SIDELvConservation/RegisterPentagon.lean, blob 6c8c9c32)
+  :148  /-- **R4 face — positivity** (Li's criterion content): the Li coefficients are non-negative.
+  :149  Over the actual Taylor coefficients of `log ξ` this is RH-equivalent (Li 1997;
+  :150  Bombieri–Lagarias 1999) — that identification is the named manuscript premise on the
+  :151  `R4 ↔ RH` interface edge, not part of this face. -/
+  :152  def Register4_positivity (lam : ℕ → ℝ) : Prop :=
+  :153    ∀ n : ℕ, 1 ≤ n → 0 ≤ lam n
+  (the section head :142-:146: "The analytic Li coefficient stream (Taylor coefficients of `log ξ`) is manuscript-resident; the face is
+  stated over an abstract stream `lam : ℕ → ℝ`")
+
+## (2) THE KERNEL'S STATEMENTS, QUOTED (SIDE-explicit-formula v0.37)
+  SIDEExplicitFormula/LiCriterionBridge.lean (blob 5a8f02b1) :146-:150
+    /-- **THE EQUALITY LEMMA (R176)(3), STEP TWO.** The programme's Li coefficient at `n + 1`, a sum over the genuine zeros of
+    Mathlib's `riemannZeta` with multiplicity the analytic order of ζ, is the real part of Bulka's `n`-th Taylor coefficient
+    of the log-derivative of `ξ(1/(1 − z))` at `0`. -/
+    theorem li_coeff_eq_taylorCoeff (n : ℕ) :
+        LiCoeff (n + 1) = (LiCriterion.taylorCoeff LiCriterion.riemannXi n).re := by
+  SIDEExplicitFormula/LiWeil.lean (blob 79ed484d) :243-:244
+    def LiCoeff (n : ℕ) : ℝ :=
+      (1 / 2) * ∑' ρ : zetaZeroConfig.carrier, (zetaZeroConfig.mult ρ : ℝ) * (pairTerm n ρ).re
+  Vendored/Bulka/Lc/LiCriterion/Basic.lean (blob 3fe898f3; namespace LiCriterion :111)
+    :395   noncomputable def phi (f : ℂ → ℂ) (z : ℂ) : ℂ := f (1 / (1 - z))
+    :541   noncomputable def taylorCoeff (f : ℂ → ℂ) (n : ℕ) : ℂ :=
+    :542     (deriv^[n] (logDeriv (phi f))) 0 / n.factorial
+    :1252  noncomputable def riemannXi (s : ℂ) : ℂ :=
+    :1253    (1 / 2 : ℂ) * s * (s - 1) * completedRiemannZeta₀ s + (1 / 2 : ℂ)
+
+## (3) THE READ
+DIFFERS, as the premise is worded. The premise names its object "the actual Taylor coefficients of `log ξ`" (:149, and :143). The object
+the kernel equates to LiCoeff is a different one on three counts, each read off (2):
+  (a) THE FUNCTION: the logarithmic derivative of phi riemannXi, z ↦ ξ(1/(1 − z)) (Basic.lean :395, :542) -- not log ξ, and not at the
+      variable of ξ: the Taylor expansion is at z = 0 of the Moebius-composed function, i.e. about s = 1.
+  (b) THE INDEX AND THE FACTOR: LiCoeff (n + 1) is the n-th coefficient of the log-derivative (:150); equivalently LiCoeff n is n times the
+      n-th Taylor coefficient of log ξ(1/(1 − z)) at 0. The Taylor coefficients of log ξ themselves (at any centre) are not Li's numbers.
+  (c) THE REAL PART: the identity is with `.re` of a complex coefficient (:150).
+WHAT DOES MATCH: the predicate's shape. Register4_positivity lam is ∀ n ≥ 1, 0 ≤ lam n (:152-:153); with lam := LiCoeff, the indices
+n ≥ 1 are exactly the n + 1 of li_coeff_eq_taylorCoeff, so the kernel supplies, for the stream lam n = LiCoeff n, the identification of
+each member with Li's normalisation (Li 1997: λ_n = (1/(n−1)!) dⁿ/dsⁿ [s^(n−1) log ξ(s)] at s = 1, the expansion of
+(d/dz) log ξ(1/(1 − z)) = Σ λ_(n+1) zⁿ). The premise holds at that object; it does not hold at the object its sentence names.
+THE LINE THAT DECIDES: RegisterPentagon.lean :149 at 93c27ec ("Over the actual Taylor coefficients of `log ξ`") against
+LiCriterionBridge.lean :149-:150 at v0.37 with Basic.lean :542.
+SCOPE: a reading of statements; li_coeff_eq_taylorCoeff's compiled status at v0.37 is the tag's, not re-checked here (no lean on this
+host); no lemma in SIDE-lv-conservation at 93c27ec names LiCoeff -- `find D:/SIDE-lv-conservation 93c27ec LiCoeff` prints 0 rows, its
+control `find ... Register4_positivity` 6 rows (PartialPositivity.lean :9, :136; RegisterPentagon.lean :50, :152, :268, :269; :268 takes
+Li's criterion as a hypothesis `Register4_positivity lam → RiemannHypothesis`) -- the face is over an abstract stream (:144), so the join is
+a manuscript premise, as :150-:151 says. The wording is the deposit's; nothing in either kernel is edited (N5). A corrected wording -- "over
+Li's coefficients λ_n, n times the n-th Taylor coefficient of log ξ(1/(1 − z)) at 0" -- is the author's to take or leave.

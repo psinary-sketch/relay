@@ -322,6 +322,28 @@ def lock_of(act, date):
     return m.group(1) if m else None
 
 
+def seconds_gathered(act, parts, rev=None):
+    """v1.2.0 ((R328)(7), b717's event (8), the class ORDER): THE SECONDS GATHER ORDERED BEFORE THE SEAL. The per-part seconds banks
+    (data/<act>_arm_seconds_<part>.json, the pre-run's) gathered into data/<act>_arm_seconds.json before the seal: the gathered bank
+    present, every part's bank present, and every arm of every standing part's bank among its rows (the gather's form: the standing
+    arms by part, the act part's arms counted apart -- b715's gathered bank, data/b715_arm_seconds.txt :1-:6). Provenance: b717's order
+    ran the pre-run and the combine and not the gather at step [7]; the seal recorded, the root computed, and G-ARM-SECONDS-BANKED failed
+    in both suites (b716's and b714's the same). Returns dict(ok, gathered, missing_parts, missing_arms)."""
+    g = A.jl('%s_arm_seconds.json' % act, rev)
+    have = set((r.get('arm'), r.get('part')) for r in (g.get('rows') or []))
+    missing_parts, missing_arms = [], []
+    for p in parts:
+        pj = A.jl('%s_arm_seconds_%s.json' % (act, p), rev)
+        if not pj:
+            missing_parts.append(p)
+            continue
+        if p.startswith('standing'):
+            missing_arms += [(n, p) for n in (pj.get('arms') or {}) if (n, p) not in have]
+    gathered = bool(g.get('rows'))
+    return dict(ok=gathered and not missing_parts and not missing_arms, gathered=gathered, missing_parts=missing_parts,
+                missing_arms=missing_arms)
+
+
 def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
     """step [8], the seal: refused where the face is not locked, the record exists, a sealed tool is edited after its last commit (the
     guard), an arm is without its NEG control shown failing, or a part's run on the previous act's banks is not banked; else the record
@@ -343,9 +365,12 @@ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
     aparts = sorted(set(q for _n, q in arms))
     missing = [q for q in aparts if A.jl('%s_prevrun_exercise_%s.json' % (act, q)).get('mode') != 'prev']
     L += ['  WITHHELD, NOT EXERCISABLE: %-46s %s' % (n, w) for n, w in ns.withheld]
-    if ns.bad or missing:
+    sg = seconds_gathered(act, parts)
+    if ns.bad or missing or not sg['ok']:
         return 3, L + ['### %d OF %d ARMS WITHOUT THEIR NEG CONTROL SHOWN FAILING ON A MUTATED COPY IN THE PRE-RUN:' % (len(ns.bad), len(arms))] + [
             '  %-46s %s' % (n, w) for n, w in ns.bad] + ['### THE PARTS WHOSE ARMS ARE NOT RUN ON %s`S BANKS BEFORE THE SEAL: %s' % (prev, missing or 'NONE'),
+                                                         '### THE PER-PART SECONDS GATHERED BEFORE THE SEAL (v1.2.0): %s ; parts without a bank %s ; arms not gathered %d' % (
+                                                             sg['gathered'], sg['missing_parts'] or 'NONE', len(sg['missing_arms'])),
                                                          '### ### **THE SEAL REFUSED -- NOTHING RECORDED.**']
     dtext = A.rd('%s_defects.txt' % act)
     now = dict((t, A.sha256_file(os.path.join(A.T, *t.split('/')))) for t in tools)

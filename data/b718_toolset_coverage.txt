@@ -1,0 +1,58 @@
+b718 -- THE STANDING TOOLSET'S COVERAGE TABLE AT v1.2.0 (2026-10-27), rewritten under (R328)(7) (data/b718_ferry.txt :29) from b716's at v1.1.0 (data/b716_toolset_coverage.txt :1-:45), which b717 ran unchanged
+
+### rows are the steps of the close in the standing clauses order (data/standing_clauses_v7.txt, row (79), [1]-[25]), each: the step |
+### STANDING (the core runs it) or PER-ACT (carried as b718's) | the module it lives in | the v1.2.0 repair that reaches it, and whether it
+### moves the step. b718 runs each step as this table marks it from Component 4's commit on (v1.1.0's table before it). Outside the 25 steps
+### and STANDING: the hook, the scan, the replay, the controls (controls.py, v1.0.0-v1.1.0's; classes.py, v1.2.0's), the repairs bank, the
+### roster, the allowances (allow.py), the words, the root's required banks, and from v1.2.0 the needles (needles.py), the keystone reading
+### (keystone.py) and the manifest control (manifest.py).
+
+  [1]  the four standing figures                               | PER-ACT  | tools/b718_standing.py
+  [2]  the root route's dry run, READY True                    | PER-ACT  | tools/b718_record.py rootdry ; (1) reaches the face that cites it: the face's (0) writes the needle by tools/standing/needles.py line('rootdry'), the arm reads it by carries() -- not moved
+  [3]  the closing tool's dry run, its head line                | PER-ACT  | tools/b718_closing.py ; its head line from tools/standing/close.py head_line
+  [4]  the score routes' dry form                              | PER-ACT  | tools/b718_record.py scores
+  [5]  the gate                                                | PER-ACT  | tools/b718_reg_gate.py
+  [6]  the lock                                                | PER-ACT  | tools/b378_lockgate.py (shared by name, run with the act's argument)
+  [7]  the suite's pre-run in seven parts, its combined bank, and the per-part seconds GATHERED (the record tool's armsecs) | PER-ACT | tools/b718_checks.py, tools/b718_record.py armsecs ; (2) reaches G-DELETES-ONE-BRANCH (allow.py deletes_read, the pattern read as a pattern) ; (1) G-ROOTDRY-READY (needles.carries) -- not moved
+  [8]  the seal, its NEG controls shown failing                | STANDING | tools/standing/close.py seal ; (8) reaches it: seal_write refuses where the per-part seconds are not gathered (seconds_gathered: the gathered bank present, every part's bank present, every standing arm among its rows) -- the gather's order now enforced at the seal, the step itself not moved
+  [9]  the scores, written once                                | PER-ACT  | tools/b718_record.py scores
+  [10] the root's prompt and the answers bank                  | PER-ACT  | tools/b718_citation.py answer ; words.py
+  [11] the standing report's bank                              | PER-ACT  | tools/b718_report.py (unsealed)
+  [12] the FINDINGS entry, pushed                              | PER-ACT  | tools/b718_record.py findings
+  [13] the final table                                         | PER-ACT  | tools/b718_record.py table_final
+  [14] the root                                                | PER-ACT  | tools/b718_record.py root (tools/act_root.py, shared)
+  [15] the trail carrying the root                             | PER-ACT  | tools/b718_record.py trail
+  [16] the desk                                                | PER-ACT  | tools/b718_record.py desk
+  [17] the pre-push suite in seven parts                       | PER-ACT  | tools/b718_checks.py ; (2) and (1) as at [7] ; (9) reaches G-KEYSTONE-EDITS where the act edits main: each file read by keystone.py unchanged_since with the act's record commits exempt (exempt_of) -- not moved
+  [18] the components bank                                     | STANDING | tools/standing/components.py bank, composed after the root's step row is entered (the replay's finding F-4)
+  [19] the record commit and its pushes, captured              | PER-ACT  | tools/b718_record.py push routes and push_gated
+  [20] the post-push suite in seven parts                      | PER-ACT  | as at [17]
+  [21] the events bank                                         | PER-ACT  | the Edit tool, read by tools/b718_closing.py events_section
+  [22] scores close                                            | PER-ACT  | tools/b718_record.py scores (its close form)
+  [23] the mirror after the root                               | PER-ACT  | tools/b718_record.py mbuild, mroot, mverify, mbank ; (10) reaches mbank: its MANIFEST control by manifest.py control, every file the act edited on PLACE-papers (its base to the build's head) against that head, no carried reference -- not moved
+  [24] the standing report's scores line                       | PER-ACT  | tools/b718_report.py
+  [25] the closing and its push                                | PER-ACT  | tools/b718_closing.py
+
+### THE STEPS EACH REPAIR MOVES: (1) none ([2], [7], [17], [20] reached) ; (2) none ([7], [17], [20]) ; (8) none ([8] reached, its
+### refusal widened) ; (9) none ([17], [20]) ; (10) none ([23]). The hook's refusal (b717's item (E), b718's corrigendum) stands as the hook
+### working; no repair ((R328)(7)).
+### THE CONTROLS: data/b718_classes_controls.txt, CASES 11, AS WANTED 11, each repair with its RECORD instance on b717's banks (the defect
+### reproduced, the repaired reading) and a CONSTRUCTED one; the scan (tools/standing/scan.py, 21:17:33Z): FILES 18, LITERALS IN THE CODE 0,
+### DELETE WORDS 0, its positive control AS WANTED; the changes by diff, data/b718_tool_repairs.txt (classes.py repairs, 536 lines: allow.py,
+### close.py, replay.py, VERSION changed; classes.py, keystone.py, manifest.py, needles.py new).
+### AN OBSERVATION OF (10)'s RECORD CASE, for the author: day1/Silence_of_Foundations_CORRESPONDENCE.md, written on main by b717's C5, is NOT
+### IN THE ROSTER -- the mirror carries the paper and not its companion table (data/b718_classes_controls.txt, (10)'s rows). Not repaired.
+### THE REPLAY: data/b718_replay.txt over b717, b716 and b715 (the acts named on the command line, v1.2.0), OBJECTS 18, EQUAL 15, DIFFERS 3,
+### all b717's, the same three v1.1.0 printed over the same banks (its dry run at 21:10:03Z, before any v1.2.0 edit) -- so v1.2.0 changes no
+### replayed object. b716's six EQUAL, b715's six EQUAL. THE THREE DIFFERS NAMED, each the old close's and not copied forward:
+###   F-3 [b717 ; objects (4) and (5)] b717'S PRE-RUN EXERCISE BANKS NEVER COMMITTED BEFORE THEIR SUITE OVERWROTE THEM: the seal read
+###       data/b717_exercise_<part>.json from the working tree (mode prerun) and its commits 43eefe6a and cef76dc8 carried the record and the
+###       runs on b716's banks, not those banks; the first commit carrying them, d72dd2d0 (the record), carries the pre-push suite's (mode
+###       post-push) -- a probe by tools/b718_reads.py probe_ex, keys, modes and sizes only: NOT TRACKED at cef76dc8 and at 43eefe6a, mode
+###       post-push at 248c5a97. The core reads the pre-run banks at the seal's commit and finds none: neg_shown 0 (banked 140) and prev_run
+###       {} (its loop runs over the parts with arms). The seal's NEG 140 of 140 is not rebuildable from b717's committed banks.
+###   F-4 [b717 ; object (6)] b717'S COMPONENTS BANK COMPOSED BEFORE THE ROOT'S STEP ROW: the bank first carried at d72dd2d0, composed
+###       from the step bank as it stood there, carries row 17 (relay 2e20c63b, root) in component 6; the banked line lists rows 9-15 and 64
+###       banks, the rebuilt rows 9-15 and 17 and 71 -- the composer ran before row 17 was entered, both committed together.
+### These two are not in data/act_current.json `replay.findings` (that bank committed alone at step zero and not rewritten); the replay
+### prints them UNNAMED, and this table names them.

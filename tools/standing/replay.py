@@ -14,6 +14,7 @@ naming it -- the core's fault, or the old tool's, a finding -- is the seat's, in
   python -X utf8 tools/standing/replay.py          prints; writes nothing
   python -X utf8 tools/standing/replay.py bank     writes data/<act>_replay.txt, the one bank it writes, refused once the act's root is
                                                    appended to the chain
+  python -X utf8 tools/standing/replay.py <route> <act> ...   the same over the named acts alone (v1.2.0), each specified in the field
 """
 import json
 import os
@@ -139,13 +140,20 @@ def replay_act(act, cur):
     return out, figs
 
 
-def lines():
+def lines(only=None):
     cur = A.current()
     act = cur['act']
     # ### v1.1.0: the acts replayed are those the ruling's replay field specifies (data/act_current.json `replay`), the chain's acts among
     # ### them, newest first; v1.0.0 read the previous act and the one before it alone
+    # ### v1.2.0: `only`, the acts the ruling orders replayed (the command line), narrows them; a named act the field does not specify is
+    # ### refused, not replayed without its specification
     chain = [r[0] for r in A.chain()]
     acts = sorted((a for a in (cur.get('replay') or {}) if a in chain), key=chain.index, reverse=True)
+    if only:
+        bad = [a for a in only if a not in acts]
+        if bad:
+            raise SystemExit('### THE ACTS %s HAVE NO REPLAY SPECIFICATION ON THE CHAIN -- NOTHING REPLAYED' % bad)
+        acts = [a for a in acts if a in only]
     L = ['%s -- THE REPLAY CONTROL OF THE STANDING TOOLSET AT %s, OVER %s (%s)' % (
         act, A.rd_path(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'VERSION')).strip(), ', '.join(acts),
         time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
@@ -176,8 +184,8 @@ def lines():
     return L, act
 
 
-def main(route):
-    L, act = lines()
+def main(route, only=None):
+    L, act = lines(only)
     if route == 'bank':
         if act in [r[0] for r in A.chain()]:
             print('### %s`s ROOT IS APPENDED TO THE CHAIN -- NOTHING WRITTEN' % act)
@@ -192,4 +200,4 @@ def main(route):
 
 
 if __name__ == '__main__':
-    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'dry'))
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'dry', sys.argv[2:] or None))

@@ -11,9 +11,15 @@ The prompts: the ruling's "root's prompt put once" allows one root prompt; every
 answers it is banked under its "## (n)" head (data/<act>_author_words_preseal.txt, data/<act>_author_words.txt), the k-th prompt by the
 k-th head. Provenance: the toolset act's G-ANSWERS-BEFORE-WRITES wanted FLOORS['prompts'] = 1 PROMPT row where the act put four.
 
+v1.2.0 ((R328)(7), b717's event (2), the class CONTROL): A BRANCH PATTERN READ AS A PATTERN. A ruling's "the push-b716-* branches ...
+deleted" names a pattern; v1.1.0's BRANCH dropped the star and read it as the one name `push-b716`, so the act's five deletes by name read
+as outside the ruling. The name now keeps its glob tail (`-*` or `*`), and a delete is allowed where its branch matches a delete name or
+pattern (fnmatch, case-sensitive) and no kept name or pattern.
+
   deletes_allowed(ruling, words) -> [names]        prompts_read(answers, ruling, heads) -> dict(rows, allowed, unbanked, ok)
   deletes_read(deleted, ruling, words) -> dict(rows, outside, ok)
 """
+import fnmatch
 import os
 import re
 import sys
@@ -21,7 +27,8 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import act as A   # noqa: E402
 
-BRANCH = re.compile(r'(?<![\w/.-])((?:push|recut|port|merge)-[A-Za-z0-9][A-Za-z0-9.-]*[A-Za-z0-9])')
+BRANCH = re.compile(r'(?<![\w/.-])((?:push|recut|port|merge)-[A-Za-z0-9][A-Za-z0-9.-]*[A-Za-z0-9](?:-\*|\*)?)')
+BRANCH_V110 = re.compile(r'(?<![\w/.-])((?:push|recut|port|merge)-[A-Za-z0-9][A-Za-z0-9.-]*[A-Za-z0-9])')   # v1.1.0's, for the control
 NOT_DELETED = re.compile(r'\bNOT\s+deleted\b|\bnot\s+deleted\b|\bnot\s+be\s+deleted\b')
 DELETED = re.compile(r'\bdeleted?\b', re.I)
 ROOT_ONCE = re.compile(r'root[’\']s prompt put once', re.I)
@@ -35,31 +42,40 @@ def clauses(text):
     return [c.strip() for c in re.split(r'(?<=[.;])\s+(?=[A-Za-z(])', flat) if c.strip()]
 
 
-def deletes_allowed(ruling, words=''):
-    """the branch names the ruling's delete clauses and the author's words name, in order, each once."""
+def deletes_allowed(ruling, words='', pattern=BRANCH):
+    """the branch names and patterns the ruling's delete clauses and the author's words name, in order, each once."""
     out = []
     for c in clauses(ruling) + clauses(words):
         if DELETED.search(c) and not NOT_DELETED.search(c):
-            for b in BRANCH.findall(c):
+            for b in pattern.findall(c):
                 if b not in out:
                     out.append(b)
     return out
 
 
-def deletes_kept(ruling, words=''):
-    """the branch names a clause says are NOT deleted."""
+def deletes_kept(ruling, words='', pattern=BRANCH):
+    """the branch names and patterns a clause says are NOT deleted."""
     out = []
     for c in clauses(ruling) + clauses(words):
         if NOT_DELETED.search(c):
-            out += [b for b in BRANCH.findall(c) if b not in out]
+            out += [b for b in pattern.findall(c) if b not in out]
     return out
 
 
-def deletes_read(deleted, ruling, words=''):
-    """each delete [(repository, branch)] read against the allowance: allowed where its name is among the ruling's delete names and not
-    among the kept. Returns dict(rows [(repo, branch, allowed)], outside [(repo, branch)], allowed names, ok)."""
-    allowed, kept = deletes_allowed(ruling, words), deletes_kept(ruling, words)
-    rows = [(r, b, b in allowed and b not in kept) for r, b in deleted]
+def matches(branch, names):
+    """the branch is one of `names`, each a name or a glob pattern (v1.2.0)."""
+    return any(branch == n or fnmatch.fnmatchcase(branch, n) for n in names)
+
+
+def deletes_read(deleted, ruling, words='', pattern=BRANCH):
+    """each delete [(repository, branch)] read against the allowance: allowed where its branch matches a delete name or pattern of the
+    ruling and no kept one. Returns dict(rows [(repo, branch, allowed)], outside [(repo, branch)], allowed names, ok). `pattern`
+    BRANCH_V110 reads as v1.1.0 did (the control's record instance)."""
+    allowed, kept = deletes_allowed(ruling, words, pattern), deletes_kept(ruling, words, pattern)
+    if pattern is BRANCH_V110:
+        rows = [(r, b, b in allowed and b not in kept) for r, b in deleted]
+    else:
+        rows = [(r, b, matches(b, allowed) and not matches(b, kept)) for r, b in deleted]
     outside = [(r, b) for r, b, ok in rows if not ok]
     return dict(rows=rows, outside=outside, allowed=allowed, kept=kept, ok=not outside)
 
