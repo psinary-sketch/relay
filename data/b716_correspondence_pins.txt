@@ -1,0 +1,36 @@
+b716 -- (R326)(5)(iv): THE 19 NAMES WITH NO PIN, EACH GIVEN ITS REPOSITORY AND PIN FROM THE CENSUS AT ITS EDITION ON MAIN, OR LISTED AND CARRIED (2026-10-27)
+
+### the names: data/b714_pilot.txt (P1), its 19 NO PIN STATED rows (:22-:61) ; the census: PLACE-papers
+### phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md at main 4320b719, its lines per name banked by tools/b716_keystone.py census in
+### data/b716_correspondence_census.txt ; each edit by the Edit tool on PLACE-papers main, its diff in data/b716_keystone_diffs.txt.
+### A name takes a pin where the census carries a row of its own for it: the declarations table (census :1494-:1523, v0.8.2's, "repository,
+### pin and place") or the named-premises table (its head at census :803, "the kernels ... the commits the table read those rows at"). A name the
+### census only mentions inside another row's statement, or does not carry, is listed and carried. Each edit inserts the repository and pin
+### after the name; nothing on any line is removed.
+### The diff bank's hunks at Spectral_Inertness :170 and :207 carry blank lines on both sides: the lines are byte-equal (the bank's
+### whitespace-only check reads none), folded into the hunk by difflib's junk heuristic on frequent blank lines.
+
+## PINNED, 8 (the edit inserted on main)
+  Silence_of_Foundations.md :238   h2_sign_iff_rh            census :1519 (declarations row 22) SIDE-explicit-formula v0.37 = 38e2734, Seam.lean :101
+  ONE_PAGE_PROOF.md :98            h2_sign_iff_rh            census :1519 (row 22), as above
+  Spectral_Inertness.md :206       h2_sign_iff_rh            census :1519 (row 22), as above
+  Seven_Mechanism_Classes.md :273  covers_all                census :1499 (declarations row 2) SIDE-kernel v1.2 = b1407b2, Kernel/Layer1.lean :23
+  Spectral_Inertness.md :169       covers_all                census :1499 (row 2), as above
+  Spectral_Inertness.md :171       conservation_of_spectra   census :1501 (declarations row 4) SIDE-kernel v1.2 = b1407b2, Kernel/ProductFormula_Rat.lean :72
+  Spectral_Inertness.md :197       conservation_of_spectra   census :1501 (row 4), as above
+  Seven_Mechanism_Classes.md :273  ConservationHypothesis    census :813 (named-premises table) SIDE-kernel, read at 0256e9e ; the census row carries no file or line, so the insertion names the repository and the commit alone
+
+## LISTED AND CARRIED, 11 (no edit; the census carries no row of its own for the name)
+  Silence_of_Foundations.md :236   not_register1                                      census lines 0
+  Silence_of_Foundations.md :236   ch_iff_rh                                          census lines 0 (ONE_PAGE_PROOF :86 pins it at SIDE-explicit-formula v0.2, a paper's row, not the census's)
+  Silence_of_Foundations.md :236   register4_positivity_liCoeff_iff_rh                census lines 0
+  Silence_of_Foundations.md :236   register5_output_holds                             census lines 0
+  Exhaustive_Enumeration.md :180   real_no_compact_open_addSubgroup                   census lines 0
+  Seven_Mechanism_Classes.md :273  techne_kernel_cross_exclusion.all_pairs_excluded   census lines 0 (Seven :280 pins it at SIDE-kernel v1.5 / v1.7, the paper's own table)
+  Seven_Mechanism_Classes.md :273  MechanismClass                                     census :1499 only, inside covers_all's statement: no row of its own
+  Seven_Mechanism_Classes.md :273  structural_exhaustiveness_proved                   census lines 0 (ONE_PAGE_PROOF :90 pins it at SIDE-kernel v1.5 / v1.7)
+  Seven_Mechanism_Classes.md :273  spectral_cannon                                    census lines 0 (ONE_PAGE_PROOF :90 pins SpectralCannonFull.spectral_cannon at SIDE-kernel v1.5 / v1.7)
+  Spectral_Inertness.md :199       general_p_no_fixed_cell                            census lines 0
+  Third_Identity_Element.md :261   Substrate                                          census lines 0
+
+### ### **NAMES 19 ; PINNED FROM THE CENSUS 8 (EDITS ON MAIN IN 4 FILES, 8 INSERTIONS) ; LISTED AND CARRIED 11.**

@@ -1,0 +1,72 @@
+b716 -- THE KEYSTONE EDITS ON PLACE-papers MAIN, EACH FILE`S WORKING BYTES AGAINST ITS BLOB AT HEAD 4320b719 (2026-10-27T05:54:19Z)
+
+### --- the file at HEAD, +++ the file as the Edit tool left it ; written by tools/b716_keystone.py diff before the commit.
+
+## day1/Silence_of_Foundations.md : 8 diff lines
+--- day1/Silence_of_Foundations.md at 4320b719
++++ day1/Silence_of_Foundations.md edited
+@@ -212 +212 @@
+-| the `SIDESystem` typeclass | `SIDE-kernel` — **DEPOSIT-PIN `v1.5` = `0e5233f`** (concept DOI `10.5281/zenodo.19674312`, version `…21520474`); **WORKING-HEAD `v1.7` = `5e668b4`, `main`** — ### **LIVE (work continued)** | `SIDESystem` | as reported | ### **COMPILED** | `#print axioms SIDESystem` |
++| the `SIDESystem` structure | `SIDE-meta` — **TAG `v0.3` = `6bb7b23`** (the annotated tag `v0.1.0` peels to the same commit; `main` at `6bb7b23`) — *corrected 2026-10-27, ERRATA `E-2026-10-27-1`* | `SIDEMeta.SIDESystem` (`SIDEMeta/Meta/SIDESystem.lean` :99, a `structure`) | as reported | ### **COMPILED** | `#print axioms SIDEMeta.SIDESystem` |
+@@ -238 +238 @@
+-*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence stands with RH equivalent to the one open clause h2_sign (`h2_sign_iff_rh`, Seam.lean :101) and not conditional on it.*
++*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence stands with RH equivalent to the one open clause h2_sign (`h2_sign_iff_rh`, SIDE-explicit-formula `v0.37` = `38e2734`, Seam.lean :101) and not conditional on it.*
+
+## ERRATA.md : 18 diff lines
+--- ERRATA.md at 4320b719
++++ ERRATA.md edited
+@@ -945,0 +946,15 @@
++## E-2026-10-27-1 — Silence of Foundations :212 placed the `SIDESystem` row in SIDE-kernel, as a typeclass; it is a structure of SIDE-meta, `SIDEMeta/Meta/SIDESystem.lean` :99 (CORPUS-FACING; NO DEPOSITED ARTIFACT IS AFFECTED)
++
++**Filed 2026-10-27 by b716, on the author’s ruling `(R326)`(5)(iii); the row carried from b714 and b715 as a keystone item. Record affected: `day1/Silence_of_Foundations.md` :212, the Correspondence table’s third row. Tier two.**
++
++**What the line said.** *“| the `SIDESystem` typeclass | `SIDE-kernel` — DEPOSIT-PIN `v1.5` = `0e5233f` …; WORKING-HEAD `v1.7` = `5e668b4`, `main` — LIVE (work continued) | `SIDESystem` | as reported | COMPILED | `#print axioms SIDESystem` |”*
++
++**What is true.** `SIDESystem` is declared at SIDE-meta `SIDEMeta/Meta/SIDESystem.lean` :99, `structure SIDESystem where`, inside `namespace SIDEMeta` (:44): its fully-qualified name is `SIDEMeta.SIDESystem`, and it is a structure, not a typeclass. SIDE-meta’s tags on its remote, read by `ls-remote` on 2026-10-27: `v0.3` (lightweight) at `6bb7b23`, and `v0.1.0` (annotated, object `8612781`) peeling to `6bb7b23`; `main` at `6bb7b23`. The file was read at that commit, SIDE-meta’s working tree clean at its HEAD `6bb7b23`.
++
++**The correction.** At :212 the row now names `SIDE-meta`, the tag `v0.3` = `6bb7b23` (with `v0.1.0` peeling to it), the terminal `SIDEMeta.SIDESystem` at `SIDEMeta/Meta/SIDESystem.lean` :99, a structure, and its `VERIFY-BY` `#print axioms SIDEMeta.SIDESystem`; the claim cell reads “structure” for “typeclass”. The row’s axiom-profile cell (“as reported”) and status cell (COMPILED) are carried as they stood: this entry does not re-verify them at SIDE-meta, and no Lean process ran.
++
++**Scope.** One row edited, by the Edit tool on main; no claim of the paper moves, and the two rows above it are untouched. No banked number, verdict or grade moves. Nothing here is a statement about RH or any zero.
++
++**Status.** FILED.
++
++
+
+## day1/Exhaustive_Enumeration.md : UNCHANGED
+
+## day1/ONE_PAGE_PROOF.md : 5 diff lines
+--- day1/ONE_PAGE_PROOF.md at 4320b719
++++ day1/ONE_PAGE_PROOF.md edited
+@@ -98 +98 @@
+-> **The specification table moved `v0.1 → v0.3`, four rows split or re-worded, every correction struck-visible with its date and its forcing witness.** `S4` totally-multiplicative → **multiplicative** (Ramanujan `Δ` has an Euler product and is not totally multiplicative — measured from the corpus's own banked `τ` stream: `τ(2)² = 576 ≠ −1472 = τ(4)`). `S1` → **`S1a` ambient / `S1b` monoid / `S1c` element**. `S3` → **`S3a` continuation / `S3b` functional equation**. `§10` ratifies **`VACUOUS`** as a fourth emptiness kind. ### **THE PAGE'S ARGUMENT IS UNTOUCHED — this is the vocabulary its premises are stated in, made finer.** *And the page's own last row still holds: the step from the reduction to RH itself has* ### **no terminal of its own — `h2` is undischarged; its terminal is the equivalence `h2_sign_iff_rh` (Seam.lean :101), RH equivalent to the one open clause h2_sign, not conditional on it.**
++> **The specification table moved `v0.1 → v0.3`, four rows split or re-worded, every correction struck-visible with its date and its forcing witness.** `S4` totally-multiplicative → **multiplicative** (Ramanujan `Δ` has an Euler product and is not totally multiplicative — measured from the corpus's own banked `τ` stream: `τ(2)² = 576 ≠ −1472 = τ(4)`). `S1` → **`S1a` ambient / `S1b` monoid / `S1c` element**. `S3` → **`S3a` continuation / `S3b` functional equation**. `§10` ratifies **`VACUOUS`** as a fourth emptiness kind. ### **THE PAGE'S ARGUMENT IS UNTOUCHED — this is the vocabulary its premises are stated in, made finer.** *And the page's own last row still holds: the step from the reduction to RH itself has* ### **no terminal of its own — `h2` is undischarged; its terminal is the equivalence `h2_sign_iff_rh` (SIDE-explicit-formula `v0.37` = `38e2734`, Seam.lean :101), RH equivalent to the one open clause h2_sign, not conditional on it.**
+
+## day1/Seven_Mechanism_Classes.md : 5 diff lines
+--- day1/Seven_Mechanism_Classes.md at 4320b719
++++ day1/Seven_Mechanism_Classes.md edited
+@@ -273 +273 @@
+-This paper enumerates the seven structural sources of zero-location information in the specification of the completed zeta function, and proves the enumeration is complete by four classical classification theorems. Its kernel does one job: it verifies that the four stages count 2 + 3 + 2 + 0 = 7. Its terminals state what they state, and none reaches σ = 1/2: `techne_kernel_cross_exclusion.all_pairs_excluded` is a predicate over the defined type `MechanismClass`; ConservationBridge's `structural_exhaustiveness_proved` takes `ConservationHypothesis`; TheBridgeComplete's states the seven-class count, the per-class exclusion and Ostrowski's covering, not that every zero is produced by a named class; `spectral_cannon` is a fact on the line. The kernel counts a defined type (`Fintype.card MechanismClass = 7`); that every zero is produced by a named class (`covers_all`) is the open clause, not compiled.
++This paper enumerates the seven structural sources of zero-location information in the specification of the completed zeta function, and proves the enumeration is complete by four classical classification theorems. Its kernel does one job: it verifies that the four stages count 2 + 3 + 2 + 0 = 7. Its terminals state what they state, and none reaches σ = 1/2: `techne_kernel_cross_exclusion.all_pairs_excluded` is a predicate over the defined type `MechanismClass`; ConservationBridge's `structural_exhaustiveness_proved` takes `ConservationHypothesis` (SIDE-kernel, read at `0256e9e`); TheBridgeComplete's states the seven-class count, the per-class exclusion and Ostrowski's covering, not that every zero is produced by a named class; `spectral_cannon` is a fact on the line. The kernel counts a defined type (`Fintype.card MechanismClass = 7`); that every zero is produced by a named class (`covers_all`, SIDE-kernel `v1.2` = `b1407b2`, Kernel/Layer1.lean :23) is the open clause, not compiled.
+
+## day1/Spectral_Inertness.md : 17 diff lines
+--- day1/Spectral_Inertness.md at 4320b719
++++ day1/Spectral_Inertness.md edited
+@@ -169,3 +169,3 @@
+-This paper shows that the product formula, which builds the entire integration domain for the completed zeta function, carries no information at all about the spectral parameter. The point is small to state and load-bearing: the kernel counts a defined type (Fintype.card MechanismClass = 7), and that every zero is produced by a named class (`covers_all`) is the open clause, not compiled; the inertness rules out one source of influence from outside, no more.
+-
+-**The kernel's job here is narrow and complete**: `conservation_of_spectra` states (1 : ℚ)^s = 1; the reading that the interface predicates are independent of the spectral parameter (n₄ = 0) is this paper's argument, not the terminal's content. **The surrounding argument — that this is the right interface to check, and that Tate's construction is the right setting — is mathematics on the page with a classical citation.**
++This paper shows that the product formula, which builds the entire integration domain for the completed zeta function, carries no information at all about the spectral parameter. The point is small to state and load-bearing: the kernel counts a defined type (Fintype.card MechanismClass = 7), and that every zero is produced by a named class (`covers_all`, SIDE-kernel `v1.2` = `b1407b2`, Kernel/Layer1.lean :23) is the open clause, not compiled; the inertness rules out one source of influence from outside, no more.
++
++**The kernel's job here is narrow and complete**: `conservation_of_spectra` (SIDE-kernel `v1.2` = `b1407b2`, Kernel/ProductFormula_Rat.lean :72) states (1 : ℚ)^s = 1; the reading that the interface predicates are independent of the spectral parameter (n₄ = 0) is this paper's argument, not the terminal's content. **The surrounding argument — that this is the right interface to check, and that Tate's construction is the right setting — is mathematics on the page with a classical citation.**
+@@ -197 +197 @@
+-> ### **A second machine fact of the inertness shape is compiled beside `conservation_of_spectra` (which states (1 : ℚ)^s = 1; the n₄ = 0 reading is this paper's argument, not the terminal's content): at the
++> ### **A second machine fact of the inertness shape is compiled beside `conservation_of_spectra` (SIDE-kernel `v1.2` = `b1407b2`, Kernel/ProductFormula_Rat.lean :72, which states (1 : ℚ)^s = 1; the n₄ = 0 reading is this paper's argument, not the terminal's content): at the
+@@ -206,2 +206,2 @@
+-*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence stands with RH equivalent to the one open clause h2_sign (`h2_sign_iff_rh`, Seam.lean :101) and not conditional on it.*
+-
++*Provenance: `phase2/method/THE_GLOBAL_SECTION.md` `v1.0` (the W-CONSTRUCTION-1 record; relay pins per its back matter). **This note states a later finding and edits no argument above it.** No claim in this document moves; NOTHING AT COMPLETE ROSTER; the register sentence stands with RH equivalent to the one open clause h2_sign (`h2_sign_iff_rh`, SIDE-explicit-formula `v0.37` = `38e2734`, Seam.lean :101) and not conditional on it.*
++
+
+## day1/Third_Identity_Element.md : UNCHANGED
+
+### ### **FILES 7 ; EDITED 5.**
