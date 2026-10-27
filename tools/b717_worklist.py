@@ -116,9 +116,10 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'   # ### the census on main read by its rows (the readfirst's)
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### (R327)(6): the next edition, on main, the eleven names' rows
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'    # ### (R327)(5)(i): the companion table beside the paper
-PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'ERRATA.md', 'day1/Silence_of_Foundations.md', COMPANION, CENSUS_NEW)   # ### (R327)(1)-(3) the record
-#   ### lines; (5) the head, the companion and the six hits' papers, (6) the census and the day papers' rows: the papers of (5)(ii) and (6) added
-#   ### at the components that name them (stage two)
+PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'ERRATA.md', 'day1/Silence_of_Foundations.md', COMPANION, CENSUS_NEW,
+              'day1/Exhaustive_Enumeration.md', 'day1/ONE_PAGE_PROOF.md', 'day1/Seven_Mechanism_Classes.md', 'day1/Spectral_Inertness.md',
+              'day1/Third_Identity_Element.md')   # ### (R327)(1)-(3) the record lines; (5) the head, the companion and the six hits' papers, (6)
+#   ### the census and the day papers' rows: the papers of (5)(ii) and (6) added at Component 6 (the Edit tool), Component 5's commit naming them
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
 RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'   # ### b712's re-cut on RECUT_BRANCH
@@ -187,7 +188,7 @@ C3_PRED = 'f47d8ab5840d287bf63c1f0b59ba707ed85dbe07'    # ### (R327)(4)(ii): dat
 C3_RELAY = '091ecda9f44dbed5e9da97acb3250b3fb26cb8d5'   # ### (R327)(4)(iii): the onsets
 C4_RELAY = '091f458676df418b6c9105e14ffe5df26d57add5'   # ### (R327)(4)(iv): the coefficients and the law
 C5_PP = '84dbbf3e80e0520e24fb1726ca6d6e078e87d93d'   # ### (R327)(5)-(7)(ii): the companion, the six hits, the census v0.8.3, the Correspondence rows, ERRATA, the order
-C5_RELAY = ''      # ### (R327)(5)-(6): their banks and diffs (the commit carrying this line; read from the log at the seal)
+C5_RELAY = '97e4164bf0030c5162c3855cca9e7559e5c41bad'      # ### (R327)(5)-(6): their banks and diffs (the commit carrying this line; read from the log at the seal)
 PP_EDITED = ('ERRATA.md', 'OPEN_TRAILS.md', 'day1/Exhaustive_Enumeration.md', 'day1/ONE_PAGE_PROOF.md', 'day1/Seven_Mechanism_Classes.md',
              'day1/Silence_of_Foundations.md', 'day1/Spectral_Inertness.md', 'day1/Third_Identity_Element.md',
              'day1/Silence_of_Foundations_CORRESPONDENCE.md', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md')   # ### data/b717_words_diffs.txt
@@ -202,8 +203,10 @@ ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKE
             'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
             'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-LISTINGS-BEFORE-CLAUSES', 'G-PARTS-PRERUN',
             'G-POSTROOT-WRITES-NONE', 'G-R327-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
-            'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
+            'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
             'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE',
-            'G-REPAIR-CONTROLS', 'G-MEMBRANE-WIRED', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-ACT-CURRENT', 'G-TOOLSET-SCAN',
-            'G-TOOLSET-REPLAY', 'G-COVERAGE-TABLE', 'G-NO-DISPATCH',
-            'G-REGISTRATIONS-FIRST', 'G-KEYSTONE-EDITS', 'G-PRICES-BANKED')
+            'G-MEMBRANE-WIRED', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-ACT-CURRENT', 'G-NO-DISPATCH',
+            'G-REGISTRATIONS-FIRST', 'G-LIST-CERTIFIED', 'G-PREDICTIONS-BEFORE-ONSETS', 'G-ONSETS-HELD', 'G-COEFFS-LAW',
+            'G-KEYSTONE-EDITS', 'G-NAMES-PINNED', 'G-PRICES-BANKED', 'G-ARM-TAGS')
+# ### Component 6 (the Edit tool): b716's arms over b716's toolset objects (G-TOOL-REPAIRS, G-REPAIR-CONTROLS, G-TOOLSET-SCAN, G-TOOLSET-REPLAY,
+# ### G-COVERAGE-TABLE) not carried -- their banks are b716's and this act writes none; the -39 test's, the names' and the tags' arms added

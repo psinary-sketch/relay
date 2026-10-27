@@ -1,0 +1,275 @@
+b717 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-27T17:06:41Z)
+
+### the source: the seat`s session 551b6446-5996-4c11-94be-d2a2e851a529 from its first user line carrying 'RULING (R327) BEGIN', with its subagents` transcripts
+### commands read: 215
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b716, its own session 0c15655e, from its post-push combine to that session`s end): 26 commands from 2026-10-27T08:36:37.592Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (at most three port dispatches and the join`s, (R327)(4) and N1: port-b707 of SIDE-lv-conservation through the portdispatch route, SIDE-faces-join`s main through the dispatch route) (0):
+  NONE
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (1):
+  #193 2026-10-27T16:23:35.548Z python -X utf8 tools/b717_record.py linecheck 2>$null; "exit $LASTEXITCODE"
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (1):
+  #1 2026-10-27T13:32:38.482Z cd "/c/Users/echo chamber/.claude/projects/D--/memory/" && cat project_state_cp4_cp5_b559_b576.md | head -80; echo ======; cat feedback_b716_traps.md
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (3):
+  #1 2026-10-27T13:32:38.482Z cd "/c/Users/echo chamber/.claude/projects/D--/memory/" && cat project_state_cp4_cp5_b559_b576.md | head -80; echo ======; cat feedback_b716_traps.md
+  #3 2026-10-27T13:32:56.418Z Get-ChildItem D:\relay\tools\standing | Select-Object Name,Length; (Get-Content D:\relay\data\b716_toolset_coverage.txt).Count; (Get-Content D:\relay\data\b716_closing.txt).Count; Get-ChildItem D:\rel
+  #58 2026-10-27T14:13:55.027Z Get-Process python, lean, lake, git -ErrorAction SilentlyContinue; Get-CimInstance Win32_OperatingSystem | Select-Object FreePhysicalMemory
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+  #40 2026-10-27T13:43:06.286Z PowerShell
+      git -C D:\relay branch -d push-b716-closing
+  #41 2026-10-27T13:43:09.204Z PowerShell
+      git -C D:\relay branch -d push-b716-preroot
+  #42 2026-10-27T13:43:12.066Z PowerShell
+      git -C D:\relay branch -d push-b716-record
+  #43 2026-10-27T13:43:15.122Z PowerShell
+      git -C D:\MY-DOwnloads\PLACE-papers branch -d push-b716-preroot
+  #44 2026-10-27T13:43:18.110Z PowerShell
+      git -C D:\MY-DOwnloads\PLACE-papers branch -d push-b716-record
+
+### THE BRANCH DELETES BY SHAPE ((R327)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #40 deletes ['push-b716-closing'], halves 1, globs none, variables none, chained after False; #41 deletes ['push-b716-preroot'], halves 1, globs none, variables none, chained after False; #42 deletes ['push-b716-record'], halves 1, globs none, variables none, chained after False; #43 deletes ['push-b716-preroot'], halves 1, globs none, variables none, chained after False; #44 deletes ['push-b716-record'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-27T13:32:38.482Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/memory/" && cat project_state_cp4_cp5_b559_b576.md | head -80; echo ======; cat feedback_b716_traps.md
+  #2 | 2026-10-27T13:32:50.293Z | seat | PowerShell | foreach ($p in 'D:\relay','D:\MY-DOwnloads\PLACE-papers','D:\SIDE-explicit-formula','D:\SIDE-lv-conservation','D:\SIDE-kernel','D:\SIDE-meta') { if (Test-Path $
+  #3 | 2026-10-27T13:32:56.418Z | seat | PowerShell | Get-ChildItem D:\relay\tools\standing | Select-Object Name,Length; (Get-Content D:\relay\data\b716_toolset_coverage.txt).Count; (Get-Content D:\relay\data\b716_
+  #4 | 2026-10-27T13:33:00.041Z | seat | PowerShell | Get-ChildItem D:\relay\tools\standing; (Get-Content D:\relay\data\b716_toolset_coverage.txt).Count; (Get-Content D:\relay\data\b716_closing.txt).Count; Get-Chil
+  #5 | 2026-10-27T13:33:09.868Z | seat | PowerShell | git -C D:\relay diff --stat; git -C D:\relay diff data/b716_hook_refusals.txt
+  #6 | 2026-10-27T13:33:15.912Z | seat | PowerShell | git -C D:\relay log --reverse --format="%h %ad %s" --date=iso-strict cf51ee95..983dcbe2 --stat
+  #7 | 2026-10-27T13:35:11.809Z | seat | PowerShell | python D:\relay\tools\b717_carry.py carry citation
+  #8 | 2026-10-27T13:35:26.710Z | seat | PowerShell | python D:\relay\tools\b717_carry.py carry worklist
+  #9 | 2026-10-27T13:35:40.406Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers log --oneline -8; git -C D:\MY-DOwnloads\PLACE-papers status --short; git -C D:\MY-DOwnloads\PLACE-papers branch --list "pus
+  #10 | 2026-10-27T13:35:58.159Z | seat | PowerShell | git -C D:\relay rev-parse 78866b19; Select-String -Path D:\relay\data\act_roots.txt -Pattern "^b716 "; Select-String -Path D:\MY-DOwnloads\PLACE-papers\OPEN_TRA
+  #11 | 2026-10-27T13:38:01.407Z | seat | PowerShell | python D:\relay\tools\b717_carry.py prune citation "    # ### b717: the cite rows" "    standing_rows(text, add)"
+  #12 | 2026-10-27T13:38:09.599Z | seat | PowerShell | foreach ($f in 'data/b716_author_words.txt','data/b716_author_words_preseal.txt','data/b714_heads_draft.txt','data/b714_pilot.txt','data/b714_law.txt','data/b71
+  #13 | 2026-10-27T13:38:14.445Z | seat | PowerShell | Get-ChildItem D:\relay\tools\b713_*.py -Name; Get-ChildItem D:\relay\tools\b709_*.py -Name; Get-ChildItem D:\relay\tools\b667_*.py -Name; Get-ChildItem D:\relay
+  #14 | 2026-10-27T13:39:56.229Z | seat | PowerShell | python -X utf8 D:\relay\tools\b717_citation.py check dry
+  #15 | 2026-10-27T13:40:06.374Z | seat | PowerShell | python -X utf8 D:\relay\tools\b717_citation.py check
+  #16 | 2026-10-27T13:40:13.169Z | seat | PowerShell | python D:\relay\tools\b717_carry.py carry record
+  #17 | 2026-10-27T13:40:16.810Z | seat | PowerShell | python -X utf8 D:\relay\tools\b717_citation.py check
+  #18 | 2026-10-27T13:40:23.585Z | seat | PowerShell | python -X utf8 D:\relay\tools\b717_citation.py ferry
+  #19 | 2026-10-27T13:40:32.062Z | seat | PowerShell | python D:\relay\tools\b717_carry.py carry standing
+  #20 | 2026-10-27T13:41:22.421Z | seat | PowerShell | python -X utf8 D:\relay\tools\b717_standing.py write dry
+  #21 | 2026-10-27T13:41:25.538Z | seat | PowerShell | python -X utf8 D:\relay\tools\b717_standing.py write
+  #22 | 2026-10-27T13:41:28.562Z | seat | PowerShell | python -X utf8 D:\relay\tools\b717_standing.py control
+  #23 | 2026-10-27T13:41:33.373Z | seat | PowerShell | git -C D:\relay add data/standing_clauses_v6.txt
+  #24 | 2026-10-27T13:41:35.013Z | seat | PowerShell | git -C D:\relay commit -m "b717 step zero, (R327)(2): data/standing_clauses_v6.txt committed alone -- v5 unchanged (rows (1)-(79), its sections and row lines by
+  #25 | 2026-10-27T13:42:08.626Z | seat | PowerShell | git -C D:\relay add data/act_current.json
+  #26 | 2026-10-27T13:42:12.787Z | seat | PowerShell | git -C D:\relay commit -m "b717 step zero: data/act_current.json committed alone -- act b717, prev b716, next b718, R327/R326, the chain's 94th row (b716 the 93
+  #27 | 2026-10-27T13:42:16.992Z | seat | PowerShell | python -X utf8 D:\relay\tools\b717_citation.py ferry
+  #28 | 2026-10-27T13:42:23.660Z | seat | PowerShell | git -C D:\relay add data/b716_relay_push-b716-closing_push_out.txt
+  #29 | 2026-10-27T13:42:27.065Z | seat | PowerShell | git -C D:\relay commit -m "b717 step zero, (R327)(8): data/b716_relay_push-b716-closing_push_out.txt committed alone -- b716's closing push capture, untracked s
+  #30 | 2026-10-27T13:42:30.611Z | seat | PowerShell | git -C D:\relay add data/b716_steps.json
+  #31 | 2026-10-27T13:42:34.068Z | seat | PowerShell | git -C D:\relay commit -m "b717 step zero, (R327)(8): data/b716_steps.json committed alone -- step row 18, b716's closing (983dcbe2), written after b716's closi
+  #32 | 2026-10-27T13:42:37.593Z | seat | PowerShell | git -C D:\relay add data/b716_hook_refusals.txt
+  #33 | 2026-10-27T13:42:41.606Z | seat | PowerShell | git -C D:\relay commit -m "b717 step zero, (R327)(8): data/b716_hook_refusals.txt committed alone as it stands -- two lines after b716's root commit of it: 13:3
+  #34 | 2026-10-27T13:42:44.997Z | seat | PowerShell | git -C D:\relay add data/b716_bank_hashes.json
+  #35 | 2026-10-27T13:42:48.558Z | seat | PowerShell | git -C D:\relay commit -m "b717 step zero, (R327)(8): data/b716_bank_hashes.json committed alone as b716's close left it -- untracked since b716's close (the re
+  #36 | 2026-10-27T13:42:53.980Z | seat | PowerShell | git -C D:\relay branch --merged main --list "push-b716-*"
+  #37 | 2026-10-27T13:42:54.666Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers branch --merged main --list "push-b716-*"
+  #38 | 2026-10-27T13:42:59.745Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers branch --merged main
+  #39 | 2026-10-27T13:43:03.122Z | seat | PowerShell | git -C D:\relay branch --merged main
+  #40 | 2026-10-27T13:43:06.286Z | seat | PowerShell | git -C D:\relay branch -d push-b716-closing
+  #41 | 2026-10-27T13:43:09.204Z | seat | PowerShell | git -C D:\relay branch -d push-b716-preroot
+  #42 | 2026-10-27T13:43:12.066Z | seat | PowerShell | git -C D:\relay branch -d push-b716-record
+  #43 | 2026-10-27T13:43:15.122Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers branch -d push-b716-preroot
+  #44 | 2026-10-27T13:43:18.110Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers branch -d push-b716-record
+  #45 | 2026-10-27T13:43:26.098Z | seat | PowerShell | tasklist /FI "IMAGENAME eq claude.exe"; tasklist /FI "IMAGENAME eq python.exe"; tasklist /FI "IMAGENAME eq lean.exe"; tasklist /FI "IMAGENAME eq lake.exe"; task
+  #46 | 2026-10-27T13:43:52.072Z | seat | PowerShell | foreach ($f in 'b713_list.py','b713_predict.py','b713_onsets.py','b713_coeffs.py','b709_pairs.py','b667_epstein_certify.py','b713_regspec.py') { $p = Join-Path 
+  #47 | 2026-10-27T13:48:40.813Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/circuit_read.py readfirst b717_ferry.txt b717_readfirst.txt
+  #48 | 2026-10-27T13:49:21.462Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_record.py usage
+  #49 | 2026-10-27T13:49:25.246Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_record.py rowgen
+  #50 | 2026-10-27T13:50:47.187Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_carry.py carry tests
+  #51 | 2026-10-27T13:50:53.449Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py parts
+  #52 | 2026-10-27T13:51:00.824Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py mem 1; foreach ($t in 'test_act_root.py','test_act_root_commit_b644.py','test_act_root_order_b641.py',
+  #53 | 2026-10-27T13:51:17.693Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py mem 2; python -X utf8 tools/b717_tests.py run test_asof.py stepzero
+  #54 | 2026-10-27T13:51:18.989Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py mem 3; foreach ($t in 'test_axiom_claim.py','test_axiom_claim_b651.py','test_banned_terms_backmatter.p
+  #55 | 2026-10-27T13:58:58.501Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py mem 4; python -X utf8 tools/b717_tests.py run test_chain_page.py stepzero
+  #56 | 2026-10-27T14:08:45.606Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py mem 5; foreach ($t in 'test_chain_page_b592.py','test_chain_page_b596.py','test_chain_page_b629.py','t
+  #57 | 2026-10-27T14:13:11.323Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py mem 5; foreach ($t in 'test_composer_b647.py','test_composer_b649.py','test_conversion_b652.py','test_
+  #58 | 2026-10-27T14:13:55.027Z | seat | PowerShell | Get-Process python, lean, lake, git -ErrorAction SilentlyContinue; Get-CimInstance Win32_OperatingSystem | Select-Object FreePhysicalMemory
+  #59 | 2026-10-27T14:13:58.470Z | seat | PowerShell | Get-Process -Name python, lean, lake, git -ErrorAction SilentlyContinue
+  #60 | 2026-10-27T14:14:02.486Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py mem 6
+  #61 | 2026-10-27T14:14:08.697Z | seat | PowerShell | Set-Location D:\relay; foreach ($t in 'test_g_chain_page.py','test_glossary_supersede_b651.py','test_licensed_table_b645.py','test_licensed_table_instrument_b65
+  #62 | 2026-10-27T14:14:41.471Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py hold 6
+  #63 | 2026-10-27T14:14:46.864Z | seat | PowerShell | Get-Process -Name chrome, msedge, firefox, claude, node, Code -ErrorAction SilentlyContinue
+  #64 | 2026-10-27T14:14:53.638Z | seat | PowerShell | Set-Location D:\relay; git status --short --branch --untracked-files=no
+  #65 | 2026-10-27T14:15:17.597Z | seat | PowerShell | Set-Location D:\relay; git status --short -- data/b717_* data/arm_tags.json tools/b717_*
+  #66 | 2026-10-27T14:15:21.575Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py hold 6
+  #67 | 2026-10-27T14:15:36.043Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_carry.py carry corrigendum
+  #68 | 2026-10-27T14:17:38.289Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_corrigendum.py dry
+  #69 | 2026-10-27T14:17:48.399Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_corrigendum.py dry
+  #70 | 2026-10-27T14:17:54.253Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py hold 6
+  #71 | 2026-10-27T14:22:34.690Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py hold 6
+  #72 | 2026-10-27T14:22:39.549Z | seat | PowerShell | Set-Location D:\relay; foreach ($t in 'test_g_chain_page.py','test_glossary_supersede_b651.py','test_licensed_table_b645.py','test_licensed_table_instrument_b65
+  #73 | 2026-10-27T14:26:23.033Z | seat | PowerShell | Set-Location D:\relay; foreach ($t in 'test_name_b649.py','test_name_patterns_b636.py','test_no_sorry_main.py','test_premise_status.py','test_primed_names_b643.
+  #74 | 2026-10-27T14:31:17.922Z | seat | Bash | python -X utf8 tools/b717_tests.py run test_push_gated.sh stepzero
+  #75 | 2026-10-27T14:32:03.139Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py hold 4; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_tests.py run test_chain_page.py stepzero 
+  #76 | 2026-10-27T14:41:48.568Z | seat | PowerShell | Get-Process -Name python, lean, lake, git, bash -ErrorAction SilentlyContinue
+  #77 | 2026-10-27T14:41:52.131Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py report stepzero
+  #78 | 2026-10-27T14:42:06.576Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_carry.py spanlist record
+  #79 | 2026-10-27T14:42:10.111Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_carry.py
+  #80 | 2026-10-27T14:42:31.137Z | seat | PowerShell | Set-Location D:\relay; git log -7 --format="%H %s"
+  #81 | 2026-10-27T14:42:50.458Z | seat | PowerShell | Set-Location D:\relay; git reflog show --format="%H %gs" -n 12 HEAD
+  #82 | 2026-10-27T14:43:21.516Z | seat | PowerShell | Set-Location D:\MY-DOwnloads\PLACE-papers; git status --short --branch --untracked-files=no
+  #83 | 2026-10-27T14:43:27.797Z | seat | PowerShell | Set-Location D:\relay; git add -- data/arm_tags.json data/b717_carry_citation.txt data/b717_carry_record.txt data/b717_carry_standing.txt data/b717_carry_tests.
+  #84 | 2026-10-27T14:43:34.843Z | seat | PowerShell | Set-Location D:\relay; git commit -q -m "b717 step zero: the ferry and its scan, the carry banks and the pruned citation rows, the citation check (100 cites, 98
+  #85 | 2026-10-27T14:43:39.540Z | seat | PowerShell | Set-Location D:\relay; git log -1 --format=%H
+  #86 | 2026-10-27T14:43:45.062Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_record.py step relay step zero 66232bca 3739e9c7 5527b92e 42ce2bbc 696e12cb 43a3a62c c86f2b73
+  #87 | 2026-10-27T14:44:38.714Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_record.py c1 dry
+  #88 | 2026-10-27T14:44:50.082Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_record.py c1 dry
+  #89 | 2026-10-27T14:45:10.437Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_record.py c1 dry
+  #90 | 2026-10-27T14:45:17.085Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_record.py c1
+  #91 | 2026-10-27T14:45:22.985Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_corrigendum.py write
+  #92 | 2026-10-27T14:45:48.471Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_corrigendum.py banked 10724
+  #93 | 2026-10-27T14:45:54.770Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_corrigendum.py banked 10724
+  #94 | 2026-10-27T14:45:59.508Z | seat | PowerShell | Set-Location D:\relay; git ls-files --format="%(objectsize) %(path)" data/b675_corrigenda.txt
+  #95 | 2026-10-27T14:46:21.794Z | seat | PowerShell | Set-Location D:\MY-DOwnloads\PLACE-papers; git status --short
+  #96 | 2026-10-27T14:46:25.588Z | seat | PowerShell | Set-Location D:\MY-DOwnloads\PLACE-papers; git add -- FINDINGS.md
+  #97 | 2026-10-27T14:46:29.995Z | seat | PowerShell | Set-Location D:\MY-DOwnloads\PLACE-papers; git commit -q -m "b717 (R327)(1)-(3): b716 at its weight (FINDINGS :10722, appended to b716's entry :10686) and the c
+  #98 | 2026-10-27T14:46:34.326Z | seat | PowerShell | Set-Location D:\relay; git add -- data/b675_corrigenda.txt data/b717_corrigendum.txt data/b717_corrigendum.json data/b717_record_lines.json data/b717_defects.tx
+  #99 | 2026-10-27T14:46:39.783Z | seat | PowerShell | Set-Location D:\relay; git commit -q -m "b717 component 1: b716's weight line (FINDINGS :10722, composed from b716's own banks by a rewritten _wb) and the corri
+  #100 | 2026-10-27T14:46:44.120Z | seat | PowerShell | Set-Location D:\relay; git log -1 --format=%H; git -C D:/MY-DOwnloads/PLACE-papers log -1 --format=%H
+  #101 | 2026-10-27T14:46:49.176Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_record.py step pp component 1 e0ab685b
+  #102 | 2026-10-27T14:46:49.823Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_record.py step relay component 1 7c654dbe
+  #103 | 2026-10-27T14:46:52.326Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_list.py carried
+  #104 | 2026-10-27T14:47:08.399Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py mem; python -X utf8 tools/b717_list.py controls
+  #105 | 2026-10-27T14:47:17.265Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_tests.py mem; python -X utf8 tools/b717_list.py controls
+  #106 | 2026-10-27T14:47:26.902Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_list.py control15
+  #107 | 2026-10-27T14:47:42.045Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_list.py base
+  #108 | 2026-10-27T14:55:55.947Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\551b6446-5996-4c11-94be-d2a2e851a529\scratchpad\base39_probe.py
+  #109 | 2026-10-27T14:56:13.381Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\551b6446-5996-4c11-94be-d2a2e851a529\scratchpad\base39_probe2.py
+  #110 | 2026-10-27T14:56:27.772Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_list.py base
+  #111 | 2026-10-27T15:02:36.836Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_list.py next
+  #112 | 2026-10-27T15:05:44.879Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_list.py band 0.5 15
+  #113 | 2026-10-27T15:05:51.154Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b717_list.py next
+  #114 | 2026-10-27T15:06:30.736Z | seat | PowerShell | Set-Location D:\relay; foreach ($i in 1..5) { python -X utf8 tools/b717_list.py next; if ($LASTEXITCODE -ne 0) { break } }
+  #115 | 2026-10-27T15:10:17.024Z | seat | PowerShell | Set-Location D:\relay; foreach ($i in 1..4) { python -X utf8 tools/b717_list.py next; if ($LASTEXITCODE -ne 0) { break } }
+  #116 | 2026-10-27T15:11:26.066Z | seat | PowerShell | Set-Location D:\relay; foreach ($i in 1..8) { python -X utf8 tools/b717_list.py next tier2; if ($LASTEXITCODE -ne 0) { break } }
+  #117 | 2026-10-27T15:24:09.855Z | seat | PowerShell | python -X utf8 tools/b717_tests.py mem; python -X utf8 tools/b717_list.py status
+  #118 | 2026-10-27T15:24:17.674Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py next tier2 }
+  #119 | 2026-10-27T15:26:22.907Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py band 158.622749 160 }
+  #120 | 2026-10-27T15:26:42.315Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py next tier2 }
+  #121 | 2026-10-27T15:29:41.881Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py band 159.998049 175 }
+  #122 | 2026-10-27T15:32:35.929Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py band 159.998049 175 }
+  #123 | 2026-10-27T15:32:41.091Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py next tier2 }
+  #124 | 2026-10-27T15:33:29.685Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py band 174.616182 190 }
+  #125 | 2026-10-27T15:35:58.239Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py band 174.616182 190 }
+  #126 | 2026-10-27T15:39:36.687Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py band 174.616182 190 }
+  #127 | 2026-10-27T15:39:41.962Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py next tier2 }
+  #128 | 2026-10-27T15:43:09.601Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_band; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py band 190.186787 200 }
+  #129 | 2026-10-27T15:45:34.655Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_bank; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py bank }
+  #130 | 2026-10-27T15:45:49.264Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold list_bank; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_list.py bank }
+  #131 | 2026-10-27T15:45:54.752Z | seat | PowerShell | git status --short
+  #132 | 2026-10-27T15:46:01.303Z | seat | PowerShell | git add tools/b717_list.py tools/b717_predict.py data/b717_list.txt data/b717_list.json data/b717_list_hashes.txt data/b717_list_controls.txt data/b717_list_con
+  #133 | 2026-10-27T15:46:05.535Z | seat | PowerShell | git commit -q -m "b717 C2: the certified zero list of Q1 at -39 complete to 200 (16 bands, 212 on-line, 31 off-line pairs), the counts certified and the off-lin
+  #134 | 2026-10-27T15:46:09.924Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold predict; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_predict.py bank }
+  #135 | 2026-10-27T15:46:16.527Z | seat | PowerShell | git add data/b717_predictions.txt data/b717_predictions.json
+  #136 | 2026-10-27T15:46:20.223Z | seat | PowerShell | git commit -q -m "b717 C3: the predictions at -39 from the registered law, committed alone before any onset (7 predicted, 24 beyond reach at 200)"; git log -1 -
+  #137 | 2026-10-27T15:48:40.136Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold onsets_c2; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_onsets.py c2 }
+  #138 | 2026-10-27T15:48:45.756Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold onsets_c1; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_onsets.py c1 }
+  #139 | 2026-10-27T15:49:10.577Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold onset_1; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_onsets.py pair 1 }
+  #140 | 2026-10-27T15:49:16.202Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold onset_2; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_onsets.py pair 2 }
+  #141 | 2026-10-27T15:49:22.785Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold onset_3; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_onsets.py pair 3 }
+  #142 | 2026-10-27T15:49:28.925Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold onset_4; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_onsets.py pair 4 }
+  #143 | 2026-10-27T15:49:37.642Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold onset_5; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_onsets.py pair 5 }
+  #144 | 2026-10-27T15:49:47.592Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold onset_6; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_onsets.py pair 6 }
+  #145 | 2026-10-27T15:49:56.824Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold onset_7; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_onsets.py pair 7 }
+  #146 | 2026-10-27T15:50:05.112Z | seat | PowerShell | python -X utf8 tools/b717_onsets.py bank
+  #147 | 2026-10-27T15:50:14.112Z | seat | PowerShell | git add tools/b717_onsets.py tools/b717_list.py data/b717_onsets.txt data/b717_onsets.json data/b717_defects.txt
+  #148 | 2026-10-27T15:50:19.748Z | seat | PowerShell | git commit -q -m "b717 C3: the onsets at -39 after the predictions (f47d8ab5): controls (C1) 8/8 and (C2) through 32532 as wanted; 7 of 7 HELD, offsets +54.9 to
+  #149 | 2026-10-27T15:50:27.079Z | seat | PowerShell | python -X utf8 tools/b717_record.py step relay component 2 3fdfacab
+  #150 | 2026-10-27T15:50:33.252Z | seat | PowerShell | python -X utf8 tools/b717_record.py step relay component 3 f47d8ab5 091ecda9
+  #151 | 2026-10-27T15:52:05.482Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold coeffs_controls; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_coeffs.py controls }
+  #152 | 2026-10-27T15:52:14.340Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold coeffs_run; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_coeffs.py run }
+  #153 | 2026-10-27T15:52:22.200Z | seat | PowerShell | git add tools/b717_coeffs.py data/b717_coeffs.txt data/b717_coeffs.json data/b717_coeffs_hashes.txt data/b717_coeffs_controls.json data/b717_steps.json
+  #154 | 2026-10-27T15:52:26.101Z | seat | PowerShell | git commit -q -m "b717 C4: the coefficients at -39 through 32532: controls C1-C3 as wanted; least negative n = 120, c = -2 log 120, b(n) = -2; registration (ii)
+  #155 | 2026-10-27T15:52:29.632Z | seat | PowerShell | python -X utf8 tools/b717_record.py step relay component 4 091f4586
+  #156 | 2026-10-27T15:57:22.725Z | seat | PowerShell | python -X utf8 tools/b717_words.py head
+  #157 | 2026-10-27T15:57:28.296Z | seat | PowerShell | python -X utf8 tools/b717_words.py companion
+  #158 | 2026-10-27T15:57:38.762Z | seat | PowerShell | python -X utf8 tools/b717_words.py companion
+  #159 | 2026-10-27T15:58:06.361Z | seat | PowerShell | (Get-FileHash -Algorithm SHA256 "D:\MY-DOwnloads\PLACE-papers\day1\Silence_of_Foundations_CORRESPONDENCE.md").Hash; (Get-FileHash -Algorithm SHA256 D:\relay\dat
+  #160 | 2026-10-27T15:58:17.779Z | seat | PowerShell | python -X utf8 tools/b717_words.py lint seed
+  #161 | 2026-10-27T15:58:23.277Z | seat | PowerShell | python -X utf8 tools/b717_words.py lint
+  #162 | 2026-10-27T15:58:31.201Z | seat | PowerShell | (Get-Content "D:\MY-DOwnloads\PLACE-papers\ERRATA.md" -Encoding UTF8).Count
+  #163 | 2026-10-27T15:58:38.393Z | seat | PowerShell | python -X utf8 tools/b717_words.py names
+  #164 | 2026-10-27T15:59:48.333Z | seat | PowerShell | python -X utf8 tools/b717_words.py names
+  #165 | 2026-10-27T16:00:53.984Z | seat | PowerShell | python -X utf8 tools/b717_words.py names
+  #166 | 2026-10-27T16:01:55.420Z | seat | PowerShell | python -X utf8 tools/b717_words.py edition
+  #167 | 2026-10-27T16:04:18.149Z | seat | PowerShell | python -X utf8 tools/b717_words.py locate OPEN_TRAILS.md W-ORD-EPSTEIN-COUNT-LEAN "THE ORDER **"
+  #168 | 2026-10-27T16:04:44.363Z | seat | PowerShell | python -X utf8 tools/b717_words.py lint; python -X utf8 tools/b717_words.py diff; git -C D:/MY-DOwnloads/PLACE-papers status --short
+  #169 | 2026-10-27T16:04:57.200Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers add ERRATA.md OPEN_TRAILS.md day1/Exhaustive_Enumeration.md day1/ONE_PAGE_PROOF.md day1/Seven_Mechanism_Classes.md day1/Sile
+  #170 | 2026-10-27T16:05:02.346Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers commit -q -m "b717 C5 (R327)(5)-(7)(ii): Silence's head with its companion correspondence; the six hits settled (three rewor
+  #171 | 2026-10-27T16:05:21.685Z | seat | PowerShell | python -X utf8 tools/b717_record.py step pp component 5 84dbbf3e
+  #172 | 2026-10-27T16:05:26.804Z | seat | PowerShell | git add tools/b717_words.py tools/b717_worklist.py data/b717_head.txt data/b717_companion.md data/b717_companion.txt data/b717_lint.txt data/b717_names.txt data
+  #173 | 2026-10-27T16:05:30.900Z | seat | PowerShell | git commit -q -m "b717 C5: the head reading, the companion draft, the lint with the word's class, the eleven names, the diffs of PLACE-papers 84dbbf3e"; git log
+  #174 | 2026-10-27T16:06:37.246Z | seat | PowerShell | python -X utf8 tools/b717_record.py step relay component 5 97e4164bf0030c5162c3855cca9e7559e5c41bad
+  #175 | 2026-10-27T16:07:31.980Z | seat | PowerShell | git status --short --untracked-files=all
+  #176 | 2026-10-27T16:08:00.514Z | seat | PowerShell | python -X utf8 tools/b717_carry.py carry checks; python -X utf8 tools/b717_carry.py carry closing; python -X utf8 tools/b717_carry.py carry reg_gate; python -X 
+  #177 | 2026-10-27T16:09:30.987Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_record.py
+  #178 | 2026-10-27T16:13:35.772Z | seat | PowerShell | python -X utf8 tools/b717_record.py counter
+  #179 | 2026-10-27T16:13:45.059Z | seat | PowerShell | python -X utf8 tools/b717_record.py counter
+  #180 | 2026-10-27T16:13:51.044Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_record.py
+  #181 | 2026-10-27T16:13:58.391Z | seat | PowerShell | python -X utf8 tools/b717_record.py findings dry
+  #182 | 2026-10-27T16:14:04.032Z | seat | PowerShell | python -X utf8 tools/b717_record.py findings dry
+  #183 | 2026-10-27T16:14:19.058Z | seat | PowerShell | python -X utf8 tools/b717_record.py trail dry
+  #184 | 2026-10-27T16:14:41.854Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_closing.py
+  #185 | 2026-10-27T16:16:41.354Z | seat | PowerShell | python -X utf8 tools/b717_report.py dry
+  #186 | 2026-10-27T16:18:25.429Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs tools/b717_checks.py
+  #187 | 2026-10-27T16:18:30.996Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs tools\b717_checks.py; "exit $LASTEXITCODE"
+  #188 | 2026-10-27T16:18:38.268Z | seat | PowerShell | python -X utf8 tools/b717_carry.py defs tools/b717_checks.py; "exit $LASTEXITCODE"
+  #189 | 2026-10-27T16:18:42.180Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_checks.py; "exit $LASTEXITCODE"
+  #190 | 2026-10-27T16:19:05.000Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_record.py
+  #191 | 2026-10-27T16:21:49.746Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold act; "exit $LASTEXITCODE"
+  #192 | 2026-10-27T16:21:53.470Z | seat | PowerShell | python -X utf8 tools/b717_checks.py --mid b717_checks_mid.txt --part act; "exit $LASTEXITCODE"
+  #193 | 2026-10-27T16:23:35.548Z | seat | PowerShell | python -X utf8 tools/b717_record.py linecheck 2>$null; "exit $LASTEXITCODE"
+  #194 | 2026-10-27T16:24:08.314Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold probe; if ($LASTEXITCODE -eq 0) { python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\551b6446-5996-4c11-94b
+  #195 | 2026-10-27T16:26:04.719Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_closing.py
+  #196 | 2026-10-27T16:27:34.582Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold probe; if ($LASTEXITCODE -eq 0) { python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\551b6446-5996-4c11-94b
+  #197 | 2026-10-27T16:29:23.901Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_corrigendum.py
+  #198 | 2026-10-27T16:29:54.293Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold act; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_checks.py --mid b717_checks_mid.txt --part act }
+  #199 | 2026-10-27T16:31:31.117Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold standing-a; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_checks.py --mid b717_checks_mid.txt --part standing-a }
+  #200 | 2026-10-27T16:38:24.928Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold probe; if ($LASTEXITCODE -eq 0) { python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\551b6446-5996-4c11-94b
+  #201 | 2026-10-27T16:40:42.992Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b702_checks.py
+  #202 | 2026-10-27T16:41:02.366Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold standing-c; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_checks.py --mid b717_checks_mid.txt --part standing-c }
+  #203 | 2026-10-27T16:46:00.123Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold standing-b1; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_checks.py --mid b717_checks_mid.txt --part standing-b1
+  #204 | 2026-10-27T16:48:05.678Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold standing-b2a; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_checks.py --mid b717_checks_mid.txt --part standing-b
+  #205 | 2026-10-27T16:56:14.462Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold standing-b2b; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_checks.py --mid b717_checks_mid.txt --part standing-b
+  #206 | 2026-10-27T16:58:44.461Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold standing-b3; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_checks.py --mid b717_checks_mid.txt --part standing-b3
+  #207 | 2026-10-27T17:01:54.125Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_regspec.py
+  #208 | 2026-10-27T17:03:36.956Z | seat | PowerShell | git -C D:/relay log --reverse --format="%h %cI %s" 983dcbe2..HEAD; git -C D:/MY-DOwnloads/PLACE-papers log --reverse --format="%h %cI %s" b855623d..HEAD
+  #209 | 2026-10-27T17:05:12.349Z | seat | PowerShell | git -C D:\relay log --oneline -16; git -C D:\relay status --short
+  #210 | 2026-10-27T17:05:26.237Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs count_predictions; python -X utf8 tools/b717_record.py defs self_test
+  #211 | 2026-10-27T17:05:43.570Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_checks
+  #212 | 2026-10-27T17:05:48.775Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_checks.py
+  #213 | 2026-10-27T17:06:01.371Z | seat | PowerShell | python -X utf8 tools/b717_record.py steps-print b716; python -X utf8 tools/b717_record.py --help
+  #214 | 2026-10-27T17:06:25.995Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold figures; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_record.py figures }
+  #215 | 2026-10-27T17:06:38.950Z | seat | PowerShell | python -X utf8 tools/b717_record.py commands; python -X utf8 tools/b717_record.py reads
+
+### ### **COMMANDS 215 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 26 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

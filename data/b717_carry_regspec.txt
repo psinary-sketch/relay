@@ -1,0 +1,175 @@
+b717 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b716_regspec.py -> tools/b717_regspec.py (2026-10-27T16:08:03Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b716 -> b717, b715 -> b716, R326 -> R327, R325 -> R326); 397 lines, 65 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b716_tool_repairs.txt AND data/b716_repairdiff_regspec.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  :5534 ; +    tools/b716_closing.py (head_line, state_file_sentence), tools/b716_regspec.py (refres
+  :5653 ; +     'tools/b716_regspec.py refresh_commands (the command bank rewritten by the record to
+  :5660 ; +REPAIR712_TRACKED = ('tools/b716_record.py', 'tools/b716_worklist.py', 'tools/b716_checks
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b716_regspec.py
+  +++ tools/b717_regspec.py
+  @@ -2,1 +2,1 @@
+  -"""b716_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  +"""b717_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  @@ -4,5 +4,5 @@
+  -### ### Carried from b715's spec by tools/b716_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face
+  -### ### (Component 5): the citation check as a gate step; the record lines and the corrigendum ((R326)(1)-(2)); the standing toolset at
+  -### ### v1.1.0, its scan, replay, controls and coverage ((R326)(3)); the -39 registration committed first ((R326)(4)); the keystone edits on
+  -### ### main, Silence :212 with its ERRATA entry and the Correspondence pins ((R326)(5)); the two prices, nothing built ((R326)(6)); the
+  -### ### step-zero deletes ((R326)(7)); no kernel commit, no tag, no dispatch, no lean on this host; the suite in seven parts, one call each;
+  +### ### Carried from b716's spec by tools/b717_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face
+  +### ### (Component 5): the citation check as a gate step; the record lines and the corrigendum ((R327)(1)-(2)); the standing toolset at
+  +### ### v1.1.0, its scan, replay, controls and coverage ((R327)(3)); the -39 registration committed first ((R327)(4)); the keystone edits on
+  +### ### main, Silence :212 with its ERRATA entry and the Correspondence pins ((R327)(5)); the two prices, nothing built ((R327)(6)); the
+  +### ### step-zero deletes ((R327)(7)); no kernel commit, no tag, no dispatch, no lean on this host; the suite in seven parts, one call each;
+  @@ -24,1 +24,1 @@
+  -import b716_worklist as K   # noqa: E402
+  +import b717_worklist as K   # noqa: E402
+  @@ -26,2 +26,2 @@
+  -REG = os.path.join(ROOT, 'data', 'b716_registration_2026-10-27.txt')
+  -SPEC = os.path.join(ROOT, 'data', 'b716_satisfiable.json')
+  +REG = os.path.join(ROOT, 'data', 'b717_registration_2026-10-27.txt')
+  +SPEC = os.path.join(ROOT, 'data', 'b717_satisfiable.json')
+  @@ -52,2 +52,2 @@
+  -    ('kernel branches deleted', 0, 0, 'branches', '### none: port-b707 KEPT ((R326)(7)).'),
+  -    ('branches deleted at step zero', 3, 3, 'branches', '### relay push-b715-closing, push-b715-record; PLACE-papers push-b715-record; each local, by name, after --merged listed it (data/b716_stepzero.txt :57-:60).'),
+  +    ('kernel branches deleted', 0, 0, 'branches', '### none: port-b707 KEPT ((R327)(7)).'),
+  +    ('branches deleted at step zero', 3, 3, 'branches', '### relay push-b716-closing, push-b716-record; PLACE-papers push-b716-record; each local, by name, after --merged listed it (data/b717_stepzero.txt :57-:60).'),
+  @@ -57,1 +57,1 @@
+  -    ('commits on the re-cut branch', 0, 0, 'commits', '### none: recut-b712-silence deleted at b715`s step zero, its tip 0aeca834 merged by b714 at a86c9429.'),
+  +    ('commits on the re-cut branch', 0, 0, 'commits', '### none: recut-b712-silence deleted at b716`s step zero, its tip 0aeca834 merged by b714 at a86c9429.'),
+  @@ -59,9 +59,9 @@
+  -    ('re-cut branches deleted', 0, 0, 'branches', '### none this act (b715`s).'),
+  -    ('keystone opening paragraphs written to main', 0, 0, 'paragraphs', '### none: the heads draft put in the root`s prompt, the word applied at b717 ((R326)(5)(i)).'),
+  -    ('census editions written on main', 0, 0, 'editions', '### none: (R326)(5)(v), the v0.8.2 rows as b715`s banks state them, nothing to carry (data/b716_keystone.txt).'),
+  -    ('day papers edited on main', 4, 4, 'papers', '### (R326)(5)(iii)-(iv): Silence_of_Foundations.md, ONE_PAGE_PROOF.md, Seven_Mechanism_Classes.md, Spectral_Inertness.md, by the Edit tool (data/b716_keystone_diffs.txt).'),
+  -    ('papers moved, renamed or written beyond the five files of (R326)(5)', 0, 0, 'papers', '### N5.'),
+  -    ('Correspondence rows given a pin', 'PINNED', 'PINNED', 'rows', '### (R326)(5)(iv): from the census at its edition on main; MEASURED off data/b716_correspondence_pins.txt.'),
+  -    ('Correspondence names listed and carried', 'CARRIEDNAMES', 'CARRIEDNAMES', 'names', '### (R326)(5)(iv): the census carrying no row of their own; MEASURED off the same bank.'),
+  -    ('Correspondence rows corrected to another repository', 1, 1, 'rows', '### (R326)(5)(iii): Silence :212 to SIDE-meta.'),
+  -    ('words on the lint hits applied in this act', 0, 0, 'words', '### (R326)(5)(ii): put in the root`s prompt, applied at b717.'),
+  +    ('re-cut branches deleted', 0, 0, 'branches', '### none this act (b716`s).'),
+  +    ('keystone opening paragraphs written to main', 0, 0, 'paragraphs', '### none: the heads draft put in the root`s prompt, the word applied at b717 ((R327)(5)(i)).'),
+  +    ('census editions written on main', 0, 0, 'editions', '### none: (R327)(5)(v), the v0.8.2 rows as b716`s banks state them, nothing to carry (data/b717_keystone.txt).'),
+  +    ('day papers edited on main', 4, 4, 'papers', '### (R327)(5)(iii)-(iv): Silence_of_Foundations.md, ONE_PAGE_PROOF.md, Seven_Mechanism_Classes.md, Spectral_Inertness.md, by the Edit tool (data/b717_keystone_diffs.txt).'),
+  +    ('papers moved, renamed or written beyond the five files of (R327)(5)', 0, 0, 'papers', '### N5.'),
+  +    ('Correspondence rows given a pin', 'PINNED', 'PINNED', 'rows', '### (R327)(5)(iv): from the census at its edition on main; MEASURED off data/b717_correspondence_pins.txt.'),
+  +    ('Correspondence names listed and carried', 'CARRIEDNAMES', 'CARRIEDNAMES', 'names', '### (R327)(5)(iv): the census carrying no row of their own; MEASURED off the same bank.'),
+  +    ('Correspondence rows corrected to another repository', 1, 1, 'rows', '### (R327)(5)(iii): Silence :212 to SIDE-meta.'),
+  +    ('words on the lint hits applied in this act', 0, 0, 'words', '### (R327)(5)(ii): put in the root`s prompt, applied at b717.'),
+  @@ -77,2 +77,2 @@
+  -    ('generated corrigendum entries', 1, 1, 'entries', '### (R326)(2).'),
+  -    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R326)(2): row (36).'),
+  +    ('generated corrigendum entries', 1, 1, 'entries', '### (R327)(2).'),
+  +    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R327)(2): row (36).'),
+  @@ -81,1 +81,1 @@
+  -    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### (R326)(3)-(6): the count control, the scan, the replay, the class controls, the roster, the keystone census lines and diffs, the -39 price, the federation price and the Lean count price; MEASURED off the banks present.'),
+  +    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### (R327)(3)-(6): the count control, the scan, the replay, the class controls, the roster, the keystone census lines and diffs, the -39 price, the federation price and the Lean count price; MEASURED off the banks present.'),
+  @@ -84,1 +84,1 @@
+  -    ('registrations committed ahead of every other bank of the act', 1, 1, 'registrations', '### (R326)(4), N2: data/b716_registrations.txt with its count control, relay dc5e808f.'),
+  +    ('registrations committed ahead of every other bank of the act', 1, 1, 'registrations', '### (R327)(4), N2: data/b717_registrations.txt with its count control, relay dc5e808f.'),
+  @@ -86,1 +86,1 @@
+  -    ('runner dry builds dispatched for the federation price', 0, 0, 'builds', '### (R326)(6)(i): none; the breakage a halt, no ref carries the bump (data/b716_federation_pin_price.txt (4)).'),
+  +    ('runner dry builds dispatched for the federation price', 0, 0, 'builds', '### (R327)(6)(i): none; the breakage a halt, no ref carries the bump (data/b717_federation_pin_price.txt (4)).'),
+  @@ -88,1 +88,1 @@
+  -    ('shared tools written by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### (R326)(3): tools/standing/ at v1.1.0 (its changed files) and the mirror`s verifier tools/mirror_verify.py (repaired); MEASURED off the worklist`s lists.'),
+  +    ('shared tools written by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### (R327)(3): tools/standing/ at v1.1.0 (its changed files) and the mirror`s verifier tools/mirror_verify.py (repaired); MEASURED off the worklist`s lists.'),
+  @@ -120,2 +120,2 @@
+  -    ('class repairs of (R326)(3) and v1.0.0, each with two instances', 'REPAIRS', 'REPAIRS', 'repairs', '### (3i)-(3vi) and (i), (ii), (iv)-(vi) by the class controls; MEASURED off the bank`s foot.'),
+  -    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b715_rules.txt row (1); MEASURED off the defects bank`s rows.'),
+  +    ('class repairs of (R327)(3) and v1.0.0, each with two instances', 'REPAIRS', 'REPAIRS', 'repairs', '### (3i)-(3vi) and (i), (ii), (iv)-(vi) by the class controls; MEASURED off the bank`s foot.'),
+  +    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b716_rules.txt row (1); MEASURED off the defects bank`s rows.'),
+  @@ -127,1 +127,1 @@
+  -    ('numbers of this act entered in a keystone', 0, 0, 'numbers', '### (R326)(9): no bench number in a keystone; the Correspondence pins are repositories and commits.'),
+  +    ('numbers of this act entered in a keystone', 0, 0, 'numbers', '### (R327)(9): no bench number in a keystone; the Correspondence pins are repositories and commits.'),
+  @@ -131,1 +131,1 @@
+  -    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R326)(1); MEASURED.'),
+  +    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R327)(1); MEASURED.'),
+  @@ -156,1 +156,1 @@
+  -    ('PLACE-papers ERRATA entries written', 1, 1, 'entries', '### (R326)(5)(iii): E-2026-10-27-1, beside Silence :212.'),
+  +    ('PLACE-papers ERRATA entries written', 1, 1, 'entries', '### (R327)(5)(iii): E-2026-10-27-1, beside Silence :212.'),
+  @@ -163,1 +163,1 @@
+  -    ('questions asked of the author before the seal', 'PRESEAL', 'PRESEAL', 'questions', '### none this act; MEASURED off data/b716_author_words_preseal.txt (absent).'),
+  +    ('questions asked of the author before the seal', 'PRESEAL', 'PRESEAL', 'questions', '### none this act; MEASURED off data/b717_author_words_preseal.txt (absent).'),
+  @@ -169,1 +169,1 @@
+  -    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R326).'),
+  +    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R327).'),
+  @@ -203,1 +203,1 @@
+  -    import b716_record as REC
+  +    import b717_record as REC
+  @@ -209,1 +209,1 @@
+  -                with tempfile.TemporaryDirectory(prefix='b716_spec_') as d:
+  +                with tempfile.TemporaryDirectory(prefix='b717_spec_') as d:
+  @@ -237,1 +237,1 @@
+  -    import b716_record as REC
+  +    import b717_record as REC
+  @@ -240,1 +240,1 @@
+  -                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b716_ferry.txt'), '### b999 absent')),
+  +                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b717_ferry.txt'), '### b999 absent')),
+  @@ -267,3 +267,3 @@
+  -def refresh_commands(bank='b716_commands.json'):
+  -    """(R326)(3)(v), standing clauses v3: THE COMMAND SCREEN READS A FRESH BANK -- the command bank rewritten by the record tool's `commands`
+  -    route in this step, before the face's counts are read from it (b715's face read ANYPIPES 7 from a bank last written before its eighth
+  +def refresh_commands(bank='b717_commands.json'):
+  +    """(R327)(3)(v), standing clauses v3: THE COMMAND SCREEN READS A FRESH BANK -- the command bank rewritten by the record tool's `commands`
+  +    route in this step, before the face's counts are read from it (b716's face read ANYPIPES 7 from a bank last written before its eighth
+  @@ -273,1 +273,1 @@
+  -    r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(ROOT, 'tools', 'b716_record.py'), 'commands'], capture_output=True,
+  +    r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(ROOT, 'tools', 'b717_record.py'), 'commands'], capture_output=True,
+  @@ -286,1 +286,1 @@
+  -    print('  ### (R326)(3)(v) THE COMMAND BANK REFRESHED IN THIS STEP: %s' % (fresh or '### NOT REFRESHED'))
+  +    print('  ### (R327)(3)(v) THE COMMAND BANK REFRESHED IN THIS STEP: %s' % (fresh or '### NOT REFRESHED'))
+  @@ -290,1 +290,1 @@
+  -    print('b716_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  +    print('b717_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  @@ -345,9 +345,9 @@
+  -                    TESTS=jcount('b716_tests_stepzero.json', len), QUESTIONS=tcount('b716_author_answers.txt', r'^### PROMPT '),
+  -                    LINES=jcount('b716_record_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    MISSES=tfirst('b716_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  -                    REPAIRS=tfirst('b716_standing_controls.txt', r'REPAIRS (\d+), EACH WITH BOTH INSTANCES True'),
+  -                    PINNED=tfirst('b716_correspondence_pins.txt', r'PINNED FROM THE CENSUS (\d+) '),
+  -                    CARRIEDNAMES=tfirst('b716_correspondence_pins.txt', r'LISTED AND CARRIED (\d+)\.\*\*'),
+  -                    PRESEAL=tcount('b716_author_words_preseal.txt', r'^## \(\d+\) '),
+  -                    CARRIED=carried(text), DISPATCHES=jcount('b716_commands.json', lambda j: len(j.get('dispatches') or [])),
+  -                    RUNS=jcount('b716_dispatches.json', lambda j: len([r for r in j.get('rows') or [] if r.get('run_id')])),
+  +                    TESTS=jcount('b717_tests_stepzero.json', len), QUESTIONS=tcount('b717_author_answers.txt', r'^### PROMPT '),
+  +                    LINES=jcount('b717_record_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    MISSES=tfirst('b717_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  +                    REPAIRS=tfirst('b717_standing_controls.txt', r'REPAIRS (\d+), EACH WITH BOTH INSTANCES True'),
+  +                    PINNED=tfirst('b717_correspondence_pins.txt', r'PINNED FROM THE CENSUS (\d+) '),
+  +                    CARRIEDNAMES=tfirst('b717_correspondence_pins.txt', r'LISTED AND CARRIED (\d+)\.\*\*'),
+  +                    PRESEAL=tcount('b717_author_words_preseal.txt', r'^## \(\d+\) '),
+  +                    CARRIED=carried(text), DISPATCHES=jcount('b717_commands.json', lambda j: len(j.get('dispatches') or [])),
+  +                    RUNS=jcount('b717_dispatches.json', lambda j: len([r for r in j.get('rows') or [] if r.get('run_id')])),
+  @@ -356,2 +356,2 @@
+  -                    ORDERS=jcount('b716_order_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b716_\w+_hashes\.txt$', f)]),
+  +                    ORDERS=jcount('b717_order_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b717_\w+_hashes\.txt$', f)]),
+  @@ -360,1 +360,1 @@
+  -                                 if os.path.exists(os.path.join(ROOT, 'data', 'b716_%s.txt' % n_))]),
+  +                                 if os.path.exists(os.path.join(ROOT, 'data', 'b717_%s.txt' % n_))]),
+  @@ -363,7 +363,7 @@
+  -                                              io.open(os.path.join(ROOT, 'data', 'b716_defects.txt'), encoding='utf-8').read(), re.M)),
+  -                    SEDS=jcount('b716_commands.json', lambda j: len(j.get('seds') or [])),
+  -                    REDIRECTS=jcount('b716_commands.json', lambda j: len(j.get('redirects') or [])),
+  -                    PIPES=jcount('b716_commands.json', lambda j: len(j.get('pipes') or [])),
+  -                    ANYPIPES=jcount('b716_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  -                    PYPROGS=jcount('b716_commands.json', lambda j: len(j.get('py_programs') or [])),
+  -                    READOFF=tfirst('b716_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  +                                              io.open(os.path.join(ROOT, 'data', 'b717_defects.txt'), encoding='utf-8').read(), re.M)),
+  +                    SEDS=jcount('b717_commands.json', lambda j: len(j.get('seds') or [])),
+  +                    REDIRECTS=jcount('b717_commands.json', lambda j: len(j.get('redirects') or [])),
+  +                    PIPES=jcount('b717_commands.json', lambda j: len(j.get('pipes') or [])),
+  +                    ANYPIPES=jcount('b717_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  +                    PYPROGS=jcount('b717_commands.json', lambda j: len(j.get('py_programs') or [])),
+  +                    READOFF=tfirst('b717_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  @@ -379,2 +379,2 @@
+  -    spec = {"registration": ("data/b716_registration_2026-10-27.txt -- b716, THE REGISTRATIONS ACT: b715 AT ITS WEIGHT; THE CORRIGENDUM; THE "
+  -                             "TOOLSET AT v1.1.0; THE -39 REGISTRATION; THE KEYSTONE ITEMS; TWO PRICES, UNDER (R326)"),
+  +    spec = {"registration": ("data/b717_registration_2026-10-27.txt -- b717, THE REGISTRATIONS ACT: b716 AT ITS WEIGHT; THE CORRIGENDUM; THE "
+  +                             "TOOLSET AT v1.1.0; THE -39 REGISTRATION; THE KEYSTONE ITEMS; TWO PRICES, UNDER (R327)"),
+
+### ### **CARRIED tools/b717_regspec.py ; LINES 397 ; CHANGED BY THE SUBSTITUTION 65 ; REPAIR SPANS AT b716 3 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
