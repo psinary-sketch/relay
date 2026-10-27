@@ -1,7 +1,7 @@
-b717 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-27T17:06:41Z)
+b717 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-27T17:15:42Z)
 
 ### the source: the seat`s session 551b6446-5996-4c11-94be-d2a2e851a529 from its first user line carrying 'RULING (R327) BEGIN', with its subagents` transcripts
-### commands read: 215
+### commands read: 234
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -271,5 +271,24 @@ b717 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #213 | 2026-10-27T17:06:01.371Z | seat | PowerShell | python -X utf8 tools/b717_record.py steps-print b716; python -X utf8 tools/b717_record.py --help
   #214 | 2026-10-27T17:06:25.995Z | seat | PowerShell | python -X utf8 tools/b717_tests.py hold figures; if ($LASTEXITCODE -eq 0) { python -X utf8 tools/b717_record.py figures }
   #215 | 2026-10-27T17:06:38.950Z | seat | PowerShell | python -X utf8 tools/b717_record.py commands; python -X utf8 tools/b717_record.py reads
+  #216 | 2026-10-27T17:06:55.586Z | seat | PowerShell | python -X utf8 tools/b717_record.py kernels; python -X utf8 tools/b717_checks.py --guard-dry
+  #217 | 2026-10-27T17:07:05.843Z | seat | PowerShell | python -X utf8 tools/b717_record.py guard
+  #218 | 2026-10-27T17:07:19.494Z | seat | PowerShell | python -X utf8 tools/b717_record.py reads; python -X utf8 tools/b717_record.py rootexclude
+  #219 | 2026-10-27T17:07:31.192Z | seat | PowerShell | git -C D:\relay status --short -- data/b717_* tools/b717_* data/arm_tags.json
+  #220 | 2026-10-27T17:07:38.757Z | seat | PowerShell | git -C D:\relay add -- data/arm_tags.json data/b717_defects.txt data/b717_hook_refusals.txt data/b717_steps.json tools/b717_record.py tools/b717_worklist.py too
+  #221 | 2026-10-27T17:07:44.296Z | seat | PowerShell | git -C D:\relay commit -q -m "b717 component 6: the suite, closing, spec, gate, record and report tools for the act's objects (carried by diff, data/b717_carry_
+  #222 | 2026-10-27T17:07:50.100Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_record.py
+  #223 | 2026-10-27T17:07:59.761Z | seat | PowerShell | python -X utf8 tools/b717_record.py step relay component 6 df1589b6; python -X utf8 tools/b717_record.py facerows
+  #224 | 2026-10-27T17:08:14.558Z | seat | PowerShell | python -X utf8 tools/b717_record.py armnames
+  #225 | 2026-10-27T17:08:22.281Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers show --stat --format=%h%x20%s e0ab685b 84dbbf3e; git -C D:\MY-DOwnloads\PLACE-papers status --short --branch
+  #226 | 2026-10-27T17:08:44.299Z | seat | PowerShell | git -C D:\relay show --name-only --format=%h f47d8ab5 091ecda9 3fdfacab 091f4586 97e4164b 7c654dbe
+  #227 | 2026-10-27T17:11:32.011Z | seat | PowerShell | git -C D:\relay add -- data/b717_registration_2026-10-27.txt data/b717_steps.json
+  #228 | 2026-10-27T17:11:35.704Z | seat | PowerShell | git -C D:\relay commit -q -m "b717 gate: the face (data/b717_registration_2026-10-27.txt), before the root route's dry run; the step bank's component 6 row"; gi
+  #229 | 2026-10-27T17:11:39.660Z | seat | PowerShell | python -X utf8 tools/b717_record.py rootdry
+  #230 | 2026-10-27T17:11:52.790Z | seat | PowerShell | python -X utf8 tools/b717_record.py defs b717_closing.py; python -X utf8 tools/b717_record.py closeorder
+  #231 | 2026-10-27T17:12:07.160Z | seat | PowerShell | python -X utf8 tools/b717_closing.py dry
+  #232 | 2026-10-27T17:13:26.037Z | seat | PowerShell | python -X utf8 tools/b717_record.py scores dry
+  #233 | 2026-10-27T17:14:26.379Z | seat | PowerShell | python -X utf8 tools/b717_reg_gate.py
+  #234 | 2026-10-27T17:15:39.855Z | seat | PowerShell | python -X utf8 tools/b717_record.py gatebanks
 
-### ### **COMMANDS 215 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 26 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 234 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 26 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

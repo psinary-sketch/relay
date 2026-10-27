@@ -1,5 +1,5 @@
 {
- "at": "2026-10-27T17:06:41Z",
+ "at": "2026-10-27T17:15:42Z",
  "anchor": "RULING (R327) BEGIN",
  "rows": [
   {
@@ -1720,6 +1720,158 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b717_record.py commands; python -X utf8 tools/b717_record.py reads",
    "n": 215,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:06:55.586Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_record.py kernels; python -X utf8 tools/b717_checks.py --guard-dry",
+   "n": 216,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:07:05.843Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_record.py guard",
+   "n": 217,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:07:19.494Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_record.py reads; python -X utf8 tools/b717_record.py rootexclude",
+   "n": 218,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:07:31.192Z",
+   "src": "seat",
+   "cmd": "git -C D:\\relay status --short -- data/b717_* tools/b717_* data/arm_tags.json",
+   "n": 219,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:07:38.757Z",
+   "src": "seat",
+   "cmd": "git -C D:\\relay add -- data/arm_tags.json data/b717_defects.txt data/b717_hook_refusals.txt data/b717_steps.json tools/b717_record.py tools/b717_worklist.py tools/b717_checks.py tools/b717_closing.py tools/b717_reg_gate.py tools/b717_regspec.py tools/b717_report.py data/b717_carry_checks.txt data/b717_carry_closing.txt data/b717_carry_reg_gate.txt data/b717_carry_regspec.txt data/b717_carry_report.txt data/b717_commands.json data/b717_commands.txt data/b717_corrigendum_landing.json data/b717_guard_dry.json data/b717_guard_dry.txt data/b717_kernels_face.json data/b717_read_calls.json data/b717_read_calls.txt data/b717_standing_figures.json data/b717_standing_figures.txt",
+   "n": 220,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:07:44.296Z",
+   "src": "seat",
+   "cmd": "git -C D:\\relay commit -q -m \"b717 component 6: the suite, closing, spec, gate, record and report tools for the act's objects (carried by diff, data/b717_carry_*); arm_tags for the six new arms (140 tags); defects (p)-(y); the four standing figures (1, 0, 0, 0, at or below b716's); the command, read, kernels-face and guard banks\"; git -C D:\\relay log --oneline -1",
+   "n": 221,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:07:50.100Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_record.py defs b717_record.py",
+   "n": 222,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:07:59.761Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_record.py step relay component 6 df1589b6; python -X utf8 tools/b717_record.py facerows",
+   "n": 223,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:08:14.558Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_record.py armnames",
+   "n": 224,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:08:22.281Z",
+   "src": "seat",
+   "cmd": "git -C D:\\MY-DOwnloads\\PLACE-papers show --stat --format=%h%x20%s e0ab685b 84dbbf3e; git -C D:\\MY-DOwnloads\\PLACE-papers status --short --branch",
+   "n": 225,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:08:44.299Z",
+   "src": "seat",
+   "cmd": "git -C D:\\relay show --name-only --format=%h f47d8ab5 091ecda9 3fdfacab 091f4586 97e4164b 7c654dbe",
+   "n": 226,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:11:32.011Z",
+   "src": "seat",
+   "cmd": "git -C D:\\relay add -- data/b717_registration_2026-10-27.txt data/b717_steps.json",
+   "n": 227,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:11:35.704Z",
+   "src": "seat",
+   "cmd": "git -C D:\\relay commit -q -m \"b717 gate: the face (data/b717_registration_2026-10-27.txt), before the root route's dry run; the step bank's component 6 row\"; git -C D:\\relay log --oneline -1",
+   "n": 228,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:11:39.660Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_record.py rootdry",
+   "n": 229,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:11:52.790Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_record.py defs b717_closing.py; python -X utf8 tools/b717_record.py closeorder",
+   "n": 230,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:12:07.160Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_closing.py dry",
+   "n": 231,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:13:26.037Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_record.py scores dry",
+   "n": 232,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:14:26.379Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_reg_gate.py",
+   "n": 233,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-27T17:15:39.855Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b717_record.py gatebanks",
+   "n": 234,
    "bg": false
   }
  ],
