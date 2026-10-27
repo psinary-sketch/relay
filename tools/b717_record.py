@@ -1010,8 +1010,8 @@ def ksyms(*a):
 
 
 # ================================================================================ COMPONENT 1: THE RECORD LINES, (R327)(1)
-WH = ('*Appended 2026-10-27 by b717 to b716’s entry (:10582), under `(R327)`(1) -- b716 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
-      'data/b716_closing.txt):*')   # ### b717: b716's entry at :10582 (K.B711_ENTRY) and the act's date; the carry left b714's entry line (:10512)
+WH = ('*Appended 2026-10-27 by b717 to b716’s entry (:%d), under `(R327)`(1) -- b716 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay '
+      'data/b716_closing.txt):*' % K.B711_ENTRY)   # ### b717: b716's entry read from K.B711_ENTRY (:10686); the carry left b715's line (:10582) as a literal
 
 
 def _fig(text, pat, what):
@@ -1185,14 +1185,55 @@ def _wb_carried713():
 
 
 def _wb():
-    """b716's weight line under (R327)(1), in the clause's order, every figure read from b716's banks by row, or from b716's closing commit
-    for the toolset (Component 2 of this act moves tools/standing/ to v1.1.0 in the working tree), and cited by its line: the head from
-    its closing :1, the record's and the closing's commits from its step bank; the toolset's version, its files and its scan; the coverage
-    table's STANDING count; the replay's figure and its two findings; the seal's withheld field; the roster from main with the census
-    editions joined; the verification NOT CLEAN; the pins census's rows, visibility, hard failures and upstream revs; the suite pre-push and
-    post-push; the root; the events by their starting lines and the defects with their owners. Written whole at b717: the carried `_wb`
-    (below, renamed _wb_carried714, not called) composed b714's objects -- the lv tag, the re-cut, the pilot -- from banks b716 wrote of other
-    things, the class (R326)(2)'s added item named."""
+    """b716's weight line under (R327)(1), in the clause's order, every figure read from b716's banks by row and cited by its line: the head
+    from its closing :1 and the record's and the closing's commits from its step bank; the registrations at dc5e808f with the count control's
+    misses; the toolset's version at the closing's commit and the coverage table's STANDING steps; the replay's figure and its one DIFFERS; the
+    mirror's verification and its manifest control (event (17)); Silence :212; the pins of the Correspondence names; the three prices by their
+    foot lines; the author's root words; the root; the events by their rows and the defects. Rewritten at b717 by the Edit tool: the carried
+    form (now _wb_b715_form, not called) read b715's shapes -- seventeen defects with a navigator's (d), eleven events at column 0."""
+    head = rdn('b716_closing.txt').split(NL)[0]
+    st = jl('b716_steps.json').get('rows') or []
+    rec = [r for r in st if r.get('phase') == 'record' and r.get('repo') == 'relay']
+    clo = [r for r in st if r.get('phase') == 'closing']
+    if len(rec) != 1 or len(clo) != 1:
+        sys.exit('### data/b716_steps.json CARRIES %d RELAY RECORD ROWS AND %d CLOSING ROWS, NOT ONE EACH -- NOTHING COMPOSED' % (len(rec), len(clo)))
+    cc = clo[0]['commit']
+    reg_first = g(ROOT, 'log', '--format=%H', '-1', '--', 'data/b716_registrations.txt').strip()
+    reg_files = [x for x in g(ROOT, 'show', '--name-only', '--format=', K.REG_COMMIT).split(NL) if x.strip()]
+    _x, lgc = _fl('b716_genus_control.txt', r'MISSES 0', 'the count control`s misses')
+    ver = g(ROOT, 'show', '%s:tools/standing/VERSION' % cc).strip()
+    (nst, stp), lcov = _fl('b716_toolset_coverage.txt', r'STEPS 25 ; STANDING (\d+) \(([^)]*)\)', 'the coverage table`s STANDING count')
+    (nobj, neq, ndf), lrp = _fl('b716_replay.txt', r'OBJECTS (\d+) ; EQUAL (\d+) ; DIFFERS (\d+)', 'the replay`s figure')
+    _x, lmv = _fl('b716_mirror_verify.txt', r'CLEAN ON ALL THREE CLAUSES', 'the verification CLEAN')
+    _x, lmc = _fl('b716_mirror.txt', r'NOT AS WANTED', 'the manifest control')
+    _x, lks = _fl('b716_keystone.txt', r'SIDE-meta', 'Silence :212 to SIDE-meta')
+    (nall, npin, ncar), lcp = _fl('b716_correspondence_pins.txt', r'NAMES (\d+) ; PINNED FROM THE CENSUS (\d+) .* ; LISTED AND CARRIED (\d+)', 'the names pinned')
+    pr = [(f, len(rdn(f).rstrip(NL).split(NL))) for f in ('b716_price.txt', 'b716_federation_pin_price.txt', 'b716_epstein_count_price.txt')]
+    nwords = len(re.findall(r'(?m)^### PROMPT \d+ ', rdn('b716_author_answers.txt')))
+    ar = jl('b716_act_root.json')
+    if not ar.get('root') or not ar.get('previous'):
+        sys.exit('### data/b716_act_root.json CARRIES NO ROOT -- NOTHING COMPOSED')
+    evr = [int(m.group(1)) for m in re.finditer(r'(?m)^    \((\d+)\) ', rdn('b716_events.txt'))]
+    short = _defect_short('b716')
+    owners = re.findall(r"^    \(([a-z])\) (THE SEAT'S|THE NAVIGATOR'S):", rdn('b716_defects.txt'), re.M)
+    if evr != list(range(1, 20)) or len(short) != 18 or len(owners) != 18 or any(o != "THE SEAT'S" for _x, o in owners):
+        sys.exit('### b716`S EVENTS %s AND DEFECTS %d (OWNERS %s) NOT THE RULING`S NINETEEN AND EIGHTEEN -- NOTHING COMPOSED' % (evr, len(short), owners))
+    return (' “%s” (data/b716_closing.txt :1); its relay commit the record’s %s, the closing’s %s (data/b716_steps.json, the record and '
+            'closing rows). As the banks confirm by row: data/b716_registrations.txt committed at the act’s opening commit %s (%s files, '
+            'its last change there: %s), its count control at 0 misses (data/b716_genus_control.txt :%d), nothing of -39 computed beyond it; '
+            'tools/standing/ at %s at the closing’s commit, %s of 25 steps STANDING (%s) (data/b716_toolset_coverage.txt :%d); the replay at '
+            '%s of %s objects EQUAL, %s DIFFERS, b713’s old tool, F-2 (data/b716_replay.txt :%d); the mirror verified CLEAN on all three clauses '
+            '(data/b716_mirror_verify.txt :%d), its manifest control NOT AS WANTED against a carried reference (data/b716_mirror.txt :%d; event '
+            '(17)); Silence :212 corrected to SIDE-meta (data/b716_keystone.txt :%d); %s of %s unpinned names pinned, %s carried '
+            '(data/b716_correspondence_pins.txt :%d); the prices at %s; the author’s words on its %d root prompts banked verbatim (data/b716_author_answers.txt :10, :13); '
+            'the root %s chained from %s (data/b716_act_root.json); %d events in data/b716_events.txt, rows (1)-(%d); %d defects (a)–(%s), all '
+            'the seat’s (data/b716_defects.txt). Nothing deposited, nothing published.' % (
+                head, rec[0]['commit'][:8], cc[:8], K.REG_COMMIT[:8], len(reg_files), reg_first[:8], lgc, ver, nst, stp, lcov, neq, nobj, ndf,
+                lrp, lmv, lmc, lks, npin, nall, ncar, lcp, ', '.join('data/%s :%d' % p for p in pr), nwords, ar['root'][:8],
+                ar['previous'][:8], len(evr), evr[-1], len(short), _letter(short[-1]), ))
+
+
+def _wb_b715_form():
     head = rdn('b716_closing.txt').split(NL)[0]
     st = jl('b716_steps.json').get('rows') or []
     rec = [r for r in st if r.get('phase') == 'record' and r.get('repo') == 'relay']
@@ -1324,9 +1365,9 @@ def c1(*a):
     data/b717_record_lines.json. `c1 dry` prints the line and writes nothing."""
     dry = 'dry' in a
     land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B711_ENTRY,
-         check=[('FINDINGS.md', K.B711_ENTRY, '## The standing close toolset at v1.0.0, replaying b713 and b714'),
-                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b716 — lane two, act one hundred and forty-two, the toolset act')],
-         dry=dry)   # ### b717: the needles b716's entry (:10582) and trail (:16006); the carried needles named b714's entry and trail
+         check=[('FINDINGS.md', K.B711_ENTRY, '## The -39 law registered before its computation'),
+                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b716 — lane two, act one hundred and forty-three, the registrations act')],
+         dry=dry)   # ### b717: the needles b716's entry (:10686) and trail (:16044), read through the Read tool; the carried needles named b715's
 
 
 # ================================================================================ COMPONENT 1: THE FACES LEDGER HEAD, (R327)(2)(ii)
