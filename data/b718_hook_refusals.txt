@@ -1,2 +1,3 @@
 2026-10-27T21:05:43Z | READ | Read | "D:\\relay\\data\\b718_citation_check.txt" | a Read call with no limit
 2026-10-27T21:21:09Z | PIPE | PowerShell | "python -X utf8 tools/b718_reads.py locate \"W-ORD-EPSTEIN-COUNT-LEAN\" D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md; (Get-Content D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md | Measure-Object -Line).Lines" | a PowerShell command carrying a pipe outside quotes
+2026-10-27T21:31:53Z | PIPE | PowerShell | "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 8 Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}}; Get-Process -Name lean, lake -ErrorAction SilentlyContinue" | a PowerShell command carrying a pipe outside quotes
