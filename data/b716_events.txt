@@ -1,39 +1,88 @@
-b716 -- THE EVENTS AFTER THE LOCK AND THE SEAL (standing clauses v5 rows (52), (65)), entered after the lock (relay a10cd80a, 06:47Z) and the seal at 07:24:52Z (data/b716_seal_hashes.json), unlettered, for b717's corrigendum. A finding after the lock takes no letter in data/b716_defects.txt; none is repaired here, no sealed tool edited and no locked or sealed bank rewritten. Each row carries its time, read from the clock or from the bank it cites.
+b716 -- THE EVENTS AFTER THE LOCK AND THE SEAL (standing clauses v5 rows (52), (65)), entered after the lock (relay a10cd80a, 06:47Z) and the seal at 07:24:52Z (data/b716_seal_hashes.json), unlettered, for b717's corrigendum. A finding after the lock takes no letter in data/b716_defects.txt; none is repaired here, no sealed tool edited and no locked or sealed bank rewritten. Each row carries its time, read from the clock or from the bank it cites. Rows in the closing reader's form (tools/b716_closing.py events_section: a row at four spaces, its lines after at five); the section heads at column 0 are this bank's alone.
 
 THE PRE-RUN'S EIGHT (found at step [7], after the lock and before the seal; data/b716_arms_prerun.txt: ARMS 139, LIVE PASSING 97, FAILING 42, NEG 0, POS 0 -- beyond the two declared on the face and the arms that read post-seal banks by form, these eight):
-
-(1) G-NOTHING-RAN-AHEAD -- the face (data/b716_registration_2026-10-27.txt, locked f68867fc) does not declare Component 5's two pre-lock commits 630c9b83 and 6fd34430 (step rows 8, 9, phase `component 5`); b715's gate commit amended its face to declare Component 6's two before its lock; this act's face said they are read from the step bank. The seat's; the face locked, unedited.
-
-(2) G-ROOTDRY-READY -- the arm wants the face to carry "the root route`s dry run READY True"; the face wrote "READY True its evidence for the seal". The root dry run itself READY True (data/b716_root_banks_dry.json, 50 banks). The seat's wording; the face unedited.
-
-(3) G-RECEIPT-IN-FULL -- the suite reads data/b715_standing_control.json for v5's control; v5 and its control are b714's (data/b714_standing_control.json, CONTROL AS WANTED True). The carry's act-name shift (b714->b715) in tools/b716_checks.py sources(). The ferry carries RULING (R326) END and its TAIL; v5 at VERSION 5.
-
-(4) G-PRIOR-CLOSED-PUSHED -- the needle '### b715 — lane two, act one hundred and forty-one, the keystone heads act under (R325)' is b714's head (OPEN_TRAILS :15962) with the act names shifted; it matches no head. The carry's shift; the comment's cite (readfirst :41) names act_current.json.
-
-(5) G-CLOSING-DRY-STEP -- closing_dry_ok's section needles are b715's closing heads (THE CLASS REPAIRS AND THE HOOK, THE ROSTER AND THE PINS, THE CHAIN`S CENSUS ROWS, "(g) The defects (a)"), not b716's; the closing dry step itself CLEAN in the gate's record (data/b716_reg_gate.txt).
-
-(6) G-REGISTRATIONS-FIRST -- the forbidden-bank regex (list|pairs|zeros|onsets|coeffs) is unanchored and reads data/b716_tool_repairs.txt ("re-pairs") as a -39 bank; the record tool's N2 reading (anchored ^b716_(list|pairs|...)[_.]) HELD (data/b716_desk_notes.txt N2: -39 banks beyond the control NONE).
-
-(7) G-SCORER-READS-BANKS -- the needle `_standing_scan.txt` is not read by the N scorers (_n3 reads the controls and the replay); the other seven needles present, no ledger word. Suite and record both written this act; they disagree.
-
-(8) G-RULE-REMOTE-REREAD -- the seat's command at 05:50:48.220Z (Component 3, SIDE-meta): `git ls-remote --tags origin && git ls-remote origin refs/heads/main`, two remote reads chained in one command. The seat's.
+    (1) AT THE PRE-RUN: G-NOTHING-RAN-AHEAD -- the face (data/b716_registration_2026-10-27.txt, locked f68867fc) does not declare Component
+     5's two pre-lock commits 630c9b83 and 6fd34430 (step rows 8, 9, phase `component 5`); b715's gate commit amended its face to declare
+     Component 6's two before its lock; this act's face said they are read from the step bank. The seat's; the face locked, unedited.
+    (2) AT THE PRE-RUN: G-ROOTDRY-READY -- the arm wants the face to carry "the root route`s dry run READY True"; the face wrote "READY True
+     its evidence for the seal". The root dry run itself READY True (data/b716_root_banks_dry.json, 50 banks). The seat's wording; the face
+     unedited.
+    (3) AT THE PRE-RUN: G-RECEIPT-IN-FULL -- the suite reads data/b715_standing_control.json for v5's control; v5 and its control are b714's
+     (data/b714_standing_control.json, CONTROL AS WANTED True). The carry's act-name shift (b714->b715) in tools/b716_checks.py sources().
+     The ferry carries RULING (R326) END and its TAIL; v5 at VERSION 5.
+    (4) AT THE PRE-RUN: G-PRIOR-CLOSED-PUSHED -- the needle '### b715 — lane two, act one hundred and forty-one, the keystone heads act under
+     (R325)' is b714's head (OPEN_TRAILS :15962) with the act names shifted; it matches no head. The carry's shift; the comment's cite
+     (readfirst :41) names act_current.json.
+    (5) AT THE PRE-RUN: G-CLOSING-DRY-STEP -- closing_dry_ok's section needles are b715's closing heads (THE CLASS REPAIRS AND THE HOOK, THE
+     ROSTER AND THE PINS, THE CHAIN`S CENSUS ROWS, "(g) The defects (a)"), not b716's; the closing dry step itself CLEAN in the gate's record
+     (data/b716_reg_gate.txt).
+    (6) AT THE PRE-RUN: G-REGISTRATIONS-FIRST -- the forbidden-bank regex (list|pairs|zeros|onsets|coeffs) is unanchored and reads
+     data/b716_tool_repairs.txt ("re-pairs") as a -39 bank; the record tool's N2 reading (anchored ^b716_(list|pairs|...)[_.]) HELD
+     (data/b716_desk_notes.txt N2: -39 banks beyond the control NONE).
+    (7) AT THE PRE-RUN: G-SCORER-READS-BANKS -- the needle `_standing_scan.txt` is not read by the N scorers (_n3 reads the controls and the
+     replay); the other seven needles present, no ledger word. Suite and record both written this act; they disagree.
+    (8) AT THE PRE-RUN: G-RULE-REMOTE-REREAD -- the seat's command at 05:50:48.220Z (Component 3, SIDE-meta): `git ls-remote --tags origin &&
+     git ls-remote origin refs/heads/main`, two remote reads chained in one command. The seat's.
 
 THE SEAT'S CALLS AFTER THE LOCK:
-
-(9) THE GREP TOOL, AFTER THE LOCK (about 07:13Z): a count search of data/standing_clauses_v5.txt for "prevrun" (1 occurrence, no line printed); row (19); the class of defects (f), (q). The seat's.
-
-(10) AFTER THE SEAL (about 07:47Z): a Read of the memory file project_relay_held_commit_push_procedure.md with no limit, REFUSED BY THE HOOK (row (77)), its refusal appended to data/b716_hook_refusals.txt (committed at the root, 46a2bf3d); nothing read; re-read with a limit. The class of defect (m). The seat's.
+    (9) THE GREP TOOL, AFTER THE LOCK (about 07:13Z): a count search of data/standing_clauses_v5.txt for "prevrun" (1 occurrence, no line
+     printed); row (19); the class of defects (f), (q). The seat's.
+    (10) AFTER THE SEAL (about 07:47Z): a Read of the memory file project_relay_held_commit_push_procedure.md with no limit, REFUSED BY THE
+     HOOK (row (77)), its refusal appended to data/b716_hook_refusals.txt (committed at the root, 46a2bf3d); nothing read; re-read with a
+     limit. The class of defect (m). The seat's.
 
 AFTER THE ROOT (relay 46a2bf3d, ACT ROOT 4df4ddac, 07:51Z):
-
-(11) THE TRAIL'S WORDING (trail dry, about 07:52Z; OPEN_TRAILS :16044): the Resolved item (10) reads "the none navigator misses" -- defect (r)'s repair of _for_author renders num_word(0) as "none" before a plural noun; the gate read it CLEAR. The author's-word head ends "NONE RECEIVED:" with a stray colon (the carried form). Both in the sealed record tool; landed as composed. The seat's.
-
-(12) THE DESK'S N4 FIGURES (about 07:55Z; data/b716_desk_notes.txt :8): "the step bank`s commits after the seal 1" where the step bank holds rows 12-15 after the seal (seal ae6631d4, pre-root b5e7c7df and PLACE-papers 3e5440ef, root 46a2bf3d), and "the pushes through push_gated.sh in the capture 0" where two pushes ran at the pre-root, each captured (data/b716_relay_push-b716-preroot_push_out.txt, data/b716_PLACE-papers_push-b716-preroot_push_out.txt). b715's desk printed the same shapes. The sealed record tool's reading; the desk stands as written; b717's to repair.
-
-(13) G-PP-SCOPE'S POSITIVE CONTROL PASSES -- DEFECTIVE (pre-push suite, standing-a, about 08:00Z; data/b716_checks_standing-a.txt :72). Its plant adds day1/ONE_PAGE_PROOF.md to the changed files (tools/b716_checks.py :1641), but Component 3 edited that file on main (:98; data/b716_keystone.txt :17), so it is in the allowed set and the plant cannot fail the arm: a control that cannot fire. At the pre-run the live reading failed (OPEN_TRAILS.md not yet among the changed files), which masked the plant's pass. The live reading (7 changed of 7 allowed, beyond NONE) stands. Its consequence: G-ARMS-NO-LIVE-LIMB (tools/b716_checks.py :1706, the harness's own positive-control results) FAILS in the same part, by this one plant alone. The control is b717's to repair (a plant outside the allowed set). The seat's.
-
-(14) G-ARM-SECONDS-BANKED FAILS (pre-push suite, act part, about 08:10Z): the gathered per-part seconds bank data/b716_arm_seconds.json (and its .txt) was never written before the seal; the seven per-part pieces data/b716_arm_seconds_<part>.json exist, and b715 gathered its own (data/b715_arm_seconds.json). Not written now: a bank first written after the seal and the root (N4). The seat's; a step of the close's [7]-[8] the seat omitted.
-
-(15) G-ANSWERS-BEFORE-WRITES FAILS ON ITS ALLOWANCE CLAUSE ALONE (pre-push suite, act part, about 08:10Z): tools/standing/words.py prompts_read reads the answers bank's two questions (Footings, Lint hits) as two prompts against the ruling's one allowed ("the root's prompt put once"), both 'unbanked'; the seat put them in ONE call (tools/b716_checks.py FLOORS prompts=1, calls=1; the trail's "2 questions in 1 call"). The check stamp 07:43:56Z lies after the lock and before the root (that clause holds). The allowance counts questions, the face and the floors count calls: a disagreement between the sealed standing reader and the act's form, for b717's ruling. The seat's to name.
+    (11) THE TRAIL'S WORDING (trail dry, about 07:52Z; OPEN_TRAILS :16044): the Resolved item (10) reads "the none navigator misses" --
+     defect (r)'s repair of _for_author renders num_word(0) as "none" before a plural noun; the gate read it CLEAR. The author's-word head
+     ends "NONE RECEIVED:" with a stray colon (the carried form). Both in the sealed record tool; landed as composed. The seat's.
+    (12) THE DESK'S N4 FIGURES (about 07:55Z; data/b716_desk_notes.txt :8): "the step bank`s commits after the seal 1" where the step bank
+     holds rows 12-15 after the seal (seal ae6631d4, pre-root b5e7c7df and PLACE-papers 3e5440ef, root 46a2bf3d), and "the pushes through
+     push_gated.sh in the capture 0" where two pushes ran at the pre-root, each captured (data/b716_relay_push-b716-preroot_push_out.txt,
+     data/b716_PLACE-papers_push-b716-preroot_push_out.txt). b715's desk printed the same shapes; the same tool at `scores close` read 6
+     and 4 (data/b716_scores_close.json), so the desk read a stale capture. The sealed record tool's reading; the desk stands as written;
+     b717's to repair.
+    (13) G-PP-SCOPE'S POSITIVE CONTROL PASSES -- DEFECTIVE (pre-push suite, standing-a, about 08:00Z; data/b716_checks_standing-a.txt :72).
+     Its plant adds day1/ONE_PAGE_PROOF.md to the changed files (tools/b716_checks.py :1641), but Component 3 edited that file on main (:98;
+     data/b716_keystone.txt :17), so it is in the allowed set and the plant cannot fail the arm: a control that cannot fire. At the pre-run
+     the live reading failed (OPEN_TRAILS.md not yet among the changed files), which masked the plant's pass. The live reading (7 changed of
+     7 allowed, beyond NONE) stands. Its consequence: G-ARMS-NO-LIVE-LIMB (tools/b716_checks.py :1706, the harness's own positive-control
+     results) FAILS in the same part, by this one plant alone. The control is b717's to repair (a plant outside the allowed set). The seat's.
+    (14) G-ARM-SECONDS-BANKED FAILS (pre-push suite, act part, about 08:10Z): the gathered per-part seconds bank data/b716_arm_seconds.json
+     (and its .txt) was never written before the seal; the seven per-part pieces data/b716_arm_seconds_<part>.json exist, and b715 gathered
+     its own (data/b715_arm_seconds.json). Not written now: a bank first written after the seal and the root (N4). The seat's; a step of
+     the close's [7]-[8] the seat omitted.
+    (15) G-ANSWERS-BEFORE-WRITES FAILS ON ITS ALLOWANCE CLAUSE ALONE (pre-push suite, act part, about 08:10Z): tools/standing/words.py
+     prompts_read reads the answers bank's two questions (Footings, Lint hits) as two prompts against the ruling's one allowed ("the root's
+     prompt put once"), both 'unbanked'; the seat put them in ONE call (tools/b716_checks.py FLOORS prompts=1, calls=1; the trail's "2
+     questions in 1 call"). The check stamp 07:43:56Z lies after the lock and before the root (that clause holds). The allowance counts
+     questions, the face and the floors count calls: a disagreement between the sealed standing reader and the act's form, for b717's
+     ruling. The seat's to name.
+    (16) G-SEALED-AFTER-COMPONENTS FAILS AFTER THE COMPONENTS BANK (post-push suite, standing-a, about 08:19Z; read by the seat's probe of
+     sealed_after_ok, tools/b716_checks.py :1162-:1177): every relay and PLACE-papers commit of the act has its step row; the one mismatch is
+     the lock's own commit relay a10cd80a (step row 11, phase `gate`, a pre-seal phase), committed at 1793083652 (06:47:32Z), 16 s after the
+     lock's stamp 1793083636 (data/b716_lockgate.json) -- the lock is stamped before the commit that carries it, so its commit always reads
+     after the lock, and STEP_PHASES has no phase word for it that the arm accepts on that side. The seat's phase choice and the arm's form
+     disagree; nothing re-labelled (the step bank is append-only). b717's to rule (a `lock` phase, or the lock commit read by its own row).
+    (17) THE MIRROR'S MANIFEST CONTROL READS NOT AS WANTED AGAINST A CARRIED REFERENCE (mbank, 08:38:35Z; data/b716_mirror.txt). The record
+     tool's (R326)(5) control compares day1/Silence_of_Foundations.md in the zip against b715's merge a86c9429; Component 3 edited that file on
+     main this act (:212, :238; data/b716_keystone_diffs.txt), so the zip's 31884 bytes differ from that blob's 31795. The seat's probe
+     (scratchpad silence_probe.py, about 08:40Z): the zip's entry EQUALS the blob at PLACE-papers b855623 (the build's HEAD), raw and with
+     CR removed; it differs from a86c9429 and from 4320b719 (the act's step-zero head) by the 89 bytes of the edit. The export is as built from
+     main; the control names b715's commit where it should name the build's head. The sealed record tool's reference; b717's to repair.
+     The verification itself CLEAN ON ALL THREE CLAUSES (data/b716_mirror_verify.txt; 73 roster entries, 73 archive files).
+    (18) THIS BANK WRITTEN OUTSIDE ITS READER'S FORM (the closing's first run, about 08:43Z): the closing tool's events_section keeps a bank's
+     lines from its third that open with four spaces; this bank's first form (committed at relay 78866b19) set its rows at column 0, so the
+     first closing carried two rows' tails alone and counted "EVENTS 0". The bank rewritten by the Write tool before the closing was committed
+     -- every row re-indented to the reader's form, the section heads kept at column 0, the tag "AT THE PRE-RUN" added to (1)-(8) where their
+     section head is skipped, the head's last sentence and (12)'s last clause added, (18) and (19) entered; no finding changed -- and the
+     closing re-run. Its first form stands at 78866b19. The seat's.
+    (19) THE CLOSING'S STANDING REPORT LINE READS "NOT YET WRITTEN" (the closing, about 08:43Z; data/b716_closing.txt): report_lines
+     (tools/b716_closing.py :344-:350) needs seven lines in data/b716_report.json, and this act's report bank holds six (written at step
+     [11], committed at the pre-root b5e7c7df, its lines in footing order); the sealed closing's floor carried from b715's seven-line report.
+     The report bank stands; the closing's line is the sealed tool's. b717's to repair (the floor read from the report's own count).
 
 THE PRE-PUSH SUITE (data/b716_checks.txt, combined at about 08:12Z): ARMS RUN 139, LIVE PASSING 125, LIVE FAILING 14, NEG 0, POS 1 ['G-PP-SCOPE'], VERDICT NOT CLEAN. The fourteen: the face's two declared (G-PRIORBANK-UNCHANGED, G-READ-RULE-STANDING); (1)-(8); (13) G-ARMS-NO-LIVE-LIMB; (14); (15); and G-SEALED-AFTER-COMPONENTS, which waits on the components bank (step [18], written after the suite). Every failure named; none unnamed.
+
+THE POST-PUSH SUITE (data/b716_checks_postpush.txt, combined at about 08:37Z, after relay 78866b19 and PLACE-papers b855623 were pushed and
+read back): ARMS RUN 139, LIVE PASSING 125, LIVE FAILING 14, NEG 0, POS 1 ['G-PP-SCOPE'], VERDICT NOT CLEAN -- the same fourteen as the
+pre-push reading, G-SEALED-AFTER-COMPONENTS now named by (16) and not by the components bank. Every failure named; none unnamed.
