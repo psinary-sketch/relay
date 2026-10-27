@@ -1,0 +1,39 @@
+b718 -- (R328)(5)(i): A0 = 10 FOR Q1 = x^2 + xy + 10y^2 (-39), HCount`S INEQUALITY CERTIFIED IN BALLS BY b685`S ROUTE AT -39 (2026-10-27T21:00:15Z)
+
+### THE DEFINING EXPRESSION: HCount Z A0 (SIDE-explicit-formula v0.37, SIDEExplicitFormula/RestBound.lean :44-:45): 1 <= A0 and for every
+### real t, N(t, t + 1) <= A0 log(|t| + 3); A0Q = 10 at Q0 (Schema/EpsteinQ0.lean :104), certified there at b685-b687 by this route.
+### THE ROUTE (printed before any figure): tools/b685_count.py imported unedited, params_q: A(23) -> A(DQ) at 1 place(s); W_window: A(23) -> A(DQ) at 1 place(s); the engine carried by tools/b717_list.py: the engine: ('CERT', 'M_of', 1, []); the engine: ('CERT', 't4_bound', 1, []); the engine: ('CERT', 'zq', 1, []); the engine: ('CERT', 'tail_sum', 1, []); the engine: ('CERT', 'logg_q', 1, []); the engine: ('N', '_bessel', 2, []).
+### Z_Q1 at real points data/b718_a0_part1.json ((C-a) AS WANTED); the parameters data/b718_a0_part2.json (c 1.55, r 2.0, eta 0.15, tried 368, refused 0).
+
+## (C-b) THE DERIVED WINDOW BOUND AGAINST THE CERTIFIED LIST, the unit windows (k, k + 1], k in [150, 198]: every certified lower count (the on-line zeros located inside) beneath W(k): True (the largest 2 at k = 152, W 7.93125545839 ± 1.42e-39) ; NEG, the top and arcsin terms dropped, beneath a certified count somewhere: True -- AS WANTED
+
+## THE LIST REGION, |t| <= 199 (data/b717_list.json: 16 bands complete to 200.0; negative t by the conjugate symmetry, t in [-1, 0) read whole)
+  t in [0, 1): N(t, t + 1) <= 1 (the list) ; 10 log(|t| + 3) >= 10.9861228867 ± 2.24e-59 ; HOLDS
+  t in [1, 2): N(t, t + 1) <= 0 (the list) ; 10 log(|t| + 3) >= 13.8629436112 ± 1.15e-59 ; HOLDS
+  t in [15, 16): N(t, t + 1) <= 4 (the list) ; 10 log(|t| + 3) >= 28.9037175790 ± 4.48e-59 ; HOLDS
+  t in [50, 51): N(t, t + 1) <= 5 (the list) ; 10 log(|t| + 3) >= 39.7029191355 ± 6.47e-59 ; HOLDS
+  t in [100, 101): N(t, t + 1) <= 14 (the list) ; 10 log(|t| + 3) >= 46.3472898823 ± 4.98e-59 ; HOLDS
+  t in [150, 151): N(t, t + 1) <= 5 (the list) ; 10 log(|t| + 3) >= 50.3043792139 ± 8.96e-59 ; HOLDS
+  t in [198, 199): N(t, t + 1) <= 10 (the list) ; 10 log(|t| + 3) >= 53.0330490806 ± 8.96e-59 ; HOLDS
+  t in [-1, 0): N(t, t + 1) <= 2 ; 10 log 3 >= 10.9861228867 ± 2.24e-59 ; HOLDS
+  the least margin over the list region at k = 0 (bound 1) ; EVERY k IN [0, 199] HOLDS: True
+
+## THE DERIVED REGION, t >= 199 (b685`s count law at kappa = sqrt(39)/2pi, its window W(t) for t >= 150; pieces of ratio 1.01 to 10^6, then the coefficient form)
+  pieces 857 ; THE NARROWEST MARGIN 10 log(t + 3) - W on [199, 10^6]: 44.8329775550 ± 1.48e-39 on [199, 200.99] (W <= 8.24969941900 ± 1.48e-39)
+  t >= 10^6: W(t) <= k1 log(t + 1) + k0, k1 1.14723018193 ± 2.38e-40 < 10 True ; k0 2.15922557656 ± 2.19e-40 ; the margin at 10^6 120.146318165 ± 3.51e-39, increasing beyond
+  EVERY t >= 199 HOLDS: True
+
+### HCount Z 10 AT Q1 OF -39: 1 <= 10 ; N(t, t + 1) <= 10 log(|t| + 3) AT EVERY REAL t (the list region |t| <= 199, the derived region t >= 199, negative t by symmetry): CERTIFIED
+
+## THE SEVEN PREDICTIONS RE-READ UNDER THE CERTIFIED A0 = 10 (tools/b717_predict.py predictions(), unedited) BESIDE THE COMMITTED (data/b717_predictions.json, f47d8ab5)
+  pair 1 : n*_pred re-read 207551.1 ; committed 207551.1 ; re-read/committed 1.000000000 ; the arb strings EQUAL
+  pair 2 : n*_pred re-read 903514.1 ; committed 903514.1 ; re-read/committed 1.000000000 ; the arb strings EQUAL
+  pair 3 : n*_pred re-read 678962.8 ; committed 678962.8 ; re-read/committed 1.000000000 ; the arb strings EQUAL
+  pair 4 : n*_pred re-read 1848540.0 ; committed 1848540.0 ; re-read/committed 1.000000000 ; the arb strings EQUAL
+  pair 5 : n*_pred re-read 2454796.3 ; committed 2454796.3 ; re-read/committed 1.000000000 ; the arb strings EQUAL
+  pair 6 : n*_pred re-read 2074035.6 ; committed 2074035.6 ; re-read/committed 1.000000000 ; the arb strings EQUAL
+  pair 7 : n*_pred re-read 2137372.4 ; committed 2137372.4 ; re-read/committed 1.000000000 ; the arb strings EQUAL
+  n*_pred unchanged at every pair, so the onsets` ratios against it stand as data/b717_onsets.txt :57 prints them (1.000050 to 1.000264,
+  every one in [0.99, 1.01]); none leaves the window under the certified value.
+
+### ### **A0 = 10 AT Q1 OF -39: CERTIFIED (HCount Z 10, every real t) ; (C-a) AS WANTED, (C-b) AS WANTED ; THE PREDICTIONS RE-READ 7, EQUAL TO THE COMMITTED 7 ; 0 s.**
