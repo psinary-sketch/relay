@@ -1,0 +1,31 @@
+b718 -- (R328)(9): W-ORD-QUASI-RH-FIELD-WATCH, THE OUTSIDE REPOSITORY'S STATEMENT READ AND BANKED IN RELAY (2026-10-27)
+
+### Written by the Write tool from the print of tools/b718_records.py watch (gh's own token; nothing of the author sent) and from the
+### annotation as first written at PLACE-papers OPEN_TRAILS :16126 (f6f6df5). b641's form for an outside repository's sources: the
+### collection's names (tools/b641_record.py OAI_NEEDLES) are banked here, in relay, and the ledgers name this bank (defect (t)).
+
+## (1) THE REPOSITORY AND THE COMMIT
+openai/math at 7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a (public; the commit of 2026-10-26T21:18:03Z, "Merge pull request #3 from
+openai/codex/update-10-26").
+
+## (2) THE FILE
+lean/ComparatorChallenges/QuasiRiemannHypothesis.lean (blob e7d1caf6, 10 lines, 169 bytes). At the ruling's path
+lean/QuasiRiemannHypothesis.lean the contents read is Not Found (404); the found path's read is its control.
+
+## (3) THE STATEMENT, QUOTED WHOLE
+  import Mathlib
+  namespace OAI
+  theorem riemannZeta_ne_zero_of_seven_eighths_lt_re {s : ℂ} (hs : (7 / 8 : ℝ) < s.re) : riemannZeta s ≠ 0 := by sorry
+  end OAI
+
+## (4) THE RECORD BESIDE IT AND THE SOLUTION MODULE
+lean/ComparatorChallenges/QuasiRiemannHypothesis.json names the solution module OAI.NumberTheory.DirichletL.Nonvanishing and the
+permitted axioms propext, Quot.sound, Classical.choice. That module is present at the commit (lean/OAI/NumberTheory/DirichletL/
+Nonvanishing.lean, blob 46c67f40, 1247 bytes) and states the same theorem, with LFunction_ne_zero_of_seven_eighths_lt_re for every
+Dirichlet character away from the pole, each by a term from SevenEighths.ProbeFinalAssemblyUnconditional. Not compiled (no lean on this
+host), not reviewed.
+
+## (5) THE GRADE
+E0, from the statement alone: genuine in form -- one hypothesis 7/8 < Re s, conclusion riemannZeta s != 0, no premise naming a zero or
+encoding the conclusion -- and sorry at the challenge file. Nothing in the record holds the half-plane as proved. Trigger: a reviewed or
+Mathlib-merged form of that statement. Status OPEN, WATCH (OPEN_TRAILS :16126).

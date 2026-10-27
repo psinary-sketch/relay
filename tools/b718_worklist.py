@@ -125,10 +125,8 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'   # ### the census on main read by its rows (the readfirst's)
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### (R328)(6): the next edition, on main, the eleven names' rows
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'    # ### (R328)(5)(i): the companion table beside the paper
-PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'ERRATA.md', 'day1/Silence_of_Foundations.md', COMPANION, CENSUS_NEW,
-              'day1/Exhaustive_Enumeration.md', 'day1/ONE_PAGE_PROOF.md', 'day1/Seven_Mechanism_Classes.md', 'day1/Spectral_Inertness.md',
-              'day1/Third_Identity_Element.md')   # ### (R328)(1)-(3) the record lines; (5) the head, the companion and the six hits' papers, (6)
-#   ### the census and the day papers' rows: the papers of (5)(ii) and (6) added at Component 6 (the Edit tool), Component 5's commit naming them
+PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')   # ### (R328)(1)-(2) the record lines, (9) the watch's annotation, the entry and the trail;
+#   ### no paper, no ERRATA, no REGISTRY row written this act (the REGISTRY cells priced for b719, (R328)(9))
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
 RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'   # ### b712's re-cut on RECUT_BRANCH
@@ -178,30 +176,41 @@ STEPZERO_PREVBUILD = 'b4eb540711aae490078404ad27e072cb0695b57c'   # ### tools/mi
 STEPZERO_REFUSALS = '5ef2ae3a064e51fb706d21c574e2c073bc2a336d'    # ### data/b717_hook_refusals.txt as it stands (the refusal after the closing), committed alone
 STEPZERO_BANKS = 'f79a10e22d599ad5667ad85818197d5111ef7363'       # ### the step-zero banks and tools, committed together by explicit list
 VISIBILITY_COMMIT = ACT_CURRENT_COMMIT   # ### no visibility map written this act: the arms reading this name read the act's figures' commit
-COMPUTE_TOOLS = ()              # ### the four compute tools of (R328)(4) are tools/b718_*.py and enter SEALED by its rule
-REPAIRED_TOOLS = ()             # ### no shared tool repaired this act (CLOSE items are recorded, not repaired, (R328)(2))
+COMPUTE_TOOLS = ()              # ### the compute tools of (R328)(4)-(5) are tools/b718_*.py and enter SEALED by its rule
+REPAIRED_TOOLS = ()             # ### no shared tool outside tools/standing/ repaired this act
 REPAIRED_DATA = ()
-STANDING_FILES = ('VERSION', 'act.py', 'allow.py', 'arms.py', 'close.py', 'components.py', 'controls.py', 'hook.py', 'repairs.py', 'replay.py',
-                  'rootbanks.py', 'roster.py', 'scan.py', 'words.py')
-NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing close toolset at v1.1.0, unchanged this act, sealed by hash beside the act's tools
+STANDING_FILES = ('VERSION', 'act.py', 'allow.py', 'arms.py', 'classes.py', 'close.py', 'components.py', 'controls.py', 'hook.py', 'keystone.py',
+                  'manifest.py', 'needles.py', 'repairs.py', 'replay.py', 'rootbanks.py', 'roster.py', 'scan.py', 'words.py')
+NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing close toolset at v1.2.0 ((R328)(7), Component 4), sealed by hash beside the act's tools
+STANDING_VERSION = 'v1.2.0'
+STANDING_CHANGED = ('allow.py', 'close.py', 'replay.py', 'VERSION')                       # ### edited at v1.2.0 (data/b718_tool_repairs.txt)
+STANDING_NEW = ('classes.py', 'keystone.py', 'manifest.py', 'needles.py')                 # ### new at v1.2.0
 # ### b717's commits the act reads ((R328)(1))
 B714_CLOSING = '983dcbe27b5771acaedd84be04091b902218711c'   # ### b717's closing, the act's relay base (the names kept for the carried arms: the previous act's)
 B714_RECORD = '78866b19ed7870f55dae7e92b37db947a003dbd9'
 B714_ROOT = '4df4ddac46aa791068bb527b888497ebd435381360149d7866f5d0f386aeb327'   # ### data/act_roots.txt :94
-# ### stage two (Component 5, before the lock): the commits of the components, read from the logs after each was made
-C1_RELAY = '7c654dbe861caa912b0c30524cc095bf97990170'   # ### b717's weight line and the corrigendum's banks, the corrigenda row (37)
-C1_PP = 'e0ab685b583eed3b1f9a35fbf673a603edf894ef'      # ### the weight line (:10722) and the corrigendum entry (:10724)
-C2_RELAY = '3fdfacab1b55005cadf9b13778c150a455c99efb'   # ### (R328)(4)(i): the list at -39
-C3_PRED = 'f47d8ab5840d287bf63c1f0b59ba707ed85dbe07'    # ### (R328)(4)(ii): data/b718_predictions.txt committed alone, before any onset (N2)
-C3_RELAY = '091ecda9f44dbed5e9da97acb3250b3fb26cb8d5'   # ### (R328)(4)(iii): the onsets
-C4_RELAY = '091f458676df418b6c9105e14ffe5df26d57add5'   # ### (R328)(4)(iv): the coefficients and the law
-C5_PP = '84dbbf3e80e0520e24fb1726ca6d6e078e87d93d'   # ### (R328)(5)-(7)(ii): the companion, the six hits, the census v0.8.3, the Correspondence rows, ERRATA, the order
-C5_RELAY = '97e4164bf0030c5162c3855cca9e7559e5c41bad'      # ### (R328)(5)-(6): their banks and diffs (the commit carrying this line; read from the log at the seal)
-PP_EDITED = ('ERRATA.md', 'OPEN_TRAILS.md', 'day1/Exhaustive_Enumeration.md', 'day1/ONE_PAGE_PROOF.md', 'day1/Seven_Mechanism_Classes.md',
-             'day1/Silence_of_Foundations.md', 'day1/Spectral_Inertness.md', 'day1/Third_Identity_Element.md',
-             'day1/Silence_of_Foundations_CORRESPONDENCE.md', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md')   # ### data/b718_words_diffs.txt
-ERRATA_ID = 'E-2026-10-27-2'   # ### (5); its companion entry for (6) beside it
-ERRATA_IDS = ('E-2026-10-27-2', 'E-2026-10-27-3')
+# ### stage two (Component 7, before the lock): the commits of the components, read from the logs after each was made
+C1_RELAY = '6c994f8a80bb47024edf2cbfc81b7c433c2ce9ca'   # ### (R328)(1)-(2): b717's weight line and the corrigendum's banks, the corrigenda row (38)
+C1_PP = '183ab09faeb12b0004f68c8aa763a0effc3a818d'      # ### the weight line (FINDINGS :10820) and the corrigendum entry (:10822)
+WEIGHT_LINE, CORR_LINE = 10820, 10822
+C2_REG = '8146404b577dfee3e379d19e08e8595ab8824961'     # ### (R328)(4)(iv), N2: data/b718_registrations.txt committed alone, before anything at -20 or -47
+C2_RELAY = '296034384d40e64b0e346b9b8dc62ae0646e7421'   # ### (R328)(4)(ii)-(iii): the decomposition reproduced and the derivation
+C3_RELAY = '0286a8ef9d930f0067df27017b7444f4fdecafce'   # ### (R328)(5): A0, the count read, the box read, the surgery priced
+C4_RELAY = 'a240e6b6320a4eb8e28011bf8bebd19cea3b70c9'   # ### (R328)(6)-(7): the two reads; the toolset at v1.2.0 with the replay
+C5_RELAY = ('9eeb8971f120e8f274781abf3eaa36cd490a9f79', 'a9daf4f33ca0a8d88f0480551f2830e22fc5196a')   # ### (R328)(8): the pin, stopped by the author's word (Option 2), and its one read
+C6_RELAY = '309dfd05a84ccb13992907650855eb96e7aba9c9'   # ### (R328)(9): the records' banks
+C6_PP = 'f6f6df50101a539d59997bb06cb200d9aba4d51f'      # ### (R328)(9): W-ORD-QUASI-RH-FIELD-WATCH annotated at OPEN_TRAILS :16126
+C6_PP_REPAIR = '54a01285e8cc8243f62d674eae9462cce3b9c716'                               # ### defect (t): :16126 reworded, the outside names moved to relay data/b718_watch.txt
+WATCH_LINE = 16126
+NEW_DISCRIMINANTS = ((-20, 2), (-47, 5))                  # ### (R328)(4)(iv): registered, nothing computed beyond the class number and forms
+PIN_RUNS = ((('SIDE-effects', 40587516142),))             # ### (R328)(8): the one dispatch, read once by its id
+PIN_BRANCH = 'pin-b718-de5ce8a9'
+PIN_HELD = ('SIDE-cosmo', 'SIDE-frobenius')
+PIN_CARRIED = ('SIDE-archimedean', 'SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE-kernel', 'SIDE-lv-conservation', 'SIDE-rcurve',
+               'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')
+PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')   # ### the record lines (C1) and the watch's annotation (C6); no paper edited this act
+ERRATA_ID = None
+ERRATA_IDS = ()
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list
 SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b718_') and f.endswith('.py') and f != 'b718_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
@@ -213,8 +222,10 @@ ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKE
             'G-POSTROOT-WRITES-NONE', 'G-R328-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
             'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
             'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE',
-            'G-MEMBRANE-WIRED', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-ACT-CURRENT', 'G-NO-DISPATCH',
-            'G-REGISTRATIONS-FIRST', 'G-LIST-CERTIFIED', 'G-PREDICTIONS-BEFORE-ONSETS', 'G-ONSETS-HELD', 'G-COEFFS-LAW',
-            'G-KEYSTONE-EDITS', 'G-NAMES-PINNED', 'G-PRICES-BANKED', 'G-ARM-TAGS')
-# ### Component 6 (the Edit tool): b717's arms over b717's toolset objects (G-TOOL-REPAIRS, G-REPAIR-CONTROLS, G-TOOLSET-SCAN, G-TOOLSET-REPLAY,
-# ### G-COVERAGE-TABLE) not carried -- their banks are b717's and this act writes none; the -39 test's, the names' and the tags' arms added
+            'G-MEMBRANE-WIRED', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-ACT-CURRENT', 'G-PIN-READ',
+            'G-REGISTRATIONS-FIRST', 'G-DECOMP-REPRODUCED', 'G-DERIVATION-GRADED', 'G-A0-CERTIFIED', 'G-COUNT-READ',
+            'G-READS-BANKED', 'G-TOOLSET-V120', 'G-RECORDS-PRICED', 'G-TOUCH-READ', 'G-ARM-TAGS')
+# ### Component 7 (the Edit tool): b717's arms over b717's objects (the -39 list, the predictions, the onsets, the coefficients, the words, the
+# ### names, the order, no dispatch) not carried -- their banks are b717's and this act writes none; this act's arms over its own banks added:
+# ### the registrations first, the decomposition reproduced, the derivation graded, A0 certified, the count read, the two reads, the toolset
+# ### at v1.2.0, the pin read by its run ids, the records priced, the touch read of (R328)(3)
