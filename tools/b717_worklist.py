@@ -180,8 +180,8 @@ B714_CLOSING = '983dcbe27b5771acaedd84be04091b902218711c'   # ### b716's closing
 B714_RECORD = '78866b19ed7870f55dae7e92b37db947a003dbd9'
 B714_ROOT = '4df4ddac46aa791068bb527b888497ebd435381360149d7866f5d0f386aeb327'   # ### data/act_roots.txt :94
 # ### stage two (Component 5, before the lock): the commits of the components, read from the logs after each was made
-C1_RELAY = ''      # ### b716's weight line and the corrigendum's banks, the corrigenda row (37)
-C1_PP = ''         # ### the weight line and the corrigendum entry
+C1_RELAY = '7c654dbe861caa912b0c30524cc095bf97990170'   # ### b716's weight line and the corrigendum's banks, the corrigenda row (37)
+C1_PP = 'e0ab685b583eed3b1f9a35fbf673a603edf894ef'      # ### the weight line (:10722) and the corrigendum entry (:10724)
 C2_RELAY = ''      # ### (R327)(4)(i): the list at -39
 C3_PRED = ''       # ### (R327)(4)(ii): data/b717_predictions.txt committed alone, before any onset (N2)
 C3_RELAY = ''      # ### (R327)(4)(iii): the onsets
