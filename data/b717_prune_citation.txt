@@ -1,0 +1,162 @@
+b717 -- THE PRUNES OF THE CARRIED tools/b717_citation.py: the previous act`s routes over its own objects, removed at carry time (data/b709_rules.txt row (1)); rows are hunks.
+
+@@ -132,158 +132,0 @@ PRUNED (2026-10-27T13:38:02Z)
+-    # ### b717: the cite rows of (R327) and its ferry, written by the Edit tool after b716's rows were pruned (data/b717_prune_citation.txt)
+-    for f in K.PATHS:
+-        add('ruling PATHS', f, os.path.isdir(f), 'present' if os.path.isdir(f) else 'ABSENT', '0')
+-    for f in ('data/b716_closing.txt', 'data/b716_events.txt', 'data/b716_defects.txt', 'data/b716_toolset_coverage.txt', 'data/b716_replay.txt',
+-              'data/b716_author_words_preseal.txt', 'data/b716_author_answers.txt', 'data/b716_pins_census.txt', 'data/b714_heads_draft.txt',
+-              'data/b714_pilot.txt', 'data/b714_residual.txt', 'data/b714_law.txt', 'data/b713_source_pin.txt', 'data/b712_genus_control.txt',
+-              'data/b710_registrations.txt', 'data/standing_clauses_v5.txt'):
+-        add('ferry read-first', f, os.path.exists(p(*f.split('/'))), 'exists at the working tree', '0')
+-    add('ferry read-first', 'the census on main by its rows: PLACE-papers phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md',
+-        os.path.exists(os.path.join(PP, 'phase2', 'method', 'THE_KEYSTONE_CENSUS_v0_8_2.md')), 'exists at the working tree', '0')
+-    law = lines_of(p('data', 'b714_law.txt'))
+-    add('ferry read-first', '"the law-identity bank of b714 (7)": data/b714_law.txt, (R324)(7)`s bank (its :1), its reading at :66',
+-        '(R324)(7)' in at(law, 1) and 'TWO FORMS' in at(law, 66), ':1 %r ; :66 %r' % (at(law, 1)[:40], at(law, 66).strip()[:40]), '0')
+-    # ### (R327)(1): b716 at its weight
+-    cl = lines_of(p('data', 'b716_closing.txt'))
+-    q = _quote(text, 'b716 closed: relay', '”; its relay commit')
+-    add('ruling (1)', 'data/b716_closing.txt :1, the head line, against (R327)(1)`s quote', bool(q) and q == cl[0],
+-        'quote %d characters, the line %d ; equal byte for byte %s' % (len(q), len(cl[0]), q == cl[0]), '1')
+-    rec_s = (g(ROOT, 'log', '-1', '--format=%H %s', 'fdddea13')[1] or '').strip()
+-    clo_s = (g(ROOT, 'log', '-1', '--format=%H %s', 'cf51ee95')[1] or '').strip()
+-    rmain = (g(ROOT, 'ls-remote', 'origin', 'refs/heads/main')[1] or '').split()
+-    add('ruling (1)', 'its relay commit the record`s (fdddea13, "b716 record"), the closing`s cf51ee95 ("b716: the closing"), the remote main',
+-        rec_s[41:].startswith('b716 record') and clo_s[41:].startswith('b716: the closing') and rmain[:1] == [clo_s[:40]],
+-        '%s ; %s ; remote main %s' % (rec_s[:52], clo_s[:58], (rmain or ['NONE'])[0][:8]), '1')
+-    sdir = p('tools', 'standing')
+-    sfiles = sorted(f for f in os.listdir(sdir) if os.path.isfile(os.path.join(sdir, f))) if os.path.isdir(sdir) else []
+-    scan = rd(p('data', 'b716_standing_scan.txt')) or ''
+-    add('ruling (1)', 'tools/standing/ at v1.0.0, 11 files, act literals in the code 0 (VERSION ; data/b716_standing_scan.txt)',
+-        (rd(os.path.join(sdir, 'VERSION')) or '').strip() == 'v1.0.0' and len(sfiles) == 11 and 'LITERALS IN THE CODE 0' in scan,
+-        'VERSION %r ; files %d ; the scan`s figure %s' % ((rd(os.path.join(sdir, 'VERSION')) or '').strip(), len(sfiles), 'LITERALS IN THE CODE 0' in scan), '1')
+-    cov = lines_of(p('data', 'b716_toolset_coverage.txt'))
+-    add('ruling (1)', 'the coverage table at 1 of 25 STANDING ([18]), the core inside [3], [7], [8], [17], [20], [25] (data/b716_toolset_coverage.txt :36)',
+-        'STEPS 25 ; STANDING 1 ([18])' in at(cov, 36) and 'AT [3], [7], [8], [17], [20], [25]' in at(cov, 36), ':36', '1')
+-    rp = lines_of(p('data', 'b716_replay.txt'))
+-    add('ruling (1)', 'the replay 11 of 12 EQUAL, the one DIFFERS the old tool`s F-2, F-1 the seal`s head (data/b716_replay.txt :77, :80, :87)',
+-        'OBJECTS 12 ; EQUAL 11 ; DIFFERS 1' in at(rp, 87) and 'F-2' in at(rp, 77) and at(rp, 80).strip().startswith('F-1') and 'SEAL' in at(rp, 80),
+-        ':87 ; :77 ; :80', '1')
+-    sh = _jl('b716_seal_hashes.json')
+-    add('ruling (1)', 'G-RULE-LONG-PHASE-SPLIT sealed, not withheld (data/b716_seal_hashes.json `withheld`)', sh.get('withheld') == [],
+-        'withheld %r' % sh.get('withheld'), '1')
+-    ros5 = rd(p('data', 'b716_roster.txt')) or ''
+-    mv = rd(p('data', 'b716_mirror_verify.txt')) or ''
+-    add('ruling (1)', 'the roster from main, the census v0.8 and v0.8.1 joined (data/b716_roster.txt); the verification NOT CLEAN (data/b716_mirror_verify.txt)',
+-        'THE_KEYSTONE_CENSUS_v0_8.md' in ros5 and 'THE_KEYSTONE_CENSUS_v0_8_1.md' in ros5 and 'NOT CLEAN' in mv,
+-        'joins named %s ; NOT CLEAN in the verify bank %s' % ('THE_KEYSTONE_CENSUS_v0_8_1.md' in ros5, 'NOT CLEAN' in mv), '1')
+-    pc = lines_of(p('data', 'b716_pins_census.txt'))
+-    allrows = [l for l in pc if l.startswith('--- ')]
+-    pub = [l for l in allrows if 'visibility PUBLIC' in l]
+-    prv = [l.split()[1] for l in allrows if 'visibility PRIVATE' in l]
+-    revs = [l for l in pc if l.strip().startswith('MATHLIB UPSTREAM PIN')]
+-    add('ruling (1)', 'the pins census at 39 public repositories, 0 hard failures, upstream Mathlib at five revs (data/b716_pins_census.txt)',
+-        len(pub) == 39 and any(l.strip() == '### REPOS HARD-FAILING : 0' for l in pc) and len(revs) == 5,
+-        'repository rows %d (the bank`s :2 "ALL 39 REPOS") ; PUBLIC %d ; PRIVATE %d %s (b714`s four) ; HARD-FAILING 0 %s ; Mathlib revs %d' % (
+-            len(allrows), len(pub), len(prv), prv, any(l.strip() == '### REPOS HARD-FAILING : 0' for l in pc), len(revs)), '1')
+-    add('ruling (1)', 'the suite 135 of 140 pre-push and 136 of 140 post-push (data/b716_closing.txt :260, :262)',
+-        'ARMS RUN : 140. ### LIVE PASSING : 135.' in at(cl, 260) and 'ARMS RUN : 140. ### LIVE PASSING : 136.' in at(cl, 262), ':260 ; :262', '1')
+-    row = act_root_line('b716')
+-    add('ruling (1)', 'the root c0e86c02 (data/act_roots.txt, b716`s row)', bool(row) and row[-1][1].startswith('c0e86c02'),
+-        'row b716 %s' % (row[-1][1][:8] if row else 'NONE'), '1')
+-    ev = lines_of(p('data', 'b716_events.txt'))
+-    starts = dict((int(m.group(1)), i + 1) for i, l in enumerate(ev) for m in [re.match(r'^\((\d+)\) ', l)] if m)
+-    add('ruling (1); ruling (2)', 'eleven events in data/b716_events.txt, (1)-(11) each on its starting line', sorted(starts) == list(range(1, 12)),
+-        'starting lines %s' % [starts[k] for k in sorted(starts)], '1')
+-    dl = lines_of(p('data', 'b716_defects.txt'))
+-    dlet = [(m.group(1), m.group(2), m.group(3)) for l in dl for m in [re.match(r"^    \(([a-z])\) (THE [A-Z]+'S):? ?(.*)", l)] if m]
+-    nav = [x[0] for x in dlet if x[1] == "THE NAVIGATOR'S"]
+-    add('ruling (1)', 'seventeen defects (a)-(q), (d) the navigator`s (data/b716_defects.txt)', ''.join(x[0] for x in dlet) == 'abcdefghijklmnopq' and nav == ['d'],
+-        'letters %s ; the navigator`s %s' % (''.join(x[0] for x in dlet), nav), '1')
+-    add('ruling (1); ruling (9)', '"Nothing deposited, nothing published": the draft at v5, held', K.DRAFT == '23228113', 'tools/b717_worklist.py DRAFT', '1')
+-    # ### (R327)(2): the corrigendum's sources
+-    add('ruling (2)', 'the corrigendum tool to carry (tools/b716_corrigendum.py) and the one lettering (tools/act_letters.py)',
+-        os.path.exists(p('tools', 'b716_corrigendum.py')) and os.path.exists(p('tools', 'act_letters.py')), 'present', '1')
+-    cg = lines_of(p('data', 'b675_corrigenda.txt'))
+-    last = [l for l in cg if re.match(r'^\s*\((\d+)\)', l)]
+-    add('ruling (2)', 'the corrigenda bank, appended only (its last row (35), b716`s)', bool(last) and re.match(r'^\s*\(35\)', last[-1]) is not None,
+-        'data/b675_corrigenda.txt, last row %r' % (last[-1][:40] if last else ''), '1')
+-    refused = [x[0] for x in dlet if 'REFUSED' in x[2]]
+-    add('ruling (2)', 'the defects whose head names a hook refusal ("REFUSED"), the hook`s held rule (data/b716_defects.txt)', len(refused) >= 1,
+-        'heads naming REFUSED: %s' % ''.join(refused), '1')
+-    # ### (R327)(3): the toolset's repairs, their record instances
+-    ans = lines_of(p('data', 'b716_author_answers.txt'))
+-    prompts = [l for l in ans if l.startswith('### PROMPT ')]
+-    import b716_worklist as K5
+-    dels = [b for _r, names in K5.DELETE for b in names]
+-    add('ruling (3)(i)', 'b716`s six named deletes (tools/b716_worklist.py DELETE) and four prompts (data/b716_author_answers.txt `### PROMPT` rows); events (7), (8)',
+-        len(dels) == 6 and len(prompts) == 4 and 7 in starts and 8 in starts, 'deletes %d ; prompts %d ; events (7) :%s (8) :%s' % (len(dels), len(prompts), starts.get(7), starts.get(8)), '2')
+-    s4 = (g(ROOT, 'log', '-1', '--format=%s', '4e4c4759')[1] or '').strip()
+-    add('ruling (3)(ii)', 'the seal`s recorded head c5370fca and the seal commit 4e4c4759 (data/b716_seal_hashes.json relay_head ; event (1))',
+-        str(sh.get('relay_head', '')).startswith('c5370fca') and bool(s4) and 1 in starts, 'relay_head %s ; 4e4c4759 %r' % (str(sh.get('relay_head', ''))[:8], s4[:50]), '2')
+-    mvp = lines_of(p('tools', 'mirror_verify.py'))
+-    add('ruling (3)(iii)', 'the verifier`s own roster: tools/mirror_verify.py :70 ROSTER (event (10))', 'ROSTER' in at(mvp, 70) and 'mirror_roster.json' in at(mvp, 70) and 10 in starts,
+-        ':70 %r' % at(mvp, 70).strip()[:70], '2')
+-    aw = lines_of(p('data', 'b716_author_words_preseal.txt'))
+-    heads = [l for l in aw if re.match(r'^## \(\d+\) ', l)]
+-    add('ruling (3)(iv)', 'the author`s-words bank`s "## (n)" heads (data/b716_author_words_preseal.txt), three before the seal and the root`s word in the answers bank (event (3))',
+-        len(heads) == 3 and 3 in starts, 'heads %d at %s' % (len(heads), [i + 1 for i, l in enumerate(aw) if re.match(r'^## \(\d+\) ', l)]), '2')
+-    add('ruling (3)(v)', 'events (4) and (6), the entry`s and the trail`s carried clauses (data/b716_events.txt)', 4 in starts and 6 in starts,
+-        '(4) :%s ; (6) :%s' % (starts.get(4), starts.get(6)), '2')
+-    r5 = rd(p('tools', 'b716_record.py')) or ''
+-    add('ruling (3)(vi)', 'defect (j): the exclusion narrowed to `chain_half_` in tools/b716_record.py', any(x[0] == 'j' for x in dlet) and 'chain_half_' in r5,
+-        'defect (j) %s ; chain_half_ in the record tool %s' % (any(x[0] == 'j' for x in dlet), 'chain_half_' in r5), '2')
+-    for f in ('data/b717_toolset_coverage.txt', 'data/b717_tool_repairs.txt', 'data/b717_replay.txt', 'data/b717_readfirst.txt', 'data/b717_rules.txt'):
+-        add('ruling (3); ruling (8)', '%s -- TO BE WRITTEN by this act' % f, not os.path.exists(p(*f.split('/'))), 'absent, as ordered', '0-2')
+-    # ### (R327)(4): the -39 registration's sources
+-    sp = rd(p('data', 'b713_source_pin.txt')) or ''
+-    add('ruling (4)(i)', 'Murty-Osburn arXiv:math/0412237v1 Theorem 2.3 as pinned at b713 (data/b713_source_pin.txt, sha256 5de0ba03)',
+-        'arXiv:math/0412237v1' in sp and 'Theorem 2.3' in sp and '5de0ba0368f3c627' in sp, 'the text, the theorem and the sha256 named', '0')
+-    gc = lines_of(p('data', 'b712_genus_control.txt'))
+-    add('ruling (4)(i)', 'b712`s control, run before its commit (data/b712_genus_control.txt :43, :45)', 'MISSES THROUGH n = 400: 0' in at(gc, 43) and 'MISSES 0' in at(gc, 45),
+-        ':43 ; :45', '0')
+-    c11, c13 = lines_of(p('data', 'b711_coeffs.txt')), lines_of(p('data', 'b713_coeffs.txt'))
+-    add('ruling (4)(ii)', 'the observation at Q0 and -15: least negative index 48 (b711_coeffs :12) and 24 (b713_coeffs :13), each c = -2 log n',
+-        'n = 48 ; c(48) = (-8) log 2 + (-2) log 3' in at(c11, 12) and 'n = 24 ; c(24) = (-6) log 2 + (-2) log 3' in at(c13, 13), ':12 ; :13', '0')
+-    r10, r12 = lines_of(p('data', 'b710_registrations.txt')), lines_of(p('data', 'b712_registrations.txt'))
+-    add('ruling (4)(iii)', 'the refined law of b710 (i) (:21, the first-order form) and the window [0.99, 1.01]: b712 (ii) :46-:48 carried b710 (i) unchanged with it; b710 (i)`s own F2 window [0.9, 1.1] (:43)',
+-        'r n* = 4 log(4C) + 8 log(n* + 1)' in at(r10, 21) and '[0.99, 1.01]' in at(r12, 48) and '[0.9, 1.1]' in at(r10, 43),
+-        ':21 ; b712 :48 ; :43 -- the ruling`s window the first-order form`s (b714 (7) :70), not F2`s', '0')
+-    for f in ('data/b717_registrations.txt', 'data/b717_genus_control.txt', 'data/b717_price.txt'):
+-        add('ruling (4)', '%s -- TO BE WRITTEN by this act' % f, not os.path.exists(p(*f.split('/'))), 'absent, as ordered', '0-4')
+-    # ### (R327)(5): the keystone items
+-    hd = lines_of(p('data', 'b714_heads_draft.txt'))
+-    add('ruling (5)(i)', 'the heads draft`s sections II and III (data/b714_heads_draft.txt :33, :66)', at(hd, 33).startswith('## II.') and at(hd, 66).startswith('## III.'),
+-        ':33 %r ; :66 %r' % (at(hd, 33)[:30], at(hd, 66)[:30]), '5')
+-    pl = lines_of(p('data', 'b714_pilot.txt'))
+-    add('ruling (5)(ii)', 'the six lint hits FOR THE AUTHOR (data/b714_pilot.txt :94)', '(P2) HITS 7: AS DESIGNED 1 ; FOR THE AUTHOR 6' in at(pl, 94), ':94', '5')
+-    sil = (g(PP, 'show', 'main:day1/Silence_of_Foundations.md')[1] or '').split(NL)
+-    smeta = _blob(K.META_DIR, 'v0.1.0', 'SIDEMeta/Meta/SIDESystem.lean').split(NL)
+-    add('ruling (5)(iii)', 'Silence :212 names SIDESystem on main; SIDE-meta SIDEMeta/Meta/SIDESystem.lean :99 a structure at the tag v0.1.0 (6bb7b23, v0.3 the same commit)',
+-        'SIDESystem' in at(sil, 212) and at(smeta, 99).startswith('structure SIDESystem'), ':212 %r ; :99 %r' % (at(sil, 212)[:50], at(smeta, 99)[:40]), '3')
+-    add('ruling (5)(iv)', 'the 19 names with no pin (data/b714_pilot.txt :66, (P1))', 'NO PIN STATED 19' in at(pl, 66), ':66', '3')
+-    add('ruling (5)(v)', 'the census v0.8.2 rows of (R326)(7) as b716`s banks state them (data/b716_chain_rows.txt ; the census diff)',
+-        os.path.exists(p('data', 'b716_chain_rows.txt')) and os.path.exists(p('data', 'b716_census_diff.txt')), 'present', '3')
+-    # ### (R327)(6): the prices' sources
+-    for f in ('data/b717_federation_pin_price.txt', 'data/b717_epstein_count_price.txt'):
+-        add('ruling (6)', '%s -- TO BE WRITTEN by this act' % f, not os.path.exists(p(*f.split('/'))), 'absent, as ordered', '4')
+-    # ### (R327)(7): the carried files and the branches
+-    dirty = (g(ROOT, 'diff', '--name-only')[1] or '').split()
+-    add('ruling (7)', 'data/b716_relay_push-b716-closing_push_out.txt, untracked', os.path.exists(p('data', 'b716_relay_push-b716-closing_push_out.txt'))
+-        and not (g(ROOT, 'ls-files', 'data/b716_relay_push-b716-closing_push_out.txt')[1] or '').strip(), 'present, untracked', '0')
+-    st = _jl('b716_steps.json').get('rows', [])
+-    add('ruling (7)', 'step row 21 of data/b716_steps.json (the closing`s, cf51ee95), uncommitted', len(st) == 21 and str(st[20].get('commit', '')).startswith('cf51ee95')
+-        and 'data/b716_steps.json' in dirty, 'rows %d ; row 21 %s' % (len(st), (str(st[20].get('commit', ''))[:8], st[20].get('phase')) if len(st) >= 21 else 'NONE'), '0')
+-    for f in ('data/b716_hook_refusals.txt', 'data/b714_hook_refusals.txt', 'data/b716_bank_hashes.json', 'tools/mirror_prevbuild.json'):
+-        add('ruling (7)', '%s, modified at the working tree and uncommitted' % f, f in dirty, 'in `git diff --name-only`', '0')
+-    for repo, names in K.DELETE:
+-        lst = g(repo, 'branch', '--merged', 'main')[1] or ''
+-        for b in names:
+-            add('ruling (7)', '%s %s (local, listed --merged)' % (os.path.basename(repo), b), b in [x.strip(' *') for x in lst.split(NL)], 'listed by `git branch --merged main` before any delete', '0')
+-    lh = _remote_heads(K.LV_DIR)
+-    loc = (g(K.LV_DIR, 'rev-parse', K.PORT_BRANCH)[1] or '').strip()
+-    add('ruling (7)', 'port-b707 at cb0aea56 locally and at the remote, NOT deleted', loc == K.PORT_TIP and lh.get('refs/heads/port-b707') == K.PORT_TIP,
+-        'local %s ; remote %s' % (loc[:8], (lh.get('refs/heads/port-b707') or '')[:8]), '0')
+-    add('ruling (7)', 'the 2,560 MB hold', K.HOLD == 2560, 'tools/b717_worklist.py HOLD', '0')
+-    # ### the ferry
+-    add('ferry', 'the hook in D:/.claude/settings.json is the standing one (tools/standing/hook.py)', 'standing/hook.py' in (rd('D:/.claude/settings.json') or ''), 'D:/.claude/settings.json', '0')
+-    add('ferry C0', 'the READFIRST-CLOSURE reader and rowgen (tools/circuit_read.py)', os.path.exists(p('tools', 'circuit_read.py')), 'present', '0')
+-    add('ferry C6', 'the chain halves as b693 drew them, b717 added to the second', K.CHAIN_HALVES[1] == ('b659', 'b717'), 'tools/b717_worklist.py CHAIN_HALVES', '5')
+-    add('ferry C0', 'this act`s session transcript (a new session after the clear)', os.path.exists(C.SESSION), C.SESSION, '0')
+
