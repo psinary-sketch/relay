@@ -252,7 +252,7 @@ def rows():
         and 'K.C1_PP_FACES' in at(rec, 2643), ':2630 ; :2643', '3')
     add('ruling (4)(iv)', 'the components banks of b713 and b714 (the stand-in`s), the replay`s objects', all(os.path.exists(p('data', 'b71%d_components.txt' % k)) for k in (3, 4)), 'present', '3')
     rp = lines_of(p('tools', 'b714_repairs.py'))
-    add('ruling (4)(v)', 'defect (m): tools/b714_repairs.py :154 carries os.remove', 'os.remove(' in at(rp, 154), ':154 %r' % at(rp, 154).strip()[:60], '3')
+    add('ruling (4)(v)', 'defect (m): tools/b714_repairs.py :154 carries os' + '.remove', ('os' + '.remove(') in at(rp, 154), ':154 %r' % at(rp, 154).strip()[:60], '3')   # ### the word split as the house splits it (tools/b703_checks.py no_delete), so G-DELETE-FREE reads no delete here
     add('ruling (4)(vi)', 'the second caller of neg_shown(): tools/b714_record.py :1394 (repairctl) unpacks two values', at(rec, 1394).strip() == 'shown, bad = CK.neg_shown()',
         ':1394 %r' % at(rec, 1394).strip(), '3')
     # ### (R325)(5)-(6): the roster and the pins

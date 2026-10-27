@@ -1,0 +1,163 @@
+b715 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b714_regspec.py -> tools/b715_regspec.py (2026-10-27T00:18:33Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b714 -> b715, b713 -> b714, (R324) -> (R325), (R323) -> (R324), R324 -> R325, R323 -> R324); 386 lines, 59 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b714_tool_repairs.txt AND data/b714_repairdiff_regspec.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b714; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b714_regspec.py
+  +++ tools/b715_regspec.py
+  @@ -2,1 +2,1 @@
+  -"""b714_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  +"""b715_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  @@ -4,4 +4,4 @@
+  -### ### Carried from b713's spec by tools/b714_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face
+  -### ### (Component 5): the citation check as a gate step; the record lines and the corrigendum; the repairs of (R324)(5)-(6), standing clauses
+  -### ### v5 and the hook; the lv tag v0.14.0 and the re-cut merged in keystone form ((R324)(3)); the heads draft held for the author's word
+  -### ### ((R324)(4)); the law, the residual, the rectangle and the Sonin price ((R324)(7)-(10)); the pilot on the author's word (2); no kernel
+  +### ### Carried from b714's spec by tools/b715_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face
+  +### ### (Component 5): the citation check as a gate step; the record lines and the corrigendum; the repairs of (R325)(5)-(6), standing clauses
+  +### ### v5 and the hook; the lv tag v0.14.0 and the re-cut merged in keystone form ((R325)(3)); the heads draft held for the author's word
+  +### ### ((R325)(4)); the law, the residual, the rectangle and the Sonin price ((R325)(7)-(10)); the pilot on the author's word (2); no kernel
+  @@ -24,1 +24,1 @@
+  -import b714_worklist as K   # noqa: E402
+  +import b715_worklist as K   # noqa: E402
+  @@ -26,2 +26,2 @@
+  -REG = os.path.join(ROOT, 'data', 'b714_registration_2026-10-26.txt')
+  -SPEC = os.path.join(ROOT, 'data', 'b714_satisfiable.json')
+  +REG = os.path.join(ROOT, 'data', 'b715_registration_2026-10-26.txt')
+  +SPEC = os.path.join(ROOT, 'data', 'b715_satisfiable.json')
+  @@ -47,2 +47,2 @@
+  -    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### (R324)(3)(i) on the author`s word: SIDE-lv-conservation v0.14.0 at cb0aea56, annotated; MEASURED off SIDE-explicit-formula`s tags past v0.37, SIDE-lv-conservation`s containing the port tip and the join kernel`s beyond v0.1.0.'),
+  -    ('GitHub releases created', 0, 0, 'releases', '### N5: the tag alone, no release (data/b714_lv_tag.txt).'),
+  +    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### (R325)(3)(i) on the author`s word: SIDE-lv-conservation v0.14.0 at cb0aea56, annotated; MEASURED off SIDE-explicit-formula`s tags past v0.37, SIDE-lv-conservation`s containing the port tip and the join kernel`s beyond v0.1.0.'),
+  +    ('GitHub releases created', 0, 0, 'releases', '### N5: the tag alone, no release (data/b715_lv_tag.txt).'),
+  @@ -53,1 +53,1 @@
+  -    ('branches deleted at step zero', 5, 5, 'branches', '### relay push-b713-closing, push-b713-preroot, push-b713-record; PLACE-papers push-b713-entry, push-b713-record; each local, by name (data/b714_stepzero.txt :33).'),
+  +    ('branches deleted at step zero', 5, 5, 'branches', '### relay push-b714-closing, push-b714-preroot, push-b714-record; PLACE-papers push-b714-entry, push-b714-record; each local, by name (data/b715_stepzero.txt :33).'),
+  @@ -57,2 +57,2 @@
+  -    ('commits on the re-cut branch', 0, 0, 'commits', '### none: recut-b712-silence at 0aeca834, b713`s tip.'),
+  -    ('re-cut branches merged', 1, 1, 'merges', '### (R324)(3)(ii): recut-b712-silence into PLACE-papers main at a86c9429, --no-ff, the branch kept.'),
+  +    ('commits on the re-cut branch', 0, 0, 'commits', '### none: recut-b712-silence at 0aeca834, b714`s tip.'),
+  +    ('re-cut branches merged', 1, 1, 'merges', '### (R325)(3)(ii): recut-b712-silence into PLACE-papers main at a86c9429, --no-ff, the branch kept.'),
+  @@ -60,1 +60,1 @@
+  -    ('keystone opening paragraphs written to main', 1, 0, 'paragraphs', '### (R324)(4): Silence_of_Foundations :15, by the Edit tool, on the author`s word in the root`s prompt alone, before the root.'),
+  +    ('keystone opening paragraphs written to main', 1, 0, 'paragraphs', '### (R325)(4): Silence_of_Foundations :15, by the Edit tool, on the author`s word in the root`s prompt alone, before the root.'),
+  @@ -64,1 +64,1 @@
+  -    ('faces ledger head lines edited', 0, 0, 'lines', '### none this act (b713`s :8).'),
+  +    ('faces ledger head lines edited', 0, 0, 'lines', '### none this act (b714`s :8).'),
+  @@ -73,2 +73,2 @@
+  -    ('generated corrigendum entries', 1, 1, 'entries', '### (R324)(5).'),
+  -    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R324)(5): row (34).'),
+  +    ('generated corrigendum entries', 1, 1, 'entries', '### (R325)(5).'),
+  +    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R325)(5): row (34).'),
+  @@ -77,3 +77,3 @@
+  -    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### (R324)(7)-(9) and the pilot: the law, the residual, the rectangle, the pilot; MEASURED off the banks present.'),
+  -    ('onsets computed this act', 0, 0, 'onsets', '### N3: the residual read from b713`s banks, no onset computed.'),
+  -    ('registrations` numbers changed', 0, 0, 'numbers', '### N3: b713`s registrations read unchanged.'),
+  +    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### (R325)(7)-(9) and the pilot: the law, the residual, the rectangle, the pilot; MEASURED off the banks present.'),
+  +    ('onsets computed this act', 0, 0, 'onsets', '### N3: the residual read from b714`s banks, no onset computed.'),
+  +    ('registrations` numbers changed', 0, 0, 'numbers', '### N3: b714`s registrations read unchanged.'),
+  @@ -81,1 +81,1 @@
+  -    ('shared tools written by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### (R324)(5)-(6): tools/act_close.py and tools/push_gated.sh (repaired), tools/act_letters.py (new); MEASURED off the worklist`s lists.'),
+  +    ('shared tools written by ruling', 'SHAREDTOOLS', 'SHAREDTOOLS', 'tools', '### (R325)(5)-(6): tools/act_close.py and tools/push_gated.sh (repaired), tools/act_letters.py (new); MEASURED off the worklist`s lists.'),
+  @@ -83,2 +83,2 @@
+  -    ('shared banks written by ruling', 1, 1, 'banks', '### (R324)(6): data/standing_clauses_v5.txt.'),
+  -    ('harness settings files written', 1, 1, 'files', '### (R324)(6)(iv): D:/.claude/settings.json, the hook wired (tools/b714_hook.py).'),
+  +    ('shared banks written by ruling', 1, 1, 'banks', '### (R325)(6): data/standing_clauses_v5.txt.'),
+  +    ('harness settings files written', 1, 1, 'files', '### (R325)(6)(iv): D:/.claude/settings.json, the hook wired (tools/b715_hook.py).'),
+  @@ -89,1 +89,1 @@
+  -    ('outbound fetches by the seat', 0, 0, 'fetches', '### none: the Connes-Consani source read by hash from a prior session`s scratchpad (data/b714_records.txt (5)).'),
+  +    ('outbound fetches by the seat', 0, 0, 'fetches', '### none: the Connes-Consani source read by hash from a prior session`s scratchpad (data/b715_records.txt (5)).'),
+  @@ -106,1 +106,1 @@
+  -    ('commands piping a read into a shell filter', 'PIPES', 'PIPES', 'commands', '### the ferry, MEASURED off the command bank: the hook`s live control (data/b714_hook_refusals.txt :2), refused before it ran.'),
+  +    ('commands piping a read into a shell filter', 'PIPES', 'PIPES', 'commands', '### the ferry, MEASURED off the command bank: the hook`s live control (data/b715_hook_refusals.txt :2), refused before it ran.'),
+  @@ -113,2 +113,2 @@
+  -    ('repairs of (R324)(5)-(6)', 'REPAIRS', 'REPAIRS', 'repairs', '### the tools repaired and the tools new; MEASURED off the repairs bank`s foot.'),
+  -    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b713_rules.txt row (1); MEASURED off the defects bank`s rows.'),
+  +    ('repairs of (R325)(5)-(6)', 'REPAIRS', 'REPAIRS', 'repairs', '### the tools repaired and the tools new; MEASURED off the repairs bank`s foot.'),
+  +    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b714_rules.txt row (1); MEASURED off the defects bank`s rows.'),
+  @@ -120,1 +120,1 @@
+  -    ('numbers of this act entered in a keystone', 0, 0, 'numbers', '### (R324)(4): the head`s footings name pins and lines, no figure of this act.'),
+  +    ('numbers of this act entered in a keystone', 0, 0, 'numbers', '### (R325)(4): the head`s footings name pins and lines, no figure of this act.'),
+  @@ -124,1 +124,1 @@
+  -    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R324)(1); MEASURED.'),
+  +    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R325)(1); MEASURED.'),
+  @@ -156,1 +156,1 @@
+  -    ('questions asked of the author before the seal', 0, 0, 'questions', '### none: the root`s prompt alone, after the seal ((R324)(4)).'),
+  +    ('questions asked of the author before the seal', 0, 0, 'questions', '### none: the root`s prompt alone, after the seal ((R325)(4)).'),
+  @@ -162,1 +162,1 @@
+  -    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R324).'),
+  +    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R325).'),
+  @@ -196,1 +196,1 @@
+  -    import b714_record as REC
+  +    import b715_record as REC
+  @@ -202,1 +202,1 @@
+  -                with tempfile.TemporaryDirectory(prefix='b714_spec_') as d:
+  +                with tempfile.TemporaryDirectory(prefix='b715_spec_') as d:
+  @@ -230,1 +230,1 @@
+  -    import b714_record as REC
+  +    import b715_record as REC
+  @@ -233,1 +233,1 @@
+  -                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b714_ferry.txt'), '### b999 absent')),
+  +                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b715_ferry.txt'), '### b999 absent')),
+  @@ -260,3 +260,3 @@
+  -def refresh_commands(bank='b714_commands.json'):
+  -    """(R324)(3)(v), standing clauses v3: THE COMMAND SCREEN READS A FRESH BANK -- the command bank rewritten by the record tool's `commands`
+  -    route in this step, before the face's counts are read from it (b713's face read ANYPIPES 7 from a bank last written before its eighth
+  +def refresh_commands(bank='b715_commands.json'):
+  +    """(R325)(3)(v), standing clauses v3: THE COMMAND SCREEN READS A FRESH BANK -- the command bank rewritten by the record tool's `commands`
+  +    route in this step, before the face's counts are read from it (b714's face read ANYPIPES 7 from a bank last written before its eighth
+  @@ -266,1 +266,1 @@
+  -    r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(ROOT, 'tools', 'b714_record.py'), 'commands'], capture_output=True,
+  +    r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(ROOT, 'tools', 'b715_record.py'), 'commands'], capture_output=True,
+  @@ -279,1 +279,1 @@
+  -    print('  ### (R324)(3)(v) THE COMMAND BANK REFRESHED IN THIS STEP: %s' % (fresh or '### NOT REFRESHED'))
+  +    print('  ### (R325)(3)(v) THE COMMAND BANK REFRESHED IN THIS STEP: %s' % (fresh or '### NOT REFRESHED'))
+  @@ -283,1 +283,1 @@
+  -    print('b714_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  +    print('b715_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  @@ -338,6 +338,6 @@
+  -                    TESTS=jcount('b714_tests_stepzero.json', len), QUESTIONS=tcount('b714_author_answers.txt', r'^### PROMPT '),
+  -                    LINES=jcount('b714_record_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    MISSES=tfirst('b714_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  -                    REPAIRS=tfirst('b714_tool_repairs.txt', r'\*\*REPAIRED (\d+) ; NEW') + tfirst('b714_tool_repairs.txt', r'\*\*REPAIRED \d+ ; NEW (\d+)'),
+  -                    CARRIED=carried(text), DISPATCHES=jcount('b714_commands.json', lambda j: len(j.get('dispatches') or [])),
+  -                    RUNS=jcount('b714_dispatches.json', lambda j: len([r for r in j.get('rows') or [] if r.get('run_id')])),
+  +                    TESTS=jcount('b715_tests_stepzero.json', len), QUESTIONS=tcount('b715_author_answers.txt', r'^### PROMPT '),
+  +                    LINES=jcount('b715_record_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    MISSES=tfirst('b715_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  +                    REPAIRS=tfirst('b715_tool_repairs.txt', r'\*\*REPAIRED (\d+) ; NEW') + tfirst('b715_tool_repairs.txt', r'\*\*REPAIRED \d+ ; NEW (\d+)'),
+  +                    CARRIED=carried(text), DISPATCHES=jcount('b715_commands.json', lambda j: len(j.get('dispatches') or [])),
+  +                    RUNS=jcount('b715_dispatches.json', lambda j: len([r for r in j.get('rows') or [] if r.get('run_id')])),
+  @@ -346,3 +346,3 @@
+  -                    ORDERS=jcount('b714_order_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b714_\w+_hashes\.txt$', f)]),
+  -                    COMPUTE=len([n_ for n_ in ('law', 'residual', 'rect', 'pilot') if os.path.exists(os.path.join(ROOT, 'data', 'b714_%s.txt' % n_))]),
+  +                    ORDERS=jcount('b715_order_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b715_\w+_hashes\.txt$', f)]),
+  +                    COMPUTE=len([n_ for n_ in ('law', 'residual', 'rect', 'pilot') if os.path.exists(os.path.join(ROOT, 'data', 'b715_%s.txt' % n_))]),
+  @@ -351,7 +351,7 @@
+  -                                              io.open(os.path.join(ROOT, 'data', 'b714_defects.txt'), encoding='utf-8').read(), re.M)),
+  -                    SEDS=jcount('b714_commands.json', lambda j: len(j.get('seds') or [])),
+  -                    REDIRECTS=jcount('b714_commands.json', lambda j: len(j.get('redirects') or [])),
+  -                    PIPES=jcount('b714_commands.json', lambda j: len(j.get('pipes') or [])),
+  -                    ANYPIPES=jcount('b714_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  -                    PYPROGS=jcount('b714_commands.json', lambda j: len(j.get('py_programs') or [])),
+  -                    READOFF=tfirst('b714_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  +                                              io.open(os.path.join(ROOT, 'data', 'b715_defects.txt'), encoding='utf-8').read(), re.M)),
+  +                    SEDS=jcount('b715_commands.json', lambda j: len(j.get('seds') or [])),
+  +                    REDIRECTS=jcount('b715_commands.json', lambda j: len(j.get('redirects') or [])),
+  +                    PIPES=jcount('b715_commands.json', lambda j: len(j.get('pipes') or [])),
+  +                    ANYPIPES=jcount('b715_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  +                    PYPROGS=jcount('b715_commands.json', lambda j: len(j.get('py_programs') or [])),
+  +                    READOFF=tfirst('b715_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  @@ -367,1 +367,1 @@
+  -    spec = {"registration": ("data/b714_registration_2026-10-26.txt -- b714, THE KEYSTONE HEADS ACT: b713 AT ITS WEIGHT; THE CORRIGENDUM; STANDING "
+  +    spec = {"registration": ("data/b715_registration_2026-10-26.txt -- b715, THE KEYSTONE HEADS ACT: b714 AT ITS WEIGHT; THE CORRIGENDUM; STANDING "
+  @@ -369,1 +369,1 @@
+  -                             "THE RESIDUAL, THE RECTANGLE AND THE SONIN PRICE; THE PILOT, UNDER (R324)"),
+  +                             "THE RESIDUAL, THE RECTANGLE AND THE SONIN PRICE; THE PILOT, UNDER (R325)"),
+
+### ### **CARRIED tools/b715_regspec.py ; LINES 386 ; CHANGED BY THE SUBSTITUTION 59 ; REPAIR SPANS AT b714 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

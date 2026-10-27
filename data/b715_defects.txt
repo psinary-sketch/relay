@@ -44,3 +44,40 @@ b715 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-26)
         the answer arrived some six hours later, the bank written at 23:57:33Z on its receipt (its write stamp, read after the locator's print
         stamped 23:59:24Z). Both lines corrected by the Edit tool before any commit carried them, each now naming the stamp it was read from.
         A REPEAT of memory feedback_arithmetic_and_cap_checks's class (a figure stated, not read).
+    (h) THE SEAT'S: A READ WITH A LIMIT ABOVE TWO HUNDRED, REFUSED INTO THE EXCLUDED BANK (2026-10-27T00:24:52Z, Component 6's carry). A
+        Read of tools/b715_checks.py with limit 210; row (19) caps a limit at two hundred. The standing hook refused it before it ran
+        ("a Read call with limit 210, above 200") and appended its line to data/b715_hook_refusals.txt :2, the excluded kind. Nothing ran;
+        the read re-sent with limit 200. A REPEAT of this act's (e) and b714's (k).
+    (i) THE SEAT'S: A READ WITH NO LIMIT, REFUSED INTO THE EXCLUDED BANK (2026-10-27T00:46:34Z, Component 6's carry). A Read of
+        data/b715_ferry.txt (68 lines) with no limit; row (77)'s hook refuses any Read with no limit. Refused before it ran and appended to
+        data/b715_hook_refusals.txt :3. Nothing ran; the read re-sent with limit 70. A REPEAT of this act's (c) and b714's (i).
+    (j) THE SEAT'S: THE CARRIED ROOT EXCLUSION READ A REQUIRED BANK AS EXCLUDED. b707's excluded kind `chain_.*` (tools/b707_record.py
+        :66), carried through b714's EXCLUDE_KINDS into tools/b715_record.py, reads every bank whose name opens `chain_`, so (R325)(7)'s
+        data/b715_chain_rows.txt would have stood outside the root. The suite's import check (REQUIRED_BANKS against ROOT_EXCLUDE, b706's
+        (j)) refused it at the first mid-act run of Component 6, before any figures, lock or seal. Repaired in tools/b715_record.py by
+        narrowing the kind to the suite's own `chain_half_.*` (its chain parts, `b715_chain_half_<i>_<key>.json`), banked by diff; b707's
+        tool unedited. NEW: a carried exclusion wider than the banks it was written for.
+    (k) THE SEAT'S: THE READ-FIRST BANK CITES THE FERRY'S LIST AT THE WRONG LINE. data/b715_readfirst.txt :14 names the ferry's read-first
+        list at data/b715_ferry.txt :41; the list stands at :50 (:41 is blank, between (12) and RULING (R325) END). The bank, committed at
+        step zero, is not edited (rows (16), (18)); this row names the line. Found reading the bank for the suite's needles at Component 6.
+        A REPEAT of memory feedback_needle_anchor_wrapping's class (a line stated, not read at its cite).
+    (l) THE SEAT'S: THE AUTHOR'S TWO WORDS ACTED ON BEFORE THEIR TOOL CHECK. (R278)(4) checks a mid-act answer's cites by
+        `tools/b715_citation.py answer` before the seat acts on it; words (1) (Component 2) and (2) (Component 4) were banked verbatim and acted
+        on with no check run, found when the spec's clause was read against the citation bank at Component 6 (no MID-ACT CHECK line in it).
+        Both run now, after the acts they governed: (1) at 00:58:29Z, ANSWER CITES CHECKED 3 ; OK 3 ; MISSES 0; (2) at 00:58:38Z, 1 ; 1 ; 0 --
+        OK at HEAD, where two of (1)'s three cites (data/b715_import_closure.txt, data/b715_toolset_coverage.txt) are the banks the word itself
+        ordered, absent when it arrived. Its NEW or REPEAT left to b716's corrigendum, the class not looked up here.
+    (m) THE SEAT'S: FOURTEEN READS OF FILES OF TWO HUNDRED LINES OR MORE GIVEN ONE BOUND. The read bank (data/b715_read_calls.txt, by
+        tools/b704_read_arm.py's reading) prints 16 offences; two are (e) and (h); the other fourteen gave a limit and no offset on a file of
+        two hundred lines or more, which row (19) and b704's reading count as a whole read -- the transcript's lines 47 and 65 (a memory
+        file, 535 lines), 163 (tools/b714_carry.py), 186 (tools/b714_citation.py), 197 (data/b714_carry_spans.txt, absent), 433
+        (data/b714_closing.txt), 582 and 3768 (tools/b303_pins.py), 652 (tools/b715_citation.py), 821 (data/b714_tool_repairs.txt), 841 (the
+        census v0.8.1), 1039 (tools/b715_tests.py), 6638 (tools/b715_regspec.py) and 6865 (data/b714_registration_2026-10-26.txt). None was
+        refused by the hook, whose row (77) reads the limit alone. Found by the read route at Component 6's step [1]. A REPEAT of b703's and
+        b704's class (memory feedback_b703_traps, feedback_b704_traps: a limit-only Read is whole; a limit needs an offset).
+    (n) THE SEAT'S: THE STEP-ZERO LISTING WRITTEN OUT OF THE HOUSE FORM. data/b715_stepzero.txt :59 states the process listing in its own
+        words ("one claude (42856); no python, lean, lake, git or tail running"); the standing G-PROCS-LISTED (tools/b703_checks.py procs_ok)
+        reads the house form b703 set ("tail, lean, lake, python and claude named", "claude 1 (pid", "tail 0, lean 0, lake 0, python 0",
+        "No task of this session stopped ..."), and failed at Component 6's mid-act run. The listing restated in that form in a section
+        appended to the bank before the lock, :59 unedited; the "no task stopped" clause read from the transcript (no TaskStop or KillShell
+        call, the pattern's positive control finding the act's Read calls). A REPEAT of memory feedback_quote_the_rule_dont_improve_it's class.

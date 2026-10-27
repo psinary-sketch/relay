@@ -151,40 +151,44 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
 # ### stage one (step zero): the commits made so far
 ACT_CURRENT = 'data/act_current.json'   # ### (R325)(3)(ii): the act's figures, written at step zero and committed alone
 STANDING_DIR = 'tools/standing'         # ### (R325)(3): the standing close toolset, versioned by tools/standing/VERSION
-ACT_CURRENT_COMMIT = ''                 # ### filled when data/act_current.json is committed alone
-STEPZERO = ''                           # ### b714's closing push capture, committed alone at step zero ((R325)(9))
-STEPZERO_STEPS = ''                     # ### b714's step row 18, committed alone
-STEPZERO_HASHES = ''                    # ### data/b714_bank_hashes.json, committed alone
-STEPZERO_REFUSALS = ''                  # ### data/b714_hook_refusals.txt as it stands, committed alone, beside event (10)
-STEPZERO_BANKS = ''                     # ### the step-zero banks and tools, committed together by explicit list
+ACT_CURRENT_COMMIT = '7dee7cad186132e251444896866145a3e8567fed'   # ### data/act_current.json committed alone
+STEPZERO = 'de51ac0f85b7e2795440d5f3082e2e475453253c'           # ### b714's closing push capture, committed alone at step zero ((R325)(9))
+STEPZERO_STEPS = '140e6f01ff4079070bd5a71148e87d73bcd481af'     # ### b714's step row 18, committed alone
+STEPZERO_HASHES = '0e8f8463c7ab75f33d5f4a45cb6f43eaa451f2f9'    # ### data/b714_bank_hashes.json, committed alone
+STEPZERO_REFUSALS = '771306c9f036e1071173c067f6792e79b5adb6c3'  # ### data/b714_hook_refusals.txt as it stands, committed alone, beside event (10)
+STEPZERO_BANKS = '8e5610f02709f3a34e8980c3c00a73f36fa2c608'     # ### the step-zero banks and tools, committed together by explicit list
+STANDING_COMMIT = ACT_CURRENT_COMMIT    # ### no standing clauses written this act (v5 b714's): the arms reading this name read the act's figures' commit
+VISIBILITY_COMMIT = ACT_CURRENT_COMMIT  # ### no visibility map written this act (b714's)
 COMPUTE_TOOLS = ()                      # ### no compute tool this act
-REPAIRED_TOOLS = ()                     # ### shared tools of earlier acts edited by this act (data/b715_tool_repairs.txt)
+REPAIRED_TOOLS = ('b303_pins.py', 'mirror_build.ps1')   # ### shared tools of earlier acts edited by ruling ((R325)(5)-(6); data/b715_tool_repairs.txt (C))
 REPAIRED_DATA = ()
-NEW_TOOLS = ()                          # ### the standing toolset's files, listed from tools/standing/ at Component 2
+STANDING_FILES = ('VERSION', 'act.py', 'arms.py', 'close.py', 'components.py', 'controls.py', 'hook.py', 'repairs.py', 'replay.py', 'roster.py', 'scan.py')
+NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### (R325)(3): the standing close toolset at v1.0.0, sealed by hash beside the act's tools
 # ### b714's commits the act reads ((R325)(1))
 B714_CLOSING = '1992a71c4670ac3118f383f1bbf0ef9e992fa15a'
 B714_RECORD = 'ce2c846400284eee07c6451757727f2a5f9bc68f'
 B714_ROOT = '242b06d6e9bcca81e1d86d02c089b829354df27b347e5ac7265c94979e66bd0b'
-# ### stage two (Component 5): the commits of the components, read from the logs after each was made (filled then)
-C1_RELAY = '3468cb19da7216174ae9eae61147ca80739e381c'      # ### the weight line, the corrigendum, the repairs, the lv tag
-C1_PP = 'f51b0ae2437bd5c28a7fe3c938e5867f8f074590'         # ### the weight line and the corrigendum entry (FINDINGS :10474, :10476)
-C2_RELAY = '3a9ff539f130a4ba4a8f6b6a0c00e3662782d0ae'      # ### Components 2 and 3 in one commit: the merge's banks, the heads draft
-C2_PP_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### (R325)(3)(ii): recut-b712-silence merged into main, --no-ff
-C3_RELAY = C2_RELAY                                        # ### (7)-(9): the law, the residual, the rectangle
-C4_RELAY = '15729469749812e942195e9fcd7fbe78dab5389e'      # ### (10): the Sonin price
-PILOT_RELAY = '6641f5066fb8f39f8dfaec4e3616b697928bfc4a'   # ### the pilot, on the author's word (2)
+# ### stage two (Component 6, before the lock): the commits of the components, read from the logs after each was made
+C1_RELAY = '7d8d3d98b93dbbc686046beb2faafe9c04e0d773'      # ### b714's weight line and the corrigendum's banks, the corrigenda row (35)
+C1_PP = '2d9654b39eb3737fe1ab840f88b039c375bfd8c5'         # ### the weight line and the corrigendum entry (FINDINGS :10550, :10552)
+C2_PREP = '93f32342d073e2c384a9398aff6d9407a0fea0e7'       # ### the measurement before the copy and the author's word (1)
+C2_RELAY = 'cfee370b4b0ff29d3cf7e795515855372986abfb'      # ### (R325)(3): the standing toolset at v1.0.0, the scan, the replay, the coverage table
+C3_RELAY = 'b3ff33ce00df176784f2e755cbd679469380f985'      # ### (R325)(4): the class repairs and their controls; the hook switched
+C4_RELAY = '4660aea044eef1199130e16cb2c0f56952951c92'      # ### (R325)(5)-(6): the roster from main (the author's word (2)), the pins census
+C5_RELAY = '2694cfef6ddb6ec54e0e8ae161ead6e8eb635e5d'      # ### (R325)(7): the chain rows' evidence and the census diff
+C5_PP = '332710b83192b6cad9774e3cb549dd03463a0e84'         # ### (R325)(7): the census v0.8.2 on main
 SEALED = ('b715_worklist.py', 'b715_tests.py', 'b715_citation.py', 'b715_record.py', 'b715_checks.py', 'b715_closing.py', 'b715_reg_gate.py',
-          'b715_regspec.py', 'b715_corrigendum.py', 'b715_carry.py', 'b715_standing.py', 'b715_hook.py', 'b715_repairs.py') + COMPUTE_TOOLS   # ### the report tool NOT sealed (data/b708_rules.txt row (1))
-# ### the act's arms over its own banks (Component 5): b714's ritual arms carried, its arms over b714's objects (v4, the faces head's edit, the
-# ### re-cut's additive check, the source pin, the list's controls and completeness, the predictions first, the registrations unchanged, the
-# ### onsets, the coefficients) replaced by arms over this act's (v5, the repairs' controls, the membrane and the hook, one lettering, the lv tag,
-# ### the re-cut merged, the heads draft held, the law, the residual, the rectangle, the Sonin price, the pilot, no dispatch)
+          'b715_regspec.py', 'b715_corrigendum.py', 'b715_carry.py', 'b715_standing.py', 'b715_import_closure.py') + NEW_TOOLS + COMPUTE_TOOLS   # ### the report tool NOT sealed (data/b708_rules.txt row (1)); the toolset sealed by hash beside the act's tools ((R325) Component 6)
+# ### the act's arms over its own banks (Component 6): b714's ritual arms carried, its arms over b714's objects (v5 written, the lv tag, the re-cut
+# ### merged, the heads draft held, the law, the residual, the rectangle, the Sonin price, the pilot; b714's hook and repairs tools) replaced by
+# ### arms over this act's (the act's figures, the toolset's scan and replay, the coverage table, the class repairs' controls, the standing hook,
+# ### the roster from main, the pins census, the census rows)
 ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED',
             'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
             'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-LISTINGS-BEFORE-CLAUSES', 'G-PARTS-PRERUN',
             'G-POSTROOT-WRITES-NONE', 'G-R325-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
             'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TOOL-REPAIRS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
             'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE',
-            'G-STANDING-CLAUSES-V5', 'G-REPAIR-CONTROLS', 'G-MEMBRANE-WIRED', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-LV-TAG',
-            'G-RECUT-MERGED', 'G-HEADS-DRAFT-HELD', 'G-LAW-READ', 'G-RESIDUAL-READ', 'G-RECT-CERTIFIED', 'G-SONIN-PRICED',
-            'G-PILOT-BANKED', 'G-NO-DISPATCH')
+            'G-REPAIR-CONTROLS', 'G-MEMBRANE-WIRED', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-ACT-CURRENT', 'G-TOOLSET-SCAN',
+            'G-TOOLSET-REPLAY', 'G-COVERAGE-TABLE', 'G-IMPORT-CLOSURE', 'G-ROSTER-FROM-MAIN', 'G-PINS-CENSUS', 'G-CENSUS-ROWS',
+            'G-NO-DISPATCH')
