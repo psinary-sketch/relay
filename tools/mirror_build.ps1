@@ -17,10 +17,21 @@ $repo = 'D:\MY-DOwnloads\PLACE-papers'
 # ### wrong on its first run, harvesting apostrophes out of these very comments.
 # ### A ROSTER EVERY NON-POWERSHELL READER MUST PARSE POWERSHELL TO READ IS A ROSTER
 # ### THAT WILL BE MISREAD.
+# ### b715, (R325)(5) AND THE AUTHOR'S WORD (2) THERE (relay data/b715_rules.txt (1)): THE ROSTER IS READ FROM PLACE-papers MAIN AT BUILD
+# ### TIME BY tools\standing\roster.py. THE RULE: the roster is the b707 roster's families, read from main; a file on main joins when it is
+# ### a new edition of a family already in the roster; no family is added or dropped by this rule; a new family enters only by a ruling.
+# ### The definition of "current edition" stays the author's to rule; until then every edition in a family is carried. mirror_roster.json
+# ### (the b707 roster) stays the families' source, unedited; the joins and the diff against it are printed before the build. The flat
+# ### names, the collision rule and MANIFEST's columns below are unchanged.
 $rosterPath = Join-Path $PSScriptRoot 'mirror_roster.json'
 if (-not (Test-Path $rosterPath)) { throw "ROSTER MISSING: $rosterPath. Refusing to build "
   + 'an export with no roster -- an empty roster is a hard failure, never an empty build.' }
-$rel = (Get-Content $rosterPath -Raw | ConvertFrom-Json).files
+$rosterTool = Join-Path $PSScriptRoot 'standing\roster.py'
+& python -X utf8 $rosterTool print
+if ($LASTEXITCODE -ne 0) { throw "THE ROSTER FROM MAIN WAS NOT READ ($rosterTool print, exit $LASTEXITCODE). Refusing to build." }
+$rosterJson = (& python -X utf8 $rosterTool json) -join "`n"
+if ($LASTEXITCODE -ne 0) { throw "THE ROSTER FROM MAIN WAS NOT READ ($rosterTool json, exit $LASTEXITCODE). Refusing to build." }
+$rel = ($rosterJson | ConvertFrom-Json).files
 if (-not $rel -or $rel.Count -eq 0) {
   # ### THE ZERO CASE, AT THE BUILDER TOO AND NOT ONLY AT THE VERIFIER: b167 had to add
   # ### an empty-scope hard failure to banned_terms.py and b179's hook cleared an empty

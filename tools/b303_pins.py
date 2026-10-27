@@ -16,6 +16,7 @@
 ### an unreachable remote and a synchronised remote print the same reassuring zero otherwise.
 """
 import os
+import re
 import subprocess
 import sys
 
@@ -30,6 +31,82 @@ REPOS = [
     ('PLACE-papers', r'D:\MY-DOwnloads\PLACE-papers'),
     ('SIDE-effects', r'D:\SIDE-effects'),
 ]
+
+# ### b715, (R325)(6): THE ROSTER WIDENED -- every repository a day paper's Correspondence, the census v0.8.1 or FACES_LEDGER names, read
+# ### from those texts on PLACE-papers main at the run; the four above kept first, as before. A name is read where it stands in a text as
+# ### a repository of the account (data/repo_visibility.txt's rows) or as a SIDE-* name; `relay` is read from the four alone (the word is
+# ### prose in every text). Each printed with its local head, ls-remote, behind/ahead and its visibility from data/repo_visibility.txt; a
+# ### repository with no local clone at D:\<name> is printed UNRESOLVED and hard-fails, as the empty-scope law reads (no URL is built).
+PP = r'D:\MY-DOwnloads\PLACE-papers'
+VIS = os.path.join(ROOT, 'data', 'repo_visibility.txt')
+TEXTS_WHOLE = ('phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md', 'FACES_LEDGER.md')
+NAME = re.compile(r'(?<![\w.-])(SIDE-[A-Za-z0-9]+(?:[.-][A-Za-z0-9]+)*)(?![\w-])')
+
+
+def visibility():
+    """{name: PRIVATE | PUBLIC} from data/repo_visibility.txt's rows `VIS | name | ...`."""
+    out = {}
+    for l in open(VIS, encoding='utf-8').read().split('\n') if os.path.isfile(VIS) else []:
+        p = [x.strip() for x in l.split('|')]
+        if len(p) >= 2 and p[0] in ('PRIVATE', 'PUBLIC'):
+            out[p[1]] = p[0]
+    return out
+
+
+def correspondence(text):
+    """every Correspondence section of a text: from its heading to the next heading of its level or above."""
+    L, out, i = text.split('\n'), [], 0
+    while i < len(L):
+        m = re.match(r'^(#+) .*Correspondence', L[i])
+        if m:
+            lvl, j = len(m.group(1)), i + 1
+            while j < len(L) and not (re.match(r'^#+ ', L[j]) and len(re.match(r'^(#+)', L[j]).group(1)) <= lvl):
+                j += 1
+            out.append('\n'.join(L[i:j]))
+            i = j
+        else:
+            i += 1
+    return '\n'.join(out)
+
+
+def texts(rev='main'):
+    """[(source, text)]: each day paper's Correspondence (day1/*.md on main carrying one, the superseded `_v<n>` copies out) and the
+    census v0.8.1 and FACES_LEDGER whole."""
+    rc, tree = git(PP, 'ls-tree', '-r', '--name-only', rev)
+    out = []
+    for p in sorted(x for x in tree.splitlines() if x.startswith('day1/') and x.endswith('.md') and not re.search(r'_v\d+(_\d+)*\.md$', x)):
+        c = correspondence(git(PP, 'show', '%s:%s' % (rev, p))[1])
+        if c:
+            out.append(('%s (its Correspondence)' % p, c))
+    for p in TEXTS_WHOLE:
+        out.append((p, git(PP, 'show', '%s:%s' % (rev, p))[1]))
+    return out
+
+
+def names_in(text, known):
+    """the account's repositories a text names: SIDE-* names, and every other known name standing as a word (`relay` excepted)."""
+    got = set(NAME.findall(text))
+    for n in known:
+        if not n.startswith('SIDE-') and n != 'relay' and re.search(r'(?<![\w.-])%s(?![\w-])' % re.escape(n), text):
+            got.add(n)
+    return got
+
+
+def path_of(name):
+    return dict(REPOS).get(name, os.path.join('D:\\', name))
+
+
+def roster(src=None):
+    """the widened roster: [(name, path, sources)], the four first, then every name the texts carry, sorted."""
+    known = visibility()
+    src = texts() if src is None else src
+    named = {}
+    for s, t in src:
+        for n in names_in(t, known):
+            named.setdefault(n, []).append(s)
+    out = [(n, p, named.get(n, ['b714`s roster'])) for n, p in REPOS]
+    out += [(n, path_of(n), named[n]) for n in sorted(named) if n not in dict(REPOS)]
+    return out, src
 
 
 def git(repo, *args):
@@ -81,11 +158,39 @@ def self_test(verbose=True):
     return bad == 0
 
 
+def control():
+    """(R325)(6)'s control: the four repositories of b714's roster read as before (first, at their paths), and a repository named in no
+    text not added (the record: a repository of the visibility map no text names; the constructed: a planted text naming one name)."""
+    known = visibility()
+    ros, src = roster()
+    names = [n for n, _p, _s in ros]
+    res = []
+
+    def case(kind, what, got, want):
+        res.append(got == want)
+        print('  %-11s %s : got %s ; wanted %s ; %s' % (kind, what, got, want, 'AS WANTED' if got == want else '### NOT AS WANTED'))
+    case('RECORD', 'the four of b714`s roster first, at their paths', [(n, p) for n, p, _s in ros[:4]], REPOS)
+    unnamed = sorted(n for n in known if not any(n in names_in(t, known) for _s, t in src) and n != 'relay')
+    case('RECORD', 'the repositories of the visibility map no text names (%d, e.g. %s): none in the roster' % (len(unnamed), unnamed[:3]),
+         [n for n in unnamed if n in names], [])
+    planted, _ = roster([('a planted text', 'see SIDE-kernel and glassbead-game; the relay is prose')])
+    case('CONSTRUCTED', 'a planted text naming SIDE-kernel and glassbead-game: the roster the four and those two',
+         [n for n, _p, _s in planted], [n for n, _p in REPOS] + ['SIDE-kernel', 'glassbead-game'])
+    case('CONSTRUCTED', 'the same text with neither name: the four alone', [n for n, _p, _s in roster([('a planted text', 'no names here')])[0]],
+         [n for n, _p in REPOS])
+    print('  ### ### **PINS ROSTER CONTROLS %d ; AS WANTED %d ; ALL AS WANTED %s.**' % (len(res), sum(res), all(res)))
+    return 0 if all(res) else 1
+
+
 def main(argv):
     label = argv[0] if argv else 'PINS'
+    if label == 'control':
+        return control()
+    ros, src = roster()
+    vis = visibility()
     print('=' * 100)
-    print('b303_pins.py -- %s. ### BY `ls-remote`, ALL %d REPOS THE ROSTER NAMES.'
-          % (label, len(REPOS)))
+    print('b303_pins.py -- %s. ### BY `ls-remote`, ALL %d REPOS THE ROSTER NAMES (the four of b714`s roster, then every repository the '
+          'texts name: %d texts read from PLACE-papers main).' % (label, len(ros), len(src)))
     print('=' * 100)
     ok_suite = self_test()
     print('  parser self-test : %s' % ('PASS' if ok_suite else '### FAIL ###'))
@@ -95,8 +200,9 @@ def main(argv):
     print()
 
     hard = 0
-    for name, path in REPOS:
-        print('--- %s   (%s)' % (name, path))
+    for name, path, srcs in ros:
+        print('--- %s   (%s)   visibility %s   named by %s' % (name, path, vis.get(name, '### NOT IN data/repo_visibility.txt'),
+                                                          '; '.join(srcs)))
         if not os.path.isdir(os.path.join(path, '.git')):
             print('    ### HARD FAILURE -- NOT A GIT REPOSITORY.')
             hard += 1
@@ -134,5 +240,39 @@ def main(argv):
     return 0 if hard == 0 else 2
 
 
+class _Tee(object):
+    def __init__(self, *s):
+        self.s = s
+
+    def write(self, x):
+        for s in self.s:
+            s.write(x)
+
+    def flush(self):
+        for s in self.s:
+            s.flush()
+
+
+def bank(argv):
+    """(R325)(6): the run's print banked whole as data/<act>_pins_census.txt, <act> read from data/act_current.json (b715)."""
+    import contextlib
+    import io
+    import json
+    act = json.load(open(os.path.join(ROOT, 'data', 'act_current.json'), encoding='utf-8'))['act']
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(_Tee(sys.stdout, buf)):
+        rc = main(argv or ['THE PINS CENSUS, WIDENED'])
+        print('  exit %d' % rc)
+        control()
+    p = os.path.join(ROOT, 'data', '%s_pins_census.txt' % act)
+    with open(p + '.tmp', 'w', encoding='utf-8', newline='\n') as f:
+        f.write(buf.getvalue())
+    os.replace(p + '.tmp', p)
+    print('bank', p)
+    return rc
+
+
 if __name__ == '__main__':
+    if sys.argv[1:2] == ['bank']:
+        sys.exit(bank(sys.argv[2:]))
     sys.exit(main(sys.argv[1:]))

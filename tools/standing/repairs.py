@@ -97,8 +97,9 @@ def lines():
                                                                         '' if f not in covered else ' (its paired functions in (A); the rest added)'))
     base = A.step_commit(act, 'step zero')
     L += ['', '## (C) THE ACT`S EDITS TO ITS CARRIED TOOLS SINCE THE CARRY (git diff from the act`s last step-zero commit %s to the working tree, '
-          'tools/<act>_*.py) AND TO THE HOOK`S SETTINGS' % (base or '-')[:8]]
-    out = (A.gs('relay', 'diff', base, '--', 'tools/%s_*.py' % act) or '') if base else ''
+          'tools/<act>_*.py and the shared tools act_current.json`s shared_edits names) AND TO THE HOOK`S SETTINGS' % (base or '-')[:8]]
+    shared = A.current().get('shared_edits', [])
+    out = (A.gs('relay', 'diff', base, '--', 'tools/%s_*.py' % act, *shared) or '') if base else ''
     L += (out.split(NL) if out else ['  none'])
     L += ['', '### the hook`s settings %s, read now: the hook`s command line' % SETTINGS]
     L += ['  ' + l.strip() for l in A.rd_path(SETTINGS).split(NL) if 'hook' in l and '.py' in l]

@@ -38,11 +38,23 @@ b715 -- PRE-SEAL RECORDS, UNLETTERED (2026-10-26)
     whose refusals go to data/<act>_hook_refusals.txt (the act read from data/act_current.json at each call), the kind `hook_refusals`
     added to tools/b715_record.py EXCLUDE_KINDS so the root route takes it out; its control data/b715_hook_control.txt (the record's
     instance: data/b714_hook_refusals.txt's sha256 73072d5b now against cc4e9dda at b714's root; the constructed, in a scratch outside
-    data/ and tools/: no root-named bank changed). No call has been refused since the switch, so the harness's reload of the settings is
-    not exercised: a refused call is the one test, and under the old hook it would write b714's rooted bank again. data/b714_hook_refusals.txt
-    stands at five lines after b714's root, unchanged since defect (e).
+    data/ and tools/: no root-named bank changed). No call was refused at the switch, so the harness's reload of the settings was not
+    exercised then: a refused call is the one test, and under the old hook it would write b714's rooted bank again. data/b714_hook_refusals.txt
+    stands at five lines after b714's root, unchanged since defect (e). EXERCISED at 17:49:09Z by defect (f): the refusal printed the standing
+    hook's row text (no "(R324)(6)(iv)", which b714's hook prints), its line in data/b715_hook_refusals.txt, b714's bank's sha256 73072d5b
+    unchanged -- the reload holds and the repair's live instance stands.
 (7) b715'S SUITE NOT YET CARRIED (Component 3). tools/b715_checks.py, closing, regspec, reg_gate and report are carried at Component 6
     (b714's lineage). (R325)(4)(i)'s figure (tools/standing/arms.py prev_longest: b714's seven root-named part banks, its longest pre-run
     phase 335 s, seven parts) and (ii)/(vi)'s field and lists (tools/standing/close.py withheld_entries, neg_shown) are bound into the
     carried suite there, so that G-RULE-LONG-PHASE-SPLIT is sealed and not withheld; the coverage table (data/b715_toolset_coverage.txt)
     marks [7] and [8] PER-ACT with these functions called.
+(8) THE PINS CENSUS AT 44 REPOSITORIES, THREE HARD FAILURES (about 23:50Z-00:04Z, Component 4, (R325)(6)). tools/b303_pins.py bank read
+    12 texts from PLACE-papers main (the day1 papers' Correspondence sections, the census v0.8.1 and FACES_LEDGER.md whole) and printed 44
+    repositories (data/b715_pins_census.txt), each with its visibility from data/repo_visibility.txt (none missing from the map): 39 equal
+    at 0/0; 2 unequal, both this act's own unpushed commits -- relay b3ff33ce ahead 10 of 1992a71c, PLACE-papers 2d9654b ahead 1 of
+    6959f75 (Component 1's) -- to be pushed at the close; 3 HARD FAILURES, named and not repaired here: TECHNE-Core and glassbead-game
+    (named by the census v0.8.1, PRIVATE in the map) have no local clone at D:\ ("NOT A GIT REPOSITORY"), and mathlib4 (local HEAD
+    cecd0c4d) resolves no refs/heads/main at its origin. The tool exits 2 on them, as it was built to; no clone is made and no remote read
+    beyond ls-remote, the ruling naming none. Controls 4 of 4 AS WANTED: b714's four first at their paths; the 8 repositories of the map
+    no text names (PLACE-phase1.5, PLACE-phase2, SIDE-bsd-multiplicity, ...) not added; a planted text naming two adds those two; the same
+    text with neither adds none. For b716: the three failures carried as items (a clone or a ruling for each).

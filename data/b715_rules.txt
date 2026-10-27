@@ -1,0 +1,18 @@
+b715 -- THE RULES ENTERED AT b715, EACH ON THE AUTHOR'S WORD (2026-10-26)
+
+### rows are rules, each with the word that made it and the act that carries it. Written by the Write tool at b715 on the author's word (2)
+### (relay data/b715_author_words_preseal.txt (2), received about 23:57Z, Component 4), before the seal.
+
+  (1) THE MIRROR'S ROSTER, READ FROM MAIN BY FAMILY. The author's word (2), on (R325)(5): "the roster is the b707 roster's families, read
+      from main; a file on main joins when it is a new edition of a family already in the roster; no family is added or dropped by this rule;
+      a new family enters only by a ruling. Print the joins and the roster's diff against b707 before the build, each join with its family and
+      the reason. The definition of "current edition" stays the author's to rule; until then every edition in a family is carried, and the
+      census's v0.8 and v0.8.1 join as its newest." Its occasion: (R325)(5)'s "every keystone and forest document at its current edition",
+      defined in no text on main or in the relay's rulings, and a current edition no filename rule can pick (ENUMERA_v1_6.md's header reading
+      v0.2; the unversioned A_Place_to_Stand.md at v5.18 above its _v5_17 copy). As read by tools/standing/roster.py: the b707 roster is
+      relay tools/mirror_roster.json (lastChanged 2026-10-23, kept unedited as the families' source); a family is a roster path with its
+      `_v<n>[_<n>...]` suffix removed; a file on PLACE-papers main joins when it is in a family the roster carries and its filename's version
+      is above the newest filename version the roster carries in that family, appended at the roster's end so no slot changes; a roster file
+      absent on main leaves; an edition older than the family's newest carried, or in a family the roster carries only unversioned, does not
+      join and is printed for the author's ruling on "current edition". From b715's mirror (the builder tools/mirror_build.ps1 reading the
+      roster from tools/standing/roster.py at build time) and every mirror after it, until a ruling changes it.

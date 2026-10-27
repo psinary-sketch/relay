@@ -1,4 +1,4 @@
-b715 -- THE TOOL REPAIRS, EVERY CHANGE BY DIFF: THE STANDING TOOLSET AT v1.0.0 AND THE ACT`S EDITS (2026-10-26T17:48:05Z)
+b715 -- THE TOOL REPAIRS, EVERY CHANGE BY DIFF: THE STANDING TOOLSET AT v1.0.0 AND THE ACT`S EDITS (2026-10-27T00:04:45Z)
 
 ### sections: (A) each standing function against its source, unified diff (--- the source, +++ the standing copy); (B) the standing
 ### files with no source, whole as additions; (C) the act`s edits to its carried tools (git diff against HEAD) and to the hook`s settings.
@@ -675,11 +675,201 @@ b715 -- THE TOOL REPAIRS, EVERY CHANGE BY DIFF: THE STANDING TOOLSET AT v1.0.0 A
   tools/standing/components.py    +99 lines, sha256 6b51e4725e363191087825d6b21a2acb6adba77e3d3ca490372c6137d2e588dd (its paired functions in (A); the rest added)
   tools/standing/controls.py      +161 lines, sha256 dfca68394e840fe8f75913e41dfb0a185a38f4fdf860e2c0bcf0193094b11493
   tools/standing/hook.py          +279 lines, sha256 94133594f8ed8e7d2918ecc33e16bc6e652ac62a48a791b2ee1524c9e56ba1db (its paired functions in (A); the rest added)
-  tools/standing/repairs.py       +124 lines, sha256 bf43e37473f6e8968da06f790b408f2509a9463c3003aeb51f5a6cf9f28f2909
+  tools/standing/repairs.py       +125 lines, sha256 bddab87ba54d74d11356a7fde35be85868354dd01f0ec8a8a7588dee35bb339e
   tools/standing/replay.py        +188 lines, sha256 89f0e35044631bbcc15cb0e5e190eabbf93126e0a23c022027e1d186771e2fad
+  tools/standing/roster.py        +158 lines, sha256 69076dbe46d8ff1cc3b1b61adbcfd88c3f2b04e6daaa74e700764a37751fb1ba
   tools/standing/scan.py          +132 lines, sha256 e5753fef4e4c583344ab2612efaa208f69b8919438040b96b8853fcb40467173 (its paired functions in (A); the rest added)
 
-## (C) THE ACT`S EDITS TO ITS CARRIED TOOLS SINCE THE CARRY (git diff from the act`s last step-zero commit 8e5610f0 to the working tree, tools/<act>_*.py) AND TO THE HOOK`S SETTINGS
+## (C) THE ACT`S EDITS TO ITS CARRIED TOOLS SINCE THE CARRY (git diff from the act`s last step-zero commit 8e5610f0 to the working tree, tools/<act>_*.py and the shared tools act_current.json`s shared_edits names) AND TO THE HOOK`S SETTINGS
+diff --git a/tools/b303_pins.py b/tools/b303_pins.py
+index b90b488b..0e3fba7b 100644
+--- a/tools/b303_pins.py
++++ b/tools/b303_pins.py
+@@ -16,6 +16,7 @@
+ ### an unreachable remote and a synchronised remote print the same reassuring zero otherwise.
+ """
+ import os
++import re
+ import subprocess
+ import sys
+ 
+@@ -31,6 +32,82 @@ REPOS = [
+     ('SIDE-effects', r'D:\SIDE-effects'),
+ ]
+ 
++# ### b715, (R325)(6): THE ROSTER WIDENED -- every repository a day paper's Correspondence, the census v0.8.1 or FACES_LEDGER names, read
++# ### from those texts on PLACE-papers main at the run; the four above kept first, as before. A name is read where it stands in a text as
++# ### a repository of the account (data/repo_visibility.txt's rows) or as a SIDE-* name; `relay` is read from the four alone (the word is
++# ### prose in every text). Each printed with its local head, ls-remote, behind/ahead and its visibility from data/repo_visibility.txt; a
++# ### repository with no local clone at D:\<name> is printed UNRESOLVED and hard-fails, as the empty-scope law reads (no URL is built).
++PP = r'D:\MY-DOwnloads\PLACE-papers'
++VIS = os.path.join(ROOT, 'data', 'repo_visibility.txt')
++TEXTS_WHOLE = ('phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md', 'FACES_LEDGER.md')
++NAME = re.compile(r'(?<![\w.-])(SIDE-[A-Za-z0-9]+(?:[.-][A-Za-z0-9]+)*)(?![\w-])')
++
++
++def visibility():
++    """{name: PRIVATE | PUBLIC} from data/repo_visibility.txt's rows `VIS | name | ...`."""
++    out = {}
++    for l in open(VIS, encoding='utf-8').read().split('\n') if os.path.isfile(VIS) else []:
++        p = [x.strip() for x in l.split('|')]
++        if len(p) >= 2 and p[0] in ('PRIVATE', 'PUBLIC'):
++            out[p[1]] = p[0]
++    return out
++
++
++def correspondence(text):
++    """every Correspondence section of a text: from its heading to the next heading of its level or above."""
++    L, out, i = text.split('\n'), [], 0
++    while i < len(L):
++        m = re.match(r'^(#+) .*Correspondence', L[i])
++        if m:
++            lvl, j = len(m.group(1)), i + 1
++            while j < len(L) and not (re.match(r'^#+ ', L[j]) and len(re.match(r'^(#+)', L[j]).group(1)) <= lvl):
++                j += 1
++            out.append('\n'.join(L[i:j]))
++            i = j
++        else:
++            i += 1
++    return '\n'.join(out)
++
++
++def texts(rev='main'):
++    """[(source, text)]: each day paper's Correspondence (day1/*.md on main carrying one, the superseded `_v<n>` copies out) and the
++    census v0.8.1 and FACES_LEDGER whole."""
++    rc, tree = git(PP, 'ls-tree', '-r', '--name-only', rev)
++    out = []
++    for p in sorted(x for x in tree.splitlines() if x.startswith('day1/') and x.endswith('.md') and not re.search(r'_v\d+(_\d+)*\.md$', x)):
++        c = correspondence(git(PP, 'show', '%s:%s' % (rev, p))[1])
++        if c:
++            out.append(('%s (its Correspondence)' % p, c))
++    for p in TEXTS_WHOLE:
++        out.append((p, git(PP, 'show', '%s:%s' % (rev, p))[1]))
++    return out
++
++
++def names_in(text, known):
++    """the account's repositories a text names: SIDE-* names, and every other known name standing as a word (`relay` excepted)."""
++    got = set(NAME.findall(text))
++    for n in known:
++        if not n.startswith('SIDE-') and n != 'relay' and re.search(r'(?<![\w.-])%s(?![\w-])' % re.escape(n), text):
++            got.add(n)
++    return got
++
++
++def path_of(name):
++    return dict(REPOS).get(name, os.path.join('D:\\', name))
++
++
++def roster(src=None):
++    """the widened roster: [(name, path, sources)], the four first, then every name the texts carry, sorted."""
++    known = visibility()
++    src = texts() if src is None else src
++    named = {}
++    for s, t in src:
++        for n in names_in(t, known):
++            named.setdefault(n, []).append(s)
++    out = [(n, p, named.get(n, ['b714`s roster'])) for n, p in REPOS]
++    out += [(n, path_of(n), named[n]) for n in sorted(named) if n not in dict(REPOS)]
++    return out, src
++
+ 
+ def git(repo, *args):
+     """### RETURNS `(rc, stdout)`. ### **stderr IS NOT SWALLOWED INTO stdout** -- a tool that
+@@ -81,11 +158,39 @@ def self_test(verbose=True):
+     return bad == 0
+ 
+ 
++def control():
++    """(R325)(6)'s control: the four repositories of b714's roster read as before (first, at their paths), and a repository named in no
++    text not added (the record: a repository of the visibility map no text names; the constructed: a planted text naming one name)."""
++    known = visibility()
++    ros, src = roster()
++    names = [n for n, _p, _s in ros]
++    res = []
++
++    def case(kind, what, got, want):
++        res.append(got == want)
++        print('  %-11s %s : got %s ; wanted %s ; %s' % (kind, what, got, want, 'AS WANTED' if got == want else '### NOT AS WANTED'))
++    case('RECORD', 'the four of b714`s roster first, at their paths', [(n, p) for n, p, _s in ros[:4]], REPOS)
++    unnamed = sorted(n for n in known if not any(n in names_in(t, known) for _s, t in src) and n != 'relay')
++    case('RECORD', 'the repositories of the visibility map no text names (%d, e.g. %s): none in the roster' % (len(unnamed), unnamed[:3]),
++         [n for n in unnamed if n in names], [])
++    planted, _ = roster([('a planted text', 'see SIDE-kernel and glassbead-game; the relay is prose')])
++    case('CONSTRUCTED', 'a planted text naming SIDE-kernel and glassbead-game: the roster the four and those two',
++         [n for n, _p, _s in planted], [n for n, _p in REPOS] + ['SIDE-kernel', 'glassbead-game'])
++    case('CONSTRUCTED', 'the same text with neither name: the four alone', [n for n, _p, _s in roster([('a planted text', 'no names here')])[0]],
++         [n for n, _p in REPOS])
++    print('  ### ### **PINS ROSTER CONTROLS %d ; AS WANTED %d ; ALL AS WANTED %s.**' % (len(res), sum(res), all(res)))
++    return 0 if all(res) else 1
++
++
+ def main(argv):
+     label = argv[0] if argv else 'PINS'
++    if label == 'control':
++        return control()
++    ros, src = roster()
++    vis = visibility()
+     print('=' * 100)
+-    print('b303_pins.py -- %s. ### BY `ls-remote`, ALL %d REPOS THE ROSTER NAMES.'
+-          % (label, len(REPOS)))
++    print('b303_pins.py -- %s. ### BY `ls-remote`, ALL %d REPOS THE ROSTER NAMES (the four of b714`s roster, then every repository the '
++          'texts name: %d texts read from PLACE-papers main).' % (label, len(ros), len(src)))
+     print('=' * 100)
+     ok_suite = self_test()
+     print('  parser self-test : %s' % ('PASS' if ok_suite else '### FAIL ###'))
+@@ -95,8 +200,9 @@ def main(argv):
+     print()
+ 
+     hard = 0
+-    for name, path in REPOS:
+-        print('--- %s   (%s)' % (name, path))
++    for name, path, srcs in ros:
++        print('--- %s   (%s)   visibility %s   named by %s' % (name, path, vis.get(name, '### NOT IN data/repo_visibility.txt'),
++                                                          '; '.join(srcs)))
+         if not os.path.isdir(os.path.join(path, '.git')):
+             print('    ### HARD FAILURE -- NOT A GIT REPOSITORY.')
+             hard += 1
+@@ -134,5 +240,39 @@ def main(argv):
+     return 0 if hard == 0 else 2
+ 
+ 
++class _Tee(object):
++    def __init__(self, *s):
++        self.s = s
++
++    def write(self, x):
++        for s in self.s:
++            s.write(x)
++
++    def flush(self):
++        for s in self.s:
++            s.flush()
++
++
++def bank(argv):
++    """(R325)(6): the run's print banked whole as data/<act>_pins_census.txt, <act> read from data/act_current.json (b715)."""
++    import contextlib
++    import io
++    import json
++    act = json.load(open(os.path.join(ROOT, 'data', 'act_current.json'), encoding='utf-8'))['act']
++    buf = io.StringIO()
++    with contextlib.redirect_stdout(_Tee(sys.stdout, buf)):
++        rc = main(argv or ['THE PINS CENSUS, WIDENED'])
++        print('  exit %d' % rc)
++        control()
++    p = os.path.join(ROOT, 'data', '%s_pins_census.txt' % act)
++    with open(p + '.tmp', 'w', encoding='utf-8', newline='\n') as f:
++        f.write(buf.getvalue())
++    os.replace(p + '.tmp', p)
++    print('bank', p)
++    return rc
++
++
+ if __name__ == '__main__':
++    if sys.argv[1:2] == ['bank']:
++        sys.exit(bank(sys.argv[2:]))
+     sys.exit(main(sys.argv[1:]))
 diff --git a/tools/b715_corrigendum.py b/tools/b715_corrigendum.py
 new file mode 100644
 index 00000000..20f2da8e
@@ -1193,8 +1383,36 @@ index 16c247f5..89f68447 100644
 +         check=[('FINDINGS.md', K.B711_ENTRY, '## The lv port tagged v0.14.0 and Silence_of_Foundations merged'),
                  ('OPEN_TRAILS.md', K.B711_TRAIL, '### b714 — lane two, act one hundred and forty')],
           dry=dry)   # ### b715: the needles b714's entry and trail (the carried needles named b712's entry and b714's trail head form)
+ 
+diff --git a/tools/mirror_build.ps1 b/tools/mirror_build.ps1
+index e9fc3c94..c3be0ebb 100644
+--- a/tools/mirror_build.ps1
++++ b/tools/mirror_build.ps1
+@@ -17,10 +17,21 @@ $repo = 'D:\MY-DOwnloads\PLACE-papers'
+ # ### wrong on its first run, harvesting apostrophes out of these very comments.
+ # ### A ROSTER EVERY NON-POWERSHELL READER MUST PARSE POWERSHELL TO READ IS A ROSTER
+ # ### THAT WILL BE MISREAD.
++# ### b715, (R325)(5) AND THE AUTHOR'S WORD (2) THERE (relay data/b715_rules.txt (1)): THE ROSTER IS READ FROM PLACE-papers MAIN AT BUILD
++# ### TIME BY tools\standing\roster.py. THE RULE: the roster is the b707 roster's families, read from main; a file on main joins when it is
++# ### a new edition of a family already in the roster; no family is added or dropped by this rule; a new family enters only by a ruling.
++# ### The definition of "current edition" stays the author's to rule; until then every edition in a family is carried. mirror_roster.json
++# ### (the b707 roster) stays the families' source, unedited; the joins and the diff against it are printed before the build. The flat
++# ### names, the collision rule and MANIFEST's columns below are unchanged.
+ $rosterPath = Join-Path $PSScriptRoot 'mirror_roster.json'
+ if (-not (Test-Path $rosterPath)) { throw "ROSTER MISSING: $rosterPath. Refusing to build "
+   + 'an export with no roster -- an empty roster is a hard failure, never an empty build.' }
+-$rel = (Get-Content $rosterPath -Raw | ConvertFrom-Json).files
++$rosterTool = Join-Path $PSScriptRoot 'standing\roster.py'
++& python -X utf8 $rosterTool print
++if ($LASTEXITCODE -ne 0) { throw "THE ROSTER FROM MAIN WAS NOT READ ($rosterTool print, exit $LASTEXITCODE). Refusing to build." }
++$rosterJson = (& python -X utf8 $rosterTool json) -join "`n"
++if ($LASTEXITCODE -ne 0) { throw "THE ROSTER FROM MAIN WAS NOT READ ($rosterTool json, exit $LASTEXITCODE). Refusing to build." }
++$rel = ($rosterJson | ConvertFrom-Json).files
+ if (-not $rel -or $rel.Count -eq 0) {
+   # ### THE ZERO CASE, AT THE BUILDER TOO AND NOT ONLY AT THE VERIFIER: b167 had to add
+   # ### an empty-scope hard failure to banned_terms.py and b179's hook cleared an empty
 
 ### the hook`s settings D:/.claude/settings.json, read now: the hook`s command line
   "args": ["-I", "-X", "utf8", "D:/relay/tools/standing/hook.py"],
 
-### ### **PAIRS 17 ; NOT FOUND 0  ; STANDING FILES 10 ; THE ACT`S CARRIED TOOLS EDITED 3.**
+### ### **PAIRS 17 ; NOT FOUND 0  ; STANDING FILES 11 ; THE ACT`S CARRIED TOOLS EDITED 5.**
