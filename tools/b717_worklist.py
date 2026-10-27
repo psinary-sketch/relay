@@ -182,14 +182,17 @@ B714_ROOT = '4df4ddac46aa791068bb527b888497ebd435381360149d7866f5d0f386aeb327'  
 # ### stage two (Component 5, before the lock): the commits of the components, read from the logs after each was made
 C1_RELAY = '7c654dbe861caa912b0c30524cc095bf97990170'   # ### b716's weight line and the corrigendum's banks, the corrigenda row (37)
 C1_PP = 'e0ab685b583eed3b1f9a35fbf673a603edf894ef'      # ### the weight line (:10722) and the corrigendum entry (:10724)
-C2_RELAY = ''      # ### (R327)(4)(i): the list at -39
-C3_PRED = ''       # ### (R327)(4)(ii): data/b717_predictions.txt committed alone, before any onset (N2)
-C3_RELAY = ''      # ### (R327)(4)(iii): the onsets
-C4_RELAY = ''      # ### (R327)(4)(iv): the coefficients and the law
-C5_PP = ''         # ### (R327)(5)-(6): the head, the companion, the six hits, the census v0.8.3, the Correspondence rows, ERRATA
-C5_RELAY = ''      # ### (R327)(5)-(6): their banks and diffs
-PP_EDITED = ()     # ### filled at Component 5 from its diffs bank
-ERRATA_ID = ''     # ### filled at Component 5
+C2_RELAY = '3fdfacab1b55005cadf9b13778c150a455c99efb'   # ### (R327)(4)(i): the list at -39
+C3_PRED = 'f47d8ab5840d287bf63c1f0b59ba707ed85dbe07'    # ### (R327)(4)(ii): data/b717_predictions.txt committed alone, before any onset (N2)
+C3_RELAY = '091ecda9f44dbed5e9da97acb3250b3fb26cb8d5'   # ### (R327)(4)(iii): the onsets
+C4_RELAY = '091f458676df418b6c9105e14ffe5df26d57add5'   # ### (R327)(4)(iv): the coefficients and the law
+C5_PP = '84dbbf3e80e0520e24fb1726ca6d6e078e87d93d'   # ### (R327)(5)-(7)(ii): the companion, the six hits, the census v0.8.3, the Correspondence rows, ERRATA, the order
+C5_RELAY = ''      # ### (R327)(5)-(6): their banks and diffs (the commit carrying this line; read from the log at the seal)
+PP_EDITED = ('ERRATA.md', 'OPEN_TRAILS.md', 'day1/Exhaustive_Enumeration.md', 'day1/ONE_PAGE_PROOF.md', 'day1/Seven_Mechanism_Classes.md',
+             'day1/Silence_of_Foundations.md', 'day1/Spectral_Inertness.md', 'day1/Third_Identity_Element.md',
+             'day1/Silence_of_Foundations_CORRESPONDENCE.md', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md')   # ### data/b717_words_diffs.txt
+ERRATA_ID = 'E-2026-10-27-2'   # ### (5); its companion entry for (6) beside it
+ERRATA_IDS = ('E-2026-10-27-2', 'E-2026-10-27-3')
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list
 SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b717_') and f.endswith('.py') and f != 'b717_report.py')) + NEW_TOOLS + COMPUTE_TOOLS

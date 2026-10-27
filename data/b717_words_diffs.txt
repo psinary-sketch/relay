@@ -1,0 +1,169 @@
+b717 -- (R327)(5)-(6): THE EDITS ON PLACE-papers MAIN, EACH FILE`S WORKING BYTES AGAINST ITS BLOB AT HEAD e0ab685b (2026-10-27T16:04:48Z)
+
+### --- the file at HEAD (a new file: nothing; the census v0.8.3: v0.8.2`s blob at HEAD), +++ the file as the Edit or Write tool left it;
+### written by tools/b717_words.py diff before the commit.
+
+## day1/Silence_of_Foundations.md : 5 diff lines
+--- day1/Silence_of_Foundations.md at e0ab685b
++++ day1/Silence_of_Foundations.md edited
+@@ -236 +236 @@
+-**The kernel here verifies the silence principle in the abstract** — as a statement about systems with the relevant structure, with instances supplied for coupled systems. **What stays on the page is the claim that this programme's interfaces are instances of it: the universality hypothesis. As a register of the open premise it stands at its depth with the others: R1 false as stated (`not_register1`, RegisterDepth.lean :60), R2 RH restated (`ch_iff_rh`, H2Bridge.lean :71), R4 equivalent to RH (`register4_positivity_liCoeff_iff_rh`, PageConverses.lean :32), R5's output a theorem (`register5_output_holds`, RegisterDepth.lean :297).**
++**The kernel here verifies the silence principle in the abstract** — as a statement about systems with the relevant structure, with instances supplied for coupled systems. **What stays on the page is the claim that this programme's interfaces are instances of it: the universality hypothesis. As a register of the open premise it stands at its depth with the others: R1 false as stated (`not_register1`, SIDE-explicit-formula `v0.37` = `38e2734`, RegisterDepth.lean :60, census `v0.8.3` row 1), R2 RH restated (`ch_iff_rh`, SIDE-explicit-formula `v0.37` = `38e2734`, H2Bridge.lean :71, census `v0.8.3` row 2), R4 equivalent to RH (`register4_positivity_liCoeff_iff_rh`, SIDE-explicit-formula `v0.37` = `38e2734`, PageConverses.lean :32, census `v0.8.3` row 3), R5's output a theorem (`register5_output_holds`, SIDE-explicit-formula `v0.37` = `38e2734`, RegisterDepth.lean :297, census `v0.8.3` row 4).**
+
+## day1/Silence_of_Foundations_CORRESPONDENCE.md : 32 diff lines
+--- /dev/null
++++ day1/Silence_of_Foundations_CORRESPONDENCE.md edited
+@@ -0,0 +1,29 @@
++# The Silence of Foundations — the opening paragraph’s correspondence
++
++*Companion to `day1/Silence_of_Foundations.md` :15, written 2026-10-27 by b717 under the author’s ruling `(R327)`(5)(i) and the author’s word on `(R326)`(5)(i): “Companion correspondence: section II’s paragraph replaces :15 with its brackets removed; each sentence’s footing and source go in a companion table beside it.” The paragraph at :15 is section II’s of the heads draft with its brackets removed, which is the paragraph as it stood, sentence for sentence. The footings and sources below are the heads draft’s section I (relay `data/b714_heads_draft.txt` :11-:28), drafted at b714 against the paper at `a86c9429`; nothing in them is re-read here.*
++
++**The footings.** KERNEL — a compiled statement at its pin, carried by its tag and commit; HELD — stated and open, no terminal reaches it, carried by its name (the paper’s Placement :250). A source is a line of the paper; “Placement” and “Correspondence” name the paper’s own tables. Since `a86c9429` the paper’s lines have changed in place at :212, :238 and none has been inserted or removed, so each source stands at its number.
++
++| S | the sentence at :15 | footing | source |
++|:--|:--|:--|:--|
++| S1 | We identify an inverse relationship between structural essentiality and behavioral informativeness in coupled systems: the more essential a component is to a system's existence, the less it constrains the system's behavior. | HELD -- the paper's argument | the principle :94-:95, the pattern :53 |
++| S2 | The product formula ∏_v \|x\|_v = 1 builds the entire integration domain for the completed Riemann zeta function — without it, no adelic construction — yet carries zero information about zero locations. | HELD -- the paper's argument | Placement :266, :70 ; its terminal (S12) states only (1 : Q)^s = 1 |
++| S3 | The genetic code maps 64 codons to 20 amino acids — without it, no protein synthesis — yet is maximally conservative for amino acid identity (κ = 0.94) while non-conservative for usage frequency (κ = 0.08). | HELD -- the paper's measurement | :47, :61, :68 (the Interfacets study, this programme) |
++| S4 | We test this pattern across nine systems spanning number theory, physics, biology, linguistics, and computation. | HELD -- the paper's survey | :57-:63 (five rigorous), :76-:81 (four illustrative), :86 |
++| S5 | The pattern holds in every case. | HELD -- the paper's survey | :57-:63 (kappa 0 in four rigorous cases, 0.08 in the fifth), :74 (the four illustrative not quantified) |
++| S6 | We identify the mechanism: essential components of coupled systems are interfaces, and interfaces must be universal to be essential. | HELD -- the paper's argument | :90-:92 |
++| S7 | Universality implies non-discrimination. | HELD -- the paper's argument | :92 ; its schema KERNEL in S14 |
++| S8 | Non-discrimination implies silence about behavioral parameters. | HELD -- the paper's argument | :92, :95 ; its schema KERNEL in S14 |
++| S9 | The Silence Principle stands at three depths. | no claim: it orders (1)-(3) | :15 |
++| S10 | (1) Two specific instances bear on the programme's one open clause h2_sign — the spectral inertness of the product formula and the κ = 0 assignment of the distributive law. | HELD -- the paper's classification | Placement :266, :70 |
++| S11 | The Riemann Hypothesis is equivalent to h2_sign (`h2_sign_iff_rh`, SIDE-explicit-formula v0.37, Seam.lean :101) and is not conditional on it; Route 3 compiles RH from its own restatement (`ch_iff_rh`, H2Bridge.lean :71), no route and no reduction. | KERNEL SIDE-explicit-formula v0.37 (38e2734): h2_sign_iff_rh Seam.lean :101 ; ch_iff_rh H2Bridge.lean :71 | Placement :254, :255 |
++| S12 | The product formula's terminal, `ProductFormula.conservation_of_spectra` (SIDE-kernel v1.8, Kernel/ProductFormula_Rat.lean :71), states (1 : ℚ)^s = 1 for every integer s; the n₄ = 0 reading of it is this paper's argument, not the terminal's content. | KERNEL SIDE-kernel v1.8 (70aba3c): ProductFormula.conservation_of_spectra Kernel/ProductFormula_Rat.lean :71, axioms read at v1.3 (0bc21c0) ; the reading HELD -- the paper's classification | Placement :260, :266 |
++| S13 | (2) Nine instances across number theory, physics, biology, linguistics, and computation are this paper's survey; their κ values are the paper's measurements, and the Mechanism Theorem's content is the paper's argument. | HELD -- the paper's survey, measurement and argument, as the sentence names them | :57-:86, :94-:95 |
++| S14 | (3) The universal quantified form — every universal interface has κ = 0 for every behavioral parameter — is compiled in Kernel/SilenceTheorem.lean as the theorem silence_universal, with the universality hypothesis load-bearing (verified by fail-and-restore): from the premise `I.is_universal` (SIDE-kernel v1.8, Kernel/SilenceTheorem.lean :42) it concludes `I.kappa_zero` (:74). | KERNEL SIDE-kernel v1.8 (70aba3c): silence_universal Kernel/SilenceTheorem.lean :74, premise I.is_universal :42 | Placement :261 |
++| S15 | The Lean form is the logical schema, modus tollens over an abstract domain; an instance follows from it only where its interface is shown to satisfy that premise. | the reading of S14's terminal, as the Placement row names it | Placement :261 |
++| S16 | What remains empirical is scope: whether a given candidate system qualifies as having a universal interface between independent structures. | HELD -- the universality hypothesis | Placement :265, Correspondence :211 |
++| S17 | The programme's registers stand at their depths: R1, the universality hypothesis as a register, is false as stated (`not_register1`, RegisterDepth.lean :60); R2 is RH restated (`ch_iff_rh`); R4 is equivalent to RH (`register4_positivity_liCoeff_iff_rh`, PageConverses.lean :32); R5's output is a theorem (`register5_output_holds`, RegisterDepth.lean :297). | KERNEL SIDE-explicit-formula v0.37 (38e2734): not_register1 RegisterDepth.lean :60 ; ch_iff_rh H2Bridge.lean :71 ; register4_positivity_liCoeff_iff_rh PageConverses.lean :32 ; register5_output_holds RegisterDepth.lean :297 | Placement :256, :255, :257, :258 |
++| S18 | It is falsifiable: we exhibit a candidate counterexample (the simple harmonic oscillator) that correctly falls outside its scope, sharpening the domain of applicability to coupled systems with independent structures. | HELD -- the paper's argument | :100, :140 |
++
++*Eighteen sentences, eighteen footed: KERNEL 4 (S11, S12, S14, S17; S12 carries a HELD reading beside its terminal), HELD 12, a terminal’s reading 1 (S15), no claim 1 (S9) — the heads draft’s count (:30-:31).*
++
+
+## day1/Exhaustive_Enumeration.md : 8 diff lines
+--- day1/Exhaustive_Enumeration.md at e0ab685b
++++ day1/Exhaustive_Enumeration.md edited
+@@ -92 +92 @@
+-The Classification of Finite Simple Groups illustrates a risk inherent in exhaustive enumeration: the original classification was believed complete in the early 1980s, but gaps were discovered and repaired over the following two decades. The CFSG's vulnerability was in the *size* of the enumeration (10,000+ pages across hundreds of papers), not in the existence of the completeness theorem — the Feit-Thompson odd order theorem and the classification strategy were clear from the outset. For ξ(s), the vulnerability profile is different: the enumeration is small (seven classes, checkable in pages) and the completeness theorem is a single result (Ostrowski 1916, 4 pages, verified for over a century and not in dispute). Each of the four formation stages has its own completeness certification: Ostrowski for the transformation stage, Cartan B for the output stage, ring classification for the primitive stage, and Conservation of Spectra for the interfaces (see (*The Seven Mechanism Classes of ξ(s)*, this collection) and the companion monograph).
++The Classification of Finite Simple Groups illustrates a risk inherent in exhaustive enumeration: the original classification was believed complete in the early 1980s, but missing cases were discovered and filled over the following two decades. The CFSG's vulnerability was in the *size* of the enumeration (10,000+ pages across hundreds of papers), not in the existence of the completeness theorem — the Feit-Thompson odd order theorem and the classification strategy were clear from the outset. For ξ(s), the vulnerability profile is different: the enumeration is small (seven classes, checkable in pages) and the completeness theorem is a single result (Ostrowski 1916, 4 pages, verified for over a century and not in dispute). Each of the four formation stages has its own completeness certification: Ostrowski for the transformation stage, Cartan B for the output stage, ring classification for the primitive stage, and Conservation of Spectra for the interfaces (see (*The Seven Mechanism Classes of ξ(s)*, this collection) and the companion monograph).
+@@ -180 +180 @@
+-> compiled structural theorem: ℝ HAS NO COMPACT OPEN SUBGROUP** *(`real_no_compact_open_addSubgroup`,
++> compiled structural theorem: ℝ HAS NO COMPACT OPEN SUBGROUP** *(`real_no_compact_open_addSubgroup`, SIDE-global-section `v0.3.0` = `504e146`, Interfaces/LocalLimit.lean :217, census `v0.8.3` row 5,
+
+## day1/ONE_PAGE_PROOF.md : 5 diff lines
+--- day1/ONE_PAGE_PROOF.md at e0ab685b
++++ day1/ONE_PAGE_PROOF.md edited
+@@ -1 +1 @@
+-# Proof of the Riemann Hypothesis via SIDE Exclusion
++# One Page: the SIDE Reduction of the Riemann Hypothesis to a Single Located Clause
+
+## day1/Third_Identity_Element.md : 8 diff lines
+--- day1/Third_Identity_Element.md at e0ab685b
++++ day1/Third_Identity_Element.md edited
+@@ -78 +78 @@
+-The index set |n| ≤ 3 is determined by the consecutive-pair structure: the pairs (1,2), (2,3), (3,4) contribute the indices 1 through 4. The pair (8,9) is isolated — the gap from 4 to 8 breaks the consecutive chain. The symmetric set {−3, ..., +3} captures the maximal range of unbroken consecutive coverage. Including |n| = 8 or 9 would require skipping indices 5 through 7, destroying the symmetry that the construction requires. Equivalently, for |n| > 3, |n| is not {2,3}-smooth, placing these indices outside the Størmer structure.
++The index set |n| ≤ 3 is determined by the consecutive-pair structure: the pairs (1,2), (2,3), (3,4) contribute the indices 1 through 4. The pair (8,9) is isolated — the missing indices 5 through 7 break the consecutive chain. The symmetric set {−3, ..., +3} captures the maximal range of unbroken consecutive coverage. Including |n| = 8 or 9 would require skipping indices 5 through 7, destroying the symmetry that the construction requires. Equivalently, for |n| > 3, |n| is not {2,3}-smooth, placing these indices outside the Størmer structure.
+@@ -261 +261 @@
+-> **The substrate's `(ℤ/2)³` is kin to the `ℤ/2`-at-`∞` family at exactly one axis and distinct from it as a family.** `Gal(ℂ/ℝ)`, `Br(ℝ)` and `ℝ*/ℝ*²` are one `ℤ/2` by local class field theory; `⟨−1, 2, 3⟩` is that `ℤ/2` times a `ℤ/2`-at-`2` times a `ℤ/2`-at-`3`. Separately: the kernel's `Substrate` type carries no arithmetic at all — no `ℚ`, no places, no localization — so no question about the archimedean axis can be settled there in either direction.
++> **The substrate's `(ℤ/2)³` is kin to the `ℤ/2`-at-`∞` family at exactly one axis and distinct from it as a family.** `Gal(ℂ/ℝ)`, `Br(ℝ)` and `ℝ*/ℝ*²` are one `ℤ/2` by local class field theory; `⟨−1, 2, 3⟩` is that `ℤ/2` times a `ℤ/2`-at-`2` times a `ℤ/2`-at-`3`. Separately: the kernel's `Substrate` type (SIDE-substrate-cluster `v0.4.1` = `0c98a9a`, SIDESubstrateCluster/Substrate.lean :81, census `v0.8.3` row 11) carries no arithmetic at all — no `ℚ`, no places, no localization — so no question about the archimedean axis can be settled there in either direction.
+
+## day1/Seven_Mechanism_Classes.md : 5 diff lines
+--- day1/Seven_Mechanism_Classes.md at e0ab685b
++++ day1/Seven_Mechanism_Classes.md edited
+@@ -273 +273 @@
+-This paper enumerates the seven structural sources of zero-location information in the specification of the completed zeta function, and proves the enumeration is complete by four classical classification theorems. Its kernel does one job: it verifies that the four stages count 2 + 3 + 2 + 0 = 7. Its terminals state what they state, and none reaches σ = 1/2: `techne_kernel_cross_exclusion.all_pairs_excluded` is a predicate over the defined type `MechanismClass`; ConservationBridge's `structural_exhaustiveness_proved` takes `ConservationHypothesis` (SIDE-kernel, read at `0256e9e`); TheBridgeComplete's states the seven-class count, the per-class exclusion and Ostrowski's covering, not that every zero is produced by a named class; `spectral_cannon` is a fact on the line. The kernel counts a defined type (`Fintype.card MechanismClass = 7`); that every zero is produced by a named class (`covers_all`, SIDE-kernel `v1.2` = `b1407b2`, Kernel/Layer1.lean :23) is the open clause, not compiled.
++This paper enumerates the seven structural sources of zero-location information in the specification of the completed zeta function, and proves the enumeration is complete by four classical classification theorems. Its kernel does one job: it verifies that the four stages count 2 + 3 + 2 + 0 = 7. Its terminals state what they state, and none reaches σ = 1/2: `techne_kernel_cross_exclusion.all_pairs_excluded` (SIDE-kernel `v1.8` = `70aba3c`, Bridge/CrossClassExclusion.lean :76, census `v0.8.3` row 6) is a predicate over the defined type `MechanismClass` (SIDE-kernel `v1.8` = `70aba3c`, Bridge/TheBridgeComplete.lean :20, census `v0.8.3` row 7); ConservationBridge's `structural_exhaustiveness_proved` (SIDE-kernel `v1.8` = `70aba3c`, Bridge/ConservationBridge.lean :40, census `v0.8.3` row 8) takes `ConservationHypothesis` (SIDE-kernel, read at `0256e9e`); TheBridgeComplete's states the seven-class count, the per-class exclusion and Ostrowski's covering, not that every zero is produced by a named class; `spectral_cannon` (SIDE-kernel `v1.8` = `70aba3c`, Kernel/SpectralCannonFull.lean :65, census `v0.8.3` row 9) is a fact on the line. The kernel counts a defined type (`Fintype.card MechanismClass = 7`); that every zero is produced by a named class (`covers_all`, SIDE-kernel `v1.2` = `b1407b2`, Kernel/Layer1.lean :23) is the open clause, not compiled.
+
+## day1/Spectral_Inertness.md : 5 diff lines
+--- day1/Spectral_Inertness.md at e0ab685b
++++ day1/Spectral_Inertness.md edited
+@@ -199 +199 @@
+-> off the identity** *(`general_p_no_fixed_cell` — no Sonin cell satisfies the fixed-point
++> off the identity** *(`general_p_no_fixed_cell`, SIDE-global-section `v0.3.0` = `504e146`, Interfaces/LocalLimit.lean :232, census `v0.8.3` row 10 — no Sonin cell satisfies the fixed-point
+
+## ERRATA.md : 31 diff lines
+--- ERRATA.md at e0ab685b
++++ ERRATA.md edited
+@@ -960,0 +961,28 @@
++## E-2026-10-27-2 — the author’s words of b716 applied: Silence of Foundations’ head given its companion correspondence; three day-paper sentences reworded; two era annotations kept AS DESIGNED (CORPUS-FACING; NO DEPOSITED ARTIFACT IS AFFECTED)
++
++**Filed 2026-10-27 by b717, on the author’s ruling `(R327)`(5) and the author’s words on `(R326)`(5)(i)-(ii), banked verbatim at relay `data/b716_author_answers.txt` :10 and :13. Records affected: `day1/Silence_of_Foundations.md` :15 and its new companion `day1/Silence_of_Foundations_CORRESPONDENCE.md`; `day1/Exhaustive_Enumeration.md` :92; `day1/ONE_PAGE_PROOF.md` :1; `day1/Third_Identity_Element.md` :78. Each diff is banked at relay `data/b717_words_diffs.txt`.**
++
++**The head.** The word: *“Companion correspondence: section II’s paragraph replaces :15 with its brackets removed; each sentence’s footing and source go in a companion table beside it.”* Section II of the heads draft (relay `data/b714_heads_draft.txt` :34-:64), its brackets removed, equals the paragraph at :15 character for character (relay `data/b717_head.txt`), so :15’s bytes stand. The eighteen sentences’ footings and sources (section I, :11-:28) are in the new companion table, one row per sentence.
++
++**The six hits** of relay `data/b714_pilot.txt` (P2), by the word: (1) and (2), Silence :218, and (5), Spectral_Inertness :191, are kept as written. Each records the banned stem’s own repair, quoted to name what was repaired, and is marked AS DESIGNED. The matcher’s class REPAIR RECORD lives in b717’s lint (relay `tools/b717_words.py` lint, over b714’s matcher unedited), granted to those two lines by their bytes (relay `data/b717_lint.txt`). (3) Exhaustive_Enumeration :92: *“but gaps were discovered and repaired over the following two decades”* now reads *“but missing cases were discovered and filled over the following two decades”*. (4) ONE_PAGE_PROOF :1: the title *“Proof of the Riemann Hypothesis via SIDE Exclusion”* now reads *“One Page: the SIDE Reduction of the Riemann Hypothesis to a Single Located Clause”*, matching the deposit’s title; the statement paragraph beneath it is unchanged. (6) Third_Identity_Element :78: *“the gap from 4 to 8 breaks the consecutive chain”* now reads *“the missing indices 5 through 7 break the consecutive chain”*. After the edits the lint reads FOR THE AUTHOR at none of the seven papers.
++
++**Scope.** Three lines edited and one file added, by the Edit and Write tools on main; no claim of any paper moves. No banked number, verdict or grade moves. Nothing here is a statement about RH or any zero.
++
++**Status.** FILED.
++
++
++## E-2026-10-27-3 — eleven Lean names the Day-1 Correspondence sections cited with no pin, each pinned to its kernel’s current tag and given a row in the census v0.8.3 (CORPUS-FACING; NO DEPOSITED ARTIFACT IS AFFECTED)
++
++**Filed 2026-10-27 by b717, on the author’s ruling `(R327)`(6); the names b716 listed and carried (relay `data/b716_correspondence_pins.txt` :24-:34). Records affected: `day1/Silence_of_Foundations.md` :236 (four names), `day1/Exhaustive_Enumeration.md` :180, `day1/Seven_Mechanism_Classes.md` :273 (four names), `day1/Spectral_Inertness.md` :199, `day1/Third_Identity_Element.md` :261; and the new edition `phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md`.**
++
++**What the lines said.** Each name stood in prose with no repository or pin, or with a file and line alone (*“(`not_register1`, RegisterDepth.lean :60)”*).
++
++**What is true.** Each name is declared at its kernel’s current tag (relay `data/b717_names.txt`): `not_register1`, `ch_iff_rh`, `register4_positivity_liCoeff_iff_rh` and `register5_output_holds` at SIDE-explicit-formula v0.37 = `38e2734`; `real_no_compact_open_addSubgroup` and `general_p_no_fixed_cell` at SIDE-global-section v0.3.0 = `504e146`; `techne_kernel_cross_exclusion.all_pairs_excluded`, `MechanismClass`, `structural_exhaustiveness_proved` and `spectral_cannon` at SIDE-kernel v1.8 = `70aba3c`; `Substrate` at SIDE-substrate-cluster v0.4.1 = `0c98a9a`. None is MISSING.
++
++**The correction.** After each name the line now carries its repository, pin and place, and its census row (`census v0.8.3 row N`). Census v0.8.3 began as v0.8.2’s bytes, and its back matter adds the eleven rows: each name’s statement at the pin and its E0 grade (DERIVES 6, INTERFACES 3, not graded 2). Nothing on any line is removed. No axioms are read, since no Lean process ran.
++
++**Scope.** Five paper lines edited and one census edition added, by the Edit tool on main; every row and cell of v0.8.2 stands in v0.8.3 unedited. No banked number or verdict moves; the grades are new rows, not changed ones. Nothing here is a statement about RH or any zero.
++
++**Status.** FILED.
++
++
+
+## phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md : 39 diff lines
+--- phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md at e0ab685b
++++ phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md edited
+@@ -111,0 +112,2 @@
++*v0.8.3, 2026-10-27 -- a row for each of the eleven names the Day-1 papers’ Correspondence sections cited with no pin (relay `data/b716_correspondence_pins.txt` :24-:34), in back matter: its statement at its kernel’s current tag, its repository, pin and place, its grade read from that statement under the E0 gate, and the paper line pinned to the row; every other row and cell v0.8.2’s, which stands beside it, unedited.*
++
+@@ -1530,0 +1533 @@
++- **v0.8.3, 2026-10-27 (b717, `(R327)`(6))**: a row for each of the eleven unpinned names of the Day-1 Correspondence sections, with its statement at its kernel’s current tag, its repository, pin and place, its E0 grade and the paper line pinned to it (back matter below); every other row and cell v0.8.2’s.
+@@ -1533,0 +1537,31 @@
++## Back matter of the v0.8.3 edition — written 2026-10-27 by b717 under the author’s ruling `(R327)`(6)
++
++### The readings v0.8.3 adds, each the seat’s and strikeable
++
++- **THE NAMES** are the eleven that b716 listed and carried because the census had no row of their own (relay `data/b716_correspondence_pins.txt` :24-:34), in that list’s order.
++- **THE KERNEL’S CURRENT TAG** is the highest `vN` tag by version of every local `SIDE-*` clone. Each name was looked up at every such tag by the declaration of its last component (relay `tools/b714_pilot.py` lookup); every name was found, and none is MISSING. Relay `data/b717_names.txt` holds every lookup.
++- **THE STATEMENT** is read at the tag by `git show <tag>:<path>`, from the declaration’s line to its `:=`; for an inductive type, its head line alone. Line breaks are joined here.
++- **THE GRADE** is the shared E0 rule’s (relay `tools/e0_rule.py`, grade), read from the statement alone and printed as the rule returns it. An inductive type is not graded, and is named as such.
++- **THE AXIOMS** are not read: no Lean process ran for this edition, and no banked print reaches these declarations at these tags.
++- **THE CORRESPONDENCE ROW** is the paper line that cited the name, now carrying the row’s repository, pin and place and this row’s number (relay `data/b717_words_diffs.txt`).
++- **Two readings.** `MechanismClass` is declared at six kernels’ current tags: SIDE-bsd-formation-transfer, SIDE-effects, SIDE-grh-transfer, SIDE-kernel, SIDE-meta and SIDE-trivium. Row 7 takes SIDE-kernel’s, the kernel of row 6, whose statement quantifies over it. At SIDE-kernel v1.8 the lookup reads two declarations of the last component for `MechanismClass` and for `structural_exhaustiveness_proved`; rows 7 and 8 take the first.
++- **The numerals.** In this back matter every numeral is a count of the rows below, a pin or a line.
++
++### The eleven names at their kernels’ current tags
++
++| # | declaration | repository, pin and place | the statement at the pin | grade (E0 gate) | axioms | the Correspondence row |
++|:--|:--|:--|:--|:--|:--|:--|
++| 1 | `not_register1` | SIDE-explicit-formula v0.37 = `38e2734`, `SIDEExplicitFormula/RegisterDepth.lean` :60 | `theorem not_register1 : ¬ Register1_universalityHypothesis` | DERIVES | axioms not read at this pin | `day1/Silence_of_Foundations.md` :236 |
++| 2 | `ch_iff_rh` | SIDE-explicit-formula v0.37 = `38e2734`, `SIDEExplicitFormula/H2Bridge.lean` :71 | `theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis` | DERIVES | axioms not read at this pin | `day1/Silence_of_Foundations.md` :236 |
++| 3 | `register4_positivity_liCoeff_iff_rh` | SIDE-explicit-formula v0.37 = `38e2734`, `SIDEExplicitFormula/PageConverses.lean` :32 | `theorem register4_positivity_liCoeff_iff_rh : Register4_positivity LiCoeff ↔ RiemannHypothesis` | DERIVES | axioms not read at this pin | `day1/Silence_of_Foundations.md` :236 |
++| 4 | `register5_output_holds` | SIDE-explicit-formula v0.37 = `38e2734`, `SIDEExplicitFormula/RegisterDepth.lean` :297 | `theorem register5_output_holds : Register5_output_HilbertPolya` | DERIVES | axioms not read at this pin | `day1/Silence_of_Foundations.md` :236 |
++| 5 | `real_no_compact_open_addSubgroup` | SIDE-global-section v0.3.0 = `504e146`, `Interfaces/LocalLimit.lean` :217 | `theorem real_no_compact_open_addSubgroup (H : AddSubgroup ℝ) (ho : IsOpen (H : Set ℝ)) : ¬ IsCompact (H : Set ℝ)` | INTERFACES on `ho : IsOpen (H : Set ℝ)` | axioms not read at this pin | `day1/Exhaustive_Enumeration.md` :180 |
++| 6 | `techne_kernel_cross_exclusion.all_pairs_excluded` | SIDE-kernel v1.8 = `70aba3c`, `Bridge/CrossClassExclusion.lean` :76 | `theorem all_pairs_excluded : ∀ c1 c2 : MechanismClass, ¬ cross_class_produces_offline c1 c2` | DERIVES | axioms not read at this pin | `day1/Seven_Mechanism_Classes.md` :273 |
++| 7 | `MechanismClass` | SIDE-kernel v1.8 = `70aba3c`, `Bridge/TheBridgeComplete.lean` :20 | `inductive MechanismClass where` | not graded: an inductive type | axioms not read at this pin | `day1/Seven_Mechanism_Classes.md` :273 |
++| 8 | `structural_exhaustiveness_proved` | SIDE-kernel v1.8 = `70aba3c`, `Bridge/ConservationBridge.lean` :40 | `theorem structural_exhaustiveness_proved (h_cons : ConservationHypothesis) : StructuralExhaustiveness` | INTERFACES on `h_cons : ConservationHypothesis` | axioms not read at this pin | `day1/Seven_Mechanism_Classes.md` :273 |
++| 9 | `spectral_cannon` | SIDE-kernel v1.8 = `70aba3c`, `Kernel/SpectralCannonFull.lean` :65 | `theorem spectral_cannon (t : ℝ) : (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0` | DERIVES | axioms not read at this pin | `day1/Seven_Mechanism_Classes.md` :273 |
++| 10 | `general_p_no_fixed_cell` | SIDE-global-section v0.3.0 = `504e146`, `Interfaces/LocalLimit.lean` :232 | `theorem general_p_no_fixed_cell (p n k α : ℕ) (hp : p.Prime) (hn : 1 ≤ n) (hk : 1 ≤ k) (hα1 : 1 ≤ α) (hαn : α < p ^ n) : ¬ (p ^ n ∣ α * (p ^ k - 1))` | INTERFACES on `hp : p.Prime` (the rule’s print lists `hn`, `hk`, `hα1` and `hαn` beside it) | axioms not read at this pin | `day1/Spectral_Inertness.md` :199 |
++| 11 | `Substrate` | SIDE-substrate-cluster v0.4.1 = `0c98a9a`, `SIDESubstrateCluster/Substrate.lean` :81 | `inductive Substrate where` | not graded: an inductive type | axioms not read at this pin | `day1/Third_Identity_Element.md` :261 |
++
++*11 names: found at a current tag 11, MISSING 0; DERIVES 6, INTERFACES 3, not graded 2 (inductive types); axioms read at the pin 0.*
++
+
+## OPEN_TRAILS.md : 5 diff lines
+--- OPEN_TRAILS.md at e0ab685b
++++ OPEN_TRAILS.md edited
+@@ -16083,0 +16084,2 @@
++*Appended 2026-10-27 by b717 beneath b716’s trail record (:16044), under `(R327)`(7)(ii) -- THE ORDER **`W-ORD-EPSTEIN-COUNT-LEAN`**, ENTERED AT ITS PRICE:* the Lean count of one band of Q0, [160, 170], its 15 zeros on the line; 90 to 180 dispatches and 115 to 230 foreground hours; four constructions -- the argument count, Lambda_Q0, the enclosures, the band; grade DERIVES expected (relay data/b716_epstein_count_price.txt). The order entered at :14892 (b687), now with its price. It is taken up on the author’s word as its own programme, not inside a research act; nothing is built for it at b717. Status OPEN, priced, no trigger.
++
+
+### ### **FILES 10 ; WRITTEN 10.**

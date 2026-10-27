@@ -1,0 +1,86 @@
+b717 -- (R327)(6): THE ELEVEN NAMES, EACH LOOKED UP AT EVERY LOCAL KERNEL`S CURRENT TAG, ITS STATEMENT AND ITS E0 GRADE (2026-10-27T16:00:59Z)
+
+### the names: relay data/b716_correspondence_pins.txt :24-:34. The kernels: every D:/SIDE-* clone with a vN tag, its current tag the
+### highest by version: SIDE-archimedean v0.1.1 = fcecc45 ; SIDE-bijection v0.2.1 = b800504 ; SIDE-bsd-formation-transfer v0.1.1 = 3491766 ; SIDE-bsd-multiplicity v0.1.1 = d77ce30 ; SIDE-carrier-spec v0.4.2 = dd54a61 ; SIDE-class-coupling v0.1.0 = b6a6e86 ; SIDE-class-number-anomaly v0.2.1 = 68df58d ; SIDE-compression v0.2.0 = e9a5a36 ; SIDE-cosmo v0.3.1 = ca04c8c ; SIDE-coupling v0.1.0 = 42b5e4e ; SIDE-cubit-axis v0.1.0 = e0a2aec ; SIDE-dark-interface v0.1.0 = f4a1ea6 ; SIDE-dirichlet-mod-24 v0.1.0 = 597b086 ; SIDE-effects v0.1.1 = 78bbcff ; SIDE-explicit-formula v0.37 = 38e2734 ; SIDE-faces-join v0.1.0 = 11a472b ; SIDE-formation-arithmetic v0.1.0 = ef0fcf1 ; SIDE-formation-procedure v0.1.0 = 65ace65 ; SIDE-frobenius v0.1.0 = 2efe9f2 ; SIDE-global-section v0.3.0 = 504e146 ; SIDE-grh-transfer v0.5.1 = 6e149db ; SIDE-interfaces v0.2.1 = c8bd217 ; SIDE-kernel v1.8 = 70aba3c ; SIDE-li-map v0.1.1 = 9e02bc0 ; SIDE-local-cosmic-interface v0.1.0 = 7a62ced ; SIDE-lv-conservation v0.14.0 = cb0aea5 ; SIDE-meta v0.3 = 6bb7b23 ; SIDE-omega-b v0.1.0 = 9c80279 ; SIDE-orchestrator v0.1.0 = 5d0a341 ; SIDE-quaternionic-dark-sector v0.1.0 = e860142 ; SIDE-rcurve v0.1.1 = 54c9040 ; SIDE-residual-bridge v0.1.0 = cf8a619 ; SIDE-silence-principle v0.2.2 = 716b686 ; SIDE-simplicity v0.1.2 = 967f747 ; SIDE-spinor v0.1.2 = 7e570ee ; SIDE-spinor-calibration v0.2.0 = 1d219d8 ; SIDE-spinor-calibration-mathlib v0.1.0 = 21b36aa ; SIDE-structural-error-correction v0.2.3 = 5476ef3 ; SIDE-substrate-cluster v0.4.1 = 0c98a9a ; SIDE-t7-topology-cmb v0.3 = 8eb0d5a ; SIDE-trivium v0.1.2 = 6ede9af ; SIDE-window v0.5.2 = b905507 ; SIDE-yang-mills-formation v0.1.1 = 73e9e2c
+### the lookup: tools/b714_pilot.py lookup (git grep for the declaration of the name`s last component at the tag; a field second).
+### the statement: git show <tag>:<path> from its line to its `:=` (a structure, class or inductive to its `where`). The grade: tools/e0_rule.py
+### grade from the statement alone, for a theorem or lemma; a def, structure, class, inductive or field is not graded and is named as such.
+### No axioms are read: no lean runs on this host (N1). e0_rule.grade(head, kind), called with the statement and the kind.
+
+--- day1/Silence_of_Foundations.md :236  not_register1  -- found at 1 kernel(s)
+    at   : SIDE-explicit-formula v0.37 = 38e2734 : SIDEExplicitFormula/RegisterDepth.lean :60 (decl ; the grep`s hits 1)
+    stmt : theorem not_register1 : ¬ Register1_universalityHypothesis
+    kind theorem ; GRADE ('DERIVES', 'no hypothesis binder', [])
+
+--- day1/Silence_of_Foundations.md :236  ch_iff_rh  -- found at 1 kernel(s)
+    at   : SIDE-explicit-formula v0.37 = 38e2734 : SIDEExplicitFormula/H2Bridge.lean :71 (decl ; the grep`s hits 1)
+    stmt : theorem ch_iff_rh : conservationHypothesis ↔ RiemannHypothesis
+    kind theorem ; GRADE ('DERIVES', 'no hypothesis binder', [])
+
+--- day1/Silence_of_Foundations.md :236  register4_positivity_liCoeff_iff_rh  -- found at 1 kernel(s)
+    at   : SIDE-explicit-formula v0.37 = 38e2734 : SIDEExplicitFormula/PageConverses.lean :32 (decl ; the grep`s hits 1)
+    stmt : theorem register4_positivity_liCoeff_iff_rh : Register4_positivity LiCoeff ↔ RiemannHypothesis
+    kind theorem ; GRADE ('DERIVES', 'no hypothesis binder', [])
+
+--- day1/Silence_of_Foundations.md :236  register5_output_holds  -- found at 1 kernel(s)
+    at   : SIDE-explicit-formula v0.37 = 38e2734 : SIDEExplicitFormula/RegisterDepth.lean :297 (decl ; the grep`s hits 1)
+    stmt : theorem register5_output_holds : Register5_output_HilbertPolya
+    kind theorem ; GRADE ('DERIVES', 'no hypothesis binder', [])
+
+--- day1/Exhaustive_Enumeration.md :180  real_no_compact_open_addSubgroup  -- found at 1 kernel(s)
+    at   : SIDE-global-section v0.3.0 = 504e146 : Interfaces/LocalLimit.lean :217 (decl ; the grep`s hits 1)
+    stmt : theorem real_no_compact_open_addSubgroup (H : AddSubgroup ℝ)
+    stmt :     (ho : IsOpen (H : Set ℝ)) : ¬ IsCompact (H : Set ℝ)
+    kind theorem ; GRADE ('INTERFACES', 'ho : IsOpen (H : Set ℝ)', [('ho', 'IsOpen (H : Set ℝ)')])
+
+--- day1/Seven_Mechanism_Classes.md :273  techne_kernel_cross_exclusion.all_pairs_excluded  -- found at 1 kernel(s)
+    at   : SIDE-kernel v1.8 = 70aba3c : Bridge/CrossClassExclusion.lean :76 (decl ; the grep`s hits 1)
+    stmt : theorem all_pairs_excluded :
+    stmt :     ∀ c1 c2 : MechanismClass, ¬ cross_class_produces_offline c1 c2
+    kind theorem ; GRADE ('DERIVES', 'no hypothesis binder', [])
+
+--- day1/Seven_Mechanism_Classes.md :273  MechanismClass  -- found at 6 kernel(s)
+    at   : SIDE-bsd-formation-transfer v0.1.1 = 3491766 : SIDEBSDFormationTransfer/Basic.lean :91 (decl ; the grep`s hits 1)
+    stmt : inductive MechanismClass where
+    kind inductive ; GRADE not graded: an inductive
+    at   : SIDE-effects v0.1.1 = 78bbcff : SIDEEffects/Phase15/SIDEFramework.lean :32 (decl ; the grep`s hits 1)
+    stmt : structure MechanismClass (X : Type u) (P : X → Prop) where
+    kind structure ; GRADE not graded: a structure
+    at   : SIDE-grh-transfer v0.5.1 = 6e149db : SIDEGRHTransfer/GRHBridge.lean :36 (decl ; the grep`s hits 1)
+    stmt : inductive MechanismClass where
+    kind inductive ; GRADE not graded: an inductive
+    at   : SIDE-kernel v1.8 = 70aba3c : Bridge/TheBridgeComplete.lean :20 (decl ; the grep`s hits 2)
+    stmt : inductive MechanismClass where
+    kind inductive ; GRADE not graded: an inductive
+    at   : SIDE-meta v0.3 = 6bb7b23 : SIDEMeta/Meta/MechanismClasses.lean :91 (decl ; the grep`s hits 1)
+    stmt : inductive MechanismClass where
+    kind inductive ; GRADE not graded: an inductive
+    at   : SIDE-trivium v0.1.2 = 6ede9af : Trivium/Bijection.lean :68 (decl ; the grep`s hits 1)
+    stmt : inductive MechanismClass : Type
+    kind inductive ; GRADE not graded: an inductive
+
+--- day1/Seven_Mechanism_Classes.md :273  structural_exhaustiveness_proved  -- found at 1 kernel(s)
+    at   : SIDE-kernel v1.8 = 70aba3c : Bridge/ConservationBridge.lean :40 (decl ; the grep`s hits 2)
+    stmt : theorem structural_exhaustiveness_proved
+    stmt :     (h_cons : ConservationHypothesis) : StructuralExhaustiveness
+    kind theorem ; GRADE ('INTERFACES', 'h_cons : ConservationHypothesis', [('h_cons', 'ConservationHypothesis')])
+
+--- day1/Seven_Mechanism_Classes.md :273  spectral_cannon  -- found at 1 kernel(s)
+    at   : SIDE-kernel v1.8 = 70aba3c : Kernel/SpectralCannonFull.lean :65 (decl ; the grep`s hits 1)
+    stmt : theorem spectral_cannon (t : ℝ) :
+    stmt :     (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0
+    kind theorem ; GRADE ('DERIVES', 'no hypothesis binder', [])
+
+--- day1/Spectral_Inertness.md :199  general_p_no_fixed_cell  -- found at 1 kernel(s)
+    at   : SIDE-global-section v0.3.0 = 504e146 : Interfaces/LocalLimit.lean :232 (decl ; the grep`s hits 1)
+    stmt : theorem general_p_no_fixed_cell (p n k α : ℕ) (hp : p.Prime)
+    stmt :     (hn : 1 ≤ n) (hk : 1 ≤ k) (hα1 : 1 ≤ α) (hαn : α < p ^ n) :
+    stmt :     ¬ (p ^ n ∣ α * (p ^ k - 1))
+    kind theorem ; GRADE ('INTERFACES', 'hp : p.Prime', [('hp', 'p.Prime'), ('hn', '1 ≤ n'), ('hk', '1 ≤ k'), ('hα1', '1 ≤ α'), ('hαn', 'α < p ^ n')])
+
+--- day1/Third_Identity_Element.md :261  Substrate  -- found at 1 kernel(s)
+    at   : SIDE-substrate-cluster v0.4.1 = 0c98a9a : SIDESubstrateCluster/Substrate.lean :81 (decl ; the grep`s hits 1)
+    stmt : inductive Substrate where
+    kind inductive ; GRADE not graded: an inductive
+
+### ### **NAMES 11 ; FOUND AT A CURRENT TAG 11 ; MISSING 0.**
